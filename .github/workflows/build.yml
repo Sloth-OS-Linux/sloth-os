@@ -1,7 +1,9 @@
 name: bluebuild
 on:
-  schedule:
-    - cron: "00 06 * * *" # naponta 06:00 UTC, a ublue alap image-ek után
+  # A napi build ki van kapcsolva, amíg a repó privát (havi 2000 perces Actions-keret).
+  # Ha publikus lesz / lesznek felhasználók, vissza kell kapcsolni (ROADMAP 4. fázis).
+  # schedule:
+  #   - cron: "00 06 * * *" # naponta 06:00 UTC, a ublue alap image-ek után
   push:
     paths-ignore:
       - "**.md"

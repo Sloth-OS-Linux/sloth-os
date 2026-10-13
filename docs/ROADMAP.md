@@ -31,5 +31,6 @@ Alapelv: **ha a felhasználónak terminált kell nyitnia, az a mi hibánk.**
 - [ ] **Driverek és hardver:** GPU, kontrollerek, nyomtatók
 
 ## 4. fázis – Kiadás
+- [ ] Repó publikussá tétele, napi automatikus build visszakapcsolása (`.github/workflows/build.yml`)
 - [ ] Telepítő ISO
 - [ ] Weboldal, letöltés, dokumentáció

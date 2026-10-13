@@ -4,7 +4,7 @@
 Egy Fedora Atomic alapú, Universal Blue `kinoite-main` / `kinoite-nvidia` image-re épülő desktop disztró,
 BlueBuild-del építve. Cél: Windows-alternatíva átlagfelhasználóknak, erős gaming-támogatással.
 A projekt nyelve magyar (kommentek, dokumentáció, UI szövegek); a kód azonosítói angolul.
-Kivétel: **minden README angolul** készül (a repó publikus).
+Kivétel: **minden README angolul** készül (a repó később publikus lesz).
 
 ## Alapelvek
 - **A felhasználónak soha ne kelljen terminál.** Minden funkcióhoz GUI kell; ha valami csak parancssorból megy, az bug.
