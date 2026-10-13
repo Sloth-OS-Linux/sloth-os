@@ -142,6 +142,30 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Verzió megtartása ---------------------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.smallSpacing
+                    Kirigami.Heading { level: 3; text: "A mostani verzió megtartása" }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: "Ha most minden jól működik, megjelölheted ezt a verziót. A későbbi frissítések nem törlik, így ha egy újabb verzióval gond lenne, erre biztosan vissza lehet állni."
+                    }
+                }
+                QQC2.Switch {
+                    checked: updates.pinned
+                    enabled: updates.canPin
+                    onToggled: updates.setPinned(checked)
+                }
+            }
+        }
+
         // --- Visszaállítás -----------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

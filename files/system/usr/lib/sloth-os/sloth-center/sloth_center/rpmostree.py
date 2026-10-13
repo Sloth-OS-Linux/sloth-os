@@ -111,6 +111,10 @@ class RpmOstree:
     def rollback_target(self):
         return self._prop(self.os, "RollbackDeployment", {})
 
+    def deployments(self):
+        """Az összes telepített verzió, az ostree sorrendjében (a pin index ehhez igazodik)."""
+        return self._prop(self.sysroot, "Deployments", []) or []
+
     def cached_update(self):
         return self._prop(self.os, "CachedUpdate", {})
 

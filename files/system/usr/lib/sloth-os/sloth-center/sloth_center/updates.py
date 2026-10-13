@@ -3,7 +3,9 @@
 A felület csak emberi nyelvű állapotot és folyamatjelzőt kap; a nyers
 rpm-ostree üzenetek a naplóba kerülnek (journalctl --user -t sloth-center).
 """
+import json
 import logging
+import subprocess
 
 from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
@@ -32,6 +34,8 @@ class UpdatesController(QObject):
         self._rollback = ""
         self._available = ""
         self._unavailable = ""
+        self._pinned = False
+        self._booted_index = -1
         try:
             self._ostree = RpmOstree()
             self._ostree.connect_changed(self._on_system_changed)
@@ -71,6 +75,14 @@ class UpdatesController(QObject):
         return bool(self._available)
 
     @Property(bool, notify=changed)
+    def pinned(self):
+        return self._pinned
+
+    @Property(bool, notify=changed)
+    def canPin(self):
+        return self._booted_index >= 0 and not self._mode
+
+    @Property(bool, notify=changed)
     def canRollback(self):
         return bool(self._rollback) and not self._mode
 
@@ -89,6 +101,9 @@ class UpdatesController(QObject):
         default = self._ostree.default()
         rollback = self._ostree.rollback_target()
         self._current = texts.version_text(booted)
+        self._pinned = bool(booted.get("pinned"))
+        ids = [d.get("id") for d in self._ostree.deployments()]
+        self._booted_index = ids.index(booted.get("id")) if booted.get("id") in ids else -1
         # Ha az alapértelmezett (következő indításkor induló) verzió nem a mostani,
         # akkor újraindítás vár ránk (frissítés vagy visszaállítás után).
         if default and booted and default.get("id") != booted.get("id"):
@@ -193,6 +208,27 @@ class UpdatesController(QObject):
     def cancel(self):
         if self._txn and self._mode in ("check", "upgrade"):
             self._txn.cancel()
+
+    @Slot(bool)
+    def setPinned(self, pinned):
+        """A mostani verzió megtartása: a frissítések nem törlik (ostree admin pin)."""
+        if self._booted_index < 0:
+            return
+        op = "pin" if pinned else "unpin"
+        try:
+            r = subprocess.run(["pkexec", "/usr/libexec/sloth-os/sloth-helper", op, str(self._booted_index)],
+                               capture_output=True, text=True, timeout=120)
+            ok = json.loads(r.stdout or "{}").get("ok", False)
+        except (OSError, subprocess.SubprocessError, ValueError) as e:
+            log.warning("pin: %s", e)
+            ok = False
+        if not ok:
+            self._error = "Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell."
+        try:
+            self._ostree.reload()
+        except GLib.Error:
+            pass
+        self.refresh()
 
     @Slot()
     def reboot(self):
