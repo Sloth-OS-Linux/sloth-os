@@ -28,6 +28,7 @@ def main():
     # D-Bus callbackek gond nélkül megérkeznek.
     from .updates import UpdatesController
     from .advanced import AdvancedController
+    from .containers import ContainersController
     from .disks import DisksController
     from .drivers import DriversController
     from .health import HealthController
@@ -42,6 +43,7 @@ def main():
     health = HealthController()
     disks = DisksController()
     advanced = AdvancedController()
+    containers = ContainersController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -49,6 +51,7 @@ def main():
     engine.rootContext().setContextProperty("health", health)
     engine.rootContext().setContextProperty("disks", disks)
     engine.rootContext().setContextProperty("advanced", advanced)
+    engine.rootContext().setContextProperty("containers", containers)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1

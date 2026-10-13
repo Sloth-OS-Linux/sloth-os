@@ -22,8 +22,7 @@ Kirigami.ApplicationWindow {
         { id: "services", name: "Szolgáltatások", icon: "preferences-system-services", page: "ServicesPage.qml", ready: true },
         { id: "health", name: "Rendszer egészség", icon: "dialog-information", page: "HealthPage.qml", ready: true },
         { id: "disks", name: "Lemezek", icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
-        { id: "containers", name: "Fejlesztői környezetek", icon: "utilities-terminal", ready: false,
-          description: "Más Linux-rendszerek futtatása dobozban (Distrobox), appok a menübe." },
+        { id: "containers", name: "Fejlesztői környezetek", icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },
         { id: "advanced", name: "Haladó beállítások", icon: "configure", page: "AdvancedPage.qml", ready: true },
         { id: "devpanel", name: "Fejlesztői pult", icon: "applications-development", ready: false,
           description: "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés." }
