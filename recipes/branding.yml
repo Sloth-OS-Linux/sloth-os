@@ -16,3 +16,18 @@ modules:
       - branding.sh
       - theme.sh
       - plymouth.sh
+
+  # Csendes boot: a gyártói logó után rögtön a Sloth OS animáció jön,
+  # szövegek és villogó kurzor nélkül. (A quiet és rhgb a Fedora alapból adja.)
+  - type: kargs
+    kargs:
+      - loglevel=3
+      - rd.udev.log_level=3
+      - systemd.show_status=false
+      - vt.global_cursor_default=0
+
+  # A GRUB boot menü rejtve marad; csak hibás indítás után jelenik meg.
+  - type: systemd
+    system:
+      enabled:
+        - sloth-hide-boot-menu.service

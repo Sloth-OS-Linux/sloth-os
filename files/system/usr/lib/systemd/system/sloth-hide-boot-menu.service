@@ -1,0 +1,11 @@
+[Unit]
+Description=Sloth OS: boot menü elrejtése (egyszeri)
+ConditionPathExists=!/var/lib/sloth-os/boot-menu-configured
+RequiresMountsFor=/boot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/hide-boot-menu
+
+[Install]
+WantedBy=multi-user.target

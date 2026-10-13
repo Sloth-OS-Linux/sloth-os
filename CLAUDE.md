@@ -10,6 +10,9 @@ Kivétel: **minden README angolul** készül (a repó később publikus lesz).
 - **A felhasználónak soha ne kelljen terminál.** A Konsole elérhető marad, de bármit, amit valaki a terminálban
   csinálna (bármilyen és bármennyi beállítás), annak GUI-ból is mennie kell. Ha valami csak parancssorból megy, az bug.
   Ez a fejlesztői teendőkre is vonatkozik (repó, kulcsok, build, tesztelés). A lefedettség listája: `docs/ROADMAP.md`, 3. fázis.
+- **Folyamat közben se látszódjon terminál.** Telepítés, frissítés, betöltés: folyamatjelző és emberi nyelvű
+  állapotszöveg (pl. „Steam telepítése… 45%”), soha nem nyers parancssori kimenet. Bootkor nincs GRUB menü
+  (csak hibás indítás után) és nincs szöveges kimenet, csak a Plymouth animáció.
 - **Nem Bazzite.** Ne használj Bazzite image-et vagy Bazzite-specifikus eszközt (ujust receptek, bazzite-* csomagok) alapként.
 - **A Proton/Wine legyen láthatatlan.** A felhasználó ne lássa a "Wine", "prefix", "Proton verzió" fogalmakat, hacsak nem kéri kifejezetten.
 - **Az `ID=fedora` marad** az `/usr/lib/os-release`-ben; csak a megjelenített nevek változnak (lásd `files/scripts/branding.sh`).

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Elrejti a GRUB boot menüt (első induláskor, egyszer fut).
+#
+# menu_auto_hide=1: a menü rejtve marad, KIVÉVE ha az előző indítás nem sikerült
+# (ilyenkor magától megjelenik, hogy vissza lehessen állni az előző verzióra),
+# vagy ha más rendszer (pl. Windows) is van a gépen. A sikeres indítást a Fedora
+# grub-boot-success szolgáltatása jelzi.
+# Később a Sloth Központban lehet majd átállítani (pl. dual boothoz mindig mutatni).
+set -euo pipefail
+
+MARKER=/var/lib/sloth-os/boot-menu-configured
+
+if ! command -v grub2-editenv >/dev/null 2>&1; then
+  echo "Nincs GRUB, nincs teendő."
+  exit 0
+fi
+
+grub2-editenv - set menu_auto_hide=1
+grub2-editenv - list | grep -E '^menu_auto_hide=' || true
+
+mkdir -p "$(dirname "$MARKER")"
+touch "$MARKER"
