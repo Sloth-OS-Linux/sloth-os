@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# Feltelepíti a MangoHud és gamescope Flatpak Vulkan rétegeket a Steam Flatpak
+# aktuális runtime-verziójához (pl. 26.08). A host RPM-ek (mangohud, gamescope)
+# a Flatpak Steamen belül nem látszanak, ezért kellenek ezek a rétegek.
+# A runtime-verziót minden futáskor a Steamtől kérdezzük le, így egy Steam
+# runtime-váltás után (pl. 26.08 -> 27.08) a rétegek maguktól követik.
+set -euo pipefail
+
+STEAM=com.valvesoftware.Steam
+LAYERS=(
+  org.freedesktop.Platform.VulkanLayer.MangoHud
+  org.freedesktop.Platform.VulkanLayer.gamescope
+)
+
+if ! flatpak info --system "$STEAM" >/dev/null 2>&1; then
+  echo "A Steam nincs telepítve, nincs teendő."
+  exit 0
+fi
+
+# pl. "org.freedesktop.Platform/x86_64/26.08" -> "26.08"
+branch="$(flatpak info --system --show-runtime "$STEAM" | cut -d/ -f3)"
+if [[ -z "$branch" ]]; then
+  echo "Nem sikerült megállapítani a Steam runtime-verzióját." >&2
+  exit 1
+fi
+
+missing=()
+for layer in "${LAYERS[@]}"; do
+  if ! flatpak info --system "${layer}//${branch}" >/dev/null 2>&1; then
+    missing+=("${layer}//${branch}")
+  fi
+done
+
+if (( ${#missing[@]} == 0 )); then
+  echo "A Vulkan rétegek naprakészek (${branch})."
+  exit 0
+fi
+
+echo "Telepítés: ${missing[*]}"
+flatpak install --system --noninteractive flathub "${missing[@]}"
+
+# A régi runtime-verzióhoz tartozó, már nem használt rétegeket a Flatpak
+# saját takarítása (flatpak uninstall --unused) eltávolítja.
+flatpak uninstall --system --noninteractive --unused || true

@@ -1,0 +1,11 @@
+[Unit]
+Description=Sloth OS: MangoHud és gamescope Vulkan rétegek a Steam Flatpakhoz
+# A Steamet a default-flatpaks modul szolgáltatása telepíti, utána fussunk.
+After=system-flatpak-setup.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/steam-vulkan-layers
+# Ha épp nincs hálózat, a timer később újra próbálja.
+Restart=no

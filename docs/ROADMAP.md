@@ -18,10 +18,10 @@ Alapelv: **ha a felhasználónak terminált kell nyitnia, az a mi hibánk.**
 - [ ] A Konsole elrejtése a menüből ("fejlesztői mód" kapcsolóval visszahozható)
 
 ## 2. fázis – Gaming, ami csak működik
-- [ ] umu-launcher beépítése
+- [ ] umu-launcher beépítése (nincs a Fedora repóban; a Heroic saját maga hozza, a .exe kezelőhöz kell megoldás)
 - [ ] **.exe kezelő:** duplakattintás egy .exe-re → automatikus prefix, Proton verzió, javítások. A felhasználó soha nem látja a "Wine" vagy a "prefix" szót.
 - [ ] Steamben a Proton alapból bekapcsolva minden játékra
-- [ ] MangoHud / gamescope Flatpak Vulkan rétegek a Steam Flatpakhoz (a host RPM-ek a Flatpak Steamen belül nem látszanak)
+- [x] MangoHud / gamescope Flatpak Vulkan rétegek a Steam Flatpakhoz (`sloth-steam-vulkan-layers.timer`; VM-ben még tesztelni)
 - [ ] Érthető hibaüzenet, ha egy játék anti-cheat miatt nem futhat Linuxon
 
 ## 3. fázis – Saját GUI eszközök

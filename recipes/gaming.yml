@@ -7,5 +7,14 @@ modules:
         - gamescope # mikrokompozitor, felskálázás, HDR
         - mangohud  # FPS / teljesítmény overlay
         - gamemode  # CPU/GPU teljesítmény-mód játék közben
-        # TODO: ellenőrizni, hogy elérhető-e a Fedora repóban az aktuális verzión:
-        # - umu-launcher # egységes Proton futtató + automatikus játékjavítások
+        # umu-launcher: nincs a Fedora repóban (F43, F44, rawhide; ellenőrizve 2026-10-13).
+        # A Heroic saját maga hozza, így ott már működik. A saját .exe kezelőhöz
+        # (ROADMAP 2. fázis) külön kell majd megoldani.
+
+  # A Flatpak Steamen belül a fenti RPM-ek nem látszanak, ezért a MangoHud és
+  # gamescope Vulkan rétegeket Flatpakként is feltesszük, a Steam runtime-verziójához
+  # igazítva (files/system/usr/libexec/sloth-os/steam-vulkan-layers).
+  - type: systemd
+    system:
+      enabled:
+        - sloth-steam-vulkan-layers.timer
