@@ -11,5 +11,6 @@ modules:
   - from-file: branding.yml
   - from-file: gaming.yml
   - from-file: apps.yml
+  - from-file: tools.yml
   - type: initramfs # a boot animációhoz kell; maradjon a végén, a signing előtt
   - type: signing

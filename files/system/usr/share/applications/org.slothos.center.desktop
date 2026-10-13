@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Sloth Központ
+Name[en]=Sloth Center
+GenericName=Rendszerbeállítások
+GenericName[en]=System Settings
+Comment=Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene
+Comment[en]=Updates, rollback, drivers and everything that would otherwise need a terminal
+Exec=sloth-center
+Icon=sloth-os
+Terminal=false
+Categories=Settings;
+Keywords=frissítés;update;visszaállítás;rollback;driver;beállítás;settings;
+StartupNotify=true

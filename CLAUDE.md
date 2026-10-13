@@ -24,7 +24,7 @@ Kivétel: **minden README angolul** készül (a repó később publikus lesz).
 - `recipes/branding.yml`, `gaming.yml`, `apps.yml`: modul-listák témánként.
 - `files/system/`: a kész rendszer gyökerébe másolódik.
 - `files/scripts/`: build közben futó scriptek (`type: script` modul).
-- `tools/`: saját GUI eszközök (Python + PySide6/QML).
+- `files/system/usr/lib/sloth-os/<eszköz>/`: saját GUI eszközök (Python + PySide6/QML); `tools/`: fejlesztői segédek (nem kerülnek az image-be).
 - `docs/ROADMAP.md`: a terv. Ha egy feladat kész, pipáld ki.
 
 ## Hasznos tudnivalók

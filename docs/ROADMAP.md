@@ -37,8 +37,8 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
 
 ### Saját eszközök
 - [ ] **Üdvözlő varázsló** első indításkor: nyelv, fiókok, Steam-bejelentkezés, ajánlott appok, színtéma választás
-- [ ] **Sloth Központ** (egy app, modulokra bontva):
-  - [ ] Frissítések és visszaállítás: verziók listája, „vissza az előzőre”, verzió megtartása (`rpm-ostree status/rollback/deploy --pin`)
+- [ ] **Sloth Központ** (egy app, modulokra bontva; `files/system/usr/lib/sloth-os/sloth-center/`):
+  - [x] Frissítések és visszaállítás (keresés, telepítés folyamatjelzővel, újraindítás, vissza az előzőre; VM-ben még tesztelni). Hátravan: verzió megtartása (pin): verziók listája, „vissza az előzőre”, verzió megtartása (`rpm-ostree status/rollback/deploy --pin`)
   - [ ] Driverek és hardver: GPU, NVIDIA ↔ AMD/Intel image váltás (`rpm-ostree rebase`), Secure Boot kulcs regisztrálása (`mokutil`), kontrollerek
   - [ ] Rendszercsomagok (haladó): RPM rétegezés és eltávolítás (`rpm-ostree install/uninstall/reset`)
   - [ ] Rendszerindítás (haladó): kernelparaméterek (`rpm-ostree kargs`)

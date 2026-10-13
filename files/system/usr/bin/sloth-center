@@ -1,0 +1,9 @@
+#!/usr/bin/python3 -I
+"""Sloth Központ indító."""
+import sys
+
+sys.path.insert(0, "/usr/lib/sloth-os/sloth-center")
+
+from sloth_center.app import main  # noqa: E402
+
+sys.exit(main())

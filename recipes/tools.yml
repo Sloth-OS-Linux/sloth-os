@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# A Sloth OS saját GUI eszközeinek futtatókörnyezete (Sloth Központ, üdvözlő varázsló).
+# Az eszközök forrása: files/system/usr/lib/sloth-os/<eszköz>/
+modules:
+  - type: dnf
+    install:
+      packages:
+        - python3-pyside6   # Qt/QML Pythonból
+        - python3-gobject   # D-Bus (rpm-ostree, Flatpak) a GLib-en keresztül
