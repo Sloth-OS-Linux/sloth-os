@@ -483,6 +483,33 @@ Kirigami.ApplicationWindow {
                         visible: welcome.failures.length > 0
                         text: "A Start menüben a „Sloth Üdvözlő” megnyitásával később újra megpróbálhatod."
                     }
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        horizontalAlignment: Text.AlignHCenter
+                        level: 4
+                        text: "Még egy-két dolog, ha szeretnéd:"
+                    }
+                    Flow {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: implicitWidth
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.Button {
+                            icon.source: "file:///usr/share/sloth-os/welcome/icons/com.valvesoftware.Steam.png"
+                            text: "Bejelentkezés a Steambe"
+                            onClicked: welcome.quickAction("steam")
+                        }
+                        QQC2.Button {
+                            icon.name: "applications-internet"
+                            text: "Online fiókok (Google, Microsoft…)"
+                            onClicked: welcome.quickAction("accounts")
+                        }
+                        QQC2.Button {
+                            icon.name: "preferences-desktop-locale"
+                            text: "Nyelv és régió"
+                            onClicked: welcome.quickAction("language")
+                        }
+                    }
                     QQC2.Button {
                         Layout.alignment: Qt.AlignHCenter
                         text: "Indulhat a móka!"

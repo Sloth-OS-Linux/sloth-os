@@ -174,3 +174,21 @@ def apply_layout(kind):
     except GLib.Error as e:
         log.warning("elrendezés: %s", e.message)
         return False
+
+
+# --- Gyors indítások a varázsló végén ------------------------------------------------
+
+QUICK_ACTIONS = {
+    "steam": ["flatpak", "run", "com.valvesoftware.Steam"],
+    "accounts": ["systemsettings", "kcm_kaccounts"],
+    "language": ["systemsettings", "kcm_regionandlang"],
+}
+
+
+def quick_action(name):
+    cmd = QUICK_ACTIONS.get(name)
+    if cmd:
+        try:
+            subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+        except OSError as e:
+            log.warning("%s: %s", name, e)

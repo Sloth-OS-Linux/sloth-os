@@ -184,6 +184,10 @@ class WelcomeController(QObject):
             self._layout = layout_id
             self.changed.emit()
 
+    @Slot(str)
+    def quickAction(self, name):
+        desktop.quick_action(name)
+
     @Slot()
     def recheckOnline(self):
         self._online = desktop.is_online()

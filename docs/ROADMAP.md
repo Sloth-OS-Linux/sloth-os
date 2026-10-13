@@ -51,7 +51,7 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   alkotás (benne az ArtCraft). Alapból semmi nincs bejelölve; telepítés folyamatjelzővel, hálózati hibánál
   újrapróbálkozás; a böngésző a tálcára kerül.
   - [x] Tálca-elrendezés választás
-  - [ ] Hátravan: nyelv és fiókok, Steam-bejelentkezés
+  - [x] A végén gyors gombok: Steam-bejelentkezés, online fiókok, nyelv és régió (a nyelvet a telepítő kérdezi)
   - [x] Az ArtCraft frissítése: felhasználói telepítés + napi háttérfrissítő (`sloth-github-bundle-update.timer`, SHA256 ellenőrzéssel); VM-ben még tesztelni
 - [ ] **Sloth Központ** (egy app, modulokra bontva; `files/system/usr/lib/sloth-os/sloth-center/`):
   - [x] Frissítések és visszaállítás (keresés, telepítés folyamatjelzővel, újraindítás, vissza az előzőre, a mostani verzió megtartása; VM-ben még tesztelni). Hátravan: korábbi, megtartott verziók listája és visszaállítása (`rpm-ostree deploy`)
