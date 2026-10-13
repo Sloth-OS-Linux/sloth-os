@@ -21,7 +21,12 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [x] Színtémák: Silver sötét (alapértelmezett) és világos, Hófehér, Éjfekete, Ködkék, Éjkék, Zsálya (`tools/branding/gen_colors.py`, előnézet: `docs/branding/color-schemes-preview.png`)
 - [ ] Saját Plasma téma (panel, ablakkeret)
 - [ ] Bejelentkező képernyő (SDDM / Plasma Login) a Sloth OS kinézettel
-- [ ] Ellenőrizni, hol látszik még "Fedora" vagy "Universal Blue" név (bejelentkezés, Rendszerinformáció, boot menü)
+- [ ] Ellenőrizni, hol látszik még "Fedora" vagy "Universal Blue" név. Eddig:
+  - [x] Rendszerinformáció, boot menü bejegyzések, gépnév: az os-release-ből jönnek (Sloth OS)
+  - [x] A KDE üdvözlő appja kikapcsolva (a Sloth Üdvözlő helyett ne jöjjön elő): `files/system/etc/xdg/kded6rc`
+  - [ ] Alapértelmezett háttérkép (Fedora): a saját háttérkép-csomaggal cserélni
+  - [ ] Firmware (BIOS/UEFI) boot-bejegyzés neve "Fedora": a telepítő hozza létre, a saját ISO-nál átnevezni
+  - [ ] VM-ben végignézni: bejelentkező képernyő, Discover, Rendszerbeállítások
 
 ## 2. fázis – Gaming, ami csak működik
 - [x] umu-launcher beépítése (a hivatalos GitHub RPM, rögzített verzió + SHA256: `files/scripts/umu-launcher.sh`)

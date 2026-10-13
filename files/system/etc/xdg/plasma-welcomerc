@@ -1,0 +1,4 @@
+# Sloth OS: a KDE üdvözlő appja se első bejelentkezéskor, se Plasma-frissítés után ne jelenjen meg.
+[General]
+LastSeenVersion=99.0.0
+ShowUpdatePage=false

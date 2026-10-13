@@ -1,0 +1,4 @@
+# Sloth OS: a KDE saját üdvözlő appja ne induljon el, helyette a Sloth Üdvözlő fut
+# (files/system/usr/lib/sloth-os/sloth-welcome).
+[Module-plasma-welcome]
+autoload=false
