@@ -124,13 +124,13 @@ Kirigami.ApplicationWindow {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     level: 2
-                    text: "Kész a telepítés!"
+                    text: exe.mode === "manage" ? exe.name : "Kész a telepítés!"
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: "Mi kerüljön a Start menübe?"
+                    text: exe.mode === "manage" ? "Mi legyen a Start menüben?" : "Mi kerüljön a Start menübe?"
                 }
                 QQC2.ScrollView {
                     Layout.fillWidth: true

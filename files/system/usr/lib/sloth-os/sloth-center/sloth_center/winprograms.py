@@ -9,6 +9,7 @@ import json
 import logging
 import os
 import shutil
+import subprocess
 import threading
 from pathlib import Path
 
@@ -100,7 +101,18 @@ class WinProgramsController(QObject):
 
     def _on_sizes(self, sizes):
         self._sizes = sizes
+        # a Start menü bejegyzések változhattak (pl. a szerkesztő ablak után)
+        for p in self._items:
+            p["entries"] = _menu_entries(p["slug"])
         self.changed.emit()
+
+    @Slot(str)
+    def editShortcuts(self, slug):
+        """A .exe kezelő szerkesztő ablaka: mi legyen a Start menüben."""
+        if (ROOT / slug).is_dir():
+            proc = subprocess.Popen(["sloth-exe", "--shortcuts", slug])
+            threading.Thread(target=lambda: (proc.wait(), self._sizes_ready.emit(self._sizes), None),
+                             daemon=True).start()
 
     @Slot(str)
     def remove(self, slug):

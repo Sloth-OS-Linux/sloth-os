@@ -67,6 +67,27 @@ class ExeController(QObject):
             return
         self._start_run()
 
+    def manage_shortcuts(self, slug):
+        """Utólagos szerkesztés: mely .exe-k legyenek a Start menüben (a Sloth Központból)."""
+        self._program = programs.Program(slug)
+        self._name = self._program.meta.get("name") or slug
+        self._mode = "manage"
+        found = programs.find_shortcuts(self._program)
+        seen = {str(p).lower() for _n, p in found}
+        found += [(programs.display_name(p), p) for p in self._program.list_exes()
+                  if str(p).lower() not in seen and not any(w in p.name.lower() for w in programs.SKIP_WORDS)]
+        self._shortcuts = []
+        for name, path in found[:30]:
+            icon = programs.extract_icon(path, self._program.icons / f"{programs.slugify(path.stem)}.png")
+            self._shortcuts.append({"name": name, "path": str(path),
+                                    "checked": programs.desktop_file_path(self._program, path).exists(),
+                                    "iconUrl": f"file://{icon}" if icon else ""})
+        if not self._shortcuts:
+            self._fail("Ebben a programban nem találtunk elindítható fájlt.")
+            return
+        self._state = "pick"
+        self.changed.emit()
+
     # --- Tulajdonságok ---------------------------------------------------------
 
     state = Property(str, lambda self: self._state, notify=changed)
@@ -77,6 +98,7 @@ class ExeController(QObject):
     progress = Property(int, lambda self: self._progress, notify=changed)
     errorText = Property(str, lambda self: self._error, notify=changed)
     shortcuts = Property("QVariantList", lambda self: list(self._shortcuts), notify=changed)
+    mode = Property(str, lambda self: self._mode, notify=changed)
 
     # --- Műveletek -------------------------------------------------------------
 
@@ -109,8 +131,11 @@ class ExeController(QObject):
     @Slot()
     def confirmShortcuts(self):
         for s in self._shortcuts:
-            if s["checked"]:
+            desktop = programs.desktop_file_path(self._program, Path(s["path"]))
+            if s["checked"] and not desktop.exists():
                 programs.add_to_menu(self._program, s["name"], Path(s["path"]))
+            elif not s["checked"] and desktop.exists():
+                desktop.unlink()
         QApplication.quit()
 
     @Slot()

@@ -34,7 +34,8 @@ terminálból lehet csinálni, GUI-ból is menjen.
   telepítés (programonként külön mappa, a parancsikonok a Start menübe) vagy indítás; első alkalommal az összetevők
   letöltése folyamatjelzővel. A felhasználó soha nem látja a "Wine", "Proton" vagy "prefix" szót.
   - [x] Telepített Windows-programok listája és eltávolítása a Sloth Központban
-  - [ ] Hátravan: javítás (újratelepítés), parancsikon utólagos hozzáadása
+  - [x] Start menü bejegyzések utólagos szerkesztése (Sloth Központ → Windows-programok → Start menü)
+  - [ ] Hátravan: javítás (újratelepítés)
   - [ ] Játékonkénti javítások automatikusan (umu adatbázis: GAMEID a program neve alapján)
 - [x] Steamben a Proton alapból bekapcsolva minden játékra (`sloth-steam-proton-default.service`; VM-ben még tesztelni)
 - [x] MangoHud / gamescope Flatpak Vulkan rétegek a Steam Flatpakhoz (`sloth-steam-vulkan-layers.timer`; VM-ben még tesztelni)

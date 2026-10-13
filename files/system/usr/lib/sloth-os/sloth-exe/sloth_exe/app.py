@@ -21,8 +21,9 @@ def main():
     parser = argparse.ArgumentParser(prog="sloth-exe")
     parser.add_argument("file", nargs="?")
     parser.add_argument("--launch", nargs=2, metavar=("PROGRAM", "EXE"))
+    parser.add_argument("--shortcuts", metavar="PROGRAM", help="Start menü bejegyzések szerkesztése")
     args, qt_args = parser.parse_known_args()
-    if not args.file and not args.launch:
+    if not args.file and not args.launch and not args.shortcuts:
         parser.print_usage()
         return 2
 
@@ -45,6 +46,8 @@ def main():
     engine.rootContext().setContextProperty("exe", exe)
     if args.launch:
         exe.launch(*args.launch)
+    elif args.shortcuts:
+        exe.manage_shortcuts(args.shortcuts)
     else:
         exe.open_file(args.file)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))

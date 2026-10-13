@@ -59,6 +59,11 @@ Kirigami.ScrollablePage {
                     }
                 }
                 QQC2.Button {
+                    text: "Start menü"
+                    icon.name: "kickoff"
+                    onClicked: winprograms.editShortcuts(card.modelData.slug)
+                }
+                QQC2.Button {
                     text: "Eltávolítás"
                     icon.name: "edit-delete"
                     onClicked: {
