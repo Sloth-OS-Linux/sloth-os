@@ -2,3 +2,5 @@
 cosign.key
 *.iso
 /out/
+__pycache__/
+*.pyc
