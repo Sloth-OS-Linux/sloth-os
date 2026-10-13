@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-golden-hour-at-sloth-lake",
+        "Name": "Golden Hour at Sloth Lake",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

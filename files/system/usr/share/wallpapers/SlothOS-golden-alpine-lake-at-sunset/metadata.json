@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-golden-alpine-lake-at-sunset",
+        "Name": "Golden Alpine Lake at Sunset",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

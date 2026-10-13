@@ -2,7 +2,7 @@
 """Háttérképek feldolgozása Plasma-csomagokká (files/system/usr/share/wallpapers/SlothOS-*).
 
 Előkészítés (a munkamappában): in/<név>.png az eredeti képek ASCII névvel, up/<név>.png a
-Real-ESRGAN (realesrgan-x4plus) 4x felskálázott változat, titles.json: {név: megjelenített cím}.
+Real-ESRGAN (realesrgan-x4plus) 4x felskálázott változat, titles.json: {név: megjelenített (angol) cím}.
 Használat: python3 wallpapers.py <kimeneti mappa>
 Kimenet: 3840x2160.jpg (+ 5120x2160.jpg az ultraszéles képeknél), 60% MI + 40% Lanczos keverék.
 """

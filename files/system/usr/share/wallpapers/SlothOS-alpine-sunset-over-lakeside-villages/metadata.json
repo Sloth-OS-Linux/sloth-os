@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-alpine-sunset-over-lakeside-villages",
+        "Name": "Alpine Sunset Over Lakeside Villages",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

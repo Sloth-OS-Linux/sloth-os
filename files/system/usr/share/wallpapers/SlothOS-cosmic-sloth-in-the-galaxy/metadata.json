@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-cosmic-sloth-in-the-galaxy",
+        "Name": "Cosmic Sloth in the Galaxy",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

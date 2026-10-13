@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-chrome-sloth-over-starlit-dunes",
+        "Name": "Chrome Sloth Over Starlit Dunes",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

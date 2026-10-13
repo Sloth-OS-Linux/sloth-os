@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-chrome-sloth-over-the-sunset-sea",
+        "Name": "Chrome Sloth Over the Sunset Sea",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

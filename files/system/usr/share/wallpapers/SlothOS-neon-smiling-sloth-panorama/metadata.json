@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-neon-smiling-sloth-panorama",
+        "Name": "Neon Smiling Sloth Panorama",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

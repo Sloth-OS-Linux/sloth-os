@@ -30,5 +30,5 @@ panel.addWidget("org.kde.plasma.showdesktop");
 for (const desktop of desktops()) {
     desktop.wallpaperPlugin = "org.kde.image";
     desktop.currentConfigGroup = ["Wallpaper", "org.kde.image", "General"];
-    desktop.writeConfig("Image", "file:///usr/share/wallpapers/SlothOS-femes-lajhar-emblema-hullamzo-ezust-tajon/");
+    desktop.writeConfig("Image", "file:///usr/share/wallpapers/SlothOS-metallic-sloth-over-silver-waves/");
 }
