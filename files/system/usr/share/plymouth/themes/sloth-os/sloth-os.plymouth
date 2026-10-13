@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Sloth OS
+Description=Sloth OS boot animáció: a logó körül körbefutó fehér pont
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/sloth-os
+ScriptFile=/usr/share/plymouth/themes/sloth-os/sloth-os.script

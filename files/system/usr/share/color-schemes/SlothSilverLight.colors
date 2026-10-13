@@ -1,4 +1,4 @@
-# Sloth OS színséma – matt ezüst. Generálva; a színek a forrásban: tools/branding/gen_colors.py
+# Sloth OS színséma. Generálva: tools/branding/gen_colors.py – ne kézzel szerkeszd.
 
 [General]
 ColorScheme=SlothSilverLight
@@ -99,12 +99,12 @@ DecorationFocus=104,112,123
 DecorationHover=133,140,150
 ForegroundNormal=227,229,232
 ForegroundInactive=154,160,167
-ForegroundActive=227,229,232
-ForegroundLink=47,106,163
-ForegroundVisited=122,79,168
-ForegroundNegative=192,57,43
-ForegroundNeutral=183,121,31
-ForegroundPositive=46,133,64
+ForegroundActive=207,211,216
+ForegroundLink=143,176,207
+ForegroundVisited=180,156,207
+ForegroundNegative=224,108,117
+ForegroundNeutral=229,181,103
+ForegroundPositive=127,191,138
 
 [Colors:Selection]
 BackgroundNormal=104,112,123

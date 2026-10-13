@@ -1,4 +1,4 @@
-# Sloth OS színséma – matt ezüst. Generálva; a színek a forrásban: tools/branding/gen_colors.py
+# Sloth OS színséma. Generálva: tools/branding/gen_colors.py – ne kézzel szerkeszd.
 
 [General]
 ColorScheme=SlothSilverDark
