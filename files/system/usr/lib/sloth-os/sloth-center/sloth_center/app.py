@@ -27,6 +27,7 @@ def main():
     # A vezérlők a gi-t (GLib) használják; a Qt eseményhurka a GLib-é, így a
     # D-Bus callbackek gond nélkül megérkeznek.
     from .updates import UpdatesController
+    from .disks import DisksController
     from .drivers import DriversController
     from .health import HealthController
     from .services import ServicesController
@@ -38,11 +39,13 @@ def main():
     services = ServicesController()
     drivers = DriversController()
     health = HealthController()
+    disks = DisksController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
     engine.rootContext().setContextProperty("drivers", drivers)
     engine.rootContext().setContextProperty("health", health)
+    engine.rootContext().setContextProperty("disks", disks)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1

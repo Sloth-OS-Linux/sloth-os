@@ -57,7 +57,7 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   - [ ] Rendszerindítás (haladó): kernelparaméterek (`rpm-ostree kargs`), boot menü mutatása dual boothoz (a segédben már megvan: `boot-menu`)
   - [x] Szolgáltatások: gyakoriak érthető névvel és kapcsolóval, haladó lista indítás/leállítással (`systemctl`). Hátravan: felhasználói szolgáltatások
   - [x] Rendszer egészség: „Mi a baj?” nézet emberi nyelven (tárhely, el nem indult szolgáltatások, összeomlások, memóriahiány, videókártya- és lemezhibák, hőmérséklet), napló mentése segítségkéréshez (`journalctl`)
-  - [ ] Lemezek: tárhely-használat, lemezellenőrzés (`df`, `smartctl`)
+  - [x] Lemezek: meghajtók foglaltsága, egészsége (SMART) és hőmérséklete, felesleges app-összetevők törlése (`df`, `smartctl`, `flatpak uninstall --unused`)
   - [ ] Fejlesztői környezetek: Distrobox konténerek létrehozása, appok exportálása a menübe (`distrobox`)
   - [ ] Környezeti változók és indítási beállítások (`~/.config/environment.d`)
   - [ ] Haladó beállítások: minden olyan rendszerbeállítás, amire nincs KDE-s GUI (folyamatosan bővül)
