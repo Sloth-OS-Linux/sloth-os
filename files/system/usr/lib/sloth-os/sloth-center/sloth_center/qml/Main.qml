@@ -17,6 +17,7 @@ Kirigami.ApplicationWindow {
     // A modulok listája. A "ready: false" modulok még készülnek (ROADMAP 3. fázis).
     readonly property var modules: [
         { id: "updates", name: "Frissítések", icon: "system-software-update", page: "UpdatesPage.qml", ready: true },
+        { id: "winprograms", name: "Windows-programok", icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true },
         { id: "drivers", name: "Driverek és hardver", icon: "preferences-devices-cpu", ready: false,
           description: "Videókártya, kontrollerek, NVIDIA és AMD/Intel közötti váltás." },
         { id: "services", name: "Szolgáltatások", icon: "preferences-system-services", ready: false,

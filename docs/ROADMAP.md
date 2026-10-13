@@ -28,7 +28,8 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [x] **.exe kezelő** (`files/system/usr/lib/sloth-os/sloth-exe/`; VM-ben még tesztelni): dupla kattintás egy .exe/.msi-re →
   telepítés (programonként külön mappa, a parancsikonok a Start menübe) vagy indítás; első alkalommal az összetevők
   letöltése folyamatjelzővel. A felhasználó soha nem látja a "Wine", "Proton" vagy "prefix" szót.
-  - [ ] Hátravan: telepített Windows-programok kezelése (eltávolítás, javítás) a Sloth Központban
+  - [x] Telepített Windows-programok listája és eltávolítása a Sloth Központban
+  - [ ] Hátravan: javítás (újratelepítés), parancsikon utólagos hozzáadása
   - [ ] Játékonkénti javítások automatikusan (umu adatbázis: GAMEID a program neve alapján)
 - [x] Steamben a Proton alapból bekapcsolva minden játékra (`sloth-steam-proton-default.service`; VM-ben még tesztelni)
 - [x] MangoHud / gamescope Flatpak Vulkan rétegek a Steam Flatpakhoz (`sloth-steam-vulkan-layers.timer`; VM-ben még tesztelni)
