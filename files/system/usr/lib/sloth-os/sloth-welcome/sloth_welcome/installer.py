@@ -1,0 +1,232 @@
+"""Appok telepítése a libflatpak-kal, külön szálon, folyamatjelzéssel.
+
+Egy tranzakcióban megy minden kiválasztott app (így legfeljebb egyszer kell
+jóváhagyni), a függőségekkel együtt. A felület csak emberi nyelvű állapotot kap.
+"""
+import hashlib
+import json
+import logging
+import os
+import tempfile
+import threading
+import time
+import urllib.request
+
+import gi
+
+gi.require_version("Flatpak", "1.0")
+from gi.repository import Flatpak, Gio, GLib  # noqa: E402
+
+from . import catalog  # noqa: E402
+
+log = logging.getLogger("sloth-welcome.installer")
+
+FLATHUB = "flathub"
+FLATHUB_REPO_URL = "https://dl.flathub.org/repo/flathub.flatpakrepo"
+USER_AGENT = "SlothOS-Welcome/1.0"
+# A Flathub-os hibák nagy része átmeneti hálózati gond, ezért újrapróbáljuk
+MAX_ATTEMPTS = 3
+NETWORK_ERROR = "Nincs internetkapcsolat, vagy a szerver nem érhető el."
+
+
+def _human_error(raw):
+    low = (raw or "").lower()
+    if any(k in low for k in ("could not resolve", "network", "timed out", "timeout", "connection", "unreachable")):
+        return NETWORK_ERROR
+    if any(k in low for k in ("no space", "enospc")):
+        return "Nincs elég szabad hely a lemezen."
+    if any(k in low for k in ("not authorized", "authentication", "permission")):
+        return "Nem kaptunk engedélyt a telepítéshez."
+    if "checksum" in low or "ellenőrző" in low:
+        return "A letöltött fájl sérült volt, ezért nem telepítettük."
+    return "Nem sikerült telepíteni."
+
+
+def _http_get(url, on_chunk=None):
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        total = int(resp.headers.get("Content-Length") or 0)
+        chunks, done = [], 0
+        while True:
+            chunk = resp.read(256 * 1024)
+            if not chunk:
+                break
+            chunks.append(chunk)
+            done += len(chunk)
+            if on_chunk:
+                on_chunk(done, total)
+        return b"".join(chunks)
+
+
+class Installer:
+    """A callbackek a háttérszálból hívódnak; a hívó gondoskodik a szálváltásról."""
+
+    def __init__(self, on_status, on_app_state, on_finished):
+        self._on_status = on_status          # (szöveg, részletek, összesített 0..100 vagy -1)
+        self._on_app_state = on_app_state    # (app_id, "installing" | "done" | "failed", hibaszöveg)
+        self._on_finished = on_finished      # (sikeres_idk, sikertelen {id: hiba})
+        self._thread = None
+
+    def start(self, app_ids):
+        self._thread = threading.Thread(target=self._run, args=(list(app_ids),), daemon=True)
+        self._thread.start()
+
+    # --- Belső -------------------------------------------------------------
+
+    def _ensure_flathub(self, inst):
+        try:
+            inst.get_remote_by_name(FLATHUB, None)
+            return
+        except GLib.Error:
+            pass
+        data = _http_get(FLATHUB_REPO_URL)
+        remote = Flatpak.Remote.new_from_file(FLATHUB, GLib.Bytes.new(data))
+        inst.add_remote(remote, True, None)
+
+    def _download_bundle(self, app):
+        """Legfrissebb Flatpak csomag a GitHub kiadásból, SHA256 ellenőrzéssel."""
+        name = app["name"]
+        self._on_status(f"{name} letöltése…", "", -1)
+        release = json.loads(_http_get(f"https://api.github.com/repos/{app['repo']}/releases/latest"))
+        assets = {a["name"]: a["browser_download_url"] for a in release.get("assets", [])}
+        bundle_name = next((n for n in assets if n.endswith(app["asset_suffix"])), None)
+        if not bundle_name or "SHA256SUMS.txt" not in assets:
+            raise RuntimeError(f"{name}: nincs megfelelő csomag a kiadásban")
+        sums = _http_get(assets["SHA256SUMS.txt"]).decode("utf-8", "replace")
+        expected = next((line.split()[0] for line in sums.splitlines()
+                         if line.strip().endswith(bundle_name)), None)
+
+        def progress(done, total):
+            pct = int(done * 100 / total) if total else -1
+            self._on_status(f"{name} letöltése…", f"{done // (1024 * 1024)} MB", pct)
+
+        data = _http_get(assets[bundle_name], progress)
+        if not expected or hashlib.sha256(data).hexdigest() != expected:
+            raise RuntimeError("checksum: a letöltött csomag ellenőrző összege nem egyezik")
+        fd, path = tempfile.mkstemp(suffix=".flatpak", prefix="sloth-welcome-")
+        with os.fdopen(fd, "wb") as f:
+            f.write(data)
+        return path
+
+    def _run(self, app_ids):
+        ok, failed = [], {}
+        for attempt in range(MAX_ATTEMPTS):
+            # Csak a még nem telepített és hálózati hiba miatt elbukott appokat próbáljuk újra
+            pending = [a for a in app_ids if a not in ok and (a not in failed or failed[a] == NETWORK_ERROR)]
+            if not pending:
+                break
+            if attempt:
+                self._on_status("A kapcsolat megszakadt, újrapróbálom…", "", -1)
+                time.sleep(5 * attempt)
+            for a in pending:
+                failed.pop(a, None)
+            self._attempt(pending, ok, failed)
+        self._on_finished(ok, failed)
+
+    def _attempt(self, app_ids, ok, failed):
+        temp_files = []
+        try:
+            inst = Flatpak.Installation.new_system(None)
+            self._on_status("Felkészülés a telepítésre…", "", -1)
+            self._ensure_flathub(inst)
+
+            txn = Flatpak.Transaction.new_for_installation(inst, None)
+            txn.add_default_dependency_sources()
+            wanted = {}
+            for app_id in app_ids:
+                app = catalog.find_app(app_id)
+                if not app:
+                    continue
+                try:
+                    if app.get("source") == "github-bundle":
+                        path = self._download_bundle(app)
+                        temp_files.append(path)
+                        txn.add_install_bundle(Gio.File.new_for_path(path), None)
+                    else:
+                        txn.add_install(FLATHUB, f"app/{app_id}/{Flatpak.get_default_arch()}/stable", None)
+                    wanted[app_id] = app
+                except GLib.Error as e:
+                    if "already installed" in e.message.lower():
+                        ok.append(app_id)
+                        self._on_app_state(app_id, "done", "")
+                    else:
+                        log.warning("%s: %s", app_id, e.message)
+                        failed[app_id] = _human_error(e.message)
+                        self._on_app_state(app_id, "failed", failed[app_id])
+                except Exception as e:  # letöltési hiba a GitHub csomagnál
+                    log.warning("%s: %s", app_id, e)
+                    failed[app_id] = _human_error(str(e))
+                    self._on_app_state(app_id, "failed", failed[app_id])
+
+            if wanted:
+                self._run_transaction(txn, wanted, ok, failed)
+        except Exception as e:
+            log.error("a telepítés megszakadt: %s", e)
+            for app_id in app_ids:
+                if app_id not in ok and app_id not in failed:
+                    failed[app_id] = _human_error(str(e))
+        finally:
+            for path in temp_files:
+                try:
+                    os.unlink(path)
+                except OSError:
+                    pass
+
+    def _run_transaction(self, txn, wanted, ok, failed):
+        state = {"total": 1, "done": 0}
+
+        def app_of(op):
+            parts = op.get_ref().split("/")
+            return parts[1] if len(parts) > 1 and parts[0] == "app" and parts[1] in wanted else None
+
+        def label(op):
+            app_id = app_of(op)
+            return f"{wanted[app_id]['name']} telepítése…" if app_id else "Szükséges összetevők letöltése…"
+
+        def on_ready(t):
+            state["total"] = max(1, len(t.get_operations()))
+            return True
+
+        def on_new_operation(t, op, progress):
+            app_id = app_of(op)
+            if app_id:
+                self._on_app_state(app_id, "installing", "")
+            text = label(op)
+
+            def changed(p):
+                overall = int((state["done"] + p.get_progress() / 100) * 100 / state["total"])
+                mb = p.get_bytes_transferred() // (1024 * 1024)
+                self._on_status(text, f"{mb} MB letöltve" if mb else "", min(99, overall))
+
+            progress.set_update_frequency(200)
+            progress.connect("changed", changed)
+            changed(progress)
+
+        def on_done(t, op, commit, result):
+            state["done"] += 1
+            app_id = app_of(op)
+            if app_id:
+                ok.append(app_id)
+                self._on_app_state(app_id, "done", "")
+
+        def on_error(t, op, error, details):
+            state["done"] += 1
+            app_id = app_of(op)
+            log.warning("%s: %s", op.get_ref(), error.message)
+            if app_id:
+                failed[app_id] = _human_error(error.message)
+                self._on_app_state(app_id, "failed", failed[app_id])
+            return True  # a többi app telepítése menjen tovább
+
+        txn.connect("ready", on_ready)
+        txn.connect("new-operation", on_new_operation)
+        txn.connect("operation-done", on_done)
+        txn.connect("operation-error", on_error)
+        try:
+            txn.run(None)
+        except GLib.Error as e:
+            log.warning("tranzakció: %s", e.message)
+            for app_id in wanted:
+                if app_id not in ok and app_id not in failed:
+                    failed[app_id] = _human_error(e.message)
+                    self._on_app_state(app_id, "failed", failed[app_id])

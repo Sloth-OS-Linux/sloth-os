@@ -16,7 +16,9 @@ Kivétel: **minden README angolul** készül (a repó később publikus lesz).
 - **Nem Bazzite.** Ne használj Bazzite image-et vagy Bazzite-specifikus eszközt (ujust receptek, bazzite-* csomagok) alapként.
 - **A Proton/Wine legyen láthatatlan.** A felhasználó ne lássa a "Wine", "prefix", "Proton verzió" fogalmakat, hacsak nem kéri kifejezetten.
 - **Az `ID=fedora` marad** az `/usr/lib/os-release`-ben; csak a megjelenített nevek változnak (lásd `files/scripts/branding.sh`).
-- **Felhasználói appok Flatpakként** (`recipes/apps.yml`); RPM csak rendszerszintű dolgokhoz (`recipes/gaming.yml` stb.).
+- **Felhasználói appok Flatpakként**; RPM csak rendszerszintű dolgokhoz (`recipes/gaming.yml` stb.).
+  Előtelepítve csak a Steam (`recipes/apps.yml`); a többit a felhasználó választja a Sloth Üdvözlőben
+  (`files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome/catalog.py`). Alapból semmi nincs bejelölve.
 - Minden változás a recipe-ken és a `files/` mappán keresztül történik. A futó rendszeren kézzel semmit nem állítunk.
 
 ## Felépítés

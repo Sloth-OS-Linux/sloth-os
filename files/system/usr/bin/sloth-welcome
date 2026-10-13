@@ -1,0 +1,9 @@
+#!/usr/bin/python3 -I
+"""Sloth Üdvözlő indító."""
+import sys
+
+sys.path.insert(0, "/usr/lib/sloth-os/sloth-welcome")
+
+from sloth_welcome.app import main  # noqa: E402
+
+sys.exit(main())

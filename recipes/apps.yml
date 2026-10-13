@@ -1,18 +1,19 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
-# Előtelepített appok. Minden felhasználói app Flatpak, így a rendszer alapja érintetlen marad.
+# Előtelepített appok. Szándékosan csak a Steam: minden mást (böngésző, irodai programok,
+# médialejátszó, csevegés, …) a felhasználó választ ki első indításkor a Sloth Üdvözlőben
+# (files/system/usr/lib/sloth-os/sloth-welcome). Az appok listája: sloth_welcome/catalog.py
 modules:
+  # Az alap image-ben lévő Firefox RPM kikerül; böngészőt a varázslóban lehet választani
+  - type: script
+    scripts:
+      - remove-default-apps.sh
+
   - type: default-flatpaks
     configurations:
-      - notify: true
+      - notify: false # a felhasználó ne lásson technikai értesítést első induláskor
         scope: system
         install:
-          # Gaming
-          - com.valvesoftware.Steam          # Steam (a Proton minden játékra bekapcsolása: ROADMAP 2. fázis)
-          - com.heroicgameslauncher.hgl      # Epic, GOG, Amazon játékok
-          # A ProtonPlus szándékosan nincs itt: a felhasználó ne lássa a Proton verziókat.
-          # A Proton-kezelés majd a saját .exe kezelőbe kerül (ROADMAP 2. fázis).
-          # Mindennapi appok
-          - com.discordapp.Discord
-          - org.videolan.VLC
-          - org.libreoffice.LibreOffice
+          # A Steam a gaming-réteg alapja (Proton alapból bekapcsolva, Vulkan rétegek),
+          # ezért ez mindig ott van. A Proton-kezelés a saját .exe kezelőbe kerül (ROADMAP 2. fázis).
+          - com.valvesoftware.Steam
       - scope: user # Flathub felhasználói repó, csomagok nélkül

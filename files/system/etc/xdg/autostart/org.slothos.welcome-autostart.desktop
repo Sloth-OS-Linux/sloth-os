@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Sloth Üdvözlő (első indítás)
+Exec=sloth-welcome --first-run
+Icon=sloth-os
+Terminal=false
+NoDisplay=true
+X-KDE-autostart-phase=2
+OnlyShowIn=KDE;

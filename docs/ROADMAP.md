@@ -7,7 +7,7 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [x] Universal Blue Kinoite alap, AMD/Intel + NVIDIA változat
 - [x] Átnevezés (os-release)
 - [x] Gaming csomagok: gamescope, mangohud, gamemode
-- [x] Előtelepített Flatpakok: Steam, Heroic, Discord, VLC, LibreOffice
+- [x] Előtelepítve csak a Steam; minden más appot a felhasználó választ az üdvözlő varázslóban (a Firefox RPM is kikerül)
 - [x] Első sikeres build GitHub Actionsben (mindkét image)
 - [ ] Teszt VM-ben és a saját gépen
 
@@ -36,7 +36,12 @@ Cél: **minden terminálos feladatnak legyen grafikus megfelelője.** Ahol a KDE
 jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal).
 
 ### Saját eszközök
-- [ ] **Üdvözlő varázsló** első indításkor: nyelv, fiókok, Steam-bejelentkezés, ajánlott appok, színtéma választás
+- [x] **Üdvözlő varázsló** első bejelentkezéskor (`files/system/usr/lib/sloth-os/sloth-welcome/`; VM-ben még tesztelni):
+  színtéma, majd kategóriánként külön lépésben böngésző, irodai programok, zene és videó, csevegés, játékok,
+  alkotás (benne az ArtCraft). Alapból semmi nincs bejelölve; telepítés folyamatjelzővel, hálózati hibánál
+  újrapróbálkozás; a böngésző a tálcára kerül.
+  - [ ] Hátravan: nyelv és fiókok, Steam-bejelentkezés, tálca-elrendezés választás
+  - [ ] Az ArtCraft frissítése (GitHub-csomagként települ, a Flathub nem frissíti): saját frissítő
 - [ ] **Sloth Központ** (egy app, modulokra bontva; `files/system/usr/lib/sloth-os/sloth-center/`):
   - [x] Frissítések és visszaállítás (keresés, telepítés folyamatjelzővel, újraindítás, vissza az előzőre; VM-ben még tesztelni). Hátravan: verzió megtartása (pin): verziók listája, „vissza az előzőre”, verzió megtartása (`rpm-ostree status/rollback/deploy --pin`)
   - [ ] Driverek és hardver: GPU, NVIDIA ↔ AMD/Intel image váltás (`rpm-ostree rebase`), Secure Boot kulcs regisztrálása (`mokutil`), kontrollerek
