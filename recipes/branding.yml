@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# Minden, ami a rendszer "arcát" adja: név, logók, alapbeállítások.
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: / # a files/system/* tartalma a gyökérbe kerül
+
+  - type: script
+    scripts:
+      - branding.sh

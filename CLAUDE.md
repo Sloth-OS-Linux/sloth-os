@@ -1,0 +1,29 @@
+# Sloth OS – útmutató Claude Code-nak
+
+## Mi ez
+Egy Fedora Atomic alapú, Universal Blue `kinoite-main` / `kinoite-nvidia` image-re épülő desktop disztró,
+BlueBuild-del építve. Cél: Windows-alternatíva átlagfelhasználóknak, erős gaming-támogatással.
+A projekt nyelve magyar (kommentek, dokumentáció, UI szövegek); a kód azonosítói angolul.
+
+## Alapelvek
+- **A felhasználónak soha ne kelljen terminál.** Minden funkcióhoz GUI kell; ha valami csak parancssorból megy, az bug.
+- **Nem Bazzite.** Ne használj Bazzite image-et vagy Bazzite-specifikus eszközt (ujust receptek, bazzite-* csomagok) alapként.
+- **A Proton/Wine legyen láthatatlan.** A felhasználó ne lássa a "Wine", "prefix", "Proton verzió" fogalmakat, hacsak nem kéri kifejezetten.
+- **Az `ID=fedora` marad** az `/usr/lib/os-release`-ben; csak a megjelenített nevek változnak (lásd `files/scripts/branding.sh`).
+- **Felhasználói appok Flatpakként** (`recipes/apps.yml`); RPM csak rendszerszintű dolgokhoz (`recipes/gaming.yml` stb.).
+- Minden változás a recipe-ken és a `files/` mappán keresztül történik. A futó rendszeren kézzel semmit nem állítunk.
+
+## Felépítés
+- `recipes/recipe.yml`, `recipes/recipe-nvidia.yml`: a két image; a közös modulokat `from-file`-lal húzzák be.
+- `recipes/branding.yml`, `gaming.yml`, `apps.yml`: modul-listák témánként.
+- `files/system/`: a kész rendszer gyökerébe másolódik.
+- `files/scripts/`: build közben futó scriptek (`type: script` modul).
+- `tools/`: saját GUI eszközök (Python + PySide6/QML).
+- `docs/ROADMAP.md`: a terv. Ha egy feladat kész, pipáld ki.
+
+## Hasznos tudnivalók
+- BlueBuild dokumentáció és modulok: https://blue-build.org
+- Recipe séma: https://schema.blue-build.org/recipe-v1.json
+- Helyi build (ha telepítve van a bluebuild CLI): `bluebuild build recipes/recipe.yml`
+- A CI a `.github/workflows/build.yml`-ben fut; mindkét recipe-t buildeli.
+- Új dnf csomag felvétele előtt ellenőrizd, hogy létezik-e a Fedora repóban az aktuális verzión.

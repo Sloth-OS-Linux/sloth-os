@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# Sloth OS – NVIDIA változat (nyílt NVIDIA kernel modul, előre beépítve)
+# Kész image: ghcr.io/bathorizsolt/sloth-os-nvidia
+name: sloth-os-nvidia
+description: Sloth OS – napi használatra és gamingre szánt desktop, terminál nélkül (NVIDIA).
+
+base-image: ghcr.io/ublue-os/kinoite-nvidia
+image-version: latest
+
+modules:
+  - from-file: branding.yml
+  - from-file: gaming.yml
+  - from-file: apps.yml
+  - type: signing

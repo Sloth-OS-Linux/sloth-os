@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# Sloth OS – AMD / Intel GPU-s változat
+# Kész image: ghcr.io/bathorizsolt/sloth-os
+name: sloth-os
+description: Sloth OS – napi használatra és gamingre szánt desktop, terminál nélkül.
+
+# Universal Blue KDE (Kinoite) alap – NEM Bazzite
+base-image: ghcr.io/ublue-os/kinoite-main
+image-version: latest # később rögzíthető egy Fedora verzióra, pl. 43
+
+modules:
+  - from-file: branding.yml
+  - from-file: gaming.yml
+  - from-file: apps.yml
+  - type: signing # aláírt image-ekhez kell, maradjon a végén

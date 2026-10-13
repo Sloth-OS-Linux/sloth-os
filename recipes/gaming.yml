@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# Gaming réteg. A cél: a felhasználó soha ne lássa a Proton/Wine-t.
+modules:
+  - type: dnf
+    install:
+      packages:
+        - gamescope # mikrokompozitor, felskálázás, HDR
+        - mangohud  # FPS / teljesítmény overlay
+        - gamemode  # CPU/GPU teljesítmény-mód játék közben
+        # TODO: ellenőrizni, hogy elérhető-e a Fedora repóban az aktuális verzión:
+        # - umu-launcher # egységes Proton futtató + automatikus játékjavítások

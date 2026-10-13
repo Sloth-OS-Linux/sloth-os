@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+# Előtelepített appok. Minden felhasználói app Flatpak, így a rendszer alapja érintetlen marad.
+modules:
+  - type: default-flatpaks
+    configurations:
+      - notify: true
+        scope: system
+        install:
+          # Gaming
+          - com.valvesoftware.Steam          # Steam (a Proton minden játékra bekapcsolása: ROADMAP 2. fázis)
+          - com.heroicgameslauncher.hgl      # Epic, GOG, Amazon játékok
+          # A ProtonPlus szándékosan nincs itt: a felhasználó ne lássa a Proton verziókat.
+          # A Proton-kezelés majd a saját .exe kezelőbe kerül (ROADMAP 2. fázis).
+          # Mindennapi appok
+          - com.discordapp.Discord
+          - org.videolan.VLC
+          - org.libreoffice.LibreOffice
+      - scope: user # Flathub felhasználói repó, csomagok nélkül

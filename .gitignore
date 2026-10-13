@@ -1,0 +1,4 @@
+# SOHA ne kerüljön a repóba a privát aláíró kulcs!
+cosign.key
+*.iso
+/out/
