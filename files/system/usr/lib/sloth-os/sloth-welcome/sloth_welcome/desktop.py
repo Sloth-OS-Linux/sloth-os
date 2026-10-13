@@ -87,3 +87,90 @@ def is_online():
         return res.unpack()[0] in (0, 4)
     except GLib.Error:
         return True  # ha nem tudjuk, ne akadályozzuk a telepítést
+
+
+# --- Tálca-elrendezés -------------------------------------------------------------
+
+LAYOUTS = [
+    {"id": "windows10", "name": "Windows 10", "description": "Start menü és ikonok balra"},
+    {"id": "windows11", "name": "Windows 11", "description": "Start menü és ikonok középen"},
+    {"id": "mac", "name": "macOS-szerű", "description": "Felső sáv, alul lebegő dokk"},
+]
+
+_LAYOUT_SCRIPT = """
+const kind = %s;
+// A rögzített appokat megtartjuk
+let launchers = ["applications:org.kde.dolphin.desktop", "applications:com.valvesoftware.Steam.desktop",
+                 "applications:org.kde.discover.desktop"];
+for (const p of panels()) {
+    for (const w of p.widgets()) {
+        if (w.type === "org.kde.plasma.icontasks") {
+            w.currentConfigGroup = ["General"];
+            const l = w.readConfig("launchers", "");
+            const list = Array.isArray(l) ? l : String(l).split(",").filter(x => x);
+            if (list.length) launchers = list;
+        }
+    }
+    p.remove();
+}
+
+function addTasks(panel) {
+    const t = panel.addWidget("org.kde.plasma.icontasks");
+    t.currentConfigGroup = ["General"];
+    t.writeConfig("launchers", launchers);
+    return t;
+}
+function addKickoff(panel) {
+    const k = panel.addWidget("org.kde.plasma.kickoff");
+    k.currentConfigGroup = ["General"];
+    k.writeConfig("icon", "sloth-os");
+}
+function addTrayAndClock(panel) {
+    panel.addWidget("org.kde.plasma.marginsseparator");
+    panel.addWidget("org.kde.plasma.systemtray");
+    panel.addWidget("org.kde.plasma.digitalclock");
+}
+
+const height = 2 * Math.floor(gridUnit * 2.5 / 2);
+if (kind === "mac") {
+    const top = new Panel;
+    top.location = "top";
+    top.height = Math.round(gridUnit * 1.6);
+    addKickoff(top);
+    top.addWidget("org.kde.plasma.appmenu");
+    top.addWidget("org.kde.plasma.panelspacer");
+    addTrayAndClock(top);
+    const dock = new Panel;
+    dock.location = "bottom";
+    dock.height = Math.round(gridUnit * 3.2);
+    dock.floating = true;
+    dock.lengthMode = "fit";
+    dock.alignment = "center";
+    addTasks(dock);
+} else {
+    const panel = new Panel;
+    panel.location = "bottom";
+    panel.height = height;
+    panel.floating = false;
+    if (kind === "windows11") panel.addWidget("org.kde.plasma.panelspacer");
+    addKickoff(panel);
+    addTasks(panel);
+    if (kind === "windows11") panel.addWidget("org.kde.plasma.panelspacer");
+    addTrayAndClock(panel);
+    panel.addWidget("org.kde.plasma.showdesktop");
+}
+"""
+
+
+def apply_layout(kind):
+    if kind not in {l["id"] for l in LAYOUTS}:
+        return False
+    try:
+        bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+        bus.call_sync("org.kde.plasmashell", "/PlasmaShell", "org.kde.PlasmaShell", "evaluateScript",
+                      GLib.Variant("(s)", (_LAYOUT_SCRIPT % json.dumps(kind),)), None,
+                      Gio.DBusCallFlags.NONE, 15000, None)
+        return True
+    except GLib.Error as e:
+        log.warning("elrendezés: %s", e.message)
+        return False

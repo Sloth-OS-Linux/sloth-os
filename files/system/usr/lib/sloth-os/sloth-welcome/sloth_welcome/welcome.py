@@ -33,6 +33,7 @@ class WelcomeController(QObject):
         self._step = 0
         self._selected = []
         self._scheme = "SlothSilverDark"
+        self._layout = "windows10"
         self._status = ""
         self._detail = ""
         self._progress = -1
@@ -94,6 +95,14 @@ class WelcomeController(QObject):
     @Property("QVariantList", constant=True)
     def schemes(self):
         return desktop.COLOR_SCHEMES
+
+    @Property("QVariantList", constant=True)
+    def layouts(self):
+        return desktop.LAYOUTS
+
+    @Property(str, notify=changed)
+    def currentLayout(self):
+        return self._layout
 
     @Property("QVariantList", notify=changed)
     def selectedIds(self):
@@ -167,6 +176,12 @@ class WelcomeController(QObject):
     def setScheme(self, scheme_id):
         if scheme_id != self._scheme and desktop.apply_color_scheme(scheme_id):
             self._scheme = scheme_id
+            self.changed.emit()
+
+    @Slot(str)
+    def setLayout(self, layout_id):
+        if layout_id != self._layout and desktop.apply_layout(layout_id):
+            self._layout = layout_id
             self.changed.emit()
 
     @Slot()
