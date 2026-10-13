@@ -1,0 +1,4 @@
+# Sloth OS: tartalék, ha az image SDDM-et használna a Plasma Login Manager helyett
+[General]
+background=/usr/share/wallpapers/SlothOS-metallic-sloth-over-silver-waves/contents/images/3840x2160.jpg
+type=image

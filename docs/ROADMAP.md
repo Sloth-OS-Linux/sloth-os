@@ -20,7 +20,7 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [ ] Más elrendezések választhatóan az üdvözlő varázslóban (pl. Windows 11-es középre igazított tálca, macOS-szerű dokk)
 - [x] Színtémák: Silver sötét (alapértelmezett) és világos, Hófehér, Éjfekete, Ködkék, Éjkék, Zsálya (`tools/branding/gen_colors.py`, előnézet: `docs/branding/color-schemes-preview.png`)
 - [ ] Saját Plasma téma (panel, ablakkeret)
-- [ ] Bejelentkező képernyő (SDDM / Plasma Login) a Sloth OS kinézettel
+- [x] Bejelentkező képernyő (Plasma Login Manager, tartalékként SDDM): Sloth OS háttérkép, Sloth Silver színek; VM-ben még tesztelni
 - [ ] Ellenőrizni, hol látszik még "Fedora" vagy "Universal Blue" név. Eddig:
   - [x] Rendszerinformáció, boot menü bejegyzések, gépnév: az os-release-ből jönnek (Sloth OS)
   - [x] A KDE üdvözlő appja kikapcsolva (a Sloth Üdvözlő helyett ne jöjjön elő): `files/system/etc/xdg/kded6rc`
