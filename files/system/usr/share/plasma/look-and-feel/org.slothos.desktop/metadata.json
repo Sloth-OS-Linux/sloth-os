@@ -1,0 +1,17 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ],
+        "Description": "Sloth OS alapértelmezett megjelenés: Windows-szerű tálca, Sloth Silver színek",
+        "Description[en]": "Sloth OS default look: Windows-like taskbar, Sloth Silver colors",
+        "Id": "org.slothos.desktop",
+        "License": "GPL-2.0-or-later",
+        "Name": "Sloth OS",
+        "Version": "1.0"
+    },
+    "X-Plasma-MainScript": "defaults"
+}

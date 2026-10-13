@@ -16,9 +16,11 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [x] Boot animáció (Plymouth): a logó szélén körbefutó fehér pont (`files/system/usr/share/plymouth/themes/sloth-os/`, előnézet: `docs/branding/boot-preview.gif`; VM-ben még tesztelni)
 - [x] Boot menü elrejtése (csak hibás indítás után jelenik meg) és csendes boot (`sloth-hide-boot-menu.service`, kargs; VM-ben még tesztelni)
 - [ ] Háttérképek (a színtémákhoz illően)
-- [ ] Windows-szerű alapértelmezett Plasma-elrendezés (tálca alul, start menü, tálcaikonok)
+- [x] Windows-szerű alapértelmezett Plasma-elrendezés: tálca alul, start menü a logóval, rögzített appok; bejelentkezés utáni betöltőképernyő a boot animációval (`files/system/usr/share/plasma/look-and-feel/org.slothos.desktop/`; VM-ben még tesztelni)
+- [ ] Más elrendezések választhatóan az üdvözlő varázslóban (pl. Windows 11-es középre igazított tálca, macOS-szerű dokk)
 - [x] Színtémák: Silver sötét (alapértelmezett) és világos, Hófehér, Éjfekete, Ködkék, Éjkék, Zsálya (`tools/branding/gen_colors.py`, előnézet: `docs/branding/color-schemes-preview.png`)
-- [ ] Saját Plasma téma (panel, ablakkeret), Kickoff ikon a logóval
+- [ ] Saját Plasma téma (panel, ablakkeret)
+- [ ] Bejelentkező képernyő (SDDM / Plasma Login) a Sloth OS kinézettel
 - [ ] Ellenőrizni, hol látszik még "Fedora" vagy "Universal Blue" név (bejelentkezés, Rendszerinformáció, boot menü)
 
 ## 2. fázis – Gaming, ami csak működik

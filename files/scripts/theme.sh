@@ -41,7 +41,23 @@ with open(target, "w", encoding="utf-8") as f:
     glob.write(f, space_around_delimiters=False)
 EOF
 
-echo "Alapértelmezett színséma: ${SCHEME}"
+# Sloth OS globális téma (Windows-szerű tálca, betöltőképernyő) alapértelmezettnek.
+# A tálca-elrendezés csak új felhasználónál jön létre (look-and-feel/.../layouts).
+python3 - "$KDEGLOBALS" <<'PYEOF'
+import configparser, sys
+target = sys.argv[1]
+cp = configparser.ConfigParser(interpolation=None, strict=False, delimiters=("=",))
+cp.optionxform = str
+cp.read(target, encoding="utf-8")
+if not cp.has_section("KDE"):
+    cp.add_section("KDE")
+cp.set("KDE", "LookAndFeelPackage", "org.slothos.desktop")
+with open(target, "w", encoding="utf-8") as f:
+    cp.write(f, space_around_delimiters=False)
+PYEOF
+printf '[KSplash]\nEngine=KSplashQML\nTheme=org.slothos.desktop\n' > /etc/xdg/ksplashrc
+
+echo "Alapértelmezett színséma: ${SCHEME}, globális téma: org.slothos.desktop"
 grep -A1 '^\[General\]' "$KDEGLOBALS"
 
 # Logó az os-release-ben (ikonnév: /usr/share/icons/hicolor/scalable/apps/sloth-os.svg)
