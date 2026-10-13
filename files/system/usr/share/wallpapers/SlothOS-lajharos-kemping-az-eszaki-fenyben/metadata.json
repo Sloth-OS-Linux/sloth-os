@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-lajharos-kemping-az-eszaki-fenyben",
+        "Name": "Lajháros kemping az északi fényben",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

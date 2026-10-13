@@ -26,7 +26,9 @@ panel.addWidget("org.kde.plasma.systemtray");
 panel.addWidget("org.kde.plasma.digitalclock");
 panel.addWidget("org.kde.plasma.showdesktop");
 
-// Asztal: ikonok nélküli, sima háttérkép (a háttérképeket később adjuk hozzá)
+// Asztal: az alapértelmezett Sloth OS háttérkép (a többi a Háttérkép beállításoknál választható)
 for (const desktop of desktops()) {
     desktop.wallpaperPlugin = "org.kde.image";
+    desktop.currentConfigGroup = ["Wallpaper", "org.kde.image", "General"];
+    desktop.writeConfig("Image", "file:///usr/share/wallpapers/SlothOS-femes-lajhar-emblema-hullamzo-ezust-tajon/");
 }

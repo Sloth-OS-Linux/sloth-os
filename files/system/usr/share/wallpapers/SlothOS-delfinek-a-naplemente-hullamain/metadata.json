@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-delfinek-a-naplemente-hullamain",
+        "Name": "Delfinek a naplemente hullámain",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

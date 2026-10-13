@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-alpesi-naplemente-toparti-falvakkal",
+        "Name": "Alpesi naplemente tóparti falvakkal",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

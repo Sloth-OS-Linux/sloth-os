@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-naplementi-toparti-lajharnyugalom",
+        "Name": "Naplementi tóparti lajhárnyugalom",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

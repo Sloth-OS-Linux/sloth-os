@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-naplementi-szundikalas-a-fjord-felett",
+        "Name": "Naplementi szundikálás a fjord felett",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "SlothOS-krom-lajharemblema-csillagfenyes-femdunek-felett",
+        "Name": "Króm lajhárembléma csillagfényes fémdűnék felett",
+        "Authors": [
+            {
+                "Name": "Sloth OS"
+            }
+        ]
+    }
+}
