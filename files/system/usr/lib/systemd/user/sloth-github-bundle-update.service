@@ -1,0 +1,8 @@
+[Unit]
+Description=Sloth OS: GitHub-csomagként telepített appok (pl. ArtCraft) frissítése
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/github-bundle-update
+Nice=10

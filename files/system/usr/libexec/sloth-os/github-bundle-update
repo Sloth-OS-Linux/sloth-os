@@ -1,0 +1,74 @@
+#!/usr/bin/python3 -I
+"""A GitHub-csomagként telepített appok (pl. ArtCraft) frissítése a háttérben.
+
+A Flathub ezeket nem frissíti, ezért naponta egyszer megnézzük, van-e újabb kiadás.
+Ha van, letöltjük, ellenőrizzük az SHA256 összeget, és újratelepítjük (a beállítások
+és a mentések az app saját mappájában megmaradnak). Felhasználói szolgáltatás:
+sloth-github-bundle-update.timer
+"""
+import logging
+import os
+import sys
+
+sys.path.insert(0, "/usr/lib/sloth-os/sloth-welcome")
+
+import gi  # noqa: E402
+
+gi.require_version("Flatpak", "1.0")
+from gi.repository import Flatpak, Gio, GLib  # noqa: E402
+
+from sloth_welcome import catalog  # noqa: E402
+from sloth_welcome.installer import (bundle_versions, download_latest_bundle,  # noqa: E402
+                                     latest_release, save_bundle_version)
+
+logging.basicConfig(level=logging.INFO, format="%(message)s")
+log = logging.getLogger("sloth-bundle-update")
+
+
+def installed(inst, app_id):
+    try:
+        inst.get_installed_ref(Flatpak.RefKind.APP, app_id, None, None, None)
+        return True
+    except GLib.Error:
+        return False
+
+
+def main():
+    inst = Flatpak.Installation.new_user(None)
+    versions = bundle_versions()
+    for cat in catalog.CATEGORIES:
+        for app in cat["apps"]:
+            if app.get("source") != "github-bundle" or not installed(inst, app["id"]):
+                continue
+            try:
+                release = latest_release(app)
+            except Exception as e:  # nincs net: majd holnap
+                log.info("%s: nem sikerült lekérdezni (%s)", app["name"], e)
+                continue
+            tag = release.get("tag_name", "")
+            if tag and tag == versions.get(app["id"]):
+                log.info("%s naprakész (%s)", app["name"], tag)
+                continue
+            path = None
+            try:
+                path, tag = download_latest_bundle(app, release=release)
+                txn = Flatpak.Transaction.new_for_installation(inst, None)
+                txn.add_default_dependency_sources()
+                txn.set_reinstall(True)
+                txn.add_install_bundle(Gio.File.new_for_path(path), None)
+                txn.run(None)
+                save_bundle_version(app["id"], tag)
+                log.info("%s frissítve: %s", app["name"], tag)
+            except Exception as e:
+                log.warning("%s frissítése nem sikerült: %s", app["name"], e)
+            finally:
+                if path:
+                    try:
+                        os.unlink(path)
+                    except OSError:
+                        pass
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

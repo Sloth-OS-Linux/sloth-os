@@ -11,6 +11,7 @@ import tempfile
 import threading
 import time
 import urllib.request
+from pathlib import Path
 
 import gi
 
@@ -58,6 +59,54 @@ def _http_get(url, on_chunk=None):
         return b"".join(chunks)
 
 
+STATE_FILE = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "sloth-os" / "github-bundles.json"
+
+
+def bundle_versions():
+    """A GitHub-csomagként telepített appok verziói: {app_id: kiadás címkéje}."""
+    try:
+        return json.loads(STATE_FILE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def save_bundle_version(app_id, tag):
+    data = bundle_versions()
+    data[app_id] = tag
+    STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    STATE_FILE.write_text(json.dumps(data, indent=2), encoding="utf-8")
+
+
+def latest_release(app):
+    return json.loads(_http_get(f"https://api.github.com/repos/{app['repo']}/releases/latest"))
+
+
+def download_latest_bundle(app, on_status=lambda *a: None, release=None):
+    """Legfrissebb Flatpak csomag a GitHub kiadásból, SHA256 ellenőrzéssel. -> (fájl, címke)"""
+    name = app["name"]
+    on_status(f"{name} letöltése…", "", -1)
+    release = release or latest_release(app)
+    assets = {a["name"]: a["browser_download_url"] for a in release.get("assets", [])}
+    bundle_name = next((n for n in assets if n.endswith(app["asset_suffix"])), None)
+    if not bundle_name or "SHA256SUMS.txt" not in assets:
+        raise RuntimeError(f"{name}: nincs megfelelő csomag a kiadásban")
+    sums = _http_get(assets["SHA256SUMS.txt"]).decode("utf-8", "replace")
+    expected = next((line.split()[0] for line in sums.splitlines()
+                     if line.strip().endswith(bundle_name)), None)
+
+    def progress(done, total):
+        pct = int(done * 100 / total) if total else -1
+        on_status(f"{name} letöltése…", f"{done // (1024 * 1024)} MB", pct)
+
+    data = _http_get(assets[bundle_name], progress)
+    if not expected or hashlib.sha256(data).hexdigest() != expected:
+        raise RuntimeError("checksum: a letöltött csomag ellenőrző összege nem egyezik")
+    fd, path = tempfile.mkstemp(suffix=".flatpak", prefix="sloth-bundle-")
+    with os.fdopen(fd, "wb") as f:
+        f.write(data)
+    return path, release.get("tag_name", "")
+
+
 class Installer:
     """A callbackek a háttérszálból hívódnak; a hívó gondoskodik a szálváltásról."""
 
@@ -66,6 +115,7 @@ class Installer:
         self._on_app_state = on_app_state    # (app_id, "installing" | "done" | "failed", hibaszöveg)
         self._on_finished = on_finished      # (sikeres_idk, sikertelen {id: hiba})
         self._thread = None
+        self._bundle_tags = {}
 
     def start(self, app_ids):
         self._thread = threading.Thread(target=self._run, args=(list(app_ids),), daemon=True)
@@ -84,28 +134,8 @@ class Installer:
         inst.add_remote(remote, True, None)
 
     def _download_bundle(self, app):
-        """Legfrissebb Flatpak csomag a GitHub kiadásból, SHA256 ellenőrzéssel."""
-        name = app["name"]
-        self._on_status(f"{name} letöltése…", "", -1)
-        release = json.loads(_http_get(f"https://api.github.com/repos/{app['repo']}/releases/latest"))
-        assets = {a["name"]: a["browser_download_url"] for a in release.get("assets", [])}
-        bundle_name = next((n for n in assets if n.endswith(app["asset_suffix"])), None)
-        if not bundle_name or "SHA256SUMS.txt" not in assets:
-            raise RuntimeError(f"{name}: nincs megfelelő csomag a kiadásban")
-        sums = _http_get(assets["SHA256SUMS.txt"]).decode("utf-8", "replace")
-        expected = next((line.split()[0] for line in sums.splitlines()
-                         if line.strip().endswith(bundle_name)), None)
-
-        def progress(done, total):
-            pct = int(done * 100 / total) if total else -1
-            self._on_status(f"{name} letöltése…", f"{done // (1024 * 1024)} MB", pct)
-
-        data = _http_get(assets[bundle_name], progress)
-        if not expected or hashlib.sha256(data).hexdigest() != expected:
-            raise RuntimeError("checksum: a letöltött csomag ellenőrző összege nem egyezik")
-        fd, path = tempfile.mkstemp(suffix=".flatpak", prefix="sloth-welcome-")
-        with os.fdopen(fd, "wb") as f:
-            f.write(data)
+        path, tag = download_latest_bundle(app, self._on_status)
+        self._bundle_tags[app["id"]] = tag
         return path
 
     def _run(self, app_ids):
@@ -129,10 +159,12 @@ class Installer:
             inst = Flatpak.Installation.new_system(None)
             self._on_status("Felkészülés a telepítésre…", "", -1)
             self._ensure_flathub(inst)
-
             txn = Flatpak.Transaction.new_for_installation(inst, None)
             txn.add_default_dependency_sources()
-            wanted = {}
+            # A GitHub-csomagok a felhasználóhoz kerülnek, így a háttérfrissítésükhöz nem kell jelszó
+            user_inst = Flatpak.Installation.new_user(None)
+            user_txn = None
+            wanted, user_wanted = {}, {}
             for app_id in app_ids:
                 app = catalog.find_app(app_id)
                 if not app:
@@ -141,10 +173,15 @@ class Installer:
                     if app.get("source") == "github-bundle":
                         path = self._download_bundle(app)
                         temp_files.append(path)
-                        txn.add_install_bundle(Gio.File.new_for_path(path), None)
+                        if user_txn is None:
+                            self._ensure_flathub(user_inst)
+                            user_txn = Flatpak.Transaction.new_for_installation(user_inst, None)
+                            user_txn.add_default_dependency_sources()
+                        user_txn.add_install_bundle(Gio.File.new_for_path(path), None)
+                        user_wanted[app_id] = app
                     else:
                         txn.add_install(FLATHUB, f"app/{app_id}/{Flatpak.get_default_arch()}/stable", None)
-                    wanted[app_id] = app
+                        wanted[app_id] = app
                 except GLib.Error as e:
                     if "already installed" in e.message.lower():
                         ok.append(app_id)
@@ -160,6 +197,11 @@ class Installer:
 
             if wanted:
                 self._run_transaction(txn, wanted, ok, failed)
+            if user_wanted:
+                self._run_transaction(user_txn, user_wanted, ok, failed)
+                for app_id in user_wanted:
+                    if app_id in ok and app_id in self._bundle_tags:
+                        save_bundle_version(app_id, self._bundle_tags[app_id])
         except Exception as e:
             log.error("a telepítés megszakadt: %s", e)
             for app_id in app_ids:

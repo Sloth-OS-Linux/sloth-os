@@ -7,3 +7,9 @@ modules:
       packages:
         - python3-pyside6   # Qt/QML Pythonból
         - python3-gobject   # D-Bus (rpm-ostree, Flatpak) a GLib-en keresztül
+
+  # A GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése a háttérben
+  - type: systemd
+    user:
+      enabled:
+        - sloth-github-bundle-update.timer
