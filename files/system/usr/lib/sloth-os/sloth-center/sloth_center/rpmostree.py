@@ -157,3 +157,26 @@ class RpmOstree:
         """Váltás másik image-re (pl. NVIDIA-s változat). A csomagrétegek megmaradnak."""
         self._start("Rebase", GLib.Variant("(a{sv}sas)", (_asv({"reboot": False}), refspec, [])),
                     "(s)", on_address, on_error)
+
+    def kernel_args_string(self):
+        """A következő indításkor használt kernelparaméterek (egy szövegként)."""
+        try:
+            cfg = self.os.call_sync("GetDeploymentBootConfig", GLib.Variant("(sb)", ("", False)),
+                                    Gio.DBusCallFlags.NONE, -1, None).unpack()[0]
+            return cfg.get("options", "")
+        except GLib.Error:
+            return ""
+
+    def set_kernel_args(self, added, removed, on_address, on_error):
+        existing = self.kernel_args_string()
+        self._start("KernelArgs", GLib.Variant("(sasasasa{sv})", (existing, added, [], removed,
+                    _asv({"initiating-command-line": "Sloth Központ: kernelparaméterek"}))),
+                    "(s)", on_address, on_error)
+
+    def layered_packages(self):
+        d = self.default() or self.booted()
+        return sorted(set(d.get("requested-packages", []) or []))
+
+    def pkg_change(self, added, removed, on_address, on_error):
+        self._start("PkgChange", GLib.Variant("(a{sv}asas)", (_asv({"reboot": False}), added, removed)),
+                    "(s)", on_address, on_error)

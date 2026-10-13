@@ -56,6 +56,12 @@ def boot_menu(mode):
         run(["grub2-editenv", "-", "unset", "menu_auto_hide"])
     os.makedirs("/var/lib/sloth-os", exist_ok=True)
     open("/var/lib/sloth-os/boot-menu-configured", "w").close()
+    # Jelzőfájl, hogy a GUI jelszó nélkül lássa az állapotot (a grubenv csak rootnak olvasható)
+    marker = "/var/lib/sloth-os/boot-menu-visible"
+    if mode == "visible":
+        open(marker, "w").close()
+    elif os.path.exists(marker):
+        os.unlink(marker)
     return {"ok": r.returncode == 0, "error": r.stderr.strip()}
 
 
