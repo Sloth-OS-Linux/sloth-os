@@ -27,13 +27,16 @@ def main():
     # A vezérlők a gi-t (GLib) használják; a Qt eseményhurka a GLib-é, így a
     # D-Bus callbackek gond nélkül megérkeznek.
     from .updates import UpdatesController
+    from .services import ServicesController
     from .winprograms import WinProgramsController
 
     engine = QQmlApplicationEngine()
     updates = UpdatesController()
     winprograms = WinProgramsController()
+    services = ServicesController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
+    engine.rootContext().setContextProperty("services", services)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1

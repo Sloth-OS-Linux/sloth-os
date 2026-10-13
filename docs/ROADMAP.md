@@ -52,7 +52,7 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   - [ ] Driverek és hardver: GPU, NVIDIA ↔ AMD/Intel image váltás (`rpm-ostree rebase`), Secure Boot kulcs regisztrálása (`mokutil`), kontrollerek
   - [ ] Rendszercsomagok (haladó): RPM rétegezés és eltávolítás (`rpm-ostree install/uninstall/reset`)
   - [ ] Rendszerindítás (haladó): kernelparaméterek (`rpm-ostree kargs`)
-  - [ ] Szolgáltatások: be/ki kapcsolás, állapot (`systemctl`, rendszer és felhasználói)
+  - [x] Szolgáltatások: gyakoriak érthető névvel és kapcsolóval, haladó lista indítás/leállítással (`systemctl`). Hátravan: felhasználói szolgáltatások
   - [ ] Rendszer egészség: „Mi a baj?” nézet a logokból, emberi nyelven (`journalctl`)
   - [ ] Lemezek: tárhely-használat, lemezellenőrzés (`df`, `smartctl`)
   - [ ] Fejlesztői környezetek: Distrobox konténerek létrehozása, appok exportálása a menübe (`distrobox`)
