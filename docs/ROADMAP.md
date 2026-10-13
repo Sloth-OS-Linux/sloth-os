@@ -9,7 +9,16 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [x] Gaming csomagok: gamescope, mangohud, gamemode
 - [x] Előtelepítve csak a Steam; minden más appot a felhasználó választ az üdvözlő varázslóban (a Firefox RPM is kikerül)
 - [x] Első sikeres build GitHub Actionsben (mindkét image)
-- [ ] Teszt VM-ben és a saját gépen
+- [ ] Teszt VM-ben és a saját gépen. Első VM-teszt (2026-10-13), eredmények:
+  - [x] Rejtett boot menü, Plymouth animáció, „Sloth OS” név (TTY, gépnév, Plasma Setup „A gépházban: Sloth OS”)
+  - [x] Sloth Üdvözlő elindul teljes képernyőn; színtéma-váltás azonnal működik; tálca-elrendezés választható; mind a 6 kategória megjelenik
+  - [ ] Appok telepítése a varázslóból (a teszt-proxy hibája miatt még nem futott le)
+  - [ ] Javítani: a „Csevegés” kategória ikonja hiányzik (`internet-chat` nincs a Breeze-ben)
+  - [ ] Javítani: az appkártyákon a nem kijelölt is pipát mutat, a kijelölés alig látszik
+  - [ ] Javítani: a színtéma-kártyák nincsenek középre igazítva
+  - [ ] Asztal, tálca, Sloth Központ, .exe kezelő, boot közbeni betöltőképernyő még nincs megnézve
+  - Megjegyzés: a szöveges kickstart telepítés `multi-user.target`-et állít be (kell: `xconfig --startxonboot`),
+    és ha a telepítő nem hoz létre `/etc/plasma-setup-done`-t, a KDE Plasma Setup varázslója jön elő
 
 ## 1. fázis – Saját arc
 - [x] Logó: matt ezüst lajhár-arc, körvonal nélkül (`files/system/usr/share/sloth-os/logo/`, forrás: `docs/branding/`)
@@ -84,5 +93,7 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
 
 ## 4. fázis – Kiadás
 - [ ] Repó publikussá tétele, napi automatikus build visszakapcsolása (`.github/workflows/build.yml`)
-- [ ] Telepítő ISO
+- [ ] Telepítő ISO (privát repóban a 2 GB-os kiadás- és 500 MB-os tárhelykorlát miatt csak publikussá tétel után).
+  Ötlet: Windows-szerű első indítás a KDE Plasma Setup-pal (fiók, nyelv, billentyűzet), utána a Sloth Üdvözlő;
+  ehhez a Plasma Setup háttere legyen a Sloth OS háttérkép
 - [ ] Weboldal, letöltés, dokumentáció
