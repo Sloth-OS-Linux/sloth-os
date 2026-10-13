@@ -38,7 +38,7 @@ terminálból lehet csinálni, GUI-ból is menjen.
   - [ ] Játékonkénti javítások automatikusan (umu adatbázis: GAMEID a program neve alapján)
 - [x] Steamben a Proton alapból bekapcsolva minden játékra (`sloth-steam-proton-default.service`; VM-ben még tesztelni)
 - [x] MangoHud / gamescope Flatpak Vulkan rétegek a Steam Flatpakhoz (`sloth-steam-vulkan-layers.timer`; VM-ben még tesztelni)
-- [ ] Érthető hibaüzenet, ha egy játék anti-cheat miatt nem futhat Linuxon
+- [x] Érthető hibaüzenet, ha egy játék anti-cheat miatt nem futhat Linuxon (.exe kezelő: Vanguard, FACEIT, Ricochet… esetén rögtön szól; Easy Anti-Cheat / BattlEye esetén akkor, ha a játék gyorsan kilép). Hátravan: ugyanez a Steames játékoknál
 
 ## 3. fázis – Saját GUI eszközök
 Cél: **minden terminálos feladatnak legyen grafikus megfelelője.** Ahol a KDE-nek már van jó GUI-ja, azt használjuk

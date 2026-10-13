@@ -9,7 +9,7 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
 from PySide6.QtWidgets import QApplication
 
-from . import programs
+from . import anticheat, programs
 from .runner import Runner
 
 log = logging.getLogger("sloth-exe")
@@ -37,6 +37,7 @@ class ExeController(QObject):
         self._shortcuts = []
         self._program = None
         self._mode = ""  # "install" | "run"
+        self._anticheat = None
         self._runner = Runner(self)
         self._runner.status.connect(self._on_status)
         self._runner.setup_done.connect(self._on_setup_done)
@@ -119,6 +120,12 @@ class ExeController(QObject):
     # --- Belső -------------------------------------------------------------------
 
     def _start_run(self):
+        found = anticheat.detect(self._exe)
+        self._anticheat = found
+        if found and not found[1]:
+            # Ismerten Linux-ellenes csalásvédelem: ne próbálkozzunk hiába
+            self._fail(anticheat.blocked_text(self._name, found[0]))
+            return
         self._mode = "run"
         self._set_working(f"{self._name} indítása…")
         self._runner.start(self._program, self._exe, wait_for_exit=False)
@@ -168,8 +175,11 @@ class ExeController(QObject):
             self._after_install()
             return
         if code != 0 and elapsed < STARTED_AFTER_S:
-            self._fail(f"A(z) {self._name} nem indult el. Lehet, hogy ez a program nem működik ezen a "
-                       "rendszeren, vagy sérült a fájl.")
+            if self._anticheat:
+                self._fail(anticheat.maybe_text(self._name, self._anticheat[0]))
+            else:
+                self._fail(f"A(z) {self._name} nem indult el. Lehet, hogy ez a program nem működik ezen a "
+                           "rendszeren, vagy sérült a fájl.")
             return
         QApplication.quit()
 
