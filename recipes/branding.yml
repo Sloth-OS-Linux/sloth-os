@@ -9,3 +9,4 @@ modules:
   - type: script
     scripts:
       - branding.sh
+      - theme.sh

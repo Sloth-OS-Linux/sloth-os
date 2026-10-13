@@ -1,0 +1,163 @@
+#!/usr/bin/env python3
+"""Bekapcsolja a Steamben a Protont minden játékra ("Steam Play minden más címhez").
+
+Bejelentkezéskor fut (sloth-steam-proton-default.service, felhasználói szolgáltatás).
+A Steam config.vdf fájljába beírja a CompatToolMapping "0" bejegyzést, ami a
+Steam beállításaiban a "Steam Play engedélyezése minden más címhez" kapcsoló.
+
+- Csak egyszer állítja be: utána egy jelzőfájl miatt nem nyúl hozzá, így ha a
+  felhasználó kikapcsolja, az úgy marad.
+- Ha a Steam fut, nem csinál semmit (kilépéskor felülírná a config.vdf-et);
+  a következő bejelentkezéskor újra próbálja.
+- Ha a felhasználó már beállított valamit, azt nem írja felül.
+"""
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+STEAM_APP = "com.valvesoftware.Steam"
+# A "proton_experimental" név nem változik a Proton-verziókkal, így nem avul el.
+DEFAULT_TOOL = "proton_experimental"
+
+HOME = Path.home()
+CONFIG = HOME / ".var/app" / STEAM_APP / ".local/share/Steam/config/config.vdf"
+STATE_DIR = Path(os.environ.get("XDG_STATE_HOME", HOME / ".local/state")) / "sloth-os"
+MARKER = STATE_DIR / "steam-proton-default.done"
+
+
+# --- Minimális VDF (Valve KeyValues) olvasó/író, sorrendtartó ---------------
+
+def tokenize(text):
+    i, n = 0, len(text)
+    while i < n:
+        c = text[i]
+        if c.isspace():
+            i += 1
+        elif text.startswith("//", i):
+            while i < n and text[i] != "\n":
+                i += 1
+        elif c in "{}":
+            yield c
+            i += 1
+        elif c == '"':
+            i += 1
+            buf = []
+            while i < n and text[i] != '"':
+                if text[i] == "\\" and i + 1 < n:
+                    buf.append(text[i:i + 2])
+                    i += 2
+                else:
+                    buf.append(text[i])
+                    i += 1
+            i += 1
+            yield ("str", "".join(buf))
+        else:
+            start = i
+            while i < n and not text[i].isspace() and text[i] not in '{}"':
+                i += 1
+            yield ("str", text[start:i])
+
+
+def parse(text):
+    """Egy listát ad vissza: [(kulcs, érték)], ahol az érték str vagy ilyen lista."""
+    tokens = list(tokenize(text))
+    pos = 0
+
+    def block():
+        nonlocal pos
+        items = []
+        while pos < len(tokens):
+            tok = tokens[pos]
+            if tok == "}":
+                pos += 1
+                return items
+            if tok == "{":
+                raise ValueError("váratlan '{'")
+            key = tok[1]
+            pos += 1
+            nxt = tokens[pos]
+            if nxt == "{":
+                pos += 1
+                items.append((key, block()))
+            else:
+                items.append((key, nxt[1]))
+                pos += 1
+        return items
+
+    return block()
+
+
+def dump(items, depth=0):
+    out = []
+    tab = "\t" * depth
+    for key, value in items:
+        if isinstance(value, list):
+            out.append(f'{tab}"{key}"\n{tab}{{\n{dump(value, depth + 1)}{tab}}}\n')
+        else:
+            out.append(f'{tab}"{key}"\t\t"{value}"\n')
+    return "".join(out)
+
+
+def child(items, key, create=False):
+    """Kis-nagybetű-független keresés (a Steam is így olvassa)."""
+    for k, v in items:
+        if k.lower() == key.lower() and isinstance(v, list):
+            return v
+    if create:
+        new = []
+        items.append((key, new))
+        return new
+    return None
+
+
+# --------------------------------------------------------------------------
+
+def steam_running():
+    try:
+        out = subprocess.run(["flatpak", "ps", "--columns=application"],
+                             capture_output=True, text=True, timeout=10).stdout
+    except (OSError, subprocess.SubprocessError):
+        return False
+    return STEAM_APP in out.split()
+
+
+def steam_installed():
+    return subprocess.run(["flatpak", "info", STEAM_APP],
+                          capture_output=True).returncode == 0
+
+
+def main():
+    if MARKER.exists():
+        return 0
+    if not steam_installed():
+        print("A Steam nincs telepítve, nincs teendő.")
+        return 0
+    if steam_running():
+        print("A Steam fut, a következő bejelentkezéskor újra próbálom.")
+        return 0
+
+    items = parse(CONFIG.read_text(encoding="utf-8", errors="replace")) if CONFIG.exists() else []
+    steam = child(child(child(child(items, "InstallConfigStore", True),
+                              "Software", True), "Valve", True), "Steam", True)
+    mapping = child(steam, "CompatToolMapping", True)
+
+    if child(mapping, "0") is None:
+        mapping.append(("0", [("name", DEFAULT_TOOL), ("config", ""), ("priority", "75")]))
+        CONFIG.parent.mkdir(parents=True, exist_ok=True)
+        if CONFIG.exists():
+            CONFIG.with_suffix(".vdf.sloth-backup").write_bytes(CONFIG.read_bytes())
+        tmp = CONFIG.with_suffix(".vdf.tmp")
+        tmp.write_text(dump(items), encoding="utf-8")
+        tmp.replace(CONFIG)
+        print(f"Steam Play bekapcsolva minden játékra ({DEFAULT_TOOL}).")
+    else:
+        print("A Steam Play már be van állítva, nem nyúlok hozzá.")
+
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    MARKER.touch()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

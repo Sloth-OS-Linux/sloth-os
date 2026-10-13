@@ -1,0 +1,9 @@
+[Unit]
+Description=Sloth OS: Proton bekapcsolása a Steamben minden játékra (egyszeri)
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/steam-proton-default
+
+[Install]
+WantedBy=default.target

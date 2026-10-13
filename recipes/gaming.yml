@@ -14,7 +14,12 @@ modules:
   # A Flatpak Steamen belül a fenti RPM-ek nem látszanak, ezért a MangoHud és
   # gamescope Vulkan rétegeket Flatpakként is feltesszük, a Steam runtime-verziójához
   # igazítva (files/system/usr/libexec/sloth-os/steam-vulkan-layers).
+  # A Steamben a Proton alapból be van kapcsolva minden játékra (egyszer, bejelentkezéskor;
+  # ha a felhasználó kikapcsolja, nem írjuk felül): files/system/usr/libexec/sloth-os/steam-proton-default
   - type: systemd
     system:
       enabled:
         - sloth-steam-vulkan-layers.timer
+    user:
+      enabled:
+        - sloth-steam-proton-default.service
