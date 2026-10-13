@@ -1,0 +1,222 @@
+"""Rendszer egészség: "Mi a baj?" nézet emberi nyelven.
+
+Ellenőrzések: szabad hely, el nem indult szolgáltatások, összeomlott programok,
+memóriahiány, videókártya- és lemezhibák, hőmérséklet. A rendszernaplót a
+journalctl JSON kimenetéből olvassuk (a felhasználó nem látja), a "wheel"
+csoport tagjai olvashatják a teljes naplót.
+"""
+import json
+import logging
+import os
+import re
+import subprocess
+import threading
+from pathlib import Path
+
+from gi.repository import Gio, GLib
+from PySide6.QtCore import QObject, Property, Signal, Slot
+
+log = logging.getLogger("sloth-center.health")
+
+OK, WARN, ERROR = "ok", "warning", "error"
+
+
+def _journal(*args, limit=400):
+    try:
+        r = subprocess.run(["journalctl", "--no-pager", "-o", "json", "-b", "-n", str(limit), *args],
+                           capture_output=True, text=True, timeout=30)
+    except (OSError, subprocess.SubprocessError):
+        return []
+    out = []
+    for line in r.stdout.splitlines():
+        try:
+            out.append(json.loads(line))
+        except ValueError:
+            continue
+    return out
+
+
+def _msg(entry):
+    m = entry.get("MESSAGE", "")
+    if isinstance(m, list):  # bináris üzenet bájtlistaként
+        try:
+            m = bytes(m).decode("utf-8", "replace")
+        except (TypeError, ValueError):
+            m = ""
+    return m or ""
+
+
+def check_disk():
+    worst = None
+    for mount, label in (("/var", "a rendszer és az appok"), (str(Path.home()), "a saját fájljaid")):
+        try:
+            st = os.statvfs(mount)
+        except OSError:
+            continue
+        free = st.f_bavail * st.f_frsize
+        pct = 100 * st.f_bavail / st.f_blocks if st.f_blocks else 100
+        gb = free / 1024 ** 3
+        if pct < 5 or gb < 5:
+            worst = (ERROR, f"Szinte elfogyott a hely a lemezen ({gb:.1f} GB szabad). Emiatt a frissítések és a "
+                            "programok hibázhatnak. Törölj nem használt játékokat vagy fájlokat.".replace(".", ",", 1))
+        elif (pct < 12 or gb < 20) and worst is None:
+            worst = (WARN, f"Kezd fogyni a hely a lemezen ({gb:.0f} GB szabad).")
+    return {"id": "disk", "title": "Tárhely", "icon": "drive-harddisk",
+            "state": worst[0] if worst else OK, "text": worst[1] if worst else "Van elég szabad hely."}
+
+
+def check_failed_units():
+    try:
+        bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
+        units = bus.call_sync("org.freedesktop.systemd1", "/org/freedesktop/systemd1",
+                              "org.freedesktop.systemd1.Manager", "ListUnitsFiltered",
+                              GLib.Variant("(as)", (["failed"],)), GLib.VariantType("(a(ssssssouso))"),
+                              Gio.DBusCallFlags.NONE, 10000, None).unpack()[0]
+    except GLib.Error as e:
+        log.warning("failed units: %s", e.message)
+        units = []
+    names = [u[1] or u[0] for u in units]
+    if not names:
+        return {"id": "units", "title": "Szolgáltatások", "icon": "preferences-system-services",
+                "state": OK, "text": "Minden szolgáltatás rendben elindult."}
+    return {"id": "units", "title": "Szolgáltatások", "icon": "preferences-system-services", "state": WARN,
+            "text": f"{len(names)} szolgáltatás nem indult el: " + ", ".join(names[:4])
+                    + (" …" if len(names) > 4 else "")
+                    + ". Sokszor egy újraindítás megoldja; ha nem, a Szolgáltatások oldalon újraindíthatod.",
+            "action": "services"}
+
+
+def check_crashes():
+    entries = _journal("SYSLOG_IDENTIFIER=systemd-coredump", limit=100)
+    apps = []
+    for e in entries:
+        m = re.search(r"Process \d+ \(([^)]+)\) of user", _msg(e))
+        if m and m.group(1) not in apps:
+            apps.append(m.group(1))
+    if not apps:
+        return {"id": "crash", "title": "Programok", "icon": "tools-report-bug",
+                "state": OK, "text": "Mióta bekapcsoltad a gépet, egy program sem omlott össze."}
+    return {"id": "crash", "title": "Programok", "icon": "tools-report-bug", "state": WARN,
+            "text": "Ezek a programok összeomlottak, mióta bekapcsoltad a gépet: " + ", ".join(apps[:5])
+                    + ". Ha újra előfordul, próbáld meg frissíteni őket a Discoverben."}
+
+
+def check_kernel():
+    """Memóriahiány, videókártya- és lemezhibák a kernel üzeneteiből."""
+    found = {}
+    for e in _journal("-k", "-p", "warning", limit=600):
+        m = _msg(e)
+        low = m.lower()
+        if "out of memory: killed process" in low or "oom-kill" in low:
+            p = re.search(r"\(([^)]+)\)", m)
+            found.setdefault("oom", set()).add(p.group(1) if p else "")
+        elif re.search(r"nvrm: xid|amdgpu.*(ring .* timeout|gpu reset)|i915.*gpu hang|gpu hang", low):
+            found["gpu"] = True
+        elif re.search(r"i/o error|medium error|uncorrectable|ata\d+.*failed command|nvme.*timeout", low):
+            found["disk"] = True
+    items = []
+    if "oom" in found:
+        names = ", ".join(sorted(n for n in found["oom"] if n)) or "egy program"
+        items.append({"id": "oom", "title": "Memória", "icon": "media-flash", "state": WARN,
+                      "text": f"Elfogyott a memória, ezért a rendszer bezárt egy programot ({names}). "
+                              "Zárj be néhány böngészőfület vagy programot, mielőtt játszol."})
+    else:
+        items.append({"id": "oom", "title": "Memória", "icon": "media-flash", "state": OK,
+                      "text": "Nem volt memóriahiány."})
+    items.append({"id": "gpu", "title": "Videókártya", "icon": "video-display",
+                  "state": WARN if found.get("gpu") else OK,
+                  "text": "A videókártya hibát jelzett (például egy játék közben lefagyott a kép). Ha gyakran "
+                          "előfordul, nézd meg a Driverek és hardver oldalt, és hogy nem melegszik-e túl a gép."
+                  if found.get("gpu") else "A videókártya nem jelzett hibát."})
+    items.append({"id": "diskerr", "title": "Lemez állapota", "icon": "drive-harddisk",
+                  "state": ERROR if found.get("disk") else OK,
+                  "text": "A lemez olvasási vagy írási hibát jelzett. Ez a lemez meghibásodásának jele lehet: "
+                          "mentsd el minél előbb a fontos fájljaidat egy másik helyre!"
+                  if found.get("disk") else "A lemez nem jelzett hibát."})
+    return items
+
+
+def check_temperature():
+    hottest, where = 0.0, ""
+    for hw in Path("/sys/class/hwmon").glob("hwmon*"):
+        try:
+            name = (hw / "name").read_text().strip()
+        except OSError:
+            continue
+        for t in hw.glob("temp*_input"):
+            try:
+                c = int(t.read_text().strip()) / 1000
+            except (OSError, ValueError):
+                continue
+            if c > hottest and c < 150:  # 150 felett hibás érzékelő
+                hottest, where = c, name
+    label = {"k10temp": "a processzor", "coretemp": "a processzor", "amdgpu": "a videókártya",
+             "nvme": "az SSD"}.get(where, "egy alkatrész")
+    if hottest >= 95:
+        return {"id": "temp", "title": "Hőmérséklet", "icon": "temperature-warm", "state": ERROR,
+                "text": f"Nagyon meleg {label} ({hottest:.0f} °C). Ellenőrizd, hogy a szellőzők nincsenek-e eltakarva."}
+    if hottest >= 85:
+        return {"id": "temp", "title": "Hőmérséklet", "icon": "temperature-warm", "state": WARN,
+                "text": f"Elég meleg {label} ({hottest:.0f} °C). Játék közben ez normális lehet."}
+    return {"id": "temp", "title": "Hőmérséklet", "icon": "temperature-normal", "state": OK,
+            "text": f"A hőmérséklet rendben van ({hottest:.0f} °C)." if hottest else "Nincs hőmérséklet-adat."}
+
+
+def run_all():
+    results = [check_disk(), check_failed_units(), check_crashes(), *check_kernel(), check_temperature()]
+    order = {ERROR: 0, WARN: 1, OK: 2}
+    return sorted(results, key=lambda r: order[r["state"]])
+
+
+class HealthController(QObject):
+    changed = Signal()
+    _ready = Signal(object)
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._results = []
+        self._busy = False
+        self._saved = ""
+        self._ready.connect(self._on_ready)
+        self.check()
+
+    results = Property("QVariantList", lambda self: list(self._results), notify=changed)
+    busy = Property(bool, lambda self: self._busy, notify=changed)
+    savedPath = Property(str, lambda self: self._saved, notify=changed)
+
+    @Property(str, notify=changed)
+    def summary(self):
+        if self._busy and not self._results:
+            return "Ellenőrzés…"
+        states = [r["state"] for r in self._results]
+        if ERROR in states:
+            return "Valami komoly gondot találtunk"
+        if WARN in states:
+            return "Pár dologra érdemes figyelni"
+        return "Minden rendben van"
+
+    @Slot()
+    def check(self):
+        if self._busy:
+            return
+        self._busy = True
+        self.changed.emit()
+        threading.Thread(target=lambda: self._ready.emit(run_all()), daemon=True).start()
+
+    def _on_ready(self, results):
+        self._results, self._busy = results, False
+        self.changed.emit()
+
+    @Slot(str)
+    def saveLog(self, url):
+        """A teljes napló mentése egy fájlba (segítségkéréshez)."""
+        path = url[7:] if url.startswith("file://") else url
+        try:
+            with open(path, "w", encoding="utf-8") as f:
+                subprocess.run(["journalctl", "--no-pager", "-b", "-n", "5000"], stdout=f,
+                               stderr=subprocess.DEVNULL, timeout=60)
+            self._saved = path
+        except (OSError, subprocess.SubprocessError) as e:
+            log.warning("napló mentése: %s", e)
+            self._saved = ""
+        self.changed.emit()
