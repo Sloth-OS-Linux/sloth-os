@@ -7,9 +7,13 @@ modules:
         - gamescope # mikrokompozitor, felskálázás, HDR
         - mangohud  # FPS / teljesítmény overlay
         - gamemode  # CPU/GPU teljesítmény-mód játék közben
-        # umu-launcher: nincs a Fedora repóban (F43, F44, rawhide; ellenőrizve 2026-10-13).
-        # A Heroic saját maga hozza, így ott már működik. A saját .exe kezelőhöz
-        # (ROADMAP 2. fázis) külön kell majd megoldani.
+
+  # Windows-programok: dupla kattintás egy .exe-re -> telepítés / futtatás (files/system/usr/lib/sloth-os/sloth-exe).
+  # A háttérben az umu-launcher fut; nincs a Fedora repóban, ezért rögzített verziójú GitHub RPM.
+  - type: script
+    scripts:
+      - umu-launcher.sh
+      - exe-handler.sh
 
   # A Flatpak Steamen belül a fenti RPM-ek nem látszanak, ezért a MangoHud és
   # gamescope Vulkan rétegeket Flatpakként is feltesszük, a Steam runtime-verziójához

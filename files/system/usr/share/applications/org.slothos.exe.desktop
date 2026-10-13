@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Windows-programok
+Name[en]=Windows programs
+Comment=Windows-os programok és játékok telepítése és futtatása
+Comment[en]=Install and run Windows programs and games
+Exec=sloth-exe %f
+Icon=application-x-ms-dos-executable
+Terminal=false
+NoDisplay=true
+MimeType=application/x-ms-dos-executable;application/x-msdownload;application/x-msi;application/x-ms-installer;application/vnd.microsoft.portable-executable;application/x-dosexec;
+Categories=Utility;

@@ -24,8 +24,12 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [ ] Ellenőrizni, hol látszik még "Fedora" vagy "Universal Blue" név (bejelentkezés, Rendszerinformáció, boot menü)
 
 ## 2. fázis – Gaming, ami csak működik
-- [ ] umu-launcher beépítése (nincs a Fedora repóban; a Heroic saját maga hozza, a .exe kezelőhöz kell megoldás)
-- [ ] **.exe kezelő:** duplakattintás egy .exe-re → automatikus prefix, Proton verzió, javítások. A felhasználó soha nem látja a "Wine" vagy a "prefix" szót.
+- [x] umu-launcher beépítése (a hivatalos GitHub RPM, rögzített verzió + SHA256: `files/scripts/umu-launcher.sh`)
+- [x] **.exe kezelő** (`files/system/usr/lib/sloth-os/sloth-exe/`; VM-ben még tesztelni): dupla kattintás egy .exe/.msi-re →
+  telepítés (programonként külön mappa, a parancsikonok a Start menübe) vagy indítás; első alkalommal az összetevők
+  letöltése folyamatjelzővel. A felhasználó soha nem látja a "Wine", "Proton" vagy "prefix" szót.
+  - [ ] Hátravan: telepített Windows-programok kezelése (eltávolítás, javítás) a Sloth Központban
+  - [ ] Játékonkénti javítások automatikusan (umu adatbázis: GAMEID a program neve alapján)
 - [x] Steamben a Proton alapból bekapcsolva minden játékra (`sloth-steam-proton-default.service`; VM-ben még tesztelni)
 - [x] MangoHud / gamescope Flatpak Vulkan rétegek a Steam Flatpakhoz (`sloth-steam-vulkan-layers.timer`; VM-ben még tesztelni)
 - [ ] Érthető hibaüzenet, ha egy játék anti-cheat miatt nem futhat Linuxon
