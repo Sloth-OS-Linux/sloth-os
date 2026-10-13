@@ -1,1 +1,1 @@
-Ide kerülnek a Sloth OS saját fájljai: háttérképek, logók, a saját GUI eszközök adatai.
+Sloth OS's own files go here: wallpapers, logos, and data for our GUI tools.

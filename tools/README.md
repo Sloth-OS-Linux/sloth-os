@@ -1,10 +1,10 @@
-# Saját eszközök
+# Our own tools
 
-Ide kerülnek a Sloth OS saját grafikus eszközei (lásd docs/ROADMAP.md, 3. fázis).
+This is where Sloth OS's own graphical tools go (see docs/ROADMAP.md, phase 3).
 
-Javasolt technológia: **Python + Qt (PySide6) / QML**, hogy natívan illeszkedjenek a KDE Plasmához.
-Minden eszköz a saját almappájába kerül.
+Recommended technology: **Python + Qt (PySide6) / QML**, so they fit natively into KDE Plasma.
+Each tool goes into its own subfolder.
 
-FONTOS: a build jelenleg még nem másolja be ezt a mappát az image-be. Az első eszköznél
-fel kell venni egy `files` modul-bejegyzést (vagy egy scriptet) a `recipes/branding.yml`-be,
-ami a `tools/<eszköz>` tartalmát a megfelelő helyre (pl. `/usr/share/sloth-os/`, `/usr/bin/`) teszi.
+IMPORTANT: the build does not copy this folder into the image yet. With the first tool,
+add a `files` module entry (or a script) to `recipes/branding.yml` that puts the contents
+of `tools/<tool>` in the right place (e.g. `/usr/share/sloth-os/`, `/usr/bin/`).
