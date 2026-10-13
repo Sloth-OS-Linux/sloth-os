@@ -1,0 +1,206 @@
+"""Driverek és hardver: videókártya felismerése, NVIDIA <-> AMD/Intel változat váltása,
+Secure Boot kulcs regisztrálása (az NVIDIA driverhez kell).
+"""
+import json
+import logging
+import re
+import subprocess
+from pathlib import Path
+
+from gi.repository import GLib
+from PySide6.QtCore import QObject, Property, Signal, Slot
+
+from . import texts
+from .rpmostree import RpmOstree, Transaction
+
+log = logging.getLogger("sloth-center.drivers")
+
+VENDORS = {"0x10de": "NVIDIA", "0x1002": "AMD", "0x8086": "Intel"}
+PCI_IDS = Path("/usr/share/hwdata/pci.ids")
+HELPER = "/usr/libexec/sloth-os/sloth-helper"
+SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
+
+
+def _pci_name(vendor, device):
+    """Eszköznév a pci.ids-ből (pl. "GeForce RTX 5060")."""
+    v, d = vendor[2:].lower(), device[2:].lower()
+    try:
+        in_vendor = False
+        with PCI_IDS.open(encoding="utf-8", errors="replace") as f:
+            for line in f:
+                if not line.strip() or line.startswith("#"):
+                    continue
+                if not line.startswith("\t"):
+                    in_vendor = line.lower().startswith(v + " ")
+                elif in_vendor and not line.startswith("\t\t") and line[1:].lower().startswith(d + " "):
+                    name = line[1:].split(" ", 1)[1].strip()
+                    m = re.search(r"\[([^\]]+)\]", name)  # "AD106 [GeForce RTX 4060 Ti]" -> a zárójeles rész
+                    return m.group(1) if m else name
+    except OSError:
+        pass
+    return ""
+
+
+def detect_gpus():
+    gpus = []
+    for dev in sorted(Path("/sys/bus/pci/devices").glob("*")):
+        try:
+            cls = (dev / "class").read_text().strip()
+            if not cls.startswith("0x03"):
+                continue
+            vendor = (dev / "vendor").read_text().strip()
+            device = (dev / "device").read_text().strip()
+        except OSError:
+            continue
+        brand = VENDORS.get(vendor, "Egyéb")
+        name = _pci_name(vendor, device)
+        gpus.append({"brand": brand, "name": f"{brand} {name}".strip() if name and brand not in name else (name or brand)})
+    return gpus
+
+
+def _mokutil(*args):
+    try:
+        r = subprocess.run(["mokutil", *args], capture_output=True, text=True, timeout=15)
+        return (r.stdout + r.stderr).lower()
+    except (OSError, subprocess.SubprocessError):
+        return ""
+
+
+class DriversController(QObject):
+    changed = Signal()
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._gpus = detect_gpus()
+        self._image = ""
+        self._ostree = None
+        self._txn = None
+        self._busy = False
+        self._status = ""
+        self._progress = -1
+        self._info = ""
+        self._error = ""
+        self._sb = {"secureBoot": False, "enrolled": None, "pending": False}
+        try:
+            self._ostree = RpmOstree()
+            booted = self._ostree.booted()
+            self._image = str(booted.get("container-image-reference") or booted.get("origin") or "")
+        except GLib.Error as e:
+            log.warning("rpm-ostree: %s", e.message)
+        self.refreshSecureBoot()
+
+    # --- Tulajdonságok ---------------------------------------------------------
+
+    gpus = Property("QVariantList", lambda self: list(self._gpus), notify=changed)
+    busy = Property(bool, lambda self: self._busy, notify=changed)
+    statusText = Property(str, lambda self: self._status, notify=changed)
+    progress = Property(int, lambda self: self._progress, notify=changed)
+    infoText = Property(str, lambda self: self._info, notify=changed)
+    errorText = Property(str, lambda self: self._error, notify=changed)
+
+    @Property(bool, notify=changed)
+    def hasNvidia(self):
+        return any(g["brand"] == "NVIDIA" for g in self._gpus)
+
+    @Property(bool, notify=changed)
+    def nvidiaImage(self):
+        return "sloth-os-nvidia" in self._image
+
+    @Property(bool, notify=changed)
+    def canSwitch(self):
+        return bool(re.search(r"sloth-os(-nvidia)?:", self._image)) and self._ostree is not None
+
+    @Property(bool, notify=changed)
+    def mismatch(self):
+        """Rossz változat fut: NVIDIA kártya van, de nem az NVIDIA-s image (vagy fordítva)."""
+        return self.canSwitch and self.hasNvidia != self.nvidiaImage
+
+    @Property(bool, notify=changed)
+    def secureBoot(self):
+        return bool(self._sb.get("secureBoot"))
+
+    @Property(bool, notify=changed)
+    def keyNeeded(self):
+        """Secure Boot be van kapcsolva, NVIDIA-s image fut, és a kulcs még nincs regisztrálva."""
+        return self.secureBoot and self.nvidiaImage and self._sb.get("enrolled") is False \
+            and not self._sb.get("pending")
+
+    @Property(bool, notify=changed)
+    def keyPending(self):
+        return bool(self._sb.get("pending"))
+
+    # --- Secure Boot -------------------------------------------------------------
+
+    @Slot()
+    def refreshSecureBoot(self):
+        sb = _mokutil("--sb-state")
+        state = {"secureBoot": "secureboot enabled" in sb, "enrolled": None, "pending": False}
+        if Path(SB_KEY).exists():
+            t = _mokutil("--test-key", SB_KEY)
+            state["enrolled"] = "already enrolled" in t
+            state["pending"] = "already in the enrollment request" in t
+        self._sb = state
+        self.changed.emit()
+
+    @Slot()
+    def enrollKey(self):
+        self._error = ""
+        try:
+            r = subprocess.run(["pkexec", HELPER, "secureboot-enroll"], capture_output=True, text=True, timeout=300)
+            result = json.loads(r.stdout or "{}")
+        except (OSError, subprocess.SubprocessError, ValueError) as e:
+            log.warning("secureboot-enroll: %s", e)
+            result = {"ok": False}
+        if result.get("ok"):
+            self._info = "enrolled"
+        elif r.returncode in (126, 127):
+            self._error = "Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad."
+        else:
+            self._error = "Nem sikerült előkészíteni a kulcs regisztrálását. Próbáld újra."
+        self.refreshSecureBoot()
+
+    # --- Változat váltása -----------------------------------------------------------
+
+    @Slot()
+    def switchVariant(self):
+        if not self.canSwitch or self._busy:
+            return
+        to_nvidia = not self.nvidiaImage
+        if to_nvidia:
+            target = re.sub(r"sloth-os:", "sloth-os-nvidia:", self._image, count=1)
+        else:
+            target = self._image.replace("sloth-os-nvidia:", "sloth-os:", 1)
+        self._busy, self._error, self._info = True, "", ""
+        self._status = "Az új változat letöltése…"
+        self._progress = -1
+        self.changed.emit()
+
+        def on_task(raw):
+            log.info("%s", raw)
+            self._status = texts.stage_text(raw, self._status).replace("Frissítés", "A váltás")
+            self.changed.emit()
+
+        def on_percent(p):
+            self._progress = p
+            self.changed.emit()
+
+        def on_download(t, rate):
+            self._info = texts.download_text(t, rate)
+            self.changed.emit()
+
+        def on_finished(ok, raw):
+            self._busy, self._txn = False, None
+            if ok:
+                self._info = "switched"
+            else:
+                log.warning("rebase: %s", raw)
+                self._error = texts.error_text(raw)
+            self.changed.emit()
+
+        def on_address(address):
+            self._txn = Transaction(address, on_task, on_percent, on_download, on_finished)
+
+        def on_error(raw):
+            on_finished(False, raw)
+
+        self._ostree.rebase(target, on_address, on_error)

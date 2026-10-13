@@ -49,9 +49,12 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   - [ ] Az ArtCraft frissítése (GitHub-csomagként települ, a Flathub nem frissíti): saját frissítő
 - [ ] **Sloth Központ** (egy app, modulokra bontva; `files/system/usr/lib/sloth-os/sloth-center/`):
   - [x] Frissítések és visszaállítás (keresés, telepítés folyamatjelzővel, újraindítás, vissza az előzőre; VM-ben még tesztelni). Hátravan: verzió megtartása (pin): verziók listája, „vissza az előzőre”, verzió megtartása (`rpm-ostree status/rollback/deploy --pin`)
-  - [ ] Driverek és hardver: GPU, NVIDIA ↔ AMD/Intel image váltás (`rpm-ostree rebase`), Secure Boot kulcs regisztrálása (`mokutil`), kontrollerek
+  - [x] Driverek és hardver: videókártya felismerése, NVIDIA ↔ AMD/Intel változat váltása (`rpm-ostree rebase`),
+    Secure Boot kulcs regisztrálása lépésenkénti útmutatóval (`mokutil`); VM-ben és Secure Boot-os gépen még tesztelni.
+    Hátravan: kontrollerek. Megjegyzés: amíg a repó privát, a váltáshoz registry-bejelentkezés kell (Fejlesztői pult)
+  - [x] Közös rendszergazdai segéd (`/usr/libexec/sloth-os/sloth-helper` + polkit `org.slothos.helper`): rögzített műveletek, grafikus jelszókérővel
   - [ ] Rendszercsomagok (haladó): RPM rétegezés és eltávolítás (`rpm-ostree install/uninstall/reset`)
-  - [ ] Rendszerindítás (haladó): kernelparaméterek (`rpm-ostree kargs`)
+  - [ ] Rendszerindítás (haladó): kernelparaméterek (`rpm-ostree kargs`), boot menü mutatása dual boothoz (a segédben már megvan: `boot-menu`)
   - [x] Szolgáltatások: gyakoriak érthető névvel és kapcsolóval, haladó lista indítás/leállítással (`systemctl`). Hátravan: felhasználói szolgáltatások
   - [ ] Rendszer egészség: „Mi a baj?” nézet a logokból, emberi nyelven (`journalctl`)
   - [ ] Lemezek: tárhely-használat, lemezellenőrzés (`df`, `smartctl`)

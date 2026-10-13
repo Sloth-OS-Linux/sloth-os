@@ -148,3 +148,8 @@ class RpmOstree:
     def rollback(self, on_address, on_error):
         self._start("Rollback", GLib.Variant("(a{sv})", (_asv({"reboot": False}),)),
                     "(s)", on_address, on_error)
+
+    def rebase(self, refspec, on_address, on_error):
+        """Váltás másik image-re (pl. NVIDIA-s változat). A csomagrétegek megmaradnak."""
+        self._start("Rebase", GLib.Variant("(a{sv}sas)", (_asv({"reboot": False}), refspec, [])),
+                    "(s)", on_address, on_error)

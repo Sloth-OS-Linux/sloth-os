@@ -1,0 +1,91 @@
+#!/usr/bin/python3 -I
+"""Sloth OS rendszergazdai segéd: a GUI eszközök ezen keresztül végzik a root műveleteket.
+
+Csak pkexec-kel indítható (polkit: org.slothos.helper, grafikus jelszókérő).
+Minden művelet előre rögzített, a paramétereket szigorúan ellenőrizzük;
+tetszőleges parancsot nem lehet vele futtatni.
+
+Műveletek:
+  secureboot-status          Secure Boot állapota és a Sloth OS kulcs regisztrálva van-e (JSON)
+  secureboot-enroll          a kulcs regisztrálásának előkészítése a következő újraindításra
+  boot-menu hidden|visible   a GRUB boot menü elrejtése / mindig mutatása
+  pin <index> | unpin <index>  egy rendszerverzió megtartása / elengedése
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+
+SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
+# A Universal Blue kulcs regisztrációs jelszava; a felhasználó ezt írja be a kék képernyőn
+SB_PASSWORD = "universalblue"
+
+
+def run(cmd, **kw):
+    return subprocess.run(cmd, capture_output=True, text=True, timeout=120, **kw)
+
+
+def secureboot_status():
+    sb = run(["mokutil", "--sb-state"])
+    enabled = "enabled" in (sb.stdout + sb.stderr).lower()
+    enrolled = None
+    pending = False
+    if os.path.exists(SB_KEY):
+        t = run(["mokutil", "--test-key", SB_KEY])
+        out = (t.stdout + t.stderr).lower()
+        enrolled = "already enrolled" in out
+        pending = "already in the enrollment request" in out
+    return {"secureBoot": enabled, "keyPresent": os.path.exists(SB_KEY),
+            "enrolled": enrolled, "pending": pending}
+
+
+def secureboot_enroll():
+    if not os.path.exists(SB_KEY):
+        return {"ok": False, "error": "nincs kulcs"}
+    run(["mokutil", "--timeout", "-1"])
+    r = run(["mokutil", "--import", SB_KEY], input=f"{SB_PASSWORD}\n{SB_PASSWORD}\n")
+    ok = r.returncode == 0 or "already" in (r.stdout + r.stderr).lower()
+    return {"ok": ok, "error": "" if ok else (r.stderr or r.stdout).strip()}
+
+
+def boot_menu(mode):
+    value = "1" if mode == "hidden" else "0"
+    r = run(["grub2-editenv", "-", "set", f"menu_auto_hide={value}"])
+    if mode == "visible":
+        run(["grub2-editenv", "-", "unset", "menu_auto_hide"])
+    os.makedirs("/var/lib/sloth-os", exist_ok=True)
+    open("/var/lib/sloth-os/boot-menu-configured", "w").close()
+    return {"ok": r.returncode == 0, "error": r.stderr.strip()}
+
+
+def pin(index, unpin=False):
+    cmd = ["ostree", "admin", "pin"] + (["--unpin"] if unpin else []) + [str(index)]
+    r = run(cmd)
+    return {"ok": r.returncode == 0, "error": r.stderr.strip()}
+
+
+def main(argv):
+    if os.geteuid() != 0:
+        print(json.dumps({"ok": False, "error": "root kell"}))
+        return 1
+    if not argv:
+        return 2
+    op, args = argv[0], argv[1:]
+    if op == "secureboot-status" and not args:
+        result = secureboot_status()
+    elif op == "secureboot-enroll" and not args:
+        result = secureboot_enroll()
+    elif op == "boot-menu" and args in (["hidden"], ["visible"]):
+        result = boot_menu(args[0])
+    elif op in ("pin", "unpin") and len(args) == 1 and re.fullmatch(r"\d{1,2}", args[0]):
+        result = pin(int(args[0]), unpin=(op == "unpin"))
+    else:
+        print(json.dumps({"ok": False, "error": "ismeretlen művelet"}))
+        return 2
+    print(json.dumps(result))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

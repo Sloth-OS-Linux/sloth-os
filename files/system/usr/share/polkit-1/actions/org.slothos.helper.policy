@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+  "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<!-- A Sloth OS GUI eszközeinek rendszergazdai műveletei (Sloth Központ). -->
+<policyconfig>
+  <vendor>Sloth OS</vendor>
+  <action id="org.slothos.helper">
+    <description>Rendszerbeállítás módosítása</description>
+    <description xml:lang="en">Change a system setting</description>
+    <message>A Sloth Központ egy rendszerbeállítást szeretne módosítani. Ehhez add meg a jelszavad.</message>
+    <message xml:lang="en">Sloth Center wants to change a system setting. Enter your password to allow it.</message>
+    <icon_name>sloth-os</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper</annotate>
+  </action>
+</policyconfig>
