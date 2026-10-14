@@ -4,7 +4,6 @@ A felhasználó a technikai részleteket nem látja: a kimenetből csak emberi
 állapotszöveg lesz ("Első indítás előkészítése…"), a többi a naplóba megy.
 """
 import logging
-import os
 import re
 import time
 
@@ -35,15 +34,17 @@ class Runner(QObject):
         self._started_at = 0.0
         self._setup_seen = False
 
-    def start(self, program, exe, wait_for_exit=False):
+    def start(self, program, exe):
         """program: programs.Program, exe: a futtatandó fájl a gazdagépen."""
         program.prefix.mkdir(parents=True, exist_ok=True)
         env = QProcessEnvironment.systemEnvironment()
         env.insert("WINEPREFIX", str(program.prefix))
         env.insert("GAMEID", program.meta.get("gameid", "umu-default"))
         env.insert("STORE", "none")
-        # Telepítőnél megvárjuk, amíg minden folyamat kilép
-        env.insert("PROTON_VERB", "waitforexitandrun" if wait_for_exit else "run")
+        # Mindig megvárjuk, amíg a program összes folyamata kilép. "run" mellett a
+        # futtató az első folyamattal együtt leáll, és bezárja, amit az elindított:
+        # az indítóprogramok (Battle.net, EA, Epic, Ubisoft) ezért azonnal bezáródnának.
+        env.insert("PROTON_VERB", "waitforexitandrun")
         env.insert("WINEDEBUG", "-all")
         # A Wine ne hozzon létre saját menübejegyzéseket: azokat mi kezeljük
         env.insert("WINEDLLOVERRIDES", "winemenubuilder.exe=d")

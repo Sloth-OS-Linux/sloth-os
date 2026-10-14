@@ -112,7 +112,7 @@ class ExeController(QObject):
         self._program.save_meta(name=self._name, installer=str(self._exe))
         self._mode = "install"
         self._set_working(f"{self._name} telepítésének előkészítése…")
-        self._runner.start(self._program, self._exe, wait_for_exit=True)
+        self._runner.start(self._program, self._exe)
 
     @Slot(bool)
     def run(self, add_to_menu):
@@ -153,7 +153,7 @@ class ExeController(QObject):
             return
         self._mode = "run"
         self._set_working(f"{self._name} indítása…")
-        self._runner.start(self._program, self._exe, wait_for_exit=False)
+        self._runner.start(self._program, self._exe)
         self._started_timer.start()
 
     def _set_working(self, text):

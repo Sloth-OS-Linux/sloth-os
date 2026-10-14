@@ -47,20 +47,23 @@ class UpdatesController(QObject):
 
     # --- Tulajdonságok a QML-nek ------------------------------------------
 
-    def _p(name, attr, typ=str):  # noqa: N805 – kis segéd a tulajdonságokhoz
-        return Property(typ, lambda self: getattr(self, attr), notify=changed)
+    # A segéd a jelzést paraméterként kapja: az osztálytörzs nevei (pl. "changed")
+    # a benne definiált függvényekből nem látszanak.
+    def _p(attr, typ=str, notify=changed):  # noqa: N805 – kis segéd a tulajdonságokhoz
+        return Property(typ, lambda self: getattr(self, attr), notify=notify)
 
-    currentVersion = _p("currentVersion", "_current")
-    pendingVersion = _p("pendingVersion", "_pending")
-    rollbackVersion = _p("rollbackVersion", "_rollback")
-    availableVersion = _p("availableVersion", "_available")
-    statusText = _p("statusText", "_status")
-    detailText = _p("detailText", "_detail")
-    errorText = _p("errorText", "_error")
-    infoText = _p("infoText", "_info")
-    unavailableText = _p("unavailableText", "_unavailable")
-    progress = _p("progress", "_progress", int)
-    mode = _p("mode", "_mode")
+    currentVersion = _p("_current")
+    pendingVersion = _p("_pending")
+    rollbackVersion = _p("_rollback")
+    availableVersion = _p("_available")
+    statusText = _p("_status")
+    detailText = _p("_detail")
+    errorText = _p("_error")
+    infoText = _p("_info")
+    unavailableText = _p("_unavailable")
+    progress = _p("_progress", int)
+    mode = _p("_mode")
+    del _p
 
     @Property(bool, notify=changed)
     def busy(self):
