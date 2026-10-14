@@ -3,7 +3,12 @@
 Alapelv: **ha a felhasználónak terminált kell nyitnia, az a mi hibánk.** A Konsole megmarad, de minden, amit
 terminálból lehet csinálni, GUI-ból is menjen.
 
-## Hol tartunk (2026-10-14 este)
+## Hol tartunk (2026-10-15)
+- Teendők 2026-10-15-re: új ISO és teljes VM-teszt (fiók a telepítőben, KDE-varázsló nélküli első indulás, rejtett
+  GRUB és csendes boot, Üdvözlő, asztal, Sloth Központ, .exe kezelő); a gaming-pontok átnézése; Fejlesztői pult.
+- Minden fordítás kész (Üdvözlő, telepítő, .exe kezelő, Sloth Központ: 50 nyelv); anyanyelvi átnézés hátravan.
+
+## Korábban (2026-10-14 este)
 - Harmadik VM-teszt (új ISO, 4 GB RAM, internet nélkül): a saját telepítő végigment. Működik: nyelvváltás,
   élő billentyűzetváltás a próbamezőben, lemeznév (`vda · HDD · 43 GB`), fókuszkeret, haladó folyamatjelző,
   újrapróbálás hiba után, munkapartíció (rendszerszinten a `/var/tmp` fölé csatolva, utána a rendszerpartíció
@@ -54,7 +59,7 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [x] Windows-szerű alapértelmezett Plasma-elrendezés: tálca alul, start menü a logóval, rögzített appok; bejelentkezés utáni betöltőképernyő a boot animációval (`files/system/usr/share/plasma/look-and-feel/org.slothos.desktop/`; VM-ben még tesztelni)
 - [x] Más elrendezések választhatóan az üdvözlő varázslóban: Windows 10, Windows 11 (középre igazított), macOS-szerű (felső sáv + lebegő dokk); VM-ben még tesztelni
 - [x] Színtémák: Silver sötét (alapértelmezett) és világos, Hófehér, Éjfekete, Ködkék, Éjkék, Zsálya (`tools/branding/gen_colors.py`, előnézet: `docs/branding/color-schemes-preview.png`)
-- [ ] Saját Plasma téma (panel, ablakkeret)
+- [x] Saját Plasma téma: a stílus kész, mást nem tervezünk (döntés: 2026-10-15)
 - [x] Bejelentkező képernyő (Plasma Login Manager, tartalékként SDDM): Sloth OS háttérkép, Sloth Silver színek; VM-ben még tesztelni
 - [ ] Ellenőrizni, hol látszik még "Fedora" vagy "Universal Blue" név. Eddig:
   - [x] Rendszerinformáció, boot menü bejegyzések, gépnév: az os-release-ből jönnek (Sloth OS)
@@ -153,13 +158,15 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   (`sloth_common/gamesettings.py`). VM-ben és valódi játékkal még tesztelni
 
 ### Meglévő KDE / Flatpak GUI-k (ellenőrizni, hogy benne vannak-e az image-ben)
+Döntés (2026-10-15): az image-ben csak az marad, ami a rendszer működéséhez elengedhetetlen; a többi
+(pl. Partíciókezelő, Rendszerfigyelő) a Discoverből telepíthető.
 - [ ] Appok és frissítések: Discover · Flatpak jogosultságok: Rendszerbeállítások
 - [ ] Tűzfal (`firewall-cmd`): Rendszerbeállítások tűzfal modul
 - [ ] Partíciók (`fdisk`, `mkfs`): KDE Partíciókezelő
 - [ ] Folyamatok (`top`, `kill`): Rendszerfigyelő
 - [ ] Hálózat, VPN, nyomtatók, felhasználók, gépnév: Rendszerbeállítások
 
-### Fejlesztői pult (a Sloth OS fejlesztéséhez)
+### Fejlesztői pult (a Sloth OS fejlesztéséhez) – teendő 2026-10-15-re
 - [ ] Repó és aláíró kulcs beállítása egy varázslóban (`gh`, `cosign`, GitHub secret)
 - [ ] Build indítása és állapota, logok, Actions-perc felhasználás (`gh run`)
 - [ ] Kipróbálás: VM indítása / tesztgép átállítása egy image-re (`rpm-ostree rebase`, privát registry bejelentkezés)
