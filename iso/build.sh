@@ -32,7 +32,8 @@ chmod 0755 /usr/bin/sloth-installer /usr/libexec/sloth-os/sloth-install-helper
 auth=()
 [[ -s /run/secrets/registry-auth ]] && auth=(--authfile /run/secrets/registry-auth)
 mkdir -p "$(dirname "$PAYLOAD")"
-skopeo copy "${auth[@]}" --retry-times 3 "docker://${SOURCE_IMAGE}" "oci:${PAYLOAD}:latest"
+# Az aláírást a letöltéskor a policy.json ellenőrzi; az OCI-könyvtár aláírást nem tud tárolni
+skopeo copy "${auth[@]}" --retry-times 3 --remove-signatures "docker://${SOURCE_IMAGE}" "oci:${PAYLOAD}:latest"
 cat > /usr/share/sloth-os/installer/image.conf <<EOF
 SOURCE_IMGREF=oci:${PAYLOAD}:latest
 TARGET_IMGREF=${TARGET_IMAGE}
