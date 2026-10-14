@@ -3,7 +3,18 @@
 Alapelv: **ha a felhasználónak terminált kell nyitnia, az a mi hibánk.** A Konsole megmarad, de minden, amit
 terminálból lehet csinálni, GUI-ból is menjen.
 
-## Hol tartunk (2026-10-14)
+## Hol tartunk (2026-10-14 este)
+- Harmadik VM-teszt (új ISO, 4 GB RAM, internet nélkül): a saját telepítő végigment. Működik: nyelvváltás,
+  élő billentyűzetváltás a próbamezőben, lemeznév (`vda · HDD · 43 GB`), fókuszkeret, haladó folyamatjelző,
+  újrapróbálás hiba után, munkapartíció (rendszerszinten a `/var/tmp` fölé csatolva, utána a rendszerpartíció
+  39,5 GB-ra nőtt), boot-bejegyzés átnevezése, nyelv/billentyűzet beírása, Firefox átmásolása internet nélkül;
+  a KDE üdvözlője nem jön elő. Az első indulás magyarul hozza a Plasma Setupot.
+  Ott álltunk meg: Plasma Setup, fiók létrehozása (teszt / sloth). Következik: Sloth Üdvözlő (új „Jelszavak”
+  lépés), asztal, Sloth Központ új oldalai, .exe kezelő.
+  Új teendők a tesztből:
+  - [ ] A Plasma Setup újra rákérdez a nyelvre, a billentyűzetre és a sötét témára (a telepítő és az Üdvözlő
+    már kérdezi): ezeket a lapokat el kell rejteni, csak a fiók létrehozása maradjon
+  - [ ] Az új ISO-ba már a javított telepítő-segéd kell (a VM-ben kézzel volt átmásolva): új ISO építése
 - Második VM-teszt (első saját ISO, 6,8 GB): rejtett GRUB, szöveg nélküli boot, Firefox a tálcán, nyelvváltás
   a választón azonnal: rendben. A telepítés nem ment végig; a talált hibák javítva (4. fázis, „Saját telepítő”),
   de VM-ben még újra kell nézni. Következő lépés: új ISO (`tools/build-iso.sh` Linuxon, `tools/build-iso.ps1`
