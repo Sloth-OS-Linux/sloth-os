@@ -3,7 +3,7 @@ import logging
 import os
 from pathlib import Path
 
-from PySide6.QtCore import QObject, Property, Signal, Slot
+from PySide6.QtCore import QObject, Property, Qt, Signal, Slot
 from PySide6.QtWidgets import QApplication
 
 from . import catalog, desktop, i18n
@@ -20,6 +20,13 @@ DONE_MARKER = CONFIG_DIR / "welcome-done"
 PAGE_WELCOME, PAGE_LOOK, PAGE_CATEGORY, PAGE_INSTALL, PAGE_DONE = range(5)
 STEPS = (["welcome", "look"] + [f"cat{i}" for i in range(len(catalog.CATEGORIES))]
          + ["install", "done"])
+
+
+def apply_language():
+    """Ablakcím és írásirány a választott nyelvhez (arab, héber: jobbról balra, tükrözve)."""
+    QApplication.setApplicationDisplayName(tr("app.title"))
+    QApplication.setLayoutDirection(Qt.LayoutDirection.RightToLeft if i18n.is_rtl()
+                                    else Qt.LayoutDirection.LeftToRight)
 
 
 class WelcomeController(QObject):
@@ -104,7 +111,7 @@ class WelcomeController(QObject):
     def setLanguage(self, code):
         if code != i18n.language():
             i18n.set_language(code)
-            QApplication.setApplicationDisplayName(tr("app.title"))
+            apply_language()
             self.changed.emit()
 
     # --- Listák (a választott nyelven) ----------------------------------------

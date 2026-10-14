@@ -10,6 +10,10 @@ modules:
     install:
       packages:
         - plymouth-plugin-script # a boot animáció (files/system/usr/share/plymouth/themes/sloth-os) ezt használja
+        # Betűtípusok minden írásrendszerhez (kínai, japán, koreai, arab, héber, indiai írások, lao, grúz…),
+        # hogy a Sloth Üdvözlő nyelvválasztója és a felület bármelyik telepítői nyelven olvasható legyen
+        - default-fonts-cjk-sans
+        - default-fonts-other-sans
 
   - type: script
     scripts:

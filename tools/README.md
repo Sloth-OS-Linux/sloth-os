@@ -12,8 +12,11 @@ This folder holds developer helpers that are not part of the image (e.g. `brandi
 ## Translations
 
 The Sloth Welcome texts live in `files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome/translations/`,
-one JSON file per language (`hu.json` is the source and is always complete). To add a language, copy
+one JSON file per language (`hu.json` is the source and is always complete). It covers the 50 languages the
+Fedora installer is usefully translated into. The translations are machine-made and welcome native review.
+Locale codes follow glibc (`pt_BR`, `zh_TW`); see `i18n.py` for fallbacks such as `zh_HK` -> `zh_TW`. To add a language, copy
 `hu.json` to e.g. `fr.json`, set `_language` to the language's own name (`Français`) and translate the values;
 keep the `{placeholders}` as they are. Missing keys fall back to English, then Hungarian.
 
-Check them with `python tools/check_translations.py` (reports missing keys and mismatched placeholders).
+Check them with `python tools/check_translations.py` (reports missing keys, mismatched placeholders,
+words mixing Latin/Cyrillic/Greek letters and invisible characters).

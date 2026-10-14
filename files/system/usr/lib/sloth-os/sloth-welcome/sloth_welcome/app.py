@@ -28,13 +28,12 @@ def main():
 
     app = QApplication([sys.argv[0]] + qt_args)
     app.setApplicationName("sloth-welcome")
-    from .i18n import tr
-    app.setApplicationDisplayName(tr("app.title"))
     app.setOrganizationDomain("slothos.org")
     app.setDesktopFileName("org.slothos.welcome")
     app.setWindowIcon(QIcon.fromTheme("sloth-os"))
 
-    from .welcome import WelcomeController
+    from .welcome import WelcomeController, apply_language
+    apply_language()
 
     engine = QQmlApplicationEngine()
     welcome = WelcomeController()

@@ -4,7 +4,9 @@
 Megnézi, hogy:
   - a kódban és a katalógusban használt összes kulcs megvan-e a magyar (forrás) fájlban,
   - a többi nyelvből mi hiányzik (ezeknél az angol, végül a magyar szöveg látszik),
-  - nincs-e felesleges kulcs, és a {helyőrzők} egyeznek-e a magyarral.
+  - nincs-e felesleges kulcs, és a {helyőrzők} egyeznek-e a magyarral,
+  - nincs-e olyan szó, amiben keveredik a latin, cirill vagy görög betű (elírás, pl. „Meglено”),
+  - nincs-e benne láthatatlan karakter (feltételes elválasztó, nulla szélességű szóköz).
 
 Használat: python tools/check_translations.py   (hiba esetén 1-gyel lép ki)
 """
@@ -12,6 +14,7 @@ import ast
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 PKG = Path(__file__).resolve().parent.parent / "files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome"
@@ -48,6 +51,19 @@ def used_keys():
     return keys
 
 
+def _script(ch):
+    name = unicodedata.name(ch, "")
+    return next((s for s in ("LATIN", "CYRILLIC", "GREEK") if name.startswith(s)), None)
+
+
+def mixed_words(text):
+    """Szavak, amelyekben latin, cirill és görög betű keveredik."""
+    return [w for w in re.findall(r"\w+", text) if len({_script(c) for c in w} - {None}) > 1]
+
+
+INVISIBLE = re.compile(r"[\u00ad\u200b\ufeff]")  # feltételes elválasztó, nulla szélességű szóköz, BOM
+
+
 def placeholders(text):
     return set(re.findall(r"\{(\w+)\}", text))
 
@@ -72,6 +88,15 @@ def main():
         lacking = sorted(k for k in source if k not in data)
         extra = sorted(k for k in data if k not in source)
         wrong = sorted(k for k in data if k in source and placeholders(data[k]) != placeholders(source[k]))
+        mixed = sorted(f"{k}: {', '.join(mixed_words(v))}" for k, v in data.items()
+                       if not k.startswith("_") and mixed_words(v))
+        hidden = sorted(k for k, v in data.items() if INVISIBLE.search(v))
+        if hidden:
+            errors += 1
+            print(f"HIBA: {code}: láthatatlan karakter:", *hidden, sep="\n  ")
+        if mixed:
+            errors += 1
+            print(f"HIBA: {code}: vegyes írásrendszerű szavak:", *mixed, sep="\n  ")
         if lacking:
             print(f"{code}: {len(lacking)} hiányzó fordítás (ezeknél angol/magyar szöveg látszik):", *lacking, sep="\n  ")
         if extra:

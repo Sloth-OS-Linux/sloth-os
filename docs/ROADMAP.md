@@ -64,8 +64,11 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   alkotás (benne az ArtCraft). Alapból semmi nincs bejelölve; telepítés folyamatjelzővel, hálózati hibánál
   újrapróbálkozás; a böngésző a tálcára kerül.
   - [x] Tálca-elrendezés választás
-  - [x] Többnyelvű: magyar, angol, német (`sloth_welcome/translations/*.json`, ellenőrzés: `tools/check_translations.py`);
-    alapból a rendszer nyelvén indul, az első lapon átváltható. Hátravan: további nyelvek; a Sloth Központ és a .exe kezelő fordítása
+  - [x] Többnyelvű: a Fedora telepítő mind az 50 használható nyelvén (amelyeken az Anaconda legalább félig le van
+    fordítva, plusz norvég bokmål), jobbról balra írással (arab, héber) és minden írásrendszerhez betűtípussal
+    (`sloth_welcome/translations/*.json`, ellenőrzés: `tools/check_translations.py`); alapból a rendszer nyelvén indul,
+    az első lapon átváltható. Hátravan: anyanyelvi átnézés (a fordításokat MI készítette), a Sloth Központ és
+    a .exe kezelő fordítása
   - [x] A végén gyors gombok: Steam-bejelentkezés, online fiókok, nyelv és régió (a nyelvet a telepítő kérdezi)
   - [x] Az ArtCraft frissítése: felhasználói telepítés + napi háttérfrissítő (`sloth-github-bundle-update.timer`, SHA256 ellenőrzéssel); VM-ben még tesztelni
 - [ ] **Sloth Központ** (egy app, modulokra bontva; `files/system/usr/lib/sloth-os/sloth-center/`):

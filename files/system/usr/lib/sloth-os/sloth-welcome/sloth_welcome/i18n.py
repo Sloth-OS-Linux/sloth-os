@@ -8,6 +8,7 @@ szöveg látszik. Új nyelv: a hu.json másolata új néven (pl. fr.json), a
 import json
 import logging
 import os
+import unicodedata
 from pathlib import Path
 
 log = logging.getLogger("sloth-welcome.i18n")
@@ -31,10 +32,33 @@ def _load(code):
     return _cache[code]
 
 
+def _sort_key(name):
+    """Ékezet nélküli rendezés ("Čeština" a C-nél, ne a latin betűs nevek után)."""
+    plain = "".join(c for c in unicodedata.normalize("NFKD", name) if not unicodedata.combining(c))
+    return plain.casefold()
+
+
 def available():
     """[{"code": "hu", "name": "Magyar"}, …] a nyelv saját nevével, ábécérendben."""
     out = [{"code": p.stem, "name": _load(p.stem).get("_language", p.stem)} for p in DIR.glob("*.json")]
-    return sorted(out, key=lambda x: x["name"].lower())
+    return sorted(out, key=lambda x: _sort_key(x["name"]))
+
+
+# Jobbról balra írt nyelvek: a felület tükrözve jelenik meg
+RTL = {"ar", "he", "fa", "ur"}
+# Ha a pontos változatra nincs fordítás, ezt használjuk (pl. hongkongi kínai -> hagyományos)
+ALIASES = {"zh_HK": "zh_TW", "zh_MO": "zh_TW", "zh_SG": "zh_CN", "zh": "zh_CN", "no": "nb", "pt_PT": "pt",
+           "bn": "bn_IN"}
+
+
+def match(locale_name, codes):
+    """"pt_BR.UTF-8" -> "pt_BR", "de_AT.UTF-8" -> "de", "sr_RS@latin" -> "sr"; None, ha nincs ilyen."""
+    name = locale_name.split(".")[0].split("@")[0]
+    lang = name.split("_")[0].lower()
+    for cand in (name, ALIASES.get(name), lang, ALIASES.get(lang)):
+        if cand and cand in codes:
+            return cand
+    return None
 
 
 def system_language():
@@ -42,10 +66,14 @@ def system_language():
     codes = {l["code"] for l in available()}
     for var in ("LANGUAGE", "LC_ALL", "LC_MESSAGES", "LANG"):
         for part in os.environ.get(var, "").split(":"):
-            code = part.split(".")[0].split("_")[0].lower()
-            if code in codes:
+            code = match(part, codes) if part and part not in ("C", "POSIX") else None
+            if code:
                 return code
     return FALLBACK if FALLBACK in codes else SOURCE
+
+
+def is_rtl(code=None):
+    return (code or _code).split("_")[0] in RTL
 
 
 def set_language(code):
