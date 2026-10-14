@@ -1,5 +1,9 @@
 """A varázslóban felkínált appok. Alapból semmi nincs kiválasztva: a felhasználó dönt.
 
+A kategóriák neve és leírása, valamint az appok rövid leírása a fordításokban van
+(translations/<nyelv>.json: "category.<id>.name", "category.<id>.hint", "app.<id>").
+Az appok neve márkanév, azt nem fordítjuk.
+
 Minden app Flatpak a Flathubról, kivéve ahol `source` mást mond. Az ikonok
 helyben vannak (/usr/share/sloth-os/welcome/icons/<id>.png), így a lista
 internet nélkül is rendesen néz ki.
@@ -11,70 +15,64 @@ internet nélkül is rendesen néz ki.
 # source: "flathub" (alapértelmezett) vagy "github-bundle" (Flatpak csomag egy GitHub kiadásból)
 CATEGORIES = [
     {
-        "id": "browser", "name": "Böngésző", "icon": "internet-web-browser",
-        "hint": "Ezzel netezel. Böngésző nélkül nem tudsz weboldalakat megnyitni.",
+        "id": "browser", "icon": "internet-web-browser",
         "apps": [
-            {"id": "org.mozilla.firefox", "name": "Firefox", "summary": "Gyors, adatvédelemre figyelő, nyílt forrású"},
-            {"id": "com.google.Chrome", "name": "Google Chrome", "summary": "A Google böngészője, Google-fiókkal szinkronizál"},
-            {"id": "com.brave.Browser", "name": "Brave", "summary": "Beépített reklámblokkolóval"},
-            {"id": "com.microsoft.Edge", "name": "Microsoft Edge", "summary": "A Windowsról ismert böngésző"},
-            {"id": "app.zen_browser.zen", "name": "Zen", "summary": "Letisztult, Firefox-alapú"},
-            {"id": "com.vivaldi.Vivaldi", "name": "Vivaldi", "summary": "Rengeteg testreszabási lehetőség"},
-            {"id": "com.opera.Opera", "name": "Opera", "summary": "Beépített VPN-nel és csevegőkkel"},
-            {"id": "io.gitlab.librewolf-community", "name": "LibreWolf", "summary": "A Firefox még privátabb változata"},
-            {"id": "org.chromium.Chromium", "name": "Chromium", "summary": "A Chrome nyílt forrású alapja"},
+            {"id": "org.mozilla.firefox", "name": "Firefox"},
+            {"id": "com.google.Chrome", "name": "Google Chrome"},
+            {"id": "com.brave.Browser", "name": "Brave"},
+            {"id": "com.microsoft.Edge", "name": "Microsoft Edge"},
+            {"id": "app.zen_browser.zen", "name": "Zen"},
+            {"id": "com.vivaldi.Vivaldi", "name": "Vivaldi"},
+            {"id": "com.opera.Opera", "name": "Opera"},
+            {"id": "io.gitlab.librewolf-community", "name": "LibreWolf"},
+            {"id": "org.chromium.Chromium", "name": "Chromium"},
         ],
     },
     {
-        "id": "office", "name": "Irodai programok", "icon": "applications-office",
-        "hint": "Szövegszerkesztő, táblázatkezelő, prezentáció. Megnyitja a Word és Excel fájlokat is.",
+        "id": "office", "icon": "applications-office",
         "apps": [
-            {"id": "org.libreoffice.LibreOffice", "name": "LibreOffice", "summary": "Teljes, ingyenes irodai csomag"},
-            {"id": "org.onlyoffice.desktopeditors", "name": "ONLYOFFICE", "summary": "A Microsoft Office-hoz hasonló kinézet"},
-            {"id": "com.wps.Office", "name": "WPS Office", "summary": "Office-szerű felület, sok sablonnal"},
+            {"id": "org.libreoffice.LibreOffice", "name": "LibreOffice"},
+            {"id": "org.onlyoffice.desktopeditors", "name": "ONLYOFFICE"},
+            {"id": "com.wps.Office", "name": "WPS Office"},
         ],
     },
     {
-        "id": "media", "name": "Zene és videó", "icon": "applications-multimedia",
-        "hint": "Filmek, videók és zene lejátszása.",
+        "id": "media", "icon": "applications-multimedia",
         "apps": [
-            {"id": "org.videolan.VLC", "name": "VLC", "summary": "Mindent lejátszik"},
-            {"id": "org.kde.haruna", "name": "Haruna", "summary": "Egyszerű videólejátszó, illik a rendszerhez"},
-            {"id": "io.mpv.Mpv", "name": "mpv", "summary": "Pehelykönnyű videólejátszó"},
-            {"id": "com.spotify.Client", "name": "Spotify", "summary": "Zene streamelés"},
+            {"id": "org.videolan.VLC", "name": "VLC"},
+            {"id": "org.kde.haruna", "name": "Haruna"},
+            {"id": "io.mpv.Mpv", "name": "mpv"},
+            {"id": "com.spotify.Client", "name": "Spotify"},
         ],
     },
     {
-        "id": "chat", "name": "Csevegés", "icon": "internet-chat",
-        "hint": "Üzenetek, hang- és videóhívások.",
+        "id": "chat", "icon": "kopete", "fallback_icon": "dialog-messages",
         "apps": [
-            {"id": "com.discordapp.Discord", "name": "Discord", "summary": "Csevegés játék közben és közösségek"},
-            {"id": "org.telegram.desktop", "name": "Telegram", "summary": "Gyors üzenetküldő"},
-            {"id": "org.signal.Signal", "name": "Signal", "summary": "Titkosított üzenetek"},
-            {"id": "com.rtosta.zapzap", "name": "ZapZap", "summary": "WhatsApp a számítógépen"},
+            {"id": "com.discordapp.Discord", "name": "Discord"},
+            {"id": "org.telegram.desktop", "name": "Telegram"},
+            {"id": "org.signal.Signal", "name": "Signal"},
+            {"id": "com.rtosta.zapzap", "name": "ZapZap"},
         ],
     },
     {
-        "id": "games", "name": "Játékok", "icon": "applications-games",
-        "hint": "A Steam már telepítve van. Ezekkel más boltok játékai is mennek.",
+        "id": "games", "icon": "applications-games",
         "apps": [
-            {"id": "com.heroicgameslauncher.hgl", "name": "Heroic", "summary": "Epic Games, GOG és Amazon játékok"},
-            {"id": "org.prismlauncher.PrismLauncher", "name": "Prism Launcher", "summary": "Minecraft"},
-            {"id": "net.lutris.Lutris", "name": "Lutris", "summary": "Sok más játékbolt és régi játékok"},
+            {"id": "com.heroicgameslauncher.hgl", "name": "Heroic"},
+            {"id": "org.prismlauncher.PrismLauncher", "name": "Prism Launcher"},
+            {"id": "net.lutris.Lutris", "name": "Lutris"},
         ],
     },
     {
-        "id": "creative", "name": "Alkotás", "icon": "applications-graphics",
-        "hint": "Képszerkesztés, rajzolás, videóvágás, felvétel.",
+        "id": "creative", "icon": "applications-graphics",
         "apps": [
-            {"id": "ai.storyteller.artcraft-launcher", "name": "ArtCraft", "summary": "A Craft appok (PhotoCraft, FilmCraft…) egy helyen",
+            {"id": "ai.storyteller.artcraft-launcher", "name": "ArtCraft",
              "source": "github-bundle", "repo": "storytold/craft-launcher", "asset_suffix": "-linux-x86_64.flatpak"},
-            {"id": "org.gimp.GIMP", "name": "GIMP", "summary": "Fotószerkesztés"},
-            {"id": "org.kde.krita", "name": "Krita", "summary": "Digitális rajzolás és festés"},
-            {"id": "org.inkscape.Inkscape", "name": "Inkscape", "summary": "Vektorgrafika, logók"},
-            {"id": "org.kde.kdenlive", "name": "Kdenlive", "summary": "Videóvágás"},
-            {"id": "com.obsproject.Studio", "name": "OBS Studio", "summary": "Képernyőfelvétel és streamelés"},
-            {"id": "org.blender.Blender", "name": "Blender", "summary": "3D modellezés és animáció"},
+            {"id": "org.gimp.GIMP", "name": "GIMP"},
+            {"id": "org.kde.krita", "name": "Krita"},
+            {"id": "org.inkscape.Inkscape", "name": "Inkscape"},
+            {"id": "org.kde.kdenlive", "name": "Kdenlive"},
+            {"id": "com.obsproject.Studio", "name": "OBS Studio"},
+            {"id": "org.blender.Blender", "name": "Blender"},
         ],
     },
 ]

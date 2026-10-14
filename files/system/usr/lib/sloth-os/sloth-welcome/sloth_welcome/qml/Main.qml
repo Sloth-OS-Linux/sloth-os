@@ -1,6 +1,7 @@
 // Sloth OS üdvözlő varázsló: első bejelentkezéskor, teljes képernyőn.
-// Lépések: üdvözlés -> megjelenés -> appok -> telepítés -> kész.
-// Az adatok a Python oldali `welcome` objektumból jönnek.
+// Lépések: üdvözlés (nyelv) -> megjelenés -> appok -> telepítés -> kész.
+// Az adatok a Python oldali `welcome` objektumból jönnek, a szövegek a fordításokból
+// (sloth_welcome/translations/<nyelv>.json) a t() függvényen keresztül.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -10,7 +11,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ApplicationWindow {
     id: root
-    title: "Üdv a Sloth OS-en"
+    title: t("window.title")
     visible: true
     visibility: Window.FullScreen
     width: Kirigami.Units.gridUnit * 60
@@ -18,6 +19,18 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
 
     readonly property int contentWidth: Math.min(width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 52)
+
+    // Az aktuális nyelv szövegei; nyelvváltáskor minden t()-t használó felirat frissül
+    readonly property var strings: welcome.strings
+    function t(key, args) {
+        let text = root.strings[key];
+        if (text === undefined)
+            return key;
+        if (args)
+            for (const k in args)
+                text = text.split("{" + k + "}").join(args[k]);
+        return text;
+    }
 
     pageStack.initialPage: Kirigami.Page {
         padding: 0
@@ -27,7 +40,7 @@ Kirigami.ApplicationWindow {
             anchors.fill: parent
             currentIndex: welcome.page
 
-            // --- 0. Üdvözlés -------------------------------------------------
+            // --- 0. Üdvözlés és nyelv ----------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -43,19 +56,38 @@ Kirigami.ApplicationWindow {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         level: 1
-                        text: "Üdv a Sloth OS-en!"
+                        text: root.t("welcome.heading")
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: "Pár gyors kérdés, és már kész is a géped. Mindent később is megváltoztathatsz."
+                        text: root.t("welcome.text")
+                    }
+                    // A varázsló nyelve; alapból a rendszeré (amit a telepítőben választott)
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: "preferences-desktop-locale"
+                            implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                            implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                        }
+                        QQC2.ComboBox {
+                            Accessible.name: root.t("welcome.language")
+                            implicitWidth: Kirigami.Units.gridUnit * 12
+                            model: welcome.languages
+                            textRole: "name"
+                            valueRole: "code"
+                            currentIndex: indexOfValue(welcome.language)
+                            onActivated: welcome.setLanguage(currentValue)
+                        }
                     }
                     QQC2.Button {
                         Layout.alignment: Qt.AlignHCenter
                         Layout.topMargin: Kirigami.Units.largeSpacing
-                        text: "Kezdjük"
+                        text: root.t("welcome.start")
                         icon.name: "go-next"
                         highlighted: true
                         onClicked: welcome.next()
@@ -72,60 +104,85 @@ Kirigami.ApplicationWindow {
                     Kirigami.Heading {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
-                        text: "Milyen színeket szeretnél?"
+                        text: root.t("look.colors")
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: "Kattints egyre, és rögtön látod, hogyan néz ki. Később a Rendszerbeállításokban is átállíthatod."
+                        text: root.t("look.colors_hint")
                     }
-                    Flow {
-                        Layout.fillWidth: true
+                    // A kártyák soronként középre igazítva, a sorok egyenletesen elosztva
+                    // (7 kártya pl. 4 + 3, nem 6 + 1)
+                    Column {
+                        id: schemeGrid
+                        readonly property int cardWidth: Kirigami.Units.gridUnit * 9
+                        readonly property var rows: {
+                            const all = welcome.schemes;
+                            const fit = Math.max(1, Math.floor((root.contentWidth + spacing) / (cardWidth + spacing)));
+                            const per = Math.ceil(all.length / Math.ceil(all.length / fit));
+                            const out = [];
+                            for (let i = 0; i < all.length; i += per)
+                                out.push(all.slice(i, i + per));
+                            return out;
+                        }
+                        Layout.alignment: Qt.AlignHCenter
                         Layout.topMargin: Kirigami.Units.largeSpacing
                         spacing: Kirigami.Units.largeSpacing
                         Repeater {
-                            model: welcome.schemes
-                            delegate: QQC2.AbstractButton {
-                                id: schemeCard
+                            model: schemeGrid.rows
+                            delegate: Row {
+                                id: schemeRow
                                 required property var modelData
-                                readonly property bool current: welcome.currentScheme === modelData.id
-                                width: Kirigami.Units.gridUnit * 9
-                                height: Kirigami.Units.gridUnit * 7
-                                onClicked: welcome.setScheme(modelData.id)
-                                contentItem: ColumnLayout {
-                                    spacing: Kirigami.Units.smallSpacing
-                                    Rectangle {
-                                        Layout.fillWidth: true
-                                        Layout.fillHeight: true
-                                        radius: Kirigami.Units.cornerRadius
-                                        color: schemeCard.modelData.colors[0]
-                                        border.width: schemeCard.current ? 3 : 1
-                                        border.color: schemeCard.current ? Kirigami.Theme.highlightColor
-                                                                         : Qt.rgba(0.5, 0.5, 0.5, 0.4)
-                                        Rectangle {
-                                            anchors.left: parent.left
-                                            anchors.right: parent.right
-                                            anchors.bottom: parent.bottom
-                                            anchors.margins: Kirigami.Units.largeSpacing
-                                            height: Kirigami.Units.gridUnit
-                                            radius: height / 3
-                                            color: schemeCard.modelData.colors[1]
+                                anchors.horizontalCenter: parent ? parent.horizontalCenter : undefined
+                                spacing: Kirigami.Units.largeSpacing
+                                Repeater {
+                                    model: schemeRow.modelData
+                                    delegate: QQC2.AbstractButton {
+                                        id: schemeCard
+                                        required property var modelData
+                                        readonly property bool current: welcome.currentScheme === modelData.id
+                                        width: schemeGrid.cardWidth
+                                        height: Kirigami.Units.gridUnit * 7
+                                        onClicked: welcome.setScheme(modelData.id)
+                                        Accessible.name: modelData.name
+                                        contentItem: ColumnLayout {
+                                            spacing: Kirigami.Units.smallSpacing
+                                            Rectangle {
+                                                Layout.fillWidth: true
+                                                Layout.fillHeight: true
+                                                radius: Kirigami.Units.cornerRadius
+                                                color: schemeCard.modelData.colors[0]
+                                                border.width: schemeCard.current ? 3 : 1
+                                                border.color: schemeCard.current ? Kirigami.Theme.highlightColor
+                                                                                 : Qt.rgba(0.5, 0.5, 0.5, 0.4)
+                                                Rectangle {
+                                                    anchors.left: parent.left
+                                                    anchors.right: parent.right
+                                                    anchors.bottom: parent.bottom
+                                                    anchors.margins: Kirigami.Units.largeSpacing
+                                                    height: Kirigami.Units.gridUnit
+                                                    radius: height / 3
+                                                    color: schemeCard.modelData.colors[1]
+                                                }
+                                                Rectangle {
+                                                    x: Kirigami.Units.largeSpacing
+                                                    y: Kirigami.Units.largeSpacing
+                                                    width: parent.width * 0.5
+                                                    height: Kirigami.Units.smallSpacing * 2
+                                                    radius: height / 2
+                                                    color: schemeCard.modelData.colors[2]
+                                                }
+                                            }
+                                            QQC2.Label {
+                                                Layout.fillWidth: true
+                                                horizontalAlignment: Text.AlignHCenter
+                                                elide: Text.ElideRight
+                                                text: schemeCard.modelData.name
+                                                font.bold: schemeCard.current
+                                            }
                                         }
-                                        Rectangle {
-                                            x: Kirigami.Units.largeSpacing
-                                            y: Kirigami.Units.largeSpacing
-                                            width: parent.width * 0.5
-                                            height: Kirigami.Units.smallSpacing * 2
-                                            radius: height / 2
-                                            color: schemeCard.modelData.colors[2]
-                                        }
-                                    }
-                                    QQC2.Label {
-                                        Layout.fillWidth: true
-                                        horizontalAlignment: Text.AlignHCenter
-                                        text: schemeCard.modelData.name
-                                        font.bold: schemeCard.current
                                     }
                                 }
                             }
@@ -136,7 +193,7 @@ Kirigami.ApplicationWindow {
                         Layout.topMargin: Kirigami.Units.largeSpacing * 2
                         horizontalAlignment: Text.AlignHCenter
                         level: 3
-                        text: "Milyen legyen a tálca?"
+                        text: root.t("look.taskbar")
                     }
                     Flow {
                         Layout.alignment: Qt.AlignHCenter
@@ -151,6 +208,7 @@ Kirigami.ApplicationWindow {
                                 width: Kirigami.Units.gridUnit * 12
                                 height: Kirigami.Units.gridUnit * 9
                                 onClicked: welcome.setLayout(modelData.id)
+                                Accessible.name: modelData.name
                                 contentItem: ColumnLayout {
                                     spacing: Kirigami.Units.smallSpacing
                                     // Kis rajz az elrendezésről
@@ -197,12 +255,14 @@ Kirigami.ApplicationWindow {
                                     QQC2.Label {
                                         Layout.fillWidth: true
                                         horizontalAlignment: Text.AlignHCenter
+                                        elide: Text.ElideRight
                                         text: layoutCard.modelData.name
                                         font.bold: layoutCard.current
                                     }
                                     QQC2.Label {
                                         Layout.fillWidth: true
                                         horizontalAlignment: Text.AlignHCenter
+                                        elide: Text.ElideRight
                                         opacity: 0.7
                                         font: Kirigami.Theme.smallFont
                                         text: layoutCard.modelData.description
@@ -215,8 +275,8 @@ Kirigami.ApplicationWindow {
                         Layout.alignment: Qt.AlignHCenter
                         Layout.topMargin: Kirigami.Units.largeSpacing
                         spacing: Kirigami.Units.largeSpacing
-                        QQC2.Button { text: "Vissza"; icon.name: "go-previous"; onClicked: welcome.back() }
-                        QQC2.Button { text: "Tovább"; icon.name: "go-next"; highlighted: true; onClicked: welcome.next() }
+                        QQC2.Button { text: root.t("nav.back"); icon.name: "go-previous"; onClicked: welcome.back() }
+                        QQC2.Button { text: root.t("nav.next"); icon.name: "go-next"; highlighted: true; onClicked: welcome.next() }
                     }
                 }
             }
@@ -241,6 +301,8 @@ Kirigami.ApplicationWindow {
                         Kirigami.Icon {
                             Layout.alignment: Qt.AlignHCenter
                             source: categoryPage.category ? categoryPage.category.icon : ""
+                            fallback: categoryPage.category && categoryPage.category.fallback_icon
+                                      ? categoryPage.category.fallback_icon : "unknown"
                             implicitWidth: Kirigami.Units.iconSizes.huge
                             implicitHeight: Kirigami.Units.iconSizes.huge
                         }
@@ -254,21 +316,21 @@ Kirigami.ApplicationWindow {
                             horizontalAlignment: Text.AlignHCenter
                             wrapMode: Text.Wrap
                             opacity: 0.8
-                            text: categoryPage.category ? categoryPage.category.hint + " Többet is választhatsz, vagy egyet sem." : ""
+                            text: categoryPage.category ? categoryPage.category.hint + " " + root.t("category.multiple") : ""
                         }
                         Kirigami.InlineMessage {
                             Layout.fillWidth: true
                             visible: !welcome.online
                             type: Kirigami.MessageType.Warning
-                            text: "Nincs internetkapcsolat. Az appok telepítéséhez csatlakozz egy hálózathoz."
+                            text: root.t("offline.text")
                             actions: [
                                 Kirigami.Action {
-                                    text: "Hálózati beállítások"
+                                    text: root.t("offline.settings")
                                     icon.name: "network-wireless"
                                     onTriggered: welcome.openNetworkSettings()
                                 },
                                 Kirigami.Action {
-                                    text: "Újra"
+                                    text: root.t("offline.retry")
                                     icon.name: "view-refresh"
                                     onTriggered: welcome.recheckOnline()
                                 }
@@ -288,14 +350,17 @@ Kirigami.ApplicationWindow {
                                     width: (root.contentWidth - Kirigami.Units.largeSpacing * 2) / 3
                                     height: Kirigami.Units.gridUnit * 4
                                     onClicked: welcome.toggle(modelData.id)
+                                    Accessible.name: modelData.name
+                                    // A kijelölt kártya erősen kiemelve: a világos ezüst kiemelőszín
+                                    // halványan alig látszott
                                     background: Rectangle {
                                         radius: Kirigami.Units.cornerRadius
-                                        color: appCard.chosen ? Qt.alpha(Kirigami.Theme.highlightColor, 0.25)
-                                             : appCard.hovered ? Qt.alpha(Kirigami.Theme.textColor, 0.06)
+                                        color: appCard.chosen ? Qt.alpha(Kirigami.Theme.highlightColor, appCard.hovered ? 0.45 : 0.35)
+                                             : appCard.hovered ? Qt.alpha(Kirigami.Theme.textColor, 0.08)
                                              : Qt.alpha(Kirigami.Theme.textColor, 0.03)
-                                        border.width: appCard.chosen ? 2 : 1
+                                        border.width: appCard.chosen ? 3 : 1
                                         border.color: appCard.chosen ? Kirigami.Theme.highlightColor
-                                                                     : Qt.alpha(Kirigami.Theme.textColor, 0.12)
+                                                                     : Qt.alpha(Kirigami.Theme.textColor, 0.15)
                                     }
                                     contentItem: RowLayout {
                                         spacing: Kirigami.Units.largeSpacing
@@ -313,12 +378,15 @@ Kirigami.ApplicationWindow {
                                             QQC2.Label { text: appCard.modelData.name; font.bold: true; Layout.fillWidth: true; elide: Text.ElideRight }
                                             QQC2.Label { text: appCard.modelData.summary; opacity: 0.7; Layout.fillWidth: true; wrapMode: Text.Wrap; maximumLineCount: 2; elide: Text.ElideRight; font: Kirigami.Theme.smallFont }
                                         }
-                                        Kirigami.Icon {
+                                        // Valódi jelölőnégyzet. (A Breeze-ben nincs "checkbox-unchecked" ikon,
+                                        // helyette a bepipált "checkbox" látszott.) A saját állapotát nem
+                                        // váltja, csak továbbadja a kattintást; a pipát a kiválasztás adja.
+                                        QQC2.CheckBox {
                                             Layout.rightMargin: Kirigami.Units.largeSpacing
-                                            source: appCard.chosen ? "checkbox-checked" : "checkbox-unchecked"
-                                            implicitWidth: Kirigami.Units.iconSizes.smallMedium
-                                            implicitHeight: Kirigami.Units.iconSizes.smallMedium
-                                            opacity: appCard.chosen ? 1 : 0.5
+                                            checkState: appCard.chosen ? Qt.Checked : Qt.Unchecked
+                                            nextCheckState: function () { return checkState; }
+                                            onClicked: welcome.toggle(appCard.modelData.id)
+                                            Accessible.name: appCard.modelData.name
                                         }
                                     }
                                 }
@@ -340,15 +408,18 @@ Kirigami.ApplicationWindow {
                         QQC2.Label {
                             Layout.fillWidth: true
                             opacity: 0.7
-                            text: welcome.stepNumber + ". lépés / " + welcome.stepCount +
-                                  (welcome.selectedIds.length > 0 ? "  ·  összesen " + welcome.selectedIds.length + " app kiválasztva" : "")
+                            elide: Text.ElideRight
+                            text: root.t("step.counter", { n: welcome.stepNumber, total: welcome.stepCount }) +
+                                  (welcome.selectedIds.length === 0 ? ""
+                                   : "  ·  " + root.t(welcome.selectedIds.length === 1 ? "step.selected_one" : "step.selected_many",
+                                                      { count: welcome.selectedIds.length }))
                         }
-                        QQC2.Button { text: "Vissza"; icon.name: "go-previous"; onClicked: welcome.back() }
+                        QQC2.Button { text: root.t("nav.back"); icon.name: "go-previous"; onClicked: welcome.back() }
                         QQC2.Button {
                             highlighted: true
                             enabled: !welcome.lastCategory || welcome.selectedIds.length === 0 || welcome.online
-                            text: !welcome.lastCategory ? (welcome.selectedInCategory.length === 0 ? "Kihagyom" : "Tovább")
-                                  : welcome.selectedIds.length === 0 ? "Befejezés" : "Telepítés"
+                            text: !welcome.lastCategory ? root.t(welcome.selectedInCategory.length === 0 ? "nav.skip" : "nav.next")
+                                  : root.t(welcome.selectedIds.length === 0 ? "nav.finish" : "nav.install")
                             icon.name: welcome.lastCategory && welcome.selectedIds.length > 0 ? "download" : "go-next"
                             onClicked: {
                                 // A böngészős lépés után szólunk, ha nem választott egyet sem
@@ -441,7 +512,7 @@ Kirigami.ApplicationWindow {
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
                         opacity: 0.6
-                        text: "Ez a netkapcsolattól függően pár perc is lehet."
+                        text: root.t("install.note")
                     }
                 }
             }
@@ -481,14 +552,14 @@ Kirigami.ApplicationWindow {
                         wrapMode: Text.Wrap
                         opacity: 0.7
                         visible: welcome.failures.length > 0
-                        text: "A Start menüben a „Sloth Üdvözlő” megnyitásával később újra megpróbálhatod."
+                        text: root.t("done.retry_hint")
                     }
                     Kirigami.Heading {
                         Layout.fillWidth: true
                         Layout.topMargin: Kirigami.Units.largeSpacing
                         horizontalAlignment: Text.AlignHCenter
                         level: 4
-                        text: "Még egy-két dolog, ha szeretnéd:"
+                        text: root.t("done.extras")
                     }
                     Flow {
                         Layout.alignment: Qt.AlignHCenter
@@ -496,23 +567,23 @@ Kirigami.ApplicationWindow {
                         spacing: Kirigami.Units.largeSpacing
                         QQC2.Button {
                             icon.source: "file:///usr/share/sloth-os/welcome/icons/com.valvesoftware.Steam.png"
-                            text: "Bejelentkezés a Steambe"
+                            text: root.t("done.steam")
                             onClicked: welcome.quickAction("steam")
                         }
                         QQC2.Button {
                             icon.name: "applications-internet"
-                            text: "Online fiókok (Google, Microsoft…)"
+                            text: root.t("done.accounts")
                             onClicked: welcome.quickAction("accounts")
                         }
                         QQC2.Button {
                             icon.name: "preferences-desktop-locale"
-                            text: "Nyelv és régió"
+                            text: root.t("done.language")
                             onClicked: welcome.quickAction("language")
                         }
                     }
                     QQC2.Button {
                         Layout.alignment: Qt.AlignHCenter
-                        text: "Indulhat a móka!"
+                        text: root.t("done.start")
                         icon.name: "go-next"
                         highlighted: true
                         onClicked: welcome.finish()
@@ -524,17 +595,17 @@ Kirigami.ApplicationWindow {
 
     Kirigami.PromptDialog {
         id: noBrowser
-        title: "Nem választottál böngészőt"
-        subtitle: "Böngésző nélkül nem tudsz weboldalakat megnyitni. Biztosan így szeretnéd?"
+        title: root.t("nobrowser.title")
+        subtitle: root.t("nobrowser.text")
         standardButtons: Kirigami.Dialog.NoButton
         customFooterActions: [
             Kirigami.Action {
-                text: "Választok egyet"
+                text: root.t("nobrowser.choose")
                 icon.name: "go-previous"
                 onTriggered: noBrowser.close()
             },
             Kirigami.Action {
-                text: "Így is jó"
+                text: root.t("nobrowser.ok")
                 icon.name: "go-next"
                 onTriggered: { noBrowser.close(); welcome.next(); }
             }

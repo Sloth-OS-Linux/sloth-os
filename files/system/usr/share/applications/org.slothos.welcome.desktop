@@ -2,13 +2,16 @@
 Type=Application
 Name=Sloth Üdvözlő
 Name[en]=Sloth Welcome
+Name[de]=Sloth Willkommen
 GenericName=Appok és megjelenés
 GenericName[en]=Apps and appearance
+GenericName[de]=Apps und Aussehen
 Comment=Böngésző, irodai programok, médialejátszó és más appok telepítése, színtéma választás
 Comment[en]=Install a browser, office suite, media player and more, pick a color theme
+Comment[de]=Browser, Office-Paket, Mediaplayer und mehr installieren, Farbschema wählen
 Exec=sloth-welcome
 Icon=sloth-os
 Terminal=false
 Categories=Settings;
-Keywords=welcome;üdvözlő;appok;apps;böngésző;browser;office;téma;theme;
+Keywords=welcome;üdvözlő;willkommen;appok;apps;böngésző;browser;office;téma;theme;
 StartupNotify=true

@@ -10,15 +10,15 @@ from gi.repository import Gio, GLib
 
 log = logging.getLogger("sloth-welcome.desktop")
 
-# A színtémák sorrendje és megjelenített neve (files/system/usr/share/color-schemes)
+# A színtémák sorrendje (files/system/usr/share/color-schemes); a nevük a fordításokban: "scheme.<id>"
 COLOR_SCHEMES = [
-    {"id": "SlothSilverDark", "name": "Ezüst (sötét)", "colors": ["#2b2d31", "#b4b9c0", "#e3e5e8"]},
-    {"id": "SlothSilverLight", "name": "Ezüst (világos)", "colors": ["#e3e5e8", "#68707b", "#23262a"]},
-    {"id": "SlothWhite", "name": "Hófehér", "colors": ["#f6f7f8", "#5b6573", "#1f2328"]},
-    {"id": "SlothBlack", "name": "Éjfekete", "colors": ["#121315", "#c9cdd2", "#e6e7e9"]},
-    {"id": "SlothMist", "name": "Ködkék", "colors": ["#dfe6ed", "#56728f", "#1f2a35"]},
-    {"id": "SlothNight", "name": "Éjkék", "colors": ["#1f2630", "#8aa5bf", "#dde4ec"]},
-    {"id": "SlothSage", "name": "Zsálya", "colors": ["#e1e7e0", "#56715b", "#212a23"]},
+    {"id": "SlothSilverDark", "colors": ["#2b2d31", "#b4b9c0", "#e3e5e8"]},
+    {"id": "SlothSilverLight", "colors": ["#e3e5e8", "#68707b", "#23262a"]},
+    {"id": "SlothWhite", "colors": ["#f6f7f8", "#5b6573", "#1f2328"]},
+    {"id": "SlothBlack", "colors": ["#121315", "#c9cdd2", "#e6e7e9"]},
+    {"id": "SlothMist", "colors": ["#dfe6ed", "#56728f", "#1f2a35"]},
+    {"id": "SlothNight", "colors": ["#1f2630", "#8aa5bf", "#dde4ec"]},
+    {"id": "SlothSage", "colors": ["#e1e7e0", "#56715b", "#212a23"]},
 ]
 
 
@@ -91,10 +91,11 @@ def is_online():
 
 # --- Tálca-elrendezés -------------------------------------------------------------
 
+# A nevük és leírásuk a fordításokban: "layout.<id>.name", "layout.<id>.description"
 LAYOUTS = [
-    {"id": "windows10", "name": "Windows 10", "description": "Start menü és ikonok balra"},
-    {"id": "windows11", "name": "Windows 11", "description": "Start menü és ikonok középen"},
-    {"id": "mac", "name": "macOS-szerű", "description": "Felső sáv, alul lebegő dokk"},
+    {"id": "windows10"},
+    {"id": "windows11"},
+    {"id": "mac"},
 ]
 
 _LAYOUT_SCRIPT = """

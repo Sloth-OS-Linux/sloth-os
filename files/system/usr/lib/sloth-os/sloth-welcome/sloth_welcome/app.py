@@ -28,7 +28,8 @@ def main():
 
     app = QApplication([sys.argv[0]] + qt_args)
     app.setApplicationName("sloth-welcome")
-    app.setApplicationDisplayName("Sloth Üdvözlő")
+    from .i18n import tr
+    app.setApplicationDisplayName(tr("app.title"))
     app.setOrganizationDomain("slothos.org")
     app.setDesktopFileName("org.slothos.welcome")
     app.setWindowIcon(QIcon.fromTheme("sloth-os"))

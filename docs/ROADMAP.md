@@ -13,10 +13,13 @@ terminálból lehet csinálni, GUI-ból is menjen.
   - [x] Rejtett boot menü, Plymouth animáció, „Sloth OS” név (TTY, gépnév, Plasma Setup „A gépházban: Sloth OS”)
   - [x] Sloth Üdvözlő elindul teljes képernyőn; színtéma-váltás azonnal működik; tálca-elrendezés választható; mind a 6 kategória megjelenik
   - [ ] Appok telepítése a varázslóból (a teszt-proxy hibája miatt még nem futott le)
-  - [ ] Javítani: a „Csevegés” kategória ikonja hiányzik (`internet-chat` nincs a Breeze-ben)
-  - [ ] Javítani: az appkártyákon a nem kijelölt is pipát mutat, a kijelölés alig látszik
-  - [ ] Javítani: a színtéma-kártyák nincsenek középre igazítva
+  - [x] Javítva: a „Csevegés” kategória ikonja hiányzott (`internet-chat` nincs a Breeze-ben; most `kopete`, tartalék `dialog-messages`)
+  - [x] Javítva: az appkártyákon a nem kijelölt is pipát mutatott (a Breeze-ben nincs `checkbox-unchecked`, helyette a bepipált `checkbox` jött); most valódi jelölőnégyzet és erősebb kiemelés
+  - [x] Javítva: a színtéma-kártyák soronként középre igazítva, egyenletesen elosztva (7 kártya: 4 + 3)
   - [ ] Asztal, tálca, Sloth Központ, .exe kezelő, boot közbeni betöltőképernyő még nincs megnézve
+  - [x] Javítva: a Sloth Központ nem nyílt meg (`NameError` a Frissítések modul betöltésekor); VM-ben újra megnézni
+  - [x] Javítva: az indítóprogramos Windows-appok (pl. Battle.net) elindulás után bezáródtak (`PROTON_VERB=run`
+    helyett mindig `waitforexitandrun`); VM-ben újra megnézni
   - Megjegyzés: a szöveges kickstart telepítés `multi-user.target`-et állít be (kell: `xconfig --startxonboot`),
     és ha a telepítő nem hoz létre `/etc/plasma-setup-done`-t, a KDE Plasma Setup varázslója jön elő
 
@@ -61,6 +64,8 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   alkotás (benne az ArtCraft). Alapból semmi nincs bejelölve; telepítés folyamatjelzővel, hálózati hibánál
   újrapróbálkozás; a böngésző a tálcára kerül.
   - [x] Tálca-elrendezés választás
+  - [x] Többnyelvű: magyar, angol, német (`sloth_welcome/translations/*.json`, ellenőrzés: `tools/check_translations.py`);
+    alapból a rendszer nyelvén indul, az első lapon átváltható. Hátravan: további nyelvek; a Sloth Központ és a .exe kezelő fordítása
   - [x] A végén gyors gombok: Steam-bejelentkezés, online fiókok, nyelv és régió (a nyelvet a telepítő kérdezi)
   - [x] Az ArtCraft frissítése: felhasználói telepítés + napi háttérfrissítő (`sloth-github-bundle-update.timer`, SHA256 ellenőrzéssel); VM-ben még tesztelni
 - [ ] **Sloth Központ** (egy app, modulokra bontva; `files/system/usr/lib/sloth-os/sloth-center/`):

@@ -1,6 +1,8 @@
 [Desktop Entry]
 Type=Application
 Name=Sloth Üdvözlő (első indítás)
+Name[en]=Sloth Welcome (first start)
+Name[de]=Sloth Willkommen (erster Start)
 Exec=sloth-welcome --first-run
 Icon=sloth-os
 Terminal=false

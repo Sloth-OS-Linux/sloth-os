@@ -6,7 +6,8 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, Signal, Slot
 from PySide6.QtWidgets import QApplication
 
-from . import catalog, desktop
+from . import catalog, desktop, i18n
+from .i18n import tr
 from .installer import Installer
 
 log = logging.getLogger("sloth-welcome")
@@ -38,8 +39,8 @@ class WelcomeController(QObject):
         self._detail = ""
         self._progress = -1
         self._app_states = {}
-        self._summary = ""
-        self._failures = []
+        self._summary = ""          # fordítási kulcs
+        self._failures = []         # [(név, hibakulcs)]
         self._online = desktop.is_online()
         self._installed = []
         self._status_sig.connect(self._on_status)
@@ -84,21 +85,48 @@ class WelcomeController(QObject):
         ids = {a["id"] for a in catalog.CATEGORIES[i]["apps"]}
         return [a for a in self._selected if a in ids]
 
+    # --- Nyelv ---------------------------------------------------------------
+    # A QML a szövegeket a "strings" térképből veszi; nyelvváltáskor minden felirat frissül.
+
     @Property("QVariantList", constant=True)
+    def languages(self):
+        return i18n.available()
+
+    @Property(str, notify=changed)
+    def language(self):
+        return i18n.language()
+
+    @Property("QVariantMap", notify=changed)
+    def strings(self):
+        return i18n.strings()
+
+    @Slot(str)
+    def setLanguage(self, code):
+        if code != i18n.language():
+            i18n.set_language(code)
+            QApplication.setApplicationDisplayName(tr("app.title"))
+            self.changed.emit()
+
+    # --- Listák (a választott nyelven) ----------------------------------------
+
+    @Property("QVariantList", notify=changed)
     def categories(self):
         out = []
         for cat in catalog.CATEGORIES:
-            apps = [{**a, "iconUrl": f"file://{catalog.ICON_DIR}/{a['id']}.png"} for a in cat["apps"]]
-            out.append({**cat, "apps": apps})
+            apps = [{**a, "summary": tr(f"app.{a['id']}"),
+                     "iconUrl": f"file://{catalog.ICON_DIR}/{a['id']}.png"} for a in cat["apps"]]
+            out.append({**cat, "name": tr(f"category.{cat['id']}.name"),
+                        "hint": tr(f"category.{cat['id']}.hint"), "apps": apps})
         return out
 
-    @Property("QVariantList", constant=True)
+    @Property("QVariantList", notify=changed)
     def schemes(self):
-        return desktop.COLOR_SCHEMES
+        return [{**s, "name": tr(f"scheme.{s['id']}")} for s in desktop.COLOR_SCHEMES]
 
-    @Property("QVariantList", constant=True)
+    @Property("QVariantList", notify=changed)
     def layouts(self):
-        return desktop.LAYOUTS
+        return [{**l, "name": tr(f"layout.{l['id']}.name"), "description": tr(f"layout.{l['id']}.description")}
+                for l in desktop.LAYOUTS]
 
     @Property(str, notify=changed)
     def currentLayout(self):
@@ -130,11 +158,11 @@ class WelcomeController(QObject):
 
     @Property(str, notify=changed)
     def summaryText(self):
-        return self._summary
+        return tr(self._summary) if self._summary else ""
 
     @Property("QVariantList", notify=changed)
     def failures(self):
-        return list(self._failures)
+        return [{"name": name, "error": tr(err)} for name, err in self._failures]
 
     @Property(bool, notify=changed)
     def online(self):
@@ -200,12 +228,12 @@ class WelcomeController(QObject):
     @Slot()
     def install(self):
         if not self._selected:
-            self._summary = "Kész is vagyunk! Appokat később is telepíthetsz a Discoverben."
+            self._summary = "done.nothing_selected"
             self._step = STEPS.index("done")
             self.changed.emit()
             return
         self._step = STEPS.index("install")
-        self._status = "Felkészülés a telepítésre…"
+        self._status = tr("install.preparing")
         self._app_states = {a: "waiting" for a in self._selected}
         self.changed.emit()
         self._installer.start(self._selected)
@@ -231,14 +259,13 @@ class WelcomeController(QObject):
 
     def _on_done(self, ok, failed):
         self._installed = list(ok)
-        self._failures = [{"name": (catalog.find_app(a) or {}).get("name", a), "error": err}
-                          for a, err in failed.items()]
+        self._failures = [((catalog.find_app(a) or {}).get("name", a), err) for a, err in failed.items()]
         if not failed:
-            self._summary = "Minden kész! A kiválasztott appok a Start menüben várnak."
+            self._summary = "done.all_ok"
         elif ok:
-            self._summary = "Majdnem minden kész. Néhány appot nem sikerült telepíteni:"
+            self._summary = "done.some_failed"
         else:
-            self._summary = "Sajnos most nem sikerült telepíteni az appokat:"
+            self._summary = "done.all_failed"
         self._progress = 100
         self._step = STEPS.index("done")
         self.changed.emit()

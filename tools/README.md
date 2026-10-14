@@ -8,3 +8,12 @@ only sees the `files/` folder. Their launchers are in `files/system/usr/bin/` an
 entries in `files/system/usr/share/applications/`. The runtime packages are in `recipes/tools.yml`.
 
 This folder holds developer helpers that are not part of the image (e.g. `branding/`).
+
+## Translations
+
+The Sloth Welcome texts live in `files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome/translations/`,
+one JSON file per language (`hu.json` is the source and is always complete). To add a language, copy
+`hu.json` to e.g. `fr.json`, set `_language` to the language's own name (`Français`) and translate the values;
+keep the `{placeholders}` as they are. Missing keys fall back to English, then Hungarian.
+
+Check them with `python tools/check_translations.py` (reports missing keys and mismatched placeholders).

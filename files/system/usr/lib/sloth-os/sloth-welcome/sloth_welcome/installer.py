@@ -19,6 +19,7 @@ gi.require_version("Flatpak", "1.0")
 from gi.repository import Flatpak, Gio, GLib  # noqa: E402
 
 from . import catalog  # noqa: E402
+from .i18n import tr  # noqa: E402
 
 log = logging.getLogger("sloth-welcome.installer")
 
@@ -27,7 +28,8 @@ FLATHUB_REPO_URL = "https://dl.flathub.org/repo/flathub.flatpakrepo"
 USER_AGENT = "SlothOS-Welcome/1.0"
 # A Flathub-os hibák nagy része átmeneti hálózati gond, ezért újrapróbáljuk
 MAX_ATTEMPTS = 3
-NETWORK_ERROR = "Nincs internetkapcsolat, vagy a szerver nem érhető el."
+# A hibák fordítási kulcsként utaznak; a felület mutatja őket a választott nyelven
+NETWORK_ERROR = "error.network"
 
 
 def _human_error(raw):
@@ -35,12 +37,12 @@ def _human_error(raw):
     if any(k in low for k in ("could not resolve", "network", "timed out", "timeout", "connection", "unreachable")):
         return NETWORK_ERROR
     if any(k in low for k in ("no space", "enospc")):
-        return "Nincs elég szabad hely a lemezen."
+        return "error.disk_full"
     if any(k in low for k in ("not authorized", "authentication", "permission")):
-        return "Nem kaptunk engedélyt a telepítéshez."
+        return "error.not_authorized"
     if "checksum" in low or "ellenőrző" in low:
-        return "A letöltött fájl sérült volt, ezért nem telepítettük."
-    return "Nem sikerült telepíteni."
+        return "error.checksum"
+    return "error.generic"
 
 
 def _http_get(url, on_chunk=None):
@@ -84,7 +86,7 @@ def latest_release(app):
 def download_latest_bundle(app, on_status=lambda *a: None, release=None):
     """Legfrissebb Flatpak csomag a GitHub kiadásból, SHA256 ellenőrzéssel. -> (fájl, címke)"""
     name = app["name"]
-    on_status(f"{name} letöltése…", "", -1)
+    on_status(tr("install.downloading", name=name), "", -1)
     release = release or latest_release(app)
     assets = {a["name"]: a["browser_download_url"] for a in release.get("assets", [])}
     bundle_name = next((n for n in assets if n.endswith(app["asset_suffix"])), None)
@@ -96,7 +98,7 @@ def download_latest_bundle(app, on_status=lambda *a: None, release=None):
 
     def progress(done, total):
         pct = int(done * 100 / total) if total else -1
-        on_status(f"{name} letöltése…", f"{done // (1024 * 1024)} MB", pct)
+        on_status(tr("install.downloading", name=name), tr("install.mb", mb=done // (1024 * 1024)), pct)
 
     data = _http_get(assets[bundle_name], progress)
     if not expected or hashlib.sha256(data).hexdigest() != expected:
@@ -112,8 +114,8 @@ class Installer:
 
     def __init__(self, on_status, on_app_state, on_finished):
         self._on_status = on_status          # (szöveg, részletek, összesített 0..100 vagy -1)
-        self._on_app_state = on_app_state    # (app_id, "installing" | "done" | "failed", hibaszöveg)
-        self._on_finished = on_finished      # (sikeres_idk, sikertelen {id: hiba})
+        self._on_app_state = on_app_state    # (app_id, "installing" | "done" | "failed", hibakulcs)
+        self._on_finished = on_finished      # (sikeres_idk, sikertelen {id: hibakulcs})
         self._thread = None
         self._bundle_tags = {}
 
@@ -146,7 +148,7 @@ class Installer:
             if not pending:
                 break
             if attempt:
-                self._on_status("A kapcsolat megszakadt, újrapróbálom…", "", -1)
+                self._on_status(tr("install.retrying"), "", -1)
                 time.sleep(5 * attempt)
             for a in pending:
                 failed.pop(a, None)
@@ -157,7 +159,7 @@ class Installer:
         temp_files = []
         try:
             inst = Flatpak.Installation.new_system(None)
-            self._on_status("Felkészülés a telepítésre…", "", -1)
+            self._on_status(tr("install.preparing"), "", -1)
             self._ensure_flathub(inst)
             txn = Flatpak.Transaction.new_for_installation(inst, None)
             txn.add_default_dependency_sources()
@@ -223,7 +225,7 @@ class Installer:
 
         def label(op):
             app_id = app_of(op)
-            return f"{wanted[app_id]['name']} telepítése…" if app_id else "Szükséges összetevők letöltése…"
+            return tr("install.installing", name=wanted[app_id]["name"]) if app_id else tr("install.runtime")
 
         def on_ready(t):
             state["total"] = max(1, len(t.get_operations()))
@@ -238,7 +240,7 @@ class Installer:
             def changed(p):
                 overall = int((state["done"] + p.get_progress() / 100) * 100 / state["total"])
                 mb = p.get_bytes_transferred() // (1024 * 1024)
-                self._on_status(text, f"{mb} MB letöltve" if mb else "", min(99, overall))
+                self._on_status(text, tr("install.mb_downloaded", mb=mb) if mb else "", min(99, overall))
 
             progress.set_update_frequency(200)
             progress.connect("changed", changed)
