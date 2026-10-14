@@ -48,7 +48,7 @@
   "category.chat.name": "Babilado",
   "category.chat.hint": "Mesaĝoj, voĉaj kaj videaj vokoj.",
   "category.games.name": "Ludoj",
-  "category.games.hint": "Steam jam estas instalita. Per ĉi tiuj funkcias ankaŭ ludoj el aliaj vendejoj.",
+  "category.games.hint": "Ludvendejoj kaj lanĉiloj. Ludoj kaj programoj por Windows funkcias ankaŭ sen ili.",
   "category.creative.name": "Kreado",
   "category.creative.hint": "Foto-redaktado, desegnado, video-redaktado, registrado.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Rapida mesaĝilo",
   "app.org.signal.Signal": "Ĉifritaj mesaĝoj",
   "app.com.rtosta.zapzap": "WhatsApp en via komputilo",
+  "app.com.valvesoftware.Steam": "La plej granda ludvendejo por komputilo",
   "app.com.heroicgameslauncher.hgl": "Ludoj de Epic Games, GOG kaj Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Multaj aliaj ludvendejoj kaj malnovaj ludoj",

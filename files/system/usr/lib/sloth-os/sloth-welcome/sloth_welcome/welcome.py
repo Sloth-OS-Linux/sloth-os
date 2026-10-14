@@ -17,6 +17,8 @@ DONE_MARKER = CONFIG_DIR / "welcome-done"
 
 # A StackLayout lapjai a QML-ben. A kategóriák egy közös lapot használnak,
 # a lépéssorrend: üdvözlés, megjelenés, kategóriánként egy lépés, telepítés, kész.
+STEAM = "com.valvesoftware.Steam"  # nincs előtelepítve: a Játékok lépésben választható
+
 PAGE_WELCOME, PAGE_LOOK, PAGE_CATEGORY, PAGE_INSTALL, PAGE_DONE = range(5)
 STEPS = (["welcome", "look"] + [f"cat{i}" for i in range(len(catalog.CATEGORIES))]
          + ["install", "done"])
@@ -176,6 +178,11 @@ class WelcomeController(QObject):
         return self._online
 
     @Property(bool, notify=changed)
+    def steamInstalled(self):
+        """A "Bejelentkezés a Steambe" gomb csak akkor látszik, ha a Steam most települt."""
+        return STEAM in self._installed
+
+    @Property(bool, notify=changed)
     def hasBrowser(self):
         browsers = {a["id"] for a in catalog.CATEGORIES[0]["apps"]}
         return any(a in browsers for a in self._selected)
@@ -249,9 +256,9 @@ class WelcomeController(QObject):
     def finish(self):
         CONFIG_DIR.mkdir(parents=True, exist_ok=True)
         DONE_MARKER.touch()
-        # A telepített böngészők a tálcára kerülnek
+        # A telepített böngészők és a Steam a tálcára kerülnek
         browsers = [a["id"] for a in catalog.CATEGORIES[0]["apps"]]
-        desktop.pin_to_taskbar([a for a in self._installed if a in browsers])
+        desktop.pin_to_taskbar([a for a in self._installed if a in browsers or a == STEAM])
         QApplication.quit()
 
     # --- A telepítő jelzései -------------------------------------------------

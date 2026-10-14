@@ -48,7 +48,7 @@
   "category.chat.name": "チャット",
   "category.chat.hint": "メッセージ、音声通話、ビデオ通話。",
   "category.games.name": "ゲーム",
-  "category.games.hint": "Steam はインストール済みです。これらを使うと他のストアのゲームも遊べます。",
+  "category.games.hint": "ゲームストアとランチャー。Windows のゲームやプログラムはこれらがなくても動きます。",
   "category.creative.name": "クリエイティブ",
   "category.creative.hint": "写真編集、お絵描き、動画編集、録画。",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "高速メッセンジャー",
   "app.org.signal.Signal": "暗号化メッセージ",
   "app.com.rtosta.zapzap": "パソコンで WhatsApp",
+  "app.com.valvesoftware.Steam": "PC向け最大のゲームストア",
   "app.com.heroicgameslauncher.hgl": "Epic Games、GOG、Amazon のゲーム",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "その他のゲームストアや昔のゲーム",

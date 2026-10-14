@@ -48,7 +48,7 @@
   "category.chat.name": "聊天",
   "category.chat.hint": "訊息、語音和視訊通話。",
   "category.games.name": "遊戲",
-  "category.games.hint": "Steam 已安裝。有了這些，其他商店的遊戲也能玩。",
+  "category.games.hint": "遊戲商店和啟動器。沒有它們，Windows 遊戲和程式也能執行。",
   "category.creative.name": "創作",
   "category.creative.hint": "修圖、繪畫、影片剪輯、錄製。",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "快速的即時通訊",
   "app.org.signal.Signal": "加密訊息",
   "app.com.rtosta.zapzap": "電腦上的 WhatsApp",
+  "app.com.valvesoftware.Steam": "最大的 PC 遊戲商店",
   "app.com.heroicgameslauncher.hgl": "Epic Games、GOG 和 Amazon 的遊戲",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "眾多其他遊戲商店和老遊戲",

@@ -48,7 +48,7 @@
   "category.chat.name": "Klepet",
   "category.chat.hint": "Sporočila, glasovni in video klici.",
   "category.games.name": "Igre",
-  "category.games.hint": "Steam je že nameščen. S temi delujejo tudi igre iz drugih trgovin.",
+  "category.games.hint": "Trgovine in zaganjalniki iger. Igre in programi za Windows delujejo tudi brez njih.",
   "category.creative.name": "Ustvarjanje",
   "category.creative.hint": "Urejanje fotografij, risanje, montaža videa, snemanje.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Hiter klepetalnik",
   "app.org.signal.Signal": "Šifrirana sporočila",
   "app.com.rtosta.zapzap": "WhatsApp na računalniku",
+  "app.com.valvesoftware.Steam": "Največja trgovina z igrami za PC",
   "app.com.heroicgameslauncher.hgl": "Igre iz Epic Games, GOG in Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Veliko drugih trgovin z igrami in starejše igre",

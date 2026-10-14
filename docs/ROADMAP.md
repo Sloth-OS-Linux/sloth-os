@@ -7,7 +7,8 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [x] Universal Blue Kinoite alap, AMD/Intel + NVIDIA változat
 - [x] Átnevezés (os-release)
 - [x] Gaming csomagok: gamescope, mangohud, gamemode
-- [x] Előtelepítve csak a Steam; minden más appot a felhasználó választ az üdvözlő varázslóban (a Firefox RPM is kikerül)
+- [x] Nincs előtelepített app, a Steam sem: mindent a felhasználó választ az üdvözlő varázslóban (a Firefox RPM is kikerül);
+  a tálcára is csak az kerül, amit telepített
 - [x] Első sikeres build GitHub Actionsben (mindkét image)
 - [ ] Teszt VM-ben és a saját gépen. Első VM-teszt (2026-10-13), eredmények:
   - [x] Rejtett boot menü, Plymouth animáció, „Sloth OS” név (TTY, gépnév, Plasma Setup „A gépházban: Sloth OS”)
@@ -42,6 +43,9 @@ terminálból lehet csinálni, GUI-ból is menjen.
 
 ## 2. fázis – Gaming, ami csak működik
 - [x] umu-launcher beépítése (a hivatalos GitHub RPM, rögzített verzió + SHA256: `files/scripts/umu-launcher.sh`)
+- [x] Windows-programok Steam nélkül és internet nélkül is: a Protont bejelentkezés után a háttérben előre letöltjük
+  és frissen tartjuk (`sloth-windows-prepare.timer`); ha még nincs meg és nincs net, a rendszer Wine-ja indítja
+  (`wine-core`, `wine-dxvk`, `wine-mono`; `sloth_exe/backend.py`). VM-ben még tesztelni
 - [x] **.exe kezelő** (`files/system/usr/lib/sloth-os/sloth-exe/`; VM-ben még tesztelni): dupla kattintás egy .exe/.msi-re →
   telepítés (programonként külön mappa, a parancsikonok a Start menübe) vagy indítás; első alkalommal az összetevők
   letöltése folyamatjelzővel. A felhasználó soha nem látja a "Wine", "Proton" vagy "prefix" szót.

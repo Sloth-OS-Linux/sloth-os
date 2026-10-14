@@ -48,7 +48,7 @@
   "category.chat.name": "Συνομιλία",
   "category.chat.hint": "Μηνύματα, φωνητικές κλήσεις και βιντεοκλήσεις.",
   "category.games.name": "Παιχνίδια",
-  "category.games.hint": "Το Steam είναι ήδη εγκατεστημένο. Με αυτά τρέχουν και παιχνίδια από άλλα καταστήματα.",
+  "category.games.hint": "Καταστήματα και εκκινητές παιχνιδιών. Τα παιχνίδια και τα προγράμματα των Windows τρέχουν και χωρίς αυτά.",
   "category.creative.name": "Δημιουργία",
   "category.creative.hint": "Επεξεργασία φωτογραφιών, σχέδιο, μοντάζ βίντεο, εγγραφή.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Γρήγορη εφαρμογή μηνυμάτων",
   "app.org.signal.Signal": "Κρυπτογραφημένα μηνύματα",
   "app.com.rtosta.zapzap": "WhatsApp στον υπολογιστή",
+  "app.com.valvesoftware.Steam": "Το μεγαλύτερο κατάστημα παιχνιδιών για υπολογιστή",
   "app.com.heroicgameslauncher.hgl": "Παιχνίδια από Epic Games, GOG και Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Πολλά άλλα καταστήματα παιχνιδιών και παλιά παιχνίδια",

@@ -80,7 +80,7 @@ Kirigami.ApplicationWindow {
                             model: welcome.languages
                             textRole: "name"
                             valueRole: "code"
-                            currentIndex: indexOfValue(welcome.language)
+                            currentIndex: count > 0 ? indexOfValue(welcome.language) : -1
                             onActivated: welcome.setLanguage(currentValue)
                         }
                     }
@@ -566,6 +566,7 @@ Kirigami.ApplicationWindow {
                         Layout.preferredWidth: implicitWidth
                         spacing: Kirigami.Units.largeSpacing
                         QQC2.Button {
+                            visible: welcome.steamInstalled
                             icon.source: "file:///usr/share/sloth-os/welcome/icons/com.valvesoftware.Steam.png"
                             text: root.t("done.steam")
                             onClicked: welcome.quickAction("steam")

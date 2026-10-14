@@ -48,7 +48,7 @@
   "category.chat.name": "聊天",
   "category.chat.hint": "消息、语音和视频通话。",
   "category.games.name": "游戏",
-  "category.games.hint": "Steam 已安装。有了这些，其他商店的游戏也能玩。",
+  "category.games.hint": "游戏商店和启动器。没有它们，Windows 游戏和程序也能运行。",
   "category.creative.name": "创作",
   "category.creative.hint": "修图、绘画、视频剪辑、录制。",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "快速的即时通讯",
   "app.org.signal.Signal": "加密消息",
   "app.com.rtosta.zapzap": "电脑上的 WhatsApp",
+  "app.com.valvesoftware.Steam": "最大的 PC 游戏商店",
   "app.com.heroicgameslauncher.hgl": "Epic Games、GOG 和 Amazon 的游戏",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "众多其他游戏商店和老游戏",

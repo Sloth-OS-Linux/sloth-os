@@ -48,7 +48,7 @@
   "category.chat.name": "Sohbet",
   "category.chat.hint": "Mesajlar, sesli ve görüntülü aramalar.",
   "category.games.name": "Oyunlar",
-  "category.games.hint": "Steam zaten kurulu. Bunlarla diğer mağazaların oyunları da çalışır.",
+  "category.games.hint": "Oyun mağazaları ve başlatıcılar. Windows oyunları ve programları bunlar olmadan da çalışır.",
   "category.creative.name": "Yaratıcılık",
   "category.creative.hint": "Fotoğraf düzenleme, çizim, video düzenleme, kayıt.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Hızlı mesajlaşma",
   "app.org.signal.Signal": "Şifreli mesajlar",
   "app.com.rtosta.zapzap": "Bilgisayarda WhatsApp",
+  "app.com.valvesoftware.Steam": "PC için en büyük oyun mağazası",
   "app.com.heroicgameslauncher.hgl": "Epic Games, GOG ve Amazon oyunları",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Birçok başka oyun mağazası ve eski oyunlar",

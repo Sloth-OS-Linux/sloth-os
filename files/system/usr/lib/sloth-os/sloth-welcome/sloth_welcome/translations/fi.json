@@ -48,7 +48,7 @@
   "category.chat.name": "Viestintä",
   "category.chat.hint": "Viestit, ääni- ja videopuhelut.",
   "category.games.name": "Pelit",
-  "category.games.hint": "Steam on jo asennettu. Näillä toimivat myös muiden kauppojen pelit.",
+  "category.games.hint": "Pelikaupat ja käynnistimet. Windows-pelit ja -ohjelmat toimivat myös ilman niitä.",
   "category.creative.name": "Luovuus",
   "category.creative.hint": "Kuvankäsittely, piirtäminen, videoeditointi, tallennus.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Nopea pikaviestin",
   "app.org.signal.Signal": "Salatut viestit",
   "app.com.rtosta.zapzap": "WhatsApp tietokoneella",
+  "app.com.valvesoftware.Steam": "PC:n suurin pelikauppa",
   "app.com.heroicgameslauncher.hgl": "Epic Gamesin, GOG:n ja Amazonin pelit",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Monet muut pelikaupat ja vanhemmat pelit",

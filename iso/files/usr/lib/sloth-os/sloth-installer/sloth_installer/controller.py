@@ -134,6 +134,7 @@ class InstallerController(QObject):
     @Slot()
     def next(self):
         order = PAGES[:4]
+        log.info("tovább: %s (lemez: %s)", self._page, self._disk or "-")
         if self._page in order[:-1]:
             self._page = order[order.index(self._page) + 1]
             if self._page == "disk":
@@ -143,12 +144,14 @@ class InstallerController(QObject):
     @Slot()
     def back(self):
         order = PAGES[:4]
+        log.info("vissza: %s", self._page)
         if self._page in order[1:]:
             self._page = order[order.index(self._page) - 1]
             self.changed.emit()
 
     @Slot()
     def install(self):
+        log.info("telepítés indítása: %s, %s, %s, %s", self._disk, self._language, self._keyboard, self._timezone)
         if self._proc or not self._disk or not self._confirmed:
             return
         locale = next(l["locale"] for l in self._languages if l["code"] == self._language)

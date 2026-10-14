@@ -48,7 +48,7 @@
   "category.chat.name": "চেট",
   "category.chat.hint": "বাৰ্তা, কণ্ঠ আৰু ভিডিঅ' কল।",
   "category.games.name": "খেল",
-  "category.games.hint": "Steam আগতেই ইনষ্টল কৰা আছে। এইবোৰৰে আন ষ্ট'ৰৰ খেলো চলে।",
+  "category.games.hint": "খেলৰ ষ্ট'ৰ আৰু লঞ্চাৰ। Windows-ৰ খেল আৰু প্ৰগ্ৰাম এইবোৰ নোহোৱাকৈও চলে।",
   "category.creative.name": "সৃষ্টিশীলতা",
   "category.creative.hint": "ফট' সম্পাদনা, অংকন, ভিডিঅ' সম্পাদনা, ৰেকৰ্ডিং।",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "দ্ৰুত মেছেঞ্জাৰ",
   "app.org.signal.Signal": "এনক্ৰিপ্ট কৰা বাৰ্তা",
   "app.com.rtosta.zapzap": "কম্পিউটাৰত WhatsApp",
+  "app.com.valvesoftware.Steam": "PC-ৰ বাবে আটাইতকৈ ডাঙৰ খেলৰ ষ্ট'ৰ",
   "app.com.heroicgameslauncher.hgl": "Epic Games, GOG আৰু Amazon-ৰ খেল",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "আন বহুতো খেলৰ ষ্ট'ৰ আৰু পুৰণি খেল",

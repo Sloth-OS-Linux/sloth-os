@@ -48,7 +48,7 @@
   "category.chat.name": "Chatten",
   "category.chat.hint": "Berichten, spraak- en videogesprekken.",
   "category.games.name": "Games",
-  "category.games.hint": "Steam is al geïnstalleerd. Hiermee werken ook games uit andere winkels.",
+  "category.games.hint": "Gamewinkels en launchers. Windows-games en -programma's werken ook zonder.",
   "category.creative.name": "Creatief",
   "category.creative.hint": "Fotobewerking, tekenen, videobewerking, opnemen.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Snelle messenger",
   "app.org.signal.Signal": "Versleutelde berichten",
   "app.com.rtosta.zapzap": "WhatsApp op je computer",
+  "app.com.valvesoftware.Steam": "De grootste gamewinkel voor pc",
   "app.com.heroicgameslauncher.hgl": "Games van Epic Games, GOG en Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Veel andere gamewinkels en oudere games",

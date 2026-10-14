@@ -48,7 +48,7 @@
   "category.chat.name": "அரட்டை",
   "category.chat.hint": "செய்திகள், குரல் மற்றும் வீடியோ அழைப்புகள்.",
   "category.games.name": "விளையாட்டுகள்",
-  "category.games.hint": "Steam ஏற்கெனவே நிறுவப்பட்டுள்ளது. இவற்றுடன் மற்ற கடைகளின் விளையாட்டுகளும் இயங்கும்.",
+  "category.games.hint": "விளையாட்டுக் கடைகளும் துவக்கிகளும். Windows விளையாட்டுகளும் நிரல்களும் இவை இல்லாமலும் இயங்கும்.",
   "category.creative.name": "படைப்பாற்றல்",
   "category.creative.hint": "புகைப்படத் திருத்தம், வரைதல், வீடியோ திருத்தம், பதிவு செய்தல்.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "வேகமான மெசஞ்சர்",
   "app.org.signal.Signal": "மறையாக்கப்பட்ட செய்திகள்",
   "app.com.rtosta.zapzap": "கணினியில் WhatsApp",
+  "app.com.valvesoftware.Steam": "PC-க்கான மிகப்பெரிய விளையாட்டுக் கடை",
   "app.com.heroicgameslauncher.hgl": "Epic Games, GOG, Amazon விளையாட்டுகள்",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "பல பிற விளையாட்டுக் கடைகள், பழைய விளையாட்டுகள்",

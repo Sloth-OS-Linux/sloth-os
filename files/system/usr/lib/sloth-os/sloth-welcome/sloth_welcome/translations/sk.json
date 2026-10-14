@@ -48,7 +48,7 @@
   "category.chat.name": "Chat",
   "category.chat.hint": "Správy, hlasové a video hovory.",
   "category.games.name": "Hry",
-  "category.games.hint": "Steam je už nainštalovaný. S týmito pobežia aj hry z iných obchodov.",
+  "category.games.hint": "Obchody a spúšťače hier. Hry a programy pre Windows bežia aj bez nich.",
   "category.creative.name": "Tvorba",
   "category.creative.hint": "Úprava fotiek, kreslenie, strih videa, nahrávanie.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Rýchly komunikátor",
   "app.org.signal.Signal": "Šifrované správy",
   "app.com.rtosta.zapzap": "WhatsApp na počítači",
+  "app.com.valvesoftware.Steam": "Najväčší obchod s hrami pre PC",
   "app.com.heroicgameslauncher.hgl": "Hry z Epic Games, GOG a Amazonu",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Mnoho ďalších obchodov s hrami a staršie hry",

@@ -48,7 +48,7 @@
   "category.chat.name": "ສົນທະນາ",
   "category.chat.hint": "ຂໍ້ຄວາມ, ການໂທດ້ວຍສຽງ ແລະ ວິດີໂອ.",
   "category.games.name": "ເກມ",
-  "category.games.hint": "Steam ຕິດຕັ້ງໄວ້ແລ້ວ. ດ້ວຍແອັບເຫຼົ່ານີ້ ເກມຈາກຮ້ານອື່ນກໍຫຼິ້ນໄດ້.",
+  "category.games.hint": "ຮ້ານເກມ ແລະ ໂປຣແກຣມເປີດເກມ. ເກມ ແລະ ໂປຣແກຣມ Windows ໃຊ້ໄດ້ເຖິງວ່າບໍ່ມີພວກມັນ.",
   "category.creative.name": "ສ້າງສັນ",
   "category.creative.hint": "ແຕ່ງຮູບ, ແຕ້ມຮູບ, ຕັດຕໍ່ວິດີໂອ, ບັນທຶກ.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "ແອັບສົ່ງຂໍ້ຄວາມທີ່ໄວ",
   "app.org.signal.Signal": "ຂໍ້ຄວາມເຂົ້າລະຫັດ",
   "app.com.rtosta.zapzap": "WhatsApp ໃນຄອມພິວເຕີ",
+  "app.com.valvesoftware.Steam": "ຮ້ານເກມ PC ທີ່ໃຫຍ່ທີ່ສຸດ",
   "app.com.heroicgameslauncher.hgl": "ເກມຈາກ Epic Games, GOG ແລະ Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "ຮ້ານເກມອື່ນໆອີກຫຼາຍ ແລະ ເກມເກົ່າ",

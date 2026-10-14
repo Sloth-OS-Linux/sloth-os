@@ -48,7 +48,7 @@
   "category.chat.name": "ਗੱਲਬਾਤ",
   "category.chat.hint": "ਸੁਨੇਹੇ, ਆਵਾਜ਼ ਤੇ ਵੀਡੀਓ ਕਾਲਾਂ।",
   "category.games.name": "ਖੇਡਾਂ",
-  "category.games.hint": "Steam ਪਹਿਲਾਂ ਹੀ ਇੰਸਟਾਲ ਹੈ। ਇਹਨਾਂ ਨਾਲ ਹੋਰ ਸਟੋਰਾਂ ਦੀਆਂ ਖੇਡਾਂ ਵੀ ਚੱਲਦੀਆਂ ਹਨ।",
+  "category.games.hint": "ਖੇਡ ਸਟੋਰ ਤੇ ਲਾਂਚਰ। Windows ਦੀਆਂ ਖੇਡਾਂ ਤੇ ਪ੍ਰੋਗਰਾਮ ਇਹਨਾਂ ਤੋਂ ਬਿਨਾਂ ਵੀ ਚੱਲਦੇ ਹਨ।",
   "category.creative.name": "ਰਚਨਾਤਮਕ",
   "category.creative.hint": "ਫ਼ੋਟੋ ਸੋਧ, ਡਰਾਇੰਗ, ਵੀਡੀਓ ਸੋਧ, ਰਿਕਾਰਡਿੰਗ।",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "ਤੇਜ਼ ਮੈਸੇਂਜਰ",
   "app.org.signal.Signal": "ਇਨਕ੍ਰਿਪਟ ਕੀਤੇ ਸੁਨੇਹੇ",
   "app.com.rtosta.zapzap": "ਕੰਪਿਊਟਰ ’ਤੇ WhatsApp",
+  "app.com.valvesoftware.Steam": "PC ਲਈ ਸਭ ਤੋਂ ਵੱਡਾ ਖੇਡ ਸਟੋਰ",
   "app.com.heroicgameslauncher.hgl": "Epic Games, GOG ਤੇ Amazon ਦੀਆਂ ਖੇਡਾਂ",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "ਹੋਰ ਬਹੁਤ ਸਾਰੇ ਖੇਡ ਸਟੋਰ ਤੇ ਪੁਰਾਣੀਆਂ ਖੇਡਾਂ",

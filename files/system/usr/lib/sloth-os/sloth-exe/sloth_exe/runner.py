@@ -1,13 +1,16 @@
-"""Windows-program indítása a háttérben (umu-launcher + Proton).
+"""Windows-program indítása a háttérben (umu-launcher + Proton, tartalékként a rendszer Wine-ja).
 
 A felhasználó a technikai részleteket nem látja: a kimenetből csak emberi
 állapotszöveg lesz ("Első indítás előkészítése…"), a többi a naplóba megy.
+Hogy melyik futtató indul, azt a backend.py dönti el.
 """
 import logging
 import re
 import time
 
 from PySide6.QtCore import QObject, QProcess, QProcessEnvironment, Signal
+
+from . import backend
 
 log = logging.getLogger("sloth-exe.runner")
 
@@ -33,6 +36,7 @@ class Runner(QObject):
         self._proc = None
         self._started_at = 0.0
         self._setup_seen = False
+        self._pending = None  # tartalék Wine-nál: (program, args), ami a mappa előkészítése után indul
 
     def start(self, program, exe):
         """program: programs.Program, exe: a futtatandó fájl a gazdagépen."""
@@ -50,17 +54,42 @@ class Runner(QObject):
         env.insert("WINEDLLOVERRIDES", "winemenubuilder.exe=d")
         env.remove("UMU_ZENITY")
 
+        self._started_at = time.monotonic()
+        if backend.use_wine():
+            self._start_wine(program, exe, env)
+            return
+        # Az .msi telepítőket a Proton magától az msiexec-kel nyitja meg
+        log.info("indítás: %s (%s)", exe, program.slug)
+        self._spawn(env, exe.parent, "umu-run", [str(exe)])
+
+    def _start_wine(self, program, exe, env):
+        """Tartalék: nincs Proton és nincs internet. A rendszer Wine-ja indítja a programot."""
+        log.info("indítás tartalék futtatóval: %s (%s)", exe, program.slug)
+        # A Gecko-telepítő kérdése ne jöjjön elő (a .NET-et a wine-mono csomag adja)
+        env.insert("WINEDLLOVERRIDES", "winemenubuilder.exe=d;mshtml=d")
+        args = ["msiexec", "/i", str(exe)] if exe.suffix.lower() == ".msi" else [str(exe)]
+        self.setup_done.emit()
+        if (program.prefix / "system.reg").exists():
+            self._spawn(env, exe.parent, "wine", args)
+            return
+        # Új mappa: előbb kijelző nélkül előkészítjük, így nem jelenik meg a Wine saját
+        # "konfiguráció frissítése" ablaka; utána indul a program
+        self._pending = (env, exe.parent, args)
+        headless = QProcessEnvironment(env)
+        headless.remove("DISPLAY")
+        headless.remove("WAYLAND_DISPLAY")
+        self.status.emit("Első indítás előkészítése…", -1)
+        self._spawn(headless, exe.parent, "wineboot", ["--init"])
+
+    def _spawn(self, env, cwd, program, args):
         self._proc = QProcess(self)
         self._proc.setProcessEnvironment(env)
-        self._proc.setWorkingDirectory(str(exe.parent))
+        self._proc.setWorkingDirectory(str(cwd))
         self._proc.setProcessChannelMode(QProcess.ProcessChannelMode.MergedChannels)
         self._proc.readyReadStandardOutput.connect(self._read)
         self._proc.finished.connect(self._on_finished)
         self._proc.errorOccurred.connect(self._on_error)
-        self._started_at = time.monotonic()
-        # Az .msi telepítőket a Wine magától az msiexec-kel nyitja meg
-        log.info("indítás: %s (%s)", exe, program.slug)
-        self._proc.start("umu-run", [str(exe)])
+        self._proc.start(program, args)
 
     def running(self):
         return self._proc is not None and self._proc.state() != QProcess.ProcessState.NotRunning
@@ -90,8 +119,14 @@ class Runner(QObject):
 
     def _on_error(self, err):
         if err == QProcess.ProcessError.FailedToStart:
-            log.error("az umu-run nem indult el")
+            log.error("a futtató nem indult el: %s", self._proc.program())
             self.finished.emit(127, 0.0)
 
     def _on_finished(self, code, _status):
+        if self._pending:
+            # a mappa elkészült (wineboot), most jön maga a program
+            env, cwd, args = self._pending
+            self._pending = None
+            self._spawn(env, cwd, "wine", args)
+            return
         self.finished.emit(int(code), self.elapsed())

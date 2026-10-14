@@ -1,0 +1,9 @@
+[Unit]
+Description=Sloth OS: Windows-programok futtatójának előkészítése (bejelentkezés után, majd 6 óránként)
+
+[Timer]
+OnStartupSec=3min
+OnUnitActiveSec=6h
+
+[Install]
+WantedBy=timers.target

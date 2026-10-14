@@ -48,7 +48,7 @@
   "category.chat.name": "Csevegés",
   "category.chat.hint": "Üzenetek, hang- és videóhívások.",
   "category.games.name": "Játékok",
-  "category.games.hint": "A Steam már telepítve van. Ezekkel más boltok játékai is mennek.",
+  "category.games.hint": "Játékboltok és játékindítók. A Windowsos játékok és programok nélkülük is elindulnak.",
   "category.creative.name": "Alkotás",
   "category.creative.hint": "Képszerkesztés, rajzolás, videóvágás, felvétel.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Gyors üzenetküldő",
   "app.org.signal.Signal": "Titkosított üzenetek",
   "app.com.rtosta.zapzap": "WhatsApp a számítógépen",
+  "app.com.valvesoftware.Steam": "A legnagyobb játékbolt PC-re",
   "app.com.heroicgameslauncher.hgl": "Epic Games, GOG és Amazon játékok",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Sok más játékbolt és régi játékok",

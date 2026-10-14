@@ -48,7 +48,7 @@
   "category.chat.name": "Dopisivanje",
   "category.chat.hint": "Poruke, glasovni i video pozivi.",
   "category.games.name": "Igre",
-  "category.games.hint": "Steam je već instaliran. S ovima rade i igre iz drugih trgovina.",
+  "category.games.hint": "Trgovine i pokretači igara. Windows igre i programi rade i bez njih.",
   "category.creative.name": "Stvaralaštvo",
   "category.creative.hint": "Uređivanje fotografija, crtanje, montaža videa, snimanje.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Brza aplikacija za poruke",
   "app.org.signal.Signal": "Šifrirane poruke",
   "app.com.rtosta.zapzap": "WhatsApp na računalu",
+  "app.com.valvesoftware.Steam": "Najveća trgovina igrama za PC",
   "app.com.heroicgameslauncher.hgl": "Igre s Epic Gamesa, GOG-a i Amazona",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Mnoge druge trgovine igrama i starije igre",

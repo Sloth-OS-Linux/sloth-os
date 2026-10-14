@@ -48,7 +48,7 @@
   "category.chat.name": "Conversation",
   "category.chat.hint": "Messages, appellos de voce e de video.",
   "category.games.name": "Jocos",
-  "category.games.hint": "Steam es jam installate. Con istes functiona etiam jocos de altere botecas.",
+  "category.games.hint": "Botecas e lanceatores de jocos. Jocos e programmas de Windows functiona etiam sin illos.",
   "category.creative.name": "Creation",
   "category.creative.hint": "Modification de photos, designo, montage de video, registration.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Messageria rapide",
   "app.org.signal.Signal": "Messages cryptate",
   "app.com.rtosta.zapzap": "WhatsApp sur le computator",
+  "app.com.valvesoftware.Steam": "Le plus grande boteca de jocos pro PC",
   "app.com.heroicgameslauncher.hgl": "Jocos de Epic Games, GOG e Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Multe altere botecas de jocos e jocos ancian",

@@ -48,7 +48,7 @@
   "category.chat.name": "მიმოწერა",
   "category.chat.hint": "შეტყობინებები, ხმოვანი და ვიდეოზარები.",
   "category.games.name": "თამაშები",
-  "category.games.hint": "Steam უკვე დაყენებულია. ამათით სხვა მაღაზიების თამაშებიც ეშვება.",
+  "category.games.hint": "სათამაშო მაღაზიები და გამშვებები. Windows-ის თამაშები და პროგრამები მათ გარეშეც ეშვება.",
   "category.creative.name": "შემოქმედება",
   "category.creative.hint": "ფოტოების რედაქტირება, ხატვა, ვიდეომონტაჟი, ჩაწერა.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "სწრაფი მესენჯერი",
   "app.org.signal.Signal": "დაშიფრული შეტყობინებები",
   "app.com.rtosta.zapzap": "WhatsApp კომპიუტერზე",
+  "app.com.valvesoftware.Steam": "კომპიუტერული თამაშების უდიდესი მაღაზია",
   "app.com.heroicgameslauncher.hgl": "Epic Games-ის, GOG-ისა და Amazon-ის თამაშები",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "ბევრი სხვა სათამაშო მაღაზია და ძველი თამაშები",

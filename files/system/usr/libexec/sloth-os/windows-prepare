@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+# Előkészíti a Windows-programok futtatóját (Proton + futtatókörnyezet), hogy az első .exe
+# azonnal induljon, és később internet nélkül is menjen. Frissen is tartja: az umu-launcher
+# minden futáskor megnézi, van-e újabb Proton.
+# Felhasználói időzítő indítja (sloth-windows-prepare.timer): bejelentkezés után pár perccel,
+# utána 6 óránként. Ablakot nem nyit, a kimenet csak a naplóba megy
+# (journalctl --user -u sloth-windows-prepare).
+set -euo pipefail
+
+# Internet nélkül nincs mit tenni; a következő alkalommal újra próbáljuk
+if [[ "$(nmcli --terse --fields CONNECTIVITY general 2>/dev/null || echo full)" != "full" ]]; then
+    echo "Nincs internet, később újra próbálom."
+    exit 0
+fi
+
+# Egy ideiglenes, rögtön törölt mappában egy üres indítás: ez tölti le a Protont és a
+# futtatókörnyezetet. Kijelző nélkül, így semmilyen ablak nem jelenik meg.
+prefix="$(mktemp -d "${XDG_CACHE_HOME:-$HOME/.cache}/sloth-windows-prepare.XXXXXX")"
+trap 'rm -rf "$prefix"' EXIT
+env -u DISPLAY -u WAYLAND_DISPLAY \
+    WINEPREFIX="$prefix" GAMEID=umu-default STORE=none PROTON_VERB=waitforexitandrun \
+    WINEDEBUG=-all WINEDLLOVERRIDES="winemenubuilder.exe=d;mshtml=d" \
+    nice -n 19 ionice -c 3 umu-run wineboot --init
+echo "A Windows-programok futtatója kész."

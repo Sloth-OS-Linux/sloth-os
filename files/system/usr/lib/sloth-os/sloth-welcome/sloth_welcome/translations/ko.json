@@ -48,7 +48,7 @@
   "category.chat.name": "채팅",
   "category.chat.hint": "메시지, 음성 통화, 영상 통화.",
   "category.games.name": "게임",
-  "category.games.hint": "Steam은 이미 설치되어 있습니다. 이 앱들로 다른 스토어의 게임도 즐길 수 있습니다.",
+  "category.games.hint": "게임 스토어와 런처. Windows 게임과 프로그램은 이것들 없이도 실행됩니다.",
   "category.creative.name": "창작",
   "category.creative.hint": "사진 편집, 그림, 동영상 편집, 녹화.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "빠른 메신저",
   "app.org.signal.Signal": "암호화된 메시지",
   "app.com.rtosta.zapzap": "컴퓨터에서 쓰는 WhatsApp",
+  "app.com.valvesoftware.Steam": "가장 큰 PC 게임 스토어",
   "app.com.heroicgameslauncher.hgl": "Epic Games, GOG, Amazon 게임",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "다른 여러 게임 스토어와 고전 게임",

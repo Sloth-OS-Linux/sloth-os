@@ -48,7 +48,7 @@
   "category.chat.name": "Missatgeria",
   "category.chat.hint": "Missatges, trucades de veu i de vídeo.",
   "category.games.name": "Jocs",
-  "category.games.hint": "Steam ja està instal·lat. Amb aquests també funcionen jocs d'altres botigues.",
+  "category.games.hint": "Botigues i llançadors de jocs. Els jocs i programes de Windows també funcionen sense ells.",
   "category.creative.name": "Creativitat",
   "category.creative.hint": "Edició de fotos, dibuix, edició de vídeo, enregistrament.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Missatgeria ràpida",
   "app.org.signal.Signal": "Missatges xifrats",
   "app.com.rtosta.zapzap": "WhatsApp a l'ordinador",
+  "app.com.valvesoftware.Steam": "La botiga de jocs per a PC més gran",
   "app.com.heroicgameslauncher.hgl": "Jocs d'Epic Games, GOG i Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Moltes altres botigues de jocs i jocs antics",

@@ -85,7 +85,7 @@ for unit in \
     $(systemctl list-unit-files --no-legend | awk '{print $1}' | grep -Ei 'flatpak' | grep -Evi 'flatpak-(system|session)-helper' || true); do
     systemctl disable "$unit" 2>/dev/null || true
 done
-for unit in sloth-steam-vulkan-layers.timer sloth-github-bundle-update.timer \
+for unit in sloth-steam-vulkan-layers.timer sloth-github-bundle-update.timer sloth-windows-prepare.timer \
     $(systemctl --global list-unit-files --no-legend 2>/dev/null | awk '{print $1}' | grep -Ei 'flatpak' || true); do
     systemctl --global disable "$unit" 2>/dev/null || true
 done

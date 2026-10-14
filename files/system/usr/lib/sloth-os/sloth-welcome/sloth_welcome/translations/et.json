@@ -48,7 +48,7 @@
   "category.chat.name": "Suhtlus",
   "category.chat.hint": "Sõnumid, hääl- ja videokõned.",
   "category.games.name": "Mängud",
-  "category.games.hint": "Steam on juba paigaldatud. Nendega töötavad ka teiste poodide mängud.",
+  "category.games.hint": "Mängupoed ja käivitajad. Windowsi mängud ja programmid töötavad ka ilma nendeta.",
   "category.creative.name": "Loovus",
   "category.creative.hint": "Fototöötlus, joonistamine, videotöötlus, salvestamine.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Kiire sõnumirakendus",
   "app.org.signal.Signal": "Krüpteeritud sõnumid",
   "app.com.rtosta.zapzap": "WhatsApp arvutis",
+  "app.com.valvesoftware.Steam": "Suurim arvutimängude pood",
   "app.com.heroicgameslauncher.hgl": "Epic Gamesi, GOG-i ja Amazoni mängud",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Palju teisi mängupoode ja vanemad mängud",

@@ -12,12 +12,11 @@ kickoff.currentConfigGroup = ["General"];
 kickoff.writeConfig("icon", "sloth-os");
 
 // Rögzített appok + futó ablakok (csak ikonok, mint a Windowsban).
-// A böngészőt a Sloth Üdvözlő tűzi ki, ha a felhasználó választott egyet.
+// A böngészőt és a Steamet a Sloth Üdvözlő tűzi ki, ha a felhasználó telepítette őket.
 const tasks = panel.addWidget("org.kde.plasma.icontasks");
 tasks.currentConfigGroup = ["General"];
 tasks.writeConfig("launchers", [
     "applications:org.kde.dolphin.desktop",
-    "applications:com.valvesoftware.Steam.desktop",
     "applications:org.kde.discover.desktop",
 ].join(","));
 

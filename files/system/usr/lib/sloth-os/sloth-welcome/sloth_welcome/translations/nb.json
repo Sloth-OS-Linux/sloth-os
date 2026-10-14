@@ -48,7 +48,7 @@
   "category.chat.name": "Chat",
   "category.chat.hint": "Meldinger, tale- og videosamtaler.",
   "category.games.name": "Spill",
-  "category.games.hint": "Steam er allerede installert. Med disse kjører også spill fra andre butikker.",
+  "category.games.hint": "Spillbutikker og startprogrammer. Windows-spill og -programmer kjører også uten dem.",
   "category.creative.name": "Kreativt",
   "category.creative.hint": "Bilderedigering, tegning, videoredigering, opptak.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Rask meldingstjeneste",
   "app.org.signal.Signal": "Krypterte meldinger",
   "app.com.rtosta.zapzap": "WhatsApp på datamaskinen",
+  "app.com.valvesoftware.Steam": "Den største spillbutikken for PC",
   "app.com.heroicgameslauncher.hgl": "Spill fra Epic Games, GOG og Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Mange andre spillbutikker og eldre spill",

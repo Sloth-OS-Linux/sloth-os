@@ -48,7 +48,7 @@
   "category.chat.name": "চ্যাট",
   "category.chat.hint": "বার্তা, ভয়েস ও ভিডিও কল।",
   "category.games.name": "গেম",
-  "category.games.hint": "Steam আগেই ইনস্টল করা আছে। এগুলি দিয়ে অন্য স্টোরের গেমও চলে।",
+  "category.games.hint": "গেম স্টোর ও লঞ্চার। Windows-এর গেম ও প্রোগ্রাম এগুলি ছাড়াও চলে।",
   "category.creative.name": "সৃজনশীলতা",
   "category.creative.hint": "ছবি সম্পাদনা, আঁকা, ভিডিও সম্পাদনা, রেকর্ডিং।",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "দ্রুত মেসেঞ্জার",
   "app.org.signal.Signal": "এনক্রিপ্ট করা বার্তা",
   "app.com.rtosta.zapzap": "কম্পিউটারে WhatsApp",
+  "app.com.valvesoftware.Steam": "PC-র সবচেয়ে বড় গেম স্টোর",
   "app.com.heroicgameslauncher.hgl": "Epic Games, GOG ও Amazon-এর গেম",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "আরও অনেক গেম স্টোর ও পুরনো গেম",

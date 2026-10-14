@@ -48,7 +48,7 @@
   "category.chat.name": "צ׳אט",
   "category.chat.hint": "הודעות, שיחות קוליות ושיחות וידאו.",
   "category.games.name": "משחקים",
-  "category.games.hint": "Steam כבר מותקן. עם אלה עובדים גם משחקים מחנויות אחרות.",
+  "category.games.hint": "חנויות ומשגרי משחקים. משחקים ותוכנות של Windows פועלים גם בלעדיהם.",
   "category.creative.name": "יצירה",
   "category.creative.hint": "עריכת תמונות, ציור, עריכת וידאו, הקלטה.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "מסנג׳ר מהיר",
   "app.org.signal.Signal": "הודעות מוצפנות",
   "app.com.rtosta.zapzap": "WhatsApp במחשב",
+  "app.com.valvesoftware.Steam": "חנות משחקי המחשב הגדולה ביותר",
   "app.com.heroicgameslauncher.hgl": "משחקים מ־Epic Games, GOG ו־Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "חנויות משחקים רבות נוספות ומשחקים ישנים",

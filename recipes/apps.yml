@@ -1,7 +1,8 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
-# Előtelepített appok. Szándékosan csak a Steam: minden mást (böngésző, irodai programok,
-# médialejátszó, csevegés, …) a felhasználó választ ki első indításkor a Sloth Üdvözlőben
+# Előtelepített app nincs: mindent (böngésző, irodai programok, médialejátszó, csevegés,
+# Steam és más játékboltok, …) a felhasználó választ ki első indításkor a Sloth Üdvözlőben
 # (files/system/usr/lib/sloth-os/sloth-welcome). Az appok listája: sloth_welcome/catalog.py
+# A Windows-programok Steam nélkül is futnak (.exe kezelő, recipes/gaming.yml).
 modules:
   # Az alap image-ben lévő Firefox RPM kikerül; böngészőt a varázslóban lehet választani
   - type: script
@@ -11,9 +12,5 @@ modules:
   - type: default-flatpaks
     configurations:
       - notify: false # a felhasználó ne lásson technikai értesítést első induláskor
-        scope: system
-        install:
-          # A Steam a gaming-réteg alapja (Proton alapból bekapcsolva, Vulkan rétegek),
-          # ezért ez mindig ott van. A Proton-kezelés a saját .exe kezelőbe kerül (ROADMAP 2. fázis).
-          - com.valvesoftware.Steam
+        scope: system # Flathub rendszerszintű repó, csomagok nélkül (az Üdvözlő innen telepít)
       - scope: user # Flathub felhasználói repó, csomagok nélkül

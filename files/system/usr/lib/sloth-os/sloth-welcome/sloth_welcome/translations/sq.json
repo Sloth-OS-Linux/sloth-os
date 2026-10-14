@@ -48,7 +48,7 @@
   "category.chat.name": "Bisedë",
   "category.chat.hint": "Mesazhe, thirrje zanore dhe me video.",
   "category.games.name": "Lojëra",
-  "category.games.hint": "Steam është tashmë i instaluar. Me këto punojnë edhe lojëra nga dyqane të tjera.",
+  "category.games.hint": "Dyqane dhe nisës lojërash. Lojërat dhe programet e Windows punojnë edhe pa to.",
   "category.creative.name": "Krijimtari",
   "category.creative.hint": "Përpunim fotosh, vizatim, montim videoje, regjistrim.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Aplikacion i shpejtë mesazhesh",
   "app.org.signal.Signal": "Mesazhe të fshehtëzuara",
   "app.com.rtosta.zapzap": "WhatsApp në kompjuter",
+  "app.com.valvesoftware.Steam": "Dyqani më i madh i lojërave për PC",
   "app.com.heroicgameslauncher.hgl": "Lojëra nga Epic Games, GOG dhe Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Shumë dyqane të tjera lojërash dhe lojëra të vjetra",

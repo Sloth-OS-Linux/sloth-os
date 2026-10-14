@@ -48,7 +48,7 @@
   "category.chat.name": "Mensajería",
   "category.chat.hint": "Mensajes, llamadas de voz y videollamadas.",
   "category.games.name": "Juegos",
-  "category.games.hint": "Steam ya está instalado. Con estos también funcionan juegos de otras tiendas.",
+  "category.games.hint": "Tiendas y lanzadores de juegos. Los juegos y programas de Windows también funcionan sin ellos.",
   "category.creative.name": "Creatividad",
   "category.creative.hint": "Edición de fotos, dibujo, edición de vídeo, grabación.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Mensajería rápida",
   "app.org.signal.Signal": "Mensajes cifrados",
   "app.com.rtosta.zapzap": "WhatsApp en tu ordenador",
+  "app.com.valvesoftware.Steam": "La mayor tienda de juegos para PC",
   "app.com.heroicgameslauncher.hgl": "Juegos de Epic Games, GOG y Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Muchas otras tiendas de juegos y juegos antiguos",

@@ -48,7 +48,7 @@
   "category.chat.name": "Хат алмасу",
   "category.chat.hint": "Хабарламалар, дауыстық және бейне қоңыраулар.",
   "category.games.name": "Ойындар",
-  "category.games.hint": "Steam орнатылып қойған. Бұлармен басқа дүкендердің ойындары да жұмыс істейді.",
+  "category.games.hint": "Ойын дүкендері мен іске қосқыштар. Windows ойындары мен бағдарламалары оларсыз да жұмыс істейді.",
   "category.creative.name": "Шығармашылық",
   "category.creative.hint": "Фото өңдеу, сурет салу, бейне монтаж, жазу.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Жылдам мессенджер",
   "app.org.signal.Signal": "Шифрланған хабарламалар",
   "app.com.rtosta.zapzap": "Компьютердегі WhatsApp",
+  "app.com.valvesoftware.Steam": "ДК-ге арналған ең үлкен ойын дүкені",
   "app.com.heroicgameslauncher.hgl": "Epic Games, GOG және Amazon ойындары",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Көптеген басқа ойын дүкендері және ескі ойындар",

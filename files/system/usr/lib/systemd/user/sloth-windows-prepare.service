@@ -1,0 +1,9 @@
+[Unit]
+Description=Sloth OS: Windows-programok futtatójának előkészítése és frissítése a háttérben
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/windows-prepare
+# Alacsony prioritás: játék vagy munka közben se lassítson
+Nice=19
+IOSchedulingClass=idle

@@ -7,9 +7,18 @@ modules:
         - gamescope # mikrokompozitor, felskálázás, HDR
         - mangohud  # FPS / teljesítmény overlay
         - gamemode  # CPU/GPU teljesítmény-mód játék közben
+        # Tartalék futtató a Windows-programokhoz: ha a Proton még nincs letöltve és nincs
+        # internet, ezzel indul az .exe (files/system/usr/lib/sloth-os/sloth-exe/sloth_exe/backend.py).
+        # Szándékosan nem a teljes "wine" csomag: a wine-desktop "Wine …" menüpontokat és
+        # saját .exe-társítást hozna, a felhasználó pedig ne lássa a Wine-t.
+        - wine-core  # a wine parancs
+        - wine-dxvk  # DirectX 9-11 Vulkanon (játékok)
+        - wine-mono  # .NET-es programokhoz, telepítő ablak nélkül
 
   # Windows-programok: dupla kattintás egy .exe-re -> telepítés / futtatás (files/system/usr/lib/sloth-os/sloth-exe).
-  # A háttérben az umu-launcher fut; nincs a Fedora repóban, ezért rögzített verziójú GitHub RPM.
+  # Steam nélkül is működik. A háttérben az umu-launcher + Proton fut; az umu nincs a Fedora
+  # repóban, ezért rögzített verziójú GitHub RPM. A Protont bejelentkezés után a
+  # sloth-windows-prepare.timer előre letölti és frissen tartja, így az első .exe is azonnal indul.
   - type: script
     scripts:
       - umu-launcher.sh
@@ -27,3 +36,4 @@ modules:
     user:
       enabled:
         - sloth-steam-proton-default.service
+        - sloth-windows-prepare.timer

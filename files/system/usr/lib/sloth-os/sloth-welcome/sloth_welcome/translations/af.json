@@ -48,7 +48,7 @@
   "category.chat.name": "Klets",
   "category.chat.hint": "Boodskappe, stem- en video-oproepe.",
   "category.games.name": "Speletjies",
-  "category.games.hint": "Steam is reeds geïnstalleer. Hiermee werk speletjies van ander winkels ook.",
+  "category.games.hint": "Speletjiewinkels en lanseerders. Windows-speletjies en -programme werk ook daarsonder.",
   "category.creative.name": "Kreatief",
   "category.creative.hint": "Fotoredigering, teken, videoredigering, opneem.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Vinnige boodskapper",
   "app.org.signal.Signal": "Geënkripteerde boodskappe",
   "app.com.rtosta.zapzap": "WhatsApp op jou rekenaar",
+  "app.com.valvesoftware.Steam": "Die grootste speletjiewinkel vir rekenaars",
   "app.com.heroicgameslauncher.hgl": "Speletjies van Epic Games, GOG en Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Baie ander speletjiewinkels en ouer speletjies",

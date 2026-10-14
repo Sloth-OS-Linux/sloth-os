@@ -57,6 +57,7 @@ CATEGORIES = [
     {
         "id": "games", "icon": "applications-games",
         "apps": [
+            {"id": "com.valvesoftware.Steam", "name": "Steam"},
             {"id": "com.heroicgameslauncher.hgl", "name": "Heroic"},
             {"id": "org.prismlauncher.PrismLauncher", "name": "Prism Launcher"},
             {"id": "net.lutris.Lutris", "name": "Lutris"},

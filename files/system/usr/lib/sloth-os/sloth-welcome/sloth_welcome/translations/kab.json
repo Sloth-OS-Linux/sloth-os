@@ -48,7 +48,7 @@
   "category.chat.name": "Adiwenni",
   "category.chat.hint": "Iznan, isawalen s taɣect d tvidyut.",
   "category.games.name": "Uraren",
-  "category.games.hint": "Steam yebded yakan. S wigi, uraren n tḥuna-nniḍen ad ddun daɣen.",
+  "category.games.hint": "Tiḥuna d yisekkaren n wuraren. Uraren d yiseɣzanen n Windows ddun ula mebla nsen.",
   "category.creative.name": "Asnulfu",
   "category.creative.hint": "Aseẓreg n tewlafin, asuneɣ, aseẓreg n tvidyut, asekles.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Asnas n yiznan arurad",
   "app.org.signal.Signal": "Iznan yettwawgelhen",
   "app.com.rtosta.zapzap": "WhatsApp ɣef uselkim",
+  "app.com.valvesoftware.Steam": "Tahanut tameqqrant n wuraren i PC",
   "app.com.heroicgameslauncher.hgl": "Uraren n Epic Games, GOG d Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Aṭas n tḥuna n wuraren nniḍen d wuraren iqburen",

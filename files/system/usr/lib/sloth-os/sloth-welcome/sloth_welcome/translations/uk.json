@@ -48,7 +48,7 @@
   "category.chat.name": "Спілкування",
   "category.chat.hint": "Повідомлення, голосові та відеодзвінки.",
   "category.games.name": "Ігри",
-  "category.games.hint": "Steam уже встановлено. З цими працюють і ігри з інших крамниць.",
+  "category.games.hint": "Крамниці й лаунчери ігор. Ігри та програми для Windows працюють і без них.",
   "category.creative.name": "Творчість",
   "category.creative.hint": "Обробка фото, малювання, монтаж відео, запис.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Швидкий месенджер",
   "app.org.signal.Signal": "Зашифровані повідомлення",
   "app.com.rtosta.zapzap": "WhatsApp на комп'ютері",
+  "app.com.valvesoftware.Steam": "Найбільша крамниця ігор для ПК",
   "app.com.heroicgameslauncher.hgl": "Ігри з Epic Games, GOG та Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Багато інших ігрових крамниць і старі ігри",

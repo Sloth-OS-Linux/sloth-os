@@ -48,7 +48,7 @@
   "category.chat.name": "Messaçs",
   "category.chat.hint": "Messaçs, clamadis vocâls e video.",
   "category.games.name": "Zûcs",
-  "category.games.hint": "Steam al è za instalât. Cun chescj a van ancje i zûcs di altris buteghis.",
+  "category.games.hint": "Buteghis e inviadôrs di zûcs. I zûcs e i programs di Windows a van ancje cence.",
   "category.creative.name": "Creativitât",
   "category.creative.hint": "Modifiche di fotos, dissen, montaç video, regjistrazion.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Messaçs svelts",
   "app.org.signal.Signal": "Messaçs cifrâts",
   "app.com.rtosta.zapzap": "WhatsApp sul computer",
+  "app.com.valvesoftware.Steam": "La plui grande buteghe di zûcs pal PC",
   "app.com.heroicgameslauncher.hgl": "Zûcs di Epic Games, GOG e Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Tantis altris buteghis di zûcs e zûcs vecjos",

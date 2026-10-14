@@ -48,7 +48,7 @@
   "category.chat.name": "Mesagerie",
   "category.chat.hint": "Mesaje, apeluri vocale și video.",
   "category.games.name": "Jocuri",
-  "category.games.hint": "Steam este deja instalat. Cu acestea merg și jocuri din alte magazine.",
+  "category.games.hint": "Magazine și lansatoare de jocuri. Jocurile și programele Windows merg și fără ele.",
   "category.creative.name": "Creație",
   "category.creative.hint": "Editare foto, desen, montaj video, înregistrare.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Mesagerie rapidă",
   "app.org.signal.Signal": "Mesaje criptate",
   "app.com.rtosta.zapzap": "WhatsApp pe calculator",
+  "app.com.valvesoftware.Steam": "Cel mai mare magazin de jocuri pentru PC",
   "app.com.heroicgameslauncher.hgl": "Jocuri de pe Epic Games, GOG și Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Multe alte magazine de jocuri și jocuri mai vechi",

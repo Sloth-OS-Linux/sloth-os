@@ -84,7 +84,7 @@ Kirigami.ApplicationWindow {
                             model: installer.languages
                             textRole: "name"
                             valueRole: "code"
-                            currentIndex: indexOfValue(installer.language)
+                            currentIndex: count > 0 ? indexOfValue(installer.language) : -1
                             onActivated: installer.setLanguage(currentValue)
                         }
                     }
@@ -133,7 +133,7 @@ Kirigami.ApplicationWindow {
                             model: installer.keyboards
                             textRole: "name"
                             valueRole: "id"
-                            currentIndex: indexOfValue(installer.keyboard)
+                            currentIndex: count > 0 ? indexOfValue(installer.keyboard) : -1
                             onActivated: installer.setKeyboard(currentValue)
                         }
                         QQC2.TextField {
@@ -147,7 +147,7 @@ Kirigami.ApplicationWindow {
                             model: installer.timezones
                             textRole: "name"
                             valueRole: "id"
-                            currentIndex: indexOfValue(installer.timezone)
+                            currentIndex: count > 0 ? indexOfValue(installer.timezone) : -1
                             onActivated: installer.setTimezone(currentValue)
                         }
                     }

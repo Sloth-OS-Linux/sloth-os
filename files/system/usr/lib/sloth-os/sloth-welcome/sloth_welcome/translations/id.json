@@ -48,7 +48,7 @@
   "category.chat.name": "Obrolan",
   "category.chat.hint": "Pesan, panggilan suara dan video.",
   "category.games.name": "Game",
-  "category.games.hint": "Steam sudah terpasang. Dengan ini, game dari toko lain juga bisa jalan.",
+  "category.games.hint": "Toko dan peluncur game. Game dan program Windows tetap bisa jalan tanpanya.",
   "category.creative.name": "Kreativitas",
   "category.creative.hint": "Edit foto, menggambar, edit video, merekam.",
 
@@ -72,6 +72,7 @@
   "app.org.telegram.desktop": "Aplikasi pesan yang cepat",
   "app.org.signal.Signal": "Pesan terenkripsi",
   "app.com.rtosta.zapzap": "WhatsApp di komputer",
+  "app.com.valvesoftware.Steam": "Toko game PC terbesar",
   "app.com.heroicgameslauncher.hgl": "Game dari Epic Games, GOG, dan Amazon",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
   "app.net.lutris.Lutris": "Banyak toko game lain dan game lama",

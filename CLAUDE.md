@@ -17,8 +17,11 @@ Kivétel: **minden README angolul** készül (a repó később publikus lesz).
 - **A Proton/Wine legyen láthatatlan.** A felhasználó ne lássa a "Wine", "prefix", "Proton verzió" fogalmakat, hacsak nem kéri kifejezetten.
 - **Az `ID=fedora` marad** az `/usr/lib/os-release`-ben; csak a megjelenített nevek változnak (lásd `files/scripts/branding.sh`).
 - **Felhasználói appok Flatpakként**; RPM csak rendszerszintű dolgokhoz (`recipes/gaming.yml` stb.).
-  Előtelepítve csak a Steam (`recipes/apps.yml`); a többit a felhasználó választja a Sloth Üdvözlőben
-  (`files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome/catalog.py`). Alapból semmi nincs bejelölve.
+  Előtelepített app nincs, a Steam sem: mindent a felhasználó választ a Sloth Üdvözlőben
+  (`files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome/catalog.py`). Alapból semmi nincs bejelölve,
+  és a tálcára is csak az kerül, amit a felhasználó telepített.
+- **Windows-programok Steam nélkül is futnak** (.exe kezelő): umu-launcher + Proton, amit a háttérben előre
+  letöltünk; tartalékként a rendszer Wine-ja (`wine-core`), így internet nélkül is elindul egy .exe.
 - Minden változás a recipe-ken és a `files/` mappán keresztül történik. A futó rendszeren kézzel semmit nem állítunk.
 
 ## Felépítés
