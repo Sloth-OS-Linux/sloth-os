@@ -171,5 +171,77 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        // --- Kontrollerek -------------------------------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Kontrollerek") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    visible: gamepads.gamepads.length === 0
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Most nincs csatlakoztatott kontroller. Dugd be kábellel, vagy párosítsd Bluetooth-on. Az Xbox, PlayStation, Nintendo Switch és Steam kontrollerek külön telepítés nélkül működnek.")
+                }
+                Repeater {
+                    model: gamepads.gamepads
+                    delegate: RowLayout {
+                        id: padRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: "input-gamepad"
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: padRow.modelData.name; font.bold: true }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                opacity: 0.7
+                                text: gamepads.connectionText(padRow.modelData.connection)
+                            }
+                        }
+                        Kirigami.Icon {
+                            visible: padRow.modelData.battery >= 0
+                            source: padRow.modelData.charging ? "battery-charging" : padRow.modelData.battery < 20 ? "battery-caution" : "battery"
+                            implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                            implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                        }
+                        QQC2.Label {
+                            visible: padRow.modelData.battery >= 0
+                            text: padRow.modelData.battery + "%"
+                        }
+                    }
+                }
+                RowLayout {
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Button {
+                        icon.name: "preferences-system-bluetooth"
+                        text: L.t("Vezeték nélküli kontroller párosítása")
+                        onClicked: gamepads.openSettings("kcm_bluetooth")
+                    }
+                    QQC2.Button {
+                        enabled: gamepads.gamepads.length > 0
+                        icon.name: "input-gamepad"
+                        text: L.t("Gombok kipróbálása")
+                        onClicked: gamepads.openSettings("kcm_gamecontroller")
+                    }
+                }
+            }
+        }
+    }
+
+    // Kontroller csatlakoztatása, leválasztása, akkuszint: pár másodpercenként frissül
+    Timer {
+        interval: 3000
+        running: page.visible
+        repeat: true
+        onTriggered: gamepads.refresh()
     }
 }
