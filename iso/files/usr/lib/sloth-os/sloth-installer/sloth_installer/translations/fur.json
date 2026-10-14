@@ -1,0 +1,63 @@
+{
+  "_language": "Furlan",
+
+  "app.title": "Instale Sloth OS",
+
+  "welcome.heading": "Benvignûts in Sloth OS!",
+  "welcome.text": "Tu puedis provâ il sisteme cence instalâlu, o instalâlu sul to computer. La instalazion e dure pôcs minûts e e à dome cualchi domande.",
+  "welcome.language": "Lenghe",
+  "welcome.try": "Prove",
+  "welcome.install": "Instale",
+
+  "region.heading": "Tastiere e fûs orari",
+  "region.keyboard": "Tastiere:",
+  "region.try_keyboard": "Prove:",
+  "region.try_keyboard_hint": "Scrîf achì par controlâ la disposizion",
+  "region.timezone": "Fûs orari:",
+  "region.note": "Tu podarâs cambiâju plui indenant tes Impostazions di sisteme.",
+
+  "disk.heading": "Dulà lu instalìno?",
+  "disk.text": "Sielç il disc dulà che al vignarà instalât Sloth OS.",
+  "disk.none": "No vin cjatât nissun disc par instalâ.",
+  "disk.refresh": "Cîr di gnûf",
+  "disk.too_small": "Masse piçul: a coventin almancul 40 GB.",
+  "disk.contents.empty": "Disc vueit",
+  "disk.contents.windows": "Al à Windows",
+  "disk.contents.linux": "Al à un sisteme Linux",
+  "disk.contents.other": "Al à dâts",
+  "disk.removable": "Chest al è un disc esterni (p.e. une clâf USB). Vûstu pardabon instalâ achì?",
+  "disk.small": "Un pôc strent: pai zûcs a son conseâts almancul 120 GB.",
+
+  "confirm.heading": "Dut ce che al è su chest disc al vignarà scancelât",
+  "confirm.text": "Sloth OS al dopre dut il disc: {disk}. Dut ce che al è cumò (files, programs, altris sistemis) al vignarà scancelât par simpri.",
+  "confirm.windows": "Su chest disc al è Windows. Dopo de instalazion, Windows e ducj i siei files no saran plui. Se tu ju vûs tignî, fâs prime une copie dai tiei files.",
+  "confirm.checkbox": "O capìs che ducj i dâts dal disc a vignaran scancelâts",
+  "confirm.install": "Tache la instalazion",
+
+  "nav.back": "Indaûr",
+  "nav.next": "Indenant",
+
+  "stage.start": "Preparazion…",
+  "stage.partition": "Preparazion dal disc…",
+  "stage.prepare": "Preparazion dal sisteme…",
+  "stage.copy": "Copie di Sloth OS sul disc…",
+  "stage.bootloader": "Configurazion dal inviament…",
+  "stage.finishing": "Finiment…",
+  "stage.configure": "Salvament de lenghe e des impostazions…",
+  "stage.browser": "Zonte di un navigadôr (cence internet)…",
+
+  "install.note": "In base al computer, al vûl 5–20 minûts. No sta distudâlu.",
+
+  "done.heading": "Instalazion finide!",
+  "done.text": "Torne invie il computer. Cuant che il schermi al devente neri, gjave la clâf USB. Al prin inviament tu creis il to account, e al è fat.",
+  "done.reboot": "Torne invie",
+
+  "error.heading": "La instalazion e je falide",
+  "error.log_hint": "Se tu domandis jutori, i detais a son in /tmp/sloth-install.log.",
+  "error.retry": "Torne prove",
+  "error.not_authorized": "No vin vût il permès di instalâ.",
+  "error.bad_disk": "Nol è pussibil instalâ su chest disc. Sielzint un altri.",
+  "error.bad_input": "Une des impostazions no je valide. Torne indaûr e controlilis.",
+  "error.install_failed": "Alc al è lât strucj intant de copie dal sisteme sul disc. I dâts che a jerin sul disc a podaressin jessi za stâts scancelâts.",
+  "error.configure_failed": "Il sisteme al è stât instalât, ma no si à rivât a impostâ lenghe e tastiere. Torne prove; se nol va ancjemò, tu podarâs impostâlis tes Impostazions di sisteme dopo dal prin inviament."
+}

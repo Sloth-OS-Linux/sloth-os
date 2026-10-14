@@ -1,0 +1,44 @@
+{
+  "_language": "Hrvatski",
+
+  "title.launch": "Pokretanje: {name}",
+  "title.install": "Instalacija: {name}",
+  "title.manage": "{name} – izbornik Start",
+
+  "choose.installer_text": "Nakon instalacije pronaći ćete ga u izborniku Start.",
+  "choose.program_text": "Možete ga pokrenuti i bez instalacije.",
+  "choose.add_to_menu": "Dodaj u izbornik Start",
+
+  "button.cancel": "Odustani",
+  "button.run_only": "Samo pokreni",
+  "button.install": "Instaliraj",
+  "button.start": "Pokreni",
+  "button.done": "Gotovo",
+  "button.close": "Zatvori",
+
+  "pick.done_title": "Instalacija je završena!",
+  "pick.question_manage": "Što treba biti u izborniku Start?",
+  "pick.question_install": "Što dodati u izbornik Start?",
+
+  "status.starting": "Pokretanje: {name}…",
+  "status.preparing_install": "Priprema instalacije: {name}…",
+  "status.finish_in_installer": "Dovršite instalaciju u prozoru instalacijskog programa. Zatim nastavljamo ovdje.",
+  "status.first_setup": "Priprema prvog pokretanja…",
+  "status.downloading": "Preuzimanje potrebnih komponenti… (samo prvi put)",
+  "status.extracting": "Raspakiravanje komponenti…",
+  "status.verifying": "Provjera…",
+  "status.updating": "Ažuriranje komponenti…",
+  "status.repairing": "Popravak komponenti…",
+
+  "error.not_found": "Program nije pronađen. Možda je izbrisan; instalirajte ga ponovno.",
+  "error.no_exe": "U ovom programu nismo pronašli ništa za pokretanje.",
+  "error.runtime_missing": "Nedostaje komponenta potrebna za pokretanje programa. Ažurirajte sustav u Sloth Centeru.",
+  "error.not_started": "{name} se nije pokrenuo. Ovaj program možda ne radi na ovom sustavu ili je datoteka oštećena.",
+  "error.nothing_installed": "Nismo pronašli instalirani program. Instalacija je možda prekinuta; pokušajte ponovno.",
+
+  "anticheat.blocked": "{game} koristi zaštitu od varanja {system}, koja ne dopušta igri da radi na Linuxu. Nije do vašeg računala i ne možemo to zaobići. Nažalost, ovu igru ovdje nije moguće igrati.",
+  "anticheat.maybe": "{game} koristi zaštitu od varanja {system}. Na Linuxu radi samo ako su to dopustili autori igre. Ako se igra ne pokreće ili vas izbacuje, vjerojatno je to razlog. Provjerite postoji li verzija igre na Steamu.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Ostali programi"
+}

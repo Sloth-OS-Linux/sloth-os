@@ -1,0 +1,63 @@
+{
+  "_language": "Català",
+
+  "app.title": "Instal·la Sloth OS",
+
+  "welcome.heading": "Benvingut a Sloth OS!",
+  "welcome.text": "Pots provar el sistema sense instal·lar-lo, o instal·lar-lo a l'ordinador. La instal·lació triga uns minuts i només fa unes quantes preguntes.",
+  "welcome.language": "Llengua",
+  "welcome.try": "Prova-ho",
+  "welcome.install": "Instal·la",
+
+  "region.heading": "Teclat i fus horari",
+  "region.keyboard": "Teclat:",
+  "region.try_keyboard": "Prova:",
+  "region.try_keyboard_hint": "Escriu aquí per comprovar la distribució",
+  "region.timezone": "Fus horari:",
+  "region.note": "Ho pots canviar més endavant a la Configuració del sistema.",
+
+  "disk.heading": "On l'instal·lem?",
+  "disk.text": "Tria el disc on s'instal·larà Sloth OS.",
+  "disk.none": "No hem trobat cap disc on instal·lar.",
+  "disk.refresh": "Torna a cercar",
+  "disk.too_small": "Massa petit: calen com a mínim 40 GB.",
+  "disk.contents.empty": "Disc buit",
+  "disk.contents.windows": "Hi ha Windows",
+  "disk.contents.linux": "Hi ha un sistema Linux",
+  "disk.contents.other": "Té dades",
+  "disk.removable": "És una unitat externa (p. ex. un llapis USB). Segur que vols instal·lar-hi?",
+  "disk.small": "Una mica just: per a jocs es recomanen com a mínim 120 GB.",
+
+  "confirm.heading": "S'esborrarà tot el que hi ha en aquest disc",
+  "confirm.text": "Sloth OS fa servir tot el disc: {disk}. Tot el que hi ha ara (fitxers, programes, altres sistemes) s'esborrarà per sempre.",
+  "confirm.windows": "Aquest disc té Windows. Després d'instal·lar, Windows i tots els seus fitxers desapareixeran. Si els vols conservar, primer fes una còpia dels teus fitxers.",
+  "confirm.checkbox": "Entenc que s'esborraran totes les dades del disc",
+  "confirm.install": "Comença la instal·lació",
+
+  "nav.back": "Enrere",
+  "nav.next": "Següent",
+
+  "stage.start": "S'està preparant…",
+  "stage.partition": "S'està preparant el disc…",
+  "stage.prepare": "S'està preparant el sistema…",
+  "stage.copy": "S'està copiant Sloth OS al disc…",
+  "stage.bootloader": "S'està configurant l'arrencada…",
+  "stage.finishing": "S'està acabant…",
+  "stage.configure": "S'estan desant la llengua i la configuració…",
+  "stage.browser": "S'està afegint un navegador (sense Internet)…",
+
+  "install.note": "Segons l'ordinador, triga entre 5 i 20 minuts. No l'apaguis.",
+
+  "done.heading": "Instal·lació acabada!",
+  "done.text": "Reinicia l'ordinador. Quan la pantalla es posi negra, treu el llapis USB. En el primer inici crearàs el teu compte, i ja està.",
+  "done.reboot": "Reinicia",
+
+  "error.heading": "La instal·lació ha fallat",
+  "error.log_hint": "Si demanes ajuda, els detalls són a /tmp/sloth-install.log.",
+  "error.retry": "Torna-ho a provar",
+  "error.not_authorized": "No hem obtingut permís per instal·lar.",
+  "error.bad_disk": "No es pot instal·lar en aquest disc. Tria'n un altre.",
+  "error.bad_input": "Un dels paràmetres no és vàlid. Torna enrere i revisa'ls.",
+  "error.install_failed": "Alguna cosa ha fallat en copiar el sistema al disc. Potser les dades que hi havia al disc ja s'han esborrat.",
+  "error.configure_failed": "El sistema s'ha instal·lat, però no s'han pogut configurar la llengua i el teclat. Torna-ho a provar; si torna a fallar, els pots configurar a la Configuració del sistema després del primer inici."
+}

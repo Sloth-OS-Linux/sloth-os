@@ -1,0 +1,44 @@
+{
+  "_language": "한국어",
+
+  "title.launch": "{name} 시작 중",
+  "title.install": "{name} 설치 중",
+  "title.manage": "{name} – 시작 메뉴",
+
+  "choose.installer_text": "설치하면 시작 메뉴에서 찾을 수 있습니다.",
+  "choose.program_text": "설치하지 않고 바로 실행할 수도 있습니다.",
+  "choose.add_to_menu": "시작 메뉴에 추가",
+
+  "button.cancel": "취소",
+  "button.run_only": "실행만 하기",
+  "button.install": "설치",
+  "button.start": "시작",
+  "button.done": "완료",
+  "button.close": "닫기",
+
+  "pick.done_title": "설치가 끝났습니다!",
+  "pick.question_manage": "시작 메뉴에 무엇을 둘까요?",
+  "pick.question_install": "시작 메뉴에 무엇을 추가할까요?",
+
+  "status.starting": "{name} 시작 중…",
+  "status.preparing_install": "{name} 설치 준비 중…",
+  "status.finish_in_installer": "설치 프로그램 창에서 설치를 마쳐 주세요. 끝나면 여기서 계속합니다.",
+  "status.first_setup": "첫 실행 준비 중…",
+  "status.downloading": "필요한 구성 요소 다운로드 중… (처음 한 번만)",
+  "status.extracting": "구성 요소 압축 해제 중…",
+  "status.verifying": "확인 중…",
+  "status.updating": "구성 요소 업데이트 중…",
+  "status.repairing": "구성 요소 복구 중…",
+
+  "error.not_found": "프로그램을 찾을 수 없습니다. 삭제되었을 수 있으니 다시 설치하세요.",
+  "error.no_exe": "이 프로그램에서 실행할 수 있는 것을 찾지 못했습니다.",
+  "error.runtime_missing": "프로그램 실행에 필요한 구성 요소가 없습니다. Sloth Center에서 시스템을 업데이트하세요.",
+  "error.not_started": "{name}이(가) 시작되지 않았습니다. 이 시스템에서 동작하지 않는 프로그램이거나 파일이 손상되었을 수 있습니다.",
+  "error.nothing_installed": "설치된 프로그램을 찾지 못했습니다. 설치가 중단되었을 수 있으니 다시 시도하세요.",
+
+  "anticheat.blocked": "{game}은(는) {system} 안티치트를 사용하며, 이 때문에 Linux에서 게임을 실행할 수 없습니다. 컴퓨터 문제가 아니며 우회할 방법도 없습니다. 아쉽지만 이 게임은 여기서 할 수 없습니다.",
+  "anticheat.maybe": "{game}은(는) {system} 안티치트를 사용합니다. Linux에서는 게임 개발사가 허용한 경우에만 동작합니다. 게임이 실행되지 않거나 강제로 종료된다면 아마 이 때문일 겁니다. 게임의 Steam 버전이 있는지 확인해 보세요.",
+
+  "misc.program": "프로그램",
+  "misc.other_programs": "기타 프로그램"
+}

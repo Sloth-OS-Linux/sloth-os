@@ -1,0 +1,63 @@
+{
+  "_language": "עברית",
+
+  "app.title": "התקנת Sloth OS",
+
+  "welcome.heading": "ברוכים הבאים ל־Sloth OS!",
+  "welcome.text": "אפשר לנסות את המערכת בלי להתקין, או להתקין אותה במחשב. ההתקנה לוקחת כמה דקות ושואלת רק כמה שאלות.",
+  "welcome.language": "שפה",
+  "welcome.try": "לנסות",
+  "welcome.install": "התקנה",
+
+  "region.heading": "מקלדת ואזור זמן",
+  "region.keyboard": "מקלדת:",
+  "region.try_keyboard": "בדיקה:",
+  "region.try_keyboard_hint": "הקלידו כאן כדי לבדוק את הפריסה",
+  "region.timezone": "אזור זמן:",
+  "region.note": "אפשר לשנות זאת בהמשך בהגדרות המערכת.",
+
+  "disk.heading": "לאן להתקין?",
+  "disk.text": "בחרו את הדיסק שעליו תותקן Sloth OS.",
+  "disk.none": "לא נמצא דיסק להתקנה.",
+  "disk.refresh": "חיפוש חוזר",
+  "disk.too_small": "קטן מדי: נדרשים לפחות 40 GB.",
+  "disk.contents.empty": "דיסק ריק",
+  "disk.contents.windows": "מותקנת עליו Windows",
+  "disk.contents.linux": "מותקנת עליו מערכת Linux",
+  "disk.contents.other": "יש עליו נתונים",
+  "disk.removable": "זהו כונן חיצוני (למשל דיסק־און־קי). בטוח שרוצים להתקין כאן?",
+  "disk.small": "קצת צפוף: למשחקים מומלץ לפחות 120 GB.",
+
+  "confirm.heading": "כל מה שעל הדיסק הזה יימחק",
+  "confirm.text": "Sloth OS משתמשת בכל הדיסק: {disk}. כל מה שעליו עכשיו (קבצים, תוכנות, מערכות אחרות) יימחק לצמיתות.",
+  "confirm.windows": "על הדיסק הזה מותקנת Windows. אחרי ההתקנה Windows וכל הקבצים שלה ייעלמו. אם רוצים לשמור אותם, גבו קודם את הקבצים.",
+  "confirm.checkbox": "אני מבין/ה שכל הנתונים על הדיסק יימחקו",
+  "confirm.install": "התחלת ההתקנה",
+
+  "nav.back": "הקודם",
+  "nav.next": "הבא",
+
+  "stage.start": "מתכוננים…",
+  "stage.partition": "מכינים את הדיסק…",
+  "stage.prepare": "מכינים את המערכת…",
+  "stage.copy": "מעתיקים את Sloth OS לדיסק…",
+  "stage.bootloader": "מגדירים את האתחול…",
+  "stage.finishing": "מסיימים…",
+  "stage.configure": "שומרים שפה והגדרות…",
+  "stage.browser": "מוסיפים דפדפן (אין אינטרנט)…",
+
+  "install.note": "בהתאם למחשב, זה לוקח 5–20 דקות. אל תכבו אותו.",
+
+  "done.heading": "ההתקנה הושלמה!",
+  "done.text": "הפעילו מחדש את המחשב. כשהמסך מחשיך, הוציאו את הדיסק־און־קי. בהפעלה הראשונה יוצרים חשבון, וזהו.",
+  "done.reboot": "הפעלה מחדש",
+
+  "error.heading": "ההתקנה נכשלה",
+  "error.log_hint": "אם תבקשו עזרה, הפרטים נמצאים ב־‎/tmp/sloth-install.log.",
+  "error.retry": "ניסיון חוזר",
+  "error.not_authorized": "לא קיבלנו הרשאה להתקין.",
+  "error.bad_disk": "אי אפשר להתקין על הדיסק הזה. בחרו דיסק אחר.",
+  "error.bad_input": "אחת ההגדרות אינה תקינה. חזרו ובדקו אותן.",
+  "error.install_failed": "משהו השתבש בזמן העתקת המערכת לדיסק. ייתכן שהנתונים שהיו על הדיסק כבר נמחקו.",
+  "error.configure_failed": "המערכת הותקנה, אבל לא הצלחנו להגדיר שפה ומקלדת. נסו שוב; אם זה שוב נכשל, אפשר להגדיר אותן בהגדרות המערכת אחרי ההפעלה הראשונה."
+}

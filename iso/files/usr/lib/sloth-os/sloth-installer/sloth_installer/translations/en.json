@@ -44,6 +44,7 @@
   "stage.bootloader": "Setting up startup…",
   "stage.finishing": "Finishing…",
   "stage.configure": "Saving language and settings…",
+  "stage.browser": "Adding a web browser (no internet)…",
   "install.note": "Depending on your computer, this takes 5–20 minutes. Please don't turn it off.",
 
   "done.heading": "Installation complete!",
@@ -51,11 +52,11 @@
   "done.reboot": "Restart",
 
   "error.heading": "Installation failed",
-  "error.log_hint": "Data on the disk may already have been damaged. Details are in /tmp/sloth-install.log if you ask for help.",
+  "error.log_hint": "If you ask for help, the details are in /tmp/sloth-install.log.",
   "error.retry": "Try again",
   "error.not_authorized": "We didn't get permission to install.",
   "error.bad_disk": "This disk can't be installed on. Please choose another one.",
   "error.bad_input": "One of the settings is invalid. Go back and check them.",
-  "error.install_failed": "Something went wrong while copying the system to the disk.",
-  "error.configure_failed": "The system was installed, but setting the language and keyboard failed."
+  "error.install_failed": "Something went wrong while copying the system to the disk. Data previously on the disk may already have been erased.",
+  "error.configure_failed": "The system was installed, but setting the language and keyboard failed. Try again; if it still fails, you can set them in System Settings after the first start."
 }

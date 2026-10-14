@@ -1,0 +1,44 @@
+{
+  "_language": "Furlan",
+
+  "title.launch": "Si invie {name}",
+  "title.install": "Si instale {name}",
+  "title.manage": "{name} – Menù Start",
+
+  "choose.installer_text": "Dopo de instalazion tu lu cjatis tal menù Start.",
+  "choose.program_text": "Tu puedis inviâlu ancje cence instalâlu.",
+  "choose.add_to_menu": "Zonte al menù Start",
+
+  "button.cancel": "Anule",
+  "button.run_only": "Invie e basta",
+  "button.install": "Instale",
+  "button.start": "Invie",
+  "button.done": "Fat",
+  "button.close": "Siere",
+
+  "pick.done_title": "Instalazion finide!",
+  "pick.question_manage": "Ce aial di jessi tal menù Start?",
+  "pick.question_install": "Ce zontìno al menù Start?",
+
+  "status.starting": "Si invie {name}…",
+  "status.preparing_install": "Si prepare la instalazion di {name}…",
+  "status.finish_in_installer": "Finìs la instalazion inte fignestre dal program di instalazion. Po o continuìn chi.",
+  "status.first_setup": "Si prepare il prin inviament…",
+  "status.downloading": "Si discjamin i components necessaris… (dome la prime volte)",
+  "status.extracting": "Si displachin i components…",
+  "status.verifying": "Si controle…",
+  "status.updating": "Si inzornin i components…",
+  "status.repairing": "Si comedin i components…",
+
+  "error.not_found": "No si cjate il program. Al podarès jessi stât eliminât; torne instalilu.",
+  "error.no_exe": "In chest program no vin cjatât nuie di inviâ.",
+  "error.runtime_missing": "Al mancje un component che al covente par inviâ i programs. Inzorne il sisteme in Sloth Center.",
+  "error.not_started": "{name} nol è partît. Al podarès jessi che chest program nol funzioni su chest sisteme, o che il file al sedi ruvinât.",
+  "error.nothing_installed": "No vin cjatât nissun program instalât. La instalazion e podarès jessi stade interote; torne prove.",
+
+  "anticheat.blocked": "{game} al dopre la protezion cuintri lis trufis {system}, che no lasse lâ il zûc su Linux. Nol dipent dal to computer e no podìn lâ ator. Purtrop chest zûc no si pues zuiâ chi.",
+  "anticheat.maybe": "{game} al dopre la protezion cuintri lis trufis {system}. Su Linux e funzione dome se i autôrs dal zûc lu àn permetût. Se il zûc nol partìs o ti bute fûr, probabilmentri e je cheste la reson. Al val la pene viodi se il zûc al à une version su Steam.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Altris programs"
+}

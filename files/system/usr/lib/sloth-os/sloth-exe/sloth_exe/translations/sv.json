@@ -1,0 +1,44 @@
+{
+  "_language": "Svenska",
+
+  "title.launch": "Startar {name}",
+  "title.install": "Installerar {name}",
+  "title.manage": "{name} – Startmenyn",
+
+  "choose.installer_text": "Efter installationen hittar du det i startmenyn.",
+  "choose.program_text": "Du kan också köra det utan att installera.",
+  "choose.add_to_menu": "Lägg till i startmenyn",
+
+  "button.cancel": "Avbryt",
+  "button.run_only": "Bara kör",
+  "button.install": "Installera",
+  "button.start": "Starta",
+  "button.done": "Klar",
+  "button.close": "Stäng",
+
+  "pick.done_title": "Installationen är klar!",
+  "pick.question_manage": "Vad ska finnas i startmenyn?",
+  "pick.question_install": "Vad ska läggas till i startmenyn?",
+
+  "status.starting": "Startar {name}…",
+  "status.preparing_install": "Förbereder installationen av {name}…",
+  "status.finish_in_installer": "Slutför installationen i installationsprogrammets fönster. Sedan fortsätter vi här.",
+  "status.first_setup": "Förbereder första starten…",
+  "status.downloading": "Laddar ner nödvändiga komponenter… (bara första gången)",
+  "status.extracting": "Packar upp komponenter…",
+  "status.verifying": "Kontrollerar…",
+  "status.updating": "Uppdaterar komponenter…",
+  "status.repairing": "Reparerar komponenter…",
+
+  "error.not_found": "Programmet hittades inte. Det kan ha tagits bort; installera det igen.",
+  "error.no_exe": "Vi hittade inget att starta i det här programmet.",
+  "error.runtime_missing": "En komponent som behövs för att köra program saknas. Uppdatera systemet i Sloth Center.",
+  "error.not_started": "{name} startade inte. Programmet kanske inte fungerar på det här systemet, eller så är filen skadad.",
+  "error.nothing_installed": "Vi hittade inget installerat program. Installationen kan ha avbrutits; försök igen.",
+
+  "anticheat.blocked": "{game} använder fuskskyddet {system}, som inte låter spelet köras på Linux. Det beror inte på din dator, och vi kan inte kringgå det. Tyvärr går det här spelet inte att spela här.",
+  "anticheat.maybe": "{game} använder fuskskyddet {system}. På Linux fungerar det bara om spelets skapare har tillåtit det. Om spelet inte startar eller kastar ut dig är det troligen därför. Kolla om spelet finns på Steam.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Övriga program"
+}

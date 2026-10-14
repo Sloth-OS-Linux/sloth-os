@@ -1,0 +1,44 @@
+{
+  "_language": "Norsk bokmål",
+
+  "title.launch": "Starter {name}",
+  "title.install": "Installerer {name}",
+  "title.manage": "{name} – Startmenyen",
+
+  "choose.installer_text": "Etter installasjonen finner du det i startmenyen.",
+  "choose.program_text": "Du kan også kjøre det uten å installere.",
+  "choose.add_to_menu": "Legg til i startmenyen",
+
+  "button.cancel": "Avbryt",
+  "button.run_only": "Bare kjør",
+  "button.install": "Installer",
+  "button.start": "Start",
+  "button.done": "Ferdig",
+  "button.close": "Lukk",
+
+  "pick.done_title": "Installasjonen er ferdig!",
+  "pick.question_manage": "Hva skal være i startmenyen?",
+  "pick.question_install": "Hva skal legges til i startmenyen?",
+
+  "status.starting": "Starter {name}…",
+  "status.preparing_install": "Forbereder installasjon av {name}…",
+  "status.finish_in_installer": "Fullfør installasjonen i vinduet til installasjonsprogrammet. Etterpå fortsetter vi her.",
+  "status.first_setup": "Forbereder første oppstart…",
+  "status.downloading": "Laster ned nødvendige komponenter… (bare første gang)",
+  "status.extracting": "Pakker ut komponenter…",
+  "status.verifying": "Kontrollerer…",
+  "status.updating": "Oppdaterer komponenter…",
+  "status.repairing": "Reparerer komponenter…",
+
+  "error.not_found": "Fant ikke programmet. Det kan være slettet; installer det på nytt.",
+  "error.no_exe": "Fant ingenting å starte i dette programmet.",
+  "error.runtime_missing": "En komponent som trengs for å kjøre programmer, mangler. Oppdater systemet i Sloth Center.",
+  "error.not_started": "{name} startet ikke. Programmet fungerer kanskje ikke på dette systemet, eller filen er skadet.",
+  "error.nothing_installed": "Fant ikke noe installert program. Installasjonen kan ha blitt avbrutt; prøv igjen.",
+
+  "anticheat.blocked": "{game} bruker juksebeskyttelsen {system}, som ikke lar spillet kjøre på Linux. Det skyldes ikke datamaskinen din, og vi kan ikke omgå det. Dessverre kan ikke dette spillet spilles her.",
+  "anticheat.maybe": "{game} bruker juksebeskyttelsen {system}. På Linux virker den bare hvis spillets utviklere har tillatt det. Hvis spillet ikke starter eller kaster deg ut, er det sannsynligvis derfor. Sjekk om spillet finnes på Steam.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Andre programmer"
+}

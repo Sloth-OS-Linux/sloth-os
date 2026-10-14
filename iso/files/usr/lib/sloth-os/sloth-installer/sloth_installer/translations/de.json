@@ -44,6 +44,7 @@
   "stage.bootloader": "Start wird eingerichtet…",
   "stage.finishing": "Abschluss…",
   "stage.configure": "Sprache und Einstellungen werden gespeichert…",
+  "stage.browser": "Webbrowser wird hinzugefügt (kein Internet)…",
   "install.note": "Je nach Computer dauert das 5–20 Minuten. Bitte nicht ausschalten.",
 
   "done.heading": "Installation abgeschlossen!",
@@ -51,11 +52,11 @@
   "done.reboot": "Neu starten",
 
   "error.heading": "Die Installation ist fehlgeschlagen",
-  "error.log_hint": "Daten auf dem Laufwerk könnten bereits beschädigt sein. Details stehen in /tmp/sloth-install.log, falls du um Hilfe bittest.",
+  "error.log_hint": "Falls du um Hilfe bittest: Die Details stehen in /tmp/sloth-install.log.",
   "error.retry": "Erneut versuchen",
   "error.not_authorized": "Wir haben keine Erlaubnis zum Installieren bekommen.",
   "error.bad_disk": "Auf dieses Laufwerk kann nicht installiert werden. Bitte wähle ein anderes.",
   "error.bad_input": "Eine der Einstellungen ist ungültig. Geh zurück und prüfe sie.",
-  "error.install_failed": "Beim Kopieren des Systems auf das Laufwerk ist ein Fehler aufgetreten.",
-  "error.configure_failed": "Das System wurde installiert, aber Sprache und Tastatur konnten nicht eingestellt werden."
+  "error.install_failed": "Beim Kopieren des Systems auf das Laufwerk ist ein Fehler aufgetreten. Daten, die vorher auf dem Laufwerk waren, könnten bereits gelöscht sein.",
+  "error.configure_failed": "Das System wurde installiert, aber Sprache und Tastatur konnten nicht eingestellt werden. Versuche es erneut; klappt es wieder nicht, kannst du sie nach dem ersten Start in den Systemeinstellungen festlegen."
 }

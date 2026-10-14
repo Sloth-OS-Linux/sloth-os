@@ -5,6 +5,8 @@ mások (Easy Anti-Cheat, BattlEye) a játék fejlesztőjének döntésén múlna
 """
 from pathlib import Path
 
+from .i18n import tr
+
 # (név, fájl/mappa minták kisbetűvel, Linuxon fut-e egyáltalán)
 SYSTEMS = [
     ("Riot Vanguard", ("vgc.exe", "vgk.sys", "vanguard"), False),
@@ -47,11 +49,8 @@ def detect(exe):
 
 
 def blocked_text(game, system):
-    return (f"A(z) {game} a(z) {system} csalásvédelmet használja, ami Linuxon nem engedi futni a játékot. "
-            "Ez nem a gépeden múlik, és mi sem tudjuk megkerülni. Sajnos ezt a játékot itt nem lehet játszani.")
+    return tr("anticheat.blocked", game=game, system=system)
 
 
 def maybe_text(game, system):
-    return (f"A(z) {game} a(z) {system} csalásvédelmet használja. Ez Linuxon csak akkor működik, ha a játék "
-            "készítői engedélyezték. Ha a játék nem indul vagy kidob, valószínűleg ez az oka. Érdemes megnézni, "
-            "van-e a játéknak Steames változata.")
+    return tr("anticheat.maybe", game=game, system=system)

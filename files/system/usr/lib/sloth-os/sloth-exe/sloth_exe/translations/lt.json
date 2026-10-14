@@ -1,0 +1,44 @@
+{
+  "_language": "Lietuvių",
+
+  "title.launch": "Paleidžiama: {name}",
+  "title.install": "Diegiama: {name}",
+  "title.manage": "{name} – Pradžios meniu",
+
+  "choose.installer_text": "Įdiegę rasite jį Pradžios meniu.",
+  "choose.program_text": "Jį galite paleisti ir neįdiegę.",
+  "choose.add_to_menu": "Pridėti į Pradžios meniu",
+
+  "button.cancel": "Atšaukti",
+  "button.run_only": "Tik paleisti",
+  "button.install": "Įdiegti",
+  "button.start": "Paleisti",
+  "button.done": "Atlikta",
+  "button.close": "Užverti",
+
+  "pick.done_title": "Įdiegta!",
+  "pick.question_manage": "Kas turi būti Pradžios meniu?",
+  "pick.question_install": "Ką pridėti į Pradžios meniu?",
+
+  "status.starting": "Paleidžiama: {name}…",
+  "status.preparing_install": "Ruošiamasi diegti: {name}…",
+  "status.finish_in_installer": "Užbaikite diegimą diegimo programos lange. Paskui tęsime čia.",
+  "status.first_setup": "Ruošiamasi pirmam paleidimui…",
+  "status.downloading": "Atsisiunčiami reikalingi komponentai… (tik pirmą kartą)",
+  "status.extracting": "Išskleidžiami komponentai…",
+  "status.verifying": "Tikrinama…",
+  "status.updating": "Atnaujinami komponentai…",
+  "status.repairing": "Taisomi komponentai…",
+
+  "error.not_found": "Programa nerasta. Galbūt ji ištrinta; įdiekite ją iš naujo.",
+  "error.no_exe": "Šioje programoje neradome nieko, ką būtų galima paleisti.",
+  "error.runtime_missing": "Trūksta komponento, reikalingo programoms paleisti. Atnaujinkite sistemą per Sloth Center.",
+  "error.not_started": "{name} nepasileido. Galbūt ši programa neveikia šioje sistemoje arba failas sugadintas.",
+  "error.nothing_installed": "Neradome įdiegtos programos. Galbūt diegimas nutrūko; bandykite dar kartą.",
+
+  "anticheat.blocked": "{game} naudoja apsaugą nuo sukčiavimo {system}, kuri neleidžia žaidimui veikti Linux sistemoje. Tai ne jūsų kompiuterio kaltė, ir mes negalime to apeiti. Deja, šio žaidimo čia žaisti negalima.",
+  "anticheat.maybe": "{game} naudoja apsaugą nuo sukčiavimo {system}. Linux sistemoje ji veikia tik tada, jei tai leido žaidimo kūrėjai. Jei žaidimas nepasileidžia arba jus išmeta, greičiausiai dėl to. Verta patikrinti, ar žaidimas turi Steam versiją.",
+
+  "misc.program": "Programa",
+  "misc.other_programs": "Kitos programos"
+}

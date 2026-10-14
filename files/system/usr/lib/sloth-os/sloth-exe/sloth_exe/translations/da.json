@@ -1,0 +1,44 @@
+{
+  "_language": "Dansk",
+
+  "title.launch": "Starter {name}",
+  "title.install": "Installerer {name}",
+  "title.manage": "{name} – Startmenu",
+
+  "choose.installer_text": "Efter installationen finder du det i startmenuen.",
+  "choose.program_text": "Du kan også køre det uden at installere.",
+  "choose.add_to_menu": "Føj til startmenuen",
+
+  "button.cancel": "Annuller",
+  "button.run_only": "Kør bare",
+  "button.install": "Installér",
+  "button.start": "Start",
+  "button.done": "Færdig",
+  "button.close": "Luk",
+
+  "pick.done_title": "Installationen er færdig!",
+  "pick.question_manage": "Hvad skal være i startmenuen?",
+  "pick.question_install": "Hvad skal tilføjes til startmenuen?",
+
+  "status.starting": "Starter {name}…",
+  "status.preparing_install": "Forbereder installation af {name}…",
+  "status.finish_in_installer": "Gør installationen færdig i installationsprogrammets vindue. Bagefter fortsætter vi her.",
+  "status.first_setup": "Forbereder første start…",
+  "status.downloading": "Henter nødvendige komponenter… (kun første gang)",
+  "status.extracting": "Udpakker komponenter…",
+  "status.verifying": "Kontrollerer…",
+  "status.updating": "Opdaterer komponenter…",
+  "status.repairing": "Reparerer komponenter…",
+
+  "error.not_found": "Programmet blev ikke fundet. Det er måske slettet; installér det igen.",
+  "error.no_exe": "Vi fandt intet at starte i dette program.",
+  "error.runtime_missing": "En komponent, der skal bruges til at køre programmer, mangler. Opdatér systemet i Sloth Center.",
+  "error.not_started": "{name} startede ikke. Programmet virker måske ikke på dette system, eller filen er beskadiget.",
+  "error.nothing_installed": "Vi fandt intet installeret program. Installationen blev måske afbrudt; prøv igen.",
+
+  "anticheat.blocked": "{game} bruger anti-snyd-systemet {system}, som ikke lader spillet køre på Linux. Det skyldes ikke din computer, og vi kan ikke komme uden om det. Desværre kan dette spil ikke spilles her.",
+  "anticheat.maybe": "{game} bruger anti-snyd-systemet {system}. På Linux virker det kun, hvis spillets udviklere har tilladt det. Hvis spillet ikke starter eller smider dig ud, er det sandsynligvis derfor. Tjek, om spillet findes på Steam.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Andre programmer"
+}

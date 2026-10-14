@@ -21,6 +21,7 @@ REPO = Path(__file__).resolve().parent.parent
 WELCOME = REPO / "files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome"
 INSTALLER = REPO / "iso/files/usr/lib/sloth-os/sloth-installer/sloth_installer"
 INSTALL_HELPER = REPO / "iso/files/usr/libexec/sloth-os/sloth-install-helper"
+EXE = REPO / "files/system/usr/lib/sloth-os/sloth-exe/sloth_exe"
 SOURCE = "hu"
 
 # tr("…") a Pythonban, t("…") a QML-ben, valamint a kulcsként tárolt szövegek ("error.…", "done.…")
@@ -54,14 +55,21 @@ def welcome_keys():
 def installer_keys():
     """A telepítő futás közben képzett kulcsai: lépések (a segéd küldi) és a lemez tartalma."""
     stages = {stage for _keys, stage, _pct in literal(INSTALL_HELPER, "STAGES")}
-    keys = {f"stage.{s}" for s in stages | {"start", "partition", "configure"}}
+    keys = {f"stage.{s}" for s in stages | {"start", "partition", "configure", "browser"}}
     return keys | {f"disk.contents.{c}" for c in ("empty", "windows", "linux", "other")}
+
+
+def exe_keys():
+    """Az .exe kezelő futás közben képzett kulcsai: a futtató állapotai és az ablakcímek."""
+    keys = {key for _patterns, key in literal(EXE / "runner.py", "_STAGES")}
+    return keys | {"title.launch", "title.install", "title.manage"}
 
 
 # eszköz -> (csomag, további forrásfájlok, adatokból képzett kulcsok)
 TOOLS = {
     "sloth-welcome": (WELCOME, [], welcome_keys),
     "sloth-installer": (INSTALLER, [INSTALL_HELPER], installer_keys),
+    "sloth-exe": (EXE, [], exe_keys),
 }
 
 

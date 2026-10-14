@@ -256,9 +256,12 @@ class WelcomeController(QObject):
     def finish(self):
         CONFIG_DIR.mkdir(parents=True, exist_ok=True)
         DONE_MARKER.touch()
-        # A telepített böngészők és a Steam a tálcára kerülnek
+        # A telepített böngészők és a Steam a tálcára kerülnek. A már meglévő böngésző is
+        # (a telepítő internet nélkül átmásolja az élő rendszer Firefoxát)
         browsers = [a["id"] for a in catalog.CATEGORIES[0]["apps"]]
-        desktop.pin_to_taskbar([a for a in self._installed if a in browsers or a == STEAM])
+        present = [a for a in browsers if Path("/var/lib/flatpak/app", a).is_dir()]
+        desktop.pin_to_taskbar([a for a in self._installed if a in browsers or a == STEAM]
+                               + [a for a in present if a not in self._installed])
         QApplication.quit()
 
     # --- A telepítő jelzései -------------------------------------------------

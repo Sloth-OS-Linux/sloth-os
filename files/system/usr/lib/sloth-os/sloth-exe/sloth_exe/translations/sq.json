@@ -1,0 +1,44 @@
+{
+  "_language": "Shqip",
+
+  "title.launch": "Po niset {name}",
+  "title.install": "Po instalohet {name}",
+  "title.manage": "{name} – Menuja Start",
+
+  "choose.installer_text": "Pas instalimit do ta gjeni te menuja Start.",
+  "choose.program_text": "Mund ta nisni edhe pa e instaluar.",
+  "choose.add_to_menu": "Shto te menuja Start",
+
+  "button.cancel": "Anulo",
+  "button.run_only": "Vetëm nise",
+  "button.install": "Instalo",
+  "button.start": "Nis",
+  "button.done": "U krye",
+  "button.close": "Mbyll",
+
+  "pick.done_title": "Instalimi përfundoi!",
+  "pick.question_manage": "Çfarë të ketë menuja Start?",
+  "pick.question_install": "Çfarë të shtojmë te menuja Start?",
+
+  "status.starting": "Po niset {name}…",
+  "status.preparing_install": "Po përgatitet instalimi i {name}…",
+  "status.finish_in_installer": "Përfundoni instalimin te dritarja e instaluesit. Pastaj vazhdojmë këtu.",
+  "status.first_setup": "Po përgatitet nisja e parë…",
+  "status.downloading": "Po shkarkohen përbërësit e nevojshëm… (vetëm herën e parë)",
+  "status.extracting": "Po shpaketohen përbërësit…",
+  "status.verifying": "Po kontrollohet…",
+  "status.updating": "Po përditësohen përbërësit…",
+  "status.repairing": "Po riparohen përbërësit…",
+
+  "error.not_found": "Programi nuk u gjet. Mund të jetë fshirë; instalojeni sërish.",
+  "error.no_exe": "Në këtë program nuk gjetëm asgjë për të nisur.",
+  "error.runtime_missing": "Mungon një përbërës i nevojshëm për të nisur programe. Përditësoni sistemin te Sloth Center.",
+  "error.not_started": "{name} nuk u nis. Ndoshta ky program nuk punon në këtë sistem ose skedari është i dëmtuar.",
+  "error.nothing_installed": "Nuk gjetëm program të instaluar. Instalimi mund të jetë ndërprerë; provoni sërish.",
+
+  "anticheat.blocked": "{game} përdor mbrojtjen kundër mashtrimit {system}, që nuk e lejon lojën të punojë në Linux. Nuk varet nga kompjuteri juaj dhe nuk mund ta anashkalojmë. Fatkeqësisht kjo lojë nuk mund të luhet këtu.",
+  "anticheat.maybe": "{game} përdor mbrojtjen kundër mashtrimit {system}. Në Linux punon vetëm nëse e kanë lejuar krijuesit e lojës. Nëse loja nuk niset ose ju nxjerr jashtë, ka gjasa që arsyeja të jetë kjo. Ia vlen të shihni nëse loja ka version në Steam.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Programe të tjera"
+}

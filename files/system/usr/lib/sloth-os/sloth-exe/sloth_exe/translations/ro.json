@@ -1,0 +1,44 @@
+{
+  "_language": "Română",
+
+  "title.launch": "Se pornește {name}",
+  "title.install": "Se instalează {name}",
+  "title.manage": "{name} – meniul Start",
+
+  "choose.installer_text": "După instalare îl găsești în meniul Start.",
+  "choose.program_text": "Îl poți porni și fără instalare.",
+  "choose.add_to_menu": "Adaugă în meniul Start",
+
+  "button.cancel": "Anulează",
+  "button.run_only": "Doar rulează",
+  "button.install": "Instalează",
+  "button.start": "Pornește",
+  "button.done": "Gata",
+  "button.close": "Închide",
+
+  "pick.done_title": "Instalare finalizată!",
+  "pick.question_manage": "Ce să fie în meniul Start?",
+  "pick.question_install": "Ce adăugăm în meniul Start?",
+
+  "status.starting": "Se pornește {name}…",
+  "status.preparing_install": "Se pregătește instalarea {name}…",
+  "status.finish_in_installer": "Termină instalarea în fereastra programului de instalare. Apoi continuăm aici.",
+  "status.first_setup": "Se pregătește prima pornire…",
+  "status.downloading": "Se descarcă componentele necesare… (doar prima dată)",
+  "status.extracting": "Se dezarhivează componentele…",
+  "status.verifying": "Se verifică…",
+  "status.updating": "Se actualizează componentele…",
+  "status.repairing": "Se repară componentele…",
+
+  "error.not_found": "Programul nu a fost găsit. Poate a fost șters; instalează-l din nou.",
+  "error.no_exe": "Nu am găsit nimic de pornit în acest program.",
+  "error.runtime_missing": "Lipsește o componentă necesară rulării programelor. Actualizează sistemul din Sloth Center.",
+  "error.not_started": "{name} nu a pornit. Poate acest program nu merge pe acest sistem sau fișierul este deteriorat.",
+  "error.nothing_installed": "Nu am găsit niciun program instalat. Poate instalarea s-a întrerupt; încearcă din nou.",
+
+  "anticheat.blocked": "{game} folosește sistemul anti-trișare {system}, care nu lasă jocul să ruleze pe Linux. Nu e vina calculatorului tău și nu îl putem ocoli. Din păcate, acest joc nu poate fi jucat aici.",
+  "anticheat.maybe": "{game} folosește sistemul anti-trișare {system}. Pe Linux funcționează doar dacă l-au permis creatorii jocului. Dacă jocul nu pornește sau te dă afară, probabil acesta e motivul. Merită să verifici dacă jocul are o versiune pe Steam.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Alte programe"
+}

@@ -1,0 +1,63 @@
+{
+  "_language": "Čeština",
+
+  "app.title": "Instalace Sloth OS",
+
+  "welcome.heading": "Vítejte v Sloth OS!",
+  "welcome.text": "Systém si můžete vyzkoušet bez instalace, nebo ho nainstalovat do počítače. Instalace trvá pár minut a má jen pár otázek.",
+  "welcome.language": "Jazyk",
+  "welcome.try": "Vyzkoušet",
+  "welcome.install": "Nainstalovat",
+
+  "region.heading": "Klávesnice a časové pásmo",
+  "region.keyboard": "Klávesnice:",
+  "region.try_keyboard": "Test:",
+  "region.try_keyboard_hint": "Pište sem a ověřte rozložení",
+  "region.timezone": "Časové pásmo:",
+  "region.note": "Později to můžete změnit v Nastavení systému.",
+
+  "disk.heading": "Kam ho nainstalujeme?",
+  "disk.text": "Vyberte disk, na který se Sloth OS nainstaluje.",
+  "disk.none": "Nenašli jsme disk, na který by šlo instalovat.",
+  "disk.refresh": "Hledat znovu",
+  "disk.too_small": "Příliš malý: je potřeba aspoň 40 GB.",
+  "disk.contents.empty": "Prázdný disk",
+  "disk.contents.windows": "Je na něm Windows",
+  "disk.contents.linux": "Je na něm systém Linux",
+  "disk.contents.other": "Jsou na něm data",
+  "disk.removable": "Toto je externí disk (např. flash disk). Opravdu sem chcete instalovat?",
+  "disk.small": "Trochu těsné: pro hry doporučujeme aspoň 120 GB.",
+
+  "confirm.heading": "Vše na tomto disku bude smazáno",
+  "confirm.text": "Sloth OS využije celý disk: {disk}. Vše, co na něm teď je (soubory, programy, jiné systémy), bude trvale smazáno.",
+  "confirm.windows": "Na tomto disku je Windows. Po instalaci Windows i všechny jeho soubory zmizí. Pokud si je chcete ponechat, nejdřív si soubory zálohujte.",
+  "confirm.checkbox": "Rozumím, že všechna data na disku budou smazána",
+  "confirm.install": "Spustit instalaci",
+
+  "nav.back": "Zpět",
+  "nav.next": "Další",
+
+  "stage.start": "Příprava…",
+  "stage.partition": "Příprava disku…",
+  "stage.prepare": "Příprava systému…",
+  "stage.copy": "Kopírování Sloth OS na disk…",
+  "stage.bootloader": "Nastavení spouštění…",
+  "stage.finishing": "Dokončování…",
+  "stage.configure": "Ukládání jazyka a nastavení…",
+  "stage.browser": "Přidávání webového prohlížeče (bez internetu)…",
+
+  "install.note": "Podle počítače to trvá 5–20 minut. Nevypínejte ho.",
+
+  "done.heading": "Instalace dokončena!",
+  "done.text": "Restartujte počítač. Až obrazovka zčerná, vytáhněte flash disk. Při prvním spuštění si vytvoříte účet a je hotovo.",
+  "done.reboot": "Restartovat",
+
+  "error.heading": "Instalace se nezdařila",
+  "error.log_hint": "Pokud budete žádat o pomoc, podrobnosti jsou v /tmp/sloth-install.log.",
+  "error.retry": "Zkusit znovu",
+  "error.not_authorized": "Nedostali jsme oprávnění k instalaci.",
+  "error.bad_disk": "Na tento disk nelze instalovat. Vyberte jiný.",
+  "error.bad_input": "Některé nastavení je neplatné. Vraťte se a zkontrolujte je.",
+  "error.install_failed": "Při kopírování systému na disk se něco pokazilo. Data, která na disku byla, už mohla být smazána.",
+  "error.configure_failed": "Systém je nainstalovaný, ale jazyk a klávesnici se nepodařilo nastavit. Zkuste to znovu; pokud to opět nepůjde, nastavíte je po prvním spuštění v Nastavení systému."
+}

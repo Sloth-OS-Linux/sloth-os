@@ -1,0 +1,44 @@
+{
+  "_language": "Nederlands",
+
+  "title.launch": "{name} wordt gestart",
+  "title.install": "{name} wordt geïnstalleerd",
+  "title.manage": "{name} – Startmenu",
+
+  "choose.installer_text": "Na de installatie vind je het in het startmenu.",
+  "choose.program_text": "Je kunt het ook zonder installatie starten.",
+  "choose.add_to_menu": "Toevoegen aan het startmenu",
+
+  "button.cancel": "Annuleren",
+  "button.run_only": "Alleen uitvoeren",
+  "button.install": "Installeren",
+  "button.start": "Starten",
+  "button.done": "Klaar",
+  "button.close": "Sluiten",
+
+  "pick.done_title": "Installatie voltooid!",
+  "pick.question_manage": "Wat moet er in het startmenu?",
+  "pick.question_install": "Wat moet er in het startmenu komen?",
+
+  "status.starting": "{name} wordt gestart…",
+  "status.preparing_install": "Installatie van {name} wordt voorbereid…",
+  "status.finish_in_installer": "Rond de installatie af in het venster van het installatieprogramma. Daarna gaan we hier verder.",
+  "status.first_setup": "Eerste start voorbereiden…",
+  "status.downloading": "Benodigde onderdelen downloaden… (alleen de eerste keer)",
+  "status.extracting": "Onderdelen uitpakken…",
+  "status.verifying": "Controleren…",
+  "status.updating": "Onderdelen bijwerken…",
+  "status.repairing": "Onderdelen herstellen…",
+
+  "error.not_found": "We kunnen het programma niet vinden. Misschien is het verwijderd; installeer het opnieuw.",
+  "error.no_exe": "We hebben in dit programma niets gevonden om te starten.",
+  "error.runtime_missing": "Een onderdeel dat nodig is om programma's uit te voeren ontbreekt. Werk het systeem bij in Sloth Center.",
+  "error.not_started": "{name} is niet gestart. Misschien werkt dit programma niet op dit systeem, of is het bestand beschadigd.",
+  "error.nothing_installed": "We hebben geen geïnstalleerd programma gevonden. Misschien is de installatie onderbroken; probeer het opnieuw.",
+
+  "anticheat.blocked": "{game} gebruikt de anti-cheat {system}, die het spel op Linux niet laat draaien. Het ligt niet aan je computer en we kunnen het niet omzeilen. Helaas kun je dit spel hier niet spelen.",
+  "anticheat.maybe": "{game} gebruikt de anti-cheat {system}. Op Linux werkt die alleen als de makers van het spel het hebben toegestaan. Als het spel niet start of je eruit gooit, ligt het waarschijnlijk hieraan. Kijk of er een Steam-versie van het spel is.",
+
+  "misc.program": "Programma",
+  "misc.other_programs": "Andere programma's"
+}

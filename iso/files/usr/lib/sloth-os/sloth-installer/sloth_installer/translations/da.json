@@ -1,0 +1,63 @@
+{
+  "_language": "Dansk",
+
+  "app.title": "Installér Sloth OS",
+
+  "welcome.heading": "Velkommen til Sloth OS!",
+  "welcome.text": "Du kan prøve systemet uden at installere det, eller installere det på din computer. Installationen tager få minutter og har kun nogle få spørgsmål.",
+  "welcome.language": "Sprog",
+  "welcome.try": "Prøv det",
+  "welcome.install": "Installér",
+
+  "region.heading": "Tastatur og tidszone",
+  "region.keyboard": "Tastatur:",
+  "region.try_keyboard": "Test:",
+  "region.try_keyboard_hint": "Skriv her for at tjekke layoutet",
+  "region.timezone": "Tidszone:",
+  "region.note": "Du kan ændre dette senere i Systemindstillinger.",
+
+  "disk.heading": "Hvor skal vi installere?",
+  "disk.text": "Vælg den disk, Sloth OS skal installeres på.",
+  "disk.none": "Vi fandt ingen disk at installere på.",
+  "disk.refresh": "Søg igen",
+  "disk.too_small": "For lille: der skal mindst 40 GB til.",
+  "disk.contents.empty": "Tom disk",
+  "disk.contents.windows": "Har Windows",
+  "disk.contents.linux": "Har et Linux-system",
+  "disk.contents.other": "Indeholder data",
+  "disk.removable": "Dette er et eksternt drev (f.eks. en USB-nøgle). Vil du virkelig installere her?",
+  "disk.small": "Lidt stramt: til spil anbefales mindst 120 GB.",
+
+  "confirm.heading": "Alt på denne disk bliver slettet",
+  "confirm.text": "Sloth OS bruger hele disken: {disk}. Alt, hvad der er på den nu (filer, programmer, andre systemer), slettes permanent.",
+  "confirm.windows": "Denne disk har Windows. Efter installationen er Windows og alle dets filer væk. Vil du beholde dem, så tag først en sikkerhedskopi af dine filer.",
+  "confirm.checkbox": "Jeg forstår, at alle data på disken slettes",
+  "confirm.install": "Start installationen",
+
+  "nav.back": "Tilbage",
+  "nav.next": "Næste",
+
+  "stage.start": "Gør klar…",
+  "stage.partition": "Forbereder disken…",
+  "stage.prepare": "Forbereder systemet…",
+  "stage.copy": "Kopierer Sloth OS til disken…",
+  "stage.bootloader": "Opsætter opstart…",
+  "stage.finishing": "Afslutter…",
+  "stage.configure": "Gemmer sprog og indstillinger…",
+  "stage.browser": "Tilføjer en webbrowser (intet internet)…",
+
+  "install.note": "Afhængigt af din computer tager det 5–20 minutter. Sluk den ikke.",
+
+  "done.heading": "Installationen er færdig!",
+  "done.text": "Genstart computeren. Når skærmen bliver sort, så tag USB-nøglen ud. Ved første start opretter du din konto, og så er du klar.",
+  "done.reboot": "Genstart",
+
+  "error.heading": "Installationen mislykkedes",
+  "error.log_hint": "Hvis du beder om hjælp, står detaljerne i /tmp/sloth-install.log.",
+  "error.retry": "Prøv igen",
+  "error.not_authorized": "Vi fik ikke tilladelse til at installere.",
+  "error.bad_disk": "Der kan ikke installeres på denne disk. Vælg en anden.",
+  "error.bad_input": "En af indstillingerne er ugyldig. Gå tilbage og tjek dem.",
+  "error.install_failed": "Noget gik galt, da systemet blev kopieret til disken. Data, der var på disken, er måske allerede slettet.",
+  "error.configure_failed": "Systemet blev installeret, men sprog og tastatur kunne ikke indstilles. Prøv igen; mislykkes det igen, kan du indstille dem i Systemindstillinger efter første start."
+}

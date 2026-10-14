@@ -1,9 +1,11 @@
 # A telepítő ISO rendszerindító menüje (a Titanoboa ebből készíti a GRUB menüt).
+# A menü rejtett: 2 másodperc után magától indul a Sloth OS; Escre előjön (pl. a biztonságos
+# grafikus módhoz). A rejtést a build állítja be (tools/build-iso.ps1, .github/workflows/iso.yml).
 # A menü angol, mert a nyelvet csak a telepítőben lehet választani.
 label: "SlothOS-Live"
 grub2:
   default: 0
-  timeout: 5
+  timeout: 2
   entries:
     - name: "Try or install Sloth OS"
       linux: "/images/pxeboot/vmlinuz quiet rhgb splash loglevel=3 rd.udev.log_level=3 systemd.show_status=false root=live:CDLABEL=SlothOS-Live enforcing=0 rd.live.image"

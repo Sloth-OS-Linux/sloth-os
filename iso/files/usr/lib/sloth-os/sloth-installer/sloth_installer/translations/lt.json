@@ -1,0 +1,63 @@
+{
+  "_language": "Lietuvių",
+
+  "app.title": "Sloth OS diegimas",
+
+  "welcome.heading": "Sveiki atvykę į Sloth OS!",
+  "welcome.text": "Sistemą galite išbandyti jos neįdiegę arba įdiegti į kompiuterį. Diegimas trunka kelias minutes ir užduodami tik keli klausimai.",
+  "welcome.language": "Kalba",
+  "welcome.try": "Išbandyti",
+  "welcome.install": "Įdiegti",
+
+  "region.heading": "Klaviatūra ir laiko juosta",
+  "region.keyboard": "Klaviatūra:",
+  "region.try_keyboard": "Bandymas:",
+  "region.try_keyboard_hint": "Rašykite čia, kad patikrintumėte išdėstymą",
+  "region.timezone": "Laiko juosta:",
+  "region.note": "Vėliau tai galėsite pakeisti Sistemos nuostatose.",
+
+  "disk.heading": "Kur diegsime?",
+  "disk.text": "Pasirinkite diską, į kurį bus įdiegta Sloth OS.",
+  "disk.none": "Neradome disko, į kurį būtų galima diegti.",
+  "disk.refresh": "Ieškoti dar kartą",
+  "disk.too_small": "Per mažas: reikia bent 40 GB.",
+  "disk.contents.empty": "Tuščias diskas",
+  "disk.contents.windows": "Jame yra Windows",
+  "disk.contents.linux": "Jame yra Linux sistema",
+  "disk.contents.other": "Jame yra duomenų",
+  "disk.removable": "Tai išorinis diskas (pvz., USB atmintukas). Ar tikrai norite diegti čia?",
+  "disk.small": "Šiek tiek ankšta: žaidimams rekomenduojama bent 120 GB.",
+
+  "confirm.heading": "Viskas šiame diske bus ištrinta",
+  "confirm.text": "Sloth OS naudoja visą diską: {disk}. Viskas, kas jame dabar yra (failai, programos, kitos sistemos), bus ištrinta visam laikui.",
+  "confirm.windows": "Šiame diske yra Windows. Įdiegus Windows ir visi jos failai dings. Jei norite juos išsaugoti, pirmiausia pasidarykite failų atsarginę kopiją.",
+  "confirm.checkbox": "Suprantu, kad visi disko duomenys bus ištrinti",
+  "confirm.install": "Pradėti diegimą",
+
+  "nav.back": "Atgal",
+  "nav.next": "Toliau",
+
+  "stage.start": "Ruošiamasi…",
+  "stage.partition": "Ruošiamas diskas…",
+  "stage.prepare": "Ruošiama sistema…",
+  "stage.copy": "Sloth OS kopijuojama į diską…",
+  "stage.bootloader": "Nustatomas paleidimas…",
+  "stage.finishing": "Baigiama…",
+  "stage.configure": "Įrašoma kalba ir nuostatos…",
+  "stage.browser": "Pridedama naršyklė (nėra interneto)…",
+
+  "install.note": "Priklausomai nuo kompiuterio, tai trunka 5–20 minučių. Neišjunkite jo.",
+
+  "done.heading": "Įdiegta!",
+  "done.text": "Paleiskite kompiuterį iš naujo. Kai ekranas užges, ištraukite USB atmintuką. Pirmą kartą paleidę susikursite paskyrą, ir viskas.",
+  "done.reboot": "Paleisti iš naujo",
+
+  "error.heading": "Įdiegti nepavyko",
+  "error.log_hint": "Jei prašysite pagalbos, išsami informacija yra /tmp/sloth-install.log.",
+  "error.retry": "Bandyti dar kartą",
+  "error.not_authorized": "Negavome leidimo diegti.",
+  "error.bad_disk": "Į šį diską diegti negalima. Pasirinkite kitą.",
+  "error.bad_input": "Viena iš nuostatų netinkama. Grįžkite ir jas patikrinkite.",
+  "error.install_failed": "Kopijuojant sistemą į diską kažkas nepavyko. Diske buvę duomenys jau galėjo būti ištrinti.",
+  "error.configure_failed": "Sistema įdiegta, bet kalbos ir klaviatūros nustatyti nepavyko. Bandykite dar kartą; jei vėl nepavyks, juos galėsite nustatyti Sistemos nuostatose po pirmojo paleidimo."
+}

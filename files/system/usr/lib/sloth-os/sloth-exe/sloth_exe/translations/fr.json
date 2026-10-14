@@ -1,0 +1,44 @@
+{
+  "_language": "Français",
+
+  "title.launch": "Lancement de {name}",
+  "title.install": "Installation de {name}",
+  "title.manage": "{name} – Menu Démarrer",
+
+  "choose.installer_text": "Après l'installation, vous le trouverez dans le menu Démarrer.",
+  "choose.program_text": "Vous pouvez aussi le lancer sans l'installer.",
+  "choose.add_to_menu": "Ajouter au menu Démarrer",
+
+  "button.cancel": "Annuler",
+  "button.run_only": "Lancer seulement",
+  "button.install": "Installer",
+  "button.start": "Lancer",
+  "button.done": "Terminé",
+  "button.close": "Fermer",
+
+  "pick.done_title": "Installation terminée !",
+  "pick.question_manage": "Que mettre dans le menu Démarrer ?",
+  "pick.question_install": "Qu'ajouter au menu Démarrer ?",
+
+  "status.starting": "Lancement de {name}…",
+  "status.preparing_install": "Préparation de l'installation de {name}…",
+  "status.finish_in_installer": "Terminez l'installation dans la fenêtre de l'installateur. Ensuite, on continue ici.",
+  "status.first_setup": "Préparation du premier lancement…",
+  "status.downloading": "Téléchargement des composants nécessaires… (la première fois seulement)",
+  "status.extracting": "Décompression des composants…",
+  "status.verifying": "Vérification…",
+  "status.updating": "Mise à jour des composants…",
+  "status.repairing": "Réparation des composants…",
+
+  "error.not_found": "Programme introuvable. Il a peut-être été supprimé ; réinstallez-le.",
+  "error.no_exe": "Rien à lancer n'a été trouvé dans ce programme.",
+  "error.runtime_missing": "Un composant nécessaire pour lancer les programmes est manquant. Mettez le système à jour dans Sloth Center.",
+  "error.not_started": "{name} n'a pas démarré. Ce programme ne fonctionne peut-être pas sur ce système, ou le fichier est endommagé.",
+  "error.nothing_installed": "Aucun programme installé n'a été trouvé. L'installation a peut-être été interrompue ; réessayez.",
+
+  "anticheat.blocked": "{game} utilise l'anti-triche {system}, qui empêche le jeu de fonctionner sous Linux. Ce n'est pas la faute de votre ordinateur et nous ne pouvons pas le contourner. Malheureusement, ce jeu ne peut pas être joué ici.",
+  "anticheat.maybe": "{game} utilise l'anti-triche {system}. Sous Linux, il ne fonctionne que si les créateurs du jeu l'ont autorisé. Si le jeu ne démarre pas ou vous expulse, c'est probablement pour cela. Vérifiez s'il existe une version Steam du jeu.",
+
+  "misc.program": "Programme",
+  "misc.other_programs": "Autres programmes"
+}

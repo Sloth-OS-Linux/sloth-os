@@ -1,0 +1,44 @@
+{
+  "_language": "日本語",
+
+  "title.launch": "{name} を起動しています",
+  "title.install": "{name} をインストールしています",
+  "title.manage": "{name} – スタートメニュー",
+
+  "choose.installer_text": "インストール後はスタートメニューから使えます。",
+  "choose.program_text": "インストールせずに起動することもできます。",
+  "choose.add_to_menu": "スタートメニューに追加",
+
+  "button.cancel": "キャンセル",
+  "button.run_only": "実行のみ",
+  "button.install": "インストール",
+  "button.start": "起動",
+  "button.done": "完了",
+  "button.close": "閉じる",
+
+  "pick.done_title": "インストール完了！",
+  "pick.question_manage": "スタートメニューに何を表示しますか？",
+  "pick.question_install": "スタートメニューに何を追加しますか？",
+
+  "status.starting": "{name} を起動しています…",
+  "status.preparing_install": "{name} のインストールを準備しています…",
+  "status.finish_in_installer": "インストーラーのウィンドウでインストールを完了してください。完了したら、ここで続けます。",
+  "status.first_setup": "初回起動の準備をしています…",
+  "status.downloading": "必要なコンポーネントをダウンロードしています…（初回のみ）",
+  "status.extracting": "コンポーネントを展開しています…",
+  "status.verifying": "確認しています…",
+  "status.updating": "コンポーネントを更新しています…",
+  "status.repairing": "コンポーネントを修復しています…",
+
+  "error.not_found": "プログラムが見つかりません。削除された可能性があります。もう一度インストールしてください。",
+  "error.no_exe": "このプログラムには起動できるものが見つかりませんでした。",
+  "error.runtime_missing": "プログラムの実行に必要なコンポーネントがありません。Sloth Center でシステムを更新してください。",
+  "error.not_started": "{name} を起動できませんでした。このプログラムがこのシステムで動かないか、ファイルが壊れている可能性があります。",
+  "error.nothing_installed": "インストールされたプログラムが見つかりません。インストールが中断された可能性があります。もう一度お試しください。",
+
+  "anticheat.blocked": "{game} は {system} というチート対策を使っており、Linux ではゲームを起動できません。お使いのパソコンのせいではなく、回避することもできません。残念ながら、このゲームはここでは遊べません。",
+  "anticheat.maybe": "{game} は {system} というチート対策を使っています。Linux では、ゲームの開発元が許可している場合にしか動きません。ゲームが起動しない、または強制終了される場合は、これが原因の可能性があります。Steam 版があるか確認してみてください。",
+
+  "misc.program": "プログラム",
+  "misc.other_programs": "その他のプログラム"
+}

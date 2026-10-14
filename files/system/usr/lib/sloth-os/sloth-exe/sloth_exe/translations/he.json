@@ -1,0 +1,44 @@
+{
+  "_language": "עברית",
+
+  "title.launch": "מפעיל את {name}",
+  "title.install": "מתקין את {name}",
+  "title.manage": "{name} – תפריט התחל",
+
+  "choose.installer_text": "לאחר ההתקנה תמצאו אותו בתפריט התחל.",
+  "choose.program_text": "אפשר גם להפעיל אותו בלי להתקין.",
+  "choose.add_to_menu": "הוספה לתפריט התחל",
+
+  "button.cancel": "ביטול",
+  "button.run_only": "רק להפעיל",
+  "button.install": "התקנה",
+  "button.start": "הפעלה",
+  "button.done": "סיום",
+  "button.close": "סגירה",
+
+  "pick.done_title": "ההתקנה הושלמה!",
+  "pick.question_manage": "מה יהיה בתפריט התחל?",
+  "pick.question_install": "מה להוסיף לתפריט התחל?",
+
+  "status.starting": "מפעיל את {name}…",
+  "status.preparing_install": "מתכונן להתקנת {name}…",
+  "status.finish_in_installer": "סיימו את ההתקנה בחלון של תוכנית ההתקנה. אחר כך נמשיך כאן.",
+  "status.first_setup": "מתכונן להפעלה הראשונה…",
+  "status.downloading": "מוריד רכיבים נחוצים… (רק בפעם הראשונה)",
+  "status.extracting": "פורס רכיבים…",
+  "status.verifying": "בודק…",
+  "status.updating": "מעדכן רכיבים…",
+  "status.repairing": "מתקן רכיבים…",
+
+  "error.not_found": "התוכנה לא נמצאה. ייתכן שנמחקה; התקינו אותה מחדש.",
+  "error.no_exe": "לא מצאנו בתוכנה הזו שום דבר להפעלה.",
+  "error.runtime_missing": "חסר רכיב שנחוץ להפעלת תוכנות. עדכנו את המערכת ב־Sloth Center.",
+  "error.not_started": "{name} לא הופעלה. ייתכן שהתוכנה לא עובדת במערכת הזו או שהקובץ פגום.",
+  "error.nothing_installed": "לא מצאנו תוכנה מותקנת. ייתכן שההתקנה נקטעה; נסו שוב.",
+
+  "anticheat.blocked": "{game} משתמש במערכת נגד רמאות {system}, שלא מאפשרת למשחק לרוץ על Linux. זו לא אשמת המחשב שלכם, ואין לנו דרך לעקוף זאת. לצערנו אי אפשר לשחק במשחק הזה כאן.",
+  "anticheat.maybe": "{game} משתמש במערכת נגד רמאות {system}. ב־Linux היא עובדת רק אם יוצרי המשחק התירו זאת. אם המשחק לא נפתח או מעיף אתכם, כנראה שזו הסיבה. כדאי לבדוק אם יש למשחק גרסה ב־Steam.",
+
+  "misc.program": "תוכנה",
+  "misc.other_programs": "תוכנות אחרות"
+}

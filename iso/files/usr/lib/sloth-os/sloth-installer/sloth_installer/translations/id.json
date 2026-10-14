@@ -1,0 +1,63 @@
+{
+  "_language": "Bahasa Indonesia",
+
+  "app.title": "Pasang Sloth OS",
+
+  "welcome.heading": "Selamat datang di Sloth OS!",
+  "welcome.text": "Anda bisa mencoba sistem tanpa memasangnya, atau memasangnya di komputer. Pemasangan hanya beberapa menit dan cuma beberapa pertanyaan.",
+  "welcome.language": "Bahasa",
+  "welcome.try": "Coba",
+  "welcome.install": "Pasang",
+
+  "region.heading": "Papan ketik dan zona waktu",
+  "region.keyboard": "Papan ketik:",
+  "region.try_keyboard": "Uji:",
+  "region.try_keyboard_hint": "Ketik di sini untuk memeriksa tata letak",
+  "region.timezone": "Zona waktu:",
+  "region.note": "Anda bisa mengubahnya nanti di Pengaturan Sistem.",
+
+  "disk.heading": "Di mana kita pasang?",
+  "disk.text": "Pilih disk tempat Sloth OS akan dipasang.",
+  "disk.none": "Tidak ada disk untuk pemasangan.",
+  "disk.refresh": "Cari lagi",
+  "disk.too_small": "Terlalu kecil: perlu minimal 40 GB.",
+  "disk.contents.empty": "Disk kosong",
+  "disk.contents.windows": "Berisi Windows",
+  "disk.contents.linux": "Berisi sistem Linux",
+  "disk.contents.other": "Berisi data",
+  "disk.removable": "Ini drive eksternal (mis. flashdisk). Yakin ingin memasang di sini?",
+  "disk.small": "Agak sempit: untuk game disarankan minimal 120 GB.",
+
+  "confirm.heading": "Semua isi disk ini akan dihapus",
+  "confirm.text": "Sloth OS memakai seluruh disk: {disk}. Semua isinya sekarang (berkas, program, sistem lain) akan dihapus selamanya.",
+  "confirm.windows": "Disk ini berisi Windows. Setelah pemasangan, Windows dan semua berkasnya akan hilang. Jika ingin menyimpannya, cadangkan berkas Anda dulu.",
+  "confirm.checkbox": "Saya mengerti bahwa semua data di disk akan dihapus",
+  "confirm.install": "Mulai memasang",
+
+  "nav.back": "Kembali",
+  "nav.next": "Lanjut",
+
+  "stage.start": "Bersiap…",
+  "stage.partition": "Menyiapkan disk…",
+  "stage.prepare": "Menyiapkan sistem…",
+  "stage.copy": "Menyalin Sloth OS ke disk…",
+  "stage.bootloader": "Mengatur proses mulai…",
+  "stage.finishing": "Menyelesaikan…",
+  "stage.configure": "Menyimpan bahasa dan pengaturan…",
+  "stage.browser": "Menambahkan peramban (tanpa internet)…",
+
+  "install.note": "Tergantung komputer Anda, ini butuh 5–20 menit. Jangan matikan.",
+
+  "done.heading": "Pemasangan selesai!",
+  "done.text": "Mulai ulang komputer. Saat layar menjadi gelap, cabut flashdisk. Saat pertama kali dinyalakan, Anda membuat akun, dan selesai.",
+  "done.reboot": "Mulai ulang",
+
+  "error.heading": "Pemasangan gagal",
+  "error.log_hint": "Jika Anda meminta bantuan, detailnya ada di /tmp/sloth-install.log.",
+  "error.retry": "Coba lagi",
+  "error.not_authorized": "Kami tidak mendapat izin untuk memasang.",
+  "error.bad_disk": "Tidak bisa memasang di disk ini. Pilih yang lain.",
+  "error.bad_input": "Salah satu pengaturan tidak valid. Kembali dan periksa.",
+  "error.install_failed": "Terjadi kesalahan saat menyalin sistem ke disk. Data yang sebelumnya ada di disk mungkin sudah terhapus.",
+  "error.configure_failed": "Sistem terpasang, tetapi bahasa dan papan ketik gagal diatur. Coba lagi; jika masih gagal, Anda bisa mengaturnya di Pengaturan Sistem setelah pertama kali dinyalakan."
+}

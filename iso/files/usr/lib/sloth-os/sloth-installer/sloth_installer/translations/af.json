@@ -1,0 +1,63 @@
+{
+  "_language": "Afrikaans",
+
+  "app.title": "Installeer Sloth OS",
+
+  "welcome.heading": "Welkom by Sloth OS!",
+  "welcome.text": "Jy kan die stelsel probeer sonder om dit te installeer, of dit op jou rekenaar installeer. Die installasie neem 'n paar minute en vra net 'n paar vrae.",
+  "welcome.language": "Taal",
+  "welcome.try": "Probeer dit",
+  "welcome.install": "Installeer",
+
+  "region.heading": "Sleutelbord en tydsone",
+  "region.keyboard": "Sleutelbord:",
+  "region.try_keyboard": "Toets:",
+  "region.try_keyboard_hint": "Tik hier om die uitleg na te gaan",
+  "region.timezone": "Tydsone:",
+  "region.note": "Jy kan dit later in Stelselinstellings verander.",
+
+  "disk.heading": "Waar moet ons dit installeer?",
+  "disk.text": "Kies die skyf waarop Sloth OS geïnstalleer word.",
+  "disk.none": "Ons het geen skyf gevind om op te installeer nie.",
+  "disk.refresh": "Soek weer",
+  "disk.too_small": "Te klein: minstens 40 GB is nodig.",
+  "disk.contents.empty": "Leë skyf",
+  "disk.contents.windows": "Het Windows",
+  "disk.contents.linux": "Het 'n Linux-stelsel",
+  "disk.contents.other": "Bevat data",
+  "disk.removable": "Dit is 'n eksterne skyf (bv. 'n USB-stokkie). Wil jy regtig hier installeer?",
+  "disk.small": "Bietjie min: vir speletjies word minstens 120 GB aanbeveel.",
+
+  "confirm.heading": "Alles op hierdie skyf word uitgevee",
+  "confirm.text": "Sloth OS gebruik die hele skyf: {disk}. Alles wat nou daarop is (lêers, programme, ander stelsels), word permanent uitgevee.",
+  "confirm.windows": "Hierdie skyf het Windows. Na die installasie is Windows en al sy lêers weg. As jy hulle wil hou, maak eers 'n rugsteun van jou lêers.",
+  "confirm.checkbox": "Ek verstaan dat alle data op die skyf uitgevee sal word",
+  "confirm.install": "Begin installasie",
+
+  "nav.back": "Terug",
+  "nav.next": "Volgende",
+
+  "stage.start": "Maak gereed…",
+  "stage.partition": "Berei die skyf voor…",
+  "stage.prepare": "Berei die stelsel voor…",
+  "stage.copy": "Kopieer Sloth OS na die skyf…",
+  "stage.bootloader": "Stel die opstart op…",
+  "stage.finishing": "Voltooi…",
+  "stage.configure": "Stoor taal en instellings…",
+  "stage.browser": "Voeg 'n webblaaier by (geen internet)…",
+
+  "install.note": "Afhangend van jou rekenaar neem dit 5–20 minute. Moenie dit afskakel nie.",
+
+  "done.heading": "Installasie voltooi!",
+  "done.text": "Herbegin jou rekenaar. Wanneer die skerm swart word, haal die USB-stokkie uit. By die eerste opstart skep jy jou rekening, en dan is jy klaar.",
+  "done.reboot": "Herbegin",
+
+  "error.heading": "Installasie het misluk",
+  "error.log_hint": "As jy hulp vra, is die besonderhede in /tmp/sloth-install.log.",
+  "error.retry": "Probeer weer",
+  "error.not_authorized": "Ons het nie toestemming gekry om te installeer nie.",
+  "error.bad_disk": "Daar kan nie op hierdie skyf geïnstalleer word nie. Kies 'n ander een.",
+  "error.bad_input": "Een van die instellings is ongeldig. Gaan terug en kontroleer dit.",
+  "error.install_failed": "Iets het verkeerd geloop met die kopiëring van die stelsel na die skyf. Data wat op die skyf was, is dalk reeds uitgevee.",
+  "error.configure_failed": "Die stelsel is geïnstalleer, maar taal en sleutelbord kon nie ingestel word nie. Probeer weer; as dit weer misluk, kan jy dit ná die eerste opstart in Stelselinstellings instel."
+}

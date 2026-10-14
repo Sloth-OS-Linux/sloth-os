@@ -1,0 +1,44 @@
+{
+  "_language": "العربية",
+
+  "title.launch": "تشغيل {name}",
+  "title.install": "تثبيت {name}",
+  "title.manage": "{name} – قائمة ابدأ",
+
+  "choose.installer_text": "بعد التثبيت ستجده في قائمة ابدأ.",
+  "choose.program_text": "يمكنك أيضًا تشغيله دون تثبيت.",
+  "choose.add_to_menu": "إضافة إلى قائمة ابدأ",
+
+  "button.cancel": "إلغاء",
+  "button.run_only": "تشغيل فقط",
+  "button.install": "تثبيت",
+  "button.start": "تشغيل",
+  "button.done": "تم",
+  "button.close": "إغلاق",
+
+  "pick.done_title": "اكتمل التثبيت!",
+  "pick.question_manage": "ماذا تريد في قائمة ابدأ؟",
+  "pick.question_install": "ماذا نضيف إلى قائمة ابدأ؟",
+
+  "status.starting": "جارٍ تشغيل {name}…",
+  "status.preparing_install": "جارٍ التحضير لتثبيت {name}…",
+  "status.finish_in_installer": "أكمل التثبيت في نافذة المثبّت. بعد ذلك نتابع هنا.",
+  "status.first_setup": "جارٍ التحضير للتشغيل الأول…",
+  "status.downloading": "جارٍ تنزيل المكونات اللازمة… (في المرة الأولى فقط)",
+  "status.extracting": "جارٍ فك ضغط المكونات…",
+  "status.verifying": "جارٍ التحقق…",
+  "status.updating": "جارٍ تحديث المكونات…",
+  "status.repairing": "جارٍ إصلاح المكونات…",
+
+  "error.not_found": "تعذّر العثور على البرنامج. ربما حُذف؛ ثبّته من جديد.",
+  "error.no_exe": "لم نعثر في هذا البرنامج على شيء يمكن تشغيله.",
+  "error.runtime_missing": "ينقص مكوّن لازم لتشغيل البرامج. حدّث النظام من Sloth Center.",
+  "error.not_started": "لم يبدأ {name}. ربما لا يعمل هذا البرنامج على هذا النظام، أو أن الملف تالف.",
+  "error.nothing_installed": "لم نعثر على برنامج مثبّت. ربما انقطع التثبيت؛ حاول مرة أخرى.",
+
+  "anticheat.blocked": "تستخدم {game} نظام مكافحة الغش {system} الذي لا يسمح بتشغيل اللعبة على لينكس. هذا ليس خطأ حاسوبك، ولا يمكننا تجاوزه. للأسف لا يمكن لعب هذه اللعبة هنا.",
+  "anticheat.maybe": "تستخدم {game} نظام مكافحة الغش {system}. يعمل على لينكس فقط إذا سمح بذلك صانعو اللعبة. إن لم تبدأ اللعبة أو طردتك، فهذا على الأرجح السبب. يستحسن التحقق من وجود نسخة من اللعبة على Steam.",
+
+  "misc.program": "برنامج",
+  "misc.other_programs": "برامج أخرى"
+}

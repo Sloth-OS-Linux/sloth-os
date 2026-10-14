@@ -1,0 +1,44 @@
+{
+  "_language": "Español",
+
+  "title.launch": "Iniciando {name}",
+  "title.install": "Instalando {name}",
+  "title.manage": "{name} – Menú Inicio",
+
+  "choose.installer_text": "Después de instalarlo, lo encontrarás en el menú Inicio.",
+  "choose.program_text": "También puedes abrirlo sin instalarlo.",
+  "choose.add_to_menu": "Añadir al menú Inicio",
+
+  "button.cancel": "Cancelar",
+  "button.run_only": "Solo ejecutar",
+  "button.install": "Instalar",
+  "button.start": "Iniciar",
+  "button.done": "Listo",
+  "button.close": "Cerrar",
+
+  "pick.done_title": "¡Instalación completada!",
+  "pick.question_manage": "¿Qué quieres en el menú Inicio?",
+  "pick.question_install": "¿Qué añadimos al menú Inicio?",
+
+  "status.starting": "Iniciando {name}…",
+  "status.preparing_install": "Preparando la instalación de {name}…",
+  "status.finish_in_installer": "Termina la instalación en la ventana del instalador. Cuando acabes, seguimos aquí.",
+  "status.first_setup": "Preparando el primer inicio…",
+  "status.downloading": "Descargando componentes necesarios… (solo la primera vez)",
+  "status.extracting": "Descomprimiendo componentes…",
+  "status.verifying": "Comprobando…",
+  "status.updating": "Actualizando componentes…",
+  "status.repairing": "Reparando componentes…",
+
+  "error.not_found": "No encontramos el programa. Puede que se haya borrado; vuelve a instalarlo.",
+  "error.no_exe": "No encontramos nada que iniciar en este programa.",
+  "error.runtime_missing": "Falta un componente necesario para ejecutar programas. Actualiza el sistema en Sloth Center.",
+  "error.not_started": "{name} no se inició. Puede que este programa no funcione en este sistema o que el archivo esté dañado.",
+  "error.nothing_installed": "No encontramos ningún programa instalado. Puede que la instalación se interrumpiera; inténtalo de nuevo.",
+
+  "anticheat.blocked": "{game} usa el antitrampas {system}, que no permite ejecutar el juego en Linux. No es culpa de tu ordenador y no podemos evitarlo. Por desgracia, este juego no se puede jugar aquí.",
+  "anticheat.maybe": "{game} usa el antitrampas {system}. En Linux solo funciona si los creadores del juego lo han permitido. Si el juego no arranca o te expulsa, probablemente sea por esto. Vale la pena ver si el juego tiene versión de Steam.",
+
+  "misc.program": "Programa",
+  "misc.other_programs": "Otros programas"
+}

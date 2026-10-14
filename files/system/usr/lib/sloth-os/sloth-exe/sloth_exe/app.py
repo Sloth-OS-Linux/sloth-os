@@ -32,10 +32,9 @@ def main():
 
     app = QApplication([sys.argv[0]] + qt_args)
     app.setApplicationName("sloth-exe")
-    app.setApplicationDisplayName("Windows-programok")
     app.setOrganizationDomain("slothos.org")
     app.setDesktopFileName("org.slothos.exe")
-    app.setWindowIcon(QIcon.fromTheme("application-x-ms-dos-executable"))
+    app.setWindowIcon(QIcon.fromTheme("sloth-os"))  # amint ismert, a program saját ikonja váltja
     # Futás közben az ablak el van rejtve, de a programot figyeljük, amíg kilép
     app.setQuitOnLastWindowClosed(False)
 

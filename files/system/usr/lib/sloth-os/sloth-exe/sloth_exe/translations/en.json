@@ -1,0 +1,44 @@
+{
+  "_language": "English",
+
+  "title.launch": "Starting {name}",
+  "title.install": "Installing {name}",
+  "title.manage": "{name} – Start menu",
+
+  "choose.installer_text": "After installing, you'll find it in the Start menu.",
+  "choose.program_text": "You can also run it without installing.",
+  "choose.add_to_menu": "Add to the Start menu",
+
+  "button.cancel": "Cancel",
+  "button.run_only": "Just run it",
+  "button.install": "Install",
+  "button.start": "Start",
+  "button.done": "Done",
+  "button.close": "Close",
+
+  "pick.done_title": "Installation complete!",
+  "pick.question_manage": "What should be in the Start menu?",
+  "pick.question_install": "What should go into the Start menu?",
+
+  "status.starting": "Starting {name}…",
+  "status.preparing_install": "Preparing to install {name}…",
+  "status.finish_in_installer": "Finish the installation in the installer window. When you're done, we'll continue here.",
+  "status.first_setup": "Getting ready for the first start…",
+  "status.downloading": "Downloading required components… (first time only)",
+  "status.extracting": "Unpacking components…",
+  "status.verifying": "Checking…",
+  "status.updating": "Updating components…",
+  "status.repairing": "Repairing components…",
+
+  "error.not_found": "We can't find the program. It may have been deleted; please install it again.",
+  "error.no_exe": "We couldn't find anything to start in this program.",
+  "error.runtime_missing": "A component needed to run programs is missing. Update the system in Sloth Center.",
+  "error.not_started": "{name} didn't start. This program may not work on this system, or the file may be damaged.",
+  "error.nothing_installed": "We couldn't find an installed program. The installation may have been interrupted; please try again.",
+
+  "anticheat.blocked": "{game} uses the {system} anti-cheat, which doesn't allow the game to run on Linux. It's not your computer's fault, and we can't get around it. Unfortunately this game can't be played here.",
+  "anticheat.maybe": "{game} uses the {system} anti-cheat. It only works on Linux if the game's makers have allowed it. If the game won't start or kicks you out, this is probably why. It's worth checking whether the game has a Steam version.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Other programs"
+}

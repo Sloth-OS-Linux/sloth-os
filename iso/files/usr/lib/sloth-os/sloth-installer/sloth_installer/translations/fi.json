@@ -1,0 +1,63 @@
+{
+  "_language": "Suomi",
+
+  "app.title": "Asenna Sloth OS",
+
+  "welcome.heading": "Tervetuloa Sloth OS:ään!",
+  "welcome.text": "Voit kokeilla järjestelmää asentamatta tai asentaa sen tietokoneellesi. Asennus kestää muutaman minuutin, ja kysymyksiä on vain muutama.",
+  "welcome.language": "Kieli",
+  "welcome.try": "Kokeile",
+  "welcome.install": "Asenna",
+
+  "region.heading": "Näppäimistö ja aikavyöhyke",
+  "region.keyboard": "Näppäimistö:",
+  "region.try_keyboard": "Kokeilu:",
+  "region.try_keyboard_hint": "Kirjoita tähän tarkistaaksesi asettelun",
+  "region.timezone": "Aikavyöhyke:",
+  "region.note": "Voit muuttaa näitä myöhemmin Järjestelmäasetuksissa.",
+
+  "disk.heading": "Mihin asennetaan?",
+  "disk.text": "Valitse levy, jolle Sloth OS asennetaan.",
+  "disk.none": "Asennukseen sopivaa levyä ei löytynyt.",
+  "disk.refresh": "Etsi uudelleen",
+  "disk.too_small": "Liian pieni: vähintään 40 Gt tarvitaan.",
+  "disk.contents.empty": "Tyhjä levy",
+  "disk.contents.windows": "Siinä on Windows",
+  "disk.contents.linux": "Siinä on Linux-järjestelmä",
+  "disk.contents.other": "Siinä on tietoja",
+  "disk.removable": "Tämä on ulkoinen asema (esim. USB-tikku). Haluatko varmasti asentaa tähän?",
+  "disk.small": "Vähän ahdasta: peleille suositellaan vähintään 120 Gt.",
+
+  "confirm.heading": "Kaikki tällä levyllä poistetaan",
+  "confirm.text": "Sloth OS käyttää koko levyn: {disk}. Kaikki sillä nyt oleva (tiedostot, ohjelmat, muut järjestelmät) poistetaan pysyvästi.",
+  "confirm.windows": "Tällä levyllä on Windows. Asennuksen jälkeen Windows ja kaikki sen tiedostot ovat poissa. Jos haluat säilyttää ne, varmuuskopioi tiedostosi ensin.",
+  "confirm.checkbox": "Ymmärrän, että kaikki levyn tiedot poistetaan",
+  "confirm.install": "Aloita asennus",
+
+  "nav.back": "Takaisin",
+  "nav.next": "Seuraava",
+
+  "stage.start": "Valmistellaan…",
+  "stage.partition": "Valmistellaan levyä…",
+  "stage.prepare": "Valmistellaan järjestelmää…",
+  "stage.copy": "Kopioidaan Sloth OS levylle…",
+  "stage.bootloader": "Määritetään käynnistystä…",
+  "stage.finishing": "Viimeistellään…",
+  "stage.configure": "Tallennetaan kieli ja asetukset…",
+  "stage.browser": "Lisätään verkkoselain (ei internetiä)…",
+
+  "install.note": "Tietokoneesta riippuen tämä kestää 5–20 minuuttia. Älä sammuta sitä.",
+
+  "done.heading": "Asennus valmis!",
+  "done.text": "Käynnistä tietokone uudelleen. Kun näyttö pimenee, irrota USB-tikku. Ensimmäisellä käynnistyskerralla luot tilisi, ja kaikki on valmista.",
+  "done.reboot": "Käynnistä uudelleen",
+
+  "error.heading": "Asennus epäonnistui",
+  "error.log_hint": "Jos pyydät apua, tiedot ovat tiedostossa /tmp/sloth-install.log.",
+  "error.retry": "Yritä uudelleen",
+  "error.not_authorized": "Emme saaneet lupaa asentaa.",
+  "error.bad_disk": "Tälle levylle ei voi asentaa. Valitse toinen.",
+  "error.bad_input": "Jokin asetuksista on virheellinen. Palaa takaisin ja tarkista ne.",
+  "error.install_failed": "Jokin meni vikaan, kun järjestelmää kopioitiin levylle. Levyllä olleet tiedot on ehkä jo poistettu.",
+  "error.configure_failed": "Järjestelmä asennettiin, mutta kieltä ja näppäimistöä ei voitu asettaa. Yritä uudelleen; jos se epäonnistuu taas, voit asettaa ne Järjestelmäasetuksissa ensimmäisen käynnistyksen jälkeen."
+}

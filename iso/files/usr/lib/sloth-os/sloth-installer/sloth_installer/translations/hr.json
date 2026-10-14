@@ -1,0 +1,63 @@
+{
+  "_language": "Hrvatski",
+
+  "app.title": "Instalacija Sloth OS-a",
+
+  "welcome.heading": "Dobrodošli u Sloth OS!",
+  "welcome.text": "Sustav možete isprobati bez instalacije ili ga instalirati na računalo. Instalacija traje nekoliko minuta i ima samo nekoliko pitanja.",
+  "welcome.language": "Jezik",
+  "welcome.try": "Isprobaj",
+  "welcome.install": "Instaliraj",
+
+  "region.heading": "Tipkovnica i vremenska zona",
+  "region.keyboard": "Tipkovnica:",
+  "region.try_keyboard": "Proba:",
+  "region.try_keyboard_hint": "Tipkajte ovdje da provjerite raspored",
+  "region.timezone": "Vremenska zona:",
+  "region.note": "To možete promijeniti kasnije u Postavkama sustava.",
+
+  "disk.heading": "Gdje ga instalirati?",
+  "disk.text": "Odaberite disk na koji će se instalirati Sloth OS.",
+  "disk.none": "Nismo pronašli disk za instalaciju.",
+  "disk.refresh": "Traži ponovno",
+  "disk.too_small": "Premalen: potrebno je barem 40 GB.",
+  "disk.contents.empty": "Prazan disk",
+  "disk.contents.windows": "Na njemu je Windows",
+  "disk.contents.linux": "Na njemu je Linux sustav",
+  "disk.contents.other": "Na njemu su podaci",
+  "disk.removable": "Ovo je vanjski disk (npr. USB stick). Želite li stvarno instalirati ovdje?",
+  "disk.small": "Malo tijesno: za igre preporučujemo barem 120 GB.",
+
+  "confirm.heading": "Sve na ovom disku bit će obrisano",
+  "confirm.text": "Sloth OS koristi cijeli disk: {disk}. Sve što je sada na njemu (datoteke, programi, drugi sustavi) bit će trajno obrisano.",
+  "confirm.windows": "Na ovom disku je Windows. Nakon instalacije Windows i sve njegove datoteke nestat će. Ako ih želite zadržati, najprije napravite sigurnosnu kopiju datoteka.",
+  "confirm.checkbox": "Razumijem da će svi podaci na disku biti obrisani",
+  "confirm.install": "Pokreni instalaciju",
+
+  "nav.back": "Natrag",
+  "nav.next": "Dalje",
+
+  "stage.start": "Priprema…",
+  "stage.partition": "Priprema diska…",
+  "stage.prepare": "Priprema sustava…",
+  "stage.copy": "Kopiranje Sloth OS-a na disk…",
+  "stage.bootloader": "Postavljanje pokretanja…",
+  "stage.finishing": "Dovršavanje…",
+  "stage.configure": "Spremanje jezika i postavki…",
+  "stage.browser": "Dodavanje web preglednika (nema interneta)…",
+
+  "install.note": "Ovisno o računalu, traje 5–20 minuta. Nemojte ga isključivati.",
+
+  "done.heading": "Instalacija je završena!",
+  "done.text": "Ponovno pokrenite računalo. Kad zaslon postane crn, izvucite USB stick. Pri prvom pokretanju izradit ćete račun i to je to.",
+  "done.reboot": "Ponovno pokreni",
+
+  "error.heading": "Instalacija nije uspjela",
+  "error.log_hint": "Ako tražite pomoć, detalji su u /tmp/sloth-install.log.",
+  "error.retry": "Pokušaj ponovno",
+  "error.not_authorized": "Nismo dobili dopuštenje za instalaciju.",
+  "error.bad_disk": "Na ovaj disk nije moguće instalirati. Odaberite drugi.",
+  "error.bad_input": "Jedna od postavki nije ispravna. Vratite se i provjerite ih.",
+  "error.install_failed": "Nešto je pošlo po zlu pri kopiranju sustava na disk. Podaci koji su bili na disku možda su već obrisani.",
+  "error.configure_failed": "Sustav je instaliran, ali jezik i tipkovnicu nije bilo moguće postaviti. Pokušajte ponovno; ako opet ne uspije, možete ih postaviti nakon prvog pokretanja u Postavkama sustava."
+}

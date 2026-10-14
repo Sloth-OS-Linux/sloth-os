@@ -1,0 +1,44 @@
+{
+  "_language": "Slovenščina",
+
+  "title.launch": "Zaganjanje: {name}",
+  "title.install": "Nameščanje: {name}",
+  "title.manage": "{name} – meni Start",
+
+  "choose.installer_text": "Po namestitvi ga najdete v meniju Start.",
+  "choose.program_text": "Zaženete ga lahko tudi brez namestitve.",
+  "choose.add_to_menu": "Dodaj v meni Start",
+
+  "button.cancel": "Prekliči",
+  "button.run_only": "Samo zaženi",
+  "button.install": "Namesti",
+  "button.start": "Zaženi",
+  "button.done": "Končano",
+  "button.close": "Zapri",
+
+  "pick.done_title": "Namestitev je končana!",
+  "pick.question_manage": "Kaj naj bo v meniju Start?",
+  "pick.question_install": "Kaj dodamo v meni Start?",
+
+  "status.starting": "Zaganjanje: {name}…",
+  "status.preparing_install": "Priprava namestitve: {name}…",
+  "status.finish_in_installer": "Namestitev dokončajte v oknu namestitvenega programa. Nato nadaljujemo tukaj.",
+  "status.first_setup": "Priprava prvega zagona…",
+  "status.downloading": "Prenašanje potrebnih komponent… (samo prvič)",
+  "status.extracting": "Razširjanje komponent…",
+  "status.verifying": "Preverjanje…",
+  "status.updating": "Posodabljanje komponent…",
+  "status.repairing": "Popravljanje komponent…",
+
+  "error.not_found": "Programa ne najdemo. Morda je bil izbrisan; namestite ga znova.",
+  "error.no_exe": "V tem programu nismo našli ničesar za zagon.",
+  "error.runtime_missing": "Manjka komponenta, potrebna za zagon programov. Posodobite sistem v Sloth Center.",
+  "error.not_started": "{name} se ni zagnal. Ta program morda ne deluje v tem sistemu ali pa je datoteka poškodovana.",
+  "error.nothing_installed": "Nismo našli nameščenega programa. Namestitev se je morda prekinila; poskusite znova.",
+
+  "anticheat.blocked": "{game} uporablja zaščito pred goljufanjem {system}, ki igri ne dovoli delovanja v Linuxu. Ni krivda vašega računalnika in tega ne moremo obiti. Žal te igre tukaj ni mogoče igrati.",
+  "anticheat.maybe": "{game} uporablja zaščito pred goljufanjem {system}. V Linuxu deluje le, če so to dovolili ustvarjalci igre. Če se igra ne zažene ali vas vrže ven, je verjetno zato. Preverite, ali ima igra različico na Steamu.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Drugi programi"
+}

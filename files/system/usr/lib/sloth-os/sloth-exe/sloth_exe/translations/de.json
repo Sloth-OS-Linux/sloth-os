@@ -1,0 +1,44 @@
+{
+  "_language": "Deutsch",
+
+  "title.launch": "{name} wird gestartet",
+  "title.install": "{name} wird installiert",
+  "title.manage": "{name} – Startmenü",
+
+  "choose.installer_text": "Nach der Installation findest du es im Startmenü.",
+  "choose.program_text": "Du kannst es auch ohne Installation starten.",
+  "choose.add_to_menu": "Zum Startmenü hinzufügen",
+
+  "button.cancel": "Abbrechen",
+  "button.run_only": "Nur ausführen",
+  "button.install": "Installieren",
+  "button.start": "Starten",
+  "button.done": "Fertig",
+  "button.close": "Schließen",
+
+  "pick.done_title": "Installation abgeschlossen!",
+  "pick.question_manage": "Was soll im Startmenü sein?",
+  "pick.question_install": "Was soll ins Startmenü?",
+
+  "status.starting": "{name} wird gestartet…",
+  "status.preparing_install": "Installation von {name} wird vorbereitet…",
+  "status.finish_in_installer": "Schließe die Installation im Fenster des Installationsprogramms ab. Danach geht es hier weiter.",
+  "status.first_setup": "Erster Start wird vorbereitet…",
+  "status.downloading": "Benötigte Komponenten werden heruntergeladen… (nur beim ersten Mal)",
+  "status.extracting": "Komponenten werden entpackt…",
+  "status.verifying": "Prüfung…",
+  "status.updating": "Komponenten werden aktualisiert…",
+  "status.repairing": "Komponenten werden repariert…",
+
+  "error.not_found": "Das Programm wurde nicht gefunden. Vielleicht wurde es gelöscht; installiere es erneut.",
+  "error.no_exe": "In diesem Programm wurde nichts Startbares gefunden.",
+  "error.runtime_missing": "Eine zum Ausführen von Programmen nötige Komponente fehlt. Aktualisiere das System im Sloth Center.",
+  "error.not_started": "{name} ist nicht gestartet. Vielleicht funktioniert dieses Programm auf diesem System nicht, oder die Datei ist beschädigt.",
+  "error.nothing_installed": "Es wurde kein installiertes Programm gefunden. Vielleicht wurde die Installation abgebrochen; versuche es erneut.",
+
+  "anticheat.blocked": "{game} nutzt den Anti-Cheat {system}, der das Spiel unter Linux nicht laufen lässt. Das liegt nicht an deinem Computer, und wir können es nicht umgehen. Leider lässt sich dieses Spiel hier nicht spielen.",
+  "anticheat.maybe": "{game} nutzt den Anti-Cheat {system}. Unter Linux funktioniert er nur, wenn die Entwickler des Spiels es erlaubt haben. Wenn das Spiel nicht startet oder dich rauswirft, liegt es wahrscheinlich daran. Schau nach, ob es eine Steam-Version des Spiels gibt.",
+
+  "misc.program": "Programm",
+  "misc.other_programs": "Weitere Programme"
+}

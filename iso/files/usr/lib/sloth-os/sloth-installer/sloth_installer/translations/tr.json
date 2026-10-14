@@ -1,0 +1,63 @@
+{
+  "_language": "Türkçe",
+
+  "app.title": "Sloth OS'u kur",
+
+  "welcome.heading": "Sloth OS'a hoş geldiniz!",
+  "welcome.text": "Sistemi kurmadan deneyebilir ya da bilgisayarınıza kurabilirsiniz. Kurulum birkaç dakika sürer ve yalnızca birkaç soru sorar.",
+  "welcome.language": "Dil",
+  "welcome.try": "Dene",
+  "welcome.install": "Kur",
+
+  "region.heading": "Klavye ve saat dilimi",
+  "region.keyboard": "Klavye:",
+  "region.try_keyboard": "Deneme:",
+  "region.try_keyboard_hint": "Düzeni denetlemek için buraya yazın",
+  "region.timezone": "Saat dilimi:",
+  "region.note": "Bunları daha sonra Sistem Ayarları'ndan değiştirebilirsiniz.",
+
+  "disk.heading": "Nereye kuralım?",
+  "disk.text": "Sloth OS'un kurulacağı diski seçin.",
+  "disk.none": "Kurulum yapılacak bir disk bulunamadı.",
+  "disk.refresh": "Yeniden ara",
+  "disk.too_small": "Çok küçük: en az 40 GB gerekir.",
+  "disk.contents.empty": "Boş disk",
+  "disk.contents.windows": "Üzerinde Windows var",
+  "disk.contents.linux": "Üzerinde bir Linux sistemi var",
+  "disk.contents.other": "Üzerinde veri var",
+  "disk.removable": "Bu harici bir sürücü (ör. USB bellek). Gerçekten buraya kurmak istiyor musunuz?",
+  "disk.small": "Biraz dar: oyunlar için en az 120 GB önerilir.",
+
+  "confirm.heading": "Bu diskteki her şey silinecek",
+  "confirm.text": "Sloth OS diskin tamamını kullanır: {disk}. Üzerindeki her şey (dosyalar, programlar, diğer sistemler) kalıcı olarak silinecek.",
+  "confirm.windows": "Bu diskte Windows var. Kurulumdan sonra Windows ve tüm dosyaları gidecek. Saklamak istiyorsanız önce dosyalarınızı yedekleyin.",
+  "confirm.checkbox": "Diskteki tüm verilerin silineceğini anlıyorum",
+  "confirm.install": "Kurulumu başlat",
+
+  "nav.back": "Geri",
+  "nav.next": "İleri",
+
+  "stage.start": "Hazırlanıyor…",
+  "stage.partition": "Disk hazırlanıyor…",
+  "stage.prepare": "Sistem hazırlanıyor…",
+  "stage.copy": "Sloth OS diske kopyalanıyor…",
+  "stage.bootloader": "Başlatma ayarlanıyor…",
+  "stage.finishing": "Bitiriliyor…",
+  "stage.configure": "Dil ve ayarlar kaydediliyor…",
+  "stage.browser": "Web tarayıcısı ekleniyor (internet yok)…",
+
+  "install.note": "Bilgisayarınıza bağlı olarak 5–20 dakika sürer. Kapatmayın.",
+
+  "done.heading": "Kurulum tamamlandı!",
+  "done.text": "Bilgisayarı yeniden başlatın. Ekran kararınca USB belleği çıkarın. İlk açılışta hesabınızı oluşturursunuz ve hazırsınız.",
+  "done.reboot": "Yeniden başlat",
+
+  "error.heading": "Kurulum başarısız oldu",
+  "error.log_hint": "Yardım isterseniz ayrıntılar /tmp/sloth-install.log dosyasında.",
+  "error.retry": "Yeniden dene",
+  "error.not_authorized": "Kurulum için izin alamadık.",
+  "error.bad_disk": "Bu diske kurulum yapılamaz. Başka birini seçin.",
+  "error.bad_input": "Ayarlardan biri geçersiz. Geri dönüp kontrol edin.",
+  "error.install_failed": "Sistem diske kopyalanırken bir sorun oluştu. Diskte önceden olan veriler silinmiş olabilir.",
+  "error.configure_failed": "Sistem kuruldu, ancak dil ve klavye ayarlanamadı. Yeniden deneyin; yine olmazsa ilk açılıştan sonra Sistem Ayarları'ndan ayarlayabilirsiniz."
+}

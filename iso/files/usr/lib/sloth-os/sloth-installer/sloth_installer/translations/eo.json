@@ -1,0 +1,63 @@
+{
+  "_language": "Esperanto",
+
+  "app.title": "Instali Sloth OS",
+
+  "welcome.heading": "Bonvenon al Sloth OS!",
+  "welcome.text": "Vi povas provi la sistemon sen instali ĝin, aŭ instali ĝin en via komputilo. La instalado daŭras kelkajn minutojn kaj havas nur kelkajn demandojn.",
+  "welcome.language": "Lingvo",
+  "welcome.try": "Provi",
+  "welcome.install": "Instali",
+
+  "region.heading": "Klavaro kaj horzono",
+  "region.keyboard": "Klavaro:",
+  "region.try_keyboard": "Provo:",
+  "region.try_keyboard_hint": "Tajpu ĉi tie por kontroli la aranĝon",
+  "region.timezone": "Horzono:",
+  "region.note": "Vi povos ŝanĝi tion poste en la Sistemaj agordoj.",
+
+  "disk.heading": "Kien ni instalu?",
+  "disk.text": "Elektu la diskon, sur kiun Sloth OS estos instalita.",
+  "disk.none": "Ni trovis neniun diskon por instali.",
+  "disk.refresh": "Serĉi denove",
+  "disk.too_small": "Tro malgranda: necesas almenaŭ 40 GB.",
+  "disk.contents.empty": "Malplena disko",
+  "disk.contents.windows": "Havas Windows",
+  "disk.contents.linux": "Havas Linuksan sistemon",
+  "disk.contents.other": "Enhavas datumojn",
+  "disk.removable": "Ĉi tio estas ekstera disko (ekz. USB-memorilo). Ĉu vi vere volas instali ĉi tien?",
+  "disk.small": "Iom malvaste: por ludoj ni rekomendas almenaŭ 120 GB.",
+
+  "confirm.heading": "Ĉio sur ĉi tiu disko estos forigita",
+  "confirm.text": "Sloth OS uzas la tutan diskon: {disk}. Ĉio, kio estas sur ĝi nun (dosieroj, programoj, aliaj sistemoj), estos definitive forigita.",
+  "confirm.windows": "Sur ĉi tiu disko estas Windows. Post la instalado, Windows kaj ĉiuj ĝiaj dosieroj malaperos. Se vi volas konservi ilin, unue faru sekurkopion de viaj dosieroj.",
+  "confirm.checkbox": "Mi komprenas, ke ĉiuj datumoj sur la disko estos forigitaj",
+  "confirm.install": "Komenci la instaladon",
+
+  "nav.back": "Reen",
+  "nav.next": "Sekva",
+
+  "stage.start": "Preparado…",
+  "stage.partition": "Preparado de la disko…",
+  "stage.prepare": "Preparado de la sistemo…",
+  "stage.copy": "Kopiado de Sloth OS al la disko…",
+  "stage.bootloader": "Agordado de la startigo…",
+  "stage.finishing": "Finado…",
+  "stage.configure": "Konservado de lingvo kaj agordoj…",
+  "stage.browser": "Aldono de retumilo (sen interreto)…",
+
+  "install.note": "Depende de via komputilo, tio daŭras 5–20 minutojn. Ne malŝaltu ĝin.",
+
+  "done.heading": "Instalado finiĝis!",
+  "done.text": "Restartigu la komputilon. Kiam la ekrano nigriĝas, eltiru la USB-memorilon. Ĉe la unua starto vi kreos vian konton, kaj jen ĉio.",
+  "done.reboot": "Restartigi",
+
+  "error.heading": "La instalado malsukcesis",
+  "error.log_hint": "Se vi petos helpon, la detaloj estas en /tmp/sloth-install.log.",
+  "error.retry": "Reprovi",
+  "error.not_authorized": "Ni ne ricevis permeson instali.",
+  "error.bad_disk": "Ne eblas instali sur ĉi tiu disko. Elektu alian.",
+  "error.bad_input": "Unu el la agordoj estas nevalida. Reiru kaj kontrolu ilin.",
+  "error.install_failed": "Io misiris dum kopiado de la sistemo al la disko. Datumoj, kiuj estis sur la disko, eble jam estis forigitaj.",
+  "error.configure_failed": "La sistemo estas instalita, sed ne eblis agordi lingvon kaj klavaron. Reprovu; se denove ne funkcias, vi povos agordi ilin en la Sistemaj agordoj post la unua starto."
+}

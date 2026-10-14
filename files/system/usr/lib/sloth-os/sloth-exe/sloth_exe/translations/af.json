@@ -1,0 +1,44 @@
+{
+  "_language": "Afrikaans",
+
+  "title.launch": "{name} word begin",
+  "title.install": "{name} word geïnstalleer",
+  "title.manage": "{name} – Beginkieslys",
+
+  "choose.installer_text": "Na die installasie vind jy dit in die beginkieslys.",
+  "choose.program_text": "Jy kan dit ook sonder installasie laat loop.",
+  "choose.add_to_menu": "Voeg by die beginkieslys",
+
+  "button.cancel": "Kanselleer",
+  "button.run_only": "Laat net loop",
+  "button.install": "Installeer",
+  "button.start": "Begin",
+  "button.done": "Klaar",
+  "button.close": "Maak toe",
+
+  "pick.done_title": "Installasie voltooi!",
+  "pick.question_manage": "Wat moet in die beginkieslys wees?",
+  "pick.question_install": "Wat moet by die beginkieslys gevoeg word?",
+
+  "status.starting": "{name} word begin…",
+  "status.preparing_install": "Installasie van {name} word voorberei…",
+  "status.finish_in_installer": "Voltooi die installasie in die installeerder se venster. Daarna gaan ons hier voort.",
+  "status.first_setup": "Eerste begin word voorberei…",
+  "status.downloading": "Nodige komponente word afgelaai… (net die eerste keer)",
+  "status.extracting": "Komponente word uitgepak…",
+  "status.verifying": "Kontroleer…",
+  "status.updating": "Komponente word opgedateer…",
+  "status.repairing": "Komponente word herstel…",
+
+  "error.not_found": "Die program is nie gevind nie. Dit is dalk uitgevee; installeer dit weer.",
+  "error.no_exe": "Ons het niks in hierdie program gevind om te begin nie.",
+  "error.runtime_missing": "'n Komponent wat nodig is om programme te laat loop, ontbreek. Dateer die stelsel op in Sloth Center.",
+  "error.not_started": "{name} het nie begin nie. Hierdie program werk dalk nie op hierdie stelsel nie, of die lêer is beskadig.",
+  "error.nothing_installed": "Ons het geen geïnstalleerde program gevind nie. Die installasie is dalk onderbreek; probeer weer.",
+
+  "anticheat.blocked": "{game} gebruik die teen-kul-stelsel {system}, wat nie die speletjie op Linux laat loop nie. Dit is nie jou rekenaar se skuld nie, en ons kan dit nie omseil nie. Ongelukkig kan hierdie speletjie nie hier gespeel word nie.",
+  "anticheat.maybe": "{game} gebruik die teen-kul-stelsel {system}. Op Linux werk dit net as die makers van die speletjie dit toegelaat het. As die speletjie nie begin nie of jou uitskop, is dit waarskynlik hoekom. Kyk of die speletjie 'n Steam-weergawe het.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Ander programme"
+}

@@ -1,0 +1,44 @@
+{
+  "_language": "Português (Portugal)",
+
+  "title.launch": "A iniciar {name}",
+  "title.install": "A instalar {name}",
+  "title.manage": "{name} – Menu Iniciar",
+
+  "choose.installer_text": "Depois de instalar, encontra-o no menu Iniciar.",
+  "choose.program_text": "Também o pode abrir sem instalar.",
+  "choose.add_to_menu": "Adicionar ao menu Iniciar",
+
+  "button.cancel": "Cancelar",
+  "button.run_only": "Só executar",
+  "button.install": "Instalar",
+  "button.start": "Iniciar",
+  "button.done": "Concluído",
+  "button.close": "Fechar",
+
+  "pick.done_title": "Instalação concluída!",
+  "pick.question_manage": "O que deve ficar no menu Iniciar?",
+  "pick.question_install": "O que vai para o menu Iniciar?",
+
+  "status.starting": "A iniciar {name}…",
+  "status.preparing_install": "A preparar a instalação de {name}…",
+  "status.finish_in_installer": "Conclua a instalação na janela do instalador. Quando terminar, continuamos aqui.",
+  "status.first_setup": "A preparar o primeiro arranque…",
+  "status.downloading": "A transferir componentes necessários… (só da primeira vez)",
+  "status.extracting": "A descompactar componentes…",
+  "status.verifying": "A verificar…",
+  "status.updating": "A atualizar componentes…",
+  "status.repairing": "A reparar componentes…",
+
+  "error.not_found": "Não encontramos o programa. Talvez tenha sido eliminado; instale-o novamente.",
+  "error.no_exe": "Não encontrámos nada para iniciar neste programa.",
+  "error.runtime_missing": "Falta um componente necessário para executar programas. Atualize o sistema no Sloth Center.",
+  "error.not_started": "{name} não arrancou. Talvez este programa não funcione neste sistema, ou o ficheiro esteja danificado.",
+  "error.nothing_installed": "Não encontrámos nenhum programa instalado. Talvez a instalação tenha sido interrompida; tente novamente.",
+
+  "anticheat.blocked": "{game} usa o anti-batota {system}, que não deixa o jogo correr no Linux. Não é culpa do seu computador e não o conseguimos contornar. Infelizmente este jogo não pode ser jogado aqui.",
+  "anticheat.maybe": "{game} usa o anti-batota {system}. No Linux só funciona se os criadores do jogo o permitiram. Se o jogo não arranca ou o expulsa, provavelmente é por isso. Vale a pena ver se o jogo tem versão no Steam.",
+
+  "misc.program": "Programa",
+  "misc.other_programs": "Outros programas"
+}

@@ -1,0 +1,63 @@
+{
+  "_language": "简体中文",
+
+  "app.title": "安装 Sloth OS",
+
+  "welcome.heading": "欢迎使用 Sloth OS！",
+  "welcome.text": "你可以不安装直接试用，也可以把它安装到电脑上。安装只需几分钟，只有几个问题。",
+  "welcome.language": "语言",
+  "welcome.try": "试用",
+  "welcome.install": "安装",
+
+  "region.heading": "键盘和时区",
+  "region.keyboard": "键盘：",
+  "region.try_keyboard": "测试：",
+  "region.try_keyboard_hint": "在这里输入以检查键盘布局",
+  "region.timezone": "时区：",
+  "region.note": "以后可以在系统设置中更改。",
+
+  "disk.heading": "安装到哪里？",
+  "disk.text": "选择要安装 Sloth OS 的磁盘。",
+  "disk.none": "找不到可以安装的磁盘。",
+  "disk.refresh": "重新搜索",
+  "disk.too_small": "太小：至少需要 40 GB。",
+  "disk.contents.empty": "空磁盘",
+  "disk.contents.windows": "装有 Windows",
+  "disk.contents.linux": "装有 Linux 系统",
+  "disk.contents.other": "有数据",
+  "disk.removable": "这是外部磁盘（例如 U 盘）。确定要安装到这里吗？",
+  "disk.small": "有点紧张：玩游戏建议至少 120 GB。",
+
+  "confirm.heading": "此磁盘上的所有内容都将被清除",
+  "confirm.text": "Sloth OS 会使用整个磁盘：{disk}。上面现有的一切（文件、程序、其他系统）都将被永久删除。",
+  "confirm.windows": "此磁盘上装有 Windows。安装后，Windows 及其所有文件都会消失。如果想保留，请先备份你的文件。",
+  "confirm.checkbox": "我明白磁盘上的所有数据都将被清除",
+  "confirm.install": "开始安装",
+
+  "nav.back": "上一步",
+  "nav.next": "下一步",
+
+  "stage.start": "正在准备…",
+  "stage.partition": "正在准备磁盘…",
+  "stage.prepare": "正在准备系统…",
+  "stage.copy": "正在将 Sloth OS 复制到磁盘…",
+  "stage.bootloader": "正在设置启动…",
+  "stage.finishing": "正在完成…",
+  "stage.configure": "正在保存语言和设置…",
+  "stage.browser": "正在添加浏览器（无网络）…",
+
+  "install.note": "根据电脑不同，需要 5–20 分钟。请不要关机。",
+
+  "done.heading": "安装完成！",
+  "done.text": "请重启电脑。屏幕变黑时拔出 U 盘。首次启动时创建账户，就完成了。",
+  "done.reboot": "重启",
+
+  "error.heading": "安装失败",
+  "error.log_hint": "如需求助，详细信息在 /tmp/sloth-install.log 中。",
+  "error.retry": "重试",
+  "error.not_authorized": "未获得安装权限。",
+  "error.bad_disk": "无法安装到此磁盘。请选择其他磁盘。",
+  "error.bad_input": "某项设置无效。请返回检查。",
+  "error.install_failed": "将系统复制到磁盘时出错。磁盘上原有的数据可能已被删除。",
+  "error.configure_failed": "系统已安装，但未能设置语言和键盘。请重试；如果仍然失败，可在首次启动后到系统设置中设置。"
+}

@@ -1,5 +1,7 @@
-// Windows-programok: mit csináljunk egy .exe-vel? Telepítés / futtatás, folyamatjelzővel.
-// A "Wine", "Proton" és "prefix" szavak szándékosan nem szerepelnek sehol.
+// Az .exe kezelő: mit csináljunk egy programmal? Telepítés / futtatás, folyamatjelzővel.
+// A "Wine", "Proton", "prefix" és "Windows" szavak szándékosan nem szerepelnek: a felhasználó
+// csak a programot látja (a nevét és a saját ikonját). A szövegek a fordításokból jönnek
+// (sloth_exe/translations/<nyelv>.json) a t() függvényen keresztül.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -8,7 +10,18 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ApplicationWindow {
     id: root
-    title: exe.name !== "" ? exe.name : "Windows-program"
+    title: exe.name
+
+    readonly property var strings: exe.strings
+    function t(key, args) {
+        let text = root.strings[key];
+        if (text === undefined)
+            return key;
+        if (args)
+            for (const k in args)
+                text = text.split("{" + k + "}").join(args[k]);
+        return text;
+    }
     visible: true
     width: Kirigami.Units.gridUnit * 30
     height: Kirigami.Units.gridUnit * 20
@@ -38,7 +51,7 @@ Kirigami.ApplicationWindow {
                     Layout.alignment: Qt.AlignHCenter
                     spacing: Kirigami.Units.largeSpacing * 2
                     Kirigami.Icon {
-                        source: exe.iconUrl !== "" ? exe.iconUrl : "application-x-ms-dos-executable"
+                        source: exe.iconUrl !== "" ? exe.iconUrl : "sloth-os"
                         implicitWidth: Kirigami.Units.iconSizes.huge
                         implicitHeight: Kirigami.Units.iconSizes.huge
                     }
@@ -46,15 +59,13 @@ Kirigami.ApplicationWindow {
                         spacing: Kirigami.Units.smallSpacing
                         Kirigami.Heading {
                             level: 2
-                            text: exe.isInstaller ? exe.name + " telepítése" : exe.name
+                            text: exe.isInstaller ? root.t("title.install", { name: exe.name }) : exe.name
                         }
                         QQC2.Label {
                             Layout.maximumWidth: Kirigami.Units.gridUnit * 18
                             wrapMode: Text.Wrap
                             opacity: 0.8
-                            text: exe.isInstaller
-                                  ? "Ez egy Windows-os telepítő. Itt is működik: telepítés után a Start menüben találod."
-                                  : "Ez egy Windows-os program. Itt is el tudod indítani."
+                            text: root.t(exe.isInstaller ? "choose.installer_text" : "choose.program_text")
                         }
                     }
                 }
@@ -62,25 +73,25 @@ Kirigami.ApplicationWindow {
                     id: addToMenu
                     Layout.alignment: Qt.AlignHCenter
                     visible: !exe.isInstaller
-                    text: "Hozzáadás a Start menühöz"
+                    text: root.t("choose.add_to_menu")
                 }
                 RowLayout {
                     Layout.alignment: Qt.AlignHCenter
                     spacing: Kirigami.Units.largeSpacing
                     QQC2.Button {
-                        text: "Mégse"
+                        text: root.t("button.cancel")
                         icon.name: "dialog-cancel"
                         onClicked: exe.close()
                     }
                     QQC2.Button {
                         visible: exe.isInstaller
-                        text: "Csak futtatás"
+                        text: root.t("button.run_only")
                         icon.name: "media-playback-start"
                         onClicked: exe.run(false)
                     }
                     QQC2.Button {
                         highlighted: true
-                        text: exe.isInstaller ? "Telepítés" : "Indítás"
+                        text: root.t(exe.isInstaller ? "button.install" : "button.start")
                         icon.name: exe.isInstaller ? "download" : "media-playback-start"
                         onClicked: exe.isInstaller ? exe.install() : exe.run(addToMenu.checked)
                     }
@@ -124,13 +135,13 @@ Kirigami.ApplicationWindow {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     level: 2
-                    text: exe.mode === "manage" ? exe.name : "Kész a telepítés!"
+                    text: exe.mode === "manage" ? exe.name : root.t("pick.done_title")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: exe.mode === "manage" ? "Mi legyen a Start menüben?" : "Mi kerüljön a Start menübe?"
+                    text: root.t(exe.mode === "manage" ? "pick.question_manage" : "pick.question_install")
                 }
                 QQC2.ScrollView {
                     Layout.fillWidth: true
@@ -144,7 +155,7 @@ Kirigami.ApplicationWindow {
                             width: ListView.view.width
                             checked: modelData.checked
                             text: modelData.name
-                            icon.source: modelData.iconUrl !== "" ? modelData.iconUrl : "application-x-ms-dos-executable"
+                            icon.source: modelData.iconUrl !== "" ? modelData.iconUrl : "sloth-os"
                             onClicked: exe.toggleShortcut(index)
                         }
                     }
@@ -153,7 +164,7 @@ Kirigami.ApplicationWindow {
                     Layout.alignment: Qt.AlignRight
                     QQC2.Button {
                         highlighted: true
-                        text: "Kész"
+                        text: root.t("button.done")
                         icon.name: "dialog-ok"
                         onClicked: exe.confirmShortcuts()
                     }
@@ -178,7 +189,7 @@ Kirigami.ApplicationWindow {
                 }
                 QQC2.Button {
                     Layout.alignment: Qt.AlignHCenter
-                    text: "Bezárás"
+                    text: root.t("button.close")
                     onClicked: exe.close()
                 }
                 Item { Layout.fillHeight: true }

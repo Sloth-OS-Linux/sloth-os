@@ -3,6 +3,7 @@
 import sys
 
 sys.path.insert(0, "/usr/lib/sloth-os/sloth-exe")
+sys.path.insert(0, "/usr/lib/sloth-os/common")
 
 from sloth_exe.app import main  # noqa: E402
 

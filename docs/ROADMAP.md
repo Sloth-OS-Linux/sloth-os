@@ -38,7 +38,7 @@ terminálból lehet csinálni, GUI-ból is menjen.
   - [x] Rendszerinformáció, boot menü bejegyzések, gépnév: az os-release-ből jönnek (Sloth OS)
   - [x] A KDE üdvözlő appja kikapcsolva (a Sloth Üdvözlő helyett ne jöjjön elő): `files/system/etc/xdg/kded6rc`
   - [x] Alapértelmezett háttérkép: a saját Sloth OS háttérkép
-  - [ ] Firmware (BIOS/UEFI) boot-bejegyzés neve "Fedora": a telepítő hozza létre, a saját ISO-nál átnevezni
+  - [x] Firmware (BIOS/UEFI) boot-bejegyzés neve: a saját telepítő „Sloth OS”-re nevezi át
   - [ ] VM-ben végignézni: bejelentkező képernyő, Discover, Rendszerbeállítások
 
 ## 2. fázis – Gaming, ami csak működik
@@ -110,7 +110,12 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
     (`bootc install to-disk`, az image az ISO-ban van, internet nélkül is megy), folyamatjelző, újraindítás;
     a fiókot első induláskor a KDE Plasma Setup hozza létre. Építés: `tools/build-iso.ps1` (helyben, Podman)
     vagy `.github/workflows/iso.yml`. VM-ben még tesztelni
-  - [ ] A telepítő fordítása a többi 47 nyelvre (most magyar, angol, német; a többin angol)
+  - [x] A telepítő mind az 50 nyelven
+  - [x] Teljes képernyős „Kipróbálom / Telepítem” választó; kipróbáláshoz Firefox az élő rendszerben, és ha
+    telepítéskor nincs internet, a telepítő átmásolja (különben az Üdvözlőben választ a felhasználó)
+  - [x] Rejtett GRUB az ISO-n (Escre jön elő); a firmware boot-bejegyzés neve „Sloth OS” (nem „Fedora”)
+  - [x] Kisebb ISO: a telepítendő image kicsomagolva, a közös fájlok csak egyszer (cél kb. 5 GB); VM-ben még tesztelni
+  - [x] Javítva: a telepítés végén nem találta a gyökérpartíciót (a nyelv és a billentyűzet nem került be)
   - [ ] Windows mellé telepítés: a Windows-partíció zsugorítása, közös boot menü, BitLocker felismerése és magyarázata
   - [ ] NVIDIA-s gépen automatikusan az NVIDIA-s változat (most a Sloth Központban lehet utána váltani)
   - [ ] Telepítés után a frissítések aláírás-ellenőrzéssel (`ostree-image-signed`)

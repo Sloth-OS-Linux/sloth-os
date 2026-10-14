@@ -1,0 +1,63 @@
+{
+  "_language": "Interlingua",
+
+  "app.title": "Installar Sloth OS",
+
+  "welcome.heading": "Benvenite a Sloth OS!",
+  "welcome.text": "Tu pote probar le systema sin installar lo, o installar lo sur tu computator. Le installation dura alcun minutas e ha solmente alcun questiones.",
+  "welcome.language": "Lingua",
+  "welcome.try": "Probar",
+  "welcome.install": "Installar",
+
+  "region.heading": "Claviero e fuso horari",
+  "region.keyboard": "Claviero:",
+  "region.try_keyboard": "Proba:",
+  "region.try_keyboard_hint": "Scribe hic pro verificar le disposition",
+  "region.timezone": "Fuso horari:",
+  "region.note": "Tu pote cambiar istos plus tarde in le Configuration del systema.",
+
+  "disk.heading": "Ubi installar lo?",
+  "disk.text": "Selige le disco ubi Sloth OS essera installate.",
+  "disk.none": "Nos non trovava un disco pro installar.",
+  "disk.refresh": "Cercar de novo",
+  "disk.too_small": "Troppo parve: es necessari al minus 40 GB.",
+  "disk.contents.empty": "Disco vacue",
+  "disk.contents.windows": "Ha Windows",
+  "disk.contents.linux": "Ha un systema Linux",
+  "disk.contents.other": "Contine datos",
+  "disk.removable": "Isto es un disco externe (p.ex. un clave USB). Vole tu vermente installar hic?",
+  "disk.small": "Un poco stricte: pro jocos nos recommenda al minus 120 GB.",
+
+  "confirm.heading": "Toto sur iste disco essera delite",
+  "confirm.text": "Sloth OS usa le disco integre: {disk}. Toto que es sur illo ora (files, programmas, altere systemas) essera delite pro sempre.",
+  "confirm.windows": "Iste disco ha Windows. Post le installation, Windows e tote su files dispare. Si tu vole conservar los, face prime un copia de tu files.",
+  "confirm.checkbox": "Io comprende que tote le datos del disco essera delite",
+  "confirm.install": "Comenciar le installation",
+
+  "nav.back": "Retro",
+  "nav.next": "Sequente",
+
+  "stage.start": "Preparation…",
+  "stage.partition": "Preparation del disco…",
+  "stage.prepare": "Preparation del systema…",
+  "stage.copy": "Copia de Sloth OS al disco…",
+  "stage.bootloader": "Configuration del initio…",
+  "stage.finishing": "Finition…",
+  "stage.configure": "Salvamento del lingua e del configuration…",
+  "stage.browser": "Addition de un navigator (sin internet)…",
+
+  "install.note": "Secundo tu computator, isto dura 5–20 minutas. Non extingue lo.",
+
+  "done.heading": "Installation completate!",
+  "done.text": "Reinitia tu computator. Quando le schermo deveni nigre, remove le clave USB. Al prime initio tu crea tu conto, e es toto.",
+  "done.reboot": "Reinitiar",
+
+  "error.heading": "Le installation falleva",
+  "error.log_hint": "Si tu demanda adjuta, le detalios es in /tmp/sloth-install.log.",
+  "error.retry": "Reprobar",
+  "error.not_authorized": "Nos non obteneva le permission de installar.",
+  "error.bad_disk": "Non es possibile installar sur iste disco. Selige un altere.",
+  "error.bad_input": "Un del configurationes non es valide. Retorna e verifica los.",
+  "error.install_failed": "Alco errava durante le copia del systema al disco. Le datos que esseva sur le disco pote jam esser delite.",
+  "error.configure_failed": "Le systema esseva installate, ma le lingua e le claviero non poteva esser configurate. Reproba; si illo falle de novo, tu pote configurar los in le Configuration del systema post le prime initio."
+}

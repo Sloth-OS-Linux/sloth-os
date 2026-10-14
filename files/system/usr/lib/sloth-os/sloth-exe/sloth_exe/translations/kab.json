@@ -1,0 +1,44 @@
+{
+  "_language": "Taqbaylit",
+
+  "title.launch": "Asekker n {name}",
+  "title.install": "Asebded n {name}",
+  "title.manage": "{name} – Umuɣ n usenker",
+
+  "choose.installer_text": "Seld asebded, ad t-tafeḍ deg umuɣ n usenker.",
+  "choose.program_text": "Tzemreḍ ad t-tsekreḍ ula mebla asebded.",
+  "choose.add_to_menu": "Rnu ɣer umuɣ n usenker",
+
+  "button.cancel": "Sefsex",
+  "button.run_only": "Sekker kan",
+  "button.install": "Sebded",
+  "button.start": "Sekker",
+  "button.done": "Ifuk",
+  "button.close": "Mdel",
+
+  "pick.done_title": "Asebded ifuk!",
+  "pick.question_manage": "D acu ara yilin deg umuɣ n usenker?",
+  "pick.question_install": "D acu ara nernu ɣer umuɣ n usenker?",
+
+  "status.starting": "Asekker n {name}…",
+  "status.preparing_install": "Aheyyi n usebded n {name}…",
+  "status.finish_in_installer": "Fak asebded deg usfaylu n umsebded. Syin ad nkemmel da.",
+  "status.first_setup": "Aheyyi n usekker amenzu…",
+  "status.downloading": "Asader n yiferdisen ilaqen… (tikkelt tamenzut kan)",
+  "status.extracting": "Asefsi n yiferdisen…",
+  "status.verifying": "Asenqed…",
+  "status.updating": "Aleqqem n yiferdisen…",
+  "status.repairing": "Aseggem n yiferdisen…",
+
+  "error.not_found": "Ur d-nufi ara ahil. Ahat yettwakkes; ales asebded-is.",
+  "error.no_exe": "Ur d-nufi acemma ara yettusekren deg wahil-a.",
+  "error.runtime_missing": "Ixuṣ yiwen n uferdis i ilaqen i usekker n yihilen. Leqqem anagraw deg Sloth Center.",
+  "error.not_started": "{name} ur yekker ara. Ahat ahil-a ur iteddu ara deg unagraw-a, neɣ afaylu yexser.",
+  "error.nothing_installed": "Ur d-nufi ara ahil yebdden. Ahat asebded yegzem; ɛreḍ tikkelt nniḍen.",
+
+  "anticheat.blocked": "{game} isseqdac asemmesten mgal tixxidin {system}, ur yeǧǧi ara urar ad iteddu deg Linux. Mačči d aselkim-ik i d sebba, ur nezmir ara ad t-nezgel. Nesḥassef, urar-a ur yettwaurar ara da.",
+  "anticheat.maybe": "{game} isseqdac asemmesten mgal tixxidin {system}. Deg Linux iteddu kan ma sirgen-t yimesnulfuyen n wurar. Ma yella urar ur yekker ara neɣ ak-d-yessufeɣ, ahat d ayagi i d sebba. Wali ma yella lqem n Steam i wurar-a.",
+
+  "misc.program": "Ahil",
+  "misc.other_programs": "Ihilen nniḍen"
+}

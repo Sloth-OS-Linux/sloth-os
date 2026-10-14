@@ -1,0 +1,44 @@
+{
+  "_language": "Magyar",
+
+  "title.launch": "{name} indítása",
+  "title.install": "{name} telepítése",
+  "title.manage": "{name} – Start menü",
+
+  "choose.installer_text": "Telepítés után a Start menüben találod.",
+  "choose.program_text": "Elindíthatod telepítés nélkül is.",
+  "choose.add_to_menu": "Hozzáadás a Start menühöz",
+
+  "button.cancel": "Mégse",
+  "button.run_only": "Csak futtatás",
+  "button.install": "Telepítés",
+  "button.start": "Indítás",
+  "button.done": "Kész",
+  "button.close": "Bezárás",
+
+  "pick.done_title": "Kész a telepítés!",
+  "pick.question_manage": "Mi legyen a Start menüben?",
+  "pick.question_install": "Mi kerüljön a Start menübe?",
+
+  "status.starting": "{name} indítása…",
+  "status.preparing_install": "{name} telepítésének előkészítése…",
+  "status.finish_in_installer": "A telepítő ablakában fejezd be a telepítést. Ha végeztél, itt folytatjuk.",
+  "status.first_setup": "Első indítás előkészítése…",
+  "status.downloading": "Szükséges összetevők letöltése… (csak az első alkalommal)",
+  "status.extracting": "Összetevők kicsomagolása…",
+  "status.verifying": "Ellenőrzés…",
+  "status.updating": "Összetevők frissítése…",
+  "status.repairing": "Összetevők javítása…",
+
+  "error.not_found": "A programot nem találjuk. Lehet, hogy törölve lett; telepítsd újra.",
+  "error.no_exe": "Ebben a programban nem találtunk elindítható fájlt.",
+  "error.runtime_missing": "A programok futtatásához szükséges összetevő hiányzik. Frissítsd a rendszert a Sloth Központban.",
+  "error.not_started": "{name} nem indult el. Lehet, hogy ez a program nem működik ezen a rendszeren, vagy sérült a fájl.",
+  "error.nothing_installed": "Nem találtunk telepített programot. Lehet, hogy a telepítés megszakadt; próbáld újra.",
+
+  "anticheat.blocked": "{game} a(z) {system} csalásvédelmet használja, ami Linuxon nem engedi futni a játékot. Ez nem a gépeden múlik, és mi sem tudjuk megkerülni. Sajnos ezt a játékot itt nem lehet játszani.",
+  "anticheat.maybe": "{game} a(z) {system} csalásvédelmet használja. Ez Linuxon csak akkor működik, ha a játék készítői engedélyezték. Ha a játék nem indul vagy kidob, valószínűleg ez az oka. Érdemes megnézni, van-e a játéknak Steames változata.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Egyéb programok"
+}

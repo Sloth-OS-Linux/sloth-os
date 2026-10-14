@@ -1,0 +1,44 @@
+{
+  "_language": "Čeština",
+
+  "title.launch": "Spouštění: {name}",
+  "title.install": "Instalace: {name}",
+  "title.manage": "{name} – nabídka Start",
+
+  "choose.installer_text": "Po instalaci ho najdete v nabídce Start.",
+  "choose.program_text": "Můžete ho spustit i bez instalace.",
+  "choose.add_to_menu": "Přidat do nabídky Start",
+
+  "button.cancel": "Zrušit",
+  "button.run_only": "Jen spustit",
+  "button.install": "Nainstalovat",
+  "button.start": "Spustit",
+  "button.done": "Hotovo",
+  "button.close": "Zavřít",
+
+  "pick.done_title": "Instalace dokončena!",
+  "pick.question_manage": "Co má být v nabídce Start?",
+  "pick.question_install": "Co přidat do nabídky Start?",
+
+  "status.starting": "Spouštění: {name}…",
+  "status.preparing_install": "Příprava instalace: {name}…",
+  "status.finish_in_installer": "Dokončete instalaci v okně instalátoru. Pak budeme pokračovat tady.",
+  "status.first_setup": "Příprava prvního spuštění…",
+  "status.downloading": "Stahování potřebných součástí… (jen poprvé)",
+  "status.extracting": "Rozbalování součástí…",
+  "status.verifying": "Kontrola…",
+  "status.updating": "Aktualizace součástí…",
+  "status.repairing": "Oprava součástí…",
+
+  "error.not_found": "Program nelze najít. Možná byl smazán; nainstalujte ho znovu.",
+  "error.no_exe": "V tomto programu jsme nenašli nic ke spuštění.",
+  "error.runtime_missing": "Chybí součást potřebná ke spouštění programů. Aktualizujte systém v Sloth Center.",
+  "error.not_started": "{name} se nespustil. Tento program možná na tomto systému nefunguje, nebo je soubor poškozený.",
+  "error.nothing_installed": "Nenašli jsme žádný nainstalovaný program. Instalace se možná přerušila; zkuste to znovu.",
+
+  "anticheat.blocked": "{game} používá ochranu proti podvádění {system}, která nedovolí spustit hru v Linuxu. Není to chyba vašeho počítače a nemůžeme to obejít. Bohužel tuto hru zde hrát nelze.",
+  "anticheat.maybe": "{game} používá ochranu proti podvádění {system}. V Linuxu funguje jen tehdy, pokud to tvůrci hry povolili. Pokud se hra nespustí nebo vás vyhodí, je to nejspíš kvůli tomu. Vyplatí se zjistit, zda hra nemá verzi na Steamu.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Ostatní programy"
+}

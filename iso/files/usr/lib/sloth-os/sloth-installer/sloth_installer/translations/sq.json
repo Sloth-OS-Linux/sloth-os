@@ -1,0 +1,63 @@
+{
+  "_language": "Shqip",
+
+  "app.title": "Instalo Sloth OS",
+
+  "welcome.heading": "Mirë se vini në Sloth OS!",
+  "welcome.text": "Mund ta provoni sistemin pa e instaluar, ose ta instaloni në kompjuter. Instalimi zgjat pak minuta dhe ka vetëm disa pyetje.",
+  "welcome.language": "Gjuha",
+  "welcome.try": "Provoje",
+  "welcome.install": "Instalo",
+
+  "region.heading": "Tastiera dhe zona kohore",
+  "region.keyboard": "Tastiera:",
+  "region.try_keyboard": "Provë:",
+  "region.try_keyboard_hint": "Shkruani këtu për të kontrolluar paraqitjen",
+  "region.timezone": "Zona kohore:",
+  "region.note": "Këto mund t'i ndryshoni më vonë te Rregullimet e sistemit.",
+
+  "disk.heading": "Ku ta instalojmë?",
+  "disk.text": "Zgjidhni diskun ku do të instalohet Sloth OS.",
+  "disk.none": "Nuk gjetëm disk për instalim.",
+  "disk.refresh": "Kërko sërish",
+  "disk.too_small": "Shumë i vogël: duhen të paktën 40 GB.",
+  "disk.contents.empty": "Disk bosh",
+  "disk.contents.windows": "Ka Windows",
+  "disk.contents.linux": "Ka një sistem Linux",
+  "disk.contents.other": "Ka të dhëna",
+  "disk.removable": "Ky është disk i jashtëm (p.sh. USB). Doni vërtet ta instaloni këtu?",
+  "disk.small": "Pak ngushtë: për lojëra rekomandohen të paktën 120 GB.",
+
+  "confirm.heading": "Gjithçka në këtë disk do të fshihet",
+  "confirm.text": "Sloth OS përdor gjithë diskun: {disk}. Gjithçka që ka tani (skedarë, programe, sisteme të tjera) do të fshihet përgjithmonë.",
+  "confirm.windows": "Ky disk ka Windows. Pas instalimit, Windows dhe të gjithë skedarët e tij do të zhduken. Nëse doni t'i mbani, bëni fillimisht kopje të skedarëve.",
+  "confirm.checkbox": "E kuptoj që të gjitha të dhënat në disk do të fshihen",
+  "confirm.install": "Nis instalimin",
+
+  "nav.back": "Prapa",
+  "nav.next": "Tjetër",
+
+  "stage.start": "Po përgatitet…",
+  "stage.partition": "Po përgatitet disku…",
+  "stage.prepare": "Po përgatitet sistemi…",
+  "stage.copy": "Po kopjohet Sloth OS në disk…",
+  "stage.bootloader": "Po rregullohet nisja…",
+  "stage.finishing": "Po përfundon…",
+  "stage.configure": "Po ruhen gjuha dhe rregullimet…",
+  "stage.browser": "Po shtohet një shfletues (pa internet)…",
+
+  "install.note": "Në varësi të kompjuterit, kjo zgjat 5–20 minuta. Mos e fikni.",
+
+  "done.heading": "Instalimi përfundoi!",
+  "done.text": "Rinisni kompjuterin. Kur ekrani të nxihet, hiqni USB-në. Në nisjen e parë krijoni llogarinë dhe kaq.",
+  "done.reboot": "Rinis",
+
+  "error.heading": "Instalimi dështoi",
+  "error.log_hint": "Nëse kërkoni ndihmë, hollësitë janë te /tmp/sloth-install.log.",
+  "error.retry": "Riprovo",
+  "error.not_authorized": "Nuk morëm leje për instalim.",
+  "error.bad_disk": "Në këtë disk nuk mund të instalohet. Zgjidhni një tjetër.",
+  "error.bad_input": "Një nga rregullimet është e pavlefshme. Kthehuni dhe kontrollojini.",
+  "error.install_failed": "Diçka shkoi keq gjatë kopjimit të sistemit në disk. Të dhënat që ishin në disk mund të jenë fshirë tashmë.",
+  "error.configure_failed": "Sistemi u instalua, por gjuha dhe tastiera nuk u rregulluan dot. Riprovoni; nëse sërish nuk shkon, mund t'i rregulloni te Rregullimet e sistemit pas nisjes së parë."
+}

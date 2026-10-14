@@ -1,0 +1,44 @@
+{
+  "_language": "Interlingua",
+
+  "title.launch": "Lanceamento de {name}",
+  "title.install": "Installation de {name}",
+  "title.manage": "{name} – Menu Initio",
+
+  "choose.installer_text": "Post le installation tu lo trovara in le menu Initio.",
+  "choose.program_text": "Tu pote etiam lancear lo sin installar lo.",
+  "choose.add_to_menu": "Adder al menu Initio",
+
+  "button.cancel": "Cancellar",
+  "button.run_only": "Solmente executar",
+  "button.install": "Installar",
+  "button.start": "Lancear",
+  "button.done": "Facite",
+  "button.close": "Clauder",
+
+  "pick.done_title": "Installation completate!",
+  "pick.question_manage": "Que debe esser in le menu Initio?",
+  "pick.question_install": "Que adder al menu Initio?",
+
+  "status.starting": "Lanceamento de {name}…",
+  "status.preparing_install": "Preparation del installation de {name}…",
+  "status.finish_in_installer": "Fini le installation in le fenestra del installator. Postea nos continua hic.",
+  "status.first_setup": "Preparation del prime lanceamento…",
+  "status.downloading": "Discargamento del componentes necessari… (solmente le prime vice)",
+  "status.extracting": "Disimpacchettamento del componentes…",
+  "status.verifying": "Verification…",
+  "status.updating": "Actualisation del componentes…",
+  "status.repairing": "Reparation del componentes…",
+
+  "error.not_found": "Le programma non esseva trovate. Forsan illo esseva delite; installa lo de novo.",
+  "error.no_exe": "Nos non trovava nihil a lancear in iste programma.",
+  "error.runtime_missing": "Un componente necessari pro executar programmas manca. Actualisa le systema in Sloth Center.",
+  "error.not_started": "{name} non se lanceava. Forsan iste programma non functiona in iste systema, o le file es damnificate.",
+  "error.nothing_installed": "Nos non trovava alcun programma installate. Forsan le installation esseva interrumpite; reproba.",
+
+  "anticheat.blocked": "{game} usa le systema anti-fraude {system}, que non permitte al joco functionar sur Linux. Isto non depende de tu computator e nos non pote evitar lo. Regrettabilemente iste joco non pote esser jocate hic.",
+  "anticheat.maybe": "{game} usa le systema anti-fraude {system}. Sur Linux illo functiona solmente si le creatores del joco lo ha permittite. Si le joco non se lancea o te expelle, isto es probabilemente le ration. Il vale le pena verificar si le joco ha un version Steam.",
+
+  "misc.program": "Programma",
+  "misc.other_programs": "Altere programmas"
+}

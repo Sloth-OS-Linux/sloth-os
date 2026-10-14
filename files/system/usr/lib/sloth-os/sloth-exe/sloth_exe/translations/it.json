@@ -1,0 +1,44 @@
+{
+  "_language": "Italiano",
+
+  "title.launch": "Avvio di {name}",
+  "title.install": "Installazione di {name}",
+  "title.manage": "{name} – Menu Start",
+
+  "choose.installer_text": "Dopo l'installazione lo trovi nel menu Start.",
+  "choose.program_text": "Puoi anche avviarlo senza installarlo.",
+  "choose.add_to_menu": "Aggiungi al menu Start",
+
+  "button.cancel": "Annulla",
+  "button.run_only": "Avvia soltanto",
+  "button.install": "Installa",
+  "button.start": "Avvia",
+  "button.done": "Fatto",
+  "button.close": "Chiudi",
+
+  "pick.done_title": "Installazione completata!",
+  "pick.question_manage": "Cosa vuoi nel menu Start?",
+  "pick.question_install": "Cosa aggiungiamo al menu Start?",
+
+  "status.starting": "Avvio di {name}…",
+  "status.preparing_install": "Preparazione dell'installazione di {name}…",
+  "status.finish_in_installer": "Completa l'installazione nella finestra del programma di installazione. Poi si continua qui.",
+  "status.first_setup": "Preparazione del primo avvio…",
+  "status.downloading": "Download dei componenti necessari… (solo la prima volta)",
+  "status.extracting": "Estrazione dei componenti…",
+  "status.verifying": "Verifica…",
+  "status.updating": "Aggiornamento dei componenti…",
+  "status.repairing": "Riparazione dei componenti…",
+
+  "error.not_found": "Non troviamo il programma. Forse è stato eliminato; installalo di nuovo.",
+  "error.no_exe": "In questo programma non c'è nulla da avviare.",
+  "error.runtime_missing": "Manca un componente necessario per avviare i programmi. Aggiorna il sistema in Sloth Center.",
+  "error.not_started": "{name} non si è avviato. Forse questo programma non funziona su questo sistema, oppure il file è danneggiato.",
+  "error.nothing_installed": "Non abbiamo trovato nessun programma installato. Forse l'installazione si è interrotta; riprova.",
+
+  "anticheat.blocked": "{game} usa l'anti-cheat {system}, che non permette al gioco di funzionare su Linux. Non dipende dal tuo computer e non possiamo aggirarlo. Purtroppo questo gioco qui non si può giocare.",
+  "anticheat.maybe": "{game} usa l'anti-cheat {system}. Su Linux funziona solo se gli sviluppatori del gioco lo hanno permesso. Se il gioco non parte o ti butta fuori, probabilmente il motivo è questo. Conviene verificare se esiste una versione Steam del gioco.",
+
+  "misc.program": "Programma",
+  "misc.other_programs": "Altri programmi"
+}

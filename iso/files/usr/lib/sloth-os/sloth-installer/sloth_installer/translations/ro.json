@@ -1,0 +1,63 @@
+{
+  "_language": "Română",
+
+  "app.title": "Instalare Sloth OS",
+
+  "welcome.heading": "Bun venit în Sloth OS!",
+  "welcome.text": "Poți încerca sistemul fără să-l instalezi sau îl poți instala pe calculator. Instalarea durează câteva minute și are doar câteva întrebări.",
+  "welcome.language": "Limbă",
+  "welcome.try": "Încearcă",
+  "welcome.install": "Instalează",
+
+  "region.heading": "Tastatură și fus orar",
+  "region.keyboard": "Tastatură:",
+  "region.try_keyboard": "Test:",
+  "region.try_keyboard_hint": "Scrie aici ca să verifici aranjamentul",
+  "region.timezone": "Fus orar:",
+  "region.note": "Le poți schimba mai târziu din Configurările sistemului.",
+
+  "disk.heading": "Unde îl instalăm?",
+  "disk.text": "Alege discul pe care se instalează Sloth OS.",
+  "disk.none": "Nu am găsit niciun disc pentru instalare.",
+  "disk.refresh": "Caută din nou",
+  "disk.too_small": "Prea mic: e nevoie de cel puțin 40 GB.",
+  "disk.contents.empty": "Disc gol",
+  "disk.contents.windows": "Are Windows",
+  "disk.contents.linux": "Are un sistem Linux",
+  "disk.contents.other": "Are date",
+  "disk.removable": "Acesta e un disc extern (de ex. un stick USB). Sigur vrei să instalezi aici?",
+  "disk.small": "Cam strâmt: pentru jocuri se recomandă cel puțin 120 GB.",
+
+  "confirm.heading": "Tot ce e pe acest disc va fi șters",
+  "confirm.text": "Sloth OS folosește tot discul: {disk}. Tot ce e acum pe el (fișiere, programe, alte sisteme) va fi șters definitiv.",
+  "confirm.windows": "Pe acest disc e Windows. După instalare, Windows și toate fișierele lui vor dispărea. Dacă vrei să le păstrezi, fă mai întâi o copie a fișierelor.",
+  "confirm.checkbox": "Înțeleg că toate datele de pe disc vor fi șterse",
+  "confirm.install": "Pornește instalarea",
+
+  "nav.back": "Înapoi",
+  "nav.next": "Înainte",
+
+  "stage.start": "Se pregătește…",
+  "stage.partition": "Se pregătește discul…",
+  "stage.prepare": "Se pregătește sistemul…",
+  "stage.copy": "Se copiază Sloth OS pe disc…",
+  "stage.bootloader": "Se configurează pornirea…",
+  "stage.finishing": "Se finalizează…",
+  "stage.configure": "Se salvează limba și setările…",
+  "stage.browser": "Se adaugă un navigator (fără internet)…",
+
+  "install.note": "În funcție de calculator, durează 5–20 de minute. Nu-l opri.",
+
+  "done.heading": "Instalare finalizată!",
+  "done.text": "Repornește calculatorul. Când ecranul se înnegrește, scoate stick-ul USB. La prima pornire îți creezi contul și gata.",
+  "done.reboot": "Repornește",
+
+  "error.heading": "Instalarea a eșuat",
+  "error.log_hint": "Dacă ceri ajutor, detaliile sunt în /tmp/sloth-install.log.",
+  "error.retry": "Încearcă din nou",
+  "error.not_authorized": "Nu am primit permisiunea de a instala.",
+  "error.bad_disk": "Nu se poate instala pe acest disc. Alege altul.",
+  "error.bad_input": "Una dintre setări nu e validă. Întoarce-te și verifică-le.",
+  "error.install_failed": "Ceva n-a mers la copierea sistemului pe disc. Datele care erau pe disc s-ar putea să fi fost deja șterse.",
+  "error.configure_failed": "Sistemul a fost instalat, dar limba și tastatura nu au putut fi setate. Încearcă din nou; dacă tot nu merge, le poți seta după prima pornire din Configurările sistemului."
+}

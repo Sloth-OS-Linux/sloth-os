@@ -1,0 +1,44 @@
+{
+  "_language": "Esperanto",
+
+  "title.launch": "Lanĉado de {name}",
+  "title.install": "Instalado de {name}",
+  "title.manage": "{name} – Startmenuo",
+
+  "choose.installer_text": "Post la instalado vi trovos ĝin en la startmenuo.",
+  "choose.program_text": "Vi povas lanĉi ĝin ankaŭ sen instali.",
+  "choose.add_to_menu": "Aldoni al la startmenuo",
+
+  "button.cancel": "Nuligi",
+  "button.run_only": "Nur lanĉi",
+  "button.install": "Instali",
+  "button.start": "Lanĉi",
+  "button.done": "Farite",
+  "button.close": "Fermi",
+
+  "pick.done_title": "Instalado finiĝis!",
+  "pick.question_manage": "Kio estu en la startmenuo?",
+  "pick.question_install": "Kion aldoni al la startmenuo?",
+
+  "status.starting": "Lanĉado de {name}…",
+  "status.preparing_install": "Preparado de la instalado de {name}…",
+  "status.finish_in_installer": "Finu la instaladon en la fenestro de la instalilo. Poste ni daŭrigos ĉi tie.",
+  "status.first_setup": "Preparado de la unua lanĉo…",
+  "status.downloading": "Elŝutado de necesaj komponantoj… (nur la unuan fojon)",
+  "status.extracting": "Malpakado de komponantoj…",
+  "status.verifying": "Kontrolado…",
+  "status.updating": "Ĝisdatigo de komponantoj…",
+  "status.repairing": "Riparado de komponantoj…",
+
+  "error.not_found": "La programo ne troviĝis. Eble ĝi estis forigita; reinstalu ĝin.",
+  "error.no_exe": "Ni trovis nenion lanĉeblan en ĉi tiu programo.",
+  "error.runtime_missing": "Mankas komponanto bezonata por lanĉi programojn. Ĝisdatigu la sistemon en Sloth Center.",
+  "error.not_started": "{name} ne lanĉiĝis. Eble ĉi tiu programo ne funkcias en ĉi tiu sistemo, aŭ la dosiero estas difektita.",
+  "error.nothing_installed": "Ni trovis neniun instalitan programon. Eble la instalado interrompiĝis; reprovu.",
+
+  "anticheat.blocked": "{game} uzas la kontraŭtrompan sistemon {system}, kiu ne permesas al la ludo funkcii en Linukso. Tio ne dependas de via komputilo, kaj ni ne povas ĉirkaŭiri ĝin. Bedaŭrinde ĉi tiu ludo ne ludeblas ĉi tie.",
+  "anticheat.maybe": "{game} uzas la kontraŭtrompan sistemon {system}. En Linukso ĝi funkcias nur se la kreintoj de la ludo permesis tion. Se la ludo ne lanĉiĝas aŭ elĵetas vin, verŝajne tio estas la kialo. Indas kontroli, ĉu la ludo havas Steam-version.",
+
+  "misc.program": "Programo",
+  "misc.other_programs": "Aliaj programoj"
+}

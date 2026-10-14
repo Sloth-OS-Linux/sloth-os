@@ -1,0 +1,63 @@
+{
+  "_language": "Svenska",
+
+  "app.title": "Installera Sloth OS",
+
+  "welcome.heading": "Välkommen till Sloth OS!",
+  "welcome.text": "Du kan prova systemet utan att installera det, eller installera det på datorn. Installationen tar några minuter och har bara några få frågor.",
+  "welcome.language": "Språk",
+  "welcome.try": "Prova",
+  "welcome.install": "Installera",
+
+  "region.heading": "Tangentbord och tidszon",
+  "region.keyboard": "Tangentbord:",
+  "region.try_keyboard": "Test:",
+  "region.try_keyboard_hint": "Skriv här för att kontrollera layouten",
+  "region.timezone": "Tidszon:",
+  "region.note": "Du kan ändra detta senare i Systeminställningar.",
+
+  "disk.heading": "Var ska vi installera?",
+  "disk.text": "Välj disken som Sloth OS ska installeras på.",
+  "disk.none": "Vi hittade ingen disk att installera på.",
+  "disk.refresh": "Sök igen",
+  "disk.too_small": "För liten: minst 40 GB behövs.",
+  "disk.contents.empty": "Tom disk",
+  "disk.contents.windows": "Har Windows",
+  "disk.contents.linux": "Har ett Linux-system",
+  "disk.contents.other": "Innehåller data",
+  "disk.removable": "Det här är en extern enhet (t.ex. ett USB-minne). Vill du verkligen installera här?",
+  "disk.small": "Lite trångt: för spel rekommenderas minst 120 GB.",
+
+  "confirm.heading": "Allt på den här disken raderas",
+  "confirm.text": "Sloth OS använder hela disken: {disk}. Allt som finns på den nu (filer, program, andra system) raderas permanent.",
+  "confirm.windows": "Den här disken har Windows. Efter installationen är Windows och alla dess filer borta. Vill du behålla dem, säkerhetskopiera dina filer först.",
+  "confirm.checkbox": "Jag förstår att all data på disken raderas",
+  "confirm.install": "Starta installationen",
+
+  "nav.back": "Tillbaka",
+  "nav.next": "Nästa",
+
+  "stage.start": "Förbereder…",
+  "stage.partition": "Förbereder disken…",
+  "stage.prepare": "Förbereder systemet…",
+  "stage.copy": "Kopierar Sloth OS till disken…",
+  "stage.bootloader": "Ställer in uppstarten…",
+  "stage.finishing": "Slutför…",
+  "stage.configure": "Sparar språk och inställningar…",
+  "stage.browser": "Lägger till en webbläsare (inget internet)…",
+
+  "install.note": "Beroende på datorn tar det 5–20 minuter. Stäng inte av den.",
+
+  "done.heading": "Installationen är klar!",
+  "done.text": "Starta om datorn. När skärmen blir svart, ta ut USB-minnet. Vid första starten skapar du ditt konto, och sedan är du klar.",
+  "done.reboot": "Starta om",
+
+  "error.heading": "Installationen misslyckades",
+  "error.log_hint": "Om du ber om hjälp finns detaljerna i /tmp/sloth-install.log.",
+  "error.retry": "Försök igen",
+  "error.not_authorized": "Vi fick inte behörighet att installera.",
+  "error.bad_disk": "Det går inte att installera på den här disken. Välj en annan.",
+  "error.bad_input": "En av inställningarna är ogiltig. Gå tillbaka och kontrollera dem.",
+  "error.install_failed": "Något gick fel när systemet kopierades till disken. Data som fanns på disken kan redan ha raderats.",
+  "error.configure_failed": "Systemet installerades, men språk och tangentbord kunde inte ställas in. Försök igen; misslyckas det igen kan du ställa in dem i Systeminställningar efter första starten."
+}

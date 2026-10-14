@@ -1,0 +1,44 @@
+{
+  "_language": "Polski",
+
+  "title.launch": "Uruchamianie: {name}",
+  "title.install": "Instalowanie: {name}",
+  "title.manage": "{name} – menu Start",
+
+  "choose.installer_text": "Po instalacji znajdziesz go w menu Start.",
+  "choose.program_text": "Możesz go też uruchomić bez instalacji.",
+  "choose.add_to_menu": "Dodaj do menu Start",
+
+  "button.cancel": "Anuluj",
+  "button.run_only": "Tylko uruchom",
+  "button.install": "Zainstaluj",
+  "button.start": "Uruchom",
+  "button.done": "Gotowe",
+  "button.close": "Zamknij",
+
+  "pick.done_title": "Instalacja zakończona!",
+  "pick.question_manage": "Co ma być w menu Start?",
+  "pick.question_install": "Co dodać do menu Start?",
+
+  "status.starting": "Uruchamianie: {name}…",
+  "status.preparing_install": "Przygotowywanie instalacji: {name}…",
+  "status.finish_in_installer": "Dokończ instalację w oknie instalatora. Potem kontynuujemy tutaj.",
+  "status.first_setup": "Przygotowywanie pierwszego uruchomienia…",
+  "status.downloading": "Pobieranie potrzebnych składników… (tylko za pierwszym razem)",
+  "status.extracting": "Rozpakowywanie składników…",
+  "status.verifying": "Sprawdzanie…",
+  "status.updating": "Aktualizowanie składników…",
+  "status.repairing": "Naprawianie składników…",
+
+  "error.not_found": "Nie znaleziono programu. Może został usunięty; zainstaluj go ponownie.",
+  "error.no_exe": "W tym programie nie znaleziono niczego do uruchomienia.",
+  "error.runtime_missing": "Brakuje składnika potrzebnego do uruchamiania programów. Zaktualizuj system w Sloth Center.",
+  "error.not_started": "{name} nie uruchomił się. Ten program może nie działać w tym systemie albo plik jest uszkodzony.",
+  "error.nothing_installed": "Nie znaleziono zainstalowanego programu. Instalacja mogła zostać przerwana; spróbuj ponownie.",
+
+  "anticheat.blocked": "{game} używa zabezpieczenia antycheatowego {system}, które nie pozwala uruchomić gry w Linuksie. To nie wina twojego komputera i nie możemy tego obejść. Niestety w tę grę nie da się tu zagrać.",
+  "anticheat.maybe": "{game} używa zabezpieczenia antycheatowego {system}. W Linuksie działa ono tylko, jeśli twórcy gry na to pozwolili. Jeśli gra się nie uruchamia albo cię wyrzuca, to prawdopodobnie dlatego. Warto sprawdzić, czy gra ma wersję na Steam.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Inne programy"
+}

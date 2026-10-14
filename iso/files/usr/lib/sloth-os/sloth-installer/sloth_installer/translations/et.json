@@ -1,0 +1,63 @@
+{
+  "_language": "Eesti",
+
+  "app.title": "Sloth OS-i paigaldamine",
+
+  "welcome.heading": "Tere tulemast Sloth OS-i!",
+  "welcome.text": "Süsteemi saab proovida ilma paigaldamata või selle arvutisse paigaldada. Paigaldamine võtab paar minutit ja küsimusi on vaid mõni.",
+  "welcome.language": "Keel",
+  "welcome.try": "Proovi",
+  "welcome.install": "Paigalda",
+
+  "region.heading": "Klaviatuur ja ajavöönd",
+  "region.keyboard": "Klaviatuur:",
+  "region.try_keyboard": "Proov:",
+  "region.try_keyboard_hint": "Kirjuta siia, et paigutust kontrollida",
+  "region.timezone": "Ajavöönd:",
+  "region.note": "Neid saab hiljem muuta Süsteemi seadistustes.",
+
+  "disk.heading": "Kuhu paigaldame?",
+  "disk.text": "Vali ketas, kuhu Sloth OS paigaldatakse.",
+  "disk.none": "Paigaldamiseks sobivat ketast ei leitud.",
+  "disk.refresh": "Otsi uuesti",
+  "disk.too_small": "Liiga väike: vaja on vähemalt 40 GB.",
+  "disk.contents.empty": "Tühi ketas",
+  "disk.contents.windows": "Sellel on Windows",
+  "disk.contents.linux": "Sellel on Linuxi süsteem",
+  "disk.contents.other": "Sellel on andmeid",
+  "disk.removable": "See on väline ketas (nt mälupulk). Kas tahad tõesti siia paigaldada?",
+  "disk.small": "Veidi kitsas: mängude jaoks soovitame vähemalt 120 GB.",
+
+  "confirm.heading": "Kõik selle ketta andmed kustutatakse",
+  "confirm.text": "Sloth OS kasutab kogu ketast: {disk}. Kõik, mis sellel praegu on (failid, programmid, muud süsteemid), kustutatakse jäädavalt.",
+  "confirm.windows": "Sellel kettal on Windows. Pärast paigaldamist pole Windowsit ega selle faile enam. Kui tahad need alles jätta, tee enne failidest varukoopia.",
+  "confirm.checkbox": "Saan aru, et kõik ketta andmed kustutatakse",
+  "confirm.install": "Alusta paigaldamist",
+
+  "nav.back": "Tagasi",
+  "nav.next": "Edasi",
+
+  "stage.start": "Ettevalmistus…",
+  "stage.partition": "Ketta ettevalmistamine…",
+  "stage.prepare": "Süsteemi ettevalmistamine…",
+  "stage.copy": "Sloth OS-i kopeerimine kettale…",
+  "stage.bootloader": "Käivituse seadistamine…",
+  "stage.finishing": "Lõpetamine…",
+  "stage.configure": "Keele ja seadete salvestamine…",
+  "stage.browser": "Veebibrauseri lisamine (internetti pole)…",
+
+  "install.note": "Sõltuvalt arvutist kulub 5–20 minutit. Ära lülita seda välja.",
+
+  "done.heading": "Paigaldamine on lõpetatud!",
+  "done.text": "Taaskäivita arvuti. Kui ekraan läheb mustaks, eemalda mälupulk. Esimesel käivitamisel lood oma konto ja ongi valmis.",
+  "done.reboot": "Taaskäivita",
+
+  "error.heading": "Paigaldamine ebaõnnestus",
+  "error.log_hint": "Kui küsid abi, on üksikasjad failis /tmp/sloth-install.log.",
+  "error.retry": "Proovi uuesti",
+  "error.not_authorized": "Me ei saanud paigaldamiseks luba.",
+  "error.bad_disk": "Sellele kettale ei saa paigaldada. Vali mõni teine.",
+  "error.bad_input": "Mõni seade on vigane. Mine tagasi ja kontrolli neid.",
+  "error.install_failed": "Süsteemi kettale kopeerimisel läks midagi valesti. Kettal olnud andmed võivad olla juba kustutatud.",
+  "error.configure_failed": "Süsteem paigaldati, kuid keelt ja klaviatuuri ei õnnestunud seadistada. Proovi uuesti; kui ikka ei õnnestu, saad need pärast esimest käivitust Süsteemi seadistustes määrata."
+}

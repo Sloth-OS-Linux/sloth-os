@@ -7,16 +7,17 @@ import logging
 from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
+from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
 from . import anticheat, programs
+from .i18n import catalog, tr
 from .runner import Runner
 
 log = logging.getLogger("sloth-exe")
 
 # Ennyi másodperc után úgy vesszük, hogy a program rendben elindult
 STARTED_AFTER_S = 8
-GENERIC_ICON = "application-x-ms-dos-executable"
 
 
 class ExeController(QObject):
@@ -51,19 +52,24 @@ class ExeController(QObject):
         self._exe = Path(path).resolve()
         self._name = programs.display_name(self._exe)
         if self._name.lower() in ("setup", "install", "installer", ""):
-            self._name = "Program"
+            self._name = tr("misc.program")
         self._installer = programs.looks_like_installer(self._exe)
         icon = programs.extract_icon(self._exe, Path("/tmp") / f"sloth-exe-{programs.slugify(self._name)}.png")
-        self._icon = f"file://{icon}" if icon else ""
+        self._set_icon(icon)
         self._state = "choose"
+        self._update_window()
         self.changed.emit()
 
     def launch(self, slug, rel):
         self._program = programs.Program(slug)
         self._exe = self._program.prefix / rel
         self._name = self._program.meta.get("name") or programs.display_name(self._exe)
+        # a Start menü bejegyzéshez már kibontott ikon
+        self._set_icon(self._program.icons / f"{programs.slugify(self._exe.stem)}.png")
+        self._mode = "run"
+        self._update_window()
         if not self._exe.exists():
-            self._fail("A programot nem találjuk. Lehet, hogy törölve lett; telepítsd újra.")
+            self._fail(tr("error.not_found"))
             return
         self._start_run()
 
@@ -83,8 +89,9 @@ class ExeController(QObject):
                                     "checked": programs.desktop_file_path(self._program, path).exists(),
                                     "iconUrl": f"file://{icon}" if icon else ""})
         if not self._shortcuts:
-            self._fail("Ebben a programban nem találtunk elindítható fájlt.")
+            self._fail(tr("error.no_exe"))
             return
+        self._update_window()
         self._state = "pick"
         self.changed.emit()
 
@@ -99,6 +106,7 @@ class ExeController(QObject):
     errorText = Property(str, lambda self: self._error, notify=changed)
     shortcuts = Property("QVariantList", lambda self: list(self._shortcuts), notify=changed)
     mode = Property(str, lambda self: self._mode, notify=changed)
+    strings = Property("QVariantMap", lambda self: catalog.strings(), constant=True)
 
     # --- Műveletek -------------------------------------------------------------
 
@@ -111,13 +119,14 @@ class ExeController(QObject):
         self._program = programs.Program(slug)
         self._program.save_meta(name=self._name, installer=str(self._exe))
         self._mode = "install"
-        self._set_working(f"{self._name} telepítésének előkészítése…")
+        self._update_window()
+        self._set_working(tr("status.preparing_install", name=self._name))
         self._runner.start(self._program, self._exe)
 
     @Slot(bool)
     def run(self, add_to_menu):
         self._program = programs.Program(programs.SHARED)
-        self._program.save_meta(name="Egyéb programok")
+        self._program.save_meta(name=tr("misc.other_programs"))
         if add_to_menu:
             programs.add_to_menu(self._program, self._name, self._exe)
         self._start_run()
@@ -152,9 +161,25 @@ class ExeController(QObject):
             self._fail(anticheat.blocked_text(self._name, found[0]))
             return
         self._mode = "run"
-        self._set_working(f"{self._name} indítása…")
+        self._update_window()
+        self._set_working(tr("status.starting", name=self._name))
         self._runner.start(self._program, self._exe)
         self._started_timer.start()
+
+    def _set_icon(self, path):
+        self._icon = f"file://{path}" if path and Path(path).is_file() else ""
+
+    def _update_window(self):
+        """Ablakcím és tálcaikon: "XY indítása" / "XY telepítése", a program saját ikonjával."""
+        if self._mode == "manage":
+            key = "title.manage"
+        elif self._mode == "install" or (self._installer and not self._mode):
+            key = "title.install"
+        else:
+            key = "title.launch"
+        QApplication.setApplicationDisplayName(tr(key, name=self._name))
+        QApplication.setWindowIcon(QIcon(self._icon.removeprefix("file://")) if self._icon
+                                   else QIcon.fromTheme("sloth-os"))
 
     def _set_working(self, text):
         self._state = "working"
@@ -168,17 +193,17 @@ class ExeController(QObject):
         self.showWindow.emit()
         self.changed.emit()
 
-    def _on_status(self, text, pct):
-        self._status = text
+    def _on_status(self, key, pct):
+        self._status = tr(key)
         self._progress = pct
         self._started_timer.start()  # amíg előkészítünk, ne rejtsük el az ablakot
         self.changed.emit()
 
     def _on_setup_done(self):
         if self._mode == "install":
-            self._status = "A telepítő ablakában fejezd be a telepítést. Ha végeztél, itt folytatjuk."
+            self._status = tr("status.finish_in_installer")
         else:
-            self._status = f"{self._name} indítása…"
+            self._status = tr("status.starting", name=self._name)
         self._progress = -1
         self.changed.emit()
 
@@ -194,7 +219,7 @@ class ExeController(QObject):
         self._started_timer.stop()
         log.info("kilépett: kód=%s, %.0f mp", code, elapsed)
         if code == 127 and elapsed == 0:
-            self._fail("A Windows-programok futtatója nincs telepítve. Frissítsd a rendszert a Sloth Központban.")
+            self._fail(tr("error.runtime_missing"))
             return
         if self._mode == "install":
             self._after_install()
@@ -203,8 +228,7 @@ class ExeController(QObject):
             if self._anticheat:
                 self._fail(anticheat.maybe_text(self._name, self._anticheat[0]))
             else:
-                self._fail(f"A(z) {self._name} nem indult el. Lehet, hogy ez a program nem működik ezen a "
-                           "rendszeren, vagy sérült a fájl.")
+                self._fail(tr("error.not_started", name=self._name))
             return
         QApplication.quit()
 
@@ -218,7 +242,7 @@ class ExeController(QObject):
         else:
             checked = True
         if not found:
-            self._fail("Nem találtunk telepített programot. Lehet, hogy a telepítés megszakadt; próbáld újra.")
+            self._fail(tr("error.nothing_installed"))
             return
         self._shortcuts = []
         for name, path in found:

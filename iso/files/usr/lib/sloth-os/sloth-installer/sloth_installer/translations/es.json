@@ -1,0 +1,63 @@
+{
+  "_language": "Español",
+
+  "app.title": "Instalar Sloth OS",
+
+  "welcome.heading": "¡Bienvenido a Sloth OS!",
+  "welcome.text": "Puedes probar el sistema sin instalarlo o instalarlo en tu ordenador. La instalación tarda unos minutos y solo son unas pocas preguntas.",
+  "welcome.language": "Idioma",
+  "welcome.try": "Probarlo",
+  "welcome.install": "Instalar",
+
+  "region.heading": "Teclado y zona horaria",
+  "region.keyboard": "Teclado:",
+  "region.try_keyboard": "Prueba:",
+  "region.try_keyboard_hint": "Escribe aquí para comprobar la distribución",
+  "region.timezone": "Zona horaria:",
+  "region.note": "Puedes cambiarlos después en la Configuración del sistema.",
+
+  "disk.heading": "¿Dónde lo instalamos?",
+  "disk.text": "Elige el disco en el que se instalará Sloth OS.",
+  "disk.none": "No encontramos ningún disco donde instalar.",
+  "disk.refresh": "Buscar de nuevo",
+  "disk.too_small": "Demasiado pequeño: se necesitan al menos 40 GB.",
+  "disk.contents.empty": "Disco vacío",
+  "disk.contents.windows": "Tiene Windows",
+  "disk.contents.linux": "Tiene un sistema Linux",
+  "disk.contents.other": "Tiene datos",
+  "disk.removable": "Es una unidad externa (p. ej. un USB). ¿Seguro que quieres instalar aquí?",
+  "disk.small": "Algo justo: para juegos se recomiendan al menos 120 GB.",
+
+  "confirm.heading": "Se borrará todo lo que hay en este disco",
+  "confirm.text": "Sloth OS usa el disco entero: {disk}. Todo lo que contiene ahora (archivos, programas, otros sistemas) se borrará para siempre.",
+  "confirm.windows": "Este disco tiene Windows. Después de instalar, Windows y todos sus archivos desaparecerán. Si quieres conservarlos, haz antes una copia de tus archivos.",
+  "confirm.checkbox": "Entiendo que se borrarán todos los datos del disco",
+  "confirm.install": "Empezar la instalación",
+
+  "nav.back": "Atrás",
+  "nav.next": "Siguiente",
+
+  "stage.start": "Preparándose…",
+  "stage.partition": "Preparando el disco…",
+  "stage.prepare": "Preparando el sistema…",
+  "stage.copy": "Copiando Sloth OS al disco…",
+  "stage.bootloader": "Configurando el arranque…",
+  "stage.finishing": "Terminando…",
+  "stage.configure": "Guardando el idioma y los ajustes…",
+  "stage.browser": "Añadiendo un navegador (sin Internet)…",
+
+  "install.note": "Según tu ordenador, tarda entre 5 y 20 minutos. No lo apagues.",
+
+  "done.heading": "¡Instalación completada!",
+  "done.text": "Reinicia el ordenador. Cuando la pantalla se ponga negra, quita el USB. En el primer inicio crearás tu cuenta, y listo.",
+  "done.reboot": "Reiniciar",
+
+  "error.heading": "La instalación ha fallado",
+  "error.log_hint": "Si pides ayuda, los detalles están en /tmp/sloth-install.log.",
+  "error.retry": "Reintentar",
+  "error.not_authorized": "No obtuvimos permiso para instalar.",
+  "error.bad_disk": "No se puede instalar en este disco. Elige otro.",
+  "error.bad_input": "Uno de los ajustes no es válido. Vuelve atrás y revísalos.",
+  "error.install_failed": "Algo falló al copiar el sistema al disco. Puede que los datos que había en el disco ya se hayan borrado.",
+  "error.configure_failed": "El sistema se instaló, pero no se pudieron ajustar el idioma y el teclado. Inténtalo de nuevo; si sigue fallando, puedes ajustarlos en la Configuración del sistema tras el primer inicio."
+}

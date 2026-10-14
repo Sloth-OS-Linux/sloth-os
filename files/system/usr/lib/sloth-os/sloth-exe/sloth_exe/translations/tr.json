@@ -1,0 +1,44 @@
+{
+  "_language": "Türkçe",
+
+  "title.launch": "{name} başlatılıyor",
+  "title.install": "{name} kuruluyor",
+  "title.manage": "{name} – Başlat menüsü",
+
+  "choose.installer_text": "Kurulumdan sonra onu Başlat menüsünde bulursunuz.",
+  "choose.program_text": "Kurmadan da çalıştırabilirsiniz.",
+  "choose.add_to_menu": "Başlat menüsüne ekle",
+
+  "button.cancel": "İptal",
+  "button.run_only": "Yalnızca çalıştır",
+  "button.install": "Kur",
+  "button.start": "Başlat",
+  "button.done": "Tamam",
+  "button.close": "Kapat",
+
+  "pick.done_title": "Kurulum tamamlandı!",
+  "pick.question_manage": "Başlat menüsünde ne olsun?",
+  "pick.question_install": "Başlat menüsüne ne eklensin?",
+
+  "status.starting": "{name} başlatılıyor…",
+  "status.preparing_install": "{name} kurulumu hazırlanıyor…",
+  "status.finish_in_installer": "Kurulumu kurulum programının penceresinde bitirin. Sonra burada devam ederiz.",
+  "status.first_setup": "İlk başlatma hazırlanıyor…",
+  "status.downloading": "Gerekli bileşenler indiriliyor… (yalnızca ilk seferde)",
+  "status.extracting": "Bileşenler açılıyor…",
+  "status.verifying": "Denetleniyor…",
+  "status.updating": "Bileşenler güncelleniyor…",
+  "status.repairing": "Bileşenler onarılıyor…",
+
+  "error.not_found": "Program bulunamadı. Silinmiş olabilir; yeniden kurun.",
+  "error.no_exe": "Bu programda başlatılacak bir şey bulunamadı.",
+  "error.runtime_missing": "Programları çalıştırmak için gereken bir bileşen eksik. Sistemi Sloth Center'dan güncelleyin.",
+  "error.not_started": "{name} başlamadı. Bu program bu sistemde çalışmıyor olabilir ya da dosya bozuk olabilir.",
+  "error.nothing_installed": "Kurulu bir program bulunamadı. Kurulum yarıda kesilmiş olabilir; yeniden deneyin.",
+
+  "anticheat.blocked": "{game}, oyunun Linux'ta çalışmasına izin vermeyen {system} hile korumasını kullanıyor. Bu sizin bilgisayarınızdan kaynaklanmıyor ve bunu aşamayız. Ne yazık ki bu oyun burada oynanamaz.",
+  "anticheat.maybe": "{game}, {system} hile korumasını kullanıyor. Bu koruma Linux'ta yalnızca oyunun yapımcıları izin verdiyse çalışır. Oyun açılmıyor ya da sizi atıyorsa sebebi büyük olasılıkla budur. Oyunun Steam sürümü olup olmadığına bakmaya değer.",
+
+  "misc.program": "Program",
+  "misc.other_programs": "Diğer programlar"
+}

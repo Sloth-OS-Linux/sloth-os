@@ -209,7 +209,6 @@ def add_to_menu(program, name, exe):
         "[Desktop Entry]\n"
         "Type=Application\n"
         f"Name={name}\n"
-        "Comment=Windows-program\n"
         f"Exec={exec_line}\n"
         f"Icon={icon or 'application-x-ms-dos-executable'}\n"
         "Terminal=false\n"

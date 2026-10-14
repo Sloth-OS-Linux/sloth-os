@@ -44,6 +44,7 @@
   "stage.bootloader": "Rendszerindító beállítása…",
   "stage.finishing": "Befejezés…",
   "stage.configure": "Nyelv és beállítások mentése…",
+  "stage.browser": "Böngésző hozzáadása (nincs internet)…",
   "install.note": "Ez a gép sebességétől függően 5–20 perc. Közben ne kapcsold ki a gépet.",
 
   "done.heading": "Kész a telepítés!",
@@ -51,11 +52,11 @@
   "done.reboot": "Újraindítás",
 
   "error.heading": "A telepítés nem sikerült",
-  "error.log_hint": "A lemezen lévő adatok addigra már sérülhettek. A részletek a /tmp/sloth-install.log fájlban vannak, ha segítséget kérnél.",
+  "error.log_hint": "Ha segítséget kérnél, a részletek a /tmp/sloth-install.log fájlban vannak.",
   "error.retry": "Újrapróbálom",
   "error.not_authorized": "Nem kaptunk engedélyt a telepítéshez.",
   "error.bad_disk": "Erre a lemezre nem lehet telepíteni. Válassz másikat.",
   "error.bad_input": "Valamelyik beállítás hibás. Lépj vissza, és nézd át őket.",
-  "error.install_failed": "Hiba történt a rendszer lemezre másolása közben.",
-  "error.configure_failed": "A rendszer felkerült, de a nyelv és a billentyűzet beállítása nem sikerült."
+  "error.install_failed": "Hiba történt a rendszer lemezre másolása közben. A lemezen korábban lévő adatok ekkorra már törlődhettek.",
+  "error.configure_failed": "A rendszer felkerült, de a nyelv és a billentyűzet beállítása nem sikerült. Próbáld újra; ha megint nem megy, első indítás után a Rendszerbeállításokban is beállíthatod."
 }

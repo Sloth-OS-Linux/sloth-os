@@ -1,0 +1,63 @@
+{
+  "_language": "한국어",
+
+  "app.title": "Sloth OS 설치",
+
+  "welcome.heading": "Sloth OS에 오신 것을 환영합니다!",
+  "welcome.text": "설치하지 않고 체험하거나 컴퓨터에 설치할 수 있습니다. 설치는 몇 분이면 되고 질문도 몇 개뿐입니다.",
+  "welcome.language": "언어",
+  "welcome.try": "체험하기",
+  "welcome.install": "설치",
+
+  "region.heading": "키보드와 시간대",
+  "region.keyboard": "키보드:",
+  "region.try_keyboard": "테스트:",
+  "region.try_keyboard_hint": "여기에 입력해 자판 배열을 확인하세요",
+  "region.timezone": "시간대:",
+  "region.note": "나중에 시스템 설정에서 바꿀 수 있습니다.",
+
+  "disk.heading": "어디에 설치할까요?",
+  "disk.text": "Sloth OS를 설치할 디스크를 고르세요.",
+  "disk.none": "설치할 디스크를 찾지 못했습니다.",
+  "disk.refresh": "다시 찾기",
+  "disk.too_small": "너무 작습니다: 최소 40GB가 필요합니다.",
+  "disk.contents.empty": "빈 디스크",
+  "disk.contents.windows": "Windows가 있습니다",
+  "disk.contents.linux": "Linux 시스템이 있습니다",
+  "disk.contents.other": "데이터가 있습니다",
+  "disk.removable": "외장 드라이브(예: USB 메모리)입니다. 정말 여기에 설치할까요?",
+  "disk.small": "조금 빠듯합니다: 게임용으로는 120GB 이상을 권장합니다.",
+
+  "confirm.heading": "이 디스크의 모든 내용이 지워집니다",
+  "confirm.text": "Sloth OS는 디스크 전체를 사용합니다: {disk}. 지금 있는 모든 것(파일, 프로그램, 다른 시스템)이 영구히 삭제됩니다.",
+  "confirm.windows": "이 디스크에는 Windows가 있습니다. 설치 후에는 Windows와 모든 파일이 사라집니다. 보관하려면 먼저 파일을 백업하세요.",
+  "confirm.checkbox": "디스크의 모든 데이터가 지워진다는 것을 이해했습니다",
+  "confirm.install": "설치 시작",
+
+  "nav.back": "뒤로",
+  "nav.next": "다음",
+
+  "stage.start": "준비 중…",
+  "stage.partition": "디스크 준비 중…",
+  "stage.prepare": "시스템 준비 중…",
+  "stage.copy": "Sloth OS를 디스크에 복사하는 중…",
+  "stage.bootloader": "시작 설정 중…",
+  "stage.finishing": "마무리 중…",
+  "stage.configure": "언어와 설정 저장 중…",
+  "stage.browser": "웹 브라우저 추가 중(인터넷 없음)…",
+
+  "install.note": "컴퓨터에 따라 5~20분 걸립니다. 전원을 끄지 마세요.",
+
+  "done.heading": "설치가 끝났습니다!",
+  "done.text": "컴퓨터를 다시 시작하세요. 화면이 어두워지면 USB 메모리를 빼세요. 처음 시작할 때 계정을 만들면 끝입니다.",
+  "done.reboot": "다시 시작",
+
+  "error.heading": "설치하지 못했습니다",
+  "error.log_hint": "도움을 요청할 때는 /tmp/sloth-install.log 파일에 자세한 내용이 있습니다.",
+  "error.retry": "다시 시도",
+  "error.not_authorized": "설치 권한을 받지 못했습니다.",
+  "error.bad_disk": "이 디스크에는 설치할 수 없습니다. 다른 디스크를 고르세요.",
+  "error.bad_input": "설정 중 하나가 올바르지 않습니다. 돌아가서 확인하세요.",
+  "error.install_failed": "시스템을 디스크에 복사하는 중 문제가 생겼습니다. 디스크에 있던 데이터가 이미 지워졌을 수 있습니다.",
+  "error.configure_failed": "시스템은 설치되었지만 언어와 키보드를 설정하지 못했습니다. 다시 시도하세요. 그래도 안 되면 처음 시작한 뒤 시스템 설정에서 바꿀 수 있습니다."
+}

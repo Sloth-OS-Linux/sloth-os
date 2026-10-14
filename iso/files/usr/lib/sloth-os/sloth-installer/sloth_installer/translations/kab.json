@@ -1,0 +1,63 @@
+{
+  "_language": "Taqbaylit",
+
+  "app.title": "Sebded Sloth OS",
+
+  "welcome.heading": "Ansuf ɣer Sloth OS!",
+  "welcome.text": "Tzemreḍ ad tɛerḍeḍ anagraw mebla ma tesbeddeḍ-t, neɣ ad t-tesbeddeḍ ɣef uselkim-ik. Asebded yettawi kra n tesdatin, s kra n yesteqsiyen kan.",
+  "welcome.language": "Tutlayt",
+  "welcome.try": "Ɛreḍ-it",
+  "welcome.install": "Sebded",
+
+  "region.heading": "Anasiw d tamnaḍt n wakud",
+  "region.keyboard": "Anasiw:",
+  "region.try_keyboard": "Asekyed:",
+  "region.try_keyboard_hint": "Aru da i usenqed n tmerna",
+  "region.timezone": "Tamnaḍt n wakud:",
+  "region.note": "Tzemreḍ ad ten-tbeddleḍ ticki deg yiɣewwaren n unagraw.",
+
+  "disk.heading": "Anida ara t-nesbedd?",
+  "disk.text": "Fren aḍebsi anida ara yebded Sloth OS.",
+  "disk.none": "Ur d-nufi ara aḍebsi i usebded.",
+  "disk.refresh": "Nadi tikkelt nniḍen",
+  "disk.too_small": "Meẓẓi aṭas: ilaq ma drus 40 GB.",
+  "disk.contents.empty": "Aḍebsi d ilem",
+  "disk.contents.windows": "Yella fell-as Windows",
+  "disk.contents.linux": "Yella fell-as unagraw Linux",
+  "disk.contents.other": "Llan fell-as isefka",
+  "disk.removable": "Wa d aḍebsi azɣaray (am USB). Tebɣiḍ s tidet ad tesbeddeḍ da?",
+  "disk.small": "Cwiṭ d imeẓẓi: i wuraren, ilaq ma drus 120 GB.",
+
+  "confirm.heading": "Ayen akk yellan deg uḍebsi-a ad yettwakkes",
+  "confirm.text": "Sloth OS ad yesseqdec aḍebsi akk: {disk}. Ayen akk yellan tura (ifuyla, ihilen, inagrawen nniḍen) ad yettwakkes i lebda.",
+  "confirm.windows": "Deg uḍebsi-a yella Windows. Seld asebded, Windows d yifuyla-s akk ad ruḥen. Ma tebɣiḍ ad ten-teǧǧeḍ, eg qbel aḥraz n yifuyla-k.",
+  "confirm.checkbox": "Fehmeɣ belli isefka akk n uḍebsi ad ttwakksen",
+  "confirm.install": "Bdu asebded",
+
+  "nav.back": "Ɣer deffir",
+  "nav.next": "Ɣer zdat",
+
+  "stage.start": "Aheyyi…",
+  "stage.partition": "Aheyyi n uḍebsi…",
+  "stage.prepare": "Aheyyi n unagraw…",
+  "stage.copy": "Anɣal n Sloth OS ɣer uḍebsi…",
+  "stage.bootloader": "Aswel n usenker…",
+  "stage.finishing": "Tagara…",
+  "stage.configure": "Asekles n tutlayt d yiɣewwaren…",
+  "stage.browser": "Timerna n yiminig (ulac internet)…",
+
+  "install.note": "Ɣef leḥsab n uselkim-ik, aya yettawi 5–20 n tesdatin. Ur t-sexsay ara.",
+
+  "done.heading": "Asebded ifuk!",
+  "done.text": "Ales asekker n uselkim. Mi ara yeqqim ugdil d aberkan, kkes USB. Deg usekker amenzu ad d-tesnulfuḍ amiḍan-ik, syin ifuk.",
+  "done.reboot": "Ales asekker",
+
+  "error.heading": "Asebded ur yeddi ara",
+  "error.log_hint": "Ma tsutreḍ tallalt, talqayt tella deg /tmp/sloth-install.log.",
+  "error.retry": "Ɛreḍ tikkelt nniḍen",
+  "error.not_authorized": "Ur d-nwi ara tasiregt n usebded.",
+  "error.bad_disk": "Ur yezmir ara ad yebded deg uḍebsi-a. Fren wayeḍ.",
+  "error.bad_input": "Yiwen seg yiɣewwaren ur yeɣbel ara. Uɣal ɣer deffir, senqed-iten.",
+  "error.install_failed": "Yella wugur deg unɣal n unagraw ɣer uḍebsi. Isefka yellan deg uḍebsi zemren ad ttwakksen yakan.",
+  "error.configure_failed": "Anagraw yebded, maca tutlayt d unasiw ur ttwasbedden ara. Ɛreḍ tikkelt nniḍen; ma ur yeddi ara, tzemreḍ ad ten-tesbeddeḍ deg yiɣewwaren n unagraw seld asekker amenzu."
+}

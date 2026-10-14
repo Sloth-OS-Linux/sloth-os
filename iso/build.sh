@@ -1,13 +1,9 @@
 #!/usr/bin/bash
 # A Sloth OS élő rendszerének összerakása (az iso/Containerfile futtatja).
-#   build.sh <telepítendő image> <frissítések forrása>
 # A Titanoboa példáit (examples/zirconium) követi, Anaconda nélkül: a telepítést
 # a saját Sloth OS telepítőnk végzi (iso/files/usr/lib/sloth-os/sloth-installer).
 set -euxo pipefail
 
-SOURCE_IMAGE="$1"   # amit az ISO-ba csomagolunk és feltelepítünk
-TARGET_IMAGE="$2"   # ahonnan a telepített rendszer a frissítéseit kapja
-PAYLOAD=/usr/share/sloth-os/installer/image
 
 # --- Élő rendszer: initramfs a pendrive-ról induláshoz, automatikus belépés ----------
 
@@ -32,19 +28,10 @@ systemctl enable livesys.service livesys-late.service
 cp -a /src/files/. /
 chmod 0755 /usr/bin/sloth-installer /usr/libexec/sloth-os/sloth-install-helper
 
-# --- A telepítendő Sloth OS image, internet nélküli telepítéshez -------------------------
-# OCI-könyvtárként (tömörített rétegek); a telepítő a bootc install --source-imgref oci:...
-# kapcsolóval innen telepít, konténer futtatása nélkül.
-
-auth=()
-[[ -s /run/secrets/registry-auth ]] && auth=(--authfile /run/secrets/registry-auth)
-mkdir -p "$(dirname "$PAYLOAD")"
-# Az aláírást a letöltéskor a policy.json ellenőrzi; az OCI-könyvtár aláírást nem tud tárolni
-skopeo copy "${auth[@]}" --retry-times 3 --remove-signatures "docker://${SOURCE_IMAGE}" "oci:${PAYLOAD}:latest"
-cat > /usr/share/sloth-os/installer/image.conf <<EOF
-SOURCE_IMGREF=oci:${PAYLOAD}:latest
-TARGET_IMGREF=${TARGET_IMAGE}
-EOF
+# --- A telepítendő Sloth OS image ----------------------------------------------------------
+# Nem itt kerül bele, és a Firefox sem: a build alatt a kicsomagolt fájlok tulajdonosát nem
+# lehet beállítani. A build második lépése teszi bele (iso/payload.sh, privilegizált konténerben,
+# podman commit).
 
 # --- ISO-hoz szükséges részek (Titanoboa / Container-native ISO contract) -----------------
 

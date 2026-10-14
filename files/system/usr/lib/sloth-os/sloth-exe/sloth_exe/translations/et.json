@@ -1,0 +1,44 @@
+{
+  "_language": "Eesti",
+
+  "title.launch": "Käivitamine: {name}",
+  "title.install": "Paigaldamine: {name}",
+  "title.manage": "{name} – Start-menüü",
+
+  "choose.installer_text": "Pärast paigaldamist leiad selle Start-menüüst.",
+  "choose.program_text": "Saad seda käivitada ka ilma paigaldamata.",
+  "choose.add_to_menu": "Lisa Start-menüüsse",
+
+  "button.cancel": "Loobu",
+  "button.run_only": "Ainult käivita",
+  "button.install": "Paigalda",
+  "button.start": "Käivita",
+  "button.done": "Valmis",
+  "button.close": "Sulge",
+
+  "pick.done_title": "Paigaldamine on lõpetatud!",
+  "pick.question_manage": "Mis peaks Start-menüüs olema?",
+  "pick.question_install": "Mida Start-menüüsse lisada?",
+
+  "status.starting": "Käivitamine: {name}…",
+  "status.preparing_install": "Paigaldamise ettevalmistamine: {name}…",
+  "status.finish_in_installer": "Lõpeta paigaldamine paigaldaja aknas. Seejärel jätkame siin.",
+  "status.first_setup": "Esimese käivituse ettevalmistamine…",
+  "status.downloading": "Vajalike komponentide allalaadimine… (ainult esimesel korral)",
+  "status.extracting": "Komponentide lahtipakkimine…",
+  "status.verifying": "Kontrollimine…",
+  "status.updating": "Komponentide uuendamine…",
+  "status.repairing": "Komponentide parandamine…",
+
+  "error.not_found": "Programmi ei leitud. Võib-olla on see kustutatud; paigalda see uuesti.",
+  "error.no_exe": "Selles programmis ei leitud midagi käivitatavat.",
+  "error.runtime_missing": "Programmide käivitamiseks vajalik komponent puudub. Uuenda süsteemi Sloth Centeris.",
+  "error.not_started": "{name} ei käivitunud. Võib-olla see programm ei tööta selles süsteemis või fail on vigane.",
+  "error.nothing_installed": "Paigaldatud programmi ei leitud. Võib-olla katkes paigaldamine; proovi uuesti.",
+
+  "anticheat.blocked": "{game} kasutab petmisvastast süsteemi {system}, mis ei lase mängul Linuxis töötada. See ei sõltu sinu arvutist ja me ei saa sellest mööda. Kahjuks ei saa seda mängu siin mängida.",
+  "anticheat.maybe": "{game} kasutab petmisvastast süsteemi {system}. Linuxis töötab see ainult siis, kui mängu tegijad on seda lubanud. Kui mäng ei käivitu või viskab sind välja, on põhjus tõenäoliselt selles. Tasub vaadata, kas mängul on Steami versioon.",
+
+  "misc.program": "Programm",
+  "misc.other_programs": "Muud programmid"
+}

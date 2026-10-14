@@ -1,0 +1,44 @@
+{
+  "_language": "Català",
+
+  "title.launch": "S'està iniciant {name}",
+  "title.install": "S'està instal·lant {name}",
+  "title.manage": "{name} – Menú Inici",
+
+  "choose.installer_text": "Després d'instal·lar-lo, el trobaràs al menú Inici.",
+  "choose.program_text": "També el pots obrir sense instal·lar-lo.",
+  "choose.add_to_menu": "Afegeix al menú Inici",
+
+  "button.cancel": "Cancel·la",
+  "button.run_only": "Només executa",
+  "button.install": "Instal·la",
+  "button.start": "Inicia",
+  "button.done": "Fet",
+  "button.close": "Tanca",
+
+  "pick.done_title": "Instal·lació acabada!",
+  "pick.question_manage": "Què hi ha d'haver al menú Inici?",
+  "pick.question_install": "Què afegim al menú Inici?",
+
+  "status.starting": "S'està iniciant {name}…",
+  "status.preparing_install": "S'està preparant la instal·lació de {name}…",
+  "status.finish_in_installer": "Acaba la instal·lació a la finestra de l'instal·lador. Després continuem aquí.",
+  "status.first_setup": "S'està preparant el primer inici…",
+  "status.downloading": "S'estan baixant els components necessaris… (només la primera vegada)",
+  "status.extracting": "S'estan descomprimint els components…",
+  "status.verifying": "S'està comprovant…",
+  "status.updating": "S'estan actualitzant els components…",
+  "status.repairing": "S'estan reparant els components…",
+
+  "error.not_found": "No trobem el programa. Potser s'ha esborrat; torna a instal·lar-lo.",
+  "error.no_exe": "No hem trobat res per iniciar en aquest programa.",
+  "error.runtime_missing": "Falta un component necessari per executar programes. Actualitza el sistema a Sloth Center.",
+  "error.not_started": "{name} no s'ha iniciat. Potser aquest programa no funciona en aquest sistema o el fitxer està malmès.",
+  "error.nothing_installed": "No hem trobat cap programa instal·lat. Potser la instal·lació s'ha interromput; torna-ho a provar.",
+
+  "anticheat.blocked": "{game} fa servir l'antitrampes {system}, que no deixa executar el joc a Linux. No és culpa del teu ordinador i no ho podem evitar. Malauradament, aquest joc no es pot jugar aquí.",
+  "anticheat.maybe": "{game} fa servir l'antitrampes {system}. A Linux només funciona si els creadors del joc ho han permès. Si el joc no s'inicia o et fa fora, probablement és per això. Val la pena mirar si el joc té versió a Steam.",
+
+  "misc.program": "Programa",
+  "misc.other_programs": "Altres programes"
+}

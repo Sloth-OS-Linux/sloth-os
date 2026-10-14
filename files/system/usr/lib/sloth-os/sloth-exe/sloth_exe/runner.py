@@ -14,20 +14,20 @@ from . import backend
 
 log = logging.getLogger("sloth-exe.runner")
 
-# umu kimenet -> emberi szöveg (az első egyező nyer, kisbetűs minták)
+# umu kimenet -> állapot (fordítási kulcs; az első egyező nyer, kisbetűs minták)
 _STAGES = [
-    (("setting up unified launcher",), "Első indítás előkészítése…"),
-    (("downloading",), "Szükséges összetevők letöltése… (csak az első alkalommal)"),
-    (("extracting",), "Összetevők kicsomagolása…"),
-    (("verifying integrity", "sha256 is ok", "sha512 is ok", "mtree is ok"), "Ellenőrzés…"),
-    (("updating",), "Összetevők frissítése…"),
-    (("restoring runtime",), "Összetevők javítása…"),
+    (("setting up unified launcher",), "status.first_setup"),
+    (("downloading",), "status.downloading"),
+    (("extracting",), "status.extracting"),
+    (("verifying integrity", "sha256 is ok", "sha512 is ok", "mtree is ok"), "status.verifying"),
+    (("updating",), "status.updating"),
+    (("restoring runtime",), "status.repairing"),
 ]
 _PERCENT = re.compile(r"(\d{1,3})(?:\.\d+)?\s?%")
 
 
 class Runner(QObject):
-    status = Signal(str, int)   # szöveg, százalék (-1 = ismeretlen)
+    status = Signal(str, int)   # állapot fordítási kulcsa, százalék (-1 = ismeretlen)
     setup_done = Signal()       # az előkészítés kész, a program elindult
     finished = Signal(int, float)  # kilépési kód, futási idő (mp)
 
@@ -78,7 +78,7 @@ class Runner(QObject):
         headless = QProcessEnvironment(env)
         headless.remove("DISPLAY")
         headless.remove("WAYLAND_DISPLAY")
-        self.status.emit("Első indítás előkészítése…", -1)
+        self.status.emit("status.first_setup", -1)
         self._spawn(headless, exe.parent, "wineboot", ["--init"])
 
     def _spawn(self, env, cwd, program, args):

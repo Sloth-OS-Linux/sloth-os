@@ -1,0 +1,63 @@
+{
+  "_language": "日本語",
+
+  "app.title": "Sloth OS のインストール",
+
+  "welcome.heading": "Sloth OS へようこそ！",
+  "welcome.text": "インストールせずに試すことも、パソコンにインストールすることもできます。インストールは数分で、質問もわずかです。",
+  "welcome.language": "言語",
+  "welcome.try": "試してみる",
+  "welcome.install": "インストール",
+
+  "region.heading": "キーボードとタイムゾーン",
+  "region.keyboard": "キーボード:",
+  "region.try_keyboard": "テスト:",
+  "region.try_keyboard_hint": "ここに入力して配列を確認",
+  "region.timezone": "タイムゾーン:",
+  "region.note": "後からシステム設定で変更できます。",
+
+  "disk.heading": "どこにインストールしますか？",
+  "disk.text": "Sloth OS をインストールするディスクを選んでください。",
+  "disk.none": "インストールできるディスクが見つかりません。",
+  "disk.refresh": "もう一度探す",
+  "disk.too_small": "容量不足: 40 GB 以上必要です。",
+  "disk.contents.empty": "空のディスク",
+  "disk.contents.windows": "Windows が入っています",
+  "disk.contents.linux": "Linux システムが入っています",
+  "disk.contents.other": "データが入っています",
+  "disk.removable": "外付けドライブ（USB メモリーなど）です。本当にここにインストールしますか？",
+  "disk.small": "少し狭めです: ゲームには 120 GB 以上をおすすめします。",
+
+  "confirm.heading": "このディスクの内容はすべて消去されます",
+  "confirm.text": "Sloth OS はディスク全体を使います: {disk}。今入っているもの（ファイル、プログラム、ほかのシステム）はすべて完全に削除されます。",
+  "confirm.windows": "このディスクには Windows が入っています。インストール後は Windows とそのファイルがすべてなくなります。残したい場合は、先にファイルをバックアップしてください。",
+  "confirm.checkbox": "ディスクのデータがすべて消去されることを理解しました",
+  "confirm.install": "インストールを開始",
+
+  "nav.back": "戻る",
+  "nav.next": "次へ",
+
+  "stage.start": "準備しています…",
+  "stage.partition": "ディスクを準備しています…",
+  "stage.prepare": "システムを準備しています…",
+  "stage.copy": "Sloth OS をディスクにコピーしています…",
+  "stage.bootloader": "起動を設定しています…",
+  "stage.finishing": "仕上げています…",
+  "stage.configure": "言語と設定を保存しています…",
+  "stage.browser": "ブラウザーを追加しています（インターネットなし）…",
+
+  "install.note": "パソコンによって 5〜20 分かかります。電源を切らないでください。",
+
+  "done.heading": "インストール完了！",
+  "done.text": "パソコンを再起動してください。画面が暗くなったら USB メモリーを抜きます。初回起動時にアカウントを作れば準備完了です。",
+  "done.reboot": "再起動",
+
+  "error.heading": "インストールに失敗しました",
+  "error.log_hint": "サポートを求める場合、詳細は /tmp/sloth-install.log にあります。",
+  "error.retry": "もう一度試す",
+  "error.not_authorized": "インストールの許可が得られませんでした。",
+  "error.bad_disk": "このディスクにはインストールできません。別のディスクを選んでください。",
+  "error.bad_input": "設定のどれかが正しくありません。戻って確認してください。",
+  "error.install_failed": "システムをディスクにコピー中に問題が発生しました。ディスクにあったデータはすでに消えている可能性があります。",
+  "error.configure_failed": "システムはインストールされましたが、言語とキーボードを設定できませんでした。もう一度お試しください。それでも失敗する場合は、初回起動後にシステム設定で設定できます。"
+}

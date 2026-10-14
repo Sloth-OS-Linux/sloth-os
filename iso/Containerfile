@@ -1,14 +1,9 @@
 # Sloth OS élő rendszer a telepítő ISO-hoz. A Titanoboa (ublue-os/titanoboa) ebből az image-ből
 # készít indítható ISO-t. Építés: tools/build-iso.ps1 (Windows, Podman) vagy .github/workflows/iso.yml.
-#
-# A privát registry-hez a bejelentkezési adatok build secretként jönnek (registry-auth),
-# így nem kerülnek bele az image-be.
+# A telepítendő image és a Firefox a második lépésben kerül bele (iso/payload.sh).
 ARG BASE_IMAGE=ghcr.io/bathorizsolt/sloth-os:latest
 FROM ${BASE_IMAGE}
-ARG BASE_IMAGE
-ARG TARGET_IMAGE=${BASE_IMAGE}
 
 COPY build.sh iso.yaml /src/
 COPY files/ /src/files/
-RUN --mount=type=secret,id=registry-auth,required=false \
-    bash /src/build.sh "${BASE_IMAGE}" "${TARGET_IMAGE}" && rm -rf /src
+RUN bash /src/build.sh && rm -rf /src

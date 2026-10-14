@@ -1,0 +1,44 @@
+{
+  "_language": "繁體中文",
+
+  "title.launch": "正在啟動 {name}",
+  "title.install": "正在安裝 {name}",
+  "title.manage": "{name} – 開始功能表",
+
+  "choose.installer_text": "安裝後可以在開始功能表中找到它。",
+  "choose.program_text": "也可以不安裝直接執行。",
+  "choose.add_to_menu": "加入開始功能表",
+
+  "button.cancel": "取消",
+  "button.run_only": "僅執行",
+  "button.install": "安裝",
+  "button.start": "啟動",
+  "button.done": "完成",
+  "button.close": "關閉",
+
+  "pick.done_title": "安裝完成！",
+  "pick.question_manage": "開始功能表中要放哪些？",
+  "pick.question_install": "要把哪些加入開始功能表？",
+
+  "status.starting": "正在啟動 {name}…",
+  "status.preparing_install": "正在準備安裝 {name}…",
+  "status.finish_in_installer": "請在安裝程式視窗中完成安裝。完成後在這裡繼續。",
+  "status.first_setup": "正在準備首次啟動…",
+  "status.downloading": "正在下載所需元件…（僅首次）",
+  "status.extracting": "正在解壓縮元件…",
+  "status.verifying": "正在檢查…",
+  "status.updating": "正在更新元件…",
+  "status.repairing": "正在修復元件…",
+
+  "error.not_found": "找不到該程式。它可能已被刪除，請重新安裝。",
+  "error.no_exe": "在此程式中找不到可以啟動的內容。",
+  "error.runtime_missing": "缺少執行程式所需的元件。請在 Sloth Center 中更新系統。",
+  "error.not_started": "{name} 無法啟動。此程式可能無法在本系統上執行，或檔案已損毀。",
+  "error.nothing_installed": "找不到已安裝的程式。安裝可能被中斷了，請重試。",
+
+  "anticheat.blocked": "{game} 使用了 {system} 反作弊，它不允許遊戲在 Linux 上執行。這不是你電腦的問題，我們也無法繞過。很遺憾，這款遊戲無法在這裡玩。",
+  "anticheat.maybe": "{game} 使用了 {system} 反作弊。只有遊戲開發者允許時，它才能在 Linux 上執行。如果遊戲無法啟動或把你踢出，很可能就是這個原因。可以看看這款遊戲有沒有 Steam 版本。",
+
+  "misc.program": "程式",
+  "misc.other_programs": "其他程式"
+}

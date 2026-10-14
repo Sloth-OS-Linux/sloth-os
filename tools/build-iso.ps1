@@ -48,15 +48,30 @@ try {
 
     Write-Host "== Élő rendszer építése: $LiveImage"
     $mAuth = ConvertTo-MachinePath $authFile
-    Invoke-InMachine ("podman build --pull=never --authfile '$mAuth' " +
-        "--secret id=registry-auth,src='$mAuth' --build-arg BASE_IMAGE='$Image' " +
-        "-t '$LiveImage' '$(ConvertTo-MachinePath (Join-Path $repo 'iso'))'")
+    Invoke-InMachine ("podman build --pull=never --security-opt label=disable " +
+        "--build-arg BASE_IMAGE='$Image' -t '$LiveImage' '$(ConvertTo-MachinePath (Join-Path $repo 'iso'))'")
     if ($LASTEXITCODE) { throw "Az élő rendszer építése nem sikerült." }
+
+    # Második lépés privilegizált konténerben: a telepítendő image és a Firefox (iso/payload.sh).
+    # A build alatt a kicsomagolt fájlok tulajdonosát nem lehet beállítani, ezért külön lépés.
+    Write-Host "== Telepítendő image és Firefox hozzáadása"
+    Invoke-InMachine "podman rm -f sloth-live-payload >/dev/null 2>&1; true"
+    Invoke-InMachine ("podman run --privileged --cgroups=disabled --name sloth-live-payload " +
+        "-v '${mAuth}:/run/secrets/registry-auth:ro' " +
+        "-v '$(ConvertTo-MachinePath (Join-Path $repo 'iso/payload.sh')):/payload.sh:ro' " +
+        "'$LiveImage' bash /payload.sh '$Image' '$Image'")
+    if ($LASTEXITCODE) { throw "A telepítendő image hozzáadása nem sikerült." }
+    Invoke-InMachine "podman commit sloth-live-payload '$LiveImage' && podman rm sloth-live-payload"
+    if ($LASTEXITCODE) { throw "Az élő rendszer mentése nem sikerült." }
 
     Write-Host "== ISO készítése (Titanoboa $($TitanoboaCommit.Substring(0, 7)))"
     $buildIso = Join-Path $work "build_iso.sh"
     Invoke-WebRequest -UseBasicParsing -OutFile $buildIso `
         "https://raw.githubusercontent.com/ublue-os/titanoboa/$TitanoboaCommit/build_iso.sh"
+    # Rejtett GRUB menü: alapból azonnal a Sloth OS indul, Escre jön elő (iso/iso.yaml)
+    $script = [IO.File]::ReadAllText($buildIso)
+    if (-not $script.Contains("set menu_auto_hide=false")) { throw "A Titanoboa GRUB-sablonja megváltozott." }
+    [IO.File]::WriteAllText($buildIso, $script.Replace("set menu_auto_hide=false", "set timeout_style=hidden"))
     # --cgroups=disabled: a WSL-es Podman gépen a "pids" cgroup-vezérlő nem érhető el
     # bash -e: a Titanoboa scriptje is álljon meg az első hibánál (a shebang a "bash script" indításnál nem számít)
     Invoke-InMachine ("podman run --rm --cgroups=disabled --cap-add sys_admin --security-opt label=disable " +

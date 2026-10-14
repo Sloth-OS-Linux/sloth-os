@@ -12,7 +12,9 @@ Kirigami.ApplicationWindow {
     id: root
     title: t("app.title")
     visible: true
-    visibility: Window.Maximized
+    // Teljes képernyő, mint a Windows telepítője: indításkor ez az első, amit a felhasználó lát
+    // (Kipróbálom / Telepítem); az asztal csak a "Kipróbálom" után látszik.
+    visibility: Window.FullScreen
     width: Kirigami.Units.gridUnit * 60
     height: Kirigami.Units.gridUnit * 40
     minimumWidth: Kirigami.Units.gridUnit * 36
