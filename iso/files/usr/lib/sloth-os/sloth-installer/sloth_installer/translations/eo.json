@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Tajpu ĉi tie por kontroli la aranĝon",
   "region.timezone": "Horzono:",
   "region.note": "Vi povos ŝanĝi tion poste en la Sistemaj agordoj.",
+  "account.heading": "Kreu vian konton",
+  "account.text": "Per ĉi tiuj nomo kaj pasvorto vi ensalutos en la komputilon. Via konto estos administranto, do vi ankaŭ povos ŝanĝi la agordojn de la komputilo.",
+  "account.fullname": "Plena nomo:",
+  "account.fullname_hint": "ekz. Anna Verda",
+  "account.username": "Uzantonomo:",
+  "account.password": "Pasvorto:",
+  "account.password_again": "Ripetu la pasvorton:",
+  "account.note": "Ĉe la unua starto, en Sloth Bonvenon, vi elektos, por kio la komputilo petu vian pasvorton.",
+  "account.error.name": "Tajpu vian nomon.",
+  "account.error.username": "La uzantonomo povas enhavi nur minusklajn anglajn literojn, ciferojn, streketojn kaj substrekojn, kaj devas komenciĝi per litero (ekz. „anna“).",
+  "account.error.password": "Tajpu pasvorton.",
+  "account.error.mismatch": "La du pasvortoj ne kongruas.",
 
   "disk.heading": "Kien ni instalu?",
   "disk.text": "Elektu la diskon, sur kiun Sloth OS estos instalita.",
@@ -53,7 +65,7 @@
   "install.note": "Depende de via komputilo, tio daŭras 5–20 minutojn. Ne malŝaltu ĝin.",
 
   "done.heading": "Instalado finiĝis!",
-  "done.text": "Restartigu la komputilon. Kiam la ekrano nigriĝas, eltiru la USB-memorilon. Ĉe la unua starto vi kreos vian konton, kaj jen ĉio.",
+  "done.text": "Restartigu la komputilon. Kiam la ekrano mallumiĝas, eltiru la USB-memorilon. Poste ensalutu per la ĵus kreita konto; Sloth Bonvenon helpos pri la cetero.",
   "done.reboot": "Restartigi",
 
   "error.heading": "La instalado malsukcesis",

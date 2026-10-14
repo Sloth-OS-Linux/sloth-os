@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Düzeni denetlemek için buraya yazın",
   "region.timezone": "Saat dilimi:",
   "region.note": "Bunları daha sonra Sistem Ayarları'ndan değiştirebilirsiniz.",
+  "account.heading": "Hesabınızı oluşturun",
+  "account.text": "Bilgisayara bu ad ve parolayla giriş yapacaksınız. Hesabınız yönetici olacak, böylece bilgisayarın ayarlarını da değiştirebileceksiniz.",
+  "account.fullname": "Tam ad:",
+  "account.fullname_hint": "ör. Ayşe Yılmaz",
+  "account.username": "Kullanıcı adı:",
+  "account.password": "Parola:",
+  "account.password_again": "Parolayı tekrarlayın:",
+  "account.note": "Bilgisayarın neler için parola soracağını ilk açılışta Sloth Hoş Geldiniz'de seçebilirsiniz.",
+  "account.error.name": "Adınızı girin.",
+  "account.error.username": "Kullanıcı adı yalnızca küçük İngilizce harf, rakam, tire ve alt çizgi içerebilir ve harfle başlamalıdır (ör. “ayse”).",
+  "account.error.password": "Bir parola girin.",
+  "account.error.mismatch": "İki parola eşleşmiyor.",
 
   "disk.heading": "Nereye kuralım?",
   "disk.text": "Sloth OS'un kurulacağı diski seçin.",
@@ -53,7 +65,7 @@
   "install.note": "Bilgisayarınıza bağlı olarak 5–20 dakika sürer. Kapatmayın.",
 
   "done.heading": "Kurulum tamamlandı!",
-  "done.text": "Bilgisayarı yeniden başlatın. Ekran kararınca USB belleği çıkarın. İlk açılışta hesabınızı oluşturursunuz ve hazırsınız.",
+  "done.text": "Bilgisayarı yeniden başlatın. Ekran kararınca USB belleği çıkarın. Ardından az önce oluşturduğunuz hesapla giriş yapın; Sloth Hoş Geldiniz gerisinde yardımcı olur.",
   "done.reboot": "Yeniden başlat",
 
   "error.heading": "Kurulum başarısız oldu",

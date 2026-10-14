@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Kirjoita tähän tarkistaaksesi asettelun",
   "region.timezone": "Aikavyöhyke:",
   "region.note": "Voit muuttaa näitä myöhemmin Järjestelmäasetuksissa.",
+  "account.heading": "Luo tilisi",
+  "account.text": "Kirjaudut tietokoneelle tällä nimellä ja salasanalla. Tilisi on ylläpitäjä, joten voit muuttaa myös tietokoneen asetuksia.",
+  "account.fullname": "Koko nimi:",
+  "account.fullname_hint": "esim. Anna Virtanen",
+  "account.username": "Käyttäjänimi:",
+  "account.password": "Salasana:",
+  "account.password_again": "Salasana uudelleen:",
+  "account.note": "Ensimmäisellä käynnistyskerralla valitset Sloth Tervetuloa -ohjelmassa, mihin tietokone kysyy salasanaa.",
+  "account.error.name": "Kirjoita nimesi.",
+  "account.error.username": "Käyttäjänimessä saa olla vain englannin pieniä kirjaimia, numeroita, väliviivoja ja alaviivoja, ja sen on alettava kirjaimella (esim. ”anna”).",
+  "account.error.password": "Anna salasana.",
+  "account.error.mismatch": "Salasanat eivät täsmää.",
 
   "disk.heading": "Mihin asennetaan?",
   "disk.text": "Valitse levy, jolle Sloth OS asennetaan.",
@@ -53,7 +65,7 @@
   "install.note": "Tietokoneesta riippuen tämä kestää 5–20 minuuttia. Älä sammuta sitä.",
 
   "done.heading": "Asennus valmis!",
-  "done.text": "Käynnistä tietokone uudelleen. Kun näyttö pimenee, irrota USB-tikku. Ensimmäisellä käynnistyskerralla luot tilisi, ja kaikki on valmista.",
+  "done.text": "Käynnistä tietokone uudelleen. Kun näyttö pimenee, irrota USB-tikku. Kirjaudu sitten juuri luomallasi tilillä, niin Sloth Tervetuloa auttaa loppujen kanssa.",
   "done.reboot": "Käynnistä uudelleen",
 
   "error.heading": "Asennus epäonnistui",

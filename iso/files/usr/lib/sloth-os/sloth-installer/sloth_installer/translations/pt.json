@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Escreva aqui para verificar o esquema",
   "region.timezone": "Fuso horário:",
   "region.note": "Pode alterá-los mais tarde nas Definições do sistema.",
+  "account.heading": "Crie a sua conta",
+  "account.text": "Vai iniciar sessão no computador com este nome e esta palavra-passe. A sua conta será de administrador, por isso também poderá alterar as definições do computador.",
+  "account.fullname": "Nome completo:",
+  "account.fullname_hint": "p. ex. Ana Silva",
+  "account.username": "Nome de utilizador:",
+  "account.password": "Palavra-passe:",
+  "account.password_again": "Repita a palavra-passe:",
+  "account.note": "No primeiro arranque, no Boas-vindas Sloth, poderá escolher para que é que o computador pede a palavra-passe.",
+  "account.error.name": "Escreva o seu nome.",
+  "account.error.username": "O nome de utilizador só pode ter letras inglesas minúsculas, números, hífenes e sublinhados, e tem de começar por uma letra (p. ex. «ana»).",
+  "account.error.password": "Introduza uma palavra-passe.",
+  "account.error.mismatch": "As duas palavras-passe não coincidem.",
 
   "disk.heading": "Onde o instalamos?",
   "disk.text": "Escolha o disco onde o Sloth OS vai ser instalado.",
@@ -53,7 +65,7 @@
   "install.note": "Dependendo do computador, demora 5 a 20 minutos. Não o desligue.",
 
   "done.heading": "Instalação concluída!",
-  "done.text": "Reinicie o computador. Quando o ecrã ficar preto, retire a pen USB. No primeiro arranque cria a sua conta, e está pronto.",
+  "done.text": "Reinicie o computador. Quando o ecrã ficar escuro, retire a pen USB. Depois inicie sessão com a conta que acabou de criar; o Boas-vindas Sloth ajuda com o resto.",
   "done.reboot": "Reiniciar",
 
   "error.heading": "A instalação falhou",

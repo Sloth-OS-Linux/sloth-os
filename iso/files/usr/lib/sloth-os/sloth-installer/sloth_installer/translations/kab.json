@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Aru da i usenqed n tmerna",
   "region.timezone": "Tamnaḍt n wakud:",
   "region.note": "Tzemreḍ ad ten-tbeddleḍ ticki deg yiɣewwaren n unagraw.",
+  "account.heading": "Snulfu-d amiḍan-ik",
+  "account.text": "S yisem-a d wawal-a uffir ara tkecmeḍ ɣer uselkim. Amiḍan-ik ad yili d anedbal, ihi ad tizmireḍ daɣen ad tbeddleḍ iɣewwaren n uselkim.",
+  "account.fullname": "Isem ummid:",
+  "account.fullname_hint": "amedya: Tasaɛdit Ait",
+  "account.username": "Isem n useqdac:",
+  "account.password": "Awal uffir:",
+  "account.password_again": "Ales awal uffir:",
+  "account.note": "Deg usekker amezwaru, deg Ansuf ɣer Sloth, ad tferneḍ ɣef wacu ara k-d-isuter uselkim awal uffir.",
+  "account.error.name": "Aru isem-ik.",
+  "account.error.username": "Isem n useqdac yezmer ad yesɛu kan isekkilen imeẓyanen n teglizit, uṭṭunen, ijerriden d yijerriden n wadda, u ilaq ad ibdu s usekkil (amedya: “ana”).",
+  "account.error.password": "Aru awal uffir.",
+  "account.error.mismatch": "Sin wawalen uffiren ur mṣadan ara.",
 
   "disk.heading": "Anida ara t-nesbedd?",
   "disk.text": "Fren aḍebsi anida ara yebded Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "Ɣef leḥsab n uselkim-ik, aya yettawi 5–20 n tesdatin. Ur t-sexsay ara.",
 
   "done.heading": "Asebded ifuk!",
-  "done.text": "Ales asekker n uselkim. Mi ara yeqqim ugdil d aberkan, kkes USB. Deg usekker amenzu ad d-tesnulfuḍ amiḍan-ik, syin ifuk.",
+  "done.text": "Ales asekker n uselkim. Mi yeɣli ugdil, kkes tasarut USB. Syin kcem s umiḍan i d-tesnulfaḍ akka tura; Ansuf ɣer Sloth ad ak-d-yefk afus i wayen d-yeqqimen.",
   "done.reboot": "Ales asekker",
 
   "error.heading": "Asebded ur yeddi ara",

@@ -1,0 +1,12 @@
+[Unit]
+Description=Sloth OS: az első felhasználói fiók létrehozása (a telepítő adataiból)
+ConditionPathExists=/etc/sloth-os/first-user.json
+After=systemd-user-sessions.service
+Before=display-manager.service plasmalogin.service sddm.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/first-user
+
+[Install]
+WantedBy=multi-user.target

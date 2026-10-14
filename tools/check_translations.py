@@ -24,8 +24,8 @@ INSTALL_HELPER = REPO / "iso/files/usr/libexec/sloth-os/sloth-install-helper"
 EXE = REPO / "files/system/usr/lib/sloth-os/sloth-exe/sloth_exe"
 SOURCE = "hu"
 
-# tr("…") a Pythonban, t("…") a QML-ben, valamint a kulcsként tárolt szövegek ("error.…", "done.…")
-KEY_PATTERN = re.compile(r'\b(?:tr|t)\(\s*"([a-z_]+\.[\w.]*\w)"|"((?:error|done)\.[a-z_]+)"')
+# tr("…") a Pythonban, t("…") a QML-ben, valamint a kulcsként tárolt szövegek ("error.…", "done.…", "account.error.…")
+KEY_PATTERN = re.compile(r'\b(?:tr|t)\(\s*"([a-z_]+\.[\w.]*\w)"|"((?:error|done|account\.error)\.[a-z_]+)"')
 # QML-ben feltételes kulcsok: root.t(x ? "a.b" : "c.d")
 CONDITIONAL_PATTERN = re.compile(r'root\.t\(([^()]*\?[^()]*)')
 INVISIBLE = re.compile(r"[­​﻿]")  # feltételes elválasztó, nulla szélességű szóköz, BOM

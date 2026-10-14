@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Pisz tutaj, aby sprawdzić układ",
   "region.timezone": "Strefa czasowa:",
   "region.note": "Możesz to później zmienić w Ustawieniach systemowych.",
+  "account.heading": "Utwórz swoje konto",
+  "account.text": "Tą nazwą i hasłem będziesz logować się do komputera. Twoje konto będzie kontem administratora, więc zmienisz też ustawienia komputera.",
+  "account.fullname": "Imię i nazwisko:",
+  "account.fullname_hint": "np. Anna Kowalska",
+  "account.username": "Nazwa użytkownika:",
+  "account.password": "Hasło:",
+  "account.password_again": "Powtórz hasło:",
+  "account.note": "Przy pierwszym uruchomieniu, w Powitaniu Sloth, wybierzesz, do czego komputer ma pytać o hasło.",
+  "account.error.name": "Wpisz swoje imię i nazwisko.",
+  "account.error.username": "Nazwa użytkownika może zawierać tylko małe litery angielskie, cyfry, myślniki i podkreślenia oraz musi zaczynać się od litery (np. „anna”).",
+  "account.error.password": "Wpisz hasło.",
+  "account.error.mismatch": "Hasła się nie zgadzają.",
 
   "disk.heading": "Gdzie zainstalować?",
   "disk.text": "Wybierz dysk, na którym zostanie zainstalowany Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "W zależności od komputera trwa to 5–20 minut. Nie wyłączaj go.",
 
   "done.heading": "Instalacja zakończona!",
-  "done.text": "Uruchom ponownie komputer. Gdy ekran zgaśnie, wyjmij pendrive. Przy pierwszym uruchomieniu utworzysz konto i gotowe.",
+  "done.text": "Uruchom komputer ponownie. Gdy ekran zgaśnie, wyjmij pendrive. Potem zaloguj się na właśnie utworzone konto, a Powitanie Sloth pomoże w reszcie.",
   "done.reboot": "Uruchom ponownie",
 
   "error.heading": "Instalacja nie powiodła się",

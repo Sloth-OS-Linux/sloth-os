@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Ketik di sini untuk memeriksa tata letak",
   "region.timezone": "Zona waktu:",
   "region.note": "Anda bisa mengubahnya nanti di Pengaturan Sistem.",
+  "account.heading": "Buat akun Anda",
+  "account.text": "Anda akan masuk ke komputer dengan nama dan kata sandi ini. Akun Anda akan menjadi administrator, jadi Anda juga bisa mengubah pengaturan komputer.",
+  "account.fullname": "Nama lengkap:",
+  "account.fullname_hint": "mis. Ani Wijaya",
+  "account.username": "Nama pengguna:",
+  "account.password": "Kata sandi:",
+  "account.password_again": "Ulangi kata sandi:",
+  "account.note": "Saat awal pertama, di Sambutan Sloth, Anda bisa memilih untuk apa komputer meminta kata sandi.",
+  "account.error.name": "Masukkan nama Anda.",
+  "account.error.username": "Nama pengguna hanya boleh berisi huruf kecil Inggris, angka, tanda hubung, dan garis bawah, serta harus diawali huruf (mis. “ani”).",
+  "account.error.password": "Masukkan kata sandi.",
+  "account.error.mismatch": "Kedua kata sandi tidak cocok.",
 
   "disk.heading": "Di mana kita pasang?",
   "disk.text": "Pilih disk tempat Sloth OS akan dipasang.",
@@ -53,7 +65,7 @@
   "install.note": "Tergantung komputer Anda, ini butuh 5–20 menit. Jangan matikan.",
 
   "done.heading": "Pemasangan selesai!",
-  "done.text": "Mulai ulang komputer. Saat layar menjadi gelap, cabut flashdisk. Saat pertama kali dinyalakan, Anda membuat akun, dan selesai.",
+  "done.text": "Mulai ulang komputer. Saat layar menjadi gelap, cabut flashdisk. Lalu masuk dengan akun yang baru saja Anda buat; Sambutan Sloth akan membantu sisanya.",
   "done.reboot": "Mulai ulang",
 
   "error.heading": "Pemasangan gagal",

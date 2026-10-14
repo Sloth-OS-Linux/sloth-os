@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Scrie aici ca să verifici aranjamentul",
   "region.timezone": "Fus orar:",
   "region.note": "Le poți schimba mai târziu din Configurările sistemului.",
+  "account.heading": "Creează-ți contul",
+  "account.text": "Cu acest nume și această parolă te vei autentifica pe calculator. Contul tău va fi de administrator, deci vei putea modifica și setările calculatorului.",
+  "account.fullname": "Nume complet:",
+  "account.fullname_hint": "de ex. Ana Popescu",
+  "account.username": "Nume de utilizator:",
+  "account.password": "Parolă:",
+  "account.password_again": "Repetă parola:",
+  "account.note": "La prima pornire, în Bun venit în Sloth, alegi pentru ce să-ți ceară calculatorul parola.",
+  "account.error.name": "Scrie-ți numele.",
+  "account.error.username": "Numele de utilizator poate conține doar litere mici englezești, cifre, cratime și liniuțe de subliniere și trebuie să înceapă cu o literă (de ex. „ana”).",
+  "account.error.password": "Introdu o parolă.",
+  "account.error.mismatch": "Cele două parole nu se potrivesc.",
 
   "disk.heading": "Unde îl instalăm?",
   "disk.text": "Alege discul pe care se instalează Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "În funcție de calculator, durează 5–20 de minute. Nu-l opri.",
 
   "done.heading": "Instalare finalizată!",
-  "done.text": "Repornește calculatorul. Când ecranul se înnegrește, scoate stick-ul USB. La prima pornire îți creezi contul și gata.",
+  "done.text": "Repornește calculatorul. Când ecranul se întunecă, scoate stickul USB. Apoi autentifică-te cu contul tocmai creat, iar Bun venit în Sloth te ajută cu restul.",
   "done.reboot": "Repornește",
 
   "error.heading": "Instalarea a eșuat",

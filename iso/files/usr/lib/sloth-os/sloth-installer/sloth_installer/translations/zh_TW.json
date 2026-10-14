@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "在這裡輸入以檢查鍵盤配置",
   "region.timezone": "時區：",
   "region.note": "之後可以在系統設定中更改。",
+  "account.heading": "建立你的帳號",
+  "account.text": "你將用這個名字和密碼登入電腦。你的帳號是管理員,因此也能變更電腦設定。",
+  "account.fullname": "全名:",
+  "account.fullname_hint": "例如:王小明",
+  "account.username": "使用者名稱:",
+  "account.password": "密碼:",
+  "account.password_again": "再次輸入密碼:",
+  "account.note": "首次啟動時,可在 Sloth 歡迎中選擇電腦在哪些操作時要求輸入密碼。",
+  "account.error.name": "請輸入你的名字。",
+  "account.error.username": "使用者名稱只能包含小寫英文字母、數字、連字號和底線,且必須以字母開頭(例如「xiaoming」)。",
+  "account.error.password": "請輸入密碼。",
+  "account.error.mismatch": "兩次輸入的密碼不一致。",
 
   "disk.heading": "要安裝到哪裡？",
   "disk.text": "選擇要安裝 Sloth OS 的磁碟。",
@@ -53,7 +65,7 @@
   "install.note": "依電腦而定，需要 5–20 分鐘。請不要關機。",
 
   "done.heading": "安裝完成！",
-  "done.text": "請重新開機。畫面變黑時拔出隨身碟。第一次開機時建立帳號，就完成了。",
+  "done.text": "請重新啟動電腦。螢幕變暗後拔下隨身碟。接著用剛建立的帳號登入,其餘事項由 Sloth 歡迎協助你完成。",
   "done.reboot": "重新開機",
 
   "error.heading": "安裝失敗",

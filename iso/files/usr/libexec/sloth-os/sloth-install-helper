@@ -1,10 +1,12 @@
 #!/usr/bin/python3 -I
 """A Sloth OS telepítő rendszergazdai része (pkexec-kel fut, csak az élő rendszeren van meg).
 
-  sloth-install-helper install --disk /dev/X --locale hu_HU.UTF-8 --keyboard hu --timezone Europe/Budapest
+  sloth-install-helper install --disk /dev/X --locale hu_HU.UTF-8 --keyboard hu --timezone Europe/Budapest \
+                             --username anna --fullname "Kiss Anna"      (a jelszó a szabványos bemeneten)
 
 A teljes lemezt törli, particionálja, és feltelepíti rá az ISO-ba csomagolt Sloth OS image-et
-(bootc install to-filesystem), majd beírja a választott nyelvet, billentyűzetet és időzónát.
+(bootc install to-filesystem), majd beírja a választott nyelvet, billentyűzetet és időzónát, és a
+fiók adatait (a fiókot első induláskor a sloth-first-user szolgáltatás hozza létre).
 A bootc a rétegeket ideiglenesen a /var/tmp-be csomagolja ki; az élő rendszerben ez RAM-ban van, ezért
 a telepítés idejére a /var/tmp fölé a lemez végén lévő átmeneti munkapartíció kerül.
 A végén ezt a partíciót töröljük, és a helyét a rendszerpartíció kapja meg.
@@ -31,6 +33,10 @@ import zoneinfo
 from pathlib import Path
 
 LOG = Path("/tmp/sloth-install.log")
+# Ezeket a neveket a rendszer használja, nem lehet belőlük felhasználói fiók
+RESERVED_USERS = {"root", "bin", "daemon", "adm", "lp", "sync", "shutdown", "halt", "mail", "operator",
+                  "games", "ftp", "nobody", "systemd-network", "dbus", "polkitd", "sddm", "plasmalogin",
+                  "liveuser", "admin", "wheel", "users"}
 IMAGE_CONF = Path("/usr/share/sloth-os/installer/image.conf")
 TARGET = Path("/run/sloth-install/target")      # ide csatoljuk a rendszerpartíciót
 SCRATCH = Path("/run/sloth-install/scratch")    # az átmeneti munkapartíció
@@ -317,7 +323,16 @@ CONSOLE_KEYMAPS = {"gb": "uk", "cz": "cz-qwertz", "sk": "sk-qwertz", "si": "slov
                    "kr": "us", "cn": "us", "tw": "us", "al": "us", "lv": "us"}
 
 
-def configure(root_part, locale, layouts, variants, timezone):
+def password_hash(password):
+    """SHA-512 crypt hash (a jelszó csak a szabványos bemeneten megy át, parancssorban nem látszik)."""
+    r = subprocess.run(["openssl", "passwd", "-6", "-stdin"], input=password + "\n",
+                       capture_output=True, text=True)
+    if r.returncode != 0 or not r.stdout.startswith("$6$"):
+        fail("error.configure_failed", "openssl passwd nem sikerült")
+    return r.stdout.strip()
+
+
+def configure(root_part, locale, layouts, variants, timezone, account):
     """A nyelv, a billentyűzet és az időzóna beírása a feltelepített rendszer /etc mappájába."""
     mnt = Path(tempfile.mkdtemp(prefix="sloth-install-"))
     log(f"gyökérpartíció: {root_part}")
@@ -356,6 +371,10 @@ def configure(root_part, locale, layouts, variants, timezone):
         }
         for path, content in files.items():
             write(path, content)
+        # A fiók: első induláskor a sloth-first-user szolgáltatás hozza létre (rendszergazdaként)
+        user_spec = etc / "sloth-os/first-user.json"
+        write(user_spec, json.dumps(account, ensure_ascii=False))
+        os.chmod(user_spec, 0o600)
         localtime = etc / "localtime"
         if localtime.is_symlink() or localtime.exists():
             localtime.unlink()
@@ -365,7 +384,8 @@ def configure(root_part, locale, layouts, variants, timezone):
         contexts = deploy / "etc/selinux/targeted/contexts/files/file_contexts"
         if contexts.exists():
             r = subprocess.run(["setfiles", "-F", "-r", str(deploy), str(contexts),
-                                *[str(p) for p in files], str(localtime)], capture_output=True, text=True)
+                                *[str(p) for p in files], str(localtime), str(user_spec.parent), str(user_spec)],
+                               capture_output=True, text=True)
             log(f"setfiles: {r.returncode} {r.stderr.strip()}")
         copy_offline_browser(stateroot)
     finally:
@@ -390,6 +410,8 @@ def main():
     inst.add_argument("--locale", required=True)
     inst.add_argument("--keyboard", required=True)
     inst.add_argument("--timezone", required=True)
+    inst.add_argument("--username", required=True)
+    inst.add_argument("--fullname", default="")
     args = parser.parse_args()
 
     if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
@@ -406,6 +428,14 @@ def main():
         fail("error.bad_input", f"rossz billentyűzet: {args.keyboard}")
     if args.timezone not in zoneinfo.available_timezones():
         fail("error.bad_input", f"rossz időzóna: {args.timezone}")
+    if not re.fullmatch(r"[a-z_][a-z0-9_-]{0,31}", args.username) or args.username in RESERVED_USERS:
+        fail("error.bad_input", f"rossz felhasználónév: {args.username}")
+    if len(args.fullname) > 128 or any(c in args.fullname for c in ":\n,"):
+        fail("error.bad_input", "rossz teljes név")
+    password = sys.stdin.readline().rstrip("\n")
+    if not password:
+        fail("error.bad_input", "üres jelszó")
+    account = {"username": args.username, "fullname": args.fullname, "password_hash": password_hash(password)}
 
     LOG.write_text(f"Sloth OS telepítés: {time.ctime()}\n", encoding="utf-8")
     emit(stage="partition", progress=5)
@@ -416,7 +446,7 @@ def main():
     root_part = finish_partitions(args.disk, parts)
     rename_boot_entry(args.disk)
     emit(stage="configure", progress=95)
-    configure(root_part, args.locale, *keyboard, args.timezone)
+    configure(root_part, args.locale, *keyboard, args.timezone, account)
     emit(done=True)
     return 0
 

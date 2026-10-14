@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Scrîf achì par controlâ la disposizion",
   "region.timezone": "Fûs orari:",
   "region.note": "Tu podarâs cambiâju plui indenant tes Impostazions di sisteme.",
+  "account.heading": "Cree il to account",
+  "account.text": "Tu jentrarâs tal computer cun chest non e cheste password. Il to account al sarà di aministradôr, duncje tu podarâs cambiâ ancje lis impostazions dal computer.",
+  "account.fullname": "Non complet:",
+  "account.fullname_hint": "par esempli Ane Furlan",
+  "account.username": "Non utent:",
+  "account.password": "Password:",
+  "account.password_again": "Torne a scrivi la password:",
+  "account.note": "Al prin inviament, in Benvignût Sloth, tu sielzarâs par ce che il computer al domande la password.",
+  "account.error.name": "Scrîf il to non.",
+  "account.error.username": "Il non utent al pues contignî dome letaris inglesis minusculis, numars, tratuts e tratuts bas, e al à di scomençâ cuntune letare (par esempli «ane»).",
+  "account.error.password": "Scrîf une password.",
+  "account.error.mismatch": "Lis dôs password no son compagnis.",
 
   "disk.heading": "Dulà lu instalìno?",
   "disk.text": "Sielç il disc dulà che al vignarà instalât Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "In base al computer, al vûl 5–20 minûts. No sta distudâlu.",
 
   "done.heading": "Instalazion finide!",
-  "done.text": "Torne invie il computer. Cuant che il schermi al devente neri, gjave la clâf USB. Al prin inviament tu creis il to account, e al è fat.",
+  "done.text": "Torne invie il computer. Cuant che il schermi al devente neri, gjave la clâf USB. Dopo jentre cul account che tu âs apene creât; Benvignût Sloth ti judarà pal rest.",
   "done.reboot": "Torne invie",
 
   "error.heading": "La instalazion e je falide",

@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Tippe hier, um die Belegung zu prüfen",
   "region.timezone": "Zeitzone:",
   "region.note": "Du kannst das später in den Systemeinstellungen ändern.",
+  "account.heading": "Lege dein Konto an",
+  "account.text": "Mit diesem Namen und Passwort meldest du dich am Computer an. Dein Konto wird Administrator, du kannst also auch die Einstellungen des Computers ändern.",
+  "account.fullname": "Vollständiger Name:",
+  "account.fullname_hint": "z. B. Anna Schmidt",
+  "account.username": "Benutzername:",
+  "account.password": "Passwort:",
+  "account.password_again": "Passwort wiederholen:",
+  "account.note": "Wofür der Computer nach dem Passwort fragt, wählst du beim ersten Start in Sloth Willkommen.",
+  "account.error.name": "Gib deinen Namen ein.",
+  "account.error.username": "Der Benutzername darf nur englische Kleinbuchstaben, Ziffern, Bindestriche und Unterstriche enthalten und muss mit einem Buchstaben beginnen (z. B. „anna“).",
+  "account.error.password": "Gib ein Passwort ein.",
+  "account.error.mismatch": "Die beiden Passwörter stimmen nicht überein.",
 
   "disk.heading": "Wohin soll installiert werden?",
   "disk.text": "Wähle das Laufwerk, auf das Sloth OS kommt.",
@@ -52,7 +64,7 @@
   "install.note": "Je nach Computer dauert das 5–20 Minuten. Bitte nicht ausschalten.",
 
   "done.heading": "Installation abgeschlossen!",
-  "done.text": "Starte den Computer neu. Wenn der Bildschirm dunkel wird, zieh den USB-Stick ab. Beim ersten Start legst du dein Konto an, und schon bist du fertig.",
+  "done.text": "Starte den Computer neu. Wenn der Bildschirm dunkel wird, zieh den USB-Stick ab. Danach meldest du dich mit dem eben angelegten Konto an, und Sloth Willkommen hilft dir beim Rest.",
   "done.reboot": "Neu starten",
 
   "error.heading": "Die Installation ist fehlgeschlagen",

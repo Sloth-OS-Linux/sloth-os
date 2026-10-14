@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Scribe hic pro verificar le disposition",
   "region.timezone": "Fuso horari:",
   "region.note": "Tu pote cambiar istos plus tarde in le Configuration del systema.",
+  "account.heading": "Crea tu conto",
+  "account.text": "Tu accedera al computator con iste nomine e contrasigno. Tu conto essera un administrator, assi tu potera etiam cambiar le parametros del computator.",
+  "account.fullname": "Nomine complete:",
+  "account.fullname_hint": "p. ex. Anna Rossi",
+  "account.username": "Nomine de usator:",
+  "account.password": "Contrasigno:",
+  "account.password_again": "Repete le contrasigno:",
+  "account.note": "Al prime initio, in Benvenita Sloth, tu selige pro que le computator demanda tu contrasigno.",
+  "account.error.name": "Scribe tu nomine.",
+  "account.error.username": "Le nomine de usator pote continer solmente litteras anglese minuscule, numeros, tractos e tractos basse, e debe initiar con un littera (p. ex. “anna”).",
+  "account.error.password": "Scribe un contrasigno.",
+  "account.error.mismatch": "Le duo contrasignos non concorda.",
 
   "disk.heading": "Ubi installar lo?",
   "disk.text": "Selige le disco ubi Sloth OS essera installate.",
@@ -53,7 +65,7 @@
   "install.note": "Secundo tu computator, isto dura 5–20 minutas. Non extingue lo.",
 
   "done.heading": "Installation completate!",
-  "done.text": "Reinitia tu computator. Quando le schermo deveni nigre, remove le clave USB. Al prime initio tu crea tu conto, e es toto.",
+  "done.text": "Reinitia le computator. Quando le schermo deveni nigre, remove le clave USB. Postea accede con le conto que tu ha justo create; Benvenita Sloth te adjutara con le resto.",
   "done.reboot": "Reinitiar",
 
   "error.heading": "Le installation falleva",

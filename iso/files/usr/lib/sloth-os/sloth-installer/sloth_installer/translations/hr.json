@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Tipkajte ovdje da provjerite raspored",
   "region.timezone": "Vremenska zona:",
   "region.note": "To možete promijeniti kasnije u Postavkama sustava.",
+  "account.heading": "Stvorite svoj račun",
+  "account.text": "Ovim imenom i lozinkom prijavljivat ćete se na računalo. Vaš račun bit će administratorski, pa ćete moći mijenjati i postavke računala.",
+  "account.fullname": "Puno ime:",
+  "account.fullname_hint": "npr. Ana Horvat",
+  "account.username": "Korisničko ime:",
+  "account.password": "Lozinka:",
+  "account.password_again": "Ponovite lozinku:",
+  "account.note": "Pri prvom pokretanju, u Dobrodošlici Sloth, birate za što računalo traži lozinku.",
+  "account.error.name": "Upišite svoje ime.",
+  "account.error.username": "Korisničko ime smije sadržavati samo mala engleska slova, brojke, crtice i podvlake i mora počinjati slovom (npr. „ana”).",
+  "account.error.password": "Upišite lozinku.",
+  "account.error.mismatch": "Lozinke se ne podudaraju.",
 
   "disk.heading": "Gdje ga instalirati?",
   "disk.text": "Odaberite disk na koji će se instalirati Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "Ovisno o računalu, traje 5–20 minuta. Nemojte ga isključivati.",
 
   "done.heading": "Instalacija je završena!",
-  "done.text": "Ponovno pokrenite računalo. Kad zaslon postane crn, izvucite USB stick. Pri prvom pokretanju izradit ćete račun i to je to.",
+  "done.text": "Ponovno pokrenite računalo. Kad se zaslon zatamni, izvadite USB stick. Zatim se prijavite upravo stvorenim računom, a Dobrodošlica Sloth pomoći će s ostalim.",
   "done.reboot": "Ponovno pokreni",
 
   "error.heading": "Instalacija nije uspjela",

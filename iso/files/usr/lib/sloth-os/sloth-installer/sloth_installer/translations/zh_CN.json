@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "在这里输入以检查键盘布局",
   "region.timezone": "时区：",
   "region.note": "以后可以在系统设置中更改。",
+  "account.heading": "创建你的账户",
+  "account.text": "你将用这个名字和密码登录电脑。你的账户是管理员,因此也能更改电脑设置。",
+  "account.fullname": "全名:",
+  "account.fullname_hint": "例如:王小明",
+  "account.username": "用户名:",
+  "account.password": "密码:",
+  "account.password_again": "再次输入密码:",
+  "account.note": "首次启动时,可在 Sloth 欢迎中选择电脑在哪些操作时要求输入密码。",
+  "account.error.name": "请输入你的名字。",
+  "account.error.username": "用户名只能包含小写英文字母、数字、连字符和下划线,并且必须以字母开头(例如“xiaoming”)。",
+  "account.error.password": "请输入密码。",
+  "account.error.mismatch": "两次输入的密码不一致。",
 
   "disk.heading": "安装到哪里？",
   "disk.text": "选择要安装 Sloth OS 的磁盘。",
@@ -53,7 +65,7 @@
   "install.note": "根据电脑不同，需要 5–20 分钟。请不要关机。",
 
   "done.heading": "安装完成！",
-  "done.text": "请重启电脑。屏幕变黑时拔出 U 盘。首次启动时创建账户，就完成了。",
+  "done.text": "请重新启动电脑。屏幕变暗后拔下 U 盘。然后用刚创建的账户登录,其余事项由 Sloth 欢迎帮你完成。",
   "done.reboot": "重启",
 
   "error.heading": "安装失败",

@@ -1,0 +1,40 @@
+#!/usr/bin/python3 -I
+"""Az első felhasználói fiók létrehozása első induláskor (a KDE Plasma Setup helyett).
+
+A Sloth OS telepítője a fiók adatait a telepített rendszerbe írja (/etc/sloth-os/first-user.json,
+csak rootnak olvasható; a jelszó csak SHA-512 hash-ként). Ez a szolgáltatás a bejelentkező képernyő
+előtt létrehozza a fiókot rendszergazdaként (wheel csoport), majd törli a fájlt.
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+
+SPEC = "/etc/sloth-os/first-user.json"
+NAME_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
+
+
+def main():
+    try:
+        with open(SPEC, encoding="utf-8") as f:
+            spec = json.load(f)
+    except (OSError, ValueError) as e:
+        print(f"nem olvasható: {e}", file=sys.stderr)
+        return 1
+    user, full, pwhash = spec.get("username", ""), spec.get("fullname", ""), spec.get("password_hash", "")
+    if not NAME_RE.match(user) or not pwhash.startswith("$6$") or "\n" in full or ":" in full:
+        print("hibás fiókadatok", file=sys.stderr)
+        return 1
+    if subprocess.run(["getent", "passwd", user], capture_output=True).returncode != 0:
+        r = subprocess.run(["useradd", "--create-home", "--groups", "wheel", "--comment", full,
+                            "--password", pwhash, user], capture_output=True, text=True)
+        if r.returncode != 0:
+            print(f"useradd: {r.stderr.strip()}", file=sys.stderr)
+            return 1
+    os.unlink(SPEC)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

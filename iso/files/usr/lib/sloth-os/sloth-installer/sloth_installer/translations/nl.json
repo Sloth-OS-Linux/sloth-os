@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Typ hier om de indeling te controleren",
   "region.timezone": "Tijdzone:",
   "region.note": "Je kunt dit later wijzigen in Systeeminstellingen.",
+  "account.heading": "Maak je account aan",
+  "account.text": "Met deze naam en dit wachtwoord meld je je aan op de computer. Je account wordt beheerder, dus je kunt ook de instellingen van de computer wijzigen.",
+  "account.fullname": "Volledige naam:",
+  "account.fullname_hint": "bv. Anna de Vries",
+  "account.username": "Gebruikersnaam:",
+  "account.password": "Wachtwoord:",
+  "account.password_again": "Wachtwoord herhalen:",
+  "account.note": "Waarvoor de computer om je wachtwoord vraagt, kies je bij de eerste start in Sloth Welkom.",
+  "account.error.name": "Vul je naam in.",
+  "account.error.username": "De gebruikersnaam mag alleen Engelse kleine letters, cijfers, koppeltekens en onderstrepingstekens bevatten en moet met een letter beginnen (bv. ‘anna’).",
+  "account.error.password": "Vul een wachtwoord in.",
+  "account.error.mismatch": "De twee wachtwoorden komen niet overeen.",
 
   "disk.heading": "Waar installeren we het?",
   "disk.text": "Kies de schijf waarop Sloth OS wordt geïnstalleerd.",
@@ -53,7 +65,7 @@
   "install.note": "Afhankelijk van je computer duurt dit 5–20 minuten. Zet hem niet uit.",
 
   "done.heading": "Installatie voltooid!",
-  "done.text": "Start je computer opnieuw op. Als het scherm zwart wordt, haal je de USB-stick eruit. Bij de eerste start maak je je account aan, en klaar.",
+  "done.text": "Herstart de computer. Als het scherm zwart wordt, haal je de USB-stick eruit. Meld je daarna aan met het account dat je net hebt gemaakt; Sloth Welkom helpt je met de rest.",
   "done.reboot": "Opnieuw opstarten",
 
   "error.heading": "Installatie mislukt",

@@ -35,3 +35,4 @@ modules:
     system:
       enabled:
         - sloth-hide-boot-menu.service
+        - sloth-first-user.service   # az első fiók a telepítő adataiból (a KDE Plasma Setup helyett)

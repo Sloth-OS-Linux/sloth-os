@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Type here to check the layout",
   "region.timezone": "Time zone:",
   "region.note": "You can change these later in System Settings.",
+  "account.heading": "Create your account",
+  "account.text": "You'll sign in to the computer with this name and password. Your account will be an administrator, so you can also change the computer's settings.",
+  "account.fullname": "Full name:",
+  "account.fullname_hint": "e.g. Anna Smith",
+  "account.username": "Username:",
+  "account.password": "Password:",
+  "account.password_again": "Password again:",
+  "account.note": "You can choose what the computer asks your password for on first start, in Sloth Welcome.",
+  "account.error.name": "Enter your name.",
+  "account.error.username": "The username can only contain lowercase English letters, numbers, hyphens and underscores, and must start with a letter (e.g. “anna”).",
+  "account.error.password": "Enter a password.",
+  "account.error.mismatch": "The two passwords don't match.",
 
   "disk.heading": "Where should we install it?",
   "disk.text": "Choose the disk Sloth OS will be installed on.",
@@ -52,7 +64,7 @@
   "install.note": "Depending on your computer, this takes 5–20 minutes. Please don't turn it off.",
 
   "done.heading": "Installation complete!",
-  "done.text": "Restart your computer. When the screen goes dark, unplug the USB stick. On first start you'll create your account, and you're all set.",
+  "done.text": "Restart your computer. When the screen goes dark, unplug the USB stick. Then sign in with the account you just created, and Sloth Welcome will help with the rest.",
   "done.reboot": "Restart",
 
   "error.heading": "Installation failed",

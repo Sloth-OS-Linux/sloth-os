@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Tik hier om die uitleg na te gaan",
   "region.timezone": "Tydsone:",
   "region.note": "Jy kan dit later in Stelselinstellings verander.",
+  "account.heading": "Skep jou rekening",
+  "account.text": "Jy meld met hierdie naam en wagwoord by die rekenaar aan. Jou rekening is ’n administrateur, so jy kan ook die rekenaar se instellings verander.",
+  "account.fullname": "Volle naam:",
+  "account.fullname_hint": "bv. Anna Botha",
+  "account.username": "Gebruikersnaam:",
+  "account.password": "Wagwoord:",
+  "account.password_again": "Herhaal wagwoord:",
+  "account.note": "Waarvoor die rekenaar ’n wagwoord moet vra, kies jy by die eerste begin in Sloth Welkom.",
+  "account.error.name": "Tik jou naam in.",
+  "account.error.username": "Die gebruikersnaam mag net klein Engelse letters, syfers, koppeltekens en onderstreepstrepe bevat en moet met ’n letter begin (bv. “anna”).",
+  "account.error.password": "Tik ’n wagwoord in.",
+  "account.error.mismatch": "Die twee wagwoorde stem nie ooreen nie.",
 
   "disk.heading": "Waar moet ons dit installeer?",
   "disk.text": "Kies die skyf waarop Sloth OS geïnstalleer word.",
@@ -53,7 +65,7 @@
   "install.note": "Afhangend van jou rekenaar neem dit 5–20 minute. Moenie dit afskakel nie.",
 
   "done.heading": "Installasie voltooi!",
-  "done.text": "Herbegin jou rekenaar. Wanneer die skerm swart word, haal die USB-stokkie uit. By die eerste opstart skep jy jou rekening, en dan is jy klaar.",
+  "done.text": "Herbegin die rekenaar. Wanneer die skerm donker word, haal die USB-stokkie uit. Meld dan aan met die rekening wat jy pas geskep het; Sloth Welkom help met die res.",
   "done.reboot": "Herbegin",
 
   "error.heading": "Installasie het misluk",

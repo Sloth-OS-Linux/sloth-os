@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Skriv här för att kontrollera layouten",
   "region.timezone": "Tidszon:",
   "region.note": "Du kan ändra detta senare i Systeminställningar.",
+  "account.heading": "Skapa ditt konto",
+  "account.text": "Med det här namnet och lösenordet loggar du in på datorn. Ditt konto blir administratör, så du kan också ändra datorns inställningar.",
+  "account.fullname": "Fullständigt namn:",
+  "account.fullname_hint": "t.ex. Anna Svensson",
+  "account.username": "Användarnamn:",
+  "account.password": "Lösenord:",
+  "account.password_again": "Upprepa lösenordet:",
+  "account.note": "Vad datorn ska fråga efter lösenord för väljer du vid första starten i Sloth Välkommen.",
+  "account.error.name": "Ange ditt namn.",
+  "account.error.username": "Användarnamnet får bara innehålla små engelska bokstäver, siffror, bindestreck och understreck och måste börja med en bokstav (t.ex. ”anna”).",
+  "account.error.password": "Ange ett lösenord.",
+  "account.error.mismatch": "Lösenorden stämmer inte överens.",
 
   "disk.heading": "Var ska vi installera?",
   "disk.text": "Välj disken som Sloth OS ska installeras på.",
@@ -53,7 +65,7 @@
   "install.note": "Beroende på datorn tar det 5–20 minuter. Stäng inte av den.",
 
   "done.heading": "Installationen är klar!",
-  "done.text": "Starta om datorn. När skärmen blir svart, ta ut USB-minnet. Vid första starten skapar du ditt konto, och sedan är du klar.",
+  "done.text": "Starta om datorn. När skärmen blir svart tar du ut USB-minnet. Logga sedan in med kontot du nyss skapade, så hjälper Sloth Välkommen dig med resten.",
   "done.reboot": "Starta om",
 
   "error.heading": "Installationen misslyckades",

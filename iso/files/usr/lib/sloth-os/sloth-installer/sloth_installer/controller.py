@@ -1,12 +1,15 @@
 """A Sloth OS telepítő vezérlője (QML <-> Python).
 
-Lépések: welcome (nyelv) -> region (billentyűzet, időzóna) -> disk -> confirm -> install -> done | error.
+Lépések: welcome (nyelv) -> region (billentyűzet, időzóna) -> account (fiók) -> disk -> confirm -> install
+-> done | error. A fiókot első induláskor a telepített rendszer hozza létre (sloth-first-user).
 A tényleges telepítést a sloth-install-helper végzi rendszergazdaként (pkexec);
 innen csak emberi nyelvű állapot és folyamatjelző látszik.
 """
 import json
 import logging
 import os
+import re
+import unicodedata
 from pathlib import Path
 
 from PySide6.QtCore import QObject, QProcess, Property, Qt, QTimer, Signal, Slot
@@ -19,7 +22,22 @@ from . import system
 log = logging.getLogger("sloth-installer")
 
 HELPER = "/usr/libexec/sloth-os/sloth-install-helper"
-PAGES = ["welcome", "region", "disk", "confirm", "install", "done", "error"]
+PAGES = ["welcome", "region", "account", "disk", "confirm", "install", "done", "error"]
+NAV_PAGES = PAGES[:5]   # ezek között lehet előre-hátra lépni
+USERNAME_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
+RESERVED_USERS = {"root", "bin", "daemon", "adm", "lp", "sync", "shutdown", "halt", "mail", "operator",
+                  "games", "ftp", "nobody", "dbus", "polkitd", "sddm", "plasmalogin", "liveuser", "admin",
+                  "wheel", "users"}
+
+
+def suggest_username(full_name):
+    """"Kiss Anna" -> "anna": a keresztnév (utolsó szó) ékezetek nélkül, kisbetűvel."""
+    for word in reversed(full_name.split()):
+        plain = unicodedata.normalize("NFKD", word).encode("ascii", "ignore").decode().lower()
+        plain = re.sub(r"[^a-z0-9_-]", "", plain)
+        if plain[:1].isalpha():
+            return plain[:32]
+    return ""  # pl. cirill betűs név: a felhasználó maga írja be
 catalog = Catalog(Path(__file__).resolve().parent / "translations")
 
 
@@ -40,6 +58,10 @@ class InstallerController(QObject):
         self._disks = []
         self._disk = ""
         self._confirmed = False
+        self._full_name = ""
+        self._username = ""
+        self._username_edited = False   # ha a felhasználó maga írta, a név változása nem írja felül
+        self._password = ""
         self._stage = ""
         self._progress = 0
         self._error = ""
@@ -64,6 +86,8 @@ class InstallerController(QObject):
     disks = Property("QVariantList", lambda self: self._disks, notify=changed)
     disk = Property(str, lambda self: self._disk, notify=changed)
     confirmed = Property(bool, lambda self: self._confirmed, notify=changed)
+    fullName = Property(str, lambda self: self._full_name, notify=changed)
+    username = Property(str, lambda self: self._username, notify=changed)
     progress = Property(int, lambda self: self._progress, notify=changed)
     strings = Property("QVariantMap", lambda self: catalog.strings(), notify=changed)
 
@@ -109,6 +133,37 @@ class InstallerController(QObject):
         self._timezone, self._timezone_chosen = tz, True
         self.changed.emit()
 
+    # --- Fiók ---------------------------------------------------------------------
+
+    @Slot(str)
+    def setFullName(self, name):
+        self._full_name = " ".join(name.split())
+        if not self._username_edited:
+            self._username = suggest_username(self._full_name)
+        self.changed.emit()
+
+    @Slot(str)
+    def setUsername(self, name):
+        self._username, self._username_edited = name.strip().lower(), True
+        self.changed.emit()
+
+    @Slot(str, str, result=str)
+    def accountError(self, password, again):
+        """Üres szöveg, ha a fiók adatai jók; különben a hiba fordítási kulcsa."""
+        if not self._full_name:
+            return "account.error.name"
+        if not USERNAME_RE.match(self._username) or self._username in RESERVED_USERS:
+            return "account.error.username"
+        if not password:
+            return "account.error.password"
+        if password != again:
+            return "account.error.mismatch"
+        return ""
+
+    @Slot(str)
+    def setPassword(self, password):
+        self._password = password
+
     @Slot()
     def refreshDisks(self):
         try:
@@ -139,7 +194,7 @@ class InstallerController(QObject):
 
     @Slot()
     def next(self):
-        order = PAGES[:4]
+        order = NAV_PAGES
         log.info("tovább: %s (lemez: %s)", self._page, self._disk or "-")
         if self._page in order[:-1]:
             self._page = order[order.index(self._page) + 1]
@@ -149,7 +204,7 @@ class InstallerController(QObject):
 
     @Slot()
     def back(self):
-        order = PAGES[:4]
+        order = NAV_PAGES
         log.info("vissza: %s", self._page)
         if self._page in order[1:]:
             self._page = order[order.index(self._page) - 1]
@@ -167,12 +222,16 @@ class InstallerController(QObject):
         self._proc.readyReadStandardOutput.connect(self._read)
         self._proc.finished.connect(self._finished)
         args = [HELPER, "install", "--disk", self._disk, "--locale", locale,
-                "--keyboard", self._keyboard, "--timezone", self._timezone]
+                "--keyboard", self._keyboard, "--timezone", self._timezone,
+                "--username", self._username, "--fullname", self._full_name]
         if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
             # próbaüzem: jelszókérés és lemeztörlés nélkül
             self._proc.start(HELPER, args[1:])
         else:
             self._proc.start("pkexec", args)
+        # A jelszó a szabványos bemeneten megy át (parancssorban nem látszana el más folyamatoknak)
+        self._proc.write((self._password + "\n").encode())
+        self._proc.closeWriteChannel()
 
     def _read(self):
         self._buffer += bytes(self._proc.readAllStandardOutput())

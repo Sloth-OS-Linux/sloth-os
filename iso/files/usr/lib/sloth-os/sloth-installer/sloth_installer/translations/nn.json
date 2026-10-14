@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Skriv her for å sjekka oppsettet",
   "region.timezone": "Tidssone:",
   "region.note": "Du kan endra dette seinare i Systeminnstillingar.",
+  "account.heading": "Opprett kontoen din",
+  "account.text": "Med dette namnet og passordet loggar du inn på datamaskina. Kontoen din blir administrator, så du kan òg endra innstillingane til datamaskina.",
+  "account.fullname": "Fullt namn:",
+  "account.fullname_hint": "t.d. Anna Hansen",
+  "account.username": "Brukarnamn:",
+  "account.password": "Passord:",
+  "account.password_again": "Gjenta passordet:",
+  "account.note": "Kva datamaskina skal spørja om passord for, vel du ved første start i Sloth Velkomen.",
+  "account.error.name": "Skriv inn namnet ditt.",
+  "account.error.username": "Brukarnamnet kan berre innehalda små engelske bokstavar, tal, bindestrekar og understrekar og må byrja med ein bokstav (t.d. «anna»).",
+  "account.error.password": "Skriv inn eit passord.",
+  "account.error.mismatch": "Dei to passorda er ikkje like.",
 
   "disk.heading": "Kvar skal vi installera?",
   "disk.text": "Vel disken Sloth OS skal installerast på.",
@@ -53,7 +65,7 @@
   "install.note": "Avhengig av datamaskina tek det 5–20 minutt. Ikkje slå ho av.",
 
   "done.heading": "Installasjonen er ferdig!",
-  "done.text": "Start datamaskina på nytt. Når skjermen vert svart, ta ut minnepinnen. Ved første oppstart lagar du kontoen din, og så er du klar.",
+  "done.text": "Start datamaskina på nytt. Når skjermen blir mørk, tek du ut minnepinnen. Logg så inn med kontoen du nett oppretta, så hjelper Sloth Velkomen deg med resten.",
   "done.reboot": "Start på nytt",
 
   "error.heading": "Installasjonen mislukkast",

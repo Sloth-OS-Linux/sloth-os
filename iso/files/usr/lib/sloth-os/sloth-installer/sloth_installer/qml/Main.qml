@@ -22,7 +22,7 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
 
     readonly property int contentWidth: Math.min(width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 40)
-    readonly property var pages: ["welcome", "region", "disk", "confirm", "install", "done", "error"]
+    readonly property var pages: ["welcome", "region", "account", "disk", "confirm", "install", "done", "error"]
 
     readonly property var strings: installer.strings
     function t(key, args) {
@@ -65,7 +65,7 @@ Kirigami.ApplicationWindow {
         interval: 50
         onTriggered: {
             const target = {
-                welcome: installButton, region: regionNav.nextButton, disk: diskNav.nextButton,
+                welcome: installButton, region: regionNav.nextButton, account: fullNameField, disk: diskNav.nextButton,
                 confirm: confirmCheck, done: rebootButton, error: retryButton
             }[installer.page];
             if (target)
@@ -205,6 +205,97 @@ Kirigami.ApplicationWindow {
                         text: root.t("region.note")
                     }
                     NavRow { id: regionNav }
+                }
+            }
+
+            // --- Fiók (első induláskor a telepített rendszer hozza létre) --------------------
+            Item {
+                ColumnLayout {
+                    anchors.centerIn: parent
+                    width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 28)
+                    spacing: Kirigami.Units.largeSpacing * 2
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignHCenter
+                        source: "user-identity"
+                        implicitWidth: Kirigami.Units.iconSizes.huge
+                        implicitHeight: Kirigami.Units.iconSizes.huge
+                    }
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        text: root.t("account.heading")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: root.t("account.text")
+                    }
+                    Kirigami.FormLayout {
+                        Layout.fillWidth: true
+                        QQC2.TextField {
+                            id: fullNameField
+                            Kirigami.FormData.label: root.t("account.fullname")
+                            Layout.fillWidth: true
+                            placeholderText: root.t("account.fullname_hint")
+                            onTextEdited: { installer.setFullName(text); accountError.text = ""; }
+                        }
+                        QQC2.TextField {
+                            Kirigami.FormData.label: root.t("account.username")
+                            Layout.fillWidth: true
+                            text: installer.username
+                            onTextEdited: { installer.setUsername(text); accountError.text = ""; }
+                        }
+                        Kirigami.PasswordField {
+                            id: passwordField
+                            Kirigami.FormData.label: root.t("account.password")
+                            Layout.fillWidth: true
+                            onTextEdited: accountError.text = ""
+                        }
+                        Kirigami.PasswordField {
+                            id: passwordAgain
+                            Kirigami.FormData.label: root.t("account.password_again")
+                            Layout.fillWidth: true
+                            onTextEdited: accountError.text = ""
+                            onAccepted: accountNext.clicked()
+                        }
+                    }
+                    Kirigami.InlineMessage {
+                        id: accountError
+                        Layout.fillWidth: true
+                        type: Kirigami.MessageType.Error
+                        visible: text !== ""
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        text: root.t("account.note")
+                    }
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.Button { text: root.t("nav.back"); icon.name: "go-previous"; onClicked: installer.back() }
+                        QQC2.Button {
+                            id: accountNext
+                            text: root.t("nav.next")
+                            icon.name: "go-next"
+                            Keys.onReturnPressed: clicked()
+                            Keys.onEnterPressed: clicked()
+                            onClicked: {
+                                const err = installer.accountError(passwordField.text, passwordAgain.text);
+                                if (err !== "") {
+                                    accountError.text = root.t(err);
+                                    return;
+                                }
+                                installer.setPassword(passwordField.text);
+                                installer.next();
+                            }
+                        }
+                    }
                 }
             }
 

@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Kirjuta siia, et paigutust kontrollida",
   "region.timezone": "Ajavöönd:",
   "region.note": "Neid saab hiljem muuta Süsteemi seadistustes.",
+  "account.heading": "Loo oma konto",
+  "account.text": "Selle nime ja parooliga logid arvutisse sisse. Sinu konto on administraator, nii et saad muuta ka arvuti sätteid.",
+  "account.fullname": "Täisnimi:",
+  "account.fullname_hint": "nt Anna Tamm",
+  "account.username": "Kasutajanimi:",
+  "account.password": "Parool:",
+  "account.password_again": "Parool uuesti:",
+  "account.note": "Esimesel käivitusel valid Sloth Tere tulemast programmis, milleks arvuti parooli küsib.",
+  "account.error.name": "Sisesta oma nimi.",
+  "account.error.username": "Kasutajanimi võib sisaldada ainult inglise väiketähti, numbreid, sidekriipse ja alakriipse ning peab algama tähega (nt „anna“).",
+  "account.error.password": "Sisesta parool.",
+  "account.error.mismatch": "Paroolid ei ühti.",
 
   "disk.heading": "Kuhu paigaldame?",
   "disk.text": "Vali ketas, kuhu Sloth OS paigaldatakse.",
@@ -53,7 +65,7 @@
   "install.note": "Sõltuvalt arvutist kulub 5–20 minutit. Ära lülita seda välja.",
 
   "done.heading": "Paigaldamine on lõpetatud!",
-  "done.text": "Taaskäivita arvuti. Kui ekraan läheb mustaks, eemalda mälupulk. Esimesel käivitamisel lood oma konto ja ongi valmis.",
+  "done.text": "Taaskäivita arvuti. Kui ekraan läheb tumedaks, eemalda USB-pulk. Seejärel logi sisse äsja loodud kontoga ja Sloth Tere tulemast aitab ülejäänuga.",
   "done.reboot": "Taaskäivita",
 
   "error.heading": "Paigaldamine ebaõnnestus",

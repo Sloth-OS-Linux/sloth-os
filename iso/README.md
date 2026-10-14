@@ -11,10 +11,12 @@ with the Sloth OS installer starting automatically.
   with the live system are stored only once in the ISO).
 - [Titanoboa](https://github.com/ublue-os/titanoboa) turns that image into an ISO (`iso.yaml` sets the boot menu).
 - The **Sloth OS installer** (`files/usr/lib/sloth-os/sloth-installer/`, Python + QML) asks for language,
-  keyboard, time zone and disk, partitions the disk itself and runs `bootc install to-filesystem` through a small
+  keyboard, time zone, the user account and the disk, partitions the disk itself and runs
+  `bootc install to-filesystem` through a small
   root helper (`files/usr/libexec/sloth-os/sloth-install-helper`, via polkit). It writes the chosen
-  language, keyboard and time zone into the installed system's `/etc`. The user account is created on
-  first boot by KDE Plasma Setup.
+  language, keyboard and time zone into the installed system's `/etc`, plus the account details (the password
+  only as a SHA-512 hash, root-only). On first boot `sloth-first-user.service` creates the account (as an
+  administrator) before the login screen. KDE's own first-start wizard (Plasma Setup) is not in Sloth OS.
 - Nothing in this folder ends up in the installed system.
 
 The first version installs to a **whole disk** only (UEFI). Installing next to Windows is planned

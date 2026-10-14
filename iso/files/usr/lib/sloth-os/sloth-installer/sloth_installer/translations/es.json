@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Escribe aquí para comprobar la distribución",
   "region.timezone": "Zona horaria:",
   "region.note": "Puedes cambiarlos después en la Configuración del sistema.",
+  "account.heading": "Crea tu cuenta",
+  "account.text": "Iniciarás sesión en el equipo con este nombre y contraseña. Tu cuenta será de administrador, así que también podrás cambiar los ajustes del equipo.",
+  "account.fullname": "Nombre completo:",
+  "account.fullname_hint": "p. ej. Ana García",
+  "account.username": "Nombre de usuario:",
+  "account.password": "Contraseña:",
+  "account.password_again": "Repite la contraseña:",
+  "account.note": "En el primer arranque, en la Bienvenida de Sloth, podrás elegir para qué te pide contraseña el equipo.",
+  "account.error.name": "Escribe tu nombre.",
+  "account.error.username": "El nombre de usuario solo puede tener letras inglesas minúsculas, números, guiones y guiones bajos, y debe empezar por una letra (p. ej. «ana»).",
+  "account.error.password": "Escribe una contraseña.",
+  "account.error.mismatch": "Las dos contraseñas no coinciden.",
 
   "disk.heading": "¿Dónde lo instalamos?",
   "disk.text": "Elige el disco en el que se instalará Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "Según tu ordenador, tarda entre 5 y 20 minutos. No lo apagues.",
 
   "done.heading": "¡Instalación completada!",
-  "done.text": "Reinicia el ordenador. Cuando la pantalla se ponga negra, quita el USB. En el primer inicio crearás tu cuenta, y listo.",
+  "done.text": "Reinicia el equipo. Cuando la pantalla se apague, retira la memoria USB. Después inicia sesión con la cuenta que acabas de crear; la Bienvenida de Sloth te ayudará con lo demás.",
   "done.reboot": "Reiniciar",
 
   "error.heading": "La instalación ha fallado",

@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Tipkajte tukaj, da preverite razporeditev",
   "region.timezone": "Časovni pas:",
   "region.note": "To lahko pozneje spremenite v Sistemskih nastavitvah.",
+  "account.heading": "Ustvarite svoj račun",
+  "account.text": "S tem imenom in geslom se boste prijavljali v računalnik. Vaš račun bo skrbniški, zato boste lahko spreminjali tudi nastavitve računalnika.",
+  "account.fullname": "Polno ime:",
+  "account.fullname_hint": "npr. Ana Novak",
+  "account.username": "Uporabniško ime:",
+  "account.password": "Geslo:",
+  "account.password_again": "Ponovite geslo:",
+  "account.note": "Ob prvem zagonu v Dobrodošlici Sloth izberete, za kaj naj računalnik zahteva geslo.",
+  "account.error.name": "Vnesite svoje ime.",
+  "account.error.username": "Uporabniško ime lahko vsebuje samo male angleške črke, številke, vezaje in podčrtaje ter se mora začeti s črko (npr. »ana«).",
+  "account.error.password": "Vnesite geslo.",
+  "account.error.mismatch": "Gesli se ne ujemata.",
 
   "disk.heading": "Kam ga namestimo?",
   "disk.text": "Izberite disk, na katerega bo nameščen Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "Odvisno od računalnika traja 5–20 minut. Ne izklapljajte ga.",
 
   "done.heading": "Namestitev je končana!",
-  "done.text": "Znova zaženite računalnik. Ko zaslon postane črn, odstranite ključek USB. Ob prvem zagonu ustvarite račun in to je to.",
+  "done.text": "Znova zaženite računalnik. Ko zaslon potemni, izvlecite ključek USB. Nato se prijavite s pravkar ustvarjenim računom, Dobrodošlica Sloth pa vam bo pomagala pri ostalem.",
   "done.reboot": "Znova zaženi",
 
   "error.heading": "Namestitev ni uspela",

@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Scrivi qui per controllare il layout",
   "region.timezone": "Fuso orario:",
   "region.note": "Potrai cambiarli in seguito nelle Impostazioni di sistema.",
+  "account.heading": "Crea il tuo account",
+  "account.text": "Accederai al computer con questo nome e questa password. Il tuo account sarà amministratore, quindi potrai cambiare anche le impostazioni del computer.",
+  "account.fullname": "Nome completo:",
+  "account.fullname_hint": "es. Anna Rossi",
+  "account.username": "Nome utente:",
+  "account.password": "Password:",
+  "account.password_again": "Ripeti la password:",
+  "account.note": "Al primo avvio, in Benvenuto Sloth, potrai scegliere per cosa il computer chiede la password.",
+  "account.error.name": "Inserisci il tuo nome.",
+  "account.error.username": "Il nome utente può contenere solo lettere inglesi minuscole, numeri, trattini e trattini bassi, e deve iniziare con una lettera (es. «anna»).",
+  "account.error.password": "Inserisci una password.",
+  "account.error.mismatch": "Le due password non coincidono.",
 
   "disk.heading": "Dove lo installiamo?",
   "disk.text": "Scegli il disco su cui installare Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "A seconda del computer, servono 5–20 minuti. Non spegnerlo.",
 
   "done.heading": "Installazione completata!",
-  "done.text": "Riavvia il computer. Quando lo schermo diventa nero, scollega la chiavetta USB. Al primo avvio creerai il tuo account, ed è fatta.",
+  "done.text": "Riavvia il computer. Quando lo schermo diventa nero, scollega la chiavetta USB. Poi accedi con l’account appena creato: Benvenuto Sloth ti aiuterà con il resto.",
   "done.reboot": "Riavvia",
 
   "error.heading": "Installazione non riuscita",

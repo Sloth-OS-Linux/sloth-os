@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Píšte sem a overte rozloženie",
   "region.timezone": "Časové pásmo:",
   "region.note": "Neskôr to môžete zmeniť v Nastaveniach systému.",
+  "account.heading": "Vytvorte si účet",
+  "account.text": "Týmto menom a heslom sa budete prihlasovať do počítača. Váš účet bude správca, takže môžete meniť aj nastavenia počítača.",
+  "account.fullname": "Celé meno:",
+  "account.fullname_hint": "napr. Anna Nováková",
+  "account.username": "Používateľské meno:",
+  "account.password": "Heslo:",
+  "account.password_again": "Heslo znova:",
+  "account.note": "Pri prvom spustení si v Uvítaní Sloth vyberiete, kedy sa má počítač pýtať heslo.",
+  "account.error.name": "Zadajte svoje meno.",
+  "account.error.username": "Používateľské meno môže obsahovať iba malé anglické písmená, číslice, pomlčky a podčiarkovníky a musí začínať písmenom (napr. „anna“).",
+  "account.error.password": "Zadajte heslo.",
+  "account.error.mismatch": "Heslá sa nezhodujú.",
 
   "disk.heading": "Kam ho nainštalujeme?",
   "disk.text": "Vyberte disk, na ktorý sa Sloth OS nainštaluje.",
@@ -53,7 +65,7 @@
   "install.note": "Podľa počítača to trvá 5–20 minút. Nevypínajte ho.",
 
   "done.heading": "Inštalácia dokončená!",
-  "done.text": "Reštartujte počítač. Keď obrazovka sčernie, vytiahnite USB kľúč. Pri prvom spustení si vytvoríte účet a je hotovo.",
+  "done.text": "Reštartujte počítač. Keď obrazovka zhasne, vytiahnite USB kľúč. Potom sa prihláste práve vytvoreným účtom a Uvítanie Sloth vám pomôže so zvyškom.",
   "done.reboot": "Reštartovať",
 
   "error.heading": "Inštalácia zlyhala",

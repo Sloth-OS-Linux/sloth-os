@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "여기에 입력해 자판 배열을 확인하세요",
   "region.timezone": "시간대:",
   "region.note": "나중에 시스템 설정에서 바꿀 수 있습니다.",
+  "account.heading": "계정 만들기",
+  "account.text": "이 이름과 비밀번호로 컴퓨터에 로그인합니다. 계정은 관리자가 되므로 컴퓨터 설정도 바꿀 수 있습니다.",
+  "account.fullname": "전체 이름:",
+  "account.fullname_hint": "예: 김민지",
+  "account.username": "사용자 이름:",
+  "account.password": "비밀번호:",
+  "account.password_again": "비밀번호 확인:",
+  "account.note": "컴퓨터가 어떤 작업에 비밀번호를 물어볼지는 처음 시작할 때 Sloth 환영에서 고를 수 있습니다.",
+  "account.error.name": "이름을 입력하세요.",
+  "account.error.username": "사용자 이름에는 영어 소문자, 숫자, 하이픈, 밑줄만 쓸 수 있으며 영문자로 시작해야 합니다(예: “minji”).",
+  "account.error.password": "비밀번호를 입력하세요.",
+  "account.error.mismatch": "두 비밀번호가 일치하지 않습니다.",
 
   "disk.heading": "어디에 설치할까요?",
   "disk.text": "Sloth OS를 설치할 디스크를 고르세요.",
@@ -53,7 +65,7 @@
   "install.note": "컴퓨터에 따라 5~20분 걸립니다. 전원을 끄지 마세요.",
 
   "done.heading": "설치가 끝났습니다!",
-  "done.text": "컴퓨터를 다시 시작하세요. 화면이 어두워지면 USB 메모리를 빼세요. 처음 시작할 때 계정을 만들면 끝입니다.",
+  "done.text": "컴퓨터를 다시 시작하세요. 화면이 어두워지면 USB 메모리를 뽑으세요. 그다음 방금 만든 계정으로 로그인하면 나머지는 Sloth 환영이 도와줍니다.",
   "done.reboot": "다시 시작",
 
   "error.heading": "설치하지 못했습니다",

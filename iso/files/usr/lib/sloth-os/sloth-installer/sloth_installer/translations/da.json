@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Skriv her for at tjekke layoutet",
   "region.timezone": "Tidszone:",
   "region.note": "Du kan ændre dette senere i Systemindstillinger.",
+  "account.heading": "Opret din konto",
+  "account.text": "Med dette navn og denne adgangskode logger du ind på computeren. Din konto bliver administrator, så du kan også ændre computerens indstillinger.",
+  "account.fullname": "Fulde navn:",
+  "account.fullname_hint": "f.eks. Anna Hansen",
+  "account.username": "Brugernavn:",
+  "account.password": "Adgangskode:",
+  "account.password_again": "Gentag adgangskoden:",
+  "account.note": "Hvad computeren skal spørge om adgangskode til, vælger du ved første start i Sloth Velkommen.",
+  "account.error.name": "Indtast dit navn.",
+  "account.error.username": "Brugernavnet må kun indeholde små engelske bogstaver, tal, bindestreger og understreger og skal begynde med et bogstav (f.eks. »anna«).",
+  "account.error.password": "Indtast en adgangskode.",
+  "account.error.mismatch": "De to adgangskoder er ikke ens.",
 
   "disk.heading": "Hvor skal vi installere?",
   "disk.text": "Vælg den disk, Sloth OS skal installeres på.",
@@ -53,7 +65,7 @@
   "install.note": "Afhængigt af din computer tager det 5–20 minutter. Sluk den ikke.",
 
   "done.heading": "Installationen er færdig!",
-  "done.text": "Genstart computeren. Når skærmen bliver sort, så tag USB-nøglen ud. Ved første start opretter du din konto, og så er du klar.",
+  "done.text": "Genstart computeren. Når skærmen bliver mørk, så tag USB-nøglen ud. Log derefter ind med den konto, du lige har oprettet, så hjælper Sloth Velkommen med resten.",
   "done.reboot": "Genstart",
 
   "error.heading": "Installationen mislykkedes",

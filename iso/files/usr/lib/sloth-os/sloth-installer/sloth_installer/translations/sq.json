@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Shkruani këtu për të kontrolluar paraqitjen",
   "region.timezone": "Zona kohore:",
   "region.note": "Këto mund t'i ndryshoni më vonë te Rregullimet e sistemit.",
+  "account.heading": "Krijoni llogarinë tuaj",
+  "account.text": "Me këtë emër dhe fjalëkalim do të hyni në kompjuter. Llogaria juaj do të jetë administratore, ndaj do të mund të ndryshoni edhe rregullimet e kompjuterit.",
+  "account.fullname": "Emri i plotë:",
+  "account.fullname_hint": "p.sh. Ana Hoxha",
+  "account.username": "Emri i përdoruesit:",
+  "account.password": "Fjalëkalimi:",
+  "account.password_again": "Përsëritni fjalëkalimin:",
+  "account.note": "Në nisjen e parë, te Mirë se vini në Sloth, zgjidhni për çfarë ta kërkojë kompjuteri fjalëkalimin.",
+  "account.error.name": "Shkruani emrin tuaj.",
+  "account.error.username": "Emri i përdoruesit mund të ketë vetëm shkronja të vogla angleze, numra, viza dhe nënvija dhe duhet të fillojë me shkronjë (p.sh. “ana”).",
+  "account.error.password": "Shkruani një fjalëkalim.",
+  "account.error.mismatch": "Dy fjalëkalimet nuk përputhen.",
 
   "disk.heading": "Ku ta instalojmë?",
   "disk.text": "Zgjidhni diskun ku do të instalohet Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "Në varësi të kompjuterit, kjo zgjat 5–20 minuta. Mos e fikni.",
 
   "done.heading": "Instalimi përfundoi!",
-  "done.text": "Rinisni kompjuterin. Kur ekrani të nxihet, hiqni USB-në. Në nisjen e parë krijoni llogarinë dhe kaq.",
+  "done.text": "Rinisni kompjuterin. Kur ekrani errësohet, hiqni diskun USB. Pastaj hyni me llogarinë që sapo krijuat; Mirë se vini në Sloth do t’ju ndihmojë me të tjerat.",
   "done.reboot": "Rinis",
 
   "error.heading": "Instalimi dështoi",

@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Escriu aquí per comprovar la distribució",
   "region.timezone": "Fus horari:",
   "region.note": "Ho pots canviar més endavant a la Configuració del sistema.",
+  "account.heading": "Creeu el vostre compte",
+  "account.text": "Iniciareu la sessió a l’ordinador amb aquest nom i contrasenya. El vostre compte serà d’administrador, així que també podreu canviar els paràmetres de l’ordinador.",
+  "account.fullname": "Nom complet:",
+  "account.fullname_hint": "p. ex. Anna Puig",
+  "account.username": "Nom d’usuari:",
+  "account.password": "Contrasenya:",
+  "account.password_again": "Repetiu la contrasenya:",
+  "account.note": "En la primera arrencada, a la Benvinguda de Sloth, triareu per a què us demana la contrasenya l’ordinador.",
+  "account.error.name": "Escriviu el vostre nom.",
+  "account.error.username": "El nom d’usuari només pot tenir lletres angleses minúscules, xifres, guions i guions baixos, i ha de començar amb una lletra (p. ex. «anna»).",
+  "account.error.password": "Escriviu una contrasenya.",
+  "account.error.mismatch": "Les dues contrasenyes no coincideixen.",
 
   "disk.heading": "On l'instal·lem?",
   "disk.text": "Tria el disc on s'instal·larà Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "Segons l'ordinador, triga entre 5 i 20 minuts. No l'apaguis.",
 
   "done.heading": "Instal·lació acabada!",
-  "done.text": "Reinicia l'ordinador. Quan la pantalla es posi negra, treu el llapis USB. En el primer inici crearàs el teu compte, i ja està.",
+  "done.text": "Reinicieu l’ordinador. Quan la pantalla s’enfosqueixi, traieu el llapis USB. Després inicieu la sessió amb el compte que acabeu de crear; la Benvinguda de Sloth us ajudarà amb la resta.",
   "done.reboot": "Reinicia",
 
   "error.heading": "La instal·lació ha fallat",

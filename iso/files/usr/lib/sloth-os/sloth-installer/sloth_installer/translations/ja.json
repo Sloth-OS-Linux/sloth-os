@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "ここに入力して配列を確認",
   "region.timezone": "タイムゾーン:",
   "region.note": "後からシステム設定で変更できます。",
+  "account.heading": "アカウントを作成",
+  "account.text": "この名前とパスワードでコンピューターにログインします。アカウントは管理者になるため、コンピューターの設定も変更できます。",
+  "account.fullname": "氏名:",
+  "account.fullname_hint": "例: 山田 花子",
+  "account.username": "ユーザー名:",
+  "account.password": "パスワード:",
+  "account.password_again": "パスワード(確認):",
+  "account.note": "パスワードを求める操作は、初回起動時に Sloth ようこそで選べます。",
+  "account.error.name": "名前を入力してください。",
+  "account.error.username": "ユーザー名に使えるのは英小文字、数字、ハイフン、アンダースコアだけで、先頭は英字にしてください(例: “hanako”)。",
+  "account.error.password": "パスワードを入力してください。",
+  "account.error.mismatch": "2 つのパスワードが一致しません。",
 
   "disk.heading": "どこにインストールしますか？",
   "disk.text": "Sloth OS をインストールするディスクを選んでください。",
@@ -53,7 +65,7 @@
   "install.note": "パソコンによって 5〜20 分かかります。電源を切らないでください。",
 
   "done.heading": "インストール完了！",
-  "done.text": "パソコンを再起動してください。画面が暗くなったら USB メモリーを抜きます。初回起動時にアカウントを作れば準備完了です。",
+  "done.text": "コンピューターを再起動してください。画面が暗くなったら USB メモリーを抜きます。その後、作成したアカウントでログインすれば、残りは Sloth ようこそが手伝います。",
   "done.reboot": "再起動",
 
   "error.heading": "インストールに失敗しました",

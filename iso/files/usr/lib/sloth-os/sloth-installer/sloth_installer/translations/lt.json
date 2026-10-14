@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Rašykite čia, kad patikrintumėte išdėstymą",
   "region.timezone": "Laiko juosta:",
   "region.note": "Vėliau tai galėsite pakeisti Sistemos nuostatose.",
+  "account.heading": "Susikurkite paskyrą",
+  "account.text": "Šiuo vardu ir slaptažodžiu jungsitės prie kompiuterio. Jūsų paskyra bus administratoriaus, todėl galėsite keisti ir kompiuterio nustatymus.",
+  "account.fullname": "Vardas ir pavardė:",
+  "account.fullname_hint": "pvz., Ona Kazlauskienė",
+  "account.username": "Naudotojo vardas:",
+  "account.password": "Slaptažodis:",
+  "account.password_again": "Pakartokite slaptažodį:",
+  "account.note": "Pirmą kartą paleidę kompiuterį „Sloth“ pasisveikinime pasirinksite, kam jis turi prašyti slaptažodžio.",
+  "account.error.name": "Įveskite savo vardą.",
+  "account.error.username": "Naudotojo varde gali būti tik mažosios anglų raidės, skaitmenys, brūkšneliai ir pabraukimai, ir jis turi prasidėti raide (pvz., „ona“).",
+  "account.error.password": "Įveskite slaptažodį.",
+  "account.error.mismatch": "Slaptažodžiai nesutampa.",
 
   "disk.heading": "Kur diegsime?",
   "disk.text": "Pasirinkite diską, į kurį bus įdiegta Sloth OS.",
@@ -53,7 +65,7 @@
   "install.note": "Priklausomai nuo kompiuterio, tai trunka 5–20 minučių. Neišjunkite jo.",
 
   "done.heading": "Įdiegta!",
-  "done.text": "Paleiskite kompiuterį iš naujo. Kai ekranas užges, ištraukite USB atmintuką. Pirmą kartą paleidę susikursite paskyrą, ir viskas.",
+  "done.text": "Paleiskite kompiuterį iš naujo. Kai ekranas užges, ištraukite USB atmintuką. Tada prisijunkite ką tik sukurta paskyra, o „Sloth“ pasisveikinimas padės su likusiais dalykais.",
   "done.reboot": "Paleisti iš naujo",
 
   "error.heading": "Įdiegti nepavyko",

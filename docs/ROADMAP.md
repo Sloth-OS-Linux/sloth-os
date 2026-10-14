@@ -12,8 +12,9 @@ terminálból lehet csinálni, GUI-ból is menjen.
   Ott álltunk meg: Plasma Setup, fiók létrehozása (teszt / sloth). Következik: Sloth Üdvözlő (új „Jelszavak”
   lépés), asztal, Sloth Központ új oldalai, .exe kezelő.
   Új teendők a tesztből:
-  - [ ] A Plasma Setup újra rákérdez a nyelvre, a billentyűzetre és a sötét témára (a telepítő és az Üdvözlő
-    már kérdezi): ezeket a lapokat el kell rejteni, csak a fiók létrehozása maradjon
+  - [x] A KDE első indítási varázslója (Plasma Setup) kikerült: a fiókot a Sloth OS telepítője kérdezi meg
+    (új „Fiókod” lap), első induláskor a `sloth-first-user` szolgáltatás hozza létre; a többit az Üdvözlő
+    kérdezi. VM-ben még tesztelni (új image + új ISO kell)
   - [ ] Az új ISO-ba már a javított telepítő-segéd kell (a VM-ben kézzel volt átmásolva): új ISO építése
 - Második VM-teszt (első saját ISO, 6,8 GB): rejtett GRUB, szöveg nélküli boot, Firefox a tálcán, nyelvváltás
   a választón azonnal: rendben. A telepítés nem ment végig; a talált hibák javítva (4. fázis, „Saját telepítő”),
@@ -173,7 +174,7 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
 - [ ] **Saját Sloth OS telepítő** (`iso/`): élő rendszer a pendrive-ról, kipróbálás telepítés nélkül, Anaconda nélkül
   - [x] Első változat: nyelv (az Üdvözlő 50 nyelve), billentyűzet, időzóna, egész lemezre telepítés
     (saját particionálás + `bootc install to-filesystem`, az image az ISO-ban van, internet nélkül is megy),
-    folyamatjelző, újraindítás; a fiókot első induláskor a KDE Plasma Setup hozza létre. Építés:
+    folyamatjelző, újraindítás; a fiókot is a telepítő kérdezi meg (első induláskor jön létre). Építés:
     `tools/build-iso.sh` (Linux) vagy `tools/build-iso.ps1` (Windows), helyben Podmannel, vagy `.github/workflows/iso.yml`
   - [x] A telepítő mind az 50 nyelven
   - [x] Teljes képernyős „Kipróbálom / Telepítem” választó; kipróbáláshoz Firefox az élő rendszerben, és ha
@@ -193,6 +194,5 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   - [ ] NVIDIA-s gépen automatikusan az NVIDIA-s változat (most a Sloth Központban lehet utána váltani)
   - [ ] Telepítés után a frissítések aláírás-ellenőrzéssel (`ostree-image-signed`)
   - [ ] Lemeztitkosítás, régi (BIOS-os) gépek
-  - [ ] Plasma Setup (első indítás) háttere a Sloth OS háttérkép
   - [ ] ISO letöltése: privát repóban a 2 GB-os kiadás- és 500 MB-os tárhelykorlát miatt csak publikussá tétel után
 - [ ] Weboldal, letöltés, dokumentáció

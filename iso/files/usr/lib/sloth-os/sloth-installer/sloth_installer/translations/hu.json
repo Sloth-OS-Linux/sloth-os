@@ -15,6 +15,18 @@
   "region.try_keyboard_hint": "Gépelj ide, hogy lásd, jó-e a kiosztás",
   "region.timezone": "Időzóna:",
   "region.note": "Ezeket később a Rendszerbeállításokban is megváltoztathatod.",
+  "account.heading": "Hozd létre a fiókodat",
+  "account.text": "Ezzel a névvel és jelszóval jelentkezel be a gépre. A fiókod rendszergazda lesz, így a gép beállításait is módosíthatod.",
+  "account.fullname": "Teljes név:",
+  "account.fullname_hint": "pl. Kiss Anna",
+  "account.username": "Felhasználónév:",
+  "account.password": "Jelszó:",
+  "account.password_again": "Jelszó újra:",
+  "account.note": "Hogy mihez kérjen jelszót a gép, azt első indításkor, a Sloth Üdvözlőben választhatod ki.",
+  "account.error.name": "Írd be a neved.",
+  "account.error.username": "A felhasználónév csak angol kisbetűkből, számokból, kötőjelből és aláhúzásból állhat, és betűvel kezdődjön (pl. „anna”).",
+  "account.error.password": "Adj meg egy jelszót.",
+  "account.error.mismatch": "A két jelszó nem egyezik.",
 
   "disk.heading": "Hova telepítsük?",
   "disk.text": "Válaszd ki a lemezt, amelyre a Sloth OS kerül.",
@@ -52,7 +64,7 @@
   "install.note": "Ez a gép sebességétől függően 5–20 perc. Közben ne kapcsold ki a gépet.",
 
   "done.heading": "Kész a telepítés!",
-  "done.text": "Indítsd újra a gépet. Amikor elsötétül a képernyő, húzd ki a pendrive-ot. Első indításkor létrehozod a fiókodat, és már kész is.",
+  "done.text": "Indítsd újra a gépet. Amikor elsötétül a képernyő, húzd ki a pendrive-ot. Utána a most megadott fiókoddal jelentkezhetsz be, és a Sloth Üdvözlő segít a többiben.",
   "done.reboot": "Újraindítás",
 
   "error.heading": "A telepítés nem sikerült",
