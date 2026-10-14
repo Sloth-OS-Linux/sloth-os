@@ -108,7 +108,13 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
     rendszerindítás és rendszercsomagok; az utolsó hármat alapból védjük), plusz automatikus bejelentkezés,
     jelszótároló (KWallet) automatikus nyitása, jelszó a terminálban (sudo). Utólag a Sloth Központban is
     átállítható legyen, terminál nélkül
-  - [ ] Bejelentkezési módok a hardver alapján (varázsló + Sloth Központ; a gép felismeri, mit tud, és csak azt kínálja fel):
+  - [x] Bejelentkezési módok a hardver alapján (Sloth Központ → Fiók és biztonság; csak az látszik, amihez megvan a
+    hardver): ujjlenyomat (`fprintd`, felvétel a KDE Felhasználók moduljában, bekapcsolás `authselect`
+    with-fingerprint), biztonsági kulcs (FIDO2/YubiKey: felvétel `pamu2fcfg`-vel, `authselect` with-pam-u2f), céges
+    fiók (Active Directory: `realm join/leave` űrlapról). VM-ben és valódi hardveren még tesztelni.
+    Hátravan: PIN-kód (saját PAM-modul), arcfelismerés (Howdy nincs a Fedora repóban; most csak jelezzük, ha van
+    infrakamera), Entra ID, a jelszótároló nyitása jelszó nélküli belépésnél. Az eredeti terv:
+  - Bejelentkezési módok a hardver alapján (varázsló + Sloth Központ; a gép felismeri, mit tud, és csak azt kínálja fel):
     jelszó; PIN-kód 4/6/8 számjeggyel (saját PAM-modul, csak a gépen tárolt hash, lehetőleg TPM-mel, sikertelen
     próbálkozások után várakozás); ujjlenyomat (`fprintd`, ha van támogatott olvasó); arcfelismerés (Howdy, csak
     infrakamerával, mint a Windows Hello; nincs a Fedora repóban); céges fiók (Active Directory: `realmd` + `sssd`,

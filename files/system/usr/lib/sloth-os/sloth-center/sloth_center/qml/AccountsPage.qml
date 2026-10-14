@@ -55,6 +55,129 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Bejelentkezési módok (a gép hardvere alapján) ------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Bejelentkezési módok") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("A jelszó mindig működik. Ezen felül azt kínáljuk fel, amit a géped tud. Ujjlenyomattal vagy kulccsal belépve a mentett jelszavak tárolója az első használatkor kéri a jelszavad.")
+                }
+                Repeater {
+                    model: accounts.loginMethods
+                    delegate: RowLayout {
+                        id: methodRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        opacity: methodRow.modelData.comingSoon ? 0.6 : 1
+                        Kirigami.Icon {
+                            source: methodRow.modelData.icon
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; text: methodRow.modelData.name; font.bold: true }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                opacity: 0.75
+                                text: methodRow.modelData.description
+                            }
+                        }
+                        QQC2.Button {
+                            visible: methodRow.modelData.id === "fingerprint"
+                            icon.name: "list-add"
+                            text: L.t("Ujjlenyomat felvétele")
+                            onClicked: accounts.openUsers()
+                        }
+                        QQC2.Button {
+                            visible: methodRow.modelData.id === "securitykey"
+                            enabled: accounts.busyTask === ""
+                            icon.name: "list-add"
+                            text: methodRow.modelData.ready ? L.t("Másik kulcs felvétele") : L.t("Kulcs felvétele")
+                            onClicked: accounts.enrollSecurityKey()
+                        }
+                        QQC2.Switch {
+                            visible: !methodRow.modelData.comingSoon
+                            enabled: methodRow.modelData.ready
+                            checked: methodRow.modelData.enabled
+                            onToggled: accounts.setLoginMethod(methodRow.modelData.id, checked)
+                        }
+                    }
+                }
+                RowLayout {
+                    visible: accounts.busyTask === "securitykey"
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.BusyIndicator { running: parent.visible }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: L.t("Érintsd meg a kulcsot, amikor villog.")
+                    }
+                }
+            }
+        }
+
+        // --- Céges fiók (Active Directory) --------------------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            enabled: accounts.isAdmin
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Céges fiók") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: accounts.domain !== ""
+                          ? L.tf("A gép a(z) {domain} tartományhoz tartozik: a céges fiókokkal is be lehet jelentkezni.", { domain: accounts.domain })
+                          : L.t("Ha a munkahelyed Windows-tartományt (Active Directory) használ, a gépet hozzá lehet csatolni, és a céges fiókoddal léphetsz be. A rendszergazdától kérd el a tartomány nevét és egy csatlakozásra jogosult fiókot.")
+                }
+                Kirigami.FormLayout {
+                    Layout.fillWidth: true
+                    visible: accounts.domain === ""
+                    QQC2.TextField {
+                        id: domainName
+                        Kirigami.FormData.label: L.t("Tartomány:")
+                        placeholderText: L.t("pl. ceg.local")
+                    }
+                    QQC2.TextField {
+                        id: domainAdmin
+                        Kirigami.FormData.label: L.t("Felhasználónév:")
+                        placeholderText: L.t("csatlakozásra jogosult fiók")
+                    }
+                    Kirigami.PasswordField {
+                        id: domainPassword
+                        Kirigami.FormData.label: L.t("Jelszó:")
+                    }
+                }
+                RowLayout {
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Button {
+                        visible: accounts.domain === ""
+                        enabled: domainName.text.trim() !== "" && domainAdmin.text.trim() !== "" && domainPassword.text !== "" && accounts.busyTask === ""
+                        icon.name: "network-connect"
+                        text: L.t("Csatlakozás")
+                        onClicked: { accounts.joinDomain(domainName.text, domainAdmin.text, domainPassword.text); domainPassword.text = ""; }
+                    }
+                    QQC2.BusyIndicator { visible: accounts.busyTask === "domain"; running: visible }
+                    QQC2.Button {
+                        visible: accounts.domain !== ""
+                        icon.name: "network-disconnect"
+                        text: L.t("Kilépés a tartományból")
+                        onClicked: accounts.leaveDomain()
+                    }
+                }
+            }
+        }
+
         // --- Mihez kérjen jelszót -------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

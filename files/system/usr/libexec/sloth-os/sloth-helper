@@ -13,6 +13,9 @@ Műveletek:
   set-default <index>        ez a (már telepített) verzió induljon a következő újraindításkor
   admin-policy               a hívó felhasználó jelszó nélküli rendszergazdai beállításai (JSON a bemeneten:
                              {"topics": [...], "sudo": bool, "autologin": bool})
+  login-feature fingerprint|securitykey on|off   bejelentkezés ujjlenyomattal / biztonsági kulccsal (authselect)
+  domain-join <tartomány> <felhasználó>          csatlakozás Active Directory tartományhoz (jelszó a bemeneten)
+  domain-leave                                   kilépés a tartományból
 
 A verziókat érintő műveletek (pin, unpin, set-default) a sloth-helper-versions néven is
 elérhetők: ez külön polkit-művelet (org.slothos.helper.versions), hogy a „frissítések”
@@ -211,6 +214,34 @@ def admin_policy(request):
     return {"ok": True, "error": ""}
 
 
+# --- Bejelentkezési módok ------------------------------------------------------------------
+
+LOGIN_FEATURES = {"fingerprint": "with-fingerprint", "securitykey": "with-pam-u2f"}
+DOMAIN_RE = re.compile(r"^[A-Za-z0-9]([A-Za-z0-9-]{0,62}\.)+[A-Za-z]{2,63}$")
+DOMAIN_USER_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$")
+
+
+def login_feature(name, on):
+    feature = LOGIN_FEATURES[name]
+    if not run(["authselect", "current", "--raw"]).stdout.strip():
+        # még nincs authselect-profil: a Fedora alapértelmezésével kezdünk, a meglévő fájlok mentésével
+        r = run(["authselect", "select", "local", "--force", "--backup=sloth-os"])
+        if r.returncode != 0:
+            return {"ok": False, "error": r.stderr.strip()}
+    r = run(["authselect", "enable-feature" if on else "disable-feature", feature])
+    return {"ok": r.returncode == 0, "error": r.stderr.strip()}
+
+
+def domain_join(domain, user, password):
+    r = run(["realm", "join", "--user", user, domain], input=password + "\n")
+    return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
+
+
+def domain_leave():
+    r = run(["realm", "leave"])
+    return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
+
+
 def main(argv):
     if os.geteuid() != 0:
         print(json.dumps({"ok": False, "error": "root kell"}))
@@ -231,6 +262,12 @@ def main(argv):
         result = pin(int(args[0]), unpin=(op == "unpin"))
     elif op == "set-default" and len(args) == 1 and re.fullmatch(r"\d{1,2}", args[0]):
         result = set_default(int(args[0]))
+    elif op == "login-feature" and len(args) == 2 and args[0] in LOGIN_FEATURES and args[1] in ("on", "off"):
+        result = login_feature(args[0], args[1] == "on")
+    elif op == "domain-join" and len(args) == 2 and DOMAIN_RE.match(args[0]) and DOMAIN_USER_RE.match(args[1]):
+        result = domain_join(args[0], args[1], sys.stdin.readline().rstrip("\n"))
+    elif op == "domain-leave" and not args:
+        result = domain_leave()
     elif op == "admin-policy" and not args and not VERSIONS_ONLY:
         try:
             request = json.loads(sys.stdin.read(4096) or "{}")

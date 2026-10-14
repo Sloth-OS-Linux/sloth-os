@@ -1,4 +1,5 @@
-"""Fiók és biztonság: mihez kérjen jelszót a rendszer, automatikus bejelentkezés, sudo.
+"""Fiók és biztonság: mihez kérjen jelszót a rendszer, automatikus bejelentkezés, sudo,
+bejelentkezési módok (ujjlenyomat, biztonsági kulcs, céges fiók) a gép hardvere alapján.
 
 A beállítás témakörönként történik (programok telepítése, frissítés, …). A mentést a
 sloth-helper végzi (admin-policy): polkit-szabályt, sudoers- és bejelentkezési beállítást ír,
@@ -9,8 +10,13 @@ import getpass
 import grp
 import json
 import logging
+import os
+import re
 import subprocess
+import threading
+from pathlib import Path
 
+from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import N_, tr
@@ -33,9 +39,67 @@ TOPICS = [
 ]
 RECOMMENDED = [t[0] for t in TOPICS if not t[3]]
 
+U2F_KEYS = Path.home() / ".config/Yubico/u2f_keys"
+UDEV_DATA = Path("/run/udev/data")
+
+
+def _fingerprint_reader():
+    """Van-e ujjlenyomat-olvasó (az fprintd szerint)."""
+    try:
+        bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
+        devices = bus.call_sync("net.reactivated.Fprint", "/net/reactivated/Fprint/Manager",
+                                "net.reactivated.Fprint.Manager", "GetDevices", None,
+                                GLib.VariantType("(ao)"), Gio.DBusCallFlags.NONE, 5000, None).unpack()[0]
+        return bool(devices)
+    except GLib.Error:
+        return False
+
+
+def _security_key_present():
+    """Be van-e dugva FIDO2 biztonsági kulcs (az udev ID_FIDO_TOKEN jelölése alapján)."""
+    for dev in Path("/sys/class/hidraw").glob("hidraw*"):
+        try:
+            number = (dev / "dev").read_text().strip()
+            if "E:ID_FIDO_TOKEN=1" in (UDEV_DATA / f"c{number}").read_text(errors="replace"):
+                return True
+        except OSError:
+            continue
+    return False
+
+
+def _ir_camera():
+    """Infrakamera (a Windows Hello-szerű arcfelismeréshez kellene)."""
+    for dev in Path("/sys/class/video4linux").glob("video*"):
+        try:
+            name = (dev / "name").read_text().lower()
+        except OSError:
+            continue
+        if re.search(r"\bir\b|infrared", name):
+            return True
+    return False
+
+
+def _login_features():
+    """A bekapcsolt authselect-funkciók (pl. "with-fingerprint")."""
+    try:
+        r = subprocess.run(["authselect", "current", "--raw"], capture_output=True, text=True, timeout=15)
+    except (OSError, subprocess.SubprocessError):
+        return []
+    return r.stdout.split()[1:] if r.returncode == 0 else []
+
+
+def _domain():
+    try:
+        r = subprocess.run(["realm", "list", "--name-only"], capture_output=True, text=True, timeout=15)
+        return r.stdout.split()[0] if r.returncode == 0 and r.stdout.strip() else ""
+    except (OSError, subprocess.SubprocessError):
+        return ""
+
 
 class AccountsController(QObject):
     changed = Signal()
+    _enroll_done = Signal(bool, str)
+    _join_done = Signal(object)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -46,9 +110,17 @@ class AccountsController(QObject):
         self._autologin = False
         self._error = ""
         self._info = ""
+        self._methods = []
+        self._domain = ""
+        self._busy = ""         # "securitykey" (kulcs felvétele), "domain" (csatlakozás) vagy ""
+        self._enroll_done.connect(self._on_enrolled)
+        self._join_done.connect(self._on_joined)
         self.refresh()
 
     userName = Property(str, lambda self: self._user, notify=changed)
+    loginMethods = Property("QVariantList", lambda self: list(self._methods), notify=changed)
+    domain = Property(str, lambda self: self._domain, notify=changed)
+    busyTask = Property(str, lambda self: self._busy, notify=changed)
     isAdmin = Property(bool, lambda self: self._admin, notify=changed)
     sudoWithoutPassword = Property(bool, lambda self: self._sudo, notify=changed)
     autologin = Property(bool, lambda self: self._autologin, notify=changed)
@@ -80,7 +152,114 @@ class AccountsController(QObject):
         self._free = list(cfg.get("topics", []))
         self._sudo = bool(cfg.get("sudo"))
         self._autologin = bool(cfg.get("autologin"))
+        self._methods = self._login_methods()
+        self._domain = _domain()
         self.changed.emit()
+
+    def _login_methods(self):
+        """A gépen elérhető bejelentkezési módok: csak az látszik, amihez megvan a hardver."""
+        features = _login_features()
+        out = []
+        if _fingerprint_reader():
+            out.append({"id": "fingerprint", "name": tr("Ujjlenyomat"), "icon": "fingerprint",
+                        "description": tr("Bejelentkezés és jóváhagyás az ujjad érintésével. Előbb vedd fel az ujjlenyomatod."),
+                        "enabled": "with-fingerprint" in features, "ready": True})
+        enrolled = U2F_KEYS.exists() and U2F_KEYS.stat().st_size > 0
+        if enrolled or _security_key_present():
+            out.append({"id": "securitykey", "name": tr("Biztonsági kulcs (pl. YubiKey)"), "icon": "security-high",
+                        "description": tr("Bejelentkezés a kulcs bedugásával és megérintésével.")
+                        if enrolled else tr("Bedugott kulcsot találtunk. Vedd fel, és utána bejelentkezhetsz vele."),
+                        "enabled": "with-pam-u2f" in features, "ready": enrolled})
+        if _ir_camera():
+            out.append({"id": "face", "name": tr("Arcfelismerés"), "icon": "camera-web",
+                        "description": tr("A gépeden van infrakamera. Az arcfelismeréses bejelentkezés hamarosan elérhető lesz."),
+                        "enabled": False, "ready": False, "comingSoon": True})
+        out.append({"id": "pin", "name": tr("PIN-kód"), "icon": "dialog-password",
+                    "description": tr("Rövid számkód a hosszú jelszó helyett. Hamarosan elérhető lesz."),
+                    "enabled": False, "ready": False, "comingSoon": True})
+        return out
+
+    def _helper(self, args, stdin=None):
+        try:
+            r = subprocess.run(["pkexec", HELPER, *args], input=stdin, capture_output=True, text=True, timeout=300)
+            return json.loads(r.stdout or "{}")
+        except (OSError, subprocess.SubprocessError, ValueError) as e:
+            log.warning("%s: %s", args[0], e)
+            return {}
+
+    @Slot(str, bool)
+    def setLoginMethod(self, method, enabled):
+        self._error, self._info = "", ""
+        if method in ("fingerprint", "securitykey"):
+            if self._helper(["login-feature", method, "on" if enabled else "off"]).get("ok"):
+                self._info = tr("Elmentve. A következő bejelentkezéstől érvényes.")
+            else:
+                self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+        self.refresh()
+
+    @Slot()
+    def enrollSecurityKey(self):
+        """Kulcs felvétele: a pamu2fcfg megvárja, hogy a felhasználó megérintse a kulcsot."""
+        if self._busy:
+            return
+        self._busy, self._error, self._info = "securitykey", "", ""
+        self.changed.emit()
+        existing = U2F_KEYS.read_text().strip() if U2F_KEYS.exists() else ""
+
+        def work():
+            # Ha már van kulcs, a -n csak a kulcs adatait adja (a sor végére fűzzük)
+            cmd = ["pamu2fcfg"] + (["-n"] if existing else [])
+            try:
+                r = subprocess.run(cmd, capture_output=True, text=True, timeout=90)
+                ok, out = r.returncode == 0 and r.stdout.strip(), r.stdout.strip()
+            except (OSError, subprocess.SubprocessError) as e:
+                ok, out = False, str(e)
+            self._enroll_done.emit(bool(ok), out)
+        threading.Thread(target=work, daemon=True).start()
+
+    def _on_enrolled(self, ok, out):
+        self._busy = ""
+        if ok:
+            U2F_KEYS.parent.mkdir(parents=True, exist_ok=True)
+            existing = U2F_KEYS.read_text().strip() if U2F_KEYS.exists() else ""
+            U2F_KEYS.write_text((existing + out if existing else out) + "\n")
+            os.chmod(U2F_KEYS, 0o600)
+            self._info = tr("A kulcs felvéve. Most bekapcsolhatod a bejelentkezést vele.")
+        else:
+            log.warning("pamu2fcfg: %s", out)
+            self._error = tr("Nem sikerült felvenni a kulcsot. Dugd be, és amikor villog, érintsd meg.")
+        self.refresh()
+
+    @Slot(str, str, str)
+    def joinDomain(self, domain, admin, password):
+        """Csatlakozás céges (Active Directory) tartományhoz; a jelszót csak a realm kapja meg."""
+        if self._busy:
+            return
+        self._busy, self._error, self._info = "domain", "", ""
+        self.changed.emit()
+        args = ["domain-join", domain.strip(), admin.strip()]
+        threading.Thread(target=lambda: self._join_done.emit(self._helper(args, stdin=password + "\n")),
+                         daemon=True).start()
+
+    def _on_joined(self, result):
+        self._busy = ""
+        if result.get("ok"):
+            self._info = tr("A gép csatlakozott a tartományhoz. A céges fiókkal a bejelentkező képernyőn léphetsz be (felhasználónév@tartomány).")
+        elif not result:
+            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+        else:
+            log.warning("realm join: %s", result.get("error"))
+            self._error = tr("Nem sikerült csatlakozni. Ellenőrizd a tartomány nevét, a felhasználónevet és a jelszót, és hogy a gép eléri-e a céges hálózatot.")
+        self.refresh()
+
+    @Slot()
+    def leaveDomain(self):
+        self._error, self._info = "", ""
+        if self._helper(["domain-leave"]).get("ok"):
+            self._info = tr("A gép kilépett a tartományból.")
+        else:
+            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+        self.refresh()
 
     def _save(self, free, sudo, autologin):
         self._error, self._info = "", ""
