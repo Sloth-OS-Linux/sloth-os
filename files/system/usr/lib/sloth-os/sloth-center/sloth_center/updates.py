@@ -38,6 +38,7 @@ class UpdatesController(QObject):
         self._unavailable = ""
         self._pinned = False
         self._booted_index = -1
+        self._versions = []
         try:
             self._ostree = RpmOstree()
             self._ostree.connect_changed(self._on_system_changed)
@@ -87,6 +88,11 @@ class UpdatesController(QObject):
     def canPin(self):
         return self._booted_index >= 0 and not self._mode
 
+    @Property("QVariantList", notify=changed)
+    def versions(self):
+        """Az összes gépen lévő verzió: ami most fut, ami legközelebb indul, a megtartottak és az előző."""
+        return list(self._versions)
+
     @Property(bool, notify=changed)
     def canRollback(self):
         return bool(self._rollback) and not self._mode
@@ -107,8 +113,17 @@ class UpdatesController(QObject):
         rollback = self._ostree.rollback_target()
         self._current = texts.version_text(booted)
         self._pinned = bool(booted.get("pinned"))
-        ids = [d.get("id") for d in self._ostree.deployments()]
+        deployments = self._ostree.deployments()
+        ids = [d.get("id") for d in deployments]
         self._booted_index = ids.index(booted.get("id")) if booted.get("id") in ids else -1
+        self._versions = [{
+            "index": i,
+            "name": texts.version_text(d),
+            "booted": d.get("id") == booted.get("id"),
+            # az ostree sorrendjében az első indul a következő újraindításkor
+            "next": i == 0,
+            "pinned": bool(d.get("pinned")),
+        } for i, d in enumerate(deployments)]
         # Ha az alapértelmezett (következő indításkor induló) verzió nem a mostani,
         # akkor újraindítás vár ránk (frissítés vagy visszaállítás után).
         if default and booted and default.get("id") != booted.get("id"):
@@ -214,18 +229,17 @@ class UpdatesController(QObject):
         if self._txn and self._mode in ("check", "upgrade"):
             self._txn.cancel()
 
-    @Slot(bool)
-    def setPinned(self, pinned):
-        """A mostani verzió megtartása: a frissítések nem törlik (ostree admin pin)."""
-        if self._booted_index < 0:
-            return
-        op = "pin" if pinned else "unpin"
+    def _helper(self, op, index):
+        """Rendszergazdai művelet egy verzión (sloth-helper, grafikus jelszókérővel)."""
+        if self._mode or index < 0:
+            return False
+        self._error, self._info = "", ""
         try:
-            r = subprocess.run(["pkexec", "/usr/libexec/sloth-os/sloth-helper", op, str(self._booted_index)],
+            r = subprocess.run(["pkexec", "/usr/libexec/sloth-os/sloth-helper", op, str(index)],
                                capture_output=True, text=True, timeout=120)
             ok = json.loads(r.stdout or "{}").get("ok", False)
         except (OSError, subprocess.SubprocessError, ValueError) as e:
-            log.warning("pin: %s", e)
+            log.warning("%s: %s", op, e)
             ok = False
         if not ok:
             self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
@@ -234,6 +248,23 @@ class UpdatesController(QObject):
         except GLib.Error:
             pass
         self.refresh()
+        return ok
+
+    @Slot(bool)
+    def setPinned(self, pinned):
+        """A mostani verzió megtartása: a frissítések nem törlik (ostree admin pin)."""
+        self._helper("pin" if pinned else "unpin", self._booted_index)
+
+    @Slot(int, bool)
+    def setVersionPinned(self, index, pinned):
+        self._helper("pin" if pinned else "unpin", index)
+
+    @Slot(int)
+    def bootVersion(self, index):
+        """Egy korábbi (megtartott) verzió induljon a következő újraindításkor. Letöltés nem kell."""
+        if self._helper("set-default", index):
+            self._info = tr("Kész. Újraindítás után ez a verzió indul.")
+            self.changed.emit()
 
     @Slot()
     def reboot(self):

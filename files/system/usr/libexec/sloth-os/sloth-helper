@@ -10,6 +10,7 @@ Műveletek:
   secureboot-enroll          a kulcs regisztrálásának előkészítése a következő újraindításra
   boot-menu hidden|visible   a GRUB boot menü elrejtése / mindig mutatása
   pin <index> | unpin <index>  egy rendszerverzió megtartása / elengedése
+  set-default <index>        ez a (már telepített) verzió induljon a következő újraindításkor
 """
 import json
 import os
@@ -71,6 +72,11 @@ def pin(index, unpin=False):
     return {"ok": r.returncode == 0, "error": r.stderr.strip()}
 
 
+def set_default(index):
+    r = run(["ostree", "admin", "set-default", str(index)])
+    return {"ok": r.returncode == 0, "error": r.stderr.strip()}
+
+
 def main(argv):
     if os.geteuid() != 0:
         print(json.dumps({"ok": False, "error": "root kell"}))
@@ -86,6 +92,8 @@ def main(argv):
         result = boot_menu(args[0])
     elif op in ("pin", "unpin") and len(args) == 1 and re.fullmatch(r"\d{1,2}", args[0]):
         result = pin(int(args[0]), unpin=(op == "unpin"))
+    elif op == "set-default" and len(args) == 1 and re.fullmatch(r"\d{1,2}", args[0]):
+        result = set_default(int(args[0]))
     else:
         print(json.dumps({"ok": False, "error": "ismeretlen művelet"}))
         return 2

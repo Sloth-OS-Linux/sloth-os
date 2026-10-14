@@ -189,6 +189,63 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        // --- Az összes verzió a gépen ----------------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: updates.versions.length > 1
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Verziók a gépen") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Ezek a rendszerverziók vannak most a gépen. Bármelyiket elindíthatod a következő újraindításkor, letöltés nélkül. A megtartottakat a frissítések nem törlik.")
+                }
+                Repeater {
+                    model: updates.versions
+                    delegate: RowLayout {
+                        id: verRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: verRow.modelData.booted ? "emblem-default" : "system-software-update"
+                            implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                            implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: verRow.modelData.name }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                opacity: 0.7
+                                font: Kirigami.Theme.smallFont
+                                text: [verRow.modelData.booted ? L.t("most ez fut") : "",
+                                       verRow.modelData.next ? L.t("ez indul legközelebb") : "",
+                                       verRow.modelData.pinned ? L.t("megtartva") : ""].filter(x => x).join(" · ")
+                            }
+                        }
+                        QQC2.Button {
+                            visible: !verRow.modelData.next
+                            enabled: !updates.busy
+                            icon.name: "system-reboot"
+                            text: L.t("Ezt indítsd legközelebb")
+                            onClicked: updates.bootVersion(verRow.modelData.index)
+                        }
+                        QQC2.CheckBox {
+                            text: L.t("Megtartás")
+                            checked: verRow.modelData.pinned
+                            enabled: !updates.busy
+                            onToggled: updates.setVersionPinned(verRow.modelData.index, checked)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     Kirigami.PromptDialog {
