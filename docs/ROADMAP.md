@@ -3,6 +3,15 @@
 Alapelv: **ha a felhasználónak terminált kell nyitnia, az a mi hibánk.** A Konsole megmarad, de minden, amit
 terminálból lehet csinálni, GUI-ból is menjen.
 
+## Hol tartunk (2026-10-14)
+- A legutóbbi commitok még nincsenek ISO-ban kipróbálva. Következő lépés: a GitHubon kész image-ből új ISO
+  (`tools/build-iso.ps1`, kell hozzá Podman és a GitHub CLI `read:packages` joga), majd VM-teszt:
+  - a telepítés végén beíródik-e a nyelv, a billentyűzet és az időzóna (az előző ISO-n ez nem ment);
+  - a kicsomagolt image-ből (`containers-storage`) rendben települ-e, és mekkora lett az ISO (cél kb. 5 GB);
+  - rejtett-e a GRUB menü, látszik-e a Firefox a kipróbáláskor, és „Sloth OS” lett-e a firmware boot-bejegyzés.
+- Utána: a Sloth Központ fordítása 50 nyelvre (az Üdvözlő, a telepítő és az .exe kezelő már kész),
+  majd a Windows mellé telepítés.
+
 ## 0. fázis – Alap image ✅ (ez a repó)
 - [x] Universal Blue Kinoite alap, AMD/Intel + NVIDIA változat
 - [x] Átnevezés (os-release)
