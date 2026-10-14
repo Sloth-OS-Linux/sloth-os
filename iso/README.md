@@ -7,10 +7,11 @@ with the Sloth OS installer starting automatically.
 
 - `Containerfile` + `build.sh` turn the published Sloth OS image into a **live system image**:
   a live-boot initramfs (`dracut-live`), automatic login (`livesys-scripts`), the installer, and a copy
-  of the Sloth OS image itself as an OCI directory, so installing works offline.
+  of the Sloth OS image itself in unpacked container storage, so installing works offline (files shared
+  with the live system are stored only once in the ISO).
 - [Titanoboa](https://github.com/ublue-os/titanoboa) turns that image into an ISO (`iso.yaml` sets the boot menu).
 - The **Sloth OS installer** (`files/usr/lib/sloth-os/sloth-installer/`, Python + QML) asks for language,
-  keyboard, time zone and disk, then runs `bootc install to-disk --source-imgref oci:...` through a small
+  keyboard, time zone and disk, partitions the disk itself and runs `bootc install to-filesystem` through a small
   root helper (`files/usr/libexec/sloth-os/sloth-install-helper`, via polkit). It writes the chosen
   language, keyboard and time zone into the installed system's `/etc`. The user account is created on
   first boot by KDE Plasma Setup.
@@ -21,6 +22,8 @@ The first version installs to a **whole disk** only (UEFI). Installing next to W
 
 ## Building
 
+- Locally on Linux (rootful Podman via sudo): `tools/build-iso.sh` → `out/sloth-os.iso`
+  (`SLOTH_BUILD_DIR` sets where the ~40 GB of build data goes)
 - Locally on Windows (Podman, rootful machine): `tools/build-iso.ps1` → `out/sloth-os.iso`
 - On GitHub: Actions → `iso` → Run workflow. While the repository is private the ISO is too large to
   upload, so the workflow only checks that it builds.

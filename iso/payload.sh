@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 # A telepítendő Sloth OS image és a Firefox beletétele a kész élő image-be (a build második lépése).
-#   payload.sh <telepítendő image> <frissítések forrása>
+#   payload.sh <telepítendő image> <frissítések forrása> [honnan másoljuk]
+# A harmadik (elhagyható) paraméter egy skopeo forrás, pl. oci:/src: ha az image már helyben megvan,
+# nem kell másodszor letölteni (tools/build-iso.sh). Alapból a registryből jön.
 # Privilegizált konténerben fut (podman run --privileged), az eredményt podman commit menti:
 # a build alatti (podman build) környezetben a csomagolt fájlok tulajdonosát nem lehet
 # beállítani, ezért nem lehet ezt az iso/build.sh-ban megcsinálni. Lásd: tools/build-iso.ps1.
@@ -12,13 +14,14 @@ set -euxo pipefail
 
 SOURCE_IMAGE="$1"
 TARGET_IMAGE="$2"
+COPY_FROM="${3:-docker://${SOURCE_IMAGE}}"
 
 auth=()
 [[ -s /run/secrets/registry-auth ]] && auth=(--authfile /run/secrets/registry-auth)
 mkdir -p /var/tmp
 # Az aláírást a letöltéskor a policy.json ellenőrzi; a helyi tároló aláírást nem tárol
 skopeo copy "${auth[@]}" --retry-times 3 --remove-signatures \
-    "docker://${SOURCE_IMAGE}" "containers-storage:${SOURCE_IMAGE}"
+    "${COPY_FROM}" "containers-storage:${SOURCE_IMAGE}"
 skopeo inspect "containers-storage:${SOURCE_IMAGE}" > /dev/null
 
 mkdir -p /usr/share/sloth-os/installer

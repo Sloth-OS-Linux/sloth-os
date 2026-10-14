@@ -1,6 +1,6 @@
 name: iso
 # A Sloth OS telepítő ISO építése (kézzel indítható a GitHub felületéről: Actions -> iso -> Run workflow).
-# Ugyanazokat a lépéseket követi, mint a helyi build: tools/build-iso.ps1
+# Ugyanazokat a lépéseket követi, mint a helyi build: tools/build-iso.sh / tools/build-iso.ps1
 #
 # Amíg a repó privát, az ISO nem tölthető fel (az Actions tárhely 500 MB, egy ISO több GB),
 # ezért ilyenkor a workflow csak azt ellenőrzi, hogy elkészül-e. Publikus repóban artifactként letölthető.
@@ -14,7 +14,7 @@ on:
         default: sloth-os
 
 env:
-  # A Titanoboa ISO-készítő rögzített commitja (frissítéskor: a SHA cseréje, a tools/build-iso.ps1-ben is)
+  # A Titanoboa ISO-készítő rögzített commitja (frissítéskor: a SHA cseréje, a tools/build-iso.sh-ban és a tools/build-iso.ps1-ben is)
   TITANOBOA_COMMIT: 5c457c3d0518bd17e754be0fd98a60d29d26abb4
 
 jobs:
