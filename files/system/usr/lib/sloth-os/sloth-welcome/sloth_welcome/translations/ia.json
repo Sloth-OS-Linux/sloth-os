@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menu Initio e icones in le centro",
   "layout.mac.name": "Como macOS",
   "layout.mac.description": "Barra in alto, dock flottante in basso",
+  "security.heading": "Quando debe tu computator demandar tu contrasigno?",
+  "security.text": "Alcun parametros (como installar programmas) demanda tu contrasigno. Assi nemo pote cambiar tu computator sin que tu lo sape.",
+  "security.all": "A cata cambio (le plus secur)",
+  "security.recommended": "Solmente pro cosas riscose: discos, usatores, initio (plus commode)",
+  "security.not_admin": "Solmente un conto de administrator pote cambiar isto.",
+  "security.autologin": "Accesso automatic: directemente al scriptorio sin contrasigno",
+  "security.later": "Postea tu pote adjustar isto in Sloth Center (Conto e securitate).",
 
   "nav.back": "Retro",
   "nav.next": "Sequente",

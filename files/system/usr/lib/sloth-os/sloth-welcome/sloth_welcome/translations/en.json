@@ -27,6 +27,13 @@
   "layout.windows11.description": "Start menu and icons in the center",
   "layout.mac.name": "macOS-like",
   "layout.mac.description": "Top bar, floating dock at the bottom",
+  "security.heading": "When should your computer ask for your password?",
+  "security.text": "Some settings (such as installing programs) ask for your password. That way nobody can change your computer without you knowing.",
+  "security.all": "Ask for every change (the most secure)",
+  "security.recommended": "Only for risky things: disks, users, startup (more convenient)",
+  "security.not_admin": "Only an administrator account can change this.",
+  "security.autologin": "Sign in automatically: start straight to the desktop without a password",
+  "security.later": "You can fine-tune this later in Sloth Center (Account and security).",
 
   "nav.back": "Back",
   "nav.next": "Next",

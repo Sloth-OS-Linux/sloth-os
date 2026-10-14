@@ -27,6 +27,13 @@
   "layout.windows11.description": "Start-menüü ja ikoonid keskel",
   "layout.mac.name": "Nagu macOS",
   "layout.mac.description": "Riba üleval, hõljuv dokk all",
+  "security.heading": "Millal peaks arvuti parooli küsima?",
+  "security.text": "Mõned seaded (näiteks programmide paigaldamine) küsivad sinu parooli. Nii ei saa keegi su arvutit sinu teadmata muuta.",
+  "security.all": "Iga muudatuse korral (kõige turvalisem)",
+  "security.recommended": "Ainult riskantsete asjade puhul: kettad, kasutajad, käivitus (mugavam)",
+  "security.not_admin": "Seda saab muuta ainult administraatori konto.",
+  "security.autologin": "Automaatne sisselogimine: otse töölauale ilma paroolita",
+  "security.later": "Hiljem saad seda täpsemalt seada Sloth Centeris (Konto ja turvalisus).",
 
   "nav.back": "Tagasi",
   "nav.next": "Edasi",

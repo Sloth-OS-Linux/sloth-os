@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menù Start e iconis tal mieç",
   "layout.mac.name": "Come macOS",
   "layout.mac.description": "Sbare in alt, dock che al svole in bas",
+  "security.heading": "Cuant il computer al à di domandâti la password?",
+  "security.text": "Cualchi impostazion (tant che instalâ programs) e domande la tô password. Cussì nissun nol pues cambiâ il to computer cence che tu lu sepis.",
+  "security.all": "Par ogni cambiament (il plui sigûr)",
+  "security.recommended": "Dome par robis riscjosis: discs, utents, inviament (plui comut)",
+  "security.not_admin": "Dome un account di aministradôr al pues cambiâ chest.",
+  "security.autologin": "Jentrade automatiche: dret sul scritori cence password",
+  "security.later": "Plui indevant tu puedis regolâlu tal Sloth Center (Account e sigurece).",
 
   "nav.back": "Indaûr",
   "nav.next": "Indenant",

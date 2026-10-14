@@ -27,6 +27,13 @@
   "layout.windows11.description": "Startmenu en pictogrammen in het midden",
   "layout.mac.name": "Zoals macOS",
   "layout.mac.description": "Balk bovenaan, zwevend dock onderaan",
+  "security.heading": "Wanneer moet je computer om je wachtwoord vragen?",
+  "security.text": "Sommige instellingen (zoals programma’s installeren) vragen om je wachtwoord. Zo kan niemand je computer zonder jouw medeweten aanpassen.",
+  "security.all": "Bij elke wijziging (het veiligst)",
+  "security.recommended": "Alleen bij riskante dingen: schijven, gebruikers, opstarten (handiger)",
+  "security.not_admin": "Alleen een beheerdersaccount kan dit wijzigen.",
+  "security.autologin": "Automatisch aanmelden: direct naar het bureaublad zonder wachtwoord",
+  "security.later": "Later kun je dit verfijnen in Sloth Center (Account en beveiliging).",
 
   "nav.back": "Terug",
   "nav.next": "Volgende",

@@ -27,6 +27,13 @@
   "layout.windows11.description": "Pradžios meniu ir piktogramos centre",
   "layout.mac.name": "Kaip macOS",
   "layout.mac.description": "Juosta viršuje, plaukiojantis dokas apačioje",
+  "security.heading": "Kada kompiuteris turi klausti slaptažodžio?",
+  "security.text": "Kai kurie nustatymai (pvz., programų diegimas) prašo jūsų slaptažodžio. Taip niekas negali pakeisti kompiuterio be jūsų žinios.",
+  "security.all": "Prie kiekvieno pakeitimo (saugiausia)",
+  "security.recommended": "Tik rizikingiems dalykams: diskai, naudotojai, paleidimas (patogiau)",
+  "security.not_admin": "Tai gali pakeisti tik administratoriaus paskyra.",
+  "security.autologin": "Automatinis prisijungimas: tiesiai į darbalaukį be slaptažodžio",
+  "security.later": "Vėliau tai galėsite tiksliau nustatyti Sloth Center (Paskyra ir sauga).",
 
   "nav.back": "Atgal",
   "nav.next": "Toliau",

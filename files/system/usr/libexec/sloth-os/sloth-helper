@@ -11,14 +11,24 @@ Műveletek:
   boot-menu hidden|visible   a GRUB boot menü elrejtése / mindig mutatása
   pin <index> | unpin <index>  egy rendszerverzió megtartása / elengedése
   set-default <index>        ez a (már telepített) verzió induljon a következő újraindításkor
+  admin-policy               a hívó felhasználó jelszó nélküli rendszergazdai beállításai (JSON a bemeneten:
+                             {"topics": [...], "sudo": bool, "autologin": bool})
+
+A verziókat érintő műveletek (pin, unpin, set-default) a sloth-helper-versions néven is
+elérhetők: ez külön polkit-művelet (org.slothos.helper.versions), hogy a „frissítések”
+témakörhöz lehessen sorolni, ne a rendszerindításhoz.
 """
 import json
 import os
+import pwd
 import re
 import subprocess
 import sys
+import tempfile
 
 SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
+# sloth-helper-versions néven indítva csak a verziókat érintő műveletek engedélyezettek
+VERSIONS_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-versions"
 # A Universal Blue kulcs regisztrációs jelszava; a felhasználó ezt írja be a kék képernyőn
 SB_PASSWORD = "universalblue"
 
@@ -77,6 +87,130 @@ def set_default(index):
     return {"ok": r.returncode == 0, "error": r.stderr.strip()}
 
 
+# --- Jelszó nélküli rendszergazda témakörönként ------------------------------------------
+
+POLICY = "/etc/sloth-os/admin-policy.json"
+POLKIT_RULES = "/etc/polkit-1/rules.d/49-sloth-admin.rules"
+SUDOERS = "/etc/sudoers.d/49-sloth-nopasswd"
+AUTOLOGIN = ["/etc/plasmalogin.conf.d/90-sloth-autologin.conf", "/etc/sddm.conf.d/90-sloth-autologin.conf"]
+
+# Témakör -> polkit műveletek. A "."-ra végződő elem előtag (minden alatta lévő művelet).
+TOPICS = {
+    "software": ["org.freedesktop.Flatpak.", "org.freedesktop.packagekit."],
+    "updates": ["org.projectatomic.rpmostree1.upgrade", "org.projectatomic.rpmostree1.repo-refresh",
+                "org.projectatomic.rpmostree1.rollback", "org.projectatomic.rpmostree1.cleanup",
+                "org.slothos.helper.versions", "org.freedesktop.fwupd."],
+    "network": ["org.freedesktop.NetworkManager.", "org.bluez.", "org.freedesktop.ModemManager1.",
+                "org.opensuse.cupspkhelper.mechanism.", "org.freedesktop.udisks2.filesystem-mount",
+                "org.freedesktop.udisks2.eject-media", "org.freedesktop.udisks2.power-off-drive"],
+    "datetime": ["org.freedesktop.timedate1.", "org.freedesktop.locale1.", "org.freedesktop.hostname1."],
+    "services": ["org.freedesktop.systemd1.manage-units", "org.freedesktop.systemd1.manage-unit-files",
+                 "org.freedesktop.systemd1.reload-daemon", "org.projectatomic.rpmostree1.rebase"],
+    "disks": ["org.freedesktop.udisks2.", "org.kde.kpmcore."],
+    "users": ["org.freedesktop.accounts.", "org.freedesktop.home1."],
+    "system": ["org.projectatomic.rpmostree1.", "org.slothos.helper", "org.freedesktop.login1.set-reboot-",
+               "org.freedesktop.systemd1."],
+}
+
+
+def _js(value):
+    return json.dumps(value, ensure_ascii=True)
+
+
+def _write(path, text, mode=0o644):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    fd, tmp = tempfile.mkstemp(dir=os.path.dirname(path))
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        f.write(text)
+    os.chmod(tmp, mode)
+    os.replace(tmp, path)
+
+
+def _render_rules(users):
+    allowed = {u: sorted({a for t in cfg.get("topics", []) for a in TOPICS.get(t, [])})
+               for u, cfg in users.items() if cfg.get("topics")}
+    if not allowed:
+        return None
+    return f"""// A Sloth Központ írja (Fiók és biztonság): ezekhez a műveletekhez nem kell jelszó.
+// Kézzel ne szerkeszd; a forrás: {POLICY}
+polkit.addRule(function(action, subject) {{
+    var allowed = {_js(allowed)};
+    var list = allowed[subject.user];
+    if (!list || !subject.local || !subject.active || !subject.isInGroup("wheel"))
+        return polkit.Result.NOT_HANDLED;
+    for (var i = 0; i < list.length; i++) {{
+        var a = list[i];
+        if (a.charAt(a.length - 1) == "." ? action.id.indexOf(a) == 0 : action.id == a)
+            return polkit.Result.YES;
+    }}
+    return polkit.Result.NOT_HANDLED;
+}});
+"""
+
+
+def _apply_sudoers(users):
+    names = sorted(u for u, cfg in users.items() if cfg.get("sudo"))
+    if not names:
+        if os.path.exists(SUDOERS):
+            os.unlink(SUDOERS)
+        return True
+    text = "# A Sloth Központ írja (Fiók és biztonság): sudo jelszó nélkül.\n"
+    text += "".join(f"{n} ALL=(ALL) NOPASSWD: ALL\n" for n in names)
+    fd, tmp = tempfile.mkstemp()
+    with os.fdopen(fd, "w") as f:
+        f.write(text)
+    ok = run(["visudo", "-c", "-f", tmp]).returncode == 0
+    if ok:
+        _write(SUDOERS, text, 0o440)
+    os.unlink(tmp)
+    return ok
+
+
+def _apply_autologin(users):
+    name = next((u for u, cfg in users.items() if cfg.get("autologin")), None)
+    for path in AUTOLOGIN:
+        if name:
+            _write(path, f"# A Sloth Központ írja (Fiók és biztonság).\n[Autologin]\nUser={name}\nSession=plasma.desktop\n")
+        elif os.path.exists(path):
+            os.unlink(path)
+
+
+def admin_policy(request):
+    uid = os.environ.get("PKEXEC_UID", "")
+    if not uid.isdigit():
+        return {"ok": False, "error": "csak pkexec-kel"}
+    user = pwd.getpwuid(int(uid)).pw_name
+    topics = request.get("topics", [])
+    if not isinstance(topics, list) or not all(t in TOPICS for t in topics):
+        return {"ok": False, "error": "ismeretlen témakör"}
+    in_wheel = user in subprocess.run(["getent", "group", "wheel"], capture_output=True,
+                                      text=True).stdout.strip().split(":")[-1].split(",")
+    if (topics or request.get("sudo")) and not in_wheel:
+        return {"ok": False, "error": "nem rendszergazda"}
+    try:
+        policy = json.load(open(POLICY, encoding="utf-8"))
+    except (OSError, ValueError):
+        policy = {"users": {}}
+    users = policy.setdefault("users", {})
+    autologin = bool(request.get("autologin"))
+    if autologin:  # egyszerre csak egy felhasználó léphet be magától
+        for cfg in users.values():
+            cfg["autologin"] = False
+    users[user] = {"topics": sorted(set(topics)), "sudo": bool(request.get("sudo")), "autologin": autologin}
+    users = {u: c for u, c in users.items() if c["topics"] or c["sudo"] or c["autologin"]}
+    policy["users"] = users
+    _write(POLICY, json.dumps(policy, indent=2, ensure_ascii=False) + "\n")
+    rules = _render_rules(users)
+    if rules:
+        _write(POLKIT_RULES, rules)
+    elif os.path.exists(POLKIT_RULES):
+        os.unlink(POLKIT_RULES)
+    if not _apply_sudoers(users):
+        return {"ok": False, "error": "sudoers"}
+    _apply_autologin(users)
+    return {"ok": True, "error": ""}
+
+
 def main(argv):
     if os.geteuid() != 0:
         print(json.dumps({"ok": False, "error": "root kell"}))
@@ -84,6 +218,9 @@ def main(argv):
     if not argv:
         return 2
     op, args = argv[0], argv[1:]
+    if VERSIONS_ONLY and op not in ("pin", "unpin", "set-default"):
+        print(json.dumps({"ok": False, "error": "ismeretlen művelet"}))
+        return 2
     if op == "secureboot-status" and not args:
         result = secureboot_status()
     elif op == "secureboot-enroll" and not args:
@@ -94,6 +231,12 @@ def main(argv):
         result = pin(int(args[0]), unpin=(op == "unpin"))
     elif op == "set-default" and len(args) == 1 and re.fullmatch(r"\d{1,2}", args[0]):
         result = set_default(int(args[0]))
+    elif op == "admin-policy" and not args and not VERSIONS_ONLY:
+        try:
+            request = json.loads(sys.stdin.read(4096) or "{}")
+        except ValueError:
+            request = None
+        result = admin_policy(request) if isinstance(request, dict) else {"ok": False, "error": "rossz bemenet"}
     else:
         print(json.dumps({"ok": False, "error": "ismeretlen művelet"}))
         return 2

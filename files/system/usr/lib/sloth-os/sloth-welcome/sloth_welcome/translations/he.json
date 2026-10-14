@@ -27,6 +27,13 @@
   "layout.windows11.description": "תפריט התחל וסמלים במרכז",
   "layout.mac.name": "כמו macOS",
   "layout.mac.description": "פס עליון, מעגן צף למטה",
+  "security.heading": "מתי המחשב צריך לבקש את הסיסמה שלך?",
+  "security.text": "הגדרות מסוימות (כמו התקנת תוכנות) מבקשות את הסיסמה שלך. כך אף אחד לא יכול לשנות את המחשב בלי ידיעתך.",
+  "security.all": "בכל שינוי (הכי בטוח)",
+  "security.recommended": "רק לדברים מסוכנים: כוננים, משתמשים, הפעלה (נוח יותר)",
+  "security.not_admin": "רק חשבון מנהל יכול לשנות זאת.",
+  "security.autologin": "כניסה אוטומטית: ישר לשולחן העבודה בלי סיסמה",
+  "security.later": "אפשר לכוונן זאת בהמשך ב-Sloth Center (חשבון ואבטחה).",
 
   "nav.back": "הקודם",
   "nav.next": "הבא",

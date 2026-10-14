@@ -27,6 +27,13 @@
   "layout.windows11.description": "시작 메뉴와 아이콘이 가운데에",
   "layout.mac.name": "macOS 스타일",
   "layout.mac.description": "위쪽 막대, 아래쪽 떠 있는 독",
+  "security.heading": "언제 비밀번호를 물어볼까요?",
+  "security.text": "일부 설정(예: 프로그램 설치)은 비밀번호가 필요합니다. 그래서 다른 사람이 몰래 컴퓨터를 바꿀 수 없습니다.",
+  "security.all": "모든 변경에 묻기 (가장 안전)",
+  "security.recommended": "위험한 작업만: 디스크, 사용자, 시동 (더 편리)",
+  "security.not_admin": "관리자 계정만 이 설정을 바꿀 수 있습니다.",
+  "security.autologin": "자동 로그인: 비밀번호 없이 바로 바탕 화면으로",
+  "security.later": "나중에 Sloth Center(계정 및 보안)에서 자세히 설정할 수 있습니다.",
 
   "nav.back": "뒤로",
   "nav.next": "다음",

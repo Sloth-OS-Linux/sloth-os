@@ -27,6 +27,13 @@
   "layout.windows11.description": "スタートメニューとアイコンが中央",
   "layout.mac.name": "macOS 風",
   "layout.mac.description": "上部にバー、下部にフローティングドック",
+  "security.heading": "パスワードを求めるタイミング",
+  "security.text": "一部の設定(プログラムのインストールなど)ではパスワードが必要です。これで、知らないうちに他の人がコンピューターを変更することはできません。",
+  "security.all": "すべての変更で求める(最も安全)",
+  "security.recommended": "危険な操作だけ: ディスク、ユーザー、起動(より便利)",
+  "security.not_admin": "これを変更できるのは管理者アカウントだけです。",
+  "security.autologin": "自動ログイン: パスワードなしでそのままデスクトップを開く",
+  "security.later": "後で Sloth Center(アカウントとセキュリティ)で細かく設定できます。",
 
   "nav.back": "戻る",
   "nav.next": "次へ",

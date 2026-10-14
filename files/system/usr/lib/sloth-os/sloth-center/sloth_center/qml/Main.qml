@@ -20,6 +20,7 @@ Kirigami.ApplicationWindow {
         { id: "winprograms", name: L.t("Windows-programok"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true },
         { id: "drivers", name: L.t("Driverek és hardver"), icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true },
         { id: "services", name: L.t("Szolgáltatások"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true },
+        { id: "accounts", name: L.t("Fiók és biztonság"), icon: "preferences-system-users", page: "AccountsPage.qml", ready: true },
         { id: "health", name: L.t("Rendszer egészség"), icon: "dialog-information", page: "HealthPage.qml", ready: true },
         { id: "disks", name: L.t("Lemezek"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
         { id: "containers", name: L.t("Fejlesztői környezetek"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },

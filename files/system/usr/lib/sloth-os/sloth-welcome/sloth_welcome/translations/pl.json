@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menu Start i ikony na środku",
   "layout.mac.name": "W stylu macOS",
   "layout.mac.description": "Pasek u góry, pływający dok na dole",
+  "security.heading": "Kiedy komputer ma pytać o hasło?",
+  "security.text": "Niektóre ustawienia (np. instalowanie programów) wymagają hasła. Dzięki temu nikt nie zmieni komputera bez Twojej wiedzy.",
+  "security.all": "Przy każdej zmianie (najbezpieczniej)",
+  "security.recommended": "Tylko przy ryzykownych rzeczach: dyski, użytkownicy, uruchamianie (wygodniej)",
+  "security.not_admin": "Tylko konto administratora może to zmienić.",
+  "security.autologin": "Automatyczne logowanie: od razu pulpit, bez hasła",
+  "security.later": "Później możesz to dokładnie ustawić w Sloth Center (Konto i bezpieczeństwo).",
 
   "nav.back": "Wstecz",
   "nav.next": "Dalej",

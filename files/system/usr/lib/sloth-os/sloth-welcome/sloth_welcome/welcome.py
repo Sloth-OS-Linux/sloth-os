@@ -1,6 +1,10 @@
 """Az üdvözlő varázsló vezérlője (QML <-> Python)."""
+import grp
+import json
 import logging
 import os
+import subprocess
+import threading
 from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, Qt, Signal, Slot
@@ -16,12 +20,17 @@ CONFIG_DIR = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / 
 DONE_MARKER = CONFIG_DIR / "welcome-done"
 
 # A StackLayout lapjai a QML-ben. A kategóriák egy közös lapot használnak,
-# a lépéssorrend: üdvözlés, megjelenés, kategóriánként egy lépés, telepítés, kész.
+# a lépéssorrend: üdvözlés, megjelenés, jelszavak, kategóriánként egy lépés, telepítés, kész.
 STEAM = "com.valvesoftware.Steam"  # nincs előtelepítve: a Játékok lépésben választható
 
-PAGE_WELCOME, PAGE_LOOK, PAGE_CATEGORY, PAGE_INSTALL, PAGE_DONE = range(5)
-STEPS = (["welcome", "look"] + [f"cat{i}" for i in range(len(catalog.CATEGORIES))]
+PAGE_WELCOME, PAGE_LOOK, PAGE_CATEGORY, PAGE_INSTALL, PAGE_DONE, PAGE_SECURITY = range(6)
+STEPS = (["welcome", "look", "security"] + [f"cat{i}" for i in range(len(catalog.CATEGORIES))]
          + ["install", "done"])
+
+# Jelszavak: a "csak a kockázatos dolgokhoz" választásnál ezekhez nem kell jelszó (a Sloth Központ
+# Fiók és biztonság oldalán témakörönként is állítható; a mentést a sloth-helper admin-policy végzi)
+HELPER = "/usr/libexec/sloth-os/sloth-helper"
+EASY_TOPICS = ["software", "updates", "network", "datetime", "services"]
 
 
 def apply_language():
@@ -52,6 +61,9 @@ class WelcomeController(QObject):
         self._failures = []         # [(név, hibakulcs)]
         self._online = desktop.is_online()
         self._installed = []
+        self._security = "all"      # "all" (mindenhez jelszó) vagy "recommended"
+        self._autologin = False
+        self._security_saved = ("all", False)
         self._status_sig.connect(self._on_status)
         self._app_sig.connect(self._on_app_state)
         self._done_sig.connect(self._on_done)
@@ -67,7 +79,8 @@ class WelcomeController(QObject):
         name = self._step_name()
         if name.startswith("cat"):
             return PAGE_CATEGORY
-        return {"welcome": PAGE_WELCOME, "look": PAGE_LOOK, "install": PAGE_INSTALL, "done": PAGE_DONE}[name]
+        return {"welcome": PAGE_WELCOME, "look": PAGE_LOOK, "security": PAGE_SECURITY,
+                "install": PAGE_INSTALL, "done": PAGE_DONE}[name]
 
     @Property(int, notify=changed)
     def categoryIndex(self):
@@ -187,10 +200,58 @@ class WelcomeController(QObject):
         browsers = {a["id"] for a in catalog.CATEGORIES[0]["apps"]}
         return any(a in browsers for a in self._selected)
 
+    # --- Jelszavak ------------------------------------------------------------
+
+    @Property(bool, constant=True)
+    def isAdmin(self):
+        try:
+            return os.environ.get("USER", "") in grp.getgrnam("wheel").gr_mem
+        except KeyError:
+            return False
+
+    @Property(str, notify=changed)
+    def securityChoice(self):
+        return self._security
+
+    @Property(bool, notify=changed)
+    def autologin(self):
+        return self._autologin
+
+    @Slot(str)
+    def setSecurityChoice(self, choice):
+        if choice in ("all", "recommended"):
+            self._security = choice
+            self.changed.emit()
+
+    @Slot(bool)
+    def setAutologin(self, value):
+        self._autologin = value
+        self.changed.emit()
+
+    def _save_security(self):
+        """A választás mentése (a háttérben; a jelszókérő ablakot a polkit mutatja)."""
+        wanted = (self._security, self._autologin)
+        if wanted == self._security_saved:
+            return
+        self._security_saved = wanted
+        request = json.dumps({"topics": EASY_TOPICS if self._security == "recommended" else [],
+                              "sudo": False, "autologin": self._autologin})
+
+        def work():
+            try:
+                r = subprocess.run(["pkexec", HELPER, "admin-policy"], input=request,
+                                   capture_output=True, text=True, timeout=600)
+                log.info("jelszó-beállítás: %s", r.stdout.strip() or r.stderr.strip())
+            except (OSError, subprocess.SubprocessError) as e:
+                log.warning("jelszó-beállítás: %s", e)
+        threading.Thread(target=work, daemon=True).start()
+
     # --- Navigáció ----------------------------------------------------------
 
     @Slot()
     def next(self):
+        if self._step_name() == "security":
+            self._save_security()
         if self.lastCategory:
             self.install()
             return

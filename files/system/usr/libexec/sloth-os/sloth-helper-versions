@@ -1,0 +1,8 @@
+#!/usr/bin/python3 -I
+"""A sloth-helper verziókat érintő műveletei (pin, unpin, set-default) külön polkit-művelettel
+(org.slothos.helper.versions), hogy a jelszó nélküli beállításnál a „frissítések” közé tartozzanak."""
+import runpy
+import sys
+
+sys.argv[0] = "sloth-helper-versions"
+runpy.run_path("/usr/libexec/sloth-os/sloth-helper", run_name="__main__")

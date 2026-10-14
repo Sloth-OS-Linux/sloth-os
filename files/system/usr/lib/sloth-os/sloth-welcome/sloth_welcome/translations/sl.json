@@ -27,6 +27,13 @@
   "layout.windows11.description": "Meni Start in ikone na sredini",
   "layout.mac.name": "Kot macOS",
   "layout.mac.description": "Zgornja vrstica, plavajoči dok spodaj",
+  "security.heading": "Kdaj naj računalnik vpraša za geslo?",
+  "security.text": "Nekatere nastavitve (npr. nameščanje programov) zahtevajo vaše geslo. Tako nihče ne more spremeniti računalnika brez vaše vednosti.",
+  "security.all": "Pri vsaki spremembi (najvarneje)",
+  "security.recommended": "Samo pri tveganih stvareh: diski, uporabniki, zagon (udobneje)",
+  "security.not_admin": "To lahko spremeni samo skrbniški račun.",
+  "security.autologin": "Samodejna prijava: naravnost na namizje brez gesla",
+  "security.later": "Pozneje lahko to podrobno nastavite v Sloth Center (Račun in varnost).",
 
   "nav.back": "Nazaj",
   "nav.next": "Naprej",

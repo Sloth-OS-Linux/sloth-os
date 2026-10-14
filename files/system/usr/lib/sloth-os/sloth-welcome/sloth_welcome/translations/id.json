@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menu Start dan ikon di tengah",
   "layout.mac.name": "Mirip macOS",
   "layout.mac.description": "Bilah di atas, dok mengambang di bawah",
+  "security.heading": "Kapan komputer harus meminta kata sandi?",
+  "security.text": "Beberapa pengaturan (misalnya memasang program) meminta kata sandi Anda. Dengan begitu tidak ada yang bisa mengubah komputer tanpa sepengetahuan Anda.",
+  "security.all": "Setiap ada perubahan (paling aman)",
+  "security.recommended": "Hanya untuk hal berisiko: disk, pengguna, startup (lebih praktis)",
+  "security.not_admin": "Hanya akun administrator yang dapat mengubah ini.",
+  "security.autologin": "Masuk otomatis: langsung ke desktop tanpa kata sandi",
+  "security.later": "Nanti Anda dapat mengaturnya lebih rinci di Sloth Center (Akun dan keamanan).",
 
   "nav.back": "Kembali",
   "nav.next": "Lanjut",

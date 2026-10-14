@@ -27,6 +27,13 @@
   "layout.windows11.description": "Beginkieslys en ikone in die middel",
   "layout.mac.name": "Soos macOS",
   "layout.mac.description": "Balk bo, swewende dok onder",
+  "security.heading": "Wanneer moet jou rekenaar vir jou wagwoord vra?",
+  "security.text": "Sommige instellings (soos om programme te installeer) vra jou wagwoord. So kan niemand sonder jou medewete jou rekenaar verander nie.",
+  "security.all": "Vra vir elke verandering (die veiligste)",
+  "security.recommended": "Net vir riskante dinge: skywe, gebruikers, opstart (geriefliker)",
+  "security.not_admin": "Net ’n administrateur-rekening kan dit verander.",
+  "security.autologin": "Meld outomaties aan: begin reguit by die werkskerm sonder ’n wagwoord",
+  "security.later": "Jy kan dit later in Sloth Center (Rekening en sekuriteit) fyn instel.",
 
   "nav.back": "Terug",
   "nav.next": "Volgende",

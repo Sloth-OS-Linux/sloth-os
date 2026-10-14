@@ -27,6 +27,13 @@
   "layout.windows11.description": "Ponuka Štart a ikony v strede",
   "layout.mac.name": "Ako macOS",
   "layout.mac.description": "Horná lišta, plávajúci dok dole",
+  "security.heading": "Kedy sa má počítač pýtať heslo?",
+  "security.text": "Niektoré nastavenia (napríklad inštalácia programov) vyžadujú vaše heslo. Nikto tak nemôže zmeniť počítač bez vášho vedomia.",
+  "security.all": "Pri každej zmene (najbezpečnejšie)",
+  "security.recommended": "Len pri rizikových veciach: disky, používatelia, spúšťanie (pohodlnejšie)",
+  "security.not_admin": "Toto môže zmeniť len účet správcu.",
+  "security.autologin": "Automatické prihlásenie: rovno na plochu bez hesla",
+  "security.later": "Neskôr to môžete podrobne nastaviť v Sloth Center (Účet a zabezpečenie).",
 
   "nav.back": "Späť",
   "nav.next": "Ďalej",

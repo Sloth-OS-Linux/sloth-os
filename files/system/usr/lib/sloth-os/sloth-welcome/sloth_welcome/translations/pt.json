@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menu Iniciar e ícones ao centro",
   "layout.mac.name": "Estilo macOS",
   "layout.mac.description": "Barra no topo, doca flutuante em baixo",
+  "security.heading": "Quando deve o computador pedir a sua palavra-passe?",
+  "security.text": "Algumas definições (como instalar programas) pedem a sua palavra-passe. Assim ninguém pode alterar o computador sem o seu conhecimento.",
+  "security.all": "Em cada alteração (o mais seguro)",
+  "security.recommended": "Só para coisas arriscadas: discos, utilizadores, arranque (mais prático)",
+  "security.not_admin": "Só uma conta de administrador pode alterar isto.",
+  "security.autologin": "Iniciar sessão automaticamente: diretamente no ambiente de trabalho sem palavra-passe",
+  "security.later": "Mais tarde pode ajustar isto no Sloth Center (Conta e segurança).",
 
   "nav.back": "Anterior",
   "nav.next": "Seguinte",

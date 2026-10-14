@@ -27,6 +27,13 @@
   "layout.windows11.description": "Meniul Start și pictogramele în centru",
   "layout.mac.name": "Ca macOS",
   "layout.mac.description": "Bară sus, doc plutitor jos",
+  "security.heading": "Când să-ți ceară calculatorul parola?",
+  "security.text": "Unele setări (de exemplu instalarea programelor) îți cer parola. Astfel nimeni nu poate schimba calculatorul fără să știi.",
+  "security.all": "La fiecare modificare (cel mai sigur)",
+  "security.recommended": "Doar pentru lucruri riscante: discuri, utilizatori, pornire (mai comod)",
+  "security.not_admin": "Doar un cont de administrator poate schimba asta.",
+  "security.autologin": "Autentificare automată: direct la desktop, fără parolă",
+  "security.later": "Mai târziu poți regla asta în Sloth Center (Cont și securitate).",
 
   "nav.back": "Înapoi",
   "nav.next": "Înainte",

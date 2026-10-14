@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menu Démarrer et icônes au centre",
   "layout.mac.name": "Façon macOS",
   "layout.mac.description": "Barre en haut, dock flottant en bas",
+  "security.heading": "Quand votre ordinateur doit-il demander votre mot de passe ?",
+  "security.text": "Certains réglages (comme l’installation de programmes) demandent votre mot de passe. Ainsi, personne ne peut modifier votre ordinateur à votre insu.",
+  "security.all": "À chaque modification (le plus sûr)",
+  "security.recommended": "Seulement pour les choses risquées : disques, utilisateurs, démarrage (plus pratique)",
+  "security.not_admin": "Seul un compte administrateur peut modifier ceci.",
+  "security.autologin": "Connexion automatique : directement sur le bureau sans mot de passe",
+  "security.later": "Vous pourrez l’affiner plus tard dans Sloth Center (Compte et sécurité).",
 
   "nav.back": "Retour",
   "nav.next": "Suivant",

@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menuja Start dhe ikonat në mes",
   "layout.mac.name": "Si macOS",
   "layout.mac.description": "Shirit sipër, stacion lundrues poshtë",
+  "security.heading": "Kur duhet ta kërkojë kompjuteri fjalëkalimin?",
+  "security.text": "Disa rregullime (si instalimi i programeve) kërkojnë fjalëkalimin tuaj. Kështu askush nuk mund ta ndryshojë kompjuterin pa dijeninë tuaj.",
+  "security.all": "Për çdo ndryshim (më i sigurti)",
+  "security.recommended": "Vetëm për gjëra të rrezikshme: disqe, përdorues, nisje (më komode)",
+  "security.not_admin": "Këtë mund ta ndryshojë vetëm një llogari administratori.",
+  "security.autologin": "Hyrje automatike: drejt e në desktop pa fjalëkalim",
+  "security.later": "Më vonë mund ta rregulloni në Sloth Center (Llogaria dhe siguria).",
 
   "nav.back": "Prapa",
   "nav.next": "Tjetër",

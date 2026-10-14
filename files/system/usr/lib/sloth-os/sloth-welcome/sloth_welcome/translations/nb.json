@@ -27,6 +27,13 @@
   "layout.windows11.description": "Startmeny og ikoner i midten",
   "layout.mac.name": "Som macOS",
   "layout.mac.description": "Linje øverst, flytende dokk nederst",
+  "security.heading": "Når skal datamaskinen spørre om passord?",
+  "security.text": "Noen innstillinger (for eksempel å installere programmer) ber om passordet ditt. Slik kan ingen endre datamaskinen uten at du vet det.",
+  "security.all": "Ved hver endring (sikrest)",
+  "security.recommended": "Bare for risikable ting: disker, brukere, oppstart (mer praktisk)",
+  "security.not_admin": "Bare en administratorkonto kan endre dette.",
+  "security.autologin": "Logg inn automatisk: rett til skrivebordet uten passord",
+  "security.later": "Du kan finjustere dette senere i Sloth Center (Konto og sikkerhet).",
 
   "nav.back": "Tilbake",
   "nav.next": "Neste",

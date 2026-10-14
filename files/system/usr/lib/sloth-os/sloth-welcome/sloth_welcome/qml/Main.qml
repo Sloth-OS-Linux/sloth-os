@@ -591,6 +591,78 @@ Kirigami.ApplicationWindow {
                     }
                 }
             }
+
+            // --- 5. Jelszavak (a megjelenés után) ---------------------------------
+            Item {
+                ColumnLayout {
+                    anchors.centerIn: parent
+                    width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 32)
+                    spacing: Kirigami.Units.largeSpacing * 2
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignHCenter
+                        source: "security-medium"
+                        implicitWidth: Kirigami.Units.iconSizes.huge
+                        implicitHeight: Kirigami.Units.iconSizes.huge
+                    }
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        text: root.t("security.heading")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: root.t("security.text")
+                    }
+                    QQC2.ButtonGroup { id: securityGroup }
+                    QQC2.RadioButton {
+                        Layout.fillWidth: true
+                        enabled: welcome.isAdmin
+                        QQC2.ButtonGroup.group: securityGroup
+                        text: root.t("security.all")
+                        checked: welcome.securityChoice === "all"
+                        onClicked: welcome.setSecurityChoice("all")
+                    }
+                    QQC2.RadioButton {
+                        Layout.fillWidth: true
+                        enabled: welcome.isAdmin
+                        QQC2.ButtonGroup.group: securityGroup
+                        text: root.t("security.recommended")
+                        checked: welcome.securityChoice === "recommended"
+                        onClicked: welcome.setSecurityChoice("recommended")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        visible: !welcome.isAdmin
+                        wrapMode: Text.Wrap
+                        color: Kirigami.Theme.neutralTextColor
+                        text: root.t("security.not_admin")
+                    }
+                    QQC2.CheckBox {
+                        Layout.fillWidth: true
+                        text: root.t("security.autologin")
+                        checked: welcome.autologin
+                        onToggled: welcome.setAutologin(checked)
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        font: Kirigami.Theme.smallFont
+                        text: root.t("security.later")
+                    }
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.Button { text: root.t("nav.back"); icon.name: "go-previous"; onClicked: welcome.back() }
+                        QQC2.Button { text: root.t("nav.next"); icon.name: "go-next"; highlighted: true; onClicked: welcome.next() }
+                    }
+                }
+            }
         }
     }
 

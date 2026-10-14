@@ -27,6 +27,13 @@
   "layout.windows11.description": "开始菜单和图标居中",
   "layout.mac.name": "类似 macOS",
   "layout.mac.description": "顶部栏，底部悬浮程序坞",
+  "security.heading": "电脑何时需要询问密码?",
+  "security.text": "有些设置(例如安装程序)需要你的密码。这样别人就无法在你不知情的情况下更改电脑。",
+  "security.all": "每次更改都询问(最安全)",
+  "security.recommended": "只在有风险的操作时询问:磁盘、用户、启动(更方便)",
+  "security.not_admin": "只有管理员账户可以更改此项。",
+  "security.autologin": "自动登录:无需密码直接进入桌面",
+  "security.later": "以后可以在 Sloth 中心(账户与安全)中细致调整。",
 
   "nav.back": "上一步",
   "nav.next": "下一步",

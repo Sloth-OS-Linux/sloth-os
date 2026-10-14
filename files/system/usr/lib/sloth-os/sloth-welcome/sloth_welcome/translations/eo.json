@@ -27,6 +27,13 @@
   "layout.windows11.description": "Startmenuo kaj piktogramoj meze",
   "layout.mac.name": "Kiel macOS",
   "layout.mac.description": "Breto supre, ŝvebanta doko malsupre",
+  "security.heading": "Kiam via komputilo petu vian pasvorton?",
+  "security.text": "Iuj agordoj (ekzemple instali programojn) petas vian pasvorton. Tiel neniu povas ŝanĝi vian komputilon sen via scio.",
+  "security.all": "Ĉe ĉiu ŝanĝo (plej sekure)",
+  "security.recommended": "Nur por riskaj aferoj: diskoj, uzantoj, starto (pli oportune)",
+  "security.not_admin": "Nur administranta konto povas ŝanĝi tion.",
+  "security.autologin": "Aŭtomata ensaluto: rekte al la labortablo sen pasvorto",
+  "security.later": "Poste vi povas agordi tion detale en Sloth Center (Konto kaj sekureco).",
 
   "nav.back": "Reen",
   "nav.next": "Sekva",

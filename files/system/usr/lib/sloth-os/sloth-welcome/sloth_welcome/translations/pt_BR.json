@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menu Iniciar e ícones no centro",
   "layout.mac.name": "Estilo macOS",
   "layout.mac.description": "Barra no topo, dock flutuante embaixo",
+  "security.heading": "Quando o computador deve pedir sua senha?",
+  "security.text": "Algumas configurações (como instalar programas) pedem sua senha. Assim ninguém pode alterar seu computador sem você saber.",
+  "security.all": "Em toda alteração (o mais seguro)",
+  "security.recommended": "Só para coisas arriscadas: discos, usuários, inicialização (mais prático)",
+  "security.not_admin": "Somente uma conta de administrador pode alterar isso.",
+  "security.autologin": "Entrar automaticamente: direto para a área de trabalho sem senha",
+  "security.later": "Depois você pode ajustar isso no Sloth Center (Conta e segurança).",
 
   "nav.back": "Voltar",
   "nav.next": "Avançar",

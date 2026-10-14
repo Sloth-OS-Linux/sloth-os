@@ -30,6 +30,7 @@ def main():
     # A vezérlők a gi-t (GLib) használják; a Qt eseményhurka a GLib-é, így a
     # D-Bus callbackek gond nélkül megérkeznek.
     from .updates import UpdatesController
+    from .accounts import AccountsController
     from .advanced import AdvancedController
     from .containers import ContainersController
     from .disks import DisksController
@@ -53,6 +54,7 @@ def main():
     containers = ContainersController()
     environment = EnvironmentController()
     gamepads = GamepadsController()
+    accounts = AccountsController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -63,6 +65,7 @@ def main():
     engine.rootContext().setContextProperty("containers", containers)
     engine.rootContext().setContextProperty("environment", environment)
     engine.rootContext().setContextProperty("gamepads", gamepads)
+    engine.rootContext().setContextProperty("accounts", accounts)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1

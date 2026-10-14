@@ -17,4 +17,17 @@
     </defaults>
     <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper</annotate>
   </action>
+  <action id="org.slothos.helper.versions">
+    <description>Rendszerverzió megtartása vagy kiválasztása</description>
+    <description xml:lang="en">Keep or choose a system version</description>
+    <message>A Sloth Központ egy rendszerverziót szeretne megtartani vagy a következő indításra kiválasztani. Ehhez add meg a jelszavad.</message>
+    <message xml:lang="en">Sloth Center wants to keep a system version or choose it for the next start. Enter your password to allow it.</message>
+    <icon_name>sloth-os</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper-versions</annotate>
+  </action>
 </policyconfig>

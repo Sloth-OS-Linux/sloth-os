@@ -235,7 +235,7 @@ class UpdatesController(QObject):
             return False
         self._error, self._info = "", ""
         try:
-            r = subprocess.run(["pkexec", "/usr/libexec/sloth-os/sloth-helper", op, str(index)],
+            r = subprocess.run(["pkexec", "/usr/libexec/sloth-os/sloth-helper-versions", op, str(index)],
                                capture_output=True, text=True, timeout=120)
             ok = json.loads(r.stdout or "{}").get("ok", False)
         except (OSError, subprocess.SubprocessError, ValueError) as e:

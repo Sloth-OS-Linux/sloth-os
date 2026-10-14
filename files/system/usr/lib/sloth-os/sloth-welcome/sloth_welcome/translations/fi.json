@@ -27,6 +27,13 @@
   "layout.windows11.description": "Käynnistä-valikko ja kuvakkeet keskellä",
   "layout.mac.name": "macOS-tyylinen",
   "layout.mac.description": "Palkki ylhäällä, kelluva telakka alhaalla",
+  "security.heading": "Milloin tietokoneen pitää kysyä salasanaa?",
+  "security.text": "Jotkin asetukset (kuten ohjelmien asentaminen) kysyvät salasanaasi. Näin kukaan ei voi muuttaa tietokonettasi tietämättäsi.",
+  "security.all": "Jokaisen muutoksen kohdalla (turvallisin)",
+  "security.recommended": "Vain riskialttiissa asioissa: levyt, käyttäjät, käynnistys (kätevämpi)",
+  "security.not_admin": "Vain ylläpitäjän tili voi muuttaa tätä.",
+  "security.autologin": "Automaattinen kirjautuminen: suoraan työpöydälle ilman salasanaa",
+  "security.later": "Voit hienosäätää tätä myöhemmin Sloth Centerissä (Tili ja turvallisuus).",
 
   "nav.back": "Takaisin",
   "nav.next": "Seuraava",

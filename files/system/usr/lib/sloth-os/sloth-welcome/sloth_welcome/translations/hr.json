@@ -27,6 +27,13 @@
   "layout.windows11.description": "Izbornik Start i ikone u sredini",
   "layout.mac.name": "Kao macOS",
   "layout.mac.description": "Gornja traka, plutajući dok dolje",
+  "security.heading": "Kada računalo treba tražiti lozinku?",
+  "security.text": "Neke postavke (npr. instalacija programa) traže vašu lozinku. Tako nitko ne može mijenjati računalo bez vašeg znanja.",
+  "security.all": "Pri svakoj promjeni (najsigurnije)",
+  "security.recommended": "Samo za rizične stvari: diskovi, korisnici, pokretanje (udobnije)",
+  "security.not_admin": "Ovo može promijeniti samo administratorski račun.",
+  "security.autologin": "Automatska prijava: ravno na radnu površinu bez lozinke",
+  "security.later": "Kasnije to možete detaljno podesiti u Sloth Centeru (Račun i sigurnost).",
 
   "nav.back": "Natrag",
   "nav.next": "Dalje",

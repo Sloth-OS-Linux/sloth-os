@@ -27,6 +27,13 @@
   "layout.windows11.description": "Başlat menüsü ve simgeler ortada",
   "layout.mac.name": "macOS benzeri",
   "layout.mac.description": "Üstte çubuk, altta yüzen rıhtım",
+  "security.heading": "Bilgisayar parolanızı ne zaman sorsun?",
+  "security.text": "Bazı ayarlar (örneğin program yükleme) parolanızı ister. Böylece kimse bilginiz olmadan bilgisayarınızı değiştiremez.",
+  "security.all": "Her değişiklikte (en güvenli)",
+  "security.recommended": "Yalnızca riskli işlerde: diskler, kullanıcılar, başlangıç (daha kolay)",
+  "security.not_admin": "Bunu yalnızca bir yönetici hesabı değiştirebilir.",
+  "security.autologin": "Otomatik oturum açma: parolasız doğrudan masaüstüne",
+  "security.later": "Daha sonra bunu Sloth Center'da (Hesap ve güvenlik) ayrıntılı ayarlayabilirsiniz.",
 
   "nav.back": "Geri",
   "nav.next": "İleri",

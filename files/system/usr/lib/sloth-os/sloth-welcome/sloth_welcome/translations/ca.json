@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menú Inici i icones al centre",
   "layout.mac.name": "Estil macOS",
   "layout.mac.description": "Barra a dalt, acoblador flotant a baix",
+  "security.heading": "Quan us ha de demanar la contrasenya l’ordinador?",
+  "security.text": "Alguns paràmetres (com instal·lar programes) demanen la vostra contrasenya. Així ningú no pot canviar l’ordinador sense que ho sapigueu.",
+  "security.all": "A cada canvi (el més segur)",
+  "security.recommended": "Només per a coses arriscades: discs, usuaris, arrencada (més còmode)",
+  "security.not_admin": "Només un compte d’administrador pot canviar-ho.",
+  "security.autologin": "Inici de sessió automàtic: directament a l’escriptori sense contrasenya",
+  "security.later": "Més endavant ho podeu ajustar al Sloth Center (Compte i seguretat).",
 
   "nav.back": "Enrere",
   "nav.next": "Següent",

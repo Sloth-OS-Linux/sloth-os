@@ -27,6 +27,13 @@
   "layout.windows11.description": "Startmenu og ikoner i midten",
   "layout.mac.name": "Som macOS",
   "layout.mac.description": "Bjælke øverst, svævende dock nederst",
+  "security.heading": "Hvornår skal computeren spørge om din adgangskode?",
+  "security.text": "Nogle indstillinger (fx installation af programmer) kræver din adgangskode. Så kan ingen ændre din computer uden din viden.",
+  "security.all": "Ved hver ændring (mest sikkert)",
+  "security.recommended": "Kun ved risikable ting: diske, brugere, opstart (mere bekvemt)",
+  "security.not_admin": "Kun en administratorkonto kan ændre dette.",
+  "security.autologin": "Log ind automatisk: start direkte på skrivebordet uden adgangskode",
+  "security.later": "Du kan finjustere det senere i Sloth Center (Konto og sikkerhed).",
 
   "nav.back": "Tilbage",
   "nav.next": "Næste",

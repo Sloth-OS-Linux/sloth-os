@@ -27,6 +27,13 @@
   "layout.windows11.description": "Start menü és ikonok középen",
   "layout.mac.name": "macOS-szerű",
   "layout.mac.description": "Felső sáv, alul lebegő dokk",
+  "security.heading": "Mihez kérjen jelszót a gép?",
+  "security.text": "Bizonyos beállításokhoz (például programok telepítéséhez) a gép a jelszavadat kéri. Így más nem tud a tudtod nélkül változtatni rajta.",
+  "security.all": "Mindenhez kérjen jelszót (a legbiztonságosabb)",
+  "security.recommended": "Csak a kockázatos dolgokhoz: lemezek, felhasználók, rendszerindítás (kényelmesebb)",
+  "security.not_admin": "Ezt csak rendszergazda fiókkal lehet átállítani.",
+  "security.autologin": "Automatikus bejelentkezés: a gép jelszó nélkül, egyből az asztallal induljon",
+  "security.later": "Később a Sloth Központban (Fiók és biztonság) témakörönként is beállíthatod.",
 
   "nav.back": "Vissza",
   "nav.next": "Tovább",

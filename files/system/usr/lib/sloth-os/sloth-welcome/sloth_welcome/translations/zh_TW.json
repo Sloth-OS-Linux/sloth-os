@@ -27,6 +27,13 @@
   "layout.windows11.description": "開始功能表和圖示置中",
   "layout.mac.name": "類似 macOS",
   "layout.mac.description": "頂部列，底部浮動 Dock",
+  "security.heading": "電腦何時要詢問密碼?",
+  "security.text": "有些設定(例如安裝程式)需要你的密碼。這樣別人就無法在你不知情的情況下變更電腦。",
+  "security.all": "每次變更都詢問(最安全)",
+  "security.recommended": "只在有風險的操作時詢問:磁碟、使用者、開機(更方便)",
+  "security.not_admin": "只有管理員帳號可以變更此項。",
+  "security.autologin": "自動登入:不需密碼直接進入桌面",
+  "security.later": "之後可以在 Sloth 中心(帳號與安全性)中細部調整。",
 
   "nav.back": "上一步",
   "nav.next": "下一步",

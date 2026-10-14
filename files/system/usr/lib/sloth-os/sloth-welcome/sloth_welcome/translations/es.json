@@ -27,6 +27,13 @@
   "layout.windows11.description": "Menú Inicio e iconos en el centro",
   "layout.mac.name": "Estilo macOS",
   "layout.mac.description": "Barra arriba, dock flotante abajo",
+  "security.heading": "¿Cuándo debe pedirte la contraseña el ordenador?",
+  "security.text": "Algunos ajustes (como instalar programas) piden tu contraseña. Así nadie puede cambiar tu ordenador sin que lo sepas.",
+  "security.all": "En cada cambio (lo más seguro)",
+  "security.recommended": "Solo para cosas arriesgadas: discos, usuarios, arranque (más cómodo)",
+  "security.not_admin": "Solo una cuenta de administrador puede cambiar esto.",
+  "security.autologin": "Iniciar sesión automáticamente: directo al escritorio sin contraseña",
+  "security.later": "Más adelante puedes ajustarlo en Sloth Center (Cuenta y seguridad).",
 
   "nav.back": "Atrás",
   "nav.next": "Siguiente",

@@ -27,6 +27,13 @@
   "layout.windows11.description": "Umuɣ n usenker d tignitin di tlemmast",
   "layout.mac.name": "Am macOS",
   "layout.mac.description": "Afeggag d asawen, dock yettɛummen d akessar",
+  "security.heading": "Melmi ara k-d-isuter uselkim-ik awal uffir?",
+  "security.text": "Kra n yiɣewwaren (am usebded n wahilen) ttuteren awal-ik uffir. Akka yiwen ur yezmir ad ibeddel aselkim-ik war ma teẓriḍ.",
+  "security.all": "Deg yal abeddel (d aɣelsan akk)",
+  "security.recommended": "Kan i tɣawsiwin yesɛan aɣbel: ifecka n usekles, iseqdacen, asekker (yeshel)",
+  "security.not_admin": "Siwa amiḍan n unedbal i izemren ad ibeddel aya.",
+  "security.autologin": "Tuqqna tawurmant: srid ɣer tnarit war awal uffir",
+  "security.later": "Ticki tzemreḍ ad t-tesbeddeḍ deg Sloth Center (Amiḍan d tɣellist).",
 
   "nav.back": "Ɣer deffir",
   "nav.next": "Ɣer zdat",

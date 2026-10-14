@@ -27,6 +27,13 @@
   "layout.windows11.description": "Startmeny och ikoner i mitten",
   "layout.mac.name": "Som macOS",
   "layout.mac.description": "Fält upptill, flytande docka nertill",
+  "security.heading": "När ska datorn fråga efter ditt lösenord?",
+  "security.text": "Vissa inställningar (som att installera program) kräver ditt lösenord. Då kan ingen ändra datorn utan att du vet om det.",
+  "security.all": "Vid varje ändring (säkrast)",
+  "security.recommended": "Bara för riskabla saker: diskar, användare, uppstart (bekvämare)",
+  "security.not_admin": "Bara ett administratörskonto kan ändra detta.",
+  "security.autologin": "Logga in automatiskt: direkt till skrivbordet utan lösenord",
+  "security.later": "Du kan finjustera detta senare i Sloth Center (Konto och säkerhet).",
 
   "nav.back": "Tillbaka",
   "nav.next": "Nästa",
