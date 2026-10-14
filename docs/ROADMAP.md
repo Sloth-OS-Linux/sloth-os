@@ -22,12 +22,7 @@ terminálból lehet csinálni, GUI-ból is menjen.
   Windowson; kell a GitHub CLI `read:packages` joga), majd VM-teszt végig: telepítés, első indítás, Üdvözlő.
 - A Sloth Központ 3. fázisbeli nyitott pontjai elkészültek (felhasználói szolgáltatások, környezeti változók,
   verziók listája, kontrollerek, jelszó nélküli rendszergazda, bejelentkezési módok, Játékok modul); VM-ben még tesztelni.
-- A Sloth Központ fordítása félúton (2026-10-14): kész a magyar, angol, német, francia, spanyol, olasz, portugál,
-  brazil portugál, holland, lengyel, cseh, szlovák, orosz, ukrán, belarusz, bolgár, szerb, horvát, szlovén, román,
-  svéd, dán, norvég (bokmål, nynorsk), finn, észt, litván, török, görög, katalán, indonéz és afrikaans.
-  Hátravan 18 nyelv: eszperantó, friuli, interlingua, albán, kabil, héber, arab, grúz, kazah, japán, koreai,
-  kínai (egyszerűsített, hagyományos), asszámi, bengáli, pandzsábi, tamil, lao. Hiányzók listája:
-  `python tools/extract_center_strings.py <nyelv>` (a nyelv saját nevét az Üdvözlő fordításaiból kell venni).
+- A Sloth Központ fordítása kész mind az 50 nyelvre (2026-10-15); az anyanyelvi átnézés még hátravan.
 - Utána: a Windows mellé telepítés.
 
 ## 0. fázis – Alap image ✅ (ez a repó)
@@ -100,8 +95,8 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   - [x] Többnyelvű: a Fedora telepítő mind az 50 használható nyelvén (amelyeken az Anaconda legalább félig le van
     fordítva, plusz norvég bokmål), jobbról balra írással (arab, héber) és minden írásrendszerhez betűtípussal
     (`sloth_welcome/translations/*.json`, ellenőrzés: `tools/check_translations.py`); alapból a rendszer nyelvén indul,
-    az első lapon átváltható. Hátravan: anyanyelvi átnézés (a fordításokat MI készítette), a Sloth Központ
-    fordítása a maradék 48 nyelvre (magyar és angol kész)
+    az első lapon átváltható. A Sloth Központ is le van fordítva mind az 50 nyelvre.
+    Hátravan: anyanyelvi átnézés (a fordításokat MI készítette)
   - [x] A végén gyors gombok: Steam-bejelentkezés, online fiókok, nyelv és régió (a nyelvet a telepítő kérdezi)
   - [x] Az ArtCraft frissítése: felhasználói telepítés + napi háttérfrissítő (`sloth-github-bundle-update.timer`, SHA256 ellenőrzéssel); VM-ben még tesztelni
 - [ ] **Sloth Központ** (egy app, modulokra bontva; `files/system/usr/lib/sloth-os/sloth-center/`):
