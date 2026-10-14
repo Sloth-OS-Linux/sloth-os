@@ -3,6 +3,9 @@
 A systemd D-Bus API-ját használja; a jogosultságot igénylő műveleteknél a
 polkit grafikus jelszókérő ablakot mutat. A gyakori szolgáltatások érthető
 névvel jelennek meg, a többi a haladó listában.
+
+A felhasználó saját szolgáltatásai (`systemctl --user`) a munkamenet buszán
+érhetők el; ezekhez nem kell jelszó.
 """
 import logging
 
@@ -33,6 +36,14 @@ COMMON = [
 ]
 
 
+# A munkamenet alapjai: ezek leállítása az egész asztalt (hang, ablakok, bejelentkezés) elrontaná,
+# ezért a saját szolgáltatások listájában csak látszanak, nem állíthatók
+PROTECTED_USER_PREFIXES = (
+    "dbus", "pipewire", "wireplumber", "plasma-", "kwin", "kded", "ksmserver", "xdg-", "at-spi",
+    "systemd-", "graphical-session", "gvfs", "gcr-", "p11-kit", "flatpak-", "app-", "obex", "kactivitymanagerd",
+    "sloth-")
+
+
 def _human_error(raw):
     low = (raw or "").lower()
     if any(k in low for k in ("not authorized", "access denied", "authentication", "interactive")):
@@ -48,28 +59,35 @@ class ServicesController(QObject):
     def __init__(self, parent=None):
         super().__init__(parent)
         self._bus = None
+        self._user_bus = None
         self._common = []
         self._all = []
+        self._user = []
         self._error = ""
         self._busy_unit = ""
         try:
             self._bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
         except GLib.Error as e:
             log.error("system bus: %s", e.message)
+        try:
+            self._user_bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+        except GLib.Error as e:
+            log.error("session bus: %s", e.message)
         self.refresh()
 
     # --- Tulajdonságok ---------------------------------------------------------
 
     common = Property("QVariantList", lambda self: list(self._common), notify=changed)
     allServices = Property("QVariantList", lambda self: list(self._all), notify=changed)
+    userServices = Property("QVariantList", lambda self: list(self._user), notify=changed)
     errorText = Property(str, lambda self: self._error, notify=changed)
     busyUnit = Property(str, lambda self: self._busy_unit, notify=changed)
 
     # --- Lekérdezés ----------------------------------------------------------------
 
-    def _call(self, method, params=None, reply=None, flags=Gio.DBusCallFlags.NONE):
-        return self._bus.call_sync(SD, SD_PATH, SD_MANAGER, method, params,
-                                   GLib.VariantType(reply) if reply else None, flags, 30000, None)
+    def _call(self, method, params=None, reply=None, flags=Gio.DBusCallFlags.NONE, bus=None):
+        return (bus or self._bus).call_sync(SD, SD_PATH, SD_MANAGER, method, params,
+                                            GLib.VariantType(reply) if reply else None, flags, 30000, None)
 
     def _unit_file_state(self, unit):
         try:
@@ -113,11 +131,38 @@ class ServicesController(QObject):
             [{"unit": u[0], "description": u[1], "active": u[3] == "active", "sub": u[4]}
              for u in units if u[0].endswith(".service") and u[2] == "loaded"],
             key=lambda x: x["description"].lower())
+        self._user = self._user_services()
         self.changed.emit()
+
+    def _user_services(self):
+        """A felhasználó szolgáltatásai: amelyek most be vannak töltve, és amelyeket be lehet kapcsolni."""
+        if not self._user_bus:
+            return []
+        try:
+            loaded = self._call("ListUnits", None, "(a(ssssssouso))", bus=self._user_bus).unpack()[0]
+            files = self._call("ListUnitFiles", None, "(a(ss))", bus=self._user_bus).unpack()[0]
+        except GLib.Error as e:
+            log.warning("user units: %s", e.message)
+            return []
+        states = {f.rsplit("/", 1)[-1]: state for f, state in files}
+        out = {}
+        for u in loaded:
+            if u[0].endswith(".service") and u[2] == "loaded" and "@" not in u[0]:
+                out[u[0]] = {"unit": u[0], "description": u[1], "active": u[3] == "active"}
+        # bekapcsolható, de most nem futó szolgáltatások (pl. kikapcsolt háttérprogramok)
+        for unit, state in states.items():
+            if unit.endswith(".service") and "@" not in unit and unit not in out and state in ("enabled", "disabled"):
+                out[unit] = {"unit": unit, "description": unit.removesuffix(".service"), "active": False}
+        for item in out.values():
+            state = states.get(item["unit"], "static")
+            item["protected"] = item["unit"].startswith(PROTECTED_USER_PREFIXES)
+            item["enabled"] = state in ("enabled", "enabled-runtime", "linked")
+            item["switchable"] = state in ("enabled", "disabled") and not item["protected"]
+        return sorted(out.values(), key=lambda x: x["description"].lower())
 
     # --- Műveletek -----------------------------------------------------------------
 
-    def _async(self, method, params, then):
+    def _async(self, method, params, then, bus=None):
         def done(bus, res):
             try:
                 bus.call_finish(res)
@@ -128,7 +173,7 @@ class ServicesController(QObject):
                 self.refresh()
                 return
             then()
-        self._bus.call(SD, SD_PATH, SD_MANAGER, method, params, None, INTERACTIVE, 60000, None, done)
+        (bus or self._bus).call(SD, SD_PATH, SD_MANAGER, method, params, None, INTERACTIVE, 60000, None, done)
 
     @Slot(str, bool)
     def setEnabled(self, unit, enabled):
@@ -164,3 +209,42 @@ class ServicesController(QObject):
             self.refresh()
 
         self._async("StartUnit" if running else "StopUnit", GLib.Variant("(ss)", (unit, "replace")), finish)
+
+    # --- A felhasználó saját szolgáltatásai (jelszó nélkül) ----------------------------
+
+    @Slot(str, bool)
+    def setUserEnabled(self, unit, enabled):
+        """Bejelentkezéskor induljon-e (és most is indul / leáll)."""
+        self._error = ""
+        self._busy_unit = unit
+        self.changed.emit()
+        bus = self._user_bus
+
+        def finish():
+            self._busy_unit = ""
+            self.refresh()
+
+        def reload_then(next_step):
+            return lambda: self._async("Reload", None, next_step, bus=bus)
+
+        if enabled:
+            self._async("EnableUnitFiles", GLib.Variant("(asbb)", ([unit], False, True)),
+                        reload_then(lambda: self._async("StartUnit", GLib.Variant("(ss)", (unit, "replace")),
+                                                        finish, bus=bus)), bus=bus)
+        else:
+            self._async("StopUnit", GLib.Variant("(ss)", (unit, "replace")),
+                        lambda: self._async("DisableUnitFiles", GLib.Variant("(asb)", ([unit], False)),
+                                            reload_then(finish), bus=bus), bus=bus)
+
+    @Slot(str, bool)
+    def setUserRunning(self, unit, running):
+        self._error = ""
+        self._busy_unit = unit
+        self.changed.emit()
+
+        def finish():
+            self._busy_unit = ""
+            self.refresh()
+
+        self._async("StartUnit" if running else "StopUnit", GLib.Variant("(ss)", (unit, "replace")), finish,
+                    bus=self._user_bus)

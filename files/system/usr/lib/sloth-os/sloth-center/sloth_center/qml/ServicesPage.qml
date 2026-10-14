@@ -99,5 +99,64 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        Kirigami.Separator { Layout.fillWidth: true; visible: showUser.checked }
+
+        QQC2.CheckBox {
+            id: showUser
+            text: L.t("A saját szolgáltatásaim mutatása (haladó)")
+        }
+
+        QQC2.Label {
+            Layout.fillWidth: true
+            visible: showUser.checked
+            wrapMode: Text.Wrap
+            opacity: 0.7
+            text: L.t("Ezek csak a te fiókodban futnak, bejelentkezés után. Átállításukhoz nem kell jelszó.")
+        }
+
+        Repeater {
+            model: showUser.checked ? services.userServices : []
+            delegate: RowLayout {
+                id: userRow
+                required property var modelData
+                Layout.fillWidth: true
+                spacing: Kirigami.Units.largeSpacing
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: 0
+                    QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: userRow.modelData.description }
+                    QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; opacity: 0.6; font: Kirigami.Theme.smallFont; text: userRow.modelData.unit }
+                }
+                QQC2.Label {
+                    opacity: 0.7
+                    text: userRow.modelData.active ? L.t("Fut") : L.t("Leállítva")
+                }
+                Kirigami.Icon {
+                    visible: userRow.modelData.protected
+                    source: "object-locked"
+                    implicitWidth: Kirigami.Units.iconSizes.small
+                    implicitHeight: Kirigami.Units.iconSizes.small
+                    QQC2.ToolTip.visible: lockArea.containsMouse
+                    QQC2.ToolTip.text: L.t("A rendszer működéséhez kell, ezért nem állítható.")
+                    MouseArea { id: lockArea; anchors.fill: parent; hoverEnabled: true }
+                }
+                QQC2.Button {
+                    visible: !userRow.modelData.protected
+                    enabled: services.busyUnit === ""
+                    text: userRow.modelData.active ? L.t("Leállítás") : L.t("Indítás")
+                    icon.name: userRow.modelData.active ? "media-playback-stop" : "media-playback-start"
+                    onClicked: services.setUserRunning(userRow.modelData.unit, !userRow.modelData.active)
+                }
+                QQC2.Switch {
+                    visible: userRow.modelData.switchable
+                    checked: userRow.modelData.enabled
+                    enabled: services.busyUnit === ""
+                    onToggled: services.setUserEnabled(userRow.modelData.unit, checked)
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.text: L.t("Induljon el bejelentkezéskor")
+                }
+            }
+        }
     }
 }
