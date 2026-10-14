@@ -137,7 +137,8 @@ def _live_disk():
 
 def _contents(disk):
     """Mi van most a lemezen: "windows", "linux", "other" vagy "empty", és a partíciók nevei."""
-    parts = disk.get("children") or []
+    # A fájlrendszer lehet közvetlenül a lemezen is, partíciós tábla nélkül
+    parts = (disk.get("children") or []) + ([disk] if disk.get("fstype") else [])
     fstypes = {(p.get("fstype") or "").lower() for p in parts}
     names = [p.get("label") or p.get("partlabel") for p in parts if p.get("label") or p.get("partlabel")]
     if not parts:

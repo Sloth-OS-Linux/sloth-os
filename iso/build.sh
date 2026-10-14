@@ -17,6 +17,13 @@ DRACUT_NO_XATTR=1 dracut -v --force --zstd --reproducible --no-hostonly \
     --add "dmsquash-live dmsquash-live-autooverlay" \
     "/usr/lib/modules/${kernel}/initramfs.img" "${kernel}"
 
+# Kernel nélküli modulmappák (pl. az alap image-ből maradt üres kmod-mappa) initramfs-e
+# összezavarná a Titanoboát, ami a /usr/lib/modules/*/initramfs.img mintát másolja
+for dir in /usr/lib/modules/*/; do
+    [[ -e "$dir/vmlinuz" ]] || rm -fv "$dir/initramfs.img"
+done
+[[ $(ls /usr/lib/modules/*/initramfs.img | wc -l) -eq 1 ]]
+
 sed -i "s/^livesys_session=.*/livesys_session=kde/" /etc/sysconfig/livesys
 systemctl enable livesys.service livesys-late.service
 

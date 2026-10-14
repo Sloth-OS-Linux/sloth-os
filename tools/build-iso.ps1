@@ -58,11 +58,12 @@ try {
     Invoke-WebRequest -UseBasicParsing -OutFile $buildIso `
         "https://raw.githubusercontent.com/ublue-os/titanoboa/$TitanoboaCommit/build_iso.sh"
     # --cgroups=disabled: a WSL-es Podman gépen a "pids" cgroup-vezérlő nem érhető el
+    # bash -e: a Titanoboa scriptje is álljon meg az első hibánál (a shebang a "bash script" indításnál nem számít)
     Invoke-InMachine ("podman run --rm --cgroups=disabled --cap-add sys_admin --security-opt label=disable " +
         "-v '$(ConvertTo-MachinePath $buildIso):/src/build_iso.sh:ro' " +
         "--mount type=image,source='$LiveImage',dst=/rootfs " +
         "-v '$(ConvertTo-MachinePath $outDir):/output' " +
-        "quay.io/fedora/fedora:latest bash /src/build_iso.sh")
+        "quay.io/fedora/fedora:latest bash -exo pipefail /src/build_iso.sh")
     if ($LASTEXITCODE) { throw "Az ISO készítése nem sikerült." }
 
     $iso = Get-ChildItem $outDir -Filter *.iso | Sort-Object LastWriteTime -Descending | Select-Object -First 1
