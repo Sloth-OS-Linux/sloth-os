@@ -6,6 +6,11 @@ Real-ESRGAN (realesrgan-x4plus) 4x felskálázott változat, titles.json: {név:
 Használat: python3 wallpapers.py <kimeneti mappa>
 Kimenet: 3840x2160.jpg (+ 5120x2160.jpg az ultraszéles képeknél), 60% MI + 40% Lanczos keverék.
 """
+import json
+import os
+import subprocess
+import sys
+
 W = os.getcwd()
 titles = json.load(open("titles.json"))
 OUT = sys.argv[1]
