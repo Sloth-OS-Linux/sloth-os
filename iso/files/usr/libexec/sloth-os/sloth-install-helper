@@ -5,8 +5,9 @@
 
 A teljes lemezt törli, particionálja, és feltelepíti rá az ISO-ba csomagolt Sloth OS image-et
 (bootc install to-filesystem), majd beírja a választott nyelvet, billentyűzetet és időzónát.
-A bootc a rétegeket ideiglenesen kicsomagolja; az élő rendszer /var/tmp-je RAM-ban van, ezért
-erre a lemez végén egy átmeneti munkapartíciót használunk, amit a végén a rendszerpartícióhoz csatolunk.
+A bootc a rétegeket ideiglenesen a /var/tmp-be csomagolja ki; az élő rendszerben ez RAM-ban van, ezért
+a telepítés idejére a /var/tmp fölé a lemez végén lévő átmeneti munkapartíció kerül.
+A végén ezt a partíciót töröljük, és a helyét a rendszerpartíció kapja meg.
 Ha nincs internet, az élő rendszer Firefoxát is átmásolja, hogy legyen böngésző.
 A kimenet JSON-sorok a felületnek:
   {"stage": "partition", "progress": 10}   ismert lépés (a felület fordítja le)
@@ -202,9 +203,11 @@ def run_bootc():
            "--skip-fetch-check",
            str(TARGET)]
     log("$ " + " ".join(cmd))
-    # a kicsomagolt rétegek a munkapartícióra kerülnek, nem a RAM-ba (containers/image: TMPDIR)
-    env = {**os.environ, "TMPDIR": str(SCRATCH)}
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=env)
+    # A kicsomagolt rétegek a munkapartícióra kerüljenek, ne a RAM-ban lévő /var/tmp-be. A TMPDIR-t a
+    # bootc nem veszi figyelembe, és a rendszer (PID 1) /var/tmp-jét használja, ezért a telepítés idejére a
+    # munkapartíciót rendszerszinten a /var/tmp fölé csatoljuk (finish_partitions veszi le).
+    run(["mount", "--bind", str(SCRATCH), "/var/tmp"])
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
     progress = [20]
     stop = threading.Event()
     watcher = None
@@ -230,7 +233,7 @@ def run_bootc():
 def finish_partitions(disk, parts):
     """Leválasztás, a munkapartíció törlése, és a rendszerpartíció kiterjesztése a lemez végéig."""
     run(["sync"])
-    for mp in (SCRATCH, TARGET / "boot/efi", TARGET):
+    for mp in ("/var/tmp", SCRATCH, TARGET / "boot/efi", TARGET):
         subprocess.run(["umount", str(mp)], capture_output=True)
     release_disk(disk)  # a bootc is csatolva hagyhat valamit (pl. /run/bootc/storage)
     run(["sfdisk", "--delete", disk, "4"])
