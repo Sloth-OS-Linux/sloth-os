@@ -7,7 +7,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: "Frissítések"
+    title: L.t("Frissítések")
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
@@ -58,19 +58,19 @@ Kirigami.ScrollablePage {
                             wrapMode: Text.Wrap
                             level: 2
                             text: updates.busy ? updates.statusText
-                                : updates.needsReboot ? "Újraindítás szükséges"
-                                : updates.updateAvailable ? "Új frissítés érhető el"
-                                : "A rendszered naprakész"
+                                : updates.needsReboot ? L.t("Újraindítás szükséges")
+                                : updates.updateAvailable ? L.t("Új frissítés érhető el")
+                                : L.t("A rendszered naprakész")
                         }
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             opacity: 0.8
                             text: updates.needsReboot && !updates.busy
-                                  ? "Újraindítás után ez indul: " + updates.pendingVersion
+                                  ? L.tf("Újraindítás után ez indul: {version}", { version: updates.pendingVersion })
                                   : updates.updateAvailable && !updates.busy
-                                  ? "Elérhető verzió: " + updates.availableVersion
-                                  : "Jelenlegi verzió: " + (updates.currentVersion || "–")
+                                  ? L.tf("Elérhető verzió: {version}", { version: updates.availableVersion })
+                                  : L.tf("Jelenlegi verzió: {version}", { version: updates.currentVersion || "–" })
                         }
                     }
                 }
@@ -108,25 +108,25 @@ Kirigami.ScrollablePage {
                         visible: !updates.busy && !updates.needsReboot && !updates.updateAvailable
                         enabled: updates.unavailableText === ""
                         icon.name: "view-refresh"
-                        text: "Frissítések keresése"
+                        text: L.t("Frissítések keresése")
                         onClicked: updates.checkForUpdates()
                     }
                     QQC2.Button {
                         visible: !updates.busy && !updates.needsReboot && updates.updateAvailable
                         icon.name: "download"
-                        text: "Frissítés telepítése"
+                        text: L.t("Frissítés telepítése")
                         onClicked: updates.installUpdate()
                     }
                     QQC2.Button {
                         visible: !updates.busy && updates.needsReboot
                         icon.name: "system-reboot"
-                        text: "Újraindítás most"
+                        text: L.t("Újraindítás most")
                         onClicked: updates.reboot()
                     }
                     QQC2.Button {
                         visible: updates.busy && (updates.mode === "check" || updates.mode === "upgrade")
                         icon.name: "dialog-cancel"
-                        text: "Mégse"
+                        text: L.t("Mégse")
                         onClicked: updates.cancel()
                     }
                 }
@@ -136,8 +136,7 @@ Kirigami.ScrollablePage {
                     wrapMode: Text.Wrap
                     opacity: 0.7
                     visible: !updates.busy
-                    text: "A frissítés a háttérben készül el, közben nyugodtan dolgozhatsz tovább. " +
-                          "Az új verzió a következő újraindításkor lép életbe."
+                    text: L.t("A frissítés a háttérben készül el, közben nyugodtan dolgozhatsz tovább. Az új verzió a következő újraindításkor lép életbe.")
                 }
             }
         }
@@ -150,12 +149,12 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: "A mostani verzió megtartása" }
+                    Kirigami.Heading { level: 3; text: L.t("A mostani verzió megtartása") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: "Ha most minden jól működik, megjelölheted ezt a verziót. A későbbi frissítések nem törlik, így ha egy újabb verzióval gond lenne, erre biztosan vissza lehet állni."
+                        text: L.t("Ha most minden jól működik, megjelölheted ezt a verziót. A későbbi frissítések nem törlik, így ha egy újabb verzióval gond lenne, erre biztosan vissza lehet állni.")
                     }
                 }
                 QQC2.Switch {
@@ -173,20 +172,19 @@ Kirigami.ScrollablePage {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Heading {
                     level: 3
-                    text: "Visszaállítás az előző verzióra"
+                    text: L.t("Visszaállítás az előző verzióra")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     text: updates.rollbackVersion !== ""
-                          ? "Ha a legutóbbi frissítés óta valami nem működik jól, visszatérhetsz az előző verzióhoz (" +
-                            updates.rollbackVersion + "). A fájljaid és beállításaid megmaradnak."
-                          : "Még nincs korábbi verzió, amire vissza lehetne állni."
+                          ? L.tf("Ha a legutóbbi frissítés óta valami nem működik jól, visszatérhetsz az előző verzióhoz ({version}). A fájljaid és beállításaid megmaradnak.", { version: updates.rollbackVersion })
+                          : L.t("Még nincs korábbi verzió, amire vissza lehetne állni.")
                 }
                 QQC2.Button {
                     enabled: updates.canRollback
                     icon.name: "edit-undo"
-                    text: "Vissza az előző verzióra"
+                    text: L.t("Vissza az előző verzióra")
                     onClicked: confirmRollback.open()
                 }
             }
@@ -195,18 +193,17 @@ Kirigami.ScrollablePage {
 
     Kirigami.PromptDialog {
         id: confirmRollback
-        title: "Visszaállás az előző verzióra?"
-        subtitle: "Újraindítás után az előző verzió (" + updates.rollbackVersion + ") indul. " +
-                  "A fájljaid és beállításaid megmaradnak, és később újra frissíthetsz."
+        title: L.t("Visszaállás az előző verzióra?")
+        subtitle: L.tf("Újraindítás után az előző verzió ({version}) indul. A fájljaid és beállításaid megmaradnak, és később újra frissíthetsz.", { version: updates.rollbackVersion })
         standardButtons: Kirigami.Dialog.NoButton
         customFooterActions: [
             Kirigami.Action {
-                text: "Visszaállás"
+                text: L.t("Visszaállás")
                 icon.name: "edit-undo"
                 onTriggered: { confirmRollback.close(); updates.rollback(); }
             },
             Kirigami.Action {
-                text: "Mégse"
+                text: L.t("Mégse")
                 icon.name: "dialog-cancel"
                 onTriggered: confirmRollback.close()
             }

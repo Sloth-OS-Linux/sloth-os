@@ -8,17 +8,17 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: "Rendszer egészség"
+    title: L.t("Rendszer egészség")
 
     actions: [
         Kirigami.Action {
-            text: "Újra ellenőrzés"
+            text: L.t("Újra ellenőrzés")
             icon.name: "view-refresh"
             enabled: !health.busy
             onTriggered: health.check()
         },
         Kirigami.Action {
-            text: "Napló mentése"
+            text: L.t("Napló mentése")
             icon.name: "document-save"
             onTriggered: saveDialog.open()
         }
@@ -33,17 +33,17 @@ Kirigami.ScrollablePage {
                 implicitWidth: Kirigami.Units.iconSizes.huge
                 implicitHeight: Kirigami.Units.iconSizes.huge
                 source: health.busy ? "view-refresh"
-                      : health.summary === "Minden rendben van" ? "security-high"
-                      : health.summary === "Pár dologra érdemes figyelni" ? "security-medium" : "security-low"
+                      : health.level === "ok" ? "security-high"
+                      : health.level === "warning" ? "security-medium" : "security-low"
             }
             ColumnLayout {
                 Layout.fillWidth: true
-                Kirigami.Heading { text: health.busy ? "Ellenőrzés…" : health.summary }
+                Kirigami.Heading { text: health.busy ? L.t("Ellenőrzés…") : health.summary }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: "Megnéztük, mi történt a gépen, mióta bekapcsoltad."
+                    text: L.t("Megnéztük, mi történt a gépen, mióta bekapcsoltad.")
                 }
             }
         }
@@ -52,7 +52,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             type: Kirigami.MessageType.Positive
             visible: health.savedPath !== ""
-            text: "A napló elmentve: " + health.savedPath + ". Ezt a fájlt küldd el annak, aki segít."
+            text: L.tf("A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.", { path: health.savedPath })
         }
 
         Repeater {
@@ -94,11 +94,11 @@ Kirigami.ScrollablePage {
 
     FileDialog {
         id: saveDialog
-        title: "Napló mentése"
+        title: L.t("Napló mentése")
         fileMode: FileDialog.SaveFile
         defaultSuffix: "txt"
         currentFile: StandardPaths.writableLocation(StandardPaths.DesktopLocation) + "/sloth-os-naplo.txt"
-        nameFilters: ["Szövegfájl (*.txt)"]
+        nameFilters: [L.t("Szövegfájl (*.txt)")]
         onAccepted: health.saveLog(selectedFile.toString())
     }
 }

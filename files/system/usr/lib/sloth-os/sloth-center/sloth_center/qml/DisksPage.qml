@@ -6,11 +6,11 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: "Lemezek"
+    title: L.t("Lemezek")
 
     actions: [
         Kirigami.Action {
-            text: "Frissítés"
+            text: L.t("Frissítés")
             icon.name: "view-refresh"
             onTriggered: disks.refresh()
         }
@@ -30,7 +30,7 @@ Kirigami.ScrollablePage {
                     RowLayout {
                         spacing: Kirigami.Units.largeSpacing
                         Kirigami.Icon {
-                            source: card.modelData.kind === "Cserélhető meghajtó" ? "drive-removable-media" : "drive-harddisk"
+                            source: card.modelData.kind === L.t("Cserélhető meghajtó") ? "drive-removable-media" : "drive-harddisk"
                             implicitWidth: Kirigami.Units.iconSizes.large
                             implicitHeight: Kirigami.Units.iconSizes.large
                         }
@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
                                 level: 3
                                 Layout.fillWidth: true
                                 elide: Text.ElideRight
-                                text: card.modelData.system ? "Rendszerlemez" : card.modelData.name
+                                text: card.modelData.system ? L.t("Rendszerlemez") : card.modelData.name
                             }
                             QQC2.Label {
                                 Layout.fillWidth: true
@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
                             checkable: false
                             closable: false
                             icon.name: card.modelData.health === "ok" ? "checkmark" : "dialog-warning"
-                            text: card.modelData.health === "ok" ? "Egészséges" : "Hibás lehet!"
+                            text: card.modelData.health === "ok" ? L.t("Egészséges") : L.t("Hibás lehet!")
                         }
                     }
                     QQC2.ProgressBar {
@@ -69,7 +69,7 @@ Kirigami.ScrollablePage {
                         QQC2.Label { Layout.fillWidth: true; text: card.modelData.usageText }
                         QQC2.Button {
                             visible: card.modelData.openPath !== ""
-                            text: "Megnyitás"
+                            text: L.t("Megnyitás")
                             icon.name: "folder-open"
                             onClicked: disks.openFolder(card.modelData.openPath)
                         }
@@ -78,7 +78,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         visible: card.modelData.health !== "ok"
                         type: Kirigami.MessageType.Error
-                        text: "Ez a meghajtó a saját önellenőrzése szerint meghibásodhat. Mentsd el minél előbb a fontos fájljaidat egy másik helyre!"
+                        text: L.t("Ez a meghajtó a saját önellenőrzése szerint meghibásodhat. Mentsd el minél előbb a fontos fájljaidat egy másik helyre!")
                     }
                 }
             }
@@ -91,13 +91,13 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: "Felesleges fájlok törlése" }
+                    Kirigami.Heading { level: 3; text: L.t("Felesleges fájlok törlése") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
                         text: disks.cleanupText !== "" ? disks.cleanupText
-                              : "Törli azokat a rendszerösszetevőket, amelyeket már egyetlen app sem használ (például egy törölt app után maradtak). A fájljaidhoz nem nyúl."
+                              : L.t("Törli azokat a rendszerösszetevőket, amelyeket már egyetlen app sem használ (például egy törölt app után maradtak). A fájljaidhoz nem nyúl.")
                     }
                 }
                 QQC2.BusyIndicator {
@@ -107,7 +107,7 @@ Kirigami.ScrollablePage {
                 QQC2.Button {
                     enabled: !disks.busy
                     icon.name: "edit-clear-all"
-                    text: "Takarítás"
+                    text: L.t("Takarítás")
                     onClicked: disks.cleanup()
                 }
             }

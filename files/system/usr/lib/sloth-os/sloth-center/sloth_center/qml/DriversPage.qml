@@ -6,7 +6,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: "Driverek és hardver"
+    title: L.t("Driverek és hardver")
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
@@ -23,7 +23,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: "Videókártya" }
+                Kirigami.Heading { level: 3; text: L.t("Videókártya") }
                 Repeater {
                     model: drivers.gpus
                     delegate: RowLayout {
@@ -44,8 +44,8 @@ Kirigami.ScrollablePage {
                     opacity: 0.8
                     visible: drivers.canSwitch && !drivers.mismatch
                     text: drivers.nvidiaImage
-                          ? "A Sloth OS NVIDIA-s változata fut, az NVIDIA driver telepítve van. Minden rendben."
-                          : "A Sloth OS AMD/Intel változata fut, a driverek a rendszer részei. Minden rendben."
+                          ? L.t("A Sloth OS NVIDIA-s változata fut, az NVIDIA driver telepítve van. Minden rendben.")
+                          : L.t("A Sloth OS AMD/Intel változata fut, a driverek a rendszer részei. Minden rendben.")
                 }
             }
         }
@@ -60,23 +60,23 @@ Kirigami.ScrollablePage {
                     level: 3
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
-                    text: drivers.infoText === "switched" ? "Kész! Indítsd újra a gépet."
-                        : drivers.hasNvidia ? "Váltás az NVIDIA-s változatra"
-                        : "Váltás az AMD/Intel változatra"
+                    text: drivers.infoText === "switched" ? L.t("Kész! Indítsd újra a gépet.")
+                        : drivers.hasNvidia ? L.t("Váltás az NVIDIA-s változatra")
+                        : L.t("Váltás az AMD/Intel változatra")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     visible: !drivers.busy && drivers.infoText !== "switched"
                     text: drivers.hasNvidia
-                          ? "A gépedben NVIDIA videókártya van, de a Sloth OS AMD/Intel változata fut. Az NVIDIA-s változattal a játékok sokkal jobban futnak. A fájljaid és beállításaid megmaradnak."
-                          : "A gépedben nincs NVIDIA videókártya, ezért az AMD/Intel változat a jobb választás. A fájljaid és beállításaid megmaradnak."
+                          ? L.t("A gépedben NVIDIA videókártya van, de a Sloth OS AMD/Intel változata fut. Az NVIDIA-s változattal a játékok sokkal jobban futnak. A fájljaid és beállításaid megmaradnak.")
+                          : L.t("A gépedben nincs NVIDIA videókártya, ezért az AMD/Intel változat a jobb választás. A fájljaid és beállításaid megmaradnak.")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     visible: drivers.infoText === "switched"
-                    text: "Újraindítás után az új változat indul. Ha valami nem stimmel, a Frissítések oldalon visszaállhatsz."
+                    text: L.t("Újraindítás után az új változat indul. Ha valami nem stimmel, a Frissítések oldalon visszaállhatsz.")
                 }
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -94,13 +94,13 @@ Kirigami.ScrollablePage {
                     visible: !drivers.busy && drivers.infoText !== "switched"
                     highlighted: true
                     icon.name: "download"
-                    text: "Váltás most"
+                    text: L.t("Váltás most")
                     onClicked: drivers.switchVariant()
                 }
                 QQC2.Button {
                     visible: drivers.infoText === "switched"
                     icon.name: "system-reboot"
-                    text: "Újraindítás most"
+                    text: L.t("Újraindítás most")
                     onClicked: updates.reboot()
                 }
             }
@@ -116,19 +116,19 @@ Kirigami.ScrollablePage {
                     level: 3
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
-                    text: drivers.keyPending ? "Még egy lépés: indítsd újra a gépet" : "Az NVIDIA driverhez egy engedély kell"
+                    text: drivers.keyPending ? L.t("Még egy lépés: indítsd újra a gépet") : L.t("Az NVIDIA driverhez egy engedély kell")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     visible: drivers.keyNeeded
-                    text: "A gépeden be van kapcsolva a biztonságos rendszerindítás (Secure Boot). Hogy az NVIDIA driver betöltődhessen, egyszer engedélyezni kell a Sloth OS kulcsát. Ez pár kattintás, és utána soha többé nem kell vele foglalkozni."
+                    text: L.t("A gépeden be van kapcsolva a biztonságos rendszerindítás (Secure Boot). Hogy az NVIDIA driver betöltődhessen, egyszer engedélyezni kell a Sloth OS kulcsát. Ez pár kattintás, és utána soha többé nem kell vele foglalkozni.")
                 }
                 QQC2.Button {
                     visible: drivers.keyNeeded
                     highlighted: true
                     icon.name: "security-high"
-                    text: "Engedélyezés előkészítése"
+                    text: L.t("Engedélyezés előkészítése")
                     onClicked: drivers.enrollKey()
                 }
                 // Lépésről lépésre a kék képernyőhöz (azt a gép firmware-e mutatja, angolul)
@@ -139,15 +139,15 @@ Kirigami.ScrollablePage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
-                        text: "Újraindításkor egy kék képernyő jelenik meg (angolul). Ott a nyilakkal és az Enterrel:"
+                        text: L.t("Újraindításkor egy kék képernyő jelenik meg (angolul). Ott a nyilakkal és az Enterrel:")
                     }
                     Repeater {
                         model: [
-                            "Nyomj meg egy gombot, amikor a „Press any key” felirat látszik.",
-                            "Válaszd: „Enroll MOK”.",
-                            "Válaszd: „Continue”, majd „Yes”.",
-                            "Jelszónak írd be: universalblue (a képernyőn nem látszik, amit gépelsz).",
-                            "Válaszd: „Reboot”. Ennyi!"
+                            L.t("Nyomj meg egy gombot, amikor a „Press any key” felirat látszik."),
+                            L.t("Válaszd: „Enroll MOK”."),
+                            L.t("Válaszd: „Continue”, majd „Yes”."),
+                            L.t("Jelszónak írd be: universalblue (a képernyőn nem látszik, amit gépelsz)."),
+                            L.t("Válaszd: „Reboot”. Ennyi!")
                         ]
                         delegate: QQC2.Label {
                             required property string modelData
@@ -161,11 +161,11 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.7
-                        text: "Ha véletlenül kihagyod, semmi gond: a gép elindul, és ez az oldal újra felajánlja."
+                        text: L.t("Ha véletlenül kihagyod, semmi gond: a gép elindul, és ez az oldal újra felajánlja.")
                     }
                     QQC2.Button {
                         icon.name: "system-reboot"
-                        text: "Újraindítás most"
+                        text: L.t("Újraindítás most")
                         onClicked: updates.reboot()
                     }
                 }

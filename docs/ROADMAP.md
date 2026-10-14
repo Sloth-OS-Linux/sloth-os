@@ -9,8 +9,8 @@ terminálból lehet csinálni, GUI-ból is menjen.
   - a telepítés végén beíródik-e a nyelv, a billentyűzet és az időzóna (az előző ISO-n ez nem ment);
   - a kicsomagolt image-ből (`containers-storage`) rendben települ-e, és mekkora lett az ISO (cél kb. 5 GB);
   - rejtett-e a GRUB menü, látszik-e a Firefox a kipróbáláskor, és „Sloth OS” lett-e a firmware boot-bejegyzés.
-- Utána: a Sloth Központ fordítása 50 nyelvre (az Üdvözlő, a telepítő és az .exe kezelő már kész),
-  majd a Windows mellé telepítés.
+- Utána: a Sloth Központ fordítása a maradék 48 nyelvre (a kód már fordítható, a magyar és az angol kész;
+  hiányzók listája: `python tools/extract_center_strings.py <nyelv>`), majd a Windows mellé telepítés.
 
 ## 0. fázis – Alap image ✅ (ez a repó)
 - [x] Universal Blue Kinoite alap, AMD/Intel + NVIDIA változat
@@ -80,8 +80,8 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   - [x] Többnyelvű: a Fedora telepítő mind az 50 használható nyelvén (amelyeken az Anaconda legalább félig le van
     fordítva, plusz norvég bokmål), jobbról balra írással (arab, héber) és minden írásrendszerhez betűtípussal
     (`sloth_welcome/translations/*.json`, ellenőrzés: `tools/check_translations.py`); alapból a rendszer nyelvén indul,
-    az első lapon átváltható. Hátravan: anyanyelvi átnézés (a fordításokat MI készítette), a Sloth Központ és
-    a .exe kezelő fordítása
+    az első lapon átváltható. Hátravan: anyanyelvi átnézés (a fordításokat MI készítette), a Sloth Központ
+    fordítása a maradék 48 nyelvre (magyar és angol kész)
   - [x] A végén gyors gombok: Steam-bejelentkezés, online fiókok, nyelv és régió (a nyelvet a telepítő kérdezi)
   - [x] Az ArtCraft frissítése: felhasználói telepítés + napi háttérfrissítő (`sloth-github-bundle-update.timer`, SHA256 ellenőrzéssel); VM-ben még tesztelni
 - [ ] **Sloth Központ** (egy app, modulokra bontva; `files/system/usr/lib/sloth-os/sloth-center/`):

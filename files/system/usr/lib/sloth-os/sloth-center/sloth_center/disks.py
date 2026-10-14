@@ -10,6 +10,8 @@ import threading
 
 import gi
 
+from .i18n import tr
+
 gi.require_version("Flatpak", "1.0")
 from gi.repository import Flatpak, Gio, GLib  # noqa: E402
 from PySide6.QtCore import QObject, Property, Signal, Slot  # noqa: E402
@@ -47,10 +49,10 @@ def list_drives():
             if ata.get("SmartFailing"):
                 health = "failing"
             temp = ata.get("SmartTemperature", 0)
-        kind = "SSD" if d.get("RotationRate") == 0 else "Merevlemez"
+        kind = "SSD" if d.get("RotationRate") == 0 else tr("Merevlemez")
         if d.get("Removable") or d.get("MediaRemovable"):
-            kind = "Cserélhető meghajtó"
-        drives[path] = {"name": (d.get("Vendor", "") + " " + d.get("Model", "")).strip() or "Meghajtó",
+            kind = tr("Cserélhető meghajtó")
+        drives[path] = {"name": (d.get("Vendor", "") + " " + d.get("Model", "")).strip() or tr("Meghajtó"),
                         "kind": kind, "size": d["Size"], "health": health,
                         "temp": round(temp - 273.15) if temp else 0, "mounts": [], "used": 0, "total": 0}
 
@@ -74,9 +76,9 @@ def list_drives():
     for d in sorted(drives.values(), key=lambda x: ("/" not in x["mounts"], x["name"])):
         total = d["total"] or d["size"]
         d["usedPercent"] = round(100 * d["used"] / total) if d["total"] else 0
-        d["usageText"] = (f"{_size_text(d['used'])} foglalt / {_size_text(d['total'])}, "
-                          f"{_size_text(d['total'] - d['used'])} szabad") if d["total"] else \
-                         f"{_size_text(d['size'])}, nincs csatlakoztatva"
+        d["usageText"] = tr("{used} foglalt / {total}, {free} szabad", used=_size_text(d["used"]),
+                            total=_size_text(d["total"]), free=_size_text(d["total"] - d["used"])) \
+            if d["total"] else tr("{size}, nincs csatlakoztatva", size=_size_text(d["size"]))
         d["system"] = "/" in d["mounts"] or "/var" in d["mounts"] or "/sysroot" in d["mounts"]
         d["openPath"] = next((m for m in d["mounts"] if m not in ("/", "/boot", "/boot/efi", "/sysroot")),
                              os.path.expanduser("~") if d["system"] else "")
@@ -140,13 +142,13 @@ class DisksController(QObject):
         if self._busy:
             return
         self._busy = True
-        self._cleanup = "Felesleges fájlok keresése…"
+        self._cleanup = tr("Felesleges fájlok keresése…")
         self.changed.emit()
 
         def work():
             refs = unused_flatpak_refs()
             if not refs:
-                self._cleanup_ready.emit(None, "Nincs mit törölni, minden rendben.")
+                self._cleanup_ready.emit(None, tr("Nincs mit törölni, minden rendben."))
                 return
             freed = sum(r.get_installed_size() for _i, r in refs)
             by_inst = {}
@@ -158,10 +160,10 @@ class DisksController(QObject):
                     for n in names:
                         txn.add_uninstall(n)
                     txn.run(None)
-                self._cleanup_ready.emit(None, f"Kész! {_size_text(freed)} hely szabadult fel.")
+                self._cleanup_ready.emit(None, tr("Kész! {size} hely szabadult fel.", size=_size_text(freed)))
             except GLib.Error as e:
                 log.warning("cleanup: %s", e.message)
-                self._cleanup_ready.emit(None, "Nem sikerült mindent törölni. Próbáld újra később.")
+                self._cleanup_ready.emit(None, tr("Nem sikerült mindent törölni. Próbáld újra később."))
 
         threading.Thread(target=work, daemon=True).start()
 

@@ -2,59 +2,61 @@
 
 A felhasználó soha nem látja a nyers kimenetet; csak azt, hogy épp mi történik
 ("Frissítés letöltése…"). A nyers szöveg a naplóba kerül hibakereséshez.
+A szövegek a választott nyelven jelennek meg (i18n.py).
 """
 import datetime
 import re
 
+from PySide6.QtCore import QDate, QLocale
+
+from .i18n import N_, catalog, tr
+
 # (minta, szöveg) párok; az első egyező nyer. A minták kisbetűsek.
 _STAGES = [
-    (("rollback",), "Visszaállítás előkészítése…"),
+    (("rollback",), N_("Visszaállítás előkészítése…")),
     (("pulling manifest", "checking for updates", "receiving metadata", "scanning metadata",
-      "resolving", "fetching manifest", "updating metadata"), "Frissítés keresése…"),
+      "resolving", "fetching manifest", "updating metadata"), N_("Frissítés keresése…")),
     (("importing", "unpacking", "checking out", "writing objects", "applying"),
-     "Frissítés kicsomagolása…"),
+     N_("Frissítés kicsomagolása…")),
     (("fetching", "receiving objects", "receiving delta", "downloading", "pulling", "layer", "chunk"),
-     "Frissítés letöltése…"),
+     N_("Frissítés letöltése…")),
     (("staging deployment", "deploying", "writing", "regenerating initramfs", "running", "relabeling",
-      "finalizing", "copying /etc", "bootloader"), "Frissítés előkészítése az újraindításhoz…"),
-    (("pruning", "cleanup", "cleaning", "freed"), "Takarítás…"),
+      "finalizing", "copying /etc", "bootloader"), N_("Frissítés előkészítése az újraindításhoz…")),
+    (("pruning", "cleanup", "cleaning", "freed"), N_("Takarítás…")),
 ]
 
 _ERRORS = [
     (("not authorized", "authentication", "permission denied", "polkit"),
-     "Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad."),
+     N_("Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad.")),
     (("no space", "enospc", "disk full"),
-     "Nincs elég szabad hely a lemezen. Szabadíts fel helyet, és próbáld újra."),
+     N_("Nincs elég szabad hely a lemezen. Szabadíts fel helyet, és próbáld újra.")),
     (("could not resolve", "network", "timed out", "timeout", "connection refused",
       "temporary failure", "unreachable", "tls", "dns"),
-     "Nem sikerült elérni a frissítési szervert. Ellenőrizd az internetkapcsolatot."),
+     N_("Nem sikerült elérni a frissítési szervert. Ellenőrizd az internetkapcsolatot.")),
     (("transaction in progress", "already in progress", "busy"),
-     "Egy másik frissítés éppen fut a háttérben. Megvárjuk, amíg végez."),
-    (("cancelled", "canceled"), "A műveletet megszakítottad."),
+     N_("Egy másik frissítés éppen fut a háttérben. Megvárjuk, amíg végez.")),
+    (("cancelled", "canceled"), N_("A műveletet megszakítottad.")),
 ]
 
-GENERIC_ERROR = "Valami nem sikerült. Próbáld újra később, vagy indítsd újra a gépet."
-GENERIC_BUSY = "Dolgozom rajta…"
-
-_MONTHS = ["január", "február", "március", "április", "május", "június", "július",
-           "augusztus", "szeptember", "október", "november", "december"]
+GENERIC_ERROR = N_("Valami nem sikerült. Próbáld újra később, vagy indítsd újra a gépet.")
+GENERIC_BUSY = N_("Dolgozom rajta…")
 
 
-def stage_text(raw, current=GENERIC_BUSY):
+def stage_text(raw, current=None):
     """A technikai lépésnévből emberi szöveg. Ha nem ismerjük, marad az előző."""
     low = (raw or "").lower()
     for patterns, text in _STAGES:
         if any(p in low for p in patterns):
-            return text
-    return current
+            return tr(text)
+    return current or tr(GENERIC_BUSY)
 
 
 def error_text(raw):
     low = (raw or "").lower()
     for patterns, text in _ERRORS:
         if any(p in low for p in patterns):
-            return text
-    return GENERIC_ERROR
+            return tr(text)
+    return tr(GENERIC_ERROR)
 
 
 def size_text(nbytes):
@@ -68,17 +70,18 @@ def size_text(nbytes):
 def download_text(transferred, rate):
     if transferred <= 0:
         return ""
-    text = f"{size_text(transferred)} letöltve"
+    text = tr("{size} letöltve", size=size_text(transferred))
     if rate > 0:
-        text += f" · {size_text(rate)}/mp"
+        text += " · " + tr("{size}/mp", size=size_text(rate))
     return text
 
 
 def date_text(timestamp):
+    """Dátum a választott nyelv szokása szerint (pl. "2026. október 13." / "October 13, 2026")."""
     if not timestamp:
         return ""
     d = datetime.datetime.fromtimestamp(int(timestamp))
-    return f"{d.year}. {_MONTHS[d.month - 1]} {d.day}."
+    return QLocale(catalog.language()).toString(QDate(d.year, d.month, d.day), QLocale.FormatType.LongFormat)
 
 
 def version_text(deployment):

@@ -7,12 +7,12 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: "Fejlesztői környezetek"
+    title: L.t("Fejlesztői környezetek")
     property string selectedBox: ""
 
     actions: [
         Kirigami.Action {
-            text: "Frissítés"
+            text: L.t("Frissítés")
             icon.name: "view-refresh"
             onTriggered: containers.refresh()
         }
@@ -25,7 +25,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             wrapMode: Text.Wrap
             opacity: 0.8
-            text: "Egy „doboz” egy másik Linux-rendszer (például Ubuntu), ami a Sloth OS-en belül fut. Akkor hasznos, ha egy program csak arra a rendszerre készült. A dobozban telepített appokat a Start menübe is kiteheted."
+            text: L.t("Egy „doboz” egy másik Linux-rendszer (például Ubuntu), ami a Sloth OS-en belül fut. Akkor hasznos, ha egy program csak arra a rendszerre készült. A dobozban telepített appokat a Start menübe is kiteheted.")
         }
 
         Kirigami.InlineMessage {
@@ -68,11 +68,11 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true
                             spacing: 0
                             Kirigami.Heading { level: 3; text: boxCard.modelData.name }
-                            QQC2.Label { opacity: 0.7; text: boxCard.modelData.distro + (boxCard.modelData.running ? " · fut" : "") }
+                            QQC2.Label { opacity: 0.7; text: boxCard.modelData.distro + (boxCard.modelData.running ? " · " + L.t("fut") : "") }
                         }
                         QQC2.Button {
                             icon.name: "view-list-icons"
-                            text: page.selectedBox === boxCard.modelData.name ? "Bezárás" : "Kezelés"
+                            text: page.selectedBox === boxCard.modelData.name ? L.t("Bezárás") : L.t("Kezelés")
                             onClicked: {
                                 if (page.selectedBox === boxCard.modelData.name) {
                                     page.selectedBox = "";
@@ -94,23 +94,23 @@ Kirigami.ScrollablePage {
                             QQC2.TextField {
                                 id: pkgField
                                 Layout.fillWidth: true
-                                placeholderText: "Program telepítése a dobozba (csomagnév, pl. gimp)"
+                                placeholderText: L.t("Program telepítése a dobozba (csomagnév, pl. gimp)")
                                 onAccepted: installBtn.clicked()
                             }
                             QQC2.Button {
                                 id: installBtn
                                 enabled: pkgField.text.trim() !== "" && !containers.busy
                                 icon.name: "download"
-                                text: "Telepítés"
+                                text: L.t("Telepítés")
                                 onClicked: { containers.installPackage(boxCard.modelData.name, pkgField.text); pkgField.text = ""; }
                             }
                         }
 
-                        Kirigami.Heading { level: 4; text: "Appok a Start menübe" }
+                        Kirigami.Heading { level: 4; text: L.t("Appok a Start menübe") }
                         QQC2.Label {
                             visible: containers.apps.length === 0
                             opacity: 0.7
-                            text: "Ebben a dobozban még nincs grafikus app."
+                            text: L.t("Ebben a dobozban még nincs grafikus app.")
                         }
                         Repeater {
                             model: containers.apps
@@ -127,13 +127,13 @@ Kirigami.ScrollablePage {
                         RowLayout {
                             QQC2.Button {
                                 icon.name: "utilities-terminal"
-                                text: "Parancssor megnyitása"
+                                text: L.t("Parancssor megnyitása")
                                 onClicked: containers.openTerminal(boxCard.modelData.name)
                             }
                             Item { Layout.fillWidth: true }
                             QQC2.Button {
                                 icon.name: "edit-delete"
-                                text: "Doboz törlése"
+                                text: L.t("Doboz törlése")
                                 enabled: !containers.busy
                                 onClicked: { confirmRemove.target = boxCard.modelData.name; confirmRemove.open(); }
                             }
@@ -147,7 +147,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             visible: containers.boxes.length === 0 && !containers.busy
             icon.name: "utilities-terminal"
-            text: "Még nincs dobozod"
+            text: L.t("Még nincs dobozod")
         }
 
         // --- Új doboz ------------------------------------------------------------------
@@ -155,7 +155,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: "Új doboz" }
+                Kirigami.Heading { level: 3; text: L.t("Új doboz") }
                 RowLayout {
                     Layout.fillWidth: true
                     QQC2.ComboBox {
@@ -169,13 +169,13 @@ Kirigami.ScrollablePage {
                     QQC2.TextField {
                         id: nameField
                         Layout.fillWidth: true
-                        placeholderText: "A doboz neve"
+                        placeholderText: L.t("A doboz neve")
                     }
                     QQC2.Button {
                         enabled: !containers.busy && nameField.text.trim() !== ""
                         highlighted: true
                         icon.name: "list-add"
-                        text: "Létrehozás"
+                        text: L.t("Létrehozás")
                         onClicked: containers.create(distroBox.currentValue, nameField.text)
                     }
                 }
@@ -183,7 +183,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.7
-                    text: "Az első létrehozás a netkapcsolattól függően néhány percig tarthat."
+                    text: L.t("Az első létrehozás a netkapcsolattól függően néhány percig tarthat.")
                 }
             }
         }
@@ -192,17 +192,17 @@ Kirigami.ScrollablePage {
     Kirigami.PromptDialog {
         id: confirmRemove
         property string target: ""
-        title: "Törlöd a(z) „" + target + "” dobozt?"
-        subtitle: "A dobozban telepített programok törlődnek. A saját mappádban lévő fájljaid megmaradnak."
+        title: L.tf("Törlöd a(z) „{name}” dobozt?", { name: target })
+        subtitle: L.t("A dobozban telepített programok törlődnek. A saját mappádban lévő fájljaid megmaradnak.")
         standardButtons: Kirigami.Dialog.NoButton
         customFooterActions: [
             Kirigami.Action {
-                text: "Törlés"
+                text: L.t("Törlés")
                 icon.name: "edit-delete"
                 onTriggered: { containers.remove(confirmRemove.target); page.selectedBox = ""; confirmRemove.close(); }
             },
             Kirigami.Action {
-                text: "Mégse"
+                text: L.t("Mégse")
                 icon.name: "dialog-cancel"
                 onTriggered: confirmRemove.close()
             }

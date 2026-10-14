@@ -7,7 +7,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ApplicationWindow {
     id: root
-    title: "Sloth Központ"
+    title: L.t("Sloth Központ")
     visible: true
     width: Kirigami.Units.gridUnit * 56
     height: Kirigami.Units.gridUnit * 38
@@ -16,16 +16,16 @@ Kirigami.ApplicationWindow {
 
     // A modulok listája. A "ready: false" modulok még készülnek (ROADMAP 3. fázis).
     readonly property var modules: [
-        { id: "updates", name: "Frissítések", icon: "system-software-update", page: "UpdatesPage.qml", ready: true },
-        { id: "winprograms", name: "Windows-programok", icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true },
-        { id: "drivers", name: "Driverek és hardver", icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true },
-        { id: "services", name: "Szolgáltatások", icon: "preferences-system-services", page: "ServicesPage.qml", ready: true },
-        { id: "health", name: "Rendszer egészség", icon: "dialog-information", page: "HealthPage.qml", ready: true },
-        { id: "disks", name: "Lemezek", icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
-        { id: "containers", name: "Fejlesztői környezetek", icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },
-        { id: "advanced", name: "Haladó beállítások", icon: "configure", page: "AdvancedPage.qml", ready: true },
-        { id: "devpanel", name: "Fejlesztői pult", icon: "applications-development", ready: false,
-          description: "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés." }
+        { id: "updates", name: L.t("Frissítések"), icon: "system-software-update", page: "UpdatesPage.qml", ready: true },
+        { id: "winprograms", name: L.t("Windows-programok"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true },
+        { id: "drivers", name: L.t("Driverek és hardver"), icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true },
+        { id: "services", name: L.t("Szolgáltatások"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true },
+        { id: "health", name: L.t("Rendszer egészség"), icon: "dialog-information", page: "HealthPage.qml", ready: true },
+        { id: "disks", name: L.t("Lemezek"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
+        { id: "containers", name: L.t("Fejlesztői környezetek"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },
+        { id: "advanced", name: L.t("Haladó beállítások"), icon: "configure", page: "AdvancedPage.qml", ready: true },
+        { id: "devpanel", name: L.t("Fejlesztői pult"), icon: "applications-development", ready: false,
+          description: L.t("A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.") }
     ]
     property int currentIndex: 0
 
@@ -62,7 +62,7 @@ Kirigami.ApplicationWindow {
                     implicitHeight: Kirigami.Units.iconSizes.large
                 }
                 Kirigami.Heading {
-                    text: "Sloth Központ"
+                    text: L.t("Sloth Központ")
                     level: 2
                     Layout.fillWidth: true
                     elide: Text.ElideRight
@@ -97,7 +97,7 @@ Kirigami.ApplicationWindow {
                 anchors.centerIn: parent
                 width: parent.width - Kirigami.Units.gridUnit * 4
                 icon.name: parent.module ? parent.module.icon : ""
-                text: "Hamarosan"
+                text: L.t("Hamarosan")
                 explanation: parent.module ? parent.module.description : ""
             }
         }

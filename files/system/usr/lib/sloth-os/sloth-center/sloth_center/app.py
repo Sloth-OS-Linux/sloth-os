@@ -4,7 +4,7 @@ import os
 import sys
 from pathlib import Path
 
-from PySide6.QtCore import QUrl
+from PySide6.QtCore import Qt, QUrl
 from PySide6.QtGui import QIcon
 from PySide6.QtQml import QQmlApplicationEngine
 from PySide6.QtWidgets import QApplication
@@ -19,7 +19,10 @@ def main():
 
     app = QApplication(sys.argv)
     app.setApplicationName("sloth-center")
-    app.setApplicationDisplayName("Sloth Központ")
+    from .i18n import Translator, catalog, tr
+    app.setApplicationDisplayName(tr("Sloth Központ"))
+    if catalog.is_rtl():
+        app.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
     app.setOrganizationDomain("slothos.org")
     app.setDesktopFileName("org.slothos.center")
     app.setWindowIcon(QIcon.fromTheme("sloth-os"))
@@ -36,6 +39,8 @@ def main():
     from .winprograms import WinProgramsController
 
     engine = QQmlApplicationEngine()
+    translator = Translator()
+    engine.rootContext().setContextProperty("L", translator)
     updates = UpdatesController()
     winprograms = WinProgramsController()
     services = ServicesController()

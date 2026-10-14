@@ -12,6 +12,8 @@ import threading
 
 from PySide6.QtCore import QObject, QProcess, Property, Signal, Slot
 
+from .i18n import tr
+
 log = logging.getLogger("sloth-center.containers")
 
 # (azonosító, megjelenített név, image, csomagkezelő)
@@ -34,13 +36,13 @@ INSTALL_CMD = {
 def _human_stage(line, current):
     low = line.lower()
     if "copying blob" in low or "pulling" in low or "trying to pull" in low:
-        return "Letöltés…"
+        return tr("Letöltés…")
     if "writing manifest" in low or "storing signatures" in low or "creating" in low:
-        return "Doboz létrehozása…"
+        return tr("Doboz létrehozása…")
     if "setting up" in low or "installing" in low or "unpacking" in low or "downloading" in low:
-        return "Telepítés…"
+        return tr("Telepítés…")
     if "container setup complete" in low or "successfully" in low:
-        return "Majdnem kész…"
+        return tr("Majdnem kész…")
     return current
 
 
@@ -121,7 +123,7 @@ class ContainersController(QObject):
                 if then:
                     then()
             else:
-                self._error = "Nem sikerült. Ellenőrizd az internetkapcsolatot, és próbáld újra."
+                self._error = tr("Nem sikerült. Ellenőrizd az internetkapcsolatot, és próbáld újra.")
             self.refresh()
 
         self._proc.readyReadStandardOutput.connect(read)
@@ -134,27 +136,27 @@ class ContainersController(QObject):
         name = name.strip().lower()
         distro = next((d for d in DISTROS if d[0] == distro_id), None)
         if not distro or not NAME_RE.match(name):
-            self._error = "Adj meg egy nevet kisbetűkkel, szóköz nélkül (pl. „ubuntu-doboz”)."
+            self._error = tr("Adj meg egy nevet kisbetűkkel, szóköz nélkül (pl. „ubuntu-doboz”).")
             self.changed.emit()
             return
         if any(b["name"] == name for b in self._boxes):
-            self._error = "Már van ilyen nevű doboz."
+            self._error = tr("Már van ilyen nevű doboz.")
             self.changed.emit()
             return
 
         def first_start():
             # Az első indítás állítja be a dobozt (felhasználó, integráció); ez is eltart egy ideig
-            self._run(["distrobox", "enter", name, "--", "true"], "Első indítás előkészítése…",
-                      f"Kész! A(z) „{name}” doboz használható.")
+            self._run(["distrobox", "enter", name, "--", "true"], tr("Első indítás előkészítése…"),
+                      tr("Kész! A(z) „{name}” doboz használható.", name=name))
 
         self._run(["distrobox", "create", "--yes", "--name", name, "--image", distro[2]],
-                  f"{distro[1]} letöltése…", "", first_start)
+                  tr("{name} letöltése…", name=distro[1]), "", first_start)
 
     @Slot(str)
     def remove(self, name):
         if NAME_RE.match(name):
             self._apps = []
-            self._run(["distrobox", "rm", "--force", name], "Doboz törlése…", "A doboz törölve.")
+            self._run(["distrobox", "rm", "--force", name], tr("Doboz törlése…"), tr("A doboz törölve."))
 
     @Slot(str)
     def openTerminal(self, name):
@@ -167,13 +169,13 @@ class ContainersController(QObject):
         box = next((b for b in self._boxes if b["name"] == name), None)
         pkgs = [p for p in re.split(r"[\s,]+", package.strip()) if p]
         if not box or not box["pm"] or not pkgs or not all(PKG_RE.match(p) for p in pkgs):
-            self._error = "Adj meg egy érvényes csomagnevet."
+            self._error = tr("Adj meg egy érvényes csomagnevet.")
             self.changed.emit()
             return
         cmd = f"{INSTALL_CMD[box['pm']]} {' '.join(pkgs)}"
         self._run(["distrobox", "enter", name, "--", "sh", "-c", cmd],
-                  f"{', '.join(pkgs)} telepítése a dobozba…",
-                  "Telepítve. Ha grafikus app, az „Appok a Start menübe” résznél kiteheted.",
+                  tr("{packages} telepítése a dobozba…", packages=", ".join(pkgs)),
+                  tr("Telepítve. Ha grafikus app, az „Appok a Start menübe” résznél kiteheted."),
                   lambda: self.listApps(name))
 
     @Slot(str)
@@ -214,6 +216,6 @@ class ContainersController(QObject):
         args = ["distrobox", "enter", name, "--", "distrobox-export", "--app", app_id]
         if not exported:
             args.append("--delete")
-        self._run(args, "Start menü frissítése…",
-                  "Kész, megjelent a Start menüben." if exported else "Kész, eltávolítva a Start menüből.",
+        self._run(args, tr("Start menü frissítése…"),
+                  tr("Kész, megjelent a Start menüben.") if exported else tr("Kész, eltávolítva a Start menüből."),
                   lambda: self.listApps(name))

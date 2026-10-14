@@ -10,6 +10,8 @@ from pathlib import Path
 from gi.repository import GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
+from .i18n import tr
+
 from . import texts
 from .rpmostree import RpmOstree, Transaction
 
@@ -52,7 +54,7 @@ def detect_gpus():
             device = (dev / "device").read_text().strip()
         except OSError:
             continue
-        brand = VENDORS.get(vendor, "Egyéb")
+        brand = VENDORS.get(vendor, tr("Egyéb"))
         name = _pci_name(vendor, device)
         gpus.append({"brand": brand, "name": f"{brand} {name}".strip() if name and brand not in name else (name or brand)})
     return gpus
@@ -154,9 +156,9 @@ class DriversController(QObject):
         if result.get("ok"):
             self._info = "enrolled"
         elif r.returncode in (126, 127):
-            self._error = "Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad."
+            self._error = tr("Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad.")
         else:
-            self._error = "Nem sikerült előkészíteni a kulcs regisztrálását. Próbáld újra."
+            self._error = tr("Nem sikerült előkészíteni a kulcs regisztrálását. Próbáld újra.")
         self.refreshSecureBoot()
 
     # --- Változat váltása -----------------------------------------------------------
@@ -171,13 +173,13 @@ class DriversController(QObject):
         else:
             target = self._image.replace("sloth-os-nvidia:", "sloth-os:", 1)
         self._busy, self._error, self._info = True, "", ""
-        self._status = "Az új változat letöltése…"
+        self._status = tr("Az új változat letöltése…")
         self._progress = -1
         self.changed.emit()
 
         def on_task(raw):
             log.info("%s", raw)
-            self._status = texts.stage_text(raw, self._status).replace("Frissítés", "A váltás")
+            self._status = texts.stage_text(raw, self._status)
             self.changed.emit()
 
         def on_percent(p):

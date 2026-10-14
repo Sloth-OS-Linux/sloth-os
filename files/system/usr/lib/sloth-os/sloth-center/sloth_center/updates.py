@@ -10,6 +10,8 @@ import subprocess
 from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
+from .i18n import tr
+
 from . import texts
 from .rpmostree import RpmOstree, Transaction
 
@@ -41,7 +43,7 @@ class UpdatesController(QObject):
             self._ostree.connect_changed(self._on_system_changed)
         except GLib.Error as e:
             log.error("rpm-ostree nem érhető el: %s", e.message)
-            self._unavailable = "A frissítéskezelő szolgáltatás nem érhető el ezen a gépen."
+            self._unavailable = tr("A frissítéskezelő szolgáltatás nem érhető el ezen a gépen.")
         self.refresh()
         self._attach_background()
 
@@ -116,7 +118,7 @@ class UpdatesController(QObject):
         self._rollback = texts.version_text(rollback) if rollback and rollback.get("id") != booted.get("id") else ""
         cached = self._ostree.cached_update() or {}
         if cached.get("ref-has-new-commit") and not self._pending:
-            self._available = texts.version_text(cached) or "Új verzió"
+            self._available = texts.version_text(cached) or tr("Új verzió")
         else:
             self._available = ""
         self.changed.emit()
@@ -127,7 +129,7 @@ class UpdatesController(QObject):
             return
         address = self._ostree.active_transaction_address()
         if address:
-            self._begin("background", "A rendszer a háttérben frissül…")
+            self._begin("background", tr("A rendszer a háttérben frissül…"))
             self._follow(address)
 
     # --- Műveletek ----------------------------------------------------------
@@ -184,27 +186,27 @@ class UpdatesController(QObject):
         self.refresh()
         # A "naprakész" állapotot a címsor mutatja, ide csak a teendő kerül
         if mode in ("upgrade", "background") and self._pending:
-            self._info = "A frissítés elkészült. Indítsd újra a gépet, amikor neked megfelel."
+            self._info = tr("A frissítés elkészült. Indítsd újra a gépet, amikor neked megfelel.")
         elif mode == "rollback":
-            self._info = "Kész. Újraindítás után az előző verzió indul."
+            self._info = tr("Kész. Újraindítás után az előző verzió indul.")
         self.changed.emit()
 
     @Slot()
     def checkForUpdates(self):
         if self._ostree and not self._mode:
-            self._begin("check", "Frissítés keresése…")
+            self._begin("check", tr("Frissítés keresése…"))
             self._ostree.check_update(self._follow, self._on_error)
 
     @Slot()
     def installUpdate(self):
         if self._ostree and not self._mode:
-            self._begin("upgrade", "Frissítés keresése…")
+            self._begin("upgrade", tr("Frissítés keresése…"))
             self._ostree.upgrade(self._follow, self._on_error)
 
     @Slot()
     def rollback(self):
         if self._ostree and not self._mode:
-            self._begin("rollback", "Visszaállítás előkészítése…")
+            self._begin("rollback", tr("Visszaállítás előkészítése…"))
             self._ostree.rollback(self._follow, self._on_error)
 
     @Slot()
@@ -226,7 +228,7 @@ class UpdatesController(QObject):
             log.warning("pin: %s", e)
             ok = False
         if not ok:
-            self._error = "Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell."
+            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
         try:
             self._ostree.reload()
         except GLib.Error:

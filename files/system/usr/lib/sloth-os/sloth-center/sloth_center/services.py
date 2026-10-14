@@ -9,6 +9,8 @@ import logging
 from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
+from .i18n import N_, tr
+
 log = logging.getLogger("sloth-center.services")
 
 SD = "org.freedesktop.systemd1"
@@ -18,26 +20,26 @@ INTERACTIVE = Gio.DBusCallFlags.ALLOW_INTERACTIVE_AUTHORIZATION
 
 # (unit, név, leírás). Több unit esetén az első létező számít.
 COMMON = [
-    (["bluetooth.service"], "Bluetooth", "Vezeték nélküli fejhallgatók, kontrollerek, egerek."),
-    (["cups.service"], "Nyomtatás", "Nyomtatók használata."),
-    (["firewalld.service"], "Tűzfal", "Védi a gépet a hálózatról érkező kéretlen kapcsolatoktól."),
-    (["uupd.timer", "rpm-ostreed-automatic.timer"], "Automatikus frissítések",
-     "A rendszer és az appok frissítései a háttérben töltődnek le."),
-    (["avahi-daemon.service"], "Eszközök keresése a hálózaton",
-     "Hálózati nyomtatók, megosztások és más eszközök automatikus megtalálása."),
-    (["sshd.service"], "Távoli bejelentkezés (SSH)",
-     "Más gépről parancssorból be lehet jelentkezni erre a gépre. Ha nem tudod, mi ez, hagyd kikapcsolva."),
-    (["smb.service"], "Fájlmegosztás Windows-gépekkel", "A megosztott mappák elérhetők más gépekről."),
+    (["bluetooth.service"], "Bluetooth", N_("Vezeték nélküli fejhallgatók, kontrollerek, egerek.")),
+    (["cups.service"], N_("Nyomtatás"), N_("Nyomtatók használata.")),
+    (["firewalld.service"], N_("Tűzfal"), N_("Védi a gépet a hálózatról érkező kéretlen kapcsolatoktól.")),
+    (["uupd.timer", "rpm-ostreed-automatic.timer"], N_("Automatikus frissítések"),
+     N_("A rendszer és az appok frissítései a háttérben töltődnek le.")),
+    (["avahi-daemon.service"], N_("Eszközök keresése a hálózaton"),
+     N_("Hálózati nyomtatók, megosztások és más eszközök automatikus megtalálása.")),
+    (["sshd.service"], N_("Távoli bejelentkezés (SSH)"),
+     N_("Más gépről parancssorból be lehet jelentkezni erre a gépre. Ha nem tudod, mi ez, hagyd kikapcsolva.")),
+    (["smb.service"], N_("Fájlmegosztás Windows-gépekkel"), N_("A megosztott mappák elérhetők más gépekről.")),
 ]
 
 
 def _human_error(raw):
     low = (raw or "").lower()
     if any(k in low for k in ("not authorized", "access denied", "authentication", "interactive")):
-        return "Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad."
+        return tr("Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad.")
     if "masked" in low:
-        return "Ezt a szolgáltatást a rendszer letiltotta, ezért nem kapcsolható be."
-    return "Nem sikerült átállítani. Próbáld újra később."
+        return tr("Ezt a szolgáltatást a rendszer letiltotta, ezért nem kapcsolható be.")
+    return tr("Nem sikerült átállítani. Próbáld újra később.")
 
 
 class ServicesController(QObject):
@@ -96,7 +98,7 @@ class ServicesController(QObject):
                 if state is None:
                     continue
                 active = self._active_state(unit)
-                common.append({"unit": unit, "name": name, "description": desc,
+                common.append({"unit": unit, "name": tr(name), "description": tr(desc),
                                "enabled": state in ("enabled", "enabled-runtime", "alias")
                                or active == "active",
                                "locked": state in ("masked", "static", "indirect", "generated")})

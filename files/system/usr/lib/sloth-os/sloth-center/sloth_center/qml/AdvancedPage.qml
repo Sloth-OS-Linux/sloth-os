@@ -8,7 +8,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: "Haladó beállítások"
+    title: L.t("Haladó beállítások")
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
@@ -17,7 +17,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             visible: true
             type: Kirigami.MessageType.Information
-            text: "Ezekre a beállításokra általában nincs szükség. Ha valami elromlik, a Frissítések oldalon visszaállhatsz az előző verzióra."
+            text: L.t("Ezekre a beállításokra általában nincs szükség. Ha valami elromlik, a Frissítések oldalon visszaállhatsz az előző verzióra.")
         }
         Kirigami.InlineMessage {
             Layout.fillWidth: true
@@ -32,7 +32,7 @@ Kirigami.ScrollablePage {
             text: advanced.infoText
             actions: [
                 Kirigami.Action {
-                    text: "Újraindítás most"
+                    text: L.t("Újraindítás most")
                     icon.name: "system-reboot"
                     onTriggered: updates.reboot()
                 }
@@ -58,12 +58,12 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: "Boot menü mutatása induláskor" }
+                    Kirigami.Heading { level: 3; text: L.t("Boot menü mutatása induláskor") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: "Alapból rejtve van, és csak akkor jelenik meg, ha egy indítás nem sikerült. Kapcsold be, ha a gépen Windows is van, és induláskor választani szeretnél."
+                        text: L.t("Alapból rejtve van, és csak akkor jelenik meg, ha egy indítás nem sikerült. Kapcsold be, ha a gépen Windows is van, és induláskor választani szeretnél.")
                     }
                 }
                 QQC2.Switch {
@@ -78,12 +78,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: "Kernelparaméterek" }
+                Kirigami.Heading { level: 3; text: L.t("Kernelparaméterek") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: "Hardveres gondok javításához lehet rájuk szükség, ha egy útmutató ezt kéri."
+                    text: L.t("Hardveres gondok javításához lehet rájuk szükség, ha egy útmutató ezt kéri.")
                 }
                 Flow {
                     Layout.fillWidth: true
@@ -104,14 +104,14 @@ Kirigami.ScrollablePage {
                     QQC2.TextField {
                         id: kargField
                         Layout.fillWidth: true
-                        placeholderText: "Új paraméter, pl. nomodeset"
+                        placeholderText: L.t("Új paraméter, pl. nomodeset")
                         onAccepted: addKarg.clicked()
                     }
                     QQC2.Button {
                         id: addKarg
                         enabled: kargField.text.trim() !== "" && !advanced.busy
                         icon.name: "list-add"
-                        text: "Hozzáadás"
+                        text: L.t("Hozzáadás")
                         onClicked: { advanced.addKernelArg(kargField.text); kargField.text = ""; }
                     }
                 }
@@ -123,12 +123,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: "Rendszercsomagok" }
+                Kirigami.Heading { level: 3; text: L.t("Rendszercsomagok") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: "Appokat a Discoverben telepíts. Ide csak olyan rendszerszintű csomagok valók (pl. driverek, parancssori eszközök), amelyek appként nem érhetők el. A frissítések ettől lassabbak lesznek."
+                    text: L.t("Appokat a Discoverben telepíts. Ide csak olyan rendszerszintű csomagok valók (pl. driverek, parancssori eszközök), amelyek appként nem érhetők el. A frissítések ettől lassabbak lesznek.")
                 }
                 Repeater {
                     model: advanced.packages
@@ -145,7 +145,7 @@ Kirigami.ScrollablePage {
                         QQC2.Button {
                             enabled: !advanced.busy
                             icon.name: "edit-delete"
-                            text: "Eltávolítás"
+                            text: L.t("Eltávolítás")
                             onClicked: advanced.removePackage(pkgRow.modelData)
                         }
                     }
@@ -153,21 +153,21 @@ Kirigami.ScrollablePage {
                 QQC2.Label {
                     visible: advanced.packages.length === 0
                     opacity: 0.7
-                    text: "Nincs hozzáadott rendszercsomag."
+                    text: L.t("Nincs hozzáadott rendszercsomag.")
                 }
                 RowLayout {
                     Layout.fillWidth: true
                     QQC2.TextField {
                         id: pkgField
                         Layout.fillWidth: true
-                        placeholderText: "Csomag neve, pl. htop"
+                        placeholderText: L.t("Csomag neve, pl. htop")
                         onAccepted: addPkg.clicked()
                     }
                     QQC2.Button {
                         id: addPkg
                         enabled: pkgField.text.trim() !== "" && !advanced.busy
                         icon.name: "list-add"
-                        text: "Telepítés"
+                        text: L.t("Telepítés")
                         onClicked: { advanced.addPackage(pkgField.text); pkgField.text = ""; }
                     }
                 }

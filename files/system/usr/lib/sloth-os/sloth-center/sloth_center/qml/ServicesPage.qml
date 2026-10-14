@@ -6,11 +6,11 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: "Szolgáltatások"
+    title: L.t("Szolgáltatások")
 
     actions: [
         Kirigami.Action {
-            text: "Frissítés"
+            text: L.t("Frissítés")
             icon.name: "view-refresh"
             onTriggered: services.refresh()
         }
@@ -26,7 +26,7 @@ Kirigami.ScrollablePage {
             text: services.errorText
         }
 
-        Kirigami.Heading { level: 3; text: "Gyakori szolgáltatások" }
+        Kirigami.Heading { level: 3; text: L.t("Gyakori szolgáltatások") }
 
         Repeater {
             model: services.common
@@ -64,14 +64,14 @@ Kirigami.ScrollablePage {
 
         QQC2.CheckBox {
             id: showAll
-            text: "Az összes futó szolgáltatás mutatása (haladó)"
+            text: L.t("Az összes futó szolgáltatás mutatása (haladó)")
         }
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true
             visible: showAll.checked
             type: Kirigami.MessageType.Warning
-            text: "Egy szolgáltatás leállítása miatt a rendszer egy része nem működhet rendesen. Újraindítás után minden visszaáll a megszokottra."
+            text: L.t("Egy szolgáltatás leállítása miatt a rendszer egy része nem működhet rendesen. Újraindítás után minden visszaáll a megszokottra.")
         }
 
         Repeater {
@@ -89,11 +89,11 @@ Kirigami.ScrollablePage {
                 }
                 QQC2.Label {
                     opacity: 0.7
-                    text: row.modelData.active ? "Fut" : "Leállítva"
+                    text: row.modelData.active ? L.t("Fut") : L.t("Leállítva")
                 }
                 QQC2.Button {
                     enabled: services.busyUnit === ""
-                    text: row.modelData.active ? "Leállítás" : "Indítás"
+                    text: row.modelData.active ? L.t("Leállítás") : L.t("Indítás")
                     icon.name: row.modelData.active ? "media-playback-stop" : "media-playback-start"
                     onClicked: services.setRunning(row.modelData.unit, !row.modelData.active)
                 }

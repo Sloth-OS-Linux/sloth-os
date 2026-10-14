@@ -13,6 +13,8 @@ import subprocess
 from gi.repository import GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
+from .i18n import tr
+
 from . import texts
 from .rpmostree import RpmOstree, Transaction
 
@@ -82,7 +84,7 @@ class AdvancedController(QObject):
             log.warning("boot-menu: %s", e)
             ok = False
         if not ok:
-            self._error = "Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell."
+            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
         self.refresh()
 
     # --- Tranzakciók (kernelparaméter, csomag) ----------------------------------------
@@ -91,7 +93,7 @@ class AdvancedController(QObject):
         if not self._ostree or self._busy:
             return
         self._busy, self._error, self._info = True, "", ""
-        self._status, self._progress = "Előkészítés…", -1
+        self._status, self._progress = tr("Előkészítés…"), -1
         self.changed.emit()
 
         def on_task(raw):
@@ -121,40 +123,40 @@ class AdvancedController(QObject):
     def _pkg_error(raw):
         low = (raw or "").lower()
         if "no package" in low or "not found" in low or "no match" in low:
-            return "Ilyen nevű csomag nincs a Fedora tárolóban. Ellenőrizd a nevet."
+            return tr("Ilyen nevű csomag nincs a Fedora tárolóban. Ellenőrizd a nevet.")
         if "already" in low and "requested" in low:
-            return "Ez a csomag már telepítve van."
+            return tr("Ez a csomag már telepítve van.")
         return ""
 
     @Slot(str)
     def addKernelArg(self, arg):
         arg = arg.strip()
         if not KARG_RE.match(arg):
-            self._error = "Ez nem érvényes kernelparaméter (pl. „nomodeset” vagy „amdgpu.ppfeaturemask=0xffffffff”)."
+            self._error = tr("Ez nem érvényes kernelparaméter (pl. „nomodeset” vagy „amdgpu.ppfeaturemask=0xffffffff”).")
             self.changed.emit()
             return
         self._run(lambda a, e: self._ostree.set_kernel_args([arg], [], a, e),
-                  "Kész. Az új beállítás a következő újraindítás után lép életbe.")
+                  tr("Kész. Az új beállítás a következő újraindítás után lép életbe."))
 
     @Slot(str)
     def removeKernelArg(self, arg):
         if arg.startswith(PROTECTED_KARGS):
             return
         self._run(lambda a, e: self._ostree.set_kernel_args([], [arg], a, e),
-                  "Kész. A változás a következő újraindítás után lép életbe.")
+                  tr("Kész. A változás a következő újraindítás után lép életbe."))
 
     @Slot(str)
     def addPackage(self, name):
         names = [n for n in re.split(r"[\s,]+", name.strip()) if n]
         if not names or not all(PKG_RE.match(n) for n in names):
-            self._error = "Adj meg egy érvényes csomagnevet (pl. „htop”)."
+            self._error = tr("Adj meg egy érvényes csomagnevet (pl. „htop”).")
             self.changed.emit()
             return
         self._run(lambda a, e: self._ostree.pkg_change(names, [], a, e),
-                  "Kész. A csomag a következő újraindítás után lesz elérhető.")
+                  tr("Kész. A csomag a következő újraindítás után lesz elérhető."))
 
     @Slot(str)
     def removePackage(self, name):
         if PKG_RE.match(name):
             self._run(lambda a, e: self._ostree.pkg_change([], [name], a, e),
-                      "Kész. A csomag a következő újraindítás után tűnik el.")
+                      tr("Kész. A csomag a következő újraindítás után tűnik el."))
