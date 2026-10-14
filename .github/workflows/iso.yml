@@ -1,0 +1,69 @@
+name: iso
+# A Sloth OS telepítő ISO építése (kézzel indítható a GitHub felületéről: Actions -> iso -> Run workflow).
+# Helyben: tools/build-iso.ps1
+#
+# Amíg a repó privát, az ISO nem tölthető fel (az Actions tárhely 500 MB, egy ISO több GB),
+# ezért ilyenkor a workflow csak azt ellenőrzi, hogy elkészül-e. Publikus repóban artifactként letölthető.
+on:
+  workflow_dispatch:
+    inputs:
+      variant:
+        description: "Változat"
+        type: choice
+        options: [sloth-os, sloth-os-nvidia]
+        default: sloth-os
+
+env:
+  # A Titanoboa ISO-készítő rögzített commitja (frissítéskor: a SHA cseréje, a tools/build-iso.ps1-ben is)
+  TITANOBOA_COMMIT: 5c457c3d0518bd17e754be0fd98a60d29d26abb4
+
+jobs:
+  iso:
+    name: Build ISO
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: true
+          large-packages: false
+
+      - uses: actions/checkout@v4
+
+      - name: Registry login
+        run: |
+          echo "${{ github.token }}" | sudo podman login ghcr.io -u "${{ github.actor }}" --password-stdin --authfile /tmp/auth.json
+          sudo chmod 0644 /tmp/auth.json
+
+      - name: Build live image
+        run: |
+          image="ghcr.io/${{ github.repository_owner }}/${{ inputs.variant }}:latest"
+          sudo podman build --authfile /tmp/auth.json \
+            --secret id=registry-auth,src=/tmp/auth.json \
+            --build-arg BASE_IMAGE="$image" \
+            -t localhost/sloth-os-live:latest iso/
+          sudo rm -f /tmp/auth.json
+
+      - name: Build ISO (Titanoboa)
+        id: iso
+        uses: ublue-os/titanoboa@5c457c3d0518bd17e754be0fd98a60d29d26abb4
+        with:
+          image-ref: localhost/sloth-os-live:latest
+
+      - name: Checksum
+        run: |
+          mkdir -p output
+          mv "${{ steps.iso.outputs.iso-dest }}" "output/${{ inputs.variant }}.iso"
+          (cd output && sha256sum "${{ inputs.variant }}.iso" | tee "${{ inputs.variant }}.iso.sha256")
+          ls -lh output
+
+      - name: Upload ISO
+        if: ${{ !github.event.repository.private }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ inputs.variant }}-iso
+          path: output/
+          retention-days: 7

@@ -101,7 +101,16 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
 
 ## 4. fázis – Kiadás
 - [ ] Repó publikussá tétele, napi automatikus build visszakapcsolása (`.github/workflows/build.yml`)
-- [ ] Telepítő ISO (privát repóban a 2 GB-os kiadás- és 500 MB-os tárhelykorlát miatt csak publikussá tétel után).
-  Ötlet: Windows-szerű első indítás a KDE Plasma Setup-pal (fiók, nyelv, billentyűzet), utána a Sloth Üdvözlő;
-  ehhez a Plasma Setup háttere legyen a Sloth OS háttérkép
+- [ ] **Saját Sloth OS telepítő** (`iso/`): élő rendszer a pendrive-ról, kipróbálás telepítés nélkül, Anaconda nélkül
+  - [x] Első változat: nyelv (az Üdvözlő 50 nyelve), billentyűzet, időzóna, egész lemezre telepítés
+    (`bootc install to-disk`, az image az ISO-ban van, internet nélkül is megy), folyamatjelző, újraindítás;
+    a fiókot első induláskor a KDE Plasma Setup hozza létre. Építés: `tools/build-iso.ps1` (helyben, Podman)
+    vagy `.github/workflows/iso.yml`. VM-ben még tesztelni
+  - [ ] A telepítő fordítása a többi 47 nyelvre (most magyar, angol, német; a többin angol)
+  - [ ] Windows mellé telepítés: a Windows-partíció zsugorítása, közös boot menü, BitLocker felismerése és magyarázata
+  - [ ] NVIDIA-s gépen automatikusan az NVIDIA-s változat (most a Sloth Központban lehet utána váltani)
+  - [ ] Telepítés után a frissítések aláírás-ellenőrzéssel (`ostree-image-signed`)
+  - [ ] Lemeztitkosítás, régi (BIOS-os) gépek
+  - [ ] Plasma Setup (első indítás) háttere a Sloth OS háttérkép
+  - [ ] ISO letöltése: privát repóban a 2 GB-os kiadás- és 500 MB-os tárhelykorlát miatt csak publikussá tétel után
 - [ ] Weboldal, letöltés, dokumentáció

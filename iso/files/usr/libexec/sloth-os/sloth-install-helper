@@ -1,0 +1,263 @@
+#!/usr/bin/python3 -I
+"""A Sloth OS telepítő rendszergazdai része (pkexec-kel fut, csak az élő rendszeren van meg).
+
+  sloth-install-helper install --disk /dev/X --locale hu_HU.UTF-8 --keyboard hu --timezone Europe/Budapest
+
+A teljes lemezt törli, és feltelepíti rá az ISO-ba csomagolt Sloth OS image-et
+(bootc install to-disk), majd beírja a választott nyelvet, billentyűzetet és időzónát.
+A kimenet JSON-sorok a felületnek:
+  {"stage": "partition", "progress": 10}   ismert lépés (a felület fordítja le)
+  {"done": true}                            kész
+  {"error": "error.bad_disk"}               hiba (fordítási kulcs)
+A nyers kimenet a /tmp/sloth-install.log fájlba kerül.
+
+Próbaüzem lemeztörlés nélkül (a felület teszteléséhez): SLOTH_INSTALL_DRY_RUN=1
+"""
+import argparse
+import glob
+import json
+import os
+import re
+import subprocess
+import sys
+import tempfile
+import time
+import zoneinfo
+from pathlib import Path
+
+LOG = Path("/tmp/sloth-install.log")
+IMAGE_CONF = Path("/usr/share/sloth-os/installer/image.conf")
+FILESYSTEM = "btrfs"  # mint a Fedora Atomic asztali változatainál
+
+# bootc kimenet -> lépés és körülbelüli százalék (az első egyező nyer)
+STAGES = [
+    (("wiping", "block setup", "partition", "mkfs", "creating filesystem"), "partition", 10),
+    (("initializing ostree", "ostree layout", "sysroot"), "prepare", 20),
+    (("fetching", "layer", "importing", "deploying", "pulling"), "copy", 35),
+    (("bootloader", "bootupd", "grub"), "bootloader", 85),
+    (("installation complete",), "finishing", 90),
+]
+
+
+def emit(**msg):
+    print(json.dumps(msg), flush=True)
+
+
+def log(line):
+    with LOG.open("a", encoding="utf-8") as f:
+        f.write(line.rstrip() + "\n")
+
+
+def fail(key, detail=""):
+    if detail:
+        log(f"HIBA: {detail}")
+    emit(error=key)
+    sys.exit(1)
+
+
+# --- Bemenetek ellenőrzése (root-ként futunk: semmit nem fogadunk el vakon) ---------
+
+def whole_disk(path):
+    """Csak teljes lemezt fogadunk el, ami nem az élő rendszer saját meghajtója."""
+    if not re.fullmatch(r"/dev/[a-zA-Z0-9]+", path or ""):
+        return False
+    out = subprocess.run(["lsblk", "--noheadings", "--nodeps", "--output", "TYPE,RO", path],
+                         capture_output=True, text=True).stdout.split()
+    if out[:2] != ["disk", "0"]:
+        return False
+    live = subprocess.run(["findmnt", "--noheadings", "--output", "SOURCE", "/run/initramfs/live"],
+                          capture_output=True, text=True).stdout.strip()
+    if live:
+        parent = subprocess.run(["lsblk", "--noheadings", "--nodeps", "--output", "PKNAME", live],
+                                capture_output=True, text=True).stdout.strip()
+        if path in (live, f"/dev/{parent}"):
+            return False
+    return True
+
+
+def parse_keyboard(value):
+    """"us,ru" -> (["us", "ru"], ["", ""]); "us(intl)" -> (["us"], ["intl"])."""
+    layouts, variants = [], []
+    for item in (value or "").split(","):
+        m = re.fullmatch(r"([a-z]{2,6})(?:\(([a-z0-9_]{1,20})\))?", item)
+        if not m:
+            return None
+        layouts.append(m.group(1))
+        variants.append(m.group(2) or "")
+    return (layouts, variants) if layouts else None
+
+
+# --- Telepítés --------------------------------------------------------------------
+
+def image_refs():
+    conf = dict(line.split("=", 1) for line in IMAGE_CONF.read_text().split("\n") if "=" in line)
+    return conf["SOURCE_IMGREF"], conf["TARGET_IMGREF"]
+
+
+def release_disk(disk):
+    """Ha valami használja a lemezt (automatikusan csatolt partíció, swap), elengedjük."""
+    out = json.loads(subprocess.run(["lsblk", "--json", "--output", "PATH,MOUNTPOINTS,FSTYPE", disk],
+                                    capture_output=True, text=True).stdout or "{}")
+    stack = list(out.get("blockdevices", []))
+    while stack:
+        dev = stack.pop()
+        stack.extend(dev.get("children") or [])
+        if dev.get("fstype") == "swap":
+            subprocess.run(["swapoff", dev["path"]], capture_output=True)
+        for mp in dev.get("mountpoints") or []:
+            if mp:
+                subprocess.run(["umount", "--lazy", mp], capture_output=True)
+
+
+def run_bootc(disk):
+    source, target = image_refs()
+    cmd = ["bootc", "install", "to-disk", "--wipe", "--filesystem", FILESYSTEM,
+           "--source-imgref", source, "--target-imgref", target,
+           # amíg a repó privát, az élő rendszer nem tudja ellenőrizni a frissítések elérhetőségét
+           "--skip-fetch-check",
+           disk]
+    log("$ " + " ".join(cmd))
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+    progress, copy_steps = 5, 0
+    for line in proc.stdout:
+        log(line)
+        low = line.lower()
+        for keys, stage, pct in STAGES:
+            if any(k in low for k in keys):
+                if stage == "copy":
+                    # a rétegek másolása a leghosszabb rész: soronként lassan haladunk 80%-ig
+                    copy_steps += 1
+                    pct = min(80, pct + copy_steps)
+                if pct >= progress:
+                    progress = pct
+                    emit(stage=stage, progress=progress)
+                break
+    if proc.wait() != 0:
+        fail("error.install_failed", f"bootc kilépési kód: {proc.returncode}")
+
+
+def find_root_partition(disk):
+    out = json.loads(subprocess.run(["lsblk", "--json", "--bytes", "--output", "PATH,FSTYPE,SIZE", disk],
+                                    capture_output=True, text=True).stdout)
+    parts = [p for p in out["blockdevices"][0].get("children") or []
+             if p.get("fstype") in ("btrfs", "xfs", "ext4")]
+    return max(parts, key=lambda p: int(p.get("size") or 0))["path"] if parts else None
+
+
+def write(path, content):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding="utf-8")
+
+
+# Konzolos billentyűzetkiosztás az XKB-névből (ahol eltér); nem latin betűsnél az amerikai
+CONSOLE_KEYMAPS = {"gb": "uk", "cz": "cz-qwertz", "sk": "sk-qwertz", "si": "slovene", "hr": "croat",
+                   "latam": "la-latin1", "br": "br-abnt2", "ee": "et", "be": "be-latin1", "ca": "cf",
+                   "pt": "pt-latin1", "tr": "trq", "jp": "jp106",
+                   # nincs saját konzolos kiosztásuk (a latin betűs alap az amerikai)
+                   "kr": "us", "cn": "us", "tw": "us", "al": "us", "lv": "us"}
+
+
+def configure(disk, locale, layouts, variants, timezone):
+    """A nyelv, a billentyűzet és az időzóna beírása a feltelepített rendszer /etc mappájába."""
+    root_part = find_root_partition(disk)
+    if not root_part:
+        fail("error.configure_failed", "nem találom a gyökérpartíciót")
+    mnt = Path(tempfile.mkdtemp(prefix="sloth-install-"))
+    opts = ["-o", "subvolid=5"] if FILESYSTEM == "btrfs" else []
+    subprocess.run(["mount", *opts, root_part, str(mnt)], check=True)
+    try:
+        etcs = glob.glob(f"{mnt}/ostree/deploy/*/deploy/*.0/etc") + \
+            glob.glob(f"{mnt}/*/ostree/deploy/*/deploy/*.0/etc")
+        if not etcs:
+            fail("error.configure_failed", f"nincs ostree deployment ezen: {root_part}")
+        etc = Path(etcs[0])
+        deploy = etc.parent
+
+        console = layouts[0] if layouts[0] != "us" or len(layouts) == 1 else "us"
+        files = {
+            etc / "locale.conf": f"LANG={locale}\n",
+            etc / "vconsole.conf": f"KEYMAP={CONSOLE_KEYMAPS.get(console, console)}\n",
+            # a bejelentkező képernyő és az X11/Wayland alapértelmezése (systemd-localed formátum)
+            etc / "X11/xorg.conf.d/00-keyboard.conf": (
+                'Section "InputClass"\n'
+                '        Identifier "system-keyboard"\n'
+                '        MatchIsKeyboard "on"\n'
+                f'        Option "XkbLayout" "{",".join(layouts)}"\n'
+                + (f'        Option "XkbVariant" "{",".join(variants)}"\n' if any(variants) else "")
+                + ('        Option "XkbOptions" "grp:alt_shift_toggle"\n' if len(layouts) > 1 else "")
+                + "EndSection\n"),
+            # a Plasma alapértelmezése minden új felhasználónak
+            etc / "xdg/kxkbrc": (
+                "[Layout]\n"
+                f"LayoutList={','.join(layouts)}\n"
+                f"VariantList={','.join(variants)}\n"
+                + ("Options=grp:alt_shift_toggle\nResetOldOptions=true\n" if len(layouts) > 1 else "")
+                + "Use=true\n"),
+        }
+        for path, content in files.items():
+            write(path, content)
+        localtime = etc / "localtime"
+        if localtime.is_symlink() or localtime.exists():
+            localtime.unlink()
+        localtime.symlink_to(f"../usr/share/zoneinfo/{timezone}")
+
+        # SELinux címkék a telepített rendszer saját szabályai szerint
+        contexts = deploy / "etc/selinux/targeted/contexts/files/file_contexts"
+        if contexts.exists():
+            r = subprocess.run(["setfiles", "-F", "-r", str(deploy), str(contexts),
+                                *[str(p) for p in files], str(localtime)], capture_output=True, text=True)
+            log(f"setfiles: {r.returncode} {r.stderr.strip()}")
+    finally:
+        subprocess.run(["sync"])
+        subprocess.run(["umount", str(mnt)])
+        mnt.rmdir()
+
+
+def dry_run():
+    for stage, pct in [("partition", 10), ("prepare", 20)] + [("copy", p) for p in range(35, 81, 5)] + \
+            [("bootloader", 85), ("finishing", 90), ("configure", 95)]:
+        time.sleep(1.5)
+        emit(stage=stage, progress=pct)
+    emit(done=True)
+
+
+def main():
+    parser = argparse.ArgumentParser(prog="sloth-install-helper")
+    sub = parser.add_subparsers(dest="cmd", required=True)
+    inst = sub.add_parser("install")
+    inst.add_argument("--disk", required=True)
+    inst.add_argument("--locale", required=True)
+    inst.add_argument("--keyboard", required=True)
+    inst.add_argument("--timezone", required=True)
+    args = parser.parse_args()
+
+    if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
+        dry_run()
+        return 0
+    if os.geteuid() != 0:
+        fail("error.not_authorized")
+    if not whole_disk(args.disk):
+        fail("error.bad_disk", f"nem telepíthető lemez: {args.disk}")
+    if not re.fullmatch(r"[a-z]{2,3}(_[A-Z]{2})?\.UTF-8", args.locale):
+        fail("error.bad_input", f"rossz locale: {args.locale}")
+    keyboard = parse_keyboard(args.keyboard)
+    if not keyboard:
+        fail("error.bad_input", f"rossz billentyűzet: {args.keyboard}")
+    if args.timezone not in zoneinfo.available_timezones():
+        fail("error.bad_input", f"rossz időzóna: {args.timezone}")
+
+    LOG.write_text(f"Sloth OS telepítés: {time.ctime()}\n", encoding="utf-8")
+    emit(stage="partition", progress=5)
+    release_disk(args.disk)
+    run_bootc(args.disk)
+    emit(stage="configure", progress=95)
+    configure(args.disk, args.locale, *keyboard, args.timezone)
+    emit(done=True)
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except subprocess.CalledProcessError as e:
+        fail("error.configure_failed", str(e))

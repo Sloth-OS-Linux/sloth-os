@@ -1,0 +1,61 @@
+{
+  "_language": "Magyar",
+
+  "app.title": "Sloth OS telepítése",
+
+  "welcome.heading": "Üdv a Sloth OS-ben!",
+  "welcome.text": "Kipróbálhatod a rendszert telepítés nélkül, vagy feltelepítheted a gépedre. A telepítés pár perc, és csak néhány kérdés.",
+  "welcome.language": "Nyelv",
+  "welcome.try": "Kipróbálom",
+  "welcome.install": "Telepítés",
+
+  "region.heading": "Billentyűzet és időzóna",
+  "region.keyboard": "Billentyűzet:",
+  "region.try_keyboard": "Próba:",
+  "region.try_keyboard_hint": "Gépelj ide, hogy lásd, jó-e a kiosztás",
+  "region.timezone": "Időzóna:",
+  "region.note": "Ezeket később a Rendszerbeállításokban is megváltoztathatod.",
+
+  "disk.heading": "Hova telepítsük?",
+  "disk.text": "Válaszd ki a lemezt, amelyre a Sloth OS kerül.",
+  "disk.none": "Nem találtunk lemezt, amelyre telepíthetnénk.",
+  "disk.refresh": "Újrakeresés",
+  "disk.too_small": "Túl kicsi: legalább 40 GB kell.",
+  "disk.contents.empty": "Üres lemez",
+  "disk.contents.windows": "Windows van rajta",
+  "disk.contents.linux": "Linux rendszer van rajta",
+  "disk.contents.other": "Adatok vannak rajta",
+  "disk.removable": "Ez egy külső meghajtó (pl. pendrive). Biztosan erre szeretnéd telepíteni?",
+  "disk.small": "Kicsit kevés hely: játékokhoz legalább 120 GB ajánlott.",
+
+  "confirm.heading": "Minden törlődik erről a lemezről",
+  "confirm.text": "A Sloth OS a teljes lemezt használja: {disk}. Minden, ami most rajta van (fájlok, programok, más rendszerek), végleg törlődik.",
+  "confirm.windows": "Ezen a lemezen Windows van. Telepítés után a Windows és minden rajta lévő fájl elvész. Ha meg szeretnéd tartani, előbb mentsd el a fájljaidat.",
+  "confirm.checkbox": "Értem, a lemezen lévő minden adat törlődik",
+  "confirm.install": "Telepítés indítása",
+
+  "nav.back": "Vissza",
+  "nav.next": "Tovább",
+
+  "stage.start": "Felkészülés…",
+  "stage.partition": "Lemez előkészítése…",
+  "stage.prepare": "Rendszer előkészítése…",
+  "stage.copy": "Sloth OS másolása a lemezre…",
+  "stage.bootloader": "Rendszerindító beállítása…",
+  "stage.finishing": "Befejezés…",
+  "stage.configure": "Nyelv és beállítások mentése…",
+  "install.note": "Ez a gép sebességétől függően 5–20 perc. Közben ne kapcsold ki a gépet.",
+
+  "done.heading": "Kész a telepítés!",
+  "done.text": "Indítsd újra a gépet. Amikor elsötétül a képernyő, húzd ki a pendrive-ot. Első indításkor létrehozod a fiókodat, és már kész is.",
+  "done.reboot": "Újraindítás",
+
+  "error.heading": "A telepítés nem sikerült",
+  "error.log_hint": "A lemezen lévő adatok addigra már sérülhettek. A részletek a /tmp/sloth-install.log fájlban vannak, ha segítséget kérnél.",
+  "error.retry": "Újrapróbálom",
+  "error.not_authorized": "Nem kaptunk engedélyt a telepítéshez.",
+  "error.bad_disk": "Erre a lemezre nem lehet telepíteni. Válassz másikat.",
+  "error.bad_input": "Valamelyik beállítás hibás. Lépj vissza, és nézd át őket.",
+  "error.install_failed": "Hiba történt a rendszer lemezre másolása közben.",
+  "error.configure_failed": "A rendszer felkerült, de a nyelv és a billentyűzet beállítása nem sikerült."
+}

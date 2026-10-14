@@ -1,0 +1,61 @@
+{
+  "_language": "Deutsch",
+
+  "app.title": "Sloth OS installieren",
+
+  "welcome.heading": "Willkommen bei Sloth OS!",
+  "welcome.text": "Du kannst das System ohne Installation ausprobieren oder es auf deinem Computer installieren. Die Installation dauert ein paar Minuten und stellt nur wenige Fragen.",
+  "welcome.language": "Sprache",
+  "welcome.try": "Ausprobieren",
+  "welcome.install": "Installieren",
+
+  "region.heading": "Tastatur und Zeitzone",
+  "region.keyboard": "Tastatur:",
+  "region.try_keyboard": "Test:",
+  "region.try_keyboard_hint": "Tippe hier, um die Belegung zu prüfen",
+  "region.timezone": "Zeitzone:",
+  "region.note": "Du kannst das später in den Systemeinstellungen ändern.",
+
+  "disk.heading": "Wohin soll installiert werden?",
+  "disk.text": "Wähle das Laufwerk, auf das Sloth OS kommt.",
+  "disk.none": "Wir haben kein Laufwerk für die Installation gefunden.",
+  "disk.refresh": "Erneut suchen",
+  "disk.too_small": "Zu klein: mindestens 40 GB werden benötigt.",
+  "disk.contents.empty": "Leeres Laufwerk",
+  "disk.contents.windows": "Windows ist darauf installiert",
+  "disk.contents.linux": "Ein Linux-System ist darauf installiert",
+  "disk.contents.other": "Enthält Daten",
+  "disk.removable": "Das ist ein externes Laufwerk (z. B. ein USB-Stick). Möchtest du wirklich hierauf installieren?",
+  "disk.small": "Etwas knapp: für Spiele werden mindestens 120 GB empfohlen.",
+
+  "confirm.heading": "Alles auf diesem Laufwerk wird gelöscht",
+  "confirm.text": "Sloth OS belegt das gesamte Laufwerk: {disk}. Alles, was jetzt darauf ist (Dateien, Programme, andere Systeme), wird endgültig gelöscht.",
+  "confirm.windows": "Auf diesem Laufwerk ist Windows. Nach der Installation sind Windows und alle seine Dateien weg. Wenn du sie behalten möchtest, sichere zuerst deine Dateien.",
+  "confirm.checkbox": "Ich verstehe, dass alle Daten auf dem Laufwerk gelöscht werden",
+  "confirm.install": "Installation starten",
+
+  "nav.back": "Zurück",
+  "nav.next": "Weiter",
+
+  "stage.start": "Vorbereitung…",
+  "stage.partition": "Laufwerk wird vorbereitet…",
+  "stage.prepare": "System wird vorbereitet…",
+  "stage.copy": "Sloth OS wird auf das Laufwerk kopiert…",
+  "stage.bootloader": "Start wird eingerichtet…",
+  "stage.finishing": "Abschluss…",
+  "stage.configure": "Sprache und Einstellungen werden gespeichert…",
+  "install.note": "Je nach Computer dauert das 5–20 Minuten. Bitte nicht ausschalten.",
+
+  "done.heading": "Installation abgeschlossen!",
+  "done.text": "Starte den Computer neu. Wenn der Bildschirm dunkel wird, zieh den USB-Stick ab. Beim ersten Start legst du dein Konto an, und schon bist du fertig.",
+  "done.reboot": "Neu starten",
+
+  "error.heading": "Die Installation ist fehlgeschlagen",
+  "error.log_hint": "Daten auf dem Laufwerk könnten bereits beschädigt sein. Details stehen in /tmp/sloth-install.log, falls du um Hilfe bittest.",
+  "error.retry": "Erneut versuchen",
+  "error.not_authorized": "Wir haben keine Erlaubnis zum Installieren bekommen.",
+  "error.bad_disk": "Auf dieses Laufwerk kann nicht installiert werden. Bitte wähle ein anderes.",
+  "error.bad_input": "Eine der Einstellungen ist ungültig. Geh zurück und prüfe sie.",
+  "error.install_failed": "Beim Kopieren des Systems auf das Laufwerk ist ein Fehler aufgetreten.",
+  "error.configure_failed": "Das System wurde installiert, aber Sprache und Tastatur konnten nicht eingestellt werden."
+}

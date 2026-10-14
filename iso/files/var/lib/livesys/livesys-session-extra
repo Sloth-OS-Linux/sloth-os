@@ -1,0 +1,23 @@
+# A Sloth OS élő rendszerének beállításai (a livesys-main hívja meg rendszergazdaként, az első indításkor).
+# A liveuser automatikusan belép; a telepítő elindul, és az asztalon is ott van az ikonja.
+
+home=/home/liveuser
+
+# A telepítő induljon el belépéskor
+mkdir -p "$home/.config/autostart"
+cp /usr/share/applications/org.slothos.installer.desktop "$home/.config/autostart/"
+
+# Ikon az asztalon (futtathatóra állítva, hogy a KDE ne kérdezzen rá)
+mkdir -p "$home/Desktop"
+cp /usr/share/applications/org.slothos.installer.desktop "$home/Desktop/"
+chmod +x "$home/Desktop/org.slothos.installer.desktop"
+
+# A Sloth Üdvözlő a telepített rendszeren fut majd le, itt ne jöjjön elő
+mkdir -p "$home/.config/sloth-os"
+: > "$home/.config/sloth-os/welcome-done"
+
+# A start menüben a telepítő legyen az első
+cat > "$home/.config/kickoffrc" << 'EOF'
+[Favorites]
+FavoriteURLs=/usr/share/applications/org.slothos.installer.desktop,/usr/share/applications/org.kde.dolphin.desktop,/usr/share/applications/systemsettings.desktop
+EOF

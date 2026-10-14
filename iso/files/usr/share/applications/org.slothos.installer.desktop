@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Install Sloth OS
+Name[hu]=Sloth OS telepítése
+Name[de]=Sloth OS installieren
+Comment=Install Sloth OS on this computer
+Comment[hu]=A Sloth OS telepítése erre a gépre
+Comment[de]=Sloth OS auf diesem Computer installieren
+Exec=sloth-installer
+Icon=sloth-os
+Terminal=false
+Categories=System;
+Keywords=install;installer;telepítés;telepítő;installieren;
+StartupNotify=true

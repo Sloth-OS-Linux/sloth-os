@@ -7,6 +7,11 @@ on:
   push:
     paths-ignore:
       - "**.md"
+      # ezek nem kerülnek bele az image-be (telepítő ISO, fejlesztői segédek, dokumentáció)
+      - "iso/**"
+      - "tools/**"
+      - "docs/**"
+      - ".github/workflows/iso.yml"
   pull_request:
   workflow_dispatch: # kézi indítás a GitHub felületről
 

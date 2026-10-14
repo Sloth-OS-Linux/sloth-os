@@ -1,100 +1,14 @@
-"""Fordítások: nyelvenként egy JSON a translations/ mappában.
-
-A kulcsok pontokkal tagolt nevek ("welcome.title"); a szövegekben {név} alakú
-helyőrzők lehetnek. Ha egy nyelvből hiányzik egy kulcs, az angol, végül a magyar
-szöveg látszik. Új nyelv: a hu.json másolata új néven (pl. fr.json), a
-"_language" mezőben a nyelv saját nevével ("Français").
-"""
-import json
-import logging
-import os
-import unicodedata
+"""A Sloth Üdvözlő fordításai (translations/<nyelv>.json); a működés a közös sloth_common.i18n-ben van."""
 from pathlib import Path
 
-log = logging.getLogger("sloth-welcome.i18n")
+from sloth_common.i18n import Catalog
 
-DIR = Path(__file__).resolve().parent / "translations"
-SOURCE = "hu"     # a projekt nyelve: ebben teljes minden szöveg
-FALLBACK = "en"   # ha egy nyelvből hiányzik valami
+catalog = Catalog(Path(__file__).resolve().parent / "translations")
 
-_cache = {}
-_current = {}
-_code = SOURCE
-
-
-def _load(code):
-    if code not in _cache:
-        try:
-            _cache[code] = json.loads((DIR / f"{code}.json").read_text(encoding="utf-8"))
-        except (OSError, ValueError) as e:
-            log.warning("%s: %s", code, e)
-            _cache[code] = {}
-    return _cache[code]
-
-
-def _sort_key(name):
-    """Ékezet nélküli rendezés ("Čeština" a C-nél, ne a latin betűs nevek után)."""
-    plain = "".join(c for c in unicodedata.normalize("NFKD", name) if not unicodedata.combining(c))
-    return plain.casefold()
-
-
-def available():
-    """[{"code": "hu", "name": "Magyar"}, …] a nyelv saját nevével, ábécérendben."""
-    out = [{"code": p.stem, "name": _load(p.stem).get("_language", p.stem)} for p in DIR.glob("*.json")]
-    return sorted(out, key=lambda x: _sort_key(x["name"]))
-
-
-# Jobbról balra írt nyelvek: a felület tükrözve jelenik meg
-RTL = {"ar", "he", "fa", "ur"}
-# Ha a pontos változatra nincs fordítás, ezt használjuk (pl. hongkongi kínai -> hagyományos)
-ALIASES = {"zh_HK": "zh_TW", "zh_MO": "zh_TW", "zh_SG": "zh_CN", "zh": "zh_CN", "no": "nb", "pt_PT": "pt",
-           "bn": "bn_IN"}
-
-
-def match(locale_name, codes):
-    """"pt_BR.UTF-8" -> "pt_BR", "de_AT.UTF-8" -> "de", "sr_RS@latin" -> "sr"; None, ha nincs ilyen."""
-    name = locale_name.split(".")[0].split("@")[0]
-    lang = name.split("_")[0].lower()
-    for cand in (name, ALIASES.get(name), lang, ALIASES.get(lang)):
-        if cand and cand in codes:
-            return cand
-    return None
-
-
-def system_language():
-    """A rendszer nyelve (a telepítőben választott), ha van rá fordításunk; különben angol."""
-    codes = {l["code"] for l in available()}
-    for var in ("LANGUAGE", "LC_ALL", "LC_MESSAGES", "LANG"):
-        for part in os.environ.get(var, "").split(":"):
-            code = match(part, codes) if part and part not in ("C", "POSIX") else None
-            if code:
-                return code
-    return FALLBACK if FALLBACK in codes else SOURCE
-
-
-def is_rtl(code=None):
-    return (code or _code).split("_")[0] in RTL
-
-
-def set_language(code):
-    global _current, _code
-    merged = {}
-    for c in (SOURCE, FALLBACK, code):
-        merged.update(_load(c))
-    _current, _code = merged, code
-
-
-def language():
-    return _code
-
-
-def strings():
-    return dict(_current)
-
-
-def tr(key, **args):
-    text = _current.get(key, key)
-    return text.format(**args) if args else text
-
-
-set_language(system_language())
+available = catalog.available
+system_language = catalog.system_language
+set_language = catalog.set_language
+language = catalog.language
+is_rtl = catalog.is_rtl
+strings = catalog.strings
+tr = catalog.tr

@@ -1,0 +1,8 @@
+# Minden szöveges fájl LF sorvéggel: a scriptek és a rendszerfájlok Linuxon futnak,
+# akkor is, ha a repót Windowson klónozták (core.autocrlf=true).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.gif binary
+*.der binary
+*.ico binary

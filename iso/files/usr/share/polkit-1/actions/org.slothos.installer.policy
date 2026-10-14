@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<!-- A Sloth OS telepítő rendszergazdai része; csak az élő (telepítő) rendszeren van meg. -->
+<policyconfig>
+  <vendor>Sloth OS</vendor>
+  <action id="org.slothos.installer.install">
+    <description>Install Sloth OS</description>
+    <description xml:lang="hu">Sloth OS telepítése</description>
+    <message>Installing Sloth OS erases the selected disk</message>
+    <message xml:lang="hu">A Sloth OS telepítése törli a kiválasztott lemezt</message>
+    <defaults>
+      <allow_any>no</allow_any>
+      <allow_inactive>no</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-install-helper</annotate>
+  </action>
+</policyconfig>

@@ -1,0 +1,13 @@
+# A telepítő ISO rendszerindító menüje (a Titanoboa ebből készíti a GRUB menüt).
+# A menü angol, mert a nyelvet csak a telepítőben lehet választani.
+label: "SlothOS-Live"
+grub2:
+  default: 0
+  timeout: 5
+  entries:
+    - name: "Try or install Sloth OS"
+      linux: "/images/pxeboot/vmlinuz quiet rhgb splash loglevel=3 rd.udev.log_level=3 systemd.show_status=false root=live:CDLABEL=SlothOS-Live enforcing=0 rd.live.image"
+      initrd: "/images/pxeboot/initrd.img"
+    - name: "Try or install Sloth OS (safe graphics)"
+      linux: "/images/pxeboot/vmlinuz quiet rhgb splash root=live:CDLABEL=SlothOS-Live enforcing=0 rd.live.image nomodeset"
+      initrd: "/images/pxeboot/initrd.img"

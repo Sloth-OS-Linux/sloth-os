@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A Sloth Üdvözlő fordításainak ellenőrzése (fejlesztői segéd, nem kerül az image-be).
+"""A Sloth OS saját eszközeinek (Üdvözlő, telepítő) fordításait ellenőrzi (fejlesztői segéd, nem kerül az image-be).
 
 Megnézi, hogy:
   - a kódban és a katalógusban használt összes kulcs megvan-e a magyar (forrás) fájlban,
@@ -17,9 +17,17 @@ import sys
 import unicodedata
 from pathlib import Path
 
-PKG = Path(__file__).resolve().parent.parent / "files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome"
-TRANSLATIONS = PKG / "translations"
+REPO = Path(__file__).resolve().parent.parent
+WELCOME = REPO / "files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome"
+INSTALLER = REPO / "iso/files/usr/lib/sloth-os/sloth-installer/sloth_installer"
+INSTALL_HELPER = REPO / "iso/files/usr/libexec/sloth-os/sloth-install-helper"
 SOURCE = "hu"
+
+# tr("…") a Pythonban, t("…") a QML-ben, valamint a kulcsként tárolt szövegek ("error.…", "done.…")
+KEY_PATTERN = re.compile(r'\b(?:tr|t)\(\s*"([a-z_]+\.[\w.]*\w)"|"((?:error|done)\.[a-z_]+)"')
+# QML-ben feltételes kulcsok: root.t(x ? "a.b" : "c.d")
+CONDITIONAL_PATTERN = re.compile(r'root\.t\(([^()]*\?[^()]*)')
+INVISIBLE = re.compile(r"[­​﻿]")  # feltételes elválasztó, nulla szélességű szóköz, BOM
 
 
 def literal(path, name):
@@ -31,22 +39,39 @@ def literal(path, name):
     raise KeyError(name)
 
 
-def used_keys():
+def welcome_keys():
+    """A Sloth Üdvözlő adatokból képzett kulcsai (katalógus, színtémák, elrendezések)."""
     keys = set()
-    for cat in literal(PKG / "catalog.py", "CATEGORIES"):
+    for cat in literal(WELCOME / "catalog.py", "CATEGORIES"):
         keys |= {f"category.{cat['id']}.name", f"category.{cat['id']}.hint"}
         keys |= {f"app.{a['id']}" for a in cat["apps"]}
-    keys |= {f"scheme.{s['id']}" for s in literal(PKG / "desktop.py", "COLOR_SCHEMES")}
-    for l in literal(PKG / "desktop.py", "LAYOUTS"):
+    keys |= {f"scheme.{s['id']}" for s in literal(WELCOME / "desktop.py", "COLOR_SCHEMES")}
+    for l in literal(WELCOME / "desktop.py", "LAYOUTS"):
         keys |= {f"layout.{l['id']}.name", f"layout.{l['id']}.description"}
-    # tr("…") a Pythonban, t("…") a QML-ben, valamint a kulcsként tárolt szövegek ("error.…", "done.…")
-    pattern = re.compile(r'''\b(?:tr|t)\(\s*"([a-z_]+\.[\w.]+)"|"((?:error|done)\.[a-z_]+)"''')
-    for f in list(PKG.glob("*.py")) + list((PKG / "qml").glob("*.qml")):
-        for m in pattern.finditer(f.read_text(encoding="utf-8")):
+    return keys
+
+
+def installer_keys():
+    """A telepítő futás közben képzett kulcsai: lépések (a segéd küldi) és a lemez tartalma."""
+    stages = {stage for _keys, stage, _pct in literal(INSTALL_HELPER, "STAGES")}
+    keys = {f"stage.{s}" for s in stages | {"start", "partition", "configure"}}
+    return keys | {f"disk.contents.{c}" for c in ("empty", "windows", "linux", "other")}
+
+
+# eszköz -> (csomag, további forrásfájlok, adatokból képzett kulcsok)
+TOOLS = {
+    "sloth-welcome": (WELCOME, [], welcome_keys),
+    "sloth-installer": (INSTALLER, [INSTALL_HELPER], installer_keys),
+}
+
+
+def used_keys(pkg, extra_files, extra_keys):
+    keys = extra_keys()
+    for f in list(pkg.glob("*.py")) + list((pkg / "qml").glob("*.qml")) + extra_files:
+        text = f.read_text(encoding="utf-8")
+        for m in KEY_PATTERN.finditer(text):
             keys.add(m.group(1) or m.group(2))
-    # QML-ben feltételes kulcsok: root.t(x ? "a.b" : "c.d")
-    for f in (PKG / "qml").glob("*.qml"):
-        for m in re.finditer(r'root\.t\(([^()]*\?[^()]*)', f.read_text(encoding="utf-8")):
+        for m in CONDITIONAL_PATTERN.finditer(text):
             keys |= set(re.findall(r'"([a-z_]+\.[a-z_.]+)"', m.group(1)))
     return keys
 
@@ -61,18 +86,16 @@ def mixed_words(text):
     return [w for w in re.findall(r"\w+", text) if len({_script(c) for c in w} - {None}) > 1]
 
 
-INVISIBLE = re.compile(r"[\u00ad\u200b\ufeff]")  # feltételes elválasztó, nulla szélességű szóköz, BOM
-
-
 def placeholders(text):
     return set(re.findall(r"\{(\w+)\}", text))
 
 
-def main():
-    langs = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted(TRANSLATIONS.glob("*.json"))}
+def check(tool, pkg, extra_files, extra_keys):
+    langs = {p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted((pkg / "translations").glob("*.json"))}
     source = langs[SOURCE]
-    used = used_keys()
+    used = used_keys(pkg, extra_files, extra_keys)
     errors = 0
+    print(f"== {tool} ({len(langs)} nyelv)")
 
     missing = sorted(used - source.keys())
     if missing:
@@ -105,7 +128,11 @@ def main():
         if wrong:
             errors += 1
             print(f"HIBA: {code}: eltérő {{helyőrzők}}:", *wrong, sep="\n  ")
+    return errors
 
+
+def main():
+    errors = sum(check(tool, *args) for tool, args in TOOLS.items())
     print("Rendben." if not errors else f"{errors} hiba.")
     return 1 if errors else 0
 

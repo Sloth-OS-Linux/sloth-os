@@ -1,0 +1,61 @@
+{
+  "_language": "English",
+
+  "app.title": "Install Sloth OS",
+
+  "welcome.heading": "Welcome to Sloth OS!",
+  "welcome.text": "You can try the system without installing it, or install it on your computer. Installing takes a few minutes and just a few questions.",
+  "welcome.language": "Language",
+  "welcome.try": "Try it",
+  "welcome.install": "Install",
+
+  "region.heading": "Keyboard and time zone",
+  "region.keyboard": "Keyboard:",
+  "region.try_keyboard": "Test:",
+  "region.try_keyboard_hint": "Type here to check the layout",
+  "region.timezone": "Time zone:",
+  "region.note": "You can change these later in System Settings.",
+
+  "disk.heading": "Where should we install it?",
+  "disk.text": "Choose the disk Sloth OS will be installed on.",
+  "disk.none": "We couldn't find a disk to install on.",
+  "disk.refresh": "Search again",
+  "disk.too_small": "Too small: at least 40 GB is needed.",
+  "disk.contents.empty": "Empty disk",
+  "disk.contents.windows": "Has Windows on it",
+  "disk.contents.linux": "Has a Linux system on it",
+  "disk.contents.other": "Has data on it",
+  "disk.removable": "This is an external drive (e.g. a USB stick). Are you sure you want to install here?",
+  "disk.small": "A bit tight: at least 120 GB is recommended for games.",
+
+  "confirm.heading": "Everything on this disk will be erased",
+  "confirm.text": "Sloth OS uses the whole disk: {disk}. Everything on it now (files, programs, other systems) will be permanently deleted.",
+  "confirm.windows": "This disk has Windows on it. After installing, Windows and all its files will be gone. If you want to keep them, back up your files first.",
+  "confirm.checkbox": "I understand that all data on the disk will be erased",
+  "confirm.install": "Start installing",
+
+  "nav.back": "Back",
+  "nav.next": "Next",
+
+  "stage.start": "Getting ready…",
+  "stage.partition": "Preparing the disk…",
+  "stage.prepare": "Preparing the system…",
+  "stage.copy": "Copying Sloth OS to the disk…",
+  "stage.bootloader": "Setting up startup…",
+  "stage.finishing": "Finishing…",
+  "stage.configure": "Saving language and settings…",
+  "install.note": "Depending on your computer, this takes 5–20 minutes. Please don't turn it off.",
+
+  "done.heading": "Installation complete!",
+  "done.text": "Restart your computer. When the screen goes dark, unplug the USB stick. On first start you'll create your account, and you're all set.",
+  "done.reboot": "Restart",
+
+  "error.heading": "Installation failed",
+  "error.log_hint": "Data on the disk may already have been damaged. Details are in /tmp/sloth-install.log if you ask for help.",
+  "error.retry": "Try again",
+  "error.not_authorized": "We didn't get permission to install.",
+  "error.bad_disk": "This disk can't be installed on. Please choose another one.",
+  "error.bad_input": "One of the settings is invalid. Go back and check them.",
+  "error.install_failed": "Something went wrong while copying the system to the disk.",
+  "error.configure_failed": "The system was installed, but setting the language and keyboard failed."
+}

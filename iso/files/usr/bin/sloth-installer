@@ -1,0 +1,10 @@
+#!/usr/bin/python3 -I
+"""Sloth OS telepítő indító (csak az élő rendszeren van meg)."""
+import sys
+
+sys.path.insert(0, "/usr/lib/sloth-os/sloth-installer")
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+
+from sloth_installer.app import main  # noqa: E402
+
+sys.exit(main())

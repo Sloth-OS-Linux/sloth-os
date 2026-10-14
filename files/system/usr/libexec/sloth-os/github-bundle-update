@@ -11,6 +11,7 @@ import os
 import sys
 
 sys.path.insert(0, "/usr/lib/sloth-os/sloth-welcome")
+sys.path.insert(0, "/usr/lib/sloth-os/common")
 
 import gi  # noqa: E402
 
