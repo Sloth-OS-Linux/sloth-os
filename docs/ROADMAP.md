@@ -132,7 +132,11 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
     `~/.config/environment.d`-ben jelszó nélkül, a többi program változói megjelenítve, a kockázatosak
     (pl. `PATH`) megjelölve; bejelentkezéskor induló programok: a KDE Automatikus indítás modulja
   - [ ] Haladó beállítások: minden olyan rendszerbeállítás, amire nincs KDE-s GUI (folyamatosan bővül)
-- [ ] **Játékok:** játékonkénti beállítások (FPS-kijelző, felskálázás, teljesítmény-mód) Proton/Wine szavak nélkül
+- [x] **Játékok:** játékonkénti beállítások (FPS-kijelző: MangoHud, felskálázás: gamescope FSR, teljesítmény mód:
+  GameMode) Proton/Wine szavak nélkül (Sloth Központ → Játékok). Steames játékoknál az indítási beállításokba kerül
+  (`localconfig.vdf`, a felhasználó saját beírásai megmaradnak; csak zárt Steamnél írható, a felület bezárja),
+  Windows-programoknál a program `meta.json`-jába, és a .exe kezelő indításkor alkalmazza
+  (`sloth_common/gamesettings.py`). VM-ben és valódi játékkal még tesztelni
 
 ### Meglévő KDE / Flatpak GUI-k (ellenőrizni, hogy benne vannak-e az image-ben)
 - [ ] Appok és frissítések: Discover · Flatpak jogosultságok: Rendszerbeállítások

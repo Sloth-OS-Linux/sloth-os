@@ -18,6 +18,7 @@ Kirigami.ApplicationWindow {
     readonly property var modules: [
         { id: "updates", name: L.t("Frissítések"), icon: "system-software-update", page: "UpdatesPage.qml", ready: true },
         { id: "winprograms", name: L.t("Windows-programok"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true },
+        { id: "games", name: L.t("Játékok"), icon: "input-gamepad", page: "GamesPage.qml", ready: true },
         { id: "drivers", name: L.t("Driverek és hardver"), icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true },
         { id: "services", name: L.t("Szolgáltatások"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true },
         { id: "accounts", name: L.t("Fiók és biztonság"), icon: "preferences-system-users", page: "AccountsPage.qml", ready: true },

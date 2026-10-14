@@ -9,6 +9,9 @@ import re
 import time
 
 from PySide6.QtCore import QObject, QProcess, QProcessEnvironment, Signal
+from PySide6.QtGui import QGuiApplication
+
+from sloth_common import gamesettings
 
 from . import backend
 
@@ -37,6 +40,7 @@ class Runner(QObject):
         self._started_at = 0.0
         self._setup_seen = False
         self._pending = None  # tartalék Wine-nál: (program, args), ami a mappa előkészítése után indul
+        self._wrap = []       # játékbeállítások (FPS-kijelző, teljesítmény mód, felskálázás) parancsai
 
     def start(self, program, exe):
         """program: programs.Program, exe: a futtatandó fájl a gazdagépen."""
@@ -53,6 +57,8 @@ class Runner(QObject):
         # A Wine ne hozzon létre saját menübejegyzéseket: azokat mi kezeljük
         env.insert("WINEDLLOVERRIDES", "winemenubuilder.exe=d")
         env.remove("UMU_ZENITY")
+        # Játékonkénti beállítások a Sloth Központból (Játékok oldal)
+        self._wrap = gamesettings.wrapper(program.meta.get("game"), self._screen())
 
         self._started_at = time.monotonic()
         if backend.use_wine():
@@ -60,7 +66,7 @@ class Runner(QObject):
             return
         # Az .msi telepítőket a Proton magától az msiexec-kel nyitja meg
         log.info("indítás: %s (%s)", exe, program.slug)
-        self._spawn(env, exe.parent, "umu-run", [str(exe)])
+        self._spawn(env, exe.parent, *self._wrapped("umu-run", [str(exe)]))
 
     def _start_wine(self, program, exe, env):
         """Tartalék: nincs Proton és nincs internet. A rendszer Wine-ja indítja a programot."""
@@ -70,7 +76,7 @@ class Runner(QObject):
         args = ["msiexec", "/i", str(exe)] if exe.suffix.lower() == ".msi" else [str(exe)]
         self.setup_done.emit()
         if (program.prefix / "system.reg").exists():
-            self._spawn(env, exe.parent, "wine", args)
+            self._spawn(env, exe.parent, *self._wrapped("wine", args))
             return
         # Új mappa: előbb kijelző nélkül előkészítjük, így nem jelenik meg a Wine saját
         # "konfiguráció frissítése" ablaka; utána indul a program
@@ -80,6 +86,21 @@ class Runner(QObject):
         headless.remove("WAYLAND_DISPLAY")
         self.status.emit("status.first_setup", -1)
         self._spawn(headless, exe.parent, "wineboot", ["--init"])
+
+    def _wrapped(self, program, args):
+        """A program elé kerülnek a játékbeállítások parancsai (pl. gamescope … -- gamemoderun mangohud)."""
+        if not self._wrap:
+            return program, args
+        log.info("játékbeállítások: %s", " ".join(self._wrap))
+        return self._wrap[0], self._wrap[1:] + [program] + list(args)
+
+    @staticmethod
+    def _screen():
+        screen = QGuiApplication.primaryScreen()
+        if not screen:
+            return (1920, 1080)
+        return (int(screen.size().width() * screen.devicePixelRatio()),
+                int(screen.size().height() * screen.devicePixelRatio()))
 
     def _spawn(self, env, cwd, program, args):
         self._proc = QProcess(self)
@@ -127,6 +148,6 @@ class Runner(QObject):
             # a mappa elkészült (wineboot), most jön maga a program
             env, cwd, args = self._pending
             self._pending = None
-            self._spawn(env, cwd, "wine", args)
+            self._spawn(env, cwd, *self._wrapped("wine", args))
             return
         self.finished.emit(int(code), self.elapsed())
