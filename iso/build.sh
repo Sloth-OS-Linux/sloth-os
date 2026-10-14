@@ -71,7 +71,7 @@ systemd-firstboot --timezone UTC
 # --- Ami a telepített rendszerbe kell, de az élő rendszeren felesleges vagy zavaró ----------
 
 for unit in \
-    sloth-hide-boot-menu.service sloth-steam-proton-default.service \
+    sloth-boot-ok.service sloth-steam-proton-default.service \
     rpm-ostreed-automatic.timer bootloader-update.service rpm-ostree-countme.timer \
     $(systemctl list-unit-files --no-legend | awk '{print $1}' | grep -Ei 'flatpak' | grep -Evi 'flatpak-(system|session)-helper' || true); do
     systemctl disable "$unit" 2>/dev/null || true

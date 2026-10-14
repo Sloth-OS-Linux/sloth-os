@@ -64,12 +64,11 @@ def secureboot_enroll():
 
 
 def boot_menu(mode):
-    value = "1" if mode == "hidden" else "0"
-    r = run(["grub2-editenv", "-", "set", f"menu_auto_hide={value}"])
-    if mode == "visible":
-        run(["grub2-editenv", "-", "unset", "menu_auto_hide"])
+    # Az állapot az EFI partíción van, a GRUB a /boot/grub2/custom.cfg-ben olvassa (lásd boot-env)
+    value = "0" if mode == "hidden" else "1"
+    run(["/usr/libexec/sloth-os/boot-env", "ensure-config"])
+    r = run(["/usr/libexec/sloth-os/boot-env", "set", f"sloth_show_menu={value}"])
     os.makedirs("/var/lib/sloth-os", exist_ok=True)
-    open("/var/lib/sloth-os/boot-menu-configured", "w").close()
     # Jelzőfájl, hogy a GUI jelszó nélkül lássa az állapotot (a grubenv csak rootnak olvasható)
     marker = "/var/lib/sloth-os/boot-menu-visible"
     if mode == "visible":

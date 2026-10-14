@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+# A boot menü állapota az EFI partíción (EFI/fedora/sloth-boot.env), lásd /usr/lib/sloth-os/grub-custom.cfg.
+#
+#   boot-env set KULCS=ÉRTÉK...   beállítás (ha a fájl nincs meg, létrehozza)
+#   boot-env ensure-config        a /boot/grub2/custom.cfg pótlása, ha hiányzik (nem a saját telepítővel
+#                                 telepített gépeken)
+#
+# Az EFI partíciót a rendszer nem csatolja; ha kell, ideiglenesen csatoljuk, és utána leválasztjuk.
+set -euo pipefail
+
+ESP_TYPE=c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+TEMPLATE=/usr/lib/sloth-os/grub-custom.cfg
+
+find_esp() {
+  local root disk
+  root=$(findmnt -no SOURCE /sysroot 2>/dev/null || findmnt -no SOURCE /)
+  root=${root%%[*}   # btrfs: /dev/sda3[/subvol]
+  disk=$(lsblk -no PKNAME "$root" | head -n1)
+  [[ -n $disk ]] || return 1
+  lsblk -lnpo PATH,PARTTYPE "/dev/$disk" | awk -v t="$ESP_TYPE" 'tolower($2) == t { print $1; exit }'
+}
+
+with_esp() {  # with_esp <parancs...>: a parancs az ESP csatolási pontját kapja $ESP-ként
+  local dev mnt
+  mnt=$(findmnt -no TARGET /boot/efi 2>/dev/null || true)
+  if [[ -n $mnt ]]; then
+    ESP=$mnt "$@"
+    return
+  fi
+  dev=$(find_esp) || true
+  [[ -n $dev ]] || { echo "Nincs EFI partíció." >&2; return 1; }
+  mnt=$(mktemp -d /run/sloth-esp.XXXXXX)
+  mount -t vfat "$dev" "$mnt"
+  local rc=0
+  ESP=$mnt "$@" || rc=$?
+  umount "$mnt"
+  rmdir "$mnt"
+  return $rc
+}
+
+set_values() {
+  local env="$ESP/EFI/fedora/sloth-boot.env" changed=0 kv
+  [[ -d $ESP/EFI/fedora ]] || { echo "Nincs EFI/fedora mappa." >&2; return 1; }
+  [[ -f $env ]] || grub2-editenv "$env" create
+  for kv in "$@"; do
+    # ne írjunk feleslegesen az EFI partícióra
+    grub2-editenv "$env" list | grep -qxF "$kv" || changed=1
+  done
+  if (( changed )); then
+    grub2-editenv "$env" set "$@"
+  fi
+}
+
+ensure_config() {
+  [[ -f /boot/grub2/custom.cfg ]] && return 0
+  [[ -d /boot/grub2 ]] || return 0
+  # a /boot csak olvasható; saját névtérben átmenetileg írhatóvá tesszük (mint az rpm-ostree)
+  unshare -m sh -c "mount -o remount,rw /boot && install -m 0644 '$TEMPLATE' /boot/grub2/custom.cfg"
+}
+
+case "${1:-}" in
+  set)
+    shift
+    for kv in "$@"; do
+      [[ $kv =~ ^sloth_[a-z_]+=[01]$ ]] || { echo "Rossz érték: $kv" >&2; exit 2; }
+    done
+    with_esp set_values "$@"
+    ;;
+  ensure-config)
+    ensure_config
+    ;;
+  *)
+    echo "Használat: boot-env set KULCS=ÉRTÉK... | ensure-config" >&2
+    exit 2
+    ;;
+esac

@@ -236,6 +236,30 @@ def run_bootc():
         fail("error.install_failed", f"bootc kilépési kód: {proc.returncode}")
 
 
+GRUB_CUSTOM = Path("/usr/lib/sloth-os/grub-custom.cfg")
+
+
+def setup_boot_menu():
+    """Rejtett boot menü: a bootupd GRUB-sablonja minden indításkor 1 mp-re kirakná a menüt.
+
+    A custom.cfg ezt felülírja (csak hibás indítás után mutatja), az állapota az EFI partíción
+    van (sloth-boot.env). Ha nem sikerül, a gép így is elindul, csak látszik a menü.
+    """
+    grub_dir = TARGET / "boot/grub2"
+    efi_dir = TARGET / "boot/efi/EFI/fedora"
+    if not grub_dir.is_dir() or not GRUB_CUSTOM.is_file():
+        log("boot menü: nincs /boot/grub2 vagy sablon, marad a látható menü")
+        return
+    (grub_dir / "custom.cfg").write_bytes(GRUB_CUSTOM.read_bytes())
+    if efi_dir.is_dir():
+        env = efi_dir / "sloth-boot.env"
+        r = subprocess.run(["grub2-editenv", str(env), "create"], capture_output=True, text=True)
+        if r.returncode == 0:
+            r = subprocess.run(["grub2-editenv", str(env), "set", "sloth_boot_pending=0", "sloth_show_menu=0"],
+                               capture_output=True, text=True)
+        log(f"boot menü: {r.returncode} {r.stderr.strip()}")
+
+
 def finish_partitions(disk, parts):
     """Leválasztás, a munkapartíció törlése, és a rendszerpartíció kiterjesztése a lemez végéig."""
     run(["sync"])
@@ -443,6 +467,7 @@ def main():
     parts = partition(args.disk)
     emit(stage="prepare", progress=20)
     run_bootc()
+    setup_boot_menu()
     root_part = finish_partitions(args.disk, parts)
     rename_boot_entry(args.disk)
     emit(stage="configure", progress=95)

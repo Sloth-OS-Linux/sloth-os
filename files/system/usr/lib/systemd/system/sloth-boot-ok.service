@@ -1,0 +1,13 @@
+[Unit]
+Description=Sloth OS: sikeres indítás jelzése (a boot menü rejtve marad)
+# A bejelentkező képernyőig eljutott indítás számít sikeresnek; ha ez nem fut le,
+# a következő indításkor a GRUB megmutatja a menüt (lásd /usr/lib/sloth-os/grub-custom.cfg).
+After=graphical.target
+
+[Service]
+Type=oneshot
+ExecStart=-/usr/libexec/sloth-os/boot-env ensure-config
+ExecStart=/usr/libexec/sloth-os/boot-env set sloth_boot_pending=0
+
+[Install]
+WantedBy=graphical.target
