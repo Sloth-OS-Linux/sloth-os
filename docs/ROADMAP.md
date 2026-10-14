@@ -8,8 +8,15 @@ terminálból lehet csinálni, GUI-ból is menjen.
   a választón azonnal: rendben. A telepítés nem ment végig; a talált hibák javítva (4. fázis, „Saját telepítő”),
   de VM-ben még újra kell nézni. Következő lépés: új ISO (`tools/build-iso.sh` Linuxon, `tools/build-iso.ps1`
   Windowson; kell a GitHub CLI `read:packages` joga), majd VM-teszt végig: telepítés, első indítás, Üdvözlő.
-- Utána: a Sloth Központ nyitott pontjai és fordítása a maradék 48 nyelvre (a kód már fordítható, a magyar és
-  az angol kész; hiányzók listája: `python tools/extract_center_strings.py <nyelv>`), majd a Windows mellé telepítés.
+- A Sloth Központ 3. fázisbeli nyitott pontjai elkészültek (felhasználói szolgáltatások, környezeti változók,
+  verziók listája, kontrollerek, jelszó nélküli rendszergazda, bejelentkezési módok, Játékok modul); VM-ben még tesztelni.
+- A Sloth Központ fordítása félúton (2026-10-14): kész a magyar, angol, német, francia, spanyol, olasz, portugál,
+  brazil portugál, holland, lengyel, cseh, szlovák, orosz, ukrán, belarusz, bolgár, szerb, horvát, szlovén, román,
+  svéd, dán, norvég (bokmål, nynorsk), finn, észt, litván, török, görög, katalán, indonéz és afrikaans.
+  Hátravan 18 nyelv: eszperantó, friuli, interlingua, albán, kabil, héber, arab, grúz, kazah, japán, koreai,
+  kínai (egyszerűsített, hagyományos), asszámi, bengáli, pandzsábi, tamil, lao. Hiányzók listája:
+  `python tools/extract_center_strings.py <nyelv>` (a nyelv saját nevét az Üdvözlő fordításaiból kell venni).
+- Utána: a Windows mellé telepítés.
 
 ## 0. fázis – Alap image ✅ (ez a repó)
 - [x] Universal Blue Kinoite alap, AMD/Intel + NVIDIA változat
