@@ -27,6 +27,10 @@
   "disk.contents.other": "Bevat data",
   "disk.removable": "Dit is 'n eksterne skyf (bv. 'n USB-stokkie). Wil jy regtig hier installeer?",
   "disk.small": "Bietjie min: vir speletjies word minstens 120 GB aanbeveel.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB-skyf",
 
   "confirm.heading": "Alles op hierdie skyf word uitgevee",
   "confirm.text": "Sloth OS gebruik die hele skyf: {disk}. Alles wat nou daarop is (lêers, programme, ander stelsels), word permanent uitgevee.",

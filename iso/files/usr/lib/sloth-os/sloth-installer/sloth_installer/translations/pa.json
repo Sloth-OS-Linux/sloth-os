@@ -27,6 +27,10 @@
   "disk.contents.other": "ਇਸ ’ਤੇ ਡਾਟਾ ਹੈ",
   "disk.removable": "ਇਹ ਬਾਹਰੀ ਡਰਾਈਵ ਹੈ (ਜਿਵੇਂ USB ਸਟਿੱਕ)। ਕੀ ਤੁਸੀਂ ਸੱਚਮੁੱਚ ਇੱਥੇ ਇੰਸਟਾਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
   "disk.small": "ਥੋੜ੍ਹੀ ਘੱਟ: ਖੇਡਾਂ ਲਈ ਘੱਟੋ-ਘੱਟ 120 GB ਦੀ ਸਲਾਹ ਹੈ।",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB ਡਰਾਈਵ",
 
   "confirm.heading": "ਇਸ ਡਿਸਕ ’ਤੇ ਸਭ ਕੁਝ ਮਿਟ ਜਾਵੇਗਾ",
   "confirm.text": "Sloth OS ਪੂਰੀ ਡਿਸਕ ਵਰਤਦਾ ਹੈ: {disk}। ਇਸ ’ਤੇ ਹੁਣ ਜੋ ਕੁਝ ਹੈ (ਫ਼ਾਈਲਾਂ, ਪ੍ਰੋਗਰਾਮ, ਹੋਰ ਸਿਸਟਮ) ਸਦਾ ਲਈ ਮਿਟ ਜਾਵੇਗਾ।",

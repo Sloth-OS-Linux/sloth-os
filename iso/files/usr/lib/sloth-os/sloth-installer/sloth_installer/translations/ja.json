@@ -27,6 +27,10 @@
   "disk.contents.other": "データが入っています",
   "disk.removable": "外付けドライブ（USB メモリーなど）です。本当にここにインストールしますか？",
   "disk.small": "少し狭めです: ゲームには 120 GB 以上をおすすめします。",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB ドライブ",
 
   "confirm.heading": "このディスクの内容はすべて消去されます",
   "confirm.text": "Sloth OS はディスク全体を使います: {disk}。今入っているもの（ファイル、プログラム、ほかのシステム）はすべて完全に削除されます。",

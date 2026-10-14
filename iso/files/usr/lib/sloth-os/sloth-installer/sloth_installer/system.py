@@ -6,6 +6,7 @@ de átállítható.
 """
 import json
 import logging
+import re
 import subprocess
 import zoneinfo
 from pathlib import Path
@@ -111,12 +112,32 @@ def timezones():
     return [{"id": z, "name": z.replace("_", " ").replace("/", " / ")} for z in zones] + [{"id": "UTC", "name": "UTC"}]
 
 
+def apply_live_keyboard(kbd):
+    """A választott kiosztás az élő munkamenetben is: a próbamezőben már az új kiosztással lehet gépelni.
+
+    A KWin a ~/.config/kxkbrc változásértesítésére (kwriteconfig6 --notify) azonnal átvált.
+    """
+    layouts, variants = [], []
+    for item in kbd.split(","):
+        layout, _, variant = item.partition("(")
+        layouts.append(layout)
+        variants.append(variant.rstrip(")"))
+    settings = {"LayoutList": ",".join(layouts), "VariantList": ",".join(variants), "Use": "true",
+                "Options": "grp:alt_shift_toggle" if len(layouts) > 1 else "", "ResetOldOptions": "true"}
+    try:
+        for key, value in settings.items():
+            subprocess.run(["kwriteconfig6", "--file", "kxkbrc", "--group", "Layout", "--key", key,
+                            "--notify", value], check=True, timeout=10)
+    except (OSError, subprocess.SubprocessError) as e:
+        log.warning("billentyűzet (élő): %s", e)
+
+
 # --- Lemezek ----------------------------------------------------------------------
 
 def _lsblk():
     out = subprocess.run(
         ["lsblk", "--json", "--bytes", "--output",
-         "NAME,PATH,SIZE,TYPE,RO,RM,TRAN,MODEL,VENDOR,FSTYPE,LABEL,PARTLABEL,MOUNTPOINTS"],
+         "NAME,PATH,SIZE,TYPE,RO,RM,ROTA,TRAN,MODEL,VENDOR,FSTYPE,LABEL,PARTLABEL,MOUNTPOINTS"],
         capture_output=True, text=True, check=True, timeout=20).stdout
     return json.loads(out).get("blockdevices", [])
 
@@ -152,6 +173,27 @@ def _contents(disk):
     return kind, names
 
 
+def _disk_name(d):
+    """A lemez gyártója és típusa (pl. "Samsung SSD 980"); ha nincs, az eszköz neve (pl. "sda").
+    A virtuális gépek lemezeinél a "gyártó" csak egy azonosító (pl. "0x1af4"), azt nem mutatjuk.
+    """
+    vendor = (d.get("vendor") or "").strip()
+    if re.fullmatch(r"0x[0-9a-fA-F]+", vendor):
+        vendor = ""
+    name = " ".join(" ".join(x for x in (vendor, d.get("model")) if x).split())
+    return name or d.get("name", "")
+
+
+def _disk_kind(d):
+    """A meghajtó fajtája: "nvme", "ssd", "hdd" vagy "usb" (a felület fordítja: disk.kind.*)."""
+    tran = (d.get("tran") or "").lower()
+    if tran == "usb":
+        return "usb"
+    if tran == "nvme" or d.get("name", "").startswith("nvme"):
+        return "nvme"
+    return "hdd" if d.get("rota") else "ssd"
+
+
 def disks():
     """A telepítésre szóba jövő lemezek, emberi leírással. A túl kicsiket letiltva mutatjuk."""
     live = _live_disk()
@@ -163,10 +205,10 @@ def disks():
             continue
         kind, names = _contents(d)
         size = int(d.get("size") or 0)
-        model = " ".join(x for x in (d.get("vendor"), d.get("model")) if x).strip() or d.get("name")
         out.append({
             "path": d["path"],
-            "model": " ".join(model.split()),
+            "model": _disk_name(d),
+            "kind": _disk_kind(d),
             "size": size,
             "sizeText": f"{size / 1000**3:.0f} GB",
             "transport": (d.get("tran") or "").lower(),   # nvme, sata, usb…

@@ -27,6 +27,10 @@
   "disk.contents.other": "Are date",
   "disk.removable": "Acesta e un disc extern (de ex. un stick USB). Sigur vrei să instalezi aici?",
   "disk.small": "Cam strâmt: pentru jocuri se recomandă cel puțin 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "Unitate USB",
 
   "confirm.heading": "Tot ce e pe acest disc va fi șters",
   "confirm.text": "Sloth OS folosește tot discul: {disk}. Tot ce e acum pe el (fișiere, programe, alte sisteme) va fi șters definitiv.",

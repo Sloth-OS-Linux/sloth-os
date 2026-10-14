@@ -27,6 +27,10 @@
   "disk.contents.other": "Has data on it",
   "disk.removable": "This is an external drive (e.g. a USB stick). Are you sure you want to install here?",
   "disk.small": "A bit tight: at least 120 GB is recommended for games.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB drive",
 
   "confirm.heading": "Everything on this disk will be erased",
   "confirm.text": "Sloth OS uses the whole disk: {disk}. Everything on it now (files, programs, other systems) will be permanently deleted.",

@@ -27,6 +27,10 @@
   "disk.contents.other": "יש עליו נתונים",
   "disk.removable": "זהו כונן חיצוני (למשל דיסק־און־קי). בטוח שרוצים להתקין כאן?",
   "disk.small": "קצת צפוף: למשחקים מומלץ לפחות 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "כונן USB",
 
   "confirm.heading": "כל מה שעל הדיסק הזה יימחק",
   "confirm.text": "Sloth OS משתמשת בכל הדיסק: {disk}. כל מה שעליו עכשיו (קבצים, תוכנות, מערכות אחרות) יימחק לצמיתות.",

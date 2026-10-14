@@ -27,6 +27,10 @@
   "disk.contents.other": "Tem dados",
   "disk.removable": "Este é um disco externo (ex.: pen drive). Tem certeza de que quer instalar nele?",
   "disk.small": "Meio apertado: para jogos, recomendamos pelo menos 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "Unidade USB",
 
   "confirm.heading": "Tudo neste disco será apagado",
   "confirm.text": "O Sloth OS usa o disco inteiro: {disk}. Tudo o que está nele agora (arquivos, programas, outros sistemas) será apagado para sempre.",

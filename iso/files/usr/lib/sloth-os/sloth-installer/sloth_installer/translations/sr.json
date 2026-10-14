@@ -27,6 +27,10 @@
   "disk.contents.other": "На њему су подаци",
   "disk.removable": "Ово је спољни диск (нпр. USB флеш). Да ли стварно желите да инсталирате овде?",
   "disk.small": "Мало тесно: за игре препоручујемо бар 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB уређај",
 
   "confirm.heading": "Све на овом диску биће обрисано",
   "confirm.text": "Sloth OS користи цео диск: {disk}. Све што је сада на њему (датотеке, програми, други системи) биће трајно обрисано.",

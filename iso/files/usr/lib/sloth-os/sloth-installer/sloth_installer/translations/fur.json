@@ -27,6 +27,10 @@
   "disk.contents.other": "Al à dâts",
   "disk.removable": "Chest al è un disc esterni (p.e. une clâf USB). Vûstu pardabon instalâ achì?",
   "disk.small": "Un pôc strent: pai zûcs a son conseâts almancul 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "Unitât USB",
 
   "confirm.heading": "Dut ce che al è su chest disc al vignarà scancelât",
   "confirm.text": "Sloth OS al dopre dut il disc: {disk}. Dut ce che al è cumò (files, programs, altris sistemis) al vignarà scancelât par simpri.",

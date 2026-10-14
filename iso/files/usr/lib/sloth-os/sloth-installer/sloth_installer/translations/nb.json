@@ -27,6 +27,10 @@
   "disk.contents.other": "Inneholder data",
   "disk.removable": "Dette er en ekstern disk (f.eks. en minnepinne). Vil du virkelig installere her?",
   "disk.small": "Litt trangt: til spill anbefales minst 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB-stasjon",
 
   "confirm.heading": "Alt på denne disken blir slettet",
   "confirm.text": "Sloth OS bruker hele disken: {disk}. Alt som er på den nå (filer, programmer, andre systemer), slettes for godt.",

@@ -27,6 +27,10 @@
   "disk.contents.other": "Llan fell-as isefka",
   "disk.removable": "Wa d aḍebsi azɣaray (am USB). Tebɣiḍ s tidet ad tesbeddeḍ da?",
   "disk.small": "Cwiṭ d imeẓẓi: i wuraren, ilaq ma drus 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "Ameɣras USB",
 
   "confirm.heading": "Ayen akk yellan deg uḍebsi-a ad yettwakkes",
   "confirm.text": "Sloth OS ad yesseqdec aḍebsi akk: {disk}. Ayen akk yellan tura (ifuyla, ihilen, inagrawen nniḍen) ad yettwakkes i lebda.",

@@ -27,6 +27,10 @@
   "disk.contents.other": "Adatok vannak rajta",
   "disk.removable": "Ez egy külső meghajtó (pl. pendrive). Biztosan erre szeretnéd telepíteni?",
   "disk.small": "Kicsit kevés hely: játékokhoz legalább 120 GB ajánlott.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB-meghajtó",
 
   "confirm.heading": "Minden törlődik erről a lemezről",
   "confirm.text": "A Sloth OS a teljes lemezt használja: {disk}. Minden, ami most rajta van (fájlok, programok, más rendszerek), végleg törlődik.",

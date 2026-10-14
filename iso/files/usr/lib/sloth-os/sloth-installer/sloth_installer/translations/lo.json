@@ -27,6 +27,10 @@
   "disk.contents.other": "ມີຂໍ້ມູນຢູ່",
   "disk.removable": "ນີ້ແມ່ນໄດຣຟ໌ພາຍນອກ (ເຊັ່ນ USB). ແນ່ໃຈບໍ່ວ່າຈະຕິດຕັ້ງຢູ່ນີ້?",
   "disk.small": "ຄ່ອນຂ້າງໜ້ອຍ: ສຳລັບເກມແນະນຳຢ່າງໜ້ອຍ 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "ໄດຣຟ໌ USB",
 
   "confirm.heading": "ທຸກຢ່າງໃນດິສກ໌ນີ້ຈະຖືກລຶບ",
   "confirm.text": "Sloth OS ໃຊ້ທັງດິສກ໌: {disk}. ທຸກຢ່າງທີ່ຢູ່ໃນນັ້ນດຽວນີ້ (ໄຟລ໌, ໂປຣແກຣມ, ລະບົບອື່ນ) ຈະຖືກລຶບຖາວອນ.",

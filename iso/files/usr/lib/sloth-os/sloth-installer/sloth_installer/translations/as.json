@@ -27,6 +27,10 @@
   "disk.contents.other": "ইয়াত ডাটা আছে",
   "disk.removable": "এইটো বাহিৰৰ ড্ৰাইভ (যেনে USB ষ্টিক)। সঁচাকৈয়ে ইয়াত ইনষ্টল কৰিব নেকি?",
   "disk.small": "অলপ কম: খেলৰ বাবে কমেও 120 GB পৰামৰ্শ দিয়া হয়।",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB ড্ৰাইভ",
 
   "confirm.heading": "এই ডিস্কৰ সকলো মচি পেলোৱা হ'ব",
   "confirm.text": "Sloth OS-এ গোটেই ডিস্কখন ব্যৱহাৰ কৰে: {disk}। এতিয়া ইয়াত যি আছে (ফাইল, প্ৰগ্ৰাম, আন চিস্টেম) চিৰদিনৰ বাবে মচি পেলোৱা হ'ব।",

@@ -4,13 +4,12 @@ Alapelv: **ha a felhasználónak terminált kell nyitnia, az a mi hibánk.** A K
 terminálból lehet csinálni, GUI-ból is menjen.
 
 ## Hol tartunk (2026-10-14)
-- A legutóbbi commitok még nincsenek ISO-ban kipróbálva. Következő lépés: a GitHubon kész image-ből új ISO
-  (`tools/build-iso.ps1`, kell hozzá Podman és a GitHub CLI `read:packages` joga), majd VM-teszt:
-  - a telepítés végén beíródik-e a nyelv, a billentyűzet és az időzóna (az előző ISO-n ez nem ment);
-  - a kicsomagolt image-ből (`containers-storage`) rendben települ-e, és mekkora lett az ISO (cél kb. 5 GB);
-  - rejtett-e a GRUB menü, látszik-e a Firefox a kipróbáláskor, és „Sloth OS” lett-e a firmware boot-bejegyzés.
-- Utána: a Sloth Központ fordítása a maradék 48 nyelvre (a kód már fordítható, a magyar és az angol kész;
-  hiányzók listája: `python tools/extract_center_strings.py <nyelv>`), majd a Windows mellé telepítés.
+- Második VM-teszt (első saját ISO, 6,8 GB): rejtett GRUB, szöveg nélküli boot, Firefox a tálcán, nyelvváltás
+  a választón azonnal: rendben. A telepítés nem ment végig; a talált hibák javítva (4. fázis, „Saját telepítő”),
+  de VM-ben még újra kell nézni. Következő lépés: új ISO (`tools/build-iso.sh` Linuxon, `tools/build-iso.ps1`
+  Windowson; kell a GitHub CLI `read:packages` joga), majd VM-teszt végig: telepítés, első indítás, Üdvözlő.
+- Utána: a Sloth Központ nyitott pontjai és fordítása a maradék 48 nyelvre (a kód már fordítható, a magyar és
+  az angol kész; hiányzók listája: `python tools/extract_center_strings.py <nyelv>`), majd a Windows mellé telepítés.
 
 ## 0. fázis – Alap image ✅ (ez a repó)
 - [x] Universal Blue Kinoite alap, AMD/Intel + NVIDIA változat
@@ -45,9 +44,11 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [x] Bejelentkező képernyő (Plasma Login Manager, tartalékként SDDM): Sloth OS háttérkép, Sloth Silver színek; VM-ben még tesztelni
 - [ ] Ellenőrizni, hol látszik még "Fedora" vagy "Universal Blue" név. Eddig:
   - [x] Rendszerinformáció, boot menü bejegyzések, gépnév: az os-release-ből jönnek (Sloth OS)
-  - [x] A KDE üdvözlő appja kikapcsolva (a Sloth Üdvözlő helyett ne jöjjön elő): `files/system/etc/xdg/kded6rc`
+  - [x] A KDE üdvözlő appja (`plasma-welcome`) kikerül az image-ből (`files/scripts/remove-default-apps.sh`), a Sloth
+    Üdvözlő fut helyette. A korábbi `kded6rc`-s kikapcsolás nem működött (az élő rendszerben eltakarta a telepítőt)
   - [x] Alapértelmezett háttérkép: a saját Sloth OS háttérkép
-  - [x] Firmware (BIOS/UEFI) boot-bejegyzés neve: a saját telepítő „Sloth OS”-re nevezi át
+  - [x] Firmware (BIOS/UEFI) boot-bejegyzés neve: a saját telepítő „Sloth OS”-re nevezi át (egy `lsblk`-hiba miatt
+    eddig nem futott le, javítva; VM-ben még tesztelni)
   - [ ] VM-ben végignézni: bejelentkező képernyő, Discover, Rendszerbeállítások
 
 ## 2. fázis – Gaming, ami csak működik
@@ -131,15 +132,23 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
 - [ ] Repó publikussá tétele, napi automatikus build visszakapcsolása (`.github/workflows/build.yml`)
 - [ ] **Saját Sloth OS telepítő** (`iso/`): élő rendszer a pendrive-ról, kipróbálás telepítés nélkül, Anaconda nélkül
   - [x] Első változat: nyelv (az Üdvözlő 50 nyelve), billentyűzet, időzóna, egész lemezre telepítés
-    (`bootc install to-disk`, az image az ISO-ban van, internet nélkül is megy), folyamatjelző, újraindítás;
-    a fiókot első induláskor a KDE Plasma Setup hozza létre. Építés: `tools/build-iso.ps1` (helyben, Podman)
-    vagy `.github/workflows/iso.yml`. VM-ben még tesztelni
+    (saját particionálás + `bootc install to-filesystem`, az image az ISO-ban van, internet nélkül is megy),
+    folyamatjelző, újraindítás; a fiókot első induláskor a KDE Plasma Setup hozza létre. Építés:
+    `tools/build-iso.sh` (Linux) vagy `tools/build-iso.ps1` (Windows), helyben Podmannel, vagy `.github/workflows/iso.yml`
   - [x] A telepítő mind az 50 nyelven
   - [x] Teljes képernyős „Kipróbálom / Telepítem” választó; kipróbáláshoz Firefox az élő rendszerben, és ha
     telepítéskor nincs internet, a telepítő átmásolja (különben az Üdvözlőben választ a felhasználó)
   - [x] Rejtett GRUB az ISO-n (Escre jön elő); a firmware boot-bejegyzés neve „Sloth OS” (nem „Fedora”)
   - [x] Kisebb ISO: a telepítendő image kicsomagolva, a közös fájlok csak egyszer (cél kb. 5 GB); VM-ben még tesztelni
-  - [x] Javítva: a telepítés végén nem találta a gyökérpartíciót (a nyelv és a billentyűzet nem került be)
+  - [x] A második VM-teszt (2026-10-14) hibái javítva, VM-ben újra megnézni:
+    - a telepítés 4 GB RAM-mal elfogyott (a `bootc` a rétegeket a RAM-ban lévő `/var/tmp`-be csomagolta ki):
+      most a lemez végén egy átmeneti munkapartíciót használ, amit utána a rendszerpartícióhoz csatol;
+    - a telepítés végén nem találta a gyökérpartíciót, és a boot-bejegyzést sem nevezte át (`lsblk --json`
+      `--tree` nélkül lapos listát ad); a folyamatjelző 36%-on állt a másolás alatt (most a lemezre írt adatból halad);
+    - a KDE üdvözlője eltakarta a telepítőt; a választott billentyűzet az élő rendszerben nem állt át
+      (a próbamező így semmit nem mutatott; most `kwriteconfig6 --notify`, és a KWin nem a locale1-et követi);
+    - billentyűzettel: a lenyitott listákban nem működtek a nyilak, nem látszott a fókusz; a lemez neve
+      „0x1af4” volt (most gyártó, típus, HDD/SSD/NVMe)
   - [ ] Windows mellé telepítés: a Windows-partíció zsugorítása, közös boot menü, BitLocker felismerése és magyarázata
   - [ ] NVIDIA-s gépen automatikusan az NVIDIA-s változat (most a Sloth Központban lehet utána váltani)
   - [ ] Telepítés után a frissítések aláírás-ellenőrzéssel (`ostree-image-signed`)

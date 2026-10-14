@@ -27,6 +27,10 @@
   "disk.contents.other": "Siinä on tietoja",
   "disk.removable": "Tämä on ulkoinen asema (esim. USB-tikku). Haluatko varmasti asentaa tähän?",
   "disk.small": "Vähän ahdasta: peleille suositellaan vähintään 120 Gt.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB-asema",
 
   "confirm.heading": "Kaikki tällä levyllä poistetaan",
   "confirm.text": "Sloth OS käyttää koko levyn: {disk}. Kaikki sillä nyt oleva (tiedostot, ohjelmat, muut järjestelmät) poistetaan pysyvästi.",

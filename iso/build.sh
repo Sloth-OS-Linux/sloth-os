@@ -21,6 +21,10 @@ done
 [[ $(ls /usr/lib/modules/*/initramfs.img | wc -l) -eq 1 ]]
 
 sed -i "s/^livesys_session=.*/livesys_session=kde/" /etc/sysconfig/livesys
+# A livesys az Anaconda miatt a locale1-et követteti a KWinnel. Mi nem használjuk az Anacondát, a
+# telepítő a ~/.config/kxkbrc-be írja a választott kiosztást; a locale1 követése ezt késve felülírta.
+grep -q "FollowLocale1=true" /usr/libexec/livesys/sessions.d/livesys-kde
+sed -i "s/FollowLocale1=true/FollowLocale1=false/" /usr/libexec/livesys/sessions.d/livesys-kde
 systemctl enable livesys.service livesys-late.service
 
 # --- A telepítő és az élő rendszer saját fájljai ----------------------------------------

@@ -27,6 +27,10 @@
   "disk.contents.other": "Contient des données",
   "disk.removable": "C'est un disque externe (par ex. une clé USB). Voulez-vous vraiment l'installer ici ?",
   "disk.small": "Un peu juste : au moins 120 Go sont recommandés pour les jeux.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "Clé ou disque USB",
 
   "confirm.heading": "Tout ce qui est sur ce disque sera effacé",
   "confirm.text": "Sloth OS utilise tout le disque : {disk}. Tout ce qu'il contient (fichiers, programmes, autres systèmes) sera définitivement supprimé.",

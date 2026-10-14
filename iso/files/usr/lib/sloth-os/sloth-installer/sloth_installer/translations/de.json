@@ -27,6 +27,10 @@
   "disk.contents.other": "Enthält Daten",
   "disk.removable": "Das ist ein externes Laufwerk (z. B. ein USB-Stick). Möchtest du wirklich hierauf installieren?",
   "disk.small": "Etwas knapp: für Spiele werden mindestens 120 GB empfohlen.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB-Laufwerk",
 
   "confirm.heading": "Alles auf diesem Laufwerk wird gelöscht",
   "confirm.text": "Sloth OS belegt das gesamte Laufwerk: {disk}. Alles, was jetzt darauf ist (Dateien, Programme, andere Systeme), wird endgültig gelöscht.",

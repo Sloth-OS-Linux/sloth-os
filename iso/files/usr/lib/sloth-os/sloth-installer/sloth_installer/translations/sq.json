@@ -27,6 +27,10 @@
   "disk.contents.other": "Ka të dhëna",
   "disk.removable": "Ky është disk i jashtëm (p.sh. USB). Doni vërtet ta instaloni këtu?",
   "disk.small": "Pak ngushtë: për lojëra rekomandohen të paktën 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "Disk USB",
 
   "confirm.heading": "Gjithçka në këtë disk do të fshihet",
   "confirm.text": "Sloth OS përdor gjithë diskun: {disk}. Gjithçka që ka tani (skedarë, programe, sisteme të tjera) do të fshihet përgjithmonë.",

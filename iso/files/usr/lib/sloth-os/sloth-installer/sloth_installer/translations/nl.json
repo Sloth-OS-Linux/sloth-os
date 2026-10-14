@@ -27,6 +27,10 @@
   "disk.contents.other": "Er staan gegevens op",
   "disk.removable": "Dit is een externe schijf (bijv. een USB-stick). Wil je hier echt installeren?",
   "disk.small": "Een beetje krap: voor games wordt minstens 120 GB aangeraden.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB-schijf",
 
   "confirm.heading": "Alles op deze schijf wordt gewist",
   "confirm.text": "Sloth OS gebruikt de hele schijf: {disk}. Alles wat er nu op staat (bestanden, programma's, andere systemen) wordt definitief verwijderd.",

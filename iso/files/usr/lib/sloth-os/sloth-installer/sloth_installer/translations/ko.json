@@ -27,6 +27,10 @@
   "disk.contents.other": "데이터가 있습니다",
   "disk.removable": "외장 드라이브(예: USB 메모리)입니다. 정말 여기에 설치할까요?",
   "disk.small": "조금 빠듯합니다: 게임용으로는 120GB 이상을 권장합니다.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB 드라이브",
 
   "confirm.heading": "이 디스크의 모든 내용이 지워집니다",
   "confirm.text": "Sloth OS는 디스크 전체를 사용합니다: {disk}. 지금 있는 모든 것(파일, 프로그램, 다른 시스템)이 영구히 삭제됩니다.",

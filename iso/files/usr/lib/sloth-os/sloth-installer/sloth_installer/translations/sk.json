@@ -27,6 +27,10 @@
   "disk.contents.other": "Sú na ňom údaje",
   "disk.removable": "Toto je externý disk (napr. USB kľúč). Naozaj sem chcete inštalovať?",
   "disk.small": "Trochu tesné: na hry odporúčame aspoň 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB disk",
 
   "confirm.heading": "Všetko na tomto disku bude vymazané",
   "confirm.text": "Sloth OS využije celý disk: {disk}. Všetko, čo je na ňom teraz (súbory, programy, iné systémy), bude natrvalo vymazané.",

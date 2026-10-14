@@ -27,6 +27,10 @@
   "disk.contents.other": "Enhavas datumojn",
   "disk.removable": "Ĉi tio estas ekstera disko (ekz. USB-memorilo). Ĉu vi vere volas instali ĉi tien?",
   "disk.small": "Iom malvaste: por ludoj ni rekomendas almenaŭ 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB-disko",
 
   "confirm.heading": "Ĉio sur ĉi tiu disko estos forigita",
   "confirm.text": "Sloth OS uzas la tutan diskon: {disk}. Ĉio, kio estas sur ĝi nun (dosieroj, programoj, aliaj sistemoj), estos definitive forigita.",

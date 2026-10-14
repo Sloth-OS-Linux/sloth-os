@@ -35,6 +35,45 @@ Kirigami.ApplicationWindow {
         return text;
     }
 
+    // A lemez neve és fajtája, pl. "Samsung SSD 980 · NVMe SSD"
+    function diskName(d) {
+        if (!d || !d.path)
+            return "";
+        const kinds = {
+            nvme: root.t("disk.kind.nvme"),
+            ssd: root.t("disk.kind.ssd"),
+            hdd: root.t("disk.kind.hdd"),
+            usb: root.t("disk.kind.usb")
+        };
+        return d.model + (kinds[d.kind] ? "  ·  " + kinds[d.kind] : "");
+    }
+
+    // Lapváltáskor a fókusz az elsődleges gombra kerül, hogy billentyűzettel (Enter) is lehessen haladni
+    property string shownPage: ""
+    Connections {
+        target: installer
+        // a Python oldalon minden tulajdonság a közös "changed" jelzéssel frissül
+        function onChanged() {
+            if (installer.page !== root.shownPage) {
+                root.shownPage = installer.page;
+                focusTimer.restart();
+            }
+        }
+    }
+    Timer {
+        id: focusTimer
+        interval: 50
+        onTriggered: {
+            const target = {
+                welcome: installButton, region: regionNav.nextButton, disk: diskNav.nextButton,
+                confirm: confirmCheck, done: rebootButton, error: retryButton
+            }[installer.page];
+            if (target)
+                target.forceActiveFocus(Qt.TabFocusReason);
+        }
+    }
+    Component.onCompleted: focusTimer.start()
+
     // Telepítés közben ne lehessen bezárni
     onClosing: close => close.accepted = installer.page !== "install"
 
@@ -86,6 +125,7 @@ Kirigami.ApplicationWindow {
                             model: installer.languages
                             textRole: "name"
                             valueRole: "code"
+                            popup.popupType: QQC2.Popup.Item
                             currentIndex: count > 0 ? indexOfValue(installer.language) : -1
                             onActivated: installer.setLanguage(currentValue)
                         }
@@ -100,9 +140,11 @@ Kirigami.ApplicationWindow {
                             onClicked: installer.quit()
                         }
                         QQC2.Button {
+                            id: installButton
+                            Keys.onReturnPressed: clicked()
+                            Keys.onEnterPressed: clicked()
                             text: root.t("welcome.install")
                             icon.name: "go-next"
-                            highlighted: true
                             onClicked: installer.next()
                         }
                     }
@@ -135,6 +177,7 @@ Kirigami.ApplicationWindow {
                             model: installer.keyboards
                             textRole: "name"
                             valueRole: "id"
+                            popup.popupType: QQC2.Popup.Item
                             currentIndex: count > 0 ? indexOfValue(installer.keyboard) : -1
                             onActivated: installer.setKeyboard(currentValue)
                         }
@@ -149,6 +192,7 @@ Kirigami.ApplicationWindow {
                             model: installer.timezones
                             textRole: "name"
                             valueRole: "id"
+                            popup.popupType: QQC2.Popup.Item
                             currentIndex: count > 0 ? indexOfValue(installer.timezone) : -1
                             onActivated: installer.setTimezone(currentValue)
                         }
@@ -160,7 +204,7 @@ Kirigami.ApplicationWindow {
                         opacity: 0.7
                         text: root.t("region.note")
                     }
-                    NavRow {}
+                    NavRow { id: regionNav }
                 }
             }
 
@@ -216,14 +260,14 @@ Kirigami.ApplicationWindow {
                                 implicitHeight: diskRow.implicitHeight + Kirigami.Units.largeSpacing * 2
                                 enabled: !modelData.tooSmall
                                 onClicked: installer.selectDisk(modelData.path)
-                                Accessible.name: modelData.model
+                                Accessible.name: root.diskName(modelData)
                                 background: Rectangle {
                                     radius: Kirigami.Units.cornerRadius
                                     color: diskCard.chosen ? Qt.alpha(Kirigami.Theme.highlightColor, 0.35)
                                          : diskCard.hovered ? Qt.alpha(Kirigami.Theme.textColor, 0.08)
                                          : Qt.alpha(Kirigami.Theme.textColor, 0.03)
-                                    border.width: diskCard.chosen ? 3 : 1
-                                    border.color: diskCard.chosen ? Kirigami.Theme.highlightColor
+                                    border.width: diskCard.chosen || diskCard.visualFocus ? 3 : 1
+                                    border.color: diskCard.chosen || diskCard.visualFocus ? Kirigami.Theme.highlightColor
                                                                   : Qt.alpha(Kirigami.Theme.textColor, 0.15)
                                 }
                                 contentItem: RowLayout {
@@ -243,7 +287,7 @@ Kirigami.ApplicationWindow {
                                             Layout.fillWidth: true
                                             font.bold: true
                                             elide: Text.ElideRight
-                                            text: diskCard.modelData.model + "  ·  " + diskCard.modelData.sizeText
+                                            text: root.diskName(diskCard.modelData) + "  ·  " + diskCard.modelData.sizeText
                                         }
                                         QQC2.Label {
                                             Layout.fillWidth: true
@@ -265,10 +309,11 @@ Kirigami.ApplicationWindow {
                                     }
                                     QQC2.RadioButton {
                                         Layout.rightMargin: Kirigami.Units.largeSpacing
+                                        focusPolicy: Qt.NoFocus   // a kártya maga kapja a fókuszt
                                         checked: diskCard.chosen
                                         enabled: diskCard.enabled
                                         onClicked: installer.selectDisk(diskCard.modelData.path)
-                                        Accessible.name: diskCard.modelData.model
+                                        Accessible.name: root.diskName(diskCard.modelData)
                                     }
                                 }
                             }
@@ -310,7 +355,7 @@ Kirigami.ApplicationWindow {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
-                        text: root.t("confirm.text", { disk: (installer.diskInfo.model || "") + " (" + (installer.diskInfo.sizeText || "") + ")" })
+                        text: root.t("confirm.text", { disk: root.diskName(installer.diskInfo) + " (" + (installer.diskInfo.sizeText || "") + ")" })
                     }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
@@ -319,8 +364,10 @@ Kirigami.ApplicationWindow {
                         text: root.t("confirm.windows")
                     }
                     QQC2.CheckBox {
+                        id: confirmCheck
                         Layout.alignment: Qt.AlignHCenter
                         text: root.t("confirm.checkbox")
+                        FocusFrame { visible: confirmCheck.visualFocus }
                         checked: installer.confirmed
                         onToggled: installer.setConfirmed(checked)
                     }
@@ -331,7 +378,6 @@ Kirigami.ApplicationWindow {
                         QQC2.Button {
                             text: root.t("confirm.install")
                             icon.name: "run-install"
-                            highlighted: true
                             enabled: installer.confirmed
                             onClicked: installer.install()
                         }
@@ -405,10 +451,12 @@ Kirigami.ApplicationWindow {
                         text: root.t("done.text")
                     }
                     QQC2.Button {
+                        id: rebootButton
+                        Keys.onReturnPressed: clicked()
+                        Keys.onEnterPressed: clicked()
                         Layout.alignment: Qt.AlignHCenter
                         text: root.t("done.reboot")
                         icon.name: "system-reboot"
-                        highlighted: true
                         onClicked: installer.reboot()
                     }
                 }
@@ -446,6 +494,9 @@ Kirigami.ApplicationWindow {
                         text: root.t("error.log_hint")
                     }
                     QQC2.Button {
+                        id: retryButton
+                        Keys.onReturnPressed: clicked()
+                        Keys.onEnterPressed: clicked()
                         Layout.alignment: Qt.AlignHCenter
                         text: root.t("error.retry")
                         icon.name: "view-refresh"
@@ -456,19 +507,33 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    // Vissza / Tovább gombsor a lépések alján
+    // Vissza / Tovább gombsor a lépések alján. A „Tovább” nincs külön kiemelve: a kiemelés
+    // összetéveszthető volt a billentyűzetfókusszal, helyette lapváltáskor ez kapja a fókuszt.
     component NavRow: RowLayout {
         id: nav
         property bool nextEnabled: true
+        property alias nextButton: nextButton
         Layout.alignment: Qt.AlignHCenter
         spacing: Kirigami.Units.largeSpacing
         QQC2.Button { text: root.t("nav.back"); icon.name: "go-previous"; onClicked: installer.back() }
         QQC2.Button {
+            id: nextButton
+            Keys.onReturnPressed: clicked()
+            Keys.onEnterPressed: clicked()
             text: root.t("nav.next")
             icon.name: "go-next"
-            highlighted: true
             enabled: nav.nextEnabled
             onClicked: installer.next()
         }
+    }
+
+    // Jól látható fókuszkeret azokhoz az elemekhez, amelyeknél a stílus alig jelzi
+    component FocusFrame: Rectangle {
+        anchors.fill: parent
+        anchors.margins: -Kirigami.Units.smallSpacing
+        radius: Kirigami.Units.cornerRadius
+        color: "transparent"
+        border.width: 2
+        border.color: Kirigami.Theme.focusColor
     }
 }

@@ -27,6 +27,10 @@
   "disk.contents.other": "Üzerinde veri var",
   "disk.removable": "Bu harici bir sürücü (ör. USB bellek). Gerçekten buraya kurmak istiyor musunuz?",
   "disk.small": "Biraz dar: oyunlar için en az 120 GB önerilir.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "USB sürücü",
 
   "confirm.heading": "Bu diskteki her şey silinecek",
   "confirm.text": "Sloth OS diskin tamamını kullanır: {disk}. Üzerindeki her şey (dosyalar, programlar, diğer sistemler) kalıcı olarak silinecek.",

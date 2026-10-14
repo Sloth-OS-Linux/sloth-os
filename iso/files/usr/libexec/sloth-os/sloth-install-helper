@@ -3,8 +3,10 @@
 
   sloth-install-helper install --disk /dev/X --locale hu_HU.UTF-8 --keyboard hu --timezone Europe/Budapest
 
-A teljes lemezt törli, és feltelepíti rá az ISO-ba csomagolt Sloth OS image-et
-(bootc install to-disk), majd beírja a választott nyelvet, billentyűzetet és időzónát.
+A teljes lemezt törli, particionálja, és feltelepíti rá az ISO-ba csomagolt Sloth OS image-et
+(bootc install to-filesystem), majd beírja a választott nyelvet, billentyűzetet és időzónát.
+A bootc a rétegeket ideiglenesen kicsomagolja; az élő rendszer /var/tmp-je RAM-ban van, ezért
+erre a lemez végén egy átmeneti munkapartíciót használunk, amit a végén a rendszerpartícióhoz csatolunk.
 Ha nincs internet, az élő rendszer Firefoxát is átmásolja, hogy legyen böngésző.
 A kimenet JSON-sorok a felületnek:
   {"stage": "partition", "progress": 10}   ismert lépés (a felület fordítja le)
@@ -22,19 +24,28 @@ import re
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 import zoneinfo
 from pathlib import Path
 
 LOG = Path("/tmp/sloth-install.log")
 IMAGE_CONF = Path("/usr/share/sloth-os/installer/image.conf")
-FILESYSTEM = "btrfs"  # mint a Fedora Atomic asztali változatainál
+TARGET = Path("/run/sloth-install/target")      # ide csatoljuk a rendszerpartíciót
+SCRATCH = Path("/run/sloth-install/scratch")    # az átmeneti munkapartíció
+SCRATCH_BYTES = 10 * 1024**3                     # a kicsomagolt rétegeknek (mért csúcs ~2,1 GB + tartalék)
 
-# bootc kimenet -> lépés és körülbelüli százalék (az első egyező nyer)
+# GPT partíciótípusok
+BIOS_BOOT = "21686148-6449-6e6f-744e-656564454649"
+ESP_TYPE = "c12a7328-f81f-11d2-ba4b-00a0c93ec93b"
+ROOT_X86_64 = "4f68bce3-e8cd-4db1-96e7-fbcaf984b709"
+LINUX_DATA = "0fc63daf-8483-4772-8e79-3d69d8477de4"
+
+# bootc kimenet -> lépés és körülbelüli százalék (az első egyező nyer). A másolás haladását
+# nem a kimenetből, hanem a rendszerpartíción elfoglalt helyből számoljuk (copy_progress).
 STAGES = [
-    (("wiping", "block setup", "partition", "mkfs", "creating filesystem"), "partition", 10),
     (("initializing ostree", "ostree layout", "sysroot"), "prepare", 20),
-    (("fetching", "layer", "importing", "deploying", "pulling"), "copy", 35),
+    (("fetching", "layer", "importing", "deploying", "pulling"), "copy", 25),
     (("bootloader", "bootupd", "grub"), "bootloader", 85),
     (("installation complete",), "finishing", 90),
 ]
@@ -97,7 +108,7 @@ def image_refs():
 
 def release_disk(disk):
     """Ha valami használja a lemezt (automatikusan csatolt partíció, swap), elengedjük."""
-    out = json.loads(subprocess.run(["lsblk", "--json", "--output", "PATH,MOUNTPOINTS,FSTYPE", disk],
+    out = json.loads(subprocess.run(["lsblk", "--json", "--tree", "--output", "PATH,MOUNTPOINTS,FSTYPE", disk],
                                     capture_output=True, text=True).stdout or "{}")
     stack = list(out.get("blockdevices", []))
     while stack:
@@ -110,54 +121,126 @@ def release_disk(disk):
                 subprocess.run(["umount", "--lazy", mp], capture_output=True)
 
 
-def run_bootc(disk):
+def run(cmd, error="error.install_failed", **kwargs):
+    """Parancs futtatása naplózva; ha nem sikerül, a felület hibaoldalt mutat."""
+    log("$ " + " ".join(cmd))
+    r = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, **kwargs)
+    if r.stdout.strip():
+        log(r.stdout)
+    if r.returncode != 0:
+        fail(error, f"{cmd[0]} kilépési kód: {r.returncode}")
+    return r.stdout
+
+
+def partitions(disk):
+    """{partíciószám: eszköz} a lemezen, az udev frissülése után."""
+    run(["udevadm", "settle", "--timeout=30"])
+    out = json.loads(run(["lsblk", "--json", "--tree", "--output", "PATH,PARTN", disk]) or "{}")
+    return {int(c["partn"]): c["path"] for d in out.get("blockdevices", [])
+            for c in d.get("children") or [] if c.get("partn")}
+
+
+def partition(disk):
+    """Új GPT a lemezre: BIOS boot, EFI, rendszer (btrfs) és a végén az átmeneti munkapartíció."""
+    size_mib = int(run(["lsblk", "--noheadings", "--nodeps", "--bytes", "--output", "SIZE", disk])) // 1024**2
+    # 1 MiB az elején, 1 MiB a végén a GPT-nek; BIOS boot 1 MiB, EFI 512 MiB
+    root_mib = size_mib - 2 - 1 - 512 - SCRATCH_BYTES // 1024**2 - 2
+    if root_mib < 20 * 1024:
+        fail("error.bad_disk", f"túl kicsi lemez: {size_mib} MiB")
+    run(["wipefs", "--all", "--force", disk])
+    table = (
+        "label: gpt\n"
+        f"size=1MiB, type={BIOS_BOOT}, name=\"BIOS-BOOT\"\n"
+        f"size=512MiB, type={ESP_TYPE}, name=\"EFI-SYSTEM\"\n"
+        f"size={root_mib}MiB, type={ROOT_X86_64}, name=\"root\"\n"
+        f"type={LINUX_DATA}, name=\"sloth-install-tmp\"\n")
+    run(["sfdisk", "--wipe", "always", "--wipe-partitions", "always", disk], input=table)
+    parts = partitions(disk)
+    if sorted(parts) != [1, 2, 3, 4]:
+        fail("error.install_failed", f"váratlan partíciók: {parts}")
+    run(["mkfs.fat", "-F", "32", "-n", "EFI-SYSTEM", parts[2]])
+    run(["mkfs.btrfs", "--force", "--label", "root", parts[3]])
+    run(["mkfs.ext4", "-F", "-q", "-L", "sloth-tmp", parts[4]])
+    TARGET.mkdir(parents=True, exist_ok=True)
+    SCRATCH.mkdir(parents=True, exist_ok=True)
+    run(["mount", parts[3], str(TARGET)])
+    (TARGET / "boot/efi").mkdir(parents=True)
+    run(["mount", parts[2], str(TARGET / "boot/efi")])
+    run(["mount", parts[4], str(SCRATCH)])
+    return parts
+
+
+def image_size(source):
+    """A telepítendő image kicsomagolt mérete bájtban (a haladás becsléséhez)."""
+    name = source.split(":", 1)[1]
+    r = subprocess.run(["podman", "image", "inspect", "--format", "{{.Size}}", name],
+                       capture_output=True, text=True)
+    try:
+        return int(r.stdout.strip())
+    except ValueError:
+        return 12 * 1024**3
+
+
+def copy_progress(stop, expected, progress):
+    """Másolás közben a rendszerpartíción elfoglalt hely alapján halad a folyamatjelző (25–80%)."""
+    st = os.statvfs(TARGET)
+    base = (st.f_blocks - st.f_bfree) * st.f_frsize
+    while not stop.wait(2):
+        st = os.statvfs(TARGET)
+        used = (st.f_blocks - st.f_bfree) * st.f_frsize - base
+        pct = 25 + int(55 * min(1.0, used / expected))
+        if pct > progress[0]:
+            progress[0] = pct
+            emit(stage="copy", progress=pct)
+
+
+def run_bootc():
     source, target = image_refs()
-    cmd = ["bootc", "install", "to-disk", "--wipe", "--filesystem", FILESYSTEM,
+    cmd = ["bootc", "install", "to-filesystem",
            "--source-imgref", source, "--target-imgref", target,
            # amíg a repó privát, az élő rendszer nem tudja ellenőrizni a frissítések elérhetőségét
            "--skip-fetch-check",
-           disk]
+           str(TARGET)]
     log("$ " + " ".join(cmd))
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
-    progress, copy_steps = 5, 0
+    # a kicsomagolt rétegek a munkapartícióra kerülnek, nem a RAM-ba (containers/image: TMPDIR)
+    env = {**os.environ, "TMPDIR": str(SCRATCH)}
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1, env=env)
+    progress = [20]
+    stop = threading.Event()
+    watcher = None
     for line in proc.stdout:
         log(line)
         low = line.lower()
         for keys, stage, pct in STAGES:
             if any(k in low for k in keys):
-                if stage == "copy":
-                    # a rétegek másolása a leghosszabb rész: soronként lassan haladunk 80%-ig
-                    copy_steps += 1
-                    pct = min(80, pct + copy_steps)
-                if pct >= progress:
-                    progress = pct
-                    emit(stage=stage, progress=progress)
+                if stage == "copy" and watcher is None:
+                    watcher = threading.Thread(target=copy_progress,
+                                               args=(stop, image_size(source), progress), daemon=True)
+                    watcher.start()
+                if stage != "copy" and pct > progress[0]:
+                    stop.set()
+                    progress[0] = pct
+                    emit(stage=stage, progress=pct)
                 break
+    stop.set()
     if proc.wait() != 0:
         fail("error.install_failed", f"bootc kilépési kód: {proc.returncode}")
 
 
-def fs_type(dev):
-    """A fájlrendszer típusa közvetlenül a lemezről (blkid -p), nem az udev gyorsítótárából:
-    közvetlenül a particionálás után az lsblk még nem mindig tudja."""
-    r = subprocess.run(["blkid", "--probe", "--output", "value", "--match-tag", "TYPE", dev],
-                       capture_output=True, text=True)
-    return r.stdout.strip()
-
-
-def find_root_partition(disk):
-    """A legnagyobb btrfs/xfs/ext4 partíció a lemezen (a bootc ide teszi a rendszert)."""
-    for attempt in range(10):
-        subprocess.run(["udevadm", "settle", "--timeout=10"], capture_output=True)
-        out = json.loads(subprocess.run(["lsblk", "--json", "--bytes", "--output", "PATH,TYPE,SIZE", disk],
-                                        capture_output=True, text=True).stdout or "{}")
-        parts = [c for d in out.get("blockdevices", []) for c in d.get("children") or [] if c.get("type") == "part"]
-        found = [c for c in parts if fs_type(c["path"]) in ("btrfs", "xfs", "ext4")]
-        log(f"partíciók ({attempt + 1}. próba): " + ", ".join(f"{c['path']}={fs_type(c['path']) or '?'}" for c in parts))
-        if found:
-            return max(found, key=lambda c: int(c.get("size") or 0))["path"]
-        time.sleep(2)
-    return None
+def finish_partitions(disk, parts):
+    """Leválasztás, a munkapartíció törlése, és a rendszerpartíció kiterjesztése a lemez végéig."""
+    run(["sync"])
+    for mp in (SCRATCH, TARGET / "boot/efi", TARGET):
+        subprocess.run(["umount", str(mp)], capture_output=True)
+    release_disk(disk)  # a bootc is csatolva hagyhat valamit (pl. /run/bootc/storage)
+    run(["sfdisk", "--delete", disk, "4"])
+    run(["sfdisk", "--no-reread", "-N", "3", disk], input=", +\n")
+    # a kernel is lássa az új partíciós táblát (minden le van választva, újraolvasható)
+    if subprocess.run(["blockdev", "--rereadpt", disk], capture_output=True).returncode != 0:
+        subprocess.run(["partx", "--delete", "--nr", "4", disk], capture_output=True)
+        run(["partx", "--update", "--nr", "3", disk])
+    run(["udevadm", "settle", "--timeout=30"])
+    return parts[3]
 
 
 def online():
@@ -188,7 +271,6 @@ def copy_offline_browser(stateroot):
         log(f"setfiles (flatpak): {r.returncode} {r.stderr.strip()[:500]}")
 
 
-ESP_TYPE = "c12a7328-f81f-11d2-ba4b-00a0c93ec93b"  # EFI rendszerpartíció (GPT típus)
 LOADER = r"\EFI\fedora\shimx64.efi"
 
 
@@ -200,7 +282,7 @@ def rename_boot_entry(disk):
     """
     if not Path("/sys/firmware/efi").is_dir():
         return
-    out = json.loads(subprocess.run(["lsblk", "--json", "--output", "PATH,PARTTYPE,PARTN", disk],
+    out = json.loads(subprocess.run(["lsblk", "--json", "--tree", "--output", "PATH,PARTTYPE,PARTN", disk],
                                     capture_output=True, text=True).stdout or "{}")
     esp = next((c for d in out.get("blockdevices", []) for c in d.get("children") or []
                 if (c.get("parttype") or "").lower() == ESP_TYPE), None)
@@ -232,16 +314,14 @@ CONSOLE_KEYMAPS = {"gb": "uk", "cz": "cz-qwertz", "sk": "sk-qwertz", "si": "slov
                    "kr": "us", "cn": "us", "tw": "us", "al": "us", "lv": "us"}
 
 
-def configure(disk, locale, layouts, variants, timezone):
+def configure(root_part, locale, layouts, variants, timezone):
     """A nyelv, a billentyűzet és az időzóna beírása a feltelepített rendszer /etc mappájába."""
-    root_part = find_root_partition(disk)
-    if not root_part:
-        fail("error.configure_failed", "nem találom a gyökérpartíciót")
     mnt = Path(tempfile.mkdtemp(prefix="sloth-install-"))
-    opts = ["-o", "subvolid=5"] if FILESYSTEM == "btrfs" else []
     log(f"gyökérpartíció: {root_part}")
-    subprocess.run(["mount", *opts, root_part, str(mnt)], check=True)
+    subprocess.run(["mount", "-o", "subvolid=5", root_part, str(mnt)], check=True)
     try:
+        # a rendszer a munkapartíció helyét is megkapja
+        run(["btrfs", "filesystem", "resize", "max", str(mnt)], error="error.configure_failed")
         etcs = glob.glob(f"{mnt}/ostree/deploy/*/deploy/*.0/etc") + \
             glob.glob(f"{mnt}/*/ostree/deploy/*/deploy/*.0/etc")
         if not etcs:
@@ -292,7 +372,7 @@ def configure(disk, locale, layouts, variants, timezone):
 
 
 def dry_run():
-    for stage, pct in [("partition", 10), ("prepare", 20)] + [("copy", p) for p in range(35, 81, 5)] + \
+    for stage, pct in [("partition", 10), ("prepare", 20)] + [("copy", p) for p in range(25, 81, 5)] + \
             [("bootloader", 85), ("finishing", 90), ("configure", 95), ("browser", 97)]:
         time.sleep(1.5)
         emit(stage=stage, progress=pct)
@@ -327,10 +407,13 @@ def main():
     LOG.write_text(f"Sloth OS telepítés: {time.ctime()}\n", encoding="utf-8")
     emit(stage="partition", progress=5)
     release_disk(args.disk)
-    run_bootc(args.disk)
+    parts = partition(args.disk)
+    emit(stage="prepare", progress=20)
+    run_bootc()
+    root_part = finish_partitions(args.disk, parts)
     rename_boot_entry(args.disk)
     emit(stage="configure", progress=95)
-    configure(args.disk, args.locale, *keyboard, args.timezone)
+    configure(root_part, args.locale, *keyboard, args.timezone)
     emit(done=True)
     return 0
 

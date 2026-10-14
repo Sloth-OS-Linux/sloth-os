@@ -27,6 +27,10 @@
   "disk.contents.other": "Té dades",
   "disk.removable": "És una unitat externa (p. ex. un llapis USB). Segur que vols instal·lar-hi?",
   "disk.small": "Una mica just: per a jocs es recomanen com a mínim 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "Unitat USB",
 
   "confirm.heading": "S'esborrarà tot el que hi ha en aquest disc",
   "confirm.text": "Sloth OS fa servir tot el disc: {disk}. Tot el que hi ha ara (fitxers, programes, altres sistemes) s'esborrarà per sempre.",

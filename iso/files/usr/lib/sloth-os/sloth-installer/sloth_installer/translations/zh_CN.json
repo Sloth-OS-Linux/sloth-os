@@ -27,6 +27,10 @@
   "disk.contents.other": "有数据",
   "disk.removable": "这是外部磁盘（例如 U 盘）。确定要安装到这里吗？",
   "disk.small": "有点紧张：玩游戏建议至少 120 GB。",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "机械硬盘",
+  "disk.kind.usb": "USB 驱动器",
 
   "confirm.heading": "此磁盘上的所有内容都将被清除",
   "confirm.text": "Sloth OS 会使用整个磁盘：{disk}。上面现有的一切（文件、程序、其他系统）都将被永久删除。",

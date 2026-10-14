@@ -27,6 +27,10 @@
   "disk.contents.other": "Na njem so podatki",
   "disk.removable": "To je zunanji disk (npr. ključek USB). Ali res želite namestiti sem?",
   "disk.small": "Malo tesno: za igre priporočamo vsaj 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "Pogon USB",
 
   "confirm.heading": "Vse na tem disku bo izbrisano",
   "confirm.text": "Sloth OS uporabi cel disk: {disk}. Vse, kar je zdaj na njem (datoteke, programi, drugi sistemi), bo trajno izbrisano.",

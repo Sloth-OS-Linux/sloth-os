@@ -27,6 +27,10 @@
   "disk.contents.other": "عليه بيانات",
   "disk.removable": "هذا قرص خارجي (مثل ذاكرة USB). هل تريد حقًا التثبيت هنا؟",
   "disk.small": "ضيق قليلًا: يُنصح بـ 120 غ.ب على الأقل للألعاب.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "قرص USB",
 
   "confirm.heading": "سيُمحى كل ما على هذا القرص",
   "confirm.text": "يستخدم Sloth OS القرص كاملًا: {disk}. كل ما عليه الآن (ملفات، برامج، أنظمة أخرى) سيُحذف نهائيًا.",

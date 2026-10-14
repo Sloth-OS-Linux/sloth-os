@@ -27,6 +27,10 @@
   "disk.contents.other": "有資料",
   "disk.removable": "這是外接磁碟（例如隨身碟）。確定要安裝到這裡嗎？",
   "disk.small": "有點緊：玩遊戲建議至少 120 GB。",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "傳統硬碟",
+  "disk.kind.usb": "USB 隨身碟",
 
   "confirm.heading": "此磁碟上的所有內容都將被清除",
   "confirm.text": "Sloth OS 會使用整個磁碟：{disk}。上面現有的一切（檔案、程式、其他系統）都將被永久刪除。",

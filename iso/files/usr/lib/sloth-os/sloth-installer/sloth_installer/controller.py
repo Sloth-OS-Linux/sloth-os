@@ -9,7 +9,7 @@ import logging
 import os
 from pathlib import Path
 
-from PySide6.QtCore import QObject, QProcess, Property, Qt, Signal, Slot
+from PySide6.QtCore import QObject, QProcess, Property, Qt, QTimer, Signal, Slot
 from PySide6.QtWidgets import QApplication
 
 from sloth_common.i18n import Catalog
@@ -45,6 +45,10 @@ class InstallerController(QObject):
         self._error = ""
         self._proc = None
         self._buffer = b""
+        # A kiosztás élő átállítása kis késleltetéssel: a nyelvlistán végiglépkedve ne fusson
+        # minden nyelvnél külön váltás (egymásra futva rossz kiosztás maradhatott érvényben)
+        self._keyboard_timer = QTimer(self, singleShot=True, interval=400)
+        self._keyboard_timer.timeout.connect(lambda: system.apply_live_keyboard(self._keyboard))
         start = catalog.system_language()
         self.setLanguage(start if any(l["code"] == start for l in self._languages) else "en")
 
@@ -84,8 +88,9 @@ class InstallerController(QObject):
             return
         self._language = code
         catalog.set_language(code)
-        if not self._keyboard_chosen:
+        if not self._keyboard_chosen and self._keyboard != lang["keyboard"]:
             self._keyboard = lang["keyboard"]
+            self._keyboard_timer.start()
         if not self._timezone_chosen:
             self._timezone = lang["timezone"]
         QApplication.setApplicationDisplayName(catalog.tr("app.title"))
@@ -96,6 +101,7 @@ class InstallerController(QObject):
     @Slot(str)
     def setKeyboard(self, kbd):
         self._keyboard, self._keyboard_chosen = kbd, True
+        self._keyboard_timer.start()
         self.changed.emit()
 
     @Slot(str)

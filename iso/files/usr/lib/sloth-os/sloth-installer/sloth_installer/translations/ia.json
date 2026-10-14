@@ -27,6 +27,10 @@
   "disk.contents.other": "Contine datos",
   "disk.removable": "Isto es un disco externe (p.ex. un clave USB). Vole tu vermente installar hic?",
   "disk.small": "Un poco stricte: pro jocos nos recommenda al minus 120 GB.",
+  "disk.kind.nvme": "NVMe SSD",
+  "disk.kind.ssd": "SSD",
+  "disk.kind.hdd": "HDD",
+  "disk.kind.usb": "Unitate USB",
 
   "confirm.heading": "Toto sur iste disco essera delite",
   "confirm.text": "Sloth OS usa le disco integre: {disk}. Toto que es sur illo ora (files, programmas, altere systemas) essera delite pro sempre.",
