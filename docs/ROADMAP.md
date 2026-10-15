@@ -244,6 +244,9 @@ valami elromlik, legyen mivel megjavítani): naplónéző (kjournald), Filelight
   - [x] `tools/build-iso.ps1`: a `build-iso.sh`-t futtatja közvetlenül a Podman gép WSL-disztribúciójában (eddig
     kétszer töltötte le az image-et, és a Windows → ssh → Podman út nagy terhelésnél elakadt); a WSL-hez
     cgroupfs és cgroup nélküli konténerek kellenek (a `build-iso.sh` magától állítja)
+  - [ ] Helytakarékos ISO-build (most a csúcs kb. 36–38 GB, mert a telepítendő rendszer háromszor van meg): az
+    átmeneti OCI-másolat kihagyása (a kicsomagolás közvetlenül a letöltött image-ből), és a kicsomagolt példány
+    kemény hivatkozásokkal (hardlink) a letöltött image fájljaira. Így kb. 25 GB is elég lenne
   - [ ] ISO méret (2026-10-15: 6,9 GB, ebből a squashfs 6,2 GB; zstd-19 marad). A következő ISO-n megnézni:
     - [x] Csak a Sloth OS saját háttérképei maradnak, a BlueBuild nushell-bővítményei kikerülnek
       (`files/scripts/slim-image.sh`; a telepített rendszer is kisebb lesz)
