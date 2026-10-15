@@ -124,5 +124,9 @@
   "done.steam": "כניסה ל־Steam",
   "done.accounts": "חשבונות מקוונים (Google, Microsoft…)",
   "done.language": "שפה ואזור",
-  "done.start": "תהנו!"
+  "done.start": "תהנו!",
+
+  "desktop.generic": "יישומים ומראה",
+  "desktop.comment": "התקנת דפדפן, חבילה משרדית, נגן מדיה ועוד, ובחירת ערכת צבעים",
+  "desktop.keywords": "ברוכים הבאים;יישומים;דפדפן;משרד;ערכת נושא"
 }

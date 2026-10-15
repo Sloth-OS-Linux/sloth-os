@@ -124,5 +124,9 @@
   "done.steam": "Ensaluti al Steam",
   "done.accounts": "Retaj kontoj (Google, Microsoft…)",
   "done.language": "Lingvo kaj regiono",
-  "done.start": "Amuziĝu!"
+  "done.start": "Amuziĝu!",
+
+  "desktop.generic": "Aplikaĵoj kaj aspekto",
+  "desktop.comment": "Instalu retumilon, oficejan programaron, aŭdvidan ludilon kaj pli, elektu kolorskemon",
+  "desktop.keywords": "bonvenon;aplikaĵoj;retumilo;oficejo;etoso"
 }

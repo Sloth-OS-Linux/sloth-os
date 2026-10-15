@@ -124,5 +124,9 @@
   "done.steam": "Log ind på Steam",
   "done.accounts": "Onlinekonti (Google, Microsoft…)",
   "done.language": "Sprog og område",
-  "done.start": "God fornøjelse!"
+  "done.start": "God fornøjelse!",
+
+  "desktop.generic": "Apps og udseende",
+  "desktop.comment": "Installer en browser, kontorpakke, medieafspiller og mere, vælg et farveskema",
+  "desktop.keywords": "velkommen;apps;browser;kontor;tema"
 }

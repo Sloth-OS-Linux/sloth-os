@@ -124,5 +124,9 @@
   "done.steam": "Zaloguj się do Steam",
   "done.accounts": "Konta online (Google, Microsoft…)",
   "done.language": "Język i region",
-  "done.start": "Miłej zabawy!"
+  "done.start": "Miłej zabawy!",
+
+  "desktop.generic": "Aplikacje i wygląd",
+  "desktop.comment": "Instalacja przeglądarki, pakietu biurowego, odtwarzacza multimediów i innych aplikacji, wybór schematu kolorów",
+  "desktop.keywords": "witaj;aplikacje;przeglądarka;biuro;motyw"
 }

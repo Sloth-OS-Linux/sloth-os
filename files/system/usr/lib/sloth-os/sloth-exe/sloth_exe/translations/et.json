@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} kasutab petmisvastast süsteemi {system}. Linuxis töötab see ainult siis, kui mängu tegijad on seda lubanud. Kui mäng ei käivitu või viskab sind välja, on põhjus tõenäoliselt selles. Tasub vaadata, kas mängul on Steami versioon.",
 
   "misc.program": "Programm",
-  "misc.other_programs": "Muud programmid"
+  "misc.other_programs": "Muud programmid",
+
+  "desktop.name": "Windowsi programmid",
+  "desktop.comment": "Windowsi programmide ja mängude paigaldamine ja käivitamine"
 }

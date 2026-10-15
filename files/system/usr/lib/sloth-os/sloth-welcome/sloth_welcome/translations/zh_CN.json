@@ -124,5 +124,9 @@
   "done.steam": "登录 Steam",
   "done.accounts": "在线账户（Google、Microsoft…）",
   "done.language": "语言和区域",
-  "done.start": "尽情享受吧！"
+  "done.start": "尽情享受吧！",
+
+  "desktop.generic": "应用与外观",
+  "desktop.comment": "安装浏览器、办公套件、媒体播放器等，选择配色方案",
+  "desktop.keywords": "欢迎;应用;浏览器;办公;主题"
 }

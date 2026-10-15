@@ -75,5 +75,8 @@
   "error.bad_disk": "Daar kan nie op hierdie skyf geïnstalleer word nie. Kies 'n ander een.",
   "error.bad_input": "Een van die instellings is ongeldig. Gaan terug en kontroleer dit.",
   "error.install_failed": "Iets het verkeerd geloop met die kopiëring van die stelsel na die skyf. Data wat op die skyf was, is dalk reeds uitgevee.",
-  "error.configure_failed": "Die stelsel is geïnstalleer, maar taal en sleutelbord kon nie ingestel word nie. Probeer weer; as dit weer misluk, kan jy dit ná die eerste opstart in Stelselinstellings instel."
+  "error.configure_failed": "Die stelsel is geïnstalleer, maar taal en sleutelbord kon nie ingestel word nie. Probeer weer; as dit weer misluk, kan jy dit ná die eerste opstart in Stelselinstellings instel.",
+
+  "desktop.comment": "Installeer Sloth OS op hierdie rekenaar",
+  "desktop.keywords": "installeer;installeerder"
 }

@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} a(z) {system} csalásvédelmet használja. Ez Linuxon csak akkor működik, ha a játék készítői engedélyezték. Ha a játék nem indul vagy kidob, valószínűleg ez az oka. Érdemes megnézni, van-e a játéknak Steames változata.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Egyéb programok"
+  "misc.other_programs": "Egyéb programok",
+
+  "desktop.name": "Windows-programok",
+  "desktop.comment": "Windows-os programok és játékok telepítése és futtatása"
 }

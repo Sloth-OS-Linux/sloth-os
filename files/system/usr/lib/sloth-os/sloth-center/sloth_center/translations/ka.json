@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Start მენიუში არ არის",
   "Start menü": "Start მენიუ",
   "Eltávolítod: {name}?": "წავშალოთ {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "პროგრამა და მისი ყველა ფაილი წაიშლება (შენახვებისა და პარამეტრების ჩათვლით). ამის გაუქმება შეუძლებელია."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "პროგრამა და მისი ყველა ფაილი წაიშლება (შენახვებისა და პარამეტრების ჩათვლით). ამის გაუქმება შეუძლებელია.",
+
+  "Rendszerbeállítások": "სისტემის პარამეტრები",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "განახლებები, დაბრუნება, დრაივერები და ყველაფერი, რასაც სხვაგვარად ტერმინალი დასჭირდებოდა",
+  "frissítés;visszaállítás;driver;beállítás": "განახლება;დაბრუნება;დრაივერი;პარამეტრები"
 }

@@ -124,5 +124,9 @@
   "done.steam": "Steam-ত ছাইন ইন কৰক",
   "done.accounts": "অনলাইন একাউণ্ট (Google, Microsoft…)",
   "done.language": "ভাষা আৰু অঞ্চল",
-  "done.start": "উপভোগ কৰক!"
+  "done.start": "উপভোগ কৰক!",
+
+  "desktop.generic": "এপ আৰু ৰূপ",
+  "desktop.comment": "ব্ৰাউজাৰ, অফিচ চুইট, মিডিয়া প্লেয়াৰ আৰু অন্যান্য এপ ইনষ্টল কৰক, ৰঙৰ থীম বাছক",
+  "desktop.keywords": "স্বাগতম;এপ;ব্ৰাউজাৰ;অফিচ;থীম"
 }

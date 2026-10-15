@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} uzas la kontraŭtrompan sistemon {system}. En Linukso ĝi funkcias nur se la kreintoj de la ludo permesis tion. Se la ludo ne lanĉiĝas aŭ elĵetas vin, verŝajne tio estas la kialo. Indas kontroli, ĉu la ludo havas Steam-version.",
 
   "misc.program": "Programo",
-  "misc.other_programs": "Aliaj programoj"
+  "misc.other_programs": "Aliaj programoj",
+
+  "desktop.name": "Windows-programoj",
+  "desktop.comment": "Instalu kaj rulu Windows-programojn kaj -ludojn"
 }

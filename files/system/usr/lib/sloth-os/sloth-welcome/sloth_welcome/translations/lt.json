@@ -124,5 +124,9 @@
   "done.steam": "Prisijungti prie Steam",
   "done.accounts": "Internetinės paskyros (Google, Microsoft…)",
   "done.language": "Kalba ir regionas",
-  "done.start": "Smagaus naudojimo!"
+  "done.start": "Smagaus naudojimo!",
+
+  "desktop.generic": "Programos ir išvaizda",
+  "desktop.comment": "Naršyklės, biuro paketo, medijos leistuvės ir kitų programų įdiegimas, spalvų schemos pasirinkimas",
+  "desktop.keywords": "sveiki;programos;naršyklė;biuras;tema"
 }

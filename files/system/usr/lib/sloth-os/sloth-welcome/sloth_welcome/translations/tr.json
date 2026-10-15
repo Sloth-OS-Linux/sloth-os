@@ -124,5 +124,9 @@
   "done.steam": "Steam'e giriş yap",
   "done.accounts": "Çevrim içi hesaplar (Google, Microsoft…)",
   "done.language": "Dil ve bölge",
-  "done.start": "İyi eğlenceler!"
+  "done.start": "İyi eğlenceler!",
+
+  "desktop.generic": "Uygulamalar ve görünüm",
+  "desktop.comment": "Tarayıcı, ofis paketi, medya oynatıcı ve daha fazlasını yükleme, renk şeması seçme",
+  "desktop.keywords": "hoş geldiniz;uygulamalar;tarayıcı;ofis;tema"
 }

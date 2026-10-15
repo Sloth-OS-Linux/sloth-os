@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Не е в менюто Старт",
   "Start menü": "Меню Старт",
   "Eltávolítod: {name}?": "Премахване на {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Програмата и всичките ѝ файлове ще бъдат изтрити (включително записи от игри и настройки). Това не може да се отмени."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Програмата и всичките ѝ файлове ще бъдат изтрити (включително записи от игри и настройки). Това не може да се отмени.",
+
+  "Rendszerbeállítások": "Системни настройки",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Обновления, връщане назад, драйвери и всичко, за което иначе би трябвал терминал",
+  "frissítés;visszaállítás;driver;beállítás": "обновяване;връщане;драйвер;настройки"
 }

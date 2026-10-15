@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} usa le systema anti-fraude {system}. Sur Linux illo functiona solmente si le creatores del joco lo ha permittite. Si le joco non se lancea o te expelle, isto es probabilemente le ration. Il vale le pena verificar si le joco ha un version Steam.",
 
   "misc.program": "Programma",
-  "misc.other_programs": "Altere programmas"
+  "misc.other_programs": "Altere programmas",
+
+  "desktop.name": "Programmas Windows",
+  "desktop.comment": "Installar e executar programmas e jocos de Windows"
 }

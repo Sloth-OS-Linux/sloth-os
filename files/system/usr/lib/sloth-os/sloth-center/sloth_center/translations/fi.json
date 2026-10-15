@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Ei Käynnistä-valikossa",
   "Start menü": "Käynnistä-valikko",
   "Eltávolítod: {name}?": "Poistetaanko {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Ohjelma ja kaikki sen tiedostot poistetaan (myös pelitallennukset ja asetukset). Tätä ei voi perua."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Ohjelma ja kaikki sen tiedostot poistetaan (myös pelitallennukset ja asetukset). Tätä ei voi perua.",
+
+  "Rendszerbeállítások": "Järjestelmäasetukset",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Päivitykset, palautus, ajurit ja kaikki muu, mihin muuten tarvittaisiin pääte",
+  "frissítés;visszaállítás;driver;beállítás": "päivitys;palautus;ajuri;asetukset"
 }

@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game}은(는) {system} 안티치트를 사용합니다. Linux에서는 게임 개발사가 허용한 경우에만 동작합니다. 게임이 실행되지 않거나 강제로 종료된다면 아마 이 때문일 겁니다. 게임의 Steam 버전이 있는지 확인해 보세요.",
 
   "misc.program": "프로그램",
-  "misc.other_programs": "기타 프로그램"
+  "misc.other_programs": "기타 프로그램",
+
+  "desktop.name": "Windows 프로그램",
+  "desktop.comment": "Windows 프로그램과 게임을 설치하고 실행합니다"
 }

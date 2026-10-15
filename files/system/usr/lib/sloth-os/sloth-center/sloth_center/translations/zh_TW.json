@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "不在開始功能表中",
   "Start menü": "開始功能表",
   "Eltávolítod: {name}?": "要解除安裝 {name} 嗎？",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "程式及其所有檔案（包括存檔與設定）都將被刪除。此操作無法復原。"
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "程式及其所有檔案（包括存檔與設定）都將被刪除。此操作無法復原。",
+
+  "Rendszerbeállítások": "系統設定",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "更新、還原、驅動程式，以及其他原本需要終端機的一切",
+  "frissítés;visszaállítás;driver;beállítás": "更新;還原;驅動程式;設定"
 }

@@ -124,5 +124,9 @@
   "done.steam": "Iniciar sessão no Steam",
   "done.accounts": "Contas online (Google, Microsoft…)",
   "done.language": "Idioma e região",
-  "done.start": "Divirta-se!"
+  "done.start": "Divirta-se!",
+
+  "desktop.generic": "Aplicações e aspeto",
+  "desktop.comment": "Instalar um navegador, um pacote de escritório, um leitor multimédia e mais, escolher um esquema de cores",
+  "desktop.keywords": "boas-vindas;aplicações;navegador;escritório;tema"
 }

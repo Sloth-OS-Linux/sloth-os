@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Niet in het startmenu",
   "Start menü": "Startmenu",
   "Eltávolítod: {name}?": "{name} verwijderen?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Het programma en al zijn bestanden worden verwijderd (ook opgeslagen spellen en instellingen). Dit kan niet ongedaan worden gemaakt."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Het programma en al zijn bestanden worden verwijderd (ook opgeslagen spellen en instellingen). Dit kan niet ongedaan worden gemaakt.",
+
+  "Rendszerbeállítások": "Systeeminstellingen",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Updates, terugdraaien, stuurprogramma's en alles waarvoor anders een terminal nodig zou zijn",
+  "frissítés;visszaállítás;driver;beállítás": "update;terugdraaien;stuurprogramma;instellingen"
 }

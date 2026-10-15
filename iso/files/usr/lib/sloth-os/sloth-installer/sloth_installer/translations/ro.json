@@ -75,5 +75,8 @@
   "error.bad_disk": "Nu se poate instala pe acest disc. Alege altul.",
   "error.bad_input": "Una dintre setări nu e validă. Întoarce-te și verifică-le.",
   "error.install_failed": "Ceva n-a mers la copierea sistemului pe disc. Datele care erau pe disc s-ar putea să fi fost deja șterse.",
-  "error.configure_failed": "Sistemul a fost instalat, dar limba și tastatura nu au putut fi setate. Încearcă din nou; dacă tot nu merge, le poți seta după prima pornire din Configurările sistemului."
+  "error.configure_failed": "Sistemul a fost instalat, dar limba și tastatura nu au putut fi setate. Încearcă din nou; dacă tot nu merge, le poți seta după prima pornire din Configurările sistemului.",
+
+  "desktop.comment": "Instalarea Sloth OS pe acest calculator",
+  "desktop.keywords": "instalare;program de instalare"
 }

@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} isseqdac asemmesten mgal tixxidin {system}. Deg Linux iteddu kan ma sirgen-t yimesnulfuyen n wurar. Ma yella urar ur yekker ara neɣ ak-d-yessufeɣ, ahat d ayagi i d sebba. Wali ma yella lqem n Steam i wurar-a.",
 
   "misc.program": "Ahil",
-  "misc.other_programs": "Ihilen nniḍen"
+  "misc.other_programs": "Ihilen nniḍen",
+
+  "desktop.name": "Ahilen Windows",
+  "desktop.comment": "Sebded u sker ahilen d wuraren n Windows"
 }

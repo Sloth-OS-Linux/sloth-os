@@ -75,5 +75,8 @@
   "error.bad_disk": "Nol è pussibil instalâ su chest disc. Sielzint un altri.",
   "error.bad_input": "Une des impostazions no je valide. Torne indaûr e controlilis.",
   "error.install_failed": "Alc al è lât strucj intant de copie dal sisteme sul disc. I dâts che a jerin sul disc a podaressin jessi za stâts scancelâts.",
-  "error.configure_failed": "Il sisteme al è stât instalât, ma no si à rivât a impostâ lenghe e tastiere. Torne prove; se nol va ancjemò, tu podarâs impostâlis tes Impostazions di sisteme dopo dal prin inviament."
+  "error.configure_failed": "Il sisteme al è stât instalât, ma no si à rivât a impostâ lenghe e tastiere. Torne prove; se nol va ancjemò, tu podarâs impostâlis tes Impostazions di sisteme dopo dal prin inviament.",
+
+  "desktop.comment": "Instalâ Sloth OS su chest computer",
+  "desktop.keywords": "instalâ;instaladôr"
 }

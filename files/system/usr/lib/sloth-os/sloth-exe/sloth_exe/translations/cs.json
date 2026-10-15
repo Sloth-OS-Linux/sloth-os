@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} používá ochranu proti podvádění {system}. V Linuxu funguje jen tehdy, pokud to tvůrci hry povolili. Pokud se hra nespustí nebo vás vyhodí, je to nejspíš kvůli tomu. Vyplatí se zjistit, zda hra nemá verzi na Steamu.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Ostatní programy"
+  "misc.other_programs": "Ostatní programy",
+
+  "desktop.name": "Programy pro Windows",
+  "desktop.comment": "Instalace a spouštění programů a her pro Windows"
 }

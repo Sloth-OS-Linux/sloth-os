@@ -124,5 +124,9 @@
   "done.steam": "Accedi a Steam",
   "done.accounts": "Account online (Google, Microsoft…)",
   "done.language": "Lingua e regione",
-  "done.start": "Buon divertimento!"
+  "done.start": "Buon divertimento!",
+
+  "desktop.generic": "App e aspetto",
+  "desktop.comment": "Installare un browser, una suite per ufficio, un lettore multimediale e altro, scegliere uno schema di colori",
+  "desktop.keywords": "benvenuto;app;browser;ufficio;tema"
 }

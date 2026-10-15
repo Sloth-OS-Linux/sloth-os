@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} käyttää huijauksenestojärjestelmää {system}. Linuxissa se toimii vain, jos pelin tekijät ovat sallineet sen. Jos peli ei käynnisty tai heittää sinut ulos, syy on todennäköisesti tämä. Kannattaa tarkistaa, onko pelistä Steam-versio.",
 
   "misc.program": "Ohjelma",
-  "misc.other_programs": "Muut ohjelmat"
+  "misc.other_programs": "Muut ohjelmat",
+
+  "desktop.name": "Windows-ohjelmat",
+  "desktop.comment": "Asenna ja suorita Windows-ohjelmia ja -pelejä"
 }

@@ -75,5 +75,8 @@
   "error.bad_disk": "無法安裝到此磁碟。請選擇其他磁碟。",
   "error.bad_input": "某項設定無效。請返回檢查。",
   "error.install_failed": "將系統複製到磁碟時出錯。磁碟上原有的資料可能已被刪除。",
-  "error.configure_failed": "系統已安裝，但無法設定語言和鍵盤。請重試；若仍然失敗，可在第一次開機後到系統設定中設定。"
+  "error.configure_failed": "系統已安裝，但無法設定語言和鍵盤。請重試；若仍然失敗，可在第一次開機後到系統設定中設定。",
+
+  "desktop.comment": "將 Sloth OS 安裝到這台電腦",
+  "desktop.keywords": "安裝;安裝程式"
 }

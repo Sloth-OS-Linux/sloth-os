@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Pas dans le menu Démarrer",
   "Start menü": "Menu Démarrer",
   "Eltávolítod: {name}?": "Supprimer {name} ?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Le programme et tous ses fichiers seront supprimés (sauvegardes et réglages compris). Impossible d’annuler."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Le programme et tous ses fichiers seront supprimés (sauvegardes et réglages compris). Impossible d’annuler.",
+
+  "Rendszerbeállítások": "Paramètres du système",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Mises à jour, restauration, pilotes et tout ce qui nécessiterait autrement un terminal",
+  "frissítés;visszaállítás;driver;beállítás": "mise à jour;restauration;pilote;paramètres"
 }

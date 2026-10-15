@@ -124,5 +124,9 @@
   "done.steam": "Logg inn på Steam",
   "done.accounts": "Nettkontoer (Google, Microsoft…)",
   "done.language": "Språk og region",
-  "done.start": "Kos deg!"
+  "done.start": "Kos deg!",
+
+  "desktop.generic": "Apper og utseende",
+  "desktop.comment": "Installer en nettleser, kontorpakke, mediespiller og mer, velg et fargeoppsett",
+  "desktop.keywords": "velkommen;apper;nettleser;kontor;tema"
 }

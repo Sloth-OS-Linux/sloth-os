@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "স্টার্ট মেনুতে নেই",
   "Start menü": "স্টার্ট মেনু",
   "Eltávolítod: {name}?": "{name} সরাবেন?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "প্রোগ্রাম ও এর সব ফাইল (সেভ ও সেটিংসসহ) মুছে যাবে। এটি আর ফেরানো যাবে না।"
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "প্রোগ্রাম ও এর সব ফাইল (সেভ ও সেটিংসসহ) মুছে যাবে। এটি আর ফেরানো যাবে না।",
+
+  "Rendszerbeállítások": "সিস্টেম সেটিংস",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "আপডেট, আগের অবস্থায় ফেরা, ড্রাইভার এবং যা কিছুর জন্য অন্যথায় টার্মিনাল লাগত",
+  "frissítés;visszaállítás;driver;beállítás": "আপডেট;ফেরানো;ড্রাইভার;সেটিংস"
 }

@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "不在开始菜单中",
   "Start menü": "开始菜单",
   "Eltávolítod: {name}?": "要卸载 {name} 吗？",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "程序及其所有文件（包括存档和设置）都将被删除。此操作无法撤销。"
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "程序及其所有文件（包括存档和设置）都将被删除。此操作无法撤销。",
+
+  "Rendszerbeállítások": "系统设置",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "更新、回滚、驱动程序，以及其他原本需要终端完成的一切",
+  "frissítés;visszaállítás;driver;beállítás": "更新;回滚;驱动;设置"
 }

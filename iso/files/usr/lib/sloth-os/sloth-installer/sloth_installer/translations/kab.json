@@ -75,5 +75,8 @@
   "error.bad_disk": "Ur yezmir ara ad yebded deg uḍebsi-a. Fren wayeḍ.",
   "error.bad_input": "Yiwen seg yiɣewwaren ur yeɣbel ara. Uɣal ɣer deffir, senqed-iten.",
   "error.install_failed": "Yella wugur deg unɣal n unagraw ɣer uḍebsi. Isefka yellan deg uḍebsi zemren ad ttwakksen yakan.",
-  "error.configure_failed": "Anagraw yebded, maca tutlayt d unasiw ur ttwasbedden ara. Ɛreḍ tikkelt nniḍen; ma ur yeddi ara, tzemreḍ ad ten-tesbeddeḍ deg yiɣewwaren n unagraw seld asekker amenzu."
+  "error.configure_failed": "Anagraw yebded, maca tutlayt d unasiw ur ttwasbedden ara. Ɛreḍ tikkelt nniḍen; ma ur yeddi ara, tzemreḍ ad ten-tesbeddeḍ deg yiɣewwaren n unagraw seld asekker amenzu.",
+
+  "desktop.comment": "Sebded Sloth OS deg uselkim-a",
+  "desktop.keywords": "asebded;amsebded"
 }

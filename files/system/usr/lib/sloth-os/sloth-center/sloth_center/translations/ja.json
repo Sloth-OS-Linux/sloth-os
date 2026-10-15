@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "スタートメニューにありません",
   "Start menü": "スタートメニュー",
   "Eltávolítod: {name}?": "{name} を削除しますか？",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "プログラムと関連するすべてのファイル（セーブデータや設定を含む）が削除されます。元に戻すことはできません。"
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "プログラムと関連するすべてのファイル（セーブデータや設定を含む）が削除されます。元に戻すことはできません。",
+
+  "Rendszerbeállítások": "システム設定",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "アップデート、ロールバック、ドライバーなど、本来ならターミナルが必要な作業すべて",
+  "frissítés;visszaállítás;driver;beállítás": "アップデート;ロールバック;ドライバー;設定"
 }

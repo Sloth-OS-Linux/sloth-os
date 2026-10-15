@@ -124,5 +124,9 @@
   "done.steam": "Meld aan by Steam",
   "done.accounts": "Aanlyn rekeninge (Google, Microsoft…)",
   "done.language": "Taal en streek",
-  "done.start": "Geniet dit!"
+  "done.start": "Geniet dit!",
+
+  "desktop.generic": "Toepassings en voorkoms",
+  "desktop.comment": "Installeer 'n blaaier, kantoorpakket, mediaspeler en meer, kies 'n kleurskema",
+  "desktop.keywords": "welkom;toepassings;blaaier;kantoor;tema"
 }

@@ -75,5 +75,8 @@
   "error.bad_disk": "Në këtë disk nuk mund të instalohet. Zgjidhni një tjetër.",
   "error.bad_input": "Një nga rregullimet është e pavlefshme. Kthehuni dhe kontrollojini.",
   "error.install_failed": "Diçka shkoi keq gjatë kopjimit të sistemit në disk. Të dhënat që ishin në disk mund të jenë fshirë tashmë.",
-  "error.configure_failed": "Sistemi u instalua, por gjuha dhe tastiera nuk u rregulluan dot. Riprovoni; nëse sërish nuk shkon, mund t'i rregulloni te Rregullimet e sistemit pas nisjes së parë."
+  "error.configure_failed": "Sistemi u instalua, por gjuha dhe tastiera nuk u rregulluan dot. Riprovoni; nëse sërish nuk shkon, mund t'i rregulloni te Rregullimet e sistemit pas nisjes së parë.",
+
+  "desktop.comment": "Instalimi i Sloth OS në këtë kompjuter",
+  "desktop.keywords": "instalim;instalues"
 }

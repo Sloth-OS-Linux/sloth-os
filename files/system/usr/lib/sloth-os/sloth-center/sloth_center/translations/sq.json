@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Jo në menynë Start",
   "Start menü": "Menyja Start",
   "Eltávolítod: {name}?": "Të hiqet {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programi dhe të gjithë skedarët e tij do të fshihen (përfshirë ruajtjet e lojërave dhe rregullimet). Kjo nuk mund të zhbëhet."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programi dhe të gjithë skedarët e tij do të fshihen (përfshirë ruajtjet e lojërave dhe rregullimet). Kjo nuk mund të zhbëhet.",
+
+  "Rendszerbeállítások": "Rregullime sistemi",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Përditësime, kthim prapa, drejtues dhe gjithçka që përndryshe do të kërkonte një terminal",
+  "frissítés;visszaállítás;driver;beállítás": "përditësim;kthim;drejtues;rregullime"
 }

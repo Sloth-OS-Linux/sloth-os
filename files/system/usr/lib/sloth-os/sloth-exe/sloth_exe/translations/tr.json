@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game}, {system} hile korumasını kullanıyor. Bu koruma Linux'ta yalnızca oyunun yapımcıları izin verdiyse çalışır. Oyun açılmıyor ya da sizi atıyorsa sebebi büyük olasılıkla budur. Oyunun Steam sürümü olup olmadığına bakmaya değer.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Diğer programlar"
+  "misc.other_programs": "Diğer programlar",
+
+  "desktop.name": "Windows programları",
+  "desktop.comment": "Windows programlarını ve oyunlarını yükleme ve çalıştırma"
 }

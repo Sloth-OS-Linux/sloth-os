@@ -124,5 +124,9 @@
   "done.steam": "Conectează-te la Steam",
   "done.accounts": "Conturi online (Google, Microsoft…)",
   "done.language": "Limbă și regiune",
-  "done.start": "Distracție plăcută!"
+  "done.start": "Distracție plăcută!",
+
+  "desktop.generic": "Aplicații și aspect",
+  "desktop.comment": "Instalarea unui navigator, a unei suite de birou, a unui player media și altele, alegerea unei scheme de culori",
+  "desktop.keywords": "bun venit;aplicații;navigator;birou;temă"
 }

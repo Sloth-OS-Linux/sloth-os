@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} gebruikt de anti-cheat {system}. Op Linux werkt die alleen als de makers van het spel het hebben toegestaan. Als het spel niet start of je eruit gooit, ligt het waarschijnlijk hieraan. Kijk of er een Steam-versie van het spel is.",
 
   "misc.program": "Programma",
-  "misc.other_programs": "Andere programma's"
+  "misc.other_programs": "Andere programma's",
+
+  "desktop.name": "Windows-programma’s",
+  "desktop.comment": "Windows-programma's en -games installeren en uitvoeren"
 }

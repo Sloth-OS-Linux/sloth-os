@@ -75,5 +75,8 @@
   "error.bad_disk": "Det går inte att installera på den här disken. Välj en annan.",
   "error.bad_input": "En av inställningarna är ogiltig. Gå tillbaka och kontrollera dem.",
   "error.install_failed": "Något gick fel när systemet kopierades till disken. Data som fanns på disken kan redan ha raderats.",
-  "error.configure_failed": "Systemet installerades, men språk och tangentbord kunde inte ställas in. Försök igen; misslyckas det igen kan du ställa in dem i Systeminställningar efter första starten."
+  "error.configure_failed": "Systemet installerades, men språk och tangentbord kunde inte ställas in. Försök igen; misslyckas det igen kan du ställa in dem i Systeminställningar efter första starten.",
+
+  "desktop.comment": "Installera Sloth OS på den här datorn",
+  "desktop.keywords": "installera;installationsprogram"
 }

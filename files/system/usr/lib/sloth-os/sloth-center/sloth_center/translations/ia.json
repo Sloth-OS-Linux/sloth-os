@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Non in le menu Initio",
   "Start menü": "Menu Initio",
   "Eltávolítod: {name}?": "Remover {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Le programma e tote su files essera delite (includite jocos salvate e parametros). Isto non pote esser disfacite."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Le programma e tote su files essera delite (includite jocos salvate e parametros). Isto non pote esser disfacite.",
+
+  "Rendszerbeállítások": "Configuration del systema",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Actualisationes, restauration, drivers e toto lo que alteremente necessitarea un terminal",
+  "frissítés;visszaállítás;driver;beállítás": "actualisation;restauration;driver;configuration"
 }

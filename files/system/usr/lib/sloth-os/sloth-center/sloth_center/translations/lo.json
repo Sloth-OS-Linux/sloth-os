@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "ບໍ່ຢູ່ໃນເມນູເລີ່ມ",
   "Start menü": "ເມນູເລີ່ມ",
   "Eltávolítod: {name}?": "ລຶບ {name} ບໍ?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "ໂປຣແກຣມ ແລະ ໄຟລ໌ທັງໝົດຂອງມັນ (ລວມທັງບັນທຶກເກມ ແລະ ການຕັ້ງຄ່າ) ຈະຖືກລຶບ. ບໍ່ສາມາດຍົກເລີກໄດ້."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "ໂປຣແກຣມ ແລະ ໄຟລ໌ທັງໝົດຂອງມັນ (ລວມທັງບັນທຶກເກມ ແລະ ການຕັ້ງຄ່າ) ຈະຖືກລຶບ. ບໍ່ສາມາດຍົກເລີກໄດ້.",
+
+  "Rendszerbeállítások": "ການຕັ້ງຄ່າລະບົບ",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "ການອັບເດດ, ການກັບຄືນ, ໄດຣເວີ ແລະ ທຸກຢ່າງທີ່ປົກກະຕິຕ້ອງໃຊ້ເທີມິນອນ",
+  "frissítés;visszaállítás;driver;beállítás": "ອັບເດດ;ກັບຄືນ;ໄດຣເວີ;ການຕັ້ງຄ່າ"
 }

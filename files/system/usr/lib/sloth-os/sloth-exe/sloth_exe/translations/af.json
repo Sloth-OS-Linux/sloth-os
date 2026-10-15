@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} gebruik die teen-kul-stelsel {system}. Op Linux werk dit net as die makers van die speletjie dit toegelaat het. As die speletjie nie begin nie of jou uitskop, is dit waarskynlik hoekom. Kyk of die speletjie 'n Steam-weergawe het.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Ander programme"
+  "misc.other_programs": "Ander programme",
+
+  "desktop.name": "Windows-programme",
+  "desktop.comment": "Installeer en laat Windows-programme en -speletjies loop"
 }

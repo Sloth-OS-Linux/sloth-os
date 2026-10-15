@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} משתמש במערכת נגד רמאות {system}. ב־Linux היא עובדת רק אם יוצרי המשחק התירו זאת. אם המשחק לא נפתח או מעיף אתכם, כנראה שזו הסיבה. כדאי לבדוק אם יש למשחק גרסה ב־Steam.",
 
   "misc.program": "תוכנה",
-  "misc.other_programs": "תוכנות אחרות"
+  "misc.other_programs": "תוכנות אחרות",
+
+  "desktop.name": "תוכנות Windows",
+  "desktop.comment": "התקנה והפעלה של תוכנות ומשחקים ל־Windows"
 }

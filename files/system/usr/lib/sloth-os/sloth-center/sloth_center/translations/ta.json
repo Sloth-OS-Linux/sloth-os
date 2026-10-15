@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "தொடக்க மெனுவில் இல்லை",
   "Start menü": "தொடக்க மெனு",
   "Eltávolítod: {name}?": "{name}-ஐ நீக்கவா?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "நிரலும் அதன் எல்லாக் கோப்புகளும் (சேமிப்புகள், அமைப்புகள் உட்பட) அழிக்கப்படும். இதைத் திரும்பப்பெற முடியாது."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "நிரலும் அதன் எல்லாக் கோப்புகளும் (சேமிப்புகள், அமைப்புகள் உட்பட) அழிக்கப்படும். இதைத் திரும்பப்பெற முடியாது.",
+
+  "Rendszerbeállítások": "கணினி அமைப்புகள்",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "புதுப்பிப்புகள், முந்தைய நிலைக்குத் திரும்புதல், இயக்கிகள் மற்றும் இல்லையெனில் முனையம் தேவைப்படும் அனைத்தும்",
+  "frissítés;visszaállítás;driver;beállítás": "புதுப்பிப்பு;மீட்டமை;இயக்கி;அமைப்புகள்"
 }

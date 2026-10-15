@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "ষ্টাৰ্ট মেনুত নাই",
   "Start menü": "ষ্টাৰ্ট মেনু",
   "Eltávolítod: {name}?": "{name} আঁতৰাব নেকি?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "প্ৰ'গ্ৰাম আৰু ইয়াৰ সকলো ফাইল (ছেভ আৰু ছেটিংকে ধৰি) মচ যাব। ইয়াক ঘূৰাই আনিব নোৱাৰি।"
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "প্ৰ'গ্ৰাম আৰু ইয়াৰ সকলো ফাইল (ছেভ আৰু ছেটিংকে ধৰি) মচ যাব। ইয়াক ঘূৰাই আনিব নোৱাৰি।",
+
+  "Rendszerbeállítások": "চিষ্টেম ছেটিংছ",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "আপডেট, পূৰ্বাৱস্থালৈ ঘূৰাই নিয়া, ড্ৰাইভাৰ আৰু অন্যথা টাৰ্মিনেল লাগিব পৰা সকলো কাম",
+  "frissítés;visszaállítás;driver;beállítás": "আপডেট;পূৰ্বাৱস্থা;ড্ৰাইভাৰ;ছেটিংছ"
 }

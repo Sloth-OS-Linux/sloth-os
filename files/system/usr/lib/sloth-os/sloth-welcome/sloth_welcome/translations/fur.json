@@ -124,5 +124,9 @@
   "done.steam": "Jentre in Steam",
   "done.accounts": "Account in linie (Google, Microsoft…)",
   "done.language": "Lenghe e regjon",
-  "done.start": "Divertissiti!"
+  "done.start": "Divertissiti!",
+
+  "desktop.generic": "Aplicazions e aspiet",
+  "desktop.comment": "Instalâ un navigadôr, une suite di ufici, un riprodutôr multimediâl e altri, sielzi un scheme di colôrs",
+  "desktop.keywords": "benvignût;aplicazions;navigadôr;ufici;teme"
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A Sloth OS saját eszközeinek (Üdvözlő, telepítő) fordításait ellenőrzi (fejlesztői segéd, nem kerül az image-be).
+"""A Sloth OS saját eszközeinek (Üdvözlő, telepítő, .exe kezelő) fordításait ellenőrzi (fejlesztői segéd, nem kerül az image-be).
 
 Megnézi, hogy:
   - a kódban és a katalógusban használt összes kulcs megvan-e a magyar (forrás) fájlban,
@@ -13,6 +13,7 @@ Használat: python tools/check_translations.py   (hiba esetén 1-gyel lép ki)
 import ast
 import json
 import re
+import subprocess
 import sys
 import unicodedata
 from pathlib import Path
@@ -29,6 +30,16 @@ KEY_PATTERN = re.compile(r'\b(?:tr|t)\(\s*"([a-z_]+\.[\w.]*\w)"|"((?:error|done|
 # QML-ben feltételes kulcsok: root.t(x ? "a.b" : "c.d")
 CONDITIONAL_PATTERN = re.compile(r'root\.t\(([^()]*\?[^()]*)')
 INVISIBLE = re.compile(r"[­​﻿]")  # feltételes elválasztó, nulla szélességű szóköz, BOM
+
+
+def desktop_keys():
+    """A start menü bejegyzéseinek kulcsai eszközönként (tools/gen_desktop_entries.py írja belőlük a .desktop fájlokat)."""
+    keys = {}
+    for fields in literal(REPO / "tools/gen_desktop_entries.py", "ENTRIES").values():
+        for _name, value in fields:
+            if isinstance(value, tuple):
+                keys.setdefault(value[0], set()).add(value[1])
+    return keys
 
 
 def literal(path, name):
@@ -49,21 +60,23 @@ def welcome_keys():
     keys |= {f"scheme.{s['id']}" for s in literal(WELCOME / "desktop.py", "COLOR_SCHEMES")}
     for l in literal(WELCOME / "desktop.py", "LAYOUTS"):
         keys |= {f"layout.{l['id']}.name", f"layout.{l['id']}.description"}
-    return keys
+    return keys | DESKTOP_KEYS["sloth-welcome"]
 
 
 def installer_keys():
     """A telepítő futás közben képzett kulcsai: lépések (a segéd küldi) és a lemez tartalma."""
     stages = {stage for _keys, stage, _pct in literal(INSTALL_HELPER, "STAGES")}
     keys = {f"stage.{s}" for s in stages | {"start", "partition", "configure", "browser"}}
-    return keys | {f"disk.contents.{c}" for c in ("empty", "windows", "linux", "other")}
+    return keys | {f"disk.contents.{c}" for c in ("empty", "windows", "linux", "other")} | DESKTOP_KEYS["sloth-installer"]
 
 
 def exe_keys():
     """Az .exe kezelő futás közben képzett kulcsai: a futtató állapotai és az ablakcímek."""
     keys = {key for _patterns, key in literal(EXE / "runner.py", "_STAGES")}
-    return keys | {"title.launch", "title.install", "title.manage"}
+    return keys | {"title.launch", "title.install", "title.manage"} | DESKTOP_KEYS["sloth-exe"]
 
+
+DESKTOP_KEYS = desktop_keys()
 
 # eszköz -> (csomag, további forrásfájlok, adatokból képzett kulcsok)
 TOOLS = {
@@ -141,6 +154,9 @@ def check(tool, pkg, extra_files, extra_keys):
 
 def main():
     errors = sum(check(tool, *args) for tool, args in TOOLS.items())
+    # a .desktop fájlok a fordításokból készülnek; ha egy fordítás változott, újra kell írni őket
+    if subprocess.run([sys.executable, str(REPO / "tools/gen_desktop_entries.py"), "--check"]).returncode:
+        errors += 1
     print("Rendben." if not errors else f"{errors} hiba.")
     return 1 if errors else 0
 

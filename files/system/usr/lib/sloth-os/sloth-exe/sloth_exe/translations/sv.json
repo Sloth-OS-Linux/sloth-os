@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} använder fuskskyddet {system}. På Linux fungerar det bara om spelets skapare har tillåtit det. Om spelet inte startar eller kastar ut dig är det troligen därför. Kolla om spelet finns på Steam.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Övriga program"
+  "misc.other_programs": "Övriga program",
+
+  "desktop.name": "Windows-program",
+  "desktop.comment": "Installera och kör Windows-program och -spel"
 }

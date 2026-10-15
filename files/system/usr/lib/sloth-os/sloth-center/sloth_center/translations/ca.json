@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "No és al menú d’inici",
   "Start menü": "Menú d’inici",
   "Eltávolítod: {name}?": "Voleu suprimir {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "S’esborraran el programa i tots els seus fitxers (partides desades i paràmetres inclosos). No es pot desfer."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "S’esborraran el programa i tots els seus fitxers (partides desades i paràmetres inclosos). No es pot desfer.",
+
+  "Rendszerbeállítások": "Configuració del sistema",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Actualitzacions, restauració, controladors i tot allò que altrament requeriria un terminal",
+  "frissítés;visszaállítás;driver;beállítás": "actualització;restauració;controlador;configuració"
 }

@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} koristi zaštitu od varanja {system}. Na Linuxu radi samo ako su to dopustili autori igre. Ako se igra ne pokreće ili vas izbacuje, vjerojatno je to razlog. Provjerite postoji li verzija igre na Steamu.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Ostali programi"
+  "misc.other_programs": "Ostali programi",
+
+  "desktop.name": "Windows programi",
+  "desktop.comment": "Instaliranje i pokretanje Windows programa i igara"
 }

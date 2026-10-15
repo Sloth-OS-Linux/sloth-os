@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} memakai anti-cheat {system}. Di Linux, ini hanya berfungsi jika pembuat game mengizinkannya. Jika game tidak mau berjalan atau mengeluarkan Anda, kemungkinan inilah penyebabnya. Coba cek apakah game ini punya versi Steam.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Program lainnya"
+  "misc.other_programs": "Program lainnya",
+
+  "desktop.name": "Program Windows",
+  "desktop.comment": "Pasang dan jalankan program dan game Windows"
 }

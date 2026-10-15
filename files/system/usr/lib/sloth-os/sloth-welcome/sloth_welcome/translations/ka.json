@@ -124,5 +124,9 @@
   "done.steam": "Steam-ში შესვლა",
   "done.accounts": "ონლაინ ანგარიშები (Google, Microsoft…)",
   "done.language": "ენა და რეგიონი",
-  "done.start": "ისიამოვნეთ!"
+  "done.start": "ისიამოვნეთ!",
+
+  "desktop.generic": "აპები და იერსახე",
+  "desktop.comment": "ბრაუზერის, საოფისე პაკეტის, მედიაფლეერის და სხვა აპების დაყენება, ფერთა სქემის არჩევა",
+  "desktop.keywords": "მისალმება;აპები;ბრაუზერი;ოფისი;თემა"
 }

@@ -124,5 +124,9 @@
   "done.steam": "Aanmelden bij Steam",
   "done.accounts": "Online accounts (Google, Microsoft…)",
   "done.language": "Taal en regio",
-  "done.start": "Veel plezier!"
+  "done.start": "Veel plezier!",
+
+  "desktop.generic": "Apps en uiterlijk",
+  "desktop.comment": "Een browser, kantoorpakket, mediaspeler en meer installeren, een kleurenschema kiezen",
+  "desktop.keywords": "welkom;apps;browser;kantoor;thema"
 }

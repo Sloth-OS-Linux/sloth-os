@@ -74,5 +74,8 @@
   "error.bad_disk": "Auf dieses Laufwerk kann nicht installiert werden. Bitte wähle ein anderes.",
   "error.bad_input": "Eine der Einstellungen ist ungültig. Geh zurück und prüfe sie.",
   "error.install_failed": "Beim Kopieren des Systems auf das Laufwerk ist ein Fehler aufgetreten. Daten, die vorher auf dem Laufwerk waren, könnten bereits gelöscht sein.",
-  "error.configure_failed": "Das System wurde installiert, aber Sprache und Tastatur konnten nicht eingestellt werden. Versuche es erneut; klappt es wieder nicht, kannst du sie nach dem ersten Start in den Systemeinstellungen festlegen."
+  "error.configure_failed": "Das System wurde installiert, aber Sprache und Tastatur konnten nicht eingestellt werden. Versuche es erneut; klappt es wieder nicht, kannst du sie nach dem ersten Start in den Systemeinstellungen festlegen.",
+
+  "desktop.comment": "Sloth OS auf diesem Computer installieren",
+  "desktop.keywords": "installieren;installationsprogramm"
 }

@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} fa servir l'antitrampes {system}. A Linux només funciona si els creadors del joc ho han permès. Si el joc no s'inicia o et fa fora, probablement és per això. Val la pena mirar si el joc té versió a Steam.",
 
   "misc.program": "Programa",
-  "misc.other_programs": "Altres programes"
+  "misc.other_programs": "Altres programes",
+
+  "desktop.name": "Programes Windows",
+  "desktop.comment": "Instal·lar i executar programes i jocs de Windows"
 }

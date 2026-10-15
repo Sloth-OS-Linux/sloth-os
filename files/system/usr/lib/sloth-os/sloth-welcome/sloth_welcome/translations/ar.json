@@ -124,5 +124,9 @@
   "done.steam": "تسجيل الدخول إلى Steam",
   "done.accounts": "الحسابات على الإنترنت (Google وMicrosoft…)",
   "done.language": "اللغة والمنطقة",
-  "done.start": "استمتع!"
+  "done.start": "استمتع!",
+
+  "desktop.generic": "التطبيقات والمظهر",
+  "desktop.comment": "تثبيت متصفح وحزمة مكتبية ومشغّل وسائط والمزيد، واختيار نظام ألوان",
+  "desktop.keywords": "ترحيب;تطبيقات;متصفح;مكتب;سمة"
 }

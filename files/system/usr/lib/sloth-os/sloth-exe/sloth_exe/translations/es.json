@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} usa el antitrampas {system}. En Linux solo funciona si los creadores del juego lo han permitido. Si el juego no arranca o te expulsa, probablemente sea por esto. Vale la pena ver si el juego tiene versión de Steam.",
 
   "misc.program": "Programa",
-  "misc.other_programs": "Otros programas"
+  "misc.other_programs": "Otros programas",
+
+  "desktop.name": "Programas de Windows",
+  "desktop.comment": "Instalar y ejecutar programas y juegos de Windows"
 }

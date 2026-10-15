@@ -75,5 +75,8 @@
   "error.bad_disk": "Tidak bisa memasang di disk ini. Pilih yang lain.",
   "error.bad_input": "Salah satu pengaturan tidak valid. Kembali dan periksa.",
   "error.install_failed": "Terjadi kesalahan saat menyalin sistem ke disk. Data yang sebelumnya ada di disk mungkin sudah terhapus.",
-  "error.configure_failed": "Sistem terpasang, tetapi bahasa dan papan ketik gagal diatur. Coba lagi; jika masih gagal, Anda bisa mengaturnya di Pengaturan Sistem setelah pertama kali dinyalakan."
+  "error.configure_failed": "Sistem terpasang, tetapi bahasa dan papan ketik gagal diatur. Coba lagi; jika masih gagal, Anda bisa mengaturnya di Pengaturan Sistem setelah pertama kali dinyalakan.",
+
+  "desktop.comment": "Pasang Sloth OS di komputer ini",
+  "desktop.keywords": "pasang;pemasang"
 }

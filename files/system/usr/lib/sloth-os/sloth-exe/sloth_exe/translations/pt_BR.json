@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} usa o antitrapaça {system}. No Linux ele só funciona se os criadores do jogo permitiram. Se o jogo não abre ou te expulsa, provavelmente é por isso. Vale ver se o jogo tem versão na Steam.",
 
   "misc.program": "Programa",
-  "misc.other_programs": "Outros programas"
+  "misc.other_programs": "Outros programas",
+
+  "desktop.name": "Programas do Windows",
+  "desktop.comment": "Instalar e executar programas e jogos do Windows"
 }

@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Nie in die Begin-kieslys nie",
   "Start menü": "Begin-kieslys",
   "Eltávolítod: {name}?": "Verwyder {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Die program en al sy lêers word uitgevee (ook gestoorde speletjies en instellings). Dit kan nie ontdoen word nie."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Die program en al sy lêers word uitgevee (ook gestoorde speletjies en instellings). Dit kan nie ontdoen word nie.",
+
+  "Rendszerbeállítások": "Stelselinstellings",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Bywerkings, terugrol, drywers en alles wat andersins 'n terminaal sou benodig",
+  "frissítés;visszaállítás;driver;beállítás": "bywerking;terugrol;drywer;instellings"
 }

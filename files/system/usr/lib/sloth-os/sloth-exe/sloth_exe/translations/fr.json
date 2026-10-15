@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} utilise l'anti-triche {system}. Sous Linux, il ne fonctionne que si les créateurs du jeu l'ont autorisé. Si le jeu ne démarre pas ou vous expulse, c'est probablement pour cela. Vérifiez s'il existe une version Steam du jeu.",
 
   "misc.program": "Programme",
-  "misc.other_programs": "Autres programmes"
+  "misc.other_programs": "Autres programmes",
+
+  "desktop.name": "Programmes Windows",
+  "desktop.comment": "Installer et lancer des programmes et des jeux Windows"
 }

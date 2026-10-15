@@ -75,5 +75,8 @@
   "error.bad_disk": "Bu diske kurulum yapılamaz. Başka birini seçin.",
   "error.bad_input": "Ayarlardan biri geçersiz. Geri dönüp kontrol edin.",
   "error.install_failed": "Sistem diske kopyalanırken bir sorun oluştu. Diskte önceden olan veriler silinmiş olabilir.",
-  "error.configure_failed": "Sistem kuruldu, ancak dil ve klavye ayarlanamadı. Yeniden deneyin; yine olmazsa ilk açılıştan sonra Sistem Ayarları'ndan ayarlayabilirsiniz."
+  "error.configure_failed": "Sistem kuruldu, ancak dil ve klavye ayarlanamadı. Yeniden deneyin; yine olmazsa ilk açılıştan sonra Sistem Ayarları'ndan ayarlayabilirsiniz.",
+
+  "desktop.comment": "Sloth OS'u bu bilgisayara yükleme",
+  "desktop.keywords": "yükle;yükleyici"
 }

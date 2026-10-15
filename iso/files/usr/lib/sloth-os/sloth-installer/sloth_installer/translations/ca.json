@@ -75,5 +75,8 @@
   "error.bad_disk": "No es pot instal·lar en aquest disc. Tria'n un altre.",
   "error.bad_input": "Un dels paràmetres no és vàlid. Torna enrere i revisa'ls.",
   "error.install_failed": "Alguna cosa ha fallat en copiar el sistema al disc. Potser les dades que hi havia al disc ja s'han esborrat.",
-  "error.configure_failed": "El sistema s'ha instal·lat, però no s'han pogut configurar la llengua i el teclat. Torna-ho a provar; si torna a fallar, els pots configurar a la Configuració del sistema després del primer inici."
+  "error.configure_failed": "El sistema s'ha instal·lat, però no s'han pogut configurar la llengua i el teclat. Torna-ho a provar; si torna a fallar, els pots configurar a la Configuració del sistema després del primer inici.",
+
+  "desktop.comment": "Instal·lar Sloth OS en aquest ordinador",
+  "desktop.keywords": "instal·lar;instal·lador"
 }

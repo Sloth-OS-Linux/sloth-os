@@ -124,5 +124,9 @@
   "done.steam": "Bejelentkezés a Steambe",
   "done.accounts": "Online fiókok (Google, Microsoft…)",
   "done.language": "Nyelv és régió",
-  "done.start": "Indulhat a móka!"
+  "done.start": "Indulhat a móka!",
+
+  "desktop.generic": "Appok és megjelenés",
+  "desktop.comment": "Böngésző, irodai programok, médialejátszó és más appok telepítése, színtéma választás",
+  "desktop.keywords": "üdvözlő;appok;böngésző;irodai;téma"
 }

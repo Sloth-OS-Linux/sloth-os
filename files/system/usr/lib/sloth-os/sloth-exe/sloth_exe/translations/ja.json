@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} は {system} というチート対策を使っています。Linux では、ゲームの開発元が許可している場合にしか動きません。ゲームが起動しない、または強制終了される場合は、これが原因の可能性があります。Steam 版があるか確認してみてください。",
 
   "misc.program": "プログラム",
-  "misc.other_programs": "その他のプログラム"
+  "misc.other_programs": "その他のプログラム",
+
+  "desktop.name": "Windows プログラム",
+  "desktop.comment": "Windows のプログラムやゲームをインストールして実行します"
 }

@@ -124,5 +124,9 @@
   "done.steam": "Masuk ke Steam",
   "done.accounts": "Akun daring (Google, Microsoft…)",
   "done.language": "Bahasa dan wilayah",
-  "done.start": "Selamat bersenang-senang!"
+  "done.start": "Selamat bersenang-senang!",
+
+  "desktop.generic": "Aplikasi dan tampilan",
+  "desktop.comment": "Pasang peramban, paket perkantoran, pemutar media, dan lainnya, pilih skema warna",
+  "desktop.keywords": "selamat datang;aplikasi;peramban;perkantoran;tema"
 }

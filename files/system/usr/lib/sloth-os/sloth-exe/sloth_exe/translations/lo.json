@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} ໃຊ້ລະບົບກັນໂກງ {system}. ໃນ Linux ມັນໃຊ້ໄດ້ສະເພາະເມື່ອຜູ້ສ້າງເກມອະນຸຍາດ. ຖ້າເກມບໍ່ເປີດ ຫຼື ເຕະທ່ານອອກ, ອາດເປັນເພາະສາເຫດນີ້. ລອງເບິ່ງວ່າເກມມີເວີຊັນໃນ Steam ບໍ່.",
 
   "misc.program": "ໂປຣແກຣມ",
-  "misc.other_programs": "ໂປຣແກຣມອື່ນໆ"
+  "misc.other_programs": "ໂປຣແກຣມອື່ນໆ",
+
+  "desktop.name": "ໂປຣແກຣມ Windows",
+  "desktop.comment": "ຕິດຕັ້ງ ແລະ ເປີດໃຊ້ໂປຣແກຣມ ແລະ ເກມ Windows"
 }

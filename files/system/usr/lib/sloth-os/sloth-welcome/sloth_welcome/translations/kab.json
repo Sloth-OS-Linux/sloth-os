@@ -124,5 +124,9 @@
   "done.steam": "Kcem ɣer Steam",
   "done.accounts": "Imiḍanen srid (Google, Microsoft…)",
   "done.language": "Tutlayt d temnaḍt",
-  "done.start": "Zhu!"
+  "done.start": "Zhu!",
+
+  "desktop.generic": "Isnasen d urwas",
+  "desktop.comment": "Sebded iminig, isnasen n tnarit, imeɣri n umidya d wiyaḍ, fren asentel n yiniten",
+  "desktop.keywords": "ansuf;isnasen;iminig;tanarit;asentel"
 }

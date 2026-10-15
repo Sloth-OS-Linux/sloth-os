@@ -75,5 +75,8 @@
   "error.bad_disk": "Į šį diską diegti negalima. Pasirinkite kitą.",
   "error.bad_input": "Viena iš nuostatų netinkama. Grįžkite ir jas patikrinkite.",
   "error.install_failed": "Kopijuojant sistemą į diską kažkas nepavyko. Diske buvę duomenys jau galėjo būti ištrinti.",
-  "error.configure_failed": "Sistema įdiegta, bet kalbos ir klaviatūros nustatyti nepavyko. Bandykite dar kartą; jei vėl nepavyks, juos galėsite nustatyti Sistemos nuostatose po pirmojo paleidimo."
+  "error.configure_failed": "Sistema įdiegta, bet kalbos ir klaviatūros nustatyti nepavyko. Bandykite dar kartą; jei vėl nepavyks, juos galėsite nustatyti Sistemos nuostatose po pirmojo paleidimo.",
+
+  "desktop.comment": "Sloth OS įdiegimas šiame kompiuteryje",
+  "desktop.keywords": "įdiegti;diegimo programa"
 }

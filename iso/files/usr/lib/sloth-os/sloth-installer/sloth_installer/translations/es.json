@@ -75,5 +75,8 @@
   "error.bad_disk": "No se puede instalar en este disco. Elige otro.",
   "error.bad_input": "Uno de los ajustes no es válido. Vuelve atrás y revísalos.",
   "error.install_failed": "Algo falló al copiar el sistema al disco. Puede que los datos que había en el disco ya se hayan borrado.",
-  "error.configure_failed": "El sistema se instaló, pero no se pudieron ajustar el idioma y el teclado. Inténtalo de nuevo; si sigue fallando, puedes ajustarlos en la Configuración del sistema tras el primer inicio."
+  "error.configure_failed": "El sistema se instaló, pero no se pudieron ajustar el idioma y el teclado. Inténtalo de nuevo; si sigue fallando, puedes ajustarlos en la Configuración del sistema tras el primer inicio.",
+
+  "desktop.comment": "Instalar Sloth OS en este equipo",
+  "desktop.keywords": "instalar;instalador"
 }

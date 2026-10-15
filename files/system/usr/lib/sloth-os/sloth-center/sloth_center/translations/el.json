@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Δεν είναι στο μενού Έναρξη",
   "Start menü": "Μενού Έναρξη",
   "Eltávolítod: {name}?": "Αφαίρεση του {name};",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Το πρόγραμμα και όλα τα αρχεία του θα διαγραφούν (μαζί με αποθηκευμένα παιχνίδια και ρυθμίσεις). Δεν μπορεί να αναιρεθεί."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Το πρόγραμμα και όλα τα αρχεία του θα διαγραφούν (μαζί με αποθηκευμένα παιχνίδια και ρυθμίσεις). Δεν μπορεί να αναιρεθεί.",
+
+  "Rendszerbeállítások": "Ρυθμίσεις συστήματος",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ενημερώσεις, επαναφορά, προγράμματα οδήγησης και ό,τι άλλο θα χρειαζόταν τερματικό",
+  "frissítés;visszaállítás;driver;beállítás": "ενημέρωση;επαναφορά;οδηγός;ρυθμίσεις"
 }

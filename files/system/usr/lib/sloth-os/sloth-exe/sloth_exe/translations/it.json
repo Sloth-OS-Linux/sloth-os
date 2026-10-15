@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} usa l'anti-cheat {system}. Su Linux funziona solo se gli sviluppatori del gioco lo hanno permesso. Se il gioco non parte o ti butta fuori, probabilmente il motivo è questo. Conviene verificare se esiste una versione Steam del gioco.",
 
   "misc.program": "Programma",
-  "misc.other_programs": "Altri programmi"
+  "misc.other_programs": "Altri programmi",
+
+  "desktop.name": "Programmi Windows",
+  "desktop.comment": "Installare ed eseguire programmi e giochi Windows"
 }

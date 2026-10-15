@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "לא בתפריט התחל",
   "Start menü": "תפריט התחל",
   "Eltávolítod: {name}?": "להסיר את {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "התוכנה וכל הקבצים שלה יימחקו (כולל שמירות משחק והגדרות). לא ניתן לבטל זאת."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "התוכנה וכל הקבצים שלה יימחקו (כולל שמירות משחק והגדרות). לא ניתן לבטל זאת.",
+
+  "Rendszerbeállítások": "הגדרות מערכת",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "עדכונים, שחזור, מנהלי התקנים וכל מה שאחרת היה דורש מסוף",
+  "frissítés;visszaállítás;driver;beállítás": "עדכון;שחזור;מנהל התקן;הגדרות"
 }

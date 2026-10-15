@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} përdor mbrojtjen kundër mashtrimit {system}. Në Linux punon vetëm nëse e kanë lejuar krijuesit e lojës. Nëse loja nuk niset ose ju nxjerr jashtë, ka gjasa që arsyeja të jetë kjo. Ia vlen të shihni nëse loja ka version në Steam.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Programe të tjera"
+  "misc.other_programs": "Programe të tjera",
+
+  "desktop.name": "Programe Windows",
+  "desktop.comment": "Instalimi dhe ekzekutimi i programeve dhe lojërave Windows"
 }

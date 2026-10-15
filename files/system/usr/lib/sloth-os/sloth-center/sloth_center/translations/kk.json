@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Start мәзірінде жоқ",
   "Start menü": "Start мәзірі",
   "Eltávolítod: {name}?": "{name} жойылсын ба?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Бағдарлама және оған қатысты барлық файл (сақтаулар мен баптауларды қоса) жойылады. Мұны қайтару мүмкін емес."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Бағдарлама және оған қатысты барлық файл (сақтаулар мен баптауларды қоса) жойылады. Мұны қайтару мүмкін емес.",
+
+  "Rendszerbeállítások": "Жүйе баптаулары",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Жаңартулар, кері қайтару, драйверлер және әйтпесе терминал қажет болатынның бәрі",
+  "frissítés;visszaállítás;driver;beállítás": "жаңарту;кері қайтару;драйвер;баптаулар"
 }

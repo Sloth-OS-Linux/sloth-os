@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Nėra meniu Pradžia",
   "Start menü": "Meniu Pradžia",
   "Eltávolítod: {name}?": "Pašalinti {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programa ir visi jos failai bus ištrinti (taip pat žaidimų įrašai ir nustatymai). To atšaukti negalima."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programa ir visi jos failai bus ištrinti (taip pat žaidimų įrašai ir nustatymai). To atšaukti negalima.",
+
+  "Rendszerbeállítások": "Sistemos nustatymai",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Atnaujinimai, grąžinimas, tvarkyklės ir visa kita, kam kitaip reikėtų terminalo",
+  "frissítés;visszaállítás;driver;beállítás": "atnaujinimas;grąžinimas;tvarkyklė;nustatymai"
 }

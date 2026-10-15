@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Inte i startmenyn",
   "Start menü": "Startmeny",
   "Eltávolítod: {name}?": "Ta bort {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programmet och alla dess filer tas bort (även sparade spel och inställningar). Det går inte att ångra."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programmet och alla dess filer tas bort (även sparade spel och inställningar). Det går inte att ångra.",
+
+  "Rendszerbeállítások": "Systeminställningar",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Uppdateringar, återställning, drivrutiner och allt som annars skulle kräva en terminal",
+  "frissítés;visszaállítás;driver;beállítás": "uppdatering;återställning;drivrutin;inställningar"
 }

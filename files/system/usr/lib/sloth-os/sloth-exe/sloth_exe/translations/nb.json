@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} bruker juksebeskyttelsen {system}. På Linux virker den bare hvis spillets utviklere har tillatt det. Hvis spillet ikke starter eller kaster deg ut, er det sannsynligvis derfor. Sjekk om spillet finnes på Steam.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Andre programmer"
+  "misc.other_programs": "Andre programmer",
+
+  "desktop.name": "Windows-programmer",
+  "desktop.comment": "Installer og kjør Windows-programmer og -spill"
 }

@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Nu este în meniul Start",
   "Start menü": "Meniul Start",
   "Eltávolítod: {name}?": "Elimini {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programul și toate fișierele lui vor fi șterse (inclusiv salvările din jocuri și setările). Acțiunea nu poate fi anulată."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programul și toate fișierele lui vor fi șterse (inclusiv salvările din jocuri și setările). Acțiunea nu poate fi anulată.",
+
+  "Rendszerbeállítások": "Setări de sistem",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Actualizări, revenire, drivere și tot ce altfel ar necesita un terminal",
+  "frissítés;visszaállítás;driver;beállítás": "actualizare;revenire;driver;setări"
 }

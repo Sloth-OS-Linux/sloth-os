@@ -75,5 +75,8 @@
   "error.bad_disk": "Na ovaj disk nije moguće instalirati. Odaberite drugi.",
   "error.bad_input": "Jedna od postavki nije ispravna. Vratite se i provjerite ih.",
   "error.install_failed": "Nešto je pošlo po zlu pri kopiranju sustava na disk. Podaci koji su bili na disku možda su već obrisani.",
-  "error.configure_failed": "Sustav je instaliran, ali jezik i tipkovnicu nije bilo moguće postaviti. Pokušajte ponovno; ako opet ne uspije, možete ih postaviti nakon prvog pokretanja u Postavkama sustava."
+  "error.configure_failed": "Sustav je instaliran, ali jezik i tipkovnicu nije bilo moguće postaviti. Pokušajte ponovno; ako opet ne uspije, možete ih postaviti nakon prvog pokretanja u Postavkama sustava.",
+
+  "desktop.comment": "Instaliranje Sloth OS-a na ovo računalo",
+  "desktop.keywords": "instalacija;instalacijski program"
 }

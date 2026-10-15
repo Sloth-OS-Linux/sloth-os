@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} brukar juksevernet {system}. På Linux verkar det berre om utviklarane av spelet har tillate det. Om spelet ikkje startar eller kastar deg ut, er det truleg difor. Sjekk om spelet finst på Steam.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Andre program"
+  "misc.other_programs": "Andre program",
+
+  "desktop.name": "Windows-program",
+  "desktop.comment": "Installer og køyr Windows-program og -spel"
 }

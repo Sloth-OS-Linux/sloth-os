@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} 使用了 {system} 反作弊。只有游戏开发者允许时，它才能在 Linux 上运行。如果游戏无法启动或把你踢出，很可能就是这个原因。可以看看这款游戏有没有 Steam 版本。",
 
   "misc.program": "程序",
-  "misc.other_programs": "其他程序"
+  "misc.other_programs": "其他程序",
+
+  "desktop.name": "Windows 程序",
+  "desktop.comment": "安装并运行 Windows 程序和游戏"
 }

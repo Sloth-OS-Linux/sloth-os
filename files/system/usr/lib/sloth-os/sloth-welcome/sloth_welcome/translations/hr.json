@@ -124,5 +124,9 @@
   "done.steam": "Prijava na Steam",
   "done.accounts": "Mrežni računi (Google, Microsoft…)",
   "done.language": "Jezik i regija",
-  "done.start": "Zabavite se!"
+  "done.start": "Zabavite se!",
+
+  "desktop.generic": "Aplikacije i izgled",
+  "desktop.comment": "Instaliranje preglednika, uredskog paketa, medijskog reproduktora i drugog, odabir sheme boja",
+  "desktop.keywords": "dobrodošlica;aplikacije;preglednik;ured;tema"
 }

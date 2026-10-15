@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "시작 메뉴에 없음",
   "Start menü": "시작 메뉴",
   "Eltávolítod: {name}?": "{name}을(를) 제거할까요?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "프로그램과 관련된 모든 파일(저장 데이터와 설정 포함)이 삭제됩니다. 되돌릴 수 없습니다."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "프로그램과 관련된 모든 파일(저장 데이터와 설정 포함)이 삭제됩니다. 되돌릴 수 없습니다.",
+
+  "Rendszerbeállítások": "시스템 설정",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "업데이트, 롤백, 드라이버 등 원래라면 터미널이 필요한 모든 작업",
+  "frissítés;visszaállítás;driver;beállítás": "업데이트;롤백;드라이버;설정"
 }

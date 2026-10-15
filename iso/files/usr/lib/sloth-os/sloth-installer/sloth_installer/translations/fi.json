@@ -75,5 +75,8 @@
   "error.bad_disk": "Tälle levylle ei voi asentaa. Valitse toinen.",
   "error.bad_input": "Jokin asetuksista on virheellinen. Palaa takaisin ja tarkista ne.",
   "error.install_failed": "Jokin meni vikaan, kun järjestelmää kopioitiin levylle. Levyllä olleet tiedot on ehkä jo poistettu.",
-  "error.configure_failed": "Järjestelmä asennettiin, mutta kieltä ja näppäimistöä ei voitu asettaa. Yritä uudelleen; jos se epäonnistuu taas, voit asettaa ne Järjestelmäasetuksissa ensimmäisen käynnistyksen jälkeen."
+  "error.configure_failed": "Järjestelmä asennettiin, mutta kieltä ja näppäimistöä ei voitu asettaa. Yritä uudelleen; jos se epäonnistuu taas, voit asettaa ne Järjestelmäasetuksissa ensimmäisen käynnistyksen jälkeen.",
+
+  "desktop.comment": "Asenna Sloth OS tähän tietokoneeseen",
+  "desktop.keywords": "asennus;asennusohjelma"
 }

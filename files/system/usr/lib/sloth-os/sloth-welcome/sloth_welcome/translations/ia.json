@@ -124,5 +124,9 @@
   "done.steam": "Accede a Steam",
   "done.accounts": "Contos in linea (Google, Microsoft…)",
   "done.language": "Lingua e region",
-  "done.start": "Bon divertimento!"
+  "done.start": "Bon divertimento!",
+
+  "desktop.generic": "Applicationes e apparentia",
+  "desktop.comment": "Installar un navigator, un suite de officio, un reproductor de medios e plus, seliger un schema de colores",
+  "desktop.keywords": "benvenita;applicationes;navigator;officio;thema"
 }

@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Pole Start-menüüs",
   "Start menü": "Start-menüü",
   "Eltávolítod: {name}?": "Kas eemaldada {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programm ja kõik selle failid kustutatakse (ka mängusalvestused ja sätted). Seda ei saa tagasi võtta."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programm ja kõik selle failid kustutatakse (ka mängusalvestused ja sätted). Seda ei saa tagasi võtta.",
+
+  "Rendszerbeállítások": "Süsteemi seadistused",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Uuendused, tagasipööramine, draiverid ja kõik muu, milleks muidu oleks vaja terminali",
+  "frissítés;visszaállítás;driver;beállítás": "uuendus;tagasipööramine;draiver;seadistused"
 }

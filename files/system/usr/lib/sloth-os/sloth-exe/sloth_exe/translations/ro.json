@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} folosește sistemul anti-trișare {system}. Pe Linux funcționează doar dacă l-au permis creatorii jocului. Dacă jocul nu pornește sau te dă afară, probabil acesta e motivul. Merită să verifici dacă jocul are o versiune pe Steam.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Alte programe"
+  "misc.other_programs": "Alte programe",
+
+  "desktop.name": "Programe Windows",
+  "desktop.comment": "Instalarea și rularea programelor și jocurilor Windows"
 }

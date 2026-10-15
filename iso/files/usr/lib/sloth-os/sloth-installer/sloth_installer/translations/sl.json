@@ -75,5 +75,8 @@
   "error.bad_disk": "Na ta disk ni mogoče namestiti. Izberite drugega.",
   "error.bad_input": "Ena od nastavitev ni veljavna. Vrnite se in jih preverite.",
   "error.install_failed": "Med kopiranjem sistema na disk je šlo nekaj narobe. Podatki, ki so bili na disku, so morda že izbrisani.",
-  "error.configure_failed": "Sistem je nameščen, vendar jezika in tipkovnice ni bilo mogoče nastaviti. Poskusite znova; če spet ne gre, ju lahko po prvem zagonu nastavite v Sistemskih nastavitvah."
+  "error.configure_failed": "Sistem je nameščen, vendar jezika in tipkovnice ni bilo mogoče nastaviti. Poskusite znova; če spet ne gre, ju lahko po prvem zagonu nastavite v Sistemskih nastavitvah.",
+
+  "desktop.comment": "Namestitev Sloth OS na ta računalnik",
+  "desktop.keywords": "namestitev;namestilnik"
 }

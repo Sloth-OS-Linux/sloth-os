@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} używa zabezpieczenia antycheatowego {system}. W Linuksie działa ono tylko, jeśli twórcy gry na to pozwolili. Jeśli gra się nie uruchamia albo cię wyrzuca, to prawdopodobnie dlatego. Warto sprawdzić, czy gra ma wersję na Steam.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Inne programy"
+  "misc.other_programs": "Inne programy",
+
+  "desktop.name": "Programy Windows",
+  "desktop.comment": "Instalacja i uruchamianie programów i gier dla Windows"
 }

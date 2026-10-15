@@ -74,5 +74,8 @@
   "error.bad_disk": "Erre a lemezre nem lehet telepíteni. Válassz másikat.",
   "error.bad_input": "Valamelyik beállítás hibás. Lépj vissza, és nézd át őket.",
   "error.install_failed": "Hiba történt a rendszer lemezre másolása közben. A lemezen korábban lévő adatok ekkorra már törlődhettek.",
-  "error.configure_failed": "A rendszer felkerült, de a nyelv és a billentyűzet beállítása nem sikerült. Próbáld újra; ha megint nem megy, első indítás után a Rendszerbeállításokban is beállíthatod."
+  "error.configure_failed": "A rendszer felkerült, de a nyelv és a billentyűzet beállítása nem sikerült. Próbáld újra; ha megint nem megy, első indítás után a Rendszerbeállításokban is beállíthatod.",
+
+  "desktop.comment": "A Sloth OS telepítése erre a gépre",
+  "desktop.keywords": "telepítés;telepítő"
 }

@@ -124,5 +124,9 @@
   "done.steam": "Bei Steam anmelden",
   "done.accounts": "Online-Konten (Google, Microsoft…)",
   "done.language": "Sprache und Region",
-  "done.start": "Viel Spaß!"
+  "done.start": "Viel Spaß!",
+
+  "desktop.generic": "Apps und Aussehen",
+  "desktop.comment": "Browser, Office-Paket, Mediaplayer und mehr installieren, Farbschema wählen",
+  "desktop.keywords": "willkommen;apps;browser;office;design"
 }

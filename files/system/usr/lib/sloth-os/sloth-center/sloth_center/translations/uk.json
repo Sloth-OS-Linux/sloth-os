@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Немає в меню Пуск",
   "Start menü": "Меню Пуск",
   "Eltávolítod: {name}?": "Вилучити {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Програму та всі її файли буде вилучено (разом зі збереженнями й налаштуваннями). Скасувати це неможливо."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Програму та всі її файли буде вилучено (разом зі збереженнями й налаштуваннями). Скасувати це неможливо.",
+
+  "Rendszerbeállítások": "Системні налаштування",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Оновлення, відкат, драйвери та все, для чого інакше знадобився б термінал",
+  "frissítés;visszaállítás;driver;beállítás": "оновлення;відкат;драйвер;налаштування"
 }

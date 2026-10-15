@@ -75,5 +75,8 @@
   "error.bad_disk": "Impossible d'installer sur ce disque. Choisissez-en un autre.",
   "error.bad_input": "Un des réglages n'est pas valide. Revenez en arrière pour les vérifier.",
   "error.install_failed": "Un problème est survenu pendant la copie du système sur le disque. Les données qui étaient sur le disque ont peut-être déjà été effacées.",
-  "error.configure_failed": "Le système est installé, mais la langue et le clavier n'ont pas pu être réglés. Réessayez ; si cela échoue encore, vous pourrez les régler dans la Configuration du système après le premier démarrage."
+  "error.configure_failed": "Le système est installé, mais la langue et le clavier n'ont pas pu être réglés. Réessayez ; si cela échoue encore, vous pourrez les régler dans la Configuration du système après le premier démarrage.",
+
+  "desktop.comment": "Installer Sloth OS sur cet ordinateur",
+  "desktop.keywords": "installer;installateur"
 }

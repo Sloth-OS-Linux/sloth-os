@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} usa o anti-batota {system}. No Linux só funciona se os criadores do jogo o permitiram. Se o jogo não arranca ou o expulsa, provavelmente é por isso. Vale a pena ver se o jogo tem versão no Steam.",
 
   "misc.program": "Programa",
-  "misc.other_programs": "Outros programas"
+  "misc.other_programs": "Outros programas",
+
+  "desktop.name": "Programas do Windows",
+  "desktop.comment": "Instalar e executar programas e jogos do Windows"
 }

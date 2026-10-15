@@ -75,5 +75,8 @@
   "error.bad_disk": "无法安装到此磁盘。请选择其他磁盘。",
   "error.bad_input": "某项设置无效。请返回检查。",
   "error.install_failed": "将系统复制到磁盘时出错。磁盘上原有的数据可能已被删除。",
-  "error.configure_failed": "系统已安装，但未能设置语言和键盘。请重试；如果仍然失败，可在首次启动后到系统设置中设置。"
+  "error.configure_failed": "系统已安装，但未能设置语言和键盘。请重试；如果仍然失败，可在首次启动后到系统设置中设置。",
+
+  "desktop.comment": "将 Sloth OS 安装到这台电脑",
+  "desktop.keywords": "安装;安装程序"
 }

@@ -124,5 +124,9 @@
   "done.steam": "Logi Steami sisse",
   "done.accounts": "Võrgukontod (Google, Microsoft…)",
   "done.language": "Keel ja piirkond",
-  "done.start": "Head lõbutsemist!"
+  "done.start": "Head lõbutsemist!",
+
+  "desktop.generic": "Rakendused ja välimus",
+  "desktop.comment": "Veebilehitseja, kontoritarkvara, meediapleieri ja muu paigaldamine, värviskeemi valimine",
+  "desktop.keywords": "tere tulemast;rakendused;veebilehitseja;kontor;teema"
 }

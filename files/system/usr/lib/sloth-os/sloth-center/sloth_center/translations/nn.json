@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Ikkje i startmenyen",
   "Start menü": "Startmeny",
   "Eltávolítod: {name}?": "Fjerna {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programmet og alle filene det har, blir sletta (òg lagra spel og innstillingar). Dette kan ikkje angrast."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programmet og alle filene det har, blir sletta (òg lagra spel og innstillingar). Dette kan ikkje angrast.",
+
+  "Rendszerbeállítások": "Systeminnstillingar",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Oppdateringar, tilbakerulling, drivarar og alt som elles ville kravd ein terminal",
+  "frissítés;visszaállítás;driver;beállítás": "oppdatering;tilbakerulling;drivar;innstillingar"
 }

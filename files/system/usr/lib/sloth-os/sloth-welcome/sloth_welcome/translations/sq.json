@@ -124,5 +124,9 @@
   "done.steam": "Hyni në Steam",
   "done.accounts": "Llogari në internet (Google, Microsoft…)",
   "done.language": "Gjuha dhe rajoni",
-  "done.start": "Kënaquni!"
+  "done.start": "Kënaquni!",
+
+  "desktop.generic": "Aplikacione dhe pamje",
+  "desktop.comment": "Instalimi i një shfletuesi, pakete zyre, luajtësi mediash dhe më shumë, zgjedhja e një skeme ngjyrash",
+  "desktop.keywords": "mirë se vini;aplikacione;shfletues;zyrë;temë"
 }

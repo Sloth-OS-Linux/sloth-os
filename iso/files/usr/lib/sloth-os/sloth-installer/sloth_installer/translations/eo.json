@@ -75,5 +75,8 @@
   "error.bad_disk": "Ne eblas instali sur ĉi tiu disko. Elektu alian.",
   "error.bad_input": "Unu el la agordoj estas nevalida. Reiru kaj kontrolu ilin.",
   "error.install_failed": "Io misiris dum kopiado de la sistemo al la disko. Datumoj, kiuj estis sur la disko, eble jam estis forigitaj.",
-  "error.configure_failed": "La sistemo estas instalita, sed ne eblis agordi lingvon kaj klavaron. Reprovu; se denove ne funkcias, vi povos agordi ilin en la Sistemaj agordoj post la unua starto."
+  "error.configure_failed": "La sistemo estas instalita, sed ne eblis agordi lingvon kaj klavaron. Reprovu; se denove ne funkcias, vi povos agordi ilin en la Sistemaj agordoj post la unua starto.",
+
+  "desktop.comment": "Instali Sloth OS en ĉi tiun komputilon",
+  "desktop.keywords": "instali;instalilo"
 }

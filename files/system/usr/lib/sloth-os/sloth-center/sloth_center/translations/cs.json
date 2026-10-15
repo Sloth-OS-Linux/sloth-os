@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Není v nabídce Start",
   "Start menü": "Nabídka Start",
   "Eltávolítod: {name}?": "Odebrat {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Program a všechny jeho soubory se smažou (včetně uložených her a nastavení). Nelze to vrátit."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Program a všechny jeho soubory se smažou (včetně uložených her a nastavení). Nelze to vrátit.",
+
+  "Rendszerbeállítások": "Nastavení systému",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Aktualizace, návrat zpět, ovladače a vše, k čemu by jinak byl potřeba terminál",
+  "frissítés;visszaállítás;driver;beállítás": "aktualizace;návrat;ovladač;nastavení"
 }

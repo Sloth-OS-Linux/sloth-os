@@ -75,5 +75,8 @@
   "error.bad_disk": "Non es possibile installar sur iste disco. Selige un altere.",
   "error.bad_input": "Un del configurationes non es valide. Retorna e verifica los.",
   "error.install_failed": "Alco errava durante le copia del systema al disco. Le datos que esseva sur le disco pote jam esser delite.",
-  "error.configure_failed": "Le systema esseva installate, ma le lingua e le claviero non poteva esser configurate. Reproba; si illo falle de novo, tu pote configurar los in le Configuration del systema post le prime initio."
+  "error.configure_failed": "Le systema esseva installate, ma le lingua e le claviero non poteva esser configurate. Reproba; si illo falle de novo, tu pote configurar los in le Configuration del systema post le prime initio.",
+
+  "desktop.comment": "Installar Sloth OS sur iste computator",
+  "desktop.keywords": "installar;installator"
 }

@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Ulac-it deg wumuɣ Bdu",
   "Start menü": "Umuɣ Bdu",
   "Eltávolítod: {name}?": "Ad yettwakkes {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Ahil d yifuyla-s akk ad ttwakksen (ula d yiskelsen n wuraren d yiɣewwaren). Aya ur yettuɣal ara."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Ahil d yifuyla-s akk ad ttwakksen (ula d yiskelsen n wuraren d yiɣewwaren). Aya ur yettuɣal ara.",
+
+  "Rendszerbeállítások": "Iɣewwaren n unagraw",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ileqman, tuɣalin, inuḍafen d wayen akk ara yesran aterminal ma ulac",
+  "frissítés;visszaállítás;driver;beállítás": "aleqqem;tuɣalin;anuḍaf;iɣewwaren"
 }

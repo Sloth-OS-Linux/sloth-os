@@ -75,5 +75,8 @@
   "error.bad_disk": "Der kan ikke installeres på denne disk. Vælg en anden.",
   "error.bad_input": "En af indstillingerne er ugyldig. Gå tilbage og tjek dem.",
   "error.install_failed": "Noget gik galt, da systemet blev kopieret til disken. Data, der var på disken, er måske allerede slettet.",
-  "error.configure_failed": "Systemet blev installeret, men sprog og tastatur kunne ikke indstilles. Prøv igen; mislykkes det igen, kan du indstille dem i Systemindstillinger efter første start."
+  "error.configure_failed": "Systemet blev installeret, men sprog og tastatur kunne ikke indstilles. Prøv igen; mislykkes det igen, kan du indstille dem i Systemindstillinger efter første start.",
+
+  "desktop.comment": "Installer Sloth OS på denne computer",
+  "desktop.keywords": "installer;installationsprogram"
 }

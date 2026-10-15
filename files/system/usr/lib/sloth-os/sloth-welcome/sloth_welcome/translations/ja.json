@@ -124,5 +124,9 @@
   "done.steam": "Steam にサインイン",
   "done.accounts": "オンラインアカウント（Google、Microsoft…）",
   "done.language": "言語と地域",
-  "done.start": "さあ、楽しみましょう！"
+  "done.start": "さあ、楽しみましょう！",
+
+  "desktop.generic": "アプリと外観",
+  "desktop.comment": "ブラウザー、オフィスソフト、メディアプレーヤーなどをインストールし、配色を選びます",
+  "desktop.keywords": "ようこそ;アプリ;ブラウザー;オフィス;テーマ"
 }

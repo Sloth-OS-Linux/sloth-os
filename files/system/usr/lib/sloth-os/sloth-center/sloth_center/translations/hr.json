@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Nije u izborniku Start",
   "Start menü": "Izbornik Start",
   "Eltávolítod: {name}?": "Ukloniti {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Program i sve njegove datoteke bit će izbrisani (uključujući spremljene igre i postavke). Ovo se ne može poništiti."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Program i sve njegove datoteke bit će izbrisani (uključujući spremljene igre i postavke). Ovo se ne može poništiti.",
+
+  "Rendszerbeállítások": "Postavke sustava",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ažuriranja, vraćanje, upravljački programi i sve za što bi inače trebao terminal",
+  "frissítés;visszaállítás;driver;beállítás": "ažuriranje;vraćanje;upravljački program;postavke"
 }

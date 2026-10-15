@@ -124,5 +124,9 @@
   "done.steam": "Steam-এ সাইন ইন করুন",
   "done.accounts": "অনলাইন অ্যাকাউন্ট (Google, Microsoft…)",
   "done.language": "ভাষা ও অঞ্চল",
-  "done.start": "উপভোগ করুন!"
+  "done.start": "উপভোগ করুন!",
+
+  "desktop.generic": "অ্যাপ ও চেহারা",
+  "desktop.comment": "ব্রাউজার, অফিস স্যুট, মিডিয়া প্লেয়ার ও আরও অনেক কিছু ইনস্টল করুন, রঙের থিম বেছে নিন",
+  "desktop.keywords": "স্বাগতম;অ্যাপ;ব্রাউজার;অফিস;থিম"
 }

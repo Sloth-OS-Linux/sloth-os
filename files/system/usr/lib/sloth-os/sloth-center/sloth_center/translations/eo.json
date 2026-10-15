@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Ne en la Start-menuo",
   "Start menü": "Start-menuo",
   "Eltávolítod: {name}?": "Ĉu forigi {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "La programo kaj ĉiuj ĝiaj dosieroj foriĝos (ankaŭ konservitaj ludoj kaj agordoj). Tio ne estas malfarebla."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "La programo kaj ĉiuj ĝiaj dosieroj foriĝos (ankaŭ konservitaj ludoj kaj agordoj). Tio ne estas malfarebla.",
+
+  "Rendszerbeállítások": "Sistemaj agordoj",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ĝisdatigoj, malfaro, peliloj kaj ĉio alia, por kio alie necesus terminalo",
+  "frissítés;visszaállítás;driver;beállítás": "ĝisdatigo;malfaro;pelilo;agordoj"
 }

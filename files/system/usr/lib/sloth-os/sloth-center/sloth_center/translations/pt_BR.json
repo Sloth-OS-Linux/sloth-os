@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Não está no menu Iniciar",
   "Start menü": "Menu Iniciar",
   "Eltávolítod: {name}?": "Remover {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "O programa e todos os arquivos dele serão apagados (incluindo jogos salvos e configurações). Não dá para desfazer."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "O programa e todos os arquivos dele serão apagados (incluindo jogos salvos e configurações). Não dá para desfazer.",
+
+  "Rendszerbeállítások": "Configurações do sistema",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Atualizações, reversão, drivers e tudo o que de outra forma exigiria um terminal",
+  "frissítés;visszaállítás;driver;beállítás": "atualização;reversão;driver;configurações"
 }

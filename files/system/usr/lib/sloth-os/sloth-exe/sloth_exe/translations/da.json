@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} bruger anti-snyd-systemet {system}. På Linux virker det kun, hvis spillets udviklere har tilladt det. Hvis spillet ikke starter eller smider dig ud, er det sandsynligvis derfor. Tjek, om spillet findes på Steam.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Andre programmer"
+  "misc.other_programs": "Andre programmer",
+
+  "desktop.name": "Windows-programmer",
+  "desktop.comment": "Installer og kør Windows-programmer og -spil"
 }

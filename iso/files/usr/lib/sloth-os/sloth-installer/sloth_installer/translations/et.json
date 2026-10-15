@@ -75,5 +75,8 @@
   "error.bad_disk": "Sellele kettale ei saa paigaldada. Vali mõni teine.",
   "error.bad_input": "Mõni seade on vigane. Mine tagasi ja kontrolli neid.",
   "error.install_failed": "Süsteemi kettale kopeerimisel läks midagi valesti. Kettal olnud andmed võivad olla juba kustutatud.",
-  "error.configure_failed": "Süsteem paigaldati, kuid keelt ja klaviatuuri ei õnnestunud seadistada. Proovi uuesti; kui ikka ei õnnestu, saad need pärast esimest käivitust Süsteemi seadistustes määrata."
+  "error.configure_failed": "Süsteem paigaldati, kuid keelt ja klaviatuuri ei õnnestunud seadistada. Proovi uuesti; kui ikka ei õnnestu, saad need pärast esimest käivitust Süsteemi seadistustes määrata.",
+
+  "desktop.comment": "Sloth OS-i paigaldamine sellesse arvutisse",
+  "desktop.keywords": "paigaldamine;paigaldaja"
 }

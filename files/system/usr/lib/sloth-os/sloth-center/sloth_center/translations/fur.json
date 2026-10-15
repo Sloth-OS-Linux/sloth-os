@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "No tal menù Inviament",
   "Start menü": "Menù Inviament",
   "Eltávolítod: {name}?": "Gjavâ {name}?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Il program e ducj i siei files a vignaran scancelâts (ancje salvaments dai zûcs e impostazions). No si pues tornâ indaûr."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Il program e ducj i siei files a vignaran scancelâts (ancje salvaments dai zûcs e impostazions). No si pues tornâ indaûr.",
+
+  "Rendszerbeállítások": "Impostazions dal sisteme",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Inzornaments, ripristinament, driver e dut ce che se no al varès bisugne di un terminâl",
+  "frissítés;visszaállítás;driver;beállítás": "inzornament;ripristinament;driver;impostazions"
 }

@@ -74,5 +74,8 @@
   "error.bad_disk": "This disk can't be installed on. Please choose another one.",
   "error.bad_input": "One of the settings is invalid. Go back and check them.",
   "error.install_failed": "Something went wrong while copying the system to the disk. Data previously on the disk may already have been erased.",
-  "error.configure_failed": "The system was installed, but setting the language and keyboard failed. Try again; if it still fails, you can set them in System Settings after the first start."
+  "error.configure_failed": "The system was installed, but setting the language and keyboard failed. Try again; if it still fails, you can set them in System Settings after the first start.",
+
+  "desktop.comment": "Install Sloth OS on this computer",
+  "desktop.keywords": "install;installer"
 }

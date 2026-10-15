@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "Başlat menüsünde değil",
   "Start menü": "Başlat menüsü",
   "Eltávolítod: {name}?": "{name} kaldırılsın mı?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Program ve tüm dosyaları silinecek (oyun kayıtları ve ayarlar dahil). Bu geri alınamaz."
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Program ve tüm dosyaları silinecek (oyun kayıtları ve ayarlar dahil). Bu geri alınamaz.",
+
+  "Rendszerbeállítások": "Sistem ayarları",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Güncellemeler, geri alma, sürücüler ve normalde terminal gerektirecek her şey",
+  "frissítés;visszaállítás;driver;beállítás": "güncelleme;geri alma;sürücü;ayarlar"
 }

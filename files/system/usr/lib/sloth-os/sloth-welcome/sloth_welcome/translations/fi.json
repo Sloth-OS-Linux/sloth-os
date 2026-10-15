@@ -124,5 +124,9 @@
   "done.steam": "Kirjaudu Steamiin",
   "done.accounts": "Verkkotilit (Google, Microsoft…)",
   "done.language": "Kieli ja alue",
-  "done.start": "Pidä hauskaa!"
+  "done.start": "Pidä hauskaa!",
+
+  "desktop.generic": "Sovellukset ja ulkoasu",
+  "desktop.comment": "Asenna selain, toimisto-ohjelmat, mediasoitin ja muuta, valitse väriteema",
+  "desktop.keywords": "tervetuloa;sovellukset;selain;toimisto;teema"
 }

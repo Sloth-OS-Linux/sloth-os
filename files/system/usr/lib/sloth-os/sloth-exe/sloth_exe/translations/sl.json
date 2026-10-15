@@ -40,5 +40,8 @@
   "anticheat.maybe": "{game} uporablja zaščito pred goljufanjem {system}. V Linuxu deluje le, če so to dovolili ustvarjalci igre. Če se igra ne zažene ali vas vrže ven, je verjetno zato. Preverite, ali ima igra različico na Steamu.",
 
   "misc.program": "Program",
-  "misc.other_programs": "Drugi programi"
+  "misc.other_programs": "Drugi programi",
+
+  "desktop.name": "Programi Windows",
+  "desktop.comment": "Nameščanje in zaganjanje programov in iger za Windows"
 }

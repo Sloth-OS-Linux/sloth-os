@@ -30,7 +30,7 @@ Kivétel: **minden README angolul** készül (a repó később publikus lesz).
 - `files/system/`: a kész rendszer gyökerébe másolódik.
 - `files/scripts/`: build közben futó scriptek (`type: script` modul).
 - `files/system/usr/lib/sloth-os/<eszköz>/`: saját GUI eszközök (Python + PySide6/QML); `tools/`: fejlesztői segédek (nem kerülnek az image-be).
-- `files/system/usr/lib/sloth-os/common/sloth_common/`: az eszközök közös részei (fordítások: eszközönként `translations/<nyelv>.json`, ellenőrzés: `tools/check_translations.py`).
+- `files/system/usr/lib/sloth-os/common/sloth_common/`: az eszközök közös részei (fordítások: eszközönként `translations/<nyelv>.json`, ellenőrzés: `tools/check_translations.py`). A start menü bejegyzéseit (`*.desktop`) ne kézzel szerkeszd: a `tools/gen_desktop_entries.py` írja őket a fordításokból.
 - `iso/`: a telepítő ISO élő rendszere és a saját Sloth OS telepítő (csak az ISO-ba kerül, a telepített rendszerbe nem). Építés: `tools/build-iso.sh` (Linux) vagy `tools/build-iso.ps1` (Windows).
 - `docs/ROADMAP.md`: a terv. Ha egy feladat kész, pipáld ki.
 

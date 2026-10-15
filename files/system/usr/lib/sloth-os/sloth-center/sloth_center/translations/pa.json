@@ -329,5 +329,9 @@
   "Nincs a Start menüben": "ਸਟਾਰਟ ਮੀਨੂ ਵਿੱਚ ਨਹੀਂ",
   "Start menü": "ਸਟਾਰਟ ਮੀਨੂ",
   "Eltávolítod: {name}?": "ਕੀ {name} ਹਟਾਉਣਾ ਹੈ?",
-  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਇਸ ਦੀਆਂ ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ (ਸੇਵ ਅਤੇ ਸੈਟਿੰਗਾਂ ਸਮੇਤ) ਮਿਟ ਜਾਣਗੀਆਂ। ਇਸ ਨੂੰ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।"
+  "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਇਸ ਦੀਆਂ ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ (ਸੇਵ ਅਤੇ ਸੈਟਿੰਗਾਂ ਸਮੇਤ) ਮਿਟ ਜਾਣਗੀਆਂ। ਇਸ ਨੂੰ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
+
+  "Rendszerbeállítások": "ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ",
+  "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "ਅੱਪਡੇਟ, ਪਿਛਲੀ ਹਾਲਤ 'ਤੇ ਵਾਪਸੀ, ਡਰਾਈਵਰ ਅਤੇ ਉਹ ਸਭ ਕੁਝ ਜਿਸ ਲਈ ਨਹੀਂ ਤਾਂ ਟਰਮੀਨਲ ਚਾਹੀਦਾ",
+  "frissítés;visszaállítás;driver;beállítás": "ਅੱਪਡੇਟ;ਵਾਪਸੀ;ਡਰਾਈਵਰ;ਸੈਟਿੰਗਾਂ"
 }

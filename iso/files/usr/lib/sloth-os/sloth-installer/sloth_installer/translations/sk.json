@@ -75,5 +75,8 @@
   "error.bad_disk": "Na tento disk nemožno inštalovať. Vyberte iný.",
   "error.bad_input": "Niektoré nastavenie je neplatné. Vráťte sa a skontrolujte ich.",
   "error.install_failed": "Pri kopírovaní systému na disk sa niečo pokazilo. Údaje, ktoré boli na disku, už mohli byť vymazané.",
-  "error.configure_failed": "Systém je nainštalovaný, ale jazyk a klávesnicu sa nepodarilo nastaviť. Skúste to znova; ak to opäť nepôjde, nastavíte ich po prvom spustení v Nastaveniach systému."
+  "error.configure_failed": "Systém je nainštalovaný, ale jazyk a klávesnicu sa nepodarilo nastaviť. Skúste to znova; ak to opäť nepôjde, nastavíte ich po prvom spustení v Nastaveniach systému.",
+
+  "desktop.comment": "Inštalácia Sloth OS na tento počítač",
+  "desktop.keywords": "inštalácia;inštalátor"
 }

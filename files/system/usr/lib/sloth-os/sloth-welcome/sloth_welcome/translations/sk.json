@@ -124,5 +124,9 @@
   "done.steam": "Prihlásiť sa do Steamu",
   "done.accounts": "Online účty (Google, Microsoft…)",
   "done.language": "Jazyk a oblasť",
-  "done.start": "Príjemnú zábavu!"
+  "done.start": "Príjemnú zábavu!",
+
+  "desktop.generic": "Aplikácie a vzhľad",
+  "desktop.comment": "Inštalácia prehliadača, kancelárskeho balíka, prehrávača médií a ďalších aplikácií, výber farebnej schémy",
+  "desktop.keywords": "vitajte;aplikácie;prehliadač;kancelária;téma"
 }
