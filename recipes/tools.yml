@@ -20,3 +20,8 @@ modules:
     user:
       enabled:
         - sloth-github-bundle-update.timer
+
+  # Karcsúsítás: csak az marad, ami a működéshez vagy a hibaelhárításhoz kell (maradjon a modulok végén)
+  - type: script
+    scripts:
+      - slim-image.sh
