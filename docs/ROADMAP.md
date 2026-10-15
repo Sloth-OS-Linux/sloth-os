@@ -7,6 +7,12 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - Teendők 2026-10-15-re: új ISO és teljes VM-teszt (fiók a telepítőben, KDE-varázsló nélküli első indulás, rejtett
   GRUB és csendes boot, Üdvözlő, asztal, Sloth Központ, .exe kezelő); a gaming-pontok átnézése; Fejlesztői pult.
 - Minden fordítás kész (Üdvözlő, telepítő, .exe kezelő, Sloth Központ: 50 nyelv); anyanyelvi átnézés hátravan.
+- Negyedik VM-teszt (2026-10-15, Hyper-V): a délelőtti ISO (6,9 GB) telepítése a `bootc` után elakadt; az ok
+  megvan és javítva (4. fázis). Ugyanaznap elkészült még: a start menü nevei mind az 50 nyelven, karcsúbb image
+  (a hibaelhárító eszközök maradnak), Falkon a Firefox helyett az élő rendszerben, gyorsabb ISO-build
+  podman commit nélkül, nem kapcsol le a képernyő telepítés közben.
+- Következik: a CI buildelje újra az image-et, utána új ISO (lehetőleg az erősebb gépen; a build kb. 45 GB helyet
+  kér), majd teljes VM-teszt. A VM-ben a dinamikus memória legyen kikapcsolva.
 
 ## Korábban (2026-10-14 este)
 - Harmadik VM-teszt (új ISO, 4 GB RAM, internet nélkül): a saját telepítő végigment. Működik: nyelvváltás,
@@ -69,6 +75,8 @@ terminálból lehet csinálni, GUI-ból is menjen.
   - [x] Firmware (BIOS/UEFI) boot-bejegyzés neve: a saját telepítő „Sloth OS”-re nevezi át (egy `lsblk`-hiba miatt
     eddig nem futott le, javítva; VM-ben még tesztelni)
   - [ ] VM-ben végignézni: bejelentkező képernyő, Discover, Rendszerbeállítások
+  - [x] A Sloth eszközök neve és leírása a start menüben mind az 50 nyelven (2026-10-15; eddig minden nyelven
+    magyarul látszott). A `.desktop` fájlokat a `tools/gen_desktop_entries.py` írja a fordításokból
 
 ## 2. fázis – Gaming, ami csak működik
 - [x] umu-launcher beépítése (a hivatalos GitHub RPM, rögzített verzió + SHA256: `files/scripts/umu-launcher.sh`)
@@ -159,7 +167,17 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
 
 ### Meglévő KDE / Flatpak GUI-k (ellenőrizni, hogy benne vannak-e az image-ben)
 Döntés (2026-10-15): az image-ben csak az marad, ami a rendszer működéséhez elengedhetetlen; a többi
-(pl. Partíciókezelő, Rendszerfigyelő) a Discoverből telepíthető.
+a Discoverből telepíthető. Ami marad: Partíciókezelő, Rendszerfigyelő, Dolphin, Konsole, Discover,
+Rendszerbeállítások, KWrite, Ark, Spectacle, tűzfal-beállítás, nyomtatók, Bluetooth, Orca képernyőolvasó,
+jelszótároló (KWallet), a kínai/japán/koreai beviteli módok, `podman` + `skopeo`, és amit a saját eszközeink
+használnak. **A hibaelhárításhoz szükséges eszközök is maradnak** (a napi használathoz nem kell terminál, de ha
+valami elromlik, legyen mivel megjavítani): naplónéző (kjournald), Filelight (mi foglalja a lemezt), `nano`, `vim`,
+`htop`, `nvtop`, `tmux` (szöveges konzolon is), távsegítség (KRdp / krfb).
+- [x] A többi kivétele (`files/scripts/slim-image.sh`, a modulok végén): Kate (a KWrite marad), KDE Connect,
+  Súgóközpont, `just` (az `ublue-os-just`-tal), `toolbox` (a `distrobox` marad), `buildah`, `cosign`, `ibus` (a
+  fcitx5 marad, vele is megvan a kínai/japán/koreai bevitel), a KDE és a Fedora háttérképei, a BlueBuild
+  nushell-bővítményei. Csomagonként ellenőrizve, mi függ tőlük; helyben kipróbálva: a `/usr` 9612 → 8751 MB.
+  A `git` marad (eldönteni). VM-ben még megnézni, hogy minden megvan-e, ami kell
 - [ ] Appok és frissítések: Discover · Flatpak jogosultságok: Rendszerbeállítások
 - [ ] Tűzfal (`firewall-cmd`): Rendszerbeállítások tűzfal modul
 - [ ] Partíciók (`fdisk`, `mkfs`): KDE Partíciókezelő
@@ -179,8 +197,8 @@ Döntés (2026-10-15): az image-ben csak az marad, ami a rendszer működéséhe
     folyamatjelző, újraindítás; a fiókot is a telepítő kérdezi meg (első induláskor jön létre). Építés:
     `tools/build-iso.sh` (Linux) vagy `tools/build-iso.ps1` (Windows), helyben Podmannel, vagy `.github/workflows/iso.yml`
   - [x] A telepítő mind az 50 nyelven
-  - [x] Teljes képernyős „Kipróbálom / Telepítem” választó; kipróbáláshoz Firefox az élő rendszerben, és ha
-    telepítéskor nincs internet, a telepítő átmásolja (különben az Üdvözlőben választ a felhasználó)
+  - [x] Teljes képernyős „Kipróbálom / Telepítem” választó; kipróbáláshoz böngésző az élő rendszerben
+    (2026-10-15 óta Falkon; a telepített rendszerbe nem kerül böngésző, az Üdvözlőben választ a felhasználó)
   - [x] Rejtett GRUB az ISO-n (Escre jön elő); a firmware boot-bejegyzés neve „Sloth OS” (nem „Fedora”)
   - [x] Kisebb ISO: a telepítendő image kicsomagolva, a közös fájlok csak egyszer (cél kb. 5 GB); VM-ben még tesztelni
   - [x] A második VM-teszt (2026-10-14) hibái javítva, VM-ben újra megnézni:
@@ -192,6 +210,30 @@ Döntés (2026-10-15): az image-ben csak az marad, ami a rendszer működéséhe
       (a próbamező így semmit nem mutatott; most `kwriteconfig6 --notify`, és a KWin nem a locale1-et követi);
     - billentyűzettel: a lenyitott listákban nem működtek a nyilak, nem látszott a fókusz; a lemez neve
       „0x1af4” volt (most gyártó, típus, HDD/SSD/NVMe)
+  - [x] ISO-build podman commit nélkül (2026-10-15): a telepítendő image kicsomagolt tárolója külön mappába kerül
+    (`iso/payload.sh`), és az ISO készítésekor csatoljuk az élő rendszerbe. A lassú gépen egymaga másfél órás
+    commit kimarad. A régi úton a `mksquashfs` kb. 1000 törlés-jelölést kihagyott („Cannot stat … ignoring”);
+    ez a telepítést valószínűleg nem rontotta el (a rétegeket a tároló a `tar-split` fejlécekből rakja össze),
+    az új úton pedig a törlés-jelölések `.wh.` fájlként megmaradnak (kipróbálva, a rétegek ellenőrző összege
+    squashfs és overlay után is stimmel). VM-ben még tesztelni
+  - [x] Negyedik VM-teszt (2026-10-15, Hyper-V, 2. generációs VM): a `bootc` végigment („Installation complete!”),
+    utána a segéd log nélkül leállt („Installation failed”). Ok: a `bootc` a végén csak olvashatóra csatolja
+    vissza a célt, és a boot menü beállítása (`custom.cfg`) kivételt dobott. Javítva: írás előtt visszacsatolja
+    írhatóra, és a segéd minden váratlan hibát a logba ír. VM-ben újra megnézni
+  - [x] Telepítés közben nem kapcsol le a képernyő, nem zárol és nem alszik el a gép (élő rendszer beállításai a
+    `livesys-session-extra`-ban + a telepítő D-Bus tiltása a telepítés idejére); új ISO-val még tesztelni
+  - [x] `tools/build-iso.ps1`: a `build-iso.sh`-t futtatja közvetlenül a Podman gép WSL-disztribúciójában (eddig
+    kétszer töltötte le az image-et, és a Windows → ssh → Podman út nagy terhelésnél elakadt); a WSL-hez
+    cgroupfs és cgroup nélküli konténerek kellenek (a `build-iso.sh` magától állítja)
+  - [ ] ISO méret (2026-10-15: 6,9 GB, ebből a squashfs 6,2 GB; zstd-19 marad). A következő ISO-n megnézni:
+    - [x] Csak a Sloth OS saját háttérképei maradnak, a BlueBuild nushell-bővítményei kikerülnek
+      (`files/scripts/slim-image.sh`; a telepített rendszer is kisebb lesz)
+    - [x] Firefox helyett Falkon az élő rendszerben (döntés: 2026-10-15): KDE, QtWebEngine/Chromium alapú; RPM,
+      a QtWebEngine már benne van az image-ben, így kb. 14 MB a Firefox Flatpak kb. 0,5 GB-ja helyett.
+      Csak az élő rendszerbe kerül (`iso/build.sh`); internet nélküli telepítésnél nem másolunk böngészőt,
+      a felhasználó az Üdvözlőben választ (most 9 böngésző)
+    - [ ] Ha kész a rendszer: a telepítendő image rétegeinek összevonása egy rétegbe (a lecserélt/törölt fájlok,
+      pl. a régi kernel, kiesnek; becslés: 0,5–1 GB). Ára: az első frissítés a teljes image-et tölti le
   - [ ] Windows mellé telepítés: a Windows-partíció zsugorítása, közös boot menü, BitLocker felismerése és magyarázata
   - [ ] NVIDIA-s gépen automatikusan az NVIDIA-s változat (most a Sloth Központban lehet utána váltani)
   - [ ] Telepítés után a frissítések aláírás-ellenőrzéssel (`ostree-image-signed`)
