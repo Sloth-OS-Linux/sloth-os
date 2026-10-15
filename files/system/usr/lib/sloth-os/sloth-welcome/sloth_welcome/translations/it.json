@@ -34,6 +34,12 @@
   "security.not_admin": "Solo un account amministratore può modificarlo.",
   "security.autologin": "Accesso automatico: direttamente al desktop senza password",
   "security.later": "Più avanti puoi regolarlo in Sloth Center (Account e sicurezza).",
+  "sharing.heading": "Aiuta i programmi Windows ad avviarsi al primo colpo per tutti",
+  "sharing.text": "Quando avvii un programma o un gioco Windows, Sloth OS trova da solo l'impostazione con cui funziona. Se lo consenti, condividiamo in modo anonimo l'impostazione che ha funzionato, così si avvia al primo tentativo anche su altri computer con Sloth OS.",
+  "sharing.what": "Viene inviato solo questo: l'impostazione (per esempio «modalità grafica più vecchia»), il produttore della tua scheda grafica e un'impronta del programma da cui non si può risalire al suo nome. Nient'altro lascia il tuo computer: né il tuo nome, né i tuoi file, né il nome del programma, né quando o quanto lo usi.",
+  "sharing.yes": "Sì, condividi in modo anonimo",
+  "sharing.no": "No, grazie",
+  "sharing.later": "Puoi cambiarlo in qualsiasi momento più avanti nel Centro Sloth (Programmi Windows). Le impostazioni che hanno funzionato su altri computer le ricevi comunque.",
 
   "nav.back": "Indietro",
   "nav.next": "Avanti",

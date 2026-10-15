@@ -34,6 +34,12 @@
   "security.not_admin": "Dome un account di aministradôr al pues cambiâ chest.",
   "security.autologin": "Jentrade automatiche: dret sul scritori cence password",
   "security.later": "Plui indevant tu puedis regolâlu tal Sloth Center (Account e sigurece).",
+  "sharing.heading": "Jude i programs di Windows a partî al prin tentatîf par ducj",
+  "sharing.text": "Cuant che tu fasis partî un program o un zûc di Windows, Sloth OS al cjate di bessôl la impostazion che lu fâs lâ. Se tu lu permetis, o condividìn in mût anonim la impostazion che e à funzionât, par che al partissi al prin tentatîf ancje su altris computers cun Sloth OS.",
+  "sharing.what": "Al ven mandât dome chest: la impostazion (par esempli «modalitât grafiche vecje»), il produtôr de tô schede grafiche e une olme dal program di là che no si pues tornâ al so non. Nuie altri al lasse il to computer: no il to non, no i tiei files, no il non dal program e nancje cuant o trop che tu lu dopris.",
+  "sharing.yes": "Sì, condivît in mût anonim",
+  "sharing.no": "No, graciis",
+  "sharing.later": "Tu puedis cambiâ chest cuant che tu vuelis plui indenant tal Centri Sloth (Programs di Windows). Lis impostazions che a àn funzionât su altris computers tu lis ricevis in ogni câs.",
 
   "nav.back": "Indaûr",
   "nav.next": "Indenant",

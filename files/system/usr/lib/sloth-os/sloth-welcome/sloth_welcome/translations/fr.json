@@ -34,6 +34,12 @@
   "security.not_admin": "Seul un compte administrateur peut modifier ceci.",
   "security.autologin": "Connexion automatique : directement sur le bureau sans mot de passe",
   "security.later": "Vous pourrez l’affiner plus tard dans Sloth Center (Compte et sécurité).",
+  "sharing.heading": "Aide les programmes Windows à démarrer du premier coup pour tout le monde",
+  "sharing.text": "Quand tu lances un programme ou un jeu Windows, Sloth OS trouve tout seul le réglage qui le fait fonctionner. Si tu l'autorises, nous partageons anonymement le réglage qui a fonctionné, pour qu'il démarre du premier coup sur les autres ordinateurs Sloth OS aussi.",
+  "sharing.what": "Seul ceci est envoyé : le réglage (par exemple « mode graphique ancien »), le fabricant de ta carte graphique et une empreinte du programme dont on ne peut pas retrouver le nom. Rien d'autre ne quitte ton ordinateur : ni ton nom, ni tes fichiers, ni le nom du programme, ni quand ou combien tu l'utilises.",
+  "sharing.yes": "Oui, partager anonymement",
+  "sharing.no": "Non, merci",
+  "sharing.later": "Tu peux changer cela à tout moment plus tard dans le Centre Sloth (Programmes Windows). Tu reçois de toute façon les réglages qui ont fonctionné sur d'autres ordinateurs.",
 
   "nav.back": "Retour",
   "nav.next": "Suivant",

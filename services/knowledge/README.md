@@ -43,9 +43,12 @@ older than a day are deleted. Turning sharing off deletes the local queue.
 ## Abuse protection
 
 - **Allowlist only.** A report may only contain known values: Proton line (`UMU-Proton`, `GE-Proton`),
-  profile (`default`, `nofsync`, `wined3d`), and fixes from a fixed list (winetricks components such as
-  `vcrun2022`, `PROTON_USE_WINED3D`, `--disable-gpu`). Arbitrary commands, environment variables or
-  arguments cannot be spread. Machines apply the same allowlist again when reading.
+  profile (`default`, `nofsync`, `wined3d`), and fixes from a fixed list: winetricks components such as
+  `vcrun2022`, Proton on/off switches such as `PROTON_USE_WINED3D` or `PROTON_ENABLE_NVAPI` (always set
+  to `1`), and `--disable-gpu`. Arbitrary commands, environment variables, values or arguments cannot be
+  spread. Machines apply the same allowlist again when reading.
+- **ProtonDB seed.** The public knowledge file also contains settings derived from the ProtonDB data dump
+  (see the `bathorizsolt/sloth-os-knowledge` repository), limited to the same allowlist.
 - **One machine, one vote** per program, GPU and setting (the latest outcome counts).
 - **Thresholds.** A setting is published only if it worked on at least 3 different machines and at least
   75% of the reports for it are successful.

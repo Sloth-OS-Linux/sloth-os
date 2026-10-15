@@ -34,6 +34,12 @@
   "security.not_admin": "只有管理員帳號可以變更此項。",
   "security.autologin": "自動登入:不需密碼直接進入桌面",
   "security.later": "之後可以在 Sloth 中心(帳號與安全性)中細部調整。",
+  "sharing.heading": "幫助 Windows 程式在每個人的電腦上一次啟動",
+  "sharing.text": "當你啟動 Windows 程式或遊戲時，Sloth OS 會自己找到能讓它執行的設定。如果你允許，我們會匿名分享有效的設定，讓它在其他 Sloth OS 電腦上也能一次啟動。",
+  "sharing.what": "只會傳送這些：設定（例如「舊版圖形模式」）、你的顯示卡製造商，以及無法還原出程式名稱的程式指紋。除此之外，什麼都不會離開你的電腦：不包括你的名字、你的檔案、程式名稱，也不包括你何時使用以及使用多久。",
+  "sharing.yes": "是，匿名分享",
+  "sharing.no": "不，謝謝",
+  "sharing.later": "之後可以隨時在 Sloth 中心（Windows 程式）中變更。無論選擇哪一項，你都會取得在其他電腦上有效的設定。",
 
   "nav.back": "上一步",
   "nav.next": "下一步",

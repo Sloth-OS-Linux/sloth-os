@@ -34,6 +34,12 @@
   "security.not_admin": "Tai gali pakeisti tik administratoriaus paskyra.",
   "security.autologin": "Automatinis prisijungimas: tiesiai į darbalaukį be slaptažodžio",
   "security.later": "Vėliau tai galėsite tiksliau nustatyti Sloth Center (Paskyra ir sauga).",
+  "sharing.heading": "Padėkite, kad „Windows“ programos visiems pasileistų iš pirmo karto",
+  "sharing.text": "Kai paleidžiate „Windows“ programą ar žaidimą, „Sloth OS“ pati suranda nustatymą, su kuriuo ji veikia. Jei leisite, anonimiškai pasidalinsime suveikusiu nustatymu, kad ji iš pirmo karto pasileistų ir kituose „Sloth OS“ kompiuteriuose.",
+  "sharing.what": "Siunčiama tik tai: nustatymas (pavyzdžiui, „senesnis grafikos režimas“), jūsų vaizdo plokštės gamintojas ir programos atspaudas, iš kurio negalima atkurti jos pavadinimo. Niekas kitas nepalieka jūsų kompiuterio: nei jūsų vardas, nei failai, nei programos pavadinimas, nei kada ir kiek ją naudojate.",
+  "sharing.yes": "Taip, dalytis anonimiškai",
+  "sharing.no": "Ne, ačiū",
+  "sharing.later": "Vėliau tai bet kada galėsite pakeisti „Sloth“ centre („Windows“ programos). Kituose kompiuteriuose suveikusius nustatymus gausite bet kuriuo atveju.",
 
   "nav.back": "Atgal",
   "nav.next": "Toliau",

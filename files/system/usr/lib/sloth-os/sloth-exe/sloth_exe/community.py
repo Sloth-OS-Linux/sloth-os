@@ -32,8 +32,12 @@ MACHINE_ID = STATE / "community-id"
 MAX_QUEUE = 500
 
 # Amit elfogadunk a közös tudásból (a szolgáltatás is csak ezeket engedi; kétszeres védelem)
+# Proton be/ki kapcsolók (mind "=1" értékkel): a ProtonDB-ből és a jelentésekből is csak ezek jöhetnek
+ALLOWED_ENV = {"PROTON_USE_WINED3D", "PROTON_ENABLE_NVAPI", "PROTON_HIDE_NVIDIA_GPU",
+               "PROTON_FORCE_LARGE_ADDRESS_AWARE", "PROTON_HEAP_DELAY_FREE", "PROTON_NO_D3D11", "PROTON_NO_D3D10",
+               "PROTON_OLD_GL_STRING", "PROTON_NO_WRITE_WATCH"}
 ALLOWED_FIXES = ({("verb", v) for v in set(diagnose.DLL_VERBS.values()) | {"dotnet48"}}
-                 | {("env", "PROTON_USE_WINED3D"), ("args", "--disable-gpu")})
+                 | {("env", e) for e in ALLOWED_ENV} | {("args", "--disable-gpu")})
 _PCI_VENDORS = {"0x1002": "amd", "0x10de": "nvidia", "0x8086": "intel"}
 
 
@@ -64,11 +68,23 @@ def _line(proton):
     return heal.UMU_LINE  # "auto": az umu alapértelmezése
 
 
-def suggestion(key):
-    """A közös tudás javaslata erre a programra és GPU-ra: (Proton-vonal, profil, javítások) vagy None."""
+def suggestion(key, gameid=None):
+    """A közös tudás javaslata erre a programra és GPU-ra: (Proton-vonal, profil, javítások) vagy None.
+
+    Előbb a Sloth OS-es gépek jelentései (program ujjlenyomata szerint), ha ott nincs, a ProtonDB-ből
+    összesített adatok (felismert játéknál, Steam AppID szerint; előbb erre a GPU-gyártóra, aztán bármire).
+    """
     try:
-        entry = json.loads(CACHE.read_text(encoding="utf-8"))["programs"][key][gpu_vendor()]
-    except (OSError, ValueError, KeyError, TypeError):
+        data = json.loads(CACHE.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    gpu = gpu_vendor()
+    candidates = [((data.get("programs") or {}).get(key) or {}).get(gpu)]
+    if gameid:
+        game = (data.get("games") or {}).get(gameid) or {}
+        candidates += [game.get(gpu), game.get("any")]
+    entry = next((c for c in candidates if isinstance(c, dict)), None)
+    if not entry:
         return None
     line, profile = entry.get("line"), entry.get("profile")
     fixes = [tuple(f) for f in entry.get("fixes", []) if isinstance(f, list) and tuple(f) in ALLOWED_FIXES]

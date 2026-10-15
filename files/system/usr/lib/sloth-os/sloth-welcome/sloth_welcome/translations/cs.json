@@ -34,6 +34,12 @@
   "security.not_admin": "Toto může změnit jen účet správce.",
   "security.autologin": "Automatické přihlášení: rovnou na plochu bez hesla",
   "security.later": "Později to můžete podrobně nastavit v Sloth Center (Účet a zabezpečení).",
+  "sharing.heading": "Pomozte, aby se programy pro Windows spouštěly napoprvé všem",
+  "sharing.text": "Když spustíte program nebo hru pro Windows, Sloth OS sám najde nastavení, se kterým funguje. Pokud to povolíte, anonymně sdílíme nastavení, které fungovalo, aby se napoprvé spustil i na jiných počítačích se Sloth OS.",
+  "sharing.what": "Odesílá se jen toto: nastavení (například „starší grafický režim“), výrobce vaší grafické karty a otisk programu, ze kterého nelze zjistit jeho název. Nic jiného váš počítač neopouští: ani vaše jméno, ani vaše soubory, ani název programu, ani kdy a jak dlouho ho používáte.",
+  "sharing.yes": "Ano, sdílet anonymně",
+  "sharing.no": "Ne, děkuji",
+  "sharing.later": "Později to můžete kdykoli změnit v Centru Sloth (Programy pro Windows). Nastavení, která fungovala na jiných počítačích, dostanete v každém případě.",
 
   "nav.back": "Zpět",
   "nav.next": "Další",

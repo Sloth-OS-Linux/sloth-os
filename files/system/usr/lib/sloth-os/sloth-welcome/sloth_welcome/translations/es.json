@@ -34,6 +34,12 @@
   "security.not_admin": "Solo una cuenta de administrador puede cambiar esto.",
   "security.autologin": "Iniciar sesión automáticamente: directo al escritorio sin contraseña",
   "security.later": "Más adelante puedes ajustarlo en Sloth Center (Cuenta y seguridad).",
+  "sharing.heading": "Ayuda a que los programas de Windows se inicien al primer intento para todos",
+  "sharing.text": "Cuando inicias un programa o juego de Windows, Sloth OS encuentra por sí solo la configuración con la que funciona. Si lo permites, compartimos de forma anónima la configuración que funcionó, para que también se inicie al primer intento en otros ordenadores con Sloth OS.",
+  "sharing.what": "Solo se envía esto: la configuración (por ejemplo, «modo gráfico antiguo»), el fabricante de tu tarjeta gráfica y una huella del programa de la que no se puede recuperar su nombre. Nada más sale de tu ordenador: ni tu nombre, ni tus archivos, ni el nombre del programa, ni cuándo o cuánto lo usas.",
+  "sharing.yes": "Sí, compartir de forma anónima",
+  "sharing.no": "No, gracias",
+  "sharing.later": "Puedes cambiarlo más adelante en cualquier momento en el Centro Sloth (Programas de Windows). Las configuraciones que funcionaron en otros ordenadores las recibes de todos modos.",
 
   "nav.back": "Atrás",
   "nav.next": "Siguiente",

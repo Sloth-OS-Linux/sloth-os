@@ -34,6 +34,12 @@
   "security.not_admin": "Das kann nur ein Administratorkonto ändern.",
   "security.autologin": "Automatisch anmelden: ohne Passwort direkt zum Desktop starten",
   "security.later": "Später kannst du das im Sloth Center (Konto und Sicherheit) genauer einstellen.",
+  "sharing.heading": "Hilf mit, dass Windows-Programme bei allen auf Anhieb starten",
+  "sharing.text": "Wenn du ein Windows-Programm oder -Spiel startest, findet Sloth OS selbst die Einstellung, mit der es läuft. Wenn du es erlaubst, teilen wir die funktionierende Einstellung anonym, damit es auch auf anderen Sloth-OS-Computern auf Anhieb startet.",
+  "sharing.what": "Nur das wird gesendet: die Einstellung (zum Beispiel „älterer Grafikmodus“), der Hersteller deiner Grafikkarte und ein Fingerabdruck des Programms, aus dem sich sein Name nicht ermitteln lässt. Nichts anderes verlässt deinen Computer: nicht dein Name, nicht deine Dateien, nicht der Name des Programms und nicht, wann und wie viel du es nutzt.",
+  "sharing.yes": "Ja, anonym teilen",
+  "sharing.no": "Nein, danke",
+  "sharing.later": "Du kannst das später jederzeit im Sloth Center (Windows-Programme) ändern. Die Einstellungen, die auf anderen Computern funktioniert haben, bekommst du so oder so.",
 
   "nav.back": "Zurück",
   "nav.next": "Weiter",

@@ -34,6 +34,12 @@
   "security.not_admin": "Këtë mund ta ndryshojë vetëm një llogari administratori.",
   "security.autologin": "Hyrje automatike: drejt e në desktop pa fjalëkalim",
   "security.later": "Më vonë mund ta rregulloni në Sloth Center (Llogaria dhe siguria).",
+  "sharing.heading": "Ndihmo që programet e Windows të nisen që në përpjekjen e parë për të gjithë",
+  "sharing.text": "Kur nis një program ose lojë Windows, Sloth OS gjen vetë cilësimin me të cilin funksionon. Nëse e lejon, ndajmë në mënyrë anonime cilësimin që funksionoi, që të niset që në përpjekjen e parë edhe në kompjuterë të tjerë me Sloth OS.",
+  "sharing.what": "Dërgohet vetëm kjo: cilësimi (për shembull „modalitet më i vjetër grafik”), prodhuesi i kartës tënde grafike dhe një gjurmë e programit nga e cila nuk mund të gjendet emri i tij. Asgjë tjetër nuk largohet nga kompjuteri yt: as emri yt, as skedarët e tu, as emri i programit, as kur dhe sa e përdor.",
+  "sharing.yes": "Po, ndaj në mënyrë anonime",
+  "sharing.no": "Jo, faleminderit",
+  "sharing.later": "Mund ta ndryshosh këtë në çdo kohë më vonë te Qendra Sloth (Programet e Windows). Cilësimet që funksionuan në kompjuterë të tjerë i merr gjithsesi.",
 
   "nav.back": "Prapa",
   "nav.next": "Tjetër",

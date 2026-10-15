@@ -34,6 +34,12 @@
   "security.not_admin": "Siwa amiḍan n unedbal i izemren ad ibeddel aya.",
   "security.autologin": "Tuqqna tawurmant: srid ɣer tnarit war awal uffir",
   "security.later": "Ticki tzemreḍ ad t-tesbeddeḍ deg Sloth Center (Amiḍan d tɣellist).",
+  "sharing.heading": "Ɛiwen ahilen n Windows ad kkren seg tikkelt tamezwarut ɣer yal yiwen",
+  "sharing.text": "Mi ara tsekkreḍ ahil neɣ urar n Windows, Sloth OS ad yaf iman-is aɣewwar s wayes yetteddu. Ma tsurgeḍ, ad nebḍu s war isem aɣewwar i yeddan, akken ad yekker seg tikkelt tamezwarut ula deg yiselkimen-nniḍen n Sloth OS.",
+  "sharing.what": "Ala wa i yettwaznen: aɣewwar (amedya «askar udlif aqbur»), amfaras n tkarḍa-k tudlift, d udsil n wahil ur nezmir ad d-nerr isem-is. Ulac ayen nniḍen ara yeffɣen seg uselkim-ik: mačči isem-ik, mačči ifuyla-k, mačči isem n wahil, mačči melmi d acḥal i t-tesqedceḍ.",
+  "sharing.yes": "Ih, bḍu s war isem",
+  "sharing.no": "Ala, tanemmirt",
+  "sharing.later": "Tzemreḍ ad tbeddleḍ aya melmi i tebɣiḍ ar zdat deg Ammas n Sloth (Ahilen n Windows). Iɣewwaren i yeddan deg yiselkimen-nniḍen ad ten-tawiḍ ula d acu i tferneḍ.",
 
   "nav.back": "Ɣer deffir",
   "nav.next": "Ɣer zdat",

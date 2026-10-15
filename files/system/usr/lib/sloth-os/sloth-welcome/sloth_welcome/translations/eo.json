@@ -34,6 +34,12 @@
   "security.not_admin": "Nur administranta konto povas ŝanĝi tion.",
   "security.autologin": "Aŭtomata ensaluto: rekte al la labortablo sen pasvorto",
   "security.later": "Poste vi povas agordi tion detale en Sloth Center (Konto kaj sekureco).",
+  "sharing.heading": "Helpu, ke Windows-programoj startu je la unua provo ĉe ĉiuj",
+  "sharing.text": "Kiam vi startigas Windows-programon aŭ ludon, Sloth OS mem trovas la agordon, kun kiu ĝi funkcias. Se vi permesas, ni anonime kunhavigas la funkciintan agordon, por ke ĝi startu je la unua provo ankaŭ en aliaj komputiloj kun Sloth OS.",
+  "sharing.what": "Nur ĉi tio estas sendata: la agordo (ekzemple „malnova grafika reĝimo“), la fabrikanto de via grafika karto, kaj fingrospuro de la programo, el kiu ĝia nomo ne retroveblas. Nenio alia forlasas vian komputilon: nek via nomo, nek viaj dosieroj, nek la nomo de la programo, nek kiam kaj kiom vi uzas ĝin.",
+  "sharing.yes": "Jes, kunhavigi anonime",
+  "sharing.no": "Ne, dankon",
+  "sharing.later": "Vi povas ŝanĝi tion iam ajn poste en Sloth-Centro (Windows-programoj). La agordojn, kiuj funkciis en aliaj komputiloj, vi ricevas ĉiuokaze.",
 
   "nav.back": "Reen",
   "nav.next": "Sekva",

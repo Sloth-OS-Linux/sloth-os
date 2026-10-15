@@ -10,6 +10,8 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, Qt, Signal, Slot
 from PySide6.QtWidgets import QApplication
 
+from sloth_common import sharing
+
 from . import catalog, desktop, i18n
 from .i18n import tr
 from .installer import Installer
@@ -20,11 +22,11 @@ CONFIG_DIR = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / 
 DONE_MARKER = CONFIG_DIR / "welcome-done"
 
 # A StackLayout lapjai a QML-ben. A kategóriák egy közös lapot használnak,
-# a lépéssorrend: üdvözlés, megjelenés, jelszavak, kategóriánként egy lépés, telepítés, kész.
+# a lépéssorrend: üdvözlés, megjelenés, jelszavak, megosztás, kategóriánként egy lépés, telepítés, kész.
 STEAM = "com.valvesoftware.Steam"  # nincs előtelepítve: a Játékok lépésben választható
 
-PAGE_WELCOME, PAGE_LOOK, PAGE_CATEGORY, PAGE_INSTALL, PAGE_DONE, PAGE_SECURITY = range(6)
-STEPS = (["welcome", "look", "security"] + [f"cat{i}" for i in range(len(catalog.CATEGORIES))]
+PAGE_WELCOME, PAGE_LOOK, PAGE_CATEGORY, PAGE_INSTALL, PAGE_DONE, PAGE_SECURITY, PAGE_SHARING = range(7)
+STEPS = (["welcome", "look", "security", "sharing"] + [f"cat{i}" for i in range(len(catalog.CATEGORIES))]
          + ["install", "done"])
 
 # Jelszavak: a "csak a kockázatos dolgokhoz" választásnál ezekhez nem kell jelszó (a Sloth Központ
@@ -64,6 +66,8 @@ class WelcomeController(QObject):
         self._security = "all"      # "all" (mindenhez jelszó) vagy "recommended"
         self._autologin = False
         self._security_saved = ("all", False)
+        # Tapasztalatok megosztása (sloth_common/sharing.py): "" amíg nem választott, "yes" / "no"
+        self._sharing = ("yes" if sharing.enabled() else "no") if sharing.CONFIG.exists() else ""
         self._status_sig.connect(self._on_status)
         self._app_sig.connect(self._on_app_state)
         self._done_sig.connect(self._on_done)
@@ -79,7 +83,7 @@ class WelcomeController(QObject):
         name = self._step_name()
         if name.startswith("cat"):
             return PAGE_CATEGORY
-        return {"welcome": PAGE_WELCOME, "look": PAGE_LOOK, "security": PAGE_SECURITY,
+        return {"welcome": PAGE_WELCOME, "look": PAGE_LOOK, "security": PAGE_SECURITY, "sharing": PAGE_SHARING,
                 "install": PAGE_INSTALL, "done": PAGE_DONE}[name]
 
     @Property(int, notify=changed)
@@ -228,6 +232,16 @@ class WelcomeController(QObject):
         self._autologin = value
         self.changed.emit()
 
+    @Property(str, notify=changed)
+    def sharingChoice(self):
+        return self._sharing
+
+    @Slot(str)
+    def setSharingChoice(self, choice):
+        if choice in ("yes", "no"):
+            self._sharing = choice
+            self.changed.emit()
+
     def _save_security(self):
         """A választás mentése (a háttérben; a jelszókérő ablakot a polkit mutatja)."""
         wanted = (self._security, self._autologin)
@@ -252,6 +266,10 @@ class WelcomeController(QObject):
     def next(self):
         if self._step_name() == "security":
             self._save_security()
+        if self._step_name() == "sharing":
+            if not self._sharing:
+                return  # választani kell (a gomb addig nem aktív)
+            sharing.set_enabled(self._sharing == "yes")
         if self.lastCategory:
             self.install()
             return

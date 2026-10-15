@@ -34,6 +34,12 @@
   "security.not_admin": "Ezt csak rendszergazda fiókkal lehet átállítani.",
   "security.autologin": "Automatikus bejelentkezés: a gép jelszó nélkül, egyből az asztallal induljon",
   "security.later": "Később a Sloth Központban (Fiók és biztonság) témakörönként is beállíthatod.",
+  "sharing.heading": "Segíts, hogy a Windows-programok mindenkinél elsőre elinduljanak",
+  "sharing.text": "Ha Windows-programot vagy játékot indítasz, a Sloth OS magától megkeresi a neki működő beállítást. Ha engeded, a bevált beállítást névtelenül megosztjuk, így más Sloth OS-es gépeken is elsőre elindul.",
+  "sharing.what": "Csak ennyi megy el: a beállítás (például „régebbi grafikus mód”), a videókártyád gyártója, és a program egy ujjlenyomata, amiből a neve nem fejthető vissza. Semmi más nem hagyja el a gépet: se a neved, se a fájljaid, se a program neve, se az, hogy mikor és mennyit használod.",
+  "sharing.yes": "Igen, megosztom névtelenül",
+  "sharing.no": "Nem, köszönöm",
+  "sharing.later": "Később a Sloth Központban (Windows-programok) bármikor átállíthatod. A más gépeken bevált beállításokat így is, úgy is megkapod.",
 
   "nav.back": "Vissza",
   "nav.next": "Tovább",

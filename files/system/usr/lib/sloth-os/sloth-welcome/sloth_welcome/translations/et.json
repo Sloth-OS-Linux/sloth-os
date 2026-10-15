@@ -34,6 +34,12 @@
   "security.not_admin": "Seda saab muuta ainult administraatori konto.",
   "security.autologin": "Automaatne sisselogimine: otse töölauale ilma paroolita",
   "security.later": "Hiljem saad seda täpsemalt seada Sloth Centeris (Konto ja turvalisus).",
+  "sharing.heading": "Aita, et Windowsi programmid käivituksid kõigil esimesel katsel",
+  "sharing.text": "Kui käivitad Windowsi programmi või mängu, leiab Sloth OS ise seadistuse, millega see töötab. Kui lubad, jagame töötanud seadistust anonüümselt, et see käivituks esimesel katsel ka teistes Sloth OS-i arvutites.",
+  "sharing.what": "Saadetakse ainult see: seadistus (näiteks „vanem graafikarežiim“), sinu graafikakaardi tootja ja programmi sõrmejälg, millest selle nime tuletada ei saa. Mitte midagi muud sinu arvutist ei lahku: ei sinu nimi, failid, programmi nimi ega see, millal ja kui palju sa seda kasutad.",
+  "sharing.yes": "Jah, jaga anonüümselt",
+  "sharing.no": "Ei, tänan",
+  "sharing.later": "Saad seda hiljem igal ajal muuta Sloth Keskuses (Windowsi programmid). Teistes arvutites töötanud seadistused saad igal juhul.",
 
   "nav.back": "Tagasi",
   "nav.next": "Edasi",

@@ -134,6 +134,14 @@ terminálból lehet csinálni, GUI-ból is menjen.
      csak engedélyezett beállításokat fogad el, gépenként egy szavazat, legalább 3 gépen és 75%-ban
      bevált beállítás kerül közzé, címenként napi 500 jelentés. Az összesítést óránként a knowledge repó
      GitHub Actionje írja ki (havonta életjel, hogy az ütemezés ne álljon le)
+     - [x] Az Üdvözlőben külön lépés (a Jelszavak után): mi ez, mi megy el és mi nem; a felhasználó választ
+       (igen / nem, egyik sincs előre bejelölve), később a Sloth Központban átállítható. Leírás: README
+     - [x] Alap a ProtonDB nyílt adataiból (ODbL): a knowledge repó `protondb` Actionje havonta a legfrissebb
+       kiadásból játékonként és GPU-gyártónként kiszedi a működő beállítást (Proton-változat, kapcsolók,
+       összetevők; csak az utolsó 2 év, legalább 3 beszámoló, csak ha nem az alapértelmezett). 2026-10: 287
+       játék. A felismert (Steam AppID-s) játékoknál ez az első próba, ha nincs saját vagy Sloth OS-es adat
+     - [x] Bővített engedélyezett kapcsolók: NVAPI, NVIDIA elrejtése, large address aware, heap delay free,
+       D3D10/11 ki, régi GL-szöveg, write watch ki (a Workerben, a gépen és a ProtonDB-feldolgozóban is)
      - [ ] Később: a szolgáltatás figyelése (ha nem
        érhető el, a gépek a sorban tartják a jelentéseket, az olvasás a GitHubról megy tovább)
   - Kipróbálva (2026-10-15) a valódi vezérlővel és egy hamis futtatóval: hiányzó DLL, Vulkan-hiba, ismeretlen

@@ -34,6 +34,12 @@
   "security.not_admin": "只有管理员账户可以更改此项。",
   "security.autologin": "自动登录:无需密码直接进入桌面",
   "security.later": "以后可以在 Sloth 中心(账户与安全)中细致调整。",
+  "sharing.heading": "帮助 Windows 程序在每个人的电脑上一次启动",
+  "sharing.text": "当你启动 Windows 程序或游戏时，Sloth OS 会自己找到能让它运行的设置。如果你允许，我们会匿名分享有效的设置，让它在其他 Sloth OS 电脑上也能一次启动。",
+  "sharing.what": "只会发送这些：设置（例如“旧版图形模式”）、你的显卡制造商，以及无法还原出程序名称的程序指纹。除此之外，什么都不会离开你的电脑：不包括你的名字、你的文件、程序名称，也不包括你何时使用以及使用多久。",
+  "sharing.yes": "是，匿名分享",
+  "sharing.no": "不，谢谢",
+  "sharing.later": "以后可以随时在 Sloth 中心（Windows 程序）中更改。无论选择哪一项，你都会获得在其他电脑上有效的设置。",
 
   "nav.back": "上一步",
   "nav.next": "下一步",

@@ -34,6 +34,12 @@
   "security.not_admin": "Tylko konto administratora może to zmienić.",
   "security.autologin": "Automatyczne logowanie: od razu pulpit, bez hasła",
   "security.later": "Później możesz to dokładnie ustawić w Sloth Center (Konto i bezpieczeństwo).",
+  "sharing.heading": "Pomóż, by programy dla Windows uruchamiały się każdemu za pierwszym razem",
+  "sharing.text": "Gdy uruchamiasz program lub grę dla Windows, Sloth OS sam znajduje ustawienie, z którym działa. Jeśli pozwolisz, anonimowo udostępnimy ustawienie, które zadziałało, aby za pierwszym razem uruchamiał się także na innych komputerach z Sloth OS.",
+  "sharing.what": "Wysyłane jest tylko to: ustawienie (na przykład „starszy tryb grafiki”), producent twojej karty graficznej i odcisk programu, z którego nie da się odtworzyć jego nazwy. Nic innego nie opuszcza twojego komputera: ani twoje imię, ani twoje pliki, ani nazwa programu, ani to, kiedy i ile z niego korzystasz.",
+  "sharing.yes": "Tak, udostępniaj anonimowo",
+  "sharing.no": "Nie, dziękuję",
+  "sharing.later": "Możesz to zmienić w dowolnym momencie później w Centrum Sloth (Programy dla Windows). Ustawienia, które zadziałały na innych komputerach, otrzymasz w każdym przypadku.",
 
   "nav.back": "Wstecz",
   "nav.next": "Dalej",

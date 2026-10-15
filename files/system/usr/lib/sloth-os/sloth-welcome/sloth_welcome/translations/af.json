@@ -34,6 +34,12 @@
   "security.not_admin": "Net ’n administrateur-rekening kan dit verander.",
   "security.autologin": "Meld outomaties aan: begin reguit by die werkskerm sonder ’n wagwoord",
   "security.later": "Jy kan dit later in Sloth Center (Rekening en sekuriteit) fyn instel.",
+  "sharing.heading": "Help dat Windows-programme vir almal met die eerste probeer begin",
+  "sharing.text": "Wanneer jy 'n Windows-program of -speletjie begin, vind Sloth OS self die instelling wat daarvoor werk. As jy dit toelaat, deel ons die werkende instelling anoniem, sodat dit ook op ander Sloth OS-rekenaars met die eerste probeer begin.",
+  "sharing.what": "Slegs dit word gestuur: die instelling (byvoorbeeld \"ouer grafiese modus\"), jou grafiese kaart se vervaardiger, en 'n vingerafdruk van die program waaruit die naam nie herwin kan word nie. Niks anders verlaat jou rekenaar nie: nie jou naam, jou lêers, die program se naam, of wanneer en hoeveel jy dit gebruik nie.",
+  "sharing.yes": "Ja, deel anoniem",
+  "sharing.no": "Nee, dankie",
+  "sharing.later": "Jy kan dit later enige tyd in Sloth-sentrum (Windows-programme) verander. Jy kry in elk geval die instellings wat op ander rekenaars gewerk het.",
 
   "nav.back": "Terug",
   "nav.next": "Volgende",

@@ -34,6 +34,12 @@
   "security.not_admin": "Solmente un conto de administrator pote cambiar isto.",
   "security.autologin": "Accesso automatic: directemente al scriptorio sin contrasigno",
   "security.later": "Postea tu pote adjustar isto in Sloth Center (Conto e securitate).",
+  "sharing.heading": "Adjuta le programmas de Windows a initiar se al prime tentativa pro totes",
+  "sharing.text": "Quando tu initia un programma o un joco de Windows, Sloth OS trova per se mesme le configuration con le qual illo functiona. Si tu lo permitte, nos comparti anonymemente le configuration que ha functionate, de maniera que illo se initia al prime tentativa anque in altere computatores con Sloth OS.",
+  "sharing.what": "Solmente isto es inviate: le configuration (per exemplo „modo graphic plus vetule”), le fabricante de tu carta graphic e un impression digital del programma ex le qual su nomine non pote esser recuperate. Nihil altere quita tu computator: ni tu nomine, ni tu files, ni le nomine del programma, ni quando o quanto tu lo usa.",
+  "sharing.yes": "Si, compartir anonymemente",
+  "sharing.no": "No, gratias",
+  "sharing.later": "Tu pote cambiar isto a omne momento plus tarde in le Centro Sloth (Programmas de Windows). Tu recipe le configurationes que ha functionate in altere computatores in omne caso.",
 
   "nav.back": "Retro",
   "nav.next": "Sequente",

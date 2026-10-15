@@ -214,7 +214,7 @@ class ExeController(QObject):
                 log.info("felismerve: %s (%s)", title, gameid)
         self._gameid = gameid or None
         self._key = key
-        self._plan = heal.plan(self._program, self._exe, community.suggestion(key) if key else None)
+        self._plan = heal.plan(self._program, self._exe, community.suggestion(key, gameid) if key or gameid else None)
         self._tries = 0
         self._snapshot = False
         self._succeeded = False

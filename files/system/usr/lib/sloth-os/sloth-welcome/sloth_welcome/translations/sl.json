@@ -34,6 +34,12 @@
   "security.not_admin": "To lahko spremeni samo skrbniški račun.",
   "security.autologin": "Samodejna prijava: naravnost na namizje brez gesla",
   "security.later": "Pozneje lahko to podrobno nastavite v Sloth Center (Račun in varnost).",
+  "sharing.heading": "Pomagaj, da se programi za Windows pri vseh zaženejo v prvem poskusu",
+  "sharing.text": "Ko zaženeš program ali igro za Windows, Sloth OS sam najde nastavitev, s katero deluje. Če dovoliš, anonimno delimo nastavitev, ki je delovala, da se v prvem poskusu zažene tudi na drugih računalnikih s Sloth OS.",
+  "sharing.what": "Pošlje se samo to: nastavitev (na primer »starejši grafični način«), proizvajalec tvoje grafične kartice in prstni odtis programa, iz katerega ni mogoče ugotoviti njegovega imena. Nič drugega ne zapusti tvojega računalnika: ne tvoje ime, ne tvoje datoteke, ne ime programa in ne to, kdaj in koliko ga uporabljaš.",
+  "sharing.yes": "Da, deli anonimno",
+  "sharing.no": "Ne, hvala",
+  "sharing.later": "To lahko kadar koli pozneje spremeniš v Središču Sloth (Programi za Windows). Nastavitve, ki so delovale na drugih računalnikih, dobiš v vsakem primeru.",
 
   "nav.back": "Nazaj",
   "nav.next": "Naprej",

@@ -5,8 +5,8 @@
 //   GET  /v1/export   az összesítés (csak az EXPORT_TOKEN-nel; a GitHub Action hívja)
 //
 // Csak engedélyezett beállítás kerülhet be (lásd ALLOWED_*): tetszőleges parancsot, környezeti változót
-// vagy paramétert jelentésből nem lehet terjeszteni. A listák a sloth_exe/heal.py és diagnose.py
-// értékeivel egyeznek; ha ott bővül, itt is kell.
+// vagy paramétert jelentésből nem lehet terjeszteni. A listák a sloth_exe/heal.py, diagnose.py és
+// community.py értékeivel egyeznek; ha ott bővül, itt is kell (és a knowledge repó seed/protondb.py-jában).
 
 const ALLOWED_LINES = new Set(["UMU-Proton", "GE-Proton"]);
 const ALLOWED_PROFILES = new Set(["default", "nofsync", "wined3d"]);
@@ -16,7 +16,11 @@ const ALLOWED_VERBS = new Set([
   "d3dx9", "dotnet48", "gdiplus", "mf", "mfc42", "msxml3", "msxml4", "msxml6", "physx", "riched20", "vb6run",
   "vcrun2005", "vcrun2008", "vcrun2010", "vcrun2012", "vcrun2013", "vcrun2022", "xact", "xinput",
 ]);
-const ALLOWED_ENV = new Set(["PROTON_USE_WINED3D"]);
+// Proton be/ki kapcsolók (a gépen "=1" értékkel); ugyanaz, mint a sloth_exe/community.py ALLOWED_ENV-je
+const ALLOWED_ENV = new Set([
+  "PROTON_USE_WINED3D", "PROTON_ENABLE_NVAPI", "PROTON_HIDE_NVIDIA_GPU", "PROTON_FORCE_LARGE_ADDRESS_AWARE",
+  "PROTON_HEAP_DELAY_FREE", "PROTON_NO_D3D11", "PROTON_NO_D3D10", "PROTON_OLD_GL_STRING", "PROTON_NO_WRITE_WATCH",
+]);
 const ALLOWED_ARGS = new Set(["--disable-gpu"]);
 
 const MAX_BATCH = 50;

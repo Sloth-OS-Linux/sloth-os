@@ -663,6 +663,75 @@ Kirigami.ApplicationWindow {
                     }
                 }
             }
+
+            // --- 6. Tapasztalatok megosztása (a jelszavak után) -------------------
+            Item {
+                ColumnLayout {
+                    anchors.centerIn: parent
+                    width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 32)
+                    spacing: Kirigami.Units.largeSpacing * 2
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignHCenter
+                        source: "network-workgroup"
+                        implicitWidth: Kirigami.Units.iconSizes.huge
+                        implicitHeight: Kirigami.Units.iconSizes.huge
+                    }
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        text: root.t("sharing.heading")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: root.t("sharing.text")
+                    }
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        visible: true
+                        type: Kirigami.MessageType.Information
+                        text: root.t("sharing.what")
+                    }
+                    QQC2.ButtonGroup { id: sharingGroup }
+                    QQC2.RadioButton {
+                        Layout.fillWidth: true
+                        QQC2.ButtonGroup.group: sharingGroup
+                        text: root.t("sharing.yes")
+                        checked: welcome.sharingChoice === "yes"
+                        onClicked: welcome.setSharingChoice("yes")
+                    }
+                    QQC2.RadioButton {
+                        Layout.fillWidth: true
+                        QQC2.ButtonGroup.group: sharingGroup
+                        text: root.t("sharing.no")
+                        checked: welcome.sharingChoice === "no"
+                        onClicked: welcome.setSharingChoice("no")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        font: Kirigami.Theme.smallFont
+                        text: root.t("sharing.later")
+                    }
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.Button { text: root.t("nav.back"); icon.name: "go-previous"; onClicked: welcome.back() }
+                        QQC2.Button {
+                            text: root.t("nav.next")
+                            icon.name: "go-next"
+                            highlighted: true
+                            enabled: welcome.sharingChoice !== ""
+                            onClicked: welcome.next()
+                        }
+                    }
+                }
+            }
         }
     }
 

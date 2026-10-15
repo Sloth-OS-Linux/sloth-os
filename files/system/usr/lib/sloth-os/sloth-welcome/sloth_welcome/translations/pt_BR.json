@@ -34,6 +34,12 @@
   "security.not_admin": "Somente uma conta de administrador pode alterar isso.",
   "security.autologin": "Entrar automaticamente: direto para a área de trabalho sem senha",
   "security.later": "Depois você pode ajustar isso no Sloth Center (Conta e segurança).",
+  "sharing.heading": "Ajude os programas do Windows a abrir de primeira para todo mundo",
+  "sharing.text": "Quando você abre um programa ou jogo do Windows, o Sloth OS encontra sozinho a configuração com que ele funciona. Se você permitir, compartilhamos de forma anônima a configuração que funcionou, para que ele abra de primeira também em outros computadores com Sloth OS.",
+  "sharing.what": "Só isto é enviado: a configuração (por exemplo, \"modo gráfico mais antigo\"), o fabricante da sua placa de vídeo e uma impressão digital do programa da qual não é possível descobrir o nome dele. Nada mais sai do seu computador: nem o seu nome, nem os seus arquivos, nem o nome do programa, nem quando ou quanto você o usa.",
+  "sharing.yes": "Sim, compartilhar de forma anônima",
+  "sharing.no": "Não, obrigado",
+  "sharing.later": "Você pode mudar isso a qualquer momento depois na Central Sloth (Programas do Windows). As configurações que funcionaram em outros computadores você recebe de qualquer forma.",
 
   "nav.back": "Voltar",
   "nav.next": "Avançar",

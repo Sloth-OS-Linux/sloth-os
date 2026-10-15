@@ -34,6 +34,12 @@
   "security.not_admin": "Només un compte d’administrador pot canviar-ho.",
   "security.autologin": "Inici de sessió automàtic: directament a l’escriptori sense contrasenya",
   "security.later": "Més endavant ho podeu ajustar al Sloth Center (Compte i seguretat).",
+  "sharing.heading": "Ajuda que els programes de Windows s'iniciïn al primer intent per a tothom",
+  "sharing.text": "Quan inicies un programa o un joc de Windows, Sloth OS troba tot sol la configuració que hi funciona. Si ho permets, compartim la configuració que ha funcionat de manera anònima, perquè també s'iniciï al primer intent en altres ordinadors amb Sloth OS.",
+  "sharing.what": "Només s'envia això: la configuració (per exemple, «mode gràfic antic»), el fabricant de la targeta gràfica i una empremta del programa de la qual no se'n pot recuperar el nom. Res més surt del teu ordinador: ni el teu nom, ni els teus fitxers, ni el nom del programa, ni quan o quant l'utilitzes.",
+  "sharing.yes": "Sí, comparteix de manera anònima",
+  "sharing.no": "No, gràcies",
+  "sharing.later": "Ho pots canviar més endavant en qualsevol moment al Centre Sloth (Programes de Windows). Les configuracions que han funcionat en altres ordinadors les reps igualment.",
 
   "nav.back": "Enrere",
   "nav.next": "Següent",

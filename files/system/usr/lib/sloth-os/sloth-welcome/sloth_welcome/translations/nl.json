@@ -34,6 +34,12 @@
   "security.not_admin": "Alleen een beheerdersaccount kan dit wijzigen.",
   "security.autologin": "Automatisch aanmelden: direct naar het bureaublad zonder wachtwoord",
   "security.later": "Later kun je dit verfijnen in Sloth Center (Account en beveiliging).",
+  "sharing.heading": "Help Windows-programma's bij iedereen in één keer te laten starten",
+  "sharing.text": "Als je een Windows-programma of -game start, zoekt Sloth OS zelf de instelling waarmee het werkt. Als je het toestaat, delen we de werkende instelling anoniem, zodat het ook op andere Sloth OS-computers in één keer start.",
+  "sharing.what": "Alleen dit wordt verstuurd: de instelling (bijvoorbeeld 'oudere grafische modus'), de fabrikant van je videokaart en een vingerafdruk van het programma waaruit de naam niet te herleiden is. Niets anders verlaat je computer: niet je naam, niet je bestanden, niet de naam van het programma en niet wanneer of hoeveel je het gebruikt.",
+  "sharing.yes": "Ja, anoniem delen",
+  "sharing.no": "Nee, bedankt",
+  "sharing.later": "Je kunt dit later altijd wijzigen in Sloth Centrum (Windows-programma's). De instellingen die op andere computers werkten, krijg je hoe dan ook.",
 
   "nav.back": "Terug",
   "nav.next": "Volgende",

@@ -34,6 +34,12 @@
   "security.not_admin": "Kun en administratorkonto kan ændre dette.",
   "security.autologin": "Log ind automatisk: start direkte på skrivebordet uden adgangskode",
   "security.later": "Du kan finjustere det senere i Sloth Center (Konto og sikkerhed).",
+  "sharing.heading": "Hjælp Windows-programmer med at starte i første forsøg for alle",
+  "sharing.text": "Når du starter et Windows-program eller -spil, finder Sloth OS selv den indstilling, der virker for det. Hvis du tillader det, deler vi den virkende indstilling anonymt, så det også starter i første forsøg på andre Sloth OS-computere.",
+  "sharing.what": "Kun dette sendes: indstillingen (for eksempel \"ældre grafiktilstand\"), producenten af dit grafikkort og et fingeraftryk af programmet, som navnet ikke kan genskabes ud fra. Intet andet forlader din computer: hverken dit navn, dine filer, programmets navn eller hvornår og hvor meget du bruger det.",
+  "sharing.yes": "Ja, del anonymt",
+  "sharing.no": "Nej tak",
+  "sharing.later": "Du kan når som helst ændre det senere i Sloth Center (Windows-programmer). Du får de indstillinger, der har virket på andre computere, under alle omstændigheder.",
 
   "nav.back": "Tilbage",
   "nav.next": "Næste",

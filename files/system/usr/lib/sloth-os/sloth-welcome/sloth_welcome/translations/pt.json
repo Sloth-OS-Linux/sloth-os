@@ -34,6 +34,12 @@
   "security.not_admin": "Só uma conta de administrador pode alterar isto.",
   "security.autologin": "Iniciar sessão automaticamente: diretamente no ambiente de trabalho sem palavra-passe",
   "security.later": "Mais tarde pode ajustar isto no Sloth Center (Conta e segurança).",
+  "sharing.heading": "Ajuda os programas do Windows a arrancar à primeira para todos",
+  "sharing.text": "Quando arrancas um programa ou jogo do Windows, o Sloth OS encontra sozinho a definição com que funciona. Se permitires, partilhamos de forma anónima a definição que funcionou, para que arranque à primeira também noutros computadores com Sloth OS.",
+  "sharing.what": "Só é enviado isto: a definição (por exemplo, «modo gráfico mais antigo»), o fabricante da tua placa gráfica e uma impressão digital do programa a partir da qual não é possível saber o seu nome. Nada mais sai do teu computador: nem o teu nome, nem os teus ficheiros, nem o nome do programa, nem quando ou quanto o usas.",
+  "sharing.yes": "Sim, partilhar de forma anónima",
+  "sharing.no": "Não, obrigado",
+  "sharing.later": "Podes mudar isto a qualquer momento mais tarde no Centro Sloth (Programas do Windows). As definições que funcionaram noutros computadores recebes de qualquer forma.",
 
   "nav.back": "Anterior",
   "nav.next": "Seguinte",
