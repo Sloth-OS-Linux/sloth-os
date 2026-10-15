@@ -330,8 +330,9 @@
   "Start menü": "Startmeny",
   "Eltávolítod: {name}?": "Ta bort {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programmet och alla dess filer tas bort (även sparade spel och inställningar). Det går inte att ångra.",
-
   "Rendszerbeállítások": "Systeminställningar",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Uppdateringar, återställning, drivrutiner och allt som annars skulle kräva en terminal",
-  "frissítés;visszaállítás;driver;beállítás": "uppdatering;återställning;drivrutin;inställningar"
+  "frissítés;visszaállítás;driver;beállítás": "uppdatering;återställning;drivrutin;inställningar",
+  "Tapasztalatok megosztása": "Dela erfarenheter",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "När ett program startar på din dator delar vi anonymt vilken inställning som fungerade, så att det startar på första försöket även på andra Sloth OS-datorer. Bara inställningen och tillverkaren av ditt grafikkort skickas: inte ditt namn, dina filer eller programmets namn."
 }

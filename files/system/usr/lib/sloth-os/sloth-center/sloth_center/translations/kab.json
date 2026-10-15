@@ -330,8 +330,9 @@
   "Start menü": "Umuɣ Bdu",
   "Eltávolítod: {name}?": "Ad yettwakkes {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Ahil d yifuyla-s akk ad ttwakksen (ula d yiskelsen n wuraren d yiɣewwaren). Aya ur yettuɣal ara.",
-
   "Rendszerbeállítások": "Iɣewwaren n unagraw",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ileqman, tuɣalin, inuḍafen d wayen akk ara yesran aterminal ma ulac",
-  "frissítés;visszaállítás;driver;beállítás": "aleqqem;tuɣalin;anuḍaf;iɣewwaren"
+  "frissítés;visszaállítás;driver;beállítás": "aleqqem;tuɣalin;anuḍaf;iɣewwaren",
+  "Tapasztalatok megosztása": "Bḍu tirmitin",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Mi ara yekker wahil deg uselkim-ik, ad nebḍu s war isem anwa aɣewwar i yeddan, akken ad yekker seg tikkelt tamezwarut ula deg yiselkimen-nniḍen n Sloth OS. Ala aɣewwar d umfaras n tkarḍa-k tudlift i yettwaznen: mačči isem-ik, mačči ifuyla-k, mačči isem n wahil."
 }

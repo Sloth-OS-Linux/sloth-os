@@ -330,8 +330,9 @@
   "Start menü": "স্টার্ট মেনু",
   "Eltávolítod: {name}?": "{name} সরাবেন?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "প্রোগ্রাম ও এর সব ফাইল (সেভ ও সেটিংসসহ) মুছে যাবে। এটি আর ফেরানো যাবে না।",
-
   "Rendszerbeállítások": "সিস্টেম সেটিংস",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "আপডেট, আগের অবস্থায় ফেরা, ড্রাইভার এবং যা কিছুর জন্য অন্যথায় টার্মিনাল লাগত",
-  "frissítés;visszaállítás;driver;beállítás": "আপডেট;ফেরানো;ড্রাইভার;সেটিংস"
+  "frissítés;visszaállítás;driver;beállítás": "আপডেট;ফেরানো;ড্রাইভার;সেটিংস",
+  "Tapasztalatok megosztása": "অভিজ্ঞতা শেয়ার করুন",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "আপনার কম্পিউটারে কোনো প্রোগ্রাম চালু হলে, কোন সেটিং কাজ করেছে তা আমরা বেনামে শেয়ার করি, যাতে অন্য Sloth OS কম্পিউটারেও এটি প্রথম চেষ্টাতেই চালু হয়। শুধু সেটিং এবং আপনার গ্রাফিক্স কার্ডের নির্মাতা পাঠানো হয়: আপনার নাম, ফাইল বা প্রোগ্রামের নাম নয়।"
 }

@@ -34,5 +34,16 @@ else
     rm -f "$db.new"
 fi
 
-# A régi Proton-verziók törlése (ami egy programnak bevált, és egy tartalék, marad)
+# Közös tudás: ami más Sloth OS-es gépeken bevált (sloth_exe/community.py); statikus fájl a GitHubról
+kb="${XDG_CACHE_HOME:-$HOME/.cache}/sloth-os/knowledge.json"
+if curl -fsSL --max-time 60 -o "$kb.new" \
+        https://raw.githubusercontent.com/bathorizsolt/sloth-os-knowledge/main/knowledge.json \
+        && head -c 1 "$kb.new" | grep -q '{'; then
+    mv "$kb.new" "$kb"
+else
+    rm -f "$kb.new"
+fi
+
+# A régi Proton-verziók törlése (ami egy programnak bevált, és egy tartalék, marad), és ha a felhasználó
+# bekapcsolta a megosztást, a sorban álló jelentések elküldése
 sloth-exe --maintenance || true

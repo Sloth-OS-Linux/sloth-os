@@ -15,6 +15,8 @@ from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
+from sloth_common import sharing
+
 log = logging.getLogger("sloth-center.winprograms")
 
 DATA_HOME = Path(os.environ.get("XDG_DATA_HOME", Path.home() / ".local/share"))
@@ -77,6 +79,16 @@ class WinProgramsController(QObject):
     @Property(bool, notify=changed)
     def busy(self):
         return self._busy
+
+    @Property(bool, notify=changed)
+    def sharing(self):
+        """A közös tudás megosztása (sloth_exe/community.py): névtelen jelentés a bevált beállításokról."""
+        return sharing.enabled()
+
+    @Slot(bool)
+    def setSharing(self, value):
+        sharing.set_enabled(value)
+        self.changed.emit()
 
     @Slot()
     def refresh(self):

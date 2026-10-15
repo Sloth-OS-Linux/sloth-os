@@ -330,8 +330,9 @@
   "Start menü": "Menu Démarrer",
   "Eltávolítod: {name}?": "Supprimer {name} ?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Le programme et tous ses fichiers seront supprimés (sauvegardes et réglages compris). Impossible d’annuler.",
-
   "Rendszerbeállítások": "Paramètres du système",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Mises à jour, restauration, pilotes et tout ce qui nécessiterait autrement un terminal",
-  "frissítés;visszaállítás;driver;beállítás": "mise à jour;restauration;pilote;paramètres"
+  "frissítés;visszaállítás;driver;beállítás": "mise à jour;restauration;pilote;paramètres",
+  "Tapasztalatok megosztása": "Partager les expériences",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quand un programme démarre sur ton ordinateur, nous partageons anonymement le réglage qui a fonctionné, pour qu'il démarre du premier coup sur les autres ordinateurs Sloth OS aussi. Seuls le réglage et le fabricant de ta carte graphique sont envoyés : ni ton nom, ni tes fichiers, ni le nom du programme."
 }

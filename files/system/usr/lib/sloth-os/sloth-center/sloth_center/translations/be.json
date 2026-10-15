@@ -330,8 +330,9 @@
   "Start menü": "Меню Пуск",
   "Eltávolítod: {name}?": "Выдаліць {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Праграма і ўсе яе файлы будуць выдалены (разам з захаваннямі і наладамі). Адмяніць гэта нельга.",
-
   "Rendszerbeállítások": "Сістэмныя налады",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Абнаўленні, адкат, драйверы і ўсё, для чаго інакш спатрэбіўся б тэрмінал",
-  "frissítés;visszaállítás;driver;beállítás": "абнаўленне;адкат;драйвер;налады"
+  "frissítés;visszaállítás;driver;beállítás": "абнаўленне;адкат;драйвер;налады",
+  "Tapasztalatok megosztása": "Абмен вопытам",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Калі праграма запускаецца на вашым камп'ютары, мы ананімна дзелімся тым, якая налада спрацавала, каб яна з першага разу запускалася і на іншых камп'ютарах з Sloth OS. Перадаюцца толькі налада і вытворца відэакарты: ні ваша імя, ні вашы файлы, ні назва праграмы."
 }

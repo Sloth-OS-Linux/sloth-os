@@ -330,8 +330,9 @@
   "Start menü": "Menu Mulai",
   "Eltávolítod: {name}?": "Hapus {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Program dan semua berkasnya akan dihapus (termasuk simpanan game dan pengaturan). Tidak bisa dibatalkan.",
-
   "Rendszerbeállítások": "Pengaturan sistem",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Pembaruan, pemulihan, driver, dan semua hal yang biasanya memerlukan terminal",
-  "frissítés;visszaállítás;driver;beállítás": "pembaruan;pemulihan;driver;pengaturan"
+  "frissítés;visszaállítás;driver;beállítás": "pembaruan;pemulihan;driver;pengaturan",
+  "Tapasztalatok megosztása": "Bagikan pengalaman",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Saat sebuah program berjalan di komputermu, kami membagikan secara anonim pengaturan mana yang berhasil, agar program itu juga langsung berjalan di komputer Sloth OS lain. Hanya pengaturan dan produsen kartu grafismu yang dikirim: bukan namamu, berkasmu, atau nama programnya."
 }

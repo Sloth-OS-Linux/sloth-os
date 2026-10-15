@@ -330,8 +330,9 @@
   "Start menü": "Meniul Start",
   "Eltávolítod: {name}?": "Elimini {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programul și toate fișierele lui vor fi șterse (inclusiv salvările din jocuri și setările). Acțiunea nu poate fi anulată.",
-
   "Rendszerbeállítások": "Setări de sistem",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Actualizări, revenire, drivere și tot ce altfel ar necesita un terminal",
-  "frissítés;visszaállítás;driver;beállítás": "actualizare;revenire;driver;setări"
+  "frissítés;visszaállítás;driver;beállítás": "actualizare;revenire;driver;setări",
+  "Tapasztalatok megosztása": "Împărtășește experiențe",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Când un program pornește pe calculatorul tău, împărtășim anonim ce setare a funcționat, ca să pornească din prima și pe alte calculatoare cu Sloth OS. Se trimit doar setarea și producătorul plăcii video: nu numele tău, nu fișierele tale și nici numele programului."
 }

@@ -21,6 +21,35 @@ Kirigami.ScrollablePage {
         model: winprograms.programs
         spacing: Kirigami.Units.smallSpacing
 
+        // Közös tudás: a bevált beállítások névtelen megosztása (alapból kikapcsolva)
+        header: Kirigami.AbstractCard {
+            width: ListView.view.width
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Icon {
+                    source: "network-workgroup"
+                    implicitWidth: Kirigami.Units.iconSizes.medium
+                    implicitHeight: Kirigami.Units.iconSizes.medium
+                }
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: 0
+                    Kirigami.Heading { level: 3; text: L.t("Tapasztalatok megosztása"); Layout.fillWidth: true }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        text: L.t("Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.")
+                    }
+                }
+                QQC2.Switch {
+                    checked: winprograms.sharing
+                    onToggled: winprograms.setSharing(checked)
+                }
+            }
+        }
+        headerPositioning: ListView.InlineHeader
+
         Kirigami.PlaceholderMessage {
             anchors.centerIn: parent
             width: parent.width - Kirigami.Units.gridUnit * 4

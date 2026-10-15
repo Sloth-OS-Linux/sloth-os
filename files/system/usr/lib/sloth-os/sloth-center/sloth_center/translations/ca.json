@@ -330,8 +330,9 @@
   "Start menü": "Menú d’inici",
   "Eltávolítod: {name}?": "Voleu suprimir {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "S’esborraran el programa i tots els seus fitxers (partides desades i paràmetres inclosos). No es pot desfer.",
-
   "Rendszerbeállítások": "Configuració del sistema",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Actualitzacions, restauració, controladors i tot allò que altrament requeriria un terminal",
-  "frissítés;visszaállítás;driver;beállítás": "actualització;restauració;controlador;configuració"
+  "frissítés;visszaállítás;driver;beállítás": "actualització;restauració;controlador;configuració",
+  "Tapasztalatok megosztása": "Comparteix experiències",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quan un programa s'inicia al teu ordinador, compartim de manera anònima quina configuració ha funcionat, perquè també s'iniciï al primer intent en altres ordinadors amb Sloth OS. Només s'envien la configuració i el fabricant de la targeta gràfica: ni el teu nom, ni els teus fitxers, ni el nom del programa."
 }

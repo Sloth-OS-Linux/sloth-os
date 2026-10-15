@@ -330,8 +330,9 @@
   "Start menü": "スタートメニュー",
   "Eltávolítod: {name}?": "{name} を削除しますか？",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "プログラムと関連するすべてのファイル（セーブデータや設定を含む）が削除されます。元に戻すことはできません。",
-
   "Rendszerbeállítások": "システム設定",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "アップデート、ロールバック、ドライバーなど、本来ならターミナルが必要な作業すべて",
-  "frissítés;visszaállítás;driver;beállítás": "アップデート;ロールバック;ドライバー;設定"
+  "frissítés;visszaállítás;driver;beállítás": "アップデート;ロールバック;ドライバー;設定",
+  "Tapasztalatok megosztása": "経験を共有",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "プログラムがお使いのコンピューターで起動したとき、どの設定でうまくいったかを匿名で共有し、ほかの Sloth OS コンピューターでも一度で起動できるようにします。送信されるのは設定とグラフィックカードのメーカーだけです。お名前、ファイル、プログラム名は送信されません。"
 }

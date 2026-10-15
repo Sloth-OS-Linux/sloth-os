@@ -330,8 +330,9 @@
   "Start menü": "Μενού Έναρξη",
   "Eltávolítod: {name}?": "Αφαίρεση του {name};",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Το πρόγραμμα και όλα τα αρχεία του θα διαγραφούν (μαζί με αποθηκευμένα παιχνίδια και ρυθμίσεις). Δεν μπορεί να αναιρεθεί.",
-
   "Rendszerbeállítások": "Ρυθμίσεις συστήματος",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ενημερώσεις, επαναφορά, προγράμματα οδήγησης και ό,τι άλλο θα χρειαζόταν τερματικό",
-  "frissítés;visszaállítás;driver;beállítás": "ενημέρωση;επαναφορά;οδηγός;ρυθμίσεις"
+  "frissítés;visszaállítás;driver;beállítás": "ενημέρωση;επαναφορά;οδηγός;ρυθμίσεις",
+  "Tapasztalatok megosztása": "Κοινοποίηση εμπειριών",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Όταν ένα πρόγραμμα ξεκινά στον υπολογιστή σας, μοιραζόμαστε ανώνυμα ποια ρύθμιση λειτούργησε, ώστε να ξεκινά με την πρώτη και σε άλλους υπολογιστές με Sloth OS. Αποστέλλονται μόνο η ρύθμιση και ο κατασκευαστής της κάρτας γραφικών: όχι το όνομά σας, τα αρχεία σας ή το όνομα του προγράμματος."
 }

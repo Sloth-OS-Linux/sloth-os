@@ -330,8 +330,9 @@
   "Start menü": "Menu Initio",
   "Eltávolítod: {name}?": "Remover {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Le programma e tote su files essera delite (includite jocos salvate e parametros). Isto non pote esser disfacite.",
-
   "Rendszerbeállítások": "Configuration del systema",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Actualisationes, restauration, drivers e toto lo que alteremente necessitarea un terminal",
-  "frissítés;visszaállítás;driver;beállítás": "actualisation;restauration;driver;configuration"
+  "frissítés;visszaállítás;driver;beállítás": "actualisation;restauration;driver;configuration",
+  "Tapasztalatok megosztása": "Compartir experientias",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quando un programma se initia in tu computator, nos comparti anonymemente qual configuration ha functionate, de maniera que illo se initia al prime tentativa anque in altere computatores con Sloth OS. Solmente le configuration e le fabricante de tu carta graphic es inviate: non tu nomine, non tu files, non le nomine del programma."
 }

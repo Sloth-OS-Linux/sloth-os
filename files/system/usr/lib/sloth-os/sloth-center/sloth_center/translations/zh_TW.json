@@ -330,8 +330,9 @@
   "Start menü": "開始功能表",
   "Eltávolítod: {name}?": "要解除安裝 {name} 嗎？",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "程式及其所有檔案（包括存檔與設定）都將被刪除。此操作無法復原。",
-
   "Rendszerbeállítások": "系統設定",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "更新、還原、驅動程式，以及其他原本需要終端機的一切",
-  "frissítés;visszaállítás;driver;beállítás": "更新;還原;驅動程式;設定"
+  "frissítés;visszaállítás;driver;beállítás": "更新;還原;驅動程式;設定",
+  "Tapasztalatok megosztása": "分享經驗",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "當程式在你的電腦上成功啟動時，我們會匿名分享哪種設定有效，讓它在其他 Sloth OS 電腦上也能一次啟動。只會傳送設定和顯示卡製造商：不包括你的名字、你的檔案或程式名稱。"
 }

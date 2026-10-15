@@ -23,12 +23,13 @@ def main():
     parser.add_argument("--launch", nargs=2, metavar=("PROGRAM", "EXE"))
     parser.add_argument("--shortcuts", metavar="PROGRAM", help="Start menü bejegyzések szerkesztése")
     parser.add_argument("--maintenance", action="store_true",
-                        help="háttérkarbantartás (sloth-windows-prepare): a régi Proton-verziók törlése")
+                        help="háttérkarbantartás (sloth-windows-prepare): régi Proton-verziók törlése, jelentések küldése")
     args, qt_args = parser.parse_known_args()
     if args.maintenance:
-        from . import heal
+        from . import community, heal
         removed = heal.prune_protons()
         print("Törölt régi verziók:", ", ".join(removed) if removed else "nincs")
+        print("Elküldött jelentések (közös tudás):", community.send_queue())
         return 0
     if not args.file and not args.launch and not args.shortcuts:
         parser.print_usage()

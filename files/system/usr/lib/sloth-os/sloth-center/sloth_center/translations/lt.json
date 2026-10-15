@@ -330,8 +330,9 @@
   "Start menü": "Meniu Pradžia",
   "Eltávolítod: {name}?": "Pašalinti {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Programa ir visi jos failai bus ištrinti (taip pat žaidimų įrašai ir nustatymai). To atšaukti negalima.",
-
   "Rendszerbeállítások": "Sistemos nustatymai",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Atnaujinimai, grąžinimas, tvarkyklės ir visa kita, kam kitaip reikėtų terminalo",
-  "frissítés;visszaállítás;driver;beállítás": "atnaujinimas;grąžinimas;tvarkyklė;nustatymai"
+  "frissítés;visszaállítás;driver;beállítás": "atnaujinimas;grąžinimas;tvarkyklė;nustatymai",
+  "Tapasztalatok megosztása": "Dalytis patirtimi",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Kai programa paleidžiama jūsų kompiuteryje, anonimiškai pasidaliname, kuris nustatymas suveikė, kad ji iš pirmo karto pasileistų ir kituose „Sloth OS“ kompiuteriuose. Siunčiamas tik nustatymas ir vaizdo plokštės gamintojas: ne jūsų vardas, ne jūsų failai ir ne programos pavadinimas."
 }

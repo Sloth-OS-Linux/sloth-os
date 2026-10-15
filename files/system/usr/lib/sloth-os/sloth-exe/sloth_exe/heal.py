@@ -170,8 +170,11 @@ class Attempt:
         return [value for kind, value in self.fixes if kind == "verb"]
 
 
-def plan(program, exe):
-    """A próbálkozások sorrendje erre az indításra."""
+def plan(program, exe, suggest=None):
+    """A próbálkozások sorrendje erre az indításra.
+
+    suggest: a közös tudás javaslata (community.suggestion): (Proton-vonal, profil, javítások) vagy None.
+    """
     rec = record(program, exe)
     fixes = [tuple(f) for f in rec.get("fixes", [])]
     failed = set(rec.get("failed", []))
@@ -194,6 +197,13 @@ def plan(program, exe):
             out.append(Attempt(None if good["proton"] == "auto" else good["proton"], good["profile"], fixes))
         else:
             add(current, good["profile"])
+    if suggest and not good:
+        # Más gépeken ez vált be: ez az első próba (a saját felismert javításokkal együtt)
+        line, profile, extra = suggest
+        proton = current if line == UMU_LINE else (newest(GE_LINE) or GE_DOWNLOAD)
+        a = Attempt(proton, profile, fixes + [f for f in extra if f not in fixes])
+        if a.key not in failed:
+            out.append(a)
     add(current, "default")
     add(current, "nofsync")
     add(current, "wined3d")

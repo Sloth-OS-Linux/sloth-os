@@ -330,8 +330,9 @@
   "Start menü": "תפריט התחל",
   "Eltávolítod: {name}?": "להסיר את {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "התוכנה וכל הקבצים שלה יימחקו (כולל שמירות משחק והגדרות). לא ניתן לבטל זאת.",
-
   "Rendszerbeállítások": "הגדרות מערכת",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "עדכונים, שחזור, מנהלי התקנים וכל מה שאחרת היה דורש מסוף",
-  "frissítés;visszaállítás;driver;beállítás": "עדכון;שחזור;מנהל התקן;הגדרות"
+  "frissítés;visszaállítás;driver;beállítás": "עדכון;שחזור;מנהל התקן;הגדרות",
+  "Tapasztalatok megosztása": "שיתוף ניסיון",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "כשתוכנה מופעלת במחשב שלך, אנחנו משתפים באופן אנונימי איזו הגדרה עבדה, כדי שתופעל כבר בניסיון הראשון גם במחשבי Sloth OS אחרים. נשלחים רק ההגדרה ויצרן כרטיס המסך: לא השם שלך, לא הקבצים שלך ולא שם התוכנה."
 }

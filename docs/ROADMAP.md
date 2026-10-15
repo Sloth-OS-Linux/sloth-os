@@ -125,11 +125,17 @@ terminálból lehet csinálni, GUI-ból is menjen.
      bevált verzióhoz (pillanatképből), és annál a programnál az marad, amíg nem jön egy még újabb.
      A régi Protonokat a `sloth-exe --maintenance` törli (a legújabb, egy tartalék és a programok által
      használt verziók maradnak)
-  6. [ ] **Közös tudás (csak a felhasználó engedélyével, névtelenül):** ami egy gépen bevált (program
-     azonosítója, GPU-gyártó, beállítás), az a többi Sloth OS-es gépen eleve jól indul. Mint a ProtonDB, de
-     ember helyett a gépek írják, és automatikusan érvényesül. Kell hozzá: saját szolgáltatás (szerver),
-     adatvédelmi döntés (mi megy fel, hogyan kapcsolható ki), visszaélés elleni védelem (rossz beállítás ne
-     terjedjen: csak sok egyező jelentés után érvényesüljön). A helyi adatok (`meta.json` „launch”) már megvannak
+  6. [x] **Közös tudás** (`sloth_exe/community.py`, szolgáltatás: `services/knowledge/`): ami más Sloth OS-es
+     gépeken bevált, az nálunk az első próba. Olvasás: statikus `knowledge.json` a nyilvános
+     `bathorizsolt/sloth-os-knowledge` repóból (a `sloth-windows-prepare` tölti le). Megosztás: csak ha a
+     felhasználó bekapcsolja (Sloth Központ → Windows-programok → „Tapasztalatok megosztása”, alapból ki);
+     a jelentés névtelen (a program nevéből csak hash, a gép egy véletlen szám), sorba kerül, és a háttérben
+     megy el. A szolgáltatás Cloudflare Worker + D1 (`https://sloth-os-knowledge.slothos.workers.dev`):
+     csak engedélyezett beállításokat fogad el, gépenként egy szavazat, legalább 3 gépen és 75%-ban
+     bevált beállítás kerül közzé, címenként napi 500 jelentés. Az összesítést óránként a knowledge repó
+     GitHub Actionje írja ki (havonta életjel, hogy az ütemezés ne álljon le)
+     - [ ] Később: a szolgáltatás figyelése (ha nem
+       érhető el, a gépek a sorban tartják a jelentéseket, az olvasás a GitHubról megy tovább)
   - Kipróbálva (2026-10-15) a valódi vezérlővel és egy hamis futtatóval: hiányzó DLL, Vulkan-hiba, ismeretlen
     összeomlás, frissítés utáni visszaállás Btrfs-en, reménytelen eset, indító-átadás, ottmaradt Wine-folyamatok.
     Valódi gépen még nincs kipróbálva

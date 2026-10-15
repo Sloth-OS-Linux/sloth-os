@@ -330,8 +330,9 @@
   "Start menü": "Begin-kieslys",
   "Eltávolítod: {name}?": "Verwyder {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Die program en al sy lêers word uitgevee (ook gestoorde speletjies en instellings). Dit kan nie ontdoen word nie.",
-
   "Rendszerbeállítások": "Stelselinstellings",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Bywerkings, terugrol, drywers en alles wat andersins 'n terminaal sou benodig",
-  "frissítés;visszaállítás;driver;beállítás": "bywerking;terugrol;drywer;instellings"
+  "frissítés;visszaállítás;driver;beállítás": "bywerking;terugrol;drywer;instellings",
+  "Tapasztalatok megosztása": "Deel ervarings",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Wanneer 'n program op jou rekenaar begin, deel ons anoniem watter instelling gewerk het, sodat dit ook op ander Sloth OS-rekenaars met die eerste probeer begin. Slegs die instelling en jou grafiese kaart se vervaardiger word gestuur: nie jou naam, jou lêers of die program se naam nie."
 }

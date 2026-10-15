@@ -330,8 +330,9 @@
   "Start menü": "Başlat menüsü",
   "Eltávolítod: {name}?": "{name} kaldırılsın mı?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Program ve tüm dosyaları silinecek (oyun kayıtları ve ayarlar dahil). Bu geri alınamaz.",
-
   "Rendszerbeállítások": "Sistem ayarları",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Güncellemeler, geri alma, sürücüler ve normalde terminal gerektirecek her şey",
-  "frissítés;visszaállítás;driver;beállítás": "güncelleme;geri alma;sürücü;ayarlar"
+  "frissítés;visszaállítás;driver;beállítás": "güncelleme;geri alma;sürücü;ayarlar",
+  "Tapasztalatok megosztása": "Deneyimleri paylaş",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Bir program bilgisayarında çalıştığında, hangi ayarın işe yaradığını anonim olarak paylaşırız; böylece diğer Sloth OS bilgisayarlarında da ilk denemede çalışır. Yalnızca ayar ve ekran kartının üreticisi gönderilir: adın, dosyaların ya da programın adı gönderilmez."
 }

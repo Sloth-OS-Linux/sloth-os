@@ -1,0 +1,9 @@
+# Sloth OS közös tudás – Cloudflare Worker (services/knowledge/README.md)
+name = "sloth-os-knowledge"
+main = "src/worker.js"
+compatibility_date = "2026-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "sloth-os-knowledge"
+database_id = "38562cf7-924e-4ea1-a6e2-c49f274e241a"

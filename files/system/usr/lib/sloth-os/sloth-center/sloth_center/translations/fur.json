@@ -330,8 +330,9 @@
   "Start menü": "Menù Inviament",
   "Eltávolítod: {name}?": "Gjavâ {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Il program e ducj i siei files a vignaran scancelâts (ancje salvaments dai zûcs e impostazions). No si pues tornâ indaûr.",
-
   "Rendszerbeállítások": "Impostazions dal sisteme",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Inzornaments, ripristinament, driver e dut ce che se no al varès bisugne di un terminâl",
-  "frissítés;visszaállítás;driver;beállítás": "inzornament;ripristinament;driver;impostazions"
+  "frissítés;visszaállítás;driver;beállítás": "inzornament;ripristinament;driver;impostazions",
+  "Tapasztalatok megosztása": "Condivît lis esperiencis",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Cuant che un program al partìs sul to computer, o condividìn in mût anonim cuale impostazion e à funzionât, par che al partissi al prin tentatîf ancje su altris computers cun Sloth OS. A vegnin mandâts dome la impostazion e il produtôr de tô schede grafiche: no il to non, no i tiei files, no il non dal program."
 }

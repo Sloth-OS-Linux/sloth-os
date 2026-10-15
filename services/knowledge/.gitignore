@@ -1,0 +1,4 @@
+# Helyi fejlesztés (wrangler dev) adatai és titkai
+.wrangler/
+.dev.vars
+node_modules/

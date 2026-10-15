@@ -330,8 +330,9 @@
   "Start menü": "Käynnistä-valikko",
   "Eltávolítod: {name}?": "Poistetaanko {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Ohjelma ja kaikki sen tiedostot poistetaan (myös pelitallennukset ja asetukset). Tätä ei voi perua.",
-
   "Rendszerbeállítások": "Järjestelmäasetukset",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Päivitykset, palautus, ajurit ja kaikki muu, mihin muuten tarvittaisiin pääte",
-  "frissítés;visszaállítás;driver;beállítás": "päivitys;palautus;ajuri;asetukset"
+  "frissítés;visszaállítás;driver;beállítás": "päivitys;palautus;ajuri;asetukset",
+  "Tapasztalatok megosztása": "Jaa kokemuksia",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Kun ohjelma käynnistyy tietokoneellasi, jaamme nimettömästi, mikä asetus toimi, jotta se käynnistyy ensimmäisellä yrityksellä myös muissa Sloth OS -tietokoneissa. Vain asetus ja näytönohjaimesi valmistaja lähetetään: ei nimeäsi, tiedostojasi eikä ohjelman nimeä."
 }

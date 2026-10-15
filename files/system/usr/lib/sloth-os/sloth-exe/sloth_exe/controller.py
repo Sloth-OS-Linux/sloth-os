@@ -11,7 +11,7 @@ from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
-from . import anticheat, backend, diagnose, heal, identify, programs
+from . import anticheat, backend, community, diagnose, heal, identify, programs
 from .i18n import catalog, tr
 from .runner import Runner
 
@@ -29,7 +29,7 @@ class ExeController(QObject):
     changed = Signal()
     hideWindow = Signal()
     showWindow = Signal()
-    _identified = Signal(object, str)  # a háttérszálból: (GAMEID / "" / None, név)
+    _identified = Signal(object, str, str)  # a háttérszálból: (GAMEID / "" / None, név, ujjlenyomat)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -66,6 +66,7 @@ class ExeController(QObject):
         self._before_proton = None  # a pillanatképhez tartozó Proton-verzió
         self._succeeded = False
         self._gameid = None
+        self._key = ""
 
     # --- Belépési pontok -----------------------------------------------------
 
@@ -185,8 +186,8 @@ class ExeController(QObject):
         self._update_window()
         self._set_working(tr("status.starting", name=self._name))
         rec = heal.record(self._program, self._exe)
-        if rec.get("gameid") is not None:
-            self._on_identified(rec["gameid"], rec.get("title", ""))
+        if rec.get("gameid") is not None and rec.get("key"):
+            self._on_identified(rec["gameid"], rec.get("title", ""), rec["key"])
             return
         # Melyik program ez? (az umu adatbázisa, ha kell a Steam áruháza; egyszer, a háttérben)
         exe, name = self._exe, self._name
@@ -195,20 +196,25 @@ class ExeController(QObject):
     @staticmethod
     def _identify(exe, name):
         try:
-            return identify.identify(exe, name, online=backend.online())
+            key = community.program_key(exe, identify.candidates(exe, name))
+            return (*identify.identify(exe, name, online=backend.online()), key)
         except Exception as e:  # a felismerés hibája ne akadályozza az indítást
             log.warning("felismerés: %s", e)
-            return None, ""
+            return None, "", ""
 
-    def _on_identified(self, gameid, title):
+    def _on_identified(self, gameid, title, key):
         rec = heal.record(self._program, self._exe)
-        if gameid is not None and rec.get("gameid") != gameid:
-            rec.update(gameid=gameid, title=title)
+        if (gameid is not None and rec.get("gameid") != gameid) or (key and rec.get("key") != key):
+            if gameid is not None:
+                rec.update(gameid=gameid, title=title)
+            if key:
+                rec["key"] = key
             heal.save_record(self._program, self._exe, rec)
             if gameid:
                 log.info("felismerve: %s (%s)", title, gameid)
         self._gameid = gameid or None
-        self._plan = heal.plan(self._program, self._exe)
+        self._key = key
+        self._plan = heal.plan(self._program, self._exe, community.suggestion(key) if key else None)
         self._tries = 0
         self._snapshot = False
         self._succeeded = False
@@ -334,6 +340,7 @@ class ExeController(QObject):
             self._retry(attempt)
             return
         log.info("nem indult el ezzel: %s", attempt.key)
+        community.queue_report(self._key, attempt, "failed")
         failed = set(rec.get("failed", [])) | {f"{heal.resolved_name(attempt)}|{attempt.profile}", attempt.key}
         rec["failed"] = sorted(failed)
         good = rec.get("good")
@@ -378,6 +385,11 @@ class ExeController(QObject):
         rec["good"] = {"proton": name, "profile": self._attempt.profile}
         rec["failed"] = [k for k in rec.get("failed", []) if k not in (f"{name}|{self._attempt.profile}",
                                                                        self._attempt.key)]
+        # A közös tudásnak csak az új eredmény megy (minden indításkor ugyanazt nem jelentjük)
+        reported = f"{name}|{self._attempt.profile}|{sorted(map(list, self._attempt.fixes))}"
+        if rec.get("reported") != reported:
+            community.queue_report(self._key, self._attempt, "worked")
+            rec["reported"] = reported
         heal.save_record(self._program, self._exe, rec)
         self._program.save_meta(prefix_proton=name)
         if self._snapshot:

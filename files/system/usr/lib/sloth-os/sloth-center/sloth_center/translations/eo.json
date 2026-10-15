@@ -330,8 +330,9 @@
   "Start menü": "Start-menuo",
   "Eltávolítod: {name}?": "Ĉu forigi {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "La programo kaj ĉiuj ĝiaj dosieroj foriĝos (ankaŭ konservitaj ludoj kaj agordoj). Tio ne estas malfarebla.",
-
   "Rendszerbeállítások": "Sistemaj agordoj",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ĝisdatigoj, malfaro, peliloj kaj ĉio alia, por kio alie necesus terminalo",
-  "frissítés;visszaállítás;driver;beállítás": "ĝisdatigo;malfaro;pelilo;agordoj"
+  "frissítés;visszaállítás;driver;beállítás": "ĝisdatigo;malfaro;pelilo;agordoj",
+  "Tapasztalatok megosztása": "Kunhavigi spertojn",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Kiam programo startas en via komputilo, ni anonime kunhavigas, kiu agordo funkciis, por ke ĝi startu je la unua provo ankaŭ en aliaj komputiloj kun Sloth OS. Nur la agordo kaj la fabrikanto de via grafika karto estas senditaj: ne via nomo, ne viaj dosieroj, ne la nomo de la programo."
 }

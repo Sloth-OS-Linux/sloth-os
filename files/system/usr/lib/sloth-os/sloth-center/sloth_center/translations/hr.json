@@ -330,8 +330,9 @@
   "Start menü": "Izbornik Start",
   "Eltávolítod: {name}?": "Ukloniti {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "Program i sve njegove datoteke bit će izbrisani (uključujući spremljene igre i postavke). Ovo se ne može poništiti.",
-
   "Rendszerbeállítások": "Postavke sustava",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ažuriranja, vraćanje, upravljački programi i sve za što bi inače trebao terminal",
-  "frissítés;visszaállítás;driver;beállítás": "ažuriranje;vraćanje;upravljački program;postavke"
+  "frissítés;visszaállítás;driver;beállítás": "ažuriranje;vraćanje;upravljački program;postavke",
+  "Tapasztalatok megosztása": "Dijeli iskustva",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Kad se program pokrene na tvom računalu, anonimno dijelimo koja je postavka uspjela, kako bi se i na drugim računalima sa Sloth OS-om pokrenuo iz prvog pokušaja. Šalju se samo postavka i proizvođač grafičke kartice: ne tvoje ime, tvoje datoteke ni naziv programa."
 }

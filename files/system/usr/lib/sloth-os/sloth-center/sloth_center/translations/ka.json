@@ -330,8 +330,9 @@
   "Start menü": "Start მენიუ",
   "Eltávolítod: {name}?": "წავშალოთ {name}?",
   "A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.": "პროგრამა და მისი ყველა ფაილი წაიშლება (შენახვებისა და პარამეტრების ჩათვლით). ამის გაუქმება შეუძლებელია.",
-
   "Rendszerbeállítások": "სისტემის პარამეტრები",
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "განახლებები, დაბრუნება, დრაივერები და ყველაფერი, რასაც სხვაგვარად ტერმინალი დასჭირდებოდა",
-  "frissítés;visszaállítás;driver;beállítás": "განახლება;დაბრუნება;დრაივერი;პარამეტრები"
+  "frissítés;visszaállítás;driver;beállítás": "განახლება;დაბრუნება;დრაივერი;პარამეტრები",
+  "Tapasztalatok megosztása": "გამოცდილების გაზიარება",
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "როცა პროგრამა თქვენს კომპიუტერზე ეშვება, ანონიმურად ვაზიარებთ, რომელმა პარამეტრმა იმუშავა, რათა ის სხვა Sloth OS კომპიუტერებზეც პირველივე ცდაზე გაეშვას. იგზავნება მხოლოდ პარამეტრი და ვიდეობარათის მწარმოებელი: არც თქვენი სახელი, არც ფაილები და არც პროგრამის სახელი."
 }
