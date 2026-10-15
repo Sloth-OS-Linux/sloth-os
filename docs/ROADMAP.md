@@ -145,8 +145,9 @@ terminálból lehet csinálni, GUI-ból is menjen.
        játék. A felismert (Steam AppID-s) játékoknál ez az első próba, ha nincs saját vagy Sloth OS-es adat
      - [x] Bővített engedélyezett kapcsolók: NVAPI, NVIDIA elrejtése, large address aware, heap delay free,
        D3D10/11 ki, régi GL-szöveg, write watch ki (a Workerben, a gépen és a ProtonDB-feldolgozóban is)
-     - [ ] Később: a szolgáltatás figyelése (ha nem
-       érhető el, a gépek a sorban tartják a jelentéseket, az olvasás a GitHubról megy tovább)
+     - [x] A szolgáltatás figyelése (2026-10-16): a knowledge repó `monitor` Actionje naponta ellenőrzi a Workert, a
+       jelentések ellenőrzését és az exportot; hiba esetén issue nyílik (e-mail), ha újra rendben van, lezárul.
+       A hibaág még nincs élesben kipróbálva
   - Kipróbálva (2026-10-15) a valódi vezérlővel és egy hamis futtatóval: hiányzó DLL, Vulkan-hiba, ismeretlen
     összeomlás, frissítés utáni visszaállás Btrfs-en, reménytelen eset, indító-átadás, ottmaradt Wine-folyamatok.
     Valódi gépen még nincs kipróbálva
