@@ -86,6 +86,10 @@ class InstallerController(QObject):
         self._probe = {}            # a segéd válasza; {"state": "probing"} amíg fut
         self._probe_proc = None
         self._size_gib = 0
+        # Lemeztitkosítás (LUKS2): alapból a fiók jelszavával, de külön jelszó is adható
+        self._encrypt = False
+        self._encrypt_same = True
+        self._encrypt_pw = ("", "")
         # A kiosztás élő átállítása kis késleltetéssel: a nyelvlistán végiglépkedve ne fusson
         # minden nyelvnél külön váltás (egymásra futva rossz kiosztás maradhatott érvényben)
         self._keyboard_timer = QTimer(self, singleShot=True, interval=400)
@@ -119,6 +123,22 @@ class InstallerController(QObject):
         return catalog.tr(self._error) if self._error else ""
 
     beside = Property(bool, lambda self: self._beside, notify=changed)
+    encrypt = Property(bool, lambda self: self._encrypt, notify=changed)
+    encryptSame = Property(bool, lambda self: self._encrypt_same, notify=changed)
+
+    def _passphrase(self):
+        return self._password if self._encrypt_same else self._encrypt_pw[0]
+
+    @Property(str, notify=changed)
+    def encryptProblem(self):
+        """Mi hiányzik a titkosításhoz (fordítási kulcs), vagy üres, ha rendben van."""
+        if not self._encrypt:
+            return ""
+        if not self._encrypt_same and self._encrypt_pw[0] != self._encrypt_pw[1]:
+            return "disk.encrypt.mismatch"
+        if len(self._passphrase()) < 8:
+            return "disk.encrypt.short_same" if self._encrypt_same else "disk.encrypt.short"
+        return ""
     sizeGib = Property(int, lambda self: self._size_gib, notify=changed)
 
     @Property("QVariantMap", notify=changed)
@@ -282,6 +302,22 @@ class InstallerController(QObject):
         self._confirmed = False
         self.changed.emit()
 
+    @Slot(bool)
+    def setEncrypt(self, value):
+        self._encrypt = value
+        self._confirmed = False
+        self.changed.emit()
+
+    @Slot(bool)
+    def setEncryptSame(self, value):
+        self._encrypt_same = value
+        self.changed.emit()
+
+    @Slot(str, str)
+    def setEncryptPassword(self, first, second):
+        self._encrypt_pw = (first, second)
+        self.changed.emit()
+
     @Slot(int)
     def setSizeGib(self, value):
         info = self.besideInfo
@@ -321,6 +357,8 @@ class InstallerController(QObject):
             return
         if self._beside and not self.besideInfo.get("possible"):
             return
+        if self.encryptProblem:
+            return
         locale = next(l["locale"] for l in self._languages if l["code"] == self._language)
         self._page, self._stage, self._progress, self._error = "install", "start", 0, ""
         self.changed.emit()
@@ -333,6 +371,8 @@ class InstallerController(QObject):
                 "--username", self._username, "--fullname", self._full_name]
         if self._beside:
             args += ["--beside-windows", "--size-gib", str(self._size_gib)]
+        if self._encrypt:
+            args.append("--encrypt")
         if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
             # próbaüzem: jelszókérés és lemeztörlés nélkül
             self._proc.start(HELPER, args[1:])
@@ -340,6 +380,9 @@ class InstallerController(QObject):
             self._proc.start("pkexec", args)
         # A jelszó a szabványos bemeneten megy át (parancssorban nem látszana el más folyamatoknak)
         self._proc.write((self._password + "\n").encode())
+        if self._encrypt:
+            # a titkosítás jelszava a második sor (szintén csak a szabványos bemeneten)
+            self._proc.write((self._passphrase() + "\n").encode())
         self._proc.closeWriteChannel()
 
     def _inhibit_idle(self):

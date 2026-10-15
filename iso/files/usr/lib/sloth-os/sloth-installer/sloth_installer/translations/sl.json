@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Pogona z Windows nismo mogli preveriti, zato mu ne bomo spremenili velikosti.",
   "disk.beside.bitlocker": "Pogon z Windows je šifriran z BitLockerjem in ga od tu ni mogoče zmanjšati. V Windows odpri Upravljanje diskov (desni klik na pogon C: → Skrči nosilec), sprosti vsaj 40 GB in znova zaženi namestitveni program: namestili bomo v sproščeni prostor.",
   "disk.beside.no_space": "Poleg Windows ni dovolj prostora: Sloth OS potrebuje vsaj 40 GB, tudi Windows pa potrebuje nekaj prostora.",
+  "disk.encrypt.option": "Šifriraj disk",
+  "disk.encrypt.hint": "Če ti računalnik ukradejo ali ga izgubiš, do tvojih datotek nihče ne more. Geslo boš moral vnesti ob vsakem vklopu.",
+  "disk.encrypt.same": "Isto geslo kot za moj račun",
+  "disk.encrypt.password": "Geslo za šifriranje:",
+  "disk.encrypt.repeat": "Še enkrat:",
+  "disk.encrypt.warning": "Če pozabiš to geslo, datotek ne bo mogoče obnoviti. Zapiši ga in ga shrani na varno mesto.",
+  "disk.encrypt.mismatch": "Gesli se ne ujemata.",
+  "disk.encrypt.short": "Geslo mora imeti vsaj 8 znakov.",
+  "disk.encrypt.short_same": "Geslo tvojega računa ima manj kot 8 znakov: za šifriranje vnesi daljše, ločeno geslo.",
 
   "confirm.heading": "Vse na tem disku bo izbrisano",
   "confirm.text": "Sloth OS uporabi cel disk: {disk}. Vse, kar je zdaj na njem (datoteke, programi, drugi sistemi), bo trajno izbrisano.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows je šifriran z BitLockerjem: ob naslednjem zagonu lahko zahteva obnovitveni ključ. Imej ga pri roki (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Ob vklopu računalnika lahko nekaj sekund izbiraš med Sloth OS in Windows.",
   "confirm.beside.checkbox": "Razumem in imam varnostno kopijo pomembnih datotek",
+  "confirm.encrypt": "Disk bo šifriran: ob vklopu se odpre s tvojim geslom.",
 
   "nav.back": "Nazaj",
   "nav.next": "Naprej",
@@ -74,6 +84,7 @@
   "stage.start": "Pripravljanje…",
   "stage.partition": "Priprava diska…",
   "stage.shrink": "Spreminjanje velikosti pogona z Windows…",
+  "stage.encrypt": "Nastavljanje šifriranja…",
   "stage.prepare": "Priprava sistema…",
   "stage.copy": "Kopiranje Sloth OS na disk…",
   "stage.bootloader": "Nastavljanje zagona…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Med kopiranjem sistema na disk je šlo nekaj narobe. Podatki, ki so bili na disku, so morda že izbrisani.",
   "error.configure_failed": "Sistem je nameščen, vendar jezika in tipkovnice ni bilo mogoče nastaviti. Poskusite znova; če spet ne gre, ju lahko po prvem zagonu nastavite v Sistemskih nastavitvah.",
   "error.beside_shrink_failed": "Pogona z Windows ni bilo mogoče zmanjšati. Zaženi Windows, preveri disk (Ta računalnik → C: → Lastnosti → Orodja → Preveri) in poskusi znova.",
+  "error.encrypt_failed": "Šifriranja ni bilo mogoče nastaviti. Poskusi znova; če spet ne gre, namesti brez šifriranja.",
 
   "desktop.comment": "Namestitev Sloth OS na ta računalnik",
   "desktop.keywords": "namestitev;namestilnik"

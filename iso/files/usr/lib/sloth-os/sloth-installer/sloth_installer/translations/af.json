@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Ons kon nie die Windows-skyf nagaan nie, so ons verander nie sy grootte nie.",
   "disk.beside.bitlocker": "Die Windows-skyf is met BitLocker geënkripteer en kan nie van hier af kleiner gemaak word nie. Maak in Windows Skyfbestuur oop (regskliek op skyf C: → Krimp volume), maak minstens 40 GB vry en begin die installeerder weer: ons installeer in die vrygemaakte spasie.",
   "disk.beside.no_space": "Daar is nie genoeg spasie langs Windows nie: Sloth OS het minstens 40 GB nodig, en Windows het ook vrye spasie nodig.",
+  "disk.encrypt.option": "Enkripteer die skyf",
+  "disk.encrypt.hint": "As jou rekenaar gesteel word of wegraak, kan niemand by jou lêers uitkom nie. Jy sal die wagwoord elke keer moet intik wanneer jy dit aanskakel.",
+  "disk.encrypt.same": "Dieselfde wagwoord as my rekening",
+  "disk.encrypt.password": "Enkripsiewagwoord:",
+  "disk.encrypt.repeat": "Nog een keer:",
+  "disk.encrypt.warning": "As jy hierdie wagwoord vergeet, kan jou lêers nie herwin word nie. Skryf dit neer en hou dit op 'n veilige plek.",
+  "disk.encrypt.mismatch": "Die twee wagwoorde stem nie ooreen nie.",
+  "disk.encrypt.short": "Die wagwoord moet minstens 8 karakters lank wees.",
+  "disk.encrypt.short_same": "Jou rekeningwagwoord is korter as 8 karakters: tik 'n langer, aparte wagwoord vir die enkripsie in.",
 
   "confirm.heading": "Alles op hierdie skyf word uitgevee",
   "confirm.text": "Sloth OS gebruik die hele skyf: {disk}. Alles wat nou daarop is (lêers, programme, ander stelsels), word permanent uitgevee.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows is met BitLocker geënkripteer: die volgende keer as dit begin, kan dit vir die herstelsleutel vra. Hou dit byderhand (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Wanneer die rekenaar aanskakel, kan jy 'n paar sekondes lank tussen Sloth OS en Windows kies.",
   "confirm.beside.checkbox": "Ek verstaan, en ek het 'n rugsteun van my belangrike lêers gemaak",
+  "confirm.encrypt": "Die skyf word geënkripteer: dit maak met jou wagwoord oop wanneer die rekenaar begin.",
 
   "nav.back": "Terug",
   "nav.next": "Volgende",
@@ -74,6 +84,7 @@
   "stage.start": "Maak gereed…",
   "stage.partition": "Berei die skyf voor…",
   "stage.shrink": "Verander tans die grootte van die Windows-skyf…",
+  "stage.encrypt": "Stel tans enkripsie op…",
   "stage.prepare": "Berei die stelsel voor…",
   "stage.copy": "Kopieer Sloth OS na die skyf…",
   "stage.bootloader": "Stel die opstart op…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Iets het verkeerd geloop met die kopiëring van die stelsel na die skyf. Data wat op die skyf was, is dalk reeds uitgevee.",
   "error.configure_failed": "Die stelsel is geïnstalleer, maar taal en sleutelbord kon nie ingestel word nie. Probeer weer; as dit weer misluk, kan jy dit ná die eerste opstart in Stelselinstellings instel.",
   "error.beside_shrink_failed": "Die Windows-skyf kon nie kleiner gemaak word nie. Begin Windows, kontroleer die skyf (Hierdie rekenaar → C: → Eienskappe → Gereedskap → Kontroleer) en probeer weer.",
+  "error.encrypt_failed": "Die enkripsie kon nie opgestel word nie. Probeer weer; as dit weer misluk, installeer sonder enkripsie.",
 
   "desktop.comment": "Installeer Sloth OS op hierdie rekenaar",
   "desktop.keywords": "installeer;installeerder"

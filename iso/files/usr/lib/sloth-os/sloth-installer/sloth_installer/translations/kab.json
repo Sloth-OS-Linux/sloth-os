@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Ur nezmir ara ad nesenqed tabṛaṛt n Windows, ihi ur as-nbeddel ara teɣzi.",
   "disk.beside.bitlocker": "Tabṛaṛt n Windows tettwawgelhen s BitLocker ur tezmir ara ad temẓi seg da. Deg Windows, ldi Asefrek n yiḍebsiyen (asiti ayeffus ɣef C: → Ssemẓi ableɣ), serreḥ ɣef 40 GB ma drus, sakin ales asekker n umsebded: ad nesbedd deg tallunt yettwasserḥen.",
   "disk.beside.no_space": "Ulac tallunt i d-yeqqimen ɣer yidis n Windows: Sloth OS yesra 40 GB ma drus, ula d Windows yesra tallunt tilellit.",
+  "disk.encrypt.option": "Wgelhen aḍebsi",
+  "disk.encrypt.hint": "Ma yettwaker neɣ iruḥ-ak uselkim, yiwen ur yezmir ad yaweḍ ɣer yifuyla-k. Ilaq ad d-tesqedceḍ awal uffir yal tikkelt ara t-tesreḥeḍ.",
+  "disk.encrypt.same": "Yiwen n wawal uffir am umiḍan-iw",
+  "disk.encrypt.password": "Awal uffir n uwgelhen:",
+  "disk.encrypt.repeat": "Tikkelt-nniḍen:",
+  "disk.encrypt.warning": "Ma yella tettuḍ awal-a uffir, ifuyla-k ur ttuɣalen ara. Aru-t, tḥerzeḍ-t deg wadeg yettwaḍmanen.",
+  "disk.encrypt.mismatch": "Sin wawalen uffiren ur mṣadan ara.",
+  "disk.encrypt.short": "Awal uffir ilaq ad yesɛu 8 n yisekkilen ma drus.",
+  "disk.encrypt.short_same": "Awal uffir n umiḍan-ik yedra ɣef 8 n yisekkilen: sekcem awal uffir nniḍen, ɣezzifen, i uwgelhen.",
 
   "confirm.heading": "Ayen akk yellan deg uḍebsi-a ad yettwakkes",
   "confirm.text": "Sloth OS ad yesseqdec aḍebsi akk: {disk}. Ayen akk yellan tura (ifuyla, ihilen, inagrawen nniḍen) ad yettwakkes i lebda.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows yettwawgelhen s BitLocker: tikkelt i d-iteddun ara yekker yezmer ad d-yessuter tasarut n tririt. Ǧǧ-itt ɣer yidis-ik (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Mi ara tesreḥeḍ aselkim, tzemreḍ ad tferneḍ gar Sloth OS d Windows kra n tsinin.",
   "confirm.beside.checkbox": "Fehmeɣ, ɣaseɣ anɣel n yifuyla-inu yesɛan azal",
+  "confirm.encrypt": "Aḍebsi ad yettwawgelhen: ad yeldi s wawal-ik uffir mi ara yekker uselkim.",
 
   "nav.back": "Ɣer deffir",
   "nav.next": "Ɣer zdat",
@@ -74,6 +84,7 @@
   "stage.start": "Aheyyi…",
   "stage.partition": "Aheyyi n uḍebsi…",
   "stage.shrink": "Abeddel n teɣzi n tebṛaṛt n Windows…",
+  "stage.encrypt": "Asbadu n uwgelhen…",
   "stage.prepare": "Aheyyi n unagraw…",
   "stage.copy": "Anɣal n Sloth OS ɣer uḍebsi…",
   "stage.bootloader": "Aswel n usenker…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Yella wugur deg unɣal n unagraw ɣer uḍebsi. Isefka yellan deg uḍebsi zemren ad ttwakksen yakan.",
   "error.configure_failed": "Anagraw yebded, maca tutlayt d unasiw ur ttwasbedden ara. Ɛreḍ tikkelt nniḍen; ma ur yeddi ara, tzemreḍ ad ten-tesbeddeḍ deg yiɣewwaren n unagraw seld asekker amenzu.",
   "error.beside_shrink_failed": "Ur tezmir ara tebṛaṛt n Windows ad temẓi. Sekker Windows, senqed aḍebsi (PC-a → C: → Timeẓliwin → Ifecka → Senqed), sakin ɛreḍ tikkelt-nniḍen.",
+  "error.encrypt_failed": "Asbadu n uwgelhen ur yeddi ara. Ɛreḍ tikkelt-nniḍen; ma yella mazal, sebded war awgelhen.",
 
   "desktop.comment": "Sebded Sloth OS deg uselkim-a",
   "desktop.keywords": "asebded;amsebded"

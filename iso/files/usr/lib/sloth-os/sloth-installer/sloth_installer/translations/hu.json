@@ -54,6 +54,15 @@
   "disk.beside.unknown": "A Windows meghajtóját nem tudtuk megvizsgálni, ezért nem méretezzük át.",
   "disk.beside.bitlocker": "A Windows meghajtója BitLockerrel titkosított, ezt innen nem lehet kisebbre venni. A Windowsban a Lemezkezelésben (jobb kattintás a C: meghajtón → Kötet zsugorítása) szabadíts fel legalább 40 GB-ot, majd indítsd újra a telepítőt: a felszabadult helyre telepítünk.",
   "disk.beside.no_space": "Nincs elég hely a Windows mellett: a Sloth OS-nek legalább 40 GB kell, és a Windowsnak is maradnia kell szabad helynek.",
+  "disk.encrypt.option": "A lemez titkosítása",
+  "disk.encrypt.hint": "Ha a gépet ellopják vagy elveszíted, a fájljaidhoz senki nem fér hozzá. Minden bekapcsoláskor meg kell adnod a jelszót.",
+  "disk.encrypt.same": "Ugyanaz a jelszó, mint a fiókomé",
+  "disk.encrypt.password": "Titkosítási jelszó:",
+  "disk.encrypt.repeat": "Még egyszer:",
+  "disk.encrypt.warning": "Ha elfelejted ezt a jelszót, a fájljaid nem állíthatók vissza. Írd fel, és tedd biztos helyre.",
+  "disk.encrypt.mismatch": "A két jelszó nem egyezik.",
+  "disk.encrypt.short": "A jelszó legalább 8 karakter legyen.",
+  "disk.encrypt.short_same": "A fiókod jelszava rövidebb 8 karakternél: a titkosításhoz adj meg egy hosszabb, külön jelszót.",
 
   "confirm.heading": "Minden törlődik erről a lemezről",
   "confirm.text": "A Sloth OS a teljes lemezt használja: {disk}. Minden, ami most rajta van (fájlok, programok, más rendszerek), végleg törlődik.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "A Windows BitLockerrel titkosított: a következő Windows-indításkor kérheti a helyreállítási kulcsot. Tartsd kéznél (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Bekapcsoláskor pár másodpercig választhatsz a Sloth OS és a Windows között.",
   "confirm.beside.checkbox": "Értem, és a fontos fájljaimat elmentettem",
+  "confirm.encrypt": "A lemez titkosítva lesz: bekapcsoláskor a jelszavaddal nyílik.",
 
   "nav.back": "Vissza",
   "nav.next": "Tovább",
@@ -74,6 +84,7 @@
   "stage.start": "Felkészülés…",
   "stage.partition": "Lemez előkészítése…",
   "stage.shrink": "A Windows meghajtójának átméretezése…",
+  "stage.encrypt": "Titkosítás beállítása…",
   "stage.prepare": "Rendszer előkészítése…",
   "stage.copy": "Sloth OS másolása a lemezre…",
   "stage.bootloader": "Rendszerindító beállítása…",
@@ -95,6 +106,7 @@
   "error.install_failed": "Hiba történt a rendszer lemezre másolása közben. A lemezen korábban lévő adatok ekkorra már törlődhettek.",
   "error.configure_failed": "A rendszer felkerült, de a nyelv és a billentyűzet beállítása nem sikerült. Próbáld újra; ha megint nem megy, első indítás után a Rendszerbeállításokban is beállíthatod.",
   "error.beside_shrink_failed": "Nem sikerült kisebbre venni a Windows meghajtóját. Indítsd el a Windowst, ellenőrizd a lemezt (Ez a gép → C: → Tulajdonságok → Eszközök → Ellenőrzés), majd próbáld újra.",
+  "error.encrypt_failed": "A titkosítás beállítása nem sikerült. Próbáld újra; ha megint nem megy, telepíts titkosítás nélkül.",
 
   "desktop.comment": "A Sloth OS telepítése erre a gépre",
   "desktop.keywords": "telepítés;telepítő"

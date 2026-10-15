@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Não conseguimos verificar a unidade do Windows, então não vamos redimensioná-la.",
   "disk.beside.bitlocker": "A unidade do Windows está criptografada com o BitLocker e não pode ser reduzida daqui. No Windows, abra o Gerenciamento de Disco (clique com o botão direito na unidade C: → Diminuir Volume), libere pelo menos 40 GB e inicie o instalador de novo: vamos instalar no espaço liberado.",
   "disk.beside.no_space": "Não há espaço suficiente ao lado do Windows: o Sloth OS precisa de pelo menos 40 GB e o Windows também precisa de algum espaço livre.",
+  "disk.encrypt.option": "Criptografar o disco",
+  "disk.encrypt.hint": "Se o computador for roubado ou perdido, ninguém consegue acessar seus arquivos. Você vai precisar digitar a senha toda vez que ligar o computador.",
+  "disk.encrypt.same": "A mesma senha da minha conta",
+  "disk.encrypt.password": "Senha de criptografia:",
+  "disk.encrypt.repeat": "Mais uma vez:",
+  "disk.encrypt.warning": "Se você esquecer esta senha, seus arquivos não poderão ser recuperados. Anote e guarde em um lugar seguro.",
+  "disk.encrypt.mismatch": "As duas senhas não coincidem.",
+  "disk.encrypt.short": "A senha precisa ter pelo menos 8 caracteres.",
+  "disk.encrypt.short_same": "A senha da sua conta tem menos de 8 caracteres: digite uma senha diferente e mais longa para a criptografia.",
 
   "confirm.heading": "Tudo neste disco será apagado",
   "confirm.text": "O Sloth OS usa o disco inteiro: {disk}. Tudo o que está nele agora (arquivos, programas, outros sistemas) será apagado para sempre.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "O Windows está criptografado com o BitLocker: na próxima inicialização ele pode pedir a chave de recuperação. Deixe-a à mão (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Ao ligar o computador, você pode escolher entre o Sloth OS e o Windows por alguns segundos.",
   "confirm.beside.checkbox": "Entendi e fiz backup dos meus arquivos importantes",
+  "confirm.encrypt": "O disco será criptografado: ele abre com a sua senha quando o computador liga.",
 
   "nav.back": "Voltar",
   "nav.next": "Avançar",
@@ -74,6 +84,7 @@
   "stage.start": "Preparando…",
   "stage.partition": "Preparando o disco…",
   "stage.shrink": "Redimensionando a unidade do Windows…",
+  "stage.encrypt": "Configurando a criptografia…",
   "stage.prepare": "Preparando o sistema…",
   "stage.copy": "Copiando o Sloth OS para o disco…",
   "stage.bootloader": "Configurando a inicialização…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Algo deu errado ao copiar o sistema para o disco. Os dados que estavam no disco podem já ter sido apagados.",
   "error.configure_failed": "O sistema foi instalado, mas não foi possível definir idioma e teclado. Tente de novo; se falhar outra vez, você pode ajustá-los nas Configurações do sistema depois da primeira inicialização.",
   "error.beside_shrink_failed": "Não foi possível diminuir a unidade do Windows. Inicie o Windows, verifique o disco (Este Computador → C: → Propriedades → Ferramentas → Verificar) e tente de novo.",
+  "error.encrypt_failed": "Não foi possível configurar a criptografia. Tente de novo; se continuar falhando, instale sem criptografia.",
 
   "desktop.comment": "Instalar o Sloth OS neste computador",
   "desktop.keywords": "instalar;instalador"

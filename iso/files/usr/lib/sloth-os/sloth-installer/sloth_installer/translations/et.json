@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Me ei saanud Windowsi ketast kontrollida, seega me selle suurust ei muuda.",
   "disk.beside.bitlocker": "Windowsi ketas on BitLockeriga krüpteeritud ja seda ei saa siit väiksemaks teha. Ava Windowsis Kettahaldus (paremklõps kettal C: → Kahanda köidet), vabasta vähemalt 40 GB ja käivita paigaldaja uuesti: paigaldame vabanenud ruumi.",
   "disk.beside.no_space": "Windowsi kõrval pole piisavalt ruumi: Sloth OS vajab vähemalt 40 GB ja ka Windowsile peab jääma vaba ruumi.",
+  "disk.encrypt.option": "Krüpteeri ketas",
+  "disk.encrypt.hint": "Kui arvuti varastatakse või kaob, ei pääse keegi sinu failidele ligi. Parooli tuleb sisestada iga kord, kui arvuti sisse lülitad.",
+  "disk.encrypt.same": "Sama parool, mis mu kontol",
+  "disk.encrypt.password": "Krüpteerimise parool:",
+  "disk.encrypt.repeat": "Veel kord:",
+  "disk.encrypt.warning": "Kui unustad selle parooli, ei saa sinu faile taastada. Kirjuta see üles ja hoia turvalises kohas.",
+  "disk.encrypt.mismatch": "Paroolid ei ühti.",
+  "disk.encrypt.short": "Parool peab olema vähemalt 8 märki pikk.",
+  "disk.encrypt.short_same": "Sinu konto parool on lühem kui 8 märki: sisesta krüpteerimiseks pikem eraldi parool.",
 
   "confirm.heading": "Kõik selle ketta andmed kustutatakse",
   "confirm.text": "Sloth OS kasutab kogu ketast: {disk}. Kõik, mis sellel praegu on (failid, programmid, muud süsteemid), kustutatakse jäädavalt.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows on BitLockeriga krüpteeritud: järgmisel käivitusel võib see küsida taastevõtit. Hoia see käepärast (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Arvuti sisselülitamisel saad mõne sekundi jooksul valida Sloth OS-i ja Windowsi vahel.",
   "confirm.beside.checkbox": "Saan aru ja olen olulistest failidest varukoopia teinud",
+  "confirm.encrypt": "Ketas krüpteeritakse: arvuti käivitamisel avaneb see sinu parooliga.",
 
   "nav.back": "Tagasi",
   "nav.next": "Edasi",
@@ -74,6 +84,7 @@
   "stage.start": "Ettevalmistus…",
   "stage.partition": "Ketta ettevalmistamine…",
   "stage.shrink": "Windowsi ketta suuruse muutmine…",
+  "stage.encrypt": "Krüpteerimise seadistamine…",
   "stage.prepare": "Süsteemi ettevalmistamine…",
   "stage.copy": "Sloth OS-i kopeerimine kettale…",
   "stage.bootloader": "Käivituse seadistamine…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Süsteemi kettale kopeerimisel läks midagi valesti. Kettal olnud andmed võivad olla juba kustutatud.",
   "error.configure_failed": "Süsteem paigaldati, kuid keelt ja klaviatuuri ei õnnestunud seadistada. Proovi uuesti; kui ikka ei õnnestu, saad need pärast esimest käivitust Süsteemi seadistustes määrata.",
   "error.beside_shrink_failed": "Windowsi ketast ei õnnestunud väiksemaks teha. Käivita Windows, kontrolli ketast (See arvuti → C: → Atribuudid → Tööriistad → Kontrolli) ja proovi uuesti.",
+  "error.encrypt_failed": "Krüpteerimist ei õnnestunud seadistada. Proovi uuesti; kui see jälle ei õnnestu, paigalda ilma krüpteerimiseta.",
 
   "desktop.comment": "Sloth OS-i paigaldamine sellesse arvutisse",
   "desktop.keywords": "paigaldamine;paigaldaja"

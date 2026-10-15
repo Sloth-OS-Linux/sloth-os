@@ -54,7 +54,10 @@ SCRATCH_BYTES = 10 * 1024**3                     # a kicsomagolt rétegeknek (m�
 MIN_BESIDE_BYTES = 40 * 1024**3                  # Windows mellé legalább ennyi kell a Sloth OS-nek
 WINDOWS_RESERVE = 20 * 1024**3                   # zsugorítás után ennyi szabad hely marad a Windowsnak
 ESP_MIB = 512
+BOOT_MIB = 1024    # titkosításnál külön /boot (a GRUB a LUKS2-t nem tudja kinyitni, a rendszermag itt van)
 MIB = 1024**2
+CRYPT_NAME = "sloth-root"
+CRYPT_DEV = Path("/dev/mapper") / CRYPT_NAME
 
 # GPT partíciótípusok
 BIOS_BOOT = "21686148-6449-6e6f-744e-656564454649"
@@ -161,29 +164,30 @@ def partitions(disk):
             for c in d.get("children") or [] if c.get("partn")}
 
 
-def partition(disk):
-    """Új GPT a lemezre: BIOS boot, EFI, rendszer (btrfs) és a végén az átmeneti munkapartíció."""
+def partition(disk, encrypt=False):
+    """Új GPT a lemezre: BIOS boot, EFI, (titkosításnál /boot,) rendszer és a végén az átmeneti munkapartíció."""
     size_mib = int(run(["lsblk", "--noheadings", "--nodeps", "--bytes", "--output", "SIZE", disk])) // 1024**2
     # 1 MiB az elején, 1 MiB a végén a GPT-nek; BIOS boot 1 MiB, EFI 512 MiB
-    root_mib = size_mib - 2 - 1 - 512 - SCRATCH_BYTES // 1024**2 - 2
+    boot_mib = BOOT_MIB if encrypt else 0
+    root_mib = size_mib - 2 - 1 - ESP_MIB - boot_mib - SCRATCH_BYTES // 1024**2 - 2
     if root_mib < 20 * 1024:
         fail("error.bad_disk", f"túl kicsi lemez: {size_mib} MiB")
     run(["wipefs", "--all", "--force", disk])
+    names = ["bios", "esp"] + (["boot"] if encrypt else []) + ["root", "scratch"]
     table = (
         "label: gpt\n"
         f"size=1MiB, type={BIOS_BOOT}, name=\"BIOS-BOOT\"\n"
-        f"size=512MiB, type={ESP_TYPE}, name=\"EFI-SYSTEM\"\n"
-        f"size={root_mib}MiB, type={ROOT_X86_64}, name=\"root\"\n"
+        f"size={ESP_MIB}MiB, type={ESP_TYPE}, name=\"EFI-SYSTEM\"\n"
+        + (f"size={boot_mib}MiB, type={LINUX_DATA}, name=\"boot\"\n" if encrypt else "")
+        + f"size={root_mib}MiB, type={ROOT_X86_64}, name=\"root\"\n"
         f"type={LINUX_DATA}, name=\"sloth-install-tmp\"\n")
     run(["sfdisk", "--wipe", "always", "--wipe-partitions", "always", disk], input=table)
     parts = partitions(disk)
-    if sorted(parts) != [1, 2, 3, 4]:
+    if sorted(parts) != list(range(1, len(names) + 1)):
         fail("error.install_failed", f"váratlan partíciók: {parts}")
-    run(["mkfs.fat", "-F", "32", "-n", "EFI-SYSTEM", parts[2]])
-    run(["mkfs.btrfs", "--force", "--label", "root", parts[3]])
-    run(["mkfs.ext4", "-F", "-q", "-L", "sloth-tmp", parts[4]])
-    mount_target(parts[3], parts[2], parts[4])
-    return {"esp": parts[2], "root": parts[3], "scratch": parts[4], "numbers": {"esp": 2, "root": 3, "scratch": 4}}
+    out = {name: parts[i + 1] for i, name in enumerate(names)}
+    out["numbers"] = {name: i + 1 for i, name in enumerate(names)}
+    return out
 
 
 # --- Windows mellé ------------------------------------------------------------------
@@ -338,7 +342,7 @@ BESIDE_PROBLEMS = ("not_uefi", "not_gpt", "hibernated", "dirty", "unknown", "bit
 BESIDE_ERRORS = {p: f"disk.beside.{p}" for p in BESIDE_PROBLEMS if p != "bitlocker"}
 
 
-def partition_beside(disk, size_bytes):
+def partition_beside(disk, size_bytes, encrypt=False):
     """A Sloth OS helye a Windows mellett: a meglévő szabad hely, vagy a Windows-partíció zsugorítása.
 
     -> (partíciók {"esp", "root", "scratch"} eszköz és partíciószám szerint, a Windows EFI FS-UUID-ja)
@@ -381,27 +385,28 @@ def partition_beside(disk, size_bytes):
         region = next(((st, sz) for st, sz in free_regions(pt) if sz >= need), None)
         if region is None:
             fail("error.install_failed", "a zsugorítás után sincs elég hely")
-    start = region[0]
-    esp = ESP_MIB * MIB // ss
+    # sorban: EFI, (titkosításnál /boot,) rendszer, munkapartíció
+    layout = [("esp", ESP_MIB * MIB // ss, ESP_TYPE, "EFI-SYSTEM")]
+    if encrypt:
+        layout.append(("boot", BOOT_MIB * MIB // ss, LINUX_DATA, "boot"))
     scratch = SCRATCH_BYTES // ss
-    root = need - esp - scratch
-    script = (f"start={start}, size={esp}, type={ESP_TYPE}, name=\"EFI-SYSTEM\"\n"
-              f"start={start + esp}, size={root}, type={ROOT_X86_64}, name=\"root\"\n"
-              f"start={start + esp + root}, size={scratch}, type={LINUX_DATA}, name=\"sloth-install-tmp\"\n")
+    root = need - sum(size for _n, size, _t, _l in layout) - scratch
+    layout += [("root", root, ROOT_X86_64, "root"), ("scratch", scratch, LINUX_DATA, "sloth-install-tmp")]
+    script, starts, pos = "", {}, region[0]
+    for name, size, ptype, label in layout:
+        script += f"start={pos}, size={size}, type={ptype}, name=\"{label}\"\n"
+        starts[name] = pos
+        pos += size
     run(["sfdisk", "--append", "--no-reread", disk], input=script)
     run(["partx", "--update", disk])
     run(["udevadm", "settle", "--timeout=30"])
     by_start = {p["start"]: p for p in table(disk)["partitions"]}
     try:
-        new = {name: by_start[s] for name, s in (("esp", start), ("root", start + esp), ("scratch", start + esp + root))}
+        new = {name: by_start[st] for name, st in starts.items()}
     except KeyError:
         fail("error.install_failed", f"az új partíciók nem jelentek meg: {sorted(by_start)}")
     parts = {name: p["node"] for name, p in new.items()}
     parts["numbers"] = {name: partnum(disk, p["node"]) for name, p in new.items()}
-    run(["mkfs.fat", "-F", "32", "-n", "EFI-SYSTEM", parts["esp"]])
-    run(["mkfs.btrfs", "--force", "--label", "root", parts["root"]])
-    run(["mkfs.ext4", "-F", "-q", "-L", "sloth-tmp", parts["scratch"]])
-    mount_target(parts["root"], parts["esp"], parts["scratch"])
     return parts, info["windowsEsp"]
 
 
@@ -410,13 +415,40 @@ def partnum(disk, node):
     return int(out["blockdevices"][0]["partn"])
 
 
-def mount_target(root, esp, scratch):
+def mount_target(root, esp, scratch, boot=None):
     TARGET.mkdir(parents=True, exist_ok=True)
     SCRATCH.mkdir(parents=True, exist_ok=True)
     run(["mount", root, str(TARGET)])
+    if boot:
+        (TARGET / "boot").mkdir()
+        run(["mount", boot, str(TARGET / "boot")])
     (TARGET / "boot/efi").mkdir(parents=True)
     run(["mount", esp, str(TARGET / "boot/efi")])
     run(["mount", scratch, str(SCRATCH)])
+
+
+def format_and_mount(parts, passphrase=""):
+    """Fájlrendszerek (titkosításnál a rendszerpartíción LUKS2), és a cél felcsatolása.
+
+    A jelszó csak a szabványos bemeneten megy át a cryptsetup-nak (sor vége nélkül: így kell majd
+    beírni indításkor is). A TRIM (discard) engedélyezése a fejlécbe kerül (--persistent).
+    """
+    run(["mkfs.fat", "-F", "32", "-n", "EFI-SYSTEM", parts["esp"]])
+    if parts.get("boot"):
+        run(["mkfs.ext4", "-F", "-q", "-L", "boot", parts["boot"]])
+    root_dev = parts["root"]
+    if passphrase:
+        emit(stage="encrypt", progress=12)
+        run(["cryptsetup", "luksFormat", "--type", "luks2", "--batch-mode", "--key-file=-", parts["root"]],
+            input=passphrase, error="error.encrypt_failed")
+        run(["cryptsetup", "open", "--allow-discards", "--persistent", "--key-file=-", parts["root"], CRYPT_NAME],
+            input=passphrase, error="error.encrypt_failed")
+        parts["luks_uuid"] = run(["cryptsetup", "luksUUID", parts["root"]]).strip()
+        root_dev = str(CRYPT_DEV)
+    parts["root_dev"] = root_dev
+    run(["mkfs.btrfs", "--force", "--label", "root", root_dev])
+    run(["mkfs.ext4", "-F", "-q", "-L", "sloth-tmp", parts["scratch"]])
+    mount_target(root_dev, parts["esp"], parts["scratch"], parts.get("boot"))
 
 
 def image_size(source):
@@ -443,12 +475,13 @@ def copy_progress(stop, expected, progress):
             emit(stage="copy", progress=pct)
 
 
-def run_bootc():
+def run_bootc(kargs=()):
     source, target = image_refs()
     cmd = ["bootc", "install", "to-filesystem",
            "--source-imgref", source, "--target-imgref", target,
            # amíg a repó privát, az élő rendszer nem tudja ellenőrizni a frissítések elérhetőségét
            "--skip-fetch-check",
+           *[f"--karg={k}" for k in kargs],
            str(TARGET)]
     log("$ " + " ".join(cmd))
     # A kicsomagolt rétegek a munkapartícióra kerüljenek, ne a RAM-ban lévő /var/tmp-be. A TMPDIR-t a
@@ -496,7 +529,7 @@ def setup_boot_menu(windows_esp=""):
         return
     # A bootc a végén („Finalizing filesystem root”) csak olvashatóra csatolja vissza a célt; írás előtt
     # vissza kell állítani (2026-10-15: e nélkül a custom.cfg írása kivételt dobott, és a segéd leállt).
-    for mp in (TARGET, TARGET / "boot/efi"):
+    for mp in (TARGET, TARGET / "boot", TARGET / "boot/efi"):
         if os.path.ismount(mp):
             r = subprocess.run(["mount", "-o", "remount,rw", str(mp)], capture_output=True, text=True)
             if r.returncode:
@@ -519,23 +552,34 @@ def setup_boot_menu(windows_esp=""):
         log(f"boot menü: nem sikerült, marad a látható menü ({e})")
 
 
-def finish_partitions(disk, parts):
+def finish_partitions(disk, parts, passphrase=""):
     """Leválasztás, a munkapartíció törlése, és a rendszerpartíció kiterjesztése a helyére
     (teljes lemeznél a lemez végéig, Windows mellett a következő partícióig)."""
     run(["sync"])
-    for mp in ("/var/tmp", SCRATCH, TARGET / "boot/efi", TARGET):
+    for mp in ("/var/tmp", SCRATCH, TARGET / "boot/efi", TARGET / "boot", TARGET):
         subprocess.run(["umount", str(mp)], capture_output=True)
     release_disk(disk)  # a bootc is csatolva hagyhat valamit (pl. /run/bootc/storage)
     root_n, scratch_n = str(parts["numbers"]["root"]), str(parts["numbers"]["scratch"])
+    # A rendszerpartíció pontosan a munkapartíció helyével nő (közvetlenül utána van): teljes lemeznél ez a
+    # lemez vége, Windows mellett pedig a felhasználó által választott méret (az esetleges további szabad
+    # hely szabad marad)
+    by_node = {p["node"]: p for p in table(disk)["partitions"]}
+    root_p, scratch_p = by_node[parts["root"]], by_node[parts["scratch"]]
+    if scratch_p["start"] != root_p["start"] + root_p["size"]:
+        fail("error.install_failed", f"a munkapartíció nem a rendszerpartíció után van: {root_p} {scratch_p}")
     run(["sfdisk", "--delete", disk, scratch_n])
-    run(["sfdisk", "--no-reread", "-N", root_n, disk], input=", +\n")
+    run(["sfdisk", "--no-reread", "-N", root_n, disk],
+        input=f"start={root_p['start']}, size={root_p['size'] + scratch_p['size']}\n")
     # a kernel is lássa az új partíciós táblát (Windows mellett a Windows-partíciók miatt nem mindig
     # olvasható újra az egész, ezért partíciónként frissítünk)
     if subprocess.run(["blockdev", "--rereadpt", disk], capture_output=True).returncode != 0:
         subprocess.run(["partx", "--delete", "--nr", scratch_n, disk], capture_output=True)
         run(["partx", "--update", "--nr", root_n, disk])
     run(["udevadm", "settle", "--timeout=30"])
-    return parts["root"]
+    if parts.get("luks_uuid"):
+        # a titkosított réteg is kövesse a nagyobb partíciót (a fájlrendszer a configure-ban nő)
+        run(["cryptsetup", "resize", "--key-file=-", CRYPT_NAME], input=passphrase, error="error.configure_failed")
+    return parts["root_dev"]
 
 
 LOADER = r"\EFI\fedora\shimx64.efi"
@@ -576,6 +620,12 @@ CONSOLE_KEYMAPS = {"gb": "uk", "cz": "cz-qwertz", "sk": "sk-qwertz", "si": "slov
                    "kr": "us", "cn": "us", "tw": "us", "al": "us", "lv": "us"}
 
 
+def console_keymap(layouts):
+    """A konzol (és a titkosított lemez jelszókérője) kiosztása: a választott, nem latin betűsnél az amerikai."""
+    console = layouts[0] if layouts[0] != "us" or len(layouts) == 1 else "us"
+    return CONSOLE_KEYMAPS.get(console, console)
+
+
 def password_hash(password):
     """SHA-512 crypt hash (a jelszó csak a szabványos bemeneten megy át, parancssorban nem látszik)."""
     r = subprocess.run(["openssl", "passwd", "-6", "-stdin"], input=password + "\n",
@@ -585,7 +635,7 @@ def password_hash(password):
     return r.stdout.strip()
 
 
-def configure(root_part, locale, layouts, variants, timezone, account, beside_windows=False):
+def configure(root_part, locale, layouts, variants, timezone, account, beside_windows=False, luks_uuid=""):
     """A nyelv, a billentyűzet és az időzóna beírása a feltelepített rendszer /etc mappájába."""
     mnt = Path(tempfile.mkdtemp(prefix="sloth-install-"))
     log(f"gyökérpartíció: {root_part}")
@@ -600,10 +650,9 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
         etc = Path(etcs[0])
         deploy = etc.parent
 
-        console = layouts[0] if layouts[0] != "us" or len(layouts) == 1 else "us"
         files = {
             etc / "locale.conf": f"LANG={locale}\n",
-            etc / "vconsole.conf": f"KEYMAP={CONSOLE_KEYMAPS.get(console, console)}\n",
+            etc / "vconsole.conf": f"KEYMAP={console_keymap(layouts)}\n",
             # a bejelentkező képernyő és az X11/Wayland alapértelmezése (systemd-localed formátum)
             etc / "X11/xorg.conf.d/00-keyboard.conf": (
                 'Section "InputClass"\n'
@@ -621,6 +670,9 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
                 + ("Options=grp:alt_shift_toggle\nResetOldOptions=true\n" if len(layouts) > 1 else "")
                 + "Use=true\n"),
         }
+        if luks_uuid:
+            # A titkosított rendszerpartíció (az initramfs a rd.luks.uuid alapján nyitja, a jelszót a Plymouth kéri)
+            files[etc / "crypttab"] = f"luks-{luks_uuid} UUID={luks_uuid} none discard\n"
         if beside_windows:
             # A Windows a hardverórát helyi időben tartja: ha mi UTC-ben, minden váltás után elcsúszna az óra
             files[etc / "adjtime"] = "0.0 0 0.0\n0\nLOCAL\n"
@@ -684,7 +736,7 @@ def use_signed_updates(deploy):
 
 
 def dry_run(beside=False):
-    for stage, pct in [("shrink", 8)] * beside + [("partition", 10), ("prepare", 20)] + [("copy", p) for p in range(25, 81, 5)] + \
+    for stage, pct in [("shrink", 8)] * beside + [("partition", 10), ("encrypt", 12), ("prepare", 20)] + [("copy", p) for p in range(25, 81, 5)] + \
             [("bootloader", 85), ("finishing", 90), ("configure", 95)]:
         time.sleep(1.5)
         emit(stage=stage, progress=pct)
@@ -703,6 +755,7 @@ def main():
     inst.add_argument("--fullname", default="")
     inst.add_argument("--beside-windows", action="store_true")
     inst.add_argument("--size-gib", type=int, default=0)
+    inst.add_argument("--encrypt", action="store_true", help="a titkosítás jelszava a 2. sor a bemeneten")
     prb = sub.add_parser("probe")
     prb.add_argument("--disk", required=True)
     args = parser.parse_args()
@@ -744,23 +797,37 @@ def main():
     password = sys.stdin.readline().rstrip("\n")
     if not password:
         fail("error.bad_input", "üres jelszó")
+    passphrase = sys.stdin.readline().rstrip("\n") if args.encrypt else ""
+    if args.encrypt and len(passphrase) < 8:
+        fail("error.bad_input", "túl rövid titkosítási jelszó")
     account = {"username": args.username, "fullname": args.fullname, "password_hash": password_hash(password)}
 
     LOG.write_text(f"Sloth OS telepítés: {time.ctime()}\n", encoding="utf-8")
     emit(stage="partition", progress=5)
+    # egy korábbi, megszakadt próbálkozás nyitva hagyhatta a titkosított réteget
+    subprocess.run(["umount", "-R", str(TARGET)], capture_output=True)
+    subprocess.run(["cryptsetup", "close", CRYPT_NAME], capture_output=True)
     release_disk(args.disk)
     windows_esp = ""
     if args.beside_windows:
-        parts, windows_esp = partition_beside(args.disk, args.size_gib * 1024**3)
+        parts, windows_esp = partition_beside(args.disk, args.size_gib * 1024**3, args.encrypt)
     else:
-        parts = partition(args.disk)
+        parts = partition(args.disk, args.encrypt)
+    format_and_mount(parts, passphrase)
+    kargs = []
+    if parts.get("luks_uuid"):
+        # indításkor ezt kell kinyitni, és a jelszót a választott billentyűzetkiosztással kérjük
+        kargs = [f"rd.luks.uuid=luks-{parts['luks_uuid']}", f"rd.vconsole.keymap={console_keymap(keyboard[0])}"]
     emit(stage="prepare", progress=20)
-    run_bootc()
+    run_bootc(kargs)
     setup_boot_menu(windows_esp)
-    root_part = finish_partitions(args.disk, parts)
+    root_part = finish_partitions(args.disk, parts, passphrase)
     rename_boot_entry(args.disk, parts["numbers"]["esp"])
     emit(stage="configure", progress=95)
-    configure(root_part, args.locale, *keyboard, args.timezone, account, beside_windows=args.beside_windows)
+    configure(root_part, args.locale, *keyboard, args.timezone, account, beside_windows=args.beside_windows,
+              luks_uuid=parts.get("luks_uuid", ""))
+    if parts.get("luks_uuid"):
+        subprocess.run(["cryptsetup", "close", CRYPT_NAME], capture_output=True)
     emit(done=True)
     return 0
 

@@ -467,6 +467,62 @@ Kirigami.ApplicationWindow {
                                       ? root.t("disk.beside." + installer.besideInfo.problems[0]) : ""
                             }
                         }
+                        // Lemeztitkosítás (LUKS2): alapból a fiók jelszavával
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            visible: installer.disk !== ""
+                            spacing: Kirigami.Units.smallSpacing
+                            QQC2.CheckBox {
+                                id: encryptCheck
+                                text: root.t("disk.encrypt.option")
+                                checked: installer.encrypt
+                                onToggled: installer.setEncrypt(checked)
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                Layout.leftMargin: Kirigami.Units.gridUnit * 2
+                                wrapMode: Text.Wrap
+                                opacity: 0.75
+                                text: root.t("disk.encrypt.hint")
+                            }
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                Layout.leftMargin: Kirigami.Units.gridUnit * 2
+                                visible: installer.encrypt
+                                QQC2.CheckBox {
+                                    text: root.t("disk.encrypt.same")
+                                    checked: installer.encryptSame
+                                    onToggled: installer.setEncryptSame(checked)
+                                }
+                                Kirigami.FormLayout {
+                                    Layout.fillWidth: true
+                                    visible: !installer.encryptSame
+                                    Kirigami.PasswordField {
+                                        id: encryptPw
+                                        Kirigami.FormData.label: root.t("disk.encrypt.password")
+                                        onTextEdited: installer.setEncryptPassword(encryptPw.text, encryptPw2.text)
+                                    }
+                                    Kirigami.PasswordField {
+                                        id: encryptPw2
+                                        Kirigami.FormData.label: root.t("disk.encrypt.repeat")
+                                        onTextEdited: installer.setEncryptPassword(encryptPw.text, encryptPw2.text)
+                                    }
+                                }
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    visible: installer.encryptProblem !== ""
+                                    wrapMode: Text.Wrap
+                                    color: Kirigami.Theme.negativeTextColor
+                                    text: installer.encryptProblem !== "" ? root.t(installer.encryptProblem) : ""
+                                }
+                                Kirigami.InlineMessage {
+                                    Layout.fillWidth: true
+                                    visible: true
+                                    type: Kirigami.MessageType.Warning
+                                    text: root.t("disk.encrypt.warning")
+                                }
+                            }
+                        }
                         Item { implicitHeight: Kirigami.Units.gridUnit }
                     }
                 }
@@ -478,6 +534,7 @@ Kirigami.ApplicationWindow {
                         id: diskNav
                         anchors.centerIn: parent
                         nextEnabled: installer.disk !== "" && installer.besideInfo.state !== "probing"
+                                     && installer.encryptProblem === ""
                     }
                 }
             }
@@ -535,6 +592,14 @@ Kirigami.ApplicationWindow {
                         wrapMode: Text.Wrap
                         opacity: 0.8
                         text: root.t("confirm.beside.menu")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        visible: installer.encrypt
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: root.t("confirm.encrypt")
                     }
                     QQC2.CheckBox {
                         id: confirmCheck

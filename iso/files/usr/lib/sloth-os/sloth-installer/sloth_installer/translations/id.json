@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Kami tidak bisa memeriksa drive Windows, jadi ukurannya tidak kami ubah.",
   "disk.beside.bitlocker": "Drive Windows dienkripsi dengan BitLocker dan tidak bisa dikecilkan dari sini. Di Windows, buka Disk Management (klik kanan drive C: → Shrink Volume), kosongkan setidaknya 40 GB, lalu jalankan pemasang lagi: kami akan memasang di ruang yang dikosongkan.",
   "disk.beside.no_space": "Ruang di samping Windows tidak cukup: Sloth OS butuh setidaknya 40 GB, dan Windows juga butuh ruang kosong.",
+  "disk.encrypt.option": "Enkripsi disk",
+  "disk.encrypt.hint": "Jika komputermu dicuri atau hilang, tidak ada yang bisa mengakses berkasmu. Kamu perlu memasukkan kata sandi setiap kali menyalakannya.",
+  "disk.encrypt.same": "Kata sandi yang sama dengan akun saya",
+  "disk.encrypt.password": "Kata sandi enkripsi:",
+  "disk.encrypt.repeat": "Sekali lagi:",
+  "disk.encrypt.warning": "Jika kamu lupa kata sandi ini, berkasmu tidak bisa dipulihkan. Catat dan simpan di tempat yang aman.",
+  "disk.encrypt.mismatch": "Kedua kata sandi tidak cocok.",
+  "disk.encrypt.short": "Kata sandi minimal 8 karakter.",
+  "disk.encrypt.short_same": "Kata sandi akunmu kurang dari 8 karakter: masukkan kata sandi terpisah yang lebih panjang untuk enkripsi.",
 
   "confirm.heading": "Semua isi disk ini akan dihapus",
   "confirm.text": "Sloth OS memakai seluruh disk: {disk}. Semua isinya sekarang (berkas, program, sistem lain) akan dihapus selamanya.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows dienkripsi dengan BitLocker: saat dinyalakan berikutnya, Windows mungkin meminta kunci pemulihan. Siapkan kuncinya (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Saat komputer dinyalakan, kamu bisa memilih Sloth OS atau Windows selama beberapa detik.",
   "confirm.beside.checkbox": "Saya mengerti dan sudah mencadangkan berkas penting",
+  "confirm.encrypt": "Disk akan dienkripsi: disk terbuka dengan kata sandimu saat komputer dinyalakan.",
 
   "nav.back": "Kembali",
   "nav.next": "Lanjut",
@@ -74,6 +84,7 @@
   "stage.start": "Bersiap…",
   "stage.partition": "Menyiapkan disk…",
   "stage.shrink": "Mengubah ukuran drive Windows…",
+  "stage.encrypt": "Menyiapkan enkripsi…",
   "stage.prepare": "Menyiapkan sistem…",
   "stage.copy": "Menyalin Sloth OS ke disk…",
   "stage.bootloader": "Mengatur proses mulai…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Terjadi kesalahan saat menyalin sistem ke disk. Data yang sebelumnya ada di disk mungkin sudah terhapus.",
   "error.configure_failed": "Sistem terpasang, tetapi bahasa dan papan ketik gagal diatur. Coba lagi; jika masih gagal, Anda bisa mengaturnya di Pengaturan Sistem setelah pertama kali dinyalakan.",
   "error.beside_shrink_failed": "Drive Windows tidak bisa dikecilkan. Jalankan Windows, periksa disk (This PC → C: → Properties → Tools → Check), lalu coba lagi.",
+  "error.encrypt_failed": "Enkripsi tidak bisa disiapkan. Coba lagi; jika masih gagal, pasang tanpa enkripsi.",
 
   "desktop.comment": "Pasang Sloth OS di komputer ini",
   "desktop.keywords": "pasang;pemasang"

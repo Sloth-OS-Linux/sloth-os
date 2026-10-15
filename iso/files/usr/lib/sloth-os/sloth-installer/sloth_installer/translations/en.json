@@ -54,6 +54,15 @@
   "disk.beside.unknown": "We couldn't check the Windows drive, so we won't resize it.",
   "disk.beside.bitlocker": "The Windows drive is encrypted with BitLocker and can't be made smaller from here. In Windows, open Disk Management (right-click drive C: → Shrink Volume), free up at least 40 GB, then start the installer again: we'll install into the freed space.",
   "disk.beside.no_space": "There isn't enough space next to Windows: Sloth OS needs at least 40 GB, and Windows needs some free space too.",
+  "disk.encrypt.option": "Encrypt the disk",
+  "disk.encrypt.hint": "If your computer is stolen or lost, nobody can get to your files. You'll need to enter the password every time you turn it on.",
+  "disk.encrypt.same": "Same password as my account",
+  "disk.encrypt.password": "Encryption password:",
+  "disk.encrypt.repeat": "Once more:",
+  "disk.encrypt.warning": "If you forget this password, your files can't be recovered. Write it down and keep it somewhere safe.",
+  "disk.encrypt.mismatch": "The two passwords don't match.",
+  "disk.encrypt.short": "The password must be at least 8 characters long.",
+  "disk.encrypt.short_same": "Your account password is shorter than 8 characters: enter a longer, separate password for encryption.",
 
   "confirm.heading": "Everything on this disk will be erased",
   "confirm.text": "Sloth OS uses the whole disk: {disk}. Everything on it now (files, programs, other systems) will be permanently deleted.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows is encrypted with BitLocker: it may ask for the recovery key the next time it starts. Keep it at hand (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "When the computer starts, you can choose between Sloth OS and Windows for a few seconds.",
   "confirm.beside.checkbox": "I understand, and I have backed up my important files",
+  "confirm.encrypt": "The disk will be encrypted: it opens with your password when the computer starts.",
 
   "nav.back": "Back",
   "nav.next": "Next",
@@ -74,6 +84,7 @@
   "stage.start": "Getting ready…",
   "stage.partition": "Preparing the disk…",
   "stage.shrink": "Resizing the Windows drive…",
+  "stage.encrypt": "Setting up encryption…",
   "stage.prepare": "Preparing the system…",
   "stage.copy": "Copying Sloth OS to the disk…",
   "stage.bootloader": "Setting up startup…",
@@ -95,6 +106,7 @@
   "error.install_failed": "Something went wrong while copying the system to the disk. Data previously on the disk may already have been erased.",
   "error.configure_failed": "The system was installed, but setting the language and keyboard failed. Try again; if it still fails, you can set them in System Settings after the first start.",
   "error.beside_shrink_failed": "We couldn't make the Windows drive smaller. Start Windows, check the disk (This PC → C: → Properties → Tools → Check), then try again.",
+  "error.encrypt_failed": "Setting up encryption didn't work. Try again; if it still fails, install without encryption.",
 
   "desktop.comment": "Install Sloth OS on this computer",
   "desktop.keywords": "install;installer"

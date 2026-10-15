@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Não conseguimos verificar a unidade do Windows, por isso não a vamos redimensionar.",
   "disk.beside.bitlocker": "A unidade do Windows está encriptada com o BitLocker e não pode ser reduzida a partir daqui. No Windows, abre a Gestão de Discos (clique direito na unidade C: → Reduzir Volume), liberta pelo menos 40 GB e volta a iniciar o instalador: instalamos no espaço libertado.",
   "disk.beside.no_space": "Não há espaço suficiente ao lado do Windows: o Sloth OS precisa de pelo menos 40 GB e o Windows também precisa de algum espaço livre.",
+  "disk.encrypt.option": "Encriptar o disco",
+  "disk.encrypt.hint": "Se o computador for roubado ou perdido, ninguém consegue aceder aos teus ficheiros. Terás de escrever a palavra-passe sempre que o ligares.",
+  "disk.encrypt.same": "A mesma palavra-passe da minha conta",
+  "disk.encrypt.password": "Palavra-passe de encriptação:",
+  "disk.encrypt.repeat": "Mais uma vez:",
+  "disk.encrypt.warning": "Se te esqueceres desta palavra-passe, os teus ficheiros não podem ser recuperados. Escreve-a e guarda-a num local seguro.",
+  "disk.encrypt.mismatch": "As duas palavras-passe não coincidem.",
+  "disk.encrypt.short": "A palavra-passe tem de ter pelo menos 8 caracteres.",
+  "disk.encrypt.short_same": "A palavra-passe da tua conta tem menos de 8 caracteres: escreve uma palavra-passe diferente e mais longa para a encriptação.",
 
   "confirm.heading": "Tudo o que está neste disco será apagado",
   "confirm.text": "O Sloth OS usa o disco inteiro: {disk}. Tudo o que contém agora (ficheiros, programas, outros sistemas) será apagado definitivamente.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "O Windows está encriptado com o BitLocker: no próximo arranque pode pedir a chave de recuperação. Tem-na à mão (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Ao ligar o computador, podes escolher entre o Sloth OS e o Windows durante alguns segundos.",
   "confirm.beside.checkbox": "Compreendo e fiz uma cópia dos meus ficheiros importantes",
+  "confirm.encrypt": "O disco vai ser encriptado: abre com a tua palavra-passe quando ligas o computador.",
 
   "nav.back": "Anterior",
   "nav.next": "Seguinte",
@@ -74,6 +84,7 @@
   "stage.start": "A preparar…",
   "stage.partition": "A preparar o disco…",
   "stage.shrink": "A redimensionar a unidade do Windows…",
+  "stage.encrypt": "A configurar a encriptação…",
   "stage.prepare": "A preparar o sistema…",
   "stage.copy": "A copiar o Sloth OS para o disco…",
   "stage.bootloader": "A configurar o arranque…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Algo correu mal ao copiar o sistema para o disco. Os dados que estavam no disco podem já ter sido apagados.",
   "error.configure_failed": "O sistema foi instalado, mas não foi possível definir o idioma e o teclado. Tente novamente; se voltar a falhar, pode defini-los nas Definições do sistema depois do primeiro arranque.",
   "error.beside_shrink_failed": "Não foi possível reduzir a unidade do Windows. Inicia o Windows, verifica o disco (Este PC → C: → Propriedades → Ferramentas → Verificar) e tenta novamente.",
+  "error.encrypt_failed": "Não foi possível configurar a encriptação. Tenta novamente; se voltar a falhar, instala sem encriptação.",
 
   "desktop.comment": "Instalar o Sloth OS neste computador",
   "desktop.keywords": "instalar;instalador"

@@ -54,6 +54,15 @@
   "disk.beside.unknown": "無法檢查 Windows 磁碟機，因此不會調整它的大小。",
   "disk.beside.bitlocker": "Windows 磁碟機已用 BitLocker 加密，無法在這裡縮小。請在 Windows 中開啟「磁碟管理」（在 C: 磁碟機上按右鍵 → 壓縮磁碟區），騰出至少 40 GB，然後重新啟動安裝程式：我們會安裝到騰出的空間。",
   "disk.beside.no_space": "Windows 旁邊的空間不足：Sloth OS 至少需要 40 GB，Windows 也需要保留一些可用空間。",
+  "disk.encrypt.option": "加密磁碟",
+  "disk.encrypt.hint": "即使電腦遭竊或遺失，也沒有人能存取你的檔案。每次開機都需要輸入密碼。",
+  "disk.encrypt.same": "與我的帳號使用相同密碼",
+  "disk.encrypt.password": "加密密碼：",
+  "disk.encrypt.repeat": "再輸入一次：",
+  "disk.encrypt.warning": "如果忘記此密碼，你的檔案將無法復原。請把它寫下來並存放在安全的地方。",
+  "disk.encrypt.mismatch": "兩次輸入的密碼不一致。",
+  "disk.encrypt.short": "密碼至少需要 8 個字元。",
+  "disk.encrypt.short_same": "你的帳號密碼少於 8 個字元：請為加密另設一個更長的密碼。",
 
   "confirm.heading": "此磁碟上的所有內容都將被清除",
   "confirm.text": "Sloth OS 會使用整個磁碟：{disk}。上面現有的一切（檔案、程式、其他系統）都將被永久刪除。",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows 已用 BitLocker 加密：下次啟動時可能會要求輸入修復金鑰。請準備好 (aka.ms/myrecoverykey)。",
   "confirm.beside.menu": "開機時可以在幾秒內選擇進入 Sloth OS 或 Windows。",
   "confirm.beside.checkbox": "我了解，並且已備份重要檔案",
+  "confirm.encrypt": "磁碟將被加密：開機時用你的密碼解鎖。",
 
   "nav.back": "上一步",
   "nav.next": "下一步",
@@ -74,6 +84,7 @@
   "stage.start": "正在準備…",
   "stage.partition": "正在準備磁碟…",
   "stage.shrink": "正在調整 Windows 磁碟機的大小…",
+  "stage.encrypt": "正在設定加密…",
   "stage.prepare": "正在準備系統…",
   "stage.copy": "正在將 Sloth OS 複製到磁碟…",
   "stage.bootloader": "正在設定開機…",
@@ -96,6 +107,7 @@
   "error.install_failed": "將系統複製到磁碟時出錯。磁碟上原有的資料可能已被刪除。",
   "error.configure_failed": "系統已安裝，但無法設定語言和鍵盤。請重試；若仍然失敗，可在第一次開機後到系統設定中設定。",
   "error.beside_shrink_failed": "無法縮小 Windows 磁碟機。請啟動 Windows，檢查磁碟（本機 → C: → 內容 → 工具 → 檢查），然後再試一次。",
+  "error.encrypt_failed": "無法設定加密。請再試一次；如果仍然失敗，請在不加密的情況下安裝。",
 
   "desktop.comment": "將 Sloth OS 安裝到這台電腦",
   "desktop.keywords": "安裝;安裝程式"

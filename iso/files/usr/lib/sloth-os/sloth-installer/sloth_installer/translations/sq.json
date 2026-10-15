@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Nuk arritëm ta kontrollojmë diskun e Windows, prandaj nuk ia ndryshojmë madhësinë.",
   "disk.beside.bitlocker": "Disku i Windows është i enkriptuar me BitLocker dhe nuk mund të zvogëlohet nga këtu. Në Windows hap Menaxhimin e diskut (klik i djathtë mbi diskun C: → Tkurr volumin), liro të paktën 40 GB dhe nis sërish instaluesin: do të instalojmë në hapësirën e liruar.",
   "disk.beside.no_space": "Nuk ka hapësirë të mjaftueshme pranë Windows: Sloth OS ka nevojë për të paktën 40 GB, dhe edhe Windows ka nevojë për hapësirë të lirë.",
+  "disk.encrypt.option": "Enkripto diskun",
+  "disk.encrypt.hint": "Nëse kompjuteri vidhet ose humbet, askush nuk mund t'u qaset skedarëve të tu. Do të duhet ta shkruash fjalëkalimin sa herë e ndez.",
+  "disk.encrypt.same": "I njëjti fjalëkalim si i llogarisë sime",
+  "disk.encrypt.password": "Fjalëkalimi i enkriptimit:",
+  "disk.encrypt.repeat": "Edhe një herë:",
+  "disk.encrypt.warning": "Nëse e harron këtë fjalëkalim, skedarët e tu nuk mund të rikuperohen. Shkruaje dhe ruaje në një vend të sigurt.",
+  "disk.encrypt.mismatch": "Dy fjalëkalimet nuk përputhen.",
+  "disk.encrypt.short": "Fjalëkalimi duhet të ketë të paktën 8 shenja.",
+  "disk.encrypt.short_same": "Fjalëkalimi i llogarisë tënde është më i shkurtër se 8 shenja: shkruaj një fjalëkalim më të gjatë e të veçantë për enkriptimin.",
 
   "confirm.heading": "Gjithçka në këtë disk do të fshihet",
   "confirm.text": "Sloth OS përdor gjithë diskun: {disk}. Gjithçka që ka tani (skedarë, programe, sisteme të tjera) do të fshihet përgjithmonë.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows është i enkriptuar me BitLocker: herën tjetër që niset mund të kërkojë çelësin e rikuperimit. Mbaje pranë (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Kur ndez kompjuterin, për disa sekonda mund të zgjedhësh mes Sloth OS dhe Windows.",
   "confirm.beside.checkbox": "E kuptoj dhe kam bërë kopje të skedarëve të mi të rëndësishëm",
+  "confirm.encrypt": "Disku do të enkriptohet: hapet me fjalëkalimin tënd kur ndizet kompjuteri.",
 
   "nav.back": "Prapa",
   "nav.next": "Tjetër",
@@ -74,6 +84,7 @@
   "stage.start": "Po përgatitet…",
   "stage.partition": "Po përgatitet disku…",
   "stage.shrink": "Po ndryshohet madhësia e diskut të Windows…",
+  "stage.encrypt": "Po konfigurohet enkriptimi…",
   "stage.prepare": "Po përgatitet sistemi…",
   "stage.copy": "Po kopjohet Sloth OS në disk…",
   "stage.bootloader": "Po rregullohet nisja…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Diçka shkoi keq gjatë kopjimit të sistemit në disk. Të dhënat që ishin në disk mund të jenë fshirë tashmë.",
   "error.configure_failed": "Sistemi u instalua, por gjuha dhe tastiera nuk u rregulluan dot. Riprovoni; nëse sërish nuk shkon, mund t'i rregulloni te Rregullimet e sistemit pas nisjes së parë.",
   "error.beside_shrink_failed": "Disku i Windows nuk u zvogëlua dot. Nis Windows, kontrollo diskun (Ky PC → C: → Vetitë → Mjetet → Kontrollo) dhe provo përsëri.",
+  "error.encrypt_failed": "Enkriptimi nuk u konfigurua dot. Provo përsëri; nëse dështon sërish, instalo pa enkriptim.",
 
   "desktop.comment": "Instalimi i Sloth OS në këtë kompjuter",
   "desktop.keywords": "instalim;instalues"

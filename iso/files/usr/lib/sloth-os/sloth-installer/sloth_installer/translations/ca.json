@@ -54,6 +54,15 @@
   "disk.beside.unknown": "No hem pogut comprovar la unitat de Windows, així que no en canviarem la mida.",
   "disk.beside.bitlocker": "La unitat de Windows està xifrada amb BitLocker i no es pot reduir des d'aquí. A Windows, obre l'Administració de discos (clic dret a la unitat C: → Redueix el volum), allibera almenys 40 GB i torna a iniciar l'instal·lador: instal·larem a l'espai alliberat.",
   "disk.beside.no_space": "No hi ha prou espai al costat de Windows: Sloth OS necessita almenys 40 GB, i Windows també necessita espai lliure.",
+  "disk.encrypt.option": "Xifra el disc",
+  "disk.encrypt.hint": "Si et roben o perds l'ordinador, ningú podrà accedir als teus fitxers. Hauràs d'escriure la contrasenya cada vegada que l'engeguis.",
+  "disk.encrypt.same": "La mateixa contrasenya que el meu compte",
+  "disk.encrypt.password": "Contrasenya de xifratge:",
+  "disk.encrypt.repeat": "Un altre cop:",
+  "disk.encrypt.warning": "Si oblides aquesta contrasenya, els teus fitxers no es podran recuperar. Apunta-la i guarda-la en un lloc segur.",
+  "disk.encrypt.mismatch": "Les dues contrasenyes no coincideixen.",
+  "disk.encrypt.short": "La contrasenya ha de tenir almenys 8 caràcters.",
+  "disk.encrypt.short_same": "La contrasenya del teu compte té menys de 8 caràcters: escriu una contrasenya diferent i més llarga per al xifratge.",
 
   "confirm.heading": "S'esborrarà tot el que hi ha en aquest disc",
   "confirm.text": "Sloth OS fa servir tot el disc: {disk}. Tot el que hi ha ara (fitxers, programes, altres sistemes) s'esborrarà per sempre.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows està xifrat amb BitLocker: el proper cop que s'iniciï pot demanar la clau de recuperació. Tingues-la a mà (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "En engegar l'ordinador, podràs triar entre Sloth OS i Windows durant uns segons.",
   "confirm.beside.checkbox": "Ho entenc i he fet una còpia dels meus fitxers importants",
+  "confirm.encrypt": "El disc es xifrarà: s'obre amb la teva contrasenya quan engegues l'ordinador.",
 
   "nav.back": "Enrere",
   "nav.next": "Següent",
@@ -74,6 +84,7 @@
   "stage.start": "S'està preparant…",
   "stage.partition": "S'està preparant el disc…",
   "stage.shrink": "S'està canviant la mida de la unitat de Windows…",
+  "stage.encrypt": "S'està configurant el xifratge…",
   "stage.prepare": "S'està preparant el sistema…",
   "stage.copy": "S'està copiant Sloth OS al disc…",
   "stage.bootloader": "S'està configurant l'arrencada…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Alguna cosa ha fallat en copiar el sistema al disc. Potser les dades que hi havia al disc ja s'han esborrat.",
   "error.configure_failed": "El sistema s'ha instal·lat, però no s'han pogut configurar la llengua i el teclat. Torna-ho a provar; si torna a fallar, els pots configurar a la Configuració del sistema després del primer inici.",
   "error.beside_shrink_failed": "No s'ha pogut reduir la unitat de Windows. Inicia Windows, comprova el disc (Aquest ordinador → C: → Propietats → Eines → Comprova) i torna-ho a provar.",
+  "error.encrypt_failed": "No s'ha pogut configurar el xifratge. Torna-ho a provar; si torna a fallar, instal·la sense xifratge.",
 
   "desktop.comment": "Instal·lar Sloth OS en aquest ordinador",
   "desktop.keywords": "instal·lar;instal·lador"

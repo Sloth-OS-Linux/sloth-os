@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Nepavyko patikrinti „Windows“ disko, todėl jo dydžio nekeisime.",
   "disk.beside.bitlocker": "„Windows“ diskas užšifruotas „BitLocker“, todėl iš čia jo sumažinti negalima. „Windows“ atidarykite Disko valdymą (dešiniuoju pelės mygtuku ant disko C: → Sutraukti tomą), atlaisvinkite bent 40 GB ir vėl paleiskite diegimo programą: įdiegsime į atlaisvintą vietą.",
   "disk.beside.no_space": "Šalia „Windows“ nepakanka vietos: „Sloth OS“ reikia bent 40 GB, o „Windows“ taip pat reikia laisvos vietos.",
+  "disk.encrypt.option": "Šifruoti diską",
+  "disk.encrypt.hint": "Jei kompiuteris bus pavogtas ar pamestas, niekas negalės pasiekti jūsų failų. Slaptažodį reikės įvesti kiekvieną kartą įjungiant.",
+  "disk.encrypt.same": "Toks pat slaptažodis kaip mano paskyros",
+  "disk.encrypt.password": "Šifravimo slaptažodis:",
+  "disk.encrypt.repeat": "Dar kartą:",
+  "disk.encrypt.warning": "Jei pamiršite šį slaptažodį, failų atkurti nepavyks. Užsirašykite jį ir laikykite saugioje vietoje.",
+  "disk.encrypt.mismatch": "Slaptažodžiai nesutampa.",
+  "disk.encrypt.short": "Slaptažodį turi sudaryti bent 8 simboliai.",
+  "disk.encrypt.short_same": "Jūsų paskyros slaptažodis trumpesnis nei 8 simboliai: šifravimui įveskite ilgesnį, atskirą slaptažodį.",
 
   "confirm.heading": "Viskas šiame diske bus ištrinta",
   "confirm.text": "Sloth OS naudoja visą diską: {disk}. Viskas, kas jame dabar yra (failai, programos, kitos sistemos), bus ištrinta visam laikui.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "„Windows“ užšifruota „BitLocker“: kitą kartą paleidžiant gali paprašyti atkūrimo rakto. Turėkite jį po ranka (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Įjungus kompiuterį, kelias sekundes galėsite rinktis tarp „Sloth OS“ ir „Windows“.",
   "confirm.beside.checkbox": "Suprantu ir pasidariau svarbių failų atsarginę kopiją",
+  "confirm.encrypt": "Diskas bus užšifruotas: įjungus kompiuterį jis atsidaro jūsų slaptažodžiu.",
 
   "nav.back": "Atgal",
   "nav.next": "Toliau",
@@ -74,6 +84,7 @@
   "stage.start": "Ruošiamasi…",
   "stage.partition": "Ruošiamas diskas…",
   "stage.shrink": "Keičiamas „Windows“ disko dydis…",
+  "stage.encrypt": "Nustatomas šifravimas…",
   "stage.prepare": "Ruošiama sistema…",
   "stage.copy": "Sloth OS kopijuojama į diską…",
   "stage.bootloader": "Nustatomas paleidimas…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Kopijuojant sistemą į diską kažkas nepavyko. Diske buvę duomenys jau galėjo būti ištrinti.",
   "error.configure_failed": "Sistema įdiegta, bet kalbos ir klaviatūros nustatyti nepavyko. Bandykite dar kartą; jei vėl nepavyks, juos galėsite nustatyti Sistemos nuostatose po pirmojo paleidimo.",
   "error.beside_shrink_failed": "Nepavyko sumažinti „Windows“ disko. Paleiskite „Windows“, patikrinkite diską (Šis kompiuteris → C: → Ypatybės → Įrankiai → Tikrinti) ir bandykite dar kartą.",
+  "error.encrypt_failed": "Šifravimo nustatyti nepavyko. Bandykite dar kartą; jei vėl nepavyks, įdiekite be šifravimo.",
 
   "desktop.comment": "Sloth OS įdiegimas šiame kompiuteryje",
   "desktop.keywords": "įdiegti;diegimo programa"

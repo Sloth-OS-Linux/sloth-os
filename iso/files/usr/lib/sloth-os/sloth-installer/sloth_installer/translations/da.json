@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Vi kunne ikke kontrollere Windows-drevet, så vi ændrer ikke dets størrelse.",
   "disk.beside.bitlocker": "Windows-drevet er krypteret med BitLocker og kan ikke gøres mindre herfra. Åbn Diskhåndtering i Windows (højreklik på drev C: → Formindsk diskenhed), frigør mindst 40 GB og start installationsprogrammet igen: vi installerer i den frigjorte plads.",
   "disk.beside.no_space": "Der er ikke plads nok ved siden af Windows: Sloth OS skal bruge mindst 40 GB, og Windows skal også have ledig plads.",
+  "disk.encrypt.option": "Kryptér disken",
+  "disk.encrypt.hint": "Hvis computeren bliver stjålet eller bortkommer, kan ingen komme til dine filer. Du skal indtaste adgangskoden, hver gang du tænder den.",
+  "disk.encrypt.same": "Samme adgangskode som min konto",
+  "disk.encrypt.password": "Krypteringsadgangskode:",
+  "disk.encrypt.repeat": "En gang til:",
+  "disk.encrypt.warning": "Hvis du glemmer denne adgangskode, kan dine filer ikke gendannes. Skriv den ned, og opbevar den et sikkert sted.",
+  "disk.encrypt.mismatch": "De to adgangskoder er ikke ens.",
+  "disk.encrypt.short": "Adgangskoden skal være mindst 8 tegn lang.",
+  "disk.encrypt.short_same": "Din kontos adgangskode er kortere end 8 tegn: angiv en længere, separat adgangskode til krypteringen.",
 
   "confirm.heading": "Alt på denne disk bliver slettet",
   "confirm.text": "Sloth OS bruger hele disken: {disk}. Alt, hvad der er på den nu (filer, programmer, andre systemer), slettes permanent.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows er krypteret med BitLocker: næste gang det starter, kan det bede om genoprettelsesnøglen. Hav den ved hånden (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Når computeren starter, kan du i nogle sekunder vælge mellem Sloth OS og Windows.",
   "confirm.beside.checkbox": "Jeg forstår, og jeg har taget en sikkerhedskopi af mine vigtige filer",
+  "confirm.encrypt": "Disken bliver krypteret: den åbnes med din adgangskode, når computeren starter.",
 
   "nav.back": "Tilbage",
   "nav.next": "Næste",
@@ -74,6 +84,7 @@
   "stage.start": "Gør klar…",
   "stage.partition": "Forbereder disken…",
   "stage.shrink": "Ændrer størrelse på Windows-drevet…",
+  "stage.encrypt": "Opsætter kryptering…",
   "stage.prepare": "Forbereder systemet…",
   "stage.copy": "Kopierer Sloth OS til disken…",
   "stage.bootloader": "Opsætter opstart…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Noget gik galt, da systemet blev kopieret til disken. Data, der var på disken, er måske allerede slettet.",
   "error.configure_failed": "Systemet blev installeret, men sprog og tastatur kunne ikke indstilles. Prøv igen; mislykkes det igen, kan du indstille dem i Systemindstillinger efter første start.",
   "error.beside_shrink_failed": "Windows-drevet kunne ikke gøres mindre. Start Windows, kontrollér disken (Denne pc → C: → Egenskaber → Funktioner → Kontrollér), og prøv igen.",
+  "error.encrypt_failed": "Krypteringen kunne ikke opsættes. Prøv igen; hvis det mislykkes igen, så installér uden kryptering.",
 
   "desktop.comment": "Installer Sloth OS på denne computer",
   "desktop.keywords": "installer;installationsprogram"

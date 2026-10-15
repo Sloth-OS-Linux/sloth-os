@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Nu am putut verifica unitatea Windows, așa că nu o redimensionăm.",
   "disk.beside.bitlocker": "Unitatea Windows este criptată cu BitLocker și nu poate fi micșorată de aici. În Windows, deschide Gestionare disc (clic dreapta pe unitatea C: → Micșorare volum), eliberează cel puțin 40 GB, apoi repornește programul de instalare: vom instala în spațiul eliberat.",
   "disk.beside.no_space": "Nu este destul spațiu lângă Windows: Sloth OS are nevoie de cel puțin 40 GB, iar Windows are nevoie și el de spațiu liber.",
+  "disk.encrypt.option": "Criptează discul",
+  "disk.encrypt.hint": "Dacă îți este furat sau pierzi calculatorul, nimeni nu poate ajunge la fișierele tale. Va trebui să introduci parola la fiecare pornire.",
+  "disk.encrypt.same": "Aceeași parolă ca a contului meu",
+  "disk.encrypt.password": "Parola de criptare:",
+  "disk.encrypt.repeat": "Încă o dată:",
+  "disk.encrypt.warning": "Dacă uiți această parolă, fișierele tale nu mai pot fi recuperate. Scrie-o și păstreaz-o într-un loc sigur.",
+  "disk.encrypt.mismatch": "Cele două parole nu se potrivesc.",
+  "disk.encrypt.short": "Parola trebuie să aibă cel puțin 8 caractere.",
+  "disk.encrypt.short_same": "Parola contului tău are mai puțin de 8 caractere: introdu o parolă diferită și mai lungă pentru criptare.",
 
   "confirm.heading": "Tot ce e pe acest disc va fi șters",
   "confirm.text": "Sloth OS folosește tot discul: {disk}. Tot ce e acum pe el (fișiere, programe, alte sisteme) va fi șters definitiv.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows este criptat cu BitLocker: la următoarea pornire poate cere cheia de recuperare. Ține-o la îndemână (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "La pornire poți alege câteva secunde între Sloth OS și Windows.",
   "confirm.beside.checkbox": "Am înțeles și am făcut o copie a fișierelor importante",
+  "confirm.encrypt": "Discul va fi criptat: la pornire se deschide cu parola ta.",
 
   "nav.back": "Înapoi",
   "nav.next": "Înainte",
@@ -74,6 +84,7 @@
   "stage.start": "Se pregătește…",
   "stage.partition": "Se pregătește discul…",
   "stage.shrink": "Se redimensionează unitatea Windows…",
+  "stage.encrypt": "Se configurează criptarea…",
   "stage.prepare": "Se pregătește sistemul…",
   "stage.copy": "Se copiază Sloth OS pe disc…",
   "stage.bootloader": "Se configurează pornirea…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Ceva n-a mers la copierea sistemului pe disc. Datele care erau pe disc s-ar putea să fi fost deja șterse.",
   "error.configure_failed": "Sistemul a fost instalat, dar limba și tastatura nu au putut fi setate. Încearcă din nou; dacă tot nu merge, le poți seta după prima pornire din Configurările sistemului.",
   "error.beside_shrink_failed": "Unitatea Windows nu a putut fi micșorată. Pornește Windows, verifică discul (Acest PC → C: → Proprietăți → Instrumente → Verificare), apoi încearcă din nou.",
+  "error.encrypt_failed": "Criptarea nu a putut fi configurată. Încearcă din nou; dacă tot nu merge, instalează fără criptare.",
 
   "desktop.comment": "Instalarea Sloth OS pe acest calculator",
   "desktop.keywords": "instalare;program de instalare"

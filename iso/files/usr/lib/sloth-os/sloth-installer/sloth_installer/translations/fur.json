@@ -54,6 +54,15 @@
   "disk.beside.unknown": "No sin rivâts a controlâ il disc di Windows, duncje no lu ridimensionìn.",
   "disk.beside.bitlocker": "Il disc di Windows al è cifrât cun BitLocker e di chi nol pues jessi ridot. In Windows, vierç la Gjestion dai discs (clic diestri su la unitât C: → Ridûs volum), libere almancul 40 GB e torne a inviâ l'instaladôr: o instalarìn tal puest liberât.",
   "disk.beside.no_space": "No 'nd è avonde puest dongje Windows: Sloth OS al à bisugne di almancul 40 GB, e ancje Windows al à bisugne di un tic di puest libar.",
+  "disk.encrypt.option": "Cifre il disc",
+  "disk.encrypt.hint": "Se il computer al ven robât o pierdût, nissun nol pues rivâ ai tiei files. Tu varâs di scrivi la password ogni volte che tu lu impiis.",
+  "disk.encrypt.same": "La stesse password dal gno account",
+  "disk.encrypt.password": "Password di cifradure:",
+  "disk.encrypt.repeat": "Une altre volte:",
+  "disk.encrypt.warning": "Se tu dismenteis cheste password, i tiei files no si podaran recuperâ. Scrivile e tegnile intun puest sigûr.",
+  "disk.encrypt.mismatch": "Lis dôs passwords no corispuindin.",
+  "disk.encrypt.short": "La password e à di jessi lungje almancul 8 caratars.",
+  "disk.encrypt.short_same": "La password dal to account e je plui curte di 8 caratars: scrîf une password diferente e plui lungje pe cifradure.",
 
   "confirm.heading": "Dut ce che al è su chest disc al vignarà scancelât",
   "confirm.text": "Sloth OS al dopre dut il disc: {disk}. Dut ce che al è cumò (files, programs, altris sistemis) al vignarà scancelât par simpri.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows al è cifrât cun BitLocker: al prossim inviament al podarès domandâ la clâf di recupar. Tegnile a man (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Cuant che tu impiis il computer, tu podarâs sielzi par cualchi secont tra Sloth OS e Windows.",
   "confirm.beside.checkbox": "O ai capît e o ai fat une copie dai miei files impuartants",
+  "confirm.encrypt": "Il disc al sarà cifrât: si vierç cu la tô password cuant che il computer si invie.",
 
   "nav.back": "Indaûr",
   "nav.next": "Indenant",
@@ -74,6 +84,7 @@
   "stage.start": "Preparazion…",
   "stage.partition": "Preparazion dal disc…",
   "stage.shrink": "Ridimensionament dal disc di Windows…",
+  "stage.encrypt": "Configurazion de cifradure…",
   "stage.prepare": "Preparazion dal sisteme…",
   "stage.copy": "Copie di Sloth OS sul disc…",
   "stage.bootloader": "Configurazion dal inviament…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Alc al è lât strucj intant de copie dal sisteme sul disc. I dâts che a jerin sul disc a podaressin jessi za stâts scancelâts.",
   "error.configure_failed": "Il sisteme al è stât instalât, ma no si à rivât a impostâ lenghe e tastiere. Torne prove; se nol va ancjemò, tu podarâs impostâlis tes Impostazions di sisteme dopo dal prin inviament.",
   "error.beside_shrink_failed": "No si è rivâts a ridusi il disc di Windows. Invie Windows, controle il disc (Chest PC → C: → Proprietâts → Struments → Controle) e torne prove.",
+  "error.encrypt_failed": "No si è rivâts a configurâ la cifradure. Torne prove; se nol va ancjemò, instale cence cifradure.",
 
   "desktop.comment": "Instalâ Sloth OS su chest computer",
   "desktop.keywords": "instalâ;instaladôr"

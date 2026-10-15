@@ -54,6 +54,15 @@
   "disk.beside.unknown": "No pudimos comprobar la unidad de Windows, así que no cambiaremos su tamaño.",
   "disk.beside.bitlocker": "La unidad de Windows está cifrada con BitLocker y no se puede reducir desde aquí. En Windows, abre Administración de discos (clic derecho en la unidad C: → Reducir volumen), libera al menos 40 GB y vuelve a iniciar el instalador: instalaremos en el espacio liberado.",
   "disk.beside.no_space": "No hay suficiente espacio junto a Windows: Sloth OS necesita al menos 40 GB y Windows también necesita algo de espacio libre.",
+  "disk.encrypt.option": "Cifrar el disco",
+  "disk.encrypt.hint": "Si te roban o pierdes el ordenador, nadie podrá acceder a tus archivos. Tendrás que escribir la contraseña cada vez que lo enciendas.",
+  "disk.encrypt.same": "La misma contraseña que mi cuenta",
+  "disk.encrypt.password": "Contraseña de cifrado:",
+  "disk.encrypt.repeat": "Otra vez:",
+  "disk.encrypt.warning": "Si olvidas esta contraseña, tus archivos no se podrán recuperar. Apúntala y guárdala en un lugar seguro.",
+  "disk.encrypt.mismatch": "Las dos contraseñas no coinciden.",
+  "disk.encrypt.short": "La contraseña debe tener al menos 8 caracteres.",
+  "disk.encrypt.short_same": "La contraseña de tu cuenta tiene menos de 8 caracteres: escribe una contraseña distinta y más larga para el cifrado.",
 
   "confirm.heading": "Se borrará todo lo que hay en este disco",
   "confirm.text": "Sloth OS usa el disco entero: {disk}. Todo lo que contiene ahora (archivos, programas, otros sistemas) se borrará para siempre.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows está cifrado con BitLocker: la próxima vez que se inicie puede pedir la clave de recuperación. Tenla a mano (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Al encender el ordenador, podrás elegir entre Sloth OS y Windows durante unos segundos.",
   "confirm.beside.checkbox": "Lo entiendo y he hecho una copia de mis archivos importantes",
+  "confirm.encrypt": "El disco se cifrará: se abre con tu contraseña al encender el ordenador.",
 
   "nav.back": "Atrás",
   "nav.next": "Siguiente",
@@ -74,6 +84,7 @@
   "stage.start": "Preparándose…",
   "stage.partition": "Preparando el disco…",
   "stage.shrink": "Cambiando el tamaño de la unidad de Windows…",
+  "stage.encrypt": "Configurando el cifrado…",
   "stage.prepare": "Preparando el sistema…",
   "stage.copy": "Copiando Sloth OS al disco…",
   "stage.bootloader": "Configurando el arranque…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Algo falló al copiar el sistema al disco. Puede que los datos que había en el disco ya se hayan borrado.",
   "error.configure_failed": "El sistema se instaló, pero no se pudieron ajustar el idioma y el teclado. Inténtalo de nuevo; si sigue fallando, puedes ajustarlos en la Configuración del sistema tras el primer inicio.",
   "error.beside_shrink_failed": "No se pudo reducir la unidad de Windows. Inicia Windows, comprueba el disco (Este equipo → C: → Propiedades → Herramientas → Comprobar) y vuelve a intentarlo.",
+  "error.encrypt_failed": "No se pudo configurar el cifrado. Vuelve a intentarlo; si sigue fallando, instala sin cifrado.",
 
   "desktop.comment": "Instalar Sloth OS en este equipo",
   "desktop.keywords": "instalar;instalador"

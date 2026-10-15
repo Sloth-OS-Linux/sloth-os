@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Wir konnten das Windows-Laufwerk nicht prüfen, daher ändern wir seine Größe nicht.",
   "disk.beside.bitlocker": "Das Windows-Laufwerk ist mit BitLocker verschlüsselt und kann von hier aus nicht verkleinert werden. Öffne in Windows die Datenträgerverwaltung (Rechtsklick auf Laufwerk C: → Volume verkleinern), gib mindestens 40 GB frei und starte das Installationsprogramm erneut: Wir installieren in den freien Platz.",
   "disk.beside.no_space": "Neben Windows ist nicht genug Platz: Sloth OS braucht mindestens 40 GB, und Windows braucht auch noch freien Platz.",
+  "disk.encrypt.option": "Datenträger verschlüsseln",
+  "disk.encrypt.hint": "Wenn dein Computer gestohlen wird oder verloren geht, kommt niemand an deine Dateien. Du musst das Passwort bei jedem Einschalten eingeben.",
+  "disk.encrypt.same": "Dasselbe Passwort wie mein Konto",
+  "disk.encrypt.password": "Verschlüsselungspasswort:",
+  "disk.encrypt.repeat": "Noch einmal:",
+  "disk.encrypt.warning": "Wenn du dieses Passwort vergisst, lassen sich deine Dateien nicht wiederherstellen. Schreib es auf und bewahre es sicher auf.",
+  "disk.encrypt.mismatch": "Die beiden Passwörter stimmen nicht überein.",
+  "disk.encrypt.short": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+  "disk.encrypt.short_same": "Dein Kontopasswort ist kürzer als 8 Zeichen: Gib für die Verschlüsselung ein längeres, eigenes Passwort ein.",
 
   "confirm.heading": "Alles auf diesem Laufwerk wird gelöscht",
   "confirm.text": "Sloth OS belegt das gesamte Laufwerk: {disk}. Alles, was jetzt darauf ist (Dateien, Programme, andere Systeme), wird endgültig gelöscht.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows ist mit BitLocker verschlüsselt: Beim nächsten Start kann es nach dem Wiederherstellungsschlüssel fragen. Halte ihn bereit (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Beim Einschalten kannst du ein paar Sekunden lang zwischen Sloth OS und Windows wählen.",
   "confirm.beside.checkbox": "Verstanden, und ich habe meine wichtigen Dateien gesichert",
+  "confirm.encrypt": "Der Datenträger wird verschlüsselt: Beim Einschalten öffnet er sich mit deinem Passwort.",
 
   "nav.back": "Zurück",
   "nav.next": "Weiter",
@@ -74,6 +84,7 @@
   "stage.start": "Vorbereitung…",
   "stage.partition": "Laufwerk wird vorbereitet…",
   "stage.shrink": "Größe des Windows-Laufwerks wird geändert…",
+  "stage.encrypt": "Verschlüsselung wird eingerichtet…",
   "stage.prepare": "System wird vorbereitet…",
   "stage.copy": "Sloth OS wird auf das Laufwerk kopiert…",
   "stage.bootloader": "Start wird eingerichtet…",
@@ -95,6 +106,7 @@
   "error.install_failed": "Beim Kopieren des Systems auf das Laufwerk ist ein Fehler aufgetreten. Daten, die vorher auf dem Laufwerk waren, könnten bereits gelöscht sein.",
   "error.configure_failed": "Das System wurde installiert, aber Sprache und Tastatur konnten nicht eingestellt werden. Versuche es erneut; klappt es wieder nicht, kannst du sie nach dem ersten Start in den Systemeinstellungen festlegen.",
   "error.beside_shrink_failed": "Das Windows-Laufwerk konnte nicht verkleinert werden. Starte Windows, prüfe den Datenträger (Dieser PC → C: → Eigenschaften → Tools → Prüfen) und versuche es dann erneut.",
+  "error.encrypt_failed": "Die Verschlüsselung konnte nicht eingerichtet werden. Versuche es erneut; wenn es wieder nicht klappt, installiere ohne Verschlüsselung.",
 
   "desktop.comment": "Sloth OS auf diesem Computer installieren",
   "desktop.keywords": "installieren;installationsprogramm"

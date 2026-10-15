@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Ni ne povis kontroli la Windows-diskon, do ni ne ŝanĝos ĝian grandon.",
   "disk.beside.bitlocker": "La Windows-disko estas ĉifrita per BitLocker kaj ne eblas malgrandigi ĝin de ĉi tie. En Windows, malfermu Diskadministradon (dekstra klako sur disko C: → Malgrandigi volumon), liberigu almenaŭ 40 GB, kaj restartigu la instalilon: ni instalos en la liberigitan spacon.",
   "disk.beside.no_space": "Ne estas sufiĉe da spaco apud Windows: Sloth OS bezonas almenaŭ 40 GB, kaj ankaŭ Windows bezonas iom da libera spaco.",
+  "disk.encrypt.option": "Ĉifri la diskon",
+  "disk.encrypt.hint": "Se via komputilo estas ŝtelita aŭ perdita, neniu povas aliri viajn dosierojn. Vi devos tajpi la pasvorton ĉiufoje kiam vi ŝaltas ĝin.",
+  "disk.encrypt.same": "La sama pasvorto kiel mia konto",
+  "disk.encrypt.password": "Ĉifra pasvorto:",
+  "disk.encrypt.repeat": "Ankoraŭfoje:",
+  "disk.encrypt.warning": "Se vi forgesos ĉi tiun pasvorton, viaj dosieroj ne estos restaŭreblaj. Notu ĝin kaj konservu ĝin en sekura loko.",
+  "disk.encrypt.mismatch": "La du pasvortoj ne kongruas.",
+  "disk.encrypt.short": "La pasvorto devas havi almenaŭ 8 signojn.",
+  "disk.encrypt.short_same": "La pasvorto de via konto estas pli mallonga ol 8 signoj: tajpu pli longan, apartan pasvorton por la ĉifrado.",
 
   "confirm.heading": "Ĉio sur ĉi tiu disko estos forigita",
   "confirm.text": "Sloth OS uzas la tutan diskon: {disk}. Ĉio, kio estas sur ĝi nun (dosieroj, programoj, aliaj sistemoj), estos definitive forigita.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows estas ĉifrita per BitLocker: ĉe la sekva starto ĝi eble petos la restaŭran ŝlosilon. Tenu ĝin ĉe mano (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Ĉe ŝaltado vi povos dum kelkaj sekundoj elekti inter Sloth OS kaj Windows.",
   "confirm.beside.checkbox": "Mi komprenas, kaj mi faris savkopion de miaj gravaj dosieroj",
+  "confirm.encrypt": "La disko estos ĉifrita: ĝi malfermiĝas per via pasvorto kiam la komputilo startas.",
 
   "nav.back": "Reen",
   "nav.next": "Sekva",
@@ -74,6 +84,7 @@
   "stage.start": "Preparado…",
   "stage.partition": "Preparado de la disko…",
   "stage.shrink": "Ŝanĝado de la grando de la Windows-disko…",
+  "stage.encrypt": "Agordado de ĉifrado…",
   "stage.prepare": "Preparado de la sistemo…",
   "stage.copy": "Kopiado de Sloth OS al la disko…",
   "stage.bootloader": "Agordado de la startigo…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Io misiris dum kopiado de la sistemo al la disko. Datumoj, kiuj estis sur la disko, eble jam estis forigitaj.",
   "error.configure_failed": "La sistemo estas instalita, sed ne eblis agordi lingvon kaj klavaron. Reprovu; se denove ne funkcias, vi povos agordi ilin en la Sistemaj agordoj post la unua starto.",
   "error.beside_shrink_failed": "Ne eblis malgrandigi la Windows-diskon. Startigu Windows, kontrolu la diskon (Ĉi tiu komputilo → C: → Atributoj → Iloj → Kontroli), kaj reprovu.",
+  "error.encrypt_failed": "Ne eblis agordi la ĉifradon. Reprovu; se ĝi denove malsukcesos, instalu sen ĉifrado.",
 
   "desktop.comment": "Instali Sloth OS en ĉi tiun komputilon",
   "desktop.keywords": "instali;instalilo"

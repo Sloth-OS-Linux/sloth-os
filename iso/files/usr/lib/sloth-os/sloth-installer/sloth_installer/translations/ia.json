@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Nos non ha potite verificar le disco de Windows, dunque nos non lo redimensionara.",
   "disk.beside.bitlocker": "Le disco de Windows es cryptate con BitLocker e non pote esser reducite ab hic. In Windows, aperi le Gestion de discos (clic dextre sur le unitate C: → Reducer volumine), libera al minus 40 GB, e reinitia le installator: nos installara in le spatio liberate.",
   "disk.beside.no_space": "Il non ha bastante spatio al latere de Windows: Sloth OS require al minus 40 GB, e Windows etiam require alcun spatio libere.",
+  "disk.encrypt.option": "Cryptar le disco",
+  "disk.encrypt.hint": "Si tu computator es robate o perdite, nemo pote acceder a tu files. Tu debera entrar le contrasigno cata vice que tu lo initia.",
+  "disk.encrypt.same": "Le mesme contrasigno que mi conto",
+  "disk.encrypt.password": "Contrasigno de cryptation:",
+  "disk.encrypt.repeat": "Un altere vice:",
+  "disk.encrypt.warning": "Si tu oblida iste contrasigno, tu files non pote esser recuperate. Scribe lo e conserva lo in un loco secur.",
+  "disk.encrypt.mismatch": "Le duo contrasignos non corresponde.",
+  "disk.encrypt.short": "Le contrasigno debe haber al minus 8 characteres.",
+  "disk.encrypt.short_same": "Le contrasigno de tu conto es plus curte que 8 characteres: entra un contrasigno separate e plus longe pro le cryptation.",
 
   "confirm.heading": "Toto sur iste disco essera delite",
   "confirm.text": "Sloth OS usa le disco integre: {disk}. Toto que es sur illo ora (files, programmas, altere systemas) essera delite pro sempre.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows es cryptate con BitLocker: al proxime initio illo pote demandar le clave de recuperation. Tene lo a mano (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Al initio del computator tu potera seliger inter Sloth OS e Windows durante alcun secundas.",
   "confirm.beside.checkbox": "Io comprende, e io ha facite un copia de mi files importante",
+  "confirm.encrypt": "Le disco essera cryptate: illo se aperi con tu contrasigno quando le computator se initia.",
 
   "nav.back": "Retro",
   "nav.next": "Sequente",
@@ -74,6 +84,7 @@
   "stage.start": "Preparation…",
   "stage.partition": "Preparation del disco…",
   "stage.shrink": "Redimensionamento del disco de Windows…",
+  "stage.encrypt": "Configuration del cryptation…",
   "stage.prepare": "Preparation del systema…",
   "stage.copy": "Copia de Sloth OS al disco…",
   "stage.bootloader": "Configuration del initio…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Alco errava durante le copia del systema al disco. Le datos que esseva sur le disco pote jam esser delite.",
   "error.configure_failed": "Le systema esseva installate, ma le lingua e le claviero non poteva esser configurate. Reproba; si illo falle de novo, tu pote configurar los in le Configuration del systema post le prime initio.",
   "error.beside_shrink_failed": "Non poteva reducer le disco de Windows. Initia Windows, verifica le disco (Iste PC → C: → Proprietates → Instrumentos → Verificar), e reproba.",
+  "error.encrypt_failed": "Le configuration del cryptation ha fallite. Reproba; si illo falle de novo, installa sin cryptation.",
 
   "desktop.comment": "Installar Sloth OS sur iste computator",
   "desktop.keywords": "installar;installator"

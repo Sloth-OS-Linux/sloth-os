@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Disk s Windows sa nám nepodarilo skontrolovať, preto jeho veľkosť nemeníme.",
   "disk.beside.bitlocker": "Disk s Windows je šifrovaný nástrojom BitLocker a odtiaľto ho nemožno zmenšiť. Vo Windows otvorte Správu diskov (pravým tlačidlom na jednotku C: → Zmenšiť zväzok), uvoľnite aspoň 40 GB a spustite inštalátor znova: nainštalujeme do uvoľneného miesta.",
   "disk.beside.no_space": "Vedľa Windows nie je dosť miesta: Sloth OS potrebuje aspoň 40 GB a Windows tiež potrebuje voľné miesto.",
+  "disk.encrypt.option": "Šifrovať disk",
+  "disk.encrypt.hint": "Ak vám počítač niekto ukradne alebo ho stratíte, k vašim súborom sa nikto nedostane. Heslo budete zadávať pri každom zapnutí.",
+  "disk.encrypt.same": "Rovnaké heslo ako pri mojom účte",
+  "disk.encrypt.password": "Heslo na šifrovanie:",
+  "disk.encrypt.repeat": "Ešte raz:",
+  "disk.encrypt.warning": "Ak toto heslo zabudnete, súbory nebude možné obnoviť. Zapíšte si ho a uložte na bezpečné miesto.",
+  "disk.encrypt.mismatch": "Heslá sa nezhodujú.",
+  "disk.encrypt.short": "Heslo musí mať aspoň 8 znakov.",
+  "disk.encrypt.short_same": "Heslo vášho účtu má menej ako 8 znakov: zadajte na šifrovanie dlhšie, samostatné heslo.",
 
   "confirm.heading": "Všetko na tomto disku bude vymazané",
   "confirm.text": "Sloth OS využije celý disk: {disk}. Všetko, čo je na ňom teraz (súbory, programy, iné systémy), bude natrvalo vymazané.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows je šifrovaný nástrojom BitLocker: pri ďalšom spustení môže pýtať obnovovací kľúč. Majte ho poruke (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Po zapnutí počítača si môžete pár sekúnd vybrať medzi Sloth OS a Windows.",
   "confirm.beside.checkbox": "Rozumiem a dôležité súbory mám zálohované",
+  "confirm.encrypt": "Disk bude šifrovaný: pri zapnutí sa otvorí vaším heslom.",
 
   "nav.back": "Späť",
   "nav.next": "Ďalej",
@@ -74,6 +84,7 @@
   "stage.start": "Príprava…",
   "stage.partition": "Príprava disku…",
   "stage.shrink": "Zmena veľkosti disku s Windows…",
+  "stage.encrypt": "Nastavuje sa šifrovanie…",
   "stage.prepare": "Príprava systému…",
   "stage.copy": "Kopírovanie Sloth OS na disk…",
   "stage.bootloader": "Nastavenie spúšťania…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Pri kopírovaní systému na disk sa niečo pokazilo. Údaje, ktoré boli na disku, už mohli byť vymazané.",
   "error.configure_failed": "Systém je nainštalovaný, ale jazyk a klávesnicu sa nepodarilo nastaviť. Skúste to znova; ak to opäť nepôjde, nastavíte ich po prvom spustení v Nastaveniach systému.",
   "error.beside_shrink_failed": "Disk s Windows sa nepodarilo zmenšiť. Spustite Windows, skontrolujte disk (Tento počítač → C: → Vlastnosti → Nástroje → Skontrolovať) a skúste to znova.",
+  "error.encrypt_failed": "Šifrovanie sa nepodarilo nastaviť. Skúste to znova; ak to zase nepôjde, nainštalujte bez šifrovania.",
 
   "desktop.comment": "Inštalácia Sloth OS na tento počítač",
   "desktop.keywords": "inštalácia;inštalátor"

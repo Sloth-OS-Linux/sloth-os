@@ -337,6 +337,15 @@ valami elromlik, legyen mivel megjavítani): naplónéző (kjournald), Filelight
     modul után; különben az AMD/Intel <-> NVIDIA váltás elakadna). A telepítő az aláírt hivatkozást írja be, ha a
     policy.json aláírást követel (különben marad a régi, hogy legyen frissítés). A régebbi telepítéseket a
     `sloth-signed-updates.timer` egyszer átállítja (az előkészített, újraindításra váró változatot is)
-  - [ ] Lemeztitkosítás, régi (BIOS-os) gépek
+  - [x] Lemeztitkosítás (2026-10-16; VM-ben és valódi gépen még tesztelni, főleg az indításkori jelszókérőt): a
+    lemezválasztóban „A lemez titkosítása” (alapból a fiók jelszavával, vagy külön jelszóval; legalább 8 karakter),
+    teljes lemezen és Windows mellett is. LUKS2 a rendszerpartíción (TRIM engedélyezve), külön titkosítatlan
+    /boot (1 GB; a GRUB a LUKS2-t nem tudja kinyitni), `rd.luks.uuid` és crypttab. A jelszókérő a választott
+    billentyűzetkiosztással fut (`rd.vconsole.keymap`; az initramfs-ben minden kiosztás:
+    `/usr/lib/dracut/dracut.conf.d/90-sloth-luks.conf`), a Plymouth-téma szöveg helyett lakat ikont mutat (a
+    systemd szövege angol és technikai). Loop eszközön kipróbálva: jó/rossz jelszó, LUKS2, TRIM, /boot, crypttab,
+    a fájlrendszer kitölti a partíciót. Közben javítva: Windows mellett a szabad hely egészét elfoglalta a
+    választott méret helyett
+  - [ ] Régi (BIOS-os) gépek
   - [ ] ISO letöltése: privát repóban a 2 GB-os kiadás- és 500 MB-os tárhelykorlát miatt csak publikussá tétel után
 - [ ] Weboldal, letöltés, dokumentáció

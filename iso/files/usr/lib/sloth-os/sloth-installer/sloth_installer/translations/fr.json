@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Nous n'avons pas pu vérifier le disque de Windows, nous ne le redimensionnerons donc pas.",
   "disk.beside.bitlocker": "Le disque de Windows est chiffré avec BitLocker et ne peut pas être réduit d'ici. Dans Windows, ouvre la Gestion des disques (clic droit sur le lecteur C: → Réduire le volume), libère au moins 40 Go, puis relance l'installateur : nous installerons dans l'espace libéré.",
   "disk.beside.no_space": "Il n'y a pas assez de place à côté de Windows : Sloth OS a besoin d'au moins 40 Go, et Windows doit aussi garder de l'espace libre.",
+  "disk.encrypt.option": "Chiffrer le disque",
+  "disk.encrypt.hint": "Si ton ordinateur est volé ou perdu, personne ne peut accéder à tes fichiers. Tu devras saisir le mot de passe à chaque démarrage.",
+  "disk.encrypt.same": "Même mot de passe que mon compte",
+  "disk.encrypt.password": "Mot de passe de chiffrement :",
+  "disk.encrypt.repeat": "Encore une fois :",
+  "disk.encrypt.warning": "Si tu oublies ce mot de passe, tes fichiers ne pourront pas être récupérés. Note-le et range-le en lieu sûr.",
+  "disk.encrypt.mismatch": "Les deux mots de passe ne correspondent pas.",
+  "disk.encrypt.short": "Le mot de passe doit contenir au moins 8 caractères.",
+  "disk.encrypt.short_same": "Le mot de passe de ton compte fait moins de 8 caractères : saisis un mot de passe plus long et distinct pour le chiffrement.",
 
   "confirm.heading": "Tout ce qui est sur ce disque sera effacé",
   "confirm.text": "Sloth OS utilise tout le disque : {disk}. Tout ce qu'il contient (fichiers, programmes, autres systèmes) sera définitivement supprimé.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows est chiffré avec BitLocker : au prochain démarrage, il peut demander la clé de récupération. Garde-la à portée de main (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Au démarrage, tu pourras choisir entre Sloth OS et Windows pendant quelques secondes.",
   "confirm.beside.checkbox": "J'ai compris et j'ai sauvegardé mes fichiers importants",
+  "confirm.encrypt": "Le disque sera chiffré : il s'ouvre avec ton mot de passe au démarrage.",
 
   "nav.back": "Retour",
   "nav.next": "Suivant",
@@ -74,6 +84,7 @@
   "stage.start": "Préparation…",
   "stage.partition": "Préparation du disque…",
   "stage.shrink": "Redimensionnement du disque de Windows…",
+  "stage.encrypt": "Configuration du chiffrement…",
   "stage.prepare": "Préparation du système…",
   "stage.copy": "Copie de Sloth OS sur le disque…",
   "stage.bootloader": "Configuration du démarrage…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Un problème est survenu pendant la copie du système sur le disque. Les données qui étaient sur le disque ont peut-être déjà été effacées.",
   "error.configure_failed": "Le système est installé, mais la langue et le clavier n'ont pas pu être réglés. Réessayez ; si cela échoue encore, vous pourrez les régler dans la Configuration du système après le premier démarrage.",
   "error.beside_shrink_failed": "Impossible de réduire le disque de Windows. Démarre Windows, vérifie le disque (Ce PC → C: → Propriétés → Outils → Vérifier), puis réessaie.",
+  "error.encrypt_failed": "La configuration du chiffrement a échoué. Réessaie ; si cela échoue encore, installe sans chiffrement.",
 
   "desktop.comment": "Installer Sloth OS sur cet ordinateur",
   "desktop.keywords": "installer;installateur"

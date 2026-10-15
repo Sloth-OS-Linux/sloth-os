@@ -29,7 +29,7 @@ systemctl enable livesys.service livesys-late.service
 
 # A Windows mellé telepítéshez: a Windows-partíció zsugorítása (ntfsresize); csak az élő rendszerben kell
 dnf install -y ntfsprogs
-command -v ntfsresize ntfscat
+command -v ntfsresize ntfscat cryptsetup
 
 # --- A telepítő és az élő rendszer saját fájljai ----------------------------------------
 

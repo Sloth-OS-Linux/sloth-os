@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Windows sürücüsünü denetleyemedik, bu yüzden boyutunu değiştirmiyoruz.",
   "disk.beside.bitlocker": "Windows sürücüsü BitLocker ile şifrelenmiş ve buradan küçültülemez. Windows'ta Disk Yönetimi'ni aç (C: sürücüsüne sağ tıkla → Birimi Küçült), en az 40 GB boşalt ve kurulumu yeniden başlat: boşalan alana kuracağız.",
   "disk.beside.no_space": "Windows'un yanında yeterli alan yok: Sloth OS'in en az 40 GB'a ihtiyacı var ve Windows'un da boş alana ihtiyacı var.",
+  "disk.encrypt.option": "Diski şifrele",
+  "disk.encrypt.hint": "Bilgisayarın çalınır ya da kaybolursa kimse dosyalarına ulaşamaz. Bilgisayarı her açtığında parolayı girmen gerekir.",
+  "disk.encrypt.same": "Hesabımla aynı parola",
+  "disk.encrypt.password": "Şifreleme parolası:",
+  "disk.encrypt.repeat": "Bir kez daha:",
+  "disk.encrypt.warning": "Bu parolayı unutursan dosyaların kurtarılamaz. Bir yere yaz ve güvenli bir yerde sakla.",
+  "disk.encrypt.mismatch": "İki parola eşleşmiyor.",
+  "disk.encrypt.short": "Parola en az 8 karakter olmalı.",
+  "disk.encrypt.short_same": "Hesap parolan 8 karakterden kısa: şifreleme için daha uzun, ayrı bir parola gir.",
 
   "confirm.heading": "Bu diskteki her şey silinecek",
   "confirm.text": "Sloth OS diskin tamamını kullanır: {disk}. Üzerindeki her şey (dosyalar, programlar, diğer sistemler) kalıcı olarak silinecek.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows BitLocker ile şifrelenmiş: bir sonraki açılışta kurtarma anahtarını isteyebilir. Yanında bulundur (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Bilgisayar açılırken birkaç saniye boyunca Sloth OS ile Windows arasında seçim yapabilirsin.",
   "confirm.beside.checkbox": "Anladım ve önemli dosyalarımı yedekledim",
+  "confirm.encrypt": "Disk şifrelenecek: bilgisayar açılırken parolanla açılır.",
 
   "nav.back": "Geri",
   "nav.next": "İleri",
@@ -74,6 +84,7 @@
   "stage.start": "Hazırlanıyor…",
   "stage.partition": "Disk hazırlanıyor…",
   "stage.shrink": "Windows sürücüsünün boyutu değiştiriliyor…",
+  "stage.encrypt": "Şifreleme ayarlanıyor…",
   "stage.prepare": "Sistem hazırlanıyor…",
   "stage.copy": "Sloth OS diske kopyalanıyor…",
   "stage.bootloader": "Başlatma ayarlanıyor…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Sistem diske kopyalanırken bir sorun oluştu. Diskte önceden olan veriler silinmiş olabilir.",
   "error.configure_failed": "Sistem kuruldu, ancak dil ve klavye ayarlanamadı. Yeniden deneyin; yine olmazsa ilk açılıştan sonra Sistem Ayarları'ndan ayarlayabilirsiniz.",
   "error.beside_shrink_failed": "Windows sürücüsü küçültülemedi. Windows'u başlat, diski denetle (Bu bilgisayar → C: → Özellikler → Araçlar → Denetle) ve tekrar dene.",
+  "error.encrypt_failed": "Şifreleme ayarlanamadı. Tekrar dene; yine olmazsa şifrelemeden kur.",
 
   "desktop.comment": "Sloth OS'u bu bilgisayara yükleme",
   "desktop.keywords": "yükle;yükleyici"

@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Non siamo riusciti a controllare l'unità di Windows, quindi non la ridimensioniamo.",
   "disk.beside.bitlocker": "L'unità di Windows è cifrata con BitLocker e non può essere ridotta da qui. In Windows apri Gestione disco (clic destro sull'unità C: → Riduci volume), libera almeno 40 GB, poi riavvia il programma di installazione: installeremo nello spazio liberato.",
   "disk.beside.no_space": "Non c'è abbastanza spazio accanto a Windows: Sloth OS ha bisogno di almeno 40 GB e anche Windows deve mantenere un po' di spazio libero.",
+  "disk.encrypt.option": "Cifra il disco",
+  "disk.encrypt.hint": "Se il computer viene rubato o perso, nessuno può accedere ai tuoi file. Dovrai inserire la password a ogni accensione.",
+  "disk.encrypt.same": "Stessa password del mio account",
+  "disk.encrypt.password": "Password di cifratura:",
+  "disk.encrypt.repeat": "Di nuovo:",
+  "disk.encrypt.warning": "Se dimentichi questa password, i tuoi file non potranno essere recuperati. Scrivila e conservala in un posto sicuro.",
+  "disk.encrypt.mismatch": "Le due password non coincidono.",
+  "disk.encrypt.short": "La password deve contenere almeno 8 caratteri.",
+  "disk.encrypt.short_same": "La password del tuo account è più corta di 8 caratteri: inserisci una password diversa e più lunga per la cifratura.",
 
   "confirm.heading": "Tutto il contenuto di questo disco verrà cancellato",
   "confirm.text": "Sloth OS usa l'intero disco: {disk}. Tutto quello che contiene ora (file, programmi, altri sistemi) verrà eliminato per sempre.",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows è cifrato con BitLocker: al prossimo avvio potrebbe chiedere la chiave di ripristino. Tienila a portata di mano (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "All'accensione potrai scegliere tra Sloth OS e Windows per qualche secondo.",
   "confirm.beside.checkbox": "Ho capito e ho fatto un backup dei miei file importanti",
+  "confirm.encrypt": "Il disco sarà cifrato: all'accensione si apre con la tua password.",
 
   "nav.back": "Indietro",
   "nav.next": "Avanti",
@@ -74,6 +84,7 @@
   "stage.start": "Preparazione…",
   "stage.partition": "Preparazione del disco…",
   "stage.shrink": "Ridimensionamento dell'unità di Windows…",
+  "stage.encrypt": "Configurazione della cifratura…",
   "stage.prepare": "Preparazione del sistema…",
   "stage.copy": "Copia di Sloth OS sul disco…",
   "stage.bootloader": "Configurazione dell'avvio…",
@@ -96,6 +107,7 @@
   "error.install_failed": "Qualcosa è andato storto durante la copia del sistema sul disco. I dati che c'erano sul disco potrebbero essere già stati cancellati.",
   "error.configure_failed": "Il sistema è stato installato, ma non è stato possibile impostare lingua e tastiera. Riprova; se non funziona ancora, potrai impostarli nelle Impostazioni di sistema dopo il primo avvio.",
   "error.beside_shrink_failed": "Non è stato possibile ridurre l'unità di Windows. Avvia Windows, controlla il disco (Questo PC → C: → Proprietà → Strumenti → Controlla), poi riprova.",
+  "error.encrypt_failed": "Non è stato possibile configurare la cifratura. Riprova; se non funziona ancora, installa senza cifratura.",
 
   "desktop.comment": "Installare Sloth OS su questo computer",
   "desktop.keywords": "installare;programma di installazione"

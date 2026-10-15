@@ -54,6 +54,15 @@
   "disk.beside.unknown": "Windows のドライブを確認できなかったため、サイズは変更しません。",
   "disk.beside.bitlocker": "Windows のドライブは BitLocker で暗号化されているため、ここから小さくすることはできません。Windows で「ディスクの管理」を開き（ドライブ C: を右クリック → ボリュームの縮小）、40 GB 以上を空けてから、インストーラーをもう一度起動してください。空いた領域にインストールします。",
   "disk.beside.no_space": "Windows の横に十分な空きがありません。Sloth OS には 40 GB 以上が必要で、Windows にも空き容量を残す必要があります。",
+  "disk.encrypt.option": "ディスクを暗号化する",
+  "disk.encrypt.hint": "コンピューターが盗まれたりなくしたりしても、誰もあなたのファイルにアクセスできません。起動するたびにパスワードの入力が必要です。",
+  "disk.encrypt.same": "アカウントと同じパスワードを使う",
+  "disk.encrypt.password": "暗号化パスワード:",
+  "disk.encrypt.repeat": "もう一度:",
+  "disk.encrypt.warning": "このパスワードを忘れると、ファイルを復元できません。書き留めて安全な場所に保管してください。",
+  "disk.encrypt.mismatch": "2 つのパスワードが一致しません。",
+  "disk.encrypt.short": "パスワードは 8 文字以上にしてください。",
+  "disk.encrypt.short_same": "アカウントのパスワードが 8 文字未満です。暗号化用に、別のより長いパスワードを入力してください。",
 
   "confirm.heading": "このディスクの内容はすべて消去されます",
   "confirm.text": "Sloth OS はディスク全体を使います: {disk}。今入っているもの（ファイル、プログラム、ほかのシステム）はすべて完全に削除されます。",
@@ -67,6 +76,7 @@
   "confirm.beside.bitlocker": "Windows は BitLocker で暗号化されています。次回の起動時に回復キーを求められることがあります。手元に用意しておいてください (aka.ms/myrecoverykey)。",
   "confirm.beside.menu": "コンピューターの起動時に数秒間、Sloth OS と Windows のどちらを使うか選べます。",
   "confirm.beside.checkbox": "理解しました。大切なファイルはバックアップ済みです",
+  "confirm.encrypt": "ディスクは暗号化されます。起動時にパスワードで開きます。",
 
   "nav.back": "戻る",
   "nav.next": "次へ",
@@ -74,6 +84,7 @@
   "stage.start": "準備しています…",
   "stage.partition": "ディスクを準備しています…",
   "stage.shrink": "Windows のドライブのサイズを変更しています…",
+  "stage.encrypt": "暗号化を設定しています…",
   "stage.prepare": "システムを準備しています…",
   "stage.copy": "Sloth OS をディスクにコピーしています…",
   "stage.bootloader": "起動を設定しています…",
@@ -96,6 +107,7 @@
   "error.install_failed": "システムをディスクにコピー中に問題が発生しました。ディスクにあったデータはすでに消えている可能性があります。",
   "error.configure_failed": "システムはインストールされましたが、言語とキーボードを設定できませんでした。もう一度お試しください。それでも失敗する場合は、初回起動後にシステム設定で設定できます。",
   "error.beside_shrink_failed": "Windows のドライブを小さくできませんでした。Windows を起動してディスクをチェックし（PC → C: → プロパティ → ツール → チェック）、もう一度お試しください。",
+  "error.encrypt_failed": "暗号化を設定できませんでした。もう一度お試しください。それでも失敗する場合は、暗号化せずにインストールしてください。",
 
   "desktop.comment": "このコンピューターに Sloth OS をインストールします",
   "desktop.keywords": "インストール;インストーラー"
