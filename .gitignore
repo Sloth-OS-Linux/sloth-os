@@ -4,3 +4,6 @@ cosign.key
 /out/
 __pycache__/
 *.pyc
+
+# Csak a VM-teszthez (helyi segéd, az ISO-ba se kerüljön)
+iso/files/deploy-vm.sh
