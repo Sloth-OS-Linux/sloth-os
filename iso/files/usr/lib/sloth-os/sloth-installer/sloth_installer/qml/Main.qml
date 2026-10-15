@@ -137,7 +137,7 @@ Kirigami.ApplicationWindow {
                         QQC2.Button {
                             text: root.t("welcome.try")
                             icon.name: "computer"
-                            onClicked: installer.quit()
+                            onClicked: installer.tryLive()
                         }
                         QQC2.Button {
                             id: installButton

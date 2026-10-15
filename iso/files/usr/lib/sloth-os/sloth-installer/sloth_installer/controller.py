@@ -294,6 +294,14 @@ class InstallerController(QObject):
         QProcess.startDetached("systemctl", ["reboot"])
 
     @Slot()
+    def tryLive(self):
+        """Kipróbálom: a választott nyelven jön fel az asztal, a telepítő bezárul."""
+        if self._language != catalog.system_language():
+            locale = next(l["locale"] for l in self._languages if l["code"] == self._language)
+            system.apply_live_language(self._language, locale)
+        QApplication.quit()
+
+    @Slot()
     def quit(self):
         if not self._proc:
             QApplication.quit()

@@ -217,44 +217,77 @@ class Installer:
                     pass
 
     def _run_transaction(self, txn, wanted, ok, failed):
-        state = {"total": 1, "done": 0}
+        # Az összesített folyamat a letöltendő méret szerint halad (egy nyelvi csomag ne számítson
+        # annyit, mint egy 1 GB-os futtatókörnyezet); ha a méret nem ismert, műveletenként egyenlően
+        state = {"weights": {}, "total": 1, "done": 0}
 
         def app_of(op):
             parts = op.get_ref().split("/")
             return parts[1] if len(parts) > 1 and parts[0] == "app" and parts[1] in wanted else None
 
-        def label(op):
+        def owner_of(op, seen=None):
+            """Melyik kiválasztott apphoz kell ez a művelet (a futtatókörnyezet, a kiegészítők is)."""
             app_id = app_of(op)
-            return tr("install.installing", name=wanted[app_id]["name"]) if app_id else tr("install.runtime")
+            if app_id:
+                return app_id
+            seen = seen or set()
+            for rel in op.get_related_to_ops() or []:
+                if id(rel) not in seen:
+                    seen.add(id(rel))
+                    found = owner_of(rel, seen)
+                    if found:
+                        return found
+            return None
+
+        def weight(op):
+            return state["weights"].get(op.get_ref(), 1)
 
         def on_ready(t):
-            state["total"] = max(1, len(t.get_operations()))
+            ops = t.get_operations()
+            sizes = {op.get_ref(): op.get_download_size() for op in ops}
+            if all(sizes.values()):
+                state["weights"] = sizes
+            state["total"] = max(1, sum(weight(op) for op in ops))
             return True
 
         def on_new_operation(t, op, progress):
             app_id = app_of(op)
             if app_id:
                 self._on_app_state(app_id, "installing", "")
-            text = label(op)
+            owner = owner_of(op)
+            name = wanted[owner]["name"] if owner else None
+            size_mb = op.get_download_size() // (1024 * 1024)
 
             def changed(p):
-                overall = int((state["done"] + p.get_progress() / 100) * 100 / state["total"])
-                mb = p.get_bytes_transferred() // (1024 * 1024)
-                self._on_status(text, tr("install.mb_downloaded", mb=mb) if mb else "", min(99, overall))
+                pct = p.get_progress()
+                overall = int((state["done"] + weight(op) * pct / 100) * 100 / state["total"])
+                if pct < 100:
+                    # Letöltés: mit és mennyit
+                    text = tr("install.downloading", name=name) if name else tr("install.runtime")
+                    mb = p.get_bytes_transferred() // (1024 * 1024)
+                    if size_mb:
+                        detail = f"{tr('install.mb', mb=min(mb, size_mb))} / {tr('install.mb', mb=size_mb)}"
+                    else:
+                        detail = tr("install.mb_downloaded", mb=mb) if mb else ""
+                else:
+                    # A letöltés kész, a fájlok a helyükre kerülnek
+                    text = tr("install.installing", name=name) if name else tr("install.runtime")
+                    detail = ""
+                self._on_status(text, detail, min(99, overall))
 
             progress.set_update_frequency(200)
             progress.connect("changed", changed)
             changed(progress)
 
         def on_done(t, op, commit, result):
-            state["done"] += 1
+            state["done"] += weight(op)
             app_id = app_of(op)
             if app_id:
                 ok.append(app_id)
                 self._on_app_state(app_id, "done", "")
 
         def on_error(t, op, error, details):
-            state["done"] += 1
+            state["done"] += weight(op)
             app_id = app_of(op)
             log.warning("%s: %s", op.get_ref(), error.message)
             if app_id:

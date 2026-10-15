@@ -13,7 +13,7 @@ from PySide6.QtGui import QGuiApplication
 
 from sloth_common import gamesettings
 
-from . import backend
+from . import backend, quirks
 
 log = logging.getLogger("sloth-exe.runner")
 
@@ -59,6 +59,8 @@ class Runner(QObject):
         env.remove("UMU_ZENITY")
         # Játékonkénti beállítások a Sloth Központból (Játékok oldal)
         self._wrap = gamesettings.wrapper(program.meta.get("game"), self._screen())
+        # Ismert programok (pl. Battle.net) beállításai
+        quirks.apply(program, exe, env)
 
         self._started_at = time.monotonic()
         if backend.use_wine():
@@ -72,7 +74,7 @@ class Runner(QObject):
         """Tartalék: nincs Proton és nincs internet. A rendszer Wine-ja indítja a programot."""
         log.info("indítás tartalék futtatóval: %s (%s)", exe, program.slug)
         # A Gecko-telepítő kérdése ne jöjjön elő (a .NET-et a wine-mono csomag adja)
-        env.insert("WINEDLLOVERRIDES", "winemenubuilder.exe=d;mshtml=d")
+        env.insert("WINEDLLOVERRIDES", env.value("WINEDLLOVERRIDES") + ";mshtml=d")
         args = ["msiexec", "/i", str(exe)] if exe.suffix.lower() == ".msi" else [str(exe)]
         self.setup_done.emit()
         if (program.prefix / "system.reg").exists():

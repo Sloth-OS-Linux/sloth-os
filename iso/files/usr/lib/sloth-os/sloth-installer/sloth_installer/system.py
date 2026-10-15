@@ -132,6 +132,26 @@ def apply_live_keyboard(kbd):
         log.warning("billentyűzet (élő): %s", e)
 
 
+def apply_live_language(code, locale):
+    """A választott nyelv az élő asztalon is ("Kipróbálom" után).
+
+    A Plasma nyelvbeállítása (plasma-localerc) mellett a munkamenet környezete is átáll, majd
+    újraindul az asztal (plasmashell): a tálca, a menü és az onnan indított appok már a választott
+    nyelven jönnek fel. Kijelentkezni nem kell (a liveuser automatikus belépése csak egyszer megy).
+    """
+    language = code if code.startswith("en") else f"{code}:en_US"
+    try:
+        for group, key, value in (("Translations", "LANGUAGE", language), ("Formats", "LANG", locale)):
+            subprocess.run(["kwriteconfig6", "--file", "plasma-localerc", "--group", group, "--key", key, value],
+                           check=True, timeout=10)
+        subprocess.run(["dbus-update-activation-environment", "--systemd",
+                        f"LANG={locale}", f"LANGUAGE={language}"], check=True, timeout=10)
+        subprocess.Popen(["systemctl", "--user", "restart", "plasma-plasmashell.service"],
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
+    except (OSError, subprocess.SubprocessError) as e:
+        log.warning("nyelv (élő): %s", e)
+
+
 # --- Lemezek ----------------------------------------------------------------------
 
 def _lsblk():
