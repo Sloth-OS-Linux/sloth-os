@@ -251,16 +251,22 @@ def setup_boot_menu():
     if not grub_dir.is_dir() or not GRUB_CUSTOM.is_file():
         log("boot menü: nincs /boot/grub2 vagy sablon, marad a látható menü")
         return
-    (grub_dir / "custom.cfg").write_bytes(GRUB_CUSTOM.read_bytes())
-    if efi_dir.is_dir():
-        # GRUB környezeti blokk (a grub2-editenv formátuma: 1024 bájt, a maradék #-kel kitöltve). Magunk írjuk,
-        # így nem függünk a grub2-editenv-től (2026-10-15: a bootc után a segéd log nélkül leállt, gyanú: hiányzott).
-        body = "# GRUB Environment Block\nsloth_boot_pending=0\nsloth_show_menu=0\n"
-        try:
+    # A bootc a végén („Finalizing filesystem root”) csak olvashatóra csatolja vissza a célt; írás előtt
+    # vissza kell állítani (2026-10-15: e nélkül a custom.cfg írása kivételt dobott, és a segéd leállt).
+    for mp in (TARGET, TARGET / "boot/efi"):
+        if os.path.ismount(mp):
+            r = subprocess.run(["mount", "-o", "remount,rw", str(mp)], capture_output=True, text=True)
+            if r.returncode:
+                log(f"boot menü: {mp} nem csatolható írhatóra: {r.stderr.strip()}")
+    try:
+        (grub_dir / "custom.cfg").write_bytes(GRUB_CUSTOM.read_bytes())
+        if efi_dir.is_dir():
+            # GRUB környezeti blokk (a grub2-editenv formátuma: 1024 bájt, a maradék #-kel kitöltve)
+            body = "# GRUB Environment Block\nsloth_boot_pending=0\nsloth_show_menu=0\n"
             (efi_dir / "sloth-boot.env").write_text(body + "#" * (1024 - len(body)), encoding="ascii")
-            log("boot menü: rejtett")
-        except OSError as e:
-            log(f"boot menü: nem sikerült, marad a látható menü ({e})")
+        log("boot menü: rejtett")
+    except OSError as e:
+        log(f"boot menü: nem sikerült, marad a látható menü ({e})")
 
 
 def finish_partitions(disk, parts):
