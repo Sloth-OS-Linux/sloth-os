@@ -104,7 +104,11 @@ terminálból lehet csinálni, GUI-ból is menjen.
   - `.rpm`: Atomic rendszeren nem telepíthető „csak úgy”. Terv: ha van Flatpak változata, azt ajánljuk;
     különben Fedora-dobozba; a rendszerbe rétegezés csak a haladó beállításokban
   - `.flatpakref` / `.flatpak`: a Discover már kezeli (VM-ben ellenőrizni)
-  - `.dmg` / `.xip` (Mac-appok): Linuxon nem futtathatók (a Darling kísérleti, grafikus appokat nem visz), ezért
+  - Mac-appok és -lemezképek: `.dmg`, `.xip`, `.pkg`, `.mpkg`, `.app` (zip-ben is: `.app.zip`), `.sparseimage`,
+    `.sparsebundle`, `.cdr`, `.smi`, régi `.img` / `.dc42` lemezképek, valamint az iOS-appok (`.ipa`).
+    Felismerés MIME-típus alapján is (pl. `application/x-apple-diskimage`, `application/x-xar`); a `.command` /
+    `.tool` szkriptek shell-szkriptek, ezeknél csak figyelmeztetés. Linuxon nem futtathatók (a Darling kísérleti,
+    grafikus appokat nem visz), ezért
     érthető üzenet: „Ez a program Mac-re készült, ezen a gépen nem fut”; ha az app megvan Flathubon (pl.
     Spotify, Discord, VS Code), a Linuxos változatát egy kattintással felajánljuk; a benne lévő fájlok
     (betűtípus, dokumentum) az Ark-kal kicsomagolhatók
