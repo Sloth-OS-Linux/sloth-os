@@ -60,7 +60,6 @@
   "stage.bootloader": "Postavljanje pokretanja…",
   "stage.finishing": "Dovršavanje…",
   "stage.configure": "Spremanje jezika i postavki…",
-  "stage.browser": "Dodavanje web preglednika (nema interneta)…",
 
   "install.note": "Ovisno o računalu, traje 5–20 minuta. Nemojte ga isključivati.",
 

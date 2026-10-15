@@ -60,7 +60,6 @@
   "stage.bootloader": "Start wird eingerichtet…",
   "stage.finishing": "Abschluss…",
   "stage.configure": "Sprache und Einstellungen werden gespeichert…",
-  "stage.browser": "Webbrowser wird hinzugefügt (kein Internet)…",
   "install.note": "Je nach Computer dauert das 5–20 Minuten. Bitte nicht ausschalten.",
 
   "done.heading": "Installation abgeschlossen!",

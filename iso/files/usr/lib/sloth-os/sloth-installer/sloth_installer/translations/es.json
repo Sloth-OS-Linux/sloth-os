@@ -60,7 +60,6 @@
   "stage.bootloader": "Configurando el arranque…",
   "stage.finishing": "Terminando…",
   "stage.configure": "Guardando el idioma y los ajustes…",
-  "stage.browser": "Añadiendo un navegador (sin Internet)…",
 
   "install.note": "Según tu ordenador, tarda entre 5 y 20 minutos. No lo apagues.",
 

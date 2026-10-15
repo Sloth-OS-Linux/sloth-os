@@ -60,7 +60,6 @@
   "stage.bootloader": "Määritetään käynnistystä…",
   "stage.finishing": "Viimeistellään…",
   "stage.configure": "Tallennetaan kieli ja asetukset…",
-  "stage.browser": "Lisätään verkkoselain (ei internetiä)…",
 
   "install.note": "Tietokoneesta riippuen tämä kestää 5–20 minuuttia. Älä sammuta sitä.",
 

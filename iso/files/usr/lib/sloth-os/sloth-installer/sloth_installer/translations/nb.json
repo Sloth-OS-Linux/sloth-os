@@ -60,7 +60,6 @@
   "stage.bootloader": "Setter opp oppstarten…",
   "stage.finishing": "Fullfører…",
   "stage.configure": "Lagrer språk og innstillinger…",
-  "stage.browser": "Legger til en nettleser (ingen internett)…",
 
   "install.note": "Avhengig av datamaskinen tar det 5–20 minutter. Ikke slå den av.",
 

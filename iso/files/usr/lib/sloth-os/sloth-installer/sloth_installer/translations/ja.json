@@ -60,7 +60,6 @@
   "stage.bootloader": "起動を設定しています…",
   "stage.finishing": "仕上げています…",
   "stage.configure": "言語と設定を保存しています…",
-  "stage.browser": "ブラウザーを追加しています（インターネットなし）…",
 
   "install.note": "パソコンによって 5〜20 分かかります。電源を切らないでください。",
 

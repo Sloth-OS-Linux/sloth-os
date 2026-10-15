@@ -10,7 +10,6 @@ fiók adatait (a fiókot első induláskor a sloth-first-user szolgáltatás hoz
 A bootc a rétegeket ideiglenesen a /var/tmp-be csomagolja ki; az élő rendszerben ez RAM-ban van, ezért
 a telepítés idejére a /var/tmp fölé a lemez végén lévő átmeneti munkapartíció kerül.
 A végén ezt a partíciót töröljük, és a helyét a rendszerpartíció kapja meg.
-Ha nincs internet, az élő rendszer Firefoxát is átmásolja, hogy legyen böngésző.
 A kimenet JSON-sorok a felületnek:
   {"stage": "partition", "progress": 10}   ismert lépés (a felület fordítja le)
   {"done": true}                            kész
@@ -285,34 +284,6 @@ def finish_partitions(disk, parts):
     return parts[3]
 
 
-def online():
-    """A NetworkManager szerint van-e internet. Ha nem tudjuk, igennek vesszük (nem másolunk böngészőt)."""
-    r = subprocess.run(["nmcli", "--terse", "--fields", "CONNECTIVITY", "general"], capture_output=True, text=True)
-    return r.returncode != 0 or r.stdout.strip() in ("full", "unknown", "")
-
-
-def copy_offline_browser(stateroot):
-    """Internet nélkül a Firefox (és a futtatókörnyezete) az élő rendszerből a telepített /var-ba kerül.
-
-    A Flatpak-telepítés egy mappa (/var/lib/flatpak), ami egy az egyben átmásolható. Internettel
-    nem másolunk: akkor a felhasználó az Üdvözlőben választ böngészőt.
-    """
-    src = Path("/var/lib/flatpak")
-    if online() or not (src / "app/org.mozilla.firefox").is_dir():
-        return
-    emit(stage="browser", progress=97)
-    dest = stateroot / "var/lib/flatpak"
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    log(f"offline böngésző: {src} -> {dest}")
-    subprocess.run(["cp", "-a", "--reflink=auto", f"{src}/.", str(dest)], check=True)
-    # SELinux címkék a telepített rendszer szabályai szerint (a stateroot alatt van a var/)
-    contexts = next(iter(stateroot.glob("deploy/*.0/etc/selinux/targeted/contexts/files/file_contexts")), None)
-    if contexts:
-        r = subprocess.run(["setfiles", "-F", "-r", str(stateroot), str(contexts), str(dest)],
-                           capture_output=True, text=True)
-        log(f"setfiles (flatpak): {r.returncode} {r.stderr.strip()[:500]}")
-
-
 LOADER = r"\EFI\fedora\shimx64.efi"
 
 
@@ -379,7 +350,6 @@ def configure(root_part, locale, layouts, variants, timezone, account):
             fail("error.configure_failed", f"nincs ostree deployment ezen: {root_part}")
         etc = Path(etcs[0])
         deploy = etc.parent
-        stateroot = deploy.parent.parent  # .../ostree/deploy/<stateroot>
 
         console = layouts[0] if layouts[0] != "us" or len(layouts) == 1 else "us"
         files = {
@@ -420,7 +390,6 @@ def configure(root_part, locale, layouts, variants, timezone, account):
                                 *[str(p) for p in files], str(localtime), str(user_spec.parent), str(user_spec)],
                                capture_output=True, text=True)
             log(f"setfiles: {r.returncode} {r.stderr.strip()}")
-        copy_offline_browser(stateroot)
     finally:
         subprocess.run(["sync"])
         subprocess.run(["umount", str(mnt)])
@@ -429,7 +398,7 @@ def configure(root_part, locale, layouts, variants, timezone, account):
 
 def dry_run():
     for stage, pct in [("partition", 10), ("prepare", 20)] + [("copy", p) for p in range(25, 81, 5)] + \
-            [("bootloader", 85), ("finishing", 90), ("configure", 95), ("browser", 97)]:
+            [("bootloader", 85), ("finishing", 90), ("configure", 95)]:
         time.sleep(1.5)
         emit(stage=stage, progress=pct)
     emit(done=True)

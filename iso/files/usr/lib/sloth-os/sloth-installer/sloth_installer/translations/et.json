@@ -60,7 +60,6 @@
   "stage.bootloader": "Käivituse seadistamine…",
   "stage.finishing": "Lõpetamine…",
   "stage.configure": "Keele ja seadete salvestamine…",
-  "stage.browser": "Veebibrauseri lisamine (internetti pole)…",
 
   "install.note": "Sõltuvalt arvutist kulub 5–20 minutit. Ära lülita seda välja.",
 

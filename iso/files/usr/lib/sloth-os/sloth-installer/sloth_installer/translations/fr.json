@@ -60,7 +60,6 @@
   "stage.bootloader": "Configuration du démarrage…",
   "stage.finishing": "Finalisation…",
   "stage.configure": "Enregistrement de la langue et des réglages…",
-  "stage.browser": "Ajout d'un navigateur web (pas d'Internet)…",
 
   "install.note": "Selon votre ordinateur, cela prend 5 à 20 minutes. Ne l'éteignez pas.",
 

@@ -60,7 +60,6 @@
   "stage.bootloader": "正在設定開機…",
   "stage.finishing": "正在完成…",
   "stage.configure": "正在儲存語言和設定…",
-  "stage.browser": "正在加入瀏覽器（無網路）…",
 
   "install.note": "依電腦而定，需要 5–20 分鐘。請不要關機。",
 

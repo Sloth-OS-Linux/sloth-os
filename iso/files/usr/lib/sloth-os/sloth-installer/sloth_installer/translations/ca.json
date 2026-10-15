@@ -60,7 +60,6 @@
   "stage.bootloader": "S'està configurant l'arrencada…",
   "stage.finishing": "S'està acabant…",
   "stage.configure": "S'estan desant la llengua i la configuració…",
-  "stage.browser": "S'està afegint un navegador (sense Internet)…",
 
   "install.note": "Segons l'ordinador, triga entre 5 i 20 minuts. No l'apaguis.",
 

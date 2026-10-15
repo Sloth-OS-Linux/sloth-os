@@ -60,7 +60,6 @@
   "stage.bootloader": "Nastavenie spúšťania…",
   "stage.finishing": "Dokončovanie…",
   "stage.configure": "Ukladanie jazyka a nastavení…",
-  "stage.browser": "Pridávanie webového prehliadača (bez internetu)…",
 
   "install.note": "Podľa počítača to trvá 5–20 minút. Nevypínajte ho.",
 

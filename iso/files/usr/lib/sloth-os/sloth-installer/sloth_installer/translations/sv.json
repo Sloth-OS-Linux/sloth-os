@@ -60,7 +60,6 @@
   "stage.bootloader": "Ställer in uppstarten…",
   "stage.finishing": "Slutför…",
   "stage.configure": "Sparar språk och inställningar…",
-  "stage.browser": "Lägger till en webbläsare (inget internet)…",
 
   "install.note": "Beroende på datorn tar det 5–20 minuter. Stäng inte av den.",
 

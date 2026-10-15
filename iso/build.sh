@@ -32,10 +32,24 @@ systemctl enable livesys.service livesys-late.service
 cp -a /src/files/. /
 chmod 0755 /usr/bin/sloth-installer /usr/libexec/sloth-os/sloth-install-helper
 
+# --- Böngésző a kipróbáláshoz: Falkon -------------------------------------------------------
+# Csak az élő rendszerben van (a telepített rendszerben a felhasználó az Üdvözlőben választ).
+# A motorja (QtWebEngine) már benne van az image-ben, ezért csak néhány MB.
+dnf install -y falkon
+sed -i 's|"applications:org.kde.dolphin.desktop",|"applications:org.kde.falkon.desktop",\n    "applications:org.kde.dolphin.desktop",|' \
+    /usr/share/plasma/look-and-feel/org.slothos.desktop/contents/layouts/org.kde.plasma.desktop-layout.js
+grep -q org.kde.falkon /usr/share/plasma/look-and-feel/org.slothos.desktop/contents/layouts/org.kde.plasma.desktop-layout.js
+
 # --- A telepítendő Sloth OS image ----------------------------------------------------------
-# Nem itt kerül bele, és a Firefox sem: a build alatt a kicsomagolt fájlok tulajdonosát nem
-# lehet beállítani. A build második lépése teszi bele (iso/payload.sh, privilegizált konténerben,
-# podman commit).
+# Nem itt kerül bele: az ISO készítésekor a kicsomagolt konténertárolója ide kerül
+# (iso/payload.sh, tools/build-iso.sh). Kicsomagolva a fájljai többnyire azonosak az élő rendszer
+# fájljaival, így az ISO tömörítője (mksquashfs) csak egyszer tárolja őket.
+# A telepítő innen telepít: bootc install --source-imgref containers-storage:...
+mkdir -p /var/lib/containers/storage /usr/share/sloth-os/installer
+cat > /usr/share/sloth-os/installer/image.conf <<EOF
+SOURCE_IMGREF=containers-storage:${SLOTH_IMAGE:?}
+TARGET_IMGREF=${SLOTH_IMAGE}
+EOF
 
 # --- ISO-hoz szükséges részek (Titanoboa / Container-native ISO contract) -----------------
 

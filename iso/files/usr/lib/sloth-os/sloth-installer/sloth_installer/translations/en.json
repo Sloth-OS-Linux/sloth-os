@@ -60,7 +60,6 @@
   "stage.bootloader": "Setting up startup…",
   "stage.finishing": "Finishing…",
   "stage.configure": "Saving language and settings…",
-  "stage.browser": "Adding a web browser (no internet)…",
   "install.note": "Depending on your computer, this takes 5–20 minutes. Please don't turn it off.",
 
   "done.heading": "Installation complete!",

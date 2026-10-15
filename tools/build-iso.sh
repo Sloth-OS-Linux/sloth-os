@@ -18,7 +18,7 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="$(realpath -m "${2:-$REPO/out}")"
 WORK="${SLOTH_BUILD_DIR:-/var/tmp/sloth-iso-build}"
 
-# A Titanoboa ISO-készítő scriptje rögzített commitról (frissítéskor: a SHA cseréje, a többi build-scriptben is)
+# A Titanoboa ISO-készítő scriptje rögzített commitról (frissítéskor: a SHA cseréje a .github/workflows/iso.yml-ben is)
 TITANOBOA_COMMIT="5c457c3d0518bd17e754be0fd98a60d29d26abb4"
 LIVE_IMAGE="localhost/sloth-os-live:latest"
 
@@ -39,9 +39,18 @@ fi
 mkdir -p "$WORK" "$OUT_DIR"
 AUTH="$WORK/auth.json"
 install -m 600 "${SLOTH_REGISTRY_AUTH:?}" "$AUTH"
-trap 'rm -f "$AUTH"; rm -rf "$WORK/payload-oci"' EXIT
+# A kicsomagolt telepítendő image (kb. 12 GB) csak az ISO készítéséig kell
+trap 'rm -f "$AUTH"; rm -rf "$WORK/payload-oci" "$WORK/payload"' EXIT
 
-pm() { podman --root "$WORK/storage" --runroot "$WORK/run" "$@"; }
+# A WSL-es Podman gépen (tools/build-iso.ps1) a systemd nem kezeli a konténerek cgroupjait, és nincs
+# "pids" vezérlő: ott cgroupfs kell, és a konténerek cgroup nélkül indulnak (e nélkül a build első
+# RUN lépése "Failed to set unit properties" hibával áll meg)
+pm_opts=() run_opts=()
+if grep -qi microsoft /proc/version; then
+    pm_opts=(--cgroup-manager=cgroupfs)
+    run_opts=(--cgroups=disabled)
+fi
+pm() { podman --root "$WORK/storage" --runroot "$WORK/run" "${pm_opts[@]}" "$@"; }
 
 echo "== Alap image letöltése: $IMAGE"
 pm pull --authfile "$AUTH" "$IMAGE"
@@ -50,31 +59,32 @@ echo "== Élő rendszer építése: $LIVE_IMAGE"
 pm build --pull=never --network host --security-opt label=disable \
     --build-arg BASE_IMAGE="$IMAGE" -t "$LIVE_IMAGE" "$REPO/iso"
 
-# Második lépés privilegizált konténerben: a telepítendő image és a Firefox (iso/payload.sh).
+# A telepítendő image kicsomagolt konténertárolója egy külön mappába kerül (iso/payload.sh), amit az ISO
+# készítésekor az élő rendszer /var/lib/containers/storage helyére csatolunk. Nem kell podman commit
+# (az a lassú gépen egymaga másfél óra volt), és a fájlok változatlanul kerülnek az ISO-ba.
 # A telepítendő image-et nem töltjük le újra: a már letöltöttet adjuk át OCI-mappaként.
-echo "== Telepítendő image és Firefox hozzáadása"
-rm -rf "$WORK/payload-oci"
+echo "== Telepítendő image kicsomagolása"
+rm -rf "$WORK/payload-oci" "$WORK/payload"
+mkdir -p "$WORK/payload"
 pm save --format oci-dir -o "$WORK/payload-oci" "$IMAGE"
-pm rm -f sloth-live-payload >/dev/null 2>&1 || true
-pm run --privileged --network host --name sloth-live-payload \
-    -v "$AUTH":/run/secrets/registry-auth:ro \
+pm run --rm "${run_opts[@]}" --privileged --network none \
     -v "$REPO/iso/payload.sh":/payload.sh:ro \
     -v "$WORK/payload-oci":/payload-oci:ro \
-    "$LIVE_IMAGE" bash /payload.sh "$IMAGE" "$IMAGE" oci:/payload-oci
-pm commit sloth-live-payload "$LIVE_IMAGE"
-pm rm sloth-live-payload
+    -v "$WORK/payload":/var/lib/containers/storage \
+    "$LIVE_IMAGE" bash /payload.sh "$IMAGE" oci:/payload-oci
 rm -rf "$WORK/payload-oci"
 
 echo "== ISO készítése (Titanoboa ${TITANOBOA_COMMIT:0:7})"
-curl -fsSL --limit-rate 10M -o "$WORK/build_iso.sh" \
+curl -fsSL -o "$WORK/build_iso.sh" \
     "https://raw.githubusercontent.com/ublue-os/titanoboa/${TITANOBOA_COMMIT}/build_iso.sh"
 # Rejtett GRUB menü: alapból azonnal a Sloth OS indul, Escre jön elő (iso/iso.yaml)
 grep -q "set menu_auto_hide=false" "$WORK/build_iso.sh" || { echo "A Titanoboa GRUB-sablonja megváltozott." >&2; exit 1; }
 sed -i "s/set menu_auto_hide=false/set timeout_style=hidden/" "$WORK/build_iso.sh"
 rm -f "$OUT_DIR"/*.iso
-pm run --rm --network host --cap-add sys_admin --security-opt label=disable \
+pm run --rm "${run_opts[@]}" --network host --cap-add sys_admin --security-opt label=disable \
     -v "$WORK/build_iso.sh":/src/build_iso.sh:ro \
     --mount type=image,source="$LIVE_IMAGE",dst=/rootfs \
+    -v "$WORK/payload":/rootfs/var/lib/containers/storage:ro \
     -v "$OUT_DIR":/output \
     quay.io/fedora/fedora:latest bash -exo pipefail /src/build_iso.sh
 

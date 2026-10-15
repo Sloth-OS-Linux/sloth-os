@@ -60,7 +60,6 @@
   "stage.bootloader": "正在设置启动…",
   "stage.finishing": "正在完成…",
   "stage.configure": "正在保存语言和设置…",
-  "stage.browser": "正在添加浏览器（无网络）…",
 
   "install.note": "根据电脑不同，需要 5–20 分钟。请不要关机。",
 

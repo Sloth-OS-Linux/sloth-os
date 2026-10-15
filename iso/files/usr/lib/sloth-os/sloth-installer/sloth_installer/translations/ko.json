@@ -60,7 +60,6 @@
   "stage.bootloader": "시작 설정 중…",
   "stage.finishing": "마무리 중…",
   "stage.configure": "언어와 설정 저장 중…",
-  "stage.browser": "웹 브라우저 추가 중(인터넷 없음)…",
 
   "install.note": "컴퓨터에 따라 5~20분 걸립니다. 전원을 끄지 마세요.",
 

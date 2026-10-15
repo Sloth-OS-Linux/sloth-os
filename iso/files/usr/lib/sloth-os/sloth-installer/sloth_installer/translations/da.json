@@ -60,7 +60,6 @@
   "stage.bootloader": "Opsætter opstart…",
   "stage.finishing": "Afslutter…",
   "stage.configure": "Gemmer sprog og indstillinger…",
-  "stage.browser": "Tilføjer en webbrowser (intet internet)…",
 
   "install.note": "Afhængigt af din computer tager det 5–20 minutter. Sluk den ikke.",
 

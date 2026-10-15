@@ -60,7 +60,6 @@
   "stage.bootloader": "Konfigurowanie uruchamiania…",
   "stage.finishing": "Kończenie…",
   "stage.configure": "Zapisywanie języka i ustawień…",
-  "stage.browser": "Dodawanie przeglądarki (brak internetu)…",
 
   "install.note": "W zależności od komputera trwa to 5–20 minut. Nie wyłączaj go.",
 

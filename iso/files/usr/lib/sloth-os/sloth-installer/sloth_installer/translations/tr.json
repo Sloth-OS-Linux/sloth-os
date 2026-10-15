@@ -60,7 +60,6 @@
   "stage.bootloader": "Başlatma ayarlanıyor…",
   "stage.finishing": "Bitiriliyor…",
   "stage.configure": "Dil ve ayarlar kaydediliyor…",
-  "stage.browser": "Web tarayıcısı ekleniyor (internet yok)…",
 
   "install.note": "Bilgisayarınıza bağlı olarak 5–20 dakika sürer. Kapatmayın.",
 

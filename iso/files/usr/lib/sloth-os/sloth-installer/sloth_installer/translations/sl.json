@@ -60,7 +60,6 @@
   "stage.bootloader": "Nastavljanje zagona…",
   "stage.finishing": "Zaključevanje…",
   "stage.configure": "Shranjevanje jezika in nastavitev…",
-  "stage.browser": "Dodajanje brskalnika (ni interneta)…",
 
   "install.note": "Odvisno od računalnika traja 5–20 minut. Ne izklapljajte ga.",
 

@@ -14,7 +14,7 @@ on:
         default: sloth-os
 
 env:
-  # A Titanoboa ISO-készítő rögzített commitja (frissítéskor: a SHA cseréje, a tools/build-iso.sh-ban és a tools/build-iso.ps1-ben is)
+  # A Titanoboa ISO-készítő rögzített commitja (frissítéskor: a SHA cseréje a tools/build-iso.sh-ban is)
   TITANOBOA_COMMIT: 5c457c3d0518bd17e754be0fd98a60d29d26abb4
 
 jobs:
@@ -43,13 +43,14 @@ jobs:
           image="ghcr.io/${{ github.repository_owner }}/${{ inputs.variant }}:latest"
           sudo podman build --security-opt label=disable --authfile /tmp/auth.json \
             --build-arg BASE_IMAGE="$image" -t localhost/sloth-os-live:latest iso/
-          # Második lépés privilegizált konténerben: a telepítendő image és a Firefox (iso/payload.sh)
-          sudo podman run --privileged --name sloth-live-payload \
+          # A telepítendő image kicsomagolt konténertárolója külön mappába (iso/payload.sh); az ISO
+          # készítésekor az élő rendszer /var/lib/containers/storage helyére csatoljuk (nincs podman commit)
+          sudo mkdir -p /tmp/payload
+          sudo podman run --rm --privileged \
             -v /tmp/auth.json:/run/secrets/registry-auth:ro \
             -v "$PWD/iso/payload.sh":/payload.sh:ro \
-            localhost/sloth-os-live:latest bash /payload.sh "$image" "$image"
-          sudo podman commit sloth-live-payload localhost/sloth-os-live:latest
-          sudo podman rm sloth-live-payload
+            -v /tmp/payload:/var/lib/containers/storage \
+            localhost/sloth-os-live:latest bash /payload.sh "$image" "docker://$image"
           sudo rm -f /tmp/auth.json
 
       - name: Build ISO (Titanoboa)
@@ -63,6 +64,7 @@ jobs:
           sudo podman run --rm --cap-add sys_admin --security-opt label=disable \
             -v /tmp/build_iso.sh:/src/build_iso.sh:ro \
             --mount type=image,source=localhost/sloth-os-live:latest,dst=/rootfs \
+            -v /tmp/payload:/rootfs/var/lib/containers/storage:ro \
             -v "$PWD/output":/output \
             quay.io/fedora/fedora:latest bash -exo pipefail /src/build_iso.sh
 
