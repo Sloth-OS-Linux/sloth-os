@@ -635,6 +635,8 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
             localtime.unlink()
         localtime.symlink_to(f"../usr/share/zoneinfo/{timezone}")
 
+        use_signed_updates(deploy)
+
         # SELinux címkék a telepített rendszer saját szabályai szerint
         contexts = deploy / "etc/selinux/targeted/contexts/files/file_contexts"
         if contexts.exists():
@@ -646,6 +648,39 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
         subprocess.run(["sync"])
         subprocess.run(["umount", str(mnt)])
         mnt.rmdir()
+
+
+def use_signed_updates(deploy):
+    """A frissítések aláírás-ellenőrzéssel jöjjenek (ostree-image-signed).
+
+    A bootc ellenőrzés nélküli hivatkozást ír (ostree-unverified-registry). Ha a telepített image
+    containers-policy.json-ja aláírást követel erre az image-re (BlueBuild signing modul +
+    signing-family.sh), átírjuk; így a frissítés csak a mi kulcsunkkal aláírt image-ből jöhet. Ha a
+    szabály hiányzik, marad a régi, mert különben a gép egyáltalán nem kapna frissítést.
+    """
+    origin = deploy.with_name(deploy.name + ".origin")
+    prefix = "container-image-reference=ostree-unverified-registry:"
+    try:
+        lines = origin.read_text(encoding="utf-8").splitlines()
+        policy = json.loads((deploy / "etc/containers/policy.json").read_text(encoding="utf-8"))
+    except (OSError, ValueError) as e:
+        log(f"aláírt frissítések: nem olvasható ({e}), marad az ellenőrzés nélküli")
+        return
+    out, changed = [], False
+    for line in lines:
+        if line.startswith(prefix):
+            ref = line[len(prefix):]
+            repo = ref.rsplit(":", 1)[0] if ":" in ref.rsplit("/", 1)[-1] else ref
+            rules = policy.get("transports", {}).get("docker", {}).get(repo, [])
+            if rules and rules[0].get("type") == "sigstoreSigned":
+                line = f"container-image-reference=ostree-image-signed:docker://{ref}"
+                changed = True
+            else:
+                log(f"aláírt frissítések: a policy.json-ban nincs szabály erre: {repo}")
+        out.append(line)
+    if changed:
+        origin.write_text("\n".join(out) + "\n", encoding="utf-8")
+        log("aláírt frissítések: " + next(l for l in out if l.startswith("container-image-reference=")))
 
 
 def dry_run(beside=False):

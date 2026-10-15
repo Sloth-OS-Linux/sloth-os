@@ -332,7 +332,11 @@ valami elromlik, legyen mivel megjavítani): naplónéző (kjournald), Filelight
     az NVIDIA-s image-re, Secure Bootnál a kulcs regisztrálását is előkészíti; egyszer fut (a kézi visszaváltást
     nem írja felül). Értesítés a felhasználónak (`sloth-nvidia-notify`): „Újraindítás most” vagy a Sloth Központ
     Driverek oldalának útmutatója (`sloth-center --page drivers`)
-  - [ ] Telepítés után a frissítések aláírás-ellenőrzéssel (`ostree-image-signed`)
+  - [x] Telepítés után a frissítések aláírás-ellenőrzéssel (`ostree-image-signed`; 2026-10-16, valódi gépen még
+    tesztelni): mindkét image elfogadja a másik változat aláírását is (`files/scripts/signing-family.sh` a signing
+    modul után; különben az AMD/Intel <-> NVIDIA váltás elakadna). A telepítő az aláírt hivatkozást írja be, ha a
+    policy.json aláírást követel (különben marad a régi, hogy legyen frissítés). A régebbi telepítéseket a
+    `sloth-signed-updates.timer` egyszer átállítja (az előkészített, újraindításra váró változatot is)
   - [ ] Lemeztitkosítás, régi (BIOS-os) gépek
   - [ ] ISO letöltése: privát repóban a 2 GB-os kiadás- és 500 MB-os tárhelykorlát miatt csak publikussá tétel után
 - [ ] Weboldal, letöltés, dokumentáció

@@ -1,0 +1,76 @@
+#!/usr/bin/python3 -I
+"""A már telepített gépek átállítása aláírás-ellenőrzött frissítésekre (egyszer, a háttérben).
+
+Az újonnan telepített gépeken ezt a telepítő már beállítja (sloth-install-helper: use_signed_updates).
+A régebbi telepítések ellenőrzés nélküli hivatkozással (ostree-unverified-registry) frissülnek; ezeket
+egyszer átállítjuk (rpm-ostree rebase ugyanarra az image-re, ostree-image-signed:docker://). Ha van már
+előkészített, újraindításra váró változat (frissítés vagy az NVIDIA-s váltás), annak a hivatkozását
+állítjuk át, hogy ne vesszen el. Csak akkor, ha a policy.json aláírást követel erre az image-re; ha az
+ellenőrzés nem sikerül, marad a régi (a következő alkalommal újra próbáljuk).
+"""
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+DONE = Path("/var/lib/sloth-os/signed-updates-done")
+NVIDIA_STATE = Path("/var/lib/sloth-os/nvidia-auto")
+POLICY = Path("/etc/containers/policy.json")
+UNVERIFIED = "ostree-unverified-registry:"
+SIGNED = "ostree-image-signed:docker://"
+OURS = ("ghcr.io/bathorizsolt/sloth-os", "ghcr.io/bathorizsolt/sloth-os-nvidia")
+
+
+def done(reason):
+    DONE.parent.mkdir(parents=True, exist_ok=True)
+    DONE.write_text(reason + "\n")
+    print(reason)
+    return 0
+
+
+def main():
+    if DONE.exists():
+        return 0
+    try:
+        if NVIDIA_STATE.read_text().strip() == "downloading":
+            print("Az NVIDIA-s változat épp töltődik, később.")
+            return 0
+    except OSError:
+        pass
+    status = json.loads(subprocess.run(["rpm-ostree", "status", "--json"], capture_output=True, text=True,
+                                       timeout=120).stdout or "{}")
+    deployments = status.get("deployments", [])
+    if not deployments:
+        return 1
+    # az első a következő indításkor induló (ha van előkészített, az; különben a mostani)
+    ref = deployments[0].get("container-image-reference", "")
+    if ref.startswith(SIGNED):
+        return done("már aláírás-ellenőrzött")
+    if not ref.startswith(UNVERIFIED):
+        return done(f"nem konténer-hivatkozás: {ref}")
+    image = ref[len(UNVERIFIED):]
+    repo = image.rsplit(":", 1)[0]
+    if repo not in OURS:
+        return done(f"nem a Sloth OS image-e: {image}")
+    try:
+        rules = json.loads(POLICY.read_text()).get("transports", {}).get("docker", {}).get(repo, [])
+    except (OSError, ValueError):
+        rules = []
+    if not rules or rules[0].get("type") != "sigstoreSigned":
+        print(f"A policy.json-ban még nincs aláírási szabály erre: {repo}; a következő frissítés után újra.")
+        return 0
+    r = subprocess.run(["nmcli", "--terse", "--fields", "CONNECTIVITY", "general"], capture_output=True, text=True)
+    if r.stdout.strip() not in ("full", "unknown"):
+        print("Nincs internet, később újra próbálom.")
+        return 0
+    target = SIGNED + image
+    print(f"Átállítás: {ref} -> {target}")
+    r = subprocess.run(["nice", "-n", "19", "ionice", "-c", "3", "rpm-ostree", "rebase", target])
+    if r.returncode != 0:
+        print("Nem sikerült (marad az ellenőrzés nélküli), később újra próbálom.", file=sys.stderr)
+        return 1
+    return done(f"átállítva: {target}")
+
+
+if __name__ == "__main__":
+    sys.exit(main())

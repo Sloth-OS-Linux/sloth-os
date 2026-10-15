@@ -15,3 +15,6 @@ modules:
   - from-file: tools.yml
   - type: initramfs # a boot animációhoz kell; maradjon a végén, a signing előtt
   - type: signing # aláírt image-ekhez kell, maradjon a végén
+  - type: script # a másik változat aláírását is elfogadja (AMD/Intel <-> NVIDIA váltás)
+    scripts:
+      - signing-family.sh
