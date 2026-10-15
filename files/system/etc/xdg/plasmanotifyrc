@@ -1,0 +1,4 @@
+# Sloth OS: az értesítések felugró ablaka a képernyő jobb felső sarkában jelenik meg (a Plasma alapból a tálca
+# óra melletti részéhez teszi). A felhasználó a Rendszerbeállítások → Értesítések oldalon átállíthatja.
+[Notifications]
+PopupPosition=TopRight
