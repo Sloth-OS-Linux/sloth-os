@@ -109,8 +109,11 @@ terminálból lehet csinálni, GUI-ból is menjen.
      „Setup”, verziószám levágva) az umu adatbázisa (a rendszerrel jön, a `sloth-windows-prepare` frissíti),
      ha ott nincs, a Steam áruháza (pontos névegyezés) → `GAMEID=umu-<Steam AppID>`. Így jönnek az
      umu-protonfixes javításai és a Proton saját, AppID-hez kötött javításai. Egyszer keres, az eredményt megjegyzi
-  2. [x] **Receptek** az ismert indítókra (`sloth_exe/quirks.py`): Battle.net kész; jön: EA app, Ubisoft Connect,
-     Epic, Rockstar, GOG Galaxy (a Lutris kipróbált telepítői alapján)
+  2. [x] **Receptek** az ismert indítókra (`sloth_exe/quirks.py`, a Lutris kipróbált telepítői alapján, a
+     Protonhoz igazítva): Battle.net (GPU-gyorsítás ki, `locationapi=d`), Ubisoft Connect (overlay ki,
+     d3dcompiler_43), Epic (`-opengl -SkipBuildPatchPrereq`), GOG Galaxy (`libglesv2=d`, Visual C++, .NET 4.8,
+     `/runWithoutUpdating /deelevated`). Az EA app és a Rockstar Lutris-receptje csak betűtípusokat tesz fel, azokat
+     a Proton hozza. Valódi indítókkal még tesztelni
   3. [x] **Diagnózis** (`sloth_exe/diagnose.py`): a futtató kimenete mindig a háttérben megy
      (`<program>/naplo/<exe>.log`, a „fixme” zaj nélkül). Ha a program gyorsan kilép, a felismert hibák javítása:
      hiányzó DLL → a megfelelő összetevő (Visual C++ 2005–2022, DirectX-részek, XAudio, PhysX, MSXML, VB6…,

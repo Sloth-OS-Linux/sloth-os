@@ -2,7 +2,13 @@
 
 Egy-egy indítóprogram (pl. a Battle.net) csak néhány apró beállítással fut jól; ezeket
 indítás előtt magunk állítjuk be, a felhasználónak nem kell tudnia róluk. A receptek a
-Lutris bevált telepítőiből jönnek (https://lutris.net/games/battlenet/).
+Lutris bevált telepítőiből jönnek (https://lutris.net/games/<indító>/), a Protonhoz igazítva:
+amit a Proton magától megold (pl. a betűtípusok), azt kihagyjuk.
+
+Egy recept: (felismerés, beállítás). A beállítás módosíthatja a környezetet és a program
+beállításfájljait, és visszaadhat:
+  "args":  paraméterek a programnak (csak magára az indítóra, a belőle indított játékokra nem),
+  "verbs": hiányzó Windows-összetevők (winetricks, az első indítás előtt egyszer települnek).
 """
 import getpass
 import json
@@ -12,8 +18,6 @@ from .programs import WIN_USER
 
 log = logging.getLogger("sloth-exe.quirks")
 
-BATTLENET_DIR = "drive_c/Program Files (x86)/Battle.net"
-
 
 def _windows_users(prefix):
     """A Windows-felhasználók mappái (a Protonnál "steamuser", a tartalék Wine-nál a Linuxos név)."""
@@ -22,9 +26,22 @@ def _windows_users(prefix):
     return found or [users / WIN_USER, users / getpass.getuser()]
 
 
+def _override(env, value):
+    overrides = env.value("WINEDLLOVERRIDES")
+    env.insert("WINEDLLOVERRIDES", f"{overrides};{value}" if overrides else value)
+
+
+def _matches(program, exe, dirs, names):
+    """A program mappájában ott van-e az indító, vagy ez maga (vagy a telepítője)."""
+    name = exe.name.lower()
+    return any((program.prefix / d).is_dir() for d in dirs) or any(n in name for n in names)
+
+
+# --- Battle.net --------------------------------------------------------------------------------------
+
 def _battlenet(program, exe, env):
-    if not ((program.prefix / BATTLENET_DIR).is_dir() or "battle.net" in exe.name.lower()):
-        return
+    if not _matches(program, exe, ["drive_c/Program Files (x86)/Battle.net"], ["battle.net"]):
+        return None
     # A beépített böngészőmotor GPU-gyorsítása Wine alatt betöltés után összeomlik:
     # az ablak eltűnik, a program pár másodperc múlva kilép
     for user in _windows_users(program.prefix):
@@ -44,17 +61,76 @@ def _battlenet(program, exe, env):
         except OSError as e:
             log.warning("Battle.net beállítás: %s", e)
     # A helymeghatározás Wine alatt az indításnál elakaszthatja a klienst
-    overrides = env.value("WINEDLLOVERRIDES")
-    env.insert("WINEDLLOVERRIDES", f"{overrides};locationapi=d" if overrides else "locationapi=d")
+    _override(env, "locationapi=d")
+    return {}
 
 
-QUIRKS = [_battlenet]
+# --- Ubisoft Connect ---------------------------------------------------------------------------------
+
+UBISOFT_SETTINGS = ("overlay:\n  enabled: false\n  forceunhookgame: false\n  fps_enabled: false\n"
+                    "  warning_enabled: false\nuser:\n  closebehavior: CloseBehavior_Close\n")
+
+
+def _ubisoft(program, exe, env):
+    if not _matches(program, exe, ["drive_c/Program Files (x86)/Ubisoft/Ubisoft Game Launcher"],
+                    ["ubisoftconnect", "upc.exe", "uplay"]):
+        return None
+    # A játékon belüli overlay Wine alatt összeomlást okoz: kikapcsolva (ha a felhasználónak még nincs beállítása)
+    for user in _windows_users(program.prefix):
+        path = user / "AppData/Local/Ubisoft Game Launcher/settings.yaml"
+        if not path.exists():
+            try:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(UBISOFT_SETTINGS, encoding="utf-8")
+                log.info("Ubisoft Connect: overlay kikapcsolva (%s)", path)
+            except OSError as e:
+                log.warning("Ubisoft Connect beállítás: %s", e)
+    return {"verbs": ["d3dcompiler_43"]}
+
+
+# --- Epic Games ------------------------------------------------------------------------------------------
+
+def _epic(program, exe, env):
+    if not _matches(program, exe, ["drive_c/Program Files/Epic Games/Launcher",
+                                   "drive_c/Program Files (x86)/Epic Games/Launcher"], ["epicgameslauncher"]):
+        return None
+    # A beépített böngészőmotor Vulkan/D3D alatt gyakran fekete ablakot ad; OpenGL-lel megy
+    if exe.name.lower() == "epicgameslauncher.exe":
+        return {"args": ["-opengl", "-SkipBuildPatchPrereq"]}
+    return {}
+
+
+# --- GOG Galaxy ------------------------------------------------------------------------------------------
+
+def _gog(program, exe, env):
+    if not _matches(program, exe, ["drive_c/Program Files/GOG Galaxy", "drive_c/Program Files (x86)/GOG Galaxy"],
+                    ["galaxyclient", "gog_galaxy", "goggalaxy"]):
+        return None
+    out = {"verbs": ["vcrun2022", "dotnet48"]}
+    if exe.name.lower() == "galaxyclient.exe":
+        # A beépített böngészőmotor OpenGL ES-e Wine alatt hibás; a frissítő és a rendszergazdai mód nem kell
+        _override(env, "libglesv2=d")
+        out["args"] = ["/runWithoutUpdating", "/deelevated"]
+    return out
+
+
+QUIRKS = [_battlenet, _ubisoft, _epic, _gog]
+# EA app, Rockstar Games Launcher: a Lutris csak betűtípusokat tesz fel, azokat a Proton már hozza
 
 
 def apply(program, exe, env):
-    """Indítás előtt: a program ismert beállításai (env: QProcessEnvironment, helyben módosul)."""
+    """Indítás előtt: a program ismert beállításai (env: QProcessEnvironment, helyben módosul).
+
+    -> {"args": [...], "verbs": [...]} a futtatónak.
+    """
+    out = {"args": [], "verbs": []}
     for quirk in QUIRKS:
         try:
-            quirk(program, exe, env)
+            extra = quirk(program, exe, env)
         except Exception as e:  # egy recept hibája ne akadályozza az indítást
             log.warning("%s: %s", quirk.__name__, e)
+            continue
+        if extra is not None:
+            out["args"] += extra.get("args", [])
+            out["verbs"] += [v for v in extra.get("verbs", []) if v not in out["verbs"]]
+    return out

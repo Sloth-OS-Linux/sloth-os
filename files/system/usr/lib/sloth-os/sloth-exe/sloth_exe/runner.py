@@ -77,13 +77,13 @@ class Runner(QObject):
         env.remove("UMU_ZENITY")
         # Játékonkénti beállítások a Sloth Központból (Játékok oldal)
         self._wrap = gamesettings.wrapper(program.meta.get("game"), self._screen())
-        # Ismert programok (pl. Battle.net) beállításai
-        quirks.apply(program, exe, env)
-        args = []
+        # Ismert programok (pl. Battle.net, Ubisoft Connect, Epic, GOG Galaxy) beállításai
+        known = quirks.apply(program, exe, env)
+        args = list(known["args"])
         if attempt:
             for key, value in attempt.env().items():
                 env.insert(key, value)
-            args = attempt.args()
+            args = attempt.args() + [a for a in args if a not in attempt.args()]
 
         self._open_log(program, exe)
         self._started_at = time.monotonic()
@@ -94,7 +94,8 @@ class Runner(QObject):
         self.uses_wine = False
         # Hiányzó összetevők telepítése a program előtt (winetricks az umu-n keresztül, kérdés nélkül)
         done = set(program.meta.get("verbs", []))
-        for verb in (attempt.verbs() if attempt else []):
+        verbs = (attempt.verbs() if attempt else []) + known["verbs"]
+        for verb in dict.fromkeys(verbs):
             if verb not in done:
                 self._steps.append((env, exe.parent, "umu-run", ["winetricks", "-q", verb], verb))
         # Az .msi telepítőket a Proton magától az msiexec-kel nyitja meg
