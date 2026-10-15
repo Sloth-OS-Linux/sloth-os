@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "التحديثات والاستعادة والتعريفات وكل ما كان سيحتاج إلى طرفية",
   "frissítés;visszaállítás;driver;beállítás": "تحديث;استعادة;تعريف;إعدادات",
   "Tapasztalatok megosztása": "مشاركة التجارب",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "عندما يعمل برنامج على حاسوبك، نشارك دون الكشف عن هويتك الإعداد الذي نجح، ليعمل من المحاولة الأولى على أجهزة Sloth OS الأخرى أيضًا. يُرسل الإعداد والشركة المصنعة لبطاقة الرسوميات فقط: لا اسمك ولا ملفاتك ولا اسم البرنامج."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "عندما يعمل برنامج على حاسوبك، نشارك دون الكشف عن هويتك الإعداد الذي نجح، ليعمل من المحاولة الأولى على أجهزة Sloth OS الأخرى أيضًا. يُرسل الإعداد والشركة المصنعة لبطاقة الرسوميات فقط: لا اسمك ولا ملفاتك ولا اسم البرنامج.",
+  "NVIDIA illesztőprogram": "برنامج تشغيل NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "برنامج تشغيل بطاقة الرسوميات NVIDIA جاهز. بعد إعادة التشغيل تعمل بكامل قوتها.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "برنامج تشغيل بطاقة الرسوميات NVIDIA جاهز. عند إعادة التشغيل سيطلب الحاسوب تأكيدًا على شاشة زرقاء: يوضح لك مركز Sloth خطوة بخطوة ما عليك فعله هناك.",
+  "Útmutató megnyitása": "فتح الدليل"
 }

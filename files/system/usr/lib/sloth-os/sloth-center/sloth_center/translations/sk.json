@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Aktualizácie, návrat späť, ovládače a všetko, na čo by inak bol potrebný terminál",
   "frissítés;visszaállítás;driver;beállítás": "aktualizácia;návrat;ovládač;nastavenia",
   "Tapasztalatok megosztása": "Zdieľanie skúseností",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Keď sa program na vašom počítači spustí, anonymne zdieľame, ktoré nastavenie fungovalo, aby sa napoprvé spustil aj na iných počítačoch so Sloth OS. Odosiela sa len nastavenie a výrobca grafickej karty: nie vaše meno, vaše súbory ani názov programu."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Keď sa program na vašom počítači spustí, anonymne zdieľame, ktoré nastavenie fungovalo, aby sa napoprvé spustil aj na iných počítačoch so Sloth OS. Odosiela sa len nastavenie a výrobca grafickej karty: nie vaše meno, vaše súbory ani názov programu.",
+  "NVIDIA illesztőprogram": "Ovládač NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Ovládač vašej grafickej karty NVIDIA je pripravený. Po reštarte pobeží naplno.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Ovládač vašej grafickej karty NVIDIA je pripravený. Pri reštarte si počítač na modrej obrazovke vyžiada potvrdenie: Centrum Sloth vám krok za krokom ukáže, čo tam urobiť.",
+  "Útmutató megnyitása": "Otvoriť návod"
 }

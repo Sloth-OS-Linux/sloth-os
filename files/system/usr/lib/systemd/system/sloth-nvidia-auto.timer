@@ -1,0 +1,10 @@
+[Unit]
+Description=Sloth OS: NVIDIA-s változat előkészítése (indítás után, és óránként újra, amíg nem sikerül)
+ConditionPathExists=!/var/lib/sloth-os/nvidia-auto-done
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=1h
+
+[Install]
+WantedBy=timers.target

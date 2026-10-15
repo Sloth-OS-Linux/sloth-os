@@ -17,7 +17,11 @@ find_esp() {
   root=${root%%[*}   # btrfs: /dev/sda3[/subvol]
   disk=$(lsblk -no PKNAME "$root" | head -n1)
   [[ -n $disk ]] || return 1
-  lsblk -lnpo PATH,PARTTYPE "/dev/$disk" | awk -v t="$ESP_TYPE" 'tolower($2) == t { print $1; exit }'
+  # Windows mellett két EFI partíció is van a lemezen: a Sloth OS sajátja az "EFI-SYSTEM" nevű
+  # (a telepítő így hozza létre); ha nincs ilyen, az első
+  lsblk -lnpo PATH,PARTTYPE,PARTLABEL "/dev/$disk" |
+    awk -v t="$ESP_TYPE" 'tolower($2) == t { if ($3 == "EFI-SYSTEM") { print $1; found = 1; exit } if (!first) first = $1 }
+                          END { if (!found && first) print first }'
 }
 
 with_esp() {  # with_esp <parancs...>: a parancs az ESP csatolási pontját kapja $ESP-ként

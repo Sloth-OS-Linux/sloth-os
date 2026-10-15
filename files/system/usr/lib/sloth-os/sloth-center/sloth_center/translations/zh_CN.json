@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "更新、回滚、驱动程序，以及其他原本需要终端完成的一切",
   "frissítés;visszaállítás;driver;beállítás": "更新;回滚;驱动;设置",
   "Tapasztalatok megosztása": "分享经验",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "当程序在你的电脑上成功启动时，我们会匿名分享哪种设置有效，让它在其他 Sloth OS 电脑上也能一次启动。只会发送设置和显卡制造商：不包括你的名字、你的文件或程序名称。"
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "当程序在你的电脑上成功启动时，我们会匿名分享哪种设置有效，让它在其他 Sloth OS 电脑上也能一次启动。只会发送设置和显卡制造商：不包括你的名字、你的文件或程序名称。",
+  "NVIDIA illesztőprogram": "NVIDIA 驱动程序",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "你的 NVIDIA 显卡驱动程序已准备就绪。重启后即可发挥全部性能。",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "你的 NVIDIA 显卡驱动程序已准备就绪。重启时电脑会在蓝色屏幕上要求确认：Sloth 中心会一步步告诉你该怎么做。",
+  "Útmutató megnyitása": "打开指南"
 }

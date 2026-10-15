@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Actualitzacions, restauració, controladors i tot allò que altrament requeriria un terminal",
   "frissítés;visszaállítás;driver;beállítás": "actualització;restauració;controlador;configuració",
   "Tapasztalatok megosztása": "Comparteix experiències",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quan un programa s'inicia al teu ordinador, compartim de manera anònima quina configuració ha funcionat, perquè també s'iniciï al primer intent en altres ordinadors amb Sloth OS. Només s'envien la configuració i el fabricant de la targeta gràfica: ni el teu nom, ni els teus fitxers, ni el nom del programa."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quan un programa s'inicia al teu ordinador, compartim de manera anònima quina configuració ha funcionat, perquè també s'iniciï al primer intent en altres ordinadors amb Sloth OS. Només s'envien la configuració i el fabricant de la targeta gràfica: ni el teu nom, ni els teus fitxers, ni el nom del programa.",
+  "NVIDIA illesztőprogram": "Controlador d'NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "El controlador de la teva targeta gràfica NVIDIA està a punt. Després de reiniciar funciona a tota potència.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "El controlador de la teva targeta gràfica NVIDIA està a punt. En reiniciar, l'ordinador demanarà una confirmació en una pantalla blava: el Centre Sloth et mostra pas a pas què cal fer-hi.",
+  "Útmutató megnyitása": "Obre la guia"
 }

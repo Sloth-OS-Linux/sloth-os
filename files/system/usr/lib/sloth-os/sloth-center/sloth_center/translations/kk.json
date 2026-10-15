@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Жаңартулар, кері қайтару, драйверлер және әйтпесе терминал қажет болатынның бәрі",
   "frissítés;visszaállítás;driver;beállítás": "жаңарту;кері қайтару;драйвер;баптаулар",
   "Tapasztalatok megosztása": "Тәжірибемен бөлісу",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Бағдарлама компьютеріңізде іске қосылғанда, қай баптау жұмыс істегенін жасырын түрде бөлісеміз, сонда ол Sloth OS орнатылған басқа компьютерлерде де бірінші әрекеттен іске қосылады. Тек баптау мен бейнекартаңыздың өндірушісі жіберіледі: атыңыз да, файлдарыңыз да, бағдарламаның атауы да емес."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Бағдарлама компьютеріңізде іске қосылғанда, қай баптау жұмыс істегенін жасырын түрде бөлісеміз, сонда ол Sloth OS орнатылған басқа компьютерлерде де бірінші әрекеттен іске қосылады. Тек баптау мен бейнекартаңыздың өндірушісі жіберіледі: атыңыз да, файлдарыңыз да, бағдарламаның атауы да емес.",
+  "NVIDIA illesztőprogram": "NVIDIA драйвері",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "NVIDIA бейнекартаңыздың драйвері дайын. Қайта іске қосқаннан кейін ол толық қуатпен жұмыс істейді.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "NVIDIA бейнекартаңыздың драйвері дайын. Қайта іске қосқанда компьютер көк экранда растауды сұрайды: онда не істеу керектігін Sloth орталығы қадам-қадаммен көрсетеді.",
+  "Útmutató megnyitása": "Нұсқаулықты ашу"
 }

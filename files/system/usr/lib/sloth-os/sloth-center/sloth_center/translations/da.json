@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Opdateringer, tilbagerulning, drivere og alt det, der ellers ville kræve en terminal",
   "frissítés;visszaállítás;driver;beállítás": "opdatering;tilbagerulning;driver;indstillinger",
   "Tapasztalatok megosztása": "Del erfaringer",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Når et program starter på din computer, deler vi anonymt, hvilken indstilling der virkede, så det også starter i første forsøg på andre Sloth OS-computere. Kun indstillingen og producenten af dit grafikkort sendes: ikke dit navn, dine filer eller programmets navn."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Når et program starter på din computer, deler vi anonymt, hvilken indstilling der virkede, så det også starter i første forsøg på andre Sloth OS-computere. Kun indstillingen og producenten af dit grafikkort sendes: ikke dit navn, dine filer eller programmets navn.",
+  "NVIDIA illesztőprogram": "NVIDIA-driver",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Driveren til dit NVIDIA-grafikkort er klar. Efter en genstart kører det med fuld kraft.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Driveren til dit NVIDIA-grafikkort er klar. Når du genstarter, beder computeren om en bekræftelse på en blå skærm: Sloth Center viser dig trin for trin, hvad du skal gøre der.",
+  "Útmutató megnyitása": "Åbn vejledning"
 }

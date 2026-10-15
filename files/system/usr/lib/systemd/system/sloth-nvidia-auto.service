@@ -1,0 +1,9 @@
+[Unit]
+Description=Sloth OS: NVIDIA-s gépen az NVIDIA-s változat előkészítése a háttérben
+ConditionPathExists=!/var/lib/sloth-os/nvidia-auto-done
+Wants=network-online.target
+After=network-online.target rpm-ostreed.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/nvidia-auto

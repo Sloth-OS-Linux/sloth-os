@@ -17,6 +17,7 @@ from .rpmostree import RpmOstree, Transaction
 
 log = logging.getLogger("sloth-center.drivers")
 
+NVIDIA_AUTO_STATE = Path("/var/lib/sloth-os/nvidia-auto")
 VENDORS = {"0x10de": "NVIDIA", "0x1002": "AMD", "0x8086": "Intel"}
 PCI_IDS = Path("/usr/share/hwdata/pci.ids")
 HELPER = "/usr/libexec/sloth-os/sloth-helper"
@@ -89,6 +90,15 @@ class DriversController(QObject):
             self._image = str(booted.get("container-image-reference") or booted.get("origin") or "")
         except GLib.Error as e:
             log.warning("rpm-ostree: %s", e.message)
+        # Az automatikus NVIDIA-váltás (/usr/libexec/sloth-os/nvidia-auto) állapota: ne kínáljuk fel még egyszer
+        try:
+            auto = NVIDIA_AUTO_STATE.read_text().strip()
+        except OSError:
+            auto = ""
+        if auto == "downloading":
+            self._busy, self._status, self._progress = True, tr("Az új változat letöltése…"), -1
+        elif auto in ("ready", "ready-mok") and not self.nvidiaImage:
+            self._info = "switched"
         self.refreshSecureBoot()
 
     # --- Tulajdonságok ---------------------------------------------------------

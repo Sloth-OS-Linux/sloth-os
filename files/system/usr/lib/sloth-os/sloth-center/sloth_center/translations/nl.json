@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Updates, terugdraaien, stuurprogramma's en alles waarvoor anders een terminal nodig zou zijn",
   "frissítés;visszaállítás;driver;beállítás": "update;terugdraaien;stuurprogramma;instellingen",
   "Tapasztalatok megosztása": "Ervaringen delen",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Als een programma op je computer start, delen we anoniem welke instelling werkte, zodat het ook op andere Sloth OS-computers in één keer start. Alleen de instelling en de fabrikant van je videokaart worden verstuurd: niet je naam, niet je bestanden en niet de naam van het programma."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Als een programma op je computer start, delen we anoniem welke instelling werkte, zodat het ook op andere Sloth OS-computers in één keer start. Alleen de instelling en de fabrikant van je videokaart worden verstuurd: niet je naam, niet je bestanden en niet de naam van het programma.",
+  "NVIDIA illesztőprogram": "NVIDIA-stuurprogramma",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Het stuurprogramma voor je NVIDIA-videokaart is klaar. Na een herstart werkt hij op volle kracht.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Het stuurprogramma voor je NVIDIA-videokaart is klaar. Bij het herstarten vraagt de computer op een blauw scherm om een bevestiging: Sloth Centrum laat je stap voor stap zien wat je daar moet doen.",
+  "Útmutató megnyitása": "Handleiding openen"
 }

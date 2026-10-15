@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ажурирања, враћање, управљачки програми и све за шта би иначе био потребан терминал",
   "frissítés;visszaállítás;driver;beállítás": "ажурирање;враћање;управљачки програм;подешавања",
   "Tapasztalatok megosztása": "Дељење искустава",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Када се програм покрене на твом рачунару, анонимно делимо које подешавање је успело, како би се из првог покушаја покренуо и на другим рачунарима са Sloth OS-ом. Шаљу се само подешавање и произвођач графичке картице: не твоје име, твоје датотеке ни назив програма."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Када се програм покрене на твом рачунару, анонимно делимо које подешавање је успело, како би се из првог покушаја покренуо и на другим рачунарима са Sloth OS-ом. Шаљу се само подешавање и произвођач графичке картице: не твоје име, твоје датотеке ни назив програма.",
+  "NVIDIA illesztőprogram": "NVIDIA управљачки програм",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Управљачки програм твоје NVIDIA графичке картице је спреман. После поновног покретања ради пуном снагом.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Управљачки програм твоје NVIDIA графичке картице је спреман. При поновном покретању рачунар ће на плавом екрану тражити потврду: Sloth центар корак по корак показује шта тамо треба урадити.",
+  "Útmutató megnyitása": "Отвори упутство"
 }

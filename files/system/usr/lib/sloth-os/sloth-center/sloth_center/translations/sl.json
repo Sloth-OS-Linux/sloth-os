@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Posodobitve, povrnitev, gonilniki in vse, za kar bi sicer potrebovali terminal",
   "frissítés;visszaállítás;driver;beállítás": "posodobitev;povrnitev;gonilnik;nastavitve",
   "Tapasztalatok megosztása": "Deli izkušnje",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Ko se program zažene na tvojem računalniku, anonimno delimo, katera nastavitev je delovala, da se v prvem poskusu zažene tudi na drugih računalnikih s Sloth OS. Pošljeta se le nastavitev in proizvajalec grafične kartice: ne tvoje ime, ne tvoje datoteke in ne ime programa."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Ko se program zažene na tvojem računalniku, anonimno delimo, katera nastavitev je delovala, da se v prvem poskusu zažene tudi na drugih računalnikih s Sloth OS. Pošljeta se le nastavitev in proizvajalec grafične kartice: ne tvoje ime, ne tvoje datoteke in ne ime programa.",
+  "NVIDIA illesztőprogram": "Gonilnik NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Gonilnik tvoje grafične kartice NVIDIA je pripravljen. Po ponovnem zagonu deluje s polno močjo.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Gonilnik tvoje grafične kartice NVIDIA je pripravljen. Ob ponovnem zagonu bo računalnik na modrem zaslonu zahteval potrditev: Središče Sloth ti korak za korakom pokaže, kaj narediti tam.",
+  "Útmutató megnyitása": "Odpri navodila"
 }

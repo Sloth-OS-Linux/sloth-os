@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Bywerkings, terugrol, drywers en alles wat andersins 'n terminaal sou benodig",
   "frissítés;visszaállítás;driver;beállítás": "bywerking;terugrol;drywer;instellings",
   "Tapasztalatok megosztása": "Deel ervarings",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Wanneer 'n program op jou rekenaar begin, deel ons anoniem watter instelling gewerk het, sodat dit ook op ander Sloth OS-rekenaars met die eerste probeer begin. Slegs die instelling en jou grafiese kaart se vervaardiger word gestuur: nie jou naam, jou lêers of die program se naam nie."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Wanneer 'n program op jou rekenaar begin, deel ons anoniem watter instelling gewerk het, sodat dit ook op ander Sloth OS-rekenaars met die eerste probeer begin. Slegs die instelling en jou grafiese kaart se vervaardiger word gestuur: nie jou naam, jou lêers of die program se naam nie.",
+  "NVIDIA illesztőprogram": "NVIDIA-drywer",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Die drywer vir jou NVIDIA-grafiese kaart is gereed. Ná 'n herbegin werk dit met volle krag.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Die drywer vir jou NVIDIA-grafiese kaart is gereed. Wanneer jy herbegin, vra die rekenaar op 'n blou skerm vir bevestiging: Sloth-sentrum wys jou stap vir stap wat om daar te doen.",
+  "Útmutató megnyitása": "Maak gids oop"
 }

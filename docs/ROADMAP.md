@@ -315,8 +315,23 @@ valami elromlik, legyen mivel megjavítani): naplónéző (kjournald), Filelight
       a felhasználó az Üdvözlőben választ (most 9 böngésző)
     - [ ] Ha kész a rendszer: a telepítendő image rétegeinek összevonása egy rétegbe (a lecserélt/törölt fájlok,
       pl. a régi kernel, kiesnek; becslés: 0,5–1 GB). Ára: az első frissítés a teljes image-et tölti le
-  - [ ] Windows mellé telepítés: a Windows-partíció zsugorítása, közös boot menü, BitLocker felismerése és magyarázata
-  - [ ] NVIDIA-s gépen automatikusan az NVIDIA-s változat (most a Sloth Központban lehet utána váltani)
+  - [x] Windows mellé telepítés (2026-10-15; valódi Windowszal még tesztelni): a lemezválasztóban Windowsos
+    lemeznél „Windows mellé” (alapból) vagy „az egész lemez törlése”, méretcsúszkával. A segéd felméri a lemezt
+    (`sloth-install-helper probe`): UEFI és GPT kell; a meglévő szabad hely, ha elég, különben a legnagyobb
+    NTFS-partíció (C:) zsugorítása `ntfsresize`-zal (a Windowsnak marad 20 GB szabad hely). A Sloth OS saját EFI
+    partíciót kap (a Windowséhoz nem nyúl), a boot menü látszik, benne a Windows (`EFI/fedora/sloth-windows.cfg`,
+    bármelyik lemezen lévő Windows-rendszerindítóra), a hardveróra helyi időben jár. Felismeri és érthetően
+    magyarázza: BitLocker (a Windowsban kell helyet felszabadítani; a helyreállítási kulcsra figyelmeztet),
+    gyors indítás / hibernálás (a `hiberfil.sys` fejlécéből), esedékes lemezellenőrzés, BIOS mód, MBR-es lemez,
+    kevés hely. Loop eszközön kipróbálva: zsugorítás (a fájlok épek, a partíció kezdete változatlan), szabad
+    hely, hibernált Windows, BitLocker szabad hellyel és anélkül. Hátravan: VM-ben a teljes telepítés és a
+    boot menü Windows-bejegyzése; Windows-frissítés utáni boot-sorrend visszaállítása (a Windows előre teheti magát)
+  - [x] NVIDIA-s gépen automatikusan az NVIDIA-s változat (2026-10-15; valódi NVIDIA-s gépen még tesztelni): a
+    telepítő ISO-n csak az AMD/Intel-es fér el, ezért a telepített rendszer intézi: `sloth-nvidia-auto.timer`
+    (indítás után 2 perccel, utána óránként, amíg nem sikerül) NVIDIA-kártyánál a háttérben `rpm-ostree rebase`
+    az NVIDIA-s image-re, Secure Bootnál a kulcs regisztrálását is előkészíti; egyszer fut (a kézi visszaváltást
+    nem írja felül). Értesítés a felhasználónak (`sloth-nvidia-notify`): „Újraindítás most” vagy a Sloth Központ
+    Driverek oldalának útmutatója (`sloth-center --page drivers`)
   - [ ] Telepítés után a frissítések aláírás-ellenőrzéssel (`ostree-image-signed`)
   - [ ] Lemeztitkosítás, régi (BIOS-os) gépek
   - [ ] ISO letöltése: privát repóban a 2 GB-os kiadás- és 500 MB-os tárhelykorlát miatt csak publikussá tétel után

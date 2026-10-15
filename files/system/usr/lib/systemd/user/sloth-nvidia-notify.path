@@ -1,0 +1,9 @@
+[Unit]
+Description=Sloth OS: az NVIDIA-s változat előkészítésének figyelése
+
+[Path]
+PathChanged=/var/lib/sloth-os/nvidia-auto
+Unit=sloth-nvidia-notify.service
+
+[Install]
+WantedBy=default.target

@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Оновлення, відкат, драйвери та все, для чого інакше знадобився б термінал",
   "frissítés;visszaállítás;driver;beállítás": "оновлення;відкат;драйвер;налаштування",
   "Tapasztalatok megosztása": "Ділитися досвідом",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Коли програма запускається на вашому комп'ютері, ми анонімно повідомляємо, яке налаштування спрацювало, щоб вона з першого разу запускалася й на інших комп'ютерах із Sloth OS. Передаються лише налаштування і виробник відеокарти: не ваше ім'я, не ваші файли й не назва програми."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Коли програма запускається на вашому комп'ютері, ми анонімно повідомляємо, яке налаштування спрацювало, щоб вона з першого разу запускалася й на інших комп'ютерах із Sloth OS. Передаються лише налаштування і виробник відеокарти: не ваше ім'я, не ваші файли й не назва програми.",
+  "NVIDIA illesztőprogram": "Драйвер NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Драйвер вашої відеокарти NVIDIA готовий. Після перезавантаження вона працюватиме на повну потужність.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Драйвер вашої відеокарти NVIDIA готовий. Під час перезавантаження комп'ютер попросить підтвердження на синьому екрані: Центр Sloth покроково покаже, що там зробити.",
+  "Útmutató megnyitása": "Відкрити інструкцію"
 }

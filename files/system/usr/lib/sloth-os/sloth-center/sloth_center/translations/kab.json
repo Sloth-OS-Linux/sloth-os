@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ileqman, tuɣalin, inuḍafen d wayen akk ara yesran aterminal ma ulac",
   "frissítés;visszaállítás;driver;beállítás": "aleqqem;tuɣalin;anuḍaf;iɣewwaren",
   "Tapasztalatok megosztása": "Bḍu tirmitin",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Mi ara yekker wahil deg uselkim-ik, ad nebḍu s war isem anwa aɣewwar i yeddan, akken ad yekker seg tikkelt tamezwarut ula deg yiselkimen-nniḍen n Sloth OS. Ala aɣewwar d umfaras n tkarḍa-k tudlift i yettwaznen: mačči isem-ik, mačči ifuyla-k, mačči isem n wahil."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Mi ara yekker wahil deg uselkim-ik, ad nebḍu s war isem anwa aɣewwar i yeddan, akken ad yekker seg tikkelt tamezwarut ula deg yiselkimen-nniḍen n Sloth OS. Ala aɣewwar d umfaras n tkarḍa-k tudlift i yettwaznen: mačči isem-ik, mačči ifuyla-k, mačči isem n wahil.",
+  "NVIDIA illesztőprogram": "Anuḍaf n NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Anuḍaf n tkarḍa-k tudlift NVIDIA yewjed. Seld allus n usenker ad teddu s tezmert-is akk.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Anuḍaf n tkarḍa-k tudlift NVIDIA yewjed. Mi ara talseḍ asenker, aselkim ad k-d-isuter asentem ɣef ugdil azegzaw: Ammas n Sloth ad k-d-isken s tikli s tikli acu ara txedmeḍ dinna.",
+  "Útmutató megnyitása": "Ldi amnir"
 }

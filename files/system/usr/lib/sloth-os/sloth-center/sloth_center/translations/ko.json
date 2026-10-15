@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "업데이트, 롤백, 드라이버 등 원래라면 터미널이 필요한 모든 작업",
   "frissítés;visszaállítás;driver;beállítás": "업데이트;롤백;드라이버;설정",
   "Tapasztalatok megosztása": "경험 공유",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "프로그램이 컴퓨터에서 실행되면 어떤 설정이 잘 작동했는지 익명으로 공유하여, 다른 Sloth OS 컴퓨터에서도 한 번에 실행되도록 합니다. 설정과 그래픽 카드 제조사만 전송됩니다. 이름, 파일, 프로그램 이름은 전송되지 않습니다."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "프로그램이 컴퓨터에서 실행되면 어떤 설정이 잘 작동했는지 익명으로 공유하여, 다른 Sloth OS 컴퓨터에서도 한 번에 실행되도록 합니다. 설정과 그래픽 카드 제조사만 전송됩니다. 이름, 파일, 프로그램 이름은 전송되지 않습니다.",
+  "NVIDIA illesztőprogram": "NVIDIA 드라이버",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "NVIDIA 그래픽 카드 드라이버가 준비되었습니다. 다시 시작하면 최대 성능으로 작동합니다.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "NVIDIA 그래픽 카드 드라이버가 준비되었습니다. 다시 시작할 때 컴퓨터가 파란 화면에서 확인을 요청합니다. 그곳에서 할 일은 Sloth 센터가 단계별로 안내합니다.",
+  "Útmutató megnyitása": "안내 열기"
 }

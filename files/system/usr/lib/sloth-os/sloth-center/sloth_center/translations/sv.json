@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Uppdateringar, återställning, drivrutiner och allt som annars skulle kräva en terminal",
   "frissítés;visszaállítás;driver;beállítás": "uppdatering;återställning;drivrutin;inställningar",
   "Tapasztalatok megosztása": "Dela erfarenheter",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "När ett program startar på din dator delar vi anonymt vilken inställning som fungerade, så att det startar på första försöket även på andra Sloth OS-datorer. Bara inställningen och tillverkaren av ditt grafikkort skickas: inte ditt namn, dina filer eller programmets namn."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "När ett program startar på din dator delar vi anonymt vilken inställning som fungerade, så att det startar på första försöket även på andra Sloth OS-datorer. Bara inställningen och tillverkaren av ditt grafikkort skickas: inte ditt namn, dina filer eller programmets namn.",
+  "NVIDIA illesztőprogram": "NVIDIA-drivrutin",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Drivrutinen för ditt NVIDIA-grafikkort är klar. Efter en omstart körs det med full kraft.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Drivrutinen för ditt NVIDIA-grafikkort är klar. När du startar om ber datorn om en bekräftelse på en blå skärm: Sloth Center visar dig steg för steg vad du ska göra där.",
+  "Útmutató megnyitása": "Öppna guiden"
 }

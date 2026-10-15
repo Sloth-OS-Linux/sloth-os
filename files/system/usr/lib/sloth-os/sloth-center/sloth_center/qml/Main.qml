@@ -105,5 +105,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    Component.onCompleted: openModule(0)
+    // A megnyitandó oldal: sloth-center --page <azonosító> (pl. az NVIDIA-értesítésből: drivers)
+    Component.onCompleted: openModule(Math.max(0, modules.findIndex(m => m.id === startPage && m.ready)))
 }

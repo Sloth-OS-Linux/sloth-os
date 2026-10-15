@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Actualizaciones, restauración, controladores y todo lo que de otro modo requeriría una terminal",
   "frissítés;visszaállítás;driver;beállítás": "actualización;restauración;controlador;configuración",
   "Tapasztalatok megosztása": "Compartir experiencias",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Cuando un programa se inicia en tu ordenador, compartimos de forma anónima qué configuración funcionó, para que también se inicie al primer intento en otros ordenadores con Sloth OS. Solo se envían la configuración y el fabricante de tu tarjeta gráfica: ni tu nombre, ni tus archivos, ni el nombre del programa."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Cuando un programa se inicia en tu ordenador, compartimos de forma anónima qué configuración funcionó, para que también se inicie al primer intento en otros ordenadores con Sloth OS. Solo se envían la configuración y el fabricante de tu tarjeta gráfica: ni tu nombre, ni tus archivos, ni el nombre del programa.",
+  "NVIDIA illesztőprogram": "Controlador de NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "El controlador de tu tarjeta gráfica NVIDIA está listo. Después de reiniciar funcionará a pleno rendimiento.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "El controlador de tu tarjeta gráfica NVIDIA está listo. Al reiniciar, el ordenador pedirá una confirmación en una pantalla azul: el Centro Sloth te muestra paso a paso qué hacer allí.",
+  "Útmutató megnyitása": "Abrir la guía"
 }

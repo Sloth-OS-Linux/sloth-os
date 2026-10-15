@@ -66,7 +66,9 @@ def welcome_keys():
 def installer_keys():
     """A telepítő futás közben képzett kulcsai: lépések (a segéd küldi) és a lemez tartalma."""
     stages = {stage for _keys, stage, _pct in literal(INSTALL_HELPER, "STAGES")}
-    keys = {f"stage.{s}" for s in stages | {"start", "partition", "configure"}}
+    keys = {f"stage.{s}" for s in stages | {"start", "partition", "shrink", "configure"}}
+    # Windows mellé telepítés: az akadályok magyarázata (a segéd küldi, a felület összerakva használja)
+    keys |= {f"disk.beside.{p}" for p in literal(INSTALL_HELPER, "BESIDE_PROBLEMS")}
     return keys | {f"disk.contents.{c}" for c in ("empty", "windows", "linux", "other")} | DESKTOP_KEYS["sloth-installer"]
 
 

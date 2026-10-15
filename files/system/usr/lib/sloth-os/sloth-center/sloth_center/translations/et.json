@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Uuendused, tagasipööramine, draiverid ja kõik muu, milleks muidu oleks vaja terminali",
   "frissítés;visszaállítás;driver;beállítás": "uuendus;tagasipööramine;draiver;seadistused",
   "Tapasztalatok megosztása": "Jaga kogemusi",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Kui programm sinu arvutis käivitub, jagame anonüümselt, milline seadistus töötas, et see käivituks esimesel katsel ka teistes Sloth OS-i arvutites. Saadetakse ainult seadistus ja sinu graafikakaardi tootja: mitte sinu nimi, failid ega programmi nimi."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Kui programm sinu arvutis käivitub, jagame anonüümselt, milline seadistus töötas, et see käivituks esimesel katsel ka teistes Sloth OS-i arvutites. Saadetakse ainult seadistus ja sinu graafikakaardi tootja: mitte sinu nimi, failid ega programmi nimi.",
+  "NVIDIA illesztőprogram": "NVIDIA draiver",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Sinu NVIDIA graafikakaardi draiver on valmis. Pärast taaskäivitust töötab see täisvõimsusel.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Sinu NVIDIA graafikakaardi draiver on valmis. Taaskäivitamisel küsib arvuti sinisel ekraanil kinnitust: Sloth Keskus näitab samm-sammult, mida seal teha.",
+  "Útmutató megnyitása": "Ava juhend"
 }

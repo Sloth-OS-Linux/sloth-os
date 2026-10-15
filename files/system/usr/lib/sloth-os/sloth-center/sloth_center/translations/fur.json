@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Inzornaments, ripristinament, driver e dut ce che se no al varès bisugne di un terminâl",
   "frissítés;visszaállítás;driver;beállítás": "inzornament;ripristinament;driver;impostazions",
   "Tapasztalatok megosztása": "Condivît lis esperiencis",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Cuant che un program al partìs sul to computer, o condividìn in mût anonim cuale impostazion e à funzionât, par che al partissi al prin tentatîf ancje su altris computers cun Sloth OS. A vegnin mandâts dome la impostazion e il produtôr de tô schede grafiche: no il to non, no i tiei files, no il non dal program."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Cuant che un program al partìs sul to computer, o condividìn in mût anonim cuale impostazion e à funzionât, par che al partissi al prin tentatîf ancje su altris computers cun Sloth OS. A vegnin mandâts dome la impostazion e il produtôr de tô schede grafiche: no il to non, no i tiei files, no il non dal program.",
+  "NVIDIA illesztőprogram": "Driver NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Il driver de tô schede grafiche NVIDIA al è pront. Dopo di un gnûf inviament e va a plene potence.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Il driver de tô schede grafiche NVIDIA al è pront. Cuant che tu tornis a inviâ, il computer al domandarà une conferme suntun schermi blu: il Centri Sloth ti mostre pas par pas ce fâ li.",
+  "Útmutató megnyitása": "Vierç la vuide"
 }

@@ -1,0 +1,107 @@
+#!/usr/bin/python3 -I
+"""NVIDIA-s gépen automatikusan az NVIDIA-s változat (a telepítő ISO-n csak az AMD/Intel-es fér el).
+
+Az első indítások után a háttérben fut (sloth-nvidia-auto.timer), egyszer: ha van NVIDIA videókártya és az
+AMD/Intel-es változat fut, letölti és előkészíti az NVIDIA-s változatot (rpm-ostree rebase), a következő
+újraindítástól az fut. Addig a nyílt illesztőprogram (nouveau) hajtja a kártyát. Ha be van kapcsolva a
+Secure Boot, a kulcs regisztrálását is előkészíti (újraindításkor a gép kék képernyőn kér megerősítést;
+a Sloth Központ Driverek oldala lépésről lépésre mutatja).
+Az állapot a /var/lib/sloth-os/nvidia-auto fájlban van, ebből értesít a felhasználói oldal
+(sloth-center/sloth_center/nvidia_notify.py): downloading | ready | ready-mok | failed.
+Ha már egyszer lefutott (vagy nincs NVIDIA kártya), többet nem fut: ha a felhasználó később a Sloth
+Központban kézzel visszavált, azt nem írjuk felül.
+"""
+import json
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+STATE_DIR = Path("/var/lib/sloth-os")
+DONE = STATE_DIR / "nvidia-auto-done"
+STATE = STATE_DIR / "nvidia-auto"
+SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
+SB_PASSWORD = "universalblue"   # ugyanaz, mint a sloth-helper secureboot-enroll-ban
+
+
+def set_state(value):
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    tmp = STATE.with_suffix(".tmp")
+    tmp.write_text(value + "\n")
+    tmp.chmod(0o644)
+    tmp.replace(STATE)
+
+
+def done(reason):
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    DONE.write_text(reason + "\n")
+    print(reason)
+    return 0
+
+
+def has_nvidia():
+    for dev in Path("/sys/bus/pci/devices").iterdir():
+        try:
+            vendor = (dev / "vendor").read_text().strip()
+            klass = (dev / "class").read_text().strip()
+        except OSError:
+            continue
+        if vendor == "0x10de" and klass.startswith("0x03"):
+            return True
+    return False
+
+
+def booted_image():
+    out = subprocess.run(["rpm-ostree", "status", "--json"], capture_output=True, text=True, timeout=120).stdout
+    for d in json.loads(out or "{}").get("deployments", []):
+        if d.get("booted"):
+            return d.get("container-image-reference", "")
+    return ""
+
+
+def online():
+    r = subprocess.run(["nmcli", "--terse", "--fields", "CONNECTIVITY", "general"], capture_output=True, text=True)
+    return r.stdout.strip() in ("full", "unknown")
+
+
+def secure_boot_needs_key():
+    sb = subprocess.run(["mokutil", "--sb-state"], capture_output=True, text=True).stdout.lower()
+    if "enabled" not in sb or not os.path.exists(SB_KEY):
+        return False
+    t = subprocess.run(["mokutil", "--test-key", SB_KEY], capture_output=True, text=True)
+    return "already enrolled" not in (t.stdout + t.stderr).lower()
+
+
+def main():
+    if DONE.exists():
+        return 0
+    if not has_nvidia():
+        return done("nincs NVIDIA videókártya")
+    image = booted_image()
+    if "/sloth-os-nvidia:" in image:
+        return done("már az NVIDIA-s változat fut")
+    if "/sloth-os:" not in image:
+        return done(f"nem a Sloth OS hivatalos image-e fut ({image}), nem váltunk")
+    if not online():
+        print("Nincs internet, később újra próbálom.")
+        return 0
+    target = image.replace("/sloth-os:", "/sloth-os-nvidia:", 1)
+    print(f"Váltás: {image} -> {target}")
+    set_state("downloading")
+    r = subprocess.run(["nice", "-n", "19", "ionice", "-c", "3", "rpm-ostree", "rebase", target])
+    if r.returncode != 0:
+        set_state("failed")
+        print("Nem sikerült, legközelebb újra próbálom.", file=sys.stderr)
+        return 1
+    mok = False
+    if secure_boot_needs_key():
+        subprocess.run(["mokutil", "--timeout", "-1"], capture_output=True)
+        k = subprocess.run(["mokutil", "--import", SB_KEY], input=f"{SB_PASSWORD}\n{SB_PASSWORD}\n",
+                           capture_output=True, text=True)
+        mok = k.returncode == 0 or "already" in (k.stdout + k.stderr).lower()
+    set_state("ready-mok" if mok else "ready")
+    return done("az NVIDIA-s változat előkészítve, újraindítás után fut")
+
+
+if __name__ == "__main__":
+    sys.exit(main())

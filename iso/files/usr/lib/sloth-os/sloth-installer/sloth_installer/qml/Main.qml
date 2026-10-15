@@ -409,6 +409,64 @@ Kirigami.ApplicationWindow {
                                 }
                             }
                         }
+                        // Windows mellé vagy az egész lemez (csak Windowsos lemeznél)
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            visible: installer.diskInfo.contents === "windows"
+                            spacing: Kirigami.Units.largeSpacing
+                            RowLayout {
+                                visible: installer.besideInfo.state === "probing"
+                                Layout.alignment: Qt.AlignHCenter
+                                spacing: Kirigami.Units.largeSpacing
+                                QQC2.BusyIndicator { running: parent.visible }
+                                QQC2.Label { text: root.t("disk.beside.probing") }
+                            }
+                            QQC2.ButtonGroup { id: besideGroup }
+                            QQC2.RadioButton {
+                                Layout.fillWidth: true
+                                visible: installer.besideInfo.state === "ready"
+                                enabled: installer.besideInfo.possible === true
+                                QQC2.ButtonGroup.group: besideGroup
+                                text: root.t("disk.beside.option")
+                                checked: installer.beside
+                                onClicked: installer.setBeside(true)
+                            }
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                Layout.leftMargin: Kirigami.Units.gridUnit * 2
+                                visible: installer.beside
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    text: root.t("disk.beside.size", { size: installer.sizeGib, max: installer.besideInfo.maxGib || 0 })
+                                }
+                                QQC2.Slider {
+                                    id: sizeSlider
+                                    Layout.fillWidth: true
+                                    from: installer.besideInfo.minGib || 40
+                                    to: Math.max(from, installer.besideInfo.maxGib || 40)
+                                    stepSize: 5
+                                    value: installer.sizeGib
+                                    onMoved: installer.setSizeGib(Math.round(value))
+                                    Accessible.name: root.t("disk.beside.size", { size: installer.sizeGib, max: installer.besideInfo.maxGib || 0 })
+                                }
+                            }
+                            QQC2.RadioButton {
+                                Layout.fillWidth: true
+                                visible: installer.besideInfo.state === "ready"
+                                QQC2.ButtonGroup.group: besideGroup
+                                text: root.t("disk.beside.erase")
+                                checked: !installer.beside
+                                onClicked: installer.setBeside(false)
+                            }
+                            Kirigami.InlineMessage {
+                                Layout.fillWidth: true
+                                visible: installer.besideInfo.state === "ready" && (installer.besideInfo.problems || []).length > 0
+                                type: Kirigami.MessageType.Information
+                                text: (installer.besideInfo.problems || []).length > 0
+                                      ? root.t("disk.beside." + installer.besideInfo.problems[0]) : ""
+                            }
+                        }
                         Item { implicitHeight: Kirigami.Units.gridUnit }
                     }
                 }
@@ -419,7 +477,7 @@ Kirigami.ApplicationWindow {
                     NavRow {
                         id: diskNav
                         anchors.centerIn: parent
-                        nextEnabled: installer.disk !== ""
+                        nextEnabled: installer.disk !== "" && installer.besideInfo.state !== "probing"
                     }
                 }
             }
@@ -432,7 +490,7 @@ Kirigami.ApplicationWindow {
                     spacing: Kirigami.Units.largeSpacing * 2
                     Kirigami.Icon {
                         Layout.alignment: Qt.AlignHCenter
-                        source: "dialog-warning"
+                        source: installer.beside ? "drive-harddisk" : "dialog-warning"
                         implicitWidth: Kirigami.Units.iconSizes.huge
                         implicitHeight: Kirigami.Units.iconSizes.huge
                     }
@@ -440,24 +498,48 @@ Kirigami.ApplicationWindow {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
-                        text: root.t("confirm.heading")
+                        text: installer.beside ? root.t("confirm.beside.heading") : root.t("confirm.heading")
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
-                        text: root.t("confirm.text", { disk: root.diskName(installer.diskInfo) + " (" + (installer.diskInfo.sizeText || "") + ")" })
+                        text: installer.beside
+                              ? root.t("confirm.beside.text", { size: installer.sizeGib, disk: root.diskName(installer.diskInfo) })
+                              : root.t("confirm.text", { disk: root.diskName(installer.diskInfo) + " (" + (installer.diskInfo.sizeText || "") + ")" })
                     }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
-                        visible: installer.diskInfo.contents === "windows"
+                        visible: installer.diskInfo.contents === "windows" && !installer.beside
                         type: Kirigami.MessageType.Warning
                         text: root.t("confirm.windows")
+                    }
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        visible: installer.beside
+                        type: installer.besideInfo.shrinkGib > 0 ? Kirigami.MessageType.Warning : Kirigami.MessageType.Information
+                        text: installer.besideInfo.shrinkGib > 0
+                              ? root.t("confirm.beside.shrink", { size: installer.besideInfo.shrinkGib })
+                              : root.t("confirm.beside.free")
+                    }
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        visible: installer.beside && installer.besideInfo.bitlocker === true
+                        type: Kirigami.MessageType.Warning
+                        text: root.t("confirm.beside.bitlocker")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        visible: installer.beside
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: root.t("confirm.beside.menu")
                     }
                     QQC2.CheckBox {
                         id: confirmCheck
                         Layout.alignment: Qt.AlignHCenter
-                        text: root.t("confirm.checkbox")
+                        text: installer.beside ? root.t("confirm.beside.checkbox") : root.t("confirm.checkbox")
                         FocusFrame { visible: confirmCheck.visualFocus }
                         checked: installer.confirmed
                         onToggled: installer.setConfirmed(checked)
@@ -540,6 +622,14 @@ Kirigami.ApplicationWindow {
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
                         text: root.t("done.text")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        visible: installer.beside
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: root.t("done.beside")
                     }
                     QQC2.Button {
                         id: rebootButton

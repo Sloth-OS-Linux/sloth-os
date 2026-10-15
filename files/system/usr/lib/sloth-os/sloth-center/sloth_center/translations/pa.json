@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "ਅੱਪਡੇਟ, ਪਿਛਲੀ ਹਾਲਤ 'ਤੇ ਵਾਪਸੀ, ਡਰਾਈਵਰ ਅਤੇ ਉਹ ਸਭ ਕੁਝ ਜਿਸ ਲਈ ਨਹੀਂ ਤਾਂ ਟਰਮੀਨਲ ਚਾਹੀਦਾ",
   "frissítés;visszaállítás;driver;beállítás": "ਅੱਪਡੇਟ;ਵਾਪਸੀ;ਡਰਾਈਵਰ;ਸੈਟਿੰਗਾਂ",
   "Tapasztalatok megosztása": "ਤਜਰਬੇ ਸਾਂਝੇ ਕਰੋ",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "ਜਦੋਂ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ 'ਤੇ ਕੋਈ ਪ੍ਰੋਗਰਾਮ ਚੱਲਦਾ ਹੈ, ਤਾਂ ਅਸੀਂ ਗੁਮਨਾਮ ਤਰੀਕੇ ਨਾਲ ਸਾਂਝਾ ਕਰਦੇ ਹਾਂ ਕਿ ਕਿਹੜੀ ਸੈਟਿੰਗ ਕੰਮ ਕੀਤੀ, ਤਾਂ ਜੋ ਇਹ ਹੋਰ Sloth OS ਕੰਪਿਊਟਰਾਂ 'ਤੇ ਵੀ ਪਹਿਲੀ ਕੋਸ਼ਿਸ਼ ਵਿੱਚ ਚੱਲ ਪਏ। ਸਿਰਫ਼ ਸੈਟਿੰਗ ਅਤੇ ਤੁਹਾਡੇ ਗ੍ਰਾਫ਼ਿਕਸ ਕਾਰਡ ਦਾ ਨਿਰਮਾਤਾ ਭੇਜੇ ਜਾਂਦੇ ਹਨ: ਨਾ ਤੁਹਾਡਾ ਨਾਮ, ਨਾ ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ, ਨਾ ਪ੍ਰੋਗਰਾਮ ਦਾ ਨਾਮ।"
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "ਜਦੋਂ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ 'ਤੇ ਕੋਈ ਪ੍ਰੋਗਰਾਮ ਚੱਲਦਾ ਹੈ, ਤਾਂ ਅਸੀਂ ਗੁਮਨਾਮ ਤਰੀਕੇ ਨਾਲ ਸਾਂਝਾ ਕਰਦੇ ਹਾਂ ਕਿ ਕਿਹੜੀ ਸੈਟਿੰਗ ਕੰਮ ਕੀਤੀ, ਤਾਂ ਜੋ ਇਹ ਹੋਰ Sloth OS ਕੰਪਿਊਟਰਾਂ 'ਤੇ ਵੀ ਪਹਿਲੀ ਕੋਸ਼ਿਸ਼ ਵਿੱਚ ਚੱਲ ਪਏ। ਸਿਰਫ਼ ਸੈਟਿੰਗ ਅਤੇ ਤੁਹਾਡੇ ਗ੍ਰਾਫ਼ਿਕਸ ਕਾਰਡ ਦਾ ਨਿਰਮਾਤਾ ਭੇਜੇ ਜਾਂਦੇ ਹਨ: ਨਾ ਤੁਹਾਡਾ ਨਾਮ, ਨਾ ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ, ਨਾ ਪ੍ਰੋਗਰਾਮ ਦਾ ਨਾਮ।",
+  "NVIDIA illesztőprogram": "NVIDIA ਡਰਾਈਵਰ",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "ਤੁਹਾਡੇ NVIDIA ਗ੍ਰਾਫ਼ਿਕਸ ਕਾਰਡ ਦਾ ਡਰਾਈਵਰ ਤਿਆਰ ਹੈ। ਮੁੜ ਚਾਲੂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਇਹ ਪੂਰੀ ਤਾਕਤ ਨਾਲ ਚੱਲੇਗਾ।",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "ਤੁਹਾਡੇ NVIDIA ਗ੍ਰਾਫ਼ਿਕਸ ਕਾਰਡ ਦਾ ਡਰਾਈਵਰ ਤਿਆਰ ਹੈ। ਮੁੜ ਚਾਲੂ ਕਰਨ 'ਤੇ ਕੰਪਿਊਟਰ ਇੱਕ ਨੀਲੀ ਸਕ੍ਰੀਨ 'ਤੇ ਪੁਸ਼ਟੀ ਮੰਗੇਗਾ: ਉੱਥੇ ਕੀ ਕਰਨਾ ਹੈ, Sloth ਕੇਂਦਰ ਕਦਮ-ਦਰ-ਕਦਮ ਦਿਖਾਏਗਾ।",
+  "Útmutató megnyitása": "ਗਾਈਡ ਖੋਲ੍ਹੋ"
 }

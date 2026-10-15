@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Güncellemeler, geri alma, sürücüler ve normalde terminal gerektirecek her şey",
   "frissítés;visszaállítás;driver;beállítás": "güncelleme;geri alma;sürücü;ayarlar",
   "Tapasztalatok megosztása": "Deneyimleri paylaş",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Bir program bilgisayarında çalıştığında, hangi ayarın işe yaradığını anonim olarak paylaşırız; böylece diğer Sloth OS bilgisayarlarında da ilk denemede çalışır. Yalnızca ayar ve ekran kartının üreticisi gönderilir: adın, dosyaların ya da programın adı gönderilmez."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Bir program bilgisayarında çalıştığında, hangi ayarın işe yaradığını anonim olarak paylaşırız; böylece diğer Sloth OS bilgisayarlarında da ilk denemede çalışır. Yalnızca ayar ve ekran kartının üreticisi gönderilir: adın, dosyaların ya da programın adı gönderilmez.",
+  "NVIDIA illesztőprogram": "NVIDIA sürücüsü",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "NVIDIA ekran kartının sürücüsü hazır. Yeniden başlattıktan sonra tam güçle çalışır.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "NVIDIA ekran kartının sürücüsü hazır. Yeniden başlatırken bilgisayar mavi bir ekranda onay isteyecek: Sloth Merkezi orada ne yapman gerektiğini adım adım gösterir.",
+  "Útmutató megnyitása": "Rehberi aç"
 }

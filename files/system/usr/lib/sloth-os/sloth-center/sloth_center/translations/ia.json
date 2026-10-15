@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Actualisationes, restauration, drivers e toto lo que alteremente necessitarea un terminal",
   "frissítés;visszaállítás;driver;beállítás": "actualisation;restauration;driver;configuration",
   "Tapasztalatok megosztása": "Compartir experientias",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quando un programma se initia in tu computator, nos comparti anonymemente qual configuration ha functionate, de maniera que illo se initia al prime tentativa anque in altere computatores con Sloth OS. Solmente le configuration e le fabricante de tu carta graphic es inviate: non tu nomine, non tu files, non le nomine del programma."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quando un programma se initia in tu computator, nos comparti anonymemente qual configuration ha functionate, de maniera que illo se initia al prime tentativa anque in altere computatores con Sloth OS. Solmente le configuration e le fabricante de tu carta graphic es inviate: non tu nomine, non tu files, non le nomine del programma.",
+  "NVIDIA illesztőprogram": "Driver de NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Le driver de tu carta graphic NVIDIA es preste. Post un reinitio illo functiona a plen potentia.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Le driver de tu carta graphic NVIDIA es preste. Al reinitio, le computator demandara un confirmation sur un schermo blau: le Centro Sloth te monstra passo a passo lo que facer ibi.",
+  "Útmutató megnyitása": "Aperir le guida"
 }

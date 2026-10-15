@@ -17,6 +17,12 @@ def main():
     # Natív KDE kinézet (a rendszer színsémáját követi)
     os.environ.setdefault("QT_QUICK_CONTROLS_STYLE", "org.kde.desktop")
 
+    # sloth-center --page <modul> : rögtön ezt az oldalt nyitja meg (pl. drivers)
+    start_page = ""
+    if "--page" in sys.argv[1:-1]:
+        i = sys.argv.index("--page")
+        start_page = sys.argv[i + 1]
+        del sys.argv[i:i + 2]
     app = QApplication(sys.argv)
     app.setApplicationName("sloth-center")
     from .i18n import Translator, catalog, tr
@@ -45,6 +51,7 @@ def main():
     engine = QQmlApplicationEngine()
     translator = Translator()
     engine.rootContext().setContextProperty("L", translator)
+    engine.rootContext().setContextProperty("startPage", start_page)
     updates = UpdatesController()
     winprograms = WinProgramsController()
     services = ServicesController()

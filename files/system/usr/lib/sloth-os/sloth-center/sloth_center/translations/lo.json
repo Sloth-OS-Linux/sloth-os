@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "ການອັບເດດ, ການກັບຄືນ, ໄດຣເວີ ແລະ ທຸກຢ່າງທີ່ປົກກະຕິຕ້ອງໃຊ້ເທີມິນອນ",
   "frissítés;visszaállítás;driver;beállítás": "ອັບເດດ;ກັບຄືນ;ໄດຣເວີ;ການຕັ້ງຄ່າ",
   "Tapasztalatok megosztása": "ແບ່ງປັນປະສົບການ",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "ເມື່ອໂປຣແກຣມເລີ່ມເຮັດວຽກໃນຄອມພິວເຕີຂອງທ່ານ, ພວກເຮົາຈະແບ່ງປັນແບບບໍ່ລະບຸຕົວຕົນວ່າການຕັ້ງຄ່າໃດທີ່ໃຊ້ໄດ້, ເພື່ອໃຫ້ມັນເລີ່ມໄດ້ຕັ້ງແຕ່ຄັ້ງທຳອິດໃນຄອມພິວເຕີ Sloth OS ອື່ນໆນຳ. ສົ່ງພຽງແຕ່ການຕັ້ງຄ່າ ແລະ ຜູ້ຜະລິດກາດຈໍພາບ: ບໍ່ແມ່ນຊື່ຂອງທ່ານ, ໄຟລ໌ຂອງທ່ານ ຫຼື ຊື່ໂປຣແກຣມ."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "ເມື່ອໂປຣແກຣມເລີ່ມເຮັດວຽກໃນຄອມພິວເຕີຂອງທ່ານ, ພວກເຮົາຈະແບ່ງປັນແບບບໍ່ລະບຸຕົວຕົນວ່າການຕັ້ງຄ່າໃດທີ່ໃຊ້ໄດ້, ເພື່ອໃຫ້ມັນເລີ່ມໄດ້ຕັ້ງແຕ່ຄັ້ງທຳອິດໃນຄອມພິວເຕີ Sloth OS ອື່ນໆນຳ. ສົ່ງພຽງແຕ່ການຕັ້ງຄ່າ ແລະ ຜູ້ຜະລິດກາດຈໍພາບ: ບໍ່ແມ່ນຊື່ຂອງທ່ານ, ໄຟລ໌ຂອງທ່ານ ຫຼື ຊື່ໂປຣແກຣມ.",
+  "NVIDIA illesztőprogram": "ໄດຣເວີ NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "ໄດຣເວີສຳລັບກາດຈໍພາບ NVIDIA ຂອງທ່ານພ້ອມແລ້ວ. ຫຼັງຈາກເລີ່ມໃໝ່ ມັນຈະເຮັດວຽກເຕັມປະສິດທິພາບ.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "ໄດຣເວີສຳລັບກາດຈໍພາບ NVIDIA ຂອງທ່ານພ້ອມແລ້ວ. ເມື່ອເລີ່ມໃໝ່ ຄອມພິວເຕີຈະຂໍການຢືນຢັນໃນໜ້າຈໍສີຟ້າ: ສູນ Sloth ຈະສະແດງໃຫ້ທ່ານເບິ່ງເທື່ອລະຂັ້ນວ່າຕ້ອງເຮັດຫຍັງຢູ່ທີ່ນັ້ນ.",
+  "Útmutató megnyitása": "ເປີດຄູ່ມື"
 }

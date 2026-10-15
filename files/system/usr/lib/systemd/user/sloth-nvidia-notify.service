@@ -1,0 +1,12 @@
+[Unit]
+Description=Sloth OS: értesítés, ha az NVIDIA-s változat elkészült
+ConditionPathExists=/var/lib/sloth-os/nvidia-auto
+After=plasma-workspace.target
+
+[Service]
+Type=oneshot
+Environment=PYTHONPATH=/usr/lib/sloth-os/sloth-center:/usr/lib/sloth-os/common
+ExecStart=/usr/bin/python3 -m sloth_center.nvidia_notify
+
+[Install]
+WantedBy=plasma-workspace.target

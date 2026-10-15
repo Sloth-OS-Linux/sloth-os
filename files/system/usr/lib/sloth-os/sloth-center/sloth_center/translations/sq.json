@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Përditësime, kthim prapa, drejtues dhe gjithçka që përndryshe do të kërkonte një terminal",
   "frissítés;visszaállítás;driver;beállítás": "përditësim;kthim;drejtues;rregullime",
   "Tapasztalatok megosztása": "Ndaj përvojat",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Kur një program niset në kompjuterin tënd, ndajmë në mënyrë anonime cili cilësim funksionoi, që të niset që në përpjekjen e parë edhe në kompjuterë të tjerë me Sloth OS. Dërgohen vetëm cilësimi dhe prodhuesi i kartës grafike: jo emri yt, skedarët e tu apo emri i programit."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Kur një program niset në kompjuterin tënd, ndajmë në mënyrë anonime cili cilësim funksionoi, që të niset që në përpjekjen e parë edhe në kompjuterë të tjerë me Sloth OS. Dërgohen vetëm cilësimi dhe prodhuesi i kartës grafike: jo emri yt, skedarët e tu apo emri i programit.",
+  "NVIDIA illesztőprogram": "Drejtuesi NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Drejtuesi i kartës tënde grafike NVIDIA është gati. Pas rinisjes ajo punon me fuqi të plotë.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Drejtuesi i kartës tënde grafike NVIDIA është gati. Kur ta rinisësh, kompjuteri do të kërkojë konfirmim në një ekran blu: Qendra Sloth të tregon hap pas hapi çfarë të bësh atje.",
+  "Útmutató megnyitása": "Hap udhëzuesin"
 }

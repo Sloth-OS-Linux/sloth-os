@@ -33,7 +33,10 @@ modules:
     system:
       enabled:
         - sloth-steam-vulkan-layers.timer
+        - sloth-nvidia-auto.timer        # NVIDIA-s gépen az NVIDIA-s változat a háttérben
     user:
       enabled:
         - sloth-steam-proton-default.service
         - sloth-windows-prepare.timer
+        - sloth-nvidia-notify.path       # értesítés, ha az NVIDIA-s változat elkészült
+        - sloth-nvidia-notify.service

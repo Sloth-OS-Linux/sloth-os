@@ -30,6 +30,8 @@ HELPER = "/usr/libexec/sloth-os/sloth-install-helper"
 PAGES = ["welcome", "region", "account", "disk", "confirm", "install", "done", "error"]
 NAV_PAGES = PAGES[:5]   # ezek között lehet előre-hátra lépni
 USERNAME_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
+GIB = 1024**3
+MIN_BESIDE_GIB = 40   # Windows mellé legalább ennyi kell (a segédben is: MIN_BESIDE_BYTES)
 RESERVED_USERS = {"root", "bin", "daemon", "adm", "lp", "sync", "shutdown", "halt", "mail", "operator",
                   "games", "ftp", "nobody", "dbus", "polkitd", "sddm", "plasmalogin", "liveuser", "admin",
                   "wheel", "users"}
@@ -79,6 +81,11 @@ class InstallerController(QObject):
         self._error = ""
         self._proc = None
         self._buffer = b""
+        # Windows mellé telepítés: a lemez felmérése (sloth-install-helper probe) és a választás
+        self._beside = False
+        self._probe = {}            # a segéd válasza; {"state": "probing"} amíg fut
+        self._probe_proc = None
+        self._size_gib = 0
         # A kiosztás élő átállítása kis késleltetéssel: a nyelvlistán végiglépkedve ne fusson
         # minden nyelvnél külön váltás (egymásra futva rossz kiosztás maradhatott érvényben)
         self._keyboard_timer = QTimer(self, singleShot=True, interval=400)
@@ -110,6 +117,32 @@ class InstallerController(QObject):
     @Property(str, notify=changed)
     def errorText(self):
         return catalog.tr(self._error) if self._error else ""
+
+    beside = Property(bool, lambda self: self._beside, notify=changed)
+    sizeGib = Property(int, lambda self: self._size_gib, notify=changed)
+
+    @Property("QVariantMap", notify=changed)
+    def besideInfo(self):
+        """A Windows mellé telepítés lehetőségei a felületnek: állapot, határok, akadályok."""
+        p = self._probe
+        if not p:
+            return {"state": "none"}
+        if p.get("state") == "probing":
+            return {"state": "probing"}
+        problems = [x for x in p.get("problems", []) if x != "bitlocker"]
+        max_gib = int(p.get("max", 0) // GIB)
+        if p.get("bitlocker") and max_gib < MIN_BESIDE_GIB:
+            problems.append("bitlocker")
+        # MBR-es lemeznél ne az UEFI bekapcsolását tanácsoljuk (a régi módban telepített Windows nem indulna)
+        problems.sort(key=lambda x: (x != "not_gpt", x != "not_uefi"))
+        possible = not problems and max_gib >= MIN_BESIDE_GIB
+        if not possible and not problems:
+            problems = ["no_space"]
+        return {"state": "ready", "possible": possible, "problems": problems[:1],
+                "minGib": MIN_BESIDE_GIB, "maxGib": max_gib, "bitlocker": bool(p.get("bitlocker")),
+                # a választott méretből ennyit veszünk el a Windowstól (0, ha a szabad hely elég)
+                "shrinkGib": 0 if p.get("free", 0) >= self._size_gib * GIB else
+                max(0, self._size_gib - int(p.get("free", 0) // GIB))}
 
     @Property("QVariantMap", notify=changed)
     def diskInfo(self):
@@ -188,13 +221,72 @@ class InstallerController(QObject):
             # ha csak egy belső lemez van, azt előre kijelöljük
             internal = [d for d in usable if not d["removable"]]
             self._disk = internal[0]["path"] if len(internal) == 1 else ""
+            self._beside, self._probe = False, {}
+        if self.diskInfo.get("contents") == "windows" and not self._probe:
+            self._start_probe()
         self.changed.emit()
 
     @Slot(str)
     def selectDisk(self, path):
         if any(d["path"] == path and not d["tooSmall"] for d in self._disks):
+            if path != self._disk:
+                self._beside, self._probe = False, {}
             self._disk = path
             self._confirmed = False
+            if self.diskInfo.get("contents") == "windows" and not self._probe:
+                self._start_probe()
+            self.changed.emit()
+
+    def _start_probe(self):
+        """A Windows-os lemez felmérése a háttérben (a segéd rendszergazdaként olvassa a partíciókat)."""
+        if self._probe_proc:
+            self._probe_proc.kill()
+        self._probe = {"state": "probing"}
+        proc = QProcess(self)
+        self._probe_proc = proc
+        disk = self._disk
+
+        def done(_code, _status):
+            if self._probe_proc is not proc or self._disk != disk:
+                return
+            self._probe_proc = None
+            try:
+                lines = bytes(proc.readAllStandardOutput()).decode().strip().splitlines()
+                result = json.loads(lines[-1]) if lines else {}
+            except ValueError:
+                result = {}
+            if "error" in result or not result:
+                log.warning("lemezfelmérés: %s", result)
+                result = {"problems": ["unknown"]}
+            log.info("lemezfelmérés: %s", result)
+            self._probe = result
+            info = self.besideInfo
+            if info.get("possible"):
+                # alapból Windows mellé, a hely fele, de legalább 80 GB (ha van annyi)
+                self._beside = True
+                self._size_gib = max(MIN_BESIDE_GIB, min(info["maxGib"], max(80, info["maxGib"] // 2)))
+            self.changed.emit()
+
+        proc.finished.connect(done)
+        args = [HELPER, "probe", "--disk", disk]
+        if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
+            proc.start(HELPER, args[1:])
+        else:
+            proc.start("pkexec", args)
+
+    @Slot(bool)
+    def setBeside(self, value):
+        if value and not self.besideInfo.get("possible"):
+            return
+        self._beside = value
+        self._confirmed = False
+        self.changed.emit()
+
+    @Slot(int)
+    def setSizeGib(self, value):
+        info = self.besideInfo
+        if info.get("possible"):
+            self._size_gib = max(info["minGib"], min(info["maxGib"], int(value)))
             self.changed.emit()
 
     @Slot(bool)
@@ -227,6 +319,8 @@ class InstallerController(QObject):
         log.info("telepítés indítása: %s, %s, %s, %s", self._disk, self._language, self._keyboard, self._timezone)
         if self._proc or not self._disk or not self._confirmed:
             return
+        if self._beside and not self.besideInfo.get("possible"):
+            return
         locale = next(l["locale"] for l in self._languages if l["code"] == self._language)
         self._page, self._stage, self._progress, self._error = "install", "start", 0, ""
         self.changed.emit()
@@ -237,6 +331,8 @@ class InstallerController(QObject):
         args = [HELPER, "install", "--disk", self._disk, "--locale", locale,
                 "--keyboard", self._keyboard, "--timezone", self._timezone,
                 "--username", self._username, "--fullname", self._full_name]
+        if self._beside:
+            args += ["--beside-windows", "--size-gib", str(self._size_gib)]
         if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
             # próbaüzem: jelszókérés és lemeztörlés nélkül
             self._proc.start(HELPER, args[1:])

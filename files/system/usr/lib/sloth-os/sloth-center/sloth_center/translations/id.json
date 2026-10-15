@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Pembaruan, pemulihan, driver, dan semua hal yang biasanya memerlukan terminal",
   "frissítés;visszaállítás;driver;beállítás": "pembaruan;pemulihan;driver;pengaturan",
   "Tapasztalatok megosztása": "Bagikan pengalaman",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Saat sebuah program berjalan di komputermu, kami membagikan secara anonim pengaturan mana yang berhasil, agar program itu juga langsung berjalan di komputer Sloth OS lain. Hanya pengaturan dan produsen kartu grafismu yang dikirim: bukan namamu, berkasmu, atau nama programnya."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Saat sebuah program berjalan di komputermu, kami membagikan secara anonim pengaturan mana yang berhasil, agar program itu juga langsung berjalan di komputer Sloth OS lain. Hanya pengaturan dan produsen kartu grafismu yang dikirim: bukan namamu, berkasmu, atau nama programnya.",
+  "NVIDIA illesztőprogram": "Driver NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Driver untuk kartu grafis NVIDIA-mu sudah siap. Setelah dimulai ulang, kartu grafis bekerja dengan kekuatan penuh.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Driver untuk kartu grafis NVIDIA-mu sudah siap. Saat dimulai ulang, komputer akan meminta konfirmasi di layar biru: Pusat Sloth menunjukkan langkah demi langkah apa yang harus dilakukan di sana.",
+  "Útmutató megnyitása": "Buka panduan"
 }

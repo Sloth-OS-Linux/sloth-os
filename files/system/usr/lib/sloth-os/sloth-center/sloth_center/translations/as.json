@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "আপডেট, পূৰ্বাৱস্থালৈ ঘূৰাই নিয়া, ড্ৰাইভাৰ আৰু অন্যথা টাৰ্মিনেল লাগিব পৰা সকলো কাম",
   "frissítés;visszaállítás;driver;beállítás": "আপডেট;পূৰ্বাৱস্থা;ড্ৰাইভাৰ;ছেটিংছ",
   "Tapasztalatok megosztása": "অভিজ্ঞতা ভাগ কৰক",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "আপোনাৰ কম্পিউটাৰত কোনো প্ৰগ্ৰাম আৰম্ভ হ'লে, কোনটো ছেটিঙে কাম কৰিলে সেয়া আমি বেনামীভাৱে ভাগ কৰোঁ, যাতে আন Sloth OS কম্পিউটাৰতো ই প্ৰথম চেষ্টাতে আৰম্ভ হয়। কেৱল ছেটিং আৰু আপোনাৰ গ্ৰাফিক্স কাৰ্ডৰ নিৰ্মাতা পঠিওৱা হয়: আপোনাৰ নাম, ফাইল বা প্ৰগ্ৰামৰ নাম নহয়।"
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "আপোনাৰ কম্পিউটাৰত কোনো প্ৰগ্ৰাম আৰম্ভ হ'লে, কোনটো ছেটিঙে কাম কৰিলে সেয়া আমি বেনামীভাৱে ভাগ কৰোঁ, যাতে আন Sloth OS কম্পিউটাৰতো ই প্ৰথম চেষ্টাতে আৰম্ভ হয়। কেৱল ছেটিং আৰু আপোনাৰ গ্ৰাফিক্স কাৰ্ডৰ নিৰ্মাতা পঠিওৱা হয়: আপোনাৰ নাম, ফাইল বা প্ৰগ্ৰামৰ নাম নহয়।",
+  "NVIDIA illesztőprogram": "NVIDIA ড্ৰাইভাৰ",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "আপোনাৰ NVIDIA গ্ৰাফিক্স কাৰ্ডৰ ড্ৰাইভাৰ সাজু। পুনৰাৰম্ভৰ পিছত ই সম্পূৰ্ণ শক্তিৰে চলে।",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "আপোনাৰ NVIDIA গ্ৰাফিক্স কাৰ্ডৰ ড্ৰাইভাৰ সাজু। পুনৰাৰম্ভ কৰোঁতে কম্পিউটাৰে এখন নীলা স্ক্ৰীণত নিশ্চিতকৰণ বিচাৰিব: তাত কি কৰিব লাগে Sloth কেন্দ্ৰই খোজে খোজে দেখুৱাব।",
+  "Útmutató megnyitása": "নিৰ্দেশিকা খোলক"
 }

@@ -27,6 +27,10 @@ grep -q "FollowLocale1=true" /usr/libexec/livesys/sessions.d/livesys-kde
 sed -i "s/FollowLocale1=true/FollowLocale1=false/" /usr/libexec/livesys/sessions.d/livesys-kde
 systemctl enable livesys.service livesys-late.service
 
+# A Windows mellé telepítéshez: a Windows-partíció zsugorítása (ntfsresize); csak az élő rendszerben kell
+dnf install -y ntfsprogs
+command -v ntfsresize ntfscat
+
 # --- A telepítő és az élő rendszer saját fájljai ----------------------------------------
 
 cp -a /src/files/. /

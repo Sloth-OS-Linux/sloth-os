@@ -3,8 +3,10 @@
 
   sloth-install-helper install --disk /dev/X --locale hu_HU.UTF-8 --keyboard hu --timezone Europe/Budapest \
                              --username anna --fullname "Kiss Anna"      (a jelszó a szabványos bemeneten)
+                             [--beside-windows --size-gib 120]
+  sloth-install-helper probe --disk /dev/X     a lemez felmérése a Windows mellé telepítéshez (JSON)
 
-A teljes lemezt törli, particionálja, és feltelepíti rá az ISO-ba csomagolt Sloth OS image-et
+Alapból a teljes lemezt törli, particionálja, és feltelepíti rá az ISO-ba csomagolt Sloth OS image-et
 (bootc install to-filesystem), majd beírja a választott nyelvet, billentyűzetet és időzónát, és a
 fiók adatait (a fiókot első induláskor a sloth-first-user szolgáltatás hozza létre).
 A bootc a rétegeket ideiglenesen a /var/tmp-be csomagolja ki; az élő rendszerben ez RAM-ban van, ezért
@@ -15,6 +17,13 @@ A kimenet JSON-sorok a felületnek:
   {"done": true}                            kész
   {"error": "error.bad_disk"}               hiba (fordítási kulcs)
 A nyers kimenet a /tmp/sloth-install.log fájlba kerül.
+
+Windows mellé (--beside-windows): a Windows megmarad. Ha a lemezen van elég szabad hely, oda kerül a
+Sloth OS; különben a Windows legnagyobb NTFS-partícióját (C:) zsugorítjuk (ntfsresize), és a felszabadult
+helyre. A Sloth OS saját EFI-partíciót kap (a Windows rendszerindító fájljaihoz nem nyúlunk), a boot
+menüben a Windows is ott van (és a menü látszik), a hardveróra pedig helyi időben jár, mint a Windowsban.
+Csak UEFI-s gépen és GPT-s lemezen; BitLockeres vagy nem teljesen leállított (gyors indítás, hibernálás)
+Windows-partíciót nem zsugorítunk.
 
 Próbaüzem lemeztörlés nélkül (a felület teszteléséhez): SLOTH_INSTALL_DRY_RUN=1
 """
@@ -41,6 +50,11 @@ IMAGE_CONF = Path("/usr/share/sloth-os/installer/image.conf")
 TARGET = Path("/run/sloth-install/target")      # ide csatoljuk a rendszerpartíciót
 SCRATCH = Path("/run/sloth-install/scratch")    # az átmeneti munkapartíció
 SCRATCH_BYTES = 10 * 1024**3                     # a kicsomagolt rétegeknek (mért csúcs ~2,1 GB + tartalék)
+
+MIN_BESIDE_BYTES = 40 * 1024**3                  # Windows mellé legalább ennyi kell a Sloth OS-nek
+WINDOWS_RESERVE = 20 * 1024**3                   # zsugorítás után ennyi szabad hely marad a Windowsnak
+ESP_MIB = 512
+MIB = 1024**2
 
 # GPT partíciótípusok
 BIOS_BOOT = "21686148-6449-6e6f-744e-656564454649"
@@ -168,13 +182,241 @@ def partition(disk):
     run(["mkfs.fat", "-F", "32", "-n", "EFI-SYSTEM", parts[2]])
     run(["mkfs.btrfs", "--force", "--label", "root", parts[3]])
     run(["mkfs.ext4", "-F", "-q", "-L", "sloth-tmp", parts[4]])
+    mount_target(parts[3], parts[2], parts[4])
+    return {"esp": parts[2], "root": parts[3], "scratch": parts[4], "numbers": {"esp": 2, "root": 3, "scratch": 4}}
+
+
+# --- Windows mellé ------------------------------------------------------------------
+
+def table(disk):
+    """A lemez partíciós táblája (sfdisk --json): címke, szektorméret, partíciók."""
+    r = subprocess.run(["sfdisk", "--json", disk], capture_output=True, text=True)
+    pt = json.loads(r.stdout or "{}").get("partitiontable", {}) if r.returncode == 0 else {}
+    pt.setdefault("sectorsize", 512)
+    pt.setdefault("partitions", [])
+    return pt
+
+
+def free_regions(pt):
+    """A szabad területek (kezdő szektor, szektorok száma), 1 MiB-re igazítva."""
+    ss = pt["sectorsize"]
+    align = MIB // ss
+    first, last = pt.get("firstlba", align), pt.get("lastlba", 0)
+    out, pos = [], first
+    for p in sorted(pt["partitions"], key=lambda p: p["start"]):
+        if p["start"] > pos:
+            out.append((pos, p["start"] - pos))
+        pos = max(pos, p["start"] + p["size"])
+    if last + 1 > pos:
+        out.append((pos, last + 1 - pos))
+    aligned = []
+    for start, size in out:
+        a = -(-start // align) * align
+        end = (start + size) // align * align
+        if end > a:
+            aligned.append((a, end - a))
+    return aligned
+
+
+def gap_after(pt, part):
+    """A partíció után közvetlenül következő szabad terület mérete szektorban (ha van)."""
+    align = MIB // pt["sectorsize"]
+    start = -(-(part["start"] + part["size"]) // align) * align
+    return next((sz for st, sz in free_regions(pt) if st == start), 0)
+
+
+def fstype(dev):
+    return subprocess.run(["blkid", "-o", "value", "-s", "TYPE", dev], capture_output=True, text=True).stdout.strip()
+
+
+def fs_uuid(dev):
+    return subprocess.run(["blkid", "-o", "value", "-s", "UUID", dev], capture_output=True, text=True).stdout.strip()
+
+
+def windows_esp():
+    """A Windows rendszerindítóját tartalmazó EFI-partíció FS-UUID-ja, bármelyik lemezen
+    (a boot menü Windows-bejegyzéséhez). Ha nincs, üres."""
+    out = json.loads(subprocess.run(["lsblk", "--json", "--list", "--output", "PATH,PARTTYPE,FSTYPE"],
+                                    capture_output=True, text=True).stdout or "{}")
+    for p in out.get("blockdevices", []):
+        if (p.get("parttype") or "").lower() != ESP_TYPE or p.get("fstype") != "vfat":
+            continue
+        mnt = Path(tempfile.mkdtemp(prefix="sloth-esp-"))
+        try:
+            if subprocess.run(["mount", "-o", "ro", p["path"], str(mnt)], capture_output=True).returncode:
+                continue
+            try:
+                boot = mnt / "EFI"
+                found = boot.is_dir() and any(f.name.lower() == "bootmgfw.efi"
+                                              for f in boot.glob("*/*/*") if f.parent.parent.name.lower() == "microsoft")
+            finally:
+                subprocess.run(["umount", str(mnt)], capture_output=True)
+            if found:
+                return fs_uuid(p["path"])
+        finally:
+            mnt.rmdir()
+    return ""
+
+
+def hibernated(dev):
+    """A Windows hibernált vagy gyors indítással állt le: a hiberfil.sys eleje "hibr" (nem "wake" vagy üres).
+
+    Ilyenkor a Windows a következő indításkor a memóriaképből visszaírná a régi állapotot, és a közben
+    megváltozott partíció tönkremenne. Az ntfsresize --info ezt nem nézi (csak olvasásra nyit), ezért külön
+    ellenőrizzük, csak olvasva (ntfscat, csatolás nélkül).
+    """
+    try:
+        proc = subprocess.Popen(["ntfscat", dev, "hiberfil.sys"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        head = proc.stdout.read(4)
+        proc.kill()
+        proc.wait()
+    except OSError:
+        return False
+    log(f"hiberfil.sys eleje ({dev}): {head!r}")
+    return head.lower() == b"hibr"
+
+
+def ntfs_info(dev):
+    """(min. méret bájtban vagy None, gond: "" | "hibernated" | "dirty" | "unknown") az ntfsresize szerint."""
+    if hibernated(dev):
+        return None, "hibernated"
+    r = subprocess.run(["ntfsresize", "--info", "--no-progress-bar", dev], capture_output=True, text=True)
+    text = (r.stdout + r.stderr)
+    log(f"ntfsresize --info {dev}: {r.returncode}\n{text}")
+    low = text.lower()
+    if "hibernat" in low or "unsafe state" in low or "fast restart" in low:
+        return None, "hibernated"
+    if "scheduled for check" in low or "dirty" in low or "chkdsk" in low:
+        return None, "dirty"
+    m = re.search(r"you might resize at (\d+) bytes", low)
+    if r.returncode != 0 or not m:
+        return None, "unknown"
+    return int(m.group(1)), ""
+
+
+def probe(disk):
+    """A Windows mellé telepítés lehetőségei: mekkora hely jut a Sloth OS-nek, és mi akadályozza."""
+    pt = table(disk)
+    ss = pt["sectorsize"]
+    info = {"uefi": Path("/sys/firmware/efi").is_dir(), "gpt": pt.get("label") == "gpt",
+            "windowsEsp": "", "free": 0, "shrinkable": 0, "max": 0, "problems": [], "bitlocker": False}
+    if not info["uefi"]:
+        info["problems"].append("not_uefi")
+    if not info["gpt"]:
+        info["problems"].append("not_gpt")
+    if info["problems"]:
+        return info
+    release_disk(disk)
+    info["windowsEsp"] = windows_esp()
+    regions = free_regions(pt)
+    info["free"] = max((size * ss for _s, size in regions), default=0)
+    types = {p["node"]: fstype(p["node"]) for p in pt["partitions"]}
+    info["bitlocker"] = any(t.lower() == "bitlocker" for t in types.values())
+    ntfs = [p for p in pt["partitions"] if types.get(p["node"]) == "ntfs"]
+    if ntfs:
+        win = max(ntfs, key=lambda p: p["size"])
+        size = win["size"] * ss
+        minimum, problem = ntfs_info(win["node"])
+        if problem:
+            info["problems"].append(problem)
+        else:
+            after = gap_after(pt, win) * ss
+            shrink = max(0, size - minimum - WINDOWS_RESERVE) // MIB * MIB
+            info["windows"] = {"path": win["node"], "size": size, "min": minimum}
+            info["shrinkable"] = shrink + after if shrink else 0
+    elif info["bitlocker"]:
+        info["problems"].append("bitlocker")
+    info["max"] = max(info["free"], info["shrinkable"])
+    if info["max"] < MIN_BESIDE_BYTES and not set(info["problems"]) & {"hibernated", "dirty", "bitlocker"}:
+        info["problems"].append("no_space")
+    return info
+
+
+# Ami miatt nem lehet Windows mellé telepíteni -> a felület hibaüzenete (fordítási kulcs; ugyanaz a
+# magyarázat, ami a lemezválasztó lapon is látszik)
+BESIDE_PROBLEMS = ("not_uefi", "not_gpt", "hibernated", "dirty", "unknown", "bitlocker", "no_space")
+BESIDE_ERRORS = {p: f"disk.beside.{p}" for p in BESIDE_PROBLEMS if p != "bitlocker"}
+
+
+def partition_beside(disk, size_bytes):
+    """A Sloth OS helye a Windows mellett: a meglévő szabad hely, vagy a Windows-partíció zsugorítása.
+
+    -> (partíciók {"esp", "root", "scratch"} eszköz és partíciószám szerint, a Windows EFI FS-UUID-ja)
+    """
+    info = probe(disk)
+    blocking = [p for p in info["problems"] if p in BESIDE_ERRORS]
+    if blocking:
+        fail(BESIDE_ERRORS[blocking[0]], f"Windows mellé nem telepíthető: {info}")
+    if size_bytes > info["max"]:
+        fail(BESIDE_ERRORS["no_space"], f"kevés hely: {size_bytes} (max {info['max']})")
+    pt = table(disk)
+    ss = pt["sectorsize"]
+    need = size_bytes // ss
+    region = next(((st, sz) for st, sz in sorted(free_regions(pt), key=lambda r: r[1]) if sz >= need), None)
+    if region is None:
+        # Zsugorítás: a Windows-partíció vége előrébb kerül, a felszabadult hely utána következik
+        win = info.get("windows")
+        if not win:
+            fail(BESIDE_ERRORS["no_space"], "nincs zsugorítható Windows-partíció")
+        part = next(p for p in pt["partitions"] if p["node"] == win["path"])
+        align = MIB // ss
+        after = gap_after(pt, part)
+        shrink = -(-(need - after) // align) * align
+        new_size = (part["size"] - shrink) // align * align
+        if new_size * ss < win["min"] + WINDOWS_RESERVE:
+            fail(BESIDE_ERRORS["no_space"], f"nem zsugorítható ennyivel: {shrink * ss}")
+        emit(stage="shrink", progress=8)
+        # a felmérés óta nem változhatott, de ennél a lépésnél inkább kétszer nézzük meg
+        if hibernated(win["path"]):
+            fail(BESIDE_ERRORS["hibernated"], "a Windows hibernált")
+        # előbb próba, aztán élesben; utána a partíció is kisebb lesz (a kezdete marad)
+        run(["ntfsresize", "--no-action", "--no-progress-bar", "--size", str(new_size * ss), win["path"]],
+            error="error.beside_shrink_failed")
+        run(["ntfsresize", "--force", "--no-progress-bar", "--size", str(new_size * ss), win["path"]],
+            error="error.beside_shrink_failed")
+        run(["sfdisk", "--no-reread", "-N", str(partnum(disk, part["node"])), disk],
+            input=f"start={part['start']}, size={new_size}\n", error="error.beside_shrink_failed")
+        run(["partx", "--update", disk], error="error.beside_shrink_failed")
+        pt = table(disk)
+        region = next(((st, sz) for st, sz in free_regions(pt) if sz >= need), None)
+        if region is None:
+            fail("error.install_failed", "a zsugorítás után sincs elég hely")
+    start = region[0]
+    esp = ESP_MIB * MIB // ss
+    scratch = SCRATCH_BYTES // ss
+    root = need - esp - scratch
+    script = (f"start={start}, size={esp}, type={ESP_TYPE}, name=\"EFI-SYSTEM\"\n"
+              f"start={start + esp}, size={root}, type={ROOT_X86_64}, name=\"root\"\n"
+              f"start={start + esp + root}, size={scratch}, type={LINUX_DATA}, name=\"sloth-install-tmp\"\n")
+    run(["sfdisk", "--append", "--no-reread", disk], input=script)
+    run(["partx", "--update", disk])
+    run(["udevadm", "settle", "--timeout=30"])
+    by_start = {p["start"]: p for p in table(disk)["partitions"]}
+    try:
+        new = {name: by_start[s] for name, s in (("esp", start), ("root", start + esp), ("scratch", start + esp + root))}
+    except KeyError:
+        fail("error.install_failed", f"az új partíciók nem jelentek meg: {sorted(by_start)}")
+    parts = {name: p["node"] for name, p in new.items()}
+    parts["numbers"] = {name: partnum(disk, p["node"]) for name, p in new.items()}
+    run(["mkfs.fat", "-F", "32", "-n", "EFI-SYSTEM", parts["esp"]])
+    run(["mkfs.btrfs", "--force", "--label", "root", parts["root"]])
+    run(["mkfs.ext4", "-F", "-q", "-L", "sloth-tmp", parts["scratch"]])
+    mount_target(parts["root"], parts["esp"], parts["scratch"])
+    return parts, info["windowsEsp"]
+
+
+def partnum(disk, node):
+    out = json.loads(run(["lsblk", "--json", "--output", "PATH,PARTN", node]) or "{}")
+    return int(out["blockdevices"][0]["partn"])
+
+
+def mount_target(root, esp, scratch):
     TARGET.mkdir(parents=True, exist_ok=True)
     SCRATCH.mkdir(parents=True, exist_ok=True)
-    run(["mount", parts[3], str(TARGET)])
+    run(["mount", root, str(TARGET)])
     (TARGET / "boot/efi").mkdir(parents=True)
-    run(["mount", parts[2], str(TARGET / "boot/efi")])
-    run(["mount", parts[4], str(SCRATCH)])
-    return parts
+    run(["mount", esp, str(TARGET / "boot/efi")])
+    run(["mount", scratch, str(SCRATCH)])
 
 
 def image_size(source):
@@ -239,11 +481,13 @@ def run_bootc():
 GRUB_CUSTOM = Path("/usr/lib/sloth-os/grub-custom.cfg")
 
 
-def setup_boot_menu():
+def setup_boot_menu(windows_esp=""):
     """Rejtett boot menü: a bootupd GRUB-sablonja minden indításkor 1 mp-re kirakná a menüt.
 
     A custom.cfg ezt felülírja (csak hibás indítás után mutatja), az állapota az EFI partíción
     van (sloth-boot.env). Ha nem sikerül, a gép így is elindul, csak látszik a menü.
+    Windows mellett a menü mindig látszik (pár másodpercig), és a Windows is benne van
+    (EFI/fedora/sloth-windows.cfg: a Windows rendszerindítója a saját EFI-partícióján).
     """
     grub_dir = TARGET / "boot/grub2"
     efi_dir = TARGET / "boot/efi/EFI/fedora"
@@ -261,51 +505,56 @@ def setup_boot_menu():
         (grub_dir / "custom.cfg").write_bytes(GRUB_CUSTOM.read_bytes())
         if efi_dir.is_dir():
             # GRUB környezeti blokk (a grub2-editenv formátuma: 1024 bájt, a maradék #-kel kitöltve)
-            body = "# GRUB Environment Block\nsloth_boot_pending=0\nsloth_show_menu=0\n"
+            show = "1" if windows_esp else "0"
+            body = f"# GRUB Environment Block\nsloth_boot_pending=0\nsloth_show_menu={show}\n"
             (efi_dir / "sloth-boot.env").write_text(body + "#" * (1024 - len(body)), encoding="ascii")
-        log("boot menü: rejtett")
+            if windows_esp:
+                (efi_dir / "sloth-windows.cfg").write_text(
+                    'menuentry "Windows" --class windows --class os {\n'
+                    "  insmod part_gpt\n  insmod fat\n  insmod chain\n"
+                    f"  search --no-floppy --fs-uuid --set=root {windows_esp}\n"
+                    "  chainloader /EFI/Microsoft/Boot/bootmgfw.efi\n}\n", encoding="ascii")
+        log("boot menü: " + ("látható, Windows-bejegyzéssel" if windows_esp else "rejtett"))
     except OSError as e:
         log(f"boot menü: nem sikerült, marad a látható menü ({e})")
 
 
 def finish_partitions(disk, parts):
-    """Leválasztás, a munkapartíció törlése, és a rendszerpartíció kiterjesztése a lemez végéig."""
+    """Leválasztás, a munkapartíció törlése, és a rendszerpartíció kiterjesztése a helyére
+    (teljes lemeznél a lemez végéig, Windows mellett a következő partícióig)."""
     run(["sync"])
     for mp in ("/var/tmp", SCRATCH, TARGET / "boot/efi", TARGET):
         subprocess.run(["umount", str(mp)], capture_output=True)
     release_disk(disk)  # a bootc is csatolva hagyhat valamit (pl. /run/bootc/storage)
-    run(["sfdisk", "--delete", disk, "4"])
-    run(["sfdisk", "--no-reread", "-N", "3", disk], input=", +\n")
-    # a kernel is lássa az új partíciós táblát (minden le van választva, újraolvasható)
+    root_n, scratch_n = str(parts["numbers"]["root"]), str(parts["numbers"]["scratch"])
+    run(["sfdisk", "--delete", disk, scratch_n])
+    run(["sfdisk", "--no-reread", "-N", root_n, disk], input=", +\n")
+    # a kernel is lássa az új partíciós táblát (Windows mellett a Windows-partíciók miatt nem mindig
+    # olvasható újra az egész, ezért partíciónként frissítünk)
     if subprocess.run(["blockdev", "--rereadpt", disk], capture_output=True).returncode != 0:
-        subprocess.run(["partx", "--delete", "--nr", "4", disk], capture_output=True)
-        run(["partx", "--update", "--nr", "3", disk])
+        subprocess.run(["partx", "--delete", "--nr", scratch_n, disk], capture_output=True)
+        run(["partx", "--update", "--nr", root_n, disk])
     run(["udevadm", "settle", "--timeout=30"])
-    return parts[3]
+    return parts["root"]
 
 
 LOADER = r"\EFI\fedora\shimx64.efi"
 
 
-def rename_boot_entry(disk):
+def rename_boot_entry(disk, esp_partn):
     """A bootloader a firmware-be "Fedora" néven veszi fel a rendszert; ezt "Sloth OS"-re cseréljük.
 
     Az efibootmgr nem tud átnevezni, ezért új bejegyzést hozunk létre ugyanarra a betöltőre,
     és a régit töröljük. Ha bármi nem sikerül, a régi marad: a gép így is elindul.
+    Az új bejegyzés kerül a rendszerindítási sorrend elejére (Windows mellett is: a választás a
+    Sloth OS menüjében van). A Windows saját bejegyzéséhez nem nyúlunk.
     """
     if not Path("/sys/firmware/efi").is_dir():
-        return
-    out = json.loads(subprocess.run(["lsblk", "--json", "--tree", "--output", "PATH,PARTTYPE,PARTN", disk],
-                                    capture_output=True, text=True).stdout or "{}")
-    esp = next((c for d in out.get("blockdevices", []) for c in d.get("children") or []
-                if (c.get("parttype") or "").lower() == ESP_TYPE), None)
-    if not esp or not esp.get("partn"):
-        log("boot-bejegyzés: nincs EFI partíció, marad a régi név")
         return
     listing = subprocess.run(["efibootmgr"], capture_output=True, text=True).stdout
     old = [line[4:8] for line in listing.splitlines()
            if line.startswith("Boot") and line[8:9] == "*" and "Fedora" in line]
-    r = subprocess.run(["efibootmgr", "--create", "--disk", disk, "--part", str(esp["partn"]),
+    r = subprocess.run(["efibootmgr", "--create", "--disk", disk, "--part", str(esp_partn),
                         "--loader", LOADER, "--label", "Sloth OS"], capture_output=True, text=True)
     log(f"boot-bejegyzés: {r.returncode} {r.stderr.strip()}")
     if r.returncode != 0:
@@ -336,7 +585,7 @@ def password_hash(password):
     return r.stdout.strip()
 
 
-def configure(root_part, locale, layouts, variants, timezone, account):
+def configure(root_part, locale, layouts, variants, timezone, account, beside_windows=False):
     """A nyelv, a billentyűzet és az időzóna beírása a feltelepített rendszer /etc mappájába."""
     mnt = Path(tempfile.mkdtemp(prefix="sloth-install-"))
     log(f"gyökérpartíció: {root_part}")
@@ -372,6 +621,9 @@ def configure(root_part, locale, layouts, variants, timezone, account):
                 + ("Options=grp:alt_shift_toggle\nResetOldOptions=true\n" if len(layouts) > 1 else "")
                 + "Use=true\n"),
         }
+        if beside_windows:
+            # A Windows a hardverórát helyi időben tartja: ha mi UTC-ben, minden váltás után elcsúszna az óra
+            files[etc / "adjtime"] = "0.0 0 0.0\n0\nLOCAL\n"
         for path, content in files.items():
             write(path, content)
         # A fiók: első induláskor a sloth-first-user szolgáltatás hozza létre (rendszergazdaként)
@@ -396,8 +648,8 @@ def configure(root_part, locale, layouts, variants, timezone, account):
         mnt.rmdir()
 
 
-def dry_run():
-    for stage, pct in [("partition", 10), ("prepare", 20)] + [("copy", p) for p in range(25, 81, 5)] + \
+def dry_run(beside=False):
+    for stage, pct in [("shrink", 8)] * beside + [("partition", 10), ("prepare", 20)] + [("copy", p) for p in range(25, 81, 5)] + \
             [("bootloader", 85), ("finishing", 90), ("configure", 95)]:
         time.sleep(1.5)
         emit(stage=stage, progress=pct)
@@ -414,15 +666,35 @@ def main():
     inst.add_argument("--timezone", required=True)
     inst.add_argument("--username", required=True)
     inst.add_argument("--fullname", default="")
+    inst.add_argument("--beside-windows", action="store_true")
+    inst.add_argument("--size-gib", type=int, default=0)
+    prb = sub.add_parser("probe")
+    prb.add_argument("--disk", required=True)
     args = parser.parse_args()
 
+    if args.cmd == "probe":
+        if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
+            print(json.dumps({"uefi": True, "gpt": True, "windowsEsp": "ABCD-1234", "free": 0,
+                              "shrinkable": 200 * 1024**3, "max": 200 * 1024**3, "problems": [],
+                              "bitlocker": False, "windows": {"size": 400 * 1024**3}}))
+            return 0
+        if os.geteuid() != 0:
+            fail("error.not_authorized")
+        if not whole_disk(args.disk):
+            fail("error.bad_disk", f"nem telepíthető lemez: {args.disk}")
+        LOG.write_text(f"Sloth OS lemezfelmérés: {time.ctime()}\n", encoding="utf-8")
+        print(json.dumps(probe(args.disk)), flush=True)
+        return 0
+
     if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
-        dry_run()
+        dry_run(args.beside_windows)
         return 0
     if os.geteuid() != 0:
         fail("error.not_authorized")
     if not whole_disk(args.disk):
         fail("error.bad_disk", f"nem telepíthető lemez: {args.disk}")
+    if args.beside_windows and not 40 <= args.size_gib <= 100000:
+        fail("error.bad_input", f"rossz méret: {args.size_gib} GiB")
     if not re.fullmatch(r"[a-z]{2,3}(_[A-Z]{2})?\.UTF-8", args.locale):
         fail("error.bad_input", f"rossz locale: {args.locale}")
     keyboard = parse_keyboard(args.keyboard)
@@ -442,14 +714,18 @@ def main():
     LOG.write_text(f"Sloth OS telepítés: {time.ctime()}\n", encoding="utf-8")
     emit(stage="partition", progress=5)
     release_disk(args.disk)
-    parts = partition(args.disk)
+    windows_esp = ""
+    if args.beside_windows:
+        parts, windows_esp = partition_beside(args.disk, args.size_gib * 1024**3)
+    else:
+        parts = partition(args.disk)
     emit(stage="prepare", progress=20)
     run_bootc()
-    setup_boot_menu()
+    setup_boot_menu(windows_esp)
     root_part = finish_partitions(args.disk, parts)
-    rename_boot_entry(args.disk)
+    rename_boot_entry(args.disk, parts["numbers"]["esp"])
     emit(stage="configure", progress=95)
-    configure(root_part, args.locale, *keyboard, args.timezone, account)
+    configure(root_part, args.locale, *keyboard, args.timezone, account, beside_windows=args.beside_windows)
     emit(done=True)
     return 0
 

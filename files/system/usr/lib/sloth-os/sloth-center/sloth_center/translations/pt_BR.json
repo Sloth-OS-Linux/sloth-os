@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Atualizações, reversão, drivers e tudo o que de outra forma exigiria um terminal",
   "frissítés;visszaállítás;driver;beállítás": "atualização;reversão;driver;configurações",
   "Tapasztalatok megosztása": "Compartilhar experiências",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quando um programa abre no seu computador, compartilhamos de forma anônima qual configuração funcionou, para que ele abra de primeira também em outros computadores com Sloth OS. Só são enviados a configuração e o fabricante da sua placa de vídeo: não o seu nome, os seus arquivos nem o nome do programa."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quando um programa abre no seu computador, compartilhamos de forma anônima qual configuração funcionou, para que ele abra de primeira também em outros computadores com Sloth OS. Só são enviados a configuração e o fabricante da sua placa de vídeo: não o seu nome, os seus arquivos nem o nome do programa.",
+  "NVIDIA illesztőprogram": "Driver da NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "O driver da sua placa de vídeo NVIDIA está pronto. Depois de reiniciar, ela funciona com toda a potência.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "O driver da sua placa de vídeo NVIDIA está pronto. Ao reiniciar, o computador vai pedir uma confirmação em uma tela azul: a Central Sloth mostra passo a passo o que fazer lá.",
+  "Útmutató megnyitása": "Abrir o guia"
 }

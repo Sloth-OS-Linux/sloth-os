@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Mises à jour, restauration, pilotes et tout ce qui nécessiterait autrement un terminal",
   "frissítés;visszaállítás;driver;beállítás": "mise à jour;restauration;pilote;paramètres",
   "Tapasztalatok megosztása": "Partager les expériences",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quand un programme démarre sur ton ordinateur, nous partageons anonymement le réglage qui a fonctionné, pour qu'il démarre du premier coup sur les autres ordinateurs Sloth OS aussi. Seuls le réglage et le fabricant de ta carte graphique sont envoyés : ni ton nom, ni tes fichiers, ni le nom du programme."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Quand un programme démarre sur ton ordinateur, nous partageons anonymement le réglage qui a fonctionné, pour qu'il démarre du premier coup sur les autres ordinateurs Sloth OS aussi. Seuls le réglage et le fabricant de ta carte graphique sont envoyés : ni ton nom, ni tes fichiers, ni le nom du programme.",
+  "NVIDIA illesztőprogram": "Pilote NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Le pilote de ta carte graphique NVIDIA est prêt. Après un redémarrage, elle fonctionne à pleine puissance.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Le pilote de ta carte graphique NVIDIA est prêt. Au redémarrage, l'ordinateur demandera une confirmation sur un écran bleu : le Centre Sloth te montre étape par étape ce qu'il faut y faire.",
+  "Útmutató megnyitása": "Ouvrir le guide"
 }

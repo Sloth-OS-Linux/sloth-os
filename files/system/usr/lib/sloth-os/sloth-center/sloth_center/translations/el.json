@@ -334,5 +334,9 @@
   "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene": "Ενημερώσεις, επαναφορά, προγράμματα οδήγησης και ό,τι άλλο θα χρειαζόταν τερματικό",
   "frissítés;visszaállítás;driver;beállítás": "ενημέρωση;επαναφορά;οδηγός;ρυθμίσεις",
   "Tapasztalatok megosztása": "Κοινοποίηση εμπειριών",
-  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Όταν ένα πρόγραμμα ξεκινά στον υπολογιστή σας, μοιραζόμαστε ανώνυμα ποια ρύθμιση λειτούργησε, ώστε να ξεκινά με την πρώτη και σε άλλους υπολογιστές με Sloth OS. Αποστέλλονται μόνο η ρύθμιση και ο κατασκευαστής της κάρτας γραφικών: όχι το όνομά σας, τα αρχεία σας ή το όνομα του προγράμματος."
+  "Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.": "Όταν ένα πρόγραμμα ξεκινά στον υπολογιστή σας, μοιραζόμαστε ανώνυμα ποια ρύθμιση λειτούργησε, ώστε να ξεκινά με την πρώτη και σε άλλους υπολογιστές με Sloth OS. Αποστέλλονται μόνο η ρύθμιση και ο κατασκευαστής της κάρτας γραφικών: όχι το όνομά σας, τα αρχεία σας ή το όνομα του προγράμματος.",
+  "NVIDIA illesztőprogram": "Πρόγραμμα οδήγησης NVIDIA",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Το πρόγραμμα οδήγησης της κάρτας γραφικών NVIDIA είναι έτοιμο. Μετά την επανεκκίνηση λειτουργεί με πλήρη ισχύ.",
+  "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Το πρόγραμμα οδήγησης της κάρτας γραφικών NVIDIA είναι έτοιμο. Στην επανεκκίνηση ο υπολογιστής θα ζητήσει επιβεβαίωση σε μια μπλε οθόνη: το Κέντρο Sloth σας δείχνει βήμα βήμα τι να κάνετε εκεί.",
+  "Útmutató megnyitása": "Άνοιγμα οδηγού"
 }
