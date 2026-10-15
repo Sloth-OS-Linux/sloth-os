@@ -28,3 +28,12 @@ echo "${SHA256[$FEDORA]}  $TMP/$RPM" | sha256sum -c -
 
 dnf -y install "$TMP/$RPM"
 umu-run --version || true
+
+# Az umu adatbázisa a programok felismeréséhez (sloth_exe/identify.py). Ez csak a kezdő példány:
+# bejelentkezés után a sloth-windows-prepare frissíti. Ha most nem érhető el, a build megy tovább
+# (a felismerés akkor a Steam áruházával megy, illetve az első frissítés után az adatbázissal).
+mkdir -p /usr/share/sloth-os
+if curl -fsSL --retry 3 -o /usr/share/sloth-os/umu-database.csv \
+    https://raw.githubusercontent.com/Open-Wine-Components/umu-database/main/umu-database.csv; then
+  head -1 /usr/share/sloth-os/umu-database.csv | grep -q '^TITLE,' || rm -f /usr/share/sloth-os/umu-database.csv
+fi

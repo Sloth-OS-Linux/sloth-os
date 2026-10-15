@@ -1,9 +1,11 @@
 """Windows-program indítása a háttérben (umu-launcher + Proton, tartalékként a rendszer Wine-ja).
 
 A felhasználó a technikai részleteket nem látja: a kimenetből csak emberi
-állapotszöveg lesz ("Első indítás előkészítése…"), a többi a naplóba megy.
+állapotszöveg lesz ("Első indítás előkészítése…"), a többi a naplóba megy
+(<program mappája>/naplo/<exe>.log), és abból dolgozik az önjavítás (diagnose.py, heal.py).
 Hogy melyik futtató indul, azt a backend.py dönti el.
 """
+import collections
 import logging
 import re
 import time
@@ -13,7 +15,7 @@ from PySide6.QtGui import QGuiApplication
 
 from sloth_common import gamesettings
 
-from . import backend, quirks
+from . import backend, programs, quirks
 
 log = logging.getLogger("sloth-exe.runner")
 
@@ -27,33 +29,49 @@ _STAGES = [
     (("restoring runtime",), "status.repairing"),
 ]
 _PERCENT = re.compile(r"(\d{1,3})(?:\.\d+)?\s?%")
+LOG_LINES = 5000             # ennyi utolsó sort tartunk meg a diagnózishoz
+LOG_MAX_BYTES = 2 * 1024**2  # a naplófájl legfeljebb ekkora
 
 
 class Runner(QObject):
     status = Signal(str, int)   # állapot fordítási kulcsa, százalék (-1 = ismeretlen)
     setup_done = Signal()       # az előkészítés kész, a program elindult
     finished = Signal(int, float)  # kilépési kód, futási idő (mp)
+    verb_done = Signal(str, int)   # egy hiányzó összetevő telepítése lefutott (név, kilépési kód)
 
     def __init__(self, parent=None):
         super().__init__(parent)
         self._proc = None
         self._started_at = 0.0
         self._setup_seen = False
-        self._pending = None  # tartalék Wine-nál: (program, args), ami a mappa előkészítése után indul
+        self._steps = []      # a program előtt futó lépések: (env, cwd, parancs, args, összetevő neve)
         self._wrap = []       # játékbeállítások (FPS-kijelző, teljesítmény mód, felskálázás) parancsai
+        self._lines = collections.deque(maxlen=LOG_LINES)
+        self._log_file = None
+        self._log_bytes = 0
+        self.uses_wine = False
 
-    def start(self, program, exe):
-        """program: programs.Program, exe: a futtatandó fájl a gazdagépen."""
+    def lines(self):
+        return list(self._lines)
+
+    def start(self, program, exe, attempt=None, gameid=None):
+        """program: programs.Program, exe: a futtatandó fájl a gazdagépen.
+
+        attempt: heal.Attempt (melyik Proton, milyen beállítással, milyen javításokkal), gameid: umu GAMEID.
+        """
         program.prefix.mkdir(parents=True, exist_ok=True)
         env = QProcessEnvironment.systemEnvironment()
         env.insert("WINEPREFIX", str(program.prefix))
-        env.insert("GAMEID", program.meta.get("gameid", "umu-default"))
+        env.insert("GAMEID", gameid or program.meta.get("gameid") or "umu-default")
         env.insert("STORE", "none")
         # Mindig megvárjuk, amíg a program összes folyamata kilép. "run" mellett a
         # futtató az első folyamattal együtt leáll, és bezárja, amit az elindított:
         # az indítóprogramok (Battle.net, EA, Epic, Ubisoft) ezért azonnal bezáródnának.
         env.insert("PROTON_VERB", "waitforexitandrun")
-        env.insert("WINEDEBUG", "-all")
+        # A hibasorok kellenek a diagnózishoz (a felhasználó nem látja őket); a "fixme" zaj nem
+        env.insert("WINEDEBUG", "fixme-all")
+        env.insert("DXVK_LOG_LEVEL", "warn")
+        env.insert("VKD3D_DEBUG", "warn")
         # A Wine ne hozzon létre saját menübejegyzéseket: azokat mi kezeljük
         env.insert("WINEDLLOVERRIDES", "winemenubuilder.exe=d")
         env.remove("UMU_ZENITY")
@@ -61,33 +79,57 @@ class Runner(QObject):
         self._wrap = gamesettings.wrapper(program.meta.get("game"), self._screen())
         # Ismert programok (pl. Battle.net) beállításai
         quirks.apply(program, exe, env)
+        args = []
+        if attempt:
+            for key, value in attempt.env().items():
+                env.insert(key, value)
+            args = attempt.args()
 
+        self._open_log(program, exe)
         self._started_at = time.monotonic()
+        self._steps = []
         if backend.use_wine():
-            self._start_wine(program, exe, env)
+            self._start_wine(program, exe, env, args)
             return
+        self.uses_wine = False
+        # Hiányzó összetevők telepítése a program előtt (winetricks az umu-n keresztül, kérdés nélkül)
+        done = set(program.meta.get("verbs", []))
+        for verb in (attempt.verbs() if attempt else []):
+            if verb not in done:
+                self._steps.append((env, exe.parent, "umu-run", ["winetricks", "-q", verb], verb))
         # Az .msi telepítőket a Proton magától az msiexec-kel nyitja meg
-        log.info("indítás: %s (%s)", exe, program.slug)
-        self._spawn(env, exe.parent, *self._wrapped("umu-run", [str(exe)]))
+        log.info("indítás: %s (%s, %s)", exe, program.slug, attempt.key if attempt else "alap")
+        self._steps.append((env, exe.parent, *self._wrapped("umu-run", [str(exe)] + args), None))
+        self._next_step()
 
-    def _start_wine(self, program, exe, env):
+    def _start_wine(self, program, exe, env, args):
         """Tartalék: nincs Proton és nincs internet. A rendszer Wine-ja indítja a programot."""
         log.info("indítás tartalék futtatóval: %s (%s)", exe, program.slug)
+        self.uses_wine = True
         # A Gecko-telepítő kérdése ne jöjjön elő (a .NET-et a wine-mono csomag adja)
         env.insert("WINEDLLOVERRIDES", env.value("WINEDLLOVERRIDES") + ";mshtml=d")
-        args = ["msiexec", "/i", str(exe)] if exe.suffix.lower() == ".msi" else [str(exe)]
+        cmd = (["msiexec", "/i", str(exe)] if exe.suffix.lower() == ".msi" else [str(exe)]) + args
         self.setup_done.emit()
-        if (program.prefix / "system.reg").exists():
-            self._spawn(env, exe.parent, *self._wrapped("wine", args))
-            return
-        # Új mappa: előbb kijelző nélkül előkészítjük, így nem jelenik meg a Wine saját
-        # "konfiguráció frissítése" ablaka; utána indul a program
-        self._pending = (env, exe.parent, args)
-        headless = QProcessEnvironment(env)
-        headless.remove("DISPLAY")
-        headless.remove("WAYLAND_DISPLAY")
-        self.status.emit("status.first_setup", -1)
-        self._spawn(headless, exe.parent, "wineboot", ["--init"])
+        if not (program.prefix / "system.reg").exists():
+            # Új mappa: előbb kijelző nélkül előkészítjük, így nem jelenik meg a Wine saját
+            # "konfiguráció frissítése" ablaka; utána indul a program
+            headless = QProcessEnvironment(env)
+            headless.remove("DISPLAY")
+            headless.remove("WAYLAND_DISPLAY")
+            self.status.emit("status.first_setup", -1)
+            self._steps.append((headless, exe.parent, "wineboot", ["--init"], ""))
+        self._steps.append((env, exe.parent, *self._wrapped("wine", cmd), None))
+        self._next_step()
+
+    def _next_step(self):
+        env, cwd, program, args, verb = self._steps[0]
+        if len(self._steps) == 1:
+            # maga a program: innen mérjük a futási időt (az előkészítés nem számít bele)
+            self._started_at = time.monotonic()
+        if verb:
+            self.status.emit("status.repairing", -1)
+            log.info("összetevő telepítése: %s", verb)
+        self._spawn(env, cwd, program, args)
 
     def _wrapped(self, program, args):
         """A program elé kerülnek a játékbeállítások parancsai (pl. gamescope … -- gamemoderun mangohud)."""
@@ -120,13 +162,37 @@ class Runner(QObject):
     def elapsed(self):
         return time.monotonic() - self._started_at
 
+    # --- Napló -----------------------------------------------------------------------------------
+
+    def _open_log(self, program, exe):
+        self._lines.clear()
+        self._close_log()
+        try:
+            path = program.dir / "naplo" / f"{programs.slugify(exe.stem)}.log"
+            path.parent.mkdir(parents=True, exist_ok=True)
+            self._log_file = open(path, "w", encoding="utf-8")
+            self._log_bytes = 0
+        except OSError as e:
+            log.warning("napló: %s", e)
+
+    def _write_log(self, line):
+        self._lines.append(line)
+        if self._log_file and self._log_bytes < LOG_MAX_BYTES:
+            self._log_file.write(line + "\n")
+            self._log_bytes += len(line) + 1
+
+    def _close_log(self):
+        if self._log_file:
+            self._log_file.close()
+            self._log_file = None
+
     def _read(self):
         data = bytes(self._proc.readAllStandardOutput()).decode("utf-8", "replace")
         for line in data.splitlines():
             line = re.sub(r"\x1b\[[0-9;]*m", "", line).strip()
             if not line:
                 continue
-            log.debug("%s", line)
+            self._write_log(line)
             low = line.lower()
             for patterns, text in _STAGES:
                 if any(p in low for p in patterns):
@@ -138,18 +204,23 @@ class Runner(QObject):
                 # Amint a Proton maga szólal meg, az előkészítés véget ért
                 if self._setup_seen and ("proton" in low or "wine" in low or "fsync" in low):
                     self._setup_seen = False
+                    self._started_at = time.monotonic()  # a letöltés ideje nem számít a futásba
                     self.setup_done.emit()
 
     def _on_error(self, err):
         if err == QProcess.ProcessError.FailedToStart:
             log.error("a futtató nem indult el: %s", self._proc.program())
+            self._steps = []
+            self._close_log()
             self.finished.emit(127, 0.0)
 
     def _on_finished(self, code, _status):
-        if self._pending:
-            # a mappa elkészült (wineboot), most jön maga a program
-            env, cwd, args = self._pending
-            self._pending = None
-            self._spawn(env, cwd, *self._wrapped("wine", args))
+        _env, _cwd, _program, _args, verb = self._steps.pop(0) if self._steps else (None,) * 5
+        if self._steps:
+            # egy előkészítő lépés (összetevő, wineboot) végzett, jön a következő
+            if verb:
+                self.verb_done.emit(verb, int(code))
+            self._next_step()
             return
+        self._close_log()
         self.finished.emit(int(code), self.elapsed())

@@ -101,28 +101,38 @@ terminálból lehet csinálni, GUI-ból is menjen.
   - [x] Telepített Windows-programok listája és eltávolítása a Sloth Központban
   - [x] Start menü bejegyzések utólagos szerkesztése (Sloth Központ → Windows-programok → Start menü)
   - [ ] Hátravan: javítás (újratelepítés)
-  - [ ] Játékonkénti javítások automatikusan (umu adatbázis: GAMEID a program neve alapján) – lásd lent
+  - [x] Játékonkénti javítások automatikusan (umu adatbázis: GAMEID a program neve alapján) – lásd lent
 - [ ] **Önjavító futtató: minden Windows-program elinduljon, beállítás nélkül** (ötlet: 2026-10-15). Egy mindenre
   jó Proton-beállítás nincs (ami az egyiknek kell, a másikat elrontja), ezért a rendszer programonként maga
   találja meg a működőt. A felhasználó ebből csak annyit lát: „Indítás…”, és a program elindul. Lépések:
-  1. [ ] **Felismerés:** a program azonosítása (a .exe verzióadatai: termék- és cégnév; a mappa és a fájlnév),
-     és párosítás az umu adatbázisával (`umu-<Steam AppID>`). Így automatikusan jönnek az umu-protonfixes
-     javításai és a Proton saját, Steam AppID-hez kötött javításai is (ezért megy sok játék Steamből jobban)
+  1. [x] **Felismerés** (`sloth_exe/identify.py`): a .exe verzióadataiból (termék neve; a „Launcher”,
+     „Setup”, verziószám levágva) az umu adatbázisa (a rendszerrel jön, a `sloth-windows-prepare` frissíti),
+     ha ott nincs, a Steam áruháza (pontos névegyezés) → `GAMEID=umu-<Steam AppID>`. Így jönnek az
+     umu-protonfixes javításai és a Proton saját, AppID-hez kötött javításai. Egyszer keres, az eredményt megjegyzi
   2. [x] **Receptek** az ismert indítókra (`sloth_exe/quirks.py`): Battle.net kész; jön: EA app, Ubisoft Connect,
      Epic, Rockstar, GOG Galaxy (a Lutris kipróbált telepítői alapján)
-  3. [ ] **Diagnózis:** ha egy program pár másodpercen belül kilép, a Proton naplójából (a háttérben mindig
-     megy, a felhasználó nem látja) a rendszer felismeri az ismert hibákat, és célzottan javít: hiányzó DLL →
-     a megfelelő összetevő (Visual C++, .NET, DirectX) telepítése; beépített böngésző GPU-hiba → gyorsítás ki;
-     Vulkan/DXVK-hiba → WineD3D; hiányzó betűtípus → betűtípus-csomag
-  4. [ ] **Öngyógyítás:** ha a diagnózis nem talál okot, próbálkozási sor más beállításokkal (GE-Proton, DXVK
-     nélkül, GPU-gyorsítás nélkül, régebbi Proton). Minden próba előtt pillanatkép a program mappájáról
-     (reflink másolat, másodpercek alatt), így egy rossz próba semmit nem ront el. A működő beállítást
-     programonként megjegyzi
-  5. [ ] **Visszaállás frissítés után:** ha egy eddig működő program egy Proton-frissítés után nem indul, a
-     rendszer magától visszaáll az utolsó működő verzióra ennél a programnál (a többi kapja az újat)
+  3. [x] **Diagnózis** (`sloth_exe/diagnose.py`): a futtató kimenete mindig a háttérben megy
+     (`<program>/naplo/<exe>.log`, a „fixme” zaj nélkül). Ha a program gyorsan kilép, a felismert hibák javítása:
+     hiányzó DLL → a megfelelő összetevő (Visual C++ 2005–2022, DirectX-részek, XAudio, PhysX, MSXML, VB6…,
+     winetricks az umu-n keresztül); .NET → dotnet48; Vulkan/DXVK-hiba → WineD3D; beépített böngésző
+     GPU-hiba → `--disable-gpu`
+  4. [x] **Öngyógyítás** (`sloth_exe/heal.py`): ha nincs felismert ok, próbálkozási sor (alap, fsync nélkül,
+     WineD3D, GE-Proton, egy régebbi Proton; indításonként legfeljebb 4 próba, utána érthető hibaüzenet).
+     Proton-váltás előtt reflink pillanatkép a program mappájáról (Btrfs; más fájlrendszeren a Proton-váltás
+     kimarad, csak előre léphet), sikertelen próba után visszaáll. A bevált beállítást .exe-nként megjegyzi.
+     Ha egy indító átadja a helyét (pl. Battle.net Launcher → Battle.net), az nem hiba: megvárja
+  5. [x] **Visszaállás frissítés után:** a bevált verzió után előbb az újabbal próbál; ha az nem megy, vissza a
+     bevált verzióhoz (pillanatképből), és annál a programnál az marad, amíg nem jön egy még újabb.
+     A régi Protonokat a `sloth-exe --maintenance` törli (a legújabb, egy tartalék és a programok által
+     használt verziók maradnak)
   6. [ ] **Közös tudás (csak a felhasználó engedélyével, névtelenül):** ami egy gépen bevált (program
      azonosítója, GPU-gyártó, beállítás), az a többi Sloth OS-es gépen eleve jól indul. Mint a ProtonDB, de
-     ember helyett a gépek írják, és automatikusan érvényesül. Saját szolgáltatás kell hozzá (4. fázis után)
+     ember helyett a gépek írják, és automatikusan érvényesül. Kell hozzá: saját szolgáltatás (szerver),
+     adatvédelmi döntés (mi megy fel, hogyan kapcsolható ki), visszaélés elleni védelem (rossz beállítás ne
+     terjedjen: csak sok egyező jelentés után érvényesüljön). A helyi adatok (`meta.json` „launch”) már megvannak
+  - Kipróbálva (2026-10-15) a valódi vezérlővel és egy hamis futtatóval: hiányzó DLL, Vulkan-hiba, ismeretlen
+    összeomlás, frissítés utáni visszaállás Btrfs-en, reménytelen eset, indító-átadás, ottmaradt Wine-folyamatok.
+    Valódi gépen még nincs kipróbálva
   - Teszt: a nagy indítók (Battle.net, EA, Ubisoft, Epic, Rockstar, GOG) és pár népszerű játék végigpróbálása
     minden nagyobb változás után, valódi gépen (AMD, NVIDIA, Intel)
 - [x] Steamben a Proton alapból bekapcsolva minden játékra (`sloth-steam-proton-default.service`; VM-ben még tesztelni)

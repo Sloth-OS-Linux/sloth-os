@@ -4,26 +4,32 @@
 pick (mi kerüljön a Start menübe?) | running (az ablak elrejtve) | error.
 """
 import logging
+import threading
 from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
-from . import anticheat, programs
+from . import anticheat, backend, diagnose, heal, identify, programs
 from .i18n import catalog, tr
 from .runner import Runner
 
 log = logging.getLogger("sloth-exe")
 
-# Ennyi másodperc után úgy vesszük, hogy a program rendben elindult
+# Ennyi másodperc után úgy vesszük, hogy a program rendben elindult (az ablak elrejtőzik)
 STARTED_AFTER_S = 8
+# Ha ennél hamarabb kilép, lehet, hogy nem indult el rendesen (önjavítás, heal.py)
+QUICK_EXIT_S = 20
+# Ha eddig fut, a beállítás bevált: megjegyezzük
+WORKED_AFTER_S = 45
 
 
 class ExeController(QObject):
     changed = Signal()
     hideWindow = Signal()
     showWindow = Signal()
+    _identified = Signal(object, str)  # a háttérszálból: (GAMEID / "" / None, név)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -43,8 +49,23 @@ class ExeController(QObject):
         self._runner.status.connect(self._on_status)
         self._runner.setup_done.connect(self._on_setup_done)
         self._runner.finished.connect(self._on_finished)
+        self._runner.verb_done.connect(self._on_verb_done)
         self._started_timer = QTimer(self, singleShot=True, interval=STARTED_AFTER_S * 1000)
         self._started_timer.timeout.connect(self._on_probably_started)
+        self._worked_timer = QTimer(self, singleShot=True, interval=WORKED_AFTER_S * 1000)
+        self._worked_timer.timeout.connect(self._on_worked)
+        self._identified.connect(self._on_identified)
+        # Ha az indító kilépett, de a program tovább fut (pl. Battle.net Launcher -> Battle.net), megvárjuk
+        self._busy_timer = QTimer(self, interval=5000)
+        self._busy_timer.timeout.connect(self._check_busy)
+        # Önjavítás (heal.py): a próbálkozások sora erre az indításra
+        self._plan = []
+        self._attempt = None
+        self._tries = 0
+        self._snapshot = False      # van-e pillanatkép az indítás előtti állapotról
+        self._before_proton = None  # a pillanatképhez tartozó Proton-verzió
+        self._succeeded = False
+        self._gameid = None
 
     # --- Belépési pontok -----------------------------------------------------
 
@@ -163,8 +184,55 @@ class ExeController(QObject):
         self._mode = "run"
         self._update_window()
         self._set_working(tr("status.starting", name=self._name))
-        self._runner.start(self._program, self._exe)
+        rec = heal.record(self._program, self._exe)
+        if rec.get("gameid") is not None:
+            self._on_identified(rec["gameid"], rec.get("title", ""))
+            return
+        # Melyik program ez? (az umu adatbázisa, ha kell a Steam áruháza; egyszer, a háttérben)
+        exe, name = self._exe, self._name
+        threading.Thread(target=lambda: self._identified.emit(*self._identify(exe, name)), daemon=True).start()
+
+    @staticmethod
+    def _identify(exe, name):
+        try:
+            return identify.identify(exe, name, online=backend.online())
+        except Exception as e:  # a felismerés hibája ne akadályozza az indítást
+            log.warning("felismerés: %s", e)
+            return None, ""
+
+    def _on_identified(self, gameid, title):
+        rec = heal.record(self._program, self._exe)
+        if gameid is not None and rec.get("gameid") != gameid:
+            rec.update(gameid=gameid, title=title)
+            heal.save_record(self._program, self._exe, rec)
+            if gameid:
+                log.info("felismerve: %s (%s)", title, gameid)
+        self._gameid = gameid or None
+        self._plan = heal.plan(self._program, self._exe)
+        self._tries = 0
+        self._snapshot = False
+        self._succeeded = False
+        self._next_attempt()
+
+    def _next_attempt(self):
+        """A terv következő próbája (a pillanatkép nélkül nem biztonságos Proton-váltások kimaradnak)."""
+        while self._plan:
+            attempt = self._plan.pop(0)
+            if heal.needs_snapshot(self._program, attempt) and not self._snapshot:
+                self._before_proton = heal.prefix_proton(self._program)
+                self._snapshot = heal.can_snapshot(self._program) and heal.take_snapshot(self._program)
+            if not self._snapshot and not heal.allowed_without_snapshot(self._program, attempt):
+                continue
+            self._run_attempt(attempt)
+            return True
+        return False
+
+    def _run_attempt(self, attempt):
+        self._attempt = attempt
+        self._tries += 1
+        self._runner.start(self._program, self._exe, attempt, self._gameid)
         self._started_timer.start()
+        self._worked_timer.start()
 
     def _set_icon(self, path):
         self._icon = f"file://{path}" if path and Path(path).is_file() else ""
@@ -217,6 +285,7 @@ class ExeController(QObject):
 
     def _on_finished(self, code, elapsed):
         self._started_timer.stop()
+        self._worked_timer.stop()
         log.info("kilépett: kód=%s, %.0f mp", code, elapsed)
         if code == 127 and elapsed == 0:
             self._fail(tr("error.runtime_missing"))
@@ -224,15 +293,114 @@ class ExeController(QObject):
         if self._mode == "install":
             self._after_install()
             return
-        if code != 0 and elapsed < STARTED_AFTER_S:
-            if self._anticheat:
-                self._fail(anticheat.maybe_text(self._name, self._anticheat[0]))
-            else:
-                self._fail(tr("error.not_started", name=self._name))
+        if self._attempt and not self._runner.uses_wine:
+            self._program.save_meta(prefix_proton=heal.resolved_name(self._attempt))
+        if self._succeeded or elapsed >= QUICK_EXIT_S:
+            self._on_worked()
+            QApplication.quit()
             return
-        QApplication.quit()
+        if heal.prefix_busy(self._program):
+            # Az indító átadta a helyét: a program fut tovább, ez nem hiba
+            log.info("az indító kilépett, a program tovább fut")
+            self._busy_timer.start()
+            self._worked_timer.start()
+            return
+        lines = self._runner.lines()
+        rec = heal.record(self._program, self._exe)
+        if code == 0 and rec.get("good") and not diagnose.crashed(lines):
+            # Eddig is működött, most sem omlott össze: a felhasználó zárta be
+            QApplication.quit()
+            return
+        if self._anticheat or self._runner.uses_wine:
+            # A csalásvédelmen nem segít más beállítás; a tartalék Wine-nál nincs mit váltani
+            self._give_up()
+            return
+        self._heal(rec, lines)
+
+    def _heal(self, rec, lines):
+        """Nem indult el rendesen: diagnózis, és ha kell, a következő beállítás. A felhasználó csak „Indítás…”-t lát."""
+        attempt = self._attempt
+        known = [tuple(f) for f in rec.get("fixes", [])]
+        new = [f for f in diagnose.fixes(lines) if f not in known]
+        if self._tries >= heal.MAX_ATTEMPTS + 2:
+            self._give_up()
+            return
+        if new:
+            # Felismert hiba: ugyanezzel a beállítással, a javítással együtt még egyszer
+            log.info("felismert hibák: %s", new)
+            rec["fixes"] = [list(f) for f in known + new]
+            heal.save_record(self._program, self._exe, rec)
+            attempt.fixes = known + new
+            self._retry(attempt)
+            return
+        log.info("nem indult el ezzel: %s", attempt.key)
+        failed = set(rec.get("failed", [])) | {f"{heal.resolved_name(attempt)}|{attempt.profile}", attempt.key}
+        rec["failed"] = sorted(failed)
+        good = rec.get("good")
+        if good and f"{good['proton']}|{good['profile']}" in failed:
+            rec.pop("good")
+        heal.save_record(self._program, self._exe, rec)
+        if self._snapshot and heal.restore_snapshot(self._program):
+            # vissza az indítás előtti állapotra (és verzióra); a következő próbához új pillanatkép kell
+            self._program.save_meta(prefix_proton=self._before_proton)
+            self._snapshot = False
+        for a in self._plan:
+            a.fixes = [tuple(f) for f in rec.get("fixes", [])]
+        if not self._next_attempt():
+            self._give_up()
+
+    def _retry(self, attempt):
+        self._plan.insert(0, attempt)
+        self._set_working(tr("status.starting", name=self._name))
+        self.showWindow.emit()
+        if not self._next_attempt():
+            self._give_up()
+
+    def _give_up(self):
+        if self._snapshot:
+            heal.restore_snapshot(self._program)
+            self._program.save_meta(prefix_proton=self._before_proton)
+            self._snapshot = False
+        if self._anticheat:
+            self._fail(anticheat.maybe_text(self._name, self._anticheat[0]))
+        else:
+            self._fail(tr("error.not_started", name=self._name))
+
+    def _on_worked(self):
+        """A program rendben fut: megjegyezzük, mi működött, és a pillanatkép törölhető."""
+        if self._succeeded or self._mode != "run" or not self._attempt or self._runner.uses_wine:
+            return
+        self._succeeded = True
+        rec = heal.record(self._program, self._exe)
+        name = heal.resolved_name(self._attempt)
+        if rec.get("good") != {"proton": name, "profile": self._attempt.profile}:
+            log.info("bevált beállítás: %s|%s", name, self._attempt.profile)
+        rec["good"] = {"proton": name, "profile": self._attempt.profile}
+        rec["failed"] = [k for k in rec.get("failed", []) if k not in (f"{name}|{self._attempt.profile}",
+                                                                       self._attempt.key)]
+        heal.save_record(self._program, self._exe, rec)
+        self._program.save_meta(prefix_proton=name)
+        if self._snapshot:
+            heal.drop_snapshot(self._program)
+            self._snapshot = False
+
+    def _check_busy(self):
+        if not heal.prefix_busy(self._program):
+            self._busy_timer.stop()
+            self._worked_timer.stop()
+            QApplication.quit()
+
+    def _on_verb_done(self, verb, code):
+        if code == 0:
+            verbs = sorted(set(self._program.meta.get("verbs", [])) | {verb})
+            self._program.save_meta(verbs=verbs)
+        else:
+            log.warning("összetevő telepítése nem sikerült: %s (%s)", verb, code)
 
     def _after_install(self):
+        # A telepítő a legfrissebb Protonnal futott: ezen a verzión áll a program mappája
+        if not self._runner.uses_wine:
+            self._program.save_meta(prefix_proton=heal.newest() or "auto")
         found = programs.find_shortcuts(self._program)
         if not found:
             # Nincs parancsikon: a telepített .exe-k közül választhat
