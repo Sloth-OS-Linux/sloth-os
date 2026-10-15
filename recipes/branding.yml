@@ -42,3 +42,4 @@ modules:
         - sloth-boot-ok.service
         - sloth-first-user.service   # az első fiók a telepítő adataiból (a KDE Plasma Setup helyett)
         - sloth-signed-updates.timer # a régebbi telepítések frissítései is aláírás-ellenőrzéssel
+        - sloth-boot-order.service   # Windows mellett: ha a Windows a sorrend elejére tette magát, vissza

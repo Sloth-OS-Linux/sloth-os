@@ -1,0 +1,11 @@
+[Unit]
+Description=Sloth OS: a Sloth OS maradjon az első a rendszerindítási sorrendben (ha a Windows elé tette magát)
+ConditionPathExists=/sys/firmware/efi
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/boot-order
+
+[Install]
+WantedBy=multi-user.target

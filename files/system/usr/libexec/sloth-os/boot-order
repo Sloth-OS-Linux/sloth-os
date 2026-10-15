@@ -1,0 +1,40 @@
+#!/usr/bin/python3 -I
+"""Windows mellett: ha a Windows (egy nagyobb frissítés után) a rendszerindítási sorrend elejére tette magát,
+a Sloth OS visszakerül az első helyre (különben a gép a Sloth OS menüje nélkül, egyből a Windowst indítaná).
+
+Indításkor fut (sloth-boot-order.service). Csak akkor nyúl a sorrendhez, ha az első helyen a „Windows Boot
+Manager” áll, és van „Sloth OS” bejegyzés (a telepítő így nevezi el); minden mást (pl. a felhasználó által
+előre tett pendrive-ot) békén hagy. A Windows bejegyzése megmarad, a Sloth OS menüjéből indítható.
+"""
+import re
+import subprocess
+import sys
+
+OURS = "Sloth OS"
+WINDOWS = "Windows Boot Manager"
+
+
+def main():
+    r = subprocess.run(["efibootmgr"], capture_output=True, text=True)
+    if r.returncode != 0:
+        return 0
+    order, labels = [], {}
+    for line in r.stdout.splitlines():
+        if line.startswith("BootOrder:"):
+            order = [x.strip() for x in line.split(":", 1)[1].split(",") if x.strip()]
+        m = re.match(r"Boot([0-9A-Fa-f]{4})(\*?) (.*?)(\t|$)", line)
+        if m:
+            labels[m.group(1).upper()] = (m.group(3).strip(), m.group(2) == "*")
+    order = [x.upper() for x in order]
+    ours = [n for n in order if labels.get(n, ("", False)) == (OURS, True)]
+    if not order or not ours or labels.get(order[0], ("",))[0] != WINDOWS:
+        return 0
+    new = [ours[0]] + [n for n in order if n != ours[0]]
+    r = subprocess.run(["efibootmgr", "--quiet", "--bootorder", ",".join(new)], capture_output=True, text=True)
+    print(f"Rendszerindítási sorrend: {','.join(order)} -> {','.join(new)}"
+          + ("" if r.returncode == 0 else f" (nem sikerült: {r.stderr.strip()})"))
+    return r.returncode
+
+
+if __name__ == "__main__":
+    sys.exit(main())
