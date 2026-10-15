@@ -104,6 +104,10 @@ terminálból lehet csinálni, GUI-ból is menjen.
   - `.rpm`: Atomic rendszeren nem telepíthető „csak úgy”. Terv: ha van Flatpak változata, azt ajánljuk;
     különben Fedora-dobozba; a rendszerbe rétegezés csak a haladó beállításokban
   - `.flatpakref` / `.flatpak`: a Discover már kezeli (VM-ben ellenőrizni)
+  - `.dmg` / `.xip` (Mac-appok): Linuxon nem futtathatók (a Darling kísérleti, grafikus appokat nem visz), ezért
+    érthető üzenet: „Ez a program Mac-re készült, ezen a gépen nem fut”; ha az app megvan Flathubon (pl.
+    Spotify, Discord, VS Code), a Linuxos változatát egy kattintással felajánljuk; a benne lévő fájlok
+    (betűtípus, dokumentum) az Ark-kal kicsomagolhatók
 
 ## 3. fázis – Saját GUI eszközök
 Cél: **minden terminálos feladatnak legyen grafikus megfelelője.** Ahol a KDE-nek már van jó GUI-ja, azt használjuk
