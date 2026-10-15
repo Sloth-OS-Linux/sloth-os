@@ -21,3 +21,13 @@ cat > "$home/.config/kickoffrc" << 'EOF'
 [Favorites]
 FavoriteURLs=/usr/share/applications/org.slothos.installer.desktop,/usr/share/applications/org.kde.dolphin.desktop,/usr/share/applications/systemsettings.desktop
 EOF
+
+# Telepítés közben ne sötétüljön el és ne kapcsoljon le a képernyő, ne aludjon el a gép, és ne zároljon
+# (a telepítő a telepítés idejére ezt külön is tiltja, lásd sloth_installer/controller.py)
+for profile in AC Battery LowBattery; do
+    kwriteconfig6 --file "$home/.config/powerdevilrc" --group "$profile" --group Display --key DimDisplayWhenIdle false
+    kwriteconfig6 --file "$home/.config/powerdevilrc" --group "$profile" --group Display --key TurnOffDisplayWhenIdle false
+    kwriteconfig6 --file "$home/.config/powerdevilrc" --group "$profile" --group SuspendAndShutdown --key AutoSuspendAction 0
+done
+kwriteconfig6 --file "$home/.config/kscreenlockerrc" --group Daemon --key Autolock false
+kwriteconfig6 --file "$home/.config/kscreenlockerrc" --group Daemon --key LockOnResume false

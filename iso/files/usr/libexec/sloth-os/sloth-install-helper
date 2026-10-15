@@ -29,6 +29,7 @@ import sys
 import tempfile
 import threading
 import time
+import traceback
 import zoneinfo
 from pathlib import Path
 
@@ -252,12 +253,14 @@ def setup_boot_menu():
         return
     (grub_dir / "custom.cfg").write_bytes(GRUB_CUSTOM.read_bytes())
     if efi_dir.is_dir():
-        env = efi_dir / "sloth-boot.env"
-        r = subprocess.run(["grub2-editenv", str(env), "create"], capture_output=True, text=True)
-        if r.returncode == 0:
-            r = subprocess.run(["grub2-editenv", str(env), "set", "sloth_boot_pending=0", "sloth_show_menu=0"],
-                               capture_output=True, text=True)
-        log(f"boot menü: {r.returncode} {r.stderr.strip()}")
+        # GRUB környezeti blokk (a grub2-editenv formátuma: 1024 bájt, a maradék #-kel kitöltve). Magunk írjuk,
+        # így nem függünk a grub2-editenv-től (2026-10-15: a bootc után a segéd log nélkül leállt, gyanú: hiányzott).
+        body = "# GRUB Environment Block\nsloth_boot_pending=0\nsloth_show_menu=0\n"
+        try:
+            (efi_dir / "sloth-boot.env").write_text(body + "#" * (1024 - len(body)), encoding="ascii")
+            log("boot menü: rejtett")
+        except OSError as e:
+            log(f"boot menü: nem sikerült, marad a látható menü ({e})")
 
 
 def finish_partitions(disk, parts):
@@ -481,3 +484,5 @@ if __name__ == "__main__":
         sys.exit(main())
     except subprocess.CalledProcessError as e:
         fail("error.configure_failed", str(e))
+    except Exception:  # váratlan hiba: a részletek a logba, különben csak a hibaoldal látszana
+        fail("error.install_failed", traceback.format_exc())

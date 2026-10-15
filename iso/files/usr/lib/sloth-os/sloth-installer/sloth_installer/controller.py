@@ -15,6 +15,11 @@ from pathlib import Path
 from PySide6.QtCore import QObject, QProcess, Property, Qt, QTimer, Signal, Slot
 from PySide6.QtWidgets import QApplication
 
+try:
+    from PySide6.QtDBus import QDBusConnection, QDBusInterface
+except ImportError:  # D-Bus nélkül is telepítünk, csak a képernyő lekapcsolását nem tudjuk tiltani
+    QDBusConnection = None
+
 from sloth_common.i18n import Catalog
 
 from . import system
@@ -28,6 +33,13 @@ USERNAME_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
 RESERVED_USERS = {"root", "bin", "daemon", "adm", "lp", "sync", "shutdown", "halt", "mail", "operator",
                   "games", "ftp", "nobody", "dbus", "polkitd", "sddm", "plasmalogin", "liveuser", "admin",
                   "wheel", "users"}
+# Telepítés közben ne kapcsoljon le a képernyő, ne zároljon és ne aludjon el a gép. A tiltás addig
+# érvényes, amíg a telepítő fut (kilépéskor a D-Bus kapcsolattal együtt megszűnik).
+INHIBITORS = [
+    ("org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver", "org.freedesktop.ScreenSaver"),
+    ("org.freedesktop.PowerManagement.Inhibit", "/org/freedesktop/PowerManagement/Inhibit",
+     "org.freedesktop.PowerManagement.Inhibit"),
+]
 
 
 def suggest_username(full_name):
@@ -218,6 +230,7 @@ class InstallerController(QObject):
         locale = next(l["locale"] for l in self._languages if l["code"] == self._language)
         self._page, self._stage, self._progress, self._error = "install", "start", 0, ""
         self.changed.emit()
+        self._inhibit_idle()
         self._proc = QProcess(self)
         self._proc.readyReadStandardOutput.connect(self._read)
         self._proc.finished.connect(self._finished)
@@ -232,6 +245,17 @@ class InstallerController(QObject):
         # A jelszó a szabványos bemeneten megy át (parancssorban nem látszana el más folyamatoknak)
         self._proc.write((self._password + "\n").encode())
         self._proc.closeWriteChannel()
+
+    def _inhibit_idle(self):
+        if QDBusConnection is None or getattr(self, "_inhibited", False):
+            return
+        bus = QDBusConnection.sessionBus()
+        for service, path, interface in INHIBITORS:
+            reply = QDBusInterface(service, path, interface, bus).call("Inhibit", "Sloth OS", "Installing Sloth OS")
+            if reply.arguments():
+                self._inhibited = True
+            else:
+                log.warning("nem sikerült tiltani (%s): %s", service, reply.errorMessage())
 
     def _read(self):
         self._buffer += bytes(self._proc.readAllStandardOutput())
