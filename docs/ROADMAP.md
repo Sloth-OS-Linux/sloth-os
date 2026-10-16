@@ -132,6 +132,19 @@ Talált hibák (egyesével javítjuk):
    a többi maradhat gépi, jelölve
 
 **Fontos, de a publikálást nem akadályozza:**
+- [ ] **Minden app frissítése egy helyen, a Discoverben** (döntés: 2026-10-16). A Discover már most minden Flatpakot
+  frissít, amit az Üdvözlő a Flathubról telepít (ezért frissítette rögtön a Steamet is). Hátravan:
+  - [ ] **Saját Flatpak-tároló a GitHub-csomagos appoknak** (pl. ArtCraft; ez az első lépés): egy GitHub Action a
+    kiadásokból (SHA256 ellenőrzéssel) feltölti őket egy saját, aláírt Flatpak-tárolóba (pl. Cloudflare R2, ugyanott,
+    ahol az ISO lesz). Az Üdvözlő innen telepít, a Discover innen frissít, a `sloth-github-bundle-update.timer`
+    elhagyható (a már telepítettek egyszeri átállítása a tárolóra). Kell hozzá: R2-tároló és GPG-kulcs a CI-ban
+  - [ ] **Windows-programok a Discoverben:** saját Discover-bővítmény (C++, KDE-modul), amely a telepített
+    Windows-programokat és a Proton-frissítést mutatja. Nagy munka, és minden Plasma-frissítésnél karban kell
+    tartani; a programok (Battle.net, Steam, Epic…) amúgy is maguktól frissülnek. Előbb megnézni, hogy egy
+    egyszerűbb út (pl. AppStream-adat + a Sloth Központ Frissítések oldala) nem elég-e
+  - [ ] **Rendszerfrissítés a Discoverben:** valódi gépen megnézni, mutatja-e a Discover a Sloth OS frissítéseit
+    (rpm-ostree / bootc, aláírás-ellenőrzéssel), és egyezik-e azzal, amit a Sloth Központ Frissítések oldala mutat;
+    ha nem, az egyik helyről a másikra mutató gomb, hogy ne legyen két külön frissítés
 - [ ] Windows mellett: a boot-sorrend teljes védelme (most csak a Sloth OS következő indításakor áll vissza; ötlet:
   Windows-oldali segéd)
 - [ ] Külön NVIDIA-s ISO „haladóknak” (internet nélkül is NVIDIA-illesztővel indul), ha a tárhely engedi
