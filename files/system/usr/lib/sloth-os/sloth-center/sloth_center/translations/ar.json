@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "برنامج تشغيل NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "برنامج تشغيل بطاقة الرسوميات NVIDIA جاهز. بعد إعادة التشغيل تعمل بكامل قوتها.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "برنامج تشغيل بطاقة الرسوميات NVIDIA جاهز. عند إعادة التشغيل سيطلب الحاسوب تأكيدًا على شاشة زرقاء: يوضح لك مركز Sloth خطوة بخطوة ما عليك فعله هناك.",
-  "Útmutató megnyitása": "فتح الدليل"
+  "Útmutató megnyitása": "فتح الدليل",
+  "A Steam első indítása": "التشغيل الأول لـ Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "يقوم Steam بتنزيل تحديثاته. قد يستغرق ذلك بضع دقائق، ثم سيفتح تلقائيًا.",
+  "{mb} MB letöltve": "تم تنزيل {mb} ميغابايت"
 }

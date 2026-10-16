@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA இயக்கி",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "உங்கள் NVIDIA கிராஃபிக்ஸ் அட்டையின் இயக்கி தயார். மறுதொடக்கத்திற்குப் பிறகு அது முழுத் திறனுடன் இயங்கும்.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "உங்கள் NVIDIA கிராஃபிக்ஸ் அட்டையின் இயக்கி தயார். மறுதொடக்கத்தின்போது கணினி ஒரு நீலத் திரையில் உறுதிப்படுத்தலைக் கேட்கும்: அங்கே என்ன செய்ய வேண்டும் என்பதை Sloth மையம் படிப்படியாகக் காட்டும்.",
-  "Útmutató megnyitása": "வழிகாட்டியைத் திற"
+  "Útmutató megnyitása": "வழிகாட்டியைத் திற",
+  "A Steam első indítása": "Steam முதல் முறை தொடக்கம்",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam தனது புதுப்பிப்புகளைப் பதிவிறக்குகிறது. இதற்குச் சில நிமிடங்கள் ஆகலாம், பிறகு அது தானாகத் திறக்கும்.",
+  "{mb} MB letöltve": "{mb} MB பதிவிறக்கப்பட்டது"
 }

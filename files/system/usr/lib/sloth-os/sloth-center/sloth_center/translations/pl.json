@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "Sterownik NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Sterownik twojej karty graficznej NVIDIA jest gotowy. Po ponownym uruchomieniu działa z pełną mocą.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Sterownik twojej karty graficznej NVIDIA jest gotowy. Przy ponownym uruchomieniu komputer poprosi o potwierdzenie na niebieskim ekranie: Centrum Sloth pokaże krok po kroku, co tam zrobić.",
-  "Útmutató megnyitása": "Otwórz instrukcję"
+  "Útmutató megnyitása": "Otwórz instrukcję",
+  "A Steam első indítása": "Pierwsze uruchomienie Steama",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam pobiera własne aktualizacje. Może to potrwać kilka minut, potem otworzy się sam.",
+  "{mb} MB letöltve": "Pobrano {mb} MB"
 }

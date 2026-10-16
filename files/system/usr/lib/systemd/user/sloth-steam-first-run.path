@@ -1,0 +1,10 @@
+[Unit]
+Description=Sloth OS: a Steam első indításának figyelése
+
+[Path]
+# A Flatpak a Steam első indításakor hozza létre
+PathExists=%h/.var/app/com.valvesoftware.Steam
+Unit=sloth-steam-first-run.service
+
+[Install]
+WantedBy=default.target

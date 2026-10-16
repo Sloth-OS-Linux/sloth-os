@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "מנהל התקן של NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "מנהל ההתקן של כרטיס המסך NVIDIA שלך מוכן. אחרי הפעלה מחדש הוא יעבוד במלוא העוצמה.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "מנהל ההתקן של כרטיס המסך NVIDIA שלך מוכן. בהפעלה מחדש המחשב יבקש אישור במסך כחול: מרכז Sloth מראה צעד אחר צעד מה לעשות שם.",
-  "Útmutató megnyitása": "פתיחת המדריך"
+  "Útmutató megnyitása": "פתיחת המדריך",
+  "A Steam első indítása": "הפעלה ראשונה של Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam מוריד את העדכונים שלו. זה יכול לקחת כמה דקות, ואז הוא ייפתח מעצמו.",
+  "{mb} MB letöltve": "{mb} MB הורדו"
 }

@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "Driver NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Driver untuk kartu grafis NVIDIA-mu sudah siap. Setelah dimulai ulang, kartu grafis bekerja dengan kekuatan penuh.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Driver untuk kartu grafis NVIDIA-mu sudah siap. Saat dimulai ulang, komputer akan meminta konfirmasi di layar biru: Pusat Sloth menunjukkan langkah demi langkah apa yang harus dilakukan di sana.",
-  "Útmutató megnyitása": "Buka panduan"
+  "Útmutató megnyitása": "Buka panduan",
+  "A Steam első indítása": "Steam dijalankan pertama kali",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam sedang mengunduh pembaruannya sendiri. Ini bisa memakan waktu beberapa menit, lalu Steam akan terbuka sendiri.",
+  "{mb} MB letöltve": "{mb} MB terunduh"
 }

@@ -62,7 +62,11 @@ Talált hibák (egyesével javítjuk):
   (a `sloth-os-knowledge` repóban 2026-10-16 reggelig nincs export), megnézni, küld-e jelentést a rendszer
 - [ ] A Steam (Flatpak) nem nyílt meg: kb. 10 mp-ig töltött, utána semmi. Később mégis elindult, épp akkor, amikor
   a Sloth Központban a Battle.net helyett a „Battle net” bejegyzést adta hozzá a Start menühöz (lehet, hogy
-  véletlen egybeesés, de nagyon sokat kellett várni rá)
+  véletlen egybeesés, de nagyon sokat kellett várni rá). Valószínű ok: első indításkor a Steam ablak nélkül letölti
+  a saját kliensét. Most a Plasma értesítésben szól erről („A Steam első indítása”, „x MB letöltve”), ha a Steam
+  15 mp alatt nem nyílik meg, és az értesítés eltűnik, amikor a Steam ablaka megjelenik
+  (`sloth_center/steam_first_run.py`, `sloth-steam-first-run.path`). Valódi gépen tesztelni, és megnézni a
+  `~/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/bootstrap_log.txt`-t, hogy tényleg ez volt-e az ok
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja
 - [ ] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik
 - [ ] A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért)

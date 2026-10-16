@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA tvarkyklė",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Jūsų NVIDIA vaizdo plokštės tvarkyklė paruošta. Paleidus iš naujo ji veiks visu pajėgumu.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Jūsų NVIDIA vaizdo plokštės tvarkyklė paruošta. Paleidžiant iš naujo kompiuteris mėlyname ekrane paprašys patvirtinimo: „Sloth“ centras žingsnis po žingsnio parodys, ką ten daryti.",
-  "Útmutató megnyitása": "Atidaryti vadovą"
+  "Útmutató megnyitása": "Atidaryti vadovą",
+  "A Steam első indítása": "Pirmasis Steam paleidimas",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam atsisiunčia savo naujinimus. Tai gali užtrukti kelias minutes, tada jis atsidarys pats.",
+  "{mb} MB letöltve": "Atsisiųsta {mb} MB"
 }

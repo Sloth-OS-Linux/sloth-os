@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA-ს დრაივერი",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "თქვენი NVIDIA ვიდეობარათის დრაივერი მზადაა. გადატვირთვის შემდეგ ის სრული სიმძლავრით იმუშავებს.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "თქვენი NVIDIA ვიდეობარათის დრაივერი მზადაა. გადატვირთვისას კომპიუტერი ლურჯ ეკრანზე დადასტურებას მოითხოვს: Sloth ცენტრი ნაბიჯ-ნაბიჯ გაჩვენებთ, რა უნდა გააკეთოთ.",
-  "Útmutató megnyitása": "ინსტრუქციის გახსნა"
+  "Útmutató megnyitása": "ინსტრუქციის გახსნა",
+  "A Steam első indítása": "Steam-ის პირველი გაშვება",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam საკუთარ განახლებებს ტვირთავს. ამას შეიძლება რამდენიმე წუთი დასჭირდეს, შემდეგ თავად გაიხსნება.",
+  "{mb} MB letöltve": "ჩამოტვირთულია {mb} MB"
 }

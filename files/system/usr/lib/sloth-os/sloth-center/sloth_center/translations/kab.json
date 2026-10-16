@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "Anuḍaf n NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Anuḍaf n tkarḍa-k tudlift NVIDIA yewjed. Seld allus n usenker ad teddu s tezmert-is akk.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Anuḍaf n tkarḍa-k tudlift NVIDIA yewjed. Mi ara talseḍ asenker, aselkim ad k-d-isuter asentem ɣef ugdil azegzaw: Ammas n Sloth ad k-d-isken s tikli s tikli acu ara txedmeḍ dinna.",
-  "Útmutató megnyitása": "Ldi amnir"
+  "Útmutató megnyitása": "Ldi amnir",
+  "A Steam első indítása": "Asekker amenzu n Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam yessidir ileqqman-ines. Yezmer ad yeṭṭef kra n tesdatin, syin ad yeldi s yiman-is.",
+  "{mb} MB letöltve": "{mb} MB ttwasidren"
 }

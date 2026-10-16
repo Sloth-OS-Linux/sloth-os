@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "Driver NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Driverul plăcii tale video NVIDIA este gata. După repornire funcționează la capacitate maximă.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Driverul plăcii tale video NVIDIA este gata. La repornire, calculatorul va cere o confirmare pe un ecran albastru: Centrul Sloth îți arată pas cu pas ce să faci acolo.",
-  "Útmutató megnyitása": "Deschide ghidul"
+  "Útmutató megnyitása": "Deschide ghidul",
+  "A Steam első indítása": "Prima pornire a Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam își descarcă propriile actualizări. Poate dura câteva minute, apoi se va deschide singur.",
+  "{mb} MB letöltve": "{mb} MB descărcați"
 }

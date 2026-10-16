@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "Ovladač NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Ovladač vaší grafické karty NVIDIA je připravený. Po restartu poběží naplno.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Ovladač vaší grafické karty NVIDIA je připravený. Při restartu si počítač na modré obrazovce vyžádá potvrzení: Centrum Sloth vám krok za krokem ukáže, co tam udělat.",
-  "Útmutató megnyitása": "Otevřít návod"
+  "Útmutató megnyitása": "Otevřít návod",
+  "A Steam első indítása": "První spuštění Steamu",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam stahuje své aktualizace. Může to trvat několik minut, potom se sám otevře.",
+  "{mb} MB letöltve": "Staženo {mb} MB"
 }

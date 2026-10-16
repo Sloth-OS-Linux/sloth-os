@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA-ajuri",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "NVIDIA-näytönohjaimesi ajuri on valmis. Uudelleenkäynnistyksen jälkeen se toimii täydellä teholla.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "NVIDIA-näytönohjaimesi ajuri on valmis. Uudelleenkäynnistyksessä tietokone pyytää vahvistusta sinisellä näytöllä: Sloth-keskus näyttää vaihe vaiheelta, mitä siellä tehdään.",
-  "Útmutató megnyitása": "Avaa ohje"
+  "Útmutató megnyitása": "Avaa ohje",
+  "A Steam első indítása": "Steamin ensimmäinen käynnistys",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam lataa omia päivityksiään. Tämä voi kestää muutaman minuutin, sen jälkeen se avautuu itsestään.",
+  "{mb} MB letöltve": "{mb} Mt ladattu"
 }

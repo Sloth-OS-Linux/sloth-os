@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA-drywer",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Die drywer vir jou NVIDIA-grafiese kaart is gereed. Ná 'n herbegin werk dit met volle krag.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Die drywer vir jou NVIDIA-grafiese kaart is gereed. Wanneer jy herbegin, vra die rekenaar op 'n blou skerm vir bevestiging: Sloth-sentrum wys jou stap vir stap wat om daar te doen.",
-  "Útmutató megnyitása": "Maak gids oop"
+  "Útmutató megnyitása": "Maak gids oop",
+  "A Steam első indítása": "Steam se eerste begin",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam laai sy eie opdaterings af. Dit kan 'n paar minute neem, daarna maak dit vanself oop.",
+  "{mb} MB letöltve": "{mb} MB afgelaai"
 }

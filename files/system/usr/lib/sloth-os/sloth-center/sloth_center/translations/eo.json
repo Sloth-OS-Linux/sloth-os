@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA-pelilo",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "La pelilo por via NVIDIA-grafika karto estas preta. Post restartigo ĝi funkcias plenforte.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "La pelilo por via NVIDIA-grafika karto estas preta. Ĉe restartigo la komputilo petos konfirmon sur blua ekrano: Sloth-Centro montros al vi paŝon post paŝo, kion fari tie.",
-  "Útmutató megnyitása": "Malfermi gvidilon"
+  "Útmutató megnyitása": "Malfermi gvidilon",
+  "A Steam első indítása": "Unua lanĉo de Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam elŝutas siajn ĝisdatigojn. Tio povas daŭri kelkajn minutojn, poste ĝi malfermiĝos mem.",
+  "{mb} MB letöltve": "{mb} MB elŝutitaj"
 }

@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA ড্ৰাইভাৰ",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "আপোনাৰ NVIDIA গ্ৰাফিক্স কাৰ্ডৰ ড্ৰাইভাৰ সাজু। পুনৰাৰম্ভৰ পিছত ই সম্পূৰ্ণ শক্তিৰে চলে।",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "আপোনাৰ NVIDIA গ্ৰাফিক্স কাৰ্ডৰ ড্ৰাইভাৰ সাজু। পুনৰাৰম্ভ কৰোঁতে কম্পিউটাৰে এখন নীলা স্ক্ৰীণত নিশ্চিতকৰণ বিচাৰিব: তাত কি কৰিব লাগে Sloth কেন্দ্ৰই খোজে খোজে দেখুৱাব।",
-  "Útmutató megnyitása": "নিৰ্দেশিকা খোলক"
+  "Útmutató megnyitása": "নিৰ্দেশিকা খোলক",
+  "A Steam első indítása": "Steamৰ প্ৰথম আৰম্ভণি",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steamএ নিজৰ আপডেট ডাউনল'ড কৰি আছে। ইয়াত কেইমিনিটমান লাগিব পাৰে, তাৰ পিছত ই নিজে খোল খাব।",
+  "{mb} MB letöltve": "{mb} MB ডাউনল'ড হ'ল"
 }

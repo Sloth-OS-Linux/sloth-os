@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "Pilote NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Le pilote de ta carte graphique NVIDIA est prêt. Après un redémarrage, elle fonctionne à pleine puissance.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Le pilote de ta carte graphique NVIDIA est prêt. Au redémarrage, l'ordinateur demandera une confirmation sur un écran bleu : le Centre Sloth te montre étape par étape ce qu'il faut y faire.",
-  "Útmutató megnyitása": "Ouvrir le guide"
+  "Útmutató megnyitása": "Ouvrir le guide",
+  "A Steam első indítása": "Premier lancement de Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam télécharge ses propres mises à jour. Cela peut prendre quelques minutes, puis il s'ouvrira tout seul.",
+  "{mb} MB letöltve": "{mb} Mo téléchargés"
 }

@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "Driver NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Il driver de tô schede grafiche NVIDIA al è pront. Dopo di un gnûf inviament e va a plene potence.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Il driver de tô schede grafiche NVIDIA al è pront. Cuant che tu tornis a inviâ, il computer al domandarà une conferme suntun schermi blu: il Centri Sloth ti mostre pas par pas ce fâ li.",
-  "Útmutató megnyitása": "Vierç la vuide"
+  "Útmutató megnyitása": "Vierç la vuide",
+  "A Steam első indítása": "Prin inviament di Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam al sta discjariant i siei inzornaments. Al pues durâ cualchi minût, dopo si vierzarà di bessôl.",
+  "{mb} MB letöltve": "{mb} MB discjariâts"
 }

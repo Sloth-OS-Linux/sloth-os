@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA-stuurprogramma",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Het stuurprogramma voor je NVIDIA-videokaart is klaar. Na een herstart werkt hij op volle kracht.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Het stuurprogramma voor je NVIDIA-videokaart is klaar. Bij het herstarten vraagt de computer op een blauw scherm om een bevestiging: Sloth Centrum laat je stap voor stap zien wat je daar moet doen.",
-  "Útmutató megnyitása": "Handleiding openen"
+  "Útmutató megnyitása": "Handleiding openen",
+  "A Steam első indítása": "Steam wordt voor het eerst gestart",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam downloadt zijn eigen updates. Dit kan een paar minuten duren, daarna opent het vanzelf.",
+  "{mb} MB letöltve": "{mb} MB gedownload"
 }

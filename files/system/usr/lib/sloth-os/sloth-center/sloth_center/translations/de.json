@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA-Treiber",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Der Treiber für deine NVIDIA-Grafikkarte ist bereit. Nach einem Neustart läuft sie mit voller Leistung.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Der Treiber für deine NVIDIA-Grafikkarte ist bereit. Beim Neustart fragt der Computer auf einem blauen Bildschirm nach einer Bestätigung: Das Sloth Center zeigt dir Schritt für Schritt, was dort zu tun ist.",
-  "Útmutató megnyitása": "Anleitung öffnen"
+  "Útmutató megnyitása": "Anleitung öffnen",
+  "A Steam első indítása": "Erster Start von Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam lädt seine eigenen Updates herunter. Das kann ein paar Minuten dauern, danach öffnet es sich von selbst.",
+  "{mb} MB letöltve": "{mb} MB heruntergeladen"
 }

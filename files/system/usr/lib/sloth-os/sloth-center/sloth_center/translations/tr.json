@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA sürücüsü",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "NVIDIA ekran kartının sürücüsü hazır. Yeniden başlattıktan sonra tam güçle çalışır.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "NVIDIA ekran kartının sürücüsü hazır. Yeniden başlatırken bilgisayar mavi bir ekranda onay isteyecek: Sloth Merkezi orada ne yapman gerektiğini adım adım gösterir.",
-  "Útmutató megnyitása": "Rehberi aç"
+  "Útmutató megnyitása": "Rehberi aç",
+  "A Steam első indítása": "Steam ilk kez başlatılıyor",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam kendi güncellemelerini indiriyor. Bu birkaç dakika sürebilir, ardından kendiliğinden açılacak.",
+  "{mb} MB letöltve": "{mb} MB indirildi"
 }

@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA ড্রাইভার",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "আপনার NVIDIA গ্রাফিক্স কার্ডের ড্রাইভার তৈরি। রিস্টার্টের পর এটি পুরো ক্ষমতায় চলবে।",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "আপনার NVIDIA গ্রাফিক্স কার্ডের ড্রাইভার তৈরি। রিস্টার্ট করার সময় কম্পিউটার একটি নীল স্ক্রিনে নিশ্চিতকরণ চাইবে: সেখানে কী করতে হবে Sloth কেন্দ্র ধাপে ধাপে দেখাবে।",
-  "Útmutató megnyitása": "নির্দেশিকা খুলুন"
+  "Útmutató megnyitása": "নির্দেশিকা খুলুন",
+  "A Steam első indítása": "Steam-এর প্রথম চালু",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam নিজের আপডেট ডাউনলোড করছে। এতে কয়েক মিনিট লাগতে পারে, তারপর এটি নিজে থেকেই খুলবে।",
+  "{mb} MB letöltve": "{mb} MB ডাউনলোড হয়েছে"
 }

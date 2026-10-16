@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "ໄດຣເວີ NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "ໄດຣເວີສຳລັບກາດຈໍພາບ NVIDIA ຂອງທ່ານພ້ອມແລ້ວ. ຫຼັງຈາກເລີ່ມໃໝ່ ມັນຈະເຮັດວຽກເຕັມປະສິດທິພາບ.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "ໄດຣເວີສຳລັບກາດຈໍພາບ NVIDIA ຂອງທ່ານພ້ອມແລ້ວ. ເມື່ອເລີ່ມໃໝ່ ຄອມພິວເຕີຈະຂໍການຢືນຢັນໃນໜ້າຈໍສີຟ້າ: ສູນ Sloth ຈະສະແດງໃຫ້ທ່ານເບິ່ງເທື່ອລະຂັ້ນວ່າຕ້ອງເຮັດຫຍັງຢູ່ທີ່ນັ້ນ.",
-  "Útmutató megnyitása": "ເປີດຄູ່ມື"
+  "Útmutató megnyitása": "ເປີດຄູ່ມື",
+  "A Steam első indítása": "ການເປີດ Steam ຄັ້ງທຳອິດ",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam ກຳລັງດາວໂຫຼດການອັບເດດຂອງມັນ. ອາດໃຊ້ເວລາສອງສາມນາທີ, ຈາກນັ້ນມັນຈະເປີດເອງ.",
+  "{mb} MB letöltve": "ດາວໂຫຼດແລ້ວ {mb} MB"
 }

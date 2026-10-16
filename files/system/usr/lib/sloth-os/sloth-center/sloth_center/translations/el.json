@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "Πρόγραμμα οδήγησης NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Το πρόγραμμα οδήγησης της κάρτας γραφικών NVIDIA είναι έτοιμο. Μετά την επανεκκίνηση λειτουργεί με πλήρη ισχύ.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Το πρόγραμμα οδήγησης της κάρτας γραφικών NVIDIA είναι έτοιμο. Στην επανεκκίνηση ο υπολογιστής θα ζητήσει επιβεβαίωση σε μια μπλε οθόνη: το Κέντρο Sloth σας δείχνει βήμα βήμα τι να κάνετε εκεί.",
-  "Útmutató megnyitása": "Άνοιγμα οδηγού"
+  "Útmutató megnyitása": "Άνοιγμα οδηγού",
+  "A Steam első indítása": "Πρώτη εκκίνηση του Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Το Steam κατεβάζει τις ενημερώσεις του. Αυτό μπορεί να διαρκέσει λίγα λεπτά και μετά θα ανοίξει μόνο του.",
+  "{mb} MB letöltve": "Λήφθηκαν {mb} MB"
 }

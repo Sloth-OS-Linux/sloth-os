@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA-driver",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Driveren til NVIDIA-skjermkortet ditt er klar. Etter en omstart går det for full kraft.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Driveren til NVIDIA-skjermkortet ditt er klar. Når du starter på nytt, ber datamaskinen om en bekreftelse på en blå skjerm: Sloth-senteret viser deg steg for steg hva du skal gjøre der.",
-  "Útmutató megnyitása": "Åpne veiledning"
+  "Útmutató megnyitása": "Åpne veiledning",
+  "A Steam első indítása": "Steam startes for første gang",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam laster ned sine egne oppdateringer. Det kan ta noen minutter, deretter åpnes det av seg selv.",
+  "{mb} MB letöltve": "{mb} MB lastet ned"
 }

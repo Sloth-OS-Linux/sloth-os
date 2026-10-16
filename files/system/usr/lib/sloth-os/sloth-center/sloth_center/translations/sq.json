@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "Drejtuesi NVIDIA",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Drejtuesi i kartës tënde grafike NVIDIA është gati. Pas rinisjes ajo punon me fuqi të plotë.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Drejtuesi i kartës tënde grafike NVIDIA është gati. Kur ta rinisësh, kompjuteri do të kërkojë konfirmim në një ekran blu: Qendra Sloth të tregon hap pas hapi çfarë të bësh atje.",
-  "Útmutató megnyitása": "Hap udhëzuesin"
+  "Útmutató megnyitása": "Hap udhëzuesin",
+  "A Steam első indítása": "Nisja e parë e Steam",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam po shkarkon përditësimet e veta. Kjo mund të zgjasë disa minuta, pastaj do të hapet vetë.",
+  "{mb} MB letöltve": "U shkarkuan {mb} MB"
 }

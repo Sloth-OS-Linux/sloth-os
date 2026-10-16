@@ -338,5 +338,8 @@
   "NVIDIA illesztőprogram": "NVIDIA draiver",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.": "Sinu NVIDIA graafikakaardi draiver on valmis. Pärast taaskäivitust töötab see täisvõimsusel.",
   "Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.": "Sinu NVIDIA graafikakaardi draiver on valmis. Taaskäivitamisel küsib arvuti sinisel ekraanil kinnitust: Sloth Keskus näitab samm-sammult, mida seal teha.",
-  "Útmutató megnyitása": "Ava juhend"
+  "Útmutató megnyitása": "Ava juhend",
+  "A Steam első indítása": "Steami esmakäivitus",
+  "A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.": "Steam laadib alla oma uuendusi. See võib võtta mõne minuti, seejärel avaneb see ise.",
+  "{mb} MB letöltve": "{mb} MB alla laaditud"
 }

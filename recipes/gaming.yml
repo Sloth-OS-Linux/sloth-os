@@ -40,3 +40,4 @@ modules:
         - sloth-windows-prepare.timer
         - sloth-nvidia-notify.path       # értesítés, ha az NVIDIA-s változat elkészült
         - sloth-nvidia-notify.service
+        - sloth-steam-first-run.path     # értesítés, amíg a Steam az első indításnál letölti magát
