@@ -3,7 +3,28 @@
 Alapelv: **ha a felhasználónak terminált kell nyitnia, az a mi hibánk.** A Konsole megmarad, de minden, amit
 terminálból lehet csinálni, GUI-ból is menjen.
 
-## Hol tartunk (2026-10-16 reggel)
+## Hol tartunk (2026-10-16 délután)
+
+### Elkészült 2026-10-16 (a reggeli teszt hibái, részletek lent, „A reggeli teszt eredménye”)
+Minden pusholva; szimulációval / egységtesztekkel kipróbálva, **valódi gépen még nem** (új image és ISO kell).
+- **Üdvözlő:** az appok egyesével, sorban települnek, összesített letöltési mérettel; a végén Újraindítás gomb;
+  a tálca-ikonok frissítése bezáráskor
+- **.exe kezelő:** egy programot csak egyszer telepít (Megnyitás / Újratelepítés); a Battle.net a klienssel indul
+  (az indító kilépésével eddig a kliens is bezárult)
+- **Steam első indítása:** Plasma-értesítés, amíg a Steam letölti magát
+- **Verziószám:** „Sloth OS 1.0 (Fedora Atomic 44)”
+
+### Következő teszt (új ISO a mai CI-build után)
+- [ ] **Üdvözlő:** 4–5 app egyszerre: sorban, egyesével települnek; a felirat csak „X telepítése…”, alatta
+  „x MB / y MB”; nincs dupla sor; a végén Újraindítás, utána az ikonok a tálcán; Újraindítás nélkül is jók-e az ikonok
+- [ ] **Steam:** első indításkor jön-e az értesítés („A Steam első indítása”, „x MB letöltve”), eltűnik-e, amikor a
+  Steam megnyílik; utána a `bootstrap_log.txt`
+- [ ] **Battle.net:** telepítés, indítás a Start menüből; nyitva marad-e; bejelentkezés, egy játék telepítése és
+  indítása; a Start menüben csak egy bejegyzés
+- [ ] **.exe kezelő:** ugyanazt a telepítőt még egyszer megnyitva „már telepítve van”, a Megnyitás elindítja
+- [ ] **Rendszerinformáció:** „Sloth OS 1.0 (Fedora Atomic 44)”
+- [ ] A reggeli teszt maradéka: titkosítás, frissítés aláírás-ellenőrzéssel, NVIDIA-s gép, Windows mellé (tesztelő kell)
+- [ ] A még nyitott hibák figyelése: némítás, Dolphin 128 TB, Discover-frissítés a friss appokra
 
 ### Elkészült 2026-10-15 délután és éjjel (részletek a fázisoknál)
 Minden pusholva; a nagy részük csak szimulációval és loop eszközön van kipróbálva, **valódi gépen / VM-ben még nem**.
@@ -74,7 +95,7 @@ Talált hibák (egyesével javítjuk):
   hozzuk előre az ablakát
 - [ ] Megnézni, a többi indító (EA app, Ubisoft Connect, Epic, GOG Galaxy) is átadja-e a helyét egy másik
   folyamatnak; ha igen, `quirks.LAUNCHER_STUBS`
-- [ ] A Steam (Flatpak) nem nyílt meg: kb. 10 mp-ig töltött, utána semmi. Később mégis elindult, épp akkor, amikor
+- [x] A Steam (Flatpak) nem nyílt meg: kb. 10 mp-ig töltött, utána semmi. Később mégis elindult, épp akkor, amikor
   a Sloth Központban a Battle.net helyett a „Battle net” bejegyzést adta hozzá a Start menühöz (lehet, hogy
   véletlen egybeesés, de nagyon sokat kellett várni rá). Valószínű ok: első indításkor a Steam ablak nélkül letölti
   a saját kliensét. Most a Plasma értesítésben szól erről („A Steam első indítása”, „x MB letöltve”), ha a Steam
@@ -92,7 +113,9 @@ Talált hibák (egyesével javítjuk):
 ### Teendők fontossági sorrendben
 **Publikálás előtt kötelező:**
 1. [ ] **A fenti teszt végig, és a talált hibák javítása.** Sok nagy új funkció van, amit csak szimulációval
-   próbáltunk ki; publikálás előtt mindnek valódi gépen kell működnie
+   próbáltunk ki; publikálás előtt mindnek valódi gépen kell működnie. A reggeli teszt hibáiból még nyitott
+   (sorrendben): némítás (a hangerő visszaáll), Discover-frissítés a friss appokra, Dolphin 128 TB-os SSD,
+   újraindítás futó programnál (.exe kezelő), a többi indító ellenőrzése (`LAUNCHER_STUBS`)
 2. [ ] **Régi (BIOS-os) gépek:** elindul-e a pendrive BIOS-módban, telepítés BIOS-os gépre (a teljes lemezes
    telepítésnél a BIOS boot partíció már megvan); Windows mellé BIOS-on maradhat „nem támogatott” magyarázattal
 3. [ ] **A repó publikussá tétele** és a napi automatikus build visszakapcsolása (`.github/workflows/build.yml`). Ettől függ:
