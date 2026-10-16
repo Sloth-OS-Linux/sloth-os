@@ -11,7 +11,7 @@ from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
-from . import anticheat, backend, community, diagnose, heal, identify, programs
+from . import anticheat, backend, community, diagnose, heal, identify, programs, quirks
 from .i18n import catalog, tr
 from .runner import Runner
 
@@ -91,6 +91,9 @@ class ExeController(QObject):
         self._name = self._program.meta.get("name") or programs.display_name(self._exe)
         # a Start menü bejegyzéshez már kibontott ikon
         self._set_icon(self._program.icons / f"{programs.slugify(self._exe.stem)}.png")
+        # Rövid életű indító helyett a kliens (a futtató különben vele együtt leállna); az önjavítás
+        # adatai is a klienshez tartoznak
+        self._exe = quirks.launch_target(self._exe)
         self._mode = "run"
         self._update_window()
         if not self._exe.exists():

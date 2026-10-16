@@ -61,8 +61,19 @@ Talált hibák (egyesével javítjuk):
   menüben is többször jelenik meg. Javítva (valódi gépen még tesztelni): ha a program már megvan (ugyanaz a név
   vagy ugyanaz a telepítőfájl), „X már telepítve van.”, Megnyitás (alapból) vagy Újratelepítés ugyanabba a
   mappába; új mappa (`-2`, `-3`) és új Start menü bejegyzés nem keletkezik. A régi duplák maradnak, kézzel törölhetők
-- [ ] A Battle.net továbbra sem indul el, ugyanúgy viselkedik, mint korábban. A közös tudásba nem érkezett adat
-  (a `sloth-os-knowledge` repóban 2026-10-16 reggelig nincs export), megnézni, küld-e jelentést a rendszer
+- [x] A Battle.net továbbra sem indul el, ugyanúgy viselkedik, mint korábban. A közös tudásba nem érkezett adat
+  (a `sloth-os-knowledge` repóban 2026-10-16 reggelig nincs export), megnézni, küld-e jelentést a rendszer.
+  Valószínű ok megvan, javítva (valódi gépen tesztelni): a Proton `waitforexitandrun` módja az előző
+  munkamenetet várja meg indítás előtt, a gyerekfolyamatokat nem, és az umu is csak az elindított folyamatot
+  várja. A „Battle.net Launcher.exe” elindítja a klienst, és kilép, ekkor a futtató leáll, és a kliens ablaka
+  is eltűnik (Steamből azért ment, mert a Steam minden folyamatot megvár). Most a kliens (`Battle.net.exe`)
+  indul közvetlenül (`quirks.launch_target`, mint a Lutris Blizzard-receptjei); az önjavítás adatai a
+  klienshez tartoznak, így a régi, téves „nem működik” bejegyzések nem számítanak
+- [ ] .exe kezelő: ha egy program már fut, és a felhasználó újra elindítja, az új indítás a `waitforexitandrun`
+  miatt az előző munkamenet végéig vár („Indítás…”). Helyette: ha a mappában már fut a program, szóljunk, vagy
+  hozzuk előre az ablakát
+- [ ] Megnézni, a többi indító (EA app, Ubisoft Connect, Epic, GOG Galaxy) is átadja-e a helyét egy másik
+  folyamatnak; ha igen, `quirks.LAUNCHER_STUBS`
 - [ ] A Steam (Flatpak) nem nyílt meg: kb. 10 mp-ig töltött, utána semmi. Később mégis elindult, épp akkor, amikor
   a Sloth Központban a Battle.net helyett a „Battle net” bejegyzést adta hozzá a Start menühöz (lehet, hogy
   véletlen egybeesés, de nagyon sokat kellett várni rá). Valószínű ok: első indításkor a Steam ablak nélkül letölti

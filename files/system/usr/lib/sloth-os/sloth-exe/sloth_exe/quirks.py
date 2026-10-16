@@ -9,6 +9,11 @@ Egy recept: (felismerés, beállítás). A beállítás módosíthatja a környe
 beállításfájljait, és visszaadhat:
   "args":  paraméterek a programnak (csak magára az indítóra, a belőle indított játékokra nem),
   "verbs": hiányzó Windows-összetevők (winetricks, az első indítás előtt egyszer települnek).
+
+Rövid életű indítók (launch_target): az umu és a Proton csak az elindított folyamatot várja meg
+(a waitforexitandrun a korábbi munkamenet végét várja meg indítás előtt, nem a gyerekfolyamatokat).
+Ha egy indító átadja a helyét a kliensnek és kilép, a futtató leáll, és a kliens ablaka is vele
+együtt eltűnik; ezért ilyenkor magát a klienst indítjuk.
 """
 import getpass
 import json
@@ -63,6 +68,22 @@ def _battlenet(program, exe, env):
     # A helymeghatározás Wine alatt az indításnál elakaszthatja a klienst
     _override(env, "locationapi=d")
     return {}
+
+
+# Indító -> kliens (ugyanabban a mappában). A „Battle.net Launcher.exe” (erre mutat a parancsikon)
+# csak elindítja a klienst, és pár mp múlva kilép: vele együtt leállt a futtató, és a már megjelent
+# ablak is bezárult (Steamből azért ment, mert a Steam minden folyamatot megvár). A Lutris
+# Blizzard-receptjei is a Battle.net.exe-t indítják.
+LAUNCHER_STUBS = {"battle.net launcher.exe": "Battle.net.exe"}
+
+
+def launch_target(exe):
+    """A ténylegesen indítandó .exe: rövid életű indító helyett maga a kliens, ha megvan."""
+    client = LAUNCHER_STUBS.get(exe.name.lower())
+    if client and (exe.parent / client).is_file():
+        log.info("%s helyett a kliens indul: %s", exe.name, client)
+        return exe.parent / client
+    return exe
 
 
 # --- Ubisoft Connect ---------------------------------------------------------------------------------

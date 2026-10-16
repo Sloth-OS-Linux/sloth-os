@@ -64,9 +64,9 @@ class Runner(QObject):
         env.insert("WINEPREFIX", str(program.prefix))
         env.insert("GAMEID", gameid or program.meta.get("gameid") or "umu-default")
         env.insert("STORE", "none")
-        # Mindig megvárjuk, amíg a program összes folyamata kilép. "run" mellett a
-        # futtató az első folyamattal együtt leáll, és bezárja, amit az elindított:
-        # az indítóprogramok (Battle.net, EA, Epic, Ubisoft) ezért azonnal bezáródnának.
+        # Indítás előtt megvárjuk, amíg az előző munkamenet (wineserver) leáll. A gyerekfolyamatokat
+        # ez nem várja meg: a futtató az elindított folyamattal együtt leáll, és vele zárul be, amit
+        # az elindított. A rövid életű indítók helyett ezért a klienst indítjuk (quirks.launch_target).
         env.insert("PROTON_VERB", "waitforexitandrun")
         # A hibasorok kellenek a diagnózishoz (a felhasználó nem látja őket); a "fixme" zaj nem
         env.insert("WINEDEBUG", "fixme-all")
