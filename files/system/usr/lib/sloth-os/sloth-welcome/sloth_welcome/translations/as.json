@@ -110,7 +110,6 @@
   "install.retrying": "সংযোগ বিচ্ছিন্ন হ'ল, পুনৰ চেষ্টা চলি আছে…",
   "install.downloading": "{name} ডাউনল'ড হৈ আছে…",
   "install.installing": "{name} ইনষ্টল হৈ আছে…",
-  "install.runtime": "প্ৰয়োজনীয় উপাদান ডাউনল'ড হৈ আছে…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB ডাউনল'ড হ'ল",
   "install.note": "সংযোগৰ ওপৰত নিৰ্ভৰ কৰি ইয়াত কেইমিনিটমান লাগিব পাৰে।",

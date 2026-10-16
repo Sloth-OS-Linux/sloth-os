@@ -110,7 +110,6 @@
   "install.retrying": "Veza je prekinuta, pokušavam ponovno…",
   "install.downloading": "Preuzimanje: {name}…",
   "install.installing": "Instalacija: {name}…",
-  "install.runtime": "Preuzimanje potrebnih komponenti…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "Preuzeto {mb} MB",
   "install.note": "Ovisno o vezi, ovo može potrajati nekoliko minuta.",

@@ -110,7 +110,6 @@
   "install.retrying": "ਕਨੈਕਸ਼ਨ ਟੁੱਟ ਗਿਆ, ਮੁੜ ਕੋਸ਼ਿਸ਼ ਹੋ ਰਹੀ ਹੈ…",
   "install.downloading": "{name} ਡਾਊਨਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…",
   "install.installing": "{name} ਇੰਸਟਾਲ ਹੋ ਰਿਹਾ ਹੈ…",
-  "install.runtime": "ਲੋੜੀਂਦੇ ਭਾਗ ਡਾਊਨਲੋਡ ਹੋ ਰਹੇ ਹਨ…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB ਡਾਊਨਲੋਡ ਹੋਏ",
   "install.note": "ਕਨੈਕਸ਼ਨ ਮੁਤਾਬਕ ਇਸ ਨੂੰ ਕੁਝ ਮਿੰਟ ਲੱਗ ਸਕਦੇ ਹਨ।",

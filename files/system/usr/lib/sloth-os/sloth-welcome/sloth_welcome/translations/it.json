@@ -110,7 +110,6 @@
   "install.retrying": "La connessione si è interrotta, nuovo tentativo…",
   "install.downloading": "Download di {name}…",
   "install.installing": "Installazione di {name}…",
-  "install.runtime": "Download dei componenti necessari…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB scaricati",
   "install.note": "A seconda della connessione, potrebbe volerci qualche minuto.",

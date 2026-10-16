@@ -110,7 +110,6 @@
   "install.retrying": "La konekto rompiĝis, reprovante…",
   "install.downloading": "Elŝutado de {name}…",
   "install.installing": "Instalado de {name}…",
-  "install.runtime": "Elŝutado de necesaj komponantoj…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB elŝutitaj",
   "install.note": "Depende de via konekto, tio povas daŭri kelkajn minutojn.",

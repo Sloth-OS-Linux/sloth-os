@@ -110,7 +110,6 @@
   "install.retrying": "Байланыс үзілді, қайта әрекет етудемін…",
   "install.downloading": "Жүктелуде: {name}…",
   "install.installing": "Орнатылуда: {name}…",
-  "install.runtime": "Қажетті құрамдас бөліктер жүктелуде…",
   "install.mb": "{mb} МБ",
   "install.mb_downloaded": "{mb} МБ жүктелді",
   "install.note": "Байланысқа байланысты бұл бірнеше минутқа созылуы мүмкін.",

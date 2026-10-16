@@ -110,7 +110,6 @@
   "install.retrying": "S'ha perdut la connexió, s'està tornant a provar…",
   "install.downloading": "S'està baixant {name}…",
   "install.installing": "S'està instal·lant {name}…",
-  "install.runtime": "S'estan baixant els components necessaris…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB baixats",
   "install.note": "Segons la connexió, pot trigar uns minuts.",

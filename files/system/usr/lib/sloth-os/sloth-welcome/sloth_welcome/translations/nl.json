@@ -110,7 +110,6 @@
   "install.retrying": "De verbinding is weggevallen, opnieuw proberen…",
   "install.downloading": "{name} downloaden…",
   "install.installing": "{name} installeren…",
-  "install.runtime": "Benodigde onderdelen downloaden…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB gedownload",
   "install.note": "Afhankelijk van je verbinding kan dit een paar minuten duren.",

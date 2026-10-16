@@ -110,7 +110,6 @@
   "install.retrying": "Anslutningen bröts, försöker igen…",
   "install.downloading": "Laddar ner {name}…",
   "install.installing": "Installerar {name}…",
-  "install.runtime": "Laddar ner nödvändiga komponenter…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB nedladdat",
   "install.note": "Beroende på din anslutning kan det ta några minuter.",

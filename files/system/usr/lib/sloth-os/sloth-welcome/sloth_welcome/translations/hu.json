@@ -110,7 +110,6 @@
   "install.retrying": "A kapcsolat megszakadt, újrapróbálom…",
   "install.downloading": "{name} letöltése…",
   "install.installing": "{name} telepítése…",
-  "install.runtime": "Szükséges összetevők letöltése…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB letöltve",
   "install.note": "Ez a netkapcsolattól függően pár perc is lehet.",

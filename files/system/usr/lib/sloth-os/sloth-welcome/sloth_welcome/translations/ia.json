@@ -110,7 +110,6 @@
   "install.retrying": "Le connexion se interrumpeva, nove tentativa…",
   "install.downloading": "Discargamento de {name}…",
   "install.installing": "Installation de {name}…",
-  "install.runtime": "Discargamento del componentes necessari…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB discargate",
   "install.note": "Secundo tu connexion, isto pote durar alcun minutas.",

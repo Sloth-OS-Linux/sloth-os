@@ -110,7 +110,6 @@
   "install.retrying": "Die Verbindung wurde unterbrochen, neuer Versuch…",
   "install.downloading": "{name} wird heruntergeladen…",
   "install.installing": "{name} wird installiert…",
-  "install.runtime": "Benötigte Komponenten werden heruntergeladen…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB heruntergeladen",
   "install.note": "Je nach Internetverbindung kann das ein paar Minuten dauern.",

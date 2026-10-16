@@ -110,7 +110,6 @@
   "install.retrying": "连接中断，正在重试…",
   "install.downloading": "正在下载 {name}…",
   "install.installing": "正在安装 {name}…",
-  "install.runtime": "正在下载所需组件…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "已下载 {mb} MB",
   "install.note": "视网速而定，可能需要几分钟。",

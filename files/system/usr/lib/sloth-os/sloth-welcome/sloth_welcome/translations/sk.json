@@ -110,7 +110,6 @@
   "install.retrying": "Spojenie sa prerušilo, skúšam znova…",
   "install.downloading": "Sťahovanie: {name}…",
   "install.installing": "Inštalácia: {name}…",
-  "install.runtime": "Sťahovanie potrebných súčastí…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "Stiahnuté {mb} MB",
   "install.note": "V závislosti od pripojenia to môže trvať niekoľko minút.",

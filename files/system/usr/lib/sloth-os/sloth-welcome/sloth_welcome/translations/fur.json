@@ -110,7 +110,6 @@
   "install.retrying": "La conession si è interote, o torni a provâ…",
   "install.downloading": "Discjariament di {name}…",
   "install.installing": "Instalazion di {name}…",
-  "install.runtime": "Discjariament dai components necessaris…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB discjariâts",
   "install.note": "In base ae conession, al podarès volê cualchi minût.",

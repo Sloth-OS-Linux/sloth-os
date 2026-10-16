@@ -110,7 +110,6 @@
   "install.retrying": "З'єднання перервалося, пробую знову…",
   "install.downloading": "Завантаження: {name}…",
   "install.installing": "Встановлення: {name}…",
-  "install.runtime": "Завантаження потрібних компонентів…",
   "install.mb": "{mb} МБ",
   "install.mb_downloaded": "Завантажено {mb} МБ",
   "install.note": "Залежно від з'єднання це може тривати кілька хвилин.",

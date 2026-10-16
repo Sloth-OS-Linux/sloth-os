@@ -110,7 +110,6 @@
   "install.retrying": "انقطع الاتصال، جارٍ إعادة المحاولة…",
   "install.downloading": "جارٍ تنزيل {name}…",
   "install.installing": "جارٍ تثبيت {name}…",
-  "install.runtime": "جارٍ تنزيل المكونات اللازمة…",
   "install.mb": "{mb} م.ب",
   "install.mb_downloaded": "تم تنزيل {mb} م.ب",
   "install.note": "قد يستغرق ذلك بضع دقائق حسب سرعة الاتصال.",

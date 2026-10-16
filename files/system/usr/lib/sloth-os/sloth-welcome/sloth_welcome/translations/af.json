@@ -110,7 +110,6 @@
   "install.retrying": "Die verbinding is verbreek, probeer weer…",
   "install.downloading": "Laai {name} af…",
   "install.installing": "Installeer {name}…",
-  "install.runtime": "Laai nodige komponente af…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB afgelaai",
   "install.note": "Afhangend van jou verbinding kan dit 'n paar minute duur.",

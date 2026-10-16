@@ -25,22 +25,45 @@ Minden pusholva; a nagy részük csak szimulációval és loop eszközön van ki
 
 ### Reggeli teszt (új ISO a mai CI-build után)
 Valódi gépen és/vagy VM-ben; ami nem megy, ide kerüljön vissza hibaként.
-- [ ] **Élő rendszer:** nyelvválasztás után „Kipróbálom” → a választott nyelven jön fel az asztal; az értesítések jobb felül
+- [x] **Élő rendszer:** nyelvválasztás után „Kipróbálom” → a választott nyelven jön fel az asztal; az értesítések jobb felül
 - [ ] **Telepítő, teljes lemez:** sima telepítés; utána ugyanez **titkosítással** (indításkor lakat ikon, a jelszó a
   választott kiosztással megy, pl. magyarnál a „z”/„y”; rossz jelszó után újra kéri)
 - [ ] **Telepítő, Windows mellé** (VM-ben egy Windowsos lemezzel vagy egy NTFS + EFI-s tesztlemezzel): a felmérés és
   a csúszka, a magyarázatok (pl. hibernált Windows), a telepítés, a boot menüben a Windows-bejegyzés, a Windows
   utána is elindul, az óra jó mindkét rendszerben
-- [ ] **Első indítás:** csendes boot, rejtett GRUB (Windows mellett látható menü), fiók a telepítőből, Üdvözlő
+- [x] **Első indítás:** csendes boot, rejtett GRUB (Windows mellett látható menü), fiók a telepítőből, Üdvözlő
 - [ ] **Üdvözlő:** új „Tapasztalatok megosztása” lépés (igen / nem, a Tovább csak választás után), az appok telepítése
   (mit tölt le / mit telepít, „x / y MB”), az ikonok rögtön látszanak, a Steam a tálcán ikonnal
 - [ ] **.exe kezelő:** Battle.net telepítés és indítás a Start menüből (marad-e futva), egy egyszerű .exe, egy játék;
   a háttérnapló (`~/.local/share/sloth-os/windows-programs/<program>/naplo/`) és a megjegyzett beállítás (`meta.json`)
-- [ ] **Sloth Központ:** Windows-programok oldal (megosztás kapcsoló), Driverek oldal, a többi oldal átnézése
+- [x] **Sloth Központ:** Windows-programok oldal (megosztás kapcsoló), Driverek oldal, a többi oldal átnézése
 - [ ] **Frissítések:** egy rendszerfrissítés lemegy-e az aláírás-ellenőrzéssel (`rpm-ostree status`: `ostree-image-signed`);
   a tesztlaptopon a régi telepítés átáll-e magától (`sloth-signed-updates`)
 - [ ] **NVIDIA-s gépen** (ha van kéznél): magától letölti az NVIDIA-s változatot, értesít, újraindítás után az fut
-- [ ] Hol látszik még a „Fedora” vagy a „Universal Blue” név (bejelentkező képernyő, Discover, Rendszerbeállítások)
+- [x] Hol látszik még a „Fedora” vagy a „Universal Blue” név (bejelentkező képernyő, Discover, Rendszerbeállítások)
+
+### A reggeli teszt eredménye (2026-10-16, valódi gép, pendrive, teljes lemez, titkosítás nélkül)
+Rendben volt: élő rendszer és nyelv, sima telepítés, csendes boot, rejtett GRUB, bejelentkezés, Sloth Központ.
+Hátravan: titkosítás, Windows mellé (ehhez tesztelő kell, nincs Windowsos gép), NVIDIA-s gép.
+Talált hibák (egyesével javítjuk):
+- [ ] **Üdvözlő, appok telepítése (nagy hiba):** a folyamat összevissza írja ki az appokat. Ugyanaz az app (pl.
+  a Steam) többször is megjelenik, néha ugyanazzal a mérettel, és nem tudni, hogy csak a kijelzés rossz, vagy
+  tényleg többször tölti le. Kérés: fentről lefelé, egyesével menjen a telepítés. A letöltés mehet párhuzamosan,
+  de a szöveg csak azt írja, hogy „… telepítése”, a letöltést ne említse
+- [ ] **Üdvözlő vége:** legyen újraindítás gomb, hogy minden rendesen betöltődjön
+- [ ] Az Üdvözlő bezárása után a tálcán még az alap ikonok látszanak az appok ikonjai helyett (újraindítás után jó)
+- [ ] **.exe kezelő (nagy hiba):** ugyanazt a programot kétszer (vagy többször) is engedi telepíteni, és a Start
+  menüben is többször jelenik meg
+- [ ] A Battle.net továbbra sem indul el, ugyanúgy viselkedik, mint korábban. A közös tudásba nem érkezett adat
+  (a `sloth-os-knowledge` repóban 2026-10-16 reggelig nincs export), megnézni, küld-e jelentést a rendszer
+- [ ] A Steam (Flatpak) nem nyílt meg: kb. 10 mp-ig töltött, utána semmi. Később mégis elindult, épp akkor, amikor
+  a Sloth Központban a Battle.net helyett a „Battle net” bejegyzést adta hozzá a Start menühöz (lehet, hogy
+  véletlen egybeesés, de nagyon sokat kellett várni rá)
+- [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja
+- [ ] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik
+- [ ] A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért)
+- [ ] A rendszer neve „Sloth OS 44” (a Fedora verziószáma látszik): a Sloth OS saját verziószámot kapjon (pl. 1),
+  és valahol (pl. a Rendszerinformációban) jelenjen meg, hogy Fedora Atomic alapú
 
 ### Teendők fontossági sorrendben
 **Publikálás előtt kötelező:**

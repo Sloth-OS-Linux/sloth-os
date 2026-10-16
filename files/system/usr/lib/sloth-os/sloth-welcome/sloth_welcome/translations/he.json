@@ -110,7 +110,6 @@
   "install.retrying": "החיבור נותק, מנסים שוב…",
   "install.downloading": "מוריד את {name}…",
   "install.installing": "מתקין את {name}…",
-  "install.runtime": "מוריד רכיבים נחוצים…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "הורדו {mb} MB",
   "install.note": "בהתאם לחיבור, זה עשוי לקחת כמה דקות.",

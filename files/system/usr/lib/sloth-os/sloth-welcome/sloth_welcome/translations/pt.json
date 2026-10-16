@@ -110,7 +110,6 @@
   "install.retrying": "A ligação caiu, a tentar novamente…",
   "install.downloading": "A transferir {name}…",
   "install.installing": "A instalar {name}…",
-  "install.runtime": "A transferir os componentes necessários…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB transferidos",
   "install.note": "Dependendo da sua ligação, isto pode demorar alguns minutos.",

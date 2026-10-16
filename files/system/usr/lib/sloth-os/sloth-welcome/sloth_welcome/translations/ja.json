@@ -110,7 +110,6 @@
   "install.retrying": "接続が切れました。再試行しています…",
   "install.downloading": "{name} をダウンロード中…",
   "install.installing": "{name} をインストール中…",
-  "install.runtime": "必要なコンポーネントをダウンロード中…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB ダウンロード済み",
   "install.note": "回線の速さによっては数分かかることがあります。",

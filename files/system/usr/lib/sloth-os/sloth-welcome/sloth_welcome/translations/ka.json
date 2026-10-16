@@ -110,7 +110,6 @@
   "install.retrying": "კავშირი გაწყდა, ვცდილობ ხელახლა…",
   "install.downloading": "იტვირთება: {name}…",
   "install.installing": "ყენდება: {name}…",
-  "install.runtime": "იტვირთება საჭირო კომპონენტები…",
   "install.mb": "{mb} მბ",
   "install.mb_downloaded": "ჩამოტვირთულია {mb} მბ",
   "install.note": "კავშირის მიხედვით, ამას რამდენიმე წუთი შეიძლება დასჭირდეს.",

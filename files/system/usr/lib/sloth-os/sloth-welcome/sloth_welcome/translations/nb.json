@@ -110,7 +110,6 @@
   "install.retrying": "Tilkoblingen ble brutt, prøver igjen…",
   "install.downloading": "Laster ned {name}…",
   "install.installing": "Installerer {name}…",
-  "install.runtime": "Laster ned nødvendige komponenter…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB lastet ned",
   "install.note": "Avhengig av tilkoblingen kan dette ta noen minutter.",

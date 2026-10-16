@@ -110,7 +110,6 @@
   "install.retrying": "La connexion a été coupée, nouvelle tentative…",
   "install.downloading": "Téléchargement de {name}…",
   "install.installing": "Installation de {name}…",
-  "install.runtime": "Téléchargement des composants nécessaires…",
   "install.mb": "{mb} Mo",
   "install.mb_downloaded": "{mb} Mo téléchargés",
   "install.note": "Selon votre connexion, cela peut prendre quelques minutes.",

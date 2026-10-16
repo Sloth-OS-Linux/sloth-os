@@ -110,7 +110,6 @@
   "install.retrying": "ການເຊື່ອມຕໍ່ຂາດ, ກຳລັງລອງໃໝ່…",
   "install.downloading": "ກຳລັງດາວໂຫຼດ {name}…",
   "install.installing": "ກຳລັງຕິດຕັ້ງ {name}…",
-  "install.runtime": "ກຳລັງດາວໂຫຼດສ່ວນປະກອບທີ່ຈຳເປັນ…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "ດາວໂຫຼດແລ້ວ {mb} MB",
   "install.note": "ອາດໃຊ້ເວລາສອງສາມນາທີ ຂຶ້ນກັບການເຊື່ອມຕໍ່ຂອງທ່ານ.",

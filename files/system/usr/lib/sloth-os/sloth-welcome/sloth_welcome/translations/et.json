@@ -110,7 +110,6 @@
   "install.retrying": "Ühendus katkes, proovin uuesti…",
   "install.downloading": "Allalaadimine: {name}…",
   "install.installing": "Paigaldamine: {name}…",
-  "install.runtime": "Vajalike komponentide allalaadimine…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB alla laaditud",
   "install.note": "Sõltuvalt ühendusest võib see võtta paar minutit.",

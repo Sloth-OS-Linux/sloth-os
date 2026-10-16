@@ -110,7 +110,6 @@
   "install.retrying": "সংযোগ বিচ্ছিন্ন হয়েছে, আবার চেষ্টা চলছে…",
   "install.downloading": "{name} ডাউনলোড হচ্ছে…",
   "install.installing": "{name} ইনস্টল হচ্ছে…",
-  "install.runtime": "প্রয়োজনীয় উপাদান ডাউনলোড হচ্ছে…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB ডাউনলোড হয়েছে",
   "install.note": "সংযোগের গতি অনুযায়ী এতে কয়েক মিনিট লাগতে পারে।",

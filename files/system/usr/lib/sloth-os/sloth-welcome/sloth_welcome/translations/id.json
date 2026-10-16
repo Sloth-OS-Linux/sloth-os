@@ -110,7 +110,6 @@
   "install.retrying": "Koneksi terputus, mencoba lagi…",
   "install.downloading": "Mengunduh {name}…",
   "install.installing": "Memasang {name}…",
-  "install.runtime": "Mengunduh komponen yang diperlukan…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB terunduh",
   "install.note": "Tergantung koneksi Anda, ini bisa memakan beberapa menit.",

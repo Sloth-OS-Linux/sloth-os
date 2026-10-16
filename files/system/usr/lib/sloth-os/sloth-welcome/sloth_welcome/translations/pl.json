@@ -110,7 +110,6 @@
   "install.retrying": "Połączenie zostało przerwane, ponowna próba…",
   "install.downloading": "Pobieranie: {name}…",
   "install.installing": "Instalowanie: {name}…",
-  "install.runtime": "Pobieranie potrzebnych składników…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "Pobrano {mb} MB",
   "install.note": "W zależności od połączenia może to potrwać kilka minut.",

@@ -110,7 +110,6 @@
   "install.retrying": "Η σύνδεση διακόπηκε, νέα προσπάθεια…",
   "install.downloading": "Λήψη: {name}…",
   "install.installing": "Εγκατάσταση: {name}…",
-  "install.runtime": "Λήψη απαραίτητων στοιχείων…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "Λήφθηκαν {mb} MB",
   "install.note": "Ανάλογα με τη σύνδεσή σας, αυτό μπορεί να διαρκέσει λίγα λεπτά.",

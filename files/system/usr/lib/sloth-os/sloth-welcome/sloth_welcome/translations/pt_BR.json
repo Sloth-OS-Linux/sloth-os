@@ -110,7 +110,6 @@
   "install.retrying": "A conexão caiu, tentando novamente…",
   "install.downloading": "Baixando {name}…",
   "install.installing": "Instalando {name}…",
-  "install.runtime": "Baixando componentes necessários…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "{mb} MB baixados",
   "install.note": "Dependendo da sua conexão, isso pode levar alguns minutos.",

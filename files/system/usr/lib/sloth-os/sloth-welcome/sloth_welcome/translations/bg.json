@@ -110,7 +110,6 @@
   "install.retrying": "Връзката прекъсна, нов опит…",
   "install.downloading": "Изтегляне: {name}…",
   "install.installing": "Инсталиране: {name}…",
-  "install.runtime": "Изтегляне на необходимите компоненти…",
   "install.mb": "{mb} МБ",
   "install.mb_downloaded": "Изтеглени {mb} МБ",
   "install.note": "В зависимост от връзката това може да отнеме няколко минути.",

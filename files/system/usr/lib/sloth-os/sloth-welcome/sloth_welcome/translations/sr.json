@@ -110,7 +110,6 @@
   "install.retrying": "Веза је прекинута, покушавам поново…",
   "install.downloading": "Преузимање: {name}…",
   "install.installing": "Инсталирање: {name}…",
-  "install.runtime": "Преузимање потребних компоненти…",
   "install.mb": "{mb} MB",
   "install.mb_downloaded": "Преузето {mb} MB",
   "install.note": "У зависности од везе, ово може потрајати неколико минута.",
