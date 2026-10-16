@@ -8,10 +8,13 @@
   "choose.installer_text": "Post la instalado vi trovos ĝin en la startmenuo.",
   "choose.program_text": "Vi povas lanĉi ĝin ankaŭ sen instali.",
   "choose.add_to_menu": "Aldoni al la startmenuo",
+  "choose.already_installed": "{name} jam estas instalita.",
 
   "button.cancel": "Nuligi",
   "button.run_only": "Nur lanĉi",
   "button.install": "Instali",
+  "button.open": "Malfermi",
+  "button.reinstall": "Reinstali",
   "button.start": "Lanĉi",
   "button.done": "Farite",
   "button.close": "Fermi",

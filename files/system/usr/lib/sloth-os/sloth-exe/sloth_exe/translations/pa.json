@@ -8,10 +8,13 @@
   "choose.installer_text": "ਇੰਸਟਾਲ ਕਰਨ ਤੋਂ ਬਾਅਦ ਇਹ ਤੁਹਾਨੂੰ ਸਟਾਰਟ ਮੀਨੂ ਵਿੱਚ ਮਿਲੇਗਾ।",
   "choose.program_text": "ਤੁਸੀਂ ਇਸ ਨੂੰ ਇੰਸਟਾਲ ਕੀਤੇ ਬਿਨਾਂ ਵੀ ਚਲਾ ਸਕਦੇ ਹੋ।",
   "choose.add_to_menu": "ਸਟਾਰਟ ਮੀਨੂ ਵਿੱਚ ਜੋੜੋ",
+  "choose.already_installed": "{name} ਪਹਿਲਾਂ ਹੀ ਇੰਸਟਾਲ ਹੈ।",
 
   "button.cancel": "ਰੱਦ ਕਰੋ",
   "button.run_only": "ਬੱਸ ਚਲਾਓ",
   "button.install": "ਇੰਸਟਾਲ ਕਰੋ",
+  "button.open": "ਖੋਲ੍ਹੋ",
+  "button.reinstall": "ਮੁੜ ਇੰਸਟਾਲ ਕਰੋ",
   "button.start": "ਚਾਲੂ ਕਰੋ",
   "button.done": "ਹੋ ਗਿਆ",
   "button.close": "ਬੰਦ ਕਰੋ",

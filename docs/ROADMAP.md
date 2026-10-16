@@ -46,14 +46,18 @@ Valódi gépen és/vagy VM-ben; ami nem megy, ide kerüljön vissza hibaként.
 Rendben volt: élő rendszer és nyelv, sima telepítés, csendes boot, rejtett GRUB, bejelentkezés, Sloth Központ.
 Hátravan: titkosítás, Windows mellé (ehhez tesztelő kell, nincs Windowsos gép), NVIDIA-s gép.
 Talált hibák (egyesével javítjuk):
-- [ ] **Üdvözlő, appok telepítése (nagy hiba):** a folyamat összevissza írja ki az appokat. Ugyanaz az app (pl.
+- [x] **Üdvözlő, appok telepítése (nagy hiba):** a folyamat összevissza írja ki az appokat. Ugyanaz az app (pl.
   a Steam) többször is megjelenik, néha ugyanazzal a mérettel, és nem tudni, hogy csak a kijelzés rossz, vagy
   tényleg többször tölti le. Kérés: fentről lefelé, egyesével menjen a telepítés. A letöltés mehet párhuzamosan,
-  de a szöveg csak azt írja, hogy „… telepítése”, a letöltést ne említse
+  de a szöveg csak azt írja, hogy „… telepítése”, a letöltést ne említse. Javítva (szimulációval kipróbálva,
+  valódi gépen még tesztelni): az ok az egy közös tranzakció volt (minden kiegészítő az app nevével jelent meg);
+  most appónként külön tranzakció, előtte méretfelmérés, a felirat „X telepítése…”, alatta „330 MB / 430 MB”
 - [ ] **Üdvözlő vége:** legyen újraindítás gomb, hogy minden rendesen betöltődjön
 - [ ] Az Üdvözlő bezárása után a tálcán még az alap ikonok látszanak az appok ikonjai helyett (újraindítás után jó)
-- [ ] **.exe kezelő (nagy hiba):** ugyanazt a programot kétszer (vagy többször) is engedi telepíteni, és a Start
-  menüben is többször jelenik meg
+- [x] **.exe kezelő (nagy hiba):** ugyanazt a programot kétszer (vagy többször) is engedi telepíteni, és a Start
+  menüben is többször jelenik meg. Javítva (valódi gépen még tesztelni): ha a program már megvan (ugyanaz a név
+  vagy ugyanaz a telepítőfájl), „X már telepítve van.”, Megnyitás (alapból) vagy Újratelepítés ugyanabba a
+  mappába; új mappa (`-2`, `-3`) és új Start menü bejegyzés nem keletkezik. A régi duplák maradnak, kézzel törölhetők
 - [ ] A Battle.net továbbra sem indul el, ugyanúgy viselkedik, mint korábban. A közös tudásba nem érkezett adat
   (a `sloth-os-knowledge` repóban 2026-10-16 reggelig nincs export), megnézni, küld-e jelentést a rendszer
 - [ ] A Steam (Flatpak) nem nyílt meg: kb. 10 mp-ig töltött, utána semmi. Később mégis elindult, épp akkor, amikor

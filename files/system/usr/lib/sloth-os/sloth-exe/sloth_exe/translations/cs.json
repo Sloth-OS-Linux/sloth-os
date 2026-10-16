@@ -8,10 +8,13 @@
   "choose.installer_text": "Po instalaci ho najdete v nabídce Start.",
   "choose.program_text": "Můžete ho spustit i bez instalace.",
   "choose.add_to_menu": "Přidat do nabídky Start",
+  "choose.already_installed": "{name} je už nainstalován.",
 
   "button.cancel": "Zrušit",
   "button.run_only": "Jen spustit",
   "button.install": "Nainstalovat",
+  "button.open": "Otevřít",
+  "button.reinstall": "Přeinstalovat",
   "button.start": "Spustit",
   "button.done": "Hotovo",
   "button.close": "Zavřít",

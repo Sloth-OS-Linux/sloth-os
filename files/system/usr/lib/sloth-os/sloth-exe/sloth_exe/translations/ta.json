@@ -8,10 +8,13 @@
   "choose.installer_text": "நிறுவிய பிறகு இதைத் தொடக்க மெனுவில் காணலாம்.",
   "choose.program_text": "நிறுவாமலும் இதை இயக்கலாம்.",
   "choose.add_to_menu": "தொடக்க மெனுவில் சேர்",
+  "choose.already_installed": "{name} ஏற்கெனவே நிறுவப்பட்டுள்ளது.",
 
   "button.cancel": "ரத்துசெய்",
   "button.run_only": "இயக்கு மட்டும்",
   "button.install": "நிறுவு",
+  "button.open": "திற",
+  "button.reinstall": "மீண்டும் நிறுவு",
   "button.start": "தொடங்கு",
   "button.done": "முடிந்தது",
   "button.close": "மூடு",

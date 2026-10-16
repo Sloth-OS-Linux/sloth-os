@@ -8,10 +8,13 @@
   "choose.installer_text": "После инсталације наћи ћете га у менију Старт.",
   "choose.program_text": "Можете га покренути и без инсталације.",
   "choose.add_to_menu": "Додај у мени Старт",
+  "choose.already_installed": "{name} је већ инсталиран.",
 
   "button.cancel": "Откажи",
   "button.run_only": "Само покрени",
   "button.install": "Инсталирај",
+  "button.open": "Отвори",
+  "button.reinstall": "Поново инсталирај",
   "button.start": "Покрени",
   "button.done": "Готово",
   "button.close": "Затвори",

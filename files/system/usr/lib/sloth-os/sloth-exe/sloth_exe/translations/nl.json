@@ -8,10 +8,13 @@
   "choose.installer_text": "Na de installatie vind je het in het startmenu.",
   "choose.program_text": "Je kunt het ook zonder installatie starten.",
   "choose.add_to_menu": "Toevoegen aan het startmenu",
+  "choose.already_installed": "{name} is al geïnstalleerd.",
 
   "button.cancel": "Annuleren",
   "button.run_only": "Alleen uitvoeren",
   "button.install": "Installeren",
+  "button.open": "Openen",
+  "button.reinstall": "Opnieuw installeren",
   "button.start": "Starten",
   "button.done": "Klaar",
   "button.close": "Sluiten",

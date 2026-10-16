@@ -8,10 +8,13 @@
   "choose.installer_text": "Įdiegę rasite jį Pradžios meniu.",
   "choose.program_text": "Jį galite paleisti ir neįdiegę.",
   "choose.add_to_menu": "Pridėti į Pradžios meniu",
+  "choose.already_installed": "{name} jau įdiegta.",
 
   "button.cancel": "Atšaukti",
   "button.run_only": "Tik paleisti",
   "button.install": "Įdiegti",
+  "button.open": "Atverti",
+  "button.reinstall": "Įdiegti iš naujo",
   "button.start": "Paleisti",
   "button.done": "Atlikta",
   "button.close": "Užverti",

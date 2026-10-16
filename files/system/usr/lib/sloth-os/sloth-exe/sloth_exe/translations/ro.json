@@ -8,10 +8,13 @@
   "choose.installer_text": "După instalare îl găsești în meniul Start.",
   "choose.program_text": "Îl poți porni și fără instalare.",
   "choose.add_to_menu": "Adaugă în meniul Start",
+  "choose.already_installed": "{name} este deja instalat.",
 
   "button.cancel": "Anulează",
   "button.run_only": "Doar rulează",
   "button.install": "Instalează",
+  "button.open": "Deschide",
+  "button.reinstall": "Reinstalează",
   "button.start": "Pornește",
   "button.done": "Gata",
   "button.close": "Închide",

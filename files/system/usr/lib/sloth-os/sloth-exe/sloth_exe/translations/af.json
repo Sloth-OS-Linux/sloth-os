@@ -8,10 +8,13 @@
   "choose.installer_text": "Na die installasie vind jy dit in die beginkieslys.",
   "choose.program_text": "Jy kan dit ook sonder installasie laat loop.",
   "choose.add_to_menu": "Voeg by die beginkieslys",
+  "choose.already_installed": "{name} is reeds geïnstalleer.",
 
   "button.cancel": "Kanselleer",
   "button.run_only": "Laat net loop",
   "button.install": "Installeer",
+  "button.open": "Maak oop",
+  "button.reinstall": "Herinstalleer",
   "button.start": "Begin",
   "button.done": "Klaar",
   "button.close": "Maak toe",

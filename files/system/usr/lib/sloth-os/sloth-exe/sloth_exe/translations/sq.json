@@ -8,10 +8,13 @@
   "choose.installer_text": "Pas instalimit do ta gjeni te menuja Start.",
   "choose.program_text": "Mund ta nisni edhe pa e instaluar.",
   "choose.add_to_menu": "Shto te menuja Start",
+  "choose.already_installed": "{name} është instaluar tashmë.",
 
   "button.cancel": "Anulo",
   "button.run_only": "Vetëm nise",
   "button.install": "Instalo",
+  "button.open": "Hap",
+  "button.reinstall": "Riinstalo",
   "button.start": "Nis",
   "button.done": "U krye",
   "button.close": "Mbyll",

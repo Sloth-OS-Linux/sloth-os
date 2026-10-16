@@ -8,10 +8,13 @@
   "choose.installer_text": "Dopo de instalazion tu lu cjatis tal menù Start.",
   "choose.program_text": "Tu puedis inviâlu ancje cence instalâlu.",
   "choose.add_to_menu": "Zonte al menù Start",
+  "choose.already_installed": "{name} al è za instalât.",
 
   "button.cancel": "Anule",
   "button.run_only": "Invie e basta",
   "button.install": "Instale",
+  "button.open": "Vierç",
+  "button.reinstall": "Torne instale",
   "button.start": "Invie",
   "button.done": "Fat",
   "button.close": "Siere",

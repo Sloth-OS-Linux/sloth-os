@@ -8,10 +8,13 @@
   "choose.installer_text": "Etter installasjonen finner du det i startmenyen.",
   "choose.program_text": "Du kan også kjøre det uten å installere.",
   "choose.add_to_menu": "Legg til i startmenyen",
+  "choose.already_installed": "{name} er allerede installert.",
 
   "button.cancel": "Avbryt",
   "button.run_only": "Bare kjør",
   "button.install": "Installer",
+  "button.open": "Åpne",
+  "button.reinstall": "Installer på nytt",
   "button.start": "Start",
   "button.done": "Ferdig",
   "button.close": "Lukk",

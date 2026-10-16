@@ -8,10 +8,13 @@
   "choose.installer_text": "След инсталирането ще го намерите в меню „Старт“.",
   "choose.program_text": "Можете да го стартирате и без инсталиране.",
   "choose.add_to_menu": "Добавяне в меню „Старт“",
+  "choose.already_installed": "{name} вече е инсталиран.",
 
   "button.cancel": "Отказ",
   "button.run_only": "Само стартиране",
   "button.install": "Инсталиране",
+  "button.open": "Отваряне",
+  "button.reinstall": "Преинсталиране",
   "button.start": "Стартиране",
   "button.done": "Готово",
   "button.close": "Затваряне",

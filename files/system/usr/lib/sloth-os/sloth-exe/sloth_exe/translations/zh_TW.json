@@ -8,10 +8,13 @@
   "choose.installer_text": "安裝後可以在開始功能表中找到它。",
   "choose.program_text": "也可以不安裝直接執行。",
   "choose.add_to_menu": "加入開始功能表",
+  "choose.already_installed": "{name} 已安裝。",
 
   "button.cancel": "取消",
   "button.run_only": "僅執行",
   "button.install": "安裝",
+  "button.open": "開啟",
+  "button.reinstall": "重新安裝",
   "button.start": "啟動",
   "button.done": "完成",
   "button.close": "關閉",

@@ -8,10 +8,13 @@
   "choose.installer_text": "Po namestitvi ga najdete v meniju Start.",
   "choose.program_text": "Zaženete ga lahko tudi brez namestitve.",
   "choose.add_to_menu": "Dodaj v meni Start",
+  "choose.already_installed": "{name} je že nameščen.",
 
   "button.cancel": "Prekliči",
   "button.run_only": "Samo zaženi",
   "button.install": "Namesti",
+  "button.open": "Odpri",
+  "button.reinstall": "Znova namesti",
   "button.start": "Zaženi",
   "button.done": "Končano",
   "button.close": "Zapri",

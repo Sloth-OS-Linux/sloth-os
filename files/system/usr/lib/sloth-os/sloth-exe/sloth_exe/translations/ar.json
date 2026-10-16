@@ -8,10 +8,13 @@
   "choose.installer_text": "بعد التثبيت ستجده في قائمة ابدأ.",
   "choose.program_text": "يمكنك أيضًا تشغيله دون تثبيت.",
   "choose.add_to_menu": "إضافة إلى قائمة ابدأ",
+  "choose.already_installed": "{name} مثبّت بالفعل.",
 
   "button.cancel": "إلغاء",
   "button.run_only": "تشغيل فقط",
   "button.install": "تثبيت",
+  "button.open": "فتح",
+  "button.reinstall": "إعادة التثبيت",
   "button.start": "تشغيل",
   "button.done": "تم",
   "button.close": "إغلاق",

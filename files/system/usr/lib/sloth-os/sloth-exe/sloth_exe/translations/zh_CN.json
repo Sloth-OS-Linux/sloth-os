@@ -8,10 +8,13 @@
   "choose.installer_text": "安装后可以在开始菜单中找到它。",
   "choose.program_text": "也可以不安装直接运行。",
   "choose.add_to_menu": "添加到开始菜单",
+  "choose.already_installed": "{name} 已安装。",
 
   "button.cancel": "取消",
   "button.run_only": "仅运行",
   "button.install": "安装",
+  "button.open": "打开",
+  "button.reinstall": "重新安装",
   "button.start": "启动",
   "button.done": "完成",
   "button.close": "关闭",

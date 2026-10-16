@@ -8,10 +8,13 @@
   "choose.installer_text": "Pärast paigaldamist leiad selle Start-menüüst.",
   "choose.program_text": "Saad seda käivitada ka ilma paigaldamata.",
   "choose.add_to_menu": "Lisa Start-menüüsse",
+  "choose.already_installed": "{name} on juba paigaldatud.",
 
   "button.cancel": "Loobu",
   "button.run_only": "Ainult käivita",
   "button.install": "Paigalda",
+  "button.open": "Ava",
+  "button.reinstall": "Paigalda uuesti",
   "button.start": "Käivita",
   "button.done": "Valmis",
   "button.close": "Sulge",

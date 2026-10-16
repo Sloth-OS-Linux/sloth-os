@@ -8,10 +8,13 @@
   "choose.installer_text": "Пасля ўсталявання вы знойдзеце яе ў меню «Пуск».",
   "choose.program_text": "Яе можна запусціць і без усталявання.",
   "choose.add_to_menu": "Дадаць у меню «Пуск»",
+  "choose.already_installed": "{name} ужо ўсталяваны.",
 
   "button.cancel": "Скасаваць",
   "button.run_only": "Толькі запусціць",
   "button.install": "Усталяваць",
+  "button.open": "Адкрыць",
+  "button.reinstall": "Пераўсталяваць",
   "button.start": "Запусціць",
   "button.done": "Гатова",
   "button.close": "Закрыць",

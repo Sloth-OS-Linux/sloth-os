@@ -65,7 +65,8 @@ Kirigami.ApplicationWindow {
                             Layout.maximumWidth: Kirigami.Units.gridUnit * 18
                             wrapMode: Text.Wrap
                             opacity: 0.8
-                            text: root.t(exe.isInstaller ? "choose.installer_text" : "choose.program_text")
+                            text: exe.alreadyInstalled ? root.t("choose.already_installed", { name: exe.name })
+                                  : root.t(exe.isInstaller ? "choose.installer_text" : "choose.program_text")
                         }
                     }
                 }
@@ -84,12 +85,27 @@ Kirigami.ApplicationWindow {
                         onClicked: exe.close()
                     }
                     QQC2.Button {
-                        visible: exe.isInstaller
+                        visible: exe.isInstaller && !exe.alreadyInstalled
                         text: root.t("button.run_only")
                         icon.name: "media-playback-start"
                         onClicked: exe.run(false)
                     }
+                    // Már telepítve: újratelepítés ugyanoda, vagy (alapból) megnyitás
                     QQC2.Button {
+                        visible: exe.alreadyInstalled
+                        text: root.t("button.reinstall")
+                        icon.name: "view-refresh"
+                        onClicked: exe.install()
+                    }
+                    QQC2.Button {
+                        visible: exe.alreadyInstalled
+                        highlighted: true
+                        text: root.t("button.open")
+                        icon.name: "media-playback-start"
+                        onClicked: exe.openExisting()
+                    }
+                    QQC2.Button {
+                        visible: !exe.alreadyInstalled
                         highlighted: true
                         text: root.t(exe.isInstaller ? "button.install" : "button.start")
                         icon.name: exe.isInstaller ? "download" : "media-playback-start"

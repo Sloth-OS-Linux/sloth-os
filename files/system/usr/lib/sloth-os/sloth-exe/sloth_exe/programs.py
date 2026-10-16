@@ -193,6 +193,42 @@ def extract_icon(exe, dest_png):
         return dest_png
 
 
+def find_installed(name, installer):
+    """Telepítettük-e már ezt a programot? -> Program vagy None
+
+    Egyezik, ha a mappa neve a program nevéből jön (a régi, dupla telepítésnél „-2”, „-3”
+    végződéssel), vagy ugyanazzal a telepítőfájllal telepítettük. Ha több is van, az
+    nyer, amelyiknek van Start menü bejegyzése.
+    """
+    slug = slugify(name)
+    found = []
+    for d in sorted(ROOT.iterdir()) if ROOT.is_dir() else []:
+        program = Program(d.name)
+        if d.name == SHARED or not program.exists():
+            continue
+        same_installer = Path(program.meta.get("installer", "")).name.lower() == Path(installer).name.lower()
+        if d.name == slug or re.fullmatch(re.escape(slug) + r"-\d+", d.name) or same_installer:
+            found.append(program)
+    return max(found, key=lambda p: (bool(menu_entries(p)), p.slug == slug), default=None)
+
+
+def menu_entries(program):
+    """A program Start menü bejegyzései: [(desktop fájl, a .exe a program mappájához képest)]."""
+    out = []
+    for path in sorted(APPS_DIR.glob("sloth-win-*.desktop")):
+        try:
+            lines = path.read_text(encoding="utf-8").splitlines()
+        except OSError:
+            continue
+        if f"X-Sloth-Program={program.slug}" not in lines:
+            continue
+        exec_line = next((ln[5:] for ln in lines if ln.startswith("Exec=")), "")
+        args = shlex.split(exec_line)
+        if len(args) == 4 and args[1] == "--launch":
+            out.append((path, args[3]))
+    return out
+
+
 def desktop_file_path(program, exe):
     key = slugify(Path(exe).stem)
     return APPS_DIR / f"sloth-win-{program.slug}-{key}.desktop"

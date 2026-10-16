@@ -8,10 +8,13 @@
   "choose.installer_text": "Орнатқаннан кейін оны Бастау мәзірінен табасыз.",
   "choose.program_text": "Оны орнатпай-ақ іске қосуға болады.",
   "choose.add_to_menu": "Бастау мәзіріне қосу",
+  "choose.already_installed": "{name} әлдеқашан орнатылған.",
 
   "button.cancel": "Болдырмау",
   "button.run_only": "Тек іске қосу",
   "button.install": "Орнату",
+  "button.open": "Ашу",
+  "button.reinstall": "Қайта орнату",
   "button.start": "Іске қосу",
   "button.done": "Дайын",
   "button.close": "Жабу",

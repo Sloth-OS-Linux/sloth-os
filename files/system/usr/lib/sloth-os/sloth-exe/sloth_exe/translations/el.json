@@ -8,10 +8,13 @@
   "choose.installer_text": "Μετά την εγκατάσταση θα το βρείτε στο μενού Έναρξη.",
   "choose.program_text": "Μπορείτε να το ανοίξετε και χωρίς εγκατάσταση.",
   "choose.add_to_menu": "Προσθήκη στο μενού Έναρξη",
+  "choose.already_installed": "Το {name} είναι ήδη εγκατεστημένο.",
 
   "button.cancel": "Ακύρωση",
   "button.run_only": "Μόνο εκτέλεση",
   "button.install": "Εγκατάσταση",
+  "button.open": "Άνοιγμα",
+  "button.reinstall": "Επανεγκατάσταση",
   "button.start": "Εκκίνηση",
   "button.done": "Τέλος",
   "button.close": "Κλείσιμο",

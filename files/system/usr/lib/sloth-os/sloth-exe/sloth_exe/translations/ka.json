@@ -8,10 +8,13 @@
   "choose.installer_text": "დაყენების შემდეგ მას „დაწყების“ მენიუში იპოვით.",
   "choose.program_text": "შეგიძლიათ დაყენების გარეშეც გაუშვათ.",
   "choose.add_to_menu": "„დაწყების“ მენიუში დამატება",
+  "choose.already_installed": "{name} უკვე დაინსტალირებულია.",
 
   "button.cancel": "გაუქმება",
   "button.run_only": "მხოლოდ გაშვება",
   "button.install": "დაყენება",
+  "button.open": "გახსნა",
+  "button.reinstall": "ხელახლა დაინსტალირება",
   "button.start": "გაშვება",
   "button.done": "მზადაა",
   "button.close": "დახურვა",

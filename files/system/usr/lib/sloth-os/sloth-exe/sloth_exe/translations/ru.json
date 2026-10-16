@@ -8,10 +8,13 @@
   "choose.installer_text": "После установки вы найдёте его в меню «Пуск».",
   "choose.program_text": "Его можно запустить и без установки.",
   "choose.add_to_menu": "Добавить в меню «Пуск»",
+  "choose.already_installed": "{name} уже установлен.",
 
   "button.cancel": "Отмена",
   "button.run_only": "Только запустить",
   "button.install": "Установить",
+  "button.open": "Открыть",
+  "button.reinstall": "Переустановить",
   "button.start": "Запустить",
   "button.done": "Готово",
   "button.close": "Закрыть",

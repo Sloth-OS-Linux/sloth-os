@@ -43,6 +43,7 @@ class ExeController(QObject):
         self._error = ""
         self._shortcuts = []
         self._program = None
+        self._existing = None  # ha ezt a programot már telepítettük (programs.find_installed)
         self._mode = ""  # "install" | "run"
         self._anticheat = None
         self._runner = Runner(self)
@@ -76,6 +77,8 @@ class ExeController(QObject):
         if self._name.lower() in ("setup", "install", "installer", ""):
             self._name = tr("misc.program")
         self._installer = programs.looks_like_installer(self._exe)
+        # Egy programot csak egyszer telepítünk: ha már megvan, megnyitás vagy újratelepítés ugyanoda
+        self._existing = programs.find_installed(self._name, self._exe) if self._installer else None
         icon = programs.extract_icon(self._exe, Path("/tmp") / f"sloth-exe-{programs.slugify(self._name)}.png")
         self._set_icon(icon)
         self._state = "choose"
@@ -123,6 +126,7 @@ class ExeController(QObject):
     name = Property(str, lambda self: self._name, notify=changed)
     iconUrl = Property(str, lambda self: self._icon, notify=changed)
     isInstaller = Property(bool, lambda self: self._installer, notify=changed)
+    alreadyInstalled = Property(bool, lambda self: self._existing is not None, notify=changed)
     statusText = Property(str, lambda self: self._status, notify=changed)
     progress = Property(int, lambda self: self._progress, notify=changed)
     errorText = Property(str, lambda self: self._error, notify=changed)
@@ -134,16 +138,22 @@ class ExeController(QObject):
 
     @Slot()
     def install(self):
-        slug = programs.slugify(self._name)
-        base, n = slug, 2
-        while programs.Program(slug).exists():
-            slug, n = f"{base}-{n}", n + 1
-        self._program = programs.Program(slug)
-        self._program.save_meta(name=self._name, installer=str(self._exe))
+        # Újratelepítés a meglévő mappába: a Start menü bejegyzései ugyanazok maradnak, nem duplázódnak
+        self._program = self._existing or programs.Program(programs.slugify(self._name))
+        self._program.save_meta(name=self._program.meta.get("name") or self._name, installer=str(self._exe))
         self._mode = "install"
         self._update_window()
         self._set_working(tr("status.preparing_install", name=self._name))
         self._runner.start(self._program, self._exe)
+
+    @Slot()
+    def openExisting(self):
+        """A már telepített program indítása, ahogy a Start menüből; ha nincs bejegyzése, választhat."""
+        entries = programs.menu_entries(self._existing)
+        if entries:
+            self.launch(self._existing.slug, entries[0][1])
+        else:
+            self.manage_shortcuts(self._existing.slug)
 
     @Slot(bool)
     def run(self, add_to_menu):

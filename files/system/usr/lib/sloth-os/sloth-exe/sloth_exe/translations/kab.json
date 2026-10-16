@@ -8,10 +8,13 @@
   "choose.installer_text": "Seld asebded, ad t-tafeḍ deg umuɣ n usenker.",
   "choose.program_text": "Tzemreḍ ad t-tsekreḍ ula mebla asebded.",
   "choose.add_to_menu": "Rnu ɣer umuɣ n usenker",
+  "choose.already_installed": "{name} yettwasbedd yakan.",
 
   "button.cancel": "Sefsex",
   "button.run_only": "Sekker kan",
   "button.install": "Sebded",
+  "button.open": "Ldi",
+  "button.reinstall": "Ales asebded",
   "button.start": "Sekker",
   "button.done": "Ifuk",
   "button.close": "Mdel",

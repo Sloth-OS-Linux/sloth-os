@@ -8,10 +8,13 @@
   "choose.installer_text": "ຫຼັງຕິດຕັ້ງ ທ່ານຈະພົບມັນໃນເມນູເລີ່ມຕົ້ນ.",
   "choose.program_text": "ທ່ານສາມາດເປີດມັນໂດຍບໍ່ຕ້ອງຕິດຕັ້ງກໍໄດ້.",
   "choose.add_to_menu": "ເພີ່ມໃສ່ເມນູເລີ່ມຕົ້ນ",
+  "choose.already_installed": "{name} ຕິດຕັ້ງແລ້ວ.",
 
   "button.cancel": "ຍົກເລີກ",
   "button.run_only": "ພຽງແຕ່ເປີດ",
   "button.install": "ຕິດຕັ້ງ",
+  "button.open": "ເປີດ",
+  "button.reinstall": "ຕິດຕັ້ງໃໝ່",
   "button.start": "ເປີດ",
   "button.done": "ສຳເລັດ",
   "button.close": "ປິດ",

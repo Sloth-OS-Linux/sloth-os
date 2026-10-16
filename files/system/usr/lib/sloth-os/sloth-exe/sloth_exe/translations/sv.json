@@ -8,10 +8,13 @@
   "choose.installer_text": "Efter installationen hittar du det i startmenyn.",
   "choose.program_text": "Du kan också köra det utan att installera.",
   "choose.add_to_menu": "Lägg till i startmenyn",
+  "choose.already_installed": "{name} är redan installerat.",
 
   "button.cancel": "Avbryt",
   "button.run_only": "Bara kör",
   "button.install": "Installera",
+  "button.open": "Öppna",
+  "button.reinstall": "Installera om",
   "button.start": "Starta",
   "button.done": "Klar",
   "button.close": "Stäng",

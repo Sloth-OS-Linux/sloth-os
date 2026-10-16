@@ -8,10 +8,13 @@
   "choose.installer_text": "לאחר ההתקנה תמצאו אותו בתפריט התחל.",
   "choose.program_text": "אפשר גם להפעיל אותו בלי להתקין.",
   "choose.add_to_menu": "הוספה לתפריט התחל",
+  "choose.already_installed": "{name} כבר מותקן.",
 
   "button.cancel": "ביטול",
   "button.run_only": "רק להפעיל",
   "button.install": "התקנה",
+  "button.open": "פתיחה",
+  "button.reinstall": "התקנה מחדש",
   "button.start": "הפעלה",
   "button.done": "סיום",
   "button.close": "סגירה",

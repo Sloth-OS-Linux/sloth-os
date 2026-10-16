@@ -8,10 +8,13 @@
   "choose.installer_text": "インストール後はスタートメニューから使えます。",
   "choose.program_text": "インストールせずに起動することもできます。",
   "choose.add_to_menu": "スタートメニューに追加",
+  "choose.already_installed": "{name} はすでにインストールされています。",
 
   "button.cancel": "キャンセル",
   "button.run_only": "実行のみ",
   "button.install": "インストール",
+  "button.open": "開く",
+  "button.reinstall": "再インストール",
   "button.start": "起動",
   "button.done": "完了",
   "button.close": "閉じる",

@@ -8,10 +8,13 @@
   "choose.installer_text": "ইনষ্টলৰ পিছত ইয়াক ষ্টাৰ্ট মেনুত পাব।",
   "choose.program_text": "ইনষ্টল নকৰাকৈও ইয়াক চলাব পাৰে।",
   "choose.add_to_menu": "ষ্টাৰ্ট মেনুত যোগ কৰক",
+  "choose.already_installed": "{name} ইতিমধ্যে ইনষ্টল কৰা হৈছে।",
 
   "button.cancel": "বাতিল কৰক",
   "button.run_only": "কেৱল চলাওক",
   "button.install": "ইনষ্টল কৰক",
+  "button.open": "খোলক",
+  "button.reinstall": "পুনৰ ইনষ্টল কৰক",
   "button.start": "আৰম্ভ কৰক",
   "button.done": "হ'ল",
   "button.close": "বন্ধ কৰক",

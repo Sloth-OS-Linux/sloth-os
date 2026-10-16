@@ -8,10 +8,13 @@
   "choose.installer_text": "Telepítés után a Start menüben találod.",
   "choose.program_text": "Elindíthatod telepítés nélkül is.",
   "choose.add_to_menu": "Hozzáadás a Start menühöz",
+  "choose.already_installed": "{name} már telepítve van.",
 
   "button.cancel": "Mégse",
   "button.run_only": "Csak futtatás",
   "button.install": "Telepítés",
+  "button.open": "Megnyitás",
+  "button.reinstall": "Újratelepítés",
   "button.start": "Indítás",
   "button.done": "Kész",
   "button.close": "Bezárás",

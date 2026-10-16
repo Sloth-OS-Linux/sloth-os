@@ -8,10 +8,13 @@
   "choose.installer_text": "Asennuksen jälkeen löydät sen Käynnistä-valikosta.",
   "choose.program_text": "Voit myös käynnistää sen asentamatta.",
   "choose.add_to_menu": "Lisää Käynnistä-valikkoon",
+  "choose.already_installed": "{name} on jo asennettu.",
 
   "button.cancel": "Peruuta",
   "button.run_only": "Käynnistä vain",
   "button.install": "Asenna",
+  "button.open": "Avaa",
+  "button.reinstall": "Asenna uudelleen",
   "button.start": "Käynnistä",
   "button.done": "Valmis",
   "button.close": "Sulje",

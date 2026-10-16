@@ -8,10 +8,13 @@
   "choose.installer_text": "Depois de instalar, encontra-o no menu Iniciar.",
   "choose.program_text": "Também o pode abrir sem instalar.",
   "choose.add_to_menu": "Adicionar ao menu Iniciar",
+  "choose.already_installed": "{name} já está instalado.",
 
   "button.cancel": "Cancelar",
   "button.run_only": "Só executar",
   "button.install": "Instalar",
+  "button.open": "Abrir",
+  "button.reinstall": "Reinstalar",
   "button.start": "Iniciar",
   "button.done": "Concluído",
   "button.close": "Fechar",

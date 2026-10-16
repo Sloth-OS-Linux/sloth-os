@@ -8,10 +8,13 @@
   "choose.installer_text": "Setelah dipasang, Anda bisa menemukannya di menu Start.",
   "choose.program_text": "Anda juga bisa menjalankannya tanpa memasang.",
   "choose.add_to_menu": "Tambahkan ke menu Start",
+  "choose.already_installed": "{name} sudah terpasang.",
 
   "button.cancel": "Batal",
   "button.run_only": "Jalankan saja",
   "button.install": "Pasang",
+  "button.open": "Buka",
+  "button.reinstall": "Pasang ulang",
   "button.start": "Mulai",
   "button.done": "Selesai",
   "button.close": "Tutup",

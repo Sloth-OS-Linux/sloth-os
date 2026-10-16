@@ -8,10 +8,13 @@
   "choose.installer_text": "Nakon instalacije pronaći ćete ga u izborniku Start.",
   "choose.program_text": "Možete ga pokrenuti i bez instalacije.",
   "choose.add_to_menu": "Dodaj u izbornik Start",
+  "choose.already_installed": "{name} je već instaliran.",
 
   "button.cancel": "Odustani",
   "button.run_only": "Samo pokreni",
   "button.install": "Instaliraj",
+  "button.open": "Otvori",
+  "button.reinstall": "Ponovno instaliraj",
   "button.start": "Pokreni",
   "button.done": "Gotovo",
   "button.close": "Zatvori",

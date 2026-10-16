@@ -8,10 +8,13 @@
   "choose.installer_text": "ইনস্টলের পরে এটি স্টার্ট মেনুতে পাবেন।",
   "choose.program_text": "ইনস্টল না করেও এটি চালাতে পারেন।",
   "choose.add_to_menu": "স্টার্ট মেনুতে যোগ করুন",
+  "choose.already_installed": "{name} আগে থেকেই ইনস্টল করা আছে।",
 
   "button.cancel": "বাতিল",
   "button.run_only": "শুধু চালান",
   "button.install": "ইনস্টল করুন",
+  "button.open": "খুলুন",
+  "button.reinstall": "পুনরায় ইনস্টল করুন",
   "button.start": "চালু করুন",
   "button.done": "সম্পন্ন",
   "button.close": "বন্ধ করুন",
