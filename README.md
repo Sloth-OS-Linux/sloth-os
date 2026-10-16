@@ -7,6 +7,16 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 - **Apps:** Flatpak (Flathub)
 - **Build:** [BlueBuild](https://blue-build.org) + GitHub Actions; a new image is built after every commit and daily
 
+## Website and user guides
+
+The Sloth OS website and tester guides live in [`docs/`](docs/README.md). The project is still a pre-release: there is no public ISO download yet, and the roadmap lists real-hardware validation and release preparation as outstanding work.
+
+- [Website home](docs/index.html)
+- [Getting started](docs/getting-started.html)
+- [Windows programs and games](docs/windows-apps.html)
+- [Privacy](docs/privacy.html)
+- [FAQ](docs/faq.html)
+
 ## Windows programs that just start
 
 Double-click a Windows `.exe` or `.msi` and it installs or runs, without Steam and without the user ever
