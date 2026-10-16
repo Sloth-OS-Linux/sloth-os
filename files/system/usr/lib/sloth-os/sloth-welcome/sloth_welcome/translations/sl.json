@@ -130,6 +130,8 @@
   "done.accounts": "Spletni računi (Google, Microsoft…)",
   "done.language": "Jezik in regija",
   "done.start": "Zabavajte se!",
+  "done.restart": "Znova zaženi",
+  "done.restart_hint": "Znova zaženite računalnik, da se vse nove aplikacije pravilno naložijo.",
 
   "desktop.generic": "Aplikacije in videz",
   "desktop.comment": "Namestitev brskalnika, pisarniškega paketa, predvajalnika predstavnosti in drugega, izbira barvne sheme",

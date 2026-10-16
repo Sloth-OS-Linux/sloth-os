@@ -130,6 +130,8 @@
   "done.accounts": "Online účty (Google, Microsoft…)",
   "done.language": "Jazyk a oblast",
   "done.start": "Užijte si to!",
+  "done.restart": "Restartovat",
+  "done.restart_hint": "Restartujte počítač, aby se všechny nové aplikace správně načetly.",
 
   "desktop.generic": "Aplikace a vzhled",
   "desktop.comment": "Instalace prohlížeče, kancelářského balíku, přehrávače médií a dalších aplikací, výběr barevného schématu",

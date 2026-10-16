@@ -130,6 +130,8 @@
   "done.accounts": "Imiḍanen srid (Google, Microsoft…)",
   "done.language": "Tutlayt d temnaḍt",
   "done.start": "Zhu!",
+  "done.restart": "Ales asekker",
+  "done.restart_hint": "Ales asekker n uselkim akken ad d-alint akk teɣzinin timaynutin akken iwata.",
 
   "desktop.generic": "Isnasen d urwas",
   "desktop.comment": "Sebded iminig, isnasen n tnarit, imeɣri n umidya d wiyaḍ, fren asentel n yiniten",

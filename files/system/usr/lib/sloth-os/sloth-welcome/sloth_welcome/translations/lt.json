@@ -130,6 +130,8 @@
   "done.accounts": "Internetinės paskyros (Google, Microsoft…)",
   "done.language": "Kalba ir regionas",
   "done.start": "Smagaus naudojimo!",
+  "done.restart": "Paleisti iš naujo",
+  "done.restart_hint": "Paleiskite kompiuterį iš naujo, kad visos naujos programos tinkamai įsikeltų.",
 
   "desktop.generic": "Programos ir išvaizda",
   "desktop.comment": "Naršyklės, biuro paketo, medijos leistuvės ir kitų programų įdiegimas, spalvų schemos pasirinkimas",

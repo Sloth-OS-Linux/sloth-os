@@ -130,6 +130,8 @@
   "done.accounts": "ਔਨਲਾਈਨ ਖਾਤੇ (Google, Microsoft…)",
   "done.language": "ਭਾਸ਼ਾ ਤੇ ਖੇਤਰ",
   "done.start": "ਮੌਜਾਂ ਮਾਣੋ!",
+  "done.restart": "ਮੁੜ ਚਾਲੂ ਕਰੋ",
+  "done.restart_hint": "ਸਾਰੀਆਂ ਨਵੀਆਂ ਐਪਾਂ ਠੀਕ ਤਰ੍ਹਾਂ ਲੋਡ ਹੋਣ ਲਈ ਕੰਪਿਊਟਰ ਨੂੰ ਮੁੜ ਚਾਲੂ ਕਰੋ।",
 
   "desktop.generic": "ਐਪਾਂ ਅਤੇ ਦਿੱਖ",
   "desktop.comment": "ਬ੍ਰਾਊਜ਼ਰ, ਦਫ਼ਤਰੀ ਸੂਟ, ਮੀਡੀਆ ਪਲੇਅਰ ਅਤੇ ਹੋਰ ਇੰਸਟਾਲ ਕਰੋ, ਰੰਗ ਸਕੀਮ ਚੁਣੋ",

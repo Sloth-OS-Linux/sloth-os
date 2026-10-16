@@ -130,6 +130,8 @@
   "done.accounts": "Konta online (Google, Microsoft…)",
   "done.language": "Język i region",
   "done.start": "Miłej zabawy!",
+  "done.restart": "Uruchom ponownie",
+  "done.restart_hint": "Uruchom komputer ponownie, aby wszystkie nowe aplikacje załadowały się poprawnie.",
 
   "desktop.generic": "Aplikacje i wygląd",
   "desktop.comment": "Instalacja przeglądarki, pakietu biurowego, odtwarzacza multimediów i innych aplikacji, wybór schematu kolorów",

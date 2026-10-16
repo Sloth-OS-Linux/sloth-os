@@ -130,6 +130,8 @@
   "done.accounts": "Onlinekonton (Google, Microsoft…)",
   "done.language": "Språk och region",
   "done.start": "Ha det så kul!",
+  "done.restart": "Starta om",
+  "done.restart_hint": "Starta om datorn så att alla nya appar läses in ordentligt.",
 
   "desktop.generic": "Appar och utseende",
   "desktop.comment": "Installera en webbläsare, ett kontorspaket, en mediaspelare med mera, välj ett färgschema",

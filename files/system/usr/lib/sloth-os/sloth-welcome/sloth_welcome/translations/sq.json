@@ -130,6 +130,8 @@
   "done.accounts": "Llogari në internet (Google, Microsoft…)",
   "done.language": "Gjuha dhe rajoni",
   "done.start": "Kënaquni!",
+  "done.restart": "Rinis",
+  "done.restart_hint": "Rinisni kompjuterin që të gjitha aplikacionet e reja të ngarkohen si duhet.",
 
   "desktop.generic": "Aplikacione dhe pamje",
   "desktop.comment": "Instalimi i një shfletuesi, pakete zyre, luajtësi mediash dhe më shumë, zgjedhja e një skeme ngjyrash",

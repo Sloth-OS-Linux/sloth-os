@@ -130,6 +130,8 @@
   "done.accounts": "Account in linie (Google, Microsoft…)",
   "done.language": "Lenghe e regjon",
   "done.start": "Divertissiti!",
+  "done.restart": "Torne invie",
+  "done.restart_hint": "Torne invie il computer par che dutis lis gnovis aplicazions a vegnin cjariadis ben.",
 
   "desktop.generic": "Aplicazions e aspiet",
   "desktop.comment": "Instalâ un navigadôr, une suite di ufici, un riprodutôr multimediâl e altri, sielzi un scheme di colôrs",

@@ -130,6 +130,8 @@
   "done.accounts": "חשבונות מקוונים (Google, Microsoft…)",
   "done.language": "שפה ואזור",
   "done.start": "תהנו!",
+  "done.restart": "הפעלה מחדש",
+  "done.restart_hint": "הפעילו מחדש את המחשב כדי שכל היישומים החדשים ייטענו כראוי.",
 
   "desktop.generic": "יישומים ומראה",
   "desktop.comment": "התקנת דפדפן, חבילה משרדית, נגן מדיה ועוד, ובחירת ערכת צבעים",

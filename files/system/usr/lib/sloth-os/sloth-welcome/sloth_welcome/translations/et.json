@@ -130,6 +130,8 @@
   "done.accounts": "Võrgukontod (Google, Microsoft…)",
   "done.language": "Keel ja piirkond",
   "done.start": "Head lõbutsemist!",
+  "done.restart": "Taaskäivita",
+  "done.restart_hint": "Taaskäivita arvuti, et kõik uued rakendused korralikult laaditaks.",
 
   "desktop.generic": "Rakendused ja välimus",
   "desktop.comment": "Veebilehitseja, kontoritarkvara, meediapleieri ja muu paigaldamine, värviskeemi valimine",

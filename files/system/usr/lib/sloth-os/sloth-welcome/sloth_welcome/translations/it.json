@@ -130,6 +130,8 @@
   "done.accounts": "Account online (Google, Microsoft…)",
   "done.language": "Lingua e regione",
   "done.start": "Buon divertimento!",
+  "done.restart": "Riavvia",
+  "done.restart_hint": "Riavvia il computer perché tutte le nuove app si carichino correttamente.",
 
   "desktop.generic": "App e aspetto",
   "desktop.comment": "Installare un browser, una suite per ufficio, un lettore multimediale e altro, scegliere uno schema di colori",

@@ -582,12 +582,32 @@ Kirigami.ApplicationWindow {
                             onClicked: welcome.quickAction("language")
                         }
                     }
-                    QQC2.Button {
+                    // Telepítés után az újraindítás a fő gomb: utána minden új app rendesen betöltődik
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        visible: welcome.anyInstalled
+                        text: root.t("done.restart_hint")
+                    }
+                    RowLayout {
                         Layout.alignment: Qt.AlignHCenter
-                        text: root.t("done.start")
-                        icon.name: "go-next"
-                        highlighted: true
-                        onClicked: welcome.finish()
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.Button {
+                            text: root.t("done.start")
+                            icon.name: "go-next"
+                            highlighted: !welcome.anyInstalled
+                            onClicked: welcome.finish(false)
+                        }
+                        QQC2.Button {
+                            visible: welcome.anyInstalled
+                            text: root.t("done.restart")
+                            icon.name: "system-reboot"
+                            highlighted: true
+                            onClicked: welcome.finish(true)
+                        }
                     }
                 }
             }

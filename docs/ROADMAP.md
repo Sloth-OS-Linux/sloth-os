@@ -52,8 +52,11 @@ Talált hibák (egyesével javítjuk):
   de a szöveg csak azt írja, hogy „… telepítése”, a letöltést ne említse. Javítva (szimulációval kipróbálva,
   valódi gépen még tesztelni): az ok az egy közös tranzakció volt (minden kiegészítő az app nevével jelent meg);
   most appónként külön tranzakció, előtte méretfelmérés, a felirat „X telepítése…”, alatta „330 MB / 430 MB”
-- [ ] **Üdvözlő vége:** legyen újraindítás gomb, hogy minden rendesen betöltődjön
-- [ ] Az Üdvözlő bezárása után a tálcán még az alap ikonok látszanak az appok ikonjai helyett (újraindítás után jó)
+- [x] **Üdvözlő vége:** legyen újraindítás gomb, hogy minden rendesen betöltődjön. Kész (valódi gépen tesztelni):
+  ha települt app, az Újraindítás a fő gomb egy rövid magyarázattal; az „Indulhat a móka!” is megmaradt
+- [x] Az Üdvözlő bezárása után a tálcán még az alap ikonok látszanak az appok ikonjai helyett (újraindítás után jó).
+  Javítva (valódi gépen tesztelni): a tálcára kitűzés előtt `kbuildsycoca6` és ikon-újratöltés jelzés
+  (`/KIconLoader iconChanged`); ha ez sem elég, az Újraindítás gomb megoldja
 - [x] **.exe kezelő (nagy hiba):** ugyanazt a programot kétszer (vagy többször) is engedi telepíteni, és a Start
   menüben is többször jelenik meg. Javítva (valódi gépen még tesztelni): ha a program már megvan (ugyanaz a név
   vagy ugyanaz a telepítőfájl), „X már telepítve van.”, Megnyitás (alapból) vagy Újratelepítés ugyanabba a
@@ -70,8 +73,10 @@ Talált hibák (egyesével javítjuk):
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja
 - [ ] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik
 - [ ] A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért)
-- [ ] A rendszer neve „Sloth OS 44” (a Fedora verziószáma látszik): a Sloth OS saját verziószámot kapjon (pl. 1),
-  és valahol (pl. a Rendszerinformációban) jelenjen meg, hogy Fedora Atomic alapú
+- [x] A rendszer neve „Sloth OS 44” (a Fedora verziószáma látszik): a Sloth OS saját verziószámot kapjon (pl. 1),
+  és valahol (pl. a Rendszerinformációban) jelenjen meg, hogy Fedora Atomic alapú. Kész (valódi gépen
+  megnézni): „Sloth OS 1.0 (Fedora Atomic 44)” (`branding.sh`: VERSION, PRETTY_NAME; a VERSION_ID marad 44;
+  `/etc/xdg/kcm-about-distrorc`: UseOSReleaseVersion)
 
 ### Teendők fontossági sorrendben
 **Publikálás előtt kötelező:**

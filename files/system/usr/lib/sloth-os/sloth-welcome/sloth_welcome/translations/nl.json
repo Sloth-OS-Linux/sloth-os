@@ -130,6 +130,8 @@
   "done.accounts": "Online accounts (Google, Microsoft…)",
   "done.language": "Taal en regio",
   "done.start": "Veel plezier!",
+  "done.restart": "Opnieuw opstarten",
+  "done.restart_hint": "Start de computer opnieuw op zodat alle nieuwe apps goed worden geladen.",
 
   "desktop.generic": "Apps en uiterlijk",
   "desktop.comment": "Een browser, kantoorpakket, mediaspeler en meer installeren, een kleurenschema kiezen",

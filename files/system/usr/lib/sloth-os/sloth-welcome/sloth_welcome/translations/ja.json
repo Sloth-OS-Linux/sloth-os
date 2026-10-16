@@ -130,6 +130,8 @@
   "done.accounts": "オンラインアカウント（Google、Microsoft…）",
   "done.language": "言語と地域",
   "done.start": "さあ、楽しみましょう！",
+  "done.restart": "再起動",
+  "done.restart_hint": "新しいアプリをすべて正しく読み込むために、コンピューターを再起動してください。",
 
   "desktop.generic": "アプリと外観",
   "desktop.comment": "ブラウザー、オフィスソフト、メディアプレーヤーなどをインストールし、配色を選びます",

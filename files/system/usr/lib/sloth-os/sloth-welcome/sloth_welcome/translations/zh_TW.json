@@ -130,6 +130,8 @@
   "done.accounts": "線上帳號（Google、Microsoft…）",
   "done.language": "語言和地區",
   "done.start": "盡情享受吧！",
+  "done.restart": "重新啟動",
+  "done.restart_hint": "重新啟動電腦，讓所有新應用程式正常載入。",
 
   "desktop.generic": "應用程式與外觀",
   "desktop.comment": "安裝瀏覽器、辦公室套件、媒體播放器等，選擇配色",

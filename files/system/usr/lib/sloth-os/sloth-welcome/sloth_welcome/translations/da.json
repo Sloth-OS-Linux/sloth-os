@@ -130,6 +130,8 @@
   "done.accounts": "Onlinekonti (Google, Microsoft…)",
   "done.language": "Sprog og område",
   "done.start": "God fornøjelse!",
+  "done.restart": "Genstart",
+  "done.restart_hint": "Genstart computeren, så alle nye apps indlæses korrekt.",
 
   "desktop.generic": "Apps og udseende",
   "desktop.comment": "Installer en browser, kontorpakke, medieafspiller og mere, vælg et farveskema",

@@ -130,6 +130,8 @@
   "done.accounts": "Comptes en línia (Google, Microsoft…)",
   "done.language": "Llengua i regió",
   "done.start": "A divertir-se!",
+  "done.restart": "Reinicia",
+  "done.restart_hint": "Reinicia l'ordinador perquè totes les aplicacions noves es carreguin bé.",
 
   "desktop.generic": "Aplicacions i aparença",
   "desktop.comment": "Instal·lar un navegador, un paquet ofimàtic, un reproductor multimèdia i més, i triar un esquema de colors",

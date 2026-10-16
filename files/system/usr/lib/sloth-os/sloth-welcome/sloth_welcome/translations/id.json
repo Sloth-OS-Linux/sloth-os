@@ -130,6 +130,8 @@
   "done.accounts": "Akun daring (Google, Microsoft…)",
   "done.language": "Bahasa dan wilayah",
   "done.start": "Selamat bersenang-senang!",
+  "done.restart": "Mulai ulang",
+  "done.restart_hint": "Mulai ulang komputer agar semua aplikasi baru dimuat dengan benar.",
 
   "desktop.generic": "Aplikasi dan tampilan",
   "desktop.comment": "Pasang peramban, paket perkantoran, pemutar media, dan lainnya, pilih skema warna",

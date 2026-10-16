@@ -52,6 +52,32 @@ for (const panel of panels()) {
 """
 
 
+def refresh_app_cache():
+    """Frissen telepített appok: a Plasma lássa a Start menü bejegyzésüket és az ikonjukat.
+
+    Enélkül a tálcán az általános ikon látszott újraindításig: a bejegyzések gyorsítótárát
+    (kbuildsycoca6) újraépítjük, és szólunk a futó programoknak, hogy töltsék újra az ikonokat.
+    """
+    try:
+        subprocess.run(["kbuildsycoca6"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=60)
+    except (OSError, subprocess.SubprocessError) as e:
+        log.warning("kbuildsycoca6: %s", e)
+    try:
+        bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+        bus.emit_signal(None, "/KIconLoader", "org.kde.KIconLoader", "iconChanged", GLib.Variant("(i)", (0,)))
+        bus.flush_sync(None)
+    except GLib.Error as e:
+        log.warning("ikonok újratöltése: %s", e.message)
+
+
+def reboot():
+    try:
+        subprocess.Popen(["systemctl", "reboot"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                         start_new_session=True)
+    except OSError as e:
+        log.warning("újraindítás: %s", e)
+
+
 def pin_to_taskbar(app_ids):
     """Kitűzi az appokat a tálcára (a Plasma szkriptfelületén keresztül)."""
     if not app_ids:

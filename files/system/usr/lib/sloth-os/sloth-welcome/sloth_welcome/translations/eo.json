@@ -130,6 +130,8 @@
   "done.accounts": "Retaj kontoj (Google, Microsoft…)",
   "done.language": "Lingvo kaj regiono",
   "done.start": "Amuziĝu!",
+  "done.restart": "Restartigi",
+  "done.restart_hint": "Restartigu la komputilon, por ke ĉiuj novaj aplikaĵoj ŝargiĝu ĝuste.",
 
   "desktop.generic": "Aplikaĵoj kaj aspekto",
   "desktop.comment": "Instalu retumilon, oficejan programaron, aŭdvidan ludilon kaj pli, elektu kolorskemon",

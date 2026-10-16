@@ -130,6 +130,8 @@
   "done.accounts": "Mrežni računi (Google, Microsoft…)",
   "done.language": "Jezik i regija",
   "done.start": "Zabavite se!",
+  "done.restart": "Ponovno pokreni",
+  "done.restart_hint": "Ponovno pokrenite računalo kako bi se sve nove aplikacije ispravno učitale.",
 
   "desktop.generic": "Aplikacije i izgled",
   "desktop.comment": "Instaliranje preglednika, uredskog paketa, medijskog reproduktora i drugog, odabir sheme boja",

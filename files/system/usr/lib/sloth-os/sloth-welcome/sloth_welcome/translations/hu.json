@@ -130,6 +130,8 @@
   "done.accounts": "Online fiókok (Google, Microsoft…)",
   "done.language": "Nyelv és régió",
   "done.start": "Indulhat a móka!",
+  "done.restart": "Újraindítás",
+  "done.restart_hint": "Egy újraindítás után minden új app rendesen betöltődik.",
 
   "desktop.generic": "Appok és megjelenés",
   "desktop.comment": "Böngésző, irodai programok, médialejátszó és más appok telepítése, színtéma választás",

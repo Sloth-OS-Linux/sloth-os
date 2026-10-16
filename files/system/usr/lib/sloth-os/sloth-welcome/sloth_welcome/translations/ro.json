@@ -130,6 +130,8 @@
   "done.accounts": "Conturi online (Google, Microsoft…)",
   "done.language": "Limbă și regiune",
   "done.start": "Distracție plăcută!",
+  "done.restart": "Repornește",
+  "done.restart_hint": "Repornește calculatorul ca toate aplicațiile noi să se încarce corect.",
 
   "desktop.generic": "Aplicații și aspect",
   "desktop.comment": "Instalarea unui navigator, a unei suite de birou, a unui player media și altele, alegerea unei scheme de culori",

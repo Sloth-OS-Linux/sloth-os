@@ -130,6 +130,8 @@
   "done.accounts": "Çevrim içi hesaplar (Google, Microsoft…)",
   "done.language": "Dil ve bölge",
   "done.start": "İyi eğlenceler!",
+  "done.restart": "Yeniden başlat",
+  "done.restart_hint": "Tüm yeni uygulamaların düzgün yüklenmesi için bilgisayarı yeniden başlatın.",
 
   "desktop.generic": "Uygulamalar ve görünüm",
   "desktop.comment": "Tarayıcı, ofis paketi, medya oynatıcı ve daha fazlasını yükleme, renk şeması seçme",

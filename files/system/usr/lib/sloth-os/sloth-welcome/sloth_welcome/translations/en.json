@@ -130,6 +130,8 @@
   "done.accounts": "Online accounts (Google, Microsoft…)",
   "done.language": "Language and region",
   "done.start": "Let's have fun!",
+  "done.restart": "Restart",
+  "done.restart_hint": "Restart the computer so all new apps load properly.",
 
   "desktop.generic": "Apps and appearance",
   "desktop.comment": "Install a browser, office suite, media player and more, pick a color theme",

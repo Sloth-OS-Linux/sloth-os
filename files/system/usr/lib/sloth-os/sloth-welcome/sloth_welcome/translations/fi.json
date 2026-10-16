@@ -130,6 +130,8 @@
   "done.accounts": "Verkkotilit (Google, Microsoft…)",
   "done.language": "Kieli ja alue",
   "done.start": "Pidä hauskaa!",
+  "done.restart": "Käynnistä uudelleen",
+  "done.restart_hint": "Käynnistä tietokone uudelleen, jotta kaikki uudet sovellukset latautuvat oikein.",
 
   "desktop.generic": "Sovellukset ja ulkoasu",
   "desktop.comment": "Asenna selain, toimisto-ohjelmat, mediasoitin ja muuta, valitse väriteema",

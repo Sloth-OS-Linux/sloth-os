@@ -130,6 +130,8 @@
   "done.accounts": "Online-Konten (Google, Microsoft…)",
   "done.language": "Sprache und Region",
   "done.start": "Viel Spaß!",
+  "done.restart": "Neu starten",
+  "done.restart_hint": "Starte den Computer neu, damit alle neuen Apps richtig geladen werden.",
 
   "desktop.generic": "Apps und Aussehen",
   "desktop.comment": "Browser, Office-Paket, Mediaplayer und mehr installieren, Farbschema wählen",

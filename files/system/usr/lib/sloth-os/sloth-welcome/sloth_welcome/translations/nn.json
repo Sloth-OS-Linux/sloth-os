@@ -130,6 +130,8 @@
   "done.accounts": "Nettkontoar (Google, Microsoft…)",
   "done.language": "Språk og region",
   "done.start": "Kos deg!",
+  "done.restart": "Start på nytt",
+  "done.restart_hint": "Start datamaskina på nytt så alle nye appar vert lasta inn rett.",
 
   "desktop.generic": "Appar og utsjånad",
   "desktop.comment": "Installer ein nettlesar, kontorpakke, mediespelar og meir, vel eit fargeoppsett",
