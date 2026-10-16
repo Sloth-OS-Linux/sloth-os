@@ -3,17 +3,25 @@ on:
   # A napi build ki van kapcsolva, amíg a repó privát (havi 2000 perces Actions-keret).
   # Ha publikus lesz / lesznek felhasználók, vissza kell kapcsolni (ROADMAP 4. fázis).
   # schedule:
-  #   - cron: "00 06 * * *" # naponta 06:00 UTC, a ublue alap image-ek után
+  #   - cron: "00 06 UTC" # naponta 06:00 UTC, a ublue alap image-ek után
   push:
     paths-ignore:
       - "**.md"
-      # ezek nem kerülnek bele az image-be (telepítő ISO, fejlesztői segédek, dokumentáció)
+      # Ezek nem változtatják meg a futó rendszert vagy az image buildet.
       - "iso/**"
       - "tools/**"
       - "docs/**"
       - ".github/workflows/iso.yml"
+      - ".github/workflows/pages.yml"
+      - ".github/workflows/build.yml"
+  # Egy teljes BlueBuild image készítése csak az image bemenetének módosításakor kell.
   pull_request:
-  workflow_dispatch: # kézi indítás a GitHub felületről
+    paths:
+      - "cosign.pub"
+      - "files/**"
+      - "modules/**"
+      - "recipes/**"
+  workflow_dispatch: # kézi indítás a GitHub felületéről
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
