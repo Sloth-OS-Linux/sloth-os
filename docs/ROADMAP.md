@@ -79,9 +79,9 @@ nem volt benne, lásd fent).
   - [ ] Tömörített memória-tartalék (Haladó beállítások): átállítás után, újraindítás után kiírja-e az új méretet?
     (még nincs tesztelve)
   - [x] PIN-kód a zárolási képernyőn (Win+L) is működik, nem csak bejelentkezéskor? Igen, mindenhol
-  - [ ] Rendszerinformáció: „Sloth OS 1.0 (Fedora Atomic 44)” látszik? **Nem: „Sloth OS 44”.** A CI-build
-    os-release-e jó (VERSION="1.0 (Fedora Atomic 44)"), tehát vagy a KDE nem a VERSION-t mutatja
-    (`kcm-about-distrorc`), vagy máshol látszott. Megkérdezni, hol pontosan
+  - [x] Rendszerinformáció: „Sloth OS 1.0 (Fedora Atomic 44)” látszik? A „Sloth OS 44” a Sloth Központ Frissítések
+    oldalán volt („Jelenlegi verzió”): az rpm-ostree verziócímkéjéből („44.2026…”) készült. Javítva: a rendszerverzió
+    saját os-release-éből (PRETTY_NAME); a még le nem töltött frissítésnél „Sloth OS” + dátum
   - [x] Üdvözlő, több app egyszerre: sorban, egyesével települnek? Igen; a Vivaldi is feltelepült. A végén az
     Újraindítás gomb működik
   - [x] Rendszerfrissítés: volt már? A Frissítések oldalon minden rendben volt? Igen, rendben

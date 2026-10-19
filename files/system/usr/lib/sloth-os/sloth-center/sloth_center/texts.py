@@ -5,7 +5,7 @@ A felhasználó soha nem látja a nyers kimenetet; csak azt, hogy épp mi tört�
 A szövegek a választott nyelven jelennek meg (i18n.py).
 """
 import datetime
-import re
+from pathlib import Path
 
 from PySide6.QtCore import QDate, QLocale
 
@@ -84,14 +84,29 @@ def date_text(timestamp):
     return QLocale(catalog.language()).toString(QDate(d.year, d.month, d.day), QLocale.FormatType.LongFormat)
 
 
+def _pretty_name(deployment):
+    """A rendszerverzió saját nevéből (os-release PRETTY_NAME), pl. "Sloth OS 1.0 (Fedora Atomic 44)".
+
+    A telepített verziók fájljai olvashatók (/ostree/deploy/...); a még le nem töltött frissítésnek nincs ilyen."""
+    paths = [Path("/ostree/deploy", deployment.get("osname") or "",
+                  "deploy", f"{deployment.get('checksum')}.{deployment.get('serial')}", "usr/lib/os-release")]
+    if deployment.get("booted"):
+        paths.append(Path("/usr/lib/os-release"))
+    for path in paths:
+        try:
+            for line in path.read_text(encoding="utf-8").splitlines():
+                if line.startswith("PRETTY_NAME="):
+                    return line.split("=", 1)[1].strip().strip('"')
+        except OSError:
+            continue
+    return ""
+
+
 def version_text(deployment):
-    """Pl. "Sloth OS 44 · 2026. október 13." a telepített verzióból."""
+    """Pl. "Sloth OS 1.0 (Fedora Atomic 44) · 2026. október 13." a telepített verzióból."""
     if not deployment:
         return ""
-    version = str(deployment.get("version") or "")
-    # A ublue verziók formája: "44.20261013" vagy "latest-44.20261013.0"
-    m = re.search(r"(\d{2})\.(\d{8})", version)
-    major = m.group(1) if m else ""
+    # Az rpm-ostree "version" címkéje ("44.20261013") csak a Fedora verziószáma, nem a Sloth OS-é
+    name = _pretty_name(deployment) or "Sloth OS"
     date = date_text(deployment.get("timestamp"))
-    name = f"Sloth OS {major}".strip()
     return f"{name} · {date}" if date else name
