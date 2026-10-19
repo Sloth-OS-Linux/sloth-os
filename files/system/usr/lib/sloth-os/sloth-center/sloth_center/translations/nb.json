@@ -449,5 +449,12 @@
   "Telefon összekötése": "Koble til telefonen",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Telefonens varsler, filer og meldinger på datamaskinen (KDE Connect). Installer KDE Connect-appen på telefonen; begge må være på det samme Wi-Fi-nettverket.",
   "Nem sikerült átállítani.": "Kunne ikke endres.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Den nyeste oppdateringen er ikke tilgjengelig ennå (den lages akkurat nå). Prøv igjen om noen minutter."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Den nyeste oppdateringen er ikke tilgjengelig ennå (den lages akkurat nå). Prøv igjen om noen minutter.",
+  "Felhőtárhely": "Skylagring",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive eller Google Drive som en mappe i hjemmemappen din, akkurat som i Windows: alle filer vises, men bare de du åpner, blir lastet ned. Åpnede filer er tilgjengelige også uten internett.",
+  "{name}: csatlakoztatva ({folder})": "{name}: tilkoblet ({folder})",
+  "Bejelentkezés": "Logg inn",
+  "Leválasztás": "Koble fra",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Logg inn i nettleservinduet som åpnes. Når du er ferdig, fortsetter det her av seg selv.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Ferdig: filene dine ligger i mappen {folder}."
 }

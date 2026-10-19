@@ -449,5 +449,12 @@
   "Telefon összekötése": "Qqen tiliɣri",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Ilɣa, ifuyla d yiznan n tiliɣri-k ɣef uselkim (KDE Connect). Sbedd asnas KDE Connect ɣef tiliɣri; ilaq ad ilin s sin deg yiwen n uẓeṭṭa Wi-Fi.",
   "Nem sikerült átállítani.": "Ur yezmir ara ad yettwabeddel.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Aleqqem aneggaru ur yewjid ara akka tura (yettwaheyya tura). Ɛreḍ tikkelt-nniḍen deg kra n tesdatin."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Aleqqem aneggaru ur yewjid ara akka tura (yettwaheyya tura). Ɛreḍ tikkelt-nniḍen deg kra n tesdatin.",
+  "Felhőtárhely": "Aklas deg usigna",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive neɣ Google Drive am ukaram deg ukaram-ik udmawan, am deg Windows: akk ifuyla ttbanen, maca ala wid i teldiḍ i d-yettwasidren. Ifuyla yettwaldin qqimen ula s war internet.",
+  "{name}: csatlakoztatva ({folder})": "{name}: yeqqen ({folder})",
+  "Bejelentkezés": "Kcem",
+  "Leválasztás": "Ffeɣ",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Kcem deg usfaylu n iminig ara d-yeldin. Mi tfukeḍ, ad ikemmel da s yiman-is.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Yemmed: ifuyla-k deg ukaram {folder}."
 }

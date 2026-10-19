@@ -449,5 +449,12 @@
   "Telefon összekötése": "Povezivanje telefona",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Obavijesti, datoteke i poruke s telefona na računalu (KDE Connect). Na telefon instalirajte aplikaciju KDE Connect; oba uređaja moraju biti na istoj Wi-Fi mreži.",
   "Nem sikerült átállítani.": "Promjena nije uspjela.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Najnovije ažuriranje još nije dostupno (upravo se priprema). Pokušajte ponovno za nekoliko minuta."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Najnovije ažuriranje još nije dostupno (upravo se priprema). Pokušajte ponovno za nekoliko minuta.",
+  "Felhőtárhely": "Pohrana u oblaku",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive ili Google Drive kao mapa u vašoj osobnoj mapi, kao u Windowsima: vide se sve datoteke, ali preuzimaju se samo one koje otvorite. Otvorene datoteke ostaju dostupne i bez interneta.",
+  "{name}: csatlakoztatva ({folder})": "{name}: povezano ({folder})",
+  "Bejelentkezés": "Prijava",
+  "Leválasztás": "Prekini vezu",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Prijavite se u prozoru preglednika koji će se otvoriti. Kad završite, ovdje će se nastaviti samo od sebe.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Gotovo: vaše datoteke su u mapi {folder}."
 }

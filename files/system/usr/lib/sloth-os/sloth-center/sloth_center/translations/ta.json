@@ -449,5 +449,12 @@
   "Telefon összekötése": "தொலைபேசியை இணை",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "கணினியில் உங்கள் தொலைபேசியின் அறிவிப்புகள், கோப்புகள், செய்திகள் (KDE Connect). தொலைபேசியில் KDE Connect செயலியை நிறுவுங்கள்; இரண்டும் ஒரே Wi-Fi வலையமைப்பில் இருக்க வேண்டும்.",
   "Nem sikerült átállítani.": "மாற்ற முடியவில்லை.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "சமீபத்திய புதுப்பிப்பு இன்னும் கிடைக்கவில்லை (இப்போது தயாராகிறது). சில நிமிடங்களில் மீண்டும் முயலுங்கள்."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "சமீபத்திய புதுப்பிப்பு இன்னும் கிடைக்கவில்லை (இப்போது தயாராகிறது). சில நிமிடங்களில் மீண்டும் முயலுங்கள்.",
+  "Felhőtárhely": "மேகச் சேமிப்பகம்",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "Windows-இல் போலவே OneDrive அல்லது Google Drive உங்கள் சொந்தக் கோப்புறையில் ஒரு கோப்புறையாக: எல்லாக் கோப்புகளும் தெரியும், ஆனால் நீங்கள் திறப்பவை மட்டுமே பதிவிறக்கப்படும். திறந்த கோப்புகள் இணையம் இல்லாமலும் கிடைக்கும்.",
+  "{name}: csatlakoztatva ({folder})": "{name}: இணைக்கப்பட்டது ({folder})",
+  "Bejelentkezés": "உள்நுழை",
+  "Leválasztás": "துண்டி",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "திறக்கும் உலாவிச் சாளரத்தில் உள்நுழையுங்கள். முடிந்ததும் இங்கே தானாகத் தொடரும்.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "முடிந்தது: உங்கள் கோப்புகள் {folder} கோப்புறையில் உள்ளன."
 }

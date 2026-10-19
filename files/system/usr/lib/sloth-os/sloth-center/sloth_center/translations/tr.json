@@ -449,5 +449,12 @@
   "Telefon összekötése": "Telefonu bağla",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Telefonunuzun bildirimleri, dosyaları ve mesajları bilgisayarda (KDE Connect). Telefona KDE Connect uygulamasını kurun; ikisi de aynı Wi-Fi ağında olmalı.",
   "Nem sikerült átállítani.": "Değiştirilemedi.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "En son güncelleme henüz hazır değil (şu anda hazırlanıyor). Birkaç dakika sonra yeniden deneyin."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "En son güncelleme henüz hazır değil (şu anda hazırlanıyor). Birkaç dakika sonra yeniden deneyin.",
+  "Felhőtárhely": "Bulut depolama",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive veya Google Drive, Windows'taki gibi ev klasörünüzde bir klasör olarak: tüm dosyalar görünür, ancak yalnızca açtıklarınız indirilir. Açılan dosyalar internet olmadan da kullanılabilir kalır.",
+  "{name}: csatlakoztatva ({folder})": "{name}: bağlandı ({folder})",
+  "Bejelentkezés": "Oturum aç",
+  "Leválasztás": "Bağlantıyı kes",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Açılan tarayıcı penceresinde oturum açın. İşiniz bitince burada kendiliğinden devam eder.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Tamamlandı: dosyalarınız {folder} klasöründe."
 }

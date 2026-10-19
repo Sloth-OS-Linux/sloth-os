@@ -449,5 +449,12 @@
   "Telefon összekötése": "ტელეფონის დაკავშირება",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "ტელეფონის შეტყობინებები, ფაილები და მესიჯები კომპიუტერზე (KDE Connect). დააყენეთ ტელეფონზე KDE Connect აპი; ორივე ერთსა და იმავე Wi-Fi ქსელში უნდა იყოს.",
   "Nem sikerült átállítani.": "შეცვლა ვერ მოხერხდა.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "უახლესი განახლება ჯერ არ არის ხელმისაწვდომი (ახლა მზადდება). სცადეთ რამდენიმე წუთში."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "უახლესი განახლება ჯერ არ არის ხელმისაწვდომი (ახლა მზადდება). სცადეთ რამდენიმე წუთში.",
+  "Felhőtárhely": "ღრუბლოვანი საცავი",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive ან Google Drive საქაღალდედ თქვენს პირად საქაღალდეში, როგორც Windows-ში: ყველა ფაილი ჩანს, მაგრამ მხოლოდ გახსნილი ფაილები ჩამოიტვირთება. გახსნილი ფაილები ინტერნეტის გარეშეც ხელმისაწვდომია.",
+  "{name}: csatlakoztatva ({folder})": "{name}: დაკავშირებულია ({folder})",
+  "Bejelentkezés": "შესვლა",
+  "Leválasztás": "გათიშვა",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "შედით გახსნილ ბრაუზერის ფანჯარაში. როცა დაასრულებთ, აქ თავისით გაგრძელდება.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "მზადაა: თქვენი ფაილები {folder} საქაღალდეშია."
 }

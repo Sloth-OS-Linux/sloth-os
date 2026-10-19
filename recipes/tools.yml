@@ -20,6 +20,9 @@ modules:
         - sane-backends-drivers-scanners  # a szkennerek illesztői
         - skanpage                        # szkennelés (KDE); hardvereszköz, mint a nyomtatók beállítása
         - fwupd                           # BIOS/firmware frissítés (LVFS), a Sloth Központ Frissítések oldala
+        # Felhőtárhely (OneDrive, Google Drive) mappaként: /usr/libexec/sloth-os/cloud-drive
+        - rclone
+        - fuse3
 
   # A GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése a háttérben
   - type: systemd

@@ -449,5 +449,12 @@
   "Telefon összekötése": "Conectează telefonul",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Notificările, fișierele și mesajele telefonului pe calculator (KDE Connect). Instalează aplicația KDE Connect pe telefon; ambele trebuie să fie în aceeași rețea Wi-Fi.",
   "Nem sikerült átállítani.": "Nu s-a putut modifica.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Cea mai nouă actualizare nu este încă disponibilă (se pregătește chiar acum). Încearcă din nou peste câteva minute."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Cea mai nouă actualizare nu este încă disponibilă (se pregătește chiar acum). Încearcă din nou peste câteva minute.",
+  "Felhőtárhely": "Stocare în cloud",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive sau Google Drive ca dosar în dosarul tău personal, ca în Windows: se văd toate fișierele, dar se descarcă doar cele pe care le deschizi. Fișierele deschise rămân disponibile și fără internet.",
+  "{name}: csatlakoztatva ({folder})": "{name}: conectat ({folder})",
+  "Bejelentkezés": "Conectare",
+  "Leválasztás": "Deconectare",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Conectează-te în fereastra de browser care se deschide. Când termini, aici se continuă de la sine.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Gata: fișierele tale sunt în dosarul {folder}."
 }

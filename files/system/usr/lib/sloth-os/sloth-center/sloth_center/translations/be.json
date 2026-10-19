@@ -449,5 +449,12 @@
   "Telefon összekötése": "Падключэнне тэлефона",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Апавяшчэнні, файлы і паведамленні тэлефона на камп'ютары (KDE Connect). Усталюйце на тэлефон праграму KDE Connect; абедзве прылады павінны быць у адной сетцы Wi-Fi.",
   "Nem sikerült átállítani.": "Не ўдалося змяніць.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Апошняе абнаўленне пакуль недаступнае (яно якраз рыхтуецца). Паспрабуйце праз некалькі хвілін."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Апошняе абнаўленне пакуль недаступнае (яно якраз рыхтуецца). Паспрабуйце праз некалькі хвілін.",
+  "Felhőtárhely": "Воблачнае сховішча",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive або Google Drive як папка ў вашай хатняй папцы, як у Windows: бачныя ўсе файлы, але спампоўваюцца толькі тыя, што вы адкрываеце. Адкрытыя файлы застаюцца даступнымі і без інтэрнэту.",
+  "{name}: csatlakoztatva ({folder})": "{name}: падключана ({folder})",
+  "Bejelentkezés": "Увайсці",
+  "Leválasztás": "Адключыць",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Увайдзіце ў акне браўзера, якое адкрыецца. Калі скончыце, працэс працягнецца тут сам.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Гатова: вашы файлы ў папцы {folder}."
 }

@@ -449,5 +449,12 @@
   "Telefon összekötése": "휴대폰 연결",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "휴대폰의 알림, 파일, 메시지를 컴퓨터에서 (KDE Connect). 휴대폰에 KDE Connect 앱을 설치하고, 두 기기를 같은 Wi-Fi 네트워크에 연결하세요.",
   "Nem sikerült átállítani.": "변경하지 못했습니다.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "최신 업데이트는 아직 사용할 수 없습니다 (지금 준비 중입니다). 몇 분 후에 다시 시도하세요."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "최신 업데이트는 아직 사용할 수 없습니다 (지금 준비 중입니다). 몇 분 후에 다시 시도하세요.",
+  "Felhőtárhely": "클라우드 저장소",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive나 Google Drive를 Windows처럼 홈 폴더 안의 폴더로 사용합니다. 모든 파일이 보이지만 연 파일만 다운로드됩니다. 연 파일은 인터넷 없이도 계속 사용할 수 있습니다.",
+  "{name}: csatlakoztatva ({folder})": "{name}: 연결됨 ({folder})",
+  "Bejelentkezés": "로그인",
+  "Leválasztás": "연결 끊기",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "열리는 브라우저 창에서 로그인하세요. 완료되면 여기서 자동으로 계속됩니다.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "완료: 파일이 {folder} 폴더에 있습니다."
 }

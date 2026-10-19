@@ -449,5 +449,12 @@
   "Telefon összekötése": "ربط الهاتف",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "إشعارات هاتفك وملفاته ورسائله على الحاسوب (KDE Connect). ثبّت تطبيق KDE Connect على الهاتف، ويجب أن يكون الجهازان على شبكة Wi-Fi نفسها.",
   "Nem sikerült átállítani.": "تعذّر التغيير.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "أحدث تحديث غير متاح بعد (يجري إعداده الآن). أعد المحاولة بعد بضع دقائق."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "أحدث تحديث غير متاح بعد (يجري إعداده الآن). أعد المحاولة بعد بضع دقائق.",
+  "Felhőtárhely": "التخزين السحابي",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive أو Google Drive كمجلد داخل مجلدك الشخصي، كما في Windows: تظهر كل الملفات، لكن لا يُنزَّل إلا ما تفتحه. وتبقى الملفات المفتوحة متاحة دون إنترنت.",
+  "{name}: csatlakoztatva ({folder})": "{name}: متصل ({folder})",
+  "Bejelentkezés": "تسجيل الدخول",
+  "Leválasztás": "قطع الاتصال",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "سجّل الدخول في نافذة المتصفح التي ستفتح. عند الانتهاء، سيكمل الأمر هنا تلقائيًا.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "تم: ملفاتك في المجلد {folder}."
 }

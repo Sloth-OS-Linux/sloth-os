@@ -1,0 +1,13 @@
+[Unit]
+Description=Sloth OS: felhőtárhely mappaként (%i)
+# /usr/libexec/sloth-os/cloud-drive; a Sloth Központ kapcsolja be (Fiók és biztonság → Felhőtárhely)
+
+[Service]
+Type=notify
+ExecStart=/usr/libexec/sloth-os/cloud-drive mount %i
+# leálláskor (SIGTERM) az rclone magától leválasztja a mappát
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=default.target

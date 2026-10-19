@@ -449,5 +449,12 @@
   "Telefon összekötése": "Koppel jou foon",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Jou foon se kennisgewings, lêers en boodskappe op die rekenaar (KDE Connect). Installeer die KDE Connect-toep op die foon; albei moet op dieselfde Wi-Fi-netwerk wees.",
   "Nem sikerült átállítani.": "Kon nie verander nie.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Die nuutste bywerking is nog nie beskikbaar nie (dit word nou gemaak). Probeer oor 'n paar minute weer."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Die nuutste bywerking is nog nie beskikbaar nie (dit word nou gemaak). Probeer oor 'n paar minute weer.",
+  "Felhőtárhely": "Wolkberging",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive of Google Drive as 'n vouer in jou tuisvouer, soos in Windows: alle lêers is sigbaar, maar net dié wat jy oopmaak, word afgelaai. Oopgemaakte lêers bly ook sonder internet beskikbaar.",
+  "{name}: csatlakoztatva ({folder})": "{name}: gekoppel ({folder})",
+  "Bejelentkezés": "Teken aan",
+  "Leválasztás": "Ontkoppel",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Teken aan in die blaaiervenster wat oopmaak. Wanneer jy klaar is, gaan dit hier vanself voort.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Klaar: jou lêers is in die vouer {folder}."
 }

@@ -449,5 +449,12 @@
   "Telefon összekötése": "连接手机",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "在电脑上查看手机的通知、文件和消息（KDE Connect）。请在手机上安装 KDE Connect 应用，两台设备需连接同一 Wi-Fi 网络。",
   "Nem sikerült átállítani.": "无法更改。",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "最新更新尚不可用（正在准备中）。请过几分钟再试。"
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "最新更新尚不可用（正在准备中）。请过几分钟再试。",
+  "Felhőtárhely": "云存储",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "像在 Windows 中一样，将 OneDrive 或 Google Drive 作为主文件夹中的一个文件夹：所有文件都可见，但只下载您打开的文件。已打开的文件在没有网络时也能使用。",
+  "{name}: csatlakoztatva ({folder})": "{name}：已连接（{folder}）",
+  "Bejelentkezés": "登录",
+  "Leválasztás": "断开连接",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "请在打开的浏览器窗口中登录。完成后，这里会自动继续。",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "完成：您的文件位于 {folder} 文件夹中。"
 }

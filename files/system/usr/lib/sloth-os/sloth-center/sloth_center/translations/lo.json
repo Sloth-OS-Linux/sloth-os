@@ -449,5 +449,12 @@
   "Telefon összekötése": "ເຊື່ອມຕໍ່ໂທລະສັບ",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "ການແຈ້ງເຕືອນ, ໄຟລ໌ ແລະ ຂໍ້ຄວາມຂອງໂທລະສັບໃນຄອມພິວເຕີ (KDE Connect). ຕິດຕັ້ງແອັບ KDE Connect ໃນໂທລະສັບ; ທັງສອງຕ້ອງຢູ່ໃນເຄືອຂ່າຍ Wi-Fi ດຽວກັນ.",
   "Nem sikerült átállítani.": "ບໍ່ສາມາດປ່ຽນໄດ້.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "ການອັບເດດລ່າສຸດຍັງບໍ່ພ້ອມ (ກຳລັງກະກຽມຢູ່). ລອງໃໝ່ໃນອີກບໍ່ເທົ່າໃດນາທີ."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "ການອັບເດດລ່າສຸດຍັງບໍ່ພ້ອມ (ກຳລັງກະກຽມຢູ່). ລອງໃໝ່ໃນອີກບໍ່ເທົ່າໃດນາທີ.",
+  "Felhőtárhely": "ບ່ອນເກັບຂໍ້ມູນຄລາວ",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive ຫຼື Google Drive ເປັນໂຟນເດີໃນໂຟນເດີສ່ວນຕົວຂອງທ່ານ ຄືໃນ Windows: ເຫັນທຸກໄຟລ໌, ແຕ່ຈະດາວໂຫຼດສະເພາະໄຟລ໌ທີ່ທ່ານເປີດ. ໄຟລ໌ທີ່ເປີດແລ້ວຍັງໃຊ້ໄດ້ໂດຍບໍ່ມີອິນເຕີເນັດ.",
+  "{name}: csatlakoztatva ({folder})": "{name}: ເຊື່ອມຕໍ່ແລ້ວ ({folder})",
+  "Bejelentkezés": "ເຂົ້າສູ່ລະບົບ",
+  "Leválasztás": "ຕັດການເຊື່ອມຕໍ່",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "ເຂົ້າສູ່ລະບົບໃນໜ້າຕ່າງບຣາວເຊີທີ່ເປີດຂຶ້ນ. ເມື່ອສຳເລັດ ຈະດຳເນີນຕໍ່ຢູ່ນີ້ເອງ.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "ສຳເລັດ: ໄຟລ໌ຂອງທ່ານຢູ່ໃນໂຟນເດີ {folder}."
 }

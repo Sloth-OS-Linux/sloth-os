@@ -449,5 +449,12 @@
   "Telefon összekötése": "Connecta el telèfon",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Les notificacions, els fitxers i els missatges del telèfon a l'ordinador (KDE Connect). Instal·leu l'aplicació KDE Connect al telèfon; tots dos han d'estar a la mateixa xarxa Wi-Fi.",
   "Nem sikerült átállítani.": "No s'ha pogut canviar.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "L'última actualització encara no està disponible (s'està preparant ara mateix). Torneu-ho a provar d'aquí a uns minuts."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "L'última actualització encara no està disponible (s'està preparant ara mateix). Torneu-ho a provar d'aquí a uns minuts.",
+  "Felhőtárhely": "Emmagatzematge al núvol",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive o Google Drive com una carpeta a la vostra carpeta personal, com a Windows: es veuen tots els fitxers, però només es baixen els que obriu. Els fitxers oberts es mantenen disponibles sense Internet.",
+  "{name}: csatlakoztatva ({folder})": "{name}: connectat ({folder})",
+  "Bejelentkezés": "Inicia la sessió",
+  "Leválasztás": "Desconnecta",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Inicieu la sessió a la finestra del navegador que s'obrirà. Quan acabeu, continuarà aquí automàticament.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Fet: els vostres fitxers són a la carpeta {folder}."
 }

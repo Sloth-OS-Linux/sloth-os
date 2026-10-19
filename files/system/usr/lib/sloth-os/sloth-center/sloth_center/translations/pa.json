@@ -449,5 +449,12 @@
   "Telefon összekötése": "ਫ਼ੋਨ ਜੋੜੋ",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "ਕੰਪਿਊਟਰ 'ਤੇ ਤੁਹਾਡੇ ਫ਼ੋਨ ਦੀਆਂ ਸੂਚਨਾਵਾਂ, ਫ਼ਾਈਲਾਂ ਅਤੇ ਸੁਨੇਹੇ (KDE Connect)। ਫ਼ੋਨ 'ਤੇ KDE Connect ਐਪ ਇੰਸਟਾਲ ਕਰੋ; ਦੋਵੇਂ ਇੱਕੋ Wi-Fi ਨੈੱਟਵਰਕ 'ਤੇ ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ।",
   "Nem sikerült átállítani.": "ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "ਨਵੀਨਤਮ ਅੱਪਡੇਟ ਅਜੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ (ਹੁਣੇ ਤਿਆਰ ਹੋ ਰਿਹਾ ਹੈ)। ਕੁਝ ਮਿੰਟਾਂ ਬਾਅਦ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।"
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "ਨਵੀਨਤਮ ਅੱਪਡੇਟ ਅਜੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ (ਹੁਣੇ ਤਿਆਰ ਹੋ ਰਿਹਾ ਹੈ)। ਕੁਝ ਮਿੰਟਾਂ ਬਾਅਦ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "Felhőtárhely": "ਕਲਾਉਡ ਸਟੋਰੇਜ",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "Windows ਵਾਂਗ OneDrive ਜਾਂ Google Drive ਤੁਹਾਡੇ ਨਿੱਜੀ ਫੋਲਡਰ ਵਿੱਚ ਇੱਕ ਫੋਲਡਰ ਵਜੋਂ: ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਦਿਸਦੀਆਂ ਹਨ, ਪਰ ਸਿਰਫ਼ ਖੋਲ੍ਹੀਆਂ ਫ਼ਾਈਲਾਂ ਹੀ ਡਾਊਨਲੋਡ ਹੁੰਦੀਆਂ ਹਨ। ਖੋਲ੍ਹੀਆਂ ਫ਼ਾਈਲਾਂ ਇੰਟਰਨੈੱਟ ਤੋਂ ਬਿਨਾਂ ਵੀ ਉਪਲਬਧ ਰਹਿੰਦੀਆਂ ਹਨ।",
+  "{name}: csatlakoztatva ({folder})": "{name}: ਜੁੜਿਆ ({folder})",
+  "Bejelentkezés": "ਸਾਈਨ ਇਨ",
+  "Leválasztás": "ਡਿਸਕਨੈਕਟ",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "ਖੁੱਲ੍ਹਣ ਵਾਲੀ ਬ੍ਰਾਊਜ਼ਰ ਵਿੰਡੋ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ। ਪੂਰਾ ਹੋਣ 'ਤੇ ਇੱਥੇ ਆਪਣੇ-ਆਪ ਜਾਰੀ ਰਹੇਗਾ।",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "ਮੁਕੰਮਲ: ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ {folder} ਫੋਲਡਰ ਵਿੱਚ ਹਨ।"
 }

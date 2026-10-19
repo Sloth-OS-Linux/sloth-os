@@ -230,6 +230,69 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Felhőtárhely (OneDrive, Google Drive) ------------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Felhőtárhely") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.")
+                }
+                Repeater {
+                    model: cloud.drives
+                    delegate: RowLayout {
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            text: modelData.configured
+                                  ? L.tf("{name}: csatlakoztatva ({folder})", { name: modelData.name, folder: modelData.folder })
+                                  : modelData.name
+                        }
+                        QQC2.BusyIndicator { visible: cloud.busy === modelData.service; running: visible }
+                        QQC2.Button {
+                            visible: !modelData.configured
+                            enabled: cloud.busy === ""
+                            icon.name: "network-connect"
+                            text: L.t("Bejelentkezés")
+                            onClicked: cloud.connectDrive(modelData.service)
+                        }
+                        QQC2.Button {
+                            visible: modelData.configured
+                            enabled: cloud.busy === ""
+                            icon.name: "folder-open"
+                            text: L.t("Megnyitás")
+                            onClicked: Qt.openUrlExternally("file://" + modelData.folder)
+                        }
+                        QQC2.Button {
+                            visible: modelData.configured
+                            enabled: cloud.busy === ""
+                            icon.name: "network-disconnect"
+                            text: L.t("Leválasztás")
+                            onClicked: cloud.disconnectDrive(modelData.service)
+                        }
+                    }
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: cloud.infoText !== ""
+                    type: Kirigami.MessageType.Information
+                    text: cloud.infoText
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: cloud.errorText !== ""
+                    type: Kirigami.MessageType.Error
+                    text: cloud.errorText
+                }
+            }
+        }
+
         // --- Mihez kérjen jelszót -------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

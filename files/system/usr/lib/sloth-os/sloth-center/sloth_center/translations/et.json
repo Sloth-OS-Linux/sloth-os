@@ -449,5 +449,12 @@
   "Telefon összekötése": "Telefoni ühendamine",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Telefoni teavitused, failid ja sõnumid arvutis (KDE Connect). Paigalda telefoni rakendus KDE Connect; mõlemad peavad olema samas Wi-Fi-võrgus.",
   "Nem sikerült átállítani.": "Muuta ei õnnestunud.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Uusim uuendus pole veel saadaval (seda alles valmistatakse). Proovi mõne minuti pärast uuesti."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Uusim uuendus pole veel saadaval (seda alles valmistatakse). Proovi mõne minuti pärast uuesti.",
+  "Felhőtárhely": "Pilvesalvestus",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive või Google Drive kaustana sinu kodukaustas, nagu Windowsis: kõik failid on näha, kuid alla laaditakse ainult need, mida avad. Avatud failid jäävad kättesaadavaks ka ilma internetita.",
+  "{name}: csatlakoztatva ({folder})": "{name}: ühendatud ({folder})",
+  "Bejelentkezés": "Logi sisse",
+  "Leválasztás": "Katkesta ühendus",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Logi sisse avanevas brauseriaknas. Kui oled valmis, jätkub siin kõik iseenesest.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Valmis: sinu failid on kaustas {folder}."
 }

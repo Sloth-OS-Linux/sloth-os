@@ -1,0 +1,134 @@
+#!/usr/bin/python3 -I
+"""Felhőtárhely (OneDrive, Google Drive) mappaként a saját mappában, terminál nélkül (rclone).
+
+Mint a Windows OneDrive-ja („Files On-Demand”): a ~/OneDrive (vagy ~/Google Drive) mappában minden fájl látszik,
+de csak az töltődik le, amit megnyitnak; a megnyitottak a helyi gyorsítótárban maradnak. A bejelentkezés a
+böngészőben történik (az rclone saját, helyi visszahívással). Felhasználónként, jelszó nélkül.
+
+  cloud-drive add onedrive|gdrive     bejelentkezés (a böngészőben) és csatolás; kimenet: JSON
+  cloud-drive remove onedrive|gdrive  leválasztás és a bejelentkezés törlése (a felhőben lévő fájlok maradnak)
+  cloud-drive list                    a beállított tárhelyek (JSON)
+
+A csatolást a sloth-cloud@<név>.service felhasználói szolgáltatás végzi (bejelentkezéskor magától).
+A Sloth Központ (Fiók és biztonság → Felhőtárhely) hívja.
+"""
+import json
+import os
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+HOME = Path.home()
+CONFIG = Path(os.environ.get("XDG_CONFIG_HOME", HOME / ".config")) / "rclone" / "rclone.conf"
+# szolgáltatás -> (rclone típus, a beállítás neve, a mappa neve a saját mappában)
+SERVICES = {
+    "onedrive": ("onedrive", "OneDrive", "OneDrive"),
+    "gdrive": ("drive", "GoogleDrive", "Google Drive"),
+}
+LOGIN_TIMEOUT_S = 600   # ennyi ideje van a felhasználónak a böngészőben bejelentkezni
+
+
+def rclone(*args, timeout=60):
+    return subprocess.run(["rclone", "--config", str(CONFIG), *args], capture_output=True, text=True,
+                          timeout=timeout)
+
+
+def unit(remote):
+    return f"sloth-cloud@{remote}.service"
+
+
+def configured():
+    r = rclone("listremotes")
+    return {line.rstrip(":") for line in r.stdout.split()} if r.returncode == 0 else set()
+
+
+def answer(question):
+    """A beállítás kérdéseire a magától értetődő válasz: böngészős bejelentkezés, különben az alapértelmezés
+    (OneDrive: személyes / céges meghajtó és az első meghajtó; Google Drive: teljes hozzáférés)."""
+    option = question.get("Option") or {}
+    if option.get("Name") == "config_is_local":
+        return "true"
+    value = option.get("DefaultStr") or option.get("ValueStr") or ""
+    if not value and option.get("Examples"):
+        value = option["Examples"][0].get("Value", "")
+    return value
+
+
+def add(service):
+    kind, remote, folder = SERVICES[service]
+    if remote in configured():
+        rclone("config", "delete", remote)
+    CONFIG.parent.mkdir(parents=True, exist_ok=True)
+    r = rclone("config", "create", remote, kind, "--non-interactive")
+    for _ in range(20):
+        try:
+            question = json.loads(r.stdout or "{}")
+        except ValueError:
+            return {"ok": False, "error": (r.stderr or r.stdout).strip()[-500:]}
+        if question.get("Error"):
+            return {"ok": False, "error": question["Error"]}
+        state = question.get("State", "")
+        if not state:
+            break
+        # a böngészős bejelentkezésnél az rclone megvárja, amíg a felhasználó végez
+        r = rclone("config", "update", remote, "--continue", "--non-interactive",
+                   "--state", state, "--result", answer(question), timeout=LOGIN_TIMEOUT_S)
+    if remote not in configured():
+        return {"ok": False, "error": "a bejelentkezés nem fejeződött be"}
+    (HOME / folder).mkdir(exist_ok=True)
+    subprocess.run(["systemctl", "--user", "enable", "--now", unit(remote)], capture_output=True)
+    return {"ok": True, "folder": str(HOME / folder)}
+
+
+def remove(service):
+    _kind, remote, folder = SERVICES[service]
+    subprocess.run(["systemctl", "--user", "disable", "--now", unit(remote)], capture_output=True)
+    rclone("config", "delete", remote)
+    path = HOME / folder
+    try:
+        path.rmdir()  # csak ha üres (leválasztás után az); a helyi fájlokhoz nem nyúlunk
+    except OSError:
+        pass
+    shutil.rmtree(Path(os.environ.get("XDG_CACHE_HOME", HOME / ".cache")) / "rclone" / "vfs" / remote,
+                  ignore_errors=True)
+    return {"ok": True}
+
+
+def listing():
+    have = configured()
+    out = []
+    for service, (_kind, remote, folder) in SERVICES.items():
+        active = subprocess.run(["systemctl", "--user", "is-active", "--quiet", unit(remote)]).returncode == 0
+        out.append({"service": service, "configured": remote in have, "mounted": active,
+                    "folder": str(HOME / folder)})
+    return out
+
+
+def mount(remote):
+    """A sloth-cloud@<név>.service indítja: az rclone ugyanebben a folyamatban fut (a systemd értesítést is ő küldi)."""
+    folder = next(f for _k, r, f in SERVICES.values() if r == remote)
+    path = HOME / folder
+    path.mkdir(exist_ok=True)
+    os.execvp("rclone", ["rclone", "--config", str(CONFIG), "mount", f"{remote}:", str(path),
+                         # a megnyitott fájlok a helyi gyorsítótárban maradnak (internet nélkül is), 30 napig
+                         "--vfs-cache-mode", "full", "--vfs-cache-max-age", "720h", "--vfs-cache-max-size", "20G",
+                         "--dir-cache-time", "5m", "--poll-interval", "1m"])
+
+
+def main(argv):
+    if len(argv) == 3 and argv[1] == "mount" and argv[2] in {r for _k, r, _f in SERVICES.values()}:
+        mount(argv[2])
+    if len(argv) == 2 and argv[1] == "list":
+        print(json.dumps(listing()))
+        return 0
+    if len(argv) == 3 and argv[1] in ("add", "remove") and argv[2] in SERVICES:
+        result = add(argv[2]) if argv[1] == "add" else remove(argv[2])
+        print(json.dumps(result))
+        return 0 if result["ok"] else 1
+    print(__doc__, file=sys.stderr)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

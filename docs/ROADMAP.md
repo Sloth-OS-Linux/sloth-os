@@ -301,8 +301,13 @@ Talált hibák (egyesével javítjuk):
      Zene, Videók mappák és a böngésző-könyvjelzők áthozását
 
 **Fontos, de a publikálást nem akadályozza:**
-- [ ] **OneDrive és Google Drive a Dolphinban:** a Google Drive a KDE Online fiókjaival (kio-gdrive), a OneDrive-hoz
-  külön kliens kell (megnézni, melyik karbantartott és Flatpakként vagy RPM-ként elérhető); bekapcsolás GUI-ból
+- [x] **OneDrive és Google Drive mappaként** (2026-10-19): rclone (Fedora RPM, mindkettőhöz), mint a Windows
+  „Files On-Demand”: a `~/OneDrive` / `~/Google Drive` mappában minden fájl látszik, csak a megnyitott töltődik le
+  (teljes helyi gyorsítótár, 30 nap / 20 GB). Bejelentkezés a böngészőben (az rclone helyi visszahívása), a beállítás
+  kérdéseire automatikus válasz (`/usr/libexec/sloth-os/cloud-drive`); csatolás: `sloth-cloud@.service`
+  (felhasználói, bejelentkezéskor magától). Sloth Központ → Fiók és biztonság → Felhőtárhely (Bejelentkezés,
+  Megnyitás, Leválasztás), 50 nyelven. A kio-gdrive Google-bejelentkezése többször elakadt a Google tiltásain, ezért
+  nem az. Helyben kipróbálva a bejelentkezésig; valódi fiókkal tesztelni (OneDrive személyes és céges, Google)
 - [x] **Telefon összekötése** (a Windows „Phone Link” megfelelője; 2026-10-19): a KDE Connect nincs a Flathubon,
   ezért RPM-ként visszakerült, de alapból ki van kapcsolva (`slim-image.sh`: magától indulás, D-Bus-indítás és
   Start menü bejegyzések félretéve), így csak annak fut és hirdeti magát a hálózaton, aki kéri. Bekapcsolás az

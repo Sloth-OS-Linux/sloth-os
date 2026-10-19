@@ -38,6 +38,7 @@ def main():
     from .updates import UpdatesController
     from .accounts import AccountsController
     from .advanced import AdvancedController
+    from .cloud import CloudController
     from .containers import ContainersController
     from .devpanel import DevPanelController
     from .disks import DisksController
@@ -64,6 +65,7 @@ def main():
     environment = EnvironmentController()
     gamepads = GamepadsController()
     accounts = AccountsController()
+    cloud = CloudController()
     games = GamesController()
     devpanel = DevPanelController()
     engine.rootContext().setContextProperty("updates", updates)
@@ -77,6 +79,7 @@ def main():
     engine.rootContext().setContextProperty("environment", environment)
     engine.rootContext().setContextProperty("gamepads", gamepads)
     engine.rootContext().setContextProperty("accounts", accounts)
+    engine.rootContext().setContextProperty("cloud", cloud)
     engine.rootContext().setContextProperty("games", games)
     engine.rootContext().setContextProperty("devpanel", devpanel)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))

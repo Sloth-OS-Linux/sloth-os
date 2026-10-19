@@ -449,5 +449,12 @@
   "Telefon összekötése": "Hubungkan ponsel",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Notifikasi, berkas, dan pesan ponsel Anda di komputer (KDE Connect). Pasang aplikasi KDE Connect di ponsel; keduanya harus berada di jaringan Wi-Fi yang sama.",
   "Nem sikerült átállítani.": "Tidak dapat mengubah.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Pembaruan terbaru belum tersedia (sedang disiapkan). Coba lagi dalam beberapa menit."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Pembaruan terbaru belum tersedia (sedang disiapkan). Coba lagi dalam beberapa menit.",
+  "Felhőtárhely": "Penyimpanan awan",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive atau Google Drive sebagai folder di folder pribadi Anda, seperti di Windows: semua berkas terlihat, tetapi hanya yang Anda buka yang diunduh. Berkas yang sudah dibuka tetap tersedia tanpa internet.",
+  "{name}: csatlakoztatva ({folder})": "{name}: terhubung ({folder})",
+  "Bejelentkezés": "Masuk",
+  "Leválasztás": "Putuskan",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Masuk di jendela peramban yang terbuka. Setelah selesai, proses akan berlanjut di sini dengan sendirinya.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Selesai: berkas Anda ada di folder {folder}."
 }

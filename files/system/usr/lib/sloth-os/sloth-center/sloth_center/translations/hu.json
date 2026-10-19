@@ -3,5 +3,12 @@
   "Telefon összekötése": "Telefon összekötése",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.",
   "Nem sikerült átállítani.": "Nem sikerült átállítani.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.",
+  "Felhőtárhely": "Felhőtárhely",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.",
+  "{name}: csatlakoztatva ({folder})": "{name}: csatlakoztatva ({folder})",
+  "Bejelentkezés": "Bejelentkezés",
+  "Leválasztás": "Leválasztás",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Kész: a fájljaid a(z) {folder} mappában vannak."
 }

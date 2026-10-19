@@ -449,5 +449,12 @@
   "Telefon összekötése": "ফোন সংযোগ",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "কম্পিউটাৰত আপোনাৰ ফোনৰ জাননী, ফাইল আৰু বাৰ্তা (KDE Connect)। ফোনত KDE Connect এপ ইনষ্টল কৰক; দুয়োটা একেটা Wi-Fi নেটৱৰ্কত থাকিব লাগিব।",
   "Nem sikerült átállítani.": "সলনি কৰিব পৰা নগ'ল।",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "শেহতীয়া আপডেট এতিয়াও উপলব্ধ নহয় (এতিয়া প্ৰস্তুত হৈ আছে)। কেইমিনিটমান পিছত আকৌ চেষ্টা কৰক।"
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "শেহতীয়া আপডেট এতিয়াও উপলব্ধ নহয় (এতিয়া প্ৰস্তুত হৈ আছে)। কেইমিনিটমান পিছত আকৌ চেষ্টা কৰক।",
+  "Felhőtárhely": "ক্লাউড ষ্ট'ৰেজ",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "Windows-ৰ দৰে OneDrive বা Google Drive আপোনাৰ নিজৰ ফ'ল্ডাৰত এটা ফ'ল্ডাৰ হিচাপে: সকলো ফাইল দেখা যায়, কিন্তু কেৱল খোলা ফাইলহে ডাউনল'ড হয়। খোলা ফাইলবোৰ ইণ্টাৰনেট নোহোৱাকৈও থাকে।",
+  "{name}: csatlakoztatva ({folder})": "{name}: সংযুক্ত ({folder})",
+  "Bejelentkezés": "ছাইন ইন",
+  "Leválasztás": "সংযোগ বিচ্ছিন্ন কৰক",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "খোল খোৱা ব্ৰাউজাৰ উইণ্ড'ত ছাইন ইন কৰক। শেষ হ'লে ইয়াত নিজে নিজে আগবাঢ়িব।",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "সম্পূৰ্ণ: আপোনাৰ ফাইলবোৰ {folder} ফ'ল্ডাৰত আছে।"
 }

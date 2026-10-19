@@ -449,5 +449,12 @@
   "Telefon összekötése": "Connecter le telephono",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Le notificationes, files e messages de tu telephono sur le computator (KDE Connect). Installa le application KDE Connect sur le telephono; ambes debe esser sur le mesme rete Wi-Fi.",
   "Nem sikerült átállítani.": "Non poteva cambiar.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Le ultime actualisation non es ancora disponibile (illo es in preparation). Tenta de novo in alcun minutas."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Le ultime actualisation non es ancora disponibile (illo es in preparation). Tenta de novo in alcun minutas.",
+  "Felhőtárhely": "Immagazinage in le nube",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive o Google Drive como un dossier in tu dossier personal, como in Windows: tote le files es visibile, ma solmente illos que tu aperi es discargate. Le files aperite remane disponibile anque sin internet.",
+  "{name}: csatlakoztatva ({folder})": "{name}: connectite ({folder})",
+  "Bejelentkezés": "Aperir session",
+  "Leválasztás": "Disconnecter",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Aperi session in le fenestra del navigator que se aperi. Quando tu ha finite, il continua hic per se.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Facite: tu files es in le dossier {folder}."
 }

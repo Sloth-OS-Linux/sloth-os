@@ -449,5 +449,12 @@
   "Telefon összekötése": "Conectar o celular",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "As notificações, os arquivos e as mensagens do celular no computador (KDE Connect). Instale o app KDE Connect no celular; os dois precisam estar na mesma rede Wi-Fi.",
   "Nem sikerült átállítani.": "Não foi possível alterar.",
-  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "A atualização mais recente ainda não está disponível (está sendo preparada agora). Tente novamente em alguns minutos."
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "A atualização mais recente ainda não está disponível (está sendo preparada agora). Tente novamente em alguns minutos.",
+  "Felhőtárhely": "Armazenamento na nuvem",
+  "A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.": "OneDrive ou Google Drive como uma pasta na sua pasta pessoal, como no Windows: todos os arquivos aparecem, mas só são baixados os que você abre. Os arquivos abertos continuam disponíveis sem internet.",
+  "{name}: csatlakoztatva ({folder})": "{name}: conectado ({folder})",
+  "Bejelentkezés": "Entrar",
+  "Leválasztás": "Desconectar",
+  "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Entre na janela do navegador que vai abrir. Quando terminar, continua aqui sozinho.",
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Pronto: seus arquivos estão na pasta {folder}."
 }
