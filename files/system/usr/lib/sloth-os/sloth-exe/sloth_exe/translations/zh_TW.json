@@ -34,7 +34,6 @@
   "status.repairing": "正在修復元件…",
 
   "error.not_found": "找不到該程式。它可能已被刪除，請重新安裝。",
-  "error.no_exe": "在此程式中找不到可以啟動的內容。",
   "error.runtime_missing": "缺少執行程式所需的元件。請在 Sloth Center 中更新系統。",
   "error.not_started": "{name} 無法啟動。此程式可能無法在本系統上執行，或檔案已損毀。",
   "error.nothing_installed": "找不到已安裝的程式。安裝可能被中斷了，請重試。",

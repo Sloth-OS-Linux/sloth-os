@@ -34,7 +34,6 @@
   "status.repairing": "Taisomi komponentai…",
 
   "error.not_found": "Programa nerasta. Galbūt ji ištrinta; įdiekite ją iš naujo.",
-  "error.no_exe": "Šioje programoje neradome nieko, ką būtų galima paleisti.",
   "error.runtime_missing": "Trūksta komponento, reikalingo programoms paleisti. Atnaujinkite sistemą per Sloth Center.",
   "error.not_started": "{name} nepasileido. Galbūt ši programa neveikia šioje sistemoje arba failas sugadintas.",
   "error.nothing_installed": "Neradome įdiegtos programos. Galbūt diegimas nutrūko; bandykite dar kartą.",

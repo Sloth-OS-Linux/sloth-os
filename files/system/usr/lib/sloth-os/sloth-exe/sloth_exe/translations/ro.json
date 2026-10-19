@@ -34,7 +34,6 @@
   "status.repairing": "Se repară componentele…",
 
   "error.not_found": "Programul nu a fost găsit. Poate a fost șters; instalează-l din nou.",
-  "error.no_exe": "Nu am găsit nimic de pornit în acest program.",
   "error.runtime_missing": "Lipsește o componentă necesară rulării programelor. Actualizează sistemul din Sloth Center.",
   "error.not_started": "{name} nu a pornit. Poate acest program nu merge pe acest sistem sau fișierul este deteriorat.",
   "error.nothing_installed": "Nu am găsit niciun program instalat. Poate instalarea s-a întrerupt; încearcă din nou.",

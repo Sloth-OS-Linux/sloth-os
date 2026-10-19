@@ -20,3 +20,9 @@ keep the `{placeholders}` as they are. Missing keys fall back to English, then H
 
 Check them with `python tools/check_translations.py` (reports missing keys, mismatched placeholders,
 words mixing Latin/Cyrillic/Greek letters and invisible characters).
+
+## Tests
+
+`python3 tools/tests/test_apps.py` tests the shared application management (`sloth_common.apps`: library,
+registry reading, launcher detection, migration from the old location, Steam import) with fake Windows
+environments. It needs Linux (symlinks, `cp --reflink`), but neither Qt nor Wine.

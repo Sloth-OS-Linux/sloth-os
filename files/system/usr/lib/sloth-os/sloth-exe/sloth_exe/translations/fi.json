@@ -34,7 +34,6 @@
   "status.repairing": "Korjataan osia…",
 
   "error.not_found": "Ohjelmaa ei löydy. Se on ehkä poistettu; asenna se uudelleen.",
-  "error.no_exe": "Tästä ohjelmasta ei löytynyt mitään käynnistettävää.",
   "error.runtime_missing": "Ohjelmien ajamiseen tarvittava osa puuttuu. Päivitä järjestelmä Sloth Centerissä.",
   "error.not_started": "{name} ei käynnistynyt. Ohjelma ei ehkä toimi tässä järjestelmässä, tai tiedosto on vioittunut.",
   "error.nothing_installed": "Asennettua ohjelmaa ei löytynyt. Asennus on ehkä keskeytynyt; yritä uudelleen.",

@@ -1,17 +1,22 @@
 """A .exe kezelő ablakának vezérlője.
 
 Állapotok: choose (mit csináljunk?) -> working (előkészítés / telepítés) ->
-pick (mi kerüljön a Start menübe?) | running (az ablak elrejtve) | error.
+pick (mi kerüljön a Start menübe?) | running (az ablak elrejtve) | error | info.
+
+A programok helye, adatai és Start menü bejegyzései a közös sloth_common.apps-ban vannak
+(a Sloth Központ is azt használja); itt csak a futtatás és a felület.
 """
 import logging
 import threading
 from pathlib import Path
 
-from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
+from PySide6.QtCore import QObject, Property, QTimer, QUrl, Signal, Slot
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
-from . import anticheat, backend, community, diagnose, heal, identify, programs, quirks
+from sloth_common.apps import detect, library, menu
+
+from . import anticheat, backend, community, diagnose, heal, identify, quirks
 from .i18n import catalog, tr
 from .runner import Runner
 
@@ -23,6 +28,9 @@ STARTED_AFTER_S = 8
 QUICK_EXIT_S = 20
 # Ha eddig fut, a beállítás bevált: megjegyezzük
 WORKED_AFTER_S = 45
+# A telepítő kilépése után ennyi ideig várjuk, hogy a többi folyamata (pl. a letöltő által
+# indított tényleges telepítő) is végezzen
+INSTALL_SETTLE_S = 3
 
 
 class ExeController(QObject):
@@ -41,10 +49,14 @@ class ExeController(QObject):
         self._status = ""
         self._progress = -1
         self._error = ""
+        self._error_icon = "dialog-warning"
         self._shortcuts = []
-        self._program = None
-        self._existing = None  # ha ezt a programot már telepítettük (programs.find_installed)
-        self._mode = ""  # "install" | "run"
+        self._program = None   # library.App
+        self._existing = None  # ha ezt a programot már telepítettük (library.find_installed)
+        self._baseline = None  # telepítés előtt: mi volt már a program környezetében (detect.baseline)
+        self._sure = True      # a telepítés után biztosan kiderült-e, mivel indul
+        self._mode = ""  # "install" | "run" | "manage"
+        self._join = False     # a program környezetében már fut valami: ahhoz csatlakozunk
         self._anticheat = None
         self._runner = Runner(self)
         self._runner.status.connect(self._on_status)
@@ -59,6 +71,9 @@ class ExeController(QObject):
         # Ha az indító kilépett, de a program tovább fut (pl. Battle.net Launcher -> Battle.net), megvárjuk
         self._busy_timer = QTimer(self, interval=5000)
         self._busy_timer.timeout.connect(self._check_busy)
+        # Telepítés: a telepítő kilépése után a többi folyamata is végezzen
+        self._install_timer = QTimer(self, interval=INSTALL_SETTLE_S * 1000)
+        self._install_timer.timeout.connect(self._check_install_done)
         # Önjavítás (heal.py): a próbálkozások sora erre az indításra
         self._plan = []
         self._attempt = None
@@ -72,25 +87,32 @@ class ExeController(QObject):
     # --- Belépési pontok -----------------------------------------------------
 
     def open_file(self, path):
+        library.migrate_legacy()
         self._exe = Path(path).resolve()
-        self._name = programs.display_name(self._exe)
+        self._name = detect.display_name(self._exe)
         if self._name.lower() in ("setup", "install", "installer", ""):
             self._name = tr("misc.program")
-        self._installer = programs.looks_like_installer(self._exe)
+        self._installer = detect.looks_like_installer(self._exe)
         # Egy programot csak egyszer telepítünk: ha már megvan, megnyitás vagy újratelepítés ugyanoda
-        self._existing = programs.find_installed(self._name, self._exe) if self._installer else None
-        icon = programs.extract_icon(self._exe, Path("/tmp") / f"sloth-exe-{programs.slugify(self._name)}.png")
+        self._existing = library.find_installed(self._name, self._exe) if self._installer else None
+        icon = menu.extract_icon(self._exe, Path("/tmp") / f"sloth-exe-{library.slugify(self._name)}.png")
         self._set_icon(icon)
         self._state = "choose"
         self._update_window()
         self.changed.emit()
 
-    def launch(self, slug, rel):
-        self._program = programs.Program(slug)
-        self._exe = self._program.prefix / rel
-        self._name = self._program.meta.get("name") or programs.display_name(self._exe)
+    def launch(self, app_id, target):
+        """Indítás a Start menüből. target: az indítófájl (a környezethez képest relatív, vagy teljes út)."""
+        library.migrate_legacy()
+        self._program = library.find(app_id)
+        if self._program is None:
+            self._name = app_id
+            self._fail(tr("error.not_found"))
+            return
+        self._exe = self._program.prefix / target
+        self._name = self._program.name if app_id != library.SHARED_ID else detect.display_name(self._exe)
         # a Start menü bejegyzéshez már kibontott ikon
-        self._set_icon(self._program.icons / f"{programs.slugify(self._exe.stem)}.png")
+        self._set_icon(menu.icon_path(self._program, self._exe))
         # Rövid életű indító helyett a kliens (a futtató különben vele együtt leállna); az önjavítás
         # adatai is a klienshez tartoznak
         self._exe = quirks.launch_target(self._exe)
@@ -99,26 +121,28 @@ class ExeController(QObject):
         if not self._exe.exists():
             self._fail(tr("error.not_found"))
             return
+        running = library.running_exes(self._program)
+        if self._exe.name.lower() in running:
+            # Már fut: újraindítás helyett szólunk (különben az indítás az előző végéig várna)
+            self._info(tr("info.already_running", name=self._name))
+            return
+        # Más program fut ugyanebben a környezetben (pl. az indító, és most egy játékot indít a
+        # felhasználó): ahhoz csatlakozunk, önjavítás nélkül, hogy a futó programot ne zavarjuk
+        self._join = bool(running)
         self._start_run()
 
-    def manage_shortcuts(self, slug):
+    def manage_shortcuts(self, app_id):
         """Utólagos szerkesztés: mely .exe-k legyenek a Start menüben (a Sloth Központból)."""
-        self._program = programs.Program(slug)
-        self._name = self._program.meta.get("name") or slug
-        self._mode = "manage"
-        found = programs.find_shortcuts(self._program)
-        seen = {str(p).lower() for _n, p in found}
-        found += [(programs.display_name(p), p) for p in self._program.list_exes()
-                  if str(p).lower() not in seen and not any(w in p.name.lower() for w in programs.SKIP_WORDS)]
-        self._shortcuts = []
-        for name, path in found[:30]:
-            icon = programs.extract_icon(path, self._program.icons / f"{programs.slugify(path.stem)}.png")
-            self._shortcuts.append({"name": name, "path": str(path),
-                                    "checked": programs.desktop_file_path(self._program, path).exists(),
-                                    "iconUrl": f"file://{icon}" if icon else ""})
-        if not self._shortcuts:
-            self._fail(tr("error.no_exe"))
+        library.migrate_legacy()
+        self._program = library.find(app_id)
+        if self._program is None:
+            self._fail(tr("error.not_found"))
             return
+        self._name = self._program.name
+        self._mode = "manage"
+        self._shortcuts = [self._shortcut_item(c.name, c.path, menu.desktop_file_path(self._program, c.path).exists())
+                           for c in detect.launch_candidates(self._program)]
+        self._sure = True
         self._update_window()
         self._state = "pick"
         self.changed.emit()
@@ -133,17 +157,30 @@ class ExeController(QObject):
     statusText = Property(str, lambda self: self._status, notify=changed)
     progress = Property(int, lambda self: self._progress, notify=changed)
     errorText = Property(str, lambda self: self._error, notify=changed)
+    errorIcon = Property(str, lambda self: self._error_icon, notify=changed)
     shortcuts = Property("QVariantList", lambda self: list(self._shortcuts), notify=changed)
     mode = Property(str, lambda self: self._mode, notify=changed)
+    sure = Property(bool, lambda self: self._sure, notify=changed)
+    anyChecked = Property(bool, lambda self: any(s["checked"] for s in self._shortcuts), notify=changed)
     strings = Property("QVariantMap", lambda self: catalog.strings(), constant=True)
+
+    @Property(str, notify=changed)
+    def browseFolder(self):
+        """A tallózó kezdőmappája: a program telepítési helye, ha ismert."""
+        if not self._program:
+            return ""
+        folder = self._program.windows_to_host(self._program.meta.get("install_dir", "")) \
+            or self._program.prefix / "drive_c"
+        return QUrl.fromLocalFile(str(folder)).toString()
 
     # --- Műveletek -------------------------------------------------------------
 
     @Slot()
     def install(self):
         # Újratelepítés a meglévő mappába: a Start menü bejegyzései ugyanazok maradnak, nem duplázódnak
-        self._program = self._existing or programs.Program(programs.slugify(self._name))
-        self._program.save_meta(name=self._program.meta.get("name") or self._name, installer=str(self._exe))
+        self._program = self._existing or library.create(self._name, installer=str(self._exe))
+        self._program.save_meta(installer=str(self._exe))
+        self._baseline = detect.baseline(self._program)
         self._mode = "install"
         self._update_window()
         self._set_working(tr("status.preparing_install", name=self._name))
@@ -152,18 +189,18 @@ class ExeController(QObject):
     @Slot()
     def openExisting(self):
         """A már telepített program indítása, ahogy a Start menüből; ha nincs bejegyzése, választhat."""
-        entries = programs.menu_entries(self._existing)
-        if entries:
-            self.launch(self._existing.slug, entries[0][1])
+        entries = menu.entries(self._existing)
+        target = next((e["target"] for e in entries if e["target"]), None)
+        if target:
+            self.launch(self._existing.id, target)
         else:
-            self.manage_shortcuts(self._existing.slug)
+            self.manage_shortcuts(self._existing.id)
 
     @Slot(bool)
     def run(self, add_to_menu):
-        self._program = programs.Program(programs.SHARED)
-        self._program.save_meta(name=tr("misc.other_programs"))
+        self._program = library.shared_app(tr("misc.other_programs"))
         if add_to_menu:
-            programs.add_to_menu(self._program, self._name, self._exe)
+            menu.add(self._program, self._name, self._exe)
         self._start_run()
 
     @Slot(int)
@@ -172,14 +209,39 @@ class ExeController(QObject):
             self._shortcuts[index] = {**self._shortcuts[index], "checked": not self._shortcuts[index]["checked"]}
             self.changed.emit()
 
-    @Slot()
-    def confirmShortcuts(self):
+    @Slot(str)
+    def addFile(self, url):
+        """A tallózóból választott fájl (ha a felismerés nem találta el, mivel indul a program)."""
+        path = Path(QUrl(url).toLocalFile() if "://" in url else url)
+        if path.suffix.lower() != ".exe" or not path.is_file():
+            return
+        for i, s in enumerate(self._shortcuts):
+            if Path(s["path"]) == path:
+                self._shortcuts[i] = {**s, "checked": True}
+                break
+        else:
+            self._shortcuts.insert(0, self._shortcut_item(detect.display_name(path), path, True))
+        self.changed.emit()
+
+    @Slot(bool)
+    def confirmShortcuts(self, start=False):
+        first = None
         for s in self._shortcuts:
-            desktop = programs.desktop_file_path(self._program, Path(s["path"]))
-            if s["checked"] and not desktop.exists():
-                programs.add_to_menu(self._program, s["name"], Path(s["path"]))
-            elif not s["checked"] and desktop.exists():
+            path = Path(s["path"])
+            desktop = menu.desktop_file_path(self._program, path)
+            if s["checked"]:
+                if not desktop.exists():
+                    menu.add(self._program, s["name"], path)
+                first = first or path
+            elif desktop.exists():
                 desktop.unlink()
+        icon = next((e["icon"] for e in menu.entries(self._program) if e["icon"].startswith("/")), None)
+        self._program.set_folder_icon(icon)
+        if start and first:
+            # „Indítás”: rögtön elindul, ahogy később a Start menüből
+            self._existing = None
+            self.launch(self._program.id, menu.target(self._program, first))
+            return
         QApplication.quit()
 
     @Slot()
@@ -187,6 +249,10 @@ class ExeController(QObject):
         QApplication.quit()
 
     # --- Belső -------------------------------------------------------------------
+
+    def _shortcut_item(self, name, path, checked):
+        icon = menu.extract_icon(path, menu.icon_path(self._program, path))
+        return {"name": name, "path": str(path), "checked": checked, "iconUrl": f"file://{icon}" if icon else ""}
 
     def _start_run(self):
         found = anticheat.detect(self._exe)
@@ -198,6 +264,16 @@ class ExeController(QObject):
         self._mode = "run"
         self._update_window()
         self._set_working(tr("status.starting", name=self._name))
+        if self._join:
+            # Csatlakozás a már futó környezethez: a bevált beállítással, próbálkozások nélkül
+            rec = heal.record(self._program, self._exe)
+            good = rec.get("good")
+            attempt = heal.Attempt(None if not good or good["proton"] == "auto" else good["proton"],
+                                   good["profile"] if good else "default", [tuple(f) for f in rec.get("fixes", [])])
+            self._attempt = attempt
+            self._runner.start(self._program, self._exe, attempt, rec.get("gameid") or None, join=True)
+            self._started_timer.start()
+            return
         rec = heal.record(self._program, self._exe)
         if rec.get("gameid") is not None and rec.get("key"):
             self._on_identified(rec["gameid"], rec.get("title", ""), rec["key"])
@@ -225,6 +301,10 @@ class ExeController(QObject):
             heal.save_record(self._program, self._exe, rec)
             if gameid:
                 log.info("felismerve: %s (%s)", title, gameid)
+        if gameid and not self._program.meta.get("is_game") and self._program.id != library.SHARED_ID:
+            # Felismert játék: a Start menüben a Játékok közé kerül
+            self._program.save_meta(is_game=True)
+            menu.set_category(self._program)
         self._gameid = gameid or None
         self._key = key
         self._plan = heal.plan(self._program, self._exe, community.suggestion(key, gameid) if key or gameid else None)
@@ -277,6 +357,14 @@ class ExeController(QObject):
     def _fail(self, text):
         self._state = "error"
         self._error = text
+        self._error_icon = "dialog-warning"
+        self.showWindow.emit()
+        self.changed.emit()
+
+    def _info(self, text):
+        self._state = "error"
+        self._error = text
+        self._error_icon = "dialog-information"
         self.showWindow.emit()
         self.changed.emit()
 
@@ -310,7 +398,14 @@ class ExeController(QObject):
             self._fail(tr("error.runtime_missing"))
             return
         if self._mode == "install":
-            self._after_install()
+            # A telepítő kilépett; a letöltők és a többlépcsős telepítők ilyenkor még dolgozhatnak
+            self._status = tr("status.finish_in_installer")
+            self.changed.emit()
+            self._install_timer.start()
+            return
+        if self._join:
+            # Csatlakozott indítás: a futó környezetet nem javítjuk, nem írunk felül semmit
+            QApplication.quit()
             return
         if self._attempt and not self._runner.uses_wine:
             self._program.save_meta(prefix_proton=heal.resolved_name(self._attempt))
@@ -318,7 +413,7 @@ class ExeController(QObject):
             self._on_worked()
             QApplication.quit()
             return
-        if heal.prefix_busy(self._program):
+        if self._program.busy():
             # Az indító átadta a helyét: a program fut tovább, ez nem hiba
             log.info("az indító kilépett, a program tovább fut")
             self._busy_timer.start()
@@ -388,7 +483,7 @@ class ExeController(QObject):
 
     def _on_worked(self):
         """A program rendben fut: megjegyezzük, mi működött, és a pillanatkép törölhető."""
-        if self._succeeded or self._mode != "run" or not self._attempt or self._runner.uses_wine:
+        if self._succeeded or self._mode != "run" or self._join or not self._attempt or self._runner.uses_wine:
             return
         self._succeeded = True
         rec = heal.record(self._program, self._exe)
@@ -410,7 +505,7 @@ class ExeController(QObject):
             self._snapshot = False
 
     def _check_busy(self):
-        if not heal.prefix_busy(self._program):
+        if not self._program.busy():
             self._busy_timer.stop()
             self._worked_timer.stop()
             QApplication.quit()
@@ -422,26 +517,42 @@ class ExeController(QObject):
         else:
             log.warning("összetevő telepítése nem sikerült: %s (%s)", verb, code)
 
+    def _check_install_done(self):
+        """A telepítés akkor kész, amikor a program környezetében már semmi nem fut."""
+        if self._program.busy():
+            return
+        self._install_timer.stop()
+        self._after_install()
+
     def _after_install(self):
         # A telepítő a legfrissebb Protonnal futott: ezen a verzión áll a program mappája
         if not self._runner.uses_wine:
             self._program.save_meta(prefix_proton=heal.newest() or "auto")
-        found = programs.find_shortcuts(self._program)
-        if not found:
-            # Nincs parancsikon: a telepített .exe-k közül választhat
-            found = [(programs.display_name(p), p) for p in self._program.list_exes()
-                     if not any(w in p.name.lower() for w in programs.SKIP_WORDS)][:12]
-            checked = len(found) == 1
-        else:
-            checked = True
-        if not found:
+        before = self._baseline
+        found = detect.detect(self._program, before, fallback_name=self._name)
+        if not found.candidates:
+            # Újratelepítésnél (vagy ha a telepítő csak frissített) nincs új fájl: az egész környezetből
+            before = None
+            found = detect.detect(self._program, before, fallback_name=self._name)
+        log.info("telepítve: %s (%s), indítók: %s", found.name or self._name, found.install_dir,
+                 [(c.name, c.path.name, c.score) for c in found.candidates])
+        if not found.candidates:
             self._fail(tr("error.nothing_installed"))
             return
-        self._shortcuts = []
-        for name, path in found:
-            icon = programs.extract_icon(path, self._program.icons / f"{programs.slugify(path.stem)}.png")
-            self._shortcuts.append({"name": name, "path": str(path), "checked": checked,
-                                    "iconUrl": f"file://{icon}" if icon else ""})
+        info = {"publisher": found.publisher, "version": found.version, "uninstall_key": found.uninstall_key}
+        if found.install_dir:
+            info["install_dir"] = self._program.host_to_windows(found.install_dir) or ""
+        self._program.save_meta(**info)
+        # A Windows saját nyilvántartásából a program valódi neve (pl. „Battle.net”, nem „Battle Net Setup”)
+        if found.name and found.name != self._program.name:
+            self._program = library.rename(self._program, found.name)
+            self._name = found.name
+            found = detect.detect(self._program, before, fallback_name=self._name)
+        self._program.link_files(self._program.windows_to_host(self._program.meta.get("install_dir", "")),
+                                 tr("misc.program_files"))
+        self._sure = found.sure
+        self._shortcuts = [self._shortcut_item(c.name, c.path, c.checked) for c in found.candidates]
+        self._update_window()
         self._state = "pick"
         self.showWindow.emit()
         self.changed.emit()

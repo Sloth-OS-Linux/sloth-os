@@ -34,7 +34,6 @@
   "status.repairing": "Komponente word herstel…",
 
   "error.not_found": "Die program is nie gevind nie. Dit is dalk uitgevee; installeer dit weer.",
-  "error.no_exe": "Ons het niks in hierdie program gevind om te begin nie.",
   "error.runtime_missing": "'n Komponent wat nodig is om programme te laat loop, ontbreek. Dateer die stelsel op in Sloth Center.",
   "error.not_started": "{name} het nie begin nie. Hierdie program werk dalk nie op hierdie stelsel nie, of die lêer is beskadig.",
   "error.nothing_installed": "Ons het geen geïnstalleerde program gevind nie. Die installasie is dalk onderbreek; probeer weer.",

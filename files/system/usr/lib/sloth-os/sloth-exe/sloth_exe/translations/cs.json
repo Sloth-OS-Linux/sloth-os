@@ -34,7 +34,6 @@
   "status.repairing": "Oprava součástí…",
 
   "error.not_found": "Program nelze najít. Možná byl smazán; nainstalujte ho znovu.",
-  "error.no_exe": "V tomto programu jsme nenašli nic ke spuštění.",
   "error.runtime_missing": "Chybí součást potřebná ke spouštění programů. Aktualizujte systém v Sloth Center.",
   "error.not_started": "{name} se nespustil. Tento program možná na tomto systému nefunguje, nebo je soubor poškozený.",
   "error.nothing_installed": "Nenašli jsme žádný nainstalovaný program. Instalace se možná přerušila; zkuste to znovu.",

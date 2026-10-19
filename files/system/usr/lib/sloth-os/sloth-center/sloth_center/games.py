@@ -2,98 +2,34 @@
 
 A Steames játékok beállítása a Steam saját indítási beállításaiba kerül (localconfig.vdf, a
 felhasználó saját beírásai megmaradnak); ezt csak akkor lehet írni, ha a Steam nem fut, különben
-kilépéskor felülírja. A Windows-programoknál (sloth-exe) a program meta.json-jába kerül, és a
+kilépéskor felülírja. A Windows-programoknál (sloth-exe) a program adatai közé kerül (sloth_common.apps), és a
 .exe kezelő indításkor alkalmazza. Jelszó nem kell: minden a felhasználó saját mappájában van.
 """
-import json
 import logging
 import re
 import subprocess
-from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, Signal, Slot
 from PySide6.QtGui import QGuiApplication
 
 from sloth_common import gamesettings
+from sloth_common.apps import library, steam
+from sloth_common.apps.steam import steam_root, vdf_dump, vdf_load
 
 from .i18n import tr
-from .winprograms import ROOT as WIN_ROOT
-
 log = logging.getLogger("sloth-center.games")
 
-STEAM_ROOTS = [Path.home() / ".var/app/com.valvesoftware.Steam/.local/share/Steam",
-               Path.home() / ".local/share/Steam", Path.home() / ".steam/steam"]
 # Nem játékok: futtatókörnyezetek, Proton, közös összetevők
 NOT_GAMES = re.compile(r"proton|steam linux runtime|steamworks common|steamvr|redistributable|soundtrack", re.I)
-
-
-# --- A Steam szöveges VDF formátuma ----------------------------------------------------------
-
-_TOKEN = re.compile(r'"((?:[^"\\]|\\.)*)"|([{}])|(//[^\n]*)')
-
-
-def vdf_load(text):
-    stack, key = [{}], None
-    for m in _TOKEN.finditer(text):
-        s, brace, comment = m.groups()
-        if comment:
-            continue
-        if brace == "{":
-            node = {}
-            stack[-1][key] = node
-            stack.append(node)
-            key = None
-        elif brace == "}":
-            stack.pop()
-        elif key is None:
-            key = s.replace('\\"', '"').replace("\\\\", "\\")
-        else:
-            stack[-1][key] = s.replace('\\"', '"').replace("\\\\", "\\")
-            key = None
-    return stack[0]
-
-
-def vdf_dump(data, indent=0):
-    out = []
-    for k, v in data.items():
-        q = lambda x: '"' + x.replace("\\", "\\\\").replace('"', '\\"') + '"'
-        if isinstance(v, dict):
-            out.append("\t" * indent + q(k))
-            out.append("\t" * indent + "{")
-            out.append(vdf_dump(v, indent + 1))
-            out.append("\t" * indent + "}")
-        else:
-            out.append("\t" * indent + q(k) + "\t\t" + q(v))
-    return "\n".join(x for x in out if x)
-
-
-def _ci(d, key):
-    """A Steam fájljaiban a kulcsok kis- és nagybetűje változhat."""
-    for k, v in d.items():
-        if k.lower() == key.lower():
-            return v
-    return None
-
-
-# --- Steam -----------------------------------------------------------------------------------
-
-def steam_root():
-    return next((r for r in STEAM_ROOTS if (r / "steamapps").is_dir()), None)
+_ci = steam.ci
 
 
 def steam_games():
     root = steam_root()
     if not root:
         return []
-    libraries = {root}
-    try:
-        folders = _ci(vdf_load((root / "steamapps/libraryfolders.vdf").read_text(errors="replace")),
-                      "libraryfolders") or {}
-        libraries |= {Path(_ci(v, "path")) for v in folders.values() if isinstance(v, dict) and _ci(v, "path")}
-    except OSError:
-        pass
     games = {}
-    for lib in libraries:
+    for lib in steam.library_folders(root):
         for manifest in (lib / "steamapps").glob("appmanifest_*.acf"):
             try:
                 state = _ci(vdf_load(manifest.read_text(errors="replace")), "AppState") or {}
@@ -173,13 +109,11 @@ class GamesController(QObject):
             options = _ci(_ci(apps, g["appid"]) or {}, "LaunchOptions") or ""
             settings, _rest, _after = gamesettings.parse_launch_options(options)
             games.append({"id": "steam:" + g["appid"], "name": g["name"], "source": "steam", **settings})
-        for meta_path in sorted(WIN_ROOT.glob("*/meta.json")):
-            try:
-                meta = json.loads(meta_path.read_text(encoding="utf-8"))
-            except (OSError, ValueError):
+        for app in library.all_apps():
+            if app.kind != "windows" or app.id == library.SHARED_ID:
                 continue
-            games.append({"id": "win:" + meta_path.parent.name, "name": meta.get("name", meta_path.parent.name),
-                          "source": "windows", **gamesettings.normalize(meta.get("game"))})
+            games.append({"id": "win:" + app.id, "name": app.name, "source": "windows",
+                          **gamesettings.normalize(app.meta.get("game"))})
         self._games = sorted(games, key=lambda g: g["name"].lower())
         self.changed.emit()
 
@@ -229,15 +163,15 @@ class GamesController(QObject):
             log.warning("localconfig.vdf: %s", e)
             self._error = tr("Nem sikerült menteni.")
 
-    def _save_windows(self, slug, settings):
-        meta_path = WIN_ROOT / slug / "meta.json"
+    def _save_windows(self, app_id, settings):
+        app = library.find(app_id)
         try:
-            meta = json.loads(meta_path.read_text(encoding="utf-8"))
-            meta["game"] = settings
-            meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+            if app is None:
+                raise OSError(f"nincs ilyen program: {app_id}")
+            app.save_meta(game=settings)
             self._info = tr("Elmentve. A következő indításkor lép életbe.")
-        except (OSError, ValueError) as e:
-            log.warning("meta.json: %s", e)
+        except OSError as e:
+            log.warning("program adatai: %s", e)
             self._error = tr("Nem sikerült menteni.")
 
     @Slot()

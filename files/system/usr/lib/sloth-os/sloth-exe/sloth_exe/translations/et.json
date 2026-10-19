@@ -34,7 +34,6 @@
   "status.repairing": "Komponentide parandamine…",
 
   "error.not_found": "Programmi ei leitud. Võib-olla on see kustutatud; paigalda see uuesti.",
-  "error.no_exe": "Selles programmis ei leitud midagi käivitatavat.",
   "error.runtime_missing": "Programmide käivitamiseks vajalik komponent puudub. Uuenda süsteemi Sloth Centeris.",
   "error.not_started": "{name} ei käivitunud. Võib-olla see programm ei tööta selles süsteemis või fail on vigane.",
   "error.nothing_installed": "Paigaldatud programmi ei leitud. Võib-olla katkes paigaldamine; proovi uuesti.",

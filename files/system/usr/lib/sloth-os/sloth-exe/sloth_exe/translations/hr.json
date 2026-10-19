@@ -34,7 +34,6 @@
   "status.repairing": "Popravak komponenti…",
 
   "error.not_found": "Program nije pronađen. Možda je izbrisan; instalirajte ga ponovno.",
-  "error.no_exe": "U ovom programu nismo pronašli ništa za pokretanje.",
   "error.runtime_missing": "Nedostaje komponenta potrebna za pokretanje programa. Ažurirajte sustav u Sloth Centeru.",
   "error.not_started": "{name} se nije pokrenuo. Ovaj program možda ne radi na ovom sustavu ili je datoteka oštećena.",
   "error.nothing_installed": "Nismo pronašli instalirani program. Instalacija je možda prekinuta; pokušajte ponovno.",

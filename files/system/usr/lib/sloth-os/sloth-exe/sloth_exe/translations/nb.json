@@ -34,7 +34,6 @@
   "status.repairing": "Reparerer komponenter…",
 
   "error.not_found": "Fant ikke programmet. Det kan være slettet; installer det på nytt.",
-  "error.no_exe": "Fant ingenting å starte i dette programmet.",
   "error.runtime_missing": "En komponent som trengs for å kjøre programmer, mangler. Oppdater systemet i Sloth Center.",
   "error.not_started": "{name} startet ikke. Programmet fungerer kanskje ikke på dette systemet, eller filen er skadet.",
   "error.nothing_installed": "Fant ikke noe installert program. Installasjonen kan ha blitt avbrutt; prøv igjen.",

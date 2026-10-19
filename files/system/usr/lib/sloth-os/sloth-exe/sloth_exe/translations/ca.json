@@ -34,7 +34,6 @@
   "status.repairing": "S'estan reparant els components…",
 
   "error.not_found": "No trobem el programa. Potser s'ha esborrat; torna a instal·lar-lo.",
-  "error.no_exe": "No hem trobat res per iniciar en aquest programa.",
   "error.runtime_missing": "Falta un component necessari per executar programes. Actualitza el sistema a Sloth Center.",
   "error.not_started": "{name} no s'ha iniciat. Potser aquest programa no funciona en aquest sistema o el fitxer està malmès.",
   "error.nothing_installed": "No hem trobat cap programa instal·lat. Potser la instal·lació s'ha interromput; torna-ho a provar.",

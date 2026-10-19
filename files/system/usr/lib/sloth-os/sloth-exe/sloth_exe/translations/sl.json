@@ -34,7 +34,6 @@
   "status.repairing": "Popravljanje komponent…",
 
   "error.not_found": "Programa ne najdemo. Morda je bil izbrisan; namestite ga znova.",
-  "error.no_exe": "V tem programu nismo našli ničesar za zagon.",
   "error.runtime_missing": "Manjka komponenta, potrebna za zagon programov. Posodobite sistem v Sloth Center.",
   "error.not_started": "{name} se ni zagnal. Ta program morda ne deluje v tem sistemu ali pa je datoteka poškodovana.",
   "error.nothing_installed": "Nismo našli nameščenega programa. Namestitev se je morda prekinila; poskusite znova.",

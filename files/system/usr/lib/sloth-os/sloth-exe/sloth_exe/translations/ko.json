@@ -34,7 +34,6 @@
   "status.repairing": "구성 요소 복구 중…",
 
   "error.not_found": "프로그램을 찾을 수 없습니다. 삭제되었을 수 있으니 다시 설치하세요.",
-  "error.no_exe": "이 프로그램에서 실행할 수 있는 것을 찾지 못했습니다.",
   "error.runtime_missing": "프로그램 실행에 필요한 구성 요소가 없습니다. Sloth Center에서 시스템을 업데이트하세요.",
   "error.not_started": "{name}이(가) 시작되지 않았습니다. 이 시스템에서 동작하지 않는 프로그램이거나 파일이 손상되었을 수 있습니다.",
   "error.nothing_installed": "설치된 프로그램을 찾지 못했습니다. 설치가 중단되었을 수 있으니 다시 시도하세요.",

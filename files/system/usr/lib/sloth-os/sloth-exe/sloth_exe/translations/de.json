@@ -34,7 +34,6 @@
   "status.repairing": "Komponenten werden repariert…",
 
   "error.not_found": "Das Programm wurde nicht gefunden. Vielleicht wurde es gelöscht; installiere es erneut.",
-  "error.no_exe": "In diesem Programm wurde nichts Startbares gefunden.",
   "error.runtime_missing": "Eine zum Ausführen von Programmen nötige Komponente fehlt. Aktualisiere das System im Sloth Center.",
   "error.not_started": "{name} ist nicht gestartet. Vielleicht funktioniert dieses Programm auf diesem System nicht, oder die Datei ist beschädigt.",
   "error.nothing_installed": "Es wurde kein installiertes Programm gefunden. Vielleicht wurde die Installation abgebrochen; versuche es erneut.",

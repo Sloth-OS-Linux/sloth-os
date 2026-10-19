@@ -34,7 +34,6 @@
   "status.repairing": "Bileşenler onarılıyor…",
 
   "error.not_found": "Program bulunamadı. Silinmiş olabilir; yeniden kurun.",
-  "error.no_exe": "Bu programda başlatılacak bir şey bulunamadı.",
   "error.runtime_missing": "Programları çalıştırmak için gereken bir bileşen eksik. Sistemi Sloth Center'dan güncelleyin.",
   "error.not_started": "{name} başlamadı. Bu program bu sistemde çalışmıyor olabilir ya da dosya bozuk olabilir.",
   "error.nothing_installed": "Kurulu bir program bulunamadı. Kurulum yarıda kesilmiş olabilir; yeniden deneyin.",

@@ -34,7 +34,6 @@
   "status.repairing": "Naprawianie składników…",
 
   "error.not_found": "Nie znaleziono programu. Może został usunięty; zainstaluj go ponownie.",
-  "error.no_exe": "W tym programie nie znaleziono niczego do uruchomienia.",
   "error.runtime_missing": "Brakuje składnika potrzebnego do uruchamiania programów. Zaktualizuj system w Sloth Center.",
   "error.not_started": "{name} nie uruchomił się. Ten program może nie działać w tym systemie albo plik jest uszkodzony.",
   "error.nothing_installed": "Nie znaleziono zainstalowanego programu. Instalacja mogła zostać przerwana; spróbuj ponownie.",

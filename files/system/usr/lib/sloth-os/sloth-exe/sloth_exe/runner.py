@@ -2,7 +2,7 @@
 
 A felhasználó a technikai részleteket nem látja: a kimenetből csak emberi
 állapotszöveg lesz ("Első indítás előkészítése…"), a többi a naplóba megy
-(<program mappája>/naplo/<exe>.log), és abból dolgozik az önjavítás (diagnose.py, heal.py).
+(~/.cache/sloth-os/apps/<program>/naplo/<exe>.log), és abból dolgozik az önjavítás (diagnose.py, heal.py).
 Hogy melyik futtató indul, azt a backend.py dönti el.
 """
 import collections
@@ -14,8 +14,9 @@ from PySide6.QtCore import QObject, QProcess, QProcessEnvironment, Signal
 from PySide6.QtGui import QGuiApplication
 
 from sloth_common import gamesettings
+from sloth_common.apps.library import slugify
 
-from . import backend, programs, quirks
+from . import backend, quirks
 
 log = logging.getLogger("sloth-exe.runner")
 
@@ -54,10 +55,12 @@ class Runner(QObject):
     def lines(self):
         return list(self._lines)
 
-    def start(self, program, exe, attempt=None, gameid=None):
-        """program: programs.Program, exe: a futtatandó fájl a gazdagépen.
+    def start(self, program, exe, attempt=None, gameid=None, join=False):
+        """program: library.App, exe: a futtatandó fájl a gazdagépen.
 
         attempt: heal.Attempt (melyik Proton, milyen beállítással, milyen javításokkal), gameid: umu GAMEID.
+        join: a program környezetében már fut valami (pl. az indító, amiből ez a játék is indulhatna):
+        az új program ahhoz csatlakozik, és nem várja meg, amíg az előző leáll.
         """
         program.prefix.mkdir(parents=True, exist_ok=True)
         env = QProcessEnvironment.systemEnvironment()
@@ -67,7 +70,8 @@ class Runner(QObject):
         # Indítás előtt megvárjuk, amíg az előző munkamenet (wineserver) leáll. A gyerekfolyamatokat
         # ez nem várja meg: a futtató az elindított folyamattal együtt leáll, és vele zárul be, amit
         # az elindított. A rövid életű indítók helyett ezért a klienst indítjuk (quirks.launch_target).
-        env.insert("PROTON_VERB", "waitforexitandrun")
+        # Ha a környezetben már fut valami, ahhoz csatlakozunk (különben az indítás addig várna, amíg az leáll).
+        env.insert("PROTON_VERB", "runinprefix" if join else "waitforexitandrun")
         # A hibasorok kellenek a diagnózishoz (a felhasználó nem látja őket); a "fixme" zaj nem
         env.insert("WINEDEBUG", "fixme-all")
         env.insert("DXVK_LOG_LEVEL", "warn")
@@ -94,7 +98,8 @@ class Runner(QObject):
         self.uses_wine = False
         # Hiányzó összetevők telepítése a program előtt (winetricks az umu-n keresztül, kérdés nélkül)
         done = set(program.meta.get("verbs", []))
-        verbs = (attempt.verbs() if attempt else []) + known["verbs"]
+        # futó környezetbe összetevőt nem telepítünk (a következő önálló indításkor települ)
+        verbs = [] if join else (attempt.verbs() if attempt else []) + known["verbs"]
         for verb in dict.fromkeys(verbs):
             if verb not in done:
                 self._steps.append((env, exe.parent, "umu-run", ["winetricks", "-q", verb], verb))
@@ -169,7 +174,7 @@ class Runner(QObject):
         self._lines.clear()
         self._close_log()
         try:
-            path = program.dir / "naplo" / f"{programs.slugify(exe.stem)}.log"
+            path = program.log_dir / f"{slugify(exe.stem)}.log"
             path.parent.mkdir(parents=True, exist_ok=True)
             self._log_file = open(path, "w", encoding="utf-8")
             self._log_bytes = 0

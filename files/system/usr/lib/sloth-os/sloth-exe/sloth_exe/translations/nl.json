@@ -34,7 +34,6 @@
   "status.repairing": "Onderdelen herstellen…",
 
   "error.not_found": "We kunnen het programma niet vinden. Misschien is het verwijderd; installeer het opnieuw.",
-  "error.no_exe": "We hebben in dit programma niets gevonden om te starten.",
   "error.runtime_missing": "Een onderdeel dat nodig is om programma's uit te voeren ontbreekt. Werk het systeem bij in Sloth Center.",
   "error.not_started": "{name} is niet gestart. Misschien werkt dit programma niet op dit systeem, of is het bestand beschadigd.",
   "error.nothing_installed": "We hebben geen geïnstalleerd programma gevonden. Misschien is de installatie onderbroken; probeer het opnieuw.",

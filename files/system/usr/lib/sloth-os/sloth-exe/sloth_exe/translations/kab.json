@@ -34,7 +34,6 @@
   "status.repairing": "Aseggem n yiferdisen…",
 
   "error.not_found": "Ur d-nufi ara ahil. Ahat yettwakkes; ales asebded-is.",
-  "error.no_exe": "Ur d-nufi acemma ara yettusekren deg wahil-a.",
   "error.runtime_missing": "Ixuṣ yiwen n uferdis i ilaqen i usekker n yihilen. Leqqem anagraw deg Sloth Center.",
   "error.not_started": "{name} ur yekker ara. Ahat ahil-a ur iteddu ara deg unagraw-a, neɣ afaylu yexser.",
   "error.nothing_installed": "Ur d-nufi ara ahil yebdden. Ahat asebded yegzem; ɛreḍ tikkelt nniḍen.",

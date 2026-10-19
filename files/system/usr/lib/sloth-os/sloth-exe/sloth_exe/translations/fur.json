@@ -34,7 +34,6 @@
   "status.repairing": "Si comedin i components…",
 
   "error.not_found": "No si cjate il program. Al podarès jessi stât eliminât; torne instalilu.",
-  "error.no_exe": "In chest program no vin cjatât nuie di inviâ.",
   "error.runtime_missing": "Al mancje un component che al covente par inviâ i programs. Inzorne il sisteme in Sloth Center.",
   "error.not_started": "{name} nol è partît. Al podarès jessi che chest program nol funzioni su chest sisteme, o che il file al sedi ruvinât.",
   "error.nothing_installed": "No vin cjatât nissun program instalât. La instalazion e podarès jessi stade interote; torne prove.",

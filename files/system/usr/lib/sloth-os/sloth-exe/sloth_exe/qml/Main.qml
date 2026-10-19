@@ -5,6 +5,7 @@
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Dialogs
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
@@ -157,7 +158,8 @@ Kirigami.ApplicationWindow {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: root.t(exe.mode === "manage" ? "pick.question_manage" : "pick.question_install")
+                    text: root.t(exe.mode === "manage" ? "pick.question_manage"
+                                 : exe.sure ? "pick.question_install" : "pick.question_unsure")
                 }
                 QQC2.ScrollView {
                     Layout.fillWidth: true
@@ -177,13 +179,36 @@ Kirigami.ApplicationWindow {
                     }
                 }
                 RowLayout {
-                    Layout.alignment: Qt.AlignRight
+                    Layout.fillWidth: true
+                    // Ha a felismerés nem találta el: bármelyik .exe kiválasztható
                     QQC2.Button {
-                        highlighted: true
+                        text: root.t("button.browse")
+                        icon.name: "document-open"
+                        onClicked: browseDialog.open()
+                    }
+                    Item { Layout.fillWidth: true }
+                    QQC2.Button {
+                        highlighted: exe.mode === "manage" || !exe.anyChecked
                         text: root.t("button.done")
                         icon.name: "dialog-ok"
-                        onClicked: exe.confirmShortcuts()
+                        onClicked: exe.confirmShortcuts(false)
                     }
+                    // Telepítés után: rögtön indítható
+                    QQC2.Button {
+                        visible: exe.mode !== "manage"
+                        enabled: exe.anyChecked
+                        highlighted: true
+                        text: root.t("button.start")
+                        icon.name: "media-playback-start"
+                        onClicked: exe.confirmShortcuts(true)
+                    }
+                }
+                FileDialog {
+                    id: browseDialog
+                    title: root.t("pick.browse_title")
+                    currentFolder: exe.browseFolder
+                    nameFilters: [root.t("pick.exe_filter") + " (*.exe *.EXE)"]
+                    onAccepted: exe.addFile(selectedFile.toString())
                 }
             }
 
@@ -193,7 +218,7 @@ Kirigami.ApplicationWindow {
                 Item { Layout.fillHeight: true }
                 Kirigami.Icon {
                     Layout.alignment: Qt.AlignHCenter
-                    source: "dialog-warning"
+                    source: exe.errorIcon
                     implicitWidth: Kirigami.Units.iconSizes.huge
                     implicitHeight: Kirigami.Units.iconSizes.huge
                 }

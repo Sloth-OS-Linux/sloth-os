@@ -19,7 +19,7 @@ import getpass
 import json
 import logging
 
-from .programs import WIN_USER
+from sloth_common.apps.library import WIN_USER
 
 log = logging.getLogger("sloth-exe.quirks")
 

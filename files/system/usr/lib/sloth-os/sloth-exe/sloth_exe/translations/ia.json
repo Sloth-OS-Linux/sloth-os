@@ -34,7 +34,6 @@
   "status.repairing": "Reparation del componentes…",
 
   "error.not_found": "Le programma non esseva trovate. Forsan illo esseva delite; installa lo de novo.",
-  "error.no_exe": "Nos non trovava nihil a lancear in iste programma.",
   "error.runtime_missing": "Un componente necessari pro executar programmas manca. Actualisa le systema in Sloth Center.",
   "error.not_started": "{name} non se lanceava. Forsan iste programma non functiona in iste systema, o le file es damnificate.",
   "error.nothing_installed": "Nos non trovava alcun programma installate. Forsan le installation esseva interrumpite; reproba.",

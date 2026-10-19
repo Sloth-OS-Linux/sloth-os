@@ -34,7 +34,6 @@
   "status.repairing": "Reparando componentes…",
 
   "error.not_found": "No encontramos el programa. Puede que se haya borrado; vuelve a instalarlo.",
-  "error.no_exe": "No encontramos nada que iniciar en este programa.",
   "error.runtime_missing": "Falta un componente necesario para ejecutar programas. Actualiza el sistema en Sloth Center.",
   "error.not_started": "{name} no se inició. Puede que este programa no funcione en este sistema o que el archivo esté dañado.",
   "error.nothing_installed": "No encontramos ningún programa instalado. Puede que la instalación se interrumpiera; inténtalo de nuevo.",

@@ -34,7 +34,6 @@
   "status.repairing": "正在修复组件…",
 
   "error.not_found": "找不到该程序。它可能已被删除，请重新安装。",
-  "error.no_exe": "在此程序中找不到可以启动的内容。",
   "error.runtime_missing": "缺少运行程序所需的组件。请在 Sloth Center 中更新系统。",
   "error.not_started": "{name} 未能启动。此程序可能无法在本系统上运行，或文件已损坏。",
   "error.nothing_installed": "找不到已安装的程序。安装可能被中断了，请重试。",

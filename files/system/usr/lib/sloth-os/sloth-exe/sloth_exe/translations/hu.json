@@ -15,6 +15,7 @@
   "button.install": "Telepítés",
   "button.open": "Megnyitás",
   "button.reinstall": "Újratelepítés",
+  "button.browse": "Másik fájl…",
   "button.start": "Indítás",
   "button.done": "Kész",
   "button.close": "Bezárás",
@@ -22,6 +23,9 @@
   "pick.done_title": "Kész a telepítés!",
   "pick.question_manage": "Mi legyen a Start menüben?",
   "pick.question_install": "Mi kerüljön a Start menübe?",
+  "pick.question_unsure": "Nem derült ki biztosan, melyik fájllal indul a program. Jelöld be, mi kerüljön a Start menübe, vagy válassz másik fájlt.",
+  "pick.browse_title": "Melyik fájllal indul a program?",
+  "pick.exe_filter": "Programok",
 
   "status.starting": "{name} indítása…",
   "status.preparing_install": "{name} telepítésének előkészítése…",
@@ -34,16 +38,17 @@
   "status.repairing": "Összetevők javítása…",
 
   "error.not_found": "A programot nem találjuk. Lehet, hogy törölve lett; telepítsd újra.",
-  "error.no_exe": "Ebben a programban nem találtunk elindítható fájlt.",
   "error.runtime_missing": "A programok futtatásához szükséges összetevő hiányzik. Frissítsd a rendszert a Sloth Központban.",
   "error.not_started": "{name} nem indult el. Lehet, hogy ez a program nem működik ezen a rendszeren, vagy sérült a fájl.",
   "error.nothing_installed": "Nem találtunk telepített programot. Lehet, hogy a telepítés megszakadt; próbáld újra.",
+  "info.already_running": "{name} már fut. Az ablakát a tálcán találod.",
 
   "anticheat.blocked": "{game} a(z) {system} csalásvédelmet használja, ami Linuxon nem engedi futni a játékot. Ez nem a gépeden múlik, és mi sem tudjuk megkerülni. Sajnos ezt a játékot itt nem lehet játszani.",
   "anticheat.maybe": "{game} a(z) {system} csalásvédelmet használja. Ez Linuxon csak akkor működik, ha a játék készítői engedélyezték. Ha a játék nem indul vagy kidob, valószínűleg ez az oka. Érdemes megnézni, van-e a játéknak Steames változata.",
 
   "misc.program": "Program",
   "misc.other_programs": "Egyéb programok",
+  "misc.program_files": "Program fájljai",
 
   "desktop.name": "Windows-programok",
   "desktop.comment": "Windows-os programok és játékok telepítése és futtatása"

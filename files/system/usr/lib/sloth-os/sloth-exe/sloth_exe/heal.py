@@ -10,7 +10,8 @@ a felhasználó ebből csak annyit lát, hogy „Indítás…”. A sorrend:
 Proton-váltás előtt pillanatkép készül a program mappájáról (reflink másolat: másodpercek, szinte
 nulla hely), és ha a próba nem sikerül, visszaáll; így egy rossz próba semmit nem ront el.
 
-Adatok: a program meta.json-jában, "launch" alatt .exe-nként (a közös mappában több .exe is lehet).
+Adatok: a program adataiban (sloth_common.apps, .sloth/app.json), "launch" alatt .exe-nként (a közös
+környezetben több .exe is lehet).
 """
 import os
 import re
@@ -20,9 +21,9 @@ import uuid
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from . import programs
+from sloth_common.apps import library
 
-DATA_HOME = programs.DATA_HOME
+DATA_HOME = library.DATA_HOME
 COMPAT_DIRS = [DATA_HOME / "Steam/compatibilitytools.d", DATA_HOME / "umu/compatibilitytools"]
 UMU_LINE, GE_LINE = "UMU-Proton", "GE-Proton"
 GE_DOWNLOAD = "GE-Proton"  # az umu ezt a nevet látva letölti a legfrissebb GE-Protont
@@ -34,7 +35,6 @@ PROFILES = {
     "wined3d": {"PROTON_USE_WINED3D": "1"},
 }
 MAX_ATTEMPTS = 4  # egy indításon belül legfeljebb ennyi próba (utána érthető hibaüzenet)
-SNAPSHOT_NAME = "pillanatkep"
 
 
 # --- Proton-verziók --------------------------------------------------------------------------------
@@ -93,8 +93,8 @@ def save_record(program, exe, rec):
 
 def can_snapshot(program):
     """Támogatja-e a fájlrendszer a reflink másolatot (Btrfs, XFS); különben a másolás túl sok hely lenne."""
-    program.dir.mkdir(parents=True, exist_ok=True)
-    src = program.dir / f".reflink-{uuid.uuid4().hex}"
+    program.data.mkdir(parents=True, exist_ok=True)
+    src = program.data / f".reflink-{uuid.uuid4().hex}"
     dst = src.with_suffix(".copy")
     try:
         src.write_bytes(b"x")
@@ -108,7 +108,7 @@ def can_snapshot(program):
 
 
 def take_snapshot(program):
-    dest = program.dir / SNAPSHOT_NAME
+    dest = program.snapshot
     drop_snapshot(program, wait=True)
     try:
         return subprocess.run(["cp", "-a", "--reflink=always", str(program.prefix), str(dest)],
@@ -119,10 +119,10 @@ def take_snapshot(program):
 
 
 def restore_snapshot(program):
-    snap = program.dir / SNAPSHOT_NAME
+    snap = program.snapshot
     if not snap.is_dir():
         return False
-    trash = program.dir / f".regi-{uuid.uuid4().hex}"
+    trash = program.data / f".regi-{uuid.uuid4().hex}"
     program.prefix.rename(trash)
     snap.rename(program.prefix)
     subprocess.Popen(["rm", "-rf", str(trash)], start_new_session=True)
@@ -130,13 +130,13 @@ def restore_snapshot(program):
 
 
 def drop_snapshot(program, wait=False):
-    snap = program.dir / SNAPSHOT_NAME
+    snap = program.snapshot
     if not snap.exists():
         return
     if wait:
         shutil.rmtree(snap, ignore_errors=True)
     else:
-        trash = program.dir / f".regi-{uuid.uuid4().hex}"
+        trash = program.data / f".regi-{uuid.uuid4().hex}"
         snap.rename(trash)
         subprocess.Popen(["rm", "-rf", str(trash)], start_new_session=True)
 
@@ -235,34 +235,6 @@ def allowed_without_snapshot(program, attempt):
     return not needs_snapshot(program, attempt) or attempt.proton == newest(UMU_LINE)
 
 
-# A Wine saját háttérfolyamatai: a program kilépése után még pár másodpercig élhetnek
-_INFRA = {"services.exe", "winedevice.exe", "plugplay.exe", "explorer.exe", "rpcss.exe", "svchost.exe",
-          "tabtip.exe", "conhost.exe", "start.exe", "steam.exe", "wineboot.exe", "rundll32.exe", "winemenubuilder.exe"}
-
-
-def _windows_exe(proc):
-    """A folyamat Windows-programjának neve (a Wine alatt az első paraméter a .exe útvonala), vagy None."""
-    argv0 = (proc / "cmdline").read_bytes().split(b"\0", 1)[0].decode("utf-8", "replace")
-    name = re.split(r"[\\/]", argv0)[-1].lower()
-    return name if name.endswith(".exe") else None
-
-
-def prefix_busy(program):
-    """Fut-e még maga a program a mappájában (pl. az indító kilépett, de a kliens tovább fut)."""
-    marker = b"WINEPREFIX=" + str(program.prefix).encode() + b"\0"
-    for proc in Path("/proc").iterdir():
-        if not proc.name.isdigit() or int(proc.name) == os.getpid():
-            continue
-        try:
-            if marker in (proc / "environ").read_bytes():
-                name = _windows_exe(proc)
-                if name and name not in _INFRA:
-                    return True
-        except OSError:
-            continue
-    return False
-
-
 # --- Karbantartás ------------------------------------------------------------------------------------
 
 def _in_use(path):
@@ -281,12 +253,11 @@ def prune_protons():
     """A régi Protonok törlése: marad a legújabb UMU- és GE-Proton, egy tartalék, és amit egy program használ."""
     keep = {newest(UMU_LINE), newest(GE_LINE)}
     keep |= set(list(installed_protons(UMU_LINE))[:2])
-    if programs.ROOT.is_dir():
-        for d in programs.ROOT.iterdir():
-            meta = programs.Program(d.name).meta
-            keep.add(meta.get("prefix_proton"))
-            for rec in meta.get("launch", {}).values():
-                keep.add((rec.get("good") or {}).get("proton"))
+    for app in library.all_apps():
+        meta = app.meta
+        keep.add(meta.get("prefix_proton"))
+        for rec in meta.get("launch", {}).values():
+            keep.add((rec.get("good") or {}).get("proton"))
     removed = []
     for name, path in installed_protons().items():
         if name in keep or _in_use(path) or path.parent != COMPAT_DIRS[0]:

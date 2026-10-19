@@ -34,7 +34,6 @@
   "status.repairing": "Riparado de komponantoj…",
 
   "error.not_found": "La programo ne troviĝis. Eble ĝi estis forigita; reinstalu ĝin.",
-  "error.no_exe": "Ni trovis nenion lanĉeblan en ĉi tiu programo.",
   "error.runtime_missing": "Mankas komponanto bezonata por lanĉi programojn. Ĝisdatigu la sistemon en Sloth Center.",
   "error.not_started": "{name} ne lanĉiĝis. Eble ĉi tiu programo ne funkcias en ĉi tiu sistemo, aŭ la dosiero estas difektita.",
   "error.nothing_installed": "Ni trovis neniun instalitan programon. Eble la instalado interrompiĝis; reprovu.",

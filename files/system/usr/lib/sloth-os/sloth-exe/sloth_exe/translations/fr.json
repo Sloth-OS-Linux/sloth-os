@@ -34,7 +34,6 @@
   "status.repairing": "Réparation des composants…",
 
   "error.not_found": "Programme introuvable. Il a peut-être été supprimé ; réinstallez-le.",
-  "error.no_exe": "Rien à lancer n'a été trouvé dans ce programme.",
   "error.runtime_missing": "Un composant nécessaire pour lancer les programmes est manquant. Mettez le système à jour dans Sloth Center.",
   "error.not_started": "{name} n'a pas démarré. Ce programme ne fonctionne peut-être pas sur ce système, ou le fichier est endommagé.",
   "error.nothing_installed": "Aucun programme installé n'a été trouvé. L'installation a peut-être été interrompue ; réessayez.",

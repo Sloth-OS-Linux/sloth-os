@@ -1,7 +1,9 @@
 """A .exe kezelő indítása.
 
   sloth-exe <fájl.exe|fájl.msi>      dupla kattintás egy Windows-programra
-  sloth-exe --launch <program> <exe>  Start menü bejegyzésből
+  sloth-exe --launch <program> <exe>  Start menü bejegyzésből (exe: a program környezetéhez képest)
+  sloth-exe --shortcuts <program>     Start menü bejegyzések szerkesztése (a Sloth Központból)
+  sloth-exe --maintenance             háttérkarbantartás (sloth-windows-prepare)
 """
 import argparse
 import logging
@@ -23,10 +25,15 @@ def main():
     parser.add_argument("--launch", nargs=2, metavar=("PROGRAM", "EXE"))
     parser.add_argument("--shortcuts", metavar="PROGRAM", help="Start menü bejegyzések szerkesztése")
     parser.add_argument("--maintenance", action="store_true",
-                        help="háttérkarbantartás (sloth-windows-prepare): régi Proton-verziók törlése, jelentések küldése")
+                        help="háttérkarbantartás (sloth-windows-prepare): átköltözés az új helyre, "
+                             "régi Proton-verziók törlése, jelentések küldése")
     args, qt_args = parser.parse_known_args()
     if args.maintenance:
+        from sloth_common.apps import library
+
         from . import community, heal
+        moved = library.migrate_legacy()
+        print("Új helyre költözött programok:", ", ".join(a.name for a in moved) if moved else "nincs")
         removed = heal.prune_protons()
         print("Törölt régi verziók:", ", ".join(removed) if removed else "nincs")
         print("Elküldött jelentések (közös tudás):", community.send_queue())
