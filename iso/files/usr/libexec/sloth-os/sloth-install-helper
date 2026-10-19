@@ -10,7 +10,7 @@ Alapból a teljes lemezt törli, particionálja, és feltelepíti rá az ISO-ba 
 (bootc install to-filesystem), majd beírja a választott nyelvet, billentyűzetet és időzónát, és a
 fiók adatait (a fiókot első induláskor a sloth-first-user szolgáltatás hozza létre).
 A bootc a rétegeket ideiglenesen a /var/tmp-be csomagolja ki; az élő rendszerben ez RAM-ban van, ezért
-a telepítés idejére a /var/tmp fölé a lemez végén lévő átmeneti munkapartíció kerül.
+a telepítés idejére a /var/tmp fölé (overlayként) a lemez végén lévő átmeneti munkapartíció kerül.
 A végén ezt a partíciót töröljük, és a helyét a rendszerpartíció kapja meg.
 A kimenet JSON-sorok a felületnek:
   {"stage": "partition", "progress": 10}   ismert lépés (a felület fordítja le)
@@ -488,7 +488,13 @@ def run_bootc(kargs=()):
     # A kicsomagolt rétegek a munkapartícióra kerüljenek, ne a RAM-ban lévő /var/tmp-be. A TMPDIR-t a
     # bootc nem veszi figyelembe, és a rendszer (PID 1) /var/tmp-jét használja, ezért a telepítés idejére a
     # munkapartíciót rendszerszinten a /var/tmp fölé csatoljuk (finish_partitions veszi le).
-    run(["mount", "--bind", str(SCRATCH), "/var/tmp"])
+    # Overlayként, nem bind mounttal: így a systemd szerint a /var/tmp forrása "overlay", nem a partíció.
+    # Bind mountnál a var-tmp.mount a partícióhoz kötődött, és a partíció törlésekor a systemd leállította,
+    # vele a basic.targetet (RequiresMountsFor=/var/tmp) és az egész élő asztalt, a telepítővel együtt.
+    for d in ("upper", "work"):
+        (SCRATCH / d).mkdir(exist_ok=True)
+    run(["mount", "-t", "overlay", "overlay", "-o",
+         f"lowerdir=/var/tmp,upperdir={SCRATCH}/upper,workdir={SCRATCH}/work", "/var/tmp"])
     proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
     progress = [20]
     stop = threading.Event()
@@ -850,6 +856,9 @@ def main():
     emit(stage="partition", progress=5)
     # egy korábbi, megszakadt próbálkozás nyitva hagyhatta a titkosított réteget
     subprocess.run(["umount", "-R", str(TARGET)], capture_output=True)
+    if subprocess.run(["findmnt", "-n", "-o", "FSTYPE", "/var/tmp"], capture_output=True,
+                      text=True).stdout.split()[-1:] == ["overlay"]:   # a legfelső réteg az utolsó sor
+        subprocess.run(["umount", "/var/tmp"], capture_output=True)
     subprocess.run(["cryptsetup", "close", CRYPT_NAME], capture_output=True)
     release_disk(args.disk)
     windows_esp = ""

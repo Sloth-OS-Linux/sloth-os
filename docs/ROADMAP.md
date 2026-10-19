@@ -189,7 +189,19 @@ Talált hibák (egyesével javítjuk):
   (BIOS) logója jön, majd megint a jelszókérő. A felhasználó újratelepíti. Kérdések: a GRUB menüben (indításkor
   Esc) az előző bejegyzéssel elindul-e; volt-e előtte rendszerfrissítés vagy NVIDIA-váltás (újraindítás után
   érvényes változás); megjelenik-e magától a GRUB menü a sikertelen indítás után. A felhasználó szerint előtte
-  volt egy „újraindítás / bejelentkezés után érvényes” változás, nem emlékszik, melyik. Újratelepítés friss ISO-ról
+  volt egy „újraindítás / bejelentkezés után érvényes” változás, nem emlékszik, melyik; a Haladó beállításokban
+  nem állított semmit. Újratelepítés friss ISO-ról.
+  VM-teszt (2026-10-19 este, a 20:30-as ISO, magyar kiosztás, titkosítás): telepítés, első indítás (lakat, pöttyök,
+  bejelentkező képernyő), Üdvözlőben automatikus bejelentkezés, Újraindítás, jelszó: egyből az asztal. Bootloop
+  nem jött elő; a VM-ben nincs NVIDIA és nem volt rendszerfrissítés, a valódi gépen ezeket figyelni
+- [x] **Telepítő: a végén fekete képernyő az „Újraindítás” oldal helyett** (VM-teszt 2026-10-19). A telepítés
+  lement, de a munkapartíció törlésekor (`finish_partitions`) a systemd leállította a `var-tmp.mount`-ot, vele a
+  `basic.target`-et (RequiresMountsFor=/var/tmp) és az élő asztalt, a telepítővel együtt. Ok: a munkapartíció bind
+  mounttal volt a /var/tmp fölött, így a var-tmp.mount a partícióhoz kötődött. Javítva: overlayként csatoljuk
+  (a systemd szerint a forrás „overlay”, nem a partíció; VM-ben kipróbálva), új ISO kell hozzá. A 20:30-as ISO-val
+  is jó a telepítés: ha 90% után elsötétül a kép, 2 perc várakozás után a bekapcsológombbal újra lehet indítani
+- [ ] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”)
+- [ ] Üdvözlő internet nélkül: az app-oldalakon a „Kihagyom” nem lép tovább (VM, 2026-10-19)
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
   megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet)
 - [ ] **Dolphin, Eszközök: a névtelen, 128 TB-os meghajtó a 2026-10-19-i ISO-n is megmaradt** (az udev-szabály
