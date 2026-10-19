@@ -123,13 +123,13 @@ class Runner(QObject):
             if verb not in done:
                 self._steps.append((env, exe.parent, "umu-run", ["winetricks", "-q", verb], verb))
         # Az .msi telepítőket a Proton magától az msiexec-kel nyitja meg
-        log.info("indítás: %s (%s, %s)", exe, program.slug, attempt.key if attempt else "alap")
+        log.info("indítás: %s (%s, %s)", exe, program.id, attempt.key if attempt else "alap")
         self._steps.append((env, exe.parent, *self._wrapped("umu-run", [str(exe)] + args), None))
         self._next_step()
 
     def _start_wine(self, program, exe, env, args):
         """Tartalék: nincs Proton és nincs internet. A rendszer Wine-ja indítja a programot."""
-        log.info("indítás tartalék futtatóval: %s (%s)", exe, program.slug)
+        log.info("indítás tartalék futtatóval: %s (%s)", exe, program.id)
         self.uses_wine = True
         # A Gecko-telepítő kérdése ne jöjjön elő (a .NET-et a wine-mono csomag adja)
         env.insert("WINEDLLOVERRIDES", env.value("WINEDLLOVERRIDES") + ";mshtml=d")

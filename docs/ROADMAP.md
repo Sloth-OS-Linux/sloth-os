@@ -201,6 +201,16 @@ Talált hibák (egyesével javítjuk):
   (a systemd szerint a forrás „overlay”, nem a partíció; VM-ben kipróbálva), új ISO kell hozzá. A 20:30-as ISO-val
   is jó a telepítés: ha 90% után elsötétül a kép, 2 perc várakozás után a bekapcsológombbal újra lehet indítani
 - [ ] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”)
+- [x] **.exe kezelő: egyetlen Windows-program telepítése sem indult** (2026-10-19 este, valódi gép, nem titkosított
+  telepítés): a „Still working…” fél óráig forgott. A napló szerint a Proton és a futtatókörnyezet 1 perc alatt
+  lejött; a telepítés indításakor `AttributeError: 'App' object has no attribute 'slug'` (runner.py, a délelőtti
+  alkalmazáskönyvtár-átalakítás maradéka, a `program.slug` helyett `program.id`). Javítva, és a futtató indításának
+  bármilyen váratlan hibája most hibaoldalt mutat, nem forog tovább. Füstpróba Qt-vel kipróbálva
+- [ ] A Sloth Központ „Napló mentése” fájlneve magyar (`sloth-os-naplo.txt`), angol rendszeren is
+- [ ] `tools/tests/test_apps.py`: 4 teszt elbukik ezen a gépen (a 2026-10-19-i javítás előtt is), megnézni
+- [ ] **Proton és Steam Runtime gyárilag az image-ben** (javaslat 2026-10-19): az első .exe internet és letöltés
+  nélkül induljon; első használatkor helyi másolás a felhasználó mappájába, a háttérfrissítés marad. Kb. +1,5 GB
+  image, +0,5–0,7 GB ISO. Döntésre vár
 - [ ] Üdvözlő internet nélkül: az app-oldalakon a „Kihagyom” nem lép tovább (VM, 2026-10-19)
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
   megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet)

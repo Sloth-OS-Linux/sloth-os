@@ -224,7 +224,7 @@ class ExeController(QObject):
         self._update_window()
         self._set_working(tr("status.preparing_install", name=self._name))
         self._slow_timer.start()
-        self._runner.start(self._program, self._exe)
+        self._start_runner(self._program, self._exe)
 
     @Slot()
     def openExisting(self):
@@ -434,7 +434,7 @@ class ExeController(QObject):
             attempt = heal.Attempt(None if not good or good["proton"] == "auto" else good["proton"],
                                    good["profile"] if good else "default", [tuple(f) for f in rec.get("fixes", [])])
             self._attempt = attempt
-            self._runner.start(self._program, self._exe, attempt, rec.get("gameid") or None, join=True)
+            self._start_runner(self._program, self._exe, attempt, rec.get("gameid") or None, join=True)
             self._started_timer.start()
             return
         rec = heal.record(self._program, self._exe)
@@ -492,7 +492,7 @@ class ExeController(QObject):
     def _run_attempt(self, attempt):
         self._attempt = attempt
         self._tries += 1
-        self._runner.start(self._program, self._exe, attempt, self._gameid)
+        self._start_runner(self._program, self._exe, attempt, self._gameid)
         self._started_timer.start()
         self._worked_timer.start()
 
@@ -516,6 +516,14 @@ class ExeController(QObject):
         self._status = text
         self._progress = -1
         self.changed.emit()
+
+    def _start_runner(self, *args, **kwargs):
+        # Egy váratlan hiba itt ne hagyja végtelenül forogni az ablakot: hibaoldal, a részletek a naplóban
+        try:
+            self._runner.start(*args, **kwargs)
+        except Exception:
+            log.exception("a futtató indítása nem sikerült")
+            self._fail(tr("error.not_started", name=self._name))
 
     def _fail(self, text):
         self._slow_timer.stop()
