@@ -77,11 +77,15 @@ nem volt benne, lásd fent).
 - [ ] **Nyitott kérdések a 2026-10-19-i ISO tesztjéhez** (a válaszok ide; ami jó, kipipálni). Eddig jó: ujjlenyomat,
   PIN-kód, a titkosított lemez lakatos jelszókérője (a pöttyök javítva):
   - [ ] Tömörített memória-tartalék (Haladó beállítások): átállítás után, újraindítás után kiírja-e az új méretet?
-  - [ ] PIN-kód a zárolási képernyőn (Win+L) is működik, nem csak bejelentkezéskor?
-  - [ ] Rendszerinformáció: „Sloth OS 1.0 (Fedora Atomic 44)” látszik?
-  - [ ] Üdvözlő, több app egyszerre: sorban, egyesével települnek? A Vivaldi most feltelepült?
-  - [ ] Rendszerfrissítés: volt már? A Frissítések oldalon minden rendben volt?
-  - [ ] Battle.net újra, a háttér-előkészítés után: előjön-e a saját telepítője (lásd lent a hibáknál)
+    (még nincs tesztelve)
+  - [x] PIN-kód a zárolási képernyőn (Win+L) is működik, nem csak bejelentkezéskor? Igen, mindenhol
+  - [ ] Rendszerinformáció: „Sloth OS 1.0 (Fedora Atomic 44)” látszik? **Nem: „Sloth OS 44”.** A CI-build
+    os-release-e jó (VERSION="1.0 (Fedora Atomic 44)"), tehát vagy a KDE nem a VERSION-t mutatja
+    (`kcm-about-distrorc`), vagy máshol látszott. Megkérdezni, hol pontosan
+  - [x] Üdvözlő, több app egyszerre: sorban, egyesével települnek? Igen; a Vivaldi is feltelepült
+  - [x] Rendszerfrissítés: volt már? A Frissítések oldalon minden rendben volt? Igen, rendben
+  - [ ] Battle.net újra, a háttér-előkészítés után: előjön-e a saját telepítője (lásd lent a hibáknál); a
+    bootloop miatt (lent) még nem jutott el idáig
 - [ ] A reggeli teszt maradéka: titkosítás, frissítés aláírás-ellenőrzéssel, NVIDIA-s gép, Windows mellé (tesztelő kell)
 - [ ] A még nyitott hibák figyelése: némítás (melyik gomb: billentyű / tálca ikon; mikor áll vissza: magától, egy
   értesítés hangjára, hangerő-állításra, bejelentkezéskor?), Discover-frissítés a friss appokra (mit frissített:
@@ -179,7 +183,13 @@ Talált hibák (egyesével javítjuk):
   Javítva: az .exe kezelő indításkor átveszi (leállítja a háttérben futót, és az előtérben, látható haladással
   folytatja), a háttérben „best-effort” 7-es prioritás; 60 mp csend után „Még dolgozik…” szöveg. A következő teszten
   figyelni; ha megint így van: Napló mentése (benne a `sloth-windows-prepare` naplója is)
-- [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja
+- [ ] **Indítás titkosított lemezzel: a jelszó után a gép újraindul** (2026-10-19 este, a délutáni ISO-ról
+  telepített gépen, nem az első indításnál). A lakatos jelszókérő megjelenik, a jelszó beírása után újra a gép
+  (BIOS) logója jön, majd megint a jelszókérő. A felhasználó újratelepíti. Kérdések: a GRUB menüben (indításkor
+  Esc) az előző bejegyzéssel elindul-e; volt-e előtte rendszerfrissítés vagy NVIDIA-váltás (újraindítás után
+  érvényes változás); megjelenik-e magától a GRUB menü a sikertelen indítás után
+- [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
+  megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet)
 - [ ] **Dolphin, Eszközök: a névtelen, 128 TB-os meghajtó a 2026-10-19-i ISO-n is megmaradt** (az udev-szabály
   nem rejtette el, vagy nem a composefs volt). Megmutatni, terminál nélkül:
   1. Dolphin, bal oldalt az Eszközök alatt jobb klikk a névtelen meghajtóra → Tulajdonságok: fotó az ablakról
@@ -195,7 +205,9 @@ Talált hibák (egyesével javítjuk):
   elején a lemezek és a loop eszközök
 - [ ] A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért).
   Valószínű ok (2026-10-19): az alap image automatikus app-frissítője (`flatpak-system-update.timer`, 2 perccel a
-  bekapcsolás után) az Üdvözlő alatt futott. Most kimarad, amíg az Üdvözlő fut; a teszten figyelni
+  bekapcsolás után) az Üdvözlő alatt futott. Most kimarad, amíg az Üdvözlő fut; a teszten figyelni.
+  2026-10-19-i teszt: a felhasználó szerint csak valami Fedora-alapcsomagot frissített (valószínűleg egy
+  Flatpak-futtatókörnyezetet, pl. a Fedora Platformot vagy a `GL.default`-ot), az appokat nem; így rendben van
 - [x] A rendszer neve „Sloth OS 44” (a Fedora verziószáma látszik): a Sloth OS saját verziószámot kapjon (pl. 1),
   és valahol (pl. a Rendszerinformációban) jelenjen meg, hogy Fedora Atomic alapú. Kész (valódi gépen
   megnézni): „Sloth OS 1.0 (Fedora Atomic 44)” (`branding.sh`: VERSION, PRETTY_NAME; a VERSION_ID marad 44;
