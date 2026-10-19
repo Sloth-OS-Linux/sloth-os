@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "Standaard (even groot als het geheugen, hooguit 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "Groter (1,5 keer het geheugen, hooguit 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "Uit (alleen aanbevolen met veel geheugen)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Er geldt nu een aangepaste instelling. Een keuze hier vervangt die."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Er geldt nu een aangepaste instelling. Een keuze hier vervangt die.",
+  "Telefon összekötése": "Telefoon verbinden",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "De meldingen, bestanden en berichten van je telefoon op de computer (KDE Connect). Installeer de app KDE Connect op je telefoon; beide moeten op hetzelfde wifi-netwerk zitten.",
+  "Nem sikerült átállítani.": "Kon niet worden gewijzigd."
 }

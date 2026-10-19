@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "Oletus (muistin kokoinen, enintään 8 Gt)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "Suurempi (1,5 kertaa muisti, enintään 24 Gt)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "Pois (suositellaan vain, jos muistia on paljon)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Nyt on käytössä mukautettu asetus. Valinta tässä korvaa sen."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Nyt on käytössä mukautettu asetus. Valinta tässä korvaa sen.",
+  "Telefon összekötése": "Puhelimen yhdistäminen",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Puhelimesi ilmoitukset, tiedostot ja viestit tietokoneella (KDE Connect). Asenna puhelimeen KDE Connect -sovellus; molempien on oltava samassa Wi-Fi-verkossa.",
+  "Nem sikerült átállítani.": "Muuttaminen ei onnistunut."
 }

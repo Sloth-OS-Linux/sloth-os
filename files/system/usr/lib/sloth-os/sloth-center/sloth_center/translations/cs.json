@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "Výchozí (stejná jako velikost paměti, nejvýš 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "Větší (1,5násobek paměti, nejvýš 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "Vypnuto (doporučeno jen při velké paměti)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Teď platí vlastní nastavení. Volba zde ho nahradí."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Teď platí vlastní nastavení. Volba zde ho nahradí.",
+  "Telefon összekötése": "Propojení telefonu",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Oznámení, soubory a zprávy z telefonu v počítači (KDE Connect). Do telefonu nainstalujte aplikaci KDE Connect; oba musí být ve stejné síti Wi-Fi.",
+  "Nem sikerült átállítani.": "Nepodařilo se změnit."
 }

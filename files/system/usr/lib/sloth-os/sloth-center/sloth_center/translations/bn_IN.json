@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "ডিফল্ট (মেমরির সমান, সর্বোচ্চ ৮ GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "বড় (মেমরির দেড় গুণ, সর্বোচ্চ ২৪ GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "বন্ধ (শুধু অনেক মেমরি থাকলে সুপারিশকৃত)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "এখন একটি কাস্টম সেটিং কার্যকর আছে। এখানে বেছে নিলে সেটি প্রতিস্থাপিত হবে।"
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "এখন একটি কাস্টম সেটিং কার্যকর আছে। এখানে বেছে নিলে সেটি প্রতিস্থাপিত হবে।",
+  "Telefon összekötése": "ফোন সংযোগ",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "কম্পিউটারে আপনার ফোনের বিজ্ঞপ্তি, ফাইল ও বার্তা (KDE Connect)। ফোনে KDE Connect অ্যাপ ইনস্টল করুন; দুটিকেই একই Wi-Fi নেটওয়ার্কে থাকতে হবে।",
+  "Nem sikerült átállítani.": "পরিবর্তন করা যায়নি।"
 }

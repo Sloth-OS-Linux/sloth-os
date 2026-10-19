@@ -1,0 +1,56 @@
+#!/usr/bin/bash
+# Telefon összekötése (KDE Connect) a felhasználónak: be- és kikapcsolás, jelszó nélkül.
+# A rendszerben alapból ki van kapcsolva (files/scripts/slim-image.sh); a bekapcsolás a felhasználó saját
+# mappájában adja vissza a magától indulást, a D-Bus-indítást és a Start menü bejegyzéseit.
+#
+#   phone-link on | off | status      (status: 0 = be van kapcsolva)
+#
+# Az Üdvözlő (sloth_welcome/installer.py) és a Sloth Központ (Driverek és hardver) hívja.
+set -euo pipefail
+
+SRC=/usr/share/sloth-os/kdeconnect
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}"
+DATA="${XDG_DATA_HOME:-$HOME/.local/share}"
+AUTOSTART="$CONFIG/autostart/org.kde.kdeconnect.daemon.desktop"
+DBUS="$DATA/dbus-1/services/org.kde.kdeconnect.service"
+MENU=(org.kde.kdeconnect.app org.kde.kdeconnect.sms)
+
+reload_dbus() {
+    busctl --user call org.freedesktop.DBus /org/freedesktop/DBus org.freedesktop.DBus ReloadConfig \
+        >/dev/null 2>&1 || true
+}
+
+case "${1:-}" in
+    on)
+        [[ -d $SRC ]] || { echo "A KDE Connect nincs a rendszerben." >&2; exit 1; }
+        mkdir -p "$(dirname "$AUTOSTART")" "$(dirname "$DBUS")" "$DATA/applications"
+        cp "$SRC/org.kde.kdeconnect.daemon.desktop" "$AUTOSTART"
+        cp "$SRC/org.kde.kdeconnect.service" "$DBUS"
+        for entry in "${MENU[@]}"; do
+            [[ -f $SRC/$entry.desktop ]] && cp "$SRC/$entry.desktop" "$DATA/applications/"
+        done
+        reload_dbus
+        # rögtön indul is, nem csak a következő bejelentkezéskor
+        exec_line="$(grep -m1 '^Exec=' "$SRC/org.kde.kdeconnect.service" | cut -d= -f2-)"
+        if [[ -n $exec_line ]] && ! pgrep -u "$(id -u)" -x kdeconnectd >/dev/null; then
+            setsid -f $exec_line >/dev/null 2>&1 < /dev/null
+        fi
+        command -v kbuildsycoca6 >/dev/null && kbuildsycoca6 >/dev/null 2>&1 || true
+        ;;
+    off)
+        rm -f "$AUTOSTART" "$DBUS"
+        for entry in "${MENU[@]}"; do
+            rm -f "$DATA/applications/$entry.desktop"
+        done
+        reload_dbus
+        pkill -u "$(id -u)" -x kdeconnectd || true
+        command -v kbuildsycoca6 >/dev/null && kbuildsycoca6 >/dev/null 2>&1 || true
+        ;;
+    status)
+        [[ -f $AUTOSTART && -f $DBUS ]]
+        ;;
+    *)
+        echo "Használat: phone-link on | off | status" >&2
+        exit 2
+        ;;
+esac

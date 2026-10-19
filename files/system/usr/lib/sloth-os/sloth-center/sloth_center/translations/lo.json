@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "ຄ່າເລີ່ມຕົ້ນ (ເທົ່າກັບໜ່ວຍຄວາມຈຳ, ສູງສຸດ 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "ໃຫຍ່ກວ່າ (1,5 ເທົ່າຂອງໜ່ວຍຄວາມຈຳ, ສູງສຸດ 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "ປິດ (ແນະນຳສະເພາະເມື່ອມີໜ່ວຍຄວາມຈຳຫຼາຍ)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "ຕອນນີ້ມີການຕັ້ງຄ່າແບບກຳນົດເອງຢູ່. ການເລືອກຢູ່ນີ້ຈະແທນທີ່ມັນ."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "ຕອນນີ້ມີການຕັ້ງຄ່າແບບກຳນົດເອງຢູ່. ການເລືອກຢູ່ນີ້ຈະແທນທີ່ມັນ.",
+  "Telefon összekötése": "ເຊື່ອມຕໍ່ໂທລະສັບ",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "ການແຈ້ງເຕືອນ, ໄຟລ໌ ແລະ ຂໍ້ຄວາມຂອງໂທລະສັບໃນຄອມພິວເຕີ (KDE Connect). ຕິດຕັ້ງແອັບ KDE Connect ໃນໂທລະສັບ; ທັງສອງຕ້ອງຢູ່ໃນເຄືອຂ່າຍ Wi-Fi ດຽວກັນ.",
+  "Nem sikerült átállítani.": "ບໍ່ສາມາດປ່ຽນໄດ້."
 }

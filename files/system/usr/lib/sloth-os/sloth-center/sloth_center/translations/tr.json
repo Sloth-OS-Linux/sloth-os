@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "Varsayılan (bellek kadar, en fazla 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "Daha büyük (belleğin 1,5 katı, en fazla 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "Kapalı (yalnızca çok bellekte önerilir)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Şu anda özel bir ayar geçerli. Burada seçim yaparsanız onun yerini alır."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Şu anda özel bir ayar geçerli. Burada seçim yaparsanız onun yerini alır.",
+  "Telefon összekötése": "Telefonu bağla",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Telefonunuzun bildirimleri, dosyaları ve mesajları bilgisayarda (KDE Connect). Telefona KDE Connect uygulamasını kurun; ikisi de aynı Wi-Fi ağında olmalı.",
+  "Nem sikerült átállítani.": "Değiştirilemedi."
 }

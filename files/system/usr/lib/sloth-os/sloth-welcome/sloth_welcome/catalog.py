@@ -12,7 +12,8 @@ internet nélkül is rendesen néz ki.
   https://flathub.org/api/v2/appstream/<id>
 """
 
-# source: "flathub" (alapértelmezett) vagy "github-bundle" (Flatpak csomag egy GitHub kiadásból)
+# source: "flathub" (alapértelmezett), "github-bundle" (Flatpak csomag egy GitHub kiadásból), vagy "system": már a
+# rendszerben van, csak be kell kapcsolni (a "switch" script "on" paraméterrel; pl. a KDE Connect nincs a Flathubon)
 CATEGORIES = [
     {
         "id": "browser", "icon": "internet-web-browser",
@@ -52,6 +53,8 @@ CATEGORIES = [
             {"id": "org.telegram.desktop", "name": "Telegram"},
             {"id": "org.signal.Signal", "name": "Signal"},
             {"id": "com.rtosta.zapzap", "name": "ZapZap"},
+            {"id": "org.kde.kdeconnect", "name": "KDE Connect",
+             "source": "system", "switch": "/usr/libexec/sloth-os/phone-link"},
         ],
     },
     {

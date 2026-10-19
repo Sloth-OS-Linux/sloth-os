@@ -21,6 +21,7 @@ NVIDIA_AUTO_STATE = Path("/var/lib/sloth-os/nvidia-auto")
 VENDORS = {"0x10de": "NVIDIA", "0x1002": "AMD", "0x8086": "Intel"}
 PCI_IDS = Path("/usr/share/hwdata/pci.ids")
 HELPER = "/usr/libexec/sloth-os/sloth-helper"
+PHONE_LINK = "/usr/libexec/sloth-os/phone-link"   # telefon összekötése (KDE Connect), felhasználónként
 SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
 
 
@@ -100,8 +101,12 @@ class DriversController(QObject):
         elif auto in ("ready", "ready-mok") and not self.nvidiaImage:
             self._info = "switched"
         self.refreshSecureBoot()
+        self._phone = self._phone_link("status")
 
     # --- Tulajdonságok ---------------------------------------------------------
+
+    phoneLinkAvailable = Property(bool, lambda self: Path(PHONE_LINK).is_file(), constant=True)
+    phoneLink = Property(bool, lambda self: self._phone, notify=changed)
 
     gpus = Property("QVariantList", lambda self: list(self._gpus), notify=changed)
     busy = Property(bool, lambda self: self._busy, notify=changed)
@@ -144,6 +149,23 @@ class DriversController(QObject):
     # --- Secure Boot -------------------------------------------------------------
 
     @Slot()
+    @staticmethod
+    def _phone_link(action):
+        try:
+            return subprocess.run([PHONE_LINK, action], capture_output=True, timeout=60).returncode == 0
+        except (OSError, subprocess.SubprocessError) as e:
+            log.warning("phone-link %s: %s", action, e)
+            return False
+
+    @Slot(bool)
+    def setPhoneLink(self, on):
+        """Telefon összekötése (KDE Connect) a felhasználónak; jelszó nem kell."""
+        self._error = ""
+        if not self._phone_link("on" if on else "off"):
+            self._error = tr("Nem sikerült átállítani.")
+        self._phone = self._phone_link("status")
+        self.changed.emit()
+
     def refreshSecureBoot(self):
         sb = _mokutil("--sb-state")
         state = {"secureBoot": "secureboot enabled" in sb, "enrolled": None, "pending": False}

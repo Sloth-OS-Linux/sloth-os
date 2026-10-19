@@ -298,12 +298,19 @@ Talált hibák (egyesével javítjuk):
 **Fontos, de a publikálást nem akadályozza:**
 - [ ] **OneDrive és Google Drive a Dolphinban:** a Google Drive a KDE Online fiókjaival (kio-gdrive), a OneDrive-hoz
   külön kliens kell (megnézni, melyik karbantartott és Flatpakként vagy RPM-ként elérhető); bekapcsolás GUI-ból
-- [ ] **Telefon összekötése** (a Windows „Phone Link” megfelelője): a KDE Connect a karcsúsításnál kikerült;
-  az Üdvözlőben legyen választható (Flatpak), és a tűzfalban a portjai nyíljanak meg hozzá
-- [ ] **BIOS/firmware frissítés** (fwupd, LVFS; a HP is támogatja): megnézni, hogy a Discover mutatja-e; ha nem, a
-  Sloth Központ Frissítések oldalára
-- [ ] **Nyomtató és szkenner:** megnézni, benne van-e a `hplip` (HP) és egy szkennelő app (pl. Skanpage) az
-  image-ben; teszt egy HP nyomtatóval
+- [x] **Telefon összekötése** (a Windows „Phone Link” megfelelője; 2026-10-19): a KDE Connect nincs a Flathubon,
+  ezért RPM-ként visszakerült, de alapból ki van kapcsolva (`slim-image.sh`: magától indulás, D-Bus-indítás és
+  Start menü bejegyzések félretéve), így csak annak fut és hirdeti magát a hálózaton, aki kéri. Bekapcsolás az
+  Üdvözlőben (Csevegés, új `system` forrás a katalógusban) és a Sloth Központban (Driverek és hardver, kapcsoló);
+  mindkettő a `/usr/libexec/sloth-os/phone-link on|off|status`-t hívja, jelszó nélkül. Helyben kipróbálva.
+  Valódi gépen tesztelni: párosítás egy telefonnal; a tűzfal átengedi-e (a Fedora alapzónája az 1025–65535
+  portokat nyitva hagyja, megnézni, hogy itt is így van-e)
+- [ ] **BIOS/firmware frissítés** (fwupd, LVFS; a HP is támogatja): a Discover fwupd-bővítménye a
+  `plasma-discover-libs` része, és az fwupd is benne van (2026-10-19: biztosításként a `tools.yml`-ben), így a
+  Discover Frissítések oldalán elvileg már látszik. A HP-n megnézni; ha nem, a Sloth Központ Frissítések oldalára
+- [ ] **Nyomtató és szkenner:** 2026-10-19: `hplip`, `sane-backends-drivers-scanners` és `skanpage` a `tools.yml`-ben
+  (a szkennelő RPM, nem Flatpak: a HP szkennerek illesztője a Flatpakon belül nem látszana). Teszt egy HP
+  nyomtatóval és szkennerrel
 - [ ] **Gyerekfiók és szülői felügyelet:** képernyőidő, mit telepíthet, mely appokat indíthatja; a Sloth Központ
   Fiók és biztonság oldalán
 - [ ] **Minden app frissítése egy helyen, a Discoverben** (döntés: 2026-10-16). A Discover már most minden Flatpakot

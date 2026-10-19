@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "默认（与内存大小相同，最多 8 GB）",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "更大（内存的 1.5 倍，最多 24 GB）",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "关闭（仅建议在内存很大时使用）",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "当前使用的是自定义设置。在这里选择会替换它。"
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "当前使用的是自定义设置。在这里选择会替换它。",
+  "Telefon összekötése": "连接手机",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "在电脑上查看手机的通知、文件和消息（KDE Connect）。请在手机上安装 KDE Connect 应用，两台设备需连接同一 Wi-Fi 网络。",
+  "Nem sikerült átállítani.": "无法更改。"
 }

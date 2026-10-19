@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "افتراضي (بحجم الذاكرة، حتى 8 غ.ب)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "أكبر (مرة ونصف حجم الذاكرة، حتى 24 غ.ب)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "متوقف (يُنصح به فقط مع ذاكرة كبيرة)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "يسري حاليًا إعداد مخصص. الاختيار هنا سيستبدله."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "يسري حاليًا إعداد مخصص. الاختيار هنا سيستبدله.",
+  "Telefon összekötése": "ربط الهاتف",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "إشعارات هاتفك وملفاته ورسائله على الحاسوب (KDE Connect). ثبّت تطبيق KDE Connect على الهاتف، ويجب أن يكون الجهازان على شبكة Wi-Fi نفسها.",
+  "Nem sikerült átállítani.": "تعذّر التغيير."
 }

@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "Predeterminada (igual a la memoria, hasta 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "Mayor (1,5 veces la memoria, hasta 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "Desactivada (solo recomendado con mucha memoria)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Ahora hay un ajuste personalizado. Elegir aquí lo reemplazará."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Ahora hay un ajuste personalizado. Elegir aquí lo reemplazará.",
+  "Telefon összekötése": "Conectar el móvil",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Las notificaciones, los archivos y los mensajes del móvil en el ordenador (KDE Connect). Instala la app KDE Connect en el móvil; ambos deben estar en la misma red Wi-Fi.",
+  "Nem sikerült átállítani.": "No se pudo cambiar."
 }

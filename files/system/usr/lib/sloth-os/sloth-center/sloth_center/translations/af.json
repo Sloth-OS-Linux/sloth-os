@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "Verstek (gelyk aan die geheuegrootte, hoogstens 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "Groter (1,5 keer die geheue, hoogstens 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "Af (net aanbeveel met baie geheue)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "'n Pasgemaakte instelling is tans van krag. As jy hier kies, word dit vervang."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "'n Pasgemaakte instelling is tans van krag. As jy hier kies, word dit vervang.",
+  "Telefon összekötése": "Koppel jou foon",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Jou foon se kennisgewings, lêers en boodskappe op die rekenaar (KDE Connect). Installeer die KDE Connect-toep op die foon; albei moet op dieselfde Wi-Fi-netwerk wees.",
+  "Nem sikerült átállítani.": "Kon nie verander nie."
 }

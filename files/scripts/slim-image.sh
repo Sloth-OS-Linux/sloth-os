@@ -6,12 +6,12 @@
 set -euo pipefail
 
 # --- Csomagok ------------------------------------------------------------------------------------
-# kate: a KWrite marad · kde-connect: telefonos app · khelpcenter: súgóközpont
+# kate: a KWrite marad · khelpcenter: súgóközpont
 # just: az ujust receptekhez (az ublue-os-just-tal együtt), nem használjuk · toolbox: a distrobox marad
 # buildah, cosign: fejlesztői eszközök (az aláírás-ellenőrzés a policy.json-nal megy, nem a cosign paranccsal)
 # ibus: a fcitx5 marad (KDE-ben Waylanden az ajánlott, a kínai/japán/koreai beviteli módok vele is megvannak)
 # plasma-workspace-wallpapers: a KDE háttérképei (csak a Sloth OS saját képei maradnak)
-REMOVE=(kate kde-connect khelpcenter just toolbox buildah cosign ibus plasma-workspace-wallpapers)
+REMOVE=(kate khelpcenter just toolbox buildah cosign ibus plasma-workspace-wallpapers)
 
 present=()
 for pkg in "${REMOVE[@]}"; do
@@ -23,6 +23,25 @@ if (( ${#present[@]} )); then
   echo "Eltávolítás: ${present[*]}"
   dnf -y remove "${present[@]}"
 fi
+
+# --- KDE Connect (telefon összekötése): benne van, de alapból ki van kapcsolva ----------------------
+# Nincs a Flathubon, ezért RPM. Csak annak fut, aki az Üdvözlőben vagy a Sloth Központban bekapcsolja
+# (/usr/libexec/sloth-os/phone-link); addig nem indul el, és nem hirdeti magát a hálózaton.
+# A magától indulás mellett a D-Bus-indítást is félretesszük: különben a tálca KDE Connect-kisalkalmazása
+# bejelentkezéskor elindítaná. A bekapcsolás a felhasználó saját mappájában adja vissza mindkettőt.
+# A Start menü bejegyzései rejtve, amíg nincs bekapcsolva (a bekapcsolás a saját mappában mutatja őket).
+KDECONNECT=/usr/share/sloth-os/kdeconnect
+mkdir -p "$KDECONNECT"
+grep -q '^Exec=' /etc/xdg/autostart/org.kde.kdeconnect.daemon.desktop
+cp /etc/xdg/autostart/org.kde.kdeconnect.daemon.desktop "$KDECONNECT/"
+sed -i '/^\[Desktop Entry\]/a Hidden=true' /etc/xdg/autostart/org.kde.kdeconnect.daemon.desktop
+mv /usr/share/dbus-1/services/org.kde.kdeconnect.service "$KDECONNECT/"
+for entry in org.kde.kdeconnect.app org.kde.kdeconnect.sms; do
+  f=/usr/share/applications/$entry.desktop
+  [[ -f $f ]] || continue
+  cp "$f" "$KDECONNECT/"
+  sed -i '/^NoDisplay=/d; /^\[Desktop Entry\]/a NoDisplay=true' "$f"
+done
 
 # --- Háttérképek ---------------------------------------------------------------------------------
 # A Plasma és a Fedora-csomagok saját képeit (Next, F44) nem lehet csomagként törölni (a Plasma függ

@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "기본(메모리 크기와 같음, 최대 8GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "더 크게(메모리의 1.5배, 최대 24GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "끄기(메모리가 많을 때만 권장)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "현재 사용자 지정 설정이 적용되어 있습니다. 여기서 선택하면 대체됩니다."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "현재 사용자 지정 설정이 적용되어 있습니다. 여기서 선택하면 대체됩니다.",
+  "Telefon összekötése": "휴대폰 연결",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "휴대폰의 알림, 파일, 메시지를 컴퓨터에서 (KDE Connect). 휴대폰에 KDE Connect 앱을 설치하고, 두 기기를 같은 Wi-Fi 네트워크에 연결하세요.",
+  "Nem sikerült átállítani.": "변경하지 못했습니다."
 }

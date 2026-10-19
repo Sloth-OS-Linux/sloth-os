@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "ნაგულისხმევი (მეხსიერების ტოლი, მაქს. 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "უფრო დიდი (მეხსიერების 1,5-ჯერ, მაქს. 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "გამორთული (რეკომენდებულია მხოლოდ დიდი მეხსიერებისას)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "ახლა ძალაშია მორგებული პარამეტრი. აქ არჩევა მას ჩაანაცვლებს."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "ახლა ძალაშია მორგებული პარამეტრი. აქ არჩევა მას ჩაანაცვლებს.",
+  "Telefon összekötése": "ტელეფონის დაკავშირება",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "ტელეფონის შეტყობინებები, ფაილები და მესიჯები კომპიუტერზე (KDE Connect). დააყენეთ ტელეფონზე KDE Connect აპი; ორივე ერთსა და იმავე Wi-Fi ქსელში უნდა იყოს.",
+  "Nem sikerült átállítani.": "შეცვლა ვერ მოხერხდა."
 }

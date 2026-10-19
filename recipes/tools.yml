@@ -15,6 +15,11 @@ modules:
         - realmd            # céges fiók: csatlakozás Active Directory tartományhoz
         - adcli
         - sssd-ad
+        # Nyomtató és szkenner (ha már benne vannak az alapban, a dnf nem csinál semmit)
+        - hplip                           # HP nyomtatók és szkennerek illesztője (a HP gépek gyakoriak)
+        - sane-backends-drivers-scanners  # a szkennerek illesztői
+        - skanpage                        # szkennelés (KDE); hardvereszköz, mint a nyomtatók beállítása
+        - fwupd                           # BIOS/firmware frissítés (LVFS), a Sloth Központ Frissítések oldala
 
   # A GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése a háttérben
   - type: systemd

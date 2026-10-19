@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "ਡਿਫਾਲਟ (ਮੈਮੋਰੀ ਦੇ ਬਰਾਬਰ, ਵੱਧ ਤੋਂ ਵੱਧ 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "ਵੱਡਾ (ਮੈਮੋਰੀ ਦਾ ਡੇਢ ਗੁਣਾ, ਵੱਧ ਤੋਂ ਵੱਧ 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "ਬੰਦ (ਸਿਰਫ਼ ਬਹੁਤ ਮੈਮੋਰੀ ਹੋਣ 'ਤੇ ਸਿਫ਼ਾਰਸ਼ੀ)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "ਹੁਣ ਇੱਕ ਆਪਣੀ ਸੈਟਿੰਗ ਲਾਗੂ ਹੈ। ਇੱਥੇ ਚੁਣਨ ਨਾਲ ਉਹ ਬਦਲ ਜਾਵੇਗੀ।"
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "ਹੁਣ ਇੱਕ ਆਪਣੀ ਸੈਟਿੰਗ ਲਾਗੂ ਹੈ। ਇੱਥੇ ਚੁਣਨ ਨਾਲ ਉਹ ਬਦਲ ਜਾਵੇਗੀ।",
+  "Telefon összekötése": "ਫ਼ੋਨ ਜੋੜੋ",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "ਕੰਪਿਊਟਰ 'ਤੇ ਤੁਹਾਡੇ ਫ਼ੋਨ ਦੀਆਂ ਸੂਚਨਾਵਾਂ, ਫ਼ਾਈਲਾਂ ਅਤੇ ਸੁਨੇਹੇ (KDE Connect)। ਫ਼ੋਨ 'ਤੇ KDE Connect ਐਪ ਇੰਸਟਾਲ ਕਰੋ; ਦੋਵੇਂ ਇੱਕੋ Wi-Fi ਨੈੱਟਵਰਕ 'ਤੇ ਹੋਣੇ ਚਾਹੀਦੇ ਹਨ।",
+  "Nem sikerült átállítani.": "ਬਦਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
 }

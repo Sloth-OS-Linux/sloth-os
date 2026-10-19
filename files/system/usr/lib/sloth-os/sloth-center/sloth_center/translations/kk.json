@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "Әдепкі (жад көлеміндей, 8 ГБ-қа дейін)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "Үлкенірек (жадтың 1,5 есесі, 24 ГБ-қа дейін)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "Өшірулі (тек жад көп болса ұсынылады)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Қазір өзіндік баптау күшінде. Мұнда таңдау оны алмастырады."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Қазір өзіндік баптау күшінде. Мұнда таңдау оны алмастырады.",
+  "Telefon összekötése": "Телефонды қосу",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Телефоныңыздың хабарландырулары, файлдары мен хабарламалары компьютерде (KDE Connect). Телефонға KDE Connect қолданбасын орнатыңыз; екеуі бір Wi-Fi желісінде болуы керек.",
+  "Nem sikerült átállítani.": "Өзгерту мүмкін болмады."
 }

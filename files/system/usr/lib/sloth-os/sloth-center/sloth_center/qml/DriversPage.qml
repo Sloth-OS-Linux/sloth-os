@@ -235,6 +235,30 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        // --- Telefon összekötése (KDE Connect) ------------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: drivers.phoneLinkAvailable
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.smallSpacing
+                    Kirigami.Heading { level: 3; text: L.t("Telefon összekötése") }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: L.t("A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.")
+                    }
+                }
+                QQC2.Switch {
+                    checked: drivers.phoneLink
+                    onToggled: drivers.setPhoneLink(checked)
+                }
+            }
+        }
     }
 
     // Kontroller csatlakoztatása, leválasztása, akkuszint: pár másodpercenként frissül

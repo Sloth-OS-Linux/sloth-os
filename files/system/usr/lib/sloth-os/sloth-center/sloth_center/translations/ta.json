@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "இயல்பு (நினைவக அளவுக்குச் சமம், அதிகபட்சம் 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "பெரியது (நினைவகத்தின் 1.5 மடங்கு, அதிகபட்சம் 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "அணைக்கப்பட்டது (அதிக நினைவகம் இருந்தால் மட்டுமே பரிந்துரை)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "இப்போது ஒரு தனிப்பயன் அமைப்பு நடைமுறையில் உள்ளது. இங்கே தேர்ந்தெடுத்தால் அது மாற்றப்படும்."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "இப்போது ஒரு தனிப்பயன் அமைப்பு நடைமுறையில் உள்ளது. இங்கே தேர்ந்தெடுத்தால் அது மாற்றப்படும்.",
+  "Telefon összekötése": "தொலைபேசியை இணை",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "கணினியில் உங்கள் தொலைபேசியின் அறிவிப்புகள், கோப்புகள், செய்திகள் (KDE Connect). தொலைபேசியில் KDE Connect செயலியை நிறுவுங்கள்; இரண்டும் ஒரே Wi-Fi வலையமைப்பில் இருக்க வேண்டும்.",
+  "Nem sikerült átállítani.": "மாற்ற முடியவில்லை."
 }

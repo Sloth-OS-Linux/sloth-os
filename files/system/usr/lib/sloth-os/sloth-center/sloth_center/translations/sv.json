@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "Standard (lika stort som minnet, högst 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "Större (1,5 gånger minnet, högst 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "Av (rekommenderas bara med mycket minne)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "En anpassad inställning gäller just nu. Väljer du här ersätts den."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "En anpassad inställning gäller just nu. Väljer du här ersätts den.",
+  "Telefon összekötése": "Anslut telefonen",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Telefonens aviseringar, filer och meddelanden på datorn (KDE Connect). Installera appen KDE Connect på telefonen; båda måste vara på samma Wi-Fi-nätverk.",
+  "Nem sikerült átállítani.": "Det gick inte att ändra."
 }

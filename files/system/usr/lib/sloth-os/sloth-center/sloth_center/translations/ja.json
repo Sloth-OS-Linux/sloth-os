@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "標準 (メモリと同じ、最大 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "大きめ (メモリの 1.5 倍、最大 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "オフ (メモリが多い場合のみ推奨)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "現在はカスタム設定が有効です。ここで選ぶと置き換えられます。"
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "現在はカスタム設定が有効です。ここで選ぶと置き換えられます。",
+  "Telefon összekötése": "スマホと接続",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "スマホの通知、ファイル、メッセージをパソコンで (KDE Connect)。スマホに KDE Connect アプリをインストールし、両方を同じ Wi-Fi ネットワークにつないでください。",
+  "Nem sikerült átállítani.": "変更できませんでした。"
 }

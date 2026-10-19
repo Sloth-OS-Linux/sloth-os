@@ -9,6 +9,7 @@ import hashlib
 import json
 import logging
 import os
+import subprocess
 import tempfile
 import threading
 import time
@@ -175,7 +176,7 @@ class Installer:
         """
         self._progress = {"total": 0, "done": 0}
         releases, total = {}, 0
-        flathub = [a for a in apps if a.get("source") != "github-bundle"]
+        flathub = [a for a in apps if a.get("source", "flathub") == "flathub"]
         if flathub:
             sizes = {}
 
@@ -200,7 +201,7 @@ class Installer:
             total += sum(sizes.values())
         for app in apps:
             if app.get("source") != "github-bundle":
-                continue
+                continue  # a "system" appok nem töltenek le semmit
             try:
                 releases[app["id"]] = latest_release(app)
             except Exception as e:
@@ -253,7 +254,11 @@ class Installer:
                 self._on_app_state(app_id, "installing", "")
                 self._report(app["name"], index, len(todo))
                 try:
-                    if app.get("source") == "github-bundle":
+                    if app.get("source") == "system":
+                        # már a rendszerben van, csak bekapcsoljuk (pl. KDE Connect: /usr/libexec/sloth-os/phone-link)
+                        r = subprocess.run([app["switch"], "on"], capture_output=True, text=True, timeout=60)
+                        error = None if r.returncode == 0 else (r.stderr.strip() or f"exit {r.returncode}")
+                    elif app.get("source") == "github-bundle":
                         # A GitHub-csomagok a felhasználóhoz kerülnek, így a háttérfrissítésükhöz nem kell jelszó
                         if user_inst is None:
                             user_inst = Flatpak.Installation.new_user(None)
@@ -263,11 +268,12 @@ class Installer:
                         txn = Flatpak.Transaction.new_for_installation(user_inst, None)
                         txn.add_default_dependency_sources()
                         txn.add_install_bundle(Gio.File.new_for_path(path), None)
+                        error = self._run_transaction(txn, app, index, len(todo))
                     else:
                         txn = Flatpak.Transaction.new_for_installation(inst, None)
                         txn.add_default_dependency_sources()
                         txn.add_install(FLATHUB, self._ref(app_id), None)
-                    error = self._run_transaction(txn, app, index, len(todo))
+                        error = self._run_transaction(txn, app, index, len(todo))
                 except GLib.Error as e:
                     error = None if "already installed" in e.message.lower() else e.message
                 except Exception as e:  # letöltési hiba a GitHub csomagnál

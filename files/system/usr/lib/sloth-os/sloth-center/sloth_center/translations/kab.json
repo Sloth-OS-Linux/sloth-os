@@ -445,5 +445,8 @@
   "Alap (a memória méretével egyező, legfeljebb 8 GB)": "Amezwer (am teɣzi n tkatut, alamma d 8 GB)",
   "Nagyobb (a memória másfélszerese, legfeljebb 24 GB)": "Ameqqran (1,5 n tikkal tkatut, alamma d 24 GB)",
   "Kikapcsolva (csak sok memóriánál ajánlott)": "Yensa (yettwasumer kan s tkatut tameqqrant)",
-  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Tura yella yiwen n uɣewwar udmawan. Afran dagi ad t-isnifel."
+  "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Tura yella yiwen n uɣewwar udmawan. Afran dagi ad t-isnifel.",
+  "Telefon összekötése": "Qqen tiliɣri",
+  "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Ilɣa, ifuyla d yiznan n tiliɣri-k ɣef uselkim (KDE Connect). Sbedd asnas KDE Connect ɣef tiliɣri; ilaq ad ilin s sin deg yiwen n uẓeṭṭa Wi-Fi.",
+  "Nem sikerült átállítani.": "Ur yezmir ara ad yettwabeddel."
 }
