@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Το αρχείο καταγραφής αποθηκεύτηκε: {path}. Στείλτε αυτό το αρχείο σε όποιον σας βοηθά.",
   "Szövegfájl (*.txt)": "Αρχείο κειμένου (*.txt)",
   "Frissítések": "Ενημερώσεις",
-  "Windows-programok": "Προγράμματα Windows",
   "Fejlesztői pult": "Πίνακας προγραμματιστών",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Για την ανάπτυξη του Sloth OS: εκκίνηση μεταγλωττίσεων και κατάστασή τους, δοκιμές.",
   "Hamarosan": "Σύντομα",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Καμία άλλη εφαρμογή δεν ξεκινά αυτό το πρόγραμμα, οπότε μπορεί μόνο να μεταφερθεί.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Αυτό το πρόγραμμα δεν έχει δικό του περιβάλλον, οπότε προστίθεται μόνο με την αρχική εφαρμογή.",
   "Indítja: {source}": "Το ξεκινά: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Εξαφανίζεται μόνο από εδώ και από το μενού Έναρξη· στην αρχική του θέση μένουν όλα."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Εξαφανίζεται μόνο από εδώ και από το μενού Έναρξη· στην αρχική του θέση μένουν όλα.",
+  "Appok": "Εφαρμογές",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Οι εφαρμογές (όσες εγκατέστησες στο Καλωσόρισμα ή στο Discover) ενημερώνονται μόνες τους μία φορά την ημέρα, εκτός αν είσαι σε σύνδεση κινητής ή άλλη σύνδεση με χρέωση. Τα προγράμματα Windows και τα καταστήματα παιχνιδιών (π.χ. Steam ή Battle.net) ενημερώνονται μόνα τους.",
+  "Megnyitás a Discoverben": "Άνοιγμα στο Discover"
 }

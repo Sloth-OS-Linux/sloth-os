@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Журнал сақталды: {path}. Бұл файлды сізге көмектесіп жатқан адамға жіберіңіз.",
   "Szövegfájl (*.txt)": "Мәтіндік файл (*.txt)",
   "Frissítések": "Жаңартулар",
-  "Windows-programok": "Windows бағдарламалары",
   "Fejlesztői pult": "Әзірлеуші панелі",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Sloth OS әзірлеу үшін: жинақтарды іске қосу және күйін көру, тестілеу.",
   "Hamarosan": "Жақында",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Бұл бағдарламаны басқа қолданба іске қоспайды, сондықтан оны тек көшіруге болады.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Бұл бағдарламаның өз ортасы жоқ, сондықтан оны тек бастапқы қолданбамен қосуға болады.",
   "Indítja: {source}": "Іске қосады: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ол тек осы жерден және «Бастау» мәзірінен жоғалады; бастапқы орнында бәрі қалады."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ол тек осы жерден және «Бастау» мәзірінен жоғалады; бастапқы орнында бәрі қалады.",
+  "Appok": "Қолданбалар",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Қолданбалар («Қош келдіңіз» немесе Discover арқылы орнатқандарың) күніне бір рет өздігінен жаңартылады, егер мобильді немесе басқа өлшенетін байланыста болмасаң. Windows бағдарламалары мен ойын дүкендері (мысалы, Steam немесе Battle.net) өздерін өздері жаңартады.",
+  "Megnyitás a Discoverben": "Discover-де ашу"
 }

@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Protokolo konservita: {path}. Sendu ĉi tiun dosieron al tiu, kiu helpas vin.",
   "Szövegfájl (*.txt)": "Teksta dosiero (*.txt)",
   "Frissítések": "Ĝisdatigoj",
-  "Windows-programok": "Windows-programoj",
   "Fejlesztői pult": "Programista panelo",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Por la disvolvado de Sloth OS: lanĉi kompilojn kaj vidi ilian staton, testado.",
   "Hamarosan": "Baldaŭ",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Neniu alia aplikaĵo lanĉas ĉi tiun programon, do ĝi nur transpreneblas.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Ĉi tiu programo ne havas propran medion, do ĝi aldoneblas nur per la originala aplikaĵo.",
   "Indítja: {source}": "Lanĉata de: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ĝi malaperas nur de ĉi tie kaj el la Start-menuo; en la originala loko ĉio restas."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ĝi malaperas nur de ĉi tie kaj el la Start-menuo; en la originala loko ĉio restas.",
+  "Appok": "Aplikaĵoj",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "La aplikaĵoj (kiujn vi instalis per Bonvenon aŭ Discover) ĝisdatiĝas mem unufoje tage, krom se vi uzas poŝtelefonan aŭ alian mezuratan konekton. Windows-programoj kaj ludbutikoj (ekz. Steam aŭ Battle.net) ĝisdatigas sin mem.",
+  "Megnyitás a Discoverben": "Malfermi en Discover"
 }

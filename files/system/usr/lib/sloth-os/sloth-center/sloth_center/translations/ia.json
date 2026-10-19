@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Registro salvate: {path}. Invia iste file a qui te adjuta.",
   "Szövegfájl (*.txt)": "File de texto (*.txt)",
   "Frissítések": "Actualisationes",
-  "Windows-programok": "Programmas Windows",
   "Fejlesztői pult": "Pannello de disveloppatores",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Pro le disveloppamento de Sloth OS: lancear compilationes e vider lor stato, probas.",
   "Hamarosan": "Tosto",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Nulle altere application lancea iste programma, dunque illo pote solmente esser prendite in carga.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Iste programma non ha su proprie ambiente, dunque illo pote esser addite solmente con le application original.",
   "Indítja: {source}": "Lanceate per: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Illo dispare solmente ab hic e del menu Initio; in le loco original toto remane."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Illo dispare solmente ab hic e del menu Initio; in le loco original toto remane.",
+  "Appok": "Applicationes",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Le applicationes (illos que tu installava in Benvenite o in Discover) se actualisa per se un vice al die, salvo si tu es sur un connexion mobile o mesurate. Le programmas Windows e le botecas de jocos (como Steam o Battle.net) se actualisa per se.",
+  "Megnyitás a Discoverben": "Aperir in Discover"
 }

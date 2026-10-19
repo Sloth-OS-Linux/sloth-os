@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "ບັນທຶກລາຍງານແລ້ວ: {path}. ສົ່ງໄຟລ໌ນີ້ໃຫ້ຄົນທີ່ຊ່ວຍທ່ານ.",
   "Szövegfájl (*.txt)": "ໄຟລ໌ຂໍ້ຄວາມ (*.txt)",
   "Frissítések": "ອັບເດດ",
-  "Windows-programok": "ໂປຣແກຣມ Windows",
   "Fejlesztői pult": "ແຜງນັກພັດທະນາ",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "ສຳລັບພັດທະນາ Sloth OS: ເລີ່ມການສ້າງ ແລະ ເບິ່ງສະຖານະ, ການທົດສອບ.",
   "Hamarosan": "ໄວໆນີ້",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "ບໍ່ມີແອັບອື່ນເປີດໂປຣແກຣມນີ້, ສະນັ້ນຈຶ່ງຮັບເອົາໄດ້ເທົ່ານັ້ນ.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "ໂປຣແກຣມນີ້ບໍ່ມີສະພາບແວດລ້ອມຂອງຕົນເອງ, ສະນັ້ນຈຶ່ງເພີ່ມໄດ້ດ້ວຍແອັບເດີມເທົ່ານັ້ນ.",
   "Indítja: {source}": "ເປີດໂດຍ: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "ມັນຈະຫາຍໄປຈາກບ່ອນນີ້ ແລະ ເມນູເລີ່ມເທົ່ານັ້ນ; ບ່ອນເດີມທຸກຢ່າງຍັງຢູ່."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "ມັນຈະຫາຍໄປຈາກບ່ອນນີ້ ແລະ ເມນູເລີ່ມເທົ່ານັ້ນ; ບ່ອນເດີມທຸກຢ່າງຍັງຢູ່.",
+  "Appok": "ແອັບ",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "ແອັບ (ທີ່ທ່ານຕິດຕັ້ງໃນໜ້າຕ້ອນຮັບ ຫຼື Discover) ຈະອັບເດດເອງມື້ລະເທື່ອ, ເວັ້ນເສຍແຕ່ທ່ານໃຊ້ການເຊື່ອມຕໍ່ມືຖື ຫຼື ການເຊື່ອມຕໍ່ທີ່ຄິດຕາມປະລິມານ. ໂປຣແກຣມ Windows ແລະ ຮ້ານເກມ (ເຊັ່ນ Steam ຫຼື Battle.net) ອັບເດດຕົນເອງ.",
+  "Megnyitás a Discoverben": "ເປີດໃນ Discover"
 }

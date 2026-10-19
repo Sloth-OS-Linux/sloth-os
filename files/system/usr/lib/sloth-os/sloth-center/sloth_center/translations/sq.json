@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Regjistri u ruajt: {path}. Dërgojani këtë skedar atij që ju ndihmon.",
   "Szövegfájl (*.txt)": "Skedar teksti (*.txt)",
   "Frissítések": "Përditësime",
-  "Windows-programok": "Programe Windows",
   "Fejlesztői pult": "Paneli i zhvilluesve",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Për zhvillimin e Sloth OS: nisja e ndërtimeve dhe gjendja e tyre, testimi.",
   "Hamarosan": "Së shpejti",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Asnjë aplikacion tjetër nuk e nis këtë program, prandaj mund vetëm të merret në dorë.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Ky program nuk ka mjedis të vetin, prandaj mund të shtohet vetëm me aplikacionin origjinal.",
   "Indítja: {source}": "E nis: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Zhduket vetëm nga këtu dhe nga menyja Start; në vendin origjinal mbetet gjithçka."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Zhduket vetëm nga këtu dhe nga menyja Start; në vendin origjinal mbetet gjithçka.",
+  "Appok": "Aplikacionet",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Aplikacionet (që i instalove te Mirë se vini ose në Discover) përditësohen vetë një herë në ditë, përveç rasteve kur je në lidhje celulare ose me matje. Programet e Windows dhe dyqanet e lojërave (si Steam ose Battle.net) përditësohen vetë.",
+  "Megnyitás a Discoverben": "Hape në Discover"
 }

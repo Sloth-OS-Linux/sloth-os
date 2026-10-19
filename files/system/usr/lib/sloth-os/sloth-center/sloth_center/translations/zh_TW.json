@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "記錄已儲存：{path}。請把這個檔案傳給協助你的人。",
   "Szövegfájl (*.txt)": "文字檔 (*.txt)",
   "Frissítések": "更新",
-  "Windows-programok": "Windows 程式",
   "Fejlesztői pult": "開發者面板",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "用於開發 Sloth OS：啟動建置並查看狀態、測試。",
   "Hamarosan": "即將推出",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "沒有其他應用程式會啟動此程式，因此只能接管。",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "此程式沒有自己的環境，因此只能使用原本的應用程式加入。",
   "Indítja: {source}": "啟動方式：{source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "只會從這裡和開始選單中消失；原位置的一切維持不變。"
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "只會從這裡和開始選單中消失；原位置的一切維持不變。",
+  "Appok": "應用程式",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "應用程式（在歡迎精靈或 Discover 中安裝的）每天會自動更新一次，除非你使用的是行動網路或其他計量連線。Windows 程式和遊戲商店（例如 Steam 或 Battle.net）會自行更新。",
+  "Megnyitás a Discoverben": "在 Discover 中開啟"
 }

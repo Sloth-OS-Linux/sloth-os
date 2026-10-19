@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Journal enregistré : {path}. Envoyez ce fichier à la personne qui vous aide.",
   "Szövegfájl (*.txt)": "Fichier texte (*.txt)",
   "Frissítések": "Mises à jour",
-  "Windows-programok": "Programmes Windows",
   "Fejlesztői pult": "Pupitre développeur",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Pour le développement de Sloth OS : lancer une build et voir son état, tests.",
   "Hamarosan": "Bientôt",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Aucune autre application ne lance ce programme, il ne peut donc qu’être repris.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Ce programme n’a pas d’environnement propre, il ne peut donc être ajouté qu’avec l’application d’origine.",
   "Indítja: {source}": "Lancé par : {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Il disparaît seulement d’ici et du menu Démarrer ; tout reste à son emplacement d’origine."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Il disparaît seulement d’ici et du menu Démarrer ; tout reste à son emplacement d’origine.",
+  "Appok": "Applications",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Les applications (celles installées via l’accueil ou Discover) se mettent à jour toutes seules une fois par jour, sauf si tu es sur une connexion mobile ou limitée. Les programmes Windows et les boutiques de jeux (comme Steam ou Battle.net) se mettent à jour eux-mêmes.",
+  "Megnyitás a Discoverben": "Ouvrir dans Discover"
 }

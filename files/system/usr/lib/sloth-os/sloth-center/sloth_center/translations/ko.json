@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "로그를 저장했습니다: {path}. 도와주는 사람에게 이 파일을 보내세요.",
   "Szövegfájl (*.txt)": "텍스트 파일 (*.txt)",
   "Frissítések": "업데이트",
-  "Windows-programok": "Windows 프로그램",
   "Fejlesztői pult": "개발자 패널",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Sloth OS 개발용: 빌드 시작 및 상태 확인, 테스트.",
   "Hamarosan": "곧 지원",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "이 프로그램을 실행하는 다른 앱이 없어서 가져오기만 할 수 있습니다.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "이 프로그램은 자체 환경이 없어서 원래 앱으로만 추가할 수 있습니다.",
   "Indítja: {source}": "실행: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "여기와 시작 메뉴에서만 사라지고, 원래 위치에는 모두 남아 있습니다."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "여기와 시작 메뉴에서만 사라지고, 원래 위치에는 모두 남아 있습니다.",
+  "Appok": "앱",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "앱(환영 화면이나 Discover에서 설치한 앱)은 모바일 등 데이터 요금제 연결이 아니라면 하루에 한 번 자동으로 업데이트됩니다. Windows 프로그램과 게임 스토어(예: Steam, Battle.net)는 스스로 업데이트합니다.",
+  "Megnyitás a Discoverben": "Discover에서 열기"
 }

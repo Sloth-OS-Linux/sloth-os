@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Loki tallennettu: {path}. Lähetä tämä tiedosto sille, joka auttaa sinua.",
   "Szövegfájl (*.txt)": "Tekstitiedosto (*.txt)",
   "Frissítések": "Päivitykset",
-  "Windows-programok": "Windows-ohjelmat",
   "Fejlesztői pult": "Kehittäjäpaneeli",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Sloth OS:n kehittämiseen: koontien käynnistys ja tila, testaus.",
   "Hamarosan": "Pian",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Mikään muu sovellus ei käynnistä tätä ohjelmaa, joten sen voi vain ottaa käyttöön.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Tällä ohjelmalla ei ole omaa ympäristöä, joten sen voi lisätä vain alkuperäisellä sovelluksella.",
   "Indítja: {source}": "Käynnistäjä: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Se katoaa vain täältä ja Käynnistä-valikosta; alkuperäisessä paikassa kaikki säilyy."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Se katoaa vain täältä ja Käynnistä-valikosta; alkuperäisessä paikassa kaikki säilyy.",
+  "Appok": "Sovellukset",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Sovellukset (jotka asensit Tervetuloa-ohjelmassa tai Discoverissa) päivittyvät itsestään kerran päivässä, ellet ole mobiili- tai muulla käytön mukaan laskutettavalla yhteydellä. Windows-ohjelmat ja pelikaupat (kuten Steam tai Battle.net) päivittävät itsensä.",
+  "Megnyitás a Discoverben": "Avaa Discoverissa"
 }

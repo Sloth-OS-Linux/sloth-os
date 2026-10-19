@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "حُفظ السجل: {path}. أرسل هذا الملف إلى من يساعدك.",
   "Szövegfájl (*.txt)": "ملف نصي (*.txt)",
   "Frissítések": "التحديثات",
-  "Windows-programok": "برامج Windows",
   "Fejlesztői pult": "لوحة المطورين",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "لتطوير Sloth OS: تشغيل البناءات ومعرفة حالتها، والاختبار.",
   "Hamarosan": "قريبًا",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "لا يشغّل أي تطبيق آخر هذا البرنامج، لذا يمكن نقله فقط.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "ليس لهذا البرنامج بيئة خاصة به، لذا لا يمكن إضافته إلا مع التطبيق الأصلي.",
   "Indítja: {source}": "يشغّله: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "يختفي من هنا ومن قائمة ابدأ فقط؛ ويبقى كل شيء في مكانه الأصلي."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "يختفي من هنا ومن قائمة ابدأ فقط؛ ويبقى كل شيء في مكانه الأصلي.",
+  "Appok": "التطبيقات",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "تُحدِّث التطبيقات (التي ثبّتها في الترحيب أو في Discover) نفسها مرة يوميًا، إلا إذا كنت على اتصال جوال أو اتصال محدود آخر. تُحدِّث برامج Windows ومتاجر الألعاب (مثل Steam أو Battle.net) نفسها بنفسها.",
+  "Megnyitás a Discoverben": "فتح في Discover"
 }

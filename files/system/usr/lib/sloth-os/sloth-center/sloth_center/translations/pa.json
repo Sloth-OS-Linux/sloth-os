@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "ਲੌਗ ਸੰਭਾਲਿਆ ਗਿਆ: {path}। ਇਹ ਫ਼ਾਈਲ ਉਸ ਨੂੰ ਭੇਜੋ ਜੋ ਤੁਹਾਡੀ ਮਦਦ ਕਰ ਰਿਹਾ ਹੈ।",
   "Szövegfájl (*.txt)": "ਟੈਕਸਟ ਫ਼ਾਈਲ (*.txt)",
   "Frissítések": "ਅੱਪਡੇਟ",
-  "Windows-programok": "Windows ਪ੍ਰੋਗਰਾਮ",
   "Fejlesztői pult": "ਡਿਵੈਲਪਰ ਪੈਨਲ",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Sloth OS ਦੇ ਵਿਕਾਸ ਲਈ: ਬਿਲਡ ਸ਼ੁਰੂ ਕਰਨਾ ਅਤੇ ਹਾਲਤ ਦੇਖਣਾ, ਟੈਸਟਿੰਗ।",
   "Hamarosan": "ਜਲਦੀ",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "ਇਸ ਪ੍ਰੋਗਰਾਮ ਨੂੰ ਕੋਈ ਹੋਰ ਐਪ ਨਹੀਂ ਚਲਾਉਂਦੀ, ਇਸ ਲਈ ਇਸ ਨੂੰ ਸਿਰਫ਼ ਲਿਆ ਜਾ ਸਕਦਾ ਹੈ।",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "ਇਸ ਪ੍ਰੋਗਰਾਮ ਦਾ ਆਪਣਾ ਵਾਤਾਵਰਨ ਨਹੀਂ ਹੈ, ਇਸ ਲਈ ਇਸ ਨੂੰ ਸਿਰਫ਼ ਅਸਲ ਐਪ ਨਾਲ ਜੋੜਿਆ ਜਾ ਸਕਦਾ ਹੈ।",
   "Indítja: {source}": "ਚਲਾਉਂਦਾ ਹੈ: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "ਇਹ ਸਿਰਫ਼ ਇੱਥੋਂ ਅਤੇ ਸਟਾਰਟ ਮੀਨੂ ਤੋਂ ਹਟਦਾ ਹੈ; ਅਸਲ ਥਾਂ 'ਤੇ ਸਭ ਕੁਝ ਰਹਿੰਦਾ ਹੈ।"
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "ਇਹ ਸਿਰਫ਼ ਇੱਥੋਂ ਅਤੇ ਸਟਾਰਟ ਮੀਨੂ ਤੋਂ ਹਟਦਾ ਹੈ; ਅਸਲ ਥਾਂ 'ਤੇ ਸਭ ਕੁਝ ਰਹਿੰਦਾ ਹੈ।",
+  "Appok": "ਐਪਾਂ",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "ਐਪਾਂ (ਜੋ ਤੁਸੀਂ ਸੁਆਗਤ ਜਾਂ Discover ਵਿੱਚ ਇੰਸਟਾਲ ਕੀਤੀਆਂ) ਦਿਨ ਵਿੱਚ ਇੱਕ ਵਾਰ ਆਪਣੇ-ਆਪ ਅੱਪਡੇਟ ਹੁੰਦੀਆਂ ਹਨ, ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਮੋਬਾਈਲ ਜਾਂ ਹੋਰ ਮੀਟਰ ਵਾਲੇ ਕਨੈਕਸ਼ਨ 'ਤੇ ਨਹੀਂ ਹੋ। Windows ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਗੇਮ ਸਟੋਰ (ਜਿਵੇਂ Steam ਜਾਂ Battle.net) ਆਪਣੇ-ਆਪ ਨੂੰ ਅੱਪਡੇਟ ਕਰਦੇ ਹਨ।",
+  "Megnyitás a Discoverben": "Discover ਵਿੱਚ ਖੋਲ੍ਹੋ"
 }

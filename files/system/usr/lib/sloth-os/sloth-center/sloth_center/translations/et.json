@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Logi salvestati: {path}. Saada see fail inimesele, kes sind aitab.",
   "Szövegfájl (*.txt)": "Tekstifail (*.txt)",
   "Frissítések": "Uuendused",
-  "Windows-programok": "Windowsi programmid",
   "Fejlesztői pult": "Arendajapaneel",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Sloth OS-i arendamiseks: ehituste käivitamine ja nende olek, testimine.",
   "Hamarosan": "Peagi",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Ükski teine rakendus seda programmi ei käivita, seega saab selle ainult üle võtta.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Sellel programmil pole oma keskkonda, seega saab selle lisada ainult algse rakendusega.",
   "Indítja: {source}": "Käivitab: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "See kaob ainult siit ja Start-menüüst; algses kohas jääb kõik alles."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "See kaob ainult siit ja Start-menüüst; algses kohas jääb kõik alles.",
+  "Appok": "Rakendused",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Rakendused (mille paigaldasid tervitusviisardis või Discoveris) uuenevad ise kord päevas, kui sa ei kasuta mobiilset ega muud mahupiiranguga ühendust. Windowsi programmid ja mängupoed (nt Steam või Battle.net) uuendavad end ise.",
+  "Megnyitás a Discoverben": "Ava Discoveris"
 }

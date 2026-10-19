@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "היומן נשמר: {path}. שלחו את הקובץ הזה למי שעוזר לכם.",
   "Szövegfájl (*.txt)": "קובץ טקסט (*.txt)",
   "Frissítések": "עדכונים",
-  "Windows-programok": "תוכנות Windows",
   "Fejlesztői pult": "לוח מפתחים",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "לפיתוח Sloth OS: הפעלת בניות ומצבן, בדיקות.",
   "Hamarosan": "בקרוב",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "אף אפליקציה אחרת לא מפעילה את התוכנה הזו, ולכן אפשר רק להעביר אותה.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "לתוכנה הזו אין סביבה משלה, ולכן אפשר להוסיף אותה רק עם האפליקציה המקורית.",
   "Indítja: {source}": "מופעלת על ידי: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "היא נעלמת רק מכאן ומתפריט ההתחלה; במקום המקורי הכול נשאר."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "היא נעלמת רק מכאן ומתפריט ההתחלה; במקום המקורי הכול נשאר.",
+  "Appok": "אפליקציות",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "האפליקציות (אלה שהתקנתם ב־Welcome או ב־Discover) מתעדכנות מעצמן פעם ביום, אלא אם אתם בחיבור סלולרי או בחיבור מדוד אחר. תוכנות Windows וחנויות משחקים (כמו Steam או Battle.net) מעדכנות את עצמן.",
+  "Megnyitás a Discoverben": "פתיחה ב־Discover"
 }

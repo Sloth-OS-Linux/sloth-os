@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Log tersimpan: {path}. Kirim berkas ini kepada orang yang membantu Anda.",
   "Szövegfájl (*.txt)": "Berkas teks (*.txt)",
   "Frissítések": "Pembaruan",
-  "Windows-programok": "Program Windows",
   "Fejlesztői pult": "Panel pengembang",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Untuk pengembangan Sloth OS: menjalankan build dan statusnya, pengujian.",
   "Hamarosan": "Segera hadir",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Tidak ada aplikasi lain yang menjalankan program ini, jadi program ini hanya bisa diambil alih.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Program ini tidak punya lingkungan sendiri, jadi hanya bisa ditambahkan dengan aplikasi aslinya.",
   "Indítja: {source}": "Dijalankan oleh: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Program hanya hilang dari sini dan dari menu Start; di tempat aslinya semuanya tetap ada."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Program hanya hilang dari sini dan dari menu Start; di tempat aslinya semuanya tetap ada.",
+  "Appok": "Aplikasi",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Aplikasi (yang kamu pasang di Selamat Datang atau Discover) memperbarui dirinya sendiri sekali sehari, kecuali kamu memakai koneksi seluler atau koneksi terukur lainnya. Program Windows dan toko game (seperti Steam atau Battle.net) memperbarui dirinya sendiri.",
+  "Megnyitás a Discoverben": "Buka di Discover"
 }

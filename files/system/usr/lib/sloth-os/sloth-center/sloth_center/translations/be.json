@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Журнал захаваны: {path}. Адпраўце гэты файл таму, хто вам дапамагае.",
   "Szövegfájl (*.txt)": "Тэкставы файл (*.txt)",
   "Frissítések": "Абнаўленні",
-  "Windows-programok": "Праграмы Windows",
   "Fejlesztői pult": "Панэль распрацоўшчыка",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Для распрацоўкі Sloth OS: запуск зборак і іх стан, тэставанне.",
   "Hamarosan": "Хутка",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Гэтую праграму не запускае іншая праграма, таму яе можна толькі перанесці.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "У гэтай праграмы няма ўласнага асяроддзя, таму яе можна дадаць толькі з зыходнай праграмай.",
   "Indítja: {source}": "Запускае: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Яна знікне толькі адсюль і з меню «Пуск»; на ранейшым месцы ўсё застанецца."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Яна знікне толькі адсюль і з меню «Пуск»; на ранейшым месцы ўсё застанецца.",
+  "Appok": "Праграмы",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Праграмы (усталяваныя ў вітанні або ў Discover) абнаўляюцца самі раз на дзень, калі ты не на мабільным ці іншым лімітным падключэнні. Праграмы Windows і гульнявыя крамы (напрыклад, Steam або Battle.net) абнаўляюцца самі.",
+  "Megnyitás a Discoverben": "Адкрыць у Discover"
 }

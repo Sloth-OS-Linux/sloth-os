@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Registro salvo: {path}. Envie este arquivo para quem estiver ajudando você.",
   "Szövegfájl (*.txt)": "Arquivo de texto (*.txt)",
   "Frissítések": "Atualizações",
-  "Windows-programok": "Programas do Windows",
   "Fejlesztői pult": "Painel de desenvolvimento",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Para desenvolver o Sloth OS: iniciar builds e ver o status, testes.",
   "Hamarosan": "Em breve",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Nenhum outro app inicia este programa, por isso ele só pode ser transferido.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Este programa não tem um ambiente próprio, por isso só pode ser adicionado com o app original.",
   "Indítja: {source}": "Iniciado por: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ele só some daqui e do menu Iniciar; no local original fica tudo."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ele só some daqui e do menu Iniciar; no local original fica tudo.",
+  "Appok": "Apps",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Os apps (os que você instalou nas Boas-vindas ou no Discover) se atualizam sozinhos uma vez por dia, a menos que você esteja numa conexão móvel ou limitada. Os programas do Windows e as lojas de jogos (como Steam ou Battle.net) se atualizam sozinhos.",
+  "Megnyitás a Discoverben": "Abrir no Discover"
 }

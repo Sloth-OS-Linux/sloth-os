@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Registre desat: {path}. Envieu aquest fitxer a qui us ajudi.",
   "Szövegfájl (*.txt)": "Fitxer de text (*.txt)",
   "Frissítések": "Actualitzacions",
-  "Windows-programok": "Programes Windows",
   "Fejlesztői pult": "Tauler de desenvolupament",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Per desenvolupar Sloth OS: iniciar compilacions i veure’n l’estat, proves.",
   "Hamarosan": "Aviat",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Cap altra aplicació no inicia aquest programa, així que només es pot traspassar.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Aquest programa no té un entorn propi, així que només es pot afegir amb l’aplicació original.",
   "Indítja: {source}": "L’inicia: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Només desapareix d’aquí i del menú Inici; al seu lloc original tot es manté."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Només desapareix d’aquí i del menú Inici; al seu lloc original tot es manté.",
+  "Appok": "Aplicacions",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Les aplicacions (les que vas instal·lar a la Benvinguda o al Discover) s’actualitzen soles un cop al dia, tret que facis servir una connexió mòbil o amb tarifa. Els programes de Windows i les botigues de jocs (com Steam o Battle.net) s’actualitzen sols.",
+  "Megnyitás a Discoverben": "Obre al Discover"
 }

@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Günlük kaydedildi: {path}. Bu dosyayı size yardım eden kişiye gönderin.",
   "Szövegfájl (*.txt)": "Metin dosyası (*.txt)",
   "Frissítések": "Güncellemeler",
-  "Windows-programok": "Windows programları",
   "Fejlesztői pult": "Geliştirici paneli",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Sloth OS geliştirmek için: derlemeleri başlatma ve durumları, test.",
   "Hamarosan": "Yakında",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Bu programı başka bir uygulama başlatmıyor, bu yüzden yalnızca devralınabilir.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Bu programın kendi ortamı yok, bu yüzden yalnızca asıl uygulamayla eklenebilir.",
   "Indítja: {source}": "Başlatan: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Yalnızca buradan ve Başlat menüsünden kalkar; asıl yerinde her şey kalır."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Yalnızca buradan ve Başlat menüsünden kalkar; asıl yerinde her şey kalır.",
+  "Appok": "Uygulamalar",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Uygulamalar (Hoş Geldin’de ya da Discover’da kurduğun) günde bir kez kendiliğinden güncellenir; mobil ya da kotalı bir bağlantıdaysan güncellenmez. Windows programları ve oyun mağazaları (Steam veya Battle.net gibi) kendilerini günceller.",
+  "Megnyitás a Discoverben": "Discover’da aç"
 }

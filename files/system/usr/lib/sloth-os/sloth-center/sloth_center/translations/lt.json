@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Žurnalas įrašytas: {path}. Nusiųskite šį failą tam, kas jums padeda.",
   "Szövegfájl (*.txt)": "Tekstinis failas (*.txt)",
   "Frissítések": "Atnaujinimai",
-  "Windows-programok": "„Windows“ programos",
   "Fejlesztői pult": "Kūrėjų skydelis",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "„Sloth OS“ kūrimui: darinių paleidimas ir būsena, testavimas.",
   "Hamarosan": "Netrukus",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Šios programos nepaleidžia jokia kita programa, todėl ją galima tik perimti.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Ši programa neturi savo aplinkos, todėl ją galima pridėti tik su pradine programa.",
   "Indítja: {source}": "Paleidžia: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ji dings tik iš čia ir iš meniu Pradžia; pradinėje vietoje viskas lieka."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ji dings tik iš čia ir iš meniu Pradžia; pradinėje vietoje viskas lieka.",
+  "Appok": "Programėlės",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Programėlės (kurias įdiegei Sveikinimo vedlyje arba Discover) atsinaujina pačios kartą per dieną, nebent naudojiesi mobiliuoju ar kitu matuojamu ryšiu. Windows programos ir žaidimų parduotuvės (pvz., Steam ar Battle.net) atsinaujina pačios.",
+  "Megnyitás a Discoverben": "Atverti Discover"
 }

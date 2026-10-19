@@ -21,6 +21,15 @@ log = logging.getLogger("sloth-center.updates")
 class UpdatesController(QObject):
     changed = Signal()
 
+    @Slot()
+    def openDiscover(self):
+        """Az appok frissítései a Discoverben (a rendszert ez az oldal frissíti)."""
+        try:
+            subprocess.Popen(["plasma-discover", "--mode", "update"], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except OSError as e:
+            log.warning("Discover: %s", e)
+
     def __init__(self, parent=None):
         super().__init__(parent)
         self._ostree = None

@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "লগ সংৰক্ষিত: {path}। যিয়ে আপোনাক সহায় কৰিছে তেওঁলৈ এই ফাইলটো পঠাওক।",
   "Szövegfájl (*.txt)": "টেক্সট ফাইল (*.txt)",
   "Frissítések": "আপডেট",
-  "Windows-programok": "Windows প্ৰ'গ্ৰাম",
   "Fejlesztői pult": "বিকাশকাৰী পেনেল",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Sloth OS বিকাশৰ বাবে: বিল্ড আৰম্ভ কৰা আৰু অৱস্থা চোৱা, পৰীক্ষা।",
   "Hamarosan": "সোনকালে",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "এই প্ৰ'গ্ৰামটো আন কোনো এপে আৰম্ভ নকৰে, সেয়ে কেৱল লোৱাহে যায়।",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "এই প্ৰ'গ্ৰামৰ নিজা পৰিৱেশ নাই, সেয়ে কেৱল মূল এপৰ সৈতেহে যোগ কৰিব পাৰি।",
   "Indítja: {source}": "আৰম্ভ কৰে: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "ই কেৱল ইয়াৰ পৰা আৰু আৰম্ভণি মেনুৰ পৰাহে আঁতৰে; মূল ঠাইত সকলো থাকে।"
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "ই কেৱল ইয়াৰ পৰা আৰু আৰম্ভণি মেনুৰ পৰাহে আঁতৰে; মূল ঠাইত সকলো থাকে।",
+  "Appok": "এপসমূহ",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "এপসমূহ (যিবোৰ আপুনি স্বাগতম বা Discover-ত ইনষ্টল কৰিছিল) দিনত এবাৰকৈ নিজে আপডেট হয়, যদিহে আপুনি মোবাইল বা আন মিটাৰযুক্ত সংযোগত নাথাকে। Windows প্ৰ'গ্ৰাম আৰু গেম ষ্ট'ৰবোৰ (যেনে Steam বা Battle.net) নিজে নিজে আপডেট হয়।",
+  "Megnyitás a Discoverben": "Discover-ত খোলক"
 }

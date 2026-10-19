@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Loggen sparad: {path}. Skicka filen till den som hjälper dig.",
   "Szövegfájl (*.txt)": "Textfil (*.txt)",
   "Frissítések": "Uppdateringar",
-  "Windows-programok": "Windows-program",
   "Fejlesztői pult": "Utvecklarpanel",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "För utvecklingen av Sloth OS: starta byggen och se status, testning.",
   "Hamarosan": "Snart",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Ingen annan app startar det här programmet, så det kan bara tas över.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Det här programmet har ingen egen miljö och kan därför bara läggas till med den ursprungliga appen.",
   "Indítja: {source}": "Startas av: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Det försvinner bara härifrån och från startmenyn; på den ursprungliga platsen finns allt kvar."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Det försvinner bara härifrån och från startmenyn; på den ursprungliga platsen finns allt kvar.",
+  "Appok": "Appar",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Apparna (de du installerade i Välkommen eller Discover) uppdaterar sig själva en gång om dagen, om du inte är på en mobil eller annan mätbar anslutning. Windows-program och spelbutiker (som Steam eller Battle.net) uppdaterar sig själva.",
+  "Megnyitás a Discoverben": "Öppna i Discover"
 }

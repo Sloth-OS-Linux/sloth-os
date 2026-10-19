@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Aɣmis yettwasekles: {path}. Azen afaylu-a i win i k-yettɛawanen.",
   "Szövegfájl (*.txt)": "Afaylu n uḍris (*.txt)",
   "Frissítések": "Ileqman",
-  "Windows-programok": "Ahilen Windows",
   "Fejlesztői pult": "Agalis n yineflayen",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "I usnefli n Sloth OS: asekker n yibenna d waddad-nsen, ireggin.",
   "Hamarosan": "Ur yettɛeṭṭil ara",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Ulac asnas nniḍen ara isekkren ahil-a, ihi yezmer kan ad yettwaṭṭef.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Ahil-a ur yesɛi ara tawennaḍt-ines, ihi yezmer ad yettwarnu kan s usnas amezwaru.",
   "Indítja: {source}": "Isekker-it: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ad yekkes kan seg da d wumuɣ Bdu; deg wadeg amezwaru kullec ad yeqqim."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Ad yekkes kan seg da d wumuɣ Bdu; deg wadeg amezwaru kullec ad yeqqim.",
+  "Appok": "Isnasen",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Isnasen (i tesbeddeḍ deg Ansuf neɣ deg Discover) ttalɣen-d iman-nsen yiwet n tikkelt i wass, ma yella ur tettuqqneḍ ara s tuqqna n uziraz neɣ tuqqna nniḍen tettwaktalt. Ihilen n Windows d tḥuna n wurar (am Steam neɣ Battle.net) ttalɣen-d iman-nsen.",
+  "Megnyitás a Discoverben": "Ldi deg Discover"
 }

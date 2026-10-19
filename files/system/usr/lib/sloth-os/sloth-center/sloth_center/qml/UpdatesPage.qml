@@ -141,6 +141,37 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Appok: a Discover és az automatikus app-frissítés ------------------------------------
+        // A rendszert ez az oldal frissíti, az appokat (Flatpak) a háttérben egy napi frissítő, kézzel a
+        // Discover; a Discover a rendszerfrissítést nem mutatja (nincs két külön rendszerfrissítés)
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Icon {
+                    source: "plasmadiscover"
+                    implicitWidth: Kirigami.Units.iconSizes.medium
+                    implicitHeight: Kirigami.Units.iconSizes.medium
+                }
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: 0
+                    Kirigami.Heading { level: 3; text: L.t("Appok"); Layout.fillWidth: true }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        text: L.t("Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.")
+                    }
+                }
+                QQC2.Button {
+                    text: L.t("Megnyitás a Discoverben")
+                    icon.name: "plasmadiscover"
+                    onClicked: updates.openDiscover()
+                }
+            }
+        }
+
         // --- Verzió megtartása ---------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

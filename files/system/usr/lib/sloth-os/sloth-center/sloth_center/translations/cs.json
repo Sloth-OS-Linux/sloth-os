@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Protokol uložen: {path}. Pošlete tento soubor tomu, kdo vám pomáhá.",
   "Szövegfájl (*.txt)": "Textový soubor (*.txt)",
   "Frissítések": "Aktualizace",
-  "Windows-programok": "Programy pro Windows",
   "Fejlesztői pult": "Vývojářský panel",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Pro vývoj Sloth OS: spouštění sestavení a jejich stav, testování.",
   "Hamarosan": "Brzy",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Tento program nespouští žádná jiná aplikace, proto ho lze jen převzít.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Tento program nemá vlastní prostředí, proto ho lze přidat jen s původní aplikací.",
   "Indítja: {source}": "Spouští: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Zmizí jen odsud a z nabídky Start; na původním místě vše zůstane."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Zmizí jen odsud a z nabídky Start; na původním místě vše zůstane.",
+  "Appok": "Aplikace",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Aplikace (které jsi nainstaloval v Uvítání nebo v Discoveru) se jednou denně aktualizují samy, pokud nejsi na mobilním nebo jiném měřeném připojení. Programy pro Windows a herní obchody (třeba Steam nebo Battle.net) se aktualizují samy.",
+  "Megnyitás a Discoverben": "Otevřít v Discoveru"
 }

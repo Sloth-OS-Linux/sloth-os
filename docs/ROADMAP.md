@@ -164,7 +164,9 @@ Talált hibák (egyesével javítjuk):
   valószínűleg a /proc/kcore virtuális mérete a gyökér méretszámításában. Udev-szabály rejti el
   (`90-sloth-udisks.rules`), a rendszerpartíció neve „Sloth OS”. Ha a teszten mégis látszik: Napló mentése, az
   elején a lemezek és a loop eszközök
-- [ ] A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért)
+- [ ] A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért).
+  Valószínű ok (2026-10-19): az alap image automatikus app-frissítője (`flatpak-system-update.timer`, 2 perccel a
+  bekapcsolás után) az Üdvözlő alatt futott. Most kimarad, amíg az Üdvözlő fut; a teszten figyelni
 - [x] A rendszer neve „Sloth OS 44” (a Fedora verziószáma látszik): a Sloth OS saját verziószámot kapjon (pl. 1),
   és valahol (pl. a Rendszerinformációban) jelenjen meg, hogy Fedora Atomic alapú. Kész (valódi gépen
   megnézni): „Sloth OS 1.0 (Fedora Atomic 44)” (`branding.sh`: VERSION, PRETTY_NAME; a VERSION_ID marad 44;
@@ -197,8 +199,11 @@ Talált hibák (egyesével javítjuk):
 6. [ ] **Licencek és nevek:** kész (2026-10-19): a kód Apache-2.0 (`LICENSE`, mint a Universal Blue és a BlueBuild),
    a saját grafika (logó, háttérképek, boot animáció) CC BY-SA 4.0, az Üdvözlő app-ikonjai a gyártóiké (`NOTICE`;
    az image-ben `/usr/share/licenses/sloth-os/`, a háttérképek adataiban is). Hátravan: a ProtonDB-adatok
-   ODbL-megjelölése a letöltési oldalon (a weboldallal együtt); a „Sloth OS” név ütközésének ellenőrzése
-   (van-e már ilyen nevű termék vagy védjegy)
+   ODbL-megjelölése a letöltési oldalon (a weboldallal együtt).
+   - [x] A „Sloth OS” név (2026-10-19, nem jogi vélemény): nincs ilyen nevű operációs rendszer (egy böngészős
+     diák-tréfaprojekt van a GitHubon); az USA-ban egy „SLOTH” védjegy a 9. osztályban egy „slow TV” lejátszó appra
+     (USPTO 6130782), más termékkör. Az EUIPO gépi keresése nem működött: publikálás előtt kézzel a TMview-ban és
+     az SZTNH-nál is megnézni, vagy védjegyjogászt kérdezni
 7. [ ] **A fordítások anyanyelvi átnézése** legalább a leggyakoribb nyelveken (angol, német, spanyol, francia…);
    a többi maradhat gépi, jelölve
 
@@ -213,9 +218,13 @@ Talált hibák (egyesével javítjuk):
     Windows-programokat és a Proton-frissítést mutatja. Nagy munka, és minden Plasma-frissítésnél karban kell
     tartani; a programok (Battle.net, Steam, Epic…) amúgy is maguktól frissülnek. Előbb megnézni, hogy egy
     egyszerűbb út (pl. AppStream-adat + a Sloth Központ Frissítések oldala) nem elég-e
-  - [ ] **Rendszerfrissítés a Discoverben:** valódi gépen megnézni, mutatja-e a Discover a Sloth OS frissítéseit
-    (rpm-ostree / bootc, aláírás-ellenőrzéssel), és egyezik-e azzal, amit a Sloth Központ Frissítések oldala mutat;
-    ha nem, az egyik helyről a másikra mutató gomb, hogy ne legyen két külön frissítés
+  - [x] **Rendszerfrissítés a Discoverben** (2026-10-19): kiderült a forrásból, hogy nincs dupla frissítés. A
+    Universal Blue a KDE-s image-ből kiveszi a Discover rpm-ostree-bővítményét (`plasma-discover-rpm-ostree`), így a
+    Discover csak az appokat mutatja; a rendszert a Sloth Központ frissíti. Közben a `ublue-os-update-services` a
+    rendszerfrissítést magától előkészíti (`AutomaticUpdatePolicy=stage`), az appokat (Flatpak) pedig bekapcsolás után
+    2 perccel és naponta magától frissíti (nem mért kapcsolaton). Kész: a Frissítések oldalon „Appok” rész (mi frissül
+    magától, „Megnyitás a Discoverben”); az app-frissítő nem fut, amíg az Üdvözlő fut (drop-in a
+    `flatpak-system-update` / `flatpak-user-update` szolgáltatásokhoz)
 - [ ] Windows mellett: a boot-sorrend teljes védelme (most csak a Sloth OS következő indításakor áll vissza; ötlet:
   Windows-oldali segéd)
 - [ ] Külön NVIDIA-s ISO „haladóknak” (internet nélkül is NVIDIA-illesztővel indul), ha a tárhely engedi
@@ -236,7 +245,8 @@ Talált hibák (egyesével javítjuk):
 - [ ] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis
 - [ ] Haladó beállítások folyamatos bővítése – 3. fázis
 - [ ] ISO-méret: a rétegek összevonása, helytakarékos ISO-build – 4. fázis
-- [ ] A Vivaldi nem települt fel az Üdvözlőből (oka ismeretlen; a teszten figyelni)
+- [ ] A Vivaldi nem települt fel az Üdvözlőből (oka ismeretlen; a teszten figyelni). Lehetséges ok: a fenti
+  automatikus app-frissítő egyszerre futott az Üdvözlővel (most kimarad, amíg az Üdvözlő fut)
 
 ## Korábban (2026-10-15)
 - Első teszt valódi gépen (2026-10-15 délután, pendrive-ról, Intel UHD-s tesztlaptop). A talált hibák javítva,

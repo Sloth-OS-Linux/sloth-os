@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Log gestoor: {path}. Stuur hierdie lêer aan die persoon wat jou help.",
   "Szövegfájl (*.txt)": "Tekslêer (*.txt)",
   "Frissítések": "Bywerkings",
-  "Windows-programok": "Windows-programme",
   "Fejlesztői pult": "Ontwikkelaarspaneel",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Vir die ontwikkeling van Sloth OS: bouwerk begin en die status, toetsing.",
   "Hamarosan": "Binnekort",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Geen ander toep begin hierdie program nie, so dit kan net oorgeneem word.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Hierdie program het nie sy eie omgewing nie, so dit kan net met die oorspronklike toep bygevoeg word.",
   "Indítja: {source}": "Begin deur: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Dit verdwyn net van hier en uit die Begin-kieslys; op die oorspronklike plek bly alles."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Dit verdwyn net van hier en uit die Begin-kieslys; op die oorspronklike plek bly alles.",
+  "Appok": "Toeps",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Toeps (dié wat jy in Welkom of Discover geïnstalleer het) dateer hulself een keer per dag op, tensy jy op ’n mobiele of ander gemeterde verbinding is. Windows-programme en speletjiewinkels (soos Steam of Battle.net) dateer hulself op.",
+  "Megnyitás a Discoverben": "Maak oop in Discover"
 }

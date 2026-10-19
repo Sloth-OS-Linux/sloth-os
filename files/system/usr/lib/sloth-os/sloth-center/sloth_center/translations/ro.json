@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Jurnal salvat: {path}. Trimite acest fișier celui care te ajută.",
   "Szövegfájl (*.txt)": "Fișier text (*.txt)",
   "Frissítések": "Actualizări",
-  "Windows-programok": "Programe Windows",
   "Fejlesztői pult": "Panou pentru dezvoltatori",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Pentru dezvoltarea Sloth OS: pornirea compilărilor și starea lor, testare.",
   "Hamarosan": "În curând",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Nicio altă aplicație nu pornește acest program, așa că poate fi doar preluat.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Acest program nu are un mediu propriu, așa că poate fi adăugat doar cu aplicația originală.",
   "Indítja: {source}": "Pornit de: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Dispare doar de aici și din meniul Start; în locul inițial rămâne totul."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Dispare doar de aici și din meniul Start; în locul inițial rămâne totul.",
+  "Appok": "Aplicații",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Aplicațiile (cele instalate în Bun venit sau în Discover) se actualizează singure o dată pe zi, dacă nu folosești o conexiune mobilă sau altă conexiune contorizată. Programele Windows și magazinele de jocuri (de exemplu Steam sau Battle.net) se actualizează singure.",
+  "Megnyitás a Discoverben": "Deschide în Discover"
 }

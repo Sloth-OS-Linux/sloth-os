@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "பதிவு சேமிக்கப்பட்டது: {path}. இந்தக் கோப்பை உங்களுக்கு உதவுபவருக்கு அனுப்பவும்.",
   "Szövegfájl (*.txt)": "உரைக் கோப்பு (*.txt)",
   "Frissítések": "புதுப்பிப்புகள்",
-  "Windows-programok": "Windows நிரல்கள்",
   "Fejlesztői pult": "உருவாக்குநர் பலகம்",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Sloth OS மேம்பாட்டுக்கு: உருவாக்கங்களைத் தொடங்குதல், நிலையைப் பார்த்தல், சோதனை.",
   "Hamarosan": "விரைவில்",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "இந்த நிரலை வேறு எந்தப் பயன்பாடும் தொடங்குவதில்லை, எனவே எடுத்துக்கொள்ள மட்டுமே முடியும்.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "இந்த நிரலுக்குத் தனிச் சூழல் இல்லை, எனவே அசல் பயன்பாட்டுடன் மட்டுமே சேர்க்க முடியும்.",
   "Indítja: {source}": "தொடங்குவது: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "இது இங்கிருந்தும் தொடக்க மெனுவிலிருந்தும் மட்டுமே மறையும்; அசல் இடத்தில் எல்லாம் அப்படியே இருக்கும்."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "இது இங்கிருந்தும் தொடக்க மெனுவிலிருந்தும் மட்டுமே மறையும்; அசல் இடத்தில் எல்லாம் அப்படியே இருக்கும்.",
+  "Appok": "பயன்பாடுகள்",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "பயன்பாடுகள் (வரவேற்பு அல்லது Discover-இல் நீங்கள் நிறுவியவை) மொபைல் அல்லது அளவிடப்பட்ட இணைப்பில் இல்லையெனில், நாளுக்கு ஒருமுறை தானாகப் புதுப்பிக்கப்படும். Windows நிரல்களும் கேம் கடைகளும் (Steam, Battle.net போன்றவை) தாமாகவே புதுப்பித்துக்கொள்ளும்.",
+  "Megnyitás a Discoverben": "Discover-இல் திற"
 }

@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "ჟურნალი შენახულია: {path}. ეს ფაილი გაუგზავნეთ მას, ვინც გეხმარებათ.",
   "Szövegfájl (*.txt)": "ტექსტური ფაილი (*.txt)",
   "Frissítések": "განახლებები",
-  "Windows-programok": "Windows პროგრამები",
   "Fejlesztői pult": "დეველოპერის პანელი",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Sloth OS-ის განვითარებისთვის: ანაწყობების გაშვება და მდგომარეობა, ტესტირება.",
   "Hamarosan": "მალე",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "ამ პროგრამას სხვა აპი არ უშვებს, ამიტომ მისი მხოლოდ გადმოტანა შეიძლება.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "ამ პროგრამას საკუთარი გარემო არ აქვს, ამიტომ მისი დამატება მხოლოდ თავდაპირველი აპით შეიძლება.",
   "Indítja: {source}": "უშვებს: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "ის მხოლოდ აქედან და „დაწყების“ მენიუდან ქრება; თავდაპირველ ადგილას ყველაფერი რჩება."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "ის მხოლოდ აქედან და „დაწყების“ მენიუდან ქრება; თავდაპირველ ადგილას ყველაფერი რჩება.",
+  "Appok": "აპები",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "აპები (რომლებიც მისასალმებელში ან Discover-ში დააინსტალირე) დღეში ერთხელ თავად განახლდება, თუ მობილურ ან სხვა ლიმიტირებულ კავშირზე არ ხარ. Windows-პროგრამები და თამაშების მაღაზიები (მაგ. Steam ან Battle.net) თავად განახლდება.",
+  "Megnyitás a Discoverben": "Discover-ში გახსნა"
 }

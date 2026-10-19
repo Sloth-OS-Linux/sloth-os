@@ -283,7 +283,6 @@
   "A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.": "Regjistri salvât: {path}. Mande chest file a di chel che ti jude.",
   "Szövegfájl (*.txt)": "File di test (*.txt)",
   "Frissítések": "Inzornaments",
-  "Windows-programok": "Programs Windows",
   "Fejlesztői pult": "Panel dai svilupadôrs",
   "A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.": "Pal svilup di Sloth OS: inviâ lis compilazions e viodi il lôr stât, provis.",
   "Hamarosan": "Ca di pôc",
@@ -374,5 +373,8 @@
   "Ezt a programot nem indítja másik program, ezért csak átvehető.": "Nissune altre aplicazion e invie chest program, duncje si pues dome cjolilu in cjarie.",
   "Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.": "Chest program nol à un so ambient, duncje si pues zontâlu dome cu la aplicazion origjinâl.",
   "Indítja: {source}": "Inviât di: {source}",
-  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Al sparìs dome di achì e dal menù Start; tal puest origjinâl al reste dut."
+  "Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.": "Al sparìs dome di achì e dal menù Start; tal puest origjinâl al reste dut.",
+  "Appok": "Aplicazions",
+  "Az appok (amiket az Üdvözlőben vagy a Discoverben telepítettél) maguktól frissülnek, naponta egyszer, ha nem mobilnetes vagy más mért kapcsolaton vagy. A Windows-programok és a játékboltok (például a Steam vagy a Battle.net) saját magukat frissítik.": "Lis aplicazions (chês che tu âs instalât tal Benvignût o in Discover) si inzornin di bessolis une volte al dì, fûr che tu sedis suntune conession mobile o misurade. I programs Windows e i negozis di zûcs (come Steam o Battle.net) si inzornin di bessôi.",
+  "Megnyitás a Discoverben": "Vierç in Discover"
 }
