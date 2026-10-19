@@ -45,6 +45,8 @@ for slug, title in titles.items():
     render(slug, 3840, 2160, os.path.join(img, "3840x2160.jpg"), OFFSET.get(slug, 0.5))
     if ultrawide:
         render(slug, 5120, 2160, os.path.join(img, "5120x2160.jpg"))
-    meta = {"KPlugin": {"Id": f"SlothOS-{slug}", "Name": title, "Authors": [{"Name": "Sloth OS"}]}}
+    # a háttérképek licence: CC BY-SA 4.0 (lásd NOTICE)
+    meta = {"KPlugin": {"Id": f"SlothOS-{slug}", "Name": title, "Authors": [{"Name": "Sloth OS"}],
+                        "License": "CC-BY-SA-4.0"}}
     json.dump(meta, open(os.path.join(pkg, "metadata.json"), "w"), ensure_ascii=False, indent=4)
     print(("UW " if ultrawide else "   ") + slug)

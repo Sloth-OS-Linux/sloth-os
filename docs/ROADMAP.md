@@ -181,14 +181,21 @@ Talált hibák (egyesével javítjuk):
    telepítésnél a BIOS boot partíció már megvan); Windows mellé BIOS-on maradhat „nem támogatott” magyarázattal
 3. [ ] **A repó publikussá tétele** és a napi automatikus build visszakapcsolása (`.github/workflows/build.yml`). Ettől függ:
    a telepített gépek bejelentkezés nélkül kapnak frissítést (most a privát registry miatt nem), és a telepítő
-   `--skip-fetch-check` nélkül is ellenőrizheti a frissítések elérhetőségét. Előtte: titkok és személyes adatok
-   átnézése a repó történetében (pl. a véletlenül bekerült, már kivett `iso/files/deploy-vm.sh` a `0fede6b`-ben)
+   `--skip-fetch-check` nélkül is ellenőrizheti a frissítések elérhetőségét.
+   - [x] Titkok és személyes adatok a repó teljes történetében (2026-10-19): gitleaks (113 commit, minden ág):
+     nincs találat; kézi keresés (e-mail, név, gépnév, saját útvonalak, IP-címek, kulcsok): minden commit a GitHub
+     noreply címével; a `deploy-vm.sh` (`0fede6b`) csak egy VM-belső címet tartalmaz (`10.0.2.100`); az
+     `SB_PASSWORD = "universalblue"` a Universal Blue nyilvános Secure Boot jelszava. A képekben nincs személyes
+     metaadat; a `docs/branding/logo-source.png` C2PA-jelölése csak annyit mond, hogy MI-vel készült
 4. [ ] **ISO-tárhely és letöltés:** a GitHub kiadásaiba fájlonként legfeljebb 2 GB tölthető fel, az ISO 5,6 GB;
    ingyenes tárhely kell (pl. Cloudflare R2, 10 GB-ig ingyenes) ellenőrzőösszeggel és aláírással
 5. [ ] **Weboldal és dokumentáció:** letöltés, pendrive-ra írás (Windowsból is, GUI-val), első lépések, gyakori kérdések
    (Windows mellé telepítés, titkosítás, NVIDIA, adatvédelem)
-6. [ ] **Licencek és nevek:** a Sloth OS saját licence (a repóban még nincs LICENSE), a használt képek és a logó
-   jogai, a ProtonDB-adatok ODbL-megjelölése a letöltési oldalon is
+6. [ ] **Licencek és nevek:** kész (2026-10-19): a kód Apache-2.0 (`LICENSE`, mint a Universal Blue és a BlueBuild),
+   a saját grafika (logó, háttérképek, boot animáció) CC BY-SA 4.0, az Üdvözlő app-ikonjai a gyártóiké (`NOTICE`;
+   az image-ben `/usr/share/licenses/sloth-os/`, a háttérképek adataiban is). Hátravan: a ProtonDB-adatok
+   ODbL-megjelölése a letöltési oldalon (a weboldallal együtt); a „Sloth OS” név ütközésének ellenőrzése
+   (van-e már ilyen nevű termék vagy védjegy)
 7. [ ] **A fordítások anyanyelvi átnézése** legalább a leggyakoribb nyelveken (angol, német, spanyol, francia…);
    a többi maradhat gépi, jelölve
 

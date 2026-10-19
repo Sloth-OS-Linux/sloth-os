@@ -4,8 +4,9 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 
 - **Base:** Universal Blue `kinoite-main` / `kinoite-nvidia` (Fedora Atomic + KDE Plasma)
 - **Updates:** atomic, in the background; if something breaks, roll back to the previous version from the boot menu
-- **Apps:** Flatpak (Flathub)
-- **Build:** [BlueBuild](https://blue-build.org) + GitHub Actions; a new image is built after every commit and daily
+- **Apps:** Flatpak (Flathub); nothing is preinstalled, the user picks the apps in the Sloth Welcome wizard
+- **Build:** [BlueBuild](https://blue-build.org) + GitHub Actions; a new image is built after every commit (daily
+  builds will be switched back on once the repository is public)
 
 ## Windows programs that just start
 
@@ -35,6 +36,17 @@ only sees "Starting…":
    derived from the open [ProtonDB](https://www.protondb.com) data (ODbL), plus what worked on other Sloth OS
    machines. That setting is the first attempt, so programs start on the first try.
 
+### Where programs live
+
+Every Windows program gets its own visible folder, `~/Applications/<program>/`, with a "Program files" link to
+the installed files; its Windows environment and Sloth's data about it sit next to it (`windows/`, `.sloth/`).
+After installing, the program's real name and the file that starts it are detected from the Windows registry
+and the installer's shortcuts; if that is not certain, the user picks or browses for the file. In Sloth Center →
+Windows programs each program can be started, opened in the file manager, repaired, reinstalled, moved (for
+example to another drive) or removed. Programs that were added to Steam by hand can be taken over without
+reinstalling, either through Steam or as an independent copy; Steam's own files are never changed. The shared
+code is in `files/system/usr/lib/sloth-os/common/sloth_common/apps/` (tests: `tools/tests/test_apps.py`).
+
 ### Privacy
 
 Sharing is **opt-in**: the Sloth Welcome wizard asks, and it can be changed any time in Sloth Center →
@@ -54,7 +66,7 @@ recipes/
   recipe-nvidia.yml   # NVIDIA image
   branding.yml        # name, logos, default settings
   gaming.yml          # gamescope, mangohud, gamemode...
-  apps.yml            # preinstalled Flatpak apps
+  apps.yml            # Flatpak setup (Flathub, no preinstalled apps)
 files/
   scripts/            # scripts run during the build (e.g. branding.sh)
   system/             # everything here is copied into the root of the final system
@@ -95,6 +107,13 @@ On NVIDIA machines, do the same with `sloth-os-nvidia`.
 
 > This is the developer path. End users will later get their own installer ISO and will never see commands like these.
 
-## Custom ISO
+## Installer ISO
 
-The BlueBuild CLI can create an installer ISO from the finished image (`bluebuild generate-iso`). See https://blue-build.org
+Sloth OS has its own live system and installer (no Anaconda): see [`iso/README.md`](iso/README.md). Build it with
+`tools/build-iso.sh` (Linux) or `tools/build-iso.ps1` (Windows).
+
+## License
+
+The code is licensed under the [Apache License 2.0](LICENSE). The Sloth OS artwork (logo, wallpapers, boot
+animation) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The app icons in the
+Sloth Welcome belong to their respective owners. Details: [`NOTICE`](NOTICE).

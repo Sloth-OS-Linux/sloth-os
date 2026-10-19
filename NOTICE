@@ -1,0 +1,32 @@
+Sloth OS
+Copyright 2026 The Sloth OS contributors
+
+Code
+----
+Unless noted otherwise, everything in this repository (scripts, recipes, our own tools,
+configuration) is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Artwork
+-------
+The Sloth OS artwork is licensed under the Creative Commons Attribution-ShareAlike 4.0
+International license (CC BY-SA 4.0, https://creativecommons.org/licenses/by-sa/4.0/).
+Attribution: "Sloth OS". It covers:
+  - files/system/usr/share/sloth-os/logo/                 (the logo)
+  - files/system/usr/share/icons/hicolor/scalable/apps/sloth-os.svg
+  - files/system/usr/share/wallpapers/SlothOS-*/           (the wallpapers)
+  - files/system/usr/share/plymouth/themes/sloth-os/*.png  (boot animation)
+  - files/system/usr/share/plasma/look-and-feel/org.slothos.desktop/contents/splash/images/
+  - files/system/usr/share/plasma/look-and-feel/org.slothos.desktop/contents/previews/
+  - docs/branding/
+The logo and the wallpapers were created with the help of AI image generators.
+
+Third-party material
+--------------------
+  - files/system/usr/share/sloth-os/welcome/icons/: the icons of the apps offered in the
+    Sloth Welcome. They come from the apps' Flathub metadata, belong to their respective
+    owners (some of them are trademarks), are not covered by the licenses above, and are
+    used only to identify the apps.
+  - Sloth OS is built on Fedora Atomic (Kinoite) and Universal Blue images; their
+    components keep their own licenses.
+  - The shared knowledge base (services/knowledge/, https://github.com/bathorizsolt/sloth-os-knowledge)
+    includes data derived from ProtonDB, available under the Open Database License (ODbL).
