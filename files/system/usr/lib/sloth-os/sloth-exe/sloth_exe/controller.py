@@ -61,6 +61,7 @@ class ExeController(QObject):
         self._shortcuts = []
         self._program = None   # library.App
         self._existing = None  # ha ezt a programot már telepítettük (library.find_installed)
+        self._unfinished = None  # egy félbemaradt telepítés mappája: az új telepítés ide kerül, nem duplázódik
         self._baseline = None  # telepítés előtt: mi volt már a program környezetében (detect.baseline)
         self._sure = True      # a telepítés után biztosan kiderült-e, mivel indul
         self._mode = ""  # "install" | "run" | "manage"
@@ -118,7 +119,13 @@ class ExeController(QObject):
             self._name = tr("misc.program")
         self._installer = detect.looks_like_installer(self._exe)
         # Egy programot csak egyszer telepítünk: ha már megvan, megnyitás vagy újratelepítés ugyanoda
-        self._existing = library.find_installed(self._name, self._exe) if self._installer else None
+        found = library.find_installed(self._name, self._exe) if self._installer else None
+        # Félbemaradt telepítés (a telepítő nem futott le, csak a mappa jött létre): nem „már telepítve”,
+        # de az új telepítés ugyanabba a mappába megy. Kész telepítésnek van Start menü bejegyzése, vagy
+        # a felismerés után elmentett adata (uninstall_key)
+        finished = found is not None and (menu.entries(found) or "uninstall_key" in found.meta)
+        self._existing = found if finished else None
+        self._unfinished = None if finished else found
         icon = menu.extract_icon(self._exe, Path("/tmp") / f"sloth-exe-{library.slugify(self._name)}.png")
         self._set_icon(icon)
         self._state = "choose"
@@ -217,7 +224,7 @@ class ExeController(QObject):
             self._install_package()
             return
         # Újratelepítés a meglévő mappába: a Start menü bejegyzései ugyanazok maradnak, nem duplázódnak
-        self._program = self._existing or library.create(self._name, installer=str(self._exe))
+        self._program = self._existing or self._unfinished or library.create(self._name, installer=str(self._exe))
         self._program.save_meta(installer=str(self._exe))
         self._baseline = detect.baseline(self._program)
         self._mode = "install"
@@ -329,7 +336,7 @@ class ExeController(QObject):
         self._kind = kind
         self._name = packages.display_name(self._exe)
         self._installer = kind in ("appimage", "deb", "rpm")
-        self._existing = None
+        self._existing = self._unfinished = None
         self._set_icon(None)
         self._update_window()
         if kind == "mac":

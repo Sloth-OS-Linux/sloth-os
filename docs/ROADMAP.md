@@ -206,6 +206,9 @@ Talált hibák (egyesével javítjuk):
   lejött; a telepítés indításakor `AttributeError: 'App' object has no attribute 'slug'` (runner.py, a délelőtti
   alkalmazáskönyvtár-átalakítás maradéka, a `program.slug` helyett `program.id`). Javítva, és a futtató indításának
   bármilyen váratlan hibája most hibaoldalt mutat, nem forog tovább. Füstpróba Qt-vel kipróbálva
+- [x] .exe kezelő: egy félbemaradt telepítés (a telepítő nem futott le, csak a mappa és a recept beállítása jött
+  létre) „már telepítve” volt, az Open nem indított semmit. Most csak a kész telepítés számít (Start menü bejegyzés
+  vagy a felismerés adata); a félbemaradt mappába az új telepítés kerül, nem duplázódik
 - [ ] A Sloth Központ „Napló mentése” fájlneve magyar (`sloth-os-naplo.txt`), angol rendszeren is
 - [ ] `tools/tests/test_apps.py`: 4 teszt elbukik ezen a gépen (a 2026-10-19-i javítás előtt is), megnézni
 - [ ] **Proton és Steam Runtime gyárilag az image-ben** (javaslat 2026-10-19): az első .exe internet és letöltés
