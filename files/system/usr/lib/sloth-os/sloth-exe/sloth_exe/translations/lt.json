@@ -33,6 +33,7 @@
 
   "status.starting": "Paleidžiama: {name}…",
   "status.preparing_install": "Ruošiamasi diegti: {name}…",
+  "status.still_working": "Vis dar dirbama… Prieš pirmąją Windows programą reikiamų komponentų atsisiuntimas gali užtrukti kelias minutes.",
   "status.installing": "Diegiama {name}…",
   "status.finish_in_installer": "Užbaikite diegimą diegimo programos lange. Paskui tęsime čia.",
   "status.first_setup": "Ruošiamasi pirmam paleidimui…",

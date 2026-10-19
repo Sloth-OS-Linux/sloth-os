@@ -33,6 +33,7 @@
 
   "status.starting": "S'està iniciant {name}…",
   "status.preparing_install": "S'està preparant la instal·lació de {name}…",
+  "status.still_working": "Encara s'hi treballa… Abans del primer programa de Windows, la baixada dels components necessaris pot trigar uns quants minuts.",
   "status.installing": "S’està instal·lant {name}…",
   "status.finish_in_installer": "Acaba la instal·lació a la finestra de l'instal·lador. Després continuem aquí.",
   "status.first_setup": "S'està preparant el primer inici…",

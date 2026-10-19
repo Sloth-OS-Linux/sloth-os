@@ -33,6 +33,7 @@
 
   "status.starting": "{name} আৰম্ভ হৈছে…",
   "status.preparing_install": "{name} ইনষ্টলৰ প্ৰস্তুতি চলি আছে…",
+  "status.still_working": "এতিয়াও কাম চলি আছে… প্ৰথম Windows প্ৰ'গ্ৰামৰ আগতে প্ৰয়োজনীয় উপাদানবোৰ ডাউনল'ড কৰোঁতে কেইবা মিনিটো লাগিব পাৰে।",
   "status.installing": "{name} ইনষ্টল হৈ আছে…",
   "status.finish_in_installer": "ইনষ্টলাৰৰ উইণ্ড'ত ইনষ্টল সম্পূৰ্ণ কৰক। তাৰ পিছত আমি ইয়াতে আগবাঢ়িম।",
   "status.first_setup": "প্ৰথমবাৰ আৰম্ভৰ প্ৰস্তুতি চলি আছে…",

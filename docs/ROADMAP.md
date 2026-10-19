@@ -162,8 +162,25 @@ Talált hibák (egyesével javítjuk):
   rendben (crypt, systemd-cryptsetup, a Plymouth jelszókérő, lock.png, kiosztások); a logón való végtelen várakozás
   a jelszókérésre utal (a systemd a jelszóra időkorlát nélkül vár), a kis lakat valószínűleg nem tűnt fel vagy nem
   látszott. Javítva: nagyobb lakat és beviteli vonal. A következő teszten: látszik-e, és az Esc mit mutat
+- [x] A titkosított lemez jelszókérőjén a beírt karakterek helyén négyzetek (az initramfs betűtípusában nincs „●”).
+  Javítva (2026-10-19): a pöttyök képből (dot.png), nem szövegből
+- [ ] Battle.net telepítése friss (titkosított) telepítés után: 20 percig „Battle.net telepítésének előkészítése…”, a
+  Battle.net saját telepítője nem jött elő (2026-10-19-i teszt). Valószínű ok: a bejelentkezés után 3 perccel induló
+  háttér-előkészítés (`sloth-windows-prepare`, a Proton és a futtatókörnyezet letöltése) „idle” lemezprioritással
+  futott, ami más lemezmunka (appok telepítése, titkosítás) mellett szinte megáll, és az umu csendben megvárta.
+  Javítva: az .exe kezelő indításkor átveszi (leállítja a háttérben futót, és az előtérben, látható haladással
+  folytatja), a háttérben „best-effort” 7-es prioritás; 60 mp csend után „Még dolgozik…” szöveg. A következő teszten
+  figyelni; ha megint így van: Napló mentése (benne a `sloth-windows-prepare` naplója is)
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja
-- [x] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik. Javítva (2026-10-19, valódi gépen tesztelni): a
+- [ ] **Dolphin, Eszközök: a névtelen, 128 TB-os meghajtó a 2026-10-19-i ISO-n is megmaradt** (az udev-szabály
+  nem rejtette el, vagy nem a composefs volt). Megmutatni, terminál nélkül:
+  1. Dolphin, bal oldalt az Eszközök alatt jobb klikk a névtelen meghajtóra → Tulajdonságok: fotó az ablakról
+     (látszik az eszköz neve, pl. `/dev/loop0` vagy `/dev/nvme0n1p3`, és a csatolási pont). Ha nincs Tulajdonságok:
+     rákattintani, és fotó a címsorról (mi nyílik meg)
+  2. Sloth Központ → Rendszer egészség → Napló mentése: az elején a lemezek, csatolások, loop eszközök, és
+     (2026-10-19 óta) a `udisksctl dump`, vagyis pontosan az, amit a Dolphin lát (méret, név, rejtett-e)
+  3. A mentett fájlt (vagy a fotókat) elküldeni; ebből kiderül, melyik eszköz, és miért nem hat rá a szabály
+- [x] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik. Első javítás (2026-10-19, nem elég, lásd fent): a
   névtelen bejegyzés a composefs (a Fedora 42 óta csak olvasható rendszerkép) loop eszköze volt; a 128 TB
   valószínűleg a /proc/kcore virtuális mérete a gyökér méretszámításában. Udev-szabály rejti el
   (`90-sloth-udisks.rules`), a rendszerpartíció neve „Sloth OS”. Ha a teszten mégis látszik: Napló mentése, az

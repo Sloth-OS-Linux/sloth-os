@@ -33,6 +33,7 @@
 
   "status.starting": "{name} başlatılıyor…",
   "status.preparing_install": "{name} kurulumu hazırlanıyor…",
+  "status.still_working": "Hâlâ çalışıyor… İlk Windows programından önce gerekli bileşenlerin indirilmesi birkaç dakika sürebilir.",
   "status.installing": "{name} kuruluyor…",
   "status.finish_in_installer": "Kurulumu kurulum programının penceresinde bitirin. Sonra burada devam ederiz.",
   "status.first_setup": "İlk başlatma hazırlanıyor…",

@@ -33,6 +33,7 @@
 
   "status.starting": "{name} を起動しています…",
   "status.preparing_install": "{name} のインストールを準備しています…",
+  "status.still_working": "処理中です… 最初の Windows プログラムの前に、必要なコンポーネントのダウンロードに数分かかることがあります。",
   "status.installing": "{name} をインストールしています…",
   "status.finish_in_installer": "インストーラーのウィンドウでインストールを完了してください。完了したら、ここで続けます。",
   "status.first_setup": "初回起動の準備をしています…",

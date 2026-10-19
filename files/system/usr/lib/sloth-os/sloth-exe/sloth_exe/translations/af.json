@@ -33,6 +33,7 @@
 
   "status.starting": "{name} word begin…",
   "status.preparing_install": "Installasie van {name} word voorberei…",
+  "status.still_working": "Werk nog… Voor die eerste Windows-program kan die aflaai van die nodige komponente 'n paar minute duur.",
   "status.installing": "Installeer {name}…",
   "status.finish_in_installer": "Voltooi die installasie in die installeerder se venster. Daarna gaan ons hier voort.",
   "status.first_setup": "Eerste begin word voorberei…",

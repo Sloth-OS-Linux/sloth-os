@@ -33,6 +33,7 @@
 
   "status.starting": "Покретање: {name}…",
   "status.preparing_install": "Припрема инсталације: {name}…",
+  "status.still_working": "Још ради… Пре првог Windows програма преузимање потребних компоненти може да потраје неколико минута.",
   "status.installing": "Инсталирање програма {name}…",
   "status.finish_in_installer": "Довршите инсталацију у прозору инсталатера. Затим настављамо овде.",
   "status.first_setup": "Припрема првог покретања…",

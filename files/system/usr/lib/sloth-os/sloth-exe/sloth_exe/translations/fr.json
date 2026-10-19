@@ -33,6 +33,7 @@
 
   "status.starting": "Lancement de {name}…",
   "status.preparing_install": "Préparation de l'installation de {name}…",
+  "status.still_working": "Toujours en cours… Avant le premier programme Windows, le téléchargement des composants nécessaires peut prendre plusieurs minutes.",
   "status.installing": "Installation de {name}…",
   "status.finish_in_installer": "Terminez l'installation dans la fenêtre de l'installateur. Ensuite, on continue ici.",
   "status.first_setup": "Préparation du premier lancement…",

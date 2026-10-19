@@ -33,6 +33,7 @@
 
   "status.starting": "{name} wird gestartet…",
   "status.preparing_install": "Installation von {name} wird vorbereitet…",
+  "status.still_working": "Arbeitet noch … Vor dem ersten Windows-Programm kann das Herunterladen der nötigen Komponenten einige Minuten dauern.",
   "status.installing": "{name} wird installiert …",
   "status.finish_in_installer": "Schließe die Installation im Fenster des Installationsprogramms ab. Danach geht es hier weiter.",
   "status.first_setup": "Erster Start wird vorbereitet…",

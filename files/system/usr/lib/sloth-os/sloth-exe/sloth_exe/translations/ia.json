@@ -33,6 +33,7 @@
 
   "status.starting": "Lanceamento de {name}…",
   "status.preparing_install": "Preparation del installation de {name}…",
+  "status.still_working": "Ancora in curso… Ante le prime programma Windows, le discargamento del componentes necessari pote durar plure minutas.",
   "status.installing": "Installation de {name}…",
   "status.finish_in_installer": "Fini le installation in le fenestra del installator. Postea nos continua hic.",
   "status.first_setup": "Preparation del prime lanceamento…",

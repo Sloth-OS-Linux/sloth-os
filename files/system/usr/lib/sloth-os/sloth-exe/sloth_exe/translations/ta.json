@@ -33,6 +33,7 @@
 
   "status.starting": "{name} தொடங்குகிறது…",
   "status.preparing_install": "{name} நிறுவலுக்குத் தயாராகிறது…",
+  "status.still_working": "இன்னும் வேலை நடக்கிறது… முதல் Windows நிரலுக்கு முன், தேவையான கூறுகளைப் பதிவிறக்க பல நிமிடங்கள் ஆகலாம்.",
   "status.installing": "{name} நிறுவப்படுகிறது…",
   "status.finish_in_installer": "நிறுவியின் சாளரத்தில் நிறுவலை முடியுங்கள். பிறகு இங்கே தொடர்வோம்.",
   "status.first_setup": "முதல் தொடக்கத்திற்குத் தயாராகிறது…",

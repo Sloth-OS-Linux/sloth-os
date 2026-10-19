@@ -4,6 +4,8 @@ Description=Sloth OS: Windows-programok futtatójának előkészítése és fris
 [Service]
 Type=oneshot
 ExecStart=/usr/libexec/sloth-os/windows-prepare
-# Alacsony prioritás: játék vagy munka közben se lassítson
+# Alacsony prioritás: játék vagy munka közben se lassítson. Az "idle" lemezprioritás nem jó: más lemezmunka
+# (pl. appok telepítése) mellett szinte megáll, és közben az első .exe telepítése is erre várna
 Nice=19
-IOSchedulingClass=idle
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7

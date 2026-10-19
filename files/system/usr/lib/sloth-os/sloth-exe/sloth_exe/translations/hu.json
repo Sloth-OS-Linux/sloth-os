@@ -33,6 +33,7 @@
 
   "status.starting": "{name} indítása…",
   "status.preparing_install": "{name} telepítésének előkészítése…",
+  "status.still_working": "Még dolgozik… Az első Windows-program előtt a szükséges összetevők letöltése több percig is tarthat.",
   "status.installing": "{name} telepítése…",
   "status.finish_in_installer": "A telepítő ablakában fejezd be a telepítést. Ha végeztél, itt folytatjuk.",
   "status.first_setup": "Első indítás előkészítése…",

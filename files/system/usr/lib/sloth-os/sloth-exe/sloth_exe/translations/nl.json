@@ -33,6 +33,7 @@
 
   "status.starting": "{name} wordt gestart…",
   "status.preparing_install": "Installatie van {name} wordt voorbereid…",
+  "status.still_working": "Nog bezig… Vóór het eerste Windows-programma kan het downloaden van de benodigde onderdelen enkele minuten duren.",
   "status.installing": "{name} installeren…",
   "status.finish_in_installer": "Rond de installatie af in het venster van het installatieprogramma. Daarna gaan we hier verder.",
   "status.first_setup": "Eerste start voorbereiden…",

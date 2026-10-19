@@ -33,6 +33,7 @@
 
   "status.starting": "{name} ეშვება…",
   "status.preparing_install": "{name} დაყენების მომზადება…",
+  "status.still_working": "ჯერ კიდევ მუშაობს… პირველი Windows-პროგრამის წინ საჭირო კომპონენტების ჩამოტვირთვას რამდენიმე წუთი შეიძლება დასჭირდეს.",
   "status.installing": "{name}-ის ინსტალაცია…",
   "status.finish_in_installer": "დაასრულეთ დაყენება ინსტალერის ფანჯარაში. შემდეგ აქ გავაგრძელებთ.",
   "status.first_setup": "პირველი გაშვების მომზადება…",

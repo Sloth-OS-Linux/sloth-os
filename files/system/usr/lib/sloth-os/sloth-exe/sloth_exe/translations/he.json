@@ -33,6 +33,7 @@
 
   "status.starting": "מפעיל את {name}…",
   "status.preparing_install": "מתכונן להתקנת {name}…",
+  "status.still_working": "עדיין עובד… לפני תוכנת Windows הראשונה, הורדת הרכיבים הדרושים עשויה להימשך כמה דקות.",
   "status.installing": "מתקין את {name}…",
   "status.finish_in_installer": "סיימו את ההתקנה בחלון של תוכנית ההתקנה. אחר כך נמשיך כאן.",
   "status.first_setup": "מתכונן להפעלה הראשונה…",

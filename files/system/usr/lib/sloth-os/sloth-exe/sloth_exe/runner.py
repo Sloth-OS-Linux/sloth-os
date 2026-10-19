@@ -8,6 +8,7 @@ Hogy melyik futtató indul, azt a backend.py dönti el.
 import collections
 import logging
 import re
+import subprocess
 import time
 
 from PySide6.QtCore import QObject, QProcess, QProcessEnvironment, Signal
@@ -32,6 +33,22 @@ _STAGES = [
 _PERCENT = re.compile(r"(\d{1,3})(?:\.\d+)?\s?%")
 LOG_LINES = 5000             # ennyi utolsó sort tartunk meg a diagnózishoz
 LOG_MAX_BYTES = 2 * 1024**2  # a naplófájl legfeljebb ekkora
+
+
+PREPARE_UNIT = "sloth-windows-prepare.service"
+
+
+def _take_over_prepare():
+    """Ha a háttérben épp a futtató letöltése megy (sloth-windows-prepare), leállítjuk: a felhasználó vár, ezért a
+    letöltést most az előtérben, normál prioritással és látható haladással végezzük. Különben az umu csendben
+    megvárná a háttérben, a legalacsonyabb prioritással futó letöltést (friss telepítés után akár percekig)."""
+    try:
+        if subprocess.run(["systemctl", "--user", "is-active", "--quiet", PREPARE_UNIT], timeout=5).returncode:
+            return
+        log.info("a háttérben futó előkészítés leállítása, az előtérben folytatjuk")
+        subprocess.run(["systemctl", "--user", "stop", PREPARE_UNIT], capture_output=True, timeout=30)
+    except (OSError, subprocess.SubprocessError) as e:
+        log.warning("%s: %s", PREPARE_UNIT, e)
 
 
 class Runner(QObject):
@@ -96,6 +113,8 @@ class Runner(QObject):
             self._start_wine(program, exe, env, args)
             return
         self.uses_wine = False
+        if not join:
+            _take_over_prepare()
         # Hiányzó összetevők telepítése a program előtt (winetricks az umu-n keresztül, kérdés nélkül)
         done = set(program.meta.get("verbs", []))
         # futó környezetbe összetevőt nem telepítünk (a következő önálló indításkor települ)

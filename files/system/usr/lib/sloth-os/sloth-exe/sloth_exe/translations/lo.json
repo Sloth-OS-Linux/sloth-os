@@ -33,6 +33,7 @@
 
   "status.starting": "ກຳລັງເປີດ {name}…",
   "status.preparing_install": "ກຳລັງກຽມຕິດຕັ້ງ {name}…",
+  "status.still_working": "ຍັງເຮັດວຽກຢູ່… ກ່ອນໂປຣແກຣມ Windows ທຳອິດ ການດາວໂຫຼດສ່ວນປະກອບທີ່ຈຳເປັນອາດໃຊ້ເວລາຫຼາຍນາທີ.",
   "status.installing": "ກຳລັງຕິດຕັ້ງ {name}…",
   "status.finish_in_installer": "ກະລຸນາຕິດຕັ້ງໃຫ້ສຳເລັດໃນໜ້າຕ່າງຂອງໂປຣແກຣມຕິດຕັ້ງ. ຈາກນັ້ນພວກເຮົາຈະສືບຕໍ່ຢູ່ນີ້.",
   "status.first_setup": "ກຳລັງກຽມການເປີດຄັ້ງທຳອິດ…",

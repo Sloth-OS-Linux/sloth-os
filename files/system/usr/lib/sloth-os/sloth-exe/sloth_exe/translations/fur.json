@@ -33,6 +33,7 @@
 
   "status.starting": "Si invie {name}…",
   "status.preparing_install": "Si prepare la instalazion di {name}…",
+  "status.still_working": "Al lavore ancjemò… Prime dal prin program Windows, il discjariament dai components necessaris al pues durâ cualchi minût.",
   "status.installing": "Daûr a instalâ {name}…",
   "status.finish_in_installer": "Finìs la instalazion inte fignestre dal program di instalazion. Po o continuìn chi.",
   "status.first_setup": "Si prepare il prin inviament…",

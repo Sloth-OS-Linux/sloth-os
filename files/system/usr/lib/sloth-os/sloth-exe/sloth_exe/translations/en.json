@@ -33,6 +33,7 @@
 
   "status.starting": "Starting {name}…",
   "status.preparing_install": "Preparing to install {name}…",
+  "status.still_working": "Still working… Before the first Windows program, downloading the required components can take several minutes.",
   "status.installing": "Installing {name}…",
   "status.finish_in_installer": "Finish the installation in the installer window. When you're done, we'll continue here.",
   "status.first_setup": "Getting ready for the first start…",

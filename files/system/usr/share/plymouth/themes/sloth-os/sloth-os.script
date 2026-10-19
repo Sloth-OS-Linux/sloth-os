@@ -316,12 +316,37 @@ field.image = Image("dot.png").Scale(field_w, 4);
 field.sprite = Sprite();
 field.sprite.SetZ(20);
 field_y = text_y + padlock_size + 52;
+# A beírt karakterek pöttyei képből (az initramfs betűtípusában nincs "●", négyzetek látszanának)
+MAX_BULLETS = 24;
+bullet_size = Math.Int(size * 0.045);
+if (bullet_size < 8) bullet_size = 8;
+bullet_gap = Math.Int(bullet_size * 0.8);
+bullet_image = Image("dot.png").Scale(bullet_size, bullet_size);
+for (i = 0; i < MAX_BULLETS; i++) {
+  bullet[i].sprite = Sprite();
+  bullet[i].sprite.SetZ(20);
+}
+
+fun show_bullets(count) {
+  if (count > MAX_BULLETS) count = MAX_BULLETS;
+  row_w = count * bullet_size + (count - 1) * bullet_gap;
+  x0 = Window.GetX() + Math.Int((screen_w - row_w) / 2);
+  for (i = 0; i < MAX_BULLETS; i++) {
+    if (i < count) {
+      bullet[i].sprite.SetImage(bullet_image);
+      bullet[i].sprite.SetPosition(x0 + i * (bullet_size + bullet_gap), field_y - bullet_size - 12, 20);
+    } else {
+      bullet[i].sprite.SetImage(Image("blank.png"));
+    }
+  }
+}
 
 fun display_normal_callback() {
   prompt.sprite.SetImage(Image("blank.png"));
   bullets.sprite.SetImage(Image("blank.png"));
   padlock.sprite.SetImage(Image("blank.png"));
   field.sprite.SetImage(Image("blank.png"));
+  show_bullets(0);
 }
 
 fun display_password_callback(text, count) {
@@ -330,12 +355,7 @@ fun display_password_callback(text, count) {
   padlock.sprite.SetPosition(Window.GetX() + (screen_w - padlock_size) / 2, text_y, 20);
   field.sprite.SetImage(field.image);
   field.sprite.SetPosition(Window.GetX() + (screen_w - field_w) / 2, field_y, 20);
-  b = "";
-  for (i = 0; i < count && i < 24; i++) b = b + "● ";
-  if (b == "") b = " ";
-  bullets.image = Image.Text(b, 0.89, 0.9, 0.91);
-  if (bullets.image)
-    center_text(bullets.sprite, bullets.image, field_y - bullets.image.GetHeight() - 8);
+  show_bullets(count);
 }
 
 fun display_question_callback(text, entry) {

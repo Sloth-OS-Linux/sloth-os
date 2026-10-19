@@ -33,6 +33,7 @@
 
   "status.starting": "Käivitamine: {name}…",
   "status.preparing_install": "Paigaldamise ettevalmistamine: {name}…",
+  "status.still_working": "Töötab veel… Enne esimest Windowsi programmi võib vajalike komponentide allalaadimine võtta mitu minutit.",
   "status.installing": "{name} paigaldamine…",
   "status.finish_in_installer": "Lõpeta paigaldamine paigaldaja aknas. Seejärel jätkame siin.",
   "status.first_setup": "Esimese käivituse ettevalmistamine…",

@@ -33,6 +33,7 @@
 
   "status.starting": "正在启动 {name}…",
   "status.preparing_install": "正在准备安装 {name}…",
+  "status.still_working": "仍在处理… 运行第一个 Windows 程序前，下载所需组件可能需要几分钟。",
   "status.installing": "正在安装 {name}…",
   "status.finish_in_installer": "请在安装程序窗口中完成安装。完成后在这里继续。",
   "status.first_setup": "正在准备首次启动…",

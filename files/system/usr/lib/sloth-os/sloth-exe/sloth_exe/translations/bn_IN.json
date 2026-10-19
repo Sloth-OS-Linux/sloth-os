@@ -33,6 +33,7 @@
 
   "status.starting": "{name} চালু হচ্ছে…",
   "status.preparing_install": "{name}-এর ইনস্টলের প্রস্তুতি চলছে…",
+  "status.still_working": "এখনও কাজ চলছে… প্রথম Windows প্রোগ্রামের আগে প্রয়োজনীয় উপাদান ডাউনলোড হতে কয়েক মিনিট লাগতে পারে।",
   "status.installing": "{name} ইনস্টল হচ্ছে…",
   "status.finish_in_installer": "ইনস্টলারের উইন্ডোতে ইনস্টল শেষ করুন। তারপর আমরা এখানে চালিয়ে যাব।",
   "status.first_setup": "প্রথমবার চালুর প্রস্তুতি চলছে…",

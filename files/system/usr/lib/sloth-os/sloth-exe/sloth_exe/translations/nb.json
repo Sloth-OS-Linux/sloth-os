@@ -33,6 +33,7 @@
 
   "status.starting": "Starter {name}…",
   "status.preparing_install": "Forbereder installasjon av {name}…",
+  "status.still_working": "Jobber fortsatt… Før det første Windows-programmet kan nedlastingen av nødvendige komponenter ta flere minutter.",
   "status.installing": "Installerer {name} …",
   "status.finish_in_installer": "Fullfør installasjonen i vinduet til installasjonsprogrammet. Etterpå fortsetter vi her.",
   "status.first_setup": "Forbereder første oppstart…",

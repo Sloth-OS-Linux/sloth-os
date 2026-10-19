@@ -33,6 +33,7 @@
 
   "status.starting": "{name} ਚਾਲੂ ਹੋ ਰਿਹਾ ਹੈ…",
   "status.preparing_install": "{name} ਦੇ ਇੰਸਟਾਲ ਦੀ ਤਿਆਰੀ ਹੋ ਰਹੀ ਹੈ…",
+  "status.still_working": "ਹਾਲੇ ਕੰਮ ਚੱਲ ਰਿਹਾ ਹੈ… ਪਹਿਲੇ Windows ਪ੍ਰੋਗਰਾਮ ਤੋਂ ਪਹਿਲਾਂ ਲੋੜੀਂਦੇ ਹਿੱਸੇ ਡਾਊਨਲੋਡ ਹੋਣ ਵਿੱਚ ਕਈ ਮਿੰਟ ਲੱਗ ਸਕਦੇ ਹਨ।",
   "status.installing": "{name} ਇੰਸਟਾਲ ਹੋ ਰਿਹਾ ਹੈ…",
   "status.finish_in_installer": "ਇੰਸਟਾਲਰ ਦੀ ਵਿੰਡੋ ਵਿੱਚ ਇੰਸਟਾਲ ਪੂਰਾ ਕਰੋ। ਫਿਰ ਅਸੀਂ ਇੱਥੇ ਜਾਰੀ ਰੱਖਾਂਗੇ।",
   "status.first_setup": "ਪਹਿਲੀ ਵਾਰ ਚਾਲੂ ਕਰਨ ਦੀ ਤਿਆਰੀ…",

@@ -33,6 +33,7 @@
 
   "status.starting": "Se pornește {name}…",
   "status.preparing_install": "Se pregătește instalarea {name}…",
+  "status.still_working": "Încă lucrează… Înainte de primul program Windows, descărcarea componentelor necesare poate dura câteva minute.",
   "status.installing": "Se instalează {name}…",
   "status.finish_in_installer": "Termină instalarea în fereastra programului de instalare. Apoi continuăm aici.",
   "status.first_setup": "Se pregătește prima pornire…",

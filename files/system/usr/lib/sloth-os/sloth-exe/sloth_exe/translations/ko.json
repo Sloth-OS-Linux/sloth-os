@@ -33,6 +33,7 @@
 
   "status.starting": "{name} 시작 중…",
   "status.preparing_install": "{name} 설치 준비 중…",
+  "status.still_working": "아직 작업 중입니다… 첫 Windows 프로그램 전에는 필요한 구성 요소를 내려받는 데 몇 분이 걸릴 수 있습니다.",
   "status.installing": "{name} 설치 중…",
   "status.finish_in_installer": "설치 프로그램 창에서 설치를 마쳐 주세요. 끝나면 여기서 계속합니다.",
   "status.first_setup": "첫 실행 준비 중…",

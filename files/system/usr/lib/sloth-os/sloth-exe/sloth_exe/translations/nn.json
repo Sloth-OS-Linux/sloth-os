@@ -33,6 +33,7 @@
 
   "status.starting": "Startar {name}…",
   "status.preparing_install": "Førebur installasjon av {name}…",
+  "status.still_working": "Arbeider framleis… Før det første Windows-programmet kan nedlastinga av nødvendige komponentar ta fleire minutt.",
   "status.installing": "Installerer {name} …",
   "status.finish_in_installer": "Fullfør installasjonen i vindauget til installasjonsprogrammet. Etterpå held vi fram her.",
   "status.first_setup": "Førebur første oppstart…",

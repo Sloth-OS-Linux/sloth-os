@@ -33,6 +33,7 @@
 
   "status.starting": "Spúšťanie: {name}…",
   "status.preparing_install": "Príprava inštalácie: {name}…",
+  "status.still_working": "Stále sa pracuje… Pred prvým programom pre Windows môže stiahnutie potrebných súčastí trvať aj niekoľko minút.",
   "status.installing": "Inštaluje sa {name}…",
   "status.finish_in_installer": "Dokončite inštaláciu v okne inštalátora. Potom budeme pokračovať tu.",
   "status.first_setup": "Príprava prvého spustenia…",

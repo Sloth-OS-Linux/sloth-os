@@ -33,6 +33,7 @@
 
   "status.starting": "Membuka {name}…",
   "status.preparing_install": "Menyiapkan pemasangan {name}…",
+  "status.still_working": "Masih bekerja… Sebelum program Windows pertama, pengunduhan komponen yang diperlukan bisa memakan waktu beberapa menit.",
   "status.installing": "Memasang {name}…",
   "status.finish_in_installer": "Selesaikan pemasangan di jendela pemasang. Setelah itu kita lanjutkan di sini.",
   "status.first_setup": "Menyiapkan pembukaan pertama…",

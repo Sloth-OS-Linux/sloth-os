@@ -33,6 +33,7 @@
 
   "status.starting": "Po niset {name}…",
   "status.preparing_install": "Po përgatitet instalimi i {name}…",
+  "status.still_working": "Ende po punon… Para programit të parë Windows, shkarkimi i përbërësve të nevojshëm mund të zgjasë disa minuta.",
   "status.installing": "Po instalohet {name}…",
   "status.finish_in_installer": "Përfundoni instalimin te dritarja e instaluesit. Pastaj vazhdojmë këtu.",
   "status.first_setup": "Po përgatitet nisja e parë…",

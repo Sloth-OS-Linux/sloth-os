@@ -33,6 +33,7 @@
 
   "status.starting": "Asekker n {name}…",
   "status.preparing_install": "Aheyyi n usebded n {name}…",
+  "status.still_working": "Mazal yetteddu… Uqbel ahil amezwaru n Windows, asader n yiferdisen ilaqen yezmer ad yeṭṭef kra n tesdatin.",
   "status.installing": "Asbeddi n {name}…",
   "status.finish_in_installer": "Fak asebded deg usfaylu n umsebded. Syin ad nkemmel da.",
   "status.first_setup": "Aheyyi n usekker amenzu…",

@@ -180,6 +180,8 @@ SUMMARY = [
     ("Lemezek", ["lsblk", "-o", "NAME,TYPE,SIZE,FSTYPE,LABEL,MOUNTPOINTS"]),
     ("Csatolások", ["findmnt", "-o", "TARGET,SOURCE,FSTYPE,SIZE,AVAIL"]),
     ("Loop eszközök", ["losetup", "--list"]),
+    # a Dolphin Eszközök listájának forrása (UDisks): méret, név, rejtett-e (HintIgnore)
+    ("UDisks", ["udisksctl", "dump"]),
 ]
 
 class HealthController(QObject):

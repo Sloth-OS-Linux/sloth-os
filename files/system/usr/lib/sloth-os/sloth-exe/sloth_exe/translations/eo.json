@@ -33,6 +33,7 @@
 
   "status.starting": "Lanĉado de {name}…",
   "status.preparing_install": "Preparado de la instalado de {name}…",
+  "status.still_working": "Ankoraŭ laboras… Antaŭ la unua Windows-programo la elŝuto de la necesaj komponantoj povas daŭri kelkajn minutojn.",
   "status.installing": "Instalado de {name}…",
   "status.finish_in_installer": "Finu la instaladon en la fenestro de la instalilo. Poste ni daŭrigos ĉi tie.",
   "status.first_setup": "Preparado de la unua lanĉo…",

@@ -33,6 +33,7 @@
 
   "status.starting": "Zaganjanje: {name}…",
   "status.preparing_install": "Priprava namestitve: {name}…",
+  "status.still_working": "Še vedno dela… Pred prvim programom za Windows lahko prenos potrebnih komponent traja nekaj minut.",
   "status.installing": "Nameščanje programa {name}…",
   "status.finish_in_installer": "Namestitev dokončajte v oknu namestitvenega programa. Nato nadaljujemo tukaj.",
   "status.first_setup": "Priprava prvega zagona…",

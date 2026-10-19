@@ -33,6 +33,7 @@
 
   "status.starting": "Запуск: {name}…",
   "status.preparing_install": "Падрыхтоўка да ўсталявання: {name}…",
+  "status.still_working": "Яшчэ працуе… Перад першай праграмай для Windows спампоўка патрэбных кампанентаў можа заняць некалькі хвілін.",
   "status.installing": "Усталёўка {name}…",
   "status.finish_in_installer": "Завяршыце ўсталяванне ў акне ўсталёўшчыка. Потым працягнем тут.",
   "status.first_setup": "Падрыхтоўка да першага запуску…",

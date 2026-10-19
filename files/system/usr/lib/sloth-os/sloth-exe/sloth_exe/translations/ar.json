@@ -33,6 +33,7 @@
 
   "status.starting": "جارٍ تشغيل {name}…",
   "status.preparing_install": "جارٍ التحضير لتثبيت {name}…",
+  "status.still_working": "لا يزال العمل جاريًا… قبل أول برنامج ويندوز قد يستغرق تنزيل المكونات اللازمة عدة دقائق.",
   "status.installing": "جارٍ تثبيت {name}…",
   "status.finish_in_installer": "أكمل التثبيت في نافذة المثبّت. بعد ذلك نتابع هنا.",
   "status.first_setup": "جارٍ التحضير للتشغيل الأول…",

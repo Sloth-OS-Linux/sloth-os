@@ -33,6 +33,7 @@
 
   "status.starting": "Запуск: {name}…",
   "status.preparing_install": "Подготовка к установке: {name}…",
+  "status.still_working": "Ещё работаем… Перед первой программой для Windows загрузка нужных компонентов может занять несколько минут.",
   "status.installing": "Установка {name}…",
   "status.finish_in_installer": "Завершите установку в окне установщика. Потом продолжим здесь.",
   "status.first_setup": "Подготовка к первому запуску…",

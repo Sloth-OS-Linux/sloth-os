@@ -15,12 +15,14 @@ fi
 
 # Egy ideiglenes, rögtön törölt mappában egy üres indítás: ez tölti le a Protont és a
 # futtatókörnyezetet. Kijelző nélkül, így semmilyen ablak nem jelenik meg.
+# (egy megszakított korábbi futás maradéka is: az .exe kezelő leállítja, ha a felhasználó közben telepít)
+rm -rf "${XDG_CACHE_HOME:-$HOME/.cache}"/sloth-windows-prepare.??????
 prefix="$(mktemp -d "${XDG_CACHE_HOME:-$HOME/.cache}/sloth-windows-prepare.XXXXXX")"
 trap 'rm -rf "$prefix"' EXIT
 env -u DISPLAY -u WAYLAND_DISPLAY \
     WINEPREFIX="$prefix" GAMEID=umu-default STORE=none PROTON_VERB=waitforexitandrun \
     WINEDEBUG=-all WINEDLLOVERRIDES="winemenubuilder.exe=d;mshtml=d" \
-    nice -n 19 ionice -c 3 umu-run wineboot --init
+    nice -n 19 ionice -c 2 -n 7 umu-run wineboot --init
 echo "A Windows-programok futtatója kész."
 
 # A programok felismeréséhez az umu adatbázisa (sloth_exe/identify.py); a rendszerrel jövő példányt váltja

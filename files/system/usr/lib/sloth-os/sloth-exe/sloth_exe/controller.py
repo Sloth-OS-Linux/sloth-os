@@ -35,6 +35,8 @@ WORKED_AFTER_S = 45
 # A telepítő kilépése után ennyi ideig várjuk, hogy a többi folyamata (pl. a letöltő által
 # indított tényleges telepítő) is végezzen
 INSTALL_SETTLE_S = 3
+# Ha a telepítés előkészítése ennyi ideig nem ad hírt magáról, megnyugtató szöveg (ne higgye, hogy lefagyott)
+SLOW_PREP_S = 60
 
 
 class ExeController(QObject):
@@ -89,6 +91,8 @@ class ExeController(QObject):
         # Telepítés: a telepítő kilépése után a többi folyamata is végezzen
         self._install_timer = QTimer(self, interval=INSTALL_SETTLE_S * 1000)
         self._install_timer.timeout.connect(self._check_install_done)
+        self._slow_timer = QTimer(self, singleShot=True, interval=SLOW_PREP_S * 1000)
+        self._slow_timer.timeout.connect(self._on_slow_prep)
         # Önjavítás (heal.py): a próbálkozások sora erre az indításra
         self._plan = []
         self._attempt = None
@@ -219,6 +223,7 @@ class ExeController(QObject):
         self._mode = "install"
         self._update_window()
         self._set_working(tr("status.preparing_install", name=self._name))
+        self._slow_timer.start()
         self._runner.start(self._program, self._exe)
 
     @Slot()
@@ -513,6 +518,7 @@ class ExeController(QObject):
         self.changed.emit()
 
     def _fail(self, text):
+        self._slow_timer.stop()
         self._state = "error"
         self._error = text
         self._error_icon = "dialog-warning"
@@ -530,9 +536,17 @@ class ExeController(QObject):
         self._status = tr(key)
         self._progress = pct
         self._started_timer.start()  # amíg előkészítünk, ne rejtsük el az ablakot
+        if self._slow_timer.isActive():
+            self._slow_timer.start()
         self.changed.emit()
 
+    def _on_slow_prep(self):
+        if self._mode == "install" and self._state == "working":
+            self._status = tr("status.still_working")
+            self.changed.emit()
+
     def _on_setup_done(self):
+        self._slow_timer.stop()
         if self._mode == "install":
             self._status = tr("status.finish_in_installer")
         else:
@@ -550,6 +564,7 @@ class ExeController(QObject):
 
     def _on_finished(self, code, elapsed):
         self._started_timer.stop()
+        self._slow_timer.stop()
         self._worked_timer.stop()
         log.info("kilépett: kód=%s, %.0f mp", code, elapsed)
         if code == 127 and elapsed == 0:

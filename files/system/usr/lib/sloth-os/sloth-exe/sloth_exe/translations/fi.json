@@ -33,6 +33,7 @@
 
   "status.starting": "Käynnistetään {name}…",
   "status.preparing_install": "Valmistellaan ohjelman {name} asennusta…",
+  "status.still_working": "Työ on yhä käynnissä… Ennen ensimmäistä Windows-ohjelmaa tarvittavien osien lataaminen voi kestää useita minuutteja.",
   "status.installing": "Asennetaan {name}…",
   "status.finish_in_installer": "Viimeistele asennus asennusohjelman ikkunassa. Sen jälkeen jatketaan täällä.",
   "status.first_setup": "Valmistellaan ensimmäistä käynnistystä…",
