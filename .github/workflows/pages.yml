@@ -19,6 +19,8 @@ concurrency:
 
 jobs:
   deploy:
+    # amíg a repó privát, nem fut (a Pages ott nem elérhető, és minden alkalommal hibát jelezne)
+    if: ${{ !github.event.repository.private }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
