@@ -1,5 +1,5 @@
 // Telepített Windows-programok: lista, indítás, fájlok, javítás, áthelyezés, eltávolítás,
-// a telepítési hely, és a Steamhez hozzáadott programok átvétele.
+// a telepítési hely, és a máshol (Steam, Lutris, Bottles, korábbi telepítés) telepített programok átvétele.
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Dialogs
@@ -106,54 +106,59 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            // A Steamhez kézzel hozzáadott Windows-programok átvétele
+            // Máshol (Steam, Lutris, Bottles, korábbi telepítés) telepített programok átvétele
             Kirigami.AbstractCard {
                 Layout.fillWidth: true
-                visible: winprograms.steamPrograms.length > 0
+                visible: winprograms.otherPrograms.length > 0
                 contentItem: ColumnLayout {
                     spacing: Kirigami.Units.smallSpacing
                     RowLayout {
                         spacing: Kirigami.Units.largeSpacing
                         Kirigami.Icon {
-                            source: "steam"
-                            fallback: "applications-games"
+                            source: "document-import"
                             implicitWidth: Kirigami.Units.iconSizes.medium
                             implicitHeight: Kirigami.Units.iconSizes.medium
                         }
                         ColumnLayout {
                             Layout.fillWidth: true
                             spacing: 0
-                            Kirigami.Heading { level: 3; text: L.t("A Steamhez hozzáadott programok"); Layout.fillWidth: true }
+                            Kirigami.Heading { level: 3; text: L.t("Máshol telepített programok"); Layout.fillWidth: true }
                             QQC2.Label {
                                 Layout.fillWidth: true
                                 wrapMode: Text.Wrap
                                 opacity: 0.7
-                                text: L.t("Ezeket a Steamben adtad hozzá. Felveheted őket ide is, újratelepítés nélkül. „A Steamen keresztül”: a Steam indítja, ahogy eddig. „Átvétel”: saját másolatot kap, és a Steam nélkül is indul. A Steamben egyik esetben sem változik semmi.")
+                                text: L.t("Ezeket a Steamben, a Lutrisban, a Bottlesben vagy korábban, más módon telepítetted. Felveheted őket ide is, újratelepítés nélkül. „Az eredeti programmal”: az indítja őket, ahogy eddig. „Átvétel”: saját másolatot kapnak, és önállóan indulnak. Az eredeti helyükön egyik esetben sem változik semmi.")
                             }
                         }
                     }
                     Repeater {
-                        model: winprograms.steamPrograms
+                        model: winprograms.otherPrograms
                         delegate: RowLayout {
-                            id: steamRow
+                            id: otherRow
                             required property var modelData
                             Layout.fillWidth: true
                             QQC2.Label {
                                 Layout.fillWidth: true
                                 elide: Text.ElideRight
-                                text: steamRow.modelData.name
+                                text: otherRow.modelData.name
+                            }
+                            QQC2.Label {
+                                opacity: 0.6
+                                text: otherRow.modelData.source
                             }
                             QQC2.Button {
-                                text: L.t("A Steamen keresztül")
-                                enabled: !winprograms.busy
-                                onClicked: winprograms.importSteam(steamRow.modelData.appid, false)
+                                text: L.t("Az eredeti programmal")
+                                enabled: otherRow.modelData.canLink && !winprograms.busy
+                                onClicked: winprograms.importProgram(otherRow.modelData.key, false)
+                                QQC2.ToolTip.visible: hovered && !otherRow.modelData.canLink
+                                QQC2.ToolTip.text: L.t("Ezt a programot nem indítja másik program, ezért csak átvehető.")
                             }
                             QQC2.Button {
                                 text: L.t("Átvétel")
-                                enabled: steamRow.modelData.canAdopt && !winprograms.busy
-                                onClicked: winprograms.importSteam(steamRow.modelData.appid, true)
-                                QQC2.ToolTip.visible: hovered && !steamRow.modelData.canAdopt
-                                QQC2.ToolTip.text: L.t("Ennek a programnak nincs saját környezete a Steamben, ezért csak a Steamen keresztül vehető fel.")
+                                enabled: otherRow.modelData.canAdopt && !winprograms.busy
+                                onClicked: winprograms.importProgram(otherRow.modelData.key, true)
+                                QQC2.ToolTip.visible: hovered && !otherRow.modelData.canAdopt
+                                QQC2.ToolTip.text: L.t("Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.")
                             }
                         }
                     }
@@ -174,7 +179,7 @@ Kirigami.ScrollablePage {
         delegate: Kirigami.AbstractCard {
             id: card
             required property var modelData
-            readonly property bool isSteam: card.modelData.kind === "steam"
+            readonly property bool isLink: card.modelData.kind === "link"
             width: ListView.view.width
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
@@ -193,8 +198,8 @@ Kirigami.ScrollablePage {
                         elide: Text.ElideRight
                         text: {
                             const parts = [];
-                            if (card.isSteam)
-                                parts.push(L.t("A Steamen keresztül"));
+                            if (card.isLink)
+                                parts.push(L.tf("Indítja: {source}", { source: card.modelData.source }));
                             else if (card.modelData.size !== "")
                                 parts.push(card.modelData.size);
                             if (card.modelData.publisher !== "")
@@ -206,7 +211,7 @@ Kirigami.ScrollablePage {
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
-                        visible: !card.isSteam
+                        visible: !card.isLink
                         opacity: 0.5
                         elide: Text.ElideMiddle
                         font: Kirigami.Theme.smallFont
@@ -221,7 +226,7 @@ Kirigami.ScrollablePage {
                     onClicked: winprograms.launch(card.modelData.id)
                 }
                 QQC2.Button {
-                    visible: !card.isSteam
+                    visible: !card.isLink
                     text: L.t("Fájlok")
                     icon.name: "folder-open"
                     onClicked: winprograms.openFolder(card.modelData.id)
@@ -236,14 +241,14 @@ Kirigami.ScrollablePage {
                     QQC2.Menu {
                         id: moreMenu
                         QQC2.MenuItem {
-                            visible: !card.isSteam
+                            visible: !card.isLink
                             height: visible ? implicitHeight : 0
                             text: L.t("Start menü…")
                             icon.name: "kickoff"
                             onTriggered: winprograms.editShortcuts(card.modelData.id)
                         }
                         QQC2.MenuItem {
-                            visible: !card.isSteam && !card.modelData.shared
+                            visible: !card.isLink && !card.modelData.shared
                             height: visible ? implicitHeight : 0
                             text: L.t("Javítás")
                             icon.name: "tools-wizard"
@@ -283,8 +288,8 @@ Kirigami.ScrollablePage {
         id: confirm
         property var target: null
         title: target ? L.tf("Eltávolítod: {name}?", { name: target.name }) : ""
-        subtitle: target && target.kind === "steam"
-                  ? L.t("Csak innen és a Start menüből tűnik el; a Steamben minden marad.")
+        subtitle: target && target.kind === "link"
+                  ? L.t("Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.")
                   : L.t("A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.")
         standardButtons: Kirigami.Dialog.NoButton
         customFooterActions: [

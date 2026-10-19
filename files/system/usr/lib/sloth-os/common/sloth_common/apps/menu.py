@@ -3,7 +3,7 @@
 Az indítást mindig a Sloth .exe kezelő végzi: Exec=sloth-exe --launch <program> <indítófájl>.
 Az indítófájl a program Windows-környezetéhez képest relatív (drive_c/Program Files/…), így a
 program mappája áthelyezhető; a környezeten kívüli fájl (pl. egy letöltött .exe) teljes úttal áll.
-A Steamből átvett programokat a Steam indítja (steam://rungameid/…).
+A máshonnan „az eredeti programmal” felvett programokat az indítja (pl. steam://rungameid/…, lutris:…).
 """
 import configparser
 import logging
@@ -78,7 +78,7 @@ def _read(path):
 def entries(app):
     """A program Start menü bejegyzései: [{"desktop", "name", "icon", "target"}].
 
-    target: az indítófájl (relatív a Windows-környezethez, vagy teljes út); Steames programnál "".
+    target: az indítófájl (relatív a Windows-környezethez, vagy teljes út); máshonnan indítottnál "".
     """
     out = []
     for path in sorted(APPS_DIR.glob(f"sloth-win-{app.id}-*.desktop")):
@@ -126,12 +126,10 @@ def add(app, name, exe):
     return path
 
 
-def add_steam(app, name, gameid64, icon=None, flatpak=True):
-    """Steamben lévő program bejegyzése: a Steam indítja, a saját beállításaival."""
-    url = f"steam://rungameid/{gameid64}"
-    cmd = ["flatpak", "run", "com.valvesoftware.Steam", url] if flatpak else ["steam", url]
-    path = APPS_DIR / f"sloth-win-{app.id}-steam.desktop"
-    _write(path, app, name, " ".join(shlex.quote(a) for a in cmd), icon)
+def add_link(app, name, command, icon=None):
+    """Máshol telepített program bejegyzése: az eredeti program indítja (Steam, Lutris, Bottles)."""
+    path = APPS_DIR / f"sloth-win-{app.id}-link.desktop"
+    _write(path, app, name, " ".join(shlex.quote(a) for a in command), icon)
     return path
 
 

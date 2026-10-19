@@ -130,9 +130,61 @@ def supported_location(path):
     return not fs or fs in SUPPORTED_FS
 
 
-# --- Egy program -----------------------------------------------------------------------------------
+# --- Egy Windows-környezet és egy program ----------------------------------------------------------
 
-class App:
+class WinEnv:
+    """Egy Windows-környezet (prefix): a C: meghajtó és a registry. Lehet egy Sloth-program saját
+    környezete, vagy egy másik programé (Steam, Lutris, Bottles, ~/.wine), amit csak olvasunk."""
+
+    def __init__(self, prefix):
+        self.prefix = Path(prefix)
+
+    def exists(self):
+        return (self.prefix / "drive_c").is_dir()
+
+    def windows_to_host(self, win_path):
+        """C:\\Program Files\\X\\x.exe -> <prefix>/drive_c/Program Files/X/x.exe"""
+        m = re.match(r"^([a-zA-Z]):[\\/]*(.*)$", win_path or "")
+        if not m:
+            return None
+        drive = m.group(1).lower()
+        rel = m.group(2).replace("\\", "/")
+        base = self.prefix / ("drive_c" if drive == "c" else f"dosdevices/{drive}:")
+        # A Windows nem kis-nagybetű érzékeny: keressük meg a valódi elérési utat
+        cur = base
+        for part in [p for p in rel.split("/") if p]:
+            nxt = cur / part
+            if not nxt.exists() and cur.is_dir():
+                match = next((c for c in cur.iterdir() if c.name.lower() == part.lower()), None)
+                nxt = match or nxt
+            cur = nxt
+        return cur
+
+    def host_to_windows(self, path):
+        """<prefix>/drive_c/Program Files/X/x.exe -> C:\\Program Files\\X\\x.exe (ha a C: meghajtón van)."""
+        try:
+            rel = Path(path).relative_to(self.prefix / "drive_c")
+        except ValueError:
+            return None
+        return "C:\\" + "\\".join(rel.parts)
+
+    def list_exes(self):
+        """Az összes .exe a Windows-környezetben (a Windows saját fájljai nélkül)."""
+        drive_c = self.prefix / "drive_c"
+        out = []
+        users = drive_c / "users"
+        tops = ["Program Files", "Program Files (x86)", "Games"]
+        # a felhasználó saját programjai (a Protonnál „steamuser”, a sima Wine-nál a Linuxos név)
+        if users.is_dir():
+            tops += [f"users/{u.name}/AppData" for u in users.iterdir() if u.is_dir() and not u.is_symlink()]
+        for top in tops:
+            base = drive_c / top
+            if base.is_dir():
+                out += [p for p in base.rglob("*") if p.suffix.lower() == ".exe" and p.is_file()]
+        return out
+
+
+class App(WinEnv):
     """Egy telepített program a mappája alapján (a régi elrendezést is ismeri)."""
 
     def __init__(self, directory):
@@ -181,45 +233,6 @@ class App:
     @property
     def log_dir(self):
         return LOG_ROOT / self.id / "naplo"
-
-    def exists(self):
-        return (self.prefix / "drive_c").is_dir()
-
-    def windows_to_host(self, win_path):
-        """C:\\Program Files\\X\\x.exe -> <prefix>/drive_c/Program Files/X/x.exe"""
-        m = re.match(r"^([a-zA-Z]):[\\/]*(.*)$", win_path or "")
-        if not m:
-            return None
-        drive = m.group(1).lower()
-        rel = m.group(2).replace("\\", "/")
-        base = self.prefix / ("drive_c" if drive == "c" else f"dosdevices/{drive}:")
-        # A Windows nem kis-nagybetű érzékeny: keressük meg a valódi elérési utat
-        cur = base
-        for part in [p for p in rel.split("/") if p]:
-            nxt = cur / part
-            if not nxt.exists() and cur.is_dir():
-                match = next((c for c in cur.iterdir() if c.name.lower() == part.lower()), None)
-                nxt = match or nxt
-            cur = nxt
-        return cur
-
-    def host_to_windows(self, path):
-        """<prefix>/drive_c/Program Files/X/x.exe -> C:\\Program Files\\X\\x.exe (ha a C: meghajtón van)."""
-        try:
-            rel = Path(path).relative_to(self.prefix / "drive_c")
-        except ValueError:
-            return None
-        return "C:\\" + "\\".join(rel.parts)
-
-    def list_exes(self):
-        """Az összes .exe a program Windows-környezetében (a Windows saját fájljai nélkül)."""
-        drive_c = self.prefix / "drive_c"
-        out = []
-        for top in ("Program Files", "Program Files (x86)", f"users/{WIN_USER}/AppData", "Games"):
-            base = drive_c / top
-            if base.is_dir():
-                out += [p for p in base.rglob("*") if p.suffix.lower() == ".exe" and p.is_file()]
-        return out
 
     def link_files(self, install_dir, label):
         """Látható hivatkozás a telepített fájlokra a program mappájában (relatív, így áthelyezhető)."""

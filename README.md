@@ -46,8 +46,9 @@ the installed files; its Windows environment and Sloth's data about it sit next 
 After installing, the program's real name and the file that starts it are detected from the Windows registry
 and the installer's shortcuts; if that is not certain, the user picks or browses for the file. In Sloth Center →
 Windows programs each program can be started, opened in the file manager, repaired, reinstalled, moved (for
-example to another drive) or removed. Programs that were added to Steam by hand can be taken over without
-reinstalling, either through Steam or as an independent copy; Steam's own files are never changed. The shared
+example to another drive) or removed. Programs installed elsewhere (added to Steam by hand, in Lutris, in Bottles, or
+in a plain `~/.wine`) can be taken over without reinstalling, either started by the original app as before or as an
+independent copy; the original files are never changed. The shared
 code is in `files/system/usr/lib/sloth-os/common/sloth_common/apps/` (tests: `tools/tests/test_apps.py`).
 
 ### Privacy

@@ -1,4 +1,5 @@
-"""Telepített Windows-programok: lista, indítás, fájlok, javítás, áthelyezés, eltávolítás, átvétel a Steamből.
+"""Telepített Windows-programok: lista, indítás, fájlok, javítás, áthelyezés, eltávolítás, és a máshol
+(Steam, Lutris, Bottles, korábbi telepítés) telepített programok átvétele.
 
 A programok helye és adatai a közös sloth_common.apps-ban vannak (a .exe kezelő is azt használja):
 alapból ~/Applications/<program>/. Telepíteni és indítani a .exe kezelő (sloth-exe) tud; ez az oldal
@@ -13,11 +14,20 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, QUrl, Signal, Slot
 
 from sloth_common import sharing
-from sloth_common.apps import library, menu, steam
+from sloth_common.apps import imports, library, menu
 
-from .i18n import tr
+from .i18n import N_, tr
 
 log = logging.getLogger("sloth-center.winprograms")
+
+# Honnan vehető át egy program (a márkanevek nem fordulnak; a korábbi, sima Wine-os telepítésnél a „Wine”
+# szó nem jelenik meg)
+SOURCE_LABELS = {"steam": "Steam", "lutris": "Lutris", "bottles": "Bottles", "wine": N_("Korábbi Windows-programok")}
+
+
+def _source_label(source):
+    label = SOURCE_LABELS.get(source, source)
+    return tr(label) if source == "wine" else label
 
 
 def _size_text(nbytes):
@@ -51,6 +61,7 @@ def _pretty(path):
 class WinProgramsController(QObject):
     changed = Signal()
     _sizes_ready = Signal(object)
+    _others_ready = Signal(object)
     _work_done = Signal(str)
 
     def __init__(self, parent=None):
@@ -59,8 +70,9 @@ class WinProgramsController(QObject):
         self._sizes = {}
         self._busy = False
         self._message = ""
-        self._steam = []
+        self._others = []
         self._sizes_ready.connect(self._on_sizes)
+        self._others_ready.connect(self._on_others)
         self._work_done.connect(self._on_work_done)
         self.refresh()
 
@@ -82,9 +94,9 @@ class WinProgramsController(QObject):
         return _pretty(library.default_library())
 
     @Property("QVariantList", notify=changed)
-    def steamPrograms(self):
-        """A Steamhez hozzáadott Windows-programok, amiket még nem vettünk át."""
-        return self._steam
+    def otherPrograms(self):
+        """Máshol (Steam, Lutris, Bottles, korábbi telepítés) telepített programok, amiket még nem vettünk át."""
+        return self._others
 
     @Property(bool, notify=changed)
     def sharing(self):
@@ -116,19 +128,25 @@ class WinProgramsController(QObject):
                 "entries": [{"name": e["name"], "target": e["target"]} for e in entries],
                 "icon": f"file://{icon}" if icon else "",
                 "folder": _pretty(app.dir),
+                "source": _source_label((meta.get("source") or {}).get("from", "")),
                 "publisher": meta.get("publisher", ""),
                 "shared": app.id == library.SHARED_ID,
                 "canReinstall": bool(installer) and Path(installer).is_file(),
                 "canMove": app.kind == "windows" and not app.legacy and app.dir.parent != default,
             })
         self._items = items
-        self._steam = [{"appid": s["appid"], "name": s["name"], "canAdopt": steam.can_adopt(s)}
-                       for s in steam.shortcuts() if not steam.imported(s["appid"])]
         self.changed.emit()
-        # A méret kiszámolása lassú lehet, ezért háttérszálon megy
+        # A méret kiszámolása és a máshol telepített programok keresése lassú lehet: háttérszálon
         dirs = {a.id: a.dir for a in apps}
         threading.Thread(target=lambda: self._sizes_ready.emit(
             {k: _size_text(_dir_size(d)) for k, d in dirs.items()}), daemon=True).start()
+        threading.Thread(target=lambda: self._others_ready.emit(
+            [{"key": f.key, "name": f.name, "source": _source_label(f.source), "canLink": imports.can_link(f),
+              "canAdopt": imports.can_adopt(f)} for f in imports.found()]), daemon=True).start()
+
+    def _on_others(self, others):
+        self._others = others
+        self.changed.emit()
 
     def _on_sizes(self, sizes):
         self._sizes = sizes
@@ -178,8 +196,8 @@ class WinProgramsController(QObject):
         app = self._app(app_id)
         if app is None:
             return
-        if app.kind == "steam":
-            subprocess.Popen(steam.launch_command(app), start_new_session=True,
+        if app.kind == "link":
+            subprocess.Popen(imports.launch_command(app), start_new_session=True,
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             return
         target = next((e["target"] for e in menu.entries(app) if e["target"]), None)
@@ -268,27 +286,24 @@ class WinProgramsController(QObject):
             if library.move(app, target) else tr("{name} áthelyezése nem sikerült. A program a régi helyén maradt, "
                                                  "és ott ugyanúgy működik.", name=name))
 
-    @Slot(int, bool)
-    def importSteam(self, appid, adopt):
-        """Steamhez hozzáadott program átvétele: a Steamen keresztül (link), vagy saját másolattal (adopt)."""
-        sc = next((s for s in steam.shortcuts() if s["appid"] == appid), None)
-        if sc is None:
+    @Slot(str, bool)
+    def importProgram(self, key, adopt):
+        """Máshol telepített program felvétele: az eredeti programmal (link), vagy saját másolattal (adopt)."""
+        f = imports.find(key)
+        if f is None:
             return
         if not adopt:
-            steam.link(sc)
-            self._set_message(tr("{name} mostantól itt is megtalálható; a Steam indítja, ahogy eddig.",
-                                 name=sc["name"]))
+            imports.link(f)
+            self._set_message(tr("{name} mostantól itt is megtalálható, és ugyanúgy indul, mint eddig.", name=f.name))
             self.refresh()
             return
-        if steam.prefix_in_use(sc["prefix"]):
-            self._set_message(tr("{name} most fut a Steamben. Zárd be, és utána próbáld újra.", name=sc["name"]))
+        if imports.prefix_in_use(f.prefix):
+            self._set_message(tr("{name} most fut. Zárd be, és utána próbáld újra.", name=f.name))
             return
 
         def work():
-            app = steam.adopt(sc, tr("Program fájljai"))
-            if app is None:
-                return tr("{name} átvétele nem sikerült. A Steamben minden maradt a régiben.", name=sc["name"])
-            return tr("{name} átvéve. Mostantól a Steam nélkül is indul; a Steamben lévő példányhoz nem nyúltunk.",
-                      name=sc["name"])
+            if imports.adopt(f, tr("Program fájljai")) is None:
+                return tr("{name} átvétele nem sikerült. Az eredeti helyén minden maradt a régiben.", name=f.name)
+            return tr("{name} átvéve. Mostantól önállóan indul; az eredeti helyén nem változott semmi.", name=f.name)
 
         self._run_in_background(work)

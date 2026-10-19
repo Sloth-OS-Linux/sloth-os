@@ -15,12 +15,11 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from . import winreg
-from .library import WIN_USER
 
+# A közös parancsikonok helye; a felhasználókéi (a Protonnál „steamuser”, a sima Wine-nál a Linuxos név)
+# a shortcut_dirs()-ben
 SHORTCUT_DIRS = [
     "drive_c/ProgramData/Microsoft/Windows/Start Menu",
-    f"drive_c/users/{WIN_USER}/AppData/Roaming/Microsoft/Windows/Start Menu",
-    f"drive_c/users/{WIN_USER}/Desktop",
     "drive_c/users/Public/Desktop",
 ]
 # Ezek nem a program indítói (a parancsikon vagy a .exe nevében)
@@ -91,10 +90,21 @@ def parse_lnk(path):
         return None
 
 
+def shortcut_dirs(env):
+    dirs = list(SHORTCUT_DIRS)
+    users = env.prefix / "drive_c/users"
+    if users.is_dir():
+        for u in sorted(users.iterdir()):
+            if u.is_dir() and not u.is_symlink() and u.name != "Public":
+                dirs += [f"drive_c/users/{u.name}/AppData/Roaming/Microsoft/Windows/Start Menu",
+                         f"drive_c/users/{u.name}/Desktop"]
+    return dirs
+
+
 def find_shortcuts(app):
     """A telepítő által létrehozott parancsikonok: [(név, host_exe, .lnk útja)]."""
     seen, out = set(), []
-    for rel in SHORTCUT_DIRS:
+    for rel in shortcut_dirs(app):
         base = app.prefix / rel
         if not base.is_dir():
             continue

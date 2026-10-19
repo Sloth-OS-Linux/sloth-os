@@ -21,7 +21,7 @@ os.environ.update(HOME=str(TMP), XDG_DATA_HOME=str(TMP / ".local/share"), XDG_CO
                   XDG_CACHE_HOME=str(TMP / ".cache"))
 sys.path.insert(0, str(REPO / "files/system/usr/lib/sloth-os/common"))
 
-from sloth_common.apps import detect, library, menu, steam, winreg  # noqa: E402
+from sloth_common.apps import detect, imports, library, menu, steam, winreg  # noqa: E402
 
 SYSTEM_REG = r'''WINE REGISTRY Version 2
 ;; All keys relative to \\Machine
@@ -321,16 +321,21 @@ class SteamTest(unittest.TestCase):
         self.assertEqual(sc["prefix"], pfx)
         self.assertEqual(sc["proton"], "proton_experimental")
         self.assertTrue(sc["flatpak"])
-        self.assertTrue(steam.can_adopt(sc))
 
-        linked = steam.link(sc)
-        self.assertEqual(linked.kind, "steam")
+        (f,) = imports.found({"steam": imports.SOURCES["steam"]})
+        self.assertEqual(f.key, f"steam:{appid}")
+        self.assertTrue(imports.can_link(f) and imports.can_adopt(f))
+
+        linked = imports.link(f)
+        self.assertEqual(linked.kind, "link")
         (entry,) = menu.entries(linked)
         self.assertIn(f"steam://rungameid/{sc['gameid']}", Path(entry["desktop"]).read_text())
-        self.assertEqual(steam.imported(appid), linked)
+        self.assertEqual(imports.imported(f.key), linked)
+        self.assertEqual(imports.launch_command(linked)[-1], f"steam://rungameid/{sc['gameid']}")
+        self.assertEqual(imports.found({"steam": imports.SOURCES["steam"]}), [])  # már átvettük
         library.remove(linked)
 
-        adopted = steam.adopt(sc, "Program fájljai")
+        adopted = imports.adopt(f, "Program fájljai")
         self.assertIsNotNone(adopted)
         self.assertEqual(adopted.kind, "windows")
         self.assertTrue(exe.is_file())  # a Steam példánya érintetlen
@@ -338,6 +343,66 @@ class SteamTest(unittest.TestCase):
         self.assertTrue((adopted.prefix / entry["target"]).is_file())
         self.assertEqual(adopted.meta["install_dir"], r"C:\Program Files (x86)\Battle.net")
         library.remove(adopted)
+
+
+class OtherSourcesTest(unittest.TestCase):
+    def test_simple_yaml(self):
+        data = imports.simple_yaml(
+            "Name: My Bottle\nInstalled_Dependencies:\n- dxvk\n- vkd3d\nExternal_Programs:\n"
+            "  abc-1:\n    name: 'Battle.net'\n    path: /x/drive_c/a b.exe\n    removed: false\n"
+            "game:\n  exe: \"/y/z.exe\"\n  args: ''\nempty: {}\n")
+        self.assertEqual(data["Name"], "My Bottle")
+        self.assertEqual(data["External_Programs"]["abc-1"],
+                         {"name": "Battle.net", "path": "/x/drive_c/a b.exe", "removed": False})
+        self.assertEqual(data["game"], {"exe": "/y/z.exe", "args": ""})
+
+    def test_lutris(self):
+        import sqlite3
+        data = imports.LUTRIS_DATA[0]
+        prefix = TMP / "Games/battlenet"
+        exe = touch(prefix / "drive_c/Program Files (x86)/Battle.net/Battle.net Launcher.exe")
+        (data / "games").mkdir(parents=True)
+        (data / "games/battlenet-123.yml").write_text(
+            f"game:\n  exe: {exe}\n  prefix: {prefix}\nwine:\n  version: lutris-GE\n", encoding="utf-8")
+        con = sqlite3.connect(data / "pga.db")
+        con.execute("CREATE TABLE games (id INTEGER, name TEXT, runner TEXT, installed INTEGER, configpath TEXT)")
+        con.execute("INSERT INTO games VALUES (7, 'Battle.net', 'wine', 1, 'battlenet-123')")
+        con.execute("INSERT INTO games VALUES (8, 'Native game', 'linux', 1, 'native-1')")
+        con.commit()
+        con.close()
+        (f,) = imports.found({"lutris": imports.SOURCES["lutris"]})
+        self.assertEqual((f.key, f.name, f.prefix), ("lutris:7", "Battle.net", prefix))
+        self.assertEqual(f.command, ["lutris", "lutris:rungameid/7"])
+        self.assertTrue(imports.can_adopt(f))
+
+    def test_bottles(self):
+        bottle = imports.BOTTLES_ROOTS[0] / "Gaming"
+        exe = touch(bottle / "drive_c/Program Files/Tool/tool.exe")
+        bottle.mkdir(parents=True, exist_ok=True)
+        (bottle / "bottle.yml").write_text(
+            "Name: Gaming\nExternal_Programs:\n  1f2e:\n    name: Tool\n    path: " + str(exe) + "\n"
+            "  dead:\n    name: Old\n    path: /nowhere/old.exe\n    removed: true\n", encoding="utf-8")
+        (f,) = imports.found({"bottles": imports.SOURCES["bottles"]})
+        self.assertEqual((f.key, f.name), ("bottles:Gaming/1f2e", "Tool"))
+        self.assertEqual(f.command[-5:], ["run", "-b", "Gaming", "-p", "Tool"])
+        self.assertIn("flatpak", f.command)
+
+    def test_wine(self):
+        prefix = imports.WINE_PREFIX
+        touch(prefix / "drive_c/Program Files/Office/office.exe", 2 * 1024 ** 2)
+        start = prefix / "drive_c/users/someone/AppData/Roaming/Microsoft/Windows/Start Menu/Programs"
+        start.mkdir(parents=True)
+        (start / "Office.lnk").write_bytes(make_lnk(r"C:\Program Files\Office\office.exe"))
+        (f,) = imports.found({"wine": imports.SOURCES["wine"]})
+        self.assertEqual((f.name, f.command), ("Office", None))
+        self.assertFalse(imports.can_link(f))
+        self.assertIsNone(imports.link(f))
+        app = imports.adopt(f, "Program fájljai")
+        self.assertIsNotNone(app)
+        self.assertTrue((prefix / "drive_c/Program Files/Office/office.exe").is_file())  # az eredeti marad
+        (entry,) = menu.entries(app)
+        self.assertEqual(entry["target"], "drive_c/Program Files/Office/office.exe")
+        library.remove(app)
 
 
 if __name__ == "__main__":

@@ -1,20 +1,10 @@
-"""A Steam fájljai (csak olvasva): játékok, a Steamhez hozzáadott (nem Steames) programok, Proton-környezetek.
-
-A Steamben hozzáadott Windows-programokat (pl. egy kézzel felvett Battle.net) kétféleképpen vehetjük át:
-  - „Steamen keresztül” (link): a Sloth csak bejegyzést készít, a Steam indítja a saját beállításaival;
-    a Steam fájljaihoz nem nyúlunk.
-  - „Átvétel” (adopt): a program Windows-környezetéről másolat készül a Sloth könyvtárába (Btrfs-en
-    reflinkkel: pillanatok alatt, szinte hely nélkül), és onnan a Sloth indítja. A Steam példánya
-    érintetlen marad. A Steam környezetét sosem indítjuk a Sloth futtatójával (más Proton-verzió
-    frissíthetné, és utána a Steamből már nem indulna).
+"""A Steam fájljai (csak olvasva): játékkönyvtárak, a Steamhez hozzáadott (nem Steames) programok és
+Proton-környezeteik. Az átvételük (újratelepítés nélkül) az imports.py-ban van.
 """
 import logging
 import re
 import struct
-import subprocess
 from pathlib import Path
-
-from . import library, menu
 
 log = logging.getLogger("sloth-os.apps")
 
@@ -192,85 +182,7 @@ def shortcuts():
     return sorted(out, key=lambda s: s["name"].lower())
 
 
-def imported(appid):
-    """Átvettük-e már ezt a Steames programot (bármelyik módon)."""
-    return next((a for a in library.all_apps() if (a.meta.get("steam") or {}).get("appid") == appid), None)
-
-
-def can_adopt(sc):
-    """Átvehető-e: van saját Windows-környezete, és a program abban van."""
-    if not sc["prefix"]:
-        return False
-    try:
-        sc["exe"].relative_to(sc["prefix"])
-        return True
-    except ValueError:
-        return False
-
-
-def _steam_info(sc):
-    return {"appid": sc["appid"], "gameid": sc["gameid"], "proton": sc["proton"], "options": sc["options"],
-            "flatpak": sc["flatpak"], "exe": str(sc["exe"]), "prefix": str(sc["prefix"] or "")}
-
-
-def link(sc):
-    """„Steamen keresztül”: bejegyzés a Sloth-ban és a Start menüben; a Steam fájljai érintetlenek."""
-    app = library.create(sc["name"], kind="steam", steam=_steam_info(sc))
-    icon = None
-    if sc["icon"]:
-        icon = sc["icon"]
-    elif sc["exe"].is_file():
-        icon = menu.extract_icon(sc["exe"], app.icons / "steam.png")
-    menu.add_steam(app, sc["name"], sc["gameid"], icon, sc["flatpak"])
-    app.set_folder_icon(icon)
-    return app
-
-
-def prefix_in_use(prefix):
-    """Fut-e valami a Steam környezetében (akkor nem másolunk: a másolat félkész lehetne)."""
-    marker = str(Path(prefix).parent).encode()
-    for proc in Path("/proc").iterdir() if Path("/proc").is_dir() else []:
-        if not proc.name.isdigit():
-            continue
-        try:
-            if marker in (proc / "environ").read_bytes():
-                return True
-        except OSError:
-            continue
-    return False
-
-
-def adopt(sc, files_label):
-    """„Átvétel”: a Windows-környezet másolata a Sloth könyvtárába, onnan a Sloth indítja.
-
-    -> az új App, vagy None (nem átvehető, vagy a másolás nem sikerült; ilyenkor semmi nem marad utána).
-    """
-    if not can_adopt(sc) or prefix_in_use(sc["prefix"]):
-        return None
-    library_dir = library.default_library()
-    if not library.supported_location(library_dir):
-        return None
-    app = library.create(sc["name"], steam=_steam_info(sc), adopted=True)
-    try:
-        app.prefix.mkdir(parents=True)
-        subprocess.run(["cp", "-a", "--reflink=auto", f"{sc['prefix']}/.", str(app.prefix)], check=True,
-                       capture_output=True, timeout=3600)
-    except (OSError, subprocess.SubprocessError) as e:
-        log.warning("átvétel (%s): %s", sc["name"], e)
-        library.remove(app)
-        return None
-    exe = app.prefix / sc["exe"].relative_to(sc["prefix"])
-    install_dir = app.host_to_windows(exe.parent)
-    app.save_meta(install_dir=install_dir or "")
-    menu.add(app, sc["name"], exe)
-    app.link_files(exe.parent, files_label)
-    icon = next((e["icon"] for e in menu.entries(app) if e["icon"].startswith("/")), None)
-    app.set_folder_icon(icon)
-    return app
-
-
-def launch_command(app):
-    """A Steamen keresztül átvett program indítóparancsa."""
-    info = app.meta.get("steam") or {}
-    url = f"steam://rungameid/{info.get('gameid')}"
-    return ["flatpak", "run", "com.valvesoftware.Steam", url] if info.get("flatpak") else ["steam", url]
+def run_command(gameid, flatpak):
+    """A Steamhez hozzáadott program indítása a Steammel (a saját beállításaival)."""
+    url = f"steam://rungameid/{gameid}"
+    return ["flatpak", "run", "com.valvesoftware.Steam", url] if flatpak else ["steam", url]

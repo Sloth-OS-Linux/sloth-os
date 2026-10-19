@@ -190,7 +190,10 @@ Talált hibák (egyesével javítjuk):
 4. [ ] **ISO-tárhely és letöltés:** a GitHub kiadásaiba fájlonként legfeljebb 2 GB tölthető fel, az ISO 5,6 GB;
    ingyenes tárhely kell (pl. Cloudflare R2, 10 GB-ig ingyenes) ellenőrzőösszeggel és aláírással
 5. [ ] **Weboldal és dokumentáció:** letöltés, pendrive-ra írás (Windowsból is, GUI-val), első lépések, gyakori kérdések
-   (Windows mellé telepítés, titkosítás, NVIDIA, adatvédelem)
+   (Windows mellé telepítés, titkosítás, NVIDIA, adatvédelem). Kész (2026-10-19): a `codex/website-docs` kezdeménye
+   átnézve és javítva a `website/` mappában (kezdőlap, első lépések, Windows-programok, adatvédelem, GYIK; a valódi
+   logó, licencek és ODbL a láblécben; Pages workflow, a publikus repó után indul). Hátravan: letöltési oldal és
+   pendrive-írás útmutató (amikor van letölthető ISO), Windows mellé telepítés, titkosítás, NVIDIA a GYIK-ben
 6. [ ] **Licencek és nevek:** kész (2026-10-19): a kód Apache-2.0 (`LICENSE`, mint a Universal Blue és a BlueBuild),
    a saját grafika (logó, háttérképek, boot animáció) CC BY-SA 4.0, az Üdvözlő app-ikonjai a gyártóiké (`NOTICE`;
    az image-ben `/usr/share/licenses/sloth-os/`, a háttérképek adataiban is). Hátravan: a ProtonDB-adatok
@@ -220,8 +223,10 @@ Talált hibák (egyesével javítjuk):
 - [x] .exe kezelő: „javítás / újratelepítés” – 2. fázis (2026-10-19: Sloth Központ → Windows-programok → Javítás,
   Újratelepítés)
 - [ ] **Alkalmazáskezelés, következő lépések** (a 2026-10-19-i alapra):
-  - [ ] Import más helyekről a Steam-átvétel mintájára: Lutris (`~/.local/share/lutris/games/*.yml`), Bottles
-    (`bottle.yml`), `~/.wine`; ugyanaz a felismerés (registry, parancsikonok)
+  - [x] Import más helyekről (2026-10-19, valódi Lutrisszal / Bottlesszel még tesztelni): a Steam-átvétel
+    általánosítva (`sloth_common/apps/imports.py`): Steam (`shortcuts.vdf`), Lutris (`pga.db` + `games/*.yml`, natív
+    és Flatpak), Bottles (`bottle.yml`, External_Programs), korábbi `~/.wine` (registry + parancsikonok). „Az eredeti
+    programmal” (a Steam / Lutris / Bottles indítja) vagy „Átvétel” (reflink-másolat); az eredetihez nem nyúl
   - [ ] Receptek a közös tudásból: a `knowledge.json` mellett statikus, ellenőrzött recept-fájl (indító → kliens,
     a fő .exe neve, összetevők, engedélyezett kapcsolók; tetszőleges parancs nem), a `sloth-windows-prepare` tölti
     le; a helyi felismerés és a telepítés a gépen marad
