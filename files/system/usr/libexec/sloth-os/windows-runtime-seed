@@ -1,0 +1,39 @@
+#!/usr/bin/bash
+# A gyári Proton és Steam Linux Runtime bemásolása a felhasználó mappájába (files/scripts/windows-runtime.sh),
+# oda, ahol az umu-launcher keresi őket. Letöltés nélkül, pár másodperc; utána az első .exe internet nélkül is
+# indul. Csak azt másolja, ami még hiányzik (egy újabb, már letöltött verziót nem ír felül).
+# Az .exe kezelő (sloth_exe/runner.py) és a sloth-windows-prepare hívja az umu előtt.
+set -euo pipefail
+
+SRC=/usr/share/sloth-os/windows-runtime
+DATA="${XDG_DATA_HOME:-$HOME/.local/share}"
+COMPAT="$DATA/Steam/compatibilitytools.d"
+RUNTIME="$DATA/umu/steamrt3"
+
+[[ -d "$SRC" ]] || exit 0
+
+# Proton: ha még nincs egy UMU-Proton sem (az umu a legújabbat választja közülük)
+if ! compgen -G "$COMPAT/UMU-Proton-*/proton" >/dev/null; then
+    for proton in "$SRC"/UMU-Proton-*; do
+        mkdir -p "$COMPAT"
+        tmp="$(mktemp -d "$COMPAT/.sloth-seed.XXXXXX")"
+        cp -a --reflink=auto "$proton" "$tmp/"
+        mv "$tmp/$(basename "$proton")" "$COMPAT/"
+        rmdir "$tmp"
+        echo "Proton bemásolva: $(basename "$proton")"
+    done
+fi
+
+# Futtatókörnyezet: ha nincs kész példány (az umu a .installed.ok jelzőfájlt nézi; a régebbi umu jelzőfájl nélkül
+# telepített, az is jó, ha megvan a platform mappája). Egy félbemaradt, üres mappát lecserélünk
+if [[ ! -f "$RUNTIME/.installed.ok" ]] && ! compgen -G "$RUNTIME/sniper_platform_*" >/dev/null; then
+    mkdir -p "$DATA/umu"
+    tmp="$(mktemp -d "$DATA/umu/.sloth-seed.XXXXXX")"
+    cp -a --reflink=auto "$SRC/steamrt3" "$tmp/"
+    ln -sfn _v2-entry-point "$tmp/steamrt3/umu"
+    echo ok > "$tmp/steamrt3/.installed.ok"
+    rm -rf "$RUNTIME"
+    mv "$tmp/steamrt3" "$RUNTIME"
+    rmdir "$tmp"
+    echo "Futtatókörnyezet bemásolva: $(grep -m1 -o 'sniper_platform_[0-9.]*' "$RUNTIME/VERSIONS.txt" || echo steamrt3)"
+fi

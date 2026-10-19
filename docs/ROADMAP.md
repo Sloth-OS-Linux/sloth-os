@@ -211,9 +211,14 @@ Talált hibák (egyesével javítjuk):
   vagy a felismerés adata); a félbemaradt mappába az új telepítés kerül, nem duplázódik
 - [ ] A Sloth Központ „Napló mentése” fájlneve magyar (`sloth-os-naplo.txt`), angol rendszeren is
 - [ ] `tools/tests/test_apps.py`: 4 teszt elbukik ezen a gépen (a 2026-10-19-i javítás előtt is), megnézni
-- [ ] **Proton és Steam Runtime gyárilag az image-ben** (javaslat 2026-10-19): az első .exe internet és letöltés
-  nélkül induljon; első használatkor helyi másolás a felhasználó mappájába, a háttérfrissítés marad. Kb. +1,5 GB
-  image, +0,5–0,7 GB ISO. Döntésre vár
+- [x] **Proton és Steam Runtime gyárilag az image-ben** (2026-10-19, a felhasználó kérése): UMU-Proton-10.0-4 és
+  a Steam Linux Runtime (sniper 3.0.20261007.263965) rögzítve, ellenőrzőösszeggel (`files/scripts/windows-runtime.sh`,
+  `/usr/share/sloth-os/windows-runtime`, 2,2 GB kicsomagolva). Első használatkor a `windows-runtime-seed` a
+  felhasználó mappájába másolja (az .exe kezelő „Első indítás előkészítése…” lépése és a sloth-windows-prepare),
+  utána az umu internet nélkül is indul, és a háttérben frissít. Helyben kipróbálva (bemásolás, pv-verify: OK);
+  valódi gépen tesztelni: friss telepítés, internet nélkül egy .exe. Az ISO mérete: a végén az összevonással
+  (`SLOTH_SQUASH=1`) és ha kell, máshogy csökkenteni
+  - [ ] Később: gyári sablon-környezet a leggyakoribb összetevőkkel (pl. vcrun2022), ha a tesztek szerint kell
 - [ ] Üdvözlő internet nélkül: az app-oldalakon a „Kihagyom” nem lép tovább (VM, 2026-10-19)
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
   megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet)

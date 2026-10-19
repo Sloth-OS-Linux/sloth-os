@@ -7,6 +7,9 @@
 # (journalctl --user -u sloth-windows-prepare).
 set -euo pipefail
 
+# A gyári Proton és futtatókörnyezet bemásolása (internet nélkül is); utána az umu csak a frissítést keresi
+/usr/libexec/sloth-os/windows-runtime-seed || true
+
 # Internet nélkül nincs mit tenni; a következő alkalommal újra próbáljuk
 if [[ "$(nmcli --terse --fields CONNECTIVITY general 2>/dev/null || echo full)" != "full" ]]; then
     echo "Nincs internet, később újra próbálom."

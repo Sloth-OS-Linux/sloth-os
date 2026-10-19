@@ -115,6 +115,10 @@ class Runner(QObject):
         self.uses_wine = False
         if not join:
             _take_over_prepare()
+        if not backend.proton_ready() and backend.bundled():
+            # A gyári Proton és futtatókörnyezet bemásolása (pár másodperc, letöltés nélkül)
+            self.status.emit("status.first_setup", -1)
+            self._steps.append((env, exe.parent, backend.SEED, [], ""))
         # Hiányzó összetevők telepítése a program előtt (winetricks az umu-n keresztül, kérdés nélkül)
         done = set(program.meta.get("verbs", []))
         # futó környezetbe összetevőt nem telepítünk (a következő önálló indításkor települ)

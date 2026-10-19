@@ -1,8 +1,8 @@
 """Melyik futtatóval induljon egy Windows-program.
 
 Elsődleges: umu-launcher + Proton (a legjobb játékkompatibilitás). A Proton és a hozzá
-tartozó futtatókörnyezet (Steam Linux Runtime) az első használatkor töltődik le; ezt a
-sloth-windows-prepare.timer bejelentkezés után a háttérben előre elvégzi.
+tartozó futtatókörnyezet (Steam Linux Runtime) gyárilag a rendszerben van; első használatkor a
+felhasználó mappájába másolódik (SEED), az újabb verziókat a sloth-windows-prepare.timer tölti le.
 Tartalék: a rendszer saját Wine-ja (wine-core RPM). Akkor indul, ha a Proton még nincs
 meg és nincs internet, így egy .exe mindig elindul, Steam és internet nélkül is.
 A felhasználó egyikből sem lát semmit (sem a "Wine", sem a "Proton" szót).
@@ -16,6 +16,17 @@ DATA_HOME = Path(os.environ.get("XDG_DATA_HOME", Path.home() / ".local/share"))
 # az umu-launcher helyei (umu/umu_consts.py)
 UMU_LOCAL = DATA_HOME / "umu"
 PROTON_DIRS = [DATA_HOME / "Steam/compatibilitytools.d", DATA_HOME / "umu/compatibilitytools"]
+
+
+# A gyári Proton és futtatókörnyezet (files/scripts/windows-runtime.sh); első használatkor ez a script másolja
+# a felhasználó mappájába, letöltés nélkül
+BUNDLED = Path("/usr/share/sloth-os/windows-runtime")
+SEED = "/usr/libexec/sloth-os/windows-runtime-seed"
+
+
+def bundled():
+    """Van-e gyári Proton és futtatókörnyezet a rendszerben."""
+    return (BUNDLED / "steamrt3").is_dir() and any(BUNDLED.glob("UMU-Proton-*/proton"))
 
 
 def proton_ready():
@@ -38,4 +49,4 @@ def online():
 
 def use_wine():
     """Igaz, ha a rendszer Wine-jával kell indítani (nincs Proton, nincs net, de van Wine)."""
-    return not proton_ready() and not online() and shutil.which("wine") is not None
+    return not proton_ready() and not bundled() and not online() and shutil.which("wine") is not None

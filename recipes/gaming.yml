@@ -18,10 +18,12 @@ modules:
   # Windows-programok: dupla kattintás egy .exe-re -> telepítés / futtatás (files/system/usr/lib/sloth-os/sloth-exe).
   # Steam nélkül is működik. A háttérben az umu-launcher + Proton fut; az umu nincs a Fedora
   # repóban, ezért rögzített verziójú GitHub RPM. A Protont bejelentkezés után a
-  # sloth-windows-prepare.timer előre letölti és frissen tartja, így az első .exe is azonnal indul.
+  # sloth-windows-prepare.timer frissen tartja. Egy rögzített Proton és a Steam Linux Runtime gyárilag az
+  # image-ben van (windows-runtime.sh), így az első .exe letöltés és internet nélkül, azonnal indul.
   - type: script
     scripts:
       - umu-launcher.sh
+      - windows-runtime.sh
       - exe-handler.sh
 
   # A Flatpak Steamen belül a fenti RPM-ek nem látszanak, ezért a MangoHud és
