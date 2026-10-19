@@ -15,6 +15,7 @@
   "button.install": "Installer",
   "button.open": "Opna",
   "button.reinstall": "Installer på nytt",
+  "button.browse": "Anna fil…",
   "button.start": "Start",
   "button.done": "Ferdig",
   "button.close": "Lukk",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installasjonen er ferdig!",
   "pick.question_manage": "Kva skal vera i startmenyen?",
   "pick.question_install": "Kva skal leggjast til i startmenyen?",
+  "pick.question_unsure": "Vi kunne ikkje sikkert avgjere kva fil som startar programmet. Kryss av for det som skal i startmenyen, eller vel ei anna fil.",
+  "pick.browse_title": "Kva fil startar programmet?",
+  "pick.exe_filter": "Program",
 
   "status.starting": "Startar {name}…",
   "status.preparing_install": "Førebur installasjon av {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Ein komponent som trengst for å køyra program, manglar. Oppdater systemet i Sloth Center.",
   "error.not_started": "{name} starta ikkje. Programmet fungerer kanskje ikkje på dette systemet, eller fila er skadd.",
   "error.nothing_installed": "Fann ikkje noko installert program. Installasjonen kan ha vorte avbroten; prøv igjen.",
+  "info.already_running": "{name} køyrer alt. Du finn vindauget i oppgåvelinja.",
 
   "anticheat.blocked": "{game} brukar juksevernet {system}, som ikkje lèt spelet køyra på Linux. Det kjem ikkje av datamaskina di, og vi kan ikkje gå rundt det. Diverre kan ikkje dette spelet spelast her.",
   "anticheat.maybe": "{game} brukar juksevernet {system}. På Linux verkar det berre om utviklarane av spelet har tillate det. Om spelet ikkje startar eller kastar deg ut, er det truleg difor. Sjekk om spelet finst på Steam.",
 
   "misc.program": "Program",
   "misc.other_programs": "Andre program",
+  "misc.program_files": "Programfiler",
 
   "desktop.name": "Windows-program",
   "desktop.comment": "Installer og køyr Windows-program og -spel"

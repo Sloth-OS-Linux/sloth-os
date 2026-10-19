@@ -15,6 +15,7 @@
   "button.install": "Instale",
   "button.open": "Vierç",
   "button.reinstall": "Torne instale",
+  "button.browse": "Altri file…",
   "button.start": "Invie",
   "button.done": "Fat",
   "button.close": "Siere",
@@ -22,6 +23,9 @@
   "pick.done_title": "Instalazion finide!",
   "pick.question_manage": "Ce aial di jessi tal menù Start?",
   "pick.question_install": "Ce zontìno al menù Start?",
+  "pick.question_unsure": "No sin rivâts a capî cun sigurece cuâl file al invie il program. Segne ce che al à di lâ tal menù Start o sielç un altri file.",
+  "pick.browse_title": "Cuâl file invie il program?",
+  "pick.exe_filter": "Programs",
 
   "status.starting": "Si invie {name}…",
   "status.preparing_install": "Si prepare la instalazion di {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Al mancje un component che al covente par inviâ i programs. Inzorne il sisteme in Sloth Center.",
   "error.not_started": "{name} nol è partît. Al podarès jessi che chest program nol funzioni su chest sisteme, o che il file al sedi ruvinât.",
   "error.nothing_installed": "No vin cjatât nissun program instalât. La instalazion e podarès jessi stade interote; torne prove.",
+  "info.already_running": "{name} al è za in esecuzion. Tu cjatis il so barcon te sbare des aplicazions.",
 
   "anticheat.blocked": "{game} al dopre la protezion cuintri lis trufis {system}, che no lasse lâ il zûc su Linux. Nol dipent dal to computer e no podìn lâ ator. Purtrop chest zûc no si pues zuiâ chi.",
   "anticheat.maybe": "{game} al dopre la protezion cuintri lis trufis {system}. Su Linux e funzione dome se i autôrs dal zûc lu àn permetût. Se il zûc nol partìs o ti bute fûr, probabilmentri e je cheste la reson. Al val la pene viodi se il zûc al à une version su Steam.",
 
   "misc.program": "Program",
   "misc.other_programs": "Altris programs",
+  "misc.program_files": "File dal program",
 
   "desktop.name": "Programs Windows",
   "desktop.comment": "Instalâ e eseguî programs e zûcs di Windows"

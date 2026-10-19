@@ -362,7 +362,6 @@
   "A Steamen keresztül": "Through Steam",
   "Átvétel": "Take over",
   "Ennek a programnak nincs saját környezete a Steamben, ezért csak a Steamen keresztül vehető fel.": "This program has no environment of its own in Steam, so it can only be added through Steam.",
-  "Kattints duplán egy .exe vagy .msi fájlra (például egy letöltött telepítőre), vagy válaszd a Telepítés… gombot, és itt fog megjelenni.": "Double-click an .exe or .msi file (for example a downloaded installer), or use the Install… button, and it will show up here.",
   "Fájlok": "Files",
   "Továbbiak": "More",
   "Start menü…": "Start menu…",
@@ -371,5 +370,7 @@
   "Áthelyezés ide: {path}": "Move to: {path}",
   "Csak innen és a Start menüből tűnik el; a Steamben minden marad.": "It only disappears from here and from the Start menu; everything stays in Steam.",
   "Melyik programot telepíted?": "Which program do you want to install?",
-  "Hová települjenek az új programok?": "Where should new programs be installed?"
+  "Hová települjenek az új programok?": "Where should new programs be installed?",
+  "Program telepítése…": "Install a program…",
+  "Kattints duplán egy .exe vagy .msi fájlra (például egy letöltött telepítőre), vagy válaszd a Program telepítése… gombot, és itt fog megjelenni.": "Double-click an .exe or .msi file (for example a downloaded installer), or use the Install a program… button, and it will show up here."
 }

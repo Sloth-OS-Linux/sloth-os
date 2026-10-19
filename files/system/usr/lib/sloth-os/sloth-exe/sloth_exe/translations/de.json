@@ -15,6 +15,7 @@
   "button.install": "Installieren",
   "button.open": "Öffnen",
   "button.reinstall": "Neu installieren",
+  "button.browse": "Andere Datei …",
   "button.start": "Starten",
   "button.done": "Fertig",
   "button.close": "Schließen",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installation abgeschlossen!",
   "pick.question_manage": "Was soll im Startmenü sein?",
   "pick.question_install": "Was soll ins Startmenü?",
+  "pick.question_unsure": "Wir konnten nicht sicher erkennen, mit welcher Datei das Programm startet. Hake an, was ins Startmenü soll, oder wähle eine andere Datei.",
+  "pick.browse_title": "Mit welcher Datei startet das Programm?",
+  "pick.exe_filter": "Programme",
 
   "status.starting": "{name} wird gestartet…",
   "status.preparing_install": "Installation von {name} wird vorbereitet…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Eine zum Ausführen von Programmen nötige Komponente fehlt. Aktualisiere das System im Sloth Center.",
   "error.not_started": "{name} ist nicht gestartet. Vielleicht funktioniert dieses Programm auf diesem System nicht, oder die Datei ist beschädigt.",
   "error.nothing_installed": "Es wurde kein installiertes Programm gefunden. Vielleicht wurde die Installation abgebrochen; versuche es erneut.",
+  "info.already_running": "{name} läuft bereits. Das Fenster findest du in der Taskleiste.",
 
   "anticheat.blocked": "{game} nutzt den Anti-Cheat {system}, der das Spiel unter Linux nicht laufen lässt. Das liegt nicht an deinem Computer, und wir können es nicht umgehen. Leider lässt sich dieses Spiel hier nicht spielen.",
   "anticheat.maybe": "{game} nutzt den Anti-Cheat {system}. Unter Linux funktioniert er nur, wenn die Entwickler des Spiels es erlaubt haben. Wenn das Spiel nicht startet oder dich rauswirft, liegt es wahrscheinlich daran. Schau nach, ob es eine Steam-Version des Spiels gibt.",
 
   "misc.program": "Programm",
   "misc.other_programs": "Weitere Programme",
+  "misc.program_files": "Programmdateien",
 
   "desktop.name": "Windows-Programme",
   "desktop.comment": "Windows-Programme und -Spiele installieren und ausführen"

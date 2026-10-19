@@ -15,6 +15,7 @@
   "button.install": "Paigalda",
   "button.open": "Ava",
   "button.reinstall": "Paigalda uuesti",
+  "button.browse": "Muu fail…",
   "button.start": "Käivita",
   "button.done": "Valmis",
   "button.close": "Sulge",
@@ -22,6 +23,9 @@
   "pick.done_title": "Paigaldamine on lõpetatud!",
   "pick.question_manage": "Mis peaks Start-menüüs olema?",
   "pick.question_install": "Mida Start-menüüsse lisada?",
+  "pick.question_unsure": "Me ei suutnud kindlalt kindlaks teha, milline fail programmi käivitab. Märgi, mis peaks minema Start-menüüsse, või vali muu fail.",
+  "pick.browse_title": "Milline fail programmi käivitab?",
+  "pick.exe_filter": "Programmid",
 
   "status.starting": "Käivitamine: {name}…",
   "status.preparing_install": "Paigaldamise ettevalmistamine: {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Programmide käivitamiseks vajalik komponent puudub. Uuenda süsteemi Sloth Centeris.",
   "error.not_started": "{name} ei käivitunud. Võib-olla see programm ei tööta selles süsteemis või fail on vigane.",
   "error.nothing_installed": "Paigaldatud programmi ei leitud. Võib-olla katkes paigaldamine; proovi uuesti.",
+  "info.already_running": "{name} juba töötab. Selle akna leiad tegumiribalt.",
 
   "anticheat.blocked": "{game} kasutab petmisvastast süsteemi {system}, mis ei lase mängul Linuxis töötada. See ei sõltu sinu arvutist ja me ei saa sellest mööda. Kahjuks ei saa seda mängu siin mängida.",
   "anticheat.maybe": "{game} kasutab petmisvastast süsteemi {system}. Linuxis töötab see ainult siis, kui mängu tegijad on seda lubanud. Kui mäng ei käivitu või viskab sind välja, on põhjus tõenäoliselt selles. Tasub vaadata, kas mängul on Steami versioon.",
 
   "misc.program": "Programm",
   "misc.other_programs": "Muud programmid",
+  "misc.program_files": "Programmi failid",
 
   "desktop.name": "Windowsi programmid",
   "desktop.comment": "Windowsi programmide ja mängude paigaldamine ja käivitamine"

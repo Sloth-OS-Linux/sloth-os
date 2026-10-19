@@ -15,6 +15,7 @@
   "button.install": "Sebded",
   "button.open": "Ldi",
   "button.reinstall": "Ales asebded",
+  "button.browse": "Afaylu nniḍen…",
   "button.start": "Sekker",
   "button.done": "Ifuk",
   "button.close": "Mdel",
@@ -22,6 +23,9 @@
   "pick.done_title": "Asebded ifuk!",
   "pick.question_manage": "D acu ara yilin deg umuɣ n usenker?",
   "pick.question_install": "D acu ara nernu ɣer umuɣ n usenker?",
+  "pick.question_unsure": "Ur nezmir ara ad nẓer s tidet anwa afaylu ara isekkren ahil. Creḍ ayen ara yeddun deg wumuɣ Bdu, neɣ fren afaylu nniḍen.",
+  "pick.browse_title": "Anwa afaylu ara isekkren ahil?",
+  "pick.exe_filter": "Ihilen",
 
   "status.starting": "Asekker n {name}…",
   "status.preparing_install": "Aheyyi n usebded n {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Ixuṣ yiwen n uferdis i ilaqen i usekker n yihilen. Leqqem anagraw deg Sloth Center.",
   "error.not_started": "{name} ur yekker ara. Ahat ahil-a ur iteddu ara deg unagraw-a, neɣ afaylu yexser.",
   "error.nothing_installed": "Ur d-nufi ara ahil yebdden. Ahat asebded yegzem; ɛreḍ tikkelt nniḍen.",
+  "info.already_running": "{name} yettwasekker yakan. Ttafeḍ asfaylu-ines deg ufeggag n twuriwin.",
 
   "anticheat.blocked": "{game} isseqdac asemmesten mgal tixxidin {system}, ur yeǧǧi ara urar ad iteddu deg Linux. Mačči d aselkim-ik i d sebba, ur nezmir ara ad t-nezgel. Nesḥassef, urar-a ur yettwaurar ara da.",
   "anticheat.maybe": "{game} isseqdac asemmesten mgal tixxidin {system}. Deg Linux iteddu kan ma sirgen-t yimesnulfuyen n wurar. Ma yella urar ur yekker ara neɣ ak-d-yessufeɣ, ahat d ayagi i d sebba. Wali ma yella lqem n Steam i wurar-a.",
 
   "misc.program": "Ahil",
   "misc.other_programs": "Ihilen nniḍen",
+  "misc.program_files": "Ifuyla n wahil",
 
   "desktop.name": "Ahilen Windows",
   "desktop.comment": "Sebded u sker ahilen d wuraren n Windows"

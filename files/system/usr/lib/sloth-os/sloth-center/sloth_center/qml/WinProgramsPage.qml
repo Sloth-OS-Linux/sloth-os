@@ -12,7 +12,7 @@ Kirigami.ScrollablePage {
 
     actions: [
         Kirigami.Action {
-            text: L.t("Telepítés…")
+            text: L.t("Program telepítése…")
             icon.name: "download"
             onTriggered: installDialog.open()
         },
@@ -168,7 +168,7 @@ Kirigami.ScrollablePage {
             visible: list.count === 0
             icon.name: "application-x-ms-dos-executable"
             text: L.t("Még nincs telepített Windows-program")
-            explanation: L.t("Kattints duplán egy .exe vagy .msi fájlra (például egy letöltött telepítőre), vagy válaszd a Telepítés… gombot, és itt fog megjelenni.")
+            explanation: L.t("Kattints duplán egy .exe vagy .msi fájlra (például egy letöltött telepítőre), vagy válaszd a Program telepítése… gombot, és itt fog megjelenni.")
         }
 
         delegate: Kirigami.AbstractCard {

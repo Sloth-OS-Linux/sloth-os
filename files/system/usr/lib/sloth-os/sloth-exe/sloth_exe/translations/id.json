@@ -15,6 +15,7 @@
   "button.install": "Pasang",
   "button.open": "Buka",
   "button.reinstall": "Pasang ulang",
+  "button.browse": "File lain…",
   "button.start": "Mulai",
   "button.done": "Selesai",
   "button.close": "Tutup",
@@ -22,6 +23,9 @@
   "pick.done_title": "Pemasangan selesai!",
   "pick.question_manage": "Apa yang perlu ada di menu Start?",
   "pick.question_install": "Apa yang ditambahkan ke menu Start?",
+  "pick.question_unsure": "Kami tidak bisa memastikan file mana yang menjalankan program. Centang apa yang perlu masuk ke menu Start, atau pilih file lain.",
+  "pick.browse_title": "File mana yang menjalankan program?",
+  "pick.exe_filter": "Program",
 
   "status.starting": "Membuka {name}…",
   "status.preparing_install": "Menyiapkan pemasangan {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Komponen yang diperlukan untuk menjalankan program tidak ada. Perbarui sistem di Sloth Center.",
   "error.not_started": "{name} tidak berjalan. Mungkin program ini tidak bekerja di sistem ini, atau berkasnya rusak.",
   "error.nothing_installed": "Tidak ada program terpasang yang ditemukan. Mungkin pemasangan terputus; coba lagi.",
+  "info.already_running": "{name} sudah berjalan. Jendelanya ada di bilah tugas.",
 
   "anticheat.blocked": "{game} memakai anti-cheat {system}, yang tidak mengizinkan game berjalan di Linux. Ini bukan karena komputer Anda, dan kami tidak bisa mengakalinya. Sayangnya game ini tidak bisa dimainkan di sini.",
   "anticheat.maybe": "{game} memakai anti-cheat {system}. Di Linux, ini hanya berfungsi jika pembuat game mengizinkannya. Jika game tidak mau berjalan atau mengeluarkan Anda, kemungkinan inilah penyebabnya. Coba cek apakah game ini punya versi Steam.",
 
   "misc.program": "Program",
   "misc.other_programs": "Program lainnya",
+  "misc.program_files": "File program",
 
   "desktop.name": "Program Windows",
   "desktop.comment": "Pasang dan jalankan program dan game Windows"

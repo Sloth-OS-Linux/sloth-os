@@ -15,6 +15,7 @@
   "button.install": "Instali",
   "button.open": "Malfermi",
   "button.reinstall": "Reinstali",
+  "button.browse": "Alia dosiero…",
   "button.start": "Lanĉi",
   "button.done": "Farite",
   "button.close": "Fermi",
@@ -22,6 +23,9 @@
   "pick.done_title": "Instalado finiĝis!",
   "pick.question_manage": "Kio estu en la startmenuo?",
   "pick.question_install": "Kion aldoni al la startmenuo?",
+  "pick.question_unsure": "Ni ne povis certe ekscii, kiu dosiero lanĉas la programon. Marku, kio aperu en la Start-menuo, aŭ elektu alian dosieron.",
+  "pick.browse_title": "Kiu dosiero lanĉas la programon?",
+  "pick.exe_filter": "Programoj",
 
   "status.starting": "Lanĉado de {name}…",
   "status.preparing_install": "Preparado de la instalado de {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Mankas komponanto bezonata por lanĉi programojn. Ĝisdatigu la sistemon en Sloth Center.",
   "error.not_started": "{name} ne lanĉiĝis. Eble ĉi tiu programo ne funkcias en ĉi tiu sistemo, aŭ la dosiero estas difektita.",
   "error.nothing_installed": "Ni trovis neniun instalitan programon. Eble la instalado interrompiĝis; reprovu.",
+  "info.already_running": "{name} jam funkcias. Ĝian fenestron vi trovos en la taskobreto.",
 
   "anticheat.blocked": "{game} uzas la kontraŭtrompan sistemon {system}, kiu ne permesas al la ludo funkcii en Linukso. Tio ne dependas de via komputilo, kaj ni ne povas ĉirkaŭiri ĝin. Bedaŭrinde ĉi tiu ludo ne ludeblas ĉi tie.",
   "anticheat.maybe": "{game} uzas la kontraŭtrompan sistemon {system}. En Linukso ĝi funkcias nur se la kreintoj de la ludo permesis tion. Se la ludo ne lanĉiĝas aŭ elĵetas vin, verŝajne tio estas la kialo. Indas kontroli, ĉu la ludo havas Steam-version.",
 
   "misc.program": "Programo",
   "misc.other_programs": "Aliaj programoj",
+  "misc.program_files": "Dosieroj de la programo",
 
   "desktop.name": "Windows-programoj",
   "desktop.comment": "Instalu kaj rulu Windows-programojn kaj -ludojn"

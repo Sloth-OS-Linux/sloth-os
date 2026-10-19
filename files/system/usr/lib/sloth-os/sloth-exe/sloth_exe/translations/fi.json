@@ -15,6 +15,7 @@
   "button.install": "Asenna",
   "button.open": "Avaa",
   "button.reinstall": "Asenna uudelleen",
+  "button.browse": "Muu tiedosto…",
   "button.start": "Käynnistä",
   "button.done": "Valmis",
   "button.close": "Sulje",
@@ -22,6 +23,9 @@
   "pick.done_title": "Asennus valmis!",
   "pick.question_manage": "Mitä Käynnistä-valikossa pitäisi olla?",
   "pick.question_install": "Mitä lisätään Käynnistä-valikkoon?",
+  "pick.question_unsure": "Emme voineet varmasti päätellä, mikä tiedosto käynnistää ohjelman. Valitse, mitä Käynnistä-valikkoon tulee, tai valitse toinen tiedosto.",
+  "pick.browse_title": "Mikä tiedosto käynnistää ohjelman?",
+  "pick.exe_filter": "Ohjelmat",
 
   "status.starting": "Käynnistetään {name}…",
   "status.preparing_install": "Valmistellaan ohjelman {name} asennusta…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Ohjelmien ajamiseen tarvittava osa puuttuu. Päivitä järjestelmä Sloth Centerissä.",
   "error.not_started": "{name} ei käynnistynyt. Ohjelma ei ehkä toimi tässä järjestelmässä, tai tiedosto on vioittunut.",
   "error.nothing_installed": "Asennettua ohjelmaa ei löytynyt. Asennus on ehkä keskeytynyt; yritä uudelleen.",
+  "info.already_running": "{name} on jo käynnissä. Sen ikkuna löytyy tehtäväpalkista.",
 
   "anticheat.blocked": "{game} käyttää huijauksenestojärjestelmää {system}, joka ei salli pelin toimia Linuxissa. Vika ei ole tietokoneessasi, emmekä voi kiertää sitä. Valitettavasti tätä peliä ei voi pelata täällä.",
   "anticheat.maybe": "{game} käyttää huijauksenestojärjestelmää {system}. Linuxissa se toimii vain, jos pelin tekijät ovat sallineet sen. Jos peli ei käynnisty tai heittää sinut ulos, syy on todennäköisesti tämä. Kannattaa tarkistaa, onko pelistä Steam-versio.",
 
   "misc.program": "Ohjelma",
   "misc.other_programs": "Muut ohjelmat",
+  "misc.program_files": "Ohjelman tiedostot",
 
   "desktop.name": "Windows-ohjelmat",
   "desktop.comment": "Asenna ja suorita Windows-ohjelmia ja -pelejä"

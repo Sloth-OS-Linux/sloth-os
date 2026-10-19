@@ -15,6 +15,7 @@
   "button.install": "Installa",
   "button.open": "Apri",
   "button.reinstall": "Reinstalla",
+  "button.browse": "Altro file…",
   "button.start": "Avvia",
   "button.done": "Fatto",
   "button.close": "Chiudi",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installazione completata!",
   "pick.question_manage": "Cosa vuoi nel menu Start?",
   "pick.question_install": "Cosa aggiungiamo al menu Start?",
+  "pick.question_unsure": "Non siamo riusciti a capire con certezza quale file avvia il programma. Spunta cosa mettere nel menu Start, oppure scegli un altro file.",
+  "pick.browse_title": "Quale file avvia il programma?",
+  "pick.exe_filter": "Programmi",
 
   "status.starting": "Avvio di {name}…",
   "status.preparing_install": "Preparazione dell'installazione di {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Manca un componente necessario per avviare i programmi. Aggiorna il sistema in Sloth Center.",
   "error.not_started": "{name} non si è avviato. Forse questo programma non funziona su questo sistema, oppure il file è danneggiato.",
   "error.nothing_installed": "Non abbiamo trovato nessun programma installato. Forse l'installazione si è interrotta; riprova.",
+  "info.already_running": "{name} è già in esecuzione. Trovi la sua finestra nella barra delle applicazioni.",
 
   "anticheat.blocked": "{game} usa l'anti-cheat {system}, che non permette al gioco di funzionare su Linux. Non dipende dal tuo computer e non possiamo aggirarlo. Purtroppo questo gioco qui non si può giocare.",
   "anticheat.maybe": "{game} usa l'anti-cheat {system}. Su Linux funziona solo se gli sviluppatori del gioco lo hanno permesso. Se il gioco non parte o ti butta fuori, probabilmente il motivo è questo. Conviene verificare se esiste una versione Steam del gioco.",
 
   "misc.program": "Programma",
   "misc.other_programs": "Altri programmi",
+  "misc.program_files": "File del programma",
 
   "desktop.name": "Programmi Windows",
   "desktop.comment": "Installare ed eseguire programmi e giochi Windows"

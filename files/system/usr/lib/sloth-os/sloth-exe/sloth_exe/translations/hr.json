@@ -15,6 +15,7 @@
   "button.install": "Instaliraj",
   "button.open": "Otvori",
   "button.reinstall": "Ponovno instaliraj",
+  "button.browse": "Druga datoteka…",
   "button.start": "Pokreni",
   "button.done": "Gotovo",
   "button.close": "Zatvori",
@@ -22,6 +23,9 @@
   "pick.done_title": "Instalacija je završena!",
   "pick.question_manage": "Što treba biti u izborniku Start?",
   "pick.question_install": "Što dodati u izbornik Start?",
+  "pick.question_unsure": "Nismo mogli sa sigurnošću utvrditi kojom se datotekom program pokreće. Označi što treba ići u izbornik Start ili odaberi drugu datoteku.",
+  "pick.browse_title": "Kojom se datotekom program pokreće?",
+  "pick.exe_filter": "Programi",
 
   "status.starting": "Pokretanje: {name}…",
   "status.preparing_install": "Priprema instalacije: {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Nedostaje komponenta potrebna za pokretanje programa. Ažurirajte sustav u Sloth Centeru.",
   "error.not_started": "{name} se nije pokrenuo. Ovaj program možda ne radi na ovom sustavu ili je datoteka oštećena.",
   "error.nothing_installed": "Nismo pronašli instalirani program. Instalacija je možda prekinuta; pokušajte ponovno.",
+  "info.already_running": "{name} već radi. Njegov prozor nalazi se na programskoj traci.",
 
   "anticheat.blocked": "{game} koristi zaštitu od varanja {system}, koja ne dopušta igri da radi na Linuxu. Nije do vašeg računala i ne možemo to zaobići. Nažalost, ovu igru ovdje nije moguće igrati.",
   "anticheat.maybe": "{game} koristi zaštitu od varanja {system}. Na Linuxu radi samo ako su to dopustili autori igre. Ako se igra ne pokreće ili vas izbacuje, vjerojatno je to razlog. Provjerite postoji li verzija igre na Steamu.",
 
   "misc.program": "Program",
   "misc.other_programs": "Ostali programi",
+  "misc.program_files": "Datoteke programa",
 
   "desktop.name": "Windows programi",
   "desktop.comment": "Instaliranje i pokretanje Windows programa i igara"

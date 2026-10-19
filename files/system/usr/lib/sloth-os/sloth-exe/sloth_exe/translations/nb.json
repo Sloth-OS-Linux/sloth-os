@@ -15,6 +15,7 @@
   "button.install": "Installer",
   "button.open": "Åpne",
   "button.reinstall": "Installer på nytt",
+  "button.browse": "Annen fil…",
   "button.start": "Start",
   "button.done": "Ferdig",
   "button.close": "Lukk",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installasjonen er ferdig!",
   "pick.question_manage": "Hva skal være i startmenyen?",
   "pick.question_install": "Hva skal legges til i startmenyen?",
+  "pick.question_unsure": "Vi kunne ikke sikkert avgjøre hvilken fil som starter programmet. Kryss av for det som skal i startmenyen, eller velg en annen fil.",
+  "pick.browse_title": "Hvilken fil starter programmet?",
+  "pick.exe_filter": "Programmer",
 
   "status.starting": "Starter {name}…",
   "status.preparing_install": "Forbereder installasjon av {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "En komponent som trengs for å kjøre programmer, mangler. Oppdater systemet i Sloth Center.",
   "error.not_started": "{name} startet ikke. Programmet fungerer kanskje ikke på dette systemet, eller filen er skadet.",
   "error.nothing_installed": "Fant ikke noe installert program. Installasjonen kan ha blitt avbrutt; prøv igjen.",
+  "info.already_running": "{name} kjører allerede. Du finner vinduet i oppgavelinjen.",
 
   "anticheat.blocked": "{game} bruker juksebeskyttelsen {system}, som ikke lar spillet kjøre på Linux. Det skyldes ikke datamaskinen din, og vi kan ikke omgå det. Dessverre kan ikke dette spillet spilles her.",
   "anticheat.maybe": "{game} bruker juksebeskyttelsen {system}. På Linux virker den bare hvis spillets utviklere har tillatt det. Hvis spillet ikke starter eller kaster deg ut, er det sannsynligvis derfor. Sjekk om spillet finnes på Steam.",
 
   "misc.program": "Program",
   "misc.other_programs": "Andre programmer",
+  "misc.program_files": "Programfiler",
 
   "desktop.name": "Windows-programmer",
   "desktop.comment": "Installer og kjør Windows-programmer og -spill"

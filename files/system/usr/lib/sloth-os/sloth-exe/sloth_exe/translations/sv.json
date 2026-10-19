@@ -15,6 +15,7 @@
   "button.install": "Installera",
   "button.open": "Öppna",
   "button.reinstall": "Installera om",
+  "button.browse": "Annan fil…",
   "button.start": "Starta",
   "button.done": "Klar",
   "button.close": "Stäng",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installationen är klar!",
   "pick.question_manage": "Vad ska finnas i startmenyn?",
   "pick.question_install": "Vad ska läggas till i startmenyn?",
+  "pick.question_unsure": "Vi kunde inte säkert avgöra vilken fil som startar programmet. Kryssa i vad som ska finnas i startmenyn, eller välj en annan fil.",
+  "pick.browse_title": "Vilken fil startar programmet?",
+  "pick.exe_filter": "Program",
 
   "status.starting": "Startar {name}…",
   "status.preparing_install": "Förbereder installationen av {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "En komponent som behövs för att köra program saknas. Uppdatera systemet i Sloth Center.",
   "error.not_started": "{name} startade inte. Programmet kanske inte fungerar på det här systemet, eller så är filen skadad.",
   "error.nothing_installed": "Vi hittade inget installerat program. Installationen kan ha avbrutits; försök igen.",
+  "info.already_running": "{name} körs redan. Du hittar fönstret i aktivitetsfältet.",
 
   "anticheat.blocked": "{game} använder fuskskyddet {system}, som inte låter spelet köras på Linux. Det beror inte på din dator, och vi kan inte kringgå det. Tyvärr går det här spelet inte att spela här.",
   "anticheat.maybe": "{game} använder fuskskyddet {system}. På Linux fungerar det bara om spelets skapare har tillåtit det. Om spelet inte startar eller kastar ut dig är det troligen därför. Kolla om spelet finns på Steam.",
 
   "misc.program": "Program",
   "misc.other_programs": "Övriga program",
+  "misc.program_files": "Programfiler",
 
   "desktop.name": "Windows-program",
   "desktop.comment": "Installera och kör Windows-program och -spel"

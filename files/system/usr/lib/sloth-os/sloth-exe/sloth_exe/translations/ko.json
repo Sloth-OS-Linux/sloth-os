@@ -15,6 +15,7 @@
   "button.install": "설치",
   "button.open": "열기",
   "button.reinstall": "다시 설치",
+  "button.browse": "다른 파일…",
   "button.start": "시작",
   "button.done": "완료",
   "button.close": "닫기",
@@ -22,6 +23,9 @@
   "pick.done_title": "설치가 끝났습니다!",
   "pick.question_manage": "시작 메뉴에 무엇을 둘까요?",
   "pick.question_install": "시작 메뉴에 무엇을 추가할까요?",
+  "pick.question_unsure": "어떤 파일로 프로그램이 시작되는지 확실히 알 수 없었습니다. 시작 메뉴에 넣을 항목을 선택하거나 다른 파일을 고르세요.",
+  "pick.browse_title": "어떤 파일로 프로그램이 시작되나요?",
+  "pick.exe_filter": "프로그램",
 
   "status.starting": "{name} 시작 중…",
   "status.preparing_install": "{name} 설치 준비 중…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "프로그램 실행에 필요한 구성 요소가 없습니다. Sloth Center에서 시스템을 업데이트하세요.",
   "error.not_started": "{name}이(가) 시작되지 않았습니다. 이 시스템에서 동작하지 않는 프로그램이거나 파일이 손상되었을 수 있습니다.",
   "error.nothing_installed": "설치된 프로그램을 찾지 못했습니다. 설치가 중단되었을 수 있으니 다시 시도하세요.",
+  "info.already_running": "{name}이(가) 이미 실행 중입니다. 작업 표시줄에서 창을 찾을 수 있습니다.",
 
   "anticheat.blocked": "{game}은(는) {system} 안티치트를 사용하며, 이 때문에 Linux에서 게임을 실행할 수 없습니다. 컴퓨터 문제가 아니며 우회할 방법도 없습니다. 아쉽지만 이 게임은 여기서 할 수 없습니다.",
   "anticheat.maybe": "{game}은(는) {system} 안티치트를 사용합니다. Linux에서는 게임 개발사가 허용한 경우에만 동작합니다. 게임이 실행되지 않거나 강제로 종료된다면 아마 이 때문일 겁니다. 게임의 Steam 버전이 있는지 확인해 보세요.",
 
   "misc.program": "프로그램",
   "misc.other_programs": "기타 프로그램",
+  "misc.program_files": "프로그램 파일",
 
   "desktop.name": "Windows 프로그램",
   "desktop.comment": "Windows 프로그램과 게임을 설치하고 실행합니다"

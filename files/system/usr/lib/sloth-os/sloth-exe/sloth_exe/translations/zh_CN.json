@@ -15,6 +15,7 @@
   "button.install": "安装",
   "button.open": "打开",
   "button.reinstall": "重新安装",
+  "button.browse": "其他文件…",
   "button.start": "启动",
   "button.done": "完成",
   "button.close": "关闭",
@@ -22,6 +23,9 @@
   "pick.done_title": "安装完成！",
   "pick.question_manage": "开始菜单中要放哪些？",
   "pick.question_install": "要把哪些添加到开始菜单？",
+  "pick.question_unsure": "我们无法确定是哪个文件启动该程序。请勾选要放入开始菜单的项目，或选择其他文件。",
+  "pick.browse_title": "哪个文件启动该程序？",
+  "pick.exe_filter": "程序",
 
   "status.starting": "正在启动 {name}…",
   "status.preparing_install": "正在准备安装 {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "缺少运行程序所需的组件。请在 Sloth Center 中更新系统。",
   "error.not_started": "{name} 未能启动。此程序可能无法在本系统上运行，或文件已损坏。",
   "error.nothing_installed": "找不到已安装的程序。安装可能被中断了，请重试。",
+  "info.already_running": "{name} 已在运行。你可以在任务栏中找到它的窗口。",
 
   "anticheat.blocked": "{game} 使用了 {system} 反作弊，它不允许游戏在 Linux 上运行。这不是你电脑的问题，我们也无法绕过。很遗憾，这款游戏无法在这里玩。",
   "anticheat.maybe": "{game} 使用了 {system} 反作弊。只有游戏开发者允许时，它才能在 Linux 上运行。如果游戏无法启动或把你踢出，很可能就是这个原因。可以看看这款游戏有没有 Steam 版本。",
 
   "misc.program": "程序",
   "misc.other_programs": "其他程序",
+  "misc.program_files": "程序文件",
 
   "desktop.name": "Windows 程序",
   "desktop.comment": "安装并运行 Windows 程序和游戏"

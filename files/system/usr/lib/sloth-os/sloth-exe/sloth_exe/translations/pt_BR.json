@@ -15,6 +15,7 @@
   "button.install": "Instalar",
   "button.open": "Abrir",
   "button.reinstall": "Reinstalar",
+  "button.browse": "Outro arquivo…",
   "button.start": "Iniciar",
   "button.done": "Pronto",
   "button.close": "Fechar",
@@ -22,6 +23,9 @@
   "pick.done_title": "Instalação concluída!",
   "pick.question_manage": "O que deve ficar no menu Iniciar?",
   "pick.question_install": "O que vai para o menu Iniciar?",
+  "pick.question_unsure": "Não conseguimos saber ao certo qual arquivo inicia o programa. Marque o que deve ir para o menu Iniciar ou escolha outro arquivo.",
+  "pick.browse_title": "Qual arquivo inicia o programa?",
+  "pick.exe_filter": "Programas",
 
   "status.starting": "Iniciando {name}…",
   "status.preparing_install": "Preparando a instalação de {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Falta um componente necessário para rodar programas. Atualize o sistema no Sloth Center.",
   "error.not_started": "{name} não iniciou. Talvez este programa não funcione neste sistema, ou o arquivo esteja corrompido.",
   "error.nothing_installed": "Não encontramos nenhum programa instalado. Talvez a instalação tenha sido interrompida; tente de novo.",
+  "info.already_running": "{name} já está em execução. A janela está na barra de tarefas.",
 
   "anticheat.blocked": "{game} usa o antitrapaça {system}, que não deixa o jogo rodar no Linux. Não é culpa do seu computador, e não conseguimos contornar isso. Infelizmente este jogo não pode ser jogado aqui.",
   "anticheat.maybe": "{game} usa o antitrapaça {system}. No Linux ele só funciona se os criadores do jogo permitiram. Se o jogo não abre ou te expulsa, provavelmente é por isso. Vale ver se o jogo tem versão na Steam.",
 
   "misc.program": "Programa",
   "misc.other_programs": "Outros programas",
+  "misc.program_files": "Arquivos do programa",
 
   "desktop.name": "Programas do Windows",
   "desktop.comment": "Instalar e executar programas e jogos do Windows"

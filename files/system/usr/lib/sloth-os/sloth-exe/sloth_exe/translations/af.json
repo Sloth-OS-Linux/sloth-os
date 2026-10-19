@@ -15,6 +15,7 @@
   "button.install": "Installeer",
   "button.open": "Maak oop",
   "button.reinstall": "Herinstalleer",
+  "button.browse": "Ander lêer…",
   "button.start": "Begin",
   "button.done": "Klaar",
   "button.close": "Maak toe",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installasie voltooi!",
   "pick.question_manage": "Wat moet in die beginkieslys wees?",
   "pick.question_install": "Wat moet by die beginkieslys gevoeg word?",
+  "pick.question_unsure": "Ons kon nie met sekerheid bepaal watter lêer die program begin nie. Merk wat in die Begin-kieslys moet kom, of kies ’n ander lêer.",
+  "pick.browse_title": "Watter lêer begin die program?",
+  "pick.exe_filter": "Programme",
 
   "status.starting": "{name} word begin…",
   "status.preparing_install": "Installasie van {name} word voorberei…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "'n Komponent wat nodig is om programme te laat loop, ontbreek. Dateer die stelsel op in Sloth Center.",
   "error.not_started": "{name} het nie begin nie. Hierdie program werk dalk nie op hierdie stelsel nie, of die lêer is beskadig.",
   "error.nothing_installed": "Ons het geen geïnstalleerde program gevind nie. Die installasie is dalk onderbreek; probeer weer.",
+  "info.already_running": "{name} loop reeds. Jy kry sy venster op die taakbalk.",
 
   "anticheat.blocked": "{game} gebruik die teen-kul-stelsel {system}, wat nie die speletjie op Linux laat loop nie. Dit is nie jou rekenaar se skuld nie, en ons kan dit nie omseil nie. Ongelukkig kan hierdie speletjie nie hier gespeel word nie.",
   "anticheat.maybe": "{game} gebruik die teen-kul-stelsel {system}. Op Linux werk dit net as die makers van die speletjie dit toegelaat het. As die speletjie nie begin nie of jou uitskop, is dit waarskynlik hoekom. Kyk of die speletjie 'n Steam-weergawe het.",
 
   "misc.program": "Program",
   "misc.other_programs": "Ander programme",
+  "misc.program_files": "Programlêers",
 
   "desktop.name": "Windows-programme",
   "desktop.comment": "Installeer en laat Windows-programme en -speletjies loop"

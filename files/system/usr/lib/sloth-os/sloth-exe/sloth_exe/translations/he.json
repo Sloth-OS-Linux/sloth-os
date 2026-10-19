@@ -15,6 +15,7 @@
   "button.install": "התקנה",
   "button.open": "פתיחה",
   "button.reinstall": "התקנה מחדש",
+  "button.browse": "קובץ אחר…",
   "button.start": "הפעלה",
   "button.done": "סיום",
   "button.close": "סגירה",
@@ -22,6 +23,9 @@
   "pick.done_title": "ההתקנה הושלמה!",
   "pick.question_manage": "מה יהיה בתפריט התחל?",
   "pick.question_install": "מה להוסיף לתפריט התחל?",
+  "pick.question_unsure": "לא הצלחנו לקבוע בוודאות איזה קובץ מפעיל את התוכנה. סמנו מה ייכנס לתפריט ההתחלה, או בחרו קובץ אחר.",
+  "pick.browse_title": "איזה קובץ מפעיל את התוכנה?",
+  "pick.exe_filter": "תוכנות",
 
   "status.starting": "מפעיל את {name}…",
   "status.preparing_install": "מתכונן להתקנת {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "חסר רכיב שנחוץ להפעלת תוכנות. עדכנו את המערכת ב־Sloth Center.",
   "error.not_started": "{name} לא הופעלה. ייתכן שהתוכנה לא עובדת במערכת הזו או שהקובץ פגום.",
   "error.nothing_installed": "לא מצאנו תוכנה מותקנת. ייתכן שההתקנה נקטעה; נסו שוב.",
+  "info.already_running": "{name} כבר פועלת. החלון שלה נמצא בשורת המשימות.",
 
   "anticheat.blocked": "{game} משתמש במערכת נגד רמאות {system}, שלא מאפשרת למשחק לרוץ על Linux. זו לא אשמת המחשב שלכם, ואין לנו דרך לעקוף זאת. לצערנו אי אפשר לשחק במשחק הזה כאן.",
   "anticheat.maybe": "{game} משתמש במערכת נגד רמאות {system}. ב־Linux היא עובדת רק אם יוצרי המשחק התירו זאת. אם המשחק לא נפתח או מעיף אתכם, כנראה שזו הסיבה. כדאי לבדוק אם יש למשחק גרסה ב־Steam.",
 
   "misc.program": "תוכנה",
   "misc.other_programs": "תוכנות אחרות",
+  "misc.program_files": "קובצי התוכנה",
 
   "desktop.name": "תוכנות Windows",
   "desktop.comment": "התקנה והפעלה של תוכנות ומשחקים ל־Windows"

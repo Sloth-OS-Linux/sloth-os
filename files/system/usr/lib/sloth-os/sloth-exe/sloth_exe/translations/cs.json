@@ -15,6 +15,7 @@
   "button.install": "Nainstalovat",
   "button.open": "Otevřít",
   "button.reinstall": "Přeinstalovat",
+  "button.browse": "Jiný soubor…",
   "button.start": "Spustit",
   "button.done": "Hotovo",
   "button.close": "Zavřít",
@@ -22,6 +23,9 @@
   "pick.done_title": "Instalace dokončena!",
   "pick.question_manage": "Co má být v nabídce Start?",
   "pick.question_install": "Co přidat do nabídky Start?",
+  "pick.question_unsure": "Nepodařilo se s jistotou zjistit, kterým souborem se program spouští. Zaškrtni, co má být v nabídce Start, nebo vyber jiný soubor.",
+  "pick.browse_title": "Kterým souborem se program spouští?",
+  "pick.exe_filter": "Programy",
 
   "status.starting": "Spouštění: {name}…",
   "status.preparing_install": "Příprava instalace: {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Chybí součást potřebná ke spouštění programů. Aktualizujte systém v Sloth Center.",
   "error.not_started": "{name} se nespustil. Tento program možná na tomto systému nefunguje, nebo je soubor poškozený.",
   "error.nothing_installed": "Nenašli jsme žádný nainstalovaný program. Instalace se možná přerušila; zkuste to znovu.",
+  "info.already_running": "{name} už běží. Jeho okno najdeš na hlavním panelu.",
 
   "anticheat.blocked": "{game} používá ochranu proti podvádění {system}, která nedovolí spustit hru v Linuxu. Není to chyba vašeho počítače a nemůžeme to obejít. Bohužel tuto hru zde hrát nelze.",
   "anticheat.maybe": "{game} používá ochranu proti podvádění {system}. V Linuxu funguje jen tehdy, pokud to tvůrci hry povolili. Pokud se hra nespustí nebo vás vyhodí, je to nejspíš kvůli tomu. Vyplatí se zjistit, zda hra nemá verzi na Steamu.",
 
   "misc.program": "Program",
   "misc.other_programs": "Ostatní programy",
+  "misc.program_files": "Soubory programu",
 
   "desktop.name": "Programy pro Windows",
   "desktop.comment": "Instalace a spouštění programů a her pro Windows"

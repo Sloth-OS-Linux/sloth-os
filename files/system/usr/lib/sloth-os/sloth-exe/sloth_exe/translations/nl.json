@@ -15,6 +15,7 @@
   "button.install": "Installeren",
   "button.open": "Openen",
   "button.reinstall": "Opnieuw installeren",
+  "button.browse": "Ander bestand…",
   "button.start": "Starten",
   "button.done": "Klaar",
   "button.close": "Sluiten",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installatie voltooid!",
   "pick.question_manage": "Wat moet er in het startmenu?",
   "pick.question_install": "Wat moet er in het startmenu komen?",
+  "pick.question_unsure": "We konden niet zeker vaststellen met welk bestand het programma start. Vink aan wat in het startmenu moet, of kies een ander bestand.",
+  "pick.browse_title": "Met welk bestand start het programma?",
+  "pick.exe_filter": "Programma’s",
 
   "status.starting": "{name} wordt gestart…",
   "status.preparing_install": "Installatie van {name} wordt voorbereid…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Een onderdeel dat nodig is om programma's uit te voeren ontbreekt. Werk het systeem bij in Sloth Center.",
   "error.not_started": "{name} is niet gestart. Misschien werkt dit programma niet op dit systeem, of is het bestand beschadigd.",
   "error.nothing_installed": "We hebben geen geïnstalleerd programma gevonden. Misschien is de installatie onderbroken; probeer het opnieuw.",
+  "info.already_running": "{name} draait al. Je vindt het venster in de taakbalk.",
 
   "anticheat.blocked": "{game} gebruikt de anti-cheat {system}, die het spel op Linux niet laat draaien. Het ligt niet aan je computer en we kunnen het niet omzeilen. Helaas kun je dit spel hier niet spelen.",
   "anticheat.maybe": "{game} gebruikt de anti-cheat {system}. Op Linux werkt die alleen als de makers van het spel het hebben toegestaan. Als het spel niet start of je eruit gooit, ligt het waarschijnlijk hieraan. Kijk of er een Steam-versie van het spel is.",
 
   "misc.program": "Programma",
   "misc.other_programs": "Andere programma's",
+  "misc.program_files": "Programmabestanden",
 
   "desktop.name": "Windows-programma’s",
   "desktop.comment": "Windows-programma's en -games installeren en uitvoeren"

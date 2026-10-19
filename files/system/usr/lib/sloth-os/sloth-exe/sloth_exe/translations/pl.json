@@ -15,6 +15,7 @@
   "button.install": "Zainstaluj",
   "button.open": "Otwórz",
   "button.reinstall": "Zainstaluj ponownie",
+  "button.browse": "Inny plik…",
   "button.start": "Uruchom",
   "button.done": "Gotowe",
   "button.close": "Zamknij",
@@ -22,6 +23,9 @@
   "pick.done_title": "Instalacja zakończona!",
   "pick.question_manage": "Co ma być w menu Start?",
   "pick.question_install": "Co dodać do menu Start?",
+  "pick.question_unsure": "Nie udało się ustalić na pewno, który plik uruchamia program. Zaznacz, co ma trafić do menu Start, albo wybierz inny plik.",
+  "pick.browse_title": "Który plik uruchamia program?",
+  "pick.exe_filter": "Programy",
 
   "status.starting": "Uruchamianie: {name}…",
   "status.preparing_install": "Przygotowywanie instalacji: {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Brakuje składnika potrzebnego do uruchamiania programów. Zaktualizuj system w Sloth Center.",
   "error.not_started": "{name} nie uruchomił się. Ten program może nie działać w tym systemie albo plik jest uszkodzony.",
   "error.nothing_installed": "Nie znaleziono zainstalowanego programu. Instalacja mogła zostać przerwana; spróbuj ponownie.",
+  "info.already_running": "{name} już działa. Jego okno znajdziesz na pasku zadań.",
 
   "anticheat.blocked": "{game} używa zabezpieczenia antycheatowego {system}, które nie pozwala uruchomić gry w Linuksie. To nie wina twojego komputera i nie możemy tego obejść. Niestety w tę grę nie da się tu zagrać.",
   "anticheat.maybe": "{game} używa zabezpieczenia antycheatowego {system}. W Linuksie działa ono tylko, jeśli twórcy gry na to pozwolili. Jeśli gra się nie uruchamia albo cię wyrzuca, to prawdopodobnie dlatego. Warto sprawdzić, czy gra ma wersję na Steam.",
 
   "misc.program": "Program",
   "misc.other_programs": "Inne programy",
+  "misc.program_files": "Pliki programu",
 
   "desktop.name": "Programy Windows",
   "desktop.comment": "Instalacja i uruchamianie programów i gier dla Windows"

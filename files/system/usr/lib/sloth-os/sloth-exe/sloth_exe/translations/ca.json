@@ -15,6 +15,7 @@
   "button.install": "Instal·la",
   "button.open": "Obre",
   "button.reinstall": "Reinstal·la",
+  "button.browse": "Un altre fitxer…",
   "button.start": "Inicia",
   "button.done": "Fet",
   "button.close": "Tanca",
@@ -22,6 +23,9 @@
   "pick.done_title": "Instal·lació acabada!",
   "pick.question_manage": "Què hi ha d'haver al menú Inici?",
   "pick.question_install": "Què afegim al menú Inici?",
+  "pick.question_unsure": "No hem pogut saber amb certesa quin fitxer inicia el programa. Marca què ha d’anar al menú Inici o tria un altre fitxer.",
+  "pick.browse_title": "Quin fitxer inicia el programa?",
+  "pick.exe_filter": "Programes",
 
   "status.starting": "S'està iniciant {name}…",
   "status.preparing_install": "S'està preparant la instal·lació de {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Falta un component necessari per executar programes. Actualitza el sistema a Sloth Center.",
   "error.not_started": "{name} no s'ha iniciat. Potser aquest programa no funciona en aquest sistema o el fitxer està malmès.",
   "error.nothing_installed": "No hem trobat cap programa instal·lat. Potser la instal·lació s'ha interromput; torna-ho a provar.",
+  "info.already_running": "{name} ja s’està executant. Trobaràs la finestra a la barra de tasques.",
 
   "anticheat.blocked": "{game} fa servir l'antitrampes {system}, que no deixa executar el joc a Linux. No és culpa del teu ordinador i no ho podem evitar. Malauradament, aquest joc no es pot jugar aquí.",
   "anticheat.maybe": "{game} fa servir l'antitrampes {system}. A Linux només funciona si els creadors del joc ho han permès. Si el joc no s'inicia o et fa fora, probablement és per això. Val la pena mirar si el joc té versió a Steam.",
 
   "misc.program": "Programa",
   "misc.other_programs": "Altres programes",
+  "misc.program_files": "Fitxers del programa",
 
   "desktop.name": "Programes Windows",
   "desktop.comment": "Instal·lar i executar programes i jocs de Windows"

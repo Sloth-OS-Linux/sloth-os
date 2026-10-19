@@ -15,6 +15,7 @@
   "button.install": "インストール",
   "button.open": "開く",
   "button.reinstall": "再インストール",
+  "button.browse": "別のファイル…",
   "button.start": "起動",
   "button.done": "完了",
   "button.close": "閉じる",
@@ -22,6 +23,9 @@
   "pick.done_title": "インストール完了！",
   "pick.question_manage": "スタートメニューに何を表示しますか？",
   "pick.question_install": "スタートメニューに何を追加しますか？",
+  "pick.question_unsure": "どのファイルでプログラムが起動するのか特定できませんでした。スタートメニューに入れるものにチェックを付けるか、別のファイルを選んでください。",
+  "pick.browse_title": "どのファイルでプログラムを起動しますか？",
+  "pick.exe_filter": "プログラム",
 
   "status.starting": "{name} を起動しています…",
   "status.preparing_install": "{name} のインストールを準備しています…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "プログラムの実行に必要なコンポーネントがありません。Sloth Center でシステムを更新してください。",
   "error.not_started": "{name} を起動できませんでした。このプログラムがこのシステムで動かないか、ファイルが壊れている可能性があります。",
   "error.nothing_installed": "インストールされたプログラムが見つかりません。インストールが中断された可能性があります。もう一度お試しください。",
+  "info.already_running": "{name} はすでに起動しています。ウィンドウはタスクバーにあります。",
 
   "anticheat.blocked": "{game} は {system} というチート対策を使っており、Linux ではゲームを起動できません。お使いのパソコンのせいではなく、回避することもできません。残念ながら、このゲームはここでは遊べません。",
   "anticheat.maybe": "{game} は {system} というチート対策を使っています。Linux では、ゲームの開発元が許可している場合にしか動きません。ゲームが起動しない、または強制終了される場合は、これが原因の可能性があります。Steam 版があるか確認してみてください。",
 
   "misc.program": "プログラム",
   "misc.other_programs": "その他のプログラム",
+  "misc.program_files": "プログラムのファイル",
 
   "desktop.name": "Windows プログラム",
   "desktop.comment": "Windows のプログラムやゲームをインストールして実行します"

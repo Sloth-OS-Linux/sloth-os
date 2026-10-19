@@ -15,6 +15,7 @@
   "button.install": "Kur",
   "button.open": "Aç",
   "button.reinstall": "Yeniden yükle",
+  "button.browse": "Başka dosya…",
   "button.start": "Başlat",
   "button.done": "Tamam",
   "button.close": "Kapat",
@@ -22,6 +23,9 @@
   "pick.done_title": "Kurulum tamamlandı!",
   "pick.question_manage": "Başlat menüsünde ne olsun?",
   "pick.question_install": "Başlat menüsüne ne eklensin?",
+  "pick.question_unsure": "Programı hangi dosyanın başlattığını kesin olarak belirleyemedik. Başlat menüsüne ne ekleneceğini işaretle ya da başka bir dosya seç.",
+  "pick.browse_title": "Programı hangi dosya başlatıyor?",
+  "pick.exe_filter": "Programlar",
 
   "status.starting": "{name} başlatılıyor…",
   "status.preparing_install": "{name} kurulumu hazırlanıyor…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Programları çalıştırmak için gereken bir bileşen eksik. Sistemi Sloth Center'dan güncelleyin.",
   "error.not_started": "{name} başlamadı. Bu program bu sistemde çalışmıyor olabilir ya da dosya bozuk olabilir.",
   "error.nothing_installed": "Kurulu bir program bulunamadı. Kurulum yarıda kesilmiş olabilir; yeniden deneyin.",
+  "info.already_running": "{name} zaten çalışıyor. Penceresini görev çubuğunda bulabilirsin.",
 
   "anticheat.blocked": "{game}, oyunun Linux'ta çalışmasına izin vermeyen {system} hile korumasını kullanıyor. Bu sizin bilgisayarınızdan kaynaklanmıyor ve bunu aşamayız. Ne yazık ki bu oyun burada oynanamaz.",
   "anticheat.maybe": "{game}, {system} hile korumasını kullanıyor. Bu koruma Linux'ta yalnızca oyunun yapımcıları izin verdiyse çalışır. Oyun açılmıyor ya da sizi atıyorsa sebebi büyük olasılıkla budur. Oyunun Steam sürümü olup olmadığına bakmaya değer.",
 
   "misc.program": "Program",
   "misc.other_programs": "Diğer programlar",
+  "misc.program_files": "Program dosyaları",
 
   "desktop.name": "Windows programları",
   "desktop.comment": "Windows programlarını ve oyunlarını yükleme ve çalıştırma"

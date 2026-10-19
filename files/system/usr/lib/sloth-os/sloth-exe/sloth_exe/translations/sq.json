@@ -15,6 +15,7 @@
   "button.install": "Instalo",
   "button.open": "Hap",
   "button.reinstall": "Riinstalo",
+  "button.browse": "Skedar tjetër…",
   "button.start": "Nis",
   "button.done": "U krye",
   "button.close": "Mbyll",
@@ -22,6 +23,9 @@
   "pick.done_title": "Instalimi përfundoi!",
   "pick.question_manage": "Çfarë të ketë menuja Start?",
   "pick.question_install": "Çfarë të shtojmë te menuja Start?",
+  "pick.question_unsure": "Nuk arritëm të përcaktojmë me siguri cili skedar e nis programin. Shëno çfarë duhet të shkojë në menynë Start ose zgjidh një skedar tjetër.",
+  "pick.browse_title": "Cili skedar e nis programin?",
+  "pick.exe_filter": "Programe",
 
   "status.starting": "Po niset {name}…",
   "status.preparing_install": "Po përgatitet instalimi i {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Mungon një përbërës i nevojshëm për të nisur programe. Përditësoni sistemin te Sloth Center.",
   "error.not_started": "{name} nuk u nis. Ndoshta ky program nuk punon në këtë sistem ose skedari është i dëmtuar.",
   "error.nothing_installed": "Nuk gjetëm program të instaluar. Instalimi mund të jetë ndërprerë; provoni sërish.",
+  "info.already_running": "{name} po punon tashmë. Dritaren e tij e gjen në shiritin e detyrave.",
 
   "anticheat.blocked": "{game} përdor mbrojtjen kundër mashtrimit {system}, që nuk e lejon lojën të punojë në Linux. Nuk varet nga kompjuteri juaj dhe nuk mund ta anashkalojmë. Fatkeqësisht kjo lojë nuk mund të luhet këtu.",
   "anticheat.maybe": "{game} përdor mbrojtjen kundër mashtrimit {system}. Në Linux punon vetëm nëse e kanë lejuar krijuesit e lojës. Nëse loja nuk niset ose ju nxjerr jashtë, ka gjasa që arsyeja të jetë kjo. Ia vlen të shihni nëse loja ka version në Steam.",
 
   "misc.program": "Program",
   "misc.other_programs": "Programe të tjera",
+  "misc.program_files": "Skedarët e programit",
 
   "desktop.name": "Programe Windows",
   "desktop.comment": "Instalimi dhe ekzekutimi i programeve dhe lojërave Windows"

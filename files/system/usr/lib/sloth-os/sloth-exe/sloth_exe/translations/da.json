@@ -15,6 +15,7 @@
   "button.install": "Installér",
   "button.open": "Åbn",
   "button.reinstall": "Geninstallér",
+  "button.browse": "Anden fil…",
   "button.start": "Start",
   "button.done": "Færdig",
   "button.close": "Luk",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installationen er færdig!",
   "pick.question_manage": "Hvad skal være i startmenuen?",
   "pick.question_install": "Hvad skal tilføjes til startmenuen?",
+  "pick.question_unsure": "Vi kunne ikke sikkert afgøre, hvilken fil der starter programmet. Sæt flueben ved det, der skal i startmenuen, eller vælg en anden fil.",
+  "pick.browse_title": "Hvilken fil starter programmet?",
+  "pick.exe_filter": "Programmer",
 
   "status.starting": "Starter {name}…",
   "status.preparing_install": "Forbereder installation af {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "En komponent, der skal bruges til at køre programmer, mangler. Opdatér systemet i Sloth Center.",
   "error.not_started": "{name} startede ikke. Programmet virker måske ikke på dette system, eller filen er beskadiget.",
   "error.nothing_installed": "Vi fandt intet installeret program. Installationen blev måske afbrudt; prøv igen.",
+  "info.already_running": "{name} kører allerede. Du finder vinduet på proceslinjen.",
 
   "anticheat.blocked": "{game} bruger anti-snyd-systemet {system}, som ikke lader spillet køre på Linux. Det skyldes ikke din computer, og vi kan ikke komme uden om det. Desværre kan dette spil ikke spilles her.",
   "anticheat.maybe": "{game} bruger anti-snyd-systemet {system}. På Linux virker det kun, hvis spillets udviklere har tilladt det. Hvis spillet ikke starter eller smider dig ud, er det sandsynligvis derfor. Tjek, om spillet findes på Steam.",
 
   "misc.program": "Program",
   "misc.other_programs": "Andre programmer",
+  "misc.program_files": "Programfiler",
 
   "desktop.name": "Windows-programmer",
   "desktop.comment": "Installer og kør Windows-programmer og -spil"

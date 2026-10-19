@@ -15,6 +15,7 @@
   "button.install": "Installer",
   "button.open": "Ouvrir",
   "button.reinstall": "Réinstaller",
+  "button.browse": "Autre fichier…",
   "button.start": "Lancer",
   "button.done": "Terminé",
   "button.close": "Fermer",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installation terminée !",
   "pick.question_manage": "Que mettre dans le menu Démarrer ?",
   "pick.question_install": "Qu'ajouter au menu Démarrer ?",
+  "pick.question_unsure": "Nous n’avons pas pu déterminer avec certitude quel fichier lance le programme. Coche ce qui doit aller dans le menu Démarrer, ou choisis un autre fichier.",
+  "pick.browse_title": "Quel fichier lance le programme ?",
+  "pick.exe_filter": "Programmes",
 
   "status.starting": "Lancement de {name}…",
   "status.preparing_install": "Préparation de l'installation de {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Un composant nécessaire pour lancer les programmes est manquant. Mettez le système à jour dans Sloth Center.",
   "error.not_started": "{name} n'a pas démarré. Ce programme ne fonctionne peut-être pas sur ce système, ou le fichier est endommagé.",
   "error.nothing_installed": "Aucun programme installé n'a été trouvé. L'installation a peut-être été interrompue ; réessayez.",
+  "info.already_running": "{name} est déjà en cours d’exécution. Tu trouveras sa fenêtre dans la barre des tâches.",
 
   "anticheat.blocked": "{game} utilise l'anti-triche {system}, qui empêche le jeu de fonctionner sous Linux. Ce n'est pas la faute de votre ordinateur et nous ne pouvons pas le contourner. Malheureusement, ce jeu ne peut pas être joué ici.",
   "anticheat.maybe": "{game} utilise l'anti-triche {system}. Sous Linux, il ne fonctionne que si les créateurs du jeu l'ont autorisé. Si le jeu ne démarre pas ou vous expulse, c'est probablement pour cela. Vérifiez s'il existe une version Steam du jeu.",
 
   "misc.program": "Programme",
   "misc.other_programs": "Autres programmes",
+  "misc.program_files": "Fichiers du programme",
 
   "desktop.name": "Programmes Windows",
   "desktop.comment": "Installer et lancer des programmes et des jeux Windows"

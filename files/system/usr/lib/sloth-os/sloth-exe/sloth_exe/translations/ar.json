@@ -15,6 +15,7 @@
   "button.install": "تثبيت",
   "button.open": "فتح",
   "button.reinstall": "إعادة التثبيت",
+  "button.browse": "ملف آخر…",
   "button.start": "تشغيل",
   "button.done": "تم",
   "button.close": "إغلاق",
@@ -22,6 +23,9 @@
   "pick.done_title": "اكتمل التثبيت!",
   "pick.question_manage": "ماذا تريد في قائمة ابدأ؟",
   "pick.question_install": "ماذا نضيف إلى قائمة ابدأ؟",
+  "pick.question_unsure": "لم نتمكن من معرفة الملف الذي يشغّل البرنامج بشكل مؤكد. حدّد ما يجب إضافته إلى قائمة ابدأ، أو اختر ملفًا آخر.",
+  "pick.browse_title": "ما الملف الذي يشغّل البرنامج؟",
+  "pick.exe_filter": "البرامج",
 
   "status.starting": "جارٍ تشغيل {name}…",
   "status.preparing_install": "جارٍ التحضير لتثبيت {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "ينقص مكوّن لازم لتشغيل البرامج. حدّث النظام من Sloth Center.",
   "error.not_started": "لم يبدأ {name}. ربما لا يعمل هذا البرنامج على هذا النظام، أو أن الملف تالف.",
   "error.nothing_installed": "لم نعثر على برنامج مثبّت. ربما انقطع التثبيت؛ حاول مرة أخرى.",
+  "info.already_running": "{name} يعمل بالفعل. ستجد نافذته في شريط المهام.",
 
   "anticheat.blocked": "تستخدم {game} نظام مكافحة الغش {system} الذي لا يسمح بتشغيل اللعبة على لينكس. هذا ليس خطأ حاسوبك، ولا يمكننا تجاوزه. للأسف لا يمكن لعب هذه اللعبة هنا.",
   "anticheat.maybe": "تستخدم {game} نظام مكافحة الغش {system}. يعمل على لينكس فقط إذا سمح بذلك صانعو اللعبة. إن لم تبدأ اللعبة أو طردتك، فهذا على الأرجح السبب. يستحسن التحقق من وجود نسخة من اللعبة على Steam.",
 
   "misc.program": "برنامج",
   "misc.other_programs": "برامج أخرى",
+  "misc.program_files": "ملفات البرنامج",
 
   "desktop.name": "برامج Windows",
   "desktop.comment": "تثبيت برامج وألعاب Windows وتشغيلها"

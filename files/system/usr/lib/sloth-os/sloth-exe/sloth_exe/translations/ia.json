@@ -15,6 +15,7 @@
   "button.install": "Installar",
   "button.open": "Aperir",
   "button.reinstall": "Reinstallar",
+  "button.browse": "Altere file…",
   "button.start": "Lancear",
   "button.done": "Facite",
   "button.close": "Clauder",
@@ -22,6 +23,9 @@
   "pick.done_title": "Installation completate!",
   "pick.question_manage": "Que debe esser in le menu Initio?",
   "pick.question_install": "Que adder al menu Initio?",
+  "pick.question_unsure": "Nos non poteva determinar con certitude qual file lancea le programma. Marca lo que debe ir in le menu Initio, o selige un altere file.",
+  "pick.browse_title": "Qual file lancea le programma?",
+  "pick.exe_filter": "Programmas",
 
   "status.starting": "Lanceamento de {name}…",
   "status.preparing_install": "Preparation del installation de {name}…",
@@ -37,12 +41,14 @@
   "error.runtime_missing": "Un componente necessari pro executar programmas manca. Actualisa le systema in Sloth Center.",
   "error.not_started": "{name} non se lanceava. Forsan iste programma non functiona in iste systema, o le file es damnificate.",
   "error.nothing_installed": "Nos non trovava alcun programma installate. Forsan le installation esseva interrumpite; reproba.",
+  "info.already_running": "{name} jam es in execution. Tu trova su fenestra in le barra de cargas.",
 
   "anticheat.blocked": "{game} usa le systema anti-fraude {system}, que non permitte al joco functionar sur Linux. Isto non depende de tu computator e nos non pote evitar lo. Regrettabilemente iste joco non pote esser jocate hic.",
   "anticheat.maybe": "{game} usa le systema anti-fraude {system}. Sur Linux illo functiona solmente si le creatores del joco lo ha permittite. Si le joco non se lancea o te expelle, isto es probabilemente le ration. Il vale le pena verificar si le joco ha un version Steam.",
 
   "misc.program": "Programma",
   "misc.other_programs": "Altere programmas",
+  "misc.program_files": "Files del programma",
 
   "desktop.name": "Programmas Windows",
   "desktop.comment": "Installar e executar programmas e jocos de Windows"
