@@ -54,8 +54,8 @@ nem volt benne, lásd fent).
 ### Következő teszt (új ISO a 2026-10-19-i változások CI-buildje után)
 - [ ] **Üdvözlő:** 4–5 app egyszerre: sorban, egyesével települnek; a felirat csak „X telepítése…”, alatta
   „x MB / y MB”; nincs dupla sor; a végén Újraindítás, utána az ikonok a tálcán; Újraindítás nélkül is jók-e az ikonok
-- [ ] **Steam:** első indításkor jön-e az értesítés („A Steam első indítása”, „x MB letöltve”), eltűnik-e, amikor a
-  Steam megnyílik; utána a `bootstrap_log.txt`
+- [x] **Steam:** első indításkor jön-e az értesítés („A Steam első indítása”, „x MB letöltve”), eltűnik-e, amikor a
+  Steam megnyílik; utána a `bootstrap_log.txt`. 2026-10-19: működik, jól írja ki
 - [ ] **Battle.net:** telepítés, indítás a Start menüből; nyitva marad-e; bejelentkezés, egy játék telepítése és
   indítása; a Start menüben csak egy bejegyzés
 - [ ] **.exe kezelő:** ugyanazt a telepítőt még egyszer megnyitva „már telepítve van”, a Megnyitás elindítja
@@ -82,7 +82,8 @@ nem volt benne, lásd fent).
   - [ ] Rendszerinformáció: „Sloth OS 1.0 (Fedora Atomic 44)” látszik? **Nem: „Sloth OS 44”.** A CI-build
     os-release-e jó (VERSION="1.0 (Fedora Atomic 44)"), tehát vagy a KDE nem a VERSION-t mutatja
     (`kcm-about-distrorc`), vagy máshol látszott. Megkérdezni, hol pontosan
-  - [x] Üdvözlő, több app egyszerre: sorban, egyesével települnek? Igen; a Vivaldi is feltelepült
+  - [x] Üdvözlő, több app egyszerre: sorban, egyesével települnek? Igen; a Vivaldi is feltelepült. A végén az
+    Újraindítás gomb működik
   - [x] Rendszerfrissítés: volt már? A Frissítések oldalon minden rendben volt? Igen, rendben
   - [ ] Battle.net újra, a háttér-előkészítés után: előjön-e a saját telepítője (lásd lent a hibáknál); a
     bootloop miatt (lent) még nem jutott el idáig
@@ -187,7 +188,8 @@ Talált hibák (egyesével javítjuk):
   telepített gépen, nem az első indításnál). A lakatos jelszókérő megjelenik, a jelszó beírása után újra a gép
   (BIOS) logója jön, majd megint a jelszókérő. A felhasználó újratelepíti. Kérdések: a GRUB menüben (indításkor
   Esc) az előző bejegyzéssel elindul-e; volt-e előtte rendszerfrissítés vagy NVIDIA-váltás (újraindítás után
-  érvényes változás); megjelenik-e magától a GRUB menü a sikertelen indítás után
+  érvényes változás); megjelenik-e magától a GRUB menü a sikertelen indítás után. A felhasználó szerint előtte
+  volt egy „újraindítás / bejelentkezés után érvényes” változás, nem emlékszik, melyik. Újratelepítés friss ISO-ról
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
   megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet)
 - [ ] **Dolphin, Eszközök: a névtelen, 128 TB-os meghajtó a 2026-10-19-i ISO-n is megmaradt** (az udev-szabály
