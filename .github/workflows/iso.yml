@@ -12,6 +12,10 @@ on:
         type: choice
         options: [sloth-os, sloth-os-nvidia]
         default: sloth-os
+      squash:
+        description: "Rétegek összevonása (kisebb ISO; a telepített gép első frissítése a teljes image-et tölti le)"
+        type: boolean
+        default: false
 
 env:
   # A Titanoboa ISO-készítő rögzített commitja (frissítéskor: a SHA cseréje a tools/build-iso.sh-ban is)
@@ -44,13 +48,22 @@ jobs:
           sudo podman build --security-opt label=disable --authfile /tmp/auth.json \
             --build-arg BASE_IMAGE="$image" -t localhost/sloth-os-live:latest iso/
           # A telepítendő image kicsomagolt konténertárolója külön mappába (iso/payload.sh); az ISO
-          # készítésekor az élő rendszer /var/lib/containers/storage helyére csatoljuk (nincs podman commit)
+          # készítésekor az élő rendszer /var/lib/containers/storage helyére csatoljuk (nincs podman commit).
+          # Nem töltjük le még egyszer: a kicsomagoló az élő rendszer építésekor letöltött tárolóból olvas.
+          src="$image"
+          if [ "${{ inputs.squash }}" = "true" ]; then
+            mkdir -p /tmp/squash && printf 'FROM %s\n' "$image" > /tmp/squash/Containerfile
+            sudo podman build --pull=never --squash-all --network none --security-opt label=disable \
+              -t localhost/sloth-os-payload:latest -f /tmp/squash/Containerfile /tmp/squash
+            src="localhost/sloth-os-payload:latest"
+          fi
+          driver="$(sudo podman info --format '{{.Store.GraphDriverName}}')"
           sudo mkdir -p /tmp/payload
-          sudo podman run --rm --privileged \
-            -v /tmp/auth.json:/run/secrets/registry-auth:ro \
+          sudo podman run --rm --privileged --network none \
             -v "$PWD/iso/payload.sh":/payload.sh:ro \
+            -v /var/lib/containers/storage:/outer/storage \
             -v /tmp/payload:/var/lib/containers/storage \
-            localhost/sloth-os-live:latest bash /payload.sh "$image" "docker://$image"
+            localhost/sloth-os-live:latest bash /payload.sh "$image" "containers-storage:[$driver@/outer/storage+/run/outer]$src"
           sudo rm -f /tmp/auth.json
 
       - name: Build ISO (Titanoboa)

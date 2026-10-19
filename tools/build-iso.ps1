@@ -3,15 +3,19 @@
 # Podman gép WSL-disztribúciójában (nem podman machine ssh-n át: az nagy terhelésnél elakadt, és így a
 # telepítendő image-et sem kell kétszer letölteni). A CI megfelelője: .github/workflows/iso.yml
 #
-#   powershell -File tools/build-iso.ps1 [-Image ghcr.io/bathorizsolt/sloth-os:latest] [-Output out] [-Machine podman-machine-default]
+#   powershell -File tools/build-iso.ps1 [-Image ghcr.io/bathorizsolt/sloth-os:latest] [-Output out] [-Machine podman-machine-default] [-Squash]
+#
+# -Squash: a telepítendő image rétegeinek összevonása (kisebb ISO; a telepített gép első frissítése a teljes image-et
+# letölti). Kiadáshoz; részletek a tools/build-iso.sh elején (SLOTH_SQUASH).
 #
 # A privát registry-hez a GitHub CLI tokenje kell "read:packages" joggal
 # (egyszer: gh auth refresh -h github.com -s read:packages).
-# Hely: a Podman gép virtuális lemezén kb. 45 GB kell a build idejére (a C: meghajtón).
+# Hely: a Podman gép virtuális lemezén kb. 30 GB kell a build idejére (a C: meghajtón).
 param(
     [string]$Image = "ghcr.io/bathorizsolt/sloth-os:latest",
     [string]$Output = "out",
-    [string]$Machine = "podman-machine-default"
+    [string]$Machine = "podman-machine-default",
+    [switch]$Squash
 )
 # A wsl.exe a haladást a hibakimenetre is írhatja; a Windows PowerShell 5.1 ezt hibának venné.
 $ErrorActionPreference = "Continue"
@@ -39,7 +43,7 @@ Set-Content -Path $authFile -Encoding ascii -Value "{`"auths`":{`"ghcr.io`":{`"a
 try {
     podman machine start $Machine 2>$null | Out-Null  # ha már fut, nem baj
     # A build-iso.sh rendszergazdaként fut a gépen; a munkamappa a gép saját (gyors) lemezén van
-    wsl.exe -d $Machine -u root -- env "SLOTH_REGISTRY_AUTH=$(ConvertTo-MachinePath $authFile)" `
+    wsl.exe -d $Machine -u root -- env "SLOTH_REGISTRY_AUTH=$(ConvertTo-MachinePath $authFile)" "SLOTH_SQUASH=$(if ($Squash) { 1 } else { 0 })" `
         bash "$(ConvertTo-MachinePath (Join-Path $repo 'tools/build-iso.sh'))" $Image "$(ConvertTo-MachinePath $outDir)"
     if ($LASTEXITCODE) { throw "Az ISO készítése nem sikerült (a részletek fent)." }
     $final = Join-Path $outDir "sloth-os.iso"

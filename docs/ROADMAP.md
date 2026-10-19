@@ -248,7 +248,7 @@ Talált hibák (egyesével javítjuk):
 - [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
 - [x] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis (2026-10-19, lásd lent)
 - [ ] Haladó beállítások folyamatos bővítése – 3. fázis
-- [ ] ISO-méret: a rétegek összevonása, helytakarékos ISO-build – 4. fázis
+- [x] ISO-méret: a rétegek összevonása, helytakarékos ISO-build – 4. fázis (2026-10-19, lásd a 4. fázisnál)
 - [ ] A Vivaldi nem települt fel az Üdvözlőből (oka ismeretlen; a teszten figyelni). Lehetséges ok: a fenti
   automatikus app-frissítő egyszerre futott az Üdvözlővel (most kimarad, amíg az Üdvözlő fut)
 
@@ -580,9 +580,11 @@ közvetlenül hívja; a GitHub-hívások élesben kipróbálva):
   - [x] `tools/build-iso.ps1`: a `build-iso.sh`-t futtatja közvetlenül a Podman gép WSL-disztribúciójában (eddig
     kétszer töltötte le az image-et, és a Windows → ssh → Podman út nagy terhelésnél elakadt); a WSL-hez
     cgroupfs és cgroup nélküli konténerek kellenek (a `build-iso.sh` magától állítja)
-  - [ ] Helytakarékos ISO-build (most a csúcs kb. 36–38 GB, mert a telepítendő rendszer háromszor van meg): az
-    átmeneti OCI-másolat kihagyása (a kicsomagolás közvetlenül a letöltött image-ből), és a kicsomagolt példány
-    kemény hivatkozásokkal (hardlink) a letöltött image fájljaira. Így kb. 25 GB is elég lenne
+  - [x] Helytakarékos ISO-build (2026-10-19; a teljes ISO-buildet még lefuttatni): az átmeneti OCI-másolat
+    (kb. 12 GB) kimarad, a kicsomagoló közvetlenül a letöltött tárolóból olvas (becsatolva,
+    `containers-storage:[overlay@…]` forrásként; WSL-es Podmanben kis image-en kipróbálva). A csúcs így kb. 25–28 GB.
+    A CI sem tölti le kétszer az image-et. A kicsomagolt példány hardlinkelése a letöltött rétegekre kimaradt
+    (a containers/storage saját fájljai, túl kockázatos)
   - [ ] ISO méret (2026-10-15: 6,9 GB, ebből a squashfs 6,2 GB; zstd-19 marad). A következő ISO-n megnézni:
     - [x] Csak a Sloth OS saját háttérképei maradnak, a BlueBuild nushell-bővítményei kikerülnek
       (`files/scripts/slim-image.sh`; a telepített rendszer is kisebb lesz)
@@ -590,8 +592,10 @@ közvetlenül hívja; a GitHub-hívások élesben kipróbálva):
       a QtWebEngine már benne van az image-ben, így kb. 14 MB a Firefox Flatpak kb. 0,5 GB-ja helyett.
       Csak az élő rendszerbe kerül (`iso/build.sh`); internet nélküli telepítésnél nem másolunk böngészőt,
       a felhasználó az Üdvözlőben választ (most 9 böngésző)
-    - [ ] Ha kész a rendszer: a telepítendő image rétegeinek összevonása egy rétegbe (a lecserélt/törölt fájlok,
-      pl. a régi kernel, kiesnek; becslés: 0,5–1 GB). Ára: az első frissítés a teljes image-et tölti le
+    - [x] A telepítendő image rétegeinek összevonása egy rétegbe, kapcsolóval (2026-10-19): `SLOTH_SQUASH=1`
+      (`tools/build-iso.sh`), `-Squash` (`tools/build-iso.ps1`), `squash` (CI). A lecserélt / törölt fájlok (pl. a
+      régi kernel) kiesnek; becslés: 0,5–1 GB. Ára: az első frissítés a teljes image-et tölti le, ezért alapból ki;
+      kiadáshoz. A következő ISO-n megmérni, mennyit hoz
   - [x] Windows mellé telepítés (2026-10-15; valódi Windowszal még tesztelni): a lemezválasztóban Windowsos
     lemeznél „Windows mellé” (alapból) vagy „az egész lemez törlése”, méretcsúszkával. A segéd felméri a lemezt
     (`sloth-install-helper probe`): UEFI és GPT kell; a meglévő szabad hely, ha elég, különben a legnagyobb

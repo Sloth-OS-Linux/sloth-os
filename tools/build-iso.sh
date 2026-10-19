@@ -9,7 +9,10 @@
 # grafikus jelszókérővel, ha a SUDO_ASKPASS be van állítva).
 #
 # Környezeti változók:
-#   SLOTH_BUILD_DIR   munkamappa és a Podman tárolója (alapból /var/tmp/sloth-iso-build; kb. 40 GB kell)
+#   SLOTH_BUILD_DIR   munkamappa és a Podman tárolója (alapból /var/tmp/sloth-iso-build; kb. 25–28 GB kell)
+#   SLOTH_SQUASH=1    a telepítendő image rétegeinek összevonása egybe: a lecserélt / törölt fájlok (pl. a
+#                     régi kernel) kiesnek, kisebb az ISO (becslés: 0,5–1 GB). Ára: a telepített gép első
+#                     frissítése a teljes image-et letölti (a rétegei nem egyeznek a registryével). Kiadáshoz.
 #   http(s)_proxy     a letöltésekhez; a konténerek is ezt használják (a gép hálózatán futnak)
 set -euo pipefail
 
@@ -28,7 +31,7 @@ if [[ $EUID -ne 0 ]]; then
     auth="$(mktemp)"
     trap 'rm -f "$auth"' EXIT
     printf '{"auths":{"ghcr.io":{"auth":"%s"}}}\n' "$(printf '%s:%s' "$user" "$(gh auth token)" | base64 -w0)" > "$auth"
-    sudo_args=(--preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY,no_proxy,NO_PROXY,SLOTH_BUILD_DIR)
+    sudo_args=(--preserve-env=http_proxy,https_proxy,HTTP_PROXY,HTTPS_PROXY,no_proxy,NO_PROXY,SLOTH_BUILD_DIR,SLOTH_SQUASH)
     [[ -n "${SUDO_ASKPASS:-}" ]] && sudo_args+=(-A)
     sudo "${sudo_args[@]}" SLOTH_REGISTRY_AUTH="$auth" SLOTH_OWNER="$(id -u):$(id -g)" \
         "${BASH_SOURCE[0]}" "$IMAGE" "$OUT_DIR"
@@ -62,17 +65,27 @@ pm build --pull=never --network host --security-opt label=disable \
 # A telepítendő image kicsomagolt konténertárolója egy külön mappába kerül (iso/payload.sh), amit az ISO
 # készítésekor az élő rendszer /var/lib/containers/storage helyére csatolunk. Nem kell podman commit
 # (az a lassú gépen egymaga másfél óra volt), és a fájlok változatlanul kerülnek az ISO-ba.
-# A telepítendő image-et nem töltjük le újra: a már letöltöttet adjuk át OCI-mappaként.
+# A telepítendő image-et nem töltjük le újra, és átmeneti OCI-másolat sincs (az még kb. 12 GB volt): a
+# kicsomagoló közvetlenül a már letöltött tárolóból olvas (becsatolva, containers-storage forrásként).
+payload_src="$IMAGE"
+if [[ "${SLOTH_SQUASH:-0}" == 1 ]]; then
+    echo "== A telepítendő image rétegeinek összevonása"
+    mkdir -p "$WORK/squash"
+    printf 'FROM %s\n' "$IMAGE" > "$WORK/squash/Containerfile"
+    pm build --pull=never --squash-all --network none --security-opt label=disable \
+        -t localhost/sloth-os-payload:latest -f "$WORK/squash/Containerfile" "$WORK/squash"
+    payload_src="localhost/sloth-os-payload:latest"
+fi
 echo "== Telepítendő image kicsomagolása"
 rm -rf "$WORK/payload-oci" "$WORK/payload"
 mkdir -p "$WORK/payload"
-pm save --format oci-dir -o "$WORK/payload-oci" "$IMAGE"
+driver="$(pm info --format '{{.Store.GraphDriverName}}')"
 pm run --rm "${run_opts[@]}" --privileged --network none \
     -v "$REPO/iso/payload.sh":/payload.sh:ro \
-    -v "$WORK/payload-oci":/payload-oci:ro \
+    -v "$WORK/storage":/outer/storage \
     -v "$WORK/payload":/var/lib/containers/storage \
-    "$LIVE_IMAGE" bash /payload.sh "$IMAGE" oci:/payload-oci
-rm -rf "$WORK/payload-oci"
+    "$LIVE_IMAGE" bash /payload.sh "$IMAGE" "containers-storage:[$driver@/outer/storage+/run/outer]$payload_src"
+[[ "$payload_src" == "$IMAGE" ]] || pm rmi "$payload_src"
 
 echo "== ISO készítése (Titanoboa ${TITANOBOA_COMMIT:0:7})"
 curl -fsSL -o "$WORK/build_iso.sh" \

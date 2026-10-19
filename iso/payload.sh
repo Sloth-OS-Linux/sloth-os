@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 # A telepítendő Sloth OS image kicsomagolt konténertárolója az ISO-hoz.
-#   payload.sh <image neve> <skopeo forrás, pl. oci:/payload-oci vagy docker://…>
+#   payload.sh <image neve> <skopeo forrás: docker://…, oci:…, vagy containers-storage:[overlay@/outer/storage+…]…>
 # Az élő image-ből indított, eldobható konténerben fut (podman run --rm --privileged); a tároló egy
 # kívülről becsatolt mappába kerül (/var/lib/containers/storage), amit az ISO készítésekor az élő
 # rendszer ugyanezen helyére csatolunk (tools/build-iso.sh). Így nem kell podman commit, és a
