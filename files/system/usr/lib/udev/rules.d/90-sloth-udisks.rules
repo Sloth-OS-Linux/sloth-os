@@ -1,0 +1,12 @@
+# A Dolphin (és minden UDisks-alapú program) eszközlistájának rendbetétele. Csak a megjelenítést
+# érinti: a csatolásokhoz, partíciókhoz és fájlrendszerekhez nem nyúl.
+
+# A rendszer csak olvasható képe (composefs, Fedora 42 óta). Az ostree egy loop eszközön csatolja
+# (a Fedora 44 libmountja szándékosan nem a fájlból csatolja az EROFS-t). A Dolphin eddig névtelen
+# meghajtóként mutatta, értelmetlen mérettel (a „Tulajdonságok” a /proc/kcore 128 TiB-os virtuális
+# méretét is beleszámolta). A valódi lemez és a rendszerpartíció továbbra is látszik.
+SUBSYSTEM=="block", KERNEL=="loop*", ATTR{loop/backing_file}=="*/.ostree.cfs", ENV{UDISKS_IGNORE}="1"
+SUBSYSTEM=="block", KERNEL=="loop*", ENV{ID_FS_TYPE}=="erofs", ENV{UDISKS_IGNORE}="1"
+
+# A rendszerpartíció („root” címkéjű Btrfs, a Sloth OS telepítője így hozza létre) olvasható néven
+SUBSYSTEM=="block", ENV{ID_FS_TYPE}=="btrfs", ENV{ID_FS_LABEL}=="root", ENV{UDISKS_NAME}="Sloth OS"

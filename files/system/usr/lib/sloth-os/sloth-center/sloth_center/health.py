@@ -173,6 +173,15 @@ def run_all():
     return sorted(results, key=lambda r: order[r["state"]])
 
 
+# A mentett napló elejére: ezekből látszik, melyik változat fut, és mi van a lemezeken
+SUMMARY = [
+    ("Rendszer", ["cat", "/etc/os-release"]),
+    ("Változat", ["rpm-ostree", "status", "--booted"]),
+    ("Lemezek", ["lsblk", "-o", "NAME,TYPE,SIZE,FSTYPE,LABEL,MOUNTPOINTS"]),
+    ("Csatolások", ["findmnt", "-o", "TARGET,SOURCE,FSTYPE,SIZE,AVAIL"]),
+    ("Loop eszközök", ["losetup", "--list"]),
+]
+
 class HealthController(QObject):
     changed = Signal()
     _ready = Signal(object)
@@ -224,6 +233,17 @@ class HealthController(QObject):
         path = url[7:] if url.startswith("file://") else url
         try:
             with open(path, "w", encoding="utf-8") as f:
+                # Előbb a rendszer összefoglalója (verzió, image, lemezek), utána a napló
+                for title, cmd in SUMMARY:
+                    f.write(f"===== {title}: {' '.join(cmd)}\n")
+                    f.flush()
+                    try:
+                        subprocess.run(cmd, stdout=f, stderr=subprocess.STDOUT, timeout=20)
+                    except (OSError, subprocess.SubprocessError) as e:
+                        f.write(f"({e})\n")
+                    f.write("\n")
+                f.write("===== Napló: journalctl -b\n")
+                f.flush()
                 subprocess.run(["journalctl", "--no-pager", "-b", "-n", "5000"], stdout=f,
                                stderr=subprocess.DEVNULL, timeout=60)
             self._saved = path

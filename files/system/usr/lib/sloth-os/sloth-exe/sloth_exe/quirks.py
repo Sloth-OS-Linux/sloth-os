@@ -18,6 +18,8 @@ együtt eltűnik; ezért ilyenkor magát a klienst indítjuk.
 import getpass
 import json
 import logging
+import os
+from pathlib import Path
 
 from sloth_common.apps.library import WIN_USER
 
@@ -70,19 +72,28 @@ def _battlenet(program, exe, env):
     return {}
 
 
-# Indító -> kliens (ugyanabban a mappában). A „Battle.net Launcher.exe” (erre mutat a parancsikon)
+# Indító -> kliens (az indító mappájához képest). A „Battle.net Launcher.exe” (erre mutat a parancsikon)
 # csak elindítja a klienst, és pár mp múlva kilép: vele együtt leállt a futtató, és a már megjelent
 # ablak is bezárult (Steamből azért ment, mert a Steam minden folyamatot megvár). A Lutris
-# Blizzard-receptjei is a Battle.net.exe-t indítják.
-LAUNCHER_STUBS = {"battle.net launcher.exe": "Battle.net.exe"}
+# Blizzard-receptjei is a Battle.net.exe-t indítják. Az Epic parancsikonja a 32 bites indítóra mutat,
+# ami a 64 bites klienst indítja el; a Lutris is rögtön a 64 bitest indítja.
+# A kulcs a .exe neve, vagy a mappájával együtt („win32/…”), ha a név önmagában nem egyértelmű.
+LAUNCHER_STUBS = {
+    "battle.net launcher.exe": "Battle.net.exe",
+    "win32/epicgameslauncher.exe": "../Win64/EpicGamesLauncher.exe",
+}
 
 
 def launch_target(exe):
     """A ténylegesen indítandó .exe: rövid életű indító helyett maga a kliens, ha megvan."""
-    client = LAUNCHER_STUBS.get(exe.name.lower())
-    if client and (exe.parent / client).is_file():
-        log.info("%s helyett a kliens indul: %s", exe.name, client)
-        return exe.parent / client
+    client = (LAUNCHER_STUBS.get(f"{exe.parent.name}/{exe.name}".lower())
+              or LAUNCHER_STUBS.get(exe.name.lower()))
+    if client:
+        # normpath, nem resolve: a /home -> /var/home hivatkozás ne változtassa meg az utat
+        target = Path(os.path.normpath(exe.parent / client))
+        if target.is_file():
+            log.info("%s helyett a kliens indul: %s", exe.name, target)
+            return target
     return exe
 
 
