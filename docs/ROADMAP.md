@@ -3,10 +3,47 @@
 Alapelv: **ha a felhasználónak terminált kell nyitnia, az a mi hibánk.** A Konsole megmarad, de minden, amit
 terminálból lehet csinálni, GUI-ból is menjen.
 
-## Hol tartunk (2026-10-16 délután)
+## Hol tartunk (2026-10-19)
+
+### Fontos: a 2026-10-16-i teszt még a régi image-dzsel ment
+A tesztelt ISO (`out/sloth-os.iso`) 2026-10-16 08:17-kor készült, amikor a registry `latest` címkéje még a
+2026-10-15 22:31-es image-re (`35e4c9d`) mutatott. A 10-16-i javítások (lent) csak 11:33-kor kerültek a
+`latest`-be; ezért látszott még „Sloth OS 44”, és ezért viselkedett a Battle.net a régi módon. **Új ISO
+csak a mostani fejlesztések pusholása és a CI-build után.** A telepített gépen a futó változat: Sloth Központ →
+Rendszer egészség → Napló mentése (az eleje most a futó image-et is mutatja).
+
+### Elkészült 2026-10-19: egységes Windows-alkalmazáskezelés (a 2026-10-16 esti teszt kérései)
+Egységtesztekkel (`tools/tests/test_apps.py`, Linuxon, Qt és Wine nélkül) és a Qt-s modulok betöltésével
+kipróbálva, **valódi gépen még nem**.
+- **Közös alkalmazáskönyvtár** (`sloth_common/apps/`: library, menu, winreg, detect, steam): a .exe kezelő és
+  a Sloth Központ ugyanazt használja (a korábbi kettős mappaolvasás megszűnt)
+- **Látható hely: `~/Applications/<program>/`**: `windows/` (a program Windows-környezete), `.sloth/app.json`
+  (adatok), „Program fájljai” hivatkozás a telepített fájlokra, a mappa ikonja a Dolphinban. A hely a Sloth
+  Központban állítható (csak Linuxos fájlrendszer; NTFS/exFAT/FAT-ra érthető üzenet), a programok
+  áthelyezhetők (a Start menü bejegyzései érvényesek maradnak). A régi helyről
+  (`~/.local/share/sloth-os/windows-programs`) egyszer, átnevezéssel költöznek át (a futó programok maradnak)
+- **Felismerés telepítés után:** a registry „Uninstall” bejegyzéséből a valódi név („Battle.net”), kiadó,
+  verzió, telepítési hely; az indító a parancsikonokból, a registry ikonjából vagy pontozott .exe-kből (a
+  frissítők, hibajelentők, eltávolítók kiesnek; azonos név csak egyszer). A telepítés csak akkor kész, ha a
+  program környezetében már semmi nem fut. Ha nem biztos: „Másik fájl…” tallózó. A végén „Indítás”
+- **Már futó program:** nem indul újra („X már fut”); ha a környezetében más fut (pl. az indító, és egy játékot
+  indít a felhasználó), ahhoz csatlakozik (`runinprefix`), nem vár a végéig
+- **Sloth Központ → Windows-programok:** Indítás, Fájlok, Start menü, Javítás (a megjegyzett indítási
+  beállítások törlése), Újratelepítés, Áthelyezés, „Program telepítése…”, a programok helye
+- **Steam-átvétel:** a Steamhez kézzel hozzáadott Windows-programok (`shortcuts.vdf`) felvétele újratelepítés
+  nélkül: „A Steamen keresztül” (csak bejegyzés, a Steam indítja) vagy „Átvétel” (reflink másolat a Steam
+  környezetéről, onnan a Sloth indítja). A Steam fájljaihoz egyik sem nyúl; a Steam környezetét sosem indítjuk
+  a saját futtatónkkal
+- **Dolphin 128 TB:** a composefs (a rendszer csak olvasható képe, Fedora 42 óta) loop eszköze névtelen
+  kötetként látszott; udev-szabály rejti el (`/usr/lib/udev/rules.d/90-sloth-udisks.rules`), a
+  rendszerpartíció neve „Sloth OS”. Csak megjelenítés, a csatolásokhoz nem nyúl. Valódi gépen ellenőrizni
+- **Napló mentése** (Rendszer egészség): az elején a futó image, a lemezek, a csatolások és a loop eszközök
+- **Epic:** a 32 bites indító helyett a 64 bites kliens indul (mint a Lutrisban)
+- **Fordítások:** az új szövegek mind az 50 nyelven
 
 ### Elkészült 2026-10-16 (a reggeli teszt hibái, részletek lent, „A reggeli teszt eredménye”)
-Minden pusholva; szimulációval / egységtesztekkel kipróbálva, **valódi gépen még nem** (új image és ISO kell).
+Minden pusholva; szimulációval / egységtesztekkel kipróbálva, **valódi gépen még nem** (a 10-16-i ISO-ban még
+nem volt benne, lásd fent).
 - **Üdvözlő:** az appok egyesével, sorban települnek, összesített letöltési mérettel; a végén Újraindítás gomb;
   a tálca-ikonok frissítése bezáráskor
 - **.exe kezelő:** egy programot csak egyszer telepít (Megnyitás / Újratelepítés); a Battle.net a klienssel indul
@@ -14,7 +51,7 @@ Minden pusholva; szimulációval / egységtesztekkel kipróbálva, **valódi gé
 - **Steam első indítása:** Plasma-értesítés, amíg a Steam letölti magát
 - **Verziószám:** „Sloth OS 1.0 (Fedora Atomic 44)”
 
-### Következő teszt (új ISO a mai CI-build után)
+### Következő teszt (új ISO a 2026-10-19-i változások CI-buildje után)
 - [ ] **Üdvözlő:** 4–5 app egyszerre: sorban, egyesével települnek; a felirat csak „X telepítése…”, alatta
   „x MB / y MB”; nincs dupla sor; a végén Újraindítás, utána az ikonok a tálcán; Újraindítás nélkül is jók-e az ikonok
 - [ ] **Steam:** első indításkor jön-e az értesítés („A Steam első indítása”, „x MB letöltve”), eltűnik-e, amikor a
@@ -22,9 +59,25 @@ Minden pusholva; szimulációval / egységtesztekkel kipróbálva, **valódi gé
 - [ ] **Battle.net:** telepítés, indítás a Start menüből; nyitva marad-e; bejelentkezés, egy játék telepítése és
   indítása; a Start menüben csak egy bejegyzés
 - [ ] **.exe kezelő:** ugyanazt a telepítőt még egyszer megnyitva „már telepítve van”, a Megnyitás elindítja
+- [ ] **Alkalmazáskönyvtár:** a Battle.net telepítés után a `~/Applications/Battle.net/` mappában van (a Dolphinban
+  a program ikonjával, benne a „Program fájljai”); a neve „Battle.net” (nem „Battle Net”); a választólistán egy
+  bejegyzés van bejelölve; az „Indítás” gomb elindítja. Egy telepítő, ami letöltőként kilép (pl. Battle.net,
+  EA app): a .exe kezelő megvárja a tényleges telepítést. A háttérnapló: `~/.cache/sloth-os/apps/<program>/naplo/`
+- [ ] **Már futó program:** a Battle.net futása közben a Start menüből újra elindítva „már fut”; egy játék indítása
+  a Battle.net-ből (és ha van, a Start menüből) a Battle.net futása közben
+- [ ] **Sloth Központ → Windows-programok:** Indítás, Fájlok, Start menü, Javítás, Áthelyezés (egy másik mappába,
+  utána indul-e a Start menüből), a hely módosítása egy NTFS-es pendrive-ra (érthető üzenet), Eltávolítás
+- [ ] **Steam-átvétel:** a Steamben kézzel hozzáadott Battle.net megjelenik „A Steamhez hozzáadott programok”
+  között; „A Steamen keresztül” és „Átvétel” is; utána a Steamből is ugyanúgy indul
+- [ ] **Átköltözés:** egy régi helyen (`~/.local/share/sloth-os/windows-programs`) lévő program a frissítés után a
+  `~/Applications` alatt van, és a Start menüből indul
+- [ ] **Dolphin:** az Eszközök között nincs névtelen, 128 TB-os meghajtó; a rendszerpartíció neve „Sloth OS”
+- [ ] **Napló mentése** (Rendszer egészség): az elején látszik a futó image és a lemezek
 - [ ] **Rendszerinformáció:** „Sloth OS 1.0 (Fedora Atomic 44)”
 - [ ] A reggeli teszt maradéka: titkosítás, frissítés aláírás-ellenőrzéssel, NVIDIA-s gép, Windows mellé (tesztelő kell)
-- [ ] A még nyitott hibák figyelése: némítás, Dolphin 128 TB, Discover-frissítés a friss appokra
+- [ ] A még nyitott hibák figyelése: némítás (melyik gomb: billentyű / tálca ikon; mikor áll vissza: magától, egy
+  értesítés hangjára, hangerő-állításra, bejelentkezéskor?), Discover-frissítés a friss appokra (mit frissített:
+  magát az appot vagy egy kiegészítőt, pl. `GL.default`?), Vivaldi az Üdvözlőből (a hibaüzenet a mentett naplóban)
 
 ### Elkészült 2026-10-15 délután és éjjel (részletek a fázisoknál)
 Minden pusholva; a nagy részük csak szimulációval és loop eszközön van kipróbálva, **valódi gépen / VM-ben még nem**.
@@ -56,7 +109,8 @@ Valódi gépen és/vagy VM-ben; ami nem megy, ide kerüljön vissza hibaként.
 - [ ] **Üdvözlő:** új „Tapasztalatok megosztása” lépés (igen / nem, a Tovább csak választás után), az appok telepítése
   (mit tölt le / mit telepít, „x / y MB”), az ikonok rögtön látszanak, a Steam a tálcán ikonnal
 - [ ] **.exe kezelő:** Battle.net telepítés és indítás a Start menüből (marad-e futva), egy egyszerű .exe, egy játék;
-  a háttérnapló (`~/.local/share/sloth-os/windows-programs/<program>/naplo/`) és a megjegyzett beállítás (`meta.json`)
+  a háttérnapló (2026-10-19 óta `~/.cache/sloth-os/apps/<program>/naplo/`) és a megjegyzett beállítás
+  (`~/Applications/<program>/.sloth/app.json`)
 - [x] **Sloth Központ:** Windows-programok oldal (megosztás kapcsoló), Driverek oldal, a többi oldal átnézése
 - [ ] **Frissítések:** egy rendszerfrissítés lemegy-e az aláírás-ellenőrzéssel (`rpm-ostree status`: `ostree-image-signed`);
   a tesztlaptopon a régi telepítés átáll-e magától (`sloth-signed-updates`)
@@ -90,11 +144,13 @@ Talált hibák (egyesével javítjuk):
   is eltűnik (Steamből azért ment, mert a Steam minden folyamatot megvár). Most a kliens (`Battle.net.exe`)
   indul közvetlenül (`quirks.launch_target`, mint a Lutris Blizzard-receptjei); az önjavítás adatai a
   klienshez tartoznak, így a régi, téves „nem működik” bejegyzések nem számítanak
-- [ ] .exe kezelő: ha egy program már fut, és a felhasználó újra elindítja, az új indítás a `waitforexitandrun`
-  miatt az előző munkamenet végéig vár („Indítás…”). Helyette: ha a mappában már fut a program, szóljunk, vagy
-  hozzuk előre az ablakát
+- [x] .exe kezelő: ha egy program már fut, és a felhasználó újra elindítja, az új indítás a `waitforexitandrun`
+  miatt az előző munkamenet végéig vár („Indítás…”). Javítva (2026-10-19, valódi gépen tesztelni): ha ugyanaz a
+  program fut, „X már fut”; ha a környezetében más fut, ahhoz csatlakozik (`runinprefix`)
 - [ ] Megnézni, a többi indító (EA app, Ubisoft Connect, Epic, GOG Galaxy) is átadja-e a helyét egy másik
-  folyamatnak; ha igen, `quirks.LAUNCHER_STUBS`
+  folyamatnak; ha igen, `quirks.LAUNCHER_STUBS`. Az Epicnél kész (2026-10-19: a 32 bites indító helyett a 64 bites
+  kliens, mint a Lutrisban); az EA app (`EALauncher.exe`) és a Ubisoft Connect (`UbisoftConnect.exe`) a Lutrisban
+  is az indítóval megy, ezeknél a teszt dönt
 - [x] A Steam (Flatpak) nem nyílt meg: kb. 10 mp-ig töltött, utána semmi. Később mégis elindult, épp akkor, amikor
   a Sloth Központban a Battle.net helyett a „Battle net” bejegyzést adta hozzá a Start menühöz (lehet, hogy
   véletlen egybeesés, de nagyon sokat kellett várni rá). Valószínű ok: első indításkor a Steam ablak nélkül letölti
@@ -103,7 +159,11 @@ Talált hibák (egyesével javítjuk):
   (`sloth_center/steam_first_run.py`, `sloth-steam-first-run.path`). Valódi gépen tesztelni, és megnézni a
   `~/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/bootstrap_log.txt`-t, hogy tényleg ez volt-e az ok
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja
-- [ ] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik
+- [x] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik. Javítva (2026-10-19, valódi gépen tesztelni): a
+  névtelen bejegyzés a composefs (a Fedora 42 óta csak olvasható rendszerkép) loop eszköze volt; a 128 TB
+  valószínűleg a /proc/kcore virtuális mérete a gyökér méretszámításában. Udev-szabály rejti el
+  (`90-sloth-udisks.rules`), a rendszerpartíció neve „Sloth OS”. Ha a teszten mégis látszik: Napló mentése, az
+  elején a lemezek és a loop eszközök
 - [ ] A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért)
 - [x] A rendszer neve „Sloth OS 44” (a Fedora verziószáma látszik): a Sloth OS saját verziószámot kapjon (pl. 1),
   és valahol (pl. a Rendszerinformációban) jelenjen meg, hogy Fedora Atomic alapú. Kész (valódi gépen
@@ -114,8 +174,9 @@ Talált hibák (egyesével javítjuk):
 **Publikálás előtt kötelező:**
 1. [ ] **A fenti teszt végig, és a talált hibák javítása.** Sok nagy új funkció van, amit csak szimulációval
    próbáltunk ki; publikálás előtt mindnek valódi gépen kell működnie. A reggeli teszt hibáiból még nyitott
-   (sorrendben): némítás (a hangerő visszaáll), Discover-frissítés a friss appokra, Dolphin 128 TB-os SSD,
-   újraindítás futó programnál (.exe kezelő), a többi indító ellenőrzése (`LAUNCHER_STUBS`)
+   (sorrendben): némítás (a hangerő visszaáll; a mi kódunk nem nyúl a hangerőhöz, valódi gépen kell megfigyelni),
+   Discover-frissítés a friss appokra, a többi indító ellenőrzése (`LAUNCHER_STUBS`). A Dolphin 128 TB és az
+   újraindítás futó programnál javítva (2026-10-19), a teszten ellenőrizni
 2. [ ] **Régi (BIOS-os) gépek:** elindul-e a pendrive BIOS-módban, telepítés BIOS-os gépre (a teljes lemezes
    telepítésnél a BIOS boot partíció már megvan); Windows mellé BIOS-on maradhat „nem támogatott” magyarázattal
 3. [ ] **A repó publikussá tétele** és a napi automatikus build visszakapcsolása (`.github/workflows/build.yml`). Ettől függ:
@@ -149,7 +210,15 @@ Talált hibák (egyesével javítjuk):
   Windows-oldali segéd)
 - [ ] Külön NVIDIA-s ISO „haladóknak” (internet nélkül is NVIDIA-illesztővel indul), ha a tárhely engedi
 - [ ] Linuxos csomagok kezelője (.AppImage, .deb, .rpm; Mac-fájloknál érthető üzenet) – 2. fázis
-- [ ] .exe kezelő: „javítás / újratelepítés” – 2. fázis
+- [x] .exe kezelő: „javítás / újratelepítés” – 2. fázis (2026-10-19: Sloth Központ → Windows-programok → Javítás,
+  Újratelepítés)
+- [ ] **Alkalmazáskezelés, következő lépések** (a 2026-10-19-i alapra):
+  - [ ] Import más helyekről a Steam-átvétel mintájára: Lutris (`~/.local/share/lutris/games/*.yml`), Bottles
+    (`bottle.yml`), `~/.wine`; ugyanaz a felismerés (registry, parancsikonok)
+  - [ ] Receptek a közös tudásból: a `knowledge.json` mellett statikus, ellenőrzött recept-fájl (indító → kliens,
+    a fő .exe neve, összetevők, engedélyezett kapcsolók; tetszőleges parancs nem), a `sloth-windows-prepare` tölti
+    le; a helyi felismerés és a telepítés a gépen marad
+  - [ ] A Linuxos csomagok kezelője (lent) is a `~/Applications`-be telepítsen (AppImage), ugyanazzal a könyvtárral
 - [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
 - [ ] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis
 - [ ] Haladó beállítások folyamatos bővítése – 3. fázis
@@ -253,7 +322,7 @@ Talált hibák (egyesével javítjuk):
   letöltése folyamatjelzővel. A felhasználó soha nem látja a "Wine", "Proton" vagy "prefix" szót.
   - [x] Telepített Windows-programok listája és eltávolítása a Sloth Központban
   - [x] Start menü bejegyzések utólagos szerkesztése (Sloth Központ → Windows-programok → Start menü)
-  - [ ] Hátravan: javítás (újratelepítés)
+  - [x] Javítás és újratelepítés a Sloth Központban (2026-10-19)
   - [x] Játékonkénti javítások automatikusan (umu adatbázis: GAMEID a program neve alapján) – lásd lent
 - [ ] **Önjavító futtató: minden Windows-program elinduljon, beállítás nélkül** (ötlet: 2026-10-15). Egy mindenre
   jó Proton-beállítás nincs (ami az egyiknek kell, a másikat elrontja), ezért a rendszer programonként maga
@@ -397,7 +466,7 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
 - [x] **Játékok:** játékonkénti beállítások (FPS-kijelző: MangoHud, felskálázás: gamescope FSR, teljesítmény mód:
   GameMode) Proton/Wine szavak nélkül (Sloth Központ → Játékok). Steames játékoknál az indítási beállításokba kerül
   (`localconfig.vdf`, a felhasználó saját beírásai megmaradnak; csak zárt Steamnél írható, a felület bezárja),
-  Windows-programoknál a program `meta.json`-jába, és a .exe kezelő indításkor alkalmazza
+  Windows-programoknál a program adatai közé (`.sloth/app.json`), és a .exe kezelő indításkor alkalmazza
   (`sloth_common/gamesettings.py`). VM-ben és valódi játékkal még tesztelni
 
 ### Meglévő KDE / Flatpak GUI-k (ellenőrizni, hogy benne vannak-e az image-ben)
