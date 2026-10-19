@@ -64,6 +64,9 @@ class WelcomeController(QObject):
     _done_sig = Signal(object, object)
 
     _win_sig = Signal(object)   # a Windows-lépés háttérszálából: a frissített állapot
+    _queue_done_sig = Signal(object)  # a Windows-programok telepítési sora végzett: [(név, kilépési kód)]
+    hideRequested = Signal()    # a Windows-programok telepítése alatt az ablak elrejtőzik
+    showRequested = Signal()    # és a végén újra előjön
 
     def __init__(self, parent=None, windows_only=False):
         super().__init__(parent)
@@ -96,6 +99,10 @@ class WelcomeController(QObject):
         self._win_mounts = []        # amit mi csatoltunk (a végén leválasztjuk)
         self._win_cancel = threading.Event()
         self._win_sig.connect(self._on_win)
+        # Windows-programok (pl. játékindítók): a letöltött telepítők a varázsló után, egyesével (sloth-exe --queued)
+        self._win_queue = []         # [(név, telepítő útja)]
+        self._queue_state = ""       # "" | "running" | "done"
+        self._queue_done_sig.connect(self._on_queue_done)
         if windows_only:
             self._start_windows_scan()
 
@@ -528,6 +535,46 @@ class WelcomeController(QObject):
     def anyInstalled(self):
         return bool(self._installed)
 
+    @Property(bool, notify=changed)
+    def pendingWindows(self):
+        """Vannak letöltött Windows-telepítők, amelyek még nem futottak: a végén nincs újraindítás, előbb ezek jönnek."""
+        return bool(self._win_queue) and self._queue_state == ""
+
+    @Property(bool, notify=changed)
+    def windowsQueueDone(self):
+        return self._queue_state == "done"
+
+    @Property("QVariantList", notify=changed)
+    def pendingWindowsNames(self):
+        return [name for name, _path in self._win_queue]
+
+    @Slot()
+    def runWindowsQueue(self):
+        """A Windows-programok telepítői egyesével, az .exe kezelőben; addig az ablak rejtve vár, a végén előjön."""
+        if not self.pendingWindows:
+            return
+        self._queue_state = "running"
+        self.hideRequested.emit()
+
+        def work():
+            results = []
+            for name, path in self._win_queue:
+                try:
+                    code = subprocess.run(["sloth-exe", "--queued", str(path)]).returncode
+                except OSError as e:
+                    log.warning("sloth-exe %s: %s", path, e)
+                    code = -1
+                results.append((name, code))
+            self._queue_done_sig.emit(results)
+
+        threading.Thread(target=work, daemon=True).start()
+
+    def _on_queue_done(self, results):
+        self._queue_state = "done"
+        self._summary = "done.windows_finished"
+        self.changed.emit()
+        self.showRequested.emit()
+
     @Slot(bool)
     def finish(self, restart=False):
         self.release_windows()
@@ -556,6 +603,8 @@ class WelcomeController(QObject):
         self.changed.emit()
 
     def _on_done(self, ok, failed):
+        downloads = self._installer.windows_installers
+        self._win_queue = [((catalog.find_app(a) or {}).get("name", a), downloads[a]) for a in ok if a in downloads]
         self._installed = list(ok)
         self._failures = [((catalog.find_app(a) or {}).get("name", a), err) for a, err in failed.items()]
         if not failed:

@@ -65,6 +65,40 @@ def _http_get(url, on_chunk=None):
         return b"".join(chunks)
 
 
+# A Windows-programok (pl. játékindítók) letöltött telepítői; a varázsló után innen nyílnak meg egyesével
+WINDOWS_INSTALLERS = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "sloth-os" / "welcome-installers"
+
+
+def _remote_size(url):
+    """A letöltendő fájl mérete (HEAD, átirányítással); ha a szerver nem mondja meg, 0."""
+    req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return int(resp.headers.get("Content-Length") or 0)
+    except (OSError, ValueError):
+        return 0
+
+
+def download_windows_installer(app, on_bytes=None):
+    """A Windows-program hivatalos telepítője a WINDOWS_INSTALLERS mappába (fájlba írva, nem a memóriába). -> út"""
+    WINDOWS_INSTALLERS.mkdir(parents=True, exist_ok=True)
+    dest = WINDOWS_INSTALLERS / app["file"]
+    part = dest.with_name(dest.name + ".part")
+    req = urllib.request.Request(app["url"], headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=60) as resp, open(part, "wb") as f:
+        done = 0
+        while True:
+            chunk = resp.read(256 * 1024)
+            if not chunk:
+                break
+            f.write(chunk)
+            done += len(chunk)
+            if on_bytes:
+                on_bytes(done)
+    part.replace(dest)
+    return dest
+
+
 STATE_FILE = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "sloth-os" / "github-bundles.json"
 
 
@@ -130,6 +164,7 @@ class Installer:
         self._on_finished = on_finished      # (sikeres_idk, sikertelen {id: hibakulcs})
         self._thread = None
         self._bundle_tags = {}
+        self.windows_installers = {}  # app_id -> a letöltött telepítő útja (a varázsló után nyílnak meg)
         self._progress = {"total": 0, "done": 0}  # bájtban, az összes kiválasztott appra
 
     def start(self, app_ids):
@@ -200,6 +235,9 @@ class Installer:
                     log.info("a méret felmérése nem sikerült: %s", e.message)
             total += sum(sizes.values())
         for app in apps:
+            if app.get("source") == "windows":
+                total += _remote_size(app["url"])
+                continue
             if app.get("source") != "github-bundle":
                 continue  # a "system" appok nem töltenek le semmit
             try:
@@ -254,7 +292,14 @@ class Installer:
                 self._on_app_state(app_id, "installing", "")
                 self._report(app["name"], index, len(todo))
                 try:
-                    if app.get("source") == "system":
+                    if app.get("source") == "windows":
+                        def on_bytes(n, app=app, index=index):
+                            self._report(app["name"], index, len(todo), current=n)
+                        path = download_windows_installer(app, on_bytes)
+                        self._progress["done"] += path.stat().st_size
+                        self.windows_installers[app_id] = path
+                        error = None
+                    elif app.get("source") == "system":
                         # már a rendszerben van, csak bekapcsoljuk (pl. KDE Connect: /usr/libexec/sloth-os/phone-link)
                         r = subprocess.run([app["switch"], "on"], capture_output=True, text=True, timeout=60)
                         error = None if r.returncode == 0 else (r.stderr.strip() or f"exit {r.returncode}")

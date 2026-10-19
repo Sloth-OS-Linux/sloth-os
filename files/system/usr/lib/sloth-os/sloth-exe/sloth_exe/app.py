@@ -22,6 +22,9 @@ def main():
     parser.add_argument("--launch", nargs=2, metavar=("PROGRAM", "EXE"))
     parser.add_argument("--shortcuts", metavar="PROGRAM", help="Start menü bejegyzések szerkesztése")
     parser.add_argument("--run", metavar="PROGRAM", help="telepített AppImage indítása")
+    parser.add_argument("--queued", action="store_true",
+                        help="a Sloth Üdvözlő telepítési sorából: a telepítés rögtön indul, és az „Indítás” külön "
+                             "folyamatban indítja a programot, így a sor a következő telepítővel folytatódhat")
     parser.add_argument("--maintenance", action="store_true",
                         help="háttérkarbantartás (sloth-windows-prepare): átköltözés az új helyre, "
                              "AppImage-ek frissítése, régi Proton-verziók törlése, jelentések küldése")
@@ -73,7 +76,7 @@ def main():
 
     from .controller import ExeController
 
-    exe = ExeController()
+    exe = ExeController(queued=args.queued)
     engine = QQmlApplicationEngine()
     engine.rootContext().setContextProperty("exe", exe)
     if args.run:
@@ -88,6 +91,10 @@ def main():
     if not engine.rootObjects():
         return 1
     # Az ablak bezárása (X) = kilépés, kivéve ha a program fut a háttérben
+    if args.queued and exe.state == "choose" and not exe.alreadyInstalled:
+        # a sorból: a telepítő rögtön indul (a „Telepítés” gomb nélkül), amint a felület kész
+        from PySide6.QtCore import QTimer
+        QTimer.singleShot(0, exe.install)
     window = engine.rootObjects()[0]
     window.closing.connect(lambda *_: exe.state != "running" and app.quit())
     return app.exec()

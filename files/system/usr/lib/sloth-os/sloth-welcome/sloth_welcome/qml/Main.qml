@@ -33,6 +33,20 @@ Kirigami.ApplicationWindow {
         return text;
     }
 
+    // A Windows-programok telepítése alatt (a varázsló után, egyesével) az ablak rejtve vár, a végén előjön
+    Connections {
+        target: welcome
+        function onHideRequested() { root.hide(); }
+        function onShowRequested() {
+            if (welcome.windowsOnly)
+                root.show();
+            else
+                root.showFullScreen();
+            root.raise();
+            root.requestActivate();
+        }
+    }
+
     pageStack.initialPage: Kirigami.Page {
         padding: 0
         globalToolBarStyle: Kirigami.ApplicationHeaderStyle.None
@@ -321,6 +335,13 @@ Kirigami.ApplicationWindow {
                         }
                         Kirigami.InlineMessage {
                             Layout.fillWidth: true
+                            visible: categoryPage.category !== null
+                                     && categoryPage.category.apps.some(a => a.source === "windows")
+                            type: Kirigami.MessageType.Information
+                            text: root.t("category.windows_note")
+                        }
+                        Kirigami.InlineMessage {
+                            Layout.fillWidth: true
                             visible: !welcome.online
                             type: Kirigami.MessageType.Warning
                             text: root.t("offline.text")
@@ -377,7 +398,18 @@ Kirigami.ApplicationWindow {
                                             Layout.fillWidth: true
                                             spacing: 0
                                             QQC2.Label { text: appCard.modelData.name; font.bold: true; Layout.fillWidth: true; elide: Text.ElideRight }
-                                            QQC2.Label { text: appCard.modelData.summary; opacity: 0.7; Layout.fillWidth: true; wrapMode: Text.Wrap; maximumLineCount: 2; elide: Text.ElideRight; font: Kirigami.Theme.smallFont }
+                                            QQC2.Label { text: appCard.modelData.summary; opacity: 0.7; Layout.fillWidth: true; wrapMode: Text.Wrap; maximumLineCount: appCard.modelData.source === "windows" ? 1 : 2; elide: Text.ElideRight; font: Kirigami.Theme.smallFont }
+                                            // Windows-program: a telepítése a varázsló után következik
+                                            QQC2.Label {
+                                                visible: appCard.modelData.source === "windows"
+                                                Layout.fillWidth: true
+                                                wrapMode: Text.Wrap
+                                                maximumLineCount: 2
+                                                elide: Text.ElideRight
+                                                color: Kirigami.Theme.linkColor
+                                                font: Kirigami.Theme.smallFont
+                                                text: root.t("app.windows_badge")
+                                            }
                                         }
                                         // Valódi jelölőnégyzet. (A Breeze-ben nincs "checkbox-unchecked" ikon,
                                         // helyette a bepipált "checkbox" látszott.) A saját állapotát nem
@@ -583,6 +615,22 @@ Kirigami.ApplicationWindow {
                             onClicked: welcome.quickAction("language")
                         }
                     }
+                    // Letöltött Windows-telepítők: előbb ezek jönnek (egyesével), újraindítás csak utánuk
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        visible: welcome.pendingWindows
+                        type: Kirigami.MessageType.Information
+                        text: root.t("done.windows_hint", { names: welcome.pendingWindowsNames.join(", ") })
+                    }
+                    QQC2.Button {
+                        Layout.alignment: Qt.AlignHCenter
+                        visible: welcome.pendingWindows
+                        highlighted: true
+                        icon.name: "go-next"
+                        text: root.t("done.windows_continue")
+                        onClicked: welcome.runWindowsQueue()
+                    }
                     // Telepítés után az újraindítás a fő gomb: utána minden új app rendesen betöltődik
                     QQC2.Label {
                         Layout.fillWidth: true
@@ -590,11 +638,12 @@ Kirigami.ApplicationWindow {
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
                         opacity: 0.7
-                        visible: welcome.anyInstalled
+                        visible: welcome.anyInstalled && !welcome.pendingWindows && !welcome.windowsQueueDone
                         text: root.t("done.restart_hint")
                     }
                     RowLayout {
                         Layout.alignment: Qt.AlignHCenter
+                        visible: !welcome.pendingWindows
                         spacing: Kirigami.Units.largeSpacing
                         QQC2.Button {
                             text: root.t("done.start")

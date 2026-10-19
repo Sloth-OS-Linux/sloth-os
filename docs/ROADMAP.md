@@ -308,6 +308,18 @@ Talált hibák (egyesével javítjuk):
      valódi Windows mellett még tesztelni
 
 **Fontos, de a publikálást nem akadályozza:**
+- [x] **Több app és Windows-os játékindítók az Üdvözlőben** (2026-10-19, a felhasználó kérése): 20 új Flathub-app
+  (böngésző: Floorp, Tor Browser; iroda: Thunderbird, Obsidian, Joplin, Bitwarden; média: Elisa, Stremio, Plex,
+  Jellyfin; csevegés: Zoom, Slack, Teams for Linux, Element, Viber; játék: itch, RetroArch; alkotás: Audacity,
+  darktable, Shotcut), és a Játékok lépésben a Windows-os indítók: Battle.net, EA app, Ubisoft Connect, Epic Games,
+  GOG Galaxy, Rockstar Games (új `windows` forrás a katalógusban: a hivatalos telepítő letöltése, „Windows-program ·
+  a varázsló után telepíted” jelölés, magyarázat a lépés tetején). Ha van ilyen, a végén nincs Újraindítás: „Tovább a
+  Windows-programok telepítéséhez” → az Üdvözlő elrejtőzik, a telepítők egyesével nyílnak meg az .exe kezelőben
+  (`sloth-exe --queued`: a telepítés rögtön indul, az „Indítás” külön folyamatban, hogy a sor folytatódjon), a végén
+  az Üdvözlő újra előjön az Újraindítás gombbal. Ikonok helyben (a gyártói telepítőkből / Wikimedia Commons, NOTICE),
+  50 nyelven. Kipróbálva: letöltés (EA app), a felület képernyőképekkel, a sor egy próba-sloth-exe-vel; valódi gépen a
+  teljes sort (Battle.net + EA app) tesztelni. Megjegyzés: a Ninite nem jó erre (csak Windowsos, egy környezetbe
+  telepítene, és a játékindítók nagy része nincs benne)
 - [x] **OneDrive és Google Drive mappaként** (2026-10-19): rclone (Fedora RPM, mindkettőhöz), mint a Windows
   „Files On-Demand”: a `~/OneDrive` / `~/Google Drive` mappában minden fájl látszik, csak a megnyitott töltődik le
   (teljes helyi gyorsítótár, 30 nap / 20 GB). Bejelentkezés a böngészőben (az rclone helyi visszahívása), a beállítás

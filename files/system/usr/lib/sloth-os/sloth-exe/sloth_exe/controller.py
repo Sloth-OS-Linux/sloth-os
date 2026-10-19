@@ -47,8 +47,9 @@ class ExeController(QObject):
     _package_done = Signal(object)          # a háttérszálból: a telepített AppImage (App) vagy None
     _flathub_found = Signal(object)         # a háttérszálból: a program Flathubos változata, vagy None
 
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, queued=False):
         super().__init__(parent)
+        self._queued = queued  # a Sloth Üdvözlő telepítési sorából (--queued)
         self._state = "choose"
         self._exe = None
         self._name = ""
@@ -285,6 +286,12 @@ class ExeController(QObject):
         icon = next((e["icon"] for e in menu.entries(self._program) if e["icon"].startswith("/")), None)
         self._program.set_folder_icon(icon)
         if start and first:
+            if self._queued:
+                # a sorban a következő telepítő jön: a program külön folyamatban indul, ez a példány kilép
+                subprocess.Popen(["sloth-exe", "--launch", self._program.id, str(menu.target(self._program, first))],
+                                 start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                QApplication.quit()
+                return
             # „Indítás”: rögtön elindul, ahogy később a Start menüből
             self._existing = None
             self.launch(self._program.id, menu.target(self._program, first))

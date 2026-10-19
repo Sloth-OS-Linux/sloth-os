@@ -23,9 +23,10 @@ The logo and the wallpapers were created with the help of AI image generators.
 Third-party material
 --------------------
   - files/system/usr/share/sloth-os/welcome/icons/: the icons of the apps offered in the
-    Sloth Welcome. They come from the apps' Flathub metadata, belong to their respective
-    owners (some of them are trademarks), are not covered by the licenses above, and are
-    used only to identify the apps.
+    Sloth Welcome. They come from the apps' Flathub metadata (the Windows game launchers,
+    win.*.png: from the vendors' own installers and websites, or the logos on Wikimedia
+    Commons), belong to their respective owners (some of them are trademarks), are not
+    covered by the licenses above, and are used only to identify the apps.
   - Sloth OS is built on Fedora Atomic (Kinoite) and Universal Blue images; their
     components keep their own licenses.
   - The shared knowledge base (services/knowledge/, https://github.com/bathorizsolt/sloth-os-knowledge)

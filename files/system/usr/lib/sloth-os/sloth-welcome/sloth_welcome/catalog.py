@@ -12,8 +12,10 @@ internet nélkül is rendesen néz ki.
   https://flathub.org/api/v2/appstream/<id>
 """
 
-# source: "flathub" (alapértelmezett), "github-bundle" (Flatpak csomag egy GitHub kiadásból), vagy "system": már a
-# rendszerben van, csak be kell kapcsolni (a "switch" script "on" paraméterrel; pl. a KDE Connect nincs a Flathubon)
+# source: "flathub" (alapértelmezett), "github-bundle" (Flatpak csomag egy GitHub kiadásból), "system": már a
+# rendszerben van, csak be kell kapcsolni (a "switch" script "on" paraméterrel; pl. a KDE Connect nincs a Flathubon),
+# vagy "windows": Windows-program (pl. játékindító), amelynek hivatalos telepítőjét ("url", mentve "file" néven) a
+# varázsló letölti; a telepítés a varázsló bezárása után következik, egyesével, az .exe kezelőben (sloth-exe --queued)
 CATEGORIES = [
     {
         "id": "browser", "icon": "internet-web-browser",
@@ -27,6 +29,8 @@ CATEGORIES = [
             {"id": "com.opera.Opera", "name": "Opera"},
             {"id": "io.gitlab.librewolf-community", "name": "LibreWolf"},
             {"id": "org.chromium.Chromium", "name": "Chromium"},
+            {"id": "one.ablaze.floorp", "name": "Floorp"},
+            {"id": "org.torproject.torbrowser-launcher", "name": "Tor Browser"},
         ],
     },
     {
@@ -35,6 +39,10 @@ CATEGORIES = [
             {"id": "org.libreoffice.LibreOffice", "name": "LibreOffice"},
             {"id": "org.onlyoffice.desktopeditors", "name": "ONLYOFFICE"},
             {"id": "com.wps.Office", "name": "WPS Office"},
+            {"id": "org.mozilla.Thunderbird", "name": "Thunderbird"},
+            {"id": "md.obsidian.Obsidian", "name": "Obsidian"},
+            {"id": "net.cozic.joplin_desktop", "name": "Joplin"},
+            {"id": "com.bitwarden.desktop", "name": "Bitwarden"},
         ],
     },
     {
@@ -44,6 +52,10 @@ CATEGORIES = [
             {"id": "org.kde.haruna", "name": "Haruna"},
             {"id": "io.mpv.Mpv", "name": "mpv"},
             {"id": "com.spotify.Client", "name": "Spotify"},
+            {"id": "org.kde.elisa", "name": "Elisa"},
+            {"id": "com.stremio.Stremio", "name": "Stremio"},
+            {"id": "tv.plex.PlexDesktop", "name": "Plex"},
+            {"id": "com.github.iwalton3.jellyfin-media-player", "name": "Jellyfin"},
         ],
     },
     {
@@ -55,6 +67,11 @@ CATEGORIES = [
             {"id": "com.rtosta.zapzap", "name": "ZapZap"},
             {"id": "org.kde.kdeconnect", "name": "KDE Connect",
              "source": "system", "switch": "/usr/libexec/sloth-os/phone-link"},
+            {"id": "us.zoom.Zoom", "name": "Zoom"},
+            {"id": "com.slack.Slack", "name": "Slack"},
+            {"id": "com.github.IsmaelMartinez.teams_for_linux", "name": "Teams for Linux"},
+            {"id": "im.riot.Riot", "name": "Element"},
+            {"id": "com.viber.Viber", "name": "Viber"},
         ],
     },
     {
@@ -64,6 +81,22 @@ CATEGORIES = [
             {"id": "com.heroicgameslauncher.hgl", "name": "Heroic"},
             {"id": "org.prismlauncher.PrismLauncher", "name": "Prism Launcher"},
             {"id": "net.lutris.Lutris", "name": "Lutris"},
+            {"id": "io.itch.itch", "name": "itch"},
+            {"id": "org.libretro.RetroArch", "name": "RetroArch"},
+            # Windows-os játékindítók: a hivatalos telepítő, a varázsló után telepítve (az ikonok a gyártóké, NOTICE)
+            {"id": "win.battlenet", "name": "Battle.net", "source": "windows", "file": "Battle.net-Setup.exe",
+             "url": "https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live"},
+            {"id": "win.ea", "name": "EA app", "source": "windows", "file": "EAappInstaller.exe",
+             "url": "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAappInstaller.exe"},
+            {"id": "win.ubisoft", "name": "Ubisoft Connect", "source": "windows", "file": "UbisoftConnectInstaller.exe",
+             "url": "https://static3.cdn.ubi.com/orbit/launcher_installer/UbisoftConnectInstaller.exe"},
+            {"id": "win.epic", "name": "Epic Games", "source": "windows", "file": "EpicGamesLauncherInstaller.msi",
+             "url": "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/"
+                    "EpicGamesLauncherInstaller.msi"},
+            {"id": "win.gog", "name": "GOG Galaxy", "source": "windows", "file": "GOG_Galaxy_2.0.exe",
+             "url": "https://webinstallers.gog-statics.com/download/GOG_Galaxy_2.0.exe"},
+            {"id": "win.rockstar", "name": "Rockstar Games", "source": "windows", "file": "Rockstar-Games-Launcher.exe",
+             "url": "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"},
         ],
     },
     {
@@ -77,6 +110,9 @@ CATEGORIES = [
             {"id": "org.kde.kdenlive", "name": "Kdenlive"},
             {"id": "com.obsproject.Studio", "name": "OBS Studio"},
             {"id": "org.blender.Blender", "name": "Blender"},
+            {"id": "org.audacityteam.Audacity", "name": "Audacity"},
+            {"id": "org.darktable.Darktable", "name": "darktable"},
+            {"id": "org.shotcut.Shotcut", "name": "Shotcut"},
         ],
     },
 ]
