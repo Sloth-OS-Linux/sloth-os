@@ -257,6 +257,12 @@ Talált hibák (egyesével javítjuk):
   - [x] A Linuxos csomagok kezelője (lent) is a `~/Applications`-be telepítsen (AppImage), ugyanazzal a könyvtárral
     (2026-10-19: `sloth_common/apps/packages.py` `install_appimage`, a háttérben frissül)
 - [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
+- [ ] Bejelentkezés, következő lépések (lásd a 3. fázisban, Fiók és biztonság):
+  - [ ] A PIN-kód tárolása a TPM-ben (most scrypt-hash a `/etc/sloth-os/pin` alatt; a TPM a próbálkozásokat
+    hardveresen is korlátozná, és a hash nem vihető át másik gépre)
+  - [ ] Céges fiók: Entra ID (a mostani Active Directory mellé)
+  - [ ] A jelszótároló (KWallet) nyitása jelszó nélküli belépésnél (PIN, ujjlenyomat, biztonsági kulcs): most
+    az első használatkor kéri a jelszót
 - [x] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis (2026-10-19, lásd lent)
 - [ ] Haladó beállítások folyamatos bővítése – 3. fázis. 2026-10-19: tömörített memória-tartalék (zram: alap /
   nagyobb / ki, `sloth-helper zram`, a `/etc/systemd/zram-generator.conf`; Fedora 44-ben a zram-generatorral
