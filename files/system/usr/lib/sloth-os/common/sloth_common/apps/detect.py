@@ -7,14 +7,16 @@ Telepítés előtt feljegyezzük, mi van már a program Windows-környezetében 
   2. a telepítő által a Start menübe és az asztalra tett parancsikonok (.lnk),
   3. az új .exe fájlok a telepítési helyen, pontozva (név egyezése, méret, mélység; a frissítők,
      hibajelentők, eltávolítók és a futtatókörnyezetek telepítői kiesnek).
+Ha egy recept (recipes.py) ismeri a programot, az általa javasolt .exe előre kerül, a kihagyandók kiesnek.
 Ha egyik sem biztos, a felhasználó választ (és tallózhat is).
 """
+import fnmatch
 import re
 import struct
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from . import winreg
+from . import recipes, winreg
 
 # A közös parancsikonok helye; a felhasználókéi (a Protonnál „steamuser”, a sima Wine-nál a Linuxos név)
 # a shortcut_dirs()-ben
@@ -261,6 +263,15 @@ def detect(app, before=None, fallback_name=""):
         if score > 0:
             same = _norm(p.stem) in (_norm(name), _norm(name) + "launcher")
             add(name if same and name else display_name(p), p, min(score, 75))
+
+    # receptek: a javasolt indító előre, a felesleges segédprogramok ki
+    prefer, skip = recipes.preferences(app.prefix)
+    for key, c in list(found.items()):
+        exe_name = c.path.name.lower()
+        if any(fnmatch.fnmatch(exe_name, p.lower()) for p in skip):
+            del found[key]
+        elif any(fnmatch.fnmatch(exe_name, p.lower()) for p in prefer):
+            c.score = max(c.score, 95)
 
     cands = sorted(found.values(), key=lambda c: -c.score)
     names = set()

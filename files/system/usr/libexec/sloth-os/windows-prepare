@@ -44,6 +44,17 @@ else
     rm -f "$kb.new"
 fi
 
+# Receptek: ismert programok bevált beállításai (sloth_common/apps/recipes.py); a rendszerrel jövőt váltja,
+# ha újabb. A gép betöltéskor újra ellenőrzi őket (csak engedélyezett mezők és értékek)
+recipes="${XDG_CACHE_HOME:-$HOME/.cache}/sloth-os/recipes.json"
+if curl -fsSL --max-time 60 -o "$recipes.new" \
+        https://raw.githubusercontent.com/bathorizsolt/sloth-os-knowledge/main/recipes.json \
+        && head -c 1 "$recipes.new" | grep -q '{'; then
+    mv "$recipes.new" "$recipes"
+else
+    rm -f "$recipes.new"
+fi
+
 # A régi Proton-verziók törlése (ami egy programnak bevált, és egy tartalék, marad), és ha a felhasználó
 # bekapcsolta a megosztást, a sorban álló jelentések elküldése
 sloth-exe --maintenance || true

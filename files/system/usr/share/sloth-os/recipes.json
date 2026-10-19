@@ -1,0 +1,44 @@
+{
+ "version": 1,
+ "updated": "2026-10-19",
+ "recipes": [
+  {
+   "id": "battlenet",
+   "name": "Battle.net",
+   "match": {"dirs": ["Program Files (x86)/Battle.net"], "exe": ["battle.net*.exe"]},
+   "stubs": {"battle.net launcher.exe": "Battle.net.exe"},
+   "prefer": ["battle.net launcher.exe"],
+   "skip": ["battle.net uninstaller.exe", "blizzarderror.exe", "agent.exe", "blizzard uninstaller.exe"],
+   "dll_overrides": ["locationapi=d"]
+  },
+  {
+   "id": "epic-games",
+   "name": "Epic Games Launcher",
+   "match": {"dirs": ["Program Files/Epic Games/Launcher", "Program Files (x86)/Epic Games/Launcher"],
+             "exe": ["epicgameslauncher*.exe"]},
+   "stubs": {"win32/epicgameslauncher.exe": "../Win64/EpicGamesLauncher.exe"},
+   "prefer": ["epicgameslauncher.exe"],
+   "skip": ["epicwebhelper.exe", "unrealcefsubprocess.exe", "crashreportclient.exe"],
+   "per_exe": {"epicgameslauncher.exe": {"args": ["-opengl", "-SkipBuildPatchPrereq"]}}
+  },
+  {
+   "id": "gog-galaxy",
+   "name": "GOG Galaxy",
+   "match": {"dirs": ["Program Files/GOG Galaxy", "Program Files (x86)/GOG Galaxy"],
+             "exe": ["galaxyclient*.exe", "gog_galaxy*.exe", "goggalaxy*.exe"]},
+   "prefer": ["galaxyclient.exe"],
+   "skip": ["galaxyclient helper.exe", "galaxycommunication.exe", "galaxyupdater.exe"],
+   "verbs": ["vcrun2022", "dotnet48"],
+   "per_exe": {"galaxyclient.exe": {"args": ["/runWithoutUpdating", "/deelevated"], "dll_overrides": ["libglesv2=d"]}}
+  },
+  {
+   "id": "ubisoft-connect",
+   "name": "Ubisoft Connect",
+   "match": {"dirs": ["Program Files (x86)/Ubisoft/Ubisoft Game Launcher"],
+             "exe": ["ubisoftconnect*.exe", "upc.exe", "uplay*.exe"]},
+   "prefer": ["ubisoftconnect.exe"],
+   "skip": ["upcinstaller*.exe", "ubisoftextension.exe", "uplaywebcore.exe", "uplaycrashreporter.exe"],
+   "verbs": ["d3dcompiler_43"]
+  }
+ ]
+}

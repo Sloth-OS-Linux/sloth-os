@@ -21,7 +21,7 @@ os.environ.update(HOME=str(TMP), XDG_DATA_HOME=str(TMP / ".local/share"), XDG_CO
                   XDG_CACHE_HOME=str(TMP / ".cache"))
 sys.path.insert(0, str(REPO / "files/system/usr/lib/sloth-os/common"))
 
-from sloth_common.apps import detect, imports, library, menu, packages, steam, winreg  # noqa: E402
+from sloth_common.apps import detect, imports, library, menu, packages, recipes, steam, winreg  # noqa: E402
 
 SYSTEM_REG = r'''WINE REGISTRY Version 2
 ;; All keys relative to \\Machine
@@ -478,6 +478,82 @@ class PackagesTest(unittest.TestCase):
         (entry,) = menu.entries(moved)
         self.assertTrue(Path(entry["icon"]).is_file())  # az ikon útja is követi
         library.remove(moved)
+
+
+class RecipesTest(unittest.TestCase):
+    BUNDLED = REPO / "files/system/usr/share/sloth-os/recipes.json"
+
+    def setUp(self):
+        recipes._cache = None
+        self.orig = recipes.SYSTEM, recipes.CACHE
+        recipes.SYSTEM, recipes.CACHE = self.BUNDLED, TMP / "no-cache/recipes.json"
+
+    def tearDown(self):
+        recipes.SYSTEM, recipes.CACHE = self.orig
+        recipes._cache = None
+
+    def test_bundled_valid(self):
+        data = json.loads(self.BUNDLED.read_text(encoding="utf-8"))
+        self.assertEqual(len(recipes.load()), len(data["recipes"]))  # mind érvényes
+
+    def test_validate_rejects(self):
+        good = {"id": "x", "name": "X", "match": {"exe": ["x.exe"]}}
+        self.assertTrue(recipes.validate(good))
+        bad = [
+            {**good, "verbs": ["rm -rf"]},
+            {**good, "env": ["LD_PRELOAD"]},
+            {**good, "args": ["--load-extension=evil"]},
+            {**good, "dll_overrides": ["d3d11=n"]},          # natív DLL betöltése nem kérhető
+            {**good, "match": {"dirs": ["/etc"]}},
+            {**good, "match": {"dirs": ["../../home"]}},
+            {**good, "stubs": {"x.exe": "/usr/bin/sh"}},
+            {**good, "stubs": {"x.exe": "../../../x.exe"}},
+            {**good, "command": "anything"},                  # ismeretlen mező
+            {**good, "id": "Bad Id"},
+            {**good, "per_exe": {"x.exe": {"env": ["PATH"]}}},
+            {"id": "y", "match": {}},
+        ]
+        for r in bad:
+            self.assertFalse(recipes.validate(r), r)
+        # a hibás kimarad, a jó megmarad
+        f = TMP / "recipes-mixed.json"
+        f.write_text(json.dumps({"version": 1, "updated": "2099-01-01", "recipes": [good] + bad}))
+        self.assertEqual([r["id"] for r in recipes.load([f])], ["x"])
+
+    def test_newer_download_wins(self):
+        newer = TMP / "no-cache/recipes.json"
+        newer.parent.mkdir(parents=True, exist_ok=True)
+        newer.write_text(json.dumps({"version": 1, "updated": "2099-01-01",
+                                     "recipes": [{"id": "only", "match": {"exe": ["only.exe"]}}]}))
+        self.assertEqual([r["id"] for r in recipes.load()], ["only"])
+        newer.unlink()
+
+    def test_stubs_and_settings(self):
+        app = library.create("Recipe test")
+        bnet = app.prefix / "drive_c/Program Files (x86)/Battle.net"
+        touch(bnet / "Battle.net.exe")
+        launcher = touch(bnet / "Battle.net Launcher.exe")
+        self.assertEqual(recipes.stub_target(launcher), bnet / "Battle.net.exe")
+        self.assertIn("locationapi=d", recipes.settings(app.prefix, launcher)["dll_overrides"])
+        epic = app.prefix / "drive_c/Program Files (x86)/Epic Games/Launcher/Portal/Binaries"
+        self.assertEqual(recipes.stub_target(epic / "Win32/EpicGamesLauncher.exe"), epic / "Win64/EpicGamesLauncher.exe")
+        gog = touch(app.prefix / "drive_c/Program Files (x86)/GOG Galaxy/GalaxyClient.exe")
+        s = recipes.settings(app.prefix, gog)
+        self.assertEqual(s["args"], ["/runWithoutUpdating", "/deelevated"])
+        self.assertEqual(s["verbs"], ["vcrun2022", "dotnet48"])
+        self.assertEqual(recipes.settings(app.prefix, touch(TMP / "Downloads/other.exe"))["args"], [])
+        library.remove(app)
+
+    def test_detection_uses_recipes(self):
+        app = library.create("Battle Net R")
+        before = detect.baseline(app)
+        fake_battlenet(app)
+        touch(app.prefix / "drive_c/Program Files (x86)/Battle.net/Agent.exe", 9 * 1024 ** 2)
+        found = detect.detect(app, before, fallback_name="Battle Net")
+        names = [c.path.name for c in found.candidates]
+        self.assertNotIn("Agent.exe", names)                # a recept szerint kimarad
+        self.assertEqual(names[0], "Battle.net Launcher.exe")  # a recept szerinti indító elöl
+        library.remove(app)
 
 
 def make_elf(sections):

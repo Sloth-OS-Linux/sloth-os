@@ -237,9 +237,13 @@ Talált hibák (egyesével javítjuk):
     általánosítva (`sloth_common/apps/imports.py`): Steam (`shortcuts.vdf`), Lutris (`pga.db` + `games/*.yml`, natív
     és Flatpak), Bottles (`bottle.yml`, External_Programs), korábbi `~/.wine` (registry + parancsikonok). „Az eredeti
     programmal” (a Steam / Lutris / Bottles indítja) vagy „Átvétel” (reflink-másolat); az eredetihez nem nyúl
-  - [ ] Receptek a közös tudásból: a `knowledge.json` mellett statikus, ellenőrzött recept-fájl (indító → kliens,
-    a fő .exe neve, összetevők, engedélyezett kapcsolók; tetszőleges parancs nem), a `sloth-windows-prepare` tölti
-    le; a helyi felismerés és a telepítés a gépen marad
+  - [x] Receptek a közös tudásból (2026-10-19): `recipes.json` a `sloth-os-knowledge` repóban (kézzel szerkesztve,
+    a `recipes` Action minden változásnál és PR-nál ellenőrzi: `seed/validate_recipes.py`), és beépítve az image-ben
+    (`/usr/share/sloth-os/recipes.json`, internet nélkül is); a `sloth-windows-prepare` letölti, az újabb (`updated`)
+    nyer. A gép is újra ellenőrzi (`sloth_common/apps/recipes.py`): csak engedélyezett mezők és értékek (indító →
+    kliens, a Start menübe kerülő és a kihagyandó .exe-k, összetevők, Proton-kapcsolók, paraméterek, DLL-kikapcsolás
+    `=d`/`=b`; parancs, tetszőleges változó vagy natív DLL nem). A kódba írt receptek adatai átkerültek; a kódban csak
+    a beállításfájlok írása maradt (Battle.net, Ubisoft). Első receptek: Battle.net, Epic, GOG Galaxy, Ubisoft Connect
   - [ ] A Linuxos csomagok kezelője (lent) is a `~/Applications`-be telepítsen (AppImage), ugyanazzal a könyvtárral
 - [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
 - [ ] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis
