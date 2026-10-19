@@ -10,6 +10,7 @@
   "choose.add_to_menu": "„დაწყების“ მენიუში დამატება",
   "choose.already_installed": "{name} უკვე დაინსტალირებულია.",
   "choose.linux_package": "ეს პაკეტი სხვა Linux-სისტემისთვისაა შექმნილი, მაგრამ აქაც შეიძლება დაინსტალირდეს და „დაწყების“ მენიუში იპოვი. თუ ის Discover-შიც არის, ჩვეულებრივ, ის უკეთესი არჩევანია.",
+  "choose.flathub_available": "{name} Discover-შიც არის. ის ვერსია სისტემას უკეთ ერგება და თავად ახლდება, ამიტომ მას გირჩევთ.",
 
   "button.cancel": "გაუქმება",
   "button.run_only": "მხოლოდ გაშვება",
@@ -18,6 +19,7 @@
   "button.reinstall": "ხელახლა დაინსტალირება",
   "button.browse": "სხვა ფაილი…",
   "button.search_discover": "ძებნა Discover-ში",
+  "button.install_discover": "Discover-იდან დაინსტალირება",
   "button.start": "გაშვება",
   "button.done": "მზადაა",
   "button.close": "დახურვა",

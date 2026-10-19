@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Pridať do ponuky Štart",
   "choose.already_installed": "{name} je už nainštalovaný.",
   "choose.linux_package": "Tento balík je určený pre iný linuxový systém, ale dá sa nainštalovať aj sem a nájdeš ho v ponuke Štart. Ak je aj v Discoveri, býva to lepšia voľba.",
+  "choose.flathub_available": "{name} je dostupný aj v Discoveri. Táto verzia lepšie zapadá do systému a sama sa aktualizuje, preto ju odporúčame.",
 
   "button.cancel": "Zrušiť",
   "button.run_only": "Len spustiť",
@@ -18,6 +19,7 @@
   "button.reinstall": "Preinštalovať",
   "button.browse": "Iný súbor…",
   "button.search_discover": "Hľadať v Discoveri",
+  "button.install_discover": "Nainštalovať z Discoveru",
   "button.start": "Spustiť",
   "button.done": "Hotovo",
   "button.close": "Zavrieť",

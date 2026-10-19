@@ -10,6 +10,7 @@
   "choose.add_to_menu": "ເພີ່ມໃສ່ເມນູເລີ່ມຕົ້ນ",
   "choose.already_installed": "{name} ຕິດຕັ້ງແລ້ວ.",
   "choose.linux_package": "ແພັກເກດນີ້ສ້າງມາສຳລັບລະບົບ Linux ອື່ນ, ແຕ່ກໍຕິດຕັ້ງຢູ່ນີ້ໄດ້ ແລະ ທ່ານຈະພົບມັນໃນເມນູເລີ່ມ. ຖ້າມີຢູ່ໃນ Discover ນຳ, ໂດຍທົ່ວໄປນັ້ນແມ່ນທາງເລືອກທີ່ດີກວ່າ.",
+  "choose.flathub_available": "{name} ມີຢູ່ໃນ Discover ນຳ. ເວີຊັນນັ້ນເຂົ້າກັບລະບົບໄດ້ດີກວ່າ ແລະ ອັບເດດເອງ, ດັ່ງນັ້ນພວກເຮົາແນະນຳອັນນັ້ນ.",
 
   "button.cancel": "ຍົກເລີກ",
   "button.run_only": "ພຽງແຕ່ເປີດ",
@@ -18,6 +19,7 @@
   "button.reinstall": "ຕິດຕັ້ງໃໝ່",
   "button.browse": "ໄຟລ໌ອື່ນ…",
   "button.search_discover": "ຊອກຫາໃນ Discover",
+  "button.install_discover": "ຕິດຕັ້ງຈາກ Discover",
   "button.start": "ເປີດ",
   "button.done": "ສຳເລັດ",
   "button.close": "ປິດ",

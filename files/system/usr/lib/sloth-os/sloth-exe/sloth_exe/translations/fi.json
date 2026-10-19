@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Lisää Käynnistä-valikkoon",
   "choose.already_installed": "{name} on jo asennettu.",
   "choose.linux_package": "Tämä paketti on tehty toiselle Linux-järjestelmälle, mutta sen voi asentaa myös tähän, ja löydät sen Käynnistä-valikosta. Jos se löytyy myös Discoverista, se on yleensä parempi vaihtoehto.",
+  "choose.flathub_available": "{name} löytyy myös Discoverista. Se versio sopii paremmin järjestelmään ja päivittyy itsestään, joten suosittelemme sitä.",
 
   "button.cancel": "Peruuta",
   "button.run_only": "Käynnistä vain",
@@ -18,6 +19,7 @@
   "button.reinstall": "Asenna uudelleen",
   "button.browse": "Muu tiedosto…",
   "button.search_discover": "Hae Discoverista",
+  "button.install_discover": "Asenna Discoverista",
   "button.start": "Käynnistä",
   "button.done": "Valmis",
   "button.close": "Sulje",

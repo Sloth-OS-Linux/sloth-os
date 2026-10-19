@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Ajouter au menu Démarrer",
   "choose.already_installed": "{name} est déjà installé.",
   "choose.linux_package": "Ce paquet a été conçu pour un autre système Linux, mais il peut aussi être installé ici et apparaîtra dans le menu Démarrer. S’il est aussi disponible dans Discover, c’est généralement le meilleur choix.",
+  "choose.flathub_available": "{name} est aussi disponible dans Discover. Cette version s’intègre mieux au système et se met à jour toute seule : nous la recommandons.",
 
   "button.cancel": "Annuler",
   "button.run_only": "Lancer seulement",
@@ -18,6 +19,7 @@
   "button.reinstall": "Réinstaller",
   "button.browse": "Autre fichier…",
   "button.search_discover": "Rechercher dans Discover",
+  "button.install_discover": "Installer depuis Discover",
   "button.start": "Lancer",
   "button.done": "Terminé",
   "button.close": "Fermer",

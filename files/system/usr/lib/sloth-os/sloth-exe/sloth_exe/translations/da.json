@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Føj til startmenuen",
   "choose.already_installed": "{name} er allerede installeret.",
   "choose.linux_package": "Denne pakke er lavet til et andet Linux-system, men den kan også installeres her, og du finder den i startmenuen. Hvis den også findes i Discover, er det som regel det bedste valg.",
+  "choose.flathub_available": "{name} findes også i Discover. Den version passer bedre til systemet og opdaterer sig selv, så vi anbefaler den.",
 
   "button.cancel": "Annuller",
   "button.run_only": "Kør bare",
@@ -18,6 +19,7 @@
   "button.reinstall": "Geninstallér",
   "button.browse": "Anden fil…",
   "button.search_discover": "Søg i Discover",
+  "button.install_discover": "Installer fra Discover",
   "button.start": "Start",
   "button.done": "Færdig",
   "button.close": "Luk",

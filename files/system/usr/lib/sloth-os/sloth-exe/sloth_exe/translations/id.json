@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Tambahkan ke menu Start",
   "choose.already_installed": "{name} sudah terpasang.",
   "choose.linux_package": "Paket ini dibuat untuk sistem Linux lain, tetapi juga bisa dipasang di sini, dan kamu akan menemukannya di menu Start. Jika juga tersedia di Discover, biasanya itu pilihan yang lebih baik.",
+  "choose.flathub_available": "{name} juga tersedia di Discover. Versi itu lebih cocok dengan sistem dan memperbarui dirinya sendiri, jadi kami menyarankannya.",
 
   "button.cancel": "Batal",
   "button.run_only": "Jalankan saja",
@@ -18,6 +19,7 @@
   "button.reinstall": "Pasang ulang",
   "button.browse": "File lain…",
   "button.search_discover": "Cari di Discover",
+  "button.install_discover": "Pasang dari Discover",
   "button.start": "Mulai",
   "button.done": "Selesai",
   "button.close": "Tutup",

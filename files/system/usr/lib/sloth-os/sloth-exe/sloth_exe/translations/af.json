@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Voeg by die beginkieslys",
   "choose.already_installed": "{name} is reeds geïnstalleer.",
   "choose.linux_package": "Hierdie pakket is vir ’n ander Linux-stelsel gemaak, maar dit kan ook hier geïnstalleer word, en jy sal dit in die Begin-kieslys kry. As dit ook in Discover beskikbaar is, is dit gewoonlik die beter keuse.",
+  "choose.flathub_available": "{name} is ook in Discover beskikbaar. Daardie weergawe pas beter by die stelsel en dateer homself op, so ons beveel dit aan.",
 
   "button.cancel": "Kanselleer",
   "button.run_only": "Laat net loop",
@@ -18,6 +19,7 @@
   "button.reinstall": "Herinstalleer",
   "button.browse": "Ander lêer…",
   "button.search_discover": "Soek in Discover",
+  "button.install_discover": "Installeer uit Discover",
   "button.start": "Begin",
   "button.done": "Klaar",
   "button.close": "Maak toe",

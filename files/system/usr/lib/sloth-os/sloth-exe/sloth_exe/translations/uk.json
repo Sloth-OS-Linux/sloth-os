@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Додати до меню «Пуск»",
   "choose.already_installed": "{name} вже встановлено.",
   "choose.linux_package": "Цей пакунок створено для іншої системи Linux, але його можна встановити й тут; він з’явиться в меню «Пуск». Якщо він є і в Discover, зазвичай краще вибрати його.",
+  "choose.flathub_available": "{name} є і в Discover. Ця версія краще пасує до системи й оновлюється сама, тому ми радимо її.",
 
   "button.cancel": "Скасувати",
   "button.run_only": "Лише запустити",
@@ -18,6 +19,7 @@
   "button.reinstall": "Перевстановити",
   "button.browse": "Інший файл…",
   "button.search_discover": "Знайти в Discover",
+  "button.install_discover": "Встановити з Discover",
   "button.start": "Запустити",
   "button.done": "Готово",
   "button.close": "Закрити",

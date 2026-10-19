@@ -10,6 +10,7 @@
   "choose.add_to_menu": "إضافة إلى قائمة ابدأ",
   "choose.already_installed": "{name} مثبّت بالفعل.",
   "choose.linux_package": "صُنعت هذه الحزمة لنظام Linux آخر، لكن يمكن تثبيتها هنا أيضًا وستجدها في قائمة ابدأ. إذا كانت متوفرة في Discover أيضًا، فهذا عادةً الخيار الأفضل.",
+  "choose.flathub_available": "يتوفر {name} في Discover أيضًا. تلك النسخة أنسب للنظام وتُحدِّث نفسها، لذا ننصح بها.",
 
   "button.cancel": "إلغاء",
   "button.run_only": "تشغيل فقط",
@@ -18,6 +19,7 @@
   "button.reinstall": "إعادة التثبيت",
   "button.browse": "ملف آخر…",
   "button.search_discover": "البحث في Discover",
+  "button.install_discover": "التثبيت من Discover",
   "button.start": "تشغيل",
   "button.done": "تم",
   "button.close": "إغلاق",

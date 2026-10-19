@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Adder al menu Initio",
   "choose.already_installed": "{name} es jam installate.",
   "choose.linux_package": "Iste pacchetto esseva facite pro un altere systema Linux, ma illo pote esser installate etiam hic, e tu lo trovara in le menu Initio. Si illo es etiam disponibile in Discover, isto es generalmente le melior option.",
+  "choose.flathub_available": "{name} es etiam disponibile in Discover. Ille version se integra melior con le systema e se actualisa per se, dunque nos lo recommenda.",
 
   "button.cancel": "Cancellar",
   "button.run_only": "Solmente executar",
@@ -18,6 +19,7 @@
   "button.reinstall": "Reinstallar",
   "button.browse": "Altere file…",
   "button.search_discover": "Cercar in Discover",
+  "button.install_discover": "Installar ab Discover",
   "button.start": "Lancear",
   "button.done": "Facite",
   "button.close": "Clauder",

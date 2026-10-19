@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Pridėti į Pradžios meniu",
   "choose.already_installed": "{name} jau įdiegta.",
   "choose.linux_package": "Šis paketas sukurtas kitai Linux sistemai, bet jį galima įdiegti ir čia, o rasi jį meniu Pradžia. Jei jis yra ir Discover, paprastai tai geresnis pasirinkimas.",
+  "choose.flathub_available": "{name} yra ir Discover. Ta versija geriau dera su sistema ir atsinaujina pati, todėl ją rekomenduojame.",
 
   "button.cancel": "Atšaukti",
   "button.run_only": "Tik paleisti",
@@ -18,6 +19,7 @@
   "button.reinstall": "Įdiegti iš naujo",
   "button.browse": "Kitas failas…",
   "button.search_discover": "Ieškoti Discover",
+  "button.install_discover": "Įdiegti iš Discover",
   "button.start": "Paleisti",
   "button.done": "Atlikta",
   "button.close": "Užverti",

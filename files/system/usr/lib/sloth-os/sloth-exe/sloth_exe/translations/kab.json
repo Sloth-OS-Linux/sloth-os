@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Rnu ɣer umuɣ n usenker",
   "choose.already_installed": "{name} yettwasbedd yakan.",
   "choose.linux_package": "Akemmus-a yettwaxdem i unagraw nniḍen n Linux, maca yezmer ad yettwasbedd ula dagi, ad t-tafeḍ deg wumuɣ Bdu. Ma yella daɣen deg Discover, akka d afran yifen s umata.",
+  "choose.flathub_available": "{name} yella daɣen deg Discover. Lqem-nni yemṣada akken iwata d unagraw yerna ttalɣen-d iman-is, ihi nwelleh-it.",
 
   "button.cancel": "Sefsex",
   "button.run_only": "Sekker kan",
@@ -18,6 +19,7 @@
   "button.reinstall": "Ales asebded",
   "button.browse": "Afaylu nniḍen…",
   "button.search_discover": "Nadi deg Discover",
+  "button.install_discover": "Sbedd seg Discover",
   "button.start": "Sekker",
   "button.done": "Ifuk",
   "button.close": "Mdel",

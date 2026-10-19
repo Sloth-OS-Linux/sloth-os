@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Legg til i startmenyen",
   "choose.already_installed": "{name} er allereie installert.",
   "choose.linux_package": "Denne pakken er laga for eit anna Linux-system, men han kan òg installerast her, og du finn han i startmenyen. Om han òg finst i Discover, er det som regel eit betre val.",
+  "choose.flathub_available": "{name} finst òg i Discover. Den versjonen passar betre med systemet og oppdaterer seg sjølv, så vi tilrår han.",
 
   "button.cancel": "Avbryt",
   "button.run_only": "Berre køyr",
@@ -18,6 +19,7 @@
   "button.reinstall": "Installer på nytt",
   "button.browse": "Anna fil…",
   "button.search_discover": "Søk i Discover",
+  "button.install_discover": "Installer frå Discover",
   "button.start": "Start",
   "button.done": "Ferdig",
   "button.close": "Lukk",

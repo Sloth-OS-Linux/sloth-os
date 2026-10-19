@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Adaugă în meniul Start",
   "choose.already_installed": "{name} este deja instalat.",
   "choose.linux_package": "Acest pachet a fost făcut pentru alt sistem Linux, dar poate fi instalat și aici și îl vei găsi în meniul Start. Dacă există și în Discover, de obicei aceea e alegerea mai bună.",
+  "choose.flathub_available": "{name} există și în Discover. Acea versiune se potrivește mai bine cu sistemul și se actualizează singură, așa că o recomandăm.",
 
   "button.cancel": "Anulează",
   "button.run_only": "Doar rulează",
@@ -18,6 +19,7 @@
   "button.reinstall": "Reinstalează",
   "button.browse": "Alt fișier…",
   "button.search_discover": "Caută în Discover",
+  "button.install_discover": "Instalează din Discover",
   "button.start": "Pornește",
   "button.done": "Gata",
   "button.close": "Închide",

@@ -10,6 +10,7 @@
   "choose.add_to_menu": "ਸਟਾਰਟ ਮੀਨੂ ਵਿੱਚ ਜੋੜੋ",
   "choose.already_installed": "{name} ਪਹਿਲਾਂ ਹੀ ਇੰਸਟਾਲ ਹੈ।",
   "choose.linux_package": "ਇਹ ਪੈਕੇਜ ਕਿਸੇ ਹੋਰ Linux ਸਿਸਟਮ ਲਈ ਬਣਾਇਆ ਗਿਆ ਹੈ, ਪਰ ਇਸ ਨੂੰ ਇੱਥੇ ਵੀ ਇੰਸਟਾਲ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ ਅਤੇ ਇਹ ਸਟਾਰਟ ਮੀਨੂ ਵਿੱਚ ਮਿਲੇਗਾ। ਜੇ ਇਹ Discover ਵਿੱਚ ਵੀ ਹੈ, ਤਾਂ ਆਮ ਤੌਰ 'ਤੇ ਉਹੀ ਬਿਹਤਰ ਚੋਣ ਹੈ।",
+  "choose.flathub_available": "{name} Discover ਵਿੱਚ ਵੀ ਹੈ। ਉਹ ਸੰਸਕਰਨ ਸਿਸਟਮ ਨਾਲ ਬਿਹਤਰ ਢੁੱਕਦਾ ਹੈ ਅਤੇ ਆਪਣੇ-ਆਪ ਅੱਪਡੇਟ ਹੁੰਦਾ ਹੈ, ਇਸ ਲਈ ਅਸੀਂ ਉਸ ਦੀ ਸਿਫ਼ਾਰਸ਼ ਕਰਦੇ ਹਾਂ।",
 
   "button.cancel": "ਰੱਦ ਕਰੋ",
   "button.run_only": "ਬੱਸ ਚਲਾਓ",
@@ -18,6 +19,7 @@
   "button.reinstall": "ਮੁੜ ਇੰਸਟਾਲ ਕਰੋ",
   "button.browse": "ਹੋਰ ਫ਼ਾਈਲ…",
   "button.search_discover": "Discover ਵਿੱਚ ਲੱਭੋ",
+  "button.install_discover": "Discover ਤੋਂ ਇੰਸਟਾਲ ਕਰੋ",
   "button.start": "ਚਾਲੂ ਕਰੋ",
   "button.done": "ਹੋ ਗਿਆ",
   "button.close": "ਬੰਦ ਕਰੋ",

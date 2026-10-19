@@ -480,6 +480,84 @@ class PackagesTest(unittest.TestCase):
         library.remove(moved)
 
 
+def make_elf(sections):
+    """Egy minimális 64 bites ELF a megadott szakaszokkal ({név: tartalom}), az AppImage-ek mintájára."""
+    names = b"\0" + b"".join(n.encode() + b"\0" for n in sections) + b".shstrtab\0"
+    body, offsets = b"", []
+    for data in list(sections.values()) + [names]:
+        offsets.append(64 + len(body))
+        body += data
+    shoff = 64 + len(body)
+    head = bytearray(64)
+    head[:16] = b"\x7fELF\x02\x01\x01\x00AI\x02" + b"\0" * 5
+    struct.pack_into("<Q", head, 0x28, shoff)
+    struct.pack_into("<HHH", head, 0x3A, 64, len(sections) + 2, len(sections) + 1)
+    table = b"\0" * 64  # az első szakasz üres
+    name_off = 1
+    for (name, data), off in zip(list(sections.items()) + [(".shstrtab", names)], offsets):
+        table += struct.pack("<IIQQQQ", name_off, 1, 0, 0, off, len(data)) + b"\0" * 24  # 64 bájtos fejléc
+        name_off += len(name) + 1
+    return bytes(head) + body + table
+
+
+class AppImageUpdateTest(unittest.TestCase):
+    INFO = "gh-releases-zsync|someone|coolapp|latest|Coolapp-*x86_64.AppImage.zsync"
+
+    def test_update_info(self):
+        path = TMP / "elf.AppImage"
+        path.write_bytes(make_elf({".text": b"\x90" * 32, ".upd_info": self.INFO.encode() + b"\0" * 100}))
+        self.assertEqual(packages.kind_of(path), "appimage")
+        self.assertEqual(packages.update_info(path), self.INFO)
+        path.write_bytes(make_elf({".text": b"\x90" * 32}))
+        self.assertEqual(packages.update_info(path), "")
+
+    def test_update_appimage(self):
+        import hashlib
+        app = library.create("Updatable", kind="appimage", file="Coolapp.AppImage", update_info=self.INFO)
+        app.dir.mkdir(parents=True, exist_ok=True)
+        old = app.dir / "Coolapp.AppImage"
+        old.write_bytes(b"old version")
+        new = b"new version"
+        orig = (packages._get, packages.zsync_url, packages.metered)
+        packages.zsync_url = lambda info: "https://example.org/Coolapp-2.0-x86_64.AppImage.zsync"
+        packages.metered = lambda: False
+        sha = {"value": hashlib.sha1(new).hexdigest()}
+
+        def fake_get(url, limit=None):
+            if url.endswith(".zsync"):
+                return (f"zsync: 0.6.2\nFilename: Coolapp-2.0-x86_64.AppImage\nURL: Coolapp-2.0-x86_64.AppImage\n"
+                        f"SHA-1: {sha['value']}\nLength: {len(new)}\n\nbinary").encode()
+            self.assertEqual(url, "https://example.org/Coolapp-2.0-x86_64.AppImage")
+            return new
+        packages._get = fake_get
+        try:
+            self.assertEqual(packages.update_appimage(app), "updated")
+            self.assertEqual(old.read_bytes(), new)
+            self.assertTrue(old.stat().st_mode & 0o111)
+            self.assertEqual(packages.update_appimage(app), "current")
+            sha["value"] = "0" * 40  # sérült letöltés: a régi marad
+            self.assertEqual(packages.update_appimage(app), "skipped")
+            self.assertEqual(old.read_bytes(), new)
+            self.assertEqual(packages.update_appimages(), [])
+        finally:
+            packages._get, packages.zsync_url, packages.metered = orig
+            library.remove(app)
+
+    def test_flathub_match(self):
+        import io
+        import urllib.request
+        orig = urllib.request.urlopen
+        hits = {"hits": [{"app_id": "org.other.Thing", "name": "Other"},
+                         {"app_id": "org.signal.Signal", "name": "Signal Desktop", "summary": "Private messenger"}]}
+        urllib.request.urlopen = lambda req, timeout=0: io.BytesIO(json.dumps(hits).encode())
+        try:
+            self.assertEqual(packages.flathub_match("signal-desktop")["id"], "org.signal.Signal")
+            self.assertIsNone(packages.flathub_match("Something Else"))
+            self.assertIsNone(packages.flathub_match("ab"))
+        finally:
+            urllib.request.urlopen = orig
+
+
 if __name__ == "__main__":
     try:
         unittest.main(verbosity=2)

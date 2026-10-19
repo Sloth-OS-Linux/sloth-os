@@ -10,6 +10,7 @@
   "choose.add_to_menu": "தொடக்க மெனுவில் சேர்",
   "choose.already_installed": "{name} ஏற்கெனவே நிறுவப்பட்டுள்ளது.",
   "choose.linux_package": "இந்தத் தொகுப்பு வேறு Linux அமைப்புக்காக உருவாக்கப்பட்டது, ஆனால் இங்கேயும் நிறுவலாம்; தொடக்க மெனுவில் காணலாம். Discover-இலும் இருந்தால், பொதுவாக அதுவே சிறந்த தேர்வு.",
+  "choose.flathub_available": "{name} Discover-இலும் உள்ளது. அந்தப் பதிப்பு கணினியுடன் சிறப்பாகப் பொருந்தும், தானாகப் புதுப்பிக்கப்படும்; எனவே அதையே பரிந்துரைக்கிறோம்.",
 
   "button.cancel": "ரத்துசெய்",
   "button.run_only": "இயக்கு மட்டும்",
@@ -18,6 +19,7 @@
   "button.reinstall": "மீண்டும் நிறுவு",
   "button.browse": "வேறு கோப்பு…",
   "button.search_discover": "Discover-இல் தேடு",
+  "button.install_discover": "Discover-இலிருந்து நிறுவு",
   "button.start": "தொடங்கு",
   "button.done": "முடிந்தது",
   "button.close": "மூடு",

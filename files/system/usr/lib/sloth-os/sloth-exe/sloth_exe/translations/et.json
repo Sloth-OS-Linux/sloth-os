@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Lisa Start-menüüsse",
   "choose.already_installed": "{name} on juba paigaldatud.",
   "choose.linux_package": "See pakett on tehtud teise Linuxi süsteemi jaoks, kuid selle saab paigaldada ka siia ja leiad selle Start-menüüst. Kui see on olemas ka Discoveris, on see tavaliselt parem valik.",
+  "choose.flathub_available": "{name} on olemas ka Discoveris. See versioon sobib süsteemiga paremini ja uueneb ise, seega soovitame seda.",
 
   "button.cancel": "Loobu",
   "button.run_only": "Ainult käivita",
@@ -18,6 +19,7 @@
   "button.reinstall": "Paigalda uuesti",
   "button.browse": "Muu fail…",
   "button.search_discover": "Otsi Discoverist",
+  "button.install_discover": "Paigalda Discoverist",
   "button.start": "Käivita",
   "button.done": "Valmis",
   "button.close": "Sulge",

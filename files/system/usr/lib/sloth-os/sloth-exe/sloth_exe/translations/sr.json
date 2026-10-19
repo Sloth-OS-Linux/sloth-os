@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Додај у мени Старт",
   "choose.already_installed": "{name} је већ инсталиран.",
   "choose.linux_package": "Овај пакет је направљен за други Linux систем, али може да се инсталира и овде, а наћи ћеш га у менију Старт. Ако постоји и у Discover-у, то је обично бољи избор.",
+  "choose.flathub_available": "{name} постоји и у Discover-у. Та верзија се боље уклапа у систем и сама се ажурира, па је препоручујемо.",
 
   "button.cancel": "Откажи",
   "button.run_only": "Само покрени",
@@ -18,6 +19,7 @@
   "button.reinstall": "Поново инсталирај",
   "button.browse": "Друга датотека…",
   "button.search_discover": "Претражи у Discover-у",
+  "button.install_discover": "Инсталирај из Discover-а",
   "button.start": "Покрени",
   "button.done": "Готово",
   "button.close": "Затвори",

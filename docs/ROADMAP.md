@@ -409,8 +409,12 @@ Talált hibák (egyesével javítjuk):
   (`distrobox-export`), mellette „Keresés a Discoverben”; eltávolításkor a dobozból is törlődik. Mac-fájlok: érthető
   üzenet és Discover-keresés; Mac-es parancsfájlt nem futtatunk. A Sloth Központ oldala ezért „Programok” lett.
   A saját fájl nélküli programok (máshonnan indítottak, dobozosak) adatai rejtve vannak
-  (`~/.local/share/sloth-os/apps/`), hogy ne legyen üres mappa a `~/Applications`-ben. Hátravan: AppImage-frissítés
-  (ha az AppImage támogatja), az `.rpm`-nél a Flathubos változat automatikus felajánlása.
+  (`~/.local/share/sloth-os/apps/`), hogy ne legyen üres mappa a `~/Applications`-ben. Szintén kész (2026-10-19):
+  AppImage-frissítés a háttérben (`sloth-exe --maintenance`, a `sloth-windows-prepare.timer` hívja): az AppImage saját
+  frissítési adatából (ELF `.upd_info`: `zsync|…` vagy `gh-releases-zsync|…`) a `.zsync` fejléce, SHA-1 egyezés
+  esetén nincs teendő, különben teljes letöltés, ellenőrzés, csere; csak nem mért kapcsolaton, és ha a program nem
+  fut. Valódi AppImage-en kipróbálva (AppImageUpdate): az adat kiolvasása és a fejléc. Ha egy .deb, .rpm vagy
+  AppImage a Flathubon is megvan (pontos névegyezés), azt ajánljuk („Telepítés a Discoverből” a fő gomb).
   Az eredeti terv: a netről letöltött Linux-appok is
   dupla kattintásra települjenek, folyamatjelzővel, Start menü bejegyzéssel, és a Sloth Központban
   eltávolíthatók legyenek. Most egyiket sem kezeli semmi:

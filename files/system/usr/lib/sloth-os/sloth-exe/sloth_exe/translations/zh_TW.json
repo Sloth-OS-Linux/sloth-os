@@ -10,6 +10,7 @@
   "choose.add_to_menu": "加入開始功能表",
   "choose.already_installed": "{name} 已安裝。",
   "choose.linux_package": "此套件是為其他 Linux 系統製作的，但也可以在這裡安裝，安裝後會出現在開始選單中。如果 Discover 中也有，通常那是更好的選擇。",
+  "choose.flathub_available": "Discover 中也有 {name}。那個版本與系統更契合，而且會自動更新，因此我們推薦它。",
 
   "button.cancel": "取消",
   "button.run_only": "僅執行",
@@ -18,6 +19,7 @@
   "button.reinstall": "重新安裝",
   "button.browse": "其他檔案…",
   "button.search_discover": "在 Discover 中搜尋",
+  "button.install_discover": "從 Discover 安裝",
   "button.start": "啟動",
   "button.done": "完成",
   "button.close": "關閉",

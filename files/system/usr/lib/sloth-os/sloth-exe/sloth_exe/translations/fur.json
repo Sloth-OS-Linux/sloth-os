@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Zonte al menù Start",
   "choose.already_installed": "{name} al è za instalât.",
   "choose.linux_package": "Chest pachet al è stât fat par un altri sisteme Linux, ma si pues instalâlu ancje achì e tu lu cjatarâs tal menù Start. Se al è ancje in Discover, di solit chê e je la sielte miôr.",
+  "choose.flathub_available": "{name} al è ancje in Discover. Chê version si integre miôr cul sisteme e si inzorne di bessole, duncje le conseìn.",
 
   "button.cancel": "Anule",
   "button.run_only": "Invie e basta",
@@ -18,6 +19,7 @@
   "button.reinstall": "Torne instale",
   "button.browse": "Altri file…",
   "button.search_discover": "Cîr in Discover",
+  "button.install_discover": "Instale di Discover",
   "button.start": "Invie",
   "button.done": "Fat",
   "button.close": "Siere",

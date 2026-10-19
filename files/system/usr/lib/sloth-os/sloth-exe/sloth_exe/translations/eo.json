@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Aldoni al la startmenuo",
   "choose.already_installed": "{name} jam estas instalita.",
   "choose.linux_package": "Ĉi tiu pako estas farita por alia Linux-sistemo, sed ĝi instaleblas ankaŭ ĉi tie, kaj vi trovos ĝin en la Start-menuo. Se ĝi haveblas ankaŭ en Discover, tio kutime estas pli bona elekto.",
+  "choose.flathub_available": "{name} haveblas ankaŭ en Discover. Tiu versio pli bone kongruas kun la sistemo kaj ĝisdatiĝas mem, do ni rekomendas ĝin.",
 
   "button.cancel": "Nuligi",
   "button.run_only": "Nur lanĉi",
@@ -18,6 +19,7 @@
   "button.reinstall": "Reinstali",
   "button.browse": "Alia dosiero…",
   "button.search_discover": "Serĉi en Discover",
+  "button.install_discover": "Instali el Discover",
   "button.start": "Lanĉi",
   "button.done": "Farite",
   "button.close": "Fermi",

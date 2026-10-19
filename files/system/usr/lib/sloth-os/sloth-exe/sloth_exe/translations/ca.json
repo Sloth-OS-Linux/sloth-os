@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Afegeix al menú Inici",
   "choose.already_installed": "{name} ja està instal·lat.",
   "choose.linux_package": "Aquest paquet s’ha fet per a un altre sistema Linux, però també es pot instal·lar aquí i el trobaràs al menú Inici. Si també és al Discover, sol ser la millor opció.",
+  "choose.flathub_available": "{name} també és al Discover. Aquesta versió s’integra millor amb el sistema i s’actualitza sola, així que la recomanem.",
 
   "button.cancel": "Cancel·la",
   "button.run_only": "Només executa",
@@ -18,6 +19,7 @@
   "button.reinstall": "Reinstal·la",
   "button.browse": "Un altre fitxer…",
   "button.search_discover": "Cerca al Discover",
+  "button.install_discover": "Instal·la des del Discover",
   "button.start": "Inicia",
   "button.done": "Fet",
   "button.close": "Tanca",

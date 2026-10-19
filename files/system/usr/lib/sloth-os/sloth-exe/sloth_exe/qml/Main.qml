@@ -67,6 +67,7 @@ Kirigami.ApplicationWindow {
                             wrapMode: Text.Wrap
                             opacity: 0.8
                             text: exe.alreadyInstalled ? root.t("choose.already_installed", { name: exe.name })
+                                  : exe.flathubName !== "" ? root.t("choose.flathub_available", { name: exe.flathubName })
                                   : exe.fileKind === "deb" || exe.fileKind === "rpm" ? root.t("choose.linux_package")
                                   : root.t(exe.isInstaller ? "choose.installer_text" : "choose.program_text")
                         }
@@ -95,7 +96,7 @@ Kirigami.ApplicationWindow {
                     }
                     // Más Linux-rendszerhez készült csomag: a Discoveres változat általában jobb választás
                     QQC2.Button {
-                        visible: exe.fileKind === "deb" || exe.fileKind === "rpm"
+                        visible: (exe.fileKind === "deb" || exe.fileKind === "rpm") && exe.flathubName === ""
                         text: root.t("button.search_discover")
                         icon.name: "plasmadiscover"
                         onClicked: exe.searchDiscover()
@@ -114,9 +115,17 @@ Kirigami.ApplicationWindow {
                         icon.name: "media-playback-start"
                         onClicked: exe.openExisting()
                     }
+                    // A Flathubos változat a javasolt: az a fő gomb, a csomag telepítése marad mellette
+                    QQC2.Button {
+                        visible: exe.flathubName !== ""
+                        highlighted: true
+                        text: root.t("button.install_discover")
+                        icon.name: "plasmadiscover"
+                        onClicked: exe.installFromDiscover()
+                    }
                     QQC2.Button {
                         visible: !exe.alreadyInstalled
-                        highlighted: true
+                        highlighted: exe.flathubName === ""
                         text: root.t(exe.isInstaller ? "button.install" : "button.start")
                         icon.name: exe.isInstaller ? "download" : "media-playback-start"
                         onClicked: exe.isInstaller ? exe.install() : exe.run(addToMenu.checked)

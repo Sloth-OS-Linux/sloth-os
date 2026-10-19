@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Shto te menuja Start",
   "choose.already_installed": "{name} është instaluar tashmë.",
   "choose.linux_package": "Ky paketë është bërë për një sistem tjetër Linux, por mund të instalohet edhe këtu dhe do ta gjesh në menynë Start. Nëse është edhe në Discover, zakonisht kjo është zgjedhja më e mirë.",
+  "choose.flathub_available": "{name} gjendet edhe në Discover. Ai version përshtatet më mirë me sistemin dhe përditësohet vetë, ndaj e rekomandojmë.",
 
   "button.cancel": "Anulo",
   "button.run_only": "Vetëm nise",
@@ -18,6 +19,7 @@
   "button.reinstall": "Riinstalo",
   "button.browse": "Skedar tjetër…",
   "button.search_discover": "Kërko në Discover",
+  "button.install_discover": "Instalo nga Discover",
   "button.start": "Nis",
   "button.done": "U krye",
   "button.close": "Mbyll",

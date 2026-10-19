@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Dodaj v meni Start",
   "choose.already_installed": "{name} je že nameščen.",
   "choose.linux_package": "Ta paket je narejen za drug sistem Linux, vendar ga je mogoče namestiti tudi tukaj, našel pa ga boš v meniju Start. Če je na voljo tudi v Discoverju, je to običajno boljša izbira.",
+  "choose.flathub_available": "{name} je na voljo tudi v Discoverju. Ta različica se bolje ujema s sistemom in se sama posodablja, zato jo priporočamo.",
 
   "button.cancel": "Prekliči",
   "button.run_only": "Samo zaženi",
@@ -18,6 +19,7 @@
   "button.reinstall": "Znova namesti",
   "button.browse": "Druga datoteka…",
   "button.search_discover": "Išči v Discoverju",
+  "button.install_discover": "Namesti iz Discoverja",
   "button.start": "Zaženi",
   "button.done": "Končano",
   "button.close": "Zapri",

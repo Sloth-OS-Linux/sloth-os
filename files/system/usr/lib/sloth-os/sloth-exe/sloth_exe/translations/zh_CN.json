@@ -10,6 +10,7 @@
   "choose.add_to_menu": "添加到开始菜单",
   "choose.already_installed": "{name} 已安装。",
   "choose.linux_package": "此软件包是为其他 Linux 系统制作的，但也可以在这里安装，安装后会出现在开始菜单中。如果 Discover 中也有，通常那是更好的选择。",
+  "choose.flathub_available": "Discover 中也有 {name}。那个版本与系统更契合，并且会自动更新，因此我们推荐它。",
 
   "button.cancel": "取消",
   "button.run_only": "仅运行",
@@ -18,6 +19,7 @@
   "button.reinstall": "重新安装",
   "button.browse": "其他文件…",
   "button.search_discover": "在 Discover 中搜索",
+  "button.install_discover": "从 Discover 安装",
   "button.start": "启动",
   "button.done": "完成",
   "button.close": "关闭",

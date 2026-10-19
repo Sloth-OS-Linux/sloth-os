@@ -43,6 +43,7 @@ class ExeController(QObject):
     showWindow = Signal()
     _identified = Signal(object, str, str)  # a háttérszálból: (GAMEID / "" / None, név, ujjlenyomat)
     _package_done = Signal(object)          # a háttérszálból: a telepített AppImage (App) vagy None
+    _flathub_found = Signal(object)         # a háttérszálból: a program Flathubos változata, vagy None
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -74,6 +75,8 @@ class ExeController(QObject):
         self._worked_timer.timeout.connect(self._on_worked)
         self._identified.connect(self._on_identified)
         self._package_done.connect(self._on_appimage_installed)
+        self._flathub_found.connect(self._on_flathub)
+        self._flathub = None     # a Linuxos csomag Flathubos változata: {"id", "name", "summary"}
         self._kind = "windows"   # a megnyitott fájl fajtája (packages.kind_of), vagy "windows"
         self._done_text = ""
         self._start_cmd = None   # a „kész” állapotban az Indítás parancsa
@@ -188,6 +191,7 @@ class ExeController(QObject):
     fileKind = Property(str, lambda self: self._kind, notify=changed)
     doneText = Property(str, lambda self: self._done_text, notify=changed)
     canStart = Property(bool, lambda self: self._start_cmd is not None, notify=changed)
+    flathubName = Property(str, lambda self: (self._flathub or {}).get("name", ""), notify=changed)
     sure = Property(bool, lambda self: self._sure, notify=changed)
     anyChecked = Property(bool, lambda self: any(s["checked"] for s in self._shortcuts), notify=changed)
     strings = Property("QVariantMap", lambda self: catalog.strings(), constant=True)
@@ -295,6 +299,14 @@ class ExeController(QObject):
         QApplication.quit()
 
     @Slot()
+    def installFromDiscover(self):
+        """A program Flathubos változata a Discoverben (jobban illeszkedik, és a Discover frissíti)."""
+        if self._flathub:
+            subprocess.Popen(["plasma-discover", f"appstream://{self._flathub['id']}"], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        QApplication.quit()
+
+    @Slot()
     def runOnly(self):
         """AppImage telepítés nélkül: futtathatóvá tesszük, és elindítjuk."""
         try:
@@ -322,6 +334,14 @@ class ExeController(QObject):
             self._info(tr("package.mac_script"))
             return
         self._state = "choose"
+        self.changed.emit()
+        # Ha a Flathubon is megvan, azt ajánljuk (a háttérben keresünk, a felület addig is használható)
+        name = self._name
+        threading.Thread(target=lambda: self._flathub_found.emit(
+            packages.flathub_match(name) if backend.online() else None), daemon=True).start()
+
+    def _on_flathub(self, found):
+        self._flathub = found
         self.changed.emit()
 
     def _install_package(self):

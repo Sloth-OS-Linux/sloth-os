@@ -10,6 +10,7 @@
   "choose.add_to_menu": "ষ্টাৰ্ট মেনুত যোগ কৰক",
   "choose.already_installed": "{name} ইতিমধ্যে ইনষ্টল কৰা হৈছে।",
   "choose.linux_package": "এই পেকেজটো আন এটা Linux চিষ্টেমৰ বাবে বনোৱা হৈছে, কিন্তু ইয়াতো ইনষ্টল কৰিব পাৰি আৰু আৰম্ভণি মেনুত পাব। যদি Discover-তো আছে, সাধাৰণতে সেইটোৱেই ভাল বাছনি।",
+  "choose.flathub_available": "{name} Discover-তো আছে। সেই সংস্কৰণটো চিষ্টেমৰ সৈতে ভালদৰে খাপ খায় আৰু নিজে আপডেট হয়, সেয়ে আমি সেইটোকে পৰামৰ্শ দিওঁ।",
 
   "button.cancel": "বাতিল কৰক",
   "button.run_only": "কেৱল চলাওক",
@@ -18,6 +19,7 @@
   "button.reinstall": "পুনৰ ইনষ্টল কৰক",
   "button.browse": "আন ফাইল…",
   "button.search_discover": "Discover-ত বিচাৰক",
+  "button.install_discover": "Discover-ৰ পৰা ইনষ্টল কৰক",
   "button.start": "আৰম্ভ কৰক",
   "button.done": "হ'ল",
   "button.close": "বন্ধ কৰক",

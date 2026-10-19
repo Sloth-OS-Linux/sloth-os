@@ -8,13 +8,25 @@
   Mac        (.dmg, .pkg, .app…) Linuxon nem futtatható: érthető üzenet, és a Discoverben keresés a
              Linuxos változatra.
 A felismerés a fájl tartalma alapján megy (nem csak a kiterjesztés szerint).
+
+Ha egy program a Flathubon is megvan, azt ajánljuk (flathub_match): jobban illeszkedik a rendszerhez, és a
+Discover frissíti. A telepített AppImage-ek a háttérben frissülnek, ha az AppImage megadja, honnan
+(update_appimages, a sloth-exe --maintenance hívja; csak nem mért kapcsolaton, és ha a program nem fut).
 """
 import configparser
+import fnmatch
+import hashlib
+import json
 import logging
+import os
 import re
 import shlex
+import struct
 import subprocess
 import tempfile
+import unicodedata
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 from . import library, menu
@@ -143,6 +155,7 @@ def install_appimage(src, name=None):
         library.remove(app)
         return None
     info = appimage_info(dest, app.icons / "appimage")
+    app.save_meta(update_info=update_info(dest))
     if info.get("name") and info["name"] != app.name:
         app.save_meta(file=dest.name)
         app = library.rename(app, info["name"])
@@ -160,6 +173,167 @@ def install_appimage(src, name=None):
 def appimage_path(app):
     f = app.meta.get("file")
     return app.dir / f if f else None
+
+
+# --- AppImage-frissítés ------------------------------------------------------------------------------
+
+TIMEOUT_S = 20
+USER_AGENT = "SlothOS-AppImage-Update/1"
+
+
+def update_info(path):
+    """Az AppImage frissítési adata (az ELF .upd_info szakasza), pl. "gh-releases-zsync|user|repo|latest|X-*.zsync"."""
+    try:
+        with open(path, "rb") as f:
+            head = f.read(64)
+            if head[:4] != b"\x7fELF" or head[4] != 2 or head[5] != 1:  # 64 bites, little-endian
+                return ""
+            shoff, = struct.unpack_from("<Q", head, 0x28)
+            shentsize, shnum, shstrndx = struct.unpack_from("<HHH", head, 0x3A)
+            f.seek(shoff)
+            table = f.read(shentsize * shnum)
+            sections = [struct.unpack_from("<IIQQQQ", table, i * shentsize) for i in range(shnum)]
+            _n, _t, _fl, _a, str_off, str_size = sections[shstrndx]
+            f.seek(str_off)
+            names = f.read(str_size)
+            for name_off, _t, _fl, _a, off, size in sections:
+                if names[name_off:names.index(b"\0", name_off)] == b".upd_info":
+                    f.seek(off)
+                    return f.read(size).split(b"\0", 1)[0].decode("utf-8", "replace").strip()
+    except (OSError, ValueError, struct.error, IndexError):
+        pass
+    return ""
+
+
+def _get(url, limit=None):
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=TIMEOUT_S) as r:
+        return r.read(limit) if limit else r.read()
+
+
+def zsync_url(info):
+    """A frissítési adatból a .zsync fájl címe (zsync|<url> vagy gh-releases-zsync|<user>|<repo>|<tag>|<minta>)."""
+    parts = info.split("|")
+    if parts[0] == "zsync" and len(parts) >= 2:
+        return parts[1]
+    if parts[0] == "gh-releases-zsync" and len(parts) >= 5:
+        user, repo, tag, pattern = parts[1:5]
+        api = (f"https://api.github.com/repos/{user}/{repo}/releases/latest" if tag == "latest"
+               else f"https://api.github.com/repos/{user}/{repo}/releases/tags/{urllib.parse.quote(tag)}")
+        release = json.loads(_get(api))
+        return next((a["browser_download_url"] for a in release.get("assets", [])
+                     if fnmatch.fnmatch(a.get("name", ""), pattern)), None)
+    return None
+
+
+def zsync_header(url):
+    """A .zsync fejléce: {"filename", "url" (a teljes fájl címe), "sha1", "length"}."""
+    data = _get(url, 64 * 1024)
+    head = data.split(b"\n\n", 1)[0].decode("utf-8", "replace")
+    fields = dict(line.split(": ", 1) for line in head.splitlines() if ": " in line)
+    file_url = urllib.parse.urljoin(url, fields.get("URL") or fields.get("Filename", ""))
+    return {"filename": fields.get("Filename", ""), "url": file_url, "sha1": fields.get("SHA-1", "").lower(),
+            "length": int(fields.get("Length", "0") or 0)}
+
+
+def _sha1(path):
+    h = hashlib.sha1()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def metered():
+    """Mért (mobilnetes) kapcsolaton vagyunk-e (a NetworkManager szerint; ha nem derül ki, nem)."""
+    try:
+        out = subprocess.run(["busctl", "get-property", "org.freedesktop.NetworkManager",
+                              "/org/freedesktop/NetworkManager", "org.freedesktop.NetworkManager", "Metered"],
+                             capture_output=True, text=True, timeout=5).stdout.split()
+        return len(out) == 2 and out[1] in ("1", "3")  # yes, guess-yes
+    except (OSError, subprocess.SubprocessError):
+        return False
+
+
+def _running(path):
+    target = str(path).encode()
+    for proc in Path("/proc").iterdir() if Path("/proc").is_dir() else []:
+        if proc.name.isdigit():
+            try:
+                if target in (proc / "cmdline").read_bytes() or os.readlink(proc / "exe").encode() == target:
+                    return True
+            except OSError:
+                continue
+    return False
+
+
+def update_appimage(app):
+    """Egy AppImage frissítése, ha van újabb. -> "updated" | "current" | "skipped" (nincs adat, fut, hiba)."""
+    path = appimage_path(app)
+    info = app.meta.get("update_info") or (update_info(path) if path else "")
+    if not path or not path.is_file() or not info:
+        return "skipped"
+    try:
+        url = zsync_url(info)
+        if not url:
+            return "skipped"
+        head = zsync_header(url)
+        if not head["sha1"] or head["sha1"] == _sha1(path):
+            return "current"
+        if _running(path):
+            return "skipped"  # fut: a következő alkalommal
+        part = path.with_name(f".{path.name}.frissites")
+        with open(part, "wb") as f:
+            f.write(_get(head["url"]))
+        if _sha1(part) != head["sha1"]:
+            part.unlink(missing_ok=True)
+            log.warning("AppImage-frissítés: hibás letöltés (%s)", app.name)
+            return "skipped"
+        part.chmod(0o755)
+        os.replace(part, path)
+        app.save_meta(update_info=info, updated=head["filename"])
+        log.info("AppImage frissítve: %s -> %s", app.name, head["filename"])
+        return "updated"
+    except (OSError, ValueError, KeyError, urllib.error.URLError) as e:
+        log.warning("AppImage-frissítés (%s): %s", app.name, e)
+        return "skipped"
+
+
+def update_appimages():
+    """Minden telepített AppImage frissítése (háttérben, nem mért kapcsolaton). -> a frissítettek nevei"""
+    if metered():
+        return []
+    return [a.name for a in library.all_apps() if a.kind == "appimage" and update_appimage(a) == "updated"]
+
+
+# --- A Flathubos változat ----------------------------------------------------------------------------
+
+FLATHUB_SEARCH = "https://flathub.org/api/v2/search"
+
+
+def _norm(s):
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+    return re.sub(r"[^a-z0-9]+", "", s)
+
+
+def flathub_match(name, timeout=4):
+    """Megvan-e a program a Flathubon (pontos névegyezés). -> {"id", "name", "summary"} vagy None"""
+    want = _norm(name)
+    if len(want) < 3:
+        return None
+    try:
+        req = urllib.request.Request(FLATHUB_SEARCH, data=json.dumps({"query": name}).encode(),
+                                     headers={"Content-Type": "application/json", "User-Agent": USER_AGENT})
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            hits = json.loads(r.read()).get("hits", [])
+    except (OSError, ValueError, urllib.error.URLError) as e:
+        log.info("Flathub-keresés: %s", e)
+        return None
+    for h in hits[:10]:
+        last = (h.get("app_id") or "").rsplit(".", 1)[-1]
+        if want in (_norm(h.get("name")), _norm(last)):
+            return {"id": h["app_id"], "name": h.get("name") or name, "summary": h.get("summary") or ""}
+    return None
 
 
 # --- .deb / .rpm dobozban ----------------------------------------------------------------------------

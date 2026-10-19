@@ -10,6 +10,7 @@
   "choose.add_to_menu": "הוספה לתפריט התחל",
   "choose.already_installed": "{name} כבר מותקן.",
   "choose.linux_package": "החבילה הזו נבנתה למערכת Linux אחרת, אבל אפשר להתקין אותה גם כאן, והיא תופיע בתפריט ההתחלה. אם היא זמינה גם ב־Discover, זו בדרך כלל הבחירה הטובה יותר.",
+  "choose.flathub_available": "{name} זמינה גם ב־Discover. הגרסה הזו מתאימה יותר למערכת ומתעדכנת מעצמה, ולכן אנחנו ממליצים עליה.",
 
   "button.cancel": "ביטול",
   "button.run_only": "רק להפעיל",
@@ -18,6 +19,7 @@
   "button.reinstall": "התקנה מחדש",
   "button.browse": "קובץ אחר…",
   "button.search_discover": "חיפוש ב־Discover",
+  "button.install_discover": "התקנה מ־Discover",
   "button.start": "הפעלה",
   "button.done": "סיום",
   "button.close": "סגירה",

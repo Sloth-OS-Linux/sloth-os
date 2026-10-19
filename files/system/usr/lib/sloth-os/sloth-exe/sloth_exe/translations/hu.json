@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Hozzáadás a Start menühöz",
   "choose.already_installed": "{name} már telepítve van.",
   "choose.linux_package": "Ez a csomag egy másik Linux-rendszerhez készült, de itt is telepíthető, és a Start menüben fogod találni. Ha a Discoverben is megvan, az általában jobb választás.",
+  "choose.flathub_available": "{name} a Discoverben is megvan. Az a változat jobban illeszkedik a rendszerhez, és magától frissül, ezért azt javasoljuk.",
 
   "button.cancel": "Mégse",
   "button.run_only": "Csak futtatás",
@@ -18,6 +19,7 @@
   "button.reinstall": "Újratelepítés",
   "button.browse": "Másik fájl…",
   "button.search_discover": "Keresés a Discoverben",
+  "button.install_discover": "Telepítés a Discoverből",
   "button.start": "Indítás",
   "button.done": "Kész",
   "button.close": "Bezárás",

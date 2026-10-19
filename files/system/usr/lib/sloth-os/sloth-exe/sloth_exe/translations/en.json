@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Add to the Start menu",
   "choose.already_installed": "{name} is already installed.",
   "choose.linux_package": "This package was made for another Linux system, but it can be installed here too, and you'll find it in the Start menu. If it's also available in Discover, that is usually the better choice.",
+  "choose.flathub_available": "{name} is also available in Discover. That version fits the system better and updates itself, so we recommend it.",
 
   "button.cancel": "Cancel",
   "button.run_only": "Just run it",
@@ -18,6 +19,7 @@
   "button.reinstall": "Reinstall",
   "button.browse": "Other file…",
   "button.search_discover": "Search in Discover",
+  "button.install_discover": "Install from Discover",
   "button.start": "Start",
   "button.done": "Done",
   "button.close": "Close",

@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Lägg till i startmenyn",
   "choose.already_installed": "{name} är redan installerat.",
   "choose.linux_package": "Det här paketet är gjort för ett annat Linux-system, men det kan installeras här också, och du hittar det i startmenyn. Om det också finns i Discover är det oftast ett bättre val.",
+  "choose.flathub_available": "{name} finns också i Discover. Den versionen passar bättre ihop med systemet och uppdaterar sig själv, så vi rekommenderar den.",
 
   "button.cancel": "Avbryt",
   "button.run_only": "Bara kör",
@@ -18,6 +19,7 @@
   "button.reinstall": "Installera om",
   "button.browse": "Annan fil…",
   "button.search_discover": "Sök i Discover",
+  "button.install_discover": "Installera från Discover",
   "button.start": "Starta",
   "button.done": "Klar",
   "button.close": "Stäng",

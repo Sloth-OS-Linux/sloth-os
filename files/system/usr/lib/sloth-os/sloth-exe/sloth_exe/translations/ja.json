@@ -10,6 +10,7 @@
   "choose.add_to_menu": "スタートメニューに追加",
   "choose.already_installed": "{name} はすでにインストールされています。",
   "choose.linux_package": "このパッケージは別の Linux システム向けですが、ここにもインストールでき、スタートメニューに表示されます。Discover にもある場合は、通常そちらのほうがおすすめです。",
+  "choose.flathub_available": "{name} は Discover にもあります。そちらのほうがシステムになじみ、自動で更新されるため、おすすめです。",
 
   "button.cancel": "キャンセル",
   "button.run_only": "実行のみ",
@@ -18,6 +19,7 @@
   "button.reinstall": "再インストール",
   "button.browse": "別のファイル…",
   "button.search_discover": "Discover で検索",
+  "button.install_discover": "Discover からインストール",
   "button.start": "起動",
   "button.done": "完了",
   "button.close": "閉じる",

@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Başlat menüsüne ekle",
   "choose.already_installed": "{name} zaten yüklü.",
   "choose.linux_package": "Bu paket başka bir Linux sistemi için hazırlanmış, ama burada da kurulabilir ve Başlat menüsünde bulacaksın. Discover’da da varsa, genellikle o daha iyi bir seçimdir.",
+  "choose.flathub_available": "{name} Discover’da da var. O sürüm sisteme daha iyi uyar ve kendini günceller, bu yüzden onu öneriyoruz.",
 
   "button.cancel": "İptal",
   "button.run_only": "Yalnızca çalıştır",
@@ -18,6 +19,7 @@
   "button.reinstall": "Yeniden yükle",
   "button.browse": "Başka dosya…",
   "button.search_discover": "Discover’da ara",
+  "button.install_discover": "Discover’dan kur",
   "button.start": "Başlat",
   "button.done": "Tamam",
   "button.close": "Kapat",

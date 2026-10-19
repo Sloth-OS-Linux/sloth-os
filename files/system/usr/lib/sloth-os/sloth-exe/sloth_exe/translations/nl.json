@@ -10,6 +10,7 @@
   "choose.add_to_menu": "Toevoegen aan het startmenu",
   "choose.already_installed": "{name} is al geïnstalleerd.",
   "choose.linux_package": "Dit pakket is gemaakt voor een ander Linux-systeem, maar kan ook hier worden geïnstalleerd; je vindt het in het startmenu. Als het ook in Discover staat, is dat meestal de betere keuze.",
+  "choose.flathub_available": "{name} is ook beschikbaar in Discover. Die versie past beter bij het systeem en werkt zichzelf bij, dus die raden we aan.",
 
   "button.cancel": "Annuleren",
   "button.run_only": "Alleen uitvoeren",
@@ -18,6 +19,7 @@
   "button.reinstall": "Opnieuw installeren",
   "button.browse": "Ander bestand…",
   "button.search_discover": "Zoeken in Discover",
+  "button.install_discover": "Installeren via Discover",
   "button.start": "Starten",
   "button.done": "Klaar",
   "button.close": "Sluiten",

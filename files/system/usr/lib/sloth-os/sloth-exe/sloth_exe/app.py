@@ -24,7 +24,7 @@ def main():
     parser.add_argument("--run", metavar="PROGRAM", help="telepített AppImage indítása")
     parser.add_argument("--maintenance", action="store_true",
                         help="háttérkarbantartás (sloth-windows-prepare): átköltözés az új helyre, "
-                             "régi Proton-verziók törlése, jelentések küldése")
+                             "AppImage-ek frissítése, régi Proton-verziók törlése, jelentések küldése")
     args, qt_args = parser.parse_known_args()
     if args.run:
         # Gyors út a Start menüből: a program helyét a könyvtár adja (áthelyezés után is), Qt nem kell
@@ -44,6 +44,9 @@ def main():
         from . import community, heal
         moved = library.migrate_legacy()
         print("Új helyre költözött programok:", ", ".join(a.name for a in moved) if moved else "nincs")
+        from sloth_common.apps import packages
+        updated = packages.update_appimages()
+        print("Frissített AppImage-ek:", ", ".join(updated) if updated else "nincs")
         removed = heal.prune_protons()
         print("Törölt régi verziók:", ", ".join(removed) if removed else "nincs")
         print("Elküldött jelentések (közös tudás):", community.send_queue())
