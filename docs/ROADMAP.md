@@ -5,6 +5,32 @@ terminálból lehet csinálni, GUI-ból is menjen.
 
 ## Hol tartunk (2026-10-19)
 
+### Következő lépések (2026-10-19 este, sorrendben; a részletek lent)
+**Publikálás előtt kötelező**
+1. [ ] Fájlmentés és „Korábbi verziók” (Teendők, 8. pont)
+2. [ ] A gép alaphelyzetbe állítása (Teendők, 8. pont)
+3. [ ] A teszt végig valódi gépen: Battle.net, Windows-indítók az Üdvözlőből, felhő, telefon, átköltözés Windowsról,
+   nyomtató és szkenner, firmware, NVIDIA-s gép, Windows mellé telepítés (tesztelő kell)
+4. [ ] Régi (BIOS-os) gépek (Teendők, 2. pont)
+5. [ ] Új ISO a telepítő javításával (fekete kép 90% után), utána zsugorítás (rétegek összevonása)
+6. [ ] A repó publikussá tétele, napi build, ISO-tárhely (Teendők, 3–4. pont)
+7. [ ] Weboldal: letöltés, pendrive-írás, GYIK (Teendők, 5. pont)
+8. [ ] A fordítások anyanyelvi átnézése (Teendők, 7. pont)
+
+**Nyitott hibák (kicsik)**
+- [ ] Némítás: egy gombnyomásra feloldódik (a saját kódunk sehol nem nyúl a hanghoz; kiderítés folyamatban)
+- [ ] Bootloop titkosított lemezzel: VM-ben nem jött elő; figyelni (előtte frissítés / NVIDIA-váltás volt-e)
+- [ ] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”)
+- [ ] Üdvözlő internet nélkül: a „Kihagyom” nem lép tovább
+- [ ] „Napló mentése”: angol rendszeren is magyar a fájlnév
+- [ ] EA app, Ubisoft Connect: kell-e nekik `LAUNCHER_STUBS` (a teszt dönti el)
+- [ ] `tools/tests/test_apps.py`: 4 teszt elbukik
+
+**Később**
+- [ ] Gyerekfiók és szülői felügyelet
+- [ ] Saját Flatpak-tároló a GitHubos appoknak (pl. ArtCraft), hogy a Discover frissítse őket
+- [ ] A Proton duplikált másolata helyett hivatkozás (kb. 1,4 GB a lemezen)
+
 ### Fontos: a 2026-10-16-i teszt még a régi image-dzsel ment
 A tesztelt ISO (`out/sloth-os.iso`) 2026-10-16 08:17-kor készült, amikor a registry `latest` címkéje még a
 2026-10-15 22:31-es image-re (`35e4c9d`) mutatott. A 10-16-i javítások (lent) csak 11:33-kor kerültek a
