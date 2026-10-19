@@ -16,6 +16,9 @@ Műveletek:
   login-feature fingerprint|securitykey on|off   bejelentkezés ujjlenyomattal / biztonsági kulccsal (authselect)
   domain-join <tartomány> <felhasználó>          csatlakozás Active Directory tartományhoz (jelszó a bemeneten)
   domain-leave                                   kilépés a tartományból
+  registry-login <registry> <felhasználó>        bejelentkezés egy image-tárolóba a frissítésekhez és az
+                                                 image-váltáshoz (token a bemeneten; /etc/ostree/auth.json)
+  registry-logout <registry>                     kijelentkezés
 
 A verziókat érintő műveletek (pin, unpin, set-default) a sloth-helper-versions néven is
 elérhetők: ez külön polkit-művelet (org.slothos.helper.versions), hogy a „frissítések”
@@ -241,6 +244,43 @@ def domain_leave():
     return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
 
 
+# --- Image-tároló (privát GitHub-csomagok a fejlesztői pultból) ----------------------------------
+
+OSTREE_AUTH = "/etc/ostree/auth.json"
+REGISTRY_RE = re.compile(r"^(ghcr\.io|quay\.io|docker\.io)$")
+REGISTRY_USER_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9-]{0,38}$")
+TOKEN_RE = re.compile(r"^[A-Za-z0-9_]{20,255}$")
+
+
+def _read_auth():
+    try:
+        with open(OSTREE_AUTH, encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def registry_login(registry, user, token):
+    """Az rpm-ostree / bootc ebből olvassa a privát tároló hozzáférését (csak root olvashatja)."""
+    if not TOKEN_RE.match(token):
+        return {"ok": False, "error": "rossz token"}
+    import base64
+    data = _read_auth()
+    data.setdefault("auths", {})[registry] = {"auth": base64.b64encode(f"{user}:{token}".encode()).decode()}
+    os.makedirs(os.path.dirname(OSTREE_AUTH), exist_ok=True)
+    _write(OSTREE_AUTH, json.dumps(data, indent=2) + "\n", mode=0o600)
+    return {"ok": True}
+
+
+def registry_logout(registry):
+    data = _read_auth()
+    if registry in data.get("auths", {}):
+        del data["auths"][registry]
+        _write(OSTREE_AUTH, json.dumps(data, indent=2) + "\n", mode=0o600)
+    return {"ok": True}
+
+
 def main(argv):
     if os.geteuid() != 0:
         print(json.dumps({"ok": False, "error": "root kell"}))
@@ -267,6 +307,10 @@ def main(argv):
         result = domain_join(args[0], args[1], sys.stdin.readline().rstrip("\n"))
     elif op == "domain-leave" and not args:
         result = domain_leave()
+    elif op == "registry-login" and len(args) == 2 and REGISTRY_RE.match(args[0]) and REGISTRY_USER_RE.match(args[1]):
+        result = registry_login(args[0], args[1], sys.stdin.readline().strip())
+    elif op == "registry-logout" and len(args) == 1 and REGISTRY_RE.match(args[0]):
+        result = registry_logout(args[0])
     elif op == "admin-policy" and not args and not VERSIONS_ONLY:
         try:
             request = json.loads(sys.stdin.read(4096) or "{}")

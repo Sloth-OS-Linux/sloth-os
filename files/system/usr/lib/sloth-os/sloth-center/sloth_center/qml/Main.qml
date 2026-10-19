@@ -26,8 +26,8 @@ Kirigami.ApplicationWindow {
         { id: "disks", name: L.t("Lemezek"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
         { id: "containers", name: L.t("Fejlesztői környezetek"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },
         { id: "advanced", name: L.t("Haladó beállítások"), icon: "configure", page: "AdvancedPage.qml", ready: true },
-        { id: "devpanel", name: L.t("Fejlesztői pult"), icon: "applications-development", ready: false,
-          description: L.t("A Sloth OS fejlesztéséhez: build indítása és állapota, tesztelés.") }
+        { id: "devpanel", name: L.t("Fejlesztői pult"), icon: "applications-development", page: "DevPanelPage.qml",
+          ready: true }
     ]
     property int currentIndex: 0
 

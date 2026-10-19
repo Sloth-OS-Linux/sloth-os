@@ -246,7 +246,7 @@ Talált hibák (egyesével javítjuk):
     a beállításfájlok írása maradt (Battle.net, Ubisoft). Első receptek: Battle.net, Epic, GOG Galaxy, Ubisoft Connect
   - [ ] A Linuxos csomagok kezelője (lent) is a `~/Applications`-be telepítsen (AppImage), ugyanazzal a könyvtárral
 - [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
-- [ ] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis
+- [x] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis (2026-10-19, lásd lent)
 - [ ] Haladó beállítások folyamatos bővítése – 3. fázis
 - [ ] ISO-méret: a rétegek összevonása, helytakarékos ISO-build – 4. fázis
 - [ ] A Vivaldi nem települt fel az Üdvözlőből (oka ismeretlen; a teszten figyelni). Lehetséges ok: a fenti
@@ -464,7 +464,8 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
   - [x] Driverek és hardver: videókártya felismerése, NVIDIA ↔ AMD/Intel változat váltása (`rpm-ostree rebase`),
     Secure Boot kulcs regisztrálása lépésenkénti útmutatóval (`mokutil`); VM-ben és Secure Boot-os gépen még tesztelni.
     Kontrollerek: a csatlakoztatottak listája (kábel / Bluetooth, akkuszint), párosítás és a gombok kipróbálása
-    a KDE moduljaival. Megjegyzés: amíg a repó privát, a váltáshoz registry-bejelentkezés kell (Fejlesztői pult)
+    a KDE moduljaival. Megjegyzés: amíg a repó privát, a váltáshoz registry-bejelentkezés kell (Fejlesztői pult →
+    Bejelentkezés a csomagtárolóba, 2026-10-19)
   - [x] Közös rendszergazdai segéd (`/usr/libexec/sloth-os/sloth-helper` + polkit `org.slothos.helper`): rögzített műveletek, grafikus jelszókérővel
   - [x] Jelszókérő nélküli rendszergazda (Sloth Központ → Fiók és biztonság, és egyszerűsítve az Üdvözlő „Jelszavak”
     lépésében): témakörönként polkit-szabály (`/etc/polkit-1/rules.d/49-sloth-admin.rules`, forrás:
@@ -529,10 +530,19 @@ valami elromlik, legyen mivel megjavítani): naplónéző (kjournald), Filelight
 - [ ] Folyamatok (`top`, `kill`): Rendszerfigyelő
 - [ ] Hálózat, VPN, nyomtatók, felhasználók, gépnév: Rendszerbeállítások
 
-### Fejlesztői pult (a Sloth OS fejlesztéséhez) – teendő 2026-10-15-re
-- [ ] Repó és aláíró kulcs beállítása egy varázslóban (`gh`, `cosign`, GitHub secret)
-- [ ] Build indítása és állapota, logok, Actions-perc felhasználás (`gh run`)
-- [ ] Kipróbálás: VM indítása / tesztgép átállítása egy image-re (`rpm-ostree rebase`, privát registry bejelentkezés)
+### Fejlesztői pult (a Sloth OS fejlesztéséhez) – kész 2026-10-19 (valódi gépen még tesztelni)
+Sloth Központ → Fejlesztői pult (`sloth_center/devpanel.py`), terminál, `gh` és `cosign` nélkül (a GitHub REST API-t
+közvetlenül hívja; a GitHub-hívások élesben kipróbálva):
+- [x] Kapcsolat: repó és GitHub-token; a tokent egy gomb a GitHubon, előre kitöltött jogokkal hozza létre (repo,
+  workflow, read:packages); a jelszótárolóba kerül (`secret-tool`; ha nincs, egy csak a felhasználó által olvasható fájl)
+- [x] Buildek: a legutóbbi futások állapota, image és ISO build indítása, megnyitás a GitHubon, havi Actions-percek
+  (ha a token és a fiók engedi)
+- [x] Aláíró kulcs: be van-e állítva a `SIGNING_SECRET`; új kulcspár a cosign-nal Podmanben; a `cosign.pub`-ot a pult
+  commitolja, a titkos kulcsot a vágólapra teszi, és megnyitja a GitHub titok-oldalát (a titok közvetlen feltöltéséhez
+  libsodium kellene). Kulcscserénél figyelmeztet: a telepített gépek frissítése addig áll, amíg az új kulcs egy még a
+  régivel aláírt frissítéssel el nem jut hozzájuk
+- [x] Kipróbálás: bejelentkezés a csomagtárolóba (`sloth-helper registry-login`, `/etc/ostree/auth.json`), átállás egy
+  buildre (`<commit>-<Fedora-verzió>` címke, rpm-ostree rebase) és vissza a legfrissebbre, virtuális gép (GNOME Boxes)
 
 ## 4. fázis – Kiadás
 - [ ] Repó publikussá tétele, napi automatikus build visszakapcsolása (`.github/workflows/build.yml`)

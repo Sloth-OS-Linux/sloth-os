@@ -39,6 +39,7 @@ def main():
     from .accounts import AccountsController
     from .advanced import AdvancedController
     from .containers import ContainersController
+    from .devpanel import DevPanelController
     from .disks import DisksController
     from .drivers import DriversController
     from .environment import EnvironmentController
@@ -64,6 +65,7 @@ def main():
     gamepads = GamepadsController()
     accounts = AccountsController()
     games = GamesController()
+    devpanel = DevPanelController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -76,6 +78,7 @@ def main():
     engine.rootContext().setContextProperty("gamepads", gamepads)
     engine.rootContext().setContextProperty("accounts", accounts)
     engine.rootContext().setContextProperty("games", games)
+    engine.rootContext().setContextProperty("devpanel", devpanel)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1
