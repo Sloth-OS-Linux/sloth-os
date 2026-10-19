@@ -417,5 +417,12 @@
   "Virtuális gép": "ভার্চুয়াল মেশিন",
   "Új aláíró kulcs?": "নতুন স্বাক্ষর কী?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "ইতিমধ্যে ইনস্টল করা কম্পিউটার পুরোনো কী দিয়ে স্বাক্ষরিত আপডেট গ্রহণ করে। নতুন কী-এর পর, নতুন পাবলিক কী (cosign.pub) এখনও পুরোনো কী দিয়ে স্বাক্ষরিত কোনো আপডেটে না পৌঁছানো পর্যন্ত তাদের আপডেট থেমে থাকে। পুরোনো কী হারালে বা ফাঁস হলে তবেই বদলান।",
-  "Új kulcspár": "নতুন কী জোড়া"
+  "Új kulcspár": "নতুন কী জোড়া",
+  "A Windows-partíció keresése…": "Windows পার্টিশন খোঁজা হচ্ছে…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "হয়ে গেছে। Windows চালু করুন এবং ডেস্কটপে “Sloth OS” ফোল্ডারে Sloth-OS-boot ফাইলে দুবার ক্লিক করুন (এটি অ্যাডমিনিস্ট্রেটরের অনুমোদন চাইবে)। এটি একবারই করতে হবে।",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows পার্টিশন এখন শুধু-পঠনযোগ্য, কারণ Windows হাইবারনেট অবস্থায় আছে বা দ্রুত চালুর সাথে বন্ধ হয়েছে। Windows চালু করুন, পুরোপুরি বন্ধ করুন (Shift + শাট ডাউন), তারপর আবার চেষ্টা করুন।",
+  "Nem találtunk Windowst ezen a gépen.": "এই কম্পিউটারে Windows পাওয়া যায়নি।",
+  "Windows mellett: a Sloth OS maradjon az első": "Windows-এর পাশে: Sloth OS প্রথমে থাকুক",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "বড় Windows আপডেটের পর কম্পিউটার Sloth OS মেনু ছাড়াই সরাসরি Windows চালু করতে পারে। Sloth OS পরের বার চালু হলে এটি ঠিক করে; সহায়কের মাধ্যমে Windows নিজেই প্রতিবার চালুর সময় Sloth OS-কে প্রথমে ফিরিয়ে আনে।",
+  "Segéd elhelyezése a Windowsban": "সহায়কটি Windows-এ রাখুন"
 }

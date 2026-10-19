@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtuelle Maschine",
   "Új aláíró kulcs?": "Neuer Signaturschlüssel?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Bereits installierte Computer akzeptieren mit dem alten Schlüssel signierte Updates. Nach einem neuen Schlüssel stehen ihre Updates still, bis der neue öffentliche Schlüssel (cosign.pub) sie mit einem Update erreicht, das noch mit dem alten Schlüssel signiert ist. Ersetze ihn nur, wenn der alte Schlüssel verloren gegangen oder durchgesickert ist.",
-  "Új kulcspár": "Neues Schlüsselpaar"
+  "Új kulcspár": "Neues Schlüsselpaar",
+  "A Windows-partíció keresése…": "Windows-Partition wird gesucht …",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Fertig. Starte Windows und doppelklicke auf dem Desktop im Ordner „Sloth OS“ auf die Datei Sloth-OS-boot (sie fragt nach Administratorrechten). Das ist nur einmal nötig.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Die Windows-Partition ist gerade schreibgeschützt, weil Windows im Ruhezustand ist oder mit Schnellstart heruntergefahren wurde. Starte Windows, fahre es vollständig herunter (Umschalt + Herunterfahren) und versuche es erneut.",
+  "Nem találtunk Windowst ezen a gépen.": "Auf diesem Computer wurde kein Windows gefunden.",
+  "Windows mellett: a Sloth OS maradjon az első": "Neben Windows: Sloth OS bleibt an erster Stelle",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Nach einem größeren Windows-Update startet der Computer womöglich direkt Windows, ohne das Sloth-OS-Menü. Sloth OS behebt das beim nächsten Start; mit dem Helfer setzt Windows selbst Sloth OS bei jedem Start wieder an die erste Stelle.",
+  "Segéd elhelyezése a Windowsban": "Helfer in Windows ablegen"
 }

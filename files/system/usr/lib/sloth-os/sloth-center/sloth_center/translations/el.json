@@ -417,5 +417,12 @@
   "Virtuális gép": "Εικονική μηχανή",
   "Új aláíró kulcs?": "Νέο κλειδί υπογραφής;",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Οι ήδη εγκατεστημένοι υπολογιστές δέχονται ενημερώσεις υπογεγραμμένες με το παλιό κλειδί. Μετά από νέο κλειδί, οι ενημερώσεις τους σταματούν ώσπου το νέο δημόσιο κλειδί (cosign.pub) να τους φτάσει με ενημέρωση υπογεγραμμένη ακόμα με το παλιό. Άλλαξέ το μόνο αν το παλιό κλειδί χάθηκε ή διέρρευσε.",
-  "Új kulcspár": "Νέο ζεύγος κλειδιών"
+  "Új kulcspár": "Νέο ζεύγος κλειδιών",
+  "A Windows-partíció keresése…": "Αναζήτηση του διαμερίσματος των Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Έγινε. Ξεκίνησε τα Windows και στην επιφάνεια εργασίας, στον φάκελο «Sloth OS», κάνε διπλό κλικ στο αρχείο Sloth-OS-boot (θα ζητήσει έγκριση διαχειριστή). Χρειάζεται μόνο μία φορά.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Το διαμέρισμα των Windows είναι αυτή τη στιγμή μόνο για ανάγνωση, γιατί τα Windows είναι σε αδρανοποίηση ή έκλεισαν με γρήγορη εκκίνηση. Ξεκίνησε τα Windows, τερμάτισέ τα πλήρως (Shift + Τερματισμός λειτουργίας) και δοκίμασε ξανά.",
+  "Nem találtunk Windowst ezen a gépen.": "Δεν βρήκαμε Windows σε αυτόν τον υπολογιστή.",
+  "Windows mellett: a Sloth OS maradjon az első": "Δίπλα στα Windows: το Sloth OS μένει πρώτο",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Μετά από μια μεγάλη ενημέρωση των Windows, ο υπολογιστής μπορεί να ξεκινά κατευθείαν τα Windows, χωρίς το μενού του Sloth OS. Το Sloth OS το διορθώνει στην επόμενη εκκίνησή του· με τον βοηθό, τα ίδια τα Windows επαναφέρουν το Sloth OS πρώτο σε κάθε εκκίνηση.",
+  "Segéd elhelyezése a Windowsban": "Τοποθέτηση του βοηθού στα Windows"
 }

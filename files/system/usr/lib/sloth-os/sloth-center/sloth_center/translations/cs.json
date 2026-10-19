@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtuální počítač",
   "Új aláíró kulcs?": "Nový podpisový klíč?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Už nainstalované počítače přijímají aktualizace podepsané starým klíčem. Po novém klíči se jejich aktualizace zastaví, dokud se k nim nový veřejný klíč (cosign.pub) nedostane v aktualizaci podepsané ještě starým klíčem. Vyměň ho, jen pokud se starý klíč ztratil nebo unikl.",
-  "Új kulcspár": "Nový pár klíčů"
+  "Új kulcspár": "Nový pár klíčů",
+  "A Windows-partíció keresése…": "Hledá se oddíl s Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Hotovo. Spusť Windows a na ploše ve složce „Sloth OS“ dvakrát klikni na soubor Sloth-OS-boot (požádá o oprávnění správce). Stačí to udělat jednou.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Oddíl s Windows je teď jen pro čtení, protože Windows je v režimu hibernace nebo byl vypnut s rychlým spuštěním. Spusť Windows, úplně ho vypni (Shift + Vypnout) a zkus to znovu.",
+  "Nem találtunk Windowst ezen a gépen.": "Na tomto počítači jsme Windows nenašli.",
+  "Windows mellett: a Sloth OS maradjon az első": "Vedle Windows: Sloth OS zůstane první",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Po větší aktualizaci Windows může počítač spouštět rovnou Windows, bez nabídky Sloth OS. Sloth OS to při příštím spuštění opraví; s pomocníkem vrací Sloth OS na první místo při každém spuštění samotné Windows.",
+  "Segéd elhelyezése a Windowsban": "Umístit pomocníka do Windows"
 }

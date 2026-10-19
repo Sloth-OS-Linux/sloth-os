@@ -417,5 +417,12 @@
   "Virtuális gép": "Makinë virtuale",
   "Új aláíró kulcs?": "Çelës i ri nënshkrimi?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Kompjuterët e instaluar pranojnë përditësime të nënshkruara me çelësin e vjetër. Pas një çelësi të ri, përditësimet e tyre ndalen derisa çelësi i ri publik (cosign.pub) t’u arrijë me një përditësim të nënshkruar ende me çelësin e vjetër. Zëvendësoje vetëm nëse çelësi i vjetër humbi ose u zbulua.",
-  "Új kulcspár": "Çift i ri çelësash"
+  "Új kulcspár": "Çift i ri çelësash",
+  "A Windows-partíció keresése…": "Po kërkohet ndarja e Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "U krye. Nis Windows-in dhe në desktop, te dosja “Sloth OS”, kliko dy herë skedarin Sloth-OS-boot (kërkon miratimin e administratorit). Kjo duhet bërë vetëm një herë.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Ndarja e Windows tani është vetëm për lexim, sepse Windows është në hibernim ose u fik me nisjen e shpejtë. Nis Windows-in, fike plotësisht (Shift + Fik) dhe provo sërish.",
+  "Nem találtunk Windowst ezen a gépen.": "Nuk gjetëm Windows në këtë kompjuter.",
+  "Windows mellett: a Sloth OS maradjon az első": "Pranë Windows: Sloth OS mbetet i pari",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Pas një përditësimi të madh të Windows, kompjuteri mund të nisë drejtpërdrejt Windows-in, pa menynë e Sloth OS. Sloth OS e rregullon këtë në nisjen e ardhshme; me ndihmësin, vetë Windows e kthen Sloth OS të parin në çdo nisje.",
+  "Segéd elhelyezése a Windowsban": "Vendos ndihmësin në Windows"
 }

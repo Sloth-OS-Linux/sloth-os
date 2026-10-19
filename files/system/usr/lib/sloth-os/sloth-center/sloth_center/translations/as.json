@@ -417,5 +417,12 @@
   "Virtuális gép": "ভাৰ্চুৱেল মেচিন",
   "Új aláíró kulcs?": "নতুন স্বাক্ষৰ চাবি?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "ইতিমধ্যে ইনষ্টল কৰা কম্পিউটাৰে পুৰণি চাবিৰে স্বাক্ষৰিত আপডেট গ্ৰহণ কৰে। নতুন চাবিৰ পিছত, নতুন ৰাজহুৱা চাবি (cosign.pub) এতিয়াও পুৰণি চাবিৰে স্বাক্ষৰিত আপডেটত নাপায়মানে সিহঁতৰ আপডেট বন্ধ থাকে। পুৰণি চাবি হেৰালে বা ফাঁচ হ'লেহে সলনি কৰক।",
-  "Új kulcspár": "নতুন চাবি যোৰ"
+  "Új kulcspár": "নতুন চাবি যোৰ",
+  "A Windows-partíció keresése…": "Windows বিভাজন বিচৰা হৈছে…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "হ'ল। Windows আৰম্ভ কৰক আৰু ডেস্কটপত “Sloth OS” ফ'ল্ডাৰত থকা Sloth-OS-boot ফাইলত দুবাৰ ক্লিক কৰক (ই প্ৰশাসকৰ অনুমোদন বিচাৰিব)। এবাৰহে কৰিব লাগে।",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows বিভাজন এতিয়া কেৱল পঢ়িব পাৰি, কাৰণ Windows হাইবাৰনেট হৈ আছে বা দ্ৰুত আৰম্ভণিৰে বন্ধ কৰা হৈছিল। Windows আৰম্ভ কৰক, সম্পূৰ্ণ বন্ধ কৰক (Shift + বন্ধ কৰক), তাৰ পিছত আকৌ চেষ্টা কৰক।",
+  "Nem találtunk Windowst ezen a gépen.": "এই কম্পিউটাৰত Windows পোৱা নগ'ল।",
+  "Windows mellett: a Sloth OS maradjon az első": "Windows-ৰ লগত: Sloth OS প্ৰথমে থাকক",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Windows-ৰ ডাঙৰ আপডেটৰ পিছত কম্পিউটাৰে Sloth OS মেনু নোহোৱাকৈ পোনপটীয়াকৈ Windows আৰম্ভ কৰিব পাৰে। Sloth OS-এ পৰৱৰ্তী আৰম্ভণিত ইয়াক ঠিক কৰে; সহায়কৰ সৈতে, Windows নিজেই প্ৰতিবাৰ আৰম্ভ হওঁতে Sloth OS-ক প্ৰথম স্থানলৈ ঘূৰাই আনে।",
+  "Segéd elhelyezése a Windowsban": "সহায়কটো Windows-ত ৰাখক"
 }

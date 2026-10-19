@@ -74,6 +74,33 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Windows mellett: a Windows-oldali rendszerindítási segéd ------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: advanced.windowsPresent
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                Kirigami.Heading { level: 3; text: L.t("Windows mellett: a Sloth OS maradjon az első") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.")
+                }
+                QQC2.Button {
+                    text: L.t("Segéd elhelyezése a Windowsban")
+                    icon.name: "windows"
+                    onClicked: advanced.placeWindowsHelper()
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    visible: advanced.windowsHelperText !== ""
+                    text: advanced.windowsHelperText
+                }
+            }
+        }
+
         // --- Kernelparaméterek -------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

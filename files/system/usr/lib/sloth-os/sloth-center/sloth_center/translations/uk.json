@@ -417,5 +417,12 @@
   "Virtuális gép": "Віртуальна машина",
   "Új aláíró kulcs?": "Новий ключ підпису?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Уже встановлені комп’ютери приймають оновлення, підписані старим ключем. Після зміни ключа їхні оновлення зупиняться, доки новий відкритий ключ (cosign.pub) не надійде до них в оновленні, ще підписаному старим ключем. Змінюй його, лише якщо старий ключ загублено або він витік.",
-  "Új kulcspár": "Нова пара ключів"
+  "Új kulcspár": "Нова пара ключів",
+  "A Windows-partíció keresése…": "Пошук розділу Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Готово. Запусти Windows і на робочому столі, у теці «Sloth OS», двічі клацни файл Sloth-OS-boot (він попросить права адміністратора). Це потрібно зробити лише один раз.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Розділ Windows зараз доступний лише для читання, бо Windows у режимі глибокого сну або вимкнена зі швидким запуском. Запусти Windows, повністю вимкни її (Shift + Завершити роботу) і спробуй ще раз.",
+  "Nem találtunk Windowst ezen a gépen.": "На цьому комп’ютері не знайдено Windows.",
+  "Windows mellett: a Sloth OS maradjon az első": "Поруч із Windows: Sloth OS лишається першою",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Після великого оновлення Windows комп’ютер може одразу запускати Windows, без меню Sloth OS. Sloth OS виправить це під час наступного запуску; з помічником сама Windows під час кожного запуску повертає Sloth OS на перше місце.",
+  "Segéd elhelyezése a Windowsban": "Розмістити помічника у Windows"
 }

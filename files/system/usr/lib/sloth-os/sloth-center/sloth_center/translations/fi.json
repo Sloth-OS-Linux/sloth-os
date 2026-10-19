@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtuaalikone",
   "Új aláíró kulcs?": "Uusi allekirjoitusavain?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Jo asennetut tietokoneet hyväksyvät vanhalla avaimella allekirjoitetut päivitykset. Uuden avaimen jälkeen niiden päivitykset pysähtyvät, kunnes uusi julkinen avain (cosign.pub) saapuu niille päivityksessä, joka on vielä allekirjoitettu vanhalla avaimella. Vaihda se vain, jos vanha avain on kadonnut tai vuotanut.",
-  "Új kulcspár": "Uusi avainpari"
+  "Új kulcspár": "Uusi avainpari",
+  "A Windows-partíció keresése…": "Etsitään Windows-osiota…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Valmis. Käynnistä Windows ja kaksoisnapsauta työpöydän ”Sloth OS” -kansiossa olevaa Sloth-OS-boot-tiedostoa (se pyytää järjestelmänvalvojan hyväksynnän). Tämä tarvitsee tehdä vain kerran.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows-osio on nyt vain luku -tilassa, koska Windows on horrostilassa tai sammutettiin pikakäynnistyksellä. Käynnistä Windows, sammuta se kokonaan (Vaihto + Sammuta) ja yritä uudelleen.",
+  "Nem találtunk Windowst ezen a gépen.": "Tältä tietokoneelta ei löytynyt Windowsia.",
+  "Windows mellett: a Sloth OS maradjon az első": "Windowsin rinnalla: Sloth OS pysyy ensimmäisenä",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Suuren Windows-päivityksen jälkeen tietokone saattaa käynnistää suoraan Windowsin ilman Sloth OS:n valikkoa. Sloth OS korjaa tämän seuraavalla käynnistyskerralla; apurin avulla Windows itse palauttaa Sloth OS:n ensimmäiseksi jokaisella käynnistyksellä.",
+  "Segéd elhelyezése a Windowsban": "Sijoita apuri Windowsiin"
 }

@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtuele machine",
   "Új aláíró kulcs?": "Nieuwe ondertekeningssleutel?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Al geïnstalleerde computers accepteren updates die met de oude sleutel zijn ondertekend. Na een nieuwe sleutel stoppen hun updates, totdat de nieuwe openbare sleutel (cosign.pub) hen bereikt via een update die nog met de oude sleutel is ondertekend. Vervang hem alleen als de oude sleutel kwijt of uitgelekt is.",
-  "Új kulcspár": "Nieuw sleutelpaar"
+  "Új kulcspár": "Nieuw sleutelpaar",
+  "A Windows-partíció keresése…": "Windows-partitie zoeken…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Klaar. Start Windows en dubbelklik op het bureaublad, in de map ‘Sloth OS’, op het bestand Sloth-OS-boot (het vraagt om beheerdersrechten). Dit hoeft maar één keer.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "De Windows-partitie is nu alleen-lezen, omdat Windows in de slaapstand staat of met snel opstarten is afgesloten. Start Windows, sluit het volledig af (Shift + Afsluiten) en probeer het opnieuw.",
+  "Nem találtunk Windowst ezen a gépen.": "Er is geen Windows gevonden op deze computer.",
+  "Windows mellett: a Sloth OS maradjon az első": "Naast Windows: Sloth OS blijft eerst",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Na een grote Windows-update kan de computer meteen Windows starten, zonder het Sloth OS-menu. Sloth OS herstelt dit bij de volgende start; met de hulp zet Windows zelf Sloth OS bij elke start weer vooraan.",
+  "Segéd elhelyezése a Windowsban": "Hulp in Windows plaatsen"
 }

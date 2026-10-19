@@ -417,5 +417,12 @@
   "Virtuális gép": "Máquina virtual",
   "Új aláíró kulcs?": "¿Nueva clave de firma?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Los equipos ya instalados aceptan las actualizaciones firmadas con la clave antigua. Con una clave nueva, sus actualizaciones se detienen hasta que la nueva clave pública (cosign.pub) les llegue en una actualización firmada todavía con la clave antigua. Cámbiala solo si la clave antigua se ha perdido o filtrado.",
-  "Új kulcspár": "Nuevo par de claves"
+  "Új kulcspár": "Nuevo par de claves",
+  "A Windows-partíció keresése…": "Buscando la partición de Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Listo. Inicia Windows y, en el escritorio, en la carpeta «Sloth OS», haz doble clic en el archivo Sloth-OS-boot (pide permiso de administrador). Solo hay que hacerlo una vez.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "La partición de Windows es de solo lectura en este momento porque Windows está hibernado o se apagó con el inicio rápido. Inicia Windows, apágalo por completo (Mayús + Apagar) y vuelve a intentarlo.",
+  "Nem találtunk Windowst ezen a gépen.": "No hemos encontrado Windows en este equipo.",
+  "Windows mellett: a Sloth OS maradjon az első": "Junto a Windows: Sloth OS siempre primero",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Tras una actualización importante de Windows, el equipo puede arrancar directamente Windows, sin el menú de Sloth OS. Sloth OS lo corrige en su siguiente arranque; con el asistente, el propio Windows vuelve a poner Sloth OS en primer lugar cada vez que arranca.",
+  "Segéd elhelyezése a Windowsban": "Colocar el asistente en Windows"
 }

@@ -9,13 +9,14 @@ import logging
 import os
 import re
 import subprocess
+import threading
 
 from gi.repository import GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import tr
 
-from . import texts
+from . import texts, windowshelper
 from .rpmostree import RpmOstree, Transaction
 
 log = logging.getLogger("sloth-center.advanced")
@@ -30,6 +31,7 @@ PROTECTED_KARGS = ("root=", "rootflags=", "ostree=", "rw", "BOOT_IMAGE=", "rd.lu
 
 class AdvancedController(QObject):
     changed = Signal()
+    _helper_done = Signal(str)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -57,6 +59,37 @@ class AdvancedController(QObject):
     kernelArgs = Property("QVariantList", lambda self: list(self._kargs), notify=changed)
     packages = Property("QVariantList", lambda self: list(self._packages), notify=changed)
     bootMenuVisible = Property(bool, lambda self: self._boot_visible, notify=changed)
+
+    # --- Windows mellett: a Windows-oldali rendszerindítási segéd ------------------------------------
+
+    @Property(bool, notify=changed)
+    def windowsPresent(self):
+        """Van-e NTFS-partíció a gépen (Windows mellé telepített gép)."""
+        if not hasattr(self, "_windows_present"):
+            self._windows_present = bool(windowshelper.ntfs_filesystems())
+            self._helper_text = ""
+            self._helper_done.connect(self._on_helper_done)
+        return self._windows_present
+
+    @Property(str, notify=changed)
+    def windowsHelperText(self):
+        return getattr(self, "_helper_text", "")
+
+    @Slot()
+    def placeWindowsHelper(self):
+        self._helper_text = tr("A Windows-partíció keresése…")
+        self.changed.emit()
+        threading.Thread(target=lambda: self._helper_done.emit(windowshelper.place()), daemon=True).start()
+
+    def _on_helper_done(self, result):
+        self._helper_text = {
+            "placed": tr("Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a "
+                         "Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni."),
+            "readonly": tr("A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással "
+                           "állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra."),
+            "none": tr("Nem találtunk Windowst ezen a gépen."),
+        }.get(result, tr("Nem sikerült. Próbáld újra később."))
+        self.changed.emit()
 
     @Slot()
     def refresh(self):

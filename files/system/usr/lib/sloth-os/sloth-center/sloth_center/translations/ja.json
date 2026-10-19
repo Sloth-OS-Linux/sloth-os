@@ -417,5 +417,12 @@
   "Virtuális gép": "仮想マシン",
   "Új aláíró kulcs?": "新しい署名鍵を作成しますか？",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "すでにインストール済みのコンピューターは、古い鍵で署名された更新を受け入れます。新しい鍵にすると、古い鍵でまだ署名された更新で新しい公開鍵 (cosign.pub) が届くまで、それらの更新は止まります。古い鍵を紛失したか漏洩した場合にのみ変更してください。",
-  "Új kulcspár": "新しい鍵ペア"
+  "Új kulcspár": "新しい鍵ペア",
+  "A Windows-partíció keresése…": "Windows のパーティションを探しています…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "完了しました。Windows を起動し、デスクトップの「Sloth OS」フォルダーにある Sloth-OS-boot ファイルをダブルクリックしてください (管理者の承認を求められます)。これは一度だけで大丈夫です。",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows が休止状態か高速スタートアップでシャットダウンされたため、Windows のパーティションは現在読み取り専用です。Windows を起動して完全にシャットダウンし (Shift + シャットダウン)、もう一度お試しください。",
+  "Nem találtunk Windowst ezen a gépen.": "このコンピューターに Windows が見つかりませんでした。",
+  "Windows mellett: a Sloth OS maradjon az első": "Windows と併用: Sloth OS を最初に保つ",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Windows の大型更新の後、Sloth OS のメニューを出さずに直接 Windows が起動することがあります。Sloth OS は次回の起動時にこれを修正します。ヘルパーを使うと、Windows 自身が起動のたびに Sloth OS を先頭に戻します。",
+  "Segéd elhelyezése a Windowsban": "ヘルパーを Windows に配置"
 }

@@ -225,8 +225,14 @@ Talált hibák (egyesével javítjuk):
     2 perccel és naponta magától frissíti (nem mért kapcsolaton). Kész: a Frissítések oldalon „Appok” rész (mi frissül
     magától, „Megnyitás a Discoverben”); az app-frissítő nem fut, amíg az Üdvözlő fut (drop-in a
     `flatpak-system-update` / `flatpak-user-update` szolgáltatásokhoz)
-- [ ] Windows mellett: a boot-sorrend teljes védelme (most csak a Sloth OS következő indításakor áll vissza; ötlet:
-  Windows-oldali segéd)
+- [x] Windows mellett: a boot-sorrend teljes védelme (2026-10-19; valódi Windowszal még tesztelni): Windows-oldali
+  segéd (`/usr/share/sloth-os/windows-helper/`: `Sloth-OS-boot.cmd` + `sloth-boot-order.ps1`, szövegek 50 nyelven).
+  Egyszer kell elindítani a Windowsban (dupla kattintás, UAC): ütemezett feladat minden Windows-induláskor és naponta,
+  rendszerjogokkal; ha a Windows Boot Manager került előre, visszateszi a Sloth OS-t (`bcdedit /set {fwbootmgr}
+  displayorder … /addfirst`), más sorrendet (pl. pendrive) békén hagy. A bcdedit nyelvfüggő kimenetéből csak a
+  GUID-okat és a „Sloth OS” nevet olvassa (hamis, magyar nyelvű kimenettel kipróbálva). A telepítő Windows mellé
+  telepítéskor a Windows Nyilvános asztalára teszi („Sloth OS” mappa), utólag a Sloth Központ → Haladó beállítások
+  → „Segéd elhelyezése a Windowsban” (hibernált / gyors indítással leállított Windowsnál érthető üzenet)
 - [ ] Külön NVIDIA-s ISO „haladóknak” (internet nélkül is NVIDIA-illesztővel indul), ha a tárhely engedi
 - [x] Linuxos csomagok kezelője (.AppImage, .deb, .rpm; Mac-fájloknál érthető üzenet) – 2. fázis (2026-10-19,
   valódi gépen még tesztelni; részletek a 2. fázisnál)
@@ -610,7 +616,7 @@ közvetlenül hívja; a GitHub-hívások élesben kipróbálva):
     - [x] Boot-sorrend védelme (`sloth-boot-order.service`): ha egy Windows-frissítés a „Windows Boot Manager”-t a
       sorrend elejére tette, a Sloth OS következő indításakor visszakerül az első helyre (mást, pl. egy előre tett
       pendrive-ot nem bánt). Korlát: addig a gép a Windowst indítja; a Sloth OS-t egyszer a gép saját
-      indítómenüjéből kell választani. Ötlet később: Windows-oldali segéd, ami ezt megakadályozza
+      indítómenüjéből kell választani. Ezt a Windows-oldali segéd (2026-10-19, lásd fent a teendőknél) megakadályozza
   - [x] NVIDIA-s gépen automatikusan az NVIDIA-s változat (2026-10-15; valódi NVIDIA-s gépen még tesztelni): a
     telepítő ISO-n csak az AMD/Intel-es fér el, ezért a telepített rendszer intézi: `sloth-nvidia-auto.timer`
     (indítás után 2 perccel, utána óránként, amíg nem sikerül) NVIDIA-kártyánál a háttérben `rpm-ostree rebase`

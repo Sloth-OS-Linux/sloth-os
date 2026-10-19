@@ -32,6 +32,7 @@ import glob
 import json
 import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -735,6 +736,49 @@ def use_signed_updates(deploy):
         log("aláírt frissítések: " + next(l for l in out if l.startswith("container-image-reference=")))
 
 
+WINDOWS_HELPER = Path("/usr/share/sloth-os/windows-helper")
+
+
+def place_windows_helper(disk):
+    """Windows mellett: a Windows-oldali rendszerindítási segéd a Windows Nyilvános asztalára („Sloth OS” mappa).
+
+    A felhasználó a Windowsban egyszer duplán rákattint, és onnantól a Windows minden induláskor visszateszi a
+    Sloth OS-t a sorrend elejére. Csak könnyítés: ha nem megy (pl. csak olvasható a partíció), a telepítés
+    ettől nem akad el, és a Sloth Központból (Haladó beállítások) később is elhelyezhető.
+    """
+    if not WINDOWS_HELPER.is_dir():
+        return
+    out = subprocess.run(["lsblk", "--json", "--output", "PATH,FSTYPE", disk], capture_output=True, text=True)
+    try:
+        devices = json.loads(out.stdout).get("blockdevices", [])
+    except ValueError:
+        return
+    for dev in devices:
+        if dev.get("fstype") != "ntfs":
+            continue
+        mnt = Path(tempfile.mkdtemp(prefix="sloth-windows-"))
+        try:
+            if subprocess.run(["mount", "-t", "ntfs3", dev["path"], str(mnt)], capture_output=True).returncode:
+                continue
+            try:
+                if (mnt / "Windows/System32").is_dir():
+                    dest = mnt / "Users/Public/Desktop/Sloth OS"
+                    dest.mkdir(parents=True, exist_ok=True)
+                    for f in WINDOWS_HELPER.iterdir():
+                        shutil.copyfile(f, dest / f.name)
+                    log(f"Windows-segéd elhelyezve: {dev['path']}")
+                    return
+            except OSError as e:
+                log(f"Windows-segéd: {e}")
+            finally:
+                subprocess.run(["umount", str(mnt)], capture_output=True)
+        finally:
+            try:
+                mnt.rmdir()
+            except OSError:
+                pass
+
+
 def dry_run(beside=False):
     for stage, pct in [("shrink", 8)] * beside + [("partition", 10), ("encrypt", 12), ("prepare", 20)] + [("copy", p) for p in range(25, 81, 5)] + \
             [("bootloader", 85), ("finishing", 90), ("configure", 95)]:
@@ -823,6 +867,8 @@ def main():
     setup_boot_menu(windows_esp)
     root_part = finish_partitions(args.disk, parts, passphrase)
     rename_boot_entry(args.disk, parts["numbers"]["esp"])
+    if args.beside_windows:
+        place_windows_helper(args.disk)
     emit(stage="configure", progress=95)
     configure(root_part, args.locale, *keyboard, args.timezone, account, beside_windows=args.beside_windows,
               luks_uuid=parts.get("luks_uuid", ""))

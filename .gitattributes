@@ -6,3 +6,4 @@
 *.gif binary
 *.der binary
 *.ico binary
+*.cmd text eol=crlf

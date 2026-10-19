@@ -417,5 +417,12 @@
   "Virtuális gép": "ເຄື່ອງຈຳລອງ",
   "Új aláíró kulcs?": "ກະແຈລົງລາຍເຊັນໃໝ່ບໍ?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "ຄອມພິວເຕີທີ່ຕິດຕັ້ງແລ້ວຍອມຮັບການອັບເດດທີ່ລົງລາຍເຊັນດ້ວຍກະແຈເກົ່າ. ຫຼັງຈາກປ່ຽນກະແຈ ການອັບເດດຂອງພວກມັນຈະຢຸດ ຈົນກວ່າກະແຈສາທາລະນະໃໝ່ (cosign.pub) ຈະໄປເຖິງໃນການອັບເດດທີ່ຍັງລົງລາຍເຊັນດ້ວຍກະແຈເກົ່າ. ປ່ຽນສະເພາະເມື່ອກະແຈເກົ່າເສຍ ຫຼື ຮົ່ວໄຫຼ.",
-  "Új kulcspár": "ຄູ່ກະແຈໃໝ່"
+  "Új kulcspár": "ຄູ່ກະແຈໃໝ່",
+  "A Windows-partíció keresése…": "ກຳລັງຊອກຫາພາທິຊັນ Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "ສຳເລັດ. ເປີດ Windows ແລ້ວໃນໜ້າຈໍ, ໃນໂຟນເດີ “Sloth OS”, ຄລິກສອງເທື່ອໃສ່ໄຟລ໌ Sloth-OS-boot (ມັນຈະຂໍການອະນຸມັດຈາກຜູ້ເບິ່ງແຍງ). ເຮັດພຽງເທື່ອດຽວກໍພໍ.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "ພາທິຊັນ Windows ຕອນນີ້ອ່ານໄດ້ຢ່າງດຽວ ເພາະ Windows ກຳລັງຈຳສີນ ຫຼື ຖືກປິດດ້ວຍການເລີ່ມໄວ. ເປີດ Windows, ປິດມັນໃຫ້ໝົດ (Shift + ປິດເຄື່ອງ), ແລ້ວລອງໃໝ່.",
+  "Nem találtunk Windowst ezen a gépen.": "ພວກເຮົາບໍ່ພົບ Windows ໃນຄອມພິວເຕີນີ້.",
+  "Windows mellett: a Sloth OS maradjon az első": "ຢູ່ຄຽງ Windows: ໃຫ້ Sloth OS ຢູ່ອັນດັບທຳອິດ",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "ຫຼັງການອັບເດດ Windows ຄັ້ງໃຫຍ່, ຄອມພິວເຕີອາດເປີດ Windows ໂດຍກົງໂດຍບໍ່ມີເມນູ Sloth OS. Sloth OS ຈະແກ້ໄຂເມື່ອເປີດຄັ້ງຕໍ່ໄປ; ດ້ວຍໂຕຊ່ວຍ, Windows ເອງຈະເອົາ Sloth OS ກັບມາອັນດັບທຳອິດທຸກຄັ້ງທີ່ເປີດ.",
+  "Segéd elhelyezése a Windowsban": "ວາງໂຕຊ່ວຍໃນ Windows"
 }

@@ -417,5 +417,12 @@
   "Virtuális gép": "虛擬機器",
   "Új aláíró kulcs?": "新的簽署金鑰？",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "已安裝的電腦接受以舊金鑰簽署的更新。更換金鑰後，它們的更新會停止，直到新的公開金鑰（cosign.pub）透過仍以舊金鑰簽署的更新送達。僅在舊金鑰遺失或外洩時才更換。",
-  "Új kulcspár": "新的金鑰對"
+  "Új kulcspár": "新的金鑰對",
+  "A Windows-partíció keresése…": "正在尋找 Windows 分割區…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "完成。啟動 Windows，在桌面上的「Sloth OS」資料夾中按兩下 Sloth-OS-boot 檔案（會要求系統管理員核准）。只需執行一次。",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows 分割區目前為唯讀，因為 Windows 處於休眠狀態或以快速啟動關機。請啟動 Windows，完全關機（Shift + 關機），然後再試一次。",
+  "Nem találtunk Windowst ezen a gépen.": "在這台電腦上找不到 Windows。",
+  "Windows mellett: a Sloth OS maradjon az első": "與 Windows 並存：讓 Sloth OS 保持第一",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Windows 大型更新後，電腦可能不顯示 Sloth OS 選單就直接啟動 Windows。Sloth OS 會在下次啟動時修正；有了助手，Windows 每次啟動時都會自行把 Sloth OS 放回第一位。",
+  "Segéd elhelyezése a Windowsban": "將助手放入 Windows"
 }

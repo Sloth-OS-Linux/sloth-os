@@ -417,5 +417,12 @@
   "Virtuális gép": "Machine virtuâl",
   "Új aláíró kulcs?": "Gnove clâf di firme?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "I computers za instalâts a acetin inzornaments firmâts cu la clâf vecje. Dopo di une gnove clâf i lôr inzornaments si fermin fintremai che la gnove clâf publiche (cosign.pub) no ur rive cuntun inzornament ancjemò firmât cu la vecje. Sostituissile dome se la clâf vecje e je lade pierdude o e je saltade fûr.",
-  "Új kulcspár": "Gnove cubie di clâfs"
+  "Új kulcspár": "Gnove cubie di clâfs",
+  "A Windows-partíció keresése…": "Daûr a cirî la partizion di Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Fat. Invie Windows e sul scritori, te cartele “Sloth OS”, fâs dopli clic sul file Sloth-OS-boot (al domande la aprovazion di aministradôr). Si à di fâlu dome une volte.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "La partizion di Windows cumò e je dome di leture, parcè che Windows al è in ibernazion o al è stât distudât cul inviament svelt. Invie Windows, distudilu dal dut (Shift + Distude) e torne prove.",
+  "Nem találtunk Windowst ezen a gépen.": "No vin cjatât Windows su chest computer.",
+  "Windows mellett: a Sloth OS maradjon az első": "Dongje di Windows: Sloth OS al reste prin",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Dopo di un inzornament grant di Windows, il computer al pues inviâ subit Windows, cence il menù di Sloth OS. Sloth OS al comede chest al so prossim inviament; cul assistent, al è Windows stes che al torne a meti Sloth OS prin a ogni inviament.",
+  "Segéd elhelyezése a Windowsban": "Met l’assistent in Windows"
 }

@@ -417,5 +417,12 @@
   "Virtuális gép": "ਵਰਚੁਅਲ ਮਸ਼ੀਨ",
   "Új aláíró kulcs?": "ਨਵੀਂ ਦਸਤਖ਼ਤ ਕੁੰਜੀ?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "ਪਹਿਲਾਂ ਤੋਂ ਇੰਸਟਾਲ ਕੰਪਿਊਟਰ ਪੁਰਾਣੀ ਕੁੰਜੀ ਨਾਲ ਦਸਤਖ਼ਤ ਕੀਤੇ ਅੱਪਡੇਟ ਸਵੀਕਾਰ ਕਰਦੇ ਹਨ। ਨਵੀਂ ਕੁੰਜੀ ਤੋਂ ਬਾਅਦ ਉਨ੍ਹਾਂ ਦੇ ਅੱਪਡੇਟ ਤਦ ਤੱਕ ਰੁਕ ਜਾਂਦੇ ਹਨ ਜਦ ਤੱਕ ਨਵੀਂ ਜਨਤਕ ਕੁੰਜੀ (cosign.pub) ਉਨ੍ਹਾਂ ਤੱਕ ਅਜਿਹੇ ਅੱਪਡੇਟ ਨਾਲ ਨਾ ਪਹੁੰਚੇ ਜਿਸ 'ਤੇ ਹਾਲੇ ਵੀ ਪੁਰਾਣੀ ਕੁੰਜੀ ਦੇ ਦਸਤਖ਼ਤ ਹੋਣ। ਸਿਰਫ਼ ਤਦ ਬਦਲੋ ਜੇ ਪੁਰਾਣੀ ਕੁੰਜੀ ਗੁੰਮ ਜਾਂ ਲੀਕ ਹੋ ਗਈ ਹੋਵੇ।",
-  "Új kulcspár": "ਨਵਾਂ ਕੁੰਜੀ ਜੋੜਾ"
+  "Új kulcspár": "ਨਵਾਂ ਕੁੰਜੀ ਜੋੜਾ",
+  "A Windows-partíció keresése…": "Windows ਪਾਰਟੀਸ਼ਨ ਲੱਭੀ ਜਾ ਰਹੀ ਹੈ…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "ਹੋ ਗਿਆ। Windows ਚਾਲੂ ਕਰੋ ਅਤੇ ਡੈਸਕਟਾਪ 'ਤੇ “Sloth OS” ਫੋਲਡਰ ਵਿੱਚ Sloth-OS-boot ਫ਼ਾਈਲ 'ਤੇ ਦੋ ਵਾਰ ਕਲਿੱਕ ਕਰੋ (ਇਹ ਪ੍ਰਬੰਧਕ ਦੀ ਮਨਜ਼ੂਰੀ ਮੰਗੇਗੀ)। ਇਹ ਸਿਰਫ਼ ਇੱਕ ਵਾਰ ਕਰਨਾ ਹੈ।",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows ਪਾਰਟੀਸ਼ਨ ਹੁਣ ਸਿਰਫ਼-ਪੜ੍ਹਨਯੋਗ ਹੈ, ਕਿਉਂਕਿ Windows ਹਾਈਬਰਨੇਟ ਹੈ ਜਾਂ ਤੇਜ਼ ਸ਼ੁਰੂਆਤ ਨਾਲ ਬੰਦ ਹੋਇਆ ਸੀ। Windows ਚਾਲੂ ਕਰੋ, ਪੂਰੀ ਤਰ੍ਹਾਂ ਬੰਦ ਕਰੋ (Shift + ਬੰਦ ਕਰੋ) ਅਤੇ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "Nem találtunk Windowst ezen a gépen.": "ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ Windows ਨਹੀਂ ਮਿਲਿਆ।",
+  "Windows mellett: a Sloth OS maradjon az első": "Windows ਦੇ ਨਾਲ: Sloth OS ਪਹਿਲੇ ਨੰਬਰ 'ਤੇ ਰਹੇ",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Windows ਦੇ ਵੱਡੇ ਅੱਪਡੇਟ ਤੋਂ ਬਾਅਦ ਕੰਪਿਊਟਰ Sloth OS ਮੀਨੂ ਤੋਂ ਬਿਨਾਂ ਸਿੱਧਾ Windows ਚਾਲੂ ਕਰ ਸਕਦਾ ਹੈ। Sloth OS ਇਸ ਨੂੰ ਅਗਲੀ ਵਾਰ ਚਾਲੂ ਹੋਣ 'ਤੇ ਠੀਕ ਕਰਦਾ ਹੈ; ਸਹਾਇਕ ਨਾਲ Windows ਖ਼ੁਦ ਹਰ ਵਾਰ ਚਾਲੂ ਹੋਣ 'ਤੇ Sloth OS ਨੂੰ ਪਹਿਲੇ ਨੰਬਰ 'ਤੇ ਲਿਆਉਂਦਾ ਹੈ।",
+  "Segéd elhelyezése a Windowsban": "ਸਹਾਇਕ ਨੂੰ Windows ਵਿੱਚ ਰੱਖੋ"
 }

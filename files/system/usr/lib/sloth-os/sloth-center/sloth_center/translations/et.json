@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtuaalmasin",
   "Új aláíró kulcs?": "Uus allkirjavõti?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Juba paigaldatud arvutid aktsepteerivad vana võtmega allkirjastatud uuendusi. Pärast uut võtit nende uuendused peatuvad, kuni uus avalik võti (cosign.pub) jõuab nendeni uuendusega, mis on veel vana võtmega allkirjastatud. Vaheta see ainult siis, kui vana võti on kadunud või lekkinud.",
-  "Új kulcspár": "Uus võtmepaar"
+  "Új kulcspár": "Uus võtmepaar",
+  "A Windows-partíció keresése…": "Windowsi partitsiooni otsimine…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Valmis. Käivita Windows ja topeltklõpsa töölaual kaustas „Sloth OS“ failil Sloth-OS-boot (see küsib administraatori nõusolekut). Seda on vaja teha ainult üks kord.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windowsi partitsioon on praegu kirjutuskaitstud, sest Windows on talveunes või lülitati välja kiirkäivitusega. Käivita Windows, lülita see täielikult välja (Shift + Lülita välja) ja proovi uuesti.",
+  "Nem találtunk Windowst ezen a gépen.": "Selles arvutis Windowsit ei leitud.",
+  "Windows mellett: a Sloth OS maradjon az első": "Windowsi kõrval: Sloth OS jääb esimeseks",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Pärast suuremat Windowsi uuendust võib arvuti käivitada otse Windowsi, ilma Sloth OS-i menüüta. Sloth OS parandab selle järgmisel käivitamisel; abilisega paneb Windows ise Sloth OS-i iga käivitamise ajal tagasi esimeseks.",
+  "Segéd elhelyezése a Windowsban": "Paiguta abiline Windowsisse"
 }

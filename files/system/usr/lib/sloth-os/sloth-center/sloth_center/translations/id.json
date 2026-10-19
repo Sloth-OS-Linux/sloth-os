@@ -417,5 +417,12 @@
   "Virtuális gép": "Mesin virtual",
   "Új aláíró kulcs?": "Kunci tanda tangan baru?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Komputer yang sudah terpasang menerima pembaruan yang ditandatangani dengan kunci lama. Setelah kunci baru, pembaruan mereka berhenti sampai kunci publik baru (cosign.pub) sampai ke mereka lewat pembaruan yang masih ditandatangani dengan kunci lama. Ganti hanya jika kunci lama hilang atau bocor.",
-  "Új kulcspár": "Pasangan kunci baru"
+  "Új kulcspár": "Pasangan kunci baru",
+  "A Windows-partíció keresése…": "Mencari partisi Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Selesai. Jalankan Windows, lalu di desktop, di folder “Sloth OS”, klik dua kali file Sloth-OS-boot (akan meminta persetujuan administrator). Cukup dilakukan sekali.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Partisi Windows saat ini hanya-baca karena Windows sedang hibernasi atau dimatikan dengan mulai cepat. Jalankan Windows, matikan sepenuhnya (Shift + Matikan), lalu coba lagi.",
+  "Nem találtunk Windowst ezen a gépen.": "Kami tidak menemukan Windows di komputer ini.",
+  "Windows mellett: a Sloth OS maradjon az első": "Di samping Windows: Sloth OS tetap pertama",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Setelah pembaruan besar Windows, komputer mungkin langsung menjalankan Windows tanpa menu Sloth OS. Sloth OS memperbaikinya saat dijalankan berikutnya; dengan pembantu ini, Windows sendiri menaruh Sloth OS kembali di urutan pertama setiap kali dinyalakan.",
+  "Segéd elhelyezése a Windowsban": "Taruh pembantu di Windows"
 }

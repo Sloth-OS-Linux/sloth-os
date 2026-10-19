@@ -417,5 +417,12 @@
   "Virtuális gép": "மெய்நிகர் கணினி",
   "Új aláíró kulcs?": "புதிய கையொப்ப விசையா?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "ஏற்கெனவே நிறுவப்பட்ட கணினிகள் பழைய விசையால் கையொப்பமிட்ட புதுப்பிப்புகளை ஏற்கின்றன. புதிய விசைக்குப் பிறகு, இன்னும் பழைய விசையால் கையொப்பமிட்ட புதுப்பிப்பு மூலம் புதிய பொது விசை (cosign.pub) அவற்றை அடையும் வரை அவற்றின் புதுப்பிப்புகள் நின்றுவிடும். பழைய விசை தொலைந்தாலோ கசிந்தாலோ மட்டும் மாற்றுங்கள்.",
-  "Új kulcspár": "புதிய விசை இணை"
+  "Új kulcspár": "புதிய விசை இணை",
+  "A Windows-partíció keresése…": "Windows பகிர்வு தேடப்படுகிறது…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "முடிந்தது. Windows-ஐத் தொடங்கி, டெஸ்க்டாப்பில் “Sloth OS” கோப்புறையில் உள்ள Sloth-OS-boot கோப்பை இருமுறை சொடுக்குங்கள் (நிர்வாகி ஒப்புதல் கேட்கும்). இதை ஒருமுறை மட்டும் செய்தால் போதும்.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows உறக்கநிலையில் உள்ளது அல்லது விரைவுத் தொடக்கத்துடன் அணைக்கப்பட்டது, எனவே Windows பகிர்வு இப்போது படிக்க மட்டும். Windows-ஐத் தொடங்கி, முழுமையாக அணையுங்கள் (Shift + நிறுத்து), பிறகு மீண்டும் முயலுங்கள்.",
+  "Nem találtunk Windowst ezen a gépen.": "இந்தக் கணினியில் Windows கிடைக்கவில்லை.",
+  "Windows mellett: a Sloth OS maradjon az első": "Windows-உடன்: Sloth OS முதலிடத்தில் இருக்கட்டும்",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "பெரிய Windows புதுப்பிப்புக்குப் பிறகு, கணினி Sloth OS மெனு இல்லாமல் நேரடியாக Windows-ஐத் தொடங்கக்கூடும். Sloth OS அடுத்த தொடக்கத்தில் இதைச் சரிசெய்யும்; உதவியுடன், ஒவ்வொரு தொடக்கத்திலும் Windows தானே Sloth OS-ஐ முதலிடத்துக்குத் திருப்பும்.",
+  "Segéd elhelyezése a Windowsban": "உதவியை Windows-இல் வை"
 }

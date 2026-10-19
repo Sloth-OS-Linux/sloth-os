@@ -417,5 +417,12 @@
   "Virtuális gép": "Tamacint tuhlist",
   "Új aláíró kulcs?": "Tasarut tamaynut n uzmul?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Iselkimen yettwasbedden yakan qebblen ileqman yettwazmalen s tsarut taqburt. Mbaɛd tasarut tamaynut, ileqman-nsen ad ḥebsen alamma tasarut tazayezt tamaynut (cosign.pub) tewweḍ-asen-d s uleqqem yettwazmalen mazal s tsarut taqburt. Beddel-itt kan ma tasarut taqburt truḥ neɣ teffeɣ.",
-  "Új kulcspár": "Tayuga tamaynut n tsura"
+  "Új kulcspár": "Tayuga tamaynut n tsura",
+  "A Windows-partíció keresése…": "Anadi ɣef tebḍayt n Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Yemmed. Senker Windows, syen deg tnarit, deg ukaram “Sloth OS”, sit snat n tikkal ɣef ufaylu Sloth-OS-boot (ad d-isuter tasiregt n unedbal). Yiwet n tikkelt kan i ilaq.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Tabḍayt n Windows tura d taɣuri kan, acku Windows yeṭṭes neɣ yettwasens s usekker arurad. Senker Windows, sens-it akk (Shift + Sens), syen ɛreḍ tikkelt-nniḍen.",
+  "Nem találtunk Windowst ezen a gépen.": "Ur d-nufi ara Windows ɣef uselkim-a.",
+  "Windows mellett: a Sloth OS maradjon az első": "Ɣer yidis n Windows: Sloth OS ad yeqqim d amezwaru",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Mbaɛd aleqqem ameqqran n Windows, aselkim yezmer ad isenker srid Windows, war umuɣ n Sloth OS. Sloth OS ad t-iseggem asekker i d-iteddun; s umallal, d Windows s yiman-is ara yerren Sloth OS d amezwaru yal tikkelt ara yekker.",
+  "Segéd elhelyezése a Windowsban": "Sers amallal deg Windows"
 }

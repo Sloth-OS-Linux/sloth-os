@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtual machine",
   "Új aláíró kulcs?": "New signing key?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Computers already installed accept updates signed with the old key. After a new key, their updates stop until the new public key (cosign.pub) reaches them in an update that was still signed with the old key. Only replace it if the old key was lost or leaked.",
-  "Új kulcspár": "New key pair"
+  "Új kulcspár": "New key pair",
+  "A Windows-partíció keresése…": "Looking for the Windows partition…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Done. Start Windows, and on the desktop, in the “Sloth OS” folder, double-click the Sloth-OS-boot file (it asks for administrator approval). You only need to do this once.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "The Windows partition is read-only right now because Windows was hibernated or shut down with fast startup. Start Windows, shut it down completely (Shift + Shut down), then try again.",
+  "Nem találtunk Windowst ezen a gépen.": "We didn't find Windows on this computer.",
+  "Windows mellett: a Sloth OS maradjon az első": "Next to Windows: keep Sloth OS first",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "After a major Windows update, the computer may start Windows directly, without the Sloth OS menu. Sloth OS fixes this the next time it starts; with the helper, Windows itself puts Sloth OS back first every time it starts.",
+  "Segéd elhelyezése a Windowsban": "Place the helper in Windows"
 }

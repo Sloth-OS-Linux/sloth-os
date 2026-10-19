@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtuali mašina",
   "Új aláíró kulcs?": "Naujas pasirašymo raktas?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Jau įdiegti kompiuteriai priima senuoju raktu pasirašytus atnaujinimus. Pakeitus raktą, jų atnaujinimai sustoja, kol naujasis viešasis raktas (cosign.pub) jų nepasiekia atnaujinime, kuris dar pasirašytas senuoju raktu. Keisk jį tik tada, jei senasis raktas pamestas arba nutekėjo.",
-  "Új kulcspár": "Nauja raktų pora"
+  "Új kulcspár": "Nauja raktų pora",
+  "A Windows-partíció keresése…": "Ieškoma Windows skaidinio…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Atlikta. Paleisk Windows ir darbalaukyje, aplanke „Sloth OS“, dukart spustelėk failą Sloth-OS-boot (jis paprašys administratoriaus leidimo). Tai reikia padaryti tik kartą.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows skaidinys dabar tik skaitomas, nes Windows yra užmigdytas arba išjungtas su sparčiuoju paleidimu. Paleisk Windows, visiškai jį išjunk (Shift + Išjungti) ir bandyk dar kartą.",
+  "Nem találtunk Windowst ezen a gépen.": "Šiame kompiuteryje Windows neradome.",
+  "Windows mellett: a Sloth OS maradjon az első": "Šalia Windows: Sloth OS lieka pirma",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Po didesnio Windows atnaujinimo kompiuteris gali iš karto paleisti Windows, be Sloth OS meniu. Sloth OS tai pataiso kito paleidimo metu; su pagalbininku pats Windows kiekvieno paleidimo metu grąžina Sloth OS į pirmą vietą.",
+  "Segéd elhelyezése a Windowsban": "Įdėti pagalbininką į Windows"
 }

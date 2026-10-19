@@ -417,5 +417,12 @@
   "Virtuális gép": "Mașină virtuală",
   "Új aláíró kulcs?": "Cheie nouă de semnare?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Computerele deja instalate acceptă actualizările semnate cu cheia veche. După o cheie nouă, actualizările lor se opresc până când noua cheie publică (cosign.pub) ajunge la ele printr-o actualizare semnată încă cu cheia veche. Înlocuiește-o doar dacă cheia veche s-a pierdut sau s-a scurs.",
-  "Új kulcspár": "Pereche nouă de chei"
+  "Új kulcspár": "Pereche nouă de chei",
+  "A Windows-partíció keresése…": "Se caută partiția Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Gata. Pornește Windows și, pe desktop, în dosarul „Sloth OS”, dă dublu clic pe fișierul Sloth-OS-boot (cere aprobare de administrator). E nevoie de asta o singură dată.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Partiția Windows este acum doar în citire, pentru că Windows este în hibernare sau a fost oprit cu pornirea rapidă. Pornește Windows, oprește-l complet (Shift + Închidere) și încearcă din nou.",
+  "Nem találtunk Windowst ezen a gépen.": "Nu am găsit Windows pe acest computer.",
+  "Windows mellett: a Sloth OS maradjon az első": "Lângă Windows: Sloth OS rămâne primul",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "După o actualizare mare de Windows, computerul poate porni direct Windows, fără meniul Sloth OS. Sloth OS corectează asta la următoarea pornire; cu asistentul, Windows însuși pune Sloth OS înapoi pe primul loc la fiecare pornire.",
+  "Segéd elhelyezése a Windowsban": "Pune asistentul în Windows"
 }

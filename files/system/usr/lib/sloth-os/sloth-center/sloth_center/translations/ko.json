@@ -417,5 +417,12 @@
   "Virtuális gép": "가상 머신",
   "Új aláíró kulcs?": "새 서명 키를 만들까요?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "이미 설치된 컴퓨터는 이전 키로 서명된 업데이트를 받아들입니다. 새 키로 바꾸면, 이전 키로 아직 서명된 업데이트를 통해 새 공개 키(cosign.pub)가 도착할 때까지 업데이트가 멈춥니다. 이전 키를 잃어버렸거나 유출된 경우에만 바꾸세요.",
-  "Új kulcspár": "새 키 쌍"
+  "Új kulcspár": "새 키 쌍",
+  "A Windows-partíció keresése…": "Windows 파티션을 찾는 중…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "완료했습니다. Windows를 시작하고 바탕 화면의 “Sloth OS” 폴더에서 Sloth-OS-boot 파일을 두 번 클릭하세요(관리자 승인을 요청합니다). 한 번만 하면 됩니다.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows가 최대 절전 모드이거나 빠른 시작으로 종료되어 지금 Windows 파티션은 읽기 전용입니다. Windows를 시작해 완전히 종료한 다음(Shift + 시스템 종료) 다시 시도하세요.",
+  "Nem találtunk Windowst ezen a gépen.": "이 컴퓨터에서 Windows를 찾지 못했습니다.",
+  "Windows mellett: a Sloth OS maradjon az első": "Windows와 함께: Sloth OS를 맨 앞에",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "큰 Windows 업데이트 후에는 컴퓨터가 Sloth OS 메뉴 없이 바로 Windows를 시작할 수 있습니다. Sloth OS는 다음 시작 때 이를 고칩니다. 도우미를 쓰면 Windows가 시작할 때마다 직접 Sloth OS를 맨 앞으로 되돌립니다.",
+  "Segéd elhelyezése a Windowsban": "Windows에 도우미 넣기"
 }

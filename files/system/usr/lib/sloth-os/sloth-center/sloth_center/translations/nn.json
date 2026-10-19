@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtuell maskin",
   "Új aláíró kulcs?": "Ny signeringsnøkkel?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Datamaskiner som alt er installerte, godtek oppdateringar signerte med den gamle nøkkelen. Etter ein ny nøkkel stoppar oppdateringane deira til den nye offentlege nøkkelen (cosign.pub) når dei i ei oppdatering som framleis er signert med den gamle. Byt han berre om den gamle nøkkelen er tapt eller lekt.",
-  "Új kulcspár": "Nytt nøkkelpar"
+  "Új kulcspár": "Nytt nøkkelpar",
+  "A Windows-partíció keresése…": "Leitar etter Windows-partisjonen…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Ferdig. Start Windows, og dobbeltklikk på skrivebordet i mappa «Sloth OS» på fila Sloth-OS-boot (ho ber om administratorgodkjenning). Dette trengst berre éin gong.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows-partisjonen er skriveverna no fordi Windows er i dvalemodus eller vart slått av med rask oppstart. Start Windows, slå det heilt av (Shift + Slå av), og prøv igjen.",
+  "Nem találtunk Windowst ezen a gépen.": "Vi fann ikkje Windows på denne datamaskina.",
+  "Windows mellett: a Sloth OS maradjon az első": "Ved sida av Windows: Sloth OS vert verande først",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Etter ei større Windows-oppdatering kan datamaskina starte Windows direkte, utan Sloth OS-menyen. Sloth OS rettar dette ved neste oppstart; med hjelparen set Windows sjølv Sloth OS tilbake først ved kvar oppstart.",
+  "Segéd elhelyezése a Windowsban": "Plasser hjelparen i Windows"
 }

@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtuele masjien",
   "Új aláíró kulcs?": "Nuwe ondertekeningsleutel?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Rekenaars wat reeds geïnstalleer is, aanvaar opdaterings wat met die ou sleutel onderteken is. Ná ’n nuwe sleutel stop hul opdaterings totdat die nuwe publieke sleutel (cosign.pub) hulle bereik in ’n opdatering wat nog met die ou sleutel onderteken is. Vervang dit net as die ou sleutel verlore of uitgelek is.",
-  "Új kulcspár": "Nuwe sleutelpaar"
+  "Új kulcspár": "Nuwe sleutelpaar",
+  "A Windows-partíció keresése…": "Soek die Windows-partisie…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Klaar. Begin Windows en dubbelklik op die lessenaar, in die “Sloth OS”-vouer, op die lêer Sloth-OS-boot (dit vra administrateurgoedkeuring). Dit hoef net een keer gedoen te word.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Die Windows-partisie is tans leesalleen, omdat Windows in hibernasie is of met vinnige begin afgeskakel is. Begin Windows, skakel dit heeltemal af (Shift + Skakel af), en probeer weer.",
+  "Nem találtunk Windowst ezen a gépen.": "Ons het nie Windows op hierdie rekenaar gekry nie.",
+  "Windows mellett: a Sloth OS maradjon az első": "Langs Windows: Sloth OS bly eerste",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Ná ’n groot Windows-opdatering kan die rekenaar Windows direk begin, sonder die Sloth OS-kieslys. Sloth OS maak dit reg wanneer dit weer begin; met die helper sit Windows self Sloth OS by elke begin weer eerste.",
+  "Segéd elhelyezése a Windowsban": "Plaas die helper in Windows"
 }

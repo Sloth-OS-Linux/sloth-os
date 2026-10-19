@@ -417,5 +417,12 @@
   "Virtuális gép": "Virtuala maŝino",
   "Új aláíró kulcs?": "Ĉu nova subskriba ŝlosilo?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Jam instalitaj komputiloj akceptas ĝisdatigojn subskribitajn per la malnova ŝlosilo. Post nova ŝlosilo iliaj ĝisdatigoj haltas, ĝis la nova publika ŝlosilo (cosign.pub) atingas ilin per ĝisdatigo ankoraŭ subskribita per la malnova. Anstataŭigu ĝin nur se la malnova ŝlosilo perdiĝis aŭ likiĝis.",
-  "Új kulcspár": "Nova ŝlosilparo"
+  "Új kulcspár": "Nova ŝlosilparo",
+  "A Windows-partíció keresése…": "Serĉado de la Windows-subdisko…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Farite. Startigu Windows kaj sur la labortablo, en la dosierujo „Sloth OS“, duoble alklaku la dosieron Sloth-OS-boot (ĝi petos administranto-permeson). Tion necesas fari nur unufoje.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "La Windows-subdisko nun estas nurlegebla, ĉar Windows vintrodormas aŭ estis malŝaltita per rapida starto. Startigu Windows, tute malŝaltu ĝin (Shift + Malŝalti) kaj reprovu.",
+  "Nem találtunk Windowst ezen a gépen.": "Ni ne trovis Windows en ĉi tiu komputilo.",
+  "Windows mellett: a Sloth OS maradjon az első": "Apud Windows: Sloth OS restu unua",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Post granda Windows-ĝisdatigo, la komputilo eble rekte startigos Windows, sen la Sloth OS-menuo. Sloth OS riparas tion ĉe sia sekva starto; per la helpilo, Windows mem remetas Sloth OS unua ĉe ĉiu starto.",
+  "Segéd elhelyezése a Windowsban": "Meti la helpilon en Windows"
 }

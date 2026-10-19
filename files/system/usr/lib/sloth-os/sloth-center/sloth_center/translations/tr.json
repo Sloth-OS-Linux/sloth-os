@@ -417,5 +417,12 @@
   "Virtuális gép": "Sanal makine",
   "Új aláíró kulcs?": "Yeni imza anahtarı?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Kurulu bilgisayarlar eski anahtarla imzalanmış güncellemeleri kabul eder. Yeni anahtardan sonra, yeni genel anahtar (cosign.pub) onlara hâlâ eski anahtarla imzalanmış bir güncellemeyle ulaşana dek güncellemeleri durur. Yalnızca eski anahtar kaybolduysa ya da sızdıysa değiştir.",
-  "Új kulcspár": "Yeni anahtar çifti"
+  "Új kulcspár": "Yeni anahtar çifti",
+  "A Windows-partíció keresése…": "Windows bölümü aranıyor…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Tamam. Windows’u başlat ve masaüstündeki “Sloth OS” klasöründe Sloth-OS-boot dosyasına çift tıkla (yönetici onayı ister). Bunu yalnızca bir kez yapman yeterli.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows bölümü şu anda salt okunur, çünkü Windows hazırda bekletmede ya da hızlı başlatmayla kapatıldı. Windows’u başlat, tamamen kapat (Shift + Kapat) ve yeniden dene.",
+  "Nem találtunk Windowst ezen a gépen.": "Bu bilgisayarda Windows bulunamadı.",
+  "Windows mellett: a Sloth OS maradjon az első": "Windows’un yanında: Sloth OS ilk sırada kalsın",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Büyük bir Windows güncellemesinden sonra bilgisayar Sloth OS menüsü olmadan doğrudan Windows’u açabilir. Sloth OS bunu bir sonraki açılışında düzeltir; yardımcıyla Windows her açılışta Sloth OS’u kendisi yeniden başa koyar.",
+  "Segéd elhelyezése a Windowsban": "Yardımcıyı Windows’a yerleştir"
 }

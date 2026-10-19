@@ -417,5 +417,12 @@
   "Virtuális gép": "Navidezni računalnik",
   "Új aláíró kulcs?": "Nov ključ za podpisovanje?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "Že nameščeni računalniki sprejemajo posodobitve, podpisane s starim ključem. Po novem ključu se njihove posodobitve ustavijo, dokler jih novi javni ključ (cosign.pub) ne doseže v posodobitvi, ki je še podpisana s starim ključem. Zamenjaj ga le, če se je stari ključ izgubil ali pricurljal v javnost.",
-  "Új kulcspár": "Nov par ključev"
+  "Új kulcspár": "Nov par ključev",
+  "A Windows-partíció keresése…": "Iskanje razdelka z Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "Končano. Zaženi Windows in na namizju v mapi »Sloth OS« dvakrat klikni datoteko Sloth-OS-boot (zahteva skrbniško odobritev). To je treba narediti samo enkrat.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Razdelek z Windows je trenutno samo za branje, ker je Windows v mirovanju ali je bil zaustavljen s hitrim zagonom. Zaženi Windows, ga popolnoma zaustavi (Shift + Zaustavitev sistema) in poskusi znova.",
+  "Nem találtunk Windowst ezen a gépen.": "Na tem računalniku nismo našli sistema Windows.",
+  "Windows mellett: a Sloth OS maradjon az első": "Ob sistemu Windows: Sloth OS ostane prvi",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Po večji posodobitvi sistema Windows lahko računalnik takoj zažene Windows, brez menija Sloth OS. Sloth OS to popravi ob naslednjem zagonu; s pomočnikom Windows sam ob vsakem zagonu vrne Sloth OS na prvo mesto.",
+  "Segéd elhelyezése a Windowsban": "Postavi pomočnika v Windows"
 }

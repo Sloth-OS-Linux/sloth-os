@@ -417,5 +417,12 @@
   "Virtuális gép": "ვირტუალური მანქანა",
   "Új aláíró kulcs?": "ახალი ხელმოწერის გასაღები?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "უკვე დაყენებული კომპიუტერები ძველი გასაღებით ხელმოწერილ განახლებებს იღებენ. ახალი გასაღების შემდეგ მათი განახლებები ჩერდება, სანამ ახალი საჯარო გასაღები (cosign.pub) არ მიაღწევს მათ ისეთი განახლებით, რომელსაც ჯერ კიდევ ძველი გასაღები აწერს ხელს. შეცვალე მხოლოდ მაშინ, თუ ძველი გასაღები დაიკარგა ან გაჟონა.",
-  "Új kulcspár": "ახალი გასაღებების წყვილი"
+  "Új kulcspár": "ახალი გასაღებების წყვილი",
+  "A Windows-partíció keresése…": "Windows-ის დანაყოფის ძებნა…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "მზადაა. ჩართე Windows და სამუშაო მაგიდაზე, „Sloth OS“ საქაღალდეში ორჯერ დააწკაპუნე Sloth-OS-boot ფაილზე (ადმინისტრატორის თანხმობას მოითხოვს). ეს მხოლოდ ერთხელ არის საჭირო.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "Windows-ის დანაყოფი ახლა მხოლოდ წასაკითხია, რადგან Windows ჰიბერნაციაშია ან სწრაფი ჩართვით გამოირთო. ჩართე Windows, სრულად გამორთე (Shift + გამორთვა) და ხელახლა სცადე.",
+  "Nem találtunk Windowst ezen a gépen.": "ამ კომპიუტერზე Windows ვერ ვიპოვეთ.",
+  "Windows mellett: a Sloth OS maradjon az első": "Windows-თან ერთად: Sloth OS დარჩეს პირველი",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "Windows-ის დიდი განახლების შემდეგ კომპიუტერმა შეიძლება პირდაპირ Windows ჩართოს, Sloth OS-ის მენიუს გარეშე. Sloth OS ამას შემდეგ ჩართვაზე ასწორებს; დამხმარით Windows თავად აბრუნებს Sloth OS-ს პირველ ადგილზე ყოველ ჩართვაზე.",
+  "Segéd elhelyezése a Windowsban": "დამხმარის განთავსება Windows-ში"
 }

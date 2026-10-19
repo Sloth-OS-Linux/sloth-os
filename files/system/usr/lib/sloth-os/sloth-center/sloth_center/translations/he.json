@@ -417,5 +417,12 @@
   "Virtuális gép": "מכונה וירטואלית",
   "Új aláíró kulcs?": "מפתח חתימה חדש?",
   "A már telepített gépek a régi kulccsal aláírt frissítéseket fogadják el. Új kulcs után a frissítésük addig áll, amíg az új nyilvános kulcs (cosign.pub) nem kerül rájuk egy olyan frissítéssel, amit még a régi kulcs írt alá. Csak akkor cseréld, ha a régi kulcs elveszett vagy kiszivárgott.": "מחשבים שכבר הותקנו מקבלים עדכונים שנחתמו במפתח הישן. אחרי מפתח חדש העדכונים שלהם נעצרים עד שהמפתח הציבורי החדש (cosign.pub) יגיע אליהם בעדכון שעדיין נחתם במפתח הישן. החליפו אותו רק אם המפתח הישן אבד או דלף.",
-  "Új kulcspár": "זוג מפתחות חדש"
+  "Új kulcspár": "זוג מפתחות חדש",
+  "A Windows-partíció keresése…": "מחפש את מחיצת Windows…",
+  "Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni.": "בוצע. הפעילו את Windows, ובשולחן העבודה, בתיקייה „Sloth OS”, לחצו פעמיים על הקובץ Sloth-OS-boot (הוא יבקש אישור מנהל). צריך לעשות זאת פעם אחת בלבד.",
+  "A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra.": "מחיצת Windows כרגע לקריאה בלבד, כי Windows במצב שינה עמוקה או כובה עם אתחול מהיר. הפעילו את Windows, כבו אותו לגמרי (Shift + כיבוי) ונסו שוב.",
+  "Nem találtunk Windowst ezen a gépen.": "לא מצאנו Windows במחשב הזה.",
+  "Windows mellett: a Sloth OS maradjon az első": "לצד Windows: Sloth OS נשאר ראשון",
+  "Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.": "אחרי עדכון גדול של Windows, המחשב עלול להפעיל ישר את Windows, בלי התפריט של Sloth OS. Sloth OS מתקן זאת בהפעלה הבאה שלו; עם המסייע, Windows עצמו מחזיר את Sloth OS למקום הראשון בכל הפעלה.",
+  "Segéd elhelyezése a Windowsban": "הצבת המסייע ב־Windows"
 }
