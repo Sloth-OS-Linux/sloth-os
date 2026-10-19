@@ -9,6 +9,7 @@
   "choose.program_text": "Voit myös käynnistää sen asentamatta.",
   "choose.add_to_menu": "Lisää Käynnistä-valikkoon",
   "choose.already_installed": "{name} on jo asennettu.",
+  "choose.linux_package": "Tämä paketti on tehty toiselle Linux-järjestelmälle, mutta sen voi asentaa myös tähän, ja löydät sen Käynnistä-valikosta. Jos se löytyy myös Discoverista, se on yleensä parempi vaihtoehto.",
 
   "button.cancel": "Peruuta",
   "button.run_only": "Käynnistä vain",
@@ -16,6 +17,7 @@
   "button.open": "Avaa",
   "button.reinstall": "Asenna uudelleen",
   "button.browse": "Muu tiedosto…",
+  "button.search_discover": "Hae Discoverista",
   "button.start": "Käynnistä",
   "button.done": "Valmis",
   "button.close": "Sulje",
@@ -29,6 +31,7 @@
 
   "status.starting": "Käynnistetään {name}…",
   "status.preparing_install": "Valmistellaan ohjelman {name} asennusta…",
+  "status.installing": "Asennetaan {name}…",
   "status.finish_in_installer": "Viimeistele asennus asennusohjelman ikkunassa. Sen jälkeen jatketaan täällä.",
   "status.first_setup": "Valmistellaan ensimmäistä käynnistystä…",
   "status.downloading": "Ladataan tarvittavia osia… (vain ensimmäisellä kerralla)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Ohjelmien ajamiseen tarvittava osa puuttuu. Päivitä järjestelmä Sloth Centerissä.",
   "error.not_started": "{name} ei käynnistynyt. Ohjelma ei ehkä toimi tässä järjestelmässä, tai tiedosto on vioittunut.",
   "error.nothing_installed": "Asennettua ohjelmaa ei löytynyt. Asennus on ehkä keskeytynyt; yritä uudelleen.",
+  "error.package_failed": "Ohjelman {name} asennus epäonnistui. Tarkista internetyhteys ja yritä uudelleen.",
   "info.already_running": "{name} on jo käynnissä. Sen ikkuna löytyy tehtäväpalkista.",
+  "package.installed": "{name} on asennettu. Löydät sen Käynnistä-valikosta.",
+  "package.installed_no_app": "{name} on asennettu, mutta siinä ei ole Käynnistä-valikosta käynnistettävää ohjelmaa.",
+  "package.mac": "{name} on tehty Macille, eikä se toimi tällä tietokoneella. Siitä voi olla Linux-versio: etsi sitä Discoverista.",
+  "package.mac_script": "Tämä on Macin komentosarjatiedosto. Turvallisuussyistä emme suorita sitä.",
 
   "anticheat.blocked": "{game} käyttää huijauksenestojärjestelmää {system}, joka ei salli pelin toimia Linuxissa. Vika ei ole tietokoneessasi, emmekä voi kiertää sitä. Valitettavasti tätä peliä ei voi pelata täällä.",
   "anticheat.maybe": "{game} käyttää huijauksenestojärjestelmää {system}. Linuxissa se toimii vain, jos pelin tekijät ovat sallineet sen. Jos peli ei käynnisty tai heittää sinut ulos, syy on todennäköisesti tämä. Kannattaa tarkistaa, onko pelistä Steam-versio.",

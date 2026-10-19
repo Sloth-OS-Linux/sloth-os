@@ -9,6 +9,7 @@
   "choose.program_text": "Du kan også kjøre det uten å installere.",
   "choose.add_to_menu": "Legg til i startmenyen",
   "choose.already_installed": "{name} er allerede installert.",
+  "choose.linux_package": "Denne pakken er laget for et annet Linux-system, men den kan også installeres her, og du finner den i startmenyen. Hvis den også finnes i Discover, er det som regel et bedre valg.",
 
   "button.cancel": "Avbryt",
   "button.run_only": "Bare kjør",
@@ -16,6 +17,7 @@
   "button.open": "Åpne",
   "button.reinstall": "Installer på nytt",
   "button.browse": "Annen fil…",
+  "button.search_discover": "Søk i Discover",
   "button.start": "Start",
   "button.done": "Ferdig",
   "button.close": "Lukk",
@@ -29,6 +31,7 @@
 
   "status.starting": "Starter {name}…",
   "status.preparing_install": "Forbereder installasjon av {name}…",
+  "status.installing": "Installerer {name} …",
   "status.finish_in_installer": "Fullfør installasjonen i vinduet til installasjonsprogrammet. Etterpå fortsetter vi her.",
   "status.first_setup": "Forbereder første oppstart…",
   "status.downloading": "Laster ned nødvendige komponenter… (bare første gang)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "En komponent som trengs for å kjøre programmer, mangler. Oppdater systemet i Sloth Center.",
   "error.not_started": "{name} startet ikke. Programmet fungerer kanskje ikke på dette systemet, eller filen er skadet.",
   "error.nothing_installed": "Fant ikke noe installert program. Installasjonen kan ha blitt avbrutt; prøv igjen.",
+  "error.package_failed": "{name} kunne ikke installeres. Sjekk internettforbindelsen og prøv igjen.",
   "info.already_running": "{name} kjører allerede. Du finner vinduet i oppgavelinjen.",
+  "package.installed": "{name} er installert. Du finner det i startmenyen.",
+  "package.installed_no_app": "{name} er installert, men inneholder ikke noe program som kan startes fra startmenyen.",
+  "package.mac": "{name} er laget for Mac og fungerer ikke på denne datamaskinen. Kanskje finnes det en Linux-versjon: søk etter den i Discover.",
+  "package.mac_script": "Dette er en Mac-skriptfil. Av sikkerhetshensyn kjører vi den ikke.",
 
   "anticheat.blocked": "{game} bruker juksebeskyttelsen {system}, som ikke lar spillet kjøre på Linux. Det skyldes ikke datamaskinen din, og vi kan ikke omgå det. Dessverre kan ikke dette spillet spilles her.",
   "anticheat.maybe": "{game} bruker juksebeskyttelsen {system}. På Linux virker den bare hvis spillets utviklere har tillatt det. Hvis spillet ikke starter eller kaster deg ut, er det sannsynligvis derfor. Sjekk om spillet finnes på Steam.",

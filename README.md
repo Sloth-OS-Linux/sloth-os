@@ -51,6 +51,10 @@ in a plain `~/.wine`) can be taken over without reinstalling, either started by 
 independent copy; the original files are never changed. The shared
 code is in `files/system/usr/lib/sloth-os/common/sloth_common/apps/` (tests: `tools/tests/test_apps.py`).
 
+The same handler opens Linux packages: an AppImage is installed into `~/Applications` with a Start menu entry, a
+`.deb` or `.rpm` goes into a hidden Ubuntu or Fedora container whose apps appear in the Start menu like native ones
+(with a "Search in Discover" alternative), and Mac files get a clear explanation instead of an error.
+
 ### Privacy
 
 Sharing is **opt-in**: the Sloth Welcome wizard asks, and it can be changed any time in Sloth Center →

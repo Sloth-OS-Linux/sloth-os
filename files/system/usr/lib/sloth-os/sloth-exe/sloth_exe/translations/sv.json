@@ -9,6 +9,7 @@
   "choose.program_text": "Du kan också köra det utan att installera.",
   "choose.add_to_menu": "Lägg till i startmenyn",
   "choose.already_installed": "{name} är redan installerat.",
+  "choose.linux_package": "Det här paketet är gjort för ett annat Linux-system, men det kan installeras här också, och du hittar det i startmenyn. Om det också finns i Discover är det oftast ett bättre val.",
 
   "button.cancel": "Avbryt",
   "button.run_only": "Bara kör",
@@ -16,6 +17,7 @@
   "button.open": "Öppna",
   "button.reinstall": "Installera om",
   "button.browse": "Annan fil…",
+  "button.search_discover": "Sök i Discover",
   "button.start": "Starta",
   "button.done": "Klar",
   "button.close": "Stäng",
@@ -29,6 +31,7 @@
 
   "status.starting": "Startar {name}…",
   "status.preparing_install": "Förbereder installationen av {name}…",
+  "status.installing": "Installerar {name}…",
   "status.finish_in_installer": "Slutför installationen i installationsprogrammets fönster. Sedan fortsätter vi här.",
   "status.first_setup": "Förbereder första starten…",
   "status.downloading": "Laddar ner nödvändiga komponenter… (bara första gången)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "En komponent som behövs för att köra program saknas. Uppdatera systemet i Sloth Center.",
   "error.not_started": "{name} startade inte. Programmet kanske inte fungerar på det här systemet, eller så är filen skadad.",
   "error.nothing_installed": "Vi hittade inget installerat program. Installationen kan ha avbrutits; försök igen.",
+  "error.package_failed": "Det gick inte att installera {name}. Kontrollera internetanslutningen och försök igen.",
   "info.already_running": "{name} körs redan. Du hittar fönstret i aktivitetsfältet.",
+  "package.installed": "{name} är installerat. Du hittar det i startmenyn.",
+  "package.installed_no_app": "{name} är installerat, men innehåller inget program som kan startas från startmenyn.",
+  "package.mac": "{name} är gjort för Mac och fungerar inte på den här datorn. Det kanske finns en Linux-version: sök efter den i Discover.",
+  "package.mac_script": "Det här är en Mac-skriptfil. Av säkerhetsskäl kör vi den inte.",
 
   "anticheat.blocked": "{game} använder fuskskyddet {system}, som inte låter spelet köras på Linux. Det beror inte på din dator, och vi kan inte kringgå det. Tyvärr går det här spelet inte att spela här.",
   "anticheat.maybe": "{game} använder fuskskyddet {system}. På Linux fungerar det bara om spelets skapare har tillåtit det. Om spelet inte startar eller kastar ut dig är det troligen därför. Kolla om spelet finns på Steam.",

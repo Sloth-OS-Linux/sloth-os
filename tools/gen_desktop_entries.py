@@ -68,7 +68,9 @@ ENTRIES = {
         ("Terminal", "false"),
         ("NoDisplay", "true"),
         ("MimeType", "application/x-ms-dos-executable;application/x-msdownload;application/x-msi;"
-                     "application/x-ms-installer;application/vnd.microsoft.portable-executable;application/x-dosexec;"),
+                     "application/x-ms-installer;application/vnd.microsoft.portable-executable;application/x-dosexec;"
+                     # Linuxos csomagok (AppImage, .deb, .rpm) és Mac-es fájlok (érthető üzenet)
+                     "application/vnd.appimage;application/x-iso9660-appimage;application/vnd.debian.binary-package;application/x-deb;application/x-rpm;application/x-redhat-package-manager;application/x-apple-diskimage;application/x-xar;"),
         ("Categories", "Utility;"),
     ],
     "iso/files/usr/share/applications/org.slothos.installer.desktop": [

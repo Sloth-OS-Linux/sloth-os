@@ -219,7 +219,8 @@ Talált hibák (egyesével javítjuk):
 - [ ] Windows mellett: a boot-sorrend teljes védelme (most csak a Sloth OS következő indításakor áll vissza; ötlet:
   Windows-oldali segéd)
 - [ ] Külön NVIDIA-s ISO „haladóknak” (internet nélkül is NVIDIA-illesztővel indul), ha a tárhely engedi
-- [ ] Linuxos csomagok kezelője (.AppImage, .deb, .rpm; Mac-fájloknál érthető üzenet) – 2. fázis
+- [x] Linuxos csomagok kezelője (.AppImage, .deb, .rpm; Mac-fájloknál érthető üzenet) – 2. fázis (2026-10-19,
+  valódi gépen még tesztelni; részletek a 2. fázisnál)
 - [x] .exe kezelő: „javítás / újratelepítés” – 2. fázis (2026-10-19: Sloth Központ → Windows-programok → Javítás,
   Újratelepítés)
 - [ ] **Alkalmazáskezelés, következő lépések** (a 2026-10-19-i alapra):
@@ -390,7 +391,17 @@ Talált hibák (egyesével javítjuk):
 - [x] Steamben a Proton alapból bekapcsolva minden játékra (`sloth-steam-proton-default.service`; VM-ben még tesztelni)
 - [x] MangoHud / gamescope Flatpak Vulkan rétegek a Steam Flatpakhoz (`sloth-steam-vulkan-layers.timer`; VM-ben még tesztelni)
 - [x] Érthető hibaüzenet, ha egy játék anti-cheat miatt nem futhat Linuxon (.exe kezelő: Vanguard, FACEIT, Ricochet… esetén rögtön szól; Easy Anti-Cheat / BattlEye esetén akkor, ha a játék gyorsan kilép). Hátravan: ugyanez a Steames játékoknál
-- [ ] **Linuxos csomagok kezelője** (mint az .exe kezelő, ötlet: 2026-10-15): a netről letöltött Linux-appok is
+- [x] **Linuxos csomagok kezelője** (2026-10-19, valódi gépen még tesztelni): a .exe kezelő nyitja meg őket (a fájl
+  tartalma alapján ismeri fel), közös kód: `sloth_common/apps/packages.py`. AppImage: a `~/Applications/<név>/` alá
+  (másolat, Btrfs-en reflinkkel), futtathatóra, a saját nevével, ikonjával és kategóriáival a Start menübe
+  (`sloth-exe --run`, áthelyezés után is indul), vagy csak futtatás; a FUSE 2 (`fuse-libs`) bekerült az image-be.
+  .deb: Ubuntu-dobozba (`sloth-ubuntu`), .rpm: Fedora-dobozba (`sloth-fedora`), az új appok a Start menübe
+  (`distrobox-export`), mellette „Keresés a Discoverben”; eltávolításkor a dobozból is törlődik. Mac-fájlok: érthető
+  üzenet és Discover-keresés; Mac-es parancsfájlt nem futtatunk. A Sloth Központ oldala ezért „Programok” lett.
+  A saját fájl nélküli programok (máshonnan indítottak, dobozosak) adatai rejtve vannak
+  (`~/.local/share/sloth-os/apps/`), hogy ne legyen üres mappa a `~/Applications`-ben. Hátravan: AppImage-frissítés
+  (ha az AppImage támogatja), az `.rpm`-nél a Flathubos változat automatikus felajánlása.
+  Az eredeti terv: a netről letöltött Linux-appok is
   dupla kattintásra települjenek, folyamatjelzővel, Start menü bejegyzéssel, és a Sloth Központban
   eltávolíthatók legyenek. Most egyiket sem kezeli semmi:
   - `.AppImage`: letöltve nem futtatható, dupla kattintásra a „Megnyitás ezzel…” jön; sokhoz `libfuse2` is kell

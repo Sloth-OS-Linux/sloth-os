@@ -9,6 +9,7 @@
   "choose.program_text": "Îl poți porni și fără instalare.",
   "choose.add_to_menu": "Adaugă în meniul Start",
   "choose.already_installed": "{name} este deja instalat.",
+  "choose.linux_package": "Acest pachet a fost făcut pentru alt sistem Linux, dar poate fi instalat și aici și îl vei găsi în meniul Start. Dacă există și în Discover, de obicei aceea e alegerea mai bună.",
 
   "button.cancel": "Anulează",
   "button.run_only": "Doar rulează",
@@ -16,6 +17,7 @@
   "button.open": "Deschide",
   "button.reinstall": "Reinstalează",
   "button.browse": "Alt fișier…",
+  "button.search_discover": "Caută în Discover",
   "button.start": "Pornește",
   "button.done": "Gata",
   "button.close": "Închide",
@@ -29,6 +31,7 @@
 
   "status.starting": "Se pornește {name}…",
   "status.preparing_install": "Se pregătește instalarea {name}…",
+  "status.installing": "Se instalează {name}…",
   "status.finish_in_installer": "Termină instalarea în fereastra programului de instalare. Apoi continuăm aici.",
   "status.first_setup": "Se pregătește prima pornire…",
   "status.downloading": "Se descarcă componentele necesare… (doar prima dată)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Lipsește o componentă necesară rulării programelor. Actualizează sistemul din Sloth Center.",
   "error.not_started": "{name} nu a pornit. Poate acest program nu merge pe acest sistem sau fișierul este deteriorat.",
   "error.nothing_installed": "Nu am găsit niciun program instalat. Poate instalarea s-a întrerupt; încearcă din nou.",
+  "error.package_failed": "Instalarea {name} nu a reușit. Verifică conexiunea la internet și încearcă din nou.",
   "info.already_running": "{name} rulează deja. Fereastra lui este în bara de activități.",
+  "package.installed": "{name} este instalat. Îl găsești în meniul Start.",
+  "package.installed_no_app": "{name} este instalat, dar nu conține niciun program care să poată fi pornit din meniul Start.",
+  "package.mac": "{name} a fost făcut pentru Mac și nu funcționează pe acest computer. Poate există o versiune pentru Linux: caut-o în Discover.",
+  "package.mac_script": "Acesta este un fișier script pentru Mac. Din motive de siguranță, nu îl rulăm.",
 
   "anticheat.blocked": "{game} folosește sistemul anti-trișare {system}, care nu lasă jocul să ruleze pe Linux. Nu e vina calculatorului tău și nu îl putem ocoli. Din păcate, acest joc nu poate fi jucat aici.",
   "anticheat.maybe": "{game} folosește sistemul anti-trișare {system}. Pe Linux funcționează doar dacă l-au permis creatorii jocului. Dacă jocul nu pornește sau te dă afară, probabil acesta e motivul. Merită să verifici dacă jocul are o versiune pe Steam.",

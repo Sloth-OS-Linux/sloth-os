@@ -9,6 +9,7 @@
   "choose.program_text": "Jį galite paleisti ir neįdiegę.",
   "choose.add_to_menu": "Pridėti į Pradžios meniu",
   "choose.already_installed": "{name} jau įdiegta.",
+  "choose.linux_package": "Šis paketas sukurtas kitai Linux sistemai, bet jį galima įdiegti ir čia, o rasi jį meniu Pradžia. Jei jis yra ir Discover, paprastai tai geresnis pasirinkimas.",
 
   "button.cancel": "Atšaukti",
   "button.run_only": "Tik paleisti",
@@ -16,6 +17,7 @@
   "button.open": "Atverti",
   "button.reinstall": "Įdiegti iš naujo",
   "button.browse": "Kitas failas…",
+  "button.search_discover": "Ieškoti Discover",
   "button.start": "Paleisti",
   "button.done": "Atlikta",
   "button.close": "Užverti",
@@ -29,6 +31,7 @@
 
   "status.starting": "Paleidžiama: {name}…",
   "status.preparing_install": "Ruošiamasi diegti: {name}…",
+  "status.installing": "Diegiama {name}…",
   "status.finish_in_installer": "Užbaikite diegimą diegimo programos lange. Paskui tęsime čia.",
   "status.first_setup": "Ruošiamasi pirmam paleidimui…",
   "status.downloading": "Atsisiunčiami reikalingi komponentai… (tik pirmą kartą)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Trūksta komponento, reikalingo programoms paleisti. Atnaujinkite sistemą per Sloth Center.",
   "error.not_started": "{name} nepasileido. Galbūt ši programa neveikia šioje sistemoje arba failas sugadintas.",
   "error.nothing_installed": "Neradome įdiegtos programos. Galbūt diegimas nutrūko; bandykite dar kartą.",
+  "error.package_failed": "{name} įdiegti nepavyko. Patikrink interneto ryšį ir bandyk dar kartą.",
   "info.already_running": "{name} jau veikia. Jos langą rasi užduočių juostoje.",
+  "package.installed": "{name} įdiegta. Rasi ją meniu Pradžia.",
+  "package.installed_no_app": "{name} įdiegta, bet joje nėra programos, kurią būtų galima paleisti iš meniu Pradžia.",
+  "package.mac": "{name} sukurta Mac kompiuteriams ir šiame kompiuteryje neveikia. Galbūt yra Linux versija: ieškok jos Discover.",
+  "package.mac_script": "Tai Mac scenarijaus failas. Saugumo sumetimais jo nevykdome.",
 
   "anticheat.blocked": "{game} naudoja apsaugą nuo sukčiavimo {system}, kuri neleidžia žaidimui veikti Linux sistemoje. Tai ne jūsų kompiuterio kaltė, ir mes negalime to apeiti. Deja, šio žaidimo čia žaisti negalima.",
   "anticheat.maybe": "{game} naudoja apsaugą nuo sukčiavimo {system}. Linux sistemoje ji veikia tik tada, jei tai leido žaidimo kūrėjai. Jei žaidimas nepasileidžia arba jus išmeta, greičiausiai dėl to. Verta patikrinti, ar žaidimas turi Steam versiją.",

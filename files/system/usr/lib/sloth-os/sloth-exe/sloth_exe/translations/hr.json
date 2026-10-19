@@ -9,6 +9,7 @@
   "choose.program_text": "Možete ga pokrenuti i bez instalacije.",
   "choose.add_to_menu": "Dodaj u izbornik Start",
   "choose.already_installed": "{name} je već instaliran.",
+  "choose.linux_package": "Ovaj je paket napravljen za drugi Linux sustav, ali se može instalirati i ovdje, a naći ćeš ga u izborniku Start. Ako postoji i u Discoveru, to je obično bolji izbor.",
 
   "button.cancel": "Odustani",
   "button.run_only": "Samo pokreni",
@@ -16,6 +17,7 @@
   "button.open": "Otvori",
   "button.reinstall": "Ponovno instaliraj",
   "button.browse": "Druga datoteka…",
+  "button.search_discover": "Traži u Discoveru",
   "button.start": "Pokreni",
   "button.done": "Gotovo",
   "button.close": "Zatvori",
@@ -29,6 +31,7 @@
 
   "status.starting": "Pokretanje: {name}…",
   "status.preparing_install": "Priprema instalacije: {name}…",
+  "status.installing": "Instaliranje programa {name}…",
   "status.finish_in_installer": "Dovršite instalaciju u prozoru instalacijskog programa. Zatim nastavljamo ovdje.",
   "status.first_setup": "Priprema prvog pokretanja…",
   "status.downloading": "Preuzimanje potrebnih komponenti… (samo prvi put)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Nedostaje komponenta potrebna za pokretanje programa. Ažurirajte sustav u Sloth Centeru.",
   "error.not_started": "{name} se nije pokrenuo. Ovaj program možda ne radi na ovom sustavu ili je datoteka oštećena.",
   "error.nothing_installed": "Nismo pronašli instalirani program. Instalacija je možda prekinuta; pokušajte ponovno.",
+  "error.package_failed": "Instaliranje programa {name} nije uspjelo. Provjeri internetsku vezu i pokušaj ponovno.",
   "info.already_running": "{name} već radi. Njegov prozor nalazi se na programskoj traci.",
+  "package.installed": "{name} je instaliran. Naći ćeš ga u izborniku Start.",
+  "package.installed_no_app": "{name} je instaliran, ali ne sadrži program koji se može pokrenuti iz izbornika Start.",
+  "package.mac": "{name} je napravljen za Mac i ne radi na ovom računalu. Možda postoji verzija za Linux: potraži je u Discoveru.",
+  "package.mac_script": "Ovo je Mac skriptna datoteka. Iz sigurnosnih razloga je ne pokrećemo.",
 
   "anticheat.blocked": "{game} koristi zaštitu od varanja {system}, koja ne dopušta igri da radi na Linuxu. Nije do vašeg računala i ne možemo to zaobići. Nažalost, ovu igru ovdje nije moguće igrati.",
   "anticheat.maybe": "{game} koristi zaštitu od varanja {system}. Na Linuxu radi samo ako su to dopustili autori igre. Ako se igra ne pokreće ili vas izbacuje, vjerojatno je to razlog. Provjerite postoji li verzija igre na Steamu.",

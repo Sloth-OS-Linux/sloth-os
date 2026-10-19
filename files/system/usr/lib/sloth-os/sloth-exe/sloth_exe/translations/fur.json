@@ -9,6 +9,7 @@
   "choose.program_text": "Tu puedis inviâlu ancje cence instalâlu.",
   "choose.add_to_menu": "Zonte al menù Start",
   "choose.already_installed": "{name} al è za instalât.",
+  "choose.linux_package": "Chest pachet al è stât fat par un altri sisteme Linux, ma si pues instalâlu ancje achì e tu lu cjatarâs tal menù Start. Se al è ancje in Discover, di solit chê e je la sielte miôr.",
 
   "button.cancel": "Anule",
   "button.run_only": "Invie e basta",
@@ -16,6 +17,7 @@
   "button.open": "Vierç",
   "button.reinstall": "Torne instale",
   "button.browse": "Altri file…",
+  "button.search_discover": "Cîr in Discover",
   "button.start": "Invie",
   "button.done": "Fat",
   "button.close": "Siere",
@@ -29,6 +31,7 @@
 
   "status.starting": "Si invie {name}…",
   "status.preparing_install": "Si prepare la instalazion di {name}…",
+  "status.installing": "Daûr a instalâ {name}…",
   "status.finish_in_installer": "Finìs la instalazion inte fignestre dal program di instalazion. Po o continuìn chi.",
   "status.first_setup": "Si prepare il prin inviament…",
   "status.downloading": "Si discjamin i components necessaris… (dome la prime volte)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Al mancje un component che al covente par inviâ i programs. Inzorne il sisteme in Sloth Center.",
   "error.not_started": "{name} nol è partît. Al podarès jessi che chest program nol funzioni su chest sisteme, o che il file al sedi ruvinât.",
   "error.nothing_installed": "No vin cjatât nissun program instalât. La instalazion e podarès jessi stade interote; torne prove.",
+  "error.package_failed": "No si è rivâts a instalâ {name}. Controle la conession a internet e torne prove.",
   "info.already_running": "{name} al è za in esecuzion. Tu cjatis il so barcon te sbare des aplicazions.",
+  "package.installed": "{name} al è instalât. Tu lu cjatis tal menù Start.",
+  "package.installed_no_app": "{name} al è instalât, ma nol conten nissun program che si pues inviâ dal menù Start.",
+  "package.mac": "{name} al è stât fat par Mac e nol funzione su chest computer. Forsit e je une version par Linux: cîrle in Discover.",
+  "package.mac_script": "Chest al è un file di script par Mac. Par sigurece no lu eseguìn.",
 
   "anticheat.blocked": "{game} al dopre la protezion cuintri lis trufis {system}, che no lasse lâ il zûc su Linux. Nol dipent dal to computer e no podìn lâ ator. Purtrop chest zûc no si pues zuiâ chi.",
   "anticheat.maybe": "{game} al dopre la protezion cuintri lis trufis {system}. Su Linux e funzione dome se i autôrs dal zûc lu àn permetût. Se il zûc nol partìs o ti bute fûr, probabilmentri e je cheste la reson. Al val la pene viodi se il zûc al à une version su Steam.",

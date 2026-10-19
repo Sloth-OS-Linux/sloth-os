@@ -9,6 +9,7 @@
   "choose.program_text": "Du kannst es auch ohne Installation starten.",
   "choose.add_to_menu": "Zum Startmenü hinzufügen",
   "choose.already_installed": "{name} ist bereits installiert.",
+  "choose.linux_package": "Dieses Paket wurde für ein anderes Linux-System erstellt, lässt sich aber auch hier installieren und erscheint im Startmenü. Wenn es auch in Discover verfügbar ist, ist das meist die bessere Wahl.",
 
   "button.cancel": "Abbrechen",
   "button.run_only": "Nur ausführen",
@@ -16,6 +17,7 @@
   "button.open": "Öffnen",
   "button.reinstall": "Neu installieren",
   "button.browse": "Andere Datei …",
+  "button.search_discover": "In Discover suchen",
   "button.start": "Starten",
   "button.done": "Fertig",
   "button.close": "Schließen",
@@ -29,6 +31,7 @@
 
   "status.starting": "{name} wird gestartet…",
   "status.preparing_install": "Installation von {name} wird vorbereitet…",
+  "status.installing": "{name} wird installiert …",
   "status.finish_in_installer": "Schließe die Installation im Fenster des Installationsprogramms ab. Danach geht es hier weiter.",
   "status.first_setup": "Erster Start wird vorbereitet…",
   "status.downloading": "Benötigte Komponenten werden heruntergeladen… (nur beim ersten Mal)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Eine zum Ausführen von Programmen nötige Komponente fehlt. Aktualisiere das System im Sloth Center.",
   "error.not_started": "{name} ist nicht gestartet. Vielleicht funktioniert dieses Programm auf diesem System nicht, oder die Datei ist beschädigt.",
   "error.nothing_installed": "Es wurde kein installiertes Programm gefunden. Vielleicht wurde die Installation abgebrochen; versuche es erneut.",
+  "error.package_failed": "{name} konnte nicht installiert werden. Prüfe die Internetverbindung und versuche es erneut.",
   "info.already_running": "{name} läuft bereits. Das Fenster findest du in der Taskleiste.",
+  "package.installed": "{name} ist installiert. Du findest es im Startmenü.",
+  "package.installed_no_app": "{name} ist installiert, enthält aber kein Programm, das sich aus dem Startmenü starten lässt.",
+  "package.mac": "{name} wurde für den Mac erstellt und läuft auf diesem Computer nicht. Vielleicht gibt es eine Linux-Version: Suche in Discover danach.",
+  "package.mac_script": "Das ist eine Mac-Skriptdatei. Aus Sicherheitsgründen führen wir sie nicht aus.",
 
   "anticheat.blocked": "{game} nutzt den Anti-Cheat {system}, der das Spiel unter Linux nicht laufen lässt. Das liegt nicht an deinem Computer, und wir können es nicht umgehen. Leider lässt sich dieses Spiel hier nicht spielen.",
   "anticheat.maybe": "{game} nutzt den Anti-Cheat {system}. Unter Linux funktioniert er nur, wenn die Entwickler des Spiels es erlaubt haben. Wenn das Spiel nicht startet oder dich rauswirft, liegt es wahrscheinlich daran. Schau nach, ob es eine Steam-Version des Spiels gibt.",

@@ -9,6 +9,7 @@
   "choose.program_text": "インストールせずに起動することもできます。",
   "choose.add_to_menu": "スタートメニューに追加",
   "choose.already_installed": "{name} はすでにインストールされています。",
+  "choose.linux_package": "このパッケージは別の Linux システム向けですが、ここにもインストールでき、スタートメニューに表示されます。Discover にもある場合は、通常そちらのほうがおすすめです。",
 
   "button.cancel": "キャンセル",
   "button.run_only": "実行のみ",
@@ -16,6 +17,7 @@
   "button.open": "開く",
   "button.reinstall": "再インストール",
   "button.browse": "別のファイル…",
+  "button.search_discover": "Discover で検索",
   "button.start": "起動",
   "button.done": "完了",
   "button.close": "閉じる",
@@ -29,6 +31,7 @@
 
   "status.starting": "{name} を起動しています…",
   "status.preparing_install": "{name} のインストールを準備しています…",
+  "status.installing": "{name} をインストールしています…",
   "status.finish_in_installer": "インストーラーのウィンドウでインストールを完了してください。完了したら、ここで続けます。",
   "status.first_setup": "初回起動の準備をしています…",
   "status.downloading": "必要なコンポーネントをダウンロードしています…（初回のみ）",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "プログラムの実行に必要なコンポーネントがありません。Sloth Center でシステムを更新してください。",
   "error.not_started": "{name} を起動できませんでした。このプログラムがこのシステムで動かないか、ファイルが壊れている可能性があります。",
   "error.nothing_installed": "インストールされたプログラムが見つかりません。インストールが中断された可能性があります。もう一度お試しください。",
+  "error.package_failed": "{name} をインストールできませんでした。インターネット接続を確認して、もう一度お試しください。",
   "info.already_running": "{name} はすでに起動しています。ウィンドウはタスクバーにあります。",
+  "package.installed": "{name} をインストールしました。スタートメニューにあります。",
+  "package.installed_no_app": "{name} をインストールしましたが、スタートメニューから起動できるプログラムは含まれていません。",
+  "package.mac": "{name} は Mac 向けのため、このコンピューターでは動作しません。Linux 版があるかもしれません。Discover で探してみてください。",
+  "package.mac_script": "これは Mac のスクリプトファイルです。安全のため実行しません。",
 
   "anticheat.blocked": "{game} は {system} というチート対策を使っており、Linux ではゲームを起動できません。お使いのパソコンのせいではなく、回避することもできません。残念ながら、このゲームはここでは遊べません。",
   "anticheat.maybe": "{game} は {system} というチート対策を使っています。Linux では、ゲームの開発元が許可している場合にしか動きません。ゲームが起動しない、または強制終了される場合は、これが原因の可能性があります。Steam 版があるか確認してみてください。",

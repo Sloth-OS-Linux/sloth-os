@@ -9,6 +9,7 @@
   "choose.program_text": "Du kan òg køyra det utan å installera.",
   "choose.add_to_menu": "Legg til i startmenyen",
   "choose.already_installed": "{name} er allereie installert.",
+  "choose.linux_package": "Denne pakken er laga for eit anna Linux-system, men han kan òg installerast her, og du finn han i startmenyen. Om han òg finst i Discover, er det som regel eit betre val.",
 
   "button.cancel": "Avbryt",
   "button.run_only": "Berre køyr",
@@ -16,6 +17,7 @@
   "button.open": "Opna",
   "button.reinstall": "Installer på nytt",
   "button.browse": "Anna fil…",
+  "button.search_discover": "Søk i Discover",
   "button.start": "Start",
   "button.done": "Ferdig",
   "button.close": "Lukk",
@@ -29,6 +31,7 @@
 
   "status.starting": "Startar {name}…",
   "status.preparing_install": "Førebur installasjon av {name}…",
+  "status.installing": "Installerer {name} …",
   "status.finish_in_installer": "Fullfør installasjonen i vindauget til installasjonsprogrammet. Etterpå held vi fram her.",
   "status.first_setup": "Førebur første oppstart…",
   "status.downloading": "Lastar ned nødvendige komponentar… (berre første gongen)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Ein komponent som trengst for å køyra program, manglar. Oppdater systemet i Sloth Center.",
   "error.not_started": "{name} starta ikkje. Programmet fungerer kanskje ikkje på dette systemet, eller fila er skadd.",
   "error.nothing_installed": "Fann ikkje noko installert program. Installasjonen kan ha vorte avbroten; prøv igjen.",
+  "error.package_failed": "{name} kunne ikkje installerast. Sjekk internettsambandet og prøv igjen.",
   "info.already_running": "{name} køyrer alt. Du finn vindauget i oppgåvelinja.",
+  "package.installed": "{name} er installert. Du finn det i startmenyen.",
+  "package.installed_no_app": "{name} er installert, men inneheld ikkje noko program som kan startast frå startmenyen.",
+  "package.mac": "{name} er laga for Mac og fungerer ikkje på denne datamaskina. Kanskje finst det ein Linux-versjon: søk etter han i Discover.",
+  "package.mac_script": "Dette er ei Mac-skriptfil. Av tryggleiksomsyn køyrer vi henne ikkje.",
 
   "anticheat.blocked": "{game} brukar juksevernet {system}, som ikkje lèt spelet køyra på Linux. Det kjem ikkje av datamaskina di, og vi kan ikkje gå rundt det. Diverre kan ikkje dette spelet spelast her.",
   "anticheat.maybe": "{game} brukar juksevernet {system}. På Linux verkar det berre om utviklarane av spelet har tillate det. Om spelet ikkje startar eller kastar deg ut, er det truleg difor. Sjekk om spelet finst på Steam.",

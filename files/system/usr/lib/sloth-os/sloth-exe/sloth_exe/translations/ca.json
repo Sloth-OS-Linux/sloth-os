@@ -9,6 +9,7 @@
   "choose.program_text": "També el pots obrir sense instal·lar-lo.",
   "choose.add_to_menu": "Afegeix al menú Inici",
   "choose.already_installed": "{name} ja està instal·lat.",
+  "choose.linux_package": "Aquest paquet s’ha fet per a un altre sistema Linux, però també es pot instal·lar aquí i el trobaràs al menú Inici. Si també és al Discover, sol ser la millor opció.",
 
   "button.cancel": "Cancel·la",
   "button.run_only": "Només executa",
@@ -16,6 +17,7 @@
   "button.open": "Obre",
   "button.reinstall": "Reinstal·la",
   "button.browse": "Un altre fitxer…",
+  "button.search_discover": "Cerca al Discover",
   "button.start": "Inicia",
   "button.done": "Fet",
   "button.close": "Tanca",
@@ -29,6 +31,7 @@
 
   "status.starting": "S'està iniciant {name}…",
   "status.preparing_install": "S'està preparant la instal·lació de {name}…",
+  "status.installing": "S’està instal·lant {name}…",
   "status.finish_in_installer": "Acaba la instal·lació a la finestra de l'instal·lador. Després continuem aquí.",
   "status.first_setup": "S'està preparant el primer inici…",
   "status.downloading": "S'estan baixant els components necessaris… (només la primera vegada)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Falta un component necessari per executar programes. Actualitza el sistema a Sloth Center.",
   "error.not_started": "{name} no s'ha iniciat. Potser aquest programa no funciona en aquest sistema o el fitxer està malmès.",
   "error.nothing_installed": "No hem trobat cap programa instal·lat. Potser la instal·lació s'ha interromput; torna-ho a provar.",
+  "error.package_failed": "No s’ha pogut instal·lar {name}. Comprova la connexió a Internet i torna-ho a provar.",
   "info.already_running": "{name} ja s’està executant. Trobaràs la finestra a la barra de tasques.",
+  "package.installed": "{name} s’ha instal·lat. El trobaràs al menú Inici.",
+  "package.installed_no_app": "{name} s’ha instal·lat, però no conté cap programa que es pugui iniciar des del menú Inici.",
+  "package.mac": "{name} s’ha fet per a Mac i no funciona en aquest ordinador. Potser n’hi ha una versió per a Linux: cerca-la al Discover.",
+  "package.mac_script": "Això és un fitxer d’script de Mac. Per seguretat, no l’executem.",
 
   "anticheat.blocked": "{game} fa servir l'antitrampes {system}, que no deixa executar el joc a Linux. No és culpa del teu ordinador i no ho podem evitar. Malauradament, aquest joc no es pot jugar aquí.",
   "anticheat.maybe": "{game} fa servir l'antitrampes {system}. A Linux només funciona si els creadors del joc ho han permès. Si el joc no s'inicia o et fa fora, probablement és per això. Val la pena mirar si el joc té versió a Steam.",

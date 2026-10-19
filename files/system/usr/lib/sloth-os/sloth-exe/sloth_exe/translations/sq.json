@@ -9,6 +9,7 @@
   "choose.program_text": "Mund ta nisni edhe pa e instaluar.",
   "choose.add_to_menu": "Shto te menuja Start",
   "choose.already_installed": "{name} është instaluar tashmë.",
+  "choose.linux_package": "Ky paketë është bërë për një sistem tjetër Linux, por mund të instalohet edhe këtu dhe do ta gjesh në menynë Start. Nëse është edhe në Discover, zakonisht kjo është zgjedhja më e mirë.",
 
   "button.cancel": "Anulo",
   "button.run_only": "Vetëm nise",
@@ -16,6 +17,7 @@
   "button.open": "Hap",
   "button.reinstall": "Riinstalo",
   "button.browse": "Skedar tjetër…",
+  "button.search_discover": "Kërko në Discover",
   "button.start": "Nis",
   "button.done": "U krye",
   "button.close": "Mbyll",
@@ -29,6 +31,7 @@
 
   "status.starting": "Po niset {name}…",
   "status.preparing_install": "Po përgatitet instalimi i {name}…",
+  "status.installing": "Po instalohet {name}…",
   "status.finish_in_installer": "Përfundoni instalimin te dritarja e instaluesit. Pastaj vazhdojmë këtu.",
   "status.first_setup": "Po përgatitet nisja e parë…",
   "status.downloading": "Po shkarkohen përbërësit e nevojshëm… (vetëm herën e parë)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Mungon një përbërës i nevojshëm për të nisur programe. Përditësoni sistemin te Sloth Center.",
   "error.not_started": "{name} nuk u nis. Ndoshta ky program nuk punon në këtë sistem ose skedari është i dëmtuar.",
   "error.nothing_installed": "Nuk gjetëm program të instaluar. Instalimi mund të jetë ndërprerë; provoni sërish.",
+  "error.package_failed": "Instalimi i {name} dështoi. Kontrollo lidhjen me internetin dhe provo sërish.",
   "info.already_running": "{name} po punon tashmë. Dritaren e tij e gjen në shiritin e detyrave.",
+  "package.installed": "{name} u instalua. E gjen në menynë Start.",
+  "package.installed_no_app": "{name} u instalua, por nuk përmban program që mund të niset nga menyja Start.",
+  "package.mac": "{name} është bërë për Mac dhe nuk punon në këtë kompjuter. Mund të ketë një version për Linux: kërkoje në Discover.",
+  "package.mac_script": "Ky është një skedar skripti për Mac. Për arsye sigurie nuk e ekzekutojmë.",
 
   "anticheat.blocked": "{game} përdor mbrojtjen kundër mashtrimit {system}, që nuk e lejon lojën të punojë në Linux. Nuk varet nga kompjuteri juaj dhe nuk mund ta anashkalojmë. Fatkeqësisht kjo lojë nuk mund të luhet këtu.",
   "anticheat.maybe": "{game} përdor mbrojtjen kundër mashtrimit {system}. Në Linux punon vetëm nëse e kanë lejuar krijuesit e lojës. Nëse loja nuk niset ose ju nxjerr jashtë, ka gjasa që arsyeja të jetë kjo. Ia vlen të shihni nëse loja ka version në Steam.",

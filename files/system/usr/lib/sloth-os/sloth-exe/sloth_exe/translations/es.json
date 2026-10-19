@@ -9,6 +9,7 @@
   "choose.program_text": "También puedes abrirlo sin instalarlo.",
   "choose.add_to_menu": "Añadir al menú Inicio",
   "choose.already_installed": "{name} ya está instalado.",
+  "choose.linux_package": "Este paquete se hizo para otro sistema Linux, pero también se puede instalar aquí y lo encontrarás en el menú Inicio. Si también está en Discover, suele ser la mejor opción.",
 
   "button.cancel": "Cancelar",
   "button.run_only": "Solo ejecutar",
@@ -16,6 +17,7 @@
   "button.open": "Abrir",
   "button.reinstall": "Reinstalar",
   "button.browse": "Otro archivo…",
+  "button.search_discover": "Buscar en Discover",
   "button.start": "Iniciar",
   "button.done": "Listo",
   "button.close": "Cerrar",
@@ -29,6 +31,7 @@
 
   "status.starting": "Iniciando {name}…",
   "status.preparing_install": "Preparando la instalación de {name}…",
+  "status.installing": "Instalando {name}…",
   "status.finish_in_installer": "Termina la instalación en la ventana del instalador. Cuando acabes, seguimos aquí.",
   "status.first_setup": "Preparando el primer inicio…",
   "status.downloading": "Descargando componentes necesarios… (solo la primera vez)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Falta un componente necesario para ejecutar programas. Actualiza el sistema en Sloth Center.",
   "error.not_started": "{name} no se inició. Puede que este programa no funcione en este sistema o que el archivo esté dañado.",
   "error.nothing_installed": "No encontramos ningún programa instalado. Puede que la instalación se interrumpiera; inténtalo de nuevo.",
+  "error.package_failed": "No se ha podido instalar {name}. Comprueba la conexión a Internet y vuelve a intentarlo.",
   "info.already_running": "{name} ya se está ejecutando. Encontrarás su ventana en la barra de tareas.",
+  "package.installed": "{name} está instalado. Lo encontrarás en el menú Inicio.",
+  "package.installed_no_app": "{name} está instalado, pero no incluye ningún programa que se pueda iniciar desde el menú Inicio.",
+  "package.mac": "{name} se hizo para Mac y no funciona en este equipo. Puede que haya una versión para Linux: búscala en Discover.",
+  "package.mac_script": "Esto es un archivo de script de Mac. Por seguridad, no lo ejecutamos.",
 
   "anticheat.blocked": "{game} usa el antitrampas {system}, que no permite ejecutar el juego en Linux. No es culpa de tu ordenador y no podemos evitarlo. Por desgracia, este juego no se puede jugar aquí.",
   "anticheat.maybe": "{game} usa el antitrampas {system}. En Linux solo funciona si los creadores del juego lo han permitido. Si el juego no arranca o te expulsa, probablemente sea por esto. Vale la pena ver si el juego tiene versión de Steam.",

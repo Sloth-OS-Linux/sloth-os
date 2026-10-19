@@ -8,7 +8,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Windows-programok")
+    title: L.t("Programok")
 
     actions: [
         Kirigami.Action {
@@ -200,7 +200,7 @@ Kirigami.ScrollablePage {
                             const parts = [];
                             if (card.isLink)
                                 parts.push(L.tf("Indítja: {source}", { source: card.modelData.source }));
-                            else if (card.modelData.size !== "")
+                            else if (card.modelData.size !== "" && card.modelData.hasFiles)
                                 parts.push(card.modelData.size);
                             if (card.modelData.publisher !== "")
                                 parts.push(card.modelData.publisher);
@@ -211,7 +211,7 @@ Kirigami.ScrollablePage {
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
-                        visible: !card.isLink
+                        visible: card.modelData.hasFiles
                         opacity: 0.5
                         elide: Text.ElideMiddle
                         font: Kirigami.Theme.smallFont
@@ -226,7 +226,7 @@ Kirigami.ScrollablePage {
                     onClicked: winprograms.launch(card.modelData.id)
                 }
                 QQC2.Button {
-                    visible: !card.isLink
+                    visible: card.modelData.hasFiles
                     text: L.t("Fájlok")
                     icon.name: "folder-open"
                     onClicked: winprograms.openFolder(card.modelData.id)
@@ -241,14 +241,14 @@ Kirigami.ScrollablePage {
                     QQC2.Menu {
                         id: moreMenu
                         QQC2.MenuItem {
-                            visible: !card.isLink
+                            visible: card.modelData.kind === "windows"
                             height: visible ? implicitHeight : 0
                             text: L.t("Start menü…")
                             icon.name: "kickoff"
                             onTriggered: winprograms.editShortcuts(card.modelData.id)
                         }
                         QQC2.MenuItem {
-                            visible: !card.isLink && !card.modelData.shared
+                            visible: card.modelData.kind === "windows" && !card.modelData.shared
                             height: visible ? implicitHeight : 0
                             text: L.t("Javítás")
                             icon.name: "tools-wizard"
@@ -310,7 +310,7 @@ Kirigami.ScrollablePage {
         id: installDialog
         title: L.t("Melyik programot telepíted?")
         currentFolder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
-        nameFilters: [L.t("Windows-programok") + " (*.exe *.msi *.EXE *.MSI)"]
+        nameFilters: [L.t("Programok") + " (*.exe *.msi *.EXE *.MSI *.AppImage *.appimage *.deb *.rpm)"]
         onAccepted: winprograms.install(selectedFile.toString())
     }
 

@@ -9,6 +9,7 @@
   "choose.program_text": "설치하지 않고 바로 실행할 수도 있습니다.",
   "choose.add_to_menu": "시작 메뉴에 추가",
   "choose.already_installed": "{name}이(가) 이미 설치되어 있습니다.",
+  "choose.linux_package": "이 패키지는 다른 Linux 시스템용으로 만들어졌지만 여기에도 설치할 수 있으며, 시작 메뉴에 나타납니다. Discover에도 있다면 보통 그쪽이 더 좋은 선택입니다.",
 
   "button.cancel": "취소",
   "button.run_only": "실행만 하기",
@@ -16,6 +17,7 @@
   "button.open": "열기",
   "button.reinstall": "다시 설치",
   "button.browse": "다른 파일…",
+  "button.search_discover": "Discover에서 검색",
   "button.start": "시작",
   "button.done": "완료",
   "button.close": "닫기",
@@ -29,6 +31,7 @@
 
   "status.starting": "{name} 시작 중…",
   "status.preparing_install": "{name} 설치 준비 중…",
+  "status.installing": "{name} 설치 중…",
   "status.finish_in_installer": "설치 프로그램 창에서 설치를 마쳐 주세요. 끝나면 여기서 계속합니다.",
   "status.first_setup": "첫 실행 준비 중…",
   "status.downloading": "필요한 구성 요소 다운로드 중… (처음 한 번만)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "프로그램 실행에 필요한 구성 요소가 없습니다. Sloth Center에서 시스템을 업데이트하세요.",
   "error.not_started": "{name}이(가) 시작되지 않았습니다. 이 시스템에서 동작하지 않는 프로그램이거나 파일이 손상되었을 수 있습니다.",
   "error.nothing_installed": "설치된 프로그램을 찾지 못했습니다. 설치가 중단되었을 수 있으니 다시 시도하세요.",
+  "error.package_failed": "{name}을(를) 설치하지 못했습니다. 인터넷 연결을 확인하고 다시 시도하세요.",
   "info.already_running": "{name}이(가) 이미 실행 중입니다. 작업 표시줄에서 창을 찾을 수 있습니다.",
+  "package.installed": "{name}을(를) 설치했습니다. 시작 메뉴에서 찾을 수 있습니다.",
+  "package.installed_no_app": "{name}을(를) 설치했지만 시작 메뉴에서 실행할 수 있는 프로그램이 없습니다.",
+  "package.mac": "{name}은(는) Mac용이라 이 컴퓨터에서 실행되지 않습니다. Linux 버전이 있을 수 있으니 Discover에서 찾아보세요.",
+  "package.mac_script": "Mac 스크립트 파일입니다. 안전을 위해 실행하지 않습니다.",
 
   "anticheat.blocked": "{game}은(는) {system} 안티치트를 사용하며, 이 때문에 Linux에서 게임을 실행할 수 없습니다. 컴퓨터 문제가 아니며 우회할 방법도 없습니다. 아쉽지만 이 게임은 여기서 할 수 없습니다.",
   "anticheat.maybe": "{game}은(는) {system} 안티치트를 사용합니다. Linux에서는 게임 개발사가 허용한 경우에만 동작합니다. 게임이 실행되지 않거나 강제로 종료된다면 아마 이 때문일 겁니다. 게임의 Steam 버전이 있는지 확인해 보세요.",

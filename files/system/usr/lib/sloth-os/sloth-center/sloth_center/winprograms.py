@@ -14,7 +14,7 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, QUrl, Signal, Slot
 
 from sloth_common import sharing
-from sloth_common.apps import imports, library, menu
+from sloth_common.apps import imports, library, menu, packages
 
 from .i18n import N_, tr
 
@@ -132,7 +132,8 @@ class WinProgramsController(QObject):
                 "publisher": meta.get("publisher", ""),
                 "shared": app.id == library.SHARED_ID,
                 "canReinstall": bool(installer) and Path(installer).is_file(),
-                "canMove": app.kind == "windows" and not app.legacy and app.dir.parent != default,
+                "hasFiles": app.kind in ("windows", "appimage"),
+                "canMove": app.kind in ("windows", "appimage") and not app.legacy and app.dir.parent != default,
             })
         self._items = items
         self.changed.emit()
@@ -196,9 +197,12 @@ class WinProgramsController(QObject):
         app = self._app(app_id)
         if app is None:
             return
-        if app.kind == "link":
-            subprocess.Popen(imports.launch_command(app), start_new_session=True,
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        cmd = {"link": imports.launch_command, "box": packages.box_launch_command,
+               "appimage": lambda a: ["sloth-exe", "--run", a.id]}.get(app.kind)
+        if cmd:
+            if cmd(app):
+                subprocess.Popen(cmd(app), start_new_session=True, stdout=subprocess.DEVNULL,
+                                 stderr=subprocess.DEVNULL)
             return
         target = next((e["target"] for e in menu.entries(app) if e["target"]), None)
         if target:
@@ -255,8 +259,14 @@ class WinProgramsController(QObject):
             return
         name = app.name
         self._items = [p for p in self._items if p["id"] != app_id]
-        self._run_in_background(
-            lambda: "" if library.remove(app) else tr("{name} nem távolítható el innen.", name=name))
+
+        def work():
+            # dobozba telepített csomag: előbb a dobozból (és a Start menüből) is ki
+            if app.kind == "box" and not packages.box_uninstall(app):
+                return tr("{name} nem távolítható el innen.", name=name)
+            return "" if library.remove(app) else tr("{name} nem távolítható el innen.", name=name)
+
+        self._run_in_background(work)
 
     @Slot(str)
     def setLocation(self, url):

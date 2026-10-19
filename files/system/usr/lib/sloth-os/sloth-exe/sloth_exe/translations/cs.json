@@ -9,6 +9,7 @@
   "choose.program_text": "Můžete ho spustit i bez instalace.",
   "choose.add_to_menu": "Přidat do nabídky Start",
   "choose.already_installed": "{name} je už nainstalován.",
+  "choose.linux_package": "Tento balíček je určený pro jiný linuxový systém, ale dá se nainstalovat i sem a najdeš ho v nabídce Start. Pokud je i v Discoveru, bývá to lepší volba.",
 
   "button.cancel": "Zrušit",
   "button.run_only": "Jen spustit",
@@ -16,6 +17,7 @@
   "button.open": "Otevřít",
   "button.reinstall": "Přeinstalovat",
   "button.browse": "Jiný soubor…",
+  "button.search_discover": "Hledat v Discoveru",
   "button.start": "Spustit",
   "button.done": "Hotovo",
   "button.close": "Zavřít",
@@ -29,6 +31,7 @@
 
   "status.starting": "Spouštění: {name}…",
   "status.preparing_install": "Příprava instalace: {name}…",
+  "status.installing": "Instaluje se {name}…",
   "status.finish_in_installer": "Dokončete instalaci v okně instalátoru. Pak budeme pokračovat tady.",
   "status.first_setup": "Příprava prvního spuštění…",
   "status.downloading": "Stahování potřebných součástí… (jen poprvé)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Chybí součást potřebná ke spouštění programů. Aktualizujte systém v Sloth Center.",
   "error.not_started": "{name} se nespustil. Tento program možná na tomto systému nefunguje, nebo je soubor poškozený.",
   "error.nothing_installed": "Nenašli jsme žádný nainstalovaný program. Instalace se možná přerušila; zkuste to znovu.",
+  "error.package_failed": "{name} se nepodařilo nainstalovat. Zkontroluj připojení k internetu a zkus to znovu.",
   "info.already_running": "{name} už běží. Jeho okno najdeš na hlavním panelu.",
+  "package.installed": "{name} je nainstalován. Najdeš ho v nabídce Start.",
+  "package.installed_no_app": "{name} je nainstalován, ale neobsahuje žádný program, který by šel spustit z nabídky Start.",
+  "package.mac": "{name} je určený pro Mac a na tomto počítači nefunguje. Možná existuje verze pro Linux: hledej ji v Discoveru.",
+  "package.mac_script": "Toto je skriptový soubor pro Mac. Z bezpečnostních důvodů ho nespouštíme.",
 
   "anticheat.blocked": "{game} používá ochranu proti podvádění {system}, která nedovolí spustit hru v Linuxu. Není to chyba vašeho počítače a nemůžeme to obejít. Bohužel tuto hru zde hrát nelze.",
   "anticheat.maybe": "{game} používá ochranu proti podvádění {system}. V Linuxu funguje jen tehdy, pokud to tvůrci hry povolili. Pokud se hra nespustí nebo vás vyhodí, je to nejspíš kvůli tomu. Vyplatí se zjistit, zda hra nemá verzi na Steamu.",

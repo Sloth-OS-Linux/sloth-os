@@ -9,6 +9,7 @@
   "choose.program_text": "Vous pouvez aussi le lancer sans l'installer.",
   "choose.add_to_menu": "Ajouter au menu Démarrer",
   "choose.already_installed": "{name} est déjà installé.",
+  "choose.linux_package": "Ce paquet a été conçu pour un autre système Linux, mais il peut aussi être installé ici et apparaîtra dans le menu Démarrer. S’il est aussi disponible dans Discover, c’est généralement le meilleur choix.",
 
   "button.cancel": "Annuler",
   "button.run_only": "Lancer seulement",
@@ -16,6 +17,7 @@
   "button.open": "Ouvrir",
   "button.reinstall": "Réinstaller",
   "button.browse": "Autre fichier…",
+  "button.search_discover": "Rechercher dans Discover",
   "button.start": "Lancer",
   "button.done": "Terminé",
   "button.close": "Fermer",
@@ -29,6 +31,7 @@
 
   "status.starting": "Lancement de {name}…",
   "status.preparing_install": "Préparation de l'installation de {name}…",
+  "status.installing": "Installation de {name}…",
   "status.finish_in_installer": "Terminez l'installation dans la fenêtre de l'installateur. Ensuite, on continue ici.",
   "status.first_setup": "Préparation du premier lancement…",
   "status.downloading": "Téléchargement des composants nécessaires… (la première fois seulement)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Un composant nécessaire pour lancer les programmes est manquant. Mettez le système à jour dans Sloth Center.",
   "error.not_started": "{name} n'a pas démarré. Ce programme ne fonctionne peut-être pas sur ce système, ou le fichier est endommagé.",
   "error.nothing_installed": "Aucun programme installé n'a été trouvé. L'installation a peut-être été interrompue ; réessayez.",
+  "error.package_failed": "L’installation de {name} a échoué. Vérifie ta connexion Internet et réessaie.",
   "info.already_running": "{name} est déjà en cours d’exécution. Tu trouveras sa fenêtre dans la barre des tâches.",
+  "package.installed": "{name} est installé. Tu le trouveras dans le menu Démarrer.",
+  "package.installed_no_app": "{name} est installé, mais il ne contient aucun programme à lancer depuis le menu Démarrer.",
+  "package.mac": "{name} a été conçu pour Mac et ne fonctionne pas sur cet ordinateur. Il existe peut-être une version Linux : cherche-la dans Discover.",
+  "package.mac_script": "Ceci est un fichier de script Mac. Par sécurité, nous ne l’exécutons pas.",
 
   "anticheat.blocked": "{game} utilise l'anti-triche {system}, qui empêche le jeu de fonctionner sous Linux. Ce n'est pas la faute de votre ordinateur et nous ne pouvons pas le contourner. Malheureusement, ce jeu ne peut pas être joué ici.",
   "anticheat.maybe": "{game} utilise l'anti-triche {system}. Sous Linux, il ne fonctionne que si les créateurs du jeu l'ont autorisé. Si le jeu ne démarre pas ou vous expulse, c'est probablement pour cela. Vérifiez s'il existe une version Steam du jeu.",

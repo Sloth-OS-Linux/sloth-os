@@ -9,6 +9,7 @@
   "choose.program_text": "Możesz go też uruchomić bez instalacji.",
   "choose.add_to_menu": "Dodaj do menu Start",
   "choose.already_installed": "{name} jest już zainstalowany.",
+  "choose.linux_package": "Ten pakiet powstał dla innego systemu Linux, ale można go zainstalować także tutaj; znajdziesz go w menu Start. Jeśli jest też w Discover, to zwykle lepszy wybór.",
 
   "button.cancel": "Anuluj",
   "button.run_only": "Tylko uruchom",
@@ -16,6 +17,7 @@
   "button.open": "Otwórz",
   "button.reinstall": "Zainstaluj ponownie",
   "button.browse": "Inny plik…",
+  "button.search_discover": "Szukaj w Discover",
   "button.start": "Uruchom",
   "button.done": "Gotowe",
   "button.close": "Zamknij",
@@ -29,6 +31,7 @@
 
   "status.starting": "Uruchamianie: {name}…",
   "status.preparing_install": "Przygotowywanie instalacji: {name}…",
+  "status.installing": "Instalowanie {name}…",
   "status.finish_in_installer": "Dokończ instalację w oknie instalatora. Potem kontynuujemy tutaj.",
   "status.first_setup": "Przygotowywanie pierwszego uruchomienia…",
   "status.downloading": "Pobieranie potrzebnych składników… (tylko za pierwszym razem)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Brakuje składnika potrzebnego do uruchamiania programów. Zaktualizuj system w Sloth Center.",
   "error.not_started": "{name} nie uruchomił się. Ten program może nie działać w tym systemie albo plik jest uszkodzony.",
   "error.nothing_installed": "Nie znaleziono zainstalowanego programu. Instalacja mogła zostać przerwana; spróbuj ponownie.",
+  "error.package_failed": "Nie udało się zainstalować {name}. Sprawdź połączenie z internetem i spróbuj ponownie.",
   "info.already_running": "{name} już działa. Jego okno znajdziesz na pasku zadań.",
+  "package.installed": "{name} jest zainstalowany. Znajdziesz go w menu Start.",
+  "package.installed_no_app": "{name} jest zainstalowany, ale nie zawiera programu, który można uruchomić z menu Start.",
+  "package.mac": "{name} powstał dla komputerów Mac i nie działa na tym komputerze. Może istnieje wersja dla Linuksa: poszukaj jej w Discover.",
+  "package.mac_script": "To plik skryptu z Maca. Ze względów bezpieczeństwa go nie uruchamiamy.",
 
   "anticheat.blocked": "{game} używa zabezpieczenia antycheatowego {system}, które nie pozwala uruchomić gry w Linuksie. To nie wina twojego komputera i nie możemy tego obejść. Niestety w tę grę nie da się tu zagrać.",
   "anticheat.maybe": "{game} używa zabezpieczenia antycheatowego {system}. W Linuksie działa ono tylko, jeśli twórcy gry na to pozwolili. Jeśli gra się nie uruchamia albo cię wyrzuca, to prawdopodobnie dlatego. Warto sprawdzić, czy gra ma wersję na Steam.",

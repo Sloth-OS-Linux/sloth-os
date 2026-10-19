@@ -9,6 +9,7 @@
   "choose.program_text": "Kurmadan da çalıştırabilirsiniz.",
   "choose.add_to_menu": "Başlat menüsüne ekle",
   "choose.already_installed": "{name} zaten yüklü.",
+  "choose.linux_package": "Bu paket başka bir Linux sistemi için hazırlanmış, ama burada da kurulabilir ve Başlat menüsünde bulacaksın. Discover’da da varsa, genellikle o daha iyi bir seçimdir.",
 
   "button.cancel": "İptal",
   "button.run_only": "Yalnızca çalıştır",
@@ -16,6 +17,7 @@
   "button.open": "Aç",
   "button.reinstall": "Yeniden yükle",
   "button.browse": "Başka dosya…",
+  "button.search_discover": "Discover’da ara",
   "button.start": "Başlat",
   "button.done": "Tamam",
   "button.close": "Kapat",
@@ -29,6 +31,7 @@
 
   "status.starting": "{name} başlatılıyor…",
   "status.preparing_install": "{name} kurulumu hazırlanıyor…",
+  "status.installing": "{name} kuruluyor…",
   "status.finish_in_installer": "Kurulumu kurulum programının penceresinde bitirin. Sonra burada devam ederiz.",
   "status.first_setup": "İlk başlatma hazırlanıyor…",
   "status.downloading": "Gerekli bileşenler indiriliyor… (yalnızca ilk seferde)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Programları çalıştırmak için gereken bir bileşen eksik. Sistemi Sloth Center'dan güncelleyin.",
   "error.not_started": "{name} başlamadı. Bu program bu sistemde çalışmıyor olabilir ya da dosya bozuk olabilir.",
   "error.nothing_installed": "Kurulu bir program bulunamadı. Kurulum yarıda kesilmiş olabilir; yeniden deneyin.",
+  "error.package_failed": "{name} kurulamadı. İnternet bağlantını kontrol et ve yeniden dene.",
   "info.already_running": "{name} zaten çalışıyor. Penceresini görev çubuğunda bulabilirsin.",
+  "package.installed": "{name} kuruldu. Başlat menüsünde bulabilirsin.",
+  "package.installed_no_app": "{name} kuruldu, ama Başlat menüsünden açılabilecek bir program içermiyor.",
+  "package.mac": "{name} Mac için hazırlanmış ve bu bilgisayarda çalışmaz. Linux sürümü olabilir: Discover’da ara.",
+  "package.mac_script": "Bu bir Mac komut dosyası. Güvenlik nedeniyle çalıştırmıyoruz.",
 
   "anticheat.blocked": "{game}, oyunun Linux'ta çalışmasına izin vermeyen {system} hile korumasını kullanıyor. Bu sizin bilgisayarınızdan kaynaklanmıyor ve bunu aşamayız. Ne yazık ki bu oyun burada oynanamaz.",
   "anticheat.maybe": "{game}, {system} hile korumasını kullanıyor. Bu koruma Linux'ta yalnızca oyunun yapımcıları izin verdiyse çalışır. Oyun açılmıyor ya da sizi atıyorsa sebebi büyük olasılıkla budur. Oyunun Steam sürümü olup olmadığına bakmaya değer.",

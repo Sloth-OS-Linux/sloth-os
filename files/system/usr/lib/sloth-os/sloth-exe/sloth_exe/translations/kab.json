@@ -9,6 +9,7 @@
   "choose.program_text": "Tzemreḍ ad t-tsekreḍ ula mebla asebded.",
   "choose.add_to_menu": "Rnu ɣer umuɣ n usenker",
   "choose.already_installed": "{name} yettwasbedd yakan.",
+  "choose.linux_package": "Akemmus-a yettwaxdem i unagraw nniḍen n Linux, maca yezmer ad yettwasbedd ula dagi, ad t-tafeḍ deg wumuɣ Bdu. Ma yella daɣen deg Discover, akka d afran yifen s umata.",
 
   "button.cancel": "Sefsex",
   "button.run_only": "Sekker kan",
@@ -16,6 +17,7 @@
   "button.open": "Ldi",
   "button.reinstall": "Ales asebded",
   "button.browse": "Afaylu nniḍen…",
+  "button.search_discover": "Nadi deg Discover",
   "button.start": "Sekker",
   "button.done": "Ifuk",
   "button.close": "Mdel",
@@ -29,6 +31,7 @@
 
   "status.starting": "Asekker n {name}…",
   "status.preparing_install": "Aheyyi n usebded n {name}…",
+  "status.installing": "Asbeddi n {name}…",
   "status.finish_in_installer": "Fak asebded deg usfaylu n umsebded. Syin ad nkemmel da.",
   "status.first_setup": "Aheyyi n usekker amenzu…",
   "status.downloading": "Asader n yiferdisen ilaqen… (tikkelt tamenzut kan)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Ixuṣ yiwen n uferdis i ilaqen i usekker n yihilen. Leqqem anagraw deg Sloth Center.",
   "error.not_started": "{name} ur yekker ara. Ahat ahil-a ur iteddu ara deg unagraw-a, neɣ afaylu yexser.",
   "error.nothing_installed": "Ur d-nufi ara ahil yebdden. Ahat asebded yegzem; ɛreḍ tikkelt nniḍen.",
+  "error.package_failed": "Asbeddi n {name} ur yeddi ara. Senqed tuqqna ɣer internet, syen ɛreḍ tikkelt-nniḍen.",
   "info.already_running": "{name} yettwasekker yakan. Ttafeḍ asfaylu-ines deg ufeggag n twuriwin.",
+  "package.installed": "{name} yettwasbedd. Ad t-tafeḍ deg wumuɣ Bdu.",
+  "package.installed_no_app": "{name} yettwasbedd, maca ur yesɛi ara ahil ara yekkren seg wumuɣ Bdu.",
+  "package.mac": "{name} yettwaxdem i Mac, ur iteddu ara ɣef uselkim-a. Ahat yella lqem n Linux: nadi-t deg Discover.",
+  "package.mac_script": "Wagi d afaylu n usekript n Mac. Ɣef ssebba n tɣellist ur t-nesselkam ara.",
 
   "anticheat.blocked": "{game} isseqdac asemmesten mgal tixxidin {system}, ur yeǧǧi ara urar ad iteddu deg Linux. Mačči d aselkim-ik i d sebba, ur nezmir ara ad t-nezgel. Nesḥassef, urar-a ur yettwaurar ara da.",
   "anticheat.maybe": "{game} isseqdac asemmesten mgal tixxidin {system}. Deg Linux iteddu kan ma sirgen-t yimesnulfuyen n wurar. Ma yella urar ur yekker ara neɣ ak-d-yessufeɣ, ahat d ayagi i d sebba. Wali ma yella lqem n Steam i wurar-a.",

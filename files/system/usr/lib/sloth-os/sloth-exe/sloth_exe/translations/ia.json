@@ -9,6 +9,7 @@
   "choose.program_text": "Tu pote etiam lancear lo sin installar lo.",
   "choose.add_to_menu": "Adder al menu Initio",
   "choose.already_installed": "{name} es jam installate.",
+  "choose.linux_package": "Iste pacchetto esseva facite pro un altere systema Linux, ma illo pote esser installate etiam hic, e tu lo trovara in le menu Initio. Si illo es etiam disponibile in Discover, isto es generalmente le melior option.",
 
   "button.cancel": "Cancellar",
   "button.run_only": "Solmente executar",
@@ -16,6 +17,7 @@
   "button.open": "Aperir",
   "button.reinstall": "Reinstallar",
   "button.browse": "Altere file…",
+  "button.search_discover": "Cercar in Discover",
   "button.start": "Lancear",
   "button.done": "Facite",
   "button.close": "Clauder",
@@ -29,6 +31,7 @@
 
   "status.starting": "Lanceamento de {name}…",
   "status.preparing_install": "Preparation del installation de {name}…",
+  "status.installing": "Installation de {name}…",
   "status.finish_in_installer": "Fini le installation in le fenestra del installator. Postea nos continua hic.",
   "status.first_setup": "Preparation del prime lanceamento…",
   "status.downloading": "Discargamento del componentes necessari… (solmente le prime vice)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Un componente necessari pro executar programmas manca. Actualisa le systema in Sloth Center.",
   "error.not_started": "{name} non se lanceava. Forsan iste programma non functiona in iste systema, o le file es damnificate.",
   "error.nothing_installed": "Nos non trovava alcun programma installate. Forsan le installation esseva interrumpite; reproba.",
+  "error.package_failed": "Le installation de {name} non ha succedite. Verifica le connexion a internet e prova de novo.",
   "info.already_running": "{name} jam es in execution. Tu trova su fenestra in le barra de cargas.",
+  "package.installed": "{name} es installate. Tu lo trova in le menu Initio.",
+  "package.installed_no_app": "{name} es installate, ma illo non contine un programma que pote esser lanceate ab le menu Initio.",
+  "package.mac": "{name} esseva facite pro Mac e non functiona sur iste computator. Forsan il ha un version pro Linux: cerca lo in Discover.",
+  "package.mac_script": "Isto es un file de script de Mac. Pro rationes de securitate nos non lo executa.",
 
   "anticheat.blocked": "{game} usa le systema anti-fraude {system}, que non permitte al joco functionar sur Linux. Isto non depende de tu computator e nos non pote evitar lo. Regrettabilemente iste joco non pote esser jocate hic.",
   "anticheat.maybe": "{game} usa le systema anti-fraude {system}. Sur Linux illo functiona solmente si le creatores del joco lo ha permittite. Si le joco non se lancea o te expelle, isto es probabilemente le ration. Il vale le pena verificar si le joco ha un version Steam.",

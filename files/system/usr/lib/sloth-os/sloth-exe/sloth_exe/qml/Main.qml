@@ -42,7 +42,7 @@ Kirigami.ApplicationWindow {
         StackLayout {
             anchors.fill: parent
             anchors.margins: Kirigami.Units.largeSpacing
-            currentIndex: ["choose", "working", "pick", "error", "running"].indexOf(exe.state)
+            currentIndex: ["choose", "working", "pick", "error", "running", "done"].indexOf(exe.state)
 
             // --- Mit csináljunk? -------------------------------------------------
             ColumnLayout {
@@ -67,6 +67,7 @@ Kirigami.ApplicationWindow {
                             wrapMode: Text.Wrap
                             opacity: 0.8
                             text: exe.alreadyInstalled ? root.t("choose.already_installed", { name: exe.name })
+                                  : exe.fileKind === "deb" || exe.fileKind === "rpm" ? root.t("choose.linux_package")
                                   : root.t(exe.isInstaller ? "choose.installer_text" : "choose.program_text")
                         }
                     }
@@ -87,9 +88,17 @@ Kirigami.ApplicationWindow {
                     }
                     QQC2.Button {
                         visible: exe.isInstaller && !exe.alreadyInstalled
+                                 && (exe.fileKind === "windows" || exe.fileKind === "appimage")
                         text: root.t("button.run_only")
                         icon.name: "media-playback-start"
-                        onClicked: exe.run(false)
+                        onClicked: exe.fileKind === "appimage" ? exe.runOnly() : exe.run(false)
+                    }
+                    // Más Linux-rendszerhez készült csomag: a Discoveres változat általában jobb választás
+                    QQC2.Button {
+                        visible: exe.fileKind === "deb" || exe.fileKind === "rpm"
+                        text: root.t("button.search_discover")
+                        icon.name: "plasmadiscover"
+                        onClicked: exe.searchDiscover()
                     }
                     // Már telepítve: újratelepítés ugyanoda, vagy (alapból) megnyitás
                     QQC2.Button {
@@ -228,16 +237,60 @@ Kirigami.ApplicationWindow {
                     wrapMode: Text.Wrap
                     text: exe.errorText
                 }
-                QQC2.Button {
+                RowLayout {
                     Layout.alignment: Qt.AlignHCenter
-                    text: root.t("button.close")
-                    onClicked: exe.close()
+                    QQC2.Button {
+                        text: root.t("button.close")
+                        onClicked: exe.close()
+                    }
+                    // Mac-es program: hátha van Linuxos változata
+                    QQC2.Button {
+                        visible: exe.fileKind === "mac"
+                        highlighted: true
+                        text: root.t("button.search_discover")
+                        icon.name: "plasmadiscover"
+                        onClicked: exe.searchDiscover()
+                    }
                 }
                 Item { Layout.fillHeight: true }
             }
 
             // --- Fut (az ablak el van rejtve) -------------------------------------
             Item {}
+
+            // --- Kész (Linuxos csomag telepítve) --------------------------------
+            ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing * 2
+                Item { Layout.fillHeight: true }
+                Kirigami.Icon {
+                    Layout.alignment: Qt.AlignHCenter
+                    source: exe.iconUrl !== "" ? exe.iconUrl : "dialog-ok"
+                    implicitWidth: Kirigami.Units.iconSizes.huge
+                    implicitHeight: Kirigami.Units.iconSizes.huge
+                }
+                Kirigami.Heading {
+                    Layout.fillWidth: true
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.Wrap
+                    level: 3
+                    text: exe.doneText
+                }
+                RowLayout {
+                    Layout.alignment: Qt.AlignHCenter
+                    QQC2.Button {
+                        text: root.t("button.close")
+                        onClicked: exe.close()
+                    }
+                    QQC2.Button {
+                        visible: exe.canStart
+                        highlighted: true
+                        text: root.t("button.start")
+                        icon.name: "media-playback-start"
+                        onClicked: exe.startInstalled()
+                    }
+                }
+                Item { Layout.fillHeight: true }
+            }
         }
     }
 }

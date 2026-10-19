@@ -9,6 +9,7 @@
   "choose.program_text": "Puoi anche avviarlo senza installarlo.",
   "choose.add_to_menu": "Aggiungi al menu Start",
   "choose.already_installed": "{name} è già installato.",
+  "choose.linux_package": "Questo pacchetto è stato creato per un altro sistema Linux, ma si può installare anche qui e lo troverai nel menu Start. Se è disponibile anche in Discover, di solito è la scelta migliore.",
 
   "button.cancel": "Annulla",
   "button.run_only": "Avvia soltanto",
@@ -16,6 +17,7 @@
   "button.open": "Apri",
   "button.reinstall": "Reinstalla",
   "button.browse": "Altro file…",
+  "button.search_discover": "Cerca in Discover",
   "button.start": "Avvia",
   "button.done": "Fatto",
   "button.close": "Chiudi",
@@ -29,6 +31,7 @@
 
   "status.starting": "Avvio di {name}…",
   "status.preparing_install": "Preparazione dell'installazione di {name}…",
+  "status.installing": "Installazione di {name}…",
   "status.finish_in_installer": "Completa l'installazione nella finestra del programma di installazione. Poi si continua qui.",
   "status.first_setup": "Preparazione del primo avvio…",
   "status.downloading": "Download dei componenti necessari… (solo la prima volta)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Manca un componente necessario per avviare i programmi. Aggiorna il sistema in Sloth Center.",
   "error.not_started": "{name} non si è avviato. Forse questo programma non funziona su questo sistema, oppure il file è danneggiato.",
   "error.nothing_installed": "Non abbiamo trovato nessun programma installato. Forse l'installazione si è interrotta; riprova.",
+  "error.package_failed": "Non è stato possibile installare {name}. Controlla la connessione a Internet e riprova.",
   "info.already_running": "{name} è già in esecuzione. Trovi la sua finestra nella barra delle applicazioni.",
+  "package.installed": "{name} è installato. Lo trovi nel menu Start.",
+  "package.installed_no_app": "{name} è installato, ma non contiene programmi da avviare dal menu Start.",
+  "package.mac": "{name} è stato creato per Mac e non funziona su questo computer. Potrebbe esistere una versione per Linux: cercala in Discover.",
+  "package.mac_script": "Questo è un file di script per Mac. Per sicurezza non lo eseguiamo.",
 
   "anticheat.blocked": "{game} usa l'anti-cheat {system}, che non permette al gioco di funzionare su Linux. Non dipende dal tuo computer e non possiamo aggirarlo. Purtroppo questo gioco qui non si può giocare.",
   "anticheat.maybe": "{game} usa l'anti-cheat {system}. Su Linux funziona solo se gli sviluppatori del gioco lo hanno permesso. Se il gioco non parte o ti butta fuori, probabilmente il motivo è questo. Conviene verificare se esiste una versione Steam del gioco.",

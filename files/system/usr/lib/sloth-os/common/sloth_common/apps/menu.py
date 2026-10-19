@@ -101,7 +101,7 @@ def _categories(app):
     return "Game;" if app.meta.get("is_game") or (gameid and gameid != "umu-default") else "Utility;"
 
 
-def _write(path, app, name, exec_line, icon):
+def _write(path, app, name, exec_line, icon, categories=None):
     APPS_DIR.mkdir(parents=True, exist_ok=True)
     path.write_text(
         "[Desktop Entry]\n"
@@ -110,7 +110,7 @@ def _write(path, app, name, exec_line, icon):
         f"Exec={exec_line}\n"
         f"Icon={icon or GENERIC_ICON}\n"
         "Terminal=false\n"
-        f"Categories={_categories(app)}X-SlothWindowsProgram;\n"
+        f"Categories={categories or _categories(app) + 'X-SlothWindowsProgram;'}\n"
         "StartupNotify=true\n"
         f"X-Sloth-Program={app.id}\n",
         encoding="utf-8")
@@ -123,6 +123,14 @@ def add(app, name, exe):
     path = desktop_file_path(app, exe)
     exec_line = " ".join(shlex.quote(a) for a in ["sloth-exe", "--launch", app.id, target(app, exe)])
     _write(path, app, name, exec_line, icon)
+    return path
+
+
+def add_command(app, name, command, icon=None, categories=None, args_placeholder=""):
+    """Bejegyzés egy tetszőleges indítóparanccsal (pl. AppImage: sloth-exe --run <program> %U)."""
+    path = APPS_DIR / f"sloth-win-{app.id}-app.desktop"
+    exec_line = " ".join(shlex.quote(a) for a in command) + (f" {args_placeholder}" if args_placeholder else "")
+    _write(path, app, name, exec_line, icon, categories)
     return path
 
 

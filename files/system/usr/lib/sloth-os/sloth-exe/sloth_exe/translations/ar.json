@@ -9,6 +9,7 @@
   "choose.program_text": "يمكنك أيضًا تشغيله دون تثبيت.",
   "choose.add_to_menu": "إضافة إلى قائمة ابدأ",
   "choose.already_installed": "{name} مثبّت بالفعل.",
+  "choose.linux_package": "صُنعت هذه الحزمة لنظام Linux آخر، لكن يمكن تثبيتها هنا أيضًا وستجدها في قائمة ابدأ. إذا كانت متوفرة في Discover أيضًا، فهذا عادةً الخيار الأفضل.",
 
   "button.cancel": "إلغاء",
   "button.run_only": "تشغيل فقط",
@@ -16,6 +17,7 @@
   "button.open": "فتح",
   "button.reinstall": "إعادة التثبيت",
   "button.browse": "ملف آخر…",
+  "button.search_discover": "البحث في Discover",
   "button.start": "تشغيل",
   "button.done": "تم",
   "button.close": "إغلاق",
@@ -29,6 +31,7 @@
 
   "status.starting": "جارٍ تشغيل {name}…",
   "status.preparing_install": "جارٍ التحضير لتثبيت {name}…",
+  "status.installing": "جارٍ تثبيت {name}…",
   "status.finish_in_installer": "أكمل التثبيت في نافذة المثبّت. بعد ذلك نتابع هنا.",
   "status.first_setup": "جارٍ التحضير للتشغيل الأول…",
   "status.downloading": "جارٍ تنزيل المكونات اللازمة… (في المرة الأولى فقط)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "ينقص مكوّن لازم لتشغيل البرامج. حدّث النظام من Sloth Center.",
   "error.not_started": "لم يبدأ {name}. ربما لا يعمل هذا البرنامج على هذا النظام، أو أن الملف تالف.",
   "error.nothing_installed": "لم نعثر على برنامج مثبّت. ربما انقطع التثبيت؛ حاول مرة أخرى.",
+  "error.package_failed": "تعذّر تثبيت {name}. تحقق من الاتصال بالإنترنت ثم حاول مرة أخرى.",
   "info.already_running": "{name} يعمل بالفعل. ستجد نافذته في شريط المهام.",
+  "package.installed": "تم تثبيت {name}. ستجده في قائمة ابدأ.",
+  "package.installed_no_app": "تم تثبيت {name}، لكنه لا يحتوي على برنامج يمكن تشغيله من قائمة ابدأ.",
+  "package.mac": "صُنع {name} لأجهزة Mac ولا يعمل على هذا الحاسوب. ربما توجد نسخة لـ Linux: ابحث عنها في Discover.",
+  "package.mac_script": "هذا ملف نصي برمجي لـ Mac. لا نشغّله لأسباب أمنية.",
 
   "anticheat.blocked": "تستخدم {game} نظام مكافحة الغش {system} الذي لا يسمح بتشغيل اللعبة على لينكس. هذا ليس خطأ حاسوبك، ولا يمكننا تجاوزه. للأسف لا يمكن لعب هذه اللعبة هنا.",
   "anticheat.maybe": "تستخدم {game} نظام مكافحة الغش {system}. يعمل على لينكس فقط إذا سمح بذلك صانعو اللعبة. إن لم تبدأ اللعبة أو طردتك، فهذا على الأرجح السبب. يستحسن التحقق من وجود نسخة من اللعبة على Steam.",

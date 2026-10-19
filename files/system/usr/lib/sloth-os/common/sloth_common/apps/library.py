@@ -14,6 +14,8 @@ A könyvtárak listája: ~/.config/sloth-os/applications.json ({"libraries": [..
 A Start menü bejegyzések az indítófájlt a Windows-környezethez képest tárolják, így a mappa
 áthelyezhető (másik könyvtárba, másik meghajtóra), a bejegyzések érvényesek maradnak.
 
+A saját fájl nélküli programok (máshonnan indítottak, pl. a Steam indítja; dobozba telepített Linuxos
+csomagok) adatai rejtve vannak: ~/.local/share/sloth-os/apps/<id>/.sloth/app.json.
 A régi hely (~/.local/share/sloth-os/windows-programs/<id>/, benne files/ és meta.json) is olvasható;
 a migrate_legacy() egyszer áthozza a programokat az új helyre.
 """
@@ -37,6 +39,11 @@ CACHE_HOME = Path(os.environ.get("XDG_CACHE_HOME", HOME / ".cache"))
 DEFAULT_LIBRARY = HOME / "Applications"
 CONFIG = CONFIG_HOME / "sloth-os" / "applications.json"
 LEGACY_ROOT = DATA_HOME / "sloth-os" / "windows-programs"
+# A saját fájl nélküli programok (máshonnan indítottak, dobozba telepítettek) adatai: ezek ne hagyjanak
+# üres mappát a látható könyvtárban
+RECORDS = DATA_HOME / "sloth-os" / "apps"
+# Ezek a programfajták nem a látható könyvtárba kerülnek
+RECORD_KINDS = {"link", "box"}
 LOG_ROOT = CACHE_HOME / "sloth-os" / "apps"
 
 SCHEMA = 1
@@ -268,7 +275,7 @@ class App(WinEnv):
 # --- Keresés -----------------------------------------------------------------------------------------
 
 def _app_dirs():
-    for lib in libraries():
+    for lib in libraries() + [RECORDS]:
         if lib.is_dir():
             for d in sorted(lib.iterdir(), key=lambda p: p.name.lower()):
                 if (d / ".sloth" / "app.json").is_file():
@@ -329,7 +336,7 @@ def _free_folder(library, name):
 
 def create(name, kind="windows", app_id=None, library=None, **meta):
     """Új program mappája a könyvtárban (az azonosító egyedi, a mappanév a program neve)."""
-    library = Path(library or default_library())
+    library = Path(library or (RECORDS if kind in RECORD_KINDS else default_library()))
     base = app_id or slugify(name)
     ids = {a.id for a in all_apps()}
     new_id, n = base, 2
@@ -427,7 +434,7 @@ def _tree_size(path):
 def removable(app):
     """Biztonsági ellenőrzés: csak a könyvtárakban lévő, Sloth által kezelt mappát törlünk."""
     parent = app.dir.resolve().parent
-    allowed = {p.resolve() for p in libraries()} | {LEGACY_ROOT.resolve()}
+    allowed = {p.resolve() for p in libraries()} | {LEGACY_ROOT.resolve(), RECORDS.resolve()}
     managed = app.meta_path.is_file() or app.legacy
     return parent in allowed and managed and app.dir.is_dir() and not app.dir.is_symlink()
 

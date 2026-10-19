@@ -9,6 +9,7 @@
   "choose.program_text": "Du kan også køre det uden at installere.",
   "choose.add_to_menu": "Føj til startmenuen",
   "choose.already_installed": "{name} er allerede installeret.",
+  "choose.linux_package": "Denne pakke er lavet til et andet Linux-system, men den kan også installeres her, og du finder den i startmenuen. Hvis den også findes i Discover, er det som regel det bedste valg.",
 
   "button.cancel": "Annuller",
   "button.run_only": "Kør bare",
@@ -16,6 +17,7 @@
   "button.open": "Åbn",
   "button.reinstall": "Geninstallér",
   "button.browse": "Anden fil…",
+  "button.search_discover": "Søg i Discover",
   "button.start": "Start",
   "button.done": "Færdig",
   "button.close": "Luk",
@@ -29,6 +31,7 @@
 
   "status.starting": "Starter {name}…",
   "status.preparing_install": "Forbereder installation af {name}…",
+  "status.installing": "Installerer {name}…",
   "status.finish_in_installer": "Gør installationen færdig i installationsprogrammets vindue. Bagefter fortsætter vi her.",
   "status.first_setup": "Forbereder første start…",
   "status.downloading": "Henter nødvendige komponenter… (kun første gang)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "En komponent, der skal bruges til at køre programmer, mangler. Opdatér systemet i Sloth Center.",
   "error.not_started": "{name} startede ikke. Programmet virker måske ikke på dette system, eller filen er beskadiget.",
   "error.nothing_installed": "Vi fandt intet installeret program. Installationen blev måske afbrudt; prøv igen.",
+  "error.package_failed": "{name} kunne ikke installeres. Tjek internetforbindelsen, og prøv igen.",
   "info.already_running": "{name} kører allerede. Du finder vinduet på proceslinjen.",
+  "package.installed": "{name} er installeret. Du finder det i startmenuen.",
+  "package.installed_no_app": "{name} er installeret, men indeholder intet program, der kan startes fra startmenuen.",
+  "package.mac": "{name} er lavet til Mac og virker ikke på denne computer. Måske findes der en Linux-version: søg efter den i Discover.",
+  "package.mac_script": "Dette er en Mac-scriptfil. Af sikkerhedshensyn kører vi den ikke.",
 
   "anticheat.blocked": "{game} bruger anti-snyd-systemet {system}, som ikke lader spillet køre på Linux. Det skyldes ikke din computer, og vi kan ikke komme uden om det. Desværre kan dette spil ikke spilles her.",
   "anticheat.maybe": "{game} bruger anti-snyd-systemet {system}. På Linux virker det kun, hvis spillets udviklere har tilladt det. Hvis spillet ikke starter eller smider dig ud, er det sandsynligvis derfor. Tjek, om spillet findes på Steam.",

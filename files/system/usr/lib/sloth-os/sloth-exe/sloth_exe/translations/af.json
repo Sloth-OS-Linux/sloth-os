@@ -9,6 +9,7 @@
   "choose.program_text": "Jy kan dit ook sonder installasie laat loop.",
   "choose.add_to_menu": "Voeg by die beginkieslys",
   "choose.already_installed": "{name} is reeds geïnstalleer.",
+  "choose.linux_package": "Hierdie pakket is vir ’n ander Linux-stelsel gemaak, maar dit kan ook hier geïnstalleer word, en jy sal dit in die Begin-kieslys kry. As dit ook in Discover beskikbaar is, is dit gewoonlik die beter keuse.",
 
   "button.cancel": "Kanselleer",
   "button.run_only": "Laat net loop",
@@ -16,6 +17,7 @@
   "button.open": "Maak oop",
   "button.reinstall": "Herinstalleer",
   "button.browse": "Ander lêer…",
+  "button.search_discover": "Soek in Discover",
   "button.start": "Begin",
   "button.done": "Klaar",
   "button.close": "Maak toe",
@@ -29,6 +31,7 @@
 
   "status.starting": "{name} word begin…",
   "status.preparing_install": "Installasie van {name} word voorberei…",
+  "status.installing": "Installeer {name}…",
   "status.finish_in_installer": "Voltooi die installasie in die installeerder se venster. Daarna gaan ons hier voort.",
   "status.first_setup": "Eerste begin word voorberei…",
   "status.downloading": "Nodige komponente word afgelaai… (net die eerste keer)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "'n Komponent wat nodig is om programme te laat loop, ontbreek. Dateer die stelsel op in Sloth Center.",
   "error.not_started": "{name} het nie begin nie. Hierdie program werk dalk nie op hierdie stelsel nie, of die lêer is beskadig.",
   "error.nothing_installed": "Ons het geen geïnstalleerde program gevind nie. Die installasie is dalk onderbreek; probeer weer.",
+  "error.package_failed": "Kon {name} nie installeer nie. Kontroleer die internetverbinding en probeer weer.",
   "info.already_running": "{name} loop reeds. Jy kry sy venster op die taakbalk.",
+  "package.installed": "{name} is geïnstalleer. Jy kry dit in die Begin-kieslys.",
+  "package.installed_no_app": "{name} is geïnstalleer, maar bevat geen program wat uit die Begin-kieslys begin kan word nie.",
+  "package.mac": "{name} is vir Mac gemaak en werk nie op hierdie rekenaar nie. Daar is dalk ’n Linux-weergawe: soek daarna in Discover.",
+  "package.mac_script": "Dit is ’n Mac-skriplêer. Om veiligheidsredes laat ons dit nie loop nie.",
 
   "anticheat.blocked": "{game} gebruik die teen-kul-stelsel {system}, wat nie die speletjie op Linux laat loop nie. Dit is nie jou rekenaar se skuld nie, en ons kan dit nie omseil nie. Ongelukkig kan hierdie speletjie nie hier gespeel word nie.",
   "anticheat.maybe": "{game} gebruik die teen-kul-stelsel {system}. Op Linux werk dit net as die makers van die speletjie dit toegelaat het. As die speletjie nie begin nie of jou uitskop, is dit waarskynlik hoekom. Kyk of die speletjie 'n Steam-weergawe het.",

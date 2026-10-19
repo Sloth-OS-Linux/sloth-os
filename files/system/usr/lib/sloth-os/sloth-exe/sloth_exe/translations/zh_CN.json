@@ -9,6 +9,7 @@
   "choose.program_text": "也可以不安装直接运行。",
   "choose.add_to_menu": "添加到开始菜单",
   "choose.already_installed": "{name} 已安装。",
+  "choose.linux_package": "此软件包是为其他 Linux 系统制作的，但也可以在这里安装，安装后会出现在开始菜单中。如果 Discover 中也有，通常那是更好的选择。",
 
   "button.cancel": "取消",
   "button.run_only": "仅运行",
@@ -16,6 +17,7 @@
   "button.open": "打开",
   "button.reinstall": "重新安装",
   "button.browse": "其他文件…",
+  "button.search_discover": "在 Discover 中搜索",
   "button.start": "启动",
   "button.done": "完成",
   "button.close": "关闭",
@@ -29,6 +31,7 @@
 
   "status.starting": "正在启动 {name}…",
   "status.preparing_install": "正在准备安装 {name}…",
+  "status.installing": "正在安装 {name}…",
   "status.finish_in_installer": "请在安装程序窗口中完成安装。完成后在这里继续。",
   "status.first_setup": "正在准备首次启动…",
   "status.downloading": "正在下载所需组件…（仅首次）",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "缺少运行程序所需的组件。请在 Sloth Center 中更新系统。",
   "error.not_started": "{name} 未能启动。此程序可能无法在本系统上运行，或文件已损坏。",
   "error.nothing_installed": "找不到已安装的程序。安装可能被中断了，请重试。",
+  "error.package_failed": "安装 {name} 失败。请检查网络连接后重试。",
   "info.already_running": "{name} 已在运行。你可以在任务栏中找到它的窗口。",
+  "package.installed": "{name} 已安装，可在开始菜单中找到。",
+  "package.installed_no_app": "{name} 已安装，但其中没有可从开始菜单启动的程序。",
+  "package.mac": "{name} 是为 Mac 制作的，无法在这台电脑上运行。可能有 Linux 版本：请在 Discover 中查找。",
+  "package.mac_script": "这是 Mac 脚本文件。出于安全考虑，我们不会运行它。",
 
   "anticheat.blocked": "{game} 使用了 {system} 反作弊，它不允许游戏在 Linux 上运行。这不是你电脑的问题，我们也无法绕过。很遗憾，这款游戏无法在这里玩。",
   "anticheat.maybe": "{game} 使用了 {system} 反作弊。只有游戏开发者允许时，它才能在 Linux 上运行。如果游戏无法启动或把你踢出，很可能就是这个原因。可以看看这款游戏有没有 Steam 版本。",

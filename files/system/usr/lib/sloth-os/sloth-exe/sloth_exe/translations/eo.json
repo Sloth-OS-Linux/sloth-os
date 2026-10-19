@@ -9,6 +9,7 @@
   "choose.program_text": "Vi povas lanĉi ĝin ankaŭ sen instali.",
   "choose.add_to_menu": "Aldoni al la startmenuo",
   "choose.already_installed": "{name} jam estas instalita.",
+  "choose.linux_package": "Ĉi tiu pako estas farita por alia Linux-sistemo, sed ĝi instaleblas ankaŭ ĉi tie, kaj vi trovos ĝin en la Start-menuo. Se ĝi haveblas ankaŭ en Discover, tio kutime estas pli bona elekto.",
 
   "button.cancel": "Nuligi",
   "button.run_only": "Nur lanĉi",
@@ -16,6 +17,7 @@
   "button.open": "Malfermi",
   "button.reinstall": "Reinstali",
   "button.browse": "Alia dosiero…",
+  "button.search_discover": "Serĉi en Discover",
   "button.start": "Lanĉi",
   "button.done": "Farite",
   "button.close": "Fermi",
@@ -29,6 +31,7 @@
 
   "status.starting": "Lanĉado de {name}…",
   "status.preparing_install": "Preparado de la instalado de {name}…",
+  "status.installing": "Instalado de {name}…",
   "status.finish_in_installer": "Finu la instaladon en la fenestro de la instalilo. Poste ni daŭrigos ĉi tie.",
   "status.first_setup": "Preparado de la unua lanĉo…",
   "status.downloading": "Elŝutado de necesaj komponantoj… (nur la unuan fojon)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Mankas komponanto bezonata por lanĉi programojn. Ĝisdatigu la sistemon en Sloth Center.",
   "error.not_started": "{name} ne lanĉiĝis. Eble ĉi tiu programo ne funkcias en ĉi tiu sistemo, aŭ la dosiero estas difektita.",
   "error.nothing_installed": "Ni trovis neniun instalitan programon. Eble la instalado interrompiĝis; reprovu.",
+  "error.package_failed": "Instalado de {name} malsukcesis. Kontrolu la retkonekton kaj reprovu.",
   "info.already_running": "{name} jam funkcias. Ĝian fenestron vi trovos en la taskobreto.",
+  "package.installed": "{name} estas instalita. Vi trovos ĝin en la Start-menuo.",
+  "package.installed_no_app": "{name} estas instalita, sed ĝi ne enhavas programon lanĉeblan el la Start-menuo.",
+  "package.mac": "{name} estas farita por Mac kaj ne funkcias en ĉi tiu komputilo. Eble ekzistas Linux-versio: serĉu ĝin en Discover.",
+  "package.mac_script": "Ĉi tio estas Mac-skripta dosiero. Pro sekureco ni ne rulas ĝin.",
 
   "anticheat.blocked": "{game} uzas la kontraŭtrompan sistemon {system}, kiu ne permesas al la ludo funkcii en Linukso. Tio ne dependas de via komputilo, kaj ni ne povas ĉirkaŭiri ĝin. Bedaŭrinde ĉi tiu ludo ne ludeblas ĉi tie.",
   "anticheat.maybe": "{game} uzas la kontraŭtrompan sistemon {system}. En Linukso ĝi funkcias nur se la kreintoj de la ludo permesis tion. Se la ludo ne lanĉiĝas aŭ elĵetas vin, verŝajne tio estas la kialo. Indas kontroli, ĉu la ludo havas Steam-version.",

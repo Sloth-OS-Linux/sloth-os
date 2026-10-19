@@ -1,20 +1,24 @@
 """A .exe kezelő ablakának vezérlője.
 
 Állapotok: choose (mit csináljunk?) -> working (előkészítés / telepítés) ->
-pick (mi kerüljön a Start menübe?) | running (az ablak elrejtve) | error | info.
+pick (mi kerüljön a Start menübe?) | done (telepítve, indítható) | running (az ablak elrejtve) | error.
+
+A Windows-programok mellett a Linuxos csomagokat (AppImage, .deb, .rpm) is ez kezeli, a Mac-es fájlokra
+pedig érthető üzenetet ad (sloth_common.apps.packages).
 
 A programok helye, adatai és Start menü bejegyzései a közös sloth_common.apps-ban vannak
 (a Sloth Központ is azt használja); itt csak a futtatás és a felület.
 """
 import logging
+import subprocess
 import threading
 from pathlib import Path
 
-from PySide6.QtCore import QObject, Property, QTimer, QUrl, Signal, Slot
+from PySide6.QtCore import QObject, Property, QProcess, QTimer, QUrl, Signal, Slot
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
-from sloth_common.apps import detect, library, menu
+from sloth_common.apps import detect, library, menu, packages
 
 from . import anticheat, backend, community, diagnose, heal, identify, quirks
 from .i18n import catalog, tr
@@ -38,6 +42,7 @@ class ExeController(QObject):
     hideWindow = Signal()
     showWindow = Signal()
     _identified = Signal(object, str, str)  # a háttérszálból: (GAMEID / "" / None, név, ujjlenyomat)
+    _package_done = Signal(object)          # a háttérszálból: a telepített AppImage (App) vagy None
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -68,6 +73,13 @@ class ExeController(QObject):
         self._worked_timer = QTimer(self, singleShot=True, interval=WORKED_AFTER_S * 1000)
         self._worked_timer.timeout.connect(self._on_worked)
         self._identified.connect(self._on_identified)
+        self._package_done.connect(self._on_appimage_installed)
+        self._kind = "windows"   # a megnyitott fájl fajtája (packages.kind_of), vagy "windows"
+        self._done_text = ""
+        self._start_cmd = None   # a „kész” állapotban az Indítás parancsa
+        self._box_steps = []
+        self._box_lines = []
+        self._box_proc = None
         # Ha az indító kilépett, de a program tovább fut (pl. Battle.net Launcher -> Battle.net), megvárjuk
         self._busy_timer = QTimer(self, interval=5000)
         self._busy_timer.timeout.connect(self._check_busy)
@@ -89,6 +101,11 @@ class ExeController(QObject):
     def open_file(self, path):
         library.migrate_legacy()
         self._exe = Path(path).resolve()
+        if self._exe.suffix.lower() not in (".exe", ".msi"):
+            kind = packages.kind_of(self._exe)
+            if kind:
+                self._open_package(kind)
+                return
         self._name = detect.display_name(self._exe)
         if self._name.lower() in ("setup", "install", "installer", ""):
             self._name = tr("misc.program")
@@ -131,6 +148,14 @@ class ExeController(QObject):
         self._join = bool(running)
         self._start_run()
 
+    def missing(self, app_id):
+        """A Start menüből indított program nincs meg (pl. törölték a mappáját)."""
+        app = library.find(app_id)
+        self._name = app.name if app else app_id
+        self._mode = "run"
+        self._update_window()
+        self._fail(tr("error.not_found"))
+
     def manage_shortcuts(self, app_id):
         """Utólagos szerkesztés: mely .exe-k legyenek a Start menüben (a Sloth Központból)."""
         library.migrate_legacy()
@@ -160,6 +185,9 @@ class ExeController(QObject):
     errorIcon = Property(str, lambda self: self._error_icon, notify=changed)
     shortcuts = Property("QVariantList", lambda self: list(self._shortcuts), notify=changed)
     mode = Property(str, lambda self: self._mode, notify=changed)
+    fileKind = Property(str, lambda self: self._kind, notify=changed)
+    doneText = Property(str, lambda self: self._done_text, notify=changed)
+    canStart = Property(bool, lambda self: self._start_cmd is not None, notify=changed)
     sure = Property(bool, lambda self: self._sure, notify=changed)
     anyChecked = Property(bool, lambda self: any(s["checked"] for s in self._shortcuts), notify=changed)
     strings = Property("QVariantMap", lambda self: catalog.strings(), constant=True)
@@ -177,6 +205,9 @@ class ExeController(QObject):
 
     @Slot()
     def install(self):
+        if self._kind != "windows":
+            self._install_package()
+            return
         # Újratelepítés a meglévő mappába: a Start menü bejegyzései ugyanazok maradnak, nem duplázódnak
         self._program = self._existing or library.create(self._name, installer=str(self._exe))
         self._program.save_meta(installer=str(self._exe))
@@ -247,6 +278,113 @@ class ExeController(QObject):
     @Slot()
     def close(self):
         QApplication.quit()
+
+    @Slot()
+    def startInstalled(self):
+        """A „kész” állapotban: a frissen telepített program indítása."""
+        if self._start_cmd:
+            subprocess.Popen(self._start_cmd, start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        QApplication.quit()
+
+    @Slot()
+    def searchDiscover(self):
+        """A program Linuxos (Flatpak) változatának keresése a Discoverben."""
+        subprocess.Popen(["plasma-discover", "--search", self._name], start_new_session=True,
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        QApplication.quit()
+
+    @Slot()
+    def runOnly(self):
+        """AppImage telepítés nélkül: futtathatóvá tesszük, és elindítjuk."""
+        try:
+            self._exe.chmod(self._exe.stat().st_mode | 0o100)
+            subprocess.Popen([str(self._exe)], start_new_session=True, cwd=str(self._exe.parent))
+        except OSError as e:
+            log.warning("AppImage futtatása: %s", e)
+            self._fail(tr("error.not_started", name=self._name))
+            return
+        QApplication.quit()
+
+    # --- Linuxos csomagok és Mac-es fájlok --------------------------------------------
+
+    def _open_package(self, kind):
+        self._kind = kind
+        self._name = packages.display_name(self._exe)
+        self._installer = kind in ("appimage", "deb", "rpm")
+        self._existing = None
+        self._set_icon(None)
+        self._update_window()
+        if kind == "mac":
+            self._info(tr("package.mac", name=self._name))
+            return
+        if kind == "mac-script":
+            self._info(tr("package.mac_script"))
+            return
+        self._state = "choose"
+        self.changed.emit()
+
+    def _install_package(self):
+        self._mode = "install"
+        self._update_window()
+        self._set_working(tr("status.installing", name=self._name))
+        if self._kind == "appimage":
+            exe = self._exe
+            threading.Thread(target=lambda: self._package_done.emit(packages.install_appimage(exe)),
+                             daemon=True).start()
+            return
+        self._box_steps = packages.box_steps(self._kind, self._exe, packages.box_exists(self._kind))
+        self._box_lines = []
+        self._next_box_step()
+
+    def _on_appimage_installed(self, app):
+        if app is None:
+            self._fail(tr("error.package_failed", name=self._name))
+            return
+        self._name = app.name
+        self._set_icon(next((e["icon"] for e in menu.entries(app) if e["icon"].startswith("/")), None))
+        self._finish_package(tr("package.installed", name=app.name), ["sloth-exe", "--run", app.id])
+
+    def _next_box_step(self):
+        key, cmd = self._box_steps.pop(0)
+        # az első alkalommal a doboz létrehozása (letöltés) percekig is tarthat
+        self._status = tr("status.first_setup") if key != "box.install" else tr("status.installing", name=self._name)
+        self.changed.emit()
+        self._box_proc = QProcess(self)
+        self._box_proc.setProcessChannelMode(QProcess.ProcessChannelMode.MergedChannels)
+        self._box_proc.readyReadStandardOutput.connect(self._read_box)
+        self._box_proc.finished.connect(self._on_box_step)
+        log.info("csomag telepítése: %s", key)
+        self._box_proc.start(cmd[0], cmd[1:])
+
+    def _read_box(self):
+        for line in bytes(self._box_proc.readAllStandardOutput()).decode("utf-8", "replace").splitlines():
+            if line.strip():
+                self._box_lines.append(line.strip())
+                log.info("%s", line.strip())
+
+    def _on_box_step(self, code, _status):
+        if code != 0:
+            self._fail(tr("error.package_failed", name=self._name))
+            return
+        if self._box_steps:
+            self._next_box_step()
+            return
+        package, apps = packages.parse_box_output(self._box_lines)
+        app = packages.record_box_install(self._kind, self._exe, package, apps)
+        if not apps:
+            self._finish_package(tr("package.installed_no_app", name=self._name), None)
+            return
+        self._name = app.name
+        self._finish_package(tr("package.installed", name=app.name), packages.box_launch_command(app))
+
+    def _finish_package(self, text, start_cmd):
+        self._done_text = text
+        self._start_cmd = start_cmd
+        self._state = "done"
+        self._update_window()
+        self.showWindow.emit()
+        self.changed.emit()
 
     # --- Belső -------------------------------------------------------------------
 

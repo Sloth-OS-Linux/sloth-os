@@ -9,6 +9,7 @@
   "choose.program_text": "Anda juga bisa menjalankannya tanpa memasang.",
   "choose.add_to_menu": "Tambahkan ke menu Start",
   "choose.already_installed": "{name} sudah terpasang.",
+  "choose.linux_package": "Paket ini dibuat untuk sistem Linux lain, tetapi juga bisa dipasang di sini, dan kamu akan menemukannya di menu Start. Jika juga tersedia di Discover, biasanya itu pilihan yang lebih baik.",
 
   "button.cancel": "Batal",
   "button.run_only": "Jalankan saja",
@@ -16,6 +17,7 @@
   "button.open": "Buka",
   "button.reinstall": "Pasang ulang",
   "button.browse": "File lain…",
+  "button.search_discover": "Cari di Discover",
   "button.start": "Mulai",
   "button.done": "Selesai",
   "button.close": "Tutup",
@@ -29,6 +31,7 @@
 
   "status.starting": "Membuka {name}…",
   "status.preparing_install": "Menyiapkan pemasangan {name}…",
+  "status.installing": "Memasang {name}…",
   "status.finish_in_installer": "Selesaikan pemasangan di jendela pemasang. Setelah itu kita lanjutkan di sini.",
   "status.first_setup": "Menyiapkan pembukaan pertama…",
   "status.downloading": "Mengunduh komponen yang diperlukan… (hanya pertama kali)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Komponen yang diperlukan untuk menjalankan program tidak ada. Perbarui sistem di Sloth Center.",
   "error.not_started": "{name} tidak berjalan. Mungkin program ini tidak bekerja di sistem ini, atau berkasnya rusak.",
   "error.nothing_installed": "Tidak ada program terpasang yang ditemukan. Mungkin pemasangan terputus; coba lagi.",
+  "error.package_failed": "Gagal memasang {name}. Periksa koneksi internet, lalu coba lagi.",
   "info.already_running": "{name} sudah berjalan. Jendelanya ada di bilah tugas.",
+  "package.installed": "{name} sudah terpasang. Kamu bisa menemukannya di menu Start.",
+  "package.installed_no_app": "{name} sudah terpasang, tetapi tidak berisi program yang bisa dijalankan dari menu Start.",
+  "package.mac": "{name} dibuat untuk Mac dan tidak berjalan di komputer ini. Mungkin ada versi Linux-nya: cari di Discover.",
+  "package.mac_script": "Ini adalah file skrip Mac. Demi keamanan, kami tidak menjalankannya.",
 
   "anticheat.blocked": "{game} memakai anti-cheat {system}, yang tidak mengizinkan game berjalan di Linux. Ini bukan karena komputer Anda, dan kami tidak bisa mengakalinya. Sayangnya game ini tidak bisa dimainkan di sini.",
   "anticheat.maybe": "{game} memakai anti-cheat {system}. Di Linux, ini hanya berfungsi jika pembuat game mengizinkannya. Jika game tidak mau berjalan atau mengeluarkan Anda, kemungkinan inilah penyebabnya. Coba cek apakah game ini punya versi Steam.",

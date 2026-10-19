@@ -9,6 +9,7 @@
   "choose.program_text": "Je kunt het ook zonder installatie starten.",
   "choose.add_to_menu": "Toevoegen aan het startmenu",
   "choose.already_installed": "{name} is al geïnstalleerd.",
+  "choose.linux_package": "Dit pakket is gemaakt voor een ander Linux-systeem, maar kan ook hier worden geïnstalleerd; je vindt het in het startmenu. Als het ook in Discover staat, is dat meestal de betere keuze.",
 
   "button.cancel": "Annuleren",
   "button.run_only": "Alleen uitvoeren",
@@ -16,6 +17,7 @@
   "button.open": "Openen",
   "button.reinstall": "Opnieuw installeren",
   "button.browse": "Ander bestand…",
+  "button.search_discover": "Zoeken in Discover",
   "button.start": "Starten",
   "button.done": "Klaar",
   "button.close": "Sluiten",
@@ -29,6 +31,7 @@
 
   "status.starting": "{name} wordt gestart…",
   "status.preparing_install": "Installatie van {name} wordt voorbereid…",
+  "status.installing": "{name} installeren…",
   "status.finish_in_installer": "Rond de installatie af in het venster van het installatieprogramma. Daarna gaan we hier verder.",
   "status.first_setup": "Eerste start voorbereiden…",
   "status.downloading": "Benodigde onderdelen downloaden… (alleen de eerste keer)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Een onderdeel dat nodig is om programma's uit te voeren ontbreekt. Werk het systeem bij in Sloth Center.",
   "error.not_started": "{name} is niet gestart. Misschien werkt dit programma niet op dit systeem, of is het bestand beschadigd.",
   "error.nothing_installed": "We hebben geen geïnstalleerd programma gevonden. Misschien is de installatie onderbroken; probeer het opnieuw.",
+  "error.package_failed": "Het installeren van {name} is mislukt. Controleer de internetverbinding en probeer het opnieuw.",
   "info.already_running": "{name} draait al. Je vindt het venster in de taakbalk.",
+  "package.installed": "{name} is geïnstalleerd. Je vindt het in het startmenu.",
+  "package.installed_no_app": "{name} is geïnstalleerd, maar bevat geen programma dat vanuit het startmenu kan worden gestart.",
+  "package.mac": "{name} is gemaakt voor de Mac en werkt niet op deze computer. Misschien is er een Linux-versie: zoek ernaar in Discover.",
+  "package.mac_script": "Dit is een Mac-scriptbestand. Om veiligheidsredenen voeren we het niet uit.",
 
   "anticheat.blocked": "{game} gebruikt de anti-cheat {system}, die het spel op Linux niet laat draaien. Het ligt niet aan je computer en we kunnen het niet omzeilen. Helaas kun je dit spel hier niet spelen.",
   "anticheat.maybe": "{game} gebruikt de anti-cheat {system}. Op Linux werkt die alleen als de makers van het spel het hebben toegestaan. Als het spel niet start of je eruit gooit, ligt het waarschijnlijk hieraan. Kijk of er een Steam-versie van het spel is.",

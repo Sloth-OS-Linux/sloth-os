@@ -21,7 +21,7 @@ os.environ.update(HOME=str(TMP), XDG_DATA_HOME=str(TMP / ".local/share"), XDG_CO
                   XDG_CACHE_HOME=str(TMP / ".cache"))
 sys.path.insert(0, str(REPO / "files/system/usr/lib/sloth-os/common"))
 
-from sloth_common.apps import detect, imports, library, menu, steam, winreg  # noqa: E402
+from sloth_common.apps import detect, imports, library, menu, packages, steam, winreg  # noqa: E402
 
 SYSTEM_REG = r'''WINE REGISTRY Version 2
 ;; All keys relative to \\Machine
@@ -328,6 +328,7 @@ class SteamTest(unittest.TestCase):
 
         linked = imports.link(f)
         self.assertEqual(linked.kind, "link")
+        self.assertEqual(linked.dir.parent, library.RECORDS)  # nincs üres mappa az ~/Applications-ben
         (entry,) = menu.entries(linked)
         self.assertIn(f"steam://rungameid/{sc['gameid']}", Path(entry["desktop"]).read_text())
         self.assertEqual(imports.imported(f.key), linked)
@@ -403,6 +404,80 @@ class OtherSourcesTest(unittest.TestCase):
         (entry,) = menu.entries(app)
         self.assertEqual(entry["target"], "drive_c/Program Files/Office/office.exe")
         library.remove(app)
+
+
+class PackagesTest(unittest.TestCase):
+    def test_kind_of(self):
+        d = TMP / "pkgs"
+        d.mkdir(exist_ok=True)
+        cases = {
+            "Krita-5.2.6-x86_64.AppImage": b"\x7fELF\x02\x01\x01\x00AI\x02" + b"\0" * 60,
+            "noext-appimage": b"\x7fELF\x02\x01\x01\x00AI\x02" + b"\0" * 60,
+            "signal_7.1_amd64.deb": b"!<arch>\ndebian-binary   " + b"\0" * 40,
+            "tool-1.0.x86_64.rpm": b"\xed\xab\xee\xdb" + b"\0" * 60,
+            "Installer.pkg": b"xar!" + b"\0" * 60,
+            "App.dmg": b"\0" * 2000 + b"koly" + b"\0" * 508,
+            "Thing.app.zip": b"PK\x03\x04" + b"\0" * 60,
+            "run.command": b"#!/bin/sh\n",
+            "plain.zip": b"PK\x03\x04" + b"\0" * 60,
+        }
+        want = {"Krita-5.2.6-x86_64.AppImage": "appimage", "noext-appimage": "appimage", "signal_7.1_amd64.deb": "deb",
+                "tool-1.0.x86_64.rpm": "rpm", "Installer.pkg": "mac", "App.dmg": "mac", "Thing.app.zip": "mac",
+                "run.command": "mac-script", "plain.zip": None}
+        for name, data in cases.items():
+            (d / name).write_bytes(data)
+            self.assertEqual(packages.kind_of(d / name), want[name], name)
+
+    def test_names(self):
+        self.assertEqual(packages.display_name("Krita-5.2.6-x86_64.AppImage"), "Krita")
+        self.assertEqual(packages.display_name("signal-desktop_7.1.0_amd64.deb"), "Signal Desktop")
+        self.assertEqual(packages.display_name("Obsidian-1.6.7.AppImage"), "Obsidian")
+
+    def test_box_steps_and_output(self):
+        deb = touch(TMP / "Downloads/tool_1.0_amd64.deb")
+        steps = packages.box_steps("deb", deb, box_exists=False)
+        self.assertEqual([k for k, _ in steps], ["box.create", "box.first_start", "box.install"])
+        self.assertIn("docker.io/library/ubuntu:24.04", steps[0][1])
+        self.assertIn(str(deb), steps[-1][1][-1])
+        self.assertEqual([k for k, _ in packages.box_steps("rpm", deb, box_exists=True)], ["box.install"])
+        self.assertTrue(packages.box_path("/tmp/x.deb").startswith("/run/host/"))
+        name, apps = packages.parse_box_output(["noise", "SLOTH-NAME:tool", "SLOTH-APP:org.tool.App|Tool"])
+        self.assertEqual((name, apps), ("tool", [{"id": "org.tool.App", "name": "Tool"}]))
+        app = packages.record_box_install("deb", deb, name, apps)
+        self.assertEqual((app.kind, app.name), ("box", "Tool"))
+        self.assertEqual(app.dir.parent, library.RECORDS)  # nincs üres mappa a látható könyvtárban
+        self.assertTrue(packages.box_desktop_files(app)[0].name.startswith("sloth-ubuntu-"))
+        library.remove(app)
+
+    def test_install_appimage(self):
+        """Egy hamis AppImage, ami a valódihoz hasonlóan kicsomagolja a .desktop fájlt és az ikont."""
+        src = TMP / "Downloads/Coolapp-2.0-x86_64.AppImage"
+        src.parent.mkdir(parents=True, exist_ok=True)
+        src.write_text(
+            "#!/bin/sh\n"
+            "if [ \"$1\" = --appimage-extract ]; then\n"
+            "  mkdir -p squashfs-root/usr/share/icons\n"
+            "  printf '[Desktop Entry]\\nName=Cool App\\nIcon=cool\\nCategories=Graphics;\\n' > squashfs-root/cool.desktop\n"
+            "  printf '\\211PNG fake' > squashfs-root/usr/share/icons/cool.png\n"
+            "  ln -sf usr/share/icons/cool.png squashfs-root/.DirIcon\n"
+            "  exit 0\nfi\necho run\n", encoding="utf-8")
+        src.chmod(0o644)  # letöltve nem futtatható
+        app = packages.install_appimage(src)
+        self.assertIsNotNone(app)
+        self.assertEqual((app.kind, app.name, app.dir.name), ("appimage", "Cool App", "Cool App"))
+        path = packages.appimage_path(app)
+        self.assertTrue(path.is_file() and path.stat().st_mode & 0o111)
+        self.assertTrue(src.is_file())  # a letöltött fájl megmarad
+        (entry,) = menu.entries(app)
+        text = Path(entry["desktop"]).read_text()
+        self.assertIn(f"Exec=sloth-exe --run {app.id} %U", text)
+        self.assertIn("Categories=Graphics;", text)
+        self.assertTrue(Path(entry["icon"]).is_file())
+        moved = library.move(app, TMP / "Elsewhere")
+        self.assertTrue(packages.appimage_path(moved).is_file())
+        (entry,) = menu.entries(moved)
+        self.assertTrue(Path(entry["icon"]).is_file())  # az ikon útja is követi
+        library.remove(moved)
 
 
 if __name__ == "__main__":

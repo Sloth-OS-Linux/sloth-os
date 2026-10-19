@@ -9,6 +9,7 @@
   "choose.program_text": "Zaženete ga lahko tudi brez namestitve.",
   "choose.add_to_menu": "Dodaj v meni Start",
   "choose.already_installed": "{name} je že nameščen.",
+  "choose.linux_package": "Ta paket je narejen za drug sistem Linux, vendar ga je mogoče namestiti tudi tukaj, našel pa ga boš v meniju Start. Če je na voljo tudi v Discoverju, je to običajno boljša izbira.",
 
   "button.cancel": "Prekliči",
   "button.run_only": "Samo zaženi",
@@ -16,6 +17,7 @@
   "button.open": "Odpri",
   "button.reinstall": "Znova namesti",
   "button.browse": "Druga datoteka…",
+  "button.search_discover": "Išči v Discoverju",
   "button.start": "Zaženi",
   "button.done": "Končano",
   "button.close": "Zapri",
@@ -29,6 +31,7 @@
 
   "status.starting": "Zaganjanje: {name}…",
   "status.preparing_install": "Priprava namestitve: {name}…",
+  "status.installing": "Nameščanje programa {name}…",
   "status.finish_in_installer": "Namestitev dokončajte v oknu namestitvenega programa. Nato nadaljujemo tukaj.",
   "status.first_setup": "Priprava prvega zagona…",
   "status.downloading": "Prenašanje potrebnih komponent… (samo prvič)",
@@ -41,7 +44,12 @@
   "error.runtime_missing": "Manjka komponenta, potrebna za zagon programov. Posodobite sistem v Sloth Center.",
   "error.not_started": "{name} se ni zagnal. Ta program morda ne deluje v tem sistemu ali pa je datoteka poškodovana.",
   "error.nothing_installed": "Nismo našli nameščenega programa. Namestitev se je morda prekinila; poskusite znova.",
+  "error.package_failed": "Namestitev programa {name} ni uspela. Preveri internetno povezavo in poskusi znova.",
   "info.already_running": "{name} že teče. Njegovo okno najdeš v opravilni vrstici.",
+  "package.installed": "{name} je nameščen. Najdeš ga v meniju Start.",
+  "package.installed_no_app": "{name} je nameščen, vendar ne vsebuje programa, ki bi ga bilo mogoče zagnati iz menija Start.",
+  "package.mac": "{name} je narejen za Mac in na tem računalniku ne deluje. Morda obstaja različica za Linux: poišči jo v Discoverju.",
+  "package.mac_script": "To je skriptna datoteka za Mac. Iz varnostnih razlogov je ne zaženemo.",
 
   "anticheat.blocked": "{game} uporablja zaščito pred goljufanjem {system}, ki igri ne dovoli delovanja v Linuxu. Ni krivda vašega računalnika in tega ne moremo obiti. Žal te igre tukaj ni mogoče igrati.",
   "anticheat.maybe": "{game} uporablja zaščito pred goljufanjem {system}. V Linuxu deluje le, če so to dovolili ustvarjalci igre. Če se igra ne zažene ali vas vrže ven, je verjetno zato. Preverite, ali ima igra različico na Steamu.",

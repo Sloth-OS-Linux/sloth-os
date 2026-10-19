@@ -7,6 +7,7 @@ modules:
       packages:
         - python3-pyside6   # Qt/QML Pythonból
         - python3-gobject   # D-Bus (rpm-ostree, Flatpak) a GLib-en keresztül
+        - fuse-libs         # FUSE 2: az AppImage-ek futtatásához (Linuxos csomagok, sloth_common/apps/packages.py)
         # Bejelentkezési módok (Sloth Központ → Fiók és biztonság)
         - authselect        # a bejelentkezési módok be- és kikapcsolása (PAM)
         - fprintd-pam       # ujjlenyomat
