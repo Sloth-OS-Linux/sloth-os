@@ -305,26 +305,37 @@ fun center_text(sprite, image, y) {
 
 # A titkosított lemez jelszókérője: a systemd szövege angol és technikai ("Please enter passphrase for disk
 # luks-…"), az initramfs-ben pedig nincs nyelvi beállítás, ezért szöveg helyett lakat ikon (lock.png,
-# tools/branding/plymouth_lock.py) és alatta a beírt karakterek pöttyei.
-padlock_size = Math.Int(size * 0.16);
+# tools/branding/plymouth_lock.py), alatta egy beviteli vonal és a beírt karakterek pöttyei. Jól láthatónak kell
+# lennie: ha a felhasználó nem veszi észre, a gép a logón áll, és végtelenül a jelszóra vár.
+padlock_size = Math.Int(size * 0.24);
 padlock.image = Image("lock.png").Scale(padlock_size, padlock_size);
 padlock.sprite = Sprite();
 padlock.sprite.SetZ(20);
+field_w = Math.Int(size * 0.9);
+field.image = Image("dot.png").Scale(field_w, 4);
+field.sprite = Sprite();
+field.sprite.SetZ(20);
+field_y = text_y + padlock_size + 52;
 
 fun display_normal_callback() {
   prompt.sprite.SetImage(Image("blank.png"));
   bullets.sprite.SetImage(Image("blank.png"));
   padlock.sprite.SetImage(Image("blank.png"));
+  field.sprite.SetImage(Image("blank.png"));
 }
 
 fun display_password_callback(text, count) {
   prompt.sprite.SetImage(Image("blank.png"));
   padlock.sprite.SetImage(padlock.image);
   padlock.sprite.SetPosition(Window.GetX() + (screen_w - padlock_size) / 2, text_y, 20);
+  field.sprite.SetImage(field.image);
+  field.sprite.SetPosition(Window.GetX() + (screen_w - field_w) / 2, field_y, 20);
   b = "";
-  for (i = 0; i < count; i++) b = b + "● ";
+  for (i = 0; i < count && i < 24; i++) b = b + "● ";
   if (b == "") b = " ";
-  center_text(bullets.sprite, Image.Text(b, 0.89, 0.9, 0.91), text_y + padlock_size + 16);
+  bullets.image = Image.Text(b, 0.89, 0.9, 0.91);
+  if (bullets.image)
+    center_text(bullets.sprite, bullets.image, field_y - bullets.image.GetHeight() - 8);
 }
 
 fun display_question_callback(text, entry) {

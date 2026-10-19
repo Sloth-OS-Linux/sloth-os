@@ -158,6 +158,10 @@ Talált hibák (egyesével javítjuk):
   15 mp alatt nem nyílik meg, és az értesítés eltűnik, amikor a Steam ablaka megjelenik
   (`sloth_center/steam_first_run.py`, `sloth-steam-first-run.path`). Valódi gépen tesztelni, és megnézni a
   `~/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/bootstrap_log.txt`-t, hogy tényleg ez volt-e az ok
+- [ ] Titkosított lemezzel telepítve a gép fél óráig a logón állt (2026-10-19-i jelentés). Az image initramfs-e
+  rendben (crypt, systemd-cryptsetup, a Plymouth jelszókérő, lock.png, kiosztások); a logón való végtelen várakozás
+  a jelszókérésre utal (a systemd a jelszóra időkorlát nélkül vár), a kis lakat valószínűleg nem tűnt fel vagy nem
+  látszott. Javítva: nagyobb lakat és beviteli vonal. A következő teszten: látszik-e, és az Esc mit mutat
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja
 - [x] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik. Javítva (2026-10-19, valódi gépen tesztelni): a
   névtelen bejegyzés a composefs (a Fedora 42 óta csak olvasható rendszerkép) loop eszköze volt; a 128 TB
@@ -250,7 +254,8 @@ Talált hibák (egyesével javítjuk):
     kliens, a Start menübe kerülő és a kihagyandó .exe-k, összetevők, Proton-kapcsolók, paraméterek, DLL-kikapcsolás
     `=d`/`=b`; parancs, tetszőleges változó vagy natív DLL nem). A kódba írt receptek adatai átkerültek; a kódban csak
     a beállításfájlok írása maradt (Battle.net, Ubisoft). Első receptek: Battle.net, Epic, GOG Galaxy, Ubisoft Connect
-  - [ ] A Linuxos csomagok kezelője (lent) is a `~/Applications`-be telepítsen (AppImage), ugyanazzal a könyvtárral
+  - [x] A Linuxos csomagok kezelője (lent) is a `~/Applications`-be telepítsen (AppImage), ugyanazzal a könyvtárral
+    (2026-10-19: `sloth_common/apps/packages.py` `install_appimage`, a háttérben frissül)
 - [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
 - [x] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis (2026-10-19, lásd lent)
 - [ ] Haladó beállítások folyamatos bővítése – 3. fázis. 2026-10-19: tömörített memória-tartalék (zram: alap /
