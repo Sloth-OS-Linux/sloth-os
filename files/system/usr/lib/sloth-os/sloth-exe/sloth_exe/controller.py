@@ -518,8 +518,12 @@ class ExeController(QObject):
             log.warning("összetevő telepítése nem sikerült: %s (%s)", verb, code)
 
     def _check_install_done(self):
-        """A telepítés akkor kész, amikor a program környezetében már semmi nem fut."""
-        if self._program.busy():
+        """A telepítés akkor kész, amikor a program környezetében már semmi nem fut, vagy amikor a telepítő
+        már kilépett, és a program biztosan megvan (sok telepítő a végén magától elindítja a programot,
+        pl. a Battle.net: azt nem várjuk meg, amíg a felhasználó bezárja)."""
+        running = library.running_exes(self._program)
+        if running and (self._exe.name.lower() in running
+                        or not detect.detect(self._program, self._baseline, fallback_name=self._name).sure):
             return
         self._install_timer.stop()
         self._after_install()
