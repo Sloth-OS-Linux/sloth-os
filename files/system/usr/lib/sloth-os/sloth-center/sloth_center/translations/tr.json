@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Tamamlandı: dosyalarınız {folder} klasöründe.",
   "Fájlok áthozása a Windowsból": "Windows'tan dosya getir",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Bu bilgisayardaki Windows'tan Masaüstü, Belgeler, Resimler ve diğer kişisel klasörleri, ayrıca tarayıcı yer imlerini kopyalar. Windows'a dokunulmaz, yalnızca okunur.",
-  "Áthozás…": "Getir…"
+  "Áthozás…": "Getir…",
+  "sloth-os-naplo.txt": "sloth-os-gunluk.txt"
 }

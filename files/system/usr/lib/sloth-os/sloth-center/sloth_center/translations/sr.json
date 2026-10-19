@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Готово: ваше датотеке су у фасцикли {folder}.",
   "Fájlok áthozása a Windowsból": "Пренос датотека из Windows-а",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Копира радну површину, документе, слике и остале личне фасцикле, као и обележиваче прегледача, из Windows-а на овом рачунару. Windows остаје нетакнут, само се чита.",
-  "Áthozás…": "Пренеси…"
+  "Áthozás…": "Пренеси…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

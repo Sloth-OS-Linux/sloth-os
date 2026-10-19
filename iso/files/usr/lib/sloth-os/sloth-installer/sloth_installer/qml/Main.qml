@@ -248,14 +248,17 @@ Kirigami.ApplicationWindow {
                             text: installer.username
                             onTextEdited: { installer.setUsername(text); accountError.text = ""; }
                         }
+                        // a Kirigami saját „Password” helykitöltője a telepítő nyelvváltását nem követi; a címke elég
                         Kirigami.PasswordField {
                             id: passwordField
+                            placeholderText: ""
                             Kirigami.FormData.label: root.t("account.password")
                             Layout.fillWidth: true
                             onTextEdited: accountError.text = ""
                         }
                         Kirigami.PasswordField {
                             id: passwordAgain
+                            placeholderText: ""
                             Kirigami.FormData.label: root.t("account.password_again")
                             Layout.fillWidth: true
                             onTextEdited: accountError.text = ""
@@ -499,11 +502,13 @@ Kirigami.ApplicationWindow {
                                     visible: !installer.encryptSame
                                     Kirigami.PasswordField {
                                         id: encryptPw
+                                        placeholderText: ""
                                         Kirigami.FormData.label: root.t("disk.encrypt.password")
                                         onTextEdited: installer.setEncryptPassword(encryptPw.text, encryptPw2.text)
                                     }
                                     Kirigami.PasswordField {
                                         id: encryptPw2
+                                        placeholderText: ""
                                         Kirigami.FormData.label: root.t("disk.encrypt.repeat")
                                         onTextEdited: installer.setEncryptPassword(encryptPw.text, encryptPw2.text)
                                     }

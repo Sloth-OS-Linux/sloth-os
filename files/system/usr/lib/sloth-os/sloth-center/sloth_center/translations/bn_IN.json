@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "সম্পন্ন: আপনার ফাইলগুলি {folder} ফোল্ডারে আছে।",
   "Fájlok áthozása a Windowsból": "Windows থেকে ফাইল আনুন",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "এই কম্পিউটারের Windows থেকে ডেস্কটপ, ডকুমেন্ট, ছবি ও অন্যান্য নিজস্ব ফোল্ডার এবং ব্রাউজারের বুকমার্ক কপি করুন। Windows-এ কিছু বদলায় না, শুধু পড়ে।",
-  "Áthozás…": "আনুন…"
+  "Áthozás…": "আনুন…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

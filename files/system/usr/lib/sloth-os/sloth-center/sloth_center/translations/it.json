@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Fatto: i tuoi file sono nella cartella {folder}.",
   "Fájlok áthozása a Windowsból": "Porta qui i file da Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Copia Scrivania, Documenti, Immagini e le altre cartelle personali, oltre ai segnalibri del browser, dal Windows di questo computer. Windows non viene toccato, viene solo letto.",
-  "Áthozás…": "Porta qui…"
+  "Áthozás…": "Porta qui…",
+  "sloth-os-naplo.txt": "sloth-os-registro.txt"
 }

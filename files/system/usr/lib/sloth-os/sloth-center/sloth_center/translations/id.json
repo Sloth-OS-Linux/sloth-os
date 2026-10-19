@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Selesai: berkas Anda ada di folder {folder}.",
   "Fájlok áthozása a Windowsból": "Bawa berkas dari Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Menyalin Desktop, Dokumen, Gambar, dan folder pribadi lainnya, serta markah peramban, dari Windows di komputer ini. Windows tidak diubah, hanya dibaca.",
-  "Áthozás…": "Bawa…"
+  "Áthozás…": "Bawa…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

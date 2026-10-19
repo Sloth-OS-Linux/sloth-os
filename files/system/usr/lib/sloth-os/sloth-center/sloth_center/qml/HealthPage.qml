@@ -97,7 +97,8 @@ Kirigami.ScrollablePage {
         title: L.t("Napló mentése")
         fileMode: FileDialog.SaveFile
         defaultSuffix: "txt"
-        currentFile: StandardPaths.writableLocation(StandardPaths.DesktopLocation) + "/sloth-os-naplo.txt"
+        // a fájlnév a felület nyelvén (csak ASCII betűk, hogy bárhová el lehessen küldeni)
+        currentFile: StandardPaths.writableLocation(StandardPaths.DesktopLocation) + "/" + L.t("sloth-os-naplo.txt")
         nameFilters: [L.t("Szövegfájl (*.txt)")]
         onAccepted: health.saveLog(selectedFile.toString())
     }

@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Дайын: файлдарыңыз {folder} бумасында.",
   "Fájlok áthozása a Windowsból": "Файлдарды Windows-тан көшіру",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Осы компьютердегі Windows-тан жұмыс үстелін, құжаттарды, суреттерді және басқа жеке бумаларды, сондай-ақ браузер бетбелгілерін көшіреді. Windows өзгермейді, тек оқылады.",
-  "Áthozás…": "Көшіру…"
+  "Áthozás…": "Көшіру…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

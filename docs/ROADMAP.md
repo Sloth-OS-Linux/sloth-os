@@ -22,14 +22,18 @@ terminálból lehet csinálni, GUI-ból is menjen.
   (telepítés előtt) jelentkezett, a telepített gépen most nem jön elő. Figyelni; ha újra: közvetlenül a gépen
   (RustDesk nélkül, mert az is használja a hangot és a billentyűket) és `pactl subscribe`-bal megnézni, ki oldja fel.
   A saját kódunk sehol nem nyúl a hanghoz
-- [ ] Naplózaj: 30 másodpercenként „BAT0: chmod … charge_control_*_threshold failed” (az alaprendszer udev-szabálya;
-  a HP nem támogatja a töltési korlátot). Ártalmatlan, de teleírja a naplót: megkeresni a szabályt és elcsendesíteni
+- [x] Naplózaj: 30 másodpercenként „BAT0: chmod … charge_control_*_threshold failed”. A Universal Blue
+  `99-thinkpad-thresholds-udev.rules` szabálya nem nézte, létezik-e a fájl (HP-n nincs). Javítva (2026-10-20):
+  azonos nevű, javított szabály az `/etc/udev/rules.d`-ben (csak ha a fájl létezik; ThinkPadeken ugyanúgy működik)
 - [ ] Bootloop titkosított lemezzel: VM-ben nem jött elő; figyelni (előtte frissítés / NVIDIA-váltás volt-e)
-- [ ] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”)
-- [ ] Üdvözlő internet nélkül: a „Kihagyom” nem lép tovább
-- [ ] „Napló mentése”: angol rendszeren is magyar a fájlnév
+- [x] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”). A Kirigami saját szövege, a telepítő
+  nyelvváltását nem követi; kiürítve (a címke ott van), a titkosítás jelszómezőinél is (2026-10-20)
+- [x] Üdvözlő internet nélkül: a „Kihagyom” nem lépett tovább. Nem hiba: az első (böngésző) lépésben választás nélkül
+  szándékosan jön a „Nem választottál böngészőt” kérdés; a VM-ben a gyors, ismételt kattintás nyitotta-zárta
+- [x] „Napló mentése”: angol rendszeren is magyar volt a fájlnév. Most a felület nyelvén, csak ASCII betűkkel (2026-10-20)
 - [ ] EA app, Ubisoft Connect: kell-e nekik `LAUNCHER_STUBS` (a teszt dönti el)
-- [ ] `tools/tests/test_apps.py`: 4 teszt elbukik
+- [x] `tools/tests/test_apps.py`: 4 teszt elbukott: a /tmp itt tmpfs, oda a könyvtár helyesen nem enged Windows-programot;
+  a teszt átmeneti mappája most lemezen van (`~/.cache`), mind a 30 átmegy (2026-10-20)
 
 **Később**
 - [ ] Gyerekfiók és szülői felügyelet
@@ -231,7 +235,7 @@ Talált hibák (egyesével javítjuk):
   mounttal volt a /var/tmp fölött, így a var-tmp.mount a partícióhoz kötődött. Javítva: overlayként csatoljuk
   (a systemd szerint a forrás „overlay”, nem a partíció; VM-ben kipróbálva), új ISO kell hozzá. A 20:30-as ISO-val
   is jó a telepítés: ha 90% után elsötétül a kép, 2 perc várakozás után a bekapcsológombbal újra lehet indítani
-- [ ] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”)
+- [x] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”); javítva 2026-10-20 (lásd fent)
 - [x] **A frissítés „Something went wrong”-gal elbukott** (2026-10-19 este, a HP-n, két újraindítás után is): a CI
   egy új push esetén megszakította a futó buildet, amely addigra már feltöltötte a `latest`-et, de aláírni nem tudta;
   az aláíratlan `latest`-et az aláírás-ellenőrzéssel frissítő gépek elutasítják. Javítva: a main ágon a futó build
@@ -245,8 +249,8 @@ Talált hibák (egyesével javítjuk):
 - [x] .exe kezelő: egy félbemaradt telepítés (a telepítő nem futott le, csak a mappa és a recept beállítása jött
   létre) „már telepítve” volt, az Open nem indított semmit. Most csak a kész telepítés számít (Start menü bejegyzés
   vagy a felismerés adata); a félbemaradt mappába az új telepítés kerül, nem duplázódik
-- [ ] A Sloth Központ „Napló mentése” fájlneve magyar (`sloth-os-naplo.txt`), angol rendszeren is
-- [ ] `tools/tests/test_apps.py`: 4 teszt elbukik ezen a gépen (a 2026-10-19-i javítás előtt is), megnézni
+- [x] A Sloth Központ „Napló mentése” fájlneve magyar (`sloth-os-naplo.txt`), angol rendszeren is; javítva 2026-10-20 (lásd fent)
+- [x] `tools/tests/test_apps.py`: 4 teszt elbukik ezen a gépen (a 2026-10-19-i javítás előtt is), megnézni; javítva 2026-10-20 (lásd fent)
 - [x] **Proton és Steam Runtime gyárilag az image-ben** (2026-10-19, a felhasználó kérése): UMU-Proton-10.0-4 és
   a Steam Linux Runtime (sniper 3.0.20261007.263965) rögzítve, ellenőrzőösszeggel (`files/scripts/windows-runtime.sh`,
   `/usr/share/sloth-os/windows-runtime`, 2,2 GB kicsomagolva). Első használatkor a `windows-runtime-seed` a
@@ -255,7 +259,7 @@ Talált hibák (egyesével javítjuk):
   valódi gépen tesztelni: friss telepítés, internet nélkül egy .exe. Az ISO mérete: a végén az összevonással
   (`SLOTH_SQUASH=1`) és ha kell, máshogy csökkenteni
   - [ ] Később: gyári sablon-környezet a leggyakoribb összetevőkkel (pl. vcrun2022), ha a tesztek szerint kell
-- [ ] Üdvözlő internet nélkül: az app-oldalakon a „Kihagyom” nem lép tovább (VM, 2026-10-19)
+- [x] Üdvözlő internet nélkül: az app-oldalakon a „Kihagyom” nem lép tovább (VM, 2026-10-19); nem hiba (lásd fent)
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
   megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet)
 - [x] **Dolphin, Eszközök: a névtelen, 128 TB-os meghajtó** (2026-10-19 este, a felhasználó képei és a mentett

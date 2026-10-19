@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Klaar: jou lêers is in die vouer {folder}.",
   "Fájlok áthozása a Windowsból": "Bring lêers van Windows oor",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopieer die Werkskerm, Dokumente, Prente en ander persoonlike vouers, en die blaaier-boekmerke, van die Windows op hierdie rekenaar. Windows word nie aangeraak nie; daar word net gelees.",
-  "Áthozás…": "Bring oor…"
+  "Áthozás…": "Bring oor…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

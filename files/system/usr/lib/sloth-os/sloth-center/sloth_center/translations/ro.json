@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Gata: fișierele tale sunt în dosarul {folder}.",
   "Fájlok áthozása a Windowsból": "Adu fișiere din Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Copiază Desktopul, Documentele, Imaginile și celelalte dosare personale, plus marcajele browserului, din Windows-ul de pe acest calculator. Windows nu este modificat, doar citit.",
-  "Áthozás…": "Adu…"
+  "Áthozás…": "Adu…",
+  "sloth-os-naplo.txt": "sloth-os-jurnal.txt"
 }

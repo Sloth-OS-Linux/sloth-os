@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "ਮੁਕੰਮਲ: ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ {folder} ਫੋਲਡਰ ਵਿੱਚ ਹਨ।",
   "Fájlok áthozása a Windowsból": "Windows ਤੋਂ ਫ਼ਾਈਲਾਂ ਲਿਆਓ",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "ਇਸ ਕੰਪਿਊਟਰ ਦੇ Windows ਤੋਂ ਡੈਸਕਟਾਪ, ਦਸਤਾਵੇਜ਼, ਤਸਵੀਰਾਂ ਅਤੇ ਹੋਰ ਨਿੱਜੀ ਫੋਲਡਰ, ਅਤੇ ਬ੍ਰਾਊਜ਼ਰ ਬੁੱਕਮਾਰਕ ਕਾਪੀ ਕਰਦਾ ਹੈ। Windows ਨੂੰ ਨਹੀਂ ਛੇੜਦਾ, ਸਿਰਫ਼ ਪੜ੍ਹਦਾ ਹੈ।",
-  "Áthozás…": "ਲਿਆਓ…"
+  "Áthozás…": "ਲਿਆਓ…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

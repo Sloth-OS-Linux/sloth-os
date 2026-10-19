@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Atlikta: jūsų failai yra aplanke {folder}.",
   "Fájlok áthozása a Windowsból": "Perkelti failus iš Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Nukopijuoja darbalaukį, dokumentus, paveikslėlius ir kitus asmeninius aplankus bei naršyklės žymeles iš šio kompiuterio Windows. Windows nekeičiama, iš jos tik skaitoma.",
-  "Áthozás…": "Perkelti…"
+  "Áthozás…": "Perkelti…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

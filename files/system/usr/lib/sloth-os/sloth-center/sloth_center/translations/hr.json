@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Gotovo: vaše datoteke su u mapi {folder}.",
   "Fájlok áthozása a Windowsból": "Prijenos datoteka iz Windowsa",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopira radnu površinu, dokumente, slike i ostale osobne mape te oznake preglednika iz Windowsa na ovom računalu. Windows ostaje netaknut, samo se čita.",
-  "Áthozás…": "Prenesi…"
+  "Áthozás…": "Prenesi…",
+  "sloth-os-naplo.txt": "sloth-os-zapisnik.txt"
 }

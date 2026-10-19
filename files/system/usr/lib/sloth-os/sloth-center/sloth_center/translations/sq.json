@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "U krye: skedarët tuaj janë në dosjen {folder}.",
   "Fájlok áthozása a Windowsból": "Sill skedarë nga Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopjon desktopin, dokumentet, figurat dhe dosjet e tjera personale, si dhe faqerojtësit e shfletuesit, nga Windows-i në këtë kompjuter. Windows nuk preket, vetëm lexohet.",
-  "Áthozás…": "Sill…"
+  "Áthozás…": "Sill…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

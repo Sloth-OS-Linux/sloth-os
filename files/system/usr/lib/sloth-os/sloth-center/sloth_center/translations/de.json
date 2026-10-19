@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Fertig: Deine Dateien sind im Ordner {folder}.",
   "Fájlok áthozása a Windowsból": "Dateien aus Windows übernehmen",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopiert Schreibtisch, Dokumente, Bilder und die anderen persönlichen Ordner sowie die Browser-Lesezeichen aus dem Windows auf diesem Computer. Windows bleibt unverändert, es wird nur gelesen.",
-  "Áthozás…": "Übernehmen…"
+  "Áthozás…": "Übernehmen…",
+  "sloth-os-naplo.txt": "sloth-os-protokoll.txt"
 }

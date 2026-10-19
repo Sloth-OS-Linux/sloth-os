@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "完成：您的文件位于 {folder} 文件夹中。",
   "Fájlok áthozása a Windowsból": "从 Windows 搬运文件",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "从这台电脑上的 Windows 复制桌面、文档、图片等个人文件夹以及浏览器书签。不会改动 Windows，只读取。",
-  "Áthozás…": "搬过来…"
+  "Áthozás…": "搬过来…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Ferdig: filene dine ligger i mappen {folder}.",
   "Fájlok áthozása a Windowsból": "Flytt filer fra Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopierer Skrivebord, Dokumenter, Bilder og andre personlige mapper, samt nettleserbokmerker, fra Windows på denne datamaskinen. Windows røres ikke, det leses bare.",
-  "Áthozás…": "Flytt over…"
+  "Áthozás…": "Flytt over…",
+  "sloth-os-naplo.txt": "sloth-os-logg.txt"
 }

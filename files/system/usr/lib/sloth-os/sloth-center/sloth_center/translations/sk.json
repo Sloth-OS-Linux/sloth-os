@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Hotovo: vaše súbory sú v priečinku {folder}.",
   "Fájlok áthozása a Windowsból": "Preniesť súbory z Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Skopíruje plochu, dokumenty, obrázky a ďalšie osobné priečinky aj záložky prehliadača z Windows na tomto počítači. Windows sa nemení, iba sa z neho číta.",
-  "Áthozás…": "Preniesť…"
+  "Áthozás…": "Preniesť…",
+  "sloth-os-naplo.txt": "sloth-os-protokol.txt"
 }

@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Готово: файловете ви са в папка {folder}.",
   "Fájlok áthozása a Windowsból": "Прехвърляне на файлове от Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Копиране на работния плот, документите, снимките и другите лични папки, както и на отметките от браузъра, от Windows на този компютър. Windows не се променя, само се чете.",
-  "Áthozás…": "Прехвърляне…"
+  "Áthozás…": "Прехвърляне…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

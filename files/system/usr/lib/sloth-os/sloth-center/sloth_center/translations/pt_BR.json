@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Pronto: seus arquivos estão na pasta {folder}.",
   "Fájlok áthozása a Windowsból": "Trazer arquivos do Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Copia a Área de trabalho, Documentos, Imagens e as outras pastas pessoais, além dos favoritos do navegador, do Windows deste computador. O Windows não é alterado, só é lido.",
-  "Áthozás…": "Trazer…"
+  "Áthozás…": "Trazer…",
+  "sloth-os-naplo.txt": "sloth-os-registro.txt"
 }

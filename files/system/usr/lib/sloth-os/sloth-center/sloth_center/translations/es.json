@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Listo: tus archivos están en la carpeta {folder}.",
   "Fájlok áthozása a Windowsból": "Traer archivos de Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Copia el Escritorio, Documentos, Imágenes y las demás carpetas personales, además de los marcadores del navegador, desde el Windows de este ordenador. Windows no se toca, solo se lee.",
-  "Áthozás…": "Traer…"
+  "Áthozás…": "Traer…",
+  "sloth-os-naplo.txt": "sloth-os-registro.txt"
 }

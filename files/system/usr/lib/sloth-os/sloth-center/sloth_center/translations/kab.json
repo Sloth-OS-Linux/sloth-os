@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Yemmed: ifuyla-k deg ukaram {folder}.",
   "Fájlok áthozása a Windowsból": "Awi-d ifuyla seg Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Yessenɣal tanarit, isemliyen, tugniwin d ikaramen-nniḍen udmawanen, akked tecraḍ n iminig, seg Windows n uselkim-a. Windows ur yettbeddil ara, yettwaɣer kan.",
-  "Áthozás…": "Awi-d…"
+  "Áthozás…": "Awi-d…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

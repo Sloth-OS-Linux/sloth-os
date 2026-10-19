@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Fet: els vostres fitxers són a la carpeta {folder}.",
   "Fájlok áthozása a Windowsból": "Porta els fitxers de Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Copia l'Escriptori, els Documents, les Imatges i les altres carpetes personals, i les adreces d'interès del navegador, del Windows d'aquest ordinador. Windows no es modifica, només se'n llegeix.",
-  "Áthozás…": "Porta'ls…"
+  "Áthozás…": "Porta'ls…",
+  "sloth-os-naplo.txt": "sloth-os-registre.txt"
 }

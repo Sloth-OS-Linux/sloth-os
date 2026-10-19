@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Terminé : vos fichiers sont dans le dossier {folder}.",
   "Fájlok áthozása a Windowsból": "Récupérer des fichiers de Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Copie le Bureau, les Documents, les Images et vos autres dossiers personnels, ainsi que les favoris du navigateur, depuis le Windows de cet ordinateur. Windows n'est pas modifié, il est seulement lu.",
-  "Áthozás…": "Récupérer…"
+  "Áthozás…": "Récupérer…",
+  "sloth-os-naplo.txt": "sloth-os-journal.txt"
 }

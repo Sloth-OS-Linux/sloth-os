@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Hotovo: vaše soubory jsou ve složce {folder}.",
   "Fájlok áthozása a Windowsból": "Přenést soubory z Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Zkopíruje Plochu, Dokumenty, Obrázky a další osobní složky i záložky prohlížeče z Windows na tomto počítači. Windows nemění, jen z nich čte.",
-  "Áthozás…": "Přenést…"
+  "Áthozás…": "Přenést…",
+  "sloth-os-naplo.txt": "sloth-os-protokol.txt"
 }

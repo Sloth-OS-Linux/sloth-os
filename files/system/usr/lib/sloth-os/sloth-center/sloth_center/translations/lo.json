@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "ສຳເລັດ: ໄຟລ໌ຂອງທ່ານຢູ່ໃນໂຟນເດີ {folder}.",
   "Fájlok áthozása a Windowsból": "ນຳໄຟລ໌ມາຈາກ Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "ສຳເນົາໜ້າຈໍ, ເອກະສານ, ຮູບພາບ ແລະ ໂຟນເດີສ່ວນຕົວອື່ນໆ, ພ້ອມທັງບຸກມາກຂອງບຣາວເຊີ ຈາກ Windows ໃນຄອມພິວເຕີນີ້. ບໍ່ແຕະຕ້ອງ Windows, ພຽງແຕ່ອ່ານເທົ່ານັ້ນ.",
-  "Áthozás…": "ນຳມາ…"
+  "Áthozás…": "ນຳມາ…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

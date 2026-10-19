@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Valmis: tiedostosi ovat kansiossa {folder}.",
   "Fájlok áthozása a Windowsból": "Siirrä tiedostot Windowsista",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopioi työpöydän, Tiedostot, Kuvat ja muut henkilökohtaiset kansiot sekä selaimen kirjanmerkit tämän tietokoneen Windowsista. Windowsiin ei kosketa, siitä vain luetaan.",
-  "Áthozás…": "Siirrä…"
+  "Áthozás…": "Siirrä…",
+  "sloth-os-naplo.txt": "sloth-os-loki.txt"
 }

@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Klaar: je bestanden staan in de map {folder}.",
   "Fájlok áthozása a Windowsból": "Bestanden uit Windows overzetten",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopieert het bureaublad, Documenten, Afbeeldingen en je andere persoonlijke mappen, plus browserbladwijzers, uit de Windows op deze computer. Aan Windows wordt niets veranderd, er wordt alleen gelezen.",
-  "Áthozás…": "Overzetten…"
+  "Áthozás…": "Overzetten…",
+  "sloth-os-naplo.txt": "sloth-os-logboek.txt"
 }

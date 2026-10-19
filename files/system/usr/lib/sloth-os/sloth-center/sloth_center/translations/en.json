@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Done: your files are in the {folder} folder.",
   "Fájlok áthozása a Windowsból": "Bring files over from Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the Windows on this computer. Windows itself isn't touched, it's only read.",
-  "Áthozás…": "Bring over…"
+  "Áthozás…": "Bring over…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

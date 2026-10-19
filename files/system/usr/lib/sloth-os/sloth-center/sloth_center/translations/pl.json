@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "Gotowe: Twoje pliki są w folderze {folder}.",
   "Fájlok áthozása a Windowsból": "Przenieś pliki z Windows",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopiuje Pulpit, Dokumenty, Obrazy i inne foldery osobiste oraz zakładki przeglądarki z Windows na tym komputerze. Windows pozostaje nietknięty, jest tylko odczytywany.",
-  "Áthozás…": "Przenieś…"
+  "Áthozás…": "Przenieś…",
+  "sloth-os-naplo.txt": "sloth-os-dziennik.txt"
 }

@@ -459,5 +459,6 @@
   "Kész: a fájljaid a(z) {folder} mappában vannak.": "完了: ファイルは {folder} フォルダーにあります。",
   "Fájlok áthozása a Windowsból": "Windows からファイルを移す",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "このパソコンの Windows から、デスクトップ、ドキュメント、ピクチャなどの個人フォルダーとブラウザーのブックマークをコピーします。Windows には何も書き込まず、読み取るだけです。",
-  "Áthozás…": "移す…"
+  "Áthozás…": "移す…",
+  "sloth-os-naplo.txt": "sloth-os-log.txt"
 }

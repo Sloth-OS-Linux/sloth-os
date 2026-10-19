@@ -16,7 +16,10 @@ import unittest
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-TMP = Path(tempfile.mkdtemp(prefix="sloth-apps-test-"))
+# Lemezen, nem a /tmp-ben: az sokszor tmpfs, oda a könyvtár (helyesen) nem enged Windows-programot (SUPPORTED_FS)
+_CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache"))
+_CACHE.mkdir(parents=True, exist_ok=True)
+TMP = Path(tempfile.mkdtemp(prefix="sloth-apps-test-", dir=_CACHE))
 os.environ.update(HOME=str(TMP), XDG_DATA_HOME=str(TMP / ".local/share"), XDG_CONFIG_HOME=str(TMP / ".config"),
                   XDG_CACHE_HOME=str(TMP / ".cache"))
 sys.path.insert(0, str(REPO / "files/system/usr/lib/sloth-os/common"))
