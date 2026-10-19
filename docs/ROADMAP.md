@@ -74,6 +74,14 @@ nem volt benne, lásd fent).
 - [ ] **Dolphin:** az Eszközök között nincs névtelen, 128 TB-os meghajtó; a rendszerpartíció neve „Sloth OS”
 - [ ] **Napló mentése** (Rendszer egészség): az elején látszik a futó image és a lemezek
 - [ ] **Rendszerinformáció:** „Sloth OS 1.0 (Fedora Atomic 44)”
+- [ ] **Nyitott kérdések a 2026-10-19-i ISO tesztjéhez** (a válaszok ide; ami jó, kipipálni). Eddig jó: ujjlenyomat,
+  PIN-kód, a titkosított lemez lakatos jelszókérője (a pöttyök javítva):
+  - [ ] Tömörített memória-tartalék (Haladó beállítások): átállítás után, újraindítás után kiírja-e az új méretet?
+  - [ ] PIN-kód a zárolási képernyőn (Win+L) is működik, nem csak bejelentkezéskor?
+  - [ ] Rendszerinformáció: „Sloth OS 1.0 (Fedora Atomic 44)” látszik?
+  - [ ] Üdvözlő, több app egyszerre: sorban, egyesével települnek? A Vivaldi most feltelepült?
+  - [ ] Rendszerfrissítés: volt már? A Frissítések oldalon minden rendben volt?
+  - [ ] Battle.net újra, a háttér-előkészítés után: előjön-e a saját telepítője (lásd lent a hibáknál)
 - [ ] A reggeli teszt maradéka: titkosítás, frissítés aláírás-ellenőrzéssel, NVIDIA-s gép, Windows mellé (tesztelő kell)
 - [ ] A még nyitott hibák figyelése: némítás (melyik gomb: billentyű / tálca ikon; mikor áll vissza: magától, egy
   értesítés hangjára, hangerő-állításra, bejelentkezéskor?), Discover-frissítés a friss appokra (mit frissített:
