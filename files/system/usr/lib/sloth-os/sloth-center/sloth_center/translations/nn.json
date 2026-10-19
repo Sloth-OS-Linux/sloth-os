@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Ei eigendefinert innstilling gjeld no. Vel du her, vert ho erstatta.",
   "Telefon összekötése": "Kopla til telefonen",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Varsel, filer og meldingar frå telefonen på datamaskina (KDE Connect). Installer KDE Connect-appen på telefonen; begge må vera på det same Wi-Fi-nettverket.",
-  "Nem sikerült átállítani.": "Kunne ikkje endrast."
+  "Nem sikerült átállítani.": "Kunne ikkje endrast.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Den nyaste oppdateringa er ikkje tilgjengeleg enno (ho vert laga no). Prøv igjen om nokre minutt."
 }

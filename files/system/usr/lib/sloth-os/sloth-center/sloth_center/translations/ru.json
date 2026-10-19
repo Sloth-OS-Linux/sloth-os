@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Сейчас действует собственная настройка. Выбор здесь её заменит.",
   "Telefon összekötése": "Подключение телефона",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Уведомления, файлы и сообщения телефона на компьютере (KDE Connect). Установите на телефон приложение KDE Connect; оба устройства должны быть в одной сети Wi-Fi.",
-  "Nem sikerült átállítani.": "Не удалось изменить."
+  "Nem sikerült átállítani.": "Не удалось изменить.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Последнее обновление пока недоступно (оно как раз готовится). Повторите попытку через несколько минут."
 }

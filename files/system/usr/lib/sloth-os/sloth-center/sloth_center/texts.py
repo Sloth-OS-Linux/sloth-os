@@ -36,6 +36,9 @@ _ERRORS = [
     (("transaction in progress", "already in progress", "busy"),
      N_("Egy másik frissítés éppen fut a háttérben. Megvárjuk, amíg végez.")),
     (("cancelled", "canceled"), N_("A műveletet megszakítottad.")),
+    # az aláírás-ellenőrzés (ostree-image-signed): pl. egy épp készülő, még alá nem írt verzió
+    (("signature", "sigstore", "policy requirements"),
+     N_("A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.")),
 ]
 
 GENERIC_ERROR = N_("Valami nem sikerült. Próbáld újra később, vagy indítsd újra a gépet.")

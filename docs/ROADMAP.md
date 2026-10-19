@@ -201,6 +201,11 @@ Talált hibák (egyesével javítjuk):
   (a systemd szerint a forrás „overlay”, nem a partíció; VM-ben kipróbálva), új ISO kell hozzá. A 20:30-as ISO-val
   is jó a telepítés: ha 90% után elsötétül a kép, 2 perc várakozás után a bekapcsológombbal újra lehet indítani
 - [ ] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”)
+- [x] **A frissítés „Something went wrong”-gal elbukott** (2026-10-19 este, a HP-n, két újraindítás után is): a CI
+  egy új push esetén megszakította a futó buildet, amely addigra már feltöltötte a `latest`-et, de aláírni nem tudta;
+  az aláíratlan `latest`-et az aláírás-ellenőrzéssel frissítő gépek elutasítják. Javítva: a main ágon a futó build
+  nem szakad meg (`cancel-in-progress` csak PR-nél); a Sloth Központ erre a hibára érthető üzenetet ír
+  („A legújabb frissítés még nem érhető el…”)
 - [x] **.exe kezelő: egyetlen Windows-program telepítése sem indult** (2026-10-19 este, valódi gép, nem titkosított
   telepítés): a „Still working…” fél óráig forgott. A napló szerint a Proton és a futtatókörnyezet 1 perc alatt
   lejött; a telepítés indításakor `AttributeError: 'App' object has no attribute 'slug'` (runner.py, a délelőtti

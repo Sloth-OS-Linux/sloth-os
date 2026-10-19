@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Dabar galioja pasirinktinis nustatymas. Pasirinkus čia, jis bus pakeistas.",
   "Telefon összekötése": "Telefono prijungimas",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Telefono pranešimai, failai ir žinutės kompiuteryje (KDE Connect). Telefone įdiekite programėlę KDE Connect; abu įrenginiai turi būti tame pačiame Wi-Fi tinkle.",
-  "Nem sikerült átállítani.": "Nepavyko pakeisti."
+  "Nem sikerült átállítani.": "Nepavyko pakeisti.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Naujausias atnaujinimas dar nepasiekiamas (jis kaip tik ruošiamas). Bandykite dar kartą po kelių minučių."
 }

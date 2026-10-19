@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "현재 사용자 지정 설정이 적용되어 있습니다. 여기서 선택하면 대체됩니다.",
   "Telefon összekötése": "휴대폰 연결",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "휴대폰의 알림, 파일, 메시지를 컴퓨터에서 (KDE Connect). 휴대폰에 KDE Connect 앱을 설치하고, 두 기기를 같은 Wi-Fi 네트워크에 연결하세요.",
-  "Nem sikerült átállítani.": "변경하지 못했습니다."
+  "Nem sikerült átállítani.": "변경하지 못했습니다.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "최신 업데이트는 아직 사용할 수 없습니다 (지금 준비 중입니다). 몇 분 후에 다시 시도하세요."
 }

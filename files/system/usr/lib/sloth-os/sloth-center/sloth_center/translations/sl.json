@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Trenutno velja nastavitev po meri. Izbira tukaj jo bo zamenjala.",
   "Telefon összekötése": "Povezava telefona",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Obvestila, datoteke in sporočila s telefona na računalniku (KDE Connect). Na telefon namestite aplikacijo KDE Connect; obe napravi morata biti v istem omrežju Wi-Fi.",
-  "Nem sikerült átállítani.": "Spremembe ni bilo mogoče shraniti."
+  "Nem sikerült átállítani.": "Spremembe ni bilo mogoče shraniti.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Najnovejša posodobitev še ni na voljo (ravno se pripravlja). Poskusite znova čez nekaj minut."
 }

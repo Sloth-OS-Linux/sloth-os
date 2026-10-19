@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Nyt on käytössä mukautettu asetus. Valinta tässä korvaa sen.",
   "Telefon összekötése": "Puhelimen yhdistäminen",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Puhelimesi ilmoitukset, tiedostot ja viestit tietokoneella (KDE Connect). Asenna puhelimeen KDE Connect -sovellus; molempien on oltava samassa Wi-Fi-verkossa.",
-  "Nem sikerült átállítani.": "Muuttaminen ei onnistunut."
+  "Nem sikerült átállítani.": "Muuttaminen ei onnistunut.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Uusin päivitys ei ole vielä saatavilla (sitä valmistellaan juuri nyt). Yritä uudelleen muutaman minuutin kuluttua."
 }

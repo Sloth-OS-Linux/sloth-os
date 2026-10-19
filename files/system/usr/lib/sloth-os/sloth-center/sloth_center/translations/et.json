@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Praegu kehtib kohandatud seadistus. Siin valimine asendab selle.",
   "Telefon összekötése": "Telefoni ühendamine",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Telefoni teavitused, failid ja sõnumid arvutis (KDE Connect). Paigalda telefoni rakendus KDE Connect; mõlemad peavad olema samas Wi-Fi-võrgus.",
-  "Nem sikerült átállítani.": "Muuta ei õnnestunud."
+  "Nem sikerült átállítani.": "Muuta ei õnnestunud.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Uusim uuendus pole veel saadaval (seda alles valmistatakse). Proovi mõne minuti pärast uuesti."
 }

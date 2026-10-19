@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "இப்போது ஒரு தனிப்பயன் அமைப்பு நடைமுறையில் உள்ளது. இங்கே தேர்ந்தெடுத்தால் அது மாற்றப்படும்.",
   "Telefon összekötése": "தொலைபேசியை இணை",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "கணினியில் உங்கள் தொலைபேசியின் அறிவிப்புகள், கோப்புகள், செய்திகள் (KDE Connect). தொலைபேசியில் KDE Connect செயலியை நிறுவுங்கள்; இரண்டும் ஒரே Wi-Fi வலையமைப்பில் இருக்க வேண்டும்.",
-  "Nem sikerült átállítani.": "மாற்ற முடியவில்லை."
+  "Nem sikerült átállítani.": "மாற்ற முடியவில்லை.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "சமீபத்திய புதுப்பிப்பு இன்னும் கிடைக்கவில்லை (இப்போது தயாராகிறது). சில நிமிடங்களில் மீண்டும் முயலுங்கள்."
 }

@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "ຕອນນີ້ມີການຕັ້ງຄ່າແບບກຳນົດເອງຢູ່. ການເລືອກຢູ່ນີ້ຈະແທນທີ່ມັນ.",
   "Telefon összekötése": "ເຊື່ອມຕໍ່ໂທລະສັບ",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "ການແຈ້ງເຕືອນ, ໄຟລ໌ ແລະ ຂໍ້ຄວາມຂອງໂທລະສັບໃນຄອມພິວເຕີ (KDE Connect). ຕິດຕັ້ງແອັບ KDE Connect ໃນໂທລະສັບ; ທັງສອງຕ້ອງຢູ່ໃນເຄືອຂ່າຍ Wi-Fi ດຽວກັນ.",
-  "Nem sikerült átállítani.": "ບໍ່ສາມາດປ່ຽນໄດ້."
+  "Nem sikerült átállítani.": "ບໍ່ສາມາດປ່ຽນໄດ້.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "ການອັບເດດລ່າສຸດຍັງບໍ່ພ້ອມ (ກຳລັງກະກຽມຢູ່). ລອງໃໝ່ໃນອີກບໍ່ເທົ່າໃດນາທີ."
 }

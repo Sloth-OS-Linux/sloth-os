@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Saat ini berlaku pengaturan khusus. Memilih di sini akan menggantinya.",
   "Telefon összekötése": "Hubungkan ponsel",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Notifikasi, berkas, dan pesan ponsel Anda di komputer (KDE Connect). Pasang aplikasi KDE Connect di ponsel; keduanya harus berada di jaringan Wi-Fi yang sama.",
-  "Nem sikerült átállítani.": "Tidak dapat mengubah."
+  "Nem sikerült átállítani.": "Tidak dapat mengubah.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Pembaruan terbaru belum tersedia (sedang disiapkan). Coba lagi dalam beberapa menit."
 }

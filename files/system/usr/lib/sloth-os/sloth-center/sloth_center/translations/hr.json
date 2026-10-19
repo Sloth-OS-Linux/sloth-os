@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "Trenutačno vrijedi prilagođena postavka. Odabir ovdje će je zamijeniti.",
   "Telefon összekötése": "Povezivanje telefona",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "Obavijesti, datoteke i poruke s telefona na računalu (KDE Connect). Na telefon instalirajte aplikaciju KDE Connect; oba uređaja moraju biti na istoj Wi-Fi mreži.",
-  "Nem sikerült átállítani.": "Promjena nije uspjela."
+  "Nem sikerült átállítani.": "Promjena nije uspjela.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "Najnovije ažuriranje još nije dostupno (upravo se priprema). Pokušajte ponovno za nekoliko minuta."
 }

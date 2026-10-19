@@ -448,5 +448,6 @@
   "Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.": "ახლა ძალაშია მორგებული პარამეტრი. აქ არჩევა მას ჩაანაცვლებს.",
   "Telefon összekötése": "ტელეფონის დაკავშირება",
   "A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.": "ტელეფონის შეტყობინებები, ფაილები და მესიჯები კომპიუტერზე (KDE Connect). დააყენეთ ტელეფონზე KDE Connect აპი; ორივე ერთსა და იმავე Wi-Fi ქსელში უნდა იყოს.",
-  "Nem sikerült átállítani.": "შეცვლა ვერ მოხერხდა."
+  "Nem sikerült átállítani.": "შეცვლა ვერ მოხერხდა.",
+  "A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.": "უახლესი განახლება ჯერ არ არის ხელმისაწვდომი (ახლა მზადდება). სცადეთ რამდენიმე წუთში."
 }
