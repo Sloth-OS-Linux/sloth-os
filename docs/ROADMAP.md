@@ -18,7 +18,12 @@ terminálból lehet csinálni, GUI-ból is menjen.
 8. [ ] A fordítások anyanyelvi átnézése (Teendők, 7. pont)
 
 **Nyitott hibák (kicsik)**
-- [ ] Némítás: egy gombnyomásra feloldódik (a saját kódunk sehol nem nyúl a hanghoz; kiderítés folyamatban)
+- [ ] Némítás: egy gombnyomásra feloldódik. 2026-10-19 este: a felhasználó szerint először az élő rendszerben
+  (telepítés előtt) jelentkezett, a telepített gépen most nem jön elő. Figyelni; ha újra: közvetlenül a gépen
+  (RustDesk nélkül, mert az is használja a hangot és a billentyűket) és `pactl subscribe`-bal megnézni, ki oldja fel.
+  A saját kódunk sehol nem nyúl a hanghoz
+- [ ] Naplózaj: 30 másodpercenként „BAT0: chmod … charge_control_*_threshold failed” (az alaprendszer udev-szabálya;
+  a HP nem támogatja a töltési korlátot). Ártalmatlan, de teleírja a naplót: megkeresni a szabályt és elcsendesíteni
 - [ ] Bootloop titkosított lemezzel: VM-ben nem jött elő; figyelni (előtte frissítés / NVIDIA-váltás volt-e)
 - [ ] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”)
 - [ ] Üdvözlő internet nélkül: a „Kihagyom” nem lép tovább
