@@ -456,5 +456,8 @@
   "Bejelentkezés": "Logga in",
   "Leválasztás": "Koppla från",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Logga in i webbläsarfönstret som öppnas. När du är klar fortsätter det här av sig själv.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Klart: dina filer finns i mappen {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Klart: dina filer finns i mappen {folder}.",
+  "Fájlok áthozása a Windowsból": "Flytta över filer från Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopierar Skrivbord, Dokument, Bilder och andra personliga mappar samt webbläsarbokmärken från Windows på den här datorn. Windows rörs inte, det läses bara.",
+  "Áthozás…": "Flytta över…"
 }

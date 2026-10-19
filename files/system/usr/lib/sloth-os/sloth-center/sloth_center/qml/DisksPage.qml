@@ -112,5 +112,30 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        // --- Fájlok áthozása a Windowsból (csak ha van Windows-partíció) --------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: disks.hasWindows
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.smallSpacing
+                    Kirigami.Heading { level: 3; text: L.t("Fájlok áthozása a Windowsból") }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: L.t("Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.")
+                    }
+                }
+                QQC2.Button {
+                    icon.name: "folder-download"
+                    text: L.t("Áthozás…")
+                    onClicked: disks.importFromWindows()
+                }
+            }
+        }
     }
 }

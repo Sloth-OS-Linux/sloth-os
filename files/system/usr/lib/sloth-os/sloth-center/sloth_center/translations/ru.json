@@ -456,5 +456,8 @@
   "Bejelentkezés": "Войти",
   "Leválasztás": "Отключить",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Войдите в открывшемся окне браузера. Когда закончите, здесь всё продолжится само.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Готово: ваши файлы в папке {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Готово: ваши файлы в папке {folder}.",
+  "Fájlok áthozása a Windowsból": "Перенос файлов из Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Копирует рабочий стол, документы, изображения и другие личные папки, а также закладки браузера из Windows на этом компьютере. Windows не изменяется, только читается.",
+  "Áthozás…": "Перенести…"
 }

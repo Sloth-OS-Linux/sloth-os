@@ -17,6 +17,8 @@ def main():
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument("--first-run", action="store_true",
                         help="automatikus indítás: csak akkor nyílik meg, ha még nem futott")
+    parser.add_argument("--windows-import", action="store_true",
+                        help="csak a fájlok áthozása a Windowsból (a Sloth Központ Lemezek oldaláról)")
     args, qt_args = parser.parse_known_args()
 
     from .welcome import DONE_MARKER
@@ -36,7 +38,9 @@ def main():
     apply_language()
 
     engine = QQmlApplicationEngine()
-    welcome = WelcomeController()
+    welcome = WelcomeController(windows_only=args.windows_import)
+    # ha az ablakot bezárják, a Windows-partíció se maradjon csatolva
+    app.aboutToQuit.connect(welcome.release_windows)
     engine.rootContext().setContextProperty("welcome", welcome)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():

@@ -456,5 +456,8 @@
   "Bejelentkezés": "Prijava",
   "Leválasztás": "Prekini povezavo",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Prijavite se v oknu brskalnika, ki se odpre. Ko končate, se bo tukaj nadaljevalo samo.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Končano: vaše datoteke so v mapi {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Končano: vaše datoteke so v mapi {folder}.",
+  "Fájlok áthozása a Windowsból": "Prenos datotek iz sistema Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopira namizje, dokumente, slike in druge osebne mape ter zaznamke brskalnika iz sistema Windows na tem računalniku. Windows ostane nespremenjen, z njega se le bere.",
+  "Áthozás…": "Prenesi…"
 }

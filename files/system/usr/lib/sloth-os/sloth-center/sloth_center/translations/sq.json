@@ -456,5 +456,8 @@
   "Bejelentkezés": "Hyni",
   "Leválasztás": "Shkëputu",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Hyni te dritarja e shfletuesit që do të hapet. Kur të mbaroni, do të vazhdojë këtu vetë.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "U krye: skedarët tuaj janë në dosjen {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "U krye: skedarët tuaj janë në dosjen {folder}.",
+  "Fájlok áthozása a Windowsból": "Sill skedarë nga Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopjon desktopin, dokumentet, figurat dhe dosjet e tjera personale, si dhe faqerojtësit e shfletuesit, nga Windows-i në këtë kompjuter. Windows nuk preket, vetëm lexohet.",
+  "Áthozás…": "Sill…"
 }

@@ -456,5 +456,8 @@
   "Bejelentkezés": "Prisijungti",
   "Leválasztás": "Atjungti",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Prisijunkite atsidariusiame naršyklės lange. Kai baigsite, čia bus tęsiama savaime.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Atlikta: jūsų failai yra aplanke {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Atlikta: jūsų failai yra aplanke {folder}.",
+  "Fájlok áthozása a Windowsból": "Perkelti failus iš Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Nukopijuoja darbalaukį, dokumentus, paveikslėlius ir kitus asmeninius aplankus bei naršyklės žymeles iš šio kompiuterio Windows. Windows nekeičiama, iš jos tik skaitoma.",
+  "Áthozás…": "Perkelti…"
 }

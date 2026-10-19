@@ -456,5 +456,8 @@
   "Bejelentkezés": "Kirjaudu sisään",
   "Leválasztás": "Katkaise yhteys",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Kirjaudu sisään avautuvassa selainikkunassa. Kun olet valmis, täällä jatketaan automaattisesti.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Valmis: tiedostosi ovat kansiossa {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Valmis: tiedostosi ovat kansiossa {folder}.",
+  "Fájlok áthozása a Windowsból": "Siirrä tiedostot Windowsista",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopioi työpöydän, Tiedostot, Kuvat ja muut henkilökohtaiset kansiot sekä selaimen kirjanmerkit tämän tietokoneen Windowsista. Windowsiin ei kosketa, siitä vain luetaan.",
+  "Áthozás…": "Siirrä…"
 }

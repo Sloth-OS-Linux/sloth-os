@@ -456,5 +456,8 @@
   "Bejelentkezés": "Ensaluti",
   "Leválasztás": "Malkonekti",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Ensalutu en la retumila fenestro, kiu malfermiĝos. Kiam vi finos, ĝi daŭros ĉi tie memstare.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Farite: viaj dosieroj estas en la dosierujo {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Farite: viaj dosieroj estas en la dosierujo {folder}.",
+  "Fájlok áthozása a Windowsból": "Transporti dosierojn el Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopias la Labortablon, Dokumentojn, Bildojn kaj aliajn personajn dosierujojn, kaj la retumilajn legosignojn, el la Windows en ĉi tiu komputilo. Windows ne ŝanĝiĝas, oni nur legas.",
+  "Áthozás…": "Transporti…"
 }

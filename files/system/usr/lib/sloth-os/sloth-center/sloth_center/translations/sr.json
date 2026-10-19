@@ -456,5 +456,8 @@
   "Bejelentkezés": "Пријава",
   "Leválasztás": "Прекини везу",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Пријавите се у прозору прегледача који ће се отворити. Када завршите, овде ће се наставити само.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Готово: ваше датотеке су у фасцикли {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Готово: ваше датотеке су у фасцикли {folder}.",
+  "Fájlok áthozása a Windowsból": "Пренос датотека из Windows-а",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Копира радну површину, документе, слике и остале личне фасцикле, као и обележиваче прегледача, из Windows-а на овом рачунару. Windows остаје нетакнут, само се чита.",
+  "Áthozás…": "Пренеси…"
 }

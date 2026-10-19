@@ -456,5 +456,8 @@
   "Bejelentkezés": "サインイン",
   "Leválasztás": "切断",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "開いたブラウザーウィンドウでサインインしてください。完了すると、ここで自動的に続行されます。",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "完了: ファイルは {folder} フォルダーにあります。"
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "完了: ファイルは {folder} フォルダーにあります。",
+  "Fájlok áthozása a Windowsból": "Windows からファイルを移す",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "このパソコンの Windows から、デスクトップ、ドキュメント、ピクチャなどの個人フォルダーとブラウザーのブックマークをコピーします。Windows には何も書き込まず、読み取るだけです。",
+  "Áthozás…": "移す…"
 }

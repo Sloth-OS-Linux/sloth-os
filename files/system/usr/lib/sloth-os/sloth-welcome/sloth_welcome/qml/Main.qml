@@ -13,7 +13,8 @@ Kirigami.ApplicationWindow {
     id: root
     title: t("window.title")
     visible: true
-    visibility: Window.FullScreen
+    // csak a Windows-fájlok áthozása (a Sloth Központból): sima ablak, nem teljes képernyő
+    visibility: welcome.windowsOnly ? Window.Windowed : Window.FullScreen
     width: Kirigami.Units.gridUnit * 60
     height: Kirigami.Units.gridUnit * 40
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
@@ -747,6 +748,137 @@ Kirigami.ApplicationWindow {
                             icon.name: "go-next"
                             highlighted: true
                             enabled: welcome.sharingChoice !== ""
+                            onClicked: welcome.next()
+                        }
+                    }
+                }
+            }
+
+            // --- 7. Fájlok áthozása a Windowsból (csak ha van Windows-partíció) ----------
+            Item {
+                ColumnLayout {
+                    anchors.centerIn: parent
+                    width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 32)
+                    spacing: Kirigami.Units.largeSpacing * 2
+                    readonly property string winState: welcome.windowsState
+                    readonly property bool busy: winState === "scanning" || winState === "copying"
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignHCenter
+                        source: "folder-download"
+                        implicitWidth: Kirigami.Units.iconSizes.huge
+                        implicitHeight: Kirigami.Units.iconSizes.huge
+                    }
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        text: root.t("windows.heading")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: root.t("windows.text")
+                    }
+                    // felmérés
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+                        visible: parent.winState === "scanning" || parent.winState === "idle"
+                        QQC2.BusyIndicator { running: parent.visible }
+                        QQC2.Label { text: root.t("windows.scanning") }
+                    }
+                    // választás
+                    RowLayout {
+                        Layout.fillWidth: true
+                        visible: parent.winState === "ready" && welcome.windowsUsers.length > 1
+                        QQC2.Label { text: root.t("windows.user") }
+                        QQC2.ComboBox {
+                            Layout.fillWidth: true
+                            model: welcome.windowsUsers
+                            currentIndex: Math.max(0, welcome.windowsUsers.indexOf(welcome.windowsUser))
+                            onActivated: index => welcome.setWindowsUser(welcome.windowsUsers[index])
+                        }
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        visible: parent.winState === "ready"
+                        Repeater {
+                            model: welcome.windowsFolders
+                            delegate: QQC2.CheckBox {
+                                required property var modelData
+                                Layout.fillWidth: true
+                                text: root.t("windows.folder." + modelData.key) + " (" + modelData.size + ")"
+                                checked: modelData.selected
+                                onToggled: welcome.toggleWindowsFolder(modelData.key)
+                            }
+                        }
+                        QQC2.CheckBox {
+                            Layout.fillWidth: true
+                            visible: welcome.windowsBookmarkCount > 0
+                            text: root.t("windows.bookmarks")
+                            checked: welcome.windowsBookmarks
+                            onToggled: welcome.setWindowsBookmarks(checked)
+                        }
+                    }
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        visible: parent.winState === "ready"
+                        type: Kirigami.MessageType.Information
+                        text: root.t("windows.onedrive")
+                    }
+                    // másolás
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        visible: parent.winState === "copying"
+                        QQC2.Label { Layout.fillWidth: true; text: root.t("windows.copying") }
+                        QQC2.ProgressBar {
+                            Layout.fillWidth: true
+                            from: 0; to: 100
+                            value: Math.max(0, welcome.windowsProgress)
+                            indeterminate: welcome.windowsProgress < 0
+                        }
+                        QQC2.Label { opacity: 0.7; text: welcome.windowsDetail }
+                    }
+                    // eredmény, hibák
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        visible: ["done", "nospace", "locked", "none", "failed"].indexOf(parent.winState) >= 0
+                        type: parent.winState === "done" ? Kirigami.MessageType.Positive
+                              : parent.winState === "none" ? Kirigami.MessageType.Information
+                              : Kirigami.MessageType.Warning
+                        text: parent.winState === "done" || parent.winState === "nospace" ? welcome.windowsDetail
+                              : root.t("windows." + parent.winState)
+                    }
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.Button {
+                            visible: !welcome.windowsOnly
+                            enabled: !parent.parent.busy
+                            text: root.t("nav.back"); icon.name: "go-previous"; onClicked: welcome.back()
+                        }
+                        QQC2.Button {
+                            visible: parent.parent.winState === "nospace"
+                            text: root.t("windows.change"); icon.name: "edit-undo"; onClicked: welcome.retryWindows()
+                        }
+                        QQC2.Button {
+                            visible: parent.parent.winState === "ready"
+                            enabled: welcome.windowsFolders.some(f => f.selected)
+                                     || (welcome.windowsBookmarks && welcome.windowsBookmarkCount > 0)
+                            highlighted: true
+                            icon.name: "folder-download"
+                            text: root.t("windows.copy")
+                            onClicked: welcome.startWindowsCopy()
+                        }
+                        QQC2.Button {
+                            enabled: !parent.parent.busy
+                            highlighted: parent.parent.winState !== "ready"
+                            icon.name: "go-next"
+                            text: welcome.windowsOnly ? root.t("nav.finish")
+                                  : parent.parent.winState === "ready" || parent.parent.winState === "nospace"
+                                    ? root.t("nav.skip") : root.t("nav.next")
                             onClicked: welcome.next()
                         }
                     }

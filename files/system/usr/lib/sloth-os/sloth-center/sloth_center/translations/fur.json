@@ -456,5 +456,8 @@
   "Bejelentkezés": "Jentre",
   "Leválasztás": "Distache",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Jentre te barcon dal navigadôr che si vierç. Cuant che tu âs finît, al larà indenant culì di bessôl.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Fat: i tiei files a son te cartele {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Fat: i tiei files a son te cartele {folder}.",
+  "Fájlok áthozása a Windowsból": "Puartâ files di Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Al copie il Scritori, i Documents, lis Imagjins e lis altris cartelis personâls, cui segnelibris dal navigadôr, dal Windows di chest computer. Windows nol ven tocjât, si lei dome.",
+  "Áthozás…": "Puarte…"
 }

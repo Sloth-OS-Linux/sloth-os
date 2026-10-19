@@ -456,5 +456,8 @@
   "Bejelentkezés": "כניסה",
   "Leválasztás": "ניתוק",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "יש להיכנס בחלון הדפדפן שייפתח. בסיום, התהליך ימשיך כאן מעצמו.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "בוצע: הקבצים שלך נמצאים בתיקייה {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "בוצע: הקבצים שלך נמצאים בתיקייה {folder}.",
+  "Fájlok áthozása a Windowsból": "העברת קבצים מ-Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "מעתיק את שולחן העבודה, המסמכים, התמונות ושאר התיקיות האישיות, וגם את סימניות הדפדפן, מה-Windows שבמחשב הזה. ב-Windows לא נוגעים, רק קוראים ממנו.",
+  "Áthozás…": "העברה…"
 }

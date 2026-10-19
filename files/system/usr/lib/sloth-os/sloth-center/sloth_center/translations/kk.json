@@ -456,5 +456,8 @@
   "Bejelentkezés": "Кіру",
   "Leválasztás": "Ажырату",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Ашылатын браузер терезесінде кіріңіз. Аяқтаған соң, мұнда өзі жалғасады.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Дайын: файлдарыңыз {folder} бумасында."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Дайын: файлдарыңыз {folder} бумасында.",
+  "Fájlok áthozása a Windowsból": "Файлдарды Windows-тан көшіру",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Осы компьютердегі Windows-тан жұмыс үстелін, құжаттарды, суреттерді және басқа жеке бумаларды, сондай-ақ браузер бетбелгілерін көшіреді. Windows өзгермейді, тек оқылады.",
+  "Áthozás…": "Көшіру…"
 }

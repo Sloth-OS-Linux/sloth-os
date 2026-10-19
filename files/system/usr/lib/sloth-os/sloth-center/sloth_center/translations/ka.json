@@ -456,5 +456,8 @@
   "Bejelentkezés": "შესვლა",
   "Leválasztás": "გათიშვა",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "შედით გახსნილ ბრაუზერის ფანჯარაში. როცა დაასრულებთ, აქ თავისით გაგრძელდება.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "მზადაა: თქვენი ფაილები {folder} საქაღალდეშია."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "მზადაა: თქვენი ფაილები {folder} საქაღალდეშია.",
+  "Fájlok áthozása a Windowsból": "ფაილების გადმოტანა Windows-იდან",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "აკოპირებს სამუშაო მაგიდას, დოკუმენტებს, სურათებს და სხვა პირად საქაღალდეებს, ასევე ბრაუზერის სანიშნეებს ამ კომპიუტერის Windows-იდან. Windows არ იცვლება, მხოლოდ იკითხება.",
+  "Áthozás…": "გადმოტანა…"
 }

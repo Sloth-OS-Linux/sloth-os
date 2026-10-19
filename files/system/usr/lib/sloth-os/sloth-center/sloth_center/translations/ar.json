@@ -456,5 +456,8 @@
   "Bejelentkezés": "تسجيل الدخول",
   "Leválasztás": "قطع الاتصال",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "سجّل الدخول في نافذة المتصفح التي ستفتح. عند الانتهاء، سيكمل الأمر هنا تلقائيًا.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "تم: ملفاتك في المجلد {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "تم: ملفاتك في المجلد {folder}.",
+  "Fájlok áthozása a Windowsból": "نقل الملفات من Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "نسخ سطح المكتب والمستندات والصور والمجلدات الشخصية الأخرى وإشارات المتصفح المرجعية من Windows الموجود على هذا الحاسوب. لا يُغيَّر شيء في Windows، بل يُقرأ منه فقط.",
+  "Áthozás…": "نقل…"
 }

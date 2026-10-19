@@ -3,6 +3,7 @@ import grp
 import json
 import logging
 import os
+import shutil
 import subprocess
 import threading
 from pathlib import Path
@@ -10,13 +11,19 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, Qt, Signal, Slot
 from PySide6.QtWidgets import QApplication
 
-from sloth_common import sharing
+from sloth_common import sharing, windows_import
 
 from . import catalog, desktop, i18n
 from .i18n import tr
 from .installer import Installer
 
 log = logging.getLogger("sloth-welcome")
+
+
+def _size_text(nbytes):
+    if nbytes >= 1024**3:
+        return f"{nbytes / 1024**3:.1f} GB"
+    return f"{max(1, round(nbytes / 1024**2))} MB" if nbytes else "0 MB"
 
 CONFIG_DIR = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os"
 DONE_MARKER = CONFIG_DIR / "welcome-done"
@@ -25,9 +32,16 @@ DONE_MARKER = CONFIG_DIR / "welcome-done"
 # a lépéssorrend: üdvözlés, megjelenés, jelszavak, megosztás, kategóriánként egy lépés, telepítés, kész.
 STEAM = "com.valvesoftware.Steam"  # nincs előtelepítve: a Játékok lépésben választható
 
-PAGE_WELCOME, PAGE_LOOK, PAGE_CATEGORY, PAGE_INSTALL, PAGE_DONE, PAGE_SECURITY, PAGE_SHARING = range(7)
-STEPS = (["welcome", "look", "security", "sharing"] + [f"cat{i}" for i in range(len(catalog.CATEGORIES))]
-         + ["install", "done"])
+PAGE_WELCOME, PAGE_LOOK, PAGE_CATEGORY, PAGE_INSTALL, PAGE_DONE, PAGE_SECURITY, PAGE_SHARING, PAGE_WINDOWS = range(8)
+
+
+def build_steps(windows_only=False):
+    """A lépések sora. A Windows-lépés (fájlok áthozása) csak akkor van benne, ha a gépen van Windows-partíció;
+    windows_only: csak ez az egy lépés (sloth-welcome --windows-import, a Sloth Központ Lemezek oldaláról)."""
+    if windows_only:
+        return ["windows"]
+    return (["welcome", "look", "security", "sharing"] + (["windows"] if windows_import.candidates() else [])
+            + [f"cat{i}" for i in range(len(catalog.CATEGORIES))] + ["install", "done"])
 
 # Jelszavak: a "csak a kockázatos dolgokhoz" választásnál ezekhez nem kell jelszó (a Sloth Központ
 # Fiók és biztonság oldalán témakörönként is állítható; a mentést a sloth-helper admin-policy végzi)
@@ -49,8 +63,12 @@ class WelcomeController(QObject):
     _app_sig = Signal(str, str, str)
     _done_sig = Signal(object, object)
 
-    def __init__(self, parent=None):
+    _win_sig = Signal(object)   # a Windows-lépés háttérszálából: a frissített állapot
+
+    def __init__(self, parent=None, windows_only=False):
         super().__init__(parent)
+        self._windows_only = windows_only
+        self._steps = build_steps(windows_only)
         self._step = 0
         self._selected = []
         self._scheme = "SlothSilverDark"
@@ -72,11 +90,19 @@ class WelcomeController(QObject):
         self._app_sig.connect(self._on_app_state)
         self._done_sig.connect(self._on_done)
         self._installer = Installer(self._status_sig.emit, self._app_sig.emit, self._done_sig.emit)
+        # Windows-lépés: "idle" | "scanning" | "ready" | "copying" | "done" | "locked" | "none" | "failed" | "nospace"
+        self._win = {"state": "idle", "users": [], "user": "", "keys": [], "bookmarks": True,
+                     "done": 0, "total": 0, "result": {}, "need": 0, "free": 0}
+        self._win_mounts = []        # amit mi csatoltunk (a végén leválasztjuk)
+        self._win_cancel = threading.Event()
+        self._win_sig.connect(self._on_win)
+        if windows_only:
+            self._start_windows_scan()
 
     # --- Tulajdonságok ------------------------------------------------------
 
     def _step_name(self):
-        return STEPS[self._step]
+        return self._steps[self._step]
 
     @Property(int, notify=changed)
     def page(self):
@@ -84,7 +110,7 @@ class WelcomeController(QObject):
         if name.startswith("cat"):
             return PAGE_CATEGORY
         return {"welcome": PAGE_WELCOME, "look": PAGE_LOOK, "security": PAGE_SECURITY, "sharing": PAGE_SHARING,
-                "install": PAGE_INSTALL, "done": PAGE_DONE}[name]
+                "windows": PAGE_WINDOWS, "install": PAGE_INSTALL, "done": PAGE_DONE}[name]
 
     @Property(int, notify=changed)
     def categoryIndex(self):
@@ -97,11 +123,15 @@ class WelcomeController(QObject):
 
     @Property(int, constant=True)
     def stepCount(self):
-        return len(STEPS) - 2  # a telepítés és a kész oldal nem kérdés
+        return max(1, len(self._steps) - 2)  # a telepítés és a kész oldal nem kérdés
 
     @Property(int, notify=changed)
     def stepNumber(self):
-        return min(self._step + 1, len(STEPS) - 2)
+        return min(self._step + 1, self.stepCount)
+
+    @Property(bool, constant=True)
+    def windowsOnly(self):
+        return self._windows_only
 
     @Property("QVariantList", notify=changed)
     def selectedInCategory(self):
@@ -260,6 +290,160 @@ class WelcomeController(QObject):
                 log.warning("jelszó-beállítás: %s", e)
         threading.Thread(target=work, daemon=True).start()
 
+    # --- Fájlok áthozása a Windowsból (sloth_common/windows_import.py) ------------
+
+    @Property(str, notify=changed)
+    def windowsState(self):
+        return self._win["state"]
+
+    @Property("QVariantList", notify=changed)
+    def windowsUsers(self):
+        return [u["name"] for u in self._win["users"]]
+
+    @Property(str, notify=changed)
+    def windowsUser(self):
+        return self._win["user"]
+
+    @Property("QVariantList", notify=changed)
+    def windowsFolders(self):
+        """A kiválasztott Windows-fiók mappái: [{key, size (szövegként), selected}] (az üresek nélkül)."""
+        user = self._win_user()
+        if not user:
+            return []
+        return [{"key": key, "size": _size_text(size), "selected": key in self._win["keys"]}
+                for key, size in user["folders"].items() if size]
+
+    @Property(int, notify=changed)
+    def windowsBookmarkCount(self):
+        user = self._win_user()
+        return user["bookmarks"] if user else 0
+
+    @Property(bool, notify=changed)
+    def windowsBookmarks(self):
+        return self._win["bookmarks"]
+
+    @Property(int, notify=changed)
+    def windowsProgress(self):
+        total = self._win["total"]
+        return int(self._win["done"] * 100 / total) if total else -1
+
+    @Property(str, notify=changed)
+    def windowsDetail(self):
+        w = self._win
+        if w["state"] == "copying":
+            return f"{_size_text(w['done'])} / {_size_text(w['total'])}"
+        if w["state"] == "nospace":
+            return tr("windows.nospace", need=_size_text(w["need"]), free=_size_text(w["free"]))
+        if w["state"] == "done":
+            r = w["result"]
+            text = tr("windows.done", count=r.get("copied", 0) + r.get("skipped", 0))
+            if r.get("failed"):
+                text += " " + tr("windows.failed_some", count=len(r["failed"]))
+            return text
+        return ""
+
+    def _win_user(self):
+        return next((u for u in self._win["users"] if u["name"] == self._win["user"]), None)
+
+    def _start_windows_scan(self):
+        self._win.update(state="scanning")
+        self.changed.emit()
+
+        def work():
+            found, locked, failed = [], False, False
+            for part in windows_import.candidates():
+                if part["locked"]:
+                    locked = True
+                    continue
+                mnt, ours = windows_import.mount(part["device"])
+                if not mnt:
+                    failed = True
+                    continue
+                users = windows_import.users(mnt)
+                if ours:
+                    if users:
+                        self._win_mounts.append(part["device"])
+                    else:
+                        windows_import.unmount(part["device"])  # nem Windows-rendszer (pl. adatlemez)
+                found.extend(users)
+            state = "ready" if found else "locked" if locked else "failed" if failed else "none"
+            self._win_sig.emit({"state": state, "users": found})
+
+        threading.Thread(target=work, daemon=True).start()
+
+    def _on_win(self, update):
+        if "users" in update and update["users"] != self._win["users"]:
+            users = update["users"]
+            first = users[0] if users else None
+            self._win.update(user=first["name"] if first else "",
+                             keys=[k for k, size in first["folders"].items() if size] if first else [])
+        self._win.update(update)
+        self.changed.emit()
+
+    @Slot(str)
+    def setWindowsUser(self, name):
+        user = next((u for u in self._win["users"] if u["name"] == name), None)
+        if user and self._win["state"] == "ready":
+            self._win.update(user=name, keys=[k for k, size in user["folders"].items() if size])
+            self.changed.emit()
+
+    @Slot(str)
+    def toggleWindowsFolder(self, key):
+        keys = self._win["keys"]
+        if key in keys:
+            keys.remove(key)
+        else:
+            keys.append(key)
+        self.changed.emit()
+
+    @Slot(bool)
+    def setWindowsBookmarks(self, value):
+        self._win["bookmarks"] = value
+        self.changed.emit()
+
+    @Slot()
+    def startWindowsCopy(self):
+        user = self._win_user()
+        if not user or self._win["state"] != "ready":
+            return
+        keys = [k for k in self._win["keys"] if user["folders"].get(k)]
+        need = sum(user["folders"][k] for k in keys)
+        free = shutil.disk_usage(Path.home()).free
+        if need + 1024**3 > free:  # 1 GB tartalék
+            self._win.update(state="nospace", need=need, free=free)
+            self.changed.emit()
+            return
+        self._win.update(state="copying", done=0, total=need)
+        self._win_cancel.clear()
+        self.changed.emit()
+
+        def work():
+            result = windows_import.copy(
+                user["home"], keys, on_progress=lambda done, total, _n: self._win_sig.emit({"done": done, "total": total}),
+                cancelled=self._win_cancel.is_set)
+            if self._win["bookmarks"] and user["bookmarks"]:
+                try:
+                    windows_import.export_bookmarks(
+                        user["home"], windows_import.target_dir("desktop") / tr("windows.bookmarks_file"))
+                except OSError as e:
+                    log.warning("könyvjelzők: %s", e)
+            self._win_sig.emit({"state": "done", "result": result})
+
+        threading.Thread(target=work, daemon=True).start()
+
+    @Slot()
+    def retryWindows(self):
+        """A „nincs elég hely” után: vissza a választáshoz."""
+        if self._win["state"] == "nospace":
+            self._win["state"] = "ready"
+            self.changed.emit()
+
+    def release_windows(self):
+        self._win_cancel.set()
+        for device in self._win_mounts:
+            windows_import.unmount(device)
+        self._win_mounts = []
+
     # --- Navigáció ----------------------------------------------------------
 
     @Slot()
@@ -270,6 +454,13 @@ class WelcomeController(QObject):
             if not self._sharing:
                 return  # választani kell (a gomb addig nem aktív)
             sharing.set_enabled(self._sharing == "yes")
+        if self._step_name() == "windows":
+            if self._win["state"] in ("scanning", "copying"):
+                return  # amíg dolgozik, a gomb nem aktív
+            self.release_windows()
+            if self._windows_only:
+                QApplication.quit()
+                return
         if self.lastCategory:
             self.install()
             return
@@ -277,6 +468,8 @@ class WelcomeController(QObject):
             self._step += 1
             if self._step_name() == "cat0":
                 self._online = desktop.is_online()
+            if self._step_name() == "windows" and self._win["state"] == "idle":
+                self._start_windows_scan()
             self.changed.emit()
 
     @Slot()
@@ -322,10 +515,10 @@ class WelcomeController(QObject):
     def install(self):
         if not self._selected:
             self._summary = "done.nothing_selected"
-            self._step = STEPS.index("done")
+            self._step = self._steps.index("done")
             self.changed.emit()
             return
-        self._step = STEPS.index("install")
+        self._step = self._steps.index("install")
         self._status = tr("install.preparing")
         self._app_states = {a: "waiting" for a in self._selected}
         self.changed.emit()
@@ -337,6 +530,7 @@ class WelcomeController(QObject):
 
     @Slot(bool)
     def finish(self, restart=False):
+        self.release_windows()
         CONFIG_DIR.mkdir(parents=True, exist_ok=True)
         DONE_MARKER.touch()
         if self._installed and not restart:
@@ -371,5 +565,5 @@ class WelcomeController(QObject):
         else:
             self._summary = "done.all_failed"
         self._progress = 100
-        self._step = STEPS.index("done")
+        self._step = self._steps.index("done")
         self.changed.emit()

@@ -456,5 +456,8 @@
   "Bejelentkezés": "Σύνδεση",
   "Leválasztás": "Αποσύνδεση",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Συνδεθείτε στο παράθυρο του περιηγητή που θα ανοίξει. Όταν τελειώσετε, θα συνεχίσει εδώ αυτόματα.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Έτοιμο: τα αρχεία σας είναι στον φάκελο {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Έτοιμο: τα αρχεία σας είναι στον φάκελο {folder}.",
+  "Fájlok áthozása a Windowsból": "Μεταφορά αρχείων από τα Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Αντιγραφή της Επιφάνειας εργασίας, των Εγγράφων, των Εικόνων και των άλλων προσωπικών φακέλων, καθώς και των σελιδοδεικτών, από τα Windows αυτού του υπολογιστή. Τα Windows δεν αλλάζουν, μόνο διαβάζονται.",
+  "Áthozás…": "Μεταφορά…"
 }

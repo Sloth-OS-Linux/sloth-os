@@ -456,5 +456,8 @@
   "Bejelentkezés": "登入",
   "Leválasztás": "中斷連線",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "請在開啟的瀏覽器視窗中登入。完成後，這裡會自動繼續。",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "完成：您的檔案位於 {folder} 資料夾中。"
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "完成：您的檔案位於 {folder} 資料夾中。",
+  "Fájlok áthozása a Windowsból": "從 Windows 搬移檔案",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "從這台電腦上的 Windows 複製桌面、文件、圖片等個人資料夾以及瀏覽器書籤。不會更動 Windows，只讀取。",
+  "Áthozás…": "搬過來…"
 }

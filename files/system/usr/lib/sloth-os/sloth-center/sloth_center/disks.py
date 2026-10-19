@@ -10,6 +10,8 @@ import threading
 
 import gi
 
+from sloth_common import windows_import
+
 from .i18n import tr
 
 gi.require_version("Flatpak", "1.0")
@@ -110,11 +112,19 @@ class DisksController(QObject):
         self._busy = False
         self._drives_ready.connect(self._on_drives)
         self._cleanup_ready.connect(self._on_cleanup)
+        # van-e a gépen Windows-partíció (fájlok áthozása; csatolás nélkül nézzük)
+        self._windows = bool(windows_import.candidates())
         self.refresh()
 
     drives = Property("QVariantList", lambda self: list(self._drives), notify=changed)
     busy = Property(bool, lambda self: self._busy, notify=changed)
     cleanupText = Property(str, lambda self: self._cleanup, notify=changed)
+    hasWindows = Property(bool, lambda self: self._windows, constant=True)
+
+    @Slot()
+    def importFromWindows(self):
+        """A fájlok áthozása a Windowsból: az Üdvözlő ezzel az egy lépéssel (sloth_welcome, --windows-import)."""
+        subprocess.Popen(["sloth-welcome", "--windows-import"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     @Slot()
     def refresh(self):

@@ -456,5 +456,8 @@
   "Bejelentkezés": "ເຂົ້າສູ່ລະບົບ",
   "Leválasztás": "ຕັດການເຊື່ອມຕໍ່",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "ເຂົ້າສູ່ລະບົບໃນໜ້າຕ່າງບຣາວເຊີທີ່ເປີດຂຶ້ນ. ເມື່ອສຳເລັດ ຈະດຳເນີນຕໍ່ຢູ່ນີ້ເອງ.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "ສຳເລັດ: ໄຟລ໌ຂອງທ່ານຢູ່ໃນໂຟນເດີ {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "ສຳເລັດ: ໄຟລ໌ຂອງທ່ານຢູ່ໃນໂຟນເດີ {folder}.",
+  "Fájlok áthozása a Windowsból": "ນຳໄຟລ໌ມາຈາກ Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "ສຳເນົາໜ້າຈໍ, ເອກະສານ, ຮູບພາບ ແລະ ໂຟນເດີສ່ວນຕົວອື່ນໆ, ພ້ອມທັງບຸກມາກຂອງບຣາວເຊີ ຈາກ Windows ໃນຄອມພິວເຕີນີ້. ບໍ່ແຕະຕ້ອງ Windows, ພຽງແຕ່ອ່ານເທົ່ານັ້ນ.",
+  "Áthozás…": "ນຳມາ…"
 }

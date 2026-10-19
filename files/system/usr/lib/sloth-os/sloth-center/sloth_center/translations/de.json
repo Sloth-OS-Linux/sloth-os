@@ -456,5 +456,8 @@
   "Bejelentkezés": "Anmelden",
   "Leválasztás": "Trennen",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Melde dich im Browserfenster an, das sich öffnet. Danach geht es hier von selbst weiter.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Fertig: Deine Dateien sind im Ordner {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Fertig: Deine Dateien sind im Ordner {folder}.",
+  "Fájlok áthozása a Windowsból": "Dateien aus Windows übernehmen",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopiert Schreibtisch, Dokumente, Bilder und die anderen persönlichen Ordner sowie die Browser-Lesezeichen aus dem Windows auf diesem Computer. Windows bleibt unverändert, es wird nur gelesen.",
+  "Áthozás…": "Übernehmen…"
 }

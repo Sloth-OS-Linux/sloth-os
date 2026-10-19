@@ -456,5 +456,8 @@
   "Bejelentkezés": "Logi sisse",
   "Leválasztás": "Katkesta ühendus",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Logi sisse avanevas brauseriaknas. Kui oled valmis, jätkub siin kõik iseenesest.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Valmis: sinu failid on kaustas {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Valmis: sinu failid on kaustas {folder}.",
+  "Fájlok áthozása a Windowsból": "Too failid Windowsist üle",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Kopeerib selle arvuti Windowsist töölaua, dokumendid, pildid ja muud isiklikud kaustad ning brauseri järjehoidjad. Windowsit ei muudeta, sealt ainult loetakse.",
+  "Áthozás…": "Too üle…"
 }

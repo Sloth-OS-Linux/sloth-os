@@ -456,5 +456,8 @@
   "Bejelentkezés": "ছাইন ইন",
   "Leválasztás": "সংযোগ বিচ্ছিন্ন কৰক",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "খোল খোৱা ব্ৰাউজাৰ উইণ্ড'ত ছাইন ইন কৰক। শেষ হ'লে ইয়াত নিজে নিজে আগবাঢ়িব।",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "সম্পূৰ্ণ: আপোনাৰ ফাইলবোৰ {folder} ফ'ল্ডাৰত আছে।"
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "সম্পূৰ্ণ: আপোনাৰ ফাইলবোৰ {folder} ফ'ল্ডাৰত আছে।",
+  "Fájlok áthozása a Windowsból": "Windows-ৰ পৰা ফাইল আনক",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "এই কম্পিউটাৰৰ Windows-ৰ পৰা ডেস্কটপ, নথিপত্ৰ, ছবি আৰু অন্য নিজা ফ'ল্ডাৰ, লগতে ব্ৰাউজাৰ বুকমাৰ্ক কপি কৰক। Windows-ত একো সলনি নকৰে, কেৱল পঢ়ে।",
+  "Áthozás…": "আনক…"
 }

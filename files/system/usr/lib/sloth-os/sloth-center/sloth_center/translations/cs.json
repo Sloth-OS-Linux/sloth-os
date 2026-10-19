@@ -456,5 +456,8 @@
   "Bejelentkezés": "Přihlásit se",
   "Leválasztás": "Odpojit",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Přihlaste se v okně prohlížeče, které se otevře. Až budete hotovi, bude to tady pokračovat samo.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Hotovo: vaše soubory jsou ve složce {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Hotovo: vaše soubory jsou ve složce {folder}.",
+  "Fájlok áthozása a Windowsból": "Přenést soubory z Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Zkopíruje Plochu, Dokumenty, Obrázky a další osobní složky i záložky prohlížeče z Windows na tomto počítači. Windows nemění, jen z nich čte.",
+  "Áthozás…": "Přenést…"
 }

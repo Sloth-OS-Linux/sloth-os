@@ -456,5 +456,8 @@
   "Bejelentkezés": "로그인",
   "Leválasztás": "연결 끊기",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "열리는 브라우저 창에서 로그인하세요. 완료되면 여기서 자동으로 계속됩니다.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "완료: 파일이 {folder} 폴더에 있습니다."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "완료: 파일이 {folder} 폴더에 있습니다.",
+  "Fájlok áthozása a Windowsból": "Windows에서 파일 가져오기",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "이 컴퓨터의 Windows에서 바탕 화면, 문서, 사진 등 개인 폴더와 브라우저 북마크를 복사합니다. Windows는 건드리지 않고 읽기만 합니다.",
+  "Áthozás…": "가져오기…"
 }

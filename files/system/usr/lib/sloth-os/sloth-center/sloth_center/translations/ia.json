@@ -456,5 +456,8 @@
   "Bejelentkezés": "Aperir session",
   "Leválasztás": "Disconnecter",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Aperi session in le fenestra del navigator que se aperi. Quando tu ha finite, il continua hic per se.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Facite: tu files es in le dossier {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Facite: tu files es in le dossier {folder}.",
+  "Fájlok áthozása a Windowsból": "Transferer files ab Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Copia le scriptorio, documentos, imagines e altere dossieres personal, e le marcapaginas del navigator, ab le Windows de iste computator. Windows non es tangite, solmente legite.",
+  "Áthozás…": "Transferer…"
 }

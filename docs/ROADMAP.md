@@ -297,8 +297,15 @@ Talált hibák (egyesével javítjuk):
    - [ ] **A gép alaphelyzetbe állítása** („Reset this PC”): a fájlok megtartásával vagy mindent törölve; a
      rendszerbeállítások gyári állapotra, frissítés a legújabb verzióra. Sloth Központból, és ha a rendszer nem
      indul, a boot menüből is
-   - [ ] **Átköltözés Windowsról:** Windows mellé telepítéskor az Üdvözlő felajánlja a Dokumentumok, Képek, Asztal,
-     Zene, Videók mappák és a böngésző-könyvjelzők áthozását
+   - [x] **Átköltözés Windowsról** (2026-10-19): az Üdvözlőben új lépés a megosztás után (csak ha van NTFS- vagy
+     BitLockeres partíció; induláskor nem csatol, így nem kér jelszót), és a Sloth Központ Lemezek oldaláról is
+     (`sloth-welcome --windows-import`). A Windows-partíciót csak olvasásra csatolja (udisksctl), és a végén (bezáráskor
+     is) leválasztja. Asztal, Dokumentumok, Letöltések, Zene, Képek, Videók a megfelelő mappákba (xdg-user-dir), előtte
+     helyellenőrzés; ami már ott van, kimarad (folytatható), az ütköző név „(Windows)” utótagot kap; a `.lnk`, a
+     `desktop.ini` és a junctionök kimaradnak. Könyvjelzők (Chrome, Edge, Firefox) egy HTML-fájlba az Asztalra. A
+     OneDrive-mappa kimarad (Felhőtárhely). BitLockernél, hibánál érthető üzenet. `sloth_common/windows_import.py`,
+     50 nyelven. Kipróbálva egy valódi NTFS-partíción (loop eszköz) és az Üdvözlő felületén (offscreen, képernyőképekkel);
+     valódi Windows mellett még tesztelni
 
 **Fontos, de a publikálást nem akadályozza:**
 - [x] **OneDrive és Google Drive mappaként** (2026-10-19): rclone (Fedora RPM, mindkettőhöz), mint a Windows

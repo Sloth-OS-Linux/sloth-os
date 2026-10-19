@@ -456,5 +456,8 @@
   "Bejelentkezés": "Entrar",
   "Leválasztás": "Desconectar",
   "Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.": "Entre na janela do navegador que vai abrir. Quando terminar, continua aqui sozinho.",
-  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Pronto: seus arquivos estão na pasta {folder}."
+  "Kész: a fájljaid a(z) {folder} mappában vannak.": "Pronto: seus arquivos estão na pasta {folder}.",
+  "Fájlok áthozása a Windowsból": "Trazer arquivos do Windows",
+  "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Copia a Área de trabalho, Documentos, Imagens e as outras pastas pessoais, além dos favoritos do navegador, do Windows deste computador. O Windows não é alterado, só é lido.",
+  "Áthozás…": "Trazer…"
 }
