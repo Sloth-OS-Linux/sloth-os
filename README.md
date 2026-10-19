@@ -8,6 +8,9 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 - **Build:** [BlueBuild](https://blue-build.org) + GitHub Actions; a new image is built after every commit (daily
   builds will be switched back on once the repository is public)
 
+Website and user guides: [`website/`](website/README.md) (published with GitHub Pages once the repository is
+public).
+
 ## Windows programs that just start
 
 Double-click a Windows `.exe` or `.msi` and it installs or runs, without Steam and without the user ever
