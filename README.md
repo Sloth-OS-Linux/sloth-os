@@ -119,6 +119,8 @@ On NVIDIA machines, do the same with `sloth-os-nvidia`.
 
 Sloth OS has its own live system and installer (no Anaconda): see [`iso/README.md`](iso/README.md). Build it with
 `tools/build-iso.sh` (Linux) or `tools/build-iso.ps1` (Windows).
+On Windows, `tools/write-usb.ps1` writes the newest ISO from `out/` to a USB stick and verifies it
+(it asks for administrator approval; the stick is erased, only USB disks up to 256 GB are accepted).
 
 ## License
 
