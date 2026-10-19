@@ -1,0 +1,10 @@
+[Unit]
+Description=Sloth OS: a rendszer gyökere ne látszódjon meghajtóként a Dolphinban
+After=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/hide-root-overlay
+
+[Install]
+WantedBy=multi-user.target

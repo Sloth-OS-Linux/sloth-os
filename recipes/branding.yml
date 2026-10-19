@@ -40,6 +40,7 @@ modules:
     system:
       enabled:
         - sloth-boot-ok.service
+        - sloth-hide-root-overlay.service # a Dolphinban ne látszódjon a rendszer gyökere (128 TB-os meghajtó)
         - sloth-first-user.service   # az első fiók a telepítő adataiból (a KDE Plasma Setup helyett)
         - sloth-signed-updates.timer # a régebbi telepítések frissítései is aláírás-ellenőrzéssel
         - sloth-boot-order.service   # Windows mellett: ha a Windows a sorrend elejére tette magát, vissza

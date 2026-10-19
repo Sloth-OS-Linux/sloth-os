@@ -15,7 +15,8 @@ find_esp() {
   local root disk
   root=$(findmnt -no SOURCE /sysroot 2>/dev/null || findmnt -no SOURCE /)
   root=${root%%[*}   # btrfs: /dev/sda3[/subvol]
-  disk=$(lsblk -no PKNAME "$root" | head -n1)
+  # a lemez az ősök közül (titkosításnál a gyökér /dev/mapper/…, a szülője a partíció, csak annak a szülője a lemez)
+  disk=$(lsblk -nspo NAME,TYPE "$root" | awk '$2 == "disk" { sub(/^.*\//, "", $1); print $1; exit }')
   [[ -n $disk ]] || return 1
   # Windows mellett két EFI partíció is van a lemezen: a Sloth OS sajátja az "EFI-SYSTEM" nevű
   # (a telepítő így hozza létre); ha nincs ilyen, az első

@@ -447,7 +447,8 @@ def format_and_mount(parts, passphrase=""):
         parts["luks_uuid"] = run(["cryptsetup", "luksUUID", parts["root"]]).strip()
         root_dev = str(CRYPT_DEV)
     parts["root_dev"] = root_dev
-    run(["mkfs.btrfs", "--force", "--label", "root", root_dev])
+    # a címke a Dolphin eszközlistájában a meghajtó neve (a rendszerindítás UUID-t használ)
+    run(["mkfs.btrfs", "--force", "--label", "Sloth OS", root_dev])
     run(["mkfs.ext4", "-F", "-q", "-L", "sloth-tmp", parts["scratch"]])
     mount_target(root_dev, parts["esp"], parts["scratch"], parts.get("boot"))
 

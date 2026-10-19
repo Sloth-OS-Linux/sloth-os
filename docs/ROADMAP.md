@@ -222,14 +222,18 @@ Talált hibák (egyesével javítjuk):
 - [ ] Üdvözlő internet nélkül: az app-oldalakon a „Kihagyom” nem lép tovább (VM, 2026-10-19)
 - [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
   megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet)
-- [ ] **Dolphin, Eszközök: a névtelen, 128 TB-os meghajtó a 2026-10-19-i ISO-n is megmaradt** (az udev-szabály
-  nem rejtette el, vagy nem a composefs volt). Megmutatni, terminál nélkül:
-  1. Dolphin, bal oldalt az Eszközök alatt jobb klikk a névtelen meghajtóra → Tulajdonságok: fotó az ablakról
-     (látszik az eszköz neve, pl. `/dev/loop0` vagy `/dev/nvme0n1p3`, és a csatolási pont). Ha nincs Tulajdonságok:
-     rákattintani, és fotó a címsorról (mi nyílik meg)
-  2. Sloth Központ → Rendszer egészség → Napló mentése: az elején a lemezek, csatolások, loop eszközök, és
-     (2026-10-19 óta) a `udisksctl dump`, vagyis pontosan az, amit a Dolphin lát (méret, név, rejtett-e)
-  3. A mentett fájlt (vagy a fotókat) elküldeni; ebből kiderül, melyik eszköz, és miért nem hat rá a szabály
+- [x] **Dolphin, Eszközök: a névtelen, 128 TB-os meghajtó** (2026-10-19 este, a felhasználó képei és a mentett
+  napló alapján): nem loop eszköz (a gépen nincs), hanem maga a rendszer gyökere, a /-re csatolt composefs overlay.
+  A KDE Solid az overlay csatolások közül szándékosan mutatja a /-re csatoltat (élő rendszerekhez), és csak az
+  /etc/fstab `x-gvfs-hide` opciójával rejthető el (upstream nincs rá javítás). Javítva:
+  `sloth-hide-root-overlay.service` pótolja a `composefs / overlay ro,noauto,x-gvfs-hide 0 0` sort (a meglévő
+  gépeken is). VM-ben kipróbálva: `StorageAccess.ignored = true`, újraindítás után a systemd-remount-fs rendben.
+  A 128 TiB a „Tulajdonságok” rekurzív mérete, benne a /proc/kcore virtuális méretével. Mellette a rendszerpartíció
+  „root” néven látszott (a Dolphin a fájlrendszer címkéjét mutatja, az udev-név nem hat): az új telepítő „Sloth OS”
+  címkét ad; a korábbi telepítéseken marad a „root”
+- [x] **A sikeres indítás jelzése titkosított lemezen nem működött** (VM, 2026-10-19): a `boot-env` a
+  /dev/mapper/… gyökér szülőjét (a partíciót) vette lemeznek, „Nincs EFI partíció.”, a sloth-boot-ok.service
+  hibás, így minden indításnál előjött volna a boot menü. Javítva: a lemez az ősláncból (`lsblk -s`)
 - [x] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik. Első javítás (2026-10-19, nem elég, lásd fent): a
   névtelen bejegyzés a composefs (a Fedora 42 óta csak olvasható rendszerkép) loop eszköze volt; a 128 TB
   valószínűleg a /proc/kcore virtuális mérete a gyökér méretszámításában. Udev-szabály rejti el
@@ -280,7 +284,28 @@ Talált hibák (egyesével javítjuk):
 7. [ ] **A fordítások anyanyelvi átnézése** legalább a leggyakoribb nyelveken (angol, német, spanyol, francia…);
    a többi maradhat gépi, jelölve
 
+8. [ ] **Windowsról érkezőknek hiányzó alapok** (2026-10-19, a felhasználóval egyeztetve; a munka méretét még
+   egyeztetni):
+   - [ ] **Saját fájlok mentése és visszaállítása:** automatikus Btrfs-pillanatképek a home-ról (óránként / naponta,
+     a régiek maguktól törlődnek), a Dolphinban jobb klikk → „Korábbi verziók” (mint a Windowsban), a Sloth
+     Központban kapcsoló a külső lemezre mentéshez és a visszaállításhoz
+   - [ ] **A gép alaphelyzetbe állítása** („Reset this PC”): a fájlok megtartásával vagy mindent törölve; a
+     rendszerbeállítások gyári állapotra, frissítés a legújabb verzióra. Sloth Központból, és ha a rendszer nem
+     indul, a boot menüből is
+   - [ ] **Átköltözés Windowsról:** Windows mellé telepítéskor az Üdvözlő felajánlja a Dokumentumok, Képek, Asztal,
+     Zene, Videók mappák és a böngésző-könyvjelzők áthozását
+
 **Fontos, de a publikálást nem akadályozza:**
+- [ ] **OneDrive és Google Drive a Dolphinban:** a Google Drive a KDE Online fiókjaival (kio-gdrive), a OneDrive-hoz
+  külön kliens kell (megnézni, melyik karbantartott és Flatpakként vagy RPM-ként elérhető); bekapcsolás GUI-ból
+- [ ] **Telefon összekötése** (a Windows „Phone Link” megfelelője): a KDE Connect a karcsúsításnál kikerült;
+  az Üdvözlőben legyen választható (Flatpak), és a tűzfalban a portjai nyíljanak meg hozzá
+- [ ] **BIOS/firmware frissítés** (fwupd, LVFS; a HP is támogatja): megnézni, hogy a Discover mutatja-e; ha nem, a
+  Sloth Központ Frissítések oldalára
+- [ ] **Nyomtató és szkenner:** megnézni, benne van-e a `hplip` (HP) és egy szkennelő app (pl. Skanpage) az
+  image-ben; teszt egy HP nyomtatóval
+- [ ] **Gyerekfiók és szülői felügyelet:** képernyőidő, mit telepíthet, mely appokat indíthatja; a Sloth Központ
+  Fiók és biztonság oldalán
 - [ ] **Minden app frissítése egy helyen, a Discoverben** (döntés: 2026-10-16). A Discover már most minden Flatpakot
   frissít, amit az Üdvözlő a Flathubról telepít (ezért frissítette rögtön a Steamet is). Hátravan:
   - [ ] **Saját Flatpak-tároló a GitHub-csomagos appoknak** (pl. ArtCraft; ez az első lépés): egy GitHub Action a

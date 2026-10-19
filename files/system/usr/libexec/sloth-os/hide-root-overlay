@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+# A Dolphin Eszközök listájában a rendszer gyökere (composefs, egy "overlay" csatolás a /-en) névtelen, 128 TB-os
+# meghajtóként látszott. A KDE Solid az overlay csatolások közül csak a /-re csatoltat mutatja, és csak az
+# x-gvfs-hide opcióval rejthető el, amit az /etc/fstab-ból olvas. Ezt a sort pótoljuk, ha hiányzik.
+# A noauto miatt a rendszer nem csatolja, az ro miatt a systemd-remount-fs újracsatolása sem változtat semmit
+# (VM-ben kipróbálva, 2026-10-19). Az /etc/fstab többi sorához (pl. a bootc /boot sora) nem nyúlunk.
+set -euo pipefail
+
+FSTAB=/etc/fstab
+LINE="composefs / overlay ro,noauto,x-gvfs-hide 0 0"
+
+[[ "$(findmnt -no FSTYPE /)" == overlay ]] || exit 0
+[[ -f $FSTAB ]] && grep -qE '^[^#[:space:]]+[[:space:]]+/[[:space:]]+overlay[[:space:]]' "$FSTAB" && exit 0
+
+{
+    echo "# Sloth OS: a rendszer gyökere ne látszódjon meghajtóként a Dolphinban (/usr/libexec/sloth-os/hide-root-overlay)"
+    echo "$LINE"
+} >> "$FSTAB"
+echo "Az /etc/fstab kiegészítve: $LINE"

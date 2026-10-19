@@ -1,12 +1,12 @@
 # A Dolphin (és minden UDisks-alapú program) eszközlistájának rendbetétele. Csak a megjelenítést
 # érinti: a csatolásokhoz, partíciókhoz és fájlrendszerekhez nem nyúl.
 
-# A rendszer csak olvasható képe (composefs, Fedora 42 óta). Az ostree egy loop eszközön csatolja
-# (a Fedora 44 libmountja szándékosan nem a fájlból csatolja az EROFS-t). A Dolphin eddig névtelen
-# meghajtóként mutatta, értelmetlen mérettel (a „Tulajdonságok” a /proc/kcore 128 TiB-os virtuális
-# méretét is beleszámolta). A valódi lemez és a rendszerpartíció továbbra is látszik.
+# A rendszer csak olvasható képe (composefs, Fedora 42 óta), ha az ostree loop eszközön csatolja. A Dolphin
+# névtelen, 128 TB-os meghajtója viszont nem ez volt (a valódi gépen nincs loop eszköz), hanem maga a /-re csatolt
+# composefs overlay: azt a KDE Solid az /etc/fstab alapján mutatja, és a sloth-hide-root-overlay.service rejti el.
 SUBSYSTEM=="block", KERNEL=="loop*", ATTR{loop/backing_file}=="*/.ostree.cfs", ENV{UDISKS_IGNORE}="1"
 SUBSYSTEM=="block", KERNEL=="loop*", ENV{ID_FS_TYPE}=="erofs", ENV{UDISKS_IGNORE}="1"
 
-# A rendszerpartíció („root” címkéjű Btrfs, a Sloth OS telepítője így hozza létre) olvasható néven
+# A rendszerpartíció olvasható néven. A Dolphin a fájlrendszer címkéjét mutatja, ezt nem: a 2026-10-19 utáni
+# telepítő ezért eleve „Sloth OS” címkével hozza létre; ez a szabály a korábbi („root” címkéjű) telepítésekhez kell
 SUBSYSTEM=="block", ENV{ID_FS_TYPE}=="btrfs", ENV{ID_FS_LABEL}=="root", ENV{UDISKS_NAME}="Sloth OS"
