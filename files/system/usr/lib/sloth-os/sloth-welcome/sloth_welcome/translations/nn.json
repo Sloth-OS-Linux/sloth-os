@@ -163,10 +163,7 @@
 
   "install.preparing": "Gjer klar til installasjon…",
   "install.retrying": "Tilkoplinga vart broten, prøver igjen…",
-  "install.downloading": "Lastar ned {name}…",
   "install.installing": "Installerer {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB lasta ned",
   "install.note": "Avhengig av tilkoplinga kan dette ta nokre minutt.",
 
   "error.network": "Inga internettilkopling, eller tenaren kan ikkje nåast.",

@@ -163,10 +163,7 @@
 
   "install.preparing": "Se pregătește instalarea…",
   "install.retrying": "Conexiunea s-a întrerupt, se reîncearcă…",
-  "install.downloading": "Se descarcă {name}…",
   "install.installing": "Se instalează {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB descărcați",
   "install.note": "În funcție de conexiune, poate dura câteva minute.",
 
   "error.network": "Nu există conexiune la internet sau serverul nu poate fi accesat.",

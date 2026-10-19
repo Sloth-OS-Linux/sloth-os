@@ -163,10 +163,7 @@
 
   "install.preparing": "Berei installasie voor…",
   "install.retrying": "Die verbinding is verbreek, probeer weer…",
-  "install.downloading": "Laai {name} af…",
   "install.installing": "Installeer {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB afgelaai",
   "install.note": "Afhangend van jou verbinding kan dit 'n paar minute duur.",
 
   "error.network": "Geen internetverbinding nie, of die bediener is nie bereikbaar nie.",

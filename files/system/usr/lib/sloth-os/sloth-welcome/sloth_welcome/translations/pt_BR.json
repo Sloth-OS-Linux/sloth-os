@@ -163,10 +163,7 @@
 
   "install.preparing": "Preparando a instalação…",
   "install.retrying": "A conexão caiu, tentando novamente…",
-  "install.downloading": "Baixando {name}…",
   "install.installing": "Instalando {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB baixados",
   "install.note": "Dependendo da sua conexão, isso pode levar alguns minutos.",
 
   "error.network": "Sem conexão com a internet, ou o servidor não está acessível.",

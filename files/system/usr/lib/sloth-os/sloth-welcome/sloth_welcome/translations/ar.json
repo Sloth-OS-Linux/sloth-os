@@ -163,10 +163,7 @@
 
   "install.preparing": "جارٍ التحضير للتثبيت…",
   "install.retrying": "انقطع الاتصال، جارٍ إعادة المحاولة…",
-  "install.downloading": "جارٍ تنزيل {name}…",
   "install.installing": "جارٍ تثبيت {name}…",
-  "install.mb": "{mb} م.ب",
-  "install.mb_downloaded": "تم تنزيل {mb} م.ب",
   "install.note": "قد يستغرق ذلك بضع دقائق حسب سرعة الاتصال.",
 
   "error.network": "لا يوجد اتصال بالإنترنت، أو تعذّر الوصول إلى الخادم.",

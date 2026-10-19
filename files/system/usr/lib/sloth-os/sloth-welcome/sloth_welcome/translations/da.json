@@ -163,10 +163,7 @@
 
   "install.preparing": "Gør klar til installation…",
   "install.retrying": "Forbindelsen blev afbrudt, prøver igen…",
-  "install.downloading": "Henter {name}…",
   "install.installing": "Installerer {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB hentet",
   "install.note": "Afhængigt af din forbindelse kan det tage et par minutter.",
 
   "error.network": "Ingen internetforbindelse, eller serveren kan ikke nås.",

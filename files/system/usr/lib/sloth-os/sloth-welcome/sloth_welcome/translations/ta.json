@@ -163,10 +163,7 @@
 
   "install.preparing": "நிறுவலுக்குத் தயாராகிறது…",
   "install.retrying": "இணைப்பு துண்டிக்கப்பட்டது, மீண்டும் முயல்கிறது…",
-  "install.downloading": "{name} பதிவிறக்கப்படுகிறது…",
   "install.installing": "{name} நிறுவப்படுகிறது…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB பதிவிறக்கப்பட்டது",
   "install.note": "இணைப்பைப் பொறுத்து இதற்குச் சில நிமிடங்கள் ஆகலாம்.",
 
   "error.network": "இணைய இணைப்பு இல்லை, அல்லது சேவையகத்தை அணுக முடியவில்லை.",

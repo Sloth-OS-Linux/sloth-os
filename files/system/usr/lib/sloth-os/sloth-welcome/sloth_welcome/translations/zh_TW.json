@@ -163,10 +163,7 @@
 
   "install.preparing": "正在準備安裝…",
   "install.retrying": "連線中斷，正在重試…",
-  "install.downloading": "正在下載 {name}…",
   "install.installing": "正在安裝 {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "已下載 {mb} MB",
   "install.note": "視網速而定，可能需要幾分鐘。",
 
   "error.network": "沒有網路連線，或無法連上伺服器。",

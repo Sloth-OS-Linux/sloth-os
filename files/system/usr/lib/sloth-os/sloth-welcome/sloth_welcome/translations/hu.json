@@ -163,10 +163,7 @@
 
   "install.preparing": "Felkészülés a telepítésre…",
   "install.retrying": "A kapcsolat megszakadt, újrapróbálom…",
-  "install.downloading": "{name} letöltése…",
   "install.installing": "{name} telepítése…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB letöltve",
   "install.note": "Ez a netkapcsolattól függően pár perc is lehet.",
 
   "error.network": "Nincs internetkapcsolat, vagy a szerver nem érhető el.",

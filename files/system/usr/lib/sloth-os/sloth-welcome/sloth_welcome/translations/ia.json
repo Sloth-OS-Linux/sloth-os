@@ -163,10 +163,7 @@
 
   "install.preparing": "Preparation del installation…",
   "install.retrying": "Le connexion se interrumpeva, nove tentativa…",
-  "install.downloading": "Discargamento de {name}…",
   "install.installing": "Installation de {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB discargate",
   "install.note": "Secundo tu connexion, isto pote durar alcun minutas.",
 
   "error.network": "Nulle connexion a Internet, o le servitor non es attingibile.",

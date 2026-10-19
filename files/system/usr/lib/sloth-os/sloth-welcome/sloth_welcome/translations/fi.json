@@ -163,10 +163,7 @@
 
   "install.preparing": "Valmistellaan asennusta…",
   "install.retrying": "Yhteys katkesi, yritetään uudelleen…",
-  "install.downloading": "Ladataan: {name}…",
   "install.installing": "Asennetaan: {name}…",
-  "install.mb": "{mb} Mt",
-  "install.mb_downloaded": "{mb} Mt ladattu",
   "install.note": "Yhteydestä riippuen tämä voi kestää muutaman minuutin.",
 
   "error.network": "Ei internetyhteyttä, tai palvelimeen ei saada yhteyttä.",

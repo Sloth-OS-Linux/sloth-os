@@ -163,10 +163,7 @@
 
   "install.preparing": "Припрема инсталације…",
   "install.retrying": "Веза је прекинута, покушавам поново…",
-  "install.downloading": "Преузимање: {name}…",
   "install.installing": "Инсталирање: {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "Преузето {mb} MB",
   "install.note": "У зависности од везе, ово може потрајати неколико минута.",
 
   "error.network": "Нема интернет везе или сервер није доступан.",

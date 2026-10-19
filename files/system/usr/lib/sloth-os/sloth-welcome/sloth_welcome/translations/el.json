@@ -163,10 +163,7 @@
 
   "install.preparing": "Προετοιμασία εγκατάστασης…",
   "install.retrying": "Η σύνδεση διακόπηκε, νέα προσπάθεια…",
-  "install.downloading": "Λήψη: {name}…",
   "install.installing": "Εγκατάσταση: {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "Λήφθηκαν {mb} MB",
   "install.note": "Ανάλογα με τη σύνδεσή σας, αυτό μπορεί να διαρκέσει λίγα λεπτά.",
 
   "error.network": "Δεν υπάρχει σύνδεση στο διαδίκτυο ή ο διακομιστής δεν είναι προσβάσιμος.",

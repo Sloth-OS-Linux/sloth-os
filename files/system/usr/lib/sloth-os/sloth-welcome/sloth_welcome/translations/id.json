@@ -163,10 +163,7 @@
 
   "install.preparing": "Menyiapkan pemasangan…",
   "install.retrying": "Koneksi terputus, mencoba lagi…",
-  "install.downloading": "Mengunduh {name}…",
   "install.installing": "Memasang {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB terunduh",
   "install.note": "Tergantung koneksi Anda, ini bisa memakan beberapa menit.",
 
   "error.network": "Tidak ada koneksi internet, atau server tidak dapat dijangkau.",

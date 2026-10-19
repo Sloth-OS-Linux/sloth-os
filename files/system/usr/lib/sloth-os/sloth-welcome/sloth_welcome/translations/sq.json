@@ -163,10 +163,7 @@
 
   "install.preparing": "Po përgatitet instalimi…",
   "install.retrying": "Lidhja u ndërpre, po riprovohet…",
-  "install.downloading": "Po shkarkohet {name}…",
   "install.installing": "Po instalohet {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "U shkarkuan {mb} MB",
   "install.note": "Në varësi të lidhjes, kjo mund të zgjasë disa minuta.",
 
   "error.network": "Nuk ka lidhje interneti ose shërbyesi nuk arrihet.",

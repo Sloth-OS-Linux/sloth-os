@@ -163,10 +163,7 @@
 
   "install.preparing": "Aheyyi n usebded…",
   "install.retrying": "Tuqqna tegzem, aɛraḍ tikkelt nniḍen…",
-  "install.downloading": "Asader n {name}…",
   "install.installing": "Asebded n {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB ttwasdren",
   "install.note": "Ɣef leḥsab n tuqqna, aya yezmer ad yeṭṭef kra n tesdatin.",
 
   "error.network": "Ulac tuqqna ɣer internet, neɣ aqeddac ur yettwaṭṭaf ara.",

@@ -52,8 +52,8 @@ nem volt benne, lásd fent).
 - **Verziószám:** „Sloth OS 1.0 (Fedora Atomic 44)”
 
 ### Következő teszt (új ISO a 2026-10-19-i változások CI-buildje után)
-- [ ] **Üdvözlő:** 4–5 app egyszerre: sorban, egyesével települnek; a felirat csak „X telepítése…”, alatta
-  „x MB / y MB”; nincs dupla sor; a végén Újraindítás, utána az ikonok a tálcán; Újraindítás nélkül is jók-e az ikonok
+- [ ] **Üdvözlő:** 4–5 app egyszerre: sorban, egyesével települnek; a felirat csak „X telepítése…” és a folyamatjelző
+  (2026-10-19 óta méret nélkül, a felhasználó kérésére); nincs dupla sor; a végén Újraindítás, utána az ikonok a tálcán; Újraindítás nélkül is jók-e az ikonok
 - [x] **Steam:** első indításkor jön-e az értesítés („A Steam első indítása”, „x MB letöltve”), eltűnik-e, amikor a
   Steam megnyílik; utána a `bootstrap_log.txt`. 2026-10-19: működik, jól írja ki
 - [ ] **Battle.net:** telepítés, indítás a Start menüből; nyitva marad-e; bejelentkezés, egy játék telepítése és

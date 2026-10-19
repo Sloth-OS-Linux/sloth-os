@@ -163,10 +163,7 @@
 
   "install.preparing": "Ruošiamasi diegimui…",
   "install.retrying": "Ryšys nutrūko, bandoma dar kartą…",
-  "install.downloading": "Atsisiunčiama: {name}…",
   "install.installing": "Diegiama: {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "Atsisiųsta {mb} MB",
   "install.note": "Priklausomai nuo ryšio, tai gali užtrukti kelias minutes.",
 
   "error.network": "Nėra interneto ryšio arba serveris nepasiekiamas.",

@@ -163,10 +163,7 @@
 
   "install.preparing": "Падрыхтоўка да ўсталявання…",
   "install.retrying": "Злучэнне перарвалася, спрабую зноў…",
-  "install.downloading": "Спампоўванне: {name}…",
   "install.installing": "Усталяванне: {name}…",
-  "install.mb": "{mb} МБ",
-  "install.mb_downloaded": "Спампавана {mb} МБ",
   "install.note": "У залежнасці ад злучэння гэта можа заняць некалькі хвілін.",
 
   "error.network": "Няма злучэння з інтэрнэтам, або сервер недаступны.",

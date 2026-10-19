@@ -163,10 +163,7 @@
 
   "install.preparing": "Kuruluma hazırlanılıyor…",
   "install.retrying": "Bağlantı koptu, yeniden deneniyor…",
-  "install.downloading": "{name} indiriliyor…",
   "install.installing": "{name} kuruluyor…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB indirildi",
   "install.note": "Bağlantınıza göre bu birkaç dakika sürebilir.",
 
   "error.network": "İnternet bağlantısı yok veya sunucuya ulaşılamıyor.",

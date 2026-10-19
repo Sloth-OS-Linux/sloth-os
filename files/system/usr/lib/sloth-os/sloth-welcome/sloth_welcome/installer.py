@@ -31,7 +31,6 @@ FLATHUB_REPO_URL = "https://dl.flathub.org/repo/flathub.flatpakrepo"
 USER_AGENT = "SlothOS-Welcome/1.0"
 # A Flathub-os hibák nagy része átmeneti hálózati gond, ezért újrapróbáljuk
 MAX_ATTEMPTS = 3
-MB = 1024 * 1024
 # A hibák fordítási kulcsként utaznak; a felület mutatja őket a választott nyelven
 NETWORK_ERROR = "error.network"
 
@@ -126,10 +125,9 @@ def bundle_asset(app, release):
     return next((a for a in release.get("assets", []) if a["name"].endswith(app["asset_suffix"])), None)
 
 
-def download_latest_bundle(app, on_status=lambda *a: None, release=None, on_bytes=None):
+def download_latest_bundle(app, release=None, on_bytes=None):
     """Legfrissebb Flatpak csomag a GitHub kiadásból, SHA256 ellenőrzéssel. -> (fájl, címke)"""
     name = app["name"]
-    on_status(tr("install.downloading", name=name), "", -1)
     release = release or latest_release(app)
     assets = {a["name"]: a["browser_download_url"] for a in release.get("assets", [])}
     bundle = bundle_asset(app, release)
@@ -140,11 +138,9 @@ def download_latest_bundle(app, on_status=lambda *a: None, release=None, on_byte
     expected = next((line.split()[0] for line in sums.splitlines()
                      if line.strip().endswith(bundle_name)), None)
 
-    def progress(done, total):
+    def progress(done, _total):
         if on_bytes:
             on_bytes(done)
-        pct = int(done * 100 / total) if total else -1
-        on_status(tr("install.downloading", name=name), tr("install.mb", mb=done // (1024 * 1024)), pct)
 
     data = _http_get(assets[bundle_name], progress)
     if not expected or hashlib.sha256(data).hexdigest() != expected:
@@ -188,7 +184,8 @@ class Installer:
         return f"app/{app_id}/{Flatpak.get_default_arch()}/stable"
 
     def _report(self, name, index, count, current=0, frac=0.0):
-        """Állapot: melyik app települ, és az összes letöltésből mennyi van meg.
+        """Állapot: melyik app települ („X telepítése…”) és a folyamatjelző. Letöltést és méretet nem írunk ki;
+        a folyamatjelző a letöltött bájtokból számol, mert az adja az idő nagy részét.
 
         current: a folyamatban lévő letöltés bájtjai; frac: az app saját haladása 0..1
         (csak akkor számít, ha a teljes méretet nem sikerült felmérni).
@@ -197,11 +194,9 @@ class Installer:
         total = max(self._progress["total"], done)
         if self._progress["total"]:
             overall = int(done * 100 / total)
-            detail = f"{tr('install.mb', mb=done // MB)} / {tr('install.mb', mb=total // MB)}"
         else:
             overall = int((index + frac) * 100 / max(1, count))
-            detail = tr("install.mb_downloaded", mb=done // MB) if done >= MB else ""
-        self._on_status(tr("install.installing", name=name), detail, min(99, overall))
+        self._on_status(tr("install.installing", name=name), "", min(99, overall))
 
     def _plan(self, inst, apps, failed):
         """A teljes letöltendő méret felmérése. -> {app_id: GitHub-kiadás} a csomagos appokhoz

@@ -163,10 +163,7 @@
 
   "install.preparing": "מתכוננים להתקנה…",
   "install.retrying": "החיבור נותק, מנסים שוב…",
-  "install.downloading": "מוריד את {name}…",
   "install.installing": "מתקין את {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "הורדו {mb} MB",
   "install.note": "בהתאם לחיבור, זה עשוי לקחת כמה דקות.",
 
   "error.network": "אין חיבור לאינטרנט, או שהשרת אינו זמין.",

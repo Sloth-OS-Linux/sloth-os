@@ -163,10 +163,7 @@
 
   "install.preparing": "Preparado de la instalado…",
   "install.retrying": "La konekto rompiĝis, reprovante…",
-  "install.downloading": "Elŝutado de {name}…",
   "install.installing": "Instalado de {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB elŝutitaj",
   "install.note": "Depende de via konekto, tio povas daŭri kelkajn minutojn.",
 
   "error.network": "Neniu interreta konekto, aŭ la servilo ne atingeblas.",

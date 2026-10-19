@@ -163,10 +163,7 @@
 
   "install.preparing": "正在准备安装…",
   "install.retrying": "连接中断，正在重试…",
-  "install.downloading": "正在下载 {name}…",
   "install.installing": "正在安装 {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "已下载 {mb} MB",
   "install.note": "视网速而定，可能需要几分钟。",
 
   "error.network": "没有网络连接，或无法访问服务器。",

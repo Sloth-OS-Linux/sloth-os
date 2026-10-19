@@ -163,10 +163,7 @@
 
   "install.preparing": "Príprava inštalácie…",
   "install.retrying": "Spojenie sa prerušilo, skúšam znova…",
-  "install.downloading": "Sťahovanie: {name}…",
   "install.installing": "Inštalácia: {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "Stiahnuté {mb} MB",
   "install.note": "V závislosti od pripojenia to môže trvať niekoľko minút.",
 
   "error.network": "Nie ste pripojení k internetu, alebo server nie je dostupný.",

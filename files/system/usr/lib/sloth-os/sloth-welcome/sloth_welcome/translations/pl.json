@@ -163,10 +163,7 @@
 
   "install.preparing": "Przygotowywanie instalacji…",
   "install.retrying": "Połączenie zostało przerwane, ponowna próba…",
-  "install.downloading": "Pobieranie: {name}…",
   "install.installing": "Instalowanie: {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "Pobrano {mb} MB",
   "install.note": "W zależności od połączenia może to potrwać kilka minut.",
 
   "error.network": "Brak połączenia z internetem lub serwer jest niedostępny.",

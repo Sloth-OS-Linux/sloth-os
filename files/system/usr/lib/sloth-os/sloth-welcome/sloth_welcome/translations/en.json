@@ -163,10 +163,7 @@
 
   "install.preparing": "Getting ready to install…",
   "install.retrying": "The connection dropped, trying again…",
-  "install.downloading": "Downloading {name}…",
   "install.installing": "Installing {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB downloaded",
   "install.note": "Depending on your connection, this may take a few minutes.",
 
   "error.network": "No internet connection, or the server can't be reached.",

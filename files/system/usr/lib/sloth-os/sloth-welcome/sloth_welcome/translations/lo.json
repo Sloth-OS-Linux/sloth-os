@@ -163,10 +163,7 @@
 
   "install.preparing": "ກຳລັງກຽມການຕິດຕັ້ງ…",
   "install.retrying": "ການເຊື່ອມຕໍ່ຂາດ, ກຳລັງລອງໃໝ່…",
-  "install.downloading": "ກຳລັງດາວໂຫຼດ {name}…",
   "install.installing": "ກຳລັງຕິດຕັ້ງ {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "ດາວໂຫຼດແລ້ວ {mb} MB",
   "install.note": "ອາດໃຊ້ເວລາສອງສາມນາທີ ຂຶ້ນກັບການເຊື່ອມຕໍ່ຂອງທ່ານ.",
 
   "error.network": "ບໍ່ມີການເຊື່ອມຕໍ່ອິນເຕີເນັດ ຫຼື ເຂົ້າເຊີບເວີບໍ່ໄດ້.",

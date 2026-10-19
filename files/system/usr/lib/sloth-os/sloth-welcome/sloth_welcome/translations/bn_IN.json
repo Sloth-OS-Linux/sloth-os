@@ -163,10 +163,7 @@
 
   "install.preparing": "ইনস্টলের প্রস্তুতি চলছে…",
   "install.retrying": "সংযোগ বিচ্ছিন্ন হয়েছে, আবার চেষ্টা চলছে…",
-  "install.downloading": "{name} ডাউনলোড হচ্ছে…",
   "install.installing": "{name} ইনস্টল হচ্ছে…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB ডাউনলোড হয়েছে",
   "install.note": "সংযোগের গতি অনুযায়ী এতে কয়েক মিনিট লাগতে পারে।",
 
   "error.network": "ইন্টারনেট সংযোগ নেই, অথবা সার্ভারে পৌঁছানো যাচ্ছে না।",

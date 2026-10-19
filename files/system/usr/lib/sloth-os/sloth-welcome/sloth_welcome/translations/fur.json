@@ -163,10 +163,7 @@
 
   "install.preparing": "Preparazion de instalazion…",
   "install.retrying": "La conession si è interote, o torni a provâ…",
-  "install.downloading": "Discjariament di {name}…",
   "install.installing": "Instalazion di {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB discjariâts",
   "install.note": "In base ae conession, al podarès volê cualchi minût.",
 
   "error.network": "Nissune conession a internet, o il servidôr nol è rivabil.",

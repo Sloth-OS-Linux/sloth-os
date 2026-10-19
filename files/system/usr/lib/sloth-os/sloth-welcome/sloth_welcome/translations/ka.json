@@ -163,10 +163,7 @@
 
   "install.preparing": "დაყენების მომზადება…",
   "install.retrying": "კავშირი გაწყდა, ვცდილობ ხელახლა…",
-  "install.downloading": "იტვირთება: {name}…",
   "install.installing": "ყენდება: {name}…",
-  "install.mb": "{mb} მბ",
-  "install.mb_downloaded": "ჩამოტვირთულია {mb} მბ",
   "install.note": "კავშირის მიხედვით, ამას რამდენიმე წუთი შეიძლება დასჭირდეს.",
 
   "error.network": "ინტერნეტთან კავშირი არ არის, ან სერვერი მიუწვდომელია.",

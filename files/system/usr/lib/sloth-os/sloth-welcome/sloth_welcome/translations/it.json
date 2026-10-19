@@ -163,10 +163,7 @@
 
   "install.preparing": "Preparazione dell'installazione…",
   "install.retrying": "La connessione si è interrotta, nuovo tentativo…",
-  "install.downloading": "Download di {name}…",
   "install.installing": "Installazione di {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB scaricati",
   "install.note": "A seconda della connessione, potrebbe volerci qualche minuto.",
 
   "error.network": "Nessuna connessione a Internet, oppure il server non è raggiungibile.",

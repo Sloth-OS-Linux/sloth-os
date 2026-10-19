@@ -163,10 +163,7 @@
 
   "install.preparing": "Gjør klar til installasjon…",
   "install.retrying": "Tilkoblingen ble brutt, prøver igjen…",
-  "install.downloading": "Laster ned {name}…",
   "install.installing": "Installerer {name}…",
-  "install.mb": "{mb} MB",
-  "install.mb_downloaded": "{mb} MB lastet ned",
   "install.note": "Avhengig av tilkoblingen kan dette ta noen minutter.",
 
   "error.network": "Ingen internettilkobling, eller serveren kan ikke nås.",
