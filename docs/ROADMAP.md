@@ -253,7 +253,9 @@ Talált hibák (egyesével javítjuk):
   - [ ] A Linuxos csomagok kezelője (lent) is a `~/Applications`-be telepítsen (AppImage), ugyanazzal a könyvtárral
 - [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
 - [x] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis (2026-10-19, lásd lent)
-- [ ] Haladó beállítások folyamatos bővítése – 3. fázis
+- [ ] Haladó beállítások folyamatos bővítése – 3. fázis. 2026-10-19: tömörített memória-tartalék (zram: alap /
+  nagyobb / ki, `sloth-helper zram`, a `/etc/systemd/zram-generator.conf`; Fedora 44-ben a zram-generatorral
+  ellenőrizve), PIN-kódos bejelentkezés (Fiók és biztonság)
 - [x] ISO-méret: a rétegek összevonása, helytakarékos ISO-build – 4. fázis (2026-10-19, lásd a 4. fázisnál)
 - [ ] A Vivaldi nem települt fel az Üdvözlőből (oka ismeretlen; a teszten figyelni). Lehetséges ok: a fenti
   automatikus app-frissítő egyszerre futott az Üdvözlővel (most kimarad, amíg az Üdvözlő fut)
@@ -491,8 +493,18 @@ jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal)
     hardver): ujjlenyomat (`fprintd`, felvétel a KDE Felhasználók moduljában, bekapcsolás `authselect`
     with-fingerprint), biztonsági kulcs (FIDO2/YubiKey: felvétel `pamu2fcfg`-vel, `authselect` with-pam-u2f), céges
     fiók (Active Directory: `realm join/leave` űrlapról). VM-ben és valódi hardveren még tesztelni.
-    Hátravan: PIN-kód (saját PAM-modul), arcfelismerés (Howdy nincs a Fedora repóban; most csak jelezzük, ha van
-    infrakamera), Entra ID, a jelszótároló nyitása jelszó nélküli belépésnél. Az eredeti terv:
+    Hátravan: Entra ID, a jelszótároló nyitása jelszó nélküli belépésnél. Az eredeti terv:
+  - [x] PIN-kód (2026-10-19; a PAM-rész Fedora 44 konténerben `pamtester`-rel kipróbálva:
+    `tools/tests/pin_pam_test.sh`, 14/14; VM-ben a bejelentkező és a zárolási képernyőn még megnézni): Sloth Központ →
+    Fiók és biztonság, 4–8 számjegy, a könnyen kitalálhatók (1111, 1234…) tiltva. Saját authselect-profil
+    (`vendor/sloth` = a Fedora `local` + with-sloth-pin, `files/scripts/pin-authselect.sh`); a pam_unix elé egy
+    `pam_exec` sor kerül (`/usr/libexec/sloth-os/pin-check`), így ugyanabba a mezőbe a jelszó és a PIN is beírható.
+    A PIN scrypt-hashként a `/etc/sloth-os/pin/<felhasználó>.json`-ban (`sloth-helper pin-set/pin-remove`); csak
+    helyi szolgáltatásokban fogadjuk el (bejelentkezés, zárolási képernyő, jóváhagyás), távolról (ssh) soha;
+    5 hibás próba után egyre hosszabb várakozás (legfeljebb 1 óra), közben a jelszó működik. TPM-es tárolás: később
+  - [x] Arcfelismerés: döntés (2026-10-19), egyelőre nem építjük be. A Howdy csak személyes COPR-okból érhető el,
+    és a PAM-ba kerülne (egy hibája a bejelentkezést érinti); ha van infrakamera, a Fiók és biztonság oldal ezt
+    elmagyarázza, és a PIN-t vagy az ujjlenyomatot ajánlja. Újranézni, ha a Fedorába bekerül egy karbantartott megoldás
   - Bejelentkezési módok a hardver alapján (varázsló + Sloth Központ; a gép felismeri, mit tud, és csak azt kínálja fel):
     jelszó; PIN-kód 4/6/8 számjeggyel (saját PAM-modul, csak a gépen tárolt hash, lehetőleg TPM-mel, sikertelen
     próbálkozások után várakozás); ujjlenyomat (`fprintd`, ha van támogatott olvasó); arcfelismerés (Howdy, csak

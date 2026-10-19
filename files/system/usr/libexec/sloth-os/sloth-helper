@@ -19,6 +19,10 @@ Műveletek:
   registry-login <registry> <felhasználó>        bejelentkezés egy image-tárolóba a frissítésekhez és az
                                                  image-váltáshoz (token a bemeneten; /etc/ostree/auth.json)
   registry-logout <registry>                     kijelentkezés
+  pin-set                                        PIN-kód a hívó felhasználónak (a PIN a bemeneten, 4–8 számjegy);
+                                                 bekapcsolja a "sloth" authselect-profil with-sloth-pin funkcióját
+  pin-remove                                     a hívó felhasználó PIN-kódjának törlése
+  zram default|more|off                          memóriatömörítés (zram swap) mérete a következő indulástól
 
 A verziókat érintő műveletek (pin, unpin, set-default) a sloth-helper-versions néven is
 elérhetők: ez külön polkit-művelet (org.slothos.helper.versions), hogy a „frissítések”
@@ -281,6 +285,104 @@ def registry_logout(registry):
     return {"ok": True}
 
 
+# --- PIN-kód (bejelentkezés; az ellenőrzés: /usr/libexec/sloth-os/pin-check) -------------------------
+
+PIN_DIR = "/etc/sloth-os/pin"
+PIN_STATE_DIR = "/var/lib/sloth-os/pin"
+PIN_RE = re.compile(r"^\d{4,8}$")
+
+
+def _caller():
+    uid = os.environ.get("PKEXEC_UID", "")
+    return pwd.getpwuid(int(uid)) if uid.isdigit() else None
+
+
+def _weak_pin(pin):
+    """Könnyen kitalálható: csupa egyforma számjegy, vagy egyesével növekvő / csökkenő sor."""
+    steps = {int(b) - int(a) for a, b in zip(pin, pin[1:])}
+    return len(set(pin)) == 1 or steps in ({1}, {-1})
+
+
+def _ensure_pin_profile(on):
+    """A "sloth" authselect-profil (a "local" + with-sloth-pin), a meglévő funkciók megtartásával."""
+    current = run(["authselect", "current", "--raw"]).stdout.split()
+    profile, features = (current[0], current[1:]) if current else ("", [])
+    features = [f for f in features if f != "with-sloth-pin"] + (["with-sloth-pin"] if on else [])
+    if profile in ("sloth", "vendor/sloth"):
+        r = run(["authselect", "enable-feature" if on else "disable-feature", "with-sloth-pin"])
+    elif on:
+        r = run(["authselect", "select", "sloth", *features, "--force", "--backup=sloth-os-pin"])
+    else:
+        return {"ok": True}
+    return {"ok": r.returncode == 0, "error": r.stderr.strip()}
+
+
+def pin_set(pin):
+    pw = _caller()
+    if pw is None:
+        return {"ok": False, "error": "csak pkexec-kel"}
+    if not PIN_RE.match(pin):
+        return {"ok": False, "error": "rossz PIN"}
+    if _weak_pin(pin):
+        return {"ok": False, "error": "gyenge PIN"}
+    import hashlib
+    import secrets
+    salt = secrets.token_bytes(16)
+    params = {"n": 2 ** 15, "r": 8, "p": 1}
+    digest = hashlib.scrypt(pin.encode(), salt=salt, maxmem=128 * 1024 * 1024, dklen=32, **params)
+    record = {"v": 1, "salt": salt.hex(), "hash": digest.hex(), "len": len(pin), **params}
+    os.makedirs(PIN_DIR, mode=0o755, exist_ok=True)
+    os.makedirs(PIN_STATE_DIR, mode=0o755, exist_ok=True)
+    path = os.path.join(PIN_DIR, f"{pw.pw_name}.json")
+    _write(path, json.dumps(record) + "\n", mode=0o640)
+    # a zárolási képernyő a felhasználó nevében ellenőriz: a csoportja olvashatja (a hash scrypt, sóval)
+    os.chown(path, 0, pw.pw_gid)
+    state = os.path.join(PIN_STATE_DIR, f"{pw.pw_name}.json")
+    if os.path.exists(state):
+        os.unlink(state)
+    return _ensure_pin_profile(True)
+
+
+def pin_remove():
+    pw = _caller()
+    if pw is None:
+        return {"ok": False, "error": "csak pkexec-kel"}
+    for path in (os.path.join(PIN_DIR, f"{pw.pw_name}.json"), os.path.join(PIN_STATE_DIR, f"{pw.pw_name}.json")):
+        if os.path.exists(path):
+            os.unlink(path)
+    # ha már senkinek nincs PIN-je, a funkció is ki
+    if not any(f.endswith(".json") for f in (os.listdir(PIN_DIR) if os.path.isdir(PIN_DIR) else [])):
+        return _ensure_pin_profile(False)
+    return {"ok": True}
+
+
+# --- Memóriatömörítés (zram) -------------------------------------------------------------------
+
+ZRAM_CONF = "/etc/systemd/zram-generator.conf"
+ZRAM_MARK = "# sloth-os: "
+# A Fedora alapja (/usr/lib/systemd/zram-generator.conf): zram-size = min(ram, 8192)
+ZRAM_SIZES = {"more": "min(ram * 1.5, 24576)", "off": None}
+
+
+def zram(mode):
+    if mode == "default":
+        if os.path.exists(ZRAM_CONF):
+            with open(ZRAM_CONF, encoding="utf-8") as f:
+                ours = f.readline().startswith(ZRAM_MARK)
+            if ours:
+                os.unlink(ZRAM_CONF)
+            else:  # kézzel írt fájl: félretesszük, nem töröljük
+                os.replace(ZRAM_CONF, ZRAM_CONF + ".bak")
+        return {"ok": True}
+    size = ZRAM_SIZES[mode]
+    text = f"{ZRAM_MARK}{mode} (Sloth Központ -> Haladó beállítások)\n"
+    # zram-eszköz nélküli fájl: nincs zram (a zram-generator dokumentációja szerint)
+    if size:
+        text += f"[zram0]\nzram-size = {size}\ncompression-algorithm = zstd\n"
+    _write(ZRAM_CONF, text)
+    return {"ok": True}
+
+
 def main(argv):
     if os.geteuid() != 0:
         print(json.dumps({"ok": False, "error": "root kell"}))
@@ -311,6 +413,12 @@ def main(argv):
         result = registry_login(args[0], args[1], sys.stdin.readline().strip())
     elif op == "registry-logout" and len(args) == 1 and REGISTRY_RE.match(args[0]):
         result = registry_logout(args[0])
+    elif op == "pin-set" and not args and not VERSIONS_ONLY:
+        result = pin_set(sys.stdin.readline().strip())
+    elif op == "pin-remove" and not args and not VERSIONS_ONLY:
+        result = pin_remove()
+    elif op == "zram" and args in (["default"], ["more"], ["off"]) and not VERSIONS_ONLY:
+        result = zram(args[0])
     elif op == "admin-policy" and not args and not VERSIONS_ONLY:
         try:
             request = json.loads(sys.stdin.read(4096) or "{}")

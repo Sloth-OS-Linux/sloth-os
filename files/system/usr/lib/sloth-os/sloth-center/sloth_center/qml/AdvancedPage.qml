@@ -74,6 +74,46 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Memóriatömörítés (zram) -------------------------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                Kirigami.Heading { level: 3; text: L.t("Tömörített memória-tartalék") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Ha a programok több memóriát kérnek, mint amennyi a gépben van, a rendszer a ritkán használt részeket tömörítve a memóriában tartja, így a gép nem akad meg olyan könnyen. Kevés memóriánál (8 GB vagy kevesebb) és nagy játékokhoz a nagyobb tartalék segít.")
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    text: advanced.zramText
+                }
+                Repeater {
+                    model: [
+                        { mode: "default", text: L.t("Alap (a memória méretével egyező, legfeljebb 8 GB)") },
+                        { mode: "more", text: L.t("Nagyobb (a memória másfélszerese, legfeljebb 24 GB)") },
+                        { mode: "off", text: L.t("Kikapcsolva (csak sok memóriánál ajánlott)") }
+                    ]
+                    delegate: QQC2.RadioButton {
+                        required property var modelData
+                        text: modelData.text
+                        checked: advanced.zramMode === modelData.mode
+                        onClicked: if (advanced.zramMode !== modelData.mode) advanced.setZramMode(modelData.mode)
+                    }
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    visible: advanced.zramMode === "custom"
+                    opacity: 0.8
+                    text: L.t("Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.")
+                }
+            }
+        }
+
         // --- Windows mellett: a Windows-oldali rendszerindítási segéd ------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

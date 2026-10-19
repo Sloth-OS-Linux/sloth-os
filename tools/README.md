@@ -26,3 +26,9 @@ words mixing Latin/Cyrillic/Greek letters and invisible characters).
 `python3 tools/tests/test_apps.py` tests the shared application management (`sloth_common.apps`: library,
 registry reading, launcher detection, migration from the old location, Steam import) with fake Windows
 environments. It needs Linux (symlinks, `cp --reflink`), but neither Qt nor Wine.
+
+`tools/tests/pin_pam_test.sh` tests PIN sign-in against real PAM (`pamtester`): run it as root in a throwaway
+Fedora container with the repository mounted at `/repo`, e.g.
+`podman run --rm -v .:/repo:ro registry.fedoraproject.org/fedora:44 bash /repo/tools/tests/pin_pam_test.sh`.
+It checks password and PIN in the same prompt, rejection over SSH, the lock screen running as the user,
+the lockout after repeated wrong PINs, and removal.

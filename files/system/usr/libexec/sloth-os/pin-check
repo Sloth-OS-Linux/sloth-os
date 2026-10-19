@@ -1,0 +1,99 @@
+#!/usr/bin/python3 -I
+"""PIN-kód ellenőrzése a bejelentkezéshez (pam_exec expose_authtok; az authselect "sloth" profil with-sloth-pin funkciója).
+
+A beírt jelszó a szabványos bemeneten jön. Ha nem csupa számjegy, ez nem PIN: azonnal továbbengedjük a
+jelszavas ellenőrzésnek (pam_unix), és hibának sem számít. A PIN csak helyben, engedélyezett szolgáltatásokban
+fogadható el (bejelentkező és zárolási képernyő, rendszergazdai jóváhagyás); távoli bejelentkezésnél soha.
+Több hibás próbálkozás után a PIN egyre hosszabb ideig nem használható (a jelszó igen).
+
+Adatok:
+  /etc/sloth-os/pin/<felhasználó>.json      a PIN scrypt-hashe (root tulajdon, a felhasználó csoportja olvashatja,
+                                            mert a zárolási képernyő a felhasználó nevében ellenőriz)
+  /var/lib/sloth-os/pin/<felhasználó>.json  hibás próbálkozások (a felhasználóé)
+Kilépési kód: 0 = jó PIN, minden más = nem (a pam_unix jön).
+"""
+import hashlib
+import hmac
+import json
+import os
+import pwd
+import re
+import sys
+import time
+
+PIN_DIR = "/etc/sloth-os/pin"
+STATE_DIR = "/var/lib/sloth-os/pin"
+# Helyi szolgáltatások, ahol a PIN elfogadható (a többinél, pl. ssh, csak a jelszó)
+SERVICES = {"login", "sddm", "plasmalogin", "plasma-login", "kde", "kscreensaver", "kscreenlocker",
+            "polkit-1", "sudo", "sudo-i", "su", "su-l"}
+FREE_TRIES = 5
+MAX_WAIT_S = 3600
+
+
+def _state_path(user):
+    return os.path.join(STATE_DIR, f"{user}.json")
+
+
+def _load(path):
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _save_state(user, state):
+    path = _state_path(user)
+    try:
+        tmp = f"{path}.{os.getpid()}"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(state, f)
+        if os.geteuid() == 0:
+            pw = pwd.getpwnam(user)
+            os.chown(tmp, pw.pw_uid, pw.pw_gid)
+        os.chmod(tmp, 0o600)
+        os.replace(tmp, path)
+    except OSError:
+        pass
+
+
+def main():
+    user = os.environ.get("PAM_USER", "")
+    service = os.environ.get("PAM_SERVICE", "")
+    rhost = os.environ.get("PAM_RHOST", "")
+    if not re.fullmatch(r"[a-z_][a-z0-9_.-]{0,31}", user) or service not in SERVICES:
+        return 1
+    if rhost and rhost not in ("localhost", "127.0.0.1", "::1"):
+        return 1
+    token = sys.stdin.buffer.read(64).split(b"\0", 1)[0].strip(b"\r\n")
+    if not re.fullmatch(rb"\d{4,8}", token):
+        return 1  # ez jelszó, nem PIN
+    record = _load(os.path.join(PIN_DIR, f"{user}.json"))
+    if record.get("v") != 1:
+        return 1
+    state = _load(_state_path(user))
+    now = time.time()
+    if state.get("until", 0) > now:
+        return 1  # túl sok hibás próbálkozás: most csak a jelszó
+    try:
+        digest = hashlib.scrypt(token, salt=bytes.fromhex(record["salt"]), n=int(record["n"]), r=int(record["r"]),
+                                p=int(record["p"]), maxmem=128 * 1024 * 1024, dklen=32)
+        ok = hmac.compare_digest(digest.hex(), record["hash"])
+    except (KeyError, ValueError, TypeError):
+        return 1
+    if ok:
+        if state:
+            _save_state(user, {})
+        return 0
+    fails = int(state.get("fails", 0)) + 1
+    until = now + min(MAX_WAIT_S, 30 * 2 ** (fails - FREE_TRIES)) if fails >= FREE_TRIES else 0
+    _save_state(user, {"fails": fails, "until": until})
+    return 1
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main())
+    except Exception:  # egy hiba soha ne engedjen be, és a jelszavas belépést se akassza meg
+        sys.exit(1)

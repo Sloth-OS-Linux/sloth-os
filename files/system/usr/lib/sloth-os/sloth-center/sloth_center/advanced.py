@@ -1,4 +1,4 @@
-"""Haladó beállítások: boot menü, kernelparaméterek, rendszercsomagok (RPM rétegezés).
+"""Haladó beállítások: boot menü, memóriatömörítés, kernelparaméterek, rendszercsomagok (RPM rétegezés).
 
 Az `rpm-ostree kargs`, `rpm-ostree install/uninstall` és a GRUB menü beállításának
 grafikus megfelelője. Minden változás a következő újraindításkor lép életbe, és a
@@ -23,10 +23,31 @@ log = logging.getLogger("sloth-center.advanced")
 
 HELPER = "/usr/libexec/sloth-os/sloth-helper"
 BOOT_MENU_MARKER = "/var/lib/sloth-os/boot-menu-visible"
+ZRAM_CONF = "/etc/systemd/zram-generator.conf"
 PKG_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._+-]{0,127}$")
 KARG_RE = re.compile(r"^[A-Za-z0-9_.\-]+(=[A-Za-z0-9_.,:/\-]+)?$")
 # Ezeket a rendszer kezeli; a felhasználó ne törölje véletlenül
 PROTECTED_KARGS = ("root=", "rootflags=", "ostree=", "rw", "BOOT_IMAGE=", "rd.luks", "resume=")
+
+
+def _meminfo_gb(key):
+    try:
+        for line in open("/proc/meminfo"):
+            if line.startswith(key + ":"):
+                return int(line.split()[1]) / 2 ** 20
+    except (OSError, ValueError):
+        pass
+    return 0.0
+
+
+def _zram_mode():
+    """"default" (a Fedora alapja), "more" vagy "off", a sloth-helper által írt fájl első sora szerint."""
+    try:
+        first = open(ZRAM_CONF, encoding="utf-8").readline()
+    except OSError:
+        return "default"
+    mode = first.removeprefix("# sloth-os: ").split(" ", 1)[0] if first.startswith("# sloth-os: ") else ""
+    return mode if mode in ("more", "off") else "custom"
 
 
 class AdvancedController(QObject):
@@ -45,6 +66,7 @@ class AdvancedController(QObject):
         self._kargs = []
         self._packages = []
         self._boot_visible = os.path.exists(BOOT_MENU_MARKER)
+        self._zram = "default"
         try:
             self._ostree = RpmOstree()
         except GLib.Error as e:
@@ -59,6 +81,21 @@ class AdvancedController(QObject):
     kernelArgs = Property("QVariantList", lambda self: list(self._kargs), notify=changed)
     packages = Property("QVariantList", lambda self: list(self._packages), notify=changed)
     bootMenuVisible = Property(bool, lambda self: self._boot_visible, notify=changed)
+    zramMode = Property(str, lambda self: self._zram, notify=changed)
+
+    @Property(str, notify=changed)
+    def zramText(self):
+        """A memória és a most használt tömörített tartalék mérete, emberi nyelven."""
+        mem = _meminfo_gb("MemTotal")
+        size = 0.0
+        try:
+            size = int(open("/sys/block/zram0/disksize").read()) / 2 ** 30
+        except (OSError, ValueError):
+            pass
+        if size:
+            return tr("Memória: {mem} GB. Most {size} GB tömörített tartalék van mellette.").format(
+                mem=f"{mem:.0f}", size=f"{size:.1f}".rstrip("0").rstrip("."))
+        return tr("Memória: {mem} GB. Most nincs tömörített tartalék.").format(mem=f"{mem:.0f}")
 
     # --- Windows mellett: a Windows-oldali rendszerindítási segéd ------------------------------------
 
@@ -102,6 +139,7 @@ class AdvancedController(QObject):
             self._kargs = [{"arg": a, "protected": a.startswith(PROTECTED_KARGS)} for a in args]
             self._packages = self._ostree.layered_packages()
         self._boot_visible = os.path.exists(BOOT_MENU_MARKER)
+        self._zram = _zram_mode()
         self.changed.emit()
 
     # --- Boot menü ------------------------------------------------------------------
@@ -117,6 +155,23 @@ class AdvancedController(QObject):
             log.warning("boot-menu: %s", e)
             ok = False
         if not ok:
+            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+        self.refresh()
+
+    # --- Memóriatömörítés (zram) -------------------------------------------------------
+
+    @Slot(str)
+    def setZramMode(self, mode):
+        self._error, self._info = "", ""
+        try:
+            r = subprocess.run(["pkexec", HELPER, "zram", mode], capture_output=True, text=True, timeout=60)
+            ok = json.loads(r.stdout or "{}").get("ok", False)
+        except (OSError, subprocess.SubprocessError, ValueError) as e:
+            log.warning("zram: %s", e)
+            ok = False
+        if ok:
+            self._info = tr("Elmentve. A következő újraindítástól érvényes.")
+        else:
             self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
         self.refresh()
 

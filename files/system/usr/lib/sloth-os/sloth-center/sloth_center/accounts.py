@@ -40,6 +40,7 @@ TOPICS = [
 RECOMMENDED = [t[0] for t in TOPICS if not t[3]]
 
 U2F_KEYS = Path.home() / ".config/Yubico/u2f_keys"
+PIN_DIR = Path("/etc/sloth-os/pin")
 UDEV_DATA = Path("/run/udev/data")
 
 
@@ -172,11 +173,17 @@ class AccountsController(QObject):
                         "enabled": "with-pam-u2f" in features, "ready": enrolled})
         if _ir_camera():
             out.append({"id": "face", "name": tr("Arcfelismerés"), "icon": "camera-web",
-                        "description": tr("A gépeden van infrakamera. Az arcfelismeréses bejelentkezés hamarosan elérhető lesz."),
+                        "description": tr("A gépeden van infrakamera. Az arcfelismerést még nem kínáljuk: "
+                                          "a Linuxos megoldások ma még nem elég megbízhatók ahhoz, hogy a gépedet "
+                                          "rájuk bízzuk. Addig használd a PIN-kódot vagy az ujjlenyomatot."),
                         "enabled": False, "ready": False, "comingSoon": True})
+        pin = (PIN_DIR / f"{self._user}.json").exists()
         out.append({"id": "pin", "name": tr("PIN-kód"), "icon": "dialog-password",
-                    "description": tr("Rövid számkód a hosszú jelszó helyett. Hamarosan elérhető lesz."),
-                    "enabled": False, "ready": False, "comingSoon": True})
+                    "description": tr("Be van állítva. A bejelentkezésnél és a zárolási képernyőn a jelszó helyett "
+                                      "a PIN-kódot is beírhatod. Távolról (hálózaton át) csak a jelszó működik.")
+                    if pin else tr("Rövid számkód (4–8 számjegy) a hosszú jelszó helyett, a bejelentkezésnél "
+                                   "és a zárolási képernyőn. A jelszó mellette továbbra is működik."),
+                    "enabled": pin, "ready": True})
         return out
 
     def _helper(self, args, stdin=None):
@@ -195,6 +202,33 @@ class AccountsController(QObject):
                 self._info = tr("Elmentve. A következő bejelentkezéstől érvényes.")
             else:
                 self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+        self.refresh()
+
+    @Slot(str, str)
+    def setPin(self, pin, pin2):
+        """PIN-kód beállítása vagy cseréje a saját fióknak (4–8 számjegy)."""
+        self._error, self._info = "", ""
+        if not re.fullmatch(r"\d{4,8}", pin):
+            self._error = tr("A PIN-kód 4–8 számjegyből álljon.")
+        elif pin != pin2:
+            self._error = tr("A két PIN-kód nem egyezik.")
+        else:
+            result = self._helper(["pin-set"], stdin=pin + "\n")
+            if result.get("ok"):
+                self._info = tr("A PIN-kód elmentve. A következő bejelentkezéstől használhatod.")
+            elif result.get("error") == "gyenge PIN":
+                self._error = tr("Ezt a PIN-kódot túl könnyű kitalálni (pl. 1111 vagy 1234). Válassz másikat.")
+            else:
+                self._error = tr("Nem sikerült menteni. Ehhez rendszergazdai jóváhagyás kell.")
+        self.refresh()
+
+    @Slot()
+    def removePin(self):
+        self._error, self._info = "", ""
+        if self._helper(["pin-remove"]).get("ok"):
+            self._info = tr("A PIN-kód törölve. Mostantól csak a jelszó működik.")
+        else:
+            self._error = tr("Nem sikerült törölni. Ehhez rendszergazdai jóváhagyás kell.")
         self.refresh()
 
     @Slot()

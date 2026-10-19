@@ -65,7 +65,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("A jelszó mindig működik. Ezen felül azt kínáljuk fel, amit a géped tud. Ujjlenyomattal vagy kulccsal belépve a mentett jelszavak tárolója az első használatkor kéri a jelszavad.")
+                    text: L.t("A jelszó mindig működik. Ezen felül azt kínáljuk fel, amit a géped tud. Ujjlenyomattal, kulccsal vagy PIN-kóddal belépve a mentett jelszavak tárolója az első használatkor kéri a jelszavad.")
                 }
                 Repeater {
                     model: accounts.loginMethods
@@ -104,12 +104,64 @@ Kirigami.ScrollablePage {
                             text: methodRow.modelData.ready ? L.t("Másik kulcs felvétele") : L.t("Kulcs felvétele")
                             onClicked: accounts.enrollSecurityKey()
                         }
+                        QQC2.Button {
+                            visible: methodRow.modelData.id === "pin"
+                            icon.name: methodRow.modelData.enabled ? "edit-entry" : "list-add"
+                            text: methodRow.modelData.enabled ? L.t("PIN-kód cseréje") : L.t("PIN-kód beállítása")
+                            onClicked: { pinField.text = ""; pinField2.text = ""; pinForm.visible = true; pinField.forceActiveFocus() }
+                        }
+                        QQC2.Button {
+                            visible: methodRow.modelData.id === "pin" && methodRow.modelData.enabled
+                            icon.name: "edit-delete"
+                            text: L.t("Törlés")
+                            onClicked: accounts.removePin()
+                        }
                         QQC2.Switch {
-                            visible: !methodRow.modelData.comingSoon
+                            visible: !methodRow.modelData.comingSoon && methodRow.modelData.id !== "pin"
                             enabled: methodRow.modelData.ready
                             checked: methodRow.modelData.enabled
                             onToggled: accounts.setLoginMethod(methodRow.modelData.id, checked)
                         }
+                    }
+                }
+                // PIN-kód megadása (kétszer, csak számjegyek)
+                RowLayout {
+                    id: pinForm
+                    visible: false
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    Kirigami.PasswordField {
+                        id: pinField
+                        Layout.fillWidth: true
+                        placeholderText: L.t("Új PIN-kód (4–8 számjegy)")
+                        maximumLength: 8
+                        inputMethodHints: Qt.ImhDigitsOnly
+                        validator: RegularExpressionValidator { regularExpression: /[0-9]{0,8}/ }
+                    }
+                    Kirigami.PasswordField {
+                        id: pinField2
+                        Layout.fillWidth: true
+                        placeholderText: L.t("Még egyszer")
+                        maximumLength: 8
+                        inputMethodHints: Qt.ImhDigitsOnly
+                        validator: RegularExpressionValidator { regularExpression: /[0-9]{0,8}/ }
+                        onAccepted: pinSave.clicked()
+                    }
+                    QQC2.Button {
+                        id: pinSave
+                        icon.name: "document-save"
+                        text: L.t("Mentés")
+                        enabled: pinField.text.length >= 4 && pinField2.text.length >= 4
+                        onClicked: {
+                            accounts.setPin(pinField.text, pinField2.text)
+                            pinField.text = ""; pinField2.text = ""
+                            if (accounts.errorText === "")
+                                pinForm.visible = false
+                        }
+                    }
+                    QQC2.Button {
+                        text: L.t("Mégse")
+                        onClicked: { pinField.text = ""; pinField2.text = ""; pinForm.visible = false }
                     }
                 }
                 RowLayout {

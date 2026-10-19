@@ -25,4 +25,5 @@ modules:
   # Karcsúsítás: csak az marad, ami a működéshez vagy a hibaelhárításhoz kell (maradjon a modulok végén)
   - type: script
     scripts:
+      - pin-authselect.sh   # PIN-kódos bejelentkezés: a "sloth" authselect-profil (with-sloth-pin)
       - slim-image.sh
