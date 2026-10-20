@@ -5,21 +5,36 @@ terminálból lehet csinálni, GUI-ból is menjen.
 
 ## Hol tartunk (2026-10-19)
 
-### Következő lépések (2026-10-19 este, sorrendben; a részletek lent)
+### Következő lépések (2026-10-20 este, sorrendben; a részletek lent)
 **Publikálás előtt kötelező**
-1. [x] Fájlmentés és „Korábbi verziók” (Teendők, 8. pont): a pillanatképek, a „Korábbi verziók”, a Sloth Központ
-   oldala és a külső lemezre mentés (Pika Backup) kész (2026-10-20, valódi gépen még tesztelni)
-2. [x] A gép alaphelyzetbe állítása (Teendők, 8. pont): a Sloth Központból kész (2026-10-20, VM-ben még
-   tesztelni); a boot menüs változat később
-3. [ ] A teszt végig valódi gépen: Battle.net, Windows-indítók az Üdvözlőből, felhő, telefon, átköltözés Windowsról,
-   nyomtató és szkenner, firmware, NVIDIA-s gép, Windows mellé telepítés (tesztelő kell)
-   - 2026-10-20: a Sloth Üdvözlő telepítési folyamata a valódi gépen megszakadt (a felhasználó megszakította);
-     újra végigcsinálni (otthon, az asztali gépen), és megnézni, hogy egy megszakított futás után rendesen folytatható-e
-4. [ ] Régi (BIOS-os) gépek (Teendők, 2. pont)
-5. [ ] Új ISO a telepítő javításával (fekete kép 90% után), utána zsugorítás (rétegek összevonása)
-6. [ ] A repó publikussá tétele, napi build, ISO-tárhely (Teendők, 3–4. pont)
-7. [ ] Weboldal: letöltés, pendrive-írás, GYIK (Teendők, 5. pont)
-8. [ ] A fordítások anyanyelvi átnézése (Teendők, 7. pont)
+1. [x] Fájlmentés és „Korábbi verziók” (Teendők, 8. pont): kész (2026-10-20), a teszt lent
+2. [x] A gép alaphelyzetbe állítása a Sloth Központból: kész és valódi gépen tesztelve (2026-10-20); a boot menüs
+   változat később
+3. [ ] **A teszt végig valódi gépen, teljes alaphelyzetbe állítás után a legújabb image-dzsel** (lent: „Teszt a
+   2026-10-20-i reset után”)
+4. [ ] Régi (BIOS-os) gépek (Teendők, 2. pont): nincs hozzá gép, később
+5. [ ] Új ISO a rétegek összevonásával, ha a rendszer kész (benne a telepítő javítása: fekete kép 90% után)
+6. [ ] A fordítások anyanyelvi átnézése (Teendők, 7. pont)
+7. [ ] Legvégül: a repó publikussá tétele, napi build, ISO-tárhely (Teendők, 3–4. pont). Weboldal már van:
+   https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io (átnézni)
+
+### Teszt a 2026-10-20-i reset után (legújabb image, valódi gép)
+- [ ] **Üdvözlő, megszakítás:** a telepítés megszakítása (pl. hosszú Battle.net-letöltés közben), újraindítás után
+  rendesen folytatódik-e, és nem kezdi-e elölről a már kész appokat
+- [ ] **Battle.net:** telepítés az Üdvözlőből, indítás, egy játék indítása a Battle.net-ből
+- [ ] **EA app** (az Üdvözlőből és dupla kattintással): telepítés, indítás, egy játék, az EA app saját frissítése
+- [ ] **Ubisoft Connect:** telepítés, indítás, nyitva marad-e (`LAUNCHER_STUBS` kell-e)
+- [ ] **Első .exe friss rendszeren:** nem tölt percekig
+- [ ] **Tálcás buborékok** (Battle.net / EA app tálcára kicsinyítve): a tálca fölött jönnek, nem bal felül
+- [ ] **Frissítések oldal:** keresés / telepítés után a Központ újranyitás nélkül mutatja az új verziót és a várakozó
+  újraindítást; a naplóban nincs „Forcibly closing transaction”
+- [ ] **Pillanatképek és „Korábbi verziók”:** egy fájl módosítása / törlése után a Dolphinban jobb klikk →
+  „Korábbi verziók” visszahozza; a Sloth Központ Fájlmentés oldala; mentés külső lemezre (Pika Backup)
+- [ ] **zram** (Haladó beállítások): átállítás, újraindítás után az új méret látszik
+- [ ] **Steam-átvétel és átköltözés:** a Steamhez kézzel adott Windows-program a Sloth Központban, „A Steamen
+  keresztül” és „Átvétel”; Lutris / Bottles import, ha van
+- [ ] **Firmware:** a Discover Frissítések oldalán látszik-e a BIOS/firmware (fwupd)
+- Később, ha lesz gép / tesztelő: Windows mellé telepítés, NVIDIA-s gép (a gamer gépen), BIOS-os gép, nyomtató és szkenner
 
 **Nyitott hibák (kicsik)**
 - [x] Némítás: magától feloldódik (2026-10-20, a `pactl subscribe` + `alsactl monitor` napló alapján). Nem a
@@ -63,7 +78,7 @@ terminálból lehet csinálni, GUI-ból is menjen.
   értesítés szól („Elkészült egy frissítés … a következő újraindításkor települ”, „Újraindítás most” gombbal), verziónként
   egyszer: `sloth-update-notify.path` (`/run/ostree/staged-deployment` változásakor) és bejelentkezéskor
   (`sloth_center/update_notify.py`). Ál-rpm-ostree-vel kipróbálva; valódi gépen nézni, hogy a path unit elindul-e
-- [ ] Bootloop titkosított lemezzel: VM-ben nem jött elő; figyelni (előtte frissítés / NVIDIA-váltás volt-e)
+- [x] Bootloop titkosított lemezzel: felhasználói hiba volt, nem a rendszeré (2026-10-20: újra tesztelve, működik)
 - [x] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”). A Kirigami saját szövege, a telepítő
   nyelvváltását nem követi; kiürítve (a címke ott van), a titkosítás jelszómezőinél is (2026-10-20)
 - [x] Üdvözlő internet nélkül: a „Kihagyom” nem lépett tovább. Nem hiba: az első (böngésző) lépésben választás nélkül
@@ -144,7 +159,23 @@ terminálból lehet csinálni, GUI-ból is menjen.
   Javasolt sorrend: 1+2+3 egy körben, a webszűrés külön
   A Sloth Központban addig „Hamarosan” menüpont jelzi (Szülői felügyelet, 2026-10-20)
 - [ ] Saját Flatpak-tároló a GitHubos appoknak (pl. ArtCraft), hogy a Discover frissítse őket
-- [ ] A Proton duplikált másolata helyett hivatkozás (kb. 1,4 GB a lemezen)
+- [ ] A Proton duplikált másolata helyett hivatkozás (kb. 1,4 GB a lemezen). Terv (2026-10-20): előbb a gépen megnézni,
+  tényleg foglal-e helyet (a `windows-runtime-seed` már `--reflink=auto`-val másol); ha igen, a Proton mappája
+  helyett hivatkozás a gyári példányra (a Proton a saját mappájába nem ír), a futtatókörnyezet (Steam Linux Runtime)
+  másolat marad, mert az umu a helyén frissíti. Kicsi munka
+- [ ] **Visszajelzés a Sloth Központból** (2026-10-20, a felhasználó kérésére; kb. egy munkanap): új „Visszajelzés”
+  oldal (hiba / ötlet / egyéb, leírás, „Gépinformáció és napló csatolása”, Küldés, „a bejelentés száma: #42”). A
+  közös tudás Workere új `/v1/feedback` végponttal GitHub issue-t nyit `feedback` címkével (a token csak a
+  Workerben, a felhasználónak nem kell GitHub-fiók; gépenkénti napi korlát a D1-ben). A napló személyes adatot
+  tartalmazhat, ezért nem az issue-ba kerül, hanem a Worker privát tárhelyére, az issue-ban csak link. Eldönteni:
+  melyik repóba (javaslat: nyilvános `Sloth-OS-Linux/feedback`). Az új issue-kat itt közösen nézzük át (`gh issue list`)
+- [ ] **Ellenőrzött frissítés jelzés** (2026-10-20, a felhasználó kérésére; kicsi): a Sloth Központ Frissítések
+  oldalán zöld pipa, „Ellenőrzött frissítés ✓ – a rendszer csak a Sloth OS által aláírt frissítéseket fogadja el”
+  (`ostree-image-signed` a futó változat eredeténél); ha nincs bekapcsolva, figyelmeztetés
+- [ ] Céges fiók: Entra ID; a jelszótároló (KWallet) nyitása PIN-nel / ujjlenyomattal (részletek lent, Bejelentkezés)
+- [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
+- [ ] Alaphelyzetbe állítás a boot menüből, ha a rendszer nem indul
+- [ ] Windows-programok a Discoverben (részletek lent)
 
 ### Fontos: a 2026-10-16-i teszt még a régi image-dzsel ment
 A tesztelt ISO (`out/sloth-os.iso`) 2026-10-16 08:17-kor készült, amikor a registry `latest` címkéje még a
@@ -193,28 +224,28 @@ nem volt benne, lásd fent).
 - **Verziószám:** „Sloth OS 1.0 (Fedora Atomic 44)”
 
 ### Következő teszt (új ISO a 2026-10-19-i változások CI-buildje után)
-- [ ] **Üdvözlő:** 4–5 app egyszerre: sorban, egyesével települnek; a felirat csak „X telepítése…” és a folyamatjelző
+- [x] **Üdvözlő:** 4–5 app egyszerre: sorban, egyesével települnek; a felirat csak „X telepítése…” és a folyamatjelző
   (2026-10-19 óta méret nélkül, a felhasználó kérésére); nincs dupla sor; a végén Újraindítás, utána az ikonok a tálcán; Újraindítás nélkül is jók-e az ikonok
 - [x] **Steam:** első indításkor jön-e az értesítés („A Steam első indítása”, „x MB letöltve”), eltűnik-e, amikor a
   Steam megnyílik; utána a `bootstrap_log.txt`. 2026-10-19: működik, jól írja ki
 - [ ] **Battle.net:** telepítés, indítás a Start menüből; nyitva marad-e; bejelentkezés, egy játék telepítése és
   indítása; a Start menüben csak egy bejegyzés
-- [ ] **.exe kezelő:** ugyanazt a telepítőt még egyszer megnyitva „már telepítve van”, a Megnyitás elindítja
-- [ ] **Alkalmazáskönyvtár:** a Battle.net telepítés után a `~/Applications/Battle.net/` mappában van (a Dolphinban
+- [x] **.exe kezelő:** ugyanazt a telepítőt még egyszer megnyitva „már telepítve van”, a Megnyitás elindítja
+- [x] **Alkalmazáskönyvtár:** a Battle.net telepítés után a `~/Applications/Battle.net/` mappában van (a Dolphinban
   a program ikonjával, benne a „Program fájljai”); a neve „Battle.net” (nem „Battle Net”); a választólistán egy
   bejegyzés van bejelölve; az „Indítás” gomb elindítja. Egy telepítő, ami letöltőként kilép (pl. Battle.net,
   EA app): a .exe kezelő megvárja a tényleges telepítést. A háttérnapló: `~/.cache/sloth-os/apps/<program>/naplo/`
 - [ ] **Már futó program:** a Battle.net futása közben a Start menüből újra elindítva „már fut”; egy játék indítása
   a Battle.net-ből (és ha van, a Start menüből) a Battle.net futása közben
-- [ ] **Sloth Központ → Windows-programok:** Indítás, Fájlok, Start menü, Javítás, Áthelyezés (egy másik mappába,
+- [x] **Sloth Központ → Windows-programok:** Indítás, Fájlok, Start menü, Javítás, Áthelyezés (egy másik mappába,
   utána indul-e a Start menüből), a hely módosítása egy NTFS-es pendrive-ra (érthető üzenet), Eltávolítás
 - [ ] **Steam-átvétel:** a Steamben kézzel hozzáadott Battle.net megjelenik „A Steamhez hozzáadott programok”
   között; „A Steamen keresztül” és „Átvétel” is; utána a Steamből is ugyanúgy indul
 - [ ] **Átköltözés:** egy régi helyen (`~/.local/share/sloth-os/windows-programs`) lévő program a frissítés után a
   `~/Applications` alatt van, és a Start menüből indul
-- [ ] **Dolphin:** az Eszközök között nincs névtelen, 128 TB-os meghajtó; a rendszerpartíció neve „Sloth OS”
-- [ ] **Napló mentése** (Rendszer egészség): az elején látszik a futó image és a lemezek
-- [ ] **Rendszerinformáció:** „Sloth OS 1.0 (Fedora Atomic 44)”
+- [x] **Dolphin:** az Eszközök között nincs névtelen, 128 TB-os meghajtó; a rendszerpartíció neve „Sloth OS”
+- [x] **Napló mentése** (Rendszer egészség): az elején látszik a futó image és a lemezek
+- [x] **Rendszerinformáció:** „Sloth OS 1.0 (Fedora Atomic 44)”
 - [ ] **Nyitott kérdések a 2026-10-19-i ISO tesztjéhez** (a válaszok ide; ami jó, kipipálni). Eddig jó: ujjlenyomat,
   PIN-kód, a titkosított lemez lakatos jelszókérője (a pöttyök javítva):
   - [ ] Tömörített memória-tartalék (Haladó beállítások): átállítás után, újraindítás után kiírja-e az új méretet?
@@ -229,7 +260,7 @@ nem volt benne, lásd fent).
   - [ ] Battle.net újra, a háttér-előkészítés után: előjön-e a saját telepítője (lásd lent a hibáknál); a
     bootloop miatt (lent) még nem jutott el idáig
 - [ ] A reggeli teszt maradéka: titkosítás, frissítés aláírás-ellenőrzéssel, NVIDIA-s gép, Windows mellé (tesztelő kell)
-- [ ] A még nyitott hibák figyelése: némítás (melyik gomb: billentyű / tálca ikon; mikor áll vissza: magától, egy
+- [x] A még nyitott hibák figyelése (2026-10-20: mind megoldva): némítás (melyik gomb: billentyű / tálca ikon; mikor áll vissza: magától, egy
   értesítés hangjára, hangerő-állításra, bejelentkezéskor?), Discover-frissítés a friss appokra (mit frissített:
   magát az appot vagy egy kiegészítőt, pl. `GL.default`?), Vivaldi az Üdvözlőből (a hibaüzenet a mentett naplóban)
 
@@ -254,15 +285,15 @@ Minden pusholva; a nagy részük csak szimulációval és loop eszközön van ki
 ### Reggeli teszt (új ISO a mai CI-build után)
 Valódi gépen és/vagy VM-ben; ami nem megy, ide kerüljön vissza hibaként.
 - [x] **Élő rendszer:** nyelvválasztás után „Kipróbálom” → a választott nyelven jön fel az asztal; az értesítések jobb felül
-- [ ] **Telepítő, teljes lemez:** sima telepítés; utána ugyanez **titkosítással** (indításkor lakat ikon, a jelszó a
+- [x] **Telepítő, teljes lemez:** sima telepítés; utána ugyanez **titkosítással** (indításkor lakat ikon, a jelszó a
   választott kiosztással megy, pl. magyarnál a „z”/„y”; rossz jelszó után újra kéri)
 - [ ] **Telepítő, Windows mellé** (VM-ben egy Windowsos lemezzel vagy egy NTFS + EFI-s tesztlemezzel): a felmérés és
   a csúszka, a magyarázatok (pl. hibernált Windows), a telepítés, a boot menüben a Windows-bejegyzés, a Windows
   utána is elindul, az óra jó mindkét rendszerben
 - [x] **Első indítás:** csendes boot, rejtett GRUB (Windows mellett látható menü), fiók a telepítőből, Üdvözlő
-- [ ] **Üdvözlő:** új „Tapasztalatok megosztása” lépés (igen / nem, a Tovább csak választás után), az appok telepítése
+- [x] **Üdvözlő:** új „Tapasztalatok megosztása” lépés (igen / nem, a Tovább csak választás után), az appok telepítése
   (mit tölt le / mit telepít, „x / y MB”), az ikonok rögtön látszanak, a Steam a tálcán ikonnal
-- [ ] **.exe kezelő:** Battle.net telepítés és indítás a Start menüből (marad-e futva), egy egyszerű .exe, egy játék;
+- [x] **.exe kezelő:** Battle.net telepítés és indítás a Start menüből (marad-e futva), egy egyszerű .exe, egy játék;
   a háttérnapló (2026-10-19 óta `~/.cache/sloth-os/apps/<program>/naplo/`) és a megjegyzett beállítás
   (`~/Applications/<program>/.sloth/app.json`)
 - [x] **Sloth Központ:** Windows-programok oldal (megosztás kapcsoló), Driverek oldal, a többi oldal átnézése
@@ -312,7 +343,7 @@ Talált hibák (egyesével javítjuk):
   15 mp alatt nem nyílik meg, és az értesítés eltűnik, amikor a Steam ablaka megjelenik
   (`sloth_center/steam_first_run.py`, `sloth-steam-first-run.path`). Valódi gépen tesztelni, és megnézni a
   `~/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/bootstrap_log.txt`-t, hogy tényleg ez volt-e az ok
-- [ ] Titkosított lemezzel telepítve a gép fél óráig a logón állt (2026-10-19-i jelentés). Az image initramfs-e
+- [x] (2026-10-20: nem a titkosítás okozta, megoldva) Titkosított lemezzel telepítve a gép fél óráig a logón állt (2026-10-19-i jelentés). Az image initramfs-e
   rendben (crypt, systemd-cryptsetup, a Plymouth jelszókérő, lock.png, kiosztások); a logón való végtelen várakozás
   a jelszókérésre utal (a systemd a jelszóra időkorlát nélkül vár), a kis lakat valószínűleg nem tűnt fel vagy nem
   látszott. Javítva: nagyobb lakat és beviteli vonal. A következő teszten: látszik-e, és az Esc mit mutat
@@ -325,7 +356,7 @@ Talált hibák (egyesével javítjuk):
   Javítva: az .exe kezelő indításkor átveszi (leállítja a háttérben futót, és az előtérben, látható haladással
   folytatja), a háttérben „best-effort” 7-es prioritás; 60 mp csend után „Még dolgozik…” szöveg. A következő teszten
   figyelni; ha megint így van: Napló mentése (benne a `sloth-windows-prepare` naplója is)
-- [ ] **Indítás titkosított lemezzel: a jelszó után a gép újraindul** (2026-10-19 este, a délutáni ISO-ról
+- [x] (2026-10-20: felhasználói hiba volt, újra tesztelve, működik) **Indítás titkosított lemezzel: a jelszó után a gép újraindul** (2026-10-19 este, a délutáni ISO-ról
   telepített gépen, nem az első indításnál). A lakatos jelszókérő megjelenik, a jelszó beírása után újra a gép
   (BIOS) logója jön, majd megint a jelszókérő. A felhasználó újratelepíti. Kérdések: a GRUB menüben (indításkor
   Esc) az előző bejegyzéssel elindul-e; volt-e előtte rendszerfrissítés vagy NVIDIA-váltás (újraindítás után
@@ -386,7 +417,7 @@ Talált hibák (egyesével javítjuk):
   valószínűleg a /proc/kcore virtuális mérete a gyökér méretszámításában. Udev-szabály rejti el
   (`90-sloth-udisks.rules`), a rendszerpartíció neve „Sloth OS”. Ha a teszten mégis látszik: Napló mentése, az
   elején a lemezek és a loop eszközök
-- [ ] A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért).
+- [x] (2026-10-20: hibás alapcsomag-frissítés volt, megoldva) A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért).
   Valószínű ok (2026-10-19): az alap image automatikus app-frissítője (`flatpak-system-update.timer`, 2 perccel a
   bekapcsolás után) az Üdvözlő alatt futott. Most kimarad, amíg az Üdvözlő fut; a teszten figyelni.
   2026-10-19-i teszt: a felhasználó szerint csak valami Fedora-alapcsomagot frissített (valószínűleg egy
@@ -575,7 +606,7 @@ Talált hibák (egyesével javítjuk):
   nagyobb / ki, `sloth-helper zram`, a `/etc/systemd/zram-generator.conf`; Fedora 44-ben a zram-generatorral
   ellenőrizve), PIN-kódos bejelentkezés (Fiók és biztonság)
 - [x] ISO-méret: a rétegek összevonása, helytakarékos ISO-build – 4. fázis (2026-10-19, lásd a 4. fázisnál)
-- [ ] A Vivaldi nem települt fel az Üdvözlőből (oka ismeretlen; a teszten figyelni). Lehetséges ok: a fenti
+- [x] (2026-10-20: már hibátlanul települ) A Vivaldi nem települt fel az Üdvözlőből (oka ismeretlen; a teszten figyelni). Lehetséges ok: a fenti
   automatikus app-frissítő egyszerre futott az Üdvözlővel (most kimarad, amíg az Üdvözlő fut)
 
 ## Korábban (2026-10-15)
