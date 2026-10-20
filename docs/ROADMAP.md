@@ -66,6 +66,7 @@ jó volt, azt valódi gépen elég egyszer megnézni:
   fájlok mentése kerüljön-e a jelszó nélküli témák közé (a „Delete all saved states” maradjon jelszavas)
 - [ ] **Üdvözlő megszakítás után:** jegyezze meg a választásokat (nyelv, appok) és a már kész appokat, és onnan
   folytassa, ahol tartott (most az elejéről indul)
+- [ ] Üdvözlő, megosztás lépés: „később a Sloth Központban (Windows-programok)” – az oldal neve ma már „Programok”
 - [ ] Rendszer egészség, VM-ben: „Machine Check Exception Logging Daemon” nem indult (a VM-ben nincs MCE); valódi
   gépen nézni, előjön-e; ha csak VM-ben, a VM-ben ne jelezze
 
