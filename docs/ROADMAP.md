@@ -197,22 +197,22 @@ jó volt, azt valódi gépen elég egyszer megnézni:
   tényleg foglal-e helyet (a `windows-runtime-seed` már `--reflink=auto`-val másol); ha igen, a Proton mappája
   helyett hivatkozás a gyári példányra (a Proton a saját mappájába nem ír), a futtatókörnyezet (Steam Linux Runtime)
   másolat marad, mert az umu a helyén frissíti. Kicsi munka
-- [ ] **Visszajelzés a Sloth Központból** (2026-10-20, a felhasználó kérésére). **Félig kész (2026-10-20 este,
-  build nélküli commit), hol tartunk:**
+- [ ] **Visszajelzés a Sloth Központból** (2026-10-20, a felhasználó kérésére). **Élesítve (2026-10-20 este):**
   - [x] Worker: `POST /v1/feedback` (GitHub issue `feedback` + fajta címkével, a szöveg kódblokkban, napi 5 / cím)
     és `GET /v1/feedback/log/<id>` (a napló csak a `LOG_TOKEN`-nel, 30 napig, `feedback_logs` tábla). Hamis D1-gyel
-    és GitHubbal kipróbálva (issue, védett napló, hibás kérések, korlát); **élesítve még nincs**
+    és GitHubbal kipróbálva, utána élesben is (próba-issue #1: címkék, a napló token nélkül 401, tokennel olvasható)
   - [x] Sloth Központ: „Visszajelzés” oldal a Rendszer egészség alatt (`feedback.py`, `FeedbackPage.qml`; a napló a
     `health.write_log`-ból, a vége, max. 500 KB), magyar és angol szöveg. **Még nem futott** (nincs PySide6 a
     fejlesztői gépen): a következő image-en / VM-ben megnézni
-  - [ ] Eldönteni a repót (javaslat: nyilvános `Sloth-OS-Linux/feedback`), létrehozni a `feedback`, `bug`, `idea`,
-    `other` címkéket
-  - [ ] Élesítés (jóváhagyással): `wrangler d1 execute … --remote --file schema.sql` (új tábla), `wrangler secret put
-    GITHUB_TOKEN` (csak Issues írás a feedback repóra), `LOG_TOKEN`, `FEEDBACK_REPO` a `wrangler.toml` `[vars]`
-    részébe, `wrangler deploy`
+  - [x] Repó: nyilvános `Sloth-OS-Linux/feedback` (angol README), címkék: `feedback`, `bug`, `idea`, `other`
+  - [x] Élesítés: a `feedback_logs` tábla (`--command`-dal; a `--file` import az OAuth-tokennel jogosultsági hibát ad),
+    `GITHUB_TOKEN` (fine-grained, csak a feedback repó Issues írása; **lejárat előtt cserélni**), `LOG_TOKEN` (a
+    gépen: `/mnt/adatok/sloth-dev/feedback-log-token`), `FEEDBACK_REPO` a `wrangler.toml`-ban, `wrangler deploy`
   - [ ] A többi 48 nyelv fordítása (addig angolul látszik)
-  - [ ] A weboldal GYIK-jében a „Where can I report a problem?” válasz: a Sloth Központ → Visszajelzés
-  - [ ] Itt közösen: `gh issue list -R <repó> -l feedback`
+  - [x] A weboldal GYIK-je: a Sloth Központ → Visszajelzés
+  - [ ] A Központ oldala a következő image-en / VM-ben (még nem futott)
+  - Átnézés itt közösen: `gh issue list -R Sloth-OS-Linux/feedback -l feedback`; a napló:
+    `curl -H "Authorization: Bearer $(cat /mnt/adatok/sloth-dev/feedback-log-token)" <link>`
 - [ ] **Ellenőrzött frissítés jelzés** (2026-10-20, a felhasználó kérésére; kicsi): a Sloth Központ Frissítések
   oldalán zöld pipa, „Ellenőrzött frissítés ✓ – a rendszer csak a Sloth OS által aláírt frissítéseket fogadja el”
   (`ostree-image-signed` a futó változat eredeténél); ha nincs bekapcsolva, figyelmeztetés
