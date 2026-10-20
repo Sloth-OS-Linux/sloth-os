@@ -14,6 +14,8 @@ Műveletek:
   admin-policy               a hívó felhasználó jelszó nélküli rendszergazdai beállításai (JSON a bemeneten:
                              {"topics": [...], "sudo": bool, "autologin": bool})
   login-feature fingerprint|securitykey on|off   bejelentkezés ujjlenyomattal / biztonsági kulccsal (authselect)
+  login-repair                                   a with-altfiles visszakapcsolása, ha az authselect kivette
+                                                 (induláskor, sloth-login-repair.service)
   domain-join <tartomány> <felhasználó>          csatlakozás Active Directory tartományhoz (jelszó a bemeneten)
   domain-leave                                   kilépés a tartományból
   registry-login <registry> <felhasználó>        bejelentkezés egy image-tárolóba a frissítésekhez és az
@@ -236,19 +238,42 @@ DOMAIN_RE = re.compile(r"^[A-Za-z0-9]([A-Za-z0-9-]{0,62}\.)+[A-Za-z]{2,63}$")
 DOMAIN_USER_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$")
 
 
+# Atomic rendszeren a rendszerfelhasználók (pl. a bejelentkező képernyő „plasmalogin” felhasználója) a /usr/lib/passwd-
+# ben vannak, és csak az nss-altfiles-on át látszanak. Az authselect minden módosításkor újraírja a /etc/nsswitch.conf-ot,
+# és with-altfiles nélkül kiveszi belőle: utána a bejelentkező képernyő el sem indul (2026-10-20, valódi gépen:
+# ujjlenyomat + PIN bekapcsolása után; VM-ben reprodukálva). Ezért mindig bekapcsolva tartjuk.
+ALTFILES = "with-altfiles"
+
+
+def _needs_altfiles():
+    return os.path.isfile("/usr/lib/passwd")
+
+
+def keep_altfiles():
+    """Ha a kiválasztott authselect-profilból hiányzik a with-altfiles, bekapcsolja (induláskor is: login-repair)."""
+    current = run(["authselect", "current", "--raw"]).stdout.split()
+    if not current or not _needs_altfiles() or ALTFILES in current[1:]:
+        return {"ok": True, "changed": False}
+    r = run(["authselect", "enable-feature", ALTFILES])
+    return {"ok": r.returncode == 0, "error": r.stderr.strip(), "changed": True}
+
+
 def login_feature(name, on):
     feature = LOGIN_FEATURES[name]
     if not run(["authselect", "current", "--raw"]).stdout.strip():
         # még nincs authselect-profil: a Fedora alapértelmezésével kezdünk, a meglévő fájlok mentésével
-        r = run(["authselect", "select", "local", "--force", "--backup=sloth-os"])
+        extra = [ALTFILES] if _needs_altfiles() else []
+        r = run(["authselect", "select", "local", *extra, "--force", "--backup=sloth-os"])
         if r.returncode != 0:
             return {"ok": False, "error": r.stderr.strip()}
     r = run(["authselect", "enable-feature" if on else "disable-feature", feature])
-    return {"ok": r.returncode == 0, "error": r.stderr.strip()}
+    fixed = keep_altfiles()
+    return {"ok": r.returncode == 0 and fixed["ok"], "error": r.stderr.strip() or fixed.get("error", "")}
 
 
 def domain_join(domain, user, password):
     r = run(["realm", "join", "--user", user, domain], input=password + "\n")
+    keep_altfiles()  # a realm az sssd-profilt választja ki, ugyanúgy with-altfiles nélkül
     return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
 
 
@@ -317,13 +342,16 @@ def _ensure_pin_profile(on):
     current = run(["authselect", "current", "--raw"]).stdout.split()
     profile, features = (current[0], current[1:]) if current else ("", [])
     features = [f for f in features if f != "with-sloth-pin"] + (["with-sloth-pin"] if on else [])
+    if _needs_altfiles() and ALTFILES not in features:
+        features.append(ALTFILES)
     if profile in ("sloth", "vendor/sloth"):
         r = run(["authselect", "enable-feature" if on else "disable-feature", "with-sloth-pin"])
     elif on:
         r = run(["authselect", "select", "sloth", *features, "--force", "--backup=sloth-os-pin"])
     else:
-        return {"ok": True}
-    return {"ok": r.returncode == 0, "error": r.stderr.strip()}
+        return keep_altfiles()
+    fixed = keep_altfiles()
+    return {"ok": r.returncode == 0 and fixed["ok"], "error": r.stderr.strip() or fixed.get("error", "")}
 
 
 def pin_set(pin):
@@ -473,6 +501,8 @@ def main(argv):
             result = json.loads(r.stdout.strip().splitlines()[-1])
         except (ValueError, IndexError):
             result = {"ok": False, "error": r.stderr.strip()[-500:]}
+    elif op == "login-repair" and not args and not VERSIONS_ONLY:
+        result = keep_altfiles()
     elif op == "admin-policy" and not args and not VERSIONS_ONLY:
         try:
             request = json.loads(sys.stdin.read(4096) or "{}")

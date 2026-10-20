@@ -33,6 +33,7 @@ modules:
         # a gép alaphelyzetbe állítása, ha a Sloth Központban kérték (induláskor, bejelentkezés előtt)
         - sloth-factory-reset.service
         - sloth-boot-reset.service    # ugyanez a boot menüből kérve (a fájlok megmaradnak)
+        - sloth-login-repair.service  # a bejelentkező képernyő ne vesszen el egy authselect-módosítás után
     user:
       enabled:
         - sloth-github-bundle-update.timer   # a GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése
