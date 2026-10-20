@@ -28,6 +28,7 @@ Kirigami.ApplicationWindow {
         { id: "backup", name: L.t("Fájlmentés"), icon: "backup", page: "BackupPage.qml", ready: true },
         { id: "disks", name: L.t("Lemezek"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
         { id: "containers", name: L.t("Fejlesztői környezetek"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },
+        { id: "reset", name: L.t("Alaphelyzetbe állítás"), icon: "edit-undo", page: "ResetPage.qml", ready: true },
         { id: "advanced", name: L.t("Haladó beállítások"), icon: "configure", page: "AdvancedPage.qml", ready: true },
         { id: "devpanel", name: L.t("Fejlesztői pult"), icon: "applications-development", page: "DevPanelPage.qml",
           ready: true }

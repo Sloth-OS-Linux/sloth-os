@@ -8,7 +8,7 @@ import logging
 import subprocess
 
 from gi.repository import Gio, GLib
-from PySide6.QtCore import QObject, Property, Signal, Slot
+from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
 
 from .i18n import tr
 
@@ -220,12 +220,29 @@ class UpdatesController(QObject):
         except GLib.Error:
             pass
         self.refresh()
+        # A szolgáltatás a tranzakció vége után még írhatja az állapotot (a talált új verziót, az előkészített
+        # verziót): kicsit később újra ránézünk, hogy ne kelljen a Központot újranyitni
+        for delay in (2000, 8000):
+            QTimer.singleShot(delay, self._late_refresh)
         # A "naprakész" állapotot a címsor mutatja, ide csak a teendő kerül
         if mode in ("upgrade", "background") and self._pending:
             self._info = tr("A frissítés elkészült. Indítsd újra a gépet, amikor neked megfelel.")
         elif mode == "rollback":
             self._info = tr("Kész. Újraindítás után az előző verzió indul.")
         self.changed.emit()
+
+    def _late_refresh(self):
+        if self._mode or not self._ostree:
+            return
+        try:
+            self._ostree.reload()
+        except GLib.Error:
+            pass
+        had_pending = bool(self._pending)
+        self.refresh()
+        if self._pending and not had_pending and not self._info:
+            self._info = tr("A frissítés elkészült. Indítsd újra a gépet, amikor neked megfelel.")
+            self.changed.emit()
 
     @Slot()
     def checkForUpdates(self):

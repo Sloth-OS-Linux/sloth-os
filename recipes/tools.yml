@@ -30,6 +30,8 @@ modules:
         # A saját fájlok mentése (Sloth Központ → Fájlmentés, Dolphin → Korábbi verziók)
         - sloth-home-layout.service   # induláskor: a /var/home külön subvolume (a pillanatképekhez)
         - sloth-home-snapshot.timer   # óránként egy pillanatkép, a régiek ritkítása
+        # a gép alaphelyzetbe állítása, ha a Sloth Központban kérték (induláskor, bejelentkezés előtt)
+        - sloth-factory-reset.service
     user:
       enabled:
         - sloth-github-bundle-update.timer   # a GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése

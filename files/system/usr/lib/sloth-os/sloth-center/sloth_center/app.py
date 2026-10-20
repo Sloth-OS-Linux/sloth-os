@@ -48,6 +48,7 @@ def main():
     from .gamepads import GamepadsController
     from .games import GamesController
     from .health import HealthController
+    from .reset import ResetController
     from .services import ServicesController
     from .winprograms import WinProgramsController
 
@@ -63,6 +64,7 @@ def main():
     disks = DisksController()
     backup = BackupController()
     advanced = AdvancedController()
+    reset = ResetController()
     containers = ContainersController()
     environment = EnvironmentController()
     gamepads = GamepadsController()
@@ -78,6 +80,7 @@ def main():
     engine.rootContext().setContextProperty("disks", disks)
     engine.rootContext().setContextProperty("backup", backup)
     engine.rootContext().setContextProperty("advanced", advanced)
+    engine.rootContext().setContextProperty("reset", reset)
     engine.rootContext().setContextProperty("containers", containers)
     engine.rootContext().setContextProperty("environment", environment)
     engine.rootContext().setContextProperty("gamepads", gamepads)

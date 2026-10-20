@@ -1,0 +1,18 @@
+[Unit]
+Description=Sloth OS: a gép alaphelyzetbe állítása (a Sloth Központban kérték)
+# Korán, a Plymouth-animáció alatt: a fájlrendszerek már elérhetők, de még semmi nem használja a fiókokat,
+# a beállításokat és az appokat. A végén a gép újraindul (factory-reset boot).
+DefaultDependencies=no
+ConditionPathExists=/var/lib/sloth-os/factory-reset.json
+Requires=local-fs.target
+After=local-fs.target ostree-remount.service plymouth-start.service systemd-tmpfiles-setup.service
+Before=sysinit.target sloth-home-layout.service sloth-first-user.service systemd-user-sessions.service display-manager.service shutdown.target
+Conflicts=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/factory-reset boot
+TimeoutStartSec=infinity
+
+[Install]
+WantedBy=sysinit.target

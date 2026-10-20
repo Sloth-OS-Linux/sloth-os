@@ -27,6 +27,9 @@ Műveletek:
   snapshots-keep 2w|1m|3m                        a mentett állapotok megtartása (2 hét, 1 hónap, 3 hónap)
   snapshot-now                                   mentés most (home-snapshots take --now)
   snapshots-delete-all                           az összes mentett állapot törlése
+  factory-reset keep|all                         a gép alaphelyzetbe állításának előkészítése (factory-reset
+                                                 prepare; JSON a bemeneten, soronkénti JSON a kimeneten)
+  factory-reset-cancel                           a még el nem végzett alaphelyzetbe állítás visszavonása
 
 A verziókat érintő műveletek (pin, unpin, set-default) a sloth-helper-versions néven is
 elérhetők: ez külön polkit-művelet (org.slothos.helper.versions), hogy a „frissítések”
@@ -391,6 +394,7 @@ def zram(mode):
 
 SNAPSHOTS_CONF = "/etc/sloth-os/snapshots.json"
 HOME_SNAPSHOTS = "/usr/libexec/sloth-os/home-snapshots"
+FACTORY_RESET = "/usr/libexec/sloth-os/factory-reset"
 
 
 def snapshots_config(**changes):
@@ -457,6 +461,16 @@ def main(argv):
         result = home_snapshots("take", "--now")
     elif op == "snapshots-delete-all" and not args and not VERSIONS_ONLY:
         result = home_snapshots("delete-all")
+    elif op == "factory-reset" and args in (["keep"], ["all"]) and not VERSIONS_ONLY:
+        # a folyamat lépéseit soronként írja ki, ezért közvetlenül az adja a kimenetet (a bemenetet is ő olvassa)
+        sys.stdout.flush()
+        os.execv(FACTORY_RESET, [FACTORY_RESET, "prepare", args[0]])
+    elif op == "factory-reset-cancel" and not args and not VERSIONS_ONLY:
+        r = subprocess.run([FACTORY_RESET, "cancel"], capture_output=True, text=True, timeout=600)
+        try:
+            result = json.loads(r.stdout.strip().splitlines()[-1])
+        except (ValueError, IndexError):
+            result = {"ok": False, "error": r.stderr.strip()[-500:]}
     elif op == "admin-policy" and not args and not VERSIONS_ONLY:
         try:
             request = json.loads(sys.stdin.read(4096) or "{}")

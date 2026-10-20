@@ -112,8 +112,17 @@ class RpmOstree:
     # --- Állapot -----------------------------------------------------------
 
     def _prop(self, proxy, name, default=None):
-        v = proxy.get_cached_property(name)
-        return v.unpack() if v is not None else default
+        """Mindig a szolgáltatástól kérdezzük, nem a proxy gyorsítótárából: a gyorsítótár csak a
+        PropertiesChanged jelzéssel frissül, ami egy keresés / frissítés vége után késve vagy nem jött meg, így a
+        Központ újranyitásáig a régi állapotot mutatta („nincs frissítés”, hiányzó újraindítás)."""
+        try:
+            v = proxy.call_sync("org.freedesktop.DBus.Properties.Get",
+                                GLib.Variant("(ss)", (proxy.get_interface_name(), name)),
+                                Gio.DBusCallFlags.NONE, 10000, None).unpack()[0]
+            return v if v is not None else default
+        except GLib.Error:
+            v = proxy.get_cached_property(name)
+            return v.unpack() if v is not None else default
 
     def reload(self):
         self.sysroot.call_sync("Reload", None, Gio.DBusCallFlags.NONE, -1, None)

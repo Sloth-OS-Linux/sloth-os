@@ -9,7 +9,8 @@ terminálból lehet csinálni, GUI-ból is menjen.
 **Publikálás előtt kötelező**
 1. [ ] Fájlmentés és „Korábbi verziók” (Teendők, 8. pont): a pillanatképek, a „Korábbi verziók” és a Sloth Központ
    oldala kész (2026-10-20, valódi gépen még tesztelni); hátravan a külső lemezre mentés
-2. [ ] A gép alaphelyzetbe állítása (Teendők, 8. pont)
+2. [x] A gép alaphelyzetbe állítása (Teendők, 8. pont): a Sloth Központból kész (2026-10-20, VM-ben még
+   tesztelni); a boot menüs változat később
 3. [ ] A teszt végig valódi gépen: Battle.net, Windows-indítók az Üdvözlőből, felhő, telefon, átköltözés Windowsról,
    nyomtató és szkenner, firmware, NVIDIA-s gép, Windows mellé telepítés (tesztelő kell)
 4. [ ] Régi (BIOS-os) gépek (Teendők, 2. pont)
@@ -24,6 +25,10 @@ terminálból lehet csinálni, GUI-ból is menjen.
   fel (iskolai Wi-Fi, ~20 eszköz); Wi-Fi-váltáskor és utána pár másodpercenként új kimenetek jöttek, és mindegyik
   feloldotta a Plasma „mindent némít” állapotát. Javítva: a csomag kikerül az image-ből (`slim-image.sh`).
   Valódi gépen ellenőrizni a frissítés után: némítás, Wi-Fi ki-be, marad-e némítva
+- [x] Sloth Központ, Frissítések: a keresés / telepítés után a Központot újra kellett nyitni, hogy lássa az új verziót
+  vagy a várakozó újraindítást (2026-10-20). Az állapotot a D-Bus proxy gyorsítótárából olvasta, ami csak késve
+  frissült. Javítva: mindig közvetlenül kérdezi (`Properties.Get`), és egy művelet után 2 és 8 mp múlva újra ránéz.
+  Valódi gépen ellenőrizni
 - [x] Naplózaj: 30 másodpercenként „BAT0: chmod … charge_control_*_threshold failed”. A Universal Blue
   `99-thinkpad-thresholds-udev.rules` szabálya nem nézte, létezik-e a fájl (HP-n nincs). Javítva (2026-10-20):
   azonos nevű, javított szabály az `/etc/udev/rules.d`-ben (csak ha a fájl létezik; ThinkPadeken ugyanúgy működik)
@@ -437,9 +442,25 @@ Talált hibák (egyesével javítjuk):
        nagy saját mappával (mennyi ideig tart), SELinux-címkék utána, a Dolphin menüpontja, a Kuka
      - [x] **Külső lemezre mentés** (2026-10-20): Pika Backup (Flathub), a Fájlmentés oldalon kártyával: mit csinál,
        három lépés a beállításhoz, Telepítés (a Discoverben; a kártya magától észreveszi, ha kész) / Megnyitás
-   - [ ] **A gép alaphelyzetbe állítása** („Reset this PC”): a fájlok megtartásával vagy mindent törölve; a
-     rendszerbeállítások gyári állapotra, frissítés a legújabb verzióra. Sloth Központból, és ha a rendszer nem
-     indul, a boot menüből is
+   - [x] **A gép alaphelyzetbe állítása** („Reset this PC”, 2026-10-20; valódi gépen / VM-ben még tesztelni):
+     Sloth Központ → Alaphelyzetbe állítás, két móddal; mindkettőnél felsorolja, mi marad és mi törlődik, és
+     megerősítést kér. `files/system/usr/libexec/sloth-os/factory-reset`, két lépésben:
+     - most (sloth-helper `factory-reset`, folyamatjelzéssel): a legújabb verzió letöltése, a kézzel hozzáadott
+       rendszercsomagok (`rpm-ostree reset`) és kernelparaméterek levétele (a telepítő, az image `kargs.d`-je és a
+       driverek paraméterei maradnak). Újraindításig visszavonható (az előkészített verzió is törlődik)
+     - a következő induláskor, bejelentkezés előtt (`sloth-factory-reset.service`, a Plymouth-animáció alatt
+       felirattal): az appok le (rendszer- és felhasználói Flatpak), az `/etc` a gyári `/usr/etc` szerint (marad: fiókok,
+       gépnév, nyelv, billentyűzet, időzóna, titkosítás, a gép kulcsai; tartományba léptetett gépen a bejelentkezés
+       beállításai), a szolgáltatások a gyári alapértelmezés szerint, majd újraindul
+     - **Fájljaim megtartásával:** a fájlok, az appok adatai (pl. a Steam játékai), a fiókok, a Wi-Fi és a mentett
+       állapotok maradnak; az asztal beállításai (`~/.config`) a „Régi beállítások” mappába kerülnek, így az Üdvözlő
+       is újra elindul
+     - **Mindent töröl:** minden fiók, saját mappa és mentett állapot törlődik; az új fiók nevét és jelszavát a
+       Központ kéri be előtte, és a `sloth-first-user` hozza létre
+     - Próba: `tools/tests/test_factory_reset.py` (9 teszt), az `/etc` visszaállítása a valódi image 4747 fájlján, a
+       teljes induláskori lépés mindkét módban konténerben (fiókokkal, a first-user-rel együtt), az előkészítés
+       ál-rpm-ostree-vel, a felület offscreen képernyőképpel
+   - [ ] **Alaphelyzetbe állítás a boot menüből**, ha a rendszer nem indul (3. rész)
    - [x] **Átköltözés Windowsról** (2026-10-19): az Üdvözlőben új lépés a megosztás után (csak ha van NTFS- vagy
      BitLockeres partíció; induláskor nem csatol, így nem kér jelszót), és a Sloth Központ Lemezek oldaláról is
      (`sloth-welcome --windows-import`). A Windows-partíciót csak olvasásra csatolja (udisksctl), és a végén (bezáráskor
