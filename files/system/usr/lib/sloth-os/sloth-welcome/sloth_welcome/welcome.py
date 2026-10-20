@@ -27,6 +27,8 @@ def _size_text(nbytes):
 
 CONFIG_DIR = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os"
 DONE_MARKER = CONFIG_DIR / "welcome-done"
+# Hol tart a varázsló (ha közben újraindul a gép, onnan folytatja); a végén törlődik
+PROGRESS = CONFIG_DIR / "welcome-progress.json"
 
 # A StackLayout lapjai a QML-ben. A kategóriák egy közös lapot használnak,
 # a lépéssorrend: üdvözlés, megjelenés, jelszavak, megosztás, kategóriánként egy lépés, telepítés, kész.
@@ -105,6 +107,69 @@ class WelcomeController(QObject):
         self._queue_done_sig.connect(self._on_queue_done)
         if windows_only:
             self._start_windows_scan()
+        else:
+            self._restore()
+
+    # --- Folytatás megszakítás után (PROGRESS) -----------------------------------
+
+    def _save(self):
+        if self._windows_only:
+            return
+        state = {"step": self._step_name(), "language": i18n.language(), "selected": self._selected,
+                 "scheme": self._scheme, "layout": self._layout, "security": self._security,
+                 "autologin": self._autologin, "installed": self._installed,
+                 "failures": self._failures, "summary": self._summary,
+                 "win_queue": [[name, str(path)] for name, path in self._win_queue], "queue": self._queue_state}
+        try:
+            CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+            tmp = PROGRESS.with_suffix(".tmp")
+            tmp.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
+            tmp.replace(PROGRESS)
+        except OSError as e:
+            log.warning("állapot mentése: %s", e)
+
+    def _restore(self):
+        """Ha az előző futás nem ért a végére (pl. újraindult közben a gép): ugyanott és ugyanazzal folytatja."""
+        try:
+            state = json.loads(PROGRESS.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return
+        if not isinstance(state, dict):
+            return
+        if state.get("language") in {l["code"] for l in i18n.available()}:
+            i18n.set_language(state["language"])
+            apply_language()
+        known = {a["id"] for cat in catalog.CATEGORIES for a in cat["apps"]}
+        self._selected = [a for a in state.get("selected", []) if a in known]
+        self._scheme = state.get("scheme", self._scheme)
+        self._layout = state.get("layout", self._layout)
+        if state.get("security") in ("all", "recommended"):
+            self._security = state["security"]
+        self._autologin = bool(state.get("autologin"))
+        step = state.get("step", "")
+        if step in self._steps and self._steps.index(step) > self._steps.index("security"):
+            self._security_saved = (self._security, self._autologin)  # ezt már elmentette
+        if step == "install":
+            # telepítés közben szakadt meg: az utolsó kategóriánál, ugyanazzal a választással; a „Telepítés”
+            # gombra a már fent lévő appok azonnal készek, a többi települ
+            step = f"cat{len(catalog.CATEGORIES) - 1}"
+        elif step == "done":
+            self._installed = [a for a in state.get("installed", []) if a in known]
+            self._failures = [tuple(f) for f in state.get("failures", []) if isinstance(f, list) and len(f) == 2]
+            self._summary = state.get("summary", "") or "done.all_ok"
+            if state.get("queue") != "done":
+                # a Windows-telepítők még nem futottak le (vagy közben szakadt meg): újra felajánlja őket
+                self._win_queue = [(name, Path(path)) for name, path in state.get("win_queue", [])
+                                   if Path(path).is_file()]
+            else:
+                self._queue_state = "done"
+        if step in self._steps:
+            self._step = self._steps.index(step)
+            if step == "cat0" or step.startswith("cat"):
+                self._online = desktop.is_online()
+            if step == "windows":
+                self._start_windows_scan()
+            log.info("folytatás: %s", step)
 
     # --- Tulajdonságok ------------------------------------------------------
 
@@ -168,6 +233,7 @@ class WelcomeController(QObject):
         if code != i18n.language():
             i18n.set_language(code)
             apply_language()
+            self._save()
             self.changed.emit()
 
     # --- Listák (a választott nyelven) ----------------------------------------
@@ -477,12 +543,14 @@ class WelcomeController(QObject):
                 self._online = desktop.is_online()
             if self._step_name() == "windows" and self._win["state"] == "idle":
                 self._start_windows_scan()
+            self._save()
             self.changed.emit()
 
     @Slot()
     def back(self):
         if 0 < self._step and self._step_name() not in ("install", "done"):
             self._step -= 1
+            self._save()
             self.changed.emit()
 
     @Slot(str)
@@ -491,18 +559,21 @@ class WelcomeController(QObject):
             self._selected.remove(app_id)
         else:
             self._selected.append(app_id)
+        self._save()
         self.changed.emit()
 
     @Slot(str)
     def setScheme(self, scheme_id):
         if scheme_id != self._scheme and desktop.apply_color_scheme(scheme_id):
             self._scheme = scheme_id
+            self._save()
             self.changed.emit()
 
     @Slot(str)
     def setLayout(self, layout_id):
         if layout_id != self._layout and desktop.apply_layout(layout_id):
             self._layout = layout_id
+            self._save()
             self.changed.emit()
 
     @Slot(str)
@@ -528,6 +599,7 @@ class WelcomeController(QObject):
         self._step = self._steps.index("install")
         self._status = tr("install.preparing")
         self._app_states = {a: "waiting" for a in self._selected}
+        self._save()
         self.changed.emit()
         self._installer.start(self._selected)
 
@@ -554,6 +626,7 @@ class WelcomeController(QObject):
         if not self.pendingWindows:
             return
         self._queue_state = "running"
+        self._save()  # "running": ha közben szakad meg, a következő indításkor újra felajánlja
         self.hideRequested.emit()
 
         def work():
@@ -572,6 +645,7 @@ class WelcomeController(QObject):
     def _on_queue_done(self, results):
         self._queue_state = "done"
         self._summary = "done.windows_finished"
+        self._save()
         self.changed.emit()
         self.showRequested.emit()
 
@@ -580,6 +654,7 @@ class WelcomeController(QObject):
         self.release_windows()
         CONFIG_DIR.mkdir(parents=True, exist_ok=True)
         DONE_MARKER.touch()
+        PROGRESS.unlink(missing_ok=True)
         if self._installed and not restart:
             desktop.refresh_app_cache()
         # A telepített böngészők és a Steam a tálcára kerülnek. A már meglévő böngésző is
@@ -615,4 +690,5 @@ class WelcomeController(QObject):
             self._summary = "done.all_failed"
         self._progress = 100
         self._step = self._steps.index("done")
+        self._save()
         self.changed.emit()

@@ -21,7 +21,7 @@ terminálból lehet csinálni, GUI-ból is menjen.
 ### Teszt a 2026-10-20-i reset után (legújabb image, valódi gép)
 VM-ben előre végignézve (2026-10-20 este, a 13:36-os image, `71b9b89`, titkosított lemez, nyitott hálózat); ami ott
 jó volt, azt valódi gépen elég egyszer megnézni:
-- [ ] **Üdvözlő, megszakítás:** VM-ben (a Steam telepítése közben hirtelen újraindítva): az Üdvözlő az elejéről indul,
+- [x] (2026-10-20 este javítva, lent) **Üdvözlő, megszakítás:** VM-ben (a Steam telepítése közben hirtelen újraindítva): az Üdvözlő az elejéről indul,
   a választások (nyelv, appok) elvesznek, a már telepített appokat nem jelzi (újra kínálja őket). Újra kiválasztva a
   már fent lévőket azonnal kipipálja, a többit telepíti; a vége rendben. Működik, de kényelmetlen: lásd lent, hibák
 - [x] **Első .exe friss rendszeren:** VM-ben a Battle.net telepítője 20 mp-en belül megjelent (2026-10-20)
@@ -65,8 +65,11 @@ jó volt, azt valódi gépen elég egyszer megnézni:
 - [x] **Fájlmentés: a „Back up now” jelszót kért** a „csak a kockázatos dolgokhoz” módban is. Döntés (2026-10-20): ne
   kérjen. Javítva: `sloth-helper-backup` (csak a `snapshot-now`), saját polkit-művelet (`org.slothos.helper.backup`,
   `allow_active: yes`; mint a Windows Fájlelőzményei). A törlés és a beállítások továbbra is jelszavasak
-- [ ] **Üdvözlő megszakítás után:** jegyezze meg a választásokat (nyelv, appok) és a már kész appokat, és onnan
-  folytassa, ahol tartott (most az elejéről indul)
+- [x] **Üdvözlő megszakítás után** onnan folytatja, ahol tartott (2026-10-20): `welcome-progress.json` (lépés, nyelv,
+  választott appok, megjelenés, jelszó-választás, a kész appok és a Windows-telepítők sora); telepítés közben
+  megszakítva az utolsó kategóriánál, ugyanazzal a választással (a fent lévők azonnal készek); a végén megszakítva
+  újra felajánlja a Windows-telepítőket; a végén törlődik. Offscreen próbával (valódi vezérlő, hamis telepítő)
+  kipróbálva; valódi gépen: a reset után egy újraindítás az Üdvözlő közepén
 - [ ] Üdvözlő, megosztás lépés: „később a Sloth Központban (Windows-programok)” – az oldal neve ma már „Programok”
 - [ ] Rendszer egészség, VM-ben: „Machine Check Exception Logging Daemon” nem indult (a VM-ben nincs MCE); valódi
   gépen nézni, előjön-e; ha csak VM-ben, a VM-ben ne jelezze
