@@ -18,6 +18,44 @@ terminálból lehet csinálni, GUI-ból is menjen.
 7. [ ] Legvégül: a repó publikussá tétele, napi build, ISO-tárhely (Teendők, 3–4. pont). Weboldal már van:
    https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io (átnézni)
 
+### 2026-10-20 este: mi történt (röviden)
+- **VM-teszt** a 13:36-os image-en (Üdvözlő, Battle.net, EA app, Ubisoft, Frissítések, Fájlmentés, zram): a talált
+  hibák javítva (EA Start menü és recept, Korábbi verziók gombjai, Wine-mintaprogramok, Programok tallózó,
+  Játékok legördülő), részletek lent („A VM-teszt hibái”)
+- **Új:** Visszajelzés a Sloth Központból (élesítve: `Sloth-OS-Linux/feedback`, 50 nyelven), jelszó nélküli „Mentés
+  most”, az Üdvözlő megszakítás után folytatja, alaphelyzetbe állítás a boot menüből (fájlok megmaradnak)
+- **Windows mellé telepítés VM-ben:** két komoly hiba javítva (a rendszerbetöltő a Windows EFI-partíciójára ment; a
+  boot menü egyetlen gépen sem jött elő, mert a `${cmdpath}` üres). Telepítő-javítás: új ISO kell hozzá
+- **Ujjlenyomat + PIN után nem indult a bejelentkező képernyő** (a te gépeden): az authselect kivette a
+  `with-altfiles`-t; javítva, és induláskor a már elrontott gépeket is rendbe teszi
+- Weboldal: valódi képernyőképek, Sloth Center szakasz, GYIK (visszajelzés); közös tudás: EA recept (PR #1, mergelve)
+- Döntések: az 1.0 csak UEFI-s gépekre (BIOS később); szülői felügyelet és Windows-programok a Discoverben az 1.0 után
+
+### Holnapi teszt (2026-10-21, valódi gép, pendrive-os újratelepítés / reset után, a `d43e36f` vagy újabb image-dzsel)
+A sorrend számít: előbb a telepítés és az Üdvözlő, utána a többi.
+1. [ ] **Image-verzió:** Sloth Központ → Frissítések: a mai esti (`d43e36f`, 2026-10-20 este) vagy újabb. Ha a
+   pendrive-os ISO régebbi, telepítés után először frissíts (Frissítések → keresés), és indítsd újra
+2. [ ] **Üdvözlő megszakítva:** a varázsló közepén (pl. az appok telepítése közben) indítsd újra a gépet: onnan
+   folytatja-e, ugyanazzal a nyelvvel és választással; a kész appokat azonnal kipipálja-e
+3. [ ] **Sloth Központ a tálcán** (új felhasználónál alapból ott kell lennie)
+4. [ ] **Ujjlenyomat + PIN:** kapcsold be mindkettőt (Fiók és biztonság), indítsd újra: jön-e a bejelentkező képernyő;
+   belépés ujjlenyomattal, PIN-nel és jelszóval is; a zárolási képernyőn (Win+L) is
+5. [ ] **Boot menü:** indításkor Esc: látszik-e a menü, benne „Alaphelyzetbe állítás (Fájljaim megtartásával)” magyarul.
+   Ha van időd: válaszd ki, és nézd meg, hogy lefut-e, és megmaradnak-e a fájljaid (az appokat újra kell telepíteni)
+6. [ ] **Visszajelzés:** Sloth Központ → Visszajelzés: egy próba napló csatolásával; megjön-e a szám („#…”). Utána
+   itt megnézzük: `gh issue list -R Sloth-OS-Linux/feedback -l feedback`
+7. [ ] **Fájlmentés:** „Mentés most” jelszó nélkül; Dolphin → jobb klikk → „Korábbi verziók”: van-e szöveg a gombokon,
+   és visszahozza-e egy módosított fájl régi változatát
+8. [ ] **EA app:** az Üdvözlőből; bekerül-e a Start menübe (csak az „EA app” / EADesktop), onnan indul-e; ha frissít
+   magán, utána is indul-e
+9. [ ] **Játékok oldal:** a felskálázás legördülője nem üres („Ki”)
+10. [ ] **Fiókkal (ha van):** Battle.net / EA / Ubisoft tálcára kicsinyítve: a buborék a tálca fölött jön-e; egy játék
+    indítása a Battle.net-ből
+11. [ ] **Ha marad idő:** Steam-átvétel (kézzel hozzáadott Windows-program a Steamben), firmware a Discoverben,
+    zram (Haladó beállítások), Proton helyfoglalása (Sloth Központ / Dolphin: ~/.local/share/Steam vagy umu mappa)
+- **Ne:** a mostani pendrive-os ISO-val Windows mellé ne telepíts (a telepítő javítása még nincs benne az ISO-ban)
+- **Ha valami nem megy:** Sloth Központ → Rendszer egészség → Napló mentése, vagy (ha a Központ már megy) Visszajelzés
+
 ### Teszt a 2026-10-20-i reset után (legújabb image, valódi gép)
 VM-ben előre végignézve (2026-10-20 este, a 13:36-os image, `71b9b89`, titkosított lemez, nyitott hálózat); ami ott
 jó volt, azt valódi gépen elég egyszer megnézni:
