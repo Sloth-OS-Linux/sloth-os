@@ -41,7 +41,22 @@ jó volt, azt valódi gépen elég egyszer megnézni:
 - [ ] **Firmware:** a Discover Frissítések oldalán látszik-e a BIOS/firmware (fwupd); VM-ben nincs mit nézni
 - [ ] **Sloth Központ a tálcán:** új felhasználónál (a reset után) ott van-e; a már meglévő felhasználóknál nem jelenik
   meg magától (csak elrendezésváltáskor), a VM-ben így volt
-- Később, ha lesz gép / tesztelő: Windows mellé telepítés, NVIDIA-s gép (a gamer gépen), BIOS-os gép, nyomtató és szkenner
+- [x] **Windows mellé telepítés, VM-ben** (2026-10-20, egy „Windowsos” próbalemezzel: GPT, Windows EFI-partíció
+  `bootmgfw.efi`-vel, MSR, 80 GB-os NTFS 2 GB adattal; a 10-19-i ISO, a javított telepítő-segéddel). Jó: a felismerés
+  („Has Windows on it”, alapból „Next to Windows”, max. 57 GB), a megerősítő oldal, a zsugorítás és a telepítés (fekete
+  kép nélkül), az NTFS ép (a fájlok megvannak), az óra (`adjtime: LOCAL`), a boot menü 5 mp-ig, benne a Windows (a
+  chainloader eléri a Windows indítóját) és az „Alaphelyzetbe állítás”. **Két hiba, javítva:**
+  - A rendszerbetöltő a **Windows EFI-partíciójára** került (a bootupd a lemez első EFI-partícióját választja, nem a
+    felcsatoltat), a sajátunk üres maradt, a boot menü fájljai sehova. Javítva (`sloth-install-helper`,
+    `hide_other_esps`): a telepítés idejére a többi EFI-partíció típusa „Microsoft basic data”, utána vissza
+  - **A boot menü egyetlen gépen sem jött elő** (hibás indítás után sem, Windows mellett sem): a `custom.cfg` a
+    `${cmdpath}`-ot használta, ami a bootupd `configfile`-ja miatt ott üres (a GRUB-konzolban ellenőrizve). Javítva
+    (`grub-custom.cfg`): a saját EFI-partíciót `search --file /EFI/fedora/sloth-boot.env` keresi meg (`sloth_dir`,
+    exportálva a menüpontoknak). A meglévő gépeken a következő image-dzsel frissül (`boot-env ensure-config`)
+- [ ] A telepítő megerősítő oldala mondja meg, hogy zsugorítás után az első Windows-indításkor a Windows átnézi a
+  lemezt (az `ntfsresize` ellenőrzendőnek jelöli; „Meghajtó vizsgálata és javítása”, pár perc, ne kapcsold ki)
+- [ ] Új ISO kell a telepítő javításával (`hide_other_esps`); utána valódi gépen, valódi Windows mellé (tesztelő)
+- Később, ha lesz gép / tesztelő: NVIDIA-s gép (a gamer gépen), BIOS-os gép, nyomtató és szkenner
 
 **A VM-teszt hibái (2026-10-20 este)**
 - [x] **EA app: nem került a Start menübe.** Az `EADesktop.exe` kétszer volt a listán (a fő és a `compatibility32`

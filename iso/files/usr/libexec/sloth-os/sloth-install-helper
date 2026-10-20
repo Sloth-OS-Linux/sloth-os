@@ -65,6 +65,7 @@ BIOS_BOOT = "21686148-6449-6e6f-744e-656564454649"
 ESP_TYPE = "c12a7328-f81f-11d2-ba4b-00a0c93ec93b"
 ROOT_X86_64 = "4f68bce3-e8cd-4db1-96e7-fbcaf984b709"
 LINUX_DATA = "0fc63daf-8483-4772-8e79-3d69d8477de4"
+MS_BASIC_DATA = "ebd0a0a2-b9e5-4433-87c0-68b6b72699c7"
 
 # bootc kimenet -> lépés és körülbelüli százalék (az első egyező nyer). A másolás haladását
 # nem a kimenetből, hanem a rendszerpartíción elfoglalt helyből számoljuk (copy_progress).
@@ -519,6 +520,40 @@ def run_bootc(kargs=()):
         fail("error.install_failed", f"bootc kilépési kód: {proc.returncode}")
 
 
+def hide_other_esps(disk, own_partn):
+    """A bootc (bootupd) a lemez első EFI-partíciójára telepíti a rendszerbetöltőt, nem a felcsatoltra: Windows
+    mellett ez a Windowsé lenne (2026-10-20, VM-teszt: a GRUB a Windows EFI-partícióján, a sajátunk üres, és a
+    boot menü fájljai sehova nem kerültek). A telepítés idejére a többi EFI-partíció típusát „Microsoft basic
+    data”-ra írjuk (a tartalmukhoz nem nyúlunk), utána restore_esps visszaállítja."""
+    hidden = []
+    for p in table(disk)["partitions"]:
+        n = partnum(disk, p["node"])
+        if n != own_partn and (p.get("type") or "").lower() == ESP_TYPE:
+            run(["sfdisk", "--no-reread", "--part-type", disk, str(n), MS_BASIC_DATA])
+            hidden.append((n, p["node"]))
+    if hidden:
+        log(f"más EFI-partíciók a telepítés idejére elrejtve: {hidden}")
+        _refresh_parts(disk, [node for _n, node in hidden])
+    return hidden
+
+
+def restore_esps(disk, hidden):
+    for n, _node in hidden:
+        r = subprocess.run(["sfdisk", "--no-reread", "--part-type", disk, str(n), ESP_TYPE],
+                           capture_output=True, text=True)
+        log(f"EFI-partíció visszaállítva: {n} ({r.returncode}) {r.stderr.strip()}")
+    if hidden:
+        _refresh_parts(disk, [node for _n, node in hidden])
+
+
+def _refresh_parts(disk, nodes):
+    # a kernel és az udev is lássa az új típust (a bootupd az udev adataiból keres)
+    subprocess.run(["partx", "--update", disk], capture_output=True)
+    for node in nodes:
+        subprocess.run(["udevadm", "trigger", "--action=change", node], capture_output=True)
+    subprocess.run(["udevadm", "settle", "--timeout=30"], capture_output=True)
+
+
 GRUB_CUSTOM = Path("/usr/lib/sloth-os/grub-custom.cfg")
 
 
@@ -544,7 +579,9 @@ def setup_boot_menu(windows_esp=""):
                 log(f"boot menü: {mp} nem csatolható írhatóra: {r.stderr.strip()}")
     try:
         (grub_dir / "custom.cfg").write_bytes(GRUB_CUSTOM.read_bytes())
-        if efi_dir.is_dir():
+        if not efi_dir.is_dir():
+            log(f"boot menü: HIBA, nincs {efi_dir} (a rendszerbetöltő máshova került?)")
+        else:
             # GRUB környezeti blokk (a grub2-editenv formátuma: 1024 bájt, a maradék #-kel kitöltve)
             show = "1" if windows_esp else "0"
             body = f"# GRUB Environment Block\nsloth_boot_pending=0\nsloth_show_menu={show}\n"
@@ -873,7 +910,11 @@ def main():
         # indításkor ezt kell kinyitni, és a jelszót a választott billentyűzetkiosztással kérjük
         kargs = [f"rd.luks.uuid=luks-{parts['luks_uuid']}", f"rd.vconsole.keymap={console_keymap(keyboard[0])}"]
     emit(stage="prepare", progress=20)
-    run_bootc(kargs)
+    hidden = hide_other_esps(args.disk, parts["numbers"]["esp"])
+    try:
+        run_bootc(kargs)
+    finally:
+        restore_esps(args.disk, hidden)
     setup_boot_menu(windows_esp)
     root_part = finish_partitions(args.disk, parts, passphrase)
     rename_boot_entry(args.disk, parts["numbers"]["esp"])
