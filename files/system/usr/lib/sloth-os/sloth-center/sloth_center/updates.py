@@ -18,6 +18,18 @@ from .rpmostree import RpmOstree, Transaction
 log = logging.getLogger("sloth-center.updates")
 
 
+def update_available(cached):
+    """Van-e letölthető új verzió az rpm-ostree CachedUpdate adata szerint.
+
+    Konténer-image-nél (ostree-image-signed:docker://…) a "ref-has-new-commit" mindig hamis: ott a
+    "manifest-diff" mutatja az új verziót (hozzáadott / eltávolított rétegek), ahogy az "rpm-ostree upgrade --check"
+    „AvailableUpdate” kiírása is (2026-10-20, valódi gépen: n-added 29, ref-has-new-commit false)."""
+    if cached.get("ref-has-new-commit"):
+        return True
+    diff = cached.get("manifest-diff") or {}
+    return bool(diff.get("n-added") or diff.get("n-removed"))
+
+
 class UpdatesController(QObject):
     changed = Signal()
 
@@ -141,7 +153,7 @@ class UpdatesController(QObject):
             self._pending = ""
         self._rollback = texts.version_text(rollback) if rollback and rollback.get("id") != booted.get("id") else ""
         cached = self._ostree.cached_update() or {}
-        if cached.get("ref-has-new-commit") and not self._pending:
+        if update_available(cached) and not self._pending:
             self._available = texts.version_text(cached) or tr("Új verzió")
         else:
             self._available = ""

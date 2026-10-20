@@ -30,6 +30,10 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - [x] A Sloth Központ magyar rendszeren a legtöbb szöveget angolul írta ki („Updates”, „Open”): a fordítási katalógus
   a magyarra is ráterítette az angol tartalékot, a Központ hu.json-ja pedig csak néhány sort tartalmaz (ott a
   magyar szöveg maga a kulcs). Javítva (2026-10-20, `sloth_common/i18n.py`): magyarul nincs angol tartalék
+- [x] **Sloth Központ, Frissítések: „naprakész”, pedig van új verzió** (2026-10-20, valódi gépen): a Központ az
+  rpm-ostree CachedUpdate "ref-has-new-commit" mezőjét nézte, ami konténer-image-nél mindig hamis; ott a
+  "manifest-diff" (hozzáadott / eltávolított rétegek) jelzi az új verziót. Eddig csak a háttérben futó automatikus
+  frissítés hozta le az újat. Javítva (`updates.py`, `update_available`)
 - [ ] Bootloop titkosított lemezzel: VM-ben nem jött elő; figyelni (előtte frissítés / NVIDIA-váltás volt-e)
 - [x] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”). A Kirigami saját szövege, a telepítő
   nyelvváltását nem követi; kiürítve (a címke ott van), a titkosítás jelszómezőinél is (2026-10-20)
@@ -44,10 +48,41 @@ terminálból lehet csinálni, GUI-ból is menjen.
   („i386-linux-gnu-capsule-capture-libs … No such file”: a fájl megvan, a `/lib/ld-linux.so.2` hiányzott).
   Javítva: `mesa-dri-drivers.i686`, `mesa-vulkan-drivers.i686` (gaming.yml; ~400 MB), NVIDIA-n a driver 32 bites
   része (`nvidia-32bit.sh`, a CI naplójában ellenőrizni). Valószínűleg a többi 32 bites telepítőt is érintette.
-  Mellette: a .exe kezelő hibakóddal, 45 mp-en belül kilépő programot nem jegyez meg „bevált” beállításnak
-- [ ] **EA app:** INST-14-1627 = az MSI a végén nem tudja elindítani az `EABackgroundService` szolgáltatást
-  (`StartServices returned 1627`). A 32 bites driverek után újra kipróbálni; ha marad: kerülőút kell (pl. másik
-  Proton, ahogy a Heroic-felhasználók jelzik)
+  Mellette: a .exe kezelő hibakóddal, 45 mp-en belül kilépő programot nem jegyez meg „bevált” beállításnak.
+  **Valódi gépen kipróbálva (2026-10-20, ed2bd39 image): a Battle.net elindul, a WoW Classic települ.** Még nézni:
+  a játék indítása a Battle.net-ből
+- [x] **EA app: megoldva** (2026-10-20, valódi gépen: a 8. próbával települt és elindult). A telepítő a fájlokat
+  az `EA Desktop\EA Desktop` mappába másolja, aztán egy saját lépése átnevezi `EA Desktop\<verzió>\EA Desktop`-ra,
+  és a régi helyére linket kér; a Wine 10 ezt nem hozza létre, a következő lépés (a szolgáltatás indítása) pedig
+  ezredmásodperceken belül jön. Javítás: `sloth_exe/stagedlinks.py` – amíg EA-telepítő vagy EA app fut, inotify-jal
+  figyeli a mappát, és az átnevezésre azonnal (~1 ms) Linuxos linket tesz a helyére (a Wine követi); indítás előtt
+  a legújabb verzióra igazítja (az EA app frissítései ugyanígy cserélnek). Próba: `tools/tests/test_stagedlinks.py`.
+  Proton 11-gyel (Wine ≥ 10.19, valódi linkek) a javítás magától feleslegessé válik, nem zavar.
+  **Még nézni:** az .exe kezelőn át (Üdvözlő / dupla kattintás), egy játék telepítése és indítása, az EA app frissítése
+- [ ] **EA app – a nyomozás** (2026-10-20 délelőtt, valódi gépen, umu-run-nal, részletes naplókkal):
+  - INST-14-1627: az MSI a végén nem tudja elindítani az `EABackgroundService`-t (`service_start returning 2`, a
+    fájl nincs az `…\EA Desktop\EA Desktop\` alatt). Ok: az EA app **szimbolikus linkekkel** települ
+    (`EAX_DISABLE_SYMLINKS="0"`; a fájlok egy verziós mappába, az `EA Desktop\EA Desktop` csak link), és a link Wine
+    alatt nem jön létre. A Lutris ea-app-standard receptje is ezt kerüli meg (a hibakódot sikernek veszi, utána a
+    verziós mappát a helyére mozgatja)
+  - `EAX_DISABLE_SYMLINKS=1` a telepítő parancssorában: a telepítő elfogadja, majd **maga visszaírja 0-ra**
+  - Az MSI kicsomagolható: `EAappInstaller.exe -layout C:\eamsi -quiet` (megvan: EAapp-13.809.0.6322-16067214.msi).
+    Közvetlenül (msiexec, .bat-fájlból, a telepítő összes paraméterével, `EAX_DISABLE_SYMLINKS=1`): a fájlmásolás
+    elindul, de az EA egyik saját lépése (CustomActionData: InstallAction=Install…) 1603-mal leáll
+  - GE-Proton11-11 (`PROTONPATH=GE-Proton`), eredeti telepítő: már az elején, a `JunoInitializeSession` (.NET-es lépés)
+    1603-mal áll meg; előtte `mscoree … installroot`: a környezetben nincs wine-mono
+  - **Az ok** (2026-10-20, utánajárva): a UMU-Proton-10.0-4 Wine 10.0-ra épül, ahol a `CreateSymbolicLinkW` csak
+    csonk: sikert jelez, de nem hoz létre linket (ugyanez a tünet az EA app frissítéseinél is: thewaryfox.com,
+    2026-02-08). A Wine 10.19 óta van linktámogatás (reparse points); a Valve Proton 11.0-2e (2026-10-09) kifejezetten
+    EA app-javításokat is hoz. UMU-Proton 11 még nincs (a legújabb: 10.0-4), GE-Proton11 van (lásd fent, .NET-es lépés)
+  - **Két út:** (A) a hiányzó link pótlása a mi oldalunkon, Protontól függetlenül: telepítés közben egy figyelő
+    Linuxos linket tesz az `EA Desktop\EA Desktop` helyére a verziós mappára (a Wine követi), indítás előtt pedig
+    mindig a legújabb verzióra igazítjuk (az EA app frissítései miatt). Próba: `ea-proba7.sh` (2026-10-20).
+    (B) Proton 11, ha lesz UMU-Proton 11, vagy a GE-Proton11 .NET-es hibája megoldódik
+  - Korábbi ötletek: (1) a Lutris útja: a telepítő hibáját elfogadni, és a verziós mappát a helyére tenni (ehhez
+    tudni kell, hogy a visszavonás előtt hol vannak a fájlok: a rollback előtt megállítani, vagy a fájlmásolás után
+    menteni); (2) GE-Proton 11 wine-monóval (`winetricks`/`mono` a környezetbe), mert ott a linkek talán működnek;
+    (3) a `CustomActionData` lépés saját naplója (EA ProgramData/Logs)
 - [x] **Epic:** az új telepítő (EpicInstaller-20.3.3.exe, a weboldalról) saját aláírás-ellenőrzése Wine alatt elbukik
   („Certificate CN does not match 'Epic Games Inc.'”). Döntés (2026-10-20): Epic és GOG helyett a Heroic. Az Üdvözlőből
   kikerült a két Windowsos indító, a Heroic leírása megmondja, miért ezt ajánljuk; aki mégis a Windowsos telepítőt

@@ -17,7 +17,7 @@ from PySide6.QtGui import QGuiApplication
 from sloth_common import gamesettings
 from sloth_common.apps.library import slugify
 
-from . import backend, quirks
+from . import backend, quirks, stagedlinks
 
 log = logging.getLogger("sloth-exe.runner")
 
@@ -60,6 +60,7 @@ class Runner(QObject):
     def __init__(self, parent=None):
         super().__init__(parent)
         self._proc = None
+        self._links = None      # stagedlinks.Watcher, amíg a program fut (EA app)
         self._started_at = 0.0
         self._setup_seen = False
         self._steps = []      # a program előtt futó lépések: (env, cwd, parancs, args, összetevő neve)
@@ -101,6 +102,12 @@ class Runner(QObject):
         # Ismert programok (pl. Battle.net, Ubisoft Connect, Epic, GOG Galaxy) beállításai
         known = quirks.apply(program, exe, env)
         args = list(known["args"])
+        # EA app: a Wine 10 nem hoz létre linket, ezért a verziócserénél mi tesszük a helyére (stagedlinks)
+        self._stop_links()
+        if stagedlinks.applies(program.prefix, exe):
+            stagedlinks.fix(program.prefix)
+            self._links = stagedlinks.Watcher(program.prefix)
+            self._links.start()
         if attempt:
             for key, value in attempt.env().items():
                 env.insert(key, value)
@@ -236,11 +243,17 @@ class Runner(QObject):
                     self._started_at = time.monotonic()  # a letöltés ideje nem számít a futásba
                     self.setup_done.emit()
 
+    def _stop_links(self):
+        if self._links:
+            self._links.stop()
+            self._links = None
+
     def _on_error(self, err):
         if err == QProcess.ProcessError.FailedToStart:
             log.error("a futtató nem indult el: %s", self._proc.program())
             self._steps = []
             self._close_log()
+            self._stop_links()
             self.finished.emit(127, 0.0)
 
     def _on_finished(self, code, _status):
@@ -252,4 +265,5 @@ class Runner(QObject):
             self._next_step()
             return
         self._close_log()
+        self._stop_links()
         self.finished.emit(int(code), self.elapsed())
