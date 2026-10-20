@@ -34,6 +34,12 @@ terminálból lehet csinálni, GUI-ból is menjen.
   rpm-ostree CachedUpdate "ref-has-new-commit" mezőjét nézte, ami konténer-image-nél mindig hamis; ott a
   "manifest-diff" (hozzáadott / eltávolított rétegek) jelzi az új verziót. Eddig csak a háttérben futó automatikus
   frissítés hozta le az újat. Javítva (`updates.py`, `update_available`)
+- [x] **rpm-ostree összeomlás frissítés közben** (2026-10-20, valódi gépen: „Bus owner changed … daemon crashed”, a
+  letöltés megszakadt; a naplóban előtte „Forcibly closing transaction due to timeout”, majd core dump a
+  `deploy_transaction_execute`-ban). Ok: a Sloth Központ a tranzakció végén nem bontotta a kapcsolatot (a parancssori
+  rpm-ostree igen), a szolgáltatás 30 mp múlva erővel lezárta, és az ekkor futó újabb művelet összeomlott. Javítva
+  (`rpmostree.py`, `Transaction._close`): a Frissítések, Haladó beállítások, Driverek és a Fejlesztői pult
+  műveleteinél is. Valódi gépen nézni: frissítéskeresés után a naplóban nincs több „Forcibly closing”
 - [x] **Értesítés a háttérben elkészült frissítésről** (2026-10-20, a felhasználó kérésére): az automatikus frissítés
   csendben előkészítette az új verziót, és úgy tűnt, mintha a frissítés „csak újraindítás után” jönne. Most Plasma-
   értesítés szól („Elkészült egy frissítés … a következő újraindításkor települ”, „Újraindítás most” gombbal), verziónként

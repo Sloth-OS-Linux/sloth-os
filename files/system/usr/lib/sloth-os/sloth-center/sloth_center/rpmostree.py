@@ -42,6 +42,7 @@ class Transaction:
         self._on_download = on_download
         self._on_finished = on_finished
         self._conn = None
+        self._sub = 0
         Gio.DBusConnection.new_for_address(
             address, Gio.DBusConnectionFlags.AUTHENTICATION_CLIENT, None, None, self._connected)
 
@@ -51,8 +52,8 @@ class Transaction:
         except GLib.Error as e:
             self._on_finished(False, e.message)
             return
-        self._conn.signal_subscribe(None, TXN_IFACE, None, "/", None,
-                                    Gio.DBusSignalFlags.NONE, self._signal)
+        self._sub = self._conn.signal_subscribe(None, TXN_IFACE, None, "/", None,
+                                                Gio.DBusSignalFlags.NONE, self._signal)
         self._conn.call(None, "/", TXN_IFACE, "Start", None, GLib.VariantType("(b)"),
                         Gio.DBusCallFlags.NONE, -1, None, self._started)
 
@@ -60,6 +61,7 @@ class Transaction:
         try:
             conn.call_finish(res)
         except GLib.Error as e:
+            self._close()
             self._on_finished(False, e.message)
 
     def _signal(self, _conn, _sender, _path, _iface, name, params):
@@ -74,7 +76,21 @@ class Transaction:
             transferred, rate = args[5]
             self._on_download(int(transferred), int(rate))
         elif name == "Finished":
+            self._close()
             self._on_finished(bool(args[0]), args[1])
+
+    def _close(self):
+        """A tranzakció végén bontjuk a kapcsolatot, ahogy az rpm-ostree parancs is. Ha nyitva marad, a
+        szolgáltatás 30 mp múlva erővel lezárja („Forcibly closing transaction due to timeout”), és az ekkor
+        induló újabb művelet (pl. egy frissítés) összeomolhat (2026-10-20, valódi gépen: rpm-ostree core dump
+        a deploy_transaction_execute-ban, a letöltés megszakadt)."""
+        if not self._conn:
+            return
+        conn, self._conn = self._conn, None
+        if self._sub:
+            conn.signal_unsubscribe(self._sub)
+            self._sub = 0
+        conn.close(None, None, None)
 
     def cancel(self):
         if self._conn:
