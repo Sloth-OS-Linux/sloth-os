@@ -13,4 +13,5 @@ modules:
     configurations:
       - notify: false # a felhasználó ne lásson technikai értesítést első induláskor
         scope: system # Flathub rendszerszintű repó, csomagok nélkül (az Üdvözlő innen telepít)
-      - scope: user # Flathub felhasználói repó, csomagok nélkül
+      - notify: false # minden bejelentkezéskor szólt („…installation of 0 user Flatpak(s)…”), 2026-10-20
+        scope: user # Flathub felhasználói repó, csomagok nélkül
