@@ -38,6 +38,8 @@ modules:
         # értesítés, ha a háttérben elkészült egy rendszerfrissítés (a következő újraindításkor települ)
         - sloth-update-notify.path
         - sloth-update-notify.service
+        # a Windows-programok tálcás szövegbuborékai a tálca mellé (ne a képernyő bal felső sarkába)
+        - sloth-wine-balloons.service
 
   # Karcsúsítás: csak az marad, ami a működéshez vagy a hibaelhárításhoz kell (maradjon a modulok végén)
   - type: script

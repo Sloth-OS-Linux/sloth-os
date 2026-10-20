@@ -29,6 +29,24 @@ def bundled():
     return (BUNDLED / "steamrt3").is_dir() and any(BUNDLED.glob("UMU-Proton-*/proton"))
 
 
+def local_runtime():
+    """Az előtérben indított programhoz: (Proton mappája, van-e futtatókörnyezet) letöltés nélkül.
+
+    Az umu alapból minden indításkor megnézi, van-e újabb UMU-Proton és futtatókörnyezet, és ha van, előbb letölti
+    (több száz MB). Friss telepítés után a gyári Proton már nem a legújabb, így az első .exe percekig „töltött”
+    (2026-10-20, valódi gépen). A felhasználó ne várjon: a már meglévőt (vagy a most bemásolandó gyárit) használjuk,
+    a frissítést a háttérben a sloth-windows-prepare végzi."""
+    from . import heal
+    proton = heal.newest(heal.UMU_LINE)
+    path = heal.installed_protons().get(proton) if proton else None
+    if not path and bundled():
+        # a gyári példány: a futtató előtte bemásolja (SEED), ugyanide
+        name = sorted(p.name for p in BUNDLED.glob("UMU-Proton-*") if (p / "proton").is_file())[-1]
+        path = PROTON_DIRS[0] / name
+    runtime = UMU_LOCAL.is_dir() and any((d / "VERSIONS.txt").is_file() for d in UMU_LOCAL.iterdir() if d.is_dir())
+    return (str(path) if path else None), runtime or bundled()
+
+
 def proton_ready():
     """Le van-e már töltve a futtatókörnyezet és a Proton (akkor internet nélkül is indul)."""
     runtime = UMU_LOCAL.is_dir() and any((d / "VERSIONS.txt").is_file() for d in UMU_LOCAL.iterdir() if d.is_dir())

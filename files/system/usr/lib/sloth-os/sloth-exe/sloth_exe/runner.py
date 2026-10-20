@@ -115,6 +115,12 @@ class Runner(QObject):
             for key, value in attempt.env().items():
                 env.insert(key, value)
             args = attempt.args() + [a for a in args if a not in attempt.args()]
+        # Ne töltsön le újabb Protont / futtatókörnyezetet, amíg a felhasználó vár (a háttérben frissül)
+        proton, runtime = backend.local_runtime()
+        if proton and not env.contains("PROTONPATH"):
+            env.insert("PROTONPATH", proton)
+        if runtime:
+            env.insert("UMU_RUNTIME_UPDATE", "0")
 
         self._open_log(program, exe)
         self._started_at = time.monotonic()

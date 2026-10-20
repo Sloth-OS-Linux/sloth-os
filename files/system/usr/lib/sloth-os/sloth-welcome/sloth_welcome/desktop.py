@@ -127,7 +127,8 @@ LAYOUTS = [
 _LAYOUT_SCRIPT = """
 const kind = %s;
 // A rögzített appokat megtartjuk
-let launchers = ["applications:org.kde.dolphin.desktop", "applications:org.kde.discover.desktop"];
+let launchers = ["applications:org.kde.dolphin.desktop", "applications:org.kde.discover.desktop",
+                 "applications:org.slothos.center.desktop"];
 for (const p of panels()) {
     for (const w of p.widgets()) {
         if (w.type === "org.kde.plasma.icontasks") {

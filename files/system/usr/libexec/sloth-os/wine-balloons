@@ -1,0 +1,166 @@
+#!/usr/bin/python3 -I
+"""A Windows-programok tálcás szövegbuborékai a tálca mellé, ne a képernyő bal felső sarkába.
+
+A Wine a buborékot (pl. „A Battle.net a háttérben fut tovább”) a tálcaikon ablakának közepére teszi. Plasmán a
+Windows-programok tálcaikonjait az xembedsniproxy viszi át a tálcára, az eredeti (láthatatlan) ikonablakok pedig a
+képernyő bal felső sarkában vannak, így a buborék is ott jelent meg. A felhasználói munkamenetben fut
+(sloth-wine-balloons.service): figyeli az X (XWayland) ablakait, és a Wine explorer.exe-jének bal felső sarokba kerülő
+felugró ablakait a munkaterület jobb alsó sarkába, a tálcaikonok fölé teszi (ha a panel fent van, a jobb felsőbe).
+Eseményekre vár, nem kérdezget. Csak libX11 kell hozzá (ctypes).
+"""
+import ctypes
+import ctypes.util
+import sys
+import time
+
+MARGIN = 8
+NEAR = 64           # ennyin belül a bal felső sarokhoz: oda tette a Wine
+MAX_W, MAX_H = 1200, 800
+
+CREATE_NOTIFY, MAP_NOTIFY, CONFIGURE_NOTIFY = 16, 19, 22
+SUBSTRUCTURE_NOTIFY_MASK = 1 << 19
+XA_CARDINAL = 6
+
+Window = ctypes.c_ulong
+Atom = ctypes.c_ulong
+
+
+class XAnyEvent(ctypes.Structure):
+    _fields_ = [("type", ctypes.c_int), ("serial", ctypes.c_ulong), ("send_event", ctypes.c_int),
+                ("display", ctypes.c_void_p), ("event", Window), ("window", Window)]
+
+
+class XEvent(ctypes.Union):
+    _fields_ = [("type", ctypes.c_int), ("any", XAnyEvent), ("pad", ctypes.c_long * 24)]
+
+
+class XWindowAttributes(ctypes.Structure):
+    _fields_ = [("x", ctypes.c_int), ("y", ctypes.c_int), ("width", ctypes.c_int), ("height", ctypes.c_int),
+                ("border_width", ctypes.c_int), ("depth", ctypes.c_int), ("visual", ctypes.c_void_p),
+                ("root", Window), ("c_class", ctypes.c_int), ("bit_gravity", ctypes.c_int),
+                ("win_gravity", ctypes.c_int), ("backing_store", ctypes.c_int),
+                ("backing_planes", ctypes.c_ulong), ("backing_pixel", ctypes.c_ulong),
+                ("save_under", ctypes.c_int), ("colormap", ctypes.c_ulong), ("map_installed", ctypes.c_int),
+                ("map_state", ctypes.c_int), ("all_event_masks", ctypes.c_long),
+                ("your_event_mask", ctypes.c_long), ("do_not_propagate_mask", ctypes.c_long),
+                ("override_redirect", ctypes.c_int), ("screen", ctypes.c_void_p)]
+
+
+class XClassHint(ctypes.Structure):
+    _fields_ = [("res_name", ctypes.c_void_p), ("res_class", ctypes.c_void_p)]
+
+
+ERROR_HANDLER = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_void_p, ctypes.c_void_p)
+
+
+def load_x11():
+    x = ctypes.CDLL(ctypes.util.find_library("X11") or "libX11.so.6")
+    x.XOpenDisplay.restype = ctypes.c_void_p
+    x.XOpenDisplay.argtypes = [ctypes.c_char_p]
+    x.XDefaultRootWindow.restype = Window
+    x.XDefaultRootWindow.argtypes = [ctypes.c_void_p]
+    x.XSelectInput.argtypes = [ctypes.c_void_p, Window, ctypes.c_long]
+    x.XNextEvent.argtypes = [ctypes.c_void_p, ctypes.POINTER(XEvent)]
+    x.XGetWindowAttributes.argtypes = [ctypes.c_void_p, Window, ctypes.POINTER(XWindowAttributes)]
+    x.XGetClassHint.argtypes = [ctypes.c_void_p, Window, ctypes.POINTER(XClassHint)]
+    x.XFree.argtypes = [ctypes.c_void_p]
+    x.XMoveWindow.argtypes = [ctypes.c_void_p, Window, ctypes.c_int, ctypes.c_int]
+    x.XFlush.argtypes = [ctypes.c_void_p]
+    x.XInternAtom.restype = Atom
+    x.XInternAtom.argtypes = [ctypes.c_void_p, ctypes.c_char_p, ctypes.c_int]
+    x.XGetWindowProperty.argtypes = [ctypes.c_void_p, Window, Atom, ctypes.c_long, ctypes.c_long, ctypes.c_int,
+                                     Atom, ctypes.POINTER(Atom), ctypes.POINTER(ctypes.c_int),
+                                     ctypes.POINTER(ctypes.c_ulong), ctypes.POINTER(ctypes.c_ulong),
+                                     ctypes.POINTER(ctypes.c_void_p)]
+    x.XDisplayWidth.argtypes = x.XDisplayHeight.argtypes = [ctypes.c_void_p, ctypes.c_int]
+    x.XSetErrorHandler.argtypes = [ERROR_HANDLER]
+    return x
+
+
+def target_position(work, size):
+    """A buborék helye: a munkaterület (a panel nélküli rész) jobb alsó sarka, fenti panelnél a jobb felső."""
+    wx, wy, ww, wh = work
+    w, h = size
+    x = wx + ww - w - MARGIN
+    y = wy + MARGIN if wy > 0 else wy + wh - h - MARGIN
+    return max(wx, x), max(wy, y)
+
+
+def misplaced(x, y, w, h):
+    return 0 <= x < NEAR and 0 <= y < NEAR and 0 < w <= MAX_W and 0 < h <= MAX_H
+
+
+class Mover:
+    def __init__(self, x11, display):
+        self.x, self.d = x11, display
+        self.root = x11.XDefaultRootWindow(display)
+        self.workarea_atom = x11.XInternAtom(display, b"_NET_WORKAREA", 0)
+
+    def workarea(self):
+        actual, fmt = Atom(), ctypes.c_int()
+        n, after, data = ctypes.c_ulong(), ctypes.c_ulong(), ctypes.c_void_p()
+        ok = self.x.XGetWindowProperty(self.d, self.root, self.workarea_atom, 0, 4, 0, XA_CARDINAL,
+                                       ctypes.byref(actual), ctypes.byref(fmt), ctypes.byref(n),
+                                       ctypes.byref(after), ctypes.byref(data))
+        try:
+            if ok == 0 and data.value and n.value >= 4 and fmt.value == 32:
+                return tuple(ctypes.cast(data, ctypes.POINTER(ctypes.c_long))[i] for i in range(4))
+        finally:
+            if data.value:
+                self.x.XFree(data)
+        return 0, 0, self.x.XDisplayWidth(self.d, 0), self.x.XDisplayHeight(self.d, 0)
+
+    def is_wine_explorer(self, win):
+        hint = XClassHint()
+        if not self.x.XGetClassHint(self.d, win, ctypes.byref(hint)):
+            return False
+        try:
+            names = [ctypes.string_at(p).decode("latin-1").lower() for p in (hint.res_name, hint.res_class) if p]
+        finally:
+            for p in (hint.res_name, hint.res_class):
+                if p:
+                    self.x.XFree(p)
+        return "explorer.exe" in names
+
+    def check(self, win):
+        attrs = XWindowAttributes()
+        if not self.x.XGetWindowAttributes(self.d, win, ctypes.byref(attrs)):
+            return
+        if not attrs.override_redirect or not misplaced(attrs.x, attrs.y, attrs.width, attrs.height):
+            return
+        if not self.is_wine_explorer(win):
+            return
+        x, y = target_position(self.workarea(), (attrs.width, attrs.height))
+        self.x.XMoveWindow(self.d, win, x, y)
+        self.x.XFlush(self.d)
+
+    def run(self):
+        self.x.XSelectInput(self.d, self.root, SUBSTRUCTURE_NOTIFY_MASK)
+        ev = XEvent()
+        while True:
+            self.x.XNextEvent(self.d, ctypes.byref(ev))
+            if ev.type in (MAP_NOTIFY, CONFIGURE_NOTIFY):
+                # MapNotify, ConfigureNotify: az "event" mező a gyökér, a "window" az érintett ablak
+                self.check(ev.any.window)
+
+
+def main():
+    x11 = load_x11()
+    # egy közben eltűnt ablak miatti X-hiba ne állítsa le (az alapértelmezett kezelő kilépne)
+    ignore = ERROR_HANDLER(lambda _d, _e: 0)
+    x11.XSetErrorHandler(ignore)
+    display = None
+    for _ in range(60):  # bejelentkezéskor az XWayland még indulhat
+        display = x11.XOpenDisplay(None)
+        if display:
+            break
+        time.sleep(2)
+    if not display:
+        print("nincs X kijelző", file=sys.stderr)
+        return 1
+    Mover(x11, display).run()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

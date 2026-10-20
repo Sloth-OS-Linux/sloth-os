@@ -1,0 +1,12 @@
+[Unit]
+Description=Sloth OS: a Windows-programok tálcás szövegbuborékai a tálca mellé (ne a bal felső sarokba)
+PartOf=graphical-session.target
+After=plasma-workspace.target
+
+[Service]
+ExecStart=/usr/libexec/sloth-os/wine-balloons
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=plasma-workspace.target

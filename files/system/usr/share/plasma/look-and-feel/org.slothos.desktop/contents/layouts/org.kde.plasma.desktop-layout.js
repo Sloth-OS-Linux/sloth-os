@@ -13,11 +13,13 @@ kickoff.writeConfig("icon", "sloth-os");
 
 // Rögzített appok + futó ablakok (csak ikonok, mint a Windowsban).
 // A böngészőt és a Steamet a Sloth Üdvözlő tűzi ki, ha a felhasználó telepítette őket.
+// A Sloth Központ alapból kint van: minden beállítás és a frissítések innen érhetők el.
 const tasks = panel.addWidget("org.kde.plasma.icontasks");
 tasks.currentConfigGroup = ["General"];
 tasks.writeConfig("launchers", [
     "applications:org.kde.dolphin.desktop",
     "applications:org.kde.discover.desktop",
+    "applications:org.slothos.center.desktop",
 ].join(","));
 
 panel.addWidget("org.kde.plasma.marginsseparator");

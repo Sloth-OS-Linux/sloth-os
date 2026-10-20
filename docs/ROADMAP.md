@@ -7,12 +7,14 @@ terminálból lehet csinálni, GUI-ból is menjen.
 
 ### Következő lépések (2026-10-19 este, sorrendben; a részletek lent)
 **Publikálás előtt kötelező**
-1. [ ] Fájlmentés és „Korábbi verziók” (Teendők, 8. pont): a pillanatképek, a „Korábbi verziók” és a Sloth Központ
-   oldala kész (2026-10-20, valódi gépen még tesztelni); hátravan a külső lemezre mentés
+1. [x] Fájlmentés és „Korábbi verziók” (Teendők, 8. pont): a pillanatképek, a „Korábbi verziók”, a Sloth Központ
+   oldala és a külső lemezre mentés (Pika Backup) kész (2026-10-20, valódi gépen még tesztelni)
 2. [x] A gép alaphelyzetbe állítása (Teendők, 8. pont): a Sloth Központból kész (2026-10-20, VM-ben még
    tesztelni); a boot menüs változat később
 3. [ ] A teszt végig valódi gépen: Battle.net, Windows-indítók az Üdvözlőből, felhő, telefon, átköltözés Windowsról,
    nyomtató és szkenner, firmware, NVIDIA-s gép, Windows mellé telepítés (tesztelő kell)
+   - 2026-10-20: a Sloth Üdvözlő telepítési folyamata a valódi gépen megszakadt (a felhasználó megszakította);
+     újra végigcsinálni (otthon, az asztali gépen), és megnézni, hogy egy megszakított futás után rendesen folytatható-e
 4. [ ] Régi (BIOS-os) gépek (Teendők, 2. pont)
 5. [ ] Új ISO a telepítő javításával (fekete kép 90% után), utána zsugorítás (rétegek összevonása)
 6. [ ] A repó publikussá tétele, napi build, ISO-tárhely (Teendők, 3–4. pont)
@@ -25,6 +27,17 @@ terminálból lehet csinálni, GUI-ból is menjen.
   fel (iskolai Wi-Fi, ~20 eszköz); Wi-Fi-váltáskor és utána pár másodpercenként új kimenetek jöttek, és mindegyik
   feloldotta a Plasma „mindent némít” állapotát. Javítva: a csomag kikerül az image-ből (`slim-image.sh`).
   Valódi gépen ellenőrizni a frissítés után: némítás, Wi-Fi ki-be, marad-e némítva
+- [x] Az első .exe telepítése friss rendszeren percekig „töltött” (2026-10-20, valódi gépen, újratelepítés után). Az
+  umu alapból minden indításkor a legújabb UMU-Protont és futtatókörnyezetet keresi, és ha a gyári nem a legújabb,
+  előbb letölti. Javítva (`backend.local_runtime`, `runner.py`): az előtérben a gépen lévő legújabb (vagy a gyári)
+  Proton indul (`PROTONPATH`), a futtatókörnyezetet nem frissíti (`UMU_RUNTIME_UPDATE=0`); a frissítés a háttérben
+  marad (sloth-windows-prepare). Valódi gépen nézni
+- [x] A Sloth Központ alapból a tálcán (a Dolphin és a Discover mellett; új felhasználónál és elrendezésváltáskor)
+- [x] Windows-programok tálcás szövegbuboréka (pl. Battle.net, EA app tálcára kicsinyítéskor) a képernyő bal felső
+  sarkából jött (2026-10-20, valódi gépen). A Wine a buborékot a tálcaikon ablakának közepére teszi, Plasmán ezek a
+  (láthatatlan) ablakok az xembedsniproxy miatt a bal felső sarokban vannak. Javítva: `sloth-wine-balloons.service`
+  (`/usr/libexec/sloth-os/wine-balloons`, libX11 ctypes-szal, eseményekre vár) a Wine explorer.exe-jének oda kerülő
+  felugró ablakait a munkaterület jobb alsó sarkába, a tálcaikonok fölé teszi. Xvfb-n kipróbálva; valódi gépen nézni
 - [x] Sloth Központ, Frissítések: a keresés / telepítés után a Központot újra kellett nyitni, hogy lássa az új verziót
   vagy a várakozó újraindítást (2026-10-20). Az állapotot a D-Bus proxy gyorsítótárából olvasta, ami csak késve
   frissült. Javítva: mindig közvetlenül kérdezi (`Properties.Get`), és egy művelet után 2 és 8 mp múlva újra ránéz.
