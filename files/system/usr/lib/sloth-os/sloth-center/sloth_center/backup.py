@@ -21,6 +21,8 @@ from .i18n import tr
 log = logging.getLogger("sloth-center.backup")
 
 HELPER = "/usr/libexec/sloth-os/sloth-helper"
+# a „Mentés most” jelszó nélkül (csak ezt engedi, org.slothos.helper.backup)
+HELPER_BACKUP = "/usr/libexec/sloth-os/sloth-helper-backup"
 # Mentés külső lemezre: a Pika Backup (Flathub), a Discoverből telepítve
 PIKA = "org.gnome.World.PikaBackup"
 PIKA_DESKTOP = [Path("/var/lib/flatpak/exports/share/applications") / f"{PIKA}.desktop",
@@ -81,7 +83,7 @@ class BackupController(QObject):
                                     "path": str(path) if path and path.is_dir() else ""})
         self.changed.emit()
 
-    def _helper(self, action, args, success=""):
+    def _helper(self, action, args, success="", helper=HELPER):
         if self._busy:
             return
         self._busy, self._error, self._info = True, "", ""
@@ -89,7 +91,7 @@ class BackupController(QObject):
 
         def work():
             try:
-                r = subprocess.run(["pkexec", HELPER, *args], capture_output=True, text=True, timeout=900)
+                r = subprocess.run(["pkexec", helper, *args], capture_output=True, text=True, timeout=900)
                 result = json.loads(r.stdout or "{}")
             except (OSError, subprocess.SubprocessError, ValueError) as e:
                 result = {"ok": False, "error": str(e)}
@@ -123,7 +125,8 @@ class BackupController(QObject):
 
     @Slot()
     def takeNow(self):
-        self._helper("snapshot-now", ["snapshot-now"], tr("Kész: elmentettem a fájljaid mostani állapotát."))
+        self._helper("snapshot-now", ["snapshot-now"], tr("Kész: elmentettem a fájljaid mostani állapotát."),
+                     helper=HELPER_BACKUP)
 
     @Slot()
     def deleteAll(self):

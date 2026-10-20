@@ -1,0 +1,9 @@
+#!/usr/bin/python3 -I
+"""A sloth-helper „Mentés most” művelete (snapshot-now) külön polkit-művelettel (org.slothos.helper.backup):
+a saját fájlok mentéséhez nem kell jelszó, mert semmit nem töröl és nem ír felül (mint a Windows Fájlelőzményei).
+A mentések törlése és a beállításaik továbbra is a jelszavas sloth-helperen át mennek."""
+import runpy
+import sys
+
+sys.argv[0] = "sloth-helper-backup"
+runpy.run_path("/usr/libexec/sloth-os/sloth-helper", run_name="__main__")

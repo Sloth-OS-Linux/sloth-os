@@ -62,8 +62,9 @@ jó volt, azt valódi gépen elég egyszer megnézni:
   (`StandardPaths is not defined`). Javítva: `import QtCore` (`WinProgramsPage.qml`)
 - [x] **Sloth Központ → Játékok: a felskálázás legördülője üres.** Az `indexOfValue` a modell betöltése előtt futott.
   Javítva (`GamesPage.qml`)
-- [ ] **Fájlmentés: a „Back up now” jelszót kér** a „csak a kockázatos dolgokhoz” módban is. Eldönteni: a saját
-  fájlok mentése kerüljön-e a jelszó nélküli témák közé (a „Delete all saved states” maradjon jelszavas)
+- [x] **Fájlmentés: a „Back up now” jelszót kért** a „csak a kockázatos dolgokhoz” módban is. Döntés (2026-10-20): ne
+  kérjen. Javítva: `sloth-helper-backup` (csak a `snapshot-now`), saját polkit-művelet (`org.slothos.helper.backup`,
+  `allow_active: yes`; mint a Windows Fájlelőzményei). A törlés és a beállítások továbbra is jelszavasak
 - [ ] **Üdvözlő megszakítás után:** jegyezze meg a választásokat (nyelv, appok) és a már kész appokat, és onnan
   folytassa, ahol tartott (most az elejéről indul)
 - [ ] Üdvözlő, megosztás lépés: „később a Sloth Központban (Windows-programok)” – az oldal neve ma már „Programok”

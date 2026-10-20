@@ -46,6 +46,8 @@ import tempfile
 SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
 # sloth-helper-versions néven indítva csak a verziókat érintő műveletek engedélyezettek
 VERSIONS_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-versions"
+# sloth-helper-backup néven indítva csak a „Mentés most” (jelszó nélkül, lásd org.slothos.helper.backup)
+BACKUP_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-backup"
 # A Universal Blue kulcs regisztrációs jelszava; a felhasználó ezt írja be a kék képernyőn
 SB_PASSWORD = "universalblue"
 
@@ -424,7 +426,7 @@ def main(argv):
     if not argv:
         return 2
     op, args = argv[0], argv[1:]
-    if VERSIONS_ONLY and op not in ("pin", "unpin", "set-default"):
+    if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])):
         print(json.dumps({"ok": False, "error": "ismeretlen művelet"}))
         return 2
     if op == "secureboot-status" and not args:

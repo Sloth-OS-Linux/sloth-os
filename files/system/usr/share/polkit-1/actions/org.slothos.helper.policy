@@ -30,4 +30,17 @@
     </defaults>
     <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper-versions</annotate>
   </action>
+  <action id="org.slothos.helper.backup">
+    <description>A saját fájlok mentése most</description>
+    <description xml:lang="en">Back up your own files now</description>
+    <message>A Sloth Központ elmenti a fájljaid mostani állapotát.</message>
+    <message xml:lang="en">Sloth Center is saving the current state of your files.</message>
+    <icon_name>sloth-os</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>yes</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper-backup</annotate>
+  </action>
 </policyconfig>
