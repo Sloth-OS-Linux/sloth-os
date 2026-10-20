@@ -338,7 +338,9 @@ def main():
     path = QUrl(paths[0]).toLocalFile() if paths[0].startswith("file:") else paths[0]
     engine = QQmlApplicationEngine()
     controller = VersionsController(path)
-    engine.rootContext().setContextProperty("L", Translator())
+    # változóban kell tartani: különben a Python eltakarítja, és a QML-ben minden szöveg üres
+    translator = Translator()
+    engine.rootContext().setContextProperty("L", translator)
     engine.rootContext().setContextProperty("versions", controller)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "VersionsWindow.qml")))
     if not engine.rootObjects():

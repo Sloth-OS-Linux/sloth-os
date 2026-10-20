@@ -152,6 +152,30 @@ class DetectTest(unittest.TestCase):
         self.assertEqual([c.path.name for c in again.candidates if c.checked], ["Battle.net Launcher.exe"])
         library.remove(app)
 
+    def test_ea_app_versioned_dir(self):
+        """EA app (2026-10-20, VM): a fájlok egy verziós mappában, mellette link; a Wine mintaprogramjai is újak."""
+        app = library.create("EA app")
+        before = detect.baseline(app)
+        drive_c = app.prefix / "drive_c"
+        for p in ("Internet Explorer/iexplore.exe", "Windows Media Player/wmplayer.exe",
+                  "Windows NT/Accessories/wordpad.exe"):
+            touch(drive_c / "Program Files" / p)  # a Wine a telepítő futása alatt hozza létre őket
+        ea = drive_c / "Program Files/Electronic Arts/EA Desktop"
+        ver = ea / "13.809.0.6322/EA Desktop"
+        touch(ver / "EADesktop.exe", 30 * 1024 ** 2)
+        touch(ver / "compatibility32/EADesktop.exe")
+        for helper in ("ErrorReporter.exe", "EAUpdater.exe", "EASteamProxy.exe", "Link2EA.exe"):
+            touch(ver / helper, 10 * 1024 ** 2)
+        (ea / "EA Desktop").symlink_to("13.809.0.6322/EA Desktop")
+        found = detect.detect(app, before, fallback_name="EA app")
+        paths = [c.path for c in found.candidates]
+        self.assertFalse(any("Internet Explorer" in str(p) or p.name == "wordpad.exe" for p in paths))
+        self.assertNotIn("ErrorReporter.exe", [p.name for p in paths])
+        checked = [c.path for c in found.candidates if c.checked]
+        # a linken át, így az EA app frissítése (új verziós mappa) után is érvényes
+        self.assertEqual(checked, [ea / "EA Desktop/EADesktop.exe"])
+        library.remove(app)
+
     def test_no_registry_no_shortcut(self):
         """Hordozható zip-szerű telepítő: csak .exe-k vannak; a legjobb pontszámú van bejelölve."""
         app = library.create("Cool Tool")

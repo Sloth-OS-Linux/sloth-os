@@ -118,7 +118,8 @@ Kirigami.ScrollablePage {
                             ]
                             textRole: "text"
                             valueRole: "value"
-                            currentIndex: indexOfValue(gameCard.modelData.upscale)
+                            // nem indexOfValue(): az a modell betöltése előtt fut, és -1-et ad (üres mező)
+                            currentIndex: Math.max(0, model.findIndex(m => m.value === gameCard.modelData.upscale))
                             onActivated: games.setOption(gameCard.modelData.id, "upscale", currentValue)
                         }
                     }

@@ -283,6 +283,9 @@ class ExeController(QObject):
     @Slot(bool)
     def confirmShortcuts(self, start=False):
         first = None
+        # Azonos nevű .exe-k (pl. az EA app hivatkozott és verziós mappájából) ugyanazt a bejegyzést kapják:
+        # a be nem jelölt sor ne törölje azt, amit egy bejelölt az imént létrehozott
+        wanted = {menu.desktop_file_path(self._program, Path(s["path"])) for s in self._shortcuts if s["checked"]}
         for s in self._shortcuts:
             path = Path(s["path"])
             desktop = menu.desktop_file_path(self._program, path)
@@ -290,7 +293,7 @@ class ExeController(QObject):
                 if not desktop.exists():
                     menu.add(self._program, s["name"], path)
                 first = first or path
-            elif desktop.exists():
+            elif desktop.exists() and desktop not in wanted:
                 desktop.unlink()
         icon = next((e["icon"] for e in menu.entries(self._program) if e["icon"].startswith("/")), None)
         self._program.set_folder_icon(icon)

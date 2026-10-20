@@ -19,22 +19,55 @@ terminálból lehet csinálni, GUI-ból is menjen.
    https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io (átnézni)
 
 ### Teszt a 2026-10-20-i reset után (legújabb image, valódi gép)
-- [ ] **Üdvözlő, megszakítás:** a telepítés megszakítása (pl. hosszú Battle.net-letöltés közben), újraindítás után
-  rendesen folytatódik-e, és nem kezdi-e elölről a már kész appokat
-- [ ] **Battle.net:** telepítés az Üdvözlőből, indítás, egy játék indítása a Battle.net-ből
-- [ ] **EA app** (az Üdvözlőből és dupla kattintással): telepítés, indítás, egy játék, az EA app saját frissítése
-- [ ] **Ubisoft Connect:** telepítés, indítás, nyitva marad-e (`LAUNCHER_STUBS` kell-e)
-- [ ] **Első .exe friss rendszeren:** nem tölt percekig
-- [ ] **Tálcás buborékok** (Battle.net / EA app tálcára kicsinyítve): a tálca fölött jönnek, nem bal felül
-- [ ] **Frissítések oldal:** keresés / telepítés után a Központ újranyitás nélkül mutatja az új verziót és a várakozó
-  újraindítást; a naplóban nincs „Forcibly closing transaction”
-- [ ] **Pillanatképek és „Korábbi verziók”:** egy fájl módosítása / törlése után a Dolphinban jobb klikk →
-  „Korábbi verziók” visszahozza; a Sloth Központ Fájlmentés oldala; mentés külső lemezre (Pika Backup)
-- [ ] **zram** (Haladó beállítások): átállítás, újraindítás után az új méret látszik
-- [ ] **Steam-átvétel és átköltözés:** a Steamhez kézzel adott Windows-program a Sloth Központban, „A Steamen
-  keresztül” és „Átvétel”; Lutris / Bottles import, ha van
-- [ ] **Firmware:** a Discover Frissítések oldalán látszik-e a BIOS/firmware (fwupd)
+VM-ben előre végignézve (2026-10-20 este, a 13:36-os image, `71b9b89`, titkosított lemez, nyitott hálózat); ami ott
+jó volt, azt valódi gépen elég egyszer megnézni:
+- [ ] **Üdvözlő, megszakítás:** VM-ben (a Steam telepítése közben hirtelen újraindítva): az Üdvözlő az elejéről indul,
+  a választások (nyelv, appok) elvesznek, a már telepített appokat nem jelzi (újra kínálja őket). Újra kiválasztva a
+  már fent lévőket azonnal kipipálja, a többit telepíti; a vége rendben. Működik, de kényelmetlen: lásd lent, hibák
+- [x] **Első .exe friss rendszeren:** VM-ben a Battle.net telepítője 20 mp-en belül megjelent (2026-10-20)
+- [ ] **Battle.net:** VM-ben települ, elindul, a bejelentkező ablak jön; a játék indítása valódi gépen (fiók kell)
+- [ ] **EA app:** VM-ben az Üdvözlőből települ és elindul (2026-10-20). Hibák (javítva, lent): a Start menübe nem
+  került be, a listán a segédprogramok voltak bejelölve. Valódi gépen: a Start menüből indul-e, és az EA app saját
+  frissítése után is (bezáráskor épp frissített: a link már az új verzióra mutatott)
+- [x] **Ubisoft Connect:** VM-ben települ, elindul, nyitva marad (1 perc), a Start menüben helyes a bejegyzés
+- [ ] **Tálcás buborékok:** bejelentkezés nélkül egyik indító sem megy a tálcára; valódi gépen, fiókkal
+- [x] **Frissítések oldal:** VM-ben jó a verzió (Sloth OS 1.0 (Fedora Atomic 44) · dátum), a keresés után
+  „naprakész” (helyesen), az előző verzió visszaállítható; a rendszerfrissítés aláírással megy (`ostree-image-signed`).
+  Az „új verzió van, de naprakészt ír” hibát csak a régi (10-19-i) image mutatta, frissítés előtt
+- [x] **Pillanatképek és „Korábbi verziók”:** VM-ben: „Back up now” után 2 mentett állapot; a felülírt fájl a Dolphin
+  jobb klikk → „Previous versions” → Visszaállítás után az eredeti. Hiba (javítva, lent): a gombokon nem volt szöveg
+- [x] **zram** (Haladó beállítások): VM-ben „Larger” után, újraindítva 7,7 GB → 11,6 GB (8 GB memóriánál)
+- [ ] **Steam-átvétel és átköltözés:** Steam-fiók kell (valódi gépen)
+- [ ] **Firmware:** a Discover Frissítések oldalán látszik-e a BIOS/firmware (fwupd); VM-ben nincs mit nézni
+- [ ] **Sloth Központ a tálcán:** új felhasználónál (a reset után) ott van-e; a már meglévő felhasználóknál nem jelenik
+  meg magától (csak elrendezésváltáskor), a VM-ben így volt
 - Később, ha lesz gép / tesztelő: Windows mellé telepítés, NVIDIA-s gép (a gamer gépen), BIOS-os gép, nyomtató és szkenner
+
+**A VM-teszt hibái (2026-10-20 este)**
+- [x] **EA app: nem került a Start menübe.** Az `EADesktop.exe` kétszer volt a listán (a fő és a `compatibility32`
+  mappából), a bejegyzés neve a fájlnévből készül, így a bejelölt sor létrehozta, a be nem jelölt rögtön törölte.
+  Javítva (`sloth_exe/controller.py`, `confirmShortcuts`): a be nem jelölt sor nem töröl olyat, amit egy bejelölt kér
+- [x] **EA app: a segédprogramok (App Recovery, Error Reporter, Updater) voltak bejelölve, az EADesktop nem.** Nem
+  volt EA recept. Javítva: `ea-app` recept (`recipes.json`, `updated` 2026-10-20; prefer `eadesktop.exe`, a segédek
+  kihagyva); a közös tudás repójába is fel kell tenni (különben az újabb letöltött fájl felülírja)
+- [x] **EA app: a Start menü a verziós mappára mutatott volna** (`EA Desktop\13.809.0.6322\…`), ami az EA app
+  frissítése után eltűnik. Javítva (`detect._via_link`): a verziós út helyett a mellette lévő linken át vezető
+  (`EA Desktop\EA Desktop\EADesktop.exe`); azonos pontszámnál a verziószám nélküli, sekélyebb út nyer. Teszt:
+  `test_ea_app_versioned_dir`
+- [x] **A Wine mintaprogramjai (Iexplore, Wmplayer, Wordpad) a Start menü-választóban.** Új környezetben a telepítő
+  alatt jönnek létre, ezért „új” .exe-nek látszottak. Javítva: `detect.WINE_BUILTIN` kiszűri őket
+- [x] **„Korábbi verziók” ablak: üres gombok, cím nélküli ablak.** A fordító objektumot a Python eltakarította
+  (`Cannot call method 't' of null` a naplóban). Javítva (`versions.py`): változóban marad
+- [x] **Sloth Központ → Programok → „Program telepítése…”:** a tallózó nem a Letöltések mappában nyílt
+  (`StandardPaths is not defined`). Javítva: `import QtCore` (`WinProgramsPage.qml`)
+- [x] **Sloth Központ → Játékok: a felskálázás legördülője üres.** Az `indexOfValue` a modell betöltése előtt futott.
+  Javítva (`GamesPage.qml`)
+- [ ] **Fájlmentés: a „Back up now” jelszót kér** a „csak a kockázatos dolgokhoz” módban is. Eldönteni: a saját
+  fájlok mentése kerüljön-e a jelszó nélküli témák közé (a „Delete all saved states” maradjon jelszavas)
+- [ ] **Üdvözlő megszakítás után:** jegyezze meg a választásokat (nyelv, appok) és a már kész appokat, és onnan
+  folytassa, ahol tartott (most az elejéről indul)
+- [ ] Rendszer egészség, VM-ben: „Machine Check Exception Logging Daemon” nem indult (a VM-ben nincs MCE); valódi
+  gépen nézni, előjön-e; ha csak VM-ben, a VM-ben ne jelezze
 
 **Nyitott hibák (kicsik)**
 - [x] Némítás: magától feloldódik (2026-10-20, a `pactl subscribe` + `alsactl monitor` napló alapján). Nem a

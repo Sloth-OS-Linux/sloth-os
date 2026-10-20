@@ -1,5 +1,6 @@
 // Telepített Windows-programok: lista, indítás, fájlok, javítás, áthelyezés, eltávolítás,
 // a telepítési hely, és a máshol (Steam, Lutris, Bottles, korábbi telepítés) telepített programok átvétele.
+import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Dialogs

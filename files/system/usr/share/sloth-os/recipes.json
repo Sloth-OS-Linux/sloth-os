@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated": "2026-10-19",
+ "updated": "2026-10-20",
  "recipes": [
   {
    "id": "battlenet",
@@ -39,6 +39,17 @@
    "prefer": ["ubisoftconnect.exe"],
    "skip": ["upcinstaller*.exe", "ubisoftextension.exe", "uplaywebcore.exe", "uplaycrashreporter.exe"],
    "verbs": ["d3dcompiler_43"]
+  },
+  {
+   "id": "ea-app",
+   "name": "EA app",
+   "match": {"dirs": ["Program Files/Electronic Arts/EA Desktop"], "exe": ["eadesktop.exe", "ealauncher.exe"]},
+   "prefer": ["eadesktop.exe"],
+   "skip": ["errorreporter.exe", "eacrashreporter.exe", "eaupdater.exe", "eauninstall.exe", "eadestager.exe",
+            "easteam*.exe", "eaegs*.exe", "eagep.exe", "ealocalhostsvc.exe", "eaconnect_*.exe", "link2ea.exe",
+            "eabackgroundservice.exe", "ealaunchhelper.exe", "eacefsubprocess.exe", "getgametoken.exe",
+            "igoproxy*.exe", "policyproxy*.exe", "origin*.exe", "eacoreserver.exe", "eaproxyinstaller.exe",
+            "login.exe", "messagedlg.exe", "patchprogress.exe"]
   }
  ]
 }

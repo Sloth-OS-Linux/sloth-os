@@ -11,6 +11,7 @@ Ha egy recept (recipes.py) ismeri a programot, az általa javasolt .exe előre k
 Ha egyik sem biztos, a felhasználó választ (és tallózhat is).
 """
 import fnmatch
+import os
 import re
 import struct
 from dataclasses import dataclass, field
@@ -38,6 +39,12 @@ INSTALLER_WORDS = ("setup", "install", "installer", "telepito", "telepítő", "_
 REDIST_NAMES = re.compile(
     r"(?i)(microsoft visual c\+\+|\.net (framework|runtime|desktop)|directx|wine (mono|gecko)|"
     r"webview2|physx|openal|vulkan run ?time|xna framework|windows sdk)")
+# A Wine saját mintaprogramjai (iexplore, wmplayer, wordpad…): új környezetben a telepítő futása alatt jönnek
+# létre, így „új” .exe-nek látszanak, de nem a programhoz tartoznak (a _rel() szerinti, kisbetűs útvonalon)
+WINE_BUILTIN = re.compile(
+    r"^drive_c/(windows/|program files( \(x86\))?/(internet explorer|windows media player|windows nt|common files)/)")
+# Verziószámos mappa az útban (pl. „13.809.0.6322”, „app-1.0.9”): a frissítés után eltűnhet
+VERSION_DIR = re.compile(r"[\\/][^\\/]*\d+\.\d+\.\d+[^\\/]*[\\/]")
 
 
 def looks_like_installer(path):
@@ -210,6 +217,34 @@ def _common_dir(paths, drive_c):
     return drive_c.joinpath(*common)
 
 
+def _via_link(path):
+    """Verziószámos mappán át vezető út helyett a mellette lévő linken át vezető, ha van ilyen.
+
+    Az EA app a fájljait az „EA Desktop\\13.809.0.6322\\EA Desktop” alá teszi, az „EA Desktop\\EA Desktop” pedig
+    link a mostani verzióra; a frissítés után a régi mappa eltűnik, a link marad (az .exe kezelő is utánaigazítja).
+    A rglob a linkelt mappába nem megy be, ezért a .exe-k a verziós úton kerülnek elő.
+    """
+    parts = Path(path).parts
+    for i, part in enumerate(parts):
+        if not re.search(r"\d+\.\d+\.\d+", part):
+            continue
+        base, rest = Path(*parts[:i]), parts[i + 1:]
+        try:
+            links = [p for p in base.iterdir() if p.is_symlink()]
+        except OSError:
+            return path
+        for link in links:
+            target = Path(os.readlink(link)).parts
+            # a link egy (akár másik) verzió ugyanazon almappájára mutat: <verzió>/<almappa…>
+            if len(target) >= 1 and re.search(r"\d+\.\d+\.\d+", target[0]) \
+                    and tuple(target[1:]) == rest[:len(target) - 1]:
+                alt = link.joinpath(*rest[len(target) - 1:])
+                if alt.is_file():
+                    return alt
+        return path
+    return path
+
+
 def detect(app, before=None, fallback_name=""):
     """Telepítés után: mi települt és mivel indul. before: baseline() a telepítés előttről."""
     before = before or {"keys": set(), "exes": set(), "links": set()}
@@ -243,6 +278,7 @@ def detect(app, before=None, fallback_name=""):
     found = {}
 
     def add(cand_name, path, score):
+        path = _via_link(path)
         key = str(path).lower()
         if key not in found or found[key].score < score:
             found[key] = Candidate(cand_name, path, score)
@@ -255,7 +291,8 @@ def detect(app, before=None, fallback_name=""):
         add(reg_name, host, 85)
 
     # 3. az új .exe-k a telepítési helyen (vagy, ha az nem ismert, a közös mappájukban)
-    new_exes = [p for p in app.list_exes() if _rel(app, p) not in before["exes"]]
+    new_exes = [p for p in app.list_exes()
+                if _rel(app, p) not in before["exes"] and not WINE_BUILTIN.match(_rel(app, p))]
     if not out.install_dir:
         out.install_dir = _common_dir(new_exes, drive_c)
     for p in new_exes:
@@ -273,7 +310,10 @@ def detect(app, before=None, fallback_name=""):
         elif any(fnmatch.fnmatch(exe_name, p.lower()) for p in prefer):
             c.score = max(c.score, 95)
 
-    cands = sorted(found.values(), key=lambda c: -c.score)
+    # azonos pontszámnál a verziószámos mappa nélküli út előre (pl. az EA app „EA Desktop\EA Desktop” linkje a
+    # „13.809.0.6322” helyett: az a program frissítése után is érvényes), utána a sekélyebb
+    cands = sorted(found.values(), key=lambda c: (-c.score, bool(VERSION_DIR.search(str(c.path))),
+                                                  len(c.path.parts)))
     names = set()
     for i, c in enumerate(cands):
         # a biztos találatok (parancsikonok, registry) mind, különben csak a legjobb;
@@ -290,5 +330,6 @@ def launch_candidates(app):
     det = detect(app, fallback_name=app.name)
     seen = {str(c.path).lower() for c in det.candidates}
     rest = [Candidate(display_name(p), p, 0) for p in app.list_exes()
-            if str(p).lower() not in seen and not any(w in p.name.lower() for w in SKIP_WORDS)]
+            if str(p).lower() not in seen and not any(w in p.name.lower() for w in SKIP_WORDS)
+            and not WINE_BUILTIN.match(_rel(app, p))]
     return det.candidates + rest[:30]
