@@ -33,6 +33,9 @@ modules:
     user:
       enabled:
         - sloth-github-bundle-update.timer   # a GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése
+        # értesítés, ha a háttérben elkészült egy rendszerfrissítés (a következő újraindításkor települ)
+        - sloth-update-notify.path
+        - sloth-update-notify.service
 
   # Karcsúsítás: csak az marad, ami a működéshez vagy a hibaelhárításhoz kell (maradjon a modulok végén)
   - type: script

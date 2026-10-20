@@ -94,5 +94,53 @@ class StagedLinksTest(unittest.TestCase):
         print(f"\n  a link {found['ms']:.1f} ms alatt a helyén volt", file=sys.stderr)
 
 
+class FromLogLineTest(unittest.TestCase):
+    """Általánosan: a Wine 10 naplójában jelzett, kihagyott linkkérések pótlása."""
+
+    # valódi sor az EA app telepítéséből (2026-10-20)
+    EA_LINE = (r'0394:fixme:file:CreateSymbolicLinkW (L"C:\\Program Files\\Electronic Arts\\EA Desktop\\EA Desktop" '
+               r'L"13.809.0.6322\\EA Desktop" 1): stub')
+
+    def setUp(self):
+        self.prefix = Path(tempfile.mkdtemp())
+        self.drive_c = self.prefix / "drive_c"
+        (self.drive_c / "Program Files/Electronic Arts/EA Desktop/13.809.0.6322/EA Desktop").mkdir(parents=True)
+        dos = self.prefix / "dosdevices"
+        dos.mkdir()
+        (dos / "c:").symlink_to("../drive_c")
+        (dos / "z:").symlink_to("/")
+
+    def tearDown(self):
+        shutil.rmtree(self.prefix)
+
+    def test_real_ea_line(self):
+        self.assertTrue(stagedlinks.from_log_line(self.prefix, self.EA_LINE))
+        link = self.drive_c / "Program Files/Electronic Arts/EA Desktop/EA Desktop"
+        self.assertEqual(os.readlink(link), "13.809.0.6322/EA Desktop")
+        self.assertTrue(link.is_dir())
+        self.assertTrue(stagedlinks.from_log_line(self.prefix, self.EA_LINE))  # másodszor: már jó
+
+    def test_absolute_target_and_case(self):
+        (self.drive_c / "Games/Data").mkdir(parents=True)
+        line = r'fixme:file:CreateSymbolicLinkW (L"C:\\GAMES\\current" L"C:\\games\\data" 1): stub'
+        self.assertTrue(stagedlinks.from_log_line(self.prefix, line))
+        link = self.drive_c / "Games/current"
+        self.assertEqual(os.readlink(link), str(self.drive_c / "Games/Data"))
+
+    def test_outside_prefix_skipped(self):
+        line = r'fixme:file:CreateSymbolicLinkW (L"Z:\\tmp\\sloth-teszt-link" L"C:\\x" 0): stub'
+        self.assertFalse(stagedlinks.from_log_line(self.prefix, line))
+        self.assertFalse(os.path.lexists("/tmp/sloth-teszt-link"))
+
+    def test_existing_folder_untouched(self):
+        link = self.drive_c / "Program Files/Electronic Arts/EA Desktop/EA Desktop"
+        link.mkdir()
+        self.assertFalse(stagedlinks.from_log_line(self.prefix, self.EA_LINE))
+        self.assertFalse(link.is_symlink())
+
+    def test_other_lines_ignored(self):
+        self.assertFalse(stagedlinks.from_log_line(self.prefix, "fixme:file:ReplaceFileW stub"))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

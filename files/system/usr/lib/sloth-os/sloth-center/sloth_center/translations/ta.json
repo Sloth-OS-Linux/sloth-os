@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Pika Backup-ஐ நிறுவு",
   "Pika Backup megnyitása": "Pika Backup-ஐத் திற",
   "Szülői felügyelet": "பெற்றோர் கட்டுப்பாடு",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "குழந்தைக் கணக்கு, வயதுக்கேற்ற பயன்பாடுகள், திரை நேரம். இந்தப் பகுதி வரவிருக்கும் புதுப்பிப்பில் வரும்."
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "குழந்தைக் கணக்கு, வயதுக்கேற்ற பயன்பாடுகள், திரை நேரம். இந்தப் பகுதி வரவிருக்கும் புதுப்பிப்பில் வரும்.",
+  "Elkészült egy frissítés": "புதுப்பிப்பு தயார்",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "கணினியின் புதிய பதிப்பு ({version}) பதிவிறக்கப்பட்டது. அடுத்த மறுதொடக்கத்தில் நிறுவப்படும்; அதுவரை வழக்கம்போல் வேலை செய்யலாம்."
 }

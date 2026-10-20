@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Pika Backup-ის დაყენება",
   "Pika Backup megnyitása": "Pika Backup-ის გახსნა",
   "Szülői felügyelet": "მშობლის კონტროლი",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "ბავშვის ანგარიში, ასაკის შესაბამისი აპები და ეკრანთან გატარებული დრო. ეს ნაწილი ერთ-ერთ მომავალ განახლებასთან ერთად მოვა."
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "ბავშვის ანგარიში, ასაკის შესაბამისი აპები და ეკრანთან გატარებული დრო. ეს ნაწილი ერთ-ერთ მომავალ განახლებასთან ერთად მოვა.",
+  "Elkészült egy frissítés": "განახლება მზადაა",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "სისტემის ახალი ვერსია ({version}) ჩამოტვირთულია. ის დაყენდება შემდეგი გადატვირთვისას, მანამდე კი შეგიძლიათ ჩვეულებრივ იმუშაოთ."
 }

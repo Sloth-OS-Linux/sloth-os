@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Pika Backup installeren",
   "Pika Backup megnyitása": "Pika Backup openen",
   "Szülői felügyelet": "Ouderlijk toezicht",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Kinderaccount, apps die bij de leeftijd passen en schermtijd. Dit onderdeel komt met een volgende update."
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Kinderaccount, apps die bij de leeftijd passen en schermtijd. Dit onderdeel komt met een volgende update.",
+  "Elkészült egy frissítés": "Er staat een update klaar",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "De nieuwe systeemversie ({version}) is gedownload. Die wordt bij de volgende herstart geïnstalleerd; tot die tijd kun je gewoon doorwerken."
 }

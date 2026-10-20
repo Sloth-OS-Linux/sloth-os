@@ -1,0 +1,10 @@
+[Unit]
+Description=Sloth OS: a háttérben előkészített rendszerfrissítés figyelése
+
+[Path]
+# A rendszer ezt a fájlt írja, amikor előkészít egy új verziót (a következő újraindításkor települ)
+PathChanged=/run/ostree/staged-deployment
+Unit=sloth-update-notify.service
+
+[Install]
+WantedBy=default.target

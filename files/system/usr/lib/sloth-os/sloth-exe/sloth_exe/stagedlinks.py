@@ -10,6 +10,10 @@ Addig mi pótoljuk: amíg a program fut, figyeljük (inotify) a verziós mappák
 aktív mappát, Linuxos linket teszünk a helyére (a Wine követi). A szolgáltatás a következő ezredmásodpercekben már
 indulna, ezért nem időnként nézünk rá, hanem az átnevezésre azonnal lépünk (2026-10-20, valódi gépen kipróbálva).
 Indítás előtt is a legújabb verzióra igazítjuk (egy korábbi, figyelés nélküli frissítés után).
+
+Általánosan, bármelyik programnál (from_log_line): a Wine 10 minden ilyen kérést kiír a naplójába
+("fixme:file:CreateSymbolicLinkW (L"<link>" L"<cél>" <jelzők>): stub"), a link helyével és céljával. A futtató ezt a
+sort olvasva utólag elvégzi, amit a Wine kihagyott: a program Windows-környezetén belül, meglévő fájlt nem felülírva.
 """
 import ctypes
 import logging
@@ -115,3 +119,91 @@ class Watcher:
                 fix(self._prefix)
         finally:
             os.close(fd)
+
+
+# --- Általánosan: a Wine naplójából -------------------------------------------------------------------
+
+_STUB = re.compile(r'CreateSymbolicLinkW \(L"((?:[^"\\]|\\.)*)" L"((?:[^"\\]|\\.)*)" (\d+)\): stub')
+
+
+def _unescape(s):
+    """A Wine debugstr_w kimenete: a visszaperjel és az idézőjel elé visszaperjelet tesz."""
+    return re.sub(r"\\(.)", r"\1", s)
+
+
+def _resolve_ci(base, parts):
+    """Windowsos (kis-nagybetűre érzéketlen) út a meglévő mappák szerint; a nem létező részek változatlanul."""
+    cur = base
+    for i, part in enumerate(parts):
+        exact = cur / part
+        if exact.exists() or exact.is_symlink():
+            cur = exact
+            continue
+        try:
+            match = next((c for c in cur.iterdir() if c.name.lower() == part.lower()), None)
+        except OSError:
+            match = None
+        if match is None:
+            return cur.joinpath(*parts[i:])
+        cur = match
+    return cur
+
+
+def _unix_path(prefix, win):
+    """"C:\\Program Files\\x" -> <prefix>/drive_c/Program Files/x; más meghajtó a dosdevices szerint; None, ha nem
+    érthető."""
+    m = re.match(r"^(?:\\\\\?\\)?([A-Za-z]):\\(.*)$", win)
+    if not m:
+        return None
+    letter, rest = m.group(1).lower(), m.group(2)
+    root = Path(prefix) / "dosdevices" / f"{letter}:"
+    if letter == "c" or not root.exists():
+        root = Path(prefix) / "drive_c"
+    parts = [p for p in rest.split("\\") if p and p != "."]
+    if ".." in parts:
+        return None
+    return _resolve_ci(root, parts)
+
+
+def from_log_line(prefix, line):
+    """Ha a sor egy kihagyott linkkérés: a link létrehozása (a program környezetén belül). -> sikerült-e"""
+    m = _STUB.search(line)
+    if not m:
+        return False
+    link_win, target_win = _unescape(m.group(1)), _unescape(m.group(2))
+    link = _unix_path(prefix, link_win)
+    drive_c = (Path(prefix) / "drive_c").resolve()
+    if link is None:
+        log.info("link: nem értelmezhető út: %s", link_win)
+        return False
+    try:
+        parent = link.parent.resolve()
+        parent.relative_to(drive_c)
+    except (OSError, ValueError):
+        log.info("link: a környezeten kívül, kihagyva: %s", link_win)
+        return False
+    if re.match(r"^[A-Za-z]:\\", target_win):
+        target = _unix_path(prefix, target_win)
+        if target is None:
+            return False
+        target = str(target)
+    else:
+        parts = [p for p in target_win.split("\\") if p]
+        target = str(_resolve_ci(link.parent, parts).relative_to(link.parent)) if parts else ""
+    if not target:
+        return False
+    try:
+        if link.is_symlink():
+            if os.readlink(link) == target:
+                return True
+            link.unlink()
+        elif link.exists():
+            return False  # valódi fájl vagy mappa: nem nyúlunk hozzá
+        if not parent.is_dir():
+            return False
+        link.symlink_to(target)
+        log.info("link pótolva (a Wine kihagyta): %s -> %s", link, target)
+        return True
+    except OSError as e:
+        log.warning("link: %s: %s", link, e)
+        return False

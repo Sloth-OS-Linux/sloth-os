@@ -34,6 +34,11 @@ terminálból lehet csinálni, GUI-ból is menjen.
   rpm-ostree CachedUpdate "ref-has-new-commit" mezőjét nézte, ami konténer-image-nél mindig hamis; ott a
   "manifest-diff" (hozzáadott / eltávolított rétegek) jelzi az új verziót. Eddig csak a háttérben futó automatikus
   frissítés hozta le az újat. Javítva (`updates.py`, `update_available`)
+- [x] **Értesítés a háttérben elkészült frissítésről** (2026-10-20, a felhasználó kérésére): az automatikus frissítés
+  csendben előkészítette az új verziót, és úgy tűnt, mintha a frissítés „csak újraindítás után” jönne. Most Plasma-
+  értesítés szól („Elkészült egy frissítés … a következő újraindításkor települ”, „Újraindítás most” gombbal), verziónként
+  egyszer: `sloth-update-notify.path` (`/run/ostree/staged-deployment` változásakor) és bejelentkezéskor
+  (`sloth_center/update_notify.py`). Ál-rpm-ostree-vel kipróbálva; valódi gépen nézni, hogy a path unit elindul-e
 - [ ] Bootloop titkosított lemezzel: VM-ben nem jött elő; figyelni (előtte frissítés / NVIDIA-váltás volt-e)
 - [x] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”). A Kirigami saját szövege, a telepítő
   nyelvváltását nem követi; kiürítve (a címke ott van), a titkosítás jelszómezőinél is (2026-10-20)
@@ -58,6 +63,11 @@ terminálból lehet csinálni, GUI-ból is menjen.
   figyeli a mappát, és az átnevezésre azonnal (~1 ms) Linuxos linket tesz a helyére (a Wine követi); indítás előtt
   a legújabb verzióra igazítja (az EA app frissítései ugyanígy cserélnek). Próba: `tools/tests/test_stagedlinks.py`.
   Proton 11-gyel (Wine ≥ 10.19, valódi linkek) a javítás magától feleslegessé válik, nem zavar.
+  **Általánosan, minden programra** (2026-10-20 délután): a Wine 10 minden kihagyott linkkérést kiír a naplóba
+  (`fixme:file:CreateSymbolicLinkW (L"<link>" L"<cél>" …): stub`); az .exe kezelő eddig elnémította (`fixme-all`),
+  most a `file` csatornát visszakapcsolja, és a sort olvasva létrehozza a linket (`stagedlinks.from_log_line`: csak a
+  program környezetén belül, meglévő fájlt nem felülírva, Windowsos kis-nagybetű-kezeléssel). Ez a naplón át pár
+  ezredmásodperccel később ér oda, mint az EA-nál bevált figyelő, ezért az EA-é marad; a többi programnak elég
   **Még nézni:** az .exe kezelőn át (Üdvözlő / dupla kattintás), egy játék telepítése és indítása, az EA app frissítése
 - [ ] **EA app – a nyomozás** (2026-10-20 délelőtt, valódi gépen, umu-run-nal, részletes naplókkal):
   - INST-14-1627: az MSI a végén nem tudja elindítani az `EABackgroundService`-t (`service_start returning 2`, a

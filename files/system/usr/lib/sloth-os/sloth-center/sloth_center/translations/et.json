@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Paigalda Pika Backup",
   "Pika Backup megnyitása": "Ava Pika Backup",
   "Szülői felügyelet": "Lapsevanema järelevalve",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Lapse konto, vanusele sobivad rakendused ja ekraaniaeg. See osa tuleb ühe järgmise uuendusega."
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Lapse konto, vanusele sobivad rakendused ja ekraaniaeg. See osa tuleb ühe järgmise uuendusega.",
+  "Elkészült egy frissítés": "Uuendus on valmis",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "Süsteemi uus versioon ({version}) on alla laaditud. See paigaldatakse järgmisel taaskäivitusel, seni võid rahulikult edasi töötada."
 }

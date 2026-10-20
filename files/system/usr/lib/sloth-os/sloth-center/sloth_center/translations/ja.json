@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Pika Backupをインストール",
   "Pika Backup megnyitása": "Pika Backupを開く",
   "Szülői felügyelet": "ペアレンタルコントロール",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "子ども用アカウント、年齢に合ったアプリ、スクリーンタイム。この機能は今後のアップデートで提供されます。"
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "子ども用アカウント、年齢に合ったアプリ、スクリーンタイム。この機能は今後のアップデートで提供されます。",
+  "Elkészült egy frissítés": "アップデートの準備ができました",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "新しいシステムバージョン（{version}）をダウンロードしました。次回の再起動時にインストールされます。それまでは普段どおり作業を続けられます。"
 }

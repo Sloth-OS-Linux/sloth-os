@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Instale Pika Backup",
   "Pika Backup megnyitása": "Vierç Pika Backup",
   "Szülői felügyelet": "Control dai gjenitôrs",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Account pai fruts, aplicazions adatis ae etât e timp denant dal schermi. Cheste part e rivarà cuntun prossim inzornament."
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Account pai fruts, aplicazions adatis ae etât e timp denant dal schermi. Cheste part e rivarà cuntun prossim inzornament.",
+  "Elkészült egy frissítés": "Un inzornament al è pront",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "La gnove version dal sisteme ({version}) e je stade discjariade. E vignarà instalade al prossim tornâ a inviâ; fin alore tu puedis continuâ a lavorâ."
 }

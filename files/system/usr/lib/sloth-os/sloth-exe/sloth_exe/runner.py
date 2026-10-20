@@ -61,6 +61,7 @@ class Runner(QObject):
         super().__init__(parent)
         self._proc = None
         self._links = None      # stagedlinks.Watcher, amíg a program fut (EA app)
+        self._prefix = None     # a futó program Windows-környezete (a kihagyott linkek pótlásához)
         self._started_at = 0.0
         self._setup_seen = False
         self._steps = []      # a program előtt futó lépések: (env, cwd, parancs, args, összetevő neve)
@@ -81,6 +82,7 @@ class Runner(QObject):
         az új program ahhoz csatlakozik, és nem várja meg, amíg az előző leáll.
         """
         program.prefix.mkdir(parents=True, exist_ok=True)
+        self._prefix = program.prefix
         env = QProcessEnvironment.systemEnvironment()
         env.insert("WINEPREFIX", str(program.prefix))
         env.insert("GAMEID", gameid or program.meta.get("gameid") or "umu-default")
@@ -90,8 +92,9 @@ class Runner(QObject):
         # az elindított. A rövid életű indítók helyett ezért a klienst indítjuk (quirks.launch_target).
         # Ha a környezetben már fut valami, ahhoz csatlakozunk (különben az indítás addig várna, amíg az leáll).
         env.insert("PROTON_VERB", "runinprefix" if join else "waitforexitandrun")
-        # A hibasorok kellenek a diagnózishoz (a felhasználó nem látja őket); a "fixme" zaj nem
-        env.insert("WINEDEBUG", "fixme-all")
+        # A hibasorok kellenek a diagnózishoz (a felhasználó nem látja őket); a "fixme" zaj nem. Kivétel a "file"
+        # csatorna: a Wine 10 abban jelzi a kihagyott linkkéréseket, és azokat utólag mi hozzuk létre (stagedlinks)
+        env.insert("WINEDEBUG", "fixme-all,fixme+file")
         env.insert("DXVK_LOG_LEVEL", "warn")
         env.insert("VKD3D_DEBUG", "warn")
         # A Wine ne hozzon létre saját menübejegyzéseket: azokat mi kezeljük
@@ -229,6 +232,8 @@ class Runner(QObject):
             if not line:
                 continue
             self._write_log(line)
+            if "CreateSymbolicLinkW" in line and self._prefix:
+                stagedlinks.from_log_line(self._prefix, line)
             low = line.lower()
             for patterns, text in _STAGES:
                 if any(p in low for p in patterns):

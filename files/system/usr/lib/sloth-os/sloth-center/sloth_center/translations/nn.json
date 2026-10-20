@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Installer Pika Backup",
   "Pika Backup megnyitása": "Opna Pika Backup",
   "Szülői felügyelet": "Foreldrekontroll",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Barnekonto, alderstilpassa appar og skjermtid. Denne delen kjem med ei framtidig oppdatering."
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Barnekonto, alderstilpassa appar og skjermtid. Denne delen kjem med ei framtidig oppdatering.",
+  "Elkészült egy frissítés": "Ei oppdatering er klar",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "Den nye systemversjonen ({version}) er lasta ned. Han vert installert ved neste omstart; fram til då kan du arbeida vidare som vanleg."
 }

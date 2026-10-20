@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Pika Backup 설치",
   "Pika Backup megnyitása": "Pika Backup 열기",
   "Szülői felügyelet": "자녀 보호",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "자녀 계정, 연령에 맞는 앱, 화면 사용 시간. 이 기능은 이후 업데이트에서 제공됩니다."
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "자녀 계정, 연령에 맞는 앱, 화면 사용 시간. 이 기능은 이후 업데이트에서 제공됩니다.",
+  "Elkészült egy frissítés": "업데이트가 준비되었습니다",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "새 시스템 버전({version})을 내려받았습니다. 다음에 다시 시작할 때 설치되며, 그때까지 평소처럼 작업하셔도 됩니다."
 }

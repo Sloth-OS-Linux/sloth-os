@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Sbedd Pika Backup",
   "Pika Backup megnyitása": "Ldi Pika Backup",
   "Szülői felügyelet": "Asenqed n imawlan",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Amiḍan n ugrud, isnasen yemmalen i leɛmer d akud n ugdil. Aḥric-a ad d-yas deg uleqqem i d-iteddun."
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Amiḍan n ugrud, isnasen yemmalen i leɛmer d akud n ugdil. Aḥric-a ad d-yas deg uleqqem i d-iteddun.",
+  "Elkészült egy frissítés": "Aleqqem yewjed",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "Lqem amaynut n unagraw ({version}) yettwasider. Ad yettwasbedd deg wallus n usekker i d-iteddun; alamma d imir-n tzemreḍ ad tkemmleḍ amahil."
 }

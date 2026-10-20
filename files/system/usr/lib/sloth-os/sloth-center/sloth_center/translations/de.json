@@ -517,5 +517,7 @@
   "Pika Backup telepítése": "Pika Backup installieren",
   "Pika Backup megnyitása": "Pika Backup öffnen",
   "Szülői felügyelet": "Jugendschutz",
-  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Kinderkonto, altersgerechte Apps und Bildschirmzeit. Dieser Teil kommt mit einem künftigen Update."
+  "Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.": "Kinderkonto, altersgerechte Apps und Bildschirmzeit. Dieser Teil kommt mit einem künftigen Update.",
+  "Elkészült egy frissítés": "Ein Update ist bereit",
+  "Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan dolgozhatsz tovább.": "Die neue Systemversion ({version}) wurde heruntergeladen. Sie wird beim nächsten Neustart installiert, bis dahin kannst du ganz normal weiterarbeiten."
 }
