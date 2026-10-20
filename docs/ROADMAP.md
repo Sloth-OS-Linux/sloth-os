@@ -59,6 +59,12 @@ jó volt, azt valódi gépen elég egyszer megnézni:
 - Később, ha lesz gép / tesztelő: NVIDIA-s gép (a gamer gépen), BIOS-os gép, nyomtató és szkenner
 
 **A VM-teszt hibái (2026-10-20 este)**
+- [ ] **Ujjlenyomat és PIN-kód egyszerre bekapcsolva: a gép nem jut el a bejelentkező képernyőig** (2026-10-20 este,
+  valódi gépen, a felhasználó jelentése). Valószínűleg a két bejelentkezési mód PAM-beállítása ütközik (a PIN saját
+  PAM-modulja és az fprintd a bejelentkező képernyő PAM-láncában). Kideríteni: a napló (`journalctl -b -1`, a
+  bejelentkező képernyő és a PAM sorai), a `/etc/pam.d` érintett fájljai; javítani úgy, hogy a kettő együtt is
+  menjen, és ha a PAM-lánc hibás, akkor is maradjon jelszavas belépés. A gép helyreállítása a boot menüből: Esc →
+  „Alaphelyzetbe állítás (fájljaim megtartásával)” (az új, d3f69e8 image-től)
 - [x] **EA app: nem került a Start menübe.** Az `EADesktop.exe` kétszer volt a listán (a fő és a `compatibility32`
   mappából), a bejegyzés neve a fájlnévből készül, így a bejelölt sor létrehozta, a be nem jelölt rögtön törölte.
   Javítva (`sloth_exe/controller.py`, `confirmShortcuts`): a be nem jelölt sor nem töröl olyat, amit egy bejelölt kér
