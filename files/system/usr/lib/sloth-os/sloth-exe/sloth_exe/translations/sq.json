@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} është instaluar tashmë.",
   "choose.linux_package": "Ky paketë është bërë për një sistem tjetër Linux, por mund të instalohet edhe këtu dhe do ta gjesh në menynë Start. Nëse është edhe në Discover, zakonisht kjo është zgjedhja më e mirë.",
   "choose.flathub_available": "{name} gjendet edhe në Discover. Ai version përshtatet më mirë me sistemin dhe përditësohet vetë, ndaj e rekomandojmë.",
+  "choose.native_broken": "Versioni për Windows i këtij programi nuk punon me besueshmëri këtu. Versioni për Linux ({name}) po, ndaj rekomandojmë atë.",
+  "choose.native_heroic": "Për lojërat e Epic Games dhe GOG rekomandojmë nisësin Heroic: është bërë për Linux, instalohet pa probleme dhe i nis lojërat njësoj si Steam. Hyni me llogarinë tuaj të zakonshme, dhe lojërat e blera janë edhe aty.",
 
   "button.cancel": "Anulo",
   "button.run_only": "Vetëm nise",

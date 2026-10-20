@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} je već instaliran.",
   "choose.linux_package": "Ovaj je paket napravljen za drugi Linux sustav, ali se može instalirati i ovdje, a naći ćeš ga u izborniku Start. Ako postoji i u Discoveru, to je obično bolji izbor.",
   "choose.flathub_available": "{name} postoji i u Discoveru. Ta se verzija bolje uklapa u sustav i sama se ažurira, pa je preporučujemo.",
+  "choose.native_broken": "Verzija ovog programa za Windows ovdje ne radi pouzdano. Verzija za Linux ({name}) radi, zato preporučujemo nju.",
+  "choose.native_heroic": "Za igre s Epic Gamesa i GOG-a preporučujemo pokretač Heroic: napravljen je za Linux, pouzdano se instalira i pokreće igre jednako kao Steam. Prijavljujete se svojim postojećim računom, a kupljene igre su i tamo.",
 
   "button.cancel": "Odustani",
   "button.run_only": "Samo pokreni",

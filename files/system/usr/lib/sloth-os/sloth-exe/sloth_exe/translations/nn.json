@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} er allereie installert.",
   "choose.linux_package": "Denne pakken er laga for eit anna Linux-system, men han kan òg installerast her, og du finn han i startmenyen. Om han òg finst i Discover, er det som regel eit betre val.",
   "choose.flathub_available": "{name} finst òg i Discover. Den versjonen passar betre med systemet og oppdaterer seg sjølv, så vi tilrår han.",
+  "choose.native_broken": "Windows-versjonen av dette programmet fungerer ikkje påliteleg her. Versjonen for Linux ({name}) gjer det, så vi tilrår den.",
+  "choose.native_heroic": "For spel frå Epic Games og GOG tilrår vi oppstartaren Heroic: Han er laga for Linux, vert installert utan problem og startar spela på same måten som Steam. Du loggar inn med kontoen du alt har, og spela du har kjøpt, er der òg.",
 
   "button.cancel": "Avbryt",
   "button.run_only": "Berre køyr",

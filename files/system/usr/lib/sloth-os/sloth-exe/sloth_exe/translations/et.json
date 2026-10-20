@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} on juba paigaldatud.",
   "choose.linux_package": "See pakett on tehtud teise Linuxi süsteemi jaoks, kuid selle saab paigaldada ka siia ja leiad selle Start-menüüst. Kui see on olemas ka Discoveris, on see tavaliselt parem valik.",
   "choose.flathub_available": "{name} on olemas ka Discoveris. See versioon sobib süsteemiga paremini ja uueneb ise, seega soovitame seda.",
+  "choose.native_broken": "Selle programmi Windowsi versioon ei tööta siin usaldusväärselt. Linuxi versioon ({name}) töötab, seepärast soovitame seda.",
+  "choose.native_heroic": "Epic Gamesi ja GOG-i mängude jaoks soovitame käivitit Heroic: see on tehtud Linuxile, paigaldub probleemideta ja käivitab mängud samamoodi nagu Steam. Logid sisse oma tavalise kontoga ja ostetud mängud on ka seal olemas.",
 
   "button.cancel": "Loobu",
   "button.run_only": "Ainult käivita",

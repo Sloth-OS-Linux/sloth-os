@@ -1,0 +1,10 @@
+#!/usr/bin/python3 -I
+"""„Korábbi verziók” ablak (Dolphin, jobb klikk): sloth-versions <fájl vagy mappa>."""
+import sys
+
+sys.path.insert(0, "/usr/lib/sloth-os/sloth-center")
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+
+from sloth_center.versions import main  # noqa: E402
+
+sys.exit(main())

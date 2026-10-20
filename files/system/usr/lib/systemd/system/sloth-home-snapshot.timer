@@ -1,0 +1,10 @@
+[Unit]
+Description=Sloth OS: a saját fájlok mentése óránként
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+RandomizedDelaySec=5min
+
+[Install]
+WantedBy=timers.target

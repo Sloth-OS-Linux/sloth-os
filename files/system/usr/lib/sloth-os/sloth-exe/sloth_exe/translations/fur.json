@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} al è za instalât.",
   "choose.linux_package": "Chest pachet al è stât fat par un altri sisteme Linux, ma si pues instalâlu ancje achì e tu lu cjatarâs tal menù Start. Se al è ancje in Discover, di solit chê e je la sielte miôr.",
   "choose.flathub_available": "{name} al è ancje in Discover. Chê version si integre miôr cul sisteme e si inzorne di bessole, duncje le conseìn.",
+  "choose.native_broken": "La version par Windows di chest program achì no funzione in maniere sigure. La version par Linux ({name}) sì, par chel o conseìn chê.",
+  "choose.native_heroic": "Pai zûcs di Epic Games e GOG o conseìn il inviadôr Heroic: al è fat par Linux, si instale cence problemis e al invie i zûcs come Steam. Tu jentris cul to account di simpri, e i zûcs che tu âs comprât a son ancje li.",
 
   "button.cancel": "Anule",
   "button.run_only": "Invie e basta",

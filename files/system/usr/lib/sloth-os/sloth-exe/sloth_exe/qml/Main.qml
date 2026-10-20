@@ -67,6 +67,8 @@ Kirigami.ApplicationWindow {
                             wrapMode: Text.Wrap
                             opacity: 0.8
                             text: exe.alreadyInstalled ? root.t("choose.already_installed", { name: exe.name })
+                                  : exe.nativeReason === "heroic" ? root.t("choose.native_heroic")
+                                  : exe.nativeReason === "broken" ? root.t("choose.native_broken", { name: exe.flathubName })
                                   : exe.flathubName !== "" ? root.t("choose.flathub_available", { name: exe.flathubName })
                                   : exe.fileKind === "deb" || exe.fileKind === "rpm" ? root.t("choose.linux_package")
                                   : root.t(exe.isInstaller ? "choose.installer_text" : "choose.program_text")

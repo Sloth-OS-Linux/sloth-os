@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} is al geïnstalleerd.",
   "choose.linux_package": "Dit pakket is gemaakt voor een ander Linux-systeem, maar kan ook hier worden geïnstalleerd; je vindt het in het startmenu. Als het ook in Discover staat, is dat meestal de betere keuze.",
   "choose.flathub_available": "{name} is ook beschikbaar in Discover. Die versie past beter bij het systeem en werkt zichzelf bij, dus die raden we aan.",
+  "choose.native_broken": "De Windows-versie van dit programma werkt hier niet betrouwbaar. De versie voor Linux ({name}) wel, daarom raden we die aan.",
+  "choose.native_heroic": "Voor games van Epic Games en GOG raden we de Heroic-launcher aan: die is gemaakt voor Linux, installeert betrouwbaar en start de games net zoals Steam. Je logt in met je bestaande account, en je gekochte games staan daar ook.",
 
   "button.cancel": "Annuleren",
   "button.run_only": "Alleen uitvoeren",

@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} sudah terpasang.",
   "choose.linux_package": "Paket ini dibuat untuk sistem Linux lain, tetapi juga bisa dipasang di sini, dan kamu akan menemukannya di menu Start. Jika juga tersedia di Discover, biasanya itu pilihan yang lebih baik.",
   "choose.flathub_available": "{name} juga tersedia di Discover. Versi itu lebih cocok dengan sistem dan memperbarui dirinya sendiri, jadi kami menyarankannya.",
+  "choose.native_broken": "Versi Windows program ini tidak berjalan dengan andal di sini. Versi untuk Linux ({name}) berjalan, jadi kami menyarankan yang itu.",
+  "choose.native_heroic": "Untuk game Epic Games dan GOG, kami menyarankan peluncur Heroic: dibuat untuk Linux, terpasang dengan andal, dan menjalankan game sama seperti Steam. Anda masuk dengan akun yang sudah ada, dan game yang Anda beli juga ada di sana.",
 
   "button.cancel": "Batal",
   "button.run_only": "Jalankan saja",

@@ -11,6 +11,8 @@
   "choose.already_installed": "{name}이(가) 이미 설치되어 있습니다.",
   "choose.linux_package": "이 패키지는 다른 Linux 시스템용으로 만들어졌지만 여기에도 설치할 수 있으며, 시작 메뉴에 나타납니다. Discover에도 있다면 보통 그쪽이 더 좋은 선택입니다.",
   "choose.flathub_available": "{name}은(는) Discover에도 있습니다. 그 버전이 시스템에 더 잘 맞고 스스로 업데이트되므로 권장합니다.",
+  "choose.native_broken": "이 프로그램의 Windows 버전은 여기서 안정적으로 작동하지 않습니다. Linux 버전({name})은 작동하므로 그것을 권장합니다.",
+  "choose.native_heroic": "Epic Games와 GOG 게임에는 Heroic 런처를 권장합니다. Linux용으로 만들어져 문제없이 설치되고, Steam과 같은 방식으로 게임을 실행합니다. 기존 계정으로 로그인하면 구매한 게임도 그대로 있습니다.",
 
   "button.cancel": "취소",
   "button.run_only": "실행만 하기",

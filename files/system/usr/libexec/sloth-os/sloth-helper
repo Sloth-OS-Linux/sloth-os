@@ -23,6 +23,10 @@ Műveletek:
                                                  bekapcsolja a "sloth" authselect-profil with-sloth-pin funkcióját
   pin-remove                                     a hívó felhasználó PIN-kódjának törlése
   zram default|more|off                          memóriatömörítés (zram swap) mérete a következő indulástól
+  snapshots on|off                               a saját fájlok automatikus mentése (óránkénti pillanatkép)
+  snapshots-keep 2w|1m|3m                        a mentett állapotok megtartása (2 hét, 1 hónap, 3 hónap)
+  snapshot-now                                   mentés most (home-snapshots take --now)
+  snapshots-delete-all                           az összes mentett állapot törlése
 
 A verziókat érintő műveletek (pin, unpin, set-default) a sloth-helper-versions néven is
 elérhetők: ez külön polkit-művelet (org.slothos.helper.versions), hogy a „frissítések”
@@ -383,6 +387,32 @@ def zram(mode):
     return {"ok": True}
 
 
+# --- A saját fájlok mentése (Sloth Központ → Fájlmentés; a munkát a home-snapshots végzi) ------------------
+
+SNAPSHOTS_CONF = "/etc/sloth-os/snapshots.json"
+HOME_SNAPSHOTS = "/usr/libexec/sloth-os/home-snapshots"
+
+
+def snapshots_config(**changes):
+    try:
+        with open(SNAPSHOTS_CONF, encoding="utf-8") as f:
+            cfg = json.load(f)
+        cfg = cfg if isinstance(cfg, dict) else {}
+    except (OSError, ValueError):
+        cfg = {}
+    cfg.update(changes)
+    _write(SNAPSHOTS_CONF, json.dumps(cfg, indent=2) + "\n")
+    return {"ok": True}
+
+
+def home_snapshots(*args):
+    r = subprocess.run([HOME_SNAPSHOTS, *args], capture_output=True, text=True, timeout=600)
+    try:
+        return json.loads(r.stdout.strip().splitlines()[-1])
+    except (ValueError, IndexError):
+        return {"ok": False, "error": r.stderr.strip()[-500:]}
+
+
 def main(argv):
     if os.geteuid() != 0:
         print(json.dumps({"ok": False, "error": "root kell"}))
@@ -419,6 +449,14 @@ def main(argv):
         result = pin_remove()
     elif op == "zram" and args in (["default"], ["more"], ["off"]) and not VERSIONS_ONLY:
         result = zram(args[0])
+    elif op == "snapshots" and args in (["on"], ["off"]) and not VERSIONS_ONLY:
+        result = snapshots_config(enabled=args[0] == "on")
+    elif op == "snapshots-keep" and args in (["2w"], ["1m"], ["3m"]) and not VERSIONS_ONLY:
+        result = snapshots_config(keep=args[0])
+    elif op == "snapshot-now" and not args and not VERSIONS_ONLY:
+        result = home_snapshots("take", "--now")
+    elif op == "snapshots-delete-all" and not args and not VERSIONS_ONLY:
+        result = home_snapshots("delete-all")
     elif op == "admin-policy" and not args and not VERSIONS_ONLY:
         try:
             request = json.loads(sys.stdin.read(4096) or "{}")

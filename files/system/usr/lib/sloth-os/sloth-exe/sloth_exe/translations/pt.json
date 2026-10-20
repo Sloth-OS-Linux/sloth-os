@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} já está instalado.",
   "choose.linux_package": "Este pacote foi feito para outro sistema Linux, mas também pode ser instalado aqui e vais encontrá-lo no menu Iniciar. Se também estiver no Discover, essa costuma ser a melhor opção.",
   "choose.flathub_available": "{name} também está no Discover. Essa versão integra-se melhor no sistema e atualiza-se sozinha, por isso recomendamo-la.",
+  "choose.native_broken": "A versão Windows deste programa não funciona de forma fiável aqui. A versão para Linux ({name}) funciona, por isso recomendamos essa.",
+  "choose.native_heroic": "Para os jogos da Epic Games e da GOG recomendamos o lançador Heroic: foi feito para Linux, instala-se sem problemas e executa os jogos tal como o Steam. Inicia sessão com a sua conta habitual e os jogos que comprou também lá estão.",
 
   "button.cancel": "Cancelar",
   "button.run_only": "Só executar",

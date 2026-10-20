@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} már telepítve van.",
   "choose.linux_package": "Ez a csomag egy másik Linux-rendszerhez készült, de itt is telepíthető, és a Start menüben fogod találni. Ha a Discoverben is megvan, az általában jobb választás.",
   "choose.flathub_available": "{name} a Discoverben is megvan. Az a változat jobban illeszkedik a rendszerhez, és magától frissül, ezért azt javasoljuk.",
+  "choose.native_broken": "Ennek a programnak a Windowsos változata itt nem működik megbízhatóan. A Linuxra készült változata ({name}) igen, ezért azt javasoljuk.",
+  "choose.native_heroic": "Az Epic Games és a GOG játékaihoz a Heroic indítót javasoljuk: Linuxra készült, megbízhatóan települ, és a játékokat ugyanúgy futtatja, mint a Steam. A meglévő fiókoddal jelentkezel be, a megvett játékaid ott is megvannak.",
 
   "button.cancel": "Mégse",
   "button.run_only": "Csak futtatás",

@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} je už nainštalovaný.",
   "choose.linux_package": "Tento balík je určený pre iný linuxový systém, ale dá sa nainštalovať aj sem a nájdeš ho v ponuke Štart. Ak je aj v Discoveri, býva to lepšia voľba.",
   "choose.flathub_available": "{name} je dostupný aj v Discoveri. Táto verzia lepšie zapadá do systému a sama sa aktualizuje, preto ju odporúčame.",
+  "choose.native_broken": "Verzia tohto programu pre Windows tu nefunguje spoľahlivo. Verzia pre Linux ({name}) áno, preto odporúčame ju.",
+  "choose.native_heroic": "Na hry z Epic Games a GOG odporúčame spúšťač Heroic: je vytvorený pre Linux, spoľahlivo sa nainštaluje a spúšťa hry rovnako ako Steam. Prihlásite sa svojím doterajším účtom a kúpené hry tam máte tiež.",
 
   "button.cancel": "Zrušiť",
   "button.run_only": "Len spustiť",

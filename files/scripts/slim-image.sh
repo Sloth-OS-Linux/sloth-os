@@ -11,7 +11,11 @@ set -euo pipefail
 # buildah, cosign: fejlesztői eszközök (az aláírás-ellenőrzés a policy.json-nal megy, nem a cosign paranccsal)
 # ibus: a fcitx5 marad (KDE-ben Waylanden az ajánlott, a kínai/japán/koreai beviteli módok vele is megvannak)
 # plasma-workspace-wallpapers: a KDE háttérképei (csak a Sloth OS saját képei maradnak)
-REMOVE=(kate khelpcenter just toolbox buildah cosign ibus plasma-workspace-wallpapers)
+# pipewire-config-raop: a hálózat AirPlay-hangszóróit (pl. egy iskola összes MacBookját) hangkimenetként
+#   veszi fel. Wi-Fi-váltáskor és a nem válaszoló eszközöknél ezek pár másodpercenként eltűnnek és újra
+#   megjelennek, és minden új kimenet feloldja a Plasma „mindent némít” állapotát (2026-10-20, a teszt
+#   naplója). Semmi nem függ tőle; aki AirPlayre küldené a hangot, a Discoverből visszateheti
+REMOVE=(kate khelpcenter just toolbox buildah cosign ibus plasma-workspace-wallpapers pipewire-config-raop)
 
 present=()
 for pkg in "${REMOVE[@]}"; do

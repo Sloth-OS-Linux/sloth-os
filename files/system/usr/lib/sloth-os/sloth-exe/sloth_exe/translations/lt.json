@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} jau įdiegta.",
   "choose.linux_package": "Šis paketas sukurtas kitai Linux sistemai, bet jį galima įdiegti ir čia, o rasi jį meniu Pradžia. Jei jis yra ir Discover, paprastai tai geresnis pasirinkimas.",
   "choose.flathub_available": "{name} yra ir Discover. Ta versija geriau dera su sistema ir atsinaujina pati, todėl ją rekomenduojame.",
+  "choose.native_broken": "Šios programos Windows versija čia veikia nepatikimai. Linux versija ({name}) veikia, todėl rekomenduojame ją.",
+  "choose.native_heroic": "Epic Games ir GOG žaidimams rekomenduojame paleidyklę Heroic: ji sukurta Linux, patikimai įsidiegia ir paleidžia žaidimus taip pat kaip Steam. Prisijungiate savo įprasta paskyra, o nupirkti žaidimai ten taip pat yra.",
 
   "button.cancel": "Atšaukti",
   "button.run_only": "Tik paleisti",

@@ -24,11 +24,15 @@ modules:
         - rclone
         - fuse3
 
-  # A GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése a háttérben
   - type: systemd
+    system:
+      enabled:
+        # A saját fájlok mentése (Sloth Központ → Fájlmentés, Dolphin → Korábbi verziók)
+        - sloth-home-layout.service   # induláskor: a /var/home külön subvolume (a pillanatképekhez)
+        - sloth-home-snapshot.timer   # óránként egy pillanatkép, a régiek ritkítása
     user:
       enabled:
-        - sloth-github-bundle-update.timer
+        - sloth-github-bundle-update.timer   # a GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése
 
   # Karcsúsítás: csak az marad, ami a működéshez vagy a hibaelhárításhoz kell (maradjon a modulok végén)
   - type: script

@@ -18,7 +18,7 @@ from PySide6.QtCore import QObject, Property, QProcess, QTimer, QUrl, Signal, Sl
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
-from sloth_common.apps import detect, library, menu, packages
+from sloth_common.apps import detect, library, menu, native, packages
 
 from . import anticheat, backend, community, diagnose, heal, identify, quirks
 from .i18n import catalog, tr
@@ -81,6 +81,7 @@ class ExeController(QObject):
         self._package_done.connect(self._on_appimage_installed)
         self._flathub_found.connect(self._on_flathub)
         self._flathub = None     # a Linuxos csomag Flathubos változata: {"id", "name", "summary"}
+        self._native_reason = ""  # Windowsos telepítőnél: miért a Linuxos változatot ajánljuk (native.py)
         self._kind = "windows"   # a megnyitott fájl fajtája (packages.kind_of), vagy "windows"
         self._done_text = ""
         self._start_cmd = None   # a „kész” állapotban az Indítás parancsa
@@ -127,6 +128,13 @@ class ExeController(QObject):
         finished = found is not None and (menu.entries(found) or "uninstall_key" in found.meta)
         self._existing = found if finished else None
         self._unfinished = None if finished else found
+        # Népszerű program, aminek van Linuxra készült változata (pl. Teams, Discord, Epic -> Heroic): azt ajánljuk,
+        # a Windowsos telepítése mellette megmarad (ha már telepítve van, nem szólunk bele)
+        linux = native.match(self._exe.name) if self._existing is None else None
+        if linux:
+            log.info("Linuxos változat: %s (%s)", linux["id"], linux["reason"])
+            self._flathub = {"id": linux["id"], "name": linux["name"], "summary": ""}
+            self._native_reason = linux["reason"]
         icon = menu.extract_icon(self._exe, Path("/tmp") / f"sloth-exe-{library.slugify(self._name)}.png")
         self._set_icon(icon)
         self._state = "choose"
@@ -204,6 +212,7 @@ class ExeController(QObject):
     doneText = Property(str, lambda self: self._done_text, notify=changed)
     canStart = Property(bool, lambda self: self._start_cmd is not None, notify=changed)
     flathubName = Property(str, lambda self: (self._flathub or {}).get("name", ""), notify=changed)
+    nativeReason = Property(str, lambda self: self._native_reason, notify=changed)
     sure = Property(bool, lambda self: self._sure, notify=changed)
     anyChecked = Property(bool, lambda self: any(s["checked"] for s in self._shortcuts), notify=changed)
     strings = Property("QVariantMap", lambda self: catalog.strings(), constant=True)
@@ -605,7 +614,12 @@ class ExeController(QObject):
         if self._attempt and not self._runner.uses_wine:
             self._program.save_meta(prefix_proton=heal.resolved_name(self._attempt))
         if self._succeeded or elapsed >= QUICK_EXIT_S:
-            self._on_worked()
+            # Hibakóddal, rövid futás után (pl. a Battle.net 30 mp után, kód 3) nem jegyezzük meg „bevált”
+            # beállításnak; újra sem indítjuk, mert lehet, hogy a felhasználó zárta be
+            if self._succeeded or code == 0 or elapsed >= WORKED_AFTER_S:
+                self._on_worked()
+            else:
+                log.info("hibakóddal lépett ki (%s), nem jegyezzük meg bevált beállításnak", code)
             QApplication.quit()
             return
         if self._program.busy():

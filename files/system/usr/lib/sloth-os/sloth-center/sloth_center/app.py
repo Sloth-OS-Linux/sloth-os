@@ -38,6 +38,7 @@ def main():
     from .updates import UpdatesController
     from .accounts import AccountsController
     from .advanced import AdvancedController
+    from .backup import BackupController
     from .cloud import CloudController
     from .containers import ContainersController
     from .devpanel import DevPanelController
@@ -60,6 +61,7 @@ def main():
     drivers = DriversController()
     health = HealthController()
     disks = DisksController()
+    backup = BackupController()
     advanced = AdvancedController()
     containers = ContainersController()
     environment = EnvironmentController()
@@ -74,6 +76,7 @@ def main():
     engine.rootContext().setContextProperty("drivers", drivers)
     engine.rootContext().setContextProperty("health", health)
     engine.rootContext().setContextProperty("disks", disks)
+    engine.rootContext().setContextProperty("backup", backup)
     engine.rootContext().setContextProperty("advanced", advanced)
     engine.rootContext().setContextProperty("containers", containers)
     engine.rootContext().setContextProperty("environment", environment)

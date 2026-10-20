@@ -7,7 +7,7 @@ A szövegek a választott nyelven jelennek meg (i18n.py).
 import datetime
 from pathlib import Path
 
-from PySide6.QtCore import QDate, QLocale
+from PySide6.QtCore import QDate, QLocale, QTime
 
 from .i18n import N_, catalog, tr
 
@@ -85,6 +85,18 @@ def date_text(timestamp):
         return ""
     d = datetime.datetime.fromtimestamp(int(timestamp))
     return QLocale(catalog.language()).toString(QDate(d.year, d.month, d.day), QLocale.FormatType.LongFormat)
+
+
+def datetime_text(when):
+    """Időpont röviden: "Ma 14:00", "Tegnap 09:00", különben "2026. október 13. 14:00" (helyi időben)."""
+    local = when.astimezone()
+    time = QLocale(catalog.language()).toString(QTime(local.hour, local.minute), QLocale.FormatType.ShortFormat)
+    days = (datetime.date.today() - local.date()).days
+    if days == 0:
+        return tr("Ma {time}", time=time)
+    if days == 1:
+        return tr("Tegnap {time}", time=time)
+    return f"{date_text(local.timestamp())} {time}"
 
 
 def _pretty_name(deployment):

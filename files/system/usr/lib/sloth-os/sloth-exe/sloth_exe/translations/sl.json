@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} je že nameščen.",
   "choose.linux_package": "Ta paket je narejen za drug sistem Linux, vendar ga je mogoče namestiti tudi tukaj, našel pa ga boš v meniju Start. Če je na voljo tudi v Discoverju, je to običajno boljša izbira.",
   "choose.flathub_available": "{name} je na voljo tudi v Discoverju. Ta različica se bolje ujema s sistemom in se sama posodablja, zato jo priporočamo.",
+  "choose.native_broken": "Različica tega programa za Windows tu ne deluje zanesljivo. Različica za Linux ({name}) deluje, zato priporočamo njo.",
+  "choose.native_heroic": "Za igre Epic Games in GOG priporočamo zaganjalnik Heroic: narejen je za Linux, zanesljivo se namesti in zaganja igre enako kot Steam. Prijavite se s svojim obstoječim računom, kupljene igre pa so tudi tam.",
 
   "button.cancel": "Prekliči",
   "button.run_only": "Samo zaženi",

@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} yettwasbedd yakan.",
   "choose.linux_package": "Akemmus-a yettwaxdem i unagraw nniḍen n Linux, maca yezmer ad yettwasbedd ula dagi, ad t-tafeḍ deg wumuɣ Bdu. Ma yella daɣen deg Discover, akka d afran yifen s umata.",
   "choose.flathub_available": "{name} yella daɣen deg Discover. Lqem-nni yemṣada akken iwata d unagraw yerna ttalɣen-d iman-is, ihi nwelleh-it.",
+  "choose.native_broken": "Lqem n Windows n wahil-a ur iteddu ara akken iwata da. Lqem n Linux ({name}) iteddu, ihi d netta i nwelleh.",
+  "choose.native_heroic": "I wurar n Epic Games d GOG nwelleh amsenker Heroic: yettwaxdem i Linux, yettwasbedd mebla uguren, yessenkar uraren am Steam. Ad tkecmeḍ s umiḍan-ik yellan, uraren i d-tuɣeḍ llan ula dinna.",
 
   "button.cancel": "Sefsex",
   "button.run_only": "Sekker kan",

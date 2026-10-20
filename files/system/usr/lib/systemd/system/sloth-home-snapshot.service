@@ -1,0 +1,9 @@
+[Unit]
+Description=Sloth OS: a saját fájlok mostani állapotának mentése (Btrfs-pillanatkép)
+After=sloth-home-layout.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/home-snapshots take
+Nice=19
+IOSchedulingClass=idle

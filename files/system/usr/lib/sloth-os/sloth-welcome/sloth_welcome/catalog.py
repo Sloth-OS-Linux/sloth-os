@@ -78,6 +78,10 @@ CATEGORIES = [
         "id": "games", "icon": "applications-games",
         "apps": [
             {"id": "com.valvesoftware.Steam", "name": "Steam"},
+            # Az Epic Games és a GOG játékaihoz a Heroic (Linuxra készült indító) a hivatalos Windowsos indítók helyett:
+            # az Epic új telepítőjének aláírás-ellenőrzése Wine alatt elbukik, a GOG Galaxy sem fut megbízhatóan
+            # (2026-10-20). Aki mégis letölti a Windowsos telepítőt, annak az .exe kezelő is a Heroicot ajánlja
+            # (sloth_common.apps.native)
             {"id": "com.heroicgameslauncher.hgl", "name": "Heroic"},
             {"id": "org.prismlauncher.PrismLauncher", "name": "Prism Launcher"},
             {"id": "net.lutris.Lutris", "name": "Lutris"},
@@ -90,11 +94,6 @@ CATEGORIES = [
              "url": "https://origin-a.akamaihd.net/EA-Desktop-Client-Download/installer-releases/EAappInstaller.exe"},
             {"id": "win.ubisoft", "name": "Ubisoft Connect", "source": "windows", "file": "UbisoftConnectInstaller.exe",
              "url": "https://static3.cdn.ubi.com/orbit/launcher_installer/UbisoftConnectInstaller.exe"},
-            {"id": "win.epic", "name": "Epic Games", "source": "windows", "file": "EpicGamesLauncherInstaller.msi",
-             "url": "https://launcher-public-service-prod06.ol.epicgames.com/launcher/api/installer/download/"
-                    "EpicGamesLauncherInstaller.msi"},
-            {"id": "win.gog", "name": "GOG Galaxy", "source": "windows", "file": "GOG_Galaxy_2.0.exe",
-             "url": "https://webinstallers.gog-statics.com/download/GOG_Galaxy_2.0.exe"},
             {"id": "win.rockstar", "name": "Rockstar Games", "source": "windows", "file": "Rockstar-Games-Launcher.exe",
              "url": "https://gamedownloads.rockstargames.com/public/installer/Rockstar-Games-Launcher.exe"},
         ],

@@ -82,7 +82,9 @@ class Catalog:
 
     def set_language(self, code):
         merged = {}
-        for c in (SOURCE, FALLBACK, code):
+        # Magyarul nem kell az angol tartalék: ahol a magyar szöveg maga a kulcs (Sloth Központ), és a hu.json-ban
+        # nincs meg, ott különben az angol látszana
+        for c in (SOURCE,) if code == SOURCE else (SOURCE, FALLBACK, code):
             merged.update(self._load(c))
         self._current, self._code = merged, code
 

@@ -7,7 +7,8 @@ terminálból lehet csinálni, GUI-ból is menjen.
 
 ### Következő lépések (2026-10-19 este, sorrendben; a részletek lent)
 **Publikálás előtt kötelező**
-1. [ ] Fájlmentés és „Korábbi verziók” (Teendők, 8. pont)
+1. [ ] Fájlmentés és „Korábbi verziók” (Teendők, 8. pont): a pillanatképek, a „Korábbi verziók” és a Sloth Központ
+   oldala kész (2026-10-20, valódi gépen még tesztelni); hátravan a külső lemezre mentés
 2. [ ] A gép alaphelyzetbe állítása (Teendők, 8. pont)
 3. [ ] A teszt végig valódi gépen: Battle.net, Windows-indítók az Üdvözlőből, felhő, telefon, átköltözés Windowsról,
    nyomtató és szkenner, firmware, NVIDIA-s gép, Windows mellé telepítés (tesztelő kell)
@@ -18,25 +19,61 @@ terminálból lehet csinálni, GUI-ból is menjen.
 8. [ ] A fordítások anyanyelvi átnézése (Teendők, 7. pont)
 
 **Nyitott hibák (kicsik)**
-- [ ] Némítás: egy gombnyomásra feloldódik. 2026-10-19 este: a felhasználó szerint először az élő rendszerben
-  (telepítés előtt) jelentkezett, a telepített gépen most nem jön elő. Figyelni; ha újra: közvetlenül a gépen
-  (RustDesk nélkül, mert az is használja a hangot és a billentyűket) és `pactl subscribe`-bal megnézni, ki oldja fel.
-  A saját kódunk sehol nem nyúl a hanghoz
+- [x] Némítás: magától feloldódik (2026-10-20, a `pactl subscribe` + `alsactl monitor` napló alapján). Nem a
+  billentyű: a PipeWire AirPlay-felderítése (`pipewire-config-raop`) a hálózat összes Macjét hangkimenetként vette
+  fel (iskolai Wi-Fi, ~20 eszköz); Wi-Fi-váltáskor és utána pár másodpercenként új kimenetek jöttek, és mindegyik
+  feloldotta a Plasma „mindent némít” állapotát. Javítva: a csomag kikerül az image-ből (`slim-image.sh`).
+  Valódi gépen ellenőrizni a frissítés után: némítás, Wi-Fi ki-be, marad-e némítva
 - [x] Naplózaj: 30 másodpercenként „BAT0: chmod … charge_control_*_threshold failed”. A Universal Blue
   `99-thinkpad-thresholds-udev.rules` szabálya nem nézte, létezik-e a fájl (HP-n nincs). Javítva (2026-10-20):
   azonos nevű, javított szabály az `/etc/udev/rules.d`-ben (csak ha a fájl létezik; ThinkPadeken ugyanúgy működik)
+- [x] A Sloth Központ magyar rendszeren a legtöbb szöveget angolul írta ki („Updates”, „Open”): a fordítási katalógus
+  a magyarra is ráterítette az angol tartalékot, a Központ hu.json-ja pedig csak néhány sort tartalmaz (ott a
+  magyar szöveg maga a kulcs). Javítva (2026-10-20, `sloth_common/i18n.py`): magyarul nincs angol tartalék
 - [ ] Bootloop titkosított lemezzel: VM-ben nem jött elő; figyelni (előtte frissítés / NVIDIA-váltás volt-e)
 - [x] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”). A Kirigami saját szövege, a telepítő
   nyelvváltását nem követi; kiürítve (a címke ott van), a titkosítás jelszómezőinél is (2026-10-20)
 - [x] Üdvözlő internet nélkül: a „Kihagyom” nem lépett tovább. Nem hiba: az első (böngésző) lépésben választás nélkül
   szándékosan jön a „Nem választottál böngészőt” kérdés; a VM-ben a gyors, ismételt kattintás nyitotta-zárta
 - [x] „Napló mentése”: angol rendszeren is magyar volt a fájlnév. Most a felület nyelvén, csak ASCII betűkkel (2026-10-20)
+- [x] **Battle.net: megnyílik, ~30 mp múlva bezáródik (kód 3)** (2026-10-20, a program saját naplói alapján):
+  32 bites program, és a rendszeren nem volt egyetlen 32 bites könyvtár sem (a Fedora wine-core-ja csak 64 bites).
+  A futtatókörnyezet a rendszer grafikus driverét adja át a programnak; 32 bitesnél nem volt mit, így nem kapott
+  Vulkant (`VK_KHR_surface` hiányzik, DXVK: „Required instance extensions not supported”), a beépített
+  böngészőmotor GPU-folyamata kilépett, a program összeomlott. A futtatókörnyezet 32 bites segédje sem indult
+  („i386-linux-gnu-capsule-capture-libs … No such file”: a fájl megvan, a `/lib/ld-linux.so.2` hiányzott).
+  Javítva: `mesa-dri-drivers.i686`, `mesa-vulkan-drivers.i686` (gaming.yml; ~400 MB), NVIDIA-n a driver 32 bites
+  része (`nvidia-32bit.sh`, a CI naplójában ellenőrizni). Valószínűleg a többi 32 bites telepítőt is érintette.
+  Mellette: a .exe kezelő hibakóddal, 45 mp-en belül kilépő programot nem jegyez meg „bevált” beállításnak
+- [ ] **EA app:** INST-14-1627 = az MSI a végén nem tudja elindítani az `EABackgroundService` szolgáltatást
+  (`StartServices returned 1627`). A 32 bites driverek után újra kipróbálni; ha marad: kerülőút kell (pl. másik
+  Proton, ahogy a Heroic-felhasználók jelzik)
+- [x] **Epic:** az új telepítő (EpicInstaller-20.3.3.exe, a weboldalról) saját aláírás-ellenőrzése Wine alatt elbukik
+  („Certificate CN does not match 'Epic Games Inc.'”). Döntés (2026-10-20): Epic és GOG helyett a Heroic. Az Üdvözlőből
+  kikerült a két Windowsos indító, a Heroic leírása megmondja, miért ezt ajánljuk; aki mégis a Windowsos telepítőt
+  nyitja meg, annak az .exe kezelő is a Heroicot ajánlja (lent)
+- [x] **Teams (MSTeamsSetup.exe):** .NET-es telepítő, Wine alatt (Mono) összeomlik; az új Teams Wine alatt amúgy sem
+  fut. Javítva (2026-10-20): az .exe kezelő felismeri a Linuxos változattal rendelkező népszerű telepítőket
+  (`sloth_common/apps/native.py`, ~40 program, helyi lista, internet nélkül is), és azt ajánlja a Discoverből; a
+  Windowsos telepítés mellette választható marad. Három fajta szöveg: „jobban illeszkedik” (pl. Discord, Chrome),
+  „a Windowsos itt nem működik megbízhatóan” (Teams, Steam), és Epic/GOG -> Heroic, indoklással
 - [ ] EA app, Ubisoft Connect: kell-e nekik `LAUNCHER_STUBS` (a teszt dönti el)
 - [x] `tools/tests/test_apps.py`: 4 teszt elbukott: a /tmp itt tmpfs, oda a könyvtár helyesen nem enged Windows-programot;
   a teszt átmeneti mappája most lemezen van (`~/.cache`), mind a 30 átmegy (2026-10-20)
 
 **Később**
-- [ ] Gyerekfiók és szülői felügyelet
+- [ ] Gyerekfiók és szülői felügyelet. Felmérés (2026-10-20), a mai fájlmentéshez mérve kb. 3–4-szer annyi munka:
+  1. Gyerekfiók (nem rendszergazda) létrehozása a Sloth Központból: kicsi
+  2. Appok korlátozása: malcontent 0.14 (a Fedora 44-ben megvan) – korhatár szerinti szűrés, telepítés tiltása,
+     egyes appok tiltása; a Flatpak (és így az Üdvözlő) betartja, a Discovert ellenőrizni. Saját felület a Sloth
+     Központban (a malcontent-control GNOME-os): közepes
+  3. Képernyőidő és lefekvési idő: a malcontent csak nyilvántart, a kikényszerítés a GNOME-ban van, KDE-n nincs;
+     saját kell (figyelmeztető értesítések, a végén zárolás / kijelentkeztetés, belépés csak a megengedett
+     időben): nagyobb
+  4. Webszűrés: családbarát DNS csak a gyerek fiókjára (vagy a malcontent NSS-modulja), a böngészők saját DNS-ét
+     (DoH) házirenddel kikapcsolni: közepes, sok tesztelés
+  Javasolt sorrend: 1+2+3 egy körben, a webszűrés külön
+  A Sloth Központban addig „Hamarosan” menüpont jelzi (Szülői felügyelet, 2026-10-20)
 - [ ] Saját Flatpak-tároló a GitHubos appoknak (pl. ArtCraft), hogy a Discover frissítse őket
 - [ ] A Proton duplikált másolata helyett hivatkozás (kb. 1,4 GB a lemezen)
 
@@ -260,8 +297,9 @@ Talált hibák (egyesével javítjuk):
   (`SLOTH_SQUASH=1`) és ha kell, máshogy csökkenteni
   - [ ] Később: gyári sablon-környezet a leggyakoribb összetevőkkel (pl. vcrun2022), ha a tesztek szerint kell
 - [x] Üdvözlő internet nélkül: az app-oldalakon a „Kihagyom” nem lép tovább (VM, 2026-10-19); nem hiba (lásd fent)
-- [ ] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
-  megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet)
+- [x] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
+  megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet).
+  Az ok az AirPlay-felderítés volt (lásd fent, „Nyitott hibák”, 2026-10-20)
 - [x] **Dolphin, Eszközök: a névtelen, 128 TB-os meghajtó** (2026-10-19 este, a felhasználó képei és a mentett
   napló alapján): nem loop eszköz (a gépen nincs), hanem maga a rendszer gyökere, a /-re csatolt composefs overlay.
   A KDE Solid az overlay csatolások közül szándékosan mutatja a /-re csatoltat (élő rendszerekhez), és csak az
@@ -329,6 +367,25 @@ Talált hibák (egyesével javítjuk):
    - [ ] **Saját fájlok mentése és visszaállítása:** automatikus Btrfs-pillanatképek a home-ról (óránként / naponta,
      a régiek maguktól törlődnek), a Dolphinban jobb klikk → „Korábbi verziók” (mint a Windowsban), a Sloth
      Központban kapcsoló a külső lemezre mentéshez és a visszaállításhoz
+     - [x] **Pillanatképek** (2026-10-20): a telepítő nem hoz létre subvolume-okat, ezért induláskor, bejelentkezés
+       előtt a `/var/home` külön subvolume lesz (`sloth-home-layout.service`, `home-snapshots layout`: reflinkes
+       másolat, `mv --exchange` csere, a régi csak utána törlődik; félbeszakadás után a következő induláskor
+       folytatja). A nagy, újra letölthető mappák (`~/.cache`, a Flatpak-appok `cache` mappái, a Steam `steamapps`,
+       `~/Games`) is külön subvolume-ok, így kimaradnak. Óránként pillanatkép (`sloth-home-snapshot.timer`) a
+       `/var/home/.snapshots/<UTC idő>` alá; megtartás: az utolsó nap minden órája, utána naponta (legfeljebb 14
+       napig), majd hetente, 2 hét / 1 hónap (alap) / 3 hónap. Ha a szabad hely 10% (de legalább 3 GB) alá
+       csökken, a legrégebbiek törlődnek (a legújabb marad), és nem készül új
+     - [x] **Korábbi verziók** (Dolphin, jobb klikk egy fájlon, mappán vagy a mappa üres részén; `sloth-versions`):
+       fájlnál csak a különböző változatok, „Ugyanaz, mint a mostani” jelöléssel; Megnyitás (csak olvasható),
+       Visszaállítás (a mostani a Kukába), Mentés másolatként (dátummal a nevében), mappánál „Törölt elemek
+       visszahozása” (a meglévőkhöz nem nyúl) és az azóta törölt elemek száma
+     - [x] **Sloth Központ → Fájlmentés:** be/ki, megtartás, „Mentés most”, a mentett állapotok listája (Megnyitás
+       a Dolphinban), az összes törlése. A jelszót kérő műveletek a sloth-helperen át
+     - Próba: `tools/tests/test_snapshots.py` (valódi Btrfs loop eszközön, a Sloth OS image-ében; 9 teszt), a két
+       felület offscreen képernyőképpel. **Valódi gépen még nem:** az első induláskori átalakítás egy meglévő,
+       nagy saját mappával (mennyi ideig tart), SELinux-címkék utána, a Dolphin menüpontja, a Kuka
+     - [x] **Külső lemezre mentés** (2026-10-20): Pika Backup (Flathub), a Fájlmentés oldalon kártyával: mit csinál,
+       három lépés a beállításhoz, Telepítés (a Discoverben; a kártya magától észreveszi, ha kész) / Megnyitás
    - [ ] **A gép alaphelyzetbe állítása** („Reset this PC”): a fájlok megtartásával vagy mindent törölve; a
      rendszerbeállítások gyári állapotra, frissítés a legújabb verzióra. Sloth Központból, és ha a rendszer nem
      indul, a boot menüből is

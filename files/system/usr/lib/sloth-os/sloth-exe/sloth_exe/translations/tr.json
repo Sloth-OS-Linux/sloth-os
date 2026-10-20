@@ -11,6 +11,8 @@
   "choose.already_installed": "{name} zaten yüklü.",
   "choose.linux_package": "Bu paket başka bir Linux sistemi için hazırlanmış, ama burada da kurulabilir ve Başlat menüsünde bulacaksın. Discover’da da varsa, genellikle o daha iyi bir seçimdir.",
   "choose.flathub_available": "{name} Discover’da da var. O sürüm sisteme daha iyi uyar ve kendini günceller, bu yüzden onu öneriyoruz.",
+  "choose.native_broken": "Bu programın Windows sürümü burada güvenilir şekilde çalışmıyor. Linux sürümü ({name}) çalışıyor, bu yüzden onu öneriyoruz.",
+  "choose.native_heroic": "Epic Games ve GOG oyunları için Heroic başlatıcısını öneriyoruz: Linux için yapıldı, sorunsuz kurulur ve oyunları Steam gibi çalıştırır. Mevcut hesabınızla giriş yaparsınız; satın aldığınız oyunlar orada da vardır.",
 
   "button.cancel": "İptal",
   "button.run_only": "Yalnızca çalıştır",
