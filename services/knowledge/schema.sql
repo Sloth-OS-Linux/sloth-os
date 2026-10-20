@@ -18,3 +18,10 @@ CREATE TABLE IF NOT EXISTS rate (
     count INTEGER NOT NULL,
     PRIMARY KEY (day, ip)
 );
+
+-- Visszajelzés: a csatolt napló (az issue-ban csak a link; a Worker 30 nap után törli)
+CREATE TABLE IF NOT EXISTS feedback_logs (
+    id      TEXT PRIMARY KEY,   -- véletlen UUID
+    created INTEGER NOT NULL,
+    log     TEXT NOT NULL
+);

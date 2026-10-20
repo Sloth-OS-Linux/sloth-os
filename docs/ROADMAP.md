@@ -197,12 +197,22 @@ jó volt, azt valódi gépen elég egyszer megnézni:
   tényleg foglal-e helyet (a `windows-runtime-seed` már `--reflink=auto`-val másol); ha igen, a Proton mappája
   helyett hivatkozás a gyári példányra (a Proton a saját mappájába nem ír), a futtatókörnyezet (Steam Linux Runtime)
   másolat marad, mert az umu a helyén frissíti. Kicsi munka
-- [ ] **Visszajelzés a Sloth Központból** (2026-10-20, a felhasználó kérésére; kb. egy munkanap): új „Visszajelzés”
-  oldal (hiba / ötlet / egyéb, leírás, „Gépinformáció és napló csatolása”, Küldés, „a bejelentés száma: #42”). A
-  közös tudás Workere új `/v1/feedback` végponttal GitHub issue-t nyit `feedback` címkével (a token csak a
-  Workerben, a felhasználónak nem kell GitHub-fiók; gépenkénti napi korlát a D1-ben). A napló személyes adatot
-  tartalmazhat, ezért nem az issue-ba kerül, hanem a Worker privát tárhelyére, az issue-ban csak link. Eldönteni:
-  melyik repóba (javaslat: nyilvános `Sloth-OS-Linux/feedback`). Az új issue-kat itt közösen nézzük át (`gh issue list`)
+- [ ] **Visszajelzés a Sloth Központból** (2026-10-20, a felhasználó kérésére). **Félig kész (2026-10-20 este,
+  build nélküli commit), hol tartunk:**
+  - [x] Worker: `POST /v1/feedback` (GitHub issue `feedback` + fajta címkével, a szöveg kódblokkban, napi 5 / cím)
+    és `GET /v1/feedback/log/<id>` (a napló csak a `LOG_TOKEN`-nel, 30 napig, `feedback_logs` tábla). Hamis D1-gyel
+    és GitHubbal kipróbálva (issue, védett napló, hibás kérések, korlát); **élesítve még nincs**
+  - [x] Sloth Központ: „Visszajelzés” oldal a Rendszer egészség alatt (`feedback.py`, `FeedbackPage.qml`; a napló a
+    `health.write_log`-ból, a vége, max. 500 KB), magyar és angol szöveg. **Még nem futott** (nincs PySide6 a
+    fejlesztői gépen): a következő image-en / VM-ben megnézni
+  - [ ] Eldönteni a repót (javaslat: nyilvános `Sloth-OS-Linux/feedback`), létrehozni a `feedback`, `bug`, `idea`,
+    `other` címkéket
+  - [ ] Élesítés (jóváhagyással): `wrangler d1 execute … --remote --file schema.sql` (új tábla), `wrangler secret put
+    GITHUB_TOKEN` (csak Issues írás a feedback repóra), `LOG_TOKEN`, `FEEDBACK_REPO` a `wrangler.toml` `[vars]`
+    részébe, `wrangler deploy`
+  - [ ] A többi 48 nyelv fordítása (addig angolul látszik)
+  - [ ] A weboldal GYIK-jében a „Where can I report a problem?” válasz: a Sloth Központ → Visszajelzés
+  - [ ] Itt közösen: `gh issue list -R <repó> -l feedback`
 - [ ] **Ellenőrzött frissítés jelzés** (2026-10-20, a felhasználó kérésére; kicsi): a Sloth Központ Frissítések
   oldalán zöld pipa, „Ellenőrzött frissítés ✓ – a rendszer csak a Sloth OS által aláírt frissítéseket fogadja el”
   (`ostree-image-signed` a futó változat eredeténél); ha nincs bekapcsolva, figyelmeztetés

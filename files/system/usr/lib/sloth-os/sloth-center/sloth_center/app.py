@@ -47,6 +47,7 @@ def main():
     from .environment import EnvironmentController
     from .gamepads import GamepadsController
     from .games import GamesController
+    from .feedback import FeedbackController
     from .health import HealthController
     from .reset import ResetController
     from .services import ServicesController
@@ -61,6 +62,7 @@ def main():
     services = ServicesController()
     drivers = DriversController()
     health = HealthController()
+    feedback = FeedbackController()
     disks = DisksController()
     backup = BackupController()
     advanced = AdvancedController()
@@ -77,6 +79,7 @@ def main():
     engine.rootContext().setContextProperty("services", services)
     engine.rootContext().setContextProperty("drivers", drivers)
     engine.rootContext().setContextProperty("health", health)
+    engine.rootContext().setContextProperty("feedback", feedback)
     engine.rootContext().setContextProperty("disks", disks)
     engine.rootContext().setContextProperty("backup", backup)
     engine.rootContext().setContextProperty("advanced", advanced)

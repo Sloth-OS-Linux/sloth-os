@@ -64,6 +64,14 @@ Keep the allowlists in `src/worker.js` in sync with `sloth_exe/heal.py`, `sloth_
   `413` too large, `429` rate limited.
 - `GET /v1/export` — requires `Authorization: Bearer <EXPORT_TOKEN>`. Returns
   `{"version": 1, "programs": {"<program>": {"<gpu>": {"line", "profile", "fixes", "machines"}}}}`.
+- `POST /v1/feedback` — feedback from Sloth Center (`sloth_center/feedback.py`):
+  `{"kind": "bug"|"idea"|"other", "text": "10–5000 chars", "version", "lang", "log"?}`. Opens a GitHub issue in
+  `FEEDBACK_REPO` with the labels `feedback` and the kind; the user's text goes into a code block (no mentions or
+  links). The optional log (max. 512 KB) is **not** put in the issue: it is stored in `feedback_logs`, linked from
+  the issue, readable only with `Authorization: Bearer <LOG_TOKEN>`, and deleted after 30 days. Max. 5 per
+  address per day. `200 {"ok": true, "number": 42}`, `400` invalid, `429` rate limited, `502` GitHub error,
+  `503` not configured.
+- `GET /v1/feedback/log/<id>` — requires `Authorization: Bearer <LOG_TOKEN>`; returns the log as plain text.
 
 ## Deployment
 
@@ -75,8 +83,12 @@ wrangler d1 create sloth-os-knowledge        # put the printed database_id into 
 wrangler d1 execute sloth-os-knowledge --remote --file schema.sql
 wrangler secret put SALT                     # long random string
 wrangler secret put EXPORT_TOKEN             # long random string, also set in the knowledge repo
+wrangler secret put GITHUB_TOKEN             # fine-grained token: Issues read/write on the feedback repo only
+wrangler secret put LOG_TOKEN                # long random string, for reading attached logs
 wrangler deploy
 ```
+
+`FEEDBACK_REPO` (e.g. `Sloth-OS-Linux/feedback`) is a plain variable: `[vars]` in `wrangler.toml`.
 
 Then set the Worker URL in `sloth_exe/community.py` (`REPORT_URL`), and in the
 `bathorizsolt/sloth-os-knowledge` repository add the secrets `EXPORT_URL`

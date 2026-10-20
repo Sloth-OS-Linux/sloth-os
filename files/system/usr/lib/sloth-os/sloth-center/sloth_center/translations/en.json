@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Removing manually added system packages…",
   "A kernelparaméterek visszaállítása…": "Restoring kernel parameters…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Resetting this PC… This may take a few minutes, don't turn off the computer.",
-  "Kész. Újraindítás…": "Done. Restarting…"
+  "Kész. Újraindítás…": "Done. Restarting…",
+  "Visszajelzés": "Feedback",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Thank you! We got it. Your report number is #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "A lot of feedback has already been sent from this computer today. You can send more tomorrow.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Couldn't send it: there is no internet connection. Please try again later.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Couldn't send it. Please try again later.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Something not working, or have an idea? Describe it in your own words and we'll send it to the Sloth OS developers.",
+  "Miről szól?": "What is it about?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problem: something doesn't work the way it should",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idea: something missing or that could be better",
+  "Mi történt, és mit csináltál előtte?": "What happened, and what were you doing before?",
+  "Írd le pár mondatban": "Describe it in a few sentences",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "For example: I started Battle.net, but it closed after a minute.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Attach computer information and log (helps find the problem)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.",
+  "Küldés…": "Sending…",
+  "Küldés": "Send"
 }

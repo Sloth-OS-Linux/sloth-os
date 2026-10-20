@@ -25,6 +25,7 @@ Kirigami.ApplicationWindow {
         { id: "parental", name: L.t("Szülői felügyelet"), icon: "user-group-properties", ready: false,
           description: L.t("Gyerekfiók, korhatár szerinti appok és képernyőidő. Ez a rész egy következő frissítéssel érkezik.") },
         { id: "health", name: L.t("Rendszer egészség"), icon: "dialog-information", page: "HealthPage.qml", ready: true },
+        { id: "feedback", name: L.t("Visszajelzés"), icon: "mail-message-new", page: "FeedbackPage.qml", ready: true },
         { id: "backup", name: L.t("Fájlmentés"), icon: "backup", page: "BackupPage.qml", ready: true },
         { id: "disks", name: L.t("Lemezek"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
         { id: "containers", name: L.t("Fejlesztői környezetek"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },

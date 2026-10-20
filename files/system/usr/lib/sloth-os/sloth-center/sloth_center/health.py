@@ -167,6 +167,24 @@ def check_temperature():
             else tr("Nincs hőmérséklet-adat.")}
 
 
+def write_log(path, lines=5000):
+    """A napló egy fájlba: előbb a rendszer összefoglalója (verzió, image, lemezek), utána a journal.
+    A „Napló mentése” és a visszajelzés (feedback.py) is ezt használja."""
+    with open(path, "w", encoding="utf-8") as f:
+        for title, cmd in SUMMARY:
+            f.write(f"===== {title}: {' '.join(cmd)}\n")
+            f.flush()
+            try:
+                subprocess.run(cmd, stdout=f, stderr=subprocess.STDOUT, timeout=20)
+            except (OSError, subprocess.SubprocessError) as e:
+                f.write(f"({e})\n")
+            f.write("\n")
+        f.write("===== Napló: journalctl -b\n")
+        f.flush()
+        subprocess.run(["journalctl", "--no-pager", "-b", "-n", str(lines)], stdout=f,
+                       stderr=subprocess.DEVNULL, timeout=60)
+
+
 def run_all():
     results = [check_disk(), check_failed_units(), check_crashes(), *check_kernel(), check_temperature()]
     order = {ERROR: 0, WARN: 1, OK: 2}
@@ -234,20 +252,7 @@ class HealthController(QObject):
         """A teljes napló mentése egy fájlba (segítségkéréshez)."""
         path = url[7:] if url.startswith("file://") else url
         try:
-            with open(path, "w", encoding="utf-8") as f:
-                # Előbb a rendszer összefoglalója (verzió, image, lemezek), utána a napló
-                for title, cmd in SUMMARY:
-                    f.write(f"===== {title}: {' '.join(cmd)}\n")
-                    f.flush()
-                    try:
-                        subprocess.run(cmd, stdout=f, stderr=subprocess.STDOUT, timeout=20)
-                    except (OSError, subprocess.SubprocessError) as e:
-                        f.write(f"({e})\n")
-                    f.write("\n")
-                f.write("===== Napló: journalctl -b\n")
-                f.flush()
-                subprocess.run(["journalctl", "--no-pager", "-b", "-n", "5000"], stdout=f,
-                               stderr=subprocess.DEVNULL, timeout=60)
+            write_log(path)
             self._saved = path
         except (OSError, subprocess.SubprocessError) as e:
             log.warning("napló mentése: %s", e)
