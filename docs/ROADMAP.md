@@ -184,7 +184,7 @@ jó volt, azt valódi gépen elég egyszer megnézni:
   a teszt átmeneti mappája most lemezen van (`~/.cache`), mind a 30 átmegy (2026-10-20)
 
 **Később**
-- [ ] Gyerekfiók és szülői felügyelet. Felmérés (2026-10-20), a mai fájlmentéshez mérve kb. 3–4-szer annyi munka:
+- [ ] (Az 1.0 után; döntés: 2026-10-20) Gyerekfiók és szülői felügyelet. Felmérés (2026-10-20), a mai fájlmentéshez mérve kb. 3–4-szer annyi munka:
   1. Gyerekfiók (nem rendszergazda) létrehozása a Sloth Központból: kicsi
   2. Appok korlátozása: malcontent 0.14 (a Fedora 44-ben megvan) – korhatár szerinti szűrés, telepítés tiltása,
      egyes appok tiltása; a Flatpak (és így az Üdvözlő) betartja, a Discovert ellenőrizni. Saját felület a Sloth
@@ -223,7 +223,7 @@ jó volt, azt valódi gépen elég egyszer megnézni:
 - [ ] Céges fiók: Entra ID; a jelszótároló (KWallet) nyitása PIN-nel / ujjlenyomattal (részletek lent, Bejelentkezés)
 - [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
 - [x] Alaphelyzetbe állítás a boot menüből (lent, 8. pont)
-- [ ] Windows-programok a Discoverben (részletek lent)
+- [ ] (Az 1.0 után; döntés: 2026-10-20) Windows-programok a Discoverben (részletek lent)
 
 ### Fontos: a 2026-10-16-i teszt még a régi image-dzsel ment
 A tesztelt ISO (`out/sloth-os.iso`) 2026-10-16 08:17-kor készült, amikor a registry `latest` címkéje még a
