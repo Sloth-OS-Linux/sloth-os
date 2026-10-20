@@ -8,6 +8,8 @@ After=graphical.target
 Type=oneshot
 ExecStart=-/usr/libexec/sloth-os/boot-env ensure-config
 ExecStart=/usr/libexec/sloth-os/boot-env set sloth_boot_pending=0
+# a boot menü „Alaphelyzetbe állítás” pontjának felirata a rendszer nyelvén
+ExecStart=-/bin/sh -c '/usr/libexec/sloth-os/boot-env set-title "$$(/usr/libexec/sloth-os/factory-reset boot-title)"'
 
 [Install]
 WantedBy=graphical.target

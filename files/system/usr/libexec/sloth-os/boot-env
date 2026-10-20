@@ -2,8 +2,11 @@
 # A boot menü állapota az EFI partíción (EFI/fedora/sloth-boot.env), lásd /usr/lib/sloth-os/grub-custom.cfg.
 #
 #   boot-env set KULCS=ÉRTÉK...   beállítás (ha a fájl nincs meg, létrehozza)
-#   boot-env ensure-config        a /boot/grub2/custom.cfg pótlása, ha hiányzik (nem a saját telepítővel
-#                                 telepített gépeken)
+#   boot-env ensure-config        a /boot/grub2/custom.cfg pótlása vagy frissítése, ha hiányzik vagy eltér
+#                                 (nem a saját telepítővel telepített gépeken, és ha a sablon frissült)
+#   boot-env set-title SZÖVEG     a boot menü „Alaphelyzetbe állítás” pontjának felirata (sloth_reset_title)
+#   boot-env take-reset           ha a boot menüben az alaphelyzetet választották (sloth_reset=keep): kiírja,
+#                                 hogy "keep", és törli a jelzést (sloth-boot-reset.service)
 #
 # Az EFI partíciót a rendszer nem csatolja; ha kell, ideiglenesen csatoljuk, és utána leválasztjuk.
 set -euo pipefail
@@ -57,7 +60,7 @@ set_values() {
 }
 
 ensure_config() {
-  [[ -f /boot/grub2/custom.cfg ]] && return 0
+  cmp -s "$TEMPLATE" /boot/grub2/custom.cfg && return 0
   [[ -d /boot/grub2 ]] || return 0
   # a /boot csak olvasható; saját névtérben átmenetileg írhatóvá tesszük (mint az rpm-ostree)
   unshare -m sh -c "mount -o remount,rw /boot && install -m 0644 '$TEMPLATE' /boot/grub2/custom.cfg"
@@ -74,8 +77,19 @@ case "${1:-}" in
   ensure-config)
     ensure_config
     ;;
+  set-title)
+    title=${2:-}
+    # a GRUB menüpont felirata: egy sor, idézőjel, dollár és visszaper nélkül
+    [[ -n $title && ${#title} -le 80 && $title != *[\"\$\\\`]* && $title != *$'\n'* ]] || { echo "Rossz felirat" >&2; exit 2; }
+    with_esp sh -c 'env="$ESP/EFI/fedora/sloth-boot.env"; [ -f "$env" ] || exit 0
+      grub2-editenv "$env" list | grep -qxF "sloth_reset_title=$1" || grub2-editenv "$env" set "sloth_reset_title=$1"' _ "$title"
+    ;;
+  take-reset)
+    with_esp sh -c 'env="$ESP/EFI/fedora/sloth-boot.env"; [ -f "$env" ] || exit 0
+      if grub2-editenv "$env" list | grep -qx "sloth_reset=keep"; then grub2-editenv "$env" unset sloth_reset; echo keep; fi'
+    ;;
   *)
-    echo "Használat: boot-env set KULCS=ÉRTÉK... | ensure-config" >&2
+    echo "Használat: boot-env set KULCS=ÉRTÉK... | ensure-config | set-title SZÖVEG | take-reset" >&2
     exit 2
     ;;
 esac

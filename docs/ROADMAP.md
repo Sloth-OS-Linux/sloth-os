@@ -222,7 +222,7 @@ jó volt, azt valódi gépen elég egyszer megnézni:
   (`ostree-image-signed` a futó változat eredeténél); ha nincs bekapcsolva, figyelmeztetés
 - [ ] Céges fiók: Entra ID; a jelszótároló (KWallet) nyitása PIN-nel / ujjlenyomattal (részletek lent, Bejelentkezés)
 - [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
-- [ ] Alaphelyzetbe állítás a boot menüből, ha a rendszer nem indul
+- [x] Alaphelyzetbe állítás a boot menüből (lent, 8. pont)
 - [ ] Windows-programok a Discoverben (részletek lent)
 
 ### Fontos: a 2026-10-16-i teszt még a régi image-dzsel ment
@@ -552,7 +552,13 @@ Talált hibák (egyesével javítjuk):
      - Próba: `tools/tests/test_factory_reset.py` (9 teszt), az `/etc` visszaállítása a valódi image 4747 fájlján, a
        teljes induláskori lépés mindkét módban konténerben (fiókokkal, a first-user-rel együtt), az előkészítés
        ál-rpm-ostree-vel, a felület offscreen képernyőképpel
-   - [ ] **Alaphelyzetbe állítás a boot menüből**, ha a rendszer nem indul (3. rész)
+   - [x] **Alaphelyzetbe állítás a boot menüből** (2026-10-20, a fájlok megmaradnak): GRUB-menüpont a rendszer nyelvén
+     (nem latin írásnál angolul; `sloth_reset_title`, a sloth-boot-ok írja), ami az EFI partícióra jelez
+     (`sloth_reset=keep`) és újraindít; a `sloth-boot-reset.service` a következő induláskor feljegyzi, a meglévő
+     `factory-reset boot` elvégzi (letöltés és csomagok nélkül, a gépen lévő verzióval). A „Mindent töröl” csak a
+     Sloth Központból (új fiók kell hozzá). A `custom.cfg` mostantól a meglévő gépeken is frissül, ha a sablon
+     eltér. GRUB-szintaxis (`grub-script-check`) és a feliratok kipróbálva; **VM-ben még nem**: a menü előhívása
+     (Esc), a pont kiválasztása, az alaphelyzet lefutása
    - [x] **Átköltözés Windowsról** (2026-10-19): az Üdvözlőben új lépés a megosztás után (csak ha van NTFS- vagy
      BitLockeres partíció; induláskor nem csatol, így nem kér jelszót), és a Sloth Központ Lemezek oldaláról is
      (`sloth-welcome --windows-import`). A Windows-partíciót csak olvasásra csatolja (udisksctl), és a végén (bezáráskor

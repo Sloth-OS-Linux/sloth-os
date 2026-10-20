@@ -32,6 +32,7 @@ modules:
         - sloth-home-snapshot.timer   # óránként egy pillanatkép, a régiek ritkítása
         # a gép alaphelyzetbe állítása, ha a Sloth Központban kérték (induláskor, bejelentkezés előtt)
         - sloth-factory-reset.service
+        - sloth-boot-reset.service    # ugyanez a boot menüből kérve (a fájlok megmaradnak)
     user:
       enabled:
         - sloth-github-bundle-update.timer   # a GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése

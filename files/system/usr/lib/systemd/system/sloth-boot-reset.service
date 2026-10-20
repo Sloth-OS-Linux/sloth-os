@@ -1,0 +1,16 @@
+[Unit]
+Description=Sloth OS: a boot menüből kért alaphelyzetbe állítás átvétele
+# A GRUB „Alaphelyzetbe állítás” pontja az EFI partícióra ír (sloth_reset=keep, lásd grub-custom.cfg); ez a
+# szolgáltatás feljegyzi a factory-reset-nek, ami közvetlenül utána, bejelentkezés előtt elvégzi.
+DefaultDependencies=no
+Requires=local-fs.target
+After=local-fs.target ostree-remount.service
+Before=sloth-factory-reset.service sysinit.target shutdown.target
+Conflicts=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=-/usr/libexec/sloth-os/factory-reset boot-request
+
+[Install]
+WantedBy=sysinit.target

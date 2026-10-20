@@ -10,6 +10,10 @@ még senki nem használja őket:
                      a "Mindent töröl" (all) módban az új fiók is ({"username", "fullname", "password_hash"}).
                      Soronként JSON-t ír ki: {"stage": …}, a végén {"ok": …, "error": …}.
   cancel             a feljegyzett alaphelyzet visszavonása (az előkészített verzió is törlődik)
+  boot-request       induláskor, a boot előtt (sloth-boot-reset.service): ha a boot menüben az „Alaphelyzetbe
+                     állítás” pontot választották, feljegyzi (keep mód; letöltés és csomagok nélkül, a gépen lévő
+                     verzióval), és a boot lépés elvégzi
+  boot-title         a boot menüpont felirata a rendszer nyelvén (a sloth-boot-ok írja az EFI partícióra)
   boot               következő induláskor, bejelentkezés előtt (sloth-factory-reset.service), a Plymouth-animáció
                      alatt: appok le, /etc a gyári állapotra; „keep” módban az asztal beállításai a „Régi
                      beállítások” mappába kerülnek, „all” módban minden fiók és fájl törlődik, és az új fiók jön
@@ -38,6 +42,7 @@ ACCOUNT = Path("/var/lib/sloth-os/factory-reset-account.json")   # csak root (je
 FIRST_USER = Path("/etc/sloth-os/first-user.json")
 HOME_ROOT = Path("/var/home")
 HOME_SNAPSHOTS = "/usr/libexec/sloth-os/home-snapshots"
+BOOT_ENV = "/usr/libexec/sloth-os/boot-env"
 KARGS_D = Path("/usr/lib/bootc/kargs.d")
 CENTER_TRANSLATIONS = Path("/usr/lib/sloth-os/sloth-center/sloth_center/translations")
 
@@ -428,6 +433,31 @@ def boot():
     return 0
 
 
+def boot_request():
+    """A boot menüből kért alaphelyzet (sloth_reset=keep az EFI partíción) feljegyzése a boot lépésnek."""
+    r = run([BOOT_ENV, "take-reset"], check=False)
+    if (r.stdout or "").strip() != "keep" or STATE.exists():
+        return 0
+    log.info("alaphelyzetbe állítás a boot menüből (keep)")
+    ACCOUNT.unlink(missing_ok=True)
+    write_private(STATE, {"mode": "keep", "backup_name": boot_text("Régi beállítások"),
+                          "requested": int(time.time()), "source": "boot-menu"}, 0o644)
+    return 0
+
+
+def boot_title():
+    """„Alaphelyzetbe állítás (Fájljaim megtartásával)” a rendszer nyelvén. A GRUB betűkészlete nem minden írást
+    ismer: ha a felirat nem latin betűs, angolul."""
+    title = f"{boot_text('Alaphelyzetbe állítás')} ({boot_text('Fájljaim megtartásával')})"
+    if any(ord(ch) > 0x24F for ch in title):
+        try:
+            en = json.loads((CENTER_TRANSLATIONS / "en.json").read_text(encoding="utf-8"))
+            title = f"{en['Alaphelyzetbe állítás']} ({en['Fájljaim megtartásával']})"
+        except (OSError, ValueError, KeyError):
+            title = "Reset this PC (keep my files)"
+    return title
+
+
 def main(argv):
     logging.basicConfig(level=logging.INFO, format="%(name)s: %(message)s", stream=sys.stderr)
     if os.geteuid() != 0:
@@ -445,6 +475,11 @@ def main(argv):
         return 0
     if argv == ["boot"]:
         return boot()
+    if argv == ["boot-request"]:
+        return boot_request()
+    if argv == ["boot-title"]:
+        print(boot_title())
+        return 0
     return 2
 
 
