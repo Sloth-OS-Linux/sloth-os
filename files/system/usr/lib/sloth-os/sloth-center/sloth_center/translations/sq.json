@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Po hiqen paketat e sistemit të shtuara me dorë…",
   "A kernelparaméterek visszaállítása…": "Po rikthehen parametrat e kernelit…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Po rivendoset kompjuteri… Mund të zgjasë disa minuta, mos e fikni kompjuterin.",
-  "Kész. Újraindítás…": "U krye. Po riniset…"
+  "Kész. Újraindítás…": "U krye. Po riniset…",
+  "Visszajelzés": "Komente",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Faleminderit! E morëm. Numri i raportit tuaj është #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Nga ky kompjuter janë dërguar sot tashmë shumë komente. Mund të dërgoni sërish nesër.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Dërgimi dështoi: nuk ka lidhje interneti. Provoni sërish më vonë.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Dërgimi dështoi. Provoni sërish më vonë.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Diçka nuk punon, apo keni një ide? Përshkruajeni me fjalët tuaja dhe do t’ua dërgojmë zhvilluesve të Sloth OS.",
+  "Miről szól?": "Për çfarë bëhet fjalë?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problem: diçka nuk punon siç duhet",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Ide: diçka që mungon ose mund të ishte më mirë",
+  "Mi történt, és mit csináltál előtte?": "Çfarë ndodhi dhe çfarë po bënit më parë?",
+  "Írd le pár mondatban": "Përshkruajeni me disa fjali",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Për shembull: hapa Battle.net, por u mbyll pas një minute.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Bashkëngjit informacionin e kompjuterit dhe regjistrin (ndihmon të gjendet problemi)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Regjistri nuk është publik: e shohin vetëm zhvilluesit dhe fshihet pas 30 ditësh. Mund të përmbajë emrin tuaj të përdoruesit dhe emrat e pajisjeve, por jo skedarët tuaj. Përshkrimi juaj do të jetë publik, pa emrin tuaj.",
+  "Küldés…": "Po dërgohet…",
+  "Küldés": "Dërgo"
 }

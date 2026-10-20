@@ -208,7 +208,7 @@ jó volt, azt valódi gépen elég egyszer megnézni:
   - [x] Élesítés: a `feedback_logs` tábla (`--command`-dal; a `--file` import az OAuth-tokennel jogosultsági hibát ad),
     `GITHUB_TOKEN` (fine-grained, csak a feedback repó Issues írása; **lejárat előtt cserélni**), `LOG_TOKEN` (a
     gépen: `/mnt/adatok/sloth-dev/feedback-log-token`), `FEEDBACK_REPO` a `wrangler.toml`-ban, `wrangler deploy`
-  - [ ] A többi 48 nyelv fordítása (addig angolul látszik)
+  - [x] Fordítás mind az 50 nyelvre (2026-10-20; a többi nyelv gépi minőségű, az anyanyelvi átnézésnél ezt is)
   - [x] A weboldal GYIK-je: a Sloth Központ → Visszajelzés
   - [ ] A Központ oldala a következő image-en / VM-ben (még nem futott)
   - Átnézés itt közösen: `gh issue list -R Sloth-OS-Linux/feedback -l feedback`; a napló:

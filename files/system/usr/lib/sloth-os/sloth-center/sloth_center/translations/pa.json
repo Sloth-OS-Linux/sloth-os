@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "ਹੱਥੀਂ ਜੋੜੇ ਸਿਸਟਮ ਪੈਕੇਜ ਹਟਾਏ ਜਾ ਰਹੇ ਹਨ…",
   "A kernelparaméterek visszaállítása…": "ਕਰਨਲ ਪੈਰਾਮੀਟਰ ਬਹਾਲ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "ਕੰਪਿਊਟਰ ਰੀਸੈੱਟ ਹੋ ਰਿਹਾ ਹੈ… ਕੁਝ ਮਿੰਟ ਲੱਗ ਸਕਦੇ ਹਨ, ਕੰਪਿਊਟਰ ਬੰਦ ਨਾ ਕਰੋ।",
-  "Kész. Újraindítás…": "ਹੋ ਗਿਆ। ਮੁੜ-ਚਾਲੂ ਹੋ ਰਿਹਾ ਹੈ…"
+  "Kész. Újraindítás…": "ਹੋ ਗਿਆ। ਮੁੜ-ਚਾਲੂ ਹੋ ਰਿਹਾ ਹੈ…",
+  "Visszajelzés": "ਫੀਡਬੈਕ",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "ਧੰਨਵਾਦ! ਸਾਨੂੰ ਮਿਲ ਗਿਆ ਹੈ। ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਦਾ ਨੰਬਰ #{number} ਹੈ।",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "ਅੱਜ ਇਸ ਕੰਪਿਊਟਰ ਤੋਂ ਪਹਿਲਾਂ ਹੀ ਬਹੁਤ ਫੀਡਬੈਕ ਭੇਜੀ ਜਾ ਚੁੱਕੀ ਹੈ। ਤੁਸੀਂ ਕੱਲ੍ਹ ਮੁੜ ਭੇਜ ਸਕਦੇ ਹੋ।",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "ਭੇਜਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ: ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਨਹੀਂ ਹੈ। ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "Nem sikerült elküldeni. Próbáld újra később.": "ਭੇਜਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਬਾਅਦ ਵਿੱਚ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "ਕੁਝ ਕੰਮ ਨਹੀਂ ਕਰ ਰਿਹਾ, ਜਾਂ ਕੋਈ ਵਿਚਾਰ ਹੈ? ਆਪਣੇ ਸ਼ਬਦਾਂ ਵਿੱਚ ਦੱਸੋ, ਅਸੀਂ ਇਸਨੂੰ Sloth OS ਦੇ ਡਿਵੈਲਪਰਾਂ ਨੂੰ ਭੇਜ ਦੇਵਾਂਗੇ।",
+  "Miről szól?": "ਇਹ ਕਿਸ ਬਾਰੇ ਹੈ?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "ਸਮੱਸਿਆ: ਕੁਝ ਉਸ ਤਰ੍ਹਾਂ ਕੰਮ ਨਹੀਂ ਕਰਦਾ ਜਿਵੇਂ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "ਵਿਚਾਰ: ਕੁਝ ਜੋ ਨਹੀਂ ਹੈ ਜਾਂ ਬਿਹਤਰ ਹੋ ਸਕਦਾ ਹੈ",
+  "Mi történt, és mit csináltál előtte?": "ਕੀ ਹੋਇਆ, ਅਤੇ ਉਸ ਤੋਂ ਪਹਿਲਾਂ ਤੁਸੀਂ ਕੀ ਕਰ ਰਹੇ ਸੀ?",
+  "Írd le pár mondatban": "ਕੁਝ ਵਾਕਾਂ ਵਿੱਚ ਦੱਸੋ",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "ਉਦਾਹਰਨ: ਮੈਂ Battle.net ਚਾਲੂ ਕੀਤਾ, ਪਰ ਇੱਕ ਮਿੰਟ ਬਾਅਦ ਇਹ ਬੰਦ ਹੋ ਗਿਆ।",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "ਕੰਪਿਊਟਰ ਦੀ ਜਾਣਕਾਰੀ ਅਤੇ ਲੌਗ ਨੱਥੀ ਕਰੋ (ਸਮੱਸਿਆ ਲੱਭਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "ਲੌਗ ਜਨਤਕ ਨਹੀਂ ਹੈ: ਸਿਰਫ਼ ਡਿਵੈਲਪਰ ਇਸਨੂੰ ਦੇਖਦੇ ਹਨ, ਅਤੇ 30 ਦਿਨਾਂ ਬਾਅਦ ਇਹ ਮਿਟਾ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਿੱਚ ਤੁਹਾਡਾ ਵਰਤੋਂਕਾਰ ਨਾਂ ਅਤੇ ਡਿਵਾਈਸਾਂ ਦੇ ਨਾਂ ਹੋ ਸਕਦੇ ਹਨ, ਪਰ ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ ਨਹੀਂ। ਤੁਹਾਡਾ ਵੇਰਵਾ ਤੁਹਾਡੇ ਨਾਂ ਤੋਂ ਬਿਨਾਂ ਜਨਤਕ ਹੋਵੇਗਾ।",
+  "Küldés…": "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ…",
+  "Küldés": "ਭੇਜੋ"
 }

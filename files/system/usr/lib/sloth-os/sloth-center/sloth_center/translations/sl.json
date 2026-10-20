@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Odstranjevanje ročno dodanih sistemskih paketov…",
   "A kernelparaméterek visszaállítása…": "Obnavljanje parametrov jedra…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Ponastavljanje računalnika… To lahko traja nekaj minut, ne izklapljajte računalnika.",
-  "Kész. Újraindítás…": "Končano. Ponovni zagon…"
+  "Kész. Újraindítás…": "Končano. Ponovni zagon…",
+  "Visszajelzés": "Povratne informacije",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Hvala! Prejeli smo. Številka vaše prijave je #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "S tega računalnika je bilo danes poslanih že veliko povratnih informacij. Jutri lahko spet pošljete.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Pošiljanje ni uspelo: ni internetne povezave. Poskusite znova pozneje.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Pošiljanje ni uspelo. Poskusite znova pozneje.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Nekaj ne deluje ali imate idejo? Opišite s svojimi besedami in posredovali jo bomo razvijalcem Sloth OS.",
+  "Miről szól?": "Za kaj gre?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Napaka: nekaj ne deluje, kot bi moralo",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Ideja: nekaj manjka ali bi lahko bilo boljše",
+  "Mi történt, és mit csináltál előtte?": "Kaj se je zgodilo in kaj ste počeli pred tem?",
+  "Írd le pár mondatban": "Opišite v nekaj stavkih",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Na primer: zagnal sem Battle.net, a se je po minuti zaprl.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Priloži podatke o računalniku in dnevnik (pomaga najti napako)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Dnevnik ni javen: vidijo ga samo razvijalci in se po 30 dneh izbriše. Lahko vsebuje vaše uporabniško ime in imena naprav, ne pa vaših datotek. Vaš opis bo javen, brez vašega imena.",
+  "Küldés…": "Pošiljanje …",
+  "Küldés": "Pošlji"
 }

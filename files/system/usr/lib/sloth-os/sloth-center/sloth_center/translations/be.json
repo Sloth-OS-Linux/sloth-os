@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Выдаленне ўручную дададзеных сістэмных пакетаў…",
   "A kernelparaméterek visszaállítása…": "Аднаўленне параметраў ядра…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Скід камп’ютара… Гэта можа заняць некалькі хвілін, не выключайце камп’ютар.",
-  "Kész. Újraindítás…": "Гатова. Перазапуск…"
+  "Kész. Újraindítás…": "Гатова. Перазапуск…",
+  "Visszajelzés": "Водгук",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Дзякуй! Мы атрымалі. Нумар вашага паведамлення: #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "З гэтага камп’ютара сёння ўжо адпраўлена шмат водгукаў. Заўтра можна будзе адправіць зноў.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Не ўдалося адправіць: няма злучэння з інтэрнэтам. Паспрабуйце пазней.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Не ўдалося адправіць. Паспрабуйце пазней.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Нешта не працуе ці ёсць ідэя? Апішыце сваімі словамі, і мы перададзім гэта распрацоўшчыкам Sloth OS.",
+  "Miről szól?": "Пра што гэта?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Памылка: нешта працуе не так, як трэба",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Ідэя: чагосьці не хапае ці можна зрабіць лепш",
+  "Mi történt, és mit csináltál előtte?": "Што здарылася і што вы рабілі перад гэтым?",
+  "Írd le pár mondatban": "Апішыце некалькімі сказамі",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Напрыклад: я запусціў Battle.net, але праз хвіліну ён закрыўся.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Далучыць звесткі пра камп’ютар і журнал (дапамагае знайсці памылку)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Журнал не публікуецца: яго бачаць толькі распрацоўшчыкі, і праз 30 дзён ён выдаляецца. У ім могуць быць ваша імя карыстальніка і назвы прылад, але не вашы файлы. Ваша апісанне будзе публічным, без вашага імя.",
+  "Küldés…": "Адпраўка…",
+  "Küldés": "Адправіць"
 }

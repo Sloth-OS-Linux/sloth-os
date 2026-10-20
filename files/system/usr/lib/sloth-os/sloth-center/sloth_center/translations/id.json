@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Menghapus paket sistem yang ditambahkan manual…",
   "A kernelparaméterek visszaállítása…": "Memulihkan parameter kernel…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Menyetel ulang PC… Ini bisa memakan beberapa menit, jangan matikan komputer.",
-  "Kész. Újraindítás…": "Selesai. Memulai ulang…"
+  "Kész. Újraindítás…": "Selesai. Memulai ulang…",
+  "Visszajelzés": "Masukan",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Terima kasih! Sudah kami terima. Nomor laporan Anda adalah #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Hari ini sudah banyak masukan yang dikirim dari komputer ini. Anda bisa mengirim lagi besok.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Gagal mengirim: tidak ada koneksi internet. Coba lagi nanti.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Gagal mengirim. Coba lagi nanti.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Ada yang tidak berfungsi, atau punya ide? Jelaskan dengan kata-kata Anda sendiri, dan kami akan meneruskannya ke pengembang Sloth OS.",
+  "Miről szól?": "Tentang apa?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Masalah: ada yang tidak berfungsi sebagaimana mestinya",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Ide: sesuatu yang kurang atau bisa lebih baik",
+  "Mi történt, és mit csináltál előtte?": "Apa yang terjadi, dan apa yang Anda lakukan sebelumnya?",
+  "Írd le pár mondatban": "Jelaskan dalam beberapa kalimat",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Contoh: saya membuka Battle.net, tetapi tertutup setelah satu menit.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Lampirkan informasi komputer dan log (membantu menemukan masalah)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Log tidak bersifat publik: hanya pengembang yang dapat melihatnya, dan log dihapus setelah 30 hari. Log dapat berisi nama pengguna dan nama perangkat Anda, tetapi tidak berisi berkas Anda. Deskripsi Anda akan bersifat publik, tanpa nama Anda.",
+  "Küldés…": "Mengirim…",
+  "Küldés": "Kirim"
 }

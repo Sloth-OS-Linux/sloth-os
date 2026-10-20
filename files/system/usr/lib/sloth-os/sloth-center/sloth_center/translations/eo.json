@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Forigado de mane aldonitaj sistemaj pakoj…",
   "A kernelparaméterek visszaállítása…": "Restarigo de kernaj parametroj…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Restarigado de la komputilo… Tio povas daŭri kelkajn minutojn, ne malŝaltu la komputilon.",
-  "Kész. Újraindítás…": "Farite. Restartigado…"
+  "Kész. Újraindítás…": "Farite. Restartigado…",
+  "Visszajelzés": "Prikomentoj",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Dankon! Ni ricevis ĝin. La numero de via raporto estas #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Hodiaŭ jam multaj prikomentoj estis senditaj de ĉi tiu komputilo. Vi povos sendi denove morgaŭ.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Ne eblis sendi: mankas interreta konekto. Reprovu poste.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Ne eblis sendi. Reprovu poste.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Ĉu io ne funkcias, aŭ ĉu vi havas ideon? Priskribu ĝin per viaj propraj vortoj, kaj ni sendos ĝin al la programistoj de Sloth OS.",
+  "Miről szól?": "Pri kio temas?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problemo: io ne funkcias kiel ĝi devus",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Ideo: io, kio mankas aŭ povus esti pli bona",
+  "Mi történt, és mit csináltál előtte?": "Kio okazis, kaj kion vi faris antaŭe?",
+  "Írd le pár mondatban": "Priskribu ĝin per kelkaj frazoj",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Ekzemple: mi lanĉis Battle.net, sed ĝi fermiĝis post unu minuto.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Kunsendi komputilajn informojn kaj la protokolon (helpas trovi la problemon)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "La protokolo ne estas publika: nur la programistoj vidas ĝin, kaj ĝi estas forigita post 30 tagoj. Ĝi povas enhavi vian uzantnomon kaj la nomojn de viaj aparatoj, sed ne viajn dosierojn. Via priskribo estos publika, sen via nomo.",
+  "Küldés…": "Sendante…",
+  "Küldés": "Sendi"
 }

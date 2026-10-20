@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Tukksa n yikemmusen n unagraw yettwarnan s ufus…",
   "A kernelparaméterek visszaállítása…": "Tiririt n yiɣewwaren n kernel…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Allus n uwennez n uselkim… Yezmer ad yeṭṭef kra n tesdatin, ur sexsay ara aselkim.",
-  "Kész. Újraindítás…": "Yemmed. Allus n usekker…"
+  "Kész. Újraindítás…": "Yemmed. Allus n usekker…",
+  "Visszajelzés": "Tamawin",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Tanemmirt! Nermes-itt. Uṭṭun n uneqqis-ik d #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Ass-a ttwaznent yakan aṭas n tmawin seg uselkim-a. Tzemreḍ ad tazneḍ tikkelt-nniḍen azekka.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Ur yeddi ara usekker: ulac tuqqna ɣer Internet. Ɛreḍ tikkelt-nniḍen ticki.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Ur yeddi ara usekker. Ɛreḍ tikkelt-nniḍen ticki.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Kra ur iteddu ara, neɣ tesɛiḍ tikti? Glem-it s wawalen-ik, ad t-nazen i yineflayen n Sloth OS.",
+  "Miről szól?": "Ɣef wacu?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Tuccḍa: kra ur iteddu ara akken ilaq",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Tikti: kra ixuṣṣen neɣ yezmer ad yili yif",
+  "Mi történt, és mit csináltál előtte?": "D acu i yeḍran, d acu i txeddmeḍ uqbel?",
+  "Írd le pár mondatban": "Glem-it s kra n tefyar",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Amedya: senkereɣ Battle.net, maca yemdel deffir n tesdat.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Seddu talɣut n uselkim d uɣmis (ad yall ad tettwaf tuccḍa)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Aɣmis mačči d azayez: walan-t-id kan yineflayen, ad yettwakkes deffir n 30 n wussan. Yezmer ad yegber isem-ik n useqdac d yismawen n yibenkan-ik, maca mačči ifuyla-k. Aglam-ik ad yili d azayez, war isem-ik.",
+  "Küldés…": "Tuzna…",
+  "Küldés": "Azen"
 }

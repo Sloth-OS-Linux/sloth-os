@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Remotion del pacchettos de systema addite manualmente…",
   "A kernelparaméterek visszaállítása…": "Restauration del parametros del nucleo…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Reinitialisation del computator… Isto pote durar alcun minutas, non extinguer le computator.",
-  "Kész. Újraindítás…": "Facite. Reinitio…"
+  "Kész. Újraindítás…": "Facite. Reinitio…",
+  "Visszajelzés": "Commentos",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Gratias! Nos lo recipeva. Le numero de tu reporto es #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Hodie multe commentos jam ha essite inviate ab iste computator. Tu potera inviar de novo deman.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Le invio falleva: nulle connexion a internet. Reproba plus tarde.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Le invio falleva. Reproba plus tarde.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Alique non functiona, o tu ha un idea? Describe lo con tu proprie parolas, e nos lo inviara al disveloppatores de Sloth OS.",
+  "Miről szól?": "De que se tracta?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problema: alique non functiona como illo deberea",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idea: alique que manca o que poterea esser melior",
+  "Mi történt, és mit csináltál előtte?": "Que eveniva, e que faceva tu justo ante?",
+  "Írd le pár mondatban": "Describe lo in alcun phrases",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Per exemplo: io lanceva Battle.net, ma illo se clam post un minuta.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Attaccar informationes del computator e le registro (adjuta a trovar le problema)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Le registro non es public: solo le disveloppatores lo vide, e illo es delite post 30 dies. Illo pote continer tu nomine de usator e le nomines de tu apparatos, ma non tu files. Tu description essera public, sin tu nomine.",
+  "Küldés…": "Inviante…",
+  "Küldés": "Inviar"
 }

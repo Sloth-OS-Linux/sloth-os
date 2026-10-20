@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "חבילות מערכת שנוספו ידנית מוסרות…",
   "A kernelparaméterek visszaállítása…": "הפרמטרים של הליבה משוחזרים…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "המחשב מאופס… זה עשוי לקחת כמה דקות, אין לכבות את המחשב.",
-  "Kész. Újraindítás…": "הסתיים. הפעלה מחדש…"
+  "Kész. Újraindítás…": "הסתיים. הפעלה מחדש…",
+  "Visszajelzés": "משוב",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "תודה! קיבלנו. מספר הדיווח שלך הוא #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "היום כבר נשלח הרבה משוב מהמחשב הזה. אפשר לשלוח שוב מחר.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "השליחה נכשלה: אין חיבור לאינטרנט. נא לנסות שוב מאוחר יותר.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "השליחה נכשלה. נא לנסות שוב מאוחר יותר.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "משהו לא עובד, או שיש לך רעיון? כדאי לתאר את זה במילים שלך, ונעביר את זה למפתחי Sloth OS.",
+  "Miről szól?": "במה מדובר?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "תקלה: משהו לא עובד כמו שצריך",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "רעיון: משהו שחסר או שיכול להיות טוב יותר",
+  "Mi történt, és mit csináltál előtte?": "מה קרה, ומה עשית לפני כן?",
+  "Írd le pár mondatban": "כמה משפטים של תיאור",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "לדוגמה: הפעלתי את Battle.net, אבל הוא נסגר אחרי דקה.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "צירוף פרטי המחשב והיומן (עוזר למצוא את התקלה)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "היומן אינו ציבורי: רק המפתחים רואים אותו, והוא נמחק אחרי 30 יום. הוא עשוי לכלול את שם המשתמש שלך ואת שמות ההתקנים שלך, אך לא את הקבצים שלך. התיאור שלך יהיה ציבורי, ללא שמך.",
+  "Küldés…": "בשליחה…",
+  "Küldés": "שליחה"
 }

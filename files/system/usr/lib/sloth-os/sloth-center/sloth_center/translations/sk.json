@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Odstraňovanie ručne pridaných systémových balíkov…",
   "A kernelparaméterek visszaállítása…": "Obnovovanie parametrov jadra…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Obnovovanie počítača… Môže to trvať niekoľko minút, nevypínajte počítač.",
-  "Kész. Újraindítás…": "Hotovo. Reštartovanie…"
+  "Kész. Újraindítás…": "Hotovo. Reštartovanie…",
+  "Visszajelzés": "Spätná väzba",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Ďakujeme! Dostali sme to. Číslo vášho hlásenia je #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Z tohto počítača už dnes odišlo veľa spätnej väzby. Ďalšiu môžete poslať zajtra.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Odoslanie zlyhalo: chýba pripojenie na internet. Skúste to neskôr.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Odoslanie zlyhalo. Skúste to neskôr.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Niečo nefunguje, alebo máte nápad? Opíšte to vlastnými slovami a pošleme to vývojárom Sloth OS.",
+  "Miről szól?": "O čo ide?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Chyba: niečo nefunguje, ako by malo",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Nápad: niečo chýba alebo by mohlo byť lepšie",
+  "Mi történt, és mit csináltál előtte?": "Čo sa stalo a čo ste robili predtým?",
+  "Írd le pár mondatban": "Opíšte to v niekoľkých vetách",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Napríklad: spustil som Battle.net, ale po minúte sa zavrel.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Pripojiť informácie o počítači a záznam (pomôže nájsť chybu)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Záznam nie je verejný: vidia ho len vývojári a po 30 dňoch sa vymaže. Môže obsahovať vaše používateľské meno a názvy zariadení, ale nie vaše súbory. Váš opis bude verejný, bez vášho mena.",
+  "Küldés…": "Odosiela sa…",
+  "Küldés": "Odoslať"
 }

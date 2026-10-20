@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Removendo os pacotes de sistema adicionados manualmente…",
   "A kernelparaméterek visszaállítása…": "Restaurando os parâmetros do kernel…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Restaurando o PC… Pode levar alguns minutos, não desligue o computador.",
-  "Kész. Újraindítás…": "Pronto. Reiniciando…"
+  "Kész. Újraindítás…": "Pronto. Reiniciando…",
+  "Visszajelzés": "Feedback",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Obrigado! Recebemos. O número do seu relato é #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Muitos feedbacks já foram enviados deste computador hoje. Você poderá enviar mais amanhã.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Não foi possível enviar: sem conexão com a internet. Tente novamente mais tarde.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Não foi possível enviar. Tente novamente mais tarde.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Algo não está funcionando, ou você tem uma ideia? Descreva com suas próprias palavras e enviaremos aos desenvolvedores do Sloth OS.",
+  "Miről szól?": "Sobre o que é?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problema: algo não funciona como deveria",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Ideia: algo que está faltando ou poderia ser melhor",
+  "Mi történt, és mit csináltál előtte?": "O que aconteceu, e o que você estava fazendo antes?",
+  "Írd le pár mondatban": "Descreva em poucas frases",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Por exemplo: abri o Battle.net, mas ele fechou depois de um minuto.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Anexar informações do computador e o log (ajuda a encontrar o problema)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "O log não é público: só os desenvolvedores o veem, e ele é apagado após 30 dias. Ele pode conter seu nome de usuário e os nomes dos seus dispositivos, mas não seus arquivos. Sua descrição será pública, sem o seu nome.",
+  "Küldés…": "Enviando…",
+  "Küldés": "Enviar"
 }

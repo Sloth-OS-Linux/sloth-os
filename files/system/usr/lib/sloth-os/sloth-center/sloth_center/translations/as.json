@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "হাতেৰে যোগ কৰা চিষ্টেম পেকেজ আঁতৰোৱা হৈছে…",
   "A kernelparaméterek visszaállítása…": "কাৰ্নেল পেৰামিটাৰ পুনৰুদ্ধাৰ কৰা হৈছে…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "কম্পিউটাৰ ৰিছেট হৈ আছে… কেইমিনিটমান লাগিব পাৰে, কম্পিউটাৰ বন্ধ নকৰিব।",
-  "Kész. Újraindítás…": "সম্পূৰ্ণ। পুনৰাৰম্ভ হৈ আছে…"
+  "Kész. Újraindítás…": "সম্পূৰ্ণ। পুনৰাৰম্ভ হৈ আছে…",
+  "Visszajelzés": "মতামত",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "ধন্যবাদ! আমি পালোঁ। আপোনাৰ প্ৰতিবেদনৰ নম্বৰ #{number}।",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "আজি এই কম্পিউটাৰৰ পৰা ইতিমধ্যে বহুত মতামত পঠোৱা হৈছে। কাইলৈ আকৌ পঠাব পাৰিব।",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "পঠাব পৰা নগ'ল: ইণ্টাৰনেট সংযোগ নাই। পিছত আকৌ চেষ্টা কৰক।",
+  "Nem sikerült elküldeni. Próbáld újra később.": "পঠাব পৰা নগ'ল। পিছত আকৌ চেষ্টা কৰক।",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "কিবা কাম কৰা নাই, নে কোনো ধাৰণা আছে? নিজৰ ভাষাত লিখক, আমি ইয়াক Sloth OS-ৰ বিকাশকসকললৈ পঠিয়াম।",
+  "Miről szól?": "কি বিষয়ে?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "সমস্যা: কিবা এটা যিদৰে কাম কৰিব লাগে তেনেকৈ কৰা নাই",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "ধাৰণা: কিবা নাই বা আৰু ভাল হ'ব পাৰে",
+  "Mi történt, és mit csináltál előtte?": "কি হৈছিল, আৰু তাৰ আগতে আপুনি কি কৰি আছিল?",
+  "Írd le pár mondatban": "কেইটামান বাক্যত লিখক",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "উদাহৰণ: মই Battle.net আৰম্ভ কৰিছিলোঁ, কিন্তু এক মিনিটৰ পিছত বন্ধ হৈ গ'ল।",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "কম্পিউটাৰৰ তথ্য আৰু লগ সংলগ্ন কৰক (সমস্যা বিচাৰি পোৱাত সহায় কৰে)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "লগ ৰাজহুৱা নহয়: কেৱল বিকাশকসকলে দেখে, আৰু ৩০ দিনৰ পিছত মচি পেলোৱা হয়। ইয়াত আপোনাৰ ব্যৱহাৰকাৰীৰ নাম আৰু ডিভাইচৰ নাম থাকিব পাৰে, কিন্তু আপোনাৰ ফাইল নাথাকে। আপোনাৰ বিৱৰণ আপোনাৰ নাম অবিহনে ৰাজহুৱা হ'ব।",
+  "Küldés…": "পঠোৱা হৈছে…",
+  "Küldés": "পঠিয়াওক"
 }

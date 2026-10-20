@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Премахване на ръчно добавените системни пакети…",
   "A kernelparaméterek visszaállítása…": "Възстановяване на параметрите на ядрото…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Връщане на компютъра в начално състояние… Това може да отнеме няколко минути, не изключвайте компютъра.",
-  "Kész. Újraindítás…": "Готово. Рестартиране…"
+  "Kész. Újraindítás…": "Готово. Рестартиране…",
+  "Visszajelzés": "Обратна връзка",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Благодарим! Получихме го. Номерът на вашия сигнал е #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "От този компютър днес вече е изпратена много обратна връзка. Утре можете да изпратите отново.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Изпращането не бе успешно: няма връзка с интернет. Опитайте отново по-късно.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Изпращането не бе успешно. Опитайте отново по-късно.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Нещо не работи или имате идея? Опишете го със свои думи и ще го изпратим на разработчиците на Sloth OS.",
+  "Miről szól?": "За какво става дума?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Проблем: нещо не работи както трябва",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Идея: нещо липсва или може да е по-добро",
+  "Mi történt, és mit csináltál előtte?": "Какво се случи и какво правехте преди това?",
+  "Írd le pár mondatban": "Опишете го с няколко изречения",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Например: стартирах Battle.net, но той се затвори след минута.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Прикачване на информация за компютъра и дневника (помага да се открие проблемът)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Дневникът не е публичен: виждат го само разработчиците и се изтрива след 30 дни. Може да съдържа потребителското ви име и имената на устройствата ви, но не и вашите файлове. Описанието ви ще бъде публично, без името ви.",
+  "Küldés…": "Изпращане…",
+  "Küldés": "Изпращане"
 }

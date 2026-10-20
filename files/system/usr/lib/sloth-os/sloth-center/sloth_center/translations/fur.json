@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Rimozion dai pachets di sisteme zontâts a man…",
   "A kernelparaméterek visszaállítása…": "Ripristinament dai parametris dal kernel…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Ripristinament dal computer… Al pues durâ cualchi minût, no sta distudâ il computer.",
-  "Kész. Újraindítás…": "Fat. Si torne a inviâ…"
+  "Kész. Újraindítás…": "Fat. Si torne a inviâ…",
+  "Visszajelzés": "Opinions",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Graciis! Le vin ricevude. Il numar de tô segnalazion al è #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Vuê di chest computer a son stadis za mandadis tantis opinions. Tu podarâs mandâ ancjemò doman.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "No si è rivâts a mandâ: nissune conession a Internet. Torne prove plui indenant.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "No si è rivâts a mandâ. Torne prove plui indenant.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Alc nol funzione, o âstu une idee? Descrîf cun lis tôs peraulis e le mandarìn ai svilupadôrs di Sloth OS.",
+  "Miről szól?": "Di ce si tratie?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Probleme: alc nol funzione come che al varès di",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idee: alc che al mancje o che al podarès jessi miôr",
+  "Mi történt, és mit csináltál előtte?": "Ce isal sucedût, e ce stavistu fasint prime?",
+  "Írd le pár mondatban": "Descrîf in cualchi frase",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Par esempli: o ai inviât Battle.net, ma si è sierât dopo un minût.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Zonte lis informazions dal computer e il regjistri (al jude a cjatâ il probleme)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Il regjistri nol è public: lu viodin dome i svilupadôrs, e al ven eliminât dopo 30 dîs. Al pues contignî il to non utent e i nons dai tiei dispositîfs, ma no i tiei files. La tô descrizion e sarà publiche, cence il to non.",
+  "Küldés…": "Daûr a mandâ…",
+  "Küldés": "Mande"
 }

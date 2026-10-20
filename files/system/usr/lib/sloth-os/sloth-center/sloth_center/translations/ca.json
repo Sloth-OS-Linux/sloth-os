@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "S’estan suprimint els paquets del sistema afegits manualment…",
   "A kernelparaméterek visszaállítása…": "S’estan restaurant els paràmetres del nucli…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "S’està restablint l’ordinador… Pot trigar uns minuts, no l’apagueu.",
-  "Kész. Újraindítás…": "Fet. S’està reiniciant…"
+  "Kész. Újraindítás…": "Fet. S’està reiniciant…",
+  "Visszajelzés": "Comentaris",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Gràcies! L'hem rebut. El número del teu informe és #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Avui ja s'han enviat molts comentaris des d'aquest ordinador. Demà en podràs enviar més.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "No s'ha pogut enviar: no hi ha connexió a Internet. Torna-ho a provar més tard.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "No s'ha pogut enviar. Torna-ho a provar més tard.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Alguna cosa no funciona o tens una idea? Descriu-ho amb les teves paraules i ho enviarem als desenvolupadors de Sloth OS.",
+  "Miről szól?": "De què es tracta?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problema: alguna cosa no funciona com hauria de funcionar",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idea: alguna cosa que falta o que podria ser millor",
+  "Mi történt, és mit csináltál előtte?": "Què ha passat i què feies abans?",
+  "Írd le pár mondatban": "Descriu-ho en unes poques frases",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Per exemple: vaig obrir Battle.net, però es va tancar al cap d'un minut.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Adjunta la informació de l'ordinador i el registre (ajuda a trobar el problema)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "El registre no és públic: només el veuen els desenvolupadors i s'esborra al cap de 30 dies. Pot contenir el teu nom d'usuari i els noms dels teus dispositius, però no els teus fitxers. La teva descripció serà pública, sense el teu nom.",
+  "Küldés…": "S'està enviant…",
+  "Küldés": "Envia"
 }

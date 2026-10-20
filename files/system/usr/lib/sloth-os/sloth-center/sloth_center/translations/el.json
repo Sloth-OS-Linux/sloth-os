@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Αφαίρεση πακέτων συστήματος που προστέθηκαν χειροκίνητα…",
   "A kernelparaméterek visszaállítása…": "Επαναφορά παραμέτρων πυρήνα…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Επαναφορά του υπολογιστή… Μπορεί να διαρκέσει λίγα λεπτά, μην απενεργοποιήσετε τον υπολογιστή.",
-  "Kész. Újraindítás…": "Έτοιμο. Επανεκκίνηση…"
+  "Kész. Újraindítás…": "Έτοιμο. Επανεκκίνηση…",
+  "Visszajelzés": "Σχόλια",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Ευχαριστούμε! Το λάβαμε. Ο αριθμός της αναφοράς σας είναι #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Από αυτόν τον υπολογιστή έχουν ήδη σταλεί σήμερα πολλά σχόλια. Μπορείτε να στείλετε ξανά αύριο.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Η αποστολή απέτυχε: δεν υπάρχει σύνδεση στο διαδίκτυο. Δοκιμάστε ξανά αργότερα.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Η αποστολή απέτυχε. Δοκιμάστε ξανά αργότερα.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Κάτι δεν λειτουργεί ή έχετε μια ιδέα; Περιγράψτε το με δικά σας λόγια και θα το στείλουμε στους προγραμματιστές του Sloth OS.",
+  "Miről szól?": "Τι αφορά;",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Πρόβλημα: κάτι δεν λειτουργεί όπως θα έπρεπε",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Ιδέα: κάτι που λείπει ή θα μπορούσε να είναι καλύτερο",
+  "Mi történt, és mit csináltál előtte?": "Τι συνέβη και τι κάνατε πριν;",
+  "Írd le pár mondatban": "Περιγράψτε το με λίγες προτάσεις",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Για παράδειγμα: άνοιξα το Battle.net, αλλά έκλεισε μετά από ένα λεπτό.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Επισύναψη πληροφοριών υπολογιστή και αρχείου καταγραφής (βοηθά να βρεθεί το πρόβλημα)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Το αρχείο καταγραφής δεν είναι δημόσιο: το βλέπουν μόνο οι προγραμματιστές και διαγράφεται μετά από 30 ημέρες. Μπορεί να περιέχει το όνομα χρήστη σας και τα ονόματα των συσκευών σας, όχι όμως τα αρχεία σας. Η περιγραφή σας θα είναι δημόσια, χωρίς το όνομά σας.",
+  "Küldés…": "Αποστολή…",
+  "Küldés": "Αποστολή"
 }

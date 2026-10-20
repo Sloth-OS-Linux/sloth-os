@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Suppression des paquets système ajoutés manuellement…",
   "A kernelparaméterek visszaállítása…": "Restauration des paramètres du noyau…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Réinitialisation de ce PC… Cela peut prendre quelques minutes, n’éteignez pas l’ordinateur.",
-  "Kész. Újraindítás…": "Terminé. Redémarrage…"
+  "Kész. Újraindítás…": "Terminé. Redémarrage…",
+  "Visszajelzés": "Commentaires",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Merci ! Nous l'avons bien reçu. Numéro de votre signalement : #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Beaucoup de commentaires ont déjà été envoyés depuis cet ordinateur aujourd'hui. Vous pourrez en envoyer d'autres demain.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Échec de l'envoi : pas de connexion Internet. Réessayez plus tard.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Échec de l'envoi. Réessayez plus tard.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Quelque chose ne fonctionne pas, ou vous avez une idée ? Décrivez-le avec vos propres mots, et nous l'enverrons aux développeurs de Sloth OS.",
+  "Miről szól?": "De quoi s'agit-il ?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problème : quelque chose ne fonctionne pas comme prévu",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idée : quelque chose qui manque ou qui pourrait être mieux",
+  "Mi történt, és mit csináltál előtte?": "Que s'est-il passé, et que faisiez-vous juste avant ?",
+  "Írd le pár mondatban": "Décrivez-le en quelques phrases",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Par exemple : j'ai lancé Battle.net, mais il s'est fermé au bout d'une minute.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Joindre les informations de l'ordinateur et le journal (aide à trouver le problème)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Le journal n'est pas public : seuls les développeurs le voient, et il est supprimé après 30 jours. Il peut contenir votre nom d'utilisateur et le nom de vos appareils, mais pas vos fichiers. Votre description sera publique, sans votre nom.",
+  "Küldés…": "Envoi…",
+  "Küldés": "Envoyer"
 }

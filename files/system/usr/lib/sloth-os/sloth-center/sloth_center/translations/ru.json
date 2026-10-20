@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Удаление вручную добавленных системных пакетов…",
   "A kernelparaméterek visszaállítása…": "Восстановление параметров ядра…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Сброс компьютера… Это может занять несколько минут, не выключайте компьютер.",
-  "Kész. Újraindítás…": "Готово. Перезагрузка…"
+  "Kész. Újraindítás…": "Готово. Перезагрузка…",
+  "Visszajelzés": "Обратная связь",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Спасибо! Мы получили ваше сообщение. Его номер: #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "С этого компьютера сегодня уже отправлено много сообщений. Завтра можно будет отправить ещё.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Не удалось отправить: нет подключения к интернету. Попробуйте позже.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Не удалось отправить. Попробуйте позже.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Что-то не работает или есть идея? Опишите своими словами, и мы передадим это разработчикам Sloth OS.",
+  "Miről szól?": "О чём это?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Ошибка: что-то работает не так, как должно",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Идея: чего-то не хватает или можно сделать лучше",
+  "Mi történt, és mit csináltál előtte?": "Что произошло и что вы делали перед этим?",
+  "Írd le pár mondatban": "Опишите в нескольких предложениях",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Например: я запустил Battle.net, но через минуту он закрылся.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Приложить сведения о компьютере и журнал (помогает найти ошибку)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Журнал не публикуется: его видят только разработчики, и через 30 дней он удаляется. В нём могут быть ваше имя пользователя и названия устройств, но не ваши файлы. Ваше описание будет публичным, без вашего имени.",
+  "Küldés…": "Отправка…",
+  "Küldés": "Отправить"
 }

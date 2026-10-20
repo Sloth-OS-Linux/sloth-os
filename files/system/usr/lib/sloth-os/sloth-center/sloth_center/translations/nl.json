@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Handmatig toegevoegde systeempakketten worden verwijderd…",
   "A kernelparaméterek visszaállítása…": "Kernelparameters worden hersteld…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Deze pc wordt opnieuw ingesteld… Dit kan een paar minuten duren, zet de computer niet uit.",
-  "Kész. Újraindítás…": "Klaar. Opnieuw opstarten…"
+  "Kész. Újraindítás…": "Klaar. Opnieuw opstarten…",
+  "Visszajelzés": "Feedback",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Bedankt! We hebben het ontvangen. Je meldingsnummer is #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Vanaf deze computer is vandaag al veel feedback verstuurd. Morgen kun je weer versturen.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Versturen mislukt: geen internetverbinding. Probeer het later opnieuw.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Versturen mislukt. Probeer het later opnieuw.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Werkt er iets niet, of heb je een idee? Beschrijf het in je eigen woorden, en we sturen het naar de ontwikkelaars van Sloth OS.",
+  "Miről szól?": "Waar gaat het over?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Probleem: iets werkt niet zoals het zou moeten",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idee: iets wat ontbreekt of beter kan",
+  "Mi történt, és mit csináltál előtte?": "Wat is er gebeurd, en wat deed je daarvoor?",
+  "Írd le pár mondatban": "Beschrijf het in een paar zinnen",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Bijvoorbeeld: ik startte Battle.net, maar het sloot na een minuut.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Computergegevens en logboek bijvoegen (helpt het probleem te vinden)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Het logboek is niet openbaar: alleen de ontwikkelaars zien het, en het wordt na 30 dagen verwijderd. Het kan je gebruikersnaam en de namen van je apparaten bevatten, maar niet je bestanden. Je beschrijving wordt openbaar, zonder je naam.",
+  "Küldés…": "Versturen…",
+  "Küldés": "Versturen"
 }

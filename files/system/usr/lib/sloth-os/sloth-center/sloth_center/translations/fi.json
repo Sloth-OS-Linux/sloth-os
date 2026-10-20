@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Poistetaan käsin lisättyjä järjestelmäpaketteja…",
   "A kernelparaméterek visszaállítása…": "Palautetaan ytimen parametreja…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Tietokonetta palautetaan… Tämä voi kestää muutaman minuutin, älä sammuta tietokonetta.",
-  "Kész. Újraindítás…": "Valmis. Käynnistetään uudelleen…"
+  "Kész. Újraindítás…": "Valmis. Käynnistetään uudelleen…",
+  "Visszajelzés": "Palaute",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Kiitos! Saimme sen. Ilmoituksesi numero on #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Tältä tietokoneelta on tänään jo lähetetty paljon palautetta. Voit lähettää lisää huomenna.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Lähetys epäonnistui: ei internetyhteyttä. Yritä myöhemmin uudelleen.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Lähetys epäonnistui. Yritä myöhemmin uudelleen.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Eikö jokin toimi, vai onko sinulla idea? Kerro se omin sanoin, niin välitämme sen Sloth OS:n kehittäjille.",
+  "Miről szól?": "Mitä se koskee?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Vika: jokin ei toimi niin kuin pitäisi",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idea: jotain puuttuu tai voisi olla parempi",
+  "Mi történt, és mit csináltál előtte?": "Mitä tapahtui, ja mitä teit juuri ennen sitä?",
+  "Írd le pár mondatban": "Kerro muutamalla lauseella",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Esimerkiksi: käynnistin Battle.netin, mutta se sulkeutui minuutin päästä.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Liitä tietokoneen tiedot ja loki (auttaa löytämään vian)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Loki ei ole julkinen: vain kehittäjät näkevät sen, ja se poistetaan 30 päivän kuluttua. Siinä voi näkyä käyttäjätunnuksesi ja laitteidesi nimet, mutta ei tiedostojasi. Kuvauksesi on julkinen, ilman nimeäsi.",
+  "Küldés…": "Lähetetään…",
+  "Küldés": "Lähetä"
 }

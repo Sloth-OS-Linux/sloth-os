@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Қолмен қосылған жүйелік пакеттер жойылуда…",
   "A kernelparaméterek visszaállítása…": "Ядро параметрлері қалпына келтірілуде…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Компьютер бастапқы күйге қайтарылуда… Бірнеше минутқа созылуы мүмкін, компьютерді өшірмеңіз.",
-  "Kész. Újraindítás…": "Дайын. Қайта іске қосылуда…"
+  "Kész. Újraindítás…": "Дайын. Қайта іске қосылуда…",
+  "Visszajelzés": "Кері байланыс",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Рақмет! Біз алдық. Хабарламаңыздың нөмірі: #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Бұл компьютерден бүгін көп кері байланыс жіберілді. Ертең қайта жібере аласыз.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Жіберу сәтсіз аяқталды: интернет байланысы жоқ. Кейінірек қайталап көріңіз.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Жіберу сәтсіз аяқталды. Кейінірек қайталап көріңіз.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Бірдеңе жұмыс істемей ме, әлде идеяңыз бар ма? Өз сөзіңізбен сипаттаңыз, біз оны Sloth OS әзірлеушілеріне жібереміз.",
+  "Miről szól?": "Не туралы?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Қате: бірдеңе тиісінше жұмыс істемейді",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Идея: бірдеңе жетіспейді немесе жақсырақ болуы мүмкін",
+  "Mi történt, és mit csináltál előtte?": "Не болды және оның алдында не істеп едіңіз?",
+  "Írd le pár mondatban": "Бірнеше сөйлеммен сипаттаңыз",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Мысалы: Battle.net іске қостым, бірақ ол бір минуттан кейін жабылды.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Компьютер ақпараты мен журналды тіркеу (қатені табуға көмектеседі)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Журнал жария емес: оны тек әзірлеушілер көреді және 30 күннен кейін жойылады. Онда пайдаланушы атыңыз бен құрылғыларыңыздың атаулары болуы мүмкін, бірақ файлдарыңыз болмайды. Сипаттамаңыз атыңызсыз жария болады.",
+  "Küldés…": "Жіберілуде…",
+  "Küldés": "Жіберу"
 }

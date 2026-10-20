@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Видалення вручну доданих системних пакунків…",
   "A kernelparaméterek visszaállítása…": "Відновлення параметрів ядра…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Скидання комп’ютера… Це може тривати кілька хвилин, не вимикайте комп’ютер.",
-  "Kész. Újraindítás…": "Готово. Перезапуск…"
+  "Kész. Újraindítás…": "Готово. Перезапуск…",
+  "Visszajelzés": "Відгук",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Дякуємо! Ми отримали ваше повідомлення. Його номер: #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "З цього комп’ютера сьогодні вже надіслано багато відгуків. Завтра можна буде надіслати ще.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Не вдалося надіслати: немає з’єднання з інтернетом. Спробуйте пізніше.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Не вдалося надіслати. Спробуйте пізніше.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Щось не працює або маєте ідею? Опишіть своїми словами, і ми передамо це розробникам Sloth OS.",
+  "Miről szól?": "Про що йдеться?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Помилка: щось працює не так, як має",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Ідея: чогось бракує або можна зробити краще",
+  "Mi történt, és mit csináltál előtte?": "Що сталося і що ви робили перед цим?",
+  "Írd le pár mondatban": "Опишіть кількома реченнями",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Наприклад: я запустив Battle.net, але за хвилину він закрився.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Додати відомості про комп’ютер і журнал (допомагає знайти помилку)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Журнал не публікується: його бачать лише розробники, і через 30 днів він видаляється. У ньому можуть бути ваше ім’я користувача та назви пристроїв, але не ваші файли. Ваш опис буде публічним, без вашого імені.",
+  "Küldés…": "Надсилання…",
+  "Küldés": "Надіслати"
 }

@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "হাতে যোগ করা সিস্টেম প্যাকেজ সরানো হচ্ছে…",
   "A kernelparaméterek visszaállítása…": "কার্নেল প্যারামিটার পুনরুদ্ধার করা হচ্ছে…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "কম্পিউটার রিসেট হচ্ছে… কয়েক মিনিট লাগতে পারে, কম্পিউটার বন্ধ করবেন না।",
-  "Kész. Újraindítás…": "সম্পন্ন। রিস্টার্ট হচ্ছে…"
+  "Kész. Újraindítás…": "সম্পন্ন। রিস্টার্ট হচ্ছে…",
+  "Visszajelzés": "মতামত",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "ধন্যবাদ! আমরা পেয়েছি। আপনার রিপোর্ট নম্বর #{number}।",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "আজ এই কম্পিউটার থেকে ইতিমধ্যে অনেক মতামত পাঠানো হয়েছে। কাল আবার পাঠাতে পারবেন।",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "পাঠানো যায়নি: ইন্টারনেট সংযোগ নেই। পরে আবার চেষ্টা করুন।",
+  "Nem sikerült elküldeni. Próbáld újra később.": "পাঠানো যায়নি। পরে আবার চেষ্টা করুন।",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "কিছু কাজ করছে না, নাকি কোনো আইডিয়া আছে? নিজের ভাষায় লিখুন, আমরা তা Sloth OS-এর ডেভেলপারদের কাছে পাঠিয়ে দেব।",
+  "Miről szól?": "কী বিষয়ে?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "সমস্যা: কিছু যেমন কাজ করার কথা তেমন করছে না",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "আইডিয়া: কিছু নেই বা আরও ভালো হতে পারে",
+  "Mi történt, és mit csináltál előtte?": "কী হয়েছিল, আর তার আগে আপনি কী করছিলেন?",
+  "Írd le pár mondatban": "কয়েকটি বাক্যে লিখুন",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "উদাহরণ: আমি Battle.net চালু করেছিলাম, কিন্তু এক মিনিট পরে বন্ধ হয়ে গেল।",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "কম্পিউটারের তথ্য ও লগ সংযুক্ত করুন (সমস্যা খুঁজে পেতে সাহায্য করে)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "লগ সর্বজনীন নয়: শুধু ডেভেলপাররা দেখতে পান, আর ৩০ দিন পরে মুছে ফেলা হয়। এতে আপনার ব্যবহারকারীর নাম ও ডিভাইসের নাম থাকতে পারে, তবে আপনার ফাইল থাকে না। আপনার বিবরণ আপনার নাম ছাড়াই সর্বজনীন হবে।",
+  "Küldés…": "পাঠানো হচ্ছে…",
+  "Küldés": "পাঠান"
 }

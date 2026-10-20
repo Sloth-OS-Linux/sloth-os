@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Käsitsi lisatud süsteemipakettide eemaldamine…",
   "A kernelparaméterek visszaállítása…": "Kerneli parameetrite taastamine…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Arvuti lähtestamine… See võib võtta paar minutit, ära lülita arvutit välja.",
-  "Kész. Újraindítás…": "Valmis. Taaskäivitamine…"
+  "Kész. Újraindítás…": "Valmis. Taaskäivitamine…",
+  "Visszajelzés": "Tagasiside",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Aitäh! Saime selle kätte. Sinu teate number on #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Sellest arvutist on täna juba palju tagasisidet saadetud. Homme saad jälle saata.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Saatmine ebaõnnestus: internetiühendus puudub. Proovi hiljem uuesti.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Saatmine ebaõnnestus. Proovi hiljem uuesti.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Kas miski ei tööta või on sul idee? Kirjelda seda oma sõnadega ja me saadame selle Sloth OS-i arendajatele.",
+  "Miről szól?": "Millega on tegu?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Viga: miski ei tööta nii, nagu peaks",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idee: miski puudub või võiks olla parem",
+  "Mi történt, és mit csináltál előtte?": "Mis juhtus ja mida sa enne seda tegid?",
+  "Írd le pár mondatban": "Kirjelda seda paari lausega",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Näiteks: käivitasin Battle.neti, aga see sulgus minuti pärast.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Lisa arvuti andmed ja logi (aitab vea üles leida)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Logi ei ole avalik: seda näevad ainult arendajad ja see kustutatakse 30 päeva pärast. Selles võib olla sinu kasutajanimi ja seadmete nimed, kuid mitte sinu faile. Sinu kirjeldus on avalik, ilma sinu nimeta.",
+  "Küldés…": "Saatmine…",
+  "Küldés": "Saada"
 }

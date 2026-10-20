@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Tar bort manuellt tillagda systempaket…",
   "A kernelparaméterek visszaállítása…": "Återställer kärnparametrar…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Återställer datorn… Det kan ta några minuter, stäng inte av datorn.",
-  "Kész. Újraindítás…": "Klart. Startar om…"
+  "Kész. Újraindítás…": "Klart. Startar om…",
+  "Visszajelzés": "Feedback",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Tack! Vi har tagit emot det. Ditt ärendenummer är #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Mycket feedback har redan skickats från den här datorn i dag. Du kan skicka igen i morgon.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Det gick inte att skicka: ingen internetanslutning. Försök igen senare.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Det gick inte att skicka. Försök igen senare.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Fungerar något inte, eller har du en idé? Beskriv det med egna ord, så skickar vi det till utvecklarna av Sloth OS.",
+  "Miről szól?": "Vad gäller det?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Fel: något fungerar inte som det ska",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idé: något som saknas eller kunde bli bättre",
+  "Mi történt, és mit csináltál előtte?": "Vad hände, och vad gjorde du precis innan?",
+  "Írd le pár mondatban": "Beskriv det med några meningar",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Till exempel: Jag startade Battle.net, men det stängdes efter en minut.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Bifoga datorinformation och logg (hjälper till att hitta felet)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Loggen är inte offentlig: bara utvecklarna ser den, och den raderas efter 30 dagar. Den kan innehålla ditt användarnamn och namnen på dina enheter, men inte dina filer. Din beskrivning blir offentlig, utan ditt namn.",
+  "Küldés…": "Skickar…",
+  "Küldés": "Skicka"
 }

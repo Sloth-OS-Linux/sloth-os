@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Se elimină pachetele de sistem adăugate manual…",
   "A kernelparaméterek visszaállítása…": "Se restabilesc parametrii nucleului…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Se resetează PC-ul… Poate dura câteva minute, nu opri computerul.",
-  "Kész. Újraindítás…": "Gata. Se repornește…"
+  "Kész. Újraindítás…": "Gata. Se repornește…",
+  "Visszajelzés": "Feedback",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Mulțumim! L-am primit. Numărul raportului tău este #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "De pe acest calculator s-a trimis deja mult feedback astăzi. Poți trimite din nou mâine.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Nu s-a putut trimite: nu există conexiune la internet. Încearcă din nou mai târziu.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Nu s-a putut trimite. Încearcă din nou mai târziu.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Ceva nu funcționează sau ai o idee? Descrie cu propriile cuvinte și o trimitem dezvoltatorilor Sloth OS.",
+  "Miről szól?": "Despre ce este vorba?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problemă: ceva nu funcționează cum ar trebui",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idee: ceva ce lipsește sau ar putea fi mai bun",
+  "Mi történt, és mit csináltál előtte?": "Ce s-a întâmplat și ce făceai înainte?",
+  "Írd le pár mondatban": "Descrie în câteva propoziții",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "De exemplu: am pornit Battle.net, dar s-a închis după un minut.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Atașează informațiile despre calculator și jurnalul (ajută la găsirea problemei)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Jurnalul nu este public: îl văd doar dezvoltatorii și se șterge după 30 de zile. Poate conține numele tău de utilizator și numele dispozitivelor, dar nu fișierele tale. Descrierea ta va fi publică, fără numele tău.",
+  "Küldés…": "Se trimite…",
+  "Küldés": "Trimite"
 }

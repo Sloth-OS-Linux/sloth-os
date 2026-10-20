@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Quitando los paquetes del sistema añadidos a mano…",
   "A kernelparaméterek visszaállítása…": "Restaurando los parámetros del kernel…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Restableciendo el equipo… Puede tardar unos minutos, no apagues el equipo.",
-  "Kész. Újraindítás…": "Listo. Reiniciando…"
+  "Kész. Újraindítás…": "Listo. Reiniciando…",
+  "Visszajelzés": "Comentarios",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "¡Gracias! Lo hemos recibido. Número de tu informe: #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Hoy ya se han enviado muchos comentarios desde este ordenador. Podrás enviar más mañana.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "No se pudo enviar: no hay conexión a Internet. Inténtalo de nuevo más tarde.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "No se pudo enviar. Inténtalo de nuevo más tarde.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "¿Algo no funciona o tienes una idea? Descríbelo con tus propias palabras y se lo enviaremos a los desarrolladores de Sloth OS.",
+  "Miről szól?": "¿De qué se trata?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problema: algo no funciona como debería",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idea: algo que falta o que podría ser mejor",
+  "Mi történt, és mit csináltál előtte?": "¿Qué pasó y qué estabas haciendo antes?",
+  "Írd le pár mondatban": "Descríbelo en unas pocas frases",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Por ejemplo: abrí Battle.net, pero se cerró al cabo de un minuto.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Adjuntar información del equipo y el registro (ayuda a encontrar el problema)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "El registro no es público: solo lo ven los desarrolladores y se borra a los 30 días. Puede contener tu nombre de usuario y los nombres de tus dispositivos, pero no tus archivos. Tu descripción será pública, sin tu nombre.",
+  "Küldés…": "Enviando…",
+  "Küldés": "Enviar"
 }

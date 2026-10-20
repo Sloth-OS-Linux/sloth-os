@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "正在移除手动添加的系统软件包…",
   "A kernelparaméterek visszaállítása…": "正在恢复内核参数…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "正在重置电脑… 可能需要几分钟，请勿关机。",
-  "Kész. Újraindítás…": "完成。正在重启…"
+  "Kész. Újraindítás…": "完成。正在重启…",
+  "Visszajelzés": "反馈",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "谢谢！我们已收到。你的反馈编号是 #{number}。",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "今天这台电脑已经发送了很多反馈。明天可以再发送。",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "发送失败：没有网络连接。请稍后再试。",
+  "Nem sikerült elküldeni. Próbáld újra később.": "发送失败。请稍后再试。",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "有什么不正常，或者有什么想法？用你自己的话描述一下，我们会转交给 Sloth OS 的开发者。",
+  "Miről szól?": "关于什么？",
+  "Hiba: valami nem úgy működik, ahogy kellene": "问题：有东西没有正常工作",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "想法：缺少的功能或可以改进的地方",
+  "Mi történt, és mit csináltál előtte?": "发生了什么？之前你在做什么？",
+  "Írd le pár mondatban": "用几句话描述一下",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "例如：我打开了 Battle.net，但一分钟后它就关闭了。",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "附上电脑信息和日志（有助于找到问题）",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "日志不公开：只有开发者能看到，30 天后删除。其中可能包含你的用户名和设备名称，但不包含你的文件。你的描述将会公开，但不显示你的名字。",
+  "Küldés…": "正在发送…",
+  "Küldés": "发送"
 }

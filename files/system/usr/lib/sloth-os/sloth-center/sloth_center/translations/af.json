@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Handmatig bygevoegde stelselpakkette word verwyder…",
   "A kernelparaméterek visszaállítása…": "Kernparameters word teruggestel…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Die rekenaar word teruggestel… Dit kan ’n paar minute neem, moenie die rekenaar afskakel nie.",
-  "Kész. Újraindítás…": "Klaar. Herbegin…"
+  "Kész. Újraindítás…": "Klaar. Herbegin…",
+  "Visszajelzés": "Terugvoer",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Dankie! Ons het dit ontvang. Jou verslagnommer is #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Baie terugvoer is vandag reeds van hierdie rekenaar gestuur. Jy kan môre weer stuur.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Kon nie stuur nie: geen internetverbinding. Probeer later weer.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Kon nie stuur nie. Probeer later weer.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Werk iets nie, of het jy 'n idee? Beskryf dit in jou eie woorde, en ons stuur dit aan die ontwikkelaars van Sloth OS.",
+  "Miről szól?": "Waaroor gaan dit?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Fout: iets werk nie soos dit moet nie",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idee: iets wat ontbreek of beter kan wees",
+  "Mi történt, és mit csináltál előtte?": "Wat het gebeur, en wat het jy net voor dit gedoen?",
+  "Írd le pár mondatban": "Beskryf dit in 'n paar sinne",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Byvoorbeeld: ek het Battle.net oopgemaak, maar dit het ná 'n minuut toegemaak.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Heg rekenaarinligting en die logboek aan (help om die fout te vind)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Die logboek is nie publiek nie: net die ontwikkelaars sien dit, en dit word ná 30 dae geskrap. Dit kan jou gebruikersnaam en die name van jou toestelle bevat, maar nie jou lêers nie. Jou beskrywing sal publiek wees, sonder jou naam.",
+  "Küldés…": "Stuur tans…",
+  "Küldés": "Stuur"
 }

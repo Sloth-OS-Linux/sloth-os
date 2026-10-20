@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Fjernar manuelt lagde til systempakkar…",
   "A kernelparaméterek visszaállítása…": "Gjenopprettar kjerneparametrar…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Tilbakestiller PC-en… Dette kan ta nokre minutt, ikkje slå av datamaskina.",
-  "Kész. Újraindítás…": "Ferdig. Startar på nytt…"
+  "Kész. Újraindítás…": "Ferdig. Startar på nytt…",
+  "Visszajelzés": "Tilbakemelding",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Takk! Vi har fått henne. Saksnummeret ditt er #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Det er alt sendt mange tilbakemeldingar frå denne datamaskina i dag. Du kan sende igjen i morgon.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Kunne ikkje sende: inga internettilkopling. Prøv igjen seinare.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Kunne ikkje sende. Prøv igjen seinare.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Er det noko som ikkje verkar, eller har du ein idé? Beskriv det med eigne ord, så sender vi det til utviklarane av Sloth OS.",
+  "Miről szól?": "Kva gjeld det?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Feil: noko verkar ikkje som det skal",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idé: noko som manglar eller kunne vore betre",
+  "Mi történt, és mit csináltál előtte?": "Kva skjedde, og kva gjorde du rett før?",
+  "Írd le pár mondatban": "Beskriv det med nokre få setningar",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Til dømes: Eg starta Battle.net, men det lukka seg etter eitt minutt.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Legg ved datamaskininformasjon og logg (hjelper med å finne feilen)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Loggen er ikkje offentleg: berre utviklarane ser han, og han vert sletta etter 30 dagar. Han kan innehalde brukarnamnet ditt og namna på einingane dine, men ikkje filene dine. Skildringa di vert offentleg, utan namnet ditt.",
+  "Küldés…": "Sender …",
+  "Küldés": "Send"
 }

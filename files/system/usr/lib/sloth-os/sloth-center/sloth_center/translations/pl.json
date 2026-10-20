@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Usuwanie ręcznie dodanych pakietów systemowych…",
   "A kernelparaméterek visszaállítása…": "Przywracanie parametrów jądra…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Resetowanie komputera… Może to potrwać kilka minut, nie wyłączaj komputera.",
-  "Kész. Újraindítás…": "Gotowe. Ponowne uruchamianie…"
+  "Kész. Újraindítás…": "Gotowe. Ponowne uruchamianie…",
+  "Visszajelzés": "Opinie",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Dziękujemy! Otrzymaliśmy zgłoszenie. Jego numer to #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Z tego komputera wysłano już dziś wiele zgłoszeń. Kolejne możesz wysłać jutro.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Nie udało się wysłać: brak połączenia z internetem. Spróbuj ponownie później.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Nie udało się wysłać. Spróbuj ponownie później.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Coś nie działa albo masz pomysł? Opisz to własnymi słowami, a przekażemy to twórcom Sloth OS.",
+  "Miről szól?": "Czego to dotyczy?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Błąd: coś nie działa tak, jak powinno",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Pomysł: czegoś brakuje albo mogłoby działać lepiej",
+  "Mi történt, és mit csináltál előtte?": "Co się stało i co robiłeś wcześniej?",
+  "Írd le pár mondatban": "Opisz to w kilku zdaniach",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Na przykład: uruchomiłem Battle.net, ale po minucie się zamknął.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Dołącz informacje o komputerze i dziennik (pomaga znaleźć błąd)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Dziennik nie jest publiczny: widzą go tylko twórcy, a po 30 dniach jest usuwany. Może zawierać twoją nazwę użytkownika i nazwy urządzeń, ale nie twoje pliki. Twój opis będzie publiczny, bez twojego imienia.",
+  "Küldés…": "Wysyłanie…",
+  "Küldés": "Wyślij"
 }

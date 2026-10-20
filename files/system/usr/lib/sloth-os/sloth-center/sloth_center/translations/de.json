@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Manuell hinzugefügte Systempakete werden entfernt …",
   "A kernelparaméterek visszaállítása…": "Kernelparameter werden zurückgesetzt …",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Der PC wird zurückgesetzt … Das kann einige Minuten dauern, bitte schalte den Computer nicht aus.",
-  "Kész. Újraindítás…": "Fertig. Neustart …"
+  "Kész. Újraindítás…": "Fertig. Neustart …",
+  "Visszajelzés": "Feedback",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Danke! Wir haben es erhalten. Deine Meldungsnummer: #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Von diesem Computer wurde heute schon viel Feedback gesendet. Morgen kannst du wieder senden.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Senden fehlgeschlagen: keine Internetverbindung. Bitte versuche es später noch einmal.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Senden fehlgeschlagen. Bitte versuche es später noch einmal.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Funktioniert etwas nicht, oder hast du eine Idee? Beschreibe es mit deinen eigenen Worten, und wir schicken es an die Entwickler von Sloth OS.",
+  "Miről szól?": "Worum geht es?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Fehler: Etwas funktioniert nicht so, wie es sollte",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idee: Etwas fehlt oder könnte besser sein",
+  "Mi történt, és mit csináltál előtte?": "Was ist passiert, und was hast du davor gemacht?",
+  "Írd le pár mondatban": "Beschreibe es in ein paar Sätzen",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Zum Beispiel: Ich habe Battle.net gestartet, aber es hat sich nach einer Minute geschlossen.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Computerinformationen und Protokoll anhängen (hilft, den Fehler zu finden)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Das Protokoll ist nicht öffentlich: Nur die Entwickler sehen es, und es wird nach 30 Tagen gelöscht. Es kann deinen Benutzernamen und die Namen deiner Geräte enthalten, aber nicht deine Dateien. Deine Beschreibung wird öffentlich sein, ohne deinen Namen.",
+  "Küldés…": "Wird gesendet…",
+  "Küldés": "Senden"
 }

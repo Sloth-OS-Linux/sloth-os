@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Elle eklenen sistem paketleri kaldırılıyor…",
   "A kernelparaméterek visszaállítása…": "Çekirdek parametreleri geri yükleniyor…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Bilgisayar sıfırlanıyor… Birkaç dakika sürebilir, bilgisayarı kapatmayın.",
-  "Kész. Újraindítás…": "Bitti. Yeniden başlatılıyor…"
+  "Kész. Újraindítás…": "Bitti. Yeniden başlatılıyor…",
+  "Visszajelzés": "Geri bildirim",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Teşekkürler! Aldık. Bildiriminizin numarası #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Bu bilgisayardan bugün zaten çok fazla geri bildirim gönderildi. Yarın yeniden gönderebilirsiniz.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Gönderilemedi: internet bağlantısı yok. Lütfen daha sonra yeniden deneyin.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Gönderilemedi. Lütfen daha sonra yeniden deneyin.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Bir şey çalışmıyor mu, yoksa bir fikriniz mi var? Kendi sözlerinizle anlatın, Sloth OS geliştiricilerine iletelim.",
+  "Miről szól?": "Ne hakkında?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Sorun: bir şey olması gerektiği gibi çalışmıyor",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Fikir: eksik olan ya da daha iyi olabilecek bir şey",
+  "Mi történt, és mit csináltál előtte?": "Ne oldu ve öncesinde ne yapıyordunuz?",
+  "Írd le pár mondatban": "Birkaç cümleyle anlatın",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Örneğin: Battle.net'i başlattım ama bir dakika sonra kapandı.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Bilgisayar bilgilerini ve günlüğü ekle (sorunu bulmaya yardımcı olur)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Günlük herkese açık değildir: yalnızca geliştiriciler görür ve 30 gün sonra silinir. Kullanıcı adınızı ve cihazlarınızın adlarını içerebilir, ancak dosyalarınızı içermez. Açıklamanız adınız olmadan herkese açık olacaktır.",
+  "Küldés…": "Gönderiliyor…",
+  "Küldés": "Gönder"
 }

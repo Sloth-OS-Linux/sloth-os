@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Odebírání ručně přidaných systémových balíčků…",
   "A kernelparaméterek visszaállítása…": "Obnovování parametrů jádra…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Obnovování počítače… Může to trvat několik minut, nevypínejte počítač.",
-  "Kész. Újraindítás…": "Hotovo. Restartování…"
+  "Kész. Újraindítás…": "Hotovo. Restartování…",
+  "Visszajelzés": "Zpětná vazba",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Děkujeme! Máme to. Číslo vašeho hlášení je #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Z tohoto počítače už dnes odešlo hodně zpětné vazby. Další můžete poslat zítra.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Odeslání se nezdařilo: chybí připojení k internetu. Zkuste to později.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Odeslání se nezdařilo. Zkuste to později.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Něco nefunguje, nebo máte nápad? Popište to vlastními slovy a pošleme to vývojářům Sloth OS.",
+  "Miről szól?": "O co jde?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Chyba: něco nefunguje, jak by mělo",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Nápad: něco chybí nebo by mohlo být lepší",
+  "Mi történt, és mit csináltál előtte?": "Co se stalo a co jste dělali předtím?",
+  "Írd le pár mondatban": "Popište to v několika větách",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Například: spustil jsem Battle.net, ale po minutě se zavřel.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Připojit informace o počítači a protokol (pomůže najít chybu)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Protokol není veřejný: vidí ho jen vývojáři a po 30 dnech se smaže. Může obsahovat vaše uživatelské jméno a názvy zařízení, ale ne vaše soubory. Váš popis bude veřejný, bez vašeho jména.",
+  "Küldés…": "Odesílání…",
+  "Küldés": "Odeslat"
 }

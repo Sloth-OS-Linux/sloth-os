@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "جارٍ إزالة حزم النظام المضافة يدويًا…",
   "A kernelparaméterek visszaállítása…": "جارٍ استعادة معاملات النواة…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "جارٍ إعادة تعيين الحاسوب… قد يستغرق ذلك بضع دقائق، لا تطفئ الحاسوب.",
-  "Kész. Újraindítás…": "تم. جارٍ إعادة التشغيل…"
+  "Kész. Újraindítás…": "تم. جارٍ إعادة التشغيل…",
+  "Visszajelzés": "الملاحظات",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "شكرًا لك! لقد وصلتنا. رقم بلاغك هو #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "أُرسل اليوم بالفعل الكثير من الملاحظات من هذا الحاسوب. يمكنك الإرسال مجددًا غدًا.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "تعذّر الإرسال: لا يوجد اتصال بالإنترنت. حاول مرة أخرى لاحقًا.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "تعذّر الإرسال. حاول مرة أخرى لاحقًا.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "هل هناك شيء لا يعمل، أو لديك فكرة؟ صِفها بكلماتك الخاصة، وسنرسلها إلى مطوّري Sloth OS.",
+  "Miről szól?": "عمّ يتعلق الأمر؟",
+  "Hiba: valami nem úgy működik, ahogy kellene": "مشكلة: شيء لا يعمل كما ينبغي",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "فكرة: شيء ناقص أو يمكن أن يكون أفضل",
+  "Mi történt, és mit csináltál előtte?": "ماذا حدث، وماذا كنت تفعل قبل ذلك؟",
+  "Írd le pár mondatban": "صِفه في بضع جمل",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "مثلًا: شغّلت Battle.net، لكنه أُغلق بعد دقيقة.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "إرفاق معلومات الحاسوب والسجل (يساعد في العثور على المشكلة)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "السجل ليس عامًّا: لا يراه إلا المطوّرون، ويُحذف بعد 30 يومًا. قد يحتوي على اسم المستخدم الخاص بك وأسماء أجهزتك، لكنه لا يحتوي على ملفاتك. سيكون وصفك عامًّا، بدون اسمك.",
+  "Küldés…": "جارٍ الإرسال…",
+  "Küldés": "إرسال"
 }

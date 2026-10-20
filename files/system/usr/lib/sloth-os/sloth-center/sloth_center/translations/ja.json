@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "手動で追加したシステムパッケージを削除しています…",
   "A kernelparaméterek visszaállítása…": "カーネルパラメーターを元に戻しています…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "PC を初期状態に戻しています… 数分かかることがあります。電源を切らないでください。",
-  "Kész. Újraindítás…": "完了しました。再起動しています…"
+  "Kész. Újraindítás…": "完了しました。再起動しています…",
+  "Visszajelzés": "フィードバック",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "ありがとうございます！受け付けました。受付番号は #{number} です。",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "このコンピューターからは今日すでに多くのフィードバックが送信されています。明日また送信できます。",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "送信できませんでした：インターネットに接続されていません。後でもう一度お試しください。",
+  "Nem sikerült elküldeni. Próbáld újra később.": "送信できませんでした。後でもう一度お試しください。",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "うまく動かないことや、アイデアがありますか？ご自分の言葉で書いていただければ、Sloth OS の開発者に届けます。",
+  "Miről szól?": "どんな内容ですか？",
+  "Hiba: valami nem úgy működik, ahogy kellene": "問題：本来の動作をしないものがある",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "アイデア：足りないもの、もっと良くなるもの",
+  "Mi történt, és mit csináltál előtte?": "何が起きましたか？その前に何をしていましたか？",
+  "Írd le pár mondatban": "数文で書いてください",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "例：Battle.net を起動したら、1分後に閉じてしまいました。",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "コンピューターの情報とログを添付する（問題の発見に役立ちます）",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "ログは公開されません。見られるのは開発者だけで、30日後に削除されます。ユーザー名やデバイス名が含まれることがありますが、ファイルは含まれません。説明文は名前なしで公開されます。",
+  "Küldés…": "送信中…",
+  "Küldés": "送信"
 }

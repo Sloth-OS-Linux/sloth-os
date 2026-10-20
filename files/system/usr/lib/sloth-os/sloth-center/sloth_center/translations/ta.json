@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "கைமுறையாகச் சேர்த்த கணினித் தொகுப்புகள் அகற்றப்படுகின்றன…",
   "A kernelparaméterek visszaállítása…": "கர்னல் அளவுருக்கள் மீட்டமைக்கப்படுகின்றன…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "கணினி மீட்டமைக்கப்படுகிறது… சில நிமிடங்கள் ஆகலாம், கணினியை அணைக்க வேண்டாம்.",
-  "Kész. Újraindítás…": "முடிந்தது. மறுதொடக்கம் ஆகிறது…"
+  "Kész. Újraindítás…": "முடிந்தது. மறுதொடக்கம் ஆகிறது…",
+  "Visszajelzés": "கருத்து",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "நன்றி! கிடைத்தது. உங்கள் புகார் எண் #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "இன்று இந்தக் கணினியிலிருந்து ஏற்கனவே நிறைய கருத்துகள் அனுப்பப்பட்டுள்ளன. நாளை மீண்டும் அனுப்பலாம்.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "அனுப்ப முடியவில்லை: இணைய இணைப்பு இல்லை. பிறகு மீண்டும் முயலவும்.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "அனுப்ப முடியவில்லை. பிறகு மீண்டும் முயலவும்.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "ஏதாவது வேலை செய்யவில்லையா, அல்லது ஒரு யோசனை இருக்கிறதா? உங்கள் சொந்த வார்த்தைகளில் எழுதுங்கள், அதை Sloth OS உருவாக்குநர்களுக்கு அனுப்புவோம்.",
+  "Miről szól?": "எதைப் பற்றியது?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "சிக்கல்: ஏதோ ஒன்று சரியாக வேலை செய்யவில்லை",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "யோசனை: இல்லாத அல்லது இன்னும் சிறப்பாக இருக்கக்கூடிய ஒன்று",
+  "Mi történt, és mit csináltál előtte?": "என்ன நடந்தது, அதற்கு முன் நீங்கள் என்ன செய்துகொண்டிருந்தீர்கள்?",
+  "Írd le pár mondatban": "சில வாக்கியங்களில் விவரிக்கவும்",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "எடுத்துக்காட்டு: Battle.net-ஐத் தொடங்கினேன், ஆனால் ஒரு நிமிடத்தில் மூடிவிட்டது.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "கணினித் தகவலையும் பதிவையும் இணைக்கவும் (சிக்கலைக் கண்டறிய உதவும்)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "பதிவு பொதுவில் இல்லை: உருவாக்குநர்கள் மட்டுமே பார்ப்பார்கள், 30 நாட்களுக்குப் பிறகு நீக்கப்படும். அதில் உங்கள் பயனர் பெயரும் சாதனங்களின் பெயர்களும் இருக்கலாம், ஆனால் உங்கள் கோப்புகள் இருக்காது. உங்கள் விளக்கம் உங்கள் பெயர் இல்லாமல் பொதுவில் இருக்கும்.",
+  "Küldés…": "அனுப்புகிறது…",
+  "Küldés": "அனுப்பு"
 }

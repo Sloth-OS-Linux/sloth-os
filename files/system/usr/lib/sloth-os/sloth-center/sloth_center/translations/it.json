@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Rimozione dei pacchetti di sistema aggiunti a mano…",
   "A kernelparaméterek visszaállítása…": "Ripristino dei parametri del kernel…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Ripristino del PC… Può richiedere qualche minuto, non spegnere il computer.",
-  "Kész. Újraindítás…": "Fatto. Riavvio…"
+  "Kész. Újraindítás…": "Fatto. Riavvio…",
+  "Visszajelzés": "Feedback",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Grazie! L'abbiamo ricevuto. Il numero della tua segnalazione è #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Oggi da questo computer sono già stati inviati molti feedback. Potrai inviarne altri domani.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Invio non riuscito: nessuna connessione a Internet. Riprova più tardi.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Invio non riuscito. Riprova più tardi.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Qualcosa non funziona o hai un'idea? Descrivilo con parole tue e lo invieremo agli sviluppatori di Sloth OS.",
+  "Miről szól?": "Di cosa si tratta?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Problema: qualcosa non funziona come dovrebbe",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idea: qualcosa che manca o che potrebbe essere migliore",
+  "Mi történt, és mit csináltál előtte?": "Cosa è successo, e cosa stavi facendo prima?",
+  "Írd le pár mondatban": "Descrivilo in poche frasi",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Ad esempio: ho avviato Battle.net, ma si è chiuso dopo un minuto.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Allega le informazioni sul computer e il registro (aiuta a trovare il problema)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Il registro non è pubblico: lo vedono solo gli sviluppatori e viene eliminato dopo 30 giorni. Può contenere il tuo nome utente e i nomi dei tuoi dispositivi, ma non i tuoi file. La tua descrizione sarà pubblica, senza il tuo nome.",
+  "Küldés…": "Invio in corso…",
+  "Küldés": "Invia"
 }

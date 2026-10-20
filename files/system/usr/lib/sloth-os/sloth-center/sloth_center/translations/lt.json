@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "Šalinami rankiniu būdu pridėti sistemos paketai…",
   "A kernelparaméterek visszaállítása…": "Atkuriami branduolio parametrai…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "Atkuriamas kompiuteris… Tai gali užtrukti kelias minutes, neišjunkite kompiuterio.",
-  "Kész. Újraindítás…": "Baigta. Paleidžiama iš naujo…"
+  "Kész. Újraindítás…": "Baigta. Paleidžiama iš naujo…",
+  "Visszajelzés": "Atsiliepimas",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "Ačiū! Gavome. Jūsų pranešimo numeris – #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "Iš šio kompiuterio šiandien jau išsiųsta daug atsiliepimų. Rytoj galėsite siųsti vėl.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "Nepavyko išsiųsti: nėra interneto ryšio. Bandykite vėliau.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "Nepavyko išsiųsti. Bandykite vėliau.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "Kažkas neveikia ar turite idėją? Aprašykite savais žodžiais, ir mes perduosime tai Sloth OS kūrėjams.",
+  "Miről szól?": "Apie ką tai?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "Klaida: kažkas veikia ne taip, kaip turėtų",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "Idėja: kažko trūksta arba galėtų būti geriau",
+  "Mi történt, és mit csináltál előtte?": "Kas nutiko ir ką darėte prieš tai?",
+  "Írd le pár mondatban": "Aprašykite keliais sakiniais",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "Pavyzdžiui: paleidau Battle.net, bet po minutės jis užsidarė.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Pridėti kompiuterio informaciją ir žurnalą (padeda rasti klaidą)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Žurnalas nėra viešas: jį mato tik kūrėjai, o po 30 dienų jis ištrinamas. Jame gali būti jūsų naudotojo vardas ir įrenginių pavadinimai, bet ne jūsų failai. Jūsų aprašymas bus viešas, be jūsų vardo.",
+  "Küldés…": "Siunčiama…",
+  "Küldés": "Siųsti"
 }

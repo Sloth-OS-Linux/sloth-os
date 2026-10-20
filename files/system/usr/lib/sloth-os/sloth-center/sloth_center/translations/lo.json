@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "ກຳລັງລຶບແພັກເກັດລະບົບທີ່ເພີ່ມດ້ວຍຕົນເອງ…",
   "A kernelparaméterek visszaállítása…": "ກຳລັງກູ້ຄືນພາລາມິເຕີເຄີເນວ…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "ກຳລັງຣີເຊັດຄອມພິວເຕີ… ອາດໃຊ້ເວລາສອງສາມນາທີ, ຢ່າປິດຄອມພິວເຕີ.",
-  "Kész. Újraindítás…": "ສຳເລັດ. ກຳລັງເປີດເຄື່ອງໃໝ່…"
+  "Kész. Újraindítás…": "ສຳເລັດ. ກຳລັງເປີດເຄື່ອງໃໝ່…",
+  "Visszajelzés": "ຄຳຕິຊົມ",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "ຂອບໃຈ! ພວກເຮົາໄດ້ຮັບແລ້ວ. ເລກລາຍງານຂອງທ່ານແມ່ນ #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "ມື້ນີ້ມີການສົ່ງຄຳຕິຊົມຈາກຄອມພິວເຕີນີ້ຫຼາຍແລ້ວ. ທ່ານສາມາດສົ່ງອີກໄດ້ມື້ອື່ນ.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "ສົ່ງບໍ່ສຳເລັດ: ບໍ່ມີການເຊື່ອມຕໍ່ອິນເຕີເນັດ. ກະລຸນາລອງໃໝ່ພາຍຫຼັງ.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "ສົ່ງບໍ່ສຳເລັດ. ກະລຸນາລອງໃໝ່ພາຍຫຼັງ.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "ມີບາງຢ່າງບໍ່ເຮັດວຽກ ຫຼື ມີແນວຄິດບໍ? ອະທິບາຍດ້ວຍຄຳເວົ້າຂອງທ່ານເອງ ແລ້ວພວກເຮົາຈະສົ່ງໃຫ້ຜູ້ພັດທະນາ Sloth OS.",
+  "Miről szól?": "ກ່ຽວກັບຫຍັງ?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "ບັນຫາ: ບາງຢ່າງບໍ່ເຮັດວຽກຕາມທີ່ຄວນ",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "ແນວຄິດ: ບາງຢ່າງທີ່ຂາດ ຫຼື ອາດດີກວ່ານີ້",
+  "Mi történt, és mit csináltál előtte?": "ເກີດຫຍັງຂຶ້ນ ແລະ ທ່ານເຮັດຫຍັງກ່ອນໜ້ານັ້ນ?",
+  "Írd le pár mondatban": "ອະທິບາຍສອງສາມປະໂຫຍກ",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "ຕົວຢ່າງ: ຂ້ອຍເປີດ Battle.net ແຕ່ມັນປິດໄປຫຼັງຈາກໜຶ່ງນາທີ.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "ແນບຂໍ້ມູນຄອມພິວເຕີ ແລະ ບັນທຶກ (ຊ່ວຍຊອກຫາບັນຫາ)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "ບັນທຶກບໍ່ເປັນສາທາລະນະ: ມີແຕ່ຜູ້ພັດທະນາທີ່ເຫັນ ແລະ ຈະຖືກລຶບຫຼັງ 30 ມື້. ອາດມີຊື່ຜູ້ໃຊ້ ແລະ ຊື່ອຸປະກອນຂອງທ່ານ ແຕ່ບໍ່ມີໄຟລ໌ຂອງທ່ານ. ຄຳອະທິບາຍຂອງທ່ານຈະເປັນສາທາລະນະ ໂດຍບໍ່ມີຊື່ຂອງທ່ານ.",
+  "Küldés…": "ກຳລັງສົ່ງ…",
+  "Küldés": "ສົ່ງ"
 }

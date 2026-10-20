@@ -565,5 +565,21 @@
   "A kézzel hozzáadott rendszercsomagok levétele…": "ხელით დამატებული სისტემური პაკეტების წაშლა…",
   "A kernelparaméterek visszaállítása…": "ბირთვის პარამეტრების აღდგენა…",
   "A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet.": "კომპიუტერის საწყის მდგომარეობაში დაბრუნება… შეიძლება რამდენიმე წუთი დასჭირდეს, ნუ გამორთავთ კომპიუტერს.",
-  "Kész. Újraindítás…": "მზადაა. გადატვირთვა…"
+  "Kész. Újraindítás…": "მზადაა. გადატვირთვა…",
+  "Visszajelzés": "უკუკავშირი",
+  "Köszönjük! Megkaptuk, a bejelentés száma: #{number}.": "გმადლობთ! მივიღეთ. თქვენი შეტყობინების ნომერია #{number}.",
+  "Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.": "ამ კომპიუტერიდან დღეს უკვე ბევრი უკუკავშირი გაიგზავნა. ხვალ ისევ შეძლებთ გაგზავნას.",
+  "Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.": "ვერ გაიგზავნა: ინტერნეტთან კავშირი არ არის. სცადეთ მოგვიანებით.",
+  "Nem sikerült elküldeni. Próbáld újra később.": "ვერ გაიგზავნა. სცადეთ მოგვიანებით.",
+  "Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.": "რაღაც არ მუშაობს, ან იდეა გაქვთ? აღწერეთ საკუთარი სიტყვებით და გადავუგზავნით Sloth OS-ის დეველოპერებს.",
+  "Miről szól?": "რას ეხება?",
+  "Hiba: valami nem úgy működik, ahogy kellene": "შეცდომა: რაღაც ისე არ მუშაობს, როგორც უნდა",
+  "Ötlet: valami, ami hiányzik vagy jobb lehetne": "იდეა: რაღაც აკლია ან შეიძლება უკეთესი იყოს",
+  "Mi történt, és mit csináltál előtte?": "რა მოხდა და რას აკეთებდით მანამდე?",
+  "Írd le pár mondatban": "აღწერეთ რამდენიმე წინადადებით",
+  "Például: elindítottam a Battle.net-et, de egy perc után bezárult.": "მაგალითად: გავუშვი Battle.net, მაგრამ ერთ წუთში დაიხურა.",
+  "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "კომპიუტერის ინფორმაციისა და ჟურნალის მიმაგრება (ეხმარება შეცდომის პოვნას)",
+  "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "ჟურნალი არ არის საჯარო: მას მხოლოდ დეველოპერები ხედავენ და 30 დღის შემდეგ იშლება. შეიძლება შეიცავდეს თქვენს მომხმარებლის სახელს და მოწყობილობების სახელებს, მაგრამ არა თქვენს ფაილებს. თქვენი აღწერა საჯარო იქნება, სახელის გარეშე.",
+  "Küldés…": "იგზავნება…",
+  "Küldés": "გაგზავნა"
 }
