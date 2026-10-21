@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Подреждане на снимки и обработка на RAW",
   "app.org.shotcut.Shotcut": "Лесен видеоредактор",
   "app.windows_badge": "Програма за Windows · инсталира се след съветника",
+  "app.installed": "Вече е инсталирано",
   "category.windows_note": "Засега съветникът само изтегля стартерите на игри за Windows (Battle.net, EA app, Ubisoft Connect…). Инсталирането е в края на съветника: те се отварят един по един и ги минавате като в Windows.",
   "done.windows_hint": "Инсталаторите на програмите за Windows са изтеглени ({names}). Сега ще се отворят един по един: минете през всяка инсталация като в Windows. Рестартирането е накрая.",
   "done.windows_continue": "Към инсталирането на програмите за Windows",

@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "写真の整理と RAW 現像",
   "app.org.shotcut.Shotcut": "かんたんな動画編集",
   "app.windows_badge": "Windows プログラム · ウィザードのあとでインストール",
+  "app.installed": "インストール済み",
   "category.windows_note": "Windows 用ゲームランチャー (Battle.net、EA app、Ubisoft Connect…) は、いまはダウンロードだけ行います。インストールはウィザードの最後に、1 つずつ開くので Windows と同じように進めてください。",
   "done.windows_hint": "Windows プログラムのインストーラーをダウンロードしました ({names})。これから 1 つずつ開きます。Windows と同じように各インストールを進めてください。再起動は最後です。",
   "done.windows_continue": "Windows プログラムのインストールへ進む",

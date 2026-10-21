@@ -67,6 +67,33 @@ def _run_queued(path):
     return proc.wait()
 
 
+FLATPAK_APP_DIRS = [Path("/var/lib/flatpak/app"), Path.home() / ".local/share/flatpak/app"]
+
+
+def installed_apps():
+    """A katalógus appjai közül, ami már fent van: a varázsló újrafuttatásakor pipával látszanak, és nem
+    települnek újra (Flatpak: a telepített mappája; Windows-program: az .exe kezelő nyilvántartása, Start menüvel)."""
+    from sloth_common.apps import library, menu
+    out = []
+    for cat in catalog.CATEGORIES:
+        for app in cat["apps"]:
+            source = app.get("source", "flathub")
+            try:
+                if source in ("flathub", "github-bundle"):
+                    present = any((d / app["id"] / "current").exists() for d in FLATPAK_APP_DIRS)
+                elif source == "windows":
+                    found = library.find_installed(app["name"], app["file"])
+                    present = found is not None and bool(menu.entries(found))
+                else:
+                    present = False  # a rendszerben lévő (pl. KDE Connect): a bekapcsolása újra lefuthat
+            except Exception:  # noqa: BLE001  egy hibás bejegyzés ne állítsa meg a varázslót
+                log.exception("%s: nem derült ki, fent van-e", app["id"])
+                present = False
+            if present:
+                out.append(app["id"])
+    return out
+
+
 def apply_language():
     """Ablakcím és írásirány a választott nyelvhez (arab, héber: jobbról balra, tükrözve)."""
     QApplication.setApplicationDisplayName(tr("app.title"))
@@ -92,8 +119,10 @@ class WelcomeController(QObject):
         self._steps = build_steps(windows_only)
         self._step = 0
         self._selected = []
-        self._scheme = "SlothSilverDark"
-        self._layout = "windows10"
+        # Újrafuttatáskor a mostani megjelenés legyen kiválasztva (első indításkor a gyári alapértelmezés)
+        self._scheme = desktop.current_color_scheme() or "SlothSilverDark"
+        self._layout = desktop.current_layout() or "windows10"
+        self._present = installed_apps()  # ami már fent van: pipával, nem települ újra
         self._status = ""
         self._detail = ""
         self._progress = -1
@@ -569,8 +598,14 @@ class WelcomeController(QObject):
             self._save()
             self.changed.emit()
 
+    @Property("QVariantList", constant=True)
+    def presentIds(self):
+        return list(self._present)
+
     @Slot(str)
     def toggle(self, app_id):
+        if app_id in self._present:
+            return
         if app_id in self._selected:
             self._selected.remove(app_id)
         else:

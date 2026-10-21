@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Фотоларды реттеу және RAW өңдеу",
   "app.org.shotcut.Shotcut": "Қарапайым бейнередактор",
   "app.windows_badge": "Windows бағдарламасы · шебер аяқталған соң орнатылады",
+  "app.installed": "Орнатылған",
   "category.windows_note": "Шебер қазір Windows ойын іске қосқыштарын (Battle.net, EA app, Ubisoft Connect…) тек жүктейді. Олар шебердің соңында орнатылады: бір-бірден ашылады, сіз Windows-тағыдай өтесіз.",
   "done.windows_hint": "Windows бағдарламаларының орнатқыштары жүктелді ({names}). Енді олар бір-бірден ашылады: әр орнатуды Windows-тағыдай өтіңіз. Қайта іске қосу соңында.",
   "done.windows_continue": "Windows бағдарламаларын орнатуға өту",

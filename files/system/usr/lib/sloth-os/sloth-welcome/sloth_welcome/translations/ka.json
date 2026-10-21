@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "ფოტოების დალაგება და RAW-ის დამუშავება",
   "app.org.shotcut.Shotcut": "მარტივი ვიდეორედაქტორი",
   "app.windows_badge": "Windows-ის პროგრამა · ინსტალდება ოსტატის შემდეგ",
+  "app.installed": "უკვე დაინსტალირებულია",
   "category.windows_note": "ოსტატი ახლა მხოლოდ ჩამოტვირთავს Windows-ის თამაშების გამშვებებს (Battle.net, EA app, Ubisoft Connect…). მათი ინსტალაცია ოსტატის ბოლოს ხდება: სათითაოდ გაიხსნება და Windows-ის მსგავსად გაივლით.",
   "done.windows_hint": "Windows-ის პროგრამების ინსტალერები ჩამოიტვირთა ({names}). ახლა სათითაოდ გაიხსნება: გაიარეთ თითოეული ინსტალაცია Windows-ის მსგავსად. გადატვირთვა ბოლოს არის.",
   "done.windows_continue": "გაგრძელება Windows-ის პროგრამების ინსტალაციით",

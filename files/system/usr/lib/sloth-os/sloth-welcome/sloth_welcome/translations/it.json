@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Organizzazione foto e sviluppo RAW",
   "app.org.shotcut.Shotcut": "Editor video semplice",
   "app.windows_badge": "Programma Windows · si installa dopo la procedura",
+  "app.installed": "Già installato",
   "category.windows_note": "Per ora la procedura scarica soltanto i launcher di giochi per Windows (Battle.net, EA app, Ubisoft Connect…). L'installazione avviene alla fine: si aprono uno alla volta e li completi, come su Windows.",
   "done.windows_hint": "Gli installer dei programmi Windows sono stati scaricati ({names}). Ora si apriranno uno alla volta: completa ogni installazione, come su Windows. Il riavvio arriva alla fine.",
   "done.windows_continue": "Continua con l'installazione dei programmi Windows",

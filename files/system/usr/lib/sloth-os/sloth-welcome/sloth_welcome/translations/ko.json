@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "사진 정리와 RAW 현상",
   "app.org.shotcut.Shotcut": "쉬운 동영상 편집기",
   "app.windows_badge": "Windows 프로그램 · 마법사가 끝난 뒤 설치",
+  "app.installed": "이미 설치됨",
   "category.windows_note": "지금은 Windows용 게임 런처(Battle.net, EA app, Ubisoft Connect…)를 다운로드만 합니다. 설치는 마법사 마지막에 진행되며, 하나씩 열리면 Windows에서처럼 진행하면 됩니다.",
   "done.windows_hint": "Windows 프로그램 설치 파일을 다운로드했습니다 ({names}). 이제 하나씩 열립니다. Windows에서처럼 각 설치를 진행하세요. 다시 시작은 마지막에 합니다.",
   "done.windows_continue": "Windows 프로그램 설치로 계속",

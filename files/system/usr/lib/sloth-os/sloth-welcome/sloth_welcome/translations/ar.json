@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "تنظيم الصور ومعالجة RAW",
   "app.org.shotcut.Shotcut": "محرر فيديو سهل",
   "app.windows_badge": "برنامج Windows · يُثبَّت بعد المعالج",
+  "app.installed": "مثبّت بالفعل",
   "category.windows_note": "يكتفي المعالج الآن بتنزيل مشغّلات ألعاب Windows ‏(Battle.net وEA app وUbisoft Connect…). يجري تثبيتها في نهاية المعالج: تُفتح واحدًا تلو الآخر وتُكمل كلًّا منها كما في Windows.",
   "done.windows_hint": "نُزّلت مثبّتات برامج Windows ‏({names}). ستُفتح الآن واحدًا تلو الآخر: أكمل كل تثبيت كما في Windows. إعادة التشغيل تأتي في النهاية.",
   "done.windows_continue": "المتابعة إلى تثبيت برامج Windows",

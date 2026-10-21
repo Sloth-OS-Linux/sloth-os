@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Сређивање фотографија и развијање RAW-а",
   "app.org.shotcut.Shotcut": "Једноставан уређивач видеа",
   "app.windows_badge": "Windows програм · инсталира се после чаробњака",
+  "app.installed": "Већ инсталирано",
   "category.windows_note": "Чаробњак сада само преузима покретаче игара за Windows (Battle.net, EA app, Ubisoft Connect…). Инсталирају се на крају чаробњака: отварају се један по један и пролазите кроз њих као у Windows-у.",
   "done.windows_hint": "Инсталациони програми за Windows су преузети ({names}). Сада ће се отварати један по један: прођите кроз сваку инсталацију као у Windows-у. Поновно покретање долази на крају.",
   "done.windows_continue": "Настави на инсталацију Windows програма",

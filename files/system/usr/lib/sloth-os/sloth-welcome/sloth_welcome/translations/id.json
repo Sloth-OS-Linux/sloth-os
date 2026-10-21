@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Atur foto dan proses RAW",
   "app.org.shotcut.Shotcut": "Penyunting video yang mudah",
   "app.windows_badge": "Program Windows · dipasang setelah wisaya",
+  "app.installed": "Sudah terpasang",
   "category.windows_note": "Wisaya saat ini hanya mengunduh peluncur game Windows (Battle.net, EA app, Ubisoft Connect…). Pemasangannya di akhir wisaya: dibuka satu per satu dan Anda menyelesaikannya, seperti di Windows.",
   "done.windows_hint": "Pemasang program Windows sudah diunduh ({names}). Sekarang akan dibuka satu per satu: selesaikan setiap pemasangan, seperti di Windows. Mulai ulang dilakukan di akhir.",
   "done.windows_continue": "Lanjut ke pemasangan program Windows",

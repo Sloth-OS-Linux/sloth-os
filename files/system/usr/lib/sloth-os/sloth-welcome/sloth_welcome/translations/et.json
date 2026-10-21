@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Fotode korrastamine ja RAW-ilmutamine",
   "app.org.shotcut.Shotcut": "Lihtne videotöötlus",
   "app.windows_badge": "Windowsi programm · paigaldatakse pärast viisardit",
+  "app.installed": "Juba paigaldatud",
   "category.windows_note": "Viisard laadib praegu ainult Windowsi mängukäivitid (Battle.net, EA app, Ubisoft Connect…) alla. Need paigaldatakse viisardi lõpus: avanevad ükshaaval ja sa klõpsad need läbi nagu Windowsis.",
   "done.windows_hint": "Windowsi programmide paigaldajad on alla laaditud ({names}). Nüüd avanevad need ükshaaval: läbi iga paigaldus nagu Windowsis. Taaskäivitus tuleb lõpus.",
   "done.windows_continue": "Jätka Windowsi programmide paigaldamisega",

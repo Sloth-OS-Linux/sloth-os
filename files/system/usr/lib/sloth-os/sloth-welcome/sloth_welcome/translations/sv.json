@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Ordna foton och framkalla RAW",
   "app.org.shotcut.Shotcut": "Enkel videoredigerare",
   "app.windows_badge": "Windows-program · installeras efter guiden",
+  "app.installed": "Redan installerad",
   "category.windows_note": "Guiden laddar nu bara ner spelstartare för Windows (Battle.net, EA app, Ubisoft Connect…). De installeras i slutet av guiden: de öppnas en i taget och du klickar dig igenom dem, precis som i Windows.",
   "done.windows_hint": "Installationsprogrammen för Windows-programmen har laddats ner ({names}). Nu öppnas de en i taget: gå igenom varje installation, precis som i Windows. Omstarten kommer i slutet.",
   "done.windows_continue": "Fortsätt till installationen av Windows-program",

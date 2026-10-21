@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Urejanje fotografij in razvijanje RAW",
   "app.org.shotcut.Shotcut": "Preprost urejevalnik videa",
   "app.windows_badge": "Program za Windows · namesti se po čarovniku",
+  "app.installed": "Že nameščeno",
   "category.windows_note": "Čarovnik zdaj zaganjalnike iger za Windows (Battle.net, EA app, Ubisoft Connect…) le prenese. Namestitev je na koncu čarovnika: odpirajo se eden za drugim in jih prekliknete kot v sistemu Windows.",
   "done.windows_hint": "Namestitveni programi za Windows so preneseni ({names}). Zdaj se bodo odpirali eden za drugim: pojdite skozi vsako namestitev kot v sistemu Windows. Ponovni zagon pride na koncu.",
   "done.windows_continue": "Nadaljuj z namestitvijo programov za Windows",

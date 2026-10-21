@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Foto's ordenen en RAW ontwikkelen",
   "app.org.shotcut.Shotcut": "Eenvoudige video-editor",
   "app.windows_badge": "Windows-programma · installatie na de wizard",
+  "app.installed": "Al geïnstalleerd",
   "category.windows_note": "De wizard downloadt Windows-gamelaunchers (Battle.net, EA app, Ubisoft Connect…) nu alleen. Ze worden aan het eind van de wizard geïnstalleerd: ze openen één voor één en je klikt ze door, net als in Windows.",
   "done.windows_hint": "De installatieprogramma's van de Windows-programma's zijn gedownload ({names}). Ze openen nu één voor één: doorloop elke installatie, net als in Windows. Het opnieuw opstarten komt aan het eind.",
   "done.windows_continue": "Verder met het installeren van Windows-programma's",

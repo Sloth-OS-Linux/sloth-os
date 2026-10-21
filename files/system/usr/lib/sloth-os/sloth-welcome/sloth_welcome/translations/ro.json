@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Organizarea fotografiilor și developare RAW",
   "app.org.shotcut.Shotcut": "Editor video simplu",
   "app.windows_badge": "Program Windows · se instalează după asistent",
+  "app.installed": "Deja instalat",
   "category.windows_note": "Deocamdată asistentul doar descarcă lansatoarele de jocuri pentru Windows (Battle.net, EA app, Ubisoft Connect…). Instalarea vine la finalul asistentului: se deschid pe rând și le parcurgi, ca în Windows.",
   "done.windows_hint": "Programele de instalare Windows au fost descărcate ({names}). Acum se vor deschide pe rând: parcurge fiecare instalare, ca în Windows. Repornirea vine la final.",
   "done.windows_continue": "Continuă cu instalarea programelor Windows",

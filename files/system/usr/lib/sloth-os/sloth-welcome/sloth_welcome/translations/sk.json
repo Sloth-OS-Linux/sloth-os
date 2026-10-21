@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Správa fotografií a vyvolávanie RAW",
   "app.org.shotcut.Shotcut": "Jednoduchý editor videa",
   "app.windows_badge": "Program pre Windows · inštalácia po sprievodcovi",
+  "app.installed": "Už nainštalované",
   "category.windows_note": "Spúšťače hier pre Windows (Battle.net, EA app, Ubisoft Connect…) sprievodca teraz iba stiahne. Inštalujú sa na konci sprievodcu: otvárajú sa jeden po druhom a preklikáte ich ako vo Windows.",
   "done.windows_hint": "Inštalátory programov pre Windows sú stiahnuté ({names}). Teraz sa budú otvárať jeden po druhom: prejdite každou inštaláciou ako vo Windows. Reštart príde na konci.",
   "done.windows_continue": "Pokračovať k inštalácii programov pre Windows",

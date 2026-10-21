@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Ordigo de fotoj kaj RAW-evoluigo",
   "app.org.shotcut.Shotcut": "Simpla videoredaktilo",
   "app.windows_badge": "Windows-programo · instaliĝas post la asistanto",
+  "app.installed": "Jam instalita",
   "category.windows_note": "La asistanto nun nur elŝutas la Windows-ludlanĉilojn (Battle.net, EA app, Ubisoft Connect…). Ili instaliĝas fine de la asistanto: ili malfermiĝas unu post la alia, kaj vi trairas ĉiun, kiel en Windows.",
   "done.windows_hint": "La instaliloj de la Windows-programoj estas elŝutitaj ({names}). Nun ili malfermiĝos unu post la alia: trairu ĉiun instaladon, kiel en Windows. La restartigo venas fine.",
   "done.windows_continue": "Daŭrigi al instalado de Windows-programoj",

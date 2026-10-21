@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "相片整理和 RAW 處理",
   "app.org.shotcut.Shotcut": "簡單易用的影片編輯器",
   "app.windows_badge": "Windows 程式 · 精靈結束後安裝",
+  "app.installed": "已安裝",
   "category.windows_note": "精靈現在只會下載 Windows 遊戲啟動器（Battle.net、EA app、Ubisoft Connect…）。它們會在精靈最後安裝：逐一開啟，您就像在 Windows 中一樣完成每個安裝。",
   "done.windows_hint": "Windows 程式的安裝程式已下載（{names}）。現在會逐一開啟：請像在 Windows 中一樣完成每個安裝。重新啟動在最後。",
   "done.windows_continue": "繼續安裝 Windows 程式",

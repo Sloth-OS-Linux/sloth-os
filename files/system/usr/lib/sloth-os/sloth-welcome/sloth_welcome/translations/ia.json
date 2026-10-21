@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Organisation de photos e disveloppamento RAW",
   "app.org.shotcut.Shotcut": "Editor video simple",
   "app.windows_badge": "Programma Windows · installate post le assistente",
+  "app.installed": "Jam installate",
   "category.windows_note": "Le assistente ora solmente discarga le lanceatores de jocos pro Windows (Battle.net, EA app, Ubisoft Connect…). Illos es installate al fin del assistente: illos se aperi un post le altere e tu los completa, como in Windows.",
   "done.windows_hint": "Le installatores del programmas Windows ha essite discargate ({names}). Ora illos se aperira un post le altere: completa cata installation, como in Windows. Le reinitio veni al fin.",
   "done.windows_continue": "Continuar al installation del programmas Windows",

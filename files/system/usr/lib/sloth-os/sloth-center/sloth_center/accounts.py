@@ -198,7 +198,10 @@ class AccountsController(QObject):
     def setLoginMethod(self, method, enabled):
         self._error, self._info = "", ""
         if method in ("fingerprint", "securitykey"):
-            if self._helper(["login-feature", method, "on" if enabled else "off"]).get("ok"):
+            result = self._helper(["login-feature", method, "on" if enabled else "off"])
+            if result.get("error"):
+                log.warning("login-feature %s: %s", method, result["error"])
+            if result.get("ok"):
                 self._info = tr("Elmentve. A következő bejelentkezéstől érvényes.")
             else:
                 self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")

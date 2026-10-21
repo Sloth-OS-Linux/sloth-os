@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Упорядкування фото та проявлення RAW",
   "app.org.shotcut.Shotcut": "Простий відеоредактор",
   "app.windows_badge": "Програма для Windows · встановлення після майстра",
+  "app.installed": "Уже встановлено",
   "category.windows_note": "Лаунчери ігор для Windows (Battle.net, EA app, Ubisoft Connect…) майстер зараз лише завантажує. Встановлення — наприкінці майстра: вони відкриватимуться по черзі, і ви пройдете кожен, як у Windows.",
   "done.windows_hint": "Інсталятори програм для Windows завантажено ({names}). Зараз вони відкриються по черзі: пройдіть кожне встановлення, як у Windows. Перезапуск — наприкінці.",
   "done.windows_continue": "Перейти до встановлення програм для Windows",

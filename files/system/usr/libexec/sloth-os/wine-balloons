@@ -10,12 +10,14 @@ Eseményekre vár, nem kérdezget. Csak libX11 kell hozzá (ctypes).
 """
 import ctypes
 import ctypes.util
+import os
 import sys
 import time
 
 MARGIN = 8
 NEAR = 64           # ennyin belül a munkaterület bal felső sarkához: oda tette a Wine (nagyítással szorozva)
 MAX_W, MAX_H = 1200, 800
+MIN_W, MIN_H = 100, 30   # ennél kisebb: tálcaikon, nem buborék
 
 CREATE_NOTIFY, MAP_NOTIFY, CONFIGURE_NOTIFY = 16, 19, 22
 SUBSTRUCTURE_NOTIFY_MASK = 1 << 19
@@ -87,13 +89,14 @@ def target_position(work, size):
 
 
 def misplaced(x, y, w, h, work, screen_h):
-    """A bal felső sarokban van-e. A Wine a buborékot a munkaterületen belülre igazítja: fenti panelnél (pl. a
-    macOS-szerű elrendezésben) a panel alá, ezért a munkaterület sarkához mérünk; nagyításnál a határ is nagyobb."""
-    wx, wy = work[0], work[1]
+    """A bal felső részen van-e. A Wine a buborékot a munkaterületen belülre igazítja: fenti panelnél (pl. a
+    macOS-szerű elrendezésben) a panel alá vagy mellé, ezért a munkaterület bal felső harmadát nézzük; nagyításnál a
+    méretek is nagyobbak. A tálcaikonok saját (kicsi, négyzetes) ablakai kimaradnak."""
+    wx, wy, ww, wh = work
     scale = max(1, round(screen_h / 1080))
-    near, max_w, max_h = NEAR * scale, MAX_W * scale, MAX_H * scale
-    return (min(0, wx) <= x < wx + near and min(0, wy) <= y < wy + near
-            and 0 < w <= max_w and 0 < h <= max_h)
+    min_w, min_h, max_w, max_h = MIN_W * scale, MIN_H * scale, MAX_W * scale, MAX_H * scale
+    return (min(0, wx) <= x < wx + max(NEAR * scale, ww // 3) and min(0, wy) <= y < wy + max(NEAR * scale, wh // 3)
+            and min_w <= w <= max_w and min_h <= h <= max_h)
 
 
 class Mover:
@@ -101,6 +104,8 @@ class Mover:
         self.x, self.d = x11, display
         self.root = x11.XDefaultRootWindow(display)
         self.workarea_atom = x11.XInternAtom(display, b"_NET_WORKAREA", 0)
+        self.seen = {}
+        self.pid_atom = x11.XInternAtom(display, b"_NET_WM_PID", 0)
 
     def workarea(self):
         actual, fmt = Atom(), ctypes.c_int()
@@ -116,17 +121,35 @@ class Mover:
                 self.x.XFree(data)
         return 0, 0, self.x.XDisplayWidth(self.d, 0), self.x.XDisplayHeight(self.d, 0)
 
-    def is_wine_explorer(self, win):
+    def class_names(self, win):
         hint = XClassHint()
         if not self.x.XGetClassHint(self.d, win, ctypes.byref(hint)):
-            return False
+            return []
         try:
-            names = [ctypes.string_at(p).decode("latin-1").lower() for p in (hint.res_name, hint.res_class) if p]
+            return [ctypes.string_at(p).decode("latin-1").lower() for p in (hint.res_name, hint.res_class) if p]
         finally:
             for p in (hint.res_name, hint.res_class):
                 if p:
                     self.x.XFree(p)
-        return "explorer.exe" in names
+
+    def pid_cmdline(self, win):
+        """A Wine minden ablakára kiteszi a _NET_WM_PID-et; ha az osztálynév hiányzik, a folyamatból derül ki."""
+        actual, fmt = Atom(), ctypes.c_int()
+        n, after, data = ctypes.c_ulong(), ctypes.c_ulong(), ctypes.c_void_p()
+        ok = self.x.XGetWindowProperty(self.d, win, self.pid_atom, 0, 1, 0, XA_CARDINAL, ctypes.byref(actual),
+                                       ctypes.byref(fmt), ctypes.byref(n), ctypes.byref(after), ctypes.byref(data))
+        try:
+            if ok != 0 or not data.value or n.value < 1:
+                return ""
+            pid = ctypes.cast(data, ctypes.POINTER(ctypes.c_long))[0]
+        finally:
+            if data.value:
+                self.x.XFree(data)
+        try:
+            with open(f"/proc/{pid}/cmdline", "rb") as f:
+                return f.read().replace(bytes(1), b" ").decode("latin-1").lower()
+        except OSError:
+            return ""
 
     def check(self, win):
         attrs = XWindowAttributes()
@@ -135,11 +158,20 @@ class Mover:
         if not attrs.override_redirect:
             return
         work = self.workarea()
-        if not misplaced(attrs.x, attrs.y, attrs.width, attrs.height, work, self.x.XDisplayHeight(self.d, 0)):
+        geometry = (attrs.x, attrs.y, attrs.width, attrs.height)
+        if not misplaced(*geometry, work, self.x.XDisplayHeight(self.d, 0)):
             return
-        if not self.is_wine_explorer(win):
+        names = self.class_names(win)
+        if "explorer.exe" not in names and "explorer.exe" not in self.pid_cmdline(win):
+            # a naplóba (Napló mentése), hogy látsszon, mi jelent meg ott, ha nem a Wine buboréka
+            if self.seen.get(win) != geometry:
+                print(f"felugró ablak, marad: {geometry}, osztály: {names}, munkaterület: {work}",
+                      file=sys.stderr, flush=True)
+            self.seen[win] = geometry
             return
         x, y = target_position(work, (attrs.width, attrs.height))
+        print(f"buborék: {geometry} -> ({x}, {y}), osztály: {names}, munkaterület: {work}", file=sys.stderr, flush=True)
+        self.seen[win] = (x, y, attrs.width, attrs.height)
         self.x.XMoveWindow(self.d, win, x, y)
         self.x.XFlush(self.d)
 
@@ -167,6 +199,7 @@ def main():
     if not display:
         print("nincs X kijelző", file=sys.stderr)
         return 1
+    print(f"figyelés: DISPLAY={os.environ.get('DISPLAY', '')}", file=sys.stderr, flush=True)
     Mover(x11, display).run()
     return 0
 

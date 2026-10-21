@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Organizim fotosh dhe zhvillim RAW",
   "app.org.shotcut.Shotcut": "Redaktues i thjeshtë videoje",
   "app.windows_badge": "Program Windows · instalohet pas udhërrëfyesit",
+  "app.installed": "Tashmë e instaluar",
   "category.windows_note": "Tani udhërrëfyesi vetëm shkarkon nisësit e lojërave për Windows (Battle.net, EA app, Ubisoft Connect…). Instalimi bëhet në fund të udhërrëfyesit: hapen një nga një dhe i kaloni si në Windows.",
   "done.windows_hint": "Instaluesit e programeve Windows u shkarkuan ({names}). Tani do të hapen një nga një: kaloni çdo instalim si në Windows. Rinisja vjen në fund.",
   "done.windows_continue": "Vazhdo me instalimin e programeve Windows",

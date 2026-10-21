@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Organització de fotos i revelatge RAW",
   "app.org.shotcut.Shotcut": "Editor de vídeo senzill",
   "app.windows_badge": "Programa de Windows · s'instal·la després de l'assistent",
+  "app.installed": "Ja instal·lat",
   "category.windows_note": "Ara l'assistent només baixa els llançadors de jocs de Windows (Battle.net, EA app, Ubisoft Connect…). S'instal·len al final de l'assistent: s'obren un per un i els aneu completant, com a Windows.",
   "done.windows_hint": "S'han baixat els instal·ladors dels programes de Windows ({names}). Ara s'obriran un per un: completeu cada instal·lació, com a Windows. El reinici ve al final.",
   "done.windows_continue": "Continua amb la instal·lació dels programes de Windows",

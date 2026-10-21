@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "סידור תמונות ופיתוח RAW",
   "app.org.shotcut.Shotcut": "עורך וידאו פשוט",
   "app.windows_badge": "תוכנת Windows · מותקנת אחרי האשף",
+  "app.installed": "כבר מותקן",
   "category.windows_note": "האשף רק מוריד כעת את משגרי המשחקים ל-Windows‏ (Battle.net,‏ EA app,‏ Ubisoft Connect…). ההתקנה מגיעה בסוף האשף: הם ייפתחו אחד אחרי השני, ותעברו על כל אחד כמו ב-Windows.",
   "done.windows_hint": "תוכניות ההתקנה של תוכנות Windows ירדו ({names}). עכשיו הן ייפתחו אחת אחרי השנייה: עברו על כל התקנה כמו ב-Windows. ההפעלה מחדש בסוף.",
   "done.windows_continue": "המשך להתקנת תוכנות Windows",

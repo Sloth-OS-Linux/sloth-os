@@ -63,8 +63,9 @@ def send(kind, text, attach_log):
     body = {"kind": kind, "text": text, "version": _version(), "lang": catalog.language()[:20]}
     if attach_log:
         body["log"] = _log_text()
+    # Saját User-Agent kell: a Cloudflare a Python alapértelmezettjét („Python-urllib”) letiltja (403, 1010-es hiba)
     req = urllib.request.Request(URL, data=_encode(body), method="POST",
-                                 headers={"content-type": "application/json"})
+                                 headers={"content-type": "application/json", "user-agent": "SlothOS-Center/1.0"})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             return True, json.load(resp).get("number", 0)

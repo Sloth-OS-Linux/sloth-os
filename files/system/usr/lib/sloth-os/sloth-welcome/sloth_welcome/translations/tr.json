@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Fotoğraf düzenleme ve RAW işleme",
   "app.org.shotcut.Shotcut": "Kolay video düzenleyici",
   "app.windows_badge": "Windows programı · sihirbazdan sonra kurulur",
+  "app.installed": "Zaten yüklü",
   "category.windows_note": "Sihirbaz şimdilik yalnızca Windows oyun başlatıcılarını (Battle.net, EA app, Ubisoft Connect…) indirir. Kurulumları sihirbazın sonunda yapılır: tek tek açılırlar ve Windows'taki gibi adım adım ilerlersiniz.",
   "done.windows_hint": "Windows programlarının kurulum dosyaları indirildi ({names}). Şimdi tek tek açılacaklar: her kurulumu Windows'taki gibi tamamlayın. Yeniden başlatma en sonda.",
   "done.windows_continue": "Windows programlarının kurulumuna devam et",

@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Organisering av bilder og RAW-fremkalling",
   "app.org.shotcut.Shotcut": "Enkel videoredigerer",
   "app.windows_badge": "Windows-program · installeres etter veiviseren",
+  "app.installed": "Allerede installert",
   "category.windows_note": "Veiviseren laster nå bare ned spillstartere for Windows (Battle.net, EA app, Ubisoft Connect…). De installeres på slutten av veiviseren: de åpnes én etter én, og du klikker deg gjennom dem, akkurat som i Windows.",
   "done.windows_hint": "Installasjonsprogrammene for Windows-programmene er lastet ned ({names}). Nå åpnes de én etter én: gå gjennom hver installasjon, akkurat som i Windows. Omstarten kommer til slutt.",
   "done.windows_continue": "Fortsett til installering av Windows-programmer",

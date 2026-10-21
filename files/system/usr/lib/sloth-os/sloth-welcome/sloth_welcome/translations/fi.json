@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Kuvien järjestely ja RAW-kehitys",
   "app.org.shotcut.Shotcut": "Helppo videoeditori",
   "app.windows_badge": "Windows-ohjelma · asennetaan ohjatun toiminnon jälkeen",
+  "app.installed": "Jo asennettu",
   "category.windows_note": "Ohjattu toiminto vain lataa nyt Windows-pelikäynnistimet (Battle.net, EA app, Ubisoft Connect…). Ne asennetaan lopussa: ne avautuvat yksi kerrallaan, ja käyt ne läpi kuten Windowsissa.",
   "done.windows_hint": "Windows-ohjelmien asennusohjelmat on ladattu ({names}). Ne avautuvat nyt yksi kerrallaan: käy jokainen asennus läpi kuten Windowsissa. Uudelleenkäynnistys tulee lopuksi.",
   "done.windows_continue": "Jatka Windows-ohjelmien asennukseen",

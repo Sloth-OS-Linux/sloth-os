@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Foto's orden en RAW-ontwikkeling",
   "app.org.shotcut.Shotcut": "Maklike video-redigeerder",
   "app.windows_badge": "Windows-program · ná die towenaar geïnstalleer",
+  "app.installed": "Reeds geïnstalleer",
   "category.windows_note": "Die towenaar laai Windows-speletjielanseerders (Battle.net, EA app, Ubisoft Connect…) nou net af. Hulle word aan die einde van die towenaar geïnstalleer: hulle maak een vir een oop en jy klik deur elkeen, net soos op Windows.",
   "done.windows_hint": "Die installeerders van die Windows-programme is afgelaai ({names}). Hulle maak nou een vir een oop: gaan deur elke installasie, net soos op Windows. Herbegin kom aan die einde.",
   "done.windows_continue": "Gaan voort na die installering van Windows-programme",

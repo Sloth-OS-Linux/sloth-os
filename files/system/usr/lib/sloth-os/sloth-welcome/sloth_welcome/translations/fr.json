@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Classement de photos et développement RAW",
   "app.org.shotcut.Shotcut": "Montage vidéo simple",
   "app.windows_badge": "Programme Windows · installé après l'assistant",
+  "app.installed": "Déjà installé",
   "category.windows_note": "L'assistant se contente pour l'instant de télécharger les lanceurs de jeux Windows (Battle.net, EA app, Ubisoft Connect…). Leur installation a lieu à la fin de l'assistant : ils s'ouvrent un par un et vous les suivez, comme sous Windows.",
   "done.windows_hint": "Les programmes d'installation Windows ont été téléchargés ({names}). Ils vont s'ouvrir un par un : suivez chaque installation, comme sous Windows. Le redémarrage vient à la fin.",
   "done.windows_continue": "Continuer vers l'installation des programmes Windows",

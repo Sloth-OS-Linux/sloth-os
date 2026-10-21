@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "ছবি সাজানো ও RAW প্রসেসিং",
   "app.org.shotcut.Shotcut": "সহজ ভিডিও এডিটর",
   "app.windows_badge": "Windows প্রোগ্রাম · উইজার্ডের পরে ইনস্টল",
+  "app.installed": "ইতিমধ্যে ইনস্টল করা আছে",
   "category.windows_note": "উইজার্ড এখন শুধু Windows-এর গেম লঞ্চার (Battle.net, EA app, Ubisoft Connect…) ডাউনলোড করে। উইজার্ডের শেষে এগুলো ইনস্টল হয়: একে একে খুলবে, আর Windows-এর মতো আপনি এগোবেন।",
   "done.windows_hint": "Windows প্রোগ্রামের ইনস্টলার ডাউনলোড হয়েছে ({names})। এখন একে একে খুলবে: Windows-এর মতো প্রতিটি ইনস্টলেশন শেষ করুন। রিস্টার্ট একদম শেষে।",
   "done.windows_continue": "Windows প্রোগ্রাম ইনস্টলে এগিয়ে যান",

@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "照片整理和 RAW 处理",
   "app.org.shotcut.Shotcut": "简单易用的视频编辑器",
   "app.windows_badge": "Windows 程序 · 向导结束后安装",
+  "app.installed": "已安装",
   "category.windows_note": "向导现在只下载 Windows 游戏启动器（Battle.net、EA app、Ubisoft Connect…）。它们在向导最后安装：会逐个打开，您像在 Windows 中一样完成每个安装。",
   "done.windows_hint": "Windows 程序的安装程序已下载（{names}）。现在会逐个打开：请像在 Windows 中一样完成每个安装。重启放在最后。",
   "done.windows_continue": "继续安装 Windows 程序",

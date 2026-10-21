@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Fotos ordnen und RAW-Entwicklung",
   "app.org.shotcut.Shotcut": "Einfacher Videoeditor",
   "app.windows_badge": "Windows-Programm · Installation nach dem Assistenten",
+  "app.installed": "Bereits installiert",
   "category.windows_note": "Windows-Spielestarter (Battle.net, EA app, Ubisoft Connect…) lädt der Assistent jetzt nur herunter. Installiert werden sie am Ende des Assistenten: Sie öffnen sich nacheinander, und du klickst dich durch, wie unter Windows.",
   "done.windows_hint": "Die Installationsprogramme der Windows-Programme wurden heruntergeladen ({names}). Sie öffnen sich jetzt nacheinander: Geh jede Installation durch, wie unter Windows. Der Neustart kommt am Ende.",
   "done.windows_continue": "Weiter zur Installation der Windows-Programme",

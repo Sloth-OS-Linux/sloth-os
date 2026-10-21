@@ -268,7 +268,10 @@ def login_feature(name, on):
             return {"ok": False, "error": r.stderr.strip()}
     r = run(["authselect", "enable-feature" if on else "disable-feature", feature])
     fixed = keep_altfiles()
-    return {"ok": r.returncode == 0 and fixed["ok"], "error": r.stderr.strip() or fixed.get("error", "")}
+    # A valódi gépen az authselect hibakóddal is visszatérhet, miközben a funkciót átállította (2026-10-21: piros
+    # hibaüzenet, de az ujjlenyomat bekapcsolt): az számít, hogy a végén tényleg úgy áll-e
+    done = (feature in run(["authselect", "current", "--raw"]).stdout.split()[1:]) == on
+    return {"ok": done and fixed["ok"], "error": (r.stderr or r.stdout).strip()[-500:] or fixed.get("error", "")}
 
 
 def domain_join(domain, user, password):

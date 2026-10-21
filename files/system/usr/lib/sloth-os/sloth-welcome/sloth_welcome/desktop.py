@@ -2,9 +2,12 @@
 
 Mindegyik a háttérben fut, a felhasználó csak az eredményt látja.
 """
+import configparser
 import json
 import logging
+import os
 import subprocess
+from pathlib import Path
 
 from gi.repository import Gio, GLib
 
@@ -20,6 +23,26 @@ COLOR_SCHEMES = [
     {"id": "SlothNight", "colors": ["#1f2630", "#8aa5bf", "#dde4ec"]},
     {"id": "SlothSage", "colors": ["#e1e7e0", "#56715b", "#212a23"]},
 ]
+
+
+CONFIG_HOME = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config"))
+
+
+def _read_ini(path):
+    """KDE-s beállításfájl (a csoportnevekben [] is lehet, % jel is; a hibás sorokat kihagyja)."""
+    ini = configparser.RawConfigParser(strict=False, interpolation=None)
+    ini.optionxform = str
+    try:
+        ini.read(path, encoding="utf-8")
+    except (OSError, configparser.Error) as e:
+        log.warning("%s: %s", path, e)
+    return ini
+
+
+def current_color_scheme():
+    """A most beállított színtéma, ha a mieink közül való (a varázsló újrafuttatásakor ez legyen kiválasztva)."""
+    name = _read_ini(CONFIG_HOME / "kdeglobals").get("General", "ColorScheme", fallback="")
+    return name if name in {c["id"] for c in COLOR_SCHEMES} else ""
 
 
 def apply_color_scheme(scheme_id):
@@ -187,6 +210,33 @@ if (kind === "mac") {
     panel.addWidget("org.kde.plasma.showdesktop");
 }
 """
+
+
+def current_layout():
+    """A mostani tálca-elrendezés a Plasma beállításaiból: fenti panel = macOS-szerű; alsó panelnél, ha a Start
+    menü előtt térköz van (középre igazított ikonok) = Windows 11, különben Windows 10. Ha nem derül ki: ""."""
+    ini = _read_ini(CONFIG_HOME / "plasma-org.kde.plasma.desktop-appletsrc")
+    panels = {}
+    for section in ini.sections():
+        parts = section.split("][")
+        if len(parts) == 2 and parts[0] == "Containments" and ini.get(section, "plugin", fallback="") == "org.kde.panel":
+            panels[parts[1]] = ini.get(section, "location", fallback="")
+    if not panels:
+        return ""
+    if "3" in panels.values():  # 3 = fent
+        return "mac"
+    for cid, location in panels.items():
+        if location != "4":  # 4 = lent
+            continue
+        order = ini.get(f"Containments][{cid}][General", "AppletOrder", fallback="").split(";")
+        plugins = [ini.get(f"Containments][{cid}][Applets][{a}", "plugin", fallback="") for a in order if a]
+        if not plugins:
+            plugins = [ini.get(sec, "plugin", fallback="") for sec in ini.sections()
+                       if sec.startswith(f"Containments][{cid}][Applets][") and sec.count("][") == 3]
+        if "org.kde.plasma.kickoff" in plugins:
+            before = plugins[:plugins.index("org.kde.plasma.kickoff")]
+            return "windows11" if "org.kde.plasma.panelspacer" in before else "windows10"
+    return ""
 
 
 def apply_layout(kind):

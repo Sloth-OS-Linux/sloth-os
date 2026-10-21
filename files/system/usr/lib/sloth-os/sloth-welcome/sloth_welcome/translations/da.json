@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Organisering af fotos og RAW-fremkaldelse",
   "app.org.shotcut.Shotcut": "Enkel videoredigering",
   "app.windows_badge": "Windows-program · installeres efter guiden",
+  "app.installed": "Allerede installeret",
   "category.windows_note": "Guiden henter nu kun Windows-spilstartere (Battle.net, EA app, Ubisoft Connect…). De installeres til sidst i guiden: de åbner én ad gangen, og du klikker dig igennem, ligesom i Windows.",
   "done.windows_hint": "Installationsprogrammerne til Windows-programmerne er hentet ({names}). De åbner nu én ad gangen: gå hver installation igennem, ligesom i Windows. Genstarten kommer til sidst.",
   "done.windows_continue": "Fortsæt til installation af Windows-programmer",

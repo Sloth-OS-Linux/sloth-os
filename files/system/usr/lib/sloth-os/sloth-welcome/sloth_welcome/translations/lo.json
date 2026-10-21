@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "ຈັດຮູບ ແລະ ປະມວນຜົນ RAW",
   "app.org.shotcut.Shotcut": "ໂປຣແກຣມແກ້ໄຂວິດີໂອງ່າຍໆ",
   "app.windows_badge": "ໂປຣແກຣມ Windows · ຕິດຕັ້ງຫຼັງຕົວຊ່ວຍ",
+  "app.installed": "ຕິດຕັ້ງແລ້ວ",
   "category.windows_note": "ຕອນນີ້ຕົວຊ່ວຍພຽງແຕ່ດາວໂຫຼດຕົວເປີດເກມ Windows (Battle.net, EA app, Ubisoft Connect…). ການຕິດຕັ້ງຢູ່ທ້າຍຕົວຊ່ວຍ: ຈະເປີດຂຶ້ນເທື່ອລະອັນ ແລະ ທ່ານກົດຜ່ານແຕ່ລະອັນຄືໃນ Windows.",
   "done.windows_hint": "ດາວໂຫຼດຕົວຕິດຕັ້ງໂປຣແກຣມ Windows ແລ້ວ ({names}). ຕອນນີ້ຈະເປີດເທື່ອລະອັນ: ເຮັດການຕິດຕັ້ງແຕ່ລະອັນໃຫ້ສຳເລັດຄືໃນ Windows. ການເລີ່ມໃໝ່ຢູ່ທ້າຍສຸດ.",
   "done.windows_continue": "ສືບຕໍ່ໄປການຕິດຕັ້ງໂປຣແກຣມ Windows",

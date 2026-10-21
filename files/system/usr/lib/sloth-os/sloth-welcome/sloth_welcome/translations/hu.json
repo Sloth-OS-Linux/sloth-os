@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Fotók rendezése és RAW-előhívás",
   "app.org.shotcut.Shotcut": "Egyszerű videószerkesztő",
   "app.windows_badge": "Windows-program · a varázsló után telepíted",
+  "app.installed": "Már telepítve",
   "category.windows_note": "A Windows-os játékindítókat (Battle.net, EA app, Ubisoft Connect…) a varázsló most csak letölti. A telepítésük a varázsló végén következik: egyesével megnyílnak, és végigkattintod őket, mint Windowson.",
   "done.windows_hint": "A Windows-programok telepítői letöltődtek ({names}). Most egyesével megnyílnak: mindegyiknél végigmész a telepítésen, mint Windowson. Az újraindítás a végén jön.",
   "done.windows_continue": "Tovább a Windows-programok telepítéséhez",

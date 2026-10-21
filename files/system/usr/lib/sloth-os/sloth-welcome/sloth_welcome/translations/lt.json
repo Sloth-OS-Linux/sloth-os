@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Nuotraukų tvarkymas ir RAW ryškinimas",
   "app.org.shotcut.Shotcut": "Paprastas vaizdo įrašų redaktorius",
   "app.windows_badge": "Windows programa · įdiegiama po vedlio",
+  "app.installed": "Jau įdiegta",
   "category.windows_note": "Vedlys dabar tik atsisiunčia Windows žaidimų paleidyklės (Battle.net, EA app, Ubisoft Connect…). Jos įdiegiamos vedlio pabaigoje: atsidaro po vieną, ir jūs jas pereinate kaip Windows sistemoje.",
   "done.windows_hint": "Windows programų diegimo programos atsisiųstos ({names}). Dabar jos atsidarys po vieną: pereikite kiekvieną diegimą kaip Windows sistemoje. Paleidimas iš naujo – pabaigoje.",
   "done.windows_continue": "Tęsti Windows programų diegimą",

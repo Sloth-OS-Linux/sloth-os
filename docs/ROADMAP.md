@@ -64,7 +64,27 @@ Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benn
     elrendezésben is megnézni. Battle.net-ből a WoW Classic elindul
 11. [ ] Ha marad idő: zram jó (15 GB memória mellett 22,4 GB tömörített tartalék); firmware a Discoverben még nem
     volt; Steam-átvétel később
-- [ ] **Új hiba: a HP laptopon titkosítással nem engedi telepíteni** (részletek kellenek: hol áll meg, mi az üzenet)
+- [x] HP laptop titkosítással: rendben (2026-10-21 délután, újra kipróbálva)
+
+#### Második kör (2026-10-21 délután, az `5bec760` image-dzsel)
+- [x] HP + titkosítás jó; alaphelyzetbe állítás: a figyelmeztetések látszanak, minden működik; EA-telepítő jó;
+  némítás: megszűnt; Heroic az Epic-fiókkal működik
+- [ ] **Ujjlenyomat:** bekapcsol, újraindítás után tökéletesen működik, de a Központ piros hibát ír („rendszergazdai
+  jóváhagyás kell”). Az `authselect` a valódi gépen hibakóddal tér vissza, miközben átállít (konténerben nem jön elő).
+  **Javítva:** a helper azt nézi, tényleg átállt-e a funkció, a hibaszöveg a naplóba kerül
+- [ ] **Visszajelzés még mindig nem ment:** a Cloudflare a Python alapértelmezett User-Agentjét („Python-urllib”)
+  letiltja (403, 1010-es hiba), a kérés el sem jutott a szolgáltatásig. **Javítva:** saját User-Agent (a végponton
+  kipróbálva: eljut a szolgáltatásig). Valódi gépen újra
+- [ ] **Buborék a mac-es elrendezésben még mindig bal fent** (a Sloth-fejnél). A szolgáltatás az image-ben van és be van
+  kapcsolva. **Javítva / nyomozás:** a bal felső harmadban figyel (a tálcaikonok kis ablakai kimaradnak), tartalék
+  felismerés a `_NET_WM_PID`-ből, és mindent naplóz (`wine-balloons`: „buborék: …” / „felugró ablak, marad: …”);
+  Xvfb-n kipróbálva. Ha valódi gépen még mindig rossz: Napló mentése, és a `wine-balloons` sorokból kiderül
+- [x] **Üdvözlő újrafuttatása meglévő rendszeren** (kérés): a már telepített appok pipával és „Már telepítve”
+  felirattal (Flatpak: a mappájuk; Windows-program: az .exe kezelő nyilvántartása, Start menüvel), nem települnek
+  újra; a mostani színséma és tálca-elrendezés az alapértelmezett (a Plasma beállításaiból). Az image-ben offscreen
+  kipróbálva
+- NVIDIA: otthon derül ki; addig a weboldalon „saját felelősségre, még nem tesztelve”. Windows mellé: hamarosan.
+  Steam-átvétel később
 
 ### Teszt a 2026-10-20-i reset után (legújabb image, valódi gép)
 VM-ben előre végignézve (2026-10-20 este, a 13:36-os image, `71b9b89`, titkosított lemez, nyitott hálózat); ami ott

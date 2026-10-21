@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "ফটো সজোৱা আৰু RAW প্ৰক্ৰিয়া",
   "app.org.shotcut.Shotcut": "সহজ ভিডিঅ' সম্পাদক",
   "app.windows_badge": "Windows প্ৰগ্ৰাম · উইজাৰ্ডৰ পিছত ইনষ্টল",
+  "app.installed": "ইতিমধ্যে ইনষ্টল কৰা আছে",
   "category.windows_note": "উইজাৰ্ডে এতিয়া কেৱল Windows-ৰ খেল লঞ্চাৰ (Battle.net, EA app, Ubisoft Connect…) ডাউনলোড কৰে। উইজাৰ্ডৰ শেষত এইবোৰ ইনষ্টল হয়: এটা এটাকৈ খোল খায় আৰু Windows-ৰ দৰে আপুনি আগবাঢ়ে।",
   "done.windows_hint": "Windows প্ৰগ্ৰামৰ ইনষ্টলাৰ ডাউনলোড হ'ল ({names})। এতিয়া এটা এটাকৈ খোল খাব: Windows-ৰ দৰে প্ৰতিটো ইনষ্টলেচন সম্পূৰ্ণ কৰক। পুনৰাৰম্ভ শেষত।",
   "done.windows_continue": "Windows প্ৰগ্ৰাম ইনষ্টললৈ আগবাঢ়ক",

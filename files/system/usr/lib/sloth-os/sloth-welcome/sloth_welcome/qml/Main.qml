@@ -368,7 +368,9 @@ Kirigami.ApplicationWindow {
                                 delegate: QQC2.AbstractButton {
                                     id: appCard
                                     required property var modelData
-                                    readonly property bool chosen: welcome.selectedIds.indexOf(modelData.id) !== -1
+                                    // már fent van (a varázsló újrafuttatásakor): pipával, nem települ újra
+                                    readonly property bool present: welcome.presentIds.indexOf(modelData.id) !== -1
+                                    readonly property bool chosen: present || welcome.selectedIds.indexOf(modelData.id) !== -1
                                     width: (root.contentWidth - Kirigami.Units.largeSpacing * 2) / 3
                                     height: Kirigami.Units.gridUnit * 4
                                     onClicked: welcome.toggle(modelData.id)
@@ -399,9 +401,17 @@ Kirigami.ApplicationWindow {
                                             spacing: 0
                                             QQC2.Label { text: appCard.modelData.name; font.bold: true; Layout.fillWidth: true; elide: Text.ElideRight }
                                             QQC2.Label { text: appCard.modelData.summary; opacity: 0.7; Layout.fillWidth: true; wrapMode: Text.Wrap; maximumLineCount: appCard.modelData.source === "windows" ? 1 : 2; elide: Text.ElideRight; font: Kirigami.Theme.smallFont }
+                                            QQC2.Label {
+                                                visible: appCard.present
+                                                Layout.fillWidth: true
+                                                elide: Text.ElideRight
+                                                color: Kirigami.Theme.positiveTextColor
+                                                font: Kirigami.Theme.smallFont
+                                                text: root.t("app.installed")
+                                            }
                                             // Windows-program: a telepítése a varázsló után következik
                                             QQC2.Label {
-                                                visible: appCard.modelData.source === "windows"
+                                                visible: appCard.modelData.source === "windows" && !appCard.present
                                                 Layout.fillWidth: true
                                                 wrapMode: Text.Wrap
                                                 maximumLineCount: 2

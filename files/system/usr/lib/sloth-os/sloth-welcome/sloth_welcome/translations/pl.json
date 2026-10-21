@@ -145,6 +145,7 @@
   "app.org.darktable.Darktable": "Porządkowanie zdjęć i wywoływanie RAW",
   "app.org.shotcut.Shotcut": "Prosty edytor wideo",
   "app.windows_badge": "Program dla Windows · instalacja po kreatorze",
+  "app.installed": "Już zainstalowano",
   "category.windows_note": "Kreator na razie tylko pobiera programy uruchamiające gry dla Windows (Battle.net, EA app, Ubisoft Connect…). Instalacja następuje na końcu kreatora: otwierają się po kolei, a Ty przechodzisz przez każdy, jak w Windows.",
   "done.windows_hint": "Instalatory programów dla Windows zostały pobrane ({names}). Teraz otworzą się po kolei: przejdź przez każdą instalację, jak w Windows. Ponowne uruchomienie będzie na końcu.",
   "done.windows_continue": "Przejdź do instalacji programów dla Windows",
