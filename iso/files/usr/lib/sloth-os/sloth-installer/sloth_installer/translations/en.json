@@ -105,7 +105,7 @@
   "error.log_save_failed": "Couldn't save the log. Try another place, for example a USB stick.",
   "error.retry": "Try again",
   "error.not_authorized": "We didn't get permission to install.",
-  "error.image_broken": "The installation files on the USB drive are damaged or incomplete. Nothing was changed on your disk. Write the installer to the USB drive again (or use another USB drive), then try again.",
+  "error.image_broken": "The installation files on the USB drive are damaged or incomplete. Nothing was changed on your disk. Download the installer again and write it to the USB drive (or use another USB drive). If this keeps happening, save the log and send it to us.",
   "error.bad_disk": "This disk can't be installed on. Please choose another one.",
   "error.bad_input": "One of the settings is invalid. Go back and check them.",
   "error.install_failed": "Something went wrong while copying the system to the disk. Data previously on the disk may already have been erased.",

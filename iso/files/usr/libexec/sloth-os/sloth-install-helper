@@ -144,8 +144,15 @@ def verify_image():
     for tool in ("bootc", "podman"):
         if not shutil.which(tool):
             fail("error.image_broken", f"missing: {tool}")
-    run(["podman", "image", "inspect", "--format", "{{.Id}} {{len .RootFS.Layers}} layers", name],
-        error="error.image_broken")
+    info = json.loads(run(["podman", "image", "inspect", name], error="error.image_broken"))[0]
+    layers = (info.get("RootFS") or {}).get("Layers") or []
+    log(f"image: {info.get('Id')}, {len(layers)} layers")
+    # bootc looks for the layer the ostree.final-diffid label names; if it is not there (e.g. a wrongly squashed
+    # image), bootc would stop only after the disk was erased ("Missing ostree.final-diffid")
+    labels = info.get("Labels") or (info.get("Config") or {}).get("Labels") or {}
+    final = labels.get("ostree.final-diffid")
+    if final and final not in layers:
+        fail("error.image_broken", f"the layer named by ostree.final-diffid is missing: {final}")
     # mounting it needs every layer; then the parts bootc needs must be there and readable
     mnt = run(["podman", "image", "mount", name], error="error.image_broken").strip()
     try:

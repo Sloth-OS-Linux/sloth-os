@@ -54,7 +54,8 @@ jobs:
           src="$image"
           if [ "${{ inputs.squash }}" = "true" ]; then
             mkdir -p /tmp/squash && printf 'FROM %s\n' "$image" > /tmp/squash/Containerfile
-            sudo podman build --pull=never --squash-all --network none --security-opt label=disable \
+            # without ostree.final-diffid: after squashing that layer is gone, and bootc would stop (tools/build-iso.sh)
+            sudo podman build --pull=never --squash-all --unsetlabel ostree.final-diffid --network none --security-opt label=disable \
               -t localhost/sloth-os-payload:latest -f /tmp/squash/Containerfile /tmp/squash
             src="localhost/sloth-os-payload:latest"
           fi

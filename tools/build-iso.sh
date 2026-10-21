@@ -72,7 +72,9 @@ if [[ "${SLOTH_SQUASH:-0}" == 1 ]]; then
     echo "== Squashing the layers of the image to install"
     mkdir -p "$WORK/squash"
     printf 'FROM %s\n' "$IMAGE" > "$WORK/squash/Containerfile"
-    pm build --pull=never --squash-all --network none --security-opt label=disable \
+    # ostree.final-diffid names the last layer of the base image: after squashing that layer is gone, and with the
+    # inherited label bootc stops ("Missing ostree.final-diffid"), so it has to go (this broke the 1.0.1 ISO)
+    pm build --pull=never --squash-all --unsetlabel ostree.final-diffid --network none --security-opt label=disable \
         -t localhost/sloth-os-payload:latest -f "$WORK/squash/Containerfile" "$WORK/squash"
     payload_src="localhost/sloth-os-payload:latest"
 fi
