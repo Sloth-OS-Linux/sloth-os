@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Háttérképek feldolgozása Plasma-csomagokká (files/system/usr/share/wallpapers/SlothOS-*).
+"""Turns wallpapers into Plasma packages (files/system/usr/share/wallpapers/SlothOS-*).
 
-Előkészítés (a munkamappában): in/<név>.png az eredeti képek ASCII névvel, up/<név>.png a
-Real-ESRGAN (realesrgan-x4plus) 4x felskálázott változat, titles.json: {név: megjelenített (angol) cím}.
-Használat: python3 wallpapers.py <kimeneti mappa>
-Kimenet: 3840x2160.jpg (+ 5120x2160.jpg az ultraszéles képeknél), 60% MI + 40% Lanczos keverék.
+Preparation (in the work folder): in/<name>.png the original pictures with ASCII names, up/<name>.png the
+Real-ESRGAN (realesrgan-x4plus) 4x upscaled version, titles.json: {name: displayed (English) title}.
+Usage: python3 wallpapers.py <output folder>
+Output: 3840x2160.jpg (+ 5120x2160.jpg for ultrawide pictures), a 60% AI + 40% Lanczos mix.
 """
 import json
 import os
@@ -14,7 +14,7 @@ import sys
 W = os.getcwd()
 titles = json.load(open("titles.json"))
 OUT = sys.argv[1]
-# 16:9 kivágás helye az ultraszéles képeknél (0 = bal szél, 0.5 = közép, 1 = jobb szél)
+# Where to cut the 16:9 crop for ultrawide pictures (0 = left edge, 0.5 = middle, 1 = right edge)
 OFFSET = {"lusta-esti-sloth-gamer-kuckoja": 0.78}
 
 def run(*a):
@@ -25,7 +25,7 @@ def size(p):
     return int(w), int(h)
 
 def render(slug, tw, th, dest, offset=0.5):
-    """60% MI-felskálázás + 40% Lanczos, a célméretre töltve és vágva."""
+    """60% AI upscaling + 40% Lanczos, filled and cropped to the target size."""
     w, h = size(f"in/{slug}.png")
     scale = max(tw / w, th / h)
     rw, rh = round(w * scale), round(h * scale)
@@ -45,7 +45,7 @@ for slug, title in titles.items():
     render(slug, 3840, 2160, os.path.join(img, "3840x2160.jpg"), OFFSET.get(slug, 0.5))
     if ultrawide:
         render(slug, 5120, 2160, os.path.join(img, "5120x2160.jpg"))
-    # a háttérképek licence: CC BY-SA 4.0 (lásd NOTICE)
+    # the wallpapers' license: CC BY-SA 4.0 (see NOTICE)
     meta = {"KPlugin": {"Id": f"SlothOS-{slug}", "Name": title, "Authors": [{"Name": "Sloth OS"}],
                         "License": "CC-BY-SA-4.0"}}
     json.dump(meta, open(os.path.join(pkg, "metadata.json"), "w"), ensure_ascii=False, indent=4)

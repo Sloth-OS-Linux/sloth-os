@@ -1,5 +1,5 @@
-// Telepített Windows-programok: lista, indítás, fájlok, javítás, áthelyezés, eltávolítás,
-// a telepítési hely, és a máshol (Steam, Lutris, Bottles, korábbi telepítés) telepített programok átvétele.
+// Installed Windows programs: list, start, files, repair, move, remove,
+// the install location, and taking over programs installed elsewhere (Steam, Lutris, Bottles, an earlier install).
 import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -46,7 +46,7 @@ Kirigami.ScrollablePage {
                 indeterminate: true
             }
 
-            // Hová települnek a programok
+            // Where programs are installed
             Kirigami.AbstractCard {
                 Layout.fillWidth: true
                 contentItem: RowLayout {
@@ -79,7 +79,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            // Közös tudás: a bevált beállítások névtelen megosztása (alapból kikapcsolva)
+            // Shared knowledge: anonymous sharing of the settings that worked (off by default)
             Kirigami.AbstractCard {
                 Layout.fillWidth: true
                 contentItem: RowLayout {
@@ -107,7 +107,7 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            // Máshol (Steam, Lutris, Bottles, korábbi telepítés) telepített programok átvétele
+            // Taking over programs installed elsewhere (Steam, Lutris, Bottles, an earlier install)
             Kirigami.AbstractCard {
                 Layout.fillWidth: true
                 visible: winprograms.otherPrograms.length > 0

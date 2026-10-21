@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: értesítés, ha az NVIDIA-s változat elkészült
+Description=Sloth OS: a notification when the NVIDIA version is ready
 ConditionPathExists=/var/lib/sloth-os/nvidia-auto
 After=plasma-workspace.target
 

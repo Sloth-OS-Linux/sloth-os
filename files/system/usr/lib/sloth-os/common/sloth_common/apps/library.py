@@ -48,7 +48,7 @@ LOG_ROOT = CACHE_HOME / "sloth-os" / "apps"
 
 SCHEMA = 1
 # The shared Windows environment of single .exe files (not installers)
-SHARED_ID = "egyeb-programok"
+SHARED_ID = "egyeb-programok"  # "other programs" in Hungarian; an ID stored on existing machines, it stays
 # This is what Proton calls the Windows user
 WIN_USER = "steamuser"
 SNAPSHOT_NAME = "pillanatkep"

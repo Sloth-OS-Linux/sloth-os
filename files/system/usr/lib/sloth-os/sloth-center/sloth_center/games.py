@@ -1,9 +1,9 @@
-"""Játékok: játékonkénti beállítások (FPS-kijelző, teljesítmény mód, felskálázás).
+"""Games: per-game settings (FPS display, performance mode, upscaling).
 
-A Steames játékok beállítása a Steam saját indítási beállításaiba kerül (localconfig.vdf, a
-felhasználó saját beírásai megmaradnak); ezt csak akkor lehet írni, ha a Steam nem fut, különben
-kilépéskor felülírja. A Windows-programoknál (sloth-exe) a program adatai közé kerül (sloth_common.apps), és a
-.exe kezelő indításkor alkalmazza. Jelszó nem kell: minden a felhasználó saját mappájában van.
+For Steam games the setting goes into Steam's own launch options (localconfig.vdf, the
+user's own entries stay); this can only be written while Steam is not running, otherwise
+it overwrites it on exit. For Windows programs (sloth-exe) it goes into the program's data (sloth_common.apps), and the
+.exe handler applies it when starting. No password is needed: everything is in the user's own folder.
 """
 import logging
 import re
@@ -19,7 +19,7 @@ from sloth_common.apps.steam import steam_root, vdf_dump, vdf_load
 from .i18n import tr
 log = logging.getLogger("sloth-center.games")
 
-# Nem játékok: futtatókörnyezetek, Proton, közös összetevők
+# Not games: runtimes, Proton, shared components
 NOT_GAMES = re.compile(r"proton|steam linux runtime|steamworks common|steamvr|redistributable|soundtrack", re.I)
 _ci = steam.ci
 
@@ -42,7 +42,7 @@ def steam_games():
 
 
 def localconfig_path():
-    """A legutóbb használt Steam-fiók beállításfájlja."""
+    """The settings file of the Steam account used last."""
     root = steam_root()
     if not root:
         return None
@@ -70,7 +70,7 @@ def steam_running():
 
 
 def screen_size():
-    """A fő kijelző felbontása képpontban (a felskálázás célfelbontása)."""
+    """The main display's resolution in pixels (the target resolution of upscaling)."""
     screen = QGuiApplication.primaryScreen()
     if not screen:
         return (1920, 1080)
@@ -167,7 +167,7 @@ class GamesController(QObject):
         app = library.find(app_id)
         try:
             if app is None:
-                raise OSError(f"nincs ilyen program: {app_id}")
+                raise OSError(f"no such program: {app_id}")
             app.save_meta(game=settings)
             self._info = tr("Saved. It takes effect the next time you start it.")
         except OSError as e:
@@ -176,7 +176,7 @@ class GamesController(QObject):
 
     @Slot()
     def closeSteam(self):
-        """A Steam rendes leállítása (mint a Kilépés menüpont)."""
+        """Stops Steam properly (like the Exit menu item)."""
         for cmd in (["flatpak", "run", "com.valvesoftware.Steam", "-shutdown"], ["steam", "-shutdown"]):
             try:
                 subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)

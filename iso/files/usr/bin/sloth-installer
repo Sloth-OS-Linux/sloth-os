@@ -1,5 +1,5 @@
 #!/usr/bin/python3 -I
-"""Sloth OS telepítő indító (csak az élő rendszeren van meg)."""
+"""Sloth OS installer launcher (only present in the live system)."""
 import sys
 
 sys.path.insert(0, "/usr/lib/sloth-os/sloth-installer")

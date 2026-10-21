@@ -1,4 +1,4 @@
-"""A Sloth OS telepítő indítása (csak az élő rendszeren)."""
+"""Starting the Sloth OS installer (only in the live system)."""
 import logging
 import os
 import sys

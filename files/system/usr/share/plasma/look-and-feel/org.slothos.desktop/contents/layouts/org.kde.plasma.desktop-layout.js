@@ -1,19 +1,19 @@
-// Sloth OS alapértelmezett asztal: Windows-szerű tálca alul.
-// Csak új felhasználónál fut (amikor még nincs saját panel-beállítás).
+// Sloth OS default desktop: a Windows-like taskbar at the bottom.
+// It only runs for a new user (when there is no panel setting of their own yet).
 
 const panel = new Panel;
 panel.location = "bottom";
 panel.height = 2 * Math.floor(gridUnit * 2.5 / 2);
 panel.floating = false;
 
-// Start menü a Sloth OS logóval
+// Start menu with the Sloth OS logo
 const kickoff = panel.addWidget("org.kde.plasma.kickoff");
 kickoff.currentConfigGroup = ["General"];
 kickoff.writeConfig("icon", "sloth-os");
 
-// Rögzített appok + futó ablakok (csak ikonok, mint a Windowsban).
-// A böngészőt és a Steamet a Sloth Üdvözlő tűzi ki, ha a felhasználó telepítette őket.
-// A Sloth Központ alapból kint van: minden beállítás és a frissítések innen érhetők el.
+// Pinned apps + running windows (icons only, as in Windows).
+// Sloth Welcome pins the browser and Steam if the user installed them.
+// Sloth Center is out by default: every setting and the updates can be reached from it.
 const tasks = panel.addWidget("org.kde.plasma.icontasks");
 tasks.currentConfigGroup = ["General"];
 tasks.writeConfig("launchers", [
@@ -27,7 +27,7 @@ panel.addWidget("org.kde.plasma.systemtray");
 panel.addWidget("org.kde.plasma.digitalclock");
 panel.addWidget("org.kde.plasma.showdesktop");
 
-// Asztal: az alapértelmezett Sloth OS háttérkép (a többi a Háttérkép beállításoknál választható)
+// Desktop: the default Sloth OS wallpaper (the others can be chosen in the Wallpaper settings)
 for (const desktop of desktops()) {
     desktop.wallpaperPlugin = "org.kde.image";
     desktop.currentConfigGroup = ["Wallpaper", "org.kde.image", "General"];

@@ -1,17 +1,17 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
-# Előtelepített app nincs: mindent (böngésző, irodai programok, médialejátszó, csevegés,
-# Steam és más játékboltok, …) a felhasználó választ ki első indításkor a Sloth Üdvözlőben
-# (files/system/usr/lib/sloth-os/sloth-welcome). Az appok listája: sloth_welcome/catalog.py
-# A Windows-programok Steam nélkül is futnak (.exe kezelő, recipes/gaming.yml).
+# Nothing is preinstalled: everything (browser, office programs, media player, chat,
+# Steam and other game stores, …) is chosen by the user at the first start in Sloth Welcome
+# (files/system/usr/lib/sloth-os/sloth-welcome). The list of apps: sloth_welcome/catalog.py
+# Windows programs run without Steam too (.exe handler, recipes/gaming.yml).
 modules:
-  # Az alap image-ben lévő Firefox RPM kikerül; böngészőt a varázslóban lehet választani
+  # The Firefox RPM in the base image is removed; a browser can be chosen in the wizard
   - type: script
     scripts:
       - remove-default-apps.sh
 
   - type: default-flatpaks
     configurations:
-      - notify: false # a felhasználó ne lásson technikai értesítést első induláskor
-        scope: system # Flathub rendszerszintű repó, csomagok nélkül (az Üdvözlő innen telepít)
-      - notify: false # minden bejelentkezéskor szólt („…installation of 0 user Flatpak(s)…”), 2026-10-20
-        scope: user # Flathub felhasználói repó, csomagok nélkül
+      - notify: false # the user should not see a technical notification on the first start
+        scope: system # the system-wide Flathub repository, without packages (Welcome installs from here)
+      - notify: false # it spoke up at every login ("…installation of 0 user Flatpak(s)…"), 2026-10-20
+        scope: user # the user Flathub repository, without packages

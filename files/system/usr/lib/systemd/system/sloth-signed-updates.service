@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: frissítések aláírás-ellenőrzéssel (a régebbi telepítések egyszeri átállítása)
+Description=Sloth OS: updates with signature verification (switching older installs once)
 ConditionPathExists=!/var/lib/sloth-os/signed-updates-done
 Wants=network-online.target
 After=network-online.target rpm-ostreed.service sloth-nvidia-auto.service

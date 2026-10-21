@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Aláírás-ellenőrzés mindkét Sloth OS változatra (a signing modul után fut).
-# A BlueBuild signing modulja csak a saját image nevére tesz szabályt a policy.json-ba (minden más: reject).
-# A változatok között váltunk (AMD/Intel <-> NVIDIA: Sloth Központ, sloth-nvidia-auto), ezért a másik
-# változat aláírását is el kell fogadni. Mindkettőt ugyanaz a kulcs (cosign.pub) írja alá.
+# Signature verification for both Sloth OS variants (runs after the signing module).
+# BlueBuild's signing module only puts a rule for its own image name into policy.json (everything else: reject).
+# We switch between the variants (AMD/Intel <-> NVIDIA: Sloth Center, sloth-nvidia-auto), so the other
+# variant's signature must be accepted too. Both are signed by the same key (cosign.pub).
 set -euo pipefail
 
 REGISTRY=ghcr.io/sloth-os-linux
@@ -14,8 +14,8 @@ key=""
 for n in "${NAMES[@]}"; do
   [[ -f $PKI/$n.pub ]] && key=$PKI/$n.pub
 done
-[[ -n $key ]] || { echo "HIBA: nincs aláíró kulcs a $PKI mappában (a signing modul után kell futnia)" >&2; exit 1; }
-[[ "$(jq -r '.default[0].type' "$POLICY")" == reject ]] || { echo "HIBA: a policy.json alapja nem reject" >&2; exit 1; }
+[[ -n $key ]] || { echo "ERROR: no signing key in the $PKI folder (it must run after the signing module)" >&2; exit 1; }
+[[ "$(jq -r '.default[0].type' "$POLICY")" == reject ]] || { echo "ERROR: the default of policy.json is not reject" >&2; exit 1; }
 
 for n in "${NAMES[@]}"; do
   [[ -f $PKI/$n.pub ]] || cp "$key" "$PKI/$n.pub"

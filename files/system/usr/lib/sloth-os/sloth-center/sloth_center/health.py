@@ -196,7 +196,7 @@ def run_all():
 SUMMARY = [
     ("System", ["cat", "/etc/os-release"]),
     ("Version", ["rpm-ostree", "status", "--booted"]),
-    ("Lemezek", ["lsblk", "-o", "NAME,TYPE,SIZE,FSTYPE,LABEL,MOUNTPOINTS"]),
+    ("Disks", ["lsblk", "-o", "NAME,TYPE,SIZE,FSTYPE,LABEL,MOUNTPOINTS"]),
     ("Mounts", ["findmnt", "-o", "TARGET,SOURCE,FSTYPE,SIZE,AVAIL"]),
     ("Loop devices", ["losetup", "--list"]),
     # the source of Dolphin's Devices list (UDisks): size, name, whether hidden (HintIgnore)

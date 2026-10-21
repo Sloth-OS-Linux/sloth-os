@@ -1,4 +1,4 @@
-// Sloth Központ – főablak: bal oldalon a modulok, jobbra a kiválasztott oldal.
+// Sloth Center – main window: the modules on the left, the selected page on the right.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -14,7 +14,7 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 30
     minimumHeight: Kirigami.Units.gridUnit * 24
 
-    // A modulok listája. A "ready: false" modulok még készülnek (ROADMAP 3. fázis).
+    // The list of modules. Modules with "ready: false" are still being made (ROADMAP phase 3).
     readonly property var modules: [
         { id: "updates", name: L.t("Updates"), icon: "system-software-update", page: "UpdatesPage.qml", ready: true },
         { id: "winprograms", name: L.t("Programs"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true },
@@ -110,6 +110,6 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    // A megnyitandó oldal: sloth-center --page <azonosító> (pl. az NVIDIA-értesítésből: drivers)
+    // The page to open: sloth-center --page <ID> (e.g. from the NVIDIA notification: drivers)
     Component.onCompleted: openModule(Math.max(0, modules.findIndex(m => m.id === startPage && m.ready)))
 }

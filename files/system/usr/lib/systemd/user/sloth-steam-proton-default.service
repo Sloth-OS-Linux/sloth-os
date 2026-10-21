@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: Proton bekapcsolása a Steamben minden játékra (egyszeri)
+Description=Sloth OS: turning Proton on in Steam for every game (once)
 
 [Service]
 Type=oneshot

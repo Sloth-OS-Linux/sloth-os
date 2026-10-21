@@ -1,5 +1,5 @@
-// Haladó beállítások: boot menü, kernelparaméterek, rendszercsomagok, környezeti változók,
-// bejelentkezéskor induló programok. Minden, amihez máshol terminál kellene
+// Advanced settings: boot menu, kernel parameters, system packages, environment variables,
+// programs started at login. Everything that would need a terminal elsewhere
 // (rpm-ostree kargs / install / uninstall, ~/.config/environment.d).
 pragma ComponentBehavior: Bound
 import QtQuick
@@ -51,7 +51,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Boot menü -------------------------------------------------------------
+        // --- Boot menu -------------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: RowLayout {
@@ -74,7 +74,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Memóriatömörítés (zram) -------------------------------------------------------
+        // --- Memory compression (zram) -------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -114,7 +114,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Windows mellett: a Windows-oldali rendszerindítási segéd ------------------------
+        // --- Next to Windows: the Windows-side boot helper ------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: advanced.windowsPresent
@@ -141,7 +141,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Kernelparaméterek -------------------------------------------------------
+        // --- Kernel parameters -------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -186,7 +186,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Rendszercsomagok --------------------------------------------------------
+        // --- System packages --------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -242,7 +242,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Környezeti változók (~/.config/environment.d) ------------------------------
+        // --- Environment variables (~/.config/environment.d) ------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -360,7 +360,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Bejelentkezéskor induló programok ---------------------------------------------
+        // --- Programs started at login ---------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: RowLayout {

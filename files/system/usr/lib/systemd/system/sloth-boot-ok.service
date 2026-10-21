@@ -1,14 +1,14 @@
 [Unit]
-Description=Sloth OS: sikeres indítás jelzése (a boot menü rejtve marad)
-# A bejelentkező képernyőig eljutott indítás számít sikeresnek; ha ez nem fut le,
-# a következő indításkor a GRUB megmutatja a menüt (lásd /usr/lib/sloth-os/grub-custom.cfg).
+Description=Sloth OS: reporting a successful start (the boot menu stays hidden)
+# A start that reached the login screen counts as successful; if this does not run,
+# GRUB shows the menu at the next start (see /usr/lib/sloth-os/grub-custom.cfg).
 After=graphical.target
 
 [Service]
 Type=oneshot
 ExecStart=-/usr/libexec/sloth-os/boot-env ensure-config
 ExecStart=/usr/libexec/sloth-os/boot-env set sloth_boot_pending=0
-# a boot menü „Alaphelyzetbe állítás” pontjának felirata a rendszer nyelvén
+# the label of the boot menu's "Reset this PC" entry in the system's language
 ExecStart=-/bin/sh -c '/usr/libexec/sloth-os/boot-env set-title "$$(/usr/libexec/sloth-os/factory-reset boot-title)"'
 
 [Install]

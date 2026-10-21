@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
  "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
-<!-- A Sloth OS telepítő rendszergazdai része; csak az élő (telepítő) rendszeren van meg. -->
+<!-- The privileged part of the Sloth OS installer; only present in the live (installer) system. -->
 <policyconfig>
   <vendor>Sloth OS</vendor>
   <action id="org.slothos.installer.install">

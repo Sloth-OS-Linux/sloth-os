@@ -1,4 +1,4 @@
-# Sloth OS: a KDE üdvözlő appja se első bejelentkezéskor, se Plasma-frissítés után ne jelenjen meg.
+# Sloth OS: KDE's welcome app must not appear either at the first login or after a Plasma update.
 [General]
 LastSeenVersion=99.0.0
 ShowUpdatePage=false

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# A Windows-programok futtatója gyárilag az image-ben: Proton (UMU-Proton) és a Steam Linux Runtime (sniper).
-# Így az első .exe letöltés és internet nélkül, rögtön indul: első használatkor a
-# /usr/libexec/sloth-os/windows-runtime-seed a felhasználó mappájába másolja őket, oda, ahol az umu-launcher
-# keresi. Az újabb verziókat utána az umu magától tölti le a háttérben (sloth-windows-prepare).
-# Rögzített verziók ellenőrzőösszeggel. Frissítéskor: a verziók és az összegek cseréje
-#   https://github.com/Open-Wine-Components/umu-proton/releases  (a .sha512sum fájlból)
-#   https://repo.steampowered.com/steamrt3/images/latest-public-beta.txt  (a verzió mappájában: SHA256SUMS)
+# The Windows programs' runner in the image from the factory: Proton (UMU-Proton) and the Steam Linux Runtime (sniper).
+# So the first .exe starts right away, without download or internet: on first use
+# /usr/libexec/sloth-os/windows-runtime-seed copies them into the user's folder, where umu-launcher
+# looks for them. umu then downloads newer versions by itself in the background (sloth-windows-prepare).
+# Pinned versions with checksums. When updating: change the versions and the sums
+#   https://github.com/Open-Wine-Components/umu-proton/releases  (from the .sha512sum file)
+#   https://repo.steampowered.com/steamrt3/images/latest-public-beta.txt  (in the version's folder: SHA256SUMS)
 set -euo pipefail
 
 PROTON=UMU-Proton-10.0-4

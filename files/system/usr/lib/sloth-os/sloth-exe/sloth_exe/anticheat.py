@@ -1,13 +1,13 @@
-"""Csalásvédelem felismerése a játék mappájában, hogy érthetően szólhassunk.
+"""Recognizes anti-cheat in the game's folder, so we can say clearly what is going on.
 
-Néhány csalásvédelem Linuxon soha nem fut (a gyártó tiltja vagy kernel-szintű),
-mások (Easy Anti-Cheat, BattlEye) a játék fejlesztőjének döntésén múlnak.
+Some anti-cheats never run on Linux (the vendor forbids it or it is kernel-level),
+others (Easy Anti-Cheat, BattlEye) depend on the game developer's decision.
 """
 from pathlib import Path
 
 from .i18n import tr
 
-# (név, fájl/mappa minták kisbetűvel, Linuxon fut-e egyáltalán)
+# (name, file/folder patterns in lowercase, whether it runs on Linux at all)
 SYSTEMS = [
     ("Riot Vanguard", ("vgc.exe", "vgk.sys", "vanguard"), False),
     ("FACEIT", ("faceit.exe", "faceitservice.exe", "faceit"), False),
@@ -20,11 +20,11 @@ SYSTEMS = [
 
 
 def detect(exe):
-    """Visszaadja: (név, fut_linuxon) vagy None.
+    """Returns: (name, runs_on_linux) or None.
 
-    A játék mappáját és annak almappáit nézzük, a szülőmappából csak a közvetlen
-    fájlokat (pl. Valorant: live/VALORANT.exe mellett ../vgc.exe). A szülő almappáiba
-    nem nézünk bele, mert ott más játékok is lehetnek.
+    We look at the game's folder and its subfolders, and only at the direct files of the parent folder
+    (e.g. Valorant: ../vgc.exe next to live/VALORANT.exe). We do not look into the parent's subfolders,
+    because other games may be there.
     """
     exe = Path(exe)
     names = set()

@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: a saját fájlok mentése óránként
+Description=Sloth OS: backing up your own files every hour
 
 [Timer]
 OnCalendar=hourly

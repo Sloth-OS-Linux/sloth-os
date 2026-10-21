@@ -1,9 +1,9 @@
 #!/usr/bin/bash
-# A Dolphin Eszközök listájában a rendszer gyökere (composefs, egy "overlay" csatolás a /-en) névtelen, 128 TB-os
-# meghajtóként látszott. A KDE Solid az overlay csatolások közül csak a /-re csatoltat mutatja, és csak az
-# x-gvfs-hide opcióval rejthető el, amit az /etc/fstab-ból olvas. Ezt a sort pótoljuk, ha hiányzik.
-# A noauto miatt a rendszer nem csatolja, az ro miatt a systemd-remount-fs újracsatolása sem változtat semmit
-# (VM-ben kipróbálva, 2026-10-19). Az /etc/fstab többi sorához (pl. a bootc /boot sora) nem nyúlunk.
+# In Dolphin's Devices list the system's root (composefs, an "overlay" mount on /) showed up as a nameless,
+# 128 TB drive. Of the overlay mounts KDE Solid only shows the one mounted on /, and it can only be hidden with the
+# x-gvfs-hide option, which it reads from /etc/fstab. We add this line if it is missing.
+# Because of noauto the system does not mount it, and because of ro systemd-remount-fs remounting does not change anything either
+# (tried in a VM, 2026-10-19). The other lines of /etc/fstab (e.g. bootc's /boot line) are not touched.
 set -euo pipefail
 
 FSTAB=/etc/fstab
@@ -13,7 +13,7 @@ LINE="composefs / overlay ro,noauto,x-gvfs-hide 0 0"
 [[ -f $FSTAB ]] && grep -qE '^[^#[:space:]]+[[:space:]]+/[[:space:]]+overlay[[:space:]]' "$FSTAB" && exit 0
 
 {
-    echo "# Sloth OS: a rendszer gyökere ne látszódjon meghajtóként a Dolphinban (/usr/libexec/sloth-os/hide-root-overlay)"
+    echo "# Sloth OS: the system's root must not show as a drive in Dolphin (/usr/libexec/sloth-os/hide-root-overlay)"
     echo "$LINE"
 } >> "$FSTAB"
-echo "Az /etc/fstab kiegészítve: $LINE"
+echo "/etc/fstab extended: $LINE"

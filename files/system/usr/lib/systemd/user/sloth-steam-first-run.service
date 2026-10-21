@@ -1,11 +1,11 @@
 [Unit]
-Description=Sloth OS: értesítés, amíg a Steam az első indításnál letölti magát
+Description=Sloth OS: a notification while Steam downloads itself on its first start
 ConditionPathExists=!%h/.local/state/sloth-os/steam-first-run.done
 After=plasma-workspace.target
 
 [Service]
 Type=oneshot
-# Aktív marad a kilépés után is, különben a PathExists újra és újra elindítaná
+# It stays active after exiting, otherwise PathExists would start it again and again
 RemainAfterExit=yes
 Environment=PYTHONPATH=/usr/lib/sloth-os/sloth-center:/usr/lib/sloth-os/common
 ExecStart=/usr/bin/python3 -m sloth_center.steam_first_run

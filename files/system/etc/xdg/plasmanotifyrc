@@ -1,4 +1,4 @@
-# Sloth OS: az értesítések felugró ablaka a képernyő jobb felső sarkában jelenik meg (a Plasma alapból a tálca
-# óra melletti részéhez teszi). A felhasználó a Rendszerbeállítások → Értesítések oldalon átállíthatja.
+# Sloth OS: notification popups appear in the top right corner of the screen (Plasma puts them by default next to
+# the taskbar's clock). The user can change it in System Settings → Notifications.
 [Notifications]
 PopupPosition=TopRight

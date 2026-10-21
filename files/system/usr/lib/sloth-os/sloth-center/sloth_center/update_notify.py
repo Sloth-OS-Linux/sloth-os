@@ -1,10 +1,10 @@
-"""Értesítés, ha a háttérben elkészült egy rendszerfrissítés (a következő újraindításkor települ).
+"""A notification when a system update was prepared in the background (it installs at the next restart).
 
-Az automatikus frissítés (rpm-ostreed-automatic, „stage”) magától letölti és előkészíti az új verziót; eddig ezt
-csak a Sloth Központ mutatta, ezért úgy tűnt, mintha a frissítés „csak újraindítás után” jönne. A felhasználó
-munkamenetében fut (sloth-update-notify.path / .service): amikor a rendszer előkészít egy új verziót
-(/run/ostree/staged-deployment), és bejelentkezéskor. Egy verzióról csak egyszer szól.
-Indítás: python3 -m sloth_center.update_notify
+The automatic update (rpm-ostreed-automatic, "stage") downloads and prepares the new version by itself; until now
+only Sloth Center showed this, so it looked as if the update came "only after a restart". It runs in the user's
+session (sloth-update-notify.path / .service): when the system prepares a new version
+(/run/ostree/staged-deployment), and at login. It speaks up about a version only once.
+Start: python3 -m sloth_center.update_notify
 """
 import json
 import os
@@ -18,7 +18,7 @@ SEEN = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "s
 
 
 def pending_deployment():
-    """A következő indításkor induló verzió, ha az nem a mostani (új frissítés vár). Különben None."""
+    """The version starting at the next start, if it is not the current one (a new update is waiting). Otherwise None."""
     try:
         r = subprocess.run(["rpm-ostree", "status", "--json"], capture_output=True, text=True, timeout=60)
         deployments = json.loads(r.stdout or "{}").get("deployments", [])

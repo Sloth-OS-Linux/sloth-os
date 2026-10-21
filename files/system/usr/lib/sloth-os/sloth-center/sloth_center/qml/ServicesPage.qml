@@ -1,4 +1,4 @@
-// Szolgáltatások: gyakoriak érthető névvel, kapcsolóval; haladó lista az összes futóval.
+// Services: the common ones with understandable names and switches; an advanced list of all running ones.
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts

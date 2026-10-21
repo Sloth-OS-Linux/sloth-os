@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: GitHub-csomagként telepített appok (pl. ArtCraft) frissítése
+Description=Sloth OS: updating the apps installed as GitHub packages (e.g. ArtCraft)
 After=network-online.target
 
 [Service]

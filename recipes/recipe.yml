@@ -1,20 +1,20 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# Sloth OS – AMD / Intel GPU-s változat
-# Kész image: ghcr.io/sloth-os-linux/sloth-os
+# Sloth OS – the variant for AMD / Intel GPUs
+# Finished image: ghcr.io/sloth-os-linux/sloth-os
 name: sloth-os
-description: Sloth OS – napi használatra és gamingre szánt desktop, terminál nélkül.
+description: Sloth OS – a desktop for everyday use and gaming, without a terminal.
 
-# Universal Blue KDE (Kinoite) alap – NEM Bazzite
+# Universal Blue KDE (Kinoite) base – NOT Bazzite
 base-image: ghcr.io/ublue-os/kinoite-main
-image-version: latest # később rögzíthető egy Fedora verzióra, pl. 43
+image-version: latest # can be pinned to a Fedora version later, e.g. 43
 
 modules:
   - from-file: branding.yml
   - from-file: gaming.yml
   - from-file: apps.yml
   - from-file: tools.yml
-  - type: initramfs # a boot animációhoz kell; maradjon a végén, a signing előtt
-  - type: signing # aláírt image-ekhez kell, maradjon a végén
-  - type: script # a másik változat aláírását is elfogadja (AMD/Intel <-> NVIDIA váltás)
+  - type: initramfs # needed for the boot animation; keep it at the end, before signing
+  - type: signing # needed for signed images, keep it at the end
+  - type: script # also accepts the other variant's signature (switching AMD/Intel <-> NVIDIA)
     scripts:
       - signing-family.sh

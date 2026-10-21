@@ -1,8 +1,8 @@
-"""A gép alaphelyzetbe állítása: „Fájljaim megtartásával” vagy „Mindent töröl” (a Windows megfelelője).
+"""Resetting the computer: "Keep my files" or "Remove everything" (the Windows equivalent).
 
-Az előkészítés (a legújabb verzió letöltése, a kézzel hozzáadott rendszercsomagok és kernelparaméterek levétele)
-most fut, a sloth-helperen át, rendszergazdai jóváhagyással; a többi a következő induláskor, bejelentkezés előtt
-(factory-reset boot). Amíg nem indult újra a gép, vissza lehet vonni.
+The preparation (downloading the latest version, removing the system packages and kernel parameters added by hand)
+runs now, through sloth-helper, with administrator approval; the rest at the next start, before login
+(factory-reset boot). Until the machine restarts, it can be withdrawn.
 """
 import json
 import logging
@@ -23,7 +23,7 @@ NAME_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
 
 
 def password_hash(password):
-    """SHA-512 crypt hash, mint a telepítőben (a jelszó csak a bemeneten megy át)."""
+    """SHA-512 crypt hash, as in the installer (the password only goes through the input)."""
     r = subprocess.run(["openssl", "passwd", "-6", "-stdin"], input=password + "\n",
                        capture_output=True, text=True, timeout=30)
     return r.stdout.strip() if r.returncode == 0 and r.stdout.startswith("$6$") else ""
@@ -47,7 +47,7 @@ class ResetController(QObject):
         "packages": N_("Removing manually added system packages…"),
         "kargs": N_("Restoring kernel parameters…"),
     }
-    # induláskor a factory-reset írja ki a Plymouth-animáció alá (a fordítást innen veszi)
+    # at startup factory-reset shows these under the Plymouth animation (it takes the translation from here)
     BOOT_TEXTS = {
         N_("Resetting this PC… This may take a few minutes, don't turn off the computer."),
         N_("Done. Restarting…"),
@@ -69,7 +69,7 @@ class ResetController(QObject):
 
     @Slot(str, result=str)
     def checkAccount(self, username):
-        """Hibaüzenet a felhasználónévhez, vagy üres szöveg, ha jó."""
+        """An error message for the user name, or empty text if it is fine."""
         if not NAME_RE.match(username):
             return tr("The username must start with a lowercase letter and contain only lowercase letters, digits, "
                       "hyphens or underscores (no spaces or accents).")
@@ -119,7 +119,7 @@ class ResetController(QObject):
         threading.Thread(target=work, daemon=True).start()
 
     def _on_stage(self, stage):
-        self._status = tr(self.STAGES.get(stage, "Előkészítés…"))
+        self._status = tr(self.STAGES.get(stage, "Preparing…"))
         self.changed.emit()
 
     def _on_done(self, result):

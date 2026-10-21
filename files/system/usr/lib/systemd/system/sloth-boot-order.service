@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: a Sloth OS maradjon az első a rendszerindítási sorrendben (ha a Windows elé tette magát)
+Description=Sloth OS: Sloth OS stays first in the boot order (if Windows put itself in front)
 ConditionPathExists=/sys/firmware/efi
 After=local-fs.target
 

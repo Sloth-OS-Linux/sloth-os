@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: NVIDIA-s gépen az NVIDIA-s változat előkészítése a háttérben
+Description=Sloth OS: preparing the NVIDIA version in the background on an NVIDIA machine
 ConditionPathExists=!/var/lib/sloth-os/nvidia-auto-done
 Wants=network-online.target
 After=network-online.target rpm-ostreed.service

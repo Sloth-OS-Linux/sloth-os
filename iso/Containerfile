@@ -1,6 +1,6 @@
-# Sloth OS élő rendszer a telepítő ISO-hoz. A Titanoboa (ublue-os/titanoboa) ebből az image-ből
-# készít indítható ISO-t. Építés: tools/build-iso.sh (Linux) / tools/build-iso.ps1 (Windows), vagy .github/workflows/iso.yml.
-# A telepítendő image nem kerül bele: az ISO készítésekor külön mappából csatoljuk be (iso/payload.sh).
+# The Sloth OS live system for the installer ISO. Titanoboa (ublue-os/titanoboa) makes a bootable ISO
+# from this image. Build: tools/build-iso.sh (Linux) / tools/build-iso.ps1 (Windows), or .github/workflows/iso.yml.
+# The image to install is not in it: when the ISO is made, it is mounted in from a separate folder (iso/payload.sh).
 ARG BASE_IMAGE=ghcr.io/sloth-os-linux/sloth-os:latest
 FROM ${BASE_IMAGE}
 ARG BASE_IMAGE

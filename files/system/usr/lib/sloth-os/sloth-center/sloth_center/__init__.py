@@ -1,1 +1,1 @@
-"""Sloth Központ: a Sloth OS saját beállító alkalmazása."""
+"""Sloth Center: Sloth OS's own settings app."""

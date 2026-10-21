@@ -1,5 +1,5 @@
-// Frissítések és visszaállítás. Csak emberi nyelvű állapot és folyamatjelző,
-// terminálkimenet soha. Az adatok a Python oldali `updates` objektumból jönnek.
+// Updates and rollback. Only a human-language status and a progress bar,
+// never terminal output. The data comes from the Python side's `updates` object.
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -34,7 +34,7 @@ Kirigami.ScrollablePage {
             text: updates.infoText
         }
 
-        // --- Fő állapot ------------------------------------------------------
+        // --- Main status ------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -75,7 +75,7 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                // Folyamatjelző: százalék, ha tudjuk; különben mozgó csík
+                // Progress bar: a percentage if we know it; otherwise a moving bar
                 ColumnLayout {
                     Layout.fillWidth: true
                     visible: updates.busy
@@ -141,9 +141,9 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Appok: a Discover és az automatikus app-frissítés ------------------------------------
-        // A rendszert ez az oldal frissíti, az appokat (Flatpak) a háttérben egy napi frissítő, kézzel a
-        // Discover; a Discover a rendszerfrissítést nem mutatja (nincs két külön rendszerfrissítés)
+        // --- Apps: Discover and the automatic app updates ------------------------------------
+        // This page updates the system; the apps (Flatpak) are updated in the background by a daily updater, by hand in
+        // Discover; Discover does not show the system update (there are not two separate system updates)
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: RowLayout {
@@ -172,7 +172,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Verzió megtartása ---------------------------------------------------
+        // --- Keeping a version ---------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: RowLayout {
@@ -196,7 +196,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Visszaállítás -----------------------------------------------------
+        // --- Rollback -----------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -221,7 +221,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Az összes verzió a gépen ----------------------------------------------
+        // --- Every version on the machine ----------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: updates.versions.length > 1

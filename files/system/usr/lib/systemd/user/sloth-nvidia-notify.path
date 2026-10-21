@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: az NVIDIA-s változat előkészítésének figyelése
+Description=Sloth OS: watching the preparation of the NVIDIA version
 
 [Path]
 PathChanged=/var/lib/sloth-os/nvidia-auto

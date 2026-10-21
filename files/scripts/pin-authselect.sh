@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# PIN-kódos bejelentkezés: a Fedora "local" authselect-profiljából saját (vendor) profil, egyetlen új funkcióval
-# (with-sloth-pin). Bekapcsolva a pam_unix elé egy pam_exec sor kerül (/usr/libexec/sloth-os/pin-check), és a
-# pam_unix a már beírt jelszót használja (try_first_pass), hogy ne kérje kétszer. Kikapcsolva a profil
-# ugyanaz, mint a "local". A profilt a Sloth Központ választja ki, amikor a felhasználó PIN-t állít be
-# (sloth-helper pin-set), a meglévő funkciók (ujjlenyomat, biztonsági kulcs…) megtartásával.
+# PIN sign-in: our own (vendor) profile made from Fedora's "local" authselect profile, with a single new feature
+# (with-sloth-pin). When on, a pam_exec line goes before pam_unix (/usr/libexec/sloth-os/pin-check), and
+# pam_unix uses the password already typed (try_first_pass), so it does not ask twice. When off, the profile is
+# the same as "local". Sloth Center selects the profile when the user sets a PIN
+# (sloth-helper pin-set), keeping the existing features (fingerprint, security key…).
 set -euo pipefail
 
 src=/usr/share/authselect/default/local
 dst=/usr/share/authselect/vendor/sloth
-[[ -d "$src" ]] || { echo "HIBA: nincs authselect local profil ($src)" >&2; exit 1; }
+[[ -d "$src" ]] || { echo "ERROR: no authselect local profile ($src)" >&2; exit 1; }
 rm -rf "$dst"
 mkdir -p "$(dirname "$dst")"
 cp -a "$src" "$dst"
@@ -27,7 +27,7 @@ for name in ("system-auth", "password-auth"):
     p = dst / name
     s = p.read_text()
     if s.count(unix) != 1:
-        sys.exit(f"HIBA: a {name} pam_unix sora megváltozott, a PIN-sor nem illeszthető be")
+        sys.exit(f"ERROR: the pam_unix line of {name} has changed, the PIN line cannot be inserted")
     p.write_text(s.replace(unix, pin + new_unix))
 readme = dst / "README"
 text = readme.read_text().replace("Local users only\n================",

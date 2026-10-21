@@ -1,4 +1,4 @@
-# Helyi fejlesztés (wrangler dev) adatai és titkai
+# Data and secrets of local development (wrangler dev)
 .wrangler/
 .dev.vars
 node_modules/

@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: NVIDIA-s változat előkészítése (indítás után, és óránként újra, amíg nem sikerül)
+Description=Sloth OS: preparing the NVIDIA version (after startup, and hourly again until it succeeds)
 ConditionPathExists=!/var/lib/sloth-os/nvidia-auto-done
 
 [Timer]

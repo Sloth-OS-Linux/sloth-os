@@ -1,5 +1,5 @@
-"""A Steam fájljai (csak olvasva): játékkönyvtárak, a Steamhez hozzáadott (nem Steames) programok és
-Proton-környezeteik. Az átvételük (újratelepítés nélkül) az imports.py-ban van.
+"""Steam's files (only read): game libraries, programs added to Steam (non-Steam ones) and their
+Proton environments. Taking them over (without reinstalling) is in imports.py.
 """
 import logging
 import re
@@ -13,7 +13,7 @@ FLATPAK_ROOT = HOME / ".var/app/com.valvesoftware.Steam/.local/share/Steam"
 STEAM_ROOTS = [FLATPAK_ROOT, HOME / ".local/share/Steam", HOME / ".steam/steam"]
 
 
-# --- A Steam szöveges VDF formátuma ----------------------------------------------------------
+# --- Steam's text VDF format ----------------------------------------------------------
 
 _TOKEN = re.compile(r'"((?:[^"\\]|\\.)*)"|([{}])|(//[^\n]*)')
 
@@ -55,7 +55,7 @@ def vdf_dump(data, indent=0):
 
 
 def ci(d, key):
-    """A Steam fájljaiban a kulcsok kis- és nagybetűje változhat."""
+    """In Steam's files the case of the keys may vary."""
     if not isinstance(d, dict):
         return None
     for k, v in d.items():
@@ -64,10 +64,10 @@ def ci(d, key):
     return None
 
 
-# --- A bináris VDF (shortcuts.vdf) -------------------------------------------------------------
+# --- The binary VDF (shortcuts.vdf) -------------------------------------------------------------
 
 def binary_vdf_load(data):
-    """A Steam bináris VDF-je: 0x00 szótár, 0x01 szöveg, 0x02 32 bites szám, 0x08 szótár vége."""
+    """Steam's binary VDF: 0x00 dictionary, 0x01 string, 0x02 32-bit number, 0x08 end of dictionary."""
     pos = 0
 
     def cstr():
@@ -93,11 +93,11 @@ def binary_vdf_load(data):
             elif kind == 0x02:
                 out[key] = struct.unpack_from("<i", data, pos)[0]
                 pos += 4
-            elif kind == 0x07:  # 64 bites szám (ritka)
+            elif kind == 0x07:  # 64-bit number (rare)
                 out[key] = struct.unpack_from("<q", data, pos)[0]
                 pos += 8
             else:
-                raise ValueError(f"ismeretlen VDF típus: {kind}")
+                raise ValueError(f"unknown VDF type: {kind}")
         return out
 
     return node()
@@ -125,7 +125,7 @@ def library_folders(root):
 
 
 def compat_tools(root):
-    """Melyik programhoz melyik Proton van beállítva: {appid: név}."""
+    """Which Proton is set for which program: {appid: name}."""
     try:
         data = vdf_load((root / "config/config.vdf").read_text(errors="replace"))
     except OSError:
@@ -142,7 +142,7 @@ def _unquote(s):
 
 
 def shortcuts():
-    """A Steamhez hozzáadott Windows-programok (minden Steam-fiókból):
+    """The Windows programs added to Steam (from every Steam account):
     [{"appid", "gameid", "name", "exe", "start_dir", "options", "prefix", "proton", "icon", "flatpak"}]
     """
     root = steam_root()
@@ -169,7 +169,7 @@ def shortcuts():
             icon = Path(_unquote(ci(sc, "icon"))) if ci(sc, "icon") else None
             out.append({
                 "appid": appid,
-                "gameid": (appid << 32) | 0x02000000,  # steam://rungameid/<ez> indítja
+                "gameid": (appid << 32) | 0x02000000,  # steam://rungameid/<this> starts it
                 "name": ci(sc, "AppName") or ci(sc, "appname") or exe.stem,
                 "exe": exe,
                 "start_dir": Path(_unquote(ci(sc, "StartDir"))) if ci(sc, "StartDir") else exe.parent,
@@ -183,6 +183,6 @@ def shortcuts():
 
 
 def run_command(gameid, flatpak):
-    """A Steamhez hozzáadott program indítása a Steammel (a saját beállításaival)."""
+    """Starts a program added to Steam with Steam (with its own settings)."""
     url = f"steam://rungameid/{gameid}"
     return ["flatpak", "run", "com.valvesoftware.Steam", url] if flatpak else ["steam", url]

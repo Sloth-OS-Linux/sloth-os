@@ -1,8 +1,8 @@
-# Sloth OS: a Universal Blue azonos nevű szabályát (/usr/lib/udev/rules.d/99-thinkpad-thresholds-udev.rules) váltja.
-# Az eredeti a töltési korlát fájljait minden gépen írhatóvá tenné, akkor is, ha nincsenek meg (pl. HP-n), és ilyenkor
-# minden akkumulátor-eseménynél (fél percenként) hibát írt a naplóba. Itt csak akkor fut, ha a fájl létezik;
-# a támogatott gépeken (pl. ThinkPad) a töltési korlát ugyanúgy állítható marad.
-# Forrás: https://github.com/ublue-os/packages (ublue-os-udev-rules)
+# Sloth OS: replaces Universal Blue's rule of the same name (/usr/lib/udev/rules.d/99-thinkpad-thresholds-udev.rules).
+# The original would make the charge limit files writable on every machine, even where they do not exist (e.g. on HP), and then
+# it wrote an error into the log on every battery event (every half minute). Here it only runs if the file exists;
+# on supported machines (e.g. ThinkPad) the charge limit can be set just the same.
+# Source: https://github.com/ublue-os/packages (ublue-os-udev-rules)
 
 ACTION=="add|change", KERNEL=="BAT[0-1]", GROUP="wheel", SUBSYSTEM=="power_supply", TEST=="/sys%p/charge_control_start_threshold", TEST{0002}!="/sys%p/charge_control_start_threshold", RUN+="/bin/chmod 666 /sys%p/charge_control_start_threshold"
 ACTION=="add|change", KERNEL=="BAT[0-1]", GROUP="wheel", SUBSYSTEM=="power_supply", TEST=="/sys%p/charge_control_end_threshold", TEST{0002}!="/sys%p/charge_control_end_threshold", RUN+="/bin/chmod 666 /sys%p/charge_control_end_threshold"

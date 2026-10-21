@@ -1,5 +1,5 @@
 #!/usr/bin/python3 -I
-"""Sloth Üdvözlő indító."""
+"""Sloth Welcome launcher."""
 import sys
 
 sys.path.insert(0, "/usr/lib/sloth-os/sloth-welcome")

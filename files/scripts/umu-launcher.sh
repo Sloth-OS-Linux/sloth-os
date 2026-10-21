@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# umu-launcher: a Windows-programok futtatója a háttérben (a Sloth .exe kezelő használja).
-# Nincs a Fedora repóban, ezért a hivatalos GitHub kiadás RPM-jét telepítjük,
-# rögzített verzióval és SHA256 ellenőrzéssel.
-# Frissítéskor: VERSION és a SHA256 értékek cseréje
+# umu-launcher: the runner of Windows programs in the background (used by the Sloth .exe handler).
+# It is not in the Fedora repositories, so we install the RPM of the official GitHub release,
+# with a pinned version and an SHA256 check.
+# When updating: change VERSION and the SHA256 values
 #   https://github.com/Open-Wine-Components/umu-launcher/releases
 set -euo pipefail
 
@@ -14,7 +14,7 @@ declare -A SHA256=(
 
 FEDORA="${OS_VERSION:-$(rpm -E %fedora)}"
 if [[ -z "${SHA256[$FEDORA]:-}" ]]; then
-  echo "HIBA: nincs umu-launcher ${VERSION} csomag a Fedora ${FEDORA}-hoz; frissítsd a scriptet." >&2
+  echo "ERROR: no umu-launcher ${VERSION} package for Fedora ${FEDORA}; update the script." >&2
   exit 1
 fi
 
@@ -29,9 +29,9 @@ echo "${SHA256[$FEDORA]}  $TMP/$RPM" | sha256sum -c -
 dnf -y install "$TMP/$RPM"
 umu-run --version || true
 
-# Az umu adatbázisa a programok felismeréséhez (sloth_exe/identify.py). Ez csak a kezdő példány:
-# bejelentkezés után a sloth-windows-prepare frissíti. Ha most nem érhető el, a build megy tovább
-# (a felismerés akkor a Steam áruházával megy, illetve az első frissítés után az adatbázissal).
+# The umu database for recognizing programs (sloth_exe/identify.py). This is only the initial copy:
+# after login sloth-windows-prepare updates it. If it is not reachable now, the build goes on
+# (recognition then works with the Steam store, and with the database after the first update).
 mkdir -p /usr/share/sloth-os
 if curl -fsSL --retry 3 -o /usr/share/sloth-os/umu-database.csv \
     https://raw.githubusercontent.com/Open-Wine-Components/umu-database/main/umu-database.csv; then

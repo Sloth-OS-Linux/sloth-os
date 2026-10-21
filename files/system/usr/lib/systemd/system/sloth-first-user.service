@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: az első felhasználói fiók létrehozása (a telepítő adataiból)
+Description=Sloth OS: creating the first user account (from the installer's data)
 ConditionPathExists=/etc/sloth-os/first-user.json
 After=systemd-user-sessions.service
 Before=display-manager.service plasmalogin.service sddm.service

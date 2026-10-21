@@ -1,9 +1,9 @@
-# SOHA ne kerüljön a repóba a privát aláíró kulcs!
+# NEVER let the private signing key into the repository!
 cosign.key
 *.iso
 /out/
 __pycache__/
 *.pyc
 
-# Csak a VM-teszthez (helyi segéd, az ISO-ba se kerüljön)
+# Only for the VM test (a local helper, it must not go into the ISO either)
 iso/files/deploy-vm.sh

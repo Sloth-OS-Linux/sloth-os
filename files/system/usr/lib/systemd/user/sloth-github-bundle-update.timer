@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: GitHub-csomagok frissítésének ellenőrzése (naponta)
+Description=Sloth OS: checking for updates of GitHub packages (daily)
 
 [Timer]
 OnBootSec=15min

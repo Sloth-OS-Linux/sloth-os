@@ -2,7 +2,7 @@
 """Resetting the computer (files/system/usr/libexec/sloth-os/factory-reset): resetting /etc,
 the kernel parameters and moving the desktop settings, in temporary folders.
 
-Linuxon fut:
+It runs on Linux:
   wsl -d podman-machine-default -- python3 -I /mnt/c/Users/batho/sloth-os/tools/tests/test_factory_reset.py
 """
 import importlib.machinery

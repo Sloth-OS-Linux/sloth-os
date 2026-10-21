@@ -1,6 +1,6 @@
-"""A közös tudás megosztásának beállítása (Sloth Központ → Windows-programok; alapból kikapcsolva).
+"""The setting for sharing with the shared knowledge (Sloth Center → Windows programs; off by default).
 
-Az .exe kezelő (sloth_exe/community.py) ebből tudja, küldhet-e névtelen jelentést.
+The .exe handler (sloth_exe/community.py) learns from it whether it may send anonymous reports.
 """
 import json
 import os
@@ -27,4 +27,4 @@ def set_enabled(value):
     CONFIG.parent.mkdir(parents=True, exist_ok=True)
     CONFIG.write_text(json.dumps(data, indent=2), encoding="utf-8")
     if not value:
-        QUEUE.unlink(missing_ok=True)  # kikapcsoláskor a még el nem küldött jelentések is törlődnek
+        QUEUE.unlink(missing_ok=True)  # turning it off deletes the reports not sent yet too

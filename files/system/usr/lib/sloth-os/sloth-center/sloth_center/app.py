@@ -1,4 +1,4 @@
-"""A Sloth Központ indítása: Qt alkalmazás, QML felület, vezérlők."""
+"""Starting Sloth Center: the Qt application, the QML interface, the controllers."""
 import logging
 import os
 import sys
@@ -14,10 +14,10 @@ QML_DIR = Path(__file__).resolve().parent / "qml"
 
 def main():
     logging.basicConfig(level=logging.INFO, format="%(name)s: %(message)s")
-    # Natív KDE kinézet (a rendszer színsémáját követi)
+    # Native KDE look (it follows the system's color scheme)
     os.environ.setdefault("QT_QUICK_CONTROLS_STYLE", "org.kde.desktop")
 
-    # sloth-center --page <modul> : rögtön ezt az oldalt nyitja meg (pl. drivers)
+    # sloth-center --page <module> : opens this page right away (e.g. drivers)
     start_page = ""
     if "--page" in sys.argv[1:-1]:
         i = sys.argv.index("--page")
@@ -33,8 +33,8 @@ def main():
     app.setDesktopFileName("org.slothos.center")
     app.setWindowIcon(QIcon.fromTheme("sloth-os"))
 
-    # A vezérlők a gi-t (GLib) használják; a Qt eseményhurka a GLib-é, így a
-    # D-Bus callbackek gond nélkül megérkeznek.
+    # The controllers use gi (GLib); Qt's event loop is GLib's, so the
+    # D-Bus callbacks arrive without problems.
     from .updates import UpdatesController
     from .accounts import AccountsController
     from .advanced import AdvancedController

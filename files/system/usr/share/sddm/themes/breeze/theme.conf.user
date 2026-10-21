@@ -1,4 +1,4 @@
-# Sloth OS: tartalék, ha az image SDDM-et használna a Plasma Login Manager helyett
+# Sloth OS: a fallback in case the image used SDDM instead of Plasma Login Manager
 [General]
 background=/usr/share/wallpapers/SlothOS-metallic-sloth-over-silver-waves/contents/images/3840x2160.jpg
 type=image

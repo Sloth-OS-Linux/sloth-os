@@ -1,4 +1,4 @@
-// Driverek és hardver: videókártya, a megfelelő rendszerváltozat, Secure Boot kulcs.
+// Drivers and hardware: graphics card, the matching system version, Secure Boot key.
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -18,7 +18,7 @@ Kirigami.ScrollablePage {
             text: drivers.errorText
         }
 
-        // --- Videókártya -------------------------------------------------------
+        // --- Graphics card -------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -50,7 +50,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Rossz változat fut ---------------------------------------------
+        // --- The wrong version runs ---------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: drivers.mismatch || drivers.busy || drivers.infoText === "switched"
@@ -106,7 +106,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Secure Boot kulcs ---------------------------------------------------
+        // --- Secure Boot key ---------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: drivers.keyNeeded || drivers.keyPending
@@ -131,7 +131,7 @@ Kirigami.ScrollablePage {
                     text: L.t("Prepare the permission")
                     onClicked: drivers.enrollKey()
                 }
-                // Lépésről lépésre a kék képernyőhöz (azt a gép firmware-e mutatja, angolul)
+                // Step by step to the blue screen (the machine's firmware shows it, in English)
                 ColumnLayout {
                     Layout.fillWidth: true
                     visible: drivers.keyPending
@@ -236,7 +236,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Telefon összekötése (KDE Connect) ------------------------------------------
+        // --- Connecting a phone (KDE Connect) ------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: drivers.phoneLinkAvailable
@@ -261,7 +261,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    // Kontroller csatlakoztatása, leválasztása, akkuszint: pár másodpercenként frissül
+    // Connecting, disconnecting a controller, battery level: refreshed every few seconds
     Timer {
         interval: 3000
         running: page.visible

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# A Windows-programok (.exe, .msi), a Linuxos csomagok (AppImage, .deb, .rpm) és a Mac-es fájlok
-# alapértelmezett megnyitója a Sloth .exe kezelő legyen (a Mac-eseknél érthető üzenetet ad).
-# A meglévő beállításokat megtartjuk, csak ezeket a típusokat írjuk felül.
+# The Sloth .exe handler should be the default opener of Windows programs (.exe, .msi), Linux packages
+# (AppImage, .deb, .rpm) and Mac files (for Mac files it gives a clear message).
+# The existing settings are kept, only these types are overwritten.
 set -euo pipefail
 
 python3 - <<'PYEOF'
@@ -23,4 +23,4 @@ with open(target, "w", encoding="utf-8") as f:
 PYEOF
 
 update-desktop-database /usr/share/applications 2>/dev/null || true
-echo "Windows-programok, Linuxos csomagok és Mac-es fájlok megnyitója: org.slothos.exe.desktop"
+echo "Opener of Windows programs, Linux packages and Mac files: org.slothos.exe.desktop"

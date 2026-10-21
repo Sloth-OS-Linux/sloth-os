@@ -1,8 +1,8 @@
-"""Környezeti változók (a `~/.config/environment.d` grafikus megfelelője).
+"""Environment variables (the graphical equivalent of `~/.config/environment.d`).
 
-A Sloth Központ a saját fájljába ír (90-sloth-center.conf); a többi fájl változóit csak
-megmutatja. A változások a következő bejelentkezéskor lépnek életbe (a systemd a
-felhasználói munkamenet indulásakor olvassa be őket). Jelszó nem kell.
+Sloth Center writes into its own file (90-sloth-center.conf); the variables of the other files are only
+shown. Changes take effect at the next login (systemd reads them when the
+user session starts). No password is needed.
 """
 import logging
 import re
@@ -19,14 +19,14 @@ log = logging.getLogger("sloth-center.environment")
 ENV_DIR = Path.home() / ".config/environment.d"
 OWN_FILE = ENV_DIR / "90-sloth-center.conf"
 NAME_RE = re.compile(r"^[A-Za-z_][A-Za-z0-9_]{0,127}$")
-# Ha ezek rosszul vannak beállítva, a bejelentkezés vagy az appok indítása is elromolhat
+# If these are set wrongly, signing in or starting apps may break too
 RISKY = {"PATH", "HOME", "USER", "SHELL", "LD_PRELOAD", "LD_LIBRARY_PATH", "XDG_RUNTIME_DIR",
          "XDG_DATA_DIRS", "XDG_CONFIG_DIRS", "DBUS_SESSION_BUS_ADDRESS", "QT_PLUGIN_PATH",
          "QT_QPA_PLATFORM", "WAYLAND_DISPLAY", "DISPLAY"}
 
 
 def _parse(path):
-    """KEY=VALUE sorok (a megjegyzések és az üres sorok kimaradnak)."""
+    """KEY=VALUE lines (comments and empty lines are skipped)."""
     out = []
     try:
         lines = path.read_text(encoding="utf-8").splitlines()
@@ -69,7 +69,7 @@ class EnvironmentController(QObject):
 
     def _save(self, items):
         ENV_DIR.mkdir(parents=True, exist_ok=True)
-        text = "# A Sloth Központ írja (Haladó beállítások → Környezeti változók).\n"
+        text = "# Written by Sloth Center (Advanced settings → Environment variables).\n"
         text += "".join(f"{n}={v}\n" for n, v in items)
         tmp = OWN_FILE.with_suffix(".tmp")
         tmp.write_text(text, encoding="utf-8")
@@ -77,7 +77,7 @@ class EnvironmentController(QObject):
 
     @Slot(str, str)
     def setVariable(self, name, value):
-        """Új változó, vagy egy meglévő értékének módosítása."""
+        """A new variable, or changing the value of an existing one."""
         self._error, self._info = "", ""
         name, value = name.strip(), value.strip()
         if not NAME_RE.match(name):
@@ -90,7 +90,7 @@ class EnvironmentController(QObject):
                 self._save(items)
                 self._info = tr("Saved. The change takes effect at the next sign-in.")
             except OSError as e:
-                log.warning("mentés: %s", e)
+                log.warning("saving: %s", e)
                 self._error = tr("Could not save.")
         self.refresh()
 
@@ -101,13 +101,13 @@ class EnvironmentController(QObject):
             self._save([(n, v) for n, v in _parse(OWN_FILE) if n != name])
             self._info = tr("Deleted. The change takes effect at the next sign-in.")
         except OSError as e:
-            log.warning("törlés: %s", e)
+            log.warning("deleting: %s", e)
             self._error = tr("Could not save.")
         self.refresh()
 
     @Slot()
     def openAutostart(self):
-        """A KDE „Automatikus indítás” beállítása: bejelentkezéskor induló programok és szkriptek."""
+        """KDE's "Autostart" settings: programs and scripts started at login."""
         try:
             subprocess.Popen(["systemsettings", "kcm_autostart"])
         except OSError as e:
@@ -115,7 +115,7 @@ class EnvironmentController(QObject):
 
     @Slot()
     def logout(self):
-        """A Plasma kijelentkezés-ablaka (a felhasználó ott még meggondolhatja)."""
+        """Plasma's logout window (the user can still change their mind there)."""
         try:
             bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
             bus.call_sync("org.kde.LogoutPrompt", "/LogoutPrompt", "org.kde.LogoutPrompt", "promptLogout",

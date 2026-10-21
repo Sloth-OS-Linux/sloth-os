@@ -1,6 +1,6 @@
 #!/usr/bin/python3 -I
-"""A sloth-helper verziókat érintő műveletei (pin, unpin, set-default) külön polkit-művelettel
-(org.slothos.helper.versions), hogy a jelszó nélküli beállításnál a „frissítések” közé tartozzanak."""
+"""sloth-helper's operations on versions (pin, unpin, set-default) with a separate polkit action
+(org.slothos.helper.versions), so that in the password-free setting they belong among "updates"."""
 import runpy
 import sys
 

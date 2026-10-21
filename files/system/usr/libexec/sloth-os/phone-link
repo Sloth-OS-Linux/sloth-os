@@ -1,11 +1,11 @@
 #!/usr/bin/bash
-# Telefon összekötése (KDE Connect) a felhasználónak: be- és kikapcsolás, jelszó nélkül.
-# A rendszerben alapból ki van kapcsolva (files/scripts/slim-image.sh); a bekapcsolás a felhasználó saját
-# mappájában adja vissza a magától indulást, a D-Bus-indítást és a Start menü bejegyzéseit.
+# Connecting a phone (KDE Connect) for the user: turning it on and off, without a password.
+# It is off by default in the system (files/scripts/slim-image.sh); turning it on gives back, in the user's own
+# folder, starting by itself, D-Bus activation and the Start menu entries.
 #
-#   phone-link on | off | status      (status: 0 = be van kapcsolva)
+#   phone-link on | off | status      (status: 0 = turned on)
 #
-# Az Üdvözlő (sloth_welcome/installer.py) és a Sloth Központ (Driverek és hardver) hívja.
+# Welcome (sloth_welcome/installer.py) and Sloth Center (Drivers and hardware) call it.
 set -euo pipefail
 
 SRC=/usr/share/sloth-os/kdeconnect
@@ -22,7 +22,7 @@ reload_dbus() {
 
 case "${1:-}" in
     on)
-        [[ -d $SRC ]] || { echo "A KDE Connect nincs a rendszerben." >&2; exit 1; }
+        [[ -d $SRC ]] || { echo "KDE Connect is not in the system." >&2; exit 1; }
         mkdir -p "$(dirname "$AUTOSTART")" "$(dirname "$DBUS")" "$DATA/applications"
         cp "$SRC/org.kde.kdeconnect.daemon.desktop" "$AUTOSTART"
         cp "$SRC/org.kde.kdeconnect.service" "$DBUS"
@@ -30,7 +30,7 @@ case "${1:-}" in
             [[ -f $SRC/$entry.desktop ]] && cp "$SRC/$entry.desktop" "$DATA/applications/"
         done
         reload_dbus
-        # rögtön indul is, nem csak a következő bejelentkezéskor
+        # it starts right away too, not only at the next login
         exec_line="$(grep -m1 '^Exec=' "$SRC/org.kde.kdeconnect.service" | cut -d= -f2-)"
         if [[ -n $exec_line ]] && ! pgrep -u "$(id -u)" -x kdeconnectd >/dev/null; then
             setsid -f $exec_line >/dev/null 2>&1 < /dev/null
@@ -50,7 +50,7 @@ case "${1:-}" in
         [[ -f $AUTOSTART && -f $DBUS ]]
         ;;
     *)
-        echo "Használat: phone-link on | off | status" >&2
+        echo "Usage: phone-link on | off | status" >&2
         exit 2
         ;;
 esac

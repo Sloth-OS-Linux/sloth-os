@@ -1,21 +1,21 @@
-"""Népszerű Windowsos telepítők, amelyeknek van Linuxra készült változata (Flathub).
+"""Popular Windows installers that have a version made for Linux (Flathub).
 
-Ha a felhasználó egy ilyen .exe-t nyit meg, az .exe kezelő a Linuxos változatot ajánlja (a Windowsosat
-mellette továbbra is telepítheti). Helyi lista, internet nélkül is működik; a fájl nevéből ismerjük fel
-(ékezetek, kis- és nagybetűk, jelek nélkül, pl. "MSTeamsSetup.exe" -> "msteamssetup").
+If the user opens such an .exe, the .exe handler recommends the Linux version (they can still install the Windows
+one next to it). A local list, it works without internet; we recognize it by the file name
+(without accents, case and symbols, e.g. "MSTeamsSetup.exe" -> "msteamssetup").
 
 reason:
-  "better"   a Windowsos változat is futhat, de a Linuxos jobban illeszkedik, és magától frissül
-  "broken"   a Windowsos változat itt nem települ vagy nem fut megbízhatóan (pl. az új Teams .NET-es
-             telepítője, 2026-10-20-i teszt)
-  "heroic"   Epic Games és GOG: a hivatalos indítók helyett a Heroic (Linuxra készült indító, a játékokat ugyanúgy
-             Protonnal futtatja); az Epic új telepítőjének aláírás-ellenőrzése Wine alatt elbukik (2026-10-20)
-Új elem előtt: https://flathub.org/api/v2/appstream/<id> (200 = megvan)
+  "better"   the Windows version may run too, but the Linux one fits better and updates by itself
+  "broken"   the Windows version does not install or run reliably here (e.g. the new Teams' .NET-based
+             installer, test of 2026-10-20)
+  "heroic"   Epic Games and GOG: Heroic instead of the official launchers (a launcher made for Linux, it runs the games
+             with Proton just the same); the new Epic installer's signature check fails under Wine (2026-10-20)
+Before a new item: https://flathub.org/api/v2/appstream/<id> (200 = it exists)
 """
 import re
 import unicodedata
 
-# (minta a normalizált fájlnévre, Flathub-azonosító, a Linuxos változat neve, ok)
+# (pattern for the normalized file name, Flathub ID, name of the Linux version, reason)
 NATIVE = [
     (r"msteams|teamssetup|teamsbootstrapper|teamsx64|teamswindows", "com.github.IsmaelMartinez.teams_for_linux",
      "Teams for Linux", "broken"),
@@ -67,7 +67,7 @@ def normalize(name):
 
 
 def match(filename):
-    """-> {"id", "name", "reason"} a Linuxos változatról, vagy None."""
+    """-> {"id", "name", "reason"} about the Linux version, or None."""
     key = normalize(filename)
     if len(key) < 3:
         return None

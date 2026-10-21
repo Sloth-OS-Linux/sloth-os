@@ -1,1 +1,1 @@
-"""Sloth .exe kezelő: Windows-programok telepítése és futtatása, technikai fogalmak nélkül."""
+"""Sloth .exe handler: installing and running Windows programs, without technical terms."""

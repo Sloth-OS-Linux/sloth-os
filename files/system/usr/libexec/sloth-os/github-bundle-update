@@ -1,9 +1,9 @@
 #!/usr/bin/python3 -I
-"""A GitHub-csomagként telepített appok (pl. ArtCraft) frissítése a háttérben.
+"""Updates the apps installed as GitHub packages (e.g. ArtCraft) in the background.
 
-A Flathub ezeket nem frissíti, ezért naponta egyszer megnézzük, van-e újabb kiadás.
-Ha van, letöltjük, ellenőrizzük az SHA256 összeget, és újratelepítjük (a beállítások
-és a mentések az app saját mappájában megmaradnak). Felhasználói szolgáltatás:
+Flathub does not update these, so once a day we check whether there is a newer release.
+If there is, we download it, check the SHA256 sum, and reinstall it (the settings
+and saves stay in the app's own folder). A user service:
 sloth-github-bundle-update.timer
 """
 import logging
@@ -43,12 +43,12 @@ def main():
                 continue
             try:
                 release = latest_release(app)
-            except Exception as e:  # nincs net: majd holnap
-                log.info("%s: nem sikerült lekérdezni (%s)", app["name"], e)
+            except Exception as e:  # no network: tomorrow then
+                log.info("%s: could not query (%s)", app["name"], e)
                 continue
             tag = release.get("tag_name", "")
             if tag and tag == versions.get(app["id"]):
-                log.info("%s naprakész (%s)", app["name"], tag)
+                log.info("%s is up to date (%s)", app["name"], tag)
                 continue
             path = None
             try:
@@ -59,9 +59,9 @@ def main():
                 txn.add_install_bundle(Gio.File.new_for_path(path), None)
                 txn.run(None)
                 save_bundle_version(app["id"], tag)
-                log.info("%s frissítve: %s", app["name"], tag)
+                log.info("%s updated: %s", app["name"], tag)
             except Exception as e:
-                log.warning("%s frissítése nem sikerült: %s", app["name"], e)
+                log.warning("updating %s failed: %s", app["name"], e)
             finally:
                 if path:
                     try:

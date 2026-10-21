@@ -1,4 +1,4 @@
-// A gép alaphelyzetbe állítása: „Fájljaim megtartásával” vagy „Mindent töröl” (reset.py).
+// Resetting the computer: "Keep my files" or "Remove everything" (reset.py).
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -8,7 +8,7 @@ Kirigami.ScrollablePage {
     id: page
     title: L.t("Reset this PC")
 
-    // "" (választás), "keep" vagy "all" (a választott mód összefoglalója)
+    // "" (choosing), "keep" or "all" (the summary of the chosen mode)
     property string choice: ""
 
     readonly property var lists: ({
@@ -62,7 +62,7 @@ Kirigami.ScrollablePage {
             text: reset.errorText
         }
 
-        // --- Előkészítés folyamatban --------------------------------------------------------
+        // --- Preparation in progress --------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: reset.busy
@@ -80,7 +80,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Elő van készítve: újraindításra vár ---------------------------------------------
+        // --- Prepared: waiting for a restart ---------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: !reset.busy && reset.pendingMode !== ""
@@ -120,7 +120,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Választás --------------------------------------------------------------------------
+        // --- Choosing --------------------------------------------------------------------------
         Repeater {
             model: [
                 { mode: "keep", icon: "edit-undo", title: L.t("Keep my files"),
@@ -159,7 +159,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- A választott mód: mi marad, mi törlődik ------------------------------------------------
+        // --- The chosen mode: what stays, what is deleted ------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: !reset.busy && reset.pendingMode === "" && page.choice !== ""
@@ -210,8 +210,8 @@ Kirigami.ScrollablePage {
                     text: L.t("First we download the newest Sloth OS version, so the computer restarts with it.")
                 }
 
-                // Mentés: „keep” módban magától készül egy mentett állapot (factory-reset boot), „all” módban
-                // a gépen lévő mentések is törlődnek, ezért külső lemezre kell menteni
+                // Backup: in "keep" mode a saved state is made by itself (factory-reset boot), in "all" mode
+                // the backups on the machine are deleted too, so you have to back up to an external disk
                 Kirigami.InlineMessage {
                     Layout.fillWidth: true
                     visible: page.choice !== ""
@@ -237,7 +237,7 @@ Kirigami.ScrollablePage {
                     text: L.t("I've saved everything I need")
                 }
 
-                // „Mindent töröl”: az új fiók (újraindítás után ezzel lehet belépni)
+                // "Remove everything": the new account (after the restart you sign in with it)
                 ColumnLayout {
                     Layout.fillWidth: true
                     visible: page.choice === "all"

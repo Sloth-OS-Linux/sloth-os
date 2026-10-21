@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: Windows-programok futtatójának előkészítése (bejelentkezés után, majd 6 óránként)
+Description=Sloth OS: preparing the Windows programs' runner (after login, then every 6 hours)
 
 [Timer]
 OnStartupSec=3min

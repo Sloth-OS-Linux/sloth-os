@@ -1,4 +1,4 @@
-// Lemezek: meghajtók foglaltsága és egészsége, felesleges fájlok törlése.
+// Disks: the drives' usage and health, deleting unneeded files.
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -113,7 +113,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Fájlok áthozása a Windowsból (csak ha van Windows-partíció) --------------
+        // --- Bringing files over from Windows (only if there is a Windows partition) --------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: disks.hasWindows

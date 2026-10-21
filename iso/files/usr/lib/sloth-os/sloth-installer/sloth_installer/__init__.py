@@ -1,1 +1,1 @@
-"""Sloth OS telepítő: az élő rendszerről telepíti a Sloth OS-t egy lemezre."""
+"""Sloth OS installer: installs Sloth OS from the live system onto a disk."""

@@ -1,8 +1,8 @@
-"""Kontrollerek (játékvezérlők): a csatlakoztatottak listája, kapcsolat és akkuszint.
+"""Controllers (gamepads): the list of connected ones, connection and battery level.
 
-Az udev a játékvezérlőket ID_INPUT_JOYSTICK jelöléssel látja el; ezt olvassuk a
-/run/udev/data adatbázisból, jelszó nélkül. Párosításhoz a KDE Bluetooth-beállítása,
-a gombok kipróbálásához a KDE Játékvezérlő modulja nyílik meg.
+udev marks gamepads with ID_INPUT_JOYSTICK; we read this from the
+/run/udev/data database, without a password. For pairing KDE's Bluetooth settings open,
+for trying the buttons KDE's Game Controller module.
 """
 import logging
 import os
@@ -37,7 +37,7 @@ def _read(path):
 
 
 def _batteries():
-    """{a HID-eszköz valódi útvonala: (százalék, töltődik-e)} az eszközök saját akkujaira."""
+    """{the HID device's real path: (percentage, whether it is charging)} for the devices' own batteries."""
     out = {}
     for ps in POWER.glob("*"):
         if _read(ps / "scope") != "Device" or not _read(ps / "capacity"):
@@ -59,7 +59,7 @@ def detect():
             continue
         device = ev / "device"
         name = _read(device / "name")
-        # Egy kontroller több bemeneti eszközként is megjelenhet (mozgásérzékelő, touchpad): egyszer mutatjuk
+        # A controller may appear as several input devices (motion sensor, touchpad): we show it once
         hid = os.path.realpath(device / "device")
         if not name or hid in found or any(k in name.lower() for k in ("motion sensors", "touchpad")):
             continue
@@ -92,7 +92,7 @@ class GamepadsController(QObject):
 
     @Slot(str)
     def openSettings(self, kcm):
-        """KDE beállítás: "kcm_bluetooth" (párosítás) vagy "kcm_gamecontroller" (tesztelés)."""
+        """A KDE setting: "kcm_bluetooth" (pairing) or "kcm_gamecontroller" (testing)."""
         if kcm in ("kcm_bluetooth", "kcm_gamecontroller"):
             try:
                 subprocess.Popen(["systemsettings", kcm])

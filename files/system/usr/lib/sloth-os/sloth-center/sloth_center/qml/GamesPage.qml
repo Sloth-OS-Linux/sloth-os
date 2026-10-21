@@ -1,5 +1,5 @@
-// Játékok: játékonkénti beállítások (FPS-kijelző, teljesítmény mód, felskálázás) a Steames
-// játékokhoz és a Windows-programokhoz. A technikai részletek (Proton, Wine) nem látszanak.
+// Games: per-game settings (FPS display, performance mode, upscaling) for Steam
+// games and Windows programs. The technical details (Proton, Wine) are not visible.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -118,7 +118,7 @@ Kirigami.ScrollablePage {
                             ]
                             textRole: "text"
                             valueRole: "value"
-                            // nem indexOfValue(): az a modell betöltése előtt fut, és -1-et ad (üres mező)
+                            // not indexOfValue(): that runs before the model is loaded, and returns -1 (empty field)
                             currentIndex: Math.max(0, model.findIndex(m => m.value === gameCard.modelData.upscale))
                             onActivated: games.setOption(gameCard.modelData.id, "upscale", currentValue)
                         }
@@ -128,7 +128,7 @@ Kirigami.ScrollablePage {
         }
     }
 
-    // A Steam bezárása eltart pár másodpercig
+    // Closing Steam takes a few seconds
     Timer {
         id: refreshLater
         interval: 5000

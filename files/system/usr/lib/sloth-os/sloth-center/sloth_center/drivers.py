@@ -1,5 +1,5 @@
-"""Driverek és hardver: videókártya felismerése, NVIDIA <-> AMD/Intel változat váltása,
-Secure Boot kulcs regisztrálása (az NVIDIA driverhez kell).
+"""Drivers and hardware: recognizing the graphics card, switching between the NVIDIA and AMD/Intel versions,
+enrolling the Secure Boot key (needed for the NVIDIA driver).
 """
 import json
 import logging
@@ -21,12 +21,12 @@ NVIDIA_AUTO_STATE = Path("/var/lib/sloth-os/nvidia-auto")
 VENDORS = {"0x10de": "NVIDIA", "0x1002": "AMD", "0x8086": "Intel"}
 PCI_IDS = Path("/usr/share/hwdata/pci.ids")
 HELPER = "/usr/libexec/sloth-os/sloth-helper"
-PHONE_LINK = "/usr/libexec/sloth-os/phone-link"   # telefon összekötése (KDE Connect), felhasználónként
+PHONE_LINK = "/usr/libexec/sloth-os/phone-link"   # connecting a phone (KDE Connect), per user
 SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
 
 
 def _pci_name(vendor, device):
-    """Eszköznév a pci.ids-ből (pl. "GeForce RTX 5060")."""
+    """The device name from pci.ids (e.g. "GeForce RTX 5060")."""
     v, d = vendor[2:].lower(), device[2:].lower()
     try:
         in_vendor = False
@@ -38,7 +38,7 @@ def _pci_name(vendor, device):
                     in_vendor = line.lower().startswith(v + " ")
                 elif in_vendor and not line.startswith("\t\t") and line[1:].lower().startswith(d + " "):
                     name = line[1:].split(" ", 1)[1].strip()
-                    m = re.search(r"\[([^\]]+)\]", name)  # "AD106 [GeForce RTX 4060 Ti]" -> a zárójeles rész
+                    m = re.search(r"\[([^\]]+)\]", name)  # "AD106 [GeForce RTX 4060 Ti]" -> the part in brackets
                     return m.group(1) if m else name
     except OSError:
         pass
@@ -91,7 +91,7 @@ class DriversController(QObject):
             self._image = str(booted.get("container-image-reference") or booted.get("origin") or "")
         except GLib.Error as e:
             log.warning("rpm-ostree: %s", e.message)
-        # Az automatikus NVIDIA-váltás (/usr/libexec/sloth-os/nvidia-auto) állapota: ne kínáljuk fel még egyszer
+        # The state of the automatic NVIDIA switch (/usr/libexec/sloth-os/nvidia-auto): do not offer it a second time
         try:
             auto = NVIDIA_AUTO_STATE.read_text().strip()
         except OSError:
@@ -103,7 +103,7 @@ class DriversController(QObject):
         self.refreshSecureBoot()
         self._phone = self._phone_link("status")
 
-    # --- Tulajdonságok ---------------------------------------------------------
+    # --- Properties ---------------------------------------------------------
 
     phoneLinkAvailable = Property(bool, lambda self: Path(PHONE_LINK).is_file(), constant=True)
     phoneLink = Property(bool, lambda self: self._phone, notify=changed)
@@ -129,7 +129,7 @@ class DriversController(QObject):
 
     @Property(bool, notify=changed)
     def mismatch(self):
-        """Rossz változat fut: NVIDIA kártya van, de nem az NVIDIA-s image (vagy fordítva)."""
+        """The wrong version runs: there is an NVIDIA card but not the NVIDIA image (or the other way round)."""
         return self.canSwitch and self.hasNvidia != self.nvidiaImage
 
     @Property(bool, notify=changed)
@@ -138,7 +138,7 @@ class DriversController(QObject):
 
     @Property(bool, notify=changed)
     def keyNeeded(self):
-        """Secure Boot be van kapcsolva, NVIDIA-s image fut, és a kulcs még nincs regisztrálva."""
+        """Secure Boot is on, the NVIDIA image runs, and the key is not enrolled yet."""
         return self.secureBoot and self.nvidiaImage and self._sb.get("enrolled") is False \
             and not self._sb.get("pending")
 
@@ -159,7 +159,7 @@ class DriversController(QObject):
 
     @Slot(bool)
     def setPhoneLink(self, on):
-        """Telefon összekötése (KDE Connect) a felhasználónak; jelszó nem kell."""
+        """Connecting a phone (KDE Connect) for the user; no password needed."""
         self._error = ""
         if not self._phone_link("on" if on else "off"):
             self._error = tr("Couldn't change it.")
@@ -193,7 +193,7 @@ class DriversController(QObject):
             self._error = tr("Couldn't prepare the key enrollment. Try again.")
         self.refreshSecureBoot()
 
-    # --- Változat váltása -----------------------------------------------------------
+    # --- Switching the version -----------------------------------------------------------
 
     @Slot()
     def switchVariant(self):

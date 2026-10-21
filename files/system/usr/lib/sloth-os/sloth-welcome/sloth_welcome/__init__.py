@@ -1,1 +1,1 @@
-"""Sloth Üdvözlő: első indításkor kérdezi meg a megjelenést és a telepítendő appokat."""
+"""Sloth Welcome: on the first start it asks about the appearance and the apps to install."""

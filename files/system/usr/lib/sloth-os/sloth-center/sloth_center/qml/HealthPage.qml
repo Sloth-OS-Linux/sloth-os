@@ -1,4 +1,4 @@
-// Rendszer egészség: "Mi a baj?" emberi nyelven, színes állapotjelzéssel.
+// System health: "What is wrong?" in plain language, with colored status indicators.
 import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -97,7 +97,7 @@ Kirigami.ScrollablePage {
         title: L.t("Save log")
         fileMode: FileDialog.SaveFile
         defaultSuffix: "txt"
-        // a fájlnév a felület nyelvén (csak ASCII betűk, hogy bárhová el lehessen küldeni)
+        // the file name in the interface's language (only ASCII letters, so it can be sent anywhere)
         currentFile: StandardPaths.writableLocation(StandardPaths.DesktopLocation) + "/" + L.t("sloth-os-log.txt")
         nameFilters: [L.t("Text file (*.txt)")]
         onAccepted: health.saveLog(selectedFile.toString())

@@ -1,7 +1,7 @@
 #!/usr/bin/bash
-# A négy eset egymás után, rootként (a podman gépen vagy Linuxon). A telepítendő image az ISO-építés tárolójából jön
-# (nincs másolat; SLOTH_BUILD_DIR, mint a tools/build-iso.sh-nál); minden eset után a lemezfájl törlődik, és az fstrim
-# visszaadja a helyet (WSL-en a ritkított VHD-nek). A lemezfájlok helye: SLOTH_TEST_DIR (alapból /var/tmp/sloth-insttest).
+# The four cases one after the other, as root (on the podman machine or on Linux). The image to install comes from the
+# ISO build's storage (no copy; SLOTH_BUILD_DIR, as for tools/build-iso.sh); after each case the disk file is deleted, and
+# fstrim gives the space back (on WSL to the sparse VHD). Where the disk files go: SLOTH_TEST_DIR (default /var/tmp/sloth-insttest).
 BUILD="${SLOTH_BUILD_DIR:-/var/tmp/sloth-iso-build}"
 TEST="${SLOTH_TEST_DIR:-/var/tmp/sloth-insttest}"
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)"

@@ -1,5 +1,5 @@
 #!/usr/bin/python3 -I
-"""Sloth Központ indító."""
+"""Sloth Center launcher."""
 import sys
 
 sys.path.insert(0, "/usr/lib/sloth-os/sloth-center")

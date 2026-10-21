@@ -1,9 +1,9 @@
 #!/usr/bin/python3 -I
-"""Az első felhasználói fiók létrehozása első induláskor (a KDE Plasma Setup helyett).
+"""Creates the first user account on first boot (instead of KDE Plasma Setup).
 
-A Sloth OS telepítője a fiók adatait a telepített rendszerbe írja (/etc/sloth-os/first-user.json,
-csak rootnak olvasható; a jelszó csak SHA-512 hash-ként). Ez a szolgáltatás a bejelentkező képernyő
-előtt létrehozza a fiókot rendszergazdaként (wheel csoport), majd törli a fájlt.
+The Sloth OS installer writes the account's data into the installed system (/etc/sloth-os/first-user.json,
+readable by root only; the password only as an SHA-512 hash). This service creates the account as an
+administrator (wheel group) before the login screen, then deletes the file.
 """
 import json
 import os
@@ -20,11 +20,11 @@ def main():
         with open(SPEC, encoding="utf-8") as f:
             spec = json.load(f)
     except (OSError, ValueError) as e:
-        print(f"nem olvasható: {e}", file=sys.stderr)
+        print(f"not readable: {e}", file=sys.stderr)
         return 1
     user, full, pwhash = spec.get("username", ""), spec.get("fullname", ""), spec.get("password_hash", "")
     if not NAME_RE.match(user) or not pwhash.startswith("$6$") or "\n" in full or ":" in full:
-        print("hibás fiókadatok", file=sys.stderr)
+        print("bad account data", file=sys.stderr)
         return 1
     if subprocess.run(["getent", "passwd", user], capture_output=True).returncode != 0:
         r = subprocess.run(["useradd", "--create-home", "--groups", "wheel", "--comment", full,

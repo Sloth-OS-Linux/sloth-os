@@ -1,4 +1,4 @@
-// „Korábbi verziók”: egy fájl vagy mappa mentett állapotai (versions.py; Dolphin, jobb klikk).
+// "Previous versions": the saved states of a file or folder (versions.py; Dolphin, right-click).
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2

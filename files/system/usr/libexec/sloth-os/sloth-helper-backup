@@ -1,7 +1,7 @@
 #!/usr/bin/python3 -I
-"""A sloth-helper „Mentés most” művelete (snapshot-now) külön polkit-művelettel (org.slothos.helper.backup):
-a saját fájlok mentéséhez nem kell jelszó, mert semmit nem töröl és nem ír felül (mint a Windows Fájlelőzményei).
-A mentések törlése és a beállításaik továbbra is a jelszavas sloth-helperen át mennek."""
+"""sloth-helper's "Back up now" operation (snapshot-now) with a separate polkit action (org.slothos.helper.backup):
+backing up your own files needs no password, because it deletes and overwrites nothing (like Windows' File History).
+Deleting backups and their settings still go through the password-protected sloth-helper."""
 import runpy
 import sys
 

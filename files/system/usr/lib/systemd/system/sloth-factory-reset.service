@@ -1,7 +1,7 @@
 [Unit]
-Description=Sloth OS: a gép alaphelyzetbe állítása (a Sloth Központban kérték)
-# Korán, a Plymouth-animáció alatt: a fájlrendszerek már elérhetők, de még semmi nem használja a fiókokat,
-# a beállításokat és az appokat. A végén a gép újraindul (factory-reset boot).
+Description=Sloth OS: resetting the computer (requested in Sloth Center)
+# Early, under the Plymouth animation: the file systems are available, but nothing uses the accounts,
+# the settings and the apps yet. At the end the machine restarts (factory-reset boot).
 DefaultDependencies=no
 ConditionPathExists=/var/lib/sloth-os/factory-reset.json
 Requires=local-fs.target

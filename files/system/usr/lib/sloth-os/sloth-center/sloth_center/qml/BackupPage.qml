@@ -1,4 +1,4 @@
-// Fájlmentés: a saját fájlok óránkénti mentése, a mentett állapotok böngészése (backup.py).
+// File backup: hourly backups of your own files, browsing the saved states (backup.py).
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -8,7 +8,7 @@ Kirigami.ScrollablePage {
     id: page
     title: L.t("File backup")
 
-    // a mentett állapotok közül alapból csak a legutóbbiak látszanak
+    // of the saved states only the latest ones are shown by default
     property bool showAll: false
     readonly property int shortList: 6
 
@@ -167,7 +167,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Mentés külső lemezre (Pika Backup) -----------------------------------------------
+        // --- Backup to an external disk (Pika Backup) -----------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {

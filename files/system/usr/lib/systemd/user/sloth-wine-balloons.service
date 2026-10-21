@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: a Windows-programok tálcás szövegbuborékai a tálca mellé (ne a bal felső sarokba)
+Description=Sloth OS: the Windows programs' taskbar balloons next to the taskbar (not in the top left corner)
 PartOf=graphical-session.target
 After=plasma-workspace.target
 

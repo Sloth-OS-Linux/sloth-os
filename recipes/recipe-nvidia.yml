@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# Sloth OS – NVIDIA változat (nyílt NVIDIA kernel modul, előre beépítve)
-# Kész image: ghcr.io/sloth-os-linux/sloth-os-nvidia
+# Sloth OS – the NVIDIA variant (NVIDIA's open kernel module, built in)
+# Finished image: ghcr.io/sloth-os-linux/sloth-os-nvidia
 name: sloth-os-nvidia
-description: Sloth OS – napi használatra és gamingre szánt desktop, terminál nélkül (NVIDIA).
+description: Sloth OS – a desktop for everyday use and gaming, without a terminal (NVIDIA).
 
 base-image: ghcr.io/ublue-os/kinoite-nvidia
 image-version: latest
@@ -12,8 +12,8 @@ modules:
   - from-file: gaming.yml
   - from-file: apps.yml
   - from-file: tools.yml
-  - type: initramfs # a boot animációhoz kell; maradjon a végén, a signing előtt
+  - type: initramfs # needed for the boot animation; keep it at the end, before signing
   - type: signing
-  - type: script # a másik változat aláírását is elfogadja (AMD/Intel <-> NVIDIA váltás)
+  - type: script # also accepts the other variant's signature (switching AMD/Intel <-> NVIDIA)
     scripts:
       - signing-family.sh

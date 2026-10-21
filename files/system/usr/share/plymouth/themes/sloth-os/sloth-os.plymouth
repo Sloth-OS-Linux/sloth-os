@@ -1,6 +1,6 @@
 [Plymouth Theme]
 Name=Sloth OS
-Description=Sloth OS boot animáció: a logó körül körbefutó fehér pont
+Description=Sloth OS boot animation: a white dot running around the logo
 ModuleName=script
 
 [script]

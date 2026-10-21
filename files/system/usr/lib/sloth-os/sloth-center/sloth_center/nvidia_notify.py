@@ -1,7 +1,7 @@
-"""Értesítés, ha az NVIDIA-s változat elkészült (a rendszer oldalt: /usr/libexec/sloth-os/nvidia-auto).
+"""A notification when the NVIDIA version is ready (the system side: /usr/libexec/sloth-os/nvidia-auto).
 
-A felhasználó munkamenetében fut (sloth-nvidia-notify.path / .service): az állapotfájl változásakor és
-bejelentkezéskor. Egy állapotról csak egyszer szól. Indítás: python3 -m sloth_center.nvidia_notify
+It runs in the user's session (sloth-nvidia-notify.path / .service): when the state file changes and
+at login. It speaks up about a state only once. Start: python3 -m sloth_center.nvidia_notify
 """
 import os
 import subprocess
@@ -19,7 +19,7 @@ def main():
     except OSError:
         return 0
     if state not in ("ready", "ready-mok"):
-        return 0  # letöltés közben és hiba esetén nem zavarjuk (a háttérben újra próbálja)
+        return 0  # we do not disturb while downloading or on error (it tries again in the background)
     try:
         if SEEN.read_text().strip() == state:
             return 0

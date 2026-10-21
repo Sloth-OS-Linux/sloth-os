@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: frissítések aláírás-ellenőrzéssel (indítás után, és óránként újra, amíg nem sikerül)
+Description=Sloth OS: updates with signature verification (after startup, and hourly again until it succeeds)
 ConditionPathExists=!/var/lib/sloth-os/signed-updates-done
 
 [Timer]

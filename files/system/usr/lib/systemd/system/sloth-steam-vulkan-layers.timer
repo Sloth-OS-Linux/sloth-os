@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: Steam Vulkan rétegek ellenőrzése (indításkor és naponta)
+Description=Sloth OS: checking the Steam Vulkan layers (at startup and daily)
 
 [Timer]
 OnBootSec=5min

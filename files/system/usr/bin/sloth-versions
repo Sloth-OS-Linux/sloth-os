@@ -1,5 +1,5 @@
 #!/usr/bin/python3 -I
-"""„Korábbi verziók” ablak (Dolphin, jobb klikk): sloth-versions <fájl vagy mappa>."""
+""""Previous versions" window (Dolphin, right-click): sloth-versions <file or folder>."""
 import sys
 
 sys.path.insert(0, "/usr/lib/sloth-os/sloth-center")

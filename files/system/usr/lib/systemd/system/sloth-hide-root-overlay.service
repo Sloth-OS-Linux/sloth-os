@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: a rendszer gyökere ne látszódjon meghajtóként a Dolphinban
+Description=Sloth OS: the system's root must not show as a drive in Dolphin
 After=local-fs.target
 
 [Service]

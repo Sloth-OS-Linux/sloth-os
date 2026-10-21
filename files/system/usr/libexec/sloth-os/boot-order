@@ -1,10 +1,10 @@
 #!/usr/bin/python3 -I
-"""Windows mellett: ha a Windows (egy nagyobb frissítés után) a rendszerindítási sorrend elejére tette magát,
-a Sloth OS visszakerül az első helyre (különben a gép a Sloth OS menüje nélkül, egyből a Windowst indítaná).
+"""Next to Windows: if Windows (after a bigger update) put itself at the front of the boot order,
+Sloth OS goes back to first place (otherwise the machine would start Windows directly, without the Sloth OS menu).
 
-Indításkor fut (sloth-boot-order.service). Csak akkor nyúl a sorrendhez, ha az első helyen a „Windows Boot
-Manager” áll, és van „Sloth OS” bejegyzés (a telepítő így nevezi el); minden mást (pl. a felhasználó által
-előre tett pendrive-ot) békén hagy. A Windows bejegyzése megmarad, a Sloth OS menüjéből indítható.
+It runs at startup (sloth-boot-order.service). It only touches the order if "Windows Boot
+Manager" is in first place and there is a "Sloth OS" entry (the installer names it so); it leaves everything else
+alone (e.g. a USB stick the user put first). The Windows entry stays, and can be started from the Sloth OS menu.
 """
 import re
 import subprocess
@@ -31,8 +31,8 @@ def main():
         return 0
     new = [ours[0]] + [n for n in order if n != ours[0]]
     r = subprocess.run(["efibootmgr", "--quiet", "--bootorder", ",".join(new)], capture_output=True, text=True)
-    print(f"Rendszerindítási sorrend: {','.join(order)} -> {','.join(new)}"
-          + ("" if r.returncode == 0 else f" (nem sikerült: {r.stderr.strip()})"))
+    print(f"Boot order: {','.join(order)} -> {','.join(new)}"
+          + ("" if r.returncode == 0 else f" (failed: {r.stderr.strip()})"))
     return r.returncode
 
 

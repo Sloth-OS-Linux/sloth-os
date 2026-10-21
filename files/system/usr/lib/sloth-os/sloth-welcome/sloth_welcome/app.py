@@ -1,4 +1,4 @@
-"""A Sloth Üdvözlő indítása."""
+"""Starting Sloth Welcome."""
 import argparse
 import logging
 import os
@@ -16,9 +16,9 @@ QML_DIR = Path(__file__).resolve().parent / "qml"
 def main():
     parser = argparse.ArgumentParser(add_help=False)
     parser.add_argument("--first-run", action="store_true",
-                        help="automatikus indítás: csak akkor nyílik meg, ha még nem futott")
+                        help="automatic start: only opens if it has not run yet")
     parser.add_argument("--windows-import", action="store_true",
-                        help="csak a fájlok áthozása a Windowsból (a Sloth Központ Lemezek oldaláról)")
+                        help="only bringing files over from Windows (from Sloth Center's Disks page)")
     args, qt_args = parser.parse_known_args()
 
     from .welcome import DONE_MARKER
@@ -39,7 +39,7 @@ def main():
 
     engine = QQmlApplicationEngine()
     welcome = WelcomeController(windows_only=args.windows_import)
-    # ha az ablakot bezárják, a Windows-partíció se maradjon csatolva
+    # if the window is closed, the Windows partition must not stay mounted either
     app.aboutToQuit.connect(welcome.release_windows)
     engine.rootContext().setContextProperty("welcome", welcome)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))

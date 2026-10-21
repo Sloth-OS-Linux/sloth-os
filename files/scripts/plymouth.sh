@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# A Sloth OS boot animáció beállítása alapértelmezettnek.
-# Az initramfs újragenerálását a recipe végén lévő `initramfs` modul végzi.
+# Sets the Sloth OS boot animation as the default.
+# Regenerating the initramfs is done by the `initramfs` module at the end of the recipe.
 set -euo pipefail
 
 THEME=sloth-os
@@ -15,5 +15,5 @@ else
   printf '[Daemon]\nTheme=%s\n' "$THEME" >> /etc/plymouth/plymouthd.conf
 fi
 
-echo "Plymouth téma:"
+echo "Plymouth theme:"
 grep -A3 '^\[Daemon\]' /etc/plymouth/plymouthd.conf

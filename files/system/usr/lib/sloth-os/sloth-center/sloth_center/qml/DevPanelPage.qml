@@ -1,4 +1,4 @@
-// Fejlesztői pult: a Sloth OS fejlesztése terminál nélkül (repó, build, aláíró kulcs, kipróbálás).
+// Developer panel: developing Sloth OS without a terminal (repository, builds, signing key, trying out).
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -38,7 +38,7 @@ Kirigami.ScrollablePage {
             indeterminate: true
         }
 
-        // --- Kapcsolat ------------------------------------------------------------------------
+        // --- Connection ------------------------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -159,7 +159,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Aláíró kulcs ------------------------------------------------------------------------
+        // --- Signing key ------------------------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: devpanel.connected
@@ -183,7 +183,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Kipróbálás --------------------------------------------------------------------------
+        // --- Trying out --------------------------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: devpanel.connected

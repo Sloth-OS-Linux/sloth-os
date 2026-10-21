@@ -1,11 +1,11 @@
 [Unit]
-Description=Sloth OS: Windows-programok futtatójának előkészítése és frissítése a háttérben
+Description=Sloth OS: preparing and updating the Windows programs' runner in the background
 
 [Service]
 Type=oneshot
 ExecStart=/usr/libexec/sloth-os/windows-prepare
-# Alacsony prioritás: játék vagy munka közben se lassítson. Az "idle" lemezprioritás nem jó: más lemezmunka
-# (pl. appok telepítése) mellett szinte megáll, és közben az első .exe telepítése is erre várna
+# Low priority: it must not slow down games or work. The "idle" disk priority is not good: next to other disk work
+# (e.g. installing apps) it almost stops, and meanwhile the first .exe install would wait for it too
 Nice=19
 IOSchedulingClass=best-effort
 IOSchedulingPriority=7

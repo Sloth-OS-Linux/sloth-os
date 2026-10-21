@@ -1,6 +1,6 @@
 pragma ComponentBehavior: Bound
-// Sloth OS betöltőképernyő bejelentkezés után (KSplash).
-// Ugyanaz, mint a boot animáció: a logó szélén körbefutó fehér pont.
+// Sloth OS splash screen after login (KSplash).
+// The same as the boot animation: a white dot running around the edge of the logo.
 // A pontok: tools/branding/plymouth_contour.py
 import QtQuick
 
@@ -291,7 +291,7 @@ Rectangle {
         onTriggered: root.frame = (root.frame + 1) % (root.points.length * 1000)
     }
 
-    // A betöltés végén lágyan elhalványul
+    // At the end of loading it fades out softly
     OpacityAnimator on opacity {
         running: root.stage >= 6
         from: 1

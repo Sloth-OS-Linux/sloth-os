@@ -1,4 +1,4 @@
-// Fiók és biztonság: mihez kérjen jelszót a rendszer (témakörönként), automatikus bejelentkezés, sudo.
+// Account and security: what the system asks a password for (per topic), automatic login, sudo.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -25,7 +25,7 @@ Kirigami.ScrollablePage {
             text: accounts.infoText
         }
 
-        // --- A fiók -------------------------------------------------------------------
+        // --- The account -------------------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: RowLayout {
@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Bejelentkezési módok (a gép hardvere alapján) ------------------------------------
+        // --- Sign-in methods (based on the machine's hardware) ------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -124,7 +124,7 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
-                // PIN-kód megadása (kétszer, csak számjegyek)
+                // Entering a PIN (twice, digits only)
                 RowLayout {
                     id: pinForm
                     visible: false
@@ -177,7 +177,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Céges fiók (Active Directory) --------------------------------------------------
+        // --- Work account (Active Directory) --------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             enabled: accounts.isAdmin
@@ -230,7 +230,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Felhőtárhely (OneDrive, Google Drive) ------------------------------------------
+        // --- Cloud storage (OneDrive, Google Drive) ------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -293,7 +293,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Mihez kérjen jelszót -------------------------------------------------------
+        // --- What to ask a password for -------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             enabled: accounts.isAdmin
@@ -373,7 +373,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Bejelentkezés és terminál ------------------------------------------------------
+        // --- Login and terminal ------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {

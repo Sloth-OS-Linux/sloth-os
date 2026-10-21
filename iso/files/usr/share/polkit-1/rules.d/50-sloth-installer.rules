@@ -1,5 +1,5 @@
-// Az élő rendszer felhasználójának (liveuser, jelszó nélkül) ne kelljen jelszót megadnia a telepítéshez.
-// Csak a telepítő ISO-n van meg; a telepített rendszerbe nem kerül.
+// The live system's user (liveuser, without a password) should not need to enter a password to install.
+// Only on the installer ISO; it does not go into the installed system.
 polkit.addRule(function (action, subject) {
     if (action.id === "org.slothos.installer.install" && subject.user === "liveuser" && subject.active) {
         return polkit.Result.YES;

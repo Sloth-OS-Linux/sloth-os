@@ -1,9 +1,9 @@
-"""Játékonkénti beállítások: FPS-kijelző (MangoHud), teljesítmény mód (GameMode), felskálázás (gamescope, FSR).
+"""Per-game settings: FPS display (MangoHud), performance mode (GameMode), upscaling (gamescope, FSR).
 
-Közös rész a Sloth Központ (beállítás) és a .exe kezelő (indítás) számára. A beállítás egy kis
-szótár: {"fps": bool, "performance": bool, "upscale": "off" | "quality" | "balanced" | "performance"}.
-A Steames játékoknál ebből az indítási beállítások elejére kerülő parancs lesz, a Windows-programoknál
-a .exe kezelő ebből rakja össze az indítást. A felhasználó a "Proton", "Wine" szavakat nem látja.
+A shared part for Sloth Center (settings) and the .exe handler (starting). The setting is a small
+dictionary: {"fps": bool, "performance": bool, "upscale": "off" | "quality" | "balanced" | "performance"}.
+For Steam games it becomes a command at the front of the launch options; for Windows programs
+the .exe handler builds the start from it. The user does not see the words "Proton", "Wine".
 """
 import re
 import shlex
@@ -22,7 +22,7 @@ def normalize(settings):
 
 
 def wrapper(settings, screen):
-    """A program elé kerülő parancsok listája. screen: (szélesség, magasság) képpontban."""
+    """The list of commands put in front of the program. screen: (width, height) in pixels."""
     s = normalize(settings)
     cmd = []
     if s["upscale"] != "off" and screen and screen[0] > 0:
@@ -37,16 +37,16 @@ def wrapper(settings, screen):
     return cmd
 
 
-# --- Steam indítási beállítások ("... %command% ...") ---------------------------------------
+# --- Steam launch options ("... %command% ...") ---------------------------------------
 
 def parse_launch_options(text):
-    """Az indítási beállításból kiolvassa a mi beállításainkat, és visszaadja a felhasználó saját részét.
+    """Reads our settings out of the launch options, and returns the user's own part.
 
-    -> (settings, előtte maradó saját szavak, a %command% utáni rész)
+    -> (settings, the user's own words before it, the part after %command%)
     """
     text = (text or "").strip()
     if "%command%" not in text:
-        # régi forma: csak argumentumok a játéknak (pl. "-dx11")
+        # the old form: only arguments for the game (e.g. "-dx11")
         return dict(DEFAULTS), [], text
     before, after = text.split("%command%", 1)
     try:
@@ -78,7 +78,7 @@ def parse_launch_options(text):
 
 
 def build_launch_options(settings, rest, after, screen):
-    # A változóbeállítások (pl. DXVK_HUD=1) a sor elejére valók, a mi parancsaink utánuk jönnek
+    # Variable settings (e.g. DXVK_HUD=1) belong at the start of the line, our commands come after them
     env = [w for w in rest if re.match(r"^[A-Za-z_][A-Za-z0-9_]*=", w)]
     others = [w for w in rest if w not in env]
     words = env + wrapper(settings, screen) + others

@@ -1,4 +1,4 @@
-"""Az .exe kezelő fordításai (translations/<nyelv>.json); a működés a közös sloth_common.i18n-ben van."""
+"""The .exe handler's translations (translations/<language>.json); the logic is in the shared sloth_common.i18n."""
 from pathlib import Path
 
 from sloth_common.i18n import Catalog

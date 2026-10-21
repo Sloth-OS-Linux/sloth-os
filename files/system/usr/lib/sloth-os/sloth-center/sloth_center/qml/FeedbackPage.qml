@@ -1,4 +1,4 @@
-// Visszajelzés: hiba, ötlet vagy egyéb a fejlesztőknek (feedback.py). GitHub-fiók nem kell.
+// Feedback: a bug, an idea or something else for the developers (feedback.py). No GitHub account needed.
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -99,7 +99,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // Támogatás (Ko-fi): csendes link, nem kér semmit; a cím a szövegben is ott van, ha nincs böngésző
+        // Support (Ko-fi): a quiet link, it asks for nothing; the address is in the text too, in case there is no browser
         Kirigami.Separator { Layout.fillWidth: true; Layout.topMargin: Kirigami.Units.largeSpacing }
         QQC2.Label { text: L.t("Support Sloth OS"); font.bold: true }
         QQC2.Label {

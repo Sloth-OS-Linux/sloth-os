@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Beállítja a Sloth OS alapértelmezett megjelenését minden új felhasználónak:
-# - SlothSilverDark színséma (a színeket a /etc/xdg/kdeglobals-ba is beírjuk,
-#   mert a KDE appok onnan olvassák, nem csak a séma nevéből)
-# - Sloth OS logó az os-release-ben (Rendszerinformáció, Kickoff stb.)
-# A felhasználó a Rendszerbeállításokban bármikor átválthat, ez csak az alapérték.
+# Sets Sloth OS's default appearance for every new user:
+# - the SlothSilverDark color scheme (the colors are also written into /etc/xdg/kdeglobals,
+#   because KDE apps read them from there, not just from the scheme's name)
+# - the Sloth OS logo in os-release (System information, Kickoff etc.)
+# The user can switch any time in System Settings; this is only the default.
 set -euo pipefail
 
 SCHEME=SlothSilverDark
@@ -19,13 +19,13 @@ scheme_file, target = sys.argv[1], sys.argv[2]
 
 def load(path):
     cp = configparser.ConfigParser(interpolation=None, strict=False, delimiters=("=",))
-    cp.optionxform = str  # a KDE kulcsok kis- és nagybetű-érzékenyek
+    cp.optionxform = str  # KDE keys are case-sensitive
     cp.read(path, encoding="utf-8")
     return cp
 
 scheme, glob = load(scheme_file), load(target)
 for section in scheme.sections():
-    # A [General] Name a séma neve, a kdeglobals-ba nem kell
+    # [General] Name is the scheme's name, it is not needed in kdeglobals
     if section == "General":
         continue
     if not glob.has_section(section):
@@ -41,8 +41,8 @@ with open(target, "w", encoding="utf-8") as f:
     glob.write(f, space_around_delimiters=False)
 EOF
 
-# Sloth OS globális téma (Windows-szerű tálca, betöltőképernyő) alapértelmezettnek.
-# A tálca-elrendezés csak új felhasználónál jön létre (look-and-feel/.../layouts).
+# The Sloth OS global theme (Windows-like taskbar, splash screen) as the default.
+# The taskbar layout is only created for a new user (look-and-feel/.../layouts).
 python3 - "$KDEGLOBALS" <<'PYEOF'
 import configparser, sys
 target = sys.argv[1]
@@ -57,10 +57,10 @@ with open(target, "w", encoding="utf-8") as f:
 PYEOF
 printf '[KSplash]\nEngine=KSplashQML\nTheme=org.slothos.desktop\n' > /etc/xdg/ksplashrc
 
-echo "Alapértelmezett színséma: ${SCHEME}, globális téma: org.slothos.desktop"
+echo "Default color scheme: ${SCHEME}, global theme: org.slothos.desktop"
 grep -A1 '^\[General\]' "$KDEGLOBALS"
 
-# Logó az os-release-ben (ikonnév: /usr/share/icons/hicolor/scalable/apps/sloth-os.svg)
+# The logo in os-release (icon name: /usr/share/icons/hicolor/scalable/apps/sloth-os.svg)
 OS_RELEASE=/usr/lib/os-release
 if grep -q '^LOGO=' "$OS_RELEASE"; then
   sed -i 's|^LOGO=.*|LOGO="sloth-os"|' "$OS_RELEASE"

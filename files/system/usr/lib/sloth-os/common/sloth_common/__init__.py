@@ -1,1 +1,1 @@
-"""A Sloth OS saját eszközeinek közös részei (fordítások)."""
+"""Shared parts of Sloth OS's own tools (translations)."""

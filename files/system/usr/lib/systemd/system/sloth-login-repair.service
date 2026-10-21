@@ -1,8 +1,8 @@
 [Unit]
-Description=Sloth OS: a bejelentkező képernyő rendszerfelhasználóinak láthatósága (authselect with-altfiles)
-# Az authselect (ujjlenyomat, PIN, céges fiók bekapcsolásakor) a /etc/nsswitch.conf-ból kivehette az altfiles-t;
-# nélküle a /usr/lib/passwd felhasználói (pl. „plasmalogin”) nem látszanak, és a bejelentkező képernyő el sem indul.
-# Induláskor visszakapcsolja, mielőtt a bejelentkező képernyő elindulna.
+Description=Sloth OS: visibility of the login screen's system users (authselect with-altfiles)
+# authselect (when turning on fingerprint, PIN, work account) may have removed altfiles from /etc/nsswitch.conf;
+# without it the users of /usr/lib/passwd (e.g. "plasmalogin") are not visible, and the login screen does not even start.
+# At startup it turns it back on, before the login screen starts.
 DefaultDependencies=no
 After=local-fs.target ostree-remount.service
 Before=display-manager.service plasmalogin.service sddm.service systemd-user-sessions.service shutdown.target

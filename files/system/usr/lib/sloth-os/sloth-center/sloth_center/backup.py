@@ -1,8 +1,8 @@
-"""Fájlmentés: a saját fájlok óránkénti mentése (Btrfs-pillanatképek), a mentett állapotok böngészése.
+"""File backup: hourly backups of your own files (Btrfs snapshots), browsing the saved states.
 
-A Windows „Korábbi verziók” / „Fájlelőzmények” megfelelője. A pillanatképeket a home-snapshots készíti
-időzítővel (sloth_common.snapshots); a be- és kikapcsolás, a megtartás, a „Mentés most” és a törlés a
-sloth-helperen át megy (rendszergazdai jóváhagyással). A listázáshoz nem kell jelszó.
+The equivalent of Windows' "Previous versions" / "File History". The snapshots are made by home-snapshots
+with a timer (sloth_common.snapshots); turning it on and off, the keep time, "Back up now" and deleting go
+through sloth-helper (with administrator approval). Listing needs no password.
 """
 import json
 import logging
@@ -21,9 +21,9 @@ from .i18n import tr
 log = logging.getLogger("sloth-center.backup")
 
 HELPER = "/usr/libexec/sloth-os/sloth-helper"
-# a „Mentés most” jelszó nélkül (csak ezt engedi, org.slothos.helper.backup)
+# "Back up now" without a password (it only allows this, org.slothos.helper.backup)
 HELPER_BACKUP = "/usr/libexec/sloth-os/sloth-helper-backup"
-# Mentés külső lemezre: a Pika Backup (Flathub), a Discoverből telepítve
+# Backup to an external disk: Pika Backup (Flathub), installed from Discover
 PIKA = "org.gnome.World.PikaBackup"
 PIKA_DESKTOP = [Path("/var/lib/flatpak/exports/share/applications") / f"{PIKA}.desktop",
                 Path.home() / ".local/share/flatpak/exports/share/applications" / f"{PIKA}.desktop"]
@@ -34,7 +34,7 @@ def pika_installed():
 
 
 def own_home_rel():
-    """A saját mappa útja a /var/home-hoz képest (a pillanatképen belül ugyanott van)."""
+    """The home folder's path relative to /var/home (it is at the same place inside the snapshot)."""
     try:
         return Path(os.path.realpath(Path.home())).relative_to(snap.HOME_ROOT)
     except ValueError:
@@ -43,7 +43,7 @@ def own_home_rel():
 
 class BackupController(QObject):
     changed = Signal()
-    _done = Signal(str, object)   # a háttérszálból: (művelet, eredmény)
+    _done = Signal(str, object)   # from the background thread: (operation, result)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -54,7 +54,7 @@ class BackupController(QObject):
         self._error = ""
         self._info = ""
         self._pika = False
-        # a Discoverben indított telepítés után 5 mp-enként megnézzük, kész-e (legfeljebb 15 percig)
+        # after an install started in Discover we check every 5 s whether it is done (for at most 15 minutes)
         self._pika_timer = QTimer(self, interval=5000)
         self._pika_timer.timeout.connect(self._check_pika)
         self._pika_checks = 0
@@ -137,7 +137,7 @@ class BackupController(QObject):
         if path:
             subprocess.Popen(["xdg-open", path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    # --- Mentés külső lemezre (Pika Backup) -------------------------------------------------------------
+    # --- Backup to an external disk (Pika Backup) -------------------------------------------------------------
 
     @Slot()
     def installPika(self):

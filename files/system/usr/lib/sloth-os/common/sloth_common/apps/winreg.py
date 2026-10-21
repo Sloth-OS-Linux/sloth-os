@@ -1,9 +1,9 @@
-"""A Windows-környezet registryjének olvasása (a Wine szöveges .reg fájljai: system.reg, user.reg).
+"""Reading the registry of a Windows environment (Wine's text .reg files: system.reg, user.reg).
 
-Ebből tudjuk meg telepítés után, mi települt: a Windows a telepített programokat az „Uninstall”
-kulcsok alá jegyzi be (név, kiadó, verzió, telepítési hely, ikon: ez többnyire maga a program).
+This tells us after installing what got installed: Windows registers the installed programs under the "Uninstall"
+keys (name, publisher, version, install location, icon: this is mostly the program itself).
 
-A formátum:
+The format:
   [Software\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\Uninstall\\\\Battle.net] 1729000000
   "DisplayName"="Battle.net"
   "DisplayIcon"="C:\\\\Program Files (x86)\\\\Battle.net\\\\Battle.net.exe"
@@ -42,7 +42,7 @@ def _unescape(s):
 
 
 def _value(raw):
-    """Egy érték: szöveg, szám (dword) vagy None (bináris és egyéb, ezekre nincs szükségünk)."""
+    """A value: text, a number (dword) or None (binary and others, we do not need those)."""
     raw = raw.strip()
     m = re.match(r'^(?:str\(\d\):)?"(.*)"$', raw)
     if m:
@@ -56,7 +56,7 @@ def _value(raw):
 
 
 def read(path):
-    """{kulcs (kisbetűs, \\ elválasztóval): {érték neve (kisbetűs): érték}}"""
+    """{key (lowercase, with \\ separators): {value name (lowercase): value}}"""
     keys = {}
     current = None
     try:
@@ -69,7 +69,7 @@ def read(path):
             line = pending + line.lstrip()
             pending = ""
         if line.endswith("\\") and not line.endswith("\\\\"):
-            # többsoros (hex) érték folytatása
+            # continuation of a multi-line (hex) value
             pending = line[:-1]
             continue
         m = _KEY.match(line)
@@ -88,7 +88,7 @@ def read(path):
 
 
 def uninstall_entries(prefix):
-    """A Windows-környezetbe telepített programok: {kulcs neve: {displayname, displayicon, …}}."""
+    """The programs installed into the Windows environment: {key name: {displayname, displayicon, …}}."""
     out = {}
     for reg in ("system.reg", "user.reg"):
         for key, values in read(Path(prefix) / reg).items():
@@ -101,7 +101,7 @@ def uninstall_entries(prefix):
 
 
 def exe_from_icon(value):
-    """A DisplayIcon értékéből a .exe Windows-útja: '"C:\\X\\a.exe",0' -> 'C:\\X\\a.exe' (ha .exe)."""
+    """The .exe's Windows path from the DisplayIcon value: '"C:\\X\\a.exe",0' -> 'C:\\X\\a.exe' (if it is an .exe)."""
     if not isinstance(value, str):
         return None
     s = value.strip()

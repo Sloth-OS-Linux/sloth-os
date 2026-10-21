@@ -1,4 +1,4 @@
-"""A Sloth Üdvözlő fordításai (translations/<nyelv>.json); a működés a közös sloth_common.i18n-ben van."""
+"""Sloth Welcome's translations (translations/<language>.json); the logic is in the shared sloth_common.i18n."""
 from pathlib import Path
 
 from sloth_common.i18n import Catalog

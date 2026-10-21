@@ -1,5 +1,5 @@
 #!/usr/bin/python3 -I
-"""Sloth .exe kezelő indító."""
+"""Sloth .exe handler launcher."""
 import sys
 
 sys.path.insert(0, "/usr/lib/sloth-os/sloth-exe")

@@ -1,5 +1,5 @@
-# Minden szöveges fájl LF sorvéggel: a scriptek és a rendszerfájlok Linuxon futnak,
-# akkor is, ha a repót Windowson klónozták (core.autocrlf=true).
+# Every text file with LF line endings: the scripts and system files run on Linux,
+# even if the repository was cloned on Windows (core.autocrlf=true).
 * text=auto eol=lf
 *.png binary
 *.jpg binary

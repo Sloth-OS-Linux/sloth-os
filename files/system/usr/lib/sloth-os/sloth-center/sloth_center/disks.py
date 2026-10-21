@@ -1,7 +1,7 @@
-"""Lemezek: meghajtók, foglaltság, egészség (SMART), felesleges fájlok törlése.
+"""Disks: drives, usage, health (SMART), deleting unneeded files.
 
-A `df`, `smartctl` és `flatpak uninstall --unused` grafikus megfelelője.
-A meghajtók adatai a UDisks2 D-Bus felületéről jönnek (olvasáshoz nem kell jelszó).
+The graphical equivalent of `df`, `smartctl` and `flatpak uninstall --unused`.
+The drives' data comes from UDisks2's D-Bus interface (reading needs no password).
 """
 import logging
 import os
@@ -112,7 +112,7 @@ class DisksController(QObject):
         self._busy = False
         self._drives_ready.connect(self._on_drives)
         self._cleanup_ready.connect(self._on_cleanup)
-        # van-e a gépen Windows-partíció (fájlok áthozása; csatolás nélkül nézzük)
+        # whether the machine has a Windows partition (bringing files over; we look without mounting)
         self._windows = bool(windows_import.candidates())
         self.refresh()
 
@@ -123,7 +123,7 @@ class DisksController(QObject):
 
     @Slot()
     def importFromWindows(self):
-        """A fájlok áthozása a Windowsból: az Üdvözlő ezzel az egy lépéssel (sloth_welcome, --windows-import)."""
+        """Bringing files over from Windows: Welcome with this one step (sloth_welcome, --windows-import)."""
         subprocess.Popen(["sloth-welcome", "--windows-import"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     @Slot()
@@ -148,7 +148,7 @@ class DisksController(QObject):
 
     @Slot()
     def cleanup(self):
-        """A már egy app által sem használt Flatpak összetevők törlése."""
+        """Deletes Flatpak components no app uses any more."""
         if self._busy:
             return
         self._busy = True

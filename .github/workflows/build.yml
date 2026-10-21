@@ -1,25 +1,25 @@
 name: bluebuild
 on:
-  # Napi build (a repó publikus, az Actions-percek ingyenesek): így a Fedora / Universal Blue javításai
-  # akkor is megérkeznek a gépekre, ha nálunk nincs új commit
+  # Daily build (the repository is public, Actions minutes are free): so the Fedora / Universal Blue fixes
+  # reach the machines even when there is no new commit here
   schedule:
-    - cron: "00 06 * * *" # naponta 06:00 UTC, a ublue alap image-ek után
+    - cron: "00 06 * * *" # daily at 06:00 UTC, after the ublue base images
   push:
     paths-ignore:
       - "**.md"
-      # ezek nem kerülnek bele az image-be (telepítő ISO, fejlesztői segédek, dokumentáció)
+      # these do not go into the image (installer ISO, developer tools, documentation)
       - "iso/**"
       - "tools/**"
       - "docs/**"
       - ".github/workflows/iso.yml"
   pull_request:
-  workflow_dispatch: # kézi indítás a GitHub felületről
+  workflow_dispatch: # start by hand from the GitHub interface
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
-  # A main ágon a futó buildet nem szakítjuk meg (az újabb megvárja): a build előbb feltölti a "latest"-et, és csak
-  # utána írja alá. Ha közben megszakad, a "latest" aláíratlan marad, és az aláírás-ellenőrzéssel frissítő gépek
-  # (ostree-image-signed) a következő teljes buildig nem tudnak frissíteni (2026-10-19-én megtörtént).
+  # On the main branch a running build is not cancelled (the newer one waits): the build first pushes "latest", and only
+  # signs it afterwards. If it is interrupted meanwhile, "latest" stays unsigned, and machines updating with signature
+  # verification (ostree-image-signed) cannot update until the next full build (it happened on 2026-10-19).
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:

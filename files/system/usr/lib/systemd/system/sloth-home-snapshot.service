@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: a saját fájlok mostani állapotának mentése (Btrfs-pillanatkép)
+Description=Sloth OS: saving the current state of your own files (Btrfs snapshot)
 After=sloth-home-layout.service
 
 [Service]

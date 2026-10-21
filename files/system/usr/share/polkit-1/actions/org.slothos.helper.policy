@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
   "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
-<!-- A Sloth OS GUI eszközeinek rendszergazdai műveletei (Sloth Központ). -->
+<!-- Administrator actions of the Sloth OS GUI tools (Sloth Center). -->
 <policyconfig>
   <vendor>Sloth OS</vendor>
   <action id="org.slothos.helper">
-    <description>Rendszerbeállítás módosítása</description>
-    <description xml:lang="en">Change a system setting</description>
-    <message>A Sloth Központ egy rendszerbeállítást szeretne módosítani. Ehhez add meg a jelszavad.</message>
-    <message xml:lang="en">Sloth Center wants to change a system setting. Enter your password to allow it.</message>
+    <description>Change a system setting</description>
+    <description xml:lang="hu">Rendszerbeállítás módosítása</description>
+    <message>Sloth Center wants to change a system setting. Enter your password to allow it.</message>
+    <message xml:lang="hu">A Sloth Központ egy rendszerbeállítást szeretne módosítani. Ehhez add meg a jelszavad.</message>
     <icon_name>sloth-os</icon_name>
     <defaults>
       <allow_any>auth_admin</allow_any>
@@ -18,10 +18,10 @@
     <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper</annotate>
   </action>
   <action id="org.slothos.helper.versions">
-    <description>Rendszerverzió megtartása vagy kiválasztása</description>
-    <description xml:lang="en">Keep or choose a system version</description>
-    <message>A Sloth Központ egy rendszerverziót szeretne megtartani vagy a következő indításra kiválasztani. Ehhez add meg a jelszavad.</message>
-    <message xml:lang="en">Sloth Center wants to keep a system version or choose it for the next start. Enter your password to allow it.</message>
+    <description>Keep or choose a system version</description>
+    <description xml:lang="hu">Rendszerverzió megtartása vagy kiválasztása</description>
+    <message>Sloth Center wants to keep a system version or choose it for the next start. Enter your password to allow it.</message>
+    <message xml:lang="hu">A Sloth Központ egy rendszerverziót szeretne megtartani vagy a következő indításra kiválasztani. Ehhez add meg a jelszavad.</message>
     <icon_name>sloth-os</icon_name>
     <defaults>
       <allow_any>auth_admin</allow_any>
@@ -31,10 +31,10 @@
     <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper-versions</annotate>
   </action>
   <action id="org.slothos.helper.backup">
-    <description>A saját fájlok mentése most</description>
-    <description xml:lang="en">Back up your own files now</description>
-    <message>A Sloth Központ elmenti a fájljaid mostani állapotát.</message>
-    <message xml:lang="en">Sloth Center is saving the current state of your files.</message>
+    <description>Back up your own files now</description>
+    <description xml:lang="hu">A saját fájlok mentése most</description>
+    <message>Sloth Center is saving the current state of your files.</message>
+    <message xml:lang="hu">A Sloth Központ elmenti a fájljaid mostani állapotát.</message>
     <icon_name>sloth-os</icon_name>
     <defaults>
       <allow_any>auth_admin</allow_any>

@@ -1,8 +1,8 @@
-"""Fejlesztői környezetek: más Linux-rendszerek dobozban (Distrobox), grafikusan.
+"""Developer environments: other Linux systems in a box (Distrobox), graphically.
 
-A `distrobox create/rm/enter` és a `distrobox-export` megfelelője. A hosszú
-műveletek (letöltés, első indítás) folyamatjelzővel futnak, a nyers kimenet
-csak a naplóba kerül.
+The equivalent of `distrobox create/rm/enter` and `distrobox-export`. The long
+operations (download, first start) run with a progress bar, the raw output
+only goes to the log.
 """
 import json
 import logging
@@ -16,7 +16,7 @@ from .i18n import tr
 
 log = logging.getLogger("sloth-center.containers")
 
-# (azonosító, megjelenített név, image, csomagkezelő)
+# (ID, displayed name, image, package manager)
 DISTROS = [
     ("ubuntu", "Ubuntu 24.04", "docker.io/library/ubuntu:24.04", "apt"),
     ("debian", "Debian 13", "docker.io/library/debian:13", "apt"),
@@ -99,7 +99,7 @@ class ContainersController(QObject):
         self._boxes = list_boxes()
         self.changed.emit()
 
-    # --- Hosszú műveletek -----------------------------------------------------------
+    # --- Long operations -----------------------------------------------------------
 
     def _run(self, args, status, done_text, then=None):
         if self._busy:
@@ -128,7 +128,7 @@ class ContainersController(QObject):
 
         self._proc.readyReadStandardOutput.connect(read)
         self._proc.finished.connect(finished)
-        log.info("futtatás: %s", args)
+        log.info("running: %s", args)
         self._proc.start(args[0], args[1:])
 
     @Slot(str, str)
@@ -145,7 +145,7 @@ class ContainersController(QObject):
             return
 
         def first_start():
-            # Az első indítás állítja be a dobozt (felhasználó, integráció); ez is eltart egy ideig
+            # The first start sets up the box (user, integration); this takes a while too
             self._run(["distrobox", "enter", name, "--", "true"], tr("Getting ready for the first start…"),
                       tr("Done! The box “{name}” is ready to use.", name=name))
 
@@ -180,7 +180,7 @@ class ContainersController(QObject):
 
     @Slot(str)
     def listApps(self, name):
-        """A dobozban lévő grafikus appok (exportálhatók a Start menübe)."""
+        """The graphical apps in the box (they can be exported to the Start menu)."""
         if not NAME_RE.match(name):
             return
         threading.Thread(target=self._list_apps_worker, args=(name,), daemon=True).start()

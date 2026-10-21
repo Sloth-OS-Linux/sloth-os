@@ -1,29 +1,29 @@
-# A Sloth OS élő rendszerének beállításai (a livesys-main hívja meg rendszergazdaként, az első indításkor).
-# A liveuser automatikusan belép; a telepítő elindul, és az asztalon is ott van az ikonja.
+# Settings of the Sloth OS live system (called by livesys-main as administrator, at the first start).
+# The liveuser signs in automatically; the installer starts, and its icon is on the desktop too.
 
 home=/home/liveuser
 
-# A telepítő induljon el belépéskor
+# The installer should start at login
 mkdir -p "$home/.config/autostart"
 cp /usr/share/applications/org.slothos.installer.desktop "$home/.config/autostart/"
 
-# Ikon az asztalon (futtathatóra állítva, hogy a KDE ne kérdezzen rá)
+# An icon on the desktop (made executable, so KDE does not ask about it)
 mkdir -p "$home/Desktop"
 cp /usr/share/applications/org.slothos.installer.desktop "$home/Desktop/"
 chmod +x "$home/Desktop/org.slothos.installer.desktop"
 
-# A Sloth Üdvözlő a telepített rendszeren fut majd le, itt ne jöjjön elő
+# Sloth Welcome will run on the installed system; it must not come up here
 mkdir -p "$home/.config/sloth-os"
 : > "$home/.config/sloth-os/welcome-done"
 
-# A start menüben a telepítő legyen az első
+# The installer should be first in the start menu
 cat > "$home/.config/kickoffrc" << 'EOF'
 [Favorites]
 FavoriteURLs=/usr/share/applications/org.slothos.installer.desktop,/usr/share/applications/org.kde.dolphin.desktop,/usr/share/applications/systemsettings.desktop
 EOF
 
-# Telepítés közben ne sötétüljön el és ne kapcsoljon le a képernyő, ne aludjon el a gép, és ne zároljon
-# (a telepítő a telepítés idejére ezt külön is tiltja, lásd sloth_installer/controller.py)
+# While installing, the screen must not dim or turn off, the machine must not sleep, and it must not lock
+# (the installer also inhibits this separately for the duration of the install, see sloth_installer/controller.py)
 for profile in AC Battery LowBattery; do
     kwriteconfig6 --file "$home/.config/powerdevilrc" --group "$profile" --group Display --key DimDisplayWhenIdle false
     kwriteconfig6 --file "$home/.config/powerdevilrc" --group "$profile" --group Display --key TurnOffDisplayWhenIdle false

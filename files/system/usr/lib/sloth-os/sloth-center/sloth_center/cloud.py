@@ -1,7 +1,7 @@
-"""Felhőtárhely (OneDrive, Google Drive) mappaként: Fiók és biztonság → Felhőtárhely.
+"""Cloud storage (OneDrive, Google Drive) as a folder: Account and security → Cloud storage.
 
-A munkát a /usr/libexec/sloth-os/cloud-drive végzi (rclone, felhasználónként, jelszó nélkül). A bejelentkezés a
-böngészőben történik; amíg a felhasználó ott végez, a felület vár (háttérszálon).
+The work is done by /usr/libexec/sloth-os/cloud-drive (rclone, per user, without a password). Signing in happens
+in the browser; while the user finishes there, the interface waits (on a background thread).
 """
 import json
 import logging
@@ -20,12 +20,12 @@ NAMES = {"onedrive": "OneDrive", "gdrive": "Google Drive"}
 
 class CloudController(QObject):
     changed = Signal()
-    _done = Signal(str, str, object)   # a háttérszálból: (művelet, szolgáltatás, eredmény)
+    _done = Signal(str, str, object)   # from the background thread: (operation, service, result)
 
     def __init__(self, parent=None):
         super().__init__(parent)
         self._drives = []
-        self._busy = ""      # épp melyik szolgáltatáson dolgozunk
+        self._busy = ""      # which service we are working on right now
         self._error = ""
         self._info = ""
         self._done.connect(self._on_done)

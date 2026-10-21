@@ -1,8 +1,8 @@
--- Sloth OS közös tudás: a gépek névtelen jelentései (services/knowledge/README.md)
--- Gépenként és beállításonként csak a legutóbbi eredmény számít (egy gép egy szavazat).
+-- Sloth OS shared knowledge: the machines' anonymous reports (services/knowledge/README.md)
+-- Per machine and setting only the latest result counts (one machine, one vote).
 CREATE TABLE IF NOT EXISTS reports (
-    machine   TEXT NOT NULL,   -- a gép véletlen azonosítójának sózott hash-e
-    program   TEXT NOT NULL,   -- a program ujjlenyomata (sha256, a gépen számolva; a nevet nem látjuk)
+    machine   TEXT NOT NULL,   -- salted hash of the machine's random ID
+    program   TEXT NOT NULL,   -- the program's fingerprint (sha256, computed on the machine; we do not see the name)
     gpu       TEXT NOT NULL,   -- amd | nvidia | intel | other
     config    TEXT NOT NULL,   -- kanonikus JSON: {"line", "profile", "fixes"}
     outcome   TEXT NOT NULL,   -- worked | failed
@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS reports (
 );
 CREATE INDEX IF NOT EXISTS reports_program ON reports (program, gpu);
 
--- Visszaélés ellen: címenként naponta legfeljebb ennyi jelentés (a cím is csak sózott hash-ként)
+-- Against abuse: at most this many reports per address per day (the address only as a salted hash too)
 CREATE TABLE IF NOT EXISTS rate (
     day   TEXT NOT NULL,
     ip    TEXT NOT NULL,
@@ -19,9 +19,9 @@ CREATE TABLE IF NOT EXISTS rate (
     PRIMARY KEY (day, ip)
 );
 
--- Visszajelzés: a csatolt napló (az issue-ban csak a link; a Worker 30 nap után törli)
+-- Feedback: the attached log (only the link is in the issue; the Worker deletes it after 30 days)
 CREATE TABLE IF NOT EXISTS feedback_logs (
-    id      TEXT PRIMARY KEY,   -- véletlen UUID
+    id      TEXT PRIMARY KEY,   -- random UUID
     created INTEGER NOT NULL,
     log     TEXT NOT NULL
 );

@@ -1,4 +1,4 @@
-// Fejlesztői környezetek: más Linux-rendszerek dobozban (Distrobox).
+// Developer environments: other Linux systems in a box (Distrobox).
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -47,7 +47,7 @@ Kirigami.ScrollablePage {
             QQC2.ProgressBar { Layout.fillWidth: true; indeterminate: true }
         }
 
-        // --- Meglévő dobozok -----------------------------------------------------------
+        // --- Existing boxes -----------------------------------------------------------
         Repeater {
             model: containers.boxes
             delegate: Kirigami.AbstractCard {
@@ -150,7 +150,7 @@ Kirigami.ScrollablePage {
             text: L.t("You don't have a box yet")
         }
 
-        // --- Új doboz ------------------------------------------------------------------
+        // --- New box ------------------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {

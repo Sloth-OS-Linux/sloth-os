@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: értesítés, ha elkészült egy rendszerfrissítés
+Description=Sloth OS: a notification when a system update is ready
 After=plasma-workspace.target
 
 [Service]

@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Feltelepíti a MangoHud és gamescope Flatpak Vulkan rétegeket a Steam Flatpak
-# aktuális runtime-verziójához (pl. 26.08). A host RPM-ek (mangohud, gamescope)
-# a Flatpak Steamen belül nem látszanak, ezért kellenek ezek a rétegek.
-# A runtime-verziót minden futáskor a Steamtől kérdezzük le, így egy Steam
-# runtime-váltás után (pl. 26.08 -> 27.08) a rétegek maguktól követik.
+# Installs the MangoHud and gamescope Flatpak Vulkan layers for the Steam Flatpak's
+# current runtime version (e.g. 26.08). The host RPMs (mangohud, gamescope)
+# are not visible inside the Flatpak Steam, so these layers are needed.
+# The runtime version is asked from Steam on every run, so after a Steam
+# runtime change (e.g. 26.08 -> 27.08) the layers follow by themselves.
 set -euo pipefail
 
 STEAM=com.valvesoftware.Steam
@@ -13,14 +13,14 @@ LAYERS=(
 )
 
 if ! flatpak info --system "$STEAM" >/dev/null 2>&1; then
-  echo "A Steam nincs telepítve, nincs teendő."
+  echo "Steam is not installed, nothing to do."
   exit 0
 fi
 
 # pl. "org.freedesktop.Platform/x86_64/26.08" -> "26.08"
 branch="$(flatpak info --system --show-runtime "$STEAM" | cut -d/ -f3)"
 if [[ -z "$branch" ]]; then
-  echo "Nem sikerült megállapítani a Steam runtime-verzióját." >&2
+  echo "Could not determine Steam's runtime version." >&2
   exit 1
 fi
 
@@ -32,13 +32,13 @@ for layer in "${LAYERS[@]}"; do
 done
 
 if (( ${#missing[@]} == 0 )); then
-  echo "A Vulkan rétegek naprakészek (${branch})."
+  echo "The Vulkan layers are up to date (${branch})."
   exit 0
 fi
 
-echo "Telepítés: ${missing[*]}"
+echo "Installing: ${missing[*]}"
 flatpak install --system --noninteractive flathub "${missing[@]}"
 
-# A régi runtime-verzióhoz tartozó, már nem használt rétegeket a Flatpak
-# saját takarítása (flatpak uninstall --unused) eltávolítja.
+# The layers of the old runtime version that are no longer used are removed by Flatpak's
+# own cleanup (flatpak uninstall --unused).
 flatpak uninstall --system --noninteractive --unused || true

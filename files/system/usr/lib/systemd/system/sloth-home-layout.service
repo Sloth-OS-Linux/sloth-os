@@ -1,13 +1,13 @@
 [Unit]
-Description=Sloth OS: a saját fájlok mentésének előkészítése (a /var/home külön Btrfs-subvolume)
-# Bejelentkezés és az első fiók létrehozása előtt, amikor még senki nem használja a saját mappákat
+Description=Sloth OS: preparing the backup of your own files (/var/home as a separate Btrfs subvolume)
+# Before login and before the first account is created, while nobody uses the home folders yet
 After=local-fs.target systemd-tmpfiles-setup.service
 Before=systemd-user-sessions.service sloth-first-user.service display-manager.service plasmalogin.service sddm.service
 
 [Service]
 Type=oneshot
 ExecStart=/usr/libexec/sloth-os/home-snapshots layout
-# Az első átalakítás egy nagy saját mappánál percekig tarthat (közben a Plymouth-animáció látszik)
+# The first conversion of a big home folder may take minutes (the Plymouth animation shows meanwhile)
 TimeoutStartSec=infinity
 
 [Install]
