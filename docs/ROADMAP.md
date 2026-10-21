@@ -12,7 +12,7 @@ terminálból lehet csinálni, GUI-ból is menjen.
    változat később
 3. [ ] **A teszt végig valódi gépen, teljes alaphelyzetbe állítás után a legújabb image-dzsel** (lent: „Teszt a
    2026-10-20-i reset után”)
-4. [ ] Régi (BIOS-os) gépek (Teendők, 2. pont): nincs hozzá gép, később
+4. [ ] Régi (BIOS-os) gépek (Teendők, 2. pont): az 1.0 után (döntés: 2026-10-20, az 1.0 csak UEFI)
 5. [ ] Új ISO a rétegek összevonásával, ha a rendszer kész (benne a telepítő javítása: fekete kép 90% után)
 6. [ ] A fordítások anyanyelvi átnézése (Teendők, 7. pont)
 7. [ ] Legvégül: a repó publikussá tétele, napi build, ISO-tárhely (Teendők, 3–4. pont). Weboldal már van:
@@ -37,10 +37,10 @@ Sloth Központ a tálcán, PIN és ujjlenyomat (hamis hibaüzenet nélkül), boo
 figyelmeztetések), visszajelzés naplóval (#5), Fájlmentés és Korábbi verziók, EA app (a telepítő nem pörög), Játékok oldal,
 némítás, Heroic/Epic, zram, tálcabuborék a jobb oldalon, WoW Classic a Battle.net-ből.
 **Még nyitott:**
-- [ ] Üdvözlő újrafuttatása meglévő rendszeren (pipák, mostani megjelenés): az új telepítésen megnézni
-- [ ] **Windows mellé telepítés (titkosítással és anélkül): nem tesztelve** a mai javítások után (a konténeres teszt
-  félbemaradt, lent); addig Windows mellé nem ajánlott
-- [ ] NVIDIA-s gép (otthon): Driverek és hardver oldal, Secure Boot MOK
+- [x] Üdvözlő újrafuttatása meglévő rendszeren (pipák, mostani megjelenés): az új telepítésen jól működik
+- [ ] **Windows mellé telepítés (titkosítással és anélkül):** a konténeres teszt mindkettőre hibátlan (lent); valódi
+  Windowsos gépen még nem próbáltuk
+- [ ] NVIDIA-s gép (otthon, a fejlesztőgép: RTX 5060 + AMD iGPU): Driverek és hardver oldal, Secure Boot MOK
 - [ ] Steam-átvétel, firmware a Discoverben
 
 ### A 2026-10-21-i teszt (valódi gép, a reggeli ISO-ról újratelepítve, `d43e36f`)
@@ -105,7 +105,11 @@ Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benn
   rootként; az élő image-ben, loop-lemezen, az ISO-építés tárolójából; UEFI mímelve). Eredmény 2026-10-21 (14:01-es ISO):
   - full-enc és full: a telepítés lefut (kb. 12 perc), LUKS2 jelszóval nyílik, nyelv/billentyűzet/időzóna/fiók jó.
     Az EFI-partíción nem volt rendszerbetöltő, mert UEFI nélkül futott (a mímelt UEFI-s futás még hátravan)
-  - **win és win-enc: még nem futott le** (UEFI mímelve indult, megszakítva). Folytatni: `all.sh win win-enc full-enc`
+  - **win és win-enc: lefut, 0 hiba** (2026-10-21 este, Linuxon: `SLOTH_BUILD_DIR=/mnt/adatok/sloth-iso-build
+    SLOTH_TEST_DIR=… all.sh win win-enc`; UEFI mímelve, a helper a repóból): az NTFS 100 → 55 GB-ra zsugorodik, ép,
+    a rajta lévő fájl változatlan; a rendszerbetöltő a saját EFI-partíción, a Windows EFI-partíciója érintetlen, a
+    boot menüben a Windows-bejegyzés, a menü látszik; LUKS2 jelszóval nyílik, crypttab és `rd.luks.uuid` jó; helyi
+    idő. Valódi Windowsos gépen (a Windows elindul-e utána, a boot menü) még kipróbálni
   - Figyelem: a lemezfájlok a C:-re mennek (a WSL lemeze ritkított, a teszt minden eset után fstrimel); egyszer
     megtelt a C: (1,4 GB), és a WSL összeomlott. Egy esethez kb. 15 GB szabad hely kell
 - [x] Telepítő hibaoldala: „Napló mentése…” gomb (alapból a bedugott pendrive-ra), a `/tmp` útvonal helyett (50 nyelven)
@@ -437,7 +441,7 @@ Minden pusholva; a nagy részük csak szimulációval és loop eszközön van ki
   Ubisoft Connect, Epic, GOG Galaxy), diagnózis a háttérnaplóból (hiányzó DLL → összetevő, Vulkan-hiba → WineD3D…),
   öngyógyítás más beállításokkal és Proton-verziókkal (Btrfs-pillanatképpel), visszaállás Proton-frissítés után
 - **Közös tudás** (2. fázis): Cloudflare Worker + D1 (`sloth-os-knowledge.slothos.workers.dev`), nyilvános
-  `bathorizsolt/sloth-os-knowledge` repó (óránkénti export, havi ProtonDB-alap: 287 játék, napi figyelés);
+  `Sloth-OS-Linux/sloth-os-knowledge` repó (óránkénti export, havi ProtonDB-alap: 287 játék, napi figyelés);
   megosztás csak engedéllyel (új lépés az Üdvözlőben, kapcsoló a Sloth Központban); leírás a README-ben
 - **Telepítő** (4. fázis): Windows mellé telepítés (zsugorítás vagy szabad hely, BitLocker / gyors indítás / BIOS
   felismerése, látható boot menü a Windowszal, helyi idős óra), lemeztitkosítás (LUKS2, külön /boot, jelszókérő a
@@ -599,7 +603,7 @@ Talált hibák (egyesével javítjuk):
    (sorrendben): némítás (a hangerő visszaáll; a mi kódunk nem nyúl a hangerőhöz, valódi gépen kell megfigyelni),
    Discover-frissítés a friss appokra, a többi indító ellenőrzése (`LAUNCHER_STUBS`). A Dolphin 128 TB és az
    újraindítás futó programnál javítva (2026-10-19), a teszten ellenőrizni
-2. [ ] **Régi (BIOS-os) gépek:** elindul-e a pendrive BIOS-módban, telepítés BIOS-os gépre (a teljes lemezes
+2. [ ] **Régi (BIOS-os) gépek** (az 1.0 után; döntés: 2026-10-20, az 1.0 csak UEFI)**:** elindul-e a pendrive BIOS-módban, telepítés BIOS-os gépre (a teljes lemezes
    telepítésnél a BIOS boot partíció már megvan); Windows mellé BIOS-on maradhat „nem támogatott” magyarázattal
 3. [ ] **A repó publikussá tétele** és a napi automatikus build visszakapcsolása (`.github/workflows/build.yml`). Ettől függ:
    a telepített gépek bejelentkezés nélkül kapnak frissítést (most a privát registry miatt nem), és a telepítő
@@ -907,7 +911,7 @@ Talált hibák (egyesével javítjuk):
      használt verziók maradnak)
   6. [x] **Közös tudás** (`sloth_exe/community.py`, szolgáltatás: `services/knowledge/`): ami más Sloth OS-es
      gépeken bevált, az nálunk az első próba. Olvasás: statikus `knowledge.json` a nyilvános
-     `bathorizsolt/sloth-os-knowledge` repóból (a `sloth-windows-prepare` tölti le). Megosztás: csak ha a
+     `Sloth-OS-Linux/sloth-os-knowledge` repóból (a `sloth-windows-prepare` tölti le). Megosztás: csak ha a
      felhasználó bekapcsolja (Sloth Központ → Windows-programok → „Tapasztalatok megosztása”, alapból ki);
      a jelentés névtelen (a program nevéből csak hash, a gép egy véletlen szám), sorba kerül, és a háttérben
      megy el. A szolgáltatás Cloudflare Worker + D1 (`https://sloth-os-knowledge.slothos.workers.dev`):

@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub nepriėmė žetono. Sukurk naują ir įvesk jį čia.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Žetonas neturi prieigos prie šios saugyklos (reikia: repo, workflow, read:packages) arba neteisingas saugyklos pavadinimas.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Nėra ryšio su GitHub. Patikrink interneto ryšį.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Saugyklos pavadinimas yra „savininkas/pavadinimas“ formos, pvz., bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Saugyklos pavadinimas yra „savininkas/pavadinimas“ formos, pvz., Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Tai nepanašu į GitHub žetoną. Nukopijuok jį dar kartą.",
   "Kapcsolódva: {repo}": "Prisijungta: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Paleista. Po kelių sekundžių pasirodys sąraše.",

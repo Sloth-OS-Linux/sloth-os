@@ -5,7 +5,7 @@
 # változat aláírását is el kell fogadni. Mindkettőt ugyanaz a kulcs (cosign.pub) írja alá.
 set -euo pipefail
 
-REGISTRY=ghcr.io/bathorizsolt
+REGISTRY=ghcr.io/sloth-os-linux
 NAMES=(sloth-os sloth-os-nvidia)
 PKI=/etc/pki/containers
 POLICY=/etc/containers/policy.json
@@ -24,7 +24,7 @@ for n in "${NAMES[@]}"; do
                                      "signedIdentity": {"type": "matchRepository"}}]' \
      "$POLICY" > /tmp/policy.json
   mv /tmp/policy.json "$POLICY"
-  yaml=/etc/containers/registries.d/bathorizsolt-$n.yaml
+  yaml=/etc/containers/registries.d/sloth-os-linux-$n.yaml
   [[ -f $yaml ]] || printf 'docker:\n  %s:\n    use-sigstore-attachments: true\n' "$REGISTRY/$n" > "$yaml"
 done
 jq -e --arg a "$REGISTRY/sloth-os" --arg b "$REGISTRY/sloth-os-nvidia" \

@@ -35,7 +35,7 @@ only sees "Starting…":
 5. **Rollback after updates.** If a new Proton version breaks a program that used to work, that program
    stays on the last working version.
 6. **Shared knowledge.** Every machine downloads a public file of settings known to work
-   ([bathorizsolt/sloth-os-knowledge](https://github.com/bathorizsolt/sloth-os-knowledge)): settings
+   ([Sloth-OS-Linux/sloth-os-knowledge](https://github.com/Sloth-OS-Linux/sloth-os-knowledge)): settings
    derived from the open [ProtonDB](https://www.protondb.com) data (ODbL), plus what worked on other Sloth OS
    machines. That setting is the first attempt, so programs start on the first try.
 
@@ -103,11 +103,11 @@ Install plain **Fedora Kinoite**, then:
 
 ```
 # Step 1: rebase to the image (without signature verification yet)
-rpm-ostree rebase ostree-unverified-registry:ghcr.io/bathorizsolt/sloth-os:latest
+rpm-ostree rebase ostree-unverified-registry:ghcr.io/sloth-os-linux/sloth-os:latest
 systemctl reboot
 
 # Step 2: rebase to the signed image
-rpm-ostree rebase ostree-image-signed:docker://ghcr.io/bathorizsolt/sloth-os:latest
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/sloth-os-linux/sloth-os:latest
 systemctl reboot
 ```
 

@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub ei aktsepteerinud märki. Loo uus ja sisesta see siia.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Märgil pole sellele hoidlale ligipääsu (vaja: repo, workflow, read:packages) või hoidla nimi on vale.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "GitHubiga pole ühendust. Kontrolli internetiühendust.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Hoidla nimi on kujul „omanik/nimi“, näiteks bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Hoidla nimi on kujul „omanik/nimi“, näiteks Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "See ei paista olevat GitHubi märk. Kopeeri see uuesti.",
   "Kapcsolódva: {repo}": "Ühendatud: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Käivitatud. Mõne sekundi pärast ilmub see loendisse.",

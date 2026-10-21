@@ -88,7 +88,7 @@ if [[ $S == win* ]]; then
     check "a Windows indítója megvan" "[ -f /tmp/m/e/EFI/Microsoft/Boot/bootmgfw.efi ]"
     umount /tmp/m/e
     check "NTFS ép (ntfsfix -n)" "ntfsfix -n ${LOOP}p3 >/dev/null 2>&1"
-    ntfs-3g -o ro "${LOOP}p3" /tmp/m/w
+    mkdir -p /tmp/m/w && ntfs-3g -o ro "${LOOP}p3" /tmp/m/w
     check "a Windows-fájl változatlan" "[ \"\$(sha256sum /tmp/m/w/Users/anna/adat.bin | cut -d' ' -f1)\" = \"\$(cat $W/win-sum)\" ]"
     umount /tmp/m/w
 fi

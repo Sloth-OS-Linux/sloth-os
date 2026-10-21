@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub žetona ni sprejel. Ustvari novega in ga vpiši tukaj.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Žeton nima dostopa do tega repozitorija (potrebno: repo, workflow, read:packages) ali pa je ime repozitorija napačno.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Ni povezave z GitHubom. Preveri internetno povezavo.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Ime repozitorija ima obliko »lastnik/ime«, npr. bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Ime repozitorija ima obliko »lastnik/ime«, npr. Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "To ni videti kot žeton GitHuba. Kopiraj ga znova.",
   "Kapcsolódva: {repo}": "Povezano: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Zagnano. Čez nekaj sekund se prikaže na seznamu.",

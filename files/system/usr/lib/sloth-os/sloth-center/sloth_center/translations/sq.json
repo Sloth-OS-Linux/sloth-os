@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub nuk e pranoi tokenin. Krijo një të ri dhe vendose këtu.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Tokeni nuk ka qasje në këtë depo (duhen: repo, workflow, read:packages) ose emri i depos është i gabuar.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Nuk ka lidhje me GitHub. Kontrollo lidhjen me internetin.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Emri i depos ka formën “pronari/emri”, p.sh. bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Emri i depos ka formën “pronari/emri”, p.sh. Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Kjo nuk duket si token GitHub. Kopjoje sërish.",
   "Kapcsolódva: {repo}": "U lidh: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "U nis. Pas pak sekondash shfaqet në listë.",

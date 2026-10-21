@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub belirteci kabul etmedi. Yeni bir tane oluştur ve buraya gir.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Belirtecin bu depoya erişimi yok (gerekli: repo, workflow, read:packages) ya da depo adı yanlış.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "GitHub ile bağlantı yok. İnternet bağlantını kontrol et.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Depo adı “sahip/ad” biçimindedir, örneğin bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Depo adı “sahip/ad” biçimindedir, örneğin Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Bu bir GitHub belirtecine benzemiyor. Yeniden kopyala.",
   "Kapcsolódva: {repo}": "Bağlandı: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Başlatıldı. Birkaç saniye içinde listede görünecek.",

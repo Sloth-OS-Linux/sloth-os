@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub ur yeqbil ara ajiṭun. Snulfu-d yiwen amaynut, sekcem-it dagi.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Ajiṭun ur yesɛi ara anekcum ɣer ukufi-a (ilaq: repo, workflow, read:packages), neɣ isem n ukufi d armeɣtu.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Ulac tuqqna ɣer GitHub. Senqed tuqqna ɣer internet.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Isem n ukufi yesɛa talɣa “bab/isem”, amedya bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Isem n ukufi yesɛa talɣa “bab/isem”, amedya Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Wagi ur yettban ara d ajiṭun n GitHub. Nɣel-it tikkelt-nniḍen.",
   "Kapcsolódva: {repo}": "Yeqqen: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Yebda. Deg kra n tsinin ad d-iban deg tebdart.",

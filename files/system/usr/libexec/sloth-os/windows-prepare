@@ -42,7 +42,7 @@ fi
 # Közös tudás: ami más Sloth OS-es gépeken bevált (sloth_exe/community.py); statikus fájl a GitHubról
 kb="${XDG_CACHE_HOME:-$HOME/.cache}/sloth-os/knowledge.json"
 if curl -fsSL --max-time 60 -o "$kb.new" \
-        https://raw.githubusercontent.com/bathorizsolt/sloth-os-knowledge/main/knowledge.json \
+        https://raw.githubusercontent.com/Sloth-OS-Linux/sloth-os-knowledge/main/knowledge.json \
         && head -c 1 "$kb.new" | grep -q '{'; then
     mv "$kb.new" "$kb"
 else
@@ -53,7 +53,7 @@ fi
 # ha újabb. A gép betöltéskor újra ellenőrzi őket (csak engedélyezett mezők és értékek)
 recipes="${XDG_CACHE_HOME:-$HOME/.cache}/sloth-os/recipes.json"
 if curl -fsSL --max-time 60 -o "$recipes.new" \
-        https://raw.githubusercontent.com/bathorizsolt/sloth-os-knowledge/main/recipes.json \
+        https://raw.githubusercontent.com/Sloth-OS-Linux/sloth-os-knowledge/main/recipes.json \
         && head -c 1 "$recipes.new" | grep -q '{'; then
     mv "$recipes.new" "$recipes"
 else

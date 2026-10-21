@@ -4,7 +4,7 @@
 Rootként fut a Sloth OS image-ében (btrfs-progs, PySide6), egy loop eszközre készített Btrfs-sel; a /var/home
 helyett annak egy mappáját használja. Windowsról (WSL, podman; a btrfs modul kell: modprobe btrfs):
   wsl -d podman-machine-default -u root -- podman run --rm --privileged --cgroups=disabled \
-      -v /mnt/c/Users/batho/sloth-os:/repo:ro --entrypoint python3 ghcr.io/bathorizsolt/sloth-os:latest \
+      -v /mnt/c/Users/batho/sloth-os:/repo:ro --entrypoint python3 ghcr.io/sloth-os-linux/sloth-os:latest \
       /repo/tools/tests/test_snapshots.py
 """
 import datetime

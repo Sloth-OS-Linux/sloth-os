@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub에서 토큰을 받아들이지 않았습니다. 새 토큰을 만들어 여기에 입력하세요.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "토큰에 이 저장소에 대한 권한이 없거나 (필요: repo, workflow, read:packages) 저장소 이름이 잘못되었습니다.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "GitHub에 연결할 수 없습니다. 인터넷 연결을 확인하세요.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "저장소 이름은 “소유자/이름” 형식입니다. 예: bathorizsolt/sloth-os",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "저장소 이름은 “소유자/이름” 형식입니다. 예: Sloth-OS-Linux/sloth-os",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "GitHub 토큰처럼 보이지 않습니다. 다시 복사하세요.",
   "Kapcsolódva: {repo}": "연결됨: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "시작했습니다. 몇 초 후 목록에 나타납니다.",

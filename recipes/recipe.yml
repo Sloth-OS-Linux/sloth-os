@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # Sloth OS – AMD / Intel GPU-s változat
-# Kész image: ghcr.io/bathorizsolt/sloth-os
+# Kész image: ghcr.io/sloth-os-linux/sloth-os
 name: sloth-os
 description: Sloth OS – napi használatra és gamingre szánt desktop, terminál nélkül.
 

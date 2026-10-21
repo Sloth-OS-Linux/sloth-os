@@ -2,7 +2,7 @@
 
 A receptek két helyről jönnek:
   - a rendszerrel (/usr/share/sloth-os/recipes.json: internet nélkül is megvannak),
-  - a közös tudás repójából (bathorizsolt/sloth-os-knowledge, recipes.json), amit a sloth-windows-prepare
+  - a közös tudás repójából (Sloth-OS-Linux/sloth-os-knowledge, recipes.json), amit a sloth-windows-prepare
     a háttérben letölt; ha ez újabb, ez érvényes.
 A receptfájlt kézzel szerkesztjük és ellenőrizzük (a knowledge repó Actionje validálja), és a gép is újra
 ellenőrzi: csak az engedélyezett mezők és értékek fogadhatók el (tetszőleges parancs, környezeti változó,
@@ -27,7 +27,7 @@ log = logging.getLogger("sloth-os.apps")
 
 SYSTEM = Path("/usr/share/sloth-os/recipes.json")
 CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "sloth-os" / "recipes.json"
-URL = "https://raw.githubusercontent.com/bathorizsolt/sloth-os-knowledge/main/recipes.json"
+URL = "https://raw.githubusercontent.com/Sloth-OS-Linux/sloth-os-knowledge/main/recipes.json"
 
 # Ugyanazok az összetevők és kapcsolók, mint a közös tudásban (services/knowledge/src/worker.js); ha ott
 # bővül, itt is kell (és a knowledge repó seed/validate_recipes.py-jában)

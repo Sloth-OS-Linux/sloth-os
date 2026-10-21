@@ -22,7 +22,7 @@ from . import diagnose, heal, identify
 
 log = logging.getLogger("sloth-exe.community")
 
-KNOWLEDGE_URL = "https://raw.githubusercontent.com/bathorizsolt/sloth-os-knowledge/main/knowledge.json"
+KNOWLEDGE_URL = "https://raw.githubusercontent.com/Sloth-OS-Linux/sloth-os-knowledge/main/knowledge.json"
 REPORT_URL = "https://sloth-os-knowledge.slothos.workers.dev/v1/report"
 
 CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "sloth-os" / "knowledge.json"

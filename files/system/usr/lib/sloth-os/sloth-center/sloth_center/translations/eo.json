@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub ne akceptis la ĵetonon. Kreu novan kaj enigu ĝin ĉi tie.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "La ĵetono ne havas aliron al ĉi tiu deponejo (necesas: repo, workflow, read:packages), aŭ la nomo de la deponejo estas malĝusta.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Neniu konekto al GitHub. Kontrolu la retkonekton.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "La nomo de la deponejo havas la formon „posedanto/nomo“, ekzemple bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "La nomo de la deponejo havas la formon „posedanto/nomo“, ekzemple Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Tio ne aspektas kiel GitHub-ĵetono. Kopiu ĝin denove.",
   "Kapcsolódva: {repo}": "Konektita: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Lanĉita. Post kelkaj sekundoj ĝi aperos en la listo.",

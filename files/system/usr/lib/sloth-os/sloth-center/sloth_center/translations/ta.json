@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub டோக்கனை ஏற்கவில்லை. புதிய ஒன்றை உருவாக்கி இங்கே உள்ளிடுங்கள்.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "டோக்கனுக்கு இந்தக் களஞ்சியத்தை அணுக உரிமை இல்லை (தேவை: repo, workflow, read:packages), அல்லது களஞ்சியப் பெயர் தவறு.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "GitHub-உடன் இணைப்பு இல்லை. இணைய இணைப்பைச் சரிபாருங்கள்.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "களஞ்சியப் பெயர் “உரிமையாளர்/பெயர்” வடிவில் இருக்கும், எ.கா. bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "களஞ்சியப் பெயர் “உரிமையாளர்/பெயர்” வடிவில் இருக்கும், எ.கா. Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "இது GitHub டோக்கன் போலத் தெரியவில்லை. மீண்டும் நகலெடுங்கள்.",
   "Kapcsolódva: {repo}": "இணைக்கப்பட்டது: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "தொடங்கியது. சில வினாடிகளில் பட்டியலில் தோன்றும்.",

@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub n’a pas accepté le jeton. Crée-en un nouveau et saisis-le ici.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Le jeton n’a pas accès à ce dépôt (il faut : repo, workflow, read:packages), ou le nom du dépôt est incorrect.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Pas de connexion à GitHub. Vérifie ta connexion Internet.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Le nom du dépôt a la forme « propriétaire/nom », par exemple bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Le nom du dépôt a la forme « propriétaire/nom », par exemple Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Cela ne ressemble pas à un jeton GitHub. Copie-le à nouveau.",
   "Kapcsolódva: {repo}": "Connecté : {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Lancé. Il apparaîtra dans la liste dans quelques secondes.",

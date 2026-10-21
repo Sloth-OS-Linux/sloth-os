@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub didn't accept the token. Create a new one and enter it here.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "The token has no access to this repository (needed: repo, workflow, read:packages), or the repository name is wrong.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "No connection to GitHub. Check your internet connection.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "The repository name has the form “owner/name”, for example bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "The repository name has the form “owner/name”, for example Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "That doesn't look like a GitHub token. Copy it in again.",
   "Kapcsolódva: {repo}": "Connected: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Started. It will show up in the list in a few seconds.",

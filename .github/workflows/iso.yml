@@ -44,7 +44,8 @@ jobs:
 
       - name: Build live image
         run: |
-          image="ghcr.io/${{ github.repository_owner }}/${{ inputs.variant }}:latest"
+          owner="${{ github.repository_owner }}"  # a ghcr.io csak kisbetűs nevet fogad el (Sloth-OS-Linux)
+          image="ghcr.io/${owner,,}/${{ inputs.variant }}:latest"
           sudo podman build --security-opt label=disable --authfile /tmp/auth.json \
             --build-arg BASE_IMAGE="$image" -t localhost/sloth-os-live:latest iso/
           # A telepítendő image kicsomagolt konténertárolója külön mappába (iso/payload.sh); az ISO

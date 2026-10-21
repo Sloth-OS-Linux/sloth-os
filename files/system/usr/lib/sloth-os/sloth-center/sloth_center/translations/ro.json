@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub nu a acceptat tokenul. Creează unul nou și introdu-l aici.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Tokenul nu are acces la acest depozit (e nevoie de: repo, workflow, read:packages) sau numele depozitului e greșit.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Nu există conexiune la GitHub. Verifică conexiunea la internet.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Numele depozitului are forma „proprietar/nume”, de exemplu bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Numele depozitului are forma „proprietar/nume”, de exemplu Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Nu pare a fi un token GitHub. Copiază-l din nou.",
   "Kapcsolódva: {repo}": "Conectat: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Pornit. Apare în listă în câteva secunde.",

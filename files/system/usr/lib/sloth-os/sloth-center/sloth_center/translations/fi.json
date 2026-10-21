@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub ei hyväksynyt tunnistetta. Luo uusi ja anna se tähän.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Tunnisteella ei ole pääsyä tähän tietovarastoon (tarvitaan: repo, workflow, read:packages), tai tietovaraston nimi on väärä.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Ei yhteyttä GitHubiin. Tarkista internetyhteys.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Tietovaraston nimi on muotoa ”omistaja/nimi”, esimerkiksi bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Tietovaraston nimi on muotoa ”omistaja/nimi”, esimerkiksi Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Tämä ei näytä GitHub-tunnisteelta. Kopioi se uudelleen.",
   "Kapcsolódva: {repo}": "Yhdistetty: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Käynnistetty. Se näkyy luettelossa muutaman sekunnin kuluttua.",

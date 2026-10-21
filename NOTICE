@@ -29,5 +29,5 @@ Third-party material
     covered by the licenses above, and are used only to identify the apps.
   - Sloth OS is built on Fedora Atomic (Kinoite) and Universal Blue images; their
     components keep their own licenses.
-  - The shared knowledge base (services/knowledge/, https://github.com/bathorizsolt/sloth-os-knowledge)
+  - The shared knowledge base (services/knowledge/, https://github.com/Sloth-OS-Linux/sloth-os-knowledge)
     includes data derived from ProtonDB, available under the Open Database License (ODbL).

@@ -34,7 +34,7 @@ HELPER = "/usr/libexec/sloth-os/sloth-helper"
 CONFIG = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os" / "devpanel.json"
 TOKEN_FILE = CONFIG.with_name("devpanel-token")
 API = "https://api.github.com"
-DEFAULT_REPO = "bathorizsolt/sloth-os"
+DEFAULT_REPO = "Sloth-OS-Linux/sloth-os"
 REPO_RE = re.compile(r"^[A-Za-z0-9-]{1,39}/[A-Za-z0-9._-]{1,100}$")
 TOKEN_RE = re.compile(r"^[A-Za-z0-9_]{20,255}$")
 # A token létrehozása: classic token, előre kitöltött jogokkal (repó, workflow, csomagok olvasása)
@@ -130,9 +130,14 @@ def run_state(run):
 
 def actions_minutes(token, owner):
     """Az e havi Actions-percek (az új számlázási API-ból), vagy None, ha a token / fiók nem engedi."""
-    try:
-        data = api(token, "GET", f"/users/{owner}/settings/billing/usage")
-    except ApiError:
+    data = None
+    for path in (f"/organizations/{owner}/settings/billing/usage", f"/users/{owner}/settings/billing/usage"):
+        try:
+            data = api(token, "GET", path)
+            break
+        except ApiError:
+            pass
+    if data is None:
         return None
     month = time.strftime("%Y-%m")
     items = [i for i in data.get("usageItems", []) if i.get("product") == "actions"
@@ -234,7 +239,7 @@ class DevPanelController(QObject):
     def connectRepo(self, repo, token):
         repo, token = repo.strip(), token.strip()
         if not REPO_RE.match(repo):
-            self._error = tr("A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.")
+            self._error = tr("A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.")
             self.changed.emit()
             return
         if token and not TOKEN_RE.match(token):

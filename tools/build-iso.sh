@@ -16,7 +16,7 @@
 #   http(s)_proxy     a letöltésekhez; a konténerek is ezt használják (a gép hálózatán futnak)
 set -euo pipefail
 
-IMAGE="${1:-ghcr.io/bathorizsolt/sloth-os:latest}"
+IMAGE="${1:-ghcr.io/sloth-os-linux/sloth-os:latest}"
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="$(realpath -m "${2:-$REPO/out}")"
 WORK="${SLOTH_BUILD_DIR:-/var/tmp/sloth-iso-build}"

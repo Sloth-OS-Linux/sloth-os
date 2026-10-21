@@ -12,7 +12,7 @@ The static website is served from the `website/` folder. It contains the public-
 
 The workflow in `.github/workflows/pages.yml` deploys the `website/` directory when changes reach `main`. In the repository settings, open **Pages** and set the build and deployment source to **GitHub Actions**. The first deployment runs after the workflow is merged and Pages is enabled.
 
-The intended address is `https://bathorizsolt.github.io/sloth-os/`. GitHub Pages availability for a private repository depends on the account plan and repository settings. The project roadmap also lists making the repository public as a release prerequisite. Keep the pre-release and download-status copy current until a public installer and real-hardware validation are ready.
+The intended address is `https://sloth-os-linux.github.io/`. GitHub Pages availability for a private repository depends on the account plan and repository settings. The project roadmap also lists making the repository public as a release prerequisite. Keep the pre-release and download-status copy current until a public installer and real-hardware validation are ready.
 
 ## Content policy
 

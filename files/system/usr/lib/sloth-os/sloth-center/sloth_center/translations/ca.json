@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub no ha acceptat el testimoni. Crea’n un de nou i introdueix-lo aquí.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "El testimoni no té accés a aquest repositori (cal: repo, workflow, read:packages) o el nom del repositori és incorrecte.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "No hi ha connexió amb GitHub. Comprova la connexió a Internet.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "El nom del repositori té la forma «propietari/nom», per exemple bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "El nom del repositori té la forma «propietari/nom», per exemple Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Això no sembla un testimoni de GitHub. Torna a copiar-lo.",
   "Kapcsolódva: {repo}": "Connectat: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Iniciat. D’aquí a uns segons apareixerà a la llista.",

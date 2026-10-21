@@ -27,9 +27,9 @@ set_key VARIANT "Desktop"
 set_key VARIANT_ID "sloth-os"
 set_key DEFAULT_HOSTNAME "sloth"
 # TODO: ha lesz saját weboldal, a HOME_URL-t átírni.
-set_key HOME_URL "https://github.com/bathorizsolt/sloth-os"
-set_key SUPPORT_URL "https://github.com/bathorizsolt/sloth-os/issues"
-set_key BUG_REPORT_URL "https://github.com/bathorizsolt/sloth-os/issues"
+set_key HOME_URL "https://github.com/Sloth-OS-Linux/sloth-os"
+set_key SUPPORT_URL "https://github.com/Sloth-OS-Linux/sloth-os/issues"
+set_key BUG_REPORT_URL "https://github.com/Sloth-OS-Linux/sloth-os/issues"
 
 echo "Sloth OS branding kész:"
 grep -E '^(NAME|VERSION|VERSION_ID|PRETTY_NAME|VARIANT|DEFAULT_HOSTNAME)=' "$OS_RELEASE"

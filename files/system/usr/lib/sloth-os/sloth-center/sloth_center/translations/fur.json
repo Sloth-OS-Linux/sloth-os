@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub nol à acetât il token. Cree un gnûf e scrivilu achì.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Il token nol à acès a chest dipuesit (a coventin: repo, workflow, read:packages), o il non dal dipuesit al è sbaliât.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Nissune conession cun GitHub. Controle la conession a internet.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Il non dal dipuesit al à la forme “proprietari/non”, par esempli bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Il non dal dipuesit al à la forme “proprietari/non”, par esempli Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Chest nol somee un token di GitHub. Copilu di gnûf.",
   "Kapcsolódva: {repo}": "Colegât: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Inviât. Tra cualchi secont al comparirà te liste.",

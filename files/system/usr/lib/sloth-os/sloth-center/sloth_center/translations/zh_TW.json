@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub 不接受此權杖。請建立新的權杖並在此輸入。",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "權杖沒有此儲存庫的存取權（需要：repo、workflow、read:packages），或儲存庫名稱有誤。",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "無法連線至 GitHub。請檢查網路連線。",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "儲存庫名稱格式為「擁有者/名稱」，例如 bathorizsolt/sloth-os。",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "儲存庫名稱格式為「擁有者/名稱」，例如 Sloth-OS-Linux/sloth-os。",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "這看起來不像 GitHub 權杖。請重新複製。",
   "Kapcsolódva: {repo}": "已連線：{repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "已開始。幾秒後會出現在清單中。",

@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "لم يقبل GitHub الرمز. أنشئ رمزًا جديدًا وأدخله هنا.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "ليس للرمز صلاحية الوصول إلى هذا المستودع (المطلوب: repo وworkflow وread:packages)، أو أن اسم المستودع خاطئ.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "لا يوجد اتصال بـ GitHub. تحقق من الاتصال بالإنترنت.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "اسم المستودع بصيغة «المالك/الاسم»، مثل bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "اسم المستودع بصيغة «المالك/الاسم»، مثل Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "لا يبدو هذا رمز GitHub. انسخه مرة أخرى.",
   "Kapcsolódva: {repo}": "متصل: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "بدأ. سيظهر في القائمة بعد ثوانٍ.",

@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub-მა ტოკენი არ მიიღო. შექმენი ახალი და აქ ჩაწერე.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "ტოკენს ამ რეპოზიტორიაზე წვდომა არ აქვს (საჭიროა: repo, workflow, read:packages), ან რეპოზიტორიის სახელი არასწორია.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "GitHub-თან კავშირი არ არის. შეამოწმე ინტერნეტკავშირი.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "რეპოზიტორიის სახელს აქვს ფორმა „მფლობელი/სახელი“, მაგ. bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "რეპოზიტორიის სახელს აქვს ფორმა „მფლობელი/სახელი“, მაგ. Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "ეს GitHub-ის ტოკენს არ ჰგავს. თავიდან დააკოპირე.",
   "Kapcsolódva: {repo}": "დაკავშირებულია: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "გაეშვა. რამდენიმე წამში სიაში გამოჩნდება.",

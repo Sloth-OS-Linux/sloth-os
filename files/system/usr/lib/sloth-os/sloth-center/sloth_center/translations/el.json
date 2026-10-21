@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "Το GitHub δεν δέχτηκε το διακριτικό. Δημιούργησε νέο και γράψ’ το εδώ.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Το διακριτικό δεν έχει πρόσβαση σε αυτό το αποθετήριο (χρειάζονται: repo, workflow, read:packages) ή το όνομα του αποθετηρίου είναι λάθος.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Δεν υπάρχει σύνδεση με το GitHub. Έλεγξε τη σύνδεση στο διαδίκτυο.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Το όνομα του αποθετηρίου έχει τη μορφή «ιδιοκτήτης/όνομα», π.χ. bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Το όνομα του αποθετηρίου έχει τη μορφή «ιδιοκτήτης/όνομα», π.χ. Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Αυτό δεν μοιάζει με διακριτικό GitHub. Αντίγραψέ το ξανά.",
   "Kapcsolódva: {repo}": "Συνδέθηκε: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Ξεκίνησε. Σε λίγα δευτερόλεπτα θα εμφανιστεί στη λίστα.",

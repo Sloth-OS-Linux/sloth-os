@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub ບໍ່ຍອມຮັບໂທເຄັນ. ສ້າງອັນໃໝ່ ແລ້ວໃສ່ທີ່ນີ້.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "ໂທເຄັນບໍ່ມີສິດເຂົ້າເຖິງບ່ອນເກັບນີ້ (ຕ້ອງການ: repo, workflow, read:packages), ຫຼື ຊື່ບ່ອນເກັບບໍ່ຖືກຕ້ອງ.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "ບໍ່ມີການເຊື່ອມຕໍ່ກັບ GitHub. ກວດເບິ່ງການເຊື່ອມຕໍ່ອິນເຕີເນັດ.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "ຊື່ບ່ອນເກັບມີຮູບແບບ “ເຈົ້າຂອງ/ຊື່”, ເຊັ່ນ bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "ຊື່ບ່ອນເກັບມີຮູບແບບ “ເຈົ້າຂອງ/ຊື່”, ເຊັ່ນ Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "ນີ້ບໍ່ຄືໂທເຄັນ GitHub. ສຳເນົາມາໃໝ່.",
   "Kapcsolódva: {repo}": "ເຊື່ອມຕໍ່ແລ້ວ: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "ເລີ່ມແລ້ວ. ອີກບໍ່ເທົ່າໃດວິນາທີຈະປາກົດໃນລາຍການ.",

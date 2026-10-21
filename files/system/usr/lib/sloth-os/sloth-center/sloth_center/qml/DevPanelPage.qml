@@ -58,7 +58,7 @@ Kirigami.ScrollablePage {
                         id: repoField
                         Layout.fillWidth: true
                         text: devpanel.repo
-                        placeholderText: "bathorizsolt/sloth-os"
+                        placeholderText: "Sloth-OS-Linux/sloth-os"
                     }
                     QQC2.TextField {
                         id: tokenField

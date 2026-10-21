@@ -18,7 +18,7 @@ NVIDIA_STATE = Path("/var/lib/sloth-os/nvidia-auto")
 POLICY = Path("/etc/containers/policy.json")
 UNVERIFIED = "ostree-unverified-registry:"
 SIGNED = "ostree-image-signed:docker://"
-OURS = ("ghcr.io/bathorizsolt/sloth-os", "ghcr.io/bathorizsolt/sloth-os-nvidia")
+OURS = ("ghcr.io/sloth-os-linux/sloth-os", "ghcr.io/sloth-os-linux/sloth-os-nvidia")
 
 
 def done(reason):

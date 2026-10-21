@@ -3,7 +3,7 @@
 # Podman gép WSL-disztribúciójában (nem podman machine ssh-n át: az nagy terhelésnél elakadt, és így a
 # telepítendő image-et sem kell kétszer letölteni). A CI megfelelője: .github/workflows/iso.yml
 #
-#   powershell -File tools/build-iso.ps1 [-Image ghcr.io/bathorizsolt/sloth-os:latest] [-Output out] [-Machine podman-machine-default] [-Squash]
+#   powershell -File tools/build-iso.ps1 [-Image ghcr.io/sloth-os-linux/sloth-os:latest] [-Output out] [-Machine podman-machine-default] [-Squash]
 #
 # -Squash: a telepítendő image rétegeinek összevonása (kisebb ISO; a telepített gép első frissítése a teljes image-et
 # letölti). Kiadáshoz; részletek a tools/build-iso.sh elején (SLOTH_SQUASH).
@@ -12,7 +12,7 @@
 # (egyszer: gh auth refresh -h github.com -s read:packages).
 # Hely: a Podman gép virtuális lemezén kb. 30 GB kell a build idejére (a C: meghajtón).
 param(
-    [string]$Image = "ghcr.io/bathorizsolt/sloth-os:latest",
+    [string]$Image = "ghcr.io/sloth-os-linux/sloth-os:latest",
     [string]$Output = "out",
     [string]$Machine = "podman-machine-default",
     [switch]$Squash

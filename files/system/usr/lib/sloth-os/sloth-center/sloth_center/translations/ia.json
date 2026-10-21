@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub non acceptava le token. Crea un nove e scribe lo hic.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "Le token non ha accesso a iste deposito (necessari: repo, workflow, read:packages), o le nomine del deposito es incorrecte.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "Nulle connexion a GitHub. Verifica le connexion a internet.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "Le nomine del deposito ha le forma “proprietario/nomine”, per exemplo bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "Le nomine del deposito ha le forma “proprietario/nomine”, per exemplo Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "Isto non sembla un token de GitHub. Copia lo de novo.",
   "Kapcsolódva: {repo}": "Connectite: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "Initiate. In alcun secundas illo apparera in le lista.",

@@ -14,7 +14,7 @@ as the first attempt for that program, so it starts on the first try.
 Sloth OS machines ──POST /v1/report──▶ Cloudflare Worker + D1 (this folder)
                                               │  GET /v1/export (token), hourly
                                               ▼
-                        GitHub Action in bathorizsolt/sloth-os-knowledge
+                        GitHub Action in Sloth-OS-Linux/sloth-os-knowledge
                                               │  commits knowledge.json
                                               ▼
 Sloth OS machines ◀──raw.githubusercontent.com── knowledge.json
@@ -48,7 +48,7 @@ older than a day are deleted. Turning sharing off deletes the local queue.
   to `1`), and `--disable-gpu`. Arbitrary commands, environment variables, values or arguments cannot be
   spread. Machines apply the same allowlist again when reading.
 - **ProtonDB seed.** The public knowledge file also contains settings derived from the ProtonDB data dump
-  (see the `bathorizsolt/sloth-os-knowledge` repository), limited to the same allowlist.
+  (see the `Sloth-OS-Linux/sloth-os-knowledge` repository), limited to the same allowlist.
 - **One machine, one vote** per program, GPU and setting (the latest outcome counts).
 - **Thresholds.** A setting is published only if it worked on at least 3 different machines and at least
   75% of the reports for it are successful.
@@ -91,7 +91,7 @@ wrangler deploy
 `FEEDBACK_REPO` (e.g. `Sloth-OS-Linux/feedback`) is a plain variable: `[vars]` in `wrangler.toml`.
 
 Then set the Worker URL in `sloth_exe/community.py` (`REPORT_URL`), and in the
-`bathorizsolt/sloth-os-knowledge` repository add the secrets `EXPORT_URL`
+`Sloth-OS-Linux/sloth-os-knowledge` repository add the secrets `EXPORT_URL`
 (`https://<worker>/v1/export`) and `EXPORT_TOKEN`.
 
 Local testing: create `.dev.vars` with `SALT=…` and `EXPORT_TOKEN=…`, then

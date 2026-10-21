@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub 未接受该令牌。请创建一个新令牌并在此输入。",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "令牌无权访问此仓库（需要：repo、workflow、read:packages），或仓库名称有误。",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "无法连接 GitHub。请检查网络连接。",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "仓库名称格式为“所有者/名称”，例如 bathorizsolt/sloth-os。",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "仓库名称格式为“所有者/名称”，例如 Sloth-OS-Linux/sloth-os。",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "这看起来不像 GitHub 令牌。请重新复制。",
   "Kapcsolódva: {repo}": "已连接：{repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "已开始。几秒后会出现在列表中。",

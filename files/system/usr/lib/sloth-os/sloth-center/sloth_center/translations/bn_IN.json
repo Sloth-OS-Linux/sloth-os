@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub টোকেন গ্রহণ করেনি। নতুন একটি তৈরি করে এখানে দিন।",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "টোকেনের এই রিপোজিটরিতে অ্যাক্সেস নেই (প্রয়োজন: repo, workflow, read:packages), বা রিপোজিটরির নাম ভুল।",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "GitHub-এর সাথে সংযোগ নেই। ইন্টারনেট সংযোগ পরীক্ষা করুন।",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "রিপোজিটরির নাম “মালিক/নাম” আকারে হয়, যেমন bathorizsolt/sloth-os।",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "রিপোজিটরির নাম “মালিক/নাম” আকারে হয়, যেমন Sloth-OS-Linux/sloth-os।",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "এটি GitHub টোকেনের মতো দেখাচ্ছে না। আবার কপি করুন।",
   "Kapcsolódva: {repo}": "সংযুক্ত: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "শুরু হয়েছে। কয়েক সেকেন্ডের মধ্যে তালিকায় দেখা যাবে।",

@@ -380,7 +380,7 @@
   "A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.": "GitHub לא קיבל את האסימון. צרו חדש והזינו אותו כאן.",
   "A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.": "לאסימון אין גישה למאגר הזה (נדרש: repo, workflow, read:packages), או ששם המאגר שגוי.",
   "Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.": "אין חיבור ל־GitHub. בדקו את החיבור לאינטרנט.",
-  "A repó neve „tulajdonos/név” alakú, például bathorizsolt/sloth-os.": "שם המאגר בתבנית „בעלים/שם”, למשל bathorizsolt/sloth-os.",
+  "A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.": "שם המאגר בתבנית „בעלים/שם”, למשל Sloth-OS-Linux/sloth-os.",
   "Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.": "זה לא נראה כמו אסימון GitHub. העתיקו אותו שוב.",
   "Kapcsolódva: {repo}": "מחובר: {repo}",
   "Elindítva. Pár másodperc múlva megjelenik a listában.": "הופעל. בעוד כמה שניות הוא יופיע ברשימה.",

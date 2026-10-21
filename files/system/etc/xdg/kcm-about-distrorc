@@ -2,4 +2,4 @@
 # Rendszerinformáció: „Sloth OS 1.0 (Fedora Atomic 44)” (a VERSION mező, files/scripts/branding.sh)
 # a VERSION_ID („44”) helyett
 UseOSReleaseVersion=true
-Website=https://github.com/bathorizsolt/sloth-os
+Website=https://github.com/Sloth-OS-Linux/sloth-os
