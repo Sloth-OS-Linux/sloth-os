@@ -31,18 +31,30 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - Weboldal: valódi képernyőképek, Sloth Center szakasz, GYIK (visszajelzés); közös tudás: EA recept (PR #1, mergelve)
 - Döntések: az 1.0 csak UEFI-s gépekre (BIOS később); szülői felügyelet és Windows-programok a Discoverben az 1.0 után
 
+### Összegzés 2026-10-21 este (a 14:01-es ISO, `c466ce8` telepítő + `887dcf1` image; két pendrive-on)
+**Valódi gépen (HP) kipróbálva, működik:** titkosított teljes lemezes telepítés, Üdvözlő folytatása megszakítás után,
+Sloth Központ a tálcán, PIN és ujjlenyomat (hamis hibaüzenet nélkül), boot menü és alaphelyzetbe állítás (mentés előtte,
+figyelmeztetések), visszajelzés naplóval (#5), Fájlmentés és Korábbi verziók, EA app (a telepítő nem pörög), Játékok oldal,
+némítás, Heroic/Epic, zram, tálcabuborék a jobb oldalon, WoW Classic a Battle.net-ből.
+**Még nyitott:**
+- [ ] Üdvözlő újrafuttatása meglévő rendszeren (pipák, mostani megjelenés): az új telepítésen megnézni
+- [ ] **Windows mellé telepítés (titkosítással és anélkül): nem tesztelve** a mai javítások után (a konténeres teszt
+  félbemaradt, lent); addig Windows mellé nem ajánlott
+- [ ] NVIDIA-s gép (otthon): Driverek és hardver oldal, Secure Boot MOK
+- [ ] Steam-átvétel, firmware a Discoverben
+
 ### A 2026-10-21-i teszt (valódi gép, a reggeli ISO-ról újratelepítve, `d43e36f`)
 Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benne a telepítő javításával).
 1. [x] **Image-verzió:** friss ISO, a `d43e36f` image
 2. [x] **Üdvözlő megszakítva:** onnan folytatja, mindent megjegyzett
 3. [x] **Sloth Központ a tálcán**
-4. [ ] **Ujjlenyomat + PIN:** a PIN működik. Az ujjlenyomatnál „rendszergazdai jelszó kell”, felvétel után a
+4. [x] **Ujjlenyomat + PIN:** a PIN működik. Az ujjlenyomatnál „rendszergazdai jelszó kell”, felvétel után a
    feloldás ujjal nem megy. Konténerben megnézve: a helyes (PIN-profil mellett is bekapcsolja a `with-fingerprint`-et),
    a **bejelentkező képernyő (`plasmalogin`) PAM-ja viszont a `password-auth`-ot használja, abban nincs ujjlenyomat**:
    újraindítás után az ujj sosem működik, csak a zárolási képernyőn (`kde-fingerprint`) és a jóváhagyásoknál. Pontosítani:
    hol próbálta (újraindítás után / Win+L), mi volt a pontos üzenet, és bekapcsolva maradt-e a kapcsoló
 5. [x] **Boot menü:** Esc-re előjön, a menüpont a rendszer nyelvén (angol), lefut
-6. [ ] **Visszajelzés:** „Couldn't send it” napló csatolásával. **Javítva:** a Központ a naplót nyers bájtban
+6. [x] **Visszajelzés:** „Couldn't send it” napló csatolásával. **Javítva:** a Központ a naplót nyers bájtban
    vágta 500 KB-ra, a szolgáltatás a teljes kérést nézi (576 KB); a JSON-kódolás a nem ASCII karaktereket és a
    Wine-naplók `\`-eit felfújta, így 413 jött. Most a kódolt kérést tartja a határ alatt (élő végponton kipróbálva:
    régi kódolás 413, új 200). A próbák a feedback repóban: #2, #3, #4 (lezárva). Valódi gépen újra kipróbálni
@@ -51,14 +63,14 @@ Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benn
    magától készít egy mentett állapotot (a boot menüből indítva is); „Mindent töröl” módban figyelmeztetés (a gépen
    lévő mentések is törlődnek), Pika Backup gomb, és csak az „Elmentettem, amire szükségem van” pipa után lehet
    továbblépni. Weboldal: GYIK és főoldal (`sloth-os-linux.github.io`)
-8. [ ] **EA app:** települ, a Start menüben jó, onnan indul. **Hiba:** a telepítő végén elindul az EA app, a telepítő
+8. [x] **EA app:** települ, a Start menüben jó, onnan indul. **Hiba:** a telepítő végén elindul az EA app, a telepítő
    addig nem lép ki, és az .exe kezelő addig pörög („még letölt pár komponenst”), amíg az EA appot a tálcáról be nem
    zárja. **Javítva:** a telepítés végét már a telepítő futása közben figyeli (ha a telepített program biztosan megvan,
    és már fut: kész); a még futó telepítőt nem lövi ki, a háttérben megvárja; az Üdvözlő sora közben továbbmegy
    (`sloth-exe: queued-done`). A félrevezető „letöltés” szöveg helyett „Fejezd be a telepítést…”, amint a telepítő
    fut. Valódi gépen újra kipróbálni
 9. [x] **Játékok oldal:** a felskálázás legördülője jó
-10. [ ] **Buborék:** a mac-es elrendezésben még mindig a bal felső sarokból (a „start” gombtól) jön. Valószínű ok: a
+10. [x] **Buborék:** a mac-es elrendezésben még mindig a bal felső sarokból (a „start” gombtól) jön. Valószínű ok: a
     Wine a munkaterületen belülre igazítja, fenti panelnél a panel alá, a `wine-balloons` viszont a (0,0)-tól mért
     64 px-en belül kereste. **Javítva:** a munkaterület sarkához mér, nagyításnál nagyobb határral. Windowsos
     elrendezésben is megnézni. Battle.net-ből a WoW Classic elindul
@@ -69,13 +81,13 @@ Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benn
 #### Második kör (2026-10-21 délután, az `5bec760` image-dzsel)
 - [x] HP + titkosítás jó; alaphelyzetbe állítás: a figyelmeztetések látszanak, minden működik; EA-telepítő jó;
   némítás: megszűnt; Heroic az Epic-fiókkal működik
-- [ ] **Ujjlenyomat:** bekapcsol, újraindítás után tökéletesen működik, de a Központ piros hibát ír („rendszergazdai
+- [x] **Ujjlenyomat:** bekapcsol, újraindítás után tökéletesen működik, de a Központ piros hibát ír („rendszergazdai
   jóváhagyás kell”). Az `authselect` a valódi gépen hibakóddal tér vissza, miközben átállít (konténerben nem jön elő).
   **Javítva:** a helper azt nézi, tényleg átállt-e a funkció, a hibaszöveg a naplóba kerül
-- [ ] **Visszajelzés még mindig nem ment:** a Cloudflare a Python alapértelmezett User-Agentjét („Python-urllib”)
+- [x] **Visszajelzés még mindig nem ment:** a Cloudflare a Python alapértelmezett User-Agentjét („Python-urllib”)
   letiltja (403, 1010-es hiba), a kérés el sem jutott a szolgáltatásig. **Javítva:** saját User-Agent (a végponton
   kipróbálva: eljut a szolgáltatásig). Valódi gépen újra
-- [ ] **Buborék a mac-es elrendezésben még mindig bal fent** (a Sloth-fejnél). A szolgáltatás az image-ben van és be van
+- [x] **Buborék a mac-es elrendezésben még mindig bal fent** (a Sloth-fejnél). A szolgáltatás az image-ben van és be van
   kapcsolva. **Javítva / nyomozás:** a bal felső harmadban figyel (a tálcaikonok kis ablakai kimaradnak), tartalék
   felismerés a `_NET_WM_PID`-ből, és mindent naplóz (`wine-balloons`: „buborék: …” / „felugró ablak, marad: …”);
   Xvfb-n kipróbálva. Ha valódi gépen még mindig rossz: Napló mentése, és a `wine-balloons` sorokból kiderül
@@ -84,7 +96,7 @@ Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benn
   újra; a mostani színséma és tálca-elrendezés az alapértelmezett (a Plasma beállításaiból). Az image-ben offscreen
   kipróbálva
 - [x] Visszajelzés naplóval: megy (#5); ujjlenyomat: rendben
-- [ ] **Titkosított telepítés elbukott a 12:52-es ISO-val** („Something went wrong while copying…”): a tegnapi
+- [x] **Titkosított telepítés elbukott a 12:52-es ISO-val** („Something went wrong while copying…”): a tegnapi
   `hide_other_esps` a partíciók sorszámát `lsblk`-kel kérdezte, és a nyitott titkosított réteg (`/dev/mapper/
   sloth-root`, sorszám nélkül) került a lista elejére → TypeError, a másolás el sem indult (a reggeli ISO-ban ez még
   nem volt benne). **Javítva:** a sorszám a kerneltől (`/sys/class/block/<partíció>/partition`); loop eszközön,
