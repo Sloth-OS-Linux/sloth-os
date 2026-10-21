@@ -10,6 +10,7 @@ Where programs live, their data and Start menu entries are in the shared sloth_c
 (Sloth Center uses it too); here there is only running and the interface.
 """
 import logging
+import re
 import subprocess
 import threading
 from pathlib import Path
@@ -39,6 +40,25 @@ INSTALL_SETTLE_S = 3
 SLOW_PREP_S = 60
 # When started from the queue (--queued), this tells Sloth Welcome that we are done, if we wait for the installer's end in the background
 QUEUED_DONE = "sloth-exe: queued-done"
+# At most this many files are looked at in the install folder (a game folder can be huge)
+MAX_INSTALL_FILES = 5000
+# Error reporters that may start during an install (e.g. BlizzardError.exe): they do not mean the program runs
+ERROR_REPORTER = re.compile(r"(?i)error|crash|report")
+
+
+def _program_exes(found):
+    """The .exe names that mean "the installed program runs": the launchers found, and every other .exe in the install
+    folder except helpers (updaters, agents, crash reporters…). Battle.net's launcher hands over to its client right away,
+    so the client counts too: the install is done as soon as its login window is up."""
+    names = {c.path.name.lower() for c in found.candidates}
+    if found.install_dir and Path(found.install_dir).is_dir():
+        for i, path in enumerate(Path(found.install_dir).rglob("*")):
+            if i >= MAX_INSTALL_FILES:
+                break
+            if path.suffix.lower() == ".exe" and not (detect.HELPER_EXE.search(path.name)
+                                                      or ERROR_REPORTER.search(path.name)):
+                names.add(path.name.lower())
+    return names
 
 
 class ExeController(QObject):
@@ -759,7 +779,8 @@ class ExeController(QObject):
         """The install is done when nothing runs in the program's environment any more, or when the installer
         has exited and the program is certainly there (many installers start the program by themselves at the end,
         e.g. Battle.net: we do not wait until the user closes it). It is also done when the installer still
-        runs but the installed program has already started: the EA app installer does not exit while the EA app runs."""
+        runs but the installed program has already started (_program_exes): the EA app installer does not exit while the
+        EA app runs, and the Battle.net installer stays open while its client already shows the login window."""
         running = library.running_exes(self._program)
         if self._runner.running():
             if self._state != "working" or not self._runner.main_running():
@@ -772,7 +793,7 @@ class ExeController(QObject):
             if not others:
                 return
             found = detect.detect(self._program, self._baseline, fallback_name=self._name)
-            if not (found.sure and others & {c.path.name.lower() for c in found.candidates}):
+            if not (found.sure and others & _program_exes(found)):
                 return
             log.info("the installer still runs, but the installed program has already started: %s", sorted(others))
             self._installer_alive = True
