@@ -7,11 +7,12 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 - **Base:** Universal Blue `kinoite-main` / `kinoite-nvidia` (Fedora Atomic + KDE Plasma)
 - **Updates:** atomic, in the background; if something breaks, roll back to the previous version from the boot menu
 - **Apps:** Flatpak (Flathub); nothing is preinstalled, the user picks the apps in the Sloth Welcome wizard
-- **Build:** [BlueBuild](https://blue-build.org) + GitHub Actions; a new image is built after every commit (daily
-  builds will be switched back on once the repository is public)
+- **Build:** [BlueBuild](https://blue-build.org) + GitHub Actions; a new image is built every day and after every
+  commit
 
-Website and user guides: [`website/`](website/README.md) (published with GitHub Pages once the repository is
-public).
+**Download and user guides: [sloth-os-linux.github.io](https://sloth-os-linux.github.io/)** (website source:
+[Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
+installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
 ## Windows programs that just start
 
