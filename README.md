@@ -14,6 +14,22 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
+## System requirements
+
+| | Minimum | Recommended for games |
+|---|---|---|
+| Computer | 64-bit PC (x86_64) that starts in **UEFI** mode (almost every PC from 2013 or later) | |
+| Processor | 2 cores | 4 cores or more |
+| Memory | 4 GB | 16 GB |
+| Disk space | 64 GB | 256 GB SSD or more |
+| Graphics | Any Intel, AMD or NVIDIA graphics | AMD Radeon RX 400 series or newer, Intel Arc / Iris Xe, NVIDIA GeForce GTX 16 / RTX 20 series or newer |
+| USB stick | 8 GB or more for the installer | |
+
+Not supported yet: BIOS-only PCs, ARM computers, and NVIDIA cards older than the GTX 16 series (the NVIDIA image uses
+NVIDIA's open kernel driver). NVIDIA computers have not been tested yet. Installing next to Windows needs at least
+64 GB of free space for Sloth OS. Download and step-by-step guide:
+[sloth-os-linux.github.io/download.html](https://sloth-os-linux.github.io/download.html).
+
 ## Windows programs that just start
 
 Double-click a Windows `.exe` or `.msi` and it installs or runs, without Steam and without the user ever
