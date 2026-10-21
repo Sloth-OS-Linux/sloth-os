@@ -1,18 +1,18 @@
 #!/usr/bin/python3 -I
-"""A saját fájlok automatikus mentése: Btrfs-pillanatképek a /var/home-ról (rootként fut).
+"""Automatic backup of your own files: Btrfs snapshots of /var/home (runs as root).
 
-  layout          induláskor, bejelentkezés előtt (sloth-home-layout.service): a /var/home külön subvolume lesz,
-                  és a nagy, újra letölthető mappák (sloth_common.snapshots.EXCLUDED) is, hogy ne kerüljenek a
-                  mentésbe. A telepítő nem hoz létre subvolume-okat, ezért a meglévő gépeken ez egyszer átalakít.
-  take            óránként (sloth-home-snapshot.timer): pillanatkép, ha be van kapcsolva és van elég hely;
-                  utána a régiek ritkítása
-  take --now      kézzel (Sloth Központ, „Mentés most”, a sloth-helperen át)
-  delete-all      az összes mentett állapot törlése (Sloth Központ)
+  layout          at startup, before login (sloth-home-layout.service): /var/home becomes a separate subvolume,
+                  and so do the big, re-downloadable folders (sloth_common.snapshots.EXCLUDED), so they stay out of
+                  the backup. The installer does not create subvolumes, so on existing machines this converts once.
+  take            hourly (sloth-home-snapshot.timer): a snapshot, if it is turned on and there is enough space;
+                  then thinning out the old ones
+  take --now      by hand (Sloth Center, "Back up now", through sloth-helper)
+  delete-all      deletes all saved states (Sloth Center)
 
-Az átalakítás: új subvolume, a tartalom reflinkkel bele (azonnali, nem foglal új helyet), majd a kettő
-egyetlen lépésben helyet cserél (mv --exchange). A régi példány csak a csere után törlődik, így egy félbeszakadt
-átalakítás után a következő induláskor minden a régi helyén van, és újrakezdődik.
-A take és a delete-all JSON-t ír ki ({"ok": …, "error": …}).
+The conversion: a new subvolume, the contents reflinked into it (instant, takes no new space), then the two
+swap places in a single step (mv --exchange). The old copy is deleted only after the swap, so after an interrupted
+conversion everything is in its old place on the next start, and it starts over.
+take and delete-all print JSON ({"ok": …, "error": …}).
 """
 import datetime
 import json
@@ -28,10 +28,10 @@ from sloth_common import snapshots as snap  # noqa: E402
 log = logging.getLogger("home-snapshots")
 
 NEW_SUFFIX, OLD_SUFFIX = ".sloth-new", ".sloth-old"
-# Ennyi szabad helynek mindig maradnia kell (a lemez 10%-a, de legalább 3 GB); ha kevesebb van, a legrégebbi
-# mentett állapotok törlődnek, és ha így sem elég, nem készül új
+# This much free space must always remain (10% of the disk, but at least 3 GB); if there is less, the oldest
+# saved states are deleted, and if that is still not enough, no new one is made
 MIN_FREE_RATIO, MIN_FREE_BYTES = 0.10, 3 * 1024 ** 3
-# Óránkénti futásnál ennyi idő után készül új pillanatkép (a „Mentés most” után ne jöjjön rögtön még egy)
+# In the hourly run a new snapshot is made after this much time (after "Back up now" another one should not come right away)
 MIN_INTERVAL = datetime.timedelta(minutes=50)
 
 
@@ -42,7 +42,7 @@ def run(cmd, check=True):
     return r
 
 
-# --- Átalakítás (layout) ---------------------------------------------------------------------------
+# --- Conversion (layout) ---------------------------------------------------------------------------
 
 def side(path, suffix):
     return path.with_name(f".{path.name.lstrip('.')}{suffix}")
@@ -56,10 +56,10 @@ def mounted_under(path):
 
 
 def delete_tree(path):
-    """Egy mappa vagy subvolume törlése, a benne lévő subvolume-okkal együtt (ezek külön eszköznek látszanak,
-    ezért nincs --one-file-system; helyette semmi nem lehet alá csatolva)."""
+    """Deletes a folder or subvolume, together with the subvolumes in it (these look like separate devices,
+    so there is no --one-file-system; instead nothing may be mounted below it)."""
     if mounted_under(path):
-        raise RuntimeError(f"csatolás van alatta, nem törlöm: {path}")
+        raise RuntimeError(f"something is mounted below it, not deleting: {path}")
     if snap.is_subvolume(path):
         run(["btrfs", "subvolume", "delete", "--recursive", str(path)])
     else:
@@ -67,7 +67,7 @@ def delete_tree(path):
 
 
 def copy_attrs(src, dst):
-    """A mappa saját tulajdonosa, jogai, SELinux-címkéje és ACL-je (a tartalomét a cp -a viszi)."""
+    """The folder's own owner, permissions, SELinux label and ACL (cp -a carries the contents')."""
     st = os.lstat(src)
     os.chown(dst, st.st_uid, st.st_gid)
     os.chmod(dst, st.st_mode & 0o7777)
@@ -79,34 +79,34 @@ def copy_attrs(src, dst):
 
 
 def recover(path):
-    """Egy korábbi, félbeszakadt átalakítás nyomainak eltakarítása."""
+    """Cleans up the traces of an earlier, interrupted conversion."""
     new, old = side(path, NEW_SUFFIX), side(path, OLD_SUFFIX)
     if os.path.lexists(old) and not os.path.lexists(path):
-        # a két lépéses csere közben szakadt meg: az eredeti visszakerül a helyére
-        log.info("az eredeti visszaállítása: %s", path)
+        # interrupted during the two-step swap: the original goes back in its place
+        log.info("restoring the original: %s", path)
         os.rename(old, path)
     if os.path.lexists(new):
-        log.info("félbemaradt másolat törlése: %s", new)
+        log.info("deleting an unfinished copy: %s", new)
         delete_tree(new)
     if os.path.lexists(old):
-        log.info("a régi példány törlése: %s", old)
+        log.info("deleting the old copy: %s", old)
         delete_tree(old)
 
 
 def convert(path):
-    """Egy meglévő mappából subvolume (a helye és a tartalma ugyanaz marad)."""
+    """Turns an existing folder into a subvolume (its place and contents stay the same)."""
     new, old = side(path, NEW_SUFFIX), side(path, OLD_SUFFIX)
-    log.info("subvolume-má alakítás: %s", path)
+    log.info("converting to a subvolume: %s", path)
     run(["btrfs", "subvolume", "create", str(new)])
     try:
         copy_attrs(path, new)
-        # reflinkkel azonnali; ahol nem megy (pl. másolás-írás nélküli fájlok), sima másolás
+        # instant with reflink; where that does not work (e.g. no-copy-on-write files), a plain copy
         run(["cp", "-a", "--reflink=auto", "--", f"{path}/.", f"{new}/"])
         os.sync()
         exchanged = run(["mv", "--exchange", "--no-target-directory", "--", str(new), str(path)], check=False)
         if exchanged.returncode != 0:
-            # két átnevezés; ha közben megszakad, a recover() a régit hagyja meg, az újat törli
-            log.info("mv --exchange: %s; két lépésben", exchanged.stderr.strip())
+            # two renames; if interrupted meanwhile, recover() keeps the old one and deletes the new one
+            log.info("mv --exchange: %s; in two steps", exchanged.stderr.strip())
             os.rename(path, old)
             os.rename(new, path)
             os.rename(old, new)
@@ -116,14 +116,14 @@ def convert(path):
         if os.path.lexists(new) and snap.is_subvolume(new):
             delete_tree(new)
         raise
-    # a csere után a "new" néven a régi mappa van
+    # after the swap the old folder is under the name "new"
     os.rename(new, old)
     os.sync()
     delete_tree(old)
 
 
 def create(path, owner_of):
-    """Egy még nem létező kihagyott mappa (pl. ~/.cache) rögtön subvolume-ként jön létre."""
+    """An excluded folder that does not exist yet (e.g. ~/.cache) is created as a subvolume right away."""
     run(["btrfs", "subvolume", "create", str(path)])
     st = os.lstat(owner_of)
     os.chown(path, st.st_uid, st.st_gid)
@@ -141,7 +141,7 @@ def excluded_dirs(home):
 
 def layout():
     if snap.fs_type(snap.HOME_ROOT) != "btrfs":
-        log.info("a /var/home nem Btrfs: nincs teendő")
+        log.info("/var/home is not Btrfs: nothing to do")
         return 0
     failed = False
     if not snap.is_subvolume(snap.HOME_ROOT):
@@ -149,13 +149,13 @@ def layout():
             recover(snap.HOME_ROOT)
             convert(snap.HOME_ROOT)
             run(["restorecon", str(snap.HOME_ROOT)], check=False)
-        except Exception as e:  # marad a régi; a következő induláskor újra
-            log.error("a /var/home átalakítása nem sikerült: %s", e)
+        except Exception as e:  # the old one stays; again on the next start
+            log.error("converting /var/home failed: %s", e)
             return 1
     try:
         recover(snap.HOME_ROOT)
-    except Exception as e:  # csak a régi példány maradt meg; a take is megpróbálja
-        log.error("a régi /var/home törlése nem sikerült: %s", e)
+    except Exception as e:  # only the old copy remained; take tries too
+        log.error("deleting the old /var/home failed: %s", e)
     for home in sorted(snap.HOME_ROOT.iterdir()):
         if home.name.startswith(".") or home.is_symlink() or not home.is_dir():
             continue
@@ -175,7 +175,7 @@ def layout():
     return 1 if failed else 0
 
 
-# --- Pillanatképek ---------------------------------------------------------------------------------
+# --- Snapshots ---------------------------------------------------------------------------------
 
 def low_space():
     st = os.statvfs(snap.HOME_ROOT)
@@ -185,13 +185,13 @@ def low_space():
 
 def delete(names):
     for name in names:
-        log.info("törlés: %s", name)
+        log.info("deleting: %s", name)
         run(["btrfs", "subvolume", "delete", str(snap.SNAP_DIR / name)], check=False)
 
 
 def free_space():
-    """Kevés hely esetén a legrégebbiek törlése (a legújabb marad). A törölt pillanatkép helye csak a háttérben
-    szabadul fel, ezért mindegyik után megvárjuk (subvolume sync), mielőtt újra mérünk."""
+    """When space is low, deletes the oldest ones (the newest stays). A deleted snapshot's space is only freed in the
+    background, so we wait after each one (subvolume sync) before measuring again."""
     while low_space():
         existing = snap.list_snapshots()
         if len(existing) <= 1:
@@ -211,7 +211,7 @@ def ensure_snap_dir():
     if snap.is_subvolume(snap.SNAP_DIR):
         return
     run(["btrfs", "subvolume", "create", str(snap.SNAP_DIR)])
-    # mindenki beléphet; a pillanatképekben a régi jogok érvényesek (ki-ki csak a saját fájljait látja)
+    # everyone can enter; inside the snapshots the old permissions apply (everyone only sees their own files)
     os.chmod(snap.SNAP_DIR, 0o755)
     run(["restorecon", str(snap.SNAP_DIR)], check=False)
 
@@ -219,7 +219,7 @@ def ensure_snap_dir():
 def take(now_requested):
     if snap.state() != "ready":
         return {"ok": False, "error": "not-ready"}
-    # egy félbemaradt átalakítás régi példánya (a /var/home mellett), ha induláskor nem sikerült törölni
+    # the old copy of an unfinished conversion (next to /var/home), if it could not be deleted at startup
     recover(snap.HOME_ROOT)
     cfg = snap.load_config()
     if not cfg["enabled"] and not now_requested:
@@ -227,7 +227,7 @@ def take(now_requested):
         return {"ok": True, "error": ""}
     ensure_snap_dir()
     if not free_space():
-        log.warning("kevés a szabad hely, nem készül új pillanatkép")
+        log.warning("low on free space, no new snapshot is made")
         return {"ok": False, "error": "no-space"}
     now = datetime.datetime.now(datetime.timezone.utc)
     existing = snap.list_snapshots()
@@ -236,7 +236,7 @@ def take(now_requested):
     name = snap.make_name(now)
     if not os.path.lexists(snap.SNAP_DIR / name):
         run(["btrfs", "subvolume", "snapshot", "-r", str(snap.HOME_ROOT), str(snap.SNAP_DIR / name)])
-        log.info("pillanatkép: %s", name)
+        log.info("snapshot: %s", name)
     prune(cfg)
     return {"ok": True, "error": "", "name": name}
 
@@ -249,7 +249,7 @@ def delete_all():
 def main(argv):
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     if os.geteuid() != 0:
-        print(json.dumps({"ok": False, "error": "root kell"}))
+        print(json.dumps({"ok": False, "error": "root needed"}))
         return 1
     if argv == ["layout"]:
         return layout()

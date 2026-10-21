@@ -1,14 +1,14 @@
-// Sloth OS közös tudás: a gépek névtelenül jelentik, melyik beállítással indult el egy Windows-program,
-// és ami sok gépen bevált, az összesítésbe kerül (a gépek a GitHubról olvassák, lásd README.md).
+// Sloth OS shared knowledge: machines report anonymously which setting a Windows program started with,
+// and what worked on many machines goes into the summary (the machines read it from GitHub, see README.md).
 //
-//   POST /v1/report   jelentések (legfeljebb 50 egyszerre), szigorú ellenőrzéssel
-//   GET  /v1/export   az összesítés (csak az EXPORT_TOKEN-nel; a GitHub Action hívja)
-//   POST /v1/feedback a Sloth Központ visszajelzése: GitHub issue (FEEDBACK_REPO, GITHUB_TOKEN); a napló nem
-//                     az issue-ba kerül, hanem ide, és csak a LOG_TOKEN-nel olvasható (GET /v1/feedback/log/<id>)
+//   POST /v1/report   reports (at most 50 at a time), with strict validation
+//   GET  /v1/export   the summary (only with EXPORT_TOKEN; called by the GitHub Action)
+//   POST /v1/feedback Sloth Center's feedback: a GitHub issue (FEEDBACK_REPO, GITHUB_TOKEN); the log does not
+//                     go into the issue but stays here, readable only with LOG_TOKEN (GET /v1/feedback/log/<id>)
 //
-// Csak engedélyezett beállítás kerülhet be (lásd ALLOWED_*): tetszőleges parancsot, környezeti változót
-// vagy paramétert jelentésből nem lehet terjeszteni. A listák a sloth_exe/heal.py, diagnose.py és
-// community.py értékeivel egyeznek; ha ott bővül, itt is kell (és a knowledge repó seed/protondb.py-jában).
+// Only allowed settings can get in (see ALLOWED_*): no arbitrary command, environment variable
+// or parameter can be spread through a report. The lists match the values in sloth_exe/heal.py, diagnose.py and
+// community.py; if they grow there, they must grow here too (and in the knowledge repository's seed/protondb.py).
 
 const ALLOWED_LINES = new Set(["UMU-Proton", "GE-Proton"]);
 const ALLOWED_PROFILES = new Set(["default", "nofsync", "wined3d"]);
@@ -18,7 +18,7 @@ const ALLOWED_VERBS = new Set([
   "d3dx9", "dotnet48", "gdiplus", "mf", "mfc42", "msxml3", "msxml4", "msxml6", "physx", "riched20", "vb6run",
   "vcrun2005", "vcrun2008", "vcrun2010", "vcrun2012", "vcrun2013", "vcrun2022", "xact", "xinput",
 ]);
-// Proton be/ki kapcsolók (a gépen "=1" értékkel); ugyanaz, mint a sloth_exe/community.py ALLOWED_ENV-je
+// Proton on/off switches (with the value "=1" on the machine); the same as ALLOWED_ENV in sloth_exe/community.py
 const ALLOWED_ENV = new Set([
   "PROTON_USE_WINED3D", "PROTON_ENABLE_NVAPI", "PROTON_HIDE_NVIDIA_GPU", "PROTON_FORCE_LARGE_ADDRESS_AWARE",
   "PROTON_HEAP_DELAY_FREE", "PROTON_NO_D3D11", "PROTON_NO_D3D10", "PROTON_OLD_GL_STRING", "PROTON_NO_WRITE_WATCH",
@@ -27,9 +27,9 @@ const ALLOWED_ARGS = new Set(["--disable-gpu"]);
 
 const MAX_BATCH = 50;
 const MAX_BODY = 64 * 1024;
-const DAILY_LIMIT = 500;      // jelentés / cím / nap
-const MIN_MACHINES = 3;       // ennyi különböző gépen kell beválnia
-const MIN_SUCCESS = 0.75;     // és a jelentések legalább ennyi része legyen sikeres
+const DAILY_LIMIT = 500;      // reports / address / day
+const MIN_MACHINES = 3;       // it must work on this many different machines
+const MIN_SUCCESS = 0.75;     // and at least this share of the reports must be successful
 
 const HEX64 = /^[0-9a-f]{64}$/;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
@@ -46,7 +46,7 @@ async function sha256(text) {
   return [...new Uint8Array(digest)].map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
-// Egy jelentés ellenőrzése és kanonikus alakja; null, ha bármi nem stimmel
+// Validates a report and returns its canonical form; null if anything is wrong
 function validate(r) {
   if (!r || typeof r !== "object") return null;
   const { machine, program, gpu, line, profile, fixes = [], outcome } = r;
@@ -84,7 +84,7 @@ async function report(request, env) {
   const valid = items.map(validate);
   if (valid.some((v) => v === null)) return json({ error: "invalid report" }, 400);
 
-  // Napi korlát címenként (a cím csak sózott hash-ként kerül az adatbázisba, és naponta új só)
+  // Daily limit per address (the address only goes into the database as a salted hash, with a new salt every day)
   const day = new Date().toISOString().slice(0, 10);
   const ip = await sha256(`${env.SALT}|${day}|${request.headers.get("cf-connecting-ip") || ""}`);
   const row = await env.DB.prepare(
@@ -104,7 +104,7 @@ async function report(request, env) {
     ).bind(machine, v.program, v.gpu, v.config, v.outcome, now));
   }
   await env.DB.batch(statements);
-  // A régi korlát-sorok takarítása (olcsó, a táblában csak néhány nap van)
+  // Cleaning up the old limit rows (cheap, the table only holds a few days)
   await env.DB.prepare("DELETE FROM rate WHERE day < ?1").bind(day).run();
   return json({ ok: true, accepted: valid.length });
 }
@@ -129,17 +129,17 @@ async function exportKnowledge(request, env) {
   return json({ version: 1, programs });
 }
 
-// --- Visszajelzés --------------------------------------------------------------------------------------
+// --- Feedback --------------------------------------------------------------------------------------
 
-const FEEDBACK_KINDS = { bug: "Hiba", idea: "Ötlet", other: "Egyéb" };
-const FEEDBACK_DAILY_LIMIT = 5;          // visszajelzés / cím / nap
+const FEEDBACK_KINDS = { bug: "Bug", idea: "Idea", other: "Other" };
+const FEEDBACK_DAILY_LIMIT = 5;          // feedback / address / day
 const FEEDBACK_MAX_TEXT = 5000;
-const FEEDBACK_MAX_LOG = 512 * 1024;     // a napló legfeljebb ekkora (a gép a végét küldi)
-const FEEDBACK_LOG_DAYS = 30;            // ennyi nap után a napló törlődik
+const FEEDBACK_MAX_LOG = 512 * 1024;     // the log is at most this big (the machine sends its end)
+const FEEDBACK_LOG_DAYS = 30;            // the log is deleted after this many days
 const SHORT = /^[\p{L}\p{N} ._()+:,\/-]{0,120}$/u;
 
 function fence(text) {
-  // a felhasználó szövege kódblokkba kerül: se @említés, se markdown, se hivatkozás nem él
+  // the user's text goes into a code block: no @mention, markdown or link works
   return "```text\n" + text.replaceAll("```", "ʼʼʼ") + "\n```";
 }
 
@@ -171,19 +171,19 @@ async function feedback(request, env) {
   ).bind(day, ip).first();
   if (row && row.count > FEEDBACK_DAILY_LIMIT) return json({ error: "rate limited" }, 429);
 
-  let logLine = "Napló: nincs csatolva";
+  let logLine = "Log: not attached";
   if (log) {
     const id = crypto.randomUUID();
     await env.DB.prepare("INSERT INTO feedback_logs (id, created, log) VALUES (?1, ?2, ?3)")
       .bind(id, Date.now(), log).run();
     const origin = new URL(request.url).origin;
-    logLine = `Napló (csak a LOG_TOKEN-nel, ${FEEDBACK_LOG_DAYS} napig): ${origin}/v1/feedback/log/${id}`;
+    logLine = `Log (only with LOG_TOKEN, for ${FEEDBACK_LOG_DAYS} days): ${origin}/v1/feedback/log/${id}`;
   }
   const first = text.trim().split("\n")[0].slice(0, 70);
   const issue = {
     title: `[${FEEDBACK_KINDS[kind]}] ${first}`,
-    body: [fence(text.trim()), "", `Verzió: \`${version || "?"}\` · Nyelv: \`${lang || "?"}\``, logLine,
-      "", "_A Sloth Központ visszajelzés-oldaláról érkezett._"].join("\n"),
+    body: [fence(text.trim()), "", `Version: \`${version || "?"}\` · Language: \`${lang || "?"}\``, logLine,
+      "", "_Sent from the Sloth Center feedback page._"].join("\n"),
     labels: ["feedback", kind],
   };
   const gh = await fetch(`https://api.github.com/repos/${env.FEEDBACK_REPO}/issues`, {
@@ -197,7 +197,7 @@ async function feedback(request, env) {
   });
   if (!gh.ok) return json({ error: "github", status: gh.status }, 502);
   const created = await gh.json();
-  // a régi naplók takarítása
+  // cleaning up the old logs
   await env.DB.prepare("DELETE FROM feedback_logs WHERE created < ?1")
     .bind(Date.now() - FEEDBACK_LOG_DAYS * 86400 * 1000).run();
   return json({ ok: true, number: created.number });

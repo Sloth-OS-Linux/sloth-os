@@ -1,9 +1,9 @@
-"""Telepített Windows-programok: lista, indítás, fájlok, javítás, áthelyezés, eltávolítás, és a máshol
-(Steam, Lutris, Bottles, korábbi telepítés) telepített programok átvétele.
+"""Installed Windows programs: list, start, files, repair, move, remove, and taking over programs installed
+elsewhere (Steam, Lutris, Bottles, an earlier install).
 
-A programok helye és adatai a közös sloth_common.apps-ban vannak (a .exe kezelő is azt használja):
-alapból ~/Applications/<program>/. Telepíteni és indítani a .exe kezelő (sloth-exe) tud; ez az oldal
-azt hívja. Nem kell hozzá rendszergazdai jog: minden a felhasználó saját mappájában van.
+Where programs live and their data are in the shared sloth_common.apps (the .exe handler uses it too):
+by default ~/Applications/<program>/. Installing and starting is done by the .exe handler (sloth-exe); this page
+calls it. No administrator rights are needed: everything is in the user's own folder.
 """
 import logging
 import os
@@ -20,8 +20,8 @@ from .i18n import N_, tr
 
 log = logging.getLogger("sloth-center.winprograms")
 
-# Honnan vehető át egy program (a márkanevek nem fordulnak; a korábbi, sima Wine-os telepítésnél a „Wine”
-# szó nem jelenik meg)
+# Where a program can be taken over from (brand names are not translated; for an earlier plain-Wine install the word
+# "Wine" does not appear)
 SOURCE_LABELS = {"steam": "Steam", "lutris": "Lutris", "bottles": "Bottles", "wine": N_("Earlier Windows programs")}
 
 
@@ -39,7 +39,7 @@ def _size_text(nbytes):
 
 
 def _dir_size(path):
-    """A mappa mérete; a hivatkozások (pl. a „Program fájljai”) nem számítanak kétszer."""
+    """The folder's size; links (e.g. "Program files") are not counted twice."""
     total = 0
     for dirpath, _dirs, files in os.walk(path, followlinks=False):
         for f in files:
@@ -51,7 +51,7 @@ def _dir_size(path):
 
 
 def _pretty(path):
-    """~/Applications a /home/<név>/Applications helyett."""
+    """~/Applications instead of /home/<name>/Applications."""
     try:
         return "~/" + str(Path(path).relative_to(Path.home()))
     except ValueError:
@@ -90,17 +90,17 @@ class WinProgramsController(QObject):
 
     @Property(str, notify=changed)
     def location(self):
-        """Ide települnek az új programok."""
+        """New programs are installed here."""
         return _pretty(library.default_library())
 
     @Property("QVariantList", notify=changed)
     def otherPrograms(self):
-        """Máshol (Steam, Lutris, Bottles, korábbi telepítés) telepített programok, amiket még nem vettünk át."""
+        """Programs installed elsewhere (Steam, Lutris, Bottles, an earlier install) that we have not taken over yet."""
         return self._others
 
     @Property(bool, notify=changed)
     def sharing(self):
-        """A közös tudás megosztása (sloth_exe/community.py): névtelen jelentés a bevált beállításokról."""
+        """Sharing with the shared knowledge (sloth_exe/community.py): an anonymous report of the settings that worked."""
         return sharing.enabled()
 
     @Slot(bool)
@@ -110,11 +110,11 @@ class WinProgramsController(QObject):
 
     @Slot()
     def refresh(self):
-        # A régi helyről (~/.local/share/sloth-os/windows-programs) egyszer áthozzuk az új könyvtárba
+        # From the old location (~/.local/share/sloth-os/windows-programs) we bring them into the new library once
         try:
             library.migrate_legacy()
         except OSError as e:
-            log.warning("átköltözés: %s", e)
+            log.warning("migration: %s", e)
         items = []
         default = library.default_library()
         apps = library.all_apps()
@@ -137,7 +137,7 @@ class WinProgramsController(QObject):
             })
         self._items = items
         self.changed.emit()
-        # A méret kiszámolása és a máshol telepített programok keresése lassú lehet: háttérszálon
+        # Computing the size and searching for programs installed elsewhere can be slow: on a background thread
         dirs = {a.id: a.dir for a in apps}
         threading.Thread(target=lambda: self._sizes_ready.emit(
             {k: _size_text(_dir_size(d)) for k, d in dirs.items()}), daemon=True).start()
@@ -156,7 +156,7 @@ class WinProgramsController(QObject):
     def _app(self, app_id):
         app = library.find(app_id)
         if app is None:
-            log.warning("nincs ilyen program: %s", app_id)
+            log.warning("no such program: %s", app_id)
         return app
 
     def _set_message(self, text):
@@ -164,15 +164,15 @@ class WinProgramsController(QObject):
         self.changed.emit()
 
     def _run_in_background(self, work):
-        """Hosszú művelet (eltávolítás, áthelyezés, átvétel) háttérszálon; a végén üzenet és frissítés."""
+        """A long operation (remove, move, take over) on a background thread; at the end a message and a refresh."""
         self._busy = True
         self.changed.emit()
 
         def run():
             try:
                 text = work()
-            except Exception as e:  # a hiba ne akassza meg a felületet
-                log.warning("művelet: %s", e)
+            except Exception as e:  # an error must not hang the interface
+                log.warning("operation: %s", e)
                 text = tr("That didn't work. Please try again later.")
             self._work_done.emit(text or "")
 
@@ -183,11 +183,11 @@ class WinProgramsController(QObject):
         self._message = text
         self.refresh()
 
-    # --- Műveletek ---------------------------------------------------------------------------------
+    # --- Actions ---------------------------------------------------------------------------------
 
     @Slot(str)
     def install(self, url):
-        """Telepítés egy kiválasztott .exe / .msi fájlból (a .exe kezelő végzi, mint dupla kattintásnál)."""
+        """Installing from a chosen .exe / .msi file (done by the .exe handler, as on a double-click)."""
         path = QUrl(url).toLocalFile() if "://" in url else url
         if path:
             subprocess.Popen(["sloth-exe", path], start_new_session=True)
@@ -212,7 +212,7 @@ class WinProgramsController(QObject):
 
     @Slot(str)
     def openFolder(self, app_id):
-        """A program mappája a Dolphinban (benne a „Program fájljai” a telepített fájlokkal)."""
+        """The program's folder in Dolphin (with "Program files" holding the installed files)."""
         app = self._app(app_id)
         if app is not None:
             subprocess.Popen(["xdg-open", str(app.dir)], start_new_session=True,
@@ -220,7 +220,7 @@ class WinProgramsController(QObject):
 
     @Slot(str)
     def editShortcuts(self, app_id):
-        """A .exe kezelő szerkesztő ablaka: mi legyen a Start menüben (a lehetséges indítók felismerve)."""
+        """The .exe handler's edit window: what should be in the Start menu (the possible launchers recognized)."""
         app = self._app(app_id)
         if app is None or app.kind != "windows":
             return
@@ -229,7 +229,7 @@ class WinProgramsController(QObject):
 
     @Slot(str)
     def repair(self, app_id):
-        """Javítás: a megjegyzett indítási beállítások törlése; a következő indításkor újra megkeresi a működőt."""
+        """Repair: deletes the remembered start settings; on the next start it looks for a working one again."""
         app = self._app(app_id)
         if app is None or app.kind != "windows":
             return
@@ -242,7 +242,7 @@ class WinProgramsController(QObject):
 
     @Slot(str)
     def reinstall(self, app_id):
-        """Újratelepítés ugyanabba a mappába (a beállítások és a mentések megmaradnak)."""
+        """Reinstalls into the same folder (the settings and saves stay)."""
         app = self._app(app_id)
         installer = (app.meta.get("installer") if app else "") or ""
         if installer and Path(installer).is_file():
@@ -250,7 +250,7 @@ class WinProgramsController(QObject):
 
     @Slot(str)
     def remove(self, app_id):
-        """Program, Start menü bejegyzései és naplója."""
+        """The program, its Start menu entries and its log."""
         app = self._app(app_id)
         if app is None:
             return
@@ -261,7 +261,7 @@ class WinProgramsController(QObject):
         self._items = [p for p in self._items if p["id"] != app_id]
 
         def work():
-            # dobozba telepített csomag: előbb a dobozból (és a Start menüből) is ki
+            # a package installed in a box: first out of the box (and the Start menu) too
             if app.kind == "box" and not packages.box_uninstall(app):
                 return tr("{name} can't be removed from here.", name=name)
             return "" if library.remove(app) else tr("{name} can't be removed from here.", name=name)
@@ -270,7 +270,7 @@ class WinProgramsController(QObject):
 
     @Slot(str)
     def setLocation(self, url):
-        """Az új programok helye (pl. egy másik meghajtó). A meglévők maradnak, egyenként áthelyezhetők."""
+        """Where new programs go (e.g. another drive). The existing ones stay, and can be moved one by one."""
         path = Path(QUrl(url).toLocalFile() if "://" in url else url)
         if not library.supported_location(path):
             self._set_message(tr("This drive uses a Windows format (NTFS, exFAT or FAT). Programs can't be installed "
@@ -282,7 +282,7 @@ class WinProgramsController(QObject):
 
     @Slot(str)
     def move(self, app_id):
-        """Áthelyezés az új programok helyére (a Start menü bejegyzései érvényesek maradnak)."""
+        """Moves it to where new programs go (the Start menu entries stay valid)."""
         app = self._app(app_id)
         if app is None:
             return
@@ -298,7 +298,7 @@ class WinProgramsController(QObject):
 
     @Slot(str, bool)
     def importProgram(self, key, adopt):
-        """Máshol telepített program felvétele: az eredeti programmal (link), vagy saját másolattal (adopt)."""
+        """Adds a program installed elsewhere: with the original app (link), or as its own copy (adopt)."""
         f = imports.find(key)
         if f is None:
             return

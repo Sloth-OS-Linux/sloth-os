@@ -1,42 +1,55 @@
-# Sloth OS – útmutató Claude Code-nak
+# Sloth OS – guide for Claude Code
 
-## Mi ez
-Egy Fedora Atomic alapú, Universal Blue `kinoite-main` / `kinoite-nvidia` image-re épülő desktop disztró,
-BlueBuild-del építve. Cél: Windows-alternatíva átlagfelhasználóknak, erős gaming-támogatással.
-A projekt nyelve magyar (kommentek, dokumentáció, UI szövegek); a kód azonosítói angolul.
-Kivétel: **minden README angolul** készül (a repó később publikus lesz).
+## What this is
+A desktop distribution built with BlueBuild on the Universal Blue `kinoite-main` / `kinoite-nvidia` images (Fedora
+Atomic). Goal: a Windows alternative for average users, with strong gaming support.
+**Everything in the repository is English**: code, comments, docstrings, log messages, documentation (including
+`docs/ROADMAP.md`) and commit messages. The user interface is translated into 50 languages (Hungarian is one of them);
+English is the source language of every translation.
 
-## Alapelvek
-- **A felhasználónak soha ne kelljen terminál.** A Konsole elérhető marad, de bármit, amit valaki a terminálban
-  csinálna (bármilyen és bármennyi beállítás), annak GUI-ból is mennie kell. Ha valami csak parancssorból megy, az bug.
-  Ez a fejlesztői teendőkre is vonatkozik (repó, kulcsok, build, tesztelés). A lefedettség listája: `docs/ROADMAP.md`, 3. fázis.
-- **Folyamat közben se látszódjon terminál.** Telepítés, frissítés, betöltés: folyamatjelző és emberi nyelvű
-  állapotszöveg (pl. „Steam telepítése… 45%”), soha nem nyers parancssori kimenet. Bootkor nincs GRUB menü
-  (csak hibás indítás után) és nincs szöveges kimenet, csak a Plymouth animáció.
-- **Nem Bazzite.** Ne használj Bazzite image-et vagy Bazzite-specifikus eszközt (ujust receptek, bazzite-* csomagok) alapként.
-- **A Proton/Wine legyen láthatatlan.** A felhasználó ne lássa a "Wine", "prefix", "Proton verzió" fogalmakat, hacsak nem kéri kifejezetten.
-- **Az `ID=fedora` marad** az `/usr/lib/os-release`-ben; csak a megjelenített nevek változnak (lásd `files/scripts/branding.sh`).
-- **Felhasználói appok Flatpakként**; RPM csak rendszerszintű dolgokhoz (`recipes/gaming.yml` stb.).
-  Előtelepített app nincs, a Steam sem: mindent a felhasználó választ a Sloth Üdvözlőben
-  (`files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome/catalog.py`). Alapból semmi nincs bejelölve,
-  és a tálcára is csak az kerül, amit a felhasználó telepített.
-- **Windows-programok Steam nélkül is futnak** (.exe kezelő): umu-launcher + Proton, amit a háttérben előre
-  letöltünk; tartalékként a rendszer Wine-ja (`wine-core`), így internet nélkül is elindul egy .exe.
-- Minden változás a recipe-ken és a `files/` mappán keresztül történik. A futó rendszeren kézzel semmit nem állítunk.
+## Principles
+- **The user never needs a terminal.** Konsole stays available, but anything someone would do in a terminal (any
+  setting, however many) must also work from a GUI. If something only works from the command line, that is a bug.
+  This applies to developer tasks too (repository, keys, build, testing). The coverage list: `docs/ROADMAP.md`, phase 3.
+- **No terminal during processes either.** Installing, updating, loading: a progress indicator and a status text in
+  plain language (e.g. "Installing Steam… 45%"), never raw command-line output. At boot there is no GRUB menu (only
+  after a failed start) and no text output, only the Plymouth animation.
+- **Not Bazzite.** Do not use a Bazzite image or Bazzite-specific tools (ujust recipes, bazzite-* packages) as a base.
+- **Proton/Wine stay invisible.** The user should not see the words "Wine", "prefix" or "Proton version" unless they
+  explicitly ask for them.
+- **`ID=fedora` stays** in `/usr/lib/os-release`; only the displayed names change (see `files/scripts/branding.sh`).
+- **User apps as Flatpaks**; RPMs only for system-level things (`recipes/gaming.yml` etc.).
+  Nothing is preinstalled, not even Steam: the user picks everything in Sloth Welcome
+  (`files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome/catalog.py`). Nothing is selected by default, and only
+  what the user installed goes on the taskbar.
+- **Windows programs run without Steam too** (.exe handler): umu-launcher + Proton, downloaded in advance in the
+  background; the system Wine (`wine-core`) is the fallback, so an .exe starts even without internet.
+- Every change goes through the recipes and the `files/` folder. Nothing is set by hand on a running system.
 
-## Felépítés
-- `recipes/recipe.yml`, `recipes/recipe-nvidia.yml`: a két image; a közös modulokat `from-file`-lal húzzák be.
-- `recipes/branding.yml`, `gaming.yml`, `apps.yml`: modul-listák témánként.
-- `files/system/`: a kész rendszer gyökerébe másolódik.
-- `files/scripts/`: build közben futó scriptek (`type: script` modul).
-- `files/system/usr/lib/sloth-os/<eszköz>/`: saját GUI eszközök (Python + PySide6/QML); `tools/`: fejlesztői segédek (nem kerülnek az image-be).
-- `files/system/usr/lib/sloth-os/common/sloth_common/`: az eszközök közös részei (fordítások: eszközönként `translations/<nyelv>.json`, ellenőrzés: `tools/check_translations.py`). A start menü bejegyzéseit (`*.desktop`) ne kézzel szerkeszd: a `tools/gen_desktop_entries.py` írja őket a fordításokból.
-- `iso/`: a telepítő ISO élő rendszere és a saját Sloth OS telepítő (csak az ISO-ba kerül, a telepített rendszerbe nem). Építés: `tools/build-iso.sh` (Linux) vagy `tools/build-iso.ps1` (Windows).
-- `docs/ROADMAP.md`: a terv. Ha egy feladat kész, pipáld ki.
+## Layout
+- `recipes/recipe.yml`, `recipes/recipe-nvidia.yml`: the two images; they pull in the shared modules with `from-file`.
+- `recipes/branding.yml`, `gaming.yml`, `apps.yml`, `tools.yml`: module lists by topic.
+- `files/system/`: copied into the root of the finished system.
+- `files/scripts/`: scripts run during the build (`type: script` module).
+- `files/system/usr/lib/sloth-os/<tool>/`: our own GUI tools (Python + PySide6/QML); `tools/`: developer helpers (not
+  in the image).
+- `files/system/usr/lib/sloth-os/common/sloth_common/`: shared parts of the tools. Translations: per tool,
+  `translations/<language>.json`, with English as the source. Most tools use dotted keys (`welcome.title`); in Sloth
+  Center the English sentence itself is the key (`tr("…")`, `L.t("…")`). Checks: `tools/check_translations.py` and
+  `tools/extract_center_strings.py --all`. Do not edit the start menu entries (`*.desktop`) by hand:
+  `tools/gen_desktop_entries.py` writes them from the translations.
+- `iso/`: the live system of the installer ISO and our own Sloth OS installer (only on the ISO, not in the installed
+  system). Build: `tools/build-iso.sh` (Linux) or `tools/build-iso.ps1` (Windows).
+- `docs/ROADMAP.md`: the plan. Tick off a task when it is done.
 
-## Hasznos tudnivalók
-- BlueBuild dokumentáció és modulok: https://blue-build.org
-- Recipe séma: https://schema.blue-build.org/recipe-v1.json
-- Helyi build (ha telepítve van a bluebuild CLI): `bluebuild build recipes/recipe.yml`
-- A CI a `.github/workflows/build.yml`-ben fut; mindkét recipe-t buildeli.
-- Új dnf csomag felvétele előtt ellenőrizd, hogy létezik-e a Fedora repóban az aktuális verzión.
+## Releases and hosting
+- GitHub: `Sloth-OS-Linux/sloth-os` (public); images `ghcr.io/sloth-os-linux/sloth-os(-nvidia)` (lowercase, required
+  by ghcr). Website: `Sloth-OS-Linux/sloth-os-linux.github.io` (`docs/` folder), https://sloth-os-linux.github.io/.
+- The installer ISO is on SourceForge (https://sourceforge.net/projects/sloth-os/files/).
+
+## Useful to know
+- BlueBuild documentation and modules: https://blue-build.org
+- Recipe schema: https://schema.blue-build.org/recipe-v1.json
+- Local build (if the bluebuild CLI is installed): `bluebuild build recipes/recipe.yml`
+- CI runs in `.github/workflows/build.yml` (daily and on every push); it builds both recipes.
+- Before adding a new dnf package, check that it exists in the Fedora repositories for the current version.

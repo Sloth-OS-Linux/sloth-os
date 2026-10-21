@@ -1,41 +1,41 @@
 #!/usr/bin/python3 -I
-"""Sloth OS rendszergazdai segéd: a GUI eszközök ezen keresztül végzik a root műveleteket.
+"""Sloth OS administrator helper: the GUI tools do their root operations through it.
 
-Csak pkexec-kel indítható (polkit: org.slothos.helper, grafikus jelszókérő).
-Minden művelet előre rögzített, a paramétereket szigorúan ellenőrizzük;
-tetszőleges parancsot nem lehet vele futtatni.
+It can only be started with pkexec (polkit: org.slothos.helper, graphical password prompt).
+Every operation is fixed in advance and the parameters are checked strictly;
+it cannot run arbitrary commands.
 
-Műveletek:
-  secureboot-status          Secure Boot állapota és a Sloth OS kulcs regisztrálva van-e (JSON)
-  secureboot-enroll          a kulcs regisztrálásának előkészítése a következő újraindításra
-  boot-menu hidden|visible   a GRUB boot menü elrejtése / mindig mutatása
-  pin <index> | unpin <index>  egy rendszerverzió megtartása / elengedése
-  set-default <index>        ez a (már telepített) verzió induljon a következő újraindításkor
-  admin-policy               a hívó felhasználó jelszó nélküli rendszergazdai beállításai (JSON a bemeneten:
+Operations:
+  secureboot-status          Secure Boot state and whether the Sloth OS key is enrolled (JSON)
+  secureboot-enroll          prepares enrolling the key for the next restart
+  boot-menu hidden|visible   hides the GRUB boot menu / always shows it
+  pin <index> | unpin <index>  keeps / releases a system version
+  set-default <index>        this (already installed) version starts at the next restart
+  admin-policy               the calling user's password-free administrator settings (JSON on the input:
                              {"topics": [...], "sudo": bool, "autologin": bool})
-  login-feature fingerprint|securitykey on|off   bejelentkezés ujjlenyomattal / biztonsági kulccsal (authselect)
-  login-repair                                   a with-altfiles visszakapcsolása, ha az authselect kivette
-                                                 (induláskor, sloth-login-repair.service)
-  domain-join <tartomány> <felhasználó>          csatlakozás Active Directory tartományhoz (jelszó a bemeneten)
-  domain-leave                                   kilépés a tartományból
-  registry-login <registry> <felhasználó>        bejelentkezés egy image-tárolóba a frissítésekhez és az
-                                                 image-váltáshoz (token a bemeneten; /etc/ostree/auth.json)
-  registry-logout <registry>                     kijelentkezés
-  pin-set                                        PIN-kód a hívó felhasználónak (a PIN a bemeneten, 4–8 számjegy);
-                                                 bekapcsolja a "sloth" authselect-profil with-sloth-pin funkcióját
-  pin-remove                                     a hívó felhasználó PIN-kódjának törlése
-  zram default|more|off                          memóriatömörítés (zram swap) mérete a következő indulástól
-  snapshots on|off                               a saját fájlok automatikus mentése (óránkénti pillanatkép)
-  snapshots-keep 2w|1m|3m                        a mentett állapotok megtartása (2 hét, 1 hónap, 3 hónap)
-  snapshot-now                                   mentés most (home-snapshots take --now)
-  snapshots-delete-all                           az összes mentett állapot törlése
-  factory-reset keep|all                         a gép alaphelyzetbe állításának előkészítése (factory-reset
-                                                 prepare; JSON a bemeneten, soronkénti JSON a kimeneten)
-  factory-reset-cancel                           a még el nem végzett alaphelyzetbe állítás visszavonása
+  login-feature fingerprint|securitykey on|off   signing in with a fingerprint / security key (authselect)
+  login-repair                                   turns with-altfiles back on if authselect removed it
+                                                 (at startup, sloth-login-repair.service)
+  domain-join <domain> <user>                    joins an Active Directory domain (password on the input)
+  domain-leave                                   leaves the domain
+  registry-login <registry> <user>               signs in to an image registry for updates and switching
+                                                 images (token on the input; /etc/ostree/auth.json)
+  registry-logout <registry>                     signs out
+  pin-set                                        a PIN for the calling user (the PIN on the input, 4–8 digits);
+                                                 turns on the with-sloth-pin feature of the "sloth" authselect profile
+  pin-remove                                     deletes the calling user's PIN
+  zram default|more|off                          memory compression (zram swap) size from the next start
+  snapshots on|off                               automatic backup of your own files (hourly snapshot)
+  snapshots-keep 2w|1m|3m                        how long saved states are kept (2 weeks, 1 month, 3 months)
+  snapshot-now                                   back up now (home-snapshots take --now)
+  snapshots-delete-all                           deletes all saved states
+  factory-reset keep|all                         prepares resetting the computer (factory-reset
+                                                 prepare; JSON on the input, JSON lines on the output)
+  factory-reset-cancel                           withdraws a reset that has not been done yet
 
-A verziókat érintő műveletek (pin, unpin, set-default) a sloth-helper-versions néven is
-elérhetők: ez külön polkit-művelet (org.slothos.helper.versions), hogy a „frissítések”
-témakörhöz lehessen sorolni, ne a rendszerindításhoz.
+The operations on versions (pin, unpin, set-default) are also available under the name
+sloth-helper-versions: that is a separate polkit action (org.slothos.helper.versions), so it can be put
+under the "updates" topic, not under booting.
 """
 import json
 import os
@@ -46,11 +46,11 @@ import sys
 import tempfile
 
 SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
-# sloth-helper-versions néven indítva csak a verziókat érintő műveletek engedélyezettek
+# Started as sloth-helper-versions, only the operations on versions are allowed
 VERSIONS_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-versions"
-# sloth-helper-backup néven indítva csak a „Mentés most” (jelszó nélkül, lásd org.slothos.helper.backup)
+# Started as sloth-helper-backup, only "Back up now" (without a password, see org.slothos.helper.backup)
 BACKUP_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-backup"
-# A Universal Blue kulcs regisztrációs jelszava; a felhasználó ezt írja be a kék képernyőn
+# The Universal Blue key's enrollment password; the user types this on the blue screen
 SB_PASSWORD = "universalblue"
 
 
@@ -74,7 +74,7 @@ def secureboot_status():
 
 def secureboot_enroll():
     if not os.path.exists(SB_KEY):
-        return {"ok": False, "error": "nincs kulcs"}
+        return {"ok": False, "error": "no key"}
     run(["mokutil", "--timeout", "-1"])
     r = run(["mokutil", "--import", SB_KEY], input=f"{SB_PASSWORD}\n{SB_PASSWORD}\n")
     ok = r.returncode == 0 or "already" in (r.stdout + r.stderr).lower()
@@ -82,12 +82,12 @@ def secureboot_enroll():
 
 
 def boot_menu(mode):
-    # Az állapot az EFI partíción van, a GRUB a /boot/grub2/custom.cfg-ben olvassa (lásd boot-env)
+    # The state is on the EFI partition; GRUB reads it in /boot/grub2/custom.cfg (see boot-env)
     value = "0" if mode == "hidden" else "1"
     run(["/usr/libexec/sloth-os/boot-env", "ensure-config"])
     r = run(["/usr/libexec/sloth-os/boot-env", "set", f"sloth_show_menu={value}"])
     os.makedirs("/var/lib/sloth-os", exist_ok=True)
-    # Jelzőfájl, hogy a GUI jelszó nélkül lássa az állapotot (a grubenv csak rootnak olvasható)
+    # Marker file so the GUI can see the state without a password (grubenv is readable by root only)
     marker = "/var/lib/sloth-os/boot-menu-visible"
     if mode == "visible":
         open(marker, "w").close()
@@ -107,14 +107,14 @@ def set_default(index):
     return {"ok": r.returncode == 0, "error": r.stderr.strip()}
 
 
-# --- Jelszó nélküli rendszergazda témakörönként ------------------------------------------
+# --- Password-free administrator by topic ------------------------------------------
 
 POLICY = "/etc/sloth-os/admin-policy.json"
 POLKIT_RULES = "/etc/polkit-1/rules.d/49-sloth-admin.rules"
 SUDOERS = "/etc/sudoers.d/49-sloth-nopasswd"
 AUTOLOGIN = ["/etc/plasmalogin.conf.d/90-sloth-autologin.conf", "/etc/sddm.conf.d/90-sloth-autologin.conf"]
 
-# Témakör -> polkit műveletek. A "."-ra végződő elem előtag (minden alatta lévő művelet).
+# Topic -> polkit actions. An item ending in "." is a prefix (every action under it).
 TOPICS = {
     "software": ["org.freedesktop.Flatpak.", "org.freedesktop.packagekit."],
     "updates": ["org.projectatomic.rpmostree1.upgrade", "org.projectatomic.rpmostree1.repo-refresh",
@@ -151,8 +151,8 @@ def _render_rules(users):
                for u, cfg in users.items() if cfg.get("topics")}
     if not allowed:
         return None
-    return f"""// A Sloth Központ írja (Fiók és biztonság): ezekhez a műveletekhez nem kell jelszó.
-// Kézzel ne szerkeszd; a forrás: {POLICY}
+    return f"""// Written by Sloth Center (Account and security): these actions need no password.
+// Do not edit by hand; the source: {POLICY}
 polkit.addRule(function(action, subject) {{
     var allowed = {_js(allowed)};
     var list = allowed[subject.user];
@@ -174,7 +174,7 @@ def _apply_sudoers(users):
         if os.path.exists(SUDOERS):
             os.unlink(SUDOERS)
         return True
-    text = "# A Sloth Központ írja (Fiók és biztonság): sudo jelszó nélkül.\n"
+    text = "# Written by Sloth Center (Account and security): sudo without a password.\n"
     text += "".join(f"{n} ALL=(ALL) NOPASSWD: ALL\n" for n in names)
     fd, tmp = tempfile.mkstemp()
     with os.fdopen(fd, "w") as f:
@@ -190,7 +190,7 @@ def _apply_autologin(users):
     name = next((u for u, cfg in users.items() if cfg.get("autologin")), None)
     for path in AUTOLOGIN:
         if name:
-            _write(path, f"# A Sloth Központ írja (Fiók és biztonság).\n[Autologin]\nUser={name}\nSession=plasma.desktop\n")
+            _write(path, f"# Written by Sloth Center (Account and security).\n[Autologin]\nUser={name}\nSession=plasma.desktop\n")
         elif os.path.exists(path):
             os.unlink(path)
 
@@ -198,22 +198,22 @@ def _apply_autologin(users):
 def admin_policy(request):
     uid = os.environ.get("PKEXEC_UID", "")
     if not uid.isdigit():
-        return {"ok": False, "error": "csak pkexec-kel"}
+        return {"ok": False, "error": "pkexec only"}
     user = pwd.getpwuid(int(uid)).pw_name
     topics = request.get("topics", [])
     if not isinstance(topics, list) or not all(t in TOPICS for t in topics):
-        return {"ok": False, "error": "ismeretlen témakör"}
+        return {"ok": False, "error": "unknown topic"}
     in_wheel = user in subprocess.run(["getent", "group", "wheel"], capture_output=True,
                                       text=True).stdout.strip().split(":")[-1].split(",")
     if (topics or request.get("sudo")) and not in_wheel:
-        return {"ok": False, "error": "nem rendszergazda"}
+        return {"ok": False, "error": "not an administrator"}
     try:
         policy = json.load(open(POLICY, encoding="utf-8"))
     except (OSError, ValueError):
         policy = {"users": {}}
     users = policy.setdefault("users", {})
     autologin = bool(request.get("autologin"))
-    if autologin:  # egyszerre csak egy felhasználó léphet be magától
+    if autologin:  # only one user can sign in automatically at a time
         for cfg in users.values():
             cfg["autologin"] = False
     users[user] = {"topics": sorted(set(topics)), "sudo": bool(request.get("sudo")), "autologin": autologin}
@@ -231,17 +231,17 @@ def admin_policy(request):
     return {"ok": True, "error": ""}
 
 
-# --- Bejelentkezési módok ------------------------------------------------------------------
+# --- Sign-in methods ------------------------------------------------------------------
 
 LOGIN_FEATURES = {"fingerprint": "with-fingerprint", "securitykey": "with-pam-u2f"}
 DOMAIN_RE = re.compile(r"^[A-Za-z0-9]([A-Za-z0-9-]{0,62}\.)+[A-Za-z]{2,63}$")
 DOMAIN_USER_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$")
 
 
-# Atomic rendszeren a rendszerfelhasználók (pl. a bejelentkező képernyő „plasmalogin” felhasználója) a /usr/lib/passwd-
-# ben vannak, és csak az nss-altfiles-on át látszanak. Az authselect minden módosításkor újraírja a /etc/nsswitch.conf-ot,
-# és with-altfiles nélkül kiveszi belőle: utána a bejelentkező képernyő el sem indul (2026-10-20, valódi gépen:
-# ujjlenyomat + PIN bekapcsolása után; VM-ben reprodukálva). Ezért mindig bekapcsolva tartjuk.
+# On an Atomic system the system users (e.g. "plasmalogin", the login screen's user) are in /usr/lib/passwd,
+# and they are only visible through nss-altfiles. authselect rewrites /etc/nsswitch.conf on every change,
+# and without with-altfiles it removes it: then the login screen does not even start (2026-10-20, real machine:
+# after turning on fingerprint + PIN; reproduced in a VM). So we always keep it on.
 ALTFILES = "with-altfiles"
 
 
@@ -250,7 +250,7 @@ def _needs_altfiles():
 
 
 def keep_altfiles():
-    """Ha a kiválasztott authselect-profilból hiányzik a with-altfiles, bekapcsolja (induláskor is: login-repair)."""
+    """If with-altfiles is missing from the selected authselect profile, turns it on (at startup too: login-repair)."""
     current = run(["authselect", "current", "--raw"]).stdout.split()
     if not current or not _needs_altfiles() or ALTFILES in current[1:]:
         return {"ok": True, "changed": False}
@@ -261,22 +261,22 @@ def keep_altfiles():
 def login_feature(name, on):
     feature = LOGIN_FEATURES[name]
     if not run(["authselect", "current", "--raw"]).stdout.strip():
-        # még nincs authselect-profil: a Fedora alapértelmezésével kezdünk, a meglévő fájlok mentésével
+        # no authselect profile yet: we start with Fedora's default, backing up the existing files
         extra = [ALTFILES] if _needs_altfiles() else []
         r = run(["authselect", "select", "local", *extra, "--force", "--backup=sloth-os"])
         if r.returncode != 0:
             return {"ok": False, "error": r.stderr.strip()}
     r = run(["authselect", "enable-feature" if on else "disable-feature", feature])
     fixed = keep_altfiles()
-    # A valódi gépen az authselect hibakóddal is visszatérhet, miközben a funkciót átállította (2026-10-21: piros
-    # hibaüzenet, de az ujjlenyomat bekapcsolt): az számít, hogy a végén tényleg úgy áll-e
+    # On the real machine authselect may return an error code even though it switched the feature (2026-10-21: red
+    # error message, but fingerprint got turned on): what matters is whether it really ends up that way
     done = (feature in run(["authselect", "current", "--raw"]).stdout.split()[1:]) == on
     return {"ok": done and fixed["ok"], "error": (r.stderr or r.stdout).strip()[-500:] or fixed.get("error", "")}
 
 
 def domain_join(domain, user, password):
     r = run(["realm", "join", "--user", user, domain], input=password + "\n")
-    keep_altfiles()  # a realm az sssd-profilt választja ki, ugyanúgy with-altfiles nélkül
+    keep_altfiles()  # realm selects the sssd profile, likewise without with-altfiles
     return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
 
 
@@ -285,7 +285,7 @@ def domain_leave():
     return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
 
 
-# --- Image-tároló (privát GitHub-csomagok a fejlesztői pultból) ----------------------------------
+# --- Image registry (private GitHub packages from the developer panel) ----------------------------------
 
 OSTREE_AUTH = "/etc/ostree/auth.json"
 REGISTRY_RE = re.compile(r"^(ghcr\.io|quay\.io|docker\.io)$")
@@ -303,9 +303,9 @@ def _read_auth():
 
 
 def registry_login(registry, user, token):
-    """Az rpm-ostree / bootc ebből olvassa a privát tároló hozzáférését (csak root olvashatja)."""
+    """rpm-ostree / bootc read the private registry's credentials from this (readable by root only)."""
     if not TOKEN_RE.match(token):
-        return {"ok": False, "error": "rossz token"}
+        return {"ok": False, "error": "bad token"}
     import base64
     data = _read_auth()
     data.setdefault("auths", {})[registry] = {"auth": base64.b64encode(f"{user}:{token}".encode()).decode()}
@@ -322,7 +322,7 @@ def registry_logout(registry):
     return {"ok": True}
 
 
-# --- PIN-kód (bejelentkezés; az ellenőrzés: /usr/libexec/sloth-os/pin-check) -------------------------
+# --- PIN (sign-in; checked by /usr/libexec/sloth-os/pin-check) -------------------------
 
 PIN_DIR = "/etc/sloth-os/pin"
 PIN_STATE_DIR = "/var/lib/sloth-os/pin"
@@ -335,13 +335,13 @@ def _caller():
 
 
 def _weak_pin(pin):
-    """Könnyen kitalálható: csupa egyforma számjegy, vagy egyesével növekvő / csökkenő sor."""
+    """Easy to guess: all the same digit, or a sequence going up / down one by one."""
     steps = {int(b) - int(a) for a, b in zip(pin, pin[1:])}
     return len(set(pin)) == 1 or steps in ({1}, {-1})
 
 
 def _ensure_pin_profile(on):
-    """A "sloth" authselect-profil (a "local" + with-sloth-pin), a meglévő funkciók megtartásával."""
+    """The "sloth" authselect profile ("local" + with-sloth-pin), keeping the existing features."""
     current = run(["authselect", "current", "--raw"]).stdout.split()
     profile, features = (current[0], current[1:]) if current else ("", [])
     features = [f for f in features if f != "with-sloth-pin"] + (["with-sloth-pin"] if on else [])
@@ -360,11 +360,11 @@ def _ensure_pin_profile(on):
 def pin_set(pin):
     pw = _caller()
     if pw is None:
-        return {"ok": False, "error": "csak pkexec-kel"}
+        return {"ok": False, "error": "pkexec only"}
     if not PIN_RE.match(pin):
-        return {"ok": False, "error": "rossz PIN"}
+        return {"ok": False, "error": "bad PIN"}
     if _weak_pin(pin):
-        return {"ok": False, "error": "gyenge PIN"}
+        return {"ok": False, "error": "weak PIN"}
     import hashlib
     import secrets
     salt = secrets.token_bytes(16)
@@ -375,7 +375,7 @@ def pin_set(pin):
     os.makedirs(PIN_STATE_DIR, mode=0o755, exist_ok=True)
     path = os.path.join(PIN_DIR, f"{pw.pw_name}.json")
     _write(path, json.dumps(record) + "\n", mode=0o640)
-    # a zárolási képernyő a felhasználó nevében ellenőriz: a csoportja olvashatja (a hash scrypt, sóval)
+    # the lock screen checks in the user's name: their group can read it (the hash is scrypt, salted)
     os.chown(path, 0, pw.pw_gid)
     state = os.path.join(PIN_STATE_DIR, f"{pw.pw_name}.json")
     if os.path.exists(state):
@@ -386,17 +386,17 @@ def pin_set(pin):
 def pin_remove():
     pw = _caller()
     if pw is None:
-        return {"ok": False, "error": "csak pkexec-kel"}
+        return {"ok": False, "error": "pkexec only"}
     for path in (os.path.join(PIN_DIR, f"{pw.pw_name}.json"), os.path.join(PIN_STATE_DIR, f"{pw.pw_name}.json")):
         if os.path.exists(path):
             os.unlink(path)
-    # ha már senkinek nincs PIN-je, a funkció is ki
+    # if nobody has a PIN any more, the feature goes off too
     if not any(f.endswith(".json") for f in (os.listdir(PIN_DIR) if os.path.isdir(PIN_DIR) else [])):
         return _ensure_pin_profile(False)
     return {"ok": True}
 
 
-# --- Memóriatömörítés (zram) -------------------------------------------------------------------
+# --- Memory compression (zram) -------------------------------------------------------------------
 
 ZRAM_CONF = "/etc/systemd/zram-generator.conf"
 ZRAM_MARK = "# sloth-os: "
@@ -411,19 +411,19 @@ def zram(mode):
                 ours = f.readline().startswith(ZRAM_MARK)
             if ours:
                 os.unlink(ZRAM_CONF)
-            else:  # kézzel írt fájl: félretesszük, nem töröljük
+            else:  # a hand-written file: set it aside, do not delete it
                 os.replace(ZRAM_CONF, ZRAM_CONF + ".bak")
         return {"ok": True}
     size = ZRAM_SIZES[mode]
-    text = f"{ZRAM_MARK}{mode} (Sloth Központ -> Haladó beállítások)\n"
-    # zram-eszköz nélküli fájl: nincs zram (a zram-generator dokumentációja szerint)
+    text = f"{ZRAM_MARK}{mode} (Sloth Center -> Advanced settings)\n"
+    # a file without a zram device: no zram (according to the zram-generator documentation)
     if size:
         text += f"[zram0]\nzram-size = {size}\ncompression-algorithm = zstd\n"
     _write(ZRAM_CONF, text)
     return {"ok": True}
 
 
-# --- A saját fájlok mentése (Sloth Központ → Fájlmentés; a munkát a home-snapshots végzi) ------------------
+# --- Backing up your own files (Sloth Center → File backup; home-snapshots does the work) ------------------
 
 SNAPSHOTS_CONF = "/etc/sloth-os/snapshots.json"
 HOME_SNAPSHOTS = "/usr/libexec/sloth-os/home-snapshots"
@@ -452,13 +452,13 @@ def home_snapshots(*args):
 
 def main(argv):
     if os.geteuid() != 0:
-        print(json.dumps({"ok": False, "error": "root kell"}))
+        print(json.dumps({"ok": False, "error": "root needed"}))
         return 1
     if not argv:
         return 2
     op, args = argv[0], argv[1:]
     if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])):
-        print(json.dumps({"ok": False, "error": "ismeretlen művelet"}))
+        print(json.dumps({"ok": False, "error": "unknown operation"}))
         return 2
     if op == "secureboot-status" and not args:
         result = secureboot_status()
@@ -495,7 +495,7 @@ def main(argv):
     elif op == "snapshots-delete-all" and not args and not VERSIONS_ONLY:
         result = home_snapshots("delete-all")
     elif op == "factory-reset" and args in (["keep"], ["all"]) and not VERSIONS_ONLY:
-        # a folyamat lépéseit soronként írja ki, ezért közvetlenül az adja a kimenetet (a bemenetet is ő olvassa)
+        # the process prints its steps line by line, so it produces the output directly (it reads the input too)
         sys.stdout.flush()
         os.execv(FACTORY_RESET, [FACTORY_RESET, "prepare", args[0]])
     elif op == "factory-reset-cancel" and not args and not VERSIONS_ONLY:
@@ -511,9 +511,9 @@ def main(argv):
             request = json.loads(sys.stdin.read(4096) or "{}")
         except ValueError:
             request = None
-        result = admin_policy(request) if isinstance(request, dict) else {"ok": False, "error": "rossz bemenet"}
+        result = admin_policy(request) if isinstance(request, dict) else {"ok": False, "error": "bad input"}
     else:
-        print(json.dumps({"ok": False, "error": "ismeretlen művelet"}))
+        print(json.dumps({"ok": False, "error": "unknown operation"}))
         return 2
     print(json.dumps(result))
     return 0

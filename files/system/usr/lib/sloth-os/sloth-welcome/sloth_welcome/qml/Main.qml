@@ -1,7 +1,7 @@
-// Sloth OS üdvözlő varázsló: első bejelentkezéskor, teljes képernyőn.
-// Lépések: üdvözlés (nyelv) -> megjelenés -> appok -> telepítés -> kész.
-// Az adatok a Python oldali `welcome` objektumból jönnek, a szövegek a fordításokból
-// (sloth_welcome/translations/<nyelv>.json) a t() függvényen keresztül.
+// Sloth OS welcome wizard: at the first sign-in, full screen.
+// Steps: welcome (language) -> appearance -> apps -> installing -> done.
+// The data comes from the Python side's `welcome` object, the texts from the translations
+// (sloth_welcome/translations/<language>.json) through the t() function.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -13,7 +13,7 @@ Kirigami.ApplicationWindow {
     id: root
     title: t("window.title")
     visible: true
-    // csak a Windows-fájlok áthozása (a Sloth Központból): sima ablak, nem teljes képernyő
+    // only bringing Windows files over (from Sloth Center): a normal window, not full screen
     visibility: welcome.windowsOnly ? Window.Windowed : Window.FullScreen
     width: Kirigami.Units.gridUnit * 60
     height: Kirigami.Units.gridUnit * 40
@@ -21,7 +21,7 @@ Kirigami.ApplicationWindow {
 
     readonly property int contentWidth: Math.min(width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 52)
 
-    // Az aktuális nyelv szövegei; nyelvváltáskor minden t()-t használó felirat frissül
+    // The current language's texts; on a language change every label using t() updates
     readonly property var strings: welcome.strings
     function t(key, args) {
         let text = root.strings[key];
@@ -33,7 +33,7 @@ Kirigami.ApplicationWindow {
         return text;
     }
 
-    // A Windows-programok telepítése alatt (a varázsló után, egyesével) az ablak rejtve vár, a végén előjön
+    // While the Windows programs install (after the wizard, one by one) the window waits hidden and comes back at the end
     Connections {
         target: welcome
         function onHideRequested() { root.hide(); }
@@ -55,7 +55,7 @@ Kirigami.ApplicationWindow {
             anchors.fill: parent
             currentIndex: welcome.page
 
-            // --- 0. Üdvözlés és nyelv ----------------------------------------
+            // --- 0. Welcome and language ----------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -80,7 +80,7 @@ Kirigami.ApplicationWindow {
                         opacity: 0.8
                         text: root.t("welcome.text")
                     }
-                    // A varázsló nyelve; alapból a rendszeré (amit a telepítőben választott)
+                    // The wizard's language; by default the system's (chosen in the installer)
                     RowLayout {
                         Layout.alignment: Qt.AlignHCenter
                         spacing: Kirigami.Units.largeSpacing
@@ -110,7 +110,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- 1. Megjelenés -----------------------------------------------
+            // --- 1. Appearance -----------------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -128,8 +128,8 @@ Kirigami.ApplicationWindow {
                         opacity: 0.8
                         text: root.t("look.colors_hint")
                     }
-                    // A kártyák soronként középre igazítva, a sorok egyenletesen elosztva
-                    // (7 kártya pl. 4 + 3, nem 6 + 1)
+                    // The cards centred row by row, the rows evenly distributed
+                    // (7 cards e.g. 4 + 3, not 6 + 1)
                     Column {
                         id: schemeGrid
                         readonly property int cardWidth: Kirigami.Units.gridUnit * 9
@@ -226,7 +226,7 @@ Kirigami.ApplicationWindow {
                                 Accessible.name: modelData.name
                                 contentItem: ColumnLayout {
                                     spacing: Kirigami.Units.smallSpacing
-                                    // Kis rajz az elrendezésről
+                                    // A small drawing of the layout
                                     Rectangle {
                                         id: screen
                                         Layout.fillWidth: true
@@ -237,13 +237,13 @@ Kirigami.ApplicationWindow {
                                         border.color: layoutCard.current ? Kirigami.Theme.highlightColor : Qt.rgba(0.5, 0.5, 0.5, 0.4)
                                         readonly property color bar: Qt.alpha(Kirigami.Theme.textColor, 0.35)
                                         readonly property color dot: Kirigami.Theme.highlightColor
-                                        // felső sáv (macOS)
+                                        // top bar (macOS)
                                         Rectangle {
                                             visible: layoutCard.modelData.id === "mac"
                                             anchors { left: parent.left; right: parent.right; top: parent.top; margins: 3 }
                                             height: 6; radius: 2; color: screen.bar
                                         }
-                                        // alsó tálca / dokk
+                                        // bottom taskbar / dock
                                         Rectangle {
                                             id: taskbar
                                             anchors.bottom: parent.bottom
@@ -296,8 +296,8 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- 2. Egy kategória (böngésző, irodai programok, …) -------------
-            // Minden kategória külön lépés; ez a lap a welcome.categoryIndex szerinti kategóriát mutatja.
+            // --- 2. A category (browser, office programs, …) -------------
+            // Every category is a separate step; this page shows the category given by welcome.categoryIndex.
             ColumnLayout {
                 id: categoryPage
                 readonly property var category: welcome.categoryIndex >= 0 ? welcome.categories[welcome.categoryIndex] : null
@@ -368,15 +368,15 @@ Kirigami.ApplicationWindow {
                                 delegate: QQC2.AbstractButton {
                                     id: appCard
                                     required property var modelData
-                                    // már fent van (a varázsló újrafuttatásakor): pipával, nem települ újra
+                                    // already installed (when the wizard runs again): ticked, not installed again
                                     readonly property bool present: welcome.presentIds.indexOf(modelData.id) !== -1
                                     readonly property bool chosen: present || welcome.selectedIds.indexOf(modelData.id) !== -1
                                     width: (root.contentWidth - Kirigami.Units.largeSpacing * 2) / 3
                                     height: Kirigami.Units.gridUnit * 4
                                     onClicked: welcome.toggle(modelData.id)
                                     Accessible.name: modelData.name
-                                    // A kijelölt kártya erősen kiemelve: a világos ezüst kiemelőszín
-                                    // halványan alig látszott
+                                    // The selected card strongly highlighted: the light silver highlight color
+                                    // was barely visible
                                     background: Rectangle {
                                         radius: Kirigami.Units.cornerRadius
                                         color: appCard.chosen ? Qt.alpha(Kirigami.Theme.highlightColor, appCard.hovered ? 0.45 : 0.35)
@@ -409,7 +409,7 @@ Kirigami.ApplicationWindow {
                                                 font: Kirigami.Theme.smallFont
                                                 text: root.t("app.installed")
                                             }
-                                            // Windows-program: a telepítése a varázsló után következik
+                                            // Windows program: it is installed after the wizard
                                             QQC2.Label {
                                                 visible: appCard.modelData.source === "windows" && !appCard.present
                                                 Layout.fillWidth: true
@@ -421,9 +421,9 @@ Kirigami.ApplicationWindow {
                                                 text: root.t("app.windows_badge")
                                             }
                                         }
-                                        // Valódi jelölőnégyzet. (A Breeze-ben nincs "checkbox-unchecked" ikon,
-                                        // helyette a bepipált "checkbox" látszott.) A saját állapotát nem
-                                        // váltja, csak továbbadja a kattintást; a pipát a kiválasztás adja.
+                                        // A real checkbox. (Breeze has no "checkbox-unchecked" icon,
+                                        // the ticked "checkbox" showed instead.) It does not toggle its own
+                                        // state, it only passes the click on; the tick comes from the selection.
                                         QQC2.CheckBox {
                                             Layout.rightMargin: Kirigami.Units.largeSpacing
                                             checkState: appCard.chosen ? Qt.Checked : Qt.Unchecked
@@ -439,7 +439,7 @@ Kirigami.ApplicationWindow {
                     }
                 }
 
-                // Alsó sáv: lépésjelző, vissza, tovább / telepítés
+                // Bottom bar: step indicator, back, next / install
                 Rectangle {
                     Layout.fillWidth: true
                     implicitHeight: bar.implicitHeight + Kirigami.Units.largeSpacing * 2
@@ -465,7 +465,7 @@ Kirigami.ApplicationWindow {
                                   : root.t(welcome.selectedIds.length === 0 ? "nav.finish" : "nav.install")
                             icon.name: welcome.lastCategory && welcome.selectedIds.length > 0 ? "download" : "go-next"
                             onClicked: {
-                                // A böngészős lépés után szólunk, ha nem választott egyet sem
+                                // After the browser step we say so if none was chosen
                                 if (welcome.categoryIndex === 0 && welcome.selectedInCategory.length === 0)
                                     noBrowser.open();
                                 else
@@ -476,7 +476,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- 3. Telepítés ------------------------------------------------
+            // --- 3. Installing ------------------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -560,7 +560,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- 4. Kész -------------------------------------------------------
+            // --- 4. Done -------------------------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -625,7 +625,7 @@ Kirigami.ApplicationWindow {
                             onClicked: welcome.quickAction("language")
                         }
                     }
-                    // Letöltött Windows-telepítők: előbb ezek jönnek (egyesével), újraindítás csak utánuk
+                    // Downloaded Windows installers: these come first (one by one), the restart only after them
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
                         Layout.topMargin: Kirigami.Units.largeSpacing
@@ -641,7 +641,7 @@ Kirigami.ApplicationWindow {
                         text: root.t("done.windows_continue")
                         onClicked: welcome.runWindowsQueue()
                     }
-                    // Telepítés után az újraindítás a fő gomb: utána minden új app rendesen betöltődik
+                    // After installing, restarting is the main button: then every new app loads properly
                     QQC2.Label {
                         Layout.fillWidth: true
                         Layout.topMargin: Kirigami.Units.largeSpacing
@@ -669,7 +669,7 @@ Kirigami.ApplicationWindow {
                             onClicked: welcome.finish(true)
                         }
                     }
-                    // Támogatás (Ko-fi): halkan, a fő gombok alatt; a cím a szövegben is ott van, ha nincs böngésző
+                    // Support (Ko-fi): quietly, below the main buttons; the address is in the text too, in case there is no browser
                     QQC2.Label {
                         Layout.fillWidth: true
                         Layout.topMargin: Kirigami.Units.largeSpacing
@@ -689,7 +689,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- 5. Jelszavak (a megjelenés után) ---------------------------------
+            // --- 5. Passwords (after the appearance) ---------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -761,7 +761,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- 6. Tapasztalatok megosztása (a jelszavak után) -------------------
+            // --- 6. Sharing experiences (after the passwords) -------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -830,7 +830,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- 7. Fájlok áthozása a Windowsból (csak ha van Windows-partíció) ----------
+            // --- 7. Bringing files over from Windows (only if there is a Windows partition) ----------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -857,14 +857,14 @@ Kirigami.ApplicationWindow {
                         opacity: 0.8
                         text: root.t("windows.text")
                     }
-                    // felmérés
+                    // survey
                     RowLayout {
                         Layout.alignment: Qt.AlignHCenter
                         visible: parent.winState === "scanning" || parent.winState === "idle"
                         QQC2.BusyIndicator { running: parent.visible }
                         QQC2.Label { text: root.t("windows.scanning") }
                     }
-                    // választás
+                    // choice
                     RowLayout {
                         Layout.fillWidth: true
                         visible: parent.winState === "ready" && welcome.windowsUsers.length > 1
@@ -903,7 +903,7 @@ Kirigami.ApplicationWindow {
                         type: Kirigami.MessageType.Information
                         text: root.t("windows.onedrive")
                     }
-                    // másolás
+                    // copying
                     ColumnLayout {
                         Layout.fillWidth: true
                         visible: parent.winState === "copying"
@@ -916,7 +916,7 @@ Kirigami.ApplicationWindow {
                         }
                         QQC2.Label { opacity: 0.7; text: welcome.windowsDetail }
                     }
-                    // eredmény, hibák
+                    // result, errors
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
                         visible: ["done", "nospace", "locked", "none", "failed"].indexOf(parent.winState) >= 0

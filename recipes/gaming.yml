@@ -1,53 +1,53 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
-# Gaming réteg. A cél: a felhasználó soha ne lássa a Proton/Wine-t.
+# Gaming layer. The goal: the user never sees Proton/Wine.
 modules:
   - type: dnf
     install:
       packages:
-        - gamescope # mikrokompozitor, felskálázás, HDR
-        - mangohud  # FPS / teljesítmény overlay
-        - gamemode  # CPU/GPU teljesítmény-mód játék közben
-        # Tartalék futtató a Windows-programokhoz: ha a Proton még nincs letöltve és nincs
-        # internet, ezzel indul az .exe (files/system/usr/lib/sloth-os/sloth-exe/sloth_exe/backend.py).
-        # Szándékosan nem a teljes "wine" csomag: a wine-desktop "Wine …" menüpontokat és
-        # saját .exe-társítást hozna, a felhasználó pedig ne lássa a Wine-t.
+        - gamescope # micro-compositor, upscaling, HDR
+        - mangohud  # FPS / performance overlay
+        - gamemode  # CPU/GPU performance mode while gaming
+        # A fallback runner for Windows programs: if Proton is not downloaded yet and there is no
+        # internet, the .exe starts with this (files/system/usr/lib/sloth-os/sloth-exe/sloth_exe/backend.py).
+        # Deliberately not the full "wine" package: wine-desktop would bring "Wine …" menu entries and
+        # its own .exe association, and the user should not see Wine.
         - wine-core  # a wine parancs
-        - wine-dxvk  # DirectX 9-11 Vulkanon (játékok)
-        - wine-mono  # .NET-es programokhoz, telepítő ablak nélkül
-        # 32 bites grafikus driverek a Windows-programoknak (2026-10-20). A Proton futtatókörnyezete a rendszer
-        # driverét adja át a programnak; 32 bites program (pl. Battle.net, a legtöbb telepítő) e nélkül nem kap
-        # Vulkant/OpenGL-t, és a beépített böngészőmotorja induláskor összeomlik. A glibc.i686 függőségként jön
-        # (a futtatókörnyezet 32 bites segédje is ezzel indul). A Fedora wine-core-ja csak 64 bites, ezért eddig
-        # nem volt a rendszeren 32 bites könyvtár. NVIDIA-n: nvidia-32bit.sh
+        - wine-dxvk  # DirectX 9-11 on Vulkan (games)
+        - wine-mono  # for .NET programs, without an installer window
+        # 32-bit graphics drivers for Windows programs (2026-10-20). The Proton runtime passes the system's
+        # driver to the program; without these a 32-bit program (e.g. Battle.net, most installers) gets no
+        # Vulkan/OpenGL, and its built-in browser engine crashes at startup. glibc.i686 comes as a dependency
+        # (the runtime's 32-bit helper starts with it too). Fedora's wine-core is 64-bit only, so until now
+        # there were no 32-bit libraries on the system. On NVIDIA: nvidia-32bit.sh
         - mesa-dri-drivers.i686
         - mesa-vulkan-drivers.i686
 
-  # Windows-programok: dupla kattintás egy .exe-re -> telepítés / futtatás (files/system/usr/lib/sloth-os/sloth-exe).
-  # Steam nélkül is működik. A háttérben az umu-launcher + Proton fut; az umu nincs a Fedora
-  # repóban, ezért rögzített verziójú GitHub RPM. A Protont bejelentkezés után a
-  # sloth-windows-prepare.timer frissen tartja. Egy rögzített Proton és a Steam Linux Runtime gyárilag az
-  # image-ben van (windows-runtime.sh), így az első .exe letöltés és internet nélkül, azonnal indul.
+  # Windows programs: double-click an .exe -> install / run (files/system/usr/lib/sloth-os/sloth-exe).
+  # It works without Steam too. Behind it runs umu-launcher + Proton; umu is not in the Fedora
+  # repositories, so it is a GitHub RPM with a pinned version. After login
+  # sloth-windows-prepare.timer keeps Proton fresh. A pinned Proton and the Steam Linux Runtime are in the
+  # image from the factory (windows-runtime.sh), so the first .exe starts at once, without download or internet.
   - type: script
     scripts:
       - umu-launcher.sh
       - windows-runtime.sh
-      - nvidia-32bit.sh   # NVIDIA-n a driver 32 bites része is (a mesa ...i686 párja); AMD/Intel-en nincs teendő
+      - nvidia-32bit.sh   # on NVIDIA the driver's 32-bit part too (the pair of mesa ...i686); nothing to do on AMD/Intel
       - exe-handler.sh
 
-  # A Flatpak Steamen belül a fenti RPM-ek nem látszanak, ezért a MangoHud és
-  # gamescope Vulkan rétegeket Flatpakként is feltesszük, a Steam runtime-verziójához
-  # igazítva (files/system/usr/libexec/sloth-os/steam-vulkan-layers).
-  # A Steamben a Proton alapból be van kapcsolva minden játékra (egyszer, bejelentkezéskor;
-  # ha a felhasználó kikapcsolja, nem írjuk felül): files/system/usr/libexec/sloth-os/steam-proton-default
+  # Inside the Flatpak Steam the RPMs above are not visible, so the MangoHud and
+  # gamescope Vulkan layers are installed as Flatpaks too, matched to Steam's
+  # runtime version (files/system/usr/libexec/sloth-os/steam-vulkan-layers).
+  # In Steam, Proton is turned on for every game by default (once, at login;
+  # if the user turns it off, we do not overwrite it): files/system/usr/libexec/sloth-os/steam-proton-default
   - type: systemd
     system:
       enabled:
         - sloth-steam-vulkan-layers.timer
-        - sloth-nvidia-auto.timer        # NVIDIA-s gépen az NVIDIA-s változat a háttérben
+        - sloth-nvidia-auto.timer        # on an NVIDIA machine, the NVIDIA version in the background
     user:
       enabled:
         - sloth-steam-proton-default.service
         - sloth-windows-prepare.timer
-        - sloth-nvidia-notify.path       # értesítés, ha az NVIDIA-s változat elkészült
+        - sloth-nvidia-notify.path       # a notification when the NVIDIA version is ready
         - sloth-nvidia-notify.service
-        - sloth-steam-first-run.path     # értesítés, amíg a Steam az első indításnál letölti magát
+        - sloth-steam-first-run.path     # a notification while Steam downloads itself on its first start

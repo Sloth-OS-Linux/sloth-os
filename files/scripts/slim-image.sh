@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
-# Az image karcsúsítása: csak az marad, ami a rendszer működéséhez vagy a hibaelhárításhoz kell
-# (döntés: 2026-10-15, docs/ROADMAP.md, 3. fázis). Ami kikerül, a Discoverből telepíthető.
-# A felhasználói appok (Firefox, KDE üdvözlő…) a remove-default-apps.sh-ban vannak.
-# Maradnak a hibaelhárító eszközök is: naplónéző, Filelight, nano, vim, htop, nvtop, tmux, távsegítség (KRdp/krfb).
+# Slimming the image: only what the system needs to work or to troubleshoot stays
+# (decision: 2026-10-15, docs/ROADMAP.md, phase 3). Whatever is removed can be installed from Discover.
+# The user apps (Firefox, KDE welcome…) are in remove-default-apps.sh.
+# The troubleshooting tools stay too: log viewer, Filelight, nano, vim, htop, nvtop, tmux, remote help (KRdp/krfb).
 set -euo pipefail
 
 # --- Csomagok ------------------------------------------------------------------------------------
-# kate: a KWrite marad · khelpcenter: súgóközpont
-# just: az ujust receptekhez (az ublue-os-just-tal együtt), nem használjuk · toolbox: a distrobox marad
-# buildah, cosign: fejlesztői eszközök (az aláírás-ellenőrzés a policy.json-nal megy, nem a cosign paranccsal)
-# ibus: a fcitx5 marad (KDE-ben Waylanden az ajánlott, a kínai/japán/koreai beviteli módok vele is megvannak)
-# plasma-workspace-wallpapers: a KDE háttérképei (csak a Sloth OS saját képei maradnak)
-# pipewire-config-raop: a hálózat AirPlay-hangszóróit (pl. egy iskola összes MacBookját) hangkimenetként
-#   veszi fel. Wi-Fi-váltáskor és a nem válaszoló eszközöknél ezek pár másodpercenként eltűnnek és újra
-#   megjelennek, és minden új kimenet feloldja a Plasma „mindent némít” állapotát (2026-10-20, a teszt
-#   naplója). Semmi nem függ tőle; aki AirPlayre küldené a hangot, a Discoverből visszateheti
+# kate: KWrite stays · khelpcenter: help center
+# just: for the ujust recipes (together with ublue-os-just), we do not use it · toolbox: distrobox stays
+# buildah, cosign: developer tools (signature verification works through policy.json, not the cosign command)
+# ibus: fcitx5 stays (the recommended one in KDE on Wayland; the Chinese/Japanese/Korean input methods work with it too)
+# plasma-workspace-wallpapers: KDE's wallpapers (only Sloth OS's own pictures stay)
+# pipewire-config-raop: adds the network's AirPlay speakers (e.g. all MacBooks of a school) as sound
+#   outputs. On a Wi-Fi change and with unresponsive devices these disappear and reappear every few seconds,
+#   and every new output lifts Plasma's "mute everything" state (2026-10-20, the test's
+#   log). Nothing depends on it; whoever wants to send sound to AirPlay can put it back from Discover
 REMOVE=(kate khelpcenter just toolbox buildah cosign ibus plasma-workspace-wallpapers pipewire-config-raop)
 
 present=()
@@ -24,16 +24,16 @@ for pkg in "${REMOVE[@]}"; do
   fi
 done
 if (( ${#present[@]} )); then
-  echo "Eltávolítás: ${present[*]}"
+  echo "Removing: ${present[*]}"
   dnf -y remove "${present[@]}"
 fi
 
-# --- KDE Connect (telefon összekötése): benne van, de alapból ki van kapcsolva ----------------------
-# Nincs a Flathubon, ezért RPM. Csak annak fut, aki az Üdvözlőben vagy a Sloth Központban bekapcsolja
-# (/usr/libexec/sloth-os/phone-link); addig nem indul el, és nem hirdeti magát a hálózaton.
-# A magától indulás mellett a D-Bus-indítást is félretesszük: különben a tálca KDE Connect-kisalkalmazása
-# bejelentkezéskor elindítaná. A bekapcsolás a felhasználó saját mappájában adja vissza mindkettőt.
-# A Start menü bejegyzései rejtve, amíg nincs bekapcsolva (a bekapcsolás a saját mappában mutatja őket).
+# --- KDE Connect (connecting a phone): included, but off by default ----------------------
+# It is not on Flathub, so it is an RPM. It only runs for those who turn it on in Welcome or in Sloth Center
+# (/usr/libexec/sloth-os/phone-link); until then it does not start and does not announce itself on the network.
+# Besides starting by itself, D-Bus activation is set aside too: otherwise the taskbar's KDE Connect applet
+# would start it at login. Turning it on gives both back in the user's own folder.
+# The Start menu entries are hidden until it is turned on (turning it on shows them in the user's own folder).
 KDECONNECT=/usr/share/sloth-os/kdeconnect
 mkdir -p "$KDECONNECT"
 grep -q '^Exec=' /etc/xdg/autostart/org.kde.kdeconnect.daemon.desktop
@@ -47,11 +47,11 @@ for entry in org.kde.kdeconnect.app org.kde.kdeconnect.sms; do
   sed -i '/^NoDisplay=/d; /^\[Desktop Entry\]/a NoDisplay=true' "$f"
 done
 
-# --- Háttérképek ---------------------------------------------------------------------------------
-# A Plasma és a Fedora-csomagok saját képeit (Next, F44) nem lehet csomagként törölni (a Plasma függ
-# tőlük), ezért csak a fájlok kerülnek ki. A régi nevek (Default, Fedora, Next) a Sloth OS
-# alapértelmezett képére mutatnak, hogy ami még rájuk hivatkozik, ne fekete hátteret kapjon.
-# A képválasztóban így sem látszik kétszer: a kép azonosítója (metadata.json) ugyanaz.
+# --- Wallpapers ---------------------------------------------------------------------------------
+# The own pictures of Plasma and the Fedora packages (Next, F44) cannot be removed as packages (Plasma depends
+# on them), so only the files are removed. The old names (Default, Fedora, Next) point to Sloth OS's
+# default picture, so whatever still refers to them does not get a black background.
+# It still does not show twice in the picture chooser: the picture's ID (metadata.json) is the same.
 DEFAULT=SlothOS-metallic-sloth-over-silver-waves
 cd /usr/share/wallpapers
 [[ -d $DEFAULT ]]
@@ -61,9 +61,9 @@ done
 for name in Default Fedora Next; do
   ln -s "$DEFAULT" "$name"
 done
-# A /usr/share/backgrounds (kb. 15 MB) marad: a bejelentkező képernyő Fedora-alapbeállításai hivatkozhatnak rá
+# /usr/share/backgrounds (about 15 MB) stays: the login screen's Fedora defaults may refer to it
 
-# --- BlueBuild maradéka ----------------------------------------------------------------------------
-# A nushellt a default-flatpaks modul induláskor használja, ezért a nu marad; a bővítményei
-# (polars, query, példák…) nem kellenek.
+# --- BlueBuild leftovers ----------------------------------------------------------------------------
+# The default-flatpaks module uses nushell at startup, so nu stays; its plugins
+# (polars, query, examples…) are not needed.
 rm -f /usr/libexec/bluebuild/nu/nu_plugin_*

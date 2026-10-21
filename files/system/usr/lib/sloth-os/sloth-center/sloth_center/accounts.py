@@ -219,7 +219,7 @@ class AccountsController(QObject):
             result = self._helper(["pin-set"], stdin=pin + "\n")
             if result.get("ok"):
                 self._info = tr("PIN saved. You can use it from your next sign-in.")
-            elif result.get("error") == "gyenge PIN":
+            elif result.get("error") == "weak PIN":
                 self._error = tr("This PIN is too easy to guess (e.g. 1111 or 1234). Choose another one.")
             else:
                 self._error = tr("Couldn't save it. This needs administrator approval.")
@@ -310,7 +310,7 @@ class AccountsController(QObject):
             result = {}
         if result.get("ok"):
             self._info = tr("Saved.")
-        elif result.get("error") == "nem rendszergazda":
+        elif result.get("error") == "not an administrator":
             self._error = tr("Only an administrator account can turn this on.")
         else:
             self._error = tr("Couldn't change it. This needs administrator approval.")

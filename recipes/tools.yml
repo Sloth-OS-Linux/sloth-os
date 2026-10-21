@@ -1,50 +1,50 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
-# A Sloth OS saját GUI eszközeinek futtatókörnyezete (Sloth Központ, üdvözlő varázsló).
-# Az eszközök forrása: files/system/usr/lib/sloth-os/<eszköz>/
+# The runtime of Sloth OS's own GUI tools (Sloth Center, welcome wizard).
+# The tools' source: files/system/usr/lib/sloth-os/<tool>/
 modules:
   - type: dnf
     install:
       packages:
-        - python3-pyside6   # Qt/QML Pythonból
-        - python3-gobject   # D-Bus (rpm-ostree, Flatpak) a GLib-en keresztül
-        - fuse-libs         # FUSE 2: az AppImage-ek futtatásához (Linuxos csomagok, sloth_common/apps/packages.py)
-        # Bejelentkezési módok (Sloth Központ → Fiók és biztonság)
-        - authselect        # a bejelentkezési módok be- és kikapcsolása (PAM)
-        - fprintd-pam       # ujjlenyomat
-        - pam-u2f           # biztonsági kulcs (FIDO2 / YubiKey), a felvételhez: pamu2fcfg
-        - realmd            # céges fiók: csatlakozás Active Directory tartományhoz
+        - python3-pyside6   # Qt/QML from Python
+        - python3-gobject   # D-Bus (rpm-ostree, Flatpak) through GLib
+        - fuse-libs         # FUSE 2: for running AppImages (Linux packages, sloth_common/apps/packages.py)
+        # Sign-in methods (Sloth Center → Account and security)
+        - authselect        # turning sign-in methods on and off (PAM)
+        - fprintd-pam       # fingerprint
+        - pam-u2f           # security key (FIDO2 / YubiKey); for enrolling: pamu2fcfg
+        - realmd            # work account: joining an Active Directory domain
         - adcli
         - sssd-ad
-        # Nyomtató és szkenner (ha már benne vannak az alapban, a dnf nem csinál semmit)
-        - hplip                           # HP nyomtatók és szkennerek illesztője (a HP gépek gyakoriak)
-        - sane-backends-drivers-scanners  # a szkennerek illesztői
-        - skanpage                        # szkennelés (KDE); hardvereszköz, mint a nyomtatók beállítása
-        - fwupd                           # BIOS/firmware frissítés (LVFS), a Sloth Központ Frissítések oldala
-        # Felhőtárhely (OneDrive, Google Drive) mappaként: /usr/libexec/sloth-os/cloud-drive
+        # Printer and scanner (if they are already in the base, dnf does nothing)
+        - hplip                           # drivers for HP printers and scanners (HP machines are common)
+        - sane-backends-drivers-scanners  # the scanners' drivers
+        - skanpage                        # scanning (KDE); hardware, like setting up printers
+        - fwupd                           # BIOS/firmware updates (LVFS), on Sloth Center's Updates page
+        # Cloud storage (OneDrive, Google Drive) as a folder: /usr/libexec/sloth-os/cloud-drive
         - rclone
         - fuse3
 
   - type: systemd
     system:
       enabled:
-        # A saját fájlok mentése (Sloth Központ → Fájlmentés, Dolphin → Korábbi verziók)
-        - sloth-home-layout.service   # induláskor: a /var/home külön subvolume (a pillanatképekhez)
-        - sloth-home-snapshot.timer   # óránként egy pillanatkép, a régiek ritkítása
-        # a gép alaphelyzetbe állítása, ha a Sloth Központban kérték (induláskor, bejelentkezés előtt)
+        # Backing up your own files (Sloth Center → File backup, Dolphin → Previous versions)
+        - sloth-home-layout.service   # at startup: /var/home as a separate subvolume (for the snapshots)
+        - sloth-home-snapshot.timer   # one snapshot an hour, thinning out the old ones
+        # resetting the computer, if requested in Sloth Center (at startup, before login)
         - sloth-factory-reset.service
-        - sloth-boot-reset.service    # ugyanez a boot menüből kérve (a fájlok megmaradnak)
-        - sloth-login-repair.service  # a bejelentkező képernyő ne vesszen el egy authselect-módosítás után
+        - sloth-boot-reset.service    # the same, requested from the boot menu (the files stay)
+        - sloth-login-repair.service  # the login screen must not get lost after an authselect change
     user:
       enabled:
-        - sloth-github-bundle-update.timer   # a GitHub-csomagként telepített appok (pl. ArtCraft) napi frissítése
-        # értesítés, ha a háttérben elkészült egy rendszerfrissítés (a következő újraindításkor települ)
+        - sloth-github-bundle-update.timer   # daily update of the apps installed as GitHub packages (e.g. ArtCraft)
+        # a notification when a system update was prepared in the background (it installs at the next restart)
         - sloth-update-notify.path
         - sloth-update-notify.service
-        # a Windows-programok tálcás szövegbuborékai a tálca mellé (ne a képernyő bal felső sarkába)
+        # the Windows programs' taskbar balloons next to the taskbar (not in the top left corner of the screen)
         - sloth-wine-balloons.service
 
-  # Karcsúsítás: csak az marad, ami a működéshez vagy a hibaelhárításhoz kell (maradjon a modulok végén)
+  # Slimming: only what is needed to work or to troubleshoot stays (keep it at the end of the modules)
   - type: script
     scripts:
-      - pin-authselect.sh   # PIN-kódos bejelentkezés: a "sloth" authselect-profil (with-sloth-pin)
+      - pin-authselect.sh   # PIN sign-in: the "sloth" authselect profile (with-sloth-pin)
       - slim-image.sh

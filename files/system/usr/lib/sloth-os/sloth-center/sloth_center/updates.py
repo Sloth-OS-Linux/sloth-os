@@ -1,7 +1,7 @@
-"""Frissítések és visszaállítás: a QML felület vezérlője.
+"""Updates and rollback: the controller of the QML interface.
 
-A felület csak emberi nyelvű állapotot és folyamatjelzőt kap; a nyers
-rpm-ostree üzenetek a naplóba kerülnek (journalctl --user -t sloth-center).
+The interface only gets a human-language status and a progress bar; the raw
+rpm-ostree messages go to the log (journalctl --user -t sloth-center).
 """
 import json
 import logging
@@ -19,11 +19,11 @@ log = logging.getLogger("sloth-center.updates")
 
 
 def update_available(cached):
-    """Van-e letölthető új verzió az rpm-ostree CachedUpdate adata szerint.
+    """Whether there is a new version to download, according to rpm-ostree's CachedUpdate data.
 
-    Konténer-image-nél (ostree-image-signed:docker://…) a "ref-has-new-commit" mindig hamis: ott a
-    "manifest-diff" mutatja az új verziót (hozzáadott / eltávolított rétegek), ahogy az "rpm-ostree upgrade --check"
-    „AvailableUpdate” kiírása is (2026-10-20, valódi gépen: n-added 29, ref-has-new-commit false)."""
+    For a container image (ostree-image-signed:docker://…) "ref-has-new-commit" is always false: there
+    "manifest-diff" shows the new version (added / removed layers), as does the "AvailableUpdate" output of
+    "rpm-ostree upgrade --check" (2026-10-20, real machine: n-added 29, ref-has-new-commit false)."""
     if cached.get("ref-has-new-commit"):
         return True
     diff = cached.get("manifest-diff") or {}
@@ -35,7 +35,7 @@ class UpdatesController(QObject):
 
     @Slot()
     def openDiscover(self):
-        """Az appok frissítései a Discoverben (a rendszert ez az oldal frissíti)."""
+        """App updates in Discover (this page updates the system)."""
         try:
             subprocess.Popen(["plasma-discover", "--mode", "update"], start_new_session=True,
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -64,16 +64,16 @@ class UpdatesController(QObject):
             self._ostree = RpmOstree()
             self._ostree.connect_changed(self._on_system_changed)
         except GLib.Error as e:
-            log.error("rpm-ostree nem érhető el: %s", e.message)
+            log.error("rpm-ostree is not available: %s", e.message)
             self._unavailable = tr("The update service isn't available on this computer.")
         self.refresh()
         self._attach_background()
 
-    # --- Tulajdonságok a QML-nek ------------------------------------------
+    # --- Properties for QML ------------------------------------------
 
-    # A segéd a jelzést paraméterként kapja: az osztálytörzs nevei (pl. "changed")
-    # a benne definiált függvényekből nem látszanak.
-    def _p(attr, typ=str, notify=changed):  # noqa: N805 – kis segéd a tulajdonságokhoz
+    # The helper gets the signal as a parameter: the names of the class body (e.g. "changed")
+    # are not visible from the functions defined in it.
+    def _p(attr, typ=str, notify=changed):  # noqa: N805 – a small helper for the properties
         return Property(typ, lambda self: getattr(self, attr), notify=notify)
 
     currentVersion = _p("_current")
@@ -111,14 +111,14 @@ class UpdatesController(QObject):
 
     @Property("QVariantList", notify=changed)
     def versions(self):
-        """Az összes gépen lévő verzió: ami most fut, ami legközelebb indul, a megtartottak és az előző."""
+        """Every version on the machine: what runs now, what starts next, the pinned ones and the previous one."""
         return list(self._versions)
 
     @Property(bool, notify=changed)
     def canRollback(self):
         return bool(self._rollback) and not self._mode
 
-    # --- Állapot frissítése -----------------------------------------------
+    # --- Refreshing the state -----------------------------------------------
 
     def _on_system_changed(self):
         self.refresh()
@@ -141,12 +141,12 @@ class UpdatesController(QObject):
             "index": i,
             "name": texts.version_text(d),
             "booted": d.get("id") == booted.get("id"),
-            # az ostree sorrendjében az első indul a következő újraindításkor
+            # in ostree's order the first one starts at the next restart
             "next": i == 0,
             "pinned": bool(d.get("pinned")),
         } for i, d in enumerate(deployments)]
-        # Ha az alapértelmezett (következő indításkor induló) verzió nem a mostani,
-        # akkor újraindítás vár ránk (frissítés vagy visszaállítás után).
+        # If the default version (the one starting next time) is not the current one,
+        # a restart is pending (after an update or a rollback).
         if default and booted and default.get("id") != booted.get("id"):
             self._pending = texts.version_text(default)
         else:
@@ -160,7 +160,7 @@ class UpdatesController(QObject):
         self.changed.emit()
 
     def _attach_background(self):
-        """Ha a háttérben (automatikus frissítés) fut valami, mutassuk az állapotát."""
+        """If something runs in the background (automatic update), show its state."""
         if not self._ostree or self._mode:
             return
         address = self._ostree.active_transaction_address()
@@ -168,7 +168,7 @@ class UpdatesController(QObject):
             self._begin("background", tr("The system is updating in the background…"))
             self._follow(address)
 
-    # --- Műveletek ----------------------------------------------------------
+    # --- Actions ----------------------------------------------------------
 
     def _begin(self, mode, status):
         self._mode = mode
@@ -200,9 +200,9 @@ class UpdatesController(QObject):
         self.changed.emit()
 
     def _on_error(self, raw):
-        log.warning("hiba: %s", raw)
+        log.warning("error: %s", raw)
         if "in progress" in raw.lower() or "busy" in raw.lower():
-            # Valami más már fut: csatlakozzunk rá
+            # Something else is already running: let us join it
             self._mode = ""
             self._attach_background()
             return
@@ -213,18 +213,18 @@ class UpdatesController(QObject):
     def _finished(self, success, raw):
         mode, self._mode, self._txn = self._mode, "", None
         if not success:
-            self._on_error(raw or "ismeretlen hiba")
+            self._on_error(raw or "unknown error")
             return
         try:
             self._ostree.reload()
         except GLib.Error:
             pass
         self.refresh()
-        # A szolgáltatás a tranzakció vége után még írhatja az állapotot (a talált új verziót, az előkészített
-        # verziót): kicsit később újra ránézünk, hogy ne kelljen a Központot újranyitni
+        # The service may still write the state after the transaction ends (the new version found, the prepared
+        # version): we look again a bit later, so Sloth Center does not need to be reopened
         for delay in (2000, 8000):
             QTimer.singleShot(delay, self._late_refresh)
-        # A "naprakész" állapotot a címsor mutatja, ide csak a teendő kerül
+        # The "up to date" state is shown by the title; only what needs doing goes here
         if mode in ("upgrade", "background") and self._pending:
             self._info = tr("The update is ready. Restart the computer whenever it suits you.")
         elif mode == "rollback":
@@ -268,7 +268,7 @@ class UpdatesController(QObject):
             self._txn.cancel()
 
     def _helper(self, op, index):
-        """Rendszergazdai művelet egy verzión (sloth-helper, grafikus jelszókérővel)."""
+        """An administrator operation on a version (sloth-helper, with a graphical password prompt)."""
         if self._mode or index < 0:
             return False
         self._error, self._info = "", ""
@@ -290,7 +290,7 @@ class UpdatesController(QObject):
 
     @Slot(bool)
     def setPinned(self, pinned):
-        """A mostani verzió megtartása: a frissítések nem törlik (ostree admin pin)."""
+        """Keeps the current version: updates do not delete it (ostree admin pin)."""
         self._helper("pin" if pinned else "unpin", self._booted_index)
 
     @Slot(int, bool)
@@ -299,21 +299,21 @@ class UpdatesController(QObject):
 
     @Slot(int)
     def bootVersion(self, index):
-        """Egy korábbi (megtartott) verzió induljon a következő újraindításkor. Letöltés nem kell."""
+        """An earlier (pinned) version starts at the next restart. No download needed."""
         if self._helper("set-default", index):
             self._info = tr("Done. This version will start after a restart.")
             self.changed.emit()
 
     @Slot()
     def reboot(self):
-        """Újraindítás a KDE saját módján (rákérdez a nem mentett munkákra)."""
+        """Restarts the KDE way (asks about unsaved work)."""
         bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
         try:
             bus.call_sync("org.kde.Shutdown", "/Shutdown", "org.kde.Shutdown", "logoutAndReboot",
                           None, None, Gio.DBusCallFlags.NONE, 5000, None)
             return
         except GLib.Error as e:
-            log.warning("KDE újraindítás nem ment, logind következik: %s", e.message)
+            log.warning("KDE restart did not work, logind is next: %s", e.message)
         system = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
         system.call("org.freedesktop.login1", "/org/freedesktop/login1", "org.freedesktop.login1.Manager",
                     "Reboot", GLib.Variant("(b)", (True,)), None,

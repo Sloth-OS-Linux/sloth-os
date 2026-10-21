@@ -1,9 +1,9 @@
-"""Appok telepítése a libflatpak-kal, külön szálon, folyamatjelzéssel.
+"""Installing apps with libflatpak, on a separate thread, with progress.
 
-Az appok egyesével, a kiválasztás sorrendjében (a listán fentről lefelé) települnek,
-mindegyik a saját tranzakciójában, a függőségeivel együtt. Előtte egy próbatranzakció
-felméri a teljes letöltendő méretet; a felület csak azt látja, melyik app települ, és
-hogy az összes letöltésből mennyi van meg (a futtatókörnyezeteket nem nevezzük meg).
+The apps are installed one by one, in the order chosen (top to bottom on the list),
+each in its own transaction, together with its dependencies. Before that, a trial transaction
+surveys the total download size; the UI only sees which app is being installed, and
+how much of the total download is done (runtimes are not named).
 """
 import hashlib
 import json
@@ -29,9 +29,9 @@ log = logging.getLogger("sloth-welcome.installer")
 FLATHUB = "flathub"
 FLATHUB_REPO_URL = "https://dl.flathub.org/repo/flathub.flatpakrepo"
 USER_AGENT = "SlothOS-Welcome/1.0"
-# A Flathub-os hibák nagy része átmeneti hálózati gond, ezért újrapróbáljuk
+# Most Flathub errors are temporary network problems, so we retry
 MAX_ATTEMPTS = 3
-# A hibák fordítási kulcsként utaznak; a felület mutatja őket a választott nyelven
+# Errors travel as translation keys; the UI shows them in the chosen language
 NETWORK_ERROR = "error.network"
 
 
@@ -43,7 +43,7 @@ def _human_error(raw):
         return "error.disk_full"
     if any(k in low for k in ("not authorized", "authentication", "permission")):
         return "error.not_authorized"
-    if "checksum" in low or "ellenőrző" in low:
+    if "checksum" in low or "ellenőrző" in low:  # "ellenőrző": libflatpak's Hungarian message
         return "error.checksum"
     return "error.generic"
 
@@ -64,12 +64,12 @@ def _http_get(url, on_chunk=None):
         return b"".join(chunks)
 
 
-# A Windows-programok (pl. játékindítók) letöltött telepítői; a varázsló után innen nyílnak meg egyesével
+# The downloaded installers of Windows programs (e.g. game launchers); after the wizard they open from here one by one
 WINDOWS_INSTALLERS = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "sloth-os" / "welcome-installers"
 
 
 def _remote_size(url):
-    """A letöltendő fájl mérete (HEAD, átirányítással); ha a szerver nem mondja meg, 0."""
+    """The size of the file to download (HEAD, following redirects); 0 if the server does not say."""
     req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(req, timeout=30) as resp:
@@ -79,7 +79,7 @@ def _remote_size(url):
 
 
 def download_windows_installer(app, on_bytes=None):
-    """A Windows-program hivatalos telepítője a WINDOWS_INSTALLERS mappába (fájlba írva, nem a memóriába). -> út"""
+    """The official installer of the Windows program into the WINDOWS_INSTALLERS folder (written to a file, not to memory). -> path"""
     WINDOWS_INSTALLERS.mkdir(parents=True, exist_ok=True)
     dest = WINDOWS_INSTALLERS / app["file"]
     part = dest.with_name(dest.name + ".part")
@@ -102,7 +102,7 @@ STATE_FILE = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")
 
 
 def bundle_versions():
-    """A GitHub-csomagként telepített appok verziói: {app_id: kiadás címkéje}."""
+    """The versions of the apps installed as GitHub packages: {app_id: release tag}."""
     try:
         return json.loads(STATE_FILE.read_text(encoding="utf-8"))
     except (OSError, ValueError):
@@ -121,19 +121,19 @@ def latest_release(app):
 
 
 def bundle_asset(app, release):
-    """A kiadás Flatpak csomagja: {name, browser_download_url, size, …} vagy None."""
+    """The release's Flatpak package: {name, browser_download_url, size, …} or None."""
     return next((a for a in release.get("assets", []) if a["name"].endswith(app["asset_suffix"])), None)
 
 
 def download_latest_bundle(app, release=None, on_bytes=None):
-    """Legfrissebb Flatpak csomag a GitHub kiadásból, SHA256 ellenőrzéssel. -> (fájl, címke)"""
+    """The latest Flatpak package from the GitHub release, with an SHA256 check. -> (file, tag)"""
     name = app["name"]
     release = release or latest_release(app)
     assets = {a["name"]: a["browser_download_url"] for a in release.get("assets", [])}
     bundle = bundle_asset(app, release)
     bundle_name = bundle["name"] if bundle else None
     if not bundle_name or "SHA256SUMS.txt" not in assets:
-        raise RuntimeError(f"{name}: nincs megfelelő csomag a kiadásban")
+        raise RuntimeError(f"{name}: no suitable package in the release")
     sums = _http_get(assets["SHA256SUMS.txt"]).decode("utf-8", "replace")
     expected = next((line.split()[0] for line in sums.splitlines()
                      if line.strip().endswith(bundle_name)), None)
@@ -144,7 +144,7 @@ def download_latest_bundle(app, release=None, on_bytes=None):
 
     data = _http_get(assets[bundle_name], progress)
     if not expected or hashlib.sha256(data).hexdigest() != expected:
-        raise RuntimeError("checksum: a letöltött csomag ellenőrző összege nem egyezik")
+        raise RuntimeError("checksum: the downloaded package's checksum does not match")
     fd, path = tempfile.mkstemp(suffix=".flatpak", prefix="sloth-bundle-")
     with os.fdopen(fd, "wb") as f:
         f.write(data)
@@ -152,22 +152,22 @@ def download_latest_bundle(app, release=None, on_bytes=None):
 
 
 class Installer:
-    """A callbackek a háttérszálból hívódnak; a hívó gondoskodik a szálváltásról."""
+    """The callbacks are called from the background thread; the caller takes care of switching threads."""
 
     def __init__(self, on_status, on_app_state, on_finished):
-        self._on_status = on_status          # (szöveg, részletek, összesített 0..100 vagy -1)
+        self._on_status = on_status          # (text, details, overall 0..100 or -1)
         self._on_app_state = on_app_state    # (app_id, "installing" | "done" | "failed", hibakulcs)
         self._on_finished = on_finished      # (sikeres_idk, sikertelen {id: hibakulcs})
         self._thread = None
         self._bundle_tags = {}
-        self.windows_installers = {}  # app_id -> a letöltött telepítő útja (a varázsló után nyílnak meg)
-        self._progress = {"total": 0, "done": 0}  # bájtban, az összes kiválasztott appra
+        self.windows_installers = {}  # app_id -> path of the downloaded installer (they open after the wizard)
+        self._progress = {"total": 0, "done": 0}  # in bytes, for all selected apps
 
     def start(self, app_ids):
         self._thread = threading.Thread(target=self._run, args=(list(app_ids),), daemon=True)
         self._thread.start()
 
-    # --- Belső -------------------------------------------------------------
+    # --- Internals -------------------------------------------------------------
 
     def _ensure_flathub(self, inst):
         try:
@@ -184,11 +184,11 @@ class Installer:
         return f"app/{app_id}/{Flatpak.get_default_arch()}/stable"
 
     def _report(self, name, index, count, current=0, frac=0.0):
-        """Állapot: melyik app települ („X telepítése…”) és a folyamatjelző. Letöltést és méretet nem írunk ki;
-        a folyamatjelző a letöltött bájtokból számol, mert az adja az idő nagy részét.
+        """Status: which app is being installed ("Installing X…") and the progress bar. Download and size are not shown;
+        the progress bar counts from the downloaded bytes, because that takes most of the time.
 
-        current: a folyamatban lévő letöltés bájtjai; frac: az app saját haladása 0..1
-        (csak akkor számít, ha a teljes méretet nem sikerült felmérni).
+        current: the bytes of the download in progress; frac: the app's own progress 0..1
+        (only counts if the total size could not be surveyed).
         """
         done = self._progress["done"] + current
         total = max(self._progress["total"], done)
@@ -199,10 +199,10 @@ class Installer:
         self._on_status(tr("install.installing", name=name), "", min(99, overall))
 
     def _plan(self, inst, apps, failed):
-        """A teljes letöltendő méret felmérése. -> {app_id: GitHub-kiadás} a csomagos appokhoz
+        """Surveys the total download size. -> {app_id: GitHub release} for the package apps
 
-        A Flathubos appokat egy próbatranzakcióba tesszük, amelyet a „ready” jelnél (a méretek
-        ismeretében, letöltés előtt) leállítunk; a közös futtatókörnyezet így csak egyszer számít.
+        The Flathub apps go into a trial transaction, which is stopped at the "ready" signal (with the sizes
+        known, before downloading); so a shared runtime counts only once.
         """
         self._progress = {"total": 0, "done": 0}
         releases, total = {}, 0
@@ -213,7 +213,7 @@ class Installer:
             def on_ready(t):
                 for op in t.get_operations():
                     sizes[op.get_ref()] = op.get_download_size()
-                return False  # csak felmérés, itt még nem telepítünk
+                return False  # only surveying, no installing here yet
 
             txn = Flatpak.Transaction.new_for_installation(inst, None)
             txn.add_default_dependency_sources()
@@ -221,20 +221,20 @@ class Installer:
                 try:
                     txn.add_install(FLATHUB, self._ref(app["id"]), None)
                 except GLib.Error:
-                    pass  # pl. már telepítve; a telepítésnél kiderül
+                    pass  # e.g. already installed; it turns out when installing
             txn.connect("ready", on_ready)
             try:
                 txn.run(None)
             except GLib.Error as e:
                 if not sizes:
-                    log.info("a méret felmérése nem sikerült: %s", e.message)
+                    log.info("surveying the size failed: %s", e.message)
             total += sum(sizes.values())
         for app in apps:
             if app.get("source") == "windows":
                 total += _remote_size(app["url"])
                 continue
             if app.get("source") != "github-bundle":
-                continue  # a "system" appok nem töltenek le semmit
+                continue  # "system" apps download nothing
             try:
                 releases[app["id"]] = latest_release(app)
             except Exception as e:
@@ -259,7 +259,7 @@ class Installer:
     def _run(self, app_ids):
         ok, failed = [], {}
         for attempt in range(MAX_ATTEMPTS):
-            # Csak a még nem telepített és hálózati hiba miatt elbukott appokat próbáljuk újra
+            # Only apps not installed yet that failed because of a network error are retried
             pending = [a for a in app_ids if a not in ok and (a not in failed or failed[a] == NETWORK_ERROR)]
             if not pending:
                 break
@@ -281,7 +281,7 @@ class Installer:
             releases = self._plan(inst, apps, failed)
             todo = [app for app in apps if app["id"] not in failed]
             user_inst = None
-            # Egyesével, a lista sorrendjében: mindig csak egy app áll „telepítés alatt”
+            # One by one, in the list's order: only one app is ever "being installed"
             for index, app in enumerate(todo):
                 app_id = app["id"]
                 self._on_app_state(app_id, "installing", "")
@@ -295,11 +295,11 @@ class Installer:
                         self.windows_installers[app_id] = path
                         error = None
                     elif app.get("source") == "system":
-                        # már a rendszerben van, csak bekapcsoljuk (pl. KDE Connect: /usr/libexec/sloth-os/phone-link)
+                        # already in the system, we only turn it on (e.g. KDE Connect: /usr/libexec/sloth-os/phone-link)
                         r = subprocess.run([app["switch"], "on"], capture_output=True, text=True, timeout=60)
                         error = None if r.returncode == 0 else (r.stderr.strip() or f"exit {r.returncode}")
                     elif app.get("source") == "github-bundle":
-                        # A GitHub-csomagok a felhasználóhoz kerülnek, így a háttérfrissítésükhöz nem kell jelszó
+                        # GitHub packages go to the user, so updating them in the background needs no password
                         if user_inst is None:
                             user_inst = Flatpak.Installation.new_user(None)
                             self._ensure_flathub(user_inst)
@@ -316,7 +316,7 @@ class Installer:
                         error = self._run_transaction(txn, app, index, len(todo))
                 except GLib.Error as e:
                     error = None if "already installed" in e.message.lower() else e.message
-                except Exception as e:  # letöltési hiba a GitHub csomagnál
+                except Exception as e:  # download error with the GitHub package
                     error = str(e)
                 if error:
                     log.warning("%s: %s", app_id, error)
@@ -328,7 +328,7 @@ class Installer:
                         save_bundle_version(app_id, self._bundle_tags[app_id])
                     self._on_app_state(app_id, "done", "")
         except Exception as e:
-            log.error("a telepítés megszakadt: %s", e)
+            log.error("the install was interrupted: %s", e)
             for app_id in app_ids:
                 if app_id not in ok and app_id not in failed:
                     failed[app_id] = _human_error(str(e))
@@ -340,10 +340,10 @@ class Installer:
                     pass
 
     def _run_transaction(self, txn, app, index, count):
-        """Egy app tranzakciója (az app és a hozzá kellő összetevők). -> hibaüzenet vagy None
+        """One app's transaction (the app and the components it needs). -> error message or None
 
-        A letöltött bájtok az összesítésbe mennek; az összetevőket nem nevezzük meg,
-        a felületen végig az app neve látszik.
+        The downloaded bytes go into the total; the components are not named,
+        the UI shows the app's name all along.
         """
         own_ref = f"app/{app['id']}/"
         state = {"ops": 1, "finished": 0, "error": None}
@@ -358,7 +358,7 @@ class Installer:
             def changed(p):
                 current = p.get_bytes_transferred()
                 if size:
-                    current = min(current, size)  # a felmérés is ezzel a mérettel számolt
+                    current = min(current, size)  # the survey counted with this size too
                 frac = (state["finished"] + p.get_progress() / 100) / state["ops"]
                 self._report(app["name"], index, count, current=current, frac=frac)
 
@@ -376,7 +376,7 @@ class Installer:
             log.warning("%s: %s", op.get_ref(), error.message)
             if op.get_ref().startswith(own_ref):
                 state["error"] = error.message
-            return True  # egy elhagyható kiegészítő (pl. nyelvi csomag) hibája miatt ne álljon le
+            return True  # an optional extension (e.g. a language pack) failing must not stop it
 
         txn.connect("ready", on_ready)
         txn.connect("new-operation", on_new_operation)

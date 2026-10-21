@@ -1,23 +1,23 @@
-"""Az alkalmazások könyvtára: hol vannak a telepített programok, és mi tartozik hozzájuk.
+"""The application library: where the installed programs are, and what belongs to them.
 
-Minden program saját, látható mappát kap a könyvtárban (alapból ~/Applications):
+Every program gets its own visible folder in the library (by default ~/Applications):
 
   ~/Applications/Battle.net/
-    Program fájljai -> windows/drive_c/Program Files (x86)/Battle.net   (a telepített fájlok)
-    windows/          a program saját Windows-környezete: C: meghajtó, beállítások, mentések
-    .sloth/app.json   adatok: név, indítófájlok, futtató, bevált beállítások
-    .sloth/icons/     ikonok a Start menühöz
-    .directory        a mappa ikonja a Dolphinban
+    Program files -> windows/drive_c/Program Files (x86)/Battle.net   (the installed files)
+    windows/          the program's own Windows environment: C: drive, settings, saves
+    .sloth/app.json   data: name, start files, runner, settings that worked
+    .sloth/icons/     icons for the Start menu
+    .directory        the folder's icon in Dolphin
 
-A háttérnapló a gyorsítótárba kerül (~/.cache/sloth-os/apps/<id>/naplo), mert bármikor törölhető.
-A könyvtárak listája: ~/.config/sloth-os/applications.json ({"libraries": [...], "default": "..."}).
-A Start menü bejegyzések az indítófájlt a Windows-környezethez képest tárolják, így a mappa
-áthelyezhető (másik könyvtárba, másik meghajtóra), a bejegyzések érvényesek maradnak.
+The background log goes to the cache (~/.cache/sloth-os/apps/<id>/naplo), because it can be deleted any time.
+The list of libraries: ~/.config/sloth-os/applications.json ({"libraries": [...], "default": "..."}).
+The Start menu entries store the start file relative to the Windows environment, so the folder
+can be moved (to another library, another drive), and the entries stay valid.
 
-A saját fájl nélküli programok (máshonnan indítottak, pl. a Steam indítja; dobozba telepített Linuxos
-csomagok) adatai rejtve vannak: ~/.local/share/sloth-os/apps/<id>/.sloth/app.json.
-A régi hely (~/.local/share/sloth-os/windows-programs/<id>/, benne files/ és meta.json) is olvasható;
-a migrate_legacy() egyszer áthozza a programokat az új helyre.
+Programs without files of their own (started from elsewhere, e.g. by Steam; Linux packages installed in a box)
+have hidden data: ~/.local/share/sloth-os/apps/<id>/.sloth/app.json.
+The old location (~/.local/share/sloth-os/windows-programs/<id>/, with files/ and meta.json) is readable too;
+migrate_legacy() brings the programs over to the new location once.
 """
 import json
 import logging
@@ -39,20 +39,20 @@ CACHE_HOME = Path(os.environ.get("XDG_CACHE_HOME", HOME / ".cache"))
 DEFAULT_LIBRARY = HOME / "Applications"
 CONFIG = CONFIG_HOME / "sloth-os" / "applications.json"
 LEGACY_ROOT = DATA_HOME / "sloth-os" / "windows-programs"
-# A saját fájl nélküli programok (máshonnan indítottak, dobozba telepítettek) adatai: ezek ne hagyjanak
-# üres mappát a látható könyvtárban
+# Data of programs without files of their own (started from elsewhere, installed in a box): these must not leave
+# an empty folder in the visible library
 RECORDS = DATA_HOME / "sloth-os" / "apps"
-# Ezek a programfajták nem a látható könyvtárba kerülnek
+# These kinds of programs do not go into the visible library
 RECORD_KINDS = {"link", "box"}
 LOG_ROOT = CACHE_HOME / "sloth-os" / "apps"
 
 SCHEMA = 1
-# Egyedi .exe-k (nem telepítők) közös Windows-környezete
+# The shared Windows environment of single .exe files (not installers)
 SHARED_ID = "egyeb-programok"
-# A Proton a Windows-felhasználót így hívja
+# This is what Proton calls the Windows user
 WIN_USER = "steamuser"
 SNAPSHOT_NAME = "pillanatkep"
-# Ezeken a fájlrendszereken működik a Windows-környezet (szimbolikus linkek, jogosultságok, kis-nagybetű)
+# The Windows environment works on these file systems (symbolic links, permissions, case)
 SUPPORTED_FS = {"btrfs", "ext4", "ext3", "xfs", "f2fs", "bcachefs"}
 
 
@@ -63,13 +63,13 @@ def slugify(name):
 
 
 def folder_name(name):
-    """A program neve mappanévként: "Battle.net" marad, a "/" és a vezető pont nem lehet benne."""
+    """The program's name as a folder name: "Battle.net" stays, "/" and a leading dot are not allowed."""
     s = re.sub(r"[/\\\x00-\x1f]+", "-", name or "").strip().lstrip(".").strip()
     return s[:80].strip() or "Program"
 
 
 def _write_json(path, data):
-    """Atomikus írás: félbeszakadt mentés után is ép marad a fájl."""
+    """Atomic write: the file stays intact even after an interrupted save."""
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_name(f".{path.name}.tmp")
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -84,10 +84,10 @@ def _read_json(path):
         return {}
 
 
-# --- Könyvtárak ------------------------------------------------------------------------------------
+# --- Libraries ------------------------------------------------------------------------------------
 
 def libraries():
-    """A beállított könyvtárak (az alapértelmezett mindig köztük van), sorrendben."""
+    """The configured libraries (the default is always among them), in order."""
     cfg = _read_json(CONFIG)
     out = [Path(p).expanduser() for p in cfg.get("libraries", []) if isinstance(p, str) and p]
     out.insert(0, default_library())
@@ -102,7 +102,7 @@ def default_library():
 
 
 def add_library(path, default=False):
-    """Könyvtár felvétele (az itt lévő programok is látszanak); default: ide települnek az újak."""
+    """Adds a library (the programs in it show up too); default: new programs are installed here."""
     path = Path(path).expanduser()
     cfg = _read_json(CONFIG)
     libs = [p for p in cfg.get("libraries", []) if isinstance(p, str)]
@@ -115,12 +115,12 @@ def add_library(path, default=False):
 
 
 def set_default_library(path):
-    """Ide települnek az új programok (a meglévők maradnak, ahol vannak)."""
+    """New programs are installed here (the existing ones stay where they are)."""
     add_library(path, default=True)
 
 
 def filesystem(path):
-    """A mappát tartalmazó fájlrendszer típusa (pl. "btrfs"), vagy "" ha nem derül ki."""
+    """The type of the file system containing the folder (e.g. "btrfs"), or "" if it cannot be determined."""
     path = Path(path)
     while not path.exists() and path != path.parent:
         path = path.parent
@@ -132,16 +132,16 @@ def filesystem(path):
 
 
 def supported_location(path):
-    """Mehet-e ide Windows-program (NTFS-en, exFAT-on és FAT-on a Windows-környezet nem működik)."""
+    """Whether Windows programs can go here (on NTFS, exFAT and FAT the Windows environment does not work)."""
     fs = filesystem(path)
     return not fs or fs in SUPPORTED_FS
 
 
-# --- Egy Windows-környezet és egy program ----------------------------------------------------------
+# --- A Windows environment and a program ----------------------------------------------------------
 
 class WinEnv:
-    """Egy Windows-környezet (prefix): a C: meghajtó és a registry. Lehet egy Sloth-program saját
-    környezete, vagy egy másik programé (Steam, Lutris, Bottles, ~/.wine), amit csak olvasunk."""
+    """A Windows environment (prefix): the C: drive and the registry. It can be a Sloth program's own
+    environment, or another app's (Steam, Lutris, Bottles, ~/.wine), which we only read."""
 
     def __init__(self, prefix):
         self.prefix = Path(prefix)
@@ -157,7 +157,7 @@ class WinEnv:
         drive = m.group(1).lower()
         rel = m.group(2).replace("\\", "/")
         base = self.prefix / ("drive_c" if drive == "c" else f"dosdevices/{drive}:")
-        # A Windows nem kis-nagybetű érzékeny: keressük meg a valódi elérési utat
+        # Windows is not case-sensitive: find the real path
         cur = base
         for part in [p for p in rel.split("/") if p]:
             nxt = cur / part
@@ -168,7 +168,7 @@ class WinEnv:
         return cur
 
     def host_to_windows(self, path):
-        """<prefix>/drive_c/Program Files/X/x.exe -> C:\\Program Files\\X\\x.exe (ha a C: meghajtón van)."""
+        """<prefix>/drive_c/Program Files/X/x.exe -> C:\\Program Files\\X\\x.exe (if it is on the C: drive)."""
         try:
             rel = Path(path).relative_to(self.prefix / "drive_c")
         except ValueError:
@@ -176,12 +176,12 @@ class WinEnv:
         return "C:\\" + "\\".join(rel.parts)
 
     def list_exes(self):
-        """Az összes .exe a Windows-környezetben (a Windows saját fájljai nélkül)."""
+        """All .exe files in the Windows environment (without Windows' own files)."""
         drive_c = self.prefix / "drive_c"
         out = []
         users = drive_c / "users"
         tops = ["Program Files", "Program Files (x86)", "Games"]
-        # a felhasználó saját programjai (a Protonnál „steamuser”, a sima Wine-nál a Linuxos név)
+        # the user's own programs (with Proton "steamuser", with plain Wine the Linux name)
         if users.is_dir():
             tops += [f"users/{u.name}/AppData" for u in users.iterdir() if u.is_dir() and not u.is_symlink()]
         for top in tops:
@@ -192,7 +192,7 @@ class WinEnv:
 
 
 class App(WinEnv):
-    """Egy telepített program a mappája alapján (a régi elrendezést is ismeri)."""
+    """An installed program, based on its folder (it knows the old layout too)."""
 
     def __init__(self, directory):
         self.dir = Path(directory)
@@ -207,7 +207,7 @@ class App(WinEnv):
             self.meta_path = self.data / "app.json"
         self.icons = self.data / "icons"
         self.snapshot = self.data / SNAPSHOT_NAME
-        # az azonosító nem változik (a Start menü bejegyzések erre hivatkoznak), a mappa neve igen
+        # the ID does not change (the Start menu entries refer to it), the folder name does
         self.id = self.meta.get("id") or self.dir.name
 
     def __repr__(self):
@@ -234,7 +234,7 @@ class App(WinEnv):
 
     @property
     def kind(self):
-        """"windows": saját Windows-környezet; "steam": a Steamben van, a Steam indítja."""
+        """"windows": its own Windows environment; "steam": it is in Steam, and Steam starts it."""
         return self.meta.get("kind", "windows")
 
     @property
@@ -242,14 +242,14 @@ class App(WinEnv):
         return LOG_ROOT / self.id / "naplo"
 
     def link_files(self, install_dir, label):
-        """Látható hivatkozás a telepített fájlokra a program mappájában (relatív, így áthelyezhető)."""
+        """A visible link to the installed files in the program's folder (relative, so it can be moved)."""
         if self.legacy or not install_dir:
             return
         link = self.dir / folder_name(label)
         try:
             target = os.path.relpath(install_dir, self.dir)
             for old in self.dir.iterdir():
-                # a korábbi hivatkozás (más néven, pl. nyelvváltás után) ne maradjon ott
+                # the earlier link (under another name, e.g. after a language change) must not stay there
                 if old.is_symlink() and old != link and os.readlink(old) == target:
                     old.unlink()
             if link.is_symlink():
@@ -257,10 +257,10 @@ class App(WinEnv):
             if not link.exists():
                 link.symlink_to(target, target_is_directory=True)
         except OSError as e:
-            log.warning("hivatkozás a fájlokra: %s", e)
+            log.warning("link to the files: %s", e)
 
     def set_folder_icon(self, icon):
-        """A mappa ikonja a Dolphinban (.directory)."""
+        """The folder's icon in Dolphin (.directory)."""
         if self.legacy or not icon:
             return
         try:
@@ -272,7 +272,7 @@ class App(WinEnv):
         return prefix_busy(self)
 
 
-# --- Keresés -----------------------------------------------------------------------------------------
+# --- Searching -----------------------------------------------------------------------------------------
 
 def _app_dirs():
     for lib in libraries() + [RECORDS]:
@@ -287,7 +287,7 @@ def _app_dirs():
 
 
 def all_apps():
-    """Minden telepített program (ugyanaz az azonosító csak egyszer: az új hely nyer)."""
+    """Every installed program (the same ID only once: the new location wins)."""
     seen, out = set(), []
     for d in _app_dirs():
         app = App(d)
@@ -302,11 +302,11 @@ def find(app_id):
 
 
 def find_installed(name, installer):
-    """Telepítettük-e már ezt a programot? -> App vagy None
+    """Have we installed this program already? -> App or None
 
-    Egyezik, ha az azonosító a program nevéből jön (a régi, dupla telepítésnél „-2”, „-3”
-    végződéssel), ugyanaz a neve, vagy ugyanazzal a telepítőfájllal telepítettük. Ha több is van,
-    az nyer, amelyiknek van Start menü bejegyzése.
+    It matches if the ID comes from the program's name (with the old duplicate installs' "-2", "-3"
+    ending), it has the same name, or it was installed with the same installer file. If there are several,
+    the one with a Start menu entry wins.
     """
     from . import menu
 
@@ -323,7 +323,7 @@ def find_installed(name, installer):
     return max(found, key=lambda a: (bool(menu.entries(a)), a.id == slug, not a.legacy), default=None)
 
 
-# --- Létrehozás, átnevezés, áthelyezés, eltávolítás -------------------------------------------------
+# --- Creating, renaming, moving, removing -------------------------------------------------
 
 def _free_folder(library, name):
     path = library / folder_name(name)
@@ -335,7 +335,7 @@ def _free_folder(library, name):
 
 
 def create(name, kind="windows", app_id=None, library=None, **meta):
-    """Új program mappája a könyvtárban (az azonosító egyedi, a mappanév a program neve)."""
+    """A new program's folder in the library (the ID is unique, the folder name is the program's name)."""
     library = Path(library or (RECORDS if kind in RECORD_KINDS else default_library()))
     base = app_id or slugify(name)
     ids = {a.id for a in all_apps()}
@@ -350,12 +350,12 @@ def create(name, kind="windows", app_id=None, library=None, **meta):
 
 
 def shared_app(name):
-    """Az egyedi .exe-k közös környezete (ha még nincs, létrejön)."""
+    """The shared environment of single .exe files (created if it does not exist yet)."""
     return find(SHARED_ID) or create(name, app_id=SHARED_ID)
 
 
 def rename(app, new_name):
-    """Új név és ehhez illő mappanév (ugyanabban a könyvtárban). -> az új App"""
+    """A new name and a matching folder name (in the same library). -> the new App"""
     from . import menu
 
     app.save_meta(name=new_name)
@@ -366,7 +366,7 @@ def rename(app, new_name):
     try:
         app.dir.rename(target)
     except OSError as e:
-        log.warning("átnevezés: %s", e)
+        log.warning("renaming: %s", e)
         return app
     new = App(target)
     menu.relink(new, old_prefix)
@@ -382,8 +382,8 @@ def _same_filesystem(a, b):
 
 
 def move(app, library, progress=None):
-    """A program áthelyezése egy másik könyvtárba. Azonos fájlrendszeren átnevezés (azonnali), különben
-    másolás, ellenőrzés, és csak utána a régi törlése. -> az új App, vagy hibánál None (a régi érintetlen)."""
+    """Moves the program to another library. On the same file system it is a rename (instant), otherwise
+    copy, check, and only then delete the old one. -> the new App, or None on error (the old one untouched)."""
     from . import menu
 
     library = Path(library)
@@ -398,7 +398,7 @@ def move(app, library, progress=None):
         try:
             app.dir.rename(target)
         except OSError as e:
-            log.warning("áthelyezés: %s", e)
+            log.warning("moving: %s", e)
             return None
     else:
         partial = target.with_name(f".{target.name}.masolas")
@@ -408,10 +408,10 @@ def move(app, library, progress=None):
             subprocess.run(["cp", "-a", "--reflink=auto", str(app.dir), str(partial)], check=True,
                            capture_output=True)
             if _tree_size(partial) < _tree_size(app.dir):
-                raise OSError("a másolat hiányos")
+                raise OSError("the copy is incomplete")
             partial.rename(target)
         except (OSError, subprocess.SubprocessError) as e:
-            log.warning("áthelyezés: %s", e)
+            log.warning("moving: %s", e)
             shutil.rmtree(partial, ignore_errors=True)
             return None
         shutil.rmtree(app.dir, ignore_errors=True)
@@ -432,7 +432,7 @@ def _tree_size(path):
 
 
 def removable(app):
-    """Biztonsági ellenőrzés: csak a könyvtárakban lévő, Sloth által kezelt mappát törlünk."""
+    """Safety check: we only delete a Sloth-managed folder inside the libraries."""
     parent = app.dir.resolve().parent
     allowed = {p.resolve() for p in libraries()} | {LEGACY_ROOT.resolve(), RECORDS.resolve()}
     managed = app.meta_path.is_file() or app.legacy
@@ -440,11 +440,11 @@ def removable(app):
 
 
 def remove(app):
-    """A program Start menü bejegyzései, mappája és naplója. -> True, ha törölhető volt."""
+    """The program's Start menu entries, folder and log. -> True if it could be deleted."""
     from . import menu
 
     if not removable(app):
-        log.warning("nem törölhető: %s", app.dir)
+        log.warning("cannot be deleted: %s", app.dir)
         return False
     menu.remove_entries(app)
     shutil.rmtree(app.dir, ignore_errors=True)
@@ -452,14 +452,14 @@ def remove(app):
     return True
 
 
-# --- Átköltözés a régi helyről -------------------------------------------------------------------
+# --- Migrating from the old location -------------------------------------------------------------------
 
 def migrate_legacy(busy=None):
-    """A régi helyről (~/.local/share/sloth-os/windows-programs/) az új könyvtárba.
+    """From the old location (~/.local/share/sloth-os/windows-programs/) to the new library.
 
-    Azonos fájlrendszeren átnevezés, így azonnali és nem foglal helyet. Ami fut (busy(app)), vagy más
-    fájlrendszeren van, az marad (a régi hely is olvasható). Hibánál a program a régi helyén marad.
-    -> az áthozott programok listája
+    On the same file system it is a rename, so it is instant and takes no space. Anything running (busy(app)) or on
+    another file system stays (the old location is readable too). On error the program stays in its old place.
+    -> the list of programs brought over
     """
     from . import menu
 
@@ -476,7 +476,7 @@ def migrate_legacy(busy=None):
         meta = old.meta
         app_id = d.name
         if find_new(app_id):
-            continue  # már áthoztuk (egy félbeszakadt átköltözés maradéka)
+            continue  # already brought over (left over from an interrupted migration)
         name = meta.get("name") or app_id
         target = _free_folder(library, name)
         data = target / ".sloth"
@@ -485,7 +485,7 @@ def migrate_legacy(busy=None):
             if old.prefix.is_dir():
                 old.prefix.rename(target / "windows")
         except OSError as e:
-            log.warning("átköltözés (%s): %s", app_id, e)
+            log.warning("migration (%s): %s", app_id, e)
             shutil.rmtree(target, ignore_errors=True)
             continue
         meta.update(schema=SCHEMA, id=app_id, name=name, kind="windows")
@@ -502,9 +502,9 @@ def migrate_legacy(busy=None):
                 if child.name.startswith((".regi-", ".reflink-")):
                     shutil.rmtree(child, ignore_errors=True) if child.is_dir() else child.unlink()
                     continue
-                child.rename(data / child.name)  # icons, pillanatkep és bármi más: semmi nem vész el
+                child.rename(data / child.name)  # icons, pillanatkep and anything else: nothing is lost
             except OSError as e:
-                log.warning("átköltözés (%s/%s): %s", app_id, child.name, e)
+                log.warning("migration (%s/%s): %s", app_id, child.name, e)
         try:
             d.rmdir()
         except OSError:
@@ -512,7 +512,7 @@ def migrate_legacy(busy=None):
         new = App(target)
         menu.relink(new, old.prefix)
         moved.append(new)
-        log.info("átköltözve: %s -> %s", d, target)
+        log.info("migrated: %s -> %s", d, target)
     try:
         LEGACY_ROOT.rmdir()
     except OSError:
@@ -521,27 +521,27 @@ def migrate_legacy(busy=None):
 
 
 def find_new(app_id):
-    """Program az új könyvtárakban (a régi hely nélkül)."""
+    """Program in the new libraries (without the old location)."""
     return next((App(d) for d in _app_dirs() if not App(d).legacy and App(d).id == app_id), None)
 
 
 # --- Fut-e a program --------------------------------------------------------------------------------
 
-# A Wine saját háttérfolyamatai: a program kilépése után még pár másodpercig élhetnek
+# Wine's own background processes: they may live a few more seconds after the program exits
 INFRA = {"services.exe", "winedevice.exe", "plugplay.exe", "explorer.exe", "rpcss.exe", "svchost.exe",
          "tabtip.exe", "conhost.exe", "start.exe", "steam.exe", "wineboot.exe", "rundll32.exe",
          "winemenubuilder.exe", "cmd.exe"}
 
 
 def _windows_exe(proc):
-    """A folyamat Windows-programjának neve (a Wine alatt az első paraméter a .exe útvonala), vagy None."""
+    """The name of the process's Windows program (under Wine the first argument is the .exe path), or None."""
     argv0 = (proc / "cmdline").read_bytes().split(b"\0", 1)[0].decode("utf-8", "replace")
     name = re.split(r"[\\/]", argv0)[-1].lower()
     return name if name.endswith(".exe") else None
 
 
 def running_exes(app):
-    """A program Windows-környezetében futó programok nevei (a Wine saját folyamatai nélkül)."""
+    """The names of the programs running in the program's Windows environment (without Wine's own processes)."""
     marker = b"WINEPREFIX=" + str(app.prefix).encode() + b"\0"
     out = set()
     proc_root = Path("/proc")
@@ -561,5 +561,5 @@ def running_exes(app):
 
 
 def prefix_busy(app):
-    """Fut-e még valami a program mappájában (pl. az indító kilépett, de a kliens tovább fut)."""
+    """Whether anything still runs in the program's folder (e.g. the launcher exited, but the client keeps running)."""
     return bool(running_exes(app))

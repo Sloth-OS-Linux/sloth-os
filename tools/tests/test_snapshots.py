@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""A fájlmentés (home-snapshots, sloth_common.snapshots, „Korábbi verziók”) próbája egy valódi Btrfs-en.
+"""A test of the file backup (home-snapshots, sloth_common.snapshots, "Previous versions") on a real Btrfs.
 
-Rootként fut a Sloth OS image-ében (btrfs-progs, PySide6), egy loop eszközre készített Btrfs-sel; a /var/home
-helyett annak egy mappáját használja. Windowsról (WSL, podman; a btrfs modul kell: modprobe btrfs):
+It runs as root in the Sloth OS image (btrfs-progs, PySide6), with a Btrfs made on a loop device; instead of
+/var/home it uses a folder on it. From Windows (WSL, podman; the btrfs module is needed: modprobe btrfs):
   wsl -d podman-machine-default -u root -- podman run --rm --privileged --cgroups=disabled \
       -v /mnt/c/Users/batho/sloth-os:/repo:ro --entrypoint python3 ghcr.io/sloth-os-linux/sloth-os:latest \
       /repo/tools/tests/test_snapshots.py
@@ -41,7 +41,7 @@ def sh(*cmd):
 
 
 def write(path, text, uid=UID):
-    """Egy fájl a felhasználó nevében (a létrehozott szülőmappák is az övéi)."""
+    """A file in the user's name (the parent folders created are theirs too)."""
     missing = [p for p in path.parents if not p.exists()]
     path.parent.mkdir(parents=True, exist_ok=True)
     for p in missing:
@@ -77,11 +77,11 @@ class SnapshotsTest(unittest.TestCase):
         self.home.mkdir(parents=True)
         os.chown(self.home, UID, UID)
         os.chmod(self.home, 0o700)
-        write(self.home / "Dokumentumok/levél.txt", "első")
+        write(self.home / "Documents/résumé.txt", "first")
         write(self.home / ".cache/big.bin", "cache")
         write(self.home / ".var/app/org.mozilla.firefox/cache/x", "ffcache")
         write(self.home / ".var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps/common/game.bin", "game")
-        write(self.home / "Dokumentumok/sub/deep.txt", "mély")
+        write(self.home / "Documents/sub/deep.txt", "deep")
 
     def test_layout_converts_and_keeps_data(self):
         self.assertEqual(snap.state(), "pending")
@@ -91,14 +91,14 @@ class SnapshotsTest(unittest.TestCase):
         for p in (self.home / ".cache", self.home / ".var/app/org.mozilla.firefox/cache", steamapps):
             self.assertTrue(snap.is_subvolume(p), p)
         self.assertFalse(snap.is_subvolume(self.home))
-        self.assertEqual((self.home / "Dokumentumok/levél.txt").read_text(), "első")
+        self.assertEqual((self.home / "Documents/résumé.txt").read_text(), "first")
         self.assertEqual((steamapps / "common/game.bin").read_text(), "game")
         st = os.stat(self.home)
         self.assertEqual((st.st_uid, st.st_mode & 0o777), (UID, 0o700))
         self.assertEqual(os.stat(self.home / ".cache").st_uid, UID)
         leftovers = [p for p in snap.HOME_ROOT.parent.rglob("*") if ".sloth-" in p.name]
         self.assertEqual(leftovers, [])
-        # másodszor nincs teendő
+        # the second time there is nothing to do
         self.assertEqual(hs.layout(), 0)
 
     def test_layout_creates_missing_cache(self):
@@ -108,35 +108,35 @@ class SnapshotsTest(unittest.TestCase):
         self.assertEqual(os.stat(self.home / ".cache").st_uid, UID)
 
     def test_recover_interrupted_swap(self):
-        # a két lépéses csere közben szakadt meg: az eredeti a ".sloth-old" néven, a helyén semmi
+        # interrupted during the two-step swap: the original under the name ".sloth-old", nothing in its place
         games = self.home / "Games"
-        write(games / "a.txt", "játék")
+        write(games / "a.txt", "game")
         old = hs.side(games, hs.OLD_SUFFIX)
         os.rename(games, old)
         new = hs.side(games, hs.NEW_SUFFIX)
         sh("btrfs", "subvolume", "create", str(new))
         hs.layout()
         self.assertTrue(snap.is_subvolume(games))
-        self.assertEqual((games / "a.txt").read_text(), "játék")
+        self.assertEqual((games / "a.txt").read_text(), "game")
         self.assertFalse(os.path.lexists(old) or os.path.lexists(new))
 
     def test_take_versions_locate(self):
         hs.layout()
         self.assertTrue(hs.take(True)["ok"])
-        doc = self.home / "Dokumentumok/levél.txt"
-        write(doc, "második, hosszabb")
-        # a másodperc pontosságú név miatt a második pillanatkép egy másodperccel később
+        doc = self.home / "Documents/résumé.txt"
+        write(doc, "second, longer")
+        # because of the names' one-second precision, the second snapshot comes one second later
         later = datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=2)
         name = snap.make_name(later)
         sh("btrfs", "subvolume", "snapshot", "-r", str(snap.HOME_ROOT), str(snap.SNAP_DIR / name))
         self.assertEqual(oct(os.stat(snap.SNAP_DIR).st_mode & 0o777), "0o755")
         rel, problem = snap.locate(doc)
-        self.assertEqual((str(rel), problem), ("alice/Dokumentumok/levél.txt", ""))
+        self.assertEqual((str(rel), problem), ("alice/Documents/résumé.txt", ""))
         found = snap.versions_of(rel)
         self.assertEqual(len(found), 2)
-        self.assertEqual(found[0][2].read_text(), "második, hosszabb")
-        self.assertEqual(found[1][2].read_text(), "első")
-        # a kihagyott mappák nincsenek a pillanatképben
+        self.assertEqual(found[0][2].read_text(), "second, longer")
+        self.assertEqual(found[1][2].read_text(), "first")
+        # the excluded folders are not in the snapshot
         self.assertEqual(list((snap.SNAP_DIR / name / "alice/.cache").iterdir()), [])
         self.assertEqual(snap.locate(self.home / ".cache/big.bin"), (None, "excluded"))
         self.assertEqual(snap.locate("/etc/hostname"), (None, "outside"))
@@ -146,7 +146,7 @@ class SnapshotsTest(unittest.TestCase):
         hs.layout()
         hs.take(False)
         self.assertEqual(len(snap.list_snapshots()), 1)
-        hs.take(False)  # 50 percen belül nem készül újabb
+        hs.take(False)  # no new one within 50 minutes
         self.assertEqual(len(snap.list_snapshots()), 1)
         snap.CONFIG.write_text('{"enabled": false}')
         sh("btrfs", "subvolume", "delete", str(snap.SNAP_DIR / snap.list_snapshots()[0][0]))
@@ -158,7 +158,7 @@ class SnapshotsTest(unittest.TestCase):
         hs.take(True)
         newest = snap.make_name(datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(seconds=2))
         sh("btrfs", "subvolume", "snapshot", "-r", str(snap.HOME_ROOT), str(snap.SNAP_DIR / newest))
-        hs.MIN_FREE_RATIO = 1.0  # sosem elég a hely
+        hs.MIN_FREE_RATIO = 1.0  # never enough space
         result = hs.take(True)
         self.assertEqual(result, {"ok": False, "error": "no-space"})
         self.assertEqual([n for n, _t in snap.list_snapshots()], [newest])
@@ -177,39 +177,39 @@ class SnapshotsTest(unittest.TestCase):
         os.environ["XDG_DATA_HOME"] = str(self.home / ".local/share")
         hs.layout()
         hs.take(True)
-        old_docs = snap.SNAP_DIR / snap.list_snapshots()[0][0] / "alice/Dokumentumok"
-        docs = self.home / "Dokumentumok"
-        write(docs / "levél.txt", "átírva")
-        write(docs / "új.txt", "új")
+        old_docs = snap.SNAP_DIR / snap.list_snapshots()[0][0] / "alice/Documents"
+        docs = self.home / "Documents"
+        write(docs / "résumé.txt", "rewritten")
+        write(docs / "new.txt", "new")
         os.unlink(docs / "sub/deep.txt")
         self.assertEqual(v.count_deleted(old_docs, docs), 1)
-        # csak a törölt
+        # only the deleted ones
         self.assertEqual(v.merge(old_docs, docs, only_missing=True), (1, 0))
-        self.assertEqual((docs / "sub/deep.txt").read_text(), "mély")
-        self.assertEqual((docs / "levél.txt").read_text(), "átírva")
-        # teljes visszaállítás: a megváltozott a Kukába, az új marad
+        self.assertEqual((docs / "sub/deep.txt").read_text(), "deep")
+        self.assertEqual((docs / "résumé.txt").read_text(), "rewritten")
+        # full restore: the changed one goes to the Trash, the new one stays
         self.assertEqual(v.merge(old_docs, docs, only_missing=False), (1, 0))
-        self.assertEqual((docs / "levél.txt").read_text(), "első")
-        self.assertEqual((docs / "új.txt").read_text(), "új")
+        self.assertEqual((docs / "résumé.txt").read_text(), "first")
+        self.assertEqual((docs / "new.txt").read_text(), "new")
         trashed = list((self.home / ".local/share/Trash/files").iterdir())
-        self.assertEqual([p.read_text() for p in trashed], ["átírva"])
-        # másolatként
+        self.assertEqual([p.read_text() for p in trashed], ["rewritten"])
+        # as a copy
         when = datetime.datetime(2026, 10, 19, 12, 0, tzinfo=datetime.timezone.utc)
-        target = v.copy_name(docs / "levél.txt", when)
-        self.assertRegex(target.name, r"^levél \(2026-10-19 \d\d\.00\)\.txt$")
+        target = v.copy_name(docs / "résumé.txt", when)
+        self.assertRegex(target.name, r"^résumé \(2026-10-19 \d\d\.00\)\.txt$")
 
     def test_to_keep(self):
         now = datetime.datetime(2026, 10, 20, 12, 0, tzinfo=datetime.timezone.utc)
         snaps = [(f"s{h}", now - datetime.timedelta(hours=h)) for h in range(0, 24 * 120, 1)]
         keep = snap.to_keep(snaps, 31, now)
         ages = sorted((now - t).total_seconds() / 3600 for n, t in snaps if n in keep)
-        self.assertEqual(sum(1 for a in ages if a < 24), 24)               # az utolsó nap minden órája
-        self.assertTrue(all(a <= 31 * 24 for a in ages))                   # semmi a megtartási időn túl
-        self.assertLess(len(keep), 24 + 14 + 6)                            # naponta, majd hetente egy
+        self.assertEqual(sum(1 for a in ages if a < 24), 24)               # every hour of the last day
+        self.assertTrue(all(a <= 31 * 24 for a in ages))                   # nothing beyond the keep time
+        self.assertLess(len(keep), 24 + 14 + 6)                            # one a day, then one a week
         self.assertIn("s0", snap.to_keep([("s0", now - datetime.timedelta(days=400))], 14, now))
 
 
 if __name__ == "__main__":
     if os.geteuid() != 0:
-        sys.exit("rootként kell futtatni (Btrfs loop eszköz)")
+        sys.exit("must be run as root (Btrfs loop device)")
     unittest.main(verbosity=2)

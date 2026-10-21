@@ -1,17 +1,17 @@
-"""Önjavító indítás: minden Windows-program találja meg magától a neki működő beállítást.
+"""Self-healing start: every Windows program finds the setting that works for it by itself.
 
-Egy mindenre jó Proton-beállítás nincs, ezért programonként (pontosabban .exe-nként) megjegyezzük,
-mi működött. Ha egy program indítás után gyorsan kilép, a következő próbálkozás más beállítással megy,
-a felhasználó ebből csak annyit lát, hogy „Indítás…”. A sorrend:
-  1. ami legutóbb működött, de ha azóta újabb Proton jött, előbb azzal (frissítés); ha az nem megy,
-     vissza a régihez, és annál a programnál az marad (visszaállás frissítés után),
-  2. a naplóból felismert hibák javításai (diagnose.py), ugyanazzal a beállítással,
-  3. próbálkozási sor: alap, fsync nélkül, WineD3D (Vulkan nélkül), GE-Proton, egy régebbi Proton.
-Proton-váltás előtt pillanatkép készül a program mappájáról (reflink másolat: másodpercek, szinte
-nulla hely), és ha a próba nem sikerül, visszaáll; így egy rossz próba semmit nem ront el.
+There is no Proton setting that works for everything, so we remember per program (more precisely per .exe)
+what worked. If a program exits quickly after starting, the next attempt uses another setting,
+and the user only sees "Starting…". The order:
+  1. what worked last time, but if a newer Proton came since, first with that (update); if that does not work,
+     back to the old one, and that program stays on it (rollback after updates),
+  2. the fixes for errors recognized from the log (diagnose.py), with the same setting,
+  3. a sequence of attempts: default, without fsync, WineD3D (without Vulkan), GE-Proton, an older Proton.
+Before a Proton switch a snapshot of the program's folder is taken (a reflink copy: seconds, almost
+zero space), and if the attempt fails, it is restored; so a bad attempt never breaks anything.
 
-Adatok: a program adataiban (sloth_common.apps, .sloth/app.json), "launch" alatt .exe-nként (a közös
-környezetben több .exe is lehet).
+Data: in the program's data (sloth_common.apps, .sloth/app.json), under "launch" per .exe (a shared
+environment can have several .exe files).
 """
 import os
 import re
@@ -26,25 +26,25 @@ from sloth_common.apps import library
 DATA_HOME = library.DATA_HOME
 COMPAT_DIRS = [DATA_HOME / "Steam/compatibilitytools.d", DATA_HOME / "umu/compatibilitytools"]
 UMU_LINE, GE_LINE = "UMU-Proton", "GE-Proton"
-GE_DOWNLOAD = "GE-Proton"  # az umu ezt a nevet látva letölti a legfrissebb GE-Protont
+GE_DOWNLOAD = "GE-Proton"  # seeing this name, umu downloads the latest GE-Proton
 
-# Próbálkozási beállítások: környezeti változók
+# Settings for the attempts: environment variables
 PROFILES = {
     "default": {},
     "nofsync": {"PROTON_NO_FSYNC": "1", "PROTON_NO_ESYNC": "1"},
     "wined3d": {"PROTON_USE_WINED3D": "1"},
 }
-MAX_ATTEMPTS = 4  # egy indításon belül legfeljebb ennyi próba (utána érthető hibaüzenet)
+MAX_ATTEMPTS = 4  # at most this many attempts within one start (then a clear error message)
 
 
-# --- Proton-verziók --------------------------------------------------------------------------------
+# --- Proton versions --------------------------------------------------------------------------------
 
 def _version_key(name):
     return [int(n) for n in re.findall(r"\d+", name)]
 
 
 def installed_protons(line=None):
-    """A telepített Protonok {név: mappa}, a legújabb elöl (line: "UMU-Proton" / "GE-Proton")."""
+    """The installed Protons {name: folder}, the newest first (line: "UMU-Proton" / "GE-Proton")."""
     found = {}
     for base in COMPAT_DIRS:
         if not base.is_dir():
@@ -61,7 +61,7 @@ def newest(line=UMU_LINE):
 
 
 def protonpath(name):
-    """A PROTONPATH értéke: telepített verzió mappája, vagy letöltendő név (GE-Proton); None = az umu dönt."""
+    """The value of PROTONPATH: an installed version's folder, or a name to download (GE-Proton); None = umu decides."""
     if not name:
         return None
     if name == GE_DOWNLOAD:
@@ -70,7 +70,7 @@ def protonpath(name):
     return str(d) if d else None
 
 
-# --- Programonkénti adatok -------------------------------------------------------------------------
+# --- Per-program data -------------------------------------------------------------------------
 
 def _key(program, exe):
     try:
@@ -89,10 +89,10 @@ def save_record(program, exe, rec):
     program.save_meta(launch=launch)
 
 
-# --- Pillanatkép ------------------------------------------------------------------------------------
+# --- Snapshot ------------------------------------------------------------------------------------
 
 def can_snapshot(program):
-    """Támogatja-e a fájlrendszer a reflink másolatot (Btrfs, XFS); különben a másolás túl sok hely lenne."""
+    """Whether the file system supports reflink copies (Btrfs, XFS); otherwise copying would take too much space."""
     program.data.mkdir(parents=True, exist_ok=True)
     src = program.data / f".reflink-{uuid.uuid4().hex}"
     dst = src.with_suffix(".copy")
@@ -141,11 +141,11 @@ def drop_snapshot(program, wait=False):
         subprocess.Popen(["rm", "-rf", str(trash)], start_new_session=True)
 
 
-# --- Terv: milyen sorrendben próbálkozzunk ---------------------------------------------------------
+# --- Plan: in which order to try ---------------------------------------------------------
 
 @dataclass
 class Attempt:
-    proton: str | None   # telepített verzió neve, GE_DOWNLOAD, vagy None (az umu dönt)
+    proton: str | None   # an installed version's name, GE_DOWNLOAD, or None (umu decides)
     profile: str = "default"
     fixes: list = field(default_factory=list)
 
@@ -171,9 +171,9 @@ class Attempt:
 
 
 def plan(program, exe, suggest=None):
-    """A próbálkozások sorrendje erre az indításra.
+    """The order of attempts for this start.
 
-    suggest: a közös tudás javaslata (community.suggestion): (Proton-vonal, profil, javítások) vagy None.
+    suggest: the shared knowledge's suggestion (community.suggestion): (Proton line, profile, fixes) or None.
     """
     rec = record(program, exe)
     fixes = [tuple(f) for f in rec.get("fixes", [])]
@@ -190,7 +190,7 @@ def plan(program, exe, suggest=None):
     good = rec.get("good")
     if good:
         installed = good["proton"] in installed_protons() or good["proton"] == "auto"
-        # Újabb Proton jött: előbb azzal, és ha nem megy, vissza a bevált verzióhoz
+        # A newer Proton came: first with that, and if it does not work, back to the version that worked
         if current and good["proton"].startswith(UMU_LINE) and good["proton"] != current:
             add(current, good["profile"])
         if installed:
@@ -198,7 +198,7 @@ def plan(program, exe, suggest=None):
         else:
             add(current, good["profile"])
     if suggest and not good:
-        # Más gépeken ez vált be: ez az első próba (a saját felismert javításokkal együtt)
+        # This worked on other machines: it is the first attempt (together with our own recognized fixes)
         line, profile, extra = suggest
         proton = current if line == UMU_LINE else (newest(GE_LINE) or GE_DOWNLOAD)
         a = Attempt(proton, profile, fixes + [f for f in extra if f not in fixes])
@@ -218,24 +218,24 @@ def prefix_proton(program):
 
 
 def resolved_name(attempt):
-    """A ténylegesen használt verzió neve a futás után (a GE-Protonnál letöltés után derül ki)."""
+    """The name of the version actually used, after the run (with GE-Proton it turns out after the download)."""
     if attempt.proton == GE_DOWNLOAD:
         return newest(GE_LINE) or GE_DOWNLOAD
     return attempt.proton or newest(UMU_LINE) or "auto"
 
 
 def needs_snapshot(program, attempt):
-    """Proton-váltás: ha nem sikerül, vissza kell tudni állni a régi állapotra."""
+    """Proton switch: if it fails, we must be able to go back to the old state."""
     current = prefix_proton(program)
     return bool(current) and resolved_name(attempt) != current
 
 
 def allowed_without_snapshot(program, attempt):
-    """Pillanatkép nélkül csak az előre lépés biztonságos (a Proton a régebbi mappát frissíti, visszafelé nem)."""
+    """Without a snapshot only stepping forward is safe (Proton updates an older folder, not backwards)."""
     return not needs_snapshot(program, attempt) or attempt.proton == newest(UMU_LINE)
 
 
-# --- Karbantartás ------------------------------------------------------------------------------------
+# --- Maintenance ------------------------------------------------------------------------------------
 
 def _in_use(path):
     for proc in Path("/proc").iterdir():
@@ -250,7 +250,7 @@ def _in_use(path):
 
 
 def prune_protons():
-    """A régi Protonok törlése: marad a legújabb UMU- és GE-Proton, egy tartalék, és amit egy program használ."""
+    """Deletes old Protons: keeps the latest UMU- and GE-Proton, one spare, and whatever a program uses."""
     keep = {newest(UMU_LINE), newest(GE_LINE)}
     keep |= set(list(installed_protons(UMU_LINE))[:2])
     for app in library.all_apps():

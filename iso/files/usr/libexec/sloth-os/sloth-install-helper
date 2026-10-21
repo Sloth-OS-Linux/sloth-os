@@ -1,31 +1,31 @@
 #!/usr/bin/python3 -I
-"""A Sloth OS telepítő rendszergazdai része (pkexec-kel fut, csak az élő rendszeren van meg).
+"""The privileged part of the Sloth OS installer (runs with pkexec; only present in the live system).
 
   sloth-install-helper install --disk /dev/X --locale hu_HU.UTF-8 --keyboard hu --timezone Europe/Budapest \
-                             --username anna --fullname "Kiss Anna"      (a jelszó a szabványos bemeneten)
+                             --username anna --fullname "Anna Kiss"      (the password on standard input)
                              [--beside-windows --size-gib 120]
-  sloth-install-helper probe --disk /dev/X     a lemez felmérése a Windows mellé telepítéshez (JSON)
+  sloth-install-helper probe --disk /dev/X     survey of the disk for installing next to Windows (JSON)
 
-Alapból a teljes lemezt törli, particionálja, és feltelepíti rá az ISO-ba csomagolt Sloth OS image-et
-(bootc install to-filesystem), majd beírja a választott nyelvet, billentyűzetet és időzónát, és a
-fiók adatait (a fiókot első induláskor a sloth-first-user szolgáltatás hozza létre).
-A bootc a rétegeket ideiglenesen a /var/tmp-be csomagolja ki; az élő rendszerben ez RAM-ban van, ezért
-a telepítés idejére a /var/tmp fölé (overlayként) a lemez végén lévő átmeneti munkapartíció kerül.
-A végén ezt a partíciót töröljük, és a helyét a rendszerpartíció kapja meg.
-A kimenet JSON-sorok a felületnek:
-  {"stage": "partition", "progress": 10}   ismert lépés (a felület fordítja le)
-  {"done": true}                            kész
-  {"error": "error.bad_disk"}               hiba (fordítási kulcs)
-A nyers kimenet a /tmp/sloth-install.log fájlba kerül.
+By default it erases the whole disk, partitions it, and installs the Sloth OS image packed into the ISO
+(bootc install to-filesystem), then writes the chosen language, keyboard and time zone, and the
+account details (the account is created on first boot by the sloth-first-user service).
+bootc unpacks the layers temporarily into /var/tmp; in the live system that is in RAM, so for the
+duration of the install a temporary work partition at the end of the disk is put over /var/tmp (as an overlay).
+At the end this partition is deleted, and the system partition takes its place.
+The output is JSON lines for the UI:
+  {"stage": "partition", "progress": 10}   a known stage (the UI translates it)
+  {"done": true}                            done
+  {"error": "error.bad_disk"}               an error (translation key)
+The raw output goes to /tmp/sloth-install.log.
 
-Windows mellé (--beside-windows): a Windows megmarad. Ha a lemezen van elég szabad hely, oda kerül a
-Sloth OS; különben a Windows legnagyobb NTFS-partícióját (C:) zsugorítjuk (ntfsresize), és a felszabadult
-helyre. A Sloth OS saját EFI-partíciót kap (a Windows rendszerindító fájljaihoz nem nyúlunk), a boot
-menüben a Windows is ott van (és a menü látszik), a hardveróra pedig helyi időben jár, mint a Windowsban.
-Csak UEFI-s gépen és GPT-s lemezen; BitLockeres vagy nem teljesen leállított (gyors indítás, hibernálás)
-Windows-partíciót nem zsugorítunk.
+Next to Windows (--beside-windows): Windows stays. If the disk has enough free space, Sloth OS goes
+there; otherwise the largest NTFS partition of Windows (C:) is shrunk (ntfsresize), and Sloth OS goes into the
+freed space. Sloth OS gets its own EFI partition (Windows' boot files are not touched), the boot
+menu includes Windows (and the menu is shown), and the hardware clock keeps local time, as in Windows.
+Only on UEFI machines and GPT disks; a BitLocker-encrypted or not fully shut down (fast startup, hibernation)
+Windows partition is never shrunk.
 
-Próbaüzem lemeztörlés nélkül (a felület teszteléséhez): SLOTH_INSTALL_DRY_RUN=1
+Dry run without erasing anything (for testing the UI): SLOTH_INSTALL_DRY_RUN=1
 """
 import argparse
 import glob
@@ -43,32 +43,32 @@ import zoneinfo
 from pathlib import Path
 
 LOG = Path("/tmp/sloth-install.log")
-# Ezeket a neveket a rendszer használja, nem lehet belőlük felhasználói fiók
+# The system uses these names; they cannot be user accounts
 RESERVED_USERS = {"root", "bin", "daemon", "adm", "lp", "sync", "shutdown", "halt", "mail", "operator",
                   "games", "ftp", "nobody", "systemd-network", "dbus", "polkitd", "sddm", "plasmalogin",
                   "liveuser", "admin", "wheel", "users"}
 IMAGE_CONF = Path("/usr/share/sloth-os/installer/image.conf")
-TARGET = Path("/run/sloth-install/target")      # ide csatoljuk a rendszerpartíciót
-SCRATCH = Path("/run/sloth-install/scratch")    # az átmeneti munkapartíció
-SCRATCH_BYTES = 10 * 1024**3                     # a kicsomagolt rétegeknek (mért csúcs ~2,1 GB + tartalék)
+TARGET = Path("/run/sloth-install/target")      # the system partition is mounted here
+SCRATCH = Path("/run/sloth-install/scratch")    # the temporary work partition
+SCRATCH_BYTES = 10 * 1024**3                     # for the unpacked layers (measured peak ~2.1 GB + headroom)
 
-MIN_BESIDE_BYTES = 40 * 1024**3                  # Windows mellé legalább ennyi kell a Sloth OS-nek
-WINDOWS_RESERVE = 20 * 1024**3                   # zsugorítás után ennyi szabad hely marad a Windowsnak
+MIN_BESIDE_BYTES = 40 * 1024**3                  # next to Windows, Sloth OS needs at least this much
+WINDOWS_RESERVE = 20 * 1024**3                   # after shrinking, Windows keeps this much free space
 ESP_MIB = 512
-BOOT_MIB = 1024    # titkosításnál külön /boot (a GRUB a LUKS2-t nem tudja kinyitni, a rendszermag itt van)
+BOOT_MIB = 1024    # separate /boot with encryption (GRUB cannot open LUKS2; the kernel lives here)
 MIB = 1024**2
 CRYPT_NAME = "sloth-root"
 CRYPT_DEV = Path("/dev/mapper") / CRYPT_NAME
 
-# GPT partíciótípusok
+# GPT partition types
 BIOS_BOOT = "21686148-6449-6e6f-744e-656564454649"
 ESP_TYPE = "c12a7328-f81f-11d2-ba4b-00a0c93ec93b"
 ROOT_X86_64 = "4f68bce3-e8cd-4db1-96e7-fbcaf984b709"
 LINUX_DATA = "0fc63daf-8483-4772-8e79-3d69d8477de4"
 MS_BASIC_DATA = "ebd0a0a2-b9e5-4433-87c0-68b6b72699c7"
 
-# bootc kimenet -> lépés és körülbelüli százalék (az első egyező nyer). A másolás haladását
-# nem a kimenetből, hanem a rendszerpartíción elfoglalt helyből számoljuk (copy_progress).
+# bootc output -> stage and approximate percentage (the first match wins). The copy progress is
+# computed not from the output but from the space used on the system partition (copy_progress).
 STAGES = [
     (("initializing ostree", "ostree layout", "sysroot"), "prepare", 20),
     (("fetching", "layer", "importing", "deploying", "pulling"), "copy", 25),
@@ -93,10 +93,10 @@ def fail(key, detail=""):
     sys.exit(1)
 
 
-# --- Bemenetek ellenőrzése (root-ként futunk: semmit nem fogadunk el vakon) ---------
+# --- Input validation (we run as root: nothing is accepted blindly) ---------
 
 def whole_disk(path):
-    """Csak teljes lemezt fogadunk el, ami nem az élő rendszer saját meghajtója."""
+    """Only a whole disk is accepted, and not the live system's own drive."""
     if not re.fullmatch(r"/dev/[a-zA-Z0-9]+", path or ""):
         return False
     out = subprocess.run(["lsblk", "--noheadings", "--nodeps", "--output", "TYPE,RO", path],
@@ -125,7 +125,7 @@ def parse_keyboard(value):
     return (layouts, variants) if layouts else None
 
 
-# --- Telepítés --------------------------------------------------------------------
+# --- Installation --------------------------------------------------------------------
 
 def image_refs():
     conf = dict(line.split("=", 1) for line in IMAGE_CONF.read_text().split("\n") if "=" in line)
@@ -133,7 +133,7 @@ def image_refs():
 
 
 def release_disk(disk):
-    """Ha valami használja a lemezt (automatikusan csatolt partíció, swap), elengedjük."""
+    """If something uses the disk (an automounted partition, swap), let it go."""
     out = json.loads(subprocess.run(["lsblk", "--json", "--tree", "--output", "PATH,MOUNTPOINTS,FSTYPE", disk],
                                     capture_output=True, text=True).stdout or "{}")
     stack = list(out.get("blockdevices", []))
@@ -148,18 +148,18 @@ def release_disk(disk):
 
 
 def run(cmd, error="error.install_failed", **kwargs):
-    """Parancs futtatása naplózva; ha nem sikerül, a felület hibaoldalt mutat."""
+    """Runs a command with logging; if it fails, the UI shows the error page."""
     log("$ " + " ".join(cmd))
     r = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, **kwargs)
     if r.stdout.strip():
         log(r.stdout)
     if r.returncode != 0:
-        fail(error, f"{cmd[0]} kilépési kód: {r.returncode}")
+        fail(error, f"{cmd[0]} exit code: {r.returncode}")
     return r.stdout
 
 
 def partitions(disk):
-    """{partíciószám: eszköz} a lemezen, az udev frissülése után."""
+    """{partition number: device} on the disk, after udev has caught up."""
     run(["udevadm", "settle", "--timeout=30"])
     out = json.loads(run(["lsblk", "--json", "--tree", "--output", "PATH,PARTN", disk]) or "{}")
     return {int(c["partn"]): c["path"] for d in out.get("blockdevices", [])
@@ -167,13 +167,13 @@ def partitions(disk):
 
 
 def partition(disk, encrypt=False):
-    """Új GPT a lemezre: BIOS boot, EFI, (titkosításnál /boot,) rendszer és a végén az átmeneti munkapartíció."""
+    """A new GPT on the disk: BIOS boot, EFI, (with encryption /boot,) system, and the temporary work partition at the end."""
     size_mib = int(run(["lsblk", "--noheadings", "--nodeps", "--bytes", "--output", "SIZE", disk])) // 1024**2
-    # 1 MiB az elején, 1 MiB a végén a GPT-nek; BIOS boot 1 MiB, EFI 512 MiB
+    # 1 MiB at the start and 1 MiB at the end for the GPT; BIOS boot 1 MiB, EFI 512 MiB
     boot_mib = BOOT_MIB if encrypt else 0
     root_mib = size_mib - 2 - 1 - ESP_MIB - boot_mib - SCRATCH_BYTES // 1024**2 - 2
     if root_mib < 20 * 1024:
-        fail("error.bad_disk", f"túl kicsi lemez: {size_mib} MiB")
+        fail("error.bad_disk", f"disk too small: {size_mib} MiB")
     run(["wipefs", "--all", "--force", disk])
     names = ["bios", "esp"] + (["boot"] if encrypt else []) + ["root", "scratch"]
     table = (
@@ -186,16 +186,16 @@ def partition(disk, encrypt=False):
     run(["sfdisk", "--wipe", "always", "--wipe-partitions", "always", disk], input=table)
     parts = partitions(disk)
     if sorted(parts) != list(range(1, len(names) + 1)):
-        fail("error.install_failed", f"váratlan partíciók: {parts}")
+        fail("error.install_failed", f"unexpected partitions: {parts}")
     out = {name: parts[i + 1] for i, name in enumerate(names)}
     out["numbers"] = {name: i + 1 for i, name in enumerate(names)}
     return out
 
 
-# --- Windows mellé ------------------------------------------------------------------
+# --- Next to Windows ------------------------------------------------------------------
 
 def table(disk):
-    """A lemez partíciós táblája (sfdisk --json): címke, szektorméret, partíciók."""
+    """The disk's partition table (sfdisk --json): label, sector size, partitions."""
     r = subprocess.run(["sfdisk", "--json", disk], capture_output=True, text=True)
     pt = json.loads(r.stdout or "{}").get("partitiontable", {}) if r.returncode == 0 else {}
     pt.setdefault("sectorsize", 512)
@@ -204,7 +204,7 @@ def table(disk):
 
 
 def free_regions(pt):
-    """A szabad területek (kezdő szektor, szektorok száma), 1 MiB-re igazítva."""
+    """The free areas (start sector, number of sectors), aligned to 1 MiB."""
     ss = pt["sectorsize"]
     align = MIB // ss
     first, last = pt.get("firstlba", align), pt.get("lastlba", 0)
@@ -225,7 +225,7 @@ def free_regions(pt):
 
 
 def gap_after(pt, part):
-    """A partíció után közvetlenül következő szabad terület mérete szektorban (ha van)."""
+    """The size in sectors of the free area right after the partition (if any)."""
     align = MIB // pt["sectorsize"]
     start = -(-(part["start"] + part["size"]) // align) * align
     return next((sz for st, sz in free_regions(pt) if st == start), 0)
@@ -240,8 +240,8 @@ def fs_uuid(dev):
 
 
 def windows_esp():
-    """A Windows rendszerindítóját tartalmazó EFI-partíció FS-UUID-ja, bármelyik lemezen
-    (a boot menü Windows-bejegyzéséhez). Ha nincs, üres."""
+    """The FS-UUID of the EFI partition holding the Windows boot loader, on any disk
+    (for the boot menu's Windows entry). Empty if there is none."""
     out = json.loads(subprocess.run(["lsblk", "--json", "--list", "--output", "PATH,PARTTYPE,FSTYPE"],
                                     capture_output=True, text=True).stdout or "{}")
     for p in out.get("blockdevices", []):
@@ -265,11 +265,11 @@ def windows_esp():
 
 
 def hibernated(dev):
-    """A Windows hibernált vagy gyors indítással állt le: a hiberfil.sys eleje "hibr" (nem "wake" vagy üres).
+    """Windows was shut down with hibernation or fast startup: hiberfil.sys starts with "hibr" (not "wake" or empty).
 
-    Ilyenkor a Windows a következő indításkor a memóriaképből visszaírná a régi állapotot, és a közben
-    megváltozott partíció tönkremenne. Az ntfsresize --info ezt nem nézi (csak olvasásra nyit), ezért külön
-    ellenőrizzük, csak olvasva (ntfscat, csatolás nélkül).
+    Then Windows would write its old state back from the memory image on its next start, and the partition
+    changed in the meantime would be ruined. ntfsresize --info does not check this (it opens read-only), so we
+    check it separately, read-only (ntfscat, without mounting).
     """
     try:
         proc = subprocess.Popen(["ntfscat", dev, "hiberfil.sys"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
@@ -283,7 +283,7 @@ def hibernated(dev):
 
 
 def ntfs_info(dev):
-    """(min. méret bájtban vagy None, gond: "" | "hibernated" | "dirty" | "unknown") az ntfsresize szerint."""
+    """(minimum size in bytes or None, problem: "" | "hibernated" | "dirty" | "unknown") according to ntfsresize."""
     if hibernated(dev):
         return None, "hibernated"
     r = subprocess.run(["ntfsresize", "--info", "--no-progress-bar", dev], capture_output=True, text=True)
@@ -301,7 +301,7 @@ def ntfs_info(dev):
 
 
 def probe(disk):
-    """A Windows mellé telepítés lehetőségei: mekkora hely jut a Sloth OS-nek, és mi akadályozza."""
+    """The options for installing next to Windows: how much space Sloth OS can get, and what prevents it."""
     pt = table(disk)
     ss = pt["sectorsize"]
     info = {"uefi": Path("/sys/firmware/efi").is_dir(), "gpt": pt.get("label") == "gpt",
@@ -338,44 +338,44 @@ def probe(disk):
     return info
 
 
-# Ami miatt nem lehet Windows mellé telepíteni -> a felület hibaüzenete (fordítási kulcs; ugyanaz a
-# magyarázat, ami a lemezválasztó lapon is látszik)
+# Why installing next to Windows is not possible -> the UI's error message (translation key; the same
+# explanation that the disk selection page shows)
 BESIDE_PROBLEMS = ("not_uefi", "not_gpt", "hibernated", "dirty", "unknown", "bitlocker", "no_space")
 BESIDE_ERRORS = {p: f"disk.beside.{p}" for p in BESIDE_PROBLEMS if p != "bitlocker"}
 
 
 def partition_beside(disk, size_bytes, encrypt=False):
-    """A Sloth OS helye a Windows mellett: a meglévő szabad hely, vagy a Windows-partíció zsugorítása.
+    """Where Sloth OS goes next to Windows: the existing free space, or shrinking the Windows partition.
 
-    -> (partíciók {"esp", "root", "scratch"} eszköz és partíciószám szerint, a Windows EFI FS-UUID-ja)
+    -> (partitions {"esp", "root", "scratch"} by device and partition number, the FS-UUID of the Windows EFI)
     """
     info = probe(disk)
     blocking = [p for p in info["problems"] if p in BESIDE_ERRORS]
     if blocking:
-        fail(BESIDE_ERRORS[blocking[0]], f"Windows mellé nem telepíthető: {info}")
+        fail(BESIDE_ERRORS[blocking[0]], f"cannot install next to Windows: {info}")
     if size_bytes > info["max"]:
-        fail(BESIDE_ERRORS["no_space"], f"kevés hely: {size_bytes} (max {info['max']})")
+        fail(BESIDE_ERRORS["no_space"], f"not enough space: {size_bytes} (max {info['max']})")
     pt = table(disk)
     ss = pt["sectorsize"]
     need = size_bytes // ss
     region = next(((st, sz) for st, sz in sorted(free_regions(pt), key=lambda r: r[1]) if sz >= need), None)
     if region is None:
-        # Zsugorítás: a Windows-partíció vége előrébb kerül, a felszabadult hely utána következik
+        # Shrinking: the end of the Windows partition moves forward, and the freed space follows it
         win = info.get("windows")
         if not win:
-            fail(BESIDE_ERRORS["no_space"], "nincs zsugorítható Windows-partíció")
+            fail(BESIDE_ERRORS["no_space"], "no Windows partition that can be shrunk")
         part = next(p for p in pt["partitions"] if p["node"] == win["path"])
         align = MIB // ss
         after = gap_after(pt, part)
         shrink = -(-(need - after) // align) * align
         new_size = (part["size"] - shrink) // align * align
         if new_size * ss < win["min"] + WINDOWS_RESERVE:
-            fail(BESIDE_ERRORS["no_space"], f"nem zsugorítható ennyivel: {shrink * ss}")
+            fail(BESIDE_ERRORS["no_space"], f"cannot shrink by this much: {shrink * ss}")
         emit(stage="shrink", progress=8)
-        # a felmérés óta nem változhatott, de ennél a lépésnél inkább kétszer nézzük meg
+        # it cannot have changed since the survey, but at this step we would rather check twice
         if hibernated(win["path"]):
-            fail(BESIDE_ERRORS["hibernated"], "a Windows hibernált")
-        # előbb próba, aztán élesben; utána a partíció is kisebb lesz (a kezdete marad)
+            fail(BESIDE_ERRORS["hibernated"], "Windows is hibernated")
+        # a dry run first, then for real; then the partition gets smaller too (its start stays)
         run(["ntfsresize", "--no-action", "--no-progress-bar", "--size", str(new_size * ss), win["path"]],
             error="error.beside_shrink_failed")
         run(["ntfsresize", "--force", "--no-progress-bar", "--size", str(new_size * ss), win["path"]],
@@ -386,8 +386,8 @@ def partition_beside(disk, size_bytes, encrypt=False):
         pt = table(disk)
         region = next(((st, sz) for st, sz in free_regions(pt) if sz >= need), None)
         if region is None:
-            fail("error.install_failed", "a zsugorítás után sincs elég hely")
-    # sorban: EFI, (titkosításnál /boot,) rendszer, munkapartíció
+            fail("error.install_failed", "still not enough space after shrinking")
+    # in order: EFI, (with encryption /boot,) system, work partition
     layout = [("esp", ESP_MIB * MIB // ss, ESP_TYPE, "EFI-SYSTEM")]
     if encrypt:
         layout.append(("boot", BOOT_MIB * MIB // ss, LINUX_DATA, "boot"))
@@ -406,20 +406,20 @@ def partition_beside(disk, size_bytes, encrypt=False):
     try:
         new = {name: by_start[st] for name, st in starts.items()}
     except KeyError:
-        fail("error.install_failed", f"az új partíciók nem jelentek meg: {sorted(by_start)}")
+        fail("error.install_failed", f"the new partitions did not appear: {sorted(by_start)}")
     parts = {name: p["node"] for name, p in new.items()}
     parts["numbers"] = {name: partnum(disk, p["node"]) for name, p in new.items()}
     return parts, info["windowsEsp"]
 
 
 def partnum(disk, node):
-    # A sorszám közvetlenül a kerneltől. Az lsblk a partíción nyitott titkosított réteget (/dev/mapper/sloth-root,
-    # sorszám nélkül) is listázta, elsőként (2026-10-21, valódi gépen titkosítással: TypeError, a telepítés elbukott)
+    # The number comes straight from the kernel. lsblk also listed the encrypted layer open on the partition
+    # (/dev/mapper/sloth-root, without a number), first (2026-10-21, real machine with encryption: TypeError, the install failed)
     name = os.path.basename(os.path.realpath(node))
     try:
         return int(Path(f"/sys/class/block/{name}/partition").read_text())
     except (OSError, ValueError):
-        fail("error.install_failed", f"nem partíció: {node} ({disk})")
+        fail("error.install_failed", f"not a partition: {node} ({disk})")
 
 
 def mount_target(root, esp, scratch, boot=None):
@@ -435,10 +435,10 @@ def mount_target(root, esp, scratch, boot=None):
 
 
 def format_and_mount(parts, passphrase=""):
-    """Fájlrendszerek (titkosításnál a rendszerpartíción LUKS2), és a cél felcsatolása.
+    """File systems (with encryption, LUKS2 on the system partition), and mounting the target.
 
-    A jelszó csak a szabványos bemeneten megy át a cryptsetup-nak (sor vége nélkül: így kell majd
-    beírni indításkor is). A TRIM (discard) engedélyezése a fejlécbe kerül (--persistent).
+    The password reaches cryptsetup only on standard input (without a line ending: that is how it will
+    have to be typed at boot too). TRIM (discard) is enabled in the header (--persistent).
     """
     run(["mkfs.fat", "-F", "32", "-n", "EFI-SYSTEM", parts["esp"]])
     if parts.get("boot"):
@@ -453,14 +453,14 @@ def format_and_mount(parts, passphrase=""):
         parts["luks_uuid"] = run(["cryptsetup", "luksUUID", parts["root"]]).strip()
         root_dev = str(CRYPT_DEV)
     parts["root_dev"] = root_dev
-    # a címke a Dolphin eszközlistájában a meghajtó neve (a rendszerindítás UUID-t használ)
+    # the label is the drive's name in Dolphin's device list (booting uses the UUID)
     run(["mkfs.btrfs", "--force", "--label", "Sloth OS", root_dev])
     run(["mkfs.ext4", "-F", "-q", "-L", "sloth-tmp", parts["scratch"]])
     mount_target(root_dev, parts["esp"], parts["scratch"], parts.get("boot"))
 
 
 def image_size(source):
-    """A telepítendő image kicsomagolt mérete bájtban (a haladás becsléséhez)."""
+    """The unpacked size of the image to install, in bytes (for estimating progress)."""
     name = source.split(":", 1)[1]
     r = subprocess.run(["podman", "image", "inspect", "--format", "{{.Size}}", name],
                        capture_output=True, text=True)
@@ -471,7 +471,7 @@ def image_size(source):
 
 
 def copy_progress(stop, expected, progress):
-    """Másolás közben a rendszerpartíción elfoglalt hely alapján halad a folyamatjelző (25–80%)."""
+    """During the copy, the progress bar follows the space used on the system partition (25–80%)."""
     st = os.statvfs(TARGET)
     base = (st.f_blocks - st.f_bfree) * st.f_frsize
     while not stop.wait(2):
@@ -487,17 +487,17 @@ def run_bootc(kargs=()):
     source, target = image_refs()
     cmd = ["bootc", "install", "to-filesystem",
            "--source-imgref", source, "--target-imgref", target,
-           # amíg a repó privát, az élő rendszer nem tudja ellenőrizni a frissítések elérhetőségét
+           # while the repository is private, the live system cannot check that updates are available
            "--skip-fetch-check",
            *[f"--karg={k}" for k in kargs],
            str(TARGET)]
     log("$ " + " ".join(cmd))
-    # A kicsomagolt rétegek a munkapartícióra kerüljenek, ne a RAM-ban lévő /var/tmp-be. A TMPDIR-t a
-    # bootc nem veszi figyelembe, és a rendszer (PID 1) /var/tmp-jét használja, ezért a telepítés idejére a
-    # munkapartíciót rendszerszinten a /var/tmp fölé csatoljuk (finish_partitions veszi le).
-    # Overlayként, nem bind mounttal: így a systemd szerint a /var/tmp forrása "overlay", nem a partíció.
-    # Bind mountnál a var-tmp.mount a partícióhoz kötődött, és a partíció törlésekor a systemd leállította,
-    # vele a basic.targetet (RequiresMountsFor=/var/tmp) és az egész élő asztalt, a telepítővel együtt.
+    # The unpacked layers should go to the work partition, not to /var/tmp in RAM. bootc ignores
+    # TMPDIR and uses the /var/tmp of the system (PID 1), so for the duration of the install the
+    # work partition is mounted system-wide over /var/tmp (finish_partitions removes it).
+    # As an overlay, not a bind mount: that way, according to systemd, /var/tmp's source is "overlay", not the partition.
+    # With a bind mount, var-tmp.mount was bound to the partition, and when the partition was deleted, systemd stopped it,
+    # and with it basic.target (RequiresMountsFor=/var/tmp) and the whole live desktop, installer included.
     for d in ("upper", "work"):
         (SCRATCH / d).mkdir(exist_ok=True)
     run(["mount", "-t", "overlay", "overlay", "-o",
@@ -522,14 +522,14 @@ def run_bootc(kargs=()):
                 break
     stop.set()
     if proc.wait() != 0:
-        fail("error.install_failed", f"bootc kilépési kód: {proc.returncode}")
+        fail("error.install_failed", f"bootc exit code: {proc.returncode}")
 
 
 def hide_other_esps(disk, own_partn):
-    """A bootc (bootupd) a lemez első EFI-partíciójára telepíti a rendszerbetöltőt, nem a felcsatoltra: Windows
-    mellett ez a Windowsé lenne (2026-10-20, VM-teszt: a GRUB a Windows EFI-partícióján, a sajátunk üres, és a
-    boot menü fájljai sehova nem kerültek). A telepítés idejére a többi EFI-partíció típusát „Microsoft basic
-    data”-ra írjuk (a tartalmukhoz nem nyúlunk), utána restore_esps visszaállítja."""
+    """bootc (bootupd) installs the boot loader on the disk's first EFI partition, not on the mounted one: next to
+    Windows that would be Windows' (2026-10-20, VM test: GRUB on the Windows EFI partition, ours empty, and the
+    boot menu files went nowhere). For the duration of the install the type of the other EFI partitions is set to
+    "Microsoft basic data" (their contents are not touched); restore_esps sets it back afterwards."""
     hidden = []
     for p in table(disk)["partitions"]:
         n = partnum(disk, p["node"])
@@ -537,7 +537,7 @@ def hide_other_esps(disk, own_partn):
             run(["sfdisk", "--no-reread", "--part-type", disk, str(n), MS_BASIC_DATA])
             hidden.append((n, p["node"]))
     if hidden:
-        log(f"más EFI-partíciók a telepítés idejére elrejtve: {hidden}")
+        log(f"other EFI partitions hidden during the install: {hidden}")
         _refresh_parts(disk, [node for _n, node in hidden])
     return hidden
 
@@ -546,13 +546,13 @@ def restore_esps(disk, hidden):
     for n, _node in hidden:
         r = subprocess.run(["sfdisk", "--no-reread", "--part-type", disk, str(n), ESP_TYPE],
                            capture_output=True, text=True)
-        log(f"EFI-partíció visszaállítva: {n} ({r.returncode}) {r.stderr.strip()}")
+        log(f"EFI partition restored: {n} ({r.returncode}) {r.stderr.strip()}")
     if hidden:
         _refresh_parts(disk, [node for _n, node in hidden])
 
 
 def _refresh_parts(disk, nodes):
-    # a kernel és az udev is lássa az új típust (a bootupd az udev adataiból keres)
+    # the kernel and udev should see the new type too (bootupd searches using udev's data)
     subprocess.run(["partx", "--update", disk], capture_output=True)
     for node in nodes:
         subprocess.run(["udevadm", "trigger", "--action=change", node], capture_output=True)
@@ -563,31 +563,31 @@ GRUB_CUSTOM = Path("/usr/lib/sloth-os/grub-custom.cfg")
 
 
 def setup_boot_menu(windows_esp=""):
-    """Rejtett boot menü: a bootupd GRUB-sablonja minden indításkor 1 mp-re kirakná a menüt.
+    """Hidden boot menu: bootupd's GRUB template would show the menu for 1 s on every boot.
 
-    A custom.cfg ezt felülírja (csak hibás indítás után mutatja), az állapota az EFI partíción
-    van (sloth-boot.env). Ha nem sikerül, a gép így is elindul, csak látszik a menü.
-    Windows mellett a menü mindig látszik (pár másodpercig), és a Windows is benne van
-    (EFI/fedora/sloth-windows.cfg: a Windows rendszerindítója a saját EFI-partícióján).
+    custom.cfg overrides this (shows it only after a failed boot); its state is on the EFI
+    partition (sloth-boot.env). If this fails, the machine still boots, only the menu is visible.
+    Next to Windows the menu is always shown (for a few seconds), and Windows is in it
+    (EFI/fedora/sloth-windows.cfg: the Windows boot loader on its own EFI partition).
     """
     grub_dir = TARGET / "boot/grub2"
     efi_dir = TARGET / "boot/efi/EFI/fedora"
     if not grub_dir.is_dir() or not GRUB_CUSTOM.is_file():
-        log("boot menü: nincs /boot/grub2 vagy sablon, marad a látható menü")
+        log("boot menu: no /boot/grub2 or template, the menu stays visible")
         return
-    # A bootc a végén („Finalizing filesystem root”) csak olvashatóra csatolja vissza a célt; írás előtt
-    # vissza kell állítani (2026-10-15: e nélkül a custom.cfg írása kivételt dobott, és a segéd leállt).
+    # At the end ("Finalizing filesystem root") bootc remounts the target read-only; it has to be
+    # made writable again before writing (2026-10-15: without this, writing custom.cfg threw an exception and the helper stopped).
     for mp in (TARGET, TARGET / "boot", TARGET / "boot/efi"):
         if os.path.ismount(mp):
             r = subprocess.run(["mount", "-o", "remount,rw", str(mp)], capture_output=True, text=True)
             if r.returncode:
-                log(f"boot menü: {mp} nem csatolható írhatóra: {r.stderr.strip()}")
+                log(f"boot menu: {mp} cannot be remounted writable: {r.stderr.strip()}")
     try:
         (grub_dir / "custom.cfg").write_bytes(GRUB_CUSTOM.read_bytes())
         if not efi_dir.is_dir():
-            log(f"boot menü: HIBA, nincs {efi_dir} (a rendszerbetöltő máshova került?)")
+            log(f"boot menu: ERROR, no {efi_dir} (did the boot loader go elsewhere?)")
         else:
-            # GRUB környezeti blokk (a grub2-editenv formátuma: 1024 bájt, a maradék #-kel kitöltve)
+            # GRUB environment block (grub2-editenv's format: 1024 bytes, the rest filled with #)
             show = "1" if windows_esp else "0"
             body = f"# GRUB Environment Block\nsloth_boot_pending=0\nsloth_show_menu={show}\n"
             (efi_dir / "sloth-boot.env").write_text(body + "#" * (1024 - len(body)), encoding="ascii")
@@ -597,37 +597,37 @@ def setup_boot_menu(windows_esp=""):
                     "  insmod part_gpt\n  insmod fat\n  insmod chain\n"
                     f"  search --no-floppy --fs-uuid --set=root {windows_esp}\n"
                     "  chainloader /EFI/Microsoft/Boot/bootmgfw.efi\n}\n", encoding="ascii")
-        log("boot menü: " + ("látható, Windows-bejegyzéssel" if windows_esp else "rejtett"))
+        log("boot menu: " + ("visible, with a Windows entry" if windows_esp else "hidden"))
     except OSError as e:
-        log(f"boot menü: nem sikerült, marad a látható menü ({e})")
+        log(f"boot menu: failed, the menu stays visible ({e})")
 
 
 def finish_partitions(disk, parts, passphrase=""):
-    """Leválasztás, a munkapartíció törlése, és a rendszerpartíció kiterjesztése a helyére
-    (teljes lemeznél a lemez végéig, Windows mellett a következő partícióig)."""
+    """Unmounting, deleting the work partition, and growing the system partition into its place
+    (on a whole disk up to the end of the disk, next to Windows up to the next partition)."""
     run(["sync"])
     for mp in ("/var/tmp", SCRATCH, TARGET / "boot/efi", TARGET / "boot", TARGET):
         subprocess.run(["umount", str(mp)], capture_output=True)
-    release_disk(disk)  # a bootc is csatolva hagyhat valamit (pl. /run/bootc/storage)
+    release_disk(disk)  # bootc may leave something mounted too (e.g. /run/bootc/storage)
     root_n, scratch_n = str(parts["numbers"]["root"]), str(parts["numbers"]["scratch"])
-    # A rendszerpartíció pontosan a munkapartíció helyével nő (közvetlenül utána van): teljes lemeznél ez a
-    # lemez vége, Windows mellett pedig a felhasználó által választott méret (az esetleges további szabad
-    # hely szabad marad)
+    # The system partition grows by exactly the work partition's space (it comes right after it): on a whole disk
+    # that is the end of the disk, next to Windows the size the user chose (any further free
+    # space stays free)
     by_node = {p["node"]: p for p in table(disk)["partitions"]}
     root_p, scratch_p = by_node[parts["root"]], by_node[parts["scratch"]]
     if scratch_p["start"] != root_p["start"] + root_p["size"]:
-        fail("error.install_failed", f"a munkapartíció nem a rendszerpartíció után van: {root_p} {scratch_p}")
+        fail("error.install_failed", f"the work partition is not after the system partition: {root_p} {scratch_p}")
     run(["sfdisk", "--delete", disk, scratch_n])
     run(["sfdisk", "--no-reread", "-N", root_n, disk],
         input=f"start={root_p['start']}, size={root_p['size'] + scratch_p['size']}\n")
-    # a kernel is lássa az új partíciós táblát (Windows mellett a Windows-partíciók miatt nem mindig
-    # olvasható újra az egész, ezért partíciónként frissítünk)
+    # the kernel should see the new partition table too (next to Windows the whole table cannot always be
+    # reread because of the Windows partitions, so we update partition by partition)
     if subprocess.run(["blockdev", "--rereadpt", disk], capture_output=True).returncode != 0:
         subprocess.run(["partx", "--delete", "--nr", scratch_n, disk], capture_output=True)
         run(["partx", "--update", "--nr", root_n, disk])
     run(["udevadm", "settle", "--timeout=30"])
     if parts.get("luks_uuid"):
-        # a titkosított réteg is kövesse a nagyobb partíciót (a fájlrendszer a configure-ban nő)
+        # the encrypted layer should follow the bigger partition too (the file system grows in configure)
         run(["cryptsetup", "resize", "--key-file=-", CRYPT_NAME], input=passphrase, error="error.configure_failed")
     return parts["root_dev"]
 
@@ -636,12 +636,12 @@ LOADER = r"\EFI\fedora\shimx64.efi"
 
 
 def rename_boot_entry(disk, esp_partn):
-    """A bootloader a firmware-be "Fedora" néven veszi fel a rendszert; ezt "Sloth OS"-re cseréljük.
+    """The boot loader registers the system in the firmware as "Fedora"; we change that to "Sloth OS".
 
-    Az efibootmgr nem tud átnevezni, ezért új bejegyzést hozunk létre ugyanarra a betöltőre,
-    és a régit töröljük. Ha bármi nem sikerül, a régi marad: a gép így is elindul.
-    Az új bejegyzés kerül a rendszerindítási sorrend elejére (Windows mellett is: a választás a
-    Sloth OS menüjében van). A Windows saját bejegyzéséhez nem nyúlunk.
+    efibootmgr cannot rename, so we create a new entry for the same loader
+    and delete the old one. If anything fails, the old one stays: the machine still boots.
+    The new entry goes to the front of the boot order (next to Windows too: the choice is in
+    Sloth OS's menu). Windows' own entry is not touched.
     """
     if not Path("/sys/firmware/efi").is_dir():
         return
@@ -650,7 +650,7 @@ def rename_boot_entry(disk, esp_partn):
            if line.startswith("Boot") and line[8:9] == "*" and "Fedora" in line]
     r = subprocess.run(["efibootmgr", "--create", "--disk", disk, "--part", str(esp_partn),
                         "--loader", LOADER, "--label", "Sloth OS"], capture_output=True, text=True)
-    log(f"boot-bejegyzés: {r.returncode} {r.stderr.strip()}")
+    log(f"boot entry: {r.returncode} {r.stderr.strip()}")
     if r.returncode != 0:
         return
     for num in old:
@@ -662,48 +662,48 @@ def write(path, content):
     path.write_text(content, encoding="utf-8")
 
 
-# Konzolos billentyűzetkiosztás az XKB-névből (ahol eltér); nem latin betűsnél az amerikai
+# Console keyboard layout from the XKB name (where they differ); for non-Latin layouts US
 CONSOLE_KEYMAPS = {"gb": "uk", "cz": "cz-qwertz", "sk": "sk-qwertz", "si": "slovene", "hr": "croat",
                    "latam": "la-latin1", "br": "br-abnt2", "ee": "et", "be": "be-latin1", "ca": "cf",
                    "pt": "pt-latin1", "tr": "trq", "jp": "jp106",
-                   # nincs saját konzolos kiosztásuk (a latin betűs alap az amerikai)
+                   # no console layout of their own (the Latin base is US)
                    "kr": "us", "cn": "us", "tw": "us", "al": "us", "lv": "us"}
 
 
 def console_keymap(layouts):
-    """A konzol (és a titkosított lemez jelszókérője) kiosztása: a választott, nem latin betűsnél az amerikai."""
+    """The layout of the console (and of the encrypted disk's password prompt): the chosen one, US for non-Latin ones."""
     console = layouts[0] if layouts[0] != "us" or len(layouts) == 1 else "us"
     return CONSOLE_KEYMAPS.get(console, console)
 
 
 def password_hash(password):
-    """SHA-512 crypt hash (a jelszó csak a szabványos bemeneten megy át, parancssorban nem látszik)."""
+    """SHA-512 crypt hash (the password only goes through standard input, it is not visible on the command line)."""
     r = subprocess.run(["openssl", "passwd", "-6", "-stdin"], input=password + "\n",
                        capture_output=True, text=True)
     if r.returncode != 0 or not r.stdout.startswith("$6$"):
-        fail("error.configure_failed", "openssl passwd nem sikerült")
+        fail("error.configure_failed", "openssl passwd failed")
     return r.stdout.strip()
 
 
 def configure(root_part, locale, layouts, variants, timezone, account, beside_windows=False, luks_uuid=""):
-    """A nyelv, a billentyűzet és az időzóna beírása a feltelepített rendszer /etc mappájába."""
+    """Writes the language, keyboard and time zone into the installed system's /etc."""
     mnt = Path(tempfile.mkdtemp(prefix="sloth-install-"))
-    log(f"gyökérpartíció: {root_part}")
+    log(f"root partition: {root_part}")
     subprocess.run(["mount", "-o", "subvolid=5", root_part, str(mnt)], check=True)
     try:
-        # a rendszer a munkapartíció helyét is megkapja
+        # the system also gets the work partition's space
         run(["btrfs", "filesystem", "resize", "max", str(mnt)], error="error.configure_failed")
         etcs = glob.glob(f"{mnt}/ostree/deploy/*/deploy/*.0/etc") + \
             glob.glob(f"{mnt}/*/ostree/deploy/*/deploy/*.0/etc")
         if not etcs:
-            fail("error.configure_failed", f"nincs ostree deployment ezen: {root_part}")
+            fail("error.configure_failed", f"no ostree deployment on: {root_part}")
         etc = Path(etcs[0])
         deploy = etc.parent
 
         files = {
             etc / "locale.conf": f"LANG={locale}\n",
             etc / "vconsole.conf": f"KEYMAP={console_keymap(layouts)}\n",
-            # a bejelentkező képernyő és az X11/Wayland alapértelmezése (systemd-localed formátum)
+            # the default of the login screen and of X11/Wayland (systemd-localed format)
             etc / "X11/xorg.conf.d/00-keyboard.conf": (
                 'Section "InputClass"\n'
                 '        Identifier "system-keyboard"\n'
@@ -712,7 +712,7 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
                 + (f'        Option "XkbVariant" "{",".join(variants)}"\n' if any(variants) else "")
                 + ('        Option "XkbOptions" "grp:alt_shift_toggle"\n' if len(layouts) > 1 else "")
                 + "EndSection\n"),
-            # a Plasma alapértelmezése minden új felhasználónak
+            # Plasma's default for every new user
             etc / "xdg/kxkbrc": (
                 "[Layout]\n"
                 f"LayoutList={','.join(layouts)}\n"
@@ -721,14 +721,14 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
                 + "Use=true\n"),
         }
         if luks_uuid:
-            # A titkosított rendszerpartíció (az initramfs a rd.luks.uuid alapján nyitja, a jelszót a Plymouth kéri)
+            # The encrypted system partition (the initramfs opens it by rd.luks.uuid; Plymouth asks for the password)
             files[etc / "crypttab"] = f"luks-{luks_uuid} UUID={luks_uuid} none discard\n"
         if beside_windows:
-            # A Windows a hardverórát helyi időben tartja: ha mi UTC-ben, minden váltás után elcsúszna az óra
+            # Windows keeps the hardware clock in local time: if we kept UTC, the clock would be off after every switch
             files[etc / "adjtime"] = "0.0 0 0.0\n0\nLOCAL\n"
         for path, content in files.items():
             write(path, content)
-        # A fiók: első induláskor a sloth-first-user szolgáltatás hozza létre (rendszergazdaként)
+        # The account: created on first boot by the sloth-first-user service (as administrator)
         user_spec = etc / "sloth-os/first-user.json"
         write(user_spec, json.dumps(account, ensure_ascii=False))
         os.chmod(user_spec, 0o600)
@@ -739,7 +739,7 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
 
         use_signed_updates(deploy)
 
-        # SELinux címkék a telepített rendszer saját szabályai szerint
+        # SELinux labels according to the installed system's own policy
         contexts = deploy / "etc/selinux/targeted/contexts/files/file_contexts"
         if contexts.exists():
             r = subprocess.run(["setfiles", "-F", "-r", str(deploy), str(contexts),
@@ -753,12 +753,12 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
 
 
 def use_signed_updates(deploy):
-    """A frissítések aláírás-ellenőrzéssel jöjjenek (ostree-image-signed).
+    """Updates should come with signature verification (ostree-image-signed).
 
-    A bootc ellenőrzés nélküli hivatkozást ír (ostree-unverified-registry). Ha a telepített image
-    containers-policy.json-ja aláírást követel erre az image-re (BlueBuild signing modul +
-    signing-family.sh), átírjuk; így a frissítés csak a mi kulcsunkkal aláírt image-ből jöhet. Ha a
-    szabály hiányzik, marad a régi, mert különben a gép egyáltalán nem kapna frissítést.
+    bootc writes an unverified reference (ostree-unverified-registry). If the installed image's
+    containers-policy.json requires a signature for this image (BlueBuild signing module +
+    signing-family.sh), we rewrite it; then an update can only come from an image signed with our key. If the
+    rule is missing, the old one stays, because otherwise the machine would get no updates at all.
     """
     origin = deploy.with_name(deploy.name + ".origin")
     prefix = "container-image-reference=ostree-unverified-registry:"
@@ -766,7 +766,7 @@ def use_signed_updates(deploy):
         lines = origin.read_text(encoding="utf-8").splitlines()
         policy = json.loads((deploy / "etc/containers/policy.json").read_text(encoding="utf-8"))
     except (OSError, ValueError) as e:
-        log(f"aláírt frissítések: nem olvasható ({e}), marad az ellenőrzés nélküli")
+        log(f"signed updates: not readable ({e}), keeping the unverified one")
         return
     out, changed = [], False
     for line in lines:
@@ -778,22 +778,22 @@ def use_signed_updates(deploy):
                 line = f"container-image-reference=ostree-image-signed:docker://{ref}"
                 changed = True
             else:
-                log(f"aláírt frissítések: a policy.json-ban nincs szabály erre: {repo}")
+                log(f"signed updates: policy.json has no rule for: {repo}")
         out.append(line)
     if changed:
         origin.write_text("\n".join(out) + "\n", encoding="utf-8")
-        log("aláírt frissítések: " + next(l for l in out if l.startswith("container-image-reference=")))
+        log("signed updates: " + next(l for l in out if l.startswith("container-image-reference=")))
 
 
 WINDOWS_HELPER = Path("/usr/share/sloth-os/windows-helper")
 
 
 def place_windows_helper(disk):
-    """Windows mellett: a Windows-oldali rendszerindítási segéd a Windows Nyilvános asztalára („Sloth OS” mappa).
+    """Next to Windows: the Windows-side boot helper goes on the Windows Public Desktop (a "Sloth OS" folder).
 
-    A felhasználó a Windowsban egyszer duplán rákattint, és onnantól a Windows minden induláskor visszateszi a
-    Sloth OS-t a sorrend elejére. Csak könnyítés: ha nem megy (pl. csak olvasható a partíció), a telepítés
-    ettől nem akad el, és a Sloth Központból (Haladó beállítások) később is elhelyezhető.
+    The user double-clicks it once in Windows, and from then on Windows puts Sloth OS back at the front of the
+    boot order on every start. Only a convenience: if it fails (e.g. the partition is read-only), the install
+    does not stop because of it, and it can be placed later from Sloth Center (Advanced settings).
     """
     if not WINDOWS_HELPER.is_dir():
         return
@@ -815,10 +815,10 @@ def place_windows_helper(disk):
                     dest.mkdir(parents=True, exist_ok=True)
                     for f in WINDOWS_HELPER.iterdir():
                         shutil.copyfile(f, dest / f.name)
-                    log(f"Windows-segéd elhelyezve: {dev['path']}")
+                    log(f"Windows helper placed: {dev['path']}")
                     return
             except OSError as e:
-                log(f"Windows-segéd: {e}")
+                log(f"Windows helper: {e}")
             finally:
                 subprocess.run(["umount", str(mnt)], capture_output=True)
         finally:
@@ -848,7 +848,7 @@ def main():
     inst.add_argument("--fullname", default="")
     inst.add_argument("--beside-windows", action="store_true")
     inst.add_argument("--size-gib", type=int, default=0)
-    inst.add_argument("--encrypt", action="store_true", help="a titkosítás jelszava a 2. sor a bemeneten")
+    inst.add_argument("--encrypt", action="store_true", help="the encryption password is the 2nd line of the input")
     prb = sub.add_parser("probe")
     prb.add_argument("--disk", required=True)
     args = parser.parse_args()
@@ -862,8 +862,8 @@ def main():
         if os.geteuid() != 0:
             fail("error.not_authorized")
         if not whole_disk(args.disk):
-            fail("error.bad_disk", f"nem telepíthető lemez: {args.disk}")
-        LOG.write_text(f"Sloth OS lemezfelmérés: {time.ctime()}\n", encoding="utf-8")
+            fail("error.bad_disk", f"disk cannot be installed to: {args.disk}")
+        LOG.write_text(f"Sloth OS disk survey: {time.ctime()}\n", encoding="utf-8")
         print(json.dumps(probe(args.disk)), flush=True)
         return 0
 
@@ -873,34 +873,34 @@ def main():
     if os.geteuid() != 0:
         fail("error.not_authorized")
     if not whole_disk(args.disk):
-        fail("error.bad_disk", f"nem telepíthető lemez: {args.disk}")
+        fail("error.bad_disk", f"disk cannot be installed to: {args.disk}")
     if args.beside_windows and not 40 <= args.size_gib <= 100000:
-        fail("error.bad_input", f"rossz méret: {args.size_gib} GiB")
+        fail("error.bad_input", f"bad size: {args.size_gib} GiB")
     if not re.fullmatch(r"[a-z]{2,3}(_[A-Z]{2})?\.UTF-8", args.locale):
-        fail("error.bad_input", f"rossz locale: {args.locale}")
+        fail("error.bad_input", f"bad locale: {args.locale}")
     keyboard = parse_keyboard(args.keyboard)
     if not keyboard:
-        fail("error.bad_input", f"rossz billentyűzet: {args.keyboard}")
+        fail("error.bad_input", f"bad keyboard: {args.keyboard}")
     if args.timezone not in zoneinfo.available_timezones():
-        fail("error.bad_input", f"rossz időzóna: {args.timezone}")
+        fail("error.bad_input", f"bad time zone: {args.timezone}")
     if not re.fullmatch(r"[a-z_][a-z0-9_-]{0,31}", args.username) or args.username in RESERVED_USERS:
-        fail("error.bad_input", f"rossz felhasználónév: {args.username}")
+        fail("error.bad_input", f"bad user name: {args.username}")
     if len(args.fullname) > 128 or any(c in args.fullname for c in ":\n,"):
-        fail("error.bad_input", "rossz teljes név")
+        fail("error.bad_input", "bad full name")
     password = sys.stdin.readline().rstrip("\n")
     if not password:
-        fail("error.bad_input", "üres jelszó")
+        fail("error.bad_input", "empty password")
     passphrase = sys.stdin.readline().rstrip("\n") if args.encrypt else ""
     if args.encrypt and len(passphrase) < 8:
-        fail("error.bad_input", "túl rövid titkosítási jelszó")
+        fail("error.bad_input", "encryption password too short")
     account = {"username": args.username, "fullname": args.fullname, "password_hash": password_hash(password)}
 
-    LOG.write_text(f"Sloth OS telepítés: {time.ctime()}\n", encoding="utf-8")
+    LOG.write_text(f"Sloth OS installation: {time.ctime()}\n", encoding="utf-8")
     emit(stage="partition", progress=5)
-    # egy korábbi, megszakadt próbálkozás nyitva hagyhatta a titkosított réteget
+    # an earlier, interrupted attempt may have left the encrypted layer open
     subprocess.run(["umount", "-R", str(TARGET)], capture_output=True)
     if subprocess.run(["findmnt", "-n", "-o", "FSTYPE", "/var/tmp"], capture_output=True,
-                      text=True).stdout.split()[-1:] == ["overlay"]:   # a legfelső réteg az utolsó sor
+                      text=True).stdout.split()[-1:] == ["overlay"]:   # the top layer is the last line
         subprocess.run(["umount", "/var/tmp"], capture_output=True)
     subprocess.run(["cryptsetup", "close", CRYPT_NAME], capture_output=True)
     release_disk(args.disk)
@@ -912,7 +912,7 @@ def main():
     format_and_mount(parts, passphrase)
     kargs = []
     if parts.get("luks_uuid"):
-        # indításkor ezt kell kinyitni, és a jelszót a választott billentyűzetkiosztással kérjük
+        # at boot this is what has to be opened, and the password is asked with the chosen keyboard layout
         kargs = [f"rd.luks.uuid=luks-{parts['luks_uuid']}", f"rd.vconsole.keymap={console_keymap(keyboard[0])}"]
     emit(stage="prepare", progress=20)
     hidden = hide_other_esps(args.disk, parts["numbers"]["esp"])
@@ -939,5 +939,5 @@ if __name__ == "__main__":
         sys.exit(main())
     except subprocess.CalledProcessError as e:
         fail("error.configure_failed", str(e))
-    except Exception:  # váratlan hiba: a részletek a logba, különben csak a hibaoldal látszana
+    except Exception:  # unexpected error: details go to the log, otherwise only the error page would show
         fail("error.install_failed", traceback.format_exc())

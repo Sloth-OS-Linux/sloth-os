@@ -1,17 +1,17 @@
-"""Linuxos (és Mac-es) programcsomagok: mi ez a fájl, és hogyan kerül a gépre.
+"""Linux (and Mac) program packages: what this file is, and how it gets onto the machine.
 
-  AppImage   a programok közé kerül (~/Applications/<név>/), futtathatóra állítva, a Start menüben a saját
-             nevével és ikonjával. Futtatásához a FUSE 2 kell (fuse-libs, recipes/tools.yml).
-  .deb       Fedorán közvetlenül nem telepíthető: egy Ubuntu-dobozba (distrobox) kerül, az appjai a Start
-             menüben natívként jelennek meg; a „doboz” szó a felületen nem látszik.
-  .rpm       Atomic rendszeren nem rétegezzük (az csak a haladó beállításokban): egy Fedora-dobozba kerül.
-  Mac        (.dmg, .pkg, .app…) Linuxon nem futtatható: érthető üzenet, és a Discoverben keresés a
-             Linuxos változatra.
-A felismerés a fájl tartalma alapján megy (nem csak a kiterjesztés szerint).
+  AppImage   goes among the programs (~/Applications/<name>/), made executable, in the Start menu with its own
+             name and icon. Running it needs FUSE 2 (fuse-libs, recipes/tools.yml).
+  .deb       cannot be installed on Fedora directly: it goes into an Ubuntu box (distrobox), and its apps appear
+             in the Start menu like native ones; the word "box" never shows in the interface.
+  .rpm       not layered on an Atomic system (that is only in the advanced settings): it goes into a Fedora box.
+  Mac        (.dmg, .pkg, .app…) cannot run on Linux: a clear message, and a search in Discover for the
+             Linux version.
+Recognition goes by the file's contents (not just by the extension).
 
-Ha egy program a Flathubon is megvan, azt ajánljuk (flathub_match): jobban illeszkedik a rendszerhez, és a
-Discover frissíti. A telepített AppImage-ek a háttérben frissülnek, ha az AppImage megadja, honnan
-(update_appimages, a sloth-exe --maintenance hívja; csak nem mért kapcsolaton, és ha a program nem fut).
+If a program is on Flathub too, we recommend that (flathub_match): it fits the system better, and
+Discover updates it. Installed AppImages update in the background if the AppImage says where from
+(update_appimages, called by sloth-exe --maintenance; only on an unmetered connection, and if the program is not running).
 """
 import configparser
 import fnmatch
@@ -37,7 +37,7 @@ MAC_EXT = {".dmg", ".pkg", ".mpkg", ".app", ".xip", ".sparseimage", ".sparsebund
            ".ipa"}
 MAC_SCRIPT_EXT = {".command", ".tool"}
 
-# Dobozok a Linuxos csomagokhoz: (doboz neve, image, telepítés, csomagnév kiolvasása, eltávolítás)
+# Boxes for the Linux packages: (box name, image, install, reading the package name, removal)
 BOXES = {
     "deb": ("sloth-ubuntu", "docker.io/library/ubuntu:24.04",
             'sudo -n apt-get update && sudo -n DEBIAN_FRONTEND=noninteractive apt-get install -y "$PKG"',
@@ -51,7 +51,7 @@ BOXES = {
 
 
 def kind_of(path):
-    """"appimage" | "deb" | "rpm" | "mac" | "mac-script" | None (a fájl tartalma, és ha kell, a neve alapján)."""
+    """"appimage" | "deb" | "rpm" | "mac" | "mac-script" | None (by the file's contents and, if needed, its name)."""
     p = Path(path)
     ext = "".join(p.suffixes[-2:]).lower() if p.name.lower().endswith(".app.zip") else p.suffix.lower()
     try:
@@ -72,7 +72,7 @@ def kind_of(path):
         return "deb"
     if head[:4] == b"\xed\xab\xee\xdb":
         return "rpm"
-    if head[:4] == b"xar!" or tail[:4] == b"koly":  # .pkg (xar), .dmg (UDIF lábléc)
+    if head[:4] == b"xar!" or tail[:4] == b"koly":  # .pkg (xar), .dmg (UDIF footer)
         return "mac"
     if ext == ".appimage":
         return "appimage"
@@ -109,7 +109,7 @@ def _desktop_info(text):
 
 
 def appimage_info(appimage, dest_icon):
-    """Név, ikon és kategóriák az AppImage-ből (a saját kicsomagolójával, ablak nélkül)."""
+    """Name, icon and categories from the AppImage (with its own extractor, without a window)."""
     info = {}
     with tempfile.TemporaryDirectory() as tmp:
         for pattern in ("*.desktop", ".DirIcon"):
@@ -117,14 +117,14 @@ def appimage_info(appimage, dest_icon):
                 subprocess.run([str(appimage), "--appimage-extract", pattern], cwd=tmp, timeout=60,
                                stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             except (OSError, subprocess.SubprocessError) as e:
-                log.warning("AppImage kicsomagolása: %s", e)
+                log.warning("extracting the AppImage: %s", e)
                 return info
         root = Path(tmp) / "squashfs-root"
         desktops = sorted(root.glob("*.desktop"))
         if desktops:
             info = _desktop_info(desktops[0].read_text(encoding="utf-8", errors="replace"))
         icon = root / ".DirIcon"
-        if icon.is_symlink():  # a .DirIcon többnyire hivatkozás a valódi ikonra
+        if icon.is_symlink():  # .DirIcon is usually a link to the real icon
             target = icon.readlink()
             subprocess.run([str(appimage), "--appimage-extract", str(target)], cwd=tmp, timeout=60,
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -139,9 +139,9 @@ def appimage_info(appimage, dest_icon):
 
 
 def install_appimage(src, name=None):
-    """Az AppImage a programok közé (másolat; Btrfs-en reflink, így nem foglal kétszer helyet).
+    """The AppImage goes among the programs (a copy; a reflink on Btrfs, so it does not take the space twice).
 
-    -> az új App, vagy None (ha a hely nem jó, vagy a másolás nem sikerült)."""
+    -> the new App, or None (if the location is not suitable, or the copy failed)."""
     src = Path(src)
     if not library.supported_location(library.default_library()):
         return None
@@ -151,7 +151,7 @@ def install_appimage(src, name=None):
         subprocess.run(["cp", "--reflink=auto", str(src), str(dest)], check=True, capture_output=True, timeout=600)
         dest.chmod(0o755)
     except (OSError, subprocess.SubprocessError) as e:
-        log.warning("AppImage másolása: %s", e)
+        log.warning("copying the AppImage: %s", e)
         library.remove(app)
         return None
     info = appimage_info(dest, app.icons / "appimage")
@@ -163,7 +163,7 @@ def install_appimage(src, name=None):
     app.save_meta(file=dest.name, categories=info.get("categories", ""))
     icon = info.get("icon_path")
     if icon:
-        icon = str(app.icons / Path(icon).name)  # az átnevezés után is a program mappájában
+        icon = str(app.icons / Path(icon).name)  # in the program's folder after the rename too
     menu.add_command(app, app.name, ["sloth-exe", "--run", app.id], icon, info.get("categories"),
                      args_placeholder="%U")
     app.set_folder_icon(icon)
@@ -175,14 +175,14 @@ def appimage_path(app):
     return app.dir / f if f else None
 
 
-# --- AppImage-frissítés ------------------------------------------------------------------------------
+# --- AppImage updates ------------------------------------------------------------------------------
 
 TIMEOUT_S = 20
 USER_AGENT = "SlothOS-AppImage-Update/1"
 
 
 def update_info(path):
-    """Az AppImage frissítési adata (az ELF .upd_info szakasza), pl. "gh-releases-zsync|user|repo|latest|X-*.zsync"."""
+    """The AppImage's update information (its ELF .upd_info section), e.g. "gh-releases-zsync|user|repo|latest|X-*.zsync"."""
     try:
         with open(path, "rb") as f:
             head = f.read(64)
@@ -212,7 +212,7 @@ def _get(url, limit=None):
 
 
 def zsync_url(info):
-    """A frissítési adatból a .zsync fájl címe (zsync|<url> vagy gh-releases-zsync|<user>|<repo>|<tag>|<minta>)."""
+    """The address of the .zsync file from the update information (zsync|<url> or gh-releases-zsync|<user>|<repo>|<tag>|<pattern>)."""
     parts = info.split("|")
     if parts[0] == "zsync" and len(parts) >= 2:
         return parts[1]
@@ -227,7 +227,7 @@ def zsync_url(info):
 
 
 def zsync_header(url):
-    """A .zsync fejléce: {"filename", "url" (a teljes fájl címe), "sha1", "length"}."""
+    """The .zsync header: {"filename", "url" (the full file's address), "sha1", "length"}."""
     data = _get(url, 64 * 1024)
     head = data.split(b"\n\n", 1)[0].decode("utf-8", "replace")
     fields = dict(line.split(": ", 1) for line in head.splitlines() if ": " in line)
@@ -245,7 +245,7 @@ def _sha1(path):
 
 
 def metered():
-    """Mért (mobilnetes) kapcsolaton vagyunk-e (a NetworkManager szerint; ha nem derül ki, nem)."""
+    """Whether we are on a metered (mobile) connection (according to NetworkManager; if it cannot be told, no)."""
     try:
         out = subprocess.run(["busctl", "get-property", "org.freedesktop.NetworkManager",
                               "/org/freedesktop/NetworkManager", "org.freedesktop.NetworkManager", "Metered"],
@@ -268,7 +268,7 @@ def _running(path):
 
 
 def update_appimage(app):
-    """Egy AppImage frissítése, ha van újabb. -> "updated" | "current" | "skipped" (nincs adat, fut, hiba)."""
+    """Updates an AppImage if there is a newer one. -> "updated" | "current" | "skipped" (no data, running, error)."""
     path = appimage_path(app)
     info = app.meta.get("update_info") or (update_info(path) if path else "")
     if not path or not path.is_file() or not info:
@@ -281,32 +281,32 @@ def update_appimage(app):
         if not head["sha1"] or head["sha1"] == _sha1(path):
             return "current"
         if _running(path):
-            return "skipped"  # fut: a következő alkalommal
+            return "skipped"  # running: next time
         part = path.with_name(f".{path.name}.frissites")
         with open(part, "wb") as f:
             f.write(_get(head["url"]))
         if _sha1(part) != head["sha1"]:
             part.unlink(missing_ok=True)
-            log.warning("AppImage-frissítés: hibás letöltés (%s)", app.name)
+            log.warning("AppImage update: bad download (%s)", app.name)
             return "skipped"
         part.chmod(0o755)
         os.replace(part, path)
         app.save_meta(update_info=info, updated=head["filename"])
-        log.info("AppImage frissítve: %s -> %s", app.name, head["filename"])
+        log.info("AppImage updated: %s -> %s", app.name, head["filename"])
         return "updated"
     except (OSError, ValueError, KeyError, urllib.error.URLError) as e:
-        log.warning("AppImage-frissítés (%s): %s", app.name, e)
+        log.warning("AppImage update (%s): %s", app.name, e)
         return "skipped"
 
 
 def update_appimages():
-    """Minden telepített AppImage frissítése (háttérben, nem mért kapcsolaton). -> a frissítettek nevei"""
+    """Updates every installed AppImage (in the background, on an unmetered connection). -> the names of the updated ones"""
     if metered():
         return []
     return [a.name for a in library.all_apps() if a.kind == "appimage" and update_appimage(a) == "updated"]
 
 
-# --- A Flathubos változat ----------------------------------------------------------------------------
+# --- The Flathub version ----------------------------------------------------------------------------
 
 FLATHUB_SEARCH = "https://flathub.org/api/v2/search"
 
@@ -317,7 +317,7 @@ def _norm(s):
 
 
 def flathub_match(name, timeout=4):
-    """Megvan-e a program a Flathubon (pontos névegyezés). -> {"id", "name", "summary"} vagy None"""
+    """Whether the program is on Flathub (exact name match). -> {"id", "name", "summary"} or None"""
     want = _norm(name)
     if len(want) < 3:
         return None
@@ -327,7 +327,7 @@ def flathub_match(name, timeout=4):
         with urllib.request.urlopen(req, timeout=timeout) as r:
             hits = json.loads(r.read()).get("hits", [])
     except (OSError, ValueError, urllib.error.URLError) as e:
-        log.info("Flathub-keresés: %s", e)
+        log.info("Flathub search: %s", e)
         return None
     for h in hits[:10]:
         last = (h.get("app_id") or "").rsplit(".", 1)[-1]
@@ -339,7 +339,7 @@ def flathub_match(name, timeout=4):
 # --- .deb / .rpm dobozban ----------------------------------------------------------------------------
 
 def box_path(path):
-    """A fájl útja a dobozon belül: a saját mappa ugyanott látszik, a többi a /run/host alatt."""
+    """The file's path inside the box: the home folder appears at the same place, everything else under /run/host."""
     p = Path(path).resolve()
     try:
         p.relative_to(Path.home().resolve())
@@ -349,8 +349,8 @@ def box_path(path):
 
 
 def box_steps(kind, path, box_exists):
-    """A dobozos telepítés lépései: [(állapot kulcsa, parancs)]. Az utolsó lépés kiírja:
-       SLOTH-NAME:<csomagnév> és soronként SLOTH-APP:<desktop azonosító>|<név> (a Start menübe került appok)."""
+    """The steps of installing into a box: [(status key, command)]. The last step prints:
+       SLOTH-NAME:<package name> and, line by line, SLOTH-APP:<desktop ID>|<name> (the apps that went into the Start menu)."""
     box, image, install, pkg_name, _remove = BOXES[kind]
     steps = []
     if not box_exists:
@@ -392,14 +392,14 @@ def box_exists(kind):
 
 
 def record_box_install(kind, path, package, apps):
-    """A dobozba telepített csomag a programok közé (rejtett adat; a Start menü bejegyzéseit a distrobox írja)."""
+    """The package installed into a box goes among the programs (hidden data; distrobox writes the Start menu entries)."""
     name = apps[0]["name"] if len(apps) == 1 else (package or display_name(path))
     return library.create(name, kind="box", box={"kind": kind, "box": BOXES[kind][0], "package": package,
                                                  "apps": apps, "file": str(path)})
 
 
 def box_uninstall(app):
-    """A doboz appjai ki a Start menüből, a csomag ki a dobozból. -> True, ha sikerült."""
+    """The box's apps out of the Start menu, the package out of the box. -> True if it worked."""
     info = app.meta.get("box") or {}
     kind = info.get("kind")
     if kind not in BOXES or not info.get("package"):
@@ -411,18 +411,18 @@ def box_uninstall(app):
     try:
         r = subprocess.run(["distrobox", "enter", box, "--", "sh", "-c", script], capture_output=True, timeout=600)
     except (OSError, subprocess.SubprocessError) as e:
-        log.warning("eltávolítás a dobozból: %s", e)
+        log.warning("removal from the box: %s", e)
         return False
     return r.returncode == 0
 
 
 def box_desktop_files(app):
-    """A distrobox által a Start menübe tett bejegyzések (<doboz>-<app>.desktop)."""
+    """The entries distrobox put into the Start menu (<box>-<app>.desktop)."""
     info = app.meta.get("box") or {}
     return [menu.APPS_DIR / f"{info.get('box')}-{a['id']}.desktop" for a in info.get("apps", [])]
 
 
 def box_launch_command(app):
-    """A dobozba telepített (első) app indítása a Start menü bejegyzésével."""
+    """Starts the (first) app installed into the box with its Start menu entry."""
     desktop = next((d for d in box_desktop_files(app) if d.is_file()), None)
     return ["kioclient", "exec", str(desktop)] if desktop else None

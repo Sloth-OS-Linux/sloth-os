@@ -1,8 +1,8 @@
-"""A telepítő adatai: választható nyelvek, billentyűzetek, időzónák és lemezek.
+"""The installer's data: the languages, keyboards, time zones and disks to choose from.
 
-A nyelvek listája a Sloth Üdvözlő fordításaiból jön: amit a rendszer első indításkor
-beszél, azt lehet itt választani. A billentyűzet és az időzóna a nyelvből adódik,
-de átállítható.
+The list of languages comes from Sloth Welcome's translations: whatever the system speaks
+on first start can be chosen here. The keyboard and the time zone follow from the language,
+but can be changed.
 """
 import json
 import logging
@@ -16,12 +16,12 @@ from sloth_common.i18n import Catalog, sort_key
 log = logging.getLogger("sloth-installer.system")
 
 WELCOME_TRANSLATIONS = Path("/usr/lib/sloth-os/sloth-welcome/sloth_welcome/translations")
-MIN_DISK_BYTES = 40 * 1024**3       # ennél kisebb lemezre nem telepítünk
-RECOMMENDED_BYTES = 120 * 1024**3   # játékokhoz ennyi ajánlott
+MIN_DISK_BYTES = 40 * 1024**3       # we do not install on a smaller disk
+RECOMMENDED_BYTES = 120 * 1024**3   # recommended for games
 
-# Nyelv -> (locale, billentyűzet, időzóna). A billentyűzet XKB-név; nem latin betűs
-# nyelveknél az amerikai az első, hogy a felhasználónév és a jelszó latin betűs legyen
-# (Alt+Shift vált), mint a Fedora telepítőjében.
+# Language -> (locale, keyboard, time zone). The keyboard is an XKB name; for languages not written in Latin
+# letters US comes first, so the user name and the password are in Latin letters
+# (Alt+Shift switches), as in Fedora's installer.
 LANGUAGES = {
     "af": ("af_ZA.UTF-8", "us", "Africa/Johannesburg"),
     "ar": ("ar_EG.UTF-8", "us,ara", "Africa/Cairo"),
@@ -75,7 +75,7 @@ LANGUAGES = {
     "zh_TW": ("zh_TW.UTF-8", "tw", "Asia/Taipei"),
 }
 
-# Választható billentyűzetek: (XKB-név, megjelenített név a nyelv saját nevével)
+# Keyboards to choose from: (XKB name, displayed name in the language's own name)
 KEYBOARDS = [
     ("us", "English (US)"), ("gb", "English (UK)"), ("us(intl)", "English (US, international)"),
     ("hu", "Magyar"), ("de", "Deutsch"), ("ch", "Deutsch (Schweiz)"), ("fr", "Français"),
@@ -93,7 +93,7 @@ KEYBOARDS = [
 
 
 def languages():
-    """[{"code", "name", "locale", "keyboard", "timezone"}] a Sloth Üdvözlő nyelvei közül."""
+    """[{"code", "name", "locale", "keyboard", "timezone"}] from Sloth Welcome's languages."""
     out = []
     for lang in Catalog(WELCOME_TRANSLATIONS).available():
         locale, kbd, tz = LANGUAGES.get(lang["code"], ("en_US.UTF-8", "us", "UTC"))
@@ -106,16 +106,16 @@ def keyboards():
 
 
 def timezones():
-    """Az időzónák régió/város formában ("Europe/Budapest"), plusz UTC."""
+    """The time zones in region/city form ("Europe/Budapest"), plus UTC."""
     regions = ("Africa", "America", "Antarctica", "Asia", "Atlantic", "Australia", "Europe", "Indian", "Pacific")
     zones = sorted(z for z in zoneinfo.available_timezones() if z.split("/")[0] in regions)
     return [{"id": z, "name": z.replace("_", " ").replace("/", " / ")} for z in zones] + [{"id": "UTC", "name": "UTC"}]
 
 
 def apply_live_keyboard(kbd):
-    """A választott kiosztás az élő munkamenetben is: a próbamezőben már az új kiosztással lehet gépelni.
+    """The chosen layout in the live session too: in the test field one can already type with the new layout.
 
-    A KWin a ~/.config/kxkbrc változásértesítésére (kwriteconfig6 --notify) azonnal átvált.
+    KWin switches right away on the change notification of ~/.config/kxkbrc (kwriteconfig6 --notify).
     """
     layouts, variants = [], []
     for item in kbd.split(","):
@@ -129,15 +129,15 @@ def apply_live_keyboard(kbd):
             subprocess.run(["kwriteconfig6", "--file", "kxkbrc", "--group", "Layout", "--key", key,
                             "--notify", value], check=True, timeout=10)
     except (OSError, subprocess.SubprocessError) as e:
-        log.warning("billentyűzet (élő): %s", e)
+        log.warning("keyboard (live): %s", e)
 
 
 def apply_live_language(code, locale):
-    """A választott nyelv az élő asztalon is ("Kipróbálom" után).
+    """The chosen language on the live desktop too (after "Try Sloth OS").
 
-    A Plasma nyelvbeállítása (plasma-localerc) mellett a munkamenet környezete is átáll, majd
-    újraindul az asztal (plasmashell): a tálca, a menü és az onnan indított appok már a választott
-    nyelven jönnek fel. Kijelentkezni nem kell (a liveuser automatikus belépése csak egyszer megy).
+    Besides Plasma's language setting (plasma-localerc) the session's environment switches too, then
+    the desktop (plasmashell) restarts: the taskbar, the menu and the apps started from there come up in the
+    chosen language. No need to sign out (the liveuser's automatic login only works once).
     """
     language = code if code.startswith("en") else f"{code}:en_US"
     try:
@@ -149,7 +149,7 @@ def apply_live_language(code, locale):
         subprocess.Popen(["systemctl", "--user", "restart", "plasma-plasmashell.service"],
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
     except (OSError, subprocess.SubprocessError) as e:
-        log.warning("nyelv (élő): %s", e)
+        log.warning("language (live): %s", e)
 
 
 # --- Lemezek ----------------------------------------------------------------------
@@ -163,7 +163,7 @@ def _lsblk():
 
 
 def _live_disk():
-    """Az a lemez (pl. a pendrive), amiről az élő rendszer fut: erre nem telepíthetünk."""
+    """The disk (e.g. the USB stick) the live system runs from: we cannot install on it."""
     try:
         src = subprocess.run(["findmnt", "--noheadings", "--output", "SOURCE", "/run/initramfs/live"],
                              capture_output=True, text=True, timeout=10).stdout.strip()
@@ -177,8 +177,8 @@ def _live_disk():
 
 
 def _contents(disk):
-    """Mi van most a lemezen: "windows", "linux", "other" vagy "empty", és a partíciók nevei."""
-    # A fájlrendszer lehet közvetlenül a lemezen is, partíciós tábla nélkül
+    """What is on the disk now: "windows", "linux", "other" or "empty", and the partitions' names."""
+    # The file system may also be directly on the disk, without a partition table
     parts = (disk.get("children") or []) + ([disk] if disk.get("fstype") else [])
     fstypes = {(p.get("fstype") or "").lower() for p in parts}
     names = [p.get("label") or p.get("partlabel") for p in parts if p.get("label") or p.get("partlabel")]
@@ -194,8 +194,8 @@ def _contents(disk):
 
 
 def _disk_name(d):
-    """A lemez gyártója és típusa (pl. "Samsung SSD 980"); ha nincs, az eszköz neve (pl. "sda").
-    A virtuális gépek lemezeinél a "gyártó" csak egy azonosító (pl. "0x1af4"), azt nem mutatjuk.
+    """The disk's vendor and model (e.g. "Samsung SSD 980"); if there is none, the device name (e.g. "sda").
+    For virtual machines' disks the "vendor" is only an ID (e.g. "0x1af4"); we do not show it.
     """
     vendor = (d.get("vendor") or "").strip()
     if re.fullmatch(r"0x[0-9a-fA-F]+", vendor):
@@ -205,7 +205,7 @@ def _disk_name(d):
 
 
 def _disk_kind(d):
-    """A meghajtó fajtája: "nvme", "ssd", "hdd" vagy "usb" (a felület fordítja: disk.kind.*)."""
+    """The kind of drive: "nvme", "ssd", "hdd" or "usb" (the UI translates it: disk.kind.*)."""
     tran = (d.get("tran") or "").lower()
     if tran == "usb":
         return "usb"
@@ -215,7 +215,7 @@ def _disk_kind(d):
 
 
 def disks():
-    """A telepítésre szóba jövő lemezek, emberi leírással. A túl kicsiket letiltva mutatjuk."""
+    """The disks that can be installed to, with a human description. Too small ones are shown disabled."""
     live = _live_disk()
     out = []
     for d in _lsblk():

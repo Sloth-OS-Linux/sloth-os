@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""A közös alkalmazáskezelés (sloth_common.apps) tesztjei. Qt és Wine nélkül futnak, Linuxon.
+"""Tests of the shared application management (sloth_common.apps). They run without Qt and Wine, on Linux.
 
   python3 tools/tests/test_apps.py
 
-Egy ideiglenes saját mappában (HOME, XDG_*) hamis Windows-környezeteket épít: registryt,
-parancsikonokat (.lnk), .exe fájlokat, régi elrendezésű programokat és Steam-fájlokat.
+In a temporary home folder (HOME, XDG_*) it builds fake Windows environments: a registry,
+shortcuts (.lnk), .exe files, programs in the old layout, and Steam files.
 """
 import json
 import os
@@ -16,7 +16,7 @@ import unittest
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-# Lemezen, nem a /tmp-ben: az sokszor tmpfs, oda a könyvtár (helyesen) nem enged Windows-programot (SUPPORTED_FS)
+# On disk, not in /tmp: that is often tmpfs, where the library (rightly) does not allow Windows programs (SUPPORTED_FS)
 _CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache"))
 _CACHE.mkdir(parents=True, exist_ok=True)
 TMP = Path(tempfile.mkdtemp(prefix="sloth-apps-test-", dir=_CACHE))
@@ -52,7 +52,7 @@ SYSTEM_REG = r'''WINE REGISTRY Version 2
 
 
 def make_lnk(target):
-    """Egy minimális Windows-parancsikon (MS-SHLLINK), LinkInfo + LocalBasePath (ANSI)."""
+    """A minimal Windows shortcut (MS-SHLLINK), LinkInfo + LocalBasePath (ANSI)."""
     header = bytearray(0x4C)
     header[0:4] = b"\x4c\x00\x00\x00"
     struct.pack_into("<I", header, 0x14, 0x02)  # HasLinkInfo
@@ -73,7 +73,7 @@ def touch(path, size=1):
 
 
 def fake_battlenet(app):
-    """A Battle.net telepítés utáni állapota a program környezetében."""
+    """Battle.net's state after installing, in the program's environment."""
     bnet = app.prefix / "drive_c/Program Files (x86)/Battle.net"
     touch(bnet / "Battle.net.exe", 5 * 1024 ** 2)
     touch(bnet / "Battle.net Launcher.exe", 1024 ** 2)
@@ -128,7 +128,7 @@ class DetectTest(unittest.TestCase):
     def test_battlenet_install(self):
         app = library.create("Battle Net", installer="/tmp/Battle.net-Setup.exe")
         (app.prefix / "drive_c/windows/system32").mkdir(parents=True)
-        touch(app.prefix / "drive_c/Program Files (x86)/Common Files/wine-helper.exe")  # már előtte is ott volt
+        touch(app.prefix / "drive_c/Program Files (x86)/Common Files/wine-helper.exe")  # it was there before too
         before = detect.baseline(app)
         bnet = fake_battlenet(app)
         found = detect.detect(app, before, fallback_name="Battle Net")
@@ -137,14 +137,14 @@ class DetectTest(unittest.TestCase):
         self.assertEqual(found.install_dir, bnet)
         self.assertTrue(found.sure)
         checked = [(c.name, c.path.name) for c in found.candidates if c.checked]
-        # a parancsikon nyer, és ugyanaz a név csak egyszer kerül a Start menübe
+        # the shortcut wins, and the same name goes into the Start menu only once
         self.assertEqual(checked, [("Battle.net", "Battle.net Launcher.exe")])
         names = {c.path.name for c in found.candidates}
         self.assertNotIn("Battle.net Uninstaller.exe", names)
         self.assertNotIn("QtWebEngineProcess.exe", names)
         self.assertNotIn("wine-helper.exe", names)
 
-        # átnevezés után (a felismert név) a régi baseline-nal is ugyanez jön ki
+        # after renaming (the recognized name) the same comes out with the old baseline too
         app = library.rename(app, found.name)
         self.assertEqual(app.dir.name, "Battle.net")
         self.assertEqual(app.id, "battle-net")
@@ -153,13 +153,13 @@ class DetectTest(unittest.TestCase):
         library.remove(app)
 
     def test_ea_app_versioned_dir(self):
-        """EA app (2026-10-20, VM): a fájlok egy verziós mappában, mellette link; a Wine mintaprogramjai is újak."""
+        """EA app (2026-10-20, VM): the files in a versioned folder, a link next to it; Wine's sample programs are new too."""
         app = library.create("EA app")
         before = detect.baseline(app)
         drive_c = app.prefix / "drive_c"
         for p in ("Internet Explorer/iexplore.exe", "Windows Media Player/wmplayer.exe",
                   "Windows NT/Accessories/wordpad.exe"):
-            touch(drive_c / "Program Files" / p)  # a Wine a telepítő futása alatt hozza létre őket
+            touch(drive_c / "Program Files" / p)  # Wine creates them while the installer runs
         ea = drive_c / "Program Files/Electronic Arts/EA Desktop"
         ver = ea / "13.809.0.6322/EA Desktop"
         touch(ver / "EADesktop.exe", 30 * 1024 ** 2)
@@ -172,12 +172,12 @@ class DetectTest(unittest.TestCase):
         self.assertFalse(any("Internet Explorer" in str(p) or p.name == "wordpad.exe" for p in paths))
         self.assertNotIn("ErrorReporter.exe", [p.name for p in paths])
         checked = [c.path for c in found.candidates if c.checked]
-        # a linken át, így az EA app frissítése (új verziós mappa) után is érvényes
+        # through the link, so it stays valid after the EA app updates (a new versioned folder)
         self.assertEqual(checked, [ea / "EA Desktop/EADesktop.exe"])
         library.remove(app)
 
     def test_no_registry_no_shortcut(self):
-        """Hordozható zip-szerű telepítő: csak .exe-k vannak; a legjobb pontszámú van bejelölve."""
+        """A portable zip-like installer: there are only .exe files; the one with the best score is ticked."""
         app = library.create("Cool Tool")
         before = detect.baseline(app)
         d = app.prefix / "drive_c/Program Files/Cool Tool"
@@ -229,7 +229,7 @@ class LibraryTest(unittest.TestCase):
         outside = touch(TMP / "Downloads/portable.exe")
         menu.add(app, "Mover", exe)
         menu.add(app, "Portable", outside)
-        app.link_files(exe.parent, "Program fájljai")
+        app.link_files(exe.parent, "Program files")
         targets = {e["name"]: e["target"] for e in menu.entries(app)}
         self.assertEqual(targets["Mover"], "drive_c/Program Files/Mover/mover.exe")
         self.assertEqual(targets["Portable"], str(outside))
@@ -238,10 +238,10 @@ class LibraryTest(unittest.TestCase):
         self.assertIsNotNone(moved)
         self.assertEqual(moved.dir.parent, other)
         self.assertFalse(app.dir.exists())
-        # a bejegyzések érvényesek maradnak, a hivatkozás a fájlokra is
+        # the entries stay valid, and so does the link to the files
         for e in menu.entries(moved):
             self.assertTrue((moved.prefix / e["target"]).is_file(), e)
-        self.assertTrue((moved.dir / "Program fájljai" / "mover.exe").is_file())
+        self.assertTrue((moved.dir / "Program files" / "mover.exe").is_file())
         self.assertEqual(library.find(app.id), moved)
         library.remove(moved)
         self.assertEqual(menu.entries(moved), [])
@@ -258,10 +258,10 @@ class MigrationTest(unittest.TestCase):
                                                      "launch": {"x": {"good": {"proton": "UMU-Proton-9.0"}}}}))
         shared = library.LEGACY_ROOT / library.SHARED_ID
         touch(shared / "files/drive_c/windows/x")
-        (shared / "meta.json").write_text(json.dumps({"name": "Egyéb programok"}))
+        (shared / "meta.json").write_text(json.dumps({"name": "Other programs"}))
         download = touch(TMP / "Downloads/tool.exe")
         menu.APPS_DIR.mkdir(parents=True, exist_ok=True)
-        # a régi .exe kezelő bejegyzései
+        # the old .exe handler's entries
         rel = os.path.relpath(exe, legacy / "files")
         (menu.APPS_DIR / "sloth-win-battle-net-battle-net-launcher.desktop").write_text(
             "[Desktop Entry]\nType=Application\nName=Battle.net\n"
@@ -273,7 +273,7 @@ class MigrationTest(unittest.TestCase):
             f"Exec=sloth-exe --launch {library.SHARED_ID} {shlex.quote(rel_out)}\n"
             f"X-Sloth-Program={library.SHARED_ID}\n")
 
-        # a régi helyen is látszanak (a régi Sloth Központ / .exe kezelő ugyanígy találja meg)
+        # they show up at the old location too (the old Sloth Center / .exe handler finds them the same way)
         self.assertEqual({a.id for a in library.all_apps()} >= {"battle-net", library.SHARED_ID}, True)
         moved = library.migrate_legacy(busy=lambda a: False)
         self.assertEqual({a.id for a in moved}, {"battle-net", library.SHARED_ID})
@@ -295,8 +295,8 @@ class MigrationTest(unittest.TestCase):
 
         shared_app = library.find(library.SHARED_ID)
         (tool,) = menu.entries(shared_app)
-        self.assertEqual(tool["target"], str(download))  # a környezeten kívüli fájl teljes úttal
-        self.assertEqual(library.migrate_legacy(busy=lambda a: False), [])  # másodszor nincs mit tenni
+        self.assertEqual(tool["target"], str(download))  # a file outside the environment with its full path
+        self.assertEqual(library.migrate_legacy(busy=lambda a: False), [])  # the second time there is nothing to do
         library.remove(app)
         library.remove(shared_app)
 
@@ -327,7 +327,7 @@ class SteamTest(unittest.TestCase):
     def test_shortcuts_link_and_adopt(self):
         root = steam.FLATPAK_ROOT
         (root / "steamapps").mkdir(parents=True)
-        appid = 3123456789  # a Steam előjeles 32 bites számként tárolja
+        appid = 3123456789  # Steam stores it as a signed 32-bit number
         signed = struct.unpack("<i", struct.pack("<I", appid))[0]
         pfx = root / f"steamapps/compatdata/{appid}/pfx"
         exe = touch(pfx / "drive_c/Program Files (x86)/Battle.net/Battle.net Launcher.exe")
@@ -355,18 +355,18 @@ class SteamTest(unittest.TestCase):
 
         linked = imports.link(f)
         self.assertEqual(linked.kind, "link")
-        self.assertEqual(linked.dir.parent, library.RECORDS)  # nincs üres mappa az ~/Applications-ben
+        self.assertEqual(linked.dir.parent, library.RECORDS)  # no empty folder in ~/Applications
         (entry,) = menu.entries(linked)
         self.assertIn(f"steam://rungameid/{sc['gameid']}", Path(entry["desktop"]).read_text())
         self.assertEqual(imports.imported(f.key), linked)
         self.assertEqual(imports.launch_command(linked)[-1], f"steam://rungameid/{sc['gameid']}")
-        self.assertEqual(imports.found({"steam": imports.SOURCES["steam"]}), [])  # már átvettük
+        self.assertEqual(imports.found({"steam": imports.SOURCES["steam"]}), [])  # already taken over
         library.remove(linked)
 
-        adopted = imports.adopt(f, "Program fájljai")
+        adopted = imports.adopt(f, "Program files")
         self.assertIsNotNone(adopted)
         self.assertEqual(adopted.kind, "windows")
-        self.assertTrue(exe.is_file())  # a Steam példánya érintetlen
+        self.assertTrue(exe.is_file())  # Steam's copy is untouched
         (entry,) = menu.entries(adopted)
         self.assertTrue((adopted.prefix / entry["target"]).is_file())
         self.assertEqual(adopted.meta["install_dir"], r"C:\Program Files (x86)\Battle.net")
@@ -425,9 +425,9 @@ class OtherSourcesTest(unittest.TestCase):
         self.assertEqual((f.name, f.command), ("Office", None))
         self.assertFalse(imports.can_link(f))
         self.assertIsNone(imports.link(f))
-        app = imports.adopt(f, "Program fájljai")
+        app = imports.adopt(f, "Program files")
         self.assertIsNotNone(app)
-        self.assertTrue((prefix / "drive_c/Program Files/Office/office.exe").is_file())  # az eredeti marad
+        self.assertTrue((prefix / "drive_c/Program Files/Office/office.exe").is_file())  # the original stays
         (entry,) = menu.entries(app)
         self.assertEqual(entry["target"], "drive_c/Program Files/Office/office.exe")
         library.remove(app)
@@ -472,12 +472,12 @@ class PackagesTest(unittest.TestCase):
         self.assertEqual((name, apps), ("tool", [{"id": "org.tool.App", "name": "Tool"}]))
         app = packages.record_box_install("deb", deb, name, apps)
         self.assertEqual((app.kind, app.name), ("box", "Tool"))
-        self.assertEqual(app.dir.parent, library.RECORDS)  # nincs üres mappa a látható könyvtárban
+        self.assertEqual(app.dir.parent, library.RECORDS)  # no empty folder in the visible library
         self.assertTrue(packages.box_desktop_files(app)[0].name.startswith("sloth-ubuntu-"))
         library.remove(app)
 
     def test_install_appimage(self):
-        """Egy hamis AppImage, ami a valódihoz hasonlóan kicsomagolja a .desktop fájlt és az ikont."""
+        """A fake AppImage that, like a real one, extracts the .desktop file and the icon."""
         src = TMP / "Downloads/Coolapp-2.0-x86_64.AppImage"
         src.parent.mkdir(parents=True, exist_ok=True)
         src.write_text(
@@ -488,13 +488,13 @@ class PackagesTest(unittest.TestCase):
             "  printf '\\211PNG fake' > squashfs-root/usr/share/icons/cool.png\n"
             "  ln -sf usr/share/icons/cool.png squashfs-root/.DirIcon\n"
             "  exit 0\nfi\necho run\n", encoding="utf-8")
-        src.chmod(0o644)  # letöltve nem futtatható
+        src.chmod(0o644)  # downloaded files are not executable
         app = packages.install_appimage(src)
         self.assertIsNotNone(app)
         self.assertEqual((app.kind, app.name, app.dir.name), ("appimage", "Cool App", "Cool App"))
         path = packages.appimage_path(app)
         self.assertTrue(path.is_file() and path.stat().st_mode & 0o111)
-        self.assertTrue(src.is_file())  # a letöltött fájl megmarad
+        self.assertTrue(src.is_file())  # the downloaded file stays
         (entry,) = menu.entries(app)
         text = Path(entry["desktop"]).read_text()
         self.assertIn(f"Exec=sloth-exe --run {app.id} %U", text)
@@ -503,7 +503,7 @@ class PackagesTest(unittest.TestCase):
         moved = library.move(app, TMP / "Elsewhere")
         self.assertTrue(packages.appimage_path(moved).is_file())
         (entry,) = menu.entries(moved)
-        self.assertTrue(Path(entry["icon"]).is_file())  # az ikon útja is követi
+        self.assertTrue(Path(entry["icon"]).is_file())  # the icon's path follows too
         library.remove(moved)
 
 
@@ -521,7 +521,7 @@ class RecipesTest(unittest.TestCase):
 
     def test_bundled_valid(self):
         data = json.loads(self.BUNDLED.read_text(encoding="utf-8"))
-        self.assertEqual(len(recipes.load()), len(data["recipes"]))  # mind érvényes
+        self.assertEqual(len(recipes.load()), len(data["recipes"]))  # all valid
 
     def test_validate_rejects(self):
         good = {"id": "x", "name": "X", "match": {"exe": ["x.exe"]}}
@@ -530,19 +530,19 @@ class RecipesTest(unittest.TestCase):
             {**good, "verbs": ["rm -rf"]},
             {**good, "env": ["LD_PRELOAD"]},
             {**good, "args": ["--load-extension=evil"]},
-            {**good, "dll_overrides": ["d3d11=n"]},          # natív DLL betöltése nem kérhető
+            {**good, "dll_overrides": ["d3d11=n"]},          # loading a native DLL cannot be requested
             {**good, "match": {"dirs": ["/etc"]}},
             {**good, "match": {"dirs": ["../../home"]}},
             {**good, "stubs": {"x.exe": "/usr/bin/sh"}},
             {**good, "stubs": {"x.exe": "../../../x.exe"}},
-            {**good, "command": "anything"},                  # ismeretlen mező
+            {**good, "command": "anything"},                  # unknown field
             {**good, "id": "Bad Id"},
             {**good, "per_exe": {"x.exe": {"env": ["PATH"]}}},
             {"id": "y", "match": {}},
         ]
         for r in bad:
             self.assertFalse(recipes.validate(r), r)
-        # a hibás kimarad, a jó megmarad
+        # the bad one drops out, the good one stays
         f = TMP / "recipes-mixed.json"
         f.write_text(json.dumps({"version": 1, "updated": "2099-01-01", "recipes": [good] + bad}))
         self.assertEqual([r["id"] for r in recipes.load([f])], ["x"])
@@ -578,13 +578,13 @@ class RecipesTest(unittest.TestCase):
         touch(app.prefix / "drive_c/Program Files (x86)/Battle.net/Agent.exe", 9 * 1024 ** 2)
         found = detect.detect(app, before, fallback_name="Battle Net")
         names = [c.path.name for c in found.candidates]
-        self.assertNotIn("Agent.exe", names)                # a recept szerint kimarad
-        self.assertEqual(names[0], "Battle.net Launcher.exe")  # a recept szerinti indító elöl
+        self.assertNotIn("Agent.exe", names)                # dropped by the recipe
+        self.assertEqual(names[0], "Battle.net Launcher.exe")  # the recipe's launcher first
         library.remove(app)
 
 
 def make_elf(sections):
-    """Egy minimális 64 bites ELF a megadott szakaszokkal ({név: tartalom}), az AppImage-ek mintájára."""
+    """A minimal 64-bit ELF with the given sections ({name: contents}), modelled on AppImages."""
     names = b"\0" + b"".join(n.encode() + b"\0" for n in sections) + b".shstrtab\0"
     body, offsets = b"", []
     for data in list(sections.values()) + [names]:
@@ -595,10 +595,10 @@ def make_elf(sections):
     head[:16] = b"\x7fELF\x02\x01\x01\x00AI\x02" + b"\0" * 5
     struct.pack_into("<Q", head, 0x28, shoff)
     struct.pack_into("<HHH", head, 0x3A, 64, len(sections) + 2, len(sections) + 1)
-    table = b"\0" * 64  # az első szakasz üres
+    table = b"\0" * 64  # the first section is empty
     name_off = 1
     for (name, data), off in zip(list(sections.items()) + [(".shstrtab", names)], offsets):
-        table += struct.pack("<IIQQQQ", name_off, 1, 0, 0, off, len(data)) + b"\0" * 24  # 64 bájtos fejléc
+        table += struct.pack("<IIQQQQ", name_off, 1, 0, 0, off, len(data)) + b"\0" * 24  # 64-byte header
         name_off += len(name) + 1
     return bytes(head) + body + table
 
@@ -638,7 +638,7 @@ class AppImageUpdateTest(unittest.TestCase):
             self.assertEqual(old.read_bytes(), new)
             self.assertTrue(old.stat().st_mode & 0o111)
             self.assertEqual(packages.update_appimage(app), "current")
-            sha["value"] = "0" * 40  # sérült letöltés: a régi marad
+            sha["value"] = "0" * 40  # corrupt download: the old one stays
             self.assertEqual(packages.update_appimage(app), "skipped")
             self.assertEqual(old.read_bytes(), new)
             self.assertEqual(packages.update_appimages(), [])

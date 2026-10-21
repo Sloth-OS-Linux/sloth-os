@@ -1,4 +1,4 @@
-"""Az üdvözlő varázsló vezérlője (QML <-> Python)."""
+"""Controller of the welcome wizard (QML <-> Python)."""
 import grp
 import json
 import logging
@@ -27,37 +27,37 @@ def _size_text(nbytes):
 
 CONFIG_DIR = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os"
 DONE_MARKER = CONFIG_DIR / "welcome-done"
-# Hol tart a varázsló (ha közben újraindul a gép, onnan folytatja); a végén törlődik
+# Where the wizard is (if the machine restarts meanwhile, it continues from there); deleted at the end
 PROGRESS = CONFIG_DIR / "welcome-progress.json"
 
-# A StackLayout lapjai a QML-ben. A kategóriák egy közös lapot használnak,
-# a lépéssorrend: üdvözlés, megjelenés, jelszavak, megosztás, kategóriánként egy lépés, telepítés, kész.
-STEAM = "com.valvesoftware.Steam"  # nincs előtelepítve: a Játékok lépésben választható
+# The StackLayout pages in QML. The categories share one page,
+# the order of steps: welcome, appearance, passwords, sharing, one step per category, installing, done.
+STEAM = "com.valvesoftware.Steam"  # not preinstalled: can be chosen in the Games step
 
 PAGE_WELCOME, PAGE_LOOK, PAGE_CATEGORY, PAGE_INSTALL, PAGE_DONE, PAGE_SECURITY, PAGE_SHARING, PAGE_WINDOWS = range(8)
 
 
 def build_steps(windows_only=False):
-    """A lépések sora. A Windows-lépés (fájlok áthozása) csak akkor van benne, ha a gépen van Windows-partíció;
-    windows_only: csak ez az egy lépés (sloth-welcome --windows-import, a Sloth Központ Lemezek oldaláról)."""
+    """The sequence of steps. The Windows step (bringing files over) is only there if the machine has a Windows partition;
+    windows_only: only this one step (sloth-welcome --windows-import, from Sloth Center's Disks page)."""
     if windows_only:
         return ["windows"]
     return (["welcome", "look", "security", "sharing"] + (["windows"] if windows_import.candidates() else [])
             + [f"cat{i}" for i in range(len(catalog.CATEGORIES))] + ["install", "done"])
 
-# Jelszavak: a "csak a kockázatos dolgokhoz" választásnál ezekhez nem kell jelszó (a Sloth Központ
-# Fiók és biztonság oldalán témakörönként is állítható; a mentést a sloth-helper admin-policy végzi)
+# Passwords: with the "only for risky things" choice these need no password (also adjustable per topic on Sloth
+# Center's Account and security page; sloth-helper admin-policy saves it)
 HELPER = "/usr/libexec/sloth-os/sloth-helper"
 EASY_TOPICS = ["software", "updates", "network", "datetime", "services"]
 
 
-# A sloth-exe ezt írja ki, ha a telepítés kész, de a telepítő még fut (pl. az EA app telepítője addig nem lép ki,
-# amíg az EA app fut): a sor ilyenkor továbbmegy, a sloth-exe a háttérben várja meg a telepítő végét
+# sloth-exe prints this when the install is done but the installer still runs (e.g. the EA app installer does not exit
+# while the EA app runs): the queue then moves on, and sloth-exe waits for the installer's end in the background
 QUEUED_DONE = "sloth-exe: queued-done"
 
 
 def _run_queued(path):
-    """Egy telepítő az .exe kezelőben; a kilépési kód (vagy 0, ha a sloth-exe jelezte, hogy kész)."""
+    """One installer in the .exe handler; its exit code (or 0 if sloth-exe reported that it is done)."""
     proc = subprocess.Popen(["sloth-exe", "--queued", str(path)], stdout=subprocess.PIPE, text=True)
     for line in proc.stdout:
         if line.strip() == QUEUED_DONE:
@@ -71,8 +71,8 @@ FLATPAK_APP_DIRS = [Path("/var/lib/flatpak/app"), Path.home() / ".local/share/fl
 
 
 def installed_apps():
-    """A katalógus appjai közül, ami már fent van: a varázsló újrafuttatásakor pipával látszanak, és nem
-    települnek újra (Flatpak: a telepített mappája; Windows-program: az .exe kezelő nyilvántartása, Start menüvel)."""
+    """The catalog apps that are already installed: when the wizard is run again they show with a tick and are not
+    installed again (Flatpak: its installed folder; Windows program: the .exe handler's records, with a Start menu entry)."""
     from sloth_common.apps import library, menu
     out = []
     for cat in catalog.CATEGORIES:
@@ -85,9 +85,9 @@ def installed_apps():
                     found = library.find_installed(app["name"], app["file"])
                     present = found is not None and bool(menu.entries(found))
                 else:
-                    present = False  # a rendszerben lévő (pl. KDE Connect): a bekapcsolása újra lefuthat
-            except Exception:  # noqa: BLE001  egy hibás bejegyzés ne állítsa meg a varázslót
-                log.exception("%s: nem derült ki, fent van-e", app["id"])
+                    present = False  # part of the system (e.g. KDE Connect): turning it on may run again
+            except Exception:  # noqa: BLE001  a broken entry must not stop the wizard
+                log.exception("%s: could not tell whether it is installed", app["id"])
                 present = False
             if present:
                 out.append(app["id"])
@@ -95,7 +95,7 @@ def installed_apps():
 
 
 def apply_language():
-    """Ablakcím és írásirány a választott nyelvhez (arab, héber: jobbról balra, tükrözve)."""
+    """Window title and text direction for the chosen language (Arabic, Hebrew: right to left, mirrored)."""
     QApplication.setApplicationDisplayName(tr("app.title"))
     QApplication.setLayoutDirection(Qt.LayoutDirection.RightToLeft if i18n.is_rtl()
                                     else Qt.LayoutDirection.LeftToRight)
@@ -103,15 +103,15 @@ def apply_language():
 
 class WelcomeController(QObject):
     changed = Signal()
-    # A telepítő szálából érkező jelzések (Qt átteszi őket a fő szálra)
+    # Signals from the installer's thread (Qt moves them to the main thread)
     _status_sig = Signal(str, str, int)
     _app_sig = Signal(str, str, str)
     _done_sig = Signal(object, object)
 
-    _win_sig = Signal(object)   # a Windows-lépés háttérszálából: a frissített állapot
-    _queue_done_sig = Signal(object)  # a Windows-programok telepítési sora végzett: [(név, kilépési kód)]
-    hideRequested = Signal()    # a Windows-programok telepítése alatt az ablak elrejtőzik
-    showRequested = Signal()    # és a végén újra előjön
+    _win_sig = Signal(object)   # from the Windows step's background thread: the updated state
+    _queue_done_sig = Signal(object)  # the Windows programs' install queue finished: [(name, exit code)]
+    hideRequested = Signal()    # the window hides while the Windows programs install
+    showRequested = Signal()    # and comes back at the end
 
     def __init__(self, parent=None, windows_only=False):
         super().__init__(parent)
@@ -119,35 +119,35 @@ class WelcomeController(QObject):
         self._steps = build_steps(windows_only)
         self._step = 0
         self._selected = []
-        # Újrafuttatáskor a mostani megjelenés legyen kiválasztva (első indításkor a gyári alapértelmezés)
+        # When run again, the current appearance should be selected (on first start the factory default)
         self._scheme = desktop.current_color_scheme() or "SlothSilverDark"
         self._layout = desktop.current_layout() or "windows10"
-        self._present = installed_apps()  # ami már fent van: pipával, nem települ újra
+        self._present = installed_apps()  # what is already installed: ticked, not installed again
         self._status = ""
         self._detail = ""
         self._progress = -1
         self._app_states = {}
-        self._summary = ""          # fordítási kulcs
-        self._failures = []         # [(név, hibakulcs)]
+        self._summary = ""          # translation key
+        self._failures = []         # [(name, error key)]
         self._online = desktop.is_online()
         self._installed = []
-        self._security = "all"      # "all" (mindenhez jelszó) vagy "recommended"
+        self._security = "all"      # "all" (password for everything) or "recommended"
         self._autologin = False
         self._security_saved = ("all", False)
-        # Tapasztalatok megosztása (sloth_common/sharing.py): "" amíg nem választott, "yes" / "no"
+        # Sharing experiences (sloth_common/sharing.py): "" until chosen, "yes" / "no"
         self._sharing = ("yes" if sharing.enabled() else "no") if sharing.CONFIG.exists() else ""
         self._status_sig.connect(self._on_status)
         self._app_sig.connect(self._on_app_state)
         self._done_sig.connect(self._on_done)
         self._installer = Installer(self._status_sig.emit, self._app_sig.emit, self._done_sig.emit)
-        # Windows-lépés: "idle" | "scanning" | "ready" | "copying" | "done" | "locked" | "none" | "failed" | "nospace"
+        # Windows step: "idle" | "scanning" | "ready" | "copying" | "done" | "locked" | "none" | "failed" | "nospace"
         self._win = {"state": "idle", "users": [], "user": "", "keys": [], "bookmarks": True,
                      "done": 0, "total": 0, "result": {}, "need": 0, "free": 0}
-        self._win_mounts = []        # amit mi csatoltunk (a végén leválasztjuk)
+        self._win_mounts = []        # what we mounted (unmounted at the end)
         self._win_cancel = threading.Event()
         self._win_sig.connect(self._on_win)
-        # Windows-programok (pl. játékindítók): a letöltött telepítők a varázsló után, egyesével (sloth-exe --queued)
-        self._win_queue = []         # [(név, telepítő útja)]
+        # Windows programs (e.g. game launchers): the downloaded installers after the wizard, one by one (sloth-exe --queued)
+        self._win_queue = []         # [(name, installer path)]
         self._queue_state = ""       # "" | "running" | "done"
         self._queue_done_sig.connect(self._on_queue_done)
         if windows_only:
@@ -155,7 +155,7 @@ class WelcomeController(QObject):
         else:
             self._restore()
 
-    # --- Folytatás megszakítás után (PROGRESS) -----------------------------------
+    # --- Continuing after an interruption (PROGRESS) -----------------------------------
 
     def _save(self):
         if self._windows_only:
@@ -171,10 +171,10 @@ class WelcomeController(QObject):
             tmp.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
             tmp.replace(PROGRESS)
         except OSError as e:
-            log.warning("állapot mentése: %s", e)
+            log.warning("saving the state: %s", e)
 
     def _restore(self):
-        """Ha az előző futás nem ért a végére (pl. újraindult közben a gép): ugyanott és ugyanazzal folytatja."""
+        """If the previous run did not get to the end (e.g. the machine restarted meanwhile): continues at the same place with the same choices."""
         try:
             state = json.loads(PROGRESS.read_text(encoding="utf-8"))
         except (OSError, ValueError):
@@ -193,17 +193,17 @@ class WelcomeController(QObject):
         self._autologin = bool(state.get("autologin"))
         step = state.get("step", "")
         if step in self._steps and self._steps.index(step) > self._steps.index("security"):
-            self._security_saved = (self._security, self._autologin)  # ezt már elmentette
+            self._security_saved = (self._security, self._autologin)  # this was already saved
         if step == "install":
-            # telepítés közben szakadt meg: az utolsó kategóriánál, ugyanazzal a választással; a „Telepítés”
-            # gombra a már fent lévő appok azonnal készek, a többi települ
+            # interrupted while installing: at the last category, with the same choices; on "Install"
+            # the apps already installed are done at once, the rest are installed
             step = f"cat{len(catalog.CATEGORIES) - 1}"
         elif step == "done":
             self._installed = [a for a in state.get("installed", []) if a in known]
             self._failures = [tuple(f) for f in state.get("failures", []) if isinstance(f, list) and len(f) == 2]
             self._summary = state.get("summary", "") or "done.all_ok"
             if state.get("queue") != "done":
-                # a Windows-telepítők még nem futottak le (vagy közben szakadt meg): újra felajánlja őket
+                # the Windows installers have not run yet (or it was interrupted meanwhile): offers them again
                 self._win_queue = [(name, Path(path)) for name, path in state.get("win_queue", [])
                                    if Path(path).is_file()]
             else:
@@ -214,9 +214,9 @@ class WelcomeController(QObject):
                 self._online = desktop.is_online()
             if step == "windows":
                 self._start_windows_scan()
-            log.info("folytatás: %s", step)
+            log.info("continuing: %s", step)
 
-    # --- Tulajdonságok ------------------------------------------------------
+    # --- Properties ------------------------------------------------------
 
     def _step_name(self):
         return self._steps[self._step]
@@ -240,7 +240,7 @@ class WelcomeController(QObject):
 
     @Property(int, constant=True)
     def stepCount(self):
-        return max(1, len(self._steps) - 2)  # a telepítés és a kész oldal nem kérdés
+        return max(1, len(self._steps) - 2)  # installing and done are not questions
 
     @Property(int, notify=changed)
     def stepNumber(self):
@@ -259,7 +259,7 @@ class WelcomeController(QObject):
         return [a for a in self._selected if a in ids]
 
     # --- Nyelv ---------------------------------------------------------------
-    # A QML a szövegeket a "strings" térképből veszi; nyelvváltáskor minden felirat frissül.
+    # QML takes the texts from the "strings" map; on a language change every label updates.
 
     @Property("QVariantList", constant=True)
     def languages(self):
@@ -281,7 +281,7 @@ class WelcomeController(QObject):
             self._save()
             self.changed.emit()
 
-    # --- Listák (a választott nyelven) ----------------------------------------
+    # --- Lists (in the chosen language) ----------------------------------------
 
     @Property("QVariantList", notify=changed)
     def categories(self):
@@ -344,7 +344,7 @@ class WelcomeController(QObject):
 
     @Property(bool, notify=changed)
     def steamInstalled(self):
-        """A "Bejelentkezés a Steambe" gomb csak akkor látszik, ha a Steam most települt."""
+        """The "Sign in to Steam" button is only shown if Steam was installed just now."""
         return STEAM in self._installed
 
     @Property(bool, notify=changed)
@@ -352,7 +352,7 @@ class WelcomeController(QObject):
         browsers = {a["id"] for a in catalog.CATEGORIES[0]["apps"]}
         return any(a in browsers for a in self._selected)
 
-    # --- Jelszavak ------------------------------------------------------------
+    # --- Passwords ------------------------------------------------------------
 
     @Property(bool, constant=True)
     def isAdmin(self):
@@ -391,7 +391,7 @@ class WelcomeController(QObject):
             self.changed.emit()
 
     def _save_security(self):
-        """A választás mentése (a háttérben; a jelszókérő ablakot a polkit mutatja)."""
+        """Saves the choice (in the background; polkit shows the password window)."""
         wanted = (self._security, self._autologin)
         if wanted == self._security_saved:
             return
@@ -403,12 +403,12 @@ class WelcomeController(QObject):
             try:
                 r = subprocess.run(["pkexec", HELPER, "admin-policy"], input=request,
                                    capture_output=True, text=True, timeout=600)
-                log.info("jelszó-beállítás: %s", r.stdout.strip() or r.stderr.strip())
+                log.info("password settings: %s", r.stdout.strip() or r.stderr.strip())
             except (OSError, subprocess.SubprocessError) as e:
-                log.warning("jelszó-beállítás: %s", e)
+                log.warning("password settings: %s", e)
         threading.Thread(target=work, daemon=True).start()
 
-    # --- Fájlok áthozása a Windowsból (sloth_common/windows_import.py) ------------
+    # --- Bringing files over from Windows (sloth_common/windows_import.py) ------------
 
     @Property(str, notify=changed)
     def windowsState(self):
@@ -424,7 +424,7 @@ class WelcomeController(QObject):
 
     @Property("QVariantList", notify=changed)
     def windowsFolders(self):
-        """A kiválasztott Windows-fiók mappái: [{key, size (szövegként), selected}] (az üresek nélkül)."""
+        """The folders of the chosen Windows account: [{key, size (as text), selected}] (without the empty ones)."""
         user = self._win_user()
         if not user:
             return []
@@ -482,7 +482,7 @@ class WelcomeController(QObject):
                     if users:
                         self._win_mounts.append(part["device"])
                     else:
-                        windows_import.unmount(part["device"])  # nem Windows-rendszer (pl. adatlemez)
+                        windows_import.unmount(part["device"])  # not a Windows system (e.g. a data disk)
                 found.extend(users)
             state = "ready" if found else "locked" if locked else "failed" if failed else "none"
             self._win_sig.emit({"state": state, "users": found})
@@ -527,7 +527,7 @@ class WelcomeController(QObject):
         keys = [k for k in self._win["keys"] if user["folders"].get(k)]
         need = sum(user["folders"][k] for k in keys)
         free = shutil.disk_usage(Path.home()).free
-        if need + 1024**3 > free:  # 1 GB tartalék
+        if need + 1024**3 > free:  # 1 GB headroom
             self._win.update(state="nospace", need=need, free=free)
             self.changed.emit()
             return
@@ -544,14 +544,14 @@ class WelcomeController(QObject):
                     windows_import.export_bookmarks(
                         user["home"], windows_import.target_dir("desktop") / tr("windows.bookmarks_file"))
                 except OSError as e:
-                    log.warning("könyvjelzők: %s", e)
+                    log.warning("bookmarks: %s", e)
             self._win_sig.emit({"state": "done", "result": result})
 
         threading.Thread(target=work, daemon=True).start()
 
     @Slot()
     def retryWindows(self):
-        """A „nincs elég hely” után: vissza a választáshoz."""
+        """After "not enough space": back to choosing."""
         if self._win["state"] == "nospace":
             self._win["state"] = "ready"
             self.changed.emit()
@@ -562,7 +562,7 @@ class WelcomeController(QObject):
             windows_import.unmount(device)
         self._win_mounts = []
 
-    # --- Navigáció ----------------------------------------------------------
+    # --- Navigation ----------------------------------------------------------
 
     @Slot()
     def next(self):
@@ -570,11 +570,11 @@ class WelcomeController(QObject):
             self._save_security()
         if self._step_name() == "sharing":
             if not self._sharing:
-                return  # választani kell (a gomb addig nem aktív)
+                return  # a choice is needed (the button is inactive until then)
             sharing.set_enabled(self._sharing == "yes")
         if self._step_name() == "windows":
             if self._win["state"] in ("scanning", "copying"):
-                return  # amíg dolgozik, a gomb nem aktív
+                return  # while it works, the button is inactive
             self.release_windows()
             if self._windows_only:
                 QApplication.quit()
@@ -660,7 +660,7 @@ class WelcomeController(QObject):
 
     @Property(bool, notify=changed)
     def pendingWindows(self):
-        """Vannak letöltött Windows-telepítők, amelyek még nem futottak: a végén nincs újraindítás, előbb ezek jönnek."""
+        """There are downloaded Windows installers that have not run yet: no restart at the end, these come first."""
         return bool(self._win_queue) and self._queue_state == ""
 
     @Property(bool, notify=changed)
@@ -673,11 +673,11 @@ class WelcomeController(QObject):
 
     @Slot()
     def runWindowsQueue(self):
-        """A Windows-programok telepítői egyesével, az .exe kezelőben; addig az ablak rejtve vár, a végén előjön."""
+        """The Windows programs' installers one by one in the .exe handler; meanwhile the window waits hidden and comes back at the end."""
         if not self.pendingWindows:
             return
         self._queue_state = "running"
-        self._save()  # "running": ha közben szakad meg, a következő indításkor újra felajánlja
+        self._save()  # "running": if it is interrupted meanwhile, it offers them again on the next start
         self.hideRequested.emit()
 
         def work():
@@ -708,8 +708,8 @@ class WelcomeController(QObject):
         PROGRESS.unlink(missing_ok=True)
         if self._installed and not restart:
             desktop.refresh_app_cache()
-        # A telepített böngészők és a Steam a tálcára kerülnek. A már meglévő böngésző is
-        # (a telepítő internet nélkül átmásolja az élő rendszer Firefoxát)
+        # The installed browsers and Steam go on the taskbar. An already present browser too
+        # (without internet the installer copies the live system's Firefox)
         browsers = [a["id"] for a in catalog.CATEGORIES[0]["apps"]]
         present = [a for a in browsers if Path("/var/lib/flatpak/app", a).is_dir()]
         desktop.pin_to_taskbar([a for a in self._installed if a in browsers or a == STEAM]
@@ -718,7 +718,7 @@ class WelcomeController(QObject):
             desktop.reboot()
         QApplication.quit()
 
-    # --- A telepítő jelzései -------------------------------------------------
+    # --- The installer's signals -------------------------------------------------
 
     def _on_status(self, text, detail, pct):
         self._status, self._detail, self._progress = text, detail, pct

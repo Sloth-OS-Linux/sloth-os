@@ -1,19 +1,19 @@
-"""Linkkel cserélt programverziók (EA app) Wine 10 alatt.
+"""Program versions swapped with a link (EA app) under Wine 10.
 
-Az EA app egy verziós mappába teszi a fájljait ("EA Desktop/13.809.0.6322/EA Desktop"), és a régi helyére
-("EA Desktop/EA Desktop") szimbolikus linket kér; telepítéskor és minden frissítéskor így cserél verziót. A Wine
-10.0-ban (UMU-Proton 10) a CreateSymbolicLinkW csak csonk: sikert jelez, de nem hoz létre linket. A telepítő ezért
-a következő lépésben nem találja a háttérszolgáltatását, és mindent visszavon (INST-14-1627); a frissítések pedig
-elakadnak. A Wine 10.19 óta van linktámogatás, a Proton 11-ben benne lesz.
+The EA app puts its files into a versioned folder ("EA Desktop/13.809.0.6322/EA Desktop"), and asks for a symbolic
+link in the old place ("EA Desktop/EA Desktop"); that is how it switches versions on install and on every update. In Wine
+10.0 (UMU-Proton 10) CreateSymbolicLinkW is only a stub: it reports success but creates no link. So in the next step
+the installer does not find its background service and rolls everything back (INST-14-1627); and the updates
+get stuck. Wine has link support since 10.19, and Proton 11 will include it.
 
-Addig mi pótoljuk: amíg a program fut, figyeljük (inotify) a verziós mappák szülőjét, és amint az EA átnevezi az
-aktív mappát, Linuxos linket teszünk a helyére (a Wine követi). A szolgáltatás a következő ezredmásodpercekben már
-indulna, ezért nem időnként nézünk rá, hanem az átnevezésre azonnal lépünk (2026-10-20, valódi gépen kipróbálva).
-Indítás előtt is a legújabb verzióra igazítjuk (egy korábbi, figyelés nélküli frissítés után).
+Until then we fill in: while the program runs, we watch (inotify) the parent of the versioned folders, and as soon as EA
+renames the active folder, we put a Linux link in its place (Wine follows it). The service would start within the next
+milliseconds, so we do not check now and then but act on the rename immediately (2026-10-20, tried on a real machine).
+Before starting we also point it at the latest version (after an earlier update without watching).
 
-Általánosan, bármelyik programnál (from_log_line): a Wine 10 minden ilyen kérést kiír a naplójába
-("fixme:file:CreateSymbolicLinkW (L"<link>" L"<cél>" <jelzők>): stub"), a link helyével és céljával. A futtató ezt a
-sort olvasva utólag elvégzi, amit a Wine kihagyott: a program Windows-környezetén belül, meglévő fájlt nem felülírva.
+In general, for any program (from_log_line): Wine 10 writes every such request into its log
+("fixme:file:CreateSymbolicLinkW (L"<link>" L"<target>" <flags>): stub"), with the link's place and target. Reading
+that line, the runner afterwards does what Wine skipped: inside the program's Windows environment, never overwriting an existing file.
 """
 import ctypes
 import logging
@@ -25,9 +25,9 @@ from pathlib import Path
 
 log = logging.getLogger("sloth-exe.stagedlinks")
 
-# (a verziós mappák szülője a drive_c-n belül, az aktív mappa neve)
+# (the parent of the versioned folders inside drive_c, the active folder's name)
 STAGED = [("Program Files/Electronic Arts/EA Desktop", "EA Desktop")]
-# Ezeknél a .exe-knél figyelünk akkor is, ha a mappa még nincs meg (a telepítő hozza létre)
+# For these .exe files we watch even if the folder does not exist yet (the installer creates it)
 EXE_NAMES = re.compile(r"^(eaappinstaller|eadesktop|ealauncher|eabackgroundservice)", re.I)
 
 IN_CREATE, IN_DELETE, IN_MOVED_FROM, IN_MOVED_TO = 0x100, 0x200, 0x40, 0x80
@@ -46,7 +46,7 @@ def _version_key(name):
 
 
 def fix(prefix):
-    """Az aktív mappa helyén link a legújabb verziós mappára, ha ott nincs valódi mappa. -> volt-e változás"""
+    """A link to the latest versioned folder in the active folder's place, if there is no real folder there. -> whether anything changed"""
     changed = False
     for base, name in _bases(prefix):
         try:
@@ -63,9 +63,9 @@ def fix(prefix):
                     continue
                 active.unlink()
             elif active.exists():
-                continue  # valódi mappa: a program maga rendezte, nem nyúlunk hozzá
+                continue  # a real folder: the program arranged it itself, we do not touch it
             active.symlink_to(target)
-            log.info("link pótolva: %s -> %s", active, target)
+            log.info("link added: %s -> %s", active, target)
             changed = True
         except OSError as e:
             log.warning("link: %s: %s", active, e)
@@ -73,7 +73,7 @@ def fix(prefix):
 
 
 class Watcher:
-    """Háttérszál: amíg fut, az átnevezésekre azonnal pótolja a linket (lásd fent)."""
+    """Background thread: while it runs, it adds the link right after each rename (see above)."""
 
     def __init__(self, prefix):
         self._prefix = prefix
@@ -84,7 +84,7 @@ class Watcher:
         self._thread.start()
 
     def stop(self):
-        """Leállítás; megvárja a szálat (legfeljebb egy kör, 50 ms), hogy utána már ne nyúljon a mappához."""
+        """Stops; waits for the thread (at most one round, 50 ms), so it does not touch the folder afterwards."""
         self._stop.set()
         if self._thread.is_alive() and self._thread is not threading.current_thread():
             self._thread.join(timeout=1)
@@ -102,7 +102,7 @@ class Watcher:
         watched = set()
         try:
             while not self._stop.is_set():
-                # a mappa a telepítés közben jön létre: amíg nincs, 50 ms-onként nézünk rá
+                # the folder is created during the install: until it exists, we check every 50 ms
                 for base, _name in _bases(self._prefix):
                     if base not in watched and base.is_dir():
                         mask = IN_CREATE | IN_DELETE | IN_MOVED_FROM | IN_MOVED_TO
@@ -112,27 +112,27 @@ class Watcher:
                 ready, _w, _x = select.select([fd], [], [], 0.05)
                 if ready:
                     try:
-                        os.read(fd, 65536)  # az esemény tartalma nem kell: bármi változott, újranézünk
+                        os.read(fd, 65536)  # the event's contents are not needed: anything changed, we look again
                     except BlockingIOError:
                         pass
-                # eseményre azonnal, egyébként 50 ms-onként (ha egy esemény elmaradna, pl. a feliratkozás előtt)
+                # immediately on an event, otherwise every 50 ms (in case an event is missed, e.g. before subscribing)
                 fix(self._prefix)
         finally:
             os.close(fd)
 
 
-# --- Általánosan: a Wine naplójából -------------------------------------------------------------------
+# --- In general: from Wine's log -------------------------------------------------------------------
 
 _STUB = re.compile(r'CreateSymbolicLinkW \(L"((?:[^"\\]|\\.)*)" L"((?:[^"\\]|\\.)*)" (\d+)\): stub')
 
 
 def _unescape(s):
-    """A Wine debugstr_w kimenete: a visszaperjel és az idézőjel elé visszaperjelet tesz."""
+    """Wine's debugstr_w output: it puts a backslash before backslashes and quotes."""
     return re.sub(r"\\(.)", r"\1", s)
 
 
 def _resolve_ci(base, parts):
-    """Windowsos (kis-nagybetűre érzéketlen) út a meglévő mappák szerint; a nem létező részek változatlanul."""
+    """A Windows (case-insensitive) path according to the existing folders; the parts that do not exist unchanged."""
     cur = base
     for i, part in enumerate(parts):
         exact = cur / part
@@ -150,8 +150,8 @@ def _resolve_ci(base, parts):
 
 
 def _unix_path(prefix, win):
-    """"C:\\Program Files\\x" -> <prefix>/drive_c/Program Files/x; más meghajtó a dosdevices szerint; None, ha nem
-    érthető."""
+    """"C:\\Program Files\\x" -> <prefix>/drive_c/Program Files/x; other drives by dosdevices; None if it cannot
+    be understood."""
     m = re.match(r"^(?:\\\\\?\\)?([A-Za-z]):\\(.*)$", win)
     if not m:
         return None
@@ -166,7 +166,7 @@ def _unix_path(prefix, win):
 
 
 def from_log_line(prefix, line):
-    """Ha a sor egy kihagyott linkkérés: a link létrehozása (a program környezetén belül). -> sikerült-e"""
+    """If the line is a skipped link request: creates the link (inside the program's environment). -> whether it worked"""
     m = _STUB.search(line)
     if not m:
         return False
@@ -174,13 +174,13 @@ def from_log_line(prefix, line):
     link = _unix_path(prefix, link_win)
     drive_c = (Path(prefix) / "drive_c").resolve()
     if link is None:
-        log.info("link: nem értelmezhető út: %s", link_win)
+        log.info("link: path cannot be parsed: %s", link_win)
         return False
     try:
         parent = link.parent.resolve()
         parent.relative_to(drive_c)
     except (OSError, ValueError):
-        log.info("link: a környezeten kívül, kihagyva: %s", link_win)
+        log.info("link: outside the environment, skipped: %s", link_win)
         return False
     if re.match(r"^[A-Za-z]:\\", target_win):
         target = _unix_path(prefix, target_win)
@@ -198,11 +198,11 @@ def from_log_line(prefix, line):
                 return True
             link.unlink()
         elif link.exists():
-            return False  # valódi fájl vagy mappa: nem nyúlunk hozzá
+            return False  # a real file or folder: we do not touch it
         if not parent.is_dir():
             return False
         link.symlink_to(target)
-        log.info("link pótolva (a Wine kihagyta): %s -> %s", link, target)
+        log.info("link added (Wine skipped it): %s -> %s", link, target)
         return True
     except OSError as e:
         log.warning("link: %s: %s", link, e)

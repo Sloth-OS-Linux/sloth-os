@@ -1,13 +1,13 @@
-"""Máshol telepített Windows-programok átvétele, újratelepítés nélkül.
+"""Taking over Windows programs installed elsewhere, without reinstalling.
 
-Források: a Steamhez kézzel hozzáadott programok, a Lutris, a Bottles, és a korábbi, sima Wine-os
-telepítések (~/.wine). Két mód van:
-  - „Az eredeti programmal” (link): a Sloth csak bejegyzést készít (a listában és a Start menüben), a
-    programot az indítja, ami eddig (Steam, Lutris, Bottles). Az eredeti fájlokhoz nem nyúlunk.
-  - „Átvétel” (adopt): a program Windows-környezetéről másolat készül a Sloth könyvtárába (Btrfs-en
-    reflinkkel: pillanatok alatt, szinte hely nélkül), és onnan a Sloth indítja. Az eredeti érintetlen.
-Egy másik program Windows-környezetét sosem indítjuk a saját futtatónkkal: más Proton- vagy
-Wine-verzió frissíthetné, és utána az eredeti helyén már nem indulna.
+Sources: programs added to Steam by hand, Lutris, Bottles, and earlier plain-Wine
+installs (~/.wine). There are two modes:
+  - "With the original app" (link): Sloth only makes an entry (in the list and the Start menu), and the
+    program is started by what started it so far (Steam, Lutris, Bottles). The original files are not touched.
+  - "Take over" (adopt): a copy of the program's Windows environment is made in Sloth's library (with a reflink
+    on Btrfs: in moments, with almost no space), and Sloth starts it from there. The original stays untouched.
+We never start another app's Windows environment with our own runner: a different Proton or
+Wine version could update it, and then it would no longer start in its original place.
 """
 import logging
 import re
@@ -30,11 +30,11 @@ WINE_PREFIX = HOME / ".wine"
 @dataclass
 class Found:
     source: str              # "steam" | "lutris" | "bottles" | "wine"
-    id: str                  # a forráson belül egyedi
+    id: str                  # unique within the source
     name: str
-    exe: Path                # a program indítófájlja
-    prefix: Path | None      # a Windows-környezete (ha van saját)
-    command: list | None     # amivel az eredeti program indítja (None: csak átvehető)
+    exe: Path                # the program's start file
+    prefix: Path | None      # its Windows environment (if it has its own)
+    command: list | None     # what the original app starts it with (None: can only be taken over)
     icon: Path | None = None
     extra: dict = field(default_factory=dict)
 
@@ -43,7 +43,7 @@ class Found:
         return f"{self.source}:{self.id}"
 
 
-# --- Egyszerű YAML (a Lutris és a Bottles gép által írt beállításfájljai) ----------------------------
+# --- Simple YAML (the machine-written settings files of Lutris and Bottles) ----------------------------
 
 def _scalar(v):
     v = v.strip()
@@ -54,7 +54,7 @@ def _scalar(v):
 
 
 def simple_yaml(text):
-    """Egymásba ágyazott kulcs: érték párok (a listákat és a többsoros értékeket kihagyja)."""
+    """Nested key: value pairs (lists and multi-line values are skipped)."""
     root = {}
     stack = [(-1, root)]
     for raw in text.splitlines():
@@ -79,7 +79,7 @@ def simple_yaml(text):
     return root
 
 
-# --- Források ----------------------------------------------------------------------------------------
+# --- Sources ----------------------------------------------------------------------------------------
 
 def _steam():
     out = []
@@ -91,7 +91,7 @@ def _steam():
 
 
 def _lutris_names(data_dir):
-    """A Lutris játéklistája (pga.db): {beállításfájl neve: (azonosító, név)}"""
+    """Lutris' game list (pga.db): {settings file name: (ID, name)}"""
     db = data_dir / "pga.db"
     if not db.is_file():
         return {}
@@ -158,7 +158,7 @@ def _bottles():
 
 
 def _wine():
-    """A korábbi, sima Wine-os telepítések (~/.wine): a felismert programok (registry, parancsikonok)."""
+    """The earlier plain-Wine installs (~/.wine): the recognized programs (registry, shortcuts)."""
     env = library.WinEnv(WINE_PREFIX)
     if not env.exists():
         return []
@@ -174,14 +174,14 @@ SOURCES = {"steam": _steam, "lutris": _lutris, "bottles": _bottles, "wine": _win
 
 
 def found(sources=SOURCES):
-    """Minden máshol telepített program, amit még nem vettünk át."""
+    """Every program installed elsewhere that we have not taken over yet."""
     taken = {(a.meta.get("source") or {}).get("key") for a in library.all_apps()}
     out = []
     for name, fn in sources.items():
         try:
             out += [f for f in fn() if f.key not in taken]
-        except Exception as e:  # egy forrás hibája ne akassza meg a többit
-            log.warning("átvétel (%s): %s", name, e)
+        except Exception as e:  # one source's error must not hold up the others
+            log.warning("take over (%s): %s", name, e)
     return sorted(out, key=lambda f: (f.source, f.name.lower()))
 
 
@@ -190,7 +190,7 @@ def find(key):
 
 
 def imported(key):
-    """Átvettük-e már (bármelyik módon)."""
+    """Whether we have taken it over already (in either mode)."""
     return next((a for a in library.all_apps() if (a.meta.get("source") or {}).get("key") == key), None)
 
 
@@ -199,7 +199,7 @@ def can_link(f):
 
 
 def can_adopt(f):
-    """Átvehető-e: van saját Windows-környezete, és a program abban van."""
+    """Whether it can be taken over: it has its own Windows environment, and the program is in it."""
     if not f.prefix or not (f.prefix / "drive_c").is_dir():
         return False
     try:
@@ -223,7 +223,7 @@ def _icon(f, app):
 
 
 def link(f):
-    """„Az eredeti programmal”: bejegyzés a Sloth-ban és a Start menüben; az eredeti fájlok érintetlenek."""
+    """"With the original app": an entry in Sloth and in the Start menu; the original files stay untouched."""
     if not can_link(f):
         return None
     app = library.create(f.name, kind="link", source=_source_info(f))
@@ -234,7 +234,7 @@ def link(f):
 
 
 def prefix_in_use(prefix):
-    """Fut-e valami a Windows-környezetben (akkor nem másolunk: a másolat félkész lehetne)."""
+    """Whether anything runs in the Windows environment (then we do not copy: the copy could be half-done)."""
     if not prefix:
         return False
     markers = [str(prefix).encode(), str(Path(prefix).parent).encode()]
@@ -254,9 +254,9 @@ def prefix_in_use(prefix):
 
 
 def adopt(f, files_label):
-    """„Átvétel”: a Windows-környezet másolata a Sloth könyvtárába, onnan a Sloth indítja.
+    """"Take over": a copy of the Windows environment in Sloth's library, and Sloth starts it from there.
 
-    -> az új App, vagy None (nem átvehető, vagy a másolás nem sikerült; ilyenkor semmi nem marad utána).
+    -> the new App, or None (cannot be taken over, or the copy failed; then nothing is left behind).
     """
     if not can_adopt(f) or prefix_in_use(f.prefix):
         return None
@@ -268,7 +268,7 @@ def adopt(f, files_label):
         subprocess.run(["cp", "-a", "--reflink=auto", f"{f.prefix}/.", str(app.prefix)], check=True,
                        capture_output=True, timeout=3600)
     except (OSError, subprocess.SubprocessError) as e:
-        log.warning("átvétel (%s): %s", f.name, e)
+        log.warning("take over (%s): %s", f.name, e)
         library.remove(app)
         return None
     exe = app.prefix / f.exe.relative_to(f.prefix)
@@ -281,7 +281,7 @@ def adopt(f, files_label):
 
 
 def launch_command(app):
-    """A másik programmal indított („link”) program indítóparancsa."""
+    """The start command of a program started by another app ("link")."""
     cmd = (app.meta.get("source") or {}).get("command")
     return list(cmd) if isinstance(cmd, list) else None
 

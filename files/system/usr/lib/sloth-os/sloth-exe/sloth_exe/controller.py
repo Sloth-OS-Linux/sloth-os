@@ -1,13 +1,13 @@
-"""A .exe kezelő ablakának vezérlője.
+"""Controller of the .exe handler's window.
 
-Állapotok: choose (mit csináljunk?) -> working (előkészítés / telepítés) ->
-pick (mi kerüljön a Start menübe?) | done (telepítve, indítható) | running (az ablak elrejtve) | error.
+States: choose (what should we do?) -> working (preparing / installing) ->
+pick (what goes into the Start menu?) | done (installed, can be started) | running (window hidden) | error.
 
-A Windows-programok mellett a Linuxos csomagokat (AppImage, .deb, .rpm) is ez kezeli, a Mac-es fájlokra
-pedig érthető üzenetet ad (sloth_common.apps.packages).
+Besides Windows programs it also handles Linux packages (AppImage, .deb, .rpm), and gives a clear message for
+Mac files (sloth_common.apps.packages).
 
-A programok helye, adatai és Start menü bejegyzései a közös sloth_common.apps-ban vannak
-(a Sloth Központ is azt használja); itt csak a futtatás és a felület.
+Where programs live, their data and Start menu entries are in the shared sloth_common.apps
+(Sloth Center uses it too); here there is only running and the interface.
 """
 import logging
 import subprocess
@@ -26,18 +26,18 @@ from .runner import Runner
 
 log = logging.getLogger("sloth-exe")
 
-# Ennyi másodperc után úgy vesszük, hogy a program rendben elindult (az ablak elrejtőzik)
+# After this many seconds we consider the program properly started (the window hides)
 STARTED_AFTER_S = 8
-# Ha ennél hamarabb kilép, lehet, hogy nem indult el rendesen (önjavítás, heal.py)
+# If it exits sooner than this, it may not have started properly (self-healing, heal.py)
 QUICK_EXIT_S = 20
-# Ha eddig fut, a beállítás bevált: megjegyezzük
+# If it runs this long, the setting worked: we remember it
 WORKED_AFTER_S = 45
-# A telepítő kilépése után ennyi ideig várjuk, hogy a többi folyamata (pl. a letöltő által
-# indított tényleges telepítő) is végezzen
+# After the installer exits, we wait this long for its other processes (e.g. the actual installer
+# started by a downloader) to finish too
 INSTALL_SETTLE_S = 3
-# Ha a telepítés előkészítése ennyi ideig nem ad hírt magáról, megnyugtató szöveg (ne higgye, hogy lefagyott)
+# If preparing the installation gives no sign of life for this long, a reassuring text (so nobody thinks it froze)
 SLOW_PREP_S = 60
-# A sorból (--queued) indítva ezzel jelezzük az Üdvözlőnek, hogy kész, ha a telepítő végét a háttérben várjuk
+# When started from the queue (--queued), this tells Sloth Welcome that we are done, if we wait for the installer's end in the background
 QUEUED_DONE = "sloth-exe: queued-done"
 
 
@@ -45,13 +45,13 @@ class ExeController(QObject):
     changed = Signal()
     hideWindow = Signal()
     showWindow = Signal()
-    _identified = Signal(object, str, str)  # a háttérszálból: (GAMEID / "" / None, név, ujjlenyomat)
-    _package_done = Signal(object)          # a háttérszálból: a telepített AppImage (App) vagy None
-    _flathub_found = Signal(object)         # a háttérszálból: a program Flathubos változata, vagy None
+    _identified = Signal(object, str, str)  # from the background thread: (GAMEID / "" / None, name, fingerprint)
+    _package_done = Signal(object)          # from the background thread: the installed AppImage (App) or None
+    _flathub_found = Signal(object)         # from the background thread: the program's Flathub version, or None
 
     def __init__(self, parent=None, queued=False):
         super().__init__(parent)
-        self._queued = queued  # a Sloth Üdvözlő telepítési sorából (--queued)
+        self._queued = queued  # from Sloth Welcome's install queue (--queued)
         self._state = "choose"
         self._exe = None
         self._name = ""
@@ -63,14 +63,14 @@ class ExeController(QObject):
         self._error_icon = "dialog-warning"
         self._shortcuts = []
         self._program = None   # library.App
-        self._existing = None  # ha ezt a programot már telepítettük (library.find_installed)
-        self._unfinished = None  # egy félbemaradt telepítés mappája: az új telepítés ide kerül, nem duplázódik
-        self._baseline = None  # telepítés előtt: mi volt már a program környezetében (detect.baseline)
-        self._sure = True      # a telepítés után biztosan kiderült-e, mivel indul
+        self._existing = None  # if we already installed this program (library.find_installed)
+        self._unfinished = None  # the folder of an unfinished install: the new install goes here, no duplicate
+        self._baseline = None  # before installing: what was already in the program's environment (detect.baseline)
+        self._sure = True      # whether it became certain after the install what the program starts with
         self._mode = ""  # "install" | "run" | "manage"
-        self._join = False     # a program környezetében már fut valami: ahhoz csatlakozunk
-        self._installer_alive = False  # a telepítés kész, de a telepítő még fut (_check_install_done)
-        self._closing = False  # már csak a telepítő kilépését várjuk (_quit)
+        self._join = False     # something already runs in the program's environment: we join it
+        self._installer_alive = False  # the install is done, but the installer still runs (_check_install_done)
+        self._closing = False  # we are only waiting for the installer to exit (_quit)
         self._anticheat = None
         self._runner = Runner(self)
         self._runner.status.connect(self._on_status)
@@ -84,33 +84,33 @@ class ExeController(QObject):
         self._identified.connect(self._on_identified)
         self._package_done.connect(self._on_appimage_installed)
         self._flathub_found.connect(self._on_flathub)
-        self._flathub = None     # a Linuxos csomag Flathubos változata: {"id", "name", "summary"}
-        self._native_reason = ""  # Windowsos telepítőnél: miért a Linuxos változatot ajánljuk (native.py)
-        self._kind = "windows"   # a megnyitott fájl fajtája (packages.kind_of), vagy "windows"
+        self._flathub = None     # the Linux package's Flathub version: {"id", "name", "summary"}
+        self._native_reason = ""  # for a Windows installer: why we recommend the Linux version (native.py)
+        self._kind = "windows"   # the kind of the opened file (packages.kind_of), or "windows"
         self._done_text = ""
-        self._start_cmd = None   # a „kész” állapotban az Indítás parancsa
+        self._start_cmd = None   # the Start command in the "done" state
         self._box_steps = []
         self._box_lines = []
         self._box_proc = None
-        # Ha az indító kilépett, de a program tovább fut (pl. Battle.net Launcher -> Battle.net), megvárjuk
+        # If the launcher exited but the program keeps running (e.g. Battle.net Launcher -> Battle.net), we wait for it
         self._busy_timer = QTimer(self, interval=5000)
         self._busy_timer.timeout.connect(self._check_busy)
-        # Telepítés: a telepítő kilépése után a többi folyamata is végezzen
+        # Installing: after the installer exits, its other processes should finish too
         self._install_timer = QTimer(self, interval=INSTALL_SETTLE_S * 1000)
         self._install_timer.timeout.connect(self._check_install_done)
         self._slow_timer = QTimer(self, singleShot=True, interval=SLOW_PREP_S * 1000)
         self._slow_timer.timeout.connect(self._on_slow_prep)
-        # Önjavítás (heal.py): a próbálkozások sora erre az indításra
+        # Self-healing (heal.py): the sequence of attempts for this start
         self._plan = []
         self._attempt = None
         self._tries = 0
-        self._snapshot = False      # van-e pillanatkép az indítás előtti állapotról
-        self._before_proton = None  # a pillanatképhez tartozó Proton-verzió
+        self._snapshot = False      # whether there is a snapshot of the state before the start
+        self._before_proton = None  # the Proton version belonging to the snapshot
         self._succeeded = False
         self._gameid = None
         self._key = ""
 
-    # --- Belépési pontok -----------------------------------------------------
+    # --- Entry points -----------------------------------------------------
 
     def open_file(self, path):
         library.migrate_legacy()
@@ -124,19 +124,19 @@ class ExeController(QObject):
         if self._name.lower() in ("setup", "install", "installer", ""):
             self._name = tr("misc.program")
         self._installer = detect.looks_like_installer(self._exe)
-        # Egy programot csak egyszer telepítünk: ha már megvan, megnyitás vagy újratelepítés ugyanoda
+        # A program is installed only once: if it is already there, open it or reinstall into the same place
         found = library.find_installed(self._name, self._exe) if self._installer else None
-        # Félbemaradt telepítés (a telepítő nem futott le, csak a mappa jött létre): nem „már telepítve”,
-        # de az új telepítés ugyanabba a mappába megy. Kész telepítésnek van Start menü bejegyzése, vagy
-        # a felismerés után elmentett adata (uninstall_key)
+        # Unfinished install (the installer did not run to the end, only the folder was created): not "already installed",
+        # but the new install goes into the same folder. A finished install has a Start menu entry, or
+        # data saved after recognition (uninstall_key)
         finished = found is not None and (menu.entries(found) or "uninstall_key" in found.meta)
         self._existing = found if finished else None
         self._unfinished = None if finished else found
-        # Népszerű program, aminek van Linuxra készült változata (pl. Teams, Discord, Epic -> Heroic): azt ajánljuk,
-        # a Windowsos telepítése mellette megmarad (ha már telepítve van, nem szólunk bele)
+        # A popular program with a version made for Linux (e.g. Teams, Discord, Epic -> Heroic): we recommend that,
+        # its Windows installation stays next to it (if it is already installed, we do not interfere)
         linux = native.match(self._exe.name) if self._existing is None else None
         if linux:
-            log.info("Linuxos változat: %s (%s)", linux["id"], linux["reason"])
+            log.info("Linux version: %s (%s)", linux["id"], linux["reason"])
             self._flathub = {"id": linux["id"], "name": linux["name"], "summary": ""}
             self._native_reason = linux["reason"]
         icon = menu.extract_icon(self._exe, Path("/tmp") / f"sloth-exe-{library.slugify(self._name)}.png")
@@ -146,7 +146,7 @@ class ExeController(QObject):
         self.changed.emit()
 
     def launch(self, app_id, target):
-        """Indítás a Start menüből. target: az indítófájl (a környezethez képest relatív, vagy teljes út)."""
+        """Starting from the Start menu. target: the start file (relative to the environment, or a full path)."""
         library.migrate_legacy()
         self._program = library.find(app_id)
         if self._program is None:
@@ -155,9 +155,9 @@ class ExeController(QObject):
             return
         self._exe = self._program.prefix / target
         self._name = self._program.name if app_id != library.SHARED_ID else detect.display_name(self._exe)
-        # a Start menü bejegyzéshez már kibontott ikon
+        # the icon already extracted for the Start menu entry
         self._set_icon(menu.icon_path(self._program, self._exe))
-        # Rövid életű indító helyett a kliens (a futtató különben vele együtt leállna); az önjavítás
+        # The client instead of a short-lived launcher (otherwise the runner would stop with it); self-healing
         # adatai is a klienshez tartoznak
         self._exe = quirks.launch_target(self._exe)
         self._mode = "run"
@@ -167,16 +167,16 @@ class ExeController(QObject):
             return
         running = library.running_exes(self._program)
         if self._exe.name.lower() in running:
-            # Már fut: újraindítás helyett szólunk (különben az indítás az előző végéig várna)
+            # Already running: we say so instead of restarting (otherwise the start would wait for the previous one to end)
             self._info(tr("info.already_running", name=self._name))
             return
-        # Más program fut ugyanebben a környezetben (pl. az indító, és most egy játékot indít a
-        # felhasználó): ahhoz csatlakozunk, önjavítás nélkül, hogy a futó programot ne zavarjuk
+        # Another program runs in the same environment (e.g. the launcher, and now the user starts a
+        # game): we join it, without self-healing, so the running program is not disturbed
         self._join = bool(running)
         self._start_run()
 
     def missing(self, app_id):
-        """A Start menüből indított program nincs meg (pl. törölték a mappáját)."""
+        """The program started from the Start menu is missing (e.g. its folder was deleted)."""
         app = library.find(app_id)
         self._name = app.name if app else app_id
         self._mode = "run"
@@ -184,7 +184,7 @@ class ExeController(QObject):
         self._fail(tr("error.not_found"))
 
     def manage_shortcuts(self, app_id):
-        """Utólagos szerkesztés: mely .exe-k legyenek a Start menüben (a Sloth Központból)."""
+        """Editing afterwards: which .exe files should be in the Start menu (from Sloth Center)."""
         library.migrate_legacy()
         self._program = library.find(app_id)
         if self._program is None:
@@ -199,7 +199,7 @@ class ExeController(QObject):
         self._state = "pick"
         self.changed.emit()
 
-    # --- Tulajdonságok ---------------------------------------------------------
+    # --- Properties ---------------------------------------------------------
 
     state = Property(str, lambda self: self._state, notify=changed)
     name = Property(str, lambda self: self._name, notify=changed)
@@ -223,21 +223,21 @@ class ExeController(QObject):
 
     @Property(str, notify=changed)
     def browseFolder(self):
-        """A tallózó kezdőmappája: a program telepítési helye, ha ismert."""
+        """The browser's starting folder: the program's install location, if known."""
         if not self._program:
             return ""
         folder = self._program.windows_to_host(self._program.meta.get("install_dir", "")) \
             or self._program.prefix / "drive_c"
         return QUrl.fromLocalFile(str(folder)).toString()
 
-    # --- Műveletek -------------------------------------------------------------
+    # --- Actions -------------------------------------------------------------
 
     @Slot()
     def install(self):
         if self._kind != "windows":
             self._install_package()
             return
-        # Újratelepítés a meglévő mappába: a Start menü bejegyzései ugyanazok maradnak, nem duplázódnak
+        # Reinstalling into the existing folder: the Start menu entries stay the same, no duplicates
         self._program = self._existing or self._unfinished or library.create(self._name, installer=str(self._exe))
         self._program.save_meta(installer=str(self._exe))
         self._baseline = detect.baseline(self._program)
@@ -246,12 +246,12 @@ class ExeController(QObject):
         self._set_working(tr("status.preparing_install", name=self._name))
         self._slow_timer.start()
         self._start_runner(self._program, self._exe)
-        # már a telepítő futása közben figyelünk (_check_install_done)
+        # we already watch while the installer runs (_check_install_done)
         self._install_timer.start()
 
     @Slot()
     def openExisting(self):
-        """A már telepített program indítása, ahogy a Start menüből; ha nincs bejegyzése, választhat."""
+        """Starts the already installed program, as from the Start menu; if it has no entry, the user can choose."""
         entries = menu.entries(self._existing)
         target = next((e["target"] for e in entries if e["target"]), None)
         if target:
@@ -274,7 +274,7 @@ class ExeController(QObject):
 
     @Slot(str)
     def addFile(self, url):
-        """A tallózóból választott fájl (ha a felismerés nem találta el, mivel indul a program)."""
+        """The file chosen in the browser (if recognition did not find what the program starts with)."""
         path = Path(QUrl(url).toLocalFile() if "://" in url else url)
         if path.suffix.lower() != ".exe" or not path.is_file():
             return
@@ -289,8 +289,8 @@ class ExeController(QObject):
     @Slot(bool)
     def confirmShortcuts(self, start=False):
         first = None
-        # Azonos nevű .exe-k (pl. az EA app hivatkozott és verziós mappájából) ugyanazt a bejegyzést kapják:
-        # a be nem jelölt sor ne törölje azt, amit egy bejelölt az imént létrehozott
+        # .exe files with the same name (e.g. from the EA app's linked and versioned folders) get the same entry:
+        # an unticked row must not delete what a ticked one just created
         wanted = {menu.desktop_file_path(self._program, Path(s["path"])) for s in self._shortcuts if s["checked"]}
         for s in self._shortcuts:
             path = Path(s["path"])
@@ -305,13 +305,13 @@ class ExeController(QObject):
         self._program.set_folder_icon(icon)
         if start and first:
             if self._queued or self._installer_alive:
-                # a sorban a következő telepítő jön (vagy a telepítő még fut, és ez a példány megvárja):
-                # a program külön folyamatban indul, ez a példány kilép
+                # the next installer in the queue comes (or the installer still runs, and this instance waits for it):
+                # the program starts in a separate process, this instance exits
                 subprocess.Popen(["sloth-exe", "--launch", self._program.id, str(menu.target(self._program, first))],
                                  start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
                 self._quit()
                 return
-            # „Indítás”: rögtön elindul, ahogy később a Start menüből
+            # "Start": starts right away, as later from the Start menu
             self._existing = None
             self.launch(self._program.id, menu.target(self._program, first))
             return
@@ -322,9 +322,9 @@ class ExeController(QObject):
         self._quit()
 
     def _quit(self):
-        """Kilépés. Ha a telepítő még fut (a végén elindította a telepített programot, pl. az EA app, és addig
-        nem lép ki), nem szakítjuk félbe: az ablak eltűnik, és a telepítő végén lépünk ki. A sorból indítva
-        (Üdvözlő) szólunk, hogy kész, így a sor nem vár addig, amíg a felhasználó bezárja a programot."""
+        """Quitting. If the installer still runs (at the end it started the installed program, e.g. the EA app, and it
+        does not exit until then), we do not interrupt it: the window disappears, and we quit when the installer ends. When
+        started from the queue (Welcome), we report that we are done, so the queue does not wait until the user closes the program."""
         if not (self._installer_alive and self._runner.running()):
             QApplication.quit()
             return
@@ -335,7 +335,7 @@ class ExeController(QObject):
 
     @Slot()
     def startInstalled(self):
-        """A „kész” állapotban: a frissen telepített program indítása."""
+        """In the "done" state: starts the freshly installed program."""
         if self._start_cmd:
             subprocess.Popen(self._start_cmd, start_new_session=True,
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -343,14 +343,14 @@ class ExeController(QObject):
 
     @Slot()
     def searchDiscover(self):
-        """A program Linuxos (Flatpak) változatának keresése a Discoverben."""
+        """Searches Discover for the program's Linux (Flatpak) version."""
         subprocess.Popen(["plasma-discover", "--search", self._name], start_new_session=True,
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         QApplication.quit()
 
     @Slot()
     def installFromDiscover(self):
-        """A program Flathubos változata a Discoverben (jobban illeszkedik, és a Discover frissíti)."""
+        """The program's Flathub version in Discover (fits better, and Discover updates it)."""
         if self._flathub:
             subprocess.Popen(["plasma-discover", f"appstream://{self._flathub['id']}"], start_new_session=True,
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -358,17 +358,17 @@ class ExeController(QObject):
 
     @Slot()
     def runOnly(self):
-        """AppImage telepítés nélkül: futtathatóvá tesszük, és elindítjuk."""
+        """AppImage without installing: make it executable and start it."""
         try:
             self._exe.chmod(self._exe.stat().st_mode | 0o100)
             subprocess.Popen([str(self._exe)], start_new_session=True, cwd=str(self._exe.parent))
         except OSError as e:
-            log.warning("AppImage futtatása: %s", e)
+            log.warning("running AppImage: %s", e)
             self._fail(tr("error.not_started", name=self._name))
             return
         QApplication.quit()
 
-    # --- Linuxos csomagok és Mac-es fájlok --------------------------------------------
+    # --- Linux packages and Mac files --------------------------------------------
 
     def _open_package(self, kind):
         self._kind = kind
@@ -385,7 +385,7 @@ class ExeController(QObject):
             return
         self._state = "choose"
         self.changed.emit()
-        # Ha a Flathubon is megvan, azt ajánljuk (a háttérben keresünk, a felület addig is használható)
+        # If it is on Flathub too, we recommend that (we search in the background; the interface stays usable)
         name = self._name
         threading.Thread(target=lambda: self._flathub_found.emit(
             packages.flathub_match(name) if backend.online() else None), daemon=True).start()
@@ -417,14 +417,14 @@ class ExeController(QObject):
 
     def _next_box_step(self):
         key, cmd = self._box_steps.pop(0)
-        # az első alkalommal a doboz létrehozása (letöltés) percekig is tarthat
+        # the first time, creating the box (download) can take minutes
         self._status = tr("status.first_setup") if key != "box.install" else tr("status.installing", name=self._name)
         self.changed.emit()
         self._box_proc = QProcess(self)
         self._box_proc.setProcessChannelMode(QProcess.ProcessChannelMode.MergedChannels)
         self._box_proc.readyReadStandardOutput.connect(self._read_box)
         self._box_proc.finished.connect(self._on_box_step)
-        log.info("csomag telepítése: %s", key)
+        log.info("installing package: %s", key)
         self._box_proc.start(cmd[0], cmd[1:])
 
     def _read_box(self):
@@ -456,7 +456,7 @@ class ExeController(QObject):
         self.showWindow.emit()
         self.changed.emit()
 
-    # --- Belső -------------------------------------------------------------------
+    # --- Internals -------------------------------------------------------------------
 
     def _shortcut_item(self, name, path, checked):
         icon = menu.extract_icon(path, menu.icon_path(self._program, path))
@@ -466,14 +466,14 @@ class ExeController(QObject):
         found = anticheat.detect(self._exe)
         self._anticheat = found
         if found and not found[1]:
-            # Ismerten Linux-ellenes csalásvédelem: ne próbálkozzunk hiába
+            # Known anti-Linux anti-cheat: do not try in vain
             self._fail(anticheat.blocked_text(self._name, found[0]))
             return
         self._mode = "run"
         self._update_window()
         self._set_working(tr("status.starting", name=self._name))
         if self._join:
-            # Csatlakozás a már futó környezethez: a bevált beállítással, próbálkozások nélkül
+            # Joining the already running environment: with the setting that worked, without attempts
             rec = heal.record(self._program, self._exe)
             good = rec.get("good")
             attempt = heal.Attempt(None if not good or good["proton"] == "auto" else good["proton"],
@@ -486,7 +486,7 @@ class ExeController(QObject):
         if rec.get("gameid") is not None and rec.get("key"):
             self._on_identified(rec["gameid"], rec.get("title", ""), rec["key"])
             return
-        # Melyik program ez? (az umu adatbázisa, ha kell a Steam áruháza; egyszer, a háttérben)
+        # Which program is this? (the umu database, if needed the Steam store; once, in the background)
         exe, name = self._exe, self._name
         threading.Thread(target=lambda: self._identified.emit(*self._identify(exe, name)), daemon=True).start()
 
@@ -495,8 +495,8 @@ class ExeController(QObject):
         try:
             key = community.program_key(exe, identify.candidates(exe, name))
             return (*identify.identify(exe, name, online=backend.online()), key)
-        except Exception as e:  # a felismerés hibája ne akadályozza az indítást
-            log.warning("felismerés: %s", e)
+        except Exception as e:  # a recognition error must not prevent the start
+            log.warning("recognition: %s", e)
             return None, "", ""
 
     def _on_identified(self, gameid, title, key):
@@ -510,7 +510,7 @@ class ExeController(QObject):
             if gameid:
                 log.info("felismerve: %s (%s)", title, gameid)
         if gameid and not self._program.meta.get("is_game") and self._program.id != library.SHARED_ID:
-            # Felismert játék: a Start menüben a Játékok közé kerül
+            # Recognized game: goes among the Games in the Start menu
             self._program.save_meta(is_game=True)
             menu.set_category(self._program)
         self._gameid = gameid or None
@@ -522,7 +522,7 @@ class ExeController(QObject):
         self._next_attempt()
 
     def _next_attempt(self):
-        """A terv következő próbája (a pillanatkép nélkül nem biztonságos Proton-váltások kimaradnak)."""
+        """The plan's next attempt (Proton switches that are unsafe without a snapshot are skipped)."""
         while self._plan:
             attempt = self._plan.pop(0)
             if heal.needs_snapshot(self._program, attempt) and not self._snapshot:
@@ -545,7 +545,7 @@ class ExeController(QObject):
         self._icon = f"file://{path}" if path and Path(path).is_file() else ""
 
     def _update_window(self):
-        """Ablakcím és tálcaikon: "XY indítása" / "XY telepítése", a program saját ikonjával."""
+        """Window title and taskbar icon: "Starting XY" / "Installing XY", with the program's own icon."""
         if self._mode == "manage":
             key = "title.manage"
         elif self._mode == "install" or (self._installer and not self._mode):
@@ -563,11 +563,11 @@ class ExeController(QObject):
         self.changed.emit()
 
     def _start_runner(self, *args, **kwargs):
-        # Egy váratlan hiba itt ne hagyja végtelenül forogni az ablakot: hibaoldal, a részletek a naplóban
+        # An unexpected error here must not leave the window spinning forever: error page, details in the log
         try:
             self._runner.start(*args, **kwargs)
         except Exception:
-            log.exception("a futtató indítása nem sikerült")
+            log.exception("starting the runner failed")
             self._fail(tr("error.not_started", name=self._name))
 
     def _fail(self, text):
@@ -588,7 +588,7 @@ class ExeController(QObject):
     def _on_status(self, key, pct):
         self._status = tr(key)
         self._progress = pct
-        self._started_timer.start()  # amíg előkészítünk, ne rejtsük el az ablakot
+        self._started_timer.start()  # while we prepare, do not hide the window
         if self._slow_timer.isActive():
             self._slow_timer.start()
         self.changed.emit()
@@ -619,58 +619,58 @@ class ExeController(QObject):
         self._started_timer.stop()
         self._slow_timer.stop()
         self._worked_timer.stop()
-        log.info("kilépett: kód=%s, %.0f mp", code, elapsed)
+        log.info("exited: code=%s, %.0f s", code, elapsed)
         if self._installer_alive:
             self._installer_alive = False
             if not self._closing:
-                return  # a telepítő kilépett; a felhasználó még ebben az ablakban dolgozik
-            # a telepítés már kész volt, csak a telepítő végét vártuk (_quit)
+                return  # the installer exited; the user is still working in this window
+            # the install was already done, we were only waiting for the installer's end (_quit)
             QApplication.quit()
             return
         if code == 127 and elapsed == 0:
             self._fail(tr("error.runtime_missing"))
             return
         if self._mode == "install":
-            # A telepítő kilépett; a letöltők és a többlépcsős telepítők ilyenkor még dolgozhatnak
+            # The installer exited; downloaders and multi-stage installers may still be working
             self._status = tr("status.finish_in_installer")
             self.changed.emit()
             self._install_timer.start()
             return
         if self._join:
-            # Csatlakozott indítás: a futó környezetet nem javítjuk, nem írunk felül semmit
+            # Joined start: we do not repair the running environment, we do not overwrite anything
             QApplication.quit()
             return
         if self._attempt and not self._runner.uses_wine:
             self._program.save_meta(prefix_proton=heal.resolved_name(self._attempt))
         if self._succeeded or elapsed >= QUICK_EXIT_S:
-            # Hibakóddal, rövid futás után (pl. a Battle.net 30 mp után, kód 3) nem jegyezzük meg „bevált”
-            # beállításnak; újra sem indítjuk, mert lehet, hogy a felhasználó zárta be
+            # With an error code, after a short run (e.g. Battle.net after 30 s, code 3) we do not remember it as a
+            # setting that "worked"; we do not restart it either, because maybe the user closed it
             if self._succeeded or code == 0 or elapsed >= WORKED_AFTER_S:
                 self._on_worked()
             else:
-                log.info("hibakóddal lépett ki (%s), nem jegyezzük meg bevált beállításnak", code)
+                log.info("exited with an error code (%s), not remembered as a working setting", code)
             QApplication.quit()
             return
         if self._program.busy():
-            # Az indító átadta a helyét: a program fut tovább, ez nem hiba
-            log.info("az indító kilépett, a program tovább fut")
+            # The launcher handed over: the program keeps running, this is not an error
+            log.info("the launcher exited, the program keeps running")
             self._busy_timer.start()
             self._worked_timer.start()
             return
         lines = self._runner.lines()
         rec = heal.record(self._program, self._exe)
         if code == 0 and rec.get("good") and not diagnose.crashed(lines):
-            # Eddig is működött, most sem omlott össze: a felhasználó zárta be
+            # It worked before and did not crash now either: the user closed it
             QApplication.quit()
             return
         if self._anticheat or self._runner.uses_wine:
-            # A csalásvédelmen nem segít más beállítás; a tartalék Wine-nál nincs mit váltani
+            # A different setting does not help against anti-cheat; with the fallback Wine there is nothing to switch
             self._give_up()
             return
         self._heal(rec, lines)
 
     def _heal(self, rec, lines):
-        """Nem indult el rendesen: diagnózis, és ha kell, a következő beállítás. A felhasználó csak „Indítás…”-t lát."""
+        """It did not start properly: diagnosis and, if needed, the next setting. The user only sees "Starting…"."""
         attempt = self._attempt
         known = [tuple(f) for f in rec.get("fixes", [])]
         new = [f for f in diagnose.fixes(lines) if f not in known]
@@ -678,14 +678,14 @@ class ExeController(QObject):
             self._give_up()
             return
         if new:
-            # Felismert hiba: ugyanezzel a beállítással, a javítással együtt még egyszer
-            log.info("felismert hibák: %s", new)
+            # Recognized error: once more with the same setting, together with the fix
+            log.info("recognized errors: %s", new)
             rec["fixes"] = [list(f) for f in known + new]
             heal.save_record(self._program, self._exe, rec)
             attempt.fixes = known + new
             self._retry(attempt)
             return
-        log.info("nem indult el ezzel: %s", attempt.key)
+        log.info("did not start with: %s", attempt.key)
         community.queue_report(self._key, attempt, "failed")
         failed = set(rec.get("failed", [])) | {f"{heal.resolved_name(attempt)}|{attempt.profile}", attempt.key}
         rec["failed"] = sorted(failed)
@@ -694,7 +694,7 @@ class ExeController(QObject):
             rec.pop("good")
         heal.save_record(self._program, self._exe, rec)
         if self._snapshot and heal.restore_snapshot(self._program):
-            # vissza az indítás előtti állapotra (és verzióra); a következő próbához új pillanatkép kell
+            # back to the state (and version) before the start; the next attempt needs a new snapshot
             self._program.save_meta(prefix_proton=self._before_proton)
             self._snapshot = False
         for a in self._plan:
@@ -720,18 +720,18 @@ class ExeController(QObject):
             self._fail(tr("error.not_started", name=self._name))
 
     def _on_worked(self):
-        """A program rendben fut: megjegyezzük, mi működött, és a pillanatkép törölhető."""
+        """The program runs fine: we remember what worked, and the snapshot can be deleted."""
         if self._succeeded or self._mode != "run" or self._join or not self._attempt or self._runner.uses_wine:
             return
         self._succeeded = True
         rec = heal.record(self._program, self._exe)
         name = heal.resolved_name(self._attempt)
         if rec.get("good") != {"proton": name, "profile": self._attempt.profile}:
-            log.info("bevált beállítás: %s|%s", name, self._attempt.profile)
+            log.info("working setting: %s|%s", name, self._attempt.profile)
         rec["good"] = {"proton": name, "profile": self._attempt.profile}
         rec["failed"] = [k for k in rec.get("failed", []) if k not in (f"{name}|{self._attempt.profile}",
                                                                        self._attempt.key)]
-        # A közös tudásnak csak az új eredmény megy (minden indításkor ugyanazt nem jelentjük)
+        # Only a new result goes to the shared knowledge (we do not report the same thing on every start)
         reported = f"{name}|{self._attempt.profile}|{sorted(map(list, self._attempt.fixes))}"
         if rec.get("reported") != reported:
             community.queue_report(self._key, self._attempt, "worked")
@@ -753,20 +753,20 @@ class ExeController(QObject):
             verbs = sorted(set(self._program.meta.get("verbs", [])) | {verb})
             self._program.save_meta(verbs=verbs)
         else:
-            log.warning("összetevő telepítése nem sikerült: %s (%s)", verb, code)
+            log.warning("installing a component failed: %s (%s)", verb, code)
 
     def _check_install_done(self):
-        """A telepítés akkor kész, amikor a program környezetében már semmi nem fut, vagy amikor a telepítő
-        már kilépett, és a program biztosan megvan (sok telepítő a végén magától elindítja a programot,
-        pl. a Battle.net: azt nem várjuk meg, amíg a felhasználó bezárja). Akkor is kész, ha a telepítő még
-        fut, de a telepített program már elindult: az EA app telepítője addig nem lép ki, amíg az EA app fut."""
+        """The install is done when nothing runs in the program's environment any more, or when the installer
+        has exited and the program is certainly there (many installers start the program by themselves at the end,
+        e.g. Battle.net: we do not wait until the user closes it). It is also done when the installer still
+        runs but the installed program has already started: the EA app installer does not exit while the EA app runs."""
         running = library.running_exes(self._program)
         if self._runner.running():
             if self._state != "working" or not self._runner.main_running():
                 return
             if running and self._status != tr("status.finish_in_installer"):
-                # A Windows-oldalon már fut a telepítő: az előkészítés véget ért (akkor is, ha nem kellett
-                # letölteni semmit, és a futtató ezért nem jelezte), a „még dolgozunk…” szöveg ne maradjon kint
+                # The installer already runs on the Windows side: preparation is over (even if nothing had
+                # to be downloaded, so the runner did not report it); the "still working…" text must not stay up
                 self._on_setup_done()
             others = running - {self._exe.name.lower()}
             if not others:
@@ -774,7 +774,7 @@ class ExeController(QObject):
             found = detect.detect(self._program, self._baseline, fallback_name=self._name)
             if not (found.sure and others & {c.path.name.lower() for c in found.candidates}):
                 return
-            log.info("a telepítő még fut, de a telepített program már elindult: %s", sorted(others))
+            log.info("the installer still runs, but the installed program has already started: %s", sorted(others))
             self._installer_alive = True
         elif running and (self._exe.name.lower() in running
                           or not detect.detect(self._program, self._baseline, fallback_name=self._name).sure):
@@ -783,16 +783,16 @@ class ExeController(QObject):
         self._after_install()
 
     def _after_install(self):
-        # A telepítő a legfrissebb Protonnal futott: ezen a verzión áll a program mappája
+        # The installer ran with the latest Proton: the program's folder is on this version
         if not self._runner.uses_wine:
             self._program.save_meta(prefix_proton=heal.newest() or "auto")
         before = self._baseline
         found = detect.detect(self._program, before, fallback_name=self._name)
         if not found.candidates:
-            # Újratelepítésnél (vagy ha a telepítő csak frissített) nincs új fájl: az egész környezetből
+            # When reinstalling (or if the installer only updated) there are no new files: from the whole environment
             before = None
             found = detect.detect(self._program, before, fallback_name=self._name)
-        log.info("telepítve: %s (%s), indítók: %s", found.name or self._name, found.install_dir,
+        log.info("installed: %s (%s), launchers: %s", found.name or self._name, found.install_dir,
                  [(c.name, c.path.name, c.score) for c in found.candidates])
         if not found.candidates:
             self._fail(tr("error.nothing_installed"))
@@ -801,7 +801,7 @@ class ExeController(QObject):
         if found.install_dir:
             info["install_dir"] = self._program.host_to_windows(found.install_dir) or ""
         self._program.save_meta(**info)
-        # A Windows saját nyilvántartásából a program valódi neve (pl. „Battle.net”, nem „Battle Net Setup”)
+        # The program's real name from Windows' own registry (e.g. "Battle.net", not "Battle Net Setup")
         if found.name and found.name != self._program.name:
             self._program = library.rename(self._program, found.name)
             self._name = found.name

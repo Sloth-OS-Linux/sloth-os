@@ -1,14 +1,14 @@
-"""Melyik program települt, és melyik fájllal indul?
+"""Which program got installed, and which file starts it?
 
-Telepítés előtt feljegyezzük, mi van már a program Windows-környezetében (baseline), utána
-összevetjük. Amiből dolgozunk, a megbízhatóság sorrendjében:
-  1. a registry „Uninstall” bejegyzése: név, kiadó, verzió, telepítési hely, és az ikon (DisplayIcon),
-     ami a legtöbbször maga a program,
-  2. a telepítő által a Start menübe és az asztalra tett parancsikonok (.lnk),
-  3. az új .exe fájlok a telepítési helyen, pontozva (név egyezése, méret, mélység; a frissítők,
-     hibajelentők, eltávolítók és a futtatókörnyezetek telepítői kiesnek).
-Ha egy recept (recipes.py) ismeri a programot, az általa javasolt .exe előre kerül, a kihagyandók kiesnek.
-Ha egyik sem biztos, a felhasználó választ (és tallózhat is).
+Before installing we record what is already in the program's Windows environment (baseline), and compare
+afterwards. What we work from, in order of reliability:
+  1. the registry's "Uninstall" entry: name, publisher, version, install location, and the icon (DisplayIcon),
+     which is most often the program itself,
+  2. the shortcuts (.lnk) the installer put into the Start menu and on the desktop,
+  3. the new .exe files in the install location, scored (matching name, size, depth; updaters,
+     crash reporters, uninstallers and runtime installers drop out).
+If a recipe (recipes.py) knows the program, the .exe it suggests goes first, and the ones to skip drop out.
+If none of them is certain, the user chooses (and can browse too).
 """
 import fnmatch
 import os
@@ -19,31 +19,31 @@ from pathlib import Path
 
 from . import recipes, winreg
 
-# A közös parancsikonok helye; a felhasználókéi (a Protonnál „steamuser”, a sima Wine-nál a Linuxos név)
+# Where the shared shortcuts are; the users' ones (with Proton "steamuser", with plain Wine the Linux name)
 # a shortcut_dirs()-ben
 SHORTCUT_DIRS = [
     "drive_c/ProgramData/Microsoft/Windows/Start Menu",
     "drive_c/users/Public/Desktop",
 ]
-# Ezek nem a program indítói (a parancsikon vagy a .exe nevében)
+# These do not start the program (in the shortcut's or the .exe's name; Hungarian words too, for Hungarian installers)
 SKIP_WORDS = ("uninstall", "uninst", "eltávolít", "remove", "readme", "help", "manual",
               "website", "web site", "license", "changelog", "release notes")
-# Ezek a .exe-k biztosan nem a program (segédfolyamatok, frissítők, futtatókörnyezetek)
+# These .exe files are certainly not the program (helper processes, updaters, runtimes)
 HELPER_EXE = re.compile(
     r"(?i)(unins\d*|uninstall|setup|install|update|updater|patcher|crash|report|helper|redist|vc_?redist|"
     r"vcredist|dxsetup|dxwebsetup|dotnet|ndp\d|oalinst|physx|directx|ue4prereq|prereq|cefsharp|"
     r"qtwebengineprocess|webhelper|subprocess|elevat|service|agent|notification|bugreport|sentry|"
     r"unitycrashhandler|easyanticheat_setup|battleye_setup)")
 INSTALLER_WORDS = ("setup", "install", "installer", "telepito", "telepítő", "_inst")
-# Futtatókörnyezetek: a telepítő ezeket is bejegyezheti, de nem ezek a programok
+# Runtimes: the installer may register these too, but they are not the programs
 REDIST_NAMES = re.compile(
     r"(?i)(microsoft visual c\+\+|\.net (framework|runtime|desktop)|directx|wine (mono|gecko)|"
     r"webview2|physx|openal|vulkan run ?time|xna framework|windows sdk)")
-# A Wine saját mintaprogramjai (iexplore, wmplayer, wordpad…): új környezetben a telepítő futása alatt jönnek
-# létre, így „új” .exe-nek látszanak, de nem a programhoz tartoznak (a _rel() szerinti, kisbetűs útvonalon)
+# Wine's own sample programs (iexplore, wmplayer, wordpad…): in a new environment they are created while the installer
+# runs, so they look like "new" .exe files, but they do not belong to the program (by the lowercase _rel() path)
 WINE_BUILTIN = re.compile(
     r"^drive_c/(windows/|program files( \(x86\))?/(internet explorer|windows media player|windows nt|common files)/)")
-# Verziószámos mappa az útban (pl. „13.809.0.6322”, „app-1.0.9”): a frissítés után eltűnhet
+# A versioned folder in the path (e.g. "13.809.0.6322", "app-1.0.9"): it may disappear after an update
 VERSION_DIR = re.compile(r"[\\/][^\\/]*\d+\.\d+\.\d+[^\\/]*[\\/]")
 
 
@@ -56,7 +56,7 @@ def looks_like_installer(path):
 
 
 def display_name(path):
-    """setup_firefox-123.exe -> "Firefox" (amennyire lehet, emberi név)."""
+    """setup_firefox-123.exe -> "Firefox" (as human a name as possible)."""
     stem = Path(path).stem
     s = re.sub(r"(?i)(setup|installer|install|x64|x86|win64|win32|amd64|_inst|-?v?\d+(\.\d+)+)", " ", stem)
     s = re.sub(r"[_\-]+", " ", s)
@@ -70,10 +70,10 @@ def _norm(s):
     return re.sub(r"[^a-z0-9]+", "", (s or "").lower())
 
 
-# --- Parancsikonok ------------------------------------------------------------------------------------
+# --- Shortcuts ------------------------------------------------------------------------------------
 
 def parse_lnk(path):
-    """Windows parancsikon (.lnk) célja. Csak a helyi elérési utat olvassuk (MS-SHLLINK)."""
+    """The target of a Windows shortcut (.lnk). We only read the local path (MS-SHLLINK)."""
     try:
         data = Path(path).read_bytes()
         if len(data) < 0x4C or data[:4] != b"\x4c\x00\x00\x00":
@@ -87,7 +87,7 @@ def parse_lnk(path):
         info = pos
         header_size = struct.unpack_from("<I", data, info + 4)[0]
         local_off = struct.unpack_from("<I", data, info + 0x10)[0]
-        if header_size >= 0x24:  # Unicode változat
+        if header_size >= 0x24:  # Unicode variant
             uoff = struct.unpack_from("<I", data, info + 0x1C)[0]
             end = data.index(b"\x00\x00", info + uoff)
             if (end - info - uoff) % 2:
@@ -111,7 +111,7 @@ def shortcut_dirs(env):
 
 
 def find_shortcuts(app):
-    """A telepítő által létrehozott parancsikonok: [(név, host_exe, .lnk útja)]."""
+    """The shortcuts created by the installer: [(name, host_exe, path of the .lnk)]."""
     seen, out = set(), []
     for rel in shortcut_dirs(app):
         base = app.prefix / rel
@@ -135,7 +135,7 @@ def find_shortcuts(app):
     return out
 
 
-# --- Felismerés --------------------------------------------------------------------------------------
+# --- Recognition --------------------------------------------------------------------------------------
 
 @dataclass
 class Candidate:
@@ -147,21 +147,21 @@ class Candidate:
 
 @dataclass
 class Detection:
-    name: str = ""            # a program neve (a registryből), ha kiderült
+    name: str = ""            # the program's name (from the registry), if it turned out
     publisher: str = ""
     version: str = ""
     install_dir: Path | None = None
     uninstall_key: str = ""
-    candidates: list = field(default_factory=list)  # Candidate-ek, a legvalószínűbb elöl
+    candidates: list = field(default_factory=list)  # Candidates, the most likely first
 
     @property
     def sure(self):
-        """Van-e biztos indító (a felhasználónak nem kell választania)."""
+        """Whether there is a certain launcher (the user does not need to choose)."""
         return any(c.score >= 80 for c in self.candidates)
 
 
 def _rel(app, path):
-    """A környezethez képest (így a mappa átnevezése után is összevethető)."""
+    """Relative to the environment (so it can be compared even after the folder is renamed)."""
     try:
         return str(Path(path).relative_to(app.prefix)).lower()
     except ValueError:
@@ -169,7 +169,7 @@ def _rel(app, path):
 
 
 def baseline(app):
-    """Mi van már a Windows-környezetben telepítés előtt (új környezetnél semmi)."""
+    """What is already in the Windows environment before installing (nothing in a new environment)."""
     return {
         "keys": set(winreg.uninstall_entries(app.prefix)),
         "exes": {_rel(app, p) for p in app.list_exes()},
@@ -190,14 +190,14 @@ def _exe_score(path, install_dir, name):
         except ValueError:
             score -= 20
     try:
-        score += min(10, path.stat().st_size // (2 * 1024 ** 2))  # nagyobb .exe: inkább a program
+        score += min(10, path.stat().st_size // (2 * 1024 ** 2))  # a bigger .exe: more likely the program
     except OSError:
         pass
     return score
 
 
 def _common_dir(paths, drive_c):
-    """A telepített .exe-k közös mappája a Program Files (vagy más felső mappa) alatt."""
+    """The shared folder of the installed .exe files under Program Files (or another top folder)."""
     common = None
     for p in paths:
         try:
@@ -211,18 +211,18 @@ def _common_dir(paths, drive_c):
         while n < min(len(common), len(rel)) and common[n].lower() == rel[n].lower():
             n += 1
         common = common[:n]
-    # legalább a program saját mappája kell (Program Files/X, Games/X, users/<név>/AppData/Local/X)
+    # at least the program's own folder is needed (Program Files/X, Games/X, users/<name>/AppData/Local/X)
     if not common or len(common) < (5 if common[0].lower() == "users" else 2):
         return None
     return drive_c.joinpath(*common)
 
 
 def _via_link(path):
-    """Verziószámos mappán át vezető út helyett a mellette lévő linken át vezető, ha van ilyen.
+    """Instead of a path through a versioned folder, the one through the link next to it, if there is one.
 
-    Az EA app a fájljait az „EA Desktop\\13.809.0.6322\\EA Desktop” alá teszi, az „EA Desktop\\EA Desktop” pedig
-    link a mostani verzióra; a frissítés után a régi mappa eltűnik, a link marad (az .exe kezelő is utánaigazítja).
-    A rglob a linkelt mappába nem megy be, ezért a .exe-k a verziós úton kerülnek elő.
+    The EA app puts its files under "EA Desktop\\13.809.0.6322\\EA Desktop", and "EA Desktop\\EA Desktop" is a
+    link to the current version; after an update the old folder disappears, the link stays (the .exe handler adjusts too).
+    rglob does not go into the linked folder, so the .exe files turn up on the versioned path.
     """
     parts = Path(path).parts
     for i, part in enumerate(parts):
@@ -235,7 +235,7 @@ def _via_link(path):
             return path
         for link in links:
             target = Path(os.readlink(link)).parts
-            # a link egy (akár másik) verzió ugyanazon almappájára mutat: <verzió>/<almappa…>
+            # the link points to the same subfolder of a (possibly other) version: <version>/<subfolder…>
             if len(target) >= 1 and re.search(r"\d+\.\d+\.\d+", target[0]) \
                     and tuple(target[1:]) == rest[:len(target) - 1]:
                 alt = link.joinpath(*rest[len(target) - 1:])
@@ -246,12 +246,12 @@ def _via_link(path):
 
 
 def detect(app, before=None, fallback_name=""):
-    """Telepítés után: mi települt és mivel indul. before: baseline() a telepítés előttről."""
+    """After installing: what got installed and what starts it. before: baseline() from before the install."""
     before = before or {"keys": set(), "exes": set(), "links": set()}
     out = Detection()
     drive_c = app.prefix / "drive_c"
 
-    # 1. registry: az új (és nem futtatókörnyezet) bejegyzések
+    # 1. registry: the new entries (that are not runtimes)
     entries = {k: v for k, v in winreg.uninstall_entries(app.prefix).items()
                if k not in before["keys"] and v.get("displayname") and not v.get("systemcomponent")
                and not REDIST_NAMES.search(str(v.get("displayname")))}
@@ -263,7 +263,7 @@ def detect(app, before=None, fallback_name=""):
         valid_icon = host is not None and host.is_file() and not HELPER_EXE.search(host.stem)
         if valid_icon:
             icon_exes.append((str(v["displayname"]), host))
-        # a program az a bejegyzés, amelyiknek van indítható ikonja vagy telepítési helye
+        # the program is the entry that has a startable icon or an install location
         if not out.uninstall_key or (valid_icon and not out.install_dir):
             out.name = str(v["displayname"]).strip()
             out.publisher = str(v.get("publisher") or "").strip()
@@ -283,14 +283,14 @@ def detect(app, before=None, fallback_name=""):
         if key not in found or found[key].score < score:
             found[key] = Candidate(cand_name, path, score)
 
-    # 2. parancsikonok (csak az újak): ezt szánta a gyártó indítónak; utána a registry ikonja
+    # 2. shortcuts (only the new ones): this is what the vendor meant as the launcher; then the registry's icon
     for lnk_name, host, lnk in find_shortcuts(app):
         if _rel(app, lnk) not in before["links"]:
             add(lnk_name, host, 90)
     for reg_name, host in icon_exes:
         add(reg_name, host, 85)
 
-    # 3. az új .exe-k a telepítési helyen (vagy, ha az nem ismert, a közös mappájukban)
+    # 3. the new .exe files in the install location (or, if that is not known, in their shared folder)
     new_exes = [p for p in app.list_exes()
                 if _rel(app, p) not in before["exes"] and not WINE_BUILTIN.match(_rel(app, p))]
     if not out.install_dir:
@@ -301,7 +301,7 @@ def detect(app, before=None, fallback_name=""):
             same = _norm(p.stem) in (_norm(name), _norm(name) + "launcher")
             add(name if same and name else display_name(p), p, min(score, 75))
 
-    # receptek: a javasolt indító előre, a felesleges segédprogramok ki
+    # recipes: the suggested launcher first, the unneeded helper programs out
     prefer, skip = recipes.preferences(app.prefix)
     for key, c in list(found.items()):
         exe_name = c.path.name.lower()
@@ -310,14 +310,14 @@ def detect(app, before=None, fallback_name=""):
         elif any(fnmatch.fnmatch(exe_name, p.lower()) for p in prefer):
             c.score = max(c.score, 95)
 
-    # azonos pontszámnál a verziószámos mappa nélküli út előre (pl. az EA app „EA Desktop\EA Desktop” linkje a
-    # „13.809.0.6322” helyett: az a program frissítése után is érvényes), utána a sekélyebb
+    # with equal scores the path without a versioned folder goes first (e.g. the EA app's "EA Desktop\EA Desktop" link
+    # instead of "13.809.0.6322": that stays valid after the program updates), then the shallower one
     cands = sorted(found.values(), key=lambda c: (-c.score, bool(VERSION_DIR.search(str(c.path))),
                                                   len(c.path.parts)))
     names = set()
     for i, c in enumerate(cands):
-        # a biztos találatok (parancsikonok, registry) mind, különben csak a legjobb;
-        # ugyanaz a név csak egyszer (pl. a Battle.net parancsikonja és a registry ikonja)
+        # the certain hits (shortcuts, registry) all, otherwise only the best one;
+        # the same name only once (e.g. Battle.net's shortcut and the registry's icon)
         if (c.score >= 80 or i == 0) and _norm(c.name) not in names:
             c.checked = True
             names.add(_norm(c.name))
@@ -326,7 +326,7 @@ def detect(app, before=None, fallback_name=""):
 
 
 def launch_candidates(app):
-    """Utólagos szerkesztéshez: minden lehetséges indító (parancsikonok, a registry, a .exe-k)."""
+    """For editing afterwards: every possible launcher (shortcuts, the registry, the .exe files)."""
     det = detect(app, fallback_name=app.name)
     seen = {str(c.path).lower() for c in det.candidates}
     rest = [Candidate(display_name(p), p, 0) for p in app.list_exes()

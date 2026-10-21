@@ -1,9 +1,9 @@
-"""A Sloth OS telepítő vezérlője (QML <-> Python).
+"""Controller of the Sloth OS installer (QML <-> Python).
 
-Lépések: welcome (nyelv) -> region (billentyűzet, időzóna) -> account (fiók) -> disk -> confirm -> install
--> done | error. A fiókot első induláskor a telepített rendszer hozza létre (sloth-first-user).
-A tényleges telepítést a sloth-install-helper végzi rendszergazdaként (pkexec);
-innen csak emberi nyelvű állapot és folyamatjelző látszik.
+Steps: welcome (language) -> region (keyboard, time zone) -> account -> disk -> confirm -> install
+-> done | error. The account is created on first boot by the installed system (sloth-first-user).
+The actual install is done by sloth-install-helper as administrator (pkexec);
+from here only a human-language status and a progress bar are visible.
 """
 import json
 import logging
@@ -17,7 +17,7 @@ from PySide6.QtWidgets import QApplication, QFileDialog
 
 try:
     from PySide6.QtDBus import QDBusConnection, QDBusInterface
-except ImportError:  # D-Bus nélkül is telepítünk, csak a képernyő lekapcsolását nem tudjuk tiltani
+except ImportError:  # we install without D-Bus too, we just cannot prevent the screen from turning off
     QDBusConnection = None
 
 from sloth_common.i18n import Catalog
@@ -26,19 +26,19 @@ from . import system
 
 log = logging.getLogger("sloth-installer")
 
-LOG_FILE = Path("/tmp/sloth-install.log")  # a sloth-install-helper írja
+LOG_FILE = Path("/tmp/sloth-install.log")  # written by sloth-install-helper
 
 HELPER = "/usr/libexec/sloth-os/sloth-install-helper"
 PAGES = ["welcome", "region", "account", "disk", "confirm", "install", "done", "error"]
-NAV_PAGES = PAGES[:5]   # ezek között lehet előre-hátra lépni
+NAV_PAGES = PAGES[:5]   # one can step back and forth between these
 USERNAME_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
 GIB = 1024**3
-MIN_BESIDE_GIB = 40   # Windows mellé legalább ennyi kell (a segédben is: MIN_BESIDE_BYTES)
+MIN_BESIDE_GIB = 40   # next to Windows at least this much is needed (in the helper too: MIN_BESIDE_BYTES)
 RESERVED_USERS = {"root", "bin", "daemon", "adm", "lp", "sync", "shutdown", "halt", "mail", "operator",
                   "games", "ftp", "nobody", "dbus", "polkitd", "sddm", "plasmalogin", "liveuser", "admin",
                   "wheel", "users"}
-# Telepítés közben ne kapcsoljon le a képernyő, ne zároljon és ne aludjon el a gép. A tiltás addig
-# érvényes, amíg a telepítő fut (kilépéskor a D-Bus kapcsolattal együtt megszűnik).
+# While installing, the screen must not turn off, lock, or the machine go to sleep. The inhibition holds
+# while the installer runs (it ends together with the D-Bus connection on exit).
 INHIBITORS = [
     ("org.freedesktop.ScreenSaver", "/org/freedesktop/ScreenSaver", "org.freedesktop.ScreenSaver"),
     ("org.freedesktop.PowerManagement.Inhibit", "/org/freedesktop/PowerManagement/Inhibit",
@@ -47,13 +47,13 @@ INHIBITORS = [
 
 
 def suggest_username(full_name):
-    """"Kiss Anna" -> "anna": a keresztnév (utolsó szó) ékezetek nélkül, kisbetűvel."""
+    """"Kiss Anna" -> "anna": the last word (the given name in Hungarian order), without accents, lowercase."""
     for word in reversed(full_name.split()):
         plain = unicodedata.normalize("NFKD", word).encode("ascii", "ignore").decode().lower()
         plain = re.sub(r"[^a-z0-9_-]", "", plain)
         if plain[:1].isalpha():
             return plain[:32]
-    return ""  # pl. cirill betűs név: a felhasználó maga írja be
+    return ""  # e.g. a name in Cyrillic letters: the user types it
 catalog = Catalog(Path(__file__).resolve().parent / "translations")
 
 
@@ -69,38 +69,38 @@ class InstallerController(QObject):
         self._language = "en"
         self._keyboard = "us"
         self._timezone = "UTC"
-        self._keyboard_chosen = False   # ha a felhasználó maga választott, a nyelvváltás nem írja felül
+        self._keyboard_chosen = False   # if the user chose it, a language change does not overwrite it
         self._timezone_chosen = False
         self._disks = []
         self._disk = ""
         self._confirmed = False
         self._full_name = ""
         self._username = ""
-        self._username_edited = False   # ha a felhasználó maga írta, a név változása nem írja felül
+        self._username_edited = False   # if the user typed it, a change of the name does not overwrite it
         self._password = ""
         self._stage = ""
         self._progress = 0
         self._error = ""
-        self._log_saved = ""   # hová mentette a felhasználó a telepítés naplóját (hibaoldal)
+        self._log_saved = ""   # where the user saved the install log (error page)
         self._proc = None
         self._buffer = b""
-        # Windows mellé telepítés: a lemez felmérése (sloth-install-helper probe) és a választás
+        # Installing next to Windows: surveying the disk (sloth-install-helper probe) and the choice
         self._beside = False
-        self._probe = {}            # a segéd válasza; {"state": "probing"} amíg fut
+        self._probe = {}            # the helper's answer; {"state": "probing"} while it runs
         self._probe_proc = None
         self._size_gib = 0
-        # Lemeztitkosítás (LUKS2): alapból a fiók jelszavával, de külön jelszó is adható
+        # Disk encryption (LUKS2): by default with the account's password, but a separate one can be given
         self._encrypt = False
         self._encrypt_same = True
         self._encrypt_pw = ("", "")
-        # A kiosztás élő átállítása kis késleltetéssel: a nyelvlistán végiglépkedve ne fusson
-        # minden nyelvnél külön váltás (egymásra futva rossz kiosztás maradhatott érvényben)
+        # Switching the layout live with a small delay: stepping through the language list must not
+        # switch for every language (overlapping switches could leave a wrong layout active)
         self._keyboard_timer = QTimer(self, singleShot=True, interval=400)
         self._keyboard_timer.timeout.connect(lambda: system.apply_live_keyboard(self._keyboard))
         start = catalog.system_language()
         self.setLanguage(start if any(l["code"] == start for l in self._languages) else "en")
 
-    # --- Tulajdonságok -------------------------------------------------------------
+    # --- Properties -------------------------------------------------------------
 
     page = Property(str, lambda self: self._page, notify=changed)
     languages = Property("QVariantList", lambda self: self._languages, constant=True)
@@ -134,7 +134,7 @@ class InstallerController(QObject):
 
     @Property(str, notify=changed)
     def encryptProblem(self):
-        """Mi hiányzik a titkosításhoz (fordítási kulcs), vagy üres, ha rendben van."""
+        """What is missing for encryption (translation key), or empty if it is fine."""
         if not self._encrypt:
             return ""
         if not self._encrypt_same and self._encrypt_pw[0] != self._encrypt_pw[1]:
@@ -146,7 +146,7 @@ class InstallerController(QObject):
 
     @Property("QVariantMap", notify=changed)
     def besideInfo(self):
-        """A Windows mellé telepítés lehetőségei a felületnek: állapot, határok, akadályok."""
+        """The options for installing next to Windows, for the UI: state, limits, obstacles."""
         p = self._probe
         if not p:
             return {"state": "none"}
@@ -156,14 +156,14 @@ class InstallerController(QObject):
         max_gib = int(p.get("max", 0) // GIB)
         if p.get("bitlocker") and max_gib < MIN_BESIDE_GIB:
             problems.append("bitlocker")
-        # MBR-es lemeznél ne az UEFI bekapcsolását tanácsoljuk (a régi módban telepített Windows nem indulna)
+        # On an MBR disk do not advise turning on UEFI (Windows installed in the old mode would not start)
         problems.sort(key=lambda x: (x != "not_gpt", x != "not_uefi"))
         possible = not problems and max_gib >= MIN_BESIDE_GIB
         if not possible and not problems:
             problems = ["no_space"]
         return {"state": "ready", "possible": possible, "problems": problems[:1],
                 "minGib": MIN_BESIDE_GIB, "maxGib": max_gib, "bitlocker": bool(p.get("bitlocker")),
-                # a választott méretből ennyit veszünk el a Windowstól (0, ha a szabad hely elég)
+                # this much of the chosen size is taken from Windows (0 if the free space is enough)
                 "shrinkGib": 0 if p.get("free", 0) >= self._size_gib * GIB else
                 max(0, self._size_gib - int(p.get("free", 0) // GIB))}
 
@@ -171,7 +171,7 @@ class InstallerController(QObject):
     def diskInfo(self):
         return next((d for d in self._disks if d["path"] == self._disk), {})
 
-    # --- Választások -----------------------------------------------------------------
+    # --- Choices -----------------------------------------------------------------
 
     @Slot(str)
     def setLanguage(self, code):
@@ -201,7 +201,7 @@ class InstallerController(QObject):
         self._timezone, self._timezone_chosen = tz, True
         self.changed.emit()
 
-    # --- Fiók ---------------------------------------------------------------------
+    # --- Account ---------------------------------------------------------------------
 
     @Slot(str)
     def setFullName(self, name):
@@ -217,7 +217,7 @@ class InstallerController(QObject):
 
     @Slot(str, str, result=str)
     def accountError(self, password, again):
-        """Üres szöveg, ha a fiók adatai jók; különben a hiba fordítási kulcsa."""
+        """Empty text if the account details are fine; otherwise the error's translation key."""
         if not self._full_name:
             return "account.error.name"
         if not USERNAME_RE.match(self._username) or self._username in RESERVED_USERS:
@@ -236,12 +236,12 @@ class InstallerController(QObject):
     def refreshDisks(self):
         try:
             self._disks = system.disks()
-        except Exception as e:  # lsblk hiba: üres listát mutatunk, a felület szól
+        except Exception as e:  # lsblk error: we show an empty list, the UI says so
             log.error("lemezek: %s", e)
             self._disks = []
         usable = [d for d in self._disks if not d["tooSmall"]]
         if self._disk not in {d["path"] for d in usable}:
-            # ha csak egy belső lemez van, azt előre kijelöljük
+            # if there is only one internal disk, it is selected in advance
             internal = [d for d in usable if not d["removable"]]
             self._disk = internal[0]["path"] if len(internal) == 1 else ""
             self._beside, self._probe = False, {}
@@ -261,7 +261,7 @@ class InstallerController(QObject):
             self.changed.emit()
 
     def _start_probe(self):
-        """A Windows-os lemez felmérése a háttérben (a segéd rendszergazdaként olvassa a partíciókat)."""
+        """Surveys the Windows disk in the background (the helper reads the partitions as administrator)."""
         if self._probe_proc:
             self._probe_proc.kill()
         self._probe = {"state": "probing"}
@@ -279,13 +279,13 @@ class InstallerController(QObject):
             except ValueError:
                 result = {}
             if "error" in result or not result:
-                log.warning("lemezfelmérés: %s", result)
+                log.warning("disk survey: %s", result)
                 result = {"problems": ["unknown"]}
-            log.info("lemezfelmérés: %s", result)
+            log.info("disk survey: %s", result)
             self._probe = result
             info = self.besideInfo
             if info.get("possible"):
-                # alapból Windows mellé, a hely fele, de legalább 80 GB (ha van annyi)
+                # by default next to Windows, half of the space, but at least 80 GB (if there is that much)
                 self._beside = True
                 self._size_gib = max(MIN_BESIDE_GIB, min(info["maxGib"], max(80, info["maxGib"] // 2)))
             self.changed.emit()
@@ -333,12 +333,12 @@ class InstallerController(QObject):
         self._confirmed = value
         self.changed.emit()
 
-    # --- Navigáció ----------------------------------------------------------------------
+    # --- Navigation ----------------------------------------------------------------------
 
     @Slot()
     def next(self):
         order = NAV_PAGES
-        log.info("tovább: %s (lemez: %s)", self._page, self._disk or "-")
+        log.info("next: %s (disk: %s)", self._page, self._disk or "-")
         if self._page in order[:-1]:
             self._page = order[order.index(self._page) + 1]
             if self._page == "disk":
@@ -348,14 +348,14 @@ class InstallerController(QObject):
     @Slot()
     def back(self):
         order = NAV_PAGES
-        log.info("vissza: %s", self._page)
+        log.info("back: %s", self._page)
         if self._page in order[1:]:
             self._page = order[order.index(self._page) - 1]
             self.changed.emit()
 
     @Slot()
     def install(self):
-        log.info("telepítés indítása: %s, %s, %s, %s", self._disk, self._language, self._keyboard, self._timezone)
+        log.info("starting the install: %s, %s, %s, %s", self._disk, self._language, self._keyboard, self._timezone)
         if self._proc or not self._disk or not self._confirmed:
             return
         if self._beside and not self.besideInfo.get("possible"):
@@ -377,14 +377,14 @@ class InstallerController(QObject):
         if self._encrypt:
             args.append("--encrypt")
         if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
-            # próbaüzem: jelszókérés és lemeztörlés nélkül
+            # dry run: without password prompt and erasing the disk
             self._proc.start(HELPER, args[1:])
         else:
             self._proc.start("pkexec", args)
-        # A jelszó a szabványos bemeneten megy át (parancssorban nem látszana el más folyamatoknak)
+        # The password goes through standard input (on the command line it would be visible to other processes)
         self._proc.write((self._password + "\n").encode())
         if self._encrypt:
-            # a titkosítás jelszava a második sor (szintén csak a szabványos bemeneten)
+            # the encryption password is the second line (also only on standard input)
             self._proc.write((self._passphrase() + "\n").encode())
         self._proc.closeWriteChannel()
 
@@ -397,7 +397,7 @@ class InstallerController(QObject):
             if reply.arguments():
                 self._inhibited = True
             else:
-                log.warning("nem sikerült tiltani (%s): %s", service, reply.errorMessage())
+                log.warning("could not inhibit (%s): %s", service, reply.errorMessage())
 
     def _read(self):
         self._buffer += bytes(self._proc.readAllStandardOutput())
@@ -420,7 +420,7 @@ class InstallerController(QObject):
         self._proc = None
         if self._page == "done":
             return
-        # 126/127: a jelszókérést megszakították vagy nem kaptunk jogot
+        # 126/127: the password prompt was cancelled or we were not given permission
         if not self._error:
             self._error = "error.not_authorized" if code in (126, 127) else "error.install_failed"
         self._page = "error"
@@ -437,7 +437,7 @@ class InstallerController(QObject):
 
     @Slot()
     def saveLog(self):
-        """A telepítés naplója egy választott helyre (alapból egy bedugott pendrive-ra), hogy el lehessen küldeni."""
+        """Saves the install log to a chosen place (by default a plugged-in USB stick), so it can be sent."""
         start = next((d for d in sorted(Path("/run/media").glob("*/*")) if os.access(d, os.W_OK)), Path.home())
         path, _ = QFileDialog.getSaveFileName(None, catalog.tr("error.save_log"),
                                               str(start / "sloth-install.log"))
@@ -445,10 +445,10 @@ class InstallerController(QObject):
             return
         try:
             Path(path).write_bytes(LOG_FILE.read_bytes())
-            os.sync()  # a pendrive-ot rögtön ki lehessen húzni
+            os.sync()  # so the USB stick can be pulled out right away
             self._log_saved = catalog.tr("error.log_saved", path=path)
         except OSError as e:
-            log.warning("napló mentése: %s", e)
+            log.warning("saving the log: %s", e)
             self._log_saved = catalog.tr("error.log_save_failed")
         self.changed.emit()
 
@@ -458,7 +458,7 @@ class InstallerController(QObject):
 
     @Slot()
     def tryLive(self):
-        """Kipróbálom: a választott nyelven jön fel az asztal, a telepítő bezárul."""
+        """Try it: the desktop comes up in the chosen language, the installer closes."""
         if self._language != catalog.system_language():
             locale = next(l["locale"] for l in self._languages if l["code"] == self._language)
             system.apply_live_language(self._language, locale)

@@ -1,13 +1,13 @@
-"""Fejlesztői pult: a Sloth OS fejlesztése terminál nélkül (repó, build, aláíró kulcs, kipróbálás).
+"""Developer panel: developing Sloth OS without a terminal (repository, builds, signing key, trying out).
 
-  Kapcsolat   a GitHub-repó és egy token (a jelszótárolóban: secret-tool / KWallet; ha az nincs, egy csak a
-              felhasználó által olvasható fájlban). A tokent egy gomb a GitHubon, előre kitöltött jogokkal hozza létre.
-  Buildek     a legutóbbi futások (GitHub Actions), új build indítása (image vagy ISO), havi Actions-percek.
-  Aláíró kulcs  be van-e állítva a SIGNING_SECRET; új kulcspár a cosign-nal (Podman-konténerben, mert a cosign
-              nincs az image-ben): a nyilvános kulcsot a pult commitolja, a titkosat a vágólapra teszi, és megnyitja
-              a GitHub titok-oldalát (a titok feltöltéséhez titkosítás kellene, amihez nincs könyvtár a rendszerben).
-  Kipróbálás  bejelentkezés a csomagtárolóba (privát repónál kell, sloth-helper registry-login), átállás egy
-              buildre (rpm-ostree rebase), vissza a legfrissebbre; virtuális gép (GNOME Boxes).
+  Connection  the GitHub repository and a token (in the password store: secret-tool / KWallet; if there is none, in a
+              file only the user can read). A button creates the token on GitHub, with the scopes filled in.
+  Builds      the latest runs (GitHub Actions), starting a new build (image or ISO), Actions minutes this month.
+  Signing key  whether SIGNING_SECRET is set; a new key pair with cosign (in a Podman container, because cosign
+              is not in the image): the panel commits the public key, puts the private one on the clipboard, and opens
+              the GitHub secrets page (uploading the secret would need encryption, for which there is no library in the system).
+  Trying out  signing in to the package registry (needed for a private repository, sloth-helper registry-login), switching
+              to a build (rpm-ostree rebase), back to the latest; a virtual machine (GNOME Boxes).
 """
 import base64
 import json
@@ -37,14 +37,14 @@ API = "https://api.github.com"
 DEFAULT_REPO = "Sloth-OS-Linux/sloth-os"
 REPO_RE = re.compile(r"^[A-Za-z0-9-]{1,39}/[A-Za-z0-9._-]{1,100}$")
 TOKEN_RE = re.compile(r"^[A-Za-z0-9_]{20,255}$")
-# A token létrehozása: classic token, előre kitöltött jogokkal (repó, workflow, csomagok olvasása)
+# Creating the token: a classic token, with the scopes filled in (repository, workflow, reading packages)
 TOKEN_URL = ("https://github.com/settings/tokens/new?scopes=repo,workflow,read:packages"
-             "&description=Sloth%20OS%20fejleszt%C5%91i%20pult")
+             "&description=Sloth%20OS%20developer%20panel")
 COSIGN_IMAGE = "gcr.io/projectsigstore/cosign:v2.4.1"
 WORKFLOWS = {"image": "build.yml", "iso": "iso.yml"}
 
 
-# --- Token tárolása ------------------------------------------------------------------------------------
+# --- Storing the token ------------------------------------------------------------------------------------
 
 def _secret_tool(*args, stdin=None):
     return subprocess.run(["secret-tool", *args], input=stdin, capture_output=True, text=True, timeout=15)
@@ -65,10 +65,10 @@ def load_token():
 
 
 def save_token(token):
-    """A jelszótárolóba; ha az nem elérhető, egy csak a felhasználó által olvasható fájlba."""
+    """Into the password store; if that is not available, into a file only the user can read."""
     if shutil.which("secret-tool"):
         try:
-            r = _secret_tool("store", "--label=Sloth OS fejlesztői pult", "service", "sloth-os-devpanel",
+            r = _secret_tool("store", "--label=Sloth OS developer panel", "service", "sloth-os-devpanel",
                              stdin=token)
             if r.returncode == 0:
                 TOKEN_FILE.unlink(missing_ok=True)
@@ -122,14 +122,14 @@ def _when(iso):
 
 
 def run_state(run):
-    """Egy futás állapota: "running" | "ok" | "failed" | "cancelled"."""
+    """The state of a run: "running" | "ok" | "failed" | "cancelled"."""
     if run.get("status") != "completed":
         return "running"
     return {"success": "ok", "cancelled": "cancelled", "skipped": "cancelled"}.get(run.get("conclusion"), "failed")
 
 
 def actions_minutes(token, owner):
-    """Az e havi Actions-percek (az új számlázási API-ból), vagy None, ha a token / fiók nem engedi."""
+    """This month's Actions minutes (from the new billing API), or None if the token / account does not allow it."""
     data = None
     for path in (f"/organizations/{owner}/settings/billing/usage", f"/users/{owner}/settings/billing/usage"):
         try:
@@ -148,7 +148,7 @@ def actions_minutes(token, owner):
 class DevPanelController(QObject):
     changed = Signal()
     _loaded = Signal(object)
-    _done = Signal(str, str)  # (üzenet, hiba)
+    _done = Signal(str, str)  # (message, error)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -169,7 +169,7 @@ class DevPanelController(QObject):
         if self._token:
             self.refresh()
 
-    # --- Tulajdonságok -------------------------------------------------------------------------------
+    # --- Properties -------------------------------------------------------------------------------
 
     repo = Property(str, lambda self: self._repo, notify=changed)
     connected = Property(bool, lambda self: bool(self._token), notify=changed)
@@ -195,7 +195,7 @@ class DevPanelController(QObject):
         CONFIG.write_text(json.dumps({"repo": self._repo}, indent=2), encoding="utf-8")
 
     def _background(self, work):
-        """Hálózati művelet háttérszálon; a végén üzenet (vagy hiba) és frissítés."""
+        """A network operation on a background thread; at the end a message (or an error) and a refresh."""
         self._busy, self._message, self._error = True, "", ""
         self.changed.emit()
 
@@ -204,8 +204,8 @@ class DevPanelController(QObject):
                 self._done.emit(work() or "", "")
             except ApiError as e:
                 self._done.emit("", self._api_error(e))
-            except Exception as e:  # a felület ne akadjon meg
-                log.warning("fejlesztői pult: %s", e)
+            except Exception as e:  # the interface must not get stuck
+                log.warning("developer panel: %s", e)
                 self._done.emit("", tr("That didn't work. Please try again later."))
 
         threading.Thread(target=run, daemon=True).start()
@@ -213,7 +213,7 @@ class DevPanelController(QObject):
     def _on_done(self, message, error):
         self._busy, self._message, self._error = False, message, error
         if message == "key-ready":
-            self._on_key_ready()  # a vágólap csak a fő szálon írható
+            self._on_key_ready()  # the clipboard can only be written on the main thread
         self.changed.emit()
         if not error:
             self.refresh()
@@ -228,7 +228,7 @@ class DevPanelController(QObject):
             return tr("No connection to GitHub. Check your internet connection.")
         return tr("GitHub reported an error ({code}). Please try again later.", code=e.status)
 
-    # --- Kapcsolat -------------------------------------------------------------------------------------
+    # --- Connection -------------------------------------------------------------------------------------
 
     @Slot()
     def createToken(self):
@@ -319,11 +319,11 @@ class DevPanelController(QObject):
             subprocess.Popen(["xdg-open", url], start_new_session=True,
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-    # --- Aláíró kulcs ---------------------------------------------------------------------------------
+    # --- Signing key ---------------------------------------------------------------------------------
 
     @Slot()
     def createSigningKey(self):
-        """Új cosign kulcspár (Podmanben): a nyilvánosat commitoljuk, a titkosat a vágólapra tesszük."""
+        """A new cosign key pair (in Podman): the public one is committed, the private one goes on the clipboard."""
         if not self._token:
             return
         token, repo = self._token, self._repo
@@ -344,7 +344,7 @@ class DevPanelController(QObject):
                 if e.status != 404:
                     raise
                 sha = None
-            body = {"message": "Új aláíró kulcs (a fejlesztői pultból)",
+            body = {"message": "New signing key (from the developer panel)",
                     "content": base64.b64encode(pub.encode()).decode()}
             if sha:
                 body["sha"] = sha
@@ -364,7 +364,7 @@ class DevPanelController(QObject):
                            "clipboard.")
         self.changed.emit()
 
-    # --- Kipróbálás ---------------------------------------------------------------------------------
+    # --- Trying out ---------------------------------------------------------------------------------
 
     def _booted_image(self):
         if self._image:
@@ -375,13 +375,13 @@ class DevPanelController(QObject):
                 self._ostree = RpmOstree()
             booted = self._ostree.booted()
             self._image = str(booted.get("container-image-reference") or "")
-        except Exception as e:  # nincs rpm-ostree (pl. fejlesztői gépen)
+        except Exception as e:  # no rpm-ostree (e.g. on a developer machine)
             log.info("rpm-ostree: %s", e)
         return self._image
 
     @Slot()
     def registryLogin(self):
-        """A privát csomagtároló a rendszer frissítéseihez és az image-váltáshoz (rendszergazdai jóváhagyással)."""
+        """The private package registry for system updates and switching images (with administrator approval)."""
         if not self._token:
             return
         owner = self._repo.split("/")[0]
@@ -401,7 +401,7 @@ class DevPanelController(QObject):
 
     @Slot(str)
     def switchTo(self, tag):
-        """Átállás egy buildre (a következő újraindításkor indul); tag: pl. "a1b2c3d-44" vagy "latest"."""
+        """Switches to a build (starts at the next restart); tag: e.g. "a1b2c3d-44" or "latest"."""
         image = self._booted_image()
         if not image or not re.fullmatch(r"[A-Za-z0-9._-]{1,64}", tag):
             self._error = tr("We can't tell which image this computer is running.")
@@ -430,12 +430,12 @@ class DevPanelController(QObject):
 
     @Slot(str, result=str)
     def tagFor(self, sha):
-        """Segéd a QML-nek: a build image-címkéje (a BlueBuild így címkéz: <commit>-<Fedora-verzió>)."""
+        """Helper for QML: the build's image tag (BlueBuild tags like this: <commit>-<Fedora version>)."""
         return f"{sha}-{fedora_version()}"
 
     @Slot()
     def openBoxes(self):
-        """Virtuális gép: GNOME Boxes (ha nincs telepítve, a Discoverben)."""
+        """Virtual machine: GNOME Boxes (if it is not installed, in Discover)."""
         r = subprocess.run(["flatpak", "info", "org.gnome.Boxes"], capture_output=True)
         cmd = (["flatpak", "run", "org.gnome.Boxes"] if r.returncode == 0
                else ["plasma-discover", "appstream://org.gnome.Boxes"])

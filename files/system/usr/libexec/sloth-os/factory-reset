@@ -1,25 +1,25 @@
 #!/usr/bin/python3 -I
-"""A gép alaphelyzetbe állítása (a Windows „A számítógép alaphelyzetbe állítása” megfelelője), rootként fut.
+"""Resetting the computer (the equivalent of Windows' "Reset this PC"); runs as root.
 
-Két lépésben, mert a rendszerbeállításokat és a fiókokat csak akkor lehet biztonságosan visszaállítani, amikor
-még senki nem használja őket:
+In two steps, because the system settings and the accounts can only be reset safely while
+nobody is using them yet:
 
-  prepare keep|all   a Sloth Központból (sloth-helper factory-reset): a legújabb verzió letöltése, a kézzel
-                     hozzáadott rendszercsomagok és kernelparaméterek levétele (ezek az új, előkészített
-                     verzióra vonatkoznak), majd a feladat feljegyzése. A bemeneten JSON: {"backup_name": …},
-                     a "Mindent töröl" (all) módban az új fiók is ({"username", "fullname", "password_hash"}).
-                     Soronként JSON-t ír ki: {"stage": …}, a végén {"ok": …, "error": …}.
-  cancel             a feljegyzett alaphelyzet visszavonása (az előkészített verzió is törlődik)
-  boot-request       induláskor, a boot előtt (sloth-boot-reset.service): ha a boot menüben az „Alaphelyzetbe
-                     állítás” pontot választották, feljegyzi (keep mód; letöltés és csomagok nélkül, a gépen lévő
-                     verzióval), és a boot lépés elvégzi
-  boot-title         a boot menüpont felirata a rendszer nyelvén (a sloth-boot-ok írja az EFI partícióra)
-  boot               következő induláskor, bejelentkezés előtt (sloth-factory-reset.service), a Plymouth-animáció
-                     alatt: appok le, /etc a gyári állapotra; „keep” módban az asztal beállításai a „Régi
-                     beállítások” mappába kerülnek, „all” módban minden fiók és fájl törlődik, és az új fiók jön
-                     létre (sloth-first-user). A végén újraindítja a gépet, hogy minden a tiszta beállításokkal induljon.
+  prepare keep|all   from Sloth Center (sloth-helper factory-reset): downloads the latest version, removes the
+                     system packages and kernel parameters added by hand (these apply to the new, prepared
+                     version), then records the task. Input is JSON: {"backup_name": …},
+                     in "Remove everything" (all) mode also the new account ({"username", "fullname", "password_hash"}).
+                     Prints JSON line by line: {"stage": …}, and at the end {"ok": …, "error": …}.
+  cancel             withdraws the recorded reset (the prepared version is deleted too)
+  boot-request       at startup, before boot (sloth-boot-reset.service): if "Reset this PC" was chosen in the
+                     boot menu, records it (keep mode; without download and packages, with the version on the
+                     machine), and the boot step does it
+  boot-title         the boot menu entry's label in the system language (sloth-boot-ok writes it to the EFI partition)
+  boot               on the next start, before login (sloth-factory-reset.service), under the Plymouth animation:
+                     apps removed, /etc back to the factory state; in "keep" mode the desktop settings go to the
+                     "Old settings" folder, in "all" mode every account and file is deleted, and the new account is
+                     created (sloth-first-user). At the end it restarts the computer, so everything starts with clean settings.
 
-A régi rendszerverzió a boot menüben megmarad: ha az új nem indulna, arra vissza lehet állni.
+The old system version stays in the boot menu: if the new one does not start, you can go back to it.
 """
 import json
 import logging
@@ -37,8 +37,8 @@ sys.path.insert(0, "/usr/lib/sloth-os/common")
 
 log = logging.getLogger("factory-reset")
 
-STATE = Path("/var/lib/sloth-os/factory-reset.json")             # mindenki olvashatja (a Központ ebből látja)
-ACCOUNT = Path("/var/lib/sloth-os/factory-reset-account.json")   # csak root (jelszó-hash)
+STATE = Path("/var/lib/sloth-os/factory-reset.json")             # readable by everyone (Sloth Center reads it)
+ACCOUNT = Path("/var/lib/sloth-os/factory-reset-account.json")   # root only (password hash)
 FIRST_USER = Path("/etc/sloth-os/first-user.json")
 HOME_ROOT = Path("/var/home")
 HOME_SNAPSHOTS = "/usr/libexec/sloth-os/home-snapshots"
@@ -49,7 +49,7 @@ CENTER_TRANSLATIONS = Path("/usr/lib/sloth-os/sloth-center/sloth_center/translat
 NAME_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
 BACKUP_RE = re.compile(r"^[^/\x00\n]{1,64}$")
 
-# /etc: ezek mindkét módban maradnak (a telepítő írta őket, a gép saját azonosítói, vagy a rendszer tartja karban)
+# /etc: these stay in both modes (the installer wrote them, the machine's own IDs, or maintained by the system)
 ETC_KEEP = (
     "passwd", "passwd-", "shadow", "shadow-", "group", "group-", "gshadow", "gshadow-",
     "subuid", "subuid-", "subgid", "subgid-",
@@ -59,15 +59,15 @@ ETC_KEEP = (
     "resolv.conf", "sloth-os/first-user.json",
 )
 ETC_KEEP_PREFIX = ("ssh/ssh_host_",)
-# „keep” módban ezek is maradnak: Wi-Fi, a fájlmentés beállítása
+# in "keep" mode these stay too: Wi-Fi, the file backup settings
 ETC_KEEP_FILES_MODE = ("NetworkManager/system-connections", "sloth-os/snapshots.json")
-# Tartományba léptetett gépen a bejelentkezés beállításai is („keep” módban; különben a tartományi fiókok
-# nem tudnának belépni)
+# On a domain-joined machine the login settings too (in "keep" mode; otherwise the domain accounts
+# could not sign in)
 ETC_KEEP_DOMAIN = ("sssd", "krb5.conf", "krb5.conf.d", "krb5.keytab", "realmd.conf", "authselect", "pam.d",
                    "nsswitch.conf")
 
-# Kernelparaméterek: ezeket a telepítő vagy a rendszer adta, maradnak (a többi a Sloth Központban hozzáadott)
-# (az NVIDIA-s image paraméterei nincsenek a kargs.d-ben, ezért a driverekéi név szerint is maradnak)
+# Kernel parameters: these came from the installer or the system, they stay (the rest were added in Sloth Center)
+# (the NVIDIA image's parameters are not in kargs.d, so the drivers' parameters also stay, by name)
 KARGS_KEEP_PREFIX = ("root=", "rootflags=", "ostree=", "rw", "ro", "BOOT_IMAGE=", "rd.luks", "luks.", "resume=",
                      "rd.vconsole.", "vconsole.", "rd.lvm", "rd.md", "rd.dm", "rd.auto", "rd.driver.blacklist=",
                      "modprobe.blacklist=", "nvidia", "initcall_blacklist=")
@@ -81,17 +81,17 @@ def run(cmd, check=True, **kw):
     try:
         r = subprocess.run(cmd, capture_output=True, text=True, **kw)
     except OSError as e:
-        # induláskor egy hiányzó segédprogram miatt se álljon meg félúton (check=False-nál)
+        # at startup it must not stop halfway because of a missing helper program (with check=False)
         r = subprocess.CompletedProcess(cmd, 127, "", str(e))
     if check and r.returncode != 0:
         raise RuntimeError(f"{cmd[0]}: {(r.stderr or r.stdout).strip()[-400:]}")
     return r
 
 
-# --- Előkészítés (prepare) ------------------------------------------------------------------------------------
+# --- Preparation (prepare) ------------------------------------------------------------------------------------
 
 def rpm_ostree(*args, ok_codes=(0,)):
-    """rpm-ostree parancs; ha épp fut egy másik művelet (pl. az automatikus frissítés), megvárjuk."""
+    """An rpm-ostree command; if another operation is running (e.g. the automatic update), we wait for it."""
     for _ in range(90):
         r = run(["rpm-ostree", *args], check=False)
         if r.returncode in ok_codes:
@@ -100,11 +100,11 @@ def rpm_ostree(*args, ok_codes=(0,)):
         if "in progress" not in err.lower():
             raise RuntimeError(f"rpm-ostree {args[0]}: {err[-400:]}")
         time.sleep(10)
-    raise RuntimeError(f"rpm-ostree {args[0]}: egy másik művelet nem fejeződött be")
+    raise RuntimeError(f"rpm-ostree {args[0]}: another operation did not finish")
 
 
 def default_kargs(kargs_d=KARGS_D):
-    """Az image saját kernelparaméterei (/usr/lib/bootc/kargs.d/*.toml)."""
+    """The image's own kernel parameters (/usr/lib/bootc/kargs.d/*.toml)."""
     out = set()
     for f in sorted(kargs_d.glob("*.toml")) if kargs_d.is_dir() else []:
         try:
@@ -138,7 +138,7 @@ def write_private(path, data, mode):
 
 
 def prepare(mode, request):
-    backup = request.get("backup_name") or "Régi beállítások"
+    backup = request.get("backup_name") or "Old settings"
     if not isinstance(backup, str) or not BACKUP_RE.match(backup) or backup.startswith("."):
         return {"ok": False, "error": "bad-request"}
     account = request.get("account") or {}
@@ -155,7 +155,7 @@ def prepare(mode, request):
         current = rpm_ostree("kargs").stdout.split()
         remove = kargs_to_delete(current, default_kargs())
         if remove:
-            log.info("kernelparaméterek le: %s", remove)
+            log.info("kernel parameters removed: %s", remove)
             rpm_ostree("kargs", *[f"--delete={a}" for a in remove])
     except RuntimeError as e:
         log.error("%s", e)
@@ -171,19 +171,19 @@ def prepare(mode, request):
 def cancel():
     STATE.unlink(missing_ok=True)
     ACCOUNT.unlink(missing_ok=True)
-    # az előkészített (letöltött, csomagok és paraméterek nélküli) verzió is megy: minden marad a régiben
+    # the prepared version (downloaded, without packages and parameters) goes too: everything stays in the old one
     run(["rpm-ostree", "cleanup", "--pending"], check=False)
     return {"ok": True}
 
 
-# --- /etc visszaállítása (boot) ---------------------------------------------------------------------------------
+# --- Resetting /etc (boot) ---------------------------------------------------------------------------------
 
 def kept(rel, keep):
     return rel in keep or any(rel.startswith(k + "/") for k in keep) or rel.startswith(ETC_KEEP_PREFIX)
 
 
 def same(a, b):
-    """Ugyanaz-e a két bejegyzés (típus, link célja, tartalom, jogok, tulajdonos)."""
+    """Whether the two entries are the same (type, link target, contents, permissions, owner)."""
     try:
         sa, sb = os.lstat(a), os.lstat(b)
     except OSError:
@@ -213,7 +213,7 @@ def remove(path):
 
 
 def copy_entry(src, dst):
-    """Egy fájl / link / üres mappa másolása minden jellemzőjével (SELinux-címke is)."""
+    """Copies a file / link / empty folder with all its attributes (SELinux label included)."""
     remove(dst)
     if os.path.isdir(src) and not os.path.islink(src):
         os.mkdir(dst)
@@ -226,8 +226,8 @@ def copy_entry(src, dst):
 
 
 def reset_etc(etc, defaults, keep):
-    """Az /etc visszaállítása a gyári állapotra (defaults: a mostani verzió /usr/etc-je). Ami a gyáriban más vagy
-    hiányzik, visszakerül; ami csak itt van, törlődik; a keep-ben lévők érintetlenek maradnak."""
+    """Resets /etc to the factory state (defaults: the current version's /usr/etc). Whatever is different or
+    missing in the factory one comes back; whatever only exists here is deleted; the ones in keep stay untouched."""
     etc, defaults = str(etc), str(defaults)
     restored = removed = 0
     for root, dirs, files in os.walk(defaults):
@@ -251,7 +251,7 @@ def reset_etc(etc, defaults, keep):
             elif not same(src, dst):
                 copy_entry(src, dst)
                 restored += 1
-        # a linkelt mappákba nem lépünk be (os.walk magától sem, de a dirs listában ott vannak)
+        # we do not enter linked folders (os.walk would not either, but they are in the dirs list)
         dirs[:] = [d for d in dirs if not os.path.islink(os.path.join(root, d))]
     for root, dirs, files in os.walk(etc):
         for name in sorted(dirs + files):
@@ -263,7 +263,7 @@ def reset_etc(etc, defaults, keep):
                 continue
             if not os.path.lexists(os.path.join(defaults, rel)):
                 if name in dirs and any(k.startswith(rel + "/") for k in keep):
-                    continue  # benne van valami, ami marad (pl. sloth-os/snapshots.json): csak a többit töröljük
+                    continue  # it contains something that stays (e.g. sloth-os/snapshots.json): only the rest is deleted
                 remove(path)
                 removed += 1
                 if name in dirs:
@@ -281,10 +281,10 @@ def etc_keep(mode, etc="/etc"):
     return keep
 
 
-# --- Fiókok és saját mappák (boot) -----------------------------------------------------------------------------
+# --- Accounts and home folders (boot) -----------------------------------------------------------------------------
 
 def local_users(passwd="/etc/passwd"):
-    """A helyi (nem rendszer-) fiókok: név, uid."""
+    """The local (non-system) accounts: name, uid."""
     out = []
     for line in Path(passwd).read_text().splitlines():
         parts = line.split(":")
@@ -294,7 +294,7 @@ def local_users(passwd="/etc/passwd"):
 
 
 def homes(root=HOME_ROOT):
-    """A saját mappák (a rejtett mappák, pl. a .snapshots, nélkül)."""
+    """The home folders (without hidden folders, e.g. .snapshots)."""
     try:
         return sorted(p for p in root.iterdir() if p.is_dir() and not p.is_symlink() and not p.name.startswith("."))
     except OSError:
@@ -324,8 +324,8 @@ def free_name(parent, name):
 
 
 def move_desktop_settings(home, backup_name):
-    """Az asztal és a programok beállításai (~/.config) a „Régi beállítások” mappába; a Plasma alapból indul,
-    és az Üdvözlő is újra megjelenik (a welcome-done jelzés is a ~/.config-ban van)."""
+    """The desktop and app settings (~/.config) go to the "Old settings" folder; Plasma starts with its defaults,
+    and Sloth Welcome appears again too (the welcome-done marker is also in ~/.config)."""
     config = home / ".config"
     if not config.is_dir() or config.is_symlink():
         return None
@@ -343,14 +343,14 @@ def uninstall_user_flatpaks(home):
     st = os.lstat(home)
     r = run(["setpriv", f"--reuid={st.st_uid}", f"--regid={st.st_gid}", "--clear-groups", "--",
              "env", f"HOME={home}", "flatpak", "uninstall", "--user", "--all", "--noninteractive"], check=False)
-    log.info("felhasználói appok (%s): %s", home.name, (r.stdout or r.stderr).strip()[-300:])
+    log.info("user apps (%s): %s", home.name, (r.stdout or r.stderr).strip()[-300:])
 
 
 def delete_accounts():
     run([HOME_SNAPSHOTS, "delete-all"], check=False)
     for name, _uid in local_users():
         r = run(["userdel", "--force", name], check=False)
-        log.info("fiók törölve: %s (%s)", name, r.returncode)
+        log.info("account deleted: %s (%s)", name, r.returncode)
         for p in (f"/var/spool/mail/{name}", f"/var/lib/AccountsService/users/{name}",
                   f"/var/lib/AccountsService/icons/{name}"):
             remove(p)
@@ -358,10 +358,10 @@ def delete_accounts():
         delete_tree(p)
 
 
-# --- Üzenet a Plymouth-animáció alatt ---------------------------------------------------------------------------
+# --- Message under the Plymouth animation ---------------------------------------------------------------------------
 
 def boot_text(text):
-    """A Sloth Központ fordításaiból, a rendszer nyelvén (a kulcs a magyar szöveg)."""
+    """From Sloth Center's translations, in the system language (the key is the English text)."""
     try:
         lang = re.search(r'^LANG="?([A-Za-z_]+)', Path("/etc/locale.conf").read_text(), re.M).group(1)
     except (OSError, AttributeError):
@@ -379,11 +379,11 @@ def plymouth(text):
 
 
 def step(fn, *args):
-    """Egy lépés a sok közül: ha hibát dob, a többi attól még lefut, és a gép elindul."""
+    """One step among many: if it throws, the others still run, and the machine starts."""
     try:
         return fn(*args)
     except Exception:  # noqa: BLE001
-        log.exception("%s nem sikerült", fn.__name__)
+        log.exception("%s failed", fn.__name__)
         return None
 
 
@@ -392,80 +392,76 @@ def boot():
         state = json.loads(STATE.read_text())
     except (OSError, ValueError):
         return 0
-    mode, backup = state.get("mode"), state.get("backup_name", "Régi beállítások")
+    mode, backup = state.get("mode"), state.get("backup_name", "Old settings")
     if mode not in ("keep", "all") or not BACKUP_RE.match(backup):
         STATE.unlink(missing_ok=True)
         return 1
-    # Még egyszer ne fusson le (ha valami félresikerül, a gép akkor is induljon el)
+    # It must not run again (if something goes wrong, the machine should still start)
     STATE.unlink()
-    plymouth(boot_text("A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet."))
-    log.info("alaphelyzetbe állítás: %s", mode)
+    plymouth(boot_text("Resetting this PC… This may take a few minutes, don't turn off the computer."))
+    log.info("resetting: %s", mode)
     try:
         account = json.loads(ACCOUNT.read_text()) if mode == "all" else None
     except (OSError, ValueError):
         account = None
     if mode == "all" and not (account and check_account(account)):
-        log.error("hiányzik az új fiók adata, a fiókok maradnak")
+        log.error("the new account's data is missing, the accounts stay")
         mode = "keep"
 
     if mode == "all":
-        # az új fiók adata előre: ha valami félresikerül, belépni akkor is lehessen (az /etc visszaállítása meghagyja)
+        # the new account's data first: if something goes wrong, signing in must still be possible (resetting /etc keeps it)
         step(write_private, FIRST_USER, {"username": account["username"], "fullname": account["fullname"],
                                          "password_hash": account["password_hash"]}, 0o600)
     if mode == "keep":
-        # Biztos, ami biztos: a fájlokról egy friss mentett állapot, mielőtt bármihez nyúlnánk (ha a gépen működik
-        # a Fájlmentés; ebben a módban a mentett állapotok megmaradnak, „Korábbi verziók”-ból visszahozhatók)
+        # Better safe than sorry: a fresh saved state of the files before touching anything (if File backup works on
+        # the machine; in this mode the saved states stay, and can be brought back from "Previous versions")
         r = step(run, [HOME_SNAPSHOTS, "take", "--now"], False)
-        log.info("mentett állapot előtte: %s", r.stdout.strip() if r else "")
+        log.info("saved state before: %s", r.stdout.strip() if r else "")
         for home in homes():
             step(uninstall_user_flatpaks, home)
-            log.info("%s: beállítások -> %s", home.name, step(move_desktop_settings, home, backup))
+            log.info("%s: settings -> %s", home.name, step(move_desktop_settings, home, backup))
     run(["flatpak", "uninstall", "--system", "--all", "--noninteractive"], check=False)
     run(["flatpak", "uninstall", "--system", "--unused", "--noninteractive"], check=False)
     if mode == "all":
         step(delete_accounts)
 
-    log.info("/etc: visszaállítva, törölve: %s", step(reset_etc, "/etc", "/usr/etc", etc_keep(mode)))
+    log.info("/etc: reset, deleted: %s", step(reset_etc, "/etc", "/usr/etc", etc_keep(mode)))
     step(remove, "/var/lib/sloth-os/pin")
     ACCOUNT.unlink(missing_ok=True)
     run(["restorecon", "-R", "/etc"], check=False)
-    # Mint az első induláskor: a gyári alapértelmezés szerint bekapcsolt szolgáltatások
+    # As on first boot: the services enabled by the factory defaults
     run(["systemctl", "preset-all", "--preset-mode=enable-only"], check=False)
     run(["sync"], check=False)
-    plymouth(boot_text("Kész. Újraindítás…"))
+    plymouth(boot_text("Done. Restarting…"))
     run(["systemctl", "--no-block", "reboot"], check=False)
     return 0
 
 
 def boot_request():
-    """A boot menüből kért alaphelyzet (sloth_reset=keep az EFI partíción) feljegyzése a boot lépésnek."""
+    """Records the reset requested from the boot menu (sloth_reset=keep on the EFI partition) for the boot step."""
     r = run([BOOT_ENV, "take-reset"], check=False)
     if (r.stdout or "").strip() != "keep" or STATE.exists():
         return 0
-    log.info("alaphelyzetbe állítás a boot menüből (keep)")
+    log.info("resetting from the boot menu (keep)")
     ACCOUNT.unlink(missing_ok=True)
-    write_private(STATE, {"mode": "keep", "backup_name": boot_text("Régi beállítások"),
+    write_private(STATE, {"mode": "keep", "backup_name": boot_text("Old settings"),
                           "requested": int(time.time()), "source": "boot-menu"}, 0o644)
     return 0
 
 
 def boot_title():
-    """„Alaphelyzetbe állítás (Fájljaim megtartásával)” a rendszer nyelvén. A GRUB betűkészlete nem minden írást
-    ismer: ha a felirat nem latin betűs, angolul."""
-    title = f"{boot_text('Alaphelyzetbe állítás')} ({boot_text('Fájljaim megtartásával')})"
+    """"Reset this PC (Keep my files)" in the system language. GRUB's font does not know every script:
+    if the label is not in Latin letters, in English."""
+    title = f"{boot_text('Reset this PC')} ({boot_text('Keep my files')})"
     if any(ord(ch) > 0x24F for ch in title):
-        try:
-            en = json.loads((CENTER_TRANSLATIONS / "en.json").read_text(encoding="utf-8"))
-            title = f"{en['Alaphelyzetbe állítás']} ({en['Fájljaim megtartásával']})"
-        except (OSError, ValueError, KeyError):
-            title = "Reset this PC (keep my files)"
+        title = "Reset this PC (Keep my files)"
     return title
 
 
 def main(argv):
     logging.basicConfig(level=logging.INFO, format="%(name)s: %(message)s", stream=sys.stderr)
     if os.geteuid() != 0:
-        emit(ok=False, error="root kell")
+        emit(ok=False, error="root needed")
         return 1
     if len(argv) == 2 and argv[0] == "prepare" and argv[1] in ("keep", "all"):
         try:
