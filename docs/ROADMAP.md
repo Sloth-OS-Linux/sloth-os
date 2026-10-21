@@ -89,6 +89,13 @@ Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benn
   sloth-root`, sorszám nélkül) került a lista elejére → TypeError, a másolás el sem indult (a reggeli ISO-ban ez még
   nem volt benne). **Javítva:** a sorszám a kerneltől (`/sys/class/block/<partíció>/partition`); loop eszközön,
   nyitott LUKS-szal kipróbálva. Új ISO
+- [ ] **Telepítési teszt konténerben** (`tools/tests/install/`: `all.sh [full|full-enc|win|win-enc]`, a podman gépen
+  rootként; az élő image-ben, loop-lemezen, az ISO-építés tárolójából; UEFI mímelve). Eredmény 2026-10-21 (14:01-es ISO):
+  - full-enc és full: a telepítés lefut (kb. 12 perc), LUKS2 jelszóval nyílik, nyelv/billentyűzet/időzóna/fiók jó.
+    Az EFI-partíción nem volt rendszerbetöltő, mert UEFI nélkül futott (a mímelt UEFI-s futás még hátravan)
+  - **win és win-enc: még nem futott le** (UEFI mímelve indult, megszakítva). Folytatni: `all.sh win win-enc full-enc`
+  - Figyelem: a lemezfájlok a C:-re mennek (a WSL lemeze ritkított, a teszt minden eset után fstrimel); egyszer
+    megtelt a C: (1,4 GB), és a WSL összeomlott. Egy esethez kb. 15 GB szabad hely kell
 - [x] Telepítő hibaoldala: „Napló mentése…” gomb (alapból a bedugott pendrive-ra), a `/tmp` útvonal helyett (50 nyelven)
 - NVIDIA: otthon derül ki; addig a weboldalon „saját felelősségre, még nem tesztelve”. Windows mellé: hamarosan.
   Steam-átvétel később
