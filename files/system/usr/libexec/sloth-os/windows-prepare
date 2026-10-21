@@ -1,24 +1,24 @@
 #!/usr/bin/bash
-# Előkészíti a Windows-programok futtatóját (Proton + futtatókörnyezet), hogy az első .exe
-# azonnal induljon, és később internet nélkül is menjen. Frissen is tartja: az umu-launcher
-# minden futáskor megnézi, van-e újabb Proton.
-# Felhasználói időzítő indítja (sloth-windows-prepare.timer): bejelentkezés után pár perccel,
-# utána 6 óránként. Ablakot nem nyit, a kimenet csak a naplóba megy
+# Prepares the Windows programs' runner (Proton + runtime), so the first .exe
+# starts at once and later works without internet too. It also keeps it fresh: umu-launcher
+# checks on every run whether there is a newer Proton.
+# A user timer starts it (sloth-windows-prepare.timer): a few minutes after login,
+# then every 6 hours. It opens no window, the output only goes to the log
 # (journalctl --user -u sloth-windows-prepare).
 set -euo pipefail
 
-# A gyári Proton és futtatókörnyezet bemásolása (internet nélkül is); utána az umu csak a frissítést keresi
+# Copying in the bundled Proton and runtime (without internet too); then umu only looks for the update
 /usr/libexec/sloth-os/windows-runtime-seed || true
 
-# Internet nélkül nincs mit tenni; a következő alkalommal újra próbáljuk
+# Without internet there is nothing to do; we try again next time
 if [[ "$(nmcli --terse --fields CONNECTIVITY general 2>/dev/null || echo full)" != "full" ]]; then
-    echo "Nincs internet, később újra próbálom."
+    echo "No internet, trying again later."
     exit 0
 fi
 
-# Egy ideiglenes, rögtön törölt mappában egy üres indítás: ez tölti le a Protont és a
-# futtatókörnyezetet. Kijelző nélkül, így semmilyen ablak nem jelenik meg.
-# (egy megszakított korábbi futás maradéka is: az .exe kezelő leállítja, ha a felhasználó közben telepít)
+# An empty start in a temporary folder deleted right away: this downloads Proton and the
+# runtime. Without a display, so no window appears at all.
+# (also the leftover of an interrupted earlier run: the .exe handler stops it if the user installs meanwhile)
 rm -rf "${XDG_CACHE_HOME:-$HOME/.cache}"/sloth-windows-prepare.??????
 prefix="$(mktemp -d "${XDG_CACHE_HOME:-$HOME/.cache}/sloth-windows-prepare.XXXXXX")"
 trap 'rm -rf "$prefix"' EXIT
@@ -26,9 +26,9 @@ env -u DISPLAY -u WAYLAND_DISPLAY \
     WINEPREFIX="$prefix" GAMEID=umu-default STORE=none PROTON_VERB=waitforexitandrun \
     WINEDEBUG=-all WINEDLLOVERRIDES="winemenubuilder.exe=d;mshtml=d" \
     nice -n 19 ionice -c 2 -n 7 umu-run wineboot --init
-echo "A Windows-programok futtatója kész."
+echo "The Windows programs' runner is ready."
 
-# A programok felismeréséhez az umu adatbázisa (sloth_exe/identify.py); a rendszerrel jövő példányt váltja
+# The umu database for recognizing programs (sloth_exe/identify.py); it replaces the copy that comes with the system
 db="${XDG_CACHE_HOME:-$HOME/.cache}/sloth-os/umu-database.csv"
 mkdir -p "$(dirname "$db")"
 if curl -fsSL --max-time 60 -o "$db.new" \
@@ -39,7 +39,7 @@ else
     rm -f "$db.new"
 fi
 
-# Közös tudás: ami más Sloth OS-es gépeken bevált (sloth_exe/community.py); statikus fájl a GitHubról
+# Shared knowledge: what worked on other Sloth OS machines (sloth_exe/community.py); a static file from GitHub
 kb="${XDG_CACHE_HOME:-$HOME/.cache}/sloth-os/knowledge.json"
 if curl -fsSL --max-time 60 -o "$kb.new" \
         https://raw.githubusercontent.com/Sloth-OS-Linux/sloth-os-knowledge/main/knowledge.json \
@@ -49,8 +49,8 @@ else
     rm -f "$kb.new"
 fi
 
-# Receptek: ismert programok bevált beállításai (sloth_common/apps/recipes.py); a rendszerrel jövőt váltja,
-# ha újabb. A gép betöltéskor újra ellenőrzi őket (csak engedélyezett mezők és értékek)
+# Recipes: proven settings of known programs (sloth_common/apps/recipes.py); it replaces the one with the system
+# if newer. The machine checks them again when loading (only allowed fields and values)
 recipes="${XDG_CACHE_HOME:-$HOME/.cache}/sloth-os/recipes.json"
 if curl -fsSL --max-time 60 -o "$recipes.new" \
         https://raw.githubusercontent.com/Sloth-OS-Linux/sloth-os-knowledge/main/recipes.json \
@@ -60,6 +60,6 @@ else
     rm -f "$recipes.new"
 fi
 
-# A régi Proton-verziók törlése (ami egy programnak bevált, és egy tartalék, marad), és ha a felhasználó
-# bekapcsolta a megosztást, a sorban álló jelentések elküldése
+# Deleting the old Proton versions (what worked for a program, and one spare, stay), and if the user
+# turned sharing on, sending the queued reports
 sloth-exe --maintenance || true

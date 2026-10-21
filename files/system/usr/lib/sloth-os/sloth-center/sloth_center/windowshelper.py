@@ -1,11 +1,11 @@
-"""A Windows-oldali rendszerindítási segéd elhelyezése a Windows-partíción (Windows mellé telepített gépeken).
+"""Placing the Windows-side boot helper on the Windows partition (on machines installed next to Windows).
 
-A segéd (/usr/share/sloth-os/windows-helper) a Windows Nyilvános asztalára kerül („Sloth OS” mappa); a
-felhasználó a Windowsban egyszer duplán rákattint, és onnantól a Windows minden induláskor visszateszi a
-Sloth OS-t a rendszerindítási sorrend elejére, ha egy Windows-frissítés elé tette volna magát.
-A partíciót a UDisksen keresztül csatoljuk (felhasználóként; belső lemeznél jelszót kérhet), és ha mi
-csatoltuk, utána le is választjuk. Hibernált vagy „gyors indítással” leállított Windows partíciója csak
-olvasható: ilyenkor szólunk, mit kell tenni.
+The helper (/usr/share/sloth-os/windows-helper) goes on the Windows Public Desktop (a "Sloth OS" folder); the
+user double-clicks it once in Windows, and from then on Windows puts Sloth OS back at the front of the boot
+order on every start, if a Windows update had put itself in front.
+The partition is mounted through UDisks (as the user; for an internal disk it may ask for a password), and if we
+mounted it, we unmount it afterwards. The partition of a hibernated Windows or one shut down with "fast startup" is
+read-only: then we say what to do.
 """
 import logging
 import shutil
@@ -26,7 +26,7 @@ def _objects(bus):
 
 
 def ntfs_filesystems():
-    """Az NTFS fájlrendszerek: [(D-Bus út, csatolási pontok)]."""
+    """The NTFS file systems: [(D-Bus path, mount points)]."""
     try:
         bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
         objs = _objects(bus)
@@ -48,7 +48,7 @@ def _call(bus, path, method, options):
 
 
 def place():
-    """-> "placed" | "readonly" (a Windows hibernált / gyors indítással állt le) | "none" (nincs Windows)"""
+    """-> "placed" | "readonly" (Windows was hibernated / shut down with fast startup) | "none" (no Windows)"""
     bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
     readonly = False
     for path, mounts in ntfs_filesystems():
@@ -60,7 +60,7 @@ def place():
                 mnt = Path(_call(bus, path, "Mount", {}).unpack()[0])
                 mounted_by_us = True
         except GLib.Error as e:
-            log.warning("csatolás (%s): %s", path, e.message)
+            log.warning("mounting (%s): %s", path, e.message)
             readonly = readonly or "read-only" in e.message.lower() or "hibernat" in e.message.lower()
             continue
         try:
@@ -70,15 +70,15 @@ def place():
             dest.mkdir(parents=True, exist_ok=True)
             for f in HELPER_DIR.iterdir():
                 shutil.copyfile(f, dest / f.name)
-            log.info("a Windows-segéd elhelyezve: %s", dest)
+            log.info("Windows helper placed: %s", dest)
             return "placed"
         except OSError as e:
-            log.warning("másolás (%s): %s", mnt, e)
+            log.warning("copying (%s): %s", mnt, e)
             readonly = True
         finally:
             if mounted_by_us:
                 try:
                     _call(bus, path, "Unmount", {})
                 except GLib.Error as e:
-                    log.warning("leválasztás: %s", e.message)
+                    log.warning("unmounting: %s", e.message)
     return "readonly" if readonly else "none"

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""A gép alaphelyzetbe állítása (files/system/usr/libexec/sloth-os/factory-reset): az /etc visszaállítása,
-a kernelparaméterek és az asztal beállításainak áthelyezése, ideiglenes mappákban.
+"""Resetting the computer (files/system/usr/libexec/sloth-os/factory-reset): resetting /etc,
+the kernel parameters and moving the desktop settings, in temporary folders.
 
 Linuxon fut:
   wsl -d podman-machine-default -- python3 -I /mnt/c/Users/batho/sloth-os/tools/tests/test_factory_reset.py
@@ -45,7 +45,7 @@ class ResetEtcTest(unittest.TestCase):
         (d / "systemd/system/multi-user.target.wants").mkdir(parents=True)
         os.symlink("/usr/lib/systemd/system/a.service", d / "systemd/system/multi-user.target.wants/a.service")
         shutil.copytree(d, self.etc, symlinks=True)
-        # a felhasználó / a gép változtatásai
+        # the user's / the machine's changes
         e = self.etc
         write(e / "passwd", "root:x:0:0::/root:/bin/bash\nanna:x:1000:1000::/var/home/anna:/bin/bash\n")
         write(e / "locale.conf", "LANG=hu_HU.UTF-8\n")
@@ -53,7 +53,7 @@ class ResetEtcTest(unittest.TestCase):
         write(e / "sudoers.d/sloth-admin", "anna ALL=(ALL) NOPASSWD: ALL\n", 0o440)
         write(e / "polkit-1/rules.d/49-sloth-admin.rules", "y")
         write(e / "NetworkManager/system-connections/Otthon.nmconnection", "psk=titok\n", 0o600)
-        write(e / "ssh/ssh_host_ed25519_key", "kulcs", 0o600)
+        write(e / "ssh/ssh_host_ed25519_key", "key", 0o600)
         write(e / "sloth-os/snapshots.json", '{"enabled": false}\n')
         write(e / "sloth-os/admin-policy.json", "{}\n")
         write(e / "sloth-os/pin/anna.json", "{}\n")
@@ -71,13 +71,13 @@ class ResetEtcTest(unittest.TestCase):
     def test_keep_mode(self):
         self.reset("keep")
         e = self.etc
-        # a fiókok, a nyelv, a Wi-Fi, a gép kulcsa és a fájlmentés beállítása marad
+        # the accounts, the language, the Wi-Fi, the machine's key and the file backup setting stay
         self.assertIn("anna", (e / "passwd").read_text())
         self.assertEqual((e / "locale.conf").read_text(), "LANG=hu_HU.UTF-8\n")
         self.assertTrue((e / "NetworkManager/system-connections/Otthon.nmconnection").exists())
         self.assertTrue((e / "ssh/ssh_host_ed25519_key").exists())
         self.assertTrue((e / "sloth-os/snapshots.json").exists())
-        # a többi a gyári
+        # the rest is the factory one
         self.assertEqual((e / "systemd/zram-generator.conf").read_text(), "[zram0]\n")
         self.assertFalse((e / "sudoers.d/sloth-admin").exists())
         self.assertTrue((e / "sudoers.d/.keep").exists())
@@ -90,7 +90,7 @@ class ResetEtcTest(unittest.TestCase):
         self.assertEqual(os.readlink(wants / "a.service"), "/usr/lib/systemd/system/a.service")
         self.assertEqual(os.readlink(e / "localtime"), "../usr/share/zoneinfo/UTC")
         self.assertEqual(os.stat(e / "NetworkManager/NetworkManager.conf").st_mode & 0o777, 0o644)
-        # másodszorra már nincs teendő
+        # the second time there is nothing to do
         self.assertEqual(self.reset("keep"), (0, 0))
 
     def test_all_mode_drops_wifi(self):
@@ -98,8 +98,8 @@ class ResetEtcTest(unittest.TestCase):
         e = self.etc
         self.assertFalse((e / "NetworkManager/system-connections/Otthon.nmconnection").exists())
         self.assertTrue((e / "NetworkManager/system-connections").is_dir())
-        self.assertEqual(os.listdir(e / "sloth-os"), [])  # a mappa marad: ide kerül az új fiók adata
-        self.assertIn("anna", (e / "passwd").read_text())  # a fiókokat a userdel törli, nem ez
+        self.assertEqual(os.listdir(e / "sloth-os"), [])  # the folder stays: the new account's data goes here
+        self.assertIn("anna", (e / "passwd").read_text())  # the accounts are deleted by userdel, not by this
         self.assertTrue((e / "ssh/ssh_host_ed25519_key").exists())
 
     def test_domain_keeps_login_setup(self):
@@ -115,7 +115,7 @@ class ResetEtcTest(unittest.TestCase):
 
     def test_dir_replaced_by_file(self):
         shutil.rmtree(self.etc / "sudoers.d")
-        write(self.etc / "sudoers.d", "nem mappa")
+        write(self.etc / "sudoers.d", "not a folder")
         self.reset("keep")
         self.assertTrue((self.etc / "sudoers.d/.keep").exists())
 
@@ -133,7 +133,7 @@ class KargsTest(unittest.TestCase):
         d = Path(tempfile.mkdtemp())
         try:
             write(d / "bluebuild-kargs.toml", 'kargs = ["quiet", "rhgb", "loglevel=3"]\n')
-            write(d / "rossz.toml", "kargs = [")
+            write(d / "bad.toml", "kargs = [")
             self.assertEqual(fr.default_kargs(d), {"quiet", "rhgb", "loglevel=3"})
         finally:
             shutil.rmtree(d)
@@ -149,12 +149,12 @@ class HomeTest(unittest.TestCase):
     def test_move_desktop_settings(self):
         write(self.home / ".config/plasma-org.kde.plasma.desktop-appletsrc", "x")
         write(self.home / ".config/sloth-os/welcome-done")
-        (self.home / "Régi beállítások").mkdir()
-        moved = fr.move_desktop_settings(self.home, "Régi beállítások")
-        self.assertEqual(moved.name, "Régi beállítások 2")
+        (self.home / "Old settings").mkdir()
+        moved = fr.move_desktop_settings(self.home, "Old settings")
+        self.assertEqual(moved.name, "Old settings 2")
         self.assertTrue((moved / "config/plasma-org.kde.plasma.desktop-appletsrc").exists())
         self.assertFalse((self.home / ".config").exists())
-        self.assertIsNone(fr.move_desktop_settings(self.home, "Régi beállítások"))
+        self.assertIsNone(fr.move_desktop_settings(self.home, "Old settings"))
 
     def test_local_users(self):
         write(self.home / "passwd", "root:x:0:0::/root:/bin/bash\nsddm:x:978:978::/var/lib/sddm:/sbin/nologin\n"

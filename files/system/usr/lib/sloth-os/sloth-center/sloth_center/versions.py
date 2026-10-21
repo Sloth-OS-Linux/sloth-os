@@ -1,12 +1,12 @@
-"""„Korábbi verziók”: egy fájl vagy mappa mentett állapotai (Dolphin, jobb klikk; sloth-versions <út>).
+""""Previous versions": the saved states of a file or folder (Dolphin, right-click; sloth-versions <path>).
 
-A mentett állapotok a saját fájlok óránkénti pillanatképei (sloth_common.snapshots), csak olvashatók. Innen:
-  Megnyitás           a régi változat megnyitása (mappánál a fájlkezelőben, onnan bármi kimásolható)
-  Visszaállítás       a régi változat a helyére kerül; a mostani a Kukába (onnan visszahozható). Mappánál a
-                      megváltozott és a törölt fájlok jönnek vissza, az azóta létrehozottak megmaradnak
-  Törölt elemek       mappánál csak az azóta törölt fájlok visszahozása (a meglévőkhöz nem nyúl)
-  Mentés másolatként  a régi változat a mostani mellé, a dátummal a nevében
-A másolás reflinkkel megy (azonnali, nem foglal új helyet), jelszó nélkül: mindenki a saját fájljait állítja vissza.
+The saved states are the hourly snapshots of your own files (sloth_common.snapshots), read-only. From here:
+  Open                opens the old version (for a folder in the file manager, anything can be copied out from there)
+  Restore             the old version goes back in its place; the current one to the Trash (it can be brought back). For a
+                      folder the changed and deleted files come back, the ones created since stay
+  Deleted items       for a folder only the files deleted since are brought back (the existing ones are not touched)
+  Save as a copy      the old version next to the current one, with the date in its name
+Copying uses reflinks (instant, takes no new space), without a password: everyone restores their own files.
 """
 import datetime
 import fcntl
@@ -34,12 +34,12 @@ log = logging.getLogger("sloth-versions")
 
 QML_DIR = Path(__file__).resolve().parent / "qml"
 FICLONE = 0x40049409
-# Mappáknál ennyi elemig számoljuk meg, mi törlődött azóta (nagy mappánál nem számolunk)
+# For folders we count what was deleted since up to this many items (for a big folder we do not count)
 COUNT_LIMIT = 20000
 
 
 def clone(src, dst):
-    """Egy fájl (vagy szimbolikus link) másolása reflinkkel, ha lehet; a jogok és az időpontok is."""
+    """Copies a file (or symbolic link) with a reflink if possible; permissions and timestamps too."""
     if os.path.islink(src):
         os.symlink(os.readlink(src), dst)
         return
@@ -52,7 +52,7 @@ def clone(src, dst):
 
 
 def same(a, b):
-    """Ugyanaz-e a két fájl (méret, módosítás ideje, típus)."""
+    """Whether the two files are the same (size, modification time, type)."""
     try:
         sa, sb = os.lstat(a), os.lstat(b)
     except OSError:
@@ -62,9 +62,9 @@ def same(a, b):
 
 
 def move_to_trash(path):
-    """A fájl a Kukába (freedesktop.org Trash, ugyanaz, amit a Dolphin mutat; onnan visszaállítható).
+    """Moves the file to the Trash (freedesktop.org Trash, the same one Dolphin shows; it can be restored from there).
 
-    A Qt QFile.moveToTrash-e a próbán (Btrfs, külön subvolume-okkal) nem találta a Kukát."""
+    Qt's QFile.moveToTrash did not find the Trash in the test (Btrfs, with separate subvolumes)."""
     trash = Path(os.environ.get("XDG_DATA_HOME") or Path.home() / ".local/share") / "Trash"
     files, info = trash / "files", trash / "info"
     files.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -89,11 +89,11 @@ def move_to_trash(path):
             os.unlink(info / f"{name}.trashinfo")
             raise
         return
-    raise OSError(f"nem került a Kukába: {path}")
+    raise OSError(f"did not go to the Trash: {path}")
 
 
 def replace_with(old, current):
-    """A régi fájl a helyére; a mostani a Kukába. Előbb a másolat készül el, így hiba esetén nem vész el semmi."""
+    """The old file goes back in its place; the current one to the Trash. The copy is made first, so nothing is lost on error."""
     tmp = current.with_name(f".{current.name}.sloth-restore")
     if os.path.lexists(tmp):
         os.unlink(tmp)
@@ -108,7 +108,7 @@ def replace_with(old, current):
 
 
 def merge(old_dir, current_dir, only_missing):
-    """Egy régi mappa visszaállítása a mostanira. (visszaállított, kimaradt) elemek száma."""
+    """Restores an old folder over the current one. (restored, skipped) item counts."""
     restored = failed = 0
     for root, dirs, files in os.walk(old_dir):
         rel = Path(root).relative_to(old_dir)
@@ -141,7 +141,7 @@ def merge(old_dir, current_dir, only_missing):
 
 
 def count_deleted(old_dir, current_dir):
-    """Hány elem van a régi mappában, ami most hiányzik; -1, ha túl nagy a mappa a számoláshoz."""
+    """How many items in the old folder are missing now; -1 if the folder is too big to count."""
     seen = missing = 0
     for root, dirs, files in os.walk(old_dir):
         rel = Path(root).relative_to(old_dir)
@@ -151,13 +151,13 @@ def count_deleted(old_dir, current_dir):
                 return -1
             if not os.path.lexists(current_dir / rel / name):
                 missing += 1
-        # a hiányzó mappa tartalmát nem számoljuk külön (a mappa egy elem)
+        # the missing folder's contents are not counted separately (the folder is one item)
         dirs[:] = [d for d in dirs if os.path.lexists(current_dir / rel / d)]
     return missing
 
 
 def copy_name(path, when):
-    """"Levél.odt" -> "Levél (2026-10-19 14.00).odt"; ha foglalt, sorszámmal."""
+    """"Letter.odt" -> "Letter (2026-10-19 14.00).odt"; with a number if that is taken."""
     stamp = when.astimezone().strftime("%Y-%m-%d %H.%M")
     stem, suffix = (path.stem, path.suffix) if path.is_file() else (path.name, "")
     for i in range(1, 100):
@@ -165,13 +165,13 @@ def copy_name(path, when):
         candidate = path.with_name(f"{stem} ({stamp}{extra}){suffix}")
         if not os.path.lexists(candidate):
             return candidate
-    raise OSError("nincs szabad név")
+    raise OSError("no free name")
 
 
 class VersionsController(QObject):
     changed = Signal()
-    _done = Signal(str)          # a háttérszálból: kész szöveg vagy hiba (a "!" előtag hibát jelez)
-    _counted = Signal(int, int, int)  # (lista-generáció, sor, azóta törölt elemek száma)
+    _done = Signal(str)          # from the background thread: a done text or an error (the "!" prefix marks an error)
+    _counted = Signal(int, int, int)  # (list generation, row, number of items deleted since)
 
     def __init__(self, path, parent=None):
         super().__init__(parent)
@@ -218,7 +218,7 @@ class VersionsController(QObject):
                 "path": str(path), **extra}
 
     def _file_versions(self, rel):
-        """Fájlnál csak a különböző változatok (az egymás utáni egyformákból a legújabb)."""
+        """For a file only the different versions (of identical consecutive ones, the newest)."""
         rows, last = [], None
         for name, when, path in snap.versions_of(rel):
             try:
@@ -332,13 +332,13 @@ def main():
     app.setDesktopFileName("org.slothos.center")
     app.setWindowIcon(QIcon.fromTheme("view-history"))
     if not paths:
-        print("használat: sloth-versions <fájl vagy mappa>", file=sys.stderr)
+        print("usage: sloth-versions <file or folder>", file=sys.stderr)
         return 2
-    # a Dolphin file:// címet is adhat
+    # Dolphin may give a file:// address too
     path = QUrl(paths[0]).toLocalFile() if paths[0].startswith("file:") else paths[0]
     engine = QQmlApplicationEngine()
     controller = VersionsController(path)
-    # változóban kell tartani: különben a Python eltakarítja, és a QML-ben minden szöveg üres
+    # it must be kept in a variable: otherwise Python cleans it up, and every text in QML is empty
     translator = Translator()
     engine.rootContext().setContextProperty("L", translator)
     engine.rootContext().setContextProperty("versions", controller)

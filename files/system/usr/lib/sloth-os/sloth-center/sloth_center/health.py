@@ -1,9 +1,9 @@
-"""Rendszer egészség: "Mi a baj?" nézet emberi nyelven.
+"""System health: a "What is wrong?" view in plain language.
 
-Ellenőrzések: szabad hely, el nem indult szolgáltatások, összeomlott programok,
-memóriahiány, videókártya- és lemezhibák, hőmérséklet. A rendszernaplót a
-journalctl JSON kimenetéből olvassuk (a felhasználó nem látja), a "wheel"
-csoport tagjai olvashatják a teljes naplót.
+Checks: free space, services that did not start, crashed programs,
+out-of-memory, graphics card and disk errors, temperature. The system log is
+read from journalctl's JSON output (the user does not see it); members of the "wheel"
+group can read the whole log.
 """
 import json
 import logging
@@ -40,7 +40,7 @@ def _journal(*args, limit=400):
 
 def _msg(entry):
     m = entry.get("MESSAGE", "")
-    if isinstance(m, list):  # bináris üzenet bájtlistaként
+    if isinstance(m, list):  # a binary message as a list of bytes
         try:
             m = bytes(m).decode("utf-8", "replace")
         except (TypeError, ValueError):
@@ -104,7 +104,7 @@ def check_crashes():
 
 
 def check_kernel():
-    """Memóriahiány, videókártya- és lemezhibák a kernel üzeneteiből."""
+    """Out-of-memory, graphics card and disk errors from the kernel's messages."""
     found = {}
     for e in _journal("-k", "-p", "warning", limit=600):
         m = _msg(e)
@@ -151,7 +151,7 @@ def check_temperature():
                 c = int(t.read_text().strip()) / 1000
             except (OSError, ValueError):
                 continue
-            if c > hottest and c < 150:  # 150 felett hibás érzékelő
+            if c > hottest and c < 150:  # above 150 the sensor is broken
                 hottest, where = c, name
     part = {"k10temp": tr("Processor"), "coretemp": tr("Processor"), "amdgpu": tr("Graphics card"),
             "nvme": tr("SSD")}.get(where, tr("Component"))
@@ -169,8 +169,8 @@ def check_temperature():
 
 
 def write_log(path, lines=5000):
-    """A napló egy fájlba: előbb a rendszer összefoglalója (verzió, image, lemezek), utána a journal.
-    A „Napló mentése” és a visszajelzés (feedback.py) is ezt használja."""
+    """The log into a file: first the system's summary (version, image, disks), then the journal.
+    "Save log" and the feedback (feedback.py) both use it."""
     with open(path, "w", encoding="utf-8") as f:
         for title, cmd in SUMMARY:
             f.write(f"===== {title}: {' '.join(cmd)}\n")
@@ -180,7 +180,7 @@ def write_log(path, lines=5000):
             except (OSError, subprocess.SubprocessError) as e:
                 f.write(f"({e})\n")
             f.write("\n")
-        f.write("===== Napló: journalctl -b\n")
+        f.write("===== Log: journalctl -b\n")
         f.flush()
         subprocess.run(["journalctl", "--no-pager", "-b", "-n", str(lines)], stdout=f,
                        stderr=subprocess.DEVNULL, timeout=60)
@@ -192,14 +192,14 @@ def run_all():
     return sorted(results, key=lambda r: order[r["state"]])
 
 
-# A mentett napló elejére: ezekből látszik, melyik változat fut, és mi van a lemezeken
+# At the start of the saved log: these show which version runs and what is on the disks
 SUMMARY = [
-    ("Rendszer", ["cat", "/etc/os-release"]),
-    ("Változat", ["rpm-ostree", "status", "--booted"]),
+    ("System", ["cat", "/etc/os-release"]),
+    ("Version", ["rpm-ostree", "status", "--booted"]),
     ("Lemezek", ["lsblk", "-o", "NAME,TYPE,SIZE,FSTYPE,LABEL,MOUNTPOINTS"]),
-    ("Csatolások", ["findmnt", "-o", "TARGET,SOURCE,FSTYPE,SIZE,AVAIL"]),
-    ("Loop eszközök", ["losetup", "--list"]),
-    # a Dolphin Eszközök listájának forrása (UDisks): méret, név, rejtett-e (HintIgnore)
+    ("Mounts", ["findmnt", "-o", "TARGET,SOURCE,FSTYPE,SIZE,AVAIL"]),
+    ("Loop devices", ["losetup", "--list"]),
+    # the source of Dolphin's Devices list (UDisks): size, name, whether hidden (HintIgnore)
     ("UDisks", ["udisksctl", "dump"]),
 ]
 
@@ -221,7 +221,7 @@ class HealthController(QObject):
 
     @Property(str, notify=changed)
     def level(self):
-        """A legrosszabb állapot ("ok", "warning", "error"); a felület ehhez választ ikont."""
+        """The worst state ("ok", "warning", "error"); the interface picks the icon from it."""
         states = [r["state"] for r in self._results]
         return ERROR if ERROR in states else WARN if WARN in states else OK
 
@@ -250,12 +250,12 @@ class HealthController(QObject):
 
     @Slot(str)
     def saveLog(self, url):
-        """A teljes napló mentése egy fájlba (segítségkéréshez)."""
+        """Saves the whole log into a file (for asking for help)."""
         path = url[7:] if url.startswith("file://") else url
         try:
             write_log(path)
             self._saved = path
         except (OSError, subprocess.SubprocessError) as e:
-            log.warning("napló mentése: %s", e)
+            log.warning("saving the log: %s", e)
             self._saved = ""
         self.changed.emit()

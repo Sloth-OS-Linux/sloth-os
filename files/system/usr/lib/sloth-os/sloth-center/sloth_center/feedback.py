@@ -1,8 +1,8 @@
-"""Visszajelzés: hiba, ötlet vagy egyéb, a Sloth Központból (Visszajelzés oldal).
+"""Feedback: a bug, an idea or something else, from Sloth Center (Feedback page).
 
-A közös tudás szolgáltatása (services/knowledge, POST /v1/feedback) GitHub issue-t nyit belőle; a felhasználónak
-nem kell GitHub-fiók. Ha kéri, a napló is megy (a „Napló mentése” tartalma, a vége), de nem az issue-ba: a
-szolgáltatás külön tárolja, és csak a fejlesztők nyithatják meg.
+The shared knowledge service (services/knowledge, POST /v1/feedback) opens a GitHub issue from it; the user does
+not need a GitHub account. If they ask for it, the log goes too (the contents of "Save log", its end), but not into the issue: the
+service stores it separately, and only the developers can open it.
 """
 import json
 import logging
@@ -21,9 +21,9 @@ from .i18n import catalog
 log = logging.getLogger("sloth-center.feedback")
 
 URL = "https://sloth-os-knowledge.slothos.workers.dev/v1/feedback"
-MAX_LOG = 500 * 1024  # a szolgáltatás legfeljebb 512 KB-ot fogad; a napló vége a fontosabb
-# A szolgáltatás a teljes kérés méretét nézi (512 + 64 KB), nem a naplóét: a JSON-kódolás a naplót felfújhatja
-# (a Wine-naplók \-ei duplán), ezért a kódolt kérést is a határ alatt tartjuk
+MAX_LOG = 500 * 1024  # the service accepts at most 512 KB; the end of the log matters more
+# The service looks at the size of the whole request (512 + 64 KB), not the log's: JSON encoding can blow the log up
+# (Wine logs' backslashes are doubled), so we keep the encoded request under the limit too
 MAX_BODY = 560 * 1024
 KINDS = ("bug", "idea", "other")
 
@@ -50,7 +50,7 @@ def _log_text():
 
 
 def _encode(body):
-    """A kérés bájtjai; ha túl nagy, a napló elejéből vág (minden kivett karakter legalább 1 bájt)."""
+    """The request's bytes; if it is too big, it cuts from the start of the log (every character removed is at least 1 byte)."""
     data = json.dumps(body, ensure_ascii=False).encode()
     while len(data) > MAX_BODY and body.get("log"):
         body["log"] = body["log"][len(data) - MAX_BODY:]
@@ -59,21 +59,21 @@ def _encode(body):
 
 
 def send(kind, text, attach_log):
-    """(ok, szám vagy hibakód). Hálózati hiba: (False, "network"); túl sok: (False, "rate")."""
+    """(ok, number or error code). Network error: (False, "network"); too many: (False, "rate")."""
     body = {"kind": kind, "text": text, "version": _version(), "lang": catalog.language()[:20]}
     if attach_log:
         body["log"] = _log_text()
-    # Saját User-Agent kell: a Cloudflare a Python alapértelmezettjét („Python-urllib”) letiltja (403, 1010-es hiba)
+    # A custom User-Agent is needed: Cloudflare blocks Python's default ("Python-urllib") (403, error 1010)
     req = urllib.request.Request(URL, data=_encode(body), method="POST",
                                  headers={"content-type": "application/json", "user-agent": "SlothOS-Center/1.0"})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:
             return True, json.load(resp).get("number", 0)
     except urllib.error.HTTPError as e:
-        log.warning("visszajelzés: HTTP %s", e.code)
+        log.warning("feedback: HTTP %s", e.code)
         return False, "rate" if e.code == 429 else "server"
     except (OSError, ValueError) as e:
-        log.warning("visszajelzés: %s", e)
+        log.warning("feedback: %s", e)
         return False, "network"
 
 

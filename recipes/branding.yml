@@ -1,17 +1,17 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
-# Minden, ami a rendszer "arcát" adja: név, logók, alapbeállítások.
+# Everything that gives the system its "face": name, logos, default settings.
 modules:
   - type: files
     files:
       - source: system
-        destination: / # a files/system/* tartalma a gyökérbe kerül
+        destination: / # the contents of files/system/* go into the root
 
   - type: dnf
     install:
       packages:
-        - plymouth-plugin-script # a boot animáció (files/system/usr/share/plymouth/themes/sloth-os) ezt használja
-        # Betűtípusok minden írásrendszerhez (kínai, japán, koreai, arab, héber, indiai írások, lao, grúz…),
-        # hogy a Sloth Üdvözlő nyelvválasztója és a felület bármelyik telepítői nyelven olvasható legyen
+        - plymouth-plugin-script # the boot animation (files/system/usr/share/plymouth/themes/sloth-os) uses it
+        # Fonts for every script (Chinese, Japanese, Korean, Arabic, Hebrew, Indian scripts, Lao, Georgian…),
+        # so Sloth Welcome's language chooser and the interface are readable in any installer language
         - default-fonts-cjk-sans
         - default-fonts-other-sans
 
@@ -21,9 +21,9 @@ modules:
       - theme.sh
       - plymouth.sh
 
-  # Csendes boot: a gyártói logó után rögtön a Sloth OS animáció jön,
-  # szövegek és villogó kurzor nélkül. (A quiet/rhgb-t eddig az Anaconda tette hozzá; a saját
-  # telepítő a bootc-vel csak az itt felsoroltakat kapja, ezért kell ide is.)
+  # Quiet boot: right after the vendor logo comes the Sloth OS animation,
+  # without texts and a blinking cursor. (Anaconda used to add quiet/rhgb; our own
+  # installer with bootc only gets what is listed here, so it is needed here too.)
   - type: kargs
     kargs:
       - quiet
@@ -34,13 +34,13 @@ modules:
       - systemd.show_status=false
       - vt.global_cursor_default=0
 
-  # A GRUB boot menü rejtve marad; csak hibás indítás után jelenik meg
-  # (/usr/lib/sloth-os/grub-custom.cfg, a sikeres indítást a sloth-boot-ok jelzi).
+  # The GRUB boot menu stays hidden; it only appears after a failed start
+  # (/usr/lib/sloth-os/grub-custom.cfg, the successful start is reported by sloth-boot-ok).
   - type: systemd
     system:
       enabled:
         - sloth-boot-ok.service
-        - sloth-hide-root-overlay.service # a Dolphinban ne látszódjon a rendszer gyökere (128 TB-os meghajtó)
-        - sloth-first-user.service   # az első fiók a telepítő adataiból (a KDE Plasma Setup helyett)
-        - sloth-signed-updates.timer # a régebbi telepítések frissítései is aláírás-ellenőrzéssel
-        - sloth-boot-order.service   # Windows mellett: ha a Windows a sorrend elejére tette magát, vissza
+        - sloth-hide-root-overlay.service # the system's root must not show in Dolphin (a 128 TB drive)
+        - sloth-first-user.service   # the first account from the installer's data (instead of KDE Plasma Setup)
+        - sloth-signed-updates.timer # the older installs' updates with signature verification too
+        - sloth-boot-order.service   # next to Windows: if Windows put itself at the front of the order, back again

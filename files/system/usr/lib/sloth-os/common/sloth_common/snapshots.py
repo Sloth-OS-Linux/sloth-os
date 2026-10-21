@@ -1,13 +1,13 @@
-"""A saját fájlok automatikus mentése: Btrfs-pillanatképek a /var/home-ról.
+"""Automatic backup of your own files: Btrfs snapshots of /var/home.
 
-A mentett állapotok a /var/home/.snapshots/<időpont> alatt vannak (csak olvasható subvolume-ok, a nevük UTC-ben
-"2026-10-20_07-00-00"). A felhasználó olvashatja őket: a jogosultságok a pillanatképben is a régiek, így mindenki
-csak a saját fájljait látja. A munkát rootként a /usr/libexec/sloth-os/home-snapshots végzi (időzítő), a
-beállítást a sloth-helper írja; ez a modul csak olvas, ezért a Sloth Központ és a Dolphin „Korábbi verziók”
-ablaka jelszó nélkül használhatja.
+The saved states are under /var/home/.snapshots/<time> (read-only subvolumes, named in UTC
+"2026-10-20_07-00-00"). The user can read them: the permissions in the snapshot are the old ones too, so everyone
+only sees their own files. The work is done as root by /usr/libexec/sloth-os/home-snapshots (timer), the
+setting is written by sloth-helper; this module only reads, so Sloth Center and Dolphin's "Previous versions"
+window can use it without a password.
 
-A nagy, újra letölthető mappák (játékok, gyorsítótárak) külön subvolume-ok, ezért nem kerülnek a mentésbe
-(EXCLUDED; a home-snapshots layout teszi őket külön).
+The big, re-downloadable folders (games, caches) are separate subvolumes, so they stay out of the backup
+(EXCLUDED; home-snapshots layout makes them separate).
 """
 import datetime
 import json
@@ -21,12 +21,12 @@ CONFIG = Path("/etc/sloth-os/snapshots.json")
 NAME_FORMAT = "%Y-%m-%d_%H-%M-%S"
 BTRFS_SUBVOL_INO = 256
 
-# A megtartás ideje napokban (Sloth Központ → Fájlmentés)
+# How long to keep, in days (Sloth Center → File backup)
 KEEP_DAYS = {"2w": 14, "1m": 31, "3m": 92}
 DEFAULTS = {"enabled": True, "keep": "1m"}
 
-# A saját mappán belül: ezek nem kerülnek a mentésbe (újra letölthetők, és sokat változnak).
-# A "*" egy mappanév bármelyik appnál (Flatpak: ~/.var/app/<app>/cache).
+# Inside the home folder: these stay out of the backup (they can be downloaded again, and they change a lot).
+# "*" is a folder name for any app (Flatpak: ~/.var/app/<app>/cache).
 EXCLUDED = [
     ".cache",
     ".var/app/*/cache",
@@ -63,7 +63,7 @@ def is_subvolume(path):
 
 
 def state():
-    """"ready" (megy), "pending" (a következő induláskor készül elő) vagy "unsupported" (nem Btrfs)."""
+    """"ready" (works), "pending" (prepared at the next start) or "unsupported" (not Btrfs)."""
     if fs_type(HOME_ROOT) != "btrfs":
         return "unsupported"
     return "ready" if is_subvolume(HOME_ROOT) else "pending"
@@ -81,7 +81,7 @@ def make_name(when):
 
 
 def list_snapshots():
-    """[(név, időpont UTC-ben)], a legújabb elöl."""
+    """[(name, time in UTC)], the newest first."""
     try:
         names = os.listdir(SNAP_DIR)
     except OSError:
@@ -91,8 +91,8 @@ def list_snapshots():
 
 
 def to_keep(snapshots, keep_days, now=None):
-    """A megtartandó pillanatképek nevei: az utolsó 24 óra mind, utána naponta egy (legfeljebb 14 napig),
-    azután hetente egy, a megtartási időn belül. A legújabb mindig marad."""
+    """The names of the snapshots to keep: everything from the last 24 hours, then one a day (for at most 14 days),
+    after that one a week, within the keep time. The newest always stays."""
     now = now or datetime.datetime.now(datetime.timezone.utc)
     keep, days, weeks = set(), set(), set()
     for i, (name, when) in enumerate(sorted(snapshots, key=lambda x: x[1], reverse=True)):
@@ -114,9 +114,9 @@ def to_keep(snapshots, keep_days, now=None):
 
 
 def locate(path):
-    """Egy fájl helye a mentésen belül: (relatív út a /var/home-hoz képest, hiba).
+    """Where a file is inside the backup: (path relative to /var/home, error).
 
-    Hiba: "outside" (nem a saját mappák alatt van), "excluded" (kimarad a mentésből)."""
+    Error: "outside" (not under the home folders), "excluded" (left out of the backup)."""
     real = Path(os.path.realpath(path))
     try:
         rel = real.relative_to(HOME_ROOT)
@@ -124,7 +124,7 @@ def locate(path):
         return None, "outside"
     if not rel.parts or rel.parts[0] == ".snapshots":
         return None, "outside"
-    # ami egy külön subvolume-ban van (a kihagyott mappák), az nincs a mentésben
+    # whatever is in a separate subvolume (the excluded folders) is not in the backup
     current = HOME_ROOT
     for part in rel.parts:
         current = current / part
@@ -134,7 +134,7 @@ def locate(path):
 
 
 def versions_of(rel):
-    """[(név, időpont, a fájl útja a pillanatképben)], ahol a fájl / mappa megvan, a legújabb elöl."""
+    """[(name, time, the file's path in the snapshot)] where the file / folder exists, the newest first."""
     out = []
     for name, when in list_snapshots():
         p = SNAP_DIR / name / rel

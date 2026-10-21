@@ -1,7 +1,7 @@
-// Az .exe kezelő: mit csináljunk egy programmal? Telepítés / futtatás, folyamatjelzővel.
-// A "Wine", "Proton", "prefix" és "Windows" szavak szándékosan nem szerepelnek: a felhasználó
-// csak a programot látja (a nevét és a saját ikonját). A szövegek a fordításokból jönnek
-// (sloth_exe/translations/<nyelv>.json) a t() függvényen keresztül.
+// The .exe handler: what should we do with a program? Install / run, with progress.
+// The words "Wine", "Proton", "prefix" and "Windows" deliberately do not appear: the user
+// only sees the program (its name and its own icon). The texts come from the translations
+// (sloth_exe/translations/<language>.json) through the t() function.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -44,7 +44,7 @@ Kirigami.ApplicationWindow {
             anchors.margins: Kirigami.Units.largeSpacing
             currentIndex: ["choose", "working", "pick", "error", "running", "done"].indexOf(exe.state)
 
-            // --- Mit csináljunk? -------------------------------------------------
+            // --- What should we do? -------------------------------------------------
             ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing * 2
                 Item { Layout.fillHeight: true }
@@ -96,14 +96,14 @@ Kirigami.ApplicationWindow {
                         icon.name: "media-playback-start"
                         onClicked: exe.fileKind === "appimage" ? exe.runOnly() : exe.run(false)
                     }
-                    // Más Linux-rendszerhez készült csomag: a Discoveres változat általában jobb választás
+                    // A package made for another Linux system: the Discover version is usually the better choice
                     QQC2.Button {
                         visible: (exe.fileKind === "deb" || exe.fileKind === "rpm") && exe.flathubName === ""
                         text: root.t("button.search_discover")
                         icon.name: "plasmadiscover"
                         onClicked: exe.searchDiscover()
                     }
-                    // Már telepítve: újratelepítés ugyanoda, vagy (alapból) megnyitás
+                    // Already installed: reinstall into the same place, or (by default) open it
                     QQC2.Button {
                         visible: exe.alreadyInstalled
                         text: root.t("button.reinstall")
@@ -117,7 +117,7 @@ Kirigami.ApplicationWindow {
                         icon.name: "media-playback-start"
                         onClicked: exe.openExisting()
                     }
-                    // A Flathubos változat a javasolt: az a fő gomb, a csomag telepítése marad mellette
+                    // The Flathub version is the recommended one: it is the main button, installing the package stays next to it
                     QQC2.Button {
                         visible: exe.flathubName !== ""
                         highlighted: true
@@ -136,7 +136,7 @@ Kirigami.ApplicationWindow {
                 Item { Layout.fillHeight: true }
             }
 
-            // --- Munka közben ----------------------------------------------------
+            // --- While working ----------------------------------------------------
             ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing * 2
                 Item { Layout.fillHeight: true }
@@ -165,7 +165,7 @@ Kirigami.ApplicationWindow {
                 Item { Layout.fillHeight: true }
             }
 
-            // --- Mi kerüljön a Start menübe? ----------------------------------
+            // --- What goes into the Start menu? ----------------------------------
             ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Heading {
@@ -200,7 +200,7 @@ Kirigami.ApplicationWindow {
                 }
                 RowLayout {
                     Layout.fillWidth: true
-                    // Ha a felismerés nem találta el: bármelyik .exe kiválasztható
+                    // If recognition did not get it right: any .exe can be chosen
                     QQC2.Button {
                         text: root.t("button.browse")
                         icon.name: "document-open"
@@ -213,7 +213,7 @@ Kirigami.ApplicationWindow {
                         icon.name: "dialog-ok"
                         onClicked: exe.confirmShortcuts(false)
                     }
-                    // Telepítés után: rögtön indítható
+                    // After installing: it can be started right away
                     QQC2.Button {
                         visible: exe.mode !== "manage"
                         enabled: exe.anyChecked
@@ -254,7 +254,7 @@ Kirigami.ApplicationWindow {
                         text: root.t("button.close")
                         onClicked: exe.close()
                     }
-                    // Mac-es program: hátha van Linuxos változata
+                    // A Mac program: maybe it has a Linux version
                     QQC2.Button {
                         visible: exe.fileKind === "mac"
                         highlighted: true
@@ -266,10 +266,10 @@ Kirigami.ApplicationWindow {
                 Item { Layout.fillHeight: true }
             }
 
-            // --- Fut (az ablak el van rejtve) -------------------------------------
+            // --- Running (the window is hidden) -------------------------------------
             Item {}
 
-            // --- Kész (Linuxos csomag telepítve) --------------------------------
+            // --- Done (Linux package installed) --------------------------------
             ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing * 2
                 Item { Layout.fillHeight: true }

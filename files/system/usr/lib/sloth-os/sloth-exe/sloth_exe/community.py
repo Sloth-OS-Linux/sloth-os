@@ -1,11 +1,11 @@
-"""Közös tudás: ami más Sloth OS-es gépeken bevált, az nálunk is elsőre induljon.
+"""Shared knowledge: what worked on other Sloth OS machines should start on the first try here too.
 
-Olvasás (mindig): a sloth-windows-prepare letölti az összesítést a GitHubról (KNOWLEDGE_URL); ez egy
-statikus fájl, a letöltéséből semmi nem derül ki rólunk.
-Megosztás (csak ha a felhasználó bekapcsolta a Sloth Központban, alapból ki): a bevált vagy sikertelen
-beállítás névtelen jelentése. A program nevét nem küldjük, csak egy ujjlenyomatát (program_key), a gép
-azonosítója egy véletlen szám. A jelentések sorba kerülnek, és a sloth-windows-prepare küldi el őket,
-így az indítás soha nem vár a hálózatra. A szolgáltatás: services/knowledge/ (a repóban).
+Reading (always): sloth-windows-prepare downloads the summary from GitHub (KNOWLEDGE_URL); it is a
+static file, and nothing about us can be learned from downloading it.
+Sharing (only if the user turned it on in Sloth Center, off by default): an anonymous report of a setting that
+worked or failed. The program's name is not sent, only a fingerprint of it (program_key); the machine's
+ID is a random number. The reports are queued, and sloth-windows-prepare sends them,
+so starting never waits for the network. The service: services/knowledge/ (in the repository).
 """
 import hashlib
 import json
@@ -31,8 +31,8 @@ STATE = QUEUE.parent
 MACHINE_ID = STATE / "community-id"
 MAX_QUEUE = 500
 
-# Amit elfogadunk a közös tudásból (a szolgáltatás is csak ezeket engedi; kétszeres védelem)
-# Proton be/ki kapcsolók (mind "=1" értékkel): a ProtonDB-ből és a jelentésekből is csak ezek jöhetnek
+# What we accept from the shared knowledge (the service also allows only these; double protection)
+# Proton on/off switches (all with the value "=1"): only these can come from ProtonDB and the reports too
 ALLOWED_ENV = {"PROTON_USE_WINED3D", "PROTON_ENABLE_NVAPI", "PROTON_HIDE_NVIDIA_GPU",
                "PROTON_FORCE_LARGE_ADDRESS_AWARE", "PROTON_HEAP_DELAY_FREE", "PROTON_NO_D3D11", "PROTON_NO_D3D10",
                "PROTON_OLD_GL_STRING", "PROTON_NO_WRITE_WATCH"}
@@ -42,13 +42,13 @@ _PCI_VENDORS = {"0x1002": "amd", "0x10de": "nvidia", "0x8086": "intel"}
 
 
 def program_key(exe, names):
-    """A program ujjlenyomata: a (felismert) név és a .exe neve, hash-elve. A nevet így senki nem látja."""
+    """The program's fingerprint: the (recognized) name and the .exe's name, hashed. That way nobody sees the name."""
     name = identify.normalize(names[0]) if names else ""
     return hashlib.sha256(f"sloth-v1|{name}|{Path(exe).name.lower()}".encode()).hexdigest()
 
 
 def gpu_vendor():
-    """A videókártya gyártója; ha több van (pl. laptopban), a különálló (AMD / NVIDIA) számít."""
+    """The graphics card's vendor; if there are several (e.g. in a laptop), the discrete one (AMD / NVIDIA) counts."""
     found = set()
     for vendor in Path("/sys/class/drm").glob("card*/device/vendor"):
         try:
@@ -65,14 +65,14 @@ def _line(proton):
     for line in (heal.UMU_LINE, heal.GE_LINE):
         if proton and proton.startswith(line):
             return line
-    return heal.UMU_LINE  # "auto": az umu alapértelmezése
+    return heal.UMU_LINE  # "auto": umu's default
 
 
 def suggestion(key, gameid=None):
-    """A közös tudás javaslata erre a programra és GPU-ra: (Proton-vonal, profil, javítások) vagy None.
+    """The shared knowledge's suggestion for this program and GPU: (Proton line, profile, fixes) or None.
 
-    Előbb a Sloth OS-es gépek jelentései (program ujjlenyomata szerint), ha ott nincs, a ProtonDB-ből
-    összesített adatok (felismert játéknál, Steam AppID szerint; előbb erre a GPU-gyártóra, aztán bármire).
+    First the reports of Sloth OS machines (by the program's fingerprint); if there is nothing there, the data
+    summarized from ProtonDB (for a recognized game, by Steam AppID; first for this GPU vendor, then for any).
     """
     try:
         data = json.loads(CACHE.read_text(encoding="utf-8"))
@@ -106,7 +106,7 @@ def _machine_id():
 
 
 def queue_report(key, attempt, outcome):
-    """Jelentés a sorba (csak ha a megosztás be van kapcsolva)."""
+    """A report into the queue (only if sharing is turned on)."""
     if not key or not sharing.enabled():
         return
     fixes = sorted([list(f) for f in attempt.fixes if tuple(f) in ALLOWED_FIXES])
@@ -119,11 +119,11 @@ def queue_report(key, attempt, outcome):
         lines = (lines + [json.dumps(item)])[-MAX_QUEUE:]
         QUEUE.write_text("\n".join(lines) + "\n", encoding="utf-8")
     except OSError as e:
-        log.warning("közös tudás (sor): %s", e)
+        log.warning("shared knowledge (queue): %s", e)
 
 
 def send_queue():
-    """A sorban álló jelentések elküldése (a sloth-windows-prepare hívja). -> elküldött darabszám"""
+    """Sends the queued reports (called by sloth-windows-prepare). -> number sent"""
     if not sharing.enabled() or not QUEUE.exists():
         return 0
     items = [json.loads(line) for line in QUEUE.read_text(encoding="utf-8").splitlines() if line.strip()]
@@ -137,7 +137,7 @@ def send_queue():
                 sent += len(batch)
         except urllib.error.HTTPError as e:
             if e.code == 400:
-                sent += len(batch)  # hibás jelentés: újraküldve sem lesz jó, eldobjuk
+                sent += len(batch)  # a bad report: it will not be right if resent either, we drop it
                 continue
             break
         except OSError:

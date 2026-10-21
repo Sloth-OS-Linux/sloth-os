@@ -1,17 +1,17 @@
-﻿# Sloth OS: a rendszerindítási sorrend védelme Windows mellett (a Windows oldalán fut).
+﻿# Sloth OS: protecting the boot order next to Windows (runs on the Windows side).
 #
-# Egy nagyobb Windows-frissítés a „Windows Boot Manager”-t a rendszerindítási sorrend elejére teszi, és a
-# gép utána a Sloth OS menüje nélkül, egyből a Windowst indítja. Ez a segéd minden Windows-induláskor (ütemezett
-# feladat, rendszerjogokkal) visszateszi a Sloth OS-t az első helyre. Csak akkor nyúl a sorrendhez, ha az
-# első helyen a Windows Boot Manager áll (egy előre tett pendrive-ot vagy más beállítást békén hagy), és
-# van „Sloth OS” bejegyzés. A Windows maga is ugyanúgy indítható a Sloth OS menüjéből.
-# A Sloth OS oldalán ugyanezt a sloth-boot-order.service végzi (a Sloth OS következő indulásakor).
+# A bigger Windows update puts "Windows Boot Manager" at the front of the boot order, and afterwards the
+# machine starts Windows directly, without the Sloth OS menu. On every Windows start (scheduled task, with
+# system rights) this helper puts Sloth OS back in first place. It only touches the order if
+# Windows Boot Manager is in first place (it leaves a USB stick put first or other settings alone), and
+# there is a "Sloth OS" entry. Windows itself can be started from the Sloth OS menu just the same.
+# On the Sloth OS side sloth-boot-order.service does the same (at the next Sloth OS start).
 #
-#   Sloth-OS-boot.cmd                    telepítés (egyszer, dupla kattintással; rendszergazdai jóváhagyás kell)
-#   sloth-boot-order.ps1 -Uninstall      eltávolítás
-#   sloth-boot-order.ps1 -Run            maga a javítás (ezt futtatja az ütemezett feladat)
+#   Sloth-OS-boot.cmd                    install (once, with a double-click; needs administrator approval)
+#   sloth-boot-order.ps1 -Uninstall      uninstall
+#   sloth-boot-order.ps1 -Run            the fix itself (the scheduled task runs this)
 #
-# A bcdedit kimenete a Windows nyelvén van, ezért csak a GUID-okra és a „Sloth OS” névre támaszkodunk.
+# bcdedit's output is in Windows' language, so we only rely on the GUIDs and the name "Sloth OS".
 param([switch]$Install, [switch]$Uninstall, [switch]$Run)
 
 $ErrorActionPreference = "Stop"
@@ -26,7 +26,7 @@ function Write-Log([string]$text) {
 }
 
 function Get-Text([string]$key) {
-    # A szövegek a Windows nyelvén (strings.json, a Sloth OS 50 nyelve); ha nincs, angolul
+    # The texts in Windows' language (strings.json, the 50 languages of Sloth OS); English if there is none
     $file = Join-Path $PSScriptRoot "strings.json"
     if (-not (Test-Path $file)) { $file = Join-Path $Dir "strings.json" }
     try {
@@ -46,7 +46,7 @@ function Show-Message([string]$text, [string]$icon = "Information") {
 }
 
 function Get-FirmwareEntries {
-    # Blokkok üres sorokkal elválasztva; minden blokkban az azonosító (GUID vagy {bootmgr}) és a leírás
+    # Blocks separated by empty lines; every block has the ID (GUID or {bootmgr}) and the description
     $text = (bcdedit /enum firmware) -join "`n"
     $blocks = $text -split "`n\s*`n"
     $entries = @()
@@ -63,19 +63,19 @@ function Repair-BootOrder {
         Select-Object -First 1
     $fw = $entries | Where-Object { $_.Id -eq "{fwbootmgr}" } | Select-Object -First 1
     if (-not $ours -or -not $fw) { return "no-entry" }
-    # A firmware sorrendje: a {fwbootmgr} blokk azonosítói a saját azonosítója után, sorban
+    # The firmware's order: the IDs of the {fwbootmgr} block after its own ID, in order
     $order = [regex]::Matches($fw.Text, "\{[0-9a-fA-F-]{36}\}|\{bootmgr\}") | ForEach-Object { $_.Value.ToLower() }
     if ($order.Count -eq 0 -or $order[0] -eq $ours.Id) { return "ok" }
-    if ($order[0] -ne "{bootmgr}") { return "ok" }  # nem a Windows tette magát előre: békén hagyjuk
+    if ($order[0] -ne "{bootmgr}") { return "ok" }  # it was not Windows that put itself first: leave it alone
     bcdedit /set "{fwbootmgr}" displayorder $ours.Id /addfirst | Out-Null
-    Write-Log "A Sloth OS visszakerült az első helyre ($($ours.Id))"
+    Write-Log "Sloth OS was put back in first place ($($ours.Id))"
     return "fixed"
 }
 
 function Assert-Admin {
     $principal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
     if (-not $principal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) {
-        # Újraindítás rendszergazdaként (UAC); a paraméterek változatlanok
+        # Restarting as administrator (UAC); the parameters unchanged
         $mode = if ($Uninstall) { "-Uninstall" } elseif ($Run) { "-Run" } else { "-Install" }
         Start-Process powershell.exe -Verb RunAs -ArgumentList @("-NoProfile", "-ExecutionPolicy", "Bypass",
             "-File", "`"$PSCommandPath`"", $mode)
@@ -96,7 +96,7 @@ try {
         Show-Message (Get-Text "removed")
         exit
     }
-    # Telepítés: a segéd a ProgramData alá, ütemezett feladat minden Windows-induláskor (rendszerjogokkal)
+    # Installing: the helper under ProgramData, a scheduled task on every Windows start (with system rights)
     New-Item -ItemType Directory -Force $Dir | Out-Null
     Copy-Item -Force $PSCommandPath (Join-Path $Dir "sloth-boot-order.ps1")
     $strings = Join-Path $PSScriptRoot "strings.json"
@@ -110,7 +110,7 @@ try {
     Register-ScheduledTask -TaskName $TaskName -Action $action -Principal $principal -Settings $settings `
         -Trigger $triggers -Force | Out-Null
     $result = Repair-BootOrder
-    Write-Log "Telepítve ($result)"
+    Write-Log "Installed ($result)"
     if ($result -eq "no-entry") {
         Show-Message (Get-Text "no_entry") "Warning"
     } else {

@@ -1,12 +1,12 @@
 #!/usr/bin/python3 -I
-"""A Windows-programok tálcás szövegbuborékai a tálca mellé, ne a képernyő bal felső sarkába.
+"""Moves the Windows programs' taskbar balloons next to the taskbar, not into the top left corner of the screen.
 
-A Wine a buborékot (pl. „A Battle.net a háttérben fut tovább”) a tálcaikon ablakának közepére teszi. Plasmán a
-Windows-programok tálcaikonjait az xembedsniproxy viszi át a tálcára, az eredeti (láthatatlan) ikonablakok pedig a
-képernyő bal felső sarkában vannak, így a buborék is ott jelent meg. A felhasználói munkamenetben fut
-(sloth-wine-balloons.service): figyeli az X (XWayland) ablakait, és a Wine explorer.exe-jének bal felső sarokba kerülő
-felugró ablakait a munkaterület jobb alsó sarkába, a tálcaikonok fölé teszi (ha a panel fent van, a jobb felsőbe).
-Eseményekre vár, nem kérdezget. Csak libX11 kell hozzá (ctypes).
+Wine puts the balloon (e.g. "Battle.net keeps running in the background") in the middle of the tray icon's window. On
+Plasma, xembedsniproxy carries the Windows programs' tray icons over to the taskbar, and the original (invisible) icon
+windows are in the top left corner of the screen, so the balloon appeared there too. It runs in the user session
+(sloth-wine-balloons.service): it watches the X (XWayland) windows, and moves the popups of Wine's explorer.exe that land
+in the top left corner to the bottom right corner of the work area, above the tray icons (if the panel is at the top, to the top right).
+It waits for events, it does not poll. It only needs libX11 (ctypes).
 """
 import ctypes
 import ctypes.util
@@ -15,9 +15,9 @@ import sys
 import time
 
 MARGIN = 8
-NEAR = 64           # ennyin belül a munkaterület bal felső sarkához: oda tette a Wine (nagyítással szorozva)
+NEAR = 64           # within this distance of the work area's top left corner: Wine put it there (multiplied by the scaling)
 MAX_W, MAX_H = 1200, 800
-MIN_W, MIN_H = 100, 30   # ennél kisebb: tálcaikon, nem buborék
+MIN_W, MIN_H = 100, 30   # smaller than this: a tray icon, not a balloon
 
 CREATE_NOTIFY, MAP_NOTIFY, CONFIGURE_NOTIFY = 16, 19, 22
 SUBSTRUCTURE_NOTIFY_MASK = 1 << 19
@@ -80,7 +80,7 @@ def load_x11():
 
 
 def target_position(work, size):
-    """A buborék helye: a munkaterület (a panel nélküli rész) jobb alsó sarka, fenti panelnél a jobb felső."""
+    """The balloon's place: the bottom right corner of the work area (the part without the panel), with a top panel the top right."""
     wx, wy, ww, wh = work
     w, h = size
     x = wx + ww - w - MARGIN
@@ -89,9 +89,9 @@ def target_position(work, size):
 
 
 def misplaced(x, y, w, h, work, screen_h):
-    """A bal felső részen van-e. A Wine a buborékot a munkaterületen belülre igazítja: fenti panelnél (pl. a
-    macOS-szerű elrendezésben) a panel alá vagy mellé, ezért a munkaterület bal felső harmadát nézzük; nagyításnál a
-    méretek is nagyobbak. A tálcaikonok saját (kicsi, négyzetes) ablakai kimaradnak."""
+    """Whether it is in the top left part. Wine aligns the balloon inside the work area: with a top panel (e.g. in the
+    macOS-like layout) below or next to the panel, so we look at the top left third of the work area; with scaling the
+    sizes are bigger too. The tray icons' own (small, square) windows are skipped."""
     wx, wy, ww, wh = work
     scale = max(1, round(screen_h / 1080))
     min_w, min_h, max_w, max_h = MIN_W * scale, MIN_H * scale, MAX_W * scale, MAX_H * scale
@@ -133,7 +133,7 @@ class Mover:
                     self.x.XFree(p)
 
     def pid_cmdline(self, win):
-        """A Wine minden ablakára kiteszi a _NET_WM_PID-et; ha az osztálynév hiányzik, a folyamatból derül ki."""
+        """Wine puts _NET_WM_PID on all its windows; if the class name is missing, the process tells."""
         actual, fmt = Atom(), ctypes.c_int()
         n, after, data = ctypes.c_ulong(), ctypes.c_ulong(), ctypes.c_void_p()
         ok = self.x.XGetWindowProperty(self.d, win, self.pid_atom, 0, 1, 0, XA_CARDINAL, ctypes.byref(actual),
@@ -163,14 +163,14 @@ class Mover:
             return
         names = self.class_names(win)
         if "explorer.exe" not in names and "explorer.exe" not in self.pid_cmdline(win):
-            # a naplóba (Napló mentése), hogy látsszon, mi jelent meg ott, ha nem a Wine buboréka
+            # into the log (Save log), so it shows what appeared there if it is not Wine's balloon
             if self.seen.get(win) != geometry:
-                print(f"felugró ablak, marad: {geometry}, osztály: {names}, munkaterület: {work}",
+                print(f"popup window, left alone: {geometry}, class: {names}, work area: {work}",
                       file=sys.stderr, flush=True)
             self.seen[win] = geometry
             return
         x, y = target_position(work, (attrs.width, attrs.height))
-        print(f"buborék: {geometry} -> ({x}, {y}), osztály: {names}, munkaterület: {work}", file=sys.stderr, flush=True)
+        print(f"balloon: {geometry} -> ({x}, {y}), class: {names}, work area: {work}", file=sys.stderr, flush=True)
         self.seen[win] = (x, y, attrs.width, attrs.height)
         self.x.XMoveWindow(self.d, win, x, y)
         self.x.XFlush(self.d)
@@ -181,25 +181,25 @@ class Mover:
         while True:
             self.x.XNextEvent(self.d, ctypes.byref(ev))
             if ev.type in (MAP_NOTIFY, CONFIGURE_NOTIFY):
-                # MapNotify, ConfigureNotify: az "event" mező a gyökér, a "window" az érintett ablak
+                # MapNotify, ConfigureNotify: the "event" field is the root, "window" the affected window
                 self.check(ev.any.window)
 
 
 def main():
     x11 = load_x11()
-    # egy közben eltűnt ablak miatti X-hiba ne állítsa le (az alapértelmezett kezelő kilépne)
+    # an X error caused by a window that disappeared meanwhile must not stop it (the default handler would exit)
     ignore = ERROR_HANDLER(lambda _d, _e: 0)
     x11.XSetErrorHandler(ignore)
     display = None
-    for _ in range(60):  # bejelentkezéskor az XWayland még indulhat
+    for _ in range(60):  # at login XWayland may still be starting
         display = x11.XOpenDisplay(None)
         if display:
             break
         time.sleep(2)
     if not display:
-        print("nincs X kijelző", file=sys.stderr)
+        print("no X display", file=sys.stderr)
         return 1
-    print(f"figyelés: DISPLAY={os.environ.get('DISPLAY', '')}", file=sys.stderr, flush=True)
+    print(f"watching: DISPLAY={os.environ.get('DISPLAY', '')}", file=sys.stderr, flush=True)
     Mover(x11, display).run()
     return 0
 

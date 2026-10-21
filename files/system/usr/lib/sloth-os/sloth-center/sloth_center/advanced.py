@@ -1,8 +1,8 @@
-"""Haladó beállítások: boot menü, memóriatömörítés, kernelparaméterek, rendszercsomagok (RPM rétegezés).
+"""Advanced settings: boot menu, memory compression, kernel parameters, system packages (RPM layering).
 
-Az `rpm-ostree kargs`, `rpm-ostree install/uninstall` és a GRUB menü beállításának
-grafikus megfelelője. Minden változás a következő újraindításkor lép életbe, és a
-Frissítések oldalon vissza lehet állni az előző verzióra.
+The graphical equivalent of `rpm-ostree kargs`, `rpm-ostree install/uninstall` and setting up the GRUB
+menu. Every change takes effect at the next restart, and on the
+Updates page you can go back to the previous version.
 """
 import json
 import logging
@@ -26,7 +26,7 @@ BOOT_MENU_MARKER = "/var/lib/sloth-os/boot-menu-visible"
 ZRAM_CONF = "/etc/systemd/zram-generator.conf"
 PKG_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._+-]{0,127}$")
 KARG_RE = re.compile(r"^[A-Za-z0-9_.\-]+(=[A-Za-z0-9_.,:/\-]+)?$")
-# Ezeket a rendszer kezeli; a felhasználó ne törölje véletlenül
+# The system manages these; the user should not delete them by accident
 PROTECTED_KARGS = ("root=", "rootflags=", "ostree=", "rw", "BOOT_IMAGE=", "rd.luks", "resume=")
 
 
@@ -41,7 +41,7 @@ def _meminfo_gb(key):
 
 
 def _zram_mode():
-    """"default" (a Fedora alapja), "more" vagy "off", a sloth-helper által írt fájl első sora szerint."""
+    """"default" (Fedora's default), "more" or "off", according to the first line of the file written by sloth-helper."""
     try:
         first = open(ZRAM_CONF, encoding="utf-8").readline()
     except OSError:
@@ -85,7 +85,7 @@ class AdvancedController(QObject):
 
     @Property(str, notify=changed)
     def zramText(self):
-        """A memória és a most használt tömörített tartalék mérete, emberi nyelven."""
+        """The size of the memory and of the compressed reserve used now, in plain language."""
         mem = _meminfo_gb("MemTotal")
         size = 0.0
         try:
@@ -97,11 +97,11 @@ class AdvancedController(QObject):
                 mem=f"{mem:.0f}", size=f"{size:.1f}".rstrip("0").rstrip("."))
         return tr("Memory: {mem} GB. There is no compressed reserve right now.").format(mem=f"{mem:.0f}")
 
-    # --- Windows mellett: a Windows-oldali rendszerindítási segéd ------------------------------------
+    # --- Next to Windows: the Windows-side boot helper ------------------------------------
 
     @Property(bool, notify=changed)
     def windowsPresent(self):
-        """Van-e NTFS-partíció a gépen (Windows mellé telepített gép)."""
+        """Whether there is an NTFS partition on the machine (a machine installed next to Windows)."""
         if not hasattr(self, "_windows_present"):
             self._windows_present = bool(windowshelper.ntfs_filesystems())
             self._helper_text = ""
@@ -143,7 +143,7 @@ class AdvancedController(QObject):
         self._zram = _zram_mode()
         self.changed.emit()
 
-    # --- Boot menü ------------------------------------------------------------------
+    # --- Boot menu ------------------------------------------------------------------
 
     @Slot(bool)
     def setBootMenuVisible(self, visible):
@@ -159,7 +159,7 @@ class AdvancedController(QObject):
             self._error = tr("Couldn't change it. This needs administrator approval.")
         self.refresh()
 
-    # --- Memóriatömörítés (zram) -------------------------------------------------------
+    # --- Memory compression (zram) -------------------------------------------------------
 
     @Slot(str)
     def setZramMode(self, mode):
@@ -176,7 +176,7 @@ class AdvancedController(QObject):
             self._error = tr("Couldn't change it. This needs administrator approval.")
         self.refresh()
 
-    # --- Tranzakciók (kernelparaméter, csomag) ----------------------------------------
+    # --- Transactions (kernel parameter, package) ----------------------------------------
 
     def _run(self, start, done_text):
         if not self._ostree or self._busy:
@@ -199,7 +199,7 @@ class AdvancedController(QObject):
             if ok:
                 self._info = done_text
             else:
-                log.warning("tranzakció: %s", raw)
+                log.warning("transaction: %s", raw)
                 self._error = self._pkg_error(raw) or texts.error_text(raw)
             self.refresh()
 

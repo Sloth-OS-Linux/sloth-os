@@ -1,16 +1,16 @@
-"""Ismert programok beállításai, hogy Steam nélkül, közvetlenül is rendesen fussanak.
+"""Settings of known programs, so they run properly directly too, without Steam.
 
-Egy-egy indítóprogram (pl. a Battle.net) csak néhány apró beállítással fut jól; ezeket indítás előtt
-magunk állítjuk be, a felhasználónak nem kell tudnia róluk. Két része van:
-  - a receptek (sloth_common.apps.recipes): adatként, a rendszerrel és a közös tudásból frissítve:
-    összetevők, Proton-kapcsolók, programparaméterek, DLL-kikapcsolások, és hogy melyik rövid életű
-    indító helyett a kliens induljon. A Lutris bevált telepítőiből jönnek, a Protonhoz igazítva;
-  - itt, kódként, csak az, ami a programok saját beállításfájljait írja (Battle.net, Ubisoft Connect).
+Some launchers (e.g. Battle.net) only run well with a few small settings; we set these ourselves
+before starting, and the user does not need to know about them. It has two parts:
+  - the recipes (sloth_common.apps.recipes): as data, updated with the system and from the shared knowledge:
+    components, Proton switches, program arguments, DLL overrides, and which client should start instead of a
+    short-lived launcher. They come from Lutris' proven installers, adapted to Proton;
+  - here, as code, only what writes the programs' own settings files (Battle.net, Ubisoft Connect).
 
-Rövid életű indítók (launch_target): az umu és a Proton csak az elindított folyamatot várja meg
-(a waitforexitandrun a korábbi munkamenet végét várja meg indítás előtt, nem a gyerekfolyamatokat).
-Ha egy indító átadja a helyét a kliensnek és kilép, a futtató leáll, és a kliens ablaka is vele
-együtt eltűnik; ezért ilyenkor magát a klienst indítjuk (pl. „Battle.net Launcher.exe” helyett a
+Short-lived launchers (launch_target): umu and Proton only wait for the started process
+(waitforexitandrun waits for the previous session's end before starting, not for the child processes).
+If a launcher hands over to the client and exits, the runner stops, and the client's window disappears
+together with it; so in that case we start the client itself (e.g. instead of "Battle.net Launcher.exe" the
 „Battle.net.exe”-t, ahogy a Lutris Blizzard-receptjei is).
 """
 import getpass
@@ -24,7 +24,7 @@ log = logging.getLogger("sloth-exe.quirks")
 
 
 def _windows_users(prefix):
-    """A Windows-felhasználók mappái (a Protonnál "steamuser", a tartalék Wine-nál a Linuxos név)."""
+    """The Windows users' folders (with Proton "steamuser", with the fallback Wine the Linux name)."""
     users = prefix / "drive_c/users"
     found = [d for d in users.iterdir() if d.is_dir() and d.name != "Public"] if users.is_dir() else []
     return found or [users / WIN_USER, users / getpass.getuser()]
@@ -39,13 +39,13 @@ def _matches(program, exe, recipe_id):
     return any(r["id"] == recipe_id for r in recipes.matching(program.prefix, exe))
 
 
-# --- Beállításfájlok ------------------------------------------------------------------------------
+# --- Settings files ------------------------------------------------------------------------------
 
 def _battlenet(program, exe):
     if not _matches(program, exe, "battlenet"):
         return
-    # A beépített böngészőmotor GPU-gyorsítása Wine alatt betöltés után összeomlik:
-    # az ablak eltűnik, a program pár másodperc múlva kilép
+    # The built-in browser engine's GPU acceleration crashes under Wine after loading:
+    # the window disappears, and the program exits a few seconds later
     for user in _windows_users(program.prefix):
         path = user / "AppData/Roaming/Battle.net/Battle.net.config"
         try:
@@ -59,9 +59,9 @@ def _battlenet(program, exe):
         try:
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(json.dumps(config, indent=4), encoding="utf-8")
-            log.info("Battle.net: hardveres gyorsítás kikapcsolva (%s)", path)
+            log.info("Battle.net: hardware acceleration turned off (%s)", path)
         except OSError as e:
-            log.warning("Battle.net beállítás: %s", e)
+            log.warning("Battle.net setting: %s", e)
 
 
 UBISOFT_SETTINGS = ("overlay:\n  enabled: false\n  forceunhookgame: false\n  fps_enabled: false\n"
@@ -71,40 +71,40 @@ UBISOFT_SETTINGS = ("overlay:\n  enabled: false\n  forceunhookgame: false\n  fps
 def _ubisoft(program, exe):
     if not _matches(program, exe, "ubisoft-connect"):
         return
-    # A játékon belüli overlay Wine alatt összeomlást okoz: kikapcsolva (ha a felhasználónak még nincs beállítása)
+    # The in-game overlay causes crashes under Wine: turned off (if the user has no setting of their own yet)
     for user in _windows_users(program.prefix):
         path = user / "AppData/Local/Ubisoft Game Launcher/settings.yaml"
         if not path.exists():
             try:
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_text(UBISOFT_SETTINGS, encoding="utf-8")
-                log.info("Ubisoft Connect: overlay kikapcsolva (%s)", path)
+                log.info("Ubisoft Connect: overlay turned off (%s)", path)
             except OSError as e:
-                log.warning("Ubisoft Connect beállítás: %s", e)
+                log.warning("Ubisoft Connect setting: %s", e)
 
 
 CONFIG_WRITERS = [_battlenet, _ubisoft]
-# EA app, Rockstar Games Launcher: a Lutris csak betűtípusokat tesz fel, azokat a Proton már hozza
+# EA app, Rockstar Games Launcher: Lutris only installs fonts, and Proton brings those already
 
 
 def launch_target(exe):
-    """A ténylegesen indítandó .exe: rövid életű indító helyett maga a kliens, ha egy recept ismeri, és megvan."""
+    """The .exe to actually start: the client itself instead of a short-lived launcher, if a recipe knows it and it exists."""
     target = recipes.stub_target(exe)
     if target and target != exe and target.is_file():
-        log.info("%s helyett a kliens indul: %s", exe.name, target)
+        log.info("the client starts instead of %s: %s", exe.name, target)
         return target
     return exe
 
 
 def apply(program, exe, env):
-    """Indítás előtt: a program ismert beállításai (env: QProcessEnvironment, helyben módosul).
+    """Before starting: the program's known settings (env: QProcessEnvironment, modified in place).
 
-    -> {"args": [...], "verbs": [...]} a futtatónak.
+    -> {"args": [...], "verbs": [...]} for the runner.
     """
     for writer in CONFIG_WRITERS:
         try:
             writer(program, exe)
-        except Exception as e:  # egy beállítás hibája ne akadályozza az indítást
+        except Exception as e:  # an error in one setting must not prevent the start
             log.warning("%s: %s", writer.__name__, e)
     known = recipes.settings(program.prefix, exe)
     for value in known["dll_overrides"]:

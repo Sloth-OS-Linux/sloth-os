@@ -1,9 +1,9 @@
-"""A programok Start menü bejegyzései (~/.local/share/applications/sloth-win-*.desktop) és ikonjai.
+"""The programs' Start menu entries (~/.local/share/applications/sloth-win-*.desktop) and icons.
 
-Az indítást mindig a Sloth .exe kezelő végzi: Exec=sloth-exe --launch <program> <indítófájl>.
-Az indítófájl a program Windows-környezetéhez képest relatív (drive_c/Program Files/…), így a
-program mappája áthelyezhető; a környezeten kívüli fájl (pl. egy letöltött .exe) teljes úttal áll.
-A máshonnan „az eredeti programmal” felvett programokat az indítja (pl. steam://rungameid/…, lutris:…).
+Starting is always done by the Sloth .exe handler: Exec=sloth-exe --launch <program> <start file>.
+The start file is relative to the program's Windows environment (drive_c/Program Files/…), so the
+program's folder can be moved; a file outside the environment (e.g. a downloaded .exe) has a full path.
+Programs added from elsewhere "with the original app" are started by that app (e.g. steam://rungameid/…, lutris:…).
 """
 import configparser
 import logging
@@ -23,7 +23,7 @@ GENERIC_ICON = "application-x-ms-dos-executable"
 
 
 def extract_icon(exe, dest_png):
-    """Ikon a .exe-ből (icoutils). Ha nem megy, None: az általános ikon marad."""
+    """An icon from the .exe (icoutils). If that does not work, None: the generic icon stays."""
     dest_png = Path(dest_png)
     dest_png.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory() as tmp:
@@ -60,7 +60,7 @@ def desktop_file_path(app, exe):
 
 
 def target(app, exe):
-    """Az indítófájl a bejegyzésben: a Windows-környezeten belül relatív, kívül teljes út."""
+    """The start file in the entry: relative inside the Windows environment, a full path outside it."""
     rel = os.path.relpath(exe, app.prefix)
     return str(exe) if rel.startswith("..") else rel
 
@@ -76,9 +76,9 @@ def _read(path):
 
 
 def entries(app):
-    """A program Start menü bejegyzései: [{"desktop", "name", "icon", "target"}].
+    """The program's Start menu entries: [{"desktop", "name", "icon", "target"}].
 
-    target: az indítófájl (relatív a Windows-környezethez, vagy teljes út); máshonnan indítottnál "".
+    target: the start file (relative to the Windows environment, or a full path); "" for one started elsewhere.
     """
     out = []
     for path in sorted(APPS_DIR.glob(f"sloth-win-{app.id}-*.desktop")):
@@ -96,7 +96,7 @@ def entries(app):
 
 
 def _categories(app):
-    # Felismert játék (umu / Steam adatbázis) a Játékok közé, minden más a Segédprogramok közé
+    # A recognized game (umu / Steam database) goes among Games, everything else among Utilities
     gameid = app.meta.get("gameid") or ""
     return "Game;" if app.meta.get("is_game") or (gameid and gameid != "umu-default") else "Utility;"
 
@@ -118,7 +118,7 @@ def _write(path, app, name, exec_line, icon, categories=None):
 
 
 def add(app, name, exe):
-    """Start menü bejegyzés a program egyik indítófájljához."""
+    """A Start menu entry for one of the program's start files."""
     icon = extract_icon(exe, icon_path(app, exe))
     path = desktop_file_path(app, exe)
     exec_line = " ".join(shlex.quote(a) for a in ["sloth-exe", "--launch", app.id, target(app, exe)])
@@ -127,7 +127,7 @@ def add(app, name, exe):
 
 
 def add_command(app, name, command, icon=None, categories=None, args_placeholder=""):
-    """Bejegyzés egy tetszőleges indítóparanccsal (pl. AppImage: sloth-exe --run <program> %U)."""
+    """An entry with an arbitrary start command (e.g. AppImage: sloth-exe --run <program> %U)."""
     path = APPS_DIR / f"sloth-win-{app.id}-app.desktop"
     exec_line = " ".join(shlex.quote(a) for a in command) + (f" {args_placeholder}" if args_placeholder else "")
     _write(path, app, name, exec_line, icon, categories)
@@ -135,7 +135,7 @@ def add_command(app, name, command, icon=None, categories=None, args_placeholder
 
 
 def add_link(app, name, command, icon=None):
-    """Máshol telepített program bejegyzése: az eredeti program indítja (Steam, Lutris, Bottles)."""
+    """An entry for a program installed elsewhere: the original app starts it (Steam, Lutris, Bottles)."""
     path = APPS_DIR / f"sloth-win-{app.id}-link.desktop"
     _write(path, app, name, " ".join(shlex.quote(a) for a in command), icon)
     return path
@@ -150,7 +150,7 @@ def remove_entries(app):
 
 
 def set_category(app):
-    """A kategória újraírása (pl. ha az első indításkor kiderült, hogy játék)."""
+    """Rewrites the category (e.g. if it turned out on the first start that it is a game)."""
     for e in entries(app):
         path = Path(e["desktop"])
         try:
@@ -159,14 +159,14 @@ def set_category(app):
             if new != text:
                 path.write_text(new, encoding="utf-8")
         except OSError as e:
-            log.warning("kategória: %s", e)
+            log.warning("category: %s", e)
 
 
 def relink(app, old_prefix):
-    """A mappa áthelyezése után: az ikonok és a környezeten kívüli indítófájlok útja.
+    """After moving the folder: the paths of the icons and of the start files outside the environment.
 
-    A Windows-környezeten belüli (relatív) indítófájlok érvényesek maradnak. Ha egy relatív út a régi
-    környezeten kívülre mutatott (a régi .exe kezelő így írta a letöltött .exe-ket), teljes út lesz belőle.
+    The start files inside the Windows environment (relative) stay valid. If a relative path pointed outside the old
+    environment (the old .exe handler wrote downloaded .exe files like that), it becomes a full path.
     """
     for e in entries(app):
         path = Path(e["desktop"])
@@ -188,7 +188,7 @@ def relink(app, old_prefix):
         try:
             path.write_text("\n".join(out) + "\n", encoding="utf-8")
         except OSError as err:
-            log.warning("bejegyzés frissítése: %s", err)
+            log.warning("updating the entry: %s", err)
     icon = next((e["icon"] for e in entries(app) if e["icon"].startswith("/")), None)
     if icon:
         app.set_folder_icon(icon)

@@ -1,6 +1,6 @@
-"""Asztali beállítások a varázslóból: színtéma, tálcára kitűzés.
+"""Desktop settings from the wizard: color scheme, pinning to the taskbar.
 
-Mindegyik a háttérben fut, a felhasználó csak az eredményt látja.
+Each runs in the background; the user only sees the result.
 """
 import configparser
 import json
@@ -13,7 +13,7 @@ from gi.repository import Gio, GLib
 
 log = logging.getLogger("sloth-welcome.desktop")
 
-# A színtémák sorrendje (files/system/usr/share/color-schemes); a nevük a fordításokban: "scheme.<id>"
+# The order of the color schemes (files/system/usr/share/color-schemes); their names in the translations: "scheme.<id>"
 COLOR_SCHEMES = [
     {"id": "SlothSilverDark", "colors": ["#2b2d31", "#b4b9c0", "#e3e5e8"]},
     {"id": "SlothSilverLight", "colors": ["#e3e5e8", "#68707b", "#23262a"]},
@@ -29,7 +29,7 @@ CONFIG_HOME = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config"))
 
 
 def _read_ini(path):
-    """KDE-s beállításfájl (a csoportnevekben [] is lehet, % jel is; a hibás sorokat kihagyja)."""
+    """A KDE settings file (group names may contain [] and % too; broken lines are skipped)."""
     ini = configparser.RawConfigParser(strict=False, interpolation=None)
     ini.optionxform = str
     try:
@@ -40,7 +40,7 @@ def _read_ini(path):
 
 
 def current_color_scheme():
-    """A most beállított színtéma, ha a mieink közül való (a varázsló újrafuttatásakor ez legyen kiválasztva)."""
+    """The color scheme set right now, if it is one of ours (it should be selected when the wizard runs again)."""
     name = _read_ini(CONFIG_HOME / "kdeglobals").get("General", "ColorScheme", fallback="")
     return name if name in {c["id"] for c in COLOR_SCHEMES} else ""
 
@@ -51,7 +51,7 @@ def apply_color_scheme(scheme_id):
                        stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=30)
         return True
     except (OSError, subprocess.SubprocessError) as e:
-        log.warning("színtéma: %s", e)
+        log.warning("color scheme: %s", e)
         return False
 
 
@@ -63,7 +63,7 @@ for (const panel of panels()) {
         w.currentConfigGroup = ["General"];
         let cur = w.readConfig("launchers", "");
         let list = Array.isArray(cur) ? cur.slice() : (cur ? String(cur).split(",") : []);
-        // a fájlkezelő után kerüljenek, mint a Windowsban
+        // they should come after the file manager, as in Windows
         let pos = Math.min(1, list.length);
         for (const item of add) {
             if (list.indexOf(item) === -1) { list.splice(pos, 0, item); pos++; }
@@ -76,10 +76,10 @@ for (const panel of panels()) {
 
 
 def refresh_app_cache():
-    """Frissen telepített appok: a Plasma lássa a Start menü bejegyzésüket és az ikonjukat.
+    """Freshly installed apps: Plasma should see their Start menu entries and icons.
 
-    Enélkül a tálcán az általános ikon látszott újraindításig: a bejegyzések gyorsítótárát
-    (kbuildsycoca6) újraépítjük, és szólunk a futó programoknak, hogy töltsék újra az ikonokat.
+    Without this the taskbar showed the generic icon until a restart: the entries' cache
+    (kbuildsycoca6) is rebuilt, and the running programs are told to reload their icons.
     """
     try:
         subprocess.run(["kbuildsycoca6"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=60)
@@ -90,7 +90,7 @@ def refresh_app_cache():
         bus.emit_signal(None, "/KIconLoader", "org.kde.KIconLoader", "iconChanged", GLib.Variant("(i)", (0,)))
         bus.flush_sync(None)
     except GLib.Error as e:
-        log.warning("ikonok újratöltése: %s", e.message)
+        log.warning("reloading icons: %s", e.message)
 
 
 def reboot():
@@ -98,11 +98,11 @@ def reboot():
         subprocess.Popen(["systemctl", "reboot"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
                          start_new_session=True)
     except OSError as e:
-        log.warning("újraindítás: %s", e)
+        log.warning("restart: %s", e)
 
 
 def pin_to_taskbar(app_ids):
-    """Kitűzi az appokat a tálcára (a Plasma szkriptfelületén keresztül)."""
+    """Pins the apps to the taskbar (through Plasma's scripting interface)."""
     if not app_ids:
         return
     launchers = [f"applications:{a}.desktop" for a in app_ids]
@@ -112,7 +112,7 @@ def pin_to_taskbar(app_ids):
         bus.call_sync("org.kde.plasmashell", "/PlasmaShell", "org.kde.PlasmaShell", "evaluateScript",
                       GLib.Variant("(s)", (script,)), None, Gio.DBusCallFlags.NONE, 10000, None)
     except GLib.Error as e:
-        log.warning("tálcára kitűzés: %s", e.message)
+        log.warning("pinning to the taskbar: %s", e.message)
 
 
 def open_network_settings():
@@ -120,27 +120,27 @@ def open_network_settings():
         subprocess.Popen(["systemsettings", "kcm_networkmanagement"],
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except OSError as e:
-        log.warning("hálózati beállítások: %s", e)
+        log.warning("network settings: %s", e)
 
 
 def is_online():
-    """Gyors ellenőrzés a NetworkManageren keresztül (nincs külső kérés)."""
+    """A quick check through NetworkManager (no external request)."""
     try:
         bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
         res = bus.call_sync("org.freedesktop.NetworkManager", "/org/freedesktop/NetworkManager",
                             "org.freedesktop.DBus.Properties", "Get",
                             GLib.Variant("(ss)", ("org.freedesktop.NetworkManager", "Connectivity")),
                             GLib.VariantType("(v)"), Gio.DBusCallFlags.NONE, 3000, None)
-        # 0 = ismeretlen (pl. ki van kapcsolva az ellenőrzés), 1 = nincs, 2 = bejelentkező oldal,
-        # 3 = korlátozott, 4 = teljes
+        # 0 = unknown (e.g. the check is turned off), 1 = none, 2 = login page,
+        # 3 = limited, 4 = full
         return res.unpack()[0] in (0, 4)
     except GLib.Error:
-        return True  # ha nem tudjuk, ne akadályozzuk a telepítést
+        return True  # if we do not know, do not stand in the way of installing
 
 
-# --- Tálca-elrendezés -------------------------------------------------------------
+# --- Taskbar layout -------------------------------------------------------------
 
-# A nevük és leírásuk a fordításokban: "layout.<id>.name", "layout.<id>.description"
+# Their names and descriptions in the translations: "layout.<id>.name", "layout.<id>.description"
 LAYOUTS = [
     {"id": "windows10"},
     {"id": "windows11"},
@@ -149,7 +149,7 @@ LAYOUTS = [
 
 _LAYOUT_SCRIPT = """
 const kind = %s;
-// A rögzített appokat megtartjuk
+// The pinned apps are kept
 let launchers = ["applications:org.kde.dolphin.desktop", "applications:org.kde.discover.desktop",
                  "applications:org.slothos.center.desktop"];
 for (const p of panels()) {
@@ -213,8 +213,8 @@ if (kind === "mac") {
 
 
 def current_layout():
-    """A mostani tálca-elrendezés a Plasma beállításaiból: fenti panel = macOS-szerű; alsó panelnél, ha a Start
-    menü előtt térköz van (középre igazított ikonok) = Windows 11, különben Windows 10. Ha nem derül ki: ""."""
+    """The current taskbar layout from Plasma's settings: a top panel = macOS-like; with a bottom panel, if there is
+    a spacer before the Start menu (centred icons) = Windows 11, otherwise Windows 10. If it cannot be told: ""."""
     ini = _read_ini(CONFIG_HOME / "plasma-org.kde.plasma.desktop-appletsrc")
     panels = {}
     for section in ini.sections():
@@ -223,10 +223,10 @@ def current_layout():
             panels[parts[1]] = ini.get(section, "location", fallback="")
     if not panels:
         return ""
-    if "3" in panels.values():  # 3 = fent
+    if "3" in panels.values():  # 3 = top
         return "mac"
     for cid, location in panels.items():
-        if location != "4":  # 4 = lent
+        if location != "4":  # 4 = bottom
             continue
         order = ini.get(f"Containments][{cid}][General", "AppletOrder", fallback="").split(";")
         plugins = [ini.get(f"Containments][{cid}][Applets][{a}", "plugin", fallback="") for a in order if a]
@@ -249,11 +249,11 @@ def apply_layout(kind):
                       Gio.DBusCallFlags.NONE, 15000, None)
         return True
     except GLib.Error as e:
-        log.warning("elrendezés: %s", e.message)
+        log.warning("layout: %s", e.message)
         return False
 
 
-# --- Gyors indítások a varázsló végén ------------------------------------------------
+# --- Quick launches at the end of the wizard ------------------------------------------------
 
 QUICK_ACTIONS = {
     "steam": ["flatpak", "run", "com.valvesoftware.Steam"],

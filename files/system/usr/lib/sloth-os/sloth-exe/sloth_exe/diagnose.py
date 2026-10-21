@@ -1,14 +1,14 @@
-"""Miért nem indult el? A futtató kimenetéből (Wine/Proton/DXVK hibasorok) felismeri az ismert hibákat.
+"""Why did it not start? Recognizes known errors in the runner's output (Wine/Proton/DXVK error lines).
 
-Az eredmény javítások listája, amit az önjavítás (heal.py) a következő indításnál alkalmaz:
-  ("verb", "vcrun2022")       hiányzó Windows-összetevő telepítése (winetricks, az umu-n keresztül)
-  ("env", "PROTON_USE_WINED3D") környezeti változó bekapcsolása
-  ("args", "--disable-gpu")   paraméter a programnak (a beépített böngészőmotoros appoknál)
-A felhasználó ebből semmit nem lát.
+The result is a list of fixes that self-healing (heal.py) applies at the next start:
+  ("verb", "vcrun2022")       installing a missing Windows component (winetricks, through umu)
+  ("env", "PROTON_USE_WINED3D") turning on an environment variable
+  ("args", "--disable-gpu")   an argument for the program (for apps with a built-in browser engine)
+The user sees nothing of this.
 """
 import re
 
-# Hiányzó DLL -> a winetricks összetevő, ami hozza
+# A missing DLL -> the winetricks component that brings it
 DLL_VERBS = {
     **dict.fromkeys(("msvcp140", "msvcp140_1", "msvcp140_2", "vcruntime140", "vcruntime140_1", "concrt140",
                      "vcomp140", "mfc140", "mfc140u", "vccorlib140"), "vcrun2022"),
@@ -32,20 +32,20 @@ DLL_VERBS = {
 _MISSING_DLL = re.compile(r"err:module:import_dll (?:library|loading library) ([\w.\-]+?)(?:\.dll)?\b", re.I)
 _LOAD_FAIL = re.compile(r"err:module:\w+ (?:failed to load|could not load) .*?([\w\-]+)\.dll", re.I)
 
-# (minták kisbetűvel, javítás)
+# (patterns in lowercase, fix)
 _RULES = [
-    # .NET: a wine-mono nem elég (pl. WPF-es vagy .NET Framework 4.8-at kérő program)
+    # .NET: wine-mono is not enough (e.g. a WPF program or one asking for .NET Framework 4.8)
     (("err:mscoree", "could not load wine mono", "clr version not found"), ("verb", "dotnet48")),
-    # Vulkan / DXVK nem indul (régi vagy hiányzó Vulkan-meghajtó): a régi, OpenGL-es Direct3D
+    # Vulkan / DXVK does not start (an old or missing Vulkan driver): the old, OpenGL-based Direct3D
     (("failed to create vulkan instance", "dxvk: no adapters", "vkcreatedevice failed",
       "failed to create device", "vk_error_initialization_failed", "vk_error_incompatible_driver"),
      ("env", "PROTON_USE_WINED3D")),
-    # Beépített böngészőmotor (CEF / Electron): a GPU-folyamat nem indul
+    # Built-in browser engine (CEF / Electron): the GPU process does not start
     (("gpu process isn't usable", "gpu_process_host", "exiting gpu process", "gpu process exited unexpectedly"),
      ("args", "--disable-gpu")),
 ]
 
-# Ha ezek közül bármelyik látszik, a program összeomlott (nem a felhasználó zárta be)
+# If any of these shows, the program crashed (the user did not close it)
 CRASH_MARKS = ("unhandled exception", "unhandled page fault", "wine: unhandled", "err:seh:", "backtrace:",
                "assertion failed", "fatal error", "access violation", "segmentation fault", "crashed")
 
@@ -55,7 +55,7 @@ def crashed(lines):
 
 
 def fixes(lines):
-    """A kimenet sorai -> javítások listája (sorrendben, ismétlés nélkül)."""
+    """The output's lines -> a list of fixes (in order, without repeats)."""
     out = []
 
     def add(fix):

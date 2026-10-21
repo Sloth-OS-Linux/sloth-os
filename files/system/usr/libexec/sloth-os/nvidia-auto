@@ -1,15 +1,15 @@
 #!/usr/bin/python3 -I
-"""NVIDIA-s gépen automatikusan az NVIDIA-s változat (a telepítő ISO-n csak az AMD/Intel-es fér el).
+"""On an NVIDIA machine, the NVIDIA version automatically (only the AMD/Intel one fits on the installer ISO).
 
-Az első indítások után a háttérben fut (sloth-nvidia-auto.timer), egyszer: ha van NVIDIA videókártya és az
-AMD/Intel-es változat fut, letölti és előkészíti az NVIDIA-s változatot (rpm-ostree rebase), a következő
-újraindítástól az fut. Addig a nyílt illesztőprogram (nouveau) hajtja a kártyát. Ha be van kapcsolva a
-Secure Boot, a kulcs regisztrálását is előkészíti (újraindításkor a gép kék képernyőn kér megerősítést;
-a Sloth Központ Driverek oldala lépésről lépésre mutatja).
-Az állapot a /var/lib/sloth-os/nvidia-auto fájlban van, ebből értesít a felhasználói oldal
+It runs in the background after the first starts (sloth-nvidia-auto.timer), once: if there is an NVIDIA graphics card and the
+AMD/Intel version is running, it downloads and prepares the NVIDIA version (rpm-ostree rebase), which runs from the next
+restart. Until then the open driver (nouveau) drives the card. If Secure Boot is on,
+it also prepares enrolling the key (at the restart the machine asks for confirmation on a blue screen;
+Sloth Center's Drivers page shows it step by step).
+The state is in the /var/lib/sloth-os/nvidia-auto file; the user side notifies from it
 (sloth-center/sloth_center/nvidia_notify.py): downloading | ready | ready-mok | failed.
-Ha már egyszer lefutott (vagy nincs NVIDIA kártya), többet nem fut: ha a felhasználó később a Sloth
-Központban kézzel visszavált, azt nem írjuk felül.
+If it has already run once (or there is no NVIDIA card), it does not run again: if the user later switches back by hand
+in Sloth Center, we do not overwrite that.
 """
 import json
 import os
@@ -21,7 +21,7 @@ STATE_DIR = Path("/var/lib/sloth-os")
 DONE = STATE_DIR / "nvidia-auto-done"
 STATE = STATE_DIR / "nvidia-auto"
 SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
-SB_PASSWORD = "universalblue"   # ugyanaz, mint a sloth-helper secureboot-enroll-ban
+SB_PASSWORD = "universalblue"   # the same as in sloth-helper secureboot-enroll
 
 
 def set_state(value):
@@ -76,22 +76,22 @@ def main():
     if DONE.exists():
         return 0
     if not has_nvidia():
-        return done("nincs NVIDIA videókártya")
+        return done("no NVIDIA graphics card")
     image = booted_image()
     if "/sloth-os-nvidia:" in image:
-        return done("már az NVIDIA-s változat fut")
+        return done("the NVIDIA version is already running")
     if "/sloth-os:" not in image:
-        return done(f"nem a Sloth OS hivatalos image-e fut ({image}), nem váltunk")
+        return done(f"not the official Sloth OS image running ({image}), not switching")
     if not online():
-        print("Nincs internet, később újra próbálom.")
+        print("No internet, trying again later.")
         return 0
     target = image.replace("/sloth-os:", "/sloth-os-nvidia:", 1)
-    print(f"Váltás: {image} -> {target}")
+    print(f"Switching: {image} -> {target}")
     set_state("downloading")
     r = subprocess.run(["nice", "-n", "19", "ionice", "-c", "3", "rpm-ostree", "rebase", target])
     if r.returncode != 0:
         set_state("failed")
-        print("Nem sikerült, legközelebb újra próbálom.", file=sys.stderr)
+        print("Failed, trying again next time.", file=sys.stderr)
         return 1
     mok = False
     if secure_boot_needs_key():
@@ -100,7 +100,7 @@ def main():
                            capture_output=True, text=True)
         mok = k.returncode == 0 or "already" in (k.stdout + k.stderr).lower()
     set_state("ready-mok" if mok else "ready")
-    return done("az NVIDIA-s változat előkészítve, újraindítás után fut")
+    return done("the NVIDIA version is prepared, it runs after a restart")
 
 
 if __name__ == "__main__":

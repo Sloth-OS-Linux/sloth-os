@@ -1,16 +1,16 @@
 #!/usr/bin/python3 -I
-"""Felhőtárhely (OneDrive, Google Drive) mappaként a saját mappában, terminál nélkül (rclone).
+"""Cloud storage (OneDrive, Google Drive) as a folder in the home folder, without a terminal (rclone).
 
-Mint a Windows OneDrive-ja („Files On-Demand”): a ~/OneDrive (vagy ~/Google Drive) mappában minden fájl látszik,
-de csak az töltődik le, amit megnyitnak; a megnyitottak a helyi gyorsítótárban maradnak. A bejelentkezés a
-böngészőben történik (az rclone saját, helyi visszahívással). Felhasználónként, jelszó nélkül.
+Like Windows' OneDrive ("Files On-Demand"): in the ~/OneDrive (or ~/Google Drive) folder every file is visible,
+but only what is opened gets downloaded; the opened ones stay in the local cache. Signing in happens in the
+browser (with rclone's own local callback). Per user, without a password.
 
-  cloud-drive add onedrive|gdrive     bejelentkezés (a böngészőben) és csatolás; kimenet: JSON
-  cloud-drive remove onedrive|gdrive  leválasztás és a bejelentkezés törlése (a felhőben lévő fájlok maradnak)
-  cloud-drive list                    a beállított tárhelyek (JSON)
+  cloud-drive add onedrive|gdrive     signing in (in the browser) and mounting; output: JSON
+  cloud-drive remove onedrive|gdrive  unmounting and deleting the sign-in (the files in the cloud stay)
+  cloud-drive list                    the configured storages (JSON)
 
-A csatolást a sloth-cloud@<név>.service felhasználói szolgáltatás végzi (bejelentkezéskor magától).
-A Sloth Központ (Fiók és biztonság → Felhőtárhely) hívja.
+Mounting is done by the sloth-cloud@<name>.service user service (by itself at login).
+Sloth Center (Account and security → Cloud storage) calls it.
 """
 import json
 import os
@@ -21,12 +21,12 @@ from pathlib import Path
 
 HOME = Path.home()
 CONFIG = Path(os.environ.get("XDG_CONFIG_HOME", HOME / ".config")) / "rclone" / "rclone.conf"
-# szolgáltatás -> (rclone típus, a beállítás neve, a mappa neve a saját mappában)
+# service -> (rclone type, the setting's name, the folder's name in the home folder)
 SERVICES = {
     "onedrive": ("onedrive", "OneDrive", "OneDrive"),
     "gdrive": ("drive", "GoogleDrive", "Google Drive"),
 }
-LOGIN_TIMEOUT_S = 600   # ennyi ideje van a felhasználónak a böngészőben bejelentkezni
+LOGIN_TIMEOUT_S = 600   # the user has this much time to sign in in the browser
 
 
 def rclone(*args, timeout=60):
@@ -44,8 +44,8 @@ def configured():
 
 
 def answer(question):
-    """A beállítás kérdéseire a magától értetődő válasz: böngészős bejelentkezés, különben az alapértelmezés
-    (OneDrive: személyes / céges meghajtó és az első meghajtó; Google Drive: teljes hozzáférés)."""
+    """The obvious answer to the setup's questions: browser sign-in, otherwise the default
+    (OneDrive: personal / business drive and the first drive; Google Drive: full access)."""
     option = question.get("Option") or {}
     if option.get("Name") == "config_is_local":
         return "true"
@@ -71,11 +71,11 @@ def add(service):
         state = question.get("State", "")
         if not state:
             break
-        # a böngészős bejelentkezésnél az rclone megvárja, amíg a felhasználó végez
+        # with the browser sign-in rclone waits until the user is done
         r = rclone("config", "update", remote, "--continue", "--non-interactive",
                    "--state", state, "--result", answer(question), timeout=LOGIN_TIMEOUT_S)
     if remote not in configured():
-        return {"ok": False, "error": "a bejelentkezés nem fejeződött be"}
+        return {"ok": False, "error": "signing in did not finish"}
     (HOME / folder).mkdir(exist_ok=True)
     subprocess.run(["systemctl", "--user", "enable", "--now", unit(remote)], capture_output=True)
     return {"ok": True, "folder": str(HOME / folder)}
@@ -87,7 +87,7 @@ def remove(service):
     rclone("config", "delete", remote)
     path = HOME / folder
     try:
-        path.rmdir()  # csak ha üres (leválasztás után az); a helyi fájlokhoz nem nyúlunk
+        path.rmdir()  # only if empty (it is after unmounting); the local files are not touched
     except OSError:
         pass
     shutil.rmtree(Path(os.environ.get("XDG_CACHE_HOME", HOME / ".cache")) / "rclone" / "vfs" / remote,
@@ -106,12 +106,12 @@ def listing():
 
 
 def mount(remote):
-    """A sloth-cloud@<név>.service indítja: az rclone ugyanebben a folyamatban fut (a systemd értesítést is ő küldi)."""
+    """Started by sloth-cloud@<name>.service: rclone runs in this same process (it also sends the systemd notification)."""
     folder = next(f for _k, r, f in SERVICES.values() if r == remote)
     path = HOME / folder
     path.mkdir(exist_ok=True)
     os.execvp("rclone", ["rclone", "--config", str(CONFIG), "mount", f"{remote}:", str(path),
-                         # a megnyitott fájlok a helyi gyorsítótárban maradnak (internet nélkül is), 30 napig
+                         # the opened files stay in the local cache (without internet too), for 30 days
                          "--vfs-cache-mode", "full", "--vfs-cache-max-age", "720h", "--vfs-cache-max-size", "20G",
                          "--dir-cache-time", "5m", "--poll-interval", "1m"])
 

@@ -1,8 +1,8 @@
-"""Az rpm-ostree technikai üzeneteinek fordítása emberi nyelvre.
+"""Translating rpm-ostree's technical messages into plain language.
 
-A felhasználó soha nem látja a nyers kimenetet; csak azt, hogy épp mi történik
-("Frissítés letöltése…"). A nyers szöveg a naplóba kerül hibakereséshez.
-A szövegek a választott nyelven jelennek meg (i18n.py).
+The user never sees the raw output; only what is happening right now
+("Downloading the update…"). The raw text goes to the log for debugging.
+The texts appear in the chosen language (i18n.py).
 """
 import datetime
 from pathlib import Path
@@ -11,7 +11,7 @@ from PySide6.QtCore import QDate, QLocale, QTime
 
 from .i18n import N_, catalog, tr
 
-# (minta, szöveg) párok; az első egyező nyer. A minták kisbetűsek.
+# (pattern, text) pairs; the first match wins. The patterns are lowercase.
 _STAGES = [
     (("rollback",), N_("Preparing to roll back…")),
     (("pulling manifest", "checking for updates", "receiving metadata", "scanning metadata",
@@ -36,7 +36,7 @@ _ERRORS = [
     (("transaction in progress", "already in progress", "busy"),
      N_("Another update is running in the background. We'll wait for it to finish.")),
     (("cancelled", "canceled"), N_("You cancelled the operation.")),
-    # az aláírás-ellenőrzés (ostree-image-signed): pl. egy épp készülő, még alá nem írt verzió
+    # signature verification (ostree-image-signed): e.g. a version being built right now, not signed yet
     (("signature", "sigstore", "policy requirements"),
      N_("The latest update isn't available yet (it's being prepared right now). Try again in a few minutes.")),
 ]
@@ -46,7 +46,7 @@ GENERIC_BUSY = N_("Working on it…")
 
 
 def stage_text(raw, current=None):
-    """A technikai lépésnévből emberi szöveg. Ha nem ismerjük, marad az előző."""
+    """A human text from the technical step name. If we do not know it, the previous one stays."""
     low = (raw or "").lower()
     for patterns, text in _STAGES:
         if any(p in low for p in patterns):
@@ -80,7 +80,7 @@ def download_text(transferred, rate):
 
 
 def date_text(timestamp):
-    """Dátum a választott nyelv szokása szerint (pl. "2026. október 13." / "October 13, 2026")."""
+    """A date in the chosen language's style (e.g. "2026. október 13." / "October 13, 2026")."""
     if not timestamp:
         return ""
     d = datetime.datetime.fromtimestamp(int(timestamp))
@@ -88,7 +88,7 @@ def date_text(timestamp):
 
 
 def datetime_text(when):
-    """Időpont röviden: "Ma 14:00", "Tegnap 09:00", különben "2026. október 13. 14:00" (helyi időben)."""
+    """A short time: "Today 14:00", "Yesterday 09:00", otherwise "October 13, 2026 14:00" (in local time)."""
     local = when.astimezone()
     time = QLocale(catalog.language()).toString(QTime(local.hour, local.minute), QLocale.FormatType.ShortFormat)
     days = (datetime.date.today() - local.date()).days
@@ -100,9 +100,9 @@ def datetime_text(when):
 
 
 def _pretty_name(deployment):
-    """A rendszerverzió saját nevéből (os-release PRETTY_NAME), pl. "Sloth OS 1.0 (Fedora Atomic 44)".
+    """From the system version's own name (os-release PRETTY_NAME), e.g. "Sloth OS 1.0 (Fedora Atomic 44)".
 
-    A telepített verziók fájljai olvashatók (/ostree/deploy/...); a még le nem töltött frissítésnek nincs ilyen."""
+    The installed versions' files are readable (/ostree/deploy/...); an update not downloaded yet has none."""
     paths = [Path("/ostree/deploy", deployment.get("osname") or "",
                   "deploy", f"{deployment.get('checksum')}.{deployment.get('serial')}", "usr/lib/os-release")]
     if deployment.get("booted"):
@@ -118,10 +118,10 @@ def _pretty_name(deployment):
 
 
 def version_text(deployment):
-    """Pl. "Sloth OS 1.0 (Fedora Atomic 44) · 2026. október 13." a telepített verzióból."""
+    """E.g. "Sloth OS 1.0 (Fedora Atomic 44) · October 13, 2026" from the installed version."""
     if not deployment:
         return ""
-    # Az rpm-ostree "version" címkéje ("44.20261013") csak a Fedora verziószáma, nem a Sloth OS-é
+    # rpm-ostree's "version" label ("44.20261013") is only Fedora's version number, not Sloth OS's
     name = _pretty_name(deployment) or "Sloth OS"
     date = date_text(deployment.get("timestamp"))
     return f"{name} · {date}" if date else name

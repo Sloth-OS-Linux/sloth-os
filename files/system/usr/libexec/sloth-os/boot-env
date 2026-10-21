@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
-# A boot menü állapota az EFI partíción (EFI/fedora/sloth-boot.env), lásd /usr/lib/sloth-os/grub-custom.cfg.
+# The boot menu's state on the EFI partition (EFI/fedora/sloth-boot.env), see /usr/lib/sloth-os/grub-custom.cfg.
 #
-#   boot-env set KULCS=ÉRTÉK...   beállítás (ha a fájl nincs meg, létrehozza)
-#   boot-env ensure-config        a /boot/grub2/custom.cfg pótlása vagy frissítése, ha hiányzik vagy eltér
-#                                 (nem a saját telepítővel telepített gépeken, és ha a sablon frissült)
-#   boot-env set-title SZÖVEG     a boot menü „Alaphelyzetbe állítás” pontjának felirata (sloth_reset_title)
-#   boot-env take-reset           ha a boot menüben az alaphelyzetet választották (sloth_reset=keep): kiírja,
-#                                 hogy "keep", és törli a jelzést (sloth-boot-reset.service)
+#   boot-env set KEY=VALUE...     sets values (creates the file if it does not exist)
+#   boot-env ensure-config        adds or updates /boot/grub2/custom.cfg if it is missing or differs
+#                                 (on machines not installed with our own installer, and when the template was updated)
+#   boot-env set-title TEXT       the label of the boot menu's "Reset this PC" entry (sloth_reset_title)
+#   boot-env take-reset           if reset was chosen in the boot menu (sloth_reset=keep): prints
+#                                 "keep" and deletes the marker (sloth-boot-reset.service)
 #
-# Az EFI partíciót a rendszer nem csatolja; ha kell, ideiglenesen csatoljuk, és utána leválasztjuk.
+# The system does not mount the EFI partition; if needed, we mount it temporarily and unmount it afterwards.
 set -euo pipefail
 
 ESP_TYPE=c12a7328-f81f-11d2-ba4b-00a0c93ec93b
@@ -18,17 +18,17 @@ find_esp() {
   local root disk
   root=$(findmnt -no SOURCE /sysroot 2>/dev/null || findmnt -no SOURCE /)
   root=${root%%[*}   # btrfs: /dev/sda3[/subvol]
-  # a lemez az ősök közül (titkosításnál a gyökér /dev/mapper/…, a szülője a partíció, csak annak a szülője a lemez)
+  # the disk among the ancestors (with encryption the root is /dev/mapper/…, its parent the partition, and only that one's parent is the disk)
   disk=$(lsblk -nspo NAME,TYPE "$root" | awk '$2 == "disk" { sub(/^.*\//, "", $1); print $1; exit }')
   [[ -n $disk ]] || return 1
-  # Windows mellett két EFI partíció is van a lemezen: a Sloth OS sajátja az "EFI-SYSTEM" nevű
-  # (a telepítő így hozza létre); ha nincs ilyen, az első
+  # Next to Windows there are two EFI partitions on the disk: Sloth OS's own is the one named "EFI-SYSTEM"
+  # (the installer creates it like that); if there is none, the first one
   lsblk -lnpo PATH,PARTTYPE,PARTLABEL "/dev/$disk" |
     awk -v t="$ESP_TYPE" 'tolower($2) == t { if ($3 == "EFI-SYSTEM") { print $1; found = 1; exit } if (!first) first = $1 }
                           END { if (!found && first) print first }'
 }
 
-with_esp() {  # with_esp <parancs...>: a parancs az ESP csatolási pontját kapja $ESP-ként
+with_esp() {  # with_esp <command...>: the command gets the ESP's mount point as $ESP
   local dev mnt
   mnt=$(findmnt -no TARGET /boot/efi 2>/dev/null || true)
   if [[ -n $mnt ]]; then
@@ -36,7 +36,7 @@ with_esp() {  # with_esp <parancs...>: a parancs az ESP csatolási pontját kapj
     return
   fi
   dev=$(find_esp) || true
-  [[ -n $dev ]] || { echo "Nincs EFI partíció." >&2; return 1; }
+  [[ -n $dev ]] || { echo "No EFI partition." >&2; return 1; }
   mnt=$(mktemp -d /run/sloth-esp.XXXXXX)
   mount -t vfat "$dev" "$mnt"
   local rc=0
@@ -48,10 +48,10 @@ with_esp() {  # with_esp <parancs...>: a parancs az ESP csatolási pontját kapj
 
 set_values() {
   local env="$ESP/EFI/fedora/sloth-boot.env" changed=0 kv
-  [[ -d $ESP/EFI/fedora ]] || { echo "Nincs EFI/fedora mappa." >&2; return 1; }
+  [[ -d $ESP/EFI/fedora ]] || { echo "No EFI/fedora folder." >&2; return 1; }
   [[ -f $env ]] || grub2-editenv "$env" create
   for kv in "$@"; do
-    # ne írjunk feleslegesen az EFI partícióra
+    # do not write to the EFI partition needlessly
     grub2-editenv "$env" list | grep -qxF "$kv" || changed=1
   done
   if (( changed )); then
@@ -62,7 +62,7 @@ set_values() {
 ensure_config() {
   cmp -s "$TEMPLATE" /boot/grub2/custom.cfg && return 0
   [[ -d /boot/grub2 ]] || return 0
-  # a /boot csak olvasható; saját névtérben átmenetileg írhatóvá tesszük (mint az rpm-ostree)
+  # /boot is read-only; we make it writable temporarily in our own namespace (like rpm-ostree)
   unshare -m sh -c "mount -o remount,rw /boot && install -m 0644 '$TEMPLATE' /boot/grub2/custom.cfg"
 }
 
@@ -70,7 +70,7 @@ case "${1:-}" in
   set)
     shift
     for kv in "$@"; do
-      [[ $kv =~ ^sloth_[a-z_]+=[01]$ ]] || { echo "Rossz érték: $kv" >&2; exit 2; }
+      [[ $kv =~ ^sloth_[a-z_]+=[01]$ ]] || { echo "Bad value: $kv" >&2; exit 2; }
     done
     with_esp set_values "$@"
     ;;
@@ -79,8 +79,8 @@ case "${1:-}" in
     ;;
   set-title)
     title=${2:-}
-    # a GRUB menüpont felirata: egy sor, idézőjel, dollár és visszaper nélkül
-    [[ -n $title && ${#title} -le 80 && $title != *[\"\$\\\`]* && $title != *$'\n'* ]] || { echo "Rossz felirat" >&2; exit 2; }
+    # the GRUB menu entry's label: one line, without quotes, dollar signs and backslashes
+    [[ -n $title && ${#title} -le 80 && $title != *[\"\$\\\`]* && $title != *$'\n'* ]] || { echo "Bad label" >&2; exit 2; }
     with_esp sh -c 'env="$ESP/EFI/fedora/sloth-boot.env"; [ -f "$env" ] || exit 0
       grub2-editenv "$env" list | grep -qxF "sloth_reset_title=$1" || grub2-editenv "$env" set "sloth_reset_title=$1"' _ "$title"
     ;;
@@ -89,7 +89,7 @@ case "${1:-}" in
       if grub2-editenv "$env" list | grep -qx "sloth_reset=keep"; then grub2-editenv "$env" unset sloth_reset; echo keep; fi'
     ;;
   *)
-    echo "Használat: boot-env set KULCS=ÉRTÉK... | ensure-config | set-title SZÖVEG | take-reset" >&2
+    echo "Usage: boot-env set KEY=VALUE... | ensure-config | set-title TEXT | take-reset" >&2
     exit 2
     ;;
 esac

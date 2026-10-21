@@ -1,12 +1,12 @@
-"""Átköltözés Windowsról: a saját mappák (Asztal, Dokumentumok…) és a böngésző-könyvjelzők áthozása.
+"""Moving over from Windows: bringing over the user folders (Desktop, Documents…) and the browser bookmarks.
 
-A Windows-partíciót csak olvasásra csatoljuk (udisksctl, a rendszer jelszókérőjével, ha kell), és semmit nem írunk
-rá. A fájlok a Sloth OS megfelelő mappáiba kerülnek (xdg-user-dir); ami már ott van ugyanakkora méretben, az
-kimarad (így egy megszakított másolás folytatható), az azonos nevű, de más fájl „(Windows)” utótagot kap.
-A könyvjelzők (Chrome, Edge, Firefox) egy HTML-fájlba kerülnek az Asztalra; ezt bármelyik böngésző beolvassa.
-A OneDrive-mappát kihagyjuk: azt a Sloth Központ Felhőtárhely kártyáján lehet elérni.
+The Windows partition is only mounted read-only (udisksctl, with the system's password prompt if needed), and nothing
+is written to it. The files go into the matching Sloth OS folders (xdg-user-dir); whatever is already there with the
+same size is skipped (so an interrupted copy can continue), and a different file with the same name gets a "(Windows)" suffix.
+The bookmarks (Chrome, Edge, Firefox) go into an HTML file on the Desktop; any browser can import it.
+The OneDrive folder is skipped: it can be reached through the Cloud storage card in Sloth Center.
 
-Az Üdvözlő (sloth_welcome) használja; a Sloth Központ (Lemezek) az Üdvözlőt ezzel a lépéssel nyitja meg.
+Sloth Welcome (sloth_welcome) uses it; Sloth Center (Disks) opens Welcome with this step.
 """
 import html
 import json
@@ -18,7 +18,7 @@ import tempfile
 import time
 from pathlib import Path
 
-# A Windows-mappa neve -> az xdg-user-dir kulcsa
+# The Windows folder's name -> the xdg-user-dir key
 FOLDERS = {
     "desktop": ("Desktop", "DESKTOP"),
     "documents": ("Documents", "DOCUMENTS"),
@@ -29,8 +29,8 @@ FOLDERS = {
 }
 SKIP_USERS = {"public", "default", "default user", "all users", "defaultapppool", "wdagutilityaccount"}
 SKIP_FILES = {"desktop.ini", "thumbs.db"}
-SKIP_SUFFIXES = (".lnk",)       # Windows-parancsikonok: Linuxon nem működnek
-MIN_NTFS_BYTES = 10 * 1024**3   # ennél kisebb NTFS-partíció (pl. helyreállítási) nem Windows-rendszer
+SKIP_SUFFIXES = (".lnk",)       # Windows shortcuts: they do not work on Linux
+MIN_NTFS_BYTES = 10 * 1024**3   # a smaller NTFS partition (e.g. recovery) is not a Windows system
 CHROMIUM_BROWSERS = {
     "Google Chrome": "AppData/Local/Google/Chrome/User Data",
     "Microsoft Edge": "AppData/Local/Microsoft/Edge/User Data",
@@ -38,10 +38,10 @@ CHROMIUM_BROWSERS = {
 FIREFOX_PROFILES = "AppData/Roaming/Mozilla/Firefox/Profiles"
 
 
-# --- Partíciók ---------------------------------------------------------------------------------------
+# --- Partitions ---------------------------------------------------------------------------------------
 
 def candidates():
-    """A gépen lévő lehetséges Windows-partíciók (csatolás nélkül): [{device, label, size, locked}]"""
+    """The possible Windows partitions on the machine (without mounting): [{device, label, size, locked}]"""
     try:
         out = subprocess.run(["lsblk", "-J", "-b", "-o", "PATH,FSTYPE,LABEL,SIZE,TYPE"],
                              capture_output=True, text=True, timeout=20).stdout
@@ -67,7 +67,7 @@ def _mountpoint(device):
 
 
 def mount(device):
-    """Csak olvasható csatolás. -> (csatolási pont, mi csatoltuk-e); hiba esetén (None, False)"""
+    """A read-only mount. -> (mount point, whether we mounted it); on error (None, False)"""
     current = _mountpoint(device)
     if current:
         return current, False
@@ -80,11 +80,11 @@ def unmount(device):
     subprocess.run(["udisksctl", "unmount", "-b", device], capture_output=True, timeout=60)
 
 
-# --- Felmérés ------------------------------------------------------------------------------------------
+# --- Survey ------------------------------------------------------------------------------------------
 
 def _size(path):
     total = 0
-    for root, dirs, files in os.walk(path):  # a szimbolikus linkeket (NTFS junction) nem követjük
+    for root, dirs, files in os.walk(path):  # symbolic links (NTFS junctions) are not followed
         for name in files:
             p = os.path.join(root, name)
             if name.lower() in SKIP_FILES or name.lower().endswith(SKIP_SUFFIXES) or os.path.islink(p):
@@ -97,7 +97,7 @@ def _size(path):
 
 
 def users(mnt):
-    """A Windows felhasználói és a mappáik mérete. -> [] ha ez nem Windows-partíció"""
+    """The Windows users and the sizes of their folders. -> [] if this is not a Windows partition"""
     root = Path(mnt)
     if not (root / "Windows" / "System32").is_dir() or not (root / "Users").is_dir():
         return []
@@ -113,7 +113,7 @@ def users(mnt):
     return result
 
 
-# --- Másolás -------------------------------------------------------------------------------------------
+# --- Copying -------------------------------------------------------------------------------------------
 
 def target_dir(key):
     xdg = FOLDERS[key][1]
@@ -127,7 +127,7 @@ def target_dir(key):
 
 
 def _already_copied(dest, size):
-    """Ott van-e már ez a fájl: ugyanazon a néven, vagy egy korábbi másolásból „(Windows)” utótaggal."""
+    """Whether this file is already there: under the same name, or with a "(Windows)" suffix from an earlier copy."""
     if dest.exists() and dest.stat().st_size == size:
         return True
     return any(p.stat().st_size == size for p in dest.parent.glob(f"{_glob_escape(dest.stem)} (Windows*){_glob_escape(dest.suffix)}")
@@ -150,9 +150,9 @@ def _free_name(dest):
 
 
 def copy(home, keys, on_progress=lambda done, total, name: None, cancelled=lambda: False):
-    """A kiválasztott mappák másolása. -> {"copied": db, "skipped": db, "failed": [útvonal], "bytes": bájt}
+    """Copies the chosen folders. -> {"copied": count, "skipped": count, "failed": [path], "bytes": bytes}
 
-    Ami már ott van ugyanakkora méretben, kimarad; a más tartalmú, azonos nevű fájl „(Windows)” utótagot kap.
+    Whatever is already there with the same size is skipped; a file with the same name but other contents gets a "(Windows)" suffix.
     """
     home = Path(home)
     plan = []
@@ -198,7 +198,7 @@ def copy(home, keys, on_progress=lambda done, total, name: None, cancelled=lambd
     return stats
 
 
-# --- Könyvjelzők ---------------------------------------------------------------------------------------
+# --- Bookmarks ---------------------------------------------------------------------------------------
 
 def _bookmark_sources(home):
     found = []
@@ -223,7 +223,7 @@ def _chromium_tree(path):
 
 
 def _firefox_tree(path):
-    # a böngésző zárolhatja a fájlt: egy másolatból olvasunk
+    # the browser may lock the file: we read from a copy
     with tempfile.TemporaryDirectory() as tmp:
         copy_path = Path(tmp) / "places.sqlite"
         shutil.copyfile(path, copy_path)
@@ -244,7 +244,7 @@ def _firefox_tree(path):
                 items.append(build(cid, ctitle))
         return {"title": title, "children": items}
 
-    # 1 = gyökér; alatta a menü, az eszköztár és az egyéb könyvjelzők mappája (belső nevekkel)
+    # 1 = root; below it the menu, the toolbar and the other bookmarks' folders (with internal names)
     names = {"menu": "Bookmarks Menu", "toolbar": "Bookmarks Toolbar", "unfiled": "Other Bookmarks",
              "mobile": "Mobile Bookmarks"}
     return [build(cid, names.get(ctitle, ctitle)) for cid, kind, ctitle, _u in children.get(1, []) if kind == 2]
@@ -264,7 +264,7 @@ def _html(nodes, depth=1):
 
 
 def export_bookmarks(home, dest):
-    """A Windows-böngészők könyvjelzői egy HTML-fájlba (Netscape-formátum). -> a könyvjelzők száma"""
+    """The Windows browsers' bookmarks into one HTML file (Netscape format). -> the number of bookmarks"""
     folders = []
     for browser, kind, path in _bookmark_sources(Path(home)):
         try:

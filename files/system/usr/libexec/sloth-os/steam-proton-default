@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""Bekapcsolja a Steamben a Protont minden játékra ("Steam Play minden más címhez").
+"""Turns Proton on in Steam for every game ("Steam Play for all other titles").
 
-Bejelentkezéskor fut (sloth-steam-proton-default.service, felhasználói szolgáltatás).
-A Steam config.vdf fájljába beírja a CompatToolMapping "0" bejegyzést, ami a
-Steam beállításaiban a "Steam Play engedélyezése minden más címhez" kapcsoló.
+It runs at login (sloth-steam-proton-default.service, a user service).
+It writes the CompatToolMapping "0" entry into Steam's config.vdf, which is the
+"Enable Steam Play for all other titles" switch in Steam's settings.
 
-- Csak egyszer állítja be: utána egy jelzőfájl miatt nem nyúl hozzá, így ha a
-  felhasználó kikapcsolja, az úgy marad.
-- Ha a Steam fut, nem csinál semmit (kilépéskor felülírná a config.vdf-et);
-  a következő bejelentkezéskor újra próbálja.
-- Ha a felhasználó már beállított valamit, azt nem írja felül.
+- It sets it only once: afterwards a marker file keeps it from touching it, so if the
+  user turns it off, it stays that way.
+- If Steam is running, it does nothing (Steam would overwrite config.vdf on exit);
+  it tries again at the next login.
+- If the user has already set something, it does not overwrite it.
 """
 import os
 import subprocess
@@ -17,7 +17,7 @@ import sys
 from pathlib import Path
 
 STEAM_APP = "com.valvesoftware.Steam"
-# A "proton_experimental" név nem változik a Proton-verziókkal, így nem avul el.
+# The name "proton_experimental" does not change with Proton versions, so it does not go out of date.
 DEFAULT_TOOL = "proton_experimental"
 
 HOME = Path.home()
@@ -26,7 +26,7 @@ STATE_DIR = Path(os.environ.get("XDG_STATE_HOME", HOME / ".local/state")) / "slo
 MARKER = STATE_DIR / "steam-proton-default.done"
 
 
-# --- Minimális VDF (Valve KeyValues) olvasó/író, sorrendtartó ---------------
+# --- A minimal VDF (Valve KeyValues) reader/writer that keeps the order ---------------
 
 def tokenize(text):
     i, n = 0, len(text)
@@ -60,7 +60,7 @@ def tokenize(text):
 
 
 def parse(text):
-    """Egy listát ad vissza: [(kulcs, érték)], ahol az érték str vagy ilyen lista."""
+    """Returns a list: [(key, value)], where the value is a str or such a list."""
     tokens = list(tokenize(text))
     pos = 0
 
@@ -73,7 +73,7 @@ def parse(text):
                 pos += 1
                 return items
             if tok == "{":
-                raise ValueError("váratlan '{'")
+                raise ValueError("unexpected '{'")
             key = tok[1]
             pos += 1
             nxt = tokens[pos]
@@ -100,7 +100,7 @@ def dump(items, depth=0):
 
 
 def child(items, key, create=False):
-    """Kis-nagybetű-független keresés (a Steam is így olvassa)."""
+    """Case-insensitive lookup (Steam reads it like that too)."""
     for k, v in items:
         if k.lower() == key.lower() and isinstance(v, list):
             return v
@@ -131,10 +131,10 @@ def main():
     if MARKER.exists():
         return 0
     if not steam_installed():
-        print("A Steam nincs telepítve, nincs teendő.")
+        print("Steam is not installed, nothing to do.")
         return 0
     if steam_running():
-        print("A Steam fut, a következő bejelentkezéskor újra próbálom.")
+        print("Steam is running, trying again at the next login.")
         return 0
 
     items = parse(CONFIG.read_text(encoding="utf-8", errors="replace")) if CONFIG.exists() else []
@@ -150,9 +150,9 @@ def main():
         tmp = CONFIG.with_suffix(".vdf.tmp")
         tmp.write_text(dump(items), encoding="utf-8")
         tmp.replace(CONFIG)
-        print(f"Steam Play bekapcsolva minden játékra ({DEFAULT_TOOL}).")
+        print(f"Steam Play turned on for every game ({DEFAULT_TOOL}).")
     else:
-        print("A Steam Play már be van állítva, nem nyúlok hozzá.")
+        print("Steam Play is already set, not touching it.")
 
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     MARKER.touch()

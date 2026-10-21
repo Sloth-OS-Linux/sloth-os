@@ -1,11 +1,11 @@
-"""Vékony aszinkron kliens az rpm-ostree rendszerszolgáltatás D-Bus felületéhez.
+"""A thin asynchronous client for the D-Bus interface of the rpm-ostree system service.
 
-Parancssort nem futtatunk: minden a D-Bus API-n megy, ami folyamatjelzést
-(százalék, éppen futó lépés, letöltött adat) is ad. A jogosultságot igénylő
-hívásoknál a polkit grafikus jelszókérő ablakot mutat.
+We do not run command lines: everything goes through the D-Bus API, which also gives progress
+(percentage, the step running now, downloaded data). For calls that need permission,
+polkit shows a graphical password window.
 
-A GLib callbackek a Qt eseményhurkában futnak (a Qt Linuxon a GLib
-eseménykezelőjét használja), így nincs szükség külön szálra.
+The GLib callbacks run in Qt's event loop (on Linux Qt uses GLib's
+event dispatcher), so no separate thread is needed.
 """
 from gi.repository import Gio, GLib
 
@@ -15,7 +15,7 @@ SYSROOT_IFACE = BUS_NAME + ".Sysroot"
 OS_IFACE = BUS_NAME + ".OS"
 TXN_IFACE = BUS_NAME + ".Transaction"
 
-# A polkit jelszókérő ablak miatt a hívás sokáig tarthat
+# Because of polkit's password window the call may take long
 CALL_TIMEOUT_MS = GLib.MAXINT
 INTERACTIVE = Gio.DBusCallFlags.ALLOW_INTERACTIVE_AUTHORIZATION
 
@@ -34,7 +34,7 @@ def _asv(d):
 
 
 class Transaction:
-    """Egy futó rpm-ostree tranzakció: privát D-Bus kapcsolat, jelzések."""
+    """A running rpm-ostree transaction: a private D-Bus connection, signals."""
 
     def __init__(self, address, on_task, on_percent, on_download, on_finished):
         self._on_task = on_task
@@ -72,7 +72,7 @@ class Transaction:
             self._on_task(args[0])
             self._on_percent(int(args[1]))
         elif name == "DownloadProgress":
-            # transfer: (letöltött bájtok, bájt/mp)
+            # transfer: (downloaded bytes, bytes/s)
             transferred, rate = args[5]
             self._on_download(int(transferred), int(rate))
         elif name == "Finished":
@@ -80,10 +80,10 @@ class Transaction:
             self._on_finished(bool(args[0]), args[1])
 
     def _close(self):
-        """A tranzakció végén bontjuk a kapcsolatot, ahogy az rpm-ostree parancs is. Ha nyitva marad, a
-        szolgáltatás 30 mp múlva erővel lezárja („Forcibly closing transaction due to timeout”), és az ekkor
-        induló újabb művelet (pl. egy frissítés) összeomolhat (2026-10-20, valódi gépen: rpm-ostree core dump
-        a deploy_transaction_execute-ban, a letöltés megszakadt)."""
+        """We close the connection at the end of the transaction, as the rpm-ostree command does too. If it stays open,
+        the service forcibly closes it after 30 s ("Forcibly closing transaction due to timeout"), and a new operation
+        starting right then (e.g. an update) may crash (2026-10-20, real machine: rpm-ostree core dump
+        in deploy_transaction_execute, the download was interrupted)."""
         if not self._conn:
             return
         conn, self._conn = self._conn, None
@@ -109,12 +109,12 @@ class RpmOstree:
         self.os = Gio.DBusProxy.new_sync(
             self.bus, Gio.DBusProxyFlags.NONE, None, BUS_NAME, os_path, OS_IFACE, None)
 
-    # --- Állapot -----------------------------------------------------------
+    # --- State -----------------------------------------------------------
 
     def _prop(self, proxy, name, default=None):
-        """Mindig a szolgáltatástól kérdezzük, nem a proxy gyorsítótárából: a gyorsítótár csak a
-        PropertiesChanged jelzéssel frissül, ami egy keresés / frissítés vége után késve vagy nem jött meg, így a
-        Központ újranyitásáig a régi állapotot mutatta („nincs frissítés”, hiányzó újraindítás)."""
+        """Always asks the service, not the proxy's cache: the cache only updates with the
+        PropertiesChanged signal, which after a check / update came late or not at all, so until
+        Sloth Center was reopened it showed the old state ("no update", a missing restart)."""
         try:
             v = proxy.call_sync("org.freedesktop.DBus.Properties.Get",
                                 GLib.Variant("(ss)", (proxy.get_interface_name(), name)),
@@ -137,7 +137,7 @@ class RpmOstree:
         return self._prop(self.os, "RollbackDeployment", {})
 
     def deployments(self):
-        """Az összes telepített verzió, az ostree sorrendjében (a pin index ehhez igazodik)."""
+        """Every installed version, in ostree's order (the pin index follows it)."""
         return self._prop(self.sysroot, "Deployments", []) or []
 
     def cached_update(self):
@@ -147,11 +147,11 @@ class RpmOstree:
         return self._prop(self.sysroot, "ActiveTransactionPath", "")
 
     def connect_changed(self, callback):
-        """A callback meghívódik, ha a rendszer állapota változik (pl. a háttérben frissült)."""
+        """The callback is called when the system's state changes (e.g. it updated in the background)."""
         self.sysroot.connect("g-properties-changed", lambda *a: callback())
         self.os.connect("g-properties-changed", lambda *a: callback())
 
-    # --- Műveletek (mind tranzakciót indít, a címet adja vissza) -----------
+    # --- Operations (each starts a transaction and returns its address) -----------
 
     def _start(self, method, params, out_type, on_address, on_error):
         def done(proxy, res):
@@ -164,14 +164,14 @@ class RpmOstree:
         self.os.call(method, params, INTERACTIVE, CALL_TIMEOUT_MS, None, done)
 
     def check_update(self, on_address, on_error):
-        # Mint az "rpm-ostree upgrade --check": csak megnézi, van-e új verzió
+        # Like "rpm-ostree upgrade --check": only checks whether there is a new version
         self._start("AutomaticUpdateTrigger",
                     GLib.Variant("(a{sv})", (_asv({"mode": "check", "output-to-self": False}),)),
                     "(bs)", on_address, on_error)
 
     def upgrade(self, on_address, on_error):
         self._start("UpdateDeployment",
-                    GLib.Variant("(a{sv}a{sv})", ({}, _asv({"initiating-command-line": "Sloth Központ: frissítés"}))),
+                    GLib.Variant("(a{sv}a{sv})", ({}, _asv({"initiating-command-line": "Sloth Center: update"}))),
                     "(s)", on_address, on_error)
 
     def rollback(self, on_address, on_error):
@@ -179,12 +179,12 @@ class RpmOstree:
                     "(s)", on_address, on_error)
 
     def rebase(self, refspec, on_address, on_error):
-        """Váltás másik image-re (pl. NVIDIA-s változat). A csomagrétegek megmaradnak."""
+        """Switches to another image (e.g. the NVIDIA version). The package layers stay."""
         self._start("Rebase", GLib.Variant("(a{sv}sas)", (_asv({"reboot": False}), refspec, [])),
                     "(s)", on_address, on_error)
 
     def kernel_args_string(self):
-        """A következő indításkor használt kernelparaméterek (egy szövegként)."""
+        """The kernel parameters used at the next start (as one text)."""
         try:
             cfg = self.os.call_sync("GetDeploymentBootConfig", GLib.Variant("(sb)", ("", False)),
                                     Gio.DBusCallFlags.NONE, -1, None).unpack()[0]
@@ -195,7 +195,7 @@ class RpmOstree:
     def set_kernel_args(self, added, removed, on_address, on_error):
         existing = self.kernel_args_string()
         self._start("KernelArgs", GLib.Variant("(sasasasa{sv})", (existing, added, [], removed,
-                    _asv({"initiating-command-line": "Sloth Központ: kernelparaméterek"}))),
+                    _asv({"initiating-command-line": "Sloth Center: kernel parameters"}))),
                     "(s)", on_address, on_error)
 
     def layered_packages(self):

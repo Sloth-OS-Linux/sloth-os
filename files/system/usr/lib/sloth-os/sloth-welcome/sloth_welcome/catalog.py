@@ -1,21 +1,21 @@
-"""A varázslóban felkínált appok. Alapból semmi nincs kiválasztva: a felhasználó dönt.
+"""The apps offered in the wizard. Nothing is selected by default: the user decides.
 
-A kategóriák neve és leírása, valamint az appok rövid leírása a fordításokban van
-(translations/<nyelv>.json: "category.<id>.name", "category.<id>.hint", "app.<id>").
-Az appok neve márkanév, azt nem fordítjuk.
+The categories' names and descriptions, and the apps' short descriptions are in the translations
+(translations/<language>.json: "category.<id>.name", "category.<id>.hint", "app.<id>").
+The apps' names are brand names, we do not translate them.
 
-Minden app Flatpak a Flathubról, kivéve ahol `source` mást mond. Az ikonok
-helyben vannak (/usr/share/sloth-os/welcome/icons/<id>.png), így a lista
-internet nélkül is rendesen néz ki.
+Every app is a Flatpak from Flathub, except where `source` says otherwise. The icons
+are local (/usr/share/sloth-os/welcome/icons/<id>.png), so the list
+looks right without internet too.
 
-Új app felvétele előtt ellenőrizd, hogy létezik-e a Flathubon:
+Before adding a new app, check that it exists on Flathub:
   https://flathub.org/api/v2/appstream/<id>
 """
 
-# source: "flathub" (alapértelmezett), "github-bundle" (Flatpak csomag egy GitHub kiadásból), "system": már a
-# rendszerben van, csak be kell kapcsolni (a "switch" script "on" paraméterrel; pl. a KDE Connect nincs a Flathubon),
-# vagy "windows": Windows-program (pl. játékindító), amelynek hivatalos telepítőjét ("url", mentve "file" néven) a
-# varázsló letölti; a telepítés a varázsló bezárása után következik, egyesével, az .exe kezelőben (sloth-exe --queued)
+# source: "flathub" (default), "github-bundle" (a Flatpak package from a GitHub release), "system": already in the
+# system, it only needs turning on (the "switch" script with the "on" argument; e.g. KDE Connect is not on Flathub),
+# or "windows": a Windows program (e.g. a game launcher) whose official installer ("url", saved as "file") the
+# wizard downloads; installing comes after the wizard closes, one by one, in the .exe handler (sloth-exe --queued)
 CATEGORIES = [
     {
         "id": "browser", "icon": "internet-web-browser",
@@ -78,16 +78,16 @@ CATEGORIES = [
         "id": "games", "icon": "applications-games",
         "apps": [
             {"id": "com.valvesoftware.Steam", "name": "Steam"},
-            # Az Epic Games és a GOG játékaihoz a Heroic (Linuxra készült indító) a hivatalos Windowsos indítók helyett:
-            # az Epic új telepítőjének aláírás-ellenőrzése Wine alatt elbukik, a GOG Galaxy sem fut megbízhatóan
-            # (2026-10-20). Aki mégis letölti a Windowsos telepítőt, annak az .exe kezelő is a Heroicot ajánlja
+            # For Epic Games and GOG games Heroic (a launcher made for Linux) instead of the official Windows launchers:
+            # the new Epic installer's signature check fails under Wine, and GOG Galaxy does not run reliably either
+            # (2026-10-20). Whoever downloads the Windows installer anyway gets Heroic recommended by the .exe handler too
             # (sloth_common.apps.native)
             {"id": "com.heroicgameslauncher.hgl", "name": "Heroic"},
             {"id": "org.prismlauncher.PrismLauncher", "name": "Prism Launcher"},
             {"id": "net.lutris.Lutris", "name": "Lutris"},
             {"id": "io.itch.itch", "name": "itch"},
             {"id": "org.libretro.RetroArch", "name": "RetroArch"},
-            # Windows-os játékindítók: a hivatalos telepítő, a varázsló után telepítve (az ikonok a gyártóké, NOTICE)
+            # Windows game launchers: the official installer, installed after the wizard (the icons are the vendors', NOTICE)
             {"id": "win.battlenet", "name": "Battle.net", "source": "windows", "file": "Battle.net-Setup.exe",
              "url": "https://www.battle.net/download/getInstallerForGame?os=win&gameProgram=BATTLENET_APP&version=Live"},
             {"id": "win.ea", "name": "EA app", "source": "windows", "file": "EAappInstaller.exe",

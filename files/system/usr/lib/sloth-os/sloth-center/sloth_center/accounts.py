@@ -1,10 +1,10 @@
-"""Fiók és biztonság: mihez kérjen jelszót a rendszer, automatikus bejelentkezés, sudo,
-bejelentkezési módok (ujjlenyomat, biztonsági kulcs, céges fiók) a gép hardvere alapján.
+"""Account and security: what the system asks a password for, automatic login, sudo,
+sign-in methods (fingerprint, security key, work account) based on the machine's hardware.
 
-A beállítás témakörönként történik (programok telepítése, frissítés, …). A mentést a
-sloth-helper végzi (admin-policy): polkit-szabályt, sudoers- és bejelentkezési beállítást ír,
-mindig csak a hívó felhasználóra. Az állapotot a /etc/sloth-os/admin-policy.json-ból olvassuk
-(jelszó nélkül olvasható, titkot nem tartalmaz).
+The setting is per topic (installing programs, updating, …). Saving is done by
+sloth-helper (admin-policy): it writes a polkit rule, sudoers and login settings,
+always only for the calling user. The state is read from /etc/sloth-os/admin-policy.json
+(readable without a password, contains no secret).
 """
 import getpass
 import grp
@@ -26,7 +26,7 @@ log = logging.getLogger("sloth-center.accounts")
 HELPER = "/usr/libexec/sloth-os/sloth-helper"
 POLICY = "/etc/sloth-os/admin-policy.json"
 
-# (azonosító, név, leírás, alapból védett-e). Az azonosítók a sloth-helper TOPICS kulcsai.
+# (ID, name, description, protected by default). The IDs are the keys of sloth-helper's TOPICS.
 TOPICS = [
     ("software", N_("Installing and removing programs"), N_("Apps from Discover and Sloth Welcome."), False),
     ("updates", N_("System updates"), N_("Installing updates, going back to an earlier version."), False),
@@ -45,7 +45,7 @@ UDEV_DATA = Path("/run/udev/data")
 
 
 def _fingerprint_reader():
-    """Van-e ujjlenyomat-olvasó (az fprintd szerint)."""
+    """Whether there is a fingerprint reader (according to fprintd)."""
     try:
         bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
         devices = bus.call_sync("net.reactivated.Fprint", "/net/reactivated/Fprint/Manager",
@@ -57,7 +57,7 @@ def _fingerprint_reader():
 
 
 def _security_key_present():
-    """Be van-e dugva FIDO2 biztonsági kulcs (az udev ID_FIDO_TOKEN jelölése alapján)."""
+    """Whether a FIDO2 security key is plugged in (based on udev's ID_FIDO_TOKEN marker)."""
     for dev in Path("/sys/class/hidraw").glob("hidraw*"):
         try:
             number = (dev / "dev").read_text().strip()
@@ -69,7 +69,7 @@ def _security_key_present():
 
 
 def _ir_camera():
-    """Infrakamera (a Windows Hello-szerű arcfelismeréshez kellene)."""
+    """An infrared camera (it would be needed for Windows Hello-like face recognition)."""
     for dev in Path("/sys/class/video4linux").glob("video*"):
         try:
             name = (dev / "name").read_text().lower()
@@ -81,7 +81,7 @@ def _ir_camera():
 
 
 def _login_features():
-    """A bekapcsolt authselect-funkciók (pl. "with-fingerprint")."""
+    """The enabled authselect features (e.g. "with-fingerprint")."""
     try:
         r = subprocess.run(["authselect", "current", "--raw"], capture_output=True, text=True, timeout=15)
     except (OSError, subprocess.SubprocessError):
@@ -106,14 +106,14 @@ class AccountsController(QObject):
         super().__init__(parent)
         self._user = getpass.getuser()
         self._admin = False
-        self._free = []         # témakörök, amelyekhez nem kell jelszó
+        self._free = []         # topics that need no password
         self._sudo = False
         self._autologin = False
         self._error = ""
         self._info = ""
         self._methods = []
         self._domain = ""
-        self._busy = ""         # "securitykey" (kulcs felvétele), "domain" (csatlakozás) vagy ""
+        self._busy = ""         # "securitykey" (enrolling a key), "domain" (joining) or ""
         self._enroll_done.connect(self._on_enrolled)
         self._join_done.connect(self._on_joined)
         self.refresh()
@@ -135,7 +135,7 @@ class AccountsController(QObject):
 
     @Property(str, notify=changed)
     def preset(self):
-        """"all" (mindenhez kell jelszó), "recommended" (csak a fontosakhoz) vagy "custom"."""
+        """"all" (a password for everything), "recommended" (only for the important things) or "custom"."""
         if not self._free:
             return "all"
         return "recommended" if sorted(self._free) == sorted(RECOMMENDED) else "custom"
@@ -158,7 +158,7 @@ class AccountsController(QObject):
         self.changed.emit()
 
     def _login_methods(self):
-        """A gépen elérhető bejelentkezési módok: csak az látszik, amihez megvan a hardver."""
+        """The sign-in methods available on the machine: only what the hardware supports is shown."""
         features = _login_features()
         out = []
         if _fingerprint_reader():
@@ -209,7 +209,7 @@ class AccountsController(QObject):
 
     @Slot(str, str)
     def setPin(self, pin, pin2):
-        """PIN-kód beállítása vagy cseréje a saját fióknak (4–8 számjegy)."""
+        """Sets or changes the PIN of your own account (4–8 digits)."""
         self._error, self._info = "", ""
         if not re.fullmatch(r"\d{4,8}", pin):
             self._error = tr("The PIN must be 4–8 digits.")
@@ -236,7 +236,7 @@ class AccountsController(QObject):
 
     @Slot()
     def enrollSecurityKey(self):
-        """Kulcs felvétele: a pamu2fcfg megvárja, hogy a felhasználó megérintse a kulcsot."""
+        """Enrolling a key: pamu2fcfg waits for the user to touch the key."""
         if self._busy:
             return
         self._busy, self._error, self._info = "securitykey", "", ""
@@ -244,7 +244,7 @@ class AccountsController(QObject):
         existing = U2F_KEYS.read_text().strip() if U2F_KEYS.exists() else ""
 
         def work():
-            # Ha már van kulcs, a -n csak a kulcs adatait adja (a sor végére fűzzük)
+            # If there is a key already, -n gives only the key's data (we append it to the line)
             cmd = ["pamu2fcfg"] + (["-n"] if existing else [])
             try:
                 r = subprocess.run(cmd, capture_output=True, text=True, timeout=90)
@@ -269,7 +269,7 @@ class AccountsController(QObject):
 
     @Slot(str, str, str)
     def joinDomain(self, domain, admin, password):
-        """Csatlakozás céges (Active Directory) tartományhoz; a jelszót csak a realm kapja meg."""
+        """Joins a work (Active Directory) domain; only realm gets the password."""
         if self._busy:
             return
         self._busy, self._error, self._info = "domain", "", ""
@@ -341,7 +341,7 @@ class AccountsController(QObject):
 
     @Slot()
     def openUsers(self):
-        """A KDE Felhasználók beállítása: jelszó, rendszergazdai jog, új fiók."""
+        """KDE's Users settings: password, administrator rights, new account."""
         try:
             subprocess.Popen(["systemsettings", "kcm_users"])
         except OSError as e:

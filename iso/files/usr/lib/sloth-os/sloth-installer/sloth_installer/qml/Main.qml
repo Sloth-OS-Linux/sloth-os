@@ -1,6 +1,6 @@
-// Sloth OS telepítő: nyelv -> billentyűzet és időzóna -> lemez -> megerősítés -> telepítés -> kész.
-// Az adatok a Python oldali `installer` objektumból jönnek, a szövegek a fordításokból
-// (sloth_installer/translations/<nyelv>.json) a t() függvényen keresztül.
+// Sloth OS installer: language -> keyboard and time zone -> disk -> confirmation -> installing -> done.
+// The data comes from the Python side's `installer` object, the texts from the translations
+// (sloth_installer/translations/<language>.json) through the t() function.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -12,8 +12,8 @@ Kirigami.ApplicationWindow {
     id: root
     title: t("app.title")
     visible: true
-    // Teljes képernyő, mint a Windows telepítője: indításkor ez az első, amit a felhasználó lát
-    // (Kipróbálom / Telepítem); az asztal csak a "Kipróbálom" után látszik.
+    // Full screen, like the Windows installer: at startup this is the first thing the user sees
+    // (Try / Install); the desktop only shows after "Try".
     visibility: Window.FullScreen
     width: Kirigami.Units.gridUnit * 60
     height: Kirigami.Units.gridUnit * 40
@@ -35,7 +35,7 @@ Kirigami.ApplicationWindow {
         return text;
     }
 
-    // A lemez neve és fajtája, pl. "Samsung SSD 980 · NVMe SSD"
+    // The disk's name and kind, e.g. "Samsung SSD 980 · NVMe SSD"
     function diskName(d) {
         if (!d || !d.path)
             return "";
@@ -48,11 +48,11 @@ Kirigami.ApplicationWindow {
         return d.model + (kinds[d.kind] ? "  ·  " + kinds[d.kind] : "");
     }
 
-    // Lapváltáskor a fókusz az elsődleges gombra kerül, hogy billentyűzettel (Enter) is lehessen haladni
+    // On a page change the focus goes to the primary button, so one can move on with the keyboard (Enter) too
     property string shownPage: ""
     Connections {
         target: installer
-        // a Python oldalon minden tulajdonság a közös "changed" jelzéssel frissül
+        // on the Python side every property updates with the shared "changed" signal
         function onChanged() {
             if (installer.page !== root.shownPage) {
                 root.shownPage = installer.page;
@@ -74,7 +74,7 @@ Kirigami.ApplicationWindow {
     }
     Component.onCompleted: focusTimer.start()
 
-    // Telepítés közben ne lehessen bezárni
+    // It must not be possible to close it while installing
     onClosing: close => close.accepted = installer.page !== "install"
 
     pageStack.initialPage: Kirigami.Page {
@@ -85,7 +85,7 @@ Kirigami.ApplicationWindow {
             anchors.fill: parent
             currentIndex: root.pages.indexOf(installer.page)
 
-            // --- Üdvözlés és nyelv -------------------------------------------------
+            // --- Welcome and language -------------------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -151,7 +151,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- Billentyűzet és időzóna ---------------------------------------------
+            // --- Keyboard and time zone ---------------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -208,7 +208,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- Fiók (első induláskor a telepített rendszer hozza létre) --------------------
+            // --- Account (created by the installed system on first boot) --------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -248,7 +248,7 @@ Kirigami.ApplicationWindow {
                             text: installer.username
                             onTextEdited: { installer.setUsername(text); accountError.text = ""; }
                         }
-                        // a Kirigami saját „Password” helykitöltője a telepítő nyelvváltását nem követi; a címke elég
+                        // Kirigami's own "Password" placeholder does not follow the installer's language change; the label is enough
                         Kirigami.PasswordField {
                             id: passwordField
                             placeholderText: ""
@@ -302,7 +302,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- Lemez kiválasztása ----------------------------------------------------
+            // --- Choosing the disk ----------------------------------------------------
             ColumnLayout {
                 spacing: 0
                 QQC2.ScrollView {
@@ -403,7 +403,7 @@ Kirigami.ApplicationWindow {
                                     }
                                     QQC2.RadioButton {
                                         Layout.rightMargin: Kirigami.Units.largeSpacing
-                                        focusPolicy: Qt.NoFocus   // a kártya maga kapja a fókuszt
+                                        focusPolicy: Qt.NoFocus   // the card itself gets the focus
                                         checked: diskCard.chosen
                                         enabled: diskCard.enabled
                                         onClicked: installer.selectDisk(diskCard.modelData.path)
@@ -412,7 +412,7 @@ Kirigami.ApplicationWindow {
                                 }
                             }
                         }
-                        // Windows mellé vagy az egész lemez (csak Windowsos lemeznél)
+                        // Next to Windows or the whole disk (only for a disk with Windows)
                         ColumnLayout {
                             Layout.fillWidth: true
                             visible: installer.diskInfo.contents === "windows"
@@ -470,7 +470,7 @@ Kirigami.ApplicationWindow {
                                       ? root.t("disk.beside." + installer.besideInfo.problems[0]) : ""
                             }
                         }
-                        // Lemeztitkosítás (LUKS2): alapból a fiók jelszavával
+                        // Disk encryption (LUKS2): by default with the account's password
                         ColumnLayout {
                             Layout.fillWidth: true
                             visible: installer.disk !== ""
@@ -544,7 +544,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- Megerősítés ---------------------------------------------------------
+            // --- Confirmation ---------------------------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -628,7 +628,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- Telepítés -----------------------------------------------------------
+            // --- Installing -----------------------------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -669,7 +669,7 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            // --- Kész ------------------------------------------------------------------
+            // --- Done ------------------------------------------------------------------
             Item {
                 ColumnLayout {
                     anchors.centerIn: parent
@@ -766,8 +766,8 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    // Vissza / Tovább gombsor a lépések alján. A „Tovább” nincs külön kiemelve: a kiemelés
-    // összetéveszthető volt a billentyűzetfókusszal, helyette lapváltáskor ez kapja a fókuszt.
+    // Back / Next button row at the bottom of the steps. "Next" is not highlighted separately: the highlight
+    // could be confused with the keyboard focus; instead it gets the focus on a page change.
     component NavRow: RowLayout {
         id: nav
         property bool nextEnabled: true
@@ -786,7 +786,7 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    // Jól látható fókuszkeret azokhoz az elemekhez, amelyeknél a stílus alig jelzi
+    // A clearly visible focus frame for the items whose style barely shows it
     component FocusFrame: Rectangle {
         anchors.fill: parent
         anchors.margins: -Kirigami.Units.smallSpacing

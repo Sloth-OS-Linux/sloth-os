@@ -1,11 +1,11 @@
-"""A .exe kezelő indítása.
+"""Starting the .exe handler.
 
-  sloth-exe <fájl>                    dupla kattintás egy Windows-programra (.exe, .msi), egy Linuxos
-                                      csomagra (AppImage, .deb, .rpm) vagy egy Mac-es fájlra
-  sloth-exe --launch <program> <exe>  Start menü bejegyzésből (exe: a program környezetéhez képest)
-  sloth-exe --run <program> [fájlok]  telepített AppImage indítása (Qt nélkül, azonnal)
-  sloth-exe --shortcuts <program>     Start menü bejegyzések szerkesztése (a Sloth Központból)
-  sloth-exe --maintenance             háttérkarbantartás (sloth-windows-prepare)
+  sloth-exe <file>                    double-click on a Windows program (.exe, .msi), a Linux
+                                      package (AppImage, .deb, .rpm) or a Mac file
+  sloth-exe --launch <program> <exe>  from a Start menu entry (exe: relative to the program's environment)
+  sloth-exe --run <program> [files]   starts an installed AppImage (without Qt, at once)
+  sloth-exe --shortcuts <program>     edits the Start menu entries (from Sloth Center)
+  sloth-exe --maintenance             background maintenance (sloth-windows-prepare)
 """
 import argparse
 import logging
@@ -20,17 +20,17 @@ def main():
     parser = argparse.ArgumentParser(prog="sloth-exe")
     parser.add_argument("file", nargs="?")
     parser.add_argument("--launch", nargs=2, metavar=("PROGRAM", "EXE"))
-    parser.add_argument("--shortcuts", metavar="PROGRAM", help="Start menü bejegyzések szerkesztése")
-    parser.add_argument("--run", metavar="PROGRAM", help="telepített AppImage indítása")
+    parser.add_argument("--shortcuts", metavar="PROGRAM", help="edit the Start menu entries")
+    parser.add_argument("--run", metavar="PROGRAM", help="start an installed AppImage")
     parser.add_argument("--queued", action="store_true",
-                        help="a Sloth Üdvözlő telepítési sorából: a telepítés rögtön indul, és az „Indítás” külön "
-                             "folyamatban indítja a programot, így a sor a következő telepítővel folytatódhat")
+                        help="from Sloth Welcome's install queue: the install starts at once, and \"Start\" runs the "
+                             "program in a separate process, so the queue can go on with the next installer")
     parser.add_argument("--maintenance", action="store_true",
-                        help="háttérkarbantartás (sloth-windows-prepare): átköltözés az új helyre, "
-                             "AppImage-ek frissítése, régi Proton-verziók törlése, jelentések küldése")
+                        help="background maintenance (sloth-windows-prepare): migrating to the new location, "
+                             "updating AppImages, deleting old Proton versions, sending reports")
     args, qt_args = parser.parse_known_args()
     if args.run:
-        # Gyors út a Start menüből: a program helyét a könyvtár adja (áthelyezés után is), Qt nem kell
+        # Fast path from the Start menu: the library gives the program's location (after moving it too), no Qt needed
         from sloth_common.apps import library, packages
 
         app = library.find(args.run)
@@ -46,13 +46,13 @@ def main():
 
         from . import community, heal
         moved = library.migrate_legacy()
-        print("Új helyre költözött programok:", ", ".join(a.name for a in moved) if moved else "nincs")
+        print("Programs moved to the new location:", ", ".join(a.name for a in moved) if moved else "none")
         from sloth_common.apps import packages
         updated = packages.update_appimages()
-        print("Frissített AppImage-ek:", ", ".join(updated) if updated else "nincs")
+        print("Updated AppImages:", ", ".join(updated) if updated else "none")
         removed = heal.prune_protons()
-        print("Törölt régi verziók:", ", ".join(removed) if removed else "nincs")
-        print("Elküldött jelentések (közös tudás):", community.send_queue())
+        print("Deleted old versions:", ", ".join(removed) if removed else "none")
+        print("Reports sent (shared knowledge):", community.send_queue())
         return 0
     if not args.file and not args.launch and not args.shortcuts and not args.run:
         parser.print_usage()
@@ -70,8 +70,8 @@ def main():
     app.setApplicationName("sloth-exe")
     app.setOrganizationDomain("slothos.org")
     app.setDesktopFileName("org.slothos.exe")
-    app.setWindowIcon(QIcon.fromTheme("sloth-os"))  # amint ismert, a program saját ikonja váltja
-    # Futás közben az ablak el van rejtve, de a programot figyeljük, amíg kilép
+    app.setWindowIcon(QIcon.fromTheme("sloth-os"))  # replaced by the program's own icon as soon as it is known
+    # While running, the window is hidden, but we watch the program until it exits
     app.setQuitOnLastWindowClosed(False)
 
     from .controller import ExeController
@@ -80,7 +80,7 @@ def main():
     engine = QQmlApplicationEngine()
     engine.rootContext().setContextProperty("exe", exe)
     if args.run:
-        exe.missing(args.run)  # a telepített AppImage nincs meg (törölve vagy áthelyezve)
+        exe.missing(args.run)  # the installed AppImage is missing (deleted or moved)
     elif args.launch:
         exe.launch(*args.launch)
     elif args.shortcuts:
@@ -90,12 +90,12 @@ def main():
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1
-    # Az ablak bezárása (X) = kilépés, kivéve ha a program fut a háttérben
+    # Closing the window (X) = quitting, unless the program runs in the background
     if args.queued and exe.state == "choose" and not exe.alreadyInstalled:
-        # a sorból: a telepítő rögtön indul (a „Telepítés” gomb nélkül), amint a felület kész
+        # from the queue: the installer starts at once (without the "Install" button), as soon as the interface is ready
         from PySide6.QtCore import QTimer
         QTimer.singleShot(0, exe.install)
     window = engine.rootObjects()[0]
-    # (exe.close: ha a telepítő még fut, megvárja a végét, nem szakítja félbe)
+    # (exe.close: if the installer still runs, it waits for its end and does not interrupt it)
     window.closing.connect(lambda *_: exe.state != "running" and exe.close())
     return app.exec()

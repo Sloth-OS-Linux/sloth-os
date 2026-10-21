@@ -1,11 +1,11 @@
-"""Szolgáltatások be- és kikapcsolása (a `systemctl` grafikus megfelelője).
+"""Turning services on and off (the graphical equivalent of `systemctl`).
 
-A systemd D-Bus API-ját használja; a jogosultságot igénylő műveleteknél a
-polkit grafikus jelszókérő ablakot mutat. A gyakori szolgáltatások érthető
-névvel jelennek meg, a többi a haladó listában.
+It uses systemd's D-Bus API; for operations that need permission
+polkit shows a graphical password window. Common services appear with an understandable
+name, the rest are in the advanced list.
 
-A felhasználó saját szolgáltatásai (`systemctl --user`) a munkamenet buszán
-érhetők el; ezekhez nem kell jelszó.
+The user's own services (`systemctl --user`) are reachable on the session
+bus; they need no password.
 """
 import logging
 
@@ -21,7 +21,7 @@ SD_PATH = "/org/freedesktop/systemd1"
 SD_MANAGER = SD + ".Manager"
 INTERACTIVE = Gio.DBusCallFlags.ALLOW_INTERACTIVE_AUTHORIZATION
 
-# (unit, név, leírás). Több unit esetén az első létező számít.
+# (unit, name, description). With several units the first existing one counts.
 COMMON = [
     (["bluetooth.service"], "Bluetooth", N_("Wireless headphones, controllers, mice.")),
     (["cups.service"], N_("Printing"), N_("Use printers.")),
@@ -36,8 +36,8 @@ COMMON = [
 ]
 
 
-# A munkamenet alapjai: ezek leállítása az egész asztalt (hang, ablakok, bejelentkezés) elrontaná,
-# ezért a saját szolgáltatások listájában csak látszanak, nem állíthatók
+# The basics of the session: stopping these would break the whole desktop (sound, windows, login),
+# so in the list of your own services they are only shown, they cannot be changed
 PROTECTED_USER_PREFIXES = (
     "dbus", "pipewire", "wireplumber", "plasma-", "kwin", "kded", "ksmserver", "xdg-", "at-spi",
     "systemd-", "graphical-session", "gvfs", "gcr-", "p11-kit", "flatpak-", "app-", "obex", "kactivitymanagerd",
@@ -75,7 +75,7 @@ class ServicesController(QObject):
             log.error("session bus: %s", e.message)
         self.refresh()
 
-    # --- Tulajdonságok ---------------------------------------------------------
+    # --- Properties ---------------------------------------------------------
 
     common = Property("QVariantList", lambda self: list(self._common), notify=changed)
     allServices = Property("QVariantList", lambda self: list(self._all), notify=changed)
@@ -83,7 +83,7 @@ class ServicesController(QObject):
     errorText = Property(str, lambda self: self._error, notify=changed)
     busyUnit = Property(str, lambda self: self._busy_unit, notify=changed)
 
-    # --- Lekérdezés ----------------------------------------------------------------
+    # --- Queries ----------------------------------------------------------------
 
     def _call(self, method, params=None, reply=None, flags=Gio.DBusCallFlags.NONE, bus=None):
         return (bus or self._bus).call_sync(SD, SD_PATH, SD_MANAGER, method, params,
@@ -93,7 +93,7 @@ class ServicesController(QObject):
         try:
             return self._call("GetUnitFileState", GLib.Variant("(s)", (unit,)), "(s)").unpack()[0]
         except GLib.Error:
-            return None  # nincs ilyen unit a gépen
+            return None  # no such unit on the machine
 
     def _active_state(self, unit):
         try:
@@ -135,7 +135,7 @@ class ServicesController(QObject):
         self.changed.emit()
 
     def _user_services(self):
-        """A felhasználó szolgáltatásai: amelyek most be vannak töltve, és amelyeket be lehet kapcsolni."""
+        """The user's services: those loaded now, and those that can be turned on."""
         if not self._user_bus:
             return []
         try:
@@ -149,7 +149,7 @@ class ServicesController(QObject):
         for u in loaded:
             if u[0].endswith(".service") and u[2] == "loaded" and "@" not in u[0]:
                 out[u[0]] = {"unit": u[0], "description": u[1], "active": u[3] == "active"}
-        # bekapcsolható, de most nem futó szolgáltatások (pl. kikapcsolt háttérprogramok)
+        # services that can be turned on but do not run now (e.g. background programs turned off)
         for unit, state in states.items():
             if unit.endswith(".service") and "@" not in unit and unit not in out and state in ("enabled", "disabled"):
                 out[unit] = {"unit": unit, "description": unit.removesuffix(".service"), "active": False}
@@ -160,7 +160,7 @@ class ServicesController(QObject):
             item["switchable"] = state in ("enabled", "disabled") and not item["protected"]
         return sorted(out.values(), key=lambda x: x["description"].lower())
 
-    # --- Műveletek -----------------------------------------------------------------
+    # --- Actions -----------------------------------------------------------------
 
     def _async(self, method, params, then, bus=None):
         def done(bus, res):
@@ -177,7 +177,7 @@ class ServicesController(QObject):
 
     @Slot(str, bool)
     def setEnabled(self, unit, enabled):
-        """Bekapcsolás = indításkor induljon + induljon el most; kikapcsolás fordítva."""
+        """Turning on = start at boot + start now; turning off the other way round."""
         self._error = ""
         self._busy_unit = unit
         self.changed.emit()
@@ -199,7 +199,7 @@ class ServicesController(QObject):
 
     @Slot(str, bool)
     def setRunning(self, unit, running):
-        """Haladó lista: csak indítás / leállítás most (a bekapcsolt állapot nem változik)."""
+        """Advanced list: only start / stop now (the enabled state does not change)."""
         self._error = ""
         self._busy_unit = unit
         self.changed.emit()
@@ -210,11 +210,11 @@ class ServicesController(QObject):
 
         self._async("StartUnit" if running else "StopUnit", GLib.Variant("(ss)", (unit, "replace")), finish)
 
-    # --- A felhasználó saját szolgáltatásai (jelszó nélkül) ----------------------------
+    # --- The user's own services (without a password) ----------------------------
 
     @Slot(str, bool)
     def setUserEnabled(self, unit, enabled):
-        """Bejelentkezéskor induljon-e (és most is indul / leáll)."""
+        """Whether it starts at login (and it starts / stops now too)."""
         self._error = ""
         self._busy_unit = unit
         self.changed.emit()

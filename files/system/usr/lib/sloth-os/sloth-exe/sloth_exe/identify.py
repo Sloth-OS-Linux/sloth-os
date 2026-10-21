@@ -1,11 +1,11 @@
-"""Melyik program ez? A felismert programok a hozzájuk tartozó javításokkal indulnak.
+"""Which program is this? Recognized programs start with the fixes that belong to them.
 
-Az umu a GAMEID alapján alkalmazza az umu-protonfixes javításait, a Proton pedig a Steam AppID-hez
-kötött saját javításait (ezért megy sok játék Steamből jobban). A program nevét a .exe verzióadataiból
-olvassuk ki (termék neve), és ezt keressük:
-  1. az umu adatbázisában (helyben: a rendszerrel jön, és a sloth-windows-prepare frissíti),
-  2. ha ott nincs, a Steam áruházában (pontos névegyezés kell).
-Az eredményt (azt is, ha nem találtuk) a program adatai közé mentjük, így csak egyszer keresünk.
+umu applies umu-protonfixes' fixes based on the GAMEID, and Proton its own fixes tied to the
+Steam AppID (that is why many games run better from Steam). The program's name is read from the .exe's
+version data (product name), and we look it up:
+  1. in umu's database (local: it comes with the system, and sloth-windows-prepare updates it),
+  2. if it is not there, in the Steam store (an exact name match is needed).
+The result (also if we did not find it) is saved in the program's data, so we only search once.
 """
 import csv
 import json
@@ -24,7 +24,7 @@ SYSTEM_DB = Path("/usr/share/sloth-os/umu-database.csv")
 CACHE_DB = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "sloth-os" / "umu-database.csv"
 STEAM_SEARCH = "https://store.steampowered.com/api/storesearch/?term={}&l=english&cc=US"
 TIMEOUT_S = 4
-# Ezekből a nevekből nem derül ki, melyik program ez
+# These names do not tell which program it is
 GENERIC = {"", "launcher", "game", "setup", "installer", "bootstrapper", "unity", "unreal engine",
            "microsoft windows operating system", "client", "app", "application", "program", "main"}
 
@@ -36,7 +36,7 @@ def normalize(name):
 
 
 def version_strings(exe):
-    """A .exe verzióadatai: {"ProductName": …, "FileDescription": …} (icoutils: wrestool)."""
+    """The .exe's version data: {"ProductName": …, "FileDescription": …} (icoutils: wrestool)."""
     try:
         blob = subprocess.run(["wrestool", "-x", "-t", "16", str(exe)], capture_output=True,
                               timeout=20).stdout
@@ -49,7 +49,7 @@ def version_strings(exe):
         if pos < 0:
             continue
         pos += len(marker)
-        pos += (4 - pos % 4) % 4  # az érték 4 bájtos határon kezdődik
+        pos += (4 - pos % 4) % 4  # the value starts on a 4-byte boundary
         while blob[pos:pos + 2] == b"\0\0" and pos < len(blob):
             pos += 2
         end = pos
@@ -61,7 +61,7 @@ def version_strings(exe):
     return out
 
 
-# A név végéről levágandó szavak ("World of Warcraft Launcher" -> "World of Warcraft")
+# Words to cut from the end of the name ("World of Warcraft Launcher" -> "World of Warcraft")
 _SUFFIX = re.compile(r"[\s_\-]+(launcher|setup|installer|install|client|x64|x86|win64|win32|64[\s\-]?bit|"
                      r"v?\d+(?:[._]\d+)*)$", re.I)
 
@@ -74,7 +74,7 @@ def _trimmed(name):
 
 
 def candidates(exe, display_name=""):
-    """A program lehetséges nevei, a legmegbízhatóbbal kezdve."""
+    """The program's possible names, starting with the most reliable."""
     info = version_strings(exe)
     names = []
     for n in (info.get("ProductName", ""), info.get("FileDescription", ""), display_name, Path(exe).stem):
@@ -122,7 +122,7 @@ def _steam_search(name):
 
 
 def identify(exe, display_name="", online=True):
-    """-> (GAMEID vagy None, a felismert név). Hálózati hiba esetén None, és legközelebb újra próbáljuk."""
+    """-> (GAMEID or None, the recognized name). On a network error None, and we try again next time."""
     names = candidates(exe, display_name)
     titles, exes = _umu_db()
     if Path(exe).name.lower() in exes:
@@ -135,7 +135,7 @@ def identify(exe, display_name="", online=True):
             try:
                 found = _steam_search(n)
             except (OSError, ValueError) as e:
-                log.info("Steam-keresés nem sikerült (%s): %s", n, e)
+                log.info("Steam search failed (%s): %s", n, e)
                 return None, ""
             if found:
                 return found, n

@@ -1,24 +1,24 @@
 name: iso
-# A Sloth OS telepítő ISO építése (kézzel indítható a GitHub felületéről: Actions -> iso -> Run workflow).
-# Ugyanazokat a lépéseket követi, mint a helyi build: tools/build-iso.sh / tools/build-iso.ps1
+# Builds the Sloth OS installer ISO (can be started by hand from the GitHub interface: Actions -> iso -> Run workflow).
+# It follows the same steps as the local build: tools/build-iso.sh / tools/build-iso.ps1
 #
-# Amíg a repó privát, az ISO nem tölthető fel (az Actions tárhely 500 MB, egy ISO több GB),
-# ezért ilyenkor a workflow csak azt ellenőrzi, hogy elkészül-e. Publikus repóban artifactként letölthető.
+# While the repository was private the ISO could not be uploaded (the Actions storage is 500 MB, an ISO several GB),
+# so the workflow only checked that it builds. In the public repository it can be downloaded as an artifact.
 on:
   workflow_dispatch:
     inputs:
       variant:
-        description: "Változat"
+        description: "Variant"
         type: choice
         options: [sloth-os, sloth-os-nvidia]
         default: sloth-os
       squash:
-        description: "Rétegek összevonása (kisebb ISO; a telepített gép első frissítése a teljes image-et tölti le)"
+        description: "Squash the layers (a smaller ISO; the installed machine's first update downloads the whole image)"
         type: boolean
         default: false
 
 env:
-  # A Titanoboa ISO-készítő rögzített commitja (frissítéskor: a SHA cseréje a tools/build-iso.sh-ban is)
+  # The pinned commit of the Titanoboa ISO builder (when updating: change the SHA in tools/build-iso.sh too)
   TITANOBOA_COMMIT: 5c457c3d0518bd17e754be0fd98a60d29d26abb4
 
 jobs:
@@ -44,13 +44,13 @@ jobs:
 
       - name: Build live image
         run: |
-          owner="${{ github.repository_owner }}"  # a ghcr.io csak kisbetűs nevet fogad el (Sloth-OS-Linux)
+          owner="${{ github.repository_owner }}"  # ghcr.io only accepts lowercase names (Sloth-OS-Linux)
           image="ghcr.io/${owner,,}/${{ inputs.variant }}:latest"
           sudo podman build --security-opt label=disable --authfile /tmp/auth.json \
             --build-arg BASE_IMAGE="$image" -t localhost/sloth-os-live:latest iso/
-          # A telepítendő image kicsomagolt konténertárolója külön mappába (iso/payload.sh); az ISO
-          # készítésekor az élő rendszer /var/lib/containers/storage helyére csatoljuk (nincs podman commit).
-          # Nem töltjük le még egyszer: a kicsomagoló az élő rendszer építésekor letöltött tárolóból olvas.
+          # The unpacked container storage of the image to install goes into a separate folder (iso/payload.sh); when
+          # the ISO is made it is mounted in place of the live system's /var/lib/containers/storage (no podman commit).
+          # It is not downloaded again: the unpacker reads from the storage downloaded while building the live system.
           src="$image"
           if [ "${{ inputs.squash }}" = "true" ]; then
             mkdir -p /tmp/squash && printf 'FROM %s\n' "$image" > /tmp/squash/Containerfile
@@ -71,7 +71,7 @@ jobs:
         run: |
           curl -fsSL -o /tmp/build_iso.sh \
             "https://raw.githubusercontent.com/ublue-os/titanoboa/${TITANOBOA_COMMIT}/build_iso.sh"
-          # Rejtett GRUB menü: alapból azonnal a Sloth OS indul, Escre jön elő (iso/iso.yaml)
+          # Hidden GRUB menu: by default Sloth OS starts right away, Esc brings the menu up (iso/iso.yaml)
           grep -q "set menu_auto_hide=false" /tmp/build_iso.sh
           sed -i "s/set menu_auto_hide=false/set timeout_style=hidden/" /tmp/build_iso.sh
           mkdir -p output

@@ -1,13 +1,13 @@
-"""Értesítés a Steam első indításáról.
+"""A notification about Steam's first start.
 
-Első indításkor a Steam ablak nélkül letölti a saját kliensét (több száz MB), és csak utána
-nyílik meg; addig úgy tűnik, mintha el sem indult volna. Ilyenkor egy Plasma-értesítés
-mondja meg, mi történik, és mennyit töltött le eddig; amikor a Steam ablaka megjelenik,
-az értesítés eltűnik. Ha a Steam gyorsan megnyílik, nem szólunk.
+On its first start Steam downloads its own client without a window (hundreds of MB), and only opens
+afterwards; until then it looks as if it had not started at all. Then a Plasma notification
+says what is happening and how much it has downloaded so far; when Steam's window appears,
+the notification disappears. If Steam opens quickly, we say nothing.
 
-A felhasználó munkamenetében fut (sloth-steam-first-run.path / .service), amikor a Steam
-adatmappája létrejön, és bejelentkezéskor; ha egyszer már végigment, rögtön kilép.
-Indítás: python3 -m sloth_center.steam_first_run
+It runs in the user's session (sloth-steam-first-run.path / .service), when Steam's
+data folder is created, and at login; once it has gone through, it exits right away.
+Start: python3 -m sloth_center.steam_first_run
 """
 import os
 import subprocess
@@ -18,11 +18,11 @@ from .i18n import tr
 
 STEAM_DATA = Path.home() / ".var/app/com.valvesoftware.Steam"
 DONE = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "sloth-os" / "steam-first-run.done"
-# A Steam folyamatai (a /proc/<pid>/comm 15 karakterre vágja a nevet)
+# Steam's processes (/proc/<pid>/comm cuts the name to 15 characters)
 STEAM_PROCS = {"steam", "steam.sh", "steam-wrapper", "steamwebhelper"}
-# A Steam felülete ezzel a folyamattal jelenik meg: ha fut, a letöltés kész
+# Steam's interface appears with this process: if it runs, the download is done
 UI_PROC = "steamwebhelper"
-# Ha a Steam ennyi idő alatt megnyílik, nem kell értesítés
+# If Steam opens within this time, no notification is needed
 QUIET_S = 15
 POLL_S = 3
 MB = 1024 * 1024
@@ -86,7 +86,7 @@ def mark_done():
 def main():
     if DONE.exists():
         return 0
-    # Megvárjuk, amíg a felhasználó elindítja a Steamet (a mappát más is létrehozhatja előtte)
+    # We wait until the user starts Steam (something else may create the folder before)
     while not processes() & STEAM_PROCS:
         time.sleep(POLL_S)
     started, start_size = time.monotonic(), data_size()
@@ -97,7 +97,7 @@ def main():
         if UI_PROC in procs:
             mark_done()
             break
-        # Ha a Steam közben kilépett (pl. a felhasználó leállította), legközelebb újra figyelünk
+        # If Steam exited meanwhile (e.g. the user stopped it), we watch again next time
         gone = gone + 1 if not procs & STEAM_PROCS else 0
         if gone >= 3:
             break
