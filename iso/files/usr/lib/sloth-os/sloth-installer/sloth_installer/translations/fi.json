@@ -99,7 +99,10 @@
   "done.beside": "Kun käynnistät tietokoneen, voit valita Sloth OS:n ja Windowsin välillä.",
 
   "error.heading": "Asennus epäonnistui",
-  "error.log_hint": "Jos pyydät apua, tiedot ovat tiedostossa /tmp/sloth-install.log.",
+  "error.log_hint_save": "Jos pyydät apua, tallenna loki (esimerkiksi USB-tikulle) ja lähetä se.",
+  "error.save_log": "Tallenna loki…",
+  "error.log_saved": "Loki tallennettu: {path}",
+  "error.log_save_failed": "Lokia ei voitu tallentaa. Kokeile toista paikkaa, esimerkiksi USB-tikkua.",
   "error.retry": "Yritä uudelleen",
   "error.not_authorized": "Emme saaneet lupaa asentaa.",
   "error.bad_disk": "Tälle levylle ei voi asentaa. Valitse toinen.",

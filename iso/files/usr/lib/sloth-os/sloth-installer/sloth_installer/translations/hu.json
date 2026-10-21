@@ -98,7 +98,10 @@
   "done.beside": "Bekapcsoláskor választhatsz a Sloth OS és a Windows között.",
 
   "error.heading": "A telepítés nem sikerült",
-  "error.log_hint": "Ha segítséget kérnél, a részletek a /tmp/sloth-install.log fájlban vannak.",
+  "error.log_hint_save": "Ha segítséget kérnél, mentsd el a naplót (például egy pendrive-ra), és küldd el.",
+  "error.save_log": "Napló mentése…",
+  "error.log_saved": "A napló elmentve: {path}",
+  "error.log_save_failed": "Nem sikerült elmenteni a naplót. Próbálj másik helyet, például egy pendrive-ot.",
   "error.retry": "Újrapróbálom",
   "error.not_authorized": "Nem kaptunk engedélyt a telepítéshez.",
   "error.bad_disk": "Erre a lemezre nem lehet telepíteni. Válassz másikat.",

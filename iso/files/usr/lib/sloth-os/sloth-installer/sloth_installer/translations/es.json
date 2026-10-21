@@ -99,7 +99,10 @@
   "done.beside": "Al encender el ordenador, podrás elegir entre Sloth OS y Windows.",
 
   "error.heading": "La instalación ha fallado",
-  "error.log_hint": "Si pides ayuda, los detalles están en /tmp/sloth-install.log.",
+  "error.log_hint_save": "Si pides ayuda, guarda el registro (por ejemplo, en una memoria USB) y envíalo.",
+  "error.save_log": "Guardar registro…",
+  "error.log_saved": "Registro guardado: {path}",
+  "error.log_save_failed": "No se pudo guardar el registro. Prueba otro lugar, por ejemplo una memoria USB.",
   "error.retry": "Reintentar",
   "error.not_authorized": "No obtuvimos permiso para instalar.",
   "error.bad_disk": "No se puede instalar en este disco. Elige otro.",

@@ -742,16 +742,24 @@ Kirigami.ApplicationWindow {
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
                         opacity: 0.7
-                        text: root.t("error.log_hint")
+                        text: installer.logSaved || root.t("error.log_hint_save")
                     }
-                    QQC2.Button {
-                        id: retryButton
-                        Keys.onReturnPressed: clicked()
-                        Keys.onEnterPressed: clicked()
+                    RowLayout {
                         Layout.alignment: Qt.AlignHCenter
-                        text: root.t("error.retry")
-                        icon.name: "view-refresh"
-                        onClicked: installer.retry()
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.Button {
+                            text: root.t("error.save_log")
+                            icon.name: "document-save"
+                            onClicked: installer.saveLog()
+                        }
+                        QQC2.Button {
+                            id: retryButton
+                            Keys.onReturnPressed: clicked()
+                            Keys.onEnterPressed: clicked()
+                            text: root.t("error.retry")
+                            icon.name: "view-refresh"
+                            onClicked: installer.retry()
+                        }
                     }
                 }
             }

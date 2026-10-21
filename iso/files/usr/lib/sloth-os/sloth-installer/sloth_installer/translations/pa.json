@@ -99,7 +99,10 @@
   "done.beside": "ਕੰਪਿਊਟਰ ਚਾਲੂ ਕਰਨ 'ਤੇ ਤੁਸੀਂ Sloth OS ਅਤੇ Windows ਵਿੱਚੋਂ ਚੁਣ ਸਕਦੇ ਹੋ।",
 
   "error.heading": "ਇੰਸਟਾਲ ਨਹੀਂ ਹੋ ਸਕਿਆ",
-  "error.log_hint": "ਜੇ ਤੁਸੀਂ ਮਦਦ ਮੰਗੋ, ਤਾਂ ਵੇਰਵੇ /tmp/sloth-install.log ਵਿੱਚ ਹਨ।",
+  "error.log_hint_save": "ਜੇ ਤੁਸੀਂ ਮਦਦ ਮੰਗਦੇ ਹੋ, ਤਾਂ ਲੌਗ ਸੰਭਾਲੋ (ਜਿਵੇਂ USB ਸਟਿੱਕ ਉੱਤੇ) ਅਤੇ ਭੇਜ ਦਿਓ।",
+  "error.save_log": "ਲੌਗ ਸੰਭਾਲੋ…",
+  "error.log_saved": "ਲੌਗ ਸੰਭਾਲਿਆ ਗਿਆ: {path}",
+  "error.log_save_failed": "ਲੌਗ ਸੰਭਾਲਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ। ਕੋਈ ਹੋਰ ਥਾਂ ਅਜ਼ਮਾਓ, ਜਿਵੇਂ USB ਸਟਿੱਕ।",
   "error.retry": "ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
   "error.not_authorized": "ਸਾਨੂੰ ਇੰਸਟਾਲ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਮਿਲੀ।",
   "error.bad_disk": "ਇਸ ਡਿਸਕ ’ਤੇ ਇੰਸਟਾਲ ਨਹੀਂ ਹੋ ਸਕਦਾ। ਕੋਈ ਹੋਰ ਚੁਣੋ।",

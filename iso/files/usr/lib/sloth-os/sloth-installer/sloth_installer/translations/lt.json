@@ -99,7 +99,10 @@
   "done.beside": "Įjungus kompiuterį, galėsite rinktis tarp „Sloth OS“ ir „Windows“.",
 
   "error.heading": "Įdiegti nepavyko",
-  "error.log_hint": "Jei prašysite pagalbos, išsami informacija yra /tmp/sloth-install.log.",
+  "error.log_hint_save": "Jei prašysite pagalbos, išsaugokite žurnalą (pvz., į USB atmintinę) ir atsiųskite jį.",
+  "error.save_log": "Išsaugoti žurnalą…",
+  "error.log_saved": "Žurnalas išsaugotas: {path}",
+  "error.log_save_failed": "Nepavyko išsaugoti žurnalo. Pabandykite kitą vietą, pvz., USB atmintinę.",
   "error.retry": "Bandyti dar kartą",
   "error.not_authorized": "Negavome leidimo diegti.",
   "error.bad_disk": "Į šį diską diegti negalima. Pasirinkite kitą.",

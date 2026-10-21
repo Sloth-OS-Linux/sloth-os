@@ -99,7 +99,10 @@
   "done.beside": "開機時可以選擇進入 Sloth OS 或 Windows。",
 
   "error.heading": "安裝失敗",
-  "error.log_hint": "如需求助，詳細資訊在 /tmp/sloth-install.log 中。",
+  "error.log_hint_save": "如需求助，請儲存記錄檔（例如存到隨身碟）並一併傳送。",
+  "error.save_log": "儲存記錄檔…",
+  "error.log_saved": "記錄檔已儲存：{path}",
+  "error.log_save_failed": "無法儲存記錄檔。請嘗試其他位置，例如隨身碟。",
   "error.retry": "重試",
   "error.not_authorized": "未取得安裝權限。",
   "error.bad_disk": "無法安裝到此磁碟。請選擇其他磁碟。",

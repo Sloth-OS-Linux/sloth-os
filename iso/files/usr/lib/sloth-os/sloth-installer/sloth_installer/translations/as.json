@@ -99,7 +99,10 @@
   "done.beside": "কম্পিউটাৰ অন কৰোঁতে Sloth OS আৰু Windows ৰ মাজত বাছিব পাৰিব।",
 
   "error.heading": "ইনষ্টল বিফল হ'ল",
-  "error.log_hint": "সহায় বিচাৰিলে, সবিশেষ /tmp/sloth-install.log ফাইলত আছে।",
+  "error.log_hint_save": "সহায় বিচাৰিলে, লগটো সংৰক্ষণ কৰক (যেনে এটা USB ষ্টিকত) আৰু পঠিয়াই দিয়ক।",
+  "error.save_log": "লগ সংৰক্ষণ কৰক…",
+  "error.log_saved": "লগ সংৰক্ষিত: {path}",
+  "error.log_save_failed": "লগটো সংৰক্ষণ কৰিব পৰা নগ'ল। আন এটা ঠাই চেষ্টা কৰক, যেনে এটা USB ষ্টিক।",
   "error.retry": "পুনৰ চেষ্টা কৰক",
   "error.not_authorized": "ইনষ্টলৰ অনুমতি পোৱা নগ'ল।",
   "error.bad_disk": "এই ডিস্কত ইনষ্টল কৰিব নোৱাৰি। আন এখন বাছক।",

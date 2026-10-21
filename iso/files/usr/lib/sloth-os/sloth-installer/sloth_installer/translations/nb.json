@@ -99,7 +99,10 @@
   "done.beside": "Når datamaskinen starter, kan du velge mellom Sloth OS og Windows.",
 
   "error.heading": "Installasjonen mislyktes",
-  "error.log_hint": "Hvis du ber om hjelp, står detaljene i /tmp/sloth-install.log.",
+  "error.log_hint_save": "Hvis du ber om hjelp, lagre loggen (for eksempel på en minnepinne) og send den med.",
+  "error.save_log": "Lagre logg…",
+  "error.log_saved": "Loggen er lagret: {path}",
+  "error.log_save_failed": "Kunne ikke lagre loggen. Prøv et annet sted, for eksempel en minnepinne.",
   "error.retry": "Prøv igjen",
   "error.not_authorized": "Vi fikk ikke tillatelse til å installere.",
   "error.bad_disk": "Kan ikke installere på denne disken. Velg en annen.",

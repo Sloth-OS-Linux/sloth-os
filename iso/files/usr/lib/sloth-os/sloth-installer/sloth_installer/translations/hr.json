@@ -99,7 +99,10 @@
   "done.beside": "Pri uključivanju računala možeš birati između Sloth OS-a i Windowsa.",
 
   "error.heading": "Instalacija nije uspjela",
-  "error.log_hint": "Ako tražite pomoć, detalji su u /tmp/sloth-install.log.",
+  "error.log_hint_save": "Ako tražite pomoć, spremite zapisnik (npr. na USB stick) i pošaljite ga.",
+  "error.save_log": "Spremi zapisnik…",
+  "error.log_saved": "Zapisnik spremljen: {path}",
+  "error.log_save_failed": "Zapisnik nije moguće spremiti. Pokušajte drugo mjesto, npr. USB stick.",
   "error.retry": "Pokušaj ponovno",
   "error.not_authorized": "Nismo dobili dopuštenje za instalaciju.",
   "error.bad_disk": "Na ovaj disk nije moguće instalirati. Odaberite drugi.",

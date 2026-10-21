@@ -99,7 +99,10 @@
   "done.beside": "コンピューターの起動時に Sloth OS と Windows のどちらを使うか選べます。",
 
   "error.heading": "インストールに失敗しました",
-  "error.log_hint": "サポートを求める場合、詳細は /tmp/sloth-install.log にあります。",
+  "error.log_hint_save": "助けを求めるときは、ログを保存して（USB メモリなどに）一緒に送ってください。",
+  "error.save_log": "ログを保存…",
+  "error.log_saved": "ログを保存しました: {path}",
+  "error.log_save_failed": "ログを保存できませんでした。USB メモリなど、別の場所を試してください。",
   "error.retry": "もう一度試す",
   "error.not_authorized": "インストールの許可が得られませんでした。",
   "error.bad_disk": "このディスクにはインストールできません。別のディスクを選んでください。",

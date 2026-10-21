@@ -83,6 +83,13 @@ Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benn
   felirattal (Flatpak: a mappájuk; Windows-program: az .exe kezelő nyilvántartása, Start menüvel), nem települnek
   újra; a mostani színséma és tálca-elrendezés az alapértelmezett (a Plasma beállításaiból). Az image-ben offscreen
   kipróbálva
+- [x] Visszajelzés naplóval: megy (#5); ujjlenyomat: rendben
+- [ ] **Titkosított telepítés elbukott a 12:52-es ISO-val** („Something went wrong while copying…”): a tegnapi
+  `hide_other_esps` a partíciók sorszámát `lsblk`-kel kérdezte, és a nyitott titkosított réteg (`/dev/mapper/
+  sloth-root`, sorszám nélkül) került a lista elejére → TypeError, a másolás el sem indult (a reggeli ISO-ban ez még
+  nem volt benne). **Javítva:** a sorszám a kerneltől (`/sys/class/block/<partíció>/partition`); loop eszközön,
+  nyitott LUKS-szal kipróbálva. Új ISO
+- [x] Telepítő hibaoldala: „Napló mentése…” gomb (alapból a bedugott pendrive-ra), a `/tmp` útvonal helyett (50 nyelven)
 - NVIDIA: otthon derül ki; addig a weboldalon „saját felelősségre, még nem tesztelve”. Windows mellé: hamarosan.
   Steam-átvétel később
 

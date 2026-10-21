@@ -99,7 +99,10 @@
   "done.beside": "Cuant che tu impiis il computer, tu podarâs sielzi tra Sloth OS e Windows.",
 
   "error.heading": "La instalazion e je falide",
-  "error.log_hint": "Se tu domandis jutori, i detais a son in /tmp/sloth-install.log.",
+  "error.log_hint_save": "Se tu domandis jutori, salve il regjistri (par esempli suntune clâf USB) e mandilu.",
+  "error.save_log": "Salve regjistri…",
+  "error.log_saved": "Regjistri salvât: {path}",
+  "error.log_save_failed": "No si è rivâts a salvâ il regjistri. Prove un altri puest, par esempli une clâf USB.",
   "error.retry": "Torne prove",
   "error.not_authorized": "No vin vût il permès di instalâ.",
   "error.bad_disk": "Nol è pussibil instalâ su chest disc. Sielzint un altri.",

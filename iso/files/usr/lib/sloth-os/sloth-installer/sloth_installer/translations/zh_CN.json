@@ -99,7 +99,10 @@
   "done.beside": "开机时可以选择进入 Sloth OS 还是 Windows。",
 
   "error.heading": "安装失败",
-  "error.log_hint": "如需求助，详细信息在 /tmp/sloth-install.log 中。",
+  "error.log_hint_save": "如需求助，请保存日志（例如保存到 U 盘）并一起发送。",
+  "error.save_log": "保存日志…",
+  "error.log_saved": "日志已保存：{path}",
+  "error.log_save_failed": "无法保存日志。请尝试其他位置，例如 U 盘。",
   "error.retry": "重试",
   "error.not_authorized": "未获得安装权限。",
   "error.bad_disk": "无法安装到此磁盘。请选择其他磁盘。",

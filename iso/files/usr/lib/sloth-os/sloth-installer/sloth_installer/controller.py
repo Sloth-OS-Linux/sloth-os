@@ -13,7 +13,7 @@ import unicodedata
 from pathlib import Path
 
 from PySide6.QtCore import QObject, QProcess, Property, Qt, QTimer, Signal, Slot
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QFileDialog
 
 try:
     from PySide6.QtDBus import QDBusConnection, QDBusInterface
@@ -25,6 +25,8 @@ from sloth_common.i18n import Catalog
 from . import system
 
 log = logging.getLogger("sloth-installer")
+
+LOG_FILE = Path("/tmp/sloth-install.log")  # a sloth-install-helper írja
 
 HELPER = "/usr/libexec/sloth-os/sloth-install-helper"
 PAGES = ["welcome", "region", "account", "disk", "confirm", "install", "done", "error"]
@@ -79,6 +81,7 @@ class InstallerController(QObject):
         self._stage = ""
         self._progress = 0
         self._error = ""
+        self._log_saved = ""   # hová mentette a felhasználó a telepítés naplóját (hibaoldal)
         self._proc = None
         self._buffer = b""
         # Windows mellé telepítés: a lemez felmérése (sloth-install-helper probe) és a választás
@@ -425,7 +428,28 @@ class InstallerController(QObject):
 
     @Slot()
     def retry(self):
-        self._page, self._error = "confirm", ""
+        self._page, self._error, self._log_saved = "confirm", "", ""
+        self.changed.emit()
+
+    @Property(str, notify=changed)
+    def logSaved(self):
+        return self._log_saved
+
+    @Slot()
+    def saveLog(self):
+        """A telepítés naplója egy választott helyre (alapból egy bedugott pendrive-ra), hogy el lehessen küldeni."""
+        start = next((d for d in sorted(Path("/run/media").glob("*/*")) if os.access(d, os.W_OK)), Path.home())
+        path, _ = QFileDialog.getSaveFileName(None, catalog.tr("error.save_log"),
+                                              str(start / "sloth-install.log"))
+        if not path:
+            return
+        try:
+            Path(path).write_bytes(LOG_FILE.read_bytes())
+            os.sync()  # a pendrive-ot rögtön ki lehessen húzni
+            self._log_saved = catalog.tr("error.log_saved", path=path)
+        except OSError as e:
+            log.warning("napló mentése: %s", e)
+            self._log_saved = catalog.tr("error.log_save_failed")
         self.changed.emit()
 
     @Slot()

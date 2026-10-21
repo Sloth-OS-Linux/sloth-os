@@ -99,7 +99,10 @@
   "done.beside": "Al initio del computator tu potera seliger inter Sloth OS e Windows.",
 
   "error.heading": "Le installation falleva",
-  "error.log_hint": "Si tu demanda adjuta, le detalios es in /tmp/sloth-install.log.",
+  "error.log_hint_save": "Si tu demanda adjuta, salva le registro (per exemplo sur un clave USB) e invia lo.",
+  "error.save_log": "Salvar registro…",
+  "error.log_saved": "Registro salvate: {path}",
+  "error.log_save_failed": "Non esseva possibile salvar le registro. Prova un altere loco, per exemplo un clave USB.",
   "error.retry": "Reprobar",
   "error.not_authorized": "Nos non obteneva le permission de installar.",
   "error.bad_disk": "Non es possibile installar sur iste disco. Selige un altere.",

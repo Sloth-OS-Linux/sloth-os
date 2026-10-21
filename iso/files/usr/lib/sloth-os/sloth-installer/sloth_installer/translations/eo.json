@@ -99,7 +99,10 @@
   "done.beside": "Ĉe ŝaltado vi povos elekti inter Sloth OS kaj Windows.",
 
   "error.heading": "La instalado malsukcesis",
-  "error.log_hint": "Se vi petos helpon, la detaloj estas en /tmp/sloth-install.log.",
+  "error.log_hint_save": "Se vi petos helpon, konservu la protokolon (ekzemple sur USB-memorilo) kaj sendu ĝin.",
+  "error.save_log": "Konservi protokolon…",
+  "error.log_saved": "Protokolo konservita: {path}",
+  "error.log_save_failed": "Ne eblis konservi la protokolon. Provu alian lokon, ekzemple USB-memorilon.",
   "error.retry": "Reprovi",
   "error.not_authorized": "Ni ne ricevis permeson instali.",
   "error.bad_disk": "Ne eblas instali sur ĉi tiu disko. Elektu alian.",

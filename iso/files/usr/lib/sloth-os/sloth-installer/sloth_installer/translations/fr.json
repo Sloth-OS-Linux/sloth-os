@@ -99,7 +99,10 @@
   "done.beside": "Au démarrage, tu pourras choisir entre Sloth OS et Windows.",
 
   "error.heading": "L'installation a échoué",
-  "error.log_hint": "Si vous demandez de l'aide, les détails sont dans /tmp/sloth-install.log.",
+  "error.log_hint_save": "Si vous demandez de l’aide, enregistrez le journal (par exemple sur une clé USB) et envoyez-le.",
+  "error.save_log": "Enregistrer le journal…",
+  "error.log_saved": "Journal enregistré : {path}",
+  "error.log_save_failed": "Impossible d’enregistrer le journal. Essayez un autre emplacement, par exemple une clé USB.",
   "error.retry": "Réessayer",
   "error.not_authorized": "Nous n'avons pas obtenu l'autorisation d'installer.",
   "error.bad_disk": "Impossible d'installer sur ce disque. Choisissez-en un autre.",

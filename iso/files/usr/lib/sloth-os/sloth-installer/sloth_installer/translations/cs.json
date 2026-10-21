@@ -99,7 +99,10 @@
   "done.beside": "Po zapnutí počítače si můžete vybrat mezi Sloth OS a Windows.",
 
   "error.heading": "Instalace se nezdařila",
-  "error.log_hint": "Pokud budete žádat o pomoc, podrobnosti jsou v /tmp/sloth-install.log.",
+  "error.log_hint_save": "Pokud budete žádat o pomoc, uložte protokol (třeba na flashku) a pošlete ho.",
+  "error.save_log": "Uložit protokol…",
+  "error.log_saved": "Protokol uložen: {path}",
+  "error.log_save_failed": "Protokol se nepodařilo uložit. Zkuste jiné místo, třeba flashku.",
   "error.retry": "Zkusit znovu",
   "error.not_authorized": "Nedostali jsme oprávnění k instalaci.",
   "error.bad_disk": "Na tento disk nelze instalovat. Vyberte jiný.",

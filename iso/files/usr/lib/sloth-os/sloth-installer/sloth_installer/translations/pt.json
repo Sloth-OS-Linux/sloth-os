@@ -99,7 +99,10 @@
   "done.beside": "Ao ligar o computador, podes escolher entre o Sloth OS e o Windows.",
 
   "error.heading": "A instalação falhou",
-  "error.log_hint": "Se pedir ajuda, os detalhes estão em /tmp/sloth-install.log.",
+  "error.log_hint_save": "Se pedir ajuda, guarde o registo (por exemplo, numa pen USB) e envie-o.",
+  "error.save_log": "Guardar registo…",
+  "error.log_saved": "Registo guardado: {path}",
+  "error.log_save_failed": "Não foi possível guardar o registo. Experimente outro local, por exemplo uma pen USB.",
   "error.retry": "Tentar novamente",
   "error.not_authorized": "Não obtivemos autorização para instalar.",
   "error.bad_disk": "Não é possível instalar neste disco. Escolha outro.",

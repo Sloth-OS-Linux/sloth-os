@@ -99,7 +99,10 @@
   "done.beside": "Bilgisayar açılırken Sloth OS ile Windows arasında seçim yapabilirsin.",
 
   "error.heading": "Kurulum başarısız oldu",
-  "error.log_hint": "Yardım isterseniz ayrıntılar /tmp/sloth-install.log dosyasında.",
+  "error.log_hint_save": "Yardım isteyeceksen, günlüğü kaydet (örneğin bir USB belleğe) ve gönder.",
+  "error.save_log": "Günlüğü kaydet…",
+  "error.log_saved": "Günlük kaydedildi: {path}",
+  "error.log_save_failed": "Günlük kaydedilemedi. Başka bir yer dene, örneğin bir USB bellek.",
   "error.retry": "Yeniden dene",
   "error.not_authorized": "Kurulum için izin alamadık.",
   "error.bad_disk": "Bu diske kurulum yapılamaz. Başka birini seçin.",

@@ -99,7 +99,10 @@
   "done.beside": "En engegar l'ordinador, podràs triar entre Sloth OS i Windows.",
 
   "error.heading": "La instal·lació ha fallat",
-  "error.log_hint": "Si demanes ajuda, els detalls són a /tmp/sloth-install.log.",
+  "error.log_hint_save": "Si demanes ajuda, desa el registre (per exemple en un llapis USB) i envia'l.",
+  "error.save_log": "Desa el registre…",
+  "error.log_saved": "Registre desat: {path}",
+  "error.log_save_failed": "No s'ha pogut desar el registre. Prova un altre lloc, per exemple un llapis USB.",
   "error.retry": "Torna-ho a provar",
   "error.not_authorized": "No hem obtingut permís per instal·lar.",
   "error.bad_disk": "No es pot instal·lar en aquest disc. Tria'n un altre.",

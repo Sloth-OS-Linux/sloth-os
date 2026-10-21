@@ -99,7 +99,10 @@
   "done.beside": "Po włączeniu komputera możesz wybrać między Sloth OS a Windows.",
 
   "error.heading": "Instalacja nie powiodła się",
-  "error.log_hint": "Jeśli poprosisz o pomoc, szczegóły są w /tmp/sloth-install.log.",
+  "error.log_hint_save": "Jeśli poprosisz o pomoc, zapisz dziennik (np. na pendrive) i wyślij go.",
+  "error.save_log": "Zapisz dziennik…",
+  "error.log_saved": "Dziennik zapisany: {path}",
+  "error.log_save_failed": "Nie udało się zapisać dziennika. Spróbuj innego miejsca, np. pendrive'a.",
   "error.retry": "Spróbuj ponownie",
   "error.not_authorized": "Nie otrzymaliśmy zgody na instalację.",
   "error.bad_disk": "Na tym dysku nie można instalować. Wybierz inny.",

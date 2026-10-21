@@ -98,7 +98,10 @@
   "done.beside": "Beim Einschalten kannst du zwischen Sloth OS und Windows wählen.",
 
   "error.heading": "Die Installation ist fehlgeschlagen",
-  "error.log_hint": "Falls du um Hilfe bittest: Die Details stehen in /tmp/sloth-install.log.",
+  "error.log_hint_save": "Wenn du um Hilfe bittest, speichere das Protokoll (zum Beispiel auf einem USB-Stick) und schick es mit.",
+  "error.save_log": "Protokoll speichern…",
+  "error.log_saved": "Protokoll gespeichert: {path}",
+  "error.log_save_failed": "Das Protokoll konnte nicht gespeichert werden. Versuche einen anderen Ort, zum Beispiel einen USB-Stick.",
   "error.retry": "Erneut versuchen",
   "error.not_authorized": "Wir haben keine Erlaubnis zum Installieren bekommen.",
   "error.bad_disk": "Auf dieses Laufwerk kann nicht installiert werden. Bitte wähle ein anderes.",

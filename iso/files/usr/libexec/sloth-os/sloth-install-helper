@@ -413,8 +413,13 @@ def partition_beside(disk, size_bytes, encrypt=False):
 
 
 def partnum(disk, node):
-    out = json.loads(run(["lsblk", "--json", "--output", "PATH,PARTN", node]) or "{}")
-    return int(out["blockdevices"][0]["partn"])
+    # A sorszám közvetlenül a kerneltől. Az lsblk a partíción nyitott titkosított réteget (/dev/mapper/sloth-root,
+    # sorszám nélkül) is listázta, elsőként (2026-10-21, valódi gépen titkosítással: TypeError, a telepítés elbukott)
+    name = os.path.basename(os.path.realpath(node))
+    try:
+        return int(Path(f"/sys/class/block/{name}/partition").read_text())
+    except (OSError, ValueError):
+        fail("error.install_failed", f"nem partíció: {node} ({disk})")
 
 
 def mount_target(root, esp, scratch, boot=None):

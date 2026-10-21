@@ -99,7 +99,10 @@
   "done.beside": "La pornire poți alege între Sloth OS și Windows.",
 
   "error.heading": "Instalarea a eșuat",
-  "error.log_hint": "Dacă ceri ajutor, detaliile sunt în /tmp/sloth-install.log.",
+  "error.log_hint_save": "Dacă ceri ajutor, salvează jurnalul (de exemplu pe un stick USB) și trimite-l.",
+  "error.save_log": "Salvează jurnalul…",
+  "error.log_saved": "Jurnal salvat: {path}",
+  "error.log_save_failed": "Jurnalul nu a putut fi salvat. Încearcă alt loc, de exemplu un stick USB.",
   "error.retry": "Încearcă din nou",
   "error.not_authorized": "Nu am primit permisiunea de a instala.",
   "error.bad_disk": "Nu se poate instala pe acest disc. Alege altul.",

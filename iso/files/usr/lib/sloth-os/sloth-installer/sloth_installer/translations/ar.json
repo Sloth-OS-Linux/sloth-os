@@ -99,7 +99,10 @@
   "done.beside": "عند تشغيل الحاسوب يمكنك الاختيار بين Sloth OS و Windows.",
 
   "error.heading": "فشل التثبيت",
-  "error.log_hint": "إن طلبت المساعدة، فالتفاصيل في ‎/tmp/sloth-install.log.",
+  "error.log_hint_save": "إذا طلبت المساعدة، فاحفظ السجل (مثلًا على ذاكرة USB) وأرسله معك.",
+  "error.save_log": "حفظ السجل…",
+  "error.log_saved": "تم حفظ السجل: {path}",
+  "error.log_save_failed": "تعذّر حفظ السجل. جرّب مكانًا آخر، مثل ذاكرة USB.",
   "error.retry": "حاول مجددًا",
   "error.not_authorized": "لم نحصل على إذن بالتثبيت.",
   "error.bad_disk": "لا يمكن التثبيت على هذا القرص. اختر قرصًا آخر.",

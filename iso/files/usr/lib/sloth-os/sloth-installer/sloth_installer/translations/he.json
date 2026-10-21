@@ -99,7 +99,10 @@
   "done.beside": "בהפעלת המחשב אפשר לבחור בין Sloth OS ל-Windows.",
 
   "error.heading": "ההתקנה נכשלה",
-  "error.log_hint": "אם תבקשו עזרה, הפרטים נמצאים ב־‎/tmp/sloth-install.log.",
+  "error.log_hint_save": "אם תבקשו עזרה, שמרו את היומן (למשל על דיסק און קי) ושלחו אותו.",
+  "error.save_log": "שמירת היומן…",
+  "error.log_saved": "היומן נשמר: {path}",
+  "error.log_save_failed": "לא ניתן היה לשמור את היומן. נסו מקום אחר, למשל דיסק און קי.",
   "error.retry": "ניסיון חוזר",
   "error.not_authorized": "לא קיבלנו הרשאה להתקין.",
   "error.bad_disk": "אי אפשר להתקין על הדיסק הזה. בחרו דיסק אחר.",

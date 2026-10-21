@@ -99,7 +99,10 @@
   "done.beside": "Kur ndez kompjuterin, mund të zgjedhësh mes Sloth OS dhe Windows.",
 
   "error.heading": "Instalimi dështoi",
-  "error.log_hint": "Nëse kërkoni ndihmë, hollësitë janë te /tmp/sloth-install.log.",
+  "error.log_hint_save": "Nëse kërkon ndihmë, ruaj regjistrin (për shembull në një USB) dhe dërgoje.",
+  "error.save_log": "Ruaj regjistrin…",
+  "error.log_saved": "Regjistri u ruajt: {path}",
+  "error.log_save_failed": "Regjistri nuk u ruajt dot. Provo një vend tjetër, për shembull një USB.",
   "error.retry": "Riprovo",
   "error.not_authorized": "Nuk morëm leje për instalim.",
   "error.bad_disk": "Në këtë disk nuk mund të instalohet. Zgjidhni një tjetër.",

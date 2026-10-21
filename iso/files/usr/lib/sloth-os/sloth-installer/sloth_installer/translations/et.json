@@ -99,7 +99,10 @@
   "done.beside": "Arvuti sisselülitamisel saad valida Sloth OS-i ja Windowsi vahel.",
 
   "error.heading": "Paigaldamine ebaõnnestus",
-  "error.log_hint": "Kui küsid abi, on üksikasjad failis /tmp/sloth-install.log.",
+  "error.log_hint_save": "Kui palud abi, salvesta logi (näiteks USB-mälupulgale) ja saada see kaasa.",
+  "error.save_log": "Salvesta logi…",
+  "error.log_saved": "Logi salvestatud: {path}",
+  "error.log_save_failed": "Logi salvestamine ei õnnestunud. Proovi muud kohta, näiteks USB-mälupulka.",
   "error.retry": "Proovi uuesti",
   "error.not_authorized": "Me ei saanud paigaldamiseks luba.",
   "error.bad_disk": "Sellele kettale ei saa paigaldada. Vali mõni teine.",

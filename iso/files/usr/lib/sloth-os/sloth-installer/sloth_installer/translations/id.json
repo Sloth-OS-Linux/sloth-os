@@ -99,7 +99,10 @@
   "done.beside": "Saat komputer dinyalakan, kamu bisa memilih Sloth OS atau Windows.",
 
   "error.heading": "Pemasangan gagal",
-  "error.log_hint": "Jika Anda meminta bantuan, detailnya ada di /tmp/sloth-install.log.",
+  "error.log_hint_save": "Jika kamu meminta bantuan, simpan log-nya (misalnya ke flashdisk) dan kirimkan.",
+  "error.save_log": "Simpan log…",
+  "error.log_saved": "Log tersimpan: {path}",
+  "error.log_save_failed": "Log tidak dapat disimpan. Coba tempat lain, misalnya flashdisk.",
   "error.retry": "Coba lagi",
   "error.not_authorized": "Kami tidak mendapat izin untuk memasang.",
   "error.bad_disk": "Tidak bisa memasang di disk ini. Pilih yang lain.",

@@ -99,7 +99,10 @@
   "done.beside": "Mi ara tesreḥeḍ aselkim, tzemreḍ ad tferneḍ gar Sloth OS d Windows.",
 
   "error.heading": "Asebded ur yeddi ara",
-  "error.log_hint": "Ma tsutreḍ tallalt, talqayt tella deg /tmp/sloth-install.log.",
+  "error.log_hint_save": "Ma tsutreḍ tallalt, sekles aɣmis (amedya ɣef tsarut USB) sakin azen-it.",
+  "error.save_log": "Sekles aɣmis…",
+  "error.log_saved": "Aɣmis yettwasekles: {path}",
+  "error.log_save_failed": "Ur yezmir ara ad yettwasekles uɣmis. Ɛreḍ adeg-nniḍen, amedya tasarut USB.",
   "error.retry": "Ɛreḍ tikkelt nniḍen",
   "error.not_authorized": "Ur d-nwi ara tasiregt n usebded.",
   "error.bad_disk": "Ur yezmir ara ad yebded deg uḍebsi-a. Fren wayeḍ.",

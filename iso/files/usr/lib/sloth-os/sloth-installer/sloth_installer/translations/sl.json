@@ -99,7 +99,10 @@
   "done.beside": "Ob vklopu računalnika lahko izbiraš med Sloth OS in Windows.",
 
   "error.heading": "Namestitev ni uspela",
-  "error.log_hint": "Če boste prosili za pomoč, so podrobnosti v /tmp/sloth-install.log.",
+  "error.log_hint_save": "Če boste prosili za pomoč, shranite dnevnik (na primer na USB-ključek) in ga pošljite.",
+  "error.save_log": "Shrani dnevnik…",
+  "error.log_saved": "Dnevnik shranjen: {path}",
+  "error.log_save_failed": "Dnevnika ni bilo mogoče shraniti. Poskusite drugo mesto, na primer USB-ključek.",
   "error.retry": "Poskusi znova",
   "error.not_authorized": "Nismo dobili dovoljenja za namestitev.",
   "error.bad_disk": "Na ta disk ni mogoče namestiti. Izberite drugega.",

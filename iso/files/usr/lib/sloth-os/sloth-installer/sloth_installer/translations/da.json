@@ -99,7 +99,10 @@
   "done.beside": "Når computeren starter, kan du vælge mellem Sloth OS og Windows.",
 
   "error.heading": "Installationen mislykkedes",
-  "error.log_hint": "Hvis du beder om hjælp, står detaljerne i /tmp/sloth-install.log.",
+  "error.log_hint_save": "Hvis du beder om hjælp, så gem loggen (f.eks. på et USB-stik) og send den med.",
+  "error.save_log": "Gem log…",
+  "error.log_saved": "Loggen er gemt: {path}",
+  "error.log_save_failed": "Loggen kunne ikke gemmes. Prøv et andet sted, f.eks. et USB-stik.",
   "error.retry": "Prøv igen",
   "error.not_authorized": "Vi fik ikke tilladelse til at installere.",
   "error.bad_disk": "Der kan ikke installeres på denne disk. Vælg en anden.",

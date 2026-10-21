@@ -99,7 +99,10 @@
   "done.beside": "Bij het opstarten kun je kiezen tussen Sloth OS en Windows.",
 
   "error.heading": "Installatie mislukt",
-  "error.log_hint": "Als je om hulp vraagt: de details staan in /tmp/sloth-install.log.",
+  "error.log_hint_save": "Als je om hulp vraagt, sla het logboek dan op (bijvoorbeeld op een usb-stick) en stuur het mee.",
+  "error.save_log": "Logboek opslaan…",
+  "error.log_saved": "Logboek opgeslagen: {path}",
+  "error.log_save_failed": "Het logboek kon niet worden opgeslagen. Probeer een andere plek, bijvoorbeeld een usb-stick.",
   "error.retry": "Opnieuw proberen",
   "error.not_authorized": "We hebben geen toestemming gekregen om te installeren.",
   "error.bad_disk": "Op deze schijf kan niet worden geïnstalleerd. Kies een andere.",
