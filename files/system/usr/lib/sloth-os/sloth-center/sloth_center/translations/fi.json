@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Liitä tietokoneen tiedot ja loki (auttaa löytämään vian)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Loki ei ole julkinen: vain kehittäjät näkevät sen, ja se poistetaan 30 päivän kuluttua. Siinä voi näkyä käyttäjätunnuksesi ja laitteidesi nimet, mutta ei tiedostojasi. Kuvauksesi on julkinen, ilman nimeäsi.",
   "Küldés…": "Lähetetään…",
-  "Küldés": "Lähetä"
+  "Küldés": "Lähetä",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Myös tämän tietokoneen tallennetut tilat poistetaan. Kopioi ensin kaikki tarvitsemasi ulkoiselle levylle tai USB-tikulle, muuten mitään ei voi palauttaa.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Ennen palautusta teemme tiedostoistasi automaattisesti tallennetun tilan. Jos jotain puuttuu jälkeenpäin, saat sen takaisin ”Aiemmat versiot” -valikosta.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Tiedostojen varmuuskopiointi ei toimi tässä tietokoneessa, joten emme voi tehdä tallennettua tilaa etukäteen. Kopioi kaikki tärkeä ulkoiselle levylle tai USB-tikulle.",
+  "Elmentettem, amire szükségem van": "Olen tallentanut kaiken tarvitsemani"
 }

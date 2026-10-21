@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Legg ved datamaskininformasjon og logg (hjelper med å finne feilen)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Loggen er ikkje offentleg: berre utviklarane ser han, og han vert sletta etter 30 dagar. Han kan innehalde brukarnamnet ditt og namna på einingane dine, men ikkje filene dine. Skildringa di vert offentleg, utan namnet ditt.",
   "Küldés…": "Sender …",
-  "Küldés": "Send"
+  "Küldés": "Send",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Dei lagra tilstandane på denne datamaskina blir òg sletta. Kopier alt du treng til ein ekstern disk eller minnepinne først, elles er det ingenting å henta det tilbake frå.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Før tilbakestillinga lagar vi automatisk ein lagra tilstand av filene dine. Manglar noko etterpå, kan du henta det tilbake frå menyen «Tidlegare versjonar».",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Tryggleikskopi av filer fungerer ikkje på denne datamaskina, så vi kan ikkje laga ein lagra tilstand først. Kopier alt viktig til ein ekstern disk eller minnepinne.",
+  "Elmentettem, amire szükségem van": "Eg har lagra alt eg treng"
 }

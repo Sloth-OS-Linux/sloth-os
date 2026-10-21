@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Priloži podatke o računalu i zapisnik (pomaže pronaći pogrešku)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Zapisnik nije javan: vide ga samo razvojni programeri i briše se nakon 30 dana. Može sadržavati vaše korisničko ime i nazive uređaja, ali ne i vaše datoteke. Vaš će opis biti javan, bez vašeg imena.",
   "Küldés…": "Slanje…",
-  "Küldés": "Pošalji"
+  "Küldés": "Pošalji",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Izbrisat će se i spremljena stanja na ovom računalu. Prvo kopirajte sve što vam treba na vanjski disk ili USB stick, inače neće biti odakle to vratiti.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Prije vraćanja na početno stanje automatski izrađujemo spremljeno stanje vaših datoteka. Ako poslije nešto nedostaje, vratite to putem izbornika „Prethodne verzije”.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Sigurnosna kopija datoteka na ovom računalu ne radi, pa unaprijed ne možemo izraditi spremljeno stanje. Kopirajte sve važno na vanjski disk ili USB stick.",
+  "Elmentettem, amire szükségem van": "Spremio/la sam sve što mi treba"
 }

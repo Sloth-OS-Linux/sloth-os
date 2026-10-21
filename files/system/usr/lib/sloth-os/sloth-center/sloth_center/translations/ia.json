@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Attaccar informationes del computator e le registro (adjuta a trovar le problema)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Le registro non es public: solo le disveloppatores lo vide, e illo es delite post 30 dies. Illo pote continer tu nomine de usator e le nomines de tu apparatos, ma non tu files. Tu description essera public, sin tu nomine.",
   "Küldés…": "Inviante…",
-  "Küldés": "Inviar"
+  "Küldés": "Inviar",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Le statos salvate in iste computator essera etiam delite. Copia primo toto lo que tu necessita a un disco externe o un clave USB, alteremente il non habera nihil ex que restaurar lo.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Ante le reinitialisation nos crea automaticamente un stato salvate de tu files. Si postea alco manca, tu pote recuperar lo per le menu “Versiones precedente”.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Le copia de reserva de files non functiona in iste computator, dunque nos non pote crear un stato salvate antea. Copia toto lo que es importante a un disco externe o un clave USB.",
+  "Elmentettem, amire szükségem van": "Io ha salvate toto lo que io necessita"
 }

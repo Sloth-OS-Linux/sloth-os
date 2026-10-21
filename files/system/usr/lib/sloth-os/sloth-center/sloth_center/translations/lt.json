@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Pridėti kompiuterio informaciją ir žurnalą (padeda rasti klaidą)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Žurnalas nėra viešas: jį mato tik kūrėjai, o po 30 dienų jis ištrinamas. Jame gali būti jūsų naudotojo vardas ir įrenginių pavadinimai, bet ne jūsų failai. Jūsų aprašymas bus viešas, be jūsų vardo.",
   "Küldés…": "Siunčiama…",
-  "Küldés": "Siųsti"
+  "Küldés": "Siųsti",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Bus ištrintos ir šiame kompiuteryje išsaugotos būsenos. Pirmiausia nukopijuokite viską, ko reikia, į išorinį diską ar USB atmintinę, kitaip nebus iš ko atkurti.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Prieš atkūrimą automatiškai sukuriame jūsų failų išsaugotą būseną. Jei vėliau ko nors trūks, galėsite tai susigrąžinti per meniu „Ankstesnės versijos“.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Failų atsarginė kopija šiame kompiuteryje neveikia, todėl iš anksto negalime sukurti išsaugotos būsenos. Viską, kas svarbu, nukopijuokite į išorinį diską ar USB atmintinę.",
+  "Elmentettem, amire szükségem van": "Išsaugojau viską, ko man reikia"
 }

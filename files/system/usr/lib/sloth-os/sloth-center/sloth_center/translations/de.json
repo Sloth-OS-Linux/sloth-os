@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Computerinformationen und Protokoll anhängen (hilft, den Fehler zu finden)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Das Protokoll ist nicht öffentlich: Nur die Entwickler sehen es, und es wird nach 30 Tagen gelöscht. Es kann deinen Benutzernamen und die Namen deiner Geräte enthalten, aber nicht deine Dateien. Deine Beschreibung wird öffentlich sein, ohne deinen Namen.",
   "Küldés…": "Wird gesendet…",
-  "Küldés": "Senden"
+  "Küldés": "Senden",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Die gesicherten Stände auf diesem Computer werden ebenfalls gelöscht. Kopiere vorher alles, was du brauchst, auf eine externe Festplatte oder einen USB-Stick, sonst gibt es nichts, woraus du es wiederherstellen kannst.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Vor dem Zurücksetzen legen wir automatisch einen gesicherten Stand deiner Dateien an. Fehlt danach etwas, holst du es über das Menü „Vorherige Versionen“ zurück.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Die Dateisicherung funktioniert auf diesem Computer nicht, daher können wir vorher keinen gesicherten Stand anlegen. Kopiere alles Wichtige auf eine externe Festplatte oder einen USB-Stick.",
+  "Elmentettem, amire szükségem van": "Ich habe alles gesichert, was ich brauche"
 }

@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "কম্পিউটাৰৰ তথ্য আৰু লগ সংলগ্ন কৰক (সমস্যা বিচাৰি পোৱাত সহায় কৰে)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "লগ ৰাজহুৱা নহয়: কেৱল বিকাশকসকলে দেখে, আৰু ৩০ দিনৰ পিছত মচি পেলোৱা হয়। ইয়াত আপোনাৰ ব্যৱহাৰকাৰীৰ নাম আৰু ডিভাইচৰ নাম থাকিব পাৰে, কিন্তু আপোনাৰ ফাইল নাথাকে। আপোনাৰ বিৱৰণ আপোনাৰ নাম অবিহনে ৰাজহুৱা হ'ব।",
   "Küldés…": "পঠোৱা হৈছে…",
-  "Küldés": "পঠিয়াওক"
+  "Küldés": "পঠিয়াওক",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "এই কম্পিউটাৰৰ সংৰক্ষিত অৱস্থাবোৰো মচি পেলোৱা হ'ব। প্ৰয়োজনীয় সকলো আগতে এটা বাহ্যিক ডিস্ক বা USB ষ্টিকলৈ কপি কৰক, নহ'লে উভতাই আনিবলৈ একো নাথাকিব।",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "ৰিছেটৰ আগতে আমি আপোনাৰ ফাইলসমূহৰ এটা সংৰক্ষিত অৱস্থা নিজে নিজে বনাওঁ। পিছত কিবা নাইকিয়া হ'লে, “আগৰ সংস্কৰণ” মেনুৰ পৰা উভতাই আনিব পাৰিব।",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "এই কম্পিউটাৰত ফাইল বেকআপ কাম নকৰে, সেয়েহে আমি আগতে সংৰক্ষিত অৱস্থা বনাব নোৱাৰোঁ। গুৰুত্বপূৰ্ণ সকলো এটা বাহ্যিক ডিস্ক বা USB ষ্টিকলৈ কপি কৰক।",
+  "Elmentettem, amire szükségem van": "মোৰ প্ৰয়োজনীয় সকলো সংৰক্ষণ কৰিছোঁ"
 }

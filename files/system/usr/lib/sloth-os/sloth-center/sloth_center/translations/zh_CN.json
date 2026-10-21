@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "附上电脑信息和日志（有助于找到问题）",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "日志不公开：只有开发者能看到，30 天后删除。其中可能包含你的用户名和设备名称，但不包含你的文件。你的描述将会公开，但不显示你的名字。",
   "Küldés…": "正在发送…",
-  "Küldés": "发送"
+  "Küldés": "发送",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "此电脑上保存的状态也会被删除。请先把需要的内容复制到外置硬盘或 U 盘，否则将无从恢复。",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "重置之前，我们会自动为你的文件创建一个保存的状态。如果之后缺少什么，可以通过“以前的版本”菜单找回。",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "此电脑上的文件备份无法使用，因此我们无法事先创建保存的状态。请把重要内容复制到外置硬盘或 U 盘。",
+  "Elmentettem, amire szükségem van": "我已保存所需的一切"
 }

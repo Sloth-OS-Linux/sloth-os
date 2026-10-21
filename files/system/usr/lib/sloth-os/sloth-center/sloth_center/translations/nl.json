@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Computergegevens en logboek bijvoegen (helpt het probleem te vinden)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Het logboek is niet openbaar: alleen de ontwikkelaars zien het, en het wordt na 30 dagen verwijderd. Het kan je gebruikersnaam en de namen van je apparaten bevatten, maar niet je bestanden. Je beschrijving wordt openbaar, zonder je naam.",
   "Küldés…": "Versturen…",
-  "Küldés": "Versturen"
+  "Küldés": "Versturen",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "De opgeslagen staten op deze computer worden ook verwijderd. Kopieer eerst alles wat je nodig hebt naar een externe schijf of usb-stick, anders is er niets om het uit terug te halen.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Voor het opnieuw instellen maken we automatisch een opgeslagen staat van je bestanden. Mist er daarna iets, dan haal je het terug via het menu ‘Vorige versies’.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Bestandsback-up werkt niet op deze computer, dus we kunnen vooraf geen opgeslagen staat maken. Kopieer alles wat belangrijk is naar een externe schijf of usb-stick.",
+  "Elmentettem, amire szükségem van": "Ik heb alles opgeslagen wat ik nodig heb"
 }

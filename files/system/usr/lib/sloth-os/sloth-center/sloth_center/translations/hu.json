@@ -14,5 +14,9 @@
   "Fájlok áthozása a Windowsból": "Fájlok áthozása a Windowsból",
   "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.": "Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.",
   "Áthozás…": "Áthozás…",
-  "sloth-os-naplo.txt": "sloth-os-naplo.txt"
+  "sloth-os-naplo.txt": "sloth-os-naplo.txt",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.",
+  "Elmentettem, amire szükségem van": "Elmentettem, amire szükségem van"
 }

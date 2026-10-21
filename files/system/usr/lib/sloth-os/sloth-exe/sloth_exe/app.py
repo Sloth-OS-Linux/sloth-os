@@ -96,5 +96,6 @@ def main():
         from PySide6.QtCore import QTimer
         QTimer.singleShot(0, exe.install)
     window = engine.rootObjects()[0]
-    window.closing.connect(lambda *_: exe.state != "running" and app.quit())
+    # (exe.close: ha a telepítő még fut, megvárja a végét, nem szakítja félbe)
+    window.closing.connect(lambda *_: exe.state != "running" and exe.close())
     return app.exec()

@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Kunsendi komputilajn informojn kaj la protokolon (helpas trovi la problemon)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "La protokolo ne estas publika: nur la programistoj vidas ĝin, kaj ĝi estas forigita post 30 tagoj. Ĝi povas enhavi vian uzantnomon kaj la nomojn de viaj aparatoj, sed ne viajn dosierojn. Via priskribo estos publika, sen via nomo.",
   "Küldés…": "Sendante…",
-  "Küldés": "Sendi"
+  "Küldés": "Sendi",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Ankaŭ la konservitaj statoj en ĉi tiu komputilo estos forigitaj. Unue kopiu ĉion bezonatan al ekstera disko aŭ USB-memorilo, alie estos nenio, el kio restarigi ĝin.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Antaŭ la restarigo ni aŭtomate kreas konservitan staton de viaj dosieroj. Se poste io mankas, vi povas rehavi ĝin per la menuo “Antaŭaj versioj”.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Sekurkopio de dosieroj ne funkcias en ĉi tiu komputilo, do ni ne povas antaŭe krei konservitan staton. Kopiu ĉion gravan al ekstera disko aŭ USB-memorilo.",
+  "Elmentettem, amire szükségem van": "Mi konservis ĉion, kion mi bezonas"
 }

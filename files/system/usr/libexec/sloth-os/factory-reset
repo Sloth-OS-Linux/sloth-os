@@ -413,6 +413,10 @@ def boot():
         step(write_private, FIRST_USER, {"username": account["username"], "fullname": account["fullname"],
                                          "password_hash": account["password_hash"]}, 0o600)
     if mode == "keep":
+        # Biztos, ami biztos: a fájlokról egy friss mentett állapot, mielőtt bármihez nyúlnánk (ha a gépen működik
+        # a Fájlmentés; ebben a módban a mentett állapotok megmaradnak, „Korábbi verziók”-ból visszahozhatók)
+        r = step(run, [HOME_SNAPSHOTS, "take", "--now"], False)
+        log.info("mentett állapot előtte: %s", r.stdout.strip() if r else "")
         for home in homes():
             step(uninstall_user_flatpaks, home)
             log.info("%s: beállítások -> %s", home.name, step(move_desktop_settings, home, backup))

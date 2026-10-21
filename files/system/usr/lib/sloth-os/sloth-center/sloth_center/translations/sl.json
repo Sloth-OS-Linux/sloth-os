@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Priloži podatke o računalniku in dnevnik (pomaga najti napako)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Dnevnik ni javen: vidijo ga samo razvijalci in se po 30 dneh izbriše. Lahko vsebuje vaše uporabniško ime in imena naprav, ne pa vaših datotek. Vaš opis bo javen, brez vašega imena.",
   "Küldés…": "Pošiljanje …",
-  "Küldés": "Pošlji"
+  "Küldés": "Pošlji",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Izbrisana bodo tudi shranjena stanja na tem računalniku. Najprej kopirajte vse, kar potrebujete, na zunanji disk ali USB-ključek, sicer ne bo od kod obnoviti.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Pred ponastavitvijo samodejno ustvarimo shranjeno stanje vaših datotek. Če bo potem kaj manjkalo, to vrnete prek menija »Prejšnje različice«.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Varnostno kopiranje datotek na tem računalniku ne deluje, zato vnaprej ne moremo ustvariti shranjenega stanja. Vse pomembno kopirajte na zunanji disk ali USB-ključek.",
+  "Elmentettem, amire szükségem van": "Shranil(a) sem vse, kar potrebujem"
 }

@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Компьютер ақпараты мен журналды тіркеу (қатені табуға көмектеседі)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Журнал жария емес: оны тек әзірлеушілер көреді және 30 күннен кейін жойылады. Онда пайдаланушы атыңыз бен құрылғыларыңыздың атаулары болуы мүмкін, бірақ файлдарыңыз болмайды. Сипаттамаңыз атыңызсыз жария болады.",
   "Küldés…": "Жіберілуде…",
-  "Küldés": "Жіберу"
+  "Küldés": "Жіберу",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Осы компьютердегі сақталған күйлер де жойылады. Алдымен керектің бәрін сыртқы дискіге немесе USB флешкаға көшіріңіз, әйтпесе оны қалпына келтіретін ештеңе қалмайды.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Бастапқы күйге қайтармас бұрын файлдарыңыздың сақталған күйін автоматты түрде жасаймыз. Кейін бірдеңе жетіспесе, оны «Алдыңғы нұсқалар» мәзірінен қайтара аласыз.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Бұл компьютерде файлдардың сақтық көшірмесі жұмыс істемейді, сондықтан алдын ала сақталған күй жасай алмаймыз. Маңыздының бәрін сыртқы дискіге немесе USB флешкаға көшіріңіз.",
+  "Elmentettem, amire szükségem van": "Маған керектің бәрін сақтадым"
 }

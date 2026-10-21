@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "ਕੰਪਿਊਟਰ ਦੀ ਜਾਣਕਾਰੀ ਅਤੇ ਲੌਗ ਨੱਥੀ ਕਰੋ (ਸਮੱਸਿਆ ਲੱਭਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "ਲੌਗ ਜਨਤਕ ਨਹੀਂ ਹੈ: ਸਿਰਫ਼ ਡਿਵੈਲਪਰ ਇਸਨੂੰ ਦੇਖਦੇ ਹਨ, ਅਤੇ 30 ਦਿਨਾਂ ਬਾਅਦ ਇਹ ਮਿਟਾ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਿੱਚ ਤੁਹਾਡਾ ਵਰਤੋਂਕਾਰ ਨਾਂ ਅਤੇ ਡਿਵਾਈਸਾਂ ਦੇ ਨਾਂ ਹੋ ਸਕਦੇ ਹਨ, ਪਰ ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ ਨਹੀਂ। ਤੁਹਾਡਾ ਵੇਰਵਾ ਤੁਹਾਡੇ ਨਾਂ ਤੋਂ ਬਿਨਾਂ ਜਨਤਕ ਹੋਵੇਗਾ।",
   "Küldés…": "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ…",
-  "Küldés": "ਭੇਜੋ"
+  "Küldés": "ਭੇਜੋ",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "ਇਸ ਕੰਪਿਊਟਰ ਦੀਆਂ ਸੰਭਾਲੀਆਂ ਹਾਲਤਾਂ ਵੀ ਮਿਟ ਜਾਣਗੀਆਂ। ਜੋ ਵੀ ਚਾਹੀਦਾ ਹੈ ਉਹ ਪਹਿਲਾਂ ਕਿਸੇ ਬਾਹਰੀ ਡਿਸਕ ਜਾਂ USB ਸਟਿੱਕ ਉੱਤੇ ਕਾਪੀ ਕਰੋ, ਨਹੀਂ ਤਾਂ ਵਾਪਸ ਲਿਆਉਣ ਲਈ ਕੁਝ ਨਹੀਂ ਰਹੇਗਾ।",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "ਰੀਸੈੱਟ ਤੋਂ ਪਹਿਲਾਂ ਅਸੀਂ ਆਪਣੇ-ਆਪ ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ ਦੀ ਇੱਕ ਸੰਭਾਲੀ ਹਾਲਤ ਬਣਾਉਂਦੇ ਹਾਂ। ਜੇ ਬਾਅਦ ਵਿੱਚ ਕੁਝ ਗੁੰਮ ਹੋਵੇ, ਤਾਂ ਤੁਸੀਂ ਉਸਨੂੰ “ਪਿਛਲੇ ਵਰਜਨ” ਮੀਨੂ ਤੋਂ ਵਾਪਸ ਲਿਆ ਸਕਦੇ ਹੋ।",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "ਇਸ ਕੰਪਿਊਟਰ ਉੱਤੇ ਫ਼ਾਈਲਾਂ ਦਾ ਬੈਕਅੱਪ ਕੰਮ ਨਹੀਂ ਕਰਦਾ, ਇਸ ਲਈ ਅਸੀਂ ਪਹਿਲਾਂ ਸੰਭਾਲੀ ਹਾਲਤ ਨਹੀਂ ਬਣਾ ਸਕਦੇ। ਸਾਰੀਆਂ ਜ਼ਰੂਰੀ ਚੀਜ਼ਾਂ ਕਿਸੇ ਬਾਹਰੀ ਡਿਸਕ ਜਾਂ USB ਸਟਿੱਕ ਉੱਤੇ ਕਾਪੀ ਕਰੋ।",
+  "Elmentettem, amire szükségem van": "ਮੈਨੂੰ ਜੋ ਚਾਹੀਦਾ ਹੈ ਉਹ ਸਭ ਸੰਭਾਲ ਲਿਆ ਹੈ"
 }

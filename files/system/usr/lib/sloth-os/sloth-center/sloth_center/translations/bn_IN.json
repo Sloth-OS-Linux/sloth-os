@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "কম্পিউটারের তথ্য ও লগ সংযুক্ত করুন (সমস্যা খুঁজে পেতে সাহায্য করে)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "লগ সর্বজনীন নয়: শুধু ডেভেলপাররা দেখতে পান, আর ৩০ দিন পরে মুছে ফেলা হয়। এতে আপনার ব্যবহারকারীর নাম ও ডিভাইসের নাম থাকতে পারে, তবে আপনার ফাইল থাকে না। আপনার বিবরণ আপনার নাম ছাড়াই সর্বজনীন হবে।",
   "Küldés…": "পাঠানো হচ্ছে…",
-  "Küldés": "পাঠান"
+  "Küldés": "পাঠান",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "এই কম্পিউটারের সংরক্ষিত অবস্থাগুলিও মুছে যাবে। যা দরকার তা আগে একটি বাহ্যিক ডিস্ক বা USB স্টিকে কপি করুন, নইলে ফেরত আনার মতো কিছু থাকবে না।",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "রিসেটের আগে আমরা নিজে থেকেই আপনার ফাইলগুলির একটি সংরক্ষিত অবস্থা তৈরি করি। পরে কিছু হারিয়ে গেলে, “আগের সংস্করণ” মেনু থেকে ফেরত আনতে পারবেন।",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "এই কম্পিউটারে ফাইল ব্যাকআপ কাজ করে না, তাই আগে থেকে সংরক্ষিত অবস্থা তৈরি করা যাবে না। গুরুত্বপূর্ণ সবকিছু একটি বাহ্যিক ডিস্ক বা USB স্টিকে কপি করুন।",
+  "Elmentettem, amire szükségem van": "আমার যা দরকার সব সংরক্ষণ করেছি"
 }

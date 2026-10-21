@@ -31,30 +31,40 @@ terminálból lehet csinálni, GUI-ból is menjen.
 - Weboldal: valódi képernyőképek, Sloth Center szakasz, GYIK (visszajelzés); közös tudás: EA recept (PR #1, mergelve)
 - Döntések: az 1.0 csak UEFI-s gépekre (BIOS később); szülői felügyelet és Windows-programok a Discoverben az 1.0 után
 
-### Holnapi teszt (2026-10-21, valódi gép, pendrive-os újratelepítés / reset után, a `d43e36f` vagy újabb image-dzsel)
-A sorrend számít: előbb a telepítés és az Üdvözlő, utána a többi.
-1. [ ] **Image-verzió:** Sloth Központ → Frissítések: a mai esti (`d43e36f`, 2026-10-20 este) vagy újabb. Ha a
-   pendrive-os ISO régebbi, telepítés után először frissíts (Frissítések → keresés), és indítsd újra
-2. [ ] **Üdvözlő megszakítva:** a varázsló közepén (pl. az appok telepítése közben) indítsd újra a gépet: onnan
-   folytatja-e, ugyanazzal a nyelvvel és választással; a kész appokat azonnal kipipálja-e
-3. [ ] **Sloth Központ a tálcán** (új felhasználónál alapból ott kell lennie)
-4. [ ] **Ujjlenyomat + PIN:** kapcsold be mindkettőt (Fiók és biztonság), indítsd újra: jön-e a bejelentkező képernyő;
-   belépés ujjlenyomattal, PIN-nel és jelszóval is; a zárolási képernyőn (Win+L) is
-5. [ ] **Boot menü:** indításkor Esc: látszik-e a menü, benne „Alaphelyzetbe állítás (Fájljaim megtartásával)” magyarul.
-   Ha van időd: válaszd ki, és nézd meg, hogy lefut-e, és megmaradnak-e a fájljaid (az appokat újra kell telepíteni)
-6. [ ] **Visszajelzés:** Sloth Központ → Visszajelzés: egy próba napló csatolásával; megjön-e a szám („#…”). Utána
-   itt megnézzük: `gh issue list -R Sloth-OS-Linux/feedback -l feedback`
-7. [ ] **Fájlmentés:** „Mentés most” jelszó nélkül; Dolphin → jobb klikk → „Korábbi verziók”: van-e szöveg a gombokon,
-   és visszahozza-e egy módosított fájl régi változatát
-8. [ ] **EA app:** az Üdvözlőből; bekerül-e a Start menübe (csak az „EA app” / EADesktop), onnan indul-e; ha frissít
-   magán, utána is indul-e
-9. [ ] **Játékok oldal:** a felskálázás legördülője nem üres („Ki”)
-10. [ ] **Fiókkal (ha van):** Battle.net / EA / Ubisoft tálcára kicsinyítve: a buborék a tálca fölött jön-e; egy játék
-    indítása a Battle.net-ből
-11. [ ] **Ha marad idő:** Steam-átvétel (kézzel hozzáadott Windows-program a Steamben), firmware a Discoverben,
-    zram (Haladó beállítások), Proton helyfoglalása (Sloth Központ / Dolphin: ~/.local/share/Steam vagy umu mappa)
-- **Ne:** a mostani pendrive-os ISO-val Windows mellé ne telepíts (a telepítő javítása még nincs benne az ISO-ban)
-- **Ha valami nem megy:** Sloth Központ → Rendszer egészség → Napló mentése, vagy (ha a Központ már megy) Visszajelzés
+### A 2026-10-21-i teszt (valódi gép, a reggeli ISO-ról újratelepítve, `d43e36f`)
+Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benne a telepítő javításával).
+1. [x] **Image-verzió:** friss ISO, a `d43e36f` image
+2. [x] **Üdvözlő megszakítva:** onnan folytatja, mindent megjegyzett
+3. [x] **Sloth Központ a tálcán**
+4. [ ] **Ujjlenyomat + PIN:** a PIN működik. Az ujjlenyomatnál „rendszergazdai jelszó kell”, felvétel után a
+   feloldás ujjal nem megy. Konténerben megnézve: a helyes (PIN-profil mellett is bekapcsolja a `with-fingerprint`-et),
+   a **bejelentkező képernyő (`plasmalogin`) PAM-ja viszont a `password-auth`-ot használja, abban nincs ujjlenyomat**:
+   újraindítás után az ujj sosem működik, csak a zárolási képernyőn (`kde-fingerprint`) és a jóváhagyásoknál. Pontosítani:
+   hol próbálta (újraindítás után / Win+L), mi volt a pontos üzenet, és bekapcsolva maradt-e a kapcsoló
+5. [x] **Boot menü:** Esc-re előjön, a menüpont a rendszer nyelvén (angol), lefut
+6. [ ] **Visszajelzés:** „Couldn't send it” napló csatolásával. **Javítva:** a Központ a naplót nyers bájtban
+   vágta 500 KB-ra, a szolgáltatás a teljes kérést nézi (576 KB); a JSON-kódolás a nem ASCII karaktereket és a
+   Wine-naplók `\`-eit felfújta, így 413 jött. Most a kódolt kérést tartja a határ alatt (élő végponton kipróbálva:
+   régi kódolás 413, új 200). A próbák a feedback repóban: #2, #3, #4 (lezárandók). Valódi gépen újra kipróbálni
+7. [x] **Fájlmentés:** „Mentés most” jelszó nélkül, Korábbi verziók gombjai, visszaállítás: mind jó. Kérés: az
+   alaphelyzetbe állítás előtt mentés kell. **Kész:** „Fájljaim megtartásával” módban az alaphelyzetbe állítás
+   magától készít egy mentett állapotot (a boot menüből indítva is); „Mindent töröl” módban figyelmeztetés (a gépen
+   lévő mentések is törlődnek), Pika Backup gomb, és csak az „Elmentettem, amire szükségem van” pipa után lehet
+   továbblépni. Weboldal: GYIK és főoldal (`sloth-os-linux.github.io`)
+8. [ ] **EA app:** települ, a Start menüben jó, onnan indul. **Hiba:** a telepítő végén elindul az EA app, a telepítő
+   addig nem lép ki, és az .exe kezelő addig pörög („még letölt pár komponenst”), amíg az EA appot a tálcáról be nem
+   zárja. **Javítva:** a telepítés végét már a telepítő futása közben figyeli (ha a telepített program biztosan megvan,
+   és már fut: kész); a még futó telepítőt nem lövi ki, a háttérben megvárja; az Üdvözlő sora közben továbbmegy
+   (`sloth-exe: queued-done`). A félrevezető „letöltés” szöveg helyett „Fejezd be a telepítést…”, amint a telepítő
+   fut. Valódi gépen újra kipróbálni
+9. [x] **Játékok oldal:** a felskálázás legördülője jó
+10. [ ] **Buborék:** a mac-es elrendezésben még mindig a bal felső sarokból (a „start” gombtól) jön. Valószínű ok: a
+    Wine a munkaterületen belülre igazítja, fenti panelnél a panel alá, a `wine-balloons` viszont a (0,0)-tól mért
+    64 px-en belül kereste. **Javítva:** a munkaterület sarkához mér, nagyításnál nagyobb határral. Windowsos
+    elrendezésben is megnézni. Battle.net-ből a WoW Classic elindul
+11. [ ] Ha marad idő: zram jó (15 GB memória mellett 22,4 GB tömörített tartalék); firmware a Discoverben még nem
+    volt; Steam-átvétel később
+- [ ] **Új hiba: a HP laptopon titkosítással nem engedi telepíteni** (részletek kellenek: hol áll meg, mi az üzenet)
 
 ### Teszt a 2026-10-20-i reset után (legújabb image, valódi gép)
 VM-ben előre végignézve (2026-10-20 este, a 13:36-os image, `71b9b89`, titkosított lemez, nyitott hálózat); ami ott

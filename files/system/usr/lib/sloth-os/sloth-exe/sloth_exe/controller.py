@@ -37,6 +37,8 @@ WORKED_AFTER_S = 45
 INSTALL_SETTLE_S = 3
 # Ha a telepítés előkészítése ennyi ideig nem ad hírt magáról, megnyugtató szöveg (ne higgye, hogy lefagyott)
 SLOW_PREP_S = 60
+# A sorból (--queued) indítva ezzel jelezzük az Üdvözlőnek, hogy kész, ha a telepítő végét a háttérben várjuk
+QUEUED_DONE = "sloth-exe: queued-done"
 
 
 class ExeController(QObject):
@@ -67,6 +69,8 @@ class ExeController(QObject):
         self._sure = True      # a telepítés után biztosan kiderült-e, mivel indul
         self._mode = ""  # "install" | "run" | "manage"
         self._join = False     # a program környezetében már fut valami: ahhoz csatlakozunk
+        self._installer_alive = False  # a telepítés kész, de a telepítő még fut (_check_install_done)
+        self._closing = False  # már csak a telepítő kilépését várjuk (_quit)
         self._anticheat = None
         self._runner = Runner(self)
         self._runner.status.connect(self._on_status)
@@ -242,6 +246,8 @@ class ExeController(QObject):
         self._set_working(tr("status.preparing_install", name=self._name))
         self._slow_timer.start()
         self._start_runner(self._program, self._exe)
+        # már a telepítő futása közben figyelünk (_check_install_done)
+        self._install_timer.start()
 
     @Slot()
     def openExisting(self):
@@ -298,21 +304,34 @@ class ExeController(QObject):
         icon = next((e["icon"] for e in menu.entries(self._program) if e["icon"].startswith("/")), None)
         self._program.set_folder_icon(icon)
         if start and first:
-            if self._queued:
-                # a sorban a következő telepítő jön: a program külön folyamatban indul, ez a példány kilép
+            if self._queued or self._installer_alive:
+                # a sorban a következő telepítő jön (vagy a telepítő még fut, és ez a példány megvárja):
+                # a program külön folyamatban indul, ez a példány kilép
                 subprocess.Popen(["sloth-exe", "--launch", self._program.id, str(menu.target(self._program, first))],
                                  start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                QApplication.quit()
+                self._quit()
                 return
             # „Indítás”: rögtön elindul, ahogy később a Start menüből
             self._existing = None
             self.launch(self._program.id, menu.target(self._program, first))
             return
-        QApplication.quit()
+        self._quit()
 
     @Slot()
     def close(self):
-        QApplication.quit()
+        self._quit()
+
+    def _quit(self):
+        """Kilépés. Ha a telepítő még fut (a végén elindította a telepített programot, pl. az EA app, és addig
+        nem lép ki), nem szakítjuk félbe: az ablak eltűnik, és a telepítő végén lépünk ki. A sorból indítva
+        (Üdvözlő) szólunk, hogy kész, így a sor nem vár addig, amíg a felhasználó bezárja a programot."""
+        if not (self._installer_alive and self._runner.running()):
+            QApplication.quit()
+            return
+        self._closing = True
+        self.hideWindow.emit()
+        if self._queued:
+            print(QUEUED_DONE, flush=True)
 
     @Slot()
     def startInstalled(self):
@@ -601,6 +620,13 @@ class ExeController(QObject):
         self._slow_timer.stop()
         self._worked_timer.stop()
         log.info("kilépett: kód=%s, %.0f mp", code, elapsed)
+        if self._installer_alive:
+            self._installer_alive = False
+            if not self._closing:
+                return  # a telepítő kilépett; a felhasználó még ebben az ablakban dolgozik
+            # a telepítés már kész volt, csak a telepítő végét vártuk (_quit)
+            QApplication.quit()
+            return
         if code == 127 and elapsed == 0:
             self._fail(tr("error.runtime_missing"))
             return
@@ -732,10 +758,26 @@ class ExeController(QObject):
     def _check_install_done(self):
         """A telepítés akkor kész, amikor a program környezetében már semmi nem fut, vagy amikor a telepítő
         már kilépett, és a program biztosan megvan (sok telepítő a végén magától elindítja a programot,
-        pl. a Battle.net: azt nem várjuk meg, amíg a felhasználó bezárja)."""
+        pl. a Battle.net: azt nem várjuk meg, amíg a felhasználó bezárja). Akkor is kész, ha a telepítő még
+        fut, de a telepített program már elindult: az EA app telepítője addig nem lép ki, amíg az EA app fut."""
         running = library.running_exes(self._program)
-        if running and (self._exe.name.lower() in running
-                        or not detect.detect(self._program, self._baseline, fallback_name=self._name).sure):
+        if self._runner.running():
+            if self._state != "working" or not self._runner.main_running():
+                return
+            if running and self._status != tr("status.finish_in_installer"):
+                # A Windows-oldalon már fut a telepítő: az előkészítés véget ért (akkor is, ha nem kellett
+                # letölteni semmit, és a futtató ezért nem jelezte), a „még dolgozunk…” szöveg ne maradjon kint
+                self._on_setup_done()
+            others = running - {self._exe.name.lower()}
+            if not others:
+                return
+            found = detect.detect(self._program, self._baseline, fallback_name=self._name)
+            if not (found.sure and others & {c.path.name.lower() for c in found.candidates}):
+                return
+            log.info("a telepítő még fut, de a telepített program már elindult: %s", sorted(others))
+            self._installer_alive = True
+        elif running and (self._exe.name.lower() in running
+                          or not detect.detect(self._program, self._baseline, fallback_name=self._name).sure):
             return
         self._install_timer.stop()
         self._after_install()

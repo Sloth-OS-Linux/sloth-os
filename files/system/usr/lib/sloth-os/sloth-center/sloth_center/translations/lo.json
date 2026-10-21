@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "ແນບຂໍ້ມູນຄອມພິວເຕີ ແລະ ບັນທຶກ (ຊ່ວຍຊອກຫາບັນຫາ)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "ບັນທຶກບໍ່ເປັນສາທາລະນະ: ມີແຕ່ຜູ້ພັດທະນາທີ່ເຫັນ ແລະ ຈະຖືກລຶບຫຼັງ 30 ມື້. ອາດມີຊື່ຜູ້ໃຊ້ ແລະ ຊື່ອຸປະກອນຂອງທ່ານ ແຕ່ບໍ່ມີໄຟລ໌ຂອງທ່ານ. ຄຳອະທິບາຍຂອງທ່ານຈະເປັນສາທາລະນະ ໂດຍບໍ່ມີຊື່ຂອງທ່ານ.",
   "Küldés…": "ກຳລັງສົ່ງ…",
-  "Küldés": "ສົ່ງ"
+  "Küldés": "ສົ່ງ",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "ສະຖານະທີ່ບັນທຶກໄວ້ໃນຄອມພິວເຕີນີ້ກໍຈະຖືກລຶບເຊັ່ນກັນ. ໃຫ້ສຳເນົາທຸກຢ່າງທີ່ຕ້ອງການໄປໃສ່ດິສພາຍນອກ ຫຼື USB ກ່ອນ, ບໍ່ດັ່ງນັ້ນຈະບໍ່ມີບ່ອນໃຫ້ກູ້ຄືນ.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "ກ່ອນຣີເຊັດ, ພວກເຮົາຈະສ້າງສະຖານະທີ່ບັນທຶກໄວ້ຂອງໄຟລ໌ທ່ານໂດຍອັດຕະໂນມັດ. ຖ້າມີຫຍັງຂາດໄປຫຼັງຈາກນັ້ນ, ທ່ານສາມາດເອົາຄືນໄດ້ຈາກເມນູ “ເວີຊັນກ່ອນໜ້າ”.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "ການສຳຮອງໄຟລ໌ໃຊ້ບໍ່ໄດ້ໃນຄອມພິວເຕີນີ້, ສະນັ້ນພວກເຮົາບໍ່ສາມາດສ້າງສະຖານະທີ່ບັນທຶກໄວ້ລ່ວງໜ້າໄດ້. ໃຫ້ສຳເນົາທຸກຢ່າງທີ່ສຳຄັນໄປໃສ່ດິສພາຍນອກ ຫຼື USB.",
+  "Elmentettem, amire szükségem van": "ຂ້ອຍບັນທຶກທຸກຢ່າງທີ່ຕ້ອງການແລ້ວ"
 }

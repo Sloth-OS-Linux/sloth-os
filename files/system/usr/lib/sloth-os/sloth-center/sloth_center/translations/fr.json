@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Joindre les informations de l'ordinateur et le journal (aide à trouver le problème)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Le journal n'est pas public : seuls les développeurs le voient, et il est supprimé après 30 jours. Il peut contenir votre nom d'utilisateur et le nom de vos appareils, mais pas vos fichiers. Votre description sera publique, sans votre nom.",
   "Küldés…": "Envoi…",
-  "Küldés": "Envoyer"
+  "Küldés": "Envoyer",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Les états enregistrés sur cet ordinateur seront aussi supprimés. Copiez d’abord tout ce dont vous avez besoin sur un disque externe ou une clé USB, sinon il n’y aura rien à partir de quoi le récupérer.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Avant la réinitialisation, nous créons automatiquement un état enregistré de vos fichiers. S’il manque quelque chose ensuite, vous pouvez le récupérer via le menu « Versions précédentes ».",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "La sauvegarde des fichiers ne fonctionne pas sur cet ordinateur, nous ne pouvons donc pas créer d’état enregistré au préalable. Copiez tout ce qui est important sur un disque externe ou une clé USB.",
+  "Elmentettem, amire szükségem van": "J’ai enregistré tout ce dont j’ai besoin"
 }

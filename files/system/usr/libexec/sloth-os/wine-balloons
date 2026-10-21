@@ -14,7 +14,7 @@ import sys
 import time
 
 MARGIN = 8
-NEAR = 64           # ennyin belül a bal felső sarokhoz: oda tette a Wine
+NEAR = 64           # ennyin belül a munkaterület bal felső sarkához: oda tette a Wine (nagyítással szorozva)
 MAX_W, MAX_H = 1200, 800
 
 CREATE_NOTIFY, MAP_NOTIFY, CONFIGURE_NOTIFY = 16, 19, 22
@@ -86,8 +86,14 @@ def target_position(work, size):
     return max(wx, x), max(wy, y)
 
 
-def misplaced(x, y, w, h):
-    return 0 <= x < NEAR and 0 <= y < NEAR and 0 < w <= MAX_W and 0 < h <= MAX_H
+def misplaced(x, y, w, h, work, screen_h):
+    """A bal felső sarokban van-e. A Wine a buborékot a munkaterületen belülre igazítja: fenti panelnél (pl. a
+    macOS-szerű elrendezésben) a panel alá, ezért a munkaterület sarkához mérünk; nagyításnál a határ is nagyobb."""
+    wx, wy = work[0], work[1]
+    scale = max(1, round(screen_h / 1080))
+    near, max_w, max_h = NEAR * scale, MAX_W * scale, MAX_H * scale
+    return (min(0, wx) <= x < wx + near and min(0, wy) <= y < wy + near
+            and 0 < w <= max_w and 0 < h <= max_h)
 
 
 class Mover:
@@ -126,11 +132,14 @@ class Mover:
         attrs = XWindowAttributes()
         if not self.x.XGetWindowAttributes(self.d, win, ctypes.byref(attrs)):
             return
-        if not attrs.override_redirect or not misplaced(attrs.x, attrs.y, attrs.width, attrs.height):
+        if not attrs.override_redirect:
+            return
+        work = self.workarea()
+        if not misplaced(attrs.x, attrs.y, attrs.width, attrs.height, work, self.x.XDisplayHeight(self.d, 0)):
             return
         if not self.is_wine_explorer(win):
             return
-        x, y = target_position(self.workarea(), (attrs.width, attrs.height))
+        x, y = target_position(work, (attrs.width, attrs.height))
         self.x.XMoveWindow(self.d, win, x, y)
         self.x.XFlush(self.d)
 

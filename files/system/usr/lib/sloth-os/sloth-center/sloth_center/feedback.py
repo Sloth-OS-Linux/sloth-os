@@ -22,6 +22,9 @@ log = logging.getLogger("sloth-center.feedback")
 
 URL = "https://sloth-os-knowledge.slothos.workers.dev/v1/feedback"
 MAX_LOG = 500 * 1024  # a szolgáltatás legfeljebb 512 KB-ot fogad; a napló vége a fontosabb
+# A szolgáltatás a teljes kérés méretét nézi (512 + 64 KB), nem a naplóét: a JSON-kódolás a naplót felfújhatja
+# (a Wine-naplók \-ei duplán), ezért a kódolt kérést is a határ alatt tartjuk
+MAX_BODY = 560 * 1024
 KINDS = ("bug", "idea", "other")
 
 
@@ -46,12 +49,21 @@ def _log_text():
     return data[-MAX_LOG:].decode("utf-8", "replace")
 
 
+def _encode(body):
+    """A kérés bájtjai; ha túl nagy, a napló elejéből vág (minden kivett karakter legalább 1 bájt)."""
+    data = json.dumps(body, ensure_ascii=False).encode()
+    while len(data) > MAX_BODY and body.get("log"):
+        body["log"] = body["log"][len(data) - MAX_BODY:]
+        data = json.dumps(body, ensure_ascii=False).encode()
+    return data
+
+
 def send(kind, text, attach_log):
     """(ok, szám vagy hibakód). Hálózati hiba: (False, "network"); túl sok: (False, "rate")."""
     body = {"kind": kind, "text": text, "version": _version(), "lang": catalog.language()[:20]}
     if attach_log:
         body["log"] = _log_text()
-    req = urllib.request.Request(URL, data=json.dumps(body).encode(), method="POST",
+    req = urllib.request.Request(URL, data=_encode(body), method="POST",
                                  headers={"content-type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=60) as resp:

@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Připojit informace o počítači a protokol (pomůže najít chybu)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Protokol není veřejný: vidí ho jen vývojáři a po 30 dnech se smaže. Může obsahovat vaše uživatelské jméno a názvy zařízení, ale ne vaše soubory. Váš popis bude veřejný, bez vašeho jména.",
   "Küldés…": "Odesílání…",
-  "Küldés": "Odeslat"
+  "Küldés": "Odeslat",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Smažou se i uložené stavy na tomto počítači. Vše potřebné si nejdřív zkopírujte na externí disk nebo flashku, jinak nebude odkud to obnovit.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Před obnovením automaticky vytvoříme uložený stav vašich souborů. Pokud by pak něco chybělo, vrátíte to přes nabídku „Předchozí verze“.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Zálohování souborů na tomto počítači nefunguje, takže předem nemůžeme vytvořit uložený stav. Vše důležité si zkopírujte na externí disk nebo flashku.",
+  "Elmentettem, amire szükségem van": "Uložil(a) jsem vše, co potřebuji"
 }

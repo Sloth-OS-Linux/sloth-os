@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Anexar informações do computador e o registo (ajuda a encontrar o problema)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "O registo não é público: só os programadores o veem, e é apagado após 30 dias. Pode conter o seu nome de utilizador e os nomes dos seus dispositivos, mas não os seus ficheiros. A sua descrição será pública, sem o seu nome.",
   "Küldés…": "A enviar…",
-  "Küldés": "Enviar"
+  "Küldés": "Enviar",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Os estados guardados neste computador também serão eliminados. Copie primeiro tudo o que precisa para um disco externo ou uma pen USB; caso contrário, não haverá de onde o recuperar.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Antes de repor, criamos automaticamente um estado guardado dos seus ficheiros. Se depois faltar alguma coisa, pode recuperá-la no menu «Versões anteriores».",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "A cópia de segurança de ficheiros não funciona neste computador, por isso não podemos criar um estado guardado antes. Copie tudo o que é importante para um disco externo ou uma pen USB.",
+  "Elmentettem, amire szükségem van": "Já guardei tudo o que preciso"
 }

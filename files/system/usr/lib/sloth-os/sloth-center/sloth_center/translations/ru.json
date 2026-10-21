@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Приложить сведения о компьютере и журнал (помогает найти ошибку)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Журнал не публикуется: его видят только разработчики, и через 30 дней он удаляется. В нём могут быть ваше имя пользователя и названия устройств, но не ваши файлы. Ваше описание будет публичным, без вашего имени.",
   "Küldés…": "Отправка…",
-  "Küldés": "Отправить"
+  "Küldés": "Отправить",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Сохранённые состояния на этом компьютере тоже будут удалены. Сначала скопируйте всё нужное на внешний диск или флешку, иначе восстановить это будет неоткуда.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Перед возвратом в исходное состояние мы автоматически создаём сохранённое состояние ваших файлов. Если потом чего-то не хватит, верните это через меню «Предыдущие версии».",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Резервное копирование файлов на этом компьютере не работает, поэтому заранее создать сохранённое состояние мы не можем. Скопируйте всё важное на внешний диск или флешку.",
+  "Elmentettem, amire szükségem van": "Я сохранил всё, что мне нужно"
 }

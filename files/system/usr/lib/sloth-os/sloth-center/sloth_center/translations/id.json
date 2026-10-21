@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Lampirkan informasi komputer dan log (membantu menemukan masalah)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "Log tidak bersifat publik: hanya pengembang yang dapat melihatnya, dan log dihapus setelah 30 hari. Log dapat berisi nama pengguna dan nama perangkat Anda, tetapi tidak berisi berkas Anda. Deskripsi Anda akan bersifat publik, tanpa nama Anda.",
   "Küldés…": "Mengirim…",
-  "Küldés": "Kirim"
+  "Küldés": "Kirim",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Keadaan tersimpan di komputer ini juga akan dihapus. Salin dulu semua yang kamu perlukan ke drive eksternal atau flashdisk, kalau tidak, tidak akan ada sumber untuk memulihkannya.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Sebelum penyetelan ulang, kami otomatis membuat keadaan tersimpan dari berkasmu. Jika setelahnya ada yang hilang, kamu bisa mengembalikannya lewat menu “Versi sebelumnya”.",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Pencadangan berkas tidak berfungsi di komputer ini, jadi kami tidak bisa membuat keadaan tersimpan terlebih dahulu. Salin semua yang penting ke drive eksternal atau flashdisk.",
+  "Elmentettem, amire szükségem van": "Saya sudah menyimpan semua yang saya perlukan"
 }

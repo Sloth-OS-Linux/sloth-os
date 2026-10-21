@@ -210,6 +210,33 @@ Kirigami.ScrollablePage {
                     text: L.t("Előtte letöltjük a legújabb Sloth OS verziót, így a gép azzal indul újra.")
                 }
 
+                // Mentés: „keep” módban magától készül egy mentett állapot (factory-reset boot), „all” módban
+                // a gépen lévő mentések is törlődnek, ezért külső lemezre kell menteni
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: page.choice !== ""
+                    type: page.choice === "all" ? Kirigami.MessageType.Warning : Kirigami.MessageType.Information
+                    text: page.choice === "all"
+                          ? L.t("A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.")
+                          : backup.state === "ready"
+                            ? L.t("Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.")
+                            : L.t("A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.")
+                    actions: [
+                        Kirigami.Action {
+                            visible: page.choice === "all" || backup.state !== "ready"
+                            icon.name: backup.pikaInstalled ? "document-open" : "plasmadiscover"
+                            text: backup.pikaInstalled ? L.t("Pika Backup megnyitása") : L.t("Pika Backup telepítése")
+                            onTriggered: backup.pikaInstalled ? backup.openPika() : backup.installPika()
+                        }
+                    ]
+                }
+                QQC2.CheckBox {
+                    id: savedCheck
+                    Layout.fillWidth: true
+                    visible: page.choice === "all"
+                    text: L.t("Elmentettem, amire szükségem van")
+                }
+
                 // „Mindent töröl”: az új fiók (újraindítás után ezzel lehet belépni)
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -258,11 +285,11 @@ Kirigami.ScrollablePage {
                     QQC2.Button {
                         icon.name: "go-previous"
                         text: L.t("Vissza")
-                        onClicked: page.choice = ""
+                        onClicked: { page.choice = ""; savedCheck.checked = false }
                     }
                     QQC2.Button {
                         icon.name: "edit-undo"
-                        enabled: page.accountProblem === ""
+                        enabled: page.accountProblem === "" && (page.choice !== "all" || savedCheck.checked)
                         text: L.t("Alaphelyzetbe állítás…")
                         onClicked: confirm.open()
                     }
@@ -287,6 +314,7 @@ Kirigami.ScrollablePage {
                     reset.start(page.choice, fullnameField.text, usernameField.text, passwordField.text)
                     passwordField.text = ""
                     password2Field.text = ""
+                    savedCheck.checked = false
                     page.choice = ""
                 }
             },

@@ -51,6 +51,22 @@ HELPER = "/usr/libexec/sloth-os/sloth-helper"
 EASY_TOPICS = ["software", "updates", "network", "datetime", "services"]
 
 
+# A sloth-exe ezt írja ki, ha a telepítés kész, de a telepítő még fut (pl. az EA app telepítője addig nem lép ki,
+# amíg az EA app fut): a sor ilyenkor továbbmegy, a sloth-exe a háttérben várja meg a telepítő végét
+QUEUED_DONE = "sloth-exe: queued-done"
+
+
+def _run_queued(path):
+    """Egy telepítő az .exe kezelőben; a kilépési kód (vagy 0, ha a sloth-exe jelezte, hogy kész)."""
+    proc = subprocess.Popen(["sloth-exe", "--queued", str(path)], stdout=subprocess.PIPE, text=True)
+    for line in proc.stdout:
+        if line.strip() == QUEUED_DONE:
+            proc.stdout.close()
+            threading.Thread(target=proc.wait, daemon=True).start()
+            return 0
+    return proc.wait()
+
+
 def apply_language():
     """Ablakcím és írásirány a választott nyelvhez (arab, héber: jobbról balra, tükrözve)."""
     QApplication.setApplicationDisplayName(tr("app.title"))
@@ -633,7 +649,7 @@ class WelcomeController(QObject):
             results = []
             for name, path in self._win_queue:
                 try:
-                    code = subprocess.run(["sloth-exe", "--queued", str(path)]).returncode
+                    code = _run_queued(path)
                 except OSError as e:
                     log.warning("sloth-exe %s: %s", path, e)
                     code = -1

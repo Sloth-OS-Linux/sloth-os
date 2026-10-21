@@ -204,6 +204,10 @@ class Runner(QObject):
     def running(self):
         return self._proc is not None and self._proc.state() != QProcess.ProcessState.NotRunning
 
+    def main_running(self):
+        """Már maga a program fut (az előkészítő lépések, pl. az összetevők telepítése, véget értek)."""
+        return self.running() and len(self._steps) == 1
+
     def elapsed(self):
         return time.monotonic() - self._started_at
 

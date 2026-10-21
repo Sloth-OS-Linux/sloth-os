@@ -581,5 +581,9 @@
   "Gépinformáció és napló csatolása (segít megtalálni a hibát)": "Adjunta la informació de l'ordinador i el registre (ajuda a trobar el problema)",
   "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.": "El registre no és públic: només el veuen els desenvolupadors i s'esborra al cap de 30 dies. Pot contenir el teu nom d'usuari i els noms dels teus dispositius, però no els teus fitxers. La teva descripció serà pública, sense el teu nom.",
   "Küldés…": "S'està enviant…",
-  "Küldés": "Envia"
+  "Küldés": "Envia",
+  "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "També s'esborraran els estats desats d'aquest ordinador. Copia abans tot el que necessitis a un disc extern o un llapis USB; si no, no hi haurà d'on recuperar-ho.",
+  "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Abans de restablir, creem automàticament un estat desat dels teus fitxers. Si després hi falta alguna cosa, la pots recuperar des del menú «Versions anteriors».",
+  "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "La còpia de seguretat de fitxers no funciona en aquest ordinador, així que no podem crear un estat desat abans. Copia tot el que sigui important a un disc extern o un llapis USB.",
+  "Elmentettem, amire szükségem van": "He desat tot el que necessito"
 }
