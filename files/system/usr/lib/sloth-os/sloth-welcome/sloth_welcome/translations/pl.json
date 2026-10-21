@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplikacje i wygląd",
   "desktop.comment": "Instalacja przeglądarki, pakietu biurowego, odtwarzacza multimediów i innych aplikacji, wybór schematu kolorów",
-  "desktop.keywords": "witaj;aplikacje;przeglądarka;biuro;motyw"
+  "desktop.keywords": "witaj;aplikacje;przeglądarka;biuro;motyw",
+  "done.support": "Sloth OS jest darmowy i powstaje w wolnym czasie. Jeśli ci się podoba, możesz wesprzeć jego rozwój piwem: ko-fi.com/slothos",
+  "done.support_button": "Wesprzyj na Ko-fi"
 }

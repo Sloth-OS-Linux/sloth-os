@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "De sparade lägena på den här datorn raderas också. Kopiera först allt du behöver till en extern disk eller ett USB-minne, annars finns det inget att återställa från.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Innan återställningen skapar vi automatiskt ett sparat läge av dina filer. Om något saknas efteråt kan du hämta tillbaka det från menyn ”Tidigare versioner”.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Säkerhetskopiering av filer fungerar inte på den här datorn, så vi kan inte skapa ett sparat läge först. Kopiera allt viktigt till en extern disk eller ett USB-minne.",
-  "Elmentettem, amire szükségem van": "Jag har sparat allt jag behöver"
+  "Elmentettem, amire szükségem van": "Jag har sparat allt jag behöver",
+  "Támogasd a Sloth OS-t": "Stöd Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS är gratis och görs på fritiden. Om du gillar det kan du stödja utvecklingen med en öl: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Stöd på Ko-fi"
 }

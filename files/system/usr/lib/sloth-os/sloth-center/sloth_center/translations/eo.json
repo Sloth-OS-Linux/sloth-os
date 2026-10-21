@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Ankaŭ la konservitaj statoj en ĉi tiu komputilo estos forigitaj. Unue kopiu ĉion bezonatan al ekstera disko aŭ USB-memorilo, alie estos nenio, el kio restarigi ĝin.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Antaŭ la restarigo ni aŭtomate kreas konservitan staton de viaj dosieroj. Se poste io mankas, vi povas rehavi ĝin per la menuo “Antaŭaj versioj”.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Sekurkopio de dosieroj ne funkcias en ĉi tiu komputilo, do ni ne povas antaŭe krei konservitan staton. Kopiu ĉion gravan al ekstera disko aŭ USB-memorilo.",
-  "Elmentettem, amire szükségem van": "Mi konservis ĉion, kion mi bezonas"
+  "Elmentettem, amire szükségem van": "Mi konservis ĉion, kion mi bezonas",
+  "Támogasd a Sloth OS-t": "Subtenu Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS estas senpaga kaj farata en libera tempo. Se ĝi plaĉas al vi, vi povas subteni ĝian disvolviĝon per biero: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Subteni ĉe Ko-fi"
 }

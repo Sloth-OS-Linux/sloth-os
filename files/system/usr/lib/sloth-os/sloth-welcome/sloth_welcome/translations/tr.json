@@ -186,5 +186,7 @@
 
   "desktop.generic": "Uygulamalar ve görünüm",
   "desktop.comment": "Tarayıcı, ofis paketi, medya oynatıcı ve daha fazlasını yükleme, renk şeması seçme",
-  "desktop.keywords": "hoş geldiniz;uygulamalar;tarayıcı;ofis;tema"
+  "desktop.keywords": "hoş geldiniz;uygulamalar;tarayıcı;ofis;tema",
+  "done.support": "Sloth OS ücretsizdir ve boş zamanlarda geliştirilir. Beğendiyseniz, bir bira ısmarlayarak gelişimini destekleyebilirsiniz: ko-fi.com/slothos",
+  "done.support_button": "Ko-fi’de destekle"
 }

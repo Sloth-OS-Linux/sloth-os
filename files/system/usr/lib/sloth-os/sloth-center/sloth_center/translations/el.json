@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Θα διαγραφούν και οι αποθηκευμένες καταστάσεις αυτού του υπολογιστή. Αντιγράψτε πρώτα ό,τι χρειάζεστε σε εξωτερικό δίσκο ή στικάκι USB, αλλιώς δεν θα υπάρχει από πού να το επαναφέρετε.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Πριν από την επαναφορά, δημιουργούμε αυτόματα μια αποθηκευμένη κατάσταση των αρχείων σας. Αν μετά λείπει κάτι, μπορείτε να το επαναφέρετε από το μενού «Προηγούμενες εκδόσεις».",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Τα αντίγραφα ασφαλείας αρχείων δεν λειτουργούν σε αυτόν τον υπολογιστή, οπότε δεν μπορούμε να δημιουργήσουμε πρώτα αποθηκευμένη κατάσταση. Αντιγράψτε ό,τι είναι σημαντικό σε εξωτερικό δίσκο ή στικάκι USB.",
-  "Elmentettem, amire szükségem van": "Αποθήκευσα ό,τι χρειάζομαι"
+  "Elmentettem, amire szükségem van": "Αποθήκευσα ό,τι χρειάζομαι",
+  "Támogasd a Sloth OS-t": "Υποστηρίξτε το Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Το Sloth OS είναι δωρεάν και φτιάχνεται στον ελεύθερο χρόνο. Αν σας αρέσει, μπορείτε να στηρίξετε την ανάπτυξή του με μια μπίρα: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Υποστήριξη στο Ko-fi"
 }

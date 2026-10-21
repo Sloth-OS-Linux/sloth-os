@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplikacione dhe pamje",
   "desktop.comment": "Instalimi i një shfletuesi, pakete zyre, luajtësi mediash dhe më shumë, zgjedhja e një skeme ngjyrash",
-  "desktop.keywords": "mirë se vini;aplikacione;shfletues;zyrë;temë"
+  "desktop.keywords": "mirë se vini;aplikacione;shfletues;zyrë;temë",
+  "done.support": "Sloth OS është falas dhe bëhet në kohën e lirë. Nëse ju pëlqen, mund ta mbështetni zhvillimin e tij me një birrë: ko-fi.com/slothos",
+  "done.support_button": "Mbështetni në Ko-fi"
 }

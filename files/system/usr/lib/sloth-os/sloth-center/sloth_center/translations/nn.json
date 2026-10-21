@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Dei lagra tilstandane på denne datamaskina blir òg sletta. Kopier alt du treng til ein ekstern disk eller minnepinne først, elles er det ingenting å henta det tilbake frå.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Før tilbakestillinga lagar vi automatisk ein lagra tilstand av filene dine. Manglar noko etterpå, kan du henta det tilbake frå menyen «Tidlegare versjonar».",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Tryggleikskopi av filer fungerer ikkje på denne datamaskina, så vi kan ikkje laga ein lagra tilstand først. Kopier alt viktig til ein ekstern disk eller minnepinne.",
-  "Elmentettem, amire szükségem van": "Eg har lagra alt eg treng"
+  "Elmentettem, amire szükségem van": "Eg har lagra alt eg treng",
+  "Támogasd a Sloth OS-t": "Støtt Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS er gratis og vert laga på fritida. Om du likar det, kan du støtta utviklinga med ein øl: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Støtt på Ko-fi"
 }

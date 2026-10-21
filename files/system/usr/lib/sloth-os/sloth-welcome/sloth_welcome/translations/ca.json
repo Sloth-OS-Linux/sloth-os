@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplicacions i aparença",
   "desktop.comment": "Instal·lar un navegador, un paquet ofimàtic, un reproductor multimèdia i més, i triar un esquema de colors",
-  "desktop.keywords": "benvinguda;aplicacions;navegador;ofimàtica;tema"
+  "desktop.keywords": "benvinguda;aplicacions;navegador;ofimàtica;tema",
+  "done.support": "Sloth OS és gratuït i es fa en temps lliure. Si us agrada, podeu donar suport al seu desenvolupament amb una cervesa: ko-fi.com/slothos",
+  "done.support_button": "Suport a Ko-fi"
 }

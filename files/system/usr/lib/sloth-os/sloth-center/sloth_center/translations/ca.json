@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "També s'esborraran els estats desats d'aquest ordinador. Copia abans tot el que necessitis a un disc extern o un llapis USB; si no, no hi haurà d'on recuperar-ho.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Abans de restablir, creem automàticament un estat desat dels teus fitxers. Si després hi falta alguna cosa, la pots recuperar des del menú «Versions anteriors».",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "La còpia de seguretat de fitxers no funciona en aquest ordinador, així que no podem crear un estat desat abans. Copia tot el que sigui important a un disc extern o un llapis USB.",
-  "Elmentettem, amire szükségem van": "He desat tot el que necessito"
+  "Elmentettem, amire szükségem van": "He desat tot el que necessito",
+  "Támogasd a Sloth OS-t": "Doneu suport a Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS és gratuït i es fa en temps lliure. Si us agrada, podeu donar suport al seu desenvolupament amb una cervesa: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Suport a Ko-fi"
 }

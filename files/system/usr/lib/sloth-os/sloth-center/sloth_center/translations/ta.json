@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "இந்தக் கணினியில் சேமித்த நிலைகளும் நீக்கப்படும். தேவையான அனைத்தையும் முதலில் வெளிப்புற வட்டு அல்லது USB குச்சிக்கு நகலெடுங்கள், இல்லையெனில் மீட்டெடுக்க எதுவும் இருக்காது.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "மீட்டமைப்பதற்கு முன், உங்கள் கோப்புகளின் சேமித்த நிலையை தானாக உருவாக்குகிறோம். பின்னர் ஏதாவது காணவில்லை என்றால், “முந்தைய பதிப்புகள்” மெனுவிலிருந்து மீட்டெடுக்கலாம்.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "இந்தக் கணினியில் கோப்புக் காப்புப்பிரதி வேலை செய்யாது, எனவே முன்கூட்டியே சேமித்த நிலையை உருவாக்க முடியாது. முக்கியமானவை அனைத்தையும் வெளிப்புற வட்டு அல்லது USB குச்சிக்கு நகலெடுங்கள்.",
-  "Elmentettem, amire szükségem van": "எனக்குத் தேவையான அனைத்தையும் சேமித்துவிட்டேன்"
+  "Elmentettem, amire szükségem van": "எனக்குத் தேவையான அனைத்தையும் சேமித்துவிட்டேன்",
+  "Támogasd a Sloth OS-t": "Sloth OS-ஐ ஆதரியுங்கள்",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS இலவசமானது, ஓய்வு நேரத்தில் உருவாக்கப்படுகிறது. உங்களுக்குப் பிடித்திருந்தால், ஒரு பானத்தின் விலையில் அதன் வளர்ச்சியை ஆதரிக்கலாம்: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Ko-fi-இல் ஆதரியுங்கள்"
 }

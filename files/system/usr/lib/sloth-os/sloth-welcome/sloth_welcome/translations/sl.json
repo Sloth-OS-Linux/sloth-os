@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplikacije in videz",
   "desktop.comment": "Namestitev brskalnika, pisarniškega paketa, predvajalnika predstavnosti in drugega, izbira barvne sheme",
-  "desktop.keywords": "dobrodošli;aplikacije;brskalnik;pisarna;tema"
+  "desktop.keywords": "dobrodošli;aplikacije;brskalnik;pisarna;tema",
+  "done.support": "Sloth OS je brezplačen in nastaja v prostem času. Če vam je všeč, lahko njegov razvoj podprete s pivom: ko-fi.com/slothos",
+  "done.support_button": "Podpora na Ko-fi"
 }

@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Kustutatakse ka selle arvuti salvestatud olekud. Kopeeri kõik vajalik enne välisele kettale või USB-mälupulgale, muidu pole kust seda taastada.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Enne lähtestamist loome automaatselt sinu failidest salvestatud oleku. Kui pärast midagi puudub, saad selle tagasi menüüst „Varasemad versioonid“.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Failide varundamine selles arvutis ei tööta, seega ei saa me enne salvestatud olekut luua. Kopeeri kõik oluline välisele kettale või USB-mälupulgale.",
-  "Elmentettem, amire szükségem van": "Olen salvestanud kõik, mida vajan"
+  "Elmentettem, amire szükségem van": "Olen salvestanud kõik, mida vajan",
+  "Támogasd a Sloth OS-t": "Toeta Sloth OS-i",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS on tasuta ja valmib vabal ajal. Kui see sulle meeldib, saad selle arendust ühe õllega toetada: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Toeta Ko-fis"
 }

@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplicazions e aspiet",
   "desktop.comment": "Instalâ un navigadôr, une suite di ufici, un riprodutôr multimediâl e altri, sielzi un scheme di colôrs",
-  "desktop.keywords": "benvignût;aplicazions;navigadôr;ufici;teme"
+  "desktop.keywords": "benvignût;aplicazions;navigadôr;ufici;teme",
+  "done.support": "Sloth OS al è gratuit e al ven fat tal timp libar. Se ti plâs, tu puedis sostignî il so svilup cuntune bire: ko-fi.com/slothos",
+  "done.support_button": "Sosten su Ko-fi"
 }

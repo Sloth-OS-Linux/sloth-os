@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Zapisane stany na tym komputerze również zostaną usunięte. Najpierw skopiuj wszystko, czego potrzebujesz, na dysk zewnętrzny lub pendrive, inaczej nie będzie skąd tego odzyskać.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Przed resetem automatycznie tworzymy zapisany stan Twoich plików. Jeśli potem czegoś zabraknie, przywrócisz to z menu „Poprzednie wersje”.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Kopia zapasowa plików nie działa na tym komputerze, więc nie możemy wcześniej utworzyć zapisanego stanu. Skopiuj wszystko, co ważne, na dysk zewnętrzny lub pendrive.",
-  "Elmentettem, amire szükségem van": "Zapisałem/am wszystko, czego potrzebuję"
+  "Elmentettem, amire szükségem van": "Zapisałem/am wszystko, czego potrzebuję",
+  "Támogasd a Sloth OS-t": "Wesprzyj Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS jest darmowy i powstaje w wolnym czasie. Jeśli ci się podoba, możesz wesprzeć jego rozwój piwem: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Wesprzyj na Ko-fi"
 }

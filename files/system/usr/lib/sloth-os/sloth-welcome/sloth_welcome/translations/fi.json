@@ -186,5 +186,7 @@
 
   "desktop.generic": "Sovellukset ja ulkoasu",
   "desktop.comment": "Asenna selain, toimisto-ohjelmat, mediasoitin ja muuta, valitse väriteema",
-  "desktop.keywords": "tervetuloa;sovellukset;selain;toimisto;teema"
+  "desktop.keywords": "tervetuloa;sovellukset;selain;toimisto;teema",
+  "done.support": "Sloth OS on ilmainen, ja sitä tehdään vapaa-ajalla. Jos pidät siitä, voit tukea sen kehitystä tarjoamalla oluen: ko-fi.com/slothos",
+  "done.support_button": "Tue Ko-fissa"
 }

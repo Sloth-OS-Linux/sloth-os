@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplicações e aspeto",
   "desktop.comment": "Instalar um navegador, um pacote de escritório, um leitor multimédia e mais, escolher um esquema de cores",
-  "desktop.keywords": "boas-vindas;aplicações;navegador;escritório;tema"
+  "desktop.keywords": "boas-vindas;aplicações;navegador;escritório;tema",
+  "done.support": "O Sloth OS é gratuito e feito nos tempos livres. Se gostar, pode apoiar o seu desenvolvimento com uma cerveja: ko-fi.com/slothos",
+  "done.support_button": "Apoiar no Ko-fi"
 }

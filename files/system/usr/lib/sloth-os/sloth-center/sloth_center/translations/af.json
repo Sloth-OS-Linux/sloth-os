@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Die gestoorde toestande op hierdie rekenaar word ook uitgevee. Kopieer eers alles wat jy nodig het na 'n eksterne skyf of USB-stokkie, anders sal daar niks wees om dit van terug te kry nie.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Voor die terugstelling maak ons outomaties 'n gestoorde toestand van jou lêers. As iets daarna ontbreek, kan jy dit via die “Vorige weergawes”-kieslys terugkry.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Lêerrugsteun werk nie op hierdie rekenaar nie, so ons kan nie vooraf 'n gestoorde toestand maak nie. Kopieer alles wat belangrik is na 'n eksterne skyf of USB-stokkie.",
-  "Elmentettem, amire szükségem van": "Ek het alles gestoor wat ek nodig het"
+  "Elmentettem, amire szükségem van": "Ek het alles gestoor wat ek nodig het",
+  "Támogasd a Sloth OS-t": "Ondersteun Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS is gratis en word in vrye tyd gemaak. As jy daarvan hou, kan jy die ontwikkeling met ’n bier ondersteun: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Ondersteun op Ko-fi"
 }

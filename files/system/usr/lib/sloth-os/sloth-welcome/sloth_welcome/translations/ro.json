@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplicații și aspect",
   "desktop.comment": "Instalarea unui navigator, a unei suite de birou, a unui player media și altele, alegerea unei scheme de culori",
-  "desktop.keywords": "bun venit;aplicații;navigator;birou;temă"
+  "desktop.keywords": "bun venit;aplicații;navigator;birou;temă",
+  "done.support": "Sloth OS este gratuit și se face în timpul liber. Dacă îți place, poți susține dezvoltarea lui cu o bere: ko-fi.com/slothos",
+  "done.support_button": "Susține pe Ko-fi"
 }

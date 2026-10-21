@@ -186,5 +186,7 @@
 
   "desktop.generic": "Appok és megjelenés",
   "desktop.comment": "Böngésző, irodai programok, médialejátszó és más appok telepítése, színtéma választás",
-  "desktop.keywords": "üdvözlő;appok;böngésző;irodai;téma"
+  "desktop.keywords": "üdvözlő;appok;böngésző;irodai;téma",
+  "done.support": "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos",
+  "done.support_button": "Támogatás a Ko-fi-n"
 }

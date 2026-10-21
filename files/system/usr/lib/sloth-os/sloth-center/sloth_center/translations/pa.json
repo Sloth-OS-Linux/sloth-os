@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "ਇਸ ਕੰਪਿਊਟਰ ਦੀਆਂ ਸੰਭਾਲੀਆਂ ਹਾਲਤਾਂ ਵੀ ਮਿਟ ਜਾਣਗੀਆਂ। ਜੋ ਵੀ ਚਾਹੀਦਾ ਹੈ ਉਹ ਪਹਿਲਾਂ ਕਿਸੇ ਬਾਹਰੀ ਡਿਸਕ ਜਾਂ USB ਸਟਿੱਕ ਉੱਤੇ ਕਾਪੀ ਕਰੋ, ਨਹੀਂ ਤਾਂ ਵਾਪਸ ਲਿਆਉਣ ਲਈ ਕੁਝ ਨਹੀਂ ਰਹੇਗਾ।",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "ਰੀਸੈੱਟ ਤੋਂ ਪਹਿਲਾਂ ਅਸੀਂ ਆਪਣੇ-ਆਪ ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ ਦੀ ਇੱਕ ਸੰਭਾਲੀ ਹਾਲਤ ਬਣਾਉਂਦੇ ਹਾਂ। ਜੇ ਬਾਅਦ ਵਿੱਚ ਕੁਝ ਗੁੰਮ ਹੋਵੇ, ਤਾਂ ਤੁਸੀਂ ਉਸਨੂੰ “ਪਿਛਲੇ ਵਰਜਨ” ਮੀਨੂ ਤੋਂ ਵਾਪਸ ਲਿਆ ਸਕਦੇ ਹੋ।",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "ਇਸ ਕੰਪਿਊਟਰ ਉੱਤੇ ਫ਼ਾਈਲਾਂ ਦਾ ਬੈਕਅੱਪ ਕੰਮ ਨਹੀਂ ਕਰਦਾ, ਇਸ ਲਈ ਅਸੀਂ ਪਹਿਲਾਂ ਸੰਭਾਲੀ ਹਾਲਤ ਨਹੀਂ ਬਣਾ ਸਕਦੇ। ਸਾਰੀਆਂ ਜ਼ਰੂਰੀ ਚੀਜ਼ਾਂ ਕਿਸੇ ਬਾਹਰੀ ਡਿਸਕ ਜਾਂ USB ਸਟਿੱਕ ਉੱਤੇ ਕਾਪੀ ਕਰੋ।",
-  "Elmentettem, amire szükségem van": "ਮੈਨੂੰ ਜੋ ਚਾਹੀਦਾ ਹੈ ਉਹ ਸਭ ਸੰਭਾਲ ਲਿਆ ਹੈ"
+  "Elmentettem, amire szükségem van": "ਮੈਨੂੰ ਜੋ ਚਾਹੀਦਾ ਹੈ ਉਹ ਸਭ ਸੰਭਾਲ ਲਿਆ ਹੈ",
+  "Támogasd a Sloth OS-t": "Sloth OS ਦਾ ਸਮਰਥਨ ਕਰੋ",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS ਮੁਫ਼ਤ ਹੈ ਅਤੇ ਵਿਹਲੇ ਸਮੇਂ ਵਿੱਚ ਬਣਾਇਆ ਜਾਂਦਾ ਹੈ। ਜੇ ਤੁਹਾਨੂੰ ਪਸੰਦ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਇੱਕ ਡ੍ਰਿੰਕ ਦੀ ਕੀਮਤ ਨਾਲ ਇਸ ਦੇ ਵਿਕਾਸ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੇ ਹੋ: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Ko-fi ’ਤੇ ਸਮਰਥਨ ਕਰੋ"
 }

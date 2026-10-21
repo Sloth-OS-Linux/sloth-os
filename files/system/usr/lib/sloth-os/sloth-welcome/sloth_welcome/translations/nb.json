@@ -186,5 +186,7 @@
 
   "desktop.generic": "Apper og utseende",
   "desktop.comment": "Installer en nettleser, kontorpakke, mediespiller og mer, velg et fargeoppsett",
-  "desktop.keywords": "velkommen;apper;nettleser;kontor;tema"
+  "desktop.keywords": "velkommen;apper;nettleser;kontor;tema",
+  "done.support": "Sloth OS er gratis og lages på fritiden. Hvis du liker det, kan du støtte utviklingen med en øl: ko-fi.com/slothos",
+  "done.support_button": "Støtt på Ko-fi"
 }

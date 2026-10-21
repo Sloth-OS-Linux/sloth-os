@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "ამ კომპიუტერზე შენახული მდგომარეობებიც წაიშლება. ჯერ დააკოპირეთ ყველაფერი საჭირო გარე დისკზე ან USB ფლეშკაზე, თორემ აღსადგენი არაფერი დარჩება.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "საწყის მდგომარეობაში დაბრუნებამდე ავტომატურად ვქმნით თქვენი ფაილების შენახულ მდგომარეობას. თუ შემდეგ რამე აკლია, მისი დაბრუნება შეგიძლიათ მენიუდან „წინა ვერსიები“.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "ფაილების სარეზერვო ასლი ამ კომპიუტერზე არ მუშაობს, ამიტომ წინასწარ შენახულ მდგომარეობას ვერ შევქმნით. დააკოპირეთ ყველაფერი მნიშვნელოვანი გარე დისკზე ან USB ფლეშკაზე.",
-  "Elmentettem, amire szükségem van": "ყველაფერი, რაც მჭირდება, შევინახე"
+  "Elmentettem, amire szükségem van": "ყველაფერი, რაც მჭირდება, შევინახე",
+  "Támogasd a Sloth OS-t": "მხარი დაუჭირეთ Sloth OS-ს",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS უფასოა და თავისუფალ დროს იქმნება. თუ მოგწონთ, შეგიძლიათ მის განვითარებას ერთი ლუდით დაეხმაროთ: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "მხარდაჭერა Ko-fi-ზე"
 }

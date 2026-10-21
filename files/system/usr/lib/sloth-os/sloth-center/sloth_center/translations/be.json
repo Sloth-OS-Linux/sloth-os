@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Захаваныя станы на гэтым камп’ютары таксама выдаляцца. Спачатку скапіюйце ўсё патрэбнае на знешні дыск або флэшку, інакш не будзе адкуль гэта вярнуць.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Перад вяртаннем у пачатковы стан мы самі ствараем захаваны стан вашых файлаў. Калі потым чагосьці не хопіць, вярніце гэта праз меню «Папярэднія версіі».",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Рэзервовае капіраванне файлаў на гэтым камп’ютары не працуе, таму загадзя стварыць захаваны стан мы не можам. Скапіюйце ўсё важнае на знешні дыск або флэшку.",
-  "Elmentettem, amire szükségem van": "Я захаваў усё, што мне трэба"
+  "Elmentettem, amire szükségem van": "Я захаваў усё, што мне трэба",
+  "Támogasd a Sloth OS-t": "Падтрымайце Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS бясплатная і ствараецца ў вольны час. Калі яна вам падабаецца, вы можаце падтрымаць распрацоўку куфлем піва: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Падтрымаць на Ko-fi"
 }

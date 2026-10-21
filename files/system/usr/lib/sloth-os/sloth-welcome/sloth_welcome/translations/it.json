@@ -186,5 +186,7 @@
 
   "desktop.generic": "App e aspetto",
   "desktop.comment": "Installare un browser, una suite per ufficio, un lettore multimediale e altro, scegliere uno schema di colori",
-  "desktop.keywords": "benvenuto;app;browser;ufficio;tema"
+  "desktop.keywords": "benvenuto;app;browser;ufficio;tema",
+  "done.support": "Sloth OS è gratuito e viene realizzato nel tempo libero. Se ti piace, puoi sostenerne lo sviluppo offrendo una birra: ko-fi.com/slothos",
+  "done.support_button": "Sostieni su Ko-fi"
 }

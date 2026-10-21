@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Before the reset, we automatically create a saved state of your files. If anything is missing afterwards, you can bring it back from the “Previous versions” menu.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "File backup doesn't work on this computer, so we can't create a saved state first. Copy anything important to an external drive or USB stick.",
-  "Elmentettem, amire szükségem van": "I've saved everything I need"
+  "Elmentettem, amire szükségem van": "I've saved everything I need",
+  "Támogasd a Sloth OS-t": "Support Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS is free and made in spare time. If you like it, you can support its development with a beer: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Support on Ko-fi"
 }

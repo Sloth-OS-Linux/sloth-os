@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplikasi dan tampilan",
   "desktop.comment": "Pasang peramban, paket perkantoran, pemutar media, dan lainnya, pilih skema warna",
-  "desktop.keywords": "selamat datang;aplikasi;peramban;perkantoran;tema"
+  "desktop.keywords": "selamat datang;aplikasi;peramban;perkantoran;tema",
+  "done.support": "Sloth OS gratis dan dibuat di waktu luang. Jika Anda menyukainya, Anda dapat mendukung pengembangannya dengan traktiran minuman: ko-fi.com/slothos",
+  "done.support_button": "Dukung di Ko-fi"
 }

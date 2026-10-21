@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Do të fshihen edhe gjendjet e ruajtura në këtë kompjuter. Kopjo më parë gjithçka që të duhet në një disk të jashtëm ose USB, përndryshe nuk do të ketë nga t’i rikthesh.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Para rivendosjes krijojmë automatikisht një gjendje të ruajtur të skedarëve të tu. Nëse pas kësaj mungon diçka, mund ta rikthesh nga menyja “Versionet e mëparshme”.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Kopjimi rezervë i skedarëve nuk funksionon në këtë kompjuter, ndaj nuk mund të krijojmë më parë një gjendje të ruajtur. Kopjo gjithçka të rëndësishme në një disk të jashtëm ose USB.",
-  "Elmentettem, amire szükségem van": "Kam ruajtur gjithçka që më duhet"
+  "Elmentettem, amire szükségem van": "Kam ruajtur gjithçka që më duhet",
+  "Támogasd a Sloth OS-t": "Mbështetni Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS është falas dhe bëhet në kohën e lirë. Nëse ju pëlqen, mund ta mbështetni zhvillimin e tij me një birrë: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Mbështetni në Ko-fi"
 }

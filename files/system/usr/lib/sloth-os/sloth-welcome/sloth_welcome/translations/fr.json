@@ -186,5 +186,7 @@
 
   "desktop.generic": "Applications et apparence",
   "desktop.comment": "Installer un navigateur, une suite bureautique, un lecteur multimédia et plus encore, choisir un jeu de couleurs",
-  "desktop.keywords": "bienvenue;applications;navigateur;bureautique;thème"
+  "desktop.keywords": "bienvenue;applications;navigateur;bureautique;thème",
+  "done.support": "Sloth OS est gratuit et développé sur du temps libre. S’il vous plaît, vous pouvez soutenir son développement avec une bière : ko-fi.com/slothos",
+  "done.support_button": "Soutenir sur Ko-fi"
 }

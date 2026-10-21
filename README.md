@@ -2,6 +2,8 @@
 
 A Linux desktop for everyday use and gaming that an average user can use just like Windows: **no terminal required**.
 
+[![Support Sloth OS on Ko-fi](https://img.shields.io/badge/Buy%20us%20a%20beer-Ko--fi-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/slothos)
+
 - **Base:** Universal Blue `kinoite-main` / `kinoite-nvidia` (Fedora Atomic + KDE Plasma)
 - **Updates:** atomic, in the background; if something breaks, roll back to the previous version from the boot menu
 - **Apps:** Flatpak (Flathub); nothing is preinstalled, the user picks the apps in the Sloth Welcome wizard
@@ -127,3 +129,8 @@ On Windows, `tools/write-usb.ps1` writes the newest ISO from `out/` to a USB sti
 The code is licensed under the [Apache License 2.0](LICENSE). The Sloth OS artwork (logo, wallpapers, boot
 animation) is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The app icons in the
 Sloth Welcome belong to their respective owners. Details: [`NOTICE`](NOTICE).
+
+## Support
+
+Sloth OS is free and made in spare time. If you like it, you can support its development with a beer on
+[Ko-fi](https://ko-fi.com/slothos). Sending feedback from Sloth Center → Feedback helps just as much.

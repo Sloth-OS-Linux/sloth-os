@@ -98,5 +98,20 @@ Kirigami.ScrollablePage {
                 implicitHeight: Kirigami.Units.iconSizes.medium
             }
         }
+
+        // Támogatás (Ko-fi): csendes link, nem kér semmit; a cím a szövegben is ott van, ha nincs böngésző
+        Kirigami.Separator { Layout.fillWidth: true; Layout.topMargin: Kirigami.Units.largeSpacing }
+        QQC2.Label { text: L.t("Támogasd a Sloth OS-t"); font.bold: true }
+        QQC2.Label {
+            Layout.fillWidth: true
+            wrapMode: Text.Wrap
+            opacity: 0.7
+            text: L.t("A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos")
+        }
+        QQC2.Button {
+            text: L.t("Támogatás a Ko-fi-n")
+            icon.name: "emblem-favorite"
+            onClicked: Qt.openUrlExternally("https://ko-fi.com/slothos")
+        }
     }
 }

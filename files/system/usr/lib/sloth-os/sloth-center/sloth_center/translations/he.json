@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "גם המצבים השמורים במחשב הזה יימחקו. העתיקו קודם כל מה שצריך לכונן חיצוני או לדיסק און קי, אחרת לא יהיה ממה לשחזר.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "לפני האיפוס אנחנו יוצרים אוטומטית מצב שמור של הקבצים שלכם. אם משהו חסר אחר כך, אפשר להחזיר אותו מהתפריט „גרסאות קודמות”.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "גיבוי קבצים לא עובד במחשב הזה, ולכן לא נוכל ליצור מצב שמור מראש. העתיקו כל דבר חשוב לכונן חיצוני או לדיסק און קי.",
-  "Elmentettem, amire szükségem van": "שמרתי את כל מה שאני צריך"
+  "Elmentettem, amire szükségem van": "שמרתי את כל מה שאני צריך",
+  "Támogasd a Sloth OS-t": "תמיכה ב־Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "‏Sloth OS חינמית ומפותחת בזמן הפנוי. אם היא מוצאת חן בעיניך, אפשר לתמוך בפיתוח שלה בבירה: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "תמיכה ב־Ko-fi"
 }

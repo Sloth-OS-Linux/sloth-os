@@ -42,6 +42,11 @@ némítás, Heroic/Epic, zram, tálcabuborék a jobb oldalon, WoW Classic a Batt
   Windowsos gépen még nem próbáltuk
 - [ ] NVIDIA-s gép (otthon, a fejlesztőgép: RTX 5060 + AMD iGPU): Driverek és hardver oldal, Secure Boot MOK
 - [ ] Steam-átvétel, firmware a Discoverben
+- [x] **Támogatás (Ko-fi, `ko-fi.com/slothos`, 2026-10-21):** a Sloth Központ Visszajelzés oldalán és az Üdvözlő
+  utolsó oldalán csendes link (50 nyelven; a cím a szövegben is, ha nincs böngésző), README, `.github/FUNDING.yml`
+  (GitHub „Sponsor” gomb), weboldal lábléce és GYIK
+- [ ] **Áthelyezés a Sloth-OS-Linux szervezetbe** (a hivatkozások már átírva: `91f91c8`): a `sloth-os` és a
+  `sloth-os-knowledge` transfer, utána push, a titkok (`SIGNING_SECRET`, `EXPORT_URL`, `EXPORT_TOKEN`) ellenőrzése
 
 ### A 2026-10-21-i teszt (valódi gép, a reggeli ISO-ról újratelepítve, `d43e36f`)
 Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benne a telepítő javításával).

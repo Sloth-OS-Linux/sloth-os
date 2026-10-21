@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "De gemte tilstande på denne computer bliver også slettet. Kopiér alt, hvad du har brug for, til et eksternt drev eller et USB-stik først, ellers er der intet at gendanne det fra.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Før nulstillingen opretter vi automatisk en gemt tilstand af dine filer. Mangler der noget bagefter, kan du hente det tilbage via menuen “Tidligere versioner”.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Sikkerhedskopi af filer virker ikke på denne computer, så vi kan ikke oprette en gemt tilstand først. Kopiér alt vigtigt til et eksternt drev eller et USB-stik.",
-  "Elmentettem, amire szükségem van": "Jeg har gemt alt, hvad jeg har brug for"
+  "Elmentettem, amire szükségem van": "Jeg har gemt alt, hvad jeg har brug for",
+  "Támogasd a Sloth OS-t": "Støt Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS er gratis og bliver lavet i fritiden. Hvis du kan lide det, kan du støtte udviklingen med en øl: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Støt på Ko-fi"
 }

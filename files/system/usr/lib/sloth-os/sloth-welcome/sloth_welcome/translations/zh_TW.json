@@ -186,5 +186,7 @@
 
   "desktop.generic": "應用程式與外觀",
   "desktop.comment": "安裝瀏覽器、辦公室套件、媒體播放器等，選擇配色",
-  "desktop.keywords": "歡迎;應用程式;瀏覽器;辦公室;主題"
+  "desktop.keywords": "歡迎;應用程式;瀏覽器;辦公室;主題",
+  "done.support": "Sloth OS 免費，利用閒暇時間開發。如果你喜歡，可以請一杯啤酒來支持開發：ko-fi.com/slothos",
+  "done.support_button": "在 Ko-fi 上支持"
 }

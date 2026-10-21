@@ -186,5 +186,7 @@
 
   "desktop.generic": "Applicationes e apparentia",
   "desktop.comment": "Installar un navigator, un suite de officio, un reproductor de medios e plus, seliger un schema de colores",
-  "desktop.keywords": "benvenita;applicationes;navigator;officio;thema"
+  "desktop.keywords": "benvenita;applicationes;navigator;officio;thema",
+  "done.support": "Sloth OS es gratuite e es facite in tempore libere. Si illo te place, tu pote supportar su disveloppamento con un bira: ko-fi.com/slothos",
+  "done.support_button": "Supportar sur Ko-fi"
 }

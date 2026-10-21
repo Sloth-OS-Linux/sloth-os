@@ -186,5 +186,7 @@
 
   "desktop.generic": "Apps und Aussehen",
   "desktop.comment": "Browser, Office-Paket, Mediaplayer und mehr installieren, Farbschema wählen",
-  "desktop.keywords": "willkommen;apps;browser;office;design"
+  "desktop.keywords": "willkommen;apps;browser;office;design",
+  "done.support": "Sloth OS ist kostenlos und entsteht in der Freizeit. Wenn es dir gefällt, kannst du die Entwicklung mit einem Bier unterstützen: ko-fi.com/slothos",
+  "done.support_button": "Auf Ko-fi unterstützen"
 }

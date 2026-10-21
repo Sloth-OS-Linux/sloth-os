@@ -186,5 +186,7 @@
 
   "desktop.generic": "앱 및 모양",
   "desktop.comment": "브라우저, 오피스 제품군, 미디어 플레이어 등을 설치하고 색 구성표를 선택합니다",
-  "desktop.keywords": "환영;앱;브라우저;오피스;테마"
+  "desktop.keywords": "환영;앱;브라우저;오피스;테마",
+  "done.support": "Sloth OS는 무료이며 여가 시간에 만들어집니다. 마음에 드신다면 맥주 한 잔 값으로 개발을 응원해 주세요: ko-fi.com/slothos",
+  "done.support_button": "Ko-fi에서 후원하기"
 }

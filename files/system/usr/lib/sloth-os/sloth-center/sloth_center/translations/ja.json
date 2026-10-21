@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "この PC の保存した状態も削除されます。必要なものは先に外付けドライブや USB メモリにコピーしてください。そうしないと、元に戻す手段がなくなります。",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "初期状態に戻す前に、ファイルの保存した状態を自動的に作成します。あとで何か足りなければ、「以前のバージョン」メニューから元に戻せます。",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "この PC ではファイルのバックアップが動作しないため、事前に保存した状態を作成できません。大切なものは外付けドライブや USB メモリにコピーしてください。",
-  "Elmentettem, amire szükségem van": "必要なものはすべて保存しました"
+  "Elmentettem, amire szükségem van": "必要なものはすべて保存しました",
+  "Támogasd a Sloth OS-t": "Sloth OS を応援する",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS は無料で、空き時間に開発されています。気に入ったら、ビール一杯分の支援で開発を応援できます: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Ko-fi で応援する"
 }

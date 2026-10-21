@@ -186,5 +186,7 @@
 
   "desktop.generic": "アプリと外観",
   "desktop.comment": "ブラウザー、オフィスソフト、メディアプレーヤーなどをインストールし、配色を選びます",
-  "desktop.keywords": "ようこそ;アプリ;ブラウザー;オフィス;テーマ"
+  "desktop.keywords": "ようこそ;アプリ;ブラウザー;オフィス;テーマ",
+  "done.support": "Sloth OS は無料で、空き時間に開発されています。気に入ったら、ビール一杯分の支援で開発を応援できます: ko-fi.com/slothos",
+  "done.support_button": "Ko-fi で応援する"
 }

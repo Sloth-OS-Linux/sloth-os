@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Bu bilgisayardaki kaydedilen durumlar da silinecek. İhtiyacın olan her şeyi önce harici bir diske veya USB belleğe kopyala, yoksa geri getirebileceğin bir yer kalmaz.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Sıfırlamadan önce dosyalarının kaydedilen bir durumunu otomatik olarak oluşturuyoruz. Sonrasında bir şey eksikse, “Önceki sürümler” menüsünden geri getirebilirsin.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Dosya yedekleme bu bilgisayarda çalışmıyor, bu yüzden önceden kaydedilen bir durum oluşturamıyoruz. Önemli olan her şeyi harici bir diske veya USB belleğe kopyala.",
-  "Elmentettem, amire szükségem van": "İhtiyacım olan her şeyi kaydettim"
+  "Elmentettem, amire szükségem van": "İhtiyacım olan her şeyi kaydettim",
+  "Támogasd a Sloth OS-t": "Sloth OS’u destekleyin",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS ücretsizdir ve boş zamanlarda geliştirilir. Beğendiyseniz, bir bira ısmarlayarak gelişimini destekleyebilirsiniz: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Ko-fi’de destekle"
 }

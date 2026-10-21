@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Vor fi șterse și stările salvate de pe acest computer. Copiază mai întâi tot ce îți trebuie pe un disc extern sau un stick USB, altfel nu va exista de unde să le recuperezi.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Înainte de resetare, creăm automat o stare salvată a fișierelor tale. Dacă după aceea lipsește ceva, îl poți recupera din meniul „Versiuni anterioare”.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Copia de rezervă a fișierelor nu funcționează pe acest computer, așa că nu putem crea dinainte o stare salvată. Copiază tot ce este important pe un disc extern sau un stick USB.",
-  "Elmentettem, amire szükségem van": "Am salvat tot ce îmi trebuie"
+  "Elmentettem, amire szükségem van": "Am salvat tot ce îmi trebuie",
+  "Támogasd a Sloth OS-t": "Susține Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS este gratuit și se face în timpul liber. Dacă îți place, poți susține dezvoltarea lui cu o bere: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Susține pe Ko-fi"
 }

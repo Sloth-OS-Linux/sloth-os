@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "A vignaran eliminâts ancje i stâts salvâts su chest computer. Copie prime dut ce che ti covente suntun disc esterni o suntune clâf USB, senò no varâs di dulà recuperâlu.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Prime dal ripristinament o creìn in automatic un stât salvât dai tiei files. Se dopo al mancje alc, tu puedis recuperâlu dal menù “Versions precedentis”.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "La copie di sigurece dai files no funzione su chest computer, duncje no podìn creâ prime un stât salvât. Copie dut ce che al è impuartant suntun disc esterni o suntune clâf USB.",
-  "Elmentettem, amire szükségem van": "O ai salvât dut ce che mi covente"
+  "Elmentettem, amire szükségem van": "O ai salvât dut ce che mi covente",
+  "Támogasd a Sloth OS-t": "Sosten Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS al è gratuit e al ven fat tal timp libar. Se ti plâs, tu puedis sostignî il so svilup cuntune bire: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Sosten su Ko-fi"
 }

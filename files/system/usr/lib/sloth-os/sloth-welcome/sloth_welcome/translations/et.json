@@ -186,5 +186,7 @@
 
   "desktop.generic": "Rakendused ja välimus",
   "desktop.comment": "Veebilehitseja, kontoritarkvara, meediapleieri ja muu paigaldamine, värviskeemi valimine",
-  "desktop.keywords": "tere tulemast;rakendused;veebilehitseja;kontor;teema"
+  "desktop.keywords": "tere tulemast;rakendused;veebilehitseja;kontor;teema",
+  "done.support": "Sloth OS on tasuta ja valmib vabal ajal. Kui see sulle meeldib, saad selle arendust ühe õllega toetada: ko-fi.com/slothos",
+  "done.support_button": "Toeta Ko-fis"
 }

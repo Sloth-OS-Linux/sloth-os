@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplikaĵoj kaj aspekto",
   "desktop.comment": "Instalu retumilon, oficejan programaron, aŭdvidan ludilon kaj pli, elektu kolorskemon",
-  "desktop.keywords": "bonvenon;aplikaĵoj;retumilo;oficejo;etoso"
+  "desktop.keywords": "bonvenon;aplikaĵoj;retumilo;oficejo;etoso",
+  "done.support": "Sloth OS estas senpaga kaj farata en libera tempo. Se ĝi plaĉas al vi, vi povas subteni ĝian disvolviĝon per biero: ko-fi.com/slothos",
+  "done.support_button": "Subteni ĉe Ko-fi"
 }

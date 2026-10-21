@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Bus ištrintos ir šiame kompiuteryje išsaugotos būsenos. Pirmiausia nukopijuokite viską, ko reikia, į išorinį diską ar USB atmintinę, kitaip nebus iš ko atkurti.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Prieš atkūrimą automatiškai sukuriame jūsų failų išsaugotą būseną. Jei vėliau ko nors trūks, galėsite tai susigrąžinti per meniu „Ankstesnės versijos“.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Failų atsarginė kopija šiame kompiuteryje neveikia, todėl iš anksto negalime sukurti išsaugotos būsenos. Viską, kas svarbu, nukopijuokite į išorinį diską ar USB atmintinę.",
-  "Elmentettem, amire szükségem van": "Išsaugojau viską, ko man reikia"
+  "Elmentettem, amire szükségem van": "Išsaugojau viską, ko man reikia",
+  "Támogasd a Sloth OS-t": "Paremkite Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS yra nemokama ir kuriama laisvalaikiu. Jei jums patinka, galite paremti jos kūrimą alaus bokalu: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Paremti per Ko-fi"
 }

@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Ad ttwakksen daɣen waddaden yettwaskelsen deg uselkim-a. Nɣel uqbel kra n wayen tesriḍ ɣer uḍebsi azɣaran neɣ ɣer tsarut USB, neɣ ulac ansi ara t-id-terreḍ.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Uqbel ales awennez, ad d-nesnulfu s wudem awurman addad yettwaskelsen n yifuyla-k. Ma yella kra ixuṣ syin, tzemreḍ ad t-id-terreḍ seg wumuɣ “Ileqman yezrin”.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Aḥraz n yifuyla ur iteddu ara deg uselkim-a, ihi ur nezmir ara ad d-nesnulfu addad yettwaskelsen uqbel. Nɣel kra n wayen yesɛan azal ɣer uḍebsi azɣaran neɣ ɣer tsarut USB.",
-  "Elmentettem, amire szükségem van": "Skelseɣ akk ayen i sriɣ"
+  "Elmentettem, amire szükségem van": "Skelseɣ akk ayen i sriɣ",
+  "Támogasd a Sloth OS-t": "Ɛiwen Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS d baṭel, yettwaxdam deg wakud ilelli. Ma yeɛǧeb-ik, tzemreḍ ad tɛiwneḍ asnefli-ines s ubiṛu: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Ɛiwen ɣef Ko-fi"
 }

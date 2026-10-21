@@ -669,6 +669,23 @@ Kirigami.ApplicationWindow {
                             onClicked: welcome.finish(true)
                         }
                     }
+                    // Támogatás (Ko-fi): halkan, a fő gombok alatt; a cím a szövegben is ott van, ha nincs böngésző
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.6
+                        font: Kirigami.Theme.smallFont
+                        text: root.t("done.support")
+                    }
+                    QQC2.Button {
+                        Layout.alignment: Qt.AlignHCenter
+                        flat: true
+                        icon.name: "emblem-favorite"
+                        text: root.t("done.support_button")
+                        onClicked: Qt.openUrlExternally("https://ko-fi.com/slothos")
+                    }
                 }
             }
 

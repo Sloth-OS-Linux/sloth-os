@@ -186,5 +186,7 @@
 
   "desktop.generic": "Aplikácie a vzhľad",
   "desktop.comment": "Inštalácia prehliadača, kancelárskeho balíka, prehrávača médií a ďalších aplikácií, výber farebnej schémy",
-  "desktop.keywords": "vitajte;aplikácie;prehliadač;kancelária;téma"
+  "desktop.keywords": "vitajte;aplikácie;prehliadač;kancelária;téma",
+  "done.support": "Sloth OS je zadarmo a vzniká vo voľnom čase. Ak sa vám páči, môžete jeho vývoj podporiť pivom: ko-fi.com/slothos",
+  "done.support_button": "Podporiť na Ko-fi"
 }

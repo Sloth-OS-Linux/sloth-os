@@ -186,5 +186,7 @@
 
   "desktop.generic": "Toepassings en voorkoms",
   "desktop.comment": "Installeer 'n blaaier, kantoorpakket, mediaspeler en meer, kies 'n kleurskema",
-  "desktop.keywords": "welkom;toepassings;blaaier;kantoor;tema"
+  "desktop.keywords": "welkom;toepassings;blaaier;kantoor;tema",
+  "done.support": "Sloth OS is gratis en word in vrye tyd gemaak. As jy daarvan hou, kan jy die ontwikkeling met ’n bier ondersteun: ko-fi.com/slothos",
+  "done.support_button": "Ondersteun op Ko-fi"
 }

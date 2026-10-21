@@ -585,5 +585,8 @@
   "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.": "Smažou se i uložené stavy na tomto počítači. Vše potřebné si nejdřív zkopírujte na externí disk nebo flashku, jinak nebude odkud to obnovit.",
   "Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.": "Před obnovením automaticky vytvoříme uložený stav vašich souborů. Pokud by pak něco chybělo, vrátíte to přes nabídku „Předchozí verze“.",
   "A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.": "Zálohování souborů na tomto počítači nefunguje, takže předem nemůžeme vytvořit uložený stav. Vše důležité si zkopírujte na externí disk nebo flashku.",
-  "Elmentettem, amire szükségem van": "Uložil(a) jsem vše, co potřebuji"
+  "Elmentettem, amire szükségem van": "Uložil(a) jsem vše, co potřebuji",
+  "Támogasd a Sloth OS-t": "Podpořte Sloth OS",
+  "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos": "Sloth OS je zdarma a vzniká ve volném čase. Pokud se vám líbí, můžete jeho vývoj podpořit pivem: ko-fi.com/slothos",
+  "Támogatás a Ko-fi-n": "Podpořit na Ko-fi"
 }

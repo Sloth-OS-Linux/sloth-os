@@ -186,5 +186,7 @@
 
   "desktop.generic": "Programos ir išvaizda",
   "desktop.comment": "Naršyklės, biuro paketo, medijos leistuvės ir kitų programų įdiegimas, spalvų schemos pasirinkimas",
-  "desktop.keywords": "sveiki;programos;naršyklė;biuras;tema"
+  "desktop.keywords": "sveiki;programos;naršyklė;biuras;tema",
+  "done.support": "Sloth OS yra nemokama ir kuriama laisvalaikiu. Jei jums patinka, galite paremti jos kūrimą alaus bokalu: ko-fi.com/slothos",
+  "done.support_button": "Paremti per Ko-fi"
 }
