@@ -45,8 +45,14 @@ némítás, Heroic/Epic, zram, tálcabuborék a jobb oldalon, WoW Classic a Batt
 - [x] **Támogatás (Ko-fi, `ko-fi.com/slothos`, 2026-10-21):** a Sloth Központ Visszajelzés oldalán és az Üdvözlő
   utolsó oldalán csendes link (50 nyelven; a cím a szövegben is, ha nincs böngésző), README, `.github/FUNDING.yml`
   (GitHub „Sponsor” gomb), weboldal lábléce és GYIK
-- [ ] **Áthelyezés a Sloth-OS-Linux szervezetbe** (a hivatkozások már átírva: `91f91c8`): a `sloth-os` és a
-  `sloth-os-knowledge` transfer, utána push, a titkok (`SIGNING_SECRET`, `EXPORT_URL`, `EXPORT_TOKEN`) ellenőrzése
+- [x] **Áthelyezés a Sloth-OS-Linux szervezetbe** (2026-10-21): a `sloth-os` és a `sloth-os-knowledge` átkerült, a
+  titkok megmaradtak, az első build az új helyre (`ghcr.io/sloth-os-linux/sloth-os(-nvidia)`) hibátlan. A csomagok
+  még privátak: a publikussá tételkor a Package settingsben nyilvánosra állítani. A régi `ghcr.io/bathorizsolt/…`
+  image-ek a végleges ISO után törölhetők
+- [x] **ISO-tárhely: SourceForge** (2026-10-21, ingyenes, korlátlan, tükrökkel): sourceforge.net/projects/sloth-os,
+  felhasználó `slothos`; feltöltés SFTP/rsync-kel (`frs.sourceforge.net:/home/frs/project/sloth-os/`), a kulcs ezen a
+  gépen: `~/.ssh/sloth_sourceforge` (kipróbálva). Metaadatok, kategóriák, logó kész
+- [ ] A név kézi ellenőrzése (TMview, SZTNH); webes keresés 2026-10-21: nincs „Sloth OS” nevű operációs rendszer
 
 ### A 2026-10-21-i teszt (valódi gép, a reggeli ISO-ról újratelepítve, `d43e36f`)
 Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benne a telepítő javításával).
