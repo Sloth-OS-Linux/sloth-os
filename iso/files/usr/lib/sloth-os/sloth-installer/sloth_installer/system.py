@@ -162,18 +162,22 @@ def _lsblk():
     return json.loads(out).get("blockdevices", [])
 
 
-def _live_disk():
-    """The disk (e.g. the USB stick) the live system runs from: we cannot install on it."""
+def _live_disks():
+    """The disks (e.g. the USB stick) the live system runs from: we cannot install on them.
+
+    The whole chain of devices is followed upwards (`lsblk -s`): with Ventoy the live system's source is a
+    device-mapper device (/dev/mapper/ventoy) on a partition of the stick, not the partition itself."""
     try:
         src = subprocess.run(["findmnt", "--noheadings", "--output", "SOURCE", "/run/initramfs/live"],
                              capture_output=True, text=True, timeout=10).stdout.strip()
         if not src:
-            return None
-        parent = subprocess.run(["lsblk", "--noheadings", "--nodeps", "--output", "PKNAME", src],
-                                capture_output=True, text=True, timeout=10).stdout.strip()
-        return f"/dev/{parent}" if parent else src
-    except (OSError, subprocess.SubprocessError):
-        return None
+            return set()
+        out = subprocess.run(["lsblk", "--inverse", "--noheadings", "--raw", "--output", "PATH,TYPE", src],
+                             capture_output=True, text=True, timeout=10).stdout
+        return {path for path, kind in (line.split()[:2] for line in out.splitlines() if line.strip())
+                if kind == "disk"} or {src}
+    except (OSError, subprocess.SubprocessError, ValueError):
+        return set()
 
 
 def _contents(disk):
@@ -216,12 +220,12 @@ def _disk_kind(d):
 
 def disks():
     """The disks that can be installed to, with a human description. Too small ones are shown disabled."""
-    live = _live_disk()
+    live = _live_disks()
     out = []
     for d in _lsblk():
         if d.get("type") != "disk" or d.get("ro") or d.get("name", "").startswith(("zram", "loop", "sr")):
             continue
-        if live and d.get("path") == live:
+        if d.get("path") in live:
             continue
         kind, names = _contents(d)
         size = int(d.get("size") or 0)

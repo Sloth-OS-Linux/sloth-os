@@ -106,9 +106,10 @@ def whole_disk(path):
     live = subprocess.run(["findmnt", "--noheadings", "--output", "SOURCE", "/run/initramfs/live"],
                           capture_output=True, text=True).stdout.strip()
     if live:
-        parent = subprocess.run(["lsblk", "--noheadings", "--nodeps", "--output", "PKNAME", live],
-                                capture_output=True, text=True).stdout.strip()
-        if path in (live, f"/dev/{parent}"):
+        # the whole chain upwards: with Ventoy the source is /dev/mapper/ventoy on a partition of the stick
+        chain = subprocess.run(["lsblk", "--inverse", "--noheadings", "--raw", "--output", "PATH", live],
+                               capture_output=True, text=True).stdout.split()
+        if path in {live, *chain}:
             return False
     return True
 
