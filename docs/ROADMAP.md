@@ -12,7 +12,11 @@ requirements and a USB guide. Since the release the whole repository is in Engli
 messages); Sloth Center's translation keys are English sentences.
 - [x] Make the two images public on ghcr.io (2026-10-21; it needed "Public" under the organization's Settings → Packages →
   Package creation first); installed machines update without signing in
-- [ ] Redeploy the shared knowledge Worker (the feedback issues' text is English now; needs the user's approval)
+- [x] Redeploy the shared knowledge Worker (2026-10-21; the feedback issues' text is English now)
+- [x] **Sloth OS 1.0.1** (2026-10-21): the installer no longer offers the Ventoy stick it runs from as an install target
+  (tested in a VM with Ventoy 1.1.18), and Windows installers count as done as soon as the installed program runs
+  (Battle.net's login window). ISO on SourceForge (`1.0.1/sloth-os-1.0.1-x86_64.iso`, SHA-256 `e0729d30…71bf3`), the
+  website's download page points to it
 
 ### Next steps (2026-10-20 evening, in order; details below)
 **Required before publishing**
