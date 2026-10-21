@@ -1,10 +1,10 @@
-"""A Sloth Központ fordításai.
+"""Sloth Center's translations.
 
-Itt a magyar szöveg maga a kulcs (mint a gettextnél): a kódban tr("Frissítés keresése…") áll,
-a translations/<nyelv>.json a magyar mondathoz rendeli a fordítást. Ami egy nyelvből
-hiányzik, angolul, végül magyarul jelenik meg. Változók: tr("{n} szolgáltatás", n=3).
-A QML a "L" objektumon keresztül fordít: L.t("…"), L.tf("… {n} …", {n: 3}).
-Táblázatokban a szöveg N_("…") jelölést kap, és felhasználáskor fordul le.
+Here the English text itself is the key (as with gettext): the code says tr("Looking for updates…"), and
+translations/<language>.json maps that sentence to its translation. Whatever a language lacks is shown in
+English. Placeholders: tr("{n} services", n=3).
+QML translates through the "L" object: L.t("…"), L.tf("… {n} …", {n: 3}).
+In tables a text is marked with N_("…") and translated when it is used.
 """
 from pathlib import Path
 
@@ -20,12 +20,12 @@ def tr(text, **args):
 
 
 def N_(text):
-    """Csak megjelöli a szöveget fordításra (táblázatokban); a fordítás felhasználáskor, tr()-rel történik."""
+    """Only marks a text for translation (in tables); it is translated with tr() when used."""
     return text
 
 
 class Translator(QObject):
-    """A QML oldali fordító (context property: "L")."""
+    """The translator on the QML side (context property: "L")."""
 
     @Slot(str, result=str)
     def t(self, text):

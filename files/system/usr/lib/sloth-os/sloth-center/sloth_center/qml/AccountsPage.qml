@@ -7,7 +7,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Fiók és biztonság")
+    title: L.t("Account and security")
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
@@ -43,13 +43,13 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: accounts.isAdmin ? L.t("Rendszergazda vagy: a gép beállításait is módosíthatod.")
-                                               : L.t("Normál fiók: a gép beállításaihoz egy rendszergazda jelszava kell.")
+                        text: accounts.isAdmin ? L.t("You are an administrator: you can also change the computer's settings.")
+                                               : L.t("Standard account: changing the computer's settings needs an administrator's password.")
                     }
                 }
                 QQC2.Button {
                     icon.name: "preferences-system-users"
-                    text: L.t("Felhasználók kezelése")
+                    text: L.t("Manage users")
                     onClicked: accounts.openUsers()
                 }
             }
@@ -60,12 +60,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Bejelentkezési módok") }
+                Kirigami.Heading { level: 3; text: L.t("Ways to sign in") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("A jelszó mindig működik. Ezen felül azt kínáljuk fel, amit a géped tud. Ujjlenyomattal, kulccsal vagy PIN-kóddal belépve a mentett jelszavak tárolója az első használatkor kéri a jelszavad.")
+                    text: L.t("Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.")
                 }
                 Repeater {
                     model: accounts.loginMethods
@@ -94,26 +94,26 @@ Kirigami.ScrollablePage {
                         QQC2.Button {
                             visible: methodRow.modelData.id === "fingerprint"
                             icon.name: "list-add"
-                            text: L.t("Ujjlenyomat felvétele")
+                            text: L.t("Add fingerprint")
                             onClicked: accounts.openUsers()
                         }
                         QQC2.Button {
                             visible: methodRow.modelData.id === "securitykey"
                             enabled: accounts.busyTask === ""
                             icon.name: "list-add"
-                            text: methodRow.modelData.ready ? L.t("Másik kulcs felvétele") : L.t("Kulcs felvétele")
+                            text: methodRow.modelData.ready ? L.t("Add another key") : L.t("Add key")
                             onClicked: accounts.enrollSecurityKey()
                         }
                         QQC2.Button {
                             visible: methodRow.modelData.id === "pin"
                             icon.name: methodRow.modelData.enabled ? "edit-entry" : "list-add"
-                            text: methodRow.modelData.enabled ? L.t("PIN-kód cseréje") : L.t("PIN-kód beállítása")
+                            text: methodRow.modelData.enabled ? L.t("Change PIN") : L.t("Set up PIN")
                             onClicked: { pinField.text = ""; pinField2.text = ""; pinForm.visible = true; pinField.forceActiveFocus() }
                         }
                         QQC2.Button {
                             visible: methodRow.modelData.id === "pin" && methodRow.modelData.enabled
                             icon.name: "edit-delete"
-                            text: L.t("Törlés")
+                            text: L.t("Delete")
                             onClicked: accounts.removePin()
                         }
                         QQC2.Switch {
@@ -133,7 +133,7 @@ Kirigami.ScrollablePage {
                     Kirigami.PasswordField {
                         id: pinField
                         Layout.fillWidth: true
-                        placeholderText: L.t("Új PIN-kód (4–8 számjegy)")
+                        placeholderText: L.t("New PIN (4–8 digits)")
                         maximumLength: 8
                         inputMethodHints: Qt.ImhDigitsOnly
                         validator: RegularExpressionValidator { regularExpression: /[0-9]{0,8}/ }
@@ -141,7 +141,7 @@ Kirigami.ScrollablePage {
                     Kirigami.PasswordField {
                         id: pinField2
                         Layout.fillWidth: true
-                        placeholderText: L.t("Még egyszer")
+                        placeholderText: L.t("Once more")
                         maximumLength: 8
                         inputMethodHints: Qt.ImhDigitsOnly
                         validator: RegularExpressionValidator { regularExpression: /[0-9]{0,8}/ }
@@ -150,7 +150,7 @@ Kirigami.ScrollablePage {
                     QQC2.Button {
                         id: pinSave
                         icon.name: "document-save"
-                        text: L.t("Mentés")
+                        text: L.t("Save")
                         enabled: pinField.text.length >= 4 && pinField2.text.length >= 4
                         onClicked: {
                             accounts.setPin(pinField.text, pinField2.text)
@@ -160,7 +160,7 @@ Kirigami.ScrollablePage {
                         }
                     }
                     QQC2.Button {
-                        text: L.t("Mégse")
+                        text: L.t("Cancel")
                         onClicked: { pinField.text = ""; pinField2.text = ""; pinForm.visible = false }
                     }
                 }
@@ -171,7 +171,7 @@ Kirigami.ScrollablePage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
-                        text: L.t("Érintsd meg a kulcsot, amikor villog.")
+                        text: L.t("Touch the key when it blinks.")
                     }
                 }
             }
@@ -183,31 +183,31 @@ Kirigami.ScrollablePage {
             enabled: accounts.isAdmin
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Céges fiók") }
+                Kirigami.Heading { level: 3; text: L.t("Work account") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
                     text: accounts.domain !== ""
-                          ? L.tf("A gép a(z) {domain} tartományhoz tartozik: a céges fiókokkal is be lehet jelentkezni.", { domain: accounts.domain })
-                          : L.t("Ha a munkahelyed Windows-tartományt (Active Directory) használ, a gépet hozzá lehet csatolni, és a céges fiókoddal léphetsz be. A rendszergazdától kérd el a tartomány nevét és egy csatlakozásra jogosult fiókot.")
+                          ? L.tf("This computer belongs to the {domain} domain: you can also sign in with work accounts.", { domain: accounts.domain })
+                          : L.t("If your workplace uses a Windows domain (Active Directory), you can join this computer to it and sign in with your work account. Ask your administrator for the domain name and an account that is allowed to join computers.")
                 }
                 Kirigami.FormLayout {
                     Layout.fillWidth: true
                     visible: accounts.domain === ""
                     QQC2.TextField {
                         id: domainName
-                        Kirigami.FormData.label: L.t("Tartomány:")
-                        placeholderText: L.t("pl. ceg.local")
+                        Kirigami.FormData.label: L.t("Domain:")
+                        placeholderText: L.t("e.g. company.local")
                     }
                     QQC2.TextField {
                         id: domainAdmin
-                        Kirigami.FormData.label: L.t("Felhasználónév:")
-                        placeholderText: L.t("csatlakozásra jogosult fiók")
+                        Kirigami.FormData.label: L.t("Username:")
+                        placeholderText: L.t("an account allowed to join")
                     }
                     Kirigami.PasswordField {
                         id: domainPassword
-                        Kirigami.FormData.label: L.t("Jelszó:")
+                        Kirigami.FormData.label: L.t("Password:")
                     }
                 }
                 RowLayout {
@@ -216,14 +216,14 @@ Kirigami.ScrollablePage {
                         visible: accounts.domain === ""
                         enabled: domainName.text.trim() !== "" && domainAdmin.text.trim() !== "" && domainPassword.text !== "" && accounts.busyTask === ""
                         icon.name: "network-connect"
-                        text: L.t("Csatlakozás")
+                        text: L.t("Join")
                         onClicked: { accounts.joinDomain(domainName.text, domainAdmin.text, domainPassword.text); domainPassword.text = ""; }
                     }
                     QQC2.BusyIndicator { visible: accounts.busyTask === "domain"; running: visible }
                     QQC2.Button {
                         visible: accounts.domain !== ""
                         icon.name: "network-disconnect"
-                        text: L.t("Kilépés a tartományból")
+                        text: L.t("Leave the domain")
                         onClicked: accounts.leaveDomain()
                     }
                 }
@@ -235,12 +235,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Felhőtárhely") }
+                Kirigami.Heading { level: 3; text: L.t("Cloud storage") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("A OneDrive vagy a Google Drive egy mappaként a saját mappádban, mint a Windowsban: minden fájl látszik, de csak az töltődik le, amit megnyitsz. A megnyitott fájlok internet nélkül is megmaradnak.")
+                    text: L.t("OneDrive or Google Drive as a folder in your home folder, just like on Windows: all files are visible, but only the ones you open are downloaded. Opened files stay available without internet too.")
                 }
                 Repeater {
                     model: cloud.drives
@@ -251,7 +251,7 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             text: modelData.configured
-                                  ? L.tf("{name}: csatlakoztatva ({folder})", { name: modelData.name, folder: modelData.folder })
+                                  ? L.tf("{name}: connected ({folder})", { name: modelData.name, folder: modelData.folder })
                                   : modelData.name
                         }
                         QQC2.BusyIndicator { visible: cloud.busy === modelData.service; running: visible }
@@ -259,21 +259,21 @@ Kirigami.ScrollablePage {
                             visible: !modelData.configured
                             enabled: cloud.busy === ""
                             icon.name: "network-connect"
-                            text: L.t("Bejelentkezés")
+                            text: L.t("Sign in")
                             onClicked: cloud.connectDrive(modelData.service)
                         }
                         QQC2.Button {
                             visible: modelData.configured
                             enabled: cloud.busy === ""
                             icon.name: "folder-open"
-                            text: L.t("Megnyitás")
+                            text: L.t("Open")
                             onClicked: Qt.openUrlExternally("file://" + modelData.folder)
                         }
                         QQC2.Button {
                             visible: modelData.configured
                             enabled: cloud.busy === ""
                             icon.name: "network-disconnect"
-                            text: L.t("Leválasztás")
+                            text: L.t("Disconnect")
                             onClicked: cloud.disconnectDrive(modelData.service)
                         }
                     }
@@ -299,37 +299,37 @@ Kirigami.ScrollablePage {
             enabled: accounts.isAdmin
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Mihez kérjen jelszót a rendszer?") }
+                Kirigami.Heading { level: 3; text: L.t("When should the system ask for your password?") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Ha egy beállításhoz nem kell jelszó, az a te fiókodból kérdés nélkül lefut. Ez kényelmes, de ha valaki más ül a gépedhez, ő is megteheti. A lemezekhez, a felhasználókhoz és a rendszerindításhoz ajánlott megtartani a jelszót.")
+                    text: L.t("If a setting does not need a password, it runs from your account without asking. That is convenient, but anyone who sits down at your computer can do it too. We recommend keeping the password for disks, users and startup.")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     visible: !accounts.isAdmin
                     wrapMode: Text.Wrap
                     color: Kirigami.Theme.neutralTextColor
-                    text: L.t("Ezt csak rendszergazda fiókkal lehet bekapcsolni.")
+                    text: L.t("Only an administrator account can turn this on.")
                 }
                 QQC2.ButtonGroup { id: presets }
                 QQC2.RadioButton {
                     QQC2.ButtonGroup.group: presets
-                    text: L.t("Mindenhez kérjen jelszót (a legbiztonságosabb)")
+                    text: L.t("Ask for everything (the most secure)")
                     checked: accounts.preset === "all"
                     onClicked: accounts.applyPreset("all")
                 }
                 QQC2.RadioButton {
                     QQC2.ButtonGroup.group: presets
-                    text: L.t("Csak a kockázatos dolgokhoz kérjen jelszót (lemezek, felhasználók, rendszerindítás)")
+                    text: L.t("Ask only for risky things (disks, users, startup)")
                     checked: accounts.preset === "recommended"
                     onClicked: accounts.applyPreset("recommended")
                 }
                 QQC2.RadioButton {
                     id: customPreset
                     QQC2.ButtonGroup.group: presets
-                    text: L.t("Egyénileg, témakörönként")
+                    text: L.t("Custom, by topic")
                     checked: accounts.preset === "custom"
                 }
                 ColumnLayout {
@@ -363,7 +363,7 @@ Kirigami.ScrollablePage {
                                 implicitHeight: Kirigami.Units.iconSizes.smallMedium
                             }
                             QQC2.Switch {
-                                text: L.t("Jelszó kell")
+                                text: L.t("Password needed")
                                 checked: topicRow.modelData.passwordNeeded
                                 onToggled: accounts.setPasswordNeeded(topicRow.modelData.id, checked)
                             }
@@ -384,12 +384,12 @@ Kirigami.ScrollablePage {
                     ColumnLayout {
                         Layout.fillWidth: true
                         spacing: 0
-                        Kirigami.Heading { level: 3; text: L.t("Automatikus bejelentkezés") }
+                        Kirigami.Heading { level: 3; text: L.t("Sign in automatically") }
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             opacity: 0.8
-                            text: L.t("Bekapcsolás után a gép jelszó nélkül, egyből a te asztaloddal indul. A mentett jelszavak (pl. Wi-Fi, böngésző) tárolója ilyenkor az első használatkor kéri a jelszavad.")
+                            text: L.t("When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.")
                         }
                     }
                     QQC2.Switch {
@@ -405,16 +405,16 @@ Kirigami.ScrollablePage {
                     ColumnLayout {
                         Layout.fillWidth: true
                         spacing: 0
-                        Kirigami.Heading { level: 3; text: L.t("Jelszó a terminálban (sudo)") }
+                        Kirigami.Heading { level: 3; text: L.t("Password in the terminal (sudo)") }
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             opacity: 0.8
-                            text: L.t("Haladóknak: kapcsold ki, ha nem szeretnéd, hogy a terminálban a „sudo” parancs jelszót kérjen.")
+                            text: L.t("For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.")
                         }
                     }
                     QQC2.Switch {
-                        text: L.t("Jelszó kell")
+                        text: L.t("Password needed")
                         checked: !accounts.sudoWithoutPassword
                         onToggled: accounts.setSudoWithoutPassword(!checked)
                     }

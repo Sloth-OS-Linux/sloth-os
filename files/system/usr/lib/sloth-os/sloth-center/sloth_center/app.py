@@ -26,7 +26,7 @@ def main():
     app = QApplication(sys.argv)
     app.setApplicationName("sloth-center")
     from .i18n import Translator, catalog, tr
-    app.setApplicationDisplayName(tr("Sloth Központ"))
+    app.setApplicationDisplayName(tr("Sloth Center"))
     if catalog.is_rtl():
         app.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
     app.setOrganizationDomain("slothos.org")

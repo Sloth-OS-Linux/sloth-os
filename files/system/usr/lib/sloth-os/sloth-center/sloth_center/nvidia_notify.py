@@ -28,15 +28,15 @@ def main():
     SEEN.parent.mkdir(parents=True, exist_ok=True)
     SEEN.write_text(state + "\n")
     if state == "ready":
-        body = tr("Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindítás után teljes erővel működik.")
-        actions = ["--action=reboot=" + tr("Újraindítás most")]
+        body = tr("The driver for your NVIDIA graphics card is ready. After a restart it runs at full power.")
+        actions = ["--action=reboot=" + tr("Restart now")]
     else:
-        body = tr("Az NVIDIA videókártyád illesztőprogramja elkészült. Újraindításkor a gép egy kék képernyőn "
-                  "megerősítést kér: a Sloth Központ lépésről lépésre megmutatja, mit kell ott tenni.")
-        actions = ["--action=guide=" + tr("Útmutató megnyitása")]
+        body = tr("The driver for your NVIDIA graphics card is ready. When you restart, the computer asks for "
+                  "confirmation on a blue screen: Sloth Center shows you step by step what to do there.")
+        actions = ["--action=guide=" + tr("Open guide")]
     try:
         r = subprocess.run(["notify-send", "--app-name=Sloth OS", "--icon=preferences-devices-cpu",
-                            "--expire-time=0", *actions, tr("NVIDIA illesztőprogram"), body],
+                            "--expire-time=0", *actions, tr("NVIDIA driver"), body],
                            capture_output=True, text=True)
     except OSError:
         return 0

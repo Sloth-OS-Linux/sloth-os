@@ -1,11 +1,11 @@
-"""Fordítások a Sloth OS saját eszközeihez: eszközönként egy translations/ mappa, nyelvenként egy JSON.
+"""Translations for Sloth OS's own tools: one translations/ folder per tool, one JSON file per language.
 
-A kulcsok pontokkal tagolt nevek ("welcome.title"); a szövegekben {név} alakú
-helyőrzők lehetnek. Ha egy nyelvből hiányzik egy kulcs, az angol, végül a magyar
-szöveg látszik. Új nyelv: a hu.json másolata új néven (pl. fr.json), a
-"_language" mezőben a nyelv saját nevével ("Français").
+Keys are dotted names ("welcome.title"), except in Sloth Center, where the English sentence itself is the key.
+Texts may contain {name} placeholders. If a language lacks a key, the English text is shown (in Sloth Center: the
+key itself). New language: a copy of en.json under a new name (e.g. fr.json), with the language's own name in the
+"_language" field ("Français").
 
-A nyelvkódok a glibc locale-nevekhez igazodnak (hu, pt_BR, zh_TW).
+Language codes follow the glibc locale names (hu, pt_BR, zh_TW).
 """
 import json
 import logging
@@ -15,24 +15,23 @@ from pathlib import Path
 
 log = logging.getLogger("sloth-os.i18n")
 
-SOURCE = "hu"     # a projekt nyelve: ebben teljes minden szöveg
-FALLBACK = "en"   # ha egy nyelvből hiányzik valami
+SOURCE = "en"     # the project language: every text is complete in it, and it is the fallback
 
-# Jobbról balra írt nyelvek: a felület tükrözve jelenik meg
+# Right-to-left languages: the interface is mirrored
 RTL = {"ar", "he", "fa", "ur"}
-# Ha a pontos változatra nincs fordítás, ezt használjuk (pl. hongkongi kínai -> hagyományos)
+# Used when there is no translation for the exact variant (e.g. Hong Kong Chinese -> Traditional)
 ALIASES = {"zh_HK": "zh_TW", "zh_MO": "zh_TW", "zh_SG": "zh_CN", "zh": "zh_CN", "no": "nb", "pt_PT": "pt",
            "bn": "bn_IN"}
 
 
 def sort_key(name):
-    """Ékezet nélküli rendezés ("Čeština" a C-nél, ne a latin betűs nevek után)."""
+    """Sorting without accents ("Čeština" under C, not after the Latin names)."""
     plain = "".join(c for c in unicodedata.normalize("NFKD", name) if not unicodedata.combining(c))
     return plain.casefold()
 
 
 def match(locale_name, codes):
-    """"pt_BR.UTF-8" -> "pt_BR", "de_AT.UTF-8" -> "de", "sr_RS@latin" -> "sr"; None, ha nincs ilyen."""
+    """"pt_BR.UTF-8" -> "pt_BR", "de_AT.UTF-8" -> "de", "sr_RS@latin" -> "sr"; None if there is no match."""
     name = locale_name.split(".")[0].split("@")[0]
     lang = name.split("_")[0].lower()
     for cand in (name, ALIASES.get(name), lang, ALIASES.get(lang)):
@@ -46,7 +45,7 @@ def is_rtl(code):
 
 
 class Catalog:
-    """Egy eszköz fordításai (pl. a Sloth Üdvözlőé), a rendszer nyelvén indulva."""
+    """The translations of one tool (e.g. Sloth Welcome), starting in the system language."""
 
     def __init__(self, directory):
         self.dir = Path(directory)
@@ -65,26 +64,24 @@ class Catalog:
         return self._cache[code]
 
     def available(self):
-        """[{"code": "hu", "name": "Magyar"}, …] a nyelv saját nevével, ábécérendben."""
+        """[{"code": "hu", "name": "Magyar"}, …] with each language's own name, sorted alphabetically."""
         out = [{"code": p.stem, "name": self._load(p.stem).get("_language", p.stem)}
                for p in self.dir.glob("*.json")]
         return sorted(out, key=lambda x: sort_key(x["name"]))
 
     def system_language(self):
-        """A rendszer nyelve (a telepítőben választott), ha van rá fordításunk; különben angol."""
+        """The system language (chosen in the installer) if we have a translation for it; otherwise English."""
         codes = {l["code"] for l in self.available()}
         for var in ("LANGUAGE", "LC_ALL", "LC_MESSAGES", "LANG"):
             for part in os.environ.get(var, "").split(":"):
                 code = match(part, codes) if part and part not in ("C", "POSIX") else None
                 if code:
                     return code
-        return FALLBACK if FALLBACK in codes else SOURCE
+        return SOURCE
 
     def set_language(self, code):
         merged = {}
-        # Magyarul nem kell az angol tartalék: ahol a magyar szöveg maga a kulcs (Sloth Központ), és a hu.json-ban
-        # nincs meg, ott különben az angol látszana
-        for c in (SOURCE,) if code == SOURCE else (SOURCE, FALLBACK, code):
+        for c in (SOURCE,) if code == SOURCE else (SOURCE, code):
             merged.update(self._load(c))
         self._current, self._code = merged, code
 

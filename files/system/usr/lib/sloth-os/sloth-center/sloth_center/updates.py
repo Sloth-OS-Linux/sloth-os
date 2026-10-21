@@ -65,7 +65,7 @@ class UpdatesController(QObject):
             self._ostree.connect_changed(self._on_system_changed)
         except GLib.Error as e:
             log.error("rpm-ostree nem érhető el: %s", e.message)
-            self._unavailable = tr("A frissítéskezelő szolgáltatás nem érhető el ezen a gépen.")
+            self._unavailable = tr("The update service isn't available on this computer.")
         self.refresh()
         self._attach_background()
 
@@ -154,7 +154,7 @@ class UpdatesController(QObject):
         self._rollback = texts.version_text(rollback) if rollback and rollback.get("id") != booted.get("id") else ""
         cached = self._ostree.cached_update() or {}
         if update_available(cached) and not self._pending:
-            self._available = texts.version_text(cached) or tr("Új verzió")
+            self._available = texts.version_text(cached) or tr("New version")
         else:
             self._available = ""
         self.changed.emit()
@@ -165,7 +165,7 @@ class UpdatesController(QObject):
             return
         address = self._ostree.active_transaction_address()
         if address:
-            self._begin("background", tr("A rendszer a háttérben frissül…"))
+            self._begin("background", tr("The system is updating in the background…"))
             self._follow(address)
 
     # --- Műveletek ----------------------------------------------------------
@@ -226,9 +226,9 @@ class UpdatesController(QObject):
             QTimer.singleShot(delay, self._late_refresh)
         # A "naprakész" állapotot a címsor mutatja, ide csak a teendő kerül
         if mode in ("upgrade", "background") and self._pending:
-            self._info = tr("A frissítés elkészült. Indítsd újra a gépet, amikor neked megfelel.")
+            self._info = tr("The update is ready. Restart the computer whenever it suits you.")
         elif mode == "rollback":
-            self._info = tr("Kész. Újraindítás után az előző verzió indul.")
+            self._info = tr("Done. After a restart, the previous version will start.")
         self.changed.emit()
 
     def _late_refresh(self):
@@ -241,25 +241,25 @@ class UpdatesController(QObject):
         had_pending = bool(self._pending)
         self.refresh()
         if self._pending and not had_pending and not self._info:
-            self._info = tr("A frissítés elkészült. Indítsd újra a gépet, amikor neked megfelel.")
+            self._info = tr("The update is ready. Restart the computer whenever it suits you.")
             self.changed.emit()
 
     @Slot()
     def checkForUpdates(self):
         if self._ostree and not self._mode:
-            self._begin("check", tr("Frissítés keresése…"))
+            self._begin("check", tr("Looking for updates…"))
             self._ostree.check_update(self._follow, self._on_error)
 
     @Slot()
     def installUpdate(self):
         if self._ostree and not self._mode:
-            self._begin("upgrade", tr("Frissítés keresése…"))
+            self._begin("upgrade", tr("Looking for updates…"))
             self._ostree.upgrade(self._follow, self._on_error)
 
     @Slot()
     def rollback(self):
         if self._ostree and not self._mode:
-            self._begin("rollback", tr("Visszaállítás előkészítése…"))
+            self._begin("rollback", tr("Preparing to roll back…"))
             self._ostree.rollback(self._follow, self._on_error)
 
     @Slot()
@@ -280,7 +280,7 @@ class UpdatesController(QObject):
             log.warning("%s: %s", op, e)
             ok = False
         if not ok:
-            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+            self._error = tr("Couldn't change it. This needs administrator approval.")
         try:
             self._ostree.reload()
         except GLib.Error:
@@ -301,7 +301,7 @@ class UpdatesController(QObject):
     def bootVersion(self, index):
         """Egy korábbi (megtartott) verzió induljon a következő újraindításkor. Letöltés nem kell."""
         if self._helper("set-default", index):
-            self._info = tr("Kész. Újraindítás után ez a verzió indul.")
+            self._info = tr("Done. This version will start after a restart.")
             self.changed.emit()
 
     @Slot()

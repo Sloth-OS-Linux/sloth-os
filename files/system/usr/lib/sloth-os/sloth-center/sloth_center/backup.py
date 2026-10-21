@@ -107,11 +107,11 @@ class BackupController(QObject):
         else:
             log.warning("%s: %s", action, result.get("error"))
             if result.get("error") == "no-space":
-                self._error = tr("Nincs elég szabad hely a lemezen az új mentéshez. Szabadíts fel helyet, és próbáld újra.")
+                self._error = tr("There is not enough free space on the disk for a new backup. Free up some space and try again.")
             elif result.get("error") == "not-ready":
-                self._error = tr("A mentés a következő újraindítás után indul.")
+                self._error = tr("Backups will start after the next restart.")
             else:
-                self._error = tr("Nem sikerült. Ehhez rendszergazdai jóváhagyás kell.")
+                self._error = tr("That didn't work. This needs administrator approval.")
         self.refresh()
 
     @Slot(bool)
@@ -125,12 +125,12 @@ class BackupController(QObject):
 
     @Slot()
     def takeNow(self):
-        self._helper("snapshot-now", ["snapshot-now"], tr("Kész: elmentettem a fájljaid mostani állapotát."),
+        self._helper("snapshot-now", ["snapshot-now"], tr("Done: the current state of your files is saved."),
                      helper=HELPER_BACKUP)
 
     @Slot()
     def deleteAll(self):
-        self._helper("snapshots-delete-all", ["snapshots-delete-all"], tr("Kész: a mentett állapotok törölve."))
+        self._helper("snapshots-delete-all", ["snapshots-delete-all"], tr("Done: the saved states are deleted."))
 
     @Slot(str)
     def openFolder(self, path):

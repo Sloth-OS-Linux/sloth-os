@@ -41,12 +41,12 @@ def main():
         pass
     SEEN.parent.mkdir(parents=True, exist_ok=True)
     SEEN.write_text(key + "\n")
-    body = tr("Letöltöttük az új rendszerverziót ({version}). A következő újraindításkor települ, addig nyugodtan "
-              "dolgozhatsz tovább.", version=texts.version_text(d))
+    body = tr("The new system version ({version}) has been downloaded. It will be installed at the next restart; "
+              "until then you can keep working.", version=texts.version_text(d))
     try:
         r = subprocess.run(["notify-send", "--app-name=Sloth OS", "--icon=system-software-update",
-                            "--expire-time=0", "--action=reboot=" + tr("Újraindítás most"),
-                            tr("Elkészült egy frissítés"), body], capture_output=True, text=True)
+                            "--expire-time=0", "--action=reboot=" + tr("Restart now"),
+                            tr("An update is ready"), body], capture_output=True, text=True)
     except OSError:
         return 0
     if r.stdout.strip() == "reboot":

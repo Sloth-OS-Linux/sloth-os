@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""A Sloth OS saját eszközeinek start menü bejegyzései (.desktop) a fordítási fájlokból (fejlesztői segéd).
+"""Start menu entries (.desktop) of Sloth OS's own tools, generated from the translation files (developer tool).
 
-A .desktop fájlokat ne kézzel szerkeszd: a nevek, leírások és keresőszavak az eszközök
-translations/<nyelv>.json fájljaiban vannak, ez a script írja belőlük mind az 50 nyelvet.
-Az alapértelmezett (nyelv nélküli) szöveg angol, így ismeretlen nyelven is angolul látszik.
+Do not edit the .desktop files by hand: the names, descriptions and keywords live in the tools'
+translations/<language>.json files, and this script writes all 50 languages from them.
+The default (language-less) text is English, so an unknown language shows English too.
 
-Használat: python tools/gen_desktop_entries.py           (fájlok újraírása)
-           python tools/gen_desktop_entries.py --check   (csak ellenőrzés; ha elavult, 1-gyel lép ki)
+Usage: python tools/gen_desktop_entries.py           (rewrite the files)
+       python tools/gen_desktop_entries.py --check   (check only; exits with 1 if something is out of date)
 """
 import json
 import sys
@@ -20,10 +20,10 @@ TRANSLATIONS = {
     "sloth-exe": TOOLS / "sloth-exe/sloth_exe/translations",
     "sloth-installer": REPO / "iso/files/usr/lib/sloth-os/sloth-installer/sloth_installer/translations",
 }
-# A Sloth Központ fordításaiban a magyar szöveg a kulcs, és nincs hu.json
-HU_KEYED = {"sloth-center"}
+# In Sloth Center's translations the English text is the key (its en.json only has the language name)
+EN_KEYED = {"sloth-center"}
 
-# Fájl -> mezők. A fordítandó mezők értéke: (eszköz, kulcs); a többi szó szerint kerül be.
+# File -> fields. A translated field's value is (tool, key); everything else is written as is.
 ENTRIES = {
     "files/system/usr/share/applications/org.slothos.welcome.desktop": [
         ("Type", "Application"),
@@ -49,14 +49,14 @@ ENTRIES = {
     ],
     "files/system/usr/share/applications/org.slothos.center.desktop": [
         ("Type", "Application"),
-        ("Name", ("sloth-center", "Sloth Központ")),
-        ("GenericName", ("sloth-center", "Rendszerbeállítások")),
-        ("Comment", ("sloth-center", "Frissítések, visszaállítás, driverek és minden, amihez máshol terminál kellene")),
+        ("Name", ("sloth-center", "Sloth Center")),
+        ("GenericName", ("sloth-center", "System settings")),
+        ("Comment", ("sloth-center", "Updates, rollback, drivers and everything that would otherwise need a terminal")),
         ("Exec", "sloth-center"),
         ("Icon", "sloth-os"),
         ("Terminal", "false"),
         ("Categories", "Settings;"),
-        ("Keywords", ("sloth-center", "frissítés;visszaállítás;driver;beállítás")),
+        ("Keywords", ("sloth-center", "update;rollback;driver;settings")),
         ("StartupNotify", "true"),
     ],
     "files/system/usr/share/applications/org.slothos.exe.desktop": [
@@ -69,11 +69,11 @@ ENTRIES = {
         ("NoDisplay", "true"),
         ("MimeType", "application/x-ms-dos-executable;application/x-msdownload;application/x-msi;"
                      "application/x-ms-installer;application/vnd.microsoft.portable-executable;application/x-dosexec;"
-                     # Linuxos csomagok (AppImage, .deb, .rpm) és Mac-es fájlok (érthető üzenet)
+                     # Linux packages (AppImage, .deb, .rpm) and Mac files (a clear message)
                      "application/vnd.appimage;application/x-iso9660-appimage;application/vnd.debian.binary-package;application/x-deb;application/x-rpm;application/x-redhat-package-manager;application/x-apple-diskimage;application/x-xar;"),
         ("Categories", "Utility;"),
     ],
-    # Dolphin, jobb klikk egy fájlon vagy mappán (a mappa üres részén a mappára): Korábbi verziók
+    # Dolphin, right-click on a file or folder (on a folder's empty area: that folder): Previous versions
     "files/system/usr/share/kio/servicemenus/org.slothos.versions.desktop": [
         ("Type", "Service"),
         ("X-KDE-ServiceTypes", "KonqPopupMenu/Plugin"),
@@ -83,7 +83,7 @@ ENTRIES = {
         ("X-KDE-Priority", "TopLevel"),
         ("Actions", "previousVersions;"),
         ("[Desktop Action previousVersions]", None),
-        ("Name", ("sloth-center", "Korábbi verziók")),
+        ("Name", ("sloth-center", "Previous versions")),
         ("Icon", "view-history"),
         ("Exec", "sloth-versions %f"),
     ],
@@ -106,13 +106,13 @@ def load(tool):
 
 
 def text(langs, tool, lang, key):
-    if tool in HU_KEYED and lang == "hu":
+    if tool in EN_KEYED and lang == "en":
         return key
     return langs.get(lang, {}).get(key)
 
 
 def keywords(local, english):
-    """A helyi keresőszavak, utánuk az angolok (hogy angolul is meg lehessen találni)."""
+    """The local keywords, followed by the English ones (so it can be found in English too)."""
     words = []
     for w in (local or "").split(";") + english.split(";"):
         w = w.strip()
@@ -125,7 +125,7 @@ def render(path, fields, cache):
     lines = ["# Generated by tools/gen_desktop_entries.py from the tools' translations/*.json - do not edit by hand.",
              "[Desktop Entry]"]
     for name, value in fields:
-        if value is None:  # újabb szakasz (pl. [Desktop Action …])
+        if value is None:  # a new section (e.g. [Desktop Action …])
             lines.append(name)
             continue
         if isinstance(value, str):
@@ -133,10 +133,10 @@ def render(path, fields, cache):
             continue
         tool, key = value
         langs = cache.setdefault(tool, load(tool))
-        all_langs = sorted(set(langs) | ({"hu"} if tool in HU_KEYED else set()))
+        all_langs = sorted(langs)
         english = text(langs, tool, "en", key)
         if not english:
-            sys.exit(f"{path}: hiányzik az angol szöveg: {tool} / {key}")
+            sys.exit(f"{path}: missing English text: {tool} / {key}")
         lines.append(f"{name}={keywords(None, english) if name == 'Keywords' else english}")
         for lang in all_langs:
             local = text(langs, tool, lang, key)
@@ -156,11 +156,11 @@ def main():
             continue
         stale.append(rel)
         if not check:
-            path.write_bytes(content.encode("utf-8"))  # LF sorvég Windowson is
+            path.write_bytes(content.encode("utf-8"))  # LF line endings on Windows too
     if check and stale:
-        print("Elavult .desktop fájlok (futtasd: python tools/gen_desktop_entries.py):", *stale, sep="\n  ")
+        print("Out-of-date .desktop files (run: python tools/gen_desktop_entries.py):", *stale, sep="\n  ")
         return 1
-    print(("Frissítve:" if stale else "Minden naprakész."), *stale, sep="\n  " if stale else "")
+    print(("Updated:" if stale else "Everything is up to date."), *stale, sep="\n  " if stale else "")
     return 0
 
 

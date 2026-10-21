@@ -28,14 +28,14 @@ POLICY = "/etc/sloth-os/admin-policy.json"
 
 # (azonosító, név, leírás, alapból védett-e). Az azonosítók a sloth-helper TOPICS kulcsai.
 TOPICS = [
-    ("software", N_("Programok telepítése és eltávolítása"), N_("Appok a Discoverből és a Sloth Üdvözlőből."), False),
-    ("updates", N_("Rendszerfrissítés"), N_("Frissítések telepítése, visszaállás egy korábbi verzióra."), False),
-    ("network", N_("Hálózat és eszközök"), N_("Wi-Fi, Bluetooth, nyomtatók, pendrive-ok."), False),
-    ("datetime", N_("Dátum, idő és nyelv"), N_("Óra, időzóna, a rendszer nyelve, a gép neve."), False),
-    ("services", N_("Szolgáltatások és driverek"), N_("Szolgáltatások be- és kikapcsolása, videókártya-driver váltása."), False),
-    ("disks", N_("Lemezek"), N_("Lemezek formázása, partíciók. Egy rossz kattintással adat veszhet el."), True),
-    ("users", N_("Felhasználók és jelszavak"), N_("Új fiók, más fiókok jelszava és jogai."), True),
-    ("system", N_("Rendszerindítás és rendszercsomagok"), N_("Boot menü, kernelparaméterek, rendszercsomagok. Itt a legkönnyebb elrontani a rendszert."), True),
+    ("software", N_("Installing and removing programs"), N_("Apps from Discover and Sloth Welcome."), False),
+    ("updates", N_("System updates"), N_("Installing updates, going back to an earlier version."), False),
+    ("network", N_("Network and devices"), N_("Wi-Fi, Bluetooth, printers, USB drives."), False),
+    ("datetime", N_("Date, time and language"), N_("Clock, time zone, system language, computer name."), False),
+    ("services", N_("Services and drivers"), N_("Turning services on and off, switching the graphics driver."), False),
+    ("disks", N_("Disks"), N_("Formatting disks, partitions. One wrong click can lose data."), True),
+    ("users", N_("Users and passwords"), N_("New accounts, other accounts' passwords and rights."), True),
+    ("system", N_("Startup and system packages"), N_("Boot menu, kernel parameters, system packages. This is where it is easiest to break the system."), True),
 ]
 RECOMMENDED = [t[0] for t in TOPICS if not t[3]]
 
@@ -162,27 +162,27 @@ class AccountsController(QObject):
         features = _login_features()
         out = []
         if _fingerprint_reader():
-            out.append({"id": "fingerprint", "name": tr("Ujjlenyomat"), "icon": "fingerprint",
-                        "description": tr("Bejelentkezés és jóváhagyás az ujjad érintésével. Előbb vedd fel az ujjlenyomatod."),
+            out.append({"id": "fingerprint", "name": tr("Fingerprint"), "icon": "fingerprint",
+                        "description": tr("Sign in and confirm with a touch of your finger. Add your fingerprint first."),
                         "enabled": "with-fingerprint" in features, "ready": True})
         enrolled = U2F_KEYS.exists() and U2F_KEYS.stat().st_size > 0
         if enrolled or _security_key_present():
-            out.append({"id": "securitykey", "name": tr("Biztonsági kulcs (pl. YubiKey)"), "icon": "security-high",
-                        "description": tr("Bejelentkezés a kulcs bedugásával és megérintésével.")
-                        if enrolled else tr("Bedugott kulcsot találtunk. Vedd fel, és utána bejelentkezhetsz vele."),
+            out.append({"id": "securitykey", "name": tr("Security key (e.g. YubiKey)"), "icon": "security-high",
+                        "description": tr("Sign in by plugging in and touching the key.")
+                        if enrolled else tr("We found a plugged-in key. Add it, and then you can sign in with it."),
                         "enabled": "with-pam-u2f" in features, "ready": enrolled})
         if _ir_camera():
-            out.append({"id": "face", "name": tr("Arcfelismerés"), "icon": "camera-web",
-                        "description": tr("A gépeden van infrakamera. Az arcfelismerést még nem kínáljuk: "
-                                          "a Linuxos megoldások ma még nem elég megbízhatók ahhoz, hogy a gépedet "
-                                          "rájuk bízzuk. Addig használd a PIN-kódot vagy az ujjlenyomatot."),
+            out.append({"id": "face", "name": tr("Face recognition"), "icon": "camera-web",
+                        "description": tr("Your computer has an infrared camera. We don't offer face recognition yet:"
+                                          " the Linux solutions aren't reliable enough today to trust your computer "
+                                          "to them. Until then, use a PIN or your fingerprint."),
                         "enabled": False, "ready": False, "comingSoon": True})
         pin = (PIN_DIR / f"{self._user}.json").exists()
-        out.append({"id": "pin", "name": tr("PIN-kód"), "icon": "dialog-password",
-                    "description": tr("Be van állítva. A bejelentkezésnél és a zárolási képernyőn a jelszó helyett "
-                                      "a PIN-kódot is beírhatod. Távolról (hálózaton át) csak a jelszó működik.")
-                    if pin else tr("Rövid számkód (4–8 számjegy) a hosszú jelszó helyett, a bejelentkezésnél "
-                                   "és a zárolási képernyőn. A jelszó mellette továbbra is működik."),
+        out.append({"id": "pin", "name": tr("PIN"), "icon": "dialog-password",
+                    "description": tr("Set up. At sign-in and on the lock screen you can type your PIN instead of "
+                                      "your password. Remotely (over the network) only the password works.")
+                    if pin else tr("A short number code (4–8 digits) instead of your long password, at sign-in and on"
+                                   " the lock screen. Your password keeps working too."),
                     "enabled": pin, "ready": True})
         return out
 
@@ -202,9 +202,9 @@ class AccountsController(QObject):
             if result.get("error"):
                 log.warning("login-feature %s: %s", method, result["error"])
             if result.get("ok"):
-                self._info = tr("Elmentve. A következő bejelentkezéstől érvényes.")
+                self._info = tr("Saved. It takes effect from the next sign-in.")
             else:
-                self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+                self._error = tr("Couldn't change it. This needs administrator approval.")
         self.refresh()
 
     @Slot(str, str)
@@ -212,26 +212,26 @@ class AccountsController(QObject):
         """PIN-kód beállítása vagy cseréje a saját fióknak (4–8 számjegy)."""
         self._error, self._info = "", ""
         if not re.fullmatch(r"\d{4,8}", pin):
-            self._error = tr("A PIN-kód 4–8 számjegyből álljon.")
+            self._error = tr("The PIN must be 4–8 digits.")
         elif pin != pin2:
-            self._error = tr("A két PIN-kód nem egyezik.")
+            self._error = tr("The two PINs don't match.")
         else:
             result = self._helper(["pin-set"], stdin=pin + "\n")
             if result.get("ok"):
-                self._info = tr("A PIN-kód elmentve. A következő bejelentkezéstől használhatod.")
+                self._info = tr("PIN saved. You can use it from your next sign-in.")
             elif result.get("error") == "gyenge PIN":
-                self._error = tr("Ezt a PIN-kódot túl könnyű kitalálni (pl. 1111 vagy 1234). Válassz másikat.")
+                self._error = tr("This PIN is too easy to guess (e.g. 1111 or 1234). Choose another one.")
             else:
-                self._error = tr("Nem sikerült menteni. Ehhez rendszergazdai jóváhagyás kell.")
+                self._error = tr("Couldn't save it. This needs administrator approval.")
         self.refresh()
 
     @Slot()
     def removePin(self):
         self._error, self._info = "", ""
         if self._helper(["pin-remove"]).get("ok"):
-            self._info = tr("A PIN-kód törölve. Mostantól csak a jelszó működik.")
+            self._info = tr("PIN removed. From now on only your password works.")
         else:
-            self._error = tr("Nem sikerült törölni. Ehhez rendszergazdai jóváhagyás kell.")
+            self._error = tr("Couldn't remove it. This needs administrator approval.")
         self.refresh()
 
     @Slot()
@@ -261,10 +261,10 @@ class AccountsController(QObject):
             existing = U2F_KEYS.read_text().strip() if U2F_KEYS.exists() else ""
             U2F_KEYS.write_text((existing + out if existing else out) + "\n")
             os.chmod(U2F_KEYS, 0o600)
-            self._info = tr("A kulcs felvéve. Most bekapcsolhatod a bejelentkezést vele.")
+            self._info = tr("The key has been added. You can now turn on signing in with it.")
         else:
             log.warning("pamu2fcfg: %s", out)
-            self._error = tr("Nem sikerült felvenni a kulcsot. Dugd be, és amikor villog, érintsd meg.")
+            self._error = tr("Could not add the key. Plug it in, and touch it when it blinks.")
         self.refresh()
 
     @Slot(str, str, str)
@@ -281,21 +281,21 @@ class AccountsController(QObject):
     def _on_joined(self, result):
         self._busy = ""
         if result.get("ok"):
-            self._info = tr("A gép csatlakozott a tartományhoz. A céges fiókkal a bejelentkező képernyőn léphetsz be (felhasználónév@tartomány).")
+            self._info = tr("The computer has joined the domain. You can sign in with your work account on the sign-in screen (username@domain).")
         elif not result:
-            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+            self._error = tr("Couldn't change it. This needs administrator approval.")
         else:
             log.warning("realm join: %s", result.get("error"))
-            self._error = tr("Nem sikerült csatlakozni. Ellenőrizd a tartomány nevét, a felhasználónevet és a jelszót, és hogy a gép eléri-e a céges hálózatot.")
+            self._error = tr("Could not join. Check the domain name, the username and the password, and that the computer can reach the company network.")
         self.refresh()
 
     @Slot()
     def leaveDomain(self):
         self._error, self._info = "", ""
         if self._helper(["domain-leave"]).get("ok"):
-            self._info = tr("A gép kilépett a tartományból.")
+            self._info = tr("The computer has left the domain.")
         else:
-            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+            self._error = tr("Couldn't change it. This needs administrator approval.")
         self.refresh()
 
     def _save(self, free, sudo, autologin):
@@ -309,11 +309,11 @@ class AccountsController(QObject):
             log.warning("admin-policy: %s", e)
             result = {}
         if result.get("ok"):
-            self._info = tr("Elmentve.")
+            self._info = tr("Saved.")
         elif result.get("error") == "nem rendszergazda":
-            self._error = tr("Ezt csak rendszergazda fiókkal lehet bekapcsolni.")
+            self._error = tr("Only an administrator account can turn this on.")
         else:
-            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+            self._error = tr("Couldn't change it. This needs administrator approval.")
         self.refresh()
 
     @Slot(str)

@@ -101,4 +101,4 @@ class GamepadsController(QObject):
 
     @Slot(str, result=str)
     def connectionText(self, connection):
-        return {"usb": tr("Kábellel"), "bluetooth": tr("Vezeték nélkül (Bluetooth)")}.get(connection, tr("Csatlakoztatva"))
+        return {"usb": tr("With a cable"), "bluetooth": tr("Wireless (Bluetooth)")}.get(connection, tr("Connected"))

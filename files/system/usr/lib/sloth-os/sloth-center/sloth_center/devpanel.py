@@ -206,7 +206,7 @@ class DevPanelController(QObject):
                 self._done.emit("", self._api_error(e))
             except Exception as e:  # a felület ne akadjon meg
                 log.warning("fejlesztői pult: %s", e)
-                self._done.emit("", tr("Nem sikerült. Próbáld újra később."))
+                self._done.emit("", tr("That didn't work. Please try again later."))
 
         threading.Thread(target=run, daemon=True).start()
 
@@ -221,12 +221,12 @@ class DevPanelController(QObject):
     @staticmethod
     def _api_error(e):
         if e.status == 401:
-            return tr("A GitHub nem fogadta el a tokent. Hozz létre újat, és add meg itt.")
+            return tr("GitHub didn't accept the token. Create a new one and enter it here.")
         if e.status in (403, 404):
-            return tr("A tokennek nincs joga ehhez a repóhoz (kell: repo, workflow, read:packages), vagy a repó neve hibás.")
+            return tr("The token has no access to this repository (needed: repo, workflow, read:packages), or the repository name is wrong.")
         if e.status == 0:
-            return tr("Nincs kapcsolat a GitHubbal. Ellenőrizd az internetkapcsolatot.")
-        return tr("A GitHub hibát jelzett ({code}). Próbáld újra később.", code=e.status)
+            return tr("No connection to GitHub. Check your internet connection.")
+        return tr("GitHub reported an error ({code}). Please try again later.", code=e.status)
 
     # --- Kapcsolat -------------------------------------------------------------------------------------
 
@@ -239,11 +239,11 @@ class DevPanelController(QObject):
     def connectRepo(self, repo, token):
         repo, token = repo.strip(), token.strip()
         if not REPO_RE.match(repo):
-            self._error = tr("A repó neve „tulajdonos/név” alakú, például Sloth-OS-Linux/sloth-os.")
+            self._error = tr("The repository name has the form “owner/name”, for example Sloth-OS-Linux/sloth-os.")
             self.changed.emit()
             return
         if token and not TOKEN_RE.match(token):
-            self._error = tr("Ez nem úgy néz ki, mint egy GitHub-token. Másold be még egyszer.")
+            self._error = tr("That doesn't look like a GitHub token. Copy it in again.")
             self.changed.emit()
             return
         token = token or self._token
@@ -253,7 +253,7 @@ class DevPanelController(QObject):
             save_token(token)
             self._token, self._repo, self._private = token, repo, bool(info.get("private"))
             self._save_config()
-            return tr("Kapcsolódva: {repo}", repo=repo)
+            return tr("Connected: {repo}", repo=repo)
 
         self._background(work)
 
@@ -261,7 +261,7 @@ class DevPanelController(QObject):
     def disconnect(self):
         forget_token()
         self._token, self._runs, self._has_secret, self._minutes = "", [], None, -1
-        self._message = tr("A token törölve ebből a gépből.")
+        self._message = tr("The token has been removed from this computer.")
         self.changed.emit()
 
     # --- Buildek --------------------------------------------------------------------------------------
@@ -309,7 +309,7 @@ class DevPanelController(QObject):
 
         def work():
             api(token, "POST", f"/repos/{repo}/actions/workflows/{workflow}/dispatches", {"ref": "main"})
-            return tr("Elindítva. Pár másodperc múlva megjelenik a listában.")
+            return tr("Started. It will show up in the list in a few seconds.")
 
         self._background(work)
 
@@ -358,9 +358,10 @@ class DevPanelController(QObject):
         QGuiApplication.clipboard().setText(getattr(self, "_clipboard", ""))
         self._clipboard = ""
         self.openUrl(f"https://github.com/{self._repo}/settings/secrets/actions/new")
-        self._message = tr("A nyilvános kulcs felkerült a repóba. A titkos kulcs a vágólapon van: a megnyílt "
-                           "GitHub-oldalon a név legyen SIGNING_SECRET, az értékhez illeszd be (Ctrl+V), majd "
-                           "„Add secret”. Utána a vágólapot írd felül valami mással.")
+        self._message = tr("The public key has been added to the repository. The private key is on the clipboard: on "
+                           "the GitHub page that just opened, set the name to SIGNING_SECRET, paste it into the value"
+                           " (Ctrl+V), then click “Add secret”. Afterwards, copy something else to overwrite the "
+                           "clipboard.")
         self.changed.emit()
 
     # --- Kipróbálás ---------------------------------------------------------------------------------
@@ -394,7 +395,7 @@ class DevPanelController(QObject):
                 ok = False
             if not ok:
                 raise RuntimeError("registry-login")
-            return tr("Kész: a gép most már eléri a privát csomagtárolót.")
+            return tr("Done: this computer can now reach the private package registry.")
 
         self._background(work)
 
@@ -403,20 +404,20 @@ class DevPanelController(QObject):
         """Átállás egy buildre (a következő újraindításkor indul); tag: pl. "a1b2c3d-44" vagy "latest"."""
         image = self._booted_image()
         if not image or not re.fullmatch(r"[A-Za-z0-9._-]{1,64}", tag):
-            self._error = tr("Ezen a gépen nem állapítható meg, melyik image fut.")
+            self._error = tr("We can't tell which image this computer is running.")
             self.changed.emit()
             return
         target = re.sub(r":[^:/]+$", f":{tag}", image)
-        self._busy, self._message, self._error = True, tr("Az új változat letöltése…"), ""
+        self._busy, self._message, self._error = True, tr("Downloading the new edition…"), ""
         self.changed.emit()
 
         def on_finished(ok, raw):
             self._busy = False
             if ok:
-                self._message = tr("Kész. Indítsd újra a gépet, és ez a változat indul. A régi a boot menüben marad.")
+                self._message = tr("Done. Restart the computer and this version will start. The old one stays in the boot menu.")
             else:
                 log.warning("rebase: %s", raw)
-                self._error = tr("Nem sikerült átállni. Privát repónál előbb jelentkezz be a csomagtárolóba.")
+                self._error = tr("Switching didn't work. For a private repository, sign in to the package registry first.")
             self.changed.emit()
 
         try:

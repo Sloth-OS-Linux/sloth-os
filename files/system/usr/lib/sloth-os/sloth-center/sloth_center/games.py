@@ -133,11 +133,11 @@ class GamesController(QObject):
 
     def _save_steam(self, appid, settings):
         if steam_running():
-            self._error = tr("Zárd be a Steamet, és utána állítsd át: a Steam futás közben felülírná.")
+            self._error = tr("Close Steam first, then change this: Steam would overwrite it while running.")
             return
         cfg = localconfig_path()
         if not cfg:
-            self._error = tr("A Steam beállításai nem találhatók. Indítsd el egyszer a Steamet, és jelentkezz be.")
+            self._error = tr("Steam's settings were not found. Start Steam once and sign in.")
             return
         try:
             data = vdf_load(cfg.read_text(errors="replace"))
@@ -158,10 +158,10 @@ class GamesController(QObject):
             tmp = cfg.with_suffix(".tmp")
             tmp.write_text(vdf_dump(data) + "\n", encoding="utf-8")
             tmp.replace(cfg)
-            self._info = tr("Elmentve. A következő indításkor lép életbe.")
+            self._info = tr("Saved. It takes effect the next time you start it.")
         except OSError as e:
             log.warning("localconfig.vdf: %s", e)
-            self._error = tr("Nem sikerült menteni.")
+            self._error = tr("Could not save.")
 
     def _save_windows(self, app_id, settings):
         app = library.find(app_id)
@@ -169,10 +169,10 @@ class GamesController(QObject):
             if app is None:
                 raise OSError(f"nincs ilyen program: {app_id}")
             app.save_meta(game=settings)
-            self._info = tr("Elmentve. A következő indításkor lép életbe.")
+            self._info = tr("Saved. It takes effect the next time you start it.")
         except OSError as e:
             log.warning("program adatai: %s", e)
-            self._error = tr("Nem sikerült menteni.")
+            self._error = tr("Could not save.")
 
     @Slot()
     def closeSteam(self):

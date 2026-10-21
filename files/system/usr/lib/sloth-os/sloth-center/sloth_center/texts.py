@@ -13,36 +13,36 @@ from .i18n import N_, catalog, tr
 
 # (minta, szöveg) párok; az első egyező nyer. A minták kisbetűsek.
 _STAGES = [
-    (("rollback",), N_("Visszaállítás előkészítése…")),
+    (("rollback",), N_("Preparing to roll back…")),
     (("pulling manifest", "checking for updates", "receiving metadata", "scanning metadata",
-      "resolving", "fetching manifest", "updating metadata"), N_("Frissítés keresése…")),
+      "resolving", "fetching manifest", "updating metadata"), N_("Looking for updates…")),
     (("importing", "unpacking", "checking out", "writing objects", "applying"),
-     N_("Frissítés kicsomagolása…")),
+     N_("Unpacking the update…")),
     (("fetching", "receiving objects", "receiving delta", "downloading", "pulling", "layer", "chunk"),
-     N_("Frissítés letöltése…")),
+     N_("Downloading the update…")),
     (("staging deployment", "deploying", "writing", "regenerating initramfs", "running", "relabeling",
-      "finalizing", "copying /etc", "bootloader"), N_("Frissítés előkészítése az újraindításhoz…")),
-    (("pruning", "cleanup", "cleaning", "freed"), N_("Takarítás…")),
+      "finalizing", "copying /etc", "bootloader"), N_("Preparing the update for restart…")),
+    (("pruning", "cleanup", "cleaning", "freed"), N_("Cleaning up…")),
 ]
 
 _ERRORS = [
     (("not authorized", "authentication", "permission denied", "polkit"),
-     N_("Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad.")),
+     N_("This needs administrator approval. Try again and enter your password.")),
     (("no space", "enospc", "disk full"),
-     N_("Nincs elég szabad hely a lemezen. Szabadíts fel helyet, és próbáld újra.")),
+     N_("There isn't enough free disk space. Free up some space and try again.")),
     (("could not resolve", "network", "timed out", "timeout", "connection refused",
       "temporary failure", "unreachable", "tls", "dns"),
-     N_("Nem sikerült elérni a frissítési szervert. Ellenőrizd az internetkapcsolatot.")),
+     N_("Couldn't reach the update server. Check your internet connection.")),
     (("transaction in progress", "already in progress", "busy"),
-     N_("Egy másik frissítés éppen fut a háttérben. Megvárjuk, amíg végez.")),
-    (("cancelled", "canceled"), N_("A műveletet megszakítottad.")),
+     N_("Another update is running in the background. We'll wait for it to finish.")),
+    (("cancelled", "canceled"), N_("You cancelled the operation.")),
     # az aláírás-ellenőrzés (ostree-image-signed): pl. egy épp készülő, még alá nem írt verzió
     (("signature", "sigstore", "policy requirements"),
-     N_("A legújabb frissítés még nem érhető el (épp most készül). Próbáld újra pár perc múlva.")),
+     N_("The latest update isn't available yet (it's being prepared right now). Try again in a few minutes.")),
 ]
 
-GENERIC_ERROR = N_("Valami nem sikerült. Próbáld újra később, vagy indítsd újra a gépet.")
-GENERIC_BUSY = N_("Dolgozom rajta…")
+GENERIC_ERROR = N_("Something went wrong. Try again later, or restart the computer.")
+GENERIC_BUSY = N_("Working on it…")
 
 
 def stage_text(raw, current=None):
@@ -73,9 +73,9 @@ def size_text(nbytes):
 def download_text(transferred, rate):
     if transferred <= 0:
         return ""
-    text = tr("{size} letöltve", size=size_text(transferred))
+    text = tr("{size} downloaded", size=size_text(transferred))
     if rate > 0:
-        text += " · " + tr("{size}/mp", size=size_text(rate))
+        text += " · " + tr("{size}/s", size=size_text(rate))
     return text
 
 
@@ -93,9 +93,9 @@ def datetime_text(when):
     time = QLocale(catalog.language()).toString(QTime(local.hour, local.minute), QLocale.FormatType.ShortFormat)
     days = (datetime.date.today() - local.date()).days
     if days == 0:
-        return tr("Ma {time}", time=time)
+        return tr("Today {time}", time=time)
     if days == 1:
-        return tr("Tegnap {time}", time=time)
+        return tr("Yesterday {time}", time=time)
     return f"{date_text(local.timestamp())} {time}"
 
 

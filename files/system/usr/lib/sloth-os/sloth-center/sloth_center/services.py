@@ -23,16 +23,16 @@ INTERACTIVE = Gio.DBusCallFlags.ALLOW_INTERACTIVE_AUTHORIZATION
 
 # (unit, név, leírás). Több unit esetén az első létező számít.
 COMMON = [
-    (["bluetooth.service"], "Bluetooth", N_("Vezeték nélküli fejhallgatók, kontrollerek, egerek.")),
-    (["cups.service"], N_("Nyomtatás"), N_("Nyomtatók használata.")),
-    (["firewalld.service"], N_("Tűzfal"), N_("Védi a gépet a hálózatról érkező kéretlen kapcsolatoktól.")),
-    (["uupd.timer", "rpm-ostreed-automatic.timer"], N_("Automatikus frissítések"),
-     N_("A rendszer és az appok frissítései a háttérben töltődnek le.")),
-    (["avahi-daemon.service"], N_("Eszközök keresése a hálózaton"),
-     N_("Hálózati nyomtatók, megosztások és más eszközök automatikus megtalálása.")),
-    (["sshd.service"], N_("Távoli bejelentkezés (SSH)"),
-     N_("Más gépről parancssorból be lehet jelentkezni erre a gépre. Ha nem tudod, mi ez, hagyd kikapcsolva.")),
-    (["smb.service"], N_("Fájlmegosztás Windows-gépekkel"), N_("A megosztott mappák elérhetők más gépekről.")),
+    (["bluetooth.service"], "Bluetooth", N_("Wireless headphones, controllers, mice.")),
+    (["cups.service"], N_("Printing"), N_("Use printers.")),
+    (["firewalld.service"], N_("Firewall"), N_("Protects the computer from unwanted connections from the network.")),
+    (["uupd.timer", "rpm-ostreed-automatic.timer"], N_("Automatic updates"),
+     N_("System and app updates download in the background.")),
+    (["avahi-daemon.service"], N_("Find devices on the network"),
+     N_("Automatically find network printers, shares and other devices.")),
+    (["sshd.service"], N_("Remote login (SSH)"),
+     N_("Lets someone log in to this computer from another one using a command line. If you don't know what this is, leave it off.")),
+    (["smb.service"], N_("File sharing with Windows computers"), N_("Shared folders can be reached from other computers.")),
 ]
 
 
@@ -47,10 +47,10 @@ PROTECTED_USER_PREFIXES = (
 def _human_error(raw):
     low = (raw or "").lower()
     if any(k in low for k in ("not authorized", "access denied", "authentication", "interactive")):
-        return tr("Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad.")
+        return tr("This needs administrator approval. Try again and enter your password.")
     if "masked" in low:
-        return tr("Ezt a szolgáltatást a rendszer letiltotta, ezért nem kapcsolható be.")
-    return tr("Nem sikerült átállítani. Próbáld újra később.")
+        return tr("The system has blocked this service, so it can't be turned on.")
+    return tr("Couldn't change it. Try again later.")
 
 
 class ServicesController(QObject):

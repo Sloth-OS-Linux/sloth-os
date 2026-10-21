@@ -6,7 +6,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Driverek és hardver")
+    title: L.t("Drivers and hardware")
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
@@ -23,7 +23,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Videókártya") }
+                Kirigami.Heading { level: 3; text: L.t("Graphics card") }
                 Repeater {
                     model: drivers.gpus
                     delegate: RowLayout {
@@ -44,8 +44,8 @@ Kirigami.ScrollablePage {
                     opacity: 0.8
                     visible: drivers.canSwitch && !drivers.mismatch
                     text: drivers.nvidiaImage
-                          ? L.t("A Sloth OS NVIDIA-s változata fut, az NVIDIA driver telepítve van. Minden rendben.")
-                          : L.t("A Sloth OS AMD/Intel változata fut, a driverek a rendszer részei. Minden rendben.")
+                          ? L.t("The NVIDIA edition of Sloth OS is running and the NVIDIA driver is installed. Everything is fine.")
+                          : L.t("The AMD/Intel edition of Sloth OS is running; the drivers are part of the system. Everything is fine.")
                 }
             }
         }
@@ -60,23 +60,23 @@ Kirigami.ScrollablePage {
                     level: 3
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
-                    text: drivers.infoText === "switched" ? L.t("Kész! Indítsd újra a gépet.")
-                        : drivers.hasNvidia ? L.t("Váltás az NVIDIA-s változatra")
-                        : L.t("Váltás az AMD/Intel változatra")
+                    text: drivers.infoText === "switched" ? L.t("Done! Restart the computer.")
+                        : drivers.hasNvidia ? L.t("Switch to the NVIDIA edition")
+                        : L.t("Switch to the AMD/Intel edition")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     visible: !drivers.busy && drivers.infoText !== "switched"
                     text: drivers.hasNvidia
-                          ? L.t("A gépedben NVIDIA videókártya van, de a Sloth OS AMD/Intel változata fut. Az NVIDIA-s változattal a játékok sokkal jobban futnak. A fájljaid és beállításaid megmaradnak.")
-                          : L.t("A gépedben nincs NVIDIA videókártya, ezért az AMD/Intel változat a jobb választás. A fájljaid és beállításaid megmaradnak.")
+                          ? L.t("Your computer has an NVIDIA graphics card, but the AMD/Intel edition of Sloth OS is running. Games run much better with the NVIDIA edition. Your files and settings are kept.")
+                          : L.t("Your computer has no NVIDIA graphics card, so the AMD/Intel edition is the better choice. Your files and settings are kept.")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     visible: drivers.infoText === "switched"
-                    text: L.t("Újraindítás után az új változat indul. Ha valami nem stimmel, a Frissítések oldalon visszaállhatsz.")
+                    text: L.t("After a restart, the new edition starts. If something's wrong, you can go back on the Updates page.")
                 }
                 ColumnLayout {
                     Layout.fillWidth: true
@@ -94,13 +94,13 @@ Kirigami.ScrollablePage {
                     visible: !drivers.busy && drivers.infoText !== "switched"
                     highlighted: true
                     icon.name: "download"
-                    text: L.t("Váltás most")
+                    text: L.t("Switch now")
                     onClicked: drivers.switchVariant()
                 }
                 QQC2.Button {
                     visible: drivers.infoText === "switched"
                     icon.name: "system-reboot"
-                    text: L.t("Újraindítás most")
+                    text: L.t("Restart now")
                     onClicked: updates.reboot()
                 }
             }
@@ -116,19 +116,19 @@ Kirigami.ScrollablePage {
                     level: 3
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
-                    text: drivers.keyPending ? L.t("Még egy lépés: indítsd újra a gépet") : L.t("Az NVIDIA driverhez egy engedély kell")
+                    text: drivers.keyPending ? L.t("One more step: restart the computer") : L.t("The NVIDIA driver needs a permission")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     visible: drivers.keyNeeded
-                    text: L.t("A gépeden be van kapcsolva a biztonságos rendszerindítás (Secure Boot). Hogy az NVIDIA driver betöltődhessen, egyszer engedélyezni kell a Sloth OS kulcsát. Ez pár kattintás, és utána soha többé nem kell vele foglalkozni.")
+                    text: L.t("Secure Boot is turned on on your computer. For the NVIDIA driver to load, the Sloth OS key has to be allowed once. It takes a few clicks, and you never have to deal with it again.")
                 }
                 QQC2.Button {
                     visible: drivers.keyNeeded
                     highlighted: true
                     icon.name: "security-high"
-                    text: L.t("Engedélyezés előkészítése")
+                    text: L.t("Prepare the permission")
                     onClicked: drivers.enrollKey()
                 }
                 // Lépésről lépésre a kék képernyőhöz (azt a gép firmware-e mutatja, angolul)
@@ -139,15 +139,15 @@ Kirigami.ScrollablePage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
-                        text: L.t("Újraindításkor egy kék képernyő jelenik meg (angolul). Ott a nyilakkal és az Enterrel:")
+                        text: L.t("After restarting, a blue screen appears (in English). Use the arrow keys and Enter there:")
                     }
                     Repeater {
                         model: [
-                            L.t("Nyomj meg egy gombot, amikor a „Press any key” felirat látszik."),
-                            L.t("Válaszd: „Enroll MOK”."),
-                            L.t("Válaszd: „Continue”, majd „Yes”."),
-                            L.t("Jelszónak írd be: universalblue (a képernyőn nem látszik, amit gépelsz)."),
-                            L.t("Válaszd: „Reboot”. Ennyi!")
+                            L.t("Press a key when “Press any key” is shown."),
+                            L.t("Choose “Enroll MOK”."),
+                            L.t("Choose “Continue”, then “Yes”."),
+                            L.t("Type the password: universalblue (what you type isn't shown on screen)."),
+                            L.t("Choose “Reboot”. That's it!")
                         ]
                         delegate: QQC2.Label {
                             required property string modelData
@@ -161,11 +161,11 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.7
-                        text: L.t("Ha véletlenül kihagyod, semmi gond: a gép elindul, és ez az oldal újra felajánlja.")
+                        text: L.t("If you accidentally skip it, no problem: the computer starts and this page will offer it again.")
                     }
                     QQC2.Button {
                         icon.name: "system-reboot"
-                        text: L.t("Újraindítás most")
+                        text: L.t("Restart now")
                         onClicked: updates.reboot()
                     }
                 }
@@ -177,13 +177,13 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Kontrollerek") }
+                Kirigami.Heading { level: 3; text: L.t("Controllers") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     visible: gamepads.gamepads.length === 0
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Most nincs csatlakoztatott kontroller. Dugd be kábellel, vagy párosítsd Bluetooth-on. Az Xbox, PlayStation, Nintendo Switch és Steam kontrollerek külön telepítés nélkül működnek.")
+                    text: L.t("No controller is connected right now. Plug one in with a cable, or pair it over Bluetooth. Xbox, PlayStation, Nintendo Switch and Steam controllers work without installing anything.")
                 }
                 Repeater {
                     model: gamepads.gamepads
@@ -223,13 +223,13 @@ Kirigami.ScrollablePage {
                     spacing: Kirigami.Units.largeSpacing
                     QQC2.Button {
                         icon.name: "preferences-system-bluetooth"
-                        text: L.t("Vezeték nélküli kontroller párosítása")
+                        text: L.t("Pair a wireless controller")
                         onClicked: gamepads.openSettings("kcm_bluetooth")
                     }
                     QQC2.Button {
                         enabled: gamepads.gamepads.length > 0
                         icon.name: "input-gamepad"
-                        text: L.t("Gombok kipróbálása")
+                        text: L.t("Test the buttons")
                         onClicked: gamepads.openSettings("kcm_gamecontroller")
                     }
                 }
@@ -245,12 +245,12 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: L.t("Telefon összekötése") }
+                    Kirigami.Heading { level: 3; text: L.t("Connect your phone") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: L.t("A telefonod értesítései, fájljai és üzenetei a gépen (KDE Connect). A telefonra a KDE Connect appot kell telepíteni, és mindkettőnek ugyanazon a Wi-Fi-hálózaton kell lennie.")
+                        text: L.t("Your phone's notifications, files and messages on your computer (KDE Connect). Install the KDE Connect app on your phone; both need to be on the same Wi-Fi network.")
                     }
                 }
                 QQC2.Switch {

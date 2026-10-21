@@ -9,7 +9,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Haladó beállítások")
+    title: L.t("Advanced settings")
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
@@ -18,7 +18,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             visible: true
             type: Kirigami.MessageType.Information
-            text: L.t("Ezekre a beállításokra általában nincs szükség. Ha valami elromlik, a Frissítések oldalon visszaállhatsz az előző verzióra.")
+            text: L.t("You usually don't need these settings. If something breaks, you can go back to the previous version on the Updates page.")
         }
         Kirigami.InlineMessage {
             Layout.fillWidth: true
@@ -33,7 +33,7 @@ Kirigami.ScrollablePage {
             text: advanced.infoText
             actions: [
                 Kirigami.Action {
-                    text: L.t("Újraindítás most")
+                    text: L.t("Restart now")
                     icon.name: "system-reboot"
                     onTriggered: updates.reboot()
                 }
@@ -59,12 +59,12 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: L.t("Boot menü mutatása induláskor") }
+                    Kirigami.Heading { level: 3; text: L.t("Show the boot menu at startup") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: L.t("Alapból rejtve van, és csak akkor jelenik meg, ha egy indítás nem sikerült. Kapcsold be, ha a gépen Windows is van, és induláskor választani szeretnél.")
+                        text: L.t("It's hidden by default and only appears if a startup failed. Turn it on if Windows is also on this computer and you want to choose at startup.")
                     }
                 }
                 QQC2.Switch {
@@ -79,12 +79,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
-                Kirigami.Heading { level: 3; text: L.t("Tömörített memória-tartalék") }
+                Kirigami.Heading { level: 3; text: L.t("Compressed memory reserve") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Ha a programok több memóriát kérnek, mint amennyi a gépben van, a rendszer a ritkán használt részeket tömörítve a memóriában tartja, így a gép nem akad meg olyan könnyen. Kevés memóriánál (8 GB vagy kevesebb) és nagy játékokhoz a nagyobb tartalék segít.")
+                    text: L.t("When programs ask for more memory than your computer has, the system keeps rarely used parts compressed in memory, so the computer doesn't stall as easily. With little memory (8 GB or less) and for big games, a larger reserve helps.")
                 }
                 QQC2.Label {
                     Layout.fillWidth: true
@@ -93,9 +93,9 @@ Kirigami.ScrollablePage {
                 }
                 Repeater {
                     model: [
-                        { mode: "default", text: L.t("Alap (a memória méretével egyező, legfeljebb 8 GB)") },
-                        { mode: "more", text: L.t("Nagyobb (a memória másfélszerese, legfeljebb 24 GB)") },
-                        { mode: "off", text: L.t("Kikapcsolva (csak sok memóriánál ajánlott)") }
+                        { mode: "default", text: L.t("Default (same as the memory size, up to 8 GB)") },
+                        { mode: "more", text: L.t("Larger (1.5 times the memory, up to 24 GB)") },
+                        { mode: "off", text: L.t("Off (recommended only with lots of memory)") }
                     ]
                     delegate: QQC2.RadioButton {
                         required property var modelData
@@ -109,7 +109,7 @@ Kirigami.ScrollablePage {
                     wrapMode: Text.Wrap
                     visible: advanced.zramMode === "custom"
                     opacity: 0.8
-                    text: L.t("Most egyéni beállítás van érvényben. Ha itt választasz, az felülírja.")
+                    text: L.t("A custom setting is in effect now. Choosing here will replace it.")
                 }
             }
         }
@@ -120,15 +120,15 @@ Kirigami.ScrollablePage {
             visible: advanced.windowsPresent
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
-                Kirigami.Heading { level: 3; text: L.t("Windows mellett: a Sloth OS maradjon az első") }
+                Kirigami.Heading { level: 3; text: L.t("Next to Windows: keep Sloth OS first") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Egy nagyobb Windows-frissítés után a gép a Sloth OS menüje nélkül, egyből a Windowst indíthatja. A Sloth OS ezt a következő indulásakor kijavítja; a segéddel a Windows maga teszi vissza a Sloth OS-t az első helyre, minden indulásakor.")
+                    text: L.t("After a major Windows update, the computer may start Windows directly, without the Sloth OS menu. Sloth OS fixes this the next time it starts; with the helper, Windows itself puts Sloth OS back first every time it starts.")
                 }
                 QQC2.Button {
-                    text: L.t("Segéd elhelyezése a Windowsban")
+                    text: L.t("Place the helper in Windows")
                     icon.name: "windows"
                     onClicked: advanced.placeWindowsHelper()
                 }
@@ -146,12 +146,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Kernelparaméterek") }
+                Kirigami.Heading { level: 3; text: L.t("Kernel parameters") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Hardveres gondok javításához lehet rájuk szükség, ha egy útmutató ezt kéri.")
+                    text: L.t("They may be needed to fix hardware problems, if a guide tells you to.")
                 }
                 Flow {
                     Layout.fillWidth: true
@@ -172,14 +172,14 @@ Kirigami.ScrollablePage {
                     QQC2.TextField {
                         id: kargField
                         Layout.fillWidth: true
-                        placeholderText: L.t("Új paraméter, pl. nomodeset")
+                        placeholderText: L.t("New parameter, e.g. nomodeset")
                         onAccepted: addKarg.clicked()
                     }
                     QQC2.Button {
                         id: addKarg
                         enabled: kargField.text.trim() !== "" && !advanced.busy
                         icon.name: "list-add"
-                        text: L.t("Hozzáadás")
+                        text: L.t("Add")
                         onClicked: { advanced.addKernelArg(kargField.text); kargField.text = ""; }
                     }
                 }
@@ -191,12 +191,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Rendszercsomagok") }
+                Kirigami.Heading { level: 3; text: L.t("System packages") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Appokat a Discoverben telepíts. Ide csak olyan rendszerszintű csomagok valók (pl. driverek, parancssori eszközök), amelyek appként nem érhetők el. A frissítések ettől lassabbak lesznek.")
+                    text: L.t("Install apps in Discover. Only system-level packages that aren't available as apps belong here (e.g. drivers, command-line tools). Updates will be slower because of them.")
                 }
                 Repeater {
                     model: advanced.packages
@@ -213,7 +213,7 @@ Kirigami.ScrollablePage {
                         QQC2.Button {
                             enabled: !advanced.busy
                             icon.name: "edit-delete"
-                            text: L.t("Eltávolítás")
+                            text: L.t("Remove")
                             onClicked: advanced.removePackage(pkgRow.modelData)
                         }
                     }
@@ -221,21 +221,21 @@ Kirigami.ScrollablePage {
                 QQC2.Label {
                     visible: advanced.packages.length === 0
                     opacity: 0.7
-                    text: L.t("Nincs hozzáadott rendszercsomag.")
+                    text: L.t("No system packages added.")
                 }
                 RowLayout {
                     Layout.fillWidth: true
                     QQC2.TextField {
                         id: pkgField
                         Layout.fillWidth: true
-                        placeholderText: L.t("Csomag neve, pl. htop")
+                        placeholderText: L.t("Package name, e.g. htop")
                         onAccepted: addPkg.clicked()
                     }
                     QQC2.Button {
                         id: addPkg
                         enabled: pkgField.text.trim() !== "" && !advanced.busy
                         icon.name: "list-add"
-                        text: L.t("Telepítés")
+                        text: L.t("Install")
                         onClicked: { advanced.addPackage(pkgField.text); pkgField.text = ""; }
                     }
                 }
@@ -247,12 +247,12 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Környezeti változók") }
+                Kirigami.Heading { level: 3; text: L.t("Environment variables") }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Beállítások, amelyeket minden program megkap, amit elindítasz (pl. „MANGOHUD=1” minden játékhoz). Csak a te fiókodra vonatkoznak, és a következő bejelentkezéskor lépnek életbe.")
+                    text: L.t("Settings that every program you start receives (e.g. “MANGOHUD=1” for every game). They only apply to your account and take effect at the next sign-in.")
                 }
                 Kirigami.InlineMessage {
                     Layout.fillWidth: true
@@ -267,7 +267,7 @@ Kirigami.ScrollablePage {
                     text: environment.infoText
                     actions: [
                         Kirigami.Action {
-                            text: L.t("Kijelentkezés most")
+                            text: L.t("Sign out now")
                             icon.name: "system-log-out"
                             onTriggered: environment.logout()
                         }
@@ -294,18 +294,18 @@ Kirigami.ScrollablePage {
                             implicitWidth: Kirigami.Units.iconSizes.smallMedium
                             implicitHeight: Kirigami.Units.iconSizes.smallMedium
                             QQC2.ToolTip.visible: riskArea.containsMouse
-                            QQC2.ToolTip.text: L.t("Ha ez rosszul van beállítva, a bejelentkezés vagy a programok indítása is elromolhat.")
+                            QQC2.ToolTip.text: L.t("If this is set wrongly, signing in or starting programs can break.")
                             MouseArea { id: riskArea; anchors.fill: parent; hoverEnabled: true }
                         }
                         QQC2.Button {
                             visible: envValue.text !== envRow.modelData.value
                             icon.name: "document-save"
-                            text: L.t("Mentés")
+                            text: L.t("Save")
                             onClicked: environment.setVariable(envRow.modelData.name, envValue.text)
                         }
                         QQC2.Button {
                             icon.name: "edit-delete"
-                            text: L.t("Törlés")
+                            text: L.t("Delete")
                             onClicked: environment.removeVariable(envRow.modelData.name)
                         }
                     }
@@ -313,7 +313,7 @@ Kirigami.ScrollablePage {
                 QQC2.Label {
                     visible: environment.variables.length === 0
                     opacity: 0.7
-                    text: L.t("Nincs beállított környezeti változó.")
+                    text: L.t("No environment variables set.")
                 }
                 RowLayout {
                     Layout.fillWidth: true
@@ -321,21 +321,21 @@ Kirigami.ScrollablePage {
                         id: envName
                         Layout.preferredWidth: Kirigami.Units.gridUnit * 10
                         font.family: "monospace"
-                        placeholderText: L.t("Név, pl. MANGOHUD")
+                        placeholderText: L.t("Name, e.g. MANGOHUD")
                     }
                     QQC2.Label { text: "="; opacity: 0.6 }
                     QQC2.TextField {
                         id: envNewValue
                         Layout.fillWidth: true
                         font.family: "monospace"
-                        placeholderText: L.t("Érték, pl. 1")
+                        placeholderText: L.t("Value, e.g. 1")
                         onAccepted: addEnv.clicked()
                     }
                     QQC2.Button {
                         id: addEnv
                         enabled: envName.text.trim() !== ""
                         icon.name: "list-add"
-                        text: L.t("Hozzáadás")
+                        text: L.t("Add")
                         onClicked: { environment.setVariable(envName.text, envNewValue.text); envName.text = ""; envNewValue.text = ""; }
                     }
                 }
@@ -344,7 +344,7 @@ Kirigami.ScrollablePage {
                     visible: environment.otherVariables.length > 0
                     wrapMode: Text.Wrap
                     opacity: 0.7
-                    text: L.t("Más programok által beállított változók (itt nem szerkeszthetők):")
+                    text: L.t("Variables set by other programs (cannot be edited here):")
                 }
                 Repeater {
                     model: environment.otherVariables
@@ -368,17 +368,17 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: L.t("Bejelentkezéskor induló programok") }
+                    Kirigami.Heading { level: 3; text: L.t("Programs started at sign-in") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: L.t("Programok és szkriptek, amelyek bejelentkezés után maguktól elindulnak. Itt hozzáadhatsz újat, vagy kikapcsolhatod, ami nem kell.")
+                        text: L.t("Programs and scripts that start on their own after you sign in. Here you can add new ones or turn off what you do not need.")
                     }
                 }
                 QQC2.Button {
                     icon.name: "system-run"
-                    text: L.t("Megnyitás")
+                    text: L.t("Open")
                     onClicked: environment.openAutostart()
                 }
             }

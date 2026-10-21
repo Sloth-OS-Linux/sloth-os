@@ -6,11 +6,11 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Szolgáltatások")
+    title: L.t("Services")
 
     actions: [
         Kirigami.Action {
-            text: L.t("Frissítés")
+            text: L.t("Refresh")
             icon.name: "view-refresh"
             onTriggered: services.refresh()
         }
@@ -26,7 +26,7 @@ Kirigami.ScrollablePage {
             text: services.errorText
         }
 
-        Kirigami.Heading { level: 3; text: L.t("Gyakori szolgáltatások") }
+        Kirigami.Heading { level: 3; text: L.t("Common services") }
 
         Repeater {
             model: services.common
@@ -64,14 +64,14 @@ Kirigami.ScrollablePage {
 
         QQC2.CheckBox {
             id: showAll
-            text: L.t("Az összes futó szolgáltatás mutatása (haladó)")
+            text: L.t("Show all running services (advanced)")
         }
 
         Kirigami.InlineMessage {
             Layout.fillWidth: true
             visible: showAll.checked
             type: Kirigami.MessageType.Warning
-            text: L.t("Egy szolgáltatás leállítása miatt a rendszer egy része nem működhet rendesen. Újraindítás után minden visszaáll a megszokottra.")
+            text: L.t("Stopping a service can keep part of the system from working properly. After a restart everything goes back to normal.")
         }
 
         Repeater {
@@ -89,11 +89,11 @@ Kirigami.ScrollablePage {
                 }
                 QQC2.Label {
                     opacity: 0.7
-                    text: row.modelData.active ? L.t("Fut") : L.t("Leállítva")
+                    text: row.modelData.active ? L.t("Running") : L.t("Stopped")
                 }
                 QQC2.Button {
                     enabled: services.busyUnit === ""
-                    text: row.modelData.active ? L.t("Leállítás") : L.t("Indítás")
+                    text: row.modelData.active ? L.t("Stop") : L.t("Start")
                     icon.name: row.modelData.active ? "media-playback-stop" : "media-playback-start"
                     onClicked: services.setRunning(row.modelData.unit, !row.modelData.active)
                 }
@@ -104,7 +104,7 @@ Kirigami.ScrollablePage {
 
         QQC2.CheckBox {
             id: showUser
-            text: L.t("A saját szolgáltatásaim mutatása (haladó)")
+            text: L.t("Show my own services (advanced)")
         }
 
         QQC2.Label {
@@ -112,7 +112,7 @@ Kirigami.ScrollablePage {
             visible: showUser.checked
             wrapMode: Text.Wrap
             opacity: 0.7
-            text: L.t("Ezek csak a te fiókodban futnak, bejelentkezés után. Átállításukhoz nem kell jelszó.")
+            text: L.t("These only run in your account, after you sign in. Changing them does not need a password.")
         }
 
         Repeater {
@@ -130,7 +130,7 @@ Kirigami.ScrollablePage {
                 }
                 QQC2.Label {
                     opacity: 0.7
-                    text: userRow.modelData.active ? L.t("Fut") : L.t("Leállítva")
+                    text: userRow.modelData.active ? L.t("Running") : L.t("Stopped")
                 }
                 Kirigami.Icon {
                     visible: userRow.modelData.protected
@@ -138,13 +138,13 @@ Kirigami.ScrollablePage {
                     implicitWidth: Kirigami.Units.iconSizes.small
                     implicitHeight: Kirigami.Units.iconSizes.small
                     QQC2.ToolTip.visible: lockArea.containsMouse
-                    QQC2.ToolTip.text: L.t("A rendszer működéséhez kell, ezért nem állítható.")
+                    QQC2.ToolTip.text: L.t("The system needs this to work, so it cannot be changed.")
                     MouseArea { id: lockArea; anchors.fill: parent; hoverEnabled: true }
                 }
                 QQC2.Button {
                     visible: !userRow.modelData.protected
                     enabled: services.busyUnit === ""
-                    text: userRow.modelData.active ? L.t("Leállítás") : L.t("Indítás")
+                    text: userRow.modelData.active ? L.t("Stop") : L.t("Start")
                     icon.name: userRow.modelData.active ? "media-playback-stop" : "media-playback-start"
                     onClicked: services.setUserRunning(userRow.modelData.unit, !userRow.modelData.active)
                 }
@@ -154,7 +154,7 @@ Kirigami.ScrollablePage {
                     enabled: services.busyUnit === ""
                     onToggled: services.setUserEnabled(userRow.modelData.unit, checked)
                     QQC2.ToolTip.visible: hovered
-                    QQC2.ToolTip.text: L.t("Induljon el bejelentkezéskor")
+                    QQC2.ToolTip.text: L.t("Start at sign-in")
                 }
             }
         }

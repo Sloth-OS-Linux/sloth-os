@@ -50,7 +50,7 @@ class CloudController(QObject):
     def _run(self, action, service):
         self._busy, self._error, self._info = service, "", ""
         if action == "add":
-            self._info = tr("Jelentkezz be a megnyíló böngészőablakban. Ha végeztél, itt folytatódik magától.")
+            self._info = tr("Sign in in the browser window that opens. When you're done, it continues here by itself.")
         self.changed.emit()
 
         def work():
@@ -75,7 +75,7 @@ class CloudController(QObject):
         self._busy, self._info = "", ""
         if not result.get("ok"):
             log.warning("cloud-drive %s %s: %s", action, service, result.get("error"))
-            self._error = tr("Nem sikerült. Ellenőrizd az internetkapcsolatot, és próbáld újra.")
+            self._error = tr("That didn't work. Check your internet connection and try again.")
         elif action == "add":
-            self._info = tr("Kész: a fájljaid a(z) {folder} mappában vannak.", folder=result["folder"])
+            self._info = tr("Done: your files are in the {folder} folder.", folder=result["folder"])
         self.refresh()

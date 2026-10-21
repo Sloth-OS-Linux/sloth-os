@@ -81,17 +81,17 @@ class EnvironmentController(QObject):
         self._error, self._info = "", ""
         name, value = name.strip(), value.strip()
         if not NAME_RE.match(name):
-            self._error = tr("A név csak angol betűket, számokat és aláhúzást tartalmazhat, és nem kezdődhet számmal (pl. „MANGOHUD”).")
+            self._error = tr("The name can only contain English letters, numbers and underscores, and cannot start with a number (e.g. “MANGOHUD”).")
         elif "\n" in value or "\r" in value:
-            self._error = tr("Az érték nem lehet többsoros.")
+            self._error = tr("The value cannot span multiple lines.")
         else:
             items = [(n, v) for n, v in _parse(OWN_FILE) if n != name] + [(name, value)]
             try:
                 self._save(items)
-                self._info = tr("Elmentve. A változás a következő bejelentkezéskor lép életbe.")
+                self._info = tr("Saved. The change takes effect at the next sign-in.")
             except OSError as e:
                 log.warning("mentés: %s", e)
-                self._error = tr("Nem sikerült menteni.")
+                self._error = tr("Could not save.")
         self.refresh()
 
     @Slot(str)
@@ -99,10 +99,10 @@ class EnvironmentController(QObject):
         self._error, self._info = "", ""
         try:
             self._save([(n, v) for n, v in _parse(OWN_FILE) if n != name])
-            self._info = tr("Törölve. A változás a következő bejelentkezéskor lép életbe.")
+            self._info = tr("Deleted. The change takes effect at the next sign-in.")
         except OSError as e:
             log.warning("törlés: %s", e)
-            self._error = tr("Nem sikerült menteni.")
+            self._error = tr("Could not save.")
         self.refresh()
 
     @Slot()

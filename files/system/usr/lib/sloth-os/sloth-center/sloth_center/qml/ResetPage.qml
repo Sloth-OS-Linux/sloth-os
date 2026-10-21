@@ -6,33 +6,33 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Alaphelyzetbe állítás")
+    title: L.t("Reset this PC")
 
     // "" (választás), "keep" vagy "all" (a választott mód összefoglalója)
     property string choice: ""
 
     readonly property var lists: ({
         keep: {
-            title: L.t("Fájljaim megtartásával"),
+            title: L.t("Keep my files"),
             stays: [
-                L.t("A fájljaid (Dokumentumok, Képek, Letöltések és a többi)"),
-                L.t("Az appok adatai és a játékok: ha újratelepíted őket, minden ott lesz"),
-                L.t("A fiókok, a Wi-Fi jelszavak és a mentett állapotok")
+                L.t("Your files (Documents, Pictures, Downloads and the rest)"),
+                L.t("App data and games: if you reinstall them, everything will be there"),
+                L.t("Accounts, Wi-Fi passwords and saved states")
             ],
             goes: [
-                L.t("A telepített appok (újraindítás után az Üdvözlőben újra kiválaszthatod őket)"),
-                L.t("Az asztal beállításai (téma, tálca, háttér). A régiek a „Régi beállítások” mappába kerülnek."),
-                L.t("A rendszerbeállítások, a kézzel hozzáadott rendszercsomagok és kernelparaméterek")
+                L.t("Installed apps (after the restart you can choose them again in Welcome)"),
+                L.t("Desktop settings (theme, taskbar, wallpaper). The old ones are moved to the “Old settings” folder."),
+                L.t("System settings, manually added system packages and kernel parameters")
             ]
         },
         all: {
-            title: L.t("Mindent töröl"),
+            title: L.t("Remove everything"),
             stays: [
-                L.t("A nyelv, az időzóna, a billentyűzet és a lemeztitkosítás")
+                L.t("Language, time zone, keyboard and disk encryption")
             ],
             goes: [
-                L.t("Minden fiók, és bennük minden fájl"),
-                L.t("Az összes app, beállítás, Wi-Fi jelszó és mentett állapot")
+                L.t("All accounts, and every file in them"),
+                L.t("All apps, settings, Wi-Fi passwords and saved states")
             ]
         }
     })
@@ -41,14 +41,14 @@ Kirigami.ScrollablePage {
         if (choice !== "all")
             return ""
         if (usernameField.text === "")
-            return L.t("Adj meg egy felhasználónevet.")
+            return L.t("Enter a username.")
         const bad = reset.checkAccount(usernameField.text)
         if (bad !== "")
             return bad
         if (passwordField.text === "")
-            return L.t("Adj meg egy jelszót.")
+            return L.t("Enter a password.")
         if (passwordField.text !== password2Field.text)
-            return L.t("A két jelszó nem egyezik.")
+            return L.t("The two passwords don't match.")
         return ""
     }
 
@@ -68,14 +68,14 @@ Kirigami.ScrollablePage {
             visible: reset.busy
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                Kirigami.Heading { level: 3; text: L.t("Az alaphelyzetbe állítás előkészítése") }
+                Kirigami.Heading { level: 3; text: L.t("Preparing the reset") }
                 QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; text: reset.statusText }
                 QQC2.ProgressBar { Layout.fillWidth: true; indeterminate: true }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Közben nyugodtan dolgozhatsz tovább.")
+                    text: L.t("You can keep working in the meantime.")
                 }
             }
         }
@@ -96,11 +96,11 @@ Kirigami.ScrollablePage {
                     ColumnLayout {
                         Layout.fillWidth: true
                         spacing: Kirigami.Units.smallSpacing
-                        Kirigami.Heading { level: 3; text: L.t("Minden készen áll") }
+                        Kirigami.Heading { level: 3; text: L.t("Everything is ready") }
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
-                            text: L.t("Az alaphelyzetbe állítás a következő újraindításkor történik meg, bejelentkezés előtt. Néhány percig tart, közben a gép egyszer magától újraindul.")
+                            text: L.t("The reset happens at the next restart, before login. It takes a few minutes, and the computer restarts once on its own.")
                         }
                     }
                 }
@@ -108,12 +108,12 @@ Kirigami.ScrollablePage {
                     Layout.alignment: Qt.AlignRight
                     QQC2.Button {
                         icon.name: "dialog-cancel"
-                        text: L.t("Mégse, nem kérem")
+                        text: L.t("Cancel, I don't want it")
                         onClicked: reset.cancel()
                     }
                     QQC2.Button {
                         icon.name: "system-reboot"
-                        text: L.t("Újraindítás most")
+                        text: L.t("Restart now")
                         onClicked: reset.restartNow()
                     }
                 }
@@ -123,10 +123,10 @@ Kirigami.ScrollablePage {
         // --- Választás --------------------------------------------------------------------------
         Repeater {
             model: [
-                { mode: "keep", icon: "edit-undo", title: L.t("Fájljaim megtartásával"),
-                  text: L.t("A rendszer és az appok visszaállnak a gyári állapotra, a fájljaid megmaradnak. Akkor hasznos, ha valami nem működik jól.") },
-                { mode: "all", icon: "edit-delete", title: L.t("Mindent töröl"),
-                  text: L.t("Minden fiók és fájl törlődik, a gép olyan lesz, mint frissen telepítve. Eladás vagy továbbadás előtt hasznos.") }
+                { mode: "keep", icon: "edit-undo", title: L.t("Keep my files"),
+                  text: L.t("The system and apps go back to factory state, your files stay. Useful if something isn't working right.") },
+                { mode: "all", icon: "edit-delete", title: L.t("Remove everything"),
+                  text: L.t("All accounts and files are deleted, the computer will be like freshly installed. Useful before selling or giving it away.") }
             ]
             delegate: Kirigami.AbstractCard {
                 id: option
@@ -152,7 +152,7 @@ Kirigami.ScrollablePage {
                         }
                     }
                     QQC2.Button {
-                        text: L.t("Kezdés…")
+                        text: L.t("Start…")
                         onClicked: page.choice = option.modelData.mode
                     }
                 }
@@ -167,7 +167,7 @@ Kirigami.ScrollablePage {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Heading { level: 2; text: page.choice ? page.lists[page.choice].title : "" }
 
-                QQC2.Label { text: L.t("Ami megmarad:"); font.bold: true }
+                QQC2.Label { text: L.t("What stays:"); font.bold: true }
                 Repeater {
                     model: page.choice ? page.lists[page.choice].stays : []
                     delegate: RowLayout {
@@ -186,7 +186,7 @@ Kirigami.ScrollablePage {
                     }
                 }
 
-                QQC2.Label { text: L.t("Ami törlődik:"); font.bold: true }
+                QQC2.Label { text: L.t("What gets deleted:"); font.bold: true }
                 Repeater {
                     model: page.choice ? page.lists[page.choice].goes : []
                     delegate: RowLayout {
@@ -207,7 +207,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Előtte letöltjük a legújabb Sloth OS verziót, így a gép azzal indul újra.")
+                    text: L.t("First we download the newest Sloth OS version, so the computer restarts with it.")
                 }
 
                 // Mentés: „keep” módban magától készül egy mentett állapot (factory-reset boot), „all” módban
@@ -217,15 +217,15 @@ Kirigami.ScrollablePage {
                     visible: page.choice !== ""
                     type: page.choice === "all" ? Kirigami.MessageType.Warning : Kirigami.MessageType.Information
                     text: page.choice === "all"
-                          ? L.t("A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.")
+                          ? L.t("The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.")
                           : backup.state === "ready"
-                            ? L.t("Az alaphelyzetbe állítás előtt magától készítünk egy mentett állapotot a fájljaidról. Ha valami hiányozna, a „Korábbi verziók” menüből visszahozhatod.")
-                            : L.t("A Fájlmentés ezen a gépen nem működik, így előtte nem tudunk mentett állapotot készíteni. Ami fontos, azt mentsd külső lemezre vagy pendrive-ra.")
+                            ? L.t("Before the reset, we automatically create a saved state of your files. If anything is missing afterwards, you can bring it back from the “Previous versions” menu.")
+                            : L.t("File backup doesn't work on this computer, so we can't create a saved state first. Copy anything important to an external drive or USB stick.")
                     actions: [
                         Kirigami.Action {
                             visible: page.choice === "all" || backup.state !== "ready"
                             icon.name: backup.pikaInstalled ? "document-open" : "plasmadiscover"
-                            text: backup.pikaInstalled ? L.t("Pika Backup megnyitása") : L.t("Pika Backup telepítése")
+                            text: backup.pikaInstalled ? L.t("Open Pika Backup") : L.t("Install Pika Backup")
                             onTriggered: backup.pikaInstalled ? backup.openPika() : backup.installPika()
                         }
                     ]
@@ -234,7 +234,7 @@ Kirigami.ScrollablePage {
                     id: savedCheck
                     Layout.fillWidth: true
                     visible: page.choice === "all"
-                    text: L.t("Elmentettem, amire szükségem van")
+                    text: L.t("I've saved everything I need")
                 }
 
                 // „Mindent töröl”: az új fiók (újraindítás után ezzel lehet belépni)
@@ -242,34 +242,34 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     visible: page.choice === "all"
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: L.t("Az új fiók") }
+                    Kirigami.Heading { level: 3; text: L.t("The new account") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: L.t("Újraindítás után ezzel lehet bejelentkezni. Ha a gépet továbbadod, az új tulajdonos később a saját fiókját is létrehozhatja.")
+                        text: L.t("You'll sign in with this after the restart. If you give the computer away, the new owner can create their own account later.")
                     }
                     QQC2.TextField {
                         id: fullnameField
                         Layout.fillWidth: true
-                        placeholderText: L.t("Teljes név")
+                        placeholderText: L.t("Full name")
                     }
                     QQC2.TextField {
                         id: usernameField
                         Layout.fillWidth: true
-                        placeholderText: L.t("Felhasználónév (pl. anna)")
+                        placeholderText: L.t("Username (e.g. anna)")
                     }
                     QQC2.TextField {
                         id: passwordField
                         Layout.fillWidth: true
                         echoMode: TextInput.Password
-                        placeholderText: L.t("Jelszó")
+                        placeholderText: L.t("Password")
                     }
                     QQC2.TextField {
                         id: password2Field
                         Layout.fillWidth: true
                         echoMode: TextInput.Password
-                        placeholderText: L.t("Jelszó még egyszer")
+                        placeholderText: L.t("Password again")
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
@@ -284,13 +284,13 @@ Kirigami.ScrollablePage {
                     Layout.alignment: Qt.AlignRight
                     QQC2.Button {
                         icon.name: "go-previous"
-                        text: L.t("Vissza")
+                        text: L.t("Back")
                         onClicked: { page.choice = ""; savedCheck.checked = false }
                     }
                     QQC2.Button {
                         icon.name: "edit-undo"
                         enabled: page.accountProblem === "" && (page.choice !== "all" || savedCheck.checked)
-                        text: L.t("Alaphelyzetbe állítás…")
+                        text: L.t("Reset…")
                         onClicked: confirm.open()
                     }
                 }
@@ -300,14 +300,14 @@ Kirigami.ScrollablePage {
 
     Kirigami.PromptDialog {
         id: confirm
-        title: L.t("Biztosan alaphelyzetbe állítod a gépet?")
+        title: L.t("Are you sure you want to reset this PC?")
         subtitle: page.choice === "all"
-                  ? L.t("Minden fiók és fájl véglegesen törlődik. Ezt nem lehet visszavonni.")
-                  : L.t("A telepített appok és a beállítások törlődnek, a fájljaid megmaradnak.")
+                  ? L.t("All accounts and files will be permanently deleted. This can't be undone.")
+                  : L.t("Installed apps and settings will be deleted, your files stay.")
         standardButtons: Kirigami.Dialog.NoButton
         customFooterActions: [
             Kirigami.Action {
-                text: page.choice === "all" ? L.t("Mindent töröl") : L.t("Alaphelyzetbe állítás")
+                text: page.choice === "all" ? L.t("Remove everything") : L.t("Reset this PC")
                 icon.name: page.choice === "all" ? "edit-delete" : "edit-undo"
                 onTriggered: {
                     confirm.close()
@@ -319,7 +319,7 @@ Kirigami.ScrollablePage {
                 }
             },
             Kirigami.Action {
-                text: L.t("Mégse")
+                text: L.t("Cancel")
                 icon.name: "dialog-cancel"
                 onTriggered: confirm.close()
             }

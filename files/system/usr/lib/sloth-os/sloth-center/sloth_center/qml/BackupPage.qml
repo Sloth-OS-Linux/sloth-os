@@ -6,7 +6,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Fájlmentés")
+    title: L.t("File backup")
 
     // a mentett állapotok közül alapból csak a legutóbbiak látszanak
     property bool showAll: false
@@ -14,7 +14,7 @@ Kirigami.ScrollablePage {
 
     actions: [
         Kirigami.Action {
-            text: L.t("Frissítés")
+            text: L.t("Refresh")
             icon.name: "view-refresh"
             onTriggered: backup.refresh()
         }
@@ -27,8 +27,8 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             visible: backup.state !== "ready"
             type: backup.state === "pending" ? Kirigami.MessageType.Information : Kirigami.MessageType.Warning
-            text: backup.state === "pending" ? L.t("A mentés a következő újraindítás után indul.")
-                  : L.t("Ezen a gépen nem érhető el: a rendszerlemez fájlrendszere nem támogatja.")
+            text: backup.state === "pending" ? L.t("Backups will start after the next restart.")
+                  : L.t("Not available on this computer: the system disk's file system doesn't support it.")
         }
         Kirigami.InlineMessage {
             Layout.fillWidth: true
@@ -56,12 +56,12 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: L.t("Automatikus mentés") }
+                    Kirigami.Heading { level: 3; text: L.t("Automatic backup") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: L.t("Óránként elmenti a saját fájljaid állapotát. Ha valamit véletlenül törölsz vagy felülírsz, a fájlkezelőben kattints rá jobb gombbal, és válaszd a „Korábbi verziók” lehetőséget.")
+                        text: L.t("Saves the state of your own files every hour. If you accidentally delete or overwrite something, right-click it in the file manager and choose “Previous versions”.")
                     }
                 }
                 QQC2.Switch {
@@ -76,12 +76,12 @@ Kirigami.ScrollablePage {
             enabled: backup.state !== "unsupported" && !backup.busy
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.smallSpacing
-                Kirigami.Heading { level: 3; text: L.t("Mentett állapotok megtartása") }
+                Kirigami.Heading { level: 3; text: L.t("Keep saved states for") }
                 Repeater {
                     model: [
-                        { keep: "2w", text: L.t("2 hétig") },
-                        { keep: "1m", text: L.t("1 hónapig") },
-                        { keep: "3m", text: L.t("3 hónapig") }
+                        { keep: "2w", text: L.t("2 weeks") },
+                        { keep: "1m", text: L.t("1 month") },
+                        { keep: "3m", text: L.t("3 months") }
                     ]
                     delegate: QQC2.RadioButton {
                         required property var modelData
@@ -94,7 +94,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Az utolsó nap minden órája megmarad, utána naponta, majd hetente egy. Ha kevés a hely a lemezen, a legrégebbiek hamarabb törlődnek.")
+                    text: L.t("Every hour of the last day is kept, then one per day, then one per week. If the disk is running out of space, the oldest ones are deleted sooner.")
                 }
             }
         }
@@ -109,14 +109,14 @@ Kirigami.ScrollablePage {
                     ColumnLayout {
                         Layout.fillWidth: true
                         spacing: 0
-                        Kirigami.Heading { level: 3; text: L.t("Mentett állapotok") }
+                        Kirigami.Heading { level: 3; text: L.t("Saved states") }
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             opacity: 0.8
                             text: backup.snapshots.length === 0
-                                  ? L.t("Még nincs mentett állapot. Az első egy órán belül elkészül.")
-                                  : L.tf("{n} mentett állapot", { n: backup.snapshots.length })
+                                  ? L.t("No saved states yet. The first one will be made within an hour.")
+                                  : L.tf("{n} saved states", { n: backup.snapshots.length })
                         }
                     }
                     QQC2.BusyIndicator {
@@ -126,7 +126,7 @@ Kirigami.ScrollablePage {
                     QQC2.Button {
                         enabled: !backup.busy
                         icon.name: "document-save"
-                        text: L.t("Mentés most")
+                        text: L.t("Back up now")
                         onClicked: backup.takeNow()
                     }
                 }
@@ -144,7 +144,7 @@ Kirigami.ScrollablePage {
                         QQC2.Label { Layout.fillWidth: true; text: row.modelData.dateText }
                         QQC2.Button {
                             visible: row.modelData.path !== ""
-                            text: L.t("Megnyitás")
+                            text: L.t("Open")
                             icon.name: "folder-open"
                             onClicked: backup.openFolder(row.modelData.path)
                         }
@@ -154,14 +154,14 @@ Kirigami.ScrollablePage {
                     visible: !page.showAll && backup.snapshots.length > page.shortList
                     flat: true
                     icon.name: "go-down"
-                    text: L.t("Az összes mutatása")
+                    text: L.t("Show all")
                     onClicked: page.showAll = true
                 }
                 QQC2.Button {
                     visible: backup.snapshots.length > 0
                     enabled: !backup.busy
                     icon.name: "edit-delete"
-                    text: L.t("Az összes mentett állapot törlése…")
+                    text: L.t("Delete all saved states…")
                     onClicked: confirmDelete.open()
                 }
             }
@@ -182,21 +182,21 @@ Kirigami.ScrollablePage {
                     ColumnLayout {
                         Layout.fillWidth: true
                         spacing: Kirigami.Units.smallSpacing
-                        Kirigami.Heading { level: 3; text: L.t("Mentés külső lemezre") }
+                        Kirigami.Heading { level: 3; text: L.t("Back up to an external drive") }
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             opacity: 0.8
-                            text: L.t("A Pika Backup rendszeresen átmásolja a fájljaidat egy külső lemezre vagy pendrive-ra. Ha a gép elromlik vagy elveszik, onnan minden visszahozható, egy korábbi állapot is. Ingyenes, és a mentést jelszóval is védheted.")
+                            text: L.t("Pika Backup regularly copies your files to an external drive or USB stick. If the computer breaks or gets lost, everything can be brought back from there, even an earlier state. It's free, and you can protect the backup with a password.")
                         }
                     }
                 }
-                QQC2.Label { text: L.t("Így állítsd be:"); font.bold: true }
+                QQC2.Label { text: L.t("How to set it up:"); font.bold: true }
                 Repeater {
                     model: [
-                        L.t("Telepítsd, majd nyisd meg a Pika Backupot."),
-                        L.t("Dugd be a külső lemezt, és válaszd ki mentési helynek."),
-                        L.t("Állítsd be, milyen gyakran mentsen. Onnantól magától ment, amikor a lemez csatlakoztatva van.")
+                        L.t("Install Pika Backup, then open it."),
+                        L.t("Plug in the external drive and choose it as the backup location."),
+                        L.t("Set how often it should back up. From then on it backs up by itself whenever the drive is connected.")
                     ]
                     delegate: RowLayout {
                         id: step
@@ -211,7 +211,7 @@ Kirigami.ScrollablePage {
                 QQC2.Button {
                     Layout.alignment: Qt.AlignRight
                     icon.name: backup.pikaInstalled ? "document-open" : "plasmadiscover"
-                    text: backup.pikaInstalled ? L.t("Pika Backup megnyitása") : L.t("Pika Backup telepítése")
+                    text: backup.pikaInstalled ? L.t("Open Pika Backup") : L.t("Install Pika Backup")
                     onClicked: backup.pikaInstalled ? backup.openPika() : backup.installPika()
                 }
             }
@@ -221,24 +221,24 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             wrapMode: Text.Wrap
             opacity: 0.8
-            text: L.t("A játékok és az átmeneti fájlok nem kerülnek a mentésbe, mert bármikor újra letölthetők.") + " "
-                  + L.t("A mentett állapotok ugyanazon a lemezen vannak, mint a fájljaid: ha a lemez tönkremegy, ezek is elvesznek. A fontos fájlokat ezért időnként másold egy külső lemezre is.")
+            text: L.t("Games and temporary files are not backed up, because they can be downloaded again at any time.") + " "
+                  + L.t("The saved states are on the same disk as your files: if the disk fails, they are lost too. So copy your important files to an external drive from time to time as well.")
         }
     }
 
     Kirigami.PromptDialog {
         id: confirmDelete
-        title: L.t("Törlöd az összes mentett állapotot?")
-        subtitle: L.t("Ezután a korábbi verziók nem lesznek elérhetők. A mostani fájljaidhoz nem nyúl.")
+        title: L.t("Delete all saved states?")
+        subtitle: L.t("After this, previous versions will not be available. Your current files are not touched.")
         standardButtons: Kirigami.Dialog.NoButton
         customFooterActions: [
             Kirigami.Action {
-                text: L.t("Törlés")
+                text: L.t("Delete")
                 icon.name: "edit-delete"
                 onTriggered: { confirmDelete.close(); backup.deleteAll(); }
             },
             Kirigami.Action {
-                text: L.t("Mégse")
+                text: L.t("Cancel")
                 icon.name: "dialog-cancel"
                 onTriggered: confirmDelete.close()
             }

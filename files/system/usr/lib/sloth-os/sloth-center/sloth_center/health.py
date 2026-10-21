@@ -59,12 +59,12 @@ def check_disk():
         pct = 100 * st.f_bavail / st.f_blocks if st.f_blocks else 100
         gb = free / 1024 ** 3
         if pct < 5 or gb < 5:
-            worst = (ERROR, tr("Szinte elfogyott a hely a lemezen ({gb} GB szabad). Emiatt a frissítések és a "
-                               "programok hibázhatnak. Törölj nem használt játékokat vagy fájlokat.", gb=f"{gb:.1f}"))
+            worst = (ERROR, tr("The disk is almost full ({gb} GB free). Updates and programs may fail because of "
+                               "this. Delete games or files you don't use.", gb=f"{gb:.1f}"))
         elif (pct < 12 or gb < 20) and worst is None:
-            worst = (WARN, tr("Kezd fogyni a hely a lemezen ({gb} GB szabad).", gb=f"{gb:.0f}"))
-    return {"id": "disk", "title": tr("Tárhely"), "icon": "drive-harddisk",
-            "state": worst[0] if worst else OK, "text": worst[1] if worst else tr("Van elég szabad hely.")}
+            worst = (WARN, tr("The disk is getting full ({gb} GB free).", gb=f"{gb:.0f}"))
+    return {"id": "disk", "title": tr("Storage"), "icon": "drive-harddisk",
+            "state": worst[0] if worst else OK, "text": worst[1] if worst else tr("There's enough free space.")}
 
 
 def check_failed_units():
@@ -79,11 +79,11 @@ def check_failed_units():
         units = []
     names = [u[1] or u[0] for u in units]
     if not names:
-        return {"id": "units", "title": tr("Szolgáltatások"), "icon": "preferences-system-services",
-                "state": OK, "text": tr("Minden szolgáltatás rendben elindult.")}
-    return {"id": "units", "title": tr("Szolgáltatások"), "icon": "preferences-system-services", "state": WARN,
-            "text": tr("{n} szolgáltatás nem indult el: {names}. Sokszor egy újraindítás megoldja; ha nem, "
-                       "a Szolgáltatások oldalon újraindíthatod.", n=len(names),
+        return {"id": "units", "title": tr("Services"), "icon": "preferences-system-services",
+                "state": OK, "text": tr("All services started normally.")}
+    return {"id": "units", "title": tr("Services"), "icon": "preferences-system-services", "state": WARN,
+            "text": tr("{n} service(s) didn't start: {names}. A restart often fixes it; if not, you can restart them "
+                       "on the Services page.", n=len(names),
                        names=", ".join(names[:4]) + (" …" if len(names) > 4 else "")),
             "action": "services"}
 
@@ -96,11 +96,11 @@ def check_crashes():
         if m and m.group(1) not in apps:
             apps.append(m.group(1))
     if not apps:
-        return {"id": "crash", "title": tr("Programok"), "icon": "tools-report-bug",
-                "state": OK, "text": tr("Mióta bekapcsoltad a gépet, egy program sem omlott össze.")}
-    return {"id": "crash", "title": tr("Programok"), "icon": "tools-report-bug", "state": WARN,
-            "text": tr("Ezek a programok összeomlottak, mióta bekapcsoltad a gépet: {names}. Ha újra előfordul, "
-                       "próbáld meg frissíteni őket a Discoverben.", names=", ".join(apps[:5]))}
+        return {"id": "crash", "title": tr("Programs"), "icon": "tools-report-bug",
+                "state": OK, "text": tr("No program has crashed since you turned on the computer.")}
+    return {"id": "crash", "title": tr("Programs"), "icon": "tools-report-bug", "state": WARN,
+            "text": tr("These programs crashed since you turned on the computer: {names}. If it happens again, try "
+                       "updating them in Discover.", names=", ".join(apps[:5]))}
 
 
 def check_kernel():
@@ -119,22 +119,23 @@ def check_kernel():
     items = []
     if "oom" in found:
         names = ", ".join(sorted(n for n in found["oom"] if n)) or "?"
-        items.append({"id": "oom", "title": tr("Memória"), "icon": "media-flash", "state": WARN,
-                      "text": tr("Elfogyott a memória, ezért a rendszer bezárt egy programot ({names}). "
-                                 "Zárj be néhány böngészőfület vagy programot, mielőtt játszol.", names=names)})
+        items.append({"id": "oom", "title": tr("Memory"), "icon": "media-flash", "state": WARN,
+                      "text": tr("The computer ran out of memory, so the system closed a program ({names}). Close "
+                                 "some browser tabs or programs before playing.", names=names)})
     else:
-        items.append({"id": "oom", "title": tr("Memória"), "icon": "media-flash", "state": OK,
-                      "text": tr("Nem volt memóriahiány.")})
-    items.append({"id": "gpu", "title": tr("Videókártya"), "icon": "video-display",
+        items.append({"id": "oom", "title": tr("Memory"), "icon": "media-flash", "state": OK,
+                      "text": tr("There was no memory shortage.")})
+    items.append({"id": "gpu", "title": tr("Graphics card"), "icon": "video-display",
                   "state": WARN if found.get("gpu") else OK,
-                  "text": tr("A videókártya hibát jelzett (például egy játék közben lefagyott a kép). Ha gyakran "
-                             "előfordul, nézd meg a Driverek és hardver oldalt, és hogy nem melegszik-e túl a gép.")
-                  if found.get("gpu") else tr("A videókártya nem jelzett hibát.")})
-    items.append({"id": "diskerr", "title": tr("Lemez állapota"), "icon": "drive-harddisk",
+                  "text": tr("The graphics card reported an error (for example, the picture froze during a game). If "
+                             "it happens often, check the Drivers and hardware page, and whether the computer is "
+                             "overheating.")
+                  if found.get("gpu") else tr("The graphics card reported no errors.")})
+    items.append({"id": "diskerr", "title": tr("Disk health"), "icon": "drive-harddisk",
                   "state": ERROR if found.get("disk") else OK,
-                  "text": tr("A lemez olvasási vagy írási hibát jelzett. Ez a lemez meghibásodásának jele lehet: "
-                             "mentsd el minél előbb a fontos fájljaidat egy másik helyre!")
-                  if found.get("disk") else tr("A lemez nem jelzett hibát.")})
+                  "text": tr("The disk reported a read or write error. This can be a sign that the disk is failing: "
+                             "copy your important files somewhere else as soon as possible!")
+                  if found.get("disk") else tr("The disk reported no errors.")})
     return items
 
 
@@ -152,19 +153,19 @@ def check_temperature():
                 continue
             if c > hottest and c < 150:  # 150 felett hibás érzékelő
                 hottest, where = c, name
-    part = {"k10temp": tr("Processzor"), "coretemp": tr("Processzor"), "amdgpu": tr("Videókártya"),
-            "nvme": tr("SSD")}.get(where, tr("Alkatrész"))
+    part = {"k10temp": tr("Processor"), "coretemp": tr("Processor"), "amdgpu": tr("Graphics card"),
+            "nvme": tr("SSD")}.get(where, tr("Component"))
     temp = f"{hottest:.0f}"
     if hottest >= 95:
-        return {"id": "temp", "title": tr("Hőmérséklet"), "icon": "temperature-warm", "state": ERROR,
-                "text": tr("Nagyon meleg: {part}, {temp} °C. Ellenőrizd, hogy a szellőzők nincsenek-e eltakarva.",
+        return {"id": "temp", "title": tr("Temperature"), "icon": "temperature-warm", "state": ERROR,
+                "text": tr("Very hot: {part}, {temp} °C. Make sure the vents aren't blocked.",
                            part=part, temp=temp)}
     if hottest >= 85:
-        return {"id": "temp", "title": tr("Hőmérséklet"), "icon": "temperature-warm", "state": WARN,
-                "text": tr("Elég meleg: {part}, {temp} °C. Játék közben ez normális lehet.", part=part, temp=temp)}
-    return {"id": "temp", "title": tr("Hőmérséklet"), "icon": "temperature-normal", "state": OK,
-            "text": tr("A hőmérséklet rendben van ({temp} °C).", temp=temp) if hottest
-            else tr("Nincs hőmérséklet-adat.")}
+        return {"id": "temp", "title": tr("Temperature"), "icon": "temperature-warm", "state": WARN,
+                "text": tr("Quite warm: {part}, {temp} °C. This can be normal while gaming.", part=part, temp=temp)}
+    return {"id": "temp", "title": tr("Temperature"), "icon": "temperature-normal", "state": OK,
+            "text": tr("The temperature is fine ({temp} °C).", temp=temp) if hottest
+            else tr("No temperature data.")}
 
 
 def write_log(path, lines=5000):
@@ -227,13 +228,13 @@ class HealthController(QObject):
     @Property(str, notify=changed)
     def summary(self):
         if self._busy and not self._results:
-            return tr("Ellenőrzés…")
+            return tr("Checking…")
         states = [r["state"] for r in self._results]
         if ERROR in states:
-            return tr("Valami komoly gondot találtunk")
+            return tr("We found something serious")
         if WARN in states:
-            return tr("Pár dologra érdemes figyelni")
-        return tr("Minden rendben van")
+            return tr("A few things are worth a look")
+        return tr("Everything is fine")
 
     @Slot()
     def check(self):

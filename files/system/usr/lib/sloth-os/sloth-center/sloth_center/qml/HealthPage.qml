@@ -8,17 +8,17 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Rendszer egészség")
+    title: L.t("System health")
 
     actions: [
         Kirigami.Action {
-            text: L.t("Újra ellenőrzés")
+            text: L.t("Check again")
             icon.name: "view-refresh"
             enabled: !health.busy
             onTriggered: health.check()
         },
         Kirigami.Action {
-            text: L.t("Napló mentése")
+            text: L.t("Save log")
             icon.name: "document-save"
             onTriggered: saveDialog.open()
         }
@@ -38,12 +38,12 @@ Kirigami.ScrollablePage {
             }
             ColumnLayout {
                 Layout.fillWidth: true
-                Kirigami.Heading { text: health.busy ? L.t("Ellenőrzés…") : health.summary }
+                Kirigami.Heading { text: health.busy ? L.t("Checking…") : health.summary }
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Megnéztük, mi történt a gépen, mióta bekapcsoltad.")
+                    text: L.t("We looked at what happened on the computer since you turned it on.")
                 }
             }
         }
@@ -52,7 +52,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             type: Kirigami.MessageType.Positive
             visible: health.savedPath !== ""
-            text: L.tf("A napló elmentve: {path}. Ezt a fájlt küldd el annak, aki segít.", { path: health.savedPath })
+            text: L.tf("Log saved: {path}. Send this file to whoever is helping you.", { path: health.savedPath })
         }
 
         Repeater {
@@ -94,12 +94,12 @@ Kirigami.ScrollablePage {
 
     FileDialog {
         id: saveDialog
-        title: L.t("Napló mentése")
+        title: L.t("Save log")
         fileMode: FileDialog.SaveFile
         defaultSuffix: "txt"
         // a fájlnév a felület nyelvén (csak ASCII betűk, hogy bárhová el lehessen küldeni)
-        currentFile: StandardPaths.writableLocation(StandardPaths.DesktopLocation) + "/" + L.t("sloth-os-naplo.txt")
-        nameFilters: [L.t("Szövegfájl (*.txt)")]
+        currentFile: StandardPaths.writableLocation(StandardPaths.DesktopLocation) + "/" + L.t("sloth-os-log.txt")
+        nameFilters: [L.t("Text file (*.txt)")]
         onAccepted: health.saveLog(selectedFile.toString())
     }
 }

@@ -6,11 +6,11 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Lemezek")
+    title: L.t("Disks")
 
     actions: [
         Kirigami.Action {
-            text: L.t("Frissítés")
+            text: L.t("Refresh")
             icon.name: "view-refresh"
             onTriggered: disks.refresh()
         }
@@ -30,7 +30,7 @@ Kirigami.ScrollablePage {
                     RowLayout {
                         spacing: Kirigami.Units.largeSpacing
                         Kirigami.Icon {
-                            source: card.modelData.kind === L.t("Cserélhető meghajtó") ? "drive-removable-media" : "drive-harddisk"
+                            source: card.modelData.kind === L.t("Removable drive") ? "drive-removable-media" : "drive-harddisk"
                             implicitWidth: Kirigami.Units.iconSizes.large
                             implicitHeight: Kirigami.Units.iconSizes.large
                         }
@@ -41,7 +41,7 @@ Kirigami.ScrollablePage {
                                 level: 3
                                 Layout.fillWidth: true
                                 elide: Text.ElideRight
-                                text: card.modelData.system ? L.t("Rendszerlemez") : card.modelData.name
+                                text: card.modelData.system ? L.t("System disk") : card.modelData.name
                             }
                             QQC2.Label {
                                 Layout.fillWidth: true
@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
                             checkable: false
                             closable: false
                             icon.name: card.modelData.health === "ok" ? "checkmark" : "dialog-warning"
-                            text: card.modelData.health === "ok" ? L.t("Egészséges") : L.t("Hibás lehet!")
+                            text: card.modelData.health === "ok" ? L.t("Healthy") : L.t("May be failing!")
                         }
                     }
                     QQC2.ProgressBar {
@@ -69,7 +69,7 @@ Kirigami.ScrollablePage {
                         QQC2.Label { Layout.fillWidth: true; text: card.modelData.usageText }
                         QQC2.Button {
                             visible: card.modelData.openPath !== ""
-                            text: L.t("Megnyitás")
+                            text: L.t("Open")
                             icon.name: "folder-open"
                             onClicked: disks.openFolder(card.modelData.openPath)
                         }
@@ -78,7 +78,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         visible: card.modelData.health !== "ok"
                         type: Kirigami.MessageType.Error
-                        text: L.t("Ez a meghajtó a saját önellenőrzése szerint meghibásodhat. Mentsd el minél előbb a fontos fájljaidat egy másik helyre!")
+                        text: L.t("According to its own self-check, this drive may fail. Copy your important files somewhere else as soon as possible!")
                     }
                 }
             }
@@ -91,13 +91,13 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: L.t("Felesleges fájlok törlése") }
+                    Kirigami.Heading { level: 3; text: L.t("Delete unneeded files") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
                         text: disks.cleanupText !== "" ? disks.cleanupText
-                              : L.t("Törli azokat a rendszerösszetevőket, amelyeket már egyetlen app sem használ (például egy törölt app után maradtak). A fájljaidhoz nem nyúl.")
+                              : L.t("Removes system components no app uses anymore (for example, left over after deleting an app). Your files aren't touched.")
                     }
                 }
                 QQC2.BusyIndicator {
@@ -107,7 +107,7 @@ Kirigami.ScrollablePage {
                 QQC2.Button {
                     enabled: !disks.busy
                     icon.name: "edit-clear-all"
-                    text: L.t("Takarítás")
+                    text: L.t("Clean up")
                     onClicked: disks.cleanup()
                 }
             }
@@ -122,17 +122,17 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: L.t("Fájlok áthozása a Windowsból") }
+                    Kirigami.Heading { level: 3; text: L.t("Bring files over from Windows") }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: L.t("Az Asztal, a Dokumentumok, a Képek és a többi saját mappa, valamint a böngésző-könyvjelzők átmásolása a gépen lévő Windowsból. A Windowshoz nem nyúl, csak olvas róla.")
+                        text: L.t("Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the Windows on this computer. Windows itself isn't touched, it's only read.")
                     }
                 }
                 QQC2.Button {
                     icon.name: "folder-download"
-                    text: L.t("Áthozás…")
+                    text: L.t("Bring over…")
                     onClicked: disks.importFromWindows()
                 }
             }

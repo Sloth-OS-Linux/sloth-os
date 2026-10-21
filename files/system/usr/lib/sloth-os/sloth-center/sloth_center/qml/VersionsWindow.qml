@@ -7,7 +7,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ApplicationWindow {
     id: root
-    title: L.t("Korábbi verziók") + " – " + versions.fileName
+    title: L.t("Previous versions") + " – " + versions.fileName
     visible: true
     width: Kirigami.Units.gridUnit * 40
     height: Kirigami.Units.gridUnit * 30
@@ -71,9 +71,9 @@ Kirigami.ApplicationWindow {
                 Layout.rightMargin: Kirigami.Units.largeSpacing
                 visible: !versions.enabled && versions.problem !== "unsupported"
                 type: Kirigami.MessageType.Warning
-                text: L.t("Az automatikus mentés ki van kapcsolva, ezért nem készülnek új mentett állapotok.")
+                text: L.t("Automatic backup is turned off, so no new states are being saved.")
                 actions: Kirigami.Action {
-                    text: L.t("Beállítások")
+                    text: L.t("Settings")
                     icon.name: "configure"
                     onTriggered: versions.openSettings()
                 }
@@ -85,20 +85,20 @@ Kirigami.ApplicationWindow {
             width: parent.width - Kirigami.Units.gridUnit * 4
             visible: versions.problem !== ""
             icon.name: "view-history"
-            text: versions.problem === "none" ? L.t("Még nincs mentett korábbi verzió")
-                  : L.t("Erről nem készül mentés")
+            text: versions.problem === "none" ? L.t("No saved previous version yet")
+                  : L.t("This is not backed up")
             explanation: {
                 switch (versions.problem) {
                 case "none":
-                    return L.t("A mentés óránként készül, és erről még nem készült. Nézz vissza később.");
+                    return L.t("Backups are made every hour, and there isn't one of this yet. Check back later.");
                 case "outside":
-                    return L.t("A mentés a saját mappádban lévő fájlokra vonatkozik (Dokumentumok, Képek, Asztal…), a pendrive-okra és a többi lemezre nem.");
+                    return L.t("Backups cover the files in your own folder (Documents, Pictures, Desktop…), not USB drives or other disks.");
                 case "excluded":
-                    return L.t("A játékok és az átmeneti fájlok nem kerülnek a mentésbe, mert bármikor újra letölthetők.");
+                    return L.t("Games and temporary files are not backed up, because they can be downloaded again at any time.");
                 case "pending":
-                    return L.t("A mentés a következő újraindítás után indul.");
+                    return L.t("Backups will start after the next restart.");
                 default:
-                    return L.t("Ezen a gépen nem érhető el: a rendszerlemez fájlrendszere nem támogatja.");
+                    return L.t("Not available on this computer: the system disk's file system doesn't support it.");
                 }
             }
         }
@@ -133,20 +133,20 @@ Kirigami.ApplicationWindow {
                         }
                     }
                     QQC2.Button {
-                        text: L.t("Megnyitás")
+                        text: L.t("Open")
                         icon.name: versions.isDir ? "folder-open" : "document-open"
                         onClicked: versions.open(item.index)
                     }
                     QQC2.Button {
                         visible: versions.isDir && item.modelData.deleted !== 0
                         enabled: !versions.busy
-                        text: L.t("Törölt elemek visszahozása")
+                        text: L.t("Bring back deleted items")
                         icon.name: "edit-undo"
                         onClicked: versions.restoreDeleted(item.index)
                     }
                     QQC2.Button {
                         enabled: !versions.busy && !item.modelData.current
-                        text: L.t("Visszaállítás…")
+                        text: L.t("Restore…")
                         icon.name: "document-revert"
                         onClicked: { confirmRestore.index = item.index; confirmRestore.open(); }
                     }
@@ -157,7 +157,7 @@ Kirigami.ApplicationWindow {
                         QQC2.Menu {
                             id: menu
                             QQC2.MenuItem {
-                                text: L.t("Mentés másolatként")
+                                text: L.t("Save as a copy")
                                 icon.name: "edit-copy"
                                 onTriggered: versions.saveCopy(item.index)
                             }
@@ -171,19 +171,19 @@ Kirigami.ApplicationWindow {
     Kirigami.PromptDialog {
         id: confirmRestore
         property int index: -1
-        title: L.t("Visszaállítod ezt a változatot?")
+        title: L.t("Restore this version?")
         subtitle: versions.isDir
-                  ? L.t("A megváltozott és a törölt fájlok visszakerülnek; a mostani változatuk a Kukába kerül, onnan visszahozható. Az azóta létrehozott fájlok megmaradnak.")
-                  : L.t("A mostani változat a Kukába kerül, onnan visszahozható.")
+                  ? L.t("Changed and deleted files come back; their current versions go to the Trash, where you can get them back. Files created since then are kept.")
+                  : L.t("The current version goes to the Trash, where you can get it back.")
         standardButtons: Kirigami.Dialog.NoButton
         customFooterActions: [
             Kirigami.Action {
-                text: L.t("Visszaállítás")
+                text: L.t("Restore")
                 icon.name: "document-revert"
                 onTriggered: { confirmRestore.close(); versions.restore(confirmRestore.index); }
             },
             Kirigami.Action {
-                text: L.t("Mégse")
+                text: L.t("Cancel")
                 icon.name: "dialog-cancel"
                 onTriggered: confirmRestore.close()
             }

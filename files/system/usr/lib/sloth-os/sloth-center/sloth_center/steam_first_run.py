@@ -61,7 +61,7 @@ def notify(body, replace_id=None):
     if replace_id:
         args.append(f"--replace-id={replace_id}")
     try:
-        out = subprocess.run([*args, tr("A Steam első indítása"), body],
+        out = subprocess.run([*args, tr("Starting Steam for the first time"), body],
                              capture_output=True, text=True, timeout=10).stdout.strip()
     except (OSError, subprocess.SubprocessError):
         return replace_id
@@ -103,9 +103,9 @@ def main():
             break
         if time.monotonic() - started >= QUIET_S:
             mb = max(0, data_size() - start_size) // MB
-            body = tr("A Steam letölti a saját frissítéseit. Ez pár percig is eltarthat, utána magától megnyílik.")
+            body = tr("Steam is downloading its own updates. This can take a few minutes, then it will open by itself.")
             if mb:
-                body += "\n" + tr("{mb} MB letöltve", mb=mb)
+                body += "\n" + tr("{mb} MB downloaded", mb=mb)
             notification = notify(body, notification)
         time.sleep(POLL_S)
     if notification:

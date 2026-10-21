@@ -93,9 +93,9 @@ class AdvancedController(QObject):
         except (OSError, ValueError):
             pass
         if size:
-            return tr("Memória: {mem} GB. Most {size} GB tömörített tartalék van mellette.").format(
+            return tr("Memory: {mem} GB. Right now there is a {size} GB compressed reserve next to it.").format(
                 mem=f"{mem:.0f}", size=f"{size:.1f}".rstrip("0").rstrip("."))
-        return tr("Memória: {mem} GB. Most nincs tömörített tartalék.").format(mem=f"{mem:.0f}")
+        return tr("Memory: {mem} GB. There is no compressed reserve right now.").format(mem=f"{mem:.0f}")
 
     # --- Windows mellett: a Windows-oldali rendszerindítási segéd ------------------------------------
 
@@ -114,18 +114,19 @@ class AdvancedController(QObject):
 
     @Slot()
     def placeWindowsHelper(self):
-        self._helper_text = tr("A Windows-partíció keresése…")
+        self._helper_text = tr("Looking for the Windows partition…")
         self.changed.emit()
         threading.Thread(target=lambda: self._helper_done.emit(windowshelper.place()), daemon=True).start()
 
     def _on_helper_done(self, result):
         self._helper_text = {
-            "placed": tr("Kész. Indítsd el a Windowst, és az asztalon a „Sloth OS” mappában kattints duplán a "
-                         "Sloth-OS-boot fájlra (rendszergazdai jóváhagyást kér). Ezt csak egyszer kell megtenni."),
-            "readonly": tr("A Windows-partíció most csak olvasható, mert a Windows hibernált vagy gyors indítással "
-                           "állt le. Indítsd el a Windowst, és állítsd le teljesen (Shift + Leállítás), majd próbáld újra."),
-            "none": tr("Nem találtunk Windowst ezen a gépen."),
-        }.get(result, tr("Nem sikerült. Próbáld újra később."))
+            "placed": tr("Done. Start Windows, and on the desktop, in the “Sloth OS” folder, double-click the "
+                         "Sloth-OS-boot file (it asks for administrator approval). You only need to do this once."),
+            "readonly": tr("The Windows partition is read-only right now because Windows was hibernated or shut down "
+                           "with fast startup. Start Windows, shut it down completely (Shift + Shut down), then try "
+                           "again."),
+            "none": tr("We didn't find Windows on this computer."),
+        }.get(result, tr("That didn't work. Please try again later."))
         self.changed.emit()
 
     @Slot()
@@ -155,7 +156,7 @@ class AdvancedController(QObject):
             log.warning("boot-menu: %s", e)
             ok = False
         if not ok:
-            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+            self._error = tr("Couldn't change it. This needs administrator approval.")
         self.refresh()
 
     # --- Memóriatömörítés (zram) -------------------------------------------------------
@@ -170,9 +171,9 @@ class AdvancedController(QObject):
             log.warning("zram: %s", e)
             ok = False
         if ok:
-            self._info = tr("Elmentve. A következő újraindítástól érvényes.")
+            self._info = tr("Saved. Takes effect after the next restart.")
         else:
-            self._error = tr("Nem sikerült átállítani. Ehhez rendszergazdai jóváhagyás kell.")
+            self._error = tr("Couldn't change it. This needs administrator approval.")
         self.refresh()
 
     # --- Tranzakciók (kernelparaméter, csomag) ----------------------------------------
@@ -181,7 +182,7 @@ class AdvancedController(QObject):
         if not self._ostree or self._busy:
             return
         self._busy, self._error, self._info = True, "", ""
-        self._status, self._progress = tr("Előkészítés…"), -1
+        self._status, self._progress = tr("Preparing…"), -1
         self.changed.emit()
 
         def on_task(raw):
@@ -211,40 +212,40 @@ class AdvancedController(QObject):
     def _pkg_error(raw):
         low = (raw or "").lower()
         if "no package" in low or "not found" in low or "no match" in low:
-            return tr("Ilyen nevű csomag nincs a Fedora tárolóban. Ellenőrizd a nevet.")
+            return tr("There's no package with that name in the Fedora repository. Check the name.")
         if "already" in low and "requested" in low:
-            return tr("Ez a csomag már telepítve van.")
+            return tr("This package is already installed.")
         return ""
 
     @Slot(str)
     def addKernelArg(self, arg):
         arg = arg.strip()
         if not KARG_RE.match(arg):
-            self._error = tr("Ez nem érvényes kernelparaméter (pl. „nomodeset” vagy „amdgpu.ppfeaturemask=0xffffffff”).")
+            self._error = tr("That's not a valid kernel parameter (e.g. “nomodeset” or “amdgpu.ppfeaturemask=0xffffffff”).")
             self.changed.emit()
             return
         self._run(lambda a, e: self._ostree.set_kernel_args([arg], [], a, e),
-                  tr("Kész. Az új beállítás a következő újraindítás után lép életbe."))
+                  tr("Done. The new setting takes effect after the next restart."))
 
     @Slot(str)
     def removeKernelArg(self, arg):
         if arg.startswith(PROTECTED_KARGS):
             return
         self._run(lambda a, e: self._ostree.set_kernel_args([], [arg], a, e),
-                  tr("Kész. A változás a következő újraindítás után lép életbe."))
+                  tr("Done. The change takes effect after the next restart."))
 
     @Slot(str)
     def addPackage(self, name):
         names = [n for n in re.split(r"[\s,]+", name.strip()) if n]
         if not names or not all(PKG_RE.match(n) for n in names):
-            self._error = tr("Adj meg egy érvényes csomagnevet (pl. „htop”).")
+            self._error = tr("Enter a valid package name (e.g. “htop”).")
             self.changed.emit()
             return
         self._run(lambda a, e: self._ostree.pkg_change(names, [], a, e),
-                  tr("Kész. A csomag a következő újraindítás után lesz elérhető."))
+                  tr("Done. The package will be available after the next restart."))
 
     @Slot(str)
     def removePackage(self, name):
         if PKG_RE.match(name):
             self._run(lambda a, e: self._ostree.pkg_change([], [name], a, e),
-                      tr("Kész. A csomag a következő újraindítás után tűnik el."))
+                      tr("Done. The package will be gone after the next restart."))

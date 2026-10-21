@@ -6,7 +6,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Visszajelzés")
+    title: L.t("Feedback")
 
     property string kind: "bug"
 
@@ -18,29 +18,29 @@ Kirigami.ScrollablePage {
             visible: feedback.result !== ""
             type: feedback.result === "sent" ? Kirigami.MessageType.Positive : Kirigami.MessageType.Warning
             text: feedback.result === "sent"
-                  ? L.tf("Köszönjük! Megkaptuk, a bejelentés száma: #{number}.", { number: feedback.number })
+                  ? L.tf("Thank you! We got it. Your report number is #{number}.", { number: feedback.number })
                   : feedback.result === "rate"
-                    ? L.t("Ma már sok visszajelzés ment erről a gépről. Holnap újra küldhetsz.")
+                    ? L.t("A lot of feedback has already been sent from this computer today. You can send more tomorrow.")
                     : feedback.result === "network"
-                      ? L.t("Nem sikerült elküldeni: nincs internetkapcsolat. Próbáld újra később.")
-                      : L.t("Nem sikerült elküldeni. Próbáld újra később.")
+                      ? L.t("Couldn't send it: there is no internet connection. Please try again later.")
+                      : L.t("Couldn't send it. Please try again later.")
         }
 
         QQC2.Label {
             Layout.fillWidth: true
             wrapMode: Text.Wrap
-            text: L.t("Valami nem működik, vagy van egy ötleted? Írd le a saját szavaiddal, és elküldjük a Sloth OS fejlesztőinek.")
+            text: L.t("Something not working, or have an idea? Describe it in your own words and we'll send it to the Sloth OS developers.")
         }
 
         ColumnLayout {
             Layout.fillWidth: true
             spacing: Kirigami.Units.smallSpacing
-            QQC2.Label { text: L.t("Miről szól?"); font.bold: true }
+            QQC2.Label { text: L.t("What is it about?"); font.bold: true }
             Repeater {
                 model: [
-                    { value: "bug", text: L.t("Hiba: valami nem úgy működik, ahogy kellene") },
-                    { value: "idea", text: L.t("Ötlet: valami, ami hiányzik vagy jobb lehetne") },
-                    { value: "other", text: L.t("Egyéb") }
+                    { value: "bug", text: L.t("Problem: something doesn't work the way it should") },
+                    { value: "idea", text: L.t("Idea: something missing or that could be better") },
+                    { value: "other", text: L.t("Other") }
                 ]
                 delegate: QQC2.RadioButton {
                     required property var modelData
@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             spacing: Kirigami.Units.smallSpacing
             QQC2.Label {
-                text: page.kind === "bug" ? L.t("Mi történt, és mit csináltál előtte?") : L.t("Írd le pár mondatban")
+                text: page.kind === "bug" ? L.t("What happened, and what were you doing before?") : L.t("Describe it in a few sentences")
                 font.bold: true
             }
             QQC2.TextArea {
@@ -65,7 +65,7 @@ Kirigami.ScrollablePage {
                 wrapMode: TextEdit.Wrap
                 enabled: !feedback.busy
                 placeholderText: page.kind === "bug"
-                                 ? L.t("Például: elindítottam a Battle.net-et, de egy perc után bezárult.")
+                                 ? L.t("For example: I started Battle.net, but it closed after a minute.")
                                  : ""
                 onTextChanged: if (feedback.result === "sent") feedback.reset()
             }
@@ -76,18 +76,18 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             checked: page.kind === "bug"
             enabled: !feedback.busy
-            text: L.t("Gépinformáció és napló csatolása (segít megtalálni a hibát)")
+            text: L.t("Attach computer information and log (helps find the problem)")
         }
         QQC2.Label {
             Layout.fillWidth: true
             wrapMode: Text.Wrap
             opacity: 0.7
-            text: L.t("A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.")
+            text: L.t("The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.")
         }
 
         RowLayout {
             QQC2.Button {
-                text: feedback.busy ? L.t("Küldés…") : L.t("Küldés")
+                text: feedback.busy ? L.t("Sending…") : L.t("Send")
                 icon.name: "mail-send"
                 enabled: !feedback.busy && textField.text.trim().length >= 10
                 onClicked: feedback.send(page.kind, textField.text, attachLog.checked)
@@ -101,15 +101,15 @@ Kirigami.ScrollablePage {
 
         // Támogatás (Ko-fi): csendes link, nem kér semmit; a cím a szövegben is ott van, ha nincs böngésző
         Kirigami.Separator { Layout.fillWidth: true; Layout.topMargin: Kirigami.Units.largeSpacing }
-        QQC2.Label { text: L.t("Támogasd a Sloth OS-t"); font.bold: true }
+        QQC2.Label { text: L.t("Support Sloth OS"); font.bold: true }
         QQC2.Label {
             Layout.fillWidth: true
             wrapMode: Text.Wrap
             opacity: 0.7
-            text: L.t("A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos")
+            text: L.t("Sloth OS is free and made in spare time. If you like it, you can support its development with a beer: ko-fi.com/slothos")
         }
         QQC2.Button {
-            text: L.t("Támogatás a Ko-fi-n")
+            text: L.t("Support on Ko-fi")
             icon.name: "emblem-favorite"
             onClicked: Qt.openUrlExternally("https://ko-fi.com/slothos")
         }

@@ -230,7 +230,7 @@ class VersionsController(QObject):
                 continue
             last = key
             current = same(path, self._path)
-            detail = texts.size_text(st.st_size) + (" · " + tr("Ugyanaz, mint a mostani") if current else "")
+            detail = texts.size_text(st.st_size) + (" · " + tr("Same as the current one") if current else "")
             rows.append(self._row(name, when, path, detail=detail, current=current, deleted=0))
         return rows
 
@@ -248,7 +248,7 @@ class VersionsController(QObject):
         if generation == self._generation:
             row = dict(self._versions[i], deleted=n)
             if n > 0:
-                row["detail"] = tr("{n} azóta törölt elem", n=n)
+                row["detail"] = tr("{n} items deleted since then", n=n)
             self._versions[i] = row
             self.changed.emit()
 
@@ -263,7 +263,7 @@ class VersionsController(QObject):
                 self._done.emit(fn())
             except OSError as e:
                 log.warning("%s", e)
-                self._done.emit("!" + tr("Nem sikerült visszaállítani. A mostani fájljaidhoz nem nyúltam."))
+                self._done.emit("!" + tr("Restoring didn't work. Your current files were not touched."))
 
         threading.Thread(target=run, daemon=True).start()
 
@@ -277,8 +277,8 @@ class VersionsController(QObject):
 
     def _merge_text(self, restored, failed):
         if failed:
-            return "!" + tr("Nem sikerült mindent visszaállítani: {n} elem kimaradt.", n=failed)
-        return tr("Kész: {n} elem visszaállítva.", n=restored)
+            return "!" + tr("Not everything could be restored: {n} items were skipped.", n=failed)
+        return tr("Done: {n} items restored.", n=restored)
 
     @Slot(int)
     def open(self, i):
@@ -292,7 +292,7 @@ class VersionsController(QObject):
         else:
             def work():
                 replace_with(old, self._path)
-                return tr("Kész: visszaállítva. A felülírt változat a Kukában van.")
+                return tr("Done: restored. The version it replaced is in the Trash.")
             self._work(work)
 
     @Slot(int)
@@ -311,7 +311,7 @@ class VersionsController(QObject):
                                capture_output=True, text=True)
             if r.returncode != 0:
                 raise OSError(r.stderr.strip())
-            return tr("Kész: a másolat neve „{name}”.", name=target.name)
+            return tr("Done: the copy is called “{name}”.", name=target.name)
         self._work(work)
 
     @Slot()
@@ -325,7 +325,7 @@ def main():
     paths = [a for a in sys.argv[1:] if not a.startswith("-")]
     app = QApplication(sys.argv)
     app.setApplicationName("sloth-versions")
-    app.setApplicationDisplayName(tr("Korábbi verziók"))
+    app.setApplicationDisplayName(tr("Previous versions"))
     if catalog.is_rtl():
         app.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
     app.setOrganizationDomain("slothos.org")

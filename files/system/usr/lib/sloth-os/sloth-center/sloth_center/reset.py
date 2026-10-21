@@ -43,14 +43,14 @@ class ResetController(QObject):
     _done = Signal(object)
 
     STAGES = {
-        "download": N_("A legújabb rendszerverzió letöltése… Ez a sebességtől függően néhány perc is lehet."),
-        "packages": N_("A kézzel hozzáadott rendszercsomagok levétele…"),
-        "kargs": N_("A kernelparaméterek visszaállítása…"),
+        "download": N_("Downloading the newest system version… Depending on your connection this may take a few minutes."),
+        "packages": N_("Removing manually added system packages…"),
+        "kargs": N_("Restoring kernel parameters…"),
     }
     # induláskor a factory-reset írja ki a Plymouth-animáció alá (a fordítást innen veszi)
     BOOT_TEXTS = {
-        N_("A gép alaphelyzetbe állítása… Ez néhány percig tarthat, ne kapcsold ki a gépet."),
-        N_("Kész. Újraindítás…"),
+        N_("Resetting this PC… This may take a few minutes, don't turn off the computer."),
+        N_("Done. Restarting…"),
     }
 
     def __init__(self, parent=None):
@@ -71,8 +71,8 @@ class ResetController(QObject):
     def checkAccount(self, username):
         """Hibaüzenet a felhasználónévhez, vagy üres szöveg, ha jó."""
         if not NAME_RE.match(username):
-            return tr("A felhasználónév kisbetűvel kezdődjön, és csak kisbetűt, számot, kötőjelet vagy aláhúzást "
-                      "tartalmazzon (szóköz és ékezet nélkül).")
+            return tr("The username must start with a lowercase letter and contain only lowercase letters, digits, "
+                      "hyphens or underscores (no spaces or accents).")
         return ""
 
     @Slot(str, str, str, str)
@@ -80,16 +80,16 @@ class ResetController(QObject):
         if self._busy or mode not in ("keep", "all"):
             return
         self._error = ""
-        request = {"backup_name": tr("Régi beállítások")}
+        request = {"backup_name": tr("Old settings")}
         if mode == "all":
             pwhash = password_hash(password) if password else ""
             if self.checkAccount(username) or not pwhash or ":" in fullname or "\n" in fullname:
-                self._error = tr("Nem sikerült. Ellenőrizd az új fiók adatait.")
+                self._error = tr("That didn't work. Check the new account's details.")
                 self.changed.emit()
                 return
             request["account"] = {"username": username, "fullname": fullname.strip() or username,
                                   "password_hash": pwhash}
-        self._busy, self._status = True, tr("Előkészítés…")
+        self._busy, self._status = True, tr("Preparing…")
         self.changed.emit()
 
         def work():
@@ -127,9 +127,9 @@ class ResetController(QObject):
         if not result.get("ok"):
             log.warning("alaphelyzet: %s", result.get("error"))
             if result.get("error") == "no-result":
-                self._error = tr("Nem sikerült. Ehhez rendszergazdai jóváhagyás kell.")
+                self._error = tr("That didn't work. This needs administrator approval.")
             else:
-                self._error = tr("Nem sikerült előkészíteni. Ellenőrizd az internetkapcsolatot, és próbáld újra.")
+                self._error = tr("Couldn't prepare the reset. Check your internet connection and try again.")
         self._pending = pending_mode()
         self.changed.emit()
 
@@ -143,7 +143,7 @@ class ResetController(QObject):
         except (OSError, subprocess.SubprocessError, ValueError):
             ok = False
         if not ok:
-            self._error = tr("Nem sikerült. Ehhez rendszergazdai jóváhagyás kell.")
+            self._error = tr("That didn't work. This needs administrator approval.")
         self._pending = pending_mode()
         self.changed.emit()
 

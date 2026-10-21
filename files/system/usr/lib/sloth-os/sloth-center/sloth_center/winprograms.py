@@ -22,7 +22,7 @@ log = logging.getLogger("sloth-center.winprograms")
 
 # Honnan vehető át egy program (a márkanevek nem fordulnak; a korábbi, sima Wine-os telepítésnél a „Wine”
 # szó nem jelenik meg)
-SOURCE_LABELS = {"steam": "Steam", "lutris": "Lutris", "bottles": "Bottles", "wine": N_("Korábbi Windows-programok")}
+SOURCE_LABELS = {"steam": "Steam", "lutris": "Lutris", "bottles": "Bottles", "wine": N_("Earlier Windows programs")}
 
 
 def _source_label(source):
@@ -35,7 +35,7 @@ def _size_text(nbytes):
         if nbytes >= div:
             v = nbytes / div
             return (f"{v:.1f}".replace(".", ",") if v < 10 else f"{v:.0f}") + f" {unit}"
-    return tr("kevesebb mint 1 MB")
+    return tr("less than 1 MB")
 
 
 def _dir_size(path):
@@ -173,7 +173,7 @@ class WinProgramsController(QObject):
                 text = work()
             except Exception as e:  # a hiba ne akassza meg a felületet
                 log.warning("művelet: %s", e)
-                text = tr("Nem sikerült. Próbáld újra később.")
+                text = tr("That didn't work. Please try again later.")
             self._work_done.emit(text or "")
 
         threading.Thread(target=run, daemon=True).start()
@@ -234,10 +234,10 @@ class WinProgramsController(QObject):
         if app is None or app.kind != "windows":
             return
         if app.busy():
-            self._set_message(tr("{name} most fut. Zárd be, és utána próbáld újra.", name=app.name))
+            self._set_message(tr("{name} is running right now. Close it, then try again.", name=app.name))
             return
         app.save_meta(launch={})
-        self._set_message(tr("Kész. A következő indításkor {name} újra megkeresi a neki működő beállítást.",
+        self._set_message(tr("Done. The next time it starts, {name} will look for the settings that work for it again.",
                              name=app.name))
 
     @Slot(str)
@@ -255,7 +255,7 @@ class WinProgramsController(QObject):
         if app is None:
             return
         if app.busy():
-            self._set_message(tr("{name} most fut. Zárd be, és utána próbáld újra.", name=app.name))
+            self._set_message(tr("{name} is running right now. Close it, then try again.", name=app.name))
             return
         name = app.name
         self._items = [p for p in self._items if p["id"] != app_id]
@@ -263,8 +263,8 @@ class WinProgramsController(QObject):
         def work():
             # dobozba telepített csomag: előbb a dobozból (és a Start menüből) is ki
             if app.kind == "box" and not packages.box_uninstall(app):
-                return tr("{name} nem távolítható el innen.", name=name)
-            return "" if library.remove(app) else tr("{name} nem távolítható el innen.", name=name)
+                return tr("{name} can't be removed from here.", name=name)
+            return "" if library.remove(app) else tr("{name} can't be removed from here.", name=name)
 
         self._run_in_background(work)
 
@@ -273,11 +273,11 @@ class WinProgramsController(QObject):
         """Az új programok helye (pl. egy másik meghajtó). A meglévők maradnak, egyenként áthelyezhetők."""
         path = Path(QUrl(url).toLocalFile() if "://" in url else url)
         if not library.supported_location(path):
-            self._set_message(tr("Ez a meghajtó Windows-formátumú (NTFS, exFAT vagy FAT). Ide nem telepíthetők "
-                                 "programok; válassz egy Linuxos meghajtót vagy mappát."))
+            self._set_message(tr("This drive uses a Windows format (NTFS, exFAT or FAT). Programs can't be installed "
+                                 "here; choose a Linux drive or folder."))
             return
         library.set_default_library(path)
-        self._set_message(tr("Az új programok ide települnek: {path}", path=_pretty(path)))
+        self._set_message(tr("New programs will be installed here: {path}", path=_pretty(path)))
         self.refresh()
 
     @Slot(str)
@@ -287,14 +287,14 @@ class WinProgramsController(QObject):
         if app is None:
             return
         if app.busy():
-            self._set_message(tr("{name} most fut. Zárd be, és utána próbáld újra.", name=app.name))
+            self._set_message(tr("{name} is running right now. Close it, then try again.", name=app.name))
             return
         target = library.default_library()
         name = app.name
         self._run_in_background(
-            lambda: tr("{name} áthelyezve ide: {path}", name=name, path=_pretty(target))
-            if library.move(app, target) else tr("{name} áthelyezése nem sikerült. A program a régi helyén maradt, "
-                                                 "és ott ugyanúgy működik.", name=name))
+            lambda: tr("{name} moved to: {path}", name=name, path=_pretty(target))
+            if library.move(app, target) else tr("Moving {name} didn't work. The program stayed where it was and "
+                                                 "works there just the same.", name=name))
 
     @Slot(str, bool)
     def importProgram(self, key, adopt):
@@ -304,16 +304,16 @@ class WinProgramsController(QObject):
             return
         if not adopt:
             imports.link(f)
-            self._set_message(tr("{name} mostantól itt is megtalálható, és ugyanúgy indul, mint eddig.", name=f.name))
+            self._set_message(tr("{name} is now listed here too, and starts just like before.", name=f.name))
             self.refresh()
             return
         if imports.prefix_in_use(f.prefix):
-            self._set_message(tr("{name} most fut. Zárd be, és utána próbáld újra.", name=f.name))
+            self._set_message(tr("{name} is running right now. Close it, then try again.", name=f.name))
             return
 
         def work():
-            if imports.adopt(f, tr("Program fájljai")) is None:
-                return tr("{name} átvétele nem sikerült. Az eredeti helyén minden maradt a régiben.", name=f.name)
-            return tr("{name} átvéve. Mostantól önállóan indul; az eredeti helyén nem változott semmi.", name=f.name)
+            if imports.adopt(f, tr("Program files")) is None:
+                return tr("Taking over {name} didn't work. Everything stayed as it was in its original place.", name=f.name)
+            return tr("{name} has been taken over. From now on it starts on its own; nothing changed in its original place.", name=f.name)
 
         self._run_in_background(work)

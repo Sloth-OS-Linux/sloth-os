@@ -9,16 +9,16 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Programok")
+    title: L.t("Programs")
 
     actions: [
         Kirigami.Action {
-            text: L.t("Program telepítése…")
+            text: L.t("Install a program…")
             icon.name: "download"
             onTriggered: installDialog.open()
         },
         Kirigami.Action {
-            text: L.t("Frissítés")
+            text: L.t("Refresh")
             icon.name: "view-refresh"
             onTriggered: winprograms.refresh()
         }
@@ -62,17 +62,17 @@ Kirigami.ScrollablePage {
                         Kirigami.Heading {
                             level: 3
                             Layout.fillWidth: true
-                            text: L.tf("Programok helye: {path}", { path: winprograms.location })
+                            text: L.tf("Programs location: {path}", { path: winprograms.location })
                         }
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             opacity: 0.7
-                            text: L.t("Minden program saját mappát kap, a Fájlok gombbal megnyitható. Ha máshová (például egy másik meghajtóra) szeretnéd tenni őket, válassz új helyet: az új programok oda kerülnek, a meglévők egyenként áthelyezhetők.")
+                            text: L.t("Each program gets its own folder; open it with the Files button. To keep them somewhere else (for example on another drive), choose a new location: new programs go there, and existing ones can be moved one by one.")
                         }
                     }
                     QQC2.Button {
-                        text: L.t("Módosítás…")
+                        text: L.t("Change…")
                         icon.name: "folder-open"
                         onClicked: locationDialog.open()
                     }
@@ -92,12 +92,12 @@ Kirigami.ScrollablePage {
                     ColumnLayout {
                         Layout.fillWidth: true
                         spacing: 0
-                        Kirigami.Heading { level: 3; text: L.t("Tapasztalatok megosztása"); Layout.fillWidth: true }
+                        Kirigami.Heading { level: 3; text: L.t("Share experiences"); Layout.fillWidth: true }
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             opacity: 0.7
-                            text: L.t("Ha egy program nálad elindul, névtelenül megosztjuk, melyik beállítással ment, így más Sloth OS-es gépeken is elsőre elindul. Csak a beállítás és a videókártya gyártója kerül át: se a neved, se a fájljaid, se a program neve.")
+                            text: L.t("When a program starts on your computer, we anonymously share which setting worked, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer are sent: not your name, not your files, not the program's name.")
                         }
                     }
                     QQC2.Switch {
@@ -123,12 +123,12 @@ Kirigami.ScrollablePage {
                         ColumnLayout {
                             Layout.fillWidth: true
                             spacing: 0
-                            Kirigami.Heading { level: 3; text: L.t("Máshol telepített programok"); Layout.fillWidth: true }
+                            Kirigami.Heading { level: 3; text: L.t("Programs installed elsewhere"); Layout.fillWidth: true }
                             QQC2.Label {
                                 Layout.fillWidth: true
                                 wrapMode: Text.Wrap
                                 opacity: 0.7
-                                text: L.t("Ezeket a Steamben, a Lutrisban, a Bottlesben vagy korábban, más módon telepítetted. Felveheted őket ide is, újratelepítés nélkül. „Az eredeti programmal”: az indítja őket, ahogy eddig. „Átvétel”: saját másolatot kapnak, és önállóan indulnak. Az eredeti helyükön egyik esetben sem változik semmi.")
+                                text: L.t("You installed these in Steam, Lutris, Bottles or earlier in some other way. You can add them here too, without reinstalling. “With the original app”: it keeps starting them, just like before. “Take over”: they get their own copy and start on their own. Nothing changes in their original place either way.")
                             }
                         }
                     }
@@ -148,18 +148,18 @@ Kirigami.ScrollablePage {
                                 text: otherRow.modelData.source
                             }
                             QQC2.Button {
-                                text: L.t("Az eredeti programmal")
+                                text: L.t("With the original app")
                                 enabled: otherRow.modelData.canLink && !winprograms.busy
                                 onClicked: winprograms.importProgram(otherRow.modelData.key, false)
                                 QQC2.ToolTip.visible: hovered && !otherRow.modelData.canLink
-                                QQC2.ToolTip.text: L.t("Ezt a programot nem indítja másik program, ezért csak átvehető.")
+                                QQC2.ToolTip.text: L.t("No other app starts this program, so it can only be taken over.")
                             }
                             QQC2.Button {
-                                text: L.t("Átvétel")
+                                text: L.t("Take over")
                                 enabled: otherRow.modelData.canAdopt && !winprograms.busy
                                 onClicked: winprograms.importProgram(otherRow.modelData.key, true)
                                 QQC2.ToolTip.visible: hovered && !otherRow.modelData.canAdopt
-                                QQC2.ToolTip.text: L.t("Ennek a programnak nincs saját környezete, ezért csak az eredeti programmal vehető fel.")
+                                QQC2.ToolTip.text: L.t("This program has no environment of its own, so it can only be added with the original app.")
                             }
                         }
                     }
@@ -173,8 +173,8 @@ Kirigami.ScrollablePage {
             width: parent.width - Kirigami.Units.gridUnit * 4
             visible: list.count === 0
             icon.name: "application-x-ms-dos-executable"
-            text: L.t("Még nincs telepített Windows-program")
-            explanation: L.t("Kattints duplán egy .exe vagy .msi fájlra (például egy letöltött telepítőre), vagy válaszd a Program telepítése… gombot, és itt fog megjelenni.")
+            text: L.t("No Windows programs installed yet")
+            explanation: L.t("Double-click an .exe or .msi file (for example a downloaded installer), or use the Install a program… button, and it will show up here.")
         }
 
         delegate: Kirigami.AbstractCard {
@@ -200,13 +200,13 @@ Kirigami.ScrollablePage {
                         text: {
                             const parts = [];
                             if (card.isLink)
-                                parts.push(L.tf("Indítja: {source}", { source: card.modelData.source }));
+                                parts.push(L.tf("Started by: {source}", { source: card.modelData.source }));
                             else if (card.modelData.size !== "" && card.modelData.hasFiles)
                                 parts.push(card.modelData.size);
                             if (card.modelData.publisher !== "")
                                 parts.push(card.modelData.publisher);
                             const names = card.modelData.entries.map(e => e.name);
-                            parts.push(names.length > 0 ? L.tf("A Start menüben: {names}", { names: names.join(", ") }) : L.t("Nincs a Start menüben"));
+                            parts.push(names.length > 0 ? L.tf("In the Start menu: {names}", { names: names.join(", ") }) : L.t("Not in the Start menu"));
                             return parts.join(" · ");
                         }
                     }
@@ -222,19 +222,19 @@ Kirigami.ScrollablePage {
                 QQC2.Button {
                     visible: !card.modelData.shared
                     highlighted: true
-                    text: L.t("Indítás")
+                    text: L.t("Start")
                     icon.name: "media-playback-start"
                     onClicked: winprograms.launch(card.modelData.id)
                 }
                 QQC2.Button {
                     visible: card.modelData.hasFiles
-                    text: L.t("Fájlok")
+                    text: L.t("Files")
                     icon.name: "folder-open"
                     onClicked: winprograms.openFolder(card.modelData.id)
                 }
                 QQC2.ToolButton {
                     icon.name: "overflow-menu"
-                    text: L.t("Továbbiak")
+                    text: L.t("More")
                     display: QQC2.AbstractButton.IconOnly
                     QQC2.ToolTip.visible: hovered
                     QQC2.ToolTip.text: text
@@ -244,35 +244,35 @@ Kirigami.ScrollablePage {
                         QQC2.MenuItem {
                             visible: card.modelData.kind === "windows"
                             height: visible ? implicitHeight : 0
-                            text: L.t("Start menü…")
+                            text: L.t("Start menu…")
                             icon.name: "kickoff"
                             onTriggered: winprograms.editShortcuts(card.modelData.id)
                         }
                         QQC2.MenuItem {
                             visible: card.modelData.kind === "windows" && !card.modelData.shared
                             height: visible ? implicitHeight : 0
-                            text: L.t("Javítás")
+                            text: L.t("Repair")
                             icon.name: "tools-wizard"
                             onTriggered: winprograms.repair(card.modelData.id)
                         }
                         QQC2.MenuItem {
                             visible: card.modelData.canReinstall
                             height: visible ? implicitHeight : 0
-                            text: L.t("Újratelepítés")
+                            text: L.t("Reinstall")
                             icon.name: "view-refresh"
                             onTriggered: winprograms.reinstall(card.modelData.id)
                         }
                         QQC2.MenuItem {
                             visible: card.modelData.canMove
                             height: visible ? implicitHeight : 0
-                            text: L.tf("Áthelyezés ide: {path}", { path: winprograms.location })
+                            text: L.tf("Move to: {path}", { path: winprograms.location })
                             icon.name: "folder-move"
                             enabled: !winprograms.busy
                             onTriggered: winprograms.move(card.modelData.id)
                         }
                         QQC2.MenuSeparator {}
                         QQC2.MenuItem {
-                            text: L.t("Eltávolítás")
+                            text: L.t("Remove")
                             icon.name: "edit-delete"
                             onTriggered: {
                                 confirm.target = card.modelData;
@@ -288,19 +288,19 @@ Kirigami.ScrollablePage {
     Kirigami.PromptDialog {
         id: confirm
         property var target: null
-        title: target ? L.tf("Eltávolítod: {name}?", { name: target.name }) : ""
+        title: target ? L.tf("Remove {name}?", { name: target.name }) : ""
         subtitle: target && target.kind === "link"
-                  ? L.t("Csak innen és a Start menüből tűnik el; az eredeti helyén minden marad.")
-                  : L.t("A program és minden hozzá tartozó fájl törlődik (a mentésekkel és beállításokkal együtt). Ezt nem lehet visszavonni.")
+                  ? L.t("It only disappears from here and from the Start menu; everything stays in its original place.")
+                  : L.t("The program and all its files will be deleted (including saves and settings). This can't be undone.")
         standardButtons: Kirigami.Dialog.NoButton
         customFooterActions: [
             Kirigami.Action {
-                text: L.t("Eltávolítás")
+                text: L.t("Remove")
                 icon.name: "edit-delete"
                 onTriggered: { winprograms.remove(confirm.target.id); confirm.close(); }
             },
             Kirigami.Action {
-                text: L.t("Mégse")
+                text: L.t("Cancel")
                 icon.name: "dialog-cancel"
                 onTriggered: confirm.close()
             }
@@ -309,15 +309,15 @@ Kirigami.ScrollablePage {
 
     FileDialog {
         id: installDialog
-        title: L.t("Melyik programot telepíted?")
+        title: L.t("Which program do you want to install?")
         currentFolder: StandardPaths.writableLocation(StandardPaths.DownloadLocation)
-        nameFilters: [L.t("Programok") + " (*.exe *.msi *.EXE *.MSI *.AppImage *.appimage *.deb *.rpm)"]
+        nameFilters: [L.t("Programs") + " (*.exe *.msi *.EXE *.MSI *.AppImage *.appimage *.deb *.rpm)"]
         onAccepted: winprograms.install(selectedFile.toString())
     }
 
     FolderDialog {
         id: locationDialog
-        title: L.t("Hová települjenek az új programok?")
+        title: L.t("Where should new programs be installed?")
         onAccepted: winprograms.setLocation(selectedFolder.toString())
     }
 }

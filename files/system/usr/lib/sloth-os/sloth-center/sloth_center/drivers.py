@@ -56,7 +56,7 @@ def detect_gpus():
             device = (dev / "device").read_text().strip()
         except OSError:
             continue
-        brand = VENDORS.get(vendor, tr("Egyéb"))
+        brand = VENDORS.get(vendor, tr("Other"))
         name = _pci_name(vendor, device)
         gpus.append({"brand": brand, "name": f"{brand} {name}".strip() if name and brand not in name else (name or brand)})
     return gpus
@@ -97,7 +97,7 @@ class DriversController(QObject):
         except OSError:
             auto = ""
         if auto == "downloading":
-            self._busy, self._status, self._progress = True, tr("Az új változat letöltése…"), -1
+            self._busy, self._status, self._progress = True, tr("Downloading the new edition…"), -1
         elif auto in ("ready", "ready-mok") and not self.nvidiaImage:
             self._info = "switched"
         self.refreshSecureBoot()
@@ -162,7 +162,7 @@ class DriversController(QObject):
         """Telefon összekötése (KDE Connect) a felhasználónak; jelszó nem kell."""
         self._error = ""
         if not self._phone_link("on" if on else "off"):
-            self._error = tr("Nem sikerült átállítani.")
+            self._error = tr("Couldn't change it.")
         self._phone = self._phone_link("status")
         self.changed.emit()
 
@@ -188,9 +188,9 @@ class DriversController(QObject):
         if result.get("ok"):
             self._info = "enrolled"
         elif r.returncode in (126, 127):
-            self._error = tr("Ehhez rendszergazdai jóváhagyás kell. Próbáld újra, és add meg a jelszavad.")
+            self._error = tr("This needs administrator approval. Try again and enter your password.")
         else:
-            self._error = tr("Nem sikerült előkészíteni a kulcs regisztrálását. Próbáld újra.")
+            self._error = tr("Couldn't prepare the key enrollment. Try again.")
         self.refreshSecureBoot()
 
     # --- Változat váltása -----------------------------------------------------------
@@ -205,7 +205,7 @@ class DriversController(QObject):
         else:
             target = self._image.replace("sloth-os-nvidia:", "sloth-os:", 1)
         self._busy, self._error, self._info = True, "", ""
-        self._status = tr("Az új változat letöltése…")
+        self._status = tr("Downloading the new edition…")
         self._progress = -1
         self.changed.emit()
 
