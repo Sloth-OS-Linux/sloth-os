@@ -10,8 +10,8 @@ The repository is public (`Sloth-OS-Linux/sloth-os`), the daily build is back on
 (`1.0/sloth-os-1.0-x86_64.iso`, 6.2 GB, SHA-256 `ed01d760…a4ddbe`), and the website has a download page with system
 requirements and a USB guide. Since the release the whole repository is in English (comments, documentation, commit
 messages); Sloth Center's translation keys are English sentences.
-- [ ] Make the two images public on ghcr.io (Package settings → Change visibility); until then installed machines
-  cannot update
+- [x] Make the two images public on ghcr.io (2026-10-21; it needed "Public" under the organization's Settings → Packages →
+  Package creation first); installed machines update without signing in
 - [ ] Redeploy the shared knowledge Worker (the feedback issues' text is English now; needs the user's approval)
 
 ### Next steps (2026-10-20 evening, in order; details below)
