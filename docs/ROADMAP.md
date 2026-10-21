@@ -1,1189 +1,1199 @@
-# Sloth OS – terv
+# Sloth OS – plan
 
-Alapelv: **ha a felhasználónak terminált kell nyitnia, az a mi hibánk.** A Konsole megmarad, de minden, amit
-terminálból lehet csinálni, GUI-ból is menjen.
+Principle: **if the user has to open a terminal, that is our fault.** Konsole stays, but everything that can be done
+from a terminal must also work from a GUI.
 
-## Hol tartunk (2026-10-19)
+## Where we are
 
-### Következő lépések (2026-10-20 este, sorrendben; a részletek lent)
-**Publikálás előtt kötelező**
-1. [x] Fájlmentés és „Korábbi verziók” (Teendők, 8. pont): kész (2026-10-20), a teszt lent
-2. [x] A gép alaphelyzetbe állítása a Sloth Központból: kész és valódi gépen tesztelve (2026-10-20); a boot menüs
-   változat később
-3. [ ] **A teszt végig valódi gépen, teljes alaphelyzetbe állítás után a legújabb image-dzsel** (lent: „Teszt a
-   2026-10-20-i reset után”)
-4. [ ] Régi (BIOS-os) gépek (Teendők, 2. pont): az 1.0 után (döntés: 2026-10-20, az 1.0 csak UEFI)
-5. [ ] Új ISO a rétegek összevonásával, ha a rendszer kész (benne a telepítő javítása: fekete kép 90% után)
-6. [ ] A fordítások anyanyelvi átnézése (Teendők, 7. pont)
-7. [ ] Legvégül: a repó publikussá tétele, napi build, ISO-tárhely (Teendők, 3–4. pont). Weboldal már van:
-   https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io (átnézni)
+### Sloth OS 1.0 released (2026-10-21)
+The repository is public (`Sloth-OS-Linux/sloth-os`), the daily build is back on, the installer ISO is on SourceForge
+(`1.0/sloth-os-1.0-x86_64.iso`, 6.2 GB, SHA-256 `ed01d760…a4ddbe`), and the website has a download page with system
+requirements and a USB guide. Since the release the whole repository is in English (comments, documentation, commit
+messages); Sloth Center's translation keys are English sentences.
+- [ ] Make the two images public on ghcr.io (Package settings → Change visibility); until then installed machines
+  cannot update
+- [ ] Redeploy the shared knowledge Worker (the feedback issues' text is English now; needs the user's approval)
 
-### 2026-10-20 este: mi történt (röviden)
-- **VM-teszt** a 13:36-os image-en (Üdvözlő, Battle.net, EA app, Ubisoft, Frissítések, Fájlmentés, zram): a talált
-  hibák javítva (EA Start menü és recept, Korábbi verziók gombjai, Wine-mintaprogramok, Programok tallózó,
-  Játékok legördülő), részletek lent („A VM-teszt hibái”)
-- **Új:** Visszajelzés a Sloth Központból (élesítve: `Sloth-OS-Linux/feedback`, 50 nyelven), jelszó nélküli „Mentés
-  most”, az Üdvözlő megszakítás után folytatja, alaphelyzetbe állítás a boot menüből (fájlok megmaradnak)
-- **Windows mellé telepítés VM-ben:** két komoly hiba javítva (a rendszerbetöltő a Windows EFI-partíciójára ment; a
-  boot menü egyetlen gépen sem jött elő, mert a `${cmdpath}` üres). Telepítő-javítás: új ISO kell hozzá
-- **Ujjlenyomat + PIN után nem indult a bejelentkező képernyő** (a te gépeden): az authselect kivette a
-  `with-altfiles`-t; javítva, és induláskor a már elrontott gépeket is rendbe teszi
-- Weboldal: valódi képernyőképek, Sloth Center szakasz, GYIK (visszajelzés); közös tudás: EA recept (PR #1, mergelve)
-- Döntések: az 1.0 csak UEFI-s gépekre (BIOS később); szülői felügyelet és Windows-programok a Discoverben az 1.0 után
+### Next steps (2026-10-20 evening, in order; details below)
+**Required before publishing**
+1. [x] File backup and "Previous versions" (To do, item 8): done (2026-10-20), the test below
+2. [x] Resetting the computer from Sloth Center: done and tested on a real machine (2026-10-20); the boot menu
+   variant later
+3. [x] **The whole test on a real machine, after a full reset, with the latest image** (below: "Test after the
+   2026-10-20 reset")
+4. [ ] Old (BIOS-only) machines (To do, item 2): after 1.0 (decision: 2026-10-20, 1.0 is UEFI only)
+5. [x] A new ISO with squashed layers once the system is ready (including the installer fix: black screen after 90%)
+6. [ ] Native-speaker review of the translations (To do, item 7): it will come through feedback
+7. [x] Last: making the repository public, daily build, ISO hosting (To do, items 3–4). The website already exists:
+   https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io
 
-### Összegzés 2026-10-21 este (a 14:01-es ISO, `c466ce8` telepítő + `887dcf1` image; két pendrive-on)
-**Valódi gépen (HP) kipróbálva, működik:** titkosított teljes lemezes telepítés, Üdvözlő folytatása megszakítás után,
-Sloth Központ a tálcán, PIN és ujjlenyomat (hamis hibaüzenet nélkül), boot menü és alaphelyzetbe állítás (mentés előtte,
-figyelmeztetések), visszajelzés naplóval (#5), Fájlmentés és Korábbi verziók, EA app (a telepítő nem pörög), Játékok oldal,
-némítás, Heroic/Epic, zram, tálcabuborék a jobb oldalon, WoW Classic a Battle.net-ből.
-**Még nyitott:**
-- [x] Üdvözlő újrafuttatása meglévő rendszeren (pipák, mostani megjelenés): az új telepítésen jól működik
-- [ ] **Windows mellé telepítés (titkosítással és anélkül):** a konténeres teszt mindkettőre hibátlan (lent); valódi
-  Windowsos gépen még nem próbáltuk
-- [ ] NVIDIA-s gép (otthon, a fejlesztőgép: RTX 5060 + AMD iGPU): Driverek és hardver oldal, Secure Boot MOK
-- [ ] Steam-átvétel, firmware a Discoverben
-- [x] **Támogatás (Ko-fi, `ko-fi.com/slothos`, 2026-10-21):** a Sloth Központ Visszajelzés oldalán és az Üdvözlő
-  utolsó oldalán csendes link (50 nyelven; a cím a szövegben is, ha nincs böngésző), README, `.github/FUNDING.yml`
-  (GitHub „Sponsor” gomb), weboldal lábléce és GYIK
-- [x] **Áthelyezés a Sloth-OS-Linux szervezetbe** (2026-10-21): a `sloth-os` és a `sloth-os-knowledge` átkerült, a
-  titkok megmaradtak, az első build az új helyre (`ghcr.io/sloth-os-linux/sloth-os(-nvidia)`) hibátlan. A csomagok
-  még privátak: a publikussá tételkor a Package settingsben nyilvánosra állítani. A régi `ghcr.io/bathorizsolt/…`
-  image-ek a végleges ISO után törölhetők
-- [x] **ISO-tárhely: SourceForge** (2026-10-21, ingyenes, korlátlan, tükrökkel): sourceforge.net/projects/sloth-os,
-  felhasználó `slothos`; feltöltés SFTP/rsync-kel (`frs.sourceforge.net:/home/frs/project/sloth-os/`), a kulcs ezen a
-  gépen: `~/.ssh/sloth_sourceforge` (kipróbálva). Metaadatok, kategóriák, logó kész
-- [ ] A név kézi ellenőrzése (TMview, SZTNH); webes keresés 2026-10-21: nincs „Sloth OS” nevű operációs rendszer
+### 2026-10-20 evening: what happened (in short)
+- **VM test** on the 13:36 image (Welcome, Battle.net, EA app, Ubisoft, Updates, File backup, zram): the bugs found
+  are fixed (EA Start menu and recipe, the Previous versions buttons, Wine sample programs, Programs browser, Games
+  drop-down), details below ("Bugs of the VM test")
+- **New:** Feedback from Sloth Center (live: `Sloth-OS-Linux/feedback`, in 50 languages), password-free "Back up
+  now", Welcome continues after an interruption, reset from the boot menu (the files stay)
+- **Installing next to Windows in a VM:** two serious bugs fixed (the boot loader went onto the Windows EFI partition;
+  the boot menu did not come up on any machine, because `${cmdpath}` was empty). Installer fix: needs a new ISO
+- **After fingerprint + PIN the login screen did not start** (on the developer's machine): authselect removed
+  `with-altfiles`; fixed, and at startup it also repairs machines already broken
+- Website: real screenshots, a Sloth Center section, FAQ (feedback); shared knowledge: EA recipe (PR #1, merged)
+- Decisions: 1.0 is for UEFI machines only (BIOS later); parental controls and Windows programs in Discover after 1.0
 
-### A 2026-10-21-i teszt (valódi gép, a reggeli ISO-ról újratelepítve, `d43e36f`)
-Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benne a telepítő javításával).
-1. [x] **Image-verzió:** friss ISO, a `d43e36f` image
-2. [x] **Üdvözlő megszakítva:** onnan folytatja, mindent megjegyzett
-3. [x] **Sloth Központ a tálcán**
-4. [x] **Ujjlenyomat + PIN:** a PIN működik. Az ujjlenyomatnál „rendszergazdai jelszó kell”, felvétel után a
-   feloldás ujjal nem megy. Konténerben megnézve: a helyes (PIN-profil mellett is bekapcsolja a `with-fingerprint`-et),
-   a **bejelentkező képernyő (`plasmalogin`) PAM-ja viszont a `password-auth`-ot használja, abban nincs ujjlenyomat**:
-   újraindítás után az ujj sosem működik, csak a zárolási képernyőn (`kde-fingerprint`) és a jóváhagyásoknál. Pontosítani:
-   hol próbálta (újraindítás után / Win+L), mi volt a pontos üzenet, és bekapcsolva maradt-e a kapcsoló
-5. [x] **Boot menü:** Esc-re előjön, a menüpont a rendszer nyelvén (angol), lefut
-6. [x] **Visszajelzés:** „Couldn't send it” napló csatolásával. **Javítva:** a Központ a naplót nyers bájtban
-   vágta 500 KB-ra, a szolgáltatás a teljes kérést nézi (576 KB); a JSON-kódolás a nem ASCII karaktereket és a
-   Wine-naplók `\`-eit felfújta, így 413 jött. Most a kódolt kérést tartja a határ alatt (élő végponton kipróbálva:
-   régi kódolás 413, új 200). A próbák a feedback repóban: #2, #3, #4 (lezárva). Valódi gépen újra kipróbálni
-7. [x] **Fájlmentés:** „Mentés most” jelszó nélkül, Korábbi verziók gombjai, visszaállítás: mind jó. Kérés: az
-   alaphelyzetbe állítás előtt mentés kell. **Kész:** „Fájljaim megtartásával” módban az alaphelyzetbe állítás
-   magától készít egy mentett állapotot (a boot menüből indítva is); „Mindent töröl” módban figyelmeztetés (a gépen
-   lévő mentések is törlődnek), Pika Backup gomb, és csak az „Elmentettem, amire szükségem van” pipa után lehet
-   továbblépni. Weboldal: GYIK és főoldal (`sloth-os-linux.github.io`)
-8. [x] **EA app:** települ, a Start menüben jó, onnan indul. **Hiba:** a telepítő végén elindul az EA app, a telepítő
-   addig nem lép ki, és az .exe kezelő addig pörög („még letölt pár komponenst”), amíg az EA appot a tálcáról be nem
-   zárja. **Javítva:** a telepítés végét már a telepítő futása közben figyeli (ha a telepített program biztosan megvan,
-   és már fut: kész); a még futó telepítőt nem lövi ki, a háttérben megvárja; az Üdvözlő sora közben továbbmegy
-   (`sloth-exe: queued-done`). A félrevezető „letöltés” szöveg helyett „Fejezd be a telepítést…”, amint a telepítő
-   fut. Valódi gépen újra kipróbálni
-9. [x] **Játékok oldal:** a felskálázás legördülője jó
-10. [x] **Buborék:** a mac-es elrendezésben még mindig a bal felső sarokból (a „start” gombtól) jön. Valószínű ok: a
-    Wine a munkaterületen belülre igazítja, fenti panelnél a panel alá, a `wine-balloons` viszont a (0,0)-tól mért
-    64 px-en belül kereste. **Javítva:** a munkaterület sarkához mér, nagyításnál nagyobb határral. Windowsos
-    elrendezésben is megnézni. Battle.net-ből a WoW Classic elindul
-11. [ ] Ha marad idő: zram jó (15 GB memória mellett 22,4 GB tömörített tartalék); firmware a Discoverben még nem
-    volt; Steam-átvétel később
-- [x] HP laptop titkosítással: rendben (2026-10-21 délután, újra kipróbálva)
+### Summary of 2026-10-21 evening (the 14:01 ISO, installer `c466ce8` + image `887dcf1`; on two USB sticks)
+**Tried on a real machine (HP), works:** encrypted whole-disk install, Welcome continuing after an interruption,
+Sloth Center on the taskbar, PIN and fingerprint (without a false error message), boot menu and reset (a backup before,
+warnings), feedback with a log (#5), File backup and Previous versions, EA app (the installer does not spin), Games page,
+muting, Heroic/Epic, zram, taskbar balloon on the right, WoW Classic from Battle.net.
+**Still open:**
+- [x] Running Welcome again on an existing system (ticks, current appearance): works well on the new install
+- [ ] **Installing next to Windows (with and without encryption):** the container test passes for both (below); not
+  tried on a real Windows machine yet
+- [ ] NVIDIA machine (at home, the developer machine: RTX 5060 + AMD iGPU): Drivers and hardware page, Secure Boot MOK
+- [ ] Steam takeover, firmware in Discover
+- [x] **Support (Ko-fi, `ko-fi.com/slothos`, 2026-10-21):** a quiet link on Sloth Center's Feedback page and on Welcome's
+  last page (in 50 languages; the address is in the text too, in case there is no browser), README, `.github/FUNDING.yml`
+  (GitHub "Sponsor" button), the website's footer and FAQ
+- [x] **Moved to the Sloth-OS-Linux organization** (2026-10-21): `sloth-os` and `sloth-os-knowledge` moved, the
+  secrets stayed, the first build to the new place (`ghcr.io/sloth-os-linux/sloth-os(-nvidia)`) is fine. The packages
+  are still private: set them public in Package settings when going public. The old `ghcr.io/bathorizsolt/…`
+  images can be deleted after the final ISO
+- [x] **ISO hosting: SourceForge** (2026-10-21, free, unlimited, with mirrors): sourceforge.net/projects/sloth-os,
+  user `slothos`; upload with SFTP/rsync (`frs.sourceforge.net:/home/frs/project/sloth-os/`), the key on this
+  machine: `~/.ssh/sloth_sourceforge` (tried). Metadata, categories, logo done
+- [ ] Checking the name by hand (TMview, SZTNH); web search 2026-10-21: there is no operating system called "Sloth OS"
 
-#### Második kör (2026-10-21 délután, az `5bec760` image-dzsel)
-- [x] HP + titkosítás jó; alaphelyzetbe állítás: a figyelmeztetések látszanak, minden működik; EA-telepítő jó;
-  némítás: megszűnt; Heroic az Epic-fiókkal működik
-- [x] **Ujjlenyomat:** bekapcsol, újraindítás után tökéletesen működik, de a Központ piros hibát ír („rendszergazdai
-  jóváhagyás kell”). Az `authselect` a valódi gépen hibakóddal tér vissza, miközben átállít (konténerben nem jön elő).
-  **Javítva:** a helper azt nézi, tényleg átállt-e a funkció, a hibaszöveg a naplóba kerül
-- [x] **Visszajelzés még mindig nem ment:** a Cloudflare a Python alapértelmezett User-Agentjét („Python-urllib”)
-  letiltja (403, 1010-es hiba), a kérés el sem jutott a szolgáltatásig. **Javítva:** saját User-Agent (a végponton
-  kipróbálva: eljut a szolgáltatásig). Valódi gépen újra
-- [x] **Buborék a mac-es elrendezésben még mindig bal fent** (a Sloth-fejnél). A szolgáltatás az image-ben van és be van
-  kapcsolva. **Javítva / nyomozás:** a bal felső harmadban figyel (a tálcaikonok kis ablakai kimaradnak), tartalék
-  felismerés a `_NET_WM_PID`-ből, és mindent naplóz (`wine-balloons`: „buborék: …” / „felugró ablak, marad: …”);
-  Xvfb-n kipróbálva. Ha valódi gépen még mindig rossz: Napló mentése, és a `wine-balloons` sorokból kiderül
-- [x] **Üdvözlő újrafuttatása meglévő rendszeren** (kérés): a már telepített appok pipával és „Már telepítve”
-  felirattal (Flatpak: a mappájuk; Windows-program: az .exe kezelő nyilvántartása, Start menüvel), nem települnek
-  újra; a mostani színséma és tálca-elrendezés az alapértelmezett (a Plasma beállításaiból). Az image-ben offscreen
-  kipróbálva
-- [x] Visszajelzés naplóval: megy (#5); ujjlenyomat: rendben
-- [x] **Titkosított telepítés elbukott a 12:52-es ISO-val** („Something went wrong while copying…”): a tegnapi
-  `hide_other_esps` a partíciók sorszámát `lsblk`-kel kérdezte, és a nyitott titkosított réteg (`/dev/mapper/
-  sloth-root`, sorszám nélkül) került a lista elejére → TypeError, a másolás el sem indult (a reggeli ISO-ban ez még
-  nem volt benne). **Javítva:** a sorszám a kerneltől (`/sys/class/block/<partíció>/partition`); loop eszközön,
-  nyitott LUKS-szal kipróbálva. Új ISO
-- [ ] **Telepítési teszt konténerben** (`tools/tests/install/`: `all.sh [full|full-enc|win|win-enc]`, a podman gépen
-  rootként; az élő image-ben, loop-lemezen, az ISO-építés tárolójából; UEFI mímelve). Eredmény 2026-10-21 (14:01-es ISO):
-  - full-enc és full: a telepítés lefut (kb. 12 perc), LUKS2 jelszóval nyílik, nyelv/billentyűzet/időzóna/fiók jó.
-    Az EFI-partíción nem volt rendszerbetöltő, mert UEFI nélkül futott (a mímelt UEFI-s futás még hátravan)
-  - **win és win-enc: lefut, 0 hiba** (2026-10-21 este, Linuxon: `SLOTH_BUILD_DIR=/mnt/adatok/sloth-iso-build
-    SLOTH_TEST_DIR=… all.sh win win-enc`; UEFI mímelve, a helper a repóból): az NTFS 100 → 55 GB-ra zsugorodik, ép,
-    a rajta lévő fájl változatlan; a rendszerbetöltő a saját EFI-partíción, a Windows EFI-partíciója érintetlen, a
-    boot menüben a Windows-bejegyzés, a menü látszik; LUKS2 jelszóval nyílik, crypttab és `rd.luks.uuid` jó; helyi
-    idő. Valódi Windowsos gépen (a Windows elindul-e utána, a boot menü) még kipróbálni
-  - Figyelem: a lemezfájlok a C:-re mennek (a WSL lemeze ritkított, a teszt minden eset után fstrimel); egyszer
-    megtelt a C: (1,4 GB), és a WSL összeomlott. Egy esethez kb. 15 GB szabad hely kell
-- [x] Telepítő hibaoldala: „Napló mentése…” gomb (alapból a bedugott pendrive-ra), a `/tmp` útvonal helyett (50 nyelven)
-- NVIDIA: otthon derül ki; addig a weboldalon „saját felelősségre, még nem tesztelve”. Windows mellé: hamarosan.
-  Steam-átvétel később
+### The test of 2026-10-21 (real machine, reinstalled from the morning ISO, `d43e36f`)
+The ISO was built locally (`out/sloth-os.iso`, 08:33, from the `latest` image, with the installer fix in it).
+1. [x] **Image version:** fresh ISO, the `d43e36f` image
+2. [x] **Welcome interrupted:** continues from there, remembered everything
+3. [x] **Sloth Center on the taskbar**
+4. [x] **Fingerprint + PIN:** the PIN works. For the fingerprint "administrator password needed", and after enrolling,
+   unlocking with a finger does not work. Checked in a container: it is correct (it turns on `with-fingerprint` next to the
+   PIN profile too), but **the login screen's (`plasmalogin`) PAM uses `password-auth`, which has no fingerprint**:
+   after a restart the finger never works, only on the lock screen (`kde-fingerprint`) and for approvals. To clarify:
+   where it was tried (after a restart / Win+L), what the exact message was, and whether the switch stayed on
+5. [x] **Boot menu:** comes up with Esc, the entry is in the system's language (English), it runs
+6. [x] **Feedback:** "Couldn't send it" with a log attached. **Fixed:** Sloth Center cut the log to 500 KB in raw
+   bytes, the service looks at the whole request (576 KB); JSON encoding blew up the non-ASCII characters and the
+   backslashes of Wine logs, so a 413 came back. Now it keeps the encoded request under the limit (tried on the live
+   endpoint: old encoding 413, new 200). The tries are in the feedback repository: #2, #3, #4 (closed). Try again on a real machine
+7. [x] **File backup:** "Back up now" without a password, the Previous versions buttons, restoring: all good. Request: a
+   backup is needed before a reset. **Done:** in "Keep my files" mode the reset makes a saved state by itself (also when
+   started from the boot menu); in "Remove everything" mode a warning (the backups on the machine are deleted too),
+   a Pika Backup button, and you can only go on after ticking "I have saved what I need". Website: FAQ and home page
+   (`sloth-os-linux.github.io`)
+8. [x] **EA app:** installs, it is right in the Start menu, starts from there. **Bug:** at the end of the installer the EA
+   app starts, the installer does not exit until then, and the .exe handler spins ("still downloading a few components")
+   until the EA app is closed from the taskbar. **Fixed:** the end of the install is now watched while the installer runs
+   (if the installed program certainly exists and already runs: done); the still running installer is not killed, it is
+   waited for in the background; Welcome's queue moves on meanwhile (`sloth-exe: queued-done`). Instead of the
+   misleading "download" text, "Finish the installation…" as soon as the installer runs. Try again on a real machine
+9. [x] **Games page:** the upscaling drop-down is right
+10. [x] **Balloon:** in the mac-like layout it still comes from the top left corner (from the "start" button). Likely cause:
+    Wine aligns it inside the work area, below the panel with a top panel, but `wine-balloons` looked for it within
+    64 px of (0,0). **Fixed:** it measures from the work area's corner, with a bigger margin when scaled. Check it in the
+    Windows layout too. WoW Classic starts from Battle.net
+11. [ ] If there is time left: zram is good (22.4 GB compressed reserve with 15 GB of memory); firmware in Discover not
+    yet; Steam takeover later
+- [x] HP laptop with encryption: fine (2026-10-21 afternoon, tried again)
 
-### Teszt a 2026-10-20-i reset után (legújabb image, valódi gép)
-VM-ben előre végignézve (2026-10-20 este, a 13:36-os image, `71b9b89`, titkosított lemez, nyitott hálózat); ami ott
-jó volt, azt valódi gépen elég egyszer megnézni:
-- [x] (2026-10-20 este javítva, lent) **Üdvözlő, megszakítás:** VM-ben (a Steam telepítése közben hirtelen újraindítva): az Üdvözlő az elejéről indul,
-  a választások (nyelv, appok) elvesznek, a már telepített appokat nem jelzi (újra kínálja őket). Újra kiválasztva a
-  már fent lévőket azonnal kipipálja, a többit telepíti; a vége rendben. Működik, de kényelmetlen: lásd lent, hibák
-- [x] **Első .exe friss rendszeren:** VM-ben a Battle.net telepítője 20 mp-en belül megjelent (2026-10-20)
-- [ ] **Battle.net:** VM-ben települ, elindul, a bejelentkező ablak jön; a játék indítása valódi gépen (fiók kell)
-- [ ] **EA app:** VM-ben az Üdvözlőből települ és elindul (2026-10-20). Hibák (javítva, lent): a Start menübe nem
-  került be, a listán a segédprogramok voltak bejelölve. Valódi gépen: a Start menüből indul-e, és az EA app saját
-  frissítése után is (bezáráskor épp frissített: a link már az új verzióra mutatott)
-- [x] **Ubisoft Connect:** VM-ben települ, elindul, nyitva marad (1 perc), a Start menüben helyes a bejegyzés
-- [ ] **Tálcás buborékok:** bejelentkezés nélkül egyik indító sem megy a tálcára; valódi gépen, fiókkal
-- [x] **Frissítések oldal:** VM-ben jó a verzió (Sloth OS 1.0 (Fedora Atomic 44) · dátum), a keresés után
-  „naprakész” (helyesen), az előző verzió visszaállítható; a rendszerfrissítés aláírással megy (`ostree-image-signed`).
-  Az „új verzió van, de naprakészt ír” hibát csak a régi (10-19-i) image mutatta, frissítés előtt
-- [x] **Pillanatképek és „Korábbi verziók”:** VM-ben: „Back up now” után 2 mentett állapot; a felülírt fájl a Dolphin
-  jobb klikk → „Previous versions” → Visszaállítás után az eredeti. Hiba (javítva, lent): a gombokon nem volt szöveg
-- [x] **zram** (Haladó beállítások): VM-ben „Larger” után, újraindítva 7,7 GB → 11,6 GB (8 GB memóriánál)
-- [ ] **Steam-átvétel és átköltözés:** Steam-fiók kell (valódi gépen)
-- [ ] **Firmware:** a Discover Frissítések oldalán látszik-e a BIOS/firmware (fwupd); VM-ben nincs mit nézni
-- [ ] **Sloth Központ a tálcán:** új felhasználónál (a reset után) ott van-e; a már meglévő felhasználóknál nem jelenik
-  meg magától (csak elrendezésváltáskor), a VM-ben így volt
-- [x] **Windows mellé telepítés, VM-ben** (2026-10-20, egy „Windowsos” próbalemezzel: GPT, Windows EFI-partíció
-  `bootmgfw.efi`-vel, MSR, 80 GB-os NTFS 2 GB adattal; a 10-19-i ISO, a javított telepítő-segéddel). Jó: a felismerés
-  („Has Windows on it”, alapból „Next to Windows”, max. 57 GB), a megerősítő oldal, a zsugorítás és a telepítés (fekete
-  kép nélkül), az NTFS ép (a fájlok megvannak), az óra (`adjtime: LOCAL`), a boot menü 5 mp-ig, benne a Windows (a
-  chainloader eléri a Windows indítóját) és az „Alaphelyzetbe állítás”. **Két hiba, javítva:**
-  - A rendszerbetöltő a **Windows EFI-partíciójára** került (a bootupd a lemez első EFI-partícióját választja, nem a
-    felcsatoltat), a sajátunk üres maradt, a boot menü fájljai sehova. Javítva (`sloth-install-helper`,
-    `hide_other_esps`): a telepítés idejére a többi EFI-partíció típusa „Microsoft basic data”, utána vissza
-  - **A boot menü egyetlen gépen sem jött elő** (hibás indítás után sem, Windows mellett sem): a `custom.cfg` a
-    `${cmdpath}`-ot használta, ami a bootupd `configfile`-ja miatt ott üres (a GRUB-konzolban ellenőrizve). Javítva
-    (`grub-custom.cfg`): a saját EFI-partíciót `search --file /EFI/fedora/sloth-boot.env` keresi meg (`sloth_dir`,
-    exportálva a menüpontoknak). A meglévő gépeken a következő image-dzsel frissül (`boot-env ensure-config`)
-- [ ] A telepítő megerősítő oldala mondja meg, hogy zsugorítás után az első Windows-indításkor a Windows átnézi a
-  lemezt (az `ntfsresize` ellenőrzendőnek jelöli; „Meghajtó vizsgálata és javítása”, pár perc, ne kapcsold ki)
-- [ ] Új ISO kell a telepítő javításával (`hide_other_esps`); utána valódi gépen, valódi Windows mellé (tesztelő)
-- Később, ha lesz gép / tesztelő: NVIDIA-s gép (a gamer gépen), BIOS-os gép, nyomtató és szkenner
+#### Second round (2026-10-21 afternoon, with the `5bec760` image)
+- [x] HP + encryption good; reset: the warnings show, everything works; EA installer good;
+  muting: gone; Heroic works with the Epic account
+- [x] **Fingerprint:** turns on, works perfectly after a restart, but Sloth Center shows a red error ("administrator
+  approval needed"). On the real machine `authselect` returns an error code while switching (it does not happen in a container).
+  **Fixed:** the helper checks whether the feature really switched, the error text goes to the log
+- [x] **Feedback still did not go out:** Cloudflare blocks Python's default User-Agent ("Python-urllib")
+  (403, error 1010), the request did not even reach the service. **Fixed:** a custom User-Agent (tried on the endpoint:
+  it reaches the service). Again on a real machine
+- [x] **Balloon in the mac-like layout still at the top left** (at the sloth head). The service is in the image and turned
+  on. **Fixed / investigation:** it watches the top left third (the small windows of tray icons are skipped), a fallback
+  recognition from `_NET_WM_PID`, and it logs everything (`wine-balloons`: "balloon: …" / "popup window, left alone: …");
+  tried on Xvfb. If it is still wrong on a real machine: Save log, and the `wine-balloons` lines will tell
+- [x] **Running Welcome again on an existing system** (request): the already installed apps with a tick and an "Already
+  installed" label (Flatpak: their folder; Windows program: the .exe handler's records, with a Start menu entry), they are
+  not installed again; the current color scheme and taskbar layout are the defaults (from Plasma's settings). Tried
+  offscreen in the image
+- [x] Feedback with a log: works (#5); fingerprint: fine
+- [x] **The encrypted install failed with the 12:52 ISO** ("Something went wrong while copying…"): yesterday's
+  `hide_other_esps` asked for the partition numbers with `lsblk`, and the open encrypted layer (`/dev/mapper/
+  sloth-root`, without a number) came first in the list → TypeError, the copy did not even start (the morning ISO did
+  not have this yet). **Fixed:** the number comes from the kernel (`/sys/class/block/<partition>/partition`); tried on a
+  loop device with an open LUKS. New ISO
+- [x] **Install test in a container** (`tools/tests/install/`: `all.sh [full|full-enc|win|win-enc]`, on the podman machine
+  or on Linux, as root; in the live image, on a loop disk, from the ISO build's storage; UEFI faked). Result 2026-10-21 (14:01 ISO):
+  - full-enc and full: the install runs (about 12 minutes), LUKS2 opens with the password, language/keyboard/time zone/account fine.
+    There was no boot loader on the EFI partition, because it ran without UEFI (the faked UEFI run is still to do)
+  - **win and win-enc: they run, 0 errors** (2026-10-21 evening, on Linux: `SLOTH_BUILD_DIR=/mnt/adatok/sloth-iso-build
+    SLOTH_TEST_DIR=… all.sh win win-enc`; UEFI faked, the helper from the repository): NTFS shrinks from 100 to 55 GB, intact,
+    the file on it unchanged; the boot loader on its own EFI partition, the Windows EFI partition untouched, the
+    Windows entry in the boot menu, the menu is shown; LUKS2 opens with the password, crypttab and `rd.luks.uuid` fine; local
+    time. Still to try on a real Windows machine (whether Windows starts afterwards, the boot menu)
+  - Note: on WSL the disk files go to C: (the WSL disk is sparse, the test runs fstrim after each case); once
+    C: filled up (1.4 GB), and WSL crashed. One case needs about 15 GB of free space
+- [x] The installer's error page: a "Save log…" button (by default onto the plugged-in USB stick), instead of the `/tmp` path (in 50 languages)
+- NVIDIA: will turn out at home; until then the website says "at your own risk, not tested yet". Next to Windows: soon.
+  Steam takeover later
 
-**A VM-teszt hibái (2026-10-20 este)**
-- [x] **Ujjlenyomat és PIN-kód bekapcsolása után a gép nem jutott el a bejelentkező képernyőig** (2026-10-20 este,
-  valódi gépen; VM-ben reprodukálva). Nem a PAM: az authselect minden módosításkor (ujjlenyomat, PIN, céges fiók)
-  újraírja a `/etc/nsswitch.conf`-ot, és `with-altfiles` nélkül kiveszi belőle az `altfiles`-t; Atomic rendszeren a
-  rendszerfelhasználók (a bejelentkező képernyő `plasmalogin` felhasználója is) a `/usr/lib/passwd`-ben vannak, így a
-  bejelentkező képernyő azonnal kilépett („getpwnam_r( "plasmalogin" ) username not found”). Javítva (`sloth-helper`):
-  `keep_altfiles` minden authselect-módosítás után (a `select`-nél eleve), és `sloth-login-repair.service` induláskor,
-  a bejelentkező képernyő előtt, a már elrontott gépeken is. VM-ben: javítás után a bejelentkező képernyő visszajön,
-  és PIN-nel be lehet lépni bekapcsolt ujjlenyomat mellett is. Valódi gépen: ujjlenyomat + PIN újra
-- [x] **EA app: nem került a Start menübe.** Az `EADesktop.exe` kétszer volt a listán (a fő és a `compatibility32`
-  mappából), a bejegyzés neve a fájlnévből készül, így a bejelölt sor létrehozta, a be nem jelölt rögtön törölte.
-  Javítva (`sloth_exe/controller.py`, `confirmShortcuts`): a be nem jelölt sor nem töröl olyat, amit egy bejelölt kér
-- [x] **EA app: a segédprogramok (App Recovery, Error Reporter, Updater) voltak bejelölve, az EADesktop nem.** Nem
-  volt EA recept. Javítva: `ea-app` recept (`recipes.json`, `updated` 2026-10-20; prefer `eadesktop.exe`, a segédek
-  kihagyva); a közös tudás repójába is fel kell tenni (különben az újabb letöltött fájl felülírja)
-- [x] **EA app: a Start menü a verziós mappára mutatott volna** (`EA Desktop\13.809.0.6322\…`), ami az EA app
-  frissítése után eltűnik. Javítva (`detect._via_link`): a verziós út helyett a mellette lévő linken át vezető
-  (`EA Desktop\EA Desktop\EADesktop.exe`); azonos pontszámnál a verziószám nélküli, sekélyebb út nyer. Teszt:
+### Test after the 2026-10-20 reset (latest image, real machine)
+Checked in advance in a VM (2026-10-20 evening, the 13:36 image, `71b9b89`, encrypted disk, open network); what was
+fine there needs to be checked only once on a real machine:
+- [x] (fixed 2026-10-20 evening, below) **Welcome, interruption:** in a VM (restarted suddenly while Steam was installing): Welcome starts from the beginning,
+  the choices (language, apps) are lost, it does not mark the already installed apps (it offers them again). Choosing them again, it ticks
+  the installed ones at once and installs the rest; the end is fine. It works, but it is inconvenient: see below, bugs
+- [x] **First .exe on a fresh system:** in a VM the Battle.net installer appeared within 20 s (2026-10-20)
+- [ ] **Battle.net:** in a VM it installs, starts, the login window comes; starting a game on a real machine (needs an account)
+- [ ] **EA app:** in a VM it installs from Welcome and starts (2026-10-20). Bugs (fixed, below): it did not get into the
+  Start menu, the helper programs were ticked on the list. On a real machine: whether it starts from the Start menu, also
+  after the EA app's own update (when closed it had just updated: the link already pointed to the new version)
+- [x] **Ubisoft Connect:** in a VM it installs, starts, stays open (1 minute), the Start menu entry is right
+- [ ] **Taskbar balloons:** without signing in none of the launchers goes to the taskbar; on a real machine, with an account
+- [x] **Updates page:** in a VM the version is right (Sloth OS 1.0 (Fedora Atomic 44) · date), after a check it says
+  "up to date" (correctly), the previous version can be restored; the system update runs with a signature (`ostree-image-signed`).
+  The "there is a new version, but it says up to date" bug was only shown by the old (10-19) image, before updating
+- [x] **Snapshots and "Previous versions":** in a VM: 2 saved states after "Back up now"; the overwritten file is the original
+  after Dolphin right-click → "Previous versions" → Restore. Bug (fixed, below): the buttons had no text
+- [x] **zram** (Advanced settings): in a VM after "Larger" and a restart 7.7 GB → 11.6 GB (with 8 GB of memory)
+- [ ] **Steam takeover and migration:** needs a Steam account (on a real machine)
+- [ ] **Firmware:** whether the BIOS/firmware shows on Discover's Updates page (fwupd); nothing to check in a VM
+- [ ] **Sloth Center on the taskbar:** whether it is there for a new user (after the reset); for existing users it does not
+  appear by itself (only when changing the layout), that is how it was in the VM
+- [x] **Installing next to Windows, in a VM** (2026-10-20, with a "Windows" test disk: GPT, a Windows EFI partition
+  with `bootmgfw.efi`, MSR, an 80 GB NTFS with 2 GB of data; the 10-19 ISO, with the fixed installer helper). Good: recognition
+  ("Has Windows on it", "Next to Windows" by default, max. 57 GB), the confirmation page, shrinking and installing (without a
+  black screen), NTFS intact (the files are there), the clock (`adjtime: LOCAL`), the boot menu for 5 s, with Windows in it (the
+  chainloader reaches the Windows boot loader) and "Reset this PC". **Two bugs, fixed:**
+  - The boot loader went onto the **Windows EFI partition** (bootupd picks the disk's first EFI partition, not the
+    mounted one), ours stayed empty, the boot menu's files went nowhere. Fixed (`sloth-install-helper`,
+    `hide_other_esps`): for the duration of the install the other EFI partitions' type is "Microsoft basic data", then back
+  - **The boot menu did not come up on any machine** (neither after a failed start nor next to Windows): `custom.cfg` used
+    `${cmdpath}`, which is empty there because of bootupd's `configfile` (checked in the GRUB console). Fixed
+    (`grub-custom.cfg`): our own EFI partition is found by `search --file /EFI/fedora/sloth-boot.env` (`sloth_dir`,
+    exported for the menu entries). Existing machines get it with the next image (`boot-env ensure-config`)
+- [ ] The installer's confirmation page should say that after shrinking, Windows checks the disk on its first start (ntfsresize
+  marks it for checking; "Scanning and repairing drive", a few minutes, do not turn it off)
+- [x] A new ISO with the installer fix (`hide_other_esps`); then on a real machine, next to a real Windows (tester)
+- Later, when there is a machine / tester: an NVIDIA machine (the gaming machine), a BIOS-only machine, printer and scanner
+
+**Bugs of the VM test (2026-10-20 evening)**
+- [x] **After turning on fingerprint and PIN the machine did not get to the login screen** (2026-10-20 evening,
+  real machine; reproduced in a VM). Not PAM: on every change (fingerprint, PIN, work account) authselect
+  rewrites `/etc/nsswitch.conf`, and without `with-altfiles` it removes `altfiles` from it; on an Atomic system the
+  system users (including the login screen's `plasmalogin` user) are in `/usr/lib/passwd`, so the
+  login screen exited at once ("getpwnam_r( "plasmalogin" ) username not found"). Fixed (`sloth-helper`):
+  `keep_altfiles` after every authselect change (at `select` right away), and `sloth-login-repair.service` at startup,
+  before the login screen, also on machines already broken. In a VM: after the fix the login screen comes back,
+  and one can sign in with a PIN with fingerprint turned on too. On a real machine: fingerprint + PIN again
+- [x] **EA app: it did not get into the Start menu.** `EADesktop.exe` was on the list twice (from the main and the `compatibility32`
+  folder), the entry's name is made from the file name, so the ticked row created it and the unticked one deleted it right away.
+  Fixed (`sloth_exe/controller.py`, `confirmShortcuts`): an unticked row does not delete what a ticked one asks for
+- [x] **EA app: the helper programs (App Recovery, Error Reporter, Updater) were ticked, EADesktop was not.** There was
+  no EA recipe. Fixed: the `ea-app` recipe (`recipes.json`, `updated` 2026-10-20; prefer `eadesktop.exe`, the helpers
+  skipped); it must go into the shared knowledge repository too (otherwise the newer downloaded file overrides it)
+- [x] **EA app: the Start menu would have pointed to the versioned folder** (`EA Desktop\13.809.0.6322\…`), which disappears
+  after the EA app updates. Fixed (`detect._via_link`): instead of the versioned path, the one through the link next to it
+  (`EA Desktop\EA Desktop\EADesktop.exe`); with equal scores the shallower path without a version number wins. Test:
   `test_ea_app_versioned_dir`
-- [x] **A Wine mintaprogramjai (Iexplore, Wmplayer, Wordpad) a Start menü-választóban.** Új környezetben a telepítő
-  alatt jönnek létre, ezért „új” .exe-nek látszottak. Javítva: `detect.WINE_BUILTIN` kiszűri őket
-- [x] **„Korábbi verziók” ablak: üres gombok, cím nélküli ablak.** A fordító objektumot a Python eltakarította
-  (`Cannot call method 't' of null` a naplóban). Javítva (`versions.py`): változóban marad
-- [x] **Sloth Központ → Programok → „Program telepítése…”:** a tallózó nem a Letöltések mappában nyílt
-  (`StandardPaths is not defined`). Javítva: `import QtCore` (`WinProgramsPage.qml`)
-- [x] **Sloth Központ → Játékok: a felskálázás legördülője üres.** Az `indexOfValue` a modell betöltése előtt futott.
-  Javítva (`GamesPage.qml`)
-- [x] **Fájlmentés: a „Back up now” jelszót kért** a „csak a kockázatos dolgokhoz” módban is. Döntés (2026-10-20): ne
-  kérjen. Javítva: `sloth-helper-backup` (csak a `snapshot-now`), saját polkit-művelet (`org.slothos.helper.backup`,
-  `allow_active: yes`; mint a Windows Fájlelőzményei). A törlés és a beállítások továbbra is jelszavasak
-- [x] **Üdvözlő megszakítás után** onnan folytatja, ahol tartott (2026-10-20): `welcome-progress.json` (lépés, nyelv,
-  választott appok, megjelenés, jelszó-választás, a kész appok és a Windows-telepítők sora); telepítés közben
-  megszakítva az utolsó kategóriánál, ugyanazzal a választással (a fent lévők azonnal készek); a végén megszakítva
-  újra felajánlja a Windows-telepítőket; a végén törlődik. Offscreen próbával (valódi vezérlő, hamis telepítő)
-  kipróbálva; valódi gépen: a reset után egy újraindítás az Üdvözlő közepén
-- [ ] Üdvözlő, megosztás lépés: „később a Sloth Központban (Windows-programok)” – az oldal neve ma már „Programok”
-- [ ] Rendszer egészség, VM-ben: „Machine Check Exception Logging Daemon” nem indult (a VM-ben nincs MCE); valódi
-  gépen nézni, előjön-e; ha csak VM-ben, a VM-ben ne jelezze
+- [x] **Wine's sample programs (Iexplore, Wmplayer, Wordpad) in the Start menu chooser.** In a new environment they are created
+  while the installer runs, so they looked like "new" .exe files. Fixed: `detect.WINE_BUILTIN` filters them out
+- [x] **"Previous versions" window: empty buttons, a window without a title.** Python cleaned up the translator object
+  (`Cannot call method 't' of null` in the log). Fixed (`versions.py`): it stays in a variable
+- [x] **Sloth Center → Programs → "Install a program…":** the browser did not open in the Downloads folder
+  (`StandardPaths is not defined`). Fixed: `import QtCore` (`WinProgramsPage.qml`)
+- [x] **Sloth Center → Games: the upscaling drop-down is empty.** `indexOfValue` ran before the model was loaded.
+  Fixed (`GamesPage.qml`)
+- [x] **File backup: "Back up now" asked for a password** in the "only for risky things" mode too. Decision (2026-10-20): it should
+  not ask. Fixed: `sloth-helper-backup` (only `snapshot-now`), its own polkit action (`org.slothos.helper.backup`,
+  `allow_active: yes`; like Windows' File History). Deleting and the settings still need a password
+- [x] **Welcome after an interruption** continues where it was (2026-10-20): `welcome-progress.json` (step, language,
+  chosen apps, appearance, password choice, the finished apps and the queue of Windows installers); interrupted while
+  installing: at the last category, with the same choices (the installed ones are done at once); interrupted at the end:
+  it offers the Windows installers again; deleted at the end. Tried offscreen (real controller, fake installer);
+  on a real machine: a restart in the middle of Welcome after the reset
+- [ ] Welcome, sharing step: "later in Sloth Center (Windows programs)" – the page is called "Programs" now
+- [ ] System health, in a VM: "Machine Check Exception Logging Daemon" did not start (a VM has no MCE); check on a real
+  machine whether it comes up; if only in a VM, do not report it in a VM
 
-**Nyitott hibák (kicsik)**
-- [x] Némítás: magától feloldódik (2026-10-20, a `pactl subscribe` + `alsactl monitor` napló alapján). Nem a
-  billentyű: a PipeWire AirPlay-felderítése (`pipewire-config-raop`) a hálózat összes Macjét hangkimenetként vette
-  fel (iskolai Wi-Fi, ~20 eszköz); Wi-Fi-váltáskor és utána pár másodpercenként új kimenetek jöttek, és mindegyik
-  feloldotta a Plasma „mindent némít” állapotát. Javítva: a csomag kikerül az image-ből (`slim-image.sh`).
-  Valódi gépen ellenőrizni a frissítés után: némítás, Wi-Fi ki-be, marad-e némítva
-- [x] Az első .exe telepítése friss rendszeren percekig „töltött” (2026-10-20, valódi gépen, újratelepítés után). Az
-  umu alapból minden indításkor a legújabb UMU-Protont és futtatókörnyezetet keresi, és ha a gyári nem a legújabb,
-  előbb letölti. Javítva (`backend.local_runtime`, `runner.py`): az előtérben a gépen lévő legújabb (vagy a gyári)
-  Proton indul (`PROTONPATH`), a futtatókörnyezetet nem frissíti (`UMU_RUNTIME_UPDATE=0`); a frissítés a háttérben
-  marad (sloth-windows-prepare). Valódi gépen nézni
-- [x] A Sloth Központ alapból a tálcán (a Dolphin és a Discover mellett; új felhasználónál és elrendezésváltáskor)
-- [x] Windows-programok tálcás szövegbuboréka (pl. Battle.net, EA app tálcára kicsinyítéskor) a képernyő bal felső
-  sarkából jött (2026-10-20, valódi gépen). A Wine a buborékot a tálcaikon ablakának közepére teszi, Plasmán ezek a
-  (láthatatlan) ablakok az xembedsniproxy miatt a bal felső sarokban vannak. Javítva: `sloth-wine-balloons.service`
-  (`/usr/libexec/sloth-os/wine-balloons`, libX11 ctypes-szal, eseményekre vár) a Wine explorer.exe-jének oda kerülő
-  felugró ablakait a munkaterület jobb alsó sarkába, a tálcaikonok fölé teszi. Xvfb-n kipróbálva; valódi gépen nézni
-- [x] Sloth Központ, Frissítések: a keresés / telepítés után a Központot újra kellett nyitni, hogy lássa az új verziót
-  vagy a várakozó újraindítást (2026-10-20). Az állapotot a D-Bus proxy gyorsítótárából olvasta, ami csak késve
-  frissült. Javítva: mindig közvetlenül kérdezi (`Properties.Get`), és egy művelet után 2 és 8 mp múlva újra ránéz.
-  Valódi gépen ellenőrizni
-- [x] Naplózaj: 30 másodpercenként „BAT0: chmod … charge_control_*_threshold failed”. A Universal Blue
-  `99-thinkpad-thresholds-udev.rules` szabálya nem nézte, létezik-e a fájl (HP-n nincs). Javítva (2026-10-20):
-  azonos nevű, javított szabály az `/etc/udev/rules.d`-ben (csak ha a fájl létezik; ThinkPadeken ugyanúgy működik)
-- [x] A Sloth Központ magyar rendszeren a legtöbb szöveget angolul írta ki („Updates”, „Open”): a fordítási katalógus
-  a magyarra is ráterítette az angol tartalékot, a Központ hu.json-ja pedig csak néhány sort tartalmaz (ott a
-  magyar szöveg maga a kulcs). Javítva (2026-10-20, `sloth_common/i18n.py`): magyarul nincs angol tartalék
-- [x] **Sloth Központ, Frissítések: „naprakész”, pedig van új verzió** (2026-10-20, valódi gépen): a Központ az
-  rpm-ostree CachedUpdate "ref-has-new-commit" mezőjét nézte, ami konténer-image-nél mindig hamis; ott a
-  "manifest-diff" (hozzáadott / eltávolított rétegek) jelzi az új verziót. Eddig csak a háttérben futó automatikus
-  frissítés hozta le az újat. Javítva (`updates.py`, `update_available`)
-- [x] **rpm-ostree összeomlás frissítés közben** (2026-10-20, valódi gépen: „Bus owner changed … daemon crashed”, a
-  letöltés megszakadt; a naplóban előtte „Forcibly closing transaction due to timeout”, majd core dump a
-  `deploy_transaction_execute`-ban). Ok: a Sloth Központ a tranzakció végén nem bontotta a kapcsolatot (a parancssori
-  rpm-ostree igen), a szolgáltatás 30 mp múlva erővel lezárta, és az ekkor futó újabb művelet összeomlott. Javítva
-  (`rpmostree.py`, `Transaction._close`): a Frissítések, Haladó beállítások, Driverek és a Fejlesztői pult
-  műveleteinél is. Valódi gépen nézni: frissítéskeresés után a naplóban nincs több „Forcibly closing”
-- [x] **Értesítés a háttérben elkészült frissítésről** (2026-10-20, a felhasználó kérésére): az automatikus frissítés
-  csendben előkészítette az új verziót, és úgy tűnt, mintha a frissítés „csak újraindítás után” jönne. Most Plasma-
-  értesítés szól („Elkészült egy frissítés … a következő újraindításkor települ”, „Újraindítás most” gombbal), verziónként
-  egyszer: `sloth-update-notify.path` (`/run/ostree/staged-deployment` változásakor) és bejelentkezéskor
-  (`sloth_center/update_notify.py`). Ál-rpm-ostree-vel kipróbálva; valódi gépen nézni, hogy a path unit elindul-e
-- [x] Bootloop titkosított lemezzel: felhasználói hiba volt, nem a rendszeré (2026-10-20: újra tesztelve, működik)
-- [x] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”). A Kirigami saját szövege, a telepítő
-  nyelvváltását nem követi; kiürítve (a címke ott van), a titkosítás jelszómezőinél is (2026-10-20)
-- [x] Üdvözlő internet nélkül: a „Kihagyom” nem lépett tovább. Nem hiba: az első (böngésző) lépésben választás nélkül
-  szándékosan jön a „Nem választottál böngészőt” kérdés; a VM-ben a gyors, ismételt kattintás nyitotta-zárta
-- [x] „Napló mentése”: angol rendszeren is magyar volt a fájlnév. Most a felület nyelvén, csak ASCII betűkkel (2026-10-20)
-- [x] **Battle.net: megnyílik, ~30 mp múlva bezáródik (kód 3)** (2026-10-20, a program saját naplói alapján):
-  32 bites program, és a rendszeren nem volt egyetlen 32 bites könyvtár sem (a Fedora wine-core-ja csak 64 bites).
-  A futtatókörnyezet a rendszer grafikus driverét adja át a programnak; 32 bitesnél nem volt mit, így nem kapott
-  Vulkant (`VK_KHR_surface` hiányzik, DXVK: „Required instance extensions not supported”), a beépített
-  böngészőmotor GPU-folyamata kilépett, a program összeomlott. A futtatókörnyezet 32 bites segédje sem indult
-  („i386-linux-gnu-capsule-capture-libs … No such file”: a fájl megvan, a `/lib/ld-linux.so.2` hiányzott).
-  Javítva: `mesa-dri-drivers.i686`, `mesa-vulkan-drivers.i686` (gaming.yml; ~400 MB), NVIDIA-n a driver 32 bites
-  része (`nvidia-32bit.sh`, a CI naplójában ellenőrizni). Valószínűleg a többi 32 bites telepítőt is érintette.
-  Mellette: a .exe kezelő hibakóddal, 45 mp-en belül kilépő programot nem jegyez meg „bevált” beállításnak.
-  **Valódi gépen kipróbálva (2026-10-20, ed2bd39 image): a Battle.net elindul, a WoW Classic települ.** Még nézni:
-  a játék indítása a Battle.net-ből
-- [x] **EA app: megoldva** (2026-10-20, valódi gépen: a 8. próbával települt és elindult). A telepítő a fájlokat
-  az `EA Desktop\EA Desktop` mappába másolja, aztán egy saját lépése átnevezi `EA Desktop\<verzió>\EA Desktop`-ra,
-  és a régi helyére linket kér; a Wine 10 ezt nem hozza létre, a következő lépés (a szolgáltatás indítása) pedig
-  ezredmásodperceken belül jön. Javítás: `sloth_exe/stagedlinks.py` – amíg EA-telepítő vagy EA app fut, inotify-jal
-  figyeli a mappát, és az átnevezésre azonnal (~1 ms) Linuxos linket tesz a helyére (a Wine követi); indítás előtt
-  a legújabb verzióra igazítja (az EA app frissítései ugyanígy cserélnek). Próba: `tools/tests/test_stagedlinks.py`.
-  Proton 11-gyel (Wine ≥ 10.19, valódi linkek) a javítás magától feleslegessé válik, nem zavar.
-  **Általánosan, minden programra** (2026-10-20 délután): a Wine 10 minden kihagyott linkkérést kiír a naplóba
-  (`fixme:file:CreateSymbolicLinkW (L"<link>" L"<cél>" …): stub`); az .exe kezelő eddig elnémította (`fixme-all`),
-  most a `file` csatornát visszakapcsolja, és a sort olvasva létrehozza a linket (`stagedlinks.from_log_line`: csak a
-  program környezetén belül, meglévő fájlt nem felülírva, Windowsos kis-nagybetű-kezeléssel). Ez a naplón át pár
-  ezredmásodperccel később ér oda, mint az EA-nál bevált figyelő, ezért az EA-é marad; a többi programnak elég
-  **Még nézni:** az .exe kezelőn át (Üdvözlő / dupla kattintás), egy játék telepítése és indítása, az EA app frissítése
-- [ ] **EA app – a nyomozás** (2026-10-20 délelőtt, valódi gépen, umu-run-nal, részletes naplókkal):
-  - INST-14-1627: az MSI a végén nem tudja elindítani az `EABackgroundService`-t (`service_start returning 2`, a
-    fájl nincs az `…\EA Desktop\EA Desktop\` alatt). Ok: az EA app **szimbolikus linkekkel** települ
-    (`EAX_DISABLE_SYMLINKS="0"`; a fájlok egy verziós mappába, az `EA Desktop\EA Desktop` csak link), és a link Wine
-    alatt nem jön létre. A Lutris ea-app-standard receptje is ezt kerüli meg (a hibakódot sikernek veszi, utána a
-    verziós mappát a helyére mozgatja)
-  - `EAX_DISABLE_SYMLINKS=1` a telepítő parancssorában: a telepítő elfogadja, majd **maga visszaírja 0-ra**
-  - Az MSI kicsomagolható: `EAappInstaller.exe -layout C:\eamsi -quiet` (megvan: EAapp-13.809.0.6322-16067214.msi).
-    Közvetlenül (msiexec, .bat-fájlból, a telepítő összes paraméterével, `EAX_DISABLE_SYMLINKS=1`): a fájlmásolás
-    elindul, de az EA egyik saját lépése (CustomActionData: InstallAction=Install…) 1603-mal leáll
-  - GE-Proton11-11 (`PROTONPATH=GE-Proton`), eredeti telepítő: már az elején, a `JunoInitializeSession` (.NET-es lépés)
-    1603-mal áll meg; előtte `mscoree … installroot`: a környezetben nincs wine-mono
-  - **Az ok** (2026-10-20, utánajárva): a UMU-Proton-10.0-4 Wine 10.0-ra épül, ahol a `CreateSymbolicLinkW` csak
-    csonk: sikert jelez, de nem hoz létre linket (ugyanez a tünet az EA app frissítéseinél is: thewaryfox.com,
-    2026-02-08). A Wine 10.19 óta van linktámogatás (reparse points); a Valve Proton 11.0-2e (2026-10-09) kifejezetten
-    EA app-javításokat is hoz. UMU-Proton 11 még nincs (a legújabb: 10.0-4), GE-Proton11 van (lásd fent, .NET-es lépés)
-  - **Két út:** (A) a hiányzó link pótlása a mi oldalunkon, Protontól függetlenül: telepítés közben egy figyelő
-    Linuxos linket tesz az `EA Desktop\EA Desktop` helyére a verziós mappára (a Wine követi), indítás előtt pedig
-    mindig a legújabb verzióra igazítjuk (az EA app frissítései miatt). Próba: `ea-proba7.sh` (2026-10-20).
-    (B) Proton 11, ha lesz UMU-Proton 11, vagy a GE-Proton11 .NET-es hibája megoldódik
-  - Korábbi ötletek: (1) a Lutris útja: a telepítő hibáját elfogadni, és a verziós mappát a helyére tenni (ehhez
-    tudni kell, hogy a visszavonás előtt hol vannak a fájlok: a rollback előtt megállítani, vagy a fájlmásolás után
-    menteni); (2) GE-Proton 11 wine-monóval (`winetricks`/`mono` a környezetbe), mert ott a linkek talán működnek;
-    (3) a `CustomActionData` lépés saját naplója (EA ProgramData/Logs)
-- [x] **Epic:** az új telepítő (EpicInstaller-20.3.3.exe, a weboldalról) saját aláírás-ellenőrzése Wine alatt elbukik
-  („Certificate CN does not match 'Epic Games Inc.'”). Döntés (2026-10-20): Epic és GOG helyett a Heroic. Az Üdvözlőből
-  kikerült a két Windowsos indító, a Heroic leírása megmondja, miért ezt ajánljuk; aki mégis a Windowsos telepítőt
-  nyitja meg, annak az .exe kezelő is a Heroicot ajánlja (lent)
-- [x] **Teams (MSTeamsSetup.exe):** .NET-es telepítő, Wine alatt (Mono) összeomlik; az új Teams Wine alatt amúgy sem
-  fut. Javítva (2026-10-20): az .exe kezelő felismeri a Linuxos változattal rendelkező népszerű telepítőket
-  (`sloth_common/apps/native.py`, ~40 program, helyi lista, internet nélkül is), és azt ajánlja a Discoverből; a
-  Windowsos telepítés mellette választható marad. Három fajta szöveg: „jobban illeszkedik” (pl. Discord, Chrome),
-  „a Windowsos itt nem működik megbízhatóan” (Teams, Steam), és Epic/GOG -> Heroic, indoklással
-- [ ] EA app, Ubisoft Connect: kell-e nekik `LAUNCHER_STUBS` (a teszt dönti el)
-- [x] `tools/tests/test_apps.py`: 4 teszt elbukott: a /tmp itt tmpfs, oda a könyvtár helyesen nem enged Windows-programot;
-  a teszt átmeneti mappája most lemezen van (`~/.cache`), mind a 30 átmegy (2026-10-20)
+**Open bugs (small)**
+- [x] Mute: it unmutes by itself (2026-10-20, based on a `pactl subscribe` + `alsactl monitor` log). Not the
+  key: PipeWire's AirPlay discovery (`pipewire-config-raop`) added every Mac on the network as a sound output
+  (school Wi-Fi, ~20 devices); on a Wi-Fi change and every few seconds afterwards new outputs came, and each of them
+  lifted Plasma's "mute everything" state. Fixed: the package is removed from the image (`slim-image.sh`).
+  Check on a real machine after the update: mute, Wi-Fi off and on, whether it stays muted
+- [x] Installing the first .exe on a fresh system was "loading" for minutes (2026-10-20, real machine, after reinstalling). By
+  default umu looks for the latest UMU-Proton and runtime on every start, and if the bundled one is not the latest,
+  downloads them first. Fixed (`backend.local_runtime`, `runner.py`): in the foreground the latest Proton on the machine (or the bundled
+  one) starts (`PROTONPATH`), the runtime is not updated (`UMU_RUNTIME_UPDATE=0`); updating stays in the background
+  (sloth-windows-prepare). Check on a real machine
+- [x] Sloth Center on the taskbar by default (next to Dolphin and Discover; for a new user and when changing the layout)
+- [x] The taskbar balloon of Windows programs (e.g. Battle.net, EA app when minimized to the tray) came from the top left
+  corner of the screen (2026-10-20, real machine). Wine puts the balloon in the middle of the tray icon's window; on Plasma these
+  (invisible) windows are in the top left corner because of xembedsniproxy. Fixed: `sloth-wine-balloons.service`
+  (`/usr/libexec/sloth-os/wine-balloons`, libX11 through ctypes, waits for events) moves the popups of Wine's explorer.exe that land there
+  to the bottom right corner of the work area, above the tray icons. Tried on Xvfb; check on a real machine
+- [x] Sloth Center, Updates: after a check / install, Sloth Center had to be reopened to see the new version
+  or the pending restart (2026-10-20). It read the state from the D-Bus proxy's cache, which only updated
+  late. Fixed: it always asks directly (`Properties.Get`), and looks again 2 and 8 s after an operation.
+  Check on a real machine
+- [x] Log noise: every 30 seconds "BAT0: chmod … charge_control_*_threshold failed". Universal Blue's
+  `99-thinkpad-thresholds-udev.rules` did not check whether the file exists (an HP has none). Fixed (2026-10-20):
+  a fixed rule of the same name in `/etc/udev/rules.d` (only if the file exists; it works the same on ThinkPads)
+- [x] On a Hungarian system Sloth Center showed most texts in English ("Updates", "Open"): the translation catalog
+  laid the English fallback over Hungarian too, and Sloth Center's hu.json only had a few lines (back then the
+  Hungarian text itself was the key). Fixed (2026-10-20, `sloth_common/i18n.py`); since 2026-10-21 the keys are English
+  and hu.json is a full translation
+- [x] **Sloth Center, Updates: "up to date" although there is a new version** (2026-10-20, real machine): Sloth Center
+  looked at the "ref-has-new-commit" field of rpm-ostree's CachedUpdate, which is always false for a container image; there
+  "manifest-diff" (added / removed layers) shows the new version. Until then only the automatic background update
+  brought the new one. Fixed (`updates.py`, `update_available`)
+- [x] **rpm-ostree crash during an update** (2026-10-20, real machine: "Bus owner changed … daemon crashed", the
+  download was interrupted; before it in the log "Forcibly closing transaction due to timeout", then a core dump in
+  `deploy_transaction_execute`). Cause: Sloth Center did not close the connection at the end of the transaction (the command-line
+  rpm-ostree does), the service forcibly closed it after 30 s, and a newer operation running then crashed. Fixed
+  (`rpmostree.py`, `Transaction._close`): for the operations of Updates, Advanced settings, Drivers and the Developer panel
+  too. Check on a real machine: after an update check there is no more "Forcibly closing" in the log
+- [x] **A notification about an update prepared in the background** (2026-10-20, at the user's request): the automatic update
+  quietly prepared the new version, and it looked as if the update came "only after a restart". Now a Plasma
+  notification says so ("An update is ready … it installs at the next restart", with a "Restart now" button), once per
+  version: `sloth-update-notify.path` (when `/run/ostree/staged-deployment` changes) and at login
+  (`sloth_center/update_notify.py`). Tried with a fake rpm-ostree; check on a real machine that the path unit starts
+- [x] Boot loop with an encrypted disk: it was a user error, not the system's (2026-10-20: tested again, it works)
+- [x] Installer, account page: the password fields' placeholder is English ("Password"). It is Kirigami's own text and does
+  not follow the installer's language change; emptied (the label is there), for the encryption password fields too (2026-10-20)
+- [x] Welcome without internet: "Skip" did not move on. Not a bug: in the first (browser) step without a choice the
+  "You did not choose a browser" question comes deliberately; in the VM fast repeated clicking opened and closed it
+- [x] "Save log": the file name was Hungarian on an English system too. Now in the interface's language, ASCII letters only (2026-10-20)
+- [x] **Battle.net: opens, closes after ~30 s (code 3)** (2026-10-20, based on the program's own logs):
+  a 32-bit program, and there was not a single 32-bit library on the system (Fedora's wine-core is 64-bit only).
+  The runtime passes the system's graphics driver to the program; for a 32-bit one there was nothing, so it got no
+  Vulkan (`VK_KHR_surface` missing, DXVK: "Required instance extensions not supported"), the built-in
+  browser engine's GPU process exited, and the program crashed. The runtime's 32-bit helper did not start either
+  ("i386-linux-gnu-capsule-capture-libs … No such file": the file exists, `/lib/ld-linux.so.2` was missing).
+  Fixed: `mesa-dri-drivers.i686`, `mesa-vulkan-drivers.i686` (gaming.yml; ~400 MB), on NVIDIA the driver's 32-bit
+  part (`nvidia-32bit.sh`, check in the CI log). It probably affected the other 32-bit installers too.
+  Also: the .exe handler does not remember a setting as "working" for a program exiting with an error code within 45 s.
+  **Tried on a real machine (2026-10-20, ed2bd39 image): Battle.net starts, WoW Classic installs.** Still to check:
+  starting the game from Battle.net
+- [x] **EA app: solved** (2026-10-20, real machine: it installed and started on the 8th try). The installer copies the files
+  into the `EA Desktop\EA Desktop` folder, then one of its own steps renames it to `EA Desktop\<version>\EA Desktop`,
+  and asks for a link in the old place; Wine 10 does not create it, and the next step (starting the service) comes
+  within milliseconds. Fix: `sloth_exe/stagedlinks.py` – while an EA installer or the EA app runs, it watches the folder
+  with inotify, and right after the rename (~1 ms) puts a Linux link in its place (Wine follows it); before starting it
+  points it at the latest version (the EA app's updates switch the same way). Test: `tools/tests/test_stagedlinks.py`.
+  With Proton 11 (Wine ≥ 10.19, real links) the fix becomes unnecessary by itself, it does not get in the way.
+  **In general, for every program** (2026-10-20 afternoon): Wine 10 writes every skipped link request into the log
+  (`fixme:file:CreateSymbolicLinkW (L"<link>" L"<target>" …): stub`); the .exe handler used to silence it (`fixme-all`),
+  now it turns the `file` channel back on, and creates the link by reading the line (`stagedlinks.from_log_line`: only
+  inside the program's environment, never overwriting an existing file, with Windows-style case handling). Through the log
+  this arrives a few milliseconds later than the watcher that worked for EA, so EA keeps its own; for the other programs it is enough
+  **Still to check:** through the .exe handler (Welcome / double-click), installing and starting a game, the EA app's update
+- [ ] **EA app – the investigation** (2026-10-20 morning, real machine, with umu-run, with detailed logs):
+  - INST-14-1627: at the end the MSI cannot start `EABackgroundService` (`service_start returning 2`, the
+    file is not under `…\EA Desktop\EA Desktop\`). Cause: the EA app installs with **symbolic links**
+    (`EAX_DISABLE_SYMLINKS="0"`; the files into a versioned folder, `EA Desktop\EA Desktop` is only a link), and the link is
+    not created under Wine. Lutris' ea-app-standard recipe works around this too (it takes the error code as success, then
+    moves the versioned folder into place)
+  - `EAX_DISABLE_SYMLINKS=1` on the installer's command line: the installer accepts it, then **sets it back to 0 itself**
+  - The MSI can be extracted: `EAappInstaller.exe -layout C:\eamsi -quiet` (got it: EAapp-13.809.0.6322-16067214.msi).
+    Directly (msiexec, from a .bat file, with all of the installer's parameters, `EAX_DISABLE_SYMLINKS=1`): the file copy
+    starts, but one of EA's own steps (CustomActionData: InstallAction=Install…) stops with 1603
+  - GE-Proton11-11 (`PROTONPATH=GE-Proton`), the original installer: it stops right at the start, at `JunoInitializeSession` (a .NET step),
+    with 1603; before that `mscoree … installroot`: the environment has no wine-mono
+  - **The cause** (2026-10-20, looked into): UMU-Proton-10.0-4 is built on Wine 10.0, where `CreateSymbolicLinkW` is only a
+    stub: it reports success but creates no link (the same symptom with the EA app's updates: thewaryfox.com,
+    2026-02-08). Wine has link support since 10.19 (reparse points); Valve's Proton 11.0-2e (2026-10-09) explicitly
+    brings EA app fixes too. There is no UMU-Proton 11 yet (the latest: 10.0-4), there is GE-Proton11 (see above, the .NET step)
+  - **Two ways:** (A) filling in the missing link on our side, independent of Proton: during the install a watcher
+    puts a Linux link to the versioned folder in place of `EA Desktop\EA Desktop` (Wine follows it), and before starting we
+    always point it at the latest version (because of the EA app's updates). Test: `ea-proba7.sh` (2026-10-20).
+    (B) Proton 11, once there is a UMU-Proton 11, or GE-Proton11's .NET problem is solved
+  - Earlier ideas: (1) Lutris' way: accept the installer's error, and put the versioned folder in place (for this one
+    needs to know where the files are before the rollback: stop it before the rollback, or save them after the file
+    copy); (2) GE-Proton 11 with wine-mono (`winetricks`/`mono` into the environment), because links may work there;
+    (3) the `CustomActionData` step's own log (EA ProgramData/Logs)
+- [x] **Epic:** the new installer (EpicInstaller-20.3.3.exe, from the website) fails its own signature check under Wine
+  ("Certificate CN does not match 'Epic Games Inc.'"). Decision (2026-10-20): Heroic instead of Epic and GOG. The two
+  Windows launchers were removed from Welcome, Heroic's description says why we recommend it; whoever opens the Windows
+  installer anyway gets Heroic recommended by the .exe handler too (below)
+- [x] **Teams (MSTeamsSetup.exe):** a .NET installer, it crashes under Wine (Mono); the new Teams does not run under Wine
+  anyway. Fixed (2026-10-20): the .exe handler recognizes popular installers that have a Linux version
+  (`sloth_common/apps/native.py`, ~40 programs, a local list, works without internet too), and recommends that from Discover; the
+  Windows install stays available next to it. Three kinds of text: "fits better" (e.g. Discord, Chrome),
+  "the Windows one does not work reliably here" (Teams, Steam), and Epic/GOG -> Heroic, with the reason
+- [ ] EA app, Ubisoft Connect: whether they need `LAUNCHER_STUBS` (the test decides)
+- [x] `tools/tests/test_apps.py`: 4 tests failed: /tmp is tmpfs here, where the library rightly does not allow Windows programs;
+  the test's temporary folder is on disk now (`~/.cache`), all 30 pass (2026-10-20)
 
-**Később**
-- [ ] (Az 1.0 után; döntés: 2026-10-20) Gyerekfiók és szülői felügyelet. Felmérés (2026-10-20), a mai fájlmentéshez mérve kb. 3–4-szer annyi munka:
-  1. Gyerekfiók (nem rendszergazda) létrehozása a Sloth Központból: kicsi
-  2. Appok korlátozása: malcontent 0.14 (a Fedora 44-ben megvan) – korhatár szerinti szűrés, telepítés tiltása,
-     egyes appok tiltása; a Flatpak (és így az Üdvözlő) betartja, a Discovert ellenőrizni. Saját felület a Sloth
-     Központban (a malcontent-control GNOME-os): közepes
-  3. Képernyőidő és lefekvési idő: a malcontent csak nyilvántart, a kikényszerítés a GNOME-ban van, KDE-n nincs;
-     saját kell (figyelmeztető értesítések, a végén zárolás / kijelentkeztetés, belépés csak a megengedett
-     időben): nagyobb
-  4. Webszűrés: családbarát DNS csak a gyerek fiókjára (vagy a malcontent NSS-modulja), a böngészők saját DNS-ét
-     (DoH) házirenddel kikapcsolni: közepes, sok tesztelés
-  Javasolt sorrend: 1+2+3 egy körben, a webszűrés külön
-  A Sloth Központban addig „Hamarosan” menüpont jelzi (Szülői felügyelet, 2026-10-20)
-- [ ] Saját Flatpak-tároló a GitHubos appoknak (pl. ArtCraft), hogy a Discover frissítse őket
-- [ ] A Proton duplikált másolata helyett hivatkozás (kb. 1,4 GB a lemezen). Terv (2026-10-20): előbb a gépen megnézni,
-  tényleg foglal-e helyet (a `windows-runtime-seed` már `--reflink=auto`-val másol); ha igen, a Proton mappája
-  helyett hivatkozás a gyári példányra (a Proton a saját mappájába nem ír), a futtatókörnyezet (Steam Linux Runtime)
-  másolat marad, mert az umu a helyén frissíti. Kicsi munka
-- [ ] **Visszajelzés a Sloth Központból** (2026-10-20, a felhasználó kérésére). **Élesítve (2026-10-20 este):**
-  - [x] Worker: `POST /v1/feedback` (GitHub issue `feedback` + fajta címkével, a szöveg kódblokkban, napi 5 / cím)
-    és `GET /v1/feedback/log/<id>` (a napló csak a `LOG_TOKEN`-nel, 30 napig, `feedback_logs` tábla). Hamis D1-gyel
-    és GitHubbal kipróbálva, utána élesben is (próba-issue #1: címkék, a napló token nélkül 401, tokennel olvasható)
-  - [x] Sloth Központ: „Visszajelzés” oldal a Rendszer egészség alatt (`feedback.py`, `FeedbackPage.qml`; a napló a
-    `health.write_log`-ból, a vége, max. 500 KB), magyar és angol szöveg. **Még nem futott** (nincs PySide6 a
-    fejlesztői gépen): a következő image-en / VM-ben megnézni
-  - [x] Repó: nyilvános `Sloth-OS-Linux/feedback` (angol README), címkék: `feedback`, `bug`, `idea`, `other`
-  - [x] Élesítés: a `feedback_logs` tábla (`--command`-dal; a `--file` import az OAuth-tokennel jogosultsági hibát ad),
-    `GITHUB_TOKEN` (fine-grained, csak a feedback repó Issues írása; **lejárat előtt cserélni**), `LOG_TOKEN` (a
-    gépen: `/mnt/adatok/sloth-dev/feedback-log-token`), `FEEDBACK_REPO` a `wrangler.toml`-ban, `wrangler deploy`
-  - [x] Fordítás mind az 50 nyelvre (2026-10-20; a többi nyelv gépi minőségű, az anyanyelvi átnézésnél ezt is)
-  - [x] A weboldal GYIK-je: a Sloth Központ → Visszajelzés
-  - [ ] A Központ oldala a következő image-en / VM-ben (még nem futott)
-  - Átnézés itt közösen: `gh issue list -R Sloth-OS-Linux/feedback -l feedback`; a napló:
+**Later**
+- [ ] (After 1.0; decision: 2026-10-20) Child account and parental controls. Survey (2026-10-20), about 3–4 times the work of today's file backup:
+  1. Creating a child account (not an administrator) from Sloth Center: small
+  2. Restricting apps: malcontent 0.14 (it is in Fedora 44) – filtering by age rating, forbidding installs,
+     forbidding single apps; Flatpak (and so Welcome) respects it, Discover to be checked. Our own interface in Sloth
+     Center (malcontent-control is GNOME's): medium
+  3. Screen time and bedtime: malcontent only keeps records, enforcement is in GNOME, there is none on KDE;
+     we need our own (warning notifications, locking / signing out at the end, signing in only in the allowed
+     time): bigger
+  4. Web filtering: a family-friendly DNS only for the child's account (or malcontent's NSS module), turning off the browsers'
+     own DNS (DoH) with a policy: medium, a lot of testing
+  Suggested order: 1+2+3 in one round, web filtering separately
+  Until then a "Coming soon" menu item shows it in Sloth Center (Parental controls, 2026-10-20)
+- [ ] Our own Flatpak repository for the apps from GitHub (e.g. ArtCraft), so Discover updates them
+- [ ] A link instead of the duplicated copy of Proton (about 1.4 GB on disk). Plan (2026-10-20): first check on the machine
+  whether it really takes space (`windows-runtime-seed` already copies with `--reflink=auto`); if so, a link to the bundled
+  copy instead of the Proton folder (Proton does not write into its own folder), the runtime (Steam Linux Runtime)
+  stays a copy, because umu updates it in place. Small work
+- [x] **Feedback from Sloth Center** (2026-10-20, at the user's request). **Live (2026-10-20 evening):**
+  - [x] Worker: `POST /v1/feedback` (a GitHub issue with the `feedback` + kind labels, the text in a code block, 5 a day per address)
+    and `GET /v1/feedback/log/<id>` (the log only with `LOG_TOKEN`, for 30 days, the `feedback_logs` table). Tried with a fake D1
+    and GitHub, then live too (test issue #1: labels, the log 401 without the token, readable with it)
+  - [x] Sloth Center: a "Feedback" page under System health (`feedback.py`, `FeedbackPage.qml`; the log from
+    `health.write_log`, its end, max. 500 KB). Works on a real machine (#5)
+  - [x] Repository: the public `Sloth-OS-Linux/feedback` (English README), labels: `feedback`, `bug`, `idea`, `other`
+  - [x] Going live: the `feedback_logs` table (with `--command`; the `--file` import gives a permission error with the OAuth token),
+    `GITHUB_TOKEN` (fine-grained, only writing Issues of the feedback repository; **replace it before it expires**), `LOG_TOKEN` (on the
+    machine: `/mnt/adatok/sloth-dev/feedback-log-token`), `FEEDBACK_REPO` in `wrangler.toml`, `wrangler deploy`
+  - [x] Translation into all 50 languages (2026-10-20; the other languages are machine quality, also for the native review)
+  - [x] The website's FAQ: Sloth Center → Feedback
+  - Reviewing together here: `gh issue list -R Sloth-OS-Linux/feedback -l feedback`; the log:
     `curl -H "Authorization: Bearer $(cat /mnt/adatok/sloth-dev/feedback-log-token)" <link>`
-- [ ] **Ellenőrzött frissítés jelzés** (2026-10-20, a felhasználó kérésére; kicsi): a Sloth Központ Frissítések
-  oldalán zöld pipa, „Ellenőrzött frissítés ✓ – a rendszer csak a Sloth OS által aláírt frissítéseket fogadja el”
-  (`ostree-image-signed` a futó változat eredeténél); ha nincs bekapcsolva, figyelmeztetés
-- [ ] Céges fiók: Entra ID; a jelszótároló (KWallet) nyitása PIN-nel / ujjlenyomattal (részletek lent, Bejelentkezés)
-- [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
-- [x] Alaphelyzetbe állítás a boot menüből (lent, 8. pont)
-- [ ] (Az 1.0 után; döntés: 2026-10-20) Windows-programok a Discoverben (részletek lent)
+- [ ] **A verified update indicator** (2026-10-20, at the user's request; small): on Sloth Center's Updates
+  page a green tick, "Verified updates ✓ – the system only accepts updates signed by Sloth OS"
+  (`ostree-image-signed` in the running version's origin); if it is not turned on, a warning
+- [ ] Work account: Entra ID; opening the password store (KWallet) with a PIN / fingerprint (details below, Sign-in)
+- [ ] Bringing Steam games into self-healing and the shared knowledge
+- [x] Reset from the boot menu (below, item 8)
+- [ ] (After 1.0; decision: 2026-10-20) Windows programs in Discover (details below)
 
-### Fontos: a 2026-10-16-i teszt még a régi image-dzsel ment
-A tesztelt ISO (`out/sloth-os.iso`) 2026-10-16 08:17-kor készült, amikor a registry `latest` címkéje még a
-2026-10-15 22:31-es image-re (`35e4c9d`) mutatott. A 10-16-i javítások (lent) csak 11:33-kor kerültek a
-`latest`-be; ezért látszott még „Sloth OS 44”, és ezért viselkedett a Battle.net a régi módon. **Új ISO
-csak a mostani fejlesztések pusholása és a CI-build után.** A telepített gépen a futó változat: Sloth Központ →
-Rendszer egészség → Napló mentése (az eleje most a futó image-et is mutatja).
+### Important: the test of 2026-10-16 still ran with the old image
+The tested ISO (`out/sloth-os.iso`) was made on 2026-10-16 at 08:17, when the registry's `latest` tag still pointed to the
+image of 2026-10-15 22:31 (`35e4c9d`). The fixes of 10-16 (below) only got into `latest` at 11:33;
+that is why "Sloth OS 44" still showed, and why Battle.net behaved the old way. **A new ISO
+only after pushing the current work and the CI build.** The version running on the installed machine: Sloth Center →
+System health → Save log (its start now shows the running image too).
 
-### Elkészült 2026-10-19: egységes Windows-alkalmazáskezelés (a 2026-10-16 esti teszt kérései)
-Egységtesztekkel (`tools/tests/test_apps.py`, Linuxon, Qt és Wine nélkül) és a Qt-s modulok betöltésével
-kipróbálva, **valódi gépen még nem**.
-- **Közös alkalmazáskönyvtár** (`sloth_common/apps/`: library, menu, winreg, detect, steam): a .exe kezelő és
-  a Sloth Központ ugyanazt használja (a korábbi kettős mappaolvasás megszűnt)
-- **Látható hely: `~/Applications/<program>/`**: `windows/` (a program Windows-környezete), `.sloth/app.json`
-  (adatok), „Program fájljai” hivatkozás a telepített fájlokra, a mappa ikonja a Dolphinban. A hely a Sloth
-  Központban állítható (csak Linuxos fájlrendszer; NTFS/exFAT/FAT-ra érthető üzenet), a programok
-  áthelyezhetők (a Start menü bejegyzései érvényesek maradnak). A régi helyről
-  (`~/.local/share/sloth-os/windows-programs`) egyszer, átnevezéssel költöznek át (a futó programok maradnak)
-- **Felismerés telepítés után:** a registry „Uninstall” bejegyzéséből a valódi név („Battle.net”), kiadó,
-  verzió, telepítési hely; az indító a parancsikonokból, a registry ikonjából vagy pontozott .exe-kből (a
-  frissítők, hibajelentők, eltávolítók kiesnek; azonos név csak egyszer). A telepítés csak akkor kész, ha a
-  program környezetében már semmi nem fut. Ha nem biztos: „Másik fájl…” tallózó. A végén „Indítás”
-- **Már futó program:** nem indul újra („X már fut”); ha a környezetében más fut (pl. az indító, és egy játékot
-  indít a felhasználó), ahhoz csatlakozik (`runinprefix`), nem vár a végéig
-- **Sloth Központ → Windows-programok:** Indítás, Fájlok, Start menü, Javítás (a megjegyzett indítási
-  beállítások törlése), Újratelepítés, Áthelyezés, „Program telepítése…”, a programok helye
-- **Steam-átvétel:** a Steamhez kézzel hozzáadott Windows-programok (`shortcuts.vdf`) felvétele újratelepítés
-  nélkül: „A Steamen keresztül” (csak bejegyzés, a Steam indítja) vagy „Átvétel” (reflink másolat a Steam
-  környezetéről, onnan a Sloth indítja). A Steam fájljaihoz egyik sem nyúl; a Steam környezetét sosem indítjuk
-  a saját futtatónkkal
-- **Dolphin 128 TB:** a composefs (a rendszer csak olvasható képe, Fedora 42 óta) loop eszköze névtelen
-  kötetként látszott; udev-szabály rejti el (`/usr/lib/udev/rules.d/90-sloth-udisks.rules`), a
-  rendszerpartíció neve „Sloth OS”. Csak megjelenítés, a csatolásokhoz nem nyúl. Valódi gépen ellenőrizni
-- **Napló mentése** (Rendszer egészség): az elején a futó image, a lemezek, a csatolások és a loop eszközök
-- **Epic:** a 32 bites indító helyett a 64 bites kliens indul (mint a Lutrisban)
-- **Fordítások:** az új szövegek mind az 50 nyelven
+### Done 2026-10-19: unified Windows app management (the requests of the 2026-10-16 evening test)
+Tried with unit tests (`tools/tests/test_apps.py`, on Linux, without Qt and Wine) and by loading the Qt modules,
+**not yet on a real machine**.
+- **A shared application library** (`sloth_common/apps/`: library, menu, winreg, detect, steam): the .exe handler and
+  Sloth Center use the same (the earlier double folder reading is gone)
+- **A visible place: `~/Applications/<program>/`**: `windows/` (the program's Windows environment), `.sloth/app.json`
+  (data), a "Program files" link to the installed files, the folder's icon in Dolphin. The place can be set in Sloth
+  Center (only a Linux file system; a clear message for NTFS/exFAT/FAT), the programs
+  can be moved (the Start menu entries stay valid). From the old place
+  (`~/.local/share/sloth-os/windows-programs`) they move over once, with a rename (running programs stay)
+- **Recognition after installing:** from the registry's "Uninstall" entry the real name ("Battle.net"), publisher,
+  version, install location; the launcher from the shortcuts, the registry's icon or scored .exe files (the
+  updaters, crash reporters, uninstallers drop out; the same name only once). The install is only done when nothing
+  runs in the program's environment any more. If it is not certain: a "Another file…" browser. At the end "Start"
+- **An already running program:** does not start again ("X is already running"); if something else runs in its environment (e.g. the launcher, and the user
+  starts a game), it joins that (`runinprefix`), it does not wait until it ends
+- **Sloth Center → Windows programs:** Start, Files, Start menu, Repair (deleting the remembered start
+  settings), Reinstall, Move, "Install a program…", the programs' location
+- **Steam takeover:** adding the Windows programs added to Steam by hand (`shortcuts.vdf`) without
+  reinstalling: "Through Steam" (only an entry, Steam starts it) or "Take over" (a reflink copy of Steam's
+  environment, Sloth starts it from there). Neither touches Steam's files; we never start Steam's environment
+  with our own runner
+- **Dolphin 128 TB:** the loop device of composefs (the system's read-only image, since Fedora 42) showed as a nameless
+  volume; a udev rule hides it (`/usr/lib/udev/rules.d/90-sloth-udisks.rules`), the
+  system partition's name is "Sloth OS". Display only, mounts are not touched. Check on a real machine
+- **Save log** (System health): at its start the running image, the disks, the mounts and the loop devices
+- **Epic:** the 64-bit client starts instead of the 32-bit launcher (as in Lutris)
+- **Translations:** the new texts in all 50 languages
 
-### Elkészült 2026-10-16 (a reggeli teszt hibái, részletek lent, „A reggeli teszt eredménye”)
-Minden pusholva; szimulációval / egységtesztekkel kipróbálva, **valódi gépen még nem** (a 10-16-i ISO-ban még
-nem volt benne, lásd fent).
-- **Üdvözlő:** az appok egyesével, sorban települnek, összesített letöltési mérettel; a végén Újraindítás gomb;
-  a tálca-ikonok frissítése bezáráskor
-- **.exe kezelő:** egy programot csak egyszer telepít (Megnyitás / Újratelepítés); a Battle.net a klienssel indul
-  (az indító kilépésével eddig a kliens is bezárult)
-- **Steam első indítása:** Plasma-értesítés, amíg a Steam letölti magát
-- **Verziószám:** „Sloth OS 1.0 (Fedora Atomic 44)”
+### Done 2026-10-16 (the morning test's bugs, details below, "The morning test's result")
+Everything pushed; tried with simulation / unit tests, **not yet on a real machine** (the 10-16 ISO did not have them
+yet, see above).
+- **Welcome:** the apps install one by one, in order, with the total download size; a Restart button at the end;
+  refreshing the taskbar icons on closing
+- **.exe handler:** installs a program only once (Open / Reinstall); Battle.net starts with the client
+  (until now the client closed too when the launcher exited)
+- **Steam's first start:** a Plasma notification while Steam downloads itself
+- **Version number:** "Sloth OS 1.0 (Fedora Atomic 44)"
 
-### Következő teszt (új ISO a 2026-10-19-i változások CI-buildje után)
-- [x] **Üdvözlő:** 4–5 app egyszerre: sorban, egyesével települnek; a felirat csak „X telepítése…” és a folyamatjelző
-  (2026-10-19 óta méret nélkül, a felhasználó kérésére); nincs dupla sor; a végén Újraindítás, utána az ikonok a tálcán; Újraindítás nélkül is jók-e az ikonok
-- [x] **Steam:** első indításkor jön-e az értesítés („A Steam első indítása”, „x MB letöltve”), eltűnik-e, amikor a
-  Steam megnyílik; utána a `bootstrap_log.txt`. 2026-10-19: működik, jól írja ki
-- [ ] **Battle.net:** telepítés, indítás a Start menüből; nyitva marad-e; bejelentkezés, egy játék telepítése és
-  indítása; a Start menüben csak egy bejegyzés
-- [x] **.exe kezelő:** ugyanazt a telepítőt még egyszer megnyitva „már telepítve van”, a Megnyitás elindítja
-- [x] **Alkalmazáskönyvtár:** a Battle.net telepítés után a `~/Applications/Battle.net/` mappában van (a Dolphinban
-  a program ikonjával, benne a „Program fájljai”); a neve „Battle.net” (nem „Battle Net”); a választólistán egy
-  bejegyzés van bejelölve; az „Indítás” gomb elindítja. Egy telepítő, ami letöltőként kilép (pl. Battle.net,
-  EA app): a .exe kezelő megvárja a tényleges telepítést. A háttérnapló: `~/.cache/sloth-os/apps/<program>/naplo/`
-- [ ] **Már futó program:** a Battle.net futása közben a Start menüből újra elindítva „már fut”; egy játék indítása
-  a Battle.net-ből (és ha van, a Start menüből) a Battle.net futása közben
-- [x] **Sloth Központ → Windows-programok:** Indítás, Fájlok, Start menü, Javítás, Áthelyezés (egy másik mappába,
-  utána indul-e a Start menüből), a hely módosítása egy NTFS-es pendrive-ra (érthető üzenet), Eltávolítás
-- [ ] **Steam-átvétel:** a Steamben kézzel hozzáadott Battle.net megjelenik „A Steamhez hozzáadott programok”
-  között; „A Steamen keresztül” és „Átvétel” is; utána a Steamből is ugyanúgy indul
-- [ ] **Átköltözés:** egy régi helyen (`~/.local/share/sloth-os/windows-programs`) lévő program a frissítés után a
-  `~/Applications` alatt van, és a Start menüből indul
-- [x] **Dolphin:** az Eszközök között nincs névtelen, 128 TB-os meghajtó; a rendszerpartíció neve „Sloth OS”
-- [x] **Napló mentése** (Rendszer egészség): az elején látszik a futó image és a lemezek
-- [x] **Rendszerinformáció:** „Sloth OS 1.0 (Fedora Atomic 44)”
-- [ ] **Nyitott kérdések a 2026-10-19-i ISO tesztjéhez** (a válaszok ide; ami jó, kipipálni). Eddig jó: ujjlenyomat,
-  PIN-kód, a titkosított lemez lakatos jelszókérője (a pöttyök javítva):
-  - [ ] Tömörített memória-tartalék (Haladó beállítások): átállítás után, újraindítás után kiírja-e az új méretet?
-    (még nincs tesztelve)
-  - [x] PIN-kód a zárolási képernyőn (Win+L) is működik, nem csak bejelentkezéskor? Igen, mindenhol
-  - [x] Rendszerinformáció: „Sloth OS 1.0 (Fedora Atomic 44)” látszik? A „Sloth OS 44” a Sloth Központ Frissítések
-    oldalán volt („Jelenlegi verzió”): az rpm-ostree verziócímkéjéből („44.2026…”) készült. Javítva: a rendszerverzió
-    saját os-release-éből (PRETTY_NAME); a még le nem töltött frissítésnél „Sloth OS” + dátum
-  - [x] Üdvözlő, több app egyszerre: sorban, egyesével települnek? Igen; a Vivaldi is feltelepült. A végén az
-    Újraindítás gomb működik
-  - [x] Rendszerfrissítés: volt már? A Frissítések oldalon minden rendben volt? Igen, rendben
-  - [ ] Battle.net újra, a háttér-előkészítés után: előjön-e a saját telepítője (lásd lent a hibáknál); a
-    bootloop miatt (lent) még nem jutott el idáig
-- [ ] A reggeli teszt maradéka: titkosítás, frissítés aláírás-ellenőrzéssel, NVIDIA-s gép, Windows mellé (tesztelő kell)
-- [x] A még nyitott hibák figyelése (2026-10-20: mind megoldva): némítás (melyik gomb: billentyű / tálca ikon; mikor áll vissza: magától, egy
-  értesítés hangjára, hangerő-állításra, bejelentkezéskor?), Discover-frissítés a friss appokra (mit frissített:
-  magát az appot vagy egy kiegészítőt, pl. `GL.default`?), Vivaldi az Üdvözlőből (a hibaüzenet a mentett naplóban)
+### Next test (a new ISO after the CI build of the 2026-10-19 changes)
+- [x] **Welcome:** 4–5 apps at once: they install in order, one by one; the label is only "Installing X…" and the progress bar
+  (without the size since 2026-10-19, at the user's request); no double row; Restart at the end, then the icons on the taskbar; whether the icons are right without Restart too
+- [x] **Steam:** whether the notification comes on the first start ("Steam's first start", "x MB downloaded"), whether it disappears when
+  Steam opens; then `bootstrap_log.txt`. 2026-10-19: it works, it shows it right
+- [ ] **Battle.net:** install, start from the Start menu; whether it stays open; signing in, installing and
+  starting a game; only one entry in the Start menu
+- [x] **.exe handler:** opening the same installer again says "already installed", Open starts it
+- [x] **Application library:** after installing, Battle.net is in the `~/Applications/Battle.net/` folder (in Dolphin
+  with the program's icon, with "Program files" in it); its name is "Battle.net" (not "Battle Net"); on the choice list one
+  entry is ticked; the "Start" button starts it. An installer that exits as a downloader (e.g. Battle.net,
+  EA app): the .exe handler waits for the actual install. The background log: `~/.cache/sloth-os/apps/<program>/naplo/`
+- [ ] **An already running program:** starting it again from the Start menu while Battle.net runs says "already running"; starting a game
+  from Battle.net (and from the Start menu, if there is an entry) while Battle.net runs
+- [x] **Sloth Center → Windows programs:** Start, Files, Start menu, Repair, Move (to another folder,
+  whether it starts from the Start menu afterwards), changing the location to an NTFS USB stick (a clear message), Remove
+- [ ] **Steam takeover:** a Battle.net added to Steam by hand appears among "Programs added to Steam";
+  both "Through Steam" and "Take over"; afterwards it starts from Steam the same way too
+- [ ] **Migration:** a program in the old place (`~/.local/share/sloth-os/windows-programs`) is under
+  `~/Applications` after the update, and starts from the Start menu
+- [x] **Dolphin:** there is no nameless 128 TB drive among the Devices; the system partition's name is "Sloth OS"
+- [x] **Save log** (System health): its start shows the running image and the disks
+- [x] **System information:** "Sloth OS 1.0 (Fedora Atomic 44)"
+- [ ] **Open questions for the test of the 2026-10-19 ISO** (answers here; tick what is fine). Fine so far: fingerprint,
+  PIN, the encrypted disk's padlock password prompt (the dots fixed):
+  - [ ] Compressed memory reserve (Advanced settings): after changing it and restarting, does it show the new size?
+    (not tested yet)
+  - [x] Does the PIN work on the lock screen (Win+L) too, not only at login? Yes, everywhere
+  - [x] System information: does "Sloth OS 1.0 (Fedora Atomic 44)" show? "Sloth OS 44" was on Sloth Center's Updates
+    page ("Current version"): it was made from rpm-ostree's version label ("44.2026…"). Fixed: from the system version's
+    own os-release (PRETTY_NAME); for an update not downloaded yet "Sloth OS" + date
+  - [x] Welcome, several apps at once: do they install in order, one by one? Yes; Vivaldi installed too. The
+    Restart button at the end works
+  - [x] System update: has there been one? Was everything fine on the Updates page? Yes, fine
+  - [ ] Battle.net again, after the background preparation: does its own installer come up (see the bugs below); because
+    of the boot loop (below) it did not get this far yet
+- [ ] The rest of the morning test: encryption, updates with signature verification, an NVIDIA machine, next to Windows (needs a tester)
+- [x] Watching the still open bugs (2026-10-20: all solved): muting (which button: key / tray icon; when does it come back: by itself, on a
+  notification's sound, on changing the volume, at login?), Discover updating the fresh apps (what did it update:
+  the app itself or an extension, e.g. `GL.default`?), Vivaldi from Welcome (the error message in the saved log)
 
-### Elkészült 2026-10-15 délután és éjjel (részletek a fázisoknál)
-Minden pusholva; a nagy részük csak szimulációval és loop eszközön van kipróbálva, **valódi gépen / VM-ben még nem**.
-- **Az első valódi gépes teszt hibái javítva:** élő rendszer nyelve a „Kipróbálom” után, az Üdvözlő állapotszövegei,
-  ikonok telepítés után, Battle.net (lásd lent, „Korábban (2026-10-15)”)
-- **Önjavító futtató a Windows-programokhoz** (2. fázis): felismerés (umu adatbázis, Steam AppID), receptek (Battle.net,
-  Ubisoft Connect, Epic, GOG Galaxy), diagnózis a háttérnaplóból (hiányzó DLL → összetevő, Vulkan-hiba → WineD3D…),
-  öngyógyítás más beállításokkal és Proton-verziókkal (Btrfs-pillanatképpel), visszaállás Proton-frissítés után
-- **Közös tudás** (2. fázis): Cloudflare Worker + D1 (`sloth-os-knowledge.slothos.workers.dev`), nyilvános
-  `Sloth-OS-Linux/sloth-os-knowledge` repó (óránkénti export, havi ProtonDB-alap: 287 játék, napi figyelés);
-  megosztás csak engedéllyel (új lépés az Üdvözlőben, kapcsoló a Sloth Központban); leírás a README-ben
-- **Telepítő** (4. fázis): Windows mellé telepítés (zsugorítás vagy szabad hely, BitLocker / gyors indítás / BIOS
-  felismerése, látható boot menü a Windowszal, helyi idős óra), lemeztitkosítás (LUKS2, külön /boot, jelszókérő a
-  választott kiosztással és lakat ikonnal)
-- **Telepített rendszer:** automatikus NVIDIA-változat (háttérben, értesítéssel, Secure Boot kulccsal), aláírt
-  frissítések (mindkét változat aláírása elfogadva, a régebbi telepítések egyszeri átállítása), boot-sorrend
-  védelme Windows mellett, értesítések a jobb felső sarokban, `sloth-center --page <oldal>`
-- **Fordítások:** minden új szöveg mind az 50 nyelven (Üdvözlő, telepítő, Sloth Központ)
+### Done 2026-10-15 afternoon and night (details at the phases)
+Everything pushed; most of it is only tried with simulation and on a loop device, **not yet on a real machine / in a VM**.
+- **The bugs of the first real-machine test fixed:** the live system's language after "Try", Welcome's status texts,
+  icons after installing, Battle.net (see below, "Earlier (2026-10-15)")
+- **A self-healing runner for Windows programs** (phase 2): recognition (umu database, Steam AppID), recipes (Battle.net,
+  Ubisoft Connect, Epic, GOG Galaxy), diagnosis from the background log (missing DLL → component, Vulkan error → WineD3D…),
+  self-healing with other settings and Proton versions (with a Btrfs snapshot), rollback after a Proton update
+- **Shared knowledge** (phase 2): Cloudflare Worker + D1 (`sloth-os-knowledge.slothos.workers.dev`), the public
+  `Sloth-OS-Linux/sloth-os-knowledge` repository (hourly export, a monthly ProtonDB base: 287 games, daily watching);
+  sharing only with permission (a new step in Welcome, a switch in Sloth Center); described in the README
+- **Installer** (phase 4): installing next to Windows (shrinking or free space, recognizing BitLocker / fast startup / BIOS,
+  a visible boot menu with Windows, a local-time clock), disk encryption (LUKS2, separate /boot, a password prompt with the
+  chosen layout and a padlock icon)
+- **Installed system:** the automatic NVIDIA version (in the background, with a notification, with a Secure Boot key), signed
+  updates (both variants' signatures accepted, switching older installs once), protecting the boot order
+  next to Windows, notifications in the top right corner, `sloth-center --page <page>`
+- **Translations:** every new text in all 50 languages (Welcome, installer, Sloth Center)
 
-### Reggeli teszt (új ISO a mai CI-build után)
-Valódi gépen és/vagy VM-ben; ami nem megy, ide kerüljön vissza hibaként.
-- [x] **Élő rendszer:** nyelvválasztás után „Kipróbálom” → a választott nyelven jön fel az asztal; az értesítések jobb felül
-- [x] **Telepítő, teljes lemez:** sima telepítés; utána ugyanez **titkosítással** (indításkor lakat ikon, a jelszó a
-  választott kiosztással megy, pl. magyarnál a „z”/„y”; rossz jelszó után újra kéri)
-- [ ] **Telepítő, Windows mellé** (VM-ben egy Windowsos lemezzel vagy egy NTFS + EFI-s tesztlemezzel): a felmérés és
-  a csúszka, a magyarázatok (pl. hibernált Windows), a telepítés, a boot menüben a Windows-bejegyzés, a Windows
-  utána is elindul, az óra jó mindkét rendszerben
-- [x] **Első indítás:** csendes boot, rejtett GRUB (Windows mellett látható menü), fiók a telepítőből, Üdvözlő
-- [x] **Üdvözlő:** új „Tapasztalatok megosztása” lépés (igen / nem, a Tovább csak választás után), az appok telepítése
-  (mit tölt le / mit telepít, „x / y MB”), az ikonok rögtön látszanak, a Steam a tálcán ikonnal
-- [x] **.exe kezelő:** Battle.net telepítés és indítás a Start menüből (marad-e futva), egy egyszerű .exe, egy játék;
-  a háttérnapló (2026-10-19 óta `~/.cache/sloth-os/apps/<program>/naplo/`) és a megjegyzett beállítás
+### Morning test (a new ISO after today's CI build)
+On a real machine and/or in a VM; whatever does not work comes back here as a bug.
+- [x] **Live system:** after choosing a language, "Try" → the desktop comes up in the chosen language; notifications at the top right
+- [x] **Installer, whole disk:** a plain install; then the same **with encryption** (a padlock icon at boot, the password works with the
+  chosen layout, e.g. "z"/"y" for Hungarian; after a wrong password it asks again)
+- [ ] **Installer, next to Windows** (in a VM with a Windows disk or an NTFS + EFI test disk): the survey and
+  the slider, the explanations (e.g. hibernated Windows), the install, the Windows entry in the boot menu, Windows
+  still starts afterwards, the clock is right in both systems
+- [x] **First start:** quiet boot, hidden GRUB (a visible menu next to Windows), the account from the installer, Welcome
+- [x] **Welcome:** the new "Sharing experiences" step (yes / no, Next only after a choice), installing the apps
+  (what it downloads / installs, "x / y MB"), the icons show right away, Steam on the taskbar with its icon
+- [x] **.exe handler:** installing Battle.net and starting it from the Start menu (whether it keeps running), a simple .exe, a game;
+  the background log (since 2026-10-19 `~/.cache/sloth-os/apps/<program>/naplo/`) and the remembered setting
   (`~/Applications/<program>/.sloth/app.json`)
-- [x] **Sloth Központ:** Windows-programok oldal (megosztás kapcsoló), Driverek oldal, a többi oldal átnézése
-- [ ] **Frissítések:** egy rendszerfrissítés lemegy-e az aláírás-ellenőrzéssel (`rpm-ostree status`: `ostree-image-signed`);
-  a tesztlaptopon a régi telepítés átáll-e magától (`sloth-signed-updates`)
-- [ ] **NVIDIA-s gépen** (ha van kéznél): magától letölti az NVIDIA-s változatot, értesít, újraindítás után az fut
-- [x] Hol látszik még a „Fedora” vagy a „Universal Blue” név (bejelentkező képernyő, Discover, Rendszerbeállítások)
+- [x] **Sloth Center:** the Windows programs page (sharing switch), the Drivers page, looking through the other pages
+- [ ] **Updates:** whether a system update goes through with signature verification (`rpm-ostree status`: `ostree-image-signed`);
+  whether the old install on the test laptop switches by itself (`sloth-signed-updates`)
+- [ ] **On an NVIDIA machine** (if one is at hand): it downloads the NVIDIA version by itself, notifies, and that runs after a restart
+- [x] Where the names "Fedora" or "Universal Blue" still show (login screen, Discover, System Settings)
 
-### A reggeli teszt eredménye (2026-10-16, valódi gép, pendrive, teljes lemez, titkosítás nélkül)
-Rendben volt: élő rendszer és nyelv, sima telepítés, csendes boot, rejtett GRUB, bejelentkezés, Sloth Központ.
-Hátravan: titkosítás, Windows mellé (ehhez tesztelő kell, nincs Windowsos gép), NVIDIA-s gép.
-Talált hibák (egyesével javítjuk):
-- [x] **Üdvözlő, appok telepítése (nagy hiba):** a folyamat összevissza írja ki az appokat. Ugyanaz az app (pl.
-  a Steam) többször is megjelenik, néha ugyanazzal a mérettel, és nem tudni, hogy csak a kijelzés rossz, vagy
-  tényleg többször tölti le. Kérés: fentről lefelé, egyesével menjen a telepítés. A letöltés mehet párhuzamosan,
-  de a szöveg csak azt írja, hogy „… telepítése”, a letöltést ne említse. Javítva (szimulációval kipróbálva,
-  valódi gépen még tesztelni): az ok az egy közös tranzakció volt (minden kiegészítő az app nevével jelent meg);
-  most appónként külön tranzakció, előtte méretfelmérés, a felirat „X telepítése…”, alatta „330 MB / 430 MB”
-- [x] **Üdvözlő vége:** legyen újraindítás gomb, hogy minden rendesen betöltődjön. Kész (valódi gépen tesztelni):
-  ha települt app, az Újraindítás a fő gomb egy rövid magyarázattal; az „Indulhat a móka!” is megmaradt
-- [x] Az Üdvözlő bezárása után a tálcán még az alap ikonok látszanak az appok ikonjai helyett (újraindítás után jó).
-  Javítva (valódi gépen tesztelni): a tálcára kitűzés előtt `kbuildsycoca6` és ikon-újratöltés jelzés
-  (`/KIconLoader iconChanged`); ha ez sem elég, az Újraindítás gomb megoldja
-- [x] **.exe kezelő (nagy hiba):** ugyanazt a programot kétszer (vagy többször) is engedi telepíteni, és a Start
-  menüben is többször jelenik meg. Javítva (valódi gépen még tesztelni): ha a program már megvan (ugyanaz a név
-  vagy ugyanaz a telepítőfájl), „X már telepítve van.”, Megnyitás (alapból) vagy Újratelepítés ugyanabba a
-  mappába; új mappa (`-2`, `-3`) és új Start menü bejegyzés nem keletkezik. A régi duplák maradnak, kézzel törölhetők
-- [x] A Battle.net továbbra sem indul el, ugyanúgy viselkedik, mint korábban. A közös tudásba nem érkezett adat
-  (a `sloth-os-knowledge` repóban 2026-10-16 reggelig nincs export), megnézni, küld-e jelentést a rendszer.
-  Valószínű ok megvan, javítva (valódi gépen tesztelni): a Proton `waitforexitandrun` módja az előző
-  munkamenetet várja meg indítás előtt, a gyerekfolyamatokat nem, és az umu is csak az elindított folyamatot
-  várja. A „Battle.net Launcher.exe” elindítja a klienst, és kilép, ekkor a futtató leáll, és a kliens ablaka
-  is eltűnik (Steamből azért ment, mert a Steam minden folyamatot megvár). Most a kliens (`Battle.net.exe`)
-  indul közvetlenül (`quirks.launch_target`, mint a Lutris Blizzard-receptjei); az önjavítás adatai a
-  klienshez tartoznak, így a régi, téves „nem működik” bejegyzések nem számítanak
-- [x] .exe kezelő: ha egy program már fut, és a felhasználó újra elindítja, az új indítás a `waitforexitandrun`
-  miatt az előző munkamenet végéig vár („Indítás…”). Javítva (2026-10-19, valódi gépen tesztelni): ha ugyanaz a
-  program fut, „X már fut”; ha a környezetében más fut, ahhoz csatlakozik (`runinprefix`)
-- [ ] Megnézni, a többi indító (EA app, Ubisoft Connect, Epic, GOG Galaxy) is átadja-e a helyét egy másik
-  folyamatnak; ha igen, `quirks.LAUNCHER_STUBS`. Az Epicnél kész (2026-10-19: a 32 bites indító helyett a 64 bites
-  kliens, mint a Lutrisban); az EA app (`EALauncher.exe`) és a Ubisoft Connect (`UbisoftConnect.exe`) a Lutrisban
-  is az indítóval megy, ezeknél a teszt dönt
-- [x] A Steam (Flatpak) nem nyílt meg: kb. 10 mp-ig töltött, utána semmi. Később mégis elindult, épp akkor, amikor
-  a Sloth Központban a Battle.net helyett a „Battle net” bejegyzést adta hozzá a Start menühöz (lehet, hogy
-  véletlen egybeesés, de nagyon sokat kellett várni rá). Valószínű ok: első indításkor a Steam ablak nélkül letölti
-  a saját kliensét. Most a Plasma értesítésben szól erről („A Steam első indítása”, „x MB letöltve”), ha a Steam
-  15 mp alatt nem nyílik meg, és az értesítés eltűnik, amikor a Steam ablaka megjelenik
-  (`sloth_center/steam_first_run.py`, `sloth-steam-first-run.path`). Valódi gépen tesztelni, és megnézni a
-  `~/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/bootstrap_log.txt`-t, hogy tényleg ez volt-e az ok
-- [x] (2026-10-20: nem a titkosítás okozta, megoldva) Titkosított lemezzel telepítve a gép fél óráig a logón állt (2026-10-19-i jelentés). Az image initramfs-e
-  rendben (crypt, systemd-cryptsetup, a Plymouth jelszókérő, lock.png, kiosztások); a logón való végtelen várakozás
-  a jelszókérésre utal (a systemd a jelszóra időkorlát nélkül vár), a kis lakat valószínűleg nem tűnt fel vagy nem
-  látszott. Javítva: nagyobb lakat és beviteli vonal. A következő teszten: látszik-e, és az Esc mit mutat
-- [x] A titkosított lemez jelszókérőjén a beírt karakterek helyén négyzetek (az initramfs betűtípusában nincs „●”).
-  Javítva (2026-10-19): a pöttyök képből (dot.png), nem szövegből
-- [ ] Battle.net telepítése friss (titkosított) telepítés után: 20 percig „Battle.net telepítésének előkészítése…”, a
-  Battle.net saját telepítője nem jött elő (2026-10-19-i teszt). Valószínű ok: a bejelentkezés után 3 perccel induló
-  háttér-előkészítés (`sloth-windows-prepare`, a Proton és a futtatókörnyezet letöltése) „idle” lemezprioritással
-  futott, ami más lemezmunka (appok telepítése, titkosítás) mellett szinte megáll, és az umu csendben megvárta.
-  Javítva: az .exe kezelő indításkor átveszi (leállítja a háttérben futót, és az előtérben, látható haladással
-  folytatja), a háttérben „best-effort” 7-es prioritás; 60 mp csend után „Még dolgozik…” szöveg. A következő teszten
-  figyelni; ha megint így van: Napló mentése (benne a `sloth-windows-prepare` naplója is)
-- [x] (2026-10-20: felhasználói hiba volt, újra tesztelve, működik) **Indítás titkosított lemezzel: a jelszó után a gép újraindul** (2026-10-19 este, a délutáni ISO-ról
-  telepített gépen, nem az első indításnál). A lakatos jelszókérő megjelenik, a jelszó beírása után újra a gép
-  (BIOS) logója jön, majd megint a jelszókérő. A felhasználó újratelepíti. Kérdések: a GRUB menüben (indításkor
-  Esc) az előző bejegyzéssel elindul-e; volt-e előtte rendszerfrissítés vagy NVIDIA-váltás (újraindítás után
-  érvényes változás); megjelenik-e magától a GRUB menü a sikertelen indítás után. A felhasználó szerint előtte
-  volt egy „újraindítás / bejelentkezés után érvényes” változás, nem emlékszik, melyik; a Haladó beállításokban
-  nem állított semmit. Újratelepítés friss ISO-ról.
-  VM-teszt (2026-10-19 este, a 20:30-as ISO, magyar kiosztás, titkosítás): telepítés, első indítás (lakat, pöttyök,
-  bejelentkező képernyő), Üdvözlőben automatikus bejelentkezés, Újraindítás, jelszó: egyből az asztal. Bootloop
-  nem jött elő; a VM-ben nincs NVIDIA és nem volt rendszerfrissítés, a valódi gépen ezeket figyelni
-- [x] **Telepítő: a végén fekete képernyő az „Újraindítás” oldal helyett** (VM-teszt 2026-10-19). A telepítés
-  lement, de a munkapartíció törlésekor (`finish_partitions`) a systemd leállította a `var-tmp.mount`-ot, vele a
-  `basic.target`-et (RequiresMountsFor=/var/tmp) és az élő asztalt, a telepítővel együtt. Ok: a munkapartíció bind
-  mounttal volt a /var/tmp fölött, így a var-tmp.mount a partícióhoz kötődött. Javítva: overlayként csatoljuk
-  (a systemd szerint a forrás „overlay”, nem a partíció; VM-ben kipróbálva), új ISO kell hozzá. A 20:30-as ISO-val
-  is jó a telepítés: ha 90% után elsötétül a kép, 2 perc várakozás után a bekapcsológombbal újra lehet indítani
-- [x] Telepítő, fiók oldal: a jelszómezők helykitöltője angol („Password”); javítva 2026-10-20 (lásd fent)
-- [x] **A frissítés „Something went wrong”-gal elbukott** (2026-10-19 este, a HP-n, két újraindítás után is): a CI
-  egy új push esetén megszakította a futó buildet, amely addigra már feltöltötte a `latest`-et, de aláírni nem tudta;
-  az aláíratlan `latest`-et az aláírás-ellenőrzéssel frissítő gépek elutasítják. Javítva: a main ágon a futó build
-  nem szakad meg (`cancel-in-progress` csak PR-nél); a Sloth Központ erre a hibára érthető üzenetet ír
-  („A legújabb frissítés még nem érhető el…”)
-- [x] **.exe kezelő: egyetlen Windows-program telepítése sem indult** (2026-10-19 este, valódi gép, nem titkosított
-  telepítés): a „Still working…” fél óráig forgott. A napló szerint a Proton és a futtatókörnyezet 1 perc alatt
-  lejött; a telepítés indításakor `AttributeError: 'App' object has no attribute 'slug'` (runner.py, a délelőtti
-  alkalmazáskönyvtár-átalakítás maradéka, a `program.slug` helyett `program.id`). Javítva, és a futtató indításának
-  bármilyen váratlan hibája most hibaoldalt mutat, nem forog tovább. Füstpróba Qt-vel kipróbálva
-- [x] .exe kezelő: egy félbemaradt telepítés (a telepítő nem futott le, csak a mappa és a recept beállítása jött
-  létre) „már telepítve” volt, az Open nem indított semmit. Most csak a kész telepítés számít (Start menü bejegyzés
-  vagy a felismerés adata); a félbemaradt mappába az új telepítés kerül, nem duplázódik
-- [x] A Sloth Központ „Napló mentése” fájlneve magyar (`sloth-os-naplo.txt`), angol rendszeren is; javítva 2026-10-20 (lásd fent)
-- [x] `tools/tests/test_apps.py`: 4 teszt elbukik ezen a gépen (a 2026-10-19-i javítás előtt is), megnézni; javítva 2026-10-20 (lásd fent)
-- [x] **Proton és Steam Runtime gyárilag az image-ben** (2026-10-19, a felhasználó kérése): UMU-Proton-10.0-4 és
-  a Steam Linux Runtime (sniper 3.0.20261007.263965) rögzítve, ellenőrzőösszeggel (`files/scripts/windows-runtime.sh`,
-  `/usr/share/sloth-os/windows-runtime`, 2,2 GB kicsomagolva). Első használatkor a `windows-runtime-seed` a
-  felhasználó mappájába másolja (az .exe kezelő „Első indítás előkészítése…” lépése és a sloth-windows-prepare),
-  utána az umu internet nélkül is indul, és a háttérben frissít. Helyben kipróbálva (bemásolás, pv-verify: OK);
-  valódi gépen tesztelni: friss telepítés, internet nélkül egy .exe. Az ISO mérete: a végén az összevonással
-  (`SLOTH_SQUASH=1`) és ha kell, máshogy csökkenteni
-  - [ ] Később: gyári sablon-környezet a leggyakoribb összetevőkkel (pl. vcrun2022), ha a tesztek szerint kell
-- [x] Üdvözlő internet nélkül: az app-oldalakon a „Kihagyom” nem lép tovább (VM, 2026-10-19); nem hiba (lásd fent)
-- [x] A némítás gomb elnémít, de nem marad úgy: a hangerő visszaáll a korábbira, valami felülírja. 2026-10-19:
-  megint előjött; a némítás szinte azonnal feloldódik, amint bármelyik gombot megnyomja (billentyűzet).
-  Az ok az AirPlay-felderítés volt (lásd fent, „Nyitott hibák”, 2026-10-20)
-- [x] **Dolphin, Eszközök: a névtelen, 128 TB-os meghajtó** (2026-10-19 este, a felhasználó képei és a mentett
-  napló alapján): nem loop eszköz (a gépen nincs), hanem maga a rendszer gyökere, a /-re csatolt composefs overlay.
-  A KDE Solid az overlay csatolások közül szándékosan mutatja a /-re csatoltat (élő rendszerekhez), és csak az
-  /etc/fstab `x-gvfs-hide` opciójával rejthető el (upstream nincs rá javítás). Javítva:
-  `sloth-hide-root-overlay.service` pótolja a `composefs / overlay ro,noauto,x-gvfs-hide 0 0` sort (a meglévő
-  gépeken is). VM-ben kipróbálva: `StorageAccess.ignored = true`, újraindítás után a systemd-remount-fs rendben.
-  A 128 TiB a „Tulajdonságok” rekurzív mérete, benne a /proc/kcore virtuális méretével. Mellette a rendszerpartíció
-  „root” néven látszott (a Dolphin a fájlrendszer címkéjét mutatja, az udev-név nem hat): az új telepítő „Sloth OS”
-  címkét ad; a korábbi telepítéseken marad a „root”
-- [x] **A sikeres indítás jelzése titkosított lemezen nem működött** (VM, 2026-10-19): a `boot-env` a
-  /dev/mapper/… gyökér szülőjét (a partíciót) vette lemeznek, „Nincs EFI partíció.”, a sloth-boot-ok.service
-  hibás, így minden indításnál előjött volna a boot menü. Javítva: a lemez az ősláncból (`lsblk -s`)
-- [x] Dolphin, Eszközök: az SSD mérete 128 TB-nak látszik. Első javítás (2026-10-19, nem elég, lásd fent): a
-  névtelen bejegyzés a composefs (a Fedora 42 óta csak olvasható rendszerkép) loop eszköze volt; a 128 TB
-  valószínűleg a /proc/kcore virtuális mérete a gyökér méretszámításában. Udev-szabály rejti el
-  (`90-sloth-udisks.rules`), a rendszerpartíció neve „Sloth OS”. Ha a teszten mégis látszik: Napló mentése, az
-  elején a lemezek és a loop eszközök
-- [x] (2026-10-20: hibás alapcsomag-frissítés volt, megoldva) A Discover az Üdvözlőből épp most telepített appokat (pl. a Steamet) is frissítette (megnézni, miért).
-  Valószínű ok (2026-10-19): az alap image automatikus app-frissítője (`flatpak-system-update.timer`, 2 perccel a
-  bekapcsolás után) az Üdvözlő alatt futott. Most kimarad, amíg az Üdvözlő fut; a teszten figyelni.
-  2026-10-19-i teszt: a felhasználó szerint csak valami Fedora-alapcsomagot frissített (valószínűleg egy
-  Flatpak-futtatókörnyezetet, pl. a Fedora Platformot vagy a `GL.default`-ot), az appokat nem; így rendben van
-- [x] A rendszer neve „Sloth OS 44” (a Fedora verziószáma látszik): a Sloth OS saját verziószámot kapjon (pl. 1),
-  és valahol (pl. a Rendszerinformációban) jelenjen meg, hogy Fedora Atomic alapú. Kész (valódi gépen
-  megnézni): „Sloth OS 1.0 (Fedora Atomic 44)” (`branding.sh`: VERSION, PRETTY_NAME; a VERSION_ID marad 44;
+### The morning test's result (2026-10-16, real machine, USB stick, whole disk, without encryption)
+Fine: the live system and its language, a plain install, quiet boot, hidden GRUB, login, Sloth Center.
+Still to do: encryption, next to Windows (needs a tester, there is no Windows machine), an NVIDIA machine.
+Bugs found (we fix them one by one):
+- [x] **Welcome, installing apps (big bug):** the process shows the apps all over the place. The same app (e.g.
+  Steam) appears several times, sometimes with the same size, and one cannot tell whether only the display is wrong, or
+  it really downloads it several times. Request: install from top to bottom, one by one. Downloading may go in parallel,
+  but the text only says "Installing …", it should not mention the download. Fixed (tried with simulation,
+  still to test on a real machine): the cause was a single shared transaction (every extension showed with the app's name);
+  now a separate transaction per app, a size survey before it, the label "Installing X…", below it "330 MB / 430 MB"
+- [x] **The end of Welcome:** there should be a restart button, so everything loads properly. Done (test on a real machine):
+  if an app was installed, Restart is the main button with a short explanation; "Let the fun begin!" stays too
+- [x] After closing Welcome, the taskbar still shows the generic icons instead of the apps' icons (fine after a restart).
+  Fixed (test on a real machine): before pinning to the taskbar, `kbuildsycoca6` and an icon reload signal
+  (`/KIconLoader iconChanged`); if that is not enough either, the Restart button solves it
+- [x] **.exe handler (big bug):** it lets the same program be installed twice (or more), and it appears in the Start
+  menu several times too. Fixed (still to test on a real machine): if the program already exists (the same name
+  or the same installer file), "X is already installed.", Open (by default) or Reinstall into the same
+  folder; no new folder (`-2`, `-3`) and no new Start menu entry is made. The old duplicates stay, they can be deleted by hand
+- [x] Battle.net still does not start, it behaves the same as before. No data arrived in the shared knowledge
+  (no export in the `sloth-os-knowledge` repository until the morning of 2026-10-16), check whether the system sends reports.
+  The likely cause is found and fixed (test on a real machine): Proton's `waitforexitandrun` mode waits for the previous
+  session before starting, not for the child processes, and umu also only waits for the started process.
+  "Battle.net Launcher.exe" starts the client and exits; then the runner stops, and the client's window
+  disappears too (from Steam it worked because Steam waits for every process). Now the client (`Battle.net.exe`)
+  starts directly (`quirks.launch_target`, like Lutris' Blizzard recipes); the self-healing data belongs to the
+  client, so the old, mistaken "does not work" entries do not count
+- [x] .exe handler: if a program already runs and the user starts it again, because of `waitforexitandrun` the new start
+  waits until the previous session ends ("Starting…"). Fixed (2026-10-19, test on a real machine): if the same
+  program runs, "X is already running"; if something else runs in its environment, it joins that (`runinprefix`)
+- [ ] Check whether the other launchers (EA app, Ubisoft Connect, Epic, GOG Galaxy) also hand over to another
+  process; if so, `quirks.LAUNCHER_STUBS`. Done for Epic (2026-10-19: the 64-bit client instead of the 32-bit
+  launcher, as in Lutris); the EA app (`EALauncher.exe`) and Ubisoft Connect (`UbisoftConnect.exe`) run with the launcher in Lutris
+  too, for these the test decides
+- [x] Steam (Flatpak) did not open: it loaded for about 10 s, then nothing. Later it started after all, just when
+  the user added the "Battle net" entry instead of Battle.net to the Start menu in Sloth Center (it may be
+  a coincidence, but it took very long). Likely cause: on its first start Steam downloads its own client
+  without a window. Now a Plasma notification says so ("Steam's first start", "x MB downloaded") if Steam does not
+  open within 15 s, and the notification disappears when Steam's window appears
+  (`sloth_center/steam_first_run.py`, `sloth-steam-first-run.path`). Test on a real machine, and check
+  `~/.var/app/com.valvesoftware.Steam/.local/share/Steam/logs/bootstrap_log.txt` to see whether this really was the cause
+- [x] (2026-10-20: not caused by encryption, solved) Installed with an encrypted disk, the machine sat on the logo for half an hour (report of 2026-10-19). The image's initramfs is
+  fine (crypt, systemd-cryptsetup, the Plymouth password prompt, lock.png, layouts); waiting forever on the logo
+  points to the password prompt (systemd waits for the password without a timeout), the small padlock probably went unnoticed or was not
+  visible. Fixed: a bigger padlock and an input line. At the next test: whether it shows, and what Esc shows
+- [x] On the encrypted disk's password prompt squares showed in place of the typed characters (the initramfs font has no "●").
+  Fixed (2026-10-19): the dots come from an image (dot.png), not from text
+- [ ] Installing Battle.net after a fresh (encrypted) install: "Preparing the Battle.net installation…" for 20 minutes, the
+  Battle.net installer itself did not come up (test of 2026-10-19). Likely cause: the background preparation starting 3 minutes
+  after login (`sloth-windows-prepare`, downloading Proton and the runtime) ran with the "idle" disk priority,
+  which almost stops next to other disk work (installing apps, encryption), and umu quietly waited for it.
+  Fixed: the .exe handler takes it over at the start (stops the one running in the background, and continues in the foreground,
+  with visible progress), in the background "best-effort" priority 7; after 60 s of silence a "Still working…" text. Watch
+  at the next test; if it happens again: Save log (with the `sloth-windows-prepare` log in it)
+- [x] (2026-10-20: it was a user error, tested again, it works) **Starting with an encrypted disk: after the password the machine restarts** (2026-10-19 evening, on a machine installed
+  from the afternoon ISO, not on the first start). The padlock password prompt appears, after typing the password the machine's
+  (BIOS) logo comes again, then the password prompt again. The user reinstalls. Questions: does it start with the previous
+  entry in the GRUB menu (Esc at boot); was there a system update or an NVIDIA switch before (a change that takes
+  effect after a restart); does the GRUB menu appear by itself after the failed start. According to the user there
+  was a change "effective after a restart / login" before, they do not remember which; they did not change anything in
+  the Advanced settings. Reinstall from a fresh ISO.
+  VM test (2026-10-19 evening, the 20:30 ISO, Hungarian layout, encryption): install, first start (padlock, dots,
+  login screen), automatic login in Welcome, Restart, password: straight to the desktop. The boot loop
+  did not come up; the VM has no NVIDIA and there was no system update, watch these on the real machine
+- [x] **Installer: a black screen at the end instead of the "Restart" page** (VM test 2026-10-19). The install
+  went through, but when deleting the work partition (`finish_partitions`) systemd stopped `var-tmp.mount`, and with it
+  `basic.target` (RequiresMountsFor=/var/tmp) and the live desktop, installer included. Cause: the work partition was
+  bind-mounted over /var/tmp, so var-tmp.mount was bound to the partition. Fixed: it is mounted as an overlay
+  (according to systemd the source is "overlay", not the partition; tried in a VM), needs a new ISO. With the 20:30 ISO
+  the install is fine too: if the screen goes dark after 90%, after waiting 2 minutes the power button restarts it
+- [x] Installer, account page: the password fields' placeholder is English ("Password"); fixed 2026-10-20 (see above)
+- [x] **The update failed with "Something went wrong"** (2026-10-19 evening, on the HP, even after two restarts): on a new
+  push CI cancelled the running build, which by then had already pushed `latest`, but could not sign it;
+  the machines updating with signature verification reject the unsigned `latest`. Fixed: on the main branch a running build
+  is not cancelled (`cancel-in-progress` only for PRs); Sloth Center shows a clear message for this error
+  ("The latest update is not available yet…")
+- [x] **.exe handler: not a single Windows program install started** (2026-10-19 evening, real machine, unencrypted
+  install): "Still working…" spun for half an hour. According to the log Proton and the runtime were downloaded within
+  1 minute; when starting the install `AttributeError: 'App' object has no attribute 'slug'` (runner.py, a leftover of the
+  morning's application library rework, `program.id` instead of `program.slug`). Fixed, and any unexpected error
+  while starting the runner now shows an error page instead of spinning on. Smoke test with Qt
+- [x] .exe handler: an unfinished install (the installer did not run to the end, only the folder and the recipe's setting were
+  created) was "already installed", Open started nothing. Now only a finished install counts (a Start menu entry
+  or the recognition's data); the new install goes into the unfinished folder, no duplicate
+- [x] Sloth Center's "Save log" file name is Hungarian (`sloth-os-naplo.txt`), on an English system too; fixed 2026-10-20 (see above)
+- [x] `tools/tests/test_apps.py`: 4 tests fail on this machine (before the 2026-10-19 fix too), check it; fixed 2026-10-20 (see above)
+- [x] **Proton and Steam Runtime in the image from the factory** (2026-10-19, the user's request): UMU-Proton-10.0-4 and
+  the Steam Linux Runtime (sniper 3.0.20261007.263965) pinned, with checksums (`files/scripts/windows-runtime.sh`,
+  `/usr/share/sloth-os/windows-runtime`, 2.2 GB unpacked). On first use `windows-runtime-seed` copies them into the
+  user's folder (the .exe handler's "Preparing the first start…" step and sloth-windows-prepare),
+  afterwards umu starts without internet too, and updates in the background. Tried locally (copying, pv-verify: OK);
+  test on a real machine: a fresh install, an .exe without internet. The ISO's size: at the end with squashing
+  (`SLOTH_SQUASH=1`) and, if needed, reduce it otherwise
+  - [ ] Later: a factory template environment with the most common components (e.g. vcrun2022), if the tests say it is needed
+- [x] Welcome without internet: "Skip" does not move on on the app pages (VM, 2026-10-19); not a bug (see above)
+- [x] The mute button mutes, but it does not stay that way: the volume comes back to the previous one, something overrides it. 2026-10-19:
+  it came up again; muting lifts almost immediately as soon as any button is pressed (keyboard).
+  The cause was AirPlay discovery (see above, "Open bugs", 2026-10-20)
+- [x] **Dolphin, Devices: the nameless 128 TB drive** (2026-10-19 evening, based on the user's pictures and the saved
+  log): not a loop device (the machine has none), but the system's root itself, the composefs overlay mounted on /.
+  Of the overlay mounts KDE Solid deliberately shows the one mounted on / (for live systems), and it can only be hidden with the
+  `x-gvfs-hide` option in /etc/fstab (there is no upstream fix). Fixed:
+  `sloth-hide-root-overlay.service` adds the line `composefs / overlay ro,noauto,x-gvfs-hide 0 0` (on existing
+  machines too). Tried in a VM: `StorageAccess.ignored = true`, after a restart systemd-remount-fs is fine.
+  The 128 TiB is the recursive size in "Properties", including the virtual size of /proc/kcore. Besides, the system partition
+  showed under the name "root" (Dolphin shows the file system's label, the udev name has no effect): the new installer gives it a
+  "Sloth OS" label; on earlier installs "root" stays
+- [x] **Reporting a successful start did not work on an encrypted disk** (VM, 2026-10-19): `boot-env` took the parent of the
+  /dev/mapper/… root (the partition) as the disk, "No EFI partition.", sloth-boot-ok.service
+  failed, so the boot menu would have come up on every start. Fixed: the disk from the chain of ancestors (`lsblk -s`)
+- [x] Dolphin, Devices: the SSD's size shows as 128 TB. First fix (2026-10-19, not enough, see above): the
+  nameless entry was the loop device of composefs (the read-only system image since Fedora 42); the 128 TB
+  is probably the virtual size of /proc/kcore in the root's size calculation. A udev rule hides it
+  (`90-sloth-udisks.rules`), the system partition's name is "Sloth OS". If it still shows at the test: Save log, at its
+  start the disks and the loop devices
+- [x] (2026-10-20: it was a faulty base package update, solved) Discover also updated the apps just installed from Welcome (e.g. Steam) (check why).
+  Likely cause (2026-10-19): the base image's automatic app updater (`flatpak-system-update.timer`, 2 minutes after
+  power-on) ran during Welcome. Now it is skipped while Welcome runs; watch at the test.
+  Test of 2026-10-19: according to the user it only updated some Fedora base package (probably a
+  Flatpak runtime, e.g. the Fedora Platform or `GL.default`), not the apps; so it is fine
+- [x] The system's name is "Sloth OS 44" (Fedora's version number shows): Sloth OS should get its own version number (e.g. 1),
+  and somewhere (e.g. in System information) it should show that it is based on Fedora Atomic. Done (check on a real
+  machine): "Sloth OS 1.0 (Fedora Atomic 44)" (`branding.sh`: VERSION, PRETTY_NAME; VERSION_ID stays 44;
   `/etc/xdg/kcm-about-distrorc`: UseOSReleaseVersion)
 
-### Teendők fontossági sorrendben
-**Publikálás előtt kötelező:**
-1. [ ] **A fenti teszt végig, és a talált hibák javítása.** Sok nagy új funkció van, amit csak szimulációval
-   próbáltunk ki; publikálás előtt mindnek valódi gépen kell működnie. A reggeli teszt hibáiból még nyitott
-   (sorrendben): némítás (a hangerő visszaáll; a mi kódunk nem nyúl a hangerőhöz, valódi gépen kell megfigyelni),
-   Discover-frissítés a friss appokra, a többi indító ellenőrzése (`LAUNCHER_STUBS`). A Dolphin 128 TB és az
-   újraindítás futó programnál javítva (2026-10-19), a teszten ellenőrizni
-2. [ ] **Régi (BIOS-os) gépek** (az 1.0 után; döntés: 2026-10-20, az 1.0 csak UEFI)**:** elindul-e a pendrive BIOS-módban, telepítés BIOS-os gépre (a teljes lemezes
-   telepítésnél a BIOS boot partíció már megvan); Windows mellé BIOS-on maradhat „nem támogatott” magyarázattal
-3. [ ] **A repó publikussá tétele** és a napi automatikus build visszakapcsolása (`.github/workflows/build.yml`). Ettől függ:
-   a telepített gépek bejelentkezés nélkül kapnak frissítést (most a privát registry miatt nem), és a telepítő
-   `--skip-fetch-check` nélkül is ellenőrizheti a frissítések elérhetőségét.
-   - [x] Titkok és személyes adatok a repó teljes történetében (2026-10-19): gitleaks (113 commit, minden ág):
-     nincs találat; kézi keresés (e-mail, név, gépnév, saját útvonalak, IP-címek, kulcsok): minden commit a GitHub
-     noreply címével; a `deploy-vm.sh` (`0fede6b`) csak egy VM-belső címet tartalmaz (`10.0.2.100`); az
-     `SB_PASSWORD = "universalblue"` a Universal Blue nyilvános Secure Boot jelszava. A képekben nincs személyes
-     metaadat; a `docs/branding/logo-source.png` C2PA-jelölése csak annyit mond, hogy MI-vel készült
-4. [ ] **ISO-tárhely és letöltés:** a GitHub kiadásaiba fájlonként legfeljebb 2 GB tölthető fel, az ISO 5,6 GB;
-   ingyenes tárhely kell (pl. Cloudflare R2, 10 GB-ig ingyenes) ellenőrzőösszeggel és aláírással
-5. [ ] **Weboldal és dokumentáció:** letöltés, pendrive-ra írás (Windowsból is, GUI-val), első lépések, gyakori kérdések
-   (Windows mellé telepítés, titkosítás, NVIDIA, adatvédelem). Kész (2026-10-19): a `codex/website-docs` kezdeménye
-   átnézve és javítva a `website/` mappában (kezdőlap, első lépések, Windows-programok, adatvédelem, GYIK; a valódi
-   logó, licencek és ODbL a láblécben; Pages workflow, a publikus repó után indul). Hátravan: letöltési oldal és
-   pendrive-írás útmutató (amikor van letölthető ISO), Windows mellé telepítés, titkosítás, NVIDIA a GYIK-ben
-6. [ ] **Licencek és nevek:** kész (2026-10-19): a kód Apache-2.0 (`LICENSE`, mint a Universal Blue és a BlueBuild),
-   a saját grafika (logó, háttérképek, boot animáció) CC BY-SA 4.0, az Üdvözlő app-ikonjai a gyártóiké (`NOTICE`;
-   az image-ben `/usr/share/licenses/sloth-os/`, a háttérképek adataiban is). Hátravan: a ProtonDB-adatok
-   ODbL-megjelölése a letöltési oldalon (a weboldallal együtt).
-   - [x] A „Sloth OS” név (2026-10-19, nem jogi vélemény): nincs ilyen nevű operációs rendszer (egy böngészős
-     diák-tréfaprojekt van a GitHubon); az USA-ban egy „SLOTH” védjegy a 9. osztályban egy „slow TV” lejátszó appra
-     (USPTO 6130782), más termékkör. Az EUIPO gépi keresése nem működött: publikálás előtt kézzel a TMview-ban és
-     az SZTNH-nál is megnézni, vagy védjegyjogászt kérdezni
-7. [ ] **A fordítások anyanyelvi átnézése** legalább a leggyakoribb nyelveken (angol, német, spanyol, francia…);
-   a többi maradhat gépi, jelölve
+### To do, in order of importance
+**Required before publishing:**
+1. [x] **The test above to the end, and fixing the bugs found.** There are many big new features that we only tried with
+   simulation; before publishing all of them must work on a real machine. Still open from the morning test's bugs
+   (in order): muting (the volume comes back; our code does not touch the volume, it must be observed on a real machine),
+   Discover updating fresh apps, checking the other launchers (`LAUNCHER_STUBS`). Dolphin 128 TB and
+   restarting a running program fixed (2026-10-19), check at the test. (2026-10-21: the real-machine test passed)
+2. [ ] **Old (BIOS-only) machines** (after 1.0; decision: 2026-10-20, 1.0 is UEFI only)**:** whether the USB stick starts in BIOS mode, installing on a BIOS machine (the whole-disk
+   install already has the BIOS boot partition); next to Windows on BIOS may stay with a "not supported" explanation
+3. [x] **Making the repository public** and turning the daily automatic build back on (`.github/workflows/build.yml`), done
+   2026-10-21. It is what lets installed machines get updates without signing in (once the ghcr.io packages are public too),
+   and lets the installer check that updates are available without `--skip-fetch-check`.
+   - [x] Secrets and personal data in the repository's whole history (2026-10-19): gitleaks (113 commits, all branches):
+     no hits; manual search (e-mail, name, machine name, own paths, IP addresses, keys): every commit with the GitHub
+     noreply address; `deploy-vm.sh` (`0fede6b`) only contains a VM-internal address (`10.0.2.100`);
+     `SB_PASSWORD = "universalblue"` is Universal Blue's public Secure Boot password. The pictures have no personal
+     metadata; the C2PA marking of `docs/branding/logo-source.png` only says that it was made with AI. 2026-10-21: the
+     46 commits since then checked again, nothing
+4. [x] **ISO hosting and download:** GitHub releases accept at most 2 GB per file, the ISO is 6.2 GB; done on
+   SourceForge (free, with mirrors), with an SHA-256 checksum (2026-10-21)
+5. [x] **Website and documentation:** download, writing the USB stick (from Windows too, with a GUI), first steps, FAQ
+   (next to Windows, encryption, NVIDIA, privacy). Done (2026-10-19): the `codex/website-docs` start
+   reviewed and fixed (home page, first steps, Windows programs, privacy, FAQ; the real
+   logo, licenses and ODbL in the footer). 2026-10-21: the download page (SourceForge, system requirements, Fedora Media Writer /
+   Rufus, boot menu keys, checksum, licenses) and the release texts are live on sloth-os-linux.github.io; the repository's
+   stale `website/` copy was removed (the site lives in `Sloth-OS-Linux/sloth-os-linux.github.io`)
+6. [x] **Licenses and names:** done (2026-10-19): the code is Apache-2.0 (`LICENSE`, like Universal Blue and BlueBuild),
+   our own artwork (logo, wallpapers, boot animation) CC BY-SA 4.0, the app icons of Welcome belong to their vendors (`NOTICE`;
+   in the image `/usr/share/licenses/sloth-os/`, in the wallpapers' data too). The ODbL marking of the ProtonDB data
+   is on the download page (2026-10-21).
+   - [x] The name "Sloth OS" (2026-10-19, not a legal opinion): there is no operating system with this name (there is a browser-based
+     student joke project on GitHub); in the US a "SLOTH" trademark in class 9 for a "slow TV" player app
+     (USPTO 6130782), another product area. EUIPO's machine search did not work: check by hand in TMview and
+     at SZTNH too, or ask a trademark lawyer
+7. [ ] **Native-speaker review of the translations** at least for the most common languages (English, German, Spanish, French…);
+   the rest may stay machine-made, marked (decision 2026-10-21: it will come through feedback)
 
-8. [ ] **Windowsról érkezőknek hiányzó alapok** (2026-10-19, a felhasználóval egyeztetve; a munka méretét még
-   egyeztetni):
-   - [ ] **Saját fájlok mentése és visszaállítása:** automatikus Btrfs-pillanatképek a home-ról (óránként / naponta,
-     a régiek maguktól törlődnek), a Dolphinban jobb klikk → „Korábbi verziók” (mint a Windowsban), a Sloth
-     Központban kapcsoló a külső lemezre mentéshez és a visszaállításhoz
-     - [x] **Pillanatképek** (2026-10-20): a telepítő nem hoz létre subvolume-okat, ezért induláskor, bejelentkezés
-       előtt a `/var/home` külön subvolume lesz (`sloth-home-layout.service`, `home-snapshots layout`: reflinkes
-       másolat, `mv --exchange` csere, a régi csak utána törlődik; félbeszakadás után a következő induláskor
-       folytatja). A nagy, újra letölthető mappák (`~/.cache`, a Flatpak-appok `cache` mappái, a Steam `steamapps`,
-       `~/Games`) is külön subvolume-ok, így kimaradnak. Óránként pillanatkép (`sloth-home-snapshot.timer`) a
-       `/var/home/.snapshots/<UTC idő>` alá; megtartás: az utolsó nap minden órája, utána naponta (legfeljebb 14
-       napig), majd hetente, 2 hét / 1 hónap (alap) / 3 hónap. Ha a szabad hely 10% (de legalább 3 GB) alá
-       csökken, a legrégebbiek törlődnek (a legújabb marad), és nem készül új
-     - [x] **Korábbi verziók** (Dolphin, jobb klikk egy fájlon, mappán vagy a mappa üres részén; `sloth-versions`):
-       fájlnál csak a különböző változatok, „Ugyanaz, mint a mostani” jelöléssel; Megnyitás (csak olvasható),
-       Visszaállítás (a mostani a Kukába), Mentés másolatként (dátummal a nevében), mappánál „Törölt elemek
-       visszahozása” (a meglévőkhöz nem nyúl) és az azóta törölt elemek száma
-     - [x] **Sloth Központ → Fájlmentés:** be/ki, megtartás, „Mentés most”, a mentett állapotok listája (Megnyitás
-       a Dolphinban), az összes törlése. A jelszót kérő műveletek a sloth-helperen át
-     - Próba: `tools/tests/test_snapshots.py` (valódi Btrfs loop eszközön, a Sloth OS image-ében; 9 teszt), a két
-       felület offscreen képernyőképpel. **Valódi gépen még nem:** az első induláskori átalakítás egy meglévő,
-       nagy saját mappával (mennyi ideig tart), SELinux-címkék utána, a Dolphin menüpontja, a Kuka
-     - [x] **Külső lemezre mentés** (2026-10-20): Pika Backup (Flathub), a Fájlmentés oldalon kártyával: mit csinál,
-       három lépés a beállításhoz, Telepítés (a Discoverben; a kártya magától észreveszi, ha kész) / Megnyitás
-   - [x] **A gép alaphelyzetbe állítása** („Reset this PC”, 2026-10-20; valódi gépen / VM-ben még tesztelni):
-     Sloth Központ → Alaphelyzetbe állítás, két móddal; mindkettőnél felsorolja, mi marad és mi törlődik, és
-     megerősítést kér. `files/system/usr/libexec/sloth-os/factory-reset`, két lépésben:
-     - most (sloth-helper `factory-reset`, folyamatjelzéssel): a legújabb verzió letöltése, a kézzel hozzáadott
-       rendszercsomagok (`rpm-ostree reset`) és kernelparaméterek levétele (a telepítő, az image `kargs.d`-je és a
-       driverek paraméterei maradnak). Újraindításig visszavonható (az előkészített verzió is törlődik)
-     - a következő induláskor, bejelentkezés előtt (`sloth-factory-reset.service`, a Plymouth-animáció alatt
-       felirattal): az appok le (rendszer- és felhasználói Flatpak), az `/etc` a gyári `/usr/etc` szerint (marad: fiókok,
-       gépnév, nyelv, billentyűzet, időzóna, titkosítás, a gép kulcsai; tartományba léptetett gépen a bejelentkezés
-       beállításai), a szolgáltatások a gyári alapértelmezés szerint, majd újraindul
-     - **Fájljaim megtartásával:** a fájlok, az appok adatai (pl. a Steam játékai), a fiókok, a Wi-Fi és a mentett
-       állapotok maradnak; az asztal beállításai (`~/.config`) a „Régi beállítások” mappába kerülnek, így az Üdvözlő
-       is újra elindul
-     - **Mindent töröl:** minden fiók, saját mappa és mentett állapot törlődik; az új fiók nevét és jelszavát a
-       Központ kéri be előtte, és a `sloth-first-user` hozza létre
-     - Próba: `tools/tests/test_factory_reset.py` (9 teszt), az `/etc` visszaállítása a valódi image 4747 fájlján, a
-       teljes induláskori lépés mindkét módban konténerben (fiókokkal, a first-user-rel együtt), az előkészítés
-       ál-rpm-ostree-vel, a felület offscreen képernyőképpel
-   - [x] **Alaphelyzetbe állítás a boot menüből** (2026-10-20, a fájlok megmaradnak): GRUB-menüpont a rendszer nyelvén
-     (nem latin írásnál angolul; `sloth_reset_title`, a sloth-boot-ok írja), ami az EFI partícióra jelez
-     (`sloth_reset=keep`) és újraindít; a `sloth-boot-reset.service` a következő induláskor feljegyzi, a meglévő
-     `factory-reset boot` elvégzi (letöltés és csomagok nélkül, a gépen lévő verzióval). A „Mindent töröl” csak a
-     Sloth Központból (új fiók kell hozzá). A `custom.cfg` mostantól a meglévő gépeken is frissül, ha a sablon
-     eltér. GRUB-szintaxis (`grub-script-check`) és a feliratok kipróbálva; **VM-ben még nem**: a menü előhívása
-     (Esc), a pont kiválasztása, az alaphelyzet lefutása
-   - [x] **Átköltözés Windowsról** (2026-10-19): az Üdvözlőben új lépés a megosztás után (csak ha van NTFS- vagy
-     BitLockeres partíció; induláskor nem csatol, így nem kér jelszót), és a Sloth Központ Lemezek oldaláról is
-     (`sloth-welcome --windows-import`). A Windows-partíciót csak olvasásra csatolja (udisksctl), és a végén (bezáráskor
-     is) leválasztja. Asztal, Dokumentumok, Letöltések, Zene, Képek, Videók a megfelelő mappákba (xdg-user-dir), előtte
-     helyellenőrzés; ami már ott van, kimarad (folytatható), az ütköző név „(Windows)” utótagot kap; a `.lnk`, a
-     `desktop.ini` és a junctionök kimaradnak. Könyvjelzők (Chrome, Edge, Firefox) egy HTML-fájlba az Asztalra. A
-     OneDrive-mappa kimarad (Felhőtárhely). BitLockernél, hibánál érthető üzenet. `sloth_common/windows_import.py`,
-     50 nyelven. Kipróbálva egy valódi NTFS-partíción (loop eszköz) és az Üdvözlő felületén (offscreen, képernyőképekkel);
-     valódi Windows mellett még tesztelni
+8. [ ] **Basics missing for people coming from Windows** (2026-10-19, agreed with the user; the size of the work still to
+   agree):
+   - [x] **Backing up and restoring your own files:** automatic Btrfs snapshots of home (hourly / daily,
+     the old ones are deleted by themselves), right-click → "Previous versions" in Dolphin (as in Windows), a switch in Sloth
+     Center for backing up to an external disk and for restoring
+     - [x] **Snapshots** (2026-10-20): the installer does not create subvolumes, so at startup, before login,
+       `/var/home` becomes a separate subvolume (`sloth-home-layout.service`, `home-snapshots layout`: a reflinked
+       copy, an `mv --exchange` swap, the old one is deleted only afterwards; after an interruption it continues at the next
+       start). The big, re-downloadable folders (`~/.cache`, the Flatpak apps' `cache` folders, Steam's `steamapps`,
+       `~/Games`) are separate subvolumes too, so they stay out. An hourly snapshot (`sloth-home-snapshot.timer`) under
+       `/var/home/.snapshots/<UTC time>`; keeping: every hour of the last day, then one a day (for at most 14
+       days), then one a week, 2 weeks / 1 month (default) / 3 months. If the free space drops below 10% (but at least 3 GB),
+       the oldest are deleted (the newest stays), and no new one is made
+     - [x] **Previous versions** (Dolphin, right-click on a file, a folder or a folder's empty area; `sloth-versions`):
+       for a file only the different versions, marked "Same as the current one"; Open (read-only),
+       Restore (the current one to the Trash), Save as a copy (with the date in its name), for a folder "Bring back deleted
+       items" (the existing ones are not touched) and the number of items deleted since
+     - [x] **Sloth Center → File backup:** on/off, keep time, "Back up now", the list of saved states (Open
+       in Dolphin), deleting them all. The operations that ask for a password go through sloth-helper
+     - Test: `tools/tests/test_snapshots.py` (on a real Btrfs loop device, in the Sloth OS image; 9 tests), the two
+       interfaces with offscreen screenshots. **Not yet on a real machine:** the first-start conversion with an existing,
+       big home folder (how long it takes), SELinux labels afterwards, the Dolphin menu item, the Trash
+     - [x] **Backup to an external disk** (2026-10-20): Pika Backup (Flathub), with a card on the File backup page: what it does,
+       three steps to set it up, Install (in Discover; the card notices by itself when it is done) / Open
+   - [x] **Resetting the computer** ("Reset this PC", 2026-10-20; tested on a real machine on 2026-10-21):
+     Sloth Center → Reset this PC, with two modes; for both it lists what stays and what is deleted, and
+     asks for confirmation. `files/system/usr/libexec/sloth-os/factory-reset`, in two steps:
+     - now (sloth-helper `factory-reset`, with progress): downloading the latest version, removing the system packages
+       added by hand (`rpm-ostree reset`) and kernel parameters (the installer's, the image's `kargs.d` and the
+       drivers' parameters stay). It can be withdrawn until the restart (the prepared version is deleted too)
+     - at the next start, before login (`sloth-factory-reset.service`, with a label under the Plymouth animation):
+       the apps go (system and user Flatpaks), `/etc` follows the factory `/usr/etc` (stays: accounts,
+       machine name, language, keyboard, time zone, encryption, the machine's keys; on a domain-joined machine the login
+       settings), the services follow the factory defaults, then it restarts
+     - **Keep my files:** the files, the apps' data (e.g. Steam's games), the accounts, the Wi-Fi and the saved
+       states stay; the desktop settings (`~/.config`) go into the "Old settings" folder, so Welcome
+       starts again too
+     - **Remove everything:** every account, home folder and saved state is deleted; Sloth Center asks for the new account's name
+       and password before, and `sloth-first-user` creates it
+     - Test: `tools/tests/test_factory_reset.py` (9 tests), resetting `/etc` on the real image's 4747 files, the
+       whole startup step in both modes in a container (with accounts, together with first-user), the preparation
+       with a fake rpm-ostree, the interface with an offscreen screenshot
+   - [x] **Reset from the boot menu** (2026-10-20, the files stay): a GRUB menu entry in the system's language
+     (in English for non-Latin scripts; `sloth_reset_title`, written by sloth-boot-ok), which sets a marker on the EFI partition
+     (`sloth_reset=keep`) and restarts; `sloth-boot-reset.service` records it at the next start, and the existing
+     `factory-reset boot` does it (without download and packages, with the version on the machine). "Remove everything" only from
+     Sloth Center (it needs a new account). From now on `custom.cfg` is updated on existing machines too, if the template
+     differs. GRUB syntax (`grub-script-check`) and the labels tried; tested on a real machine on 2026-10-21 (Esc, the entry,
+     the reset runs)
+   - [x] **Moving over from Windows** (2026-10-19): a new step in Welcome after sharing (only if there is an NTFS or
+     BitLocker partition; it does not mount at startup, so it asks for no password), and from Sloth Center's Disks page too
+     (`sloth-welcome --windows-import`). The Windows partition is only mounted read-only (udisksctl), and unmounted at the end (on
+     closing too). Desktop, Documents, Downloads, Music, Pictures, Videos into the matching folders (xdg-user-dir), with a
+     space check before; whatever is already there is skipped (it can continue), a clashing name gets a "(Windows)" suffix; `.lnk`,
+     `desktop.ini` and junctions are skipped. Bookmarks (Chrome, Edge, Firefox) into one HTML file on the Desktop. The
+     OneDrive folder is skipped (Cloud storage). A clear message for BitLocker and errors. `sloth_common/windows_import.py`,
+     in 50 languages. Tried on a real NTFS partition (loop device) and in Welcome's interface (offscreen, with screenshots);
+     still to test next to a real Windows
 
-**Fontos, de a publikálást nem akadályozza:**
-- [x] **Több app és Windows-os játékindítók az Üdvözlőben** (2026-10-19, a felhasználó kérése): 20 új Flathub-app
-  (böngésző: Floorp, Tor Browser; iroda: Thunderbird, Obsidian, Joplin, Bitwarden; média: Elisa, Stremio, Plex,
-  Jellyfin; csevegés: Zoom, Slack, Teams for Linux, Element, Viber; játék: itch, RetroArch; alkotás: Audacity,
-  darktable, Shotcut), és a Játékok lépésben a Windows-os indítók: Battle.net, EA app, Ubisoft Connect, Epic Games,
-  GOG Galaxy, Rockstar Games (új `windows` forrás a katalógusban: a hivatalos telepítő letöltése, „Windows-program ·
-  a varázsló után telepíted” jelölés, magyarázat a lépés tetején). Ha van ilyen, a végén nincs Újraindítás: „Tovább a
-  Windows-programok telepítéséhez” → az Üdvözlő elrejtőzik, a telepítők egyesével nyílnak meg az .exe kezelőben
-  (`sloth-exe --queued`: a telepítés rögtön indul, az „Indítás” külön folyamatban, hogy a sor folytatódjon), a végén
-  az Üdvözlő újra előjön az Újraindítás gombbal. Ikonok helyben (a gyártói telepítőkből / Wikimedia Commons, NOTICE),
-  50 nyelven. Kipróbálva: letöltés (EA app), a felület képernyőképekkel, a sor egy próba-sloth-exe-vel; valódi gépen a
-  teljes sort (Battle.net + EA app) tesztelni. Megjegyzés: a Ninite nem jó erre (csak Windowsos, egy környezetbe
-  telepítene, és a játékindítók nagy része nincs benne)
-- [x] **OneDrive és Google Drive mappaként** (2026-10-19): rclone (Fedora RPM, mindkettőhöz), mint a Windows
-  „Files On-Demand”: a `~/OneDrive` / `~/Google Drive` mappában minden fájl látszik, csak a megnyitott töltődik le
-  (teljes helyi gyorsítótár, 30 nap / 20 GB). Bejelentkezés a böngészőben (az rclone helyi visszahívása), a beállítás
-  kérdéseire automatikus válasz (`/usr/libexec/sloth-os/cloud-drive`); csatolás: `sloth-cloud@.service`
-  (felhasználói, bejelentkezéskor magától). Sloth Központ → Fiók és biztonság → Felhőtárhely (Bejelentkezés,
-  Megnyitás, Leválasztás), 50 nyelven. A kio-gdrive Google-bejelentkezése többször elakadt a Google tiltásain, ezért
-  nem az. Helyben kipróbálva a bejelentkezésig; valódi fiókkal tesztelni (OneDrive személyes és céges, Google)
-- [x] **Telefon összekötése** (a Windows „Phone Link” megfelelője; 2026-10-19): a KDE Connect nincs a Flathubon,
-  ezért RPM-ként visszakerült, de alapból ki van kapcsolva (`slim-image.sh`: magától indulás, D-Bus-indítás és
-  Start menü bejegyzések félretéve), így csak annak fut és hirdeti magát a hálózaton, aki kéri. Bekapcsolás az
-  Üdvözlőben (Csevegés, új `system` forrás a katalógusban) és a Sloth Központban (Driverek és hardver, kapcsoló);
-  mindkettő a `/usr/libexec/sloth-os/phone-link on|off|status`-t hívja, jelszó nélkül. Helyben kipróbálva.
-  Valódi gépen tesztelni: párosítás egy telefonnal; a tűzfal átengedi-e (a Fedora alapzónája az 1025–65535
-  portokat nyitva hagyja, megnézni, hogy itt is így van-e)
-- [ ] **BIOS/firmware frissítés** (fwupd, LVFS; a HP is támogatja): a Discover fwupd-bővítménye a
-  `plasma-discover-libs` része, és az fwupd is benne van (2026-10-19: biztosításként a `tools.yml`-ben), így a
-  Discover Frissítések oldalán elvileg már látszik. A HP-n megnézni; ha nem, a Sloth Központ Frissítések oldalára
-- [ ] **Nyomtató és szkenner:** 2026-10-19: `hplip`, `sane-backends-drivers-scanners` és `skanpage` a `tools.yml`-ben
-  (a szkennelő RPM, nem Flatpak: a HP szkennerek illesztője a Flatpakon belül nem látszana). Teszt egy HP
-  nyomtatóval és szkennerrel
-- [ ] **Gyerekfiók és szülői felügyelet:** képernyőidő, mit telepíthet, mely appokat indíthatja; a Sloth Központ
-  Fiók és biztonság oldalán
-- [ ] **Minden app frissítése egy helyen, a Discoverben** (döntés: 2026-10-16). A Discover már most minden Flatpakot
-  frissít, amit az Üdvözlő a Flathubról telepít (ezért frissítette rögtön a Steamet is). Hátravan:
-  - [ ] **Saját Flatpak-tároló a GitHub-csomagos appoknak** (pl. ArtCraft; ez az első lépés): egy GitHub Action a
-    kiadásokból (SHA256 ellenőrzéssel) feltölti őket egy saját, aláírt Flatpak-tárolóba (pl. Cloudflare R2, ugyanott,
-    ahol az ISO lesz). Az Üdvözlő innen telepít, a Discover innen frissít, a `sloth-github-bundle-update.timer`
-    elhagyható (a már telepítettek egyszeri átállítása a tárolóra). Kell hozzá: R2-tároló és GPG-kulcs a CI-ban
-  - [ ] **Windows-programok a Discoverben:** saját Discover-bővítmény (C++, KDE-modul), amely a telepített
-    Windows-programokat és a Proton-frissítést mutatja. Nagy munka, és minden Plasma-frissítésnél karban kell
-    tartani; a programok (Battle.net, Steam, Epic…) amúgy is maguktól frissülnek. Előbb megnézni, hogy egy
-    egyszerűbb út (pl. AppStream-adat + a Sloth Központ Frissítések oldala) nem elég-e
-  - [x] **Rendszerfrissítés a Discoverben** (2026-10-19): kiderült a forrásból, hogy nincs dupla frissítés. A
-    Universal Blue a KDE-s image-ből kiveszi a Discover rpm-ostree-bővítményét (`plasma-discover-rpm-ostree`), így a
-    Discover csak az appokat mutatja; a rendszert a Sloth Központ frissíti. Közben a `ublue-os-update-services` a
-    rendszerfrissítést magától előkészíti (`AutomaticUpdatePolicy=stage`), az appokat (Flatpak) pedig bekapcsolás után
-    2 perccel és naponta magától frissíti (nem mért kapcsolaton). Kész: a Frissítések oldalon „Appok” rész (mi frissül
-    magától, „Megnyitás a Discoverben”); az app-frissítő nem fut, amíg az Üdvözlő fut (drop-in a
-    `flatpak-system-update` / `flatpak-user-update` szolgáltatásokhoz)
-- [x] Windows mellett: a boot-sorrend teljes védelme (2026-10-19; valódi Windowszal még tesztelni): Windows-oldali
-  segéd (`/usr/share/sloth-os/windows-helper/`: `Sloth-OS-boot.cmd` + `sloth-boot-order.ps1`, szövegek 50 nyelven).
-  Egyszer kell elindítani a Windowsban (dupla kattintás, UAC): ütemezett feladat minden Windows-induláskor és naponta,
-  rendszerjogokkal; ha a Windows Boot Manager került előre, visszateszi a Sloth OS-t (`bcdedit /set {fwbootmgr}
-  displayorder … /addfirst`), más sorrendet (pl. pendrive) békén hagy. A bcdedit nyelvfüggő kimenetéből csak a
-  GUID-okat és a „Sloth OS” nevet olvassa (hamis, magyar nyelvű kimenettel kipróbálva). A telepítő Windows mellé
-  telepítéskor a Windows Nyilvános asztalára teszi („Sloth OS” mappa), utólag a Sloth Központ → Haladó beállítások
-  → „Segéd elhelyezése a Windowsban” (hibernált / gyors indítással leállított Windowsnál érthető üzenet)
-- [ ] Külön NVIDIA-s ISO „haladóknak” (internet nélkül is NVIDIA-illesztővel indul), ha a tárhely engedi
-- [x] Linuxos csomagok kezelője (.AppImage, .deb, .rpm; Mac-fájloknál érthető üzenet) – 2. fázis (2026-10-19,
-  valódi gépen még tesztelni; részletek a 2. fázisnál)
-- [x] .exe kezelő: „javítás / újratelepítés” – 2. fázis (2026-10-19: Sloth Központ → Windows-programok → Javítás,
-  Újratelepítés)
-- [ ] **Alkalmazáskezelés, következő lépések** (a 2026-10-19-i alapra):
-  - [x] Import más helyekről (2026-10-19, valódi Lutrisszal / Bottlesszel még tesztelni): a Steam-átvétel
-    általánosítva (`sloth_common/apps/imports.py`): Steam (`shortcuts.vdf`), Lutris (`pga.db` + `games/*.yml`, natív
-    és Flatpak), Bottles (`bottle.yml`, External_Programs), korábbi `~/.wine` (registry + parancsikonok). „Az eredeti
-    programmal” (a Steam / Lutris / Bottles indítja) vagy „Átvétel” (reflink-másolat); az eredetihez nem nyúl
-  - [x] Receptek a közös tudásból (2026-10-19): `recipes.json` a `sloth-os-knowledge` repóban (kézzel szerkesztve,
-    a `recipes` Action minden változásnál és PR-nál ellenőrzi: `seed/validate_recipes.py`), és beépítve az image-ben
-    (`/usr/share/sloth-os/recipes.json`, internet nélkül is); a `sloth-windows-prepare` letölti, az újabb (`updated`)
-    nyer. A gép is újra ellenőrzi (`sloth_common/apps/recipes.py`): csak engedélyezett mezők és értékek (indító →
-    kliens, a Start menübe kerülő és a kihagyandó .exe-k, összetevők, Proton-kapcsolók, paraméterek, DLL-kikapcsolás
-    `=d`/`=b`; parancs, tetszőleges változó vagy natív DLL nem). A kódba írt receptek adatai átkerültek; a kódban csak
-    a beállításfájlok írása maradt (Battle.net, Ubisoft). Első receptek: Battle.net, Epic, GOG Galaxy, Ubisoft Connect
-  - [x] A Linuxos csomagok kezelője (lent) is a `~/Applications`-be telepítsen (AppImage), ugyanazzal a könyvtárral
-    (2026-10-19: `sloth_common/apps/packages.py` `install_appimage`, a háttérben frissül)
-- [ ] A Steames játékok bevonása az önjavításba és a közös tudásba
-- [ ] Bejelentkezés, következő lépések (lásd a 3. fázisban, Fiók és biztonság):
-  - [ ] A PIN-kód tárolása a TPM-ben (most scrypt-hash a `/etc/sloth-os/pin` alatt; a TPM a próbálkozásokat
-    hardveresen is korlátozná, és a hash nem vihető át másik gépre)
-  - [ ] Céges fiók: Entra ID (a mostani Active Directory mellé)
-  - [ ] A jelszótároló (KWallet) nyitása jelszó nélküli belépésnél (PIN, ujjlenyomat, biztonsági kulcs): most
-    az első használatkor kéri a jelszót
-- [x] Fejlesztői pult a Sloth Központban (repó, build, tesztelés GUI-ból) – 3. fázis (2026-10-19, lásd lent)
-- [ ] Haladó beállítások folyamatos bővítése – 3. fázis. 2026-10-19: tömörített memória-tartalék (zram: alap /
-  nagyobb / ki, `sloth-helper zram`, a `/etc/systemd/zram-generator.conf`; Fedora 44-ben a zram-generatorral
-  ellenőrizve), PIN-kódos bejelentkezés (Fiók és biztonság)
-- [x] ISO-méret: a rétegek összevonása, helytakarékos ISO-build – 4. fázis (2026-10-19, lásd a 4. fázisnál)
-- [x] (2026-10-20: már hibátlanul települ) A Vivaldi nem települt fel az Üdvözlőből (oka ismeretlen; a teszten figyelni). Lehetséges ok: a fenti
-  automatikus app-frissítő egyszerre futott az Üdvözlővel (most kimarad, amíg az Üdvözlő fut)
+**Important, but not blocking the release:**
+- [x] **More apps and Windows game launchers in Welcome** (2026-10-19, the user's request): 20 new Flathub apps
+  (browser: Floorp, Tor Browser; office: Thunderbird, Obsidian, Joplin, Bitwarden; media: Elisa, Stremio, Plex,
+  Jellyfin; chat: Zoom, Slack, Teams for Linux, Element, Viber; games: itch, RetroArch; creative: Audacity,
+  darktable, Shotcut), and in the Games step the Windows launchers: Battle.net, EA app, Ubisoft Connect, Epic Games,
+  GOG Galaxy, Rockstar Games (a new `windows` source in the catalog: downloading the official installer, a "Windows program ·
+  you install it after the wizard" label, an explanation at the top of the step). If there is one, there is no Restart at the end: "Continue to
+  installing the Windows programs" → Welcome hides, the installers open one by one in the .exe handler
+  (`sloth-exe --queued`: the install starts at once, "Start" in a separate process, so the queue goes on), and at the end
+  Welcome comes back with the Restart button. Icons are local (from the vendors' installers / Wikimedia Commons, NOTICE),
+  in 50 languages. Tried: the download (EA app), the interface with screenshots, the queue with a fake sloth-exe; test the
+  whole queue (Battle.net + EA app) on a real machine. Note: Ninite is not good for this (Windows only, it would install
+  into one environment, and most game launchers are not in it)
+- [x] **OneDrive and Google Drive as a folder** (2026-10-19): rclone (a Fedora RPM, for both), like Windows'
+  "Files On-Demand": in the `~/OneDrive` / `~/Google Drive` folder every file is visible, only the opened ones are downloaded
+  (full local cache, 30 days / 20 GB). Signing in in the browser (rclone's local callback), automatic answers to the setup's
+  questions (`/usr/libexec/sloth-os/cloud-drive`); mounting: `sloth-cloud@.service`
+  (a user service, by itself at login). Sloth Center → Account and security → Cloud storage (Sign in,
+  Open, Disconnect), in 50 languages. kio-gdrive's Google sign-in got stuck on Google's blocks several times, so it is
+  not that. Tried locally up to the sign-in; test with real accounts (OneDrive personal and business, Google)
+- [x] **Connecting a phone** (the equivalent of Windows' "Phone Link"; 2026-10-19): KDE Connect is not on Flathub,
+  so it came back as an RPM, but it is off by default (`slim-image.sh`: starting by itself, D-Bus activation and
+  Start menu entries set aside), so it only runs and announces itself on the network for those who ask for it. Turning it on in
+  Welcome (Chat, a new `system` source in the catalog) and in Sloth Center (Drivers and hardware, a switch);
+  both call `/usr/libexec/sloth-os/phone-link on|off|status`, without a password. Tried locally.
+  Test on a real machine: pairing with a phone; whether the firewall lets it through (Fedora's default zone leaves the ports
+  1025–65535 open, check that it is so here too)
+- [ ] **BIOS/firmware updates** (fwupd, LVFS; HP supports it too): Discover's fwupd plugin is part of
+  `plasma-discover-libs`, and fwupd is in the image too (2026-10-19: in `tools.yml` to be sure), so in principle it
+  already shows on Discover's Updates page. Check on the HP; if not, on Sloth Center's Updates page
+- [ ] **Printer and scanner:** 2026-10-19: `hplip`, `sane-backends-drivers-scanners` and `skanpage` in `tools.yml`
+  (the scanning app as an RPM, not a Flatpak: the HP scanners' driver would not be visible inside the Flatpak). Test with an HP
+  printer and scanner
+- [ ] **Child account and parental controls:** screen time, what may be installed, which apps may be started; on Sloth Center's
+  Account and security page
+- [ ] **Updating every app in one place, in Discover** (decision: 2026-10-16). Discover already updates every Flatpak
+  that Welcome installs from Flathub (that is why it updated Steam right away too). Still to do:
+  - [ ] **Our own Flatpak repository for the GitHub-package apps** (e.g. ArtCraft; this is the first step): a GitHub Action
+    uploads them from the releases (with an SHA256 check) into our own signed Flatpak repository (e.g. Cloudflare R2 or
+    SourceForge). Welcome installs from there, Discover updates from there, `sloth-github-bundle-update.timer`
+    can go (switching the already installed ones to the repository once). Needs: storage and a GPG key in CI
+  - [ ] **Windows programs in Discover:** our own Discover plugin (C++, a KDE module) that shows the installed
+    Windows programs and the Proton update. Big work, and it must be maintained with every Plasma update; the
+    programs (Battle.net, Steam, Epic…) update themselves anyway. First check whether a
+    simpler way (e.g. AppStream data + Sloth Center's Updates page) is enough
+  - [x] **System update in Discover** (2026-10-19): it turned out from the source that there is no double update.
+    Universal Blue removes Discover's rpm-ostree plugin (`plasma-discover-rpm-ostree`) from the KDE image, so
+    Discover only shows the apps; Sloth Center updates the system. Meanwhile `ublue-os-update-services`
+    prepares the system update by itself (`AutomaticUpdatePolicy=stage`), and updates the apps (Flatpak) by itself 2 minutes
+    after power-on and daily (on an unmetered connection). Done: an "Apps" part on the Updates page (what updates
+    by itself, "Open in Discover"); the app updater does not run while Welcome runs (a drop-in for the
+    `flatpak-system-update` / `flatpak-user-update` services)
+- [x] Next to Windows: full protection of the boot order (2026-10-19; still to test with a real Windows): a Windows-side
+  helper (`/usr/share/sloth-os/windows-helper/`: `Sloth-OS-boot.cmd` + `sloth-boot-order.ps1`, texts in 50 languages).
+  It has to be started once in Windows (double-click, UAC): a scheduled task on every Windows start and daily,
+  with system rights; if Windows Boot Manager went first, it puts Sloth OS back (`bcdedit /set {fwbootmgr}
+  displayorder … /addfirst`), it leaves other orders (e.g. a USB stick) alone. From bcdedit's language-dependent output it only
+  reads the GUIDs and the name "Sloth OS" (tried with fake Hungarian output). When installing next to Windows the installer
+  puts it on the Windows Public Desktop (a "Sloth OS" folder), afterwards Sloth Center → Advanced settings
+  → "Place the helper in Windows" (a clear message for a hibernated / fast-startup Windows)
+- [ ] A separate NVIDIA ISO "for advanced users" (starts with the NVIDIA driver even without internet), if the hosting allows
+- [x] A handler for Linux packages (.AppImage, .deb, .rpm; a clear message for Mac files) – phase 2 (2026-10-19,
+  still to test on a real machine; details at phase 2)
+- [x] .exe handler: "repair / reinstall" – phase 2 (2026-10-19: Sloth Center → Windows programs → Repair,
+  Reinstall)
+- [ ] **Application management, next steps** (on the 2026-10-19 base):
+  - [x] Import from other places (2026-10-19, still to test with a real Lutris / Bottles): the Steam takeover
+    generalized (`sloth_common/apps/imports.py`): Steam (`shortcuts.vdf`), Lutris (`pga.db` + `games/*.yml`, native
+    and Flatpak), Bottles (`bottle.yml`, External_Programs), an earlier `~/.wine` (registry + shortcuts). "With the original
+    app" (Steam / Lutris / Bottles starts it) or "Take over" (a reflink copy); the original is not touched
+  - [x] Recipes from the shared knowledge (2026-10-19): `recipes.json` in the `sloth-os-knowledge` repository (edited by hand,
+    the `recipes` Action checks it on every change and PR: `seed/validate_recipes.py`), and built into the image
+    (`/usr/share/sloth-os/recipes.json`, without internet too); `sloth-windows-prepare` downloads it, the newer one (`updated`)
+    wins. The machine checks it again too (`sloth_common/apps/recipes.py`): only allowed fields and values (launcher →
+    client, the .exe files going into the Start menu and the ones to skip, components, Proton switches, arguments, turning DLLs off
+    `=d`/`=b`; no command, arbitrary variable or native DLL). The data of the recipes written into the code moved over; only
+    writing the settings files stayed in the code (Battle.net, Ubisoft). The first recipes: Battle.net, Epic, GOG Galaxy, Ubisoft Connect
+  - [x] The Linux package handler (below) should install into `~/Applications` too (AppImage), with the same library
+    (2026-10-19: `sloth_common/apps/packages.py` `install_appimage`, it updates in the background)
+- [ ] Bringing Steam games into self-healing and the shared knowledge
+- [ ] Sign-in, next steps (see phase 3, Account and security):
+  - [ ] Storing the PIN in the TPM (now a scrypt hash under `/etc/sloth-os/pin`; the TPM would also limit the attempts
+    in hardware, and the hash could not be taken to another machine)
+  - [ ] Work account: Entra ID (next to the current Active Directory)
+  - [ ] Opening the password store (KWallet) on a password-free login (PIN, fingerprint, security key): now
+    it asks for the password at the first use
+- [x] Developer panel in Sloth Center (repository, builds, testing from a GUI) – phase 3 (2026-10-19, see below)
+- [ ] Extending the advanced settings continuously – phase 3. 2026-10-19: compressed memory reserve (zram: default /
+  larger / off, `sloth-helper zram`, `/etc/systemd/zram-generator.conf`; checked with zram-generator in
+  Fedora 44), PIN sign-in (Account and security)
+- [x] ISO size: squashing the layers, a space-saving ISO build – phase 4 (2026-10-19, see phase 4)
+- [x] (2026-10-20: it installs without errors now) Vivaldi did not install from Welcome (cause unknown; watch at the test). A possible cause: the
+  automatic app updater above ran at the same time as Welcome (now it is skipped while Welcome runs)
 
-## Korábban (2026-10-15)
-- Első teszt valódi gépen (2026-10-15 délután, pendrive-ról, Intel UHD-s tesztlaptop). A talált hibák javítva,
-  a következő image-en és ISO-n újra megnézni:
-  - [x] Az élő rendszerben a „Kipróbálom” után angol maradt az asztal: most a választott nyelven indul újra
-    a Plasma (`plasma-localerc` + a munkamenet környezete + a plasmashell újraindítása)
-  - [x] Az Üdvözlő telepítés közben csak a letöltött MB-ot írta: most azt is, melyik app (vagy melyik app
-    összetevője) töltődik / települ, letöltéskor „x / y MB”; a folyamatjelző a méret szerint halad
-  - [x] A frissen telepített appoknak (a tálcára tett Steamnek is) újraindításig nem volt ikonja: a Flatpak
-    ikonmappája nem létezett a Plasma indulásakor (nincs előtelepített app). Most `tmpfiles.d` hozza létre
-  - [x] A Battle.net telepítés után elindult, majd kb. 10 mp múlva kilépett (Steamen keresztül működött): az
-    .exe kezelő most a Lutris receptje szerint indítja (hardveres gyorsítás ki a Battle.net.config-ban,
-    `locationapi=d`), `sloth_exe/quirks.py`; ide jöhetnek a többi indító (EA, Ubisoft, Epic) beállításai
-  - A Vivaldi nem települt fel az Üdvözlőből (a teendők között, lásd fent)
-- Teendők 2026-10-15-re: új ISO és teljes VM-teszt (fiók a telepítőben, KDE-varázsló nélküli első indulás, rejtett
-  GRUB és csendes boot, Üdvözlő, asztal, Sloth Központ, .exe kezelő); a gaming-pontok átnézése; Fejlesztői pult.
-- Minden fordítás kész (Üdvözlő, telepítő, .exe kezelő, Sloth Központ: 50 nyelv); anyanyelvi átnézés hátravan.
-- Negyedik VM-teszt (2026-10-15, Hyper-V): a délelőtti ISO (6,9 GB) telepítése a `bootc` után elakadt; az ok
-  megvan és javítva (4. fázis). Ugyanaznap elkészült még: a start menü nevei mind az 50 nyelven, karcsúbb image
-  (a hibaelhárító eszközök maradnak), Falkon a Firefox helyett az élő rendszerben, gyorsabb ISO-build
-  podman commit nélkül, nem kapcsol le a képernyő telepítés közben.
-- Következik: a CI buildelje újra az image-et, utána új ISO (lehetőleg az erősebb gépen; a build kb. 45 GB helyet
-  kér), majd teljes VM-teszt. A VM-ben a dinamikus memória legyen kikapcsolva.
+## Earlier (2026-10-15)
+- First test on a real machine (2026-10-15 afternoon, from a USB stick, a test laptop with Intel UHD). The bugs found are fixed,
+  check again with the next image and ISO:
+  - [x] In the live system the desktop stayed English after "Try": now Plasma restarts in the chosen
+    language (`plasma-localerc` + the session's environment + restarting plasmashell)
+  - [x] While installing, Welcome only showed the downloaded MB: now also which app (or which app's
+    component) is downloading / installing, "x / y MB" while downloading; the progress bar follows the size
+  - [x] Freshly installed apps (the Steam put on the taskbar too) had no icon until a restart: the Flatpak
+    icon folder did not exist when Plasma started (no preinstalled apps). Now `tmpfiles.d` creates it
+  - [x] Battle.net started after installing, then exited after about 10 s (through Steam it worked): the
+    .exe handler now starts it according to Lutris' recipe (hardware acceleration off in Battle.net.config,
+    `locationapi=d`), `sloth_exe/quirks.py`; the settings of the other launchers (EA, Ubisoft, Epic) can come here
+  - Vivaldi did not install from Welcome (among the to-dos, see above)
+- To do for 2026-10-15: a new ISO and a full VM test (account in the installer, first start without the KDE wizard, hidden
+  GRUB and quiet boot, Welcome, desktop, Sloth Center, .exe handler); reviewing the gaming items; Developer panel.
+- Every translation is done (Welcome, installer, .exe handler, Sloth Center: 50 languages); the native review is still to do.
+- Fourth VM test (2026-10-15, Hyper-V): installing the morning ISO (6.9 GB) got stuck after `bootc`; the cause
+  is found and fixed (phase 4). Also done the same day: the start menu names in all 50 languages, a slimmer image
+  (the troubleshooting tools stay), Falkon instead of Firefox in the live system, a faster ISO build
+  without podman commit, the screen does not turn off while installing.
+- Next: CI rebuilds the image, then a new ISO (preferably on the stronger machine; the build needs about 45 GB of
+  space), then a full VM test. In the VM dynamic memory should be off.
 
-## Korábban (2026-10-14 este)
-- Harmadik VM-teszt (új ISO, 4 GB RAM, internet nélkül): a saját telepítő végigment. Működik: nyelvváltás,
-  élő billentyűzetváltás a próbamezőben, lemeznév (`vda · HDD · 43 GB`), fókuszkeret, haladó folyamatjelző,
-  újrapróbálás hiba után, munkapartíció (rendszerszinten a `/var/tmp` fölé csatolva, utána a rendszerpartíció
-  39,5 GB-ra nőtt), boot-bejegyzés átnevezése, nyelv/billentyűzet beírása, Firefox átmásolása internet nélkül;
-  a KDE üdvözlője nem jön elő. Az első indulás magyarul hozza a Plasma Setupot.
-  Ott álltunk meg: Plasma Setup, fiók létrehozása (teszt / sloth). Következik: Sloth Üdvözlő (új „Jelszavak”
-  lépés), asztal, Sloth Központ új oldalai, .exe kezelő.
-  Új teendők a tesztből:
-  - [x] A KDE első indítási varázslója (Plasma Setup) kikerült: a fiókot a Sloth OS telepítője kérdezi meg
-    (új „Fiókod” lap), első induláskor a `sloth-first-user` szolgáltatás hozza létre; a többit az Üdvözlő
-    kérdezi. VM-ben még tesztelni (új image + új ISO kell)
-  - [x] Az új ISO-ba már a javított telepítő-segéd kell (a VM-ben kézzel volt átmásolva): új ISO építése (2026-10-15)
-- Második VM-teszt (első saját ISO, 6,8 GB): rejtett GRUB, szöveg nélküli boot, Firefox a tálcán, nyelvváltás
-  a választón azonnal: rendben. A telepítés nem ment végig; a talált hibák javítva (4. fázis, „Saját telepítő”),
-  de VM-ben még újra kell nézni. Következő lépés: új ISO (`tools/build-iso.sh` Linuxon, `tools/build-iso.ps1`
-  Windowson; kell a GitHub CLI `read:packages` joga), majd VM-teszt végig: telepítés, első indítás, Üdvözlő.
-- A Sloth Központ 3. fázisbeli nyitott pontjai elkészültek (felhasználói szolgáltatások, környezeti változók,
-  verziók listája, kontrollerek, jelszó nélküli rendszergazda, bejelentkezési módok, Játékok modul); VM-ben még tesztelni.
-- A Sloth Központ fordítása kész mind az 50 nyelvre (2026-10-15); az anyanyelvi átnézés még hátravan.
-- Utána: a Windows mellé telepítés.
+## Earlier (2026-10-14 evening)
+- Third VM test (new ISO, 4 GB RAM, without internet): our own installer went through. Works: language switching,
+  live keyboard switching in the test field, disk name (`vda · HDD · 43 GB`), focus frame, a moving progress bar,
+  retrying after an error, the work partition (mounted system-wide over `/var/tmp`, afterwards the system partition
+  grew to 39.5 GB), renaming the boot entry, writing the language/keyboard, copying Firefox without internet;
+  KDE's welcome does not come up. The first start brings up Plasma Setup in Hungarian.
+  We stopped there: Plasma Setup, creating an account (test / sloth). Next: Sloth Welcome (the new "Passwords"
+  step), the desktop, Sloth Center's new pages, the .exe handler.
+  New to-dos from the test:
+  - [x] KDE's first-start wizard (Plasma Setup) is removed: the account is asked by the Sloth OS installer
+    (a new "Your account" page), created on first boot by the `sloth-first-user` service; Welcome asks
+    the rest. Still to test in a VM (needs a new image + a new ISO)
+  - [x] The new ISO already needs the fixed installer helper (in the VM it was copied by hand): building a new ISO (2026-10-15)
+- Second VM test (the first own ISO, 6.8 GB): hidden GRUB, boot without text, Firefox on the taskbar, switching the language
+  in the chooser right away: fine. The install did not go through; the bugs found are fixed (phase 4, "Own installer"),
+  but it must be checked again in a VM. Next step: a new ISO (`tools/build-iso.sh` on Linux, `tools/build-iso.ps1`
+  on Windows; needs the GitHub CLI's `read:packages` scope), then a VM test to the end: install, first start, Welcome.
+- Sloth Center's open phase 3 items are done (user services, environment variables,
+  the list of versions, controllers, password-free administrator, sign-in methods, the Games module); still to test in a VM.
+- Sloth Center's translation is done in all 50 languages (2026-10-15); the native review is still to do.
+- Afterwards: installing next to Windows.
 
-## 0. fázis – Alap image ✅ (ez a repó)
-- [x] Universal Blue Kinoite alap, AMD/Intel + NVIDIA változat
-- [x] Átnevezés (os-release)
-- [x] Gaming csomagok: gamescope, mangohud, gamemode
-- [x] Nincs előtelepített app, a Steam sem: mindent a felhasználó választ az üdvözlő varázslóban (a Firefox RPM is kikerül);
-  a tálcára is csak az kerül, amit telepített
-- [x] Első sikeres build GitHub Actionsben (mindkét image)
-- [ ] Teszt VM-ben és a saját gépen. Első VM-teszt (2026-10-13), eredmények:
-  - [x] Rejtett boot menü, Plymouth animáció, „Sloth OS” név (TTY, gépnév, Plasma Setup „A gépházban: Sloth OS”)
-  - [x] Sloth Üdvözlő elindul teljes képernyőn; színtéma-váltás azonnal működik; tálca-elrendezés választható; mind a 6 kategória megjelenik
-  - [x] Appok telepítése a varázslóból (2026-10-15, valódi gépen: működik; a Vivaldi nem települt fel)
-  - [x] Javítva: a „Csevegés” kategória ikonja hiányzott (`internet-chat` nincs a Breeze-ben; most `kopete`, tartalék `dialog-messages`)
-  - [x] Javítva: az appkártyákon a nem kijelölt is pipát mutatott (a Breeze-ben nincs `checkbox-unchecked`, helyette a bepipált `checkbox` jött); most valódi jelölőnégyzet és erősebb kiemelés
-  - [x] Javítva: a színtéma-kártyák soronként középre igazítva, egyenletesen elosztva (7 kártya: 4 + 3)
-  - [ ] Asztal, tálca, Sloth Központ, .exe kezelő, boot közbeni betöltőképernyő még nincs megnézve
-  - [x] Javítva: a Sloth Központ nem nyílt meg (`NameError` a Frissítések modul betöltésekor); VM-ben újra megnézni
-  - [x] Javítva: az indítóprogramos Windows-appok (pl. Battle.net) elindulás után bezáródtak (`PROTON_VERB=run`
-    helyett mindig `waitforexitandrun`); VM-ben újra megnézni
-  - Megjegyzés: a szöveges kickstart telepítés `multi-user.target`-et állít be (kell: `xconfig --startxonboot`),
-    és ha a telepítő nem hoz létre `/etc/plasma-setup-done`-t, a KDE Plasma Setup varázslója jön elő
+## Phase 0 – Base image ✅ (this repository)
+- [x] Universal Blue Kinoite base, AMD/Intel + NVIDIA variants
+- [x] Renaming (os-release)
+- [x] Gaming packages: gamescope, mangohud, gamemode
+- [x] Nothing preinstalled, not even Steam: the user chooses everything in the welcome wizard (the Firefox RPM goes too);
+  only what they installed goes on the taskbar
+- [x] The first successful build in GitHub Actions (both images)
+- [x] Test in a VM and on our own machine. First VM test (2026-10-13), results:
+  - [x] Hidden boot menu, Plymouth animation, the name "Sloth OS" (TTY, machine name, Plasma Setup "Under the hood: Sloth OS")
+  - [x] Sloth Welcome starts full screen; switching the color theme works at once; the taskbar layout can be chosen; all 6 categories appear
+  - [x] Installing apps from the wizard (2026-10-15, real machine: works; Vivaldi did not install)
+  - [x] Fixed: the "Chat" category's icon was missing (`internet-chat` is not in Breeze; now `kopete`, fallback `dialog-messages`)
+  - [x] Fixed: on the app cards the unselected ones showed a tick too (Breeze has no `checkbox-unchecked`, the ticked `checkbox` came instead); now a real checkbox and a stronger highlight
+  - [x] Fixed: the color theme cards centred row by row, evenly distributed (7 cards: 4 + 3)
+  - [x] Desktop, taskbar, Sloth Center, .exe handler, the splash screen during boot (checked in later tests)
+  - [x] Fixed: Sloth Center did not open (`NameError` when loading the Updates module); check again in a VM
+  - [x] Fixed: Windows apps with a launcher (e.g. Battle.net) closed after starting (always `waitforexitandrun`
+    instead of `PROTON_VERB=run`); check again in a VM
+  - Note: the text kickstart install sets `multi-user.target` (needed: `xconfig --startxonboot`),
+    and if the installer does not create `/etc/plasma-setup-done`, KDE's Plasma Setup wizard comes up
 
-## 1. fázis – Saját arc
-- [x] Logó: matt ezüst lajhár-arc, körvonal nélkül (`files/system/usr/share/sloth-os/logo/`, forrás: `docs/branding/`)
-- [x] Boot animáció (Plymouth): a logó szélén körbefutó fehér pont (`files/system/usr/share/plymouth/themes/sloth-os/`, előnézet: `docs/branding/boot-preview.gif`; VM-ben még tesztelni)
-- [x] Boot menü elrejtése (csak hibás indítás után jelenik meg) és csendes boot: a bootupd GRUB-sablonja minden indításkor 1 mp-re kirakta a menüt, és a `menu_auto_hide`-ot nem nézi, ezért saját `custom.cfg` (`/usr/lib/sloth-os/grub-custom.cfg`, állapot az EFI partíción, `sloth-boot-ok.service`); a bootc-s telepítésből hiányzó `quiet rhgb splash` a kargs közé került (VM-ben még tesztelni)
-- [x] Háttérképek: 16 kép 4K-ban (MI-felskálázással), az ultraszélesek 5120×2160-ban is; alapértelmezett: „Metallic Sloth Over Silver Waves” (asztal és zárolási képernyő)
-- [x] Windows-szerű alapértelmezett Plasma-elrendezés: tálca alul, start menü a logóval, rögzített appok; bejelentkezés utáni betöltőképernyő a boot animációval (`files/system/usr/share/plasma/look-and-feel/org.slothos.desktop/`; VM-ben még tesztelni)
-- [x] Más elrendezések választhatóan az üdvözlő varázslóban: Windows 10, Windows 11 (középre igazított), macOS-szerű (felső sáv + lebegő dokk); VM-ben még tesztelni
-- [x] Színtémák: Silver sötét (alapértelmezett) és világos, Hófehér, Éjfekete, Ködkék, Éjkék, Zsálya (`tools/branding/gen_colors.py`, előnézet: `docs/branding/color-schemes-preview.png`)
-- [x] Saját Plasma téma: a stílus kész, mást nem tervezünk (döntés: 2026-10-15)
-- [x] Bejelentkező képernyő (Plasma Login Manager, tartalékként SDDM): Sloth OS háttérkép, Sloth Silver színek; VM-ben még tesztelni
-- [ ] Ellenőrizni, hol látszik még "Fedora" vagy "Universal Blue" név. Eddig:
-  - [x] Rendszerinformáció, boot menü bejegyzések, gépnév: az os-release-ből jönnek (Sloth OS)
-  - [x] A KDE üdvözlő appja (`plasma-welcome`) kikerül az image-ből (`files/scripts/remove-default-apps.sh`), a Sloth
-    Üdvözlő fut helyette. A korábbi `kded6rc`-s kikapcsolás nem működött (az élő rendszerben eltakarta a telepítőt)
-  - [x] Alapértelmezett háttérkép: a saját Sloth OS háttérkép
-  - [x] Firmware (BIOS/UEFI) boot-bejegyzés neve: a saját telepítő „Sloth OS”-re nevezi át (egy `lsblk`-hiba miatt
-    eddig nem futott le, javítva; VM-ben még tesztelni)
-  - [ ] VM-ben végignézni: bejelentkező képernyő, Discover, Rendszerbeállítások
-  - [x] A Sloth eszközök neve és leírása a start menüben mind az 50 nyelven (2026-10-15; eddig minden nyelven
-    magyarul látszott). A `.desktop` fájlokat a `tools/gen_desktop_entries.py` írja a fordításokból
+## Phase 1 – Its own face
+- [x] Logo: a matte silver sloth face, without an outline (`files/system/usr/share/sloth-os/logo/`, source: `docs/branding/`)
+- [x] Boot animation (Plymouth): a white dot running around the edge of the logo (`files/system/usr/share/plymouth/themes/sloth-os/`, preview: `docs/branding/boot-preview.gif`)
+- [x] Hiding the boot menu (it only appears after a failed start) and a quiet boot: bootupd's GRUB template showed the menu for 1 s on every start, and it does not look at `menu_auto_hide`, so our own `custom.cfg` (`/usr/lib/sloth-os/grub-custom.cfg`, the state on the EFI partition, `sloth-boot-ok.service`); the `quiet rhgb splash` missing from the bootc install went into the kargs
+- [x] Wallpapers: 16 pictures in 4K (with AI upscaling), the ultrawide ones in 5120×2160 too; default: "Metallic Sloth Over Silver Waves" (desktop and lock screen)
+- [x] A Windows-like default Plasma layout: taskbar at the bottom, start menu with the logo, pinned apps; a splash screen with the boot animation after login (`files/system/usr/share/plasma/look-and-feel/org.slothos.desktop/`)
+- [x] Other layouts to choose in the welcome wizard: Windows 10, Windows 11 (centred), macOS-like (top bar + floating dock)
+- [x] Color themes: Silver dark (default) and light, Snow White, Midnight Black, Mist Blue, Night Blue, Sage (`tools/branding/gen_colors.py`, preview: `docs/branding/color-schemes-preview.png`)
+- [x] Our own Plasma theme: the style is done, nothing else is planned (decision: 2026-10-15)
+- [x] Login screen (Plasma Login Manager, SDDM as a fallback): the Sloth OS wallpaper, Sloth Silver colors
+- [ ] Check where the name "Fedora" or "Universal Blue" still shows. So far:
+  - [x] System information, boot menu entries, machine name: they come from os-release (Sloth OS)
+  - [x] KDE's welcome app (`plasma-welcome`) is removed from the image (`files/scripts/remove-default-apps.sh`), Sloth
+    Welcome runs instead. The earlier turning off with `kded6rc` did not work (in the live system it covered the installer)
+  - [x] Default wallpaper: our own Sloth OS wallpaper
+  - [x] The firmware (BIOS/UEFI) boot entry's name: our own installer renames it to "Sloth OS" (because of an `lsblk` bug it
+    did not run until now, fixed)
+  - [ ] Look through in a VM: login screen, Discover, System Settings
+  - [x] The Sloth tools' names and descriptions in the start menu in all 50 languages (2026-10-15; until then they showed in
+    Hungarian in every language). The `.desktop` files are written by `tools/gen_desktop_entries.py` from the translations
 
-## 2. fázis – Gaming, ami csak működik
-- [x] umu-launcher beépítése (a hivatalos GitHub RPM, rögzített verzió + SHA256: `files/scripts/umu-launcher.sh`)
-- [x] Windows-programok Steam nélkül és internet nélkül is: a Protont bejelentkezés után a háttérben előre letöltjük
-  és frissen tartjuk (`sloth-windows-prepare.timer`); ha még nincs meg és nincs net, a rendszer Wine-ja indítja
-  (`wine-core`, `wine-dxvk`, `wine-mono`; `sloth_exe/backend.py`). VM-ben még tesztelni
-- [x] **.exe kezelő** (`files/system/usr/lib/sloth-os/sloth-exe/`; VM-ben még tesztelni): dupla kattintás egy .exe/.msi-re →
-  telepítés (programonként külön mappa, a parancsikonok a Start menübe) vagy indítás; első alkalommal az összetevők
-  letöltése folyamatjelzővel. A felhasználó soha nem látja a "Wine", "Proton" vagy "prefix" szót.
-  - [x] Telepített Windows-programok listája és eltávolítása a Sloth Központban
-  - [x] Start menü bejegyzések utólagos szerkesztése (Sloth Központ → Windows-programok → Start menü)
-  - [x] Javítás és újratelepítés a Sloth Központban (2026-10-19)
-  - [x] Játékonkénti javítások automatikusan (umu adatbázis: GAMEID a program neve alapján) – lásd lent
-- [ ] **Önjavító futtató: minden Windows-program elinduljon, beállítás nélkül** (ötlet: 2026-10-15). Egy mindenre
-  jó Proton-beállítás nincs (ami az egyiknek kell, a másikat elrontja), ezért a rendszer programonként maga
-  találja meg a működőt. A felhasználó ebből csak annyit lát: „Indítás…”, és a program elindul. Lépések:
-  1. [x] **Felismerés** (`sloth_exe/identify.py`): a .exe verzióadataiból (termék neve; a „Launcher”,
-     „Setup”, verziószám levágva) az umu adatbázisa (a rendszerrel jön, a `sloth-windows-prepare` frissíti),
-     ha ott nincs, a Steam áruháza (pontos névegyezés) → `GAMEID=umu-<Steam AppID>`. Így jönnek az
-     umu-protonfixes javításai és a Proton saját, AppID-hez kötött javításai. Egyszer keres, az eredményt megjegyzi
-  2. [x] **Receptek** az ismert indítókra (`sloth_exe/quirks.py`, a Lutris kipróbált telepítői alapján, a
-     Protonhoz igazítva): Battle.net (GPU-gyorsítás ki, `locationapi=d`), Ubisoft Connect (overlay ki,
+## Phase 2 – Gaming that just works
+- [x] Building in umu-launcher (the official GitHub RPM, a pinned version + SHA256: `files/scripts/umu-launcher.sh`)
+- [x] Windows programs without Steam and without internet too: Proton is downloaded in advance in the background after login
+  and kept fresh (`sloth-windows-prepare.timer`); if it is not there yet and there is no network, the system Wine starts it
+  (`wine-core`, `wine-dxvk`, `wine-mono`; `sloth_exe/backend.py`)
+- [x] **.exe handler** (`files/system/usr/lib/sloth-os/sloth-exe/`): double-click an .exe/.msi →
+  install (a separate folder per program, the shortcuts into the Start menu) or start; the first time, downloading the
+  components with progress. The user never sees the word "Wine", "Proton" or "prefix".
+  - [x] The list of installed Windows programs and removing them in Sloth Center
+  - [x] Editing the Start menu entries afterwards (Sloth Center → Windows programs → Start menu)
+  - [x] Repair and reinstall in Sloth Center (2026-10-19)
+  - [x] Per-game fixes automatically (umu database: GAMEID based on the program's name) – see below
+- [ ] **A self-healing runner: every Windows program should start, without settings** (idea: 2026-10-15). There is no Proton
+  setting good for everything (what one needs breaks another), so the system finds the working one per program
+  by itself. The user only sees: "Starting…", and the program starts. Steps:
+  1. [x] **Recognition** (`sloth_exe/identify.py`): from the .exe's version data (product name; "Launcher",
+     "Setup", version number cut off) umu's database (it comes with the system, `sloth-windows-prepare` updates it),
+     if it is not there, the Steam store (an exact name match) → `GAMEID=umu-<Steam AppID>`. That brings
+     umu-protonfixes' fixes and Proton's own fixes tied to the AppID. It searches once, and remembers the result
+  2. [x] **Recipes** for the known launchers (`sloth_exe/quirks.py`, based on Lutris' tried installers,
+     adapted to Proton): Battle.net (GPU acceleration off, `locationapi=d`), Ubisoft Connect (overlay off,
      d3dcompiler_43), Epic (`-opengl -SkipBuildPatchPrereq`), GOG Galaxy (`libglesv2=d`, Visual C++, .NET 4.8,
-     `/runWithoutUpdating /deelevated`). Az EA app és a Rockstar Lutris-receptje csak betűtípusokat tesz fel, azokat
-     a Proton hozza. Valódi indítókkal még tesztelni
-  3. [x] **Diagnózis** (`sloth_exe/diagnose.py`): a futtató kimenete mindig a háttérben megy
-     (`<program>/naplo/<exe>.log`, a „fixme” zaj nélkül). Ha a program gyorsan kilép, a felismert hibák javítása:
-     hiányzó DLL → a megfelelő összetevő (Visual C++ 2005–2022, DirectX-részek, XAudio, PhysX, MSXML, VB6…,
-     winetricks az umu-n keresztül); .NET → dotnet48; Vulkan/DXVK-hiba → WineD3D; beépített böngésző
-     GPU-hiba → `--disable-gpu`
-  4. [x] **Öngyógyítás** (`sloth_exe/heal.py`): ha nincs felismert ok, próbálkozási sor (alap, fsync nélkül,
-     WineD3D, GE-Proton, egy régebbi Proton; indításonként legfeljebb 4 próba, utána érthető hibaüzenet).
-     Proton-váltás előtt reflink pillanatkép a program mappájáról (Btrfs; más fájlrendszeren a Proton-váltás
-     kimarad, csak előre léphet), sikertelen próba után visszaáll. A bevált beállítást .exe-nként megjegyzi.
-     Ha egy indító átadja a helyét (pl. Battle.net Launcher → Battle.net), az nem hiba: megvárja
-  5. [x] **Visszaállás frissítés után:** a bevált verzió után előbb az újabbal próbál; ha az nem megy, vissza a
-     bevált verzióhoz (pillanatképből), és annál a programnál az marad, amíg nem jön egy még újabb.
-     A régi Protonokat a `sloth-exe --maintenance` törli (a legújabb, egy tartalék és a programok által
-     használt verziók maradnak)
-  6. [x] **Közös tudás** (`sloth_exe/community.py`, szolgáltatás: `services/knowledge/`): ami más Sloth OS-es
-     gépeken bevált, az nálunk az első próba. Olvasás: statikus `knowledge.json` a nyilvános
-     `Sloth-OS-Linux/sloth-os-knowledge` repóból (a `sloth-windows-prepare` tölti le). Megosztás: csak ha a
-     felhasználó bekapcsolja (Sloth Központ → Windows-programok → „Tapasztalatok megosztása”, alapból ki);
-     a jelentés névtelen (a program nevéből csak hash, a gép egy véletlen szám), sorba kerül, és a háttérben
-     megy el. A szolgáltatás Cloudflare Worker + D1 (`https://sloth-os-knowledge.slothos.workers.dev`):
-     csak engedélyezett beállításokat fogad el, gépenként egy szavazat, legalább 3 gépen és 75%-ban
-     bevált beállítás kerül közzé, címenként napi 500 jelentés. Az összesítést óránként a knowledge repó
-     GitHub Actionje írja ki (havonta életjel, hogy az ütemezés ne álljon le)
-     - [x] Az Üdvözlőben külön lépés (a Jelszavak után): mi ez, mi megy el és mi nem; a felhasználó választ
-       (igen / nem, egyik sincs előre bejelölve), később a Sloth Központban átállítható. Leírás: README
-     - [x] Alap a ProtonDB nyílt adataiból (ODbL): a knowledge repó `protondb` Actionje havonta a legfrissebb
-       kiadásból játékonként és GPU-gyártónként kiszedi a működő beállítást (Proton-változat, kapcsolók,
-       összetevők; csak az utolsó 2 év, legalább 3 beszámoló, csak ha nem az alapértelmezett). 2026-10: 287
-       játék. A felismert (Steam AppID-s) játékoknál ez az első próba, ha nincs saját vagy Sloth OS-es adat
-     - [x] Bővített engedélyezett kapcsolók: NVAPI, NVIDIA elrejtése, large address aware, heap delay free,
-       D3D10/11 ki, régi GL-szöveg, write watch ki (a Workerben, a gépen és a ProtonDB-feldolgozóban is)
-     - [x] A szolgáltatás figyelése (2026-10-16): a knowledge repó `monitor` Actionje naponta ellenőrzi a Workert, a
-       jelentések ellenőrzését és az exportot; hiba esetén issue nyílik (e-mail), ha újra rendben van, lezárul.
-       A hibaág még nincs élesben kipróbálva
-  - Kipróbálva (2026-10-15) a valódi vezérlővel és egy hamis futtatóval: hiányzó DLL, Vulkan-hiba, ismeretlen
-    összeomlás, frissítés utáni visszaállás Btrfs-en, reménytelen eset, indító-átadás, ottmaradt Wine-folyamatok.
-    Valódi gépen még nincs kipróbálva
-  - Teszt: a nagy indítók (Battle.net, EA, Ubisoft, Epic, Rockstar, GOG) és pár népszerű játék végigpróbálása
-    minden nagyobb változás után, valódi gépen (AMD, NVIDIA, Intel)
-- [x] Steamben a Proton alapból bekapcsolva minden játékra (`sloth-steam-proton-default.service`; VM-ben még tesztelni)
-- [x] MangoHud / gamescope Flatpak Vulkan rétegek a Steam Flatpakhoz (`sloth-steam-vulkan-layers.timer`; VM-ben még tesztelni)
-- [x] Érthető hibaüzenet, ha egy játék anti-cheat miatt nem futhat Linuxon (.exe kezelő: Vanguard, FACEIT, Ricochet… esetén rögtön szól; Easy Anti-Cheat / BattlEye esetén akkor, ha a játék gyorsan kilép). Hátravan: ugyanez a Steames játékoknál
-- [x] **Linuxos csomagok kezelője** (2026-10-19, valódi gépen még tesztelni): a .exe kezelő nyitja meg őket (a fájl
-  tartalma alapján ismeri fel), közös kód: `sloth_common/apps/packages.py`. AppImage: a `~/Applications/<név>/` alá
-  (másolat, Btrfs-en reflinkkel), futtathatóra, a saját nevével, ikonjával és kategóriáival a Start menübe
-  (`sloth-exe --run`, áthelyezés után is indul), vagy csak futtatás; a FUSE 2 (`fuse-libs`) bekerült az image-be.
-  .deb: Ubuntu-dobozba (`sloth-ubuntu`), .rpm: Fedora-dobozba (`sloth-fedora`), az új appok a Start menübe
-  (`distrobox-export`), mellette „Keresés a Discoverben”; eltávolításkor a dobozból is törlődik. Mac-fájlok: érthető
-  üzenet és Discover-keresés; Mac-es parancsfájlt nem futtatunk. A Sloth Központ oldala ezért „Programok” lett.
-  A saját fájl nélküli programok (máshonnan indítottak, dobozosak) adatai rejtve vannak
-  (`~/.local/share/sloth-os/apps/`), hogy ne legyen üres mappa a `~/Applications`-ben. Szintén kész (2026-10-19):
-  AppImage-frissítés a háttérben (`sloth-exe --maintenance`, a `sloth-windows-prepare.timer` hívja): az AppImage saját
-  frissítési adatából (ELF `.upd_info`: `zsync|…` vagy `gh-releases-zsync|…`) a `.zsync` fejléce, SHA-1 egyezés
-  esetén nincs teendő, különben teljes letöltés, ellenőrzés, csere; csak nem mért kapcsolaton, és ha a program nem
-  fut. Valódi AppImage-en kipróbálva (AppImageUpdate): az adat kiolvasása és a fejléc. Ha egy .deb, .rpm vagy
-  AppImage a Flathubon is megvan (pontos névegyezés), azt ajánljuk („Telepítés a Discoverből” a fő gomb).
-  Az eredeti terv: a netről letöltött Linux-appok is
-  dupla kattintásra települjenek, folyamatjelzővel, Start menü bejegyzéssel, és a Sloth Központban
-  eltávolíthatók legyenek. Most egyiket sem kezeli semmi:
-  - `.AppImage`: letöltve nem futtatható, dupla kattintásra a „Megnyitás ezzel…” jön; sokhoz `libfuse2` is kell
-    (ellenőrizni, benne van-e az image-ben). Terv: saját mappába, futtathatóra, Start menü, frissítés, ha az
-    AppImage támogatja
-  - `.deb`: Fedorán egyáltalán nem telepíthető. Terv: a háttérben egy Ubuntu-dobozba (`distrobox`, a Sloth
-    Központ dobozkezelése már megvan), az app a Start menüben natívként jelenik meg, a „doboz” szó nem látszik
-  - `.rpm`: Atomic rendszeren nem telepíthető „csak úgy”. Terv: ha van Flatpak változata, azt ajánljuk;
-    különben Fedora-dobozba; a rendszerbe rétegezés csak a haladó beállításokban
-  - `.flatpakref` / `.flatpak`: a Discover már kezeli (VM-ben ellenőrizni)
-  - Mac-appok és -lemezképek: `.dmg`, `.xip`, `.pkg`, `.mpkg`, `.app` (zip-ben is: `.app.zip`), `.sparseimage`,
-    `.sparsebundle`, `.cdr`, `.smi`, régi `.img` / `.dc42` lemezképek, valamint az iOS-appok (`.ipa`).
-    Felismerés MIME-típus alapján is (pl. `application/x-apple-diskimage`, `application/x-xar`); a `.command` /
-    `.tool` szkriptek shell-szkriptek, ezeknél csak figyelmeztetés. Linuxon nem futtathatók (a Darling kísérleti,
-    grafikus appokat nem visz), ezért
-    érthető üzenet: „Ez a program Mac-re készült, ezen a gépen nem fut”; ha az app megvan Flathubon (pl.
-    Spotify, Discord, VS Code), a Linuxos változatát egy kattintással felajánljuk; a benne lévő fájlok
-    (betűtípus, dokumentum) az Ark-kal kicsomagolhatók
+     `/runWithoutUpdating /deelevated`). Lutris' recipes for the EA app and Rockstar only install fonts, and
+     Proton brings those. Still to test with real launchers
+  3. [x] **Diagnosis** (`sloth_exe/diagnose.py`): the runner's output always goes into the background
+     (`<program>/naplo/<exe>.log`, without the "fixme" noise). If the program exits quickly, fixing the recognized errors:
+     a missing DLL → the matching component (Visual C++ 2005–2022, DirectX parts, XAudio, PhysX, MSXML, VB6…,
+     winetricks through umu); .NET → dotnet48; a Vulkan/DXVK error → WineD3D; a built-in browser
+     GPU error → `--disable-gpu`
+  4. [x] **Self-healing** (`sloth_exe/heal.py`): if there is no recognized cause, a sequence of attempts (default, without fsync,
+     WineD3D, GE-Proton, an older Proton; at most 4 attempts per start, then a clear error message).
+     Before a Proton switch a reflink snapshot of the program's folder (Btrfs; on other file systems the Proton switch
+     is skipped, it can only step forward), restored after a failed attempt. It remembers the working setting per .exe.
+     If a launcher hands over (e.g. Battle.net Launcher → Battle.net), that is not an error: it waits for it
+  5. [x] **Rollback after updates:** after the working version it tries the newer one first; if that does not work, back to the
+     working version (from the snapshot), and that program stays on it until an even newer one comes.
+     `sloth-exe --maintenance` deletes the old Protons (the latest, one spare and the versions used by
+     programs stay)
+  6. [x] **Shared knowledge** (`sloth_exe/community.py`, service: `services/knowledge/`): what worked on other Sloth OS
+     machines is the first attempt here. Reading: a static `knowledge.json` from the public
+     `Sloth-OS-Linux/sloth-os-knowledge` repository (downloaded by `sloth-windows-prepare`). Sharing: only if the
+     user turns it on (Sloth Center → Windows programs → "Share experiences", off by default);
+     the report is anonymous (only a hash of the program's name, the machine is a random number), it is queued, and goes out
+     in the background. The service is a Cloudflare Worker + D1 (`https://sloth-os-knowledge.slothos.workers.dev`):
+     it only accepts allowed settings, one vote per machine, a setting is published if it worked on at least 3 machines and in
+     75% of the cases, 500 reports a day per address. The summary is written hourly by the knowledge repository's
+     GitHub Action (a monthly heartbeat, so the schedule does not stop)
+     - [x] A separate step in Welcome (after Passwords): what it is, what goes out and what does not; the user chooses
+       (yes / no, neither is selected in advance), it can be changed later in Sloth Center. Description: README
+     - [x] A base from ProtonDB's open data (ODbL): every month the knowledge repository's `protondb` Action extracts from the latest
+       release the working setting per game and GPU vendor (Proton variant, switches,
+       components; only the last 2 years, at least 3 reports, only if not the default). 2026-10: 287
+       games. For recognized games (with a Steam AppID) this is the first attempt if there is no own or Sloth OS data
+     - [x] More allowed switches: NVAPI, hiding NVIDIA, large address aware, heap delay free,
+       D3D10/11 off, old GL strings, write watch off (in the Worker, on the machine and in the ProtonDB processor too)
+     - [x] Monitoring the service (2026-10-16): the knowledge repository's `monitor` Action checks the Worker daily, the
+       validation of reports and the export; on an error an issue opens (e-mail), it is closed when things are fine again.
+       The error path has not been tried live yet
+  - Tried (2026-10-15) with the real controller and a fake runner: a missing DLL, a Vulkan error, an unknown
+    crash, rollback after an update on Btrfs, a hopeless case, a launcher handover, leftover Wine processes.
+    Partly tried on a real machine since (Battle.net, EA app, Ubisoft Connect)
+  - Test: going through the big launchers (Battle.net, EA, Ubisoft, Epic, Rockstar, GOG) and a few popular games
+    after every bigger change, on a real machine (AMD, NVIDIA, Intel)
+- [x] Proton on by default in Steam for every game (`sloth-steam-proton-default.service`)
+- [x] MangoHud / gamescope Flatpak Vulkan layers for the Steam Flatpak (`sloth-steam-vulkan-layers.timer`)
+- [x] A clear error message if a game cannot run on Linux because of anti-cheat (.exe handler: it says so right away for Vanguard, FACEIT, Ricochet…; for Easy Anti-Cheat / BattlEye if the game exits quickly). Still to do: the same for Steam games
+- [x] **A handler for Linux packages** (2026-10-19, still to test on a real machine): the .exe handler opens them (it recognizes them
+  by the file's contents), shared code: `sloth_common/apps/packages.py`. AppImage: under `~/Applications/<name>/`
+  (a copy, with a reflink on Btrfs), made executable, into the Start menu with its own name, icon and categories
+  (`sloth-exe --run`, it starts after moving too), or only running it; FUSE 2 (`fuse-libs`) is in the image.
+  .deb: into an Ubuntu box (`sloth-ubuntu`), .rpm: into a Fedora box (`sloth-fedora`), the new apps into the Start menu
+  (`distrobox-export`), next to it "Search in Discover"; on removal it is deleted from the box too. Mac files: a clear
+  message and a Discover search; we do not run Mac command files. That is why Sloth Center's page became "Programs".
+  The data of programs without files of their own (started from elsewhere, boxed) is hidden
+  (`~/.local/share/sloth-os/apps/`), so there is no empty folder in `~/Applications`. Also done (2026-10-19):
+  AppImage updates in the background (`sloth-exe --maintenance`, called by `sloth-windows-prepare.timer`): from the AppImage's own
+  update data (ELF `.upd_info`: `zsync|…` or `gh-releases-zsync|…`) the `.zsync` header; with an SHA-1 match
+  nothing to do, otherwise a full download, check, replace; only on an unmetered connection, and if the program is not
+  running. Tried on a real AppImage (AppImageUpdate): reading the data and the header. If a .deb, .rpm or
+  AppImage is on Flathub too (an exact name match), we recommend that ("Install from Discover" is the main button).
+  The original plan: Linux apps downloaded from the net should install
+  on a double-click too, with progress, a Start menu entry, and be removable in Sloth
+  Center. Until then nothing handled any of them:
+  - `.AppImage`: not executable when downloaded, a double-click brings "Open with…"; many need `libfuse2` too
+    (check whether it is in the image). Plan: into its own folder, executable, Start menu, updating if the
+    AppImage supports it
+  - `.deb`: cannot be installed on Fedora at all. Plan: in the background into an Ubuntu box (`distrobox`, Sloth
+    Center's box management already exists), the app appears in the Start menu like a native one, the word "box" is not shown
+  - `.rpm`: cannot be installed "just like that" on an Atomic system. Plan: if it has a Flatpak version, we recommend that;
+    otherwise into a Fedora box; layering into the system only in the advanced settings
+  - `.flatpakref` / `.flatpak`: Discover already handles them (check in a VM)
+  - Mac apps and disk images: `.dmg`, `.xip`, `.pkg`, `.mpkg`, `.app` (in a zip too: `.app.zip`), `.sparseimage`,
+    `.sparsebundle`, `.cdr`, `.smi`, old `.img` / `.dc42` disk images, and iOS apps (`.ipa`).
+    Recognition by MIME type too (e.g. `application/x-apple-diskimage`, `application/x-xar`); the `.command` /
+    `.tool` scripts are shell scripts, for these only a warning. They cannot run on Linux (Darling is experimental,
+    it does not run graphical apps), so
+    a clear message: "This program was made for Mac, it does not run on this computer"; if the app is on Flathub (e.g.
+    Spotify, Discord, VS Code), we offer its Linux version with one click; the files in it
+    (font, document) can be extracted with Ark
 
-## 3. fázis – Saját GUI eszközök
-Cél: **minden terminálos feladatnak legyen grafikus megfelelője.** Ahol a KDE-nek már van jó GUI-ja, azt használjuk
-(és ellenőrizzük, hogy előtelepített); ahol nincs, azt a saját eszközeink pótolják (Python + PySide6/QML,
-jogosultságot igénylő műveletek polkiten keresztül, jelszókérő ablakkal).
+## Phase 3 – Our own GUI tools
+Goal: **every terminal task should have a graphical equivalent.** Where KDE already has a good GUI, we use that
+(and check that it is preinstalled); where there is none, our own tools fill the gap (Python + PySide6/QML,
+operations needing permission through polkit, with a password window).
 
-### Saját eszközök
-- [x] **Üdvözlő varázsló** első bejelentkezéskor (`files/system/usr/lib/sloth-os/sloth-welcome/`; VM-ben még tesztelni):
-  színtéma, majd kategóriánként külön lépésben böngésző, irodai programok, zene és videó, csevegés, játékok,
-  alkotás (benne az ArtCraft). Alapból semmi nincs bejelölve; telepítés folyamatjelzővel, hálózati hibánál
-  újrapróbálkozás; a böngésző a tálcára kerül.
-  - [x] Tálca-elrendezés választás
-  - [x] Többnyelvű: a Fedora telepítő mind az 50 használható nyelvén (amelyeken az Anaconda legalább félig le van
-    fordítva, plusz norvég bokmål), jobbról balra írással (arab, héber) és minden írásrendszerhez betűtípussal
-    (`sloth_welcome/translations/*.json`, ellenőrzés: `tools/check_translations.py`); alapból a rendszer nyelvén indul,
-    az első lapon átváltható. A Sloth Központ is le van fordítva mind az 50 nyelvre.
-    Hátravan: anyanyelvi átnézés (a fordításokat MI készítette)
-  - [x] A végén gyors gombok: Steam-bejelentkezés, online fiókok, nyelv és régió (a nyelvet a telepítő kérdezi)
-  - [x] Az ArtCraft frissítése: felhasználói telepítés + napi háttérfrissítő (`sloth-github-bundle-update.timer`, SHA256 ellenőrzéssel); VM-ben még tesztelni
-- [ ] **Sloth Központ** (egy app, modulokra bontva; `files/system/usr/lib/sloth-os/sloth-center/`):
-  - [x] Frissítések és visszaállítás (keresés, telepítés folyamatjelzővel, újraindítás, vissza az előzőre, a mostani verzió megtartása; VM-ben még tesztelni);
-    a gépen lévő összes verzió listája: bármelyik indítható legközelebb letöltés nélkül (`ostree admin set-default`),
-    és egyenként megtartható
-  - [x] Driverek és hardver: videókártya felismerése, NVIDIA ↔ AMD/Intel változat váltása (`rpm-ostree rebase`),
-    Secure Boot kulcs regisztrálása lépésenkénti útmutatóval (`mokutil`); VM-ben és Secure Boot-os gépen még tesztelni.
-    Kontrollerek: a csatlakoztatottak listája (kábel / Bluetooth, akkuszint), párosítás és a gombok kipróbálása
-    a KDE moduljaival. Megjegyzés: amíg a repó privát, a váltáshoz registry-bejelentkezés kell (Fejlesztői pult →
-    Bejelentkezés a csomagtárolóba, 2026-10-19)
-  - [x] Közös rendszergazdai segéd (`/usr/libexec/sloth-os/sloth-helper` + polkit `org.slothos.helper`): rögzített műveletek, grafikus jelszókérővel
-  - [x] Jelszókérő nélküli rendszergazda (Sloth Központ → Fiók és biztonság, és egyszerűsítve az Üdvözlő „Jelszavak”
-    lépésében): témakörönként polkit-szabály (`/etc/polkit-1/rules.d/49-sloth-admin.rules`, forrás:
-    `/etc/sloth-os/admin-policy.json`, a `sloth-helper admin-policy` írja, mindig csak a hívó felhasználóra),
-    sudo jelszó nélkül (`/etc/sudoers.d`), automatikus bejelentkezés (Plasma Login Manager). VM-ben még tesztelni
-    (`pkcheck`). Hátravan: a jelszótároló (KWallet) automatikus nyitása automatikus bejelentkezésnél; a rendszergazdai
-    jog a KDE Felhasználók moduljában állítható. Az eredeti terv:
-  - Jelszókérő nélküli rendszergazda: fiók létrehozásakor (telepítő / első indítás) választható, hogy a felhasználó
-    rendszergazda-e, és ha igen, kérjen-e jelszót a rendszergazdai műveleteknél. Ha nem kér, minden kérdés nélkül
-    lefut (polkit-szabály a felhasználóra vagy egy külön csoportra, pl. `/etc/polkit-1/rules.d/`, + sudo NOPASSWD).
-    Ne csak „mindenhez / semmihez”: témakörönként választható legyen, mihez kell jelszó (programok telepítése,
-    frissítés, hálózat és eszközök, dátum és nyelv, szolgáltatások és driverek, lemezek, felhasználók és jelszavak,
-    rendszerindítás és rendszercsomagok; az utolsó hármat alapból védjük), plusz automatikus bejelentkezés,
-    jelszótároló (KWallet) automatikus nyitása, jelszó a terminálban (sudo). Utólag a Sloth Központban is
-    átállítható legyen, terminál nélkül
-  - [x] Bejelentkezési módok a hardver alapján (Sloth Központ → Fiók és biztonság; csak az látszik, amihez megvan a
-    hardver): ujjlenyomat (`fprintd`, felvétel a KDE Felhasználók moduljában, bekapcsolás `authselect`
-    with-fingerprint), biztonsági kulcs (FIDO2/YubiKey: felvétel `pamu2fcfg`-vel, `authselect` with-pam-u2f), céges
-    fiók (Active Directory: `realm join/leave` űrlapról). VM-ben és valódi hardveren még tesztelni.
-    Hátravan: Entra ID, a jelszótároló nyitása jelszó nélküli belépésnél. Az eredeti terv:
-  - [x] PIN-kód (2026-10-19; a PAM-rész Fedora 44 konténerben `pamtester`-rel kipróbálva:
-    `tools/tests/pin_pam_test.sh`, 14/14; VM-ben a bejelentkező és a zárolási képernyőn még megnézni): Sloth Központ →
-    Fiók és biztonság, 4–8 számjegy, a könnyen kitalálhatók (1111, 1234…) tiltva. Saját authselect-profil
-    (`vendor/sloth` = a Fedora `local` + with-sloth-pin, `files/scripts/pin-authselect.sh`); a pam_unix elé egy
-    `pam_exec` sor kerül (`/usr/libexec/sloth-os/pin-check`), így ugyanabba a mezőbe a jelszó és a PIN is beírható.
-    A PIN scrypt-hashként a `/etc/sloth-os/pin/<felhasználó>.json`-ban (`sloth-helper pin-set/pin-remove`); csak
-    helyi szolgáltatásokban fogadjuk el (bejelentkezés, zárolási képernyő, jóváhagyás), távolról (ssh) soha;
-    5 hibás próba után egyre hosszabb várakozás (legfeljebb 1 óra), közben a jelszó működik. TPM-es tárolás: később
-  - [x] Arcfelismerés: döntés (2026-10-19), egyelőre nem építjük be. A Howdy csak személyes COPR-okból érhető el,
-    és a PAM-ba kerülne (egy hibája a bejelentkezést érinti); ha van infrakamera, a Fiók és biztonság oldal ezt
-    elmagyarázza, és a PIN-t vagy az ujjlenyomatot ajánlja. Újranézni, ha a Fedorába bekerül egy karbantartott megoldás
-  - Bejelentkezési módok a hardver alapján (varázsló + Sloth Központ; a gép felismeri, mit tud, és csak azt kínálja fel):
-    jelszó; PIN-kód 4/6/8 számjeggyel (saját PAM-modul, csak a gépen tárolt hash, lehetőleg TPM-mel, sikertelen
-    próbálkozások után várakozás); ujjlenyomat (`fprintd`, ha van támogatott olvasó); arcfelismerés (Howdy, csak
-    infrakamerával, mint a Windows Hello; nincs a Fedora repóban); céges fiók (Active Directory: `realmd` + `sssd`,
-    tartományhoz csatlakozás GUI-ból; később Entra ID); biztonsági kulcs (FIDO2/YubiKey, `pam_u2f`).
-    Telefonos passkey helyi bejelentkezéshez Linuxon most még nincs kész megoldás, figyelni.
-    Megjegyzés: PIN, ujjlenyomat vagy arc esetén a jelszótároló (KWallet) nem nyílik ki magától, ezt meg kell oldani
-  - [x] Rendszercsomagok (haladó): RPM rétegezés és eltávolítás (`rpm-ostree install/uninstall`)
-  - [x] Rendszerindítás (haladó): kernelparaméterek (`rpm-ostree kargs`), boot menü mutatása dual boothoz
-  - [x] Szolgáltatások: gyakoriak érthető névvel és kapcsolóval, haladó lista indítás/leállítással (`systemctl`);
-    a felhasználó saját szolgáltatásai jelszó nélkül (`systemctl --user`), a munkamenet alapjai védettek
-  - [x] Rendszer egészség: „Mi a baj?” nézet emberi nyelven (tárhely, el nem indult szolgáltatások, összeomlások, memóriahiány, videókártya- és lemezhibák, hőmérséklet), napló mentése segítségkéréshez (`journalctl`)
-  - [x] Lemezek: meghajtók foglaltsága, egészsége (SMART) és hőmérséklete, felesleges app-összetevők törlése (`df`, `smartctl`, `flatpak uninstall --unused`)
-  - [x] Fejlesztői környezetek: dobozok (Ubuntu, Debian, Arch, Fedora) létrehozása és törlése, programok telepítése a dobozba, appok a Start menübe (`distrobox`); VM-ben még tesztelni
-  - [x] Környezeti változók és indítási beállítások (Haladó beállítások): saját változók a
-    `~/.config/environment.d`-ben jelszó nélkül, a többi program változói megjelenítve, a kockázatosak
-    (pl. `PATH`) megjelölve; bejelentkezéskor induló programok: a KDE Automatikus indítás modulja
-  - [ ] Haladó beállítások: minden olyan rendszerbeállítás, amire nincs KDE-s GUI (folyamatosan bővül)
-- [x] **Játékok:** játékonkénti beállítások (FPS-kijelző: MangoHud, felskálázás: gamescope FSR, teljesítmény mód:
-  GameMode) Proton/Wine szavak nélkül (Sloth Központ → Játékok). Steames játékoknál az indítási beállításokba kerül
-  (`localconfig.vdf`, a felhasználó saját beírásai megmaradnak; csak zárt Steamnél írható, a felület bezárja),
-  Windows-programoknál a program adatai közé (`.sloth/app.json`), és a .exe kezelő indításkor alkalmazza
-  (`sloth_common/gamesettings.py`). VM-ben és valódi játékkal még tesztelni
+### Our own tools
+- [x] **Welcome wizard** at the first login (`files/system/usr/lib/sloth-os/sloth-welcome/`):
+  color theme, then in separate steps per category browser, office programs, music and video, chat, games,
+  creative (with ArtCraft in it). Nothing is selected by default; installing with progress, retrying on a network
+  error; the browser goes on the taskbar.
+  - [x] Choosing the taskbar layout
+  - [x] Multilingual: in all 50 usable languages of the Fedora installer (where Anaconda is at least half
+    translated, plus Norwegian Bokmål), with right-to-left writing (Arabic, Hebrew) and fonts for every script
+    (`sloth_welcome/translations/*.json`, check: `tools/check_translations.py`); by default it starts in the system's language,
+    it can be switched on the first page. Sloth Center is translated into all 50 languages too.
+    Still to do: native review (the translations were made by AI)
+  - [x] Quick buttons at the end: Steam sign-in, online accounts, language and region (the installer asks for the language)
+  - [x] Updating ArtCraft: a user install + a daily background updater (`sloth-github-bundle-update.timer`, with an SHA256 check)
+- [ ] **Sloth Center** (one app, split into modules; `files/system/usr/lib/sloth-os/sloth-center/`):
+  - [x] Updates and rollback (check, install with progress, restart, back to the previous one, keeping the current version);
+    the list of every version on the machine: any of them can start next time without downloading (`ostree admin set-default`),
+    and can be kept one by one
+  - [x] Drivers and hardware: recognizing the graphics card, switching between the NVIDIA ↔ AMD/Intel versions (`rpm-ostree rebase`),
+    enrolling the Secure Boot key with a step-by-step guide (`mokutil`); still to test on a Secure Boot machine with NVIDIA.
+    Controllers: the list of connected ones (cable / Bluetooth, battery level), pairing and trying the buttons
+    with KDE's modules. Note: while the repository was private, switching needed a registry sign-in (Developer panel →
+    Sign in to the package registry, 2026-10-19)
+  - [x] A shared administrator helper (`/usr/libexec/sloth-os/sloth-helper` + polkit `org.slothos.helper`): fixed operations, with a graphical password prompt
+  - [x] Administrator without a password prompt (Sloth Center → Account and security, and simplified in Welcome's "Passwords"
+    step): a polkit rule per topic (`/etc/polkit-1/rules.d/49-sloth-admin.rules`, source:
+    `/etc/sloth-os/admin-policy.json`, written by `sloth-helper admin-policy`, always only for the calling user),
+    sudo without a password (`/etc/sudoers.d`), automatic login (Plasma Login Manager). Still to test in a VM
+    (`pkcheck`). Still to do: opening the password store (KWallet) automatically on an automatic login; administrator
+    rights can be set in KDE's Users module. The original plan:
+  - Administrator without a password prompt: when creating the account (installer / first start) one can choose whether the user
+    is an administrator, and if so, whether to ask for a password for administrator operations. If not, everything
+    runs without questions (a polkit rule for the user or a separate group, e.g. `/etc/polkit-1/rules.d/`, + sudo NOPASSWD).
+    Not just "for everything / for nothing": it should be choosable per topic what needs a password (installing programs,
+    updating, network and devices, date and language, services and drivers, disks, users and passwords,
+    booting and system packages; the last three protected by default), plus automatic login,
+    opening the password store (KWallet) automatically, the password in the terminal (sudo). It should also be changeable
+    later in Sloth Center, without a terminal
+  - [x] Sign-in methods based on the hardware (Sloth Center → Account and security; only what the hardware supports
+    is shown): fingerprint (`fprintd`, enrolling in KDE's Users module, turning on with `authselect`
+    with-fingerprint), security key (FIDO2/YubiKey: enrolling with `pamu2fcfg`, `authselect` with-pam-u2f), work
+    account (Active Directory: `realm join/leave` from a form). Fingerprint tested on a real machine (2026-10-21).
+    Still to do: Entra ID, opening the password store on a password-free login. The original plan:
+  - [x] PIN (2026-10-19; the PAM part tried with `pamtester` in a Fedora 44 container:
+    `tools/tests/pin_pam_test.sh`, 14/14; works on a real machine on the login and lock screens, 2026-10-21): Sloth Center →
+    Account and security, 4–8 digits, easy-to-guess ones (1111, 1234…) forbidden. Our own authselect profile
+    (`vendor/sloth` = Fedora's `local` + with-sloth-pin, `files/scripts/pin-authselect.sh`); a
+    `pam_exec` line goes before pam_unix (`/usr/libexec/sloth-os/pin-check`), so both the password and the PIN can be typed into the same field.
+    The PIN as an scrypt hash in `/etc/sloth-os/pin/<user>.json` (`sloth-helper pin-set/pin-remove`); only
+    accepted in local services (login, lock screen, approval), never remotely (ssh);
+    after 5 wrong attempts a longer and longer wait (at most 1 hour), the password works meanwhile. Storing in the TPM: later
+  - [x] Face recognition: decision (2026-10-19), not built in for now. Howdy is only available from personal COPRs,
+    and it would go into PAM (a bug in it affects logging in); if there is an infrared camera, the Account and security page
+    explains this and recommends the PIN or the fingerprint. Look again if a maintained solution gets into Fedora
+  - Sign-in methods based on the hardware (wizard + Sloth Center; the machine recognizes what it can do and offers only that):
+    password; a PIN with 4/6/8 digits (our own PAM module, only a hash stored on the machine, preferably with the TPM, waiting after
+    failed attempts); fingerprint (`fprintd`, if there is a supported reader); face recognition (Howdy, only with an
+    infrared camera, like Windows Hello; not in the Fedora repositories); a work account (Active Directory: `realmd` + `sssd`,
+    joining a domain from a GUI; later Entra ID); a security key (FIDO2/YubiKey, `pam_u2f`).
+    There is no finished solution yet for a phone passkey for local login on Linux, keep watching.
+    Note: with a PIN, fingerprint or face the password store (KWallet) does not open by itself, this has to be solved
+  - [x] System packages (advanced): RPM layering and removal (`rpm-ostree install/uninstall`)
+  - [x] Booting (advanced): kernel parameters (`rpm-ostree kargs`), showing the boot menu for dual boot
+  - [x] Services: the common ones with understandable names and switches, an advanced list with start/stop (`systemctl`);
+    the user's own services without a password (`systemctl --user`), the session's basics are protected
+  - [x] System health: a "What is wrong?" view in plain language (storage, services that did not start, crashes, out-of-memory, graphics card and disk errors, temperature), saving the log for asking for help (`journalctl`)
+  - [x] Disks: the drives' usage, health (SMART) and temperature, deleting unneeded app components (`df`, `smartctl`, `flatpak uninstall --unused`)
+  - [x] Developer environments: creating and deleting boxes (Ubuntu, Debian, Arch, Fedora), installing programs into the box, apps into the Start menu (`distrobox`); still to test in a VM
+  - [x] Environment variables and startup settings (Advanced settings): your own variables in
+    `~/.config/environment.d` without a password, the other programs' variables shown, the risky ones
+    (e.g. `PATH`) marked; programs started at login: KDE's Autostart module
+  - [ ] Advanced settings: every system setting that has no KDE GUI (grows continuously)
+- [x] **Games:** per-game settings (FPS display: MangoHud, upscaling: gamescope FSR, performance mode:
+  GameMode) without the words Proton/Wine (Sloth Center → Games). For Steam games it goes into the launch options
+  (`localconfig.vdf`, the user's own entries stay; it can only be written while Steam is closed, the interface closes it),
+  for Windows programs into the program's data (`.sloth/app.json`), and the .exe handler applies it when starting
+  (`sloth_common/gamesettings.py`). The upscaling drop-down tested on a real machine (2026-10-21); still to test with real games
 
-### Meglévő KDE / Flatpak GUI-k (ellenőrizni, hogy benne vannak-e az image-ben)
-Döntés (2026-10-15): az image-ben csak az marad, ami a rendszer működéséhez elengedhetetlen; a többi
-a Discoverből telepíthető. Ami marad: Partíciókezelő, Rendszerfigyelő, Dolphin, Konsole, Discover,
-Rendszerbeállítások, KWrite, Ark, Spectacle, tűzfal-beállítás, nyomtatók, Bluetooth, Orca képernyőolvasó,
-jelszótároló (KWallet), a kínai/japán/koreai beviteli módok, `podman` + `skopeo`, és amit a saját eszközeink
-használnak. **A hibaelhárításhoz szükséges eszközök is maradnak** (a napi használathoz nem kell terminál, de ha
-valami elromlik, legyen mivel megjavítani): naplónéző (kjournald), Filelight (mi foglalja a lemezt), `nano`, `vim`,
-`htop`, `nvtop`, `tmux` (szöveges konzolon is), távsegítség (KRdp / krfb).
-- [x] A többi kivétele (`files/scripts/slim-image.sh`, a modulok végén): Kate (a KWrite marad), KDE Connect,
-  Súgóközpont, `just` (az `ublue-os-just`-tal), `toolbox` (a `distrobox` marad), `buildah`, `cosign`, `ibus` (a
-  fcitx5 marad, vele is megvan a kínai/japán/koreai bevitel), a KDE és a Fedora háttérképei, a BlueBuild
-  nushell-bővítményei. Csomagonként ellenőrizve, mi függ tőlük; helyben kipróbálva: a `/usr` 9612 → 8751 MB.
-  A `git` marad (eldönteni). VM-ben még megnézni, hogy minden megvan-e, ami kell
-- [ ] Appok és frissítések: Discover · Flatpak jogosultságok: Rendszerbeállítások
-- [ ] Tűzfal (`firewall-cmd`): Rendszerbeállítások tűzfal modul
-- [ ] Partíciók (`fdisk`, `mkfs`): KDE Partíciókezelő
-- [ ] Folyamatok (`top`, `kill`): Rendszerfigyelő
-- [ ] Hálózat, VPN, nyomtatók, felhasználók, gépnév: Rendszerbeállítások
+### Existing KDE / Flatpak GUIs (check that they are in the image)
+Decision (2026-10-15): only what is essential for the system to work stays in the image; the rest
+can be installed from Discover. What stays: Partition Manager, System Monitor, Dolphin, Konsole, Discover,
+System Settings, KWrite, Ark, Spectacle, firewall settings, printers, Bluetooth, the Orca screen reader,
+the password store (KWallet), the Chinese/Japanese/Korean input methods, `podman` + `skopeo`, and whatever our own tools
+use. **The tools needed for troubleshooting stay too** (daily use needs no terminal, but if
+something breaks, there should be something to fix it with): log viewer (kjournald), Filelight (what takes the disk), `nano`, `vim`,
+`htop`, `nvtop`, `tmux` (on a text console too), remote help (KRdp / krfb).
+- [x] Removing the rest (`files/scripts/slim-image.sh`, at the end of the modules): Kate (KWrite stays), KDE Connect,
+  Help Center, `just` (with `ublue-os-just`), `toolbox` (`distrobox` stays), `buildah`, `cosign`, `ibus`
+  (fcitx5 stays, Chinese/Japanese/Korean input works with it too), the KDE and Fedora wallpapers, BlueBuild's
+  nushell plugins. Checked package by package what depends on them; tried locally: `/usr` 9612 → 8751 MB.
+  `git` stays (to decide). Still to check in a VM that everything needed is there
+- [ ] Apps and updates: Discover · Flatpak permissions: System Settings
+- [ ] Firewall (`firewall-cmd`): System Settings' firewall module
+- [ ] Partitions (`fdisk`, `mkfs`): KDE Partition Manager
+- [ ] Processes (`top`, `kill`): System Monitor
+- [ ] Network, VPN, printers, users, machine name: System Settings
 
-### Fejlesztői pult (a Sloth OS fejlesztéséhez) – kész 2026-10-19 (valódi gépen még tesztelni)
-Sloth Központ → Fejlesztői pult (`sloth_center/devpanel.py`), terminál, `gh` és `cosign` nélkül (a GitHub REST API-t
-közvetlenül hívja; a GitHub-hívások élesben kipróbálva):
-- [x] Kapcsolat: repó és GitHub-token; a tokent egy gomb a GitHubon, előre kitöltött jogokkal hozza létre (repo,
-  workflow, read:packages); a jelszótárolóba kerül (`secret-tool`; ha nincs, egy csak a felhasználó által olvasható fájl)
-- [x] Buildek: a legutóbbi futások állapota, image és ISO build indítása, megnyitás a GitHubon, havi Actions-percek
-  (ha a token és a fiók engedi)
-- [x] Aláíró kulcs: be van-e állítva a `SIGNING_SECRET`; új kulcspár a cosign-nal Podmanben; a `cosign.pub`-ot a pult
-  commitolja, a titkos kulcsot a vágólapra teszi, és megnyitja a GitHub titok-oldalát (a titok közvetlen feltöltéséhez
-  libsodium kellene). Kulcscserénél figyelmeztet: a telepített gépek frissítése addig áll, amíg az új kulcs egy még a
-  régivel aláírt frissítéssel el nem jut hozzájuk
-- [x] Kipróbálás: bejelentkezés a csomagtárolóba (`sloth-helper registry-login`, `/etc/ostree/auth.json`), átállás egy
-  buildre (`<commit>-<Fedora-verzió>` címke, rpm-ostree rebase) és vissza a legfrissebbre, virtuális gép (GNOME Boxes)
+### Developer panel (for developing Sloth OS) – done 2026-10-19 (still to test on a real machine)
+Sloth Center → Developer panel (`sloth_center/devpanel.py`), without terminal, `gh` and `cosign` (it calls the GitHub REST API
+directly; the GitHub calls tried live):
+- [x] Connection: repository and GitHub token; a button creates the token on GitHub with the scopes filled in (repo,
+  workflow, read:packages); it goes into the password store (`secret-tool`; if there is none, a file only the user can read)
+- [x] Builds: the state of the latest runs, starting image and ISO builds, opening on GitHub, Actions minutes this month
+  (if the token and the account allow it)
+- [x] Signing key: whether `SIGNING_SECRET` is set; a new key pair with cosign in Podman; the panel commits `cosign.pub`,
+  puts the private key on the clipboard, and opens the GitHub secrets page (uploading the secret directly would need
+  libsodium). When changing the key it warns: installed machines' updates stop until the new key reaches them with an update
+  still signed with the old one
+- [x] Trying out: signing in to the package registry (`sloth-helper registry-login`, `/etc/ostree/auth.json`), switching to a
+  build (the `<commit>-<Fedora version>` tag, rpm-ostree rebase) and back to the latest, a virtual machine (GNOME Boxes)
 
-## 4. fázis – Kiadás
-- [ ] Repó publikussá tétele, napi automatikus build visszakapcsolása (`.github/workflows/build.yml`)
-- [ ] **Saját Sloth OS telepítő** (`iso/`): élő rendszer a pendrive-ról, kipróbálás telepítés nélkül, Anaconda nélkül
-  - [x] Első változat: nyelv (az Üdvözlő 50 nyelve), billentyűzet, időzóna, egész lemezre telepítés
-    (saját particionálás + `bootc install to-filesystem`, az image az ISO-ban van, internet nélkül is megy),
-    folyamatjelző, újraindítás; a fiókot is a telepítő kérdezi meg (első induláskor jön létre). Építés:
-    `tools/build-iso.sh` (Linux) vagy `tools/build-iso.ps1` (Windows), helyben Podmannel, vagy `.github/workflows/iso.yml`
-  - [x] A telepítő mind az 50 nyelven
-  - [x] Teljes képernyős „Kipróbálom / Telepítem” választó; kipróbáláshoz böngésző az élő rendszerben
-    (2026-10-15 óta Falkon; a telepített rendszerbe nem kerül böngésző, az Üdvözlőben választ a felhasználó)
-  - [x] Rejtett GRUB az ISO-n (Escre jön elő); a firmware boot-bejegyzés neve „Sloth OS” (nem „Fedora”)
-  - [x] Kisebb ISO: a telepítendő image kicsomagolva, a közös fájlok csak egyszer (cél kb. 5 GB); VM-ben még tesztelni
-  - [x] A második VM-teszt (2026-10-14) hibái javítva, VM-ben újra megnézni:
-    - a telepítés 4 GB RAM-mal elfogyott (a `bootc` a rétegeket a RAM-ban lévő `/var/tmp`-be csomagolta ki):
-      most a lemez végén egy átmeneti munkapartíciót használ, amit utána a rendszerpartícióhoz csatol;
-    - a telepítés végén nem találta a gyökérpartíciót, és a boot-bejegyzést sem nevezte át (`lsblk --json`
-      `--tree` nélkül lapos listát ad); a folyamatjelző 36%-on állt a másolás alatt (most a lemezre írt adatból halad);
-    - a KDE üdvözlője eltakarta a telepítőt; a választott billentyűzet az élő rendszerben nem állt át
-      (a próbamező így semmit nem mutatott; most `kwriteconfig6 --notify`, és a KWin nem a locale1-et követi);
-    - billentyűzettel: a lenyitott listákban nem működtek a nyilak, nem látszott a fókusz; a lemez neve
-      „0x1af4” volt (most gyártó, típus, HDD/SSD/NVMe)
-  - [x] ISO-build podman commit nélkül (2026-10-15): a telepítendő image kicsomagolt tárolója külön mappába kerül
-    (`iso/payload.sh`), és az ISO készítésekor csatoljuk az élő rendszerbe. A lassú gépen egymaga másfél órás
-    commit kimarad. A régi úton a `mksquashfs` kb. 1000 törlés-jelölést kihagyott („Cannot stat … ignoring”);
-    ez a telepítést valószínűleg nem rontotta el (a rétegeket a tároló a `tar-split` fejlécekből rakja össze),
-    az új úton pedig a törlés-jelölések `.wh.` fájlként megmaradnak (kipróbálva, a rétegek ellenőrző összege
-    squashfs és overlay után is stimmel). VM-ben még tesztelni
-  - [x] Negyedik VM-teszt (2026-10-15, Hyper-V, 2. generációs VM): a `bootc` végigment („Installation complete!”),
-    utána a segéd log nélkül leállt („Installation failed”). Ok: a `bootc` a végén csak olvashatóra csatolja
-    vissza a célt, és a boot menü beállítása (`custom.cfg`) kivételt dobott. Javítva: írás előtt visszacsatolja
-    írhatóra, és a segéd minden váratlan hibát a logba ír. VM-ben újra megnézni
-  - [x] Telepítés közben nem kapcsol le a képernyő, nem zárol és nem alszik el a gép (élő rendszer beállításai a
-    `livesys-session-extra`-ban + a telepítő D-Bus tiltása a telepítés idejére); új ISO-val még tesztelni
-  - [x] `tools/build-iso.ps1`: a `build-iso.sh`-t futtatja közvetlenül a Podman gép WSL-disztribúciójában (eddig
-    kétszer töltötte le az image-et, és a Windows → ssh → Podman út nagy terhelésnél elakadt); a WSL-hez
-    cgroupfs és cgroup nélküli konténerek kellenek (a `build-iso.sh` magától állítja)
-  - [x] Helytakarékos ISO-build (2026-10-19; a teljes ISO-buildet még lefuttatni): az átmeneti OCI-másolat
-    (kb. 12 GB) kimarad, a kicsomagoló közvetlenül a letöltött tárolóból olvas (becsatolva,
-    `containers-storage:[overlay@…]` forrásként; WSL-es Podmanben kis image-en kipróbálva). A csúcs így kb. 25–28 GB.
-    A CI sem tölti le kétszer az image-et. A kicsomagolt példány hardlinkelése a letöltött rétegekre kimaradt
-    (a containers/storage saját fájljai, túl kockázatos)
-  - [ ] ISO méret (2026-10-15: 6,9 GB, ebből a squashfs 6,2 GB; zstd-19 marad). A következő ISO-n megnézni:
-    - [x] Csak a Sloth OS saját háttérképei maradnak, a BlueBuild nushell-bővítményei kikerülnek
-      (`files/scripts/slim-image.sh`; a telepített rendszer is kisebb lesz)
-    - [x] Firefox helyett Falkon az élő rendszerben (döntés: 2026-10-15): KDE, QtWebEngine/Chromium alapú; RPM,
-      a QtWebEngine már benne van az image-ben, így kb. 14 MB a Firefox Flatpak kb. 0,5 GB-ja helyett.
-      Csak az élő rendszerbe kerül (`iso/build.sh`); internet nélküli telepítésnél nem másolunk böngészőt,
-      a felhasználó az Üdvözlőben választ (most 9 böngésző)
-    - [x] A telepítendő image rétegeinek összevonása egy rétegbe, kapcsolóval (2026-10-19): `SLOTH_SQUASH=1`
-      (`tools/build-iso.sh`), `-Squash` (`tools/build-iso.ps1`), `squash` (CI). A lecserélt / törölt fájlok (pl. a
-      régi kernel) kiesnek; becslés: 0,5–1 GB. Ára: az első frissítés a teljes image-et tölti le, ezért alapból ki;
-      kiadáshoz. A következő ISO-n megmérni, mennyit hoz
-  - [x] Windows mellé telepítés (2026-10-15; valódi Windowszal még tesztelni): a lemezválasztóban Windowsos
-    lemeznél „Windows mellé” (alapból) vagy „az egész lemez törlése”, méretcsúszkával. A segéd felméri a lemezt
-    (`sloth-install-helper probe`): UEFI és GPT kell; a meglévő szabad hely, ha elég, különben a legnagyobb
-    NTFS-partíció (C:) zsugorítása `ntfsresize`-zal (a Windowsnak marad 20 GB szabad hely). A Sloth OS saját EFI
-    partíciót kap (a Windowséhoz nem nyúl), a boot menü látszik, benne a Windows (`EFI/fedora/sloth-windows.cfg`,
-    bármelyik lemezen lévő Windows-rendszerindítóra), a hardveróra helyi időben jár. Felismeri és érthetően
-    magyarázza: BitLocker (a Windowsban kell helyet felszabadítani; a helyreállítási kulcsra figyelmeztet),
-    gyors indítás / hibernálás (a `hiberfil.sys` fejlécéből), esedékes lemezellenőrzés, BIOS mód, MBR-es lemez,
-    kevés hely. Loop eszközön kipróbálva: zsugorítás (a fájlok épek, a partíció kezdete változatlan), szabad
-    hely, hibernált Windows, BitLocker szabad hellyel és anélkül. Hátravan: VM-ben a teljes telepítés és a
-    boot menü Windows-bejegyzése
-    - [x] Boot-sorrend védelme (`sloth-boot-order.service`): ha egy Windows-frissítés a „Windows Boot Manager”-t a
-      sorrend elejére tette, a Sloth OS következő indításakor visszakerül az első helyre (mást, pl. egy előre tett
-      pendrive-ot nem bánt). Korlát: addig a gép a Windowst indítja; a Sloth OS-t egyszer a gép saját
-      indítómenüjéből kell választani. Ezt a Windows-oldali segéd (2026-10-19, lásd fent a teendőknél) megakadályozza
-  - [x] NVIDIA-s gépen automatikusan az NVIDIA-s változat (2026-10-15; valódi NVIDIA-s gépen még tesztelni): a
-    telepítő ISO-n csak az AMD/Intel-es fér el, ezért a telepített rendszer intézi: `sloth-nvidia-auto.timer`
-    (indítás után 2 perccel, utána óránként, amíg nem sikerül) NVIDIA-kártyánál a háttérben `rpm-ostree rebase`
-    az NVIDIA-s image-re, Secure Bootnál a kulcs regisztrálását is előkészíti; egyszer fut (a kézi visszaváltást
-    nem írja felül). Értesítés a felhasználónak (`sloth-nvidia-notify`): „Újraindítás most” vagy a Sloth Központ
-    Driverek oldalának útmutatója (`sloth-center --page drivers`)
-  - [x] Telepítés után a frissítések aláírás-ellenőrzéssel (`ostree-image-signed`; 2026-10-16, valódi gépen még
-    tesztelni): mindkét image elfogadja a másik változat aláírását is (`files/scripts/signing-family.sh` a signing
-    modul után; különben az AMD/Intel <-> NVIDIA váltás elakadna). A telepítő az aláírt hivatkozást írja be, ha a
-    policy.json aláírást követel (különben marad a régi, hogy legyen frissítés). A régebbi telepítéseket a
-    `sloth-signed-updates.timer` egyszer átállítja (az előkészített, újraindításra váró változatot is)
-  - [x] Lemeztitkosítás (2026-10-16; VM-ben és valódi gépen még tesztelni, főleg az indításkori jelszókérőt): a
-    lemezválasztóban „A lemez titkosítása” (alapból a fiók jelszavával, vagy külön jelszóval; legalább 8 karakter),
-    teljes lemezen és Windows mellett is. LUKS2 a rendszerpartíción (TRIM engedélyezve), külön titkosítatlan
-    /boot (1 GB; a GRUB a LUKS2-t nem tudja kinyitni), `rd.luks.uuid` és crypttab. A jelszókérő a választott
-    billentyűzetkiosztással fut (`rd.vconsole.keymap`; az initramfs-ben minden kiosztás:
-    `/usr/lib/dracut/dracut.conf.d/90-sloth-luks.conf`), a Plymouth-téma szöveg helyett lakat ikont mutat (a
-    systemd szövege angol és technikai). Loop eszközön kipróbálva: jó/rossz jelszó, LUKS2, TRIM, /boot, crypttab,
-    a fájlrendszer kitölti a partíciót. Közben javítva: Windows mellett a szabad hely egészét elfoglalta a
-    választott méret helyett
-  - [ ] Régi (BIOS-os) gépek
-  - [ ] ISO letöltése: privát repóban a 2 GB-os kiadás- és 500 MB-os tárhelykorlát miatt csak publikussá tétel után
-- [ ] Weboldal, letöltés, dokumentáció
+## Phase 4 – Release
+- [x] Making the repository public, turning the daily automatic build back on (`.github/workflows/build.yml`) (2026-10-21)
+- [x] **Our own Sloth OS installer** (`iso/`): a live system from the USB stick, trying without installing, without Anaconda
+  - [x] First version: language (Welcome's 50 languages), keyboard, time zone, installing on the whole disk
+    (our own partitioning + `bootc install to-filesystem`, the image is in the ISO, it works without internet too),
+    progress bar, restart; the installer asks for the account too (it is created on first boot). Build:
+    `tools/build-iso.sh` (Linux) or `tools/build-iso.ps1` (Windows), locally with Podman, or `.github/workflows/iso.yml`
+  - [x] The installer in all 50 languages
+  - [x] A full-screen "Try / Install" chooser; a browser in the live system for trying
+    (Falkon since 2026-10-15; no browser goes into the installed system, the user chooses in Welcome)
+  - [x] Hidden GRUB on the ISO (Esc brings it up); the firmware boot entry's name is "Sloth OS" (not "Fedora")
+  - [x] A smaller ISO: the image to install unpacked, the shared files only once (goal about 5 GB)
+  - [x] The bugs of the second VM test (2026-10-14) fixed:
+    - with 4 GB of RAM the install ran out of memory (`bootc` unpacked the layers into `/var/tmp` in RAM):
+      now it uses a temporary work partition at the end of the disk, which it then adds to the system partition;
+    - at the end of the install it did not find the root partition, and did not rename the boot entry either (`lsblk --json`
+      gives a flat list without `--tree`); the progress bar stood at 36% during the copy (now it follows the data written to disk);
+    - KDE's welcome covered the installer; the chosen keyboard did not switch in the live system
+      (so the test field showed nothing; now `kwriteconfig6 --notify`, and KWin does not follow locale1);
+    - with the keyboard: the arrows did not work in the opened lists, the focus was not visible; the disk's name was
+      "0x1af4" (now vendor, model, HDD/SSD/NVMe)
+  - [x] ISO build without podman commit (2026-10-15): the unpacked storage of the image to install goes into a separate folder
+    (`iso/payload.sh`), and it is mounted into the live system when the ISO is made. The commit that alone took an hour and a half
+    on the slow machine is skipped. On the old way `mksquashfs` skipped about 1000 whiteouts ("Cannot stat … ignoring");
+    this probably did not break the install (the storage puts the layers together from the `tar-split` headers),
+    and on the new way the whiteouts stay as `.wh.` files (tried, the layers' checksums match
+    after squashfs and overlay too)
+  - [x] Fourth VM test (2026-10-15, Hyper-V, generation 2 VM): `bootc` went through ("Installation complete!"),
+    then the helper stopped without a log ("Installation failed"). Cause: at the end `bootc` remounts the target
+    read-only, and setting up the boot menu (`custom.cfg`) threw an exception. Fixed: before writing it remounts it
+    writable, and the helper writes every unexpected error into the log
+  - [x] While installing, the screen does not turn off, lock, or the machine go to sleep (the live system's settings in
+    `livesys-session-extra` + the installer's D-Bus inhibition for the duration of the install)
+  - [x] `tools/build-iso.ps1`: runs `build-iso.sh` directly in the Podman machine's WSL distribution (until now
+    it downloaded the image twice, and the Windows → ssh → Podman path got stuck under heavy load); WSL needs
+    cgroupfs and containers without cgroups (`build-iso.sh` sets it by itself)
+  - [x] A space-saving ISO build (2026-10-19): the temporary OCI copy
+    (about 12 GB) is skipped, the unpacker reads directly from the downloaded storage (mounted in, as a
+    `containers-storage:[overlay@…]` source; tried with a small image in Podman on WSL). The peak is about 25–28 GB this way.
+    CI does not download the image twice either. Hardlinking the unpacked copy to the downloaded layers was left out
+    (containers/storage's own files, too risky)
+  - [x] ISO size (2026-10-15: 6.9 GB, of which the squashfs 6.2 GB; zstd-19 stays; the 1.0 ISO: 6.2 GB):
+    - [x] Only Sloth OS's own wallpapers stay, BlueBuild's nushell plugins are removed
+      (`files/scripts/slim-image.sh`; the installed system is smaller too)
+    - [x] Falkon instead of Firefox in the live system (decision: 2026-10-15): KDE, based on QtWebEngine/Chromium; an RPM,
+      QtWebEngine is already in the image, so about 14 MB instead of the Firefox Flatpak's about 0.5 GB.
+      Only in the live system (`iso/build.sh`); when installing without internet no browser is copied,
+      the user chooses in Welcome (9 browsers now)
+    - [x] Squashing the layers of the image to install into one, with a switch (2026-10-19): `SLOTH_SQUASH=1`
+      (`tools/build-iso.sh`), `-Squash` (`tools/build-iso.ps1`), `squash` (CI). The replaced / deleted files (e.g. the
+      old kernel) drop out; estimate: 0.5–1 GB. The price: the first update downloads the whole image, so it is off by default;
+      for releases. Used for the 1.0 ISO
+  - [x] Installing next to Windows (2026-10-15; still to test with a real Windows): on the disk chooser, for a disk with Windows,
+    "Next to Windows" (default) or "erase the whole disk", with a size slider. The helper surveys the disk
+    (`sloth-install-helper probe`): UEFI and GPT are needed; the existing free space if it is enough, otherwise shrinking the largest
+    NTFS partition (C:) with `ntfsresize` (Windows keeps 20 GB of free space). Sloth OS gets its own EFI
+    partition (Windows' one is not touched), the boot menu is shown, with Windows in it (`EFI/fedora/sloth-windows.cfg`,
+    to a Windows boot loader on any disk), the hardware clock keeps local time. It recognizes and clearly
+    explains: BitLocker (space has to be freed in Windows; it warns about the recovery key),
+    fast startup / hibernation (from the header of `hiberfil.sys`), a pending disk check, BIOS mode, an MBR disk,
+    too little space. Tried on a loop device: shrinking (the files intact, the partition's start unchanged), free
+    space, hibernated Windows, BitLocker with and without free space. In a VM and in the container test (2026-10-21) the whole install
+    and the Windows entry of the boot menu work
+    - [x] Protecting the boot order (`sloth-boot-order.service`): if a Windows update put "Windows Boot Manager" at the
+      front of the order, Sloth OS goes back to first place at its next start (it leaves other things, e.g. a USB stick put
+      first, alone). Limit: until then the machine starts Windows; Sloth OS has to be chosen once from the machine's own
+      boot menu. The Windows-side helper (2026-10-19, see the to-dos above) prevents this
+  - [x] On an NVIDIA machine the NVIDIA version automatically (2026-10-15; still to test on a real NVIDIA machine): only the
+    AMD/Intel one fits on the installer ISO, so the installed system handles it: `sloth-nvidia-auto.timer`
+    (2 minutes after startup, then hourly until it succeeds) with an NVIDIA card, `rpm-ostree rebase` in the background
+    to the NVIDIA image, with Secure Boot it also prepares enrolling the key; it runs once (it does not overwrite switching back
+    by hand). A notification for the user (`sloth-nvidia-notify`): "Restart now" or the guide on Sloth Center's
+    Drivers page (`sloth-center --page drivers`)
+  - [x] Updates with signature verification after installing (`ostree-image-signed`; 2026-10-16): both images
+    accept the other variant's signature too (`files/scripts/signing-family.sh` after the signing
+    module; otherwise switching AMD/Intel <-> NVIDIA would get stuck). The installer writes the signed reference if
+    policy.json requires a signature (otherwise the old one stays, so there are updates). Older installs are
+    switched once by `sloth-signed-updates.timer` (the prepared version waiting for a restart too)
+  - [x] Disk encryption (2026-10-16; tested on a real machine 2026-10-21, with the password prompt at boot): on the
+    disk chooser "Encrypt the disk" (by default with the account's password, or a separate one; at least 8 characters),
+    on a whole disk and next to Windows too. LUKS2 on the system partition (TRIM enabled), a separate unencrypted
+    /boot (1 GB; GRUB cannot open LUKS2), `rd.luks.uuid` and crypttab. The password prompt runs with the chosen
+    keyboard layout (`rd.vconsole.keymap`; every layout in the initramfs:
+    `/usr/lib/dracut/dracut.conf.d/90-sloth-luks.conf`), the Plymouth theme shows a padlock icon instead of text
+    (systemd's text is English and technical). Tried on a loop device: right/wrong password, LUKS2, TRIM, /boot, crypttab,
+    the file system fills the partition. Fixed meanwhile: next to Windows it took all of the free space instead of the
+    chosen size
+  - [ ] Old (BIOS-only) machines (after 1.0)
+  - [x] Downloading the ISO: on SourceForge (2026-10-21; GitHub releases allow at most 2 GB per file)
+- [x] Website, download, documentation (sloth-os-linux.github.io, 2026-10-21)
