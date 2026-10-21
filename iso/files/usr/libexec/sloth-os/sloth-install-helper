@@ -133,6 +133,41 @@ def image_refs():
     return conf["SOURCE_IMGREF"], conf["TARGET_IMGREF"]
 
 
+def verify_image():
+    """Checks the image to install before anything on the disk is touched: if it is missing or incomplete
+    (a damaged USB stick, a broken ISO), the installation stops here, and the disk stays as it was."""
+    try:
+        source, _ = image_refs()
+    except (OSError, KeyError, ValueError) as e:
+        fail("error.image_broken", f"image.conf: {e}")
+    name = source.split(":", 1)[1]
+    for tool in ("bootc", "podman"):
+        if not shutil.which(tool):
+            fail("error.image_broken", f"missing: {tool}")
+    run(["podman", "image", "inspect", "--format", "{{.Id}} {{len .RootFS.Layers}} layers", name],
+        error="error.image_broken")
+    # mounting it needs every layer; then the parts bootc needs must be there and readable
+    mnt = run(["podman", "image", "mount", name], error="error.image_broken").strip()
+    try:
+        root = Path(mnt)
+        missing = [p for p in ("usr/bin/bootc", "usr/bin/bootupctl", "usr/lib/os-release", "usr/lib/ostree")
+                   if not (root / p).exists()]
+        kernels = glob.glob(str(root / "usr/lib/modules/*/vmlinuz"))
+        if not kernels:
+            missing.append("usr/lib/modules/*/vmlinuz")
+        if missing:
+            fail("error.image_broken", f"missing from the image: {', '.join(missing)}")
+        for k in kernels:
+            with open(k, "rb") as f:     # a read error from a damaged stick shows up here
+                while f.read(4 * MIB):
+                    pass
+    except OSError as e:
+        fail("error.image_broken", f"cannot read the image: {e}")
+    finally:
+        subprocess.run(["podman", "image", "unmount", name], capture_output=True)
+    log("image check: OK")
+
+
 def release_disk(disk):
     """If something uses the disk (an automounted partition, swap), let it go."""
     out = json.loads(subprocess.run(["lsblk", "--json", "--tree", "--output", "PATH,MOUNTPOINTS,FSTYPE", disk],
@@ -897,6 +932,8 @@ def main():
     account = {"username": args.username, "fullname": args.fullname, "password_hash": password_hash(password)}
 
     LOG.write_text(f"Sloth OS installation: {time.ctime()}\n", encoding="utf-8")
+    emit(stage="verify", progress=2)
+    verify_image()     # before the disk is touched: on failure, nothing has been erased
     emit(stage="partition", progress=5)
     # an earlier, interrupted attempt may have left the encrypted layer open
     subprocess.run(["umount", "-R", str(TARGET)], capture_output=True)

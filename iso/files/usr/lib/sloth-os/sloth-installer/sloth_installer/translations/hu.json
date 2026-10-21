@@ -82,6 +82,7 @@
   "nav.next": "Tovább",
 
   "stage.start": "Felkészülés…",
+  "stage.verify": "A telepítőfájlok ellenőrzése…",
   "stage.partition": "Lemez előkészítése…",
   "stage.shrink": "A Windows meghajtójának átméretezése…",
   "stage.encrypt": "Titkosítás beállítása…",
@@ -104,6 +105,7 @@
   "error.log_save_failed": "Nem sikerült elmenteni a naplót. Próbálj másik helyet, például egy pendrive-ot.",
   "error.retry": "Újrapróbálom",
   "error.not_authorized": "Nem kaptunk engedélyt a telepítéshez.",
+  "error.image_broken": "A pendrive-on lévő telepítőfájlok sérültek vagy hiányosak. A lemezeden semmi nem változott. Írd ki újra a telepítőt a pendrive-ra (vagy használj másik pendrive-ot), majd próbáld újra.",
   "error.bad_disk": "Erre a lemezre nem lehet telepíteni. Válassz másikat.",
   "error.bad_input": "Valamelyik beállítás hibás. Lépj vissza, és nézd át őket.",
   "error.install_failed": "Hiba történt a rendszer lemezre másolása közben. A lemezen korábban lévő adatok ekkorra már törlődhettek.",

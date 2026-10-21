@@ -68,7 +68,7 @@ def welcome_keys():
 def installer_keys():
     """The installer's keys built at run time: stages (sent by the helper) and the disk contents."""
     stages = {stage for _keys, stage, _pct in literal(INSTALL_HELPER, "STAGES")}
-    keys = {f"stage.{s}" for s in stages | {"start", "partition", "shrink", "encrypt", "configure"}}
+    keys = {f"stage.{s}" for s in stages | {"start", "verify", "partition", "shrink", "encrypt", "configure"}}
     # Disk encryption: password problems (returned by the controller as keys)
     keys |= {f"disk.encrypt.{p}" for p in ("mismatch", "short", "short_same")}
     # Installing next to Windows: explanations of the obstacles (sent by the helper, combined by the UI)
