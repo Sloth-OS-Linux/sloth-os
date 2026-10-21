@@ -45,7 +45,7 @@ Az ISO helyben készült (`out/sloth-os.iso`, 08:33, a `latest` image-ből, benn
 6. [ ] **Visszajelzés:** „Couldn't send it” napló csatolásával. **Javítva:** a Központ a naplót nyers bájtban
    vágta 500 KB-ra, a szolgáltatás a teljes kérést nézi (576 KB); a JSON-kódolás a nem ASCII karaktereket és a
    Wine-naplók `\`-eit felfújta, így 413 jött. Most a kódolt kérést tartja a határ alatt (élő végponton kipróbálva:
-   régi kódolás 413, új 200). A próbák a feedback repóban: #2, #3, #4 (lezárandók). Valódi gépen újra kipróbálni
+   régi kódolás 413, új 200). A próbák a feedback repóban: #2, #3, #4 (lezárva). Valódi gépen újra kipróbálni
 7. [x] **Fájlmentés:** „Mentés most” jelszó nélkül, Korábbi verziók gombjai, visszaállítás: mind jó. Kérés: az
    alaphelyzetbe állítás előtt mentés kell. **Kész:** „Fájljaim megtartásával” módban az alaphelyzetbe állítás
    magától készít egy mentett állapotot (a boot menüből indítva is); „Mindent töröl” módban figyelmeztetés (a gépen
