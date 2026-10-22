@@ -16,6 +16,8 @@ installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-
 
 **Release status:** Sloth OS 1.0.2 is available. Download the installer ISO from [SourceForge](https://sourceforge.net/projects/sloth-os/files/1.0.2/) and see the installation guide at [sloth-os-linux.github.io](https://sloth-os-linux.github.io/download.html).
 
+**Installer update:** If you tried installing with the previous Sloth OS 1.0.2 ISO and ran into problems, we are sorry. The installer issue is fixed. Please download the current ISO and reinstall.
+
 ## System requirements
 
 | | Minimum | Recommended for games |
