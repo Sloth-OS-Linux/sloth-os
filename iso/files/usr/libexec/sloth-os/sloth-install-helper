@@ -51,6 +51,10 @@ IMAGE_CONF = Path("/usr/share/sloth-os/installer/image.conf")
 TARGET = Path("/run/sloth-install/target")      # the system partition is mounted here
 SCRATCH = Path("/run/sloth-install/scratch")    # the temporary work partition
 SCRATCH_BYTES = 10 * 1024**3                     # for the unpacked layers (measured peak ~2.1 GB + headroom)
+# bootc copies each layer to /var/tmp (the work partition) whole before importing it: a squashed image is one
+# layer of the full image size (1.0.2: 13.8 GB, "no space left on device" on the 10 GB partition), so then it
+# has to be bigger. verify_image sets it.
+scratch_bytes = SCRATCH_BYTES
 
 MIN_BESIDE_BYTES = 40 * 1024**3                  # next to Windows, Sloth OS needs at least this much
 WINDOWS_RESERVE = 20 * 1024**3                   # after shrinking, Windows keeps this much free space
@@ -147,6 +151,10 @@ def verify_image():
     info = json.loads(run(["podman", "image", "inspect", name], error="error.image_broken"))[0]
     layers = (info.get("RootFS") or {}).get("Layers") or []
     log(f"image: {info.get('Id')}, {len(layers)} layers")
+    global scratch_bytes
+    if len(layers) == 1:
+        scratch_bytes = max(SCRATCH_BYTES, int(info.get("Size") or 0) * 11 // 10 + 1024**3)
+        log(f"work partition: {scratch_bytes // MIB} MiB")
     # bootc looks for the layer the ostree.final-diffid label names; if it is not there (e.g. a wrongly squashed
     # image), bootc would stop only after the disk was erased ("Missing ostree.final-diffid")
     labels = info.get("Labels") or (info.get("Config") or {}).get("Labels") or {}
@@ -214,7 +222,7 @@ def partition(disk, encrypt=False):
     size_mib = int(run(["lsblk", "--noheadings", "--nodeps", "--bytes", "--output", "SIZE", disk])) // 1024**2
     # 1 MiB at the start and 1 MiB at the end for the GPT; BIOS boot 1 MiB, EFI 512 MiB
     boot_mib = BOOT_MIB if encrypt else 0
-    root_mib = size_mib - 2 - 1 - ESP_MIB - boot_mib - SCRATCH_BYTES // 1024**2 - 2
+    root_mib = size_mib - 2 - 1 - ESP_MIB - boot_mib - scratch_bytes // 1024**2 - 2
     if root_mib < 20 * 1024:
         fail("error.bad_disk", f"disk too small: {size_mib} MiB")
     run(["wipefs", "--all", "--force", disk])
@@ -434,7 +442,7 @@ def partition_beside(disk, size_bytes, encrypt=False):
     layout = [("esp", ESP_MIB * MIB // ss, ESP_TYPE, "EFI-SYSTEM")]
     if encrypt:
         layout.append(("boot", BOOT_MIB * MIB // ss, LINUX_DATA, "boot"))
-    scratch = SCRATCH_BYTES // ss
+    scratch = scratch_bytes // ss
     root = need - sum(size for _n, size, _t, _l in layout) - scratch
     layout += [("root", root, ROOT_X86_64, "root"), ("scratch", scratch, LINUX_DATA, "sloth-install-tmp")]
     script, starts, pos = "", {}, region[0]
