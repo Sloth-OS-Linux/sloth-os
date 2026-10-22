@@ -14,6 +14,18 @@ Feedback**. I will review them as time allows.
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
+#### Windows program launch follow-up (2026-10-22)
+- [ ] **Reddit Desktop in a Fedora box:** the package install reported success, but its exported Start menu entry
+  failed with `crun: executable file 'sloth-exe' not found in $PATH`. Inspect the exported `.desktop` file and
+  make sure the box launches the package's actual command; do not report success when no usable launcher exists.
+- [ ] **Notepad++ starts again after closing:** the install succeeded, but the start handler exited after 4–9 seconds
+  and cycled through four runner settings even though the user saw the app open. Improve detection of a live Windows
+  process after `umu-run` exits (check the prefix's Wine processes/wineserver), and only start another recovery attempt
+  after confirming the previous app is no longer running. Reproduce that closing the app does not reopen it.
+- [ ] **7-Zip required repeated installs:** the saved log has one installer run, four quick-exit recovery attempts,
+  and then a `7Z2605` Start menu entry. Reproduce the install and launch flow, then fix recognition or process tracking
+  so a successful install is not mistaken for a failed app launch and repeated installation is unnecessary.
+
 #### Installation and storage
 - [ ] Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
