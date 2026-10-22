@@ -16,6 +16,7 @@ Kirigami.ApplicationWindow {
 
     // The list of modules. Modules with "ready: false" are still being made (ROADMAP phase 3).
     readonly property var modules: [
+        { id: "status", name: L.t("System status"), icon: "dialog-information", page: "SystemStatusPage.qml", ready: true },
         { id: "updates", name: L.t("Updates"), icon: "system-software-update", page: "UpdatesPage.qml", ready: true },
         { id: "winprograms", name: L.t("Programs"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true },
         { id: "games", name: L.t("Games"), icon: "input-gamepad", page: "GamesPage.qml", ready: true },
@@ -35,13 +36,22 @@ Kirigami.ApplicationWindow {
           ready: true }
     ]
     property int currentIndex: 0
+    property int guideStep: 0
+
+    function openGuide() {
+        guideStep = 0;
+        guideDialog.open();
+    }
 
     function openModule(index) {
         currentIndex = index;
         const m = modules[index];
         pageStack.clear();
         if (m.ready) {
-            pageStack.push(Qt.resolvedUrl(m.page));
+            if (m.id === "status")
+                pageStack.push(Qt.resolvedUrl(m.page), { navigation: root });
+            else
+                pageStack.push(Qt.resolvedUrl(m.page));
         } else {
             pageStack.push(comingSoon, { module: m });
         }
@@ -92,6 +102,66 @@ Kirigami.ApplicationWindow {
                     }
                 }
             }
+
+            QQC2.Button {
+                Layout.fillWidth: true
+                Layout.margins: Kirigami.Units.smallSpacing
+                text: L.t("Open guide")
+                icon.name: "help-about"
+                onClicked: root.openGuide()
+            }
+        }
+    }
+
+    QQC2.Dialog {
+        id: guideDialog
+        parent: QQC2.Overlay.overlay
+        anchors.centerIn: parent
+        modal: true
+        title: L.t("A quick tour of Sloth Center")
+        standardButtons: QQC2.Dialog.NoButton
+        width: Math.min(root.width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 34)
+        onClosed: guide.markSeen()
+
+        contentItem: ColumnLayout {
+            spacing: Kirigami.Units.largeSpacing
+            Kirigami.Heading {
+                Layout.fillWidth: true
+                level: 2
+                wrapMode: Text.Wrap
+                text: [L.t("Keep Sloth OS up to date"), L.t("Find and manage programs"),
+                       L.t("Back up files and get help")][root.guideStep]
+            }
+            QQC2.Label {
+                Layout.fillWidth: true
+                wrapMode: Text.Wrap
+                text: [L.t("The Updates page installs system updates and lets you return to the previous version if an update causes trouble."),
+                       L.t("Programs is where you install and start Windows programs. Games has settings for Steam and other game tools."),
+                       L.t("File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.")][root.guideStep]
+            }
+            RowLayout {
+                Layout.fillWidth: true
+                QQC2.Button {
+                    text: L.t("Skip guide")
+                    onClicked: guideDialog.close()
+                }
+                Item { Layout.fillWidth: true }
+                QQC2.Button {
+                    visible: root.guideStep > 0
+                    text: L.t("Back")
+                    onClicked: root.guideStep--
+                }
+                QQC2.Button {
+                    text: root.guideStep < 2 ? L.t("Next") : L.t("Done")
+                    highlighted: true
+                    onClicked: {
+                        if (root.guideStep < 2)
+                            root.guideStep++;
+                        else
+                            guideDialog.close();
+                    }
+                }
+            }
         }
     }
 
@@ -111,5 +181,9 @@ Kirigami.ApplicationWindow {
     }
 
     // The page to open: sloth-center --page <ID> (e.g. from the NVIDIA notification: drivers)
-    Component.onCompleted: openModule(Math.max(0, modules.findIndex(m => m.id === startPage && m.ready)))
+    Component.onCompleted: {
+        openModule(Math.max(0, modules.findIndex(m => m.id === startPage && m.ready)));
+        if (!guide.seen)
+            openGuide();
+    }
 }

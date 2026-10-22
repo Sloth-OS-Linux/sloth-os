@@ -1,14 +1,11 @@
 {
   "_language": "Bahasa Indonesia",
-
   "app.title": "Pasang Sloth OS",
-
   "welcome.heading": "Selamat datang di Sloth OS!",
   "welcome.text": "Anda bisa mencoba sistem tanpa memasangnya, atau memasangnya di komputer. Pemasangan hanya beberapa menit dan cuma beberapa pertanyaan.",
   "welcome.language": "Bahasa",
   "welcome.try": "Coba",
   "welcome.install": "Pasang",
-
   "region.heading": "Papan ketik dan zona waktu",
   "region.keyboard": "Papan ketik:",
   "region.try_keyboard": "Uji:",
@@ -27,7 +24,6 @@
   "account.error.username": "Nama pengguna hanya boleh berisi huruf kecil Inggris, angka, tanda hubung, dan garis bawah, serta harus diawali huruf (mis. “ani”).",
   "account.error.password": "Masukkan kata sandi.",
   "account.error.mismatch": "Kedua kata sandi tidak cocok.",
-
   "disk.heading": "Di mana kita pasang?",
   "disk.text": "Pilih disk tempat Sloth OS akan dipasang.",
   "disk.none": "Tidak ada disk untuk pemasangan.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Kedua kata sandi tidak cocok.",
   "disk.encrypt.short": "Kata sandi minimal 8 karakter.",
   "disk.encrypt.short_same": "Kata sandi akunmu kurang dari 8 karakter: masukkan kata sandi terpisah yang lebih panjang untuk enkripsi.",
-
   "confirm.heading": "Semua isi disk ini akan dihapus",
   "confirm.text": "Sloth OS memakai seluruh disk: {disk}. Semua isinya sekarang (berkas, program, sistem lain) akan dihapus selamanya.",
   "confirm.windows": "Disk ini berisi Windows. Setelah pemasangan, Windows dan semua berkasnya akan hilang. Jika ingin menyimpannya, cadangkan berkas Anda dulu.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Saat komputer dinyalakan, kamu bisa memilih Sloth OS atau Windows selama beberapa detik.",
   "confirm.beside.checkbox": "Saya mengerti dan sudah mencadangkan berkas penting",
   "confirm.encrypt": "Disk akan dienkripsi: disk terbuka dengan kata sandimu saat komputer dinyalakan.",
-
   "nav.back": "Kembali",
   "nav.next": "Lanjut",
-
   "stage.start": "Bersiap…",
   "stage.partition": "Menyiapkan disk…",
   "stage.shrink": "Mengubah ukuran drive Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Mengatur proses mulai…",
   "stage.finishing": "Menyelesaikan…",
   "stage.configure": "Menyimpan bahasa dan pengaturan…",
-
   "install.note": "Tergantung komputer Anda, ini butuh 5–20 menit. Jangan matikan.",
-
   "done.heading": "Pemasangan selesai!",
   "done.text": "Mulai ulang komputer. Saat layar menjadi gelap, cabut flashdisk. Lalu masuk dengan akun yang baru saja Anda buat; Sambutan Sloth akan membantu sisanya.",
   "done.reboot": "Mulai ulang",
   "done.beside": "Saat komputer dinyalakan, kamu bisa memilih Sloth OS atau Windows.",
-
   "error.heading": "Pemasangan gagal",
   "error.log_hint_save": "Jika kamu meminta bantuan, simpan log-nya (misalnya ke flashdisk) dan kirimkan.",
   "error.save_log": "Simpan log…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Sistem terpasang, tetapi bahasa dan papan ketik gagal diatur. Coba lagi; jika masih gagal, Anda bisa mengaturnya di Pengaturan Sistem setelah pertama kali dinyalakan.",
   "error.beside_shrink_failed": "Drive Windows tidak bisa dikecilkan. Jalankan Windows, periksa disk (This PC → C: → Properties → Tools → Check), lalu coba lagi.",
   "error.encrypt_failed": "Enkripsi tidak bisa disiapkan. Coba lagi; jika masih gagal, pasang tanpa enkripsi.",
-
   "desktop.comment": "Pasang Sloth OS di komputer ini",
-  "desktop.keywords": "pasang;pemasang"
+  "desktop.keywords": "pasang;pemasang",
+  "confirm.summary.formatted": "Format partisi EFI dan sistem baru sebagai FAT32 dan Btrfs.",
+  "confirm.summary.encrypted": "Formatpartisi EFi sebagai FAT32, dan enkripsi sistem OS Sloth dengan LUKS2 dan Bterfs; buat partisi boot terpisah.",
+  "confirm.beside.first_boot": "Pertama kali Anda memulai Windows setelah instalasi, mungkin akan muncul Scanning and repair drive. Simpan komputer terpasang dan biarkan selesai.",
+  "confirm.summary.heading": "Perubahan disk yang direncanakan",
+  "confirm.summary.target": "Target disk: {disk} ({size})",
+  "confirm.summary.erase": "Hapus disk ini, termasuk partisi dan file saat ini.",
+  "confirm.summary.create_all": "Buat tata letak GPT baru dengan partisi boot BIOS, partisi EFI, partasi sistem OS Sloth, dan ruang instalasi sementara.",
+  "confirm.summary.shrink": "Kurangi partisi Windows dengan {size} GiB, lalu gunakan ruang yang kosong untuk Sloth OS.",
+  "confirm.summary.free": "Gunakan ruang kosong pada disk ini; partisi yang ada tidak akan diubah ukurannya.",
+  "confirm.summary.keep_windows": "Simpan Windows dan file-file yang ada. Buat partisi sistem dan partisi Sloth OS EFI di ruang yang tersedia.",
+  "confirm.summary.temporary": "Ruang instalasi sementara diformat sebagai ext4, dipasang selama setup, dan dihapus ketika setup selesai."
 }

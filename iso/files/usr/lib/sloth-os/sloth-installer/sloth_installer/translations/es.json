@@ -1,14 +1,11 @@
 {
   "_language": "Español",
-
   "app.title": "Instalar Sloth OS",
-
   "welcome.heading": "¡Bienvenido a Sloth OS!",
   "welcome.text": "Puedes probar el sistema sin instalarlo o instalarlo en tu ordenador. La instalación tarda unos minutos y solo son unas pocas preguntas.",
   "welcome.language": "Idioma",
   "welcome.try": "Probarlo",
   "welcome.install": "Instalar",
-
   "region.heading": "Teclado y zona horaria",
   "region.keyboard": "Teclado:",
   "region.try_keyboard": "Prueba:",
@@ -27,7 +24,6 @@
   "account.error.username": "El nombre de usuario solo puede tener letras inglesas minúsculas, números, guiones y guiones bajos, y debe empezar por una letra (p. ej. «ana»).",
   "account.error.password": "Escribe una contraseña.",
   "account.error.mismatch": "Las dos contraseñas no coinciden.",
-
   "disk.heading": "¿Dónde lo instalamos?",
   "disk.text": "Elige el disco en el que se instalará Sloth OS.",
   "disk.none": "No encontramos ningún disco donde instalar.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Las dos contraseñas no coinciden.",
   "disk.encrypt.short": "La contraseña debe tener al menos 8 caracteres.",
   "disk.encrypt.short_same": "La contraseña de tu cuenta tiene menos de 8 caracteres: escribe una contraseña distinta y más larga para el cifrado.",
-
   "confirm.heading": "Se borrará todo lo que hay en este disco",
   "confirm.text": "Sloth OS usa el disco entero: {disk}. Todo lo que contiene ahora (archivos, programas, otros sistemas) se borrará para siempre.",
   "confirm.windows": "Este disco tiene Windows. Después de instalar, Windows y todos sus archivos desaparecerán. Si quieres conservarlos, haz antes una copia de tus archivos.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Al encender el ordenador, podrás elegir entre Sloth OS y Windows durante unos segundos.",
   "confirm.beside.checkbox": "Lo entiendo y he hecho una copia de mis archivos importantes",
   "confirm.encrypt": "El disco se cifrará: se abre con tu contraseña al encender el ordenador.",
-
   "nav.back": "Atrás",
   "nav.next": "Siguiente",
-
   "stage.start": "Preparándose…",
   "stage.partition": "Preparando el disco…",
   "stage.shrink": "Cambiando el tamaño de la unidad de Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Configurando el arranque…",
   "stage.finishing": "Terminando…",
   "stage.configure": "Guardando el idioma y los ajustes…",
-
   "install.note": "Según tu ordenador, tarda entre 5 y 20 minutos. No lo apagues.",
-
   "done.heading": "¡Instalación completada!",
   "done.text": "Reinicia el equipo. Cuando la pantalla se apague, retira la memoria USB. Después inicia sesión con la cuenta que acabas de crear; la Bienvenida de Sloth te ayudará con lo demás.",
   "done.reboot": "Reiniciar",
   "done.beside": "Al encender el ordenador, podrás elegir entre Sloth OS y Windows.",
-
   "error.heading": "La instalación ha fallado",
   "error.log_hint_save": "Si pides ayuda, guarda el registro (por ejemplo, en una memoria USB) y envíalo.",
   "error.save_log": "Guardar registro…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "El sistema se instaló, pero no se pudieron ajustar el idioma y el teclado. Inténtalo de nuevo; si sigue fallando, puedes ajustarlos en la Configuración del sistema tras el primer inicio.",
   "error.beside_shrink_failed": "No se pudo reducir la unidad de Windows. Inicia Windows, comprueba el disco (Este equipo → C: → Propiedades → Herramientas → Comprobar) y vuelve a intentarlo.",
   "error.encrypt_failed": "No se pudo configurar el cifrado. Vuelve a intentarlo; si sigue fallando, instala sin cifrado.",
-
   "desktop.comment": "Instalar Sloth OS en este equipo",
-  "desktop.keywords": "instalar;instalador"
+  "desktop.keywords": "instalar;instalador",
+  "confirm.summary.shrink": "Reduzca la partición de Windows en {size} GiB, luego use el espacio liberado para el sistema operativo Sloth.",
+  "confirm.summary.free": "Utilice espacio libre en este disco; las particiones existentes no se redimensionarán.",
+  "confirm.summary.keep_windows": "Mantener Windows y sus archivos. Cree Sloth OS EFI y particiones del sistema en el espacio disponible.",
+  "confirm.summary.formatted": "Formatear nuevas particiones EFI y del sistema como FAT32 y Btrfs.",
+  "confirm.summary.encrypted": "Formatee la partición EFI como FAT32 y encripte el sistema operativo Sloth con LUKS2 y Btrfs; cree una partición de arranque separada.",
+  "confirm.summary.temporary": "El espacio de instalación temporal se formatea como ext4, se monta durante la configuración y se elimina cuando finaliza la configuración.",
+  "confirm.beside.first_boot": "La primera vez que inicie Windows después de la instalación, es posible que muestre \"Escaneando y reparando la unidad\". Mantenga el ordenador enchufado y déjelo terminar.",
+  "confirm.summary.heading": "Cambios planificados en el disco",
+  "confirm.summary.target": "Disco de destino: {disk} ({size})",
+  "confirm.summary.erase": "Borrar este disco, incluidas sus particiones y archivos actuales.",
+  "confirm.summary.create_all": "Crear un nuevo diseño GPT con una partición de arranque del BIOS, una partición EFI, una partición del sistema operativo Sloth y espacio de instalación temporal."
 }

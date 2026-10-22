@@ -39,7 +39,7 @@
   "sharing.what": "Pošlje se samo to: nastavitev (na primer »starejši grafični način«), proizvajalec tvoje grafične kartice in prstni odtis programa, iz katerega ni mogoče ugotoviti njegovega imena. Nič drugega ne zapusti tvojega računalnika: ne tvoje ime, ne tvoje datoteke, ne ime programa in ne to, kdaj in koliko ga uporabljaš.",
   "sharing.yes": "Da, deli anonimno",
   "sharing.no": "Ne, hvala",
-  "sharing.later": "To lahko kadar koli pozneje spremeniš v Središču Sloth (Programi za Windows). Nastavitve, ki so delovale na drugih računalnikih, dobiš v vsakem primeru.",
+  "sharing.later": "To lahko kadar koli pozneje spremeniš v Središču Sloth. Nastavitve, ki so delovale na drugih računalnikih, dobiš v vsakem primeru.",
 
   "windows.heading": "Prenesemo datoteke iz sistema Windows?",
   "windows.text": "Na tem računalniku je tudi Windows. Vaše datoteke lahko kopiramo sem; samega sistema Windows ne spreminjamo, le beremo z njega.",

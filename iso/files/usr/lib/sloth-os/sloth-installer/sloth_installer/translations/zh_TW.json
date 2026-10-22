@@ -1,14 +1,11 @@
 {
   "_language": "繁體中文",
-
   "app.title": "安裝 Sloth OS",
-
   "welcome.heading": "歡迎使用 Sloth OS！",
   "welcome.text": "你可以不安裝直接試用，也可以把它安裝到電腦上。安裝只需幾分鐘，只有幾個問題。",
   "welcome.language": "語言",
   "welcome.try": "試用",
   "welcome.install": "安裝",
-
   "region.heading": "鍵盤和時區",
   "region.keyboard": "鍵盤：",
   "region.try_keyboard": "測試：",
@@ -27,7 +24,6 @@
   "account.error.username": "使用者名稱只能包含小寫英文字母、數字、連字號和底線,且必須以字母開頭(例如「xiaoming」)。",
   "account.error.password": "請輸入密碼。",
   "account.error.mismatch": "兩次輸入的密碼不一致。",
-
   "disk.heading": "要安裝到哪裡？",
   "disk.text": "選擇要安裝 Sloth OS 的磁碟。",
   "disk.none": "找不到可以安裝的磁碟。",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "兩次輸入的密碼不一致。",
   "disk.encrypt.short": "密碼至少需要 8 個字元。",
   "disk.encrypt.short_same": "你的帳號密碼少於 8 個字元：請為加密另設一個更長的密碼。",
-
   "confirm.heading": "此磁碟上的所有內容都將被清除",
   "confirm.text": "Sloth OS 會使用整個磁碟：{disk}。上面現有的一切（檔案、程式、其他系統）都將被永久刪除。",
   "confirm.windows": "此磁碟上裝有 Windows。安裝後，Windows 及其所有檔案都會消失。若想保留，請先備份你的檔案。",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "開機時可以在幾秒內選擇進入 Sloth OS 或 Windows。",
   "confirm.beside.checkbox": "我了解，並且已備份重要檔案",
   "confirm.encrypt": "磁碟將被加密：開機時用你的密碼解鎖。",
-
   "nav.back": "上一步",
   "nav.next": "下一步",
-
   "stage.start": "正在準備…",
   "stage.partition": "正在準備磁碟…",
   "stage.shrink": "正在調整 Windows 磁碟機的大小…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "正在設定開機…",
   "stage.finishing": "正在完成…",
   "stage.configure": "正在儲存語言和設定…",
-
   "install.note": "依電腦而定，需要 5–20 分鐘。請不要關機。",
-
   "done.heading": "安裝完成！",
   "done.text": "請重新啟動電腦。螢幕變暗後拔下隨身碟。接著用剛建立的帳號登入,其餘事項由 Sloth 歡迎協助你完成。",
   "done.reboot": "重新開機",
   "done.beside": "開機時可以選擇進入 Sloth OS 或 Windows。",
-
   "error.heading": "安裝失敗",
   "error.log_hint_save": "如需求助，請儲存記錄檔（例如存到隨身碟）並一併傳送。",
   "error.save_log": "儲存記錄檔…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "系統已安裝，但無法設定語言和鍵盤。請重試；若仍然失敗，可在第一次開機後到系統設定中設定。",
   "error.beside_shrink_failed": "無法縮小 Windows 磁碟機。請啟動 Windows，檢查磁碟（本機 → C: → 內容 → 工具 → 檢查），然後再試一次。",
   "error.encrypt_failed": "無法設定加密。請再試一次；如果仍然失敗，請在不加密的情況下安裝。",
-
   "desktop.comment": "將 Sloth OS 安裝到這台電腦",
-  "desktop.keywords": "安裝;安裝程式"
+  "desktop.keywords": "安裝;安裝程式",
+  "confirm.summary.formatted": "將新的EFI和系統分區格式化為FAT32和Btrfs.",
+  "confirm.summary.encrypted": "格式化EFI分區為FAT32並用LUKS2和Btrfs加密Sloth操作系統; 創建一個獨立的開機分區.",
+  "confirm.beside.first_boot": "在安裝後第一次啟動 Windows 時,可能會顯示掃描和維修驅動. 請將電腦插入並讓它完成.",
+  "confirm.summary.heading": "預定磁盤變更",
+  "confirm.summary.target": "目標磁盤:{disk} ({size})",
+  "confirm.summary.shrink": "將Windows分區縮小 {size} GiB,然後使用Sloth OS的空白空間.",
+  "confirm.summary.erase": "除這個磁盤,包括其當前的分區和檔案.",
+  "confirm.summary.create_all": "創建一個新的GPT布局,包含BIOS開機分區,EFI分區.",
+  "confirm.summary.keep_windows": "保留Windows及其檔案. 在可用空間中創建Sloth OS EFI和系統分區.",
+  "confirm.summary.temporary": "暫時安裝空間是以 ext4格式,在安裝過程中安裝,並在安装完成時移除.",
+  "confirm.summary.free": "使用這個磁盤上的空位;現有分區不會改大小."
 }

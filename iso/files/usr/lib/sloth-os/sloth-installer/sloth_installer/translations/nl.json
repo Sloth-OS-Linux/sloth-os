@@ -1,14 +1,11 @@
 {
   "_language": "Nederlands",
-
   "app.title": "Sloth OS installeren",
-
   "welcome.heading": "Welkom bij Sloth OS!",
   "welcome.text": "Je kunt het systeem uitproberen zonder te installeren, of het op je computer installeren. Installeren duurt een paar minuten en er zijn maar een paar vragen.",
   "welcome.language": "Taal",
   "welcome.try": "Uitproberen",
   "welcome.install": "Installeren",
-
   "region.heading": "Toetsenbord en tijdzone",
   "region.keyboard": "Toetsenbord:",
   "region.try_keyboard": "Test:",
@@ -27,7 +24,6 @@
   "account.error.username": "De gebruikersnaam mag alleen Engelse kleine letters, cijfers, koppeltekens en onderstrepingstekens bevatten en moet met een letter beginnen (bv. ‘anna’).",
   "account.error.password": "Vul een wachtwoord in.",
   "account.error.mismatch": "De twee wachtwoorden komen niet overeen.",
-
   "disk.heading": "Waar installeren we het?",
   "disk.text": "Kies de schijf waarop Sloth OS wordt geïnstalleerd.",
   "disk.none": "We hebben geen schijf gevonden om op te installeren.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "De twee wachtwoorden komen niet overeen.",
   "disk.encrypt.short": "Het wachtwoord moet minstens 8 tekens lang zijn.",
   "disk.encrypt.short_same": "Je accountwachtwoord is korter dan 8 tekens: voer een langer, apart wachtwoord in voor de versleuteling.",
-
   "confirm.heading": "Alles op deze schijf wordt gewist",
   "confirm.text": "Sloth OS gebruikt de hele schijf: {disk}. Alles wat er nu op staat (bestanden, programma's, andere systemen) wordt definitief verwijderd.",
   "confirm.windows": "Op deze schijf staat Windows. Na de installatie zijn Windows en al zijn bestanden weg. Wil je ze bewaren, maak dan eerst een back-up van je bestanden.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Bij het opstarten kun je een paar seconden kiezen tussen Sloth OS en Windows.",
   "confirm.beside.checkbox": "Ik begrijp het, en ik heb een back-up van mijn belangrijke bestanden gemaakt",
   "confirm.encrypt": "De schijf wordt versleuteld: bij het opstarten opent hij met je wachtwoord.",
-
   "nav.back": "Terug",
   "nav.next": "Volgende",
-
   "stage.start": "Voorbereiden…",
   "stage.partition": "Schijf voorbereiden…",
   "stage.shrink": "Grootte van de Windows-schijf wordt aangepast…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Opstarten instellen…",
   "stage.finishing": "Afronden…",
   "stage.configure": "Taal en instellingen opslaan…",
-
   "install.note": "Afhankelijk van je computer duurt dit 5–20 minuten. Zet hem niet uit.",
-
   "done.heading": "Installatie voltooid!",
   "done.text": "Herstart de computer. Als het scherm zwart wordt, haal je de USB-stick eruit. Meld je daarna aan met het account dat je net hebt gemaakt; Sloth Welkom helpt je met de rest.",
   "done.reboot": "Opnieuw opstarten",
   "done.beside": "Bij het opstarten kun je kiezen tussen Sloth OS en Windows.",
-
   "error.heading": "Installatie mislukt",
   "error.log_hint_save": "Als je om hulp vraagt, sla het logboek dan op (bijvoorbeeld op een usb-stick) en stuur het mee.",
   "error.save_log": "Logboek opslaan…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Het systeem is geïnstalleerd, maar taal en toetsenbord konden niet worden ingesteld. Probeer het opnieuw; lukt het weer niet, dan kun je ze na de eerste start instellen in Systeeminstellingen.",
   "error.beside_shrink_failed": "De Windows-schijf kon niet kleiner gemaakt worden. Start Windows, controleer de schijf (Deze pc → C: → Eigenschappen → Extra → Controleren) en probeer het opnieuw.",
   "error.encrypt_failed": "Het instellen van de versleuteling is mislukt. Probeer het opnieuw; als het weer mislukt, installeer dan zonder versleuteling.",
-
   "desktop.comment": "Sloth OS op deze computer installeren",
-  "desktop.keywords": "installeren;installatieprogramma"
+  "desktop.keywords": "installeren;installatieprogramma",
+  "confirm.beside.first_boot": "De eerste keer dat u Windows start na installatie, kan het Scanning and repair drive weergeven. Houd de computer aangesloten en laat het afmaken.",
+  "confirm.summary.heading": "Planned disk changes",
+  "confirm.summary.target": "Doelplaat: {disk} ({size})",
+  "confirm.summary.formatted": "Formatteer nieuwe EFI- en systeempartities als FAT32 en Btrfs.",
+  "confirm.summary.encrypted": "Formatteer de EFI-partitie als FAT32 en versleutel het Sloth OS-systeem met LUKS2 en Btrfs; maak een aparte opstartpartitie.",
+  "confirm.summary.erase": "Verwijder deze schijf, inclusief de huidige partities en bestanden.",
+  "confirm.summary.create_all": "Maak een nieuwe GPT-layout met een BIOS-opstartpartitie, een EFI-partitie en een Sloth OS-systeempartitie.",
+  "confirm.summary.shrink": "Verkleineer de Windows-partitie met {size} GiB, en gebruik vervolgens de vrijgestelde ruimte voor Sloth OS.",
+  "confirm.summary.keep_windows": "Bewaar Windows en zijn bestanden. Maak Sloth OS EFI en systeempartities in de beschikbare ruimte.",
+  "confirm.summary.temporary": "Tijdelijke installatieruimte wordt geformatteerd als ext4, gemonteerd tijdens de installatie en verwijderd wanneer de installaties zijn voltooid.",
+  "confirm.summary.free": "Gebruik de vrije ruimte op deze schijf; bestaande partities worden niet hermaand."
 }

@@ -1,3 +1,22 @@
 {
-  "_language": "English"
+  "_language": "English",
+  "A quick tour of Sloth Center": "A quick tour of Sloth Center",
+  "Keep Sloth OS up to date": "Keep Sloth OS up to date",
+  "Find and manage programs": "Find and manage programs",
+  "Back up files and get help": "Back up files and get help",
+  "The Updates page installs system updates and lets you return to the previous version if an update causes trouble.": "The Updates page installs system updates and lets you return to the previous version if an update causes trouble.",
+  "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.",
+  "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.",
+  "Open guide": "Open guide",
+  "Skip guide": "Skip guide",
+  "Done": "Done",
+  "System status": "System status",
+  "Version: {version}": "Version: {version}",
+  "System update status": "System update status",
+  "Available storage": "Available storage",
+  "Checking storage…": "Checking storage…",
+  "Storage information is not available.": "Storage information is not available.",
+  "Get help": "Get help",
+  "{gb} GB free": "{gb} GB free",
+  "Last backup: {date}": "Last backup: {date}"
 }

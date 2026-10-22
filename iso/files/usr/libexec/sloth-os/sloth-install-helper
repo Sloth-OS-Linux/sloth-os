@@ -19,7 +19,7 @@ The output is JSON lines for the UI:
 The raw output goes to /tmp/sloth-install.log.
 
 Next to Windows (--beside-windows): Windows stays. If the disk has enough free space, Sloth OS goes
-there; otherwise the largest NTFS partition of Windows (C:) is shrunk (ntfsresize), and Sloth OS goes into the
+there; otherwise the identified Windows system partition is shrunk (ntfsresize), and Sloth OS goes into the
 freed space. Sloth OS gets its own EFI partition (Windows' boot files are not touched), the boot
 menu includes Windows (and the menu is shown), and the hardware clock keeps local time, as in Windows.
 Only on UEFI machines and GPT disks; a BitLocker-encrypted or not fully shut down (fast startup, hibernation)
@@ -292,29 +292,43 @@ def fs_uuid(dev):
     return subprocess.run(["blkid", "-o", "value", "-s", "UUID", dev], capture_output=True, text=True).stdout.strip()
 
 
-def windows_esp():
-    """The FS-UUID of the EFI partition holding the Windows boot loader, on any disk
-    (for the boot menu's Windows entry). Empty if there is none."""
-    out = json.loads(subprocess.run(["lsblk", "--json", "--list", "--output", "PATH,PARTTYPE,FSTYPE"],
-                                    capture_output=True, text=True).stdout or "{}")
-    for p in out.get("blockdevices", []):
-        if (p.get("parttype") or "").lower() != ESP_TYPE or p.get("fstype") != "vfat":
+def windows_esps(disk):
+    """Windows EFI partitions on this disk; a different disk's boot loader must not be paired with it."""
+    found = []
+    for p in table(disk)["partitions"]:
+        if (p.get("type") or "").lower() != ESP_TYPE or fstype(p["node"]) != "vfat":
             continue
         mnt = Path(tempfile.mkdtemp(prefix="sloth-esp-"))
         try:
-            if subprocess.run(["mount", "-o", "ro", p["path"], str(mnt)], capture_output=True).returncode:
+            if subprocess.run(["mount", "-o", "ro", p["node"], str(mnt)], capture_output=True).returncode:
                 continue
             try:
-                boot = mnt / "EFI"
-                found = boot.is_dir() and any(f.name.lower() == "bootmgfw.efi"
-                                              for f in boot.glob("*/*/*") if f.parent.parent.name.lower() == "microsoft")
+                found_bootloader = (mnt / "EFI/Microsoft/Boot/bootmgfw.efi").is_file()
             finally:
                 subprocess.run(["umount", str(mnt)], capture_output=True)
-            if found:
-                return fs_uuid(p["path"])
+            if found_bootloader:
+                uuid = fs_uuid(p["node"])
+                if uuid:
+                    found.append({"path": p["node"], "uuid": uuid})
         finally:
             mnt.rmdir()
-    return ""
+    return found
+
+
+def has_windows_system_files(dev):
+    """Only treat an NTFS volume as Windows after finding its OS loader and registry hive.
+
+    A data-only NTFS partition is not a safe substitute for C:. If either marker cannot be read, do not shrink it.
+    """
+    for path in ("Windows/System32/winload.efi", "Windows/System32/config/SYSTEM"):
+        try:
+            r = subprocess.run(["ntfscat", dev, path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                               timeout=15)
+        except (OSError, subprocess.SubprocessError):
+            return False
+        if r.returncode != 0:
+            return False
+    return True
 
 
 def hibernated(dev):
@@ -366,14 +380,21 @@ def probe(disk):
     if info["problems"]:
         return info
     release_disk(disk)
-    info["windowsEsp"] = windows_esp()
+    windows_esps_found = windows_esps(disk)
+    # Refuse ambiguous/missing Windows boot files; pairing an NTFS volume with an EFI partition from another disk
+    # could make the new boot menu point at the wrong Windows installation.
+    if len(windows_esps_found) != 1:
+        info["problems"].append("unknown")
+        return info
+    info["windowsEsp"] = windows_esps_found[0]["uuid"]
     regions = free_regions(pt)
     info["free"] = max((size * ss for _s, size in regions), default=0)
     types = {p["node"]: fstype(p["node"]) for p in pt["partitions"]}
     info["bitlocker"] = any(t.lower() == "bitlocker" for t in types.values())
     ntfs = [p for p in pt["partitions"] if types.get(p["node"]) == "ntfs"]
-    if ntfs:
-        win = max(ntfs, key=lambda p: p["size"])
+    windows = [p for p in ntfs if has_windows_system_files(p["node"])]
+    if len(windows) == 1:
+        win = windows[0]
         size = win["size"] * ss
         minimum, problem = ntfs_info(win["node"])
         if problem:
@@ -381,10 +402,14 @@ def probe(disk):
         else:
             after = gap_after(pt, win) * ss
             shrink = max(0, size - minimum - WINDOWS_RESERVE) // MIB * MIB
-            info["windows"] = {"path": win["node"], "size": size, "min": minimum}
+            info["windows"] = {"path": win["node"], "size": size, "min": minimum, "after": after}
             info["shrinkable"] = shrink + after if shrink else 0
-    elif info["bitlocker"]:
+    elif not windows and not ntfs and info["bitlocker"]:
+        # A locked BitLocker Windows volume cannot be inspected or resized. It can only proceed if
+        # the user already freed enough unallocated space; the UI warns about the recovery key.
         info["problems"].append("bitlocker")
+    else:
+        info["problems"].append("unknown")
     info["max"] = max(info["free"], info["shrinkable"])
     if info["max"] < MIN_BESIDE_BYTES and not set(info["problems"]) & {"hibernated", "dirty", "bitlocker"}:
         info["problems"].append("no_space")
@@ -584,11 +609,16 @@ def hide_other_esps(disk, own_partn):
     boot menu files went nowhere). For the duration of the install the type of the other EFI partitions is set to
     "Microsoft basic data" (their contents are not touched); restore_esps sets it back afterwards."""
     hidden = []
-    for p in table(disk)["partitions"]:
-        n = partnum(disk, p["node"])
-        if n != own_partn and (p.get("type") or "").lower() == ESP_TYPE:
-            run(["sfdisk", "--no-reread", "--part-type", disk, str(n), MS_BASIC_DATA])
-            hidden.append((n, p["node"]))
+    try:
+        for p in table(disk)["partitions"]:
+            n = partnum(disk, p["node"])
+            if n != own_partn and (p.get("type") or "").lower() == ESP_TYPE:
+                # Record before changing it, so even a command that partially succeeds is restored on failure.
+                hidden.append((n, p["node"]))
+                run(["sfdisk", "--no-reread", "--part-type", disk, str(n), MS_BASIC_DATA])
+    except BaseException:
+        restore_esps(disk, hidden)
+        raise
     if hidden:
         log(f"other EFI partitions hidden during the install: {hidden}")
         _refresh_parts(disk, [node for _n, node in hidden])
@@ -596,12 +626,17 @@ def hide_other_esps(disk, own_partn):
 
 
 def restore_esps(disk, hidden):
+    failed = []
     for n, _node in hidden:
         r = subprocess.run(["sfdisk", "--no-reread", "--part-type", disk, str(n), ESP_TYPE],
                            capture_output=True, text=True)
         log(f"EFI partition restored: {n} ({r.returncode}) {r.stderr.strip()}")
+        if r.returncode:
+            failed.append(n)
     if hidden:
         _refresh_parts(disk, [node for _n, node in hidden])
+    if failed:
+        fail("error.install_failed", f"could not restore EFI partition types: {failed}")
 
 
 def _refresh_parts(disk, nodes):

@@ -1,14 +1,11 @@
 {
   "_language": "Lietuvių",
-
   "app.title": "Sloth OS diegimas",
-
   "welcome.heading": "Sveiki atvykę į Sloth OS!",
   "welcome.text": "Sistemą galite išbandyti jos neįdiegę arba įdiegti į kompiuterį. Diegimas trunka kelias minutes ir užduodami tik keli klausimai.",
   "welcome.language": "Kalba",
   "welcome.try": "Išbandyti",
   "welcome.install": "Įdiegti",
-
   "region.heading": "Klaviatūra ir laiko juosta",
   "region.keyboard": "Klaviatūra:",
   "region.try_keyboard": "Bandymas:",
@@ -27,7 +24,6 @@
   "account.error.username": "Naudotojo varde gali būti tik mažosios anglų raidės, skaitmenys, brūkšneliai ir pabraukimai, ir jis turi prasidėti raide (pvz., „ona“).",
   "account.error.password": "Įveskite slaptažodį.",
   "account.error.mismatch": "Slaptažodžiai nesutampa.",
-
   "disk.heading": "Kur diegsime?",
   "disk.text": "Pasirinkite diską, į kurį bus įdiegta Sloth OS.",
   "disk.none": "Neradome disko, į kurį būtų galima diegti.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Slaptažodžiai nesutampa.",
   "disk.encrypt.short": "Slaptažodį turi sudaryti bent 8 simboliai.",
   "disk.encrypt.short_same": "Jūsų paskyros slaptažodis trumpesnis nei 8 simboliai: šifravimui įveskite ilgesnį, atskirą slaptažodį.",
-
   "confirm.heading": "Viskas šiame diske bus ištrinta",
   "confirm.text": "Sloth OS naudoja visą diską: {disk}. Viskas, kas jame dabar yra (failai, programos, kitos sistemos), bus ištrinta visam laikui.",
   "confirm.windows": "Šiame diske yra Windows. Įdiegus Windows ir visi jos failai dings. Jei norite juos išsaugoti, pirmiausia pasidarykite failų atsarginę kopiją.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Įjungus kompiuterį, kelias sekundes galėsite rinktis tarp „Sloth OS“ ir „Windows“.",
   "confirm.beside.checkbox": "Suprantu ir pasidariau svarbių failų atsarginę kopiją",
   "confirm.encrypt": "Diskas bus užšifruotas: įjungus kompiuterį jis atsidaro jūsų slaptažodžiu.",
-
   "nav.back": "Atgal",
   "nav.next": "Toliau",
-
   "stage.start": "Ruošiamasi…",
   "stage.partition": "Ruošiamas diskas…",
   "stage.shrink": "Keičiamas „Windows“ disko dydis…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Nustatomas paleidimas…",
   "stage.finishing": "Baigiama…",
   "stage.configure": "Įrašoma kalba ir nuostatos…",
-
   "install.note": "Priklausomai nuo kompiuterio, tai trunka 5–20 minučių. Neišjunkite jo.",
-
   "done.heading": "Įdiegta!",
   "done.text": "Paleiskite kompiuterį iš naujo. Kai ekranas užges, ištraukite USB atmintuką. Tada prisijunkite ką tik sukurta paskyra, o „Sloth“ pasisveikinimas padės su likusiais dalykais.",
   "done.reboot": "Paleisti iš naujo",
   "done.beside": "Įjungus kompiuterį, galėsite rinktis tarp „Sloth OS“ ir „Windows“.",
-
   "error.heading": "Įdiegti nepavyko",
   "error.log_hint_save": "Jei prašysite pagalbos, išsaugokite žurnalą (pvz., į USB atmintinę) ir atsiųskite jį.",
   "error.save_log": "Išsaugoti žurnalą…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Sistema įdiegta, bet kalbos ir klaviatūros nustatyti nepavyko. Bandykite dar kartą; jei vėl nepavyks, juos galėsite nustatyti Sistemos nuostatose po pirmojo paleidimo.",
   "error.beside_shrink_failed": "Nepavyko sumažinti „Windows“ disko. Paleiskite „Windows“, patikrinkite diską (Šis kompiuteris → C: → Ypatybės → Įrankiai → Tikrinti) ir bandykite dar kartą.",
   "error.encrypt_failed": "Šifravimo nustatyti nepavyko. Bandykite dar kartą; jei vėl nepavyks, įdiekite be šifravimo.",
-
   "desktop.comment": "Sloth OS įdiegimas šiame kompiuteryje",
-  "desktop.keywords": "įdiegti;diegimo programa"
+  "desktop.keywords": "įdiegti;diegimo programa",
+  "confirm.summary.formatted": "Formatuoti naujus EFI ir sistemos skyrius kaip FAT32 ir Btrfs.",
+  "confirm.summary.encrypted": "EFI skirstyklą formatuokite FAT32 ir užšifruokite Sloth OS sistemą LUKS2 ir Btrfs; sukurkite atskirą paleidimo skirstymą.",
+  "confirm.beside.first_boot": "Kai pirmą kartą paleidote \"Windows\" po įdiegimo, gali pasirodyti \"Skanuoti ir remontuoti\" diską. Laikykite kompiuterį prijungtą ir leiskite jį baigti.",
+  "confirm.summary.heading": "Planuojamas diskas keičiasi",
+  "confirm.summary.target": "Tikslinis diskas: {disk} ({size})",
+  "confirm.summary.erase": "Ištrinkite šį diską, įskaitant jo dabartines skyrius ir failus.",
+  "confirm.summary.create_all": "Sukurkite naują GPT išdėstymą su BIOS paleidimo skyriu, EFI skyriu ir laikinąja įrengimo erdve.",
+  "confirm.summary.shrink": "sumažinkite \"Windows\" particiją {size} GiB, tada naudokite laisvą erdvę \"Sloth OS\".",
+  "confirm.summary.free": "Naudokite laisvų erdvę šiame diske; esamos particijos nebus pertvarkytos.",
+  "confirm.summary.keep_windows": "Laikykite \"Windows\" ir jo failus. Sukurkite \"Sloth OS EFI\" ir sistemos skyrius turimoje erdvėje.",
+  "confirm.summary.temporary": "Laikinas diegimo erdvė yra formatuojama kaip ext4, montuojama nustatant, ir pašalintas, kai nustatymas baigtas."
 }

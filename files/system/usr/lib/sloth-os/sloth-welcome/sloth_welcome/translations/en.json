@@ -39,7 +39,7 @@
   "sharing.what": "Only this is sent: the setting (for example \"older graphics mode\"), your graphics card's manufacturer, and a fingerprint of the program that its name cannot be recovered from. Nothing else leaves your computer: not your name, not your files, not the program's name, and not when or how much you use it.",
   "sharing.yes": "Yes, share anonymously",
   "sharing.no": "No, thanks",
-  "sharing.later": "You can change this any time later in Sloth Center (Windows programs). You get the settings that worked on other computers either way.",
+  "sharing.later": "You can change this any time later in Sloth Center. You get the settings that worked on other computers either way.",
 
   "windows.heading": "Bring your files over from Windows?",
   "windows.text": "This computer also has Windows. We can copy your files over; Windows itself isn't touched, we only read from it.",

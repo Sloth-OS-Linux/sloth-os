@@ -1,14 +1,11 @@
 {
   "_language": "Afrikaans",
-
   "app.title": "Installeer Sloth OS",
-
   "welcome.heading": "Welkom by Sloth OS!",
   "welcome.text": "Jy kan die stelsel probeer sonder om dit te installeer, of dit op jou rekenaar installeer. Die installasie neem 'n paar minute en vra net 'n paar vrae.",
   "welcome.language": "Taal",
   "welcome.try": "Probeer dit",
   "welcome.install": "Installeer",
-
   "region.heading": "Sleutelbord en tydsone",
   "region.keyboard": "Sleutelbord:",
   "region.try_keyboard": "Toets:",
@@ -27,7 +24,6 @@
   "account.error.username": "Die gebruikersnaam mag net klein Engelse letters, syfers, koppeltekens en onderstreepstrepe bevat en moet met ’n letter begin (bv. “anna”).",
   "account.error.password": "Tik ’n wagwoord in.",
   "account.error.mismatch": "Die twee wagwoorde stem nie ooreen nie.",
-
   "disk.heading": "Waar moet ons dit installeer?",
   "disk.text": "Kies die skyf waarop Sloth OS geïnstalleer word.",
   "disk.none": "Ons het geen skyf gevind om op te installeer nie.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Die twee wagwoorde stem nie ooreen nie.",
   "disk.encrypt.short": "Die wagwoord moet minstens 8 karakters lank wees.",
   "disk.encrypt.short_same": "Jou rekeningwagwoord is korter as 8 karakters: tik 'n langer, aparte wagwoord vir die enkripsie in.",
-
   "confirm.heading": "Alles op hierdie skyf word uitgevee",
   "confirm.text": "Sloth OS gebruik die hele skyf: {disk}. Alles wat nou daarop is (lêers, programme, ander stelsels), word permanent uitgevee.",
   "confirm.windows": "Hierdie skyf het Windows. Na die installasie is Windows en al sy lêers weg. As jy hulle wil hou, maak eers 'n rugsteun van jou lêers.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Wanneer die rekenaar aanskakel, kan jy 'n paar sekondes lank tussen Sloth OS en Windows kies.",
   "confirm.beside.checkbox": "Ek verstaan, en ek het 'n rugsteun van my belangrike lêers gemaak",
   "confirm.encrypt": "Die skyf word geënkripteer: dit maak met jou wagwoord oop wanneer die rekenaar begin.",
-
   "nav.back": "Terug",
   "nav.next": "Volgende",
-
   "stage.start": "Maak gereed…",
   "stage.partition": "Berei die skyf voor…",
   "stage.shrink": "Verander tans die grootte van die Windows-skyf…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Stel die opstart op…",
   "stage.finishing": "Voltooi…",
   "stage.configure": "Stoor taal en instellings…",
-
   "install.note": "Afhangend van jou rekenaar neem dit 5–20 minute. Moenie dit afskakel nie.",
-
   "done.heading": "Installasie voltooi!",
   "done.text": "Herbegin die rekenaar. Wanneer die skerm donker word, haal die USB-stokkie uit. Meld dan aan met die rekening wat jy pas geskep het; Sloth Welkom help met die res.",
   "done.reboot": "Herbegin",
   "done.beside": "Wanneer die rekenaar aanskakel, kan jy tussen Sloth OS en Windows kies.",
-
   "error.heading": "Installasie het misluk",
   "error.log_hint_save": "As jy hulp vra, stoor die log (byvoorbeeld op 'n USB-stokkie) en stuur dit saam.",
   "error.save_log": "Stoor log…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Die stelsel is geïnstalleer, maar taal en sleutelbord kon nie ingestel word nie. Probeer weer; as dit weer misluk, kan jy dit ná die eerste opstart in Stelselinstellings instel.",
   "error.beside_shrink_failed": "Die Windows-skyf kon nie kleiner gemaak word nie. Begin Windows, kontroleer die skyf (Hierdie rekenaar → C: → Eienskappe → Gereedskap → Kontroleer) en probeer weer.",
   "error.encrypt_failed": "Die enkripsie kon nie opgestel word nie. Probeer weer; as dit weer misluk, installeer sonder enkripsie.",
-
   "desktop.comment": "Installeer Sloth OS op hierdie rekenaar",
-  "desktop.keywords": "installeer;installeerder"
+  "desktop.keywords": "installeer;installeerder",
+  "confirm.summary.shrink": "Krimp die Windows partisie deur {size} GiB, dan gebruik die vrye ruimte vir Sloth OS.",
+  "confirm.summary.free": "Gebruik vrye ruimte op hierdie skyf; bestaande partisies sal nie verander word nie.",
+  "confirm.summary.keep_windows": "Hou Windows en sy lêers. Skep Sloth OS EFI en stelsel partisies in die beskikbare ruimte.",
+  "confirm.summary.formatted": "Formateer nuwe EFI en stelsel partisies as FAT32 en Btrfs.",
+  "confirm.summary.encrypted": "Formateer die EFI partisie as FAT32 en enkripteer die Sloth OS stelsel met LUKS2 en Btrfs; skep 'n aparte boot partisie.",
+  "confirm.summary.temporary": "Tydelike installasie ruimte is geformateer as ext4, gemonteer tydens die opstel, en verwyder wanneer die opstel klaar is.",
+  "confirm.beside.first_boot": "Die eerste keer dat jy Windows begin na die installasie, kan dit wys \"Skandering en herstel ry\". Hou die rekenaar ingeprop en laat dit klaar wees.",
+  "confirm.summary.heading": "Beplande skyf veranderinge",
+  "confirm.summary.erase": "Vee hierdie skyf uit, insluitend die huidige partisies en lêers.",
+  "confirm.summary.create_all": "Skep 'n nuwe GPT uitleg met 'n BIOS boot partisie, 'n EFI partisie, 'n Sloth OS stelsel partisie, en tydelike installasie ruimte.",
+  "confirm.summary.target": "Doel skyf: {disk} ({size})"
 }

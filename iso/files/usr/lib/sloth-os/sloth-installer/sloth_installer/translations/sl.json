@@ -1,14 +1,11 @@
 {
   "_language": "Slovenščina",
-
   "app.title": "Namestitev Sloth OS",
-
   "welcome.heading": "Dobrodošli v Sloth OS!",
   "welcome.text": "Sistem lahko preizkusite brez namestitve ali pa ga namestite v računalnik. Namestitev traja nekaj minut in ima le nekaj vprašanj.",
   "welcome.language": "Jezik",
   "welcome.try": "Preizkusi",
   "welcome.install": "Namesti",
-
   "region.heading": "Tipkovnica in časovni pas",
   "region.keyboard": "Tipkovnica:",
   "region.try_keyboard": "Preizkus:",
@@ -27,7 +24,6 @@
   "account.error.username": "Uporabniško ime lahko vsebuje samo male angleške črke, številke, vezaje in podčrtaje ter se mora začeti s črko (npr. »ana«).",
   "account.error.password": "Vnesite geslo.",
   "account.error.mismatch": "Gesli se ne ujemata.",
-
   "disk.heading": "Kam ga namestimo?",
   "disk.text": "Izberite disk, na katerega bo nameščen Sloth OS.",
   "disk.none": "Nismo našli diska za namestitev.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Gesli se ne ujemata.",
   "disk.encrypt.short": "Geslo mora imeti vsaj 8 znakov.",
   "disk.encrypt.short_same": "Geslo tvojega računa ima manj kot 8 znakov: za šifriranje vnesi daljše, ločeno geslo.",
-
   "confirm.heading": "Vse na tem disku bo izbrisano",
   "confirm.text": "Sloth OS uporabi cel disk: {disk}. Vse, kar je zdaj na njem (datoteke, programi, drugi sistemi), bo trajno izbrisano.",
   "confirm.windows": "Na tem disku je Windows. Po namestitvi ne bo več Windows in vseh njegovih datotek. Če jih želite obdržati, najprej varnostno kopirajte datoteke.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Ob vklopu računalnika lahko nekaj sekund izbiraš med Sloth OS in Windows.",
   "confirm.beside.checkbox": "Razumem in imam varnostno kopijo pomembnih datotek",
   "confirm.encrypt": "Disk bo šifriran: ob vklopu se odpre s tvojim geslom.",
-
   "nav.back": "Nazaj",
   "nav.next": "Naprej",
-
   "stage.start": "Pripravljanje…",
   "stage.partition": "Priprava diska…",
   "stage.shrink": "Spreminjanje velikosti pogona z Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Nastavljanje zagona…",
   "stage.finishing": "Zaključevanje…",
   "stage.configure": "Shranjevanje jezika in nastavitev…",
-
   "install.note": "Odvisno od računalnika traja 5–20 minut. Ne izklapljajte ga.",
-
   "done.heading": "Namestitev je končana!",
   "done.text": "Znova zaženite računalnik. Ko zaslon potemni, izvlecite ključek USB. Nato se prijavite s pravkar ustvarjenim računom, Dobrodošlica Sloth pa vam bo pomagala pri ostalem.",
   "done.reboot": "Znova zaženi",
   "done.beside": "Ob vklopu računalnika lahko izbiraš med Sloth OS in Windows.",
-
   "error.heading": "Namestitev ni uspela",
   "error.log_hint_save": "Če boste prosili za pomoč, shranite dnevnik (na primer na USB-ključek) in ga pošljite.",
   "error.save_log": "Shrani dnevnik…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Sistem je nameščen, vendar jezika in tipkovnice ni bilo mogoče nastaviti. Poskusite znova; če spet ne gre, ju lahko po prvem zagonu nastavite v Sistemskih nastavitvah.",
   "error.beside_shrink_failed": "Pogona z Windows ni bilo mogoče zmanjšati. Zaženi Windows, preveri disk (Ta računalnik → C: → Lastnosti → Orodja → Preveri) in poskusi znova.",
   "error.encrypt_failed": "Šifriranja ni bilo mogoče nastaviti. Poskusi znova; če spet ne gre, namesti brez šifriranja.",
-
   "desktop.comment": "Namestitev Sloth OS na ta računalnik",
-  "desktop.keywords": "namestitev;namestilnik"
+  "desktop.keywords": "namestitev;namestilnik",
+  "confirm.summary.formatted": "Formatirajte nove EFI in sistemske delitve kot FAT32 in Btrfs.",
+  "confirm.summary.encrypted": "EFI delitev formaturirate kot FAT32 in šifrirate sistem Sloth OS z LUKS2 in Btrfs; ustvarite ločeno zagonsko delitev.",
+  "confirm.beside.first_boot": "Ko prvič zaženete sistem Windows po namestitvi, se lahko prikaže Skeniranje in popravilo pogona. Obdržite računalnik priključen in ga pustite končati.",
+  "confirm.summary.heading": "Načrtovana disk spreminja",
+  "confirm.summary.target": "Ciljni disk: {disk} ({size})",
+  "confirm.summary.shrink": "Zmanjšajte velikost Windowsove particije za {size} GiB, nato pa uporabite prostor za operacijski sistem Sloth.",
+  "confirm.summary.erase": "Izbrišite ta disk, vključno z trenutnimi delitvami in datotekom.",
+  "confirm.summary.create_all": "Ustvarite novo postavitve GPT z BIOS boot delitvijo, EFI delitvo, sistemskim delitvom sistema Sloth OS in začasnim namestitvenim prostorom.",
+  "confirm.summary.keep_windows": "Shranite Windows in njegove datoteke. Ustvarite loščene ločnice in sistemske ločitve v razpoložljivem prostoru.",
+  "confirm.summary.free": "Uporabite prosti prostor na tem disku; obstoječe delitve ne bodo spremenjene.",
+  "confirm.summary.temporary": "Začasni namestitveni prostor je oblikovan kot ext4, nameščen med namestitvijo in odstranjen ob končanem namestitvi."
 }

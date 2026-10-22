@@ -50,12 +50,14 @@ def _msg(entry):
 
 def check_disk():
     worst = None
+    free_values = []
     for mount in ("/var", str(Path.home())):
         try:
             st = os.statvfs(mount)
         except OSError:
             continue
         free = st.f_bavail * st.f_frsize
+        free_values.append(free)
         pct = 100 * st.f_bavail / st.f_blocks if st.f_blocks else 100
         gb = free / 1024 ** 3
         if pct < 5 or gb < 5:
@@ -63,8 +65,10 @@ def check_disk():
                                "this. Delete games or files you don't use.", gb=f"{gb:.1f}"))
         elif (pct < 12 or gb < 20) and worst is None:
             worst = (WARN, tr("The disk is getting full ({gb} GB free).", gb=f"{gb:.0f}"))
+    free_gb = min(free_values) / 1024 ** 3 if free_values else 0
     return {"id": "disk", "title": tr("Storage"), "icon": "drive-harddisk",
-            "state": worst[0] if worst else OK, "text": worst[1] if worst else tr("There's enough free space.")}
+            "state": worst[0] if worst else OK, "text": worst[1] if worst else tr("There's enough free space."),
+            "freeText": tr("{gb} GB free", gb=f"{free_gb:.1f}") if free_values else ""}
 
 
 def check_failed_units():

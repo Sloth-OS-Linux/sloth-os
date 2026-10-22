@@ -31,13 +31,17 @@ trap 'umount -R /run/sloth-install/target 2>/dev/null; umount /tmp/m/w 2>/dev/nu
 say "disk: $LOOP ($S)"
 
 if [[ $S == win* ]]; then
-    # A "Windows" disk: EFI (bootmgfw.efi), MSR, NTFS with data
+    # A Windows-like disk: EFI (bootmgfw.efi), MSR, NTFS with Windows markers and user data
     printf 'label: gpt\nsize=100MiB, type=C12A7328-F81F-11D2-BA4B-00A0C93EC93B, name="EFI system partition"\nsize=16MiB, type=E3C9E316-0B5C-4DB8-817D-F92DF00215AE, name="Microsoft reserved partition"\ntype=EBD0A0A2-B9E5-4433-87C0-68B6B72699C7, name="Basic data partition"\n' | sfdisk -q "$LOOP"
     partx -u "$LOOP" 2>/dev/null; udevadm settle --timeout=30
     mkfs.fat -F 32 -n SYSTEM "${LOOP}p1" >/dev/null
     mkdir -p /tmp/m/w && mount "${LOOP}p1" /tmp/m/w && mkdir -p /tmp/m/w/EFI/Microsoft/Boot && echo windows-loader > /tmp/m/w/EFI/Microsoft/Boot/bootmgfw.efi && umount /tmp/m/w
     mkfs.ntfs -Q -q -L Windows "${LOOP}p3" || { say "HIBA: mkfs.ntfs"; exit 1; }
-    ntfs-3g "${LOOP}p3" /tmp/m/w && mkdir -p /tmp/m/w/Users/anna && head -c 50M /dev/urandom > /tmp/m/w/Users/anna/adat.bin && sha256sum /tmp/m/w/Users/anna/adat.bin | cut -d' ' -f1 > $W/win-sum && umount /tmp/m/w
+    ntfs-3g "${LOOP}p3" /tmp/m/w && mkdir -p /tmp/m/w/Users/anna /tmp/m/w/Windows/System32/config && \
+        echo windows-loader > /tmp/m/w/Windows/System32/winload.efi && \
+        echo windows-registry > /tmp/m/w/Windows/System32/config/SYSTEM && \
+        head -c 50M /dev/urandom > /tmp/m/w/Users/anna/adat.bin && \
+        sha256sum /tmp/m/w/Users/anna/adat.bin | cut -d' ' -f1 > $W/win-sum && umount /tmp/m/w
     WINESP_UUID=$(blkid -o value -s UUID "${LOOP}p1")
     udevadm settle --timeout=30
 fi

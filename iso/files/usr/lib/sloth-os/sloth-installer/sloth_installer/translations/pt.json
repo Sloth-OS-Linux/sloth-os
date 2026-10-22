@@ -1,14 +1,11 @@
 {
   "_language": "Português (Portugal)",
-
   "app.title": "Instalar o Sloth OS",
-
   "welcome.heading": "Bem-vindo ao Sloth OS!",
   "welcome.text": "Pode experimentar o sistema sem o instalar, ou instalá-lo no computador. A instalação demora poucos minutos e só faz algumas perguntas.",
   "welcome.language": "Idioma",
   "welcome.try": "Experimentar",
   "welcome.install": "Instalar",
-
   "region.heading": "Teclado e fuso horário",
   "region.keyboard": "Teclado:",
   "region.try_keyboard": "Teste:",
@@ -27,7 +24,6 @@
   "account.error.username": "O nome de utilizador só pode ter letras inglesas minúsculas, números, hífenes e sublinhados, e tem de começar por uma letra (p. ex. «ana»).",
   "account.error.password": "Introduza uma palavra-passe.",
   "account.error.mismatch": "As duas palavras-passe não coincidem.",
-
   "disk.heading": "Onde o instalamos?",
   "disk.text": "Escolha o disco onde o Sloth OS vai ser instalado.",
   "disk.none": "Não encontrámos nenhum disco para instalar.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "As duas palavras-passe não coincidem.",
   "disk.encrypt.short": "A palavra-passe tem de ter pelo menos 8 caracteres.",
   "disk.encrypt.short_same": "A palavra-passe da tua conta tem menos de 8 caracteres: escreve uma palavra-passe diferente e mais longa para a encriptação.",
-
   "confirm.heading": "Tudo o que está neste disco será apagado",
   "confirm.text": "O Sloth OS usa o disco inteiro: {disk}. Tudo o que contém agora (ficheiros, programas, outros sistemas) será apagado definitivamente.",
   "confirm.windows": "Este disco tem o Windows. Depois da instalação, o Windows e todos os ficheiros desaparecem. Se os quiser manter, faça primeiro uma cópia de segurança.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Ao ligar o computador, podes escolher entre o Sloth OS e o Windows durante alguns segundos.",
   "confirm.beside.checkbox": "Compreendo e fiz uma cópia dos meus ficheiros importantes",
   "confirm.encrypt": "O disco vai ser encriptado: abre com a tua palavra-passe quando ligas o computador.",
-
   "nav.back": "Anterior",
   "nav.next": "Seguinte",
-
   "stage.start": "A preparar…",
   "stage.partition": "A preparar o disco…",
   "stage.shrink": "A redimensionar a unidade do Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "A configurar o arranque…",
   "stage.finishing": "A concluir…",
   "stage.configure": "A guardar o idioma e as definições…",
-
   "install.note": "Dependendo do computador, demora 5 a 20 minutos. Não o desligue.",
-
   "done.heading": "Instalação concluída!",
   "done.text": "Reinicie o computador. Quando o ecrã ficar escuro, retire a pen USB. Depois inicie sessão com a conta que acabou de criar; o Boas-vindas Sloth ajuda com o resto.",
   "done.reboot": "Reiniciar",
   "done.beside": "Ao ligar o computador, podes escolher entre o Sloth OS e o Windows.",
-
   "error.heading": "A instalação falhou",
   "error.log_hint_save": "Se pedir ajuda, guarde o registo (por exemplo, numa pen USB) e envie-o.",
   "error.save_log": "Guardar registo…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "O sistema foi instalado, mas não foi possível definir o idioma e o teclado. Tente novamente; se voltar a falhar, pode defini-los nas Definições do sistema depois do primeiro arranque.",
   "error.beside_shrink_failed": "Não foi possível reduzir a unidade do Windows. Inicia o Windows, verifica o disco (Este PC → C: → Propriedades → Ferramentas → Verificar) e tenta novamente.",
   "error.encrypt_failed": "Não foi possível configurar a encriptação. Tenta novamente; se voltar a falhar, instala sem encriptação.",
-
   "desktop.comment": "Instalar o Sloth OS neste computador",
-  "desktop.keywords": "instalar;instalador"
+  "desktop.keywords": "instalar;instalador",
+  "confirm.summary.formatted": "Formatar novas partições EFI e do sistema como FAT32 e Btrfs.",
+  "confirm.summary.encrypted": "Formate a partição EFI como FAT32 e criptografe o sistema Sloth OS com LUKS2 e Btrfs; crie uma partição de inicialização separada.",
+  "confirm.beside.first_boot": "A primeira vez que você inicia o Windows após a instalação, pode mostrar Scanning and repair drive. Mantenha o computador ligado e deixe terminar.",
+  "confirm.summary.heading": "Mudanças de disco planejado",
+  "confirm.summary.target": "Disco alvo: {disk} ({size})",
+  "confirm.summary.erase": "Apague este disco, incluindo as partições e arquivos atuais.",
+  "confirm.summary.create_all": "Crie um novo layout GPT com uma partição de inicialização do BIOS, uma partições EFI, uma partilha do sistema do sistema operacional Sloth e espaço de instalação temporário.",
+  "confirm.summary.shrink": "Reduzir a partição do Windows em {size} GiB, em seguida, use o espaço liberado para o Sloth OS.",
+  "confirm.summary.free": "Use espaço livre neste disco; as partições existentes não serão redimensionadas.",
+  "confirm.summary.keep_windows": "Manter o Windows e seus arquivos. Criar partições do sistema e do EFI do Sloth OS no espaço disponível.",
+  "confirm.summary.temporary": "O espaço de instalação temporário é formatado como ext4, montado durante a instalação e removido quando a instalações terminam."
 }

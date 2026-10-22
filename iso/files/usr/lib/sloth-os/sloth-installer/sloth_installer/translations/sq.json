@@ -1,14 +1,11 @@
 {
   "_language": "Shqip",
-
   "app.title": "Instalo Sloth OS",
-
   "welcome.heading": "Mirë se vini në Sloth OS!",
   "welcome.text": "Mund ta provoni sistemin pa e instaluar, ose ta instaloni në kompjuter. Instalimi zgjat pak minuta dhe ka vetëm disa pyetje.",
   "welcome.language": "Gjuha",
   "welcome.try": "Provoje",
   "welcome.install": "Instalo",
-
   "region.heading": "Tastiera dhe zona kohore",
   "region.keyboard": "Tastiera:",
   "region.try_keyboard": "Provë:",
@@ -27,7 +24,6 @@
   "account.error.username": "Emri i përdoruesit mund të ketë vetëm shkronja të vogla angleze, numra, viza dhe nënvija dhe duhet të fillojë me shkronjë (p.sh. “ana”).",
   "account.error.password": "Shkruani një fjalëkalim.",
   "account.error.mismatch": "Dy fjalëkalimet nuk përputhen.",
-
   "disk.heading": "Ku ta instalojmë?",
   "disk.text": "Zgjidhni diskun ku do të instalohet Sloth OS.",
   "disk.none": "Nuk gjetëm disk për instalim.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Dy fjalëkalimet nuk përputhen.",
   "disk.encrypt.short": "Fjalëkalimi duhet të ketë të paktën 8 shenja.",
   "disk.encrypt.short_same": "Fjalëkalimi i llogarisë tënde është më i shkurtër se 8 shenja: shkruaj një fjalëkalim më të gjatë e të veçantë për enkriptimin.",
-
   "confirm.heading": "Gjithçka në këtë disk do të fshihet",
   "confirm.text": "Sloth OS përdor gjithë diskun: {disk}. Gjithçka që ka tani (skedarë, programe, sisteme të tjera) do të fshihet përgjithmonë.",
   "confirm.windows": "Ky disk ka Windows. Pas instalimit, Windows dhe të gjithë skedarët e tij do të zhduken. Nëse doni t'i mbani, bëni fillimisht kopje të skedarëve.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Kur ndez kompjuterin, për disa sekonda mund të zgjedhësh mes Sloth OS dhe Windows.",
   "confirm.beside.checkbox": "E kuptoj dhe kam bërë kopje të skedarëve të mi të rëndësishëm",
   "confirm.encrypt": "Disku do të enkriptohet: hapet me fjalëkalimin tënd kur ndizet kompjuteri.",
-
   "nav.back": "Prapa",
   "nav.next": "Tjetër",
-
   "stage.start": "Po përgatitet…",
   "stage.partition": "Po përgatitet disku…",
   "stage.shrink": "Po ndryshohet madhësia e diskut të Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Po rregullohet nisja…",
   "stage.finishing": "Po përfundon…",
   "stage.configure": "Po ruhen gjuha dhe rregullimet…",
-
   "install.note": "Në varësi të kompjuterit, kjo zgjat 5–20 minuta. Mos e fikni.",
-
   "done.heading": "Instalimi përfundoi!",
   "done.text": "Rinisni kompjuterin. Kur ekrani errësohet, hiqni diskun USB. Pastaj hyni me llogarinë që sapo krijuat; Mirë se vini në Sloth do t’ju ndihmojë me të tjerat.",
   "done.reboot": "Rinis",
   "done.beside": "Kur ndez kompjuterin, mund të zgjedhësh mes Sloth OS dhe Windows.",
-
   "error.heading": "Instalimi dështoi",
   "error.log_hint_save": "Nëse kërkon ndihmë, ruaj regjistrin (për shembull në një USB) dhe dërgoje.",
   "error.save_log": "Ruaj regjistrin…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Sistemi u instalua, por gjuha dhe tastiera nuk u rregulluan dot. Riprovoni; nëse sërish nuk shkon, mund t'i rregulloni te Rregullimet e sistemit pas nisjes së parë.",
   "error.beside_shrink_failed": "Disku i Windows nuk u zvogëlua dot. Nis Windows, kontrollo diskun (Ky PC → C: → Vetitë → Mjetet → Kontrollo) dhe provo përsëri.",
   "error.encrypt_failed": "Enkriptimi nuk u konfigurua dot. Provo përsëri; nëse dështon sërish, instalo pa enkriptim.",
-
   "desktop.comment": "Instalimi i Sloth OS në këtë kompjuter",
-  "desktop.keywords": "instalim;instalues"
+  "desktop.keywords": "instalim;instalues",
+  "confirm.summary.formatted": "Formatoni ndarjet e reja EFI dhe të sistemit si FAT32 dhe Btrfs.",
+  "confirm.summary.encrypted": "Formatoni ndarjen EFI si FAT32 dhe kodoni sistemin Sloth OS me LUKS2 dhe Btrfs; krijoni një ndarje të veçantë të nisjes.",
+  "confirm.summary.target": "Disku i synuar: {disk} ({size})",
+  "confirm.summary.erase": "Fshijeni këtë disk, duke përfshirë ndarjet dhe skedarët e tij aktualë.",
+  "confirm.summary.create_all": "Krijo një paraqitje të re GPT me një ndarje të BIOS boot, një ndarjen EFI, një ndalesë të sistemit të Sloth OS, dhe hapësirë të përkohshme të instalimit.",
+  "confirm.beside.first_boot": "Herën e parë që filloni Windows pas instalimit, mund të shfaqet Skanimi dhe riparimi i diskut . Mbajeni kompjuterin të lidhur dhe lejoni të përfundojë.",
+  "confirm.summary.heading": "Ndryshimet e planifikuara të diskut",
+  "confirm.summary.temporary": "Hapësira e përkohshme e instalimit është formatuar si ext4, montuar gjatë vendosjes dhe hiqet kur përfundon vendosja.",
+  "confirm.summary.free": "Përdorni hapësirën e lirë në këtë disk; ndarjet ekzistuese nuk do të ndryshojnë madhësinë.",
+  "confirm.summary.keep_windows": "Mbajeni Windows dhe skedarët e tij. Krijoni ndarjet e sistemit dhe të Sloth OS EFI në hapësirës së disponueshme.",
+  "confirm.summary.shrink": "Ngushto ndarjen e Windows me {size} GiB, pastaj përdor hapësirën e lirë për Sloth OS."
 }

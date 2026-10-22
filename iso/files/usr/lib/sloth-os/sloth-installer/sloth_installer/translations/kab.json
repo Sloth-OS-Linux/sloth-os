@@ -1,14 +1,11 @@
 {
   "_language": "Taqbaylit",
-
   "app.title": "Sebded Sloth OS",
-
   "welcome.heading": "Ansuf ɣer Sloth OS!",
   "welcome.text": "Tzemreḍ ad tɛerḍeḍ anagraw mebla ma tesbeddeḍ-t, neɣ ad t-tesbeddeḍ ɣef uselkim-ik. Asebded yettawi kra n tesdatin, s kra n yesteqsiyen kan.",
   "welcome.language": "Tutlayt",
   "welcome.try": "Ɛreḍ-it",
   "welcome.install": "Sebded",
-
   "region.heading": "Anasiw d tamnaḍt n wakud",
   "region.keyboard": "Anasiw:",
   "region.try_keyboard": "Asekyed:",
@@ -27,7 +24,6 @@
   "account.error.username": "Isem n useqdac yezmer ad yesɛu kan isekkilen imeẓyanen n teglizit, uṭṭunen, ijerriden d yijerriden n wadda, u ilaq ad ibdu s usekkil (amedya: “ana”).",
   "account.error.password": "Aru awal uffir.",
   "account.error.mismatch": "Sin wawalen uffiren ur mṣadan ara.",
-
   "disk.heading": "Anida ara t-nesbedd?",
   "disk.text": "Fren aḍebsi anida ara yebded Sloth OS.",
   "disk.none": "Ur d-nufi ara aḍebsi i usebded.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Sin wawalen uffiren ur mṣadan ara.",
   "disk.encrypt.short": "Awal uffir ilaq ad yesɛu 8 n yisekkilen ma drus.",
   "disk.encrypt.short_same": "Awal uffir n umiḍan-ik yedra ɣef 8 n yisekkilen: sekcem awal uffir nniḍen, ɣezzifen, i uwgelhen.",
-
   "confirm.heading": "Ayen akk yellan deg uḍebsi-a ad yettwakkes",
   "confirm.text": "Sloth OS ad yesseqdec aḍebsi akk: {disk}. Ayen akk yellan tura (ifuyla, ihilen, inagrawen nniḍen) ad yettwakkes i lebda.",
   "confirm.windows": "Deg uḍebsi-a yella Windows. Seld asebded, Windows d yifuyla-s akk ad ruḥen. Ma tebɣiḍ ad ten-teǧǧeḍ, eg qbel aḥraz n yifuyla-k.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Mi ara tesreḥeḍ aselkim, tzemreḍ ad tferneḍ gar Sloth OS d Windows kra n tsinin.",
   "confirm.beside.checkbox": "Fehmeɣ, ɣaseɣ anɣel n yifuyla-inu yesɛan azal",
   "confirm.encrypt": "Aḍebsi ad yettwawgelhen: ad yeldi s wawal-ik uffir mi ara yekker uselkim.",
-
   "nav.back": "Ɣer deffir",
   "nav.next": "Ɣer zdat",
-
   "stage.start": "Aheyyi…",
   "stage.partition": "Aheyyi n uḍebsi…",
   "stage.shrink": "Abeddel n teɣzi n tebṛaṛt n Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Aswel n usenker…",
   "stage.finishing": "Tagara…",
   "stage.configure": "Asekles n tutlayt d yiɣewwaren…",
-
   "install.note": "Ɣef leḥsab n uselkim-ik, aya yettawi 5–20 n tesdatin. Ur t-sexsay ara.",
-
   "done.heading": "Asebded ifuk!",
   "done.text": "Ales asekker n uselkim. Mi yeɣli ugdil, kkes tasarut USB. Syin kcem s umiḍan i d-tesnulfaḍ akka tura; Ansuf ɣer Sloth ad ak-d-yefk afus i wayen d-yeqqimen.",
   "done.reboot": "Ales asekker",
   "done.beside": "Mi ara tesreḥeḍ aselkim, tzemreḍ ad tferneḍ gar Sloth OS d Windows.",
-
   "error.heading": "Asebded ur yeddi ara",
   "error.log_hint_save": "Ma tsutreḍ tallalt, sekles aɣmis (amedya ɣef tsarut USB) sakin azen-it.",
   "error.save_log": "Sekles aɣmis…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Anagraw yebded, maca tutlayt d unasiw ur ttwasbedden ara. Ɛreḍ tikkelt nniḍen; ma ur yeddi ara, tzemreḍ ad ten-tesbeddeḍ deg yiɣewwaren n unagraw seld asekker amenzu.",
   "error.beside_shrink_failed": "Ur tezmir ara tebṛaṛt n Windows ad temẓi. Sekker Windows, senqed aḍebsi (PC-a → C: → Timeẓliwin → Ifecka → Senqed), sakin ɛreḍ tikkelt-nniḍen.",
   "error.encrypt_failed": "Asbadu n uwgelhen ur yeddi ara. Ɛreḍ tikkelt-nniḍen; ma yella mazal, sebded war awgelhen.",
-
   "desktop.comment": "Sebded Sloth OS deg uselkim-a",
-  "desktop.keywords": "asebded;amsebded"
+  "desktop.keywords": "asebded;amsebded",
+  "confirm.summary.formatted": "Sbedd EFI d tnezduɣt tamaynut am FAT32 d Btrfs.",
+  "confirm.summary.encrypted": "Sbeddet amyag EFI am FAT32 u sserseḍ aselkim n Sloth OS s LUKS2 d Btrfs; snulfu-d amyag n usebded yeffɣen.",
+  "confirm.summary.target": "Asmel n usmel: {disk} ({size})",
+  "confirm.summary.erase": "Ssusem asmel-a, gar-as tiɣbula d ifayluyen-is i yellan tura.",
+  "confirm.beside.first_boot": "Mi ara tbeddeḍ Windows tikkelt tamezwarut deffir usekles, yezmer ad d-iban Askan d useggem n usrid . Ḥader aselkim yettwaqqen deg usrid u ǧǧ-it ad ifakk.",
+  "confirm.summary.heading": "Imgaraden n usegmu yettwaheggi",
+  "confirm.summary.create_all": "Snulfu tasemɣart n GPT tamaynut s tferka n uselkem n BIOS, tferqa n EFI, tfarka n usenfar n Sloth OS, akked umkan n usekles amseddas.",
+  "confirm.summary.shrink": "Sserseḍ amḍiq n Windows s {size} GiB, syin ssexdem amkan-nni yettwaferken i SlothOS.",
+  "confirm.summary.temporary": "Amkan n usekles amseddas yettwafrim am ext4, yettwafermed deg tallit n useggem, yerna yettwakkes mi ara ifakk usegdem.",
+  "confirm.summary.free": "Seqdec amkan i d-yeffɣen deg usrid-a; tiferniwin illan ur d-ttwaqqalen ara.",
+  "confirm.summary.keep_windows": "Ḥerrez Windows d ifayluyen-is. Snulfu-d Sloth OS EFI d tifernin n usenfar deg umkan i yellan."
 }

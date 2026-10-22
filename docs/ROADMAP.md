@@ -15,9 +15,10 @@ Feedback**. I will review them as time allows.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
 #### Windows program launch follow-up (2026-10-22)
-- [ ] **Reddit Desktop in a Fedora box:** the package install reported success, but its exported Start menu entry
-  failed with `crun: executable file 'sloth-exe' not found in $PATH`. Inspect the exported `.desktop` file and
-  make sure the box launches the package's actual command; do not report success when no usable launcher exists.
+- [x] **Reddit Desktop in a Fedora box:** package installs now fail visibly if a new desktop entry uses `sloth-exe`,
+  if export fails, or if the exported host `.desktop` lacks a `distrobox-enter` command or still invokes `sloth-exe`.
+  The running Fedora box no longer has the Reddit package's source desktop entry, so a live relaunch could not be
+  reproduced; `tools/tests/test_apps.py` checks that invalid exports cannot be recorded as successful installs.
 - [ ] **Notepad++ starts again after closing:** the install succeeded, but the start handler exited after 4–9 seconds
   and cycled through four runner settings even though the user saw the app open. Improve detection of a live Windows
   process after `umu-run` exits (check the prefix's Wine processes/wineserver), and only start another recovery attempt
@@ -33,16 +34,18 @@ Feedback**. I will review them as time allows.
   installation flows on multi-drive systems.
 - [ ] Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
   encryption or hibernation. Explain blockers and safe next steps in plain language.
-- [ ] Show a final installation summary of the target disk, partitions to create, format, resize, or mount;
-  require confirmation before applying changes.
+- [x] Show the target disk and planned erase/resize/create/format/mount operations on the installer's confirmation page;
+  the existing confirmation checkbox is required before applying changes. The temporary install partition is identified
+  as mounted only during setup and deleted at the end.
 - [ ] Guide users through creating Sloth OS installation media, with a clear warning before erasing a USB drive.
 - [ ] Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
 - [ ] Show storage health warnings when supported, and help users back up important files if a drive may be failing.
 - [ ] Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
 
 #### Sloth Center, setup, and support
-- [ ] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
-- [ ] Offer an optional first-run guide to key Sloth Center features; let users skip or revisit it.
+- [x] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
+- [x] Offer a short first-run guide to Updates, Programs, Games, backups, Feedback, and Disks; users can skip it or
+  reopen it from the sidebar.
 - [ ] Add a system and driver overview for graphics, audio, Bluetooth, and connected peripherals, with guidance
   when something needs attention.
 - [ ] Add an application privacy overview for microphone, camera, and location access where supported.
@@ -62,7 +65,7 @@ Feedback**. I will review them as time allows.
 - [ ] Explain what updates change, their download and storage needs, and whether a restart is required.
 - [ ] Let users schedule updates and avoid restart prompts during user-defined quiet hours.
 - [ ] Let users limit update download speed and warn before large downloads on metered or mobile connections.
-- [ ] Show backup availability and last backup time in Sloth Center.
+- [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [ ] Let users schedule file backups, choose retention, and estimate required storage.
 - [ ] Verify backups by checking readability and guiding users through restoring a selected file.
 - [ ] Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
@@ -131,8 +134,8 @@ warnings), feedback with a log (#5), File backup and Previous versions, EA app (
 muting, Heroic/Epic, zram, taskbar balloon on the right, WoW Classic from Battle.net.
 **Still open:**
 - [x] Running Welcome again on an existing system (ticks, current appearance): works well on the new install
-- [ ] **Installing next to Windows (with and without encryption):** the container test passes for both (below); not
-  tried on a real Windows machine yet
+- [x] **Installing next to Windows (with and without encryption):** the loop-disk tests pass for both (below); a real
+  Windows VM was not run, which the user accepted as sufficient for now (2026-10-22)
 - [ ] NVIDIA machine (at home, the developer machine: RTX 5060 + AMD iGPU): Drivers and hardware page, Secure Boot MOK
 - [ ] Steam takeover, firmware in Discover
 - [x] **Support (Ko-fi, `ko-fi.com/slothos`, 2026-10-21):** a quiet link on Sloth Center's Feedback page and on Welcome's
@@ -214,6 +217,10 @@ The ISO was built locally (`out/sloth-os.iso`, 08:33, from the `latest` image, w
     the file on it unchanged; the boot loader on its own EFI partition, the Windows EFI partition untouched, the
     Windows entry in the boot menu, the menu is shown; LUKS2 opens with the password, crypttab and `rd.luks.uuid` fine; local
     time. Still to try on a real Windows machine (whether Windows starts afterwards, the boot menu)
+  - **Retest 2026-10-22, current source:** fresh ISO built with Podman storage on the data disk; `win` passed 18/18 checks,
+    `win-enc` passed 22/22. Both verify the Windows EFI partition and NTFS user file stay intact. The custom-storage test
+    runner now gives the live container the same graphroot path as the host. A real Windows VM was not run; the user
+    considers the loop-disk results sufficient.
   - Note: on WSL the disk files go to C: (the WSL disk is sparse, the test runs fstrim after each case); once
     C: filled up (1.4 GB), and WSL crashed. One case needs about 15 GB of free space
 - [x] The installer's error page: a "Save log…" button (by default onto the plugged-in USB stick), instead of the `/tmp` path (in 50 languages)
@@ -255,8 +262,8 @@ fine there needs to be checked only once on a real machine:
     `${cmdpath}`, which is empty there because of bootupd's `configfile` (checked in the GRUB console). Fixed
     (`grub-custom.cfg`): our own EFI partition is found by `search --file /EFI/fedora/sloth-boot.env` (`sloth_dir`,
     exported for the menu entries). Existing machines get it with the next image (`boot-env ensure-config`)
-- [ ] The installer's confirmation page should say that after shrinking, Windows checks the disk on its first start (ntfsresize
-  marks it for checking; "Scanning and repairing drive", a few minutes, do not turn it off)
+- [x] The installer's confirmation page says that after shrinking, Windows may show "Scanning and repairing drive"
+  on its first start, and tells the user to keep the computer plugged in until it finishes.
 - [x] A new ISO with the installer fix (`hide_other_esps`); then on a real machine, next to a real Windows (tester)
 - Later, when there is a machine / tester: an NVIDIA machine (the gaming machine), a BIOS-only machine, printer and scanner
 
@@ -295,7 +302,7 @@ fine there needs to be checked only once on a real machine:
   installing: at the last category, with the same choices (the installed ones are done at once); interrupted at the end:
   it offers the Windows installers again; deleted at the end. Tried offscreen (real controller, fake installer);
   on a real machine: a restart in the middle of Welcome after the reset
-- [ ] Welcome, sharing step: "later in Sloth Center (Windows programs)" – the page is called "Programs" now
+- [x] Welcome, sharing step: removed the stale "Windows programs" parenthetical; the page is called "Programs" now.
 - [ ] System health, in a VM: "Machine Check Exception Logging Daemon" did not start (a VM has no MCE); check on a real
   machine whether it comes up; if only in a VM, do not report it in a VM
 
@@ -441,7 +448,7 @@ fine there needs to be checked only once on a real machine:
   - [x] The website's FAQ: Sloth Center → Feedback
   - Reviewing together here: `gh issue list -R Sloth-OS-Linux/feedback -l feedback`; the log:
     `curl -H "Authorization: Bearer $(cat /mnt/adatok/sloth-dev/feedback-log-token)" <link>`
-- [ ] **A verified update indicator** (2026-10-20, at the user's request; small): on Sloth Center's Updates
+- [x] **A verified update indicator** (2026-10-22): on Sloth Center's Updates
   page a green tick, "Verified updates ✓ – the system only accepts updates signed by Sloth OS"
   (`ostree-image-signed` in the running version's origin); if it is not turned on, a warning
 - [ ] Work account: Entra ID; opening the password store (KWallet) with a PIN / fingerprint (details below, Sign-in)

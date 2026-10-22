@@ -1,14 +1,11 @@
 {
   "_language": "日本語",
-
   "app.title": "Sloth OS のインストール",
-
   "welcome.heading": "Sloth OS へようこそ！",
   "welcome.text": "インストールせずに試すことも、パソコンにインストールすることもできます。インストールは数分で、質問もわずかです。",
   "welcome.language": "言語",
   "welcome.try": "試してみる",
   "welcome.install": "インストール",
-
   "region.heading": "キーボードとタイムゾーン",
   "region.keyboard": "キーボード:",
   "region.try_keyboard": "テスト:",
@@ -27,7 +24,6 @@
   "account.error.username": "ユーザー名に使えるのは英小文字、数字、ハイフン、アンダースコアだけで、先頭は英字にしてください(例: “hanako”)。",
   "account.error.password": "パスワードを入力してください。",
   "account.error.mismatch": "2 つのパスワードが一致しません。",
-
   "disk.heading": "どこにインストールしますか？",
   "disk.text": "Sloth OS をインストールするディスクを選んでください。",
   "disk.none": "インストールできるディスクが見つかりません。",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "2 つのパスワードが一致しません。",
   "disk.encrypt.short": "パスワードは 8 文字以上にしてください。",
   "disk.encrypt.short_same": "アカウントのパスワードが 8 文字未満です。暗号化用に、別のより長いパスワードを入力してください。",
-
   "confirm.heading": "このディスクの内容はすべて消去されます",
   "confirm.text": "Sloth OS はディスク全体を使います: {disk}。今入っているもの（ファイル、プログラム、ほかのシステム）はすべて完全に削除されます。",
   "confirm.windows": "このディスクには Windows が入っています。インストール後は Windows とそのファイルがすべてなくなります。残したい場合は、先にファイルをバックアップしてください。",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "コンピューターの起動時に数秒間、Sloth OS と Windows のどちらを使うか選べます。",
   "confirm.beside.checkbox": "理解しました。大切なファイルはバックアップ済みです",
   "confirm.encrypt": "ディスクは暗号化されます。起動時にパスワードで開きます。",
-
   "nav.back": "戻る",
   "nav.next": "次へ",
-
   "stage.start": "準備しています…",
   "stage.partition": "ディスクを準備しています…",
   "stage.shrink": "Windows のドライブのサイズを変更しています…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "起動を設定しています…",
   "stage.finishing": "仕上げています…",
   "stage.configure": "言語と設定を保存しています…",
-
   "install.note": "パソコンによって 5〜20 分かかります。電源を切らないでください。",
-
   "done.heading": "インストール完了！",
   "done.text": "コンピューターを再起動してください。画面が暗くなったら USB メモリーを抜きます。その後、作成したアカウントでログインすれば、残りは Sloth ようこそが手伝います。",
   "done.reboot": "再起動",
   "done.beside": "コンピューターの起動時に Sloth OS と Windows のどちらを使うか選べます。",
-
   "error.heading": "インストールに失敗しました",
   "error.log_hint_save": "助けを求めるときは、ログを保存して（USB メモリなどに）一緒に送ってください。",
   "error.save_log": "ログを保存…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "システムはインストールされましたが、言語とキーボードを設定できませんでした。もう一度お試しください。それでも失敗する場合は、初回起動後にシステム設定で設定できます。",
   "error.beside_shrink_failed": "Windows のドライブを小さくできませんでした。Windows を起動してディスクをチェックし（PC → C: → プロパティ → ツール → チェック）、もう一度お試しください。",
   "error.encrypt_failed": "暗号化を設定できませんでした。もう一度お試しください。それでも失敗する場合は、暗号化せずにインストールしてください。",
-
   "desktop.comment": "このコンピューターに Sloth OS をインストールします",
-  "desktop.keywords": "インストール;インストーラー"
+  "desktop.keywords": "インストール;インストーラー",
+  "confirm.beside.first_boot": "インストール後,Windows を最初に起動すると,スキャンおよび修復ドライブが表示される可能性があります. コンピューターを接続して,完了させてください.",
+  "confirm.summary.heading": "予定されたディスク変更",
+  "confirm.summary.erase": "現在のパーティションおよびファイルを含むこのディスクを削除します.",
+  "confirm.summary.formatted": "新しいEFIとシステムパーティションをFAT32とBtrfsとしてフォーマットする.",
+  "confirm.summary.encrypted": "EFIパーティションのFAT32,LUKS2とBTRfsでスロットOSシステムを暗号化する. 独立したブートパーティションを作成する.",
+  "confirm.summary.create_all": "BIOSブートパーティション,EFIパーティションやSloth OSシステムパーティションと一時的なインストールスペースを備えた新しいGPTレイアウトを作成します.",
+  "confirm.summary.shrink": "Windows パーティションを {size} GiB に縮小し,スロット OS のための空きスペースを使用します.",
+  "confirm.summary.free": "このディスク上の空き空間を使用します;既存のパーティションはサイズ変更されません.",
+  "confirm.summary.keep_windows": "Windowsとそのファイルを保持する.利用可能なスペースでSloth OS EFIとシステムパーティションを作成する.",
+  "confirm.summary.temporary": "暫定インストールスペースは,セットアップ中にマウントされ,セットअपが完了すると削除される.",
+  "confirm.summary.target": "ターゲットディスク: {disk} ({size})"
 }

@@ -1,14 +1,11 @@
 {
   "_language": "Čeština",
-
   "app.title": "Instalace Sloth OS",
-
   "welcome.heading": "Vítejte v Sloth OS!",
   "welcome.text": "Systém si můžete vyzkoušet bez instalace, nebo ho nainstalovat do počítače. Instalace trvá pár minut a má jen pár otázek.",
   "welcome.language": "Jazyk",
   "welcome.try": "Vyzkoušet",
   "welcome.install": "Nainstalovat",
-
   "region.heading": "Klávesnice a časové pásmo",
   "region.keyboard": "Klávesnice:",
   "region.try_keyboard": "Test:",
@@ -27,7 +24,6 @@
   "account.error.username": "Uživatelské jméno smí obsahovat jen malá anglická písmena, číslice, pomlčky a podtržítka a musí začínat písmenem (např. „anna“).",
   "account.error.password": "Zadejte heslo.",
   "account.error.mismatch": "Hesla se neshodují.",
-
   "disk.heading": "Kam ho nainstalujeme?",
   "disk.text": "Vyberte disk, na který se Sloth OS nainstaluje.",
   "disk.none": "Nenašli jsme disk, na který by šlo instalovat.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Hesla se neshodují.",
   "disk.encrypt.short": "Heslo musí mít aspoň 8 znaků.",
   "disk.encrypt.short_same": "Heslo vašeho účtu má méně než 8 znaků: zadejte pro šifrování delší, samostatné heslo.",
-
   "confirm.heading": "Vše na tomto disku bude smazáno",
   "confirm.text": "Sloth OS využije celý disk: {disk}. Vše, co na něm teď je (soubory, programy, jiné systémy), bude trvale smazáno.",
   "confirm.windows": "Na tomto disku je Windows. Po instalaci Windows i všechny jeho soubory zmizí. Pokud si je chcete ponechat, nejdřív si soubory zálohujte.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Po zapnutí počítače si můžete pár sekund vybrat mezi Sloth OS a Windows.",
   "confirm.beside.checkbox": "Rozumím a důležité soubory mám zálohované",
   "confirm.encrypt": "Disk bude šifrovaný: při zapnutí se otevře vaším heslem.",
-
   "nav.back": "Zpět",
   "nav.next": "Další",
-
   "stage.start": "Příprava…",
   "stage.partition": "Příprava disku…",
   "stage.shrink": "Změna velikosti disku s Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Nastavení spouštění…",
   "stage.finishing": "Dokončování…",
   "stage.configure": "Ukládání jazyka a nastavení…",
-
   "install.note": "Podle počítače to trvá 5–20 minut. Nevypínejte ho.",
-
   "done.heading": "Instalace dokončena!",
   "done.text": "Restartujte počítač. Až obrazovka zhasne, vytáhněte flash disk. Pak se přihlaste právě vytvořeným účtem a Uvítání Sloth vám pomůže se zbytkem.",
   "done.reboot": "Restartovat",
   "done.beside": "Po zapnutí počítače si můžete vybrat mezi Sloth OS a Windows.",
-
   "error.heading": "Instalace se nezdařila",
   "error.log_hint_save": "Pokud budete žádat o pomoc, uložte protokol (třeba na flashku) a pošlete ho.",
   "error.save_log": "Uložit protokol…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Systém je nainstalovaný, ale jazyk a klávesnici se nepodařilo nastavit. Zkuste to znovu; pokud to opět nepůjde, nastavíte je po prvním spuštění v Nastavení systému.",
   "error.beside_shrink_failed": "Disk s Windows se nepodařilo zmenšit. Spusťte Windows, zkontrolujte disk (Tento počítač → C: → Vlastnosti → Nástroje → Zkontrolovat) a zkuste to znovu.",
   "error.encrypt_failed": "Šifrování se nepodařilo nastavit. Zkuste to znovu; pokud to zase nepůjde, nainstalujte bez šifrování.",
-
   "desktop.comment": "Instalace Sloth OS na tento počítač",
-  "desktop.keywords": "instalace;instalátor"
+  "desktop.keywords": "instalace;instalátor",
+  "confirm.summary.encrypted": "Formátujte oddíl EFI jako FAT32 a zašifrujte systém Sloth OS pomocí LUKS2 a Btrfs; vytvořte samostatný spouštěcí oddíl.",
+  "confirm.summary.temporary": "Dočasný instalační prostor je formátován jako ext4, namontován během instalace a odstraněn po dokončení instalace.",
+  "confirm.summary.shrink": "Zmenšete oddíl Windows o {size} GiB a poté použijte uvolněný prostor pro operační systém Sloth.",
+  "confirm.summary.free": "Použijte volné místo na tomto disku; stávající oddíly nebudou změněny.",
+  "confirm.summary.keep_windows": "Udržujte systém Windows a jeho soubory. V dostupném prostoru vytvořte EFI systému Sloth OS a systémové oddíly.",
+  "confirm.summary.formatted": "Formátujte nové oddíly EFI a systémové oddíly jako FAT32 a Btrfs.",
+  "confirm.beside.first_boot": "Při prvním spuštění systému Windows po instalaci se může zobrazit zpráva „Skenování a oprava disku“. Nechte počítač zapojený a nechte jej dokončit.",
+  "confirm.summary.heading": "Plánované změny disku",
+  "confirm.summary.target": "Cílový disk: {disk} ({size})",
+  "confirm.summary.erase": "Vymažte tento disk, včetně jeho aktuálních oddílů a souborů.",
+  "confirm.summary.create_all": "Vytvořte nové rozvržení GPT se spouštěcím oddílem BIOSu, oddílem EFI, systémovým oddílem Sloth OS a dočasným instalačním prostorem."
 }

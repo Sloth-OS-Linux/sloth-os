@@ -1,14 +1,11 @@
 {
   "_language": "Svenska",
-
   "app.title": "Installera Sloth OS",
-
   "welcome.heading": "Välkommen till Sloth OS!",
   "welcome.text": "Du kan prova systemet utan att installera det, eller installera det på datorn. Installationen tar några minuter och har bara några få frågor.",
   "welcome.language": "Språk",
   "welcome.try": "Prova",
   "welcome.install": "Installera",
-
   "region.heading": "Tangentbord och tidszon",
   "region.keyboard": "Tangentbord:",
   "region.try_keyboard": "Test:",
@@ -27,7 +24,6 @@
   "account.error.username": "Användarnamnet får bara innehålla små engelska bokstäver, siffror, bindestreck och understreck och måste börja med en bokstav (t.ex. ”anna”).",
   "account.error.password": "Ange ett lösenord.",
   "account.error.mismatch": "Lösenorden stämmer inte överens.",
-
   "disk.heading": "Var ska vi installera?",
   "disk.text": "Välj disken som Sloth OS ska installeras på.",
   "disk.none": "Vi hittade ingen disk att installera på.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Lösenorden stämmer inte överens.",
   "disk.encrypt.short": "Lösenordet måste vara minst 8 tecken långt.",
   "disk.encrypt.short_same": "Ditt kontolösenord är kortare än 8 tecken: ange ett längre, separat lösenord för krypteringen.",
-
   "confirm.heading": "Allt på den här disken raderas",
   "confirm.text": "Sloth OS använder hela disken: {disk}. Allt som finns på den nu (filer, program, andra system) raderas permanent.",
   "confirm.windows": "Den här disken har Windows. Efter installationen är Windows och alla dess filer borta. Vill du behålla dem, säkerhetskopiera dina filer först.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "När datorn startar kan du välja mellan Sloth OS och Windows i några sekunder.",
   "confirm.beside.checkbox": "Jag förstår, och jag har säkerhetskopierat mina viktiga filer",
   "confirm.encrypt": "Disken krypteras: den öppnas med ditt lösenord när datorn startar.",
-
   "nav.back": "Tillbaka",
   "nav.next": "Nästa",
-
   "stage.start": "Förbereder…",
   "stage.partition": "Förbereder disken…",
   "stage.shrink": "Ändrar storlek på Windows-enheten…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Ställer in uppstarten…",
   "stage.finishing": "Slutför…",
   "stage.configure": "Sparar språk och inställningar…",
-
   "install.note": "Beroende på datorn tar det 5–20 minuter. Stäng inte av den.",
-
   "done.heading": "Installationen är klar!",
   "done.text": "Starta om datorn. När skärmen blir svart tar du ut USB-minnet. Logga sedan in med kontot du nyss skapade, så hjälper Sloth Välkommen dig med resten.",
   "done.reboot": "Starta om",
   "done.beside": "När datorn startar kan du välja mellan Sloth OS och Windows.",
-
   "error.heading": "Installationen misslyckades",
   "error.log_hint_save": "Om du ber om hjälp, spara loggen (till exempel på ett USB-minne) och skicka med den.",
   "error.save_log": "Spara logg…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Systemet installerades, men språk och tangentbord kunde inte ställas in. Försök igen; misslyckas det igen kan du ställa in dem i Systeminställningar efter första starten.",
   "error.beside_shrink_failed": "Windows-enheten kunde inte göras mindre. Starta Windows, kontrollera disken (Den här datorn → C: → Egenskaper → Verktyg → Kontrollera) och försök igen.",
   "error.encrypt_failed": "Det gick inte att konfigurera krypteringen. Försök igen; om det misslyckas igen, installera utan kryptering.",
-
   "desktop.comment": "Installera Sloth OS på den här datorn",
-  "desktop.keywords": "installera;installationsprogram"
+  "desktop.keywords": "installera;installationsprogram",
+  "confirm.summary.formatted": "Formatera nya EFI- och systempartitioner som FAT32 och Btrfs.",
+  "confirm.summary.encrypted": "Formatera EFI-partitionen som FAT32 och kryptera Sloth OS-systemet med LUKS2 och Btrfs; skapa en separat startpartition.",
+  "confirm.beside.first_boot": "När du först startar Windows efter installation kan den visa Skanning och reparationsenhet. Håll datorn ansluten och låt den slutföra.",
+  "confirm.summary.heading": "Planerad disk ändras",
+  "confirm.summary.target": "Måldisk: {disk} ({size})",
+  "confirm.summary.shrink": "Skär ner Windows-partitionen med {size} GiB, och använd sedan det fria utrymmet för Sloth OS.",
+  "confirm.summary.erase": "Ta bort denna disk, inklusive dess nuvarande partitioner och filer.",
+  "confirm.summary.create_all": "Skapa en ny GPT-layout med en BIOS-startspartition, en EFI-partition och en sloth OS-systempartition.",
+  "confirm.summary.keep_windows": "Behåll Windows och dess filer. Skapa Sloth OS EFI och systempartitioner i det tillgängliga utrymmet.",
+  "confirm.summary.temporary": "Tillfälligt installationsutrymme formateras som ext4, monteras under installationen och tas bort när installationen är klar.",
+  "confirm.summary.free": "Använd ledigt utrymme på denna disk; befintliga partitioner kommer inte att ändras storlek."
 }

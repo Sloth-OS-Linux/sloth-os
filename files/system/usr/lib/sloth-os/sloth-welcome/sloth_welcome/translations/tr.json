@@ -39,7 +39,7 @@
   "sharing.what": "Yalnızca şu gönderilir: ayar (örneğin \"eski grafik modu\"), ekran kartının üreticisi ve programın, adının geri çıkarılamayacağı bir parmak izi. Bilgisayarından başka hiçbir şey çıkmaz: ne adın, ne dosyaların, ne programın adı, ne de onu ne zaman ve ne kadar kullandığın.",
   "sharing.yes": "Evet, anonim olarak paylaş",
   "sharing.no": "Hayır, teşekkürler",
-  "sharing.later": "Bunu daha sonra istediğin zaman Sloth Merkezi'nde (Windows programları) değiştirebilirsin. Diğer bilgisayarlarda işe yarayan ayarları her durumda alırsın.",
+  "sharing.later": "Bunu daha sonra istediğin zaman Sloth Merkezi'nde değiştirebilirsin. Diğer bilgisayarlarda işe yarayan ayarları her durumda alırsın.",
 
   "windows.heading": "Dosyalarınızı Windows'tan getirelim mi?",
   "windows.text": "Bu bilgisayarda Windows da var. Dosyalarınızı buraya kopyalayabiliriz; Windows'a dokunulmaz, yalnızca okunur.",

@@ -39,7 +39,7 @@
   "sharing.what": "Só isto é enviado: a configuração (por exemplo, \"modo gráfico mais antigo\"), o fabricante da sua placa de vídeo e uma impressão digital do programa da qual não é possível descobrir o nome dele. Nada mais sai do seu computador: nem o seu nome, nem os seus arquivos, nem o nome do programa, nem quando ou quanto você o usa.",
   "sharing.yes": "Sim, compartilhar de forma anônima",
   "sharing.no": "Não, obrigado",
-  "sharing.later": "Você pode mudar isso a qualquer momento depois na Central Sloth (Programas do Windows). As configurações que funcionaram em outros computadores você recebe de qualquer forma.",
+  "sharing.later": "Você pode mudar isso a qualquer momento depois na Central Sloth. As configurações que funcionaram em outros computadores você recebe de qualquer forma.",
 
   "windows.heading": "Trazer seus arquivos do Windows?",
   "windows.text": "Este computador também tem Windows. Podemos copiar seus arquivos para cá; o Windows não é alterado, só lemos dele.",

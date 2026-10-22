@@ -34,6 +34,14 @@ Kirigami.ScrollablePage {
             text: updates.infoText
         }
 
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            type: updates.signatureVerified ? Kirigami.MessageType.Positive : Kirigami.MessageType.Warning
+            text: updates.signatureVerified
+                  ? L.t("Verified updates ✓ – this system only accepts updates signed by Sloth OS.")
+                  : L.t("Update signature checking is not enabled. This system may accept unsigned updates.")
+        }
+
         // --- Main status ------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

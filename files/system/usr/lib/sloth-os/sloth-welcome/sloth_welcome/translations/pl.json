@@ -39,7 +39,7 @@
   "sharing.what": "Wysyłane jest tylko to: ustawienie (na przykład „starszy tryb grafiki”), producent twojej karty graficznej i odcisk programu, z którego nie da się odtworzyć jego nazwy. Nic innego nie opuszcza twojego komputera: ani twoje imię, ani twoje pliki, ani nazwa programu, ani to, kiedy i ile z niego korzystasz.",
   "sharing.yes": "Tak, udostępniaj anonimowo",
   "sharing.no": "Nie, dziękuję",
-  "sharing.later": "Możesz to zmienić w dowolnym momencie później w Centrum Sloth (Programy dla Windows). Ustawienia, które zadziałały na innych komputerach, otrzymasz w każdym przypadku.",
+  "sharing.later": "Możesz to zmienić w dowolnym momencie później w Centrum Sloth. Ustawienia, które zadziałały na innych komputerach, otrzymasz w każdym przypadku.",
 
   "windows.heading": "Przenieść pliki z Windows?",
   "windows.text": "Na tym komputerze jest też Windows. Możemy skopiować tu Twoje pliki; Windows pozostaje nietknięty, tylko z niego czytamy.",

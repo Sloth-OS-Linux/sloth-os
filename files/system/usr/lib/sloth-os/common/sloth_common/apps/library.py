@@ -534,10 +534,27 @@ INFRA = {"services.exe", "winedevice.exe", "plugplay.exe", "explorer.exe", "rpcs
 
 
 def _windows_exe(proc):
-    """The name of the process's Windows program (under Wine the first argument is the .exe path), or None."""
-    argv0 = (proc / "cmdline").read_bytes().split(b"\0", 1)[0].decode("utf-8", "replace")
-    name = re.split(r"[\\/]", argv0)[-1].lower()
-    return name if name.endswith(".exe") else None
+    """The Windows program behind a Wine process, or None.
+
+    Proton/Wine may put the Windows executable later in argv (the first argument can be wine64 or a
+    Proton helper), and Wine may expose its Windows process name through /proc/<pid>/comm instead.
+    Looking only at argv[0] misses both cases and makes a live app look like a failed quick launch.
+    """
+    try:
+        args = (proc / "cmdline").read_bytes().split(b"\0")
+    except OSError:
+        args = []
+    # Later arguments are more likely to identify the Windows client than wrapper/helper executables.
+    for raw in reversed(args):
+        value = raw.decode("utf-8", "replace").strip().strip('"')
+        name = re.split(r"[\\/]", value)[-1].lower()
+        if name.endswith(".exe") and name not in INFRA:
+            return name
+    try:
+        name = (proc / "comm").read_text(encoding="utf-8", errors="replace").strip().lower()
+    except OSError:
+        return None
+    return name if name.endswith(".exe") and name not in INFRA else None
 
 
 def running_exes(app):

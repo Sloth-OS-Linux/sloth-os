@@ -1,14 +1,11 @@
 {
   "_language": "Esperanto",
-
   "app.title": "Instali Sloth OS",
-
   "welcome.heading": "Bonvenon al Sloth OS!",
   "welcome.text": "Vi povas provi la sistemon sen instali ĝin, aŭ instali ĝin en via komputilo. La instalado daŭras kelkajn minutojn kaj havas nur kelkajn demandojn.",
   "welcome.language": "Lingvo",
   "welcome.try": "Provi",
   "welcome.install": "Instali",
-
   "region.heading": "Klavaro kaj horzono",
   "region.keyboard": "Klavaro:",
   "region.try_keyboard": "Provo:",
@@ -27,7 +24,6 @@
   "account.error.username": "La uzantonomo povas enhavi nur minusklajn anglajn literojn, ciferojn, streketojn kaj substrekojn, kaj devas komenciĝi per litero (ekz. „anna“).",
   "account.error.password": "Tajpu pasvorton.",
   "account.error.mismatch": "La du pasvortoj ne kongruas.",
-
   "disk.heading": "Kien ni instalu?",
   "disk.text": "Elektu la diskon, sur kiun Sloth OS estos instalita.",
   "disk.none": "Ni trovis neniun diskon por instali.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "La du pasvortoj ne kongruas.",
   "disk.encrypt.short": "La pasvorto devas havi almenaŭ 8 signojn.",
   "disk.encrypt.short_same": "La pasvorto de via konto estas pli mallonga ol 8 signoj: tajpu pli longan, apartan pasvorton por la ĉifrado.",
-
   "confirm.heading": "Ĉio sur ĉi tiu disko estos forigita",
   "confirm.text": "Sloth OS uzas la tutan diskon: {disk}. Ĉio, kio estas sur ĝi nun (dosieroj, programoj, aliaj sistemoj), estos definitive forigita.",
   "confirm.windows": "Sur ĉi tiu disko estas Windows. Post la instalado, Windows kaj ĉiuj ĝiaj dosieroj malaperos. Se vi volas konservi ilin, unue faru sekurkopion de viaj dosieroj.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Ĉe ŝaltado vi povos dum kelkaj sekundoj elekti inter Sloth OS kaj Windows.",
   "confirm.beside.checkbox": "Mi komprenas, kaj mi faris savkopion de miaj gravaj dosieroj",
   "confirm.encrypt": "La disko estos ĉifrita: ĝi malfermiĝas per via pasvorto kiam la komputilo startas.",
-
   "nav.back": "Reen",
   "nav.next": "Sekva",
-
   "stage.start": "Preparado…",
   "stage.partition": "Preparado de la disko…",
   "stage.shrink": "Ŝanĝado de la grando de la Windows-disko…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Agordado de la startigo…",
   "stage.finishing": "Finado…",
   "stage.configure": "Konservado de lingvo kaj agordoj…",
-
   "install.note": "Depende de via komputilo, tio daŭras 5–20 minutojn. Ne malŝaltu ĝin.",
-
   "done.heading": "Instalado finiĝis!",
   "done.text": "Restartigu la komputilon. Kiam la ekrano mallumiĝas, eltiru la USB-memorilon. Poste ensalutu per la ĵus kreita konto; Sloth Bonvenon helpos pri la cetero.",
   "done.reboot": "Restartigi",
   "done.beside": "Ĉe ŝaltado vi povos elekti inter Sloth OS kaj Windows.",
-
   "error.heading": "La instalado malsukcesis",
   "error.log_hint_save": "Se vi petos helpon, konservu la protokolon (ekzemple sur USB-memorilo) kaj sendu ĝin.",
   "error.save_log": "Konservi protokolon…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "La sistemo estas instalita, sed ne eblis agordi lingvon kaj klavaron. Reprovu; se denove ne funkcias, vi povos agordi ilin en la Sistemaj agordoj post la unua starto.",
   "error.beside_shrink_failed": "Ne eblis malgrandigi la Windows-diskon. Startigu Windows, kontrolu la diskon (Ĉi tiu komputilo → C: → Atributoj → Iloj → Kontroli), kaj reprovu.",
   "error.encrypt_failed": "Ne eblis agordi la ĉifradon. Reprovu; se ĝi denove malsukcesos, instalu sen ĉifrado.",
-
   "desktop.comment": "Instali Sloth OS en ĉi tiun komputilon",
-  "desktop.keywords": "instali;instalilo"
+  "desktop.keywords": "instali;instalilo",
+  "confirm.beside.first_boot": "La unua fojo, kiam vi komencas Vindozon post instalado, ĝi povas montri \"Skanadon kaj riparadon de veturado\". Tenu la komputilon enŝaltita kaj lasu ĝin finiĝi.",
+  "confirm.summary.heading": "laŭplanaj diskŝanĝoj",
+  "confirm.summary.target": "Celdisko: {disk} ({size})",
+  "confirm.summary.erase": "Forigu tiun diskon, inkluzive de ĝiaj nunaj sekcioj kaj dosieroj.",
+  "confirm.summary.create_all": "Kreu novan GPT-enpaĝigon kun BIOS-botsekcio, EFI-sekcio, Sloth OS-sistemsekcio, kaj provizora instalaĵospaco.",
+  "confirm.summary.free": "Uzu liberan spacon sur tiu disko; ekzistantaj sekcioj ne estos regrandigitaj.",
+  "confirm.summary.keep_windows": "Konservu Fenestrojn kaj ĝiajn dosierojn. Kreu Sloth OS EFI kaj sistemajn dispartigojn en la disponebla spaco.",
+  "confirm.summary.formatted": "Formato nova EFI kaj sistemo dispartigoj kiel FAT32 kaj Btrfs.",
+  "confirm.summary.encrypted": "Format la EFI-sekcio kiel FAT32 kaj ĉifri la Sloth OS-sistemon kun LUKS2 kaj Btrfs; kreu apartan botsekcion.",
+  "confirm.summary.temporary": "Provizora instalas spacon estas formatita kiel ext4, muntita dum aranĝo, kaj forigita kiam aranĝo finiĝas.",
+  "confirm.summary.shrink": "Malkresku la Windows-partionon je {size} GiB, tiam uzu la liberigitan spacon por la Mallaborema Os."
 }

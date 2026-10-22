@@ -570,6 +570,53 @@ Kirigami.ApplicationWindow {
                               ? root.t("confirm.beside.text", { size: installer.sizeGib, disk: root.diskName(installer.diskInfo) })
                               : root.t("confirm.text", { disk: root.diskName(installer.diskInfo) + " (" + (installer.diskInfo.sizeText || "") + ")" })
                     }
+                    Kirigami.AbstractCard {
+                        Layout.fillWidth: true
+                        contentItem: ColumnLayout {
+                            spacing: Kirigami.Units.smallSpacing
+                            Kirigami.Heading {
+                                Layout.fillWidth: true
+                                level: 3
+                                text: root.t("confirm.summary.heading")
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                text: root.t("confirm.summary.target", {
+                                    disk: root.diskName(installer.diskInfo),
+                                    size: installer.diskInfo.sizeText || ""
+                                })
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                text: installer.beside
+                                      ? (installer.besideInfo.shrinkGib > 0
+                                         ? root.t("confirm.summary.shrink", { size: installer.besideInfo.shrinkGib })
+                                         : root.t("confirm.summary.free"))
+                                      : root.t("confirm.summary.erase")
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                text: installer.beside
+                                      ? root.t("confirm.summary.keep_windows")
+                                      : root.t("confirm.summary.create_all")
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                text: installer.encrypt
+                                      ? root.t("confirm.summary.encrypted")
+                                      : root.t("confirm.summary.formatted")
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                text: root.t("confirm.summary.temporary")
+                            }
+                        }
+                    }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
                         visible: installer.diskInfo.contents === "windows" && !installer.beside
@@ -583,6 +630,22 @@ Kirigami.ApplicationWindow {
                         text: installer.besideInfo.shrinkGib > 0
                               ? root.t("confirm.beside.shrink", { size: installer.besideInfo.shrinkGib })
                               : root.t("confirm.beside.free")
+                    }
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        visible: installer.beside && installer.besideInfo.shrinkGib > 0
+                        type: Kirigami.MessageType.Information
+                        text: root.t("confirm.beside.first_boot")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        visible: installer.beside && installer.besideInfo.shrinkGib > 0
+                        horizontalAlignment: Text.AlignHCenter
+                        wrapMode: Text.Wrap
+                        opacity: 0.8
+                        text: installer.besideInfo.windowsPath + " · ~"
+                              + installer.besideInfo.windowsBeforeGib + " GiB → "
+                              + "~" + installer.besideInfo.windowsAfterGib + " GiB"
                     }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true

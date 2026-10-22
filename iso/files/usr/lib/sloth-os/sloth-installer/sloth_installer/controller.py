@@ -161,11 +161,18 @@ class InstallerController(QObject):
         possible = not problems and max_gib >= MIN_BESIDE_GIB
         if not possible and not problems:
             problems = ["no_space"]
+        windows = p.get("windows") or {}
+        shrink_gib = 0
+        shrink_bytes = 0
+        if windows and p.get("free", 0) < self._size_gib * GIB:
+            shrink_bytes = max(0, self._size_gib * GIB - windows.get("after", 0))
+            shrink_gib = (shrink_bytes + GIB - 1) // GIB
+        before_gib = int(windows.get("size", 0) // GIB)
         return {"state": "ready", "possible": possible, "problems": problems[:1],
                 "minGib": MIN_BESIDE_GIB, "maxGib": max_gib, "bitlocker": bool(p.get("bitlocker")),
-                # this much of the chosen size is taken from Windows (0 if the free space is enough)
-                "shrinkGib": 0 if p.get("free", 0) >= self._size_gib * GIB else
-                max(0, self._size_gib - int(p.get("free", 0) // GIB))}
+                "shrinkGib": shrink_gib, "windowsPath": windows.get("path", ""),
+                "windowsBeforeGib": before_gib,
+                "windowsAfterGib": int(max(0, windows.get("size", 0) - shrink_bytes) // GIB)}
 
     @Property("QVariantMap", notify=changed)
     def diskInfo(self):

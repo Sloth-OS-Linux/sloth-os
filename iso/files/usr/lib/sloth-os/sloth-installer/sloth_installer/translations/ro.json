@@ -1,14 +1,11 @@
 {
   "_language": "Română",
-
   "app.title": "Instalare Sloth OS",
-
   "welcome.heading": "Bun venit în Sloth OS!",
   "welcome.text": "Poți încerca sistemul fără să-l instalezi sau îl poți instala pe calculator. Instalarea durează câteva minute și are doar câteva întrebări.",
   "welcome.language": "Limbă",
   "welcome.try": "Încearcă",
   "welcome.install": "Instalează",
-
   "region.heading": "Tastatură și fus orar",
   "region.keyboard": "Tastatură:",
   "region.try_keyboard": "Test:",
@@ -27,7 +24,6 @@
   "account.error.username": "Numele de utilizator poate conține doar litere mici englezești, cifre, cratime și liniuțe de subliniere și trebuie să înceapă cu o literă (de ex. „ana”).",
   "account.error.password": "Introdu o parolă.",
   "account.error.mismatch": "Cele două parole nu se potrivesc.",
-
   "disk.heading": "Unde îl instalăm?",
   "disk.text": "Alege discul pe care se instalează Sloth OS.",
   "disk.none": "Nu am găsit niciun disc pentru instalare.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Cele două parole nu se potrivesc.",
   "disk.encrypt.short": "Parola trebuie să aibă cel puțin 8 caractere.",
   "disk.encrypt.short_same": "Parola contului tău are mai puțin de 8 caractere: introdu o parolă diferită și mai lungă pentru criptare.",
-
   "confirm.heading": "Tot ce e pe acest disc va fi șters",
   "confirm.text": "Sloth OS folosește tot discul: {disk}. Tot ce e acum pe el (fișiere, programe, alte sisteme) va fi șters definitiv.",
   "confirm.windows": "Pe acest disc e Windows. După instalare, Windows și toate fișierele lui vor dispărea. Dacă vrei să le păstrezi, fă mai întâi o copie a fișierelor.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "La pornire poți alege câteva secunde între Sloth OS și Windows.",
   "confirm.beside.checkbox": "Am înțeles și am făcut o copie a fișierelor importante",
   "confirm.encrypt": "Discul va fi criptat: la pornire se deschide cu parola ta.",
-
   "nav.back": "Înapoi",
   "nav.next": "Înainte",
-
   "stage.start": "Se pregătește…",
   "stage.partition": "Se pregătește discul…",
   "stage.shrink": "Se redimensionează unitatea Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Se configurează pornirea…",
   "stage.finishing": "Se finalizează…",
   "stage.configure": "Se salvează limba și setările…",
-
   "install.note": "În funcție de calculator, durează 5–20 de minute. Nu-l opri.",
-
   "done.heading": "Instalare finalizată!",
   "done.text": "Repornește calculatorul. Când ecranul se întunecă, scoate stickul USB. Apoi autentifică-te cu contul tocmai creat, iar Bun venit în Sloth te ajută cu restul.",
   "done.reboot": "Repornește",
   "done.beside": "La pornire poți alege între Sloth OS și Windows.",
-
   "error.heading": "Instalarea a eșuat",
   "error.log_hint_save": "Dacă ceri ajutor, salvează jurnalul (de exemplu pe un stick USB) și trimite-l.",
   "error.save_log": "Salvează jurnalul…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Sistemul a fost instalat, dar limba și tastatura nu au putut fi setate. Încearcă din nou; dacă tot nu merge, le poți seta după prima pornire din Configurările sistemului.",
   "error.beside_shrink_failed": "Unitatea Windows nu a putut fi micșorată. Pornește Windows, verifică discul (Acest PC → C: → Proprietăți → Instrumente → Verificare), apoi încearcă din nou.",
   "error.encrypt_failed": "Criptarea nu a putut fi configurată. Încearcă din nou; dacă tot nu merge, instalează fără criptare.",
-
   "desktop.comment": "Instalarea Sloth OS pe acest calculator",
-  "desktop.keywords": "instalare;program de instalare"
+  "desktop.keywords": "instalare;program de instalare",
+  "confirm.summary.formatted": "Formatarea noilor partiții EFI și ale sistemului ca FAT32 și Btrfs.",
+  "confirm.summary.encrypted": "Formatarea partiției EFI ca FAT32 și criptarea sistemului Sloth OS cu LUKS2 și Btrfs; crearea unei partiții separate de pornire.",
+  "confirm.beside.first_boot": "Prima dată când porniți Windows după instalare, poate apărea Scanning and repair drive. Păstrați computerul conectat și lăsați-l să termine.",
+  "confirm.summary.heading": "Schimbări de disc planificat",
+  "confirm.summary.target": "Discul țintă: {disk} ({size})",
+  "confirm.summary.shrink": "Reducerea dimensiunii partiției Windows cu {size} GiB, apoi utilizarea spațiului liber pentru Sloth OS.",
+  "confirm.summary.erase": "Ştergeţi acest disc, inclusiv partiţiile şi fişierele actuale.",
+  "confirm.summary.create_all": "Creaţi un nou layout GPT cu o partiţie de pornire BIOS, o partiţiune EFI, opartiţie de sistem Sloth OS şi spaţiu temporar de instalaţie.",
+  "confirm.summary.keep_windows": "Păstrați Windows și fișierele sale. Creați partiții de sistem și partiții Sloth OS EFI în spațiul disponibil.",
+  "confirm.summary.temporary": "Spațiul temporar de instalare este formatat ca ext4, montat în timpul setării și eliminat la terminarea setării.",
+  "confirm.summary.free": "Utilizaţi spaţiul liber de pe acest disc; partiţiile existente nu vor fi redimensionate."
 }

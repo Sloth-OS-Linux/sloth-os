@@ -1,14 +1,11 @@
 {
   "_language": "Suomi",
-
   "app.title": "Asenna Sloth OS",
-
   "welcome.heading": "Tervetuloa Sloth OS:ään!",
   "welcome.text": "Voit kokeilla järjestelmää asentamatta tai asentaa sen tietokoneellesi. Asennus kestää muutaman minuutin, ja kysymyksiä on vain muutama.",
   "welcome.language": "Kieli",
   "welcome.try": "Kokeile",
   "welcome.install": "Asenna",
-
   "region.heading": "Näppäimistö ja aikavyöhyke",
   "region.keyboard": "Näppäimistö:",
   "region.try_keyboard": "Kokeilu:",
@@ -27,7 +24,6 @@
   "account.error.username": "Käyttäjänimessä saa olla vain englannin pieniä kirjaimia, numeroita, väliviivoja ja alaviivoja, ja sen on alettava kirjaimella (esim. ”anna”).",
   "account.error.password": "Anna salasana.",
   "account.error.mismatch": "Salasanat eivät täsmää.",
-
   "disk.heading": "Mihin asennetaan?",
   "disk.text": "Valitse levy, jolle Sloth OS asennetaan.",
   "disk.none": "Asennukseen sopivaa levyä ei löytynyt.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Salasanat eivät täsmää.",
   "disk.encrypt.short": "Salasanassa on oltava vähintään 8 merkkiä.",
   "disk.encrypt.short_same": "Tilisi salasana on alle 8 merkkiä: anna salausta varten pidempi, erillinen salasana.",
-
   "confirm.heading": "Kaikki tällä levyllä poistetaan",
   "confirm.text": "Sloth OS käyttää koko levyn: {disk}. Kaikki sillä nyt oleva (tiedostot, ohjelmat, muut järjestelmät) poistetaan pysyvästi.",
   "confirm.windows": "Tällä levyllä on Windows. Asennuksen jälkeen Windows ja kaikki sen tiedostot ovat poissa. Jos haluat säilyttää ne, varmuuskopioi tiedostosi ensin.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Kun käynnistät tietokoneen, voit muutaman sekunnin ajan valita Sloth OS:n ja Windowsin välillä.",
   "confirm.beside.checkbox": "Ymmärrän, ja olen varmuuskopioinut tärkeät tiedostoni",
   "confirm.encrypt": "Levy salataan: se avautuu salasanallasi, kun tietokone käynnistyy.",
-
   "nav.back": "Takaisin",
   "nav.next": "Seuraava",
-
   "stage.start": "Valmistellaan…",
   "stage.partition": "Valmistellaan levyä…",
   "stage.shrink": "Muutetaan Windows-aseman kokoa…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Määritetään käynnistystä…",
   "stage.finishing": "Viimeistellään…",
   "stage.configure": "Tallennetaan kieli ja asetukset…",
-
   "install.note": "Tietokoneesta riippuen tämä kestää 5–20 minuuttia. Älä sammuta sitä.",
-
   "done.heading": "Asennus valmis!",
   "done.text": "Käynnistä tietokone uudelleen. Kun näyttö pimenee, irrota USB-tikku. Kirjaudu sitten juuri luomallasi tilillä, niin Sloth Tervetuloa auttaa loppujen kanssa.",
   "done.reboot": "Käynnistä uudelleen",
   "done.beside": "Kun käynnistät tietokoneen, voit valita Sloth OS:n ja Windowsin välillä.",
-
   "error.heading": "Asennus epäonnistui",
   "error.log_hint_save": "Jos pyydät apua, tallenna loki (esimerkiksi USB-tikulle) ja lähetä se.",
   "error.save_log": "Tallenna loki…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Järjestelmä asennettiin, mutta kieltä ja näppäimistöä ei voitu asettaa. Yritä uudelleen; jos se epäonnistuu taas, voit asettaa ne Järjestelmäasetuksissa ensimmäisen käynnistyksen jälkeen.",
   "error.beside_shrink_failed": "Windows-asemaa ei voitu pienentää. Käynnistä Windows, tarkista levy (Tämä tietokone → C: → Ominaisuudet → Työkalut → Tarkista) ja yritä uudelleen.",
   "error.encrypt_failed": "Salauksen määrittäminen epäonnistui. Yritä uudelleen; jos se epäonnistuu taas, asenna ilman salausta.",
-
   "desktop.comment": "Asenna Sloth OS tähän tietokoneeseen",
-  "desktop.keywords": "asennus;asennusohjelma"
+  "desktop.keywords": "asennus;asennusohjelma",
+  "confirm.summary.shrink": "Kutista Windows-osio {size} gigatavulla ja käytä sitten vapautunut tila Sloth OS: lle.",
+  "confirm.summary.free": "Käytä vapaata tilaa tällä levyllä; olemassa olevien osioiden kokoa ei muuteta.",
+  "confirm.summary.keep_windows": "Säilytä Windows ja sen tiedostot. Luo Sloth OS EFI ja järjestelmäosioita käytettävissä olevaan tilaan.",
+  "confirm.summary.formatted": "Alusta uudet EFI- ja järjestelmäosiot FAT32- ja Btrfs-muodossa.",
+  "confirm.beside.first_boot": "Kun käynnistät Windowsin ensimmäisen kerran asennuksen jälkeen, siinä voi näkyä \"Aseman skannaus ja korjaus\". Pidä tietokone kytkettynä ja anna sen valmistua.",
+  "confirm.summary.heading": "Suunnitellut levymuutokset",
+  "confirm.summary.target": "Kohdelevy: {disk} ({size})",
+  "confirm.summary.erase": "Poista tämä levy, mukaan lukien sen nykyiset osiot ja tiedostot.",
+  "confirm.summary.create_all": "Luo uusi GPT-asettelu BIOS-käynnistysosion, EFI-osion, Sloth OS -järjestelmäosion ja väliaikaisen asennustilan avulla.",
+  "confirm.summary.encrypted": "Muokkaa EFI-osion FAT32:ksi ja salaa Sloth OS -järjestelmä LUKS2:lla ja Btrfs:llä; luo erillinen käynnistysosio.",
+  "confirm.summary.temporary": "Väliaikainen asennustila muokataan ext4:ksi, asennuksen aikana ja poistetaan asennuslopussa."
 }

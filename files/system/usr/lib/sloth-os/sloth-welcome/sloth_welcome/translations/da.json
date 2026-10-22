@@ -39,7 +39,7 @@
   "sharing.what": "Kun dette sendes: indstillingen (for eksempel \"ældre grafiktilstand\"), producenten af dit grafikkort og et fingeraftryk af programmet, som navnet ikke kan genskabes ud fra. Intet andet forlader din computer: hverken dit navn, dine filer, programmets navn eller hvornår og hvor meget du bruger det.",
   "sharing.yes": "Ja, del anonymt",
   "sharing.no": "Nej tak",
-  "sharing.later": "Du kan når som helst ændre det senere i Sloth Center (Windows-programmer). Du får de indstillinger, der har virket på andre computere, under alle omstændigheder.",
+  "sharing.later": "Du kan når som helst ændre det senere i Sloth Center. Du får de indstillinger, der har virket på andre computere, under alle omstændigheder.",
 
   "windows.heading": "Flyt dine filer over fra Windows?",
   "windows.text": "Computeren har også Windows. Vi kan kopiere dine filer hertil; Windows røres ikke, vi læser kun fra det.",

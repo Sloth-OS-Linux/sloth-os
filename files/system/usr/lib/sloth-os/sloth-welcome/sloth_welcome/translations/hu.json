@@ -39,7 +39,7 @@
   "sharing.what": "Csak ennyi megy el: a beállítás (például „régebbi grafikus mód”), a videókártyád gyártója, és a program egy ujjlenyomata, amiből a neve nem fejthető vissza. Semmi más nem hagyja el a gépet: se a neved, se a fájljaid, se a program neve, se az, hogy mikor és mennyit használod.",
   "sharing.yes": "Igen, megosztom névtelenül",
   "sharing.no": "Nem, köszönöm",
-  "sharing.later": "Később a Sloth Központban (Windows-programok) bármikor átállíthatod. A más gépeken bevált beállításokat így is, úgy is megkapod.",
+  "sharing.later": "Később a Sloth Központban bármikor átállíthatod. A más gépeken bevált beállításokat így is, úgy is megkapod.",
 
   "windows.heading": "Áthozzuk a fájljaidat a Windowsból?",
   "windows.text": "A gépen van egy Windows is. A fájljaidat átmásolhatjuk ide; a Windowshoz nem nyúlunk, csak olvasunk róla.",

@@ -247,6 +247,28 @@ class LibraryTest(unittest.TestCase):
         self.assertEqual(menu.entries(moved), [])
 
 
+class WindowsProcessTest(unittest.TestCase):
+    def test_windows_exe_after_wrapper_args(self):
+        proc = TMP / "proc-cmdline"
+        proc.mkdir(exist_ok=True)
+        (proc / "cmdline").write_bytes(b"/path/proton\0run\0C:\\Program Files\\Notepad++\\notepad++.exe\0")
+        self.assertEqual(library._windows_exe(proc), "notepad++.exe")
+
+    def test_windows_exe_from_process_name(self):
+        proc = TMP / "proc-comm"
+        proc.mkdir(exist_ok=True)
+        (proc / "cmdline").write_bytes(b"/path/wine64\0")
+        (proc / "comm").write_text("7zFM.exe\n", encoding="utf-8")
+        self.assertEqual(library._windows_exe(proc), "7zfm.exe")
+
+    def test_wine_infrastructure_is_not_an_app(self):
+        proc = TMP / "proc-infra"
+        proc.mkdir(exist_ok=True)
+        (proc / "cmdline").write_bytes(b"/path/wine64\0services.exe\0")
+        (proc / "comm").write_text("wine64\n", encoding="utf-8")
+        self.assertIsNone(library._windows_exe(proc))
+
+
 class MigrationTest(unittest.TestCase):
     def test_migrate_legacy(self):
         legacy = library.LEGACY_ROOT / "battle-net"
@@ -466,6 +488,9 @@ class PackagesTest(unittest.TestCase):
         self.assertEqual([k for k, _ in steps], ["box.create", "box.first_start", "box.install"])
         self.assertIn("docker.io/library/ubuntu:24.04", steps[0][1])
         self.assertIn(str(deb), steps[-1][1][-1])
+        self.assertIn('grep -q "^Exec=.*sloth-exe" "$f"', steps[-1][1][-1])
+        self.assertIn('grep -q "^Exec=.*distrobox-enter" "$exported"', steps[-1][1][-1])
+        self.assertIn('Exported launcher is missing or unusable', steps[-1][1][-1])
         self.assertEqual([k for k, _ in packages.box_steps("rpm", deb, box_exists=True)], ["box.install"])
         self.assertTrue(packages.box_path("/tmp/x.deb").startswith("/run/host/"))
         name, apps = packages.parse_box_output(["noise", "SLOTH-NAME:tool", "SLOTH-APP:org.tool.App|Tool"])
@@ -473,7 +498,14 @@ class PackagesTest(unittest.TestCase):
         app = packages.record_box_install("deb", deb, name, apps)
         self.assertEqual((app.kind, app.name), ("box", "Tool"))
         self.assertEqual(app.dir.parent, library.RECORDS)  # no empty folder in the visible library
-        self.assertTrue(packages.box_desktop_files(app)[0].name.startswith("sloth-ubuntu-"))
+        desktop = packages.box_desktop_files(app)[0]
+        self.assertTrue(desktop.name.startswith("sloth-ubuntu-"))
+        desktop.parent.mkdir(parents=True, exist_ok=True)
+        desktop.write_text("[Desktop Entry]\nExec=/usr/bin/distrobox-enter -n sloth-ubuntu -- tool\n", encoding="utf-8")
+        self.assertEqual(packages.box_launch_command(app), ["kioclient", "exec", str(desktop)])
+        desktop.write_text("[Desktop Entry]\nExec=/usr/bin/distrobox-enter -n sloth-ubuntu -- sloth-exe --launch tool\n",
+                           encoding="utf-8")
+        self.assertIsNone(packages.box_launch_command(app))
         library.remove(app)
 
     def test_install_appimage(self):

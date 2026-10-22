@@ -350,7 +350,7 @@ def box_path(path):
 
 def box_steps(kind, path, box_exists):
     """The steps of installing into a box: [(status key, command)]. The last step prints:
-       SLOTH-NAME:<package name> and, line by line, SLOTH-APP:<desktop ID>|<name> (the apps that went into the Start menu)."""
+       SLOTH-NAME:<package name> and, line by line, SLOTH-APP:<desktop ID>|<name> (usable exported launchers only)."""
     box, image, install, pkg_name, _remove = BOXES[kind]
     steps = []
     if not box_exists:
@@ -364,8 +364,14 @@ def box_steps(kind, path, box_exists):
         'for f in /usr/share/applications/*.desktop; do '
         '  b=$(basename "$f"); echo "$before" | grep -qxF "$b" && continue; '
         '  grep -q "^NoDisplay=true" "$f" && continue; '
+        '  grep -q "^Exec=.[^[:space:]]*" "$f" || continue; '
+        '  grep -q "^Exec=.*sloth-exe" "$f" && { echo "No usable launcher in $f" >&2; exit 1; }; '
         '  n=$(grep -m1 "^Name=" "$f" | cut -d= -f2-); id="${b%.desktop}"; '
-        '  distrobox-export --app "$id" >/dev/null 2>&1 && echo "SLOTH-APP:$id|$n"; '
+        '  distrobox-export --app "$id" >/dev/null 2>&1 || { echo "Could not export $f" >&2; exit 1; }; '
+        '  exported="${XDG_DATA_HOME:-$HOME/.local/share}/applications/' + box + '-$b"; '
+        '  grep -q "^Exec=.*distrobox-enter" "$exported" && ! grep -q "^Exec=.*sloth-exe" "$exported" || '
+        '    { echo "Exported launcher is missing or unusable: $exported" >&2; exit 1; }; '
+        '  echo "SLOTH-APP:$id|$n"; '
         'done')
     steps.append(("box.install", ["distrobox", "enter", box, "--", "sh", "-c", script]))
     return steps
@@ -425,4 +431,13 @@ def box_desktop_files(app):
 def box_launch_command(app):
     """Starts the (first) app installed into the box with its Start menu entry."""
     desktop = next((d for d in box_desktop_files(app) if d.is_file()), None)
-    return ["kioclient", "exec", str(desktop)] if desktop else None
+    if desktop is None:
+        return None
+    try:
+        exec_line = next(line for line in desktop.read_text(encoding="utf-8").splitlines()
+                         if line.startswith("Exec="))
+    except (OSError, StopIteration, UnicodeError):
+        return None
+    if "distrobox-enter" not in exec_line or "sloth-exe" in exec_line:
+        return None
+    return ["kioclient", "exec", str(desktop)]

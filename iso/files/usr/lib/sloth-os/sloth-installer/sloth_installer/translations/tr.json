@@ -1,14 +1,11 @@
 {
   "_language": "Türkçe",
-
   "app.title": "Sloth OS'u kur",
-
   "welcome.heading": "Sloth OS'a hoş geldiniz!",
   "welcome.text": "Sistemi kurmadan deneyebilir ya da bilgisayarınıza kurabilirsiniz. Kurulum birkaç dakika sürer ve yalnızca birkaç soru sorar.",
   "welcome.language": "Dil",
   "welcome.try": "Dene",
   "welcome.install": "Kur",
-
   "region.heading": "Klavye ve saat dilimi",
   "region.keyboard": "Klavye:",
   "region.try_keyboard": "Deneme:",
@@ -27,7 +24,6 @@
   "account.error.username": "Kullanıcı adı yalnızca küçük İngilizce harf, rakam, tire ve alt çizgi içerebilir ve harfle başlamalıdır (ör. “ayse”).",
   "account.error.password": "Bir parola girin.",
   "account.error.mismatch": "İki parola eşleşmiyor.",
-
   "disk.heading": "Nereye kuralım?",
   "disk.text": "Sloth OS'un kurulacağı diski seçin.",
   "disk.none": "Kurulum yapılacak bir disk bulunamadı.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "İki parola eşleşmiyor.",
   "disk.encrypt.short": "Parola en az 8 karakter olmalı.",
   "disk.encrypt.short_same": "Hesap parolan 8 karakterden kısa: şifreleme için daha uzun, ayrı bir parola gir.",
-
   "confirm.heading": "Bu diskteki her şey silinecek",
   "confirm.text": "Sloth OS diskin tamamını kullanır: {disk}. Üzerindeki her şey (dosyalar, programlar, diğer sistemler) kalıcı olarak silinecek.",
   "confirm.windows": "Bu diskte Windows var. Kurulumdan sonra Windows ve tüm dosyaları gidecek. Saklamak istiyorsanız önce dosyalarınızı yedekleyin.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "Bilgisayar açılırken birkaç saniye boyunca Sloth OS ile Windows arasında seçim yapabilirsin.",
   "confirm.beside.checkbox": "Anladım ve önemli dosyalarımı yedekledim",
   "confirm.encrypt": "Disk şifrelenecek: bilgisayar açılırken parolanla açılır.",
-
   "nav.back": "Geri",
   "nav.next": "İleri",
-
   "stage.start": "Hazırlanıyor…",
   "stage.partition": "Disk hazırlanıyor…",
   "stage.shrink": "Windows sürücüsünün boyutu değiştiriliyor…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "Başlatma ayarlanıyor…",
   "stage.finishing": "Bitiriliyor…",
   "stage.configure": "Dil ve ayarlar kaydediliyor…",
-
   "install.note": "Bilgisayarınıza bağlı olarak 5–20 dakika sürer. Kapatmayın.",
-
   "done.heading": "Kurulum tamamlandı!",
   "done.text": "Bilgisayarı yeniden başlatın. Ekran kararınca USB belleği çıkarın. Ardından az önce oluşturduğunuz hesapla giriş yapın; Sloth Hoş Geldiniz gerisinde yardımcı olur.",
   "done.reboot": "Yeniden başlat",
   "done.beside": "Bilgisayar açılırken Sloth OS ile Windows arasında seçim yapabilirsin.",
-
   "error.heading": "Kurulum başarısız oldu",
   "error.log_hint_save": "Yardım isteyeceksen, günlüğü kaydet (örneğin bir USB belleğe) ve gönder.",
   "error.save_log": "Günlüğü kaydet…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "Sistem kuruldu, ancak dil ve klavye ayarlanamadı. Yeniden deneyin; yine olmazsa ilk açılıştan sonra Sistem Ayarları'ndan ayarlayabilirsiniz.",
   "error.beside_shrink_failed": "Windows sürücüsü küçültülemedi. Windows'u başlat, diski denetle (Bu bilgisayar → C: → Özellikler → Araçlar → Denetle) ve tekrar dene.",
   "error.encrypt_failed": "Şifreleme ayarlanamadı. Tekrar dene; yine olmazsa şifrelemeden kur.",
-
   "desktop.comment": "Sloth OS'u bu bilgisayara yükleme",
-  "desktop.keywords": "yükle;yükleyici"
+  "desktop.keywords": "yükle;yükleyici",
+  "confirm.summary.formatted": "Yeni EFI ve sistem bölümlerini FAT32 ve Btrfs olarak biçimlendirin.",
+  "confirm.summary.encrypted": "EFI bölümünü FAT32 olarak biçimlendirin ve Sloth OS sistemini LUKS2 ve Btrfs ile şifreleyin; ayrı bir önyükleme bölümü oluşturun.",
+  "confirm.beside.first_boot": "Kurulumdan sonra Windows'u ilk başlattığınızda Scanning and repair drive görünebilir. Bilgisayarı takın ve bitmesine izin verin.",
+  "confirm.summary.heading": "Planlı disk değişikliği",
+  "confirm.summary.target": "Hedef disk: {disk} ({size})",
+  "confirm.summary.shrink": "Windows bölümünü {size} GiB'ye küçültün, ardından Sloth OS için boş alanı kullanın.",
+  "confirm.summary.free": "Bu diskteki boş alan kullanın; mevcut bölümler boyutlandırılmayacak.",
+  "confirm.summary.erase": "Bu diski, mevcut bölümlerini ve dosyalarını da dahil olmak üzere sil.",
+  "confirm.summary.create_all": "BIOS başlatma bölümünü, EFI bölümünü ve geçici kurulum alanını içeren yeni bir GPT düzenini oluştur.",
+  "confirm.summary.keep_windows": "Windows ve dosyalarını sakla. Kullanılabilir alanda Sloth OS EFI ve sistem bölümleri oluştur.",
+  "confirm.summary.temporary": "Geçici yükleme alanı ext4 olarak biçimlendirilir, kurulum sırasında monte edilir ve kurulum bitince çıkarılır."
 }

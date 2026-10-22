@@ -1,14 +1,11 @@
 {
   "_language": "עברית",
-
   "app.title": "התקנת Sloth OS",
-
   "welcome.heading": "ברוכים הבאים ל־Sloth OS!",
   "welcome.text": "אפשר לנסות את המערכת בלי להתקין, או להתקין אותה במחשב. ההתקנה לוקחת כמה דקות ושואלת רק כמה שאלות.",
   "welcome.language": "שפה",
   "welcome.try": "לנסות",
   "welcome.install": "התקנה",
-
   "region.heading": "מקלדת ואזור זמן",
   "region.keyboard": "מקלדת:",
   "region.try_keyboard": "בדיקה:",
@@ -27,7 +24,6 @@
   "account.error.username": "שם המשתמש יכול להכיל רק אותיות אנגליות קטנות, ספרות, מקפים וקווים תחתונים, וחייב להתחיל באות (לדוגמה „anat”).",
   "account.error.password": "כתבו סיסמה.",
   "account.error.mismatch": "הסיסמאות אינן תואמות.",
-
   "disk.heading": "לאן להתקין?",
   "disk.text": "בחרו את הדיסק שעליו תותקן Sloth OS.",
   "disk.none": "לא נמצא דיסק להתקנה.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "הסיסמאות אינן תואמות.",
   "disk.encrypt.short": "הסיסמה צריכה להכיל לפחות 8 תווים.",
   "disk.encrypt.short_same": "סיסמת החשבון קצרה מ-8 תווים: יש להקליד סיסמה נפרדת וארוכה יותר להצפנה.",
-
   "confirm.heading": "כל מה שעל הדיסק הזה יימחק",
   "confirm.text": "Sloth OS משתמשת בכל הדיסק: {disk}. כל מה שעליו עכשיו (קבצים, תוכנות, מערכות אחרות) יימחק לצמיתות.",
   "confirm.windows": "על הדיסק הזה מותקנת Windows. אחרי ההתקנה Windows וכל הקבצים שלה ייעלמו. אם רוצים לשמור אותם, גבו קודם את הקבצים.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "בהפעלת המחשב אפשר לבחור במשך כמה שניות בין Sloth OS ל-Windows.",
   "confirm.beside.checkbox": "הבנתי, וגיביתי את הקבצים החשובים שלי",
   "confirm.encrypt": "הדיסק יוצפן: הוא נפתח עם הסיסמה שלך בהפעלת המחשב.",
-
   "nav.back": "הקודם",
   "nav.next": "הבא",
-
   "stage.start": "מתכוננים…",
   "stage.partition": "מכינים את הדיסק…",
   "stage.shrink": "משנים את גודל כונן ה-Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "מגדירים את האתחול…",
   "stage.finishing": "מסיימים…",
   "stage.configure": "שומרים שפה והגדרות…",
-
   "install.note": "בהתאם למחשב, זה לוקח 5–20 דקות. אל תכבו אותו.",
-
   "done.heading": "ההתקנה הושלמה!",
   "done.text": "הפעילו מחדש את המחשב. כשהמסך מחשיך, הוציאו את הדיסק און קי. אחר כך היכנסו עם החשבון שיצרתם עכשיו, וברוכים הבאים ל-Sloth יעזור בשאר.",
   "done.reboot": "הפעלה מחדש",
   "done.beside": "בהפעלת המחשב אפשר לבחור בין Sloth OS ל-Windows.",
-
   "error.heading": "ההתקנה נכשלה",
   "error.log_hint_save": "אם תבקשו עזרה, שמרו את היומן (למשל על דיסק און קי) ושלחו אותו.",
   "error.save_log": "שמירת היומן…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "המערכת הותקנה, אבל לא הצלחנו להגדיר שפה ומקלדת. נסו שוב; אם זה שוב נכשל, אפשר להגדיר אותן בהגדרות המערכת אחרי ההפעלה הראשונה.",
   "error.beside_shrink_failed": "לא הצלחנו להקטין את כונן ה-Windows. יש להפעיל את Windows, לבדוק את הדיסק (מחשב זה ← C: ← מאפיינים ← כלים ← בדוק) ולנסות שוב.",
   "error.encrypt_failed": "הגדרת ההצפנה נכשלה. אפשר לנסות שוב; אם זה נכשל שוב, כדאי להתקין בלי הצפנה.",
-
   "desktop.comment": "התקנת Sloth OS על המחשב הזה",
-  "desktop.keywords": "התקנה;מתקין"
+  "desktop.keywords": "התקנה;מתקין",
+  "confirm.summary.formatted": "פורמט את חלקי ה-EFI החדשים ואת חלקי המערכת כ- FAT32 ו- Btrfs.",
+  "confirm.summary.encrypted": "פורמט את חלקית ה- EFI כ- Fat32 ונקריפט את מערכת מערכת ההפעלה של Sloth עם LUKS2 ו-Btrfs; ליצור חלקי תחילת בנפרד. QQ002Q שטח התקנה זמני פורמט כ- ext4, מותקן במהלך ההתקנה, ונלקח כאשר ההקנה מסתיים.",
+  "confirm.beside.first_boot": "בפעם הראשונה שתתחיל את Windows לאחר ההתקנה, ייתכן שתראה סריקה ותיקון כונן. שמרו על המחשב מחובר ותנו לו לסיים.",
+  "confirm.summary.heading": "שינויים בדיסק מתוכננים",
+  "confirm.summary.erase": "למחוק את הדיסק הזה, כולל חלקיו והקבצים הנוכחיים שלו.",
+  "confirm.summary.temporary": "שטח התקנה זמני פורמט כ ext4, מותקן במהלך ההגדרה, ונלקח כאשר ההגנה מסתיים.",
+  "confirm.summary.free": "השתמש במרחב פנוי על הדיסק הזה; חלקיקים קיימים לא יוחלבו.",
+  "confirm.summary.keep_windows": "שמור את Windows וקבצים שלה. ליצור חלקיקי מערכת ו-EFI של מערכת Sloth OS במרחب הזמין.",
+  "confirm.summary.create_all": "ליצור מקיפה חדשה של GPT עם חלקה של BIOS, חלקה EFI, חלוקה של מערכת של מערכת ההפעלה של Sloth, ומרחב התקנה זמני.",
+  "confirm.summary.shrink": "לצמצם את חלקה Windows ב {size} GiB, ולאחר מכן להשתמש במרחב החופשי עבור מערכת ההפקדה של Slott.",
+  "confirm.summary.target": "דיסק היעד: {disk} ({size})"
 }

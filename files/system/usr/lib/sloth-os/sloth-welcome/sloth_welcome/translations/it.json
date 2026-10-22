@@ -39,7 +39,7 @@
   "sharing.what": "Viene inviato solo questo: l'impostazione (per esempio «modalità grafica più vecchia»), il produttore della tua scheda grafica e un'impronta del programma da cui non si può risalire al suo nome. Nient'altro lascia il tuo computer: né il tuo nome, né i tuoi file, né il nome del programma, né quando o quanto lo usi.",
   "sharing.yes": "Sì, condividi in modo anonimo",
   "sharing.no": "No, grazie",
-  "sharing.later": "Puoi cambiarlo in qualsiasi momento più avanti nel Centro Sloth (Programmi Windows). Le impostazioni che hanno funzionato su altri computer le ricevi comunque.",
+  "sharing.later": "Puoi cambiarlo in qualsiasi momento più avanti nel Centro Sloth. Le impostazioni che hanno funzionato su altri computer le ricevi comunque.",
 
   "windows.heading": "Portiamo qui i tuoi file da Windows?",
   "windows.text": "Su questo computer c'è anche Windows. Possiamo copiare qui i tuoi file; Windows non viene toccato, leggiamo soltanto.",

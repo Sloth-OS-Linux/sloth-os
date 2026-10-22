@@ -39,7 +39,7 @@
   "sharing.what": "Nur das wird gesendet: die Einstellung (zum Beispiel „älterer Grafikmodus“), der Hersteller deiner Grafikkarte und ein Fingerabdruck des Programms, aus dem sich sein Name nicht ermitteln lässt. Nichts anderes verlässt deinen Computer: nicht dein Name, nicht deine Dateien, nicht der Name des Programms und nicht, wann und wie viel du es nutzt.",
   "sharing.yes": "Ja, anonym teilen",
   "sharing.no": "Nein, danke",
-  "sharing.later": "Du kannst das später jederzeit im Sloth Center (Windows-Programme) ändern. Die Einstellungen, die auf anderen Computern funktioniert haben, bekommst du so oder so.",
+  "sharing.later": "Du kannst das später jederzeit im Sloth Center ändern. Die Einstellungen, die auf anderen Computern funktioniert haben, bekommst du so oder so.",
 
   "windows.heading": "Deine Dateien aus Windows mitnehmen?",
   "windows.text": "Auf diesem Computer ist auch Windows. Wir können deine Dateien herüberkopieren; Windows selbst bleibt unberührt, wir lesen nur davon.",

@@ -118,6 +118,13 @@ Kirigami.ScrollablePage {
                                   ? L.t("No saved states yet. The first one will be made within an hour.")
                                   : L.tf("{n} saved states", { n: backup.snapshots.length })
                         }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            visible: backup.snapshots.length > 0
+                            wrapMode: Text.Wrap
+                            opacity: 0.8
+                            text: L.tf("Last backup: {date}", { date: backup.snapshots.length ? backup.snapshots[0].dateText : "" })
+                        }
                     }
                     QQC2.BusyIndicator {
                         visible: backup.busy

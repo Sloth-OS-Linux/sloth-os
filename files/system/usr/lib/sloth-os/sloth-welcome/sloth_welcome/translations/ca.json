@@ -39,7 +39,7 @@
   "sharing.what": "Només s'envia això: la configuració (per exemple, «mode gràfic antic»), el fabricant de la targeta gràfica i una empremta del programa de la qual no se'n pot recuperar el nom. Res més surt del teu ordinador: ni el teu nom, ni els teus fitxers, ni el nom del programa, ni quan o quant l'utilitzes.",
   "sharing.yes": "Sí, comparteix de manera anònima",
   "sharing.no": "No, gràcies",
-  "sharing.later": "Ho pots canviar més endavant en qualsevol moment al Centre Sloth (Programes de Windows). Les configuracions que han funcionat en altres ordinadors les reps igualment.",
+  "sharing.later": "Ho pots canviar més endavant en qualsevol moment al Centre Sloth. Les configuracions que han funcionat en altres ordinadors les reps igualment.",
 
   "windows.heading": "Portem els fitxers de Windows?",
   "windows.text": "Aquest ordinador també té Windows. Podem copiar-hi els vostres fitxers; Windows no es modifica, només en llegim.",

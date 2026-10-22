@@ -27,6 +27,10 @@ words mixing Latin/Cyrillic/Greek letters and invisible characters).
 registry reading, launcher detection, migration from the old location, Steam import) with fake Windows
 environments. It needs Linux (symlinks, `cp --reflink`), but neither Qt nor Wine.
 
+`python3 tools/tests/test_install_helper.py` checks the Windows disk survey and EFI recovery behavior without
+accessing real disks. `tools/tests/install/run.sh` exercises the full installer on disposable loop disks in a
+privileged container; it needs the locally built live image in Podman's storage.
+
 `tools/tests/pin_pam_test.sh` tests PIN sign-in against real PAM (`pamtester`): run it as root in a throwaway
 Fedora container with the repository mounted at `/repo`, e.g.
 `podman run --rm -v .:/repo:ro registry.fedoraproject.org/fedora:44 bash /repo/tools/tests/pin_pam_test.sh`.

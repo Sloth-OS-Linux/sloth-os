@@ -55,6 +55,7 @@ class UpdatesController(QObject):
         self._current = ""
         self._pending = ""
         self._rollback = ""
+        self._signature_verified = False
         self._available = ""
         self._unavailable = ""
         self._pinned = False
@@ -102,6 +103,11 @@ class UpdatesController(QObject):
         return bool(self._available)
 
     @Property(bool, notify=changed)
+    def signatureVerified(self):
+        """Whether the running deployment uses rpm-ostree's signed-image transport."""
+        return self._signature_verified
+
+    @Property(bool, notify=changed)
     def pinned(self):
         return self._pinned
 
@@ -130,6 +136,8 @@ class UpdatesController(QObject):
             self.changed.emit()
             return
         booted = self._ostree.booted()
+        origin = str(booted.get("origin") or "")
+        self._signature_verified = origin.startswith("ostree-image-signed:")
         default = self._ostree.default()
         rollback = self._ostree.rollback_target()
         self._current = texts.version_text(booted)

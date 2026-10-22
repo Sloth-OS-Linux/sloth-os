@@ -25,6 +25,7 @@ def main():
         del sys.argv[i:i + 2]
     app = QApplication(sys.argv)
     app.setApplicationName("sloth-center")
+    app.setOrganizationName("Sloth OS")
     from .i18n import Translator, catalog, tr
     app.setApplicationDisplayName(tr("Sloth Center"))
     if catalog.is_rtl():
@@ -47,6 +48,7 @@ def main():
     from .environment import EnvironmentController
     from .gamepads import GamepadsController
     from .games import GamesController
+    from .guide import GuideController
     from .feedback import FeedbackController
     from .health import HealthController
     from .reset import ResetController
@@ -74,6 +76,7 @@ def main():
     cloud = CloudController()
     games = GamesController()
     devpanel = DevPanelController()
+    guide = GuideController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -91,6 +94,7 @@ def main():
     engine.rootContext().setContextProperty("cloud", cloud)
     engine.rootContext().setContextProperty("games", games)
     engine.rootContext().setContextProperty("devpanel", devpanel)
+    engine.rootContext().setContextProperty("guide", guide)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1

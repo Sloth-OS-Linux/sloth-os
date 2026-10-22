@@ -1,14 +1,11 @@
 {
   "_language": "Català",
-
   "app.title": "Instal·la Sloth OS",
-
   "welcome.heading": "Benvingut a Sloth OS!",
   "welcome.text": "Pots provar el sistema sense instal·lar-lo, o instal·lar-lo a l'ordinador. La instal·lació triga uns minuts i només fa unes quantes preguntes.",
   "welcome.language": "Llengua",
   "welcome.try": "Prova-ho",
   "welcome.install": "Instal·la",
-
   "region.heading": "Teclat i fus horari",
   "region.keyboard": "Teclat:",
   "region.try_keyboard": "Prova:",
@@ -27,7 +24,6 @@
   "account.error.username": "El nom d’usuari només pot tenir lletres angleses minúscules, xifres, guions i guions baixos, i ha de començar amb una lletra (p. ex. «anna»).",
   "account.error.password": "Escriviu una contrasenya.",
   "account.error.mismatch": "Les dues contrasenyes no coincideixen.",
-
   "disk.heading": "On l'instal·lem?",
   "disk.text": "Tria el disc on s'instal·larà Sloth OS.",
   "disk.none": "No hem trobat cap disc on instal·lar.",
@@ -63,7 +59,6 @@
   "disk.encrypt.mismatch": "Les dues contrasenyes no coincideixen.",
   "disk.encrypt.short": "La contrasenya ha de tenir almenys 8 caràcters.",
   "disk.encrypt.short_same": "La contrasenya del teu compte té menys de 8 caràcters: escriu una contrasenya diferent i més llarga per al xifratge.",
-
   "confirm.heading": "S'esborrarà tot el que hi ha en aquest disc",
   "confirm.text": "Sloth OS fa servir tot el disc: {disk}. Tot el que hi ha ara (fitxers, programes, altres sistemes) s'esborrarà per sempre.",
   "confirm.windows": "Aquest disc té Windows. Després d'instal·lar, Windows i tots els seus fitxers desapareixeran. Si els vols conservar, primer fes una còpia dels teus fitxers.",
@@ -77,10 +72,8 @@
   "confirm.beside.menu": "En engegar l'ordinador, podràs triar entre Sloth OS i Windows durant uns segons.",
   "confirm.beside.checkbox": "Ho entenc i he fet una còpia dels meus fitxers importants",
   "confirm.encrypt": "El disc es xifrarà: s'obre amb la teva contrasenya quan engegues l'ordinador.",
-
   "nav.back": "Enrere",
   "nav.next": "Següent",
-
   "stage.start": "S'està preparant…",
   "stage.partition": "S'està preparant el disc…",
   "stage.shrink": "S'està canviant la mida de la unitat de Windows…",
@@ -90,14 +83,11 @@
   "stage.bootloader": "S'està configurant l'arrencada…",
   "stage.finishing": "S'està acabant…",
   "stage.configure": "S'estan desant la llengua i la configuració…",
-
   "install.note": "Segons l'ordinador, triga entre 5 i 20 minuts. No l'apaguis.",
-
   "done.heading": "Instal·lació acabada!",
   "done.text": "Reinicieu l’ordinador. Quan la pantalla s’enfosqueixi, traieu el llapis USB. Després inicieu la sessió amb el compte que acabeu de crear; la Benvinguda de Sloth us ajudarà amb la resta.",
   "done.reboot": "Reinicia",
   "done.beside": "En engegar l'ordinador, podràs triar entre Sloth OS i Windows.",
-
   "error.heading": "La instal·lació ha fallat",
   "error.log_hint_save": "Si demanes ajuda, desa el registre (per exemple en un llapis USB) i envia'l.",
   "error.save_log": "Desa el registre…",
@@ -111,7 +101,17 @@
   "error.configure_failed": "El sistema s'ha instal·lat, però no s'han pogut configurar la llengua i el teclat. Torna-ho a provar; si torna a fallar, els pots configurar a la Configuració del sistema després del primer inici.",
   "error.beside_shrink_failed": "No s'ha pogut reduir la unitat de Windows. Inicia Windows, comprova el disc (Aquest ordinador → C: → Propietats → Eines → Comprova) i torna-ho a provar.",
   "error.encrypt_failed": "No s'ha pogut configurar el xifratge. Torna-ho a provar; si torna a fallar, instal·la sense xifratge.",
-
   "desktop.comment": "Instal·lar Sloth OS en aquest ordinador",
-  "desktop.keywords": "instal·lar;instal·lador"
+  "desktop.keywords": "instal·lar;instal·lador",
+  "confirm.summary.encrypted": "Formateja la partició EFI com a FAT32 i xifra el sistema operatiu Sloth amb LUKS2 i Btrfs; crea una partició d'arrencada separada.",
+  "confirm.summary.temporary": "L'espai d'instal·lació temporal es formata com ext4, es munta durant la configuració i s'elimina quan finalitza la configuració.",
+  "confirm.summary.shrink": "Redueix la partició de Windows en {size} GiB i, a continuació, utilitza l'espai alliberat per al sistema operatiu Sloth.",
+  "confirm.summary.free": "Utilitzeu espai lliure en aquest disc; les particions existents no es redimensionaran.",
+  "confirm.summary.keep_windows": "Conservar Windows i els seus fitxers. Creeu particions EFI i de sistema de Sloth OS a l'espai disponible.",
+  "confirm.summary.formatted": "Format nou EFI i particions del sistema com FAT32 i Btrfs.",
+  "confirm.beside.first_boot": "La primera vegada que inicieu Windows després de la instal·lació, pot aparèixer \"Escaneig i reparació de la unitat\". Mantingues l'ordinador connectat i deixa que acabi.",
+  "confirm.summary.heading": "Canvis de disc previstos",
+  "confirm.summary.target": "Disc de destinació: {disk} ({size})",
+  "confirm.summary.erase": "Esborreu aquest disc, incloses les particions i els fitxers actuals.",
+  "confirm.summary.create_all": "Creeu un nou disseny GPT amb una partició d'arrencada del BIOS, una partició EFI, una partició del sistema del SO Sloth i un espai d'instal·lació temporal."
 }
