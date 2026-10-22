@@ -13,7 +13,7 @@ on:
         options: [sloth-os, sloth-os-nvidia]
         default: sloth-os
       squash:
-        description: "Squash the layers (a smaller ISO; the installed machine's first update downloads the whole image)"
+        description: "Squash the layers (no longer supported: a squashed image cannot be installed)"
         type: boolean
         default: false
 
@@ -53,11 +53,9 @@ jobs:
           # It is not downloaded again: the unpacker reads from the storage downloaded while building the live system.
           src="$image"
           if [ "${{ inputs.squash }}" = "true" ]; then
-            mkdir -p /tmp/squash && printf 'FROM %s\n' "$image" > /tmp/squash/Containerfile
-            # without ostree.final-diffid: after squashing that layer is gone, and bootc would stop (tools/build-iso.sh)
-            sudo podman build --pull=never --squash-all --unsetlabel ostree.final-diffid --network none --security-opt label=disable \
-              -t localhost/sloth-os-payload:latest -f /tmp/squash/Containerfile /tmp/squash
-            src="localhost/sloth-os-payload:latest"
+            # a squashed image cannot be installed ("Too many links" in bootc; tools/build-iso.sh, SLOTH_SQUASH)
+            echo "::error::Squashing is no longer supported: a squashed image cannot be installed"
+            exit 1
           fi
           driver="$(sudo podman info --format '{{.Store.GraphDriverName}}')"
           sudo mkdir -p /tmp/payload

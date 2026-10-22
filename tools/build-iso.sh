@@ -10,9 +10,7 @@
 #
 # Environment variables:
 #   SLOTH_BUILD_DIR   work folder and Podman storage (default /var/tmp/sloth-iso-build; about 25–28 GB needed)
-#   SLOTH_SQUASH=1    squashes the layers of the image to install into one: replaced / deleted files (e.g. the
-#                     old kernel) drop out, the ISO is smaller (estimate: 0.5–1 GB). The price: the installed machine's first
-#                     update downloads the whole image (its layers do not match the registry's). For releases.
+#   SLOTH_SQUASH=1    no longer supported (a squashed image cannot be installed, see below); the build stops
 #   http(s)_proxy     for the downloads; the containers use it too (they run on the host's network)
 set -euo pipefail
 
@@ -69,14 +67,11 @@ pm build --pull=never --network host --security-opt label=disable \
 # unpacker reads straight from the storage already downloaded (mounted in, as a containers-storage source).
 payload_src="$IMAGE"
 if [[ "${SLOTH_SQUASH:-0}" == 1 ]]; then
-    echo "== Squashing the layers of the image to install"
-    mkdir -p "$WORK/squash"
-    printf 'FROM %s\n' "$IMAGE" > "$WORK/squash/Containerfile"
-    # ostree.final-diffid names the last layer of the base image: after squashing that layer is gone, and with the
-    # inherited label bootc stops ("Missing ostree.final-diffid"), so it has to go (this broke the 1.0.1 ISO)
-    pm build --pull=never --squash-all --unsetlabel ostree.final-diffid --network none --security-opt label=disable \
-        -t localhost/sloth-os-payload:latest -f "$WORK/squash/Containerfile" "$WORK/squash"
-    payload_src="localhost/sloth-os-payload:latest"
+    # A squashed image cannot be installed: it is one layer, and when bootc imports it, every file with the same
+    # SELinux label is hardlinked to one xattrs object, past the file system's link limit ("Too many links",
+    # 1.0.2 on a real HP). Before that it also needed a work partition bigger than the image (1.0.1, 1.0.2).
+    echo "SLOTH_SQUASH is no longer supported: a squashed image cannot be installed" >&2
+    exit 1
 fi
 echo "== Unpacking the image to install"
 rm -rf "$WORK/payload-oci" "$WORK/payload"

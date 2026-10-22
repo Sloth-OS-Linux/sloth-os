@@ -5,8 +5,7 @@
 #
 #   powershell -File tools/build-iso.ps1 [-Image ghcr.io/sloth-os-linux/sloth-os:latest] [-Output out] [-Machine podman-machine-default] [-Squash]
 #
-# -Squash: squashes the layers of the image to install (a smaller ISO; the installed machine's first update downloads
-# the whole image). For releases; details at the start of tools/build-iso.sh (SLOTH_SQUASH).
+# -Squash: no longer supported, the build stops (a squashed image cannot be installed; tools/build-iso.sh, SLOTH_SQUASH).
 #
 # A private registry needs the GitHub CLI's token with the "read:packages" scope
 # (once: gh auth refresh -h github.com -s read:packages).
