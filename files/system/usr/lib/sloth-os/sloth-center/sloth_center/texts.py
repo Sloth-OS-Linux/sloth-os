@@ -100,7 +100,7 @@ def datetime_text(when):
 
 
 def _pretty_name(deployment):
-    """From the system version's own name (os-release PRETTY_NAME), e.g. "Sloth OS 1.0 (Fedora Atomic 44)".
+    """From the system version's own name (os-release PRETTY_NAME), e.g. "Sloth OS 1.0.2 (Fedora Atomic 44)".
 
     The installed versions' files are readable (/ostree/deploy/...); an update not downloaded yet has none."""
     paths = [Path("/ostree/deploy", deployment.get("osname") or "",
@@ -118,7 +118,7 @@ def _pretty_name(deployment):
 
 
 def version_text(deployment):
-    """E.g. "Sloth OS 1.0 (Fedora Atomic 44) · October 13, 2026" from the installed version."""
+    """E.g. "Sloth OS 1.0.2 (Fedora Atomic 44) · October 13, 2026" from the installed version."""
     if not deployment:
         return ""
     # rpm-ostree's "version" label ("44.20261013") is only Fedora's version number, not Sloth OS's
