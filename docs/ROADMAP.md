@@ -20,6 +20,11 @@ Feedback**. I will review them as time allows.
   and protect the Windows, EFI, recovery, MSR, and BitLocker partitions. Never offer them for formatting or
   modify them automatically. Ask separately about other drives, and leave them untouched unless the user
   chooses an action. Test both install flows on multi-drive systems.
+- [ ] **Show an installation summary before making disk changes:** clearly list the target disk, partitions
+  that will be created, formatted, or resized, and any additional storage that will be mounted automatically.
+  Require the user to review and confirm the summary before applying the changes.
+- [ ] **Add a system status page to Sloth Center:** show the installed Sloth OS version, update status, and
+  available storage, with a direct link to Feedback.
 
 ### Sloth OS 1.0 released (2026-10-21)
 The repository is public (`Sloth-OS-Linux/sloth-os`), the daily build is back on, the installer ISO is on SourceForge
