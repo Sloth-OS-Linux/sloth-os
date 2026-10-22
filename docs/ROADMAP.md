@@ -25,6 +25,8 @@ Feedback**. I will review them as time allows.
   Require the user to review and confirm the summary before applying the changes.
 - [ ] **Add a system status page to Sloth Center:** show the installed Sloth OS version, update status, and
   available storage, with a direct link to Feedback.
+- [ ] **Show backup status in Sloth Center:** indicate whether a usable backup is available and when the last
+  backup was made, so users can check their recovery point before a reset or major update.
 
 ### Sloth OS 1.0 released (2026-10-21)
 The repository is public (`Sloth-OS-Linux/sloth-os`), the daily build is back on, the installer ISO is on SourceForge
