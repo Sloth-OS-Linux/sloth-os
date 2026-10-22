@@ -161,13 +161,17 @@ def verify_image():
     final = labels.get("ostree.final-diffid")
     if final and final not in layers:
         fail("error.image_broken", f"the layer named by ostree.final-diffid is missing: {final}")
-    # mounting it needs every layer; then the parts bootc needs must be there and readable
-    mnt = run(["podman", "image", "mount", name], error="error.image_broken").strip()
+    # the parts bootc needs must be there and readable. Looked up in the layers' folders, not through
+    # "podman image mount": in the live system that mount came back empty for the 280-layer image (1.0.2 on an HP)
+    data = (info.get("GraphDriver") or {}).get("Data") or {}
+    dirs = [Path(d) for d in [data.get("UpperDir")] + (data.get("LowerDir") or "").split(":") if d]
+    missing_layers = [str(d) for d in dirs if not d.is_dir()]
+    if not dirs or missing_layers:
+        fail("error.image_broken", f"layer folders missing: {missing_layers or 'none listed'}")
     try:
-        root = Path(mnt)
         missing = [p for p in ("usr/bin/bootc", "usr/bin/bootupctl", "usr/lib/os-release", "usr/lib/ostree")
-                   if not (root / p).exists()]
-        kernels = glob.glob(str(root / "usr/lib/modules/*/vmlinuz"))
+                   if not any((d / p).exists() for d in dirs)]
+        kernels = [k for d in dirs for k in glob.glob(str(d / "usr/lib/modules/*/vmlinuz"))]
         if not kernels:
             missing.append("usr/lib/modules/*/vmlinuz")
         if missing:
@@ -178,8 +182,6 @@ def verify_image():
                     pass
     except OSError as e:
         fail("error.image_broken", f"cannot read the image: {e}")
-    finally:
-        subprocess.run(["podman", "image", "unmount", name], capture_output=True)
     log("image check: OK")
 
 
