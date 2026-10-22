@@ -5,6 +5,22 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Sloth OS 1.0.2 (2026-10-22)
+The current 1.0.2 ISO is published on SourceForge and is working in current testing. Sorry to anyone who ran
+into trouble installing with the earlier 1.0.2 ISO: the installer issue has been fixed, and the current ISO
+is available for reinstalling. Please send bug reports, ideas, and feature requests through **Sloth Center →
+Feedback**. I will review them as time allows.
+
+- [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
+- [x] Publish the installer fix and reinstall notice on GitHub and the website.
+- [ ] **Ask about additional storage during installation:** list other disks and partitions, and ask what
+  the user wants to do with each. Leave them untouched and unmounted by default. Format a disk or partition
+  only after the user explicitly selects it and confirms a data-loss warning; if they choose to format and
+  use it, configure it to mount automatically after installation. In the “Next to Windows” flow, identify
+  and protect the Windows, EFI, recovery, MSR, and BitLocker partitions. Never offer them for formatting or
+  modify them automatically. Ask separately about other drives, and leave them untouched unless the user
+  chooses an action. Test both install flows on multi-drive systems.
+
 ### Sloth OS 1.0 released (2026-10-21)
 The repository is public (`Sloth-OS-Linux/sloth-os`), the daily build is back on, the installer ISO is on SourceForge
 (`1.0/sloth-os-1.0-x86_64.iso`, 6.2 GB, SHA-256 `ed01d760…a4ddbe`), and the website has a download page with system
