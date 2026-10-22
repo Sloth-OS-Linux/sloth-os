@@ -14,7 +14,7 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Release status:** Sloth OS 1.0.2 is coming soon. The download is paused while an installer issue is fixed; the download page will be updated when the new ISO is ready.
+**Release status:** Sloth OS 1.0.2 is available. Download the installer ISO from [SourceForge](https://sourceforge.net/projects/sloth-os/files/1.0.2/) and see the installation guide at [sloth-os-linux.github.io](https://sloth-os-linux.github.io/download.html).
 
 ## System requirements
 
