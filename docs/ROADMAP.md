@@ -13,20 +13,65 @@ Feedback**. I will review them as time allows.
 
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
-- [ ] **Ask about additional storage during installation:** list other disks and partitions, and ask what
-  the user wants to do with each. Leave them untouched and unmounted by default. Format a disk or partition
-  only after the user explicitly selects it and confirms a data-loss warning; if they choose to format and
-  use it, configure it to mount automatically after installation. In the “Next to Windows” flow, identify
-  and protect the Windows, EFI, recovery, MSR, and BitLocker partitions. Never offer them for formatting or
-  modify them automatically. Ask separately about other drives, and leave them untouched unless the user
-  chooses an action. Test both install flows on multi-drive systems.
-- [ ] **Show an installation summary before making disk changes:** clearly list the target disk, partitions
-  that will be created, formatted, or resized, and any additional storage that will be mounted automatically.
-  Require the user to review and confirm the summary before applying the changes.
-- [ ] **Add a system status page to Sloth Center:** show the installed Sloth OS version, update status, and
-  available storage, with a direct link to Feedback.
-- [ ] **Show backup status in Sloth Center:** indicate whether a usable backup is available and when the last
-  backup was made, so users can check their recovery point before a reset or major update.
+
+#### Installation and storage
+- [ ] Ask what to do with additional disks and partitions during installation. Leave them untouched and
+  unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
+  In the “Next to Windows” flow, protect Windows, EFI, recovery, MSR, and BitLocker partitions. Test both
+  installation flows on multi-drive systems.
+- [ ] Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
+  encryption or hibernation. Explain blockers and safe next steps in plain language.
+- [ ] Show a final installation summary of the target disk, partitions to create, format, resize, or mount;
+  require confirmation before applying changes.
+- [ ] Guide users through creating Sloth OS installation media, with a clear warning before erasing a USB drive.
+- [ ] Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
+- [ ] Show storage health warnings when supported, and help users back up important files if a drive may be failing.
+- [ ] Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
+
+#### Sloth Center, setup, and support
+- [ ] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
+- [ ] Offer an optional first-run guide to key Sloth Center features; let users skip or revisit it.
+- [ ] Add a system and driver overview for graphics, audio, Bluetooth, and connected peripherals, with guidance
+  when something needs attention.
+- [ ] Add an application privacy overview for microphone, camera, and location access where supported.
+- [ ] Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
+- [ ] Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
+  require their choice before attaching it.
+- [ ] Add guided Wi-Fi troubleshooting that checks adapter detection, Wi-Fi state, and connectivity, then
+  offers understandable next steps.
+- [ ] Keep essential installation, recovery, and troubleshooting help available offline.
+- [ ] Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
+- [ ] Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
+- [ ] Manage startup applications: explain what launches at sign-in where known, and show startup impact.
+- [ ] Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
+  health or charge limits in one place, with clear effects on battery life and gaming.
+
+#### Updates, backup, and recovery
+- [ ] Explain what updates change, their download and storage needs, and whether a restart is required.
+- [ ] Let users schedule updates and avoid restart prompts during user-defined quiet hours.
+- [ ] Let users limit update download speed and warn before large downloads on metered or mobile connections.
+- [ ] Show backup availability and last backup time in Sloth Center.
+- [ ] Let users schedule file backups, choose retention, and estimate required storage.
+- [ ] Verify backups by checking readability and guiding users through restoring a selected file.
+- [ ] Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
+- [ ] Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
+- [ ] Offer system rollback after an update from Sloth Center, with a clear explanation and restart flow.
+- [ ] Before significant settings or driver changes, offer a recoverable state and a clear way to revert.
+
+#### Gaming, devices, and connectivity
+- [ ] Add an optional gaming mode that applies performance and notification settings while a game runs, then
+  restores normal settings when it closes.
+- [ ] Add a performance display for frame rate, system load, and supported temperature sensors.
+- [ ] Make it easy to test and select controllers, microphones, and audio output devices before gaming.
+- [ ] Share concise, community-informed game fixes with version details and a way to report outdated guidance.
+- [ ] When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
+- [ ] Help users move supported game libraries between drives without downloading again, updating launcher paths.
+- [ ] Show network status and latency, with basic guidance when the connection may affect online play.
+- [ ] Help configure NAS devices and shared folders, preserving the connection after restart when requested.
+- [ ] Allow consent-based file sharing with another device on the local network without a cloud service.
+- [ ] Help configure monitor resolution and refresh rate, plus HDR or VRR where supported.
+- [ ] Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
+- [ ] Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
 
 ### Sloth OS 1.0 released (2026-10-21)
 The repository is public (`Sloth-OS-Linux/sloth-os`), the daily build is back on, the installer ISO is on SourceForge
