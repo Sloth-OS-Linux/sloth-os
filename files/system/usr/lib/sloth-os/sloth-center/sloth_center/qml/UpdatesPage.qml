@@ -97,6 +97,7 @@ Kirigami.ScrollablePage {
                     }
                     RowLayout {
                         Layout.fillWidth: true
+                        visible: updates.detailText !== "" || updates.progress >= 0
                         QQC2.Label {
                             Layout.fillWidth: true
                             opacity: 0.7

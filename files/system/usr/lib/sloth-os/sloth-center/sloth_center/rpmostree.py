@@ -41,6 +41,7 @@ class Transaction:
         self._on_percent = on_percent
         self._on_download = on_download
         self._on_finished = on_finished
+        self._finished = False
         self._conn = None
         self._sub = 0
         Gio.DBusConnection.new_for_address(
@@ -50,8 +51,9 @@ class Transaction:
         try:
             self._conn = Gio.DBusConnection.new_for_address_finish(res)
         except GLib.Error as e:
-            self._on_finished(False, e.message)
+            self._finish(False, e.message)
             return
+        self._conn.connect("closed", self._closed)
         self._sub = self._conn.signal_subscribe(None, TXN_IFACE, None, "/", None,
                                                 Gio.DBusSignalFlags.NONE, self._signal)
         self._conn.call(None, "/", TXN_IFACE, "Start", None, GLib.VariantType("(b)"),
@@ -61,8 +63,30 @@ class Transaction:
         try:
             conn.call_finish(res)
         except GLib.Error as e:
+            self._finish(False, e.message)
+
+    def _closed(self, _conn, remote_peer_vanished, error):
+        """A daemon crash closes its private progress socket without a Finished signal.
+
+        Treat that as a failed transaction so the UI cannot spin forever. The system
+        service is separate from this peer connection and can restart independently.
+        """
+        if self._finished:
+            return
+        detail = error.message if error else "The update service stopped unexpectedly."
+        self._finish(False, detail, connection_closed=True)
+
+    def _finish(self, success, raw, connection_closed=False):
+        if self._finished:
+            return
+        self._finished = True
+        if connection_closed:
+            # The peer already closed the socket; don't try to close it again.
+            self._conn = None
+            self._sub = 0
+        else:
             self._close()
-            self._on_finished(False, e.message)
+        self._on_finished(success, raw)
 
     def _signal(self, _conn, _sender, _path, _iface, name, params):
         args = params.unpack()
@@ -76,8 +100,7 @@ class Transaction:
             transferred, rate = args[5]
             self._on_download(int(transferred), int(rate))
         elif name == "Finished":
-            self._close()
-            self._on_finished(bool(args[0]), args[1])
+            self._finish(bool(args[0]), args[1])
 
     def _close(self):
         """We close the connection at the end of the transaction, as the rpm-ostree command does too. If it stays open,
@@ -103,11 +126,36 @@ class RpmOstree:
         self.bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
         self.sysroot = Gio.DBusProxy.new_sync(
             self.bus, Gio.DBusProxyFlags.NONE, None, BUS_NAME, SYSROOT_PATH, SYSROOT_IFACE, None)
-        self.sysroot.call_sync("RegisterClient", GLib.Variant("(a{sv})", (_asv({"id": "sloth-center"}),)),
-                               Gio.DBusCallFlags.NONE, -1, None)
+        self._register_client()
+        self._registered_owner = self.sysroot.get_name_owner()
+        # rpm-ostreed can crash and be restarted while an image is being pulled.
+        # A registration belongs to one daemon instance, so register again after
+        # D-Bus changes the well-known name's owner.
+        self.sysroot.connect("notify::g-name-owner", self._owner_changed)
         os_path = self.sysroot.get_cached_property("Booted").unpack()
         self.os = Gio.DBusProxy.new_sync(
             self.bus, Gio.DBusProxyFlags.NONE, None, BUS_NAME, os_path, OS_IFACE, None)
+
+    def _register_client(self):
+        self.sysroot.call_sync("RegisterClient", GLib.Variant("(a{sv})", (_asv({"id": "sloth-center"}),)),
+                               Gio.DBusCallFlags.NONE, -1, None)
+
+    def _owner_changed(self, proxy, _pspec):
+        owner = proxy.get_name_owner()
+        if not owner or owner == self._registered_owner:
+            return
+        try:
+            self._register_client()
+        except GLib.Error as e:
+            # A later refresh can try again; don't let a daemon restart crash the UI.
+            logging.getLogger("sloth-center.updates").warning(
+                "could not register with restarted rpm-ostree: %s", e.message)
+            return
+        self._registered_owner = owner
+        try:
+            self.reload()
+        except GLib.Error:
+            pass
 
     # --- State -----------------------------------------------------------
 

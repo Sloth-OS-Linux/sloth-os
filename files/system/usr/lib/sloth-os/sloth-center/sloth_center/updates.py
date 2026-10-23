@@ -5,6 +5,7 @@ rpm-ostree messages go to the log (journalctl --user -t sloth-center).
 """
 import json
 import logging
+import re
 import subprocess
 
 from gi.repository import Gio, GLib
@@ -16,6 +17,7 @@ from . import texts
 from .rpmostree import RpmOstree, Transaction
 
 log = logging.getLogger("sloth-center.updates")
+_LAYER_TASK = re.compile(r"\[(\d+)\s*/\s*(\d+)\]\s+Fetching layer\s+\S+\s+\(([^)]+)\)", re.I)
 
 
 def update_available(cached):
@@ -197,6 +199,13 @@ class UpdatesController(QObject):
     def _on_task(self, raw):
         log.info("%s", raw)
         self._status = texts.stage_text(raw, self._status)
+        # rpm-ostree's OCI image import reports layer boundaries as task text,
+        # but some versions do not emit byte-level DownloadProgress signals.
+        # Show the current layer and its size so the progress row is still useful.
+        match = _LAYER_TASK.search(raw or "")
+        if match:
+            current, total, size = match.groups()
+            self._detail = f"{current}/{total} · {size}"
         self.changed.emit()
 
     def _on_percent(self, pct):

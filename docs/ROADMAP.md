@@ -17,6 +17,13 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
+### Sloth OS 1.0.3 (next release)
+- [ ] **Critical** — Resolve the Fedora 44 `rpm-ostree` crash during OCI image updates (`2026.3-2.fc44` aborts
+  with `JoinHandle polled after completion` while importing layers), then verify a full update stages and boots.
+- [ ] **Medium** — Show OCI layer progress in Sloth Center, stop the spinner and explain the failure if the
+  transaction connection closes, and reconnect to `rpm-ostreed` after a daemon restart. Verify the flow without
+  requiring a terminal.
+
 #### Windows program launch follow-up (2026-10-22)
 - [x] **Reddit Desktop in a Fedora box:** package installs now fail visibly if a new desktop entry uses `sloth-exe`,
   if export fails, or if the exported host `.desktop` lacks a `distrobox-enter` command or still invokes `sloth-exe`.
