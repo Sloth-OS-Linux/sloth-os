@@ -13,6 +13,7 @@ modules:
   - from-file: gaming.yml
   - from-file: apps.yml
   - from-file: tools.yml
+  - from-file: rpm-ostree-fix.yml
   - type: initramfs # needed for the boot animation; keep it at the end, before signing
   - type: signing # needed for signed images, keep it at the end
   - type: script # also accepts the other variant's signature (switching AMD/Intel <-> NVIDIA)
