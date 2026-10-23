@@ -302,7 +302,7 @@
   "Current version: {version}": "Jelenlegi verzió: {version}",
   "Check for updates": "Frissítések keresése",
   "Install update": "Frissítés telepítése",
-  "The update is prepared in the background; you can keep working in the meantime. The new version takes effect at the next restart.": "A frissítés a háttérben készül el, közben nyugodtan dolgozhatsz tovább. Az új verzió a következő újraindításkor lép életbe.",
+  "The update downloads the parts your system needs, so its size varies. Keep some free disk space for the download and the new system version. It is prepared in the background; you can keep working, and it takes effect after a restart.": "A frissítés csak a rendszered számára szükséges részeket tölti le, ezért a mérete változó. Legyen elég szabad lemezterület a letöltéshez és az új rendszerverzióhoz. A frissítés a háttérben készül el, közben nyugodtan dolgozhatsz tovább; az új verzió újraindítás után lép életbe.",
   "Keep the current version": "A mostani verzió megtartása",
   "If everything works well now, you can mark this version. Later updates won't delete it, so if a newer version has problems, you can always go back to this one.": "Ha most minden jól működik, megjelölheted ezt a verziót. A későbbi frissítések nem törlik, így ha egy újabb verzióval gond lenne, erre biztosan vissza lehet állni.",
   "Roll back to the previous version": "Visszaállítás az előző verzióra",

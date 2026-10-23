@@ -145,7 +145,7 @@ Kirigami.ScrollablePage {
                     wrapMode: Text.Wrap
                     opacity: 0.7
                     visible: !updates.busy
-                    text: L.t("The update is prepared in the background; you can keep working in the meantime. The new version takes effect at the next restart.")
+                    text: L.t("The update downloads the parts your system needs, so its size varies. Keep some free disk space for the download and the new system version. It is prepared in the background; you can keep working, and it takes effect after a restart.")
                 }
             }
         }

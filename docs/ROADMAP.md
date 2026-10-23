@@ -72,7 +72,7 @@ careful testing), and **Large** (broad work or significant safety and compatibil
   health or charge limits in one place, with clear effects on battery life and gaming.
 
 #### Updates, backup, and recovery
-- [ ] **Quick** — Explain what updates change, their download and storage needs, and whether a restart is required.
+- [x] **Quick** — Explain that updates download the needed system parts, their size varies, free disk space is needed, and a restart applies the new version.
 - [ ] **Medium** — Let users schedule updates and avoid restart prompts during user-defined quiet hours.
 - [ ] **Medium** — Let users limit update download speed and warn before large downloads on metered or mobile connections.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
