@@ -974,6 +974,7 @@ Bugs found (we fix them one by one):
 
 ## Phase 1 – Its own face
 - [x] Logo: a matte silver sloth face, without an outline (`files/system/usr/share/sloth-os/logo/`, source: `docs/branding/`)
+- [x] Distinct OS emblem: a silver-gray sloth hanging from a branch for the Start menu; the Sloth Center keeps its own icon. Fastfetch prints a matching Sloth OS ASCII logo.
 - [x] Boot animation (Plymouth): a white dot running around the edge of the logo (`files/system/usr/share/plymouth/themes/sloth-os/`, preview: `docs/branding/boot-preview.gif`)
 - [x] Hiding the boot menu (it only appears after a failed start) and a quiet boot: bootupd's GRUB template showed the menu for 1 s on every start, and it does not look at `menu_auto_hide`, so our own `custom.cfg` (`/usr/lib/sloth-os/grub-custom.cfg`, the state on the EFI partition, `sloth-boot-ok.service`); the `quiet rhgb splash` missing from the bootc install went into the kargs
 - [x] Wallpapers: 16 pictures in 4K (with AI upscaling), the ultrawide ones in 5120×2160 too; default: "Metallic Sloth Over Silver Waves" (desktop and lock screen)

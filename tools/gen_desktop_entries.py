@@ -53,7 +53,7 @@ ENTRIES = {
         ("GenericName", ("sloth-center", "System settings")),
         ("Comment", ("sloth-center", "Updates, rollback, drivers and everything that would otherwise need a terminal")),
         ("Exec", "sloth-center"),
-        ("Icon", "sloth-os"),
+        ("Icon", "sloth-center"),
         ("Terminal", "false"),
         ("Categories", "Settings;"),
         ("Keywords", ("sloth-center", "update;rollback;driver;settings")),

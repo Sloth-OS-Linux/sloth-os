@@ -1,0 +1,6 @@
+{
+  "logo": {
+    "type": "file-raw",
+    "source": "/usr/share/sloth-os/logo/sloth-ascii.txt"
+  }
+}
