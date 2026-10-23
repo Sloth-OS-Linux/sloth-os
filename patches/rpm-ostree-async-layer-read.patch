@@ -21,10 +21,17 @@ index 7b4a9b2..0fcd9c6 100644
          let dest = tokio_util::io::SyncIoBridge::new(tx_buf);
  
          let r = filter_tar(&mut src, dest, &config, &repo_tmpdir);
-@@ -381,7 +386,9 @@ async fn filter_tar_async(
+@@ -381,7 +386,16 @@ async fn filter_tar_async(
          Ok(r)
      });
-+    let src_copier = tokio::io::copy(&mut src, &mut src_tx);
++    let src_copier = async move {
++        let result = tokio::io::copy(&mut src, &mut src_tx).await;
++        // The synchronous decompressor reads until EOF. Close the duplex
++        // writer as soon as the source is exhausted, or joining the reader
++        // and copier below deadlocks after the first OCI layer.
++        drop(src_tx);
++        result
++    };
      let copier = tokio::io::copy(&mut rx_buf, &mut dest);
 -    let (r, v) = tokio::join!(tar_transformer, copier);
 +    let (r, src_result, v) = tokio::join!(tar_transformer, src_copier, copier);

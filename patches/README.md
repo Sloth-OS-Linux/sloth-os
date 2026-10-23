@@ -2,7 +2,7 @@
 
 `rpm-ostree-async-layer-read.patch` keeps the downloaded layer file on Tokio's async runtime and bridges a Tokio duplex stream to the synchronous tar parser. This avoids polling the image proxy's pipe-backed `tokio::fs::File` through `SyncIoBridge`, the path seen in the Sloth OS update crash log.
 
-The checked-in runtime RPMs in `files/rpm-ostree/` were built for Fedora 44 from upstream `rpm-ostree` 2026.3 (release `3.sloth1`). The build used `rpm-ostree.spec`, `builddeps.spec`, and the upstream 2026.3 release tarball. Fedora 44 must be built with `--without ostree_ext`: the `bootc` package owns those libostree helper files. Build for x86_64 in a Fedora 44 build environment with the spec's build dependencies installed:
+The checked-in runtime RPMs in `files/rpm-ostree/` were built for Fedora 44 from upstream `rpm-ostree` 2026.3 (release `4.sloth2`). The build used `rpm-ostree.spec`, `builddeps.spec`, and the upstream 2026.3 release tarball. Fedora 44 must be built with `--without ostree_ext`: the `bootc` package owns those libostree helper files. Build for x86_64 in a Fedora 44 build environment with the spec's build dependencies installed:
 
 ```sh
 rpmbuild --define '_topdir /path/to/rpmbuild' \

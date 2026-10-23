@@ -4,7 +4,7 @@
 Summary: Hybrid image/package system
 Name: rpm-ostree
 Version: 2026.3
-Release: 3.sloth1%{?dist}
+Release: 4.sloth2%{?dist}
 License: LGPL-2.0-or-later
 URL: https://github.com/coreos/rpm-ostree
 # This tarball is generated via "cd packaging && make -f Makefile.dist-packaging dist-snapshot"
@@ -198,7 +198,7 @@ The %{name}-devel package includes the header files for %{name}-libs.
 
 %prep
 %autosetup -Sgit -n %{name}-%{version} -p1
-sed -i 's/8c6380148accc9fd56edb1b568bf76246e83f1d5d33b1055ff8e3fecc8a59e33/83a0034b5d483476c468b9f13a574a91ea483fdfe6882f5f6e6389ae9feac246/' vendor/ostree-ext/.cargo-checksum.json
+sed -i 's/8c6380148accc9fd56edb1b568bf76246e83f1d5d33b1055ff8e3fecc8a59e33/074218fd6ee0465d9e77423bb04069a5117f8f68bbed47909bdf3280375a624a/' vendor/ostree-ext/.cargo-checksum.json
 %if 0%{?__isa_bits} == 32
 sed -ie 's,^lto = true,lto = false,' Cargo.toml
 %endif
