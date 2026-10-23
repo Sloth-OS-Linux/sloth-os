@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "პროგრამები არის ადგილი, სადაც თქვენ დააინსტალიროთ და დაიწყოთ Windows პროგრამები. თამაშებს აქვს პარამეტრები Steam- ისთვის და სხვა თამაშის ინსტრუმენტებისთვის.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "ფაილების სარეზერვო ასლები აჩვენებს თქვენს ფაილით შენახულ ასლებს. უკუკავშირი არის ადგილი დახმარების მოთხოვნისთვის, ხოლო დისკები დაგეხმარებათ ფაيلების Windows- დან ჩამოტანაში.",
   "Version: {version}": "ვერსია: {version}",
-  "Last backup: {date}": "უკანასკნელი სარეზერვო ასლი: {date}"
+  "Last backup: {date}": "უკანასკნელი სარეზერვო ასლი: {date}",
+  "Create installation media": "შექმენით საინსტალაციო მედია",
+  "Create a Sloth OS USB installer": "შექმენით Sloth OS USB ინსტალერი",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "ჩამოტვირთეთ Sloth OS ISO, შემდეგ ჩაწერეთ USB დისკზე Fedora Media Writer-ით ან Rufus-ით. მიჰყევით ილუსტრირებულ სახელმძღვანელოს ზუსტი ნაბიჯებისა და ჩატვირთვის მენიუს ღილაკებისთვის.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ISO-ს დაწერა წაშლის ყველაფერს არჩეულ USB დისკზე. ყურადღებით შეამოწმეთ დისკის სახელი და ზომა და დააკოპირეთ ნებისმიერი ფაილი, რომლის შენახვა გსურთ დაწყებამდე.",
+  "Open the installation guide": "გახსენით ინსტალაციის სახელმძღვანელო",
+  "Download the Sloth OS ISO": "ჩამოტვირთეთ Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "USB დისკის ჩაწერის შემდეგ გადატვირთეთ კომპიუტერი და აირჩიეთ USB მოწყობილობა მისი ჩატვირთვის მენიუდან.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Დადასტურებული განახლებები ✓ – ეს სისტემა მხოლოდ Sloth OS -ის მიერ ხელმოწერილ განახლებებს ეთანხმება.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Ხელმოწერის განახლების შემოწმება არ არის ჩართული. ამ სისტემამ შეიძლება მიიღოს ხელმოუწერელი განახლებები.",
+  "Sloth OS": "Sloth OS",
+  "Next": "შემდეგი"
 }

@@ -606,5 +606,16 @@
   "Checking storage…": "Verificarea de stocare...",
   "Storage information is not available.": "Informaţiile de stocă nu sunt disponibile.",
   "Get help": "Adu ajutor.",
-  "Version: {version}": "Versiune: {version}"
+  "Version: {version}": "Versiune: {version}",
+  "Create installation media": "Creați medii de instalare",
+  "Create a Sloth OS USB installer": "Creați un program de instalare USB Sloth OS",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Descărcați Sloth OS ISO, apoi scrieți-l pe o unitate USB cu Fedora Media Writer sau Rufus. Urmați ghidul ilustrat pentru pașii exacti și tastele meniului de pornire.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Scrierea ISO șterge totul de pe unitatea USB selectată. Verificați cu atenție numele și dimensiunea unității și copiați toate fișierele pe care doriți să le păstrați înainte de a începe.",
+  "Open the installation guide": "Deschideți ghidul de instalare",
+  "Download the Sloth OS ISO": "Descărcați Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "După ce ați scris unitatea USB, reporniți computerul și alegeți dispozitivul USB din meniul său de pornire.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Actualizări verificate ✓ – acest sistem acceptă numai actualizări semnate de Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Verificarea semnăturii de actualizare nu este activată. Acest sistem poate accepta actualizări nesemnate.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Înainte"
 }

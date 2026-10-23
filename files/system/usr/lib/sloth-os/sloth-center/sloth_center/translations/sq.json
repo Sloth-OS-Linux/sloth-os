@@ -606,5 +606,16 @@
   "Checking storage…": "Mbështjellja e kontrollit...",
   "Storage information is not available.": "Informacioni për ruajtjen nuk është në dispozicion.",
   "Get help": "Merrni ndihmë",
-  "Last backup: {date}": "Rezervimi i fundit: {date}"
+  "Last backup: {date}": "Rezervimi i fundit: {date}",
+  "Create installation media": "Krijoni media instalimi",
+  "Create a Sloth OS USB installer": "Krijo një instalues ​​USB Sloth OS",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Shkarkoni ISO-n Sloth OS, më pas shkruajeni në një disk USB me Fedora Media Writer ose Rufus. Ndiqni udhëzuesin e ilustruar për hapat e saktë dhe butonat e menysë së nisjes.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Shkrimi i ISO fshin gjithçka në diskun USB të zgjedhur. Kontrolloni me kujdes emrin dhe madhësinë e diskut dhe kopjoni çdo skedar që dëshironi të mbani përpara se të filloni.",
+  "Open the installation guide": "Hapni udhëzuesin e instalimit",
+  "Download the Sloth OS ISO": "Shkarkoni ISO Sloth OS",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Pasi të shkruani diskun USB, rinisni kompjuterin dhe zgjidhni pajisjen USB nga menyja e tij e nisjes.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Përditësime të verifikuara ✓ – ky sistem pranon vetëm përditësime të nënshkruara nga Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Përditësimi i kontrollit të nënshkrimit nuk është i aktivizuar. Ky sistem mund të pranojë përditësime të panënshkruara.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Tjetër"
 }

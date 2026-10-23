@@ -606,5 +606,16 @@
   "Checking storage…": "检查了储存...",
   "Storage information is not available.": "没有存储信息.",
   "Last backup: {date}": "最后备份:{date}",
-  "{gb} GB free": "还剩 {gb} GB 可用"
+  "{gb} GB free": "还剩 {gb} GB 可用",
+  "Create installation media": "创建安装介质",
+  "Create a Sloth OS USB installer": "创建 Sloth OS USB 安装程序",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "下载 Sloth OS ISO，然后使用 Fedora Media Writer 或 Rufus 将其写入 USB 驱动器。请按照图示指南了解确切的步骤和启动菜单键。",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "写入 ISO 会擦除所选 USB 驱动器上的所有内容。开始之前，请仔细检查驱动器名称和大小，并复制要保留的所有文件。",
+  "Open the installation guide": "打开安装指南",
+  "Download the Sloth OS ISO": "下载 Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "写入 USB 驱动器后，重新启动计算机并从启动菜单中选择 USB 设备。",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "已验证的更新✓–此系统仅接受由Sloth OS签名的更新。",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "更新签名检查未启用。此系统可能接受未签名的更新。",
+  "Sloth OS": "Sloth OS",
+  "Next": "下一步"
 }

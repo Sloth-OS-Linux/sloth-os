@@ -606,5 +606,16 @@
   "Storage information is not available.": "Informacije o pohranjivanju nisu dostupne.",
   "Get help": "Pomaz",
   "Version: {version}": "Verzija: {version}",
-  "Last backup: {date}": "Zadnja sigurnosna kopija: {date}"
+  "Last backup: {date}": "Zadnja sigurnosna kopija: {date}",
+  "Create installation media": "Stvorite instalacijski medij",
+  "Create a Sloth OS USB installer": "Napravite Sloth OS USB instalacijski program",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Preuzmite Sloth OS ISO, zatim ga zapišite na USB disk pomoću Fedora Media Writer ili Rufus. Slijedite ilustrirani vodič za točne korake i tipke izbornika za pokretanje.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Zapisivanjem ISO-a briše se sve na odabranom USB disku. Pažljivo provjerite naziv pogona i veličinu te prije početka kopirajte sve datoteke koje želite zadržati.",
+  "Open the installation guide": "Otvorite vodič za instalaciju",
+  "Download the Sloth OS ISO": "Preuzmite Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Nakon pisanja USB pogona, ponovno pokrenite računalo i odaberite USB uređaj iz njegovog izbornika za pokretanje.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Verificirana ažuriranja ✓ – ovaj sustav prihvaća samo ažuriranja potpisana od strane Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Provjera potpisa ažuriranja nije omogućena. Ovaj sustav može prihvatiti nepotpisana ažuriranja.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Dalje"
 }

@@ -606,5 +606,16 @@
   "Storage information is not available.": "Stoor inligting is nie beskikbaar nie.",
   "Get help": "Kry hulp",
   "Version: {version}": "Vertaling: {version}",
-  "Last backup: {date}": "Laaste rugsteun: {date}"
+  "Last backup: {date}": "Laaste rugsteun: {date}",
+  "Create installation media": "Skep installasie media",
+  "Create a Sloth OS USB installer": "Skep 'n Sloth OS USB-installeerder",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Laai die Sloth OS ISO af en skryf dit dan na 'n USB-stasie met Fedora Media Writer of Rufus. Volg die geïllustreerde gids vir die presiese stappe en selflaaimenusleutels.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Die skryf van die ISO vee alles op die geselekteerde USB-stasie uit. Gaan die naam en grootte van die skyf noukeurig na en kopieer enige lêers wat jy wil behou voordat jy begin.",
+  "Open the installation guide": "Maak die installasiegids oop",
+  "Download the Sloth OS ISO": "Laai die Sloth OS ISO af",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Nadat u die USB-stasie geskryf het, herbegin die rekenaar en kies die USB-toestel in die opstartmenu.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Geverifieerde opdaterings ✓ – hierdie stelsel aanvaar slegs opdaterings onderteken deur Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Opdateer handtekeningkontrole is nie geaktiveer nie. Hierdie stelsel kan onondertekende opdaterings aanvaar.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Volgende"
 }

@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Programlar, Windows programlarını yüklediğiniz ve başlattığınız yerdir. Oyunlar Steam ve diğer oyun araçları için ayarlara sahiptir.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "Dosya yedeklemesi dosyalarınızın kaydedilmiş kopyalarını gösterir. Geri bildirim yardım istemek için bir yerdir ve Diskler Windows'tan dosyaları getirmeye yardımcı olabilir.",
   "Storage information is not available.": "Depolama bilgileri mevcut değil.",
-  "Get help": "Yardım alın"
+  "Get help": "Yardım alın",
+  "Create installation media": "Kurulum medyası oluşturun",
+  "Create a Sloth OS USB installer": "Bir Sloth OS USB yükleyici oluşturun",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Sloth OS ISO'yu indirin, ardından bunu Fedora Media Writer veya Rufus ile bir USB sürücüsüne yazın. Tam adımlar ve önyükleme menüsü tuşları için resimli kılavuzu izleyin.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ISO'yu yazmak, seçilen USB sürücüsündeki her şeyi siler. Başlamadan önce sürücü adını ve boyutunu dikkatlice kontrol edin ve saklamak istediğiniz dosyaları kopyalayın.",
+  "Open the installation guide": "Kurulum kılavuzunu açın",
+  "Download the Sloth OS ISO": "Sloth OS ISO'yu indirin",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "USB sürücüsünü yazdıktan sonra bilgisayarı yeniden başlatın ve önyükleme menüsünden USB aygıtını seçin.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Doğrulanmış güncellemeler ✓ – bu sistem yalnızca Sloth OS tarafından imzalanmış güncellemeleri kabul eder.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Güncelleme imzası kontrolü etkin değil. Bu sistem imzasız güncellemeleri kabul edebilir.",
+  "Sloth OS": "Sloth OS",
+  "Next": "İleri"
 }

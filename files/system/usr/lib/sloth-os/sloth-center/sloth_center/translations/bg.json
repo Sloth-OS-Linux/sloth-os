@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Programs е мястото, където инсталирате и стартирате Windows програми. Игрите имат настройки за Steam и други игрални инструменти.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup показва запазени копия от вашите файлове. Отзивите са мястото, на което да поискате помощ, а Диски могат да ви помогнат да донесете файлове от Windows.",
   "Version: {version}": "Версия: {version}",
-  "Get help": "Помогни ми."
+  "Get help": "Помогни ми.",
+  "Create installation media": "Създайте инсталационен носител",
+  "Create a Sloth OS USB installer": "Създайте Sloth OS USB инсталатор",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Изтеглете Sloth OS ISO, след което го запишете на USB устройство с Fedora Media Writer или Rufus. Следвайте илюстрираното ръководство за точните стъпки и клавишите на менюто за зареждане.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Записването на ISO изтрива всичко на избраното USB устройство. Проверете внимателно името и размера на устройството и копирайте всички файлове, които искате да запазите, преди да започнете.",
+  "Open the installation guide": "Отворете ръководството за инсталиране",
+  "Download the Sloth OS ISO": "Изтеглете Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "След запис на USB устройството, рестартирайте компютъра и изберете USB устройството от него меню за стартиране.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Проверени актуализации ✓ – тази система приема само актуализации, подписани от Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Проверката на подписа за актуализиране не е активирана. Тази система може да приема неподписани актуализации.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Напред"
 }

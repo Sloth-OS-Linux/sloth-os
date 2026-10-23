@@ -11,6 +11,9 @@ into trouble installing with the earlier 1.0.2 ISO: the installer issue has been
 is available for reinstalling. Please send bug reports, ideas, and feature requests through **Sloth Center →
 Feedback**. I will review them as time allows.
 
+Effort labels are rough implementation sizes: **Quick** (small, focused change), **Medium** (several components or
+careful testing), and **Large** (broad work or significant safety and compatibility testing).
+
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
@@ -19,74 +22,74 @@ Feedback**. I will review them as time allows.
   if export fails, or if the exported host `.desktop` lacks a `distrobox-enter` command or still invokes `sloth-exe`.
   The running Fedora box no longer has the Reddit package's source desktop entry, so a live relaunch could not be
   reproduced; `tools/tests/test_apps.py` checks that invalid exports cannot be recorded as successful installs.
-- [ ] **Notepad++ starts again after closing:** the install succeeded, but the start handler exited after 4–9 seconds
+- [ ] **Medium** — Notepad++ starts again after closing: the install succeeded, but the start handler exited after 4–9 seconds
   and cycled through four runner settings even though the user saw the app open. Improve detection of a live Windows
   process after `umu-run` exits (check the prefix's Wine processes/wineserver), and only start another recovery attempt
   after confirming the previous app is no longer running. Reproduce that closing the app does not reopen it.
-- [ ] **7-Zip required repeated installs:** the saved log has one installer run, four quick-exit recovery attempts,
+- [ ] **Medium** — 7-Zip required repeated installs: the saved log has one installer run, four quick-exit recovery attempts,
   and then a `7Z2605` Start menu entry. Reproduce the install and launch flow, then fix recognition or process tracking
   so a successful install is not mistaken for a failed app launch and repeated installation is unnecessary.
 
 #### Installation and storage
-- [ ] Ask what to do with additional disks and partitions during installation. Leave them untouched and
+- [ ] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
   In the “Next to Windows” flow, protect Windows, EFI, recovery, MSR, and BitLocker partitions. Test both
   installation flows on multi-drive systems.
-- [ ] Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
+- [ ] **Medium** — Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
   encryption or hibernation. Explain blockers and safe next steps in plain language.
 - [x] Show the target disk and planned erase/resize/create/format/mount operations on the installer's confirmation page;
   the existing confirmation checkbox is required before applying changes. The temporary install partition is identified
   as mounted only during setup and deleted at the end.
-- [ ] Guide users through creating Sloth OS installation media, with a clear warning before erasing a USB drive.
-- [ ] Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
-- [ ] Show storage health warnings when supported, and help users back up important files if a drive may be failing.
-- [ ] Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
+- [x] Guide users through creating Sloth OS installation media, with a clear warning before erasing a USB drive.
+- [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
+- [ ] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
+- [ ] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
 
 #### Sloth Center, setup, and support
 - [x] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
 - [x] Offer a short first-run guide to Updates, Programs, Games, backups, Feedback, and Disks; users can skip it or
   reopen it from the sidebar.
-- [ ] Add a system and driver overview for graphics, audio, Bluetooth, and connected peripherals, with guidance
+- [ ] **Medium** — Add a system and driver overview for graphics, audio, Bluetooth, and connected peripherals, with guidance
   when something needs attention.
-- [ ] Add an application privacy overview for microphone, camera, and location access where supported.
-- [ ] Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
-- [ ] Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
+- [ ] **Medium** — Add an application privacy overview for microphone, camera, and location access where supported.
+- [ ] **Medium** — Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
+- [ ] **Large** — Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
   require their choice before attaching it.
-- [ ] Add guided Wi-Fi troubleshooting that checks adapter detection, Wi-Fi state, and connectivity, then
+- [ ] **Medium** — Add guided Wi-Fi troubleshooting that checks adapter detection, Wi-Fi state, and connectivity, then
   offers understandable next steps.
-- [ ] Keep essential installation, recovery, and troubleshooting help available offline.
-- [ ] Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
-- [ ] Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
-- [ ] Manage startup applications: explain what launches at sign-in where known, and show startup impact.
-- [ ] Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
+- [ ] **Medium** — Keep essential installation, recovery, and troubleshooting help available offline.
+- [ ] **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
+- [ ] **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
+- [ ] **Medium** — Manage startup applications: explain what launches at sign-in where known, and show startup impact.
+- [ ] **Large** — Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
   health or charge limits in one place, with clear effects on battery life and gaming.
 
 #### Updates, backup, and recovery
-- [ ] Explain what updates change, their download and storage needs, and whether a restart is required.
-- [ ] Let users schedule updates and avoid restart prompts during user-defined quiet hours.
-- [ ] Let users limit update download speed and warn before large downloads on metered or mobile connections.
+- [ ] **Quick** — Explain what updates change, their download and storage needs, and whether a restart is required.
+- [ ] **Medium** — Let users schedule updates and avoid restart prompts during user-defined quiet hours.
+- [ ] **Medium** — Let users limit update download speed and warn before large downloads on metered or mobile connections.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
-- [ ] Let users schedule file backups, choose retention, and estimate required storage.
-- [ ] Verify backups by checking readability and guiding users through restoring a selected file.
-- [ ] Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
-- [ ] Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
-- [ ] Offer system rollback after an update from Sloth Center, with a clear explanation and restart flow.
-- [ ] Before significant settings or driver changes, offer a recoverable state and a clear way to revert.
+- [ ] **Medium** — Let users schedule file backups, choose retention, and estimate required storage.
+- [ ] **Medium** — Verify backups by checking readability and guiding users through restoring a selected file.
+- [ ] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
+- [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
+- [ ] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart flow.
+- [ ] **Large** — Before significant settings or driver changes, offer a recoverable state and a clear way to revert.
 
 #### Gaming, devices, and connectivity
-- [ ] Add an optional gaming mode that applies performance and notification settings while a game runs, then
+- [ ] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
   restores normal settings when it closes.
-- [ ] Add a performance display for frame rate, system load, and supported temperature sensors.
-- [ ] Make it easy to test and select controllers, microphones, and audio output devices before gaming.
-- [ ] Share concise, community-informed game fixes with version details and a way to report outdated guidance.
-- [ ] When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
-- [ ] Help users move supported game libraries between drives without downloading again, updating launcher paths.
-- [ ] Show network status and latency, with basic guidance when the connection may affect online play.
-- [ ] Help configure NAS devices and shared folders, preserving the connection after restart when requested.
-- [ ] Allow consent-based file sharing with another device on the local network without a cloud service.
-- [ ] Help configure monitor resolution and refresh rate, plus HDR or VRR where supported.
-- [ ] Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
-- [ ] Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
+- [ ] **Medium** — Add a performance display for frame rate, system load, and supported temperature sensors.
+- [ ] **Medium** — Make it easy to test and select controllers, microphones, and audio output devices before gaming.
+- [ ] **Medium** — Share concise, community-informed game fixes with version details and a way to report outdated guidance.
+- [ ] **Large** — When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
+- [ ] **Medium** — Help users move supported game libraries between drives without downloading again, updating launcher paths.
+- [ ] **Quick** — Show network status and latency, with basic guidance when the connection may affect online play.
+- [ ] **Medium** — Help configure NAS devices and shared folders, preserving the connection after restart when requested.
+- [ ] **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
+- [ ] **Medium** — Help configure monitor resolution and refresh rate, plus HDR or VRR where supported.
+- [ ] **Medium** — Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
+- [ ] **Medium** — Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
 
 ### Sloth OS 1.0 released (2026-10-21)
 The repository is public (`Sloth-OS-Linux/sloth-os`), the daily build is back on, the installer ISO is on SourceForge

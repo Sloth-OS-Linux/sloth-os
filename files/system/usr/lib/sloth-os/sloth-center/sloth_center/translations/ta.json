@@ -606,5 +606,16 @@
   "Checking storage…": "சேமிப்பகத்தை சரிபார்க்கிறது...",
   "Storage information is not available.": "சேமிக்கப்பட்ட தகவல்கள் கிடைக்கவில்லை.",
   "Get help": "உதவி பெற",
-  "Version: {version}": "பதிப்புஃ {version}"
+  "Version: {version}": "பதிப்புஃ {version}",
+  "Create installation media": "நிறுவல் ஊடகத்தை உருவாக்கவும்",
+  "Create a Sloth OS USB installer": "Sloth OS USB நிறுவியை உருவாக்கவும்",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Sloth OS ISO ஐப் பதிவிறக்கவும், பின்னர் அதை Fedora Media Writer அல்லது Rufus மூலம் USB டிரைவில் எழுதவும். சரியான படிகள் மற்றும் துவக்க மெனு விசைகளுக்கு விளக்கப்பட வழிகாட்டியைப் பின்பற்றவும்.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ஐஎஸ்ஓவை எழுதுவது தேர்ந்தெடுக்கப்பட்ட USB டிரைவில் உள்ள அனைத்தையும் அழிக்கிறது. இயக்ககத்தின் பெயரையும் அளவையும் கவனமாகச் சரிபார்த்து, தொடங்குவதற்கு முன் நீங்கள் வைத்திருக்க விரும்பும் கோப்புகளை நகலெடுக்கவும்.",
+  "Open the installation guide": "நிறுவல் வழிகாட்டியைத் திறக்கவும்",
+  "Download the Sloth OS ISO": "Sloth OS ISO ஐப் பதிவிறக்கவும்",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "USB டிரைவை எழுதிய பிறகு, கணினியை மறுதொடக்கம் செய்து, அதன் துவக்க மெனுவிலிருந்து USB சாதனத்தைத் தேர்ந்தெடுக்கவும்.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "சரிபார்க்கப்பட்ட புதுப்பிப்புகள் ✓ – இந்த அமைப்பு Sloth OS கையொப்பமிட்ட புதுப்பிப்புகளை மட்டுமே ஏற்றுக்கொள்கிறது.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "கையொப்பச் சரிபார்ப்பு புதுப்பிக்கப்படவில்லை. இந்த சிஸ்டம் கையொப்பமிடப்படாத புதுப்பிப்புகளை ஏற்கலாம்.",
+  "Sloth OS": "Sloth OS",
+  "Next": "அடுத்து"
 }

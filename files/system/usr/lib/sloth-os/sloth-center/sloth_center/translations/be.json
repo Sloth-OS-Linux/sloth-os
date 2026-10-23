@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Праграмы з'яўляецца месцам, дзе вы ўсталёўваеце і запусціце праграмы Windows. Гульні мае налады для Steam і іншых гульнявых інструментаў.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "Файла рэзервовага капіявання паказвае захаваныя копіі вашых файлаў. Водгукі з'яўляюцца месцам для просьбы аб дапамозе, а Дыскі могуць дапамагчы прывесці файлы з Windows.",
   "Version: {version}": "Версія: {version}",
-  "Last backup: {date}": "Апошняя рэзервовая колькасць: {date}"
+  "Last backup: {date}": "Апошняя рэзервовая колькасць: {date}",
+  "Create installation media": "Стварыце ўсталявальны носьбіт",
+  "Create a Sloth OS USB installer": "Стварыце праграму ўсталёўкі Sloth OS USB",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Спампуйце Sloth OS ISO, затым запішыце яго на USB-дыск з дапамогай Fedora Media Writer або Rufus. Выконвайце ілюстраванае кіраўніцтва для дакладных крокаў і клавіш меню загрузкі.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Запіс ISO выдаляе ўсё на абраным USB-дыску. Уважліва праверце імя і памер дыска і скапіруйце ўсе файлы, якія хочаце захаваць, перш чым пачаць.",
+  "Open the installation guide": "Адкрыйце кіраўніцтва па ўсталёўцы",
+  "Download the Sloth OS ISO": "Спампуйце Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Пасля запісу USB-назапашвальніка перазагрузіце камп'ютар і выберыце USB-прыладу з яго меню загрузкі.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Правераныя абнаўленні ✓ – гэтая сістэма прымае толькі абнаўленні, падпісаныя Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Абнаўленне праверкі подпісу не ўключана. Гэтая сістэма можа прымаць непадпісаныя абнаўленні.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Далей"
 }

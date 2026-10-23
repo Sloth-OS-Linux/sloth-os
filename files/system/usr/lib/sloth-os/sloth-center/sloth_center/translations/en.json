@@ -18,5 +18,12 @@
   "Storage information is not available.": "Storage information is not available.",
   "Get help": "Get help",
   "{gb} GB free": "{gb} GB free",
-  "Last backup: {date}": "Last backup: {date}"
+  "Last backup: {date}": "Last backup: {date}",
+  "Create installation media": "Create installation media",
+  "Create a Sloth OS USB installer": "Create a Sloth OS USB installer",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.",
+  "Open the installation guide": "Open the installation guide",
+  "Download the Sloth OS ISO": "Download the Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "After writing the USB drive, restart the computer and choose the USB device from its boot menu."
 }

@@ -606,5 +606,16 @@
   "Storage information is not available.": "Informazioni di archviatura non disponibili.",
   "Get help": "Chiedi aiuto",
   "Last backup: {date}": "Ultimo backup: {date}",
-  "Version: {version}": "Versione: {version}"
+  "Version: {version}": "Versione: {version}",
+  "Create installation media": "Crear un medio de installation",
+  "Create a Sloth OS USB installer": "Crear un installator USB de Sloth OS",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Discarga le ISO de Sloth OS, pois scribe lo a un disco USB con Fedora Media Writer o Rufus. Seque le guida illustrate pro le passos exacte e le claves del menu de initio.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Scriber le ISO dele toto sur le disco USB seligite. Verifica attentemente le nomine e le dimension del disco, e copia omne file que tu vole conservar ante de initiar.",
+  "Open the installation guide": "Aperir le guida de installation",
+  "Download the Sloth OS ISO": "Discargar le ISO de Sloth OS",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Post scriber le disco USB, reinitia le computator e selige le dispositivo USB in su menu de initio.",
+  "Next": "Sequente",
+  "Sloth OS": "Sloth OS",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Actualisationes verificate ✓ – iste systema accepta solmente actualisationes signate per Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Le verification de signaturas de actualisation non es activate. Iste systema pote acceptar actualisationes non signate."
 }

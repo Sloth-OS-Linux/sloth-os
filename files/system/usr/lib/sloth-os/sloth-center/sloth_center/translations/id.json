@@ -606,5 +606,16 @@
   "Checking storage…": "Memeriksa penyimpanan...",
   "Version: {version}": "Versi: {version}",
   "Get help": "Dapatkan bantuan",
-  "Last backup: {date}": "Cadangan terakhir: {date}"
+  "Last backup: {date}": "Cadangan terakhir: {date}",
+  "Create installation media": "Buat media instalasi",
+  "Create a Sloth OS USB installer": "Buat penginstal USB Sloth OS",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Unduh ISO Sloth OS, lalu tulis ke drive USB dengan Fedora Media Writer atau Rufus. Ikuti panduan bergambar untuk langkah-langkah yang tepat dan tombol menu boot.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Menulis ISO akan menghapus semua yang ada di drive USB yang dipilih. Periksa nama dan ukuran drive dengan cermat, dan salin file apa pun yang ingin Anda simpan sebelum memulai.",
+  "Open the installation guide": "Buka panduan instalasi",
+  "Download the Sloth OS ISO": "Unduh Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Setelah menulis drive USB, restart komputer dan pilih perangkat USB dari menu bootnya.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Pembaruan terverifikasi ✓ – sistem ini hanya menerima pembaruan yang ditandatangani oleh Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Pemeriksaan tanda tangan pembaruan tidak diaktifkan. Sistem ini dapat menerima pembaruan yang tidak ditandatangani.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Lanjut"
 }

@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "programos yra vieta, kur įdiegiate ir paleidžiate \"Windows\" programas. Žaidimai turi \"Steam\" ir kitų žaidimų įrankių nustatymus. \"",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "\" failų atsarginė kopija rodo išsaugotas failų kopijas. Atsakymas yra vieta paprašyti pagalbos, o \"Disk\" gali padėti perkelti failus iš \"Windows\".",
   "Version: {version}": "Verzija: {version}",
-  "Last backup: {date}": "Paskutinė atsarginė kopija: {date}"
+  "Last backup: {date}": "Paskutinė atsarginė kopija: {date}",
+  "Create installation media": "Sukurkite diegimo laikmeną",
+  "Create a Sloth OS USB installer": "Sukurkite Sloth OS USB diegimo programą",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Atsisiųskite Sloth OS ISO, tada įrašykite jį į USB diską naudodami Fedora Media Writer arba Rufus. Vykdykite iliustruotą vadovą, kad sužinotumėte tikslius veiksmus ir įkrovos meniu klavišus.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Įrašant ISO ištrinama viskas, kas yra pasirinktame USB diske. Atidžiai patikrinkite disko pavadinimą ir dydį ir prieš pradėdami nukopijuokite visus norimus išsaugoti failus.",
+  "Open the installation guide": "Atidarykite diegimo vadovą",
+  "Download the Sloth OS ISO": "Atsisiųskite Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Įrašę USB diską, iš naujo paleiskite kompiuterį ir jo įkrovos meniu pasirinkite USB įrenginį.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Patvirtinti atnaujinimai ✓ – ši sistema priima tik Sloth OS pasirašytus atnaujinimus.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Atnaujinimo parašo tikrinimas neįjungtas. Ši sistema gali priimti nepasirašytus atnaujinimus.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Toliau"
 }

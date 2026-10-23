@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Programs d anda ara tgerḍeḍ d wamek ara tbeddeḍ isefka n Windows. Imurar sεan asmel i Steam d isefkan-nniḍen n wurar.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup tban-d idis n isefra-inek i d-iḥerzen.",
   "Storage information is not available.": "Ur telli ara tallest n usekles.",
-  "Get help": "Af-d tallelt"
+  "Get help": "Af-d tallelt",
+  "Create installation media": "Snulfu-d allal n usebded",
+  "Create a Sloth OS USB installer": "Snulfu-d anesbed n Sloth OS s USB",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Sider ISO n Sloth OS, sakin sekles-it ɣef uḍebsi USB s Fedora Media Writer neɣ Rufus. Ḍfer amnir s tugniwin i yisurifen imeẓran d tisura n wumuɣ n usenker.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Asekles n ISO ad yekkes akk ayen yellan ɣef uḍebsi USB i tferneḍ. Senqed s leɛqel isem d tiddi n uḍebsi, u nɣel uqbel yal ifuyla tebɣiḍ ad tḥerzeḍ uqbel ad tebduḍ.",
+  "Open the installation guide": "Ldi amnir n usebded",
+  "Download the Sloth OS ISO": "Sider ISO n Sloth OS",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Mi tesekelseḍ aḍebsi USB, ales asenker n uselkim u fren ibenk USB seg wumuɣ n usenker.",
+  "Next": "Ɣer sdat",
+  "Sloth OS": "Sloth OS",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Ileqman yettwasenqden ✓ – anagraw-a iqbel kan ileqman yettwazemlen s uzmul n Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Asenqed n uzmul n yileqman ur yermid ara. Anagraw-a yezmer ad iqbel ileqman war azmul."
 }

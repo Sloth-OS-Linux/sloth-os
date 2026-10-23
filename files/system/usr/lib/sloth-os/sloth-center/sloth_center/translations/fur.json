@@ -606,5 +606,16 @@
   "Storage information is not available.": "No je disponibil la informazion di archiviazion.",
   "Get help": "Otignî jutori",
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Programs al è il puest dulà che tu instalis e tu scomencis i programs Windows. I zûcs a àn impostazions par Steam e altris struments di zûc.",
-  "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup al mostre lis copiis salvadis dai tiei file. Il feedback al è l'omp dulà domandâ jutori, e i Discs a puedin judâ a puartâ i file di Windows."
+  "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup al mostre lis copiis salvadis dai tiei file. Il feedback al è l'omp dulà domandâ jutori, e i Discs a puedin judâ a puartâ i file di Windows.",
+  "Create installation media": "Creâ mieçs di instalazion",
+  "Create a Sloth OS USB installer": "Creâ un instaladôr USB di Sloth OS",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Scjarie la ISO di Sloth OS, daspò scrivile suntune unitât USB cun Fedora Media Writer o Rufus. Segui la guide ilustrade pai pas precîs e lis clâfs dal menù di inviament.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Scrivi l’ISO al cancele dut su la unitât USB selezionade. Controlâ ben il non e la dimension dal disc, e copiâ cualsisei file che tu âs di tignî prime di scomençâ.",
+  "Open the installation guide": "Viert la guide di instalazion",
+  "Download the Sloth OS ISO": "Scjarie la ISO di Sloth OS",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Dopo vê scrit la unitât USB, tornâ a scomençâ il computer e sielzi il dispositîf USB dal so menût di avviament.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Agjenziis verificadis ✓ – chest sisteme al acete dome i inzornaments firmâts di Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "La verifiche de firme no je abilitade. Chest sisteme al pues acetâ inzornaments no firmâts.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Indenant"
 }

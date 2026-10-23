@@ -27,6 +27,7 @@ Kirigami.ApplicationWindow {
           description: L.t("Child accounts, age-appropriate apps and screen time. This part is coming in a future update.") },
         { id: "health", name: L.t("System health"), icon: "dialog-information", page: "HealthPage.qml", ready: true },
         { id: "feedback", name: L.t("Feedback"), icon: "mail-message-new", page: "FeedbackPage.qml", ready: true },
+        { id: "usbguide", name: L.t("Create installation media"), icon: "drive-removable-media-usb", page: "UsbGuidePage.qml", ready: true },
         { id: "backup", name: L.t("File backup"), icon: "backup", page: "BackupPage.qml", ready: true },
         { id: "disks", name: L.t("Disks"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
         { id: "containers", name: L.t("Developer environments"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },

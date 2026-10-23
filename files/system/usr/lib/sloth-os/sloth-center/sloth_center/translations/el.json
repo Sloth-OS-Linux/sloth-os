@@ -606,5 +606,16 @@
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup δείχνει αποθηκευμένα αντίγραφα των αρχείων σας. Η ανατροφοδότηση είναι το μέρος για να ζητήσετε βοήθεια και οι δίσκοι μπορούν να σας βοηθήσουν να μεταφέρετε αρχεία από το Windows.",
   "Get help": "Πάρτε βοήθεια",
   "Version: {version}": "Τύπος: {version}",
-  "Last backup: {date}": "Τελευταία αντιγράφηση: {date}"
+  "Last backup: {date}": "Τελευταία αντιγράφηση: {date}",
+  "Create installation media": "Δημιουργία μέσων εγκατάστασης",
+  "Create a Sloth OS USB installer": "Δημιουργήστε ένα πρόγραμμα εγκατάστασης USB Sloth OS",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Κατεβάστε το Sloth OS ISO και, στη συνέχεια, γράψτε το σε μια μονάδα USB με το Fedora Media Writer ή το Rufus. Ακολουθήστε τον εικονογραφημένο οδηγό για τα ακριβή βήματα και τα πλήκτρα του μενού εκκίνησης.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Η εγγραφή του ISO διαγράφει τα πάντα στην επιλεγμένη μονάδα USB. Ελέγξτε προσεκτικά το όνομα και το μέγεθος της μονάδας δίσκου και αντιγράψτε τυχόν αρχεία που θέλετε να διατηρήσετε πριν ξεκινήσετε.",
+  "Open the installation guide": "Ανοίξτε τον οδηγό εγκατάστασης",
+  "Download the Sloth OS ISO": "Κατεβάστε το Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Αφού γράψετε τη μονάδα USB, επανεκκινήστε τον υπολογιστή και επιλέξτε τη συσκευή USB από το μενού εκκίνησης.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Επαληθευμένες ενημερώσεις ✓ – αυτό το σύστημα δέχεται μόνο ενημερώσεις υπογεγραμμένες από Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Ο έλεγχος υπογραφής ενημέρωσης δεν είναι ενεργοποιημένος. Αυτό το σύστημα ενδέχεται να δέχεται μη υπογεγραμμένες ενημερώσεις.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Επόμενο"
 }

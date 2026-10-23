@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "প্রোগ্রামগুলি যেখানে আপনি উইন্ডোজ প্রোগ্রামগুলি ইনস্টল এবং শুরু করেন। গেমগুলিতে স্টিম এবং অন্যান্য গেম সরঞ্জামগুলির জন্য সেটিংস রয়েছে।",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "ফাইল ব্যাকআপ আপনার ফাইলগুলির সংরক্ষিত অনুলিপিগুলি দেখায়। প্রতিক্রিয়াটি সাহায্যের জন্য জিজ্ঞাসা করার জায়গা এবং ডিস্কগুলি উইন্ডোস থেকে ফাইলগুলি আনতে সহায়তা করতে পারে।",
   "Version: {version}": "সংস্করণঃ {version}",
-  "Get help": "সাহায্য চাও"
+  "Get help": "সাহায্য চাও",
+  "Create installation media": "ইনস্টলেশন মিডিয়া তৈরি করুন",
+  "Create a Sloth OS USB installer": "একটি Sloth OS USB ইনস্টলার তৈরি করুন",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Sloth OS ISO ডাউনলোড করুন, তারপর ফেডোরা মিডিয়া রাইটার বা রুফাস দিয়ে একটি USB ড্রাইভে লিখুন। সঠিক পদক্ষেপ এবং বুট মেনু কীগুলির জন্য সচিত্র নির্দেশিকা অনুসরণ করুন।",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ISO লেখার ফলে নির্বাচিত USB ড্রাইভে সবকিছু মুছে যায়। ড্রাইভের নাম এবং আকার সাবধানে পরীক্ষা করুন এবং শুরু করার আগে আপনি যে ফাইল রাখতে চান তা অনুলিপি করুন।",
+  "Open the installation guide": "ইনস্টলেশন গাইড খুলুন",
+  "Download the Sloth OS ISO": "Sloth OS ISO ডাউনলোড করুন",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "USB ড্রাইভ লেখার পরে, কম্পিউটার পুনরায় চালু করুন এবং এর বুট মেনু থেকে USB ডিভাইসটি চয়ন করুন।",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "যাচাইকৃত আপডেট ✓ – এই সিস্টেমটি শুধুমাত্র Sloth OS দ্বারা স্বাক্ষরিত আপডেটগুলি গ্রহণ করে ।",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "স্বাক্ষর পরীক্ষা আপডেট করা সম্ভব নয় । এই সিস্টেমটি স্বাক্ষরিত নয় এমন আপডেটগুলি গ্রহণ করতে পারে ।",
+  "Sloth OS": "Sloth OS",
+  "Next": "পরবর্তী"
 }

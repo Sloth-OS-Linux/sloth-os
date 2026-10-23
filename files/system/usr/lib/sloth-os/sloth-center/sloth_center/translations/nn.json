@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Program er der du installerer og startar Windows-program. Games har innstillingar for Steam og andre spiltøy.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup viser lagra kopiar av filane dine. Feedback er staden å be om hjelp, og Disks kan hjelpa til med å bruka over filane frå Windows.",
   "Get help": "Få hjelp",
-  "Version: {version}": "Versjon: {version}"
+  "Version: {version}": "Versjon: {version}",
+  "Create installation media": "Lag installasjonsmedier",
+  "Create a Sloth OS USB installer": "Opprett et Sloth OS USB-installasjonsprogram",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Last ned Sloth OS ISO, og skriv den deretter til en USB-stasjon med Fedora Media Writer eller Rufus. Følg den illustrerte veiledningen for de nøyaktige trinnene og oppstartsmenyen.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Å skrive ISO sletter alt på den valgte USB-stasjonen. Sjekk stasjonsnavnet og størrelsen nøye, og kopier alle filer du vil beholde før du starter.",
+  "Open the installation guide": "Åpne installasjonsveiledningen",
+  "Download the Sloth OS ISO": "Last ned Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Etter å ha skrevet USB-stasjonen, start datamaskinen på nytt og velg USB-enheten fra oppstartsmenyen.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Verifiserte oppdateringer ✓ – dette systemet godtar kun oppdateringer signert av Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Signatursjekk for oppdatering er ikke aktivert. Dette systemet kan godta usignerte oppdateringer.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Neste"
 }

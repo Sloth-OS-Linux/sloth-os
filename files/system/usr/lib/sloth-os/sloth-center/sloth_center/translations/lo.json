@@ -606,5 +606,16 @@
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup ສະແດງ ສໍາ ເນົາທີ່ເກັບໄວ້ຂອງເອກະສານຂອງທ່ານ. ຄໍາ ຕິຊົມແມ່ນບ່ອນທີ່ຈະຂໍຄວາມຊ່ວຍເຫຼືອ, ແລະ Disks ສາມາດຊ່ວຍ ນໍາ ເອົາເອກະພາບຈາກ Windows.",
   "Checking storage…": "ກວດເບິ່ງບ່ອນເກັບຮັກສາ...",
   "Storage information is not available.": "ຂໍ້ມູນການເກັບຮັກສາບໍ່ສາມາດໃຊ້ໄດ້.",
-  "Version: {version}": "ສະບັບ: {version}"
+  "Version: {version}": "ສະບັບ: {version}",
+  "Create installation media": "ສ້າງສື່ການຕິດຕັ້ງ",
+  "Create a Sloth OS USB installer": "ສ້າງຕົວຕິດຕັ້ງ Sloth OS USB",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "ດາວໂຫຼດ Sloth OS ISO, ຈາກນັ້ນຂຽນໃສ່ USB drive ດ້ວຍ Fedora Media Writer ຫຼື Rufus. ປະ​ຕິ​ບັດ​ຕາມ​ຄູ່​ມື​ສະ​ແດງ​ໃຫ້​ເຫັນ​ສໍາ​ລັບ​ຂັ້ນ​ຕອນ​ທີ່​ແນ່​ນອນ​ແລະ​ປຸ່ມ​ເມ​ນູ boot​.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ການຂຽນ ISO ຈະລຶບທຸກຢ່າງໃນ USB drive ທີ່ເລືອກ. ກວດເບິ່ງຊື່ ແລະຂະໜາດຂອງໄດຣຟ໌ຢ່າງລະມັດລະວັງ, ແລະສຳເນົາໄຟລ໌ໃດນຶ່ງທີ່ເຈົ້າຕ້ອງການເກັບໄວ້ກ່ອນທີ່ທ່ານຈະເລີ່ມຕົ້ນ.",
+  "Open the installation guide": "ເປີດຄູ່ມືການຕິດຕັ້ງ",
+  "Download the Sloth OS ISO": "ດາວໂຫລດ Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "ຫຼັງຈາກຂຽນ USB drive, restart ຄອມພິວເຕີແລະເລືອກອຸປະກອນ USB ຈາກເມນູ boot ຂອງມັນ.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "ອັບເດດທີ່ກວດສອບແລ້ວ ✓ – ລະບົບນີ້ຮັບສະເພາະອັບເດດທີ່ລົງລາຍເຊັນໂດຍ Sloth OS ເທົ່ານັ້ນ.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "ການກວດລາຍເຊັນອັບເດດບໍ່ໄດ້ເປີດໃຊ້. ລະບົບນີ້ອາດຮັບອັບເດດທີ່ບໍ່ມີລາຍເຊັນ.",
+  "Sloth OS": "Sloth OS",
+  "Next": "ຕໍ່ໄປ"
 }

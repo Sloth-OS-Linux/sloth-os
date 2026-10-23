@@ -606,5 +606,16 @@
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "ファイルバックアップは,保存されたファイルのコピーを示します.フィードバックは助けを求める場所であり,ディスクは Windows からファイルを持ち込むのに役立ちます.",
   "Get help": "支援を",
   "Version: {version}": "バージョン: {version}",
-  "Last backup: {date}": "最後のバックアップは {date}"
+  "Last backup: {date}": "最後のバックアップは {date}",
+  "Create installation media": "インストール メディアの作成",
+  "Create a Sloth OS USB installer": "Sloth OS USB インストーラーを作成する",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Sloth OS ISO をダウンロードし、Fedora Media Writer または Rufus を使用して USB ドライブに書き込みます。正確な手順とブート メニュー キーについては、図解付きのガイドに従ってください。",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ISO を書き込むと、選択した USB ドライブ上のすべてが消去されます。開始する前に、ドライブ名とサイズを注意深く確認し、保持したいファイルをコピーしてください。",
+  "Open the installation guide": "インストール ガイドを開きます",
+  "Download the Sloth OS ISO": "Sloth OS ISO をダウンロードします",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "USB ドライブに書き込んだ後、コンピューターを再起動し、ブート メニューから USB デバイスを選択します。",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "検証済みのアップデート✓–このシステムは、Sloth OSが署名したアップデートのみを受け付けます。",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "更新シグネチャチェックが有効になっていません。このシステムは署名されていないアップデートを受け入れる場合があります",
+  "Sloth OS": "Sloth OS",
+  "Next": "次へ"
 }

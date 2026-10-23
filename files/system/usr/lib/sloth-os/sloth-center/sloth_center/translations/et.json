@@ -606,5 +606,16 @@
   "Get help": "Helistage abi",
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Programs on koht, kus installite ja käivitate Windows programme. Mängud on seaded Steam ja teiste mänguväljade jaoks.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "Faili varundamine näitab salvestatud koopiaid teie failidest. Tagasiside on koht abi palumiseks ja Diskid võivad aidata failid Windowsist üle tuua.",
-  "Version: {version}": "Versioon: {version}"
+  "Version: {version}": "Versioon: {version}",
+  "Create installation media": "Looge installikandja",
+  "Create a Sloth OS USB installer": "Looge Sloth OS USB-installer",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Laadige alla Sloth OS ISO, seejärel kirjutage see Fedora Media Writeri või Rufuse abil USB-draivi. Täpsete sammude ja alglaadimismenüü klahvide jaoks järgige illustreeritud juhendit.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ISO kirjutamine kustutab kõik valitud USB-draivilt. Kontrollige hoolikalt draivi nime ja suurust ning kopeerige enne alustamist kõik failid, mida soovite säilitada.",
+  "Open the installation guide": "Avage paigaldusjuhend",
+  "Download the Sloth OS ISO": "Laadige alla Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Pärast USB-draivi kirjutamist taaskäivitage arvuti ja valige alglaadimismenüüst USB-seade.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Kinnitatud uuendused ✓ – see süsteem aktsepteerib ainult uuendusi, mille on allkirjastanud Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Värskenduse allkirja kontrollimine pole lubatud. See süsteem võib aktsepteerida allkirjastamata värskendusi.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Edasi"
 }

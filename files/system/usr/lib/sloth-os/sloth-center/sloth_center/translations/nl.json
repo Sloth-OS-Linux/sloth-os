@@ -606,5 +606,16 @@
   "Last backup: {date}": "Laatste back-up: {date}",
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Programs is de plek waar je Windows-programma's installeert en start. Games heeft instellingen voor Steam en andere game-tools.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup toont opgeslagen kopieën van je bestanden. Feedback is de plaats om hulp te vragen, en Disks kan helpen om bestanden over te brengen van Windows.",
-  "Version: {version}": "Versie: {version}"
+  "Version: {version}": "Versie: {version}",
+  "Create installation media": "Installatiemedia maken",
+  "Create a Sloth OS USB installer": "Maak een Sloth OS USB-installatieprogramma",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Download de Sloth OS ISO en schrijf deze vervolgens naar een USB-station met Fedora Media Writer of Rufus. Volg de geïllustreerde gids voor de exacte stappen en opstartmenutoetsen.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Door de ISO te schrijven, wordt alles op het geselecteerde USB-station gewist. Controleer de naam en grootte van de schijf zorgvuldig en kopieer alle bestanden die u wilt behouden voordat u begint.",
+  "Open the installation guide": "Open de installatiehandleiding",
+  "Download the Sloth OS ISO": "Download de Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Nadat u het USB-station hebt geschreven, start u de computer opnieuw op en kiest u het USB-apparaat in het opstartmenu.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Geverifieerde updates ✓ – dit systeem accepteert alleen updates die zijn ondertekend door Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Handtekeningcontrole bijwerken is niet ingeschakeld. Dit systeem kan niet-ondertekende updates accepteren.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Volgende"
 }

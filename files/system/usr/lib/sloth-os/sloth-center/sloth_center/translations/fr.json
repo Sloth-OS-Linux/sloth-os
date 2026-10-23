@@ -606,5 +606,16 @@
   "Checking storage…": "vérification du stockage...",
   "Storage information is not available.": "Aucune information de stockage n'est disponible.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "Les sauvegardes de fichiers montrent les copies enregistrées de vos fichier.",
-  "Get help": "Demandez de l' aide."
+  "Get help": "Demandez de l' aide.",
+  "Create installation media": "Créer un support d'installation",
+  "Create a Sloth OS USB installer": "Créez un programme d'installation USB Sloth OS",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Téléchargez l'ISO Sloth OS, puis écrivez-le sur une clé USB avec Fedora Media Writer ou Rufus. Suivez le guide illustré pour connaître les étapes exactes et les touches du menu de démarrage.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "L'écriture de l'ISO efface tout sur la clé USB sélectionnée. Vérifiez soigneusement le nom et la taille du lecteur et copiez tous les fichiers que vous souhaitez conserver avant de commencer.",
+  "Open the installation guide": "Ouvrir le guide d'installation",
+  "Download the Sloth OS ISO": "Téléchargez l'ISO Sloth OS",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Après avoir écrit la clé USB, redémarrez l'ordinateur et choisissez le périphérique USB dans son menu de démarrage.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Mises à jour vérifiées ✓ – ce système n'accepte que les mises à jour signées par Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "La vérification de la signature de mise à jour n'est pas activée. Ce système peut accepter des mises à jour non signées.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Suivant"
 }

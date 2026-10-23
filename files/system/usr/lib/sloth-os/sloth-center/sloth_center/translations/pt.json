@@ -606,5 +606,16 @@
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "Backup de arquivos mostra cópias salvas de seus arquvos. Feedback é o lugar para pedir ajuda, e Discos pode ajudar a trazer arquivamentos do Windows",
   "Version: {version}": "Versão: {version}",
   "Get help": "Chama ajuda.",
-  "Last backup: {date}": "Última cópia de segurança: {date}"
+  "Last backup: {date}": "Última cópia de segurança: {date}",
+  "Create installation media": "Crie mídia de instalação",
+  "Create a Sloth OS USB installer": "Crie um instalador USB Sloth OS",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Baixe o ISO Sloth OS e grave-o em uma unidade USB com o Fedora Media Writer ou Rufus. Siga o guia ilustrado para obter as etapas exatas e as teclas do menu de inicialização.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Escrever o ISO apaga tudo na unidade USB selecionada. Verifique o nome e o tamanho da unidade com cuidado e copie todos os arquivos que deseja manter antes de começar.",
+  "Open the installation guide": "Abra o guia de instalação",
+  "Download the Sloth OS ISO": "Baixe a ISO Sloth OS",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Depois de gravar a unidade USB, reinicie o computador e escolha o dispositivo USB no menu de inicialização.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Atualizações verificadas ✓ – este sistema só aceita atualizações assinadas por Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "A verificação da assinatura de atualização não está ativada. Este sistema pode aceitar atualizações não assinadas.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Seguinte"
 }

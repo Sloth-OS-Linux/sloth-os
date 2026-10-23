@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "هو المكان الذي تقوم فيه بتثبيت وتشغيل برامج ويندوز. الألعاب لديها إعدادات لـ Steam وأدوات اللعبة الأخرى.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "النسخ الاحتياطية لملف تعرض النسختين المحفوظة من ملفاتك. تعليقات هي المكان الذي يمكن أن تطلب المساعدة فيه، ويمكن أن تساعد الأقراص في نقل الملفات من ويندوس.",
   "Version: {version}": "النسخة: {version}",
-  "Last backup: {date}": "آخر نسخة احتياطية: {date}"
+  "Last backup: {date}": "آخر نسخة احتياطية: {date}",
+  "Create installation media": "إنشاء وسائط التثبيت",
+  "Create a Sloth OS USB installer": "قم بإنشاء برنامج تثبيت Sloth OS USB",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "قم بتنزيل ملف Sloth OS ISO، ثم اكتبه على محرك أقراص USB باستخدام Fedora Media Writer أو Rufus. اتبع الدليل المصور لمعرفة الخطوات الدقيقة ومفاتيح قائمة التمهيد.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "تؤدي كتابة ISO إلى مسح كل شيء على محرك أقراص USB المحدد. تحقق من اسم محرك الأقراص وحجمه بعناية، وانسخ أي ملفات تريد الاحتفاظ بها قبل البدء.",
+  "Open the installation guide": "افتح دليل التثبيت",
+  "Download the Sloth OS ISO": "قم بتنزيل ملف Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "بعد كتابة محرك أقراص USB، أعد تشغيل الكمبيوتر واختر جهاز USB من قائمة التمهيد الخاصة به.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "تحديثات تم التحقق منها ✓ – يقبل هذا النظام فقط التحديثات الموقعة بواسطة Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "لم يتم تمكين التحقق من توقيع التحديث. قد يقبل هذا النظام التحديثات غير الموقعة.",
+  "Sloth OS": "Sloth OS",
+  "Next": "التالي"
 }

@@ -606,5 +606,16 @@
   "Checking storage…": "Kontrola skladovania...",
   "Storage information is not available.": "Informácie o skladovaní nie sú k dispozícii.",
   "Get help": "Požiadajte o pomoc.",
-  "Version: {version}": "Verzia: {version}"
+  "Version: {version}": "Verzia: {version}",
+  "Create installation media": "Vytvorte inštalačné médium",
+  "Create a Sloth OS USB installer": "Vytvorte Sloth OS USB inštalačný program",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Stiahnite si Sloth OS ISO, potom ho zapíšte na USB disk pomocou Fedora Media Writer alebo Rufus. Presné kroky a klávesy zavádzacej ponuky nájdete v ilustrovanom sprievodcovi.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Zápis ISO vymaže všetko na vybranom USB disku. Pred začatím si pozorne skontrolujte názov a veľkosť jednotky a skopírujte všetky súbory, ktoré si chcete ponechať.",
+  "Open the installation guide": "Otvorte návod na inštaláciu",
+  "Download the Sloth OS ISO": "Stiahnite si Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Po zapísaní jednotky USB reštartujte počítač a v ponuke zavádzania vyberte zariadenie USB.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Overené aktualizácie ✓ – tento systém akceptuje iba aktualizácie podpísané Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Kontrola aktualizácie podpisu nie je povolená. Tento systém môže prijímať nepodpísané aktualizácie.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Ďalej"
 }

@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "ਪ੍ਰੋਗਰਾਮ ਉਹ ਥਾਂ ਹੈ ਜਿੱਥੇ ਤੁਸੀਂ ਵਿੰਡੋਜ਼ ਪ੍ਰੋਗਰਾਮਾਂ ਨੂੰ ਸਥਾਪਿਤ ਅਤੇ ਸ਼ੁਰੂ ਕਰਦੇ ਹੋ। ਗੇਮਾਂ ਵਿੱਚ ਸਟੀਮ ਅਤੇ ਹੋਰ ਗੇਮ ਟੂਲਸ ਲਈ ਸੈਟਿੰਗਾਂ ਹਨ।",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "ਫਾਈਲ ਬੈਕਅੱਪ ਤੁਹਾਡੀਆਂ ਫਾਈਲਾਂ ਦੀਆਂ ਸੁਰੱਖਿਅਤ ਕਾਪੀਆਂ ਦਿਖਾਉਂਦਾ ਹੈ। ਫੀਡਬੈਕ ਮਦਦ ਮੰਗਣ ਲਈ ਜਗ੍ਹਾ ਹੈ, ਅਤੇ ਡਿਸਕ ਵਿੰਡੋਜ ਤੋਂ ਫਾਈਨਾਂ ਲਿਆਉਣ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦੀ ਹੈ।",
   "Get help": "ਮਦਦ ਮੰਗੋ",
-  "Version: {version}": "ਵਰਜਨਃ {version}"
+  "Version: {version}": "ਵਰਜਨਃ {version}",
+  "Create installation media": "ਇੰਸਟਾਲੇਸ਼ਨ ਮੀਡੀਆ ਬਣਾਓ",
+  "Create a Sloth OS USB installer": "ਇੱਕ Sloth OS USB ਇੰਸਟਾਲਰ ਬਣਾਓ",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Sloth OS ISO ਨੂੰ ਡਾਉਨਲੋਡ ਕਰੋ, ਫਿਰ ਇਸਨੂੰ ਫੇਡੋਰਾ ਮੀਡੀਆ ਰਾਈਟਰ ਜਾਂ ਰੁਫਸ ਨਾਲ USB ਡਰਾਈਵ ਵਿੱਚ ਲਿਖੋ। ਸਹੀ ਕਦਮਾਂ ਅਤੇ ਬੂਟ ਮੀਨੂ ਕੁੰਜੀਆਂ ਲਈ ਸਚਿੱਤਰ ਗਾਈਡ ਦੀ ਪਾਲਣਾ ਕਰੋ।",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ISO ਲਿਖਣਾ ਚੁਣੀ USB ਡਰਾਈਵ 'ਤੇ ਸਭ ਕੁਝ ਮਿਟਾ ਦਿੰਦਾ ਹੈ। ਡਰਾਈਵ ਦੇ ਨਾਮ ਅਤੇ ਆਕਾਰ ਦੀ ਧਿਆਨ ਨਾਲ ਜਾਂਚ ਕਰੋ, ਅਤੇ ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਕਿਸੇ ਵੀ ਫਾਈਲ ਦੀ ਕਾਪੀ ਕਰੋ ਜੋ ਤੁਸੀਂ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ।",
+  "Open the installation guide": "ਇੰਸਟਾਲੇਸ਼ਨ ਗਾਈਡ ਖੋਲ੍ਹੋ",
+  "Download the Sloth OS ISO": "Sloth OS ISO ਨੂੰ ਡਾਊਨਲੋਡ ਕਰੋ",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "USB ਡਰਾਈਵ ਲਿਖਣ ਤੋਂ ਬਾਅਦ, ਕੰਪਿਊਟਰ ਨੂੰ ਮੁੜ ਚਾਲੂ ਕਰੋ ਅਤੇ ਇਸਦੇ ਬੂਟ ਮੀਨੂ ਤੋਂ USB ਡਿਵਾਈਸ ਚੁਣੋ।",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "ਤਸਦੀਕ ਕੀਤੇ ਅੱਪਡੇਟ ✓ – ਇਹ ਸਿਸਟਮ ਸਿਰਫ Sloth OS ਦੁਆਰਾ ਦਸਤਖਤ ਕੀਤੇ ਅੱਪਡੇਟ ਸਵੀਕਾਰ ਕਰਦਾ ਹੈ ।",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "ਅੱਪਡੇਟ ਦਸਤਖਤ ਜਾਂਚ ਯੋਗ ਨਹੀਂ ਹੈ । ਇਹ ਸਿਸਟਮ ਸਾਈਨ ਨਾ ਕੀਤੇ ਅੱਪਡੇਟ ਸਵੀਕਾਰ ਕਰ ਸਕਦਾ ਹੈ ।",
+  "Sloth OS": "Sloth OS",
+  "Next": "ਅੱਗੇ"
 }

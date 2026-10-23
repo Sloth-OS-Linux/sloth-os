@@ -606,5 +606,16 @@
   "Get help": "Pyydä apua",
   "Version: {version}": "Versio: {version}",
   "Storage information is not available.": "Säilytystietoja ei ole saatavilla.",
-  "Last backup: {date}": "Viimeinen varmuuskopiointi: {date}"
+  "Last backup: {date}": "Viimeinen varmuuskopiointi: {date}",
+  "Create installation media": "Luo asennusmedia",
+  "Create a Sloth OS USB installer": "Luo Sloth OS USB-asennusohjelma",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Lataa Sloth OS ISO ja kirjoita se sitten USB-asemaan Fedora Media Writerilla tai Rufusilla. Seuraa kuvattua opasta tarkat vaiheet ja käynnistysvalikon näppäimet.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ISO:n kirjoittaminen poistaa kaiken valitulta USB-asemalta. Tarkista aseman nimi ja koko huolellisesti ja kopioi kaikki tiedostot, jotka haluat säilyttää, ennen kuin aloitat.",
+  "Open the installation guide": "Avaa asennusopas",
+  "Download the Sloth OS ISO": "Lataa Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Kun olet kirjoittanut USB-aseman, käynnistä tietokone uudelleen ja valitse USB-laite sen käynnistysvalikosta.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Vahvistetut päivitykset ✓ – tämä järjestelmä hyväksyy vain päivitykset, jotka on allekirjoittanut Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Päivitä allekirjoituksen tarkistus ei ole käytössä. Tämä järjestelmä voi hyväksyä allekirjoittamattomia päivityksiä.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Seuraava"
 }

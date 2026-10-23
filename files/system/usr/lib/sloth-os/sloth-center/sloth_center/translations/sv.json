@@ -606,5 +606,16 @@
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup visar sparade kopior av dina filer. Feedback är platsen att be om hjälp, och Disks kan hjälpa till att föra över filer från Windows.",
   "Storage information is not available.": "Lagringsinformation inte tillgänglig.",
   "Get help": "Få hjälp",
-  "Last backup: {date}": "Sista säkerhetskopiering: {date}"
+  "Last backup: {date}": "Sista säkerhetskopiering: {date}",
+  "Create installation media": "Skapa installationsmedia",
+  "Create a Sloth OS USB installer": "Skapa ett Sloth OS USB-installationsprogram",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Ladda ner Sloth OS ISO, skriv den sedan till en USB-enhet med Fedora Media Writer eller Rufus. Följ den illustrerade guiden för de exakta stegen och startmenytangenterna.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Att skriva ISO raderar allt på den valda USB-enheten. Kontrollera enhetens namn och storlek noggrant och kopiera alla filer du vill behålla innan du börjar.",
+  "Open the installation guide": "Öppna installationsguiden",
+  "Download the Sloth OS ISO": "Ladda ner Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "När du har skrivit USB-enheten startar du om datorn och väljer USB-enheten från startmenyn.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Verifierade uppdateringar ✓ – detta system accepterar endast uppdateringar signerade av Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Uppdatering av signaturkontroll är inte aktiverad. Detta system kan acceptera osignerade uppdateringar.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Nästa"
 }

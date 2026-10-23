@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "Programs estas kie vi instalas kaj komencas Windows-programojn. Ludoj havas agordojn por Steam kaj aliaj ludiloj.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "File backup montras savitajn kopiojn de viaj dosieroj. Feedback estas la loko por peti helpon, kaj Disks povas helpi alporti dosierojn de Windows.",
   "Version: {version}": "Versio: {version}",
-  "Last backup: {date}": "La lasta kopiita: {date}"
+  "Last backup: {date}": "La lasta kopiita: {date}",
+  "Create installation media": "Krei instalajn mediojn",
+  "Create a Sloth OS USB installer": "Kreu Sloth OS USB-instalilon",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Elŝutu la Sloth OS ISO, tiam skribu ĝin al USB-disko kun Fedora Media Writer aŭ Rufus. Sekvu la ilustritan gvidilon por la ĝustaj paŝoj kaj ekŝargaj menuklavoj.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Skribi la ISO forigas ĉion sur la elektita USB-disko. Kontrolu la diskonomon kaj grandecon zorge, kaj kopiu iujn ajn dosierojn, kiujn vi volas konservi, antaŭ ol komenci.",
+  "Open the installation guide": "Malfermu la instalan gvidilon",
+  "Download the Sloth OS ISO": "Elŝutu la Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "Post skribado de la USB-disko, rekomencu la komputilon kaj elektu la USB-aparaton el ĝia ekmenuo.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Ĝisdatigoj kontrolitaj ✓ – ĉi tiu sistemo akceptas nur ĝisdatigojn subskribitajn de Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Kontrolado de ĝisdatigaj subskriboj ne estas ebligita. Ĉi tiu sistemo povas akcepti ĝisdatigojn sen subskribo.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Sekva"
 }

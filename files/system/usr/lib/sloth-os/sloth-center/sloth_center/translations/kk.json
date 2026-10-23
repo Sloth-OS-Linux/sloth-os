@@ -606,5 +606,16 @@
   "Storage information is not available.": "Сақтау мәліметі жоқ.",
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "бағдарламалары - Windows бағдарламаларын орнатып, жегу үшін арналған. Ойынның Steam және басқа ойын құралдары үшін параметрлері бар.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "файлдың сақтық көшірмесі файлдарыңыздың сақталған көшірмелерін көрсетеді. Қайталау - көмек сұрауға арналған орын, ал Дискілер Windows-тан файлдарды әкелуге көмектеседі.",
-  "Version: {version}": "Версиясы: {version}"
+  "Version: {version}": "Версиясы: {version}",
+  "Create installation media": "Орнату медиасын жасаңыз",
+  "Create a Sloth OS USB installer": "Sloth OS USB орнатушысын жасаңыз",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "Sloth OS ISO жүктеп алыңыз, содан кейін оны Fedora Media Writer немесе Rufus көмегімен USB дискісіне жазыңыз. Нақты қадамдар мен жүктеу мәзірінің пернелері үшін суреттелген нұсқаулықты орындаңыз.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "ISO жазу таңдалған USB дискісінің барлығын өшіреді. Бастамас бұрын дискінің атын және өлшемін мұқият тексеріңіз және сақтағыңыз келетін файлдарды көшіріңіз.",
+  "Open the installation guide": "Орнату нұсқаулығын ашыңыз",
+  "Download the Sloth OS ISO": "Sloth OS ISO жүктеп алыңыз",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "USB дискісін жазғаннан кейін компьютерді қайта іске қосыңыз және оның жүктеу мәзірінен USB құрылғысын таңдаңыз.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Тексерілген жаңартулар ✓ – бұл жүйе Sloth OS қол қойған жаңартуларды ғана қабылдайды.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Қолтаңбаны жаңартуды тексеру рұқсат етілмейді. Бұл жүйе қол қойылмаған жаңартуларды қабылдай алады.",
+  "Sloth OS": "Sloth OS",
+  "Next": "Келесі"
 }

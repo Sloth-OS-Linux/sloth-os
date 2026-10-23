@@ -606,5 +606,16 @@
   "Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.": "תוכניות הוא המקום שבו אתה מתקין ומפעיל תוכנות Windows. משחקים יש הגדרות עבור Steam וכלים משחקים אחרים.",
   "File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.": "גיבוי קבצים מראה עותקים נשמרים של הקבצים שלך. משוב הוא המקום לבקש עזרה, ודיסקים יכול לעזור להביא קבצים מעל Windows.",
   "Version: {version}": "גרסה: {version}",
-  "Last backup: {date}": "גיבוי אחרון: {date}"
+  "Last backup: {date}": "גיבוי אחרון: {date}",
+  "Create installation media": "צור מדיית התקנה",
+  "Create a Sloth OS USB installer": "צור מתקין USB Sloth OS",
+  "Download the Sloth OS ISO, then write it to a USB drive with Fedora Media Writer or Rufus. Follow the illustrated guide for the exact steps and boot menu keys.": "הורד את Sloth OS ISO, ואז כתוב אותו לכונן USB עם Fedora Media Writer או Rufus. עקוב אחר המדריך המאויר עבור השלבים המדויקים ומקשי תפריט האתחול.",
+  "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "כתיבת ה-ISO מוחקת הכל בכונן ה-USB שנבחר. בדוק היטב את שם הכונן והגודל, והעתק את כל הקבצים שתרצה לשמור לפני שתתחיל.",
+  "Open the installation guide": "פתח את מדריך ההתקנה",
+  "Download the Sloth OS ISO": "הורד את Sloth OS ISO",
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "לאחר כתיבת כונן ה-USB, הפעל מחדש את המחשב ובחר את התקן ה-USB מתפריט האתחול שלו.",
+  "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "עדכונים מאומתים ✓ – מערכת זו מקבלת רק עדכונים שנחתמו על ידי Sloth OS.",
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "בדיקת החתימה של העדכון אינה מופעלת. מערכת זו עשויה לקבל עדכונים לא חתומים.",
+  "Sloth OS": "Sloth OS",
+  "Next": "הבא"
 }
