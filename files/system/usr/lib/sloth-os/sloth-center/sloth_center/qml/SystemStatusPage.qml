@@ -10,6 +10,7 @@ Kirigami.ScrollablePage {
     title: L.t("System status")
 
     readonly property var storage: health.results.find(item => item.id === "disk") || null
+    readonly property var network: health.results.find(item => item.id === "network") || null
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
@@ -31,6 +32,29 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         text: L.tf("Version: {version}", { version: updates.currentVersion || "–" })
+                    }
+                }
+            }
+        }
+
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Icon {
+                    source: page.network ? page.network.icon : "network-wired"
+                    implicitWidth: Kirigami.Units.iconSizes.large
+                    implicitHeight: Kirigami.Units.iconSizes.large
+                }
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.smallSpacing
+                    Kirigami.Heading { text: L.t("Network"); level: 3 }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: page.network ? page.network.text
+                              : health.busy ? L.t("Checking…") : L.t("Network status is not available.")
                     }
                 }
             }

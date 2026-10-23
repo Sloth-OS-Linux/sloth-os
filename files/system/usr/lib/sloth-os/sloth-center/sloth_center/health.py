@@ -71,6 +71,46 @@ def check_disk():
             "freeText": tr("{gb} GB free", gb=f"{free_gb:.1f}") if free_values else ""}
 
 
+def check_network():
+    """Show whether NetworkManager has internet connectivity and the router's ping time."""
+    try:
+        state = subprocess.run(["nmcli", "-e", "no", "-t", "-f", "STATE,CONNECTIVITY", "general"],
+                               capture_output=True, text=True, timeout=5)
+        parts = state.stdout.strip().split(":", 1)
+        connection, connectivity = (parts + [""])[:2]
+    except (OSError, subprocess.SubprocessError):
+        connection = connectivity = ""
+
+    if not connection:
+        return {"id": "network", "title": tr("Network"), "icon": "network-wired", "state": WARN,
+                "text": tr("Could not read the network status. Check Wi-Fi or Ethernet in the system settings.")}
+    if not connection.startswith("connected"):
+        return {"id": "network", "title": tr("Network"), "icon": "network-wired", "state": WARN,
+                "text": tr("No network connection. Check Wi-Fi or Ethernet.")}
+    if connectivity in {"limited", "portal", "none"}:
+        return {"id": "network", "title": tr("Network"), "icon": "network-wired", "state": WARN,
+                "text": tr("Connected to the local network, but internet access may be unavailable. Sign in to the network if prompted, or check the router.")}
+
+    try:
+        route = subprocess.run(["ip", "-4", "route", "show", "default"], capture_output=True, text=True,
+                               timeout=3)
+        gateway = re.search(r"\bvia\s+(\S+)", route.stdout)
+        if gateway:
+            ping = subprocess.run(["ping", "-n", "-c", "1", "-W", "2", gateway.group(1)],
+                                  capture_output=True, text=True, timeout=4)
+            latency = re.search(r"time[=<]([\d.]+)\s*ms", ping.stdout)
+            if latency:
+                ms = latency.group(1)
+                slow = float(ms) >= 50
+                return {"id": "network", "title": tr("Network"), "icon": "network-wired",
+                        "state": WARN if slow else OK,
+                        "text": tr("Connected. {ms} ms to the router. High latency here can point to Wi-Fi or local network trouble; online game latency also depends on the game server and internet route.", ms=ms)}
+    except (OSError, subprocess.SubprocessError, ValueError):
+        pass
+    return {"id": "network", "title": tr("Network"), "icon": "network-wired", "state": OK,
+            "text": tr("Connected, but the router did not reply to a ping. It may block ping. If games lag, check Wi-Fi or Ethernet and the game server.")}
+
+
 def check_failed_units():
     try:
         bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
@@ -191,7 +231,7 @@ def write_log(path, lines=5000):
 
 
 def run_all():
-    results = [check_disk(), check_failed_units(), check_crashes(), *check_kernel(), check_temperature()]
+    results = [check_disk(), check_network(), check_failed_units(), check_crashes(), *check_kernel(), check_temperature()]
     order = {ERROR: 0, WARN: 1, OK: 2}
     return sorted(results, key=lambda r: order[r["state"]])
 
