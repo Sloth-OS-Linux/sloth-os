@@ -1,18 +1,14 @@
 {
   "_language": "Беларуская",
-
   "app.title": "Вітанне Sloth",
   "window.title": "Вітаем у Sloth OS",
-
   "welcome.heading": "Вітаем у Sloth OS!",
   "welcome.text": "Некалькі хуткіх пытанняў — і камп'ютар гатовы. Усё можна змяніць пазней.",
   "welcome.language": "Мова",
   "welcome.start": "Пачнём",
-
   "look.colors": "Якія колеры вам падабаюцца?",
   "look.colors_hint": "Націсніце на любы, і адразу ўбачыце, як гэта выглядае. Пазней яго можна змяніць у Параметрах сістэмы.",
   "look.taskbar": "Якой павінна быць панэль задач?",
-
   "scheme.SlothSilverDark": "Срэбра (цёмная)",
   "scheme.SlothSilverLight": "Срэбра (светлая)",
   "scheme.SlothWhite": "Беласнежная",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Туманна-блакітная",
   "scheme.SlothNight": "Начная сіняя",
   "scheme.SlothSage": "Шалфей",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Меню «Пуск» і значкі злева",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Меню «Пуск» і значкі пасярэдзіне",
   "layout.mac.name": "Як у macOS",
   "layout.mac.description": "Панэль уверсе, плаваючы док унізе",
+  "layout.ubuntu.name": "Як Ubuntu",
+  "layout.ubuntu.description": "Верхняя панэль, док злева",
   "security.heading": "Калі камп’ютар павінен пытацца пароль?",
   "security.text": "Некаторыя налады (напрыклад, усталяванне праграм) патрабуюць пароль. Так ніхто не зможа змяніць камп’ютар без вашага ведама.",
   "security.all": "Пытаць пры кожнай змене (найбольш бяспечна)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Так, дзяліцца ананімна",
   "sharing.no": "Не, дзякуй",
   "sharing.later": "Гэта можна ў любы час змяніць пазней у Sloth Center. Налады, што спрацавалі на іншых камп'ютарах, вы атрымаеце ў любым выпадку.",
-
   "windows.heading": "Перанесці файлы з Windows?",
   "windows.text": "На гэтым камп'ютары ёсць і Windows. Мы можам скапіраваць сюды вашы файлы; саму Windows не чапаем, толькі чытаем.",
   "windows.scanning": "Прагляд дыска Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "На гэтым камп'ютары не знойдзена файлаў Windows для пераносу.",
   "windows.failed": "Не ўдалося адкрыць дыск Windows. Запусціце Windows і цалкам выключыце (Завяршэнне працы, а не Перазапуск), потым паўтарыце ў Sloth Center (Дыскі).",
   "windows.bookmarks_file": "Закладкі Windows.html",
-
   "nav.back": "Назад",
   "nav.next": "Далей",
   "nav.skip": "Прапусціць",
   "nav.finish": "Гатова",
   "nav.install": "Усталяваць",
-
   "step.counter": "Крок {n} з {total}",
   "step.selected_one": "выбрана праграм: 1",
   "step.selected_many": "выбрана праграм: {count}",
-
   "category.multiple": "Можна выбраць некалькі або ніводнай.",
   "category.browser.name": "Вэб-браўзер",
   "category.browser.hint": "З ім вы выходзіце ў інтэрнэт. Без браўзера нельга адкрываць сайты.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Крамы і лаўнчары гульняў. Гульні і праграмы для Windows працуюць і без іх.",
   "category.creative.name": "Творчасць",
   "category.creative.hint": "Апрацоўка фота, маляванне, мантаж відэа, запіс.",
-
   "app.org.mozilla.firefox": "Хуткі, беражэ прыватнасць, адкрыты код",
   "app.com.google.Chrome": "Браўзер Google, сінхранізуецца з уліковым запісам Google",
   "app.com.brave.Browser": "З убудаваным блакавальнікам рэкламы",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Усталёўшчыкі праграм для Windows спампаваныя ({names}). Цяпер яны адкрыюцца па чарзе: прайдзіце кожнае ўсталяванне, як у Windows. Перазапуск — у канцы.",
   "done.windows_continue": "Перайсці да ўсталявання праграм для Windows",
   "done.windows_finished": "Усё гатова, і праграмы для Windows таксама! Пасля перазапуску ўсё загрузіцца як трэба.",
-
   "offline.text": "Няма злучэння з інтэрнэтам. Каб усталёўваць праграмы, падключыцеся да сеткі.",
   "offline.settings": "Параметры сеткі",
   "offline.retry": "Паўтарыць",
-
   "nobrowser.title": "Вы не выбралі браўзер",
   "nobrowser.text": "Без браўзера нельга адкрываць сайты. Вы ўпэўнены?",
   "nobrowser.choose": "Выберу які-небудзь",
   "nobrowser.ok": "Усё добра",
-
   "install.preparing": "Падрыхтоўка да ўсталявання…",
   "install.retrying": "Злучэнне перарвалася, спрабую зноў…",
   "install.installing": "Усталяванне: {name}…",
   "install.note": "У залежнасці ад злучэння гэта можа заняць некалькі хвілін.",
-
   "error.network": "Няма злучэння з інтэрнэтам, або сервер недаступны.",
   "error.disk_full": "Недастаткова вольнага месца на дыску.",
   "error.not_authorized": "Не атрымана дазволу на ўсталяванне.",
   "error.checksum": "Спампаваны файл пашкоджаны, таму яго не ўсталявалі.",
   "error.generic": "Не ўдалося ўсталяваць.",
-
   "done.nothing_selected": "Гатова! Праграмы можна ўсталяваць пазней у Discover.",
   "done.all_ok": "Усё гатова! Вашы праграмы чакаюць у меню «Пуск».",
   "done.some_failed": "Амаль гатова. Некаторыя праграмы не ўдалося ўсталяваць:",
@@ -184,7 +171,6 @@
   "done.start": "Прыемнага карыстання!",
   "done.restart": "Перазапусціць",
   "done.restart_hint": "Перазапусціце камп'ютар, каб усе новыя праграмы загрузіліся як мае быць.",
-
   "desktop.generic": "Праграмы і выгляд",
   "desktop.comment": "Усталёўка браўзера, офіснага пакета, медыяпрайгравальніка і іншага, выбар колеравай схемы",
   "desktop.keywords": "вітанне;праграмы;браўзер;офіс;тэма",

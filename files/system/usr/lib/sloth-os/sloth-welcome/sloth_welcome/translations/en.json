@@ -1,18 +1,14 @@
 {
   "_language": "English",
-
   "app.title": "Sloth Welcome",
   "window.title": "Welcome to Sloth OS",
-
   "welcome.heading": "Welcome to Sloth OS!",
   "welcome.text": "A few quick questions and your computer is ready. You can change everything later.",
   "welcome.language": "Language",
   "welcome.start": "Let's go",
-
   "look.colors": "Which colors do you like?",
   "look.colors_hint": "Click one to see it right away. You can change it later in System Settings.",
   "look.taskbar": "How should the taskbar look?",
-
   "scheme.SlothSilverDark": "Silver (dark)",
   "scheme.SlothSilverLight": "Silver (light)",
   "scheme.SlothWhite": "Snow White",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Mist Blue",
   "scheme.SlothNight": "Night Blue",
   "scheme.SlothSage": "Sage",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Start menu and icons on the left",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Start menu and icons in the center",
   "layout.mac.name": "macOS-like",
   "layout.mac.description": "Top bar, floating dock at the bottom",
+  "layout.ubuntu.name": "Ubuntu-like",
+  "layout.ubuntu.description": "Top bar, dock on the left",
   "security.heading": "When should your computer ask for your password?",
   "security.text": "Some settings (such as installing programs) ask for your password. That way nobody can change your computer without you knowing.",
   "security.all": "Ask for every change (the most secure)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Yes, share anonymously",
   "sharing.no": "No, thanks",
   "sharing.later": "You can change this any time later in Sloth Center. You get the settings that worked on other computers either way.",
-
   "windows.heading": "Bring your files over from Windows?",
   "windows.text": "This computer also has Windows. We can copy your files over; Windows itself isn't touched, we only read from it.",
   "windows.scanning": "Looking through the Windows drive…",
@@ -63,17 +59,14 @@
   "windows.none": "No Windows files to bring over were found on this computer.",
   "windows.failed": "The Windows drive couldn't be opened. Start Windows and shut it down completely (Shut down, not Restart), then try again from Sloth Center (Disks).",
   "windows.bookmarks_file": "Windows bookmarks.html",
-
   "nav.back": "Back",
   "nav.next": "Next",
   "nav.skip": "Skip",
   "nav.finish": "Finish",
   "nav.install": "Install",
-
   "step.counter": "Step {n} of {total}",
   "step.selected_one": "1 app selected",
   "step.selected_many": "{count} apps selected",
-
   "category.multiple": "You can pick several, or none.",
   "category.browser.name": "Web browser",
   "category.browser.hint": "This is how you get online. Without a browser you can't open websites.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Game stores and launchers. Windows games and programs also run without them.",
   "category.creative.name": "Creativity",
   "category.creative.hint": "Photo editing, drawing, video editing, recording.",
-
   "app.org.mozilla.firefox": "Fast, privacy-minded, open source",
   "app.com.google.Chrome": "Google's browser, syncs with your Google account",
   "app.com.brave.Browser": "With a built-in ad blocker",
@@ -150,27 +142,22 @@
   "done.windows_hint": "The Windows program installers have been downloaded ({names}). They will now open one by one: go through each installation, just like on Windows. Restarting comes at the end.",
   "done.windows_continue": "Continue to installing Windows programs",
   "done.windows_finished": "All done, Windows programs too! After a restart everything loads properly.",
-
   "offline.text": "No internet connection. Connect to a network to install apps.",
   "offline.settings": "Network settings",
   "offline.retry": "Retry",
-
   "nobrowser.title": "You didn't pick a browser",
   "nobrowser.text": "Without a browser you can't open websites. Are you sure?",
   "nobrowser.choose": "I'll pick one",
   "nobrowser.ok": "That's fine",
-
   "install.preparing": "Getting ready to install…",
   "install.retrying": "The connection dropped, trying again…",
   "install.installing": "Installing {name}…",
   "install.note": "Depending on your connection, this may take a few minutes.",
-
   "error.network": "No internet connection, or the server can't be reached.",
   "error.disk_full": "There isn't enough free disk space.",
   "error.not_authorized": "We didn't get permission to install.",
   "error.checksum": "The downloaded file was damaged, so we didn't install it.",
   "error.generic": "Installation failed.",
-
   "done.nothing_selected": "All done! You can install apps later in Discover.",
   "done.all_ok": "All done! Your apps are waiting in the Start menu.",
   "done.some_failed": "Almost done. Some apps couldn't be installed:",
@@ -184,7 +171,6 @@
   "done.start": "Let's have fun!",
   "done.restart": "Restart",
   "done.restart_hint": "Restart the computer so all new apps load properly.",
-
   "desktop.generic": "Apps and appearance",
   "desktop.comment": "Install a browser, office suite, media player and more, pick a color theme",
   "desktop.keywords": "welcome;apps;browser;office;theme",

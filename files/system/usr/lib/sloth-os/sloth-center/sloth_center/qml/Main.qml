@@ -23,6 +23,7 @@ Kirigami.ApplicationWindow {
         { id: "drivers", name: L.t("Drivers and hardware"), icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true },
         { id: "services", name: L.t("Services"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true },
         { id: "accounts", name: L.t("Account and security"), icon: "preferences-system-users", page: "AccountsPage.qml", ready: true },
+        { id: "appearance", name: L.t("Appearance"), icon: "preferences-desktop-theme-global", page: "AppearancePage.qml", ready: true },
         { id: "parental", name: L.t("Parental controls"), icon: "user-group-properties", ready: false,
           description: L.t("Child accounts, age-appropriate apps and screen time. This part is coming in a future update.") },
         { id: "health", name: L.t("System health"), icon: "dialog-information", page: "HealthPage.qml", ready: true },

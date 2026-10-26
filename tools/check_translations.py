@@ -22,6 +22,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 WELCOME = REPO / "files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome"
+APPEARANCE = REPO / "files/system/usr/lib/sloth-os/common/sloth_common/appearance.py"
 INSTALLER = REPO / "iso/files/usr/lib/sloth-os/sloth-installer/sloth_installer"
 INSTALL_HELPER = REPO / "iso/files/usr/libexec/sloth-os/sloth-install-helper"
 EXE = REPO / "files/system/usr/lib/sloth-os/sloth-exe/sloth_exe"
@@ -59,9 +60,10 @@ def welcome_keys():
     for cat in literal(WELCOME / "catalog.py", "CATEGORIES"):
         keys |= {f"category.{cat['id']}.name", f"category.{cat['id']}.hint"}
         keys |= {f"app.{a['id']}" for a in cat["apps"]}
-    keys |= {f"scheme.{s['id']}" for s in literal(WELCOME / "desktop.py", "COLOR_SCHEMES")}
-    for l in literal(WELCOME / "desktop.py", "LAYOUTS"):
-        keys |= {f"layout.{l['id']}.name", f"layout.{l['id']}.description"}
+    # the color schemes and layouts are shared with Sloth Center (sloth_common.appearance)
+    keys |= {f"scheme.{s['id']}" for s in literal(APPEARANCE, "COLOR_SCHEMES")}
+    for kind in literal(APPEARANCE, "LAYOUTS"):
+        keys |= {f"layout.{kind}.name", f"layout.{kind}.description"}
     return keys | DESKTOP_KEYS["sloth-welcome"]
 
 

@@ -1,18 +1,14 @@
 {
   "_language": "简体中文",
-
   "app.title": "Sloth 欢迎",
   "window.title": "欢迎使用 Sloth OS",
-
   "welcome.heading": "欢迎使用 Sloth OS！",
   "welcome.text": "回答几个简单的问题，电脑就准备好了。所有设置以后都可以更改。",
   "welcome.language": "语言",
   "welcome.start": "开始",
-
   "look.colors": "你喜欢哪种颜色？",
   "look.colors_hint": "点击一个即可立即看到效果。以后可以在系统设置中更改。",
   "look.taskbar": "任务栏要什么样式？",
-
   "scheme.SlothSilverDark": "银色（深色）",
   "scheme.SlothSilverLight": "银色（浅色）",
   "scheme.SlothWhite": "雪白",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "雾蓝",
   "scheme.SlothNight": "夜蓝",
   "scheme.SlothSage": "鼠尾草绿",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "开始菜单和图标靠左",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "开始菜单和图标居中",
   "layout.mac.name": "类似 macOS",
   "layout.mac.description": "顶部栏，底部悬浮程序坞",
+  "layout.ubuntu.name": "类似 Ubuntu",
+  "layout.ubuntu.description": "顶部栏，左侧程序坞",
   "security.heading": "电脑何时需要询问密码?",
   "security.text": "有些设置(例如安装程序)需要你的密码。这样别人就无法在你不知情的情况下更改电脑。",
   "security.all": "每次更改都询问(最安全)",
@@ -40,7 +37,6 @@
   "sharing.yes": "是，匿名分享",
   "sharing.no": "不，谢谢",
   "sharing.later": "以后可以随时在 Sloth Center 中更改。无论怎么选，你都会获得在其他电脑上可行的设置。",
-
   "windows.heading": "要把文件从 Windows 搬过来吗？",
   "windows.text": "这台电脑上还有 Windows。我们可以把您的文件复制到这里；不会改动 Windows，只读取。",
   "windows.scanning": "正在查看 Windows 驱动器…",
@@ -63,17 +59,14 @@
   "windows.none": "这台电脑上没有找到可搬过来的 Windows 文件。",
   "windows.failed": "无法打开 Windows 驱动器。请启动 Windows 并完全关机（关机，而不是重启），然后从 Sloth Center（磁盘）重试。",
   "windows.bookmarks_file": "Windows 书签.html",
-
   "nav.back": "上一步",
   "nav.next": "下一步",
   "nav.skip": "跳过",
   "nav.finish": "完成",
   "nav.install": "安装",
-
   "step.counter": "第 {n} 步，共 {total} 步",
   "step.selected_one": "已选择 1 个应用",
   "step.selected_many": "已选择 {count} 个应用",
-
   "category.multiple": "可以选择多个，也可以都不选。",
   "category.browser.name": "网页浏览器",
   "category.browser.hint": "用来上网。没有浏览器就无法打开网站。",
@@ -87,7 +80,6 @@
   "category.games.hint": "游戏商店和启动器。没有它们，Windows 游戏和程序也能运行。",
   "category.creative.name": "创作",
   "category.creative.hint": "修图、绘画、视频剪辑、录制。",
-
   "app.org.mozilla.firefox": "快速、注重隐私、开源",
   "app.com.google.Chrome": "Google 的浏览器，与 Google 账号同步",
   "app.com.brave.Browser": "内置广告拦截",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Windows 程序的安装程序已下载（{names}）。现在会逐个打开：请像在 Windows 中一样完成每个安装。重启放在最后。",
   "done.windows_continue": "继续安装 Windows 程序",
   "done.windows_finished": "全部完成，Windows 程序也装好了！重启后一切都会正常加载。",
-
   "offline.text": "没有网络连接。请连接网络以安装应用。",
   "offline.settings": "网络设置",
   "offline.retry": "重试",
-
   "nobrowser.title": "你没有选择浏览器",
   "nobrowser.text": "没有浏览器就无法打开网站。确定要这样吗？",
   "nobrowser.choose": "我选一个",
   "nobrowser.ok": "就这样吧",
-
   "install.preparing": "正在准备安装…",
   "install.retrying": "连接中断，正在重试…",
   "install.installing": "正在安装 {name}…",
   "install.note": "视网速而定，可能需要几分钟。",
-
   "error.network": "没有网络连接，或无法访问服务器。",
   "error.disk_full": "磁盘空间不足。",
   "error.not_authorized": "未获得安装权限。",
   "error.checksum": "下载的文件已损坏，因此未安装。",
   "error.generic": "安装失败。",
-
   "done.nothing_selected": "完成！以后可以在 Discover 中安装应用。",
   "done.all_ok": "全部完成！你选的应用已在开始菜单中。",
   "done.some_failed": "快完成了。部分应用未能安装：",
@@ -184,7 +171,6 @@
   "done.start": "尽情享受吧！",
   "done.restart": "重新启动",
   "done.restart_hint": "重新启动电脑，让所有新应用正常加载。",
-
   "desktop.generic": "应用与外观",
   "desktop.comment": "安装浏览器、办公套件、媒体播放器等，选择配色方案",
   "desktop.keywords": "欢迎;应用;浏览器;办公;主题",

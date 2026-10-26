@@ -1,18 +1,14 @@
 {
   "_language": "Türkçe",
-
   "app.title": "Sloth Karşılama",
   "window.title": "Sloth OS'a hoş geldiniz",
-
   "welcome.heading": "Sloth OS'a hoş geldiniz!",
   "welcome.text": "Birkaç kısa soru ve bilgisayarınız hazır. Her şeyi daha sonra değiştirebilirsiniz.",
   "welcome.language": "Dil",
   "welcome.start": "Başlayalım",
-
   "look.colors": "Hangi renkleri seversiniz?",
   "look.colors_hint": "Birine tıklayın, nasıl göründüğünü hemen görün. Daha sonra Sistem Ayarları'ndan değiştirebilirsiniz.",
   "look.taskbar": "Görev çubuğu nasıl olsun?",
-
   "scheme.SlothSilverDark": "Gümüş (koyu)",
   "scheme.SlothSilverLight": "Gümüş (açık)",
   "scheme.SlothWhite": "Kar beyazı",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Sis mavisi",
   "scheme.SlothNight": "Gece mavisi",
   "scheme.SlothSage": "Adaçayı",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Başlat menüsü ve simgeler solda",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Başlat menüsü ve simgeler ortada",
   "layout.mac.name": "macOS benzeri",
   "layout.mac.description": "Üstte çubuk, altta yüzen rıhtım",
+  "layout.ubuntu.name": "Ubuntu benzeri",
+  "layout.ubuntu.description": "Üst çubuk, solda dok",
   "security.heading": "Bilgisayar parolanızı ne zaman sorsun?",
   "security.text": "Bazı ayarlar (örneğin program yükleme) parolanızı ister. Böylece kimse bilginiz olmadan bilgisayarınızı değiştiremez.",
   "security.all": "Her değişiklikte (en güvenli)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Evet, anonim olarak paylaş",
   "sharing.no": "Hayır, teşekkürler",
   "sharing.later": "Bunu daha sonra istediğin zaman Sloth Center'da değiştirebilirsin. Başka bilgisayarlarda işe yarayan ayarları her durumda alırsın.",
-
   "windows.heading": "Dosyalarınızı Windows'tan getirelim mi?",
   "windows.text": "Bu bilgisayarda Windows da var. Dosyalarınızı buraya kopyalayabiliriz; Windows'a dokunulmaz, yalnızca okunur.",
   "windows.scanning": "Windows sürücüsü inceleniyor…",
@@ -63,17 +59,14 @@
   "windows.none": "Bu bilgisayarda getirilecek Windows dosyası bulunamadı.",
   "windows.failed": "Windows sürücüsü açılamadı. Windows'u başlatıp tamamen kapatın (Kapat, Yeniden başlat değil), ardından Sloth Center'dan (Diskler) yeniden deneyin.",
   "windows.bookmarks_file": "Windows yer imleri.html",
-
   "nav.back": "Geri",
   "nav.next": "İleri",
   "nav.skip": "Atla",
   "nav.finish": "Bitir",
   "nav.install": "Kur",
-
   "step.counter": "Adım {n} / {total}",
   "step.selected_one": "1 uygulama seçildi",
   "step.selected_many": "{count} uygulama seçildi",
-
   "category.multiple": "Birden fazlasını seçebilir ya da hiçbirini seçmeyebilirsiniz.",
   "category.browser.name": "Web tarayıcısı",
   "category.browser.hint": "İnternete onunla girersiniz. Tarayıcı olmadan web sitelerini açamazsınız.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Oyun mağazaları ve başlatıcılar. Windows oyunları ve programları bunlar olmadan da çalışır.",
   "category.creative.name": "Yaratıcılık",
   "category.creative.hint": "Fotoğraf düzenleme, çizim, video düzenleme, kayıt.",
-
   "app.org.mozilla.firefox": "Hızlı, gizliliğe önem veren, açık kaynak",
   "app.com.google.Chrome": "Google'ın tarayıcısı, Google hesabınızla eşitlenir",
   "app.com.brave.Browser": "Yerleşik reklam engelleyiciyle",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Windows programlarının kurulum dosyaları indirildi ({names}). Şimdi tek tek açılacaklar: her kurulumu Windows'taki gibi tamamlayın. Yeniden başlatma en sonda.",
   "done.windows_continue": "Windows programlarının kurulumuna devam et",
   "done.windows_finished": "Her şey hazır, Windows programları da! Yeniden başlattıktan sonra her şey düzgün yüklenir.",
-
   "offline.text": "İnternet bağlantısı yok. Uygulama kurmak için bir ağa bağlanın.",
   "offline.settings": "Ağ ayarları",
   "offline.retry": "Yeniden dene",
-
   "nobrowser.title": "Bir tarayıcı seçmediniz",
   "nobrowser.text": "Tarayıcı olmadan web sitelerini açamazsınız. Emin misiniz?",
   "nobrowser.choose": "Bir tane seçeceğim",
   "nobrowser.ok": "Böyle iyi",
-
   "install.preparing": "Kuruluma hazırlanılıyor…",
   "install.retrying": "Bağlantı koptu, yeniden deneniyor…",
   "install.installing": "{name} kuruluyor…",
   "install.note": "Bağlantınıza göre bu birkaç dakika sürebilir.",
-
   "error.network": "İnternet bağlantısı yok veya sunucuya ulaşılamıyor.",
   "error.disk_full": "Diskte yeterli boş alan yok.",
   "error.not_authorized": "Kurulum için izin alınamadı.",
   "error.checksum": "İndirilen dosya bozuktu, bu yüzden kurulmadı.",
   "error.generic": "Kurulum başarısız oldu.",
-
   "done.nothing_selected": "Bitti! Uygulamaları daha sonra Discover'dan kurabilirsiniz.",
   "done.all_ok": "Her şey hazır! Uygulamalarınız Başlat menüsünde sizi bekliyor.",
   "done.some_failed": "Neredeyse bitti. Bazı uygulamalar kurulamadı:",
@@ -184,7 +171,6 @@
   "done.start": "İyi eğlenceler!",
   "done.restart": "Yeniden başlat",
   "done.restart_hint": "Tüm yeni uygulamaların düzgün yüklenmesi için bilgisayarı yeniden başlatın.",
-
   "desktop.generic": "Uygulamalar ve görünüm",
   "desktop.comment": "Tarayıcı, ofis paketi, medya oynatıcı ve daha fazlasını yükleme, renk şeması seçme",
   "desktop.keywords": "hoş geldiniz;uygulamalar;tarayıcı;ofis;tema",

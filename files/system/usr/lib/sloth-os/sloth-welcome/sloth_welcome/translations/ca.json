@@ -1,18 +1,14 @@
 {
   "_language": "Català",
-
   "app.title": "Benvinguda de Sloth",
   "window.title": "Us donem la benvinguda a Sloth OS",
-
   "welcome.heading": "Benvingut a Sloth OS!",
   "welcome.text": "Unes quantes preguntes ràpides i l'ordinador estarà a punt. Ho pots canviar tot més endavant.",
   "welcome.language": "Llengua",
   "welcome.start": "Comencem",
-
   "look.colors": "Quins colors t'agraden?",
   "look.colors_hint": "Fes clic en un i veuràs de seguida com queda. El pots canviar més endavant a la Configuració del sistema.",
   "look.taskbar": "Com vols la barra de tasques?",
-
   "scheme.SlothSilverDark": "Plata (fosc)",
   "scheme.SlothSilverLight": "Plata (clar)",
   "scheme.SlothWhite": "Blanc neu",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Blau boira",
   "scheme.SlothNight": "Blau nit",
   "scheme.SlothSage": "Sàlvia",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menú Inici i icones a l'esquerra",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menú Inici i icones al centre",
   "layout.mac.name": "Estil macOS",
   "layout.mac.description": "Barra a dalt, acoblador flotant a baix",
+  "layout.ubuntu.name": "Com Ubuntu",
+  "layout.ubuntu.description": "Barra superior, acoblador a l'esquerra",
   "security.heading": "Quan us ha de demanar la contrasenya l’ordinador?",
   "security.text": "Alguns paràmetres (com instal·lar programes) demanen la vostra contrasenya. Així ningú no pot canviar l’ordinador sense que ho sapigueu.",
   "security.all": "A cada canvi (el més segur)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Sí, comparteix de manera anònima",
   "sharing.no": "No, gràcies",
   "sharing.later": "Ho pots canviar més endavant en qualsevol moment al Sloth Center. Rebràs igualment els ajustos que han funcionat en altres ordinadors.",
-
   "windows.heading": "Portem els fitxers de Windows?",
   "windows.text": "Aquest ordinador també té Windows. Podem copiar-hi els vostres fitxers; Windows no es modifica, només en llegim.",
   "windows.scanning": "S'està revisant la unitat de Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "No s'han trobat fitxers de Windows per portar en aquest ordinador.",
   "windows.failed": "No s'ha pogut obrir la unitat de Windows. Inicieu Windows i apagueu-lo del tot (Apaga, no Reinicia), i torneu-ho a provar des de Sloth Center (Discs).",
   "windows.bookmarks_file": "Adreces d'interès de Windows.html",
-
   "nav.back": "Enrere",
   "nav.next": "Següent",
   "nav.skip": "Omet",
   "nav.finish": "Acaba",
   "nav.install": "Instal·la",
-
   "step.counter": "Pas {n} de {total}",
   "step.selected_one": "1 aplicació seleccionada",
   "step.selected_many": "{count} aplicacions seleccionades",
-
   "category.multiple": "En pots triar diverses, o cap.",
   "category.browser.name": "Navegador web",
   "category.browser.hint": "Amb ell navegues per Internet. Sense navegador no pots obrir pàgines web.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Botigues i llançadors de jocs. Els jocs i programes de Windows també funcionen sense ells.",
   "category.creative.name": "Creativitat",
   "category.creative.hint": "Edició de fotos, dibuix, edició de vídeo, enregistrament.",
-
   "app.org.mozilla.firefox": "Ràpid, respectuós amb la privadesa, de codi obert",
   "app.com.google.Chrome": "El navegador de Google, se sincronitza amb el teu compte de Google",
   "app.com.brave.Browser": "Amb bloquejador d'anuncis integrat",
@@ -150,27 +142,22 @@
   "done.windows_hint": "S'han baixat els instal·ladors dels programes de Windows ({names}). Ara s'obriran un per un: completeu cada instal·lació, com a Windows. El reinici ve al final.",
   "done.windows_continue": "Continua amb la instal·lació dels programes de Windows",
   "done.windows_finished": "Tot llest, també els programes de Windows! Després de reiniciar, tot es carregarà correctament.",
-
   "offline.text": "No hi ha connexió a Internet. Connecta't a una xarxa per instal·lar aplicacions.",
   "offline.settings": "Configuració de la xarxa",
   "offline.retry": "Torna-ho a provar",
-
   "nobrowser.title": "No has triat cap navegador",
   "nobrowser.text": "Sense navegador no podràs obrir pàgines web. N'estàs segur?",
   "nobrowser.choose": "En triaré un",
   "nobrowser.ok": "Ja està bé així",
-
   "install.preparing": "S'està preparant la instal·lació…",
   "install.retrying": "S'ha perdut la connexió, s'està tornant a provar…",
   "install.installing": "S'està instal·lant {name}…",
   "install.note": "Segons la connexió, pot trigar uns minuts.",
-
   "error.network": "No hi ha connexió a Internet o no es pot accedir al servidor.",
   "error.disk_full": "No hi ha prou espai lliure al disc.",
   "error.not_authorized": "No hem obtingut permís per instal·lar.",
   "error.checksum": "El fitxer baixat estava malmès i per això no s'ha instal·lat.",
   "error.generic": "No s'ha pogut instal·lar.",
-
   "done.nothing_selected": "Fet! Pots instal·lar aplicacions més endavant des del Discover.",
   "done.all_ok": "Tot a punt! Les teves aplicacions t'esperen al menú Inici.",
   "done.some_failed": "Gairebé fet. Algunes aplicacions no s'han pogut instal·lar:",
@@ -184,7 +171,6 @@
   "done.start": "A divertir-se!",
   "done.restart": "Reinicia",
   "done.restart_hint": "Reinicia l'ordinador perquè totes les aplicacions noves es carreguin bé.",
-
   "desktop.generic": "Aplicacions i aparença",
   "desktop.comment": "Instal·lar un navegador, un paquet ofimàtic, un reproductor multimèdia i més, i triar un esquema de colors",
   "desktop.keywords": "benvinguda;aplicacions;navegador;ofimàtica;tema",

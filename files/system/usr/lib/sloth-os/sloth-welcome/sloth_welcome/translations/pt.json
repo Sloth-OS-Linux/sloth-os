@@ -1,18 +1,14 @@
 {
   "_language": "Português (Portugal)",
-
   "app.title": "Boas-vindas do Sloth",
   "window.title": "Bem-vindo ao Sloth OS",
-
   "welcome.heading": "Bem-vindo ao Sloth OS!",
   "welcome.text": "Algumas perguntas rápidas e o seu computador fica pronto. Pode alterar tudo mais tarde.",
   "welcome.language": "Idioma",
   "welcome.start": "Vamos começar",
-
   "look.colors": "De que cores gosta?",
   "look.colors_hint": "Clique numa para a ver de imediato. Pode alterá-la mais tarde nas Definições do sistema.",
   "look.taskbar": "Como deve ser a barra de tarefas?",
-
   "scheme.SlothSilverDark": "Prateado (escuro)",
   "scheme.SlothSilverLight": "Prateado (claro)",
   "scheme.SlothWhite": "Branco neve",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Azul névoa",
   "scheme.SlothNight": "Azul noite",
   "scheme.SlothSage": "Salva",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menu Iniciar e ícones à esquerda",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menu Iniciar e ícones ao centro",
   "layout.mac.name": "Estilo macOS",
   "layout.mac.description": "Barra no topo, doca flutuante em baixo",
+  "layout.ubuntu.name": "Estilo Ubuntu",
+  "layout.ubuntu.description": "Barra superior, dock à esquerda",
   "security.heading": "Quando deve o computador pedir a sua palavra-passe?",
   "security.text": "Algumas definições (como instalar programas) pedem a sua palavra-passe. Assim ninguém pode alterar o computador sem o seu conhecimento.",
   "security.all": "Em cada alteração (o mais seguro)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Sim, partilhar de forma anónima",
   "sharing.no": "Não, obrigado",
   "sharing.later": "Podes mudar isto mais tarde a qualquer momento no Sloth Center. As definições que funcionaram noutros computadores recebe-las de qualquer forma.",
-
   "windows.heading": "Trazer os seus ficheiros do Windows?",
   "windows.text": "Este computador também tem Windows. Podemos copiar os seus ficheiros para aqui; o Windows não é alterado, apenas lemos dele.",
   "windows.scanning": "A verificar a unidade do Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Não foram encontrados ficheiros do Windows para trazer neste computador.",
   "windows.failed": "Não foi possível abrir a unidade do Windows. Inicie o Windows e encerre-o por completo (Encerrar, não Reiniciar), depois tente novamente a partir do Sloth Center (Discos).",
   "windows.bookmarks_file": "Marcadores do Windows.html",
-
   "nav.back": "Anterior",
   "nav.next": "Seguinte",
   "nav.skip": "Ignorar",
   "nav.finish": "Concluir",
   "nav.install": "Instalar",
-
   "step.counter": "Passo {n} de {total}",
   "step.selected_one": "1 aplicação selecionada",
   "step.selected_many": "{count} aplicações selecionadas",
-
   "category.multiple": "Pode escolher várias, ou nenhuma.",
   "category.browser.name": "Navegador web",
   "category.browser.hint": "É com ele que navega na Internet. Sem navegador não pode abrir sites.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Lojas e lançadores de jogos. Os jogos e programas do Windows também funcionam sem eles.",
   "category.creative.name": "Criatividade",
   "category.creative.hint": "Edição de fotografias, desenho, edição de vídeo, gravação.",
-
   "app.org.mozilla.firefox": "Rápido, atento à privacidade, de código aberto",
   "app.com.google.Chrome": "O navegador da Google, sincroniza com a sua conta Google",
   "app.com.brave.Browser": "Com bloqueador de anúncios integrado",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Os instaladores dos programas Windows foram transferidos ({names}). Agora vão abrir-se um a um: siga cada instalação, como no Windows. O reinício vem no fim.",
   "done.windows_continue": "Continuar para a instalação dos programas Windows",
   "done.windows_finished": "Está tudo pronto, incluindo os programas Windows! Depois de reiniciar, tudo carrega corretamente.",
-
   "offline.text": "Sem ligação à Internet. Ligue-se a uma rede para instalar aplicações.",
   "offline.settings": "Definições de rede",
   "offline.retry": "Tentar novamente",
-
   "nobrowser.title": "Não escolheu nenhum navegador",
   "nobrowser.text": "Sem navegador não pode abrir sites. Tem a certeza?",
   "nobrowser.choose": "Vou escolher um",
   "nobrowser.ok": "Está bem assim",
-
   "install.preparing": "A preparar a instalação…",
   "install.retrying": "A ligação caiu, a tentar novamente…",
   "install.installing": "A instalar {name}…",
   "install.note": "Dependendo da sua ligação, isto pode demorar alguns minutos.",
-
   "error.network": "Sem ligação à Internet, ou o servidor não está acessível.",
   "error.disk_full": "Não há espaço livre suficiente no disco.",
   "error.not_authorized": "Não obtivemos autorização para instalar.",
   "error.checksum": "O ficheiro transferido estava danificado, por isso não foi instalado.",
   "error.generic": "Não foi possível instalar.",
-
   "done.nothing_selected": "Já está! Pode instalar aplicações mais tarde no Discover.",
   "done.all_ok": "Tudo pronto! As suas aplicações esperam por si no menu Iniciar.",
   "done.some_failed": "Quase pronto. Não foi possível instalar algumas aplicações:",
@@ -184,7 +171,6 @@
   "done.start": "Divirta-se!",
   "done.restart": "Reiniciar",
   "done.restart_hint": "Reinicie o computador para que todas as novas aplicações carreguem corretamente.",
-
   "desktop.generic": "Aplicações e aspeto",
   "desktop.comment": "Instalar um navegador, um pacote de escritório, um leitor multimédia e mais, escolher um esquema de cores",
   "desktop.keywords": "boas-vindas;aplicações;navegador;escritório;tema",

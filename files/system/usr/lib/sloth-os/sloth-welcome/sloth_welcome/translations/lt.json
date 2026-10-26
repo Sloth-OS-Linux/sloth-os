@@ -1,18 +1,14 @@
 {
   "_language": "Lietuvių",
-
   "app.title": "Sloth sveikinimas",
   "window.title": "Sveiki atvykę į Sloth OS",
-
   "welcome.heading": "Sveiki atvykę į Sloth OS!",
   "welcome.text": "Keli greiti klausimai, ir kompiuteris paruoštas. Viską galėsite pakeisti vėliau.",
   "welcome.language": "Kalba",
   "welcome.start": "Pradėkime",
-
   "look.colors": "Kokios spalvos jums patinka?",
   "look.colors_hint": "Spustelėkite vieną ir iškart pamatysite, kaip atrodo. Vėliau galėsite pakeisti Sistemos nuostatose.",
   "look.taskbar": "Kokia turi būti užduočių juosta?",
-
   "scheme.SlothSilverDark": "Sidabrinė (tamsi)",
   "scheme.SlothSilverLight": "Sidabrinė (šviesi)",
   "scheme.SlothWhite": "Sniego balta",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Rūko mėlyna",
   "scheme.SlothNight": "Nakties mėlyna",
   "scheme.SlothSage": "Šalavijas",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Pradžios meniu ir piktogramos kairėje",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Pradžios meniu ir piktogramos centre",
   "layout.mac.name": "Kaip macOS",
   "layout.mac.description": "Juosta viršuje, plaukiojantis dokas apačioje",
+  "layout.ubuntu.name": "Kaip Ubuntu",
+  "layout.ubuntu.description": "Viršutinė juosta, dokas kairėje",
   "security.heading": "Kada kompiuteris turi klausti slaptažodžio?",
   "security.text": "Kai kurie nustatymai (pvz., programų diegimas) prašo jūsų slaptažodžio. Taip niekas negali pakeisti kompiuterio be jūsų žinios.",
   "security.all": "Prie kiekvieno pakeitimo (saugiausia)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Taip, dalytis anonimiškai",
   "sharing.no": "Ne, ačiū",
   "sharing.later": "Vėliau tai gali bet kada pakeisti „Sloth Center“. Kituose kompiuteriuose veikusius nustatymus gausi bet kuriuo atveju.",
-
   "windows.heading": "Perkelti failus iš Windows?",
   "windows.text": "Šiame kompiuteryje yra ir Windows. Galime nukopijuoti jūsų failus čia; pačios Windows neliečiame, tik skaitome.",
   "windows.scanning": "Peržiūrimas Windows diskas…",
@@ -63,17 +59,14 @@
   "windows.none": "Šiame kompiuteryje nerasta Windows failų, kuriuos būtų galima perkelti.",
   "windows.failed": "Nepavyko atverti Windows disko. Paleiskite Windows ir visiškai išjunkite (Išjungti, ne Paleisti iš naujo), tada bandykite dar kartą per Sloth Center (Diskai).",
   "windows.bookmarks_file": "Windows žymelės.html",
-
   "nav.back": "Atgal",
   "nav.next": "Toliau",
   "nav.skip": "Praleisti",
   "nav.finish": "Baigti",
   "nav.install": "Įdiegti",
-
   "step.counter": "{n} žingsnis iš {total}",
   "step.selected_one": "pasirinkta 1 programa",
   "step.selected_many": "pasirinkta programų: {count}",
-
   "category.multiple": "Galite pasirinkti kelias arba nė vienos.",
   "category.browser.name": "Interneto naršyklė",
   "category.browser.hint": "Su ja naršote internete. Be naršyklės negalėsite atverti svetainių.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Žaidimų parduotuvės ir paleidikliai. Windows žaidimai ir programos veikia ir be jų.",
   "category.creative.name": "Kūryba",
   "category.creative.hint": "Nuotraukų redagavimas, piešimas, vaizdo montažas, įrašymas.",
-
   "app.org.mozilla.firefox": "Greita, sauganti privatumą, atvirojo kodo",
   "app.com.google.Chrome": "Google naršyklė, sinchronizuojama su Google paskyra",
   "app.com.brave.Browser": "Su integruotu reklamų blokavimu",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Windows programų diegimo programos atsisiųstos ({names}). Dabar jos atsidarys po vieną: pereikite kiekvieną diegimą kaip Windows sistemoje. Paleidimas iš naujo – pabaigoje.",
   "done.windows_continue": "Tęsti Windows programų diegimą",
   "done.windows_finished": "Viskas paruošta, ir Windows programos! Paleidus iš naujo, viskas įsikels tinkamai.",
-
   "offline.text": "Nėra interneto ryšio. Norėdami įdiegti programas, prisijunkite prie tinklo.",
   "offline.settings": "Tinklo nuostatos",
   "offline.retry": "Bandyti dar kartą",
-
   "nobrowser.title": "Nepasirinkote naršyklės",
   "nobrowser.text": "Be naršyklės negalėsite atverti svetainių. Ar tikrai?",
   "nobrowser.choose": "Pasirinksiu kurią nors",
   "nobrowser.ok": "Tinka ir taip",
-
   "install.preparing": "Ruošiamasi diegimui…",
   "install.retrying": "Ryšys nutrūko, bandoma dar kartą…",
   "install.installing": "Diegiama: {name}…",
   "install.note": "Priklausomai nuo ryšio, tai gali užtrukti kelias minutes.",
-
   "error.network": "Nėra interneto ryšio arba serveris nepasiekiamas.",
   "error.disk_full": "Diske nepakanka laisvos vietos.",
   "error.not_authorized": "Negavome leidimo diegti.",
   "error.checksum": "Atsisiųstas failas buvo sugadintas, todėl nebuvo įdiegtas.",
   "error.generic": "Įdiegti nepavyko.",
-
   "done.nothing_selected": "Baigta! Programas galėsite įdiegti vėliau per Discover.",
   "done.all_ok": "Viskas paruošta! Jūsų programos laukia Pradžios meniu.",
   "done.some_failed": "Beveik baigta. Kai kurių programų įdiegti nepavyko:",
@@ -184,7 +171,6 @@
   "done.start": "Smagaus naudojimo!",
   "done.restart": "Paleisti iš naujo",
   "done.restart_hint": "Paleiskite kompiuterį iš naujo, kad visos naujos programos tinkamai įsikeltų.",
-
   "desktop.generic": "Programos ir išvaizda",
   "desktop.comment": "Naršyklės, biuro paketo, medijos leistuvės ir kitų programų įdiegimas, spalvų schemos pasirinkimas",
   "desktop.keywords": "sveiki;programos;naršyklė;biuras;tema",

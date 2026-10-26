@@ -28,6 +28,12 @@ careful testing), and **Large** (broad work or significant safety and compatibil
   "Open folder", and can remember the choice. Ejecting clears the loop device (autoclear), and images still open
   are ejected at sign-out (`sloth-disc-images.service`). Check on a real machine (a Windows program's ISO)
 
+- [x] Appearance in Sloth Center (2026-10-26): the color schemes and taskbar layouts of the welcome wizard can be
+  changed any time later. Both tools use the same code (`sloth_common/appearance.py`) and the same drawings
+  (`sloth_common/qml/SlothCommon/LayoutPreview.qml`), so a layout looks the same whichever set it. New layout:
+  Ubuntu-like (top bar with the date and time in the middle, a dock on the left with the app grid at its
+  bottom); GNOME itself is not added, KDE Plasma draws this look. Tests: `tools/tests/test_appearance.py`.
+  Check on a real machine (every layout, switching back and forth, the pinned apps stay)
 - [x] Installers heal themselves and are remembered too (2026-10-26): what installed an installer before (here,
   or from the shared knowledge) goes first; if the installer crashes or its log shows a known missing component
   and nothing got installed, it is tried again with the fix or the next setting (another Proton version only into
@@ -40,11 +46,12 @@ Network, security and drive health on the System status and System health pages;
 Disks page and a deeper cleanup; the installer asks about the other disks; the .exe handler asks which drive a
 program goes to; layer-by-layer update progress; every text in 50 languages.
 
-- [ ] **Critical** — Resolve the Fedora 44 `rpm-ostree` crash during OCI image updates (`2026.3-2.fc44` aborts
+- [x] **Critical** — Resolve the Fedora 44 `rpm-ostree` crash during OCI image updates (`2026.3-2.fc44` aborts
   with `JoinHandle polled after completion` while importing layers), then verify a full update stages and boots.
   (2026-10-26, real machine on 1.0.4: no crash this time; systemd stopped `rpm-ostreed` halfway when the
   `/boot` automount of systemd-gpt-auto-generator expired. 1.0.5: the automount no longer expires; a machine
-  gets this with its first finished update, until then retrying continues from the layers already fetched.)
+  gets this with its first finished update, until then retrying continues from the layers already fetched.
+  2026-10-26 evening, real machine on 1.0.5: a 2.3 GB update (23 new layers) went through, staged and booted.)
 - [x] **Low** — `sloth-login-repair` failed at every boot on Fedora 44 (`Unknown profile feature
   [with-altfiles]`): it now only turns the feature on if the authselect profile still has it.
 - [x] **Medium** — Show OCI layer progress in Sloth Center, stop the spinner and explain the failure if the

@@ -1,18 +1,14 @@
 {
   "_language": "বাংলা (ভারত)",
-
   "app.title": "Sloth স্বাগতম",
   "window.title": "Sloth OS-এ স্বাগতম",
-
   "welcome.heading": "Sloth OS-এ স্বাগতম!",
   "welcome.text": "কয়েকটি ছোট প্রশ্ন, তারপরই আপনার কম্পিউটার তৈরি। সবকিছু পরে বদলানো যাবে।",
   "welcome.language": "ভাষা",
   "welcome.start": "শুরু করা যাক",
-
   "look.colors": "আপনার কোন রং পছন্দ?",
   "look.colors_hint": "একটিতে ক্লিক করুন, সঙ্গে সঙ্গে দেখতে পাবেন কেমন লাগে। পরে সিস্টেম সেটিংসে বদলাতে পারবেন।",
   "look.taskbar": "টাস্কবার কেমন হবে?",
-
   "scheme.SlothSilverDark": "রুপোলি (গাঢ়)",
   "scheme.SlothSilverLight": "রুপোলি (হালকা)",
   "scheme.SlothWhite": "তুষার সাদা",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "কুয়াশা নীল",
   "scheme.SlothNight": "রাতের নীল",
   "scheme.SlothSage": "সেজ",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "স্টার্ট মেনু ও আইকন বাঁদিকে",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "স্টার্ট মেনু ও আইকন মাঝখানে",
   "layout.mac.name": "macOS-এর মতো",
   "layout.mac.description": "ওপরে বার, নিচে ভাসমান ডক",
+  "layout.ubuntu.name": "উবুন্টুর মতো",
+  "layout.ubuntu.description": "উপরে বার, বাঁদিকে ডক",
   "security.heading": "আপনার কম্পিউটার কখন পাসওয়ার্ড চাইবে?",
   "security.text": "কিছু সেটিং (যেমন প্রোগ্রাম ইনস্টল করা) আপনার পাসওয়ার্ড চায়। এতে আপনার অজান্তে কেউ কম্পিউটার বদলাতে পারে না।",
   "security.all": "প্রতিটি পরিবর্তনে চাইবে (সবচেয়ে নিরাপদ)",
@@ -40,7 +37,6 @@
   "sharing.yes": "হ্যাঁ, বেনামে শেয়ার করুন",
   "sharing.no": "না, ধন্যবাদ",
   "sharing.later": "পরে যেকোনো সময় Sloth Center-এ এটি বদলাতে পারবেন। অন্য কম্পিউটারে যে সেটিংস কাজ করেছে, তা যেকোনো ক্ষেত্রেই পাবেন।",
-
   "windows.heading": "Windows থেকে আপনার ফাইল নিয়ে আসব?",
   "windows.text": "এই কম্পিউটারে Windows-ও আছে। আমরা আপনার ফাইল এখানে কপি করতে পারি; Windows-এ কিছু বদলাই না, শুধু পড়ি।",
   "windows.scanning": "Windows ড্রাইভ দেখা হচ্ছে…",
@@ -63,17 +59,14 @@
   "windows.none": "এই কম্পিউটারে আনার মতো কোনো Windows ফাইল পাওয়া যায়নি।",
   "windows.failed": "Windows ড্রাইভ খোলা যায়নি। Windows চালু করে পুরোপুরি বন্ধ করুন (শাট ডাউন, রিস্টার্ট নয়), তারপর Sloth Center (ডিস্ক) থেকে আবার চেষ্টা করুন।",
   "windows.bookmarks_file": "Windows বুকমার্ক.html",
-
   "nav.back": "পিছনে",
   "nav.next": "পরবর্তী",
   "nav.skip": "এড়িয়ে যান",
   "nav.finish": "শেষ",
   "nav.install": "ইনস্টল করুন",
-
   "step.counter": "{total}-এর মধ্যে ধাপ {n}",
   "step.selected_one": "১টি অ্যাপ নির্বাচিত",
   "step.selected_many": "{count}টি অ্যাপ নির্বাচিত",
-
   "category.multiple": "একাধিক বেছে নিতে পারেন, বা একটিও না।",
   "category.browser.name": "ওয়েব ব্রাউজার",
   "category.browser.hint": "এটি দিয়ে ইন্টারনেট ব্যবহার করবেন। ব্রাউজার ছাড়া ওয়েবসাইট খোলা যায় না।",
@@ -87,7 +80,6 @@
   "category.games.hint": "গেম স্টোর ও লঞ্চার। Windows-এর গেম ও প্রোগ্রাম এগুলি ছাড়াও চলে।",
   "category.creative.name": "সৃজনশীলতা",
   "category.creative.hint": "ছবি সম্পাদনা, আঁকা, ভিডিও সম্পাদনা, রেকর্ডিং।",
-
   "app.org.mozilla.firefox": "দ্রুত, গোপনীয়তা-সচেতন, ওপেন সোর্স",
   "app.com.google.Chrome": "Google-এর ব্রাউজার, আপনার Google অ্যাকাউন্টের সঙ্গে সিঙ্ক হয়",
   "app.com.brave.Browser": "বিল্ট-ইন বিজ্ঞাপন ব্লকার সহ",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Windows প্রোগ্রামের ইনস্টলার ডাউনলোড হয়েছে ({names})। এখন একে একে খুলবে: Windows-এর মতো প্রতিটি ইনস্টলেশন শেষ করুন। রিস্টার্ট একদম শেষে।",
   "done.windows_continue": "Windows প্রোগ্রাম ইনস্টলে এগিয়ে যান",
   "done.windows_finished": "সব শেষ, Windows প্রোগ্রামও! রিস্টার্টের পরে সব ঠিকমতো লোড হবে।",
-
   "offline.text": "ইন্টারনেট সংযোগ নেই। অ্যাপ ইনস্টল করতে কোনো নেটওয়ার্কে যুক্ত হন।",
   "offline.settings": "নেটওয়ার্ক সেটিংস",
   "offline.retry": "আবার চেষ্টা করুন",
-
   "nobrowser.title": "আপনি কোনো ব্রাউজার বাছেননি",
   "nobrowser.text": "ব্রাউজার ছাড়া ওয়েবসাইট খুলতে পারবেন না। নিশ্চিত?",
   "nobrowser.choose": "একটা বেছে নিচ্ছি",
   "nobrowser.ok": "এভাবেই ঠিক আছে",
-
   "install.preparing": "ইনস্টলের প্রস্তুতি চলছে…",
   "install.retrying": "সংযোগ বিচ্ছিন্ন হয়েছে, আবার চেষ্টা চলছে…",
   "install.installing": "{name} ইনস্টল হচ্ছে…",
   "install.note": "সংযোগের গতি অনুযায়ী এতে কয়েক মিনিট লাগতে পারে।",
-
   "error.network": "ইন্টারনেট সংযোগ নেই, অথবা সার্ভারে পৌঁছানো যাচ্ছে না।",
   "error.disk_full": "ডিস্কে যথেষ্ট খালি জায়গা নেই।",
   "error.not_authorized": "ইনস্টল করার অনুমতি পাওয়া যায়নি।",
   "error.checksum": "ডাউনলোড করা ফাইলটি নষ্ট ছিল, তাই ইনস্টল করা হয়নি।",
   "error.generic": "ইনস্টল করা যায়নি।",
-
   "done.nothing_selected": "হয়ে গেছে! পরে Discover থেকে অ্যাপ ইনস্টল করতে পারবেন।",
   "done.all_ok": "সব তৈরি! আপনার অ্যাপগুলি স্টার্ট মেনুতে অপেক্ষা করছে।",
   "done.some_failed": "প্রায় শেষ। কিছু অ্যাপ ইনস্টল করা যায়নি:",
@@ -184,7 +171,6 @@
   "done.start": "উপভোগ করুন!",
   "done.restart": "পুনরায় চালু করুন",
   "done.restart_hint": "সব নতুন অ্যাপ ঠিকমতো লোড হতে কম্পিউটারটি পুনরায় চালু করুন।",
-
   "desktop.generic": "অ্যাপ ও চেহারা",
   "desktop.comment": "ব্রাউজার, অফিস স্যুট, মিডিয়া প্লেয়ার ও আরও অনেক কিছু ইনস্টল করুন, রঙের থিম বেছে নিন",
   "desktop.keywords": "স্বাগতম;অ্যাপ;ব্রাউজার;অফিস;থিম",

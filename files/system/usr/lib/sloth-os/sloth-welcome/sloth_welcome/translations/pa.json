@@ -1,18 +1,14 @@
 {
   "_language": "ਪੰਜਾਬੀ",
-
   "app.title": "Sloth ਜੀ ਆਇਆਂ ਨੂੰ",
   "window.title": "Sloth OS ਵਿੱਚ ਜੀ ਆਇਆਂ ਨੂੰ",
-
   "welcome.heading": "Sloth OS ਵਿੱਚ ਜੀ ਆਇਆਂ ਨੂੰ!",
   "welcome.text": "ਕੁਝ ਛੋਟੇ ਸਵਾਲ, ਤੇ ਤੁਹਾਡਾ ਕੰਪਿਊਟਰ ਤਿਆਰ। ਸਭ ਕੁਝ ਬਾਅਦ ਵਿੱਚ ਬਦਲਿਆ ਜਾ ਸਕਦਾ ਹੈ।",
   "welcome.language": "ਭਾਸ਼ਾ",
   "welcome.start": "ਸ਼ੁਰੂ ਕਰੀਏ",
-
   "look.colors": "ਤੁਹਾਨੂੰ ਕਿਹੜੇ ਰੰਗ ਪਸੰਦ ਹਨ?",
   "look.colors_hint": "ਕਿਸੇ ਇੱਕ ’ਤੇ ਕਲਿੱਕ ਕਰੋ ਤੇ ਤੁਰੰਤ ਵੇਖੋ ਕਿ ਕਿਵੇਂ ਲੱਗਦਾ ਹੈ। ਬਾਅਦ ਵਿੱਚ ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹੋ।",
   "look.taskbar": "ਟਾਸਕਬਾਰ ਕਿਹੋ ਜਿਹੀ ਹੋਵੇ?",
-
   "scheme.SlothSilverDark": "ਚਾਂਦੀ (ਗੂੜ੍ਹਾ)",
   "scheme.SlothSilverLight": "ਚਾਂਦੀ (ਹਲਕਾ)",
   "scheme.SlothWhite": "ਬਰਫ਼ ਵਰਗਾ ਚਿੱਟਾ",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "ਧੁੰਦਲਾ ਨੀਲਾ",
   "scheme.SlothNight": "ਰਾਤ ਦਾ ਨੀਲਾ",
   "scheme.SlothSage": "ਸੇਜ",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "ਸਟਾਰਟ ਮੀਨੂ ਤੇ ਆਈਕਨ ਖੱਬੇ ਪਾਸੇ",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "ਸਟਾਰਟ ਮੀਨੂ ਤੇ ਆਈਕਨ ਵਿਚਕਾਰ",
   "layout.mac.name": "macOS ਵਰਗਾ",
   "layout.mac.description": "ਉੱਪਰ ਪੱਟੀ, ਹੇਠਾਂ ਤੈਰਦਾ ਡੌਕ",
+  "layout.ubuntu.name": "ਉਬੰਟੂ ਵਰਗਾ",
+  "layout.ubuntu.description": "ਉੱਪਰ ਬਾਰ, ਖੱਬੇ ਪਾਸੇ ਡੌਕ",
   "security.heading": "ਤੁਹਾਡਾ ਕੰਪਿਊਟਰ ਪਾਸਵਰਡ ਕਦੋਂ ਮੰਗੇ?",
   "security.text": "ਕੁਝ ਸੈਟਿੰਗਾਂ (ਜਿਵੇਂ ਪ੍ਰੋਗਰਾਮ ਇੰਸਟਾਲ ਕਰਨਾ) ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਮੰਗਦੀਆਂ ਹਨ। ਇਸ ਤਰ੍ਹਾਂ ਕੋਈ ਵੀ ਤੁਹਾਡੀ ਜਾਣਕਾਰੀ ਬਿਨਾਂ ਕੰਪਿਊਟਰ ਨਹੀਂ ਬਦਲ ਸਕਦਾ।",
   "security.all": "ਹਰ ਬਦਲਾਅ ਲਈ (ਸਭ ਤੋਂ ਸੁਰੱਖਿਅਤ)",
@@ -40,7 +37,6 @@
   "sharing.yes": "ਹਾਂ, ਗੁਮਨਾਮ ਤਰੀਕੇ ਨਾਲ ਸਾਂਝਾ ਕਰੋ",
   "sharing.no": "ਨਹੀਂ, ਧੰਨਵਾਦ",
   "sharing.later": "ਤੁਸੀਂ ਇਸਨੂੰ ਬਾਅਦ ਵਿੱਚ ਕਦੇ ਵੀ Sloth Center ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹੋ। ਹੋਰ ਕੰਪਿਊਟਰਾਂ 'ਤੇ ਕੰਮ ਕਰਨ ਵਾਲੀਆਂ ਸੈਟਿੰਗਾਂ ਤੁਹਾਨੂੰ ਹਰ ਹਾਲ ਮਿਲਣਗੀਆਂ।",
-
   "windows.heading": "ਕੀ Windows ਤੋਂ ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ ਲਿਆਈਏ?",
   "windows.text": "ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ Windows ਵੀ ਹੈ। ਅਸੀਂ ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ ਇੱਥੇ ਕਾਪੀ ਕਰ ਸਕਦੇ ਹਾਂ; Windows ਨੂੰ ਨਹੀਂ ਛੇੜਦੇ, ਸਿਰਫ਼ ਪੜ੍ਹਦੇ ਹਾਂ।",
   "windows.scanning": "Windows ਡਰਾਈਵ ਦੇਖੀ ਜਾ ਰਹੀ ਹੈ…",
@@ -63,17 +59,14 @@
   "windows.none": "ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ ਲਿਆਉਣ ਲਈ ਕੋਈ Windows ਫ਼ਾਈਲਾਂ ਨਹੀਂ ਮਿਲੀਆਂ।",
   "windows.failed": "Windows ਡਰਾਈਵ ਖੋਲ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ। Windows ਚਲਾਓ ਅਤੇ ਪੂਰੀ ਤਰ੍ਹਾਂ ਬੰਦ ਕਰੋ (ਬੰਦ ਕਰੋ, ਮੁੜ ਚਾਲੂ ਨਹੀਂ), ਫਿਰ Sloth Center (ਡਿਸਕਾਂ) ਤੋਂ ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
   "windows.bookmarks_file": "Windows ਬੁੱਕਮਾਰਕ.html",
-
   "nav.back": "ਪਿੱਛੇ",
   "nav.next": "ਅੱਗੇ",
   "nav.skip": "ਛੱਡੋ",
   "nav.finish": "ਮੁਕੰਮਲ",
   "nav.install": "ਇੰਸਟਾਲ ਕਰੋ",
-
   "step.counter": "{total} ਵਿੱਚੋਂ ਕਦਮ {n}",
   "step.selected_one": "1 ਐਪ ਚੁਣੀ ਗਈ",
   "step.selected_many": "{count} ਐਪਾਂ ਚੁਣੀਆਂ ਗਈਆਂ",
-
   "category.multiple": "ਤੁਸੀਂ ਕਈ ਚੁਣ ਸਕਦੇ ਹੋ, ਜਾਂ ਕੋਈ ਵੀ ਨਹੀਂ।",
   "category.browser.name": "ਵੈੱਬ ਬ੍ਰਾਊਜ਼ਰ",
   "category.browser.hint": "ਇਸ ਨਾਲ ਤੁਸੀਂ ਇੰਟਰਨੈੱਟ ਵਰਤਦੇ ਹੋ। ਬ੍ਰਾਊਜ਼ਰ ਤੋਂ ਬਿਨਾਂ ਵੈੱਬਸਾਈਟਾਂ ਨਹੀਂ ਖੁੱਲ੍ਹਦੀਆਂ।",
@@ -87,7 +80,6 @@
   "category.games.hint": "ਖੇਡ ਸਟੋਰ ਤੇ ਲਾਂਚਰ। Windows ਦੀਆਂ ਖੇਡਾਂ ਤੇ ਪ੍ਰੋਗਰਾਮ ਇਹਨਾਂ ਤੋਂ ਬਿਨਾਂ ਵੀ ਚੱਲਦੇ ਹਨ।",
   "category.creative.name": "ਰਚਨਾਤਮਕ",
   "category.creative.hint": "ਫ਼ੋਟੋ ਸੋਧ, ਡਰਾਇੰਗ, ਵੀਡੀਓ ਸੋਧ, ਰਿਕਾਰਡਿੰਗ।",
-
   "app.org.mozilla.firefox": "ਤੇਜ਼, ਪਰਦੇਦਾਰੀ ਦਾ ਖ਼ਿਆਲ ਰੱਖਦਾ, ਓਪਨ ਸੋਰਸ",
   "app.com.google.Chrome": "Google ਦਾ ਬ੍ਰਾਊਜ਼ਰ, ਤੁਹਾਡੇ Google ਖਾਤੇ ਨਾਲ ਸਿੰਕ ਹੁੰਦਾ ਹੈ",
   "app.com.brave.Browser": "ਅੰਦਰੂਨੀ ਇਸ਼ਤਿਹਾਰ ਰੋਕੂ ਨਾਲ",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Windows ਪ੍ਰੋਗਰਾਮਾਂ ਦੇ ਇੰਸਟਾਲਰ ਡਾਊਨਲੋਡ ਹੋ ਗਏ ({names})। ਹੁਣ ਇੱਕ-ਇੱਕ ਕਰਕੇ ਖੁੱਲ੍ਹਣਗੇ: Windows ਵਾਂਗ ਹਰ ਇੰਸਟਾਲੇਸ਼ਨ ਪੂਰੀ ਕਰੋ। ਮੁੜ-ਚਾਲੂ ਅਖੀਰ ਵਿੱਚ।",
   "done.windows_continue": "Windows ਪ੍ਰੋਗਰਾਮਾਂ ਦੀ ਇੰਸਟਾਲੇਸ਼ਨ ਵੱਲ ਜਾਰੀ ਰੱਖੋ",
   "done.windows_finished": "ਸਭ ਕੁਝ ਤਿਆਰ, Windows ਪ੍ਰੋਗਰਾਮ ਵੀ! ਮੁੜ-ਚਾਲੂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਸਭ ਕੁਝ ਠੀਕ ਲੋਡ ਹੋਵੇਗਾ।",
-
   "offline.text": "ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਨਹੀਂ ਹੈ। ਐਪਾਂ ਇੰਸਟਾਲ ਕਰਨ ਲਈ ਕਿਸੇ ਨੈੱਟਵਰਕ ਨਾਲ ਜੁੜੋ।",
   "offline.settings": "ਨੈੱਟਵਰਕ ਸੈਟਿੰਗਾਂ",
   "offline.retry": "ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
-
   "nobrowser.title": "ਤੁਸੀਂ ਕੋਈ ਬ੍ਰਾਊਜ਼ਰ ਨਹੀਂ ਚੁਣਿਆ",
   "nobrowser.text": "ਬ੍ਰਾਊਜ਼ਰ ਤੋਂ ਬਿਨਾਂ ਤੁਸੀਂ ਵੈੱਬਸਾਈਟਾਂ ਨਹੀਂ ਖੋਲ੍ਹ ਸਕੋਗੇ। ਪੱਕਾ?",
   "nobrowser.choose": "ਮੈਂ ਇੱਕ ਚੁਣਦਾ ਹਾਂ",
   "nobrowser.ok": "ਇੰਝ ਹੀ ਠੀਕ ਹੈ",
-
   "install.preparing": "ਇੰਸਟਾਲ ਦੀ ਤਿਆਰੀ ਹੋ ਰਹੀ ਹੈ…",
   "install.retrying": "ਕਨੈਕਸ਼ਨ ਟੁੱਟ ਗਿਆ, ਮੁੜ ਕੋਸ਼ਿਸ਼ ਹੋ ਰਹੀ ਹੈ…",
   "install.installing": "{name} ਇੰਸਟਾਲ ਹੋ ਰਿਹਾ ਹੈ…",
   "install.note": "ਕਨੈਕਸ਼ਨ ਮੁਤਾਬਕ ਇਸ ਨੂੰ ਕੁਝ ਮਿੰਟ ਲੱਗ ਸਕਦੇ ਹਨ।",
-
   "error.network": "ਇੰਟਰਨੈੱਟ ਕਨੈਕਸ਼ਨ ਨਹੀਂ ਹੈ, ਜਾਂ ਸਰਵਰ ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਹੋ ਰਹੀ।",
   "error.disk_full": "ਡਿਸਕ ’ਤੇ ਲੋੜੀਂਦੀ ਖ਼ਾਲੀ ਥਾਂ ਨਹੀਂ ਹੈ।",
   "error.not_authorized": "ਸਾਨੂੰ ਇੰਸਟਾਲ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਨਹੀਂ ਮਿਲੀ।",
   "error.checksum": "ਡਾਊਨਲੋਡ ਕੀਤੀ ਫ਼ਾਈਲ ਖ਼ਰਾਬ ਸੀ, ਇਸ ਲਈ ਇੰਸਟਾਲ ਨਹੀਂ ਕੀਤੀ ਗਈ।",
   "error.generic": "ਇੰਸਟਾਲ ਨਹੀਂ ਹੋ ਸਕਿਆ।",
-
   "done.nothing_selected": "ਹੋ ਗਿਆ! ਤੁਸੀਂ ਬਾਅਦ ਵਿੱਚ Discover ਤੋਂ ਐਪਾਂ ਇੰਸਟਾਲ ਕਰ ਸਕਦੇ ਹੋ।",
   "done.all_ok": "ਸਭ ਤਿਆਰ ਹੈ! ਤੁਹਾਡੀਆਂ ਐਪਾਂ ਸਟਾਰਟ ਮੀਨੂ ਵਿੱਚ ਉਡੀਕ ਰਹੀਆਂ ਹਨ।",
   "done.some_failed": "ਲਗਭਗ ਹੋ ਗਿਆ। ਕੁਝ ਐਪਾਂ ਇੰਸਟਾਲ ਨਹੀਂ ਹੋ ਸਕੀਆਂ:",
@@ -184,7 +171,6 @@
   "done.start": "ਮੌਜਾਂ ਮਾਣੋ!",
   "done.restart": "ਮੁੜ ਚਾਲੂ ਕਰੋ",
   "done.restart_hint": "ਸਾਰੀਆਂ ਨਵੀਆਂ ਐਪਾਂ ਠੀਕ ਤਰ੍ਹਾਂ ਲੋਡ ਹੋਣ ਲਈ ਕੰਪਿਊਟਰ ਨੂੰ ਮੁੜ ਚਾਲੂ ਕਰੋ।",
-
   "desktop.generic": "ਐਪਾਂ ਅਤੇ ਦਿੱਖ",
   "desktop.comment": "ਬ੍ਰਾਊਜ਼ਰ, ਦਫ਼ਤਰੀ ਸੂਟ, ਮੀਡੀਆ ਪਲੇਅਰ ਅਤੇ ਹੋਰ ਇੰਸਟਾਲ ਕਰੋ, ਰੰਗ ਸਕੀਮ ਚੁਣੋ",
   "desktop.keywords": "ਜੀ ਆਇਆਂ ਨੂੰ;ਐਪਾਂ;ਬ੍ਰਾਊਜ਼ਰ;ਦਫ਼ਤਰ;ਥੀਮ",

@@ -1,18 +1,14 @@
 {
   "_language": "ລາວ",
-
   "app.title": "Sloth ຍິນດີຕ້ອນຮັບ",
   "window.title": "ຍິນດີຕ້ອນຮັບສູ່ Sloth OS",
-
   "welcome.heading": "ຍິນດີຕ້ອນຮັບສູ່ Sloth OS!",
   "welcome.text": "ພຽງແຕ່ຄຳຖາມສັ້ນໆບໍ່ເທົ່າໃດຂໍ້ ຄອມພິວເຕີຂອງທ່ານກໍພ້ອມແລ້ວ. ທ່ານສາມາດປ່ຽນທຸກຢ່າງໄດ້ພາຍຫຼັງ.",
   "welcome.language": "ພາສາ",
   "welcome.start": "ເລີ່ມກັນເລີຍ",
-
   "look.colors": "ທ່ານມັກສີໃດ?",
   "look.colors_hint": "ຄລິກອັນໃດອັນໜຶ່ງ ແລ້ວຈະເຫັນທັນທີວ່າເປັນແນວໃດ. ທ່ານສາມາດປ່ຽນໄດ້ພາຍຫຼັງໃນການຕັ້ງຄ່າລະບົບ.",
   "look.taskbar": "ແຖບໜ້າວຽກຄວນເປັນແບບໃດ?",
-
   "scheme.SlothSilverDark": "ສີເງິນ (ມືດ)",
   "scheme.SlothSilverLight": "ສີເງິນ (ແຈ້ງ)",
   "scheme.SlothWhite": "ຂາວຫິມະ",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "ຟ້າໝອກ",
   "scheme.SlothNight": "ຟ້າກາງຄືນ",
   "scheme.SlothSage": "ເຊຈ",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "ເມນູເລີ່ມຕົ້ນ ແລະ ໄອຄອນຢູ່ເບື້ອງຊ້າຍ",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "ເມນູເລີ່ມຕົ້ນ ແລະ ໄອຄອນຢູ່ກາງ",
   "layout.mac.name": "ຄ້າຍ macOS",
   "layout.mac.description": "ແຖບຢູ່ເທິງ, ດັອກລອຍຢູ່ລຸ່ມ",
+  "layout.ubuntu.name": "ຄ້າຍ Ubuntu",
+  "layout.ubuntu.description": "ແຖບດ້ານເທິງ, ດັອກຢູ່ເບື້ອງຊ້າຍ",
   "security.heading": "ຄອມພິວເຕີຄວນຖາມລະຫັດຜ່ານເມື່ອໃດ?",
   "security.text": "ການຕັ້ງຄ່າບາງຢ່າງ (ເຊັ່ນ ການຕິດຕັ້ງໂປຣແກຣມ) ຈະຖາມລະຫັດຜ່ານຂອງທ່ານ. ດັ່ງນັ້ນ ບໍ່ມີໃຜປ່ຽນຄອມພິວເຕີໄດ້ໂດຍທ່ານບໍ່ຮູ້.",
   "security.all": "ທຸກການປ່ຽນແປງ (ປອດໄພທີ່ສຸດ)",
@@ -40,7 +37,6 @@
   "sharing.yes": "ແມ່ນ, ແບ່ງປັນແບບບໍ່ລະບຸຕົວຕົນ",
   "sharing.no": "ບໍ່, ຂອບໃຈ",
   "sharing.later": "ທ່ານສາມາດປ່ຽນໄດ້ທຸກເວລາໃນພາຍຫຼັງທີ່ Sloth Center. ການຕັ້ງຄ່າທີ່ໃຊ້ໄດ້ໃນຄອມພິວເຕີອື່ນ ທ່ານຈະໄດ້ຮັບຢູ່ແລ້ວ.",
-
   "windows.heading": "ນຳໄຟລ໌ຂອງທ່ານມາຈາກ Windows ບໍ່?",
   "windows.text": "ຄອມພິວເຕີນີ້ມີ Windows ນຳ. ພວກເຮົາສາມາດສຳເນົາໄຟລ໌ຂອງທ່ານມາທີ່ນີ້; ບໍ່ແຕະຕ້ອງ Windows, ພຽງແຕ່ອ່ານເທົ່ານັ້ນ.",
   "windows.scanning": "ກຳລັງກວດໄດຣຟ໌ Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "ບໍ່ພົບໄຟລ໌ Windows ທີ່ຈະນຳມາໃນຄອມພິວເຕີນີ້.",
   "windows.failed": "ບໍ່ສາມາດເປີດໄດຣຟ໌ Windows ໄດ້. ເປີດ Windows ແລ້ວປິດໃຫ້ສົມບູນ (ປິດເຄື່ອງ, ບໍ່ແມ່ນເລີ່ມໃໝ່), ຈາກນັ້ນລອງໃໝ່ຈາກ Sloth Center (ດິສກ໌).",
   "windows.bookmarks_file": "ບຸກມາກ Windows.html",
-
   "nav.back": "ກັບຄືນ",
   "nav.next": "ຕໍ່ໄປ",
   "nav.skip": "ຂ້າມ",
   "nav.finish": "ສຳເລັດ",
   "nav.install": "ຕິດຕັ້ງ",
-
   "step.counter": "ຂັ້ນຕອນ {n} ຈາກ {total}",
   "step.selected_one": "ເລືອກແລ້ວ 1 ແອັບ",
   "step.selected_many": "ເລືອກແລ້ວ {count} ແອັບ",
-
   "category.multiple": "ທ່ານສາມາດເລືອກຫຼາຍອັນ ຫຼື ບໍ່ເລືອກເລີຍກໍໄດ້.",
   "category.browser.name": "ໂປຣແກຣມທ່ອງເວັບ",
   "category.browser.hint": "ໃຊ້ສຳລັບເຂົ້າອິນເຕີເນັດ. ຖ້າບໍ່ມີ ທ່ານຈະເປີດເວັບໄຊບໍ່ໄດ້.",
@@ -87,7 +80,6 @@
   "category.games.hint": "ຮ້ານເກມ ແລະ ໂປຣແກຣມເປີດເກມ. ເກມ ແລະ ໂປຣແກຣມ Windows ໃຊ້ໄດ້ເຖິງວ່າບໍ່ມີພວກມັນ.",
   "category.creative.name": "ສ້າງສັນ",
   "category.creative.hint": "ແຕ່ງຮູບ, ແຕ້ມຮູບ, ຕັດຕໍ່ວິດີໂອ, ບັນທຶກ.",
-
   "app.org.mozilla.firefox": "ໄວ, ໃສ່ໃຈຄວາມເປັນສ່ວນຕົວ, ໂອເພນຊອດ",
   "app.com.google.Chrome": "ໂປຣແກຣມທ່ອງເວັບຂອງ Google, ຊິງກັບບັນຊີ Google",
   "app.com.brave.Browser": "ມີຕົວບລັອກໂຄສະນາໃນຕົວ",
@@ -150,27 +142,22 @@
   "done.windows_hint": "ດາວໂຫຼດຕົວຕິດຕັ້ງໂປຣແກຣມ Windows ແລ້ວ ({names}). ຕອນນີ້ຈະເປີດເທື່ອລະອັນ: ເຮັດການຕິດຕັ້ງແຕ່ລະອັນໃຫ້ສຳເລັດຄືໃນ Windows. ການເລີ່ມໃໝ່ຢູ່ທ້າຍສຸດ.",
   "done.windows_continue": "ສືບຕໍ່ໄປການຕິດຕັ້ງໂປຣແກຣມ Windows",
   "done.windows_finished": "ສຳເລັດທັງໝົດ ລວມທັງໂປຣແກຣມ Windows! ຫຼັງເລີ່ມໃໝ່ທຸກຢ່າງຈະໂຫຼດຢ່າງຖືກຕ້ອງ.",
-
   "offline.text": "ບໍ່ມີການເຊື່ອມຕໍ່ອິນເຕີເນັດ. ກະລຸນາເຊື່ອມຕໍ່ເຄືອຂ່າຍເພື່ອຕິດຕັ້ງແອັບ.",
   "offline.settings": "ການຕັ້ງຄ່າເຄືອຂ່າຍ",
   "offline.retry": "ລອງໃໝ່",
-
   "nobrowser.title": "ທ່ານຍັງບໍ່ໄດ້ເລືອກໂປຣແກຣມທ່ອງເວັບ",
   "nobrowser.text": "ຖ້າບໍ່ມີໂປຣແກຣມທ່ອງເວັບ ທ່ານຈະເປີດເວັບໄຊບໍ່ໄດ້. ແນ່ໃຈບໍ?",
   "nobrowser.choose": "ຂ້ອຍຈະເລືອກອັນໜຶ່ງ",
   "nobrowser.ok": "ແບບນີ້ກໍໄດ້",
-
   "install.preparing": "ກຳລັງກຽມການຕິດຕັ້ງ…",
   "install.retrying": "ການເຊື່ອມຕໍ່ຂາດ, ກຳລັງລອງໃໝ່…",
   "install.installing": "ກຳລັງຕິດຕັ້ງ {name}…",
   "install.note": "ອາດໃຊ້ເວລາສອງສາມນາທີ ຂຶ້ນກັບການເຊື່ອມຕໍ່ຂອງທ່ານ.",
-
   "error.network": "ບໍ່ມີການເຊື່ອມຕໍ່ອິນເຕີເນັດ ຫຼື ເຂົ້າເຊີບເວີບໍ່ໄດ້.",
   "error.disk_full": "ພື້ນທີ່ວ່າງໃນດິສກ໌ບໍ່ພຽງພໍ.",
   "error.not_authorized": "ບໍ່ໄດ້ຮັບອະນຸຍາດໃຫ້ຕິດຕັ້ງ.",
   "error.checksum": "ໄຟລ໌ທີ່ດາວໂຫຼດມາເສຍຫາຍ ຈຶ່ງບໍ່ໄດ້ຕິດຕັ້ງ.",
   "error.generic": "ຕິດຕັ້ງບໍ່ສຳເລັດ.",
-
   "done.nothing_selected": "ສຳເລັດແລ້ວ! ທ່ານສາມາດຕິດຕັ້ງແອັບພາຍຫຼັງໄດ້ໃນ Discover.",
   "done.all_ok": "ພ້ອມແລ້ວ! ແອັບຂອງທ່ານລໍຖ້າຢູ່ໃນເມນູເລີ່ມຕົ້ນ.",
   "done.some_failed": "ເກືອບສຳເລັດ. ບາງແອັບຕິດຕັ້ງບໍ່ໄດ້:",
@@ -184,7 +171,6 @@
   "done.start": "ຂໍໃຫ້ມ່ວນ!",
   "done.restart": "ເປີດຄືນໃໝ່",
   "done.restart_hint": "ເປີດຄອມພິວເຕີຄືນໃໝ່ເພື່ອໃຫ້ແອັບໃໝ່ທັງໝົດໂຫຼດໄດ້ຢ່າງຖືກຕ້ອງ.",
-
   "desktop.generic": "ແອັບ ແລະ ຮູບລັກສະນະ",
   "desktop.comment": "ຕິດຕັ້ງໂປຣແກຣມທ່ອງເວັບ, ຊຸດໂປຣແກຣມຫ້ອງການ, ໂປຣແກຣມຫຼິ້ນສື່ ແລະ ອື່ນໆ, ເລືອກຊຸດສີ",
   "desktop.keywords": "ຍິນດີຕ້ອນຮັບ;ແອັບ;ທ່ອງເວັບ;ຫ້ອງການ;ຊຸດຮູບແບບ",

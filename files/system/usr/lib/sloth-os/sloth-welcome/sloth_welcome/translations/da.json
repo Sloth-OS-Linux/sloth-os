@@ -1,18 +1,14 @@
 {
   "_language": "Dansk",
-
   "app.title": "Sloth Velkommen",
   "window.title": "Velkommen til Sloth OS",
-
   "welcome.heading": "Velkommen til Sloth OS!",
   "welcome.text": "Et par hurtige spørgsmål, så er din computer klar. Du kan ændre alt senere.",
   "welcome.language": "Sprog",
   "welcome.start": "Lad os komme i gang",
-
   "look.colors": "Hvilke farver kan du lide?",
   "look.colors_hint": "Klik på en, så ser du straks, hvordan det ser ud. Du kan ændre det senere i Systemindstillinger.",
   "look.taskbar": "Hvordan skal proceslinjen se ud?",
-
   "scheme.SlothSilverDark": "Sølv (mørk)",
   "scheme.SlothSilverLight": "Sølv (lys)",
   "scheme.SlothWhite": "Snehvid",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Tågeblå",
   "scheme.SlothNight": "Natblå",
   "scheme.SlothSage": "Salvie",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Startmenu og ikoner til venstre",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Startmenu og ikoner i midten",
   "layout.mac.name": "Som macOS",
   "layout.mac.description": "Bjælke øverst, svævende dock nederst",
+  "layout.ubuntu.name": "Ubuntu-lignende",
+  "layout.ubuntu.description": "Topbjælke, dok til venstre",
   "security.heading": "Hvornår skal computeren spørge om din adgangskode?",
   "security.text": "Nogle indstillinger (fx installation af programmer) kræver din adgangskode. Så kan ingen ændre din computer uden din viden.",
   "security.all": "Ved hver ændring (mest sikkert)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Ja, del anonymt",
   "sharing.no": "Nej tak",
   "sharing.later": "Du kan ændre det når som helst senere i Sloth Center. Du får under alle omstændigheder de indstillinger, der har virket på andre computere.",
-
   "windows.heading": "Flyt dine filer over fra Windows?",
   "windows.text": "Computeren har også Windows. Vi kan kopiere dine filer hertil; Windows røres ikke, vi læser kun fra det.",
   "windows.scanning": "Gennemgår Windows-drevet…",
@@ -63,17 +59,14 @@
   "windows.none": "Der blev ikke fundet Windows-filer at flytte over på computeren.",
   "windows.failed": "Windows-drevet kunne ikke åbnes. Start Windows og luk det helt ned (Luk computeren, ikke Genstart), og prøv så igen fra Sloth Center (Diske).",
   "windows.bookmarks_file": "Windows-bogmærker.html",
-
   "nav.back": "Tilbage",
   "nav.next": "Næste",
   "nav.skip": "Spring over",
   "nav.finish": "Afslut",
   "nav.install": "Installér",
-
   "step.counter": "Trin {n} af {total}",
   "step.selected_one": "1 app valgt",
   "step.selected_many": "{count} apps valgt",
-
   "category.multiple": "Du kan vælge flere, eller ingen.",
   "category.browser.name": "Webbrowser",
   "category.browser.hint": "Med den går du på internettet. Uden en browser kan du ikke åbne hjemmesider.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Spilbutikker og launchere. Windows-spil og -programmer kører også uden dem.",
   "category.creative.name": "Kreativitet",
   "category.creative.hint": "Billedredigering, tegning, videoredigering, optagelse.",
-
   "app.org.mozilla.firefox": "Hurtig, privatlivsbevidst, open source",
   "app.com.google.Chrome": "Googles browser, synkroniserer med din Google-konto",
   "app.com.brave.Browser": "Med indbygget reklameblokering",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Installationsprogrammerne til Windows-programmerne er hentet ({names}). De åbner nu én ad gangen: gå hver installation igennem, ligesom i Windows. Genstarten kommer til sidst.",
   "done.windows_continue": "Fortsæt til installation af Windows-programmer",
   "done.windows_finished": "Alt er klar, også Windows-programmerne! Efter en genstart indlæses alt korrekt.",
-
   "offline.text": "Ingen internetforbindelse. Opret forbindelse til et netværk for at installere apps.",
   "offline.settings": "Netværksindstillinger",
   "offline.retry": "Prøv igen",
-
   "nobrowser.title": "Du har ikke valgt en browser",
   "nobrowser.text": "Uden en browser kan du ikke åbne hjemmesider. Er du sikker?",
   "nobrowser.choose": "Jeg vælger en",
   "nobrowser.ok": "Det er fint",
-
   "install.preparing": "Gør klar til installation…",
   "install.retrying": "Forbindelsen blev afbrudt, prøver igen…",
   "install.installing": "Installerer {name}…",
   "install.note": "Afhængigt af din forbindelse kan det tage et par minutter.",
-
   "error.network": "Ingen internetforbindelse, eller serveren kan ikke nås.",
   "error.disk_full": "Der er ikke nok ledig diskplads.",
   "error.not_authorized": "Vi fik ikke tilladelse til at installere.",
   "error.checksum": "Den hentede fil var beskadiget og blev derfor ikke installeret.",
   "error.generic": "Installationen mislykkedes.",
-
   "done.nothing_selected": "Færdig! Du kan installere apps senere i Discover.",
   "done.all_ok": "Alt er klar! Dine apps venter i startmenuen.",
   "done.some_failed": "Næsten færdig. Nogle apps kunne ikke installeres:",
@@ -184,7 +171,6 @@
   "done.start": "God fornøjelse!",
   "done.restart": "Genstart",
   "done.restart_hint": "Genstart computeren, så alle nye apps indlæses korrekt.",
-
   "desktop.generic": "Apps og udseende",
   "desktop.comment": "Installer en browser, kontorpakke, medieafspiller og mere, vælg et farveskema",
   "desktop.keywords": "velkommen;apps;browser;kontor;tema",

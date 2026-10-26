@@ -36,7 +36,9 @@ def main():
 
     # The controllers use gi (GLib); Qt's event loop is GLib's, so the
     # D-Bus callbacks arrive without problems.
+    from sloth_common import appearance as shared_appearance
     from .updates import UpdatesController
+    from .appearance import AppearanceController
     from .accounts import AccountsController
     from .advanced import AdvancedController
     from .backup import BackupController
@@ -56,6 +58,7 @@ def main():
     from .winprograms import WinProgramsController
 
     engine = QQmlApplicationEngine()
+    engine.addImportPath(shared_appearance.QML_IMPORT_PATH)  # import SlothCommon (the layout drawings)
     translator = Translator()
     engine.rootContext().setContextProperty("L", translator)
     engine.rootContext().setContextProperty("startPage", start_page)
@@ -77,6 +80,7 @@ def main():
     games = GamesController()
     devpanel = DevPanelController()
     guide = GuideController()
+    appearance = AppearanceController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -95,6 +99,7 @@ def main():
     engine.rootContext().setContextProperty("games", games)
     engine.rootContext().setContextProperty("devpanel", devpanel)
     engine.rootContext().setContextProperty("guide", guide)
+    engine.rootContext().setContextProperty("appearance", appearance)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1
