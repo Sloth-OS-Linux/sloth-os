@@ -1,16 +1,19 @@
 """Bluetooth (Drivers and hardware page): is there an adapter, is it on, which devices are connected (with battery).
 
 Read from BlueZ over D-Bus with busctl, with a short timeout and in the background: without an adapter the
-bluetooth service does not start, and asking it waits (bluetoothctl would wait for ever). Turning it on sets the
-adapter's Powered property, as KDE's Bluetooth applet does (no password for the signed-in user). Pairing is left to
-KDE's Bluetooth settings.
+bluetooth service does not start, and asking it waits (bluetoothctl would wait for ever). KDE's Bluetooth applet
+turns it off with an rfkill block, and a blocked adapter refuses Powered: turning it on first lifts the block (the
+signed-in user may, /dev/rfkill is theirs), then sets Powered. No password. Pairing is left to KDE's Bluetooth
+settings.
 """
 import json
 import logging
 import subprocess
 import threading
 
-from PySide6.QtCore import QObject, Property, Signal, Slot
+from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
+
+from .i18n import tr
 
 log = logging.getLogger("sloth-center.bluetooth")
 
@@ -66,6 +69,8 @@ class BluetoothController(QObject):
         super().__init__(parent)
         self._data = parse("")
         self._checked = False
+        self._error = ""
+        self._turning_on = False
         self._loaded.connect(self._on_loaded)
         # read when the Drivers and hardware page opens (not at every start of Sloth Center)
 
@@ -73,6 +78,7 @@ class BluetoothController(QObject):
     adapter = Property(bool, lambda self: self._data["adapter"], notify=changed)
     powered = Property(bool, lambda self: self._data["powered"], notify=changed)
     devices = Property("QVariantList", lambda self: list(self._data["devices"]), notify=changed)
+    errorText = Property(str, lambda self: self._error, notify=changed)
 
     @Slot()
     def refresh(self):
@@ -80,14 +86,22 @@ class BluetoothController(QObject):
 
     def _on_loaded(self, data):
         self._data, self._checked = data, True
+        if self._turning_on:
+            self._turning_on = False
+            self._error = "" if data["powered"] else tr("Couldn't turn on Bluetooth.")
         self.changed.emit()
 
     @Slot()
     def turnOn(self):
+        self._error = ""
+        # the block of KDE's applet (or of an airplane-mode key) first, then the adapter itself
+        _run(["rfkill", "unblock", "bluetooth"])
         path = self._data["adapterPath"]
         if path:
             _run(BUS + ["set-property", "org.bluez", path, "org.bluez.Adapter1", "Powered", "b", "true"])
-        self.refresh()
+        # the adapter needs a moment after the block is lifted
+        self._turning_on = True
+        QTimer.singleShot(1500, self.refresh)
 
     @Slot()
     def openSettings(self):

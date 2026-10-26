@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "البلوتوث متوقف.",
   "No Bluetooth device is connected right now.": "لا يوجد جهاز بلوتوث متصل الآن.",
   "Turn on Bluetooth": "شغّل البلوتوث",
-  "Pair a device": "إقران جهاز"
+  "Pair a device": "إقران جهاز",
+  "Couldn't turn on Bluetooth.": "تعذّر تشغيل البلوتوث."
 }

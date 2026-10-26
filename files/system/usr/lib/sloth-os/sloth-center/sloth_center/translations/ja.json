@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth はオフです。",
   "No Bluetooth device is connected right now.": "現在接続されている Bluetooth デバイスはありません。",
   "Turn on Bluetooth": "Bluetooth をオンにする",
-  "Pair a device": "デバイスをペアリング"
+  "Pair a device": "デバイスをペアリング",
+  "Couldn't turn on Bluetooth.": "Bluetooth をオンにできませんでした。"
 }

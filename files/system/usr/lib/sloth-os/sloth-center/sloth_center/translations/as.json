@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "ব্লুটুথ বন্ধ আছে।",
   "No Bluetooth device is connected right now.": "এতিয়া কোনো ব্লুটুথ ডিভাইচ সংযুক্ত নাই।",
   "Turn on Bluetooth": "ব্লুটুথ অন কৰক",
-  "Pair a device": "এটা ডিভাইচ পেয়াৰ কৰক"
+  "Pair a device": "এটা ডিভাইচ পেয়াৰ কৰক",
+  "Couldn't turn on Bluetooth.": "ব্লুটুথ অন কৰিব পৰা নগ'ল।"
 }

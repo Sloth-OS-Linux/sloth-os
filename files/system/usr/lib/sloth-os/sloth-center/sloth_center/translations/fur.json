@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Il Bluetooth al è distudât.",
   "No Bluetooth device is connected right now.": "Cumò nol è colegât nissun dispositîf Bluetooth.",
   "Turn on Bluetooth": "Impie il Bluetooth",
-  "Pair a device": "Associe un dispositîf"
+  "Pair a device": "Associe un dispositîf",
+  "Couldn't turn on Bluetooth.": "No si è rivâts a impiâ il Bluetooth."
 }

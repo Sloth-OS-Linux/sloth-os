@@ -15,6 +15,7 @@ try:
 except ImportError:
     qtcore = types.ModuleType("PySide6.QtCore")
     qtcore.QObject = object
+    qtcore.QTimer = None
     qtcore.Property = lambda *a, **k: (lambda f: f)  # as a decorator and as a plain call
     qtcore.Signal = lambda *a, **k: None
     qtcore.Slot = lambda *a, **k: (lambda f: f)

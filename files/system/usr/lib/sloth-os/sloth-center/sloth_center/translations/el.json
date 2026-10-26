@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Το Bluetooth είναι απενεργοποιημένο.",
   "No Bluetooth device is connected right now.": "Καμία συσκευή Bluetooth δεν είναι συνδεδεμένη αυτή τη στιγμή.",
   "Turn on Bluetooth": "Ενεργοποίηση Bluetooth",
-  "Pair a device": "Σύζευξη συσκευής"
+  "Pair a device": "Σύζευξη συσκευής",
+  "Couldn't turn on Bluetooth.": "Δεν ήταν δυνατή η ενεργοποίηση του Bluetooth."
 }

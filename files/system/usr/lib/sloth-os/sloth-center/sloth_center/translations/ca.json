@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "El Bluetooth està desactivat.",
   "No Bluetooth device is connected right now.": "Ara no hi ha cap dispositiu Bluetooth connectat.",
   "Turn on Bluetooth": "Activa el Bluetooth",
-  "Pair a device": "Aparella un dispositiu"
+  "Pair a device": "Aparella un dispositiu",
+  "Couldn't turn on Bluetooth.": "No s'ha pogut activar el Bluetooth."
 }

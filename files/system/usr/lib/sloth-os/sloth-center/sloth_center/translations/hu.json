@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "A Bluetooth ki van kapcsolva.",
   "No Bluetooth device is connected right now.": "Most egyetlen Bluetooth-eszköz sincs csatlakoztatva.",
   "Turn on Bluetooth": "Bluetooth bekapcsolása",
-  "Pair a device": "Eszköz párosítása"
+  "Pair a device": "Eszköz párosítása",
+  "Couldn't turn on Bluetooth.": "Nem sikerült bekapcsolni a Bluetootht."
 }

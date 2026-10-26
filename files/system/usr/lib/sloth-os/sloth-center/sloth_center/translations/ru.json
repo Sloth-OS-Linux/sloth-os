@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth выключен.",
   "No Bluetooth device is connected right now.": "Сейчас не подключено ни одно устройство Bluetooth.",
   "Turn on Bluetooth": "Включить Bluetooth",
-  "Pair a device": "Подключить устройство"
+  "Pair a device": "Подключить устройство",
+  "Couldn't turn on Bluetooth.": "Не удалось включить Bluetooth."
 }

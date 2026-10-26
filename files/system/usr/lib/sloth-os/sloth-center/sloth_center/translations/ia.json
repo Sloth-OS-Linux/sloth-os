@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Le Bluetooth es disactivate.",
   "No Bluetooth device is connected right now.": "Nulle dispositivo Bluetooth es connectite ora.",
   "Turn on Bluetooth": "Activar le Bluetooth",
-  "Pair a device": "Accopular un dispositivo"
+  "Pair a device": "Accopular un dispositivo",
+  "Couldn't turn on Bluetooth.": "Non poteva activar le Bluetooth."
 }

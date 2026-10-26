@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth este oprit.",
   "No Bluetooth device is connected right now.": "Niciun dispozitiv Bluetooth nu este conectat acum.",
   "Turn on Bluetooth": "Porniți Bluetooth",
-  "Pair a device": "Asociați un dispozitiv"
+  "Pair a device": "Asociați un dispozitiv",
+  "Couldn't turn on Bluetooth.": "Nu s-a putut porni Bluetooth."
 }

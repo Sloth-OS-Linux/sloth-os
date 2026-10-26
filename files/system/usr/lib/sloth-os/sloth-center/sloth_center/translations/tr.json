@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth kapalı.",
   "No Bluetooth device is connected right now.": "Şu anda bağlı Bluetooth aygıtı yok.",
   "Turn on Bluetooth": "Bluetooth'u aç",
-  "Pair a device": "Aygıt eşleştir"
+  "Pair a device": "Aygıt eşleştir",
+  "Couldn't turn on Bluetooth.": "Bluetooth açılamadı."
 }

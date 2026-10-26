@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth mati.",
   "No Bluetooth device is connected right now.": "Saat ini tidak ada perangkat Bluetooth yang terhubung.",
   "Turn on Bluetooth": "Nyalakan Bluetooth",
-  "Pair a device": "Pasangkan perangkat"
+  "Pair a device": "Pasangkan perangkat",
+  "Couldn't turn on Bluetooth.": "Tidak dapat menyalakan Bluetooth."
 }

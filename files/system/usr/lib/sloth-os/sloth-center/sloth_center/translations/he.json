@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "ה־Bluetooth כבוי.",
   "No Bluetooth device is connected right now.": "אין כרגע התקן Bluetooth מחובר.",
   "Turn on Bluetooth": "הפעלת Bluetooth",
-  "Pair a device": "צימוד התקן"
+  "Pair a device": "צימוד התקן",
+  "Couldn't turn on Bluetooth.": "לא ניתן היה להפעיל את ה־Bluetooth."
 }

@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "蓝牙已关闭。",
   "No Bluetooth device is connected right now.": "现在没有连接蓝牙设备。",
   "Turn on Bluetooth": "打开蓝牙",
-  "Pair a device": "配对设备"
+  "Pair a device": "配对设备",
+  "Couldn't turn on Bluetooth.": "无法打开蓝牙。"
 }

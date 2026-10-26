@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth ist ausgeschaltet.",
   "No Bluetooth device is connected right now.": "Gerade ist kein Bluetooth-Gerät verbunden.",
   "Turn on Bluetooth": "Bluetooth einschalten",
-  "Pair a device": "Gerät koppeln"
+  "Pair a device": "Gerät koppeln",
+  "Couldn't turn on Bluetooth.": "Bluetooth konnte nicht eingeschaltet werden."
 }

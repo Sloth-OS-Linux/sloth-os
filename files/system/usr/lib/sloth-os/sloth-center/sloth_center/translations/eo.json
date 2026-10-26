@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth estas malŝaltita.",
   "No Bluetooth device is connected right now.": "Neniu Bluetooth-aparato estas nun konektita.",
   "Turn on Bluetooth": "Ŝalti Bluetooth",
-  "Pair a device": "Parigi aparaton"
+  "Pair a device": "Parigi aparaton",
+  "Couldn't turn on Bluetooth.": "Ne eblis ŝalti Bluetooth."
 }

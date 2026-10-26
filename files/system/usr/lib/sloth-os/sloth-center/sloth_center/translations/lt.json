@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth išjungtas.",
   "No Bluetooth device is connected right now.": "Šiuo metu neprijungtas joks Bluetooth įrenginys.",
   "Turn on Bluetooth": "Įjungti Bluetooth",
-  "Pair a device": "Susieti įrenginį"
+  "Pair a device": "Susieti įrenginį",
+  "Couldn't turn on Bluetooth.": "Nepavyko įjungti Bluetooth."
 }

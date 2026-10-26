@@ -365,6 +365,12 @@ Kirigami.ScrollablePage {
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Heading { level: 3; text: L.t("Bluetooth") }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Error
+                    visible: bluetooth.errorText !== ""
+                    text: bluetooth.errorText
+                }
                 QQC2.Label {
                     Layout.fillWidth: true
                     visible: !bluetooth.adapter || !bluetooth.powered || bluetooth.devices.length === 0

@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth je vypnuté.",
   "No Bluetooth device is connected right now.": "Teď není připojené žádné zařízení Bluetooth.",
   "Turn on Bluetooth": "Zapnout Bluetooth",
-  "Pair a device": "Spárovat zařízení"
+  "Pair a device": "Spárovat zařízení",
+  "Couldn't turn on Bluetooth.": "Bluetooth se nepodařilo zapnout."
 }

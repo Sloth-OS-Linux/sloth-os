@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "புளூடூத் அணைக்கப்பட்டுள்ளது.",
   "No Bluetooth device is connected right now.": "இப்போது எந்தப் புளூடூத் சாதனமும் இணைக்கப்படவில்லை.",
   "Turn on Bluetooth": "புளூடூத்தை இயக்கு",
-  "Pair a device": "ஒரு சாதனத்தை இணை"
+  "Pair a device": "ஒரு சாதனத்தை இணை",
+  "Couldn't turn on Bluetooth.": "புளூடூத்தை இயக்க முடியவில்லை."
 }

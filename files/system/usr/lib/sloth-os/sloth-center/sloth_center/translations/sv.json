@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth är avstängt.",
   "No Bluetooth device is connected right now.": "Ingen Bluetooth-enhet är ansluten just nu.",
   "Turn on Bluetooth": "Slå på Bluetooth",
-  "Pair a device": "Para ihop en enhet"
+  "Pair a device": "Para ihop en enhet",
+  "Couldn't turn on Bluetooth.": "Det gick inte att slå på Bluetooth."
 }

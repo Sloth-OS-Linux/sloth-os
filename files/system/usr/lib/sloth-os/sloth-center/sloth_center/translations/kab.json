@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth yensa.",
   "No Bluetooth device is connected right now.": "Ulac ibenk Bluetooth yeqqnen tura.",
   "Turn on Bluetooth": "Sermed Bluetooth",
-  "Pair a device": "Senteḍ ibenk"
+  "Pair a device": "Senteḍ ibenk",
+  "Couldn't turn on Bluetooth.": "Ur yezmir ara ad yermed Bluetooth."
 }

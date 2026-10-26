@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth өшірулі.",
   "No Bluetooth device is connected right now.": "Қазір ешбір Bluetooth құрылғысы қосылмаған.",
   "Turn on Bluetooth": "Bluetooth қосу",
-  "Pair a device": "Құрылғыны жұптау"
+  "Pair a device": "Құрылғыны жұптау",
+  "Couldn't turn on Bluetooth.": "Bluetooth қосу мүмкін болмады."
 }

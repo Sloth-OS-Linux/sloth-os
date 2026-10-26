@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth staat uit.",
   "No Bluetooth device is connected right now.": "Er is nu geen bluetoothapparaat verbonden.",
   "Turn on Bluetooth": "Bluetooth aanzetten",
-  "Pair a device": "Een apparaat koppelen"
+  "Pair a device": "Een apparaat koppelen",
+  "Couldn't turn on Bluetooth.": "Kon bluetooth niet aanzetten."
 }

@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth është i fikur.",
   "No Bluetooth device is connected right now.": "Tani nuk është lidhur asnjë pajisje Bluetooth.",
   "Turn on Bluetooth": "Ndizni Bluetooth",
-  "Pair a device": "Çiftoni një pajisje"
+  "Pair a device": "Çiftoni një pajisje",
+  "Couldn't turn on Bluetooth.": "Bluetooth nuk u ndez dot."
 }

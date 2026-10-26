@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth er slået fra.",
   "No Bluetooth device is connected right now.": "Ingen Bluetooth-enhed er forbundet lige nu.",
   "Turn on Bluetooth": "Slå Bluetooth til",
-  "Pair a device": "Par en enhed"
+  "Pair a device": "Par en enhed",
+  "Couldn't turn on Bluetooth.": "Kunne ikke slå Bluetooth til."
 }

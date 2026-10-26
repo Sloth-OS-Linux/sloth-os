@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "블루투스가 꺼져 있습니다.",
   "No Bluetooth device is connected right now.": "지금 연결된 블루투스 장치가 없습니다.",
   "Turn on Bluetooth": "블루투스 켜기",
-  "Pair a device": "장치 페어링"
+  "Pair a device": "장치 페어링",
+  "Couldn't turn on Bluetooth.": "블루투스를 켜지 못했습니다."
 }

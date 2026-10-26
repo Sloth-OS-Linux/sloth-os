@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "ບລູທູດປິດຢູ່.",
   "No Bluetooth device is connected right now.": "ດຽວນີ້ບໍ່ມີອຸປະກອນບລູທູດເຊື່ອມຕໍ່.",
   "Turn on Bluetooth": "ເປີດບລູທູດ",
-  "Pair a device": "ຈັບຄູ່ອຸປະກອນ"
+  "Pair a device": "ຈັບຄູ່ອຸປະກອນ",
+  "Couldn't turn on Bluetooth.": "ບໍ່ສາມາດເປີດບລູທູດໄດ້."
 }

@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Le Bluetooth est désactivé.",
   "No Bluetooth device is connected right now.": "Aucun appareil Bluetooth n'est connecté pour l'instant.",
   "Turn on Bluetooth": "Activer le Bluetooth",
-  "Pair a device": "Associer un appareil"
+  "Pair a device": "Associer un appareil",
+  "Couldn't turn on Bluetooth.": "Impossible d'activer le Bluetooth."
 }

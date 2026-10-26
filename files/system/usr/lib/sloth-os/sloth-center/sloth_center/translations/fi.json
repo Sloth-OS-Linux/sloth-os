@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth on pois päältä.",
   "No Bluetooth device is connected right now.": "Yhtään Bluetooth-laitetta ei ole nyt yhdistetty.",
   "Turn on Bluetooth": "Kytke Bluetooth päälle",
-  "Pair a device": "Muodosta laitepari"
+  "Pair a device": "Muodosta laitepari",
+  "Couldn't turn on Bluetooth.": "Bluetoothia ei voitu kytkeä päälle."
 }

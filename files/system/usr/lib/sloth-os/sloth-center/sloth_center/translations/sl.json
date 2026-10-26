@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth je izklopljen.",
   "No Bluetooth device is connected right now.": "Trenutno ni povezana nobena naprava Bluetooth.",
   "Turn on Bluetooth": "Vklopi Bluetooth",
-  "Pair a device": "Seznani napravo"
+  "Pair a device": "Seznani napravo",
+  "Couldn't turn on Bluetooth.": "Bluetootha ni bilo mogoče vklopiti."
 }

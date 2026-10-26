@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth გამორთულია.",
   "No Bluetooth device is connected right now.": "ახლა არცერთი Bluetooth მოწყობილობა არ არის დაკავშირებული.",
   "Turn on Bluetooth": "Bluetooth-ის ჩართვა",
-  "Pair a device": "მოწყობილობის დაწყვილება"
+  "Pair a device": "მოწყობილობის დაწყვილება",
+  "Couldn't turn on Bluetooth.": "Bluetooth-ის ჩართვა ვერ მოხერხდა."
 }

@@ -750,5 +750,6 @@
   "Bluetooth is turned off.": "Bluetooth on välja lülitatud.",
   "No Bluetooth device is connected right now.": "Praegu pole ükski Bluetooth-seade ühendatud.",
   "Turn on Bluetooth": "Lülita Bluetooth sisse",
-  "Pair a device": "Seo seade"
+  "Pair a device": "Seo seade",
+  "Couldn't turn on Bluetooth.": "Bluetoothi ei õnnestunud sisse lülitada."
 }
