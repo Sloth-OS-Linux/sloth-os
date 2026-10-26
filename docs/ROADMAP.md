@@ -146,6 +146,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   6.5 GB image; the two biggest are the gaming `dnf` module (~800 MB) and the umu/Proton script (~840 MB).
   Rechunking (BlueBuild `rechunk`, content-based layers) would download only what changed. The first update after
   the switch is a full download; check the installer (`ostree.final-diffid`) with a rechunked image first.
+  Tried 2026-10-26 on the `test/chunked-oci` branch (`build_chunked_oci: true`, plus an install-test CI job):
+  the first build worked (129 layers, 4.7 GB instead of 6.5 GB; `ostree.final-diffid` present, so the installer
+  check passes), but every later build crashes in rpm-ostree 2026.2 when it uses the previous image as the
+  baseline (`ostree-ext/src/chunking.rs:423` assertion, `left: 845, right: 0`). Wait for a fixed rpm-ostree, or
+  try BlueBuild's `chunkah` option instead.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [ ] **Medium** — Let users schedule file backups, choose retention, and estimate required storage.
 - [ ] **Medium** — Verify backups by checking readability and guiding users through restoring a selected file.
