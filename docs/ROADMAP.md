@@ -129,8 +129,12 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   (2026-10-26, a Security card on the System status page; check on a real machine, with and without encryption)
 - [ ] **Large** — Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
   require their choice before attaching it.
-- [ ] **Medium** — Add guided Wi-Fi troubleshooting that checks adapter detection, Wi-Fi state, and connectivity, then
-  offers understandable next steps.
+- [x] **Medium** — Guided Wi-Fi troubleshooting (2026-10-26): System status → Network → "Check Wi-Fi". Step by
+  step in plain language: is there an adapter (if not: Drivers and hardware), is it turned on (a key or switch on
+  the computer, or "Turn on Wi-Fi"), is it connected ("Choose a network"), how strong the signal is, does the
+  internet answer (a sign-in network: "Open the sign-in page"; no internet: restart the router). It reads
+  NetworkManager and rfkill only. Tests: `tools/tests/test_wifi.py`. Check on a real machine (Wi-Fi off with the
+  key, a weak signal, a hotel or train network)
 - [ ] **Medium** — Keep essential installation, recovery, and troubleshooting help available offline.
 - [ ] **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
 - [ ] **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.

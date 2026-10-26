@@ -56,6 +56,7 @@ def main():
     from .reset import ResetController
     from .services import ServicesController
     from .startup import StartupController
+    from .wifi import WifiController
     from .winprograms import WinProgramsController
 
     engine = QQmlApplicationEngine()
@@ -83,6 +84,7 @@ def main():
     guide = GuideController()
     appearance = AppearanceController()
     startup = StartupController()
+    wifi = WifiController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -103,6 +105,7 @@ def main():
     engine.rootContext().setContextProperty("guide", guide)
     engine.rootContext().setContextProperty("appearance", appearance)
     engine.rootContext().setContextProperty("startup", startup)
+    engine.rootContext().setContextProperty("wifi", wifi)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1
