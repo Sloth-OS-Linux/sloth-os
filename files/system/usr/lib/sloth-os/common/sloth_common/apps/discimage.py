@@ -1,9 +1,11 @@
 """Disc images (.iso): opening them with a double-click, like on Windows.
 
 The image is attached read-only through UDisks (no password for the signed-in user) and mounted where Dolphin
-shows it (/run/media/<user>/<name>, with an eject button). If it has an installer (autorun.inf's open=, or a
-setup.exe / install.exe at the top), the .exe handler offers it; the user can make the choice permanent
-(~/.config/sloth-os/disc-images.json: {"action": "install" | "folder"}).
+shows it (/run/media/<user>/<name>, with an eject button). The loop device clears itself when the image is
+ejected (autoclear), and the images still open are ejected at sign-out (/usr/libexec/sloth-os/disc-images).
+If it has an installer (autorun.inf's open=, or a setup.exe / install.exe at the top), the .exe handler offers
+it; the user can make the choice permanent (~/.config/sloth-os/disc-images.json: {"action": "install" |
+"folder"}).
 """
 import configparser
 import json
@@ -53,6 +55,19 @@ def _mounted_at(text):
     return Path(m.group(1)) if m else None
 
 
+def _autoclear(dev):
+    """The loop device goes away by itself once the image is ejected. Only set after mounting: before that, the
+    first close (udev probing the new device) would already clear it."""
+    obj = "/org/freedesktop/UDisks2/block_devices/" + Path(dev).name
+    try:
+        subprocess.run(["gdbus", "call", "--system", "--dest", "org.freedesktop.UDisks2", "--object-path", obj,
+                        "--method", "org.freedesktop.UDisks2.Loop.SetAutoclear", "true",
+                        "{'auth.no_user_interaction': <true>}"],
+                       capture_output=True, timeout=10)
+    except (OSError, subprocess.SubprocessError):
+        pass
+
+
 def mount(path):
     """Attaches and mounts the image; returns the folder, or None if it could not be opened."""
     path = Path(path).resolve()
@@ -69,6 +84,7 @@ def mount(path):
                 continue
             where = _mounted_at(_udisks("mount", "-b", candidate))
             if where and where.is_dir():
+                _autoclear(dev)
                 return where
         time.sleep(0.5)
     return None

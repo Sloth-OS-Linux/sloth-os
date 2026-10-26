@@ -43,6 +43,8 @@ modules:
         - sloth-update-notify.service
         # the Windows programs' taskbar balloons next to the taskbar (not in the top left corner of the screen)
         - sloth-wine-balloons.service
+        # disc images (.iso) opened with a double-click are ejected at sign-out
+        - sloth-disc-images.service
 
   # Slimming: only what is needed to work or to troubleshoot stays (keep it at the end of the modules)
   - type: script
