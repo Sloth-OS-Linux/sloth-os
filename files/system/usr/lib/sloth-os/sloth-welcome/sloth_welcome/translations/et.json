@@ -39,7 +39,7 @@
   "sharing.what": "Saadetakse ainult see: seadistus (näiteks „vanem graafikarežiim“), sinu graafikakaardi tootja ja programmi sõrmejälg, millest selle nime tuletada ei saa. Mitte midagi muud sinu arvutist ei lahku: ei sinu nimi, failid, programmi nimi ega see, millal ja kui palju sa seda kasutad.",
   "sharing.yes": "Jah, jaga anonüümselt",
   "sharing.no": "Ei, tänan",
-  "sharing.later": "Saad seda hiljem igal ajal muuta Sloth Keskuses. Teistes arvutites töötanud seadistused saad igal juhul.",
+  "sharing.later": "Saad seda hiljem igal ajal Sloth Centeris muuta. Teistes arvutites töötanud seaded saad igal juhul.",
 
   "windows.heading": "Kas tuua su failid Windowsist üle?",
   "windows.text": "Selles arvutis on ka Windows. Saame su failid siia kopeerida; Windowsit ennast ei muudeta, sealt ainult loetakse.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Peaaegu valmis. Mõnda rakendust ei õnnestunud paigaldada:",
   "done.all_failed": "Kahjuks ei õnnestunud rakendusi praegu paigaldada:",
   "done.retry_hint": "Saad hiljem uuesti proovida, avades Start-menüüst „Sloth Tere tulemast“.",
+  "done.taskbar": "Mis tegumiribale panna?",
   "done.extras": "Veel paar asja, kui soovid:",
   "done.steam": "Logi Steami sisse",
   "done.accounts": "Võrgukontod (Google, Microsoft…)",

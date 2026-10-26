@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nem derült ki biztosan, melyik fájllal indul a program. Jelöld be, mi kerüljön a Start menübe, vagy válassz másik fájlt.",
   "pick.browse_title": "Melyik fájllal indul a program?",
   "pick.exe_filter": "Programok",
+  "pick.taskbar": "Tálcára",
 
   "status.starting": "{name} indítása…",
   "status.preparing_install": "{name} telepítésének előkészítése…",

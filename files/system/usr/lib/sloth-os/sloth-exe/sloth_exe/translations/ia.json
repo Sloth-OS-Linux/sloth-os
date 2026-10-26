@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nos non poteva determinar con certitude qual file lancea le programma. Marca lo que debe ir in le menu Initio, o selige un altere file.",
   "pick.browse_title": "Qual file lancea le programma?",
   "pick.exe_filter": "Programmas",
+  "pick.taskbar": "Barra de cargas",
 
   "status.starting": "Lanceamento de {name}…",
   "status.preparing_install": "Preparation del installation de {name}…",

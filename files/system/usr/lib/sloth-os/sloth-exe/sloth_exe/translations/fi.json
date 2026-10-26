@@ -40,6 +40,7 @@
   "pick.question_unsure": "Emme voineet varmasti päätellä, mikä tiedosto käynnistää ohjelman. Valitse, mitä Käynnistä-valikkoon tulee, tai valitse toinen tiedosto.",
   "pick.browse_title": "Mikä tiedosto käynnistää ohjelman?",
   "pick.exe_filter": "Ohjelmat",
+  "pick.taskbar": "Tehtäväpalkki",
 
   "status.starting": "Käynnistetään {name}…",
   "status.preparing_install": "Valmistellaan ohjelman {name} asennusta…",

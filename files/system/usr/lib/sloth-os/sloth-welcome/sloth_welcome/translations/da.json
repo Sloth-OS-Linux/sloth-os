@@ -39,7 +39,7 @@
   "sharing.what": "Kun dette sendes: indstillingen (for eksempel \"ældre grafiktilstand\"), producenten af dit grafikkort og et fingeraftryk af programmet, som navnet ikke kan genskabes ud fra. Intet andet forlader din computer: hverken dit navn, dine filer, programmets navn eller hvornår og hvor meget du bruger det.",
   "sharing.yes": "Ja, del anonymt",
   "sharing.no": "Nej tak",
-  "sharing.later": "Du kan når som helst ændre det senere i Sloth Center. Du får de indstillinger, der har virket på andre computere, under alle omstændigheder.",
+  "sharing.later": "Du kan ændre det når som helst senere i Sloth Center. Du får under alle omstændigheder de indstillinger, der har virket på andre computere.",
 
   "windows.heading": "Flyt dine filer over fra Windows?",
   "windows.text": "Computeren har også Windows. Vi kan kopiere dine filer hertil; Windows røres ikke, vi læser kun fra det.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Næsten færdig. Nogle apps kunne ikke installeres:",
   "done.all_failed": "Desværre kunne apps ikke installeres lige nu:",
   "done.retry_hint": "Du kan prøve igen senere ved at åbne »Sloth Velkommen« fra startmenuen.",
+  "done.taskbar": "Hvad skal være på proceslinjen?",
   "done.extras": "Et par ting mere, hvis du vil:",
   "done.steam": "Log ind på Steam",
   "done.accounts": "Onlinekonti (Google, Microsoft…)",

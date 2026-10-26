@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nuk arritëm të përcaktojmë me siguri cili skedar e nis programin. Shëno çfarë duhet të shkojë në menynë Start ose zgjidh një skedar tjetër.",
   "pick.browse_title": "Cili skedar e nis programin?",
   "pick.exe_filter": "Programe",
+  "pick.taskbar": "Shiriti i detyrave",
 
   "status.starting": "Po niset {name}…",
   "status.preparing_install": "Po përgatitet instalimi i {name}…",

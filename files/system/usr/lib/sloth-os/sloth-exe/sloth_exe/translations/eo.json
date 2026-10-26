@@ -40,6 +40,7 @@
   "pick.question_unsure": "Ni ne povis certe ekscii, kiu dosiero lanĉas la programon. Marku, kio aperu en la Start-menuo, aŭ elektu alian dosieron.",
   "pick.browse_title": "Kiu dosiero lanĉas la programon?",
   "pick.exe_filter": "Programoj",
+  "pick.taskbar": "Taskobreto",
 
   "status.starting": "Lanĉado de {name}…",
   "status.preparing_install": "Preparado de la instalado de {name}…",

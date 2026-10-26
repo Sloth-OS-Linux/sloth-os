@@ -40,6 +40,7 @@
   "pick.question_unsure": "لم نتمكن من معرفة الملف الذي يشغّل البرنامج بشكل مؤكد. حدّد ما يجب إضافته إلى قائمة ابدأ، أو اختر ملفًا آخر.",
   "pick.browse_title": "ما الملف الذي يشغّل البرنامج؟",
   "pick.exe_filter": "البرامج",
+  "pick.taskbar": "شريط المهام",
 
   "status.starting": "جارٍ تشغيل {name}…",
   "status.preparing_install": "جارٍ التحضير لتثبيت {name}…",

@@ -40,6 +40,7 @@
   "pick.question_unsure": "We konden niet zeker vaststellen met welk bestand het programma start. Vink aan wat in het startmenu moet, of kies een ander bestand.",
   "pick.browse_title": "Met welk bestand start het programma?",
   "pick.exe_filter": "Programma’s",
+  "pick.taskbar": "Taakbalk",
 
   "status.starting": "{name} wordt gestart…",
   "status.preparing_install": "Installatie van {name} wordt voorbereid…",

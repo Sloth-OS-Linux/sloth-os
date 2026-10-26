@@ -40,6 +40,7 @@
   "pick.question_unsure": "どのファイルでプログラムが起動するのか特定できませんでした。スタートメニューに入れるものにチェックを付けるか、別のファイルを選んでください。",
   "pick.browse_title": "どのファイルでプログラムを起動しますか？",
   "pick.exe_filter": "プログラム",
+  "pick.taskbar": "タスクバー",
 
   "status.starting": "{name} を起動しています…",
   "status.preparing_install": "{name} のインストールを準備しています…",

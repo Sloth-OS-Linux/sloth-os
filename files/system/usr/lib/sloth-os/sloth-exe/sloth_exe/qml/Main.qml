@@ -230,14 +230,25 @@ Kirigami.ApplicationWindow {
                     ListView {
                         model: exe.shortcuts
                         spacing: Kirigami.Units.smallSpacing
-                        delegate: QQC2.CheckDelegate {
+                        // Each entry: in the Start menu, and (asked right next to it) on the taskbar too
+                        delegate: RowLayout {
+                            id: shortcutRow
                             required property var modelData
                             required property int index
                             width: ListView.view.width
-                            checked: modelData.checked
-                            text: modelData.name
-                            icon.source: modelData.iconUrl !== "" ? modelData.iconUrl : "sloth-os"
-                            onClicked: exe.toggleShortcut(index)
+                            QQC2.CheckDelegate {
+                                Layout.fillWidth: true
+                                checked: shortcutRow.modelData.checked
+                                text: shortcutRow.modelData.name
+                                icon.source: shortcutRow.modelData.iconUrl !== "" ? shortcutRow.modelData.iconUrl : "sloth-os"
+                                onClicked: exe.toggleShortcut(shortcutRow.index)
+                            }
+                            QQC2.CheckBox {
+                                enabled: shortcutRow.modelData.checked
+                                checked: shortcutRow.modelData.checked && shortcutRow.modelData.taskbar
+                                text: root.t("pick.taskbar")
+                                onToggled: exe.setShortcutTaskbar(shortcutRow.index, checked)
+                            }
                         }
                     }
                 }

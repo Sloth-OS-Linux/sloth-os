@@ -597,6 +597,32 @@ Kirigami.ApplicationWindow {
                         visible: welcome.failures.length > 0
                         text: root.t("done.retry_hint")
                     }
+                    // Which of the installed apps go on the taskbar (only what the user asks for)
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        horizontalAlignment: Text.AlignHCenter
+                        visible: welcome.taskbarApps.length > 0
+                        level: 4
+                        text: root.t("done.taskbar")
+                    }
+                    Flow {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: Math.min(implicitWidth, root.width - Kirigami.Units.gridUnit * 4)
+                        Layout.fillWidth: true
+                        visible: welcome.taskbarApps.length > 0
+                        spacing: Kirigami.Units.largeSpacing
+                        Repeater {
+                            model: welcome.taskbarApps
+                            delegate: QQC2.CheckBox {
+                                required property var modelData
+                                text: modelData.name
+                                icon.source: modelData.iconUrl
+                                checked: modelData.checked
+                                onToggled: welcome.setTaskbar(modelData.id, checked)
+                            }
+                        }
+                    }
                     Kirigami.Heading {
                         Layout.fillWidth: true
                         Layout.topMargin: Kirigami.Units.largeSpacing

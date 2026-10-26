@@ -39,7 +39,7 @@
   "sharing.what": "Šalje se samo ovo: postavka (na primjer „stariji grafički način“), proizvođač tvoje grafičke kartice i otisak programa iz kojeg se ne može doznati njegov naziv. Ništa drugo ne napušta tvoje računalo: ni tvoje ime, ni tvoje datoteke, ni naziv programa, ni kada i koliko ga koristiš.",
   "sharing.yes": "Da, dijeli anonimno",
   "sharing.no": "Ne, hvala",
-  "sharing.later": "To kasnije možeš promijeniti u bilo kojem trenutku u Sloth centru. Postavke koje su uspjele na drugim računalima dobivaš u svakom slučaju.",
+  "sharing.later": "To možeš kasnije bilo kada promijeniti u Sloth Centeru. Postavke koje su radile na drugim računalima dobivaš u svakom slučaju.",
 
   "windows.heading": "Prenijeti datoteke iz Windowsa?",
   "windows.text": "Na ovom računalu je i Windows. Možemo ovamo kopirati vaše datoteke; sam Windows ostaje netaknut, samo čitamo s njega.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Skoro gotovo. Neke aplikacije nije bilo moguće instalirati:",
   "done.all_failed": "Nažalost, aplikacije sada nije bilo moguće instalirati:",
   "done.retry_hint": "Kasnije možete pokušati ponovno otvaranjem „Sloth dobrodošlica” u izborniku Start.",
+  "done.taskbar": "Što staviti na programsku traku?",
   "done.extras": "Još nekoliko stvari, ako želite:",
   "done.steam": "Prijava na Steam",
   "done.accounts": "Mrežni računi (Google, Microsoft…)",

@@ -40,6 +40,7 @@
   "pick.question_unsure": "לא הצלחנו לקבוע בוודאות איזה קובץ מפעיל את התוכנה. סמנו מה ייכנס לתפריט ההתחלה, או בחרו קובץ אחר.",
   "pick.browse_title": "איזה קובץ מפעיל את התוכנה?",
   "pick.exe_filter": "תוכנות",
+  "pick.taskbar": "שורת המשימות",
 
   "status.starting": "מפעיל את {name}…",
   "status.preparing_install": "מתכונן להתקנת {name}…",

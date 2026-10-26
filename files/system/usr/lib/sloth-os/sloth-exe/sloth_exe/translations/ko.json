@@ -40,6 +40,7 @@
   "pick.question_unsure": "어떤 파일로 프로그램이 시작되는지 확실히 알 수 없었습니다. 시작 메뉴에 넣을 항목을 선택하거나 다른 파일을 고르세요.",
   "pick.browse_title": "어떤 파일로 프로그램이 시작되나요?",
   "pick.exe_filter": "프로그램",
+  "pick.taskbar": "작업 표시줄",
 
   "status.starting": "{name} 시작 중…",
   "status.preparing_install": "{name} 설치 준비 중…",

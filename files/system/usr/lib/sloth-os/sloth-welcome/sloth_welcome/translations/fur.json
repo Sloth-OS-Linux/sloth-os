@@ -39,7 +39,7 @@
   "sharing.what": "Al ven mandât dome chest: la impostazion (par esempli «modalitât grafiche vecje»), il produtôr de tô schede grafiche e une olme dal program di là che no si pues tornâ al so non. Nuie altri al lasse il to computer: no il to non, no i tiei files, no il non dal program e nancje cuant o trop che tu lu dopris.",
   "sharing.yes": "Sì, condivît in mût anonim",
   "sharing.no": "No, graciis",
-  "sharing.later": "Tu puedis cambiâ chest cuant che tu vuelis plui indenant tal Centri Sloth. Lis impostazions che a àn funzionât su altris computers tu lis ricevis in ogni câs.",
+  "sharing.later": "Tu puedis cambiâ chest plui indenant cuant che tu vûs in Sloth Center. Lis impostazions che a àn funzionât su altris computers tu lis ricevis distès.",
 
   "windows.heading": "Puartâ i tiei files di Windows?",
   "windows.text": "Su chest computer al è ancje Windows. O podin copiâ achì i tiei files; Windows nol ven tocjât, o lein dome.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Cuasi fat. Cualchi aplicazion no je stade instalade:",
   "done.all_failed": "Nus displâs, cumò no si à rivât a instalâ lis aplicazions:",
   "done.retry_hint": "Tu podarâs tornâ a provâ plui indenant vierzint «Benvignût di Sloth» dal menù Start.",
+  "done.taskbar": "Ce vuelistu te sbare des ativitâts?",
   "done.extras": "Ancjemò une o dôs robis, se tu vûs:",
   "done.steam": "Jentre in Steam",
   "done.accounts": "Account in linie (Google, Microsoft…)",

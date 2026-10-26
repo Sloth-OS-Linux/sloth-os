@@ -39,7 +39,7 @@
   "sharing.what": "Vain tämä lähetetään: asetus (esimerkiksi ”vanhempi grafiikkatila”), näytönohjaimesi valmistaja ja ohjelman sormenjälki, josta sen nimeä ei voi selvittää. Mikään muu ei poistu tietokoneeltasi: ei nimesi, tiedostosi, ohjelman nimi eikä se, milloin ja kuinka paljon käytät sitä.",
   "sharing.yes": "Kyllä, jaa nimettömästi",
   "sharing.no": "Ei kiitos",
-  "sharing.later": "Voit muuttaa tätä myöhemmin milloin tahansa Sloth-keskuksessa. Muissa tietokoneissa toimineet asetukset saat joka tapauksessa.",
+  "sharing.later": "Voit muuttaa tätä myöhemmin milloin tahansa Sloth Centerissä. Saat muilla tietokoneilla toimineet asetukset joka tapauksessa.",
 
   "windows.heading": "Siirretäänkö tiedostosi Windowsista?",
   "windows.text": "Tietokoneella on myös Windows. Voimme kopioida tiedostosi tänne; Windowsiin ei kosketa, siitä vain luetaan.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Melkein valmista. Joitakin sovelluksia ei voitu asentaa:",
   "done.all_failed": "Valitettavasti sovelluksia ei voitu nyt asentaa:",
   "done.retry_hint": "Voit yrittää myöhemmin uudelleen avaamalla ”Sloth Tervetuloa” Käynnistä-valikosta.",
+  "done.taskbar": "Mitä tehtäväpalkkiin tulee?",
   "done.extras": "Vielä pari juttua, jos haluat:",
   "done.steam": "Kirjaudu Steamiin",
   "done.accounts": "Verkkotilit (Google, Microsoft…)",

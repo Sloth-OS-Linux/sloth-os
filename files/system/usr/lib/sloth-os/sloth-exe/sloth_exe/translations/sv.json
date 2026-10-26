@@ -40,6 +40,7 @@
   "pick.question_unsure": "Vi kunde inte säkert avgöra vilken fil som startar programmet. Kryssa i vad som ska finnas i startmenyn, eller välj en annan fil.",
   "pick.browse_title": "Vilken fil startar programmet?",
   "pick.exe_filter": "Program",
+  "pick.taskbar": "Aktivitetsfält",
 
   "status.starting": "Startar {name}…",
   "status.preparing_install": "Förbereder installationen av {name}…",

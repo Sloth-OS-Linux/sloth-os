@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nous n’avons pas pu déterminer avec certitude quel fichier lance le programme. Coche ce qui doit aller dans le menu Démarrer, ou choisis un autre fichier.",
   "pick.browse_title": "Quel fichier lance le programme ?",
   "pick.exe_filter": "Programmes",
+  "pick.taskbar": "Barre des tâches",
 
   "status.starting": "Lancement de {name}…",
   "status.preparing_install": "Préparation de l'installation de {name}…",

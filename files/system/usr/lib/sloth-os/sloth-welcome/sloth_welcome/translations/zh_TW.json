@@ -39,7 +39,7 @@
   "sharing.what": "只會傳送這些：設定（例如「舊版圖形模式」）、你的顯示卡製造商，以及無法還原出程式名稱的程式指紋。除此之外，什麼都不會離開你的電腦：不包括你的名字、你的檔案、程式名稱，也不包括你何時使用以及使用多久。",
   "sharing.yes": "是，匿名分享",
   "sharing.no": "不，謝謝",
-  "sharing.later": "之後可以隨時在 Sloth 中心（Windows 程式）中變更。無論選擇哪一項，你都會取得在其他電腦上有效的設定。",
+  "sharing.later": "以後可以隨時在 Sloth Center 中變更。無論怎麼選，你都會取得在其他電腦上可行的設定。",
 
   "windows.heading": "要把檔案從 Windows 搬過來嗎？",
   "windows.text": "這台電腦上還有 Windows。我們可以把您的檔案複製到這裡；不會更動 Windows，只讀取。",
@@ -176,6 +176,7 @@
   "done.some_failed": "快完成了。部分應用程式未能安裝：",
   "done.all_failed": "抱歉，目前無法安裝應用程式：",
   "done.retry_hint": "之後可以從開始功能表開啟「Sloth 歡迎」再試一次。",
+  "done.taskbar": "要把哪些放到工作列？",
   "done.extras": "如果願意，還有幾件事：",
   "done.steam": "登入 Steam",
   "done.accounts": "線上帳號（Google、Microsoft…）",

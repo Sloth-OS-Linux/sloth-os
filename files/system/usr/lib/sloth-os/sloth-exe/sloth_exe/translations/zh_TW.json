@@ -40,6 +40,7 @@
   "pick.question_unsure": "我們無法確定是哪個檔案啟動此程式。請勾選要放入開始選單的項目，或選擇其他檔案。",
   "pick.browse_title": "哪個檔案啟動此程式？",
   "pick.exe_filter": "程式",
+  "pick.taskbar": "工作列",
 
   "status.starting": "正在啟動 {name}…",
   "status.preparing_install": "正在準備安裝 {name}…",

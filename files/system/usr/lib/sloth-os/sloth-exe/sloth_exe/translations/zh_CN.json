@@ -40,6 +40,7 @@
   "pick.question_unsure": "我们无法确定是哪个文件启动该程序。请勾选要放入开始菜单的项目，或选择其他文件。",
   "pick.browse_title": "哪个文件启动该程序？",
   "pick.exe_filter": "程序",
+  "pick.taskbar": "任务栏",
 
   "status.starting": "正在启动 {name}…",
   "status.preparing_install": "正在准备安装 {name}…",

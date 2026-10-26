@@ -39,7 +39,7 @@
   "sharing.what": "Hanya ini yang dikirim: pengaturannya (misalnya \"mode grafis lama\"), produsen kartu grafismu, dan sidik jari program yang tidak bisa dipakai untuk mengetahui namanya. Tidak ada hal lain yang keluar dari komputermu: bukan namamu, berkasmu, nama programnya, atau kapan dan seberapa sering kamu memakainya.",
   "sharing.yes": "Ya, bagikan secara anonim",
   "sharing.no": "Tidak, terima kasih",
-  "sharing.later": "Kamu bisa mengubahnya kapan saja nanti di Pusat Sloth. Pengaturan yang berhasil di komputer lain tetap kamu dapatkan.",
+  "sharing.later": "Anda bisa mengubahnya kapan saja nanti di Sloth Center. Pengaturan yang berhasil di komputer lain tetap Anda dapatkan.",
 
   "windows.heading": "Bawa berkas Anda dari Windows?",
   "windows.text": "Komputer ini juga memiliki Windows. Kami dapat menyalin berkas Anda ke sini; Windows tidak diubah, kami hanya membacanya.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Hampir selesai. Beberapa aplikasi tidak dapat dipasang:",
   "done.all_failed": "Maaf, aplikasi tidak dapat dipasang saat ini:",
   "done.retry_hint": "Anda bisa mencoba lagi nanti dengan membuka \"Sambutan Sloth\" dari menu Start.",
+  "done.taskbar": "Apa yang ditaruh di bilah tugas?",
   "done.extras": "Satu-dua hal lagi, jika mau:",
   "done.steam": "Masuk ke Steam",
   "done.accounts": "Akun daring (Google, Microsoft…)",

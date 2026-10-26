@@ -40,6 +40,7 @@
   "pick.question_unsure": "No hem pogut saber amb certesa quin fitxer inicia el programa. Marca què ha d’anar al menú Inici o tria un altre fitxer.",
   "pick.browse_title": "Quin fitxer inicia el programa?",
   "pick.exe_filter": "Programes",
+  "pick.taskbar": "Barra de tasques",
 
   "status.starting": "S'està iniciant {name}…",
   "status.preparing_install": "S'està preparant la instal·lació de {name}…",

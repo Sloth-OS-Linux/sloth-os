@@ -39,7 +39,7 @@
   "sharing.what": "Só é enviado isto: a definição (por exemplo, «modo gráfico mais antigo»), o fabricante da tua placa gráfica e uma impressão digital do programa a partir da qual não é possível saber o seu nome. Nada mais sai do teu computador: nem o teu nome, nem os teus ficheiros, nem o nome do programa, nem quando ou quanto o usas.",
   "sharing.yes": "Sim, partilhar de forma anónima",
   "sharing.no": "Não, obrigado",
-  "sharing.later": "Podes mudar isto a qualquer momento mais tarde no Centro Sloth. As definições que funcionaram noutros computadores recebes de qualquer forma.",
+  "sharing.later": "Podes mudar isto mais tarde a qualquer momento no Sloth Center. As definições que funcionaram noutros computadores recebe-las de qualquer forma.",
 
   "windows.heading": "Trazer os seus ficheiros do Windows?",
   "windows.text": "Este computador também tem Windows. Podemos copiar os seus ficheiros para aqui; o Windows não é alterado, apenas lemos dele.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Quase pronto. Não foi possível instalar algumas aplicações:",
   "done.all_failed": "Lamentamos, não foi possível instalar as aplicações agora:",
   "done.retry_hint": "Pode tentar novamente mais tarde abrindo «Boas-vindas do Sloth» no menu Iniciar.",
+  "done.taskbar": "O que pôr na barra de tarefas?",
   "done.extras": "Mais uma ou duas coisas, se quiser:",
   "done.steam": "Iniciar sessão no Steam",
   "done.accounts": "Contas online (Google, Microsoft…)",

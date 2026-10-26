@@ -176,6 +176,7 @@
   "done.some_failed": "Fast fertig. Einige Apps konnten nicht installiert werden:",
   "done.all_failed": "Leider konnten die Apps gerade nicht installiert werden:",
   "done.retry_hint": "Du kannst es später erneut versuchen: Öffne „Sloth Willkommen“ im Startmenü.",
+  "done.taskbar": "Was soll in die Taskleiste?",
   "done.extras": "Noch ein, zwei Dinge, wenn du möchtest:",
   "done.steam": "Bei Steam anmelden",
   "done.accounts": "Online-Konten (Google, Microsoft…)",

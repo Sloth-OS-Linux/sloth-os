@@ -11,7 +11,7 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, Qt, Signal, Slot
 from PySide6.QtWidgets import QApplication
 
-from sloth_common import sharing, windows_import
+from sloth_common import sharing, taskbar, windows_import
 
 from . import catalog, desktop, i18n
 from .i18n import tr
@@ -131,6 +131,9 @@ class WelcomeController(QObject):
         self._failures = []         # [(name, error key)]
         self._online = desktop.is_online()
         self._installed = []
+        # The apps the user wants on the taskbar (asked on the last page); None: not changed yet, the default
+        # (the browsers and Steam, as before) is ticked
+        self._taskbar = None
         self._security = "all"      # "all" (password for everything) or "recommended"
         self._autologin = False
         self._security_saved = ("all", False)
@@ -292,6 +295,39 @@ class WelcomeController(QObject):
             out.append({**cat, "name": tr(f"category.{cat['id']}.name"),
                         "hint": tr(f"category.{cat['id']}.hint"), "apps": apps})
         return out
+
+    def _present_browsers(self):
+        """Browsers already on the machine without being chosen (without internet the installer copies the live
+        system's Firefox)."""
+        browsers = [a["id"] for a in catalog.CATEGORIES[0]["apps"]]
+        return [a for a in browsers if a not in self._installed and Path("/var/lib/flatpak/app", a).is_dir()]
+
+    def _taskbar_choice(self):
+        if self._taskbar is not None:
+            return self._taskbar
+        browsers = {a["id"] for a in catalog.CATEGORIES[0]["apps"]}
+        return {a for a in self._installed if a in browsers or a == STEAM} | set(self._present_browsers())
+
+    @Property("QVariantList", notify=changed)
+    def taskbarApps(self):
+        """The installed apps that can go on the taskbar, with what is ticked (the last page asks)."""
+        chosen = self._taskbar_choice()
+        present = set(self._present_browsers())
+        out = []
+        for cat in catalog.CATEGORIES:
+            for a in cat["apps"]:
+                if (a["id"] in self._installed or a["id"] in present) \
+                        and a.get("source", "flathub") in ("flathub", "github-bundle"):
+                    out.append({"id": a["id"], "name": a["name"], "checked": a["id"] in chosen,
+                                "iconUrl": f"file://{catalog.ICON_DIR}/{a['id']}.png"})
+        return out
+
+    @Slot(str, bool)
+    def setTaskbar(self, app_id, on):
+        chosen = set(self._taskbar_choice())
+        chosen = chosen | {app_id} if on else chosen - {app_id}
+        self._taskbar = chosen
+        self.changed.emit()
 
     @Property("QVariantList", notify=changed)
     def schemes(self):
@@ -707,13 +743,9 @@ class WelcomeController(QObject):
         DONE_MARKER.touch()
         PROGRESS.unlink(missing_ok=True)
         if self._installed and not restart:
-            desktop.refresh_app_cache()
-        # The installed browsers and Steam go on the taskbar. An already present browser too
-        # (without internet the installer copies the live system's Firefox)
-        browsers = [a["id"] for a in catalog.CATEGORIES[0]["apps"]]
-        present = [a for a in browsers if Path("/var/lib/flatpak/app", a).is_dir()]
-        desktop.pin_to_taskbar([a for a in self._installed if a in browsers or a == STEAM]
-                               + [a for a in present if a not in self._installed])
+            taskbar.refresh_app_cache()
+        # What the user ticked on the last page goes on the taskbar (by default the browsers and Steam)
+        taskbar.pin(sorted(self._taskbar_choice()))
         if restart:
             desktop.reboot()
         QApplication.quit()

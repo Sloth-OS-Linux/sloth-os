@@ -21,6 +21,7 @@ from PySide6.QtCore import QObject, Property, QProcess, QTimer, QUrl, Signal, Sl
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
+from sloth_common import taskbar
 from sloth_common.apps import detect, discimage, library, menu, native, packages
 
 from . import anticheat, backend, community, diagnose, heal, identify, quirks
@@ -469,6 +470,13 @@ class ExeController(QObject):
             self._shortcuts.insert(0, self._shortcut_item(detect.display_name(path), path, True))
         self.changed.emit()
 
+    @Slot(int, bool)
+    def setShortcutTaskbar(self, index, on):
+        """The entry should go on the taskbar too (asked next to the Start menu question)."""
+        if 0 <= index < len(self._shortcuts):
+            self._shortcuts[index] = {**self._shortcuts[index], "taskbar": on}
+            self.changed.emit()
+
     @Slot(bool)
     def confirmShortcuts(self, start=False):
         first = None
@@ -486,6 +494,12 @@ class ExeController(QObject):
                 desktop.unlink()
         icon = next((e["icon"] for e in menu.entries(self._program) if e["icon"].startswith("/")), None)
         self._program.set_folder_icon(icon)
+        pins = [menu.desktop_file_path(self._program, Path(s["path"])).stem
+                for s in self._shortcuts if s["checked"] and s.get("taskbar")]
+        if pins:
+            # Plasma has to know the new entries first, or the taskbar would show a generic icon
+            taskbar.refresh_app_cache()
+            taskbar.pin(pins)
         if start and first:
             if self._queued or self._installer_alive:
                 # the next installer in the queue comes (or the installer still runs, and this instance waits for it):
@@ -643,7 +657,8 @@ class ExeController(QObject):
 
     def _shortcut_item(self, name, path, checked):
         icon = menu.extract_icon(path, menu.icon_path(self._program, path))
-        return {"name": name, "path": str(path), "checked": checked, "iconUrl": f"file://{icon}" if icon else ""}
+        return {"name": name, "path": str(path), "checked": checked, "taskbar": False,
+                "iconUrl": f"file://{icon}" if icon else ""}
 
     def _start_run(self):
         found = anticheat.detect(self._exe)

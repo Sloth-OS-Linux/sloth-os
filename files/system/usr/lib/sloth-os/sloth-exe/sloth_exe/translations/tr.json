@@ -40,6 +40,7 @@
   "pick.question_unsure": "Programı hangi dosyanın başlattığını kesin olarak belirleyemedik. Başlat menüsüne ne ekleneceğini işaretle ya da başka bir dosya seç.",
   "pick.browse_title": "Programı hangi dosya başlatıyor?",
   "pick.exe_filter": "Programlar",
+  "pick.taskbar": "Görev çubuğu",
 
   "status.starting": "{name} başlatılıyor…",
   "status.preparing_install": "{name} kurulumu hazırlanıyor…",

@@ -39,7 +39,7 @@
   "sharing.what": "Odesílá se jen toto: nastavení (například „starší grafický režim“), výrobce vaší grafické karty a otisk programu, ze kterého nelze zjistit jeho název. Nic jiného váš počítač neopouští: ani vaše jméno, ani vaše soubory, ani název programu, ani kdy a jak dlouho ho používáte.",
   "sharing.yes": "Ano, sdílet anonymně",
   "sharing.no": "Ne, děkuji",
-  "sharing.later": "Později to můžete kdykoli změnit v Centru Sloth. Nastavení, která fungovala na jiných počítačích, dostanete v každém případě.",
+  "sharing.later": "Kdykoli později to můžete změnit v Sloth Center. Nastavení, která fungovala na jiných počítačích, dostanete v každém případě.",
 
   "windows.heading": "Přenést soubory z Windows?",
   "windows.text": "Na tomto počítači jsou také Windows. Můžeme sem zkopírovat vaše soubory; Windows zůstanou netknuté, jen z nich čteme.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Skoro hotovo. Některé aplikace se nepodařilo nainstalovat:",
   "done.all_failed": "Aplikace se bohužel teď nepodařilo nainstalovat:",
   "done.retry_hint": "Později to můžete zkusit znovu otevřením „Uvítání Sloth“ v nabídce Start.",
+  "done.taskbar": "Co má být na hlavním panelu?",
   "done.extras": "Ještě pár věcí, pokud chcete:",
   "done.steam": "Přihlásit se do Steamu",
   "done.accounts": "Online účty (Google, Microsoft…)",

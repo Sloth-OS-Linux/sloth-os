@@ -40,6 +40,7 @@
   "pick.question_unsure": "Me ei suutnud kindlalt kindlaks teha, milline fail programmi käivitab. Märgi, mis peaks minema Start-menüüsse, või vali muu fail.",
   "pick.browse_title": "Milline fail programmi käivitab?",
   "pick.exe_filter": "Programmid",
+  "pick.taskbar": "Tegumiriba",
 
   "status.starting": "Käivitamine: {name}…",
   "status.preparing_install": "Paigaldamise ettevalmistamine: {name}…",

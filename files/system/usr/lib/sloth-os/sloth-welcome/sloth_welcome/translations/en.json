@@ -176,6 +176,7 @@
   "done.some_failed": "Almost done. Some apps couldn't be installed:",
   "done.all_failed": "Sorry, the apps couldn't be installed right now:",
   "done.retry_hint": "You can try again later by opening “Sloth Welcome” from the Start menu.",
+  "done.taskbar": "What should go on the taskbar?",
   "done.extras": "A couple more things, if you like:",
   "done.steam": "Sign in to Steam",
   "done.accounts": "Online accounts (Google, Microsoft…)",

@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nie udało się ustalić na pewno, który plik uruchamia program. Zaznacz, co ma trafić do menu Start, albo wybierz inny plik.",
   "pick.browse_title": "Który plik uruchamia program?",
   "pick.exe_filter": "Programy",
+  "pick.taskbar": "Pasek zadań",
 
   "status.starting": "Uruchamianie: {name}…",
   "status.preparing_install": "Przygotowywanie instalacji: {name}…",

@@ -39,7 +39,7 @@
   "sharing.what": "Wysyłane jest tylko to: ustawienie (na przykład „starszy tryb grafiki”), producent twojej karty graficznej i odcisk programu, z którego nie da się odtworzyć jego nazwy. Nic innego nie opuszcza twojego komputera: ani twoje imię, ani twoje pliki, ani nazwa programu, ani to, kiedy i ile z niego korzystasz.",
   "sharing.yes": "Tak, udostępniaj anonimowo",
   "sharing.no": "Nie, dziękuję",
-  "sharing.later": "Możesz to zmienić w dowolnym momencie później w Centrum Sloth. Ustawienia, które zadziałały na innych komputerach, otrzymasz w każdym przypadku.",
+  "sharing.later": "Możesz to zmienić później w dowolnej chwili w Sloth Center. Ustawienia, które zadziałały na innych komputerach, dostajesz w każdym przypadku.",
 
   "windows.heading": "Przenieść pliki z Windows?",
   "windows.text": "Na tym komputerze jest też Windows. Możemy skopiować tu Twoje pliki; Windows pozostaje nietknięty, tylko z niego czytamy.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Prawie gotowe. Niektórych aplikacji nie udało się zainstalować:",
   "done.all_failed": "Niestety nie udało się teraz zainstalować aplikacji:",
   "done.retry_hint": "Możesz spróbować ponownie później, otwierając „Powitanie Sloth” z menu Start.",
+  "done.taskbar": "Co umieścić na pasku zadań?",
   "done.extras": "Jeszcze jedna czy dwie rzeczy, jeśli chcesz:",
   "done.steam": "Zaloguj się do Steam",
   "done.accounts": "Konta online (Google, Microsoft…)",

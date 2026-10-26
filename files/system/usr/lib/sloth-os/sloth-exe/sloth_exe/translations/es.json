@@ -40,6 +40,7 @@
   "pick.question_unsure": "No hemos podido saber con seguridad qué archivo inicia el programa. Marca lo que quieras en el menú Inicio o elige otro archivo.",
   "pick.browse_title": "¿Qué archivo inicia el programa?",
   "pick.exe_filter": "Programas",
+  "pick.taskbar": "Barra de tareas",
 
   "status.starting": "Iniciando {name}…",
   "status.preparing_install": "Preparando la instalación de {name}…",

@@ -40,6 +40,7 @@
   "pick.question_unsure": "No sin rivâts a capî cun sigurece cuâl file al invie il program. Segne ce che al à di lâ tal menù Start o sielç un altri file.",
   "pick.browse_title": "Cuâl file invie il program?",
   "pick.exe_filter": "Programs",
+  "pick.taskbar": "Sbare des ativitâts",
 
   "status.starting": "Si invie {name}…",
   "status.preparing_install": "Si prepare la instalazion di {name}…",

@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nu am putut stabili sigur ce fișier pornește programul. Bifează ce trebuie să apară în meniul Start sau alege alt fișier.",
   "pick.browse_title": "Ce fișier pornește programul?",
   "pick.exe_filter": "Programe",
+  "pick.taskbar": "Bara de activități",
 
   "status.starting": "Se pornește {name}…",
   "status.preparing_install": "Se pregătește instalarea {name}…",

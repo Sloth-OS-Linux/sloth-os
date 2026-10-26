@@ -40,6 +40,7 @@
   "pick.question_unsure": "Non siamo riusciti a capire con certezza quale file avvia il programma. Spunta cosa mettere nel menu Start, oppure scegli un altro file.",
   "pick.browse_title": "Quale file avvia il programma?",
   "pick.exe_filter": "Programmi",
+  "pick.taskbar": "Barra delle applicazioni",
 
   "status.starting": "Avvio di {name}…",
   "status.preparing_install": "Preparazione dell'installazione di {name}…",

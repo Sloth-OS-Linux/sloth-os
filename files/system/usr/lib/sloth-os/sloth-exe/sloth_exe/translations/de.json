@@ -40,6 +40,7 @@
   "pick.question_unsure": "Wir konnten nicht sicher erkennen, mit welcher Datei das Programm startet. Hake an, was ins Startmenü soll, oder wähle eine andere Datei.",
   "pick.browse_title": "Mit welcher Datei startet das Programm?",
   "pick.exe_filter": "Programme",
+  "pick.taskbar": "Taskleiste",
 
   "status.starting": "{name} wird gestartet…",
   "status.preparing_install": "Installation von {name} wird vorbereitet…",

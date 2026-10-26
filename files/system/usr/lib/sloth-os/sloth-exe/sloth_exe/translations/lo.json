@@ -40,6 +40,7 @@
   "pick.question_unsure": "ພວກເຮົາບໍ່ສາມາດບອກໄດ້ແນ່ນອນວ່າໄຟລ໌ໃດເປີດໂປຣແກຣມ. ໝາຍສິ່ງທີ່ຄວນຢູ່ໃນເມນູເລີ່ມ ຫຼື ເລືອກໄຟລ໌ອື່ນ.",
   "pick.browse_title": "ໄຟລ໌ໃດເປີດໂປຣແກຣມ?",
   "pick.exe_filter": "ໂປຣແກຣມ",
+  "pick.taskbar": "ແຖບໜ້າວຽກ",
 
   "status.starting": "ກຳລັງເປີດ {name}…",
   "status.preparing_install": "ກຳລັງກຽມຕິດຕັ້ງ {name}…",

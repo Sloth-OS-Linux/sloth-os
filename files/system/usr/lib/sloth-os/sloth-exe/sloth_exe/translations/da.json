@@ -40,6 +40,7 @@
   "pick.question_unsure": "Vi kunne ikke sikkert afgøre, hvilken fil der starter programmet. Sæt flueben ved det, der skal i startmenuen, eller vælg en anden fil.",
   "pick.browse_title": "Hvilken fil starter programmet?",
   "pick.exe_filter": "Programmer",
+  "pick.taskbar": "Proceslinje",
 
   "status.starting": "Starter {name}…",
   "status.preparing_install": "Forbereder installation af {name}…",

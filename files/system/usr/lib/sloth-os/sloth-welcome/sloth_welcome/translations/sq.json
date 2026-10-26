@@ -39,7 +39,7 @@
   "sharing.what": "Dërgohet vetëm kjo: cilësimi (për shembull „modalitet më i vjetër grafik”), prodhuesi i kartës tënde grafike dhe një gjurmë e programit nga e cila nuk mund të gjendet emri i tij. Asgjë tjetër nuk largohet nga kompjuteri yt: as emri yt, as skedarët e tu, as emri i programit, as kur dhe sa e përdor.",
   "sharing.yes": "Po, ndaj në mënyrë anonime",
   "sharing.no": "Jo, faleminderit",
-  "sharing.later": "Mund ta ndryshosh këtë në çdo kohë më vonë te Qendra Sloth. Cilësimet që funksionuan në kompjuterë të tjerë i merr gjithsesi.",
+  "sharing.later": "Mund ta ndryshosh këtë më vonë në çdo kohë te Sloth Center. Cilësimet që kanë funksionuar në kompjuterë të tjerë i merr gjithsesi.",
 
   "windows.heading": "T'i sjellim skedarët tuaj nga Windows?",
   "windows.text": "Ky kompjuter ka edhe Windows. Mund t'i kopjojmë skedarët tuaj këtu; Windows nuk preket, vetëm lexojmë prej tij.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Pothuajse gati. Disa aplikacione nuk u instaluan dot:",
   "done.all_failed": "Na vjen keq, aplikacionet nuk u instaluan dot tani:",
   "done.retry_hint": "Mund të riprovoni më vonë duke hapur „Mirëseardhja Sloth” nga menuja Start.",
+  "done.taskbar": "Çfarë të vendoset në shiritin e detyrave?",
   "done.extras": "Edhe një-dy gjëra, nëse doni:",
   "done.steam": "Hyni në Steam",
   "done.accounts": "Llogari në internet (Google, Microsoft…)",

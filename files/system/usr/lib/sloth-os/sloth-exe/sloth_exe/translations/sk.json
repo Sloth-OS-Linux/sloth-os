@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nepodarilo sa s istotou zistiť, ktorým súborom sa program spúšťa. Označ, čo má byť v ponuke Štart, alebo vyber iný súbor.",
   "pick.browse_title": "Ktorým súborom sa program spúšťa?",
   "pick.exe_filter": "Programy",
+  "pick.taskbar": "Panel úloh",
 
   "status.starting": "Spúšťanie: {name}…",
   "status.preparing_install": "Príprava inštalácie: {name}…",

@@ -39,7 +39,7 @@
   "sharing.what": "Seul ceci est envoyé : le réglage (par exemple « mode graphique ancien »), le fabricant de ta carte graphique et une empreinte du programme dont on ne peut pas retrouver le nom. Rien d'autre ne quitte ton ordinateur : ni ton nom, ni tes fichiers, ni le nom du programme, ni quand ou combien tu l'utilises.",
   "sharing.yes": "Oui, partager anonymement",
   "sharing.no": "Non, merci",
-  "sharing.later": "Tu peux changer cela à tout moment plus tard dans le Centre Sloth. Tu reçois de toute façon les réglages qui ont fonctionné sur d'autres ordinateurs.",
+  "sharing.later": "Tu peux changer cela plus tard à tout moment dans Sloth Center. Tu reçois de toute façon les réglages qui ont fonctionné sur d’autres ordinateurs.",
 
   "windows.heading": "Récupérer vos fichiers de Windows ?",
   "windows.text": "Cet ordinateur contient aussi Windows. Nous pouvons copier vos fichiers ici ; Windows n'est pas modifié, nous ne faisons que lire.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Presque terminé. Certaines applications n'ont pas pu être installées :",
   "done.all_failed": "Désolé, les applications n'ont pas pu être installées pour le moment :",
   "done.retry_hint": "Vous pourrez réessayer plus tard en ouvrant « Bienvenue Sloth » depuis le menu Démarrer.",
+  "done.taskbar": "Que mettre dans la barre des tâches ?",
   "done.extras": "Encore une ou deux choses, si vous voulez :",
   "done.steam": "Se connecter à Steam",
   "done.accounts": "Comptes en ligne (Google, Microsoft…)",

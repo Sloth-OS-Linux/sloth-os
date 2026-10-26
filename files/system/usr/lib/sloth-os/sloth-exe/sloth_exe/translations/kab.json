@@ -40,6 +40,7 @@
   "pick.question_unsure": "Ur nezmir ara ad nẓer s tidet anwa afaylu ara isekkren ahil. Creḍ ayen ara yeddun deg wumuɣ Bdu, neɣ fren afaylu nniḍen.",
   "pick.browse_title": "Anwa afaylu ara isekkren ahil?",
   "pick.exe_filter": "Ihilen",
+  "pick.taskbar": "Afeggag n twuriwin",
 
   "status.starting": "Asekker n {name}…",
   "status.preparing_install": "Aheyyi n usebded n {name}…",

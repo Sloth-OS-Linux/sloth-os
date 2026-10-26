@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nismo mogli sa sigurnošću utvrditi kojom se datotekom program pokreće. Označi što treba ići u izbornik Start ili odaberi drugu datoteku.",
   "pick.browse_title": "Kojom se datotekom program pokreće?",
   "pick.exe_filter": "Programi",
+  "pick.taskbar": "Programska traka",
 
   "status.starting": "Pokretanje: {name}…",
   "status.preparing_install": "Priprema instalacije: {name}…",

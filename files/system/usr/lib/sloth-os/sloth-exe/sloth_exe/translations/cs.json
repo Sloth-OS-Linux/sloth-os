@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nepodařilo se s jistotou zjistit, kterým souborem se program spouští. Zaškrtni, co má být v nabídce Start, nebo vyber jiný soubor.",
   "pick.browse_title": "Kterým souborem se program spouští?",
   "pick.exe_filter": "Programy",
+  "pick.taskbar": "Hlavní panel",
 
   "status.starting": "Spouštění: {name}…",
   "status.preparing_install": "Příprava instalace: {name}…",

@@ -39,7 +39,7 @@
   "sharing.what": "只会发送这些：设置（例如“旧版图形模式”）、你的显卡制造商，以及无法还原出程序名称的程序指纹。除此之外，什么都不会离开你的电脑：不包括你的名字、你的文件、程序名称，也不包括你何时使用以及使用多久。",
   "sharing.yes": "是，匿名分享",
   "sharing.no": "不，谢谢",
-  "sharing.later": "以后可以随时在 Sloth 中心（Windows 程序）中更改。无论选择哪一项，你都会获得在其他电脑上有效的设置。",
+  "sharing.later": "以后可以随时在 Sloth Center 中更改。无论怎么选，你都会获得在其他电脑上可行的设置。",
 
   "windows.heading": "要把文件从 Windows 搬过来吗？",
   "windows.text": "这台电脑上还有 Windows。我们可以把您的文件复制到这里；不会改动 Windows，只读取。",
@@ -176,6 +176,7 @@
   "done.some_failed": "快完成了。部分应用未能安装：",
   "done.all_failed": "抱歉，目前无法安装应用：",
   "done.retry_hint": "以后可以从开始菜单打开“Sloth 欢迎”再试一次。",
+  "done.taskbar": "要把哪些放到任务栏？",
   "done.extras": "如果愿意，还有几件事：",
   "done.steam": "登录 Steam",
   "done.accounts": "在线账户（Google、Microsoft…）",

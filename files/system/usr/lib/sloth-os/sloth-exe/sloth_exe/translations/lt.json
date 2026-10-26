@@ -40,6 +40,7 @@
   "pick.question_unsure": "Nepavyko tiksliai nustatyti, kuris failas paleidžia programą. Pažymėk, kas turi būti meniu Pradžia, arba pasirink kitą failą.",
   "pick.browse_title": "Kuris failas paleidžia programą?",
   "pick.exe_filter": "Programos",
+  "pick.taskbar": "Užduočių juosta",
 
   "status.starting": "Paleidžiama: {name}…",
   "status.preparing_install": "Ruošiamasi diegti: {name}…",

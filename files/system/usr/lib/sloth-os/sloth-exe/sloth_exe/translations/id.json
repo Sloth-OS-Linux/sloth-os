@@ -40,6 +40,7 @@
   "pick.question_unsure": "Kami tidak bisa memastikan file mana yang menjalankan program. Centang apa yang perlu masuk ke menu Start, atau pilih file lain.",
   "pick.browse_title": "File mana yang menjalankan program?",
   "pick.exe_filter": "Program",
+  "pick.taskbar": "Bilah tugas",
 
   "status.starting": "Membuka {name}…",
   "status.preparing_install": "Menyiapkan pemasangan {name}…",

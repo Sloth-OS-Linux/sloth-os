@@ -176,6 +176,7 @@
   "done.some_failed": "Majdnem minden kész. Néhány appot nem sikerült telepíteni:",
   "done.all_failed": "Sajnos most nem sikerült telepíteni az appokat:",
   "done.retry_hint": "A Start menüben a „Sloth Üdvözlő” megnyitásával később újra megpróbálhatod.",
+  "done.taskbar": "Mi kerüljön a tálcára?",
   "done.extras": "Még egy-két dolog, ha szeretnéd:",
   "done.steam": "Bejelentkezés a Steambe",
   "done.accounts": "Online fiókok (Google, Microsoft…)",

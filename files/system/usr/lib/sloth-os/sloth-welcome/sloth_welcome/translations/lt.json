@@ -39,7 +39,7 @@
   "sharing.what": "Siunčiama tik tai: nustatymas (pavyzdžiui, „senesnis grafikos režimas“), jūsų vaizdo plokštės gamintojas ir programos atspaudas, iš kurio negalima atkurti jos pavadinimo. Niekas kitas nepalieka jūsų kompiuterio: nei jūsų vardas, nei failai, nei programos pavadinimas, nei kada ir kiek ją naudojate.",
   "sharing.yes": "Taip, dalytis anonimiškai",
   "sharing.no": "Ne, ačiū",
-  "sharing.later": "Vėliau tai bet kada galėsite pakeisti „Sloth“ centre. Kituose kompiuteriuose suveikusius nustatymus gausite bet kuriuo atveju.",
+  "sharing.later": "Vėliau tai gali bet kada pakeisti „Sloth Center“. Kituose kompiuteriuose veikusius nustatymus gausi bet kuriuo atveju.",
 
   "windows.heading": "Perkelti failus iš Windows?",
   "windows.text": "Šiame kompiuteryje yra ir Windows. Galime nukopijuoti jūsų failus čia; pačios Windows neliečiame, tik skaitome.",
@@ -176,6 +176,7 @@
   "done.some_failed": "Beveik baigta. Kai kurių programų įdiegti nepavyko:",
   "done.all_failed": "Deja, šiuo metu programų įdiegti nepavyko:",
   "done.retry_hint": "Vėliau galėsite bandyti dar kartą, Pradžios meniu atvėrę „Sloth sveikinimas“.",
+  "done.taskbar": "Ką įdėti į užduočių juostą?",
   "done.extras": "Dar keli dalykai, jei norite:",
   "done.steam": "Prisijungti prie Steam",
   "done.accounts": "Internetinės paskyros (Google, Microsoft…)",

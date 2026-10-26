@@ -40,6 +40,7 @@
   "pick.question_unsure": "Ons kon nie met sekerheid bepaal watter lêer die program begin nie. Merk wat in die Begin-kieslys moet kom, of kies ’n ander lêer.",
   "pick.browse_title": "Watter lêer begin die program?",
   "pick.exe_filter": "Programme",
+  "pick.taskbar": "Taakbalk",
 
   "status.starting": "{name} word begin…",
   "status.preparing_install": "Installasie van {name} word voorberei…",

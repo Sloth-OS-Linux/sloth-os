@@ -40,6 +40,7 @@
   "pick.question_unsure": "We couldn't tell for sure which file starts the program. Tick what should go into the Start menu, or choose another file.",
   "pick.browse_title": "Which file starts the program?",
   "pick.exe_filter": "Programs",
+  "pick.taskbar": "Taskbar",
 
   "status.starting": "Starting {name}…",
   "status.preparing_install": "Preparing to install {name}…",
