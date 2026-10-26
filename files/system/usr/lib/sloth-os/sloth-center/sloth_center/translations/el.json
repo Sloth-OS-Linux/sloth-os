@@ -704,5 +704,12 @@
   "Wi-Fi check": "Έλεγχος Wi-Fi",
   "Turn on Wi-Fi": "Ενεργοποίηση Wi-Fi",
   "Choose a network": "Επιλογή δικτύου",
-  "Open the sign-in page": "Άνοιγμα σελίδας σύνδεσης"
+  "Open the sign-in page": "Άνοιγμα σελίδας σύνδεσης",
+  "App permissions": "Δικαιώματα εφαρμογών",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Εφαρμογές από το Discover ή το Sloth Welcome που μπορούν να τα χρησιμοποιούν. Πολλές φτάνουν στην κάμερα μόνο επειδή μπορούν να χρησιμοποιούν όλες τις συσκευές, για παράδειγμα χειριστήρια παιχνιδιών.",
+  "Camera": "Κάμερα",
+  "Microphone": "Μικρόφωνο",
+  "Location": "Τοποθεσία",
+  "No app can use it.": "Καμία εφαρμογή δεν μπορεί να το χρησιμοποιήσει.",
+  "Change app permissions": "Αλλαγή δικαιωμάτων εφαρμογών"
 }

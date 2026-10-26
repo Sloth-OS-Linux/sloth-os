@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi の確認",
   "Turn on Wi-Fi": "Wi-Fi をオンにする",
   "Choose a network": "ネットワークを選ぶ",
-  "Open the sign-in page": "サインインページを開く"
+  "Open the sign-in page": "サインインページを開く",
+  "App permissions": "アプリの権限",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Discover や Sloth Welcome からインストールしたアプリのうち、これらを使えるもの。多くは、ゲームコントローラーなどすべてのデバイスを使えるために、カメラにもアクセスできるだけです。",
+  "Camera": "カメラ",
+  "Microphone": "マイク",
+  "Location": "位置情報",
+  "No app can use it.": "使えるアプリはありません。",
+  "Change app permissions": "アプリの権限を変更"
 }

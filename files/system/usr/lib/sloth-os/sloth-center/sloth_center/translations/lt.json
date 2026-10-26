@@ -704,5 +704,12 @@
   "Wi-Fi check": "„Wi-Fi“ patikra",
   "Turn on Wi-Fi": "Įjungti „Wi-Fi“",
   "Choose a network": "Pasirinkti tinklą",
-  "Open the sign-in page": "Atverti prisijungimo puslapį"
+  "Open the sign-in page": "Atverti prisijungimo puslapį",
+  "App permissions": "Programų leidimai",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Programos iš „Discover“ arba „Sloth Welcome“, galinčios tai naudoti. Daugelis prie kameros prieina tik todėl, kad gali naudoti visus įrenginius, pavyzdžiui, žaidimų valdiklius.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofonas",
+  "Location": "Vieta",
+  "No app can use it.": "Jokia programa negali to naudoti.",
+  "Change app permissions": "Keisti programų leidimus"
 }

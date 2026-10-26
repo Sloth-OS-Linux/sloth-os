@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi পরীক্ষা",
   "Turn on Wi-Fi": "Wi-Fi চালু করুন",
   "Choose a network": "একটি নেটওয়ার্ক বেছে নিন",
-  "Open the sign-in page": "সাইন-ইন পাতা খুলুন"
+  "Open the sign-in page": "সাইন-ইন পাতা খুলুন",
+  "App permissions": "অ্যাপের অনুমতি",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Discover বা Sloth Welcome থেকে ইনস্টল করা যে অ্যাপগুলো এগুলো ব্যবহার করতে পারে। অনেকেই ক্যামেরা পায় শুধু এই কারণে যে তারা সব ডিভাইস ব্যবহার করতে পারে, যেমন গেম কন্ট্রোলার।",
+  "Camera": "ক্যামেরা",
+  "Microphone": "মাইক্রোফোন",
+  "Location": "অবস্থান",
+  "No app can use it.": "কোনো অ্যাপ এটি ব্যবহার করতে পারে না।",
+  "Change app permissions": "অ্যাপের অনুমতি বদলান"
 }

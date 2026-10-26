@@ -704,5 +704,12 @@
   "Wi-Fi check": "Проверка на Wi-Fi",
   "Turn on Wi-Fi": "Включване на Wi-Fi",
   "Choose a network": "Избор на мрежа",
-  "Open the sign-in page": "Отваряне на страницата за вход"
+  "Open the sign-in page": "Отваряне на страницата за вход",
+  "App permissions": "Разрешения на приложенията",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Приложения от Discover или Sloth Welcome, които могат да ги използват. Много от тях достигат камерата само защото могат да ползват всички устройства, например контролери за игри.",
+  "Camera": "Камера",
+  "Microphone": "Микрофон",
+  "Location": "Местоположение",
+  "No app can use it.": "Никое приложение не може да го използва.",
+  "Change app permissions": "Промяна на разрешенията"
 }

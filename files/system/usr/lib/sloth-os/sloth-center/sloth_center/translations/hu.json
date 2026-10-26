@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi-ellenőrzés",
   "Turn on Wi-Fi": "Wi-Fi bekapcsolása",
   "Choose a network": "Hálózat kiválasztása",
-  "Open the sign-in page": "Bejelentkezőoldal megnyitása"
+  "Open the sign-in page": "Bejelentkezőoldal megnyitása",
+  "App permissions": "Appok engedélyei",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "A Discoverből vagy a Sloth Üdvözlőből telepített appok, amelyek ezeket használhatják. Sok közülük csak azért fér a kamerához, mert minden eszközt használhat, például a játékvezérlőket.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofon",
+  "Location": "Helyadatok",
+  "No app can use it.": "Egyetlen app sem használhatja.",
+  "Change app permissions": "Appok engedélyeinek módosítása"
 }

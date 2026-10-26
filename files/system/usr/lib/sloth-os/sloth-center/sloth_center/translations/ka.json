@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi შემოწმება",
   "Turn on Wi-Fi": "Wi-Fi-ის ჩართვა",
   "Choose a network": "ქსელის არჩევა",
-  "Open the sign-in page": "შესვლის გვერდის გახსნა"
+  "Open the sign-in page": "შესვლის გვერდის გახსნა",
+  "App permissions": "აპების ნებართვები",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Discover-იდან ან Sloth Welcome-იდან დაყენებული აპები, რომლებსაც ამათი გამოყენება შეუძლიათ. ბევრი კამერას მხოლოდ იმიტომ წვდება, რომ ყველა მოწყობილობის გამოყენება შეუძლია, მაგალითად სათამაშო კონტროლერების.",
+  "Camera": "კამერა",
+  "Microphone": "მიკროფონი",
+  "Location": "მდებარეობა",
+  "No app can use it.": "ვერცერთ აპს არ შეუძლია მისი გამოყენება.",
+  "Change app permissions": "აპების ნებართვების შეცვლა"
 }

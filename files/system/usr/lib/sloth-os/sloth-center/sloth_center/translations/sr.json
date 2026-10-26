@@ -704,5 +704,12 @@
   "Wi-Fi check": "Провера Wi-Fi везе",
   "Turn on Wi-Fi": "Укључи Wi-Fi",
   "Choose a network": "Изабери мрежу",
-  "Open the sign-in page": "Отвори страницу за пријаву"
+  "Open the sign-in page": "Отвори страницу за пријаву",
+  "App permissions": "Дозволе апликација",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Апликације из Discover-а или Sloth Welcome-а које могу да их користе. Многе стижу до камере само зато што могу да користе све уређаје, на пример контролере за игре.",
+  "Camera": "Камера",
+  "Microphone": "Микрофон",
+  "Location": "Локација",
+  "No app can use it.": "Ниједна апликација не може да га користи.",
+  "Change app permissions": "Промени дозволе апликација"
 }

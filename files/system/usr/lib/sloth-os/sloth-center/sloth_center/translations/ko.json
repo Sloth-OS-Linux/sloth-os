@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi 확인",
   "Turn on Wi-Fi": "Wi-Fi 켜기",
   "Choose a network": "네트워크 선택",
-  "Open the sign-in page": "로그인 페이지 열기"
+  "Open the sign-in page": "로그인 페이지 열기",
+  "App permissions": "앱 권한",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Discover나 Sloth Welcome에서 설치한 앱 중 이것들을 사용할 수 있는 앱입니다. 상당수는 게임 컨트롤러 같은 모든 장치를 쓸 수 있어서 카메라에도 접근할 뿐입니다.",
+  "Camera": "카메라",
+  "Microphone": "마이크",
+  "Location": "위치",
+  "No app can use it.": "사용할 수 있는 앱이 없습니다.",
+  "Change app permissions": "앱 권한 변경"
 }

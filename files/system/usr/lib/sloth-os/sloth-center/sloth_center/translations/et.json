@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi kontroll",
   "Turn on Wi-Fi": "Lülita Wi-Fi sisse",
   "Choose a network": "Vali võrk",
-  "Open the sign-in page": "Ava sisselogimisleht"
+  "Open the sign-in page": "Ava sisselogimisleht",
+  "App permissions": "Rakenduste õigused",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Discoverist või Sloth Welcome'ist paigaldatud rakendused, mis saavad neid kasutada. Paljud pääsevad kaamerale ligi vaid seepärast, et saavad kasutada kõiki seadmeid, näiteks mängupulte.",
+  "Camera": "Kaamera",
+  "Microphone": "Mikrofon",
+  "Location": "Asukoht",
+  "No app can use it.": "Ükski rakendus ei saa seda kasutada.",
+  "Change app permissions": "Muuda rakenduste õigusi"
 }

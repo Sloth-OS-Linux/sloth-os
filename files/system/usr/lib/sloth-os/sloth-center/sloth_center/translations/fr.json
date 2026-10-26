@@ -704,5 +704,12 @@
   "Wi-Fi check": "Vérification du Wi-Fi",
   "Turn on Wi-Fi": "Activer le Wi-Fi",
   "Choose a network": "Choisir un réseau",
-  "Open the sign-in page": "Ouvrir la page de connexion"
+  "Open the sign-in page": "Ouvrir la page de connexion",
+  "App permissions": "Autorisations des applications",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Applications installées depuis Discover ou Sloth Welcome qui peuvent les utiliser. Beaucoup n'accèdent à la caméra que parce qu'elles peuvent utiliser tous les périphériques, par exemple les manettes.",
+  "Camera": "Caméra",
+  "Microphone": "Microphone",
+  "Location": "Position",
+  "No app can use it.": "Aucune application ne peut l'utiliser.",
+  "Change app permissions": "Modifier les autorisations des applications"
 }

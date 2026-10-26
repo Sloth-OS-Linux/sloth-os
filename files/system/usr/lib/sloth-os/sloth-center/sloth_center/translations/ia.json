@@ -704,5 +704,12 @@
   "Wi-Fi check": "Verification del Wi-Fi",
   "Turn on Wi-Fi": "Activar le Wi-Fi",
   "Choose a network": "Seliger un rete",
-  "Open the sign-in page": "Aperir le pagina de accesso"
+  "Open the sign-in page": "Aperir le pagina de accesso",
+  "App permissions": "Permissiones del applicationes",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Applicationes de Discover o Sloth Welcome que pote usar istes. Multes accede al camera solmente perque illos pote usar tote le dispositivos, per exemplo le controlatores de joco.",
+  "Camera": "Camera",
+  "Microphone": "Microphono",
+  "Location": "Location",
+  "No app can use it.": "Nulle application pote usar lo.",
+  "Change app permissions": "Cambiar le permissiones del applicationes"
 }

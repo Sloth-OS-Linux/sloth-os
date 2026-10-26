@@ -704,5 +704,12 @@
   "Wi-Fi check": "Pemeriksaan Wi-Fi",
   "Turn on Wi-Fi": "Nyalakan Wi-Fi",
   "Choose a network": "Pilih jaringan",
-  "Open the sign-in page": "Buka halaman masuk"
+  "Open the sign-in page": "Buka halaman masuk",
+  "App permissions": "Izin aplikasi",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Aplikasi dari Discover atau Sloth Welcome yang dapat menggunakannya. Banyak yang menjangkau kamera hanya karena dapat menggunakan semua perangkat, misalnya pengontrol game.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofon",
+  "Location": "Lokasi",
+  "No app can use it.": "Tidak ada aplikasi yang dapat menggunakannya.",
+  "Change app permissions": "Ubah izin aplikasi"
 }

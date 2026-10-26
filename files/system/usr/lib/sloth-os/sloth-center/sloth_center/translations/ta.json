@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi சரிபார்ப்பு",
   "Turn on Wi-Fi": "Wi-Fi-ஐ இயக்கு",
   "Choose a network": "நெட்வொர்க்கைத் தேர்ந்தெடு",
-  "Open the sign-in page": "உள்நுழைவுப் பக்கத்தைத் திற"
+  "Open the sign-in page": "உள்நுழைவுப் பக்கத்தைத் திற",
+  "App permissions": "செயலி அனுமதிகள்",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Discover அல்லது Sloth Welcome இலிருந்து நிறுவிய, இவற்றைப் பயன்படுத்தக்கூடிய செயலிகள். பல செயலிகள் கேமராவை அணுகுவது, விளையாட்டுக் கட்டுப்படுத்திகள் போன்ற எல்லாச் சாதனங்களையும் பயன்படுத்த முடிவதால் மட்டுமே.",
+  "Camera": "கேமரா",
+  "Microphone": "மைக்ரோஃபோன்",
+  "Location": "இருப்பிடம்",
+  "No app can use it.": "எந்தச் செயலியும் இதைப் பயன்படுத்த முடியாது.",
+  "Change app permissions": "செயலி அனுமதிகளை மாற்று"
 }

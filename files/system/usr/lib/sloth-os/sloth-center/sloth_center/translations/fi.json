@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi-tarkistus",
   "Turn on Wi-Fi": "Kytke Wi-Fi päälle",
   "Choose a network": "Valitse verkko",
-  "Open the sign-in page": "Avaa kirjautumissivu"
+  "Open the sign-in page": "Avaa kirjautumissivu",
+  "App permissions": "Sovellusten oikeudet",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Discoverista tai Sloth Welcomesta asennetut sovellukset, jotka voivat käyttää näitä. Moni pääsee kameraan vain siksi, että ne voivat käyttää kaikkia laitteita, esimerkiksi peliohjaimia.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofoni",
+  "Location": "Sijainti",
+  "No app can use it.": "Mikään sovellus ei voi käyttää sitä.",
+  "Change app permissions": "Muuta sovellusten oikeuksia"
 }

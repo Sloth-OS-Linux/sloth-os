@@ -704,5 +704,12 @@
   "Wi-Fi check": "WLAN-Prüfung",
   "Turn on Wi-Fi": "WLAN einschalten",
   "Choose a network": "Netz auswählen",
-  "Open the sign-in page": "Anmeldeseite öffnen"
+  "Open the sign-in page": "Anmeldeseite öffnen",
+  "App permissions": "App-Berechtigungen",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Apps aus Discover oder Sloth Welcome, die diese nutzen können. Viele erreichen die Kamera nur, weil sie alle Geräte nutzen dürfen, zum Beispiel Gamecontroller.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofon",
+  "Location": "Standort",
+  "No app can use it.": "Keine App kann darauf zugreifen.",
+  "Change app permissions": "App-Berechtigungen ändern"
 }

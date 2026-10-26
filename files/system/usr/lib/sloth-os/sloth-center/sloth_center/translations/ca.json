@@ -704,5 +704,12 @@
   "Wi-Fi check": "Comprovació de la Wi-Fi",
   "Turn on Wi-Fi": "Activa la Wi-Fi",
   "Choose a network": "Trieu una xarxa",
-  "Open the sign-in page": "Obre la pàgina d'inici de sessió"
+  "Open the sign-in page": "Obre la pàgina d'inici de sessió",
+  "App permissions": "Permisos de les aplicacions",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Aplicacions de Discover o Sloth Welcome que poden fer-ho servir. Moltes arriben a la càmera només perquè poden usar tots els dispositius, per exemple els comandaments de joc.",
+  "Camera": "Càmera",
+  "Microphone": "Micròfon",
+  "Location": "Ubicació",
+  "No app can use it.": "Cap aplicació no ho pot fer servir.",
+  "Change app permissions": "Canvia els permisos de les aplicacions"
 }

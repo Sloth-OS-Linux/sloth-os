@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi-kontroll",
   "Turn on Wi-Fi": "Slå på Wi-Fi",
   "Choose a network": "Välj ett nätverk",
-  "Open the sign-in page": "Öppna inloggningssidan"
+  "Open the sign-in page": "Öppna inloggningssidan",
+  "App permissions": "Appbehörigheter",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Appar från Discover eller Sloth Welcome som kan använda dessa. Många når kameran bara för att de får använda alla enheter, till exempel spelkontroller.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofon",
+  "Location": "Plats",
+  "No app can use it.": "Ingen app kan använda den.",
+  "Change app permissions": "Ändra appbehörigheter"
 }

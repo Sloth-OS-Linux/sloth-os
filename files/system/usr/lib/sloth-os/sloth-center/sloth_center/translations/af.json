@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi-kontrole",
   "Turn on Wi-Fi": "Skakel Wi-Fi aan",
   "Choose a network": "Kies 'n netwerk",
-  "Open the sign-in page": "Maak die aanmeldbladsy oop"
+  "Open the sign-in page": "Maak die aanmeldbladsy oop",
+  "App permissions": "Programtoestemmings",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Programme uit Discover of Sloth Welcome wat dit kan gebruik. Baie kan die kamera net bereik omdat hulle alle toestelle kan gebruik, byvoorbeeld speletjiebeheerders.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofoon",
+  "Location": "Ligging",
+  "No app can use it.": "Geen program kan dit gebruik nie.",
+  "Change app permissions": "Verander programtoestemmings"
 }

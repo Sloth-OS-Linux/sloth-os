@@ -124,7 +124,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   reopen it from the sidebar.
 - [ ] **Medium** — Add a system and driver overview for graphics, audio, Bluetooth, and connected peripherals, with guidance
   when something needs attention.
-- [ ] **Medium** — Add an application privacy overview for microphone, camera, and location access where supported.
+- [x] **Medium** — Application privacy overview (2026-10-26): Account and security → "App permissions" lists
+  the Flatpak apps that can use the camera (all devices, or the camera portal), the microphone (the sound socket,
+  or PipeWire directly) and the location (the location portal). It only reads; "Change app permissions" opens
+  KDE's Flatpak permissions page (a switch here would also take the speaker or the game controllers away).
+  Tests: `tools/tests/test_privacy.py`. Check on a real machine
 - [x] **Medium** — Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
   (2026-10-26, a Security card on the System status page; check on a real machine, with and without encryption)
 - [ ] **Large** — Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and

@@ -704,5 +704,12 @@
   "Wi-Fi check": "Kontrolli i Wi-Fi",
   "Turn on Wi-Fi": "Ndizni Wi-Fi",
   "Choose a network": "Zgjidhni një rrjet",
-  "Open the sign-in page": "Hapni faqen e hyrjes"
+  "Open the sign-in page": "Hapni faqen e hyrjes",
+  "App permissions": "Lejet e aplikacioneve",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Aplikacionet nga Discover ose Sloth Welcome që mund t'i përdorin këto. Shumë arrijnë te kamera vetëm sepse mund të përdorin të gjitha pajisjet, për shembull kontrollorët e lojërave.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofoni",
+  "Location": "Vendndodhja",
+  "No app can use it.": "Asnjë aplikacion nuk mund ta përdorë.",
+  "Change app permissions": "Ndryshoni lejet e aplikacioneve"
 }

@@ -704,5 +704,12 @@
   "Wi-Fi check": "فحص Wi-Fi",
   "Turn on Wi-Fi": "شغّل Wi-Fi",
   "Choose a network": "اختر شبكة",
-  "Open the sign-in page": "افتح صفحة تسجيل الدخول"
+  "Open the sign-in page": "افتح صفحة تسجيل الدخول",
+  "App permissions": "أذونات التطبيقات",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "التطبيقات المثبّتة من Discover أو Sloth Welcome التي يمكنها استخدام هذه. كثير منها يصل إلى الكاميرا فقط لأنه يستطيع استخدام كل الأجهزة، مثل وحدات التحكم بالألعاب.",
+  "Camera": "الكاميرا",
+  "Microphone": "الميكروفون",
+  "Location": "الموقع",
+  "No app can use it.": "لا يمكن لأي تطبيق استخدامه.",
+  "Change app permissions": "تغيير أذونات التطبيقات"
 }

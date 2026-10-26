@@ -704,5 +704,12 @@
   "Wi-Fi check": "Kontrola Wi-Fi",
   "Turn on Wi-Fi": "Zapnout Wi-Fi",
   "Choose a network": "Vybrat síť",
-  "Open the sign-in page": "Otevřít přihlašovací stránku"
+  "Open the sign-in page": "Otevřít přihlašovací stránku",
+  "App permissions": "Oprávnění aplikací",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Aplikace z Discoveru nebo Sloth Welcome, které je mohou používat. Mnohé se ke kameře dostanou jen proto, že mohou používat všechna zařízení, například herní ovladače.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofon",
+  "Location": "Poloha",
+  "No app can use it.": "Žádná aplikace to nemůže používat.",
+  "Change app permissions": "Změnit oprávnění aplikací"
 }

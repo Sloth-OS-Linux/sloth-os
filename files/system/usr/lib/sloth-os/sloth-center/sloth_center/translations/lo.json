@@ -704,5 +704,12 @@
   "Wi-Fi check": "ການກວດ Wi-Fi",
   "Turn on Wi-Fi": "ເປີດ Wi-Fi",
   "Choose a network": "ເລືອກເຄືອຂ່າຍ",
-  "Open the sign-in page": "ເປີດໜ້າເຂົ້າສູ່ລະບົບ"
+  "Open the sign-in page": "ເປີດໜ້າເຂົ້າສູ່ລະບົບ",
+  "App permissions": "ສິດຂອງແອັບ",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "ແອັບຈາກ Discover ຫຼື Sloth Welcome ທີ່ສາມາດໃຊ້ສິ່ງເຫຼົ່ານີ້. ຫຼາຍແອັບເຂົ້າເຖິງກ້ອງໄດ້ພຽງເພາະສາມາດໃຊ້ອຸປະກອນທັງໝົດ, ເຊັ່ນ ຈອຍເກມ.",
+  "Camera": "ກ້ອງ",
+  "Microphone": "ໄມໂຄຣໂຟນ",
+  "Location": "ສະຖານທີ່",
+  "No app can use it.": "ບໍ່ມີແອັບໃດໃຊ້ມັນໄດ້.",
+  "Change app permissions": "ປ່ຽນສິດຂອງແອັບ"
 }

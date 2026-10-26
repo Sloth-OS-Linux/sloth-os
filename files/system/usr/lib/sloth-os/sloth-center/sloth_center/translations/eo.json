@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi-kontrolo",
   "Turn on Wi-Fi": "Ŝalti Wi-Fi",
   "Choose a network": "Elekti reton",
-  "Open the sign-in page": "Malfermi la ensalutan paĝon"
+  "Open the sign-in page": "Malfermi la ensalutan paĝon",
+  "App permissions": "Aplikaĵaj permesoj",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Aplikaĵoj el Discover aŭ Sloth Welcome, kiuj povas uzi ĉi tiujn. Multaj atingas la kameraon nur ĉar ili povas uzi ĉiujn aparatojn, ekzemple ludregilojn.",
+  "Camera": "Kamerao",
+  "Microphone": "Mikrofono",
+  "Location": "Loko",
+  "No app can use it.": "Neniu aplikaĵo povas uzi ĝin.",
+  "Change app permissions": "Ŝanĝi aplikaĵajn permesojn"
 }

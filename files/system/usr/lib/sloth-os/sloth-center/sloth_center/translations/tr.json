@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi denetimi",
   "Turn on Wi-Fi": "Wi-Fi'yi aç",
   "Choose a network": "Bir ağ seç",
-  "Open the sign-in page": "Oturum açma sayfasını aç"
+  "Open the sign-in page": "Oturum açma sayfasını aç",
+  "App permissions": "Uygulama izinleri",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Discover veya Sloth Welcome'dan yüklenen ve bunları kullanabilen uygulamalar. Birçoğu kameraya yalnızca oyun kumandaları gibi tüm aygıtları kullanabildiği için erişir.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofon",
+  "Location": "Konum",
+  "No app can use it.": "Hiçbir uygulama kullanamıyor.",
+  "Change app permissions": "Uygulama izinlerini değiştir"
 }

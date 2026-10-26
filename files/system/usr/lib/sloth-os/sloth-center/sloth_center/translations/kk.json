@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi тексеруі",
   "Turn on Wi-Fi": "Wi-Fi қосу",
   "Choose a network": "Желіні таңдау",
-  "Open the sign-in page": "Кіру бетін ашу"
+  "Open the sign-in page": "Кіру бетін ашу",
+  "App permissions": "Қолданба рұқсаттары",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Discover немесе Sloth Welcome арқылы орнатылған, бұларды қолдана алатын қолданбалар. Көбі камераға тек барлық құрылғыларды, мысалы ойын контроллерлерін қолдана алатындықтан қол жеткізеді.",
+  "Camera": "Камера",
+  "Microphone": "Микрофон",
+  "Location": "Орналасқан жер",
+  "No app can use it.": "Ешбір қолданба оны қолдана алмайды.",
+  "Change app permissions": "Қолданба рұқсаттарын өзгерту"
 }

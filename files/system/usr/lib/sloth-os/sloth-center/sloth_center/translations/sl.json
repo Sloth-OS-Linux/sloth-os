@@ -704,5 +704,12 @@
   "Wi-Fi check": "Preverjanje Wi-Fi",
   "Turn on Wi-Fi": "Vklopi Wi-Fi",
   "Choose a network": "Izberi omrežje",
-  "Open the sign-in page": "Odpri stran za prijavo"
+  "Open the sign-in page": "Odpri stran za prijavo",
+  "App permissions": "Dovoljenja aplikacij",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Aplikacije iz Discoverja ali Sloth Welcome, ki jih lahko uporabljajo. Mnoge do kamere dostopajo le zato, ker lahko uporabljajo vse naprave, na primer igralne ploščke.",
+  "Camera": "Kamera",
+  "Microphone": "Mikrofon",
+  "Location": "Lokacija",
+  "No app can use it.": "Nobena aplikacija je ne more uporabljati.",
+  "Change app permissions": "Spremeni dovoljenja aplikacij"
 }

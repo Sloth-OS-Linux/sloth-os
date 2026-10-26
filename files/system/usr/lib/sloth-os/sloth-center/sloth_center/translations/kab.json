@@ -704,5 +704,12 @@
   "Wi-Fi check": "Asenqed n Wi-Fi",
   "Turn on Wi-Fi": "Rmed Wi-Fi",
   "Choose a network": "Fren azeṭṭa",
-  "Open the sign-in page": "Ldi asebter n tuqqna"
+  "Open the sign-in page": "Ldi asebter n tuqqna",
+  "App permissions": "Tisirag n yisnasen",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Isnasen seg Discover neɣ Sloth Welcome yezmren ad ten-sqedcen. Aṭas seg-sen ttawḍen ɣer tkamiṛat kan acku zemren ad sqedcen akk ibenkan, am yimsenqaden n wurar.",
+  "Camera": "Takamiṛat",
+  "Microphone": "Asawaḍ",
+  "Location": "Adig",
+  "No app can use it.": "Ulac asnas i yezmren ad t-isseqdec.",
+  "Change app permissions": "Beddel tisirag n yisnasen"
 }

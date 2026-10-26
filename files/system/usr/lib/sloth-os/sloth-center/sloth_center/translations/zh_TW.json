@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi 檢查",
   "Turn on Wi-Fi": "開啟 Wi-Fi",
   "Choose a network": "選擇網路",
-  "Open the sign-in page": "開啟登入頁面"
+  "Open the sign-in page": "開啟登入頁面",
+  "App permissions": "應用程式權限",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "從 Discover 或 Sloth Welcome 安裝、可以使用這些的應用程式。許多應用程式能存取攝影機，只是因為它們可以使用所有裝置，例如遊戲控制器。",
+  "Camera": "攝影機",
+  "Microphone": "麥克風",
+  "Location": "位置",
+  "No app can use it.": "沒有應用程式可以使用。",
+  "Change app permissions": "變更應用程式權限"
 }

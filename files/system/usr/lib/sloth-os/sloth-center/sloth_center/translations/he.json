@@ -704,5 +704,12 @@
   "Wi-Fi check": "בדיקת Wi-Fi",
   "Turn on Wi-Fi": "הפעלת Wi-Fi",
   "Choose a network": "בחירת רשת",
-  "Open the sign-in page": "פתיחת דף ההתחברות"
+  "Open the sign-in page": "פתיחת דף ההתחברות",
+  "App permissions": "הרשאות יישומים",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "יישומים מ־Discover או מ־Sloth Welcome שיכולים להשתמש באלה. רבים מגיעים למצלמה רק משום שהם יכולים להשתמש בכל ההתקנים, למשל בבקרי משחק.",
+  "Camera": "מצלמה",
+  "Microphone": "מיקרופון",
+  "Location": "מיקום",
+  "No app can use it.": "אף יישום לא יכול להשתמש בזה.",
+  "Change app permissions": "שינוי הרשאות יישומים"
 }

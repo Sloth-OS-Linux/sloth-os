@@ -704,5 +704,12 @@
   "Wi-Fi check": "Verificare Wi-Fi",
   "Turn on Wi-Fi": "Porniți Wi-Fi",
   "Choose a network": "Alegeți o rețea",
-  "Open the sign-in page": "Deschideți pagina de autentificare"
+  "Open the sign-in page": "Deschideți pagina de autentificare",
+  "App permissions": "Permisiunile aplicațiilor",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Aplicații din Discover sau Sloth Welcome care le pot folosi. Multe ajung la cameră doar pentru că pot folosi toate dispozitivele, de exemplu controlerele de jocuri.",
+  "Camera": "Cameră",
+  "Microphone": "Microfon",
+  "Location": "Locație",
+  "No app can use it.": "Nicio aplicație nu îl poate folosi.",
+  "Change app permissions": "Schimbați permisiunile aplicațiilor"
 }

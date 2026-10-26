@@ -704,5 +704,12 @@
   "Wi-Fi check": "Wi-Fi 检查",
   "Turn on Wi-Fi": "打开 Wi-Fi",
   "Choose a network": "选择网络",
-  "Open the sign-in page": "打开登录页面"
+  "Open the sign-in page": "打开登录页面",
+  "App permissions": "应用权限",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "从 Discover 或 Sloth Welcome 安装、可以使用这些的应用。很多应用能访问摄像头，只是因为它们可以使用所有设备，例如游戏手柄。",
+  "Camera": "摄像头",
+  "Microphone": "麦克风",
+  "Location": "位置",
+  "No app can use it.": "没有应用可以使用。",
+  "Change app permissions": "更改应用权限"
 }

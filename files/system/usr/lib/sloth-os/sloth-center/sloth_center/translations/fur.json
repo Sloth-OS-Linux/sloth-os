@@ -704,5 +704,12 @@
   "Wi-Fi check": "Control dal Wi-Fi",
   "Turn on Wi-Fi": "Impie il Wi-Fi",
   "Choose a network": "Sielç une rêt",
-  "Open the sign-in page": "Vierç la pagjine di acès"
+  "Open the sign-in page": "Vierç la pagjine di acès",
+  "App permissions": "Permès des aplicazions",
+  "Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.": "Aplicazions instaladis di Discover o di Sloth Welcome che a puedin doprâju. Tantis a rivin a la fotocjamare dome parcè che a puedin doprâ ducj i dispositîfs, par esempli i controlers dai zûcs.",
+  "Camera": "Fotocjamare",
+  "Microphone": "Microfon",
+  "Location": "Posizion",
+  "No app can use it.": "Nissune aplicazion no le pues doprâ.",
+  "Change app permissions": "Cambie i permès des aplicazions"
 }
