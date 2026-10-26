@@ -17,7 +17,25 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
-### Sloth OS 1.0.5 (test ISO, not released yet)
+### Sloth OS 1.0.5 (release planned for 2026-10-27; the number may become 1.1)
+The `codex/1.0.5-test` branch, tested on a real machine (laptop) on 2026-10-26. Updates finish again (the rpm-ostree
+crash, under 1.0.4 below); Sloth Center got a spotlight guide, Appearance (with an Ubuntu-like layout), Displays,
+Sound, Bluetooth, a Wi-Fi check, programs that start at sign-in, app permissions, file restore and backup check;
+the installer asks for the main screen and lets partitions be chosen; disc images open with a double-click. The
+user-facing list is in `README.md`. Each item is under its topic (phases and the groups of 1.0.4 below).
+
+Release:
+- [ ] The "Turn on Bluetooth" button on a real machine (2026-10-26: the rfkill block is lifted first, then Powered is
+  set again while the adapter wakes up; the last test before that fix did not turn it on)
+- [ ] Decide the number (1.0.5 or 1.1): `files/scripts/branding.sh`, the README header and the SourceForge folder
+- [ ] Merge `codex/1.0.5-test` into `main` (the `test/chunked-oci` branch stays out, see "Smaller system updates")
+- [ ] Build the ISO from `main`, install it once in a VM, upload it to SourceForge with its SHA-256 checksum
+- [ ] Website: the 1.0.5 news and download link
+
+Not checked on a real machine yet: the FPS display's temperatures, the metered-connection question (a phone
+hotspot), disc images (eject, sign-out), the main-screen question and partition choice in the installer, and the
+self-healing installers.
+
 - [x] Choose the main screen in the installer (first page, only with more than one screen); the installer moves
   there at once, and the installed system makes it the main one at the first sign-in
   (`/usr/libexec/sloth-os/display-setup`). The login screen itself is not set yet. Check on a real machine
@@ -31,14 +49,14 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] The Sloth Center first-run guide lights up what it talks about (2026-10-26): each step darkens the window
   except its pages in the list on the left (a pulsing frame around them), a bubble next to them explains, and the
   light slides to the next step's pages. A new step shows Appearance. Check on a real machine (also with a
-  small window, and "Open guide" at the bottom of the list)
+  small window, and "Open guide" at the bottom of the list). Checked on a real machine (2026-10-26)
 - [x] Appearance in Sloth Center (2026-10-26): the color schemes and taskbar layouts of the welcome wizard can be
   changed any time later. Both tools use the same code (`sloth_common/appearance.py`) and the same drawings
   (`sloth_common/qml/SlothCommon/LayoutPreview.qml`), so a layout looks the same whichever set it. New layout:
   Ubuntu-like (top bar with the date and time in the middle, a floating dock on the left that does not run into
   the top bar; the app grid slides out from the dock as the Start menu with large icons in a grid); GNOME
   itself is not added, KDE Plasma draws this look. Clicking the current layout in Sloth Center builds it again. Tests: `tools/tests/test_appearance.py`.
-  Check on a real machine (every layout, switching back and forth, the pinned apps stay)
+  Checked on a real machine (2026-10-26): every layout, switching back and forth, the pinned apps stay
 - [x] Installers heal themselves and are remembered too (2026-10-26): what installed an installer before (here,
   or from the shared knowledge) goes first; if the installer crashes or its log shows a known missing component
   and nothing got installed, it is tried again with the fix or the next setting (another Proton version only into
@@ -126,12 +144,15 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   the Drivers and hardware page has the graphics card, Displays, Bluetooth (no adapter / off with "Turn on
   Bluetooth" / the connected devices with battery, "Pair a device"), Sound and Controllers. Bluetooth is read from
   BlueZ with a short timeout in the background: without an adapter the service does not start and asking it would
-  wait (found on the developer machine). Tests: `tools/tests/test_bluetooth.py`. Check on a laptop with Bluetooth
+  wait (found on the developer machine). It follows the tray (refresh every 3 s while the page is open) and counts an
+  rfkill block as off; "Turn on Bluetooth" lifts the block and sets Powered again while the adapter wakes up.
+  Tests: `tools/tests/test_bluetooth.py`. The card: checked on a real machine (2026-10-26); the button: see the
+  1.0.5 release list
 - [x] **Medium** — Application privacy overview (2026-10-26): Account and security → "App permissions" lists
   the Flatpak apps that can use the camera (all devices, or the camera portal), the microphone (the sound socket,
   or PipeWire directly) and the location (the location portal). It only reads; "Change app permissions" opens
   KDE's Flatpak permissions page (a switch here would also take the speaker or the game controllers away).
-  Tests: `tools/tests/test_privacy.py`. Check on a real machine
+  Tests: `tools/tests/test_privacy.py`. Checked on a real machine (2026-10-26)
 - [x] **Medium** — Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
   (2026-10-26, a Security card on the System status page; check on a real machine, with and without encryption)
 - [ ] **Large** — Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
@@ -140,8 +161,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   step in plain language: is there an adapter (if not: Drivers and hardware), is it turned on (a key or switch on
   the computer, or "Turn on Wi-Fi"), is it connected ("Choose a network"), how strong the signal is, does the
   internet answer (a sign-in network: "Open the sign-in page"; no internet: restart the router). It reads
-  NetworkManager and rfkill only. Tests: `tools/tests/test_wifi.py`. Check on a real machine (Wi-Fi off with the
-  key, a weak signal, a hotel or train network)
+  NetworkManager and rfkill only. Tests: `tools/tests/test_wifi.py`. Checked on a real machine (2026-10-26); a hotel
+  or train network not yet
 - [ ] **Medium** — Keep essential installation, recovery, and troubleshooting help available offline.
 - [ ] **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
 - [ ] **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
@@ -149,8 +170,9 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   in": the user's own autostart entries (Steam, Discord, … also those added through the Flatpak background portal)
   with their name, description and a switch (`Hidden=true`, as KDE's own settings do). The system's parts
   (/etc/xdg/autostart) are not listed, turning those off would break something. The startup impact is not shown:
-  it cannot be measured reliably. Tests: `tools/tests/test_startup.py`. Check on a real machine (Steam set to
-  start at sign-in)
+  it cannot be measured reliably. "Add a program…" opens KDE's autostart settings: Steam's own "start with the
+  computer" option cannot write there from its Flatpak. Tests: `tools/tests/test_startup.py`. Checked on a real
+  machine (2026-10-26, Steam added and turned off)
 - [ ] **Large** — Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
   health or charge limits in one place, with clear effects on battery life and gaming.
 
@@ -159,8 +181,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Medium** — Let users schedule updates and avoid restart prompts during user-defined quiet hours.
 - [x] **Medium** — Warn before large downloads on metered or mobile connections (2026-10-26): the Updates page shows
   the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
-  anyway" / "Later"). The automatic update (uupd) already skips metered connections. Check on a real machine (a
-  phone hotspot)
+  anyway" / "Later"). The automatic update (uupd) already skips metered connections. The size: checked on a real
+  machine (2026-10-26); the metered question (a phone hotspot) not yet
 - [ ] **Medium** — Let users limit update download speed.
 - [ ] **Medium** — Smaller system updates (measured 2026-10-26 on ghcr): every build rebuilds all 23 of our own
   layers, so even a one-line change downloads about 2.3 GB (with the daily base image changes 3.8 GB) of the
@@ -176,11 +198,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Medium** — Let users schedule file backups, choose retention, and estimate required storage.
 - [x] **Medium** — Guide users through restoring a selected file (2026-10-26): File backup → "Restore a file…"
   (pick the file) or "Find deleted files…" (pick the folder it was in) opens the same "Previous versions" window
-  as right-click in the file manager, for those who do not know that menu. Check on a real machine
+  as right-click in the file manager, for those who do not know that menu. Checked on a real machine (2026-10-26)
 - [x] **Medium** — Verify backups by checking that the saved states can be read (2026-10-26): File backup →
   "Check the backup" reads back a sample of 300 files of the latest saved state (no password, nothing changed)
   and says in plain language whether all of them can be read; files the user may not read anyway are not
-  counted as a fault. Tests: `tools/tests/test_backup_verify.py`. Check on a real machine
+  counted as a fault. Tests: `tools/tests/test_backup_verify.py`. Checked on a real machine (2026-10-26)
 - [ ] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
 - [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
 - [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart
@@ -200,7 +222,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   Drivers and hardware → Sound: choose the speakers or headphones and the microphone (the default for games and
   calls), "Play a test sound", "Test the microphone" (records four seconds, says whether it heard anything, plays
   it back), and a muted microphone can be unmuted. The controllers were already there (list, battery, pairing,
-  "Test the buttons"). Tests: `tools/tests/test_sound.py`. Check on a real machine
+  "Test the buttons"). Tests: `tools/tests/test_sound.py`. Checked on a real machine (2026-10-26)
 - [ ] **Medium** — Share concise, community-informed game fixes with version details and a way to report outdated guidance.
 - [ ] **Large** — When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
 - [ ] **Medium** — Help users move supported game libraries between drives without downloading again, updating launcher paths.
@@ -212,7 +234,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   144 Hz" button (found on a real machine: a 144 Hz monitor running at 100 Hz), and switches for VRR and HDR only
   where the monitor supports them, through kscreen-doctor. After a change it asks "Keep?" and goes back by itself
   after 15 seconds, as KDE's own display settings do. The resolution stays in "More display settings".
-  Tests: `tools/tests/test_display.py`. Check on a real machine (also HDR on, then "Go back")
+  Tests: `tools/tests/test_display.py`. Checked on a real machine (2026-10-26)
 - [ ] **Medium** — Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
 - [ ] **Medium** — Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
 
