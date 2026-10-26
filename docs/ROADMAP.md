@@ -182,7 +182,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 #### Gaming, devices, and connectivity
 - [ ] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
   restores normal settings when it closes.
-- [ ] **Medium** — Add a performance display for frame rate, system load, and supported temperature sensors.
+- [x] **Medium** — Performance display for frame rate, system load, and temperatures (2026-10-26): the per-game
+  "Show FPS and performance while playing" (Games page, MangoHud) showed the frame rate and the CPU and GPU load;
+  turning it on now also writes a MangoHud.conf with the CPU and GPU temperatures and the memory, for Windows
+  programs and in Steam's Flatpak folder, only where there is none yet. Tests: `tools/tests/test_overlay.py`.
+  Check on a real machine (a Steam game with the FPS display on)
 - [x] **Medium** — Test and select controllers, microphones, and audio output devices before gaming (2026-10-26):
   Drivers and hardware → Sound: choose the speakers or headphones and the microphone (the default for games and
   calls), "Play a test sound", "Test the microphone" (records four seconds, says whether it heard anything, plays

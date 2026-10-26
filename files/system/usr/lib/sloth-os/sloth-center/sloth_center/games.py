@@ -124,6 +124,9 @@ class GamesController(QObject):
         if not game or option not in gamesettings.DEFAULTS:
             return
         settings = gamesettings.normalize({**{k: game[k] for k in gamesettings.DEFAULTS}, option: value})
+        if option == "fps" and value:
+            # the temperatures and the memory too (only where the user has no MangoHud settings of their own)
+            gamesettings.ensure_overlay_config()
         source, key = game_id.split(":", 1)
         if source == "steam":
             self._save_steam(key, settings)
