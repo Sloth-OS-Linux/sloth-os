@@ -47,12 +47,39 @@ WINE_BUILTIN = re.compile(
 VERSION_DIR = re.compile(r"[\\/][^\\/]*\d+\.\d+\.\d+[^\\/]*[\\/]")
 
 
+# Installer builders leave their name in the .exe's stub (the part before the packed data)
+INSTALLER_MARKS = (b"Nullsoft Install System", b"NullsoftInst", b"Inno Setup", b"InstallShield", b".wixburn",
+                   b"WixBundle", b"Squirrel", b"InstallAware", b"Setup Factory", b"Advanced Installer")
+# A version resource string: the UTF-16 key, its terminating zero, padding to 4 bytes, then the value
+VERSION_FIELD = re.compile(rb"(?:F\0i\0l\0e\0D\0e\0s\0c\0r\0i\0p\0t\0i\0o\0n\0|"
+                           rb"O\0r\0i\0g\0i\0n\0a\0l\0F\0i\0l\0e\0n\0a\0m\0e\0)\0\0(?:\0\0)?((?:[^\0]\0){1,80})")
+
+
+def _installer_inside(path, limit=8 * 1024 * 1024):
+    """Whether the .exe is an installer by its contents: a known installer builder, or "setup"/"install" in its
+    version information (e.g. 7-Zip's 7z2605-x64.exe: "7-Zip Setup"), when the file name does not say so."""
+    try:
+        with open(path, "rb") as f:
+            data = f.read(limit)
+    except OSError:
+        return False
+    if data[:2] != b"MZ":
+        return False
+    if any(mark in data for mark in INSTALLER_MARKS):
+        return True
+    for m in VERSION_FIELD.finditer(data):
+        value = m.group(1).decode("utf-16-le", "replace").lower()
+        if any(w in value for w in INSTALLER_WORDS):
+            return True
+    return False
+
+
 def looks_like_installer(path):
     p = Path(path)
     if p.suffix.lower() == ".msi":
         return True
     low = p.stem.lower()
-    return any(w in low for w in INSTALLER_WORDS)
+    return any(w in low for w in INSTALLER_WORDS) or _installer_inside(p)
 
 
 def display_name(path):

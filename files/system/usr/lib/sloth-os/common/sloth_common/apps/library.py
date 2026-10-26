@@ -622,24 +622,36 @@ def _windows_exe(proc):
     return name if name.endswith(".exe") and name not in INFRA else None
 
 
-def running_exes(app):
-    """The names of the programs running in the program's Windows environment (without Wine's own processes)."""
+def _prefix_procs(app):
+    """The processes running with the program's Windows environment (WINEPREFIX), Wine's own ones too."""
     marker = b"WINEPREFIX=" + str(app.prefix).encode() + b"\0"
-    out = set()
     proc_root = Path("/proc")
     if not proc_root.is_dir():
-        return out
+        return
     for proc in proc_root.iterdir():
         if not proc.name.isdigit() or int(proc.name) == os.getpid():
             continue
         try:
             if marker in (proc / "environ").read_bytes():
-                name = _windows_exe(proc)
-                if name and name not in INFRA:
-                    out.add(name)
+                yield proc
         except OSError:
             continue
+
+
+def running_exes(app):
+    """The names of the programs running in the program's Windows environment (without Wine's own processes)."""
+    out = set()
+    for proc in _prefix_procs(app):
+        name = _windows_exe(proc)
+        if name and name not in INFRA:
+            out.add(name)
     return out
+
+
+def prefix_alive(app):
+    """Whether anything still runs in the environment, Wine's own processes (wineserver) included. Right after the
+    launcher exits the program may still be starting or handing over, so "nothing runs" is only certain then."""
+    return next(_prefix_procs(app), None) is not None
 
 
 def prefix_busy(app):

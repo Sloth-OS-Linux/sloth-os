@@ -13,6 +13,7 @@ import logging
 import re
 import subprocess
 import threading
+import time
 from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, QProcess, QTimer, QUrl, Signal, Slot
@@ -39,6 +40,10 @@ def _size_text(n):
 STARTED_AFTER_S = 8
 # If it exits sooner than this, it may not have started properly (self-healing, heal.py)
 QUICK_EXIT_S = 20
+# After a quick exit we wait this long for Wine to finish in the environment before deciding (Notepad++ hands over)
+SETTLE_S = 6
+# A clean exit (code 0, no error in the log) after this many seconds counts as the user closing the program
+USER_CLOSE_S = 3
 # If it runs this long, the setting worked: we remember it
 WORKED_AFTER_S = 45
 # After the installer exits, we wait this long for its other processes (e.g. the actual installer
@@ -761,13 +766,32 @@ class ExeController(QObject):
                 log.info("exited with an error code (%s), not remembered as a working setting", code)
             QApplication.quit()
             return
+        self._settle(code, elapsed, time.monotonic())
+
+    def _settle(self, code, elapsed, since):
+        """After a quick exit: is it really over? While Wine still runs in the environment (the program is starting
+        or handing over, e.g. Notepad++), we look again for up to SETTLE_S seconds before calling it a failure;
+        otherwise a program that was open would get started again with another setting."""
         if self._program.busy():
             # The launcher handed over: the program keeps running, this is not an error
             log.info("the launcher exited, the program keeps running")
             self._busy_timer.start()
             self._worked_timer.start()
             return
+        if library.prefix_alive(self._program) and time.monotonic() - since < SETTLE_S:
+            QTimer.singleShot(500, lambda: self._settle(code, elapsed, since))
+            return
         lines = self._runner.lines()
+        if code == 0 and elapsed >= USER_CLOSE_S and not diagnose.crashed(lines) and not diagnose.fixes(lines):
+            # A clean exit after a few seconds, without any error in the log: the user closed it. Starting it again
+            # with another setting would reopen a window the user has just closed (Notepad++, 2026-10-22)
+            log.info("clean exit after %.0f s without errors: closed by the user, not restarted", elapsed)
+            QApplication.quit()
+            return
+        self._quick_exit(code, lines)
+
+    def _quick_exit(self, code, lines):
+        """It exited quickly and nothing runs any more: a known good setting, give up, or self-healing."""
         rec = heal.record(self._program, self._exe)
         if code == 0 and rec.get("good") and not diagnose.crashed(lines):
             # It worked before and did not crash now either: the user closed it

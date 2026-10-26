@@ -120,6 +120,24 @@ class DetectTest(unittest.TestCase):
         self.assertTrue(detect.looks_like_installer("x.msi"))
         self.assertFalse(detect.looks_like_installer("game.exe"))
 
+    def test_installer_by_contents(self):
+        """7-Zip's 7z2605-x64.exe has no installer word in its name, only in its version information
+        ("7-Zip Installer"); run as a program, it was installed again and again (2026-10-22)."""
+        def exe(name, body):
+            path = TMP / name
+            path.write_bytes(b"MZ" + b"\x90" * 64 + body + b"\0" * 32)
+            return path
+
+        def version(key, value):
+            return key.encode("utf-16-le") + b"\0\0" + value.encode("utf-16-le") + b"\0\0"
+        self.assertTrue(detect.looks_like_installer(exe("7z2605-x64.exe", version("FileDescription", "7-Zip Installer"))))
+        self.assertTrue(detect.looks_like_installer(exe("tool.exe", version("OriginalFilename", "7zipInstall.exe"))))
+        self.assertTrue(detect.looks_like_installer(exe("app.exe", b"Nullsoft Install System v3.10")))
+        self.assertFalse(detect.looks_like_installer(exe("notepad++.exe", version("FileDescription", "Notepad++"))))
+        text = TMP / "readme.exe"
+        text.write_bytes(b"Setup notes, not an executable")
+        self.assertFalse(detect.looks_like_installer(text))
+
     def test_parse_lnk(self):
         lnk = TMP / "a.lnk"
         lnk.write_bytes(make_lnk(r"C:\Program Files\X\x.exe"))

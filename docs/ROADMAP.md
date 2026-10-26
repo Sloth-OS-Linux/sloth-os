@@ -44,13 +44,20 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   if export fails, or if the exported host `.desktop` lacks a `distrobox-enter` command or still invokes `sloth-exe`.
   The running Fedora box no longer has the Reddit package's source desktop entry, so a live relaunch could not be
   reproduced; `tools/tests/test_apps.py` checks that invalid exports cannot be recorded as successful installs.
-- [ ] **Medium** — Notepad++ starts again after closing: the install succeeded, but the start handler exited after 4–9 seconds
+- [x] **Medium** — Notepad++ starts again after closing: the install succeeded, but the start handler exited after 4–9 seconds
   and cycled through four runner settings even though the user saw the app open. Improve detection of a live Windows
   process after `umu-run` exits (check the prefix's Wine processes/wineserver), and only start another recovery attempt
   after confirming the previous app is no longer running. Reproduce that closing the app does not reopen it.
-- [ ] **Medium** — 7-Zip required repeated installs: the saved log has one installer run, four quick-exit recovery attempts,
+  (2026-10-26: after a quick exit the handler waits up to 6 s while anything, wineserver included, still runs in
+  the environment; a clean exit (code 0, no error in the log) after 3 s counts as the user closing it and is not
+  restarted. Check on a real machine with Notepad++)
+- [x] **Medium** — 7-Zip required repeated installs: the saved log has one installer run, four quick-exit recovery attempts,
   and then a `7Z2605` Start menu entry. Reproduce the install and launch flow, then fix recognition or process tracking
   so a successful install is not mistaken for a failed app launch and repeated installation is unnecessary.
+  (2026-10-26: the cause was that `7z2605-x64.exe` was not recognized as an installer, so it was run as a program
+  and "healed" by running the installer again. Installers are now recognized by their contents too: known
+  installer builders, or setup/install in the version information (7-Zip: "7-Zip Installer", checked on the real
+  file). Check on a real machine)
 - [x] **Medium** — Open `.iso` disk images with a double-click (idea, 2026-10-26): mount them without a password and
   show the contents. If the image has a `setup.exe` or an `autorun.inf`/`autorun.exe`, ask what to do (start the
   installer through the .exe handler, or just open the folder); remember the choice if the user asks. Offer
