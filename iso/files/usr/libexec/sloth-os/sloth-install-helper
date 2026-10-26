@@ -25,6 +25,10 @@ menu includes Windows (and the menu is shown), and the hardware clock keeps loca
 Only on UEFI machines and GPT disks; a BitLocker-encrypted or not fully shut down (fast startup, hibernation)
 Windows partition is never shrunk.
 
+Other disks (--extra-disk keep:/dev/Y or erase:/dev/Y, any number): by default they are not touched. "keep"
+mounts their Linux file systems as they are; "erase" makes one btrfs partition for programs and games (encrypted
+too if the system is, with a key file on the encrypted system, so there is only one password at boot). Both are
+mounted under /var/mnt with nofail. A disk with Windows data (NTFS, BitLocker) is never changed.
 Dry run without erasing anything (for testing the UI): SLOTH_INSTALL_DRY_RUN=1
 """
 import argparse
@@ -32,6 +36,7 @@ import glob
 import json
 import os
 import re
+import secrets
 import shutil
 import subprocess
 import sys
@@ -215,8 +220,16 @@ def partitions(disk):
     """{partition number: device} on the disk, after udev has caught up."""
     run(["udevadm", "settle", "--timeout=30"])
     out = json.loads(run(["lsblk", "--json", "--tree", "--output", "PATH,PARTN", disk]) or "{}")
-    return {int(c["partn"]): c["path"] for d in out.get("blockdevices", [])
-            for c in d.get("children") or [] if c.get("partn")}
+    found = {}
+    for c in (c for d in out.get("blockdevices", []) for c in d.get("children") or []):
+        n = c.get("partn")
+        if not n:   # without udev's data the kernel's own number (sysfs)
+            try:
+                n = (Path("/sys/class/block") / Path(c["path"]).name / "partition").read_text().strip()
+            except OSError:
+                continue
+        found[int(n)] = c["path"]
+    return found
 
 
 def partition(disk, encrypt=False):
@@ -290,6 +303,100 @@ def fstype(dev):
 
 def fs_uuid(dev):
     return subprocess.run(["blkid", "-o", "value", "-s", "UUID", dev], capture_output=True, text=True).stdout.strip()
+
+
+# --- Other disks -----------------------------------------------------------------------
+
+KEEP_FS = {"ext4", "btrfs", "xfs"}            # mounted as they are with "keep"
+NEVER_CHANGE_FS = {"ntfs", "bitlocker"}        # Windows data: such a disk is never erased or mounted here
+
+
+def disk_filesystems(disk):
+    """[(device, file system)] on a disk: its partitions, or the disk itself without a partition table.
+    The file system comes from blkid itself (lsblk's may be missing or stale without udev)."""
+    out = json.loads(subprocess.run(["lsblk", "--json", "--output", "PATH", disk],
+                                    capture_output=True, text=True).stdout or "{}")
+    found, stack = [], list(out.get("blockdevices", []))
+    while stack:
+        dev = stack.pop(0)
+        stack.extend(dev.get("children") or [])
+        fs = fstype(dev["path"]).lower()
+        if fs:
+            found.append((dev["path"], fs))
+    return found
+
+
+def parse_extra(values, target):
+    """The --extra-disk choices, checked again here (the UI offers only these too)."""
+    extras = []
+    for value in values:
+        choice, _, path = value.partition(":")
+        if choice not in ("keep", "erase") or path == target or not whole_disk(path) \
+                or path in {d for _c, d in extras}:
+            fail("error.bad_input", f"bad extra disk: {value}")
+        fstypes = {fs for _dev, fs in disk_filesystems(path)}
+        if fstypes & NEVER_CHANGE_FS:
+            fail("error.bad_input", f"a disk with Windows data is never changed: {path}")
+        if choice == "keep" and not fstypes & KEEP_FS:
+            fail("error.bad_input", f"nothing to mount on: {path}")
+        extras.append((choice, path))
+    return extras
+
+
+def _mount_name(base, used):
+    """A mount point name under /var/mnt: lowercase letters, digits and dashes, unique."""
+    name = re.sub(r"[^a-z0-9-]+", "-", base.lower()).strip("-")[:30] or "disk"
+    out, n = name, 2
+    while out in used:
+        out, n = f"{name}-{n}", n + 1
+    used.add(out)
+    return out
+
+
+def prepare_extra_disks(extras, encrypt, label):
+    """Erases or keeps the other disks. What the new system needs (configure writes it):
+    {"fstab": [lines], "crypttab": [lines], "keys": {file name: key}, "mounts": [names], "owned": [mount points]}."""
+    result = {"fstab": [], "crypttab": [], "keys": {}, "mounts": [], "owned": []}
+    used = set()
+    options = "defaults,nofail,X-mount.mkdir,x-systemd.device-timeout=10s"
+    for n, (choice, disk) in enumerate(extras, 1):
+        release_disk(disk)
+        if choice == "keep":
+            for dev, fs in disk_filesystems(disk):
+                if fs not in KEEP_FS:
+                    continue
+                name = subprocess.run(["blkid", "-o", "value", "-s", "LABEL", dev],
+                                      capture_output=True, text=True).stdout.strip()
+                name = _mount_name(name or os.path.basename(dev), used)
+                result["fstab"].append(f"UUID={fs_uuid(dev)} /var/mnt/{name} {fs} {options} 0 0")
+                result["mounts"].append(name)
+            continue
+        run(["wipefs", "--all", "--force", disk])
+        run(["sfdisk", "--wipe", "always", "--wipe-partitions", "always", disk],
+            input=f"label: gpt\ntype={LINUX_DATA}, name=\"sloth-data\"\n")
+        part = partitions(disk).get(1)
+        if not part:
+            fail("error.install_failed", f"no partition on {disk}")
+        dev, uuid, key = part, "", ""
+        if encrypt:
+            key, mapper = secrets.token_hex(32), f"sloth-extra-{n}"
+            run(["cryptsetup", "luksFormat", "--type", "luks2", "--batch-mode", "--key-file=-", part],
+                input=key, error="error.encrypt_failed")
+            run(["cryptsetup", "open", "--allow-discards", "--key-file=-", part, mapper],
+                input=key, error="error.encrypt_failed")
+            uuid = run(["cryptsetup", "luksUUID", part]).strip()
+            dev = f"/dev/mapper/{mapper}"
+        run(["mkfs.btrfs", "--force", "--label", label, dev])
+        fsid = fs_uuid(dev)
+        if encrypt:
+            subprocess.run(["cryptsetup", "close", mapper], capture_output=True)
+            result["keys"][f"luks-{uuid}.key"] = key
+            result["crypttab"].append(f"luks-{uuid} UUID={uuid} /etc/sloth-os/keys/luks-{uuid}.key nofail,discard")
+        name = _mount_name("data", used)
+        result["fstab"].append(f"UUID={fsid} /var/mnt/{name} btrfs {options},compress=zstd:1 0 0")
+        result["mounts"].append(name)
+        result["owned"].append(f"/var/mnt/{name}")
+    return result
 
 
 def windows_esps(disk):
@@ -773,8 +880,10 @@ def password_hash(password):
     return r.stdout.strip()
 
 
-def configure(root_part, locale, layouts, variants, timezone, account, beside_windows=False, luks_uuid=""):
-    """Writes the language, keyboard and time zone into the installed system's /etc."""
+def configure(root_part, locale, layouts, variants, timezone, account, beside_windows=False, luks_uuid="",
+              extra=None):
+    """Writes the language, keyboard and time zone into the installed system's /etc (and the other disks' mounts)."""
+    extra = extra or {"fstab": [], "crypttab": [], "keys": {}, "mounts": [], "owned": []}
     mnt = Path(tempfile.mkdtemp(prefix="sloth-install-"))
     log(f"root partition: {root_part}")
     subprocess.run(["mount", "-o", "subvolid=5", root_part, str(mnt)], check=True)
@@ -808,17 +917,36 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
                 + ("Options=grp:alt_shift_toggle\nResetOldOptions=true\n" if len(layouts) > 1 else "")
                 + "Use=true\n"),
         }
-        if luks_uuid:
-            # The encrypted system partition (the initramfs opens it by rd.luks.uuid; Plymouth asks for the password)
-            files[etc / "crypttab"] = f"luks-{luks_uuid} UUID={luks_uuid} none discard\n"
+        crypttab = [f"luks-{luks_uuid} UUID={luks_uuid} none discard"] if luks_uuid else []
+        # The encrypted system partition (the initramfs opens it by rd.luks.uuid; Plymouth asks for the password),
+        # then the other encrypted disks with their key files
+        crypttab += extra["crypttab"]
+        if crypttab:
+            files[etc / "crypttab"] = "\n".join(crypttab) + "\n"
+        if extra["fstab"]:
+            fstab = etc / "fstab"
+            old = fstab.read_text(encoding="utf-8") if fstab.exists() else ""
+            files[fstab] = old + ("" if not old or old.endswith("\n") else "\n") + "\n".join(extra["fstab"]) + "\n"
         if beside_windows:
             # Windows keeps the hardware clock in local time: if we kept UTC, the clock would be off after every switch
             files[etc / "adjtime"] = "0.0 0 0.0\n0\nLOCAL\n"
         for path, content in files.items():
             write(path, content)
-        # The account: created on first boot by the sloth-first-user service (as administrator)
+        keys = []
+        for name, key in extra["keys"].items():
+            keys.append(etc / "sloth-os/keys" / name)
+            write(keys[-1], key)
+            os.chmod(keys[-1], 0o400)
+        if keys:
+            os.chmod(keys[0].parent, 0o700)
+        # the mount points in the stateroot's /var (X-mount.mkdir would make them too)
+        var = deploy.parent.parent / "var"
+        for name in extra["mounts"]:
+            (var / "mnt" / name).mkdir(parents=True, exist_ok=True)
+        # The account: created on first boot by the sloth-first-user service (as administrator); it also gets
+        # the erased disks
         user_spec = etc / "sloth-os/first-user.json"
-        write(user_spec, json.dumps(account, ensure_ascii=False))
+        write(user_spec, json.dumps({**account, "disks": extra["owned"]}, ensure_ascii=False))
         os.chmod(user_spec, 0o600)
         localtime = etc / "localtime"
         if localtime.is_symlink() or localtime.exists():
@@ -831,7 +959,9 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
         contexts = deploy / "etc/selinux/targeted/contexts/files/file_contexts"
         if contexts.exists():
             r = subprocess.run(["setfiles", "-F", "-r", str(deploy), str(contexts),
-                                *[str(p) for p in files], str(localtime), str(user_spec.parent), str(user_spec)],
+                                *[str(p) for p in files], *[str(k) for k in keys],
+                                *([str(keys[0].parent)] if keys else []),
+                                str(localtime), str(user_spec.parent), str(user_spec)],
                                capture_output=True, text=True)
             log(f"setfiles: {r.returncode} {r.stderr.strip()}")
     finally:
@@ -937,6 +1067,8 @@ def main():
     inst.add_argument("--beside-windows", action="store_true")
     inst.add_argument("--size-gib", type=int, default=0)
     inst.add_argument("--encrypt", action="store_true", help="the encryption password is the 2nd line of the input")
+    inst.add_argument("--extra-disk", action="append", default=[], help="keep:/dev/Y or erase:/dev/Y")
+    inst.add_argument("--data-label", default="Sloth OS data", help="the erased disks' name (in Dolphin)")
     prb = sub.add_parser("probe")
     prb.add_argument("--disk", required=True)
     args = parser.parse_args()
@@ -982,6 +1114,9 @@ def main():
     if args.encrypt and len(passphrase) < 8:
         fail("error.bad_input", "encryption password too short")
     account = {"username": args.username, "fullname": args.fullname, "password_hash": password_hash(password)}
+    extras = parse_extra(args.extra_disk, args.disk)
+    if not 0 < len(args.data_label) <= 60 or any(ord(c) < 32 for c in args.data_label):
+        fail("error.bad_input", "bad data disk label")
 
     LOG.write_text(f"Sloth OS installation: {time.ctime()}\n", encoding="utf-8")
     emit(stage="verify", progress=2)
@@ -993,6 +1128,8 @@ def main():
                       text=True).stdout.split()[-1:] == ["overlay"]:   # the top layer is the last line
         subprocess.run(["umount", "/var/tmp"], capture_output=True)
     subprocess.run(["cryptsetup", "close", CRYPT_NAME], capture_output=True)
+    # The other disks first: if something goes wrong there, the system disk is still untouched
+    extra = prepare_extra_disks(extras, args.encrypt, args.data_label)
     release_disk(args.disk)
     windows_esp = ""
     if args.beside_windows:
@@ -1017,7 +1154,7 @@ def main():
         place_windows_helper(args.disk)
     emit(stage="configure", progress=95)
     configure(root_part, args.locale, *keyboard, args.timezone, account, beside_windows=args.beside_windows,
-              luks_uuid=parts.get("luks_uuid", ""))
+              luks_uuid=parts.get("luks_uuid", ""), extra=extra)
     if parts.get("luks_uuid"):
         subprocess.run(["cryptsetup", "close", CRYPT_NAME], capture_output=True)
     emit(done=True)

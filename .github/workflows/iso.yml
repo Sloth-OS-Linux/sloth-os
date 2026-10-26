@@ -16,6 +16,10 @@ on:
         description: "Squash the layers (no longer supported: a squashed image cannot be installed)"
         type: boolean
         default: false
+      image_tag:
+        description: "Image tag to install (for example a branch build tag)"
+        type: string
+        default: latest
 
 env:
   # The pinned commit of the Titanoboa ISO builder (when updating: change the SHA in tools/build-iso.sh too)
@@ -45,7 +49,7 @@ jobs:
       - name: Build live image
         run: |
           owner="${{ github.repository_owner }}"  # ghcr.io only accepts lowercase names (Sloth-OS-Linux)
-          image="ghcr.io/${owner,,}/${{ inputs.variant }}:latest"
+          image="ghcr.io/${owner,,}/${{ inputs.variant }}:${{ inputs.image_tag }}"
           sudo podman build --security-opt label=disable --authfile /tmp/auth.json \
             --build-arg BASE_IMAGE="$image" -t localhost/sloth-os-live:latest iso/
           # The unpacked container storage of the image to install goes into a separate folder (iso/payload.sh); when

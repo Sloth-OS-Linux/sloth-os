@@ -1,0 +1,41 @@
+diff --git a/vendor/ostree-ext/src/tar/write.rs b/vendor/ostree-ext/src/tar/write.rs
+index 7b4a9b2..0fcd9c6 100644
+--- a/vendor/ostree-ext/src/tar/write.rs
++++ b/vendor/ostree-ext/src/tar/write.rs
+@@ -367,11 +367,16 @@ async fn filter_tar_async(
+ ) -> Result<BTreeMap<String, u32>> {
+     let (tx_buf, mut rx_buf) = tokio::io::duplex(8192);
++    // Read the layer on the async runtime and bridge only the duplex stream to
++    // the synchronous tar parser. The layer source can be a tokio::fs::File
++    // backed by the image proxy's pipe; keeping that File on the async runtime
++    // avoids polling its blocking read task through SyncIoBridge.
++    let (mut src_tx, src_rx) = tokio::io::duplex(8192);
+     // The source must be moved to the heap so we know it is stable for passing to the worker thread
+-    let src = Box::pin(src);
++    let mut src = Box::pin(src);
+     let config = config.clone();
+     let tar_transformer = crate::tokio_util::spawn_blocking_flatten(move || {
+-        let src = tokio_util::io::SyncIoBridge::new(src);
++        let src = tokio_util::io::SyncIoBridge::new(src_rx);
+         let mut src = Decompressor::new(&media_type, src)?;
+         let dest = tokio_util::io::SyncIoBridge::new(tx_buf);
+ 
+         let r = filter_tar(&mut src, dest, &config, &repo_tmpdir);
+@@ -381,7 +386,16 @@ async fn filter_tar_async(
+         Ok(r)
+     });
++    let src_copier = async move {
++        let result = tokio::io::copy(&mut src, &mut src_tx).await;
++        // The synchronous decompressor reads until EOF. Close the duplex
++        // writer as soon as the source is exhausted, or joining the reader
++        // and copier below deadlocks after the first OCI layer.
++        drop(src_tx);
++        result
++    };
+     let copier = tokio::io::copy(&mut rx_buf, &mut dest);
+-    let (r, v) = tokio::join!(tar_transformer, copier);
++    let (r, src_result, v) = tokio::join!(tar_transformer, src_copier, copier);
+     let _v: u64 = v?;
++    let _src_n: u64 = src_result?;
+     r?
+ }

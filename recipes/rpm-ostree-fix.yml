@@ -1,0 +1,11 @@
+# Replace the Fedora rpm-ostree build with the async layer-read fix for the
+# Tokio JoinHandle crash seen while importing image layers.
+modules:
+  - type: files
+    files:
+      - source: rpm-ostree
+        destination: /usr/share/sloth-os/rpm-ostree
+
+  - type: script
+    scripts:
+      - rpm-ostree-layer-fix.sh

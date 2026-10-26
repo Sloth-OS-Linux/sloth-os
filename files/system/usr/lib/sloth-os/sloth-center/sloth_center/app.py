@@ -32,7 +32,7 @@ def main():
         app.setLayoutDirection(Qt.LayoutDirection.RightToLeft)
     app.setOrganizationDomain("slothos.org")
     app.setDesktopFileName("org.slothos.center")
-    app.setWindowIcon(QIcon.fromTheme("sloth-os"))
+    app.setWindowIcon(QIcon.fromTheme("sloth-center"))
 
     # The controllers use gi (GLib); Qt's event loop is GLib's, so the
     # D-Bus callbacks arrive without problems.

@@ -6,7 +6,15 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
+    property var navigation
     title: L.t("Disks")
+
+    // Breeze colors, distinct in light and dark mode too
+    readonly property var usageColors: ({ files: "#3daee9", games: "#f67400", windows: "#9b59b6", apps: "#27ae60",
+                                          cache: "#fdbc4b", system: "#7f8c8d" })
+    readonly property int keptVersions: updates.versions.filter(v => v.pinned && !v.booted).length
+
+    Component.onCompleted: if (!disks.usage.items) disks.measure()
 
     actions: [
         Kirigami.Action {
@@ -18,6 +26,91 @@ Kirigami.ScrollablePage {
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
+
+        // --- What uses the space on the system disk ---------------------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                RowLayout {
+                    Kirigami.Heading { Layout.fillWidth: true; level: 3; text: L.t("What uses the space") }
+                    QQC2.Button {
+                        enabled: !disks.usageBusy
+                        icon.name: "view-refresh"
+                        text: L.t("Calculate again")
+                        onClicked: disks.measure()
+                    }
+                }
+                RowLayout {
+                    visible: disks.usageBusy
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.BusyIndicator { running: parent.visible }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: L.t("Calculating… this can take a minute.")
+                    }
+                }
+                // One bar, a part for each kind
+                Rectangle {
+                    id: usageBar
+                    Layout.fillWidth: true
+                    visible: (disks.usage.items || []).length > 0
+                    implicitHeight: Kirigami.Units.gridUnit
+                    radius: height / 2
+                    clip: true
+                    color: Kirigami.Theme.alternateBackgroundColor
+                    Row {
+                        anchors.fill: parent
+                        Repeater {
+                            model: disks.usage.items || []
+                            delegate: Rectangle {
+                                required property var modelData
+                                width: usageBar.width * modelData.percent / 100
+                                height: usageBar.height
+                                color: page.usageColors[modelData.id] || Kirigami.Theme.disabledTextColor
+                            }
+                        }
+                    }
+                }
+                GridLayout {
+                    Layout.fillWidth: true
+                    columns: 3
+                    columnSpacing: Kirigami.Units.largeSpacing
+                    Repeater {
+                        model: disks.usage.items || []
+                        delegate: RowLayout {
+                            required property var modelData
+                            Layout.fillWidth: true
+                            spacing: Kirigami.Units.smallSpacing
+                            Rectangle {
+                                implicitWidth: Kirigami.Units.smallSpacing * 3
+                                implicitHeight: implicitWidth
+                                radius: width / 2
+                                color: page.usageColors[modelData.id] || Kirigami.Theme.disabledTextColor
+                            }
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: modelData.name }
+                            QQC2.Label { text: modelData.size; opacity: 0.8 }
+                        }
+                    }
+                }
+                QQC2.Label {
+                    visible: disks.usage.free !== undefined
+                    text: L.tf("{free} free of {total}", { free: disks.usage.free || "", total: disks.usage.total || "" })
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: page.keptVersions > 0
+                    type: Kirigami.MessageType.Information
+                    text: L.tf("{n} kept system version(s) take up extra space. If everything works, you can stop keeping the ones you no longer need.", { n: page.keptVersions })
+                    actions: Kirigami.Action {
+                        text: L.t("Show versions")
+                        icon.name: "system-software-update"
+                        onTriggered: page.navigation.openModule(page.navigation.modules.findIndex(m => m.id === "updates"))
+                    }
+                }
+            }
+        }
 
         Repeater {
             model: disks.drives
@@ -97,7 +190,7 @@ Kirigami.ScrollablePage {
                         wrapMode: Text.Wrap
                         opacity: 0.8
                         text: disks.cleanupText !== "" ? disks.cleanupText
-                              : L.t("Removes system components no app uses anymore (for example, left over after deleting an app). Your files aren't touched.")
+                              : L.t("Removes temporary system files, cached update data and components no app uses anymore. Your files, the previous system version and the kept ones aren't touched.")
                     }
                 }
                 QQC2.BusyIndicator {

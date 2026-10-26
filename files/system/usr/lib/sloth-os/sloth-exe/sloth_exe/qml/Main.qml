@@ -75,6 +75,28 @@ Kirigami.ApplicationWindow {
                         }
                     }
                 }
+                // More than one drive: which one the program goes to (with the free space)
+                ColumnLayout {
+                    Layout.alignment: Qt.AlignHCenter
+                    visible: exe.isInstaller && !exe.alreadyInstalled && exe.fileKind === "windows"
+                             && exe.locations.length > 1
+                    spacing: Kirigami.Units.smallSpacing
+                    RowLayout {
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.Label { text: root.t("choose.location") }
+                        QQC2.ComboBox {
+                            Layout.minimumWidth: Kirigami.Units.gridUnit * 14
+                            model: exe.locations.map(loc => root.t("choose.location_item", {
+                                name: loc.label !== "" ? loc.label : root.t("choose.location_system"), free: loc.free }))
+                            currentIndex: exe.locationIndex
+                            onActivated: index => exe.setLocation(index)
+                        }
+                    }
+                    QQC2.CheckBox {
+                        text: root.t("choose.location_remember")
+                        onToggled: exe.setRememberLocation(checked)
+                    }
+                }
                 QQC2.CheckBox {
                     id: addToMenu
                     Layout.alignment: Qt.AlignHCenter

@@ -4,15 +4,35 @@
 The Sloth OS installer writes the account's data into the installed system (/etc/sloth-os/first-user.json,
 readable by root only; the password only as an SHA-512 hash). This service creates the account as an
 administrator (wheel group) before the login screen, then deletes the file.
+Other disks the installer erased for programs and games ("disks": their mount points under /var/mnt) are given
+to this user, so the .exe handler and Steam can put things there without a password.
 """
 import json
 import os
 import re
 import subprocess
 import sys
+import time
 
 SPEC = "/etc/sloth-os/first-user.json"
 NAME_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
+MOUNT_RE = re.compile(r"^/var/mnt/[a-z0-9-]{1,40}$")
+
+
+def give_disks(user, mounts):
+    """The empty, freshly made disks belong to the user (they are mounted with nofail, maybe a little later)."""
+    for mount in mounts:
+        if not isinstance(mount, str) or not MOUNT_RE.match(mount):
+            continue
+        for _ in range(30):
+            if os.path.ismount(mount):
+                break
+            time.sleep(0.5)
+        else:
+            print(f"not mounted: {mount}", file=sys.stderr)
+            continue
+        subprocess.run(["chown", f"{user}:{user}", mount], capture_output=True)
+        subprocess.run(["restorecon", mount], capture_output=True)
 
 
 def main():
@@ -32,6 +52,7 @@ def main():
         if r.returncode != 0:
             print(f"useradd: {r.stderr.strip()}", file=sys.stderr)
             return 1
+    give_disks(user, spec.get("disks") or [])
     os.unlink(SPEC)
     return 0
 

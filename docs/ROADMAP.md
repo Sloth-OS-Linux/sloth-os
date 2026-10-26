@@ -17,6 +17,18 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
+### Sloth OS 1.0.4 (2026-10-26, replaces the unreleased 1.0.3)
+Network, security and drive health on the System status and System health pages; what uses the space on the
+Disks page and a deeper cleanup; the installer asks about the other disks; the .exe handler asks which drive a
+program goes to; layer-by-layer update progress; every text in 50 languages.
+
+- [ ] **Critical** — Resolve the Fedora 44 `rpm-ostree` crash during OCI image updates (`2026.3-2.fc44` aborts
+  with `JoinHandle polled after completion` while importing layers), then verify a full update stages and boots.
+- [x] **Medium** — Show OCI layer progress in Sloth Center, stop the spinner and explain the failure if the
+  transaction connection closes, and reconnect to `rpm-ostreed` after a daemon restart. Verify the flow without
+  requiring a terminal. (2026-10-26: the Updates page shows "layer 3/29 · size" and the bar moves forward with the
+  finished layers when rpm-ostree sends no percentage; check on a real machine with the next update)
+
 #### Windows program launch follow-up (2026-10-22)
 - [x] **Reddit Desktop in a Fedora box:** package installs now fail visibly if a new desktop entry uses `sloth-exe`,
   if export fails, or if the exported host `.desktop` lacks a `distrobox-enter` command or still invokes `sloth-exe`.
@@ -29,21 +41,40 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [ ] **Medium** — 7-Zip required repeated installs: the saved log has one installer run, four quick-exit recovery attempts,
   and then a `7Z2605` Start menu entry. Reproduce the install and launch flow, then fix recognition or process tracking
   so a successful install is not mistaken for a failed app launch and repeated installation is unnecessary.
+- [ ] **Medium** — Open `.iso` disk images with a double-click (idea, 2026-10-26): mount them without a password and
+  show the contents. If the image has a `setup.exe` or an `autorun.inf`/`autorun.exe`, ask what to do (start the
+  installer through the .exe handler, or just open the folder); remember the choice if the user asks. Offer
+  "Eject" in Dolphin and unmount at sign-out.
 
 #### Installation and storage
-- [ ] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
+- [x] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
   In the “Next to Windows” flow, protect Windows, EFI, recovery, MSR, and BitLocker partitions. Test both
-  installation flows on multi-drive systems.
+  installation flows on multi-drive systems. (2026-10-26: "Other disks" on the disk page: leave it alone (default) /
+  use it with its files (ext4, btrfs, xfs) / erase it for programs and games (btrfs; encrypted with a key file if the
+  system is). A disk with NTFS or BitLocker can only be left alone, checked by the helper too. Mounted under
+  /var/mnt with nofail; the erased disk belongs to the first user. Tested on loop disks
+  (`tools/tests/test_extra_disks.sh`); still to test on a real machine with two drives, also next to Windows)
+- [x] **Medium** — The .exe handler asks which drive a new Windows program goes to when there is more than one
+  (with the free space, and "Always install here"); internal drives under /var/mnt or /run/media with a Linux file
+  system are offered by themselves, USB sticks are not (2026-10-26; check on a real machine)
 - [ ] **Medium** — Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
   encryption or hibernation. Explain blockers and safe next steps in plain language.
 - [x] Show the target disk and planned erase/resize/create/format/mount operations on the installer's confirmation page;
   the existing confirmation checkbox is required before applying changes. The temporary install partition is identified
   as mounted only during setup and deleted at the end.
 - [x] Guide users through creating Sloth OS installation media, with a clear warning before erasing a USB drive.
+- [ ] **Medium** — With more than one display, let users choose the main display in the installer (idea, 2026-10-26):
+  show the installer there, and carry the choice (main display, arrangement) over to the installed system's login
+  screen and desktop.
 - [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
-- [ ] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
+- [x] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
+  (2026-10-26, System health: the drives' SMART reports through UDisks, with a File backup button; check on a real machine)
 - [ ] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
+  (2026-10-26, a first step: the Disks page shows what uses the space (your files, games, Windows programs, apps,
+  cache, system and earlier versions, counted without the ostree double counting), warns about kept versions, and
+  Clean up also removes the system's temporary files and cached update data, reporting the space really freed.
+  Still missing: reviewing items one by one before deleting)
 
 #### Sloth Center, setup, and support
 - [x] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
@@ -52,7 +83,8 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [ ] **Medium** — Add a system and driver overview for graphics, audio, Bluetooth, and connected peripherals, with guidance
   when something needs attention.
 - [ ] **Medium** — Add an application privacy overview for microphone, camera, and location access where supported.
-- [ ] **Medium** — Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
+- [x] **Medium** — Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
+  (2026-10-26, a Security card on the System status page; check on a real machine, with and without encryption)
 - [ ] **Large** — Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
   require their choice before attaching it.
 - [ ] **Medium** — Add guided Wi-Fi troubleshooting that checks adapter detection, Wi-Fi state, and connectivity, then
@@ -65,7 +97,7 @@ careful testing), and **Large** (broad work or significant safety and compatibil
   health or charge limits in one place, with clear effects on battery life and gaming.
 
 #### Updates, backup, and recovery
-- [ ] **Quick** — Explain what updates change, their download and storage needs, and whether a restart is required.
+- [x] **Quick** — Explain that updates download the needed system parts, their size varies, free disk space is needed, and a restart applies the new version.
 - [ ] **Medium** — Let users schedule updates and avoid restart prompts during user-defined quiet hours.
 - [ ] **Medium** — Let users limit update download speed and warn before large downloads on metered or mobile connections.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
@@ -84,7 +116,7 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [ ] **Medium** — Share concise, community-informed game fixes with version details and a way to report outdated guidance.
 - [ ] **Large** — When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
 - [ ] **Medium** — Help users move supported game libraries between drives without downloading again, updating launcher paths.
-- [ ] **Quick** — Show network status and latency, with basic guidance when the connection may affect online play.
+- [x] **Quick** — Show network status and latency, with basic guidance when the connection may affect online play (2026-10-23, Sloth Center's System status page).
 - [ ] **Medium** — Help configure NAS devices and shared folders, preserving the connection after restart when requested.
 - [ ] **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
 - [ ] **Medium** — Help configure monitor resolution and refresh rate, plus HDR or VRR where supported.
@@ -967,6 +999,7 @@ Bugs found (we fix them one by one):
 
 ## Phase 1 – Its own face
 - [x] Logo: a matte silver sloth face, without an outline (`files/system/usr/share/sloth-os/logo/`, source: `docs/branding/`)
+- [x] Distinct OS emblem: a silver-gray sloth hanging from a branch for the Start menu; the Sloth Center keeps its own icon. Fastfetch prints a matching Sloth OS ASCII logo.
 - [x] Boot animation (Plymouth): a white dot running around the edge of the logo (`files/system/usr/share/plymouth/themes/sloth-os/`, preview: `docs/branding/boot-preview.gif`)
 - [x] Hiding the boot menu (it only appears after a failed start) and a quiet boot: bootupd's GRUB template showed the menu for 1 s on every start, and it does not look at `menu_auto_hide`, so our own `custom.cfg` (`/usr/lib/sloth-os/grub-custom.cfg`, the state on the EFI partition, `sloth-boot-ok.service`); the `quiet rhgb splash` missing from the bootc install went into the kargs
 - [x] Wallpapers: 16 pictures in 4K (with AI upscaling), the ultrawide ones in 5120×2160 too; default: "Metallic Sloth Over Silver Waves" (desktop and lock screen)
