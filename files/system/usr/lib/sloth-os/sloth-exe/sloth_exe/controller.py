@@ -11,6 +11,7 @@ Where programs live, their data and Start menu entries are in the shared sloth_c
 """
 import logging
 import re
+import shutil
 import subprocess
 import threading
 import time
@@ -142,6 +143,14 @@ class ExeController(QObject):
         self._succeeded = False
         self._gameid = None
         self._key = ""
+        # Installer attempts (heal.install_plan): the plan, the current attempt, the installer's fingerprint
+        # (community.program_key), whether its environment is new (another Proton version is only tried then),
+        # and how the installer exited (code, log lines) for deciding whether to try again
+        self._install_plan = []
+        self._install_attempt = None
+        self._install_key = ""
+        self._install_fresh = False
+        self._install_exit = None
         # Where a new program goes, if there is more than one drive to choose from (library.install_locations)
         self._locations = None
         self._location = 0
@@ -303,16 +312,75 @@ class ExeController(QObject):
             self._install_package()
             return
         # Reinstalling into the existing folder: the Start menu entries stay the same, no duplicates
+        self._install_fresh = not (self._existing or self._unfinished)
         self._program = self._existing or self._unfinished or self._create_program()
         self._program.save_meta(installer=str(self._exe))
-        self._baseline = detect.baseline(self._program)
         self._mode = "install"
         self._update_window()
         self._set_working(tr("status.preparing_install", name=self._name))
+        # What installed this installer before (here or, from the shared knowledge, on other machines) goes first
+        self._install_key = community.program_key(self._exe, [self._name])
+        self._install_plan = heal.install_plan(self._install_key, community.suggestion(self._install_key),
+                                               self._install_fresh)
+        self._tries = 0
+        self._start_install_attempt(self._install_plan.pop(0) if self._install_plan else None)
+
+    def _start_install_attempt(self, attempt):
+        """Runs the installer with one setting. Before another Proton version, a new environment is emptied."""
+        previous = self._install_attempt
+        if previous and attempt and self._install_fresh and heal.resolved_name(previous) != heal.resolved_name(attempt):
+            shutil.rmtree(self._program.prefix, ignore_errors=True)
+        self._install_attempt, self._install_exit = attempt, None
+        self._tries += 1
+        self._baseline = detect.baseline(self._program)
         self._slow_timer.start()
-        self._start_runner(self._program, self._exe)
+        self._start_runner(self._program, self._exe, attempt)
         # we already watch while the installer runs (_check_install_done)
         self._install_timer.start()
+
+    def _install_failed(self):
+        """Nothing got installed. If the installer failed (it crashed, or its log shows a known missing component),
+        it is tried again: with the recognized fix, or with the next setting. Otherwise the user cancelled it:
+        then we stop, and report nothing. The exit code alone does not count: many installers exit with an error
+        code when the user clicks Cancel (NSIS 1, Inno Setup 2 or 5, MSI 1602), and trying again would reopen an
+        installer the user has just closed."""
+        attempt = self._install_attempt
+        code, lines = self._install_exit or (0, [])
+        new = [f for f in diagnose.fixes(lines) if attempt and f not in attempt.fixes]
+        failed = diagnose.crashed(lines) or bool(new)
+        if not attempt or not failed or self._runner.uses_wine or self._tries >= heal.MAX_ATTEMPTS + 2:
+            if attempt and failed:
+                self._remember_install(attempt, worked=False)
+            self._fail(tr("error.nothing_installed"))
+            return
+        log.info("the installer failed with %s (code %s, fixes %s)", attempt.key, code, new)
+        if new:
+            # Recognized error: once more with the same setting, together with the fix
+            attempt.fixes = attempt.fixes + new
+            self._start_install_attempt(attempt)
+            return
+        self._remember_install(attempt, worked=False)
+        if not self._install_plan:
+            self._fail(tr("error.nothing_installed"))
+            return
+        nxt = self._install_plan.pop(0)
+        nxt.fixes = nxt.fixes + [f for f in attempt.fixes if f not in nxt.fixes]
+        self._set_working(tr("status.preparing_install", name=self._name))
+        self._start_install_attempt(nxt)
+
+    def _remember_install(self, attempt, worked):
+        """What installed this installer (or did not): here, and in the shared knowledge if sharing is on."""
+        rec = heal.installer_record(self._install_key)
+        name = heal.resolved_name(attempt)
+        key = f"{name}|{attempt.profile}"
+        if worked:
+            rec["good"] = {"proton": name, "profile": attempt.profile}
+            rec["fixes"] = [list(f) for f in attempt.fixes]
+            rec["failed"] = [k for k in rec.get("failed", []) if k != key]
+        else:
+            rec["failed"] = sorted(set(rec.get("failed", [])) | {key, attempt.key})
+        heal.save_installer_record(self._install_key, rec)
+        community.queue_report(self._install_key, attempt, "worked" if worked else "failed")
 
     def _create_program(self):
         """A new program's folder, on the drive chosen in the window (by default the default library)."""
@@ -747,6 +815,7 @@ class ExeController(QObject):
             return
         if self._mode == "install":
             # The installer exited; downloaders and multi-stage installers may still be working
+            self._install_exit = (code, self._runner.lines())
             self._status = tr("status.finish_in_installer")
             self.changed.emit()
             self._install_timer.start()
@@ -918,9 +987,10 @@ class ExeController(QObject):
         self._after_install()
 
     def _after_install(self):
-        # The installer ran with the latest Proton: the program's folder is on this version
+        # The program's folder is on the Proton version the installer ran with
         if not self._runner.uses_wine:
-            self._program.save_meta(prefix_proton=heal.newest() or "auto")
+            self._program.save_meta(prefix_proton=heal.resolved_name(self._install_attempt) if self._install_attempt
+                                    else heal.newest() or "auto")
         before = self._baseline
         found = detect.detect(self._program, before, fallback_name=self._name)
         if not found.candidates:
@@ -930,8 +1000,10 @@ class ExeController(QObject):
         log.info("installed: %s (%s), launchers: %s", found.name or self._name, found.install_dir,
                  [(c.name, c.path.name, c.score) for c in found.candidates])
         if not found.candidates:
-            self._fail(tr("error.nothing_installed"))
+            self._install_failed()
             return
+        if self._install_attempt and not self._runner.uses_wine:
+            self._remember_install(self._install_attempt, worked=True)
         info = {"publisher": found.publisher, "version": found.version, "uninstall_key": found.uninstall_key}
         if found.install_dir:
             info["install_dir"] = self._program.host_to_windows(found.install_dir) or ""

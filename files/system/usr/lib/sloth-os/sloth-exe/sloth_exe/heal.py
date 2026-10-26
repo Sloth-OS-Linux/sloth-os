@@ -12,7 +12,11 @@ zero space), and if the attempt fails, it is restored; so a bad attempt never br
 
 Data: in the program's data (sloth_common.apps, .sloth/app.json), under "launch" per .exe (a shared
 environment can have several .exe files).
+
+Installers get attempts too (install_plan): if an installer fails and nothing got installed, the next setting is
+tried, and what worked is remembered per installer (INSTALLERS) and shared like the programs' settings.
 """
+import json
 import os
 import re
 import shutil
@@ -210,6 +214,61 @@ def plan(program, exe, suggest=None):
     add(GE_DOWNLOAD, "default")
     for name in older:
         add(name, "default")
+    return out[:MAX_ATTEMPTS]
+
+
+# --- Installers ------------------------------------------------------------------------------------
+# An installer runs once into a new environment, so what worked is remembered per installer (by its shared
+# knowledge fingerprint, community.program_key), not per program: {key: {"good": {...}, "failed": [...]}}
+INSTALLERS = DATA_HOME / "sloth-os" / "installers.json"
+
+
+def installer_record(key):
+    try:
+        return json.loads(INSTALLERS.read_text(encoding="utf-8")).get(key, {})
+    except (OSError, ValueError, AttributeError):
+        return {}
+
+
+def save_installer_record(key, rec):
+    try:
+        data = json.loads(INSTALLERS.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        data = {}
+    data[key] = rec
+    INSTALLERS.parent.mkdir(parents=True, exist_ok=True)
+    INSTALLERS.write_text(json.dumps(data, indent=1) + "\n", encoding="utf-8")
+
+
+def install_plan(key, suggest=None, fresh=True):
+    """The order of attempts for an installer.
+
+    First what installed it before (here, or on other machines: suggest, as in plan()), then the newest Proton
+    with the other profiles. Another Proton version (GE-Proton) only into a new, empty environment (fresh): its
+    environment is emptied before that attempt, so there is nothing a version switch could break."""
+    rec = installer_record(key)
+    failed = set(rec.get("failed", []))
+    fixes = [tuple(f) for f in rec.get("fixes", [])]
+    current = newest(UMU_LINE)
+    out = []
+
+    def add(proton, profile, extra=()):
+        a = Attempt(proton, profile, fixes + [f for f in extra if f not in fixes])
+        if a.key not in failed and all(a.key != b.key for b in out) \
+                and (fresh or (a.proton or current) == current):
+            out.append(a)
+
+    good = rec.get("good")
+    if good:
+        add(current if good["proton"].startswith(UMU_LINE) or good["proton"] == "auto" else
+            (newest(GE_LINE) or GE_DOWNLOAD), good["profile"])
+    if suggest:
+        line, profile, extra = suggest
+        add(current if line == UMU_LINE else (newest(GE_LINE) or GE_DOWNLOAD), profile, extra)
+    add(current, "default")
+    add(current, "nofsync")
+    add(current, "wined3d")
+    add(GE_DOWNLOAD, "default")
     return out[:MAX_ATTEMPTS]
 
 

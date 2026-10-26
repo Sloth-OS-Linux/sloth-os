@@ -27,6 +27,13 @@ careful testing), and **Large** (broad work or significant safety and compatibil
   eject button); with an installer on it (autorun.inf, setup.exe) the .exe handler offers "Install from it" or
   "Open folder", and can remember the choice. Check on a real machine (a Windows program's ISO)
 
+- [x] Installers heal themselves and are remembered too (2026-10-26): what installed an installer before (here,
+  or from the shared knowledge) goes first; if the installer crashes or its log shows a known missing component
+  and nothing got installed, it is tried again with the fix or the next setting (another Proton version only into
+  a new, emptied environment). A cancelled installer is not reopened (an error code alone does not count). What
+  worked is kept in `~/.local/share/sloth-os/installers.json` and shared like the programs' settings. Tests:
+  `tools/tests/test_install_heal.py`. Check on a real machine
+
 ### Sloth OS 1.0.4 (2026-10-26, replaces the unreleased 1.0.3)
 Network, security and drive health on the System status and System health pages; what uses the space on the
 Disks page and a deeper cleanup; the installer asks about the other disks; the .exe handler asks which drive a
