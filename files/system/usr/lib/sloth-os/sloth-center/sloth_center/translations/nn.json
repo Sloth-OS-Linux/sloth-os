@@ -675,5 +675,9 @@
   "Colors": "Fargar",
   "More appearance settings": "Fleire innstillingar for utsjånad",
   "Change how it looks": "Endre utsjånaden",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Utsjånad byter oppsettet for oppgåvelinja og fargane, dei same som i velkomstvegvisaren. Du kan endre dei når som helst."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Utsjånad byter oppsettet for oppgåvelinja og fargane, dei same som i velkomstvegvisaren. Du kan endre dei når som helst.",
+  "Couldn't change the startup setting. Please try again.": "Klarte ikkje å endre oppstartsinnstillinga. Prøv igjen.",
+  "Programs that start when you sign in": "Program som startar når du loggar på",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Desse startar av seg sjølv etter at du har logga på. Slår du av eitt, går pålogginga raskare; du kan framleis starte det frå startmenyen.",
+  "No programs start by themselves when you sign in.": "Ingen program startar av seg sjølv når du loggar på."
 }

@@ -675,5 +675,9 @@
   "Colors": "Цветове",
   "More appearance settings": "Още настройки за външния вид",
   "Change how it looks": "Променете външния вид",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Страницата „Външен вид“ сменя подредбата на лентата на задачите и цветовете – същите като в съветника за добре дошли. Можете да ги промените по всяко време."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Страницата „Външен вид“ сменя подредбата на лентата на задачите и цветовете – същите като в съветника за добре дошли. Можете да ги промените по всяко време.",
+  "Couldn't change the startup setting. Please try again.": "Настройката за стартиране не можа да бъде променена. Опитайте отново.",
+  "Programs that start when you sign in": "Програми, които се стартират при влизане",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Те се стартират сами, след като влезете. Ако изключите някоя, влизането става по-бързо; пак можете да я пуснете от менюто „Старт“.",
+  "No programs start by themselves when you sign in.": "Няма програми, които се стартират сами при влизане."
 }

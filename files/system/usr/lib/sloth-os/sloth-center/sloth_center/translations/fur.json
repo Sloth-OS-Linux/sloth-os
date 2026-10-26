@@ -675,5 +675,9 @@
   "Colors": "Colôrs",
   "More appearance settings": "Altris impostazions dal aspiet",
   "Change how it looks": "Cambie l'aspiet",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aspiet al cambie la disposizion de sbare des ativitâts e i colôrs, i stes dal assistent di benvignût. Tu puedis cambiâju cuant che tu vûs."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aspiet al cambie la disposizion de sbare des ativitâts e i colôrs, i stes dal assistent di benvignût. Tu puedis cambiâju cuant che tu vûs.",
+  "Couldn't change the startup setting. Please try again.": "No si è rivâts a cambiâ la impostazion di inviament. Torne a provâ.",
+  "Programs that start when you sign in": "Programs che a partissin cuant che tu jentris",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Chescj a partissin di bessôi dopo che tu sês jentrât. Se tu ju distudis, tu jentris plui svelt; tu puedis simpri vierzilu dal menù Inizi.",
+  "No programs start by themselves when you sign in.": "Nissun program al partìs di bessôl cuant che tu jentris."
 }

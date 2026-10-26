@@ -675,5 +675,9 @@
   "Colors": "ৰং",
   "More appearance settings": "অধিক ৰূপৰ ছেটিংছ",
   "Change how it looks": "ৰূপ সলনি কৰক",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "ৰূপ পৃষ্ঠাই টাস্কবাৰৰ লেআউট আৰু ৰং সলনি কৰে, স্বাগতম সহায়কৰ দৰে একেই। আপুনি যিকোনো সময়তে সেইবোৰ সলনি কৰিব পাৰে।"
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "ৰূপ পৃষ্ঠাই টাস্কবাৰৰ লেআউট আৰু ৰং সলনি কৰে, স্বাগতম সহায়কৰ দৰে একেই। আপুনি যিকোনো সময়তে সেইবোৰ সলনি কৰিব পাৰে।",
+  "Couldn't change the startup setting. Please try again.": "আৰম্ভণিৰ ছেটিং সলনি কৰিব পৰা নগ'ল। অনুগ্ৰহ কৰি আকৌ চেষ্টা কৰক।",
+  "Programs that start when you sign in": "ছাইন ইন কৰাৰ সময়ত আৰম্ভ হোৱা প্ৰগ্ৰামসমূহ",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "ছাইন ইন কৰাৰ পিছত এইবোৰ নিজে নিজে আৰম্ভ হয়। এটা বন্ধ কৰিলে ছাইন ইন সোনকালে হয়; আপুনি তথাপি ষ্টাৰ্ট মেনুৰ পৰা ইয়াক খুলিব পাৰে।",
+  "No programs start by themselves when you sign in.": "ছাইন ইন কৰাৰ সময়ত কোনো প্ৰগ্ৰাম নিজে নিজে আৰম্ভ নহয়।"
 }

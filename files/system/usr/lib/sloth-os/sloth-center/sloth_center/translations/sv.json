@@ -675,5 +675,9 @@
   "Colors": "Färger",
   "More appearance settings": "Fler utseendeinställningar",
   "Change how it looks": "Ändra utseendet",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Utseende byter aktivitetsfältets layout och färgerna, samma som i välkomstguiden. Du kan ändra dem när som helst."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Utseende byter aktivitetsfältets layout och färgerna, samma som i välkomstguiden. Du kan ändra dem när som helst.",
+  "Couldn't change the startup setting. Please try again.": "Det gick inte att ändra startinställningen. Försök igen.",
+  "Programs that start when you sign in": "Program som startar när du loggar in",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "De startar av sig själva när du har loggat in. Stänger du av ett går inloggningen snabbare; du kan fortfarande starta det från startmenyn.",
+  "No programs start by themselves when you sign in.": "Inga program startar av sig själva när du loggar in."
 }

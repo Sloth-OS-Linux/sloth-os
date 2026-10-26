@@ -675,5 +675,9 @@
   "Colors": "ਰੰਗ",
   "More appearance settings": "ਦਿੱਖ ਦੀਆਂ ਹੋਰ ਸੈਟਿੰਗਾਂ",
   "Change how it looks": "ਦਿੱਖ ਬਦਲੋ",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "ਦਿੱਖ ਟਾਸਕਬਾਰ ਦਾ ਲੇਆਉਟ ਅਤੇ ਰੰਗ ਬਦਲਦੀ ਹੈ, ਸਵਾਗਤ ਸਹਾਇਕ ਵਾਲੇ ਹੀ। ਤੁਸੀਂ ਇਹਨਾਂ ਨੂੰ ਕਦੇ ਵੀ ਬਦਲ ਸਕਦੇ ਹੋ।"
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "ਦਿੱਖ ਟਾਸਕਬਾਰ ਦਾ ਲੇਆਉਟ ਅਤੇ ਰੰਗ ਬਦਲਦੀ ਹੈ, ਸਵਾਗਤ ਸਹਾਇਕ ਵਾਲੇ ਹੀ। ਤੁਸੀਂ ਇਹਨਾਂ ਨੂੰ ਕਦੇ ਵੀ ਬਦਲ ਸਕਦੇ ਹੋ।",
+  "Couldn't change the startup setting. Please try again.": "ਸਟਾਰਟਅੱਪ ਸੈਟਿੰਗ ਬਦਲੀ ਨਹੀਂ ਜਾ ਸਕੀ। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "Programs that start when you sign in": "ਸਾਈਨ ਇਨ ਕਰਨ ਉੱਤੇ ਚੱਲਣ ਵਾਲੇ ਪ੍ਰੋਗਰਾਮ",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "ਇਹ ਸਾਈਨ ਇਨ ਕਰਨ ਤੋਂ ਬਾਅਦ ਆਪਣੇ ਆਪ ਚੱਲਦੇ ਹਨ। ਕਿਸੇ ਇੱਕ ਨੂੰ ਬੰਦ ਕਰਨ ਨਾਲ ਸਾਈਨ ਇਨ ਤੇਜ਼ ਹੁੰਦਾ ਹੈ; ਤੁਸੀਂ ਫਿਰ ਵੀ ਇਸਨੂੰ ਸਟਾਰਟ ਮੀਨੂ ਤੋਂ ਚਲਾ ਸਕਦੇ ਹੋ।",
+  "No programs start by themselves when you sign in.": "ਸਾਈਨ ਇਨ ਕਰਨ ਉੱਤੇ ਕੋਈ ਵੀ ਪ੍ਰੋਗਰਾਮ ਆਪਣੇ ਆਪ ਨਹੀਂ ਚੱਲਦਾ।"
 }

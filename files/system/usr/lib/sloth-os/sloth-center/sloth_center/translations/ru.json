@@ -675,5 +675,9 @@
   "Colors": "Цвета",
   "More appearance settings": "Другие настройки внешнего вида",
   "Change how it looks": "Измените внешний вид",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "«Внешний вид» меняет макет панели задач и цвета — те же, что и в мастере приветствия. Их можно изменить в любое время."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "«Внешний вид» меняет макет панели задач и цвета — те же, что и в мастере приветствия. Их можно изменить в любое время.",
+  "Couldn't change the startup setting. Please try again.": "Не удалось изменить настройку автозапуска. Попробуйте ещё раз.",
+  "Programs that start when you sign in": "Программы, запускаемые при входе",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Они запускаются сами после входа. Если отключить одну из них, вход будет быстрее; запустить её можно по-прежнему из меню «Пуск».",
+  "No programs start by themselves when you sign in.": "При входе никакие программы не запускаются сами."
 }

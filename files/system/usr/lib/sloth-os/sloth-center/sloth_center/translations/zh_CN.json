@@ -675,5 +675,9 @@
   "Colors": "颜色",
   "More appearance settings": "更多外观设置",
   "Change how it looks": "更改外观",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "“外观”可以切换任务栏布局和颜色，与欢迎向导中的相同。你可以随时更改。"
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "“外观”可以切换任务栏布局和颜色，与欢迎向导中的相同。你可以随时更改。",
+  "Couldn't change the startup setting. Please try again.": "无法更改启动设置，请重试。",
+  "Programs that start when you sign in": "登录时启动的程序",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "这些程序会在你登录后自动启动。关闭其中一个可让登录更快；你仍可从开始菜单打开它。",
+  "No programs start by themselves when you sign in.": "登录时没有程序会自动启动。"
 }

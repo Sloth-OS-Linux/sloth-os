@@ -675,5 +675,9 @@
   "Colors": "রং",
   "More appearance settings": "আরও চেহারার সেটিংস",
   "Change how it looks": "চেহারা বদলান",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "চেহারা পাতাটি টাস্কবারের লেআউট আর রং বদলায়, স্বাগতম সহায়কের মতোই। যেকোনো সময় এগুলো বদলাতে পারেন।"
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "চেহারা পাতাটি টাস্কবারের লেআউট আর রং বদলায়, স্বাগতম সহায়কের মতোই। যেকোনো সময় এগুলো বদলাতে পারেন।",
+  "Couldn't change the startup setting. Please try again.": "স্টার্টআপ সেটিং পরিবর্তন করা যায়নি। আবার চেষ্টা করুন।",
+  "Programs that start when you sign in": "সাইন ইন করলে যে প্রোগ্রামগুলো চালু হয়",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "সাইন ইন করার পরে এগুলো নিজে থেকেই চালু হয়। একটি বন্ধ করলে সাইন ইন দ্রুত হয়; স্টার্ট মেনু থেকে তবুও এটি চালু করতে পারবেন।",
+  "No programs start by themselves when you sign in.": "সাইন ইন করলে কোনো প্রোগ্রাম নিজে থেকে চালু হয় না।"
 }

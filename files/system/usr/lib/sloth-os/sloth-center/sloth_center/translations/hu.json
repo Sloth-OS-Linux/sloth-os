@@ -675,5 +675,9 @@
   "Colors": "Színek",
   "More appearance settings": "További megjelenési beállítások",
   "Change how it looks": "Változtass a kinézeten",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "A Megjelenés oldalon válthatsz tálca-elrendezést és színeket, ugyanazokat, mint az üdvözlő varázslóban. Bármikor átállíthatod őket."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "A Megjelenés oldalon válthatsz tálca-elrendezést és színeket, ugyanazokat, mint az üdvözlő varázslóban. Bármikor átállíthatod őket.",
+  "Couldn't change the startup setting. Please try again.": "Nem sikerült megváltoztatni az indítási beállítást. Próbáld újra.",
+  "Programs that start when you sign in": "Bejelentkezéskor induló programok",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Ezek bejelentkezés után maguktól elindulnak. Ha kikapcsolsz egyet, gyorsabb lesz a bejelentkezés; a Start menüből továbbra is elindíthatod.",
+  "No programs start by themselves when you sign in.": "Bejelentkezéskor egyetlen program sem indul el magától."
 }

@@ -675,5 +675,9 @@
   "Colors": "顏色",
   "More appearance settings": "更多外觀設定",
   "Change how it looks": "變更外觀",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "「外觀」可切換工作列版面配置與顏色，與歡迎精靈中的相同。你隨時都能變更。"
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "「外觀」可切換工作列版面配置與顏色，與歡迎精靈中的相同。你隨時都能變更。",
+  "Couldn't change the startup setting. Please try again.": "無法變更啟動設定，請再試一次。",
+  "Programs that start when you sign in": "登入時啟動的程式",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "這些程式會在你登入後自動啟動。關閉其中一個可讓登入更快；你仍可從開始功能表開啟它。",
+  "No programs start by themselves when you sign in.": "登入時沒有程式會自動啟動。"
 }

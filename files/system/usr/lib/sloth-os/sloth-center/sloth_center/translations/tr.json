@@ -675,5 +675,9 @@
   "Colors": "Renkler",
   "More appearance settings": "Diğer görünüm ayarları",
   "Change how it looks": "Görünümü değiştirin",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Görünüm, karşılama sihirbazındakiyle aynı görev çubuğu düzenlerini ve renkleri değiştirir. İstediğiniz zaman değiştirebilirsiniz."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Görünüm, karşılama sihirbazındakiyle aynı görev çubuğu düzenlerini ve renkleri değiştirir. İstediğiniz zaman değiştirebilirsiniz.",
+  "Couldn't change the startup setting. Please try again.": "Başlangıç ayarı değiştirilemedi. Lütfen tekrar deneyin.",
+  "Programs that start when you sign in": "Oturum açınca başlayan programlar",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Bunlar oturum açtıktan sonra kendiliğinden başlar. Birini kapatırsanız oturum açma hızlanır; yine de Başlat menüsünden açabilirsiniz.",
+  "No programs start by themselves when you sign in.": "Oturum açınca hiçbir program kendiliğinden başlamıyor."
 }

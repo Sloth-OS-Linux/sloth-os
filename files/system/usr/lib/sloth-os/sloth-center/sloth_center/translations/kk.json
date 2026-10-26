@@ -675,5 +675,9 @@
   "Colors": "Түстер",
   "More appearance settings": "Сыртқы түрдің басқа баптаулары",
   "Change how it looks": "Сыртқы түрін өзгертіңіз",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "«Сыртқы түр» тапсырмалар панелінің орналасуы мен түстерді ауыстырады — қарсы алу шеберіндегідей. Оларды кез келген уақытта өзгертуге болады."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "«Сыртқы түр» тапсырмалар панелінің орналасуы мен түстерді ауыстырады — қарсы алу шеберіндегідей. Оларды кез келген уақытта өзгертуге болады.",
+  "Couldn't change the startup setting. Please try again.": "Іске қосу баптауын өзгерту мүмкін болмады. Қайталап көріңіз.",
+  "Programs that start when you sign in": "Кіргенде іске қосылатын бағдарламалар",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Бұлар кіргеннен кейін өздігінен іске қосылады. Біреуін өшірсеңіз, кіру жылдамырақ болады; оны бәрібір «Бастау» мәзірінен аша аласыз.",
+  "No programs start by themselves when you sign in.": "Кіргенде ешбір бағдарлама өздігінен іске қосылмайды."
 }

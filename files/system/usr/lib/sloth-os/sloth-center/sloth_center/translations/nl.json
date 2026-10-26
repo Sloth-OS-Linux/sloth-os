@@ -675,5 +675,9 @@
   "Colors": "Kleuren",
   "More appearance settings": "Meer instellingen voor het uiterlijk",
   "Change how it looks": "Verander het uiterlijk",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Uiterlijk wisselt de indeling van de taakbalk en de kleuren, dezelfde als in de welkomstwizard. Je kunt ze altijd veranderen."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Uiterlijk wisselt de indeling van de taakbalk en de kleuren, dezelfde als in de welkomstwizard. Je kunt ze altijd veranderen.",
+  "Couldn't change the startup setting. Please try again.": "Kon de opstartinstelling niet wijzigen. Probeer het opnieuw.",
+  "Programs that start when you sign in": "Programma's die starten als je je aanmeldt",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Deze starten vanzelf nadat je je hebt aangemeld. Als je er een uitzet, gaat aanmelden sneller; je kunt het nog steeds vanuit het startmenu openen.",
+  "No programs start by themselves when you sign in.": "Er starten geen programma's vanzelf als je je aanmeldt."
 }

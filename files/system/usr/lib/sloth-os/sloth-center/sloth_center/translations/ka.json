@@ -675,5 +675,9 @@
   "Colors": "ფერები",
   "More appearance settings": "გარეგნობის სხვა პარამეტრები",
   "Change how it looks": "შეცვალეთ გარეგნობა",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "გარეგნობა ცვლის ამოცანების ზოლის განლაგებას და ფერებს — იგივეს, რაც მისასალმებელ ოსტატშია. მათი შეცვლა ნებისმიერ დროს შეგიძლიათ."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "გარეგნობა ცვლის ამოცანების ზოლის განლაგებას და ფერებს — იგივეს, რაც მისასალმებელ ოსტატშია. მათი შეცვლა ნებისმიერ დროს შეგიძლიათ.",
+  "Couldn't change the startup setting. Please try again.": "გაშვების პარამეტრის შეცვლა ვერ მოხერხდა. სცადეთ ხელახლა.",
+  "Programs that start when you sign in": "პროგრამები, რომლებიც შესვლისას ეშვება",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "ეს პროგრამები შესვლის შემდეგ თავისით ეშვება. ერთ-ერთის გამორთვა შესვლას აჩქარებს; მისი გაშვება კვლავ შეგიძლიათ „დაწყების“ მენიუდან.",
+  "No programs start by themselves when you sign in.": "შესვლისას არცერთი პროგრამა თავისით არ ეშვება."
 }

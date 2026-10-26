@@ -675,5 +675,9 @@
   "Colors": "Боје",
   "More appearance settings": "Још подешавања изгледа",
   "Change how it looks": "Промените изглед",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Изглед мења распоред траке задатака и боје, исте као у чаробњаку добродошлице. Можете их променити у било ком тренутку."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Изглед мења распоред траке задатака и боје, исте као у чаробњаку добродошлице. Можете их променити у било ком тренутку.",
+  "Couldn't change the startup setting. Please try again.": "Није било могуће променити подешавање покретања. Покушајте поново.",
+  "Programs that start when you sign in": "Програми који се покрећу при пријави",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Они се покрећу сами након пријаве. Ако неки искључите, пријава је бржа; и даље га можете покренути из менија Старт.",
+  "No programs start by themselves when you sign in.": "Ниједан програм се не покреће сам при пријави."
 }

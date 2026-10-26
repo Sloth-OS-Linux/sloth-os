@@ -675,5 +675,9 @@
   "Colors": "Cores",
   "More appearance settings": "Mais definições de aspeto",
   "Change how it looks": "Mude o aspeto",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aspeto muda a disposição da barra de tarefas e as cores, as mesmas do assistente de boas-vindas. Pode mudá-las quando quiser."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aspeto muda a disposição da barra de tarefas e as cores, as mesmas do assistente de boas-vindas. Pode mudá-las quando quiser.",
+  "Couldn't change the startup setting. Please try again.": "Não foi possível mudar a definição de arranque. Tente novamente.",
+  "Programs that start when you sign in": "Programas que abrem ao iniciar sessão",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Estes abrem sozinhos depois de iniciar sessão. Desligar um torna o início de sessão mais rápido; pode continuar a abri-lo a partir do menu Iniciar.",
+  "No programs start by themselves when you sign in.": "Nenhum programa abre sozinho ao iniciar sessão."
 }

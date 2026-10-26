@@ -675,5 +675,9 @@
   "Colors": "Kolory",
   "More appearance settings": "Więcej ustawień wyglądu",
   "Change how it looks": "Zmień wygląd",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Wygląd zmienia układ paska zadań i kolory – te same co w kreatorze powitalnym. Możesz je zmienić w dowolnej chwili."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Wygląd zmienia układ paska zadań i kolory – te same co w kreatorze powitalnym. Możesz je zmienić w dowolnej chwili.",
+  "Couldn't change the startup setting. Please try again.": "Nie udało się zmienić ustawienia uruchamiania. Spróbuj ponownie.",
+  "Programs that start when you sign in": "Programy uruchamiane po zalogowaniu",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Uruchamiają się same po zalogowaniu. Wyłączenie któregoś przyspiesza logowanie; nadal możesz go uruchomić z menu Start.",
+  "No programs start by themselves when you sign in.": "Żaden program nie uruchamia się sam po zalogowaniu."
 }

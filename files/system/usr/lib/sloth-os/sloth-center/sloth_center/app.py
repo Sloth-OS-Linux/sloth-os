@@ -55,6 +55,7 @@ def main():
     from .health import HealthController
     from .reset import ResetController
     from .services import ServicesController
+    from .startup import StartupController
     from .winprograms import WinProgramsController
 
     engine = QQmlApplicationEngine()
@@ -81,6 +82,7 @@ def main():
     devpanel = DevPanelController()
     guide = GuideController()
     appearance = AppearanceController()
+    startup = StartupController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -100,6 +102,7 @@ def main():
     engine.rootContext().setContextProperty("devpanel", devpanel)
     engine.rootContext().setContextProperty("guide", guide)
     engine.rootContext().setContextProperty("appearance", appearance)
+    engine.rootContext().setContextProperty("startup", startup)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1

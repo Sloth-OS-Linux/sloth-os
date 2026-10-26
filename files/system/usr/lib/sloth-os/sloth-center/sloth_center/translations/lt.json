@@ -675,5 +675,9 @@
   "Colors": "Spalvos",
   "More appearance settings": "Daugiau išvaizdos nustatymų",
   "Change how it looks": "Pakeiskite išvaizdą",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Išvaizda keičia užduočių juostos išdėstymą ir spalvas – tokias pat kaip pasisveikinimo vedlyje. Jas galite pakeisti bet kada."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Išvaizda keičia užduočių juostos išdėstymą ir spalvas – tokias pat kaip pasisveikinimo vedlyje. Jas galite pakeisti bet kada.",
+  "Couldn't change the startup setting. Please try again.": "Nepavyko pakeisti paleidimo nustatymo. Bandykite dar kartą.",
+  "Programs that start when you sign in": "Programos, paleidžiamos prisijungus",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Jos pasileidžia pačios prisijungus. Išjungus kurią nors, prisijungimas vyksta greičiau; ją vis tiek galėsite paleisti iš meniu Pradžia.",
+  "No programs start by themselves when you sign in.": "Prisijungus jokia programa nepasileidžia pati."
 }

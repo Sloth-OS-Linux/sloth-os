@@ -675,5 +675,9 @@
   "Colors": "Χρώματα",
   "More appearance settings": "Περισσότερες ρυθμίσεις εμφάνισης",
   "Change how it looks": "Αλλάξτε την εμφάνιση",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Η Εμφάνιση αλλάζει τη διάταξη της γραμμής εργασιών και τα χρώματα, τα ίδια με τον οδηγό καλωσορίσματος. Μπορείτε να τα αλλάξετε οποιαδήποτε στιγμή."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Η Εμφάνιση αλλάζει τη διάταξη της γραμμής εργασιών και τα χρώματα, τα ίδια με τον οδηγό καλωσορίσματος. Μπορείτε να τα αλλάξετε οποιαδήποτε στιγμή.",
+  "Couldn't change the startup setting. Please try again.": "Δεν ήταν δυνατή η αλλαγή της ρύθμισης εκκίνησης. Δοκιμάστε ξανά.",
+  "Programs that start when you sign in": "Προγράμματα που ξεκινούν όταν συνδέεστε",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Αυτά ξεκινούν μόνα τους μετά τη σύνδεση. Αν απενεργοποιήσετε κάποιο, η σύνδεση γίνεται πιο γρήγορα· μπορείτε ακόμα να το ανοίξετε από το μενού Έναρξη.",
+  "No programs start by themselves when you sign in.": "Κανένα πρόγραμμα δεν ξεκινά μόνο του όταν συνδέεστε."
 }

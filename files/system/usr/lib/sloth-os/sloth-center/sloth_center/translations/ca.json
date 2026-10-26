@@ -675,5 +675,9 @@
   "Colors": "Colors",
   "More appearance settings": "Més opcions d'aparença",
   "Change how it looks": "Canvieu-ne l'aspecte",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aparença canvia la disposició de la barra de tasques i els colors, els mateixos que a l'assistent de benvinguda. Els podeu canviar quan vulgueu."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aparença canvia la disposició de la barra de tasques i els colors, els mateixos que a l'assistent de benvinguda. Els podeu canviar quan vulgueu.",
+  "Couldn't change the startup setting. Please try again.": "No s'ha pogut canviar l'opció d'inici. Torneu-ho a provar.",
+  "Programs that start when you sign in": "Programes que s'inicien quan inicieu la sessió",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "S'inicien sols després d'iniciar la sessió. Si en desactiveu un, la sessió s'inicia més de pressa; encara el podeu obrir des del menú d'inici.",
+  "No programs start by themselves when you sign in.": "Cap programa s'inicia sol quan inicieu la sessió."
 }

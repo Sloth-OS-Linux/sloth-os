@@ -675,5 +675,9 @@
   "Colors": "Farby",
   "More appearance settings": "Ďalšie nastavenia vzhľadu",
   "Change how it looks": "Zmeňte vzhľad",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Vzhľad mení rozloženie panela úloh a farby, rovnaké ako v uvítacom sprievodcovi. Zmeniť ich môžete kedykoľvek."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Vzhľad mení rozloženie panela úloh a farby, rovnaké ako v uvítacom sprievodcovi. Zmeniť ich môžete kedykoľvek.",
+  "Couldn't change the startup setting. Please try again.": "Nastavenie spúšťania sa nepodarilo zmeniť. Skúste to znova.",
+  "Programs that start when you sign in": "Programy spúšťané po prihlásení",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Spúšťajú sa samy po prihlásení. Keď niektorý vypnete, prihlásenie bude rýchlejšie; spustiť ho môžete aj naďalej z ponuky Štart.",
+  "No programs start by themselves when you sign in.": "Po prihlásení sa samy nespúšťajú žiadne programy."
 }

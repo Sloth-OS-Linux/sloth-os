@@ -675,5 +675,9 @@
   "Colors": "நிறங்கள்",
   "More appearance settings": "மேலும் தோற்ற அமைப்புகள்",
   "Change how it looks": "தோற்றத்தை மாற்றுங்கள்",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "தோற்றம் பக்கம் பணிப்பட்டி அமைப்பையும் நிறங்களையும் மாற்றும், வரவேற்பு வழிகாட்டியில் உள்ள அதேவை. எப்போது வேண்டுமானாலும் மாற்றலாம்."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "தோற்றம் பக்கம் பணிப்பட்டி அமைப்பையும் நிறங்களையும் மாற்றும், வரவேற்பு வழிகாட்டியில் உள்ள அதேவை. எப்போது வேண்டுமானாலும் மாற்றலாம்.",
+  "Couldn't change the startup setting. Please try again.": "தொடக்க அமைப்பை மாற்ற முடியவில்லை. மீண்டும் முயலவும்.",
+  "Programs that start when you sign in": "உள்நுழையும்போது தொடங்கும் நிரல்கள்",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "நீங்கள் உள்நுழைந்த பின் இவை தானாகத் தொடங்கும். ஒன்றை அணைத்தால் உள்நுழைவு வேகமாகும்; தொடக்க மெனுவிலிருந்து அதை இன்னும் திறக்கலாம்.",
+  "No programs start by themselves when you sign in.": "உள்நுழையும்போது எந்த நிரலும் தானாகத் தொடங்குவதில்லை."
 }

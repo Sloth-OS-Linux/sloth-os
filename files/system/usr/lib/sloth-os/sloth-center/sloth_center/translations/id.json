@@ -675,5 +675,9 @@
   "Colors": "Warna",
   "More appearance settings": "Pengaturan tampilan lainnya",
   "Change how it looks": "Ubah tampilannya",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Tampilan mengganti tata letak bilah tugas dan warna, sama seperti di wisaya sambutan. Anda bisa mengubahnya kapan saja."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Tampilan mengganti tata letak bilah tugas dan warna, sama seperti di wisaya sambutan. Anda bisa mengubahnya kapan saja.",
+  "Couldn't change the startup setting. Please try again.": "Tidak dapat mengubah pengaturan awal mula. Silakan coba lagi.",
+  "Programs that start when you sign in": "Program yang berjalan saat Anda masuk",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Program ini berjalan sendiri setelah Anda masuk. Mematikan salah satunya membuat proses masuk lebih cepat; Anda tetap bisa membukanya dari menu Mulai.",
+  "No programs start by themselves when you sign in.": "Tidak ada program yang berjalan sendiri saat Anda masuk."
 }

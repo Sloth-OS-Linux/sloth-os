@@ -675,5 +675,9 @@
   "Colors": "Värvid",
   "More appearance settings": "Rohkem välimuse seadeid",
   "Change how it looks": "Muuda välimust",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Välimus vahetab tegumiriba paigutust ja värve, samu mis tervitusviisardis. Saad neid igal ajal muuta."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Välimus vahetab tegumiriba paigutust ja värve, samu mis tervitusviisardis. Saad neid igal ajal muuta.",
+  "Couldn't change the startup setting. Please try again.": "Käivitusseadet ei õnnestunud muuta. Proovi uuesti.",
+  "Programs that start when you sign in": "Sisselogimisel käivituvad programmid",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Need käivituvad pärast sisselogimist ise. Kui mõne välja lülitad, on sisselogimine kiirem; seda saab endiselt menüüst Start avada.",
+  "No programs start by themselves when you sign in.": "Sisselogimisel ei käivitu ükski programm ise."
 }

@@ -134,7 +134,12 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Medium** — Keep essential installation, recovery, and troubleshooting help available offline.
 - [ ] **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
 - [ ] **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
-- [ ] **Medium** — Manage startup applications: explain what launches at sign-in where known, and show startup impact.
+- [x] **Medium** — Manage startup applications (2026-10-26): Services page, "Programs that start when you sign
+  in": the user's own autostart entries (Steam, Discord, … also those added through the Flatpak background portal)
+  with their name, description and a switch (`Hidden=true`, as KDE's own settings do). The system's parts
+  (/etc/xdg/autostart) are not listed, turning those off would break something. The startup impact is not shown:
+  it cannot be measured reliably. Tests: `tools/tests/test_startup.py`. Check on a real machine (Steam set to
+  start at sign-in)
 - [ ] **Large** — Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
   health or charge limits in one place, with clear effects on battery life and gaming.
 
@@ -161,7 +166,9 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Medium** — Verify backups by checking readability and guiding users through restoring a selected file.
 - [ ] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
 - [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
-- [ ] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart flow.
+- [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart
+  flow (already on the Updates page: the explanation, a confirmation that files and settings are kept, then
+  "Restart now"; earlier versions can be kept and started there too)
 - [ ] **Large** — Before significant settings or driver changes, offer a recoverable state and a clear way to revert.
 
 #### Gaming, devices, and connectivity

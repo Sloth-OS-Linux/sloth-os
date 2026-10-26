@@ -675,5 +675,9 @@
   "Colors": "Farben",
   "More appearance settings": "Weitere Einstellungen zum Erscheinungsbild",
   "Change how it looks": "Das Aussehen ändern",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Erscheinungsbild wechselt die Anordnung der Taskleiste und die Farben, dieselben wie im Willkommensassistenten. Sie können sie jederzeit ändern."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Erscheinungsbild wechselt die Anordnung der Taskleiste und die Farben, dieselben wie im Willkommensassistenten. Sie können sie jederzeit ändern.",
+  "Couldn't change the startup setting. Please try again.": "Die Starteinstellung konnte nicht geändert werden. Bitte versuchen Sie es erneut.",
+  "Programs that start when you sign in": "Programme, die bei der Anmeldung starten",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Diese starten nach der Anmeldung von selbst. Wenn Sie eines ausschalten, geht die Anmeldung schneller; Sie können es weiterhin über das Startmenü öffnen.",
+  "No programs start by themselves when you sign in.": "Bei der Anmeldung starten keine Programme von selbst."
 }

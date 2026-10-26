@@ -675,5 +675,9 @@
   "Colors": "Barve",
   "More appearance settings": "Več nastavitev videza",
   "Change how it looks": "Spremenite videz",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Videz zamenja postavitev opravilne vrstice in barve, enake kot v čarovniku za dobrodošlico. Spremenite jih lahko kadar koli."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Videz zamenja postavitev opravilne vrstice in barve, enake kot v čarovniku za dobrodošlico. Spremenite jih lahko kadar koli.",
+  "Couldn't change the startup setting. Please try again.": "Nastavitve zagona ni bilo mogoče spremeniti. Poskusite znova.",
+  "Programs that start when you sign in": "Programi, ki se zaženejo ob prijavi",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Ti se zaženejo sami po prijavi. Če katerega izklopite, je prijava hitrejša; še vedno ga lahko zaženete iz menija Start.",
+  "No programs start by themselves when you sign in.": "Ob prijavi se noben program ne zažene sam."
 }

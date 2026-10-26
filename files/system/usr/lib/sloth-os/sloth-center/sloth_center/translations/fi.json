@@ -675,5 +675,9 @@
   "Colors": "Värit",
   "More appearance settings": "Lisää ulkoasun asetuksia",
   "Change how it looks": "Muuta ulkoasua",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Ulkoasu vaihtaa tehtäväpalkin asettelun ja värit, samat kuin tervetuloavustajassa. Voit muuttaa niitä milloin tahansa."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Ulkoasu vaihtaa tehtäväpalkin asettelun ja värit, samat kuin tervetuloavustajassa. Voit muuttaa niitä milloin tahansa.",
+  "Couldn't change the startup setting. Please try again.": "Käynnistysasetusta ei voitu muuttaa. Yritä uudelleen.",
+  "Programs that start when you sign in": "Kirjautuessa käynnistyvät ohjelmat",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Nämä käynnistyvät itsestään kirjautumisen jälkeen. Jos poistat jonkin käytöstä, kirjautuminen nopeutuu; voit silti avata sen Käynnistä-valikosta.",
+  "No programs start by themselves when you sign in.": "Mikään ohjelma ei käynnisty itsestään kirjautuessa."
 }

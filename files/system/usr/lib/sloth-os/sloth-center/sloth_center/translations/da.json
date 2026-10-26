@@ -675,5 +675,9 @@
   "Colors": "Farver",
   "More appearance settings": "Flere indstillinger for udseende",
   "Change how it looks": "Skift udseendet",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Udseende skifter proceslinjens layout og farverne, de samme som i velkomstguiden. Du kan ændre dem når som helst."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Udseende skifter proceslinjens layout og farverne, de samme som i velkomstguiden. Du kan ændre dem når som helst.",
+  "Couldn't change the startup setting. Please try again.": "Kunne ikke ændre indstillingen for opstart. Prøv igen.",
+  "Programs that start when you sign in": "Programmer, der starter, når du logger ind",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "De starter af sig selv, når du har logget ind. Slår du et fra, går det hurtigere at logge ind; du kan stadig starte det fra startmenuen.",
+  "No programs start by themselves when you sign in.": "Ingen programmer starter af sig selv, når du logger ind."
 }

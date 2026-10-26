@@ -675,5 +675,9 @@
   "Colors": "色",
   "More appearance settings": "その他の外観設定",
   "Change how it looks": "見た目を変える",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "「外観」では、ようこそウィザードと同じタスクバーのレイアウトと色を切り替えられます。いつでも変更できます。"
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "「外観」では、ようこそウィザードと同じタスクバーのレイアウトと色を切り替えられます。いつでも変更できます。",
+  "Couldn't change the startup setting. Please try again.": "スタートアップの設定を変更できませんでした。もう一度お試しください。",
+  "Programs that start when you sign in": "サインイン時に起動するプログラム",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "これらはサインイン後に自動で起動します。オフにするとサインインが速くなります。スタートメニューからはこれまでどおり起動できます。",
+  "No programs start by themselves when you sign in.": "サインイン時に自動で起動するプログラムはありません。"
 }

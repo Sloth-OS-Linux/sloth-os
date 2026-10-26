@@ -675,5 +675,9 @@
   "Colors": "Initen",
   "More appearance settings": "Ugar n yiɣewwaren n udem",
   "Change how it looks": "Beddel udem",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Udem ibeddel taneɣruft n ufeggag n twuri d yiniten, am wid yellan deg umarag n ummager. Tzemreḍ ad ten-tbeddleḍ melmi i tebɣiḍ."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Udem ibeddel taneɣruft n ufeggag n twuri d yiniten, am wid yellan deg umarag n ummager. Tzemreḍ ad ten-tbeddleḍ melmi i tebɣiḍ.",
+  "Couldn't change the startup setting. Please try again.": "Ur yezmir ara ad ibeddel aɣewwar n usekker. Ttxil-k·m ɛreḍ tikkelt-nniḍen.",
+  "Programs that start when you sign in": "Ahilen yettekkren mi ara tkecmeḍ",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Ahilen-a ttekkren iman-nsen mi ara tkecmeḍ. Ma tsenseḍ yiwen, ad tkecmeḍ s zzerb; tzemreḍ ad t-tsekkreḍ yal tikkelt seg wumuɣ Bdu.",
+  "No programs start by themselves when you sign in.": "Ulac ahil ara yekkren iman-is mi ara tkecmeḍ."
 }

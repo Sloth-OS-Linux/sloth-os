@@ -675,5 +675,9 @@
   "Colors": "Colores",
   "More appearance settings": "Plus parametros de apparentia",
   "Change how it looks": "Cambia le apparentia",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Apparentia cambia le disposition del barra de cargas e le colores, le mesmes que in le assistente de benvenita. Tu pote cambiar los a omne momento."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Apparentia cambia le disposition del barra de cargas e le colores, le mesmes que in le assistente de benvenita. Tu pote cambiar los a omne momento.",
+  "Couldn't change the startup setting. Please try again.": "Non poteva cambiar le parametro de initio. Per favor tenta de novo.",
+  "Programs that start when you sign in": "Programmas que initia quando tu accede",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Istes initia per se mesme post que tu accede. Disactivar un face le accesso plus rapide; tu pote ancora initiar lo ab le menu Initio.",
+  "No programs start by themselves when you sign in.": "Nulle programma initia per se mesme quando tu accede."
 }

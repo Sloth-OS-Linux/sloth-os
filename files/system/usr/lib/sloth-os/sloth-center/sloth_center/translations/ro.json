@@ -675,5 +675,9 @@
   "Colors": "Culori",
   "More appearance settings": "Mai multe setări de aspect",
   "Change how it looks": "Schimbați aspectul",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aspect schimbă aranjamentul barei de activități și culorile, aceleași ca în asistentul de bun venit. Le puteți schimba oricând."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aspect schimbă aranjamentul barei de activități și culorile, aceleași ca în asistentul de bun venit. Le puteți schimba oricând.",
+  "Couldn't change the startup setting. Please try again.": "Nu s-a putut schimba setarea de pornire. Încercați din nou.",
+  "Programs that start when you sign in": "Programe care pornesc la autentificare",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Acestea pornesc singure după ce vă autentificați. Dacă opriți unul, autentificarea e mai rapidă; îl puteți porni în continuare din meniul Start.",
+  "No programs start by themselves when you sign in.": "Niciun program nu pornește singur la autentificare."
 }

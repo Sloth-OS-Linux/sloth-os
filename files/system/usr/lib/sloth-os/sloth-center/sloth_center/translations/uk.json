@@ -675,5 +675,9 @@
   "Colors": "Кольори",
   "More appearance settings": "Інші налаштування вигляду",
   "Change how it looks": "Змініть вигляд",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "«Вигляд» змінює макет панелі завдань і кольори — ті самі, що й у майстрі привітання. Змінити їх можна будь-коли."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "«Вигляд» змінює макет панелі завдань і кольори — ті самі, що й у майстрі привітання. Змінити їх можна будь-коли.",
+  "Couldn't change the startup setting. Please try again.": "Не вдалося змінити налаштування автозапуску. Спробуйте ще раз.",
+  "Programs that start when you sign in": "Програми, що запускаються під час входу",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Вони запускаються самі після входу. Якщо вимкнути одну з них, вхід буде швидшим; запустити її можна, як і раніше, з меню «Пуск».",
+  "No programs start by themselves when you sign in.": "Під час входу жодна програма не запускається сама."
 }

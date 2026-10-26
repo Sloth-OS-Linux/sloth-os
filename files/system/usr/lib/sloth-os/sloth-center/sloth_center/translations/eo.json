@@ -675,5 +675,9 @@
   "Colors": "Koloroj",
   "More appearance settings": "Pliaj agordoj de aspekto",
   "Change how it looks": "Ŝanĝu la aspekton",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aspekto ŝanĝas la aranĝon de la taskobreto kaj la kolorojn, la samajn kiel en la bonvena asistanto. Vi povas ŝanĝi ilin iam ajn."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aspekto ŝanĝas la aranĝon de la taskobreto kaj la kolorojn, la samajn kiel en la bonvena asistanto. Vi povas ŝanĝi ilin iam ajn.",
+  "Couldn't change the startup setting. Please try again.": "Ne eblis ŝanĝi la lanĉan agordon. Bonvolu reprovi.",
+  "Programs that start when you sign in": "Programoj, kiuj startas kiam vi ensalutas",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "Ĉi tiuj startas memstare post ensaluto. Se vi malŝaltas unu, ensaluto estas pli rapida; vi ankoraŭ povas lanĉi ĝin el la Start-menuo.",
+  "No programs start by themselves when you sign in.": "Neniu programo startas memstare kiam vi ensalutas."
 }

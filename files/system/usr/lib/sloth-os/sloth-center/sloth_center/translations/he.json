@@ -675,5 +675,9 @@
   "Colors": "צבעים",
   "More appearance settings": "הגדרות מראה נוספות",
   "Change how it looks": "שינוי המראה",
-  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "דף המראה מחליף את פריסת שורת המשימות ואת הצבעים, אותם אלה שבאשף הפתיחה. אפשר לשנות אותם בכל עת."
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "דף המראה מחליף את פריסת שורת המשימות ואת הצבעים, אותם אלה שבאשף הפתיחה. אפשר לשנות אותם בכל עת.",
+  "Couldn't change the startup setting. Please try again.": "לא ניתן היה לשנות את הגדרת ההפעלה. נסו שוב.",
+  "Programs that start when you sign in": "תוכניות שמופעלות בכניסה",
+  "These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.": "הן מופעלות מעצמן אחרי הכניסה. כיבוי של אחת מהן מזרז את הכניסה; עדיין אפשר להפעיל אותה מתפריט ההתחלה.",
+  "No programs start by themselves when you sign in.": "אף תוכנית לא מופעלת מעצמה בכניסה."
 }
