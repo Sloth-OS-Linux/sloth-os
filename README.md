@@ -14,9 +14,24 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Release status:** Sloth OS 1.0.3 is being prepared. The current public installer ISO remains [Sloth OS 1.0.2](https://sourceforge.net/projects/sloth-os/files/1.0.2/) until the update fix is verified.
+**Current release: [Sloth OS 1.0.4](https://sourceforge.net/projects/sloth-os/files/1.0.4/)** (October 26, 2026). It
+replaces 1.0.3, which was never published. Machines already running Sloth OS get it as a normal update.
 
-**Installer update:** If you tried installing with the previous Sloth OS 1.0.2 ISO and ran into problems, we are sorry. The installer issue is fixed. Please download the current ISO and reinstall.
+### What's new in 1.0.4
+
+- **More than one disk:** the installer asks what to do with each other disk: leave it alone (the default), use it
+  with its files, or erase it for programs and games. A disk with Windows on it is never changed.
+- **Choose the drive for Windows programs:** with more than one drive, the `.exe` handler asks where a new program
+  goes and shows the free space on each.
+- **See what uses the space:** Sloth Center → Disks shows your files, games, Windows programs, apps, temporary files
+  and the system separately, and *Clean up* now also removes temporary system files and cached update data.
+- **System status at a glance:** network connection and router latency, a security overview (Secure Boot, disk
+  encryption, signed updates), and a warning with a backup button if a drive reports that it may fail.
+- **Clearer updates:** the progress bar moves part by part during a system update, and an interrupted update no
+  longer leaves Sloth Center spinning forever.
+- New hanging sloth artwork, and every text in all 50 languages.
+
+If you tried installing with an earlier 1.0.2 ISO and ran into problems, we are sorry: that installer issue is fixed.
 
 ## System requirements
 
@@ -67,7 +82,9 @@ only sees "Starting…":
 Every Windows program gets its own visible folder, `~/Applications/<program>/`, with a "Program files" link to
 the installed files; its Windows environment and Sloth's data about it sit next to it (`windows/`, `.sloth/`).
 After installing, the program's real name and the file that starts it are detected from the Windows registry
-and the installer's shortcuts; if that is not certain, the user picks or browses for the file. In Sloth Center →
+and the installer's shortcuts; if that is not certain, the user picks or browses for the file. If the computer has more than one drive,
+the user picks the drive when installing (other internal drives with a Linux file system are offered by themselves;
+USB sticks are not). In Sloth Center →
 Windows programs each program can be started, opened in the file manager, repaired, reinstalled, moved (for
 example to another drive) or removed. Programs installed elsewhere (added to Steam by hand, in Lutris, in Bottles, or
 in a plain `~/.wine`) can be taken over without reinstalling, either started by the original app as before or as an
@@ -136,7 +153,7 @@ systemctl reboot
 
 On NVIDIA machines, do the same with `sloth-os-nvidia`.
 
-> This is the developer path. End users will later get their own installer ISO and will never see commands like these.
+> This is the developer path. End users install from the installer ISO and never see commands like these.
 
 ## Installer ISO
 
