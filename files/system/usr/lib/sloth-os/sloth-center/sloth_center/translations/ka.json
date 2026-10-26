@@ -739,5 +739,10 @@
   "Find deleted files…": "წაშლილი ფაილების პოვნა…",
   "Choose the file to restore": "აირჩიეთ აღსადგენი ფაილი",
   "Choose the folder the files were in": "აირჩიეთ საქაღალდე, სადაც ფაილები იყო",
-  "Add a program…": "პროგრამის დამატება…"
+  "Add a program…": "პროგრამის დამატება…",
+  "Checking the latest saved state…": "ბოლო შენახული მდგომარეობის შემოწმება…",
+  "There are no files in the latest saved state yet.": "ბოლო შენახულ მდგომარეობაში ჯერ ფაილები არ არის.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "ბოლო შენახული მდგომარეობის ({when}) {n} ფაილიდან {bad} ვერ წაიკითხა. მნიშვნელოვანი ფაილების ასლი გარე დისკზეც შეინახეთ და გამოგზავნეთ ანგარიში „გამოხმაურებიდან“.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "შემოწმდა ბოლო შენახული მდგომარეობის ({when}) {n} ფაილი: ყველა იკითხება.",
+  "Check the backup": "სარეზერვო ასლის შემოწმება"
 }

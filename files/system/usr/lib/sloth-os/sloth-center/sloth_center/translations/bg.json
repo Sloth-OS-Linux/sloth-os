@@ -739,5 +739,10 @@
   "Find deleted files…": "Търсене на изтрити файлове…",
   "Choose the file to restore": "Изберете файла за възстановяване",
   "Choose the folder the files were in": "Изберете папката, в която бяха файловете",
-  "Add a program…": "Добавяне на програма…"
+  "Add a program…": "Добавяне на програма…",
+  "Checking the latest saved state…": "Проверка на последното запазено състояние…",
+  "There are no files in the latest saved state yet.": "В последното запазено състояние все още няма файлове.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} от {n} файла в последното запазено състояние ({when}) не можаха да бъдат прочетени. Пазете копие на важните си файлове и на външен диск и изпратете доклад от „Обратна връзка“.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Проверени са {n} файла в последното запазено състояние ({when}): всички могат да бъдат прочетени.",
+  "Check the backup": "Проверка на резервното копие"
 }

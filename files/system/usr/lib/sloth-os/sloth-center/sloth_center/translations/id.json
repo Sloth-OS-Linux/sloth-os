@@ -739,5 +739,10 @@
   "Find deleted files…": "Cari berkas yang terhapus…",
   "Choose the file to restore": "Pilih berkas yang akan dipulihkan",
   "Choose the folder the files were in": "Pilih folder tempat berkas-berkas itu berada",
-  "Add a program…": "Tambahkan program…"
+  "Add a program…": "Tambahkan program…",
+  "Checking the latest saved state…": "Memeriksa keadaan tersimpan terakhir…",
+  "There are no files in the latest saved state yet.": "Belum ada berkas di keadaan tersimpan terakhir.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} dari {n} berkas di keadaan tersimpan terakhir ({when}) tidak dapat dibaca. Simpan juga salinan berkas penting Anda di disk eksternal, dan kirim laporan dari Umpan Balik.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "{n} berkas di keadaan tersimpan terakhir ({when}) diperiksa: semuanya dapat dibaca.",
+  "Check the backup": "Periksa cadangan"
 }

@@ -739,5 +739,10 @@
   "Find deleted files…": "মুছে ফেলা ফাইল খুঁজুন…",
   "Choose the file to restore": "ফিরিয়ে আনার ফাইলটি বেছে নিন",
   "Choose the folder the files were in": "ফাইলগুলো যে ফোল্ডারে ছিল সেটি বেছে নিন",
-  "Add a program…": "একটি প্রোগ্রাম যোগ করুন…"
+  "Add a program…": "একটি প্রোগ্রাম যোগ করুন…",
+  "Checking the latest saved state…": "সর্বশেষ সংরক্ষিত অবস্থা পরীক্ষা করা হচ্ছে…",
+  "There are no files in the latest saved state yet.": "সর্বশেষ সংরক্ষিত অবস্থায় এখনও কোনো ফাইল নেই।",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "সর্বশেষ সংরক্ষিত অবস্থার ({when}) {n}টি ফাইলের মধ্যে {bad}টি পড়া যায়নি। আপনার গুরুত্বপূর্ণ ফাইলের একটি কপি বাইরের ডিস্কেও রাখুন, এবং মতামত থেকে একটি রিপোর্ট পাঠান।",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "সর্বশেষ সংরক্ষিত অবস্থার ({when}) {n}টি ফাইল পরীক্ষা করা হয়েছে: সবগুলোই পড়া যায়।",
+  "Check the backup": "ব্যাকআপ পরীক্ষা করুন"
 }

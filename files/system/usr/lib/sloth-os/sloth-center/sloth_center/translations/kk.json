@@ -739,5 +739,10 @@
   "Find deleted files…": "Жойылған файлдарды табу…",
   "Choose the file to restore": "Қалпына келтіретін файлды таңдаңыз",
   "Choose the folder the files were in": "Файлдар болған қалтаны таңдаңыз",
-  "Add a program…": "Бағдарлама қосу…"
+  "Add a program…": "Бағдарлама қосу…",
+  "Checking the latest saved state…": "Соңғы сақталған күй тексерілуде…",
+  "There are no files in the latest saved state yet.": "Соңғы сақталған күйде әлі файлдар жоқ.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Соңғы сақталған күйдегі ({when}) {n} файлдың {bad} оқылмады. Маңызды файлдардың көшірмесін сыртқы дискіде де сақтаңыз және «Кері байланыс» арқылы есеп жіберіңіз.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Соңғы сақталған күйдегі ({when}) {n} файл тексерілді: барлығы оқылады.",
+  "Check the backup": "Сақтық көшірмені тексеру"
 }

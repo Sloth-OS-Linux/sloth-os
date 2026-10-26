@@ -739,5 +739,10 @@
   "Find deleted files…": "Leia kustutatud failid…",
   "Choose the file to restore": "Vali taastatav fail",
   "Choose the folder the files were in": "Vali kaust, kus failid olid",
-  "Add a program…": "Lisa programm…"
+  "Add a program…": "Lisa programm…",
+  "Checking the latest saved state…": "Viimase salvestatud oleku kontrollimine…",
+  "There are no files in the latest saved state yet.": "Viimases salvestatud olekus pole veel faile.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Viimase salvestatud oleku ({when}) {n} failist {bad} ei õnnestunud lugeda. Hoia oma tähtsatest failidest koopiat ka välisel kettal ja saada raport tagasiside kaudu.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Kontrolliti viimase salvestatud oleku ({when}) {n} faili: kõik on loetavad.",
+  "Check the backup": "Kontrolli varukoopiat"
 }

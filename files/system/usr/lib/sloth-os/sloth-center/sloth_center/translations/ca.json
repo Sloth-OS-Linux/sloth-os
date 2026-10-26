@@ -739,5 +739,10 @@
   "Find deleted files…": "Cerca fitxers suprimits…",
   "Choose the file to restore": "Trieu el fitxer que voleu restaurar",
   "Choose the folder the files were in": "Trieu la carpeta on eren els fitxers",
-  "Add a program…": "Afegeix un programa…"
+  "Add a program…": "Afegeix un programa…",
+  "Checking the latest saved state…": "S'està comprovant l'últim estat desat…",
+  "There are no files in the latest saved state yet.": "Encara no hi ha fitxers a l'últim estat desat.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "No s'han pogut llegir {bad} de {n} fitxers de l'últim estat desat ({when}). Guardeu també una còpia dels fitxers importants en un disc extern i envieu un informe des de Comentaris.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "S'han comprovat {n} fitxers de l'últim estat desat ({when}): tots es poden llegir.",
+  "Check the backup": "Comprova la còpia de seguretat"
 }

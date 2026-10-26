@@ -174,7 +174,10 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [x] **Medium** — Guide users through restoring a selected file (2026-10-26): File backup → "Restore a file…"
   (pick the file) or "Find deleted files…" (pick the folder it was in) opens the same "Previous versions" window
   as right-click in the file manager, for those who do not know that menu. Check on a real machine
-- [ ] **Medium** — Verify backups by checking that the saved states can be read.
+- [x] **Medium** — Verify backups by checking that the saved states can be read (2026-10-26): File backup →
+  "Check the backup" reads back a sample of 300 files of the latest saved state (no password, nothing changed)
+  and says in plain language whether all of them can be read; files the user may not read anyway are not
+  counted as a fault. Tests: `tools/tests/test_backup_verify.py`. Check on a real machine
 - [ ] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
 - [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
 - [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart

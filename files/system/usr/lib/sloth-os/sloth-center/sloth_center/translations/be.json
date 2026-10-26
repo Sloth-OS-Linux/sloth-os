@@ -739,5 +739,10 @@
   "Find deleted files…": "Знайсці выдаленыя файлы…",
   "Choose the file to restore": "Выберыце файл для аднаўлення",
   "Choose the folder the files were in": "Выберыце папку, у якой былі файлы",
-  "Add a program…": "Дадаць праграму…"
+  "Add a program…": "Дадаць праграму…",
+  "Checking the latest saved state…": "Праверка апошняга захаванага стану…",
+  "There are no files in the latest saved state yet.": "У апошнім захаваным стане пакуль няма файлаў.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Не ўдалося прачытаць {bad} з {n} файлаў у апошнім захаваным стане ({when}). Захоўвайце копію важных файлаў і на знешнім дыску і адпраўце паведамленне праз «Водгук».",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Праверана {n} файлаў у апошнім захаваным стане ({when}): усе чытаюцца.",
+  "Check the backup": "Праверыць рэзервовую копію"
 }

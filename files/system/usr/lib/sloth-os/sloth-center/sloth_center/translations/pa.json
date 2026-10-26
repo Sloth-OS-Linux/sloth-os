@@ -739,5 +739,10 @@
   "Find deleted files…": "ਮਿਟਾਈਆਂ ਫ਼ਾਈਲਾਂ ਲੱਭੋ…",
   "Choose the file to restore": "ਮੁੜ ਲਿਆਉਣ ਵਾਲੀ ਫ਼ਾਈਲ ਚੁਣੋ",
   "Choose the folder the files were in": "ਉਹ ਫ਼ੋਲਡਰ ਚੁਣੋ ਜਿਸ ਵਿੱਚ ਫ਼ਾਈਲਾਂ ਸਨ",
-  "Add a program…": "ਪ੍ਰੋਗਰਾਮ ਜੋੜੋ…"
+  "Add a program…": "ਪ੍ਰੋਗਰਾਮ ਜੋੜੋ…",
+  "Checking the latest saved state…": "ਆਖ਼ਰੀ ਸੰਭਾਲੀ ਹਾਲਤ ਜਾਂਚ ਰਿਹਾ ਹੈ…",
+  "There are no files in the latest saved state yet.": "ਆਖ਼ਰੀ ਸੰਭਾਲੀ ਹਾਲਤ ਵਿੱਚ ਅਜੇ ਕੋਈ ਫ਼ਾਈਲ ਨਹੀਂ।",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "ਆਖ਼ਰੀ ਸੰਭਾਲੀ ਹਾਲਤ ({when}) ਦੀਆਂ {n} ਫ਼ਾਈਲਾਂ ਵਿੱਚੋਂ {bad} ਪੜ੍ਹੀਆਂ ਨਹੀਂ ਜਾ ਸਕੀਆਂ। ਆਪਣੀਆਂ ਜ਼ਰੂਰੀ ਫ਼ਾਈਲਾਂ ਦੀ ਕਾਪੀ ਬਾਹਰੀ ਡਿਸਕ ਉੱਤੇ ਵੀ ਰੱਖੋ, ਅਤੇ ਫੀਡਬੈਕ ਤੋਂ ਰਿਪੋਰਟ ਭੇਜੋ।",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "ਆਖ਼ਰੀ ਸੰਭਾਲੀ ਹਾਲਤ ({when}) ਦੀਆਂ {n} ਫ਼ਾਈਲਾਂ ਜਾਂਚੀਆਂ: ਸਾਰੀਆਂ ਪੜ੍ਹੀਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ।",
+  "Check the backup": "ਬੈਕਅੱਪ ਜਾਂਚੋ"
 }

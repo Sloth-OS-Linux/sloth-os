@@ -739,5 +739,10 @@
   "Find deleted files…": "நீக்கிய கோப்புகளைக் கண்டுபிடி…",
   "Choose the file to restore": "மீட்டெடுக்க வேண்டிய கோப்பைத் தேர்ந்தெடுங்கள்",
   "Choose the folder the files were in": "கோப்புகள் இருந்த கோப்புறையைத் தேர்ந்தெடுங்கள்",
-  "Add a program…": "ஒரு நிரலைச் சேர்…"
+  "Add a program…": "ஒரு நிரலைச் சேர்…",
+  "Checking the latest saved state…": "கடைசியாகச் சேமித்த நிலையைச் சரிபார்க்கிறது…",
+  "There are no files in the latest saved state yet.": "கடைசியாகச் சேமித்த நிலையில் இன்னும் கோப்புகள் இல்லை.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "கடைசியாகச் சேமித்த நிலையின் ({when}) {n} கோப்புகளில் {bad} படிக்க முடியவில்லை. உங்கள் முக்கியமான கோப்புகளின் நகலை வெளிப்புற வட்டிலும் வைத்திருங்கள், கருத்துப் பக்கத்திலிருந்து ஒரு அறிக்கையை அனுப்புங்கள்.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "கடைசியாகச் சேமித்த நிலையின் ({when}) {n} கோப்புகள் சரிபார்க்கப்பட்டன: அனைத்தையும் படிக்க முடியும்.",
+  "Check the backup": "காப்புப்பிரதியைச் சரிபார்"
 }

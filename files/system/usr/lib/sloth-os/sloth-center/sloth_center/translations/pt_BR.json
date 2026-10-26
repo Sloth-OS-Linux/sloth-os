@@ -739,5 +739,10 @@
   "Find deleted files…": "Encontrar arquivos excluídos…",
   "Choose the file to restore": "Escolha o arquivo a restaurar",
   "Choose the folder the files were in": "Escolha a pasta onde os arquivos estavam",
-  "Add a program…": "Adicionar um programa…"
+  "Add a program…": "Adicionar um programa…",
+  "Checking the latest saved state…": "Verificando o último estado salvo…",
+  "There are no files in the latest saved state yet.": "Ainda não há arquivos no último estado salvo.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} de {n} arquivos do último estado salvo ({when}) não puderam ser lidos. Guarde também uma cópia dos seus arquivos importantes em um disco externo e envie um relatório pelo Feedback.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "{n} arquivos do último estado salvo ({when}) verificados: todos podem ser lidos.",
+  "Check the backup": "Verificar o backup"
 }

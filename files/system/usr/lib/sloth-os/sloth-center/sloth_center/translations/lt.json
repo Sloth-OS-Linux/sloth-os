@@ -739,5 +739,10 @@
   "Find deleted files…": "Rasti ištrintus failus…",
   "Choose the file to restore": "Pasirinkite failą, kurį norite atkurti",
   "Choose the folder the files were in": "Pasirinkite aplanką, kuriame buvo failai",
-  "Add a program…": "Pridėti programą…"
+  "Add a program…": "Pridėti programą…",
+  "Checking the latest saved state…": "Tikrinama paskutinė įrašyta būsena…",
+  "There are no files in the latest saved state yet.": "Paskutinėje įrašytoje būsenoje dar nėra failų.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Nepavyko perskaityti {bad} iš {n} failų paskutinėje įrašytoje būsenoje ({when}). Svarbių failų kopiją laikykite ir išoriniame diske, ir išsiųskite pranešimą per „Atsiliepimus“.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Patikrinta {n} failų paskutinėje įrašytoje būsenoje ({when}): visi skaitomi.",
+  "Check the backup": "Patikrinti atsarginę kopiją"
 }

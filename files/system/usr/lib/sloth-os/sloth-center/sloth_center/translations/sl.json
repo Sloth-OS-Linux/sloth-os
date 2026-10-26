@@ -739,5 +739,10 @@
   "Find deleted files…": "Poišči izbrisane datoteke …",
   "Choose the file to restore": "Izberite datoteko za obnovitev",
   "Choose the folder the files were in": "Izberite mapo, v kateri so bile datoteke",
-  "Add a program…": "Dodaj program …"
+  "Add a program…": "Dodaj program …",
+  "Checking the latest saved state…": "Preverjanje zadnjega shranjenega stanja …",
+  "There are no files in the latest saved state yet.": "V zadnjem shranjenem stanju še ni datotek.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} od {n} datotek v zadnjem shranjenem stanju ({when}) ni bilo mogoče prebrati. Kopijo pomembnih datotek hranite tudi na zunanjem disku in pošljite poročilo iz Povratnih informacij.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Preverjenih {n} datotek v zadnjem shranjenem stanju ({when}): vse je mogoče prebrati.",
+  "Check the backup": "Preveri varnostno kopijo"
 }

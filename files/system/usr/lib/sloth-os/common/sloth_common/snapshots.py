@@ -12,6 +12,7 @@ The big, re-downloadable folders (games, caches) are separate subvolumes, so the
 import datetime
 import json
 import os
+import random
 import subprocess
 from pathlib import Path
 
@@ -141,3 +142,29 @@ def versions_of(rel):
         if os.path.lexists(p):
             out.append((name, when, p))
     return out
+
+
+def verify(folder, sample=300, read_bytes=65536, scan_limit=50000):
+    """Reads a sample of the files of a saved state, to see that the backup can really be read back.
+
+    -> (checked, [paths that could not be read]). Links are not followed; at most scan_limit files are looked at
+    when choosing the sample, so a huge home folder does not take minutes."""
+    files = []
+    for root, dirs, names in os.walk(folder, onerror=lambda e: None):
+        for name in names:
+            path = os.path.join(root, name)
+            if os.path.isfile(path) and not os.path.islink(path):
+                files.append(path)
+        if len(files) >= scan_limit:
+            break
+    unreadable, checked = [], 0
+    for path in random.sample(files, min(sample, len(files))):
+        try:
+            with open(path, "rb") as f:
+                f.read(read_bytes)
+        except PermissionError:
+            continue  # not the user's file to read (it was like this in the home folder too): not a backup fault
+        except OSError:
+            unreadable.append(path)
+        checked += 1
+    return checked, unreadable

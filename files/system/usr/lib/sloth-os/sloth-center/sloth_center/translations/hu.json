@@ -739,5 +739,10 @@
   "Find deleted files…": "Törölt fájlok keresése…",
   "Choose the file to restore": "Válaszd ki a visszaállítandó fájlt",
   "Choose the folder the files were in": "Válaszd ki a mappát, amelyben a fájlok voltak",
-  "Add a program…": "Program hozzáadása…"
+  "Add a program…": "Program hozzáadása…",
+  "Checking the latest saved state…": "A legutóbbi mentett állapot ellenőrzése…",
+  "There are no files in the latest saved state yet.": "A legutóbbi mentett állapotban még nincsenek fájlok.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "A legutóbbi mentett állapot ({when}) {n} fájljából {bad} nem olvasható. A fontos fájljaidról tarts másolatot egy külső lemezen is, és küldj hibajelentést a Visszajelzés oldalon.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "A legutóbbi mentett állapotból ({when}) {n} fájlt ellenőriztem: mind olvasható.",
+  "Check the backup": "Mentés ellenőrzése"
 }

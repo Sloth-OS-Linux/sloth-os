@@ -739,5 +739,10 @@
   "Find deleted files…": "Nájsť odstránené súbory…",
   "Choose the file to restore": "Vyberte súbor na obnovenie",
   "Choose the folder the files were in": "Vyberte priečinok, v ktorom boli súbory",
-  "Add a program…": "Pridať program…"
+  "Add a program…": "Pridať program…",
+  "Checking the latest saved state…": "Kontrola posledného uloženého stavu…",
+  "There are no files in the latest saved state yet.": "V poslednom uloženom stave zatiaľ nie sú žiadne súbory.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} z {n} súborov v poslednom uloženom stave ({when}) sa nedalo prečítať. Uchovávajte kópiu dôležitých súborov aj na externom disku a pošlite hlásenie zo Spätnej väzby.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Skontrolovaných {n} súborov v poslednom uloženom stave ({when}): všetky sa dajú prečítať.",
+  "Check the backup": "Skontrolovať zálohu"
 }

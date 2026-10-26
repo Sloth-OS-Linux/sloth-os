@@ -739,5 +739,10 @@
   "Find deleted files…": "Знайти видалені файли…",
   "Choose the file to restore": "Виберіть файл для відновлення",
   "Choose the folder the files were in": "Виберіть теку, у якій були файли",
-  "Add a program…": "Додати програму…"
+  "Add a program…": "Додати програму…",
+  "Checking the latest saved state…": "Перевірка останнього збереженого стану…",
+  "There are no files in the latest saved state yet.": "В останньому збереженому стані ще немає файлів.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Не вдалося прочитати {bad} з {n} файлів в останньому збереженому стані ({when}). Зберігайте копію важливих файлів і на зовнішньому диску та надішліть повідомлення через «Відгук».",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Перевірено {n} файлів в останньому збереженому стані ({when}): усі читаються.",
+  "Check the backup": "Перевірити резервну копію"
 }

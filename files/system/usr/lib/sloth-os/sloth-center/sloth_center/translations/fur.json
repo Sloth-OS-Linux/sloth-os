@@ -739,5 +739,10 @@
   "Find deleted files…": "Cjate i file eliminâts…",
   "Choose the file to restore": "Sielç il file di ripristinâ",
   "Choose the folder the files were in": "Sielç la cartele dulà che a jerin i file",
-  "Add a program…": "Zonte un program…"
+  "Add a program…": "Zonte un program…",
+  "Checking the latest saved state…": "Daûr a controlâ l'ultin stât salvât…",
+  "There are no files in the latest saved state yet.": "Ancjemò no son file tal ultin stât salvât.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} di {n} file tal ultin stât salvât ({when}) no si son rivâts a lei. Ten une copie dai tiei file impuartants ancje suntun disc esterni, e mande une segnalazion di Opinions.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Controlâts {n} file tal ultin stât salvât ({when}): si rive a leiju ducj.",
+  "Check the backup": "Controle la copie di sigurece"
 }

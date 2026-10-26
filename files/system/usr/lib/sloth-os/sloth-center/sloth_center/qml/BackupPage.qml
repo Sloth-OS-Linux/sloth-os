@@ -88,6 +88,35 @@ Kirigami.ScrollablePage {
                 text: L.t("Find deleted files…")
                 onClicked: pickFolder.open()
             }
+            QQC2.Button {
+                icon.name: "checkmark"
+                text: L.t("Check the backup")
+                enabled: backup.verifyState !== "checking"
+                onClicked: backup.verify()
+            }
+        }
+        // The result of "Check the backup": a sample of the latest saved state read back
+        RowLayout {
+            Layout.fillWidth: true
+            visible: backup.verifyText !== ""
+            spacing: Kirigami.Units.largeSpacing
+            QQC2.BusyIndicator {
+                visible: backup.verifyState === "checking"
+                running: visible
+                implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                implicitHeight: Kirigami.Units.iconSizes.smallMedium
+            }
+            Kirigami.Icon {
+                visible: backup.verifyState !== "checking"
+                source: backup.verifyState === "ok" ? "emblem-ok-symbolic" : "emblem-warning"
+                implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                implicitHeight: Kirigami.Units.iconSizes.smallMedium
+            }
+            QQC2.Label {
+                Layout.fillWidth: true
+                wrapMode: Text.Wrap
+                text: backup.verifyText
+            }
         }
         FileDialog {
             id: pickFile

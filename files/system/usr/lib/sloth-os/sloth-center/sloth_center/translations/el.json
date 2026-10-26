@@ -739,5 +739,10 @@
   "Find deleted files…": "Εύρεση διαγραμμένων αρχείων…",
   "Choose the file to restore": "Επιλέξτε το αρχείο για επαναφορά",
   "Choose the folder the files were in": "Επιλέξτε τον φάκελο όπου ήταν τα αρχεία",
-  "Add a program…": "Προσθήκη προγράμματος…"
+  "Add a program…": "Προσθήκη προγράμματος…",
+  "Checking the latest saved state…": "Έλεγχος της τελευταίας αποθηκευμένης κατάστασης…",
+  "There are no files in the latest saved state yet.": "Δεν υπάρχουν ακόμα αρχεία στην τελευταία αποθηκευμένη κατάσταση.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Δεν ήταν δυνατή η ανάγνωση {bad} από {n} αρχεία στην τελευταία αποθηκευμένη κατάσταση ({when}). Κρατήστε αντίγραφο των σημαντικών αρχείων σας και σε εξωτερικό δίσκο και στείλτε αναφορά από τα Σχόλια.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Ελέγχθηκαν {n} αρχεία στην τελευταία αποθηκευμένη κατάσταση ({when}): όλα διαβάζονται.",
+  "Check the backup": "Έλεγχος αντιγράφου ασφαλείας"
 }

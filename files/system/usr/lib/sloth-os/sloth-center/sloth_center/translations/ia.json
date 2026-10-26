@@ -739,5 +739,10 @@
   "Find deleted files…": "Trovar files delite…",
   "Choose the file to restore": "Selige le file a restaurar",
   "Choose the folder the files were in": "Selige le dossier ubi le files esseva",
-  "Add a program…": "Adder un programma…"
+  "Add a program…": "Adder un programma…",
+  "Checking the latest saved state…": "Verificante le ultime stato salvate…",
+  "There are no files in the latest saved state yet.": "Il non ha ancora files in le ultime stato salvate.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} de {n} files in le ultime stato salvate ({when}) non poteva esser legite. Mantene un copia de tu files importante etiam sur un disco externe, e invia un reporto ab Commentarios.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "{n} files in le ultime stato salvate ({when}) verificate: tote pote esser legite.",
+  "Check the backup": "Verificar le copia de reserva"
 }

@@ -739,5 +739,10 @@
   "Find deleted files…": "Pronađi izbrisane datoteke…",
   "Choose the file to restore": "Odaberite datoteku za vraćanje",
   "Choose the folder the files were in": "Odaberite mapu u kojoj su bile datoteke",
-  "Add a program…": "Dodaj program…"
+  "Add a program…": "Dodaj program…",
+  "Checking the latest saved state…": "Provjera posljednjeg spremljenog stanja…",
+  "There are no files in the latest saved state yet.": "U posljednjem spremljenom stanju još nema datoteka.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} od {n} datoteka u posljednjem spremljenom stanju ({when}) nije se moglo pročitati. Čuvajte kopiju važnih datoteka i na vanjskom disku te pošaljite izvješće iz Povratnih informacija.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Provjereno je {n} datoteka u posljednjem spremljenom stanju ({when}): sve se mogu pročitati.",
+  "Check the backup": "Provjeri sigurnosnu kopiju"
 }

@@ -739,5 +739,10 @@
   "Find deleted files…": "Gelöschte Dateien finden …",
   "Choose the file to restore": "Wählen Sie die Datei zum Wiederherstellen",
   "Choose the folder the files were in": "Wählen Sie den Ordner, in dem die Dateien waren",
-  "Add a program…": "Programm hinzufügen …"
+  "Add a program…": "Programm hinzufügen …",
+  "Checking the latest saved state…": "Der letzte gespeicherte Stand wird geprüft …",
+  "There are no files in the latest saved state yet.": "Im letzten gespeicherten Stand sind noch keine Dateien.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} von {n} Dateien im letzten gespeicherten Stand ({when}) konnten nicht gelesen werden. Bewahren Sie Ihre wichtigen Dateien auch auf einer externen Festplatte auf und senden Sie einen Bericht über „Feedback“.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "{n} Dateien im letzten gespeicherten Stand ({when}) geprüft: Alle sind lesbar.",
+  "Check the backup": "Sicherung prüfen"
 }

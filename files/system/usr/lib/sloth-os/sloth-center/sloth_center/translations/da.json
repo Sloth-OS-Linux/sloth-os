@@ -739,5 +739,10 @@
   "Find deleted files…": "Find slettede filer…",
   "Choose the file to restore": "Vælg filen, der skal gendannes",
   "Choose the folder the files were in": "Vælg mappen, filerne lå i",
-  "Add a program…": "Tilføj et program…"
+  "Add a program…": "Tilføj et program…",
+  "Checking the latest saved state…": "Tjekker den seneste gemte tilstand…",
+  "There are no files in the latest saved state yet.": "Der er endnu ingen filer i den seneste gemte tilstand.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} af {n} filer i den seneste gemte tilstand ({when}) kunne ikke læses. Gem også en kopi af dine vigtige filer på en ekstern disk, og send en rapport fra Feedback.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Tjekkede {n} filer i den seneste gemte tilstand ({when}): de kan alle læses.",
+  "Check the backup": "Tjek sikkerhedskopien"
 }

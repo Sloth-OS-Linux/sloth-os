@@ -739,5 +739,10 @@
   "Find deleted files…": "削除したファイルを探す…",
   "Choose the file to restore": "復元するファイルを選んでください",
   "Choose the folder the files were in": "ファイルがあったフォルダーを選んでください",
-  "Add a program…": "プログラムを追加…"
+  "Add a program…": "プログラムを追加…",
+  "Checking the latest saved state…": "最新の保存状態を確認しています…",
+  "There are no files in the latest saved state yet.": "最新の保存状態にはまだファイルがありません。",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "最新の保存状態（{when}）の {n} 個のファイルのうち {bad} 個を読み取れませんでした。大切なファイルは外付けディスクにもコピーを保管し、「フィードバック」から報告を送ってください。",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "最新の保存状態（{when}）の {n} 個のファイルを確認しました: すべて読み取れます。",
+  "Check the backup": "バックアップを確認"
 }

@@ -739,5 +739,10 @@
   "Find deleted files…": "Finn slettede filer …",
   "Choose the file to restore": "Velg filen som skal gjenopprettes",
   "Choose the folder the files were in": "Velg mappen filene lå i",
-  "Add a program…": "Legg til et program …"
+  "Add a program…": "Legg til et program …",
+  "Checking the latest saved state…": "Sjekker den siste lagrede tilstanden …",
+  "There are no files in the latest saved state yet.": "Det er ingen filer i den siste lagrede tilstanden ennå.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} av {n} filer i den siste lagrede tilstanden ({when}) kunne ikke leses. Ha en kopi av de viktige filene dine på en ekstern disk også, og send en rapport fra Tilbakemelding.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Sjekket {n} filer i den siste lagrede tilstanden ({when}): alle kan leses.",
+  "Check the backup": "Sjekk sikkerhetskopien"
 }

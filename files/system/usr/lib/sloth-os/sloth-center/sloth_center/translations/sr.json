@@ -739,5 +739,10 @@
   "Find deleted files…": "Пронађи обрисане датотеке…",
   "Choose the file to restore": "Изаберите датотеку за враћање",
   "Choose the folder the files were in": "Изаберите фасциклу у којој су биле датотеке",
-  "Add a program…": "Додај програм…"
+  "Add a program…": "Додај програм…",
+  "Checking the latest saved state…": "Провера последњег сачуваног стања…",
+  "There are no files in the latest saved state yet.": "У последњем сачуваном стању још нема датотека.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} од {n} датотека у последњем сачуваном стању ({when}) није било могуће прочитати. Чувајте копију важних датотека и на спољном диску и пошаљите извештај из Повратних информација.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Проверено је {n} датотека у последњем сачуваном стању ({when}): све могу да се прочитају.",
+  "Check the backup": "Провери резервну копију"
 }

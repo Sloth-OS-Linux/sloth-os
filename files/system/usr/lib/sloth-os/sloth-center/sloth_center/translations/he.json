@@ -739,5 +739,10 @@
   "Find deleted files…": "חיפוש קבצים שנמחקו…",
   "Choose the file to restore": "בחרו את הקובץ לשחזור",
   "Choose the folder the files were in": "בחרו את התיקייה שבה היו הקבצים",
-  "Add a program…": "הוספת תוכנית…"
+  "Add a program…": "הוספת תוכנית…",
+  "Checking the latest saved state…": "בודק את המצב השמור האחרון…",
+  "There are no files in the latest saved state yet.": "עדיין אין קבצים במצב השמור האחרון.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "לא ניתן היה לקרוא {bad} מתוך {n} קבצים במצב השמור האחרון ({when}). שמרו עותק של הקבצים החשובים גם בכונן חיצוני, ושלחו דיווח מדף המשוב.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "נבדקו {n} קבצים במצב השמור האחרון ({when}): כולם קריאים.",
+  "Check the backup": "בדיקת הגיבוי"
 }

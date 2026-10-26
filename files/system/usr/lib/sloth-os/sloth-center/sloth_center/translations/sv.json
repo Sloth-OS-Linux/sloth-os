@@ -739,5 +739,10 @@
   "Find deleted files…": "Hitta borttagna filer …",
   "Choose the file to restore": "Välj filen som ska återställas",
   "Choose the folder the files were in": "Välj mappen där filerna låg",
-  "Add a program…": "Lägg till ett program …"
+  "Add a program…": "Lägg till ett program …",
+  "Checking the latest saved state…": "Kontrollerar det senaste sparade läget …",
+  "There are no files in the latest saved state yet.": "Det finns inga filer i det senaste sparade läget än.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} av {n} filer i det senaste sparade läget ({when}) kunde inte läsas. Ha en kopia av dina viktiga filer på en extern disk också, och skicka en rapport från Feedback.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Kontrollerade {n} filer i det senaste sparade läget ({when}): alla kan läsas.",
+  "Check the backup": "Kontrollera säkerhetskopian"
 }

@@ -739,5 +739,10 @@
   "Find deleted files…": "Soek geskrapte lêers…",
   "Choose the file to restore": "Kies die lêer om te herstel",
   "Choose the folder the files were in": "Kies die vouer waarin die lêers was",
-  "Add a program…": "Voeg 'n program by…"
+  "Add a program…": "Voeg 'n program by…",
+  "Checking the latest saved state…": "Kontroleer die jongste gestoorde toestand…",
+  "There are no files in the latest saved state yet.": "Daar is nog geen lêers in die jongste gestoorde toestand nie.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} van {n} lêers in die jongste gestoorde toestand ({when}) kon nie gelees word nie. Hou ook 'n kopie van jou belangrike lêers op 'n eksterne skyf, en stuur 'n verslag vanuit Terugvoer.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "{n} lêers in die jongste gestoorde toestand ({when}) is nagegaan: almal kan gelees word.",
+  "Check the backup": "Kontroleer die rugsteun"
 }

@@ -739,5 +739,10 @@
   "Find deleted files…": "Trovi forigitajn dosierojn…",
   "Choose the file to restore": "Elektu la restarigotan dosieron",
   "Choose the folder the files were in": "Elektu la dosierujon, en kiu la dosieroj estis",
-  "Add a program…": "Aldoni programon…"
+  "Add a program…": "Aldoni programon…",
+  "Checking the latest saved state…": "Kontrolante la lastan konservitan staton…",
+  "There are no files in the latest saved state yet.": "Ankoraŭ estas neniuj dosieroj en la lasta konservita stato.",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} el {n} dosieroj en la lasta konservita stato ({when}) ne legeblis. Konservu kopion de viaj gravaj dosieroj ankaŭ sur ekstera disko, kaj sendu raporton el Komentoj.",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Kontrolis {n} dosierojn en la lasta konservita stato ({when}): ĉiuj legeblas.",
+  "Check the backup": "Kontroli la savkopion"
 }

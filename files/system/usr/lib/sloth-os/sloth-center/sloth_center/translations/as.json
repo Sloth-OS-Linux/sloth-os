@@ -739,5 +739,10 @@
   "Find deleted files…": "মচি পেলোৱা ফাইল বিচাৰক…",
   "Choose the file to restore": "পুনৰুদ্ধাৰ কৰিবলগীয়া ফাইলটো বাছক",
   "Choose the folder the files were in": "ফাইলবোৰ থকা ফ'ল্ডাৰটো বাছক",
-  "Add a program…": "এটা প্ৰগ্ৰাম যোগ কৰক…"
+  "Add a program…": "এটা প্ৰগ্ৰাম যোগ কৰক…",
+  "Checking the latest saved state…": "শেহতীয়া সংৰক্ষিত অৱস্থা পৰীক্ষা কৰি আছে…",
+  "There are no files in the latest saved state yet.": "শেহতীয়া সংৰক্ষিত অৱস্থাত এতিয়াও কোনো ফাইল নাই।",
+  "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "শেহতীয়া সংৰক্ষিত অৱস্থাৰ ({when}) {n}টা ফাইলৰ {bad}টা পঢ়িব পৰা নগ'ল। আপোনাৰ গুৰুত্বপূৰ্ণ ফাইলৰ এটা কপি বাহ্যিক ডিস্কতো ৰাখক, আৰু মতামতৰ পৰা এটা প্ৰতিবেদন পঠিয়াওক।",
+  "Checked {n} files in the latest saved state ({when}): all of them can be read.": "শেহতীয়া সংৰক্ষিত অৱস্থাৰ ({when}) {n}টা ফাইল পৰীক্ষা কৰা হ'ল: সকলোবোৰ পঢ়িব পাৰি।",
+  "Check the backup": "বেকআপ পৰীক্ষা কৰক"
 }
