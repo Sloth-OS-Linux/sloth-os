@@ -673,5 +673,7 @@
   "Taskbar": "Shiriti i detyrave",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Të njëjtat skema si në udhëzuesin e mirëseardhjes. Klikoni njërën për ta parë menjëherë; aplikacionet e fiksuara në shiritin e detyrave mbeten.",
   "Colors": "Ngjyrat",
-  "More appearance settings": "Më shumë cilësime të pamjes"
+  "More appearance settings": "Më shumë cilësime të pamjes",
+  "Change how it looks": "Ndryshoni pamjen",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Pamja ndryshon skemën e shiritit të detyrave dhe ngjyrat, të njëjtat si në udhëzuesin e mirëseardhjes. Mund t'i ndryshoni në çdo kohë."
 }

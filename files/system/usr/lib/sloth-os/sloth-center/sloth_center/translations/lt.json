@@ -673,5 +673,7 @@
   "Taskbar": "Užduočių juosta",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Tie patys išdėstymai kaip pasisveikinimo vedlyje. Spustelėkite vieną ir iškart jį pamatysite; prie užduočių juostos prisegtos programos lieka.",
   "Colors": "Spalvos",
-  "More appearance settings": "Daugiau išvaizdos nustatymų"
+  "More appearance settings": "Daugiau išvaizdos nustatymų",
+  "Change how it looks": "Pakeiskite išvaizdą",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Išvaizda keičia užduočių juostos išdėstymą ir spalvas – tokias pat kaip pasisveikinimo vedlyje. Jas galite pakeisti bet kada."
 }

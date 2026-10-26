@@ -673,5 +673,7 @@
   "Taskbar": "任务栏",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "与欢迎向导中的布局相同。点击即可立即生效；固定到任务栏的应用会保留。",
   "Colors": "颜色",
-  "More appearance settings": "更多外观设置"
+  "More appearance settings": "更多外观设置",
+  "Change how it looks": "更改外观",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "“外观”可以切换任务栏布局和颜色，与欢迎向导中的相同。你可以随时更改。"
 }

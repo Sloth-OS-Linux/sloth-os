@@ -673,5 +673,7 @@
   "Taskbar": "Taskleiste",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Dieselben Anordnungen wie im Willkommensassistenten. Klicken Sie auf eine, um sie sofort zu sehen; die an die Taskleiste angehefteten Apps bleiben.",
   "Colors": "Farben",
-  "More appearance settings": "Weitere Einstellungen zum Erscheinungsbild"
+  "More appearance settings": "Weitere Einstellungen zum Erscheinungsbild",
+  "Change how it looks": "Das Aussehen ändern",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Erscheinungsbild wechselt die Anordnung der Taskleiste und die Farben, dieselben wie im Willkommensassistenten. Sie können sie jederzeit ändern."
 }

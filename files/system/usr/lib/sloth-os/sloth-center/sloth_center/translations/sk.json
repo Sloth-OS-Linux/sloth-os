@@ -673,5 +673,7 @@
   "Taskbar": "Panel úloh",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Rovnaké rozloženia ako v uvítacom sprievodcovi. Kliknutím na niektoré ho hneď uvidíte; aplikácie pripnuté na panel úloh zostanú.",
   "Colors": "Farby",
-  "More appearance settings": "Ďalšie nastavenia vzhľadu"
+  "More appearance settings": "Ďalšie nastavenia vzhľadu",
+  "Change how it looks": "Zmeňte vzhľad",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Vzhľad mení rozloženie panela úloh a farby, rovnaké ako v uvítacom sprievodcovi. Zmeniť ich môžete kedykoľvek."
 }

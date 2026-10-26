@@ -673,5 +673,7 @@
   "Taskbar": "Bilah tugas",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Tata letak yang sama seperti di wisaya sambutan. Klik salah satunya untuk langsung melihatnya; aplikasi yang disematkan ke bilah tugas tetap ada.",
   "Colors": "Warna",
-  "More appearance settings": "Pengaturan tampilan lainnya"
+  "More appearance settings": "Pengaturan tampilan lainnya",
+  "Change how it looks": "Ubah tampilannya",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Tampilan mengganti tata letak bilah tugas dan warna, sama seperti di wisaya sambutan. Anda bisa mengubahnya kapan saja."
 }

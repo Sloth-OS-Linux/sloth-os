@@ -673,5 +673,7 @@
   "Taskbar": "பணிப்பட்டி",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "வரவேற்பு வழிகாட்டியில் உள்ள அதே அமைப்புகள். ஒன்றைக் கிளிக் செய்தால் உடனே பார்க்கலாம்; பணிப்பட்டியில் பொருத்திய செயலிகள் அப்படியே இருக்கும்.",
   "Colors": "நிறங்கள்",
-  "More appearance settings": "மேலும் தோற்ற அமைப்புகள்"
+  "More appearance settings": "மேலும் தோற்ற அமைப்புகள்",
+  "Change how it looks": "தோற்றத்தை மாற்றுங்கள்",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "தோற்றம் பக்கம் பணிப்பட்டி அமைப்பையும் நிறங்களையும் மாற்றும், வரவேற்பு வழிகாட்டியில் உள்ள அதேவை. எப்போது வேண்டுமானாலும் மாற்றலாம்."
 }

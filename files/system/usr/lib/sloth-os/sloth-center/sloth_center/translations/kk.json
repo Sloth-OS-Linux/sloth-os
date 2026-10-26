@@ -673,5 +673,7 @@
   "Taskbar": "Тапсырмалар панелі",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Қарсы алу шеберіндегідей орналасулар. Біреуін бассаңыз, бірден көресіз; тапсырмалар панеліне бекітілген қолданбалар сақталады.",
   "Colors": "Түстер",
-  "More appearance settings": "Сыртқы түрдің басқа баптаулары"
+  "More appearance settings": "Сыртқы түрдің басқа баптаулары",
+  "Change how it looks": "Сыртқы түрін өзгертіңіз",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "«Сыртқы түр» тапсырмалар панелінің орналасуы мен түстерді ауыстырады — қарсы алу шеберіндегідей. Оларды кез келген уақытта өзгертуге болады."
 }

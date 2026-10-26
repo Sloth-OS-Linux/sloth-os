@@ -673,5 +673,7 @@
   "Taskbar": "Tehtäväpalkki",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Samat asettelut kuin tervetuloavustajassa. Napsauta yhtä nähdäksesi sen heti; tehtäväpalkkiin kiinnitetyt sovellukset säilyvät.",
   "Colors": "Värit",
-  "More appearance settings": "Lisää ulkoasun asetuksia"
+  "More appearance settings": "Lisää ulkoasun asetuksia",
+  "Change how it looks": "Muuta ulkoasua",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Ulkoasu vaihtaa tehtäväpalkin asettelun ja värit, samat kuin tervetuloavustajassa. Voit muuttaa niitä milloin tahansa."
 }

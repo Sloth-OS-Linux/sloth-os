@@ -673,5 +673,7 @@
   "Taskbar": "Tálca",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Ugyanazok az elrendezések, mint az üdvözlő varázslóban. Kattints egyre, és azonnal látod; a tálcára kitűzött appok megmaradnak.",
   "Colors": "Színek",
-  "More appearance settings": "További megjelenési beállítások"
+  "More appearance settings": "További megjelenési beállítások",
+  "Change how it looks": "Változtass a kinézeten",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "A Megjelenés oldalon válthatsz tálca-elrendezést és színeket, ugyanazokat, mint az üdvözlő varázslóban. Bármikor átállíthatod őket."
 }

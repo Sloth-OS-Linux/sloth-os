@@ -673,5 +673,7 @@
   "Taskbar": "টাস্কবার",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "স্বাগতম সহায়কের মতোই লেআউট। একটিতে ক্লিক করলেই সঙ্গে সঙ্গে দেখতে পাবেন; টাস্কবারে পিন করা অ্যাপগুলো থেকে যাবে।",
   "Colors": "রং",
-  "More appearance settings": "আরও চেহারার সেটিংস"
+  "More appearance settings": "আরও চেহারার সেটিংস",
+  "Change how it looks": "চেহারা বদলান",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "চেহারা পাতাটি টাস্কবারের লেআউট আর রং বদলায়, স্বাগতম সহায়কের মতোই। যেকোনো সময় এগুলো বদলাতে পারেন।"
 }

@@ -673,5 +673,7 @@
   "Taskbar": "Hlavní panel",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Stejná rozvržení jako v uvítacím průvodci. Klepnutím na některé ho hned uvidíte; aplikace připnuté na hlavní panel zůstanou.",
   "Colors": "Barvy",
-  "More appearance settings": "Další nastavení vzhledu"
+  "More appearance settings": "Další nastavení vzhledu",
+  "Change how it looks": "Změňte vzhled",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Vzhled mění rozvržení hlavního panelu a barvy, stejné jako v uvítacím průvodci. Změnit je můžete kdykoli."
 }

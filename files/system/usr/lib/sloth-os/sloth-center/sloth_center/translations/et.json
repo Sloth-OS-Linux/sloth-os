@@ -673,5 +673,7 @@
   "Taskbar": "Tegumiriba",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Samad paigutused mis tervitusviisardis. Klõpsa ühel, et seda kohe näha; tegumiribale kinnitatud rakendused jäävad alles.",
   "Colors": "Värvid",
-  "More appearance settings": "Rohkem välimuse seadeid"
+  "More appearance settings": "Rohkem välimuse seadeid",
+  "Change how it looks": "Muuda välimust",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Välimus vahetab tegumiriba paigutust ja värve, samu mis tervitusviisardis. Saad neid igal ajal muuta."
 }

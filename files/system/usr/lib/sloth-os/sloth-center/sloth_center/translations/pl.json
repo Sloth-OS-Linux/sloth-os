@@ -673,5 +673,7 @@
   "Taskbar": "Pasek zadań",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Te same układy co w kreatorze powitalnym. Kliknij jeden, aby od razu go zobaczyć; aplikacje przypięte do paska zadań zostaną.",
   "Colors": "Kolory",
-  "More appearance settings": "Więcej ustawień wyglądu"
+  "More appearance settings": "Więcej ustawień wyglądu",
+  "Change how it looks": "Zmień wygląd",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Wygląd zmienia układ paska zadań i kolory – te same co w kreatorze powitalnym. Możesz je zmienić w dowolnej chwili."
 }

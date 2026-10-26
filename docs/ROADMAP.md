@@ -28,6 +28,10 @@ careful testing), and **Large** (broad work or significant safety and compatibil
   "Open folder", and can remember the choice. Ejecting clears the loop device (autoclear), and images still open
   are ejected at sign-out (`sloth-disc-images.service`). Check on a real machine (a Windows program's ISO)
 
+- [x] The Sloth Center first-run guide lights up what it talks about (2026-10-26): each step darkens the window
+  except its pages in the list on the left (a pulsing frame around them), a bubble next to them explains, and the
+  light slides to the next step's pages. A new step shows Appearance. Check on a real machine (also with a
+  small window, and "Open guide" at the bottom of the list)
 - [x] Appearance in Sloth Center (2026-10-26): the color schemes and taskbar layouts of the welcome wizard can be
   changed any time later. Both tools use the same code (`sloth_common/appearance.py`) and the same drawings
   (`sloth_common/qml/SlothCommon/LayoutPreview.qml`), so a layout looks the same whichever set it. New layout:

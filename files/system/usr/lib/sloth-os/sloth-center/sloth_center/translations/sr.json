@@ -673,5 +673,7 @@
   "Taskbar": "Трака задатака",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Исти распореди као у чаробњаку добродошлице. Кликните на један да га одмах видите; апликације закачене на траку задатака остају.",
   "Colors": "Боје",
-  "More appearance settings": "Још подешавања изгледа"
+  "More appearance settings": "Још подешавања изгледа",
+  "Change how it looks": "Промените изглед",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Изглед мења распоред траке задатака и боје, исте као у чаробњаку добродошлице. Можете их променити у било ком тренутку."
 }

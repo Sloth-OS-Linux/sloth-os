@@ -673,5 +673,7 @@
   "Taskbar": "Taakbalk",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Dezelfde indelingen als in de welkomstwizard. Klik op een indeling om die meteen te zien; de apps die aan de taakbalk zijn vastgemaakt, blijven staan.",
   "Colors": "Kleuren",
-  "More appearance settings": "Meer instellingen voor het uiterlijk"
+  "More appearance settings": "Meer instellingen voor het uiterlijk",
+  "Change how it looks": "Verander het uiterlijk",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Uiterlijk wisselt de indeling van de taakbalk en de kleuren, dezelfde als in de welkomstwizard. Je kunt ze altijd veranderen."
 }

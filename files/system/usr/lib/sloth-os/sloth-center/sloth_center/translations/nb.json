@@ -673,5 +673,7 @@
   "Taskbar": "Oppgavelinje",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "De samme oppsettene som i velkomstveiviseren. Klikk på ett for å se det med en gang; appene som er festet til oppgavelinjen, blir værende.",
   "Colors": "Farger",
-  "More appearance settings": "Flere innstillinger for utseende"
+  "More appearance settings": "Flere innstillinger for utseende",
+  "Change how it looks": "Endre utseendet",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Utseende bytter oppgavelinjens oppsett og fargene, de samme som i velkomstveiviseren. Du kan endre dem når som helst."
 }

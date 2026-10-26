@@ -673,5 +673,7 @@
   "Taskbar": "Taskobreto",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "La samaj aranĝoj kiel en la bonvena asistanto. Alklaku unu por tuj vidi ĝin; la aplikaĵoj alpinglitaj al la taskobreto restas.",
   "Colors": "Koloroj",
-  "More appearance settings": "Pliaj agordoj de aspekto"
+  "More appearance settings": "Pliaj agordoj de aspekto",
+  "Change how it looks": "Ŝanĝu la aspekton",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Aspekto ŝanĝas la aranĝon de la taskobreto kaj la kolorojn, la samajn kiel en la bonvena asistanto. Vi povas ŝanĝi ilin iam ajn."
 }

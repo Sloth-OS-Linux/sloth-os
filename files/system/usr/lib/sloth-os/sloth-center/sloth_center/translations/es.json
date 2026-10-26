@@ -673,5 +673,7 @@
   "Taskbar": "Barra de tareas",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Las mismas disposiciones que en el asistente de bienvenida. Haz clic en una para verla al instante; las aplicaciones ancladas a la barra de tareas se mantienen.",
   "Colors": "Colores",
-  "More appearance settings": "Más ajustes de apariencia"
+  "More appearance settings": "Más ajustes de apariencia",
+  "Change how it looks": "Cambia su aspecto",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Apariencia cambia la disposición de la barra de tareas y los colores, los mismos que en el asistente de bienvenida. Puedes cambiarlos cuando quieras."
 }

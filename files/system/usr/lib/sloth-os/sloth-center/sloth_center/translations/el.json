@@ -673,5 +673,7 @@
   "Taskbar": "Γραμμή εργασιών",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Οι ίδιες διατάξεις με τον οδηγό καλωσορίσματος. Κάντε κλικ σε μία για να τη δείτε αμέσως· οι εφαρμογές που είναι καρφιτσωμένες στη γραμμή εργασιών παραμένουν.",
   "Colors": "Χρώματα",
-  "More appearance settings": "Περισσότερες ρυθμίσεις εμφάνισης"
+  "More appearance settings": "Περισσότερες ρυθμίσεις εμφάνισης",
+  "Change how it looks": "Αλλάξτε την εμφάνιση",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Η Εμφάνιση αλλάζει τη διάταξη της γραμμής εργασιών και τα χρώματα, τα ίδια με τον οδηγό καλωσορίσματος. Μπορείτε να τα αλλάξετε οποιαδήποτε στιγμή."
 }

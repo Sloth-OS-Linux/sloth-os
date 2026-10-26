@@ -673,5 +673,7 @@
   "Taskbar": "Opravilna vrstica",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Enake postavitve kot v čarovniku za dobrodošlico. Kliknite eno, da jo takoj vidite; aplikacije, pripete v opravilno vrstico, ostanejo.",
   "Colors": "Barve",
-  "More appearance settings": "Več nastavitev videza"
+  "More appearance settings": "Več nastavitev videza",
+  "Change how it looks": "Spremenite videz",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Videz zamenja postavitev opravilne vrstice in barve, enake kot v čarovniku za dobrodošlico. Spremenite jih lahko kadar koli."
 }

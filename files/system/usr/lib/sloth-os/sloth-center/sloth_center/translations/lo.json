@@ -673,5 +673,7 @@
   "Taskbar": "ແຖບໜ້າວຽກ",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "ຮູບແບບດຽວກັນກັບໃນຕົວຊ່ວຍຕ້ອນຮັບ. ຄລິກອັນໜຶ່ງເພື່ອເບິ່ງທັນທີ; ແອັບທີ່ປັກໝຸດໄວ້ໃນແຖບໜ້າວຽກຈະຍັງຢູ່.",
   "Colors": "ສີ",
-  "More appearance settings": "ການຕັ້ງຄ່າຮູບລັກສະນະເພີ່ມເຕີມ"
+  "More appearance settings": "ການຕັ້ງຄ່າຮູບລັກສະນະເພີ່ມເຕີມ",
+  "Change how it looks": "ປ່ຽນຮູບລັກສະນະ",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "ຮູບລັກສະນະປ່ຽນຮູບແບບແຖບໜ້າວຽກ ແລະ ສີ, ຄືກັນກັບໃນຕົວຊ່ວຍຕ້ອນຮັບ. ທ່ານສາມາດປ່ຽນໄດ້ທຸກເວລາ."
 }

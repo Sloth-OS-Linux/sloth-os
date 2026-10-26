@@ -673,5 +673,7 @@
   "Taskbar": "שורת המשימות",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "אותן פריסות כמו באשף הפתיחה. לחצו על אחת כדי לראות אותה מיד; היישומים המוצמדים לשורת המשימות נשארים.",
   "Colors": "צבעים",
-  "More appearance settings": "הגדרות מראה נוספות"
+  "More appearance settings": "הגדרות מראה נוספות",
+  "Change how it looks": "שינוי המראה",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "דף המראה מחליף את פריסת שורת המשימות ואת הצבעים, אותם אלה שבאשף הפתיחה. אפשר לשנות אותם בכל עת."
 }

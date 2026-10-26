@@ -673,5 +673,7 @@
   "Taskbar": "Панель завдань",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Ті самі макети, що й у майстрі привітання. Натисніть на один, щоб одразу його побачити; програми, закріплені на панелі завдань, залишаться.",
   "Colors": "Кольори",
-  "More appearance settings": "Інші налаштування вигляду"
+  "More appearance settings": "Інші налаштування вигляду",
+  "Change how it looks": "Змініть вигляд",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "«Вигляд» змінює макет панелі завдань і кольори — ті самі, що й у майстрі привітання. Змінити їх можна будь-коли."
 }

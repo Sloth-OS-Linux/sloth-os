@@ -673,5 +673,7 @@
   "Taskbar": "شريط المهام",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "التخطيطات نفسها الموجودة في معالج الترحيب. انقر على أحدها لتراه فورًا؛ وتبقى التطبيقات المثبّتة في شريط المهام.",
   "Colors": "الألوان",
-  "More appearance settings": "مزيد من إعدادات المظهر"
+  "More appearance settings": "مزيد من إعدادات المظهر",
+  "Change how it looks": "غيّر المظهر",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "تغيّر صفحة المظهر تخطيط شريط المهام والألوان، وهي نفسها الموجودة في معالج الترحيب. يمكنك تغييرها في أي وقت."
 }

@@ -673,5 +673,7 @@
   "Taskbar": "工作列",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "與歡迎精靈中的版面配置相同。按一下即可立即套用；釘選到工作列的應用程式會保留。",
   "Colors": "顏色",
-  "More appearance settings": "更多外觀設定"
+  "More appearance settings": "更多外觀設定",
+  "Change how it looks": "變更外觀",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "「外觀」可切換工作列版面配置與顏色，與歡迎精靈中的相同。你隨時都能變更。"
 }

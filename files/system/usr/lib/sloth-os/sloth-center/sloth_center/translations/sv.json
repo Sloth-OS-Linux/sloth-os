@@ -673,5 +673,7 @@
   "Taskbar": "Aktivitetsfält",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Samma layouter som i välkomstguiden. Klicka på en för att se den direkt; apparna som är fästa i aktivitetsfältet finns kvar.",
   "Colors": "Färger",
-  "More appearance settings": "Fler utseendeinställningar"
+  "More appearance settings": "Fler utseendeinställningar",
+  "Change how it looks": "Ändra utseendet",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Utseende byter aktivitetsfältets layout och färgerna, samma som i välkomstguiden. Du kan ändra dem när som helst."
 }

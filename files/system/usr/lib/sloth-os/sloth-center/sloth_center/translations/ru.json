@@ -673,5 +673,7 @@
   "Taskbar": "Панель задач",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Те же макеты, что и в мастере приветствия. Нажмите на один, чтобы сразу его увидеть; приложения, закреплённые на панели задач, останутся.",
   "Colors": "Цвета",
-  "More appearance settings": "Другие настройки внешнего вида"
+  "More appearance settings": "Другие настройки внешнего вида",
+  "Change how it looks": "Измените внешний вид",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "«Внешний вид» меняет макет панели задач и цвета — те же, что и в мастере приветствия. Их можно изменить в любое время."
 }

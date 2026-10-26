@@ -673,5 +673,7 @@
   "Taskbar": "Barra de cargas",
   "The same layouts as in the welcome wizard. Click one to see it right away; the apps pinned to the taskbar stay.": "Le mesme dispositiones que in le assistente de benvenita. Clicca sur un pro vider lo immediatemente; le applicationes fixate al barra de cargas remane.",
   "Colors": "Colores",
-  "More appearance settings": "Plus parametros de apparentia"
+  "More appearance settings": "Plus parametros de apparentia",
+  "Change how it looks": "Cambia le apparentia",
+  "Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.": "Apparentia cambia le disposition del barra de cargas e le colores, le mesmes que in le assistente de benvenita. Tu pote cambiar los a omne momento."
 }
