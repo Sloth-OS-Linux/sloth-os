@@ -106,6 +106,13 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   installer through the .exe handler, or just open the folder); remember the choice if the user asks. Offer
   "Eject" in Dolphin and unmount at sign-out.
 
+- [ ] **Medium** — Finish the install when the installer starts the program at its end (2026-10-26, real machine,
+  IrfanView): with the installer's last "Open IrfanView" box left ticked, the program started from the installer
+  and the install screen kept waiting; the Start menu question only came after the program was closed. Everything
+  worked after that (installed, started without errors), but the user waits without knowing why. Likely cause: the
+  `.exe` handler waits until the whole Windows environment is quiet, and the started program runs in it. Fix idea:
+  treat the install as done when the installer's own process ends (or when a new program window of the installed
+  program appears), ask the Start menu question then, and leave the running program alone.
 #### Installation and storage
 - [x] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
