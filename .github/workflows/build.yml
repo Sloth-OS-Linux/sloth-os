@@ -45,3 +45,45 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
+          # Content-based layers (rpm-ostree compose build-chunked-oci): an update downloads only what changed,
+          # not every one of our layers again (~2.3 GB per build without it, measured 2026-10-26)
+          build_chunked_oci: true
+
+  # The finished image must be installable: bootc installs it onto a disk file, the same way the installer does.
+  # A squashed image once passed the build but could not be installed ("Missing ostree.final-diffid").
+  install-test:
+    name: Install test
+    needs: bluebuild
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: true
+          large-packages: false
+
+      - name: Install onto a disk file
+        run: |
+          owner="${{ github.repository_owner }}"  # ghcr.io only accepts lowercase names
+          repo="ghcr.io/${owner,,}/sloth-os"
+          # the build tags the image with the short commit and the Fedora version (e.g. d1cd0ee-44)
+          sha="${GITHUB_SHA::7}"
+          tag=$(skopeo list-tags "docker://$repo" | jq -r '.Tags[]' | grep -E "^${sha}-[0-9]+$" | head -1)
+          [ -n "$tag" ] || { echo "::error::No image tagged ${sha}-<version>"; exit 1; }
+          echo "Image: $repo:$tag"
+          sudo podman pull "$repo:$tag"
+          sudo podman image inspect "$repo:$tag" > image.json
+          echo "Layers: $(jq '.[0].RootFS.Layers | length' image.json)"
+          # the same check the installer makes before it touches the disk (sloth-install-helper: verify_image)
+          final=$(jq -r '.[0].Labels["ostree.final-diffid"] // empty' image.json)
+          if [ -n "$final" ] && ! jq -e --arg f "$final" '.[0].RootFS.Layers | index($f)' image.json >/dev/null; then
+            echo "::error::The layer named by ostree.final-diffid is missing: $final"; exit 1
+          fi
+          mkdir -p out && truncate -s 40G out/disk.raw
+          sudo podman run --rm --privileged --pid=host --security-opt label=type:unconfined_t \
+            -v /var/lib/containers:/var/lib/containers -v /dev:/dev -v "$PWD/out:/output" \
+            "$repo:$tag" bootc install to-disk --via-loopback --generic-image --skip-fetch-check --wipe /output/disk.raw
