@@ -17,7 +17,11 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
-### Sloth OS 1.0.3 (in preparation)
+### Sloth OS 1.0.4 (2026-10-26, replaces the unreleased 1.0.3)
+Network, security and drive health on the System status and System health pages; what uses the space on the
+Disks page and a deeper cleanup; the installer asks about the other disks; the .exe handler asks which drive a
+program goes to; layer-by-layer update progress; every text in 50 languages.
+
 - [ ] **Critical** — Resolve the Fedora 44 `rpm-ostree` crash during OCI image updates (`2026.3-2.fc44` aborts
   with `JoinHandle polled after completion` while importing layers), then verify a full update stages and boots.
 - [x] **Medium** — Show OCI layer progress in Sloth Center, stop the spinner and explain the failure if the
@@ -43,10 +47,17 @@ careful testing), and **Large** (broad work or significant safety and compatibil
   "Eject" in Dolphin and unmount at sign-out.
 
 #### Installation and storage
-- [ ] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
+- [x] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
   In the “Next to Windows” flow, protect Windows, EFI, recovery, MSR, and BitLocker partitions. Test both
-  installation flows on multi-drive systems.
+  installation flows on multi-drive systems. (2026-10-26: "Other disks" on the disk page: leave it alone (default) /
+  use it with its files (ext4, btrfs, xfs) / erase it for programs and games (btrfs; encrypted with a key file if the
+  system is). A disk with NTFS or BitLocker can only be left alone, checked by the helper too. Mounted under
+  /var/mnt with nofail; the erased disk belongs to the first user. Tested on loop disks
+  (`tools/tests/test_extra_disks.sh`); still to test on a real machine with two drives, also next to Windows)
+- [x] **Medium** — The .exe handler asks which drive a new Windows program goes to when there is more than one
+  (with the free space, and "Always install here"); internal drives under /var/mnt or /run/media with a Linux file
+  system are offered by themselves, USB sticks are not (2026-10-26; check on a real machine)
 - [ ] **Medium** — Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
   encryption or hibernation. Explain blockers and safe next steps in plain language.
 - [x] Show the target disk and planned erase/resize/create/format/mount operations on the installer's confirmation page;
@@ -60,6 +71,10 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
   (2026-10-26, System health: the drives' SMART reports through UDisks, with a File backup button; check on a real machine)
 - [ ] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
+  (2026-10-26, a first step: the Disks page shows what uses the space (your files, games, Windows programs, apps,
+  cache, system and earlier versions, counted without the ostree double counting), warns about kept versions, and
+  Clean up also removes the system's temporary files and cached update data, reporting the space really freed.
+  Still missing: reviewing items one by one before deleting)
 
 #### Sloth Center, setup, and support
 - [x] Add a system status page with OS version, update status, available storage, and a direct Feedback link.

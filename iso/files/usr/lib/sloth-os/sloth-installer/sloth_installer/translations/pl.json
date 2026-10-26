@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Hasło szyfrowania:",
   "disk.encrypt.repeat": "Jeszcze raz:",
   "disk.encrypt.warning": "Jeśli zapomnisz tego hasła, plików nie da się odzyskać. Zapisz je i przechowuj w bezpiecznym miejscu.",
+  "disk.extra.heading": "Inne dyski",
+  "disk.extra.hint": "Te dyski nie są częścią instalacji. Domyślnie nic się z nimi nie dzieje.",
+  "disk.extra.leave": "Nie ruszaj",
+  "disk.extra.keep": "Używaj, zachowaj pliki",
+  "disk.extra.erase": "Wyczyść na programy i gry",
+  "disk.extra.erase_warning": "Wszystko na tym dysku zostanie usunięte. Potem będzie gotowy na programy i gry, można na nim instalować także programy Windows.",
+  "disk.extra.windows": "Na tym dysku są dane Windows, więc instalator go nie zmienia. Jego pliki nadal możesz otworzyć później.",
+  "disk.extra.label": "Gry i programy",
   "disk.encrypt.mismatch": "Hasła nie są takie same.",
   "disk.encrypt.short": "Hasło musi mieć co najmniej 8 znaków.",
   "disk.encrypt.short_same": "Hasło twojego konta ma mniej niż 8 znaków: wpisz dłuższe, osobne hasło do szyfrowania.",
@@ -114,6 +122,8 @@
   "confirm.summary.free": "Użyj wolnej przestrzeni na tym dysku; istniejące partycje nie zostaną zmienione.",
   "confirm.summary.keep_windows": "Zachowaj Windows i jego pliki. Stwórz partycje systemu i partycje EFI w wolnej powierzchni.",
   "confirm.summary.temporary": "Tymczasowe miejsce instalacji jest sformatowane jako ext4, montowane podczas konfiguracji i usuwane po zakończeniu konfiguracje.",
+  "confirm.summary.extra_erase": "{disk}: zostanie wyczyszczony i przygotowany na programy i gry",
+  "confirm.summary.extra_keep": "{disk}: będzie dostępny razem z plikami",
   "confirm.summary.heading": "Planowane zmiany dysku",
   "confirm.summary.shrink": "Zmniejsz partycję Windows o {size} GiB, a następnie użyj wolnej przestrzeni dla systemu Sloth OS."
 }

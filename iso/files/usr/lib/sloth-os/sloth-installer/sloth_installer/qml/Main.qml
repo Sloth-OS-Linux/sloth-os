@@ -528,6 +528,79 @@ Kirigami.ApplicationWindow {
                                 }
                             }
                         }
+                        // The other internal disks: by default not touched; Windows data can only be left alone
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            visible: installer.disk !== "" && installer.extraDisks.length > 0
+                            spacing: Kirigami.Units.largeSpacing
+                            Kirigami.Heading { level: 3; text: root.t("disk.extra.heading") }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                opacity: 0.75
+                                text: root.t("disk.extra.hint")
+                            }
+                            Repeater {
+                                model: installer.extraDisks
+                                delegate: Kirigami.AbstractCard {
+                                    id: extraCard
+                                    required property var modelData
+                                    // the choices this disk allows, in this order
+                                    readonly property var choices: ["leave"].concat(modelData.canKeep ? ["keep"] : [])
+                                                                            .concat(modelData.canErase ? ["erase"] : [])
+                                    Layout.fillWidth: true
+                                    contentItem: ColumnLayout {
+                                        spacing: Kirigami.Units.smallSpacing
+                                        RowLayout {
+                                            spacing: Kirigami.Units.largeSpacing
+                                            Kirigami.Icon {
+                                                source: "drive-harddisk"
+                                                implicitWidth: Kirigami.Units.iconSizes.medium
+                                                implicitHeight: Kirigami.Units.iconSizes.medium
+                                            }
+                                            ColumnLayout {
+                                                Layout.fillWidth: true
+                                                spacing: 0
+                                                QQC2.Label {
+                                                    Layout.fillWidth: true
+                                                    font.bold: true
+                                                    elide: Text.ElideRight
+                                                    text: root.diskName(extraCard.modelData) + "  ·  " + extraCard.modelData.sizeText
+                                                }
+                                                QQC2.Label {
+                                                    Layout.fillWidth: true
+                                                    wrapMode: Text.Wrap
+                                                    opacity: 0.75
+                                                    text: root.t("disk.contents." + extraCard.modelData.contents)
+                                                }
+                                            }
+                                            QQC2.ComboBox {
+                                                Layout.minimumWidth: Kirigami.Units.gridUnit * 12
+                                                model: extraCard.choices.map(c => root.t("disk.extra." + c))
+                                                currentIndex: Math.max(0, extraCard.choices.indexOf(extraCard.modelData.choice))
+                                                onActivated: index => installer.setExtraChoice(extraCard.modelData.path,
+                                                                                               extraCard.choices[index])
+                                                Accessible.name: root.diskName(extraCard.modelData)
+                                            }
+                                        }
+                                        QQC2.Label {
+                                            Layout.fillWidth: true
+                                            visible: !extraCard.modelData.canErase
+                                            wrapMode: Text.Wrap
+                                            font: Kirigami.Theme.smallFont
+                                            opacity: 0.75
+                                            text: root.t("disk.extra.windows")
+                                        }
+                                        Kirigami.InlineMessage {
+                                            Layout.fillWidth: true
+                                            visible: extraCard.modelData.choice === "erase"
+                                            type: Kirigami.MessageType.Warning
+                                            text: root.t("disk.extra.erase_warning")
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         Item { implicitHeight: Kirigami.Units.gridUnit }
                     }
                 }
@@ -614,6 +687,20 @@ Kirigami.ApplicationWindow {
                                 Layout.fillWidth: true
                                 wrapMode: Text.Wrap
                                 text: root.t("confirm.summary.temporary")
+                            }
+                            // What happens to the other disks (only those that change)
+                            Repeater {
+                                model: installer.extraDisks.filter(d => d.choice !== "leave")
+                                delegate: QQC2.Label {
+                                    required property var modelData
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    color: modelData.choice === "erase" ? Kirigami.Theme.negativeTextColor
+                                                                       : Kirigami.Theme.textColor
+                                    readonly property var args: ({ disk: root.diskName(modelData) + " (" + modelData.sizeText + ")" })
+                                    text: modelData.choice === "erase" ? root.t("confirm.summary.extra_erase", args)
+                                                                       : root.t("confirm.summary.extra_keep", args)
+                                }
                             }
                         }
                     }

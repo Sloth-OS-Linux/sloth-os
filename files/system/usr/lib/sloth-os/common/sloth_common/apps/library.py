@@ -137,6 +137,69 @@ def supported_location(path):
     return not fs or fs in SUPPORTED_FS
 
 
+# Where other internal drives are mounted: the installer puts them under /var/mnt (/mnt points there),
+# Dolphin under /run/media/<user>
+MOUNT_ROOTS = ("/var/mnt/", "/mnt/", "/run/media/")
+
+
+def _existing(path):
+    path = Path(path)
+    while not path.exists() and path != path.parent:
+        path = path.parent
+    return path
+
+
+def _drive_mounts():
+    """Mounted internal drives with a file system Windows programs work on: [(target, label)].
+    USB sticks and other removable drives are left out (a program there disappears when it is unplugged)."""
+    try:
+        out = json.loads(subprocess.run(["findmnt", "--json", "--real", "-o", "TARGET,SOURCE,FSTYPE,LABEL"],
+                                        capture_output=True, text=True, timeout=5).stdout or "{}")
+    except (OSError, subprocess.SubprocessError, ValueError):
+        return []
+    found = []
+    stack = list(out.get("filesystems", []))
+    while stack:
+        fs = stack.pop(0)
+        stack.extend(fs.get("children") or [])
+        target, source = fs.get("target") or "", (fs.get("source") or "").split("[", 1)[0]
+        if not target.startswith(MOUNT_ROOTS) or fs.get("fstype") not in SUPPORTED_FS:
+            continue
+        try:
+            hotplug = subprocess.run(["lsblk", "-s", "-n", "-o", "HOTPLUG", source], capture_output=True,
+                                     text=True, timeout=5).stdout.split()
+        except (OSError, subprocess.SubprocessError):
+            hotplug = []
+        if "1" in hotplug or not os.access(target, os.W_OK):
+            continue
+        found.append((target, fs.get("label") or Path(target).name))
+    return found
+
+
+def install_locations():
+    """Where a new Windows program can go: one place per drive, the default first.
+    [{"path", "label" ("" for the system disk), "free" (bytes), "default"}]. The installer and Dolphin mount
+    the other drives; a drive without a library yet gets one (<drive>/Applications) when a program goes there."""
+    default = default_library()
+    candidates = [(p, "") for p in libraries()] + [(Path(t) / "Applications", label) for t, label in _drive_mounts()]
+    out, devices = [], set()
+    for path, label in candidates:
+        try:
+            st = os.statvfs(_existing(path))
+            dev = _existing(path).stat().st_dev
+        except OSError:
+            continue
+        if dev in devices or not supported_location(path):
+            continue
+        devices.add(dev)
+        if not label and dev != _existing(HOME).stat().st_dev:
+            label = path.parent.name if path.name == "Applications" else path.name
+        out.append({"path": str(path), "label": label, "free": st.f_bavail * st.f_frsize,
+                    "default": path == default})
+    out.sort(key=lambda loc: not loc["default"])
+    return out
+
+
 # --- A Windows environment and a program ----------------------------------------------------------
 
 class WinEnv:
@@ -337,6 +400,8 @@ def _free_folder(library, name):
 def create(name, kind="windows", app_id=None, library=None, **meta):
     """A new program's folder in the library (the ID is unique, the folder name is the program's name)."""
     library = Path(library or (RECORDS if kind in RECORD_KINDS else default_library()))
+    if library != RECORDS and library not in libraries():
+        add_library(library)   # a new drive (install_locations): its programs show up from now on
     base = app_id or slugify(name)
     ids = {a.id for a in all_apps()}
     new_id, n = base, 2

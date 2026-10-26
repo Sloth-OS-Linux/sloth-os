@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Geslo za šifriranje:",
   "disk.encrypt.repeat": "Še enkrat:",
   "disk.encrypt.warning": "Če pozabiš to geslo, datotek ne bo mogoče obnoviti. Zapiši ga in ga shrani na varno mesto.",
+  "disk.extra.heading": "Drugi diski",
+  "disk.extra.hint": "Ti diski niso del namestitve. Privzeto se z njimi nič ne zgodi.",
+  "disk.extra.leave": "Pusti pri miru",
+  "disk.extra.keep": "Uporabi, ohrani datoteke",
+  "disk.extra.erase": "Izbriši za programe in igre",
+  "disk.extra.erase_warning": "Vse na tem disku bo izbrisano. Nato bo pripravljen za programe in igre, nanj pa bo mogoče namestiti tudi programe za Windows.",
+  "disk.extra.windows": "Na tem disku so podatki sistema Windows, zato ga namestitveni program ne spreminja. Njegove datoteke lahko odprete tudi pozneje.",
+  "disk.extra.label": "Igre in programi",
   "disk.encrypt.mismatch": "Gesli se ne ujemata.",
   "disk.encrypt.short": "Geslo mora imeti vsaj 8 znakov.",
   "disk.encrypt.short_same": "Geslo tvojega računa ima manj kot 8 znakov: za šifriranje vnesi daljše, ločeno geslo.",
@@ -115,5 +123,7 @@
   "confirm.summary.create_all": "Ustvarite novo postavitve GPT z BIOS boot delitvijo, EFI delitvo, sistemskim delitvom sistema Sloth OS in začasnim namestitvenim prostorom.",
   "confirm.summary.keep_windows": "Shranite Windows in njegove datoteke. Ustvarite loščene ločnice in sistemske ločitve v razpoložljivem prostoru.",
   "confirm.summary.free": "Uporabite prosti prostor na tem disku; obstoječe delitve ne bodo spremenjene.",
-  "confirm.summary.temporary": "Začasni namestitveni prostor je oblikovan kot ext4, nameščen med namestitvijo in odstranjen ob končanem namestitvi."
+  "confirm.summary.temporary": "Začasni namestitveni prostor je oblikovan kot ext4, nameščen med namestitvijo in odstranjen ob končanem namestitvi.",
+  "confirm.summary.extra_erase": "{disk}: bo izbrisan in pripravljen za programe in igre",
+  "confirm.summary.extra_keep": "{disk}: bo na voljo s svojimi datotekami"
 }

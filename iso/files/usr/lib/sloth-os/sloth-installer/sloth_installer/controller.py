@@ -93,6 +93,8 @@ class InstallerController(QObject):
         self._encrypt = False
         self._encrypt_same = True
         self._encrypt_pw = ("", "")
+        # The other internal disks: {path: "leave" | "keep" | "erase"}; by default they are not touched
+        self._extra = {}
         # Switching the layout live with a small delay: stepping through the language list must not
         # switch for every language (overlapping switches could leave a wrong layout active)
         self._keyboard_timer = QTimer(self, singleShot=True, interval=400)
@@ -173,6 +175,38 @@ class InstallerController(QObject):
                 "shrinkGib": shrink_gib, "windowsPath": windows.get("path", ""),
                 "windowsBeforeGib": before_gib,
                 "windowsAfterGib": int(max(0, windows.get("size", 0) - shrink_bytes) // GIB)}
+
+    @Property("QVariantList", notify=changed)
+    def extraDisks(self):
+        """The internal disks besides the target, with what may be done to them. A disk with Windows data (NTFS,
+        BitLocker) can only be left alone; "keep" needs a Linux file system on it."""
+        out = []
+        for d in self._disks:
+            if d["path"] == self._disk or d["removable"]:
+                continue
+            windows = d["contents"] == "windows"
+            out.append({**d, "choice": self._extra.get(d["path"], "leave"),
+                        "canKeep": d.get("mountable", False) and not windows, "canErase": not windows})
+        return out
+
+    @Slot(str, str)
+    def setExtraChoice(self, path, choice):
+        disk = next((d for d in self.extraDisks if d["path"] == path), None)
+        if not disk or choice not in ("leave", "keep", "erase") \
+                or (choice == "keep" and not disk["canKeep"]) or (choice == "erase" and not disk["canErase"]):
+            return
+        self._extra[path] = choice
+        self._confirmed = False
+        self.changed.emit()
+
+    def _extra_args(self):
+        allowed = {d["path"]: d for d in self.extraDisks}
+        args = []
+        for path, choice in self._extra.items():
+            d = allowed.get(path)
+            if d and ((choice == "keep" and d["canKeep"]) or (choice == "erase" and d["canErase"])):
+                args += ["--extra-disk", f"{choice}:{path}"]
+        return args
 
     @Property("QVariantMap", notify=changed)
     def diskInfo(self):
@@ -262,6 +296,7 @@ class InstallerController(QObject):
             if path != self._disk:
                 self._beside, self._probe = False, {}
             self._disk = path
+            self._extra.pop(path, None)   # the target is not an "other disk" any more
             self._confirmed = False
             if self.diskInfo.get("contents") == "windows" and not self._probe:
                 self._start_probe()
@@ -383,6 +418,9 @@ class InstallerController(QObject):
             args += ["--beside-windows", "--size-gib", str(self._size_gib)]
         if self._encrypt:
             args.append("--encrypt")
+        extra = self._extra_args()
+        if extra:
+            args += extra + ["--data-label", catalog.tr("disk.extra.label")]
         if os.environ.get("SLOTH_INSTALL_DRY_RUN") == "1":
             # dry run: without password prompt and erasing the disk
             self._proc.start(HELPER, args[1:])

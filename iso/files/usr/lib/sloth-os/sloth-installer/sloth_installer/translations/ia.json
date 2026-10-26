@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Contrasigno de cryptation:",
   "disk.encrypt.repeat": "Un altere vice:",
   "disk.encrypt.warning": "Si tu oblida iste contrasigno, tu files non pote esser recuperate. Scribe lo e conserva lo in un loco secur.",
+  "disk.extra.heading": "Altere discos",
+  "disk.extra.hint": "Iste discos non face parte del installation. Per predefinition nihil les occurre.",
+  "disk.extra.leave": "Lassar lo",
+  "disk.extra.keep": "Usar lo, conservar le files",
+  "disk.extra.erase": "Deler lo pro programmas e jocos",
+  "disk.extra.erase_warning": "Toto sur iste disco essera delite. Postea illo es preste pro programmas e jocos, e anque programmas de Windows pote esser installate sur illo.",
+  "disk.extra.windows": "Iste disco contine datos de Windows, dunque le installator non lo cambia. Tu pote ancora aperir su files plus tarde.",
+  "disk.extra.label": "Jocos e programmas",
   "disk.encrypt.mismatch": "Le duo contrasignos non corresponde.",
   "disk.encrypt.short": "Le contrasigno debe haber al minus 8 characteres.",
   "disk.encrypt.short_same": "Le contrasigno de tu conto es plus curte que 8 characteres: entra un contrasigno separate e plus longe pro le cryptation.",
@@ -115,5 +123,7 @@
   "confirm.summary.erase": "Cancella questo disco, comprese le partizioni e i file attuali.",
   "confirm.summary.create_all": "Crea un nuovo layout GPT con una partizione di avvio BIOS, una partizioni EFI, una partezione di sistema Sloth OS e spazio di installazione temporaneo.",
   "confirm.summary.keep_windows": "Conservare Windows e i suoi file. Creare partizioni di sistema e di sistema di Sloth OS EFI nello spazio disponibile.",
-  "confirm.summary.temporary": "Lo spazio di installazione temporaneo è formattato come ext4, montato durante l'installazione e rimosso al termine dell'installation."
+  "confirm.summary.temporary": "Lo spazio di installazione temporaneo è formattato come ext4, montato durante l'installazione e rimosso al termine dell'installation.",
+  "confirm.summary.extra_erase": "{disk}: essera delite e preparate pro programmas e jocos",
+  "confirm.summary.extra_keep": "{disk}: essera disponibile con su files"
 }

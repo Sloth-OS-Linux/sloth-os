@@ -49,7 +49,7 @@ Kirigami.ApplicationWindow {
         const m = modules[index];
         pageStack.clear();
         if (m.ready) {
-            if (m.id === "status" || m.id === "health")
+            if (["status", "health", "disks"].includes(m.id))
                 pageStack.push(Qt.resolvedUrl(m.page), { navigation: root });
             else
                 pageStack.push(Qt.resolvedUrl(m.page));

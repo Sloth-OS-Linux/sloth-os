@@ -229,6 +229,7 @@ def disks():
             continue
         kind, names = _contents(d)
         size = int(d.get("size") or 0)
+        parts = (d.get("children") or []) + ([d] if d.get("fstype") else [])
         out.append({
             "path": d["path"],
             "model": _disk_name(d),
@@ -238,6 +239,8 @@ def disks():
             "transport": (d.get("tran") or "").lower(),   # nvme, sata, usb…
             "removable": bool(d.get("rm")) or (d.get("tran") or "").lower() == "usb",
             "contents": kind,
+            # a Linux file system that can be used as it is, if it is not the install target ("keep")
+            "mountable": any((p.get("fstype") or "").lower() in ("ext4", "btrfs", "xfs") for p in parts),
             "partitionNames": names[:4],
             "tooSmall": size < MIN_DISK_BYTES,
             "small": size < RECOMMENDED_BYTES,

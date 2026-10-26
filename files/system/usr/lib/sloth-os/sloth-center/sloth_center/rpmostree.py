@@ -224,6 +224,11 @@ class RpmOstree:
                     GLib.Variant("(a{sv}a{sv})", ({}, _asv({"initiating-command-line": "Sloth Center: update"}))),
                     "(s)", on_address, on_error)
 
+    def cleanup(self, on_address, on_error):
+        """Like "rpm-ostree cleanup --base --repomd": temporary files and cached package data. The previous
+        version (rollback) and the kept ones stay."""
+        self._start("Cleanup", GLib.Variant("(as)", (["base", "repomd"],)), "(s)", on_address, on_error)
+
     def rollback(self, on_address, on_error):
         self._start("Rollback", GLib.Variant("(a{sv})", (_asv({"reboot": False}),)),
                     "(s)", on_address, on_error)

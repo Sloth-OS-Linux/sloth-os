@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Lozinka za šifriranje:",
   "disk.encrypt.repeat": "Još jednom:",
   "disk.encrypt.warning": "Ako zaboraviš ovu lozinku, datoteke se neće moći vratiti. Zapiši je i spremi na sigurno mjesto.",
+  "disk.extra.heading": "Ostali diskovi",
+  "disk.extra.hint": "Ovi diskovi nisu dio instalacije. Prema zadanim postavkama s njima se ništa ne događa.",
+  "disk.extra.leave": "Ne diraj",
+  "disk.extra.keep": "Koristi, zadrži datoteke",
+  "disk.extra.erase": "Izbriši za programe i igre",
+  "disk.extra.erase_warning": "Sve na ovom disku bit će izbrisano. Nakon toga spreman je za programe i igre, a na njega se mogu instalirati i programi za Windows.",
+  "disk.extra.windows": "Na ovom disku su podaci sustava Windows, pa ga instalacijski program ne mijenja. Njegove datoteke i dalje možete otvoriti kasnije.",
+  "disk.extra.label": "Igre i programi",
   "disk.encrypt.mismatch": "Lozinke se ne podudaraju.",
   "disk.encrypt.short": "Lozinka mora imati barem 8 znakova.",
   "disk.encrypt.short_same": "Lozinka tvog računa kraća je od 8 znakova: upiši dulju, zasebnu lozinku za šifriranje.",
@@ -115,5 +123,7 @@
   "confirm.summary.erase": "Izbrišite ovaj disk, uključujući njegove trenutne particije i datoteke.",
   "confirm.summary.create_all": "Stvorite novi GPT raspored s BIOS boot particijom, EFI particijom i privremenim prostorom za instalaciju.",
   "confirm.summary.keep_windows": "Zadržati Windows i njegove datoteke. Stvoriti Sloth OS EFI i sustavne particije na raspoloživom prostoru.",
-  "confirm.summary.temporary": "Privremeni prostor za instalaciju formiran je kao ext4, postavljen tijekom postavljanja i uklonjen kada se instalacija završi."
+  "confirm.summary.temporary": "Privremeni prostor za instalaciju formiran je kao ext4, postavljen tijekom postavljanja i uklonjen kada se instalacija završi.",
+  "confirm.summary.extra_erase": "{disk}: bit će izbrisan i pripremljen za programe i igre",
+  "confirm.summary.extra_keep": "{disk}: bit će dostupan sa svojim datotekama"
 }

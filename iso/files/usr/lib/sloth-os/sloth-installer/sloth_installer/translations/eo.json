@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Ĉifra pasvorto:",
   "disk.encrypt.repeat": "Ankoraŭfoje:",
   "disk.encrypt.warning": "Se vi forgesos ĉi tiun pasvorton, viaj dosieroj ne estos restaŭreblaj. Notu ĝin kaj konservu ĝin en sekura loko.",
+  "disk.extra.heading": "Aliaj diskoj",
+  "disk.extra.hint": "Ĉi tiuj diskoj ne apartenas al la instalado. Defaŭlte nenio okazas al ili.",
+  "disk.extra.leave": "Lasi ĝin",
+  "disk.extra.keep": "Uzi ĝin, konservi la dosierojn",
+  "disk.extra.erase": "Viŝi ĝin por programoj kaj ludoj",
+  "disk.extra.erase_warning": "Ĉio sur ĉi tiu disko estos forigita. Poste ĝi estos preta por programoj kaj ludoj, kaj ankaŭ Windows-programoj instaleblos sur ĝi.",
+  "disk.extra.windows": "Ĉi tiu disko enhavas Windows-datumojn, do la instalilo ne ŝanĝas ĝin. Vi povos malfermi ĝiajn dosierojn ankaŭ poste.",
+  "disk.extra.label": "Ludoj kaj programoj",
   "disk.encrypt.mismatch": "La du pasvortoj ne kongruas.",
   "disk.encrypt.short": "La pasvorto devas havi almenaŭ 8 signojn.",
   "disk.encrypt.short_same": "La pasvorto de via konto estas pli mallonga ol 8 signoj: tajpu pli longan, apartan pasvorton por la ĉifrado.",
@@ -115,5 +123,7 @@
   "confirm.summary.formatted": "Formato nova EFI kaj sistemo dispartigoj kiel FAT32 kaj Btrfs.",
   "confirm.summary.encrypted": "Format la EFI-sekcio kiel FAT32 kaj ĉifri la Sloth OS-sistemon kun LUKS2 kaj Btrfs; kreu apartan botsekcion.",
   "confirm.summary.temporary": "Provizora instalas spacon estas formatita kiel ext4, muntita dum aranĝo, kaj forigita kiam aranĝo finiĝas.",
+  "confirm.summary.extra_erase": "{disk}: estos viŝita kaj preparita por programoj kaj ludoj",
+  "confirm.summary.extra_keep": "{disk}: estos disponebla kun siaj dosieroj",
   "confirm.summary.shrink": "Malkresku la Windows-partionon je {size} GiB, tiam uzu la liberigitan spacon por la Mallaborema Os."
 }

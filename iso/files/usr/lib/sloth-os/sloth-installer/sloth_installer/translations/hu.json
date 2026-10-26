@@ -1,14 +1,11 @@
 {
   "_language": "Magyar",
-
   "app.title": "Sloth OS telepítése",
-
   "welcome.heading": "Üdv a Sloth OS-ben!",
   "welcome.text": "Kipróbálhatod a rendszert telepítés nélkül, vagy feltelepítheted a gépedre. A telepítés pár perc, és csak néhány kérdés.",
   "welcome.language": "Nyelv",
   "welcome.try": "Kipróbálom",
   "welcome.install": "Telepítés",
-
   "region.heading": "Billentyűzet és időzóna",
   "region.keyboard": "Billentyűzet:",
   "region.try_keyboard": "Próba:",
@@ -27,7 +24,6 @@
   "account.error.username": "A felhasználónév csak angol kisbetűkből, számokból, kötőjelből és aláhúzásból állhat, és betűvel kezdődjön (pl. „anna”).",
   "account.error.password": "Adj meg egy jelszót.",
   "account.error.mismatch": "A két jelszó nem egyezik.",
-
   "disk.heading": "Hova telepítsük?",
   "disk.text": "Válaszd ki a lemezt, amelyre a Sloth OS kerül.",
   "disk.none": "Nem találtunk lemezt, amelyre telepíthetnénk.",
@@ -60,10 +56,17 @@
   "disk.encrypt.password": "Titkosítási jelszó:",
   "disk.encrypt.repeat": "Még egyszer:",
   "disk.encrypt.warning": "Ha elfelejted ezt a jelszót, a fájljaid nem állíthatók vissza. Írd fel, és tedd biztos helyre.",
+  "disk.extra.heading": "Más lemezek",
+  "disk.extra.hint": "Ezek a lemezek nem részei a telepítésnek. Alapértelmezetten semmi nem történik velük.",
+  "disk.extra.leave": "Ne nyúljon hozzá",
+  "disk.extra.keep": "Használja, a fájlok maradnak",
+  "disk.extra.erase": "Törölje, és legyen a programoké és játékoké",
+  "disk.extra.erase_warning": "A lemezen minden törlődik. Utána programok és játékok kerülhetnek rá, Windows-programok is.",
+  "disk.extra.windows": "Ezen a lemezen Windows-adatok vannak, ezért a telepítő nem változtat rajta. A fájljait később is megnyithatod.",
+  "disk.extra.label": "Játékok és programok",
   "disk.encrypt.mismatch": "A két jelszó nem egyezik.",
   "disk.encrypt.short": "A jelszó legalább 8 karakter legyen.",
   "disk.encrypt.short_same": "A fiókod jelszava rövidebb 8 karakternél: a titkosításhoz adj meg egy hosszabb, külön jelszót.",
-
   "confirm.heading": "Minden törlődik erről a lemezről",
   "confirm.text": "A Sloth OS a teljes lemezt használja: {disk}. Minden, ami most rajta van (fájlok, programok, más rendszerek), végleg törlődik.",
   "confirm.windows": "Ezen a lemezen Windows van. Telepítés után a Windows és minden rajta lévő fájl elvész. Ha meg szeretnéd tartani, előbb mentsd el a fájljaidat.",
@@ -83,15 +86,15 @@
   "confirm.summary.formatted": "Az új EFI-partíció FAT32, a rendszerpartíció Btrfs fájlrendszert kap.",
   "confirm.summary.encrypted": "Az EFI-partíció FAT32 lesz, a Sloth OS-rendszert LUKS2 titkosítja, Btrfs fájlrendszerrel; külön rendszerindító partíció is készül.",
   "confirm.summary.temporary": "Az ideiglenes telepítőhely ext4 fájlrendszert kap, a telepítés idejére felcsatoljuk, majd a végén töröljük.",
+  "confirm.summary.extra_erase": "{disk}: törlődik, és előkészül programoknak és játékoknak",
+  "confirm.summary.extra_keep": "{disk}: a fájljaival együtt elérhető lesz",
   "confirm.beside.free": "A lemez szabad helyére kerül, a Windowshoz nem nyúlunk.",
   "confirm.beside.bitlocker": "A Windows BitLockerrel titkosított: a következő Windows-indításkor kérheti a helyreállítási kulcsot. Tartsd kéznél (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "Bekapcsoláskor pár másodpercig választhatsz a Sloth OS és a Windows között.",
   "confirm.beside.checkbox": "Értem, és a fontos fájljaimat elmentettem",
   "confirm.encrypt": "A lemez titkosítva lesz: bekapcsoláskor a jelszavaddal nyílik.",
-
   "nav.back": "Vissza",
   "nav.next": "Tovább",
-
   "stage.start": "Felkészülés…",
   "stage.verify": "A telepítőfájlok ellenőrzése…",
   "stage.partition": "Lemez előkészítése…",
@@ -103,12 +106,10 @@
   "stage.finishing": "Befejezés…",
   "stage.configure": "Nyelv és beállítások mentése…",
   "install.note": "Ez a gép sebességétől függően 5–20 perc. Közben ne kapcsold ki a gépet.",
-
   "done.heading": "Kész a telepítés!",
   "done.text": "Indítsd újra a gépet. Amikor elsötétül a képernyő, húzd ki a pendrive-ot. Utána a most megadott fiókoddal jelentkezhetsz be, és a Sloth Üdvözlő segít a többiben.",
   "done.reboot": "Újraindítás",
   "done.beside": "Bekapcsoláskor választhatsz a Sloth OS és a Windows között.",
-
   "error.heading": "A telepítés nem sikerült",
   "error.log_hint_save": "Ha segítséget kérnél, mentsd el a naplót (például egy pendrive-ra), és küldd el.",
   "error.save_log": "Napló mentése…",
@@ -123,7 +124,6 @@
   "error.configure_failed": "A rendszer felkerült, de a nyelv és a billentyűzet beállítása nem sikerült. Próbáld újra; ha megint nem megy, első indítás után a Rendszerbeállításokban is beállíthatod.",
   "error.beside_shrink_failed": "Nem sikerült kisebbre venni a Windows meghajtóját. Indítsd el a Windowst, ellenőrizd a lemezt (Ez a gép → C: → Tulajdonságok → Eszközök → Ellenőrzés), majd próbáld újra.",
   "error.encrypt_failed": "A titkosítás beállítása nem sikerült. Próbáld újra; ha megint nem megy, telepíts titkosítás nélkül.",
-
   "desktop.comment": "A Sloth OS telepítése erre a gépre",
   "desktop.keywords": "telepítés;telepítő"
 }

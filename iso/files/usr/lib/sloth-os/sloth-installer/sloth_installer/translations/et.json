@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Krüpteerimise parool:",
   "disk.encrypt.repeat": "Veel kord:",
   "disk.encrypt.warning": "Kui unustad selle parooli, ei saa sinu faile taastada. Kirjuta see üles ja hoia turvalises kohas.",
+  "disk.extra.heading": "Muud kettad",
+  "disk.extra.hint": "Need kettad ei kuulu paigaldusse. Vaikimisi ei juhtu nendega midagi.",
+  "disk.extra.leave": "Jäta puutumata",
+  "disk.extra.keep": "Kasuta, failid jäävad alles",
+  "disk.extra.erase": "Kustuta programmide ja mängude jaoks",
+  "disk.extra.erase_warning": "Kõik sellel kettal kustutatakse. Seejärel on see valmis programmide ja mängude jaoks ning sinna saab paigaldada ka Windowsi programme.",
+  "disk.extra.windows": "Sellel kettal on Windowsi andmed, seega paigaldaja seda ei muuda. Selle faile saad hiljem ikkagi avada.",
+  "disk.extra.label": "Mängud ja programmid",
   "disk.encrypt.mismatch": "Paroolid ei ühti.",
   "disk.encrypt.short": "Parool peab olema vähemalt 8 märki pikk.",
   "disk.encrypt.short_same": "Sinu konto parool on lühem kui 8 märki: sisesta krüpteerimiseks pikem eraldi parool.",
@@ -115,5 +123,7 @@
   "confirm.summary.erase": "Kustutage see ketas, sealhulgas selle praegused sektsioonid ja failid.",
   "confirm.summary.create_all": "Looge uus GPT paigutus BIOS-i alglaadimissektsiooni, EFI-sektsiooni, Sloth OS-i süsteemisektsiooni ja ajutise paigaldusruumiga.",
   "confirm.summary.encrypted": "Vormindage EFI partitsioon kui FAT32 ja krüpteerige Sloth OS süsteem LUKS2 ja Btrfs abil; looge eraldi alglaadimispartitsioon.",
-  "confirm.summary.temporary": "Ajutine paigaldusruum on vormindatud kui ext4, paigaldatud seadistamise ajal ja eemaldatud, kui seadistamine on lõppenud."
+  "confirm.summary.temporary": "Ajutine paigaldusruum on vormindatud kui ext4, paigaldatud seadistamise ajal ja eemaldatud, kui seadistamine on lõppenud.",
+  "confirm.summary.extra_erase": "{disk}: kustutatakse ja valmistatakse ette programmide ja mängude jaoks",
+  "confirm.summary.extra_keep": "{disk}: on koos oma failidega kasutatav"
 }

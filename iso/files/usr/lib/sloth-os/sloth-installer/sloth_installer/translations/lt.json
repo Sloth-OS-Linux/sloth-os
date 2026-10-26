@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Šifravimo slaptažodis:",
   "disk.encrypt.repeat": "Dar kartą:",
   "disk.encrypt.warning": "Jei pamiršite šį slaptažodį, failų atkurti nepavyks. Užsirašykite jį ir laikykite saugioje vietoje.",
+  "disk.extra.heading": "Kiti diskai",
+  "disk.extra.hint": "Šie diskai nėra diegimo dalis. Pagal numatytuosius nustatymus jiems nieko nenutinka.",
+  "disk.extra.leave": "Nekeisti",
+  "disk.extra.keep": "Naudoti, failus palikti",
+  "disk.extra.erase": "Ištrinti programoms ir žaidimams",
+  "disk.extra.erase_warning": "Viskas šiame diske bus ištrinta. Po to jis bus paruoštas programoms ir žaidimams, į jį bus galima diegti ir „Windows“ programas.",
+  "disk.extra.windows": "Šiame diske yra „Windows“ duomenų, todėl diegimo programa jo nekeičia. Jo failus galėsite atidaryti ir vėliau.",
+  "disk.extra.label": "Žaidimai ir programos",
   "disk.encrypt.mismatch": "Slaptažodžiai nesutampa.",
   "disk.encrypt.short": "Slaptažodį turi sudaryti bent 8 simboliai.",
   "disk.encrypt.short_same": "Jūsų paskyros slaptažodis trumpesnis nei 8 simboliai: šifravimui įveskite ilgesnį, atskirą slaptažodį.",
@@ -115,5 +123,7 @@
   "confirm.summary.shrink": "sumažinkite \"Windows\" particiją {size} GiB, tada naudokite laisvą erdvę \"Sloth OS\".",
   "confirm.summary.free": "Naudokite laisvų erdvę šiame diske; esamos particijos nebus pertvarkytos.",
   "confirm.summary.keep_windows": "Laikykite \"Windows\" ir jo failus. Sukurkite \"Sloth OS EFI\" ir sistemos skyrius turimoje erdvėje.",
-  "confirm.summary.temporary": "Laikinas diegimo erdvė yra formatuojama kaip ext4, montuojama nustatant, ir pašalintas, kai nustatymas baigtas."
+  "confirm.summary.temporary": "Laikinas diegimo erdvė yra formatuojama kaip ext4, montuojama nustatant, ir pašalintas, kai nustatymas baigtas.",
+  "confirm.summary.extra_erase": "{disk}: bus ištrintas ir paruoštas programoms ir žaidimams",
+  "confirm.summary.extra_keep": "{disk}: bus pasiekiamas su savo failais"
 }

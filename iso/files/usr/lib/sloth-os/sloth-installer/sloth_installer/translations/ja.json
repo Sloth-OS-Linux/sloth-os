@@ -56,6 +56,14 @@
   "disk.encrypt.password": "暗号化パスワード:",
   "disk.encrypt.repeat": "もう一度:",
   "disk.encrypt.warning": "このパスワードを忘れると、ファイルを復元できません。書き留めて安全な場所に保管してください。",
+  "disk.extra.heading": "その他のディスク",
+  "disk.extra.hint": "これらのディスクはインストールの対象ではありません。既定では何も変更されません。",
+  "disk.extra.leave": "そのままにする",
+  "disk.extra.keep": "ファイルを残して使う",
+  "disk.extra.erase": "消去してプログラムとゲーム用にする",
+  "disk.extra.erase_warning": "このディスクの内容はすべて削除されます。その後、プログラムとゲーム用に使え、Windows プログラムもインストールできます。",
+  "disk.extra.windows": "このディスクには Windows のデータがあるため、インストーラーは変更しません。後からでもファイルを開けます。",
+  "disk.extra.label": "ゲームとプログラム",
   "disk.encrypt.mismatch": "2 つのパスワードが一致しません。",
   "disk.encrypt.short": "パスワードは 8 文字以上にしてください。",
   "disk.encrypt.short_same": "アカウントのパスワードが 8 文字未満です。暗号化用に、別のより長いパスワードを入力してください。",
@@ -115,5 +123,7 @@
   "confirm.summary.free": "このディスク上の空き空間を使用します;既存のパーティションはサイズ変更されません.",
   "confirm.summary.keep_windows": "Windowsとそのファイルを保持する.利用可能なスペースでSloth OS EFIとシステムパーティションを作成する.",
   "confirm.summary.temporary": "暫定インストールスペースは,セットアップ中にマウントされ,セットअपが完了すると削除される.",
+  "confirm.summary.extra_erase": "{disk}: 消去して、プログラムとゲーム用に準備します",
+  "confirm.summary.extra_keep": "{disk}: ファイルを残したまま使えるようにします",
   "confirm.summary.target": "ターゲットディスク: {disk} ({size})"
 }

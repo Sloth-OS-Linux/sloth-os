@@ -70,5 +70,51 @@ class WindowsDiskSurveyTest(unittest.TestCase):
         restore.assert_called_once_with("/dev/test", [(1, "/dev/testp1"), (2, "/dev/testp2")])
 
 
+class Failed(Exception):
+    pass
+
+
+class ExtraDiskChoiceTest(unittest.TestCase):
+    """--extra-disk: a disk with Windows data is never changed, whatever the UI sends."""
+
+    def parse(self, values, filesystems, target="/dev/sda"):
+        def fail(key, detail=""):
+            raise Failed(detail)
+        with (patch.object(helper, "whole_disk", return_value=True),
+              patch.object(helper, "disk_filesystems", side_effect=lambda disk: filesystems.get(disk, [])),
+              patch.object(helper, "fail", side_effect=fail)):
+            return helper.parse_extra(values, target)
+
+    def test_choices_are_parsed(self):
+        result = self.parse(["erase:/dev/sdb", "keep:/dev/sdc"],
+                            {"/dev/sdb": [], "/dev/sdc": [("/dev/sdc1", "ext4")]})
+        self.assertEqual(result, [("erase", "/dev/sdb"), ("keep", "/dev/sdc")])
+
+    def test_windows_data_is_never_erased(self):
+        for fs in ("ntfs", "bitlocker"):
+            with self.assertRaises(Failed):
+                self.parse(["erase:/dev/sdb"], {"/dev/sdb": [("/dev/sdb1", "vfat"), ("/dev/sdb2", fs)]})
+
+    def test_windows_data_is_never_mounted(self):
+        with self.assertRaises(Failed):
+            self.parse(["keep:/dev/sdb"], {"/dev/sdb": [("/dev/sdb1", "ext4"), ("/dev/sdb2", "ntfs")]})
+
+    def test_keep_needs_a_linux_file_system(self):
+        with self.assertRaises(Failed):
+            self.parse(["keep:/dev/sdb"], {"/dev/sdb": [("/dev/sdb1", "exfat")]})
+
+    def test_target_and_duplicates_are_rejected(self):
+        for values in (["erase:/dev/sda"], ["erase:/dev/sdb", "keep:/dev/sdb"], ["format:/dev/sdb"]):
+            with self.assertRaises(Failed):
+                self.parse(values, {"/dev/sdb": [("/dev/sdb1", "ext4")]})
+
+    def test_mount_names_are_safe_and_unique(self):
+        used = set()
+        self.assertEqual(helper._mount_name("Games & Stuff", used), "games-stuff")
+        self.assertEqual(helper._mount_name("games stuff", used), "games-stuff-2")
+        self.assertEqual(helper._mount_name("Ünnep", used), "nnep")
+        self.assertEqual(helper._mount_name("!!!", used), "disk")
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

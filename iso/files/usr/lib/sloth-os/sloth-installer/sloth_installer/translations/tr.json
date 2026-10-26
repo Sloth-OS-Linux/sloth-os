@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Şifreleme parolası:",
   "disk.encrypt.repeat": "Bir kez daha:",
   "disk.encrypt.warning": "Bu parolayı unutursan dosyaların kurtarılamaz. Bir yere yaz ve güvenli bir yerde sakla.",
+  "disk.extra.heading": "Diğer diskler",
+  "disk.extra.hint": "Bu diskler kurulumun parçası değil. Varsayılan olarak onlara hiçbir şey olmaz.",
+  "disk.extra.leave": "Dokunma",
+  "disk.extra.keep": "Kullan, dosyaları koru",
+  "disk.extra.erase": "Programlar ve oyunlar için sil",
+  "disk.extra.erase_warning": "Bu diskteki her şey silinecek. Ardından programlar ve oyunlar için hazır olur, üzerine Windows programları da kurulabilir.",
+  "disk.extra.windows": "Bu diskte Windows verileri var, bu yüzden yükleyici onu değiştirmez. Dosyalarını daha sonra da açabilirsiniz.",
+  "disk.extra.label": "Oyunlar ve programlar",
   "disk.encrypt.mismatch": "İki parola eşleşmiyor.",
   "disk.encrypt.short": "Parola en az 8 karakter olmalı.",
   "disk.encrypt.short_same": "Hesap parolan 8 karakterden kısa: şifreleme için daha uzun, ayrı bir parola gir.",
@@ -115,5 +123,7 @@
   "confirm.summary.erase": "Bu diski, mevcut bölümlerini ve dosyalarını da dahil olmak üzere sil.",
   "confirm.summary.create_all": "BIOS başlatma bölümünü, EFI bölümünü ve geçici kurulum alanını içeren yeni bir GPT düzenini oluştur.",
   "confirm.summary.keep_windows": "Windows ve dosyalarını sakla. Kullanılabilir alanda Sloth OS EFI ve sistem bölümleri oluştur.",
-  "confirm.summary.temporary": "Geçici yükleme alanı ext4 olarak biçimlendirilir, kurulum sırasında monte edilir ve kurulum bitince çıkarılır."
+  "confirm.summary.temporary": "Geçici yükleme alanı ext4 olarak biçimlendirilir, kurulum sırasında monte edilir ve kurulum bitince çıkarılır.",
+  "confirm.summary.extra_erase": "{disk}: silinecek ve programlar ile oyunlar için hazırlanacak",
+  "confirm.summary.extra_keep": "{disk}: dosyalarıyla birlikte kullanılabilir olacak"
 }

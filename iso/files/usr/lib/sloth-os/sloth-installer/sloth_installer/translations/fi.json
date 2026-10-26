@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Salauksen salasana:",
   "disk.encrypt.repeat": "Vielä kerran:",
   "disk.encrypt.warning": "Jos unohdat tämän salasanan, tiedostojasi ei voi palauttaa. Kirjoita se muistiin ja säilytä turvallisessa paikassa.",
+  "disk.extra.heading": "Muut levyt",
+  "disk.extra.hint": "Nämä levyt eivät kuulu asennukseen. Oletuksena niille ei tehdä mitään.",
+  "disk.extra.leave": "Jätä ennalleen",
+  "disk.extra.keep": "Käytä, säilytä tiedostot",
+  "disk.extra.erase": "Tyhjennä ohjelmille ja peleille",
+  "disk.extra.erase_warning": "Kaikki tämän levyn tiedot poistetaan. Sen jälkeen se on valmis ohjelmille ja peleille, ja sille voi asentaa myös Windows-ohjelmia.",
+  "disk.extra.windows": "Tällä levyllä on Windowsin tietoja, joten asennusohjelma ei muuta sitä. Voit avata sen tiedostot myöhemminkin.",
+  "disk.extra.label": "Pelit ja ohjelmat",
   "disk.encrypt.mismatch": "Salasanat eivät täsmää.",
   "disk.encrypt.short": "Salasanassa on oltava vähintään 8 merkkiä.",
   "disk.encrypt.short_same": "Tilisi salasana on alle 8 merkkiä: anna salausta varten pidempi, erillinen salasana.",
@@ -115,5 +123,7 @@
   "confirm.summary.erase": "Poista tämä levy, mukaan lukien sen nykyiset osiot ja tiedostot.",
   "confirm.summary.create_all": "Luo uusi GPT-asettelu BIOS-käynnistysosion, EFI-osion, Sloth OS -järjestelmäosion ja väliaikaisen asennustilan avulla.",
   "confirm.summary.encrypted": "Muokkaa EFI-osion FAT32:ksi ja salaa Sloth OS -järjestelmä LUKS2:lla ja Btrfs:llä; luo erillinen käynnistysosio.",
-  "confirm.summary.temporary": "Väliaikainen asennustila muokataan ext4:ksi, asennuksen aikana ja poistetaan asennuslopussa."
+  "confirm.summary.temporary": "Väliaikainen asennustila muokataan ext4:ksi, asennuksen aikana ja poistetaan asennuslopussa.",
+  "confirm.summary.extra_erase": "{disk}: tyhjennetään ja valmistellaan ohjelmille ja peleille",
+  "confirm.summary.extra_keep": "{disk}: on käytettävissä tiedostoineen"
 }

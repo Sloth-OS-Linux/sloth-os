@@ -27,6 +27,14 @@ from .runner import Runner
 
 log = logging.getLogger("sloth-exe")
 
+
+def _size_text(n):
+    for unit, div in (("TB", 1000 ** 4), ("GB", 1000 ** 3), ("MB", 1000 ** 2)):
+        if n >= div:
+            v = n / div
+            return (f"{v:.1f}".replace(".", ",") if v < 10 else f"{v:.0f}") + f" {unit}"
+    return f"{n} B"
+
 # After this many seconds we consider the program properly started (the window hides)
 STARTED_AFTER_S = 8
 # If it exits sooner than this, it may not have started properly (self-healing, heal.py)
@@ -129,6 +137,10 @@ class ExeController(QObject):
         self._succeeded = False
         self._gameid = None
         self._key = ""
+        # Where a new program goes, if there is more than one drive to choose from (library.install_locations)
+        self._locations = None
+        self._location = 0
+        self._remember_location = False
 
     # --- Entry points -----------------------------------------------------
 
@@ -240,6 +252,27 @@ class ExeController(QObject):
     sure = Property(bool, lambda self: self._sure, notify=changed)
     anyChecked = Property(bool, lambda self: any(s["checked"] for s in self._shortcuts), notify=changed)
     strings = Property("QVariantMap", lambda self: catalog.strings(), constant=True)
+    locationIndex = Property(int, lambda self: self._location, notify=changed)
+
+    @Property("QVariantList", notify=changed)
+    def locations(self):
+        """The drives a new Windows program can go to: [{"label", "free"}] for the chooser (shown with 2 or more)."""
+        if self._locations is None:
+            try:
+                self._locations = library.install_locations()
+            except OSError as e:
+                log.warning("install locations: %s", e)
+                self._locations = []
+        return [{"label": loc["label"], "free": _size_text(loc["free"])} for loc in self._locations]
+
+    @Slot(int)
+    def setLocation(self, index):
+        self._location = index
+        self.changed.emit()
+
+    @Slot(bool)
+    def setRememberLocation(self, value):
+        self._remember_location = value
 
     @Property(str, notify=changed)
     def browseFolder(self):
@@ -258,7 +291,7 @@ class ExeController(QObject):
             self._install_package()
             return
         # Reinstalling into the existing folder: the Start menu entries stay the same, no duplicates
-        self._program = self._existing or self._unfinished or library.create(self._name, installer=str(self._exe))
+        self._program = self._existing or self._unfinished or self._create_program()
         self._program.save_meta(installer=str(self._exe))
         self._baseline = detect.baseline(self._program)
         self._mode = "install"
@@ -268,6 +301,15 @@ class ExeController(QObject):
         self._start_runner(self._program, self._exe)
         # we already watch while the installer runs (_check_install_done)
         self._install_timer.start()
+
+    def _create_program(self):
+        """A new program's folder, on the drive chosen in the window (by default the default library)."""
+        place = None
+        if self._locations and 0 <= self._location < len(self._locations):
+            place = self._locations[self._location]["path"]
+            if self._remember_location:
+                library.set_default_library(place)
+        return library.create(self._name, library=place, installer=str(self._exe))
 
     @Slot()
     def openExisting(self):

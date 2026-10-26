@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Password di cifratura:",
   "disk.encrypt.repeat": "Di nuovo:",
   "disk.encrypt.warning": "Se dimentichi questa password, i tuoi file non potranno essere recuperati. Scrivila e conservala in un posto sicuro.",
+  "disk.extra.heading": "Altri dischi",
+  "disk.extra.hint": "Questi dischi non fanno parte dell’installazione. Per impostazione predefinita non succede loro nulla.",
+  "disk.extra.leave": "Non toccarlo",
+  "disk.extra.keep": "Usalo, mantieni i file",
+  "disk.extra.erase": "Cancellalo per programmi e giochi",
+  "disk.extra.erase_warning": "Tutto ciò che c’è su questo disco verrà eliminato. Dopo sarà pronto per programmi e giochi, e potrai installarci anche programmi Windows.",
+  "disk.extra.windows": "Questo disco contiene dati di Windows, quindi il programma di installazione non lo modifica. Potrai comunque aprire i suoi file in seguito.",
+  "disk.extra.label": "Giochi e programmi",
   "disk.encrypt.mismatch": "Le due password non coincidono.",
   "disk.encrypt.short": "La password deve contenere almeno 8 caratteri.",
   "disk.encrypt.short_same": "La password del tuo account è più corta di 8 caratteri: inserisci una password diversa e più lunga per la cifratura.",
@@ -115,5 +123,7 @@
   "confirm.summary.shrink": "Riduci la partizione di Windows di {size} GiB, quindi usa lo spazio liberato per Sloth OS.",
   "confirm.summary.free": "Usa lo spazio libero su questo disco; le partizioni esistenti non verranno ridimensionate.",
   "confirm.summary.keep_windows": "Conservare Windows e i suoi file. Creare partizioni di sistema e di sistema di Sloth OS EFI nello spazio disponibile.",
-  "confirm.summary.temporary": "Lo spazio di installazione temporaneo è formattato come ext4, montato durante l'installazione e rimosso al termine dell'installation."
+  "confirm.summary.temporary": "Lo spazio di installazione temporaneo è formattato come ext4, montato durante l'installazione e rimosso al termine dell'installation.",
+  "confirm.summary.extra_erase": "{disk}: verrà cancellato e preparato per programmi e giochi",
+  "confirm.summary.extra_keep": "{disk}: sarà disponibile con i suoi file"
 }

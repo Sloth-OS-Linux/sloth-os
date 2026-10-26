@@ -1,14 +1,11 @@
 {
   "_language": "English",
-
   "app.title": "Install Sloth OS",
-
   "welcome.heading": "Welcome to Sloth OS!",
   "welcome.text": "You can try the system without installing it, or install it on your computer. Installing takes a few minutes and just a few questions.",
   "welcome.language": "Language",
   "welcome.try": "Try it",
   "welcome.install": "Install",
-
   "region.heading": "Keyboard and time zone",
   "region.keyboard": "Keyboard:",
   "region.try_keyboard": "Test:",
@@ -27,7 +24,6 @@
   "account.error.username": "The username can only contain lowercase English letters, numbers, hyphens and underscores, and must start with a letter (e.g. “anna”).",
   "account.error.password": "Enter a password.",
   "account.error.mismatch": "The two passwords don't match.",
-
   "disk.heading": "Where should we install it?",
   "disk.text": "Choose the disk Sloth OS will be installed on.",
   "disk.none": "We couldn't find a disk to install on.",
@@ -60,10 +56,17 @@
   "disk.encrypt.password": "Encryption password:",
   "disk.encrypt.repeat": "Once more:",
   "disk.encrypt.warning": "If you forget this password, your files can't be recovered. Write it down and keep it somewhere safe.",
+  "disk.extra.heading": "Other disks",
+  "disk.extra.hint": "These disks are not part of the installation. By default nothing happens to them.",
+  "disk.extra.leave": "Leave it alone",
+  "disk.extra.keep": "Use it, keep the files",
+  "disk.extra.erase": "Erase it for programs and games",
+  "disk.extra.erase_warning": "Everything on this disk will be deleted. Afterwards it is ready for programs and games, and Windows programs can be installed on it too.",
+  "disk.extra.windows": "This disk has Windows data on it, so the installer doesn't change it. You can still open its files later.",
+  "disk.extra.label": "Games and programs",
   "disk.encrypt.mismatch": "The two passwords don't match.",
   "disk.encrypt.short": "The password must be at least 8 characters long.",
   "disk.encrypt.short_same": "Your account password is shorter than 8 characters: enter a longer, separate password for encryption.",
-
   "confirm.heading": "Everything on this disk will be erased",
   "confirm.text": "Sloth OS uses the whole disk: {disk}. Everything on it now (files, programs, other systems) will be permanently deleted.",
   "confirm.windows": "This disk has Windows on it. After installing, Windows and all its files will be gone. If you want to keep them, back up your files first.",
@@ -83,15 +86,15 @@
   "confirm.summary.formatted": "Format new EFI and system partitions as FAT32 and Btrfs.",
   "confirm.summary.encrypted": "Format the EFI partition as FAT32 and encrypt the Sloth OS system with LUKS2 and Btrfs; create a separate boot partition.",
   "confirm.summary.temporary": "Temporary install space is formatted as ext4, mounted during setup, and removed when setup finishes.",
+  "confirm.summary.extra_erase": "{disk}: will be erased and prepared for programs and games",
+  "confirm.summary.extra_keep": "{disk}: will be available with its files",
   "confirm.beside.free": "It goes into the free space on the disk; Windows is not touched.",
   "confirm.beside.bitlocker": "Windows is encrypted with BitLocker: it may ask for the recovery key the next time it starts. Keep it at hand (aka.ms/myrecoverykey).",
   "confirm.beside.menu": "When the computer starts, you can choose between Sloth OS and Windows for a few seconds.",
   "confirm.beside.checkbox": "I understand, and I have backed up my important files",
   "confirm.encrypt": "The disk will be encrypted: it opens with your password when the computer starts.",
-
   "nav.back": "Back",
   "nav.next": "Next",
-
   "stage.start": "Getting ready…",
   "stage.verify": "Checking the installation files…",
   "stage.partition": "Preparing the disk…",
@@ -103,12 +106,10 @@
   "stage.finishing": "Finishing…",
   "stage.configure": "Saving language and settings…",
   "install.note": "Depending on your computer, this takes 5–20 minutes. Please don't turn it off.",
-
   "done.heading": "Installation complete!",
   "done.text": "Restart your computer. When the screen goes dark, unplug the USB stick. Then sign in with the account you just created, and Sloth Welcome will help with the rest.",
   "done.reboot": "Restart",
   "done.beside": "When the computer starts, you can choose between Sloth OS and Windows.",
-
   "error.heading": "Installation failed",
   "error.log_hint_save": "If you ask for help, save the log (for example to a USB stick) and send it along.",
   "error.save_log": "Save log…",
@@ -123,7 +124,6 @@
   "error.configure_failed": "The system was installed, but setting the language and keyboard failed. Try again; if it still fails, you can set them in System Settings after the first start.",
   "error.beside_shrink_failed": "We couldn't make the Windows drive smaller. Start Windows, check the disk (This PC → C: → Properties → Tools → Check), then try again.",
   "error.encrypt_failed": "Setting up encryption didn't work. Try again; if it still fails, install without encryption.",
-
   "desktop.comment": "Install Sloth OS on this computer",
   "desktop.keywords": "install;installer"
 }

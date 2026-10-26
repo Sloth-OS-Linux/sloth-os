@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Versleutelingswachtwoord:",
   "disk.encrypt.repeat": "Nog een keer:",
   "disk.encrypt.warning": "Als je dit wachtwoord vergeet, kunnen je bestanden niet worden hersteld. Schrijf het op en bewaar het op een veilige plek.",
+  "disk.extra.heading": "Andere schijven",
+  "disk.extra.hint": "Deze schijven horen niet bij de installatie. Standaard gebeurt er niets mee.",
+  "disk.extra.leave": "Ongemoeid laten",
+  "disk.extra.keep": "Gebruiken, bestanden behouden",
+  "disk.extra.erase": "Wissen voor programma's en games",
+  "disk.extra.erase_warning": "Alles op deze schijf wordt verwijderd. Daarna is hij klaar voor programma's en games, en kun je er ook Windows-programma's op installeren.",
+  "disk.extra.windows": "Op deze schijf staan Windows-gegevens, daarom verandert het installatieprogramma er niets aan. Je kunt de bestanden later nog steeds openen.",
+  "disk.extra.label": "Games en programma's",
   "disk.encrypt.mismatch": "De twee wachtwoorden komen niet overeen.",
   "disk.encrypt.short": "Het wachtwoord moet minstens 8 tekens lang zijn.",
   "disk.encrypt.short_same": "Je accountwachtwoord is korter dan 8 tekens: voer een langer, apart wachtwoord in voor de versleuteling.",
@@ -115,5 +123,7 @@
   "confirm.summary.shrink": "Verkleineer de Windows-partitie met {size} GiB, en gebruik vervolgens de vrijgestelde ruimte voor Sloth OS.",
   "confirm.summary.keep_windows": "Bewaar Windows en zijn bestanden. Maak Sloth OS EFI en systeempartities in de beschikbare ruimte.",
   "confirm.summary.temporary": "Tijdelijke installatieruimte wordt geformatteerd als ext4, gemonteerd tijdens de installatie en verwijderd wanneer de installaties zijn voltooid.",
+  "confirm.summary.extra_erase": "{disk}: wordt gewist en klaargemaakt voor programma's en games",
+  "confirm.summary.extra_keep": "{disk}: wordt beschikbaar met zijn bestanden",
   "confirm.summary.free": "Gebruik de vrije ruimte op deze schijf; bestaande partities worden niet hermaand."
 }

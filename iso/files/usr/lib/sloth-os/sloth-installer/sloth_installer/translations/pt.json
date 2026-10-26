@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Palavra-passe de encriptação:",
   "disk.encrypt.repeat": "Mais uma vez:",
   "disk.encrypt.warning": "Se te esqueceres desta palavra-passe, os teus ficheiros não podem ser recuperados. Escreve-a e guarda-a num local seguro.",
+  "disk.extra.heading": "Outros discos",
+  "disk.extra.hint": "Estes discos não fazem parte da instalação. Por predefinição nada lhes acontece.",
+  "disk.extra.leave": "Não mexer",
+  "disk.extra.keep": "Usar, manter os ficheiros",
+  "disk.extra.erase": "Apagar para programas e jogos",
+  "disk.extra.erase_warning": "Tudo o que está neste disco será apagado. Depois fica pronto para programas e jogos, e também se podem instalar programas do Windows nele.",
+  "disk.extra.windows": "Este disco tem dados do Windows, por isso o instalador não o altera. Pode abrir os seus ficheiros mais tarde na mesma.",
+  "disk.extra.label": "Jogos e programas",
   "disk.encrypt.mismatch": "As duas palavras-passe não coincidem.",
   "disk.encrypt.short": "A palavra-passe tem de ter pelo menos 8 caracteres.",
   "disk.encrypt.short_same": "A palavra-passe da tua conta tem menos de 8 caracteres: escreve uma palavra-passe diferente e mais longa para a encriptação.",
@@ -115,5 +123,7 @@
   "confirm.summary.shrink": "Reduzir a partição do Windows em {size} GiB, em seguida, use o espaço liberado para o Sloth OS.",
   "confirm.summary.free": "Use espaço livre neste disco; as partições existentes não serão redimensionadas.",
   "confirm.summary.keep_windows": "Manter o Windows e seus arquivos. Criar partições do sistema e do EFI do Sloth OS no espaço disponível.",
-  "confirm.summary.temporary": "O espaço de instalação temporário é formatado como ext4, montado durante a instalação e removido quando a instalações terminam."
+  "confirm.summary.temporary": "O espaço de instalação temporário é formatado como ext4, montado durante a instalação e removido quando a instalações terminam.",
+  "confirm.summary.extra_erase": "{disk}: será apagado e preparado para programas e jogos",
+  "confirm.summary.extra_keep": "{disk}: ficará disponível com os seus ficheiros"
 }

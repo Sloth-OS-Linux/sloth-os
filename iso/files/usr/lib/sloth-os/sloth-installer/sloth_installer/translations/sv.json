@@ -56,6 +56,14 @@
   "disk.encrypt.password": "Krypteringslösenord:",
   "disk.encrypt.repeat": "En gång till:",
   "disk.encrypt.warning": "Om du glömmer det här lösenordet går dina filer inte att återställa. Skriv ner det och förvara det på ett säkert ställe.",
+  "disk.extra.heading": "Andra diskar",
+  "disk.extra.hint": "De här diskarna ingår inte i installationen. Som standard händer ingenting med dem.",
+  "disk.extra.leave": "Låt den vara",
+  "disk.extra.keep": "Använd den, behåll filerna",
+  "disk.extra.erase": "Radera den för program och spel",
+  "disk.extra.erase_warning": "Allt på den här disken raderas. Efteråt är den redo för program och spel, och Windows-program kan också installeras på den.",
+  "disk.extra.windows": "Den här disken har Windows-data, så installationsprogrammet ändrar den inte. Du kan fortfarande öppna dess filer senare.",
+  "disk.extra.label": "Spel och program",
   "disk.encrypt.mismatch": "Lösenorden stämmer inte överens.",
   "disk.encrypt.short": "Lösenordet måste vara minst 8 tecken långt.",
   "disk.encrypt.short_same": "Ditt kontolösenord är kortare än 8 tecken: ange ett längre, separat lösenord för krypteringen.",
@@ -115,5 +123,7 @@
   "confirm.summary.create_all": "Skapa en ny GPT-layout med en BIOS-startspartition, en EFI-partition och en sloth OS-systempartition.",
   "confirm.summary.keep_windows": "Behåll Windows och dess filer. Skapa Sloth OS EFI och systempartitioner i det tillgängliga utrymmet.",
   "confirm.summary.temporary": "Tillfälligt installationsutrymme formateras som ext4, monteras under installationen och tas bort när installationen är klar.",
+  "confirm.summary.extra_erase": "{disk}: raderas och förbereds för program och spel",
+  "confirm.summary.extra_keep": "{disk}: blir tillgänglig med sina filer",
   "confirm.summary.free": "Använd ledigt utrymme på denna disk; befintliga partitioner kommer inte att ändras storlek."
 }
