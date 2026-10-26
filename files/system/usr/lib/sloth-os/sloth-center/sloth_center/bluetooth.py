@@ -3,15 +3,17 @@
 Read from BlueZ over D-Bus with busctl, with a short timeout and in the background: without an adapter the
 bluetooth service does not start, and asking it waits (bluetoothctl would wait for ever). KDE's Bluetooth applet
 turns it off with an rfkill block, and a blocked adapter refuses Powered: turning it on first lifts the block (the
-signed-in user may, /dev/rfkill is theirs), then sets Powered. No password. Pairing is left to KDE's Bluetooth
+signed-in user may, /dev/rfkill is theirs), then sets Powered, again for a few seconds, since the adapter needs a
+moment to wake up after the block (as KDE's applet waits for it). No password. Pairing is left to KDE's Bluetooth
 settings.
 """
 import json
 import logging
 import subprocess
 import threading
+import time
 
-from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
+from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import tr
 
@@ -66,6 +68,22 @@ def blocked(run=_run):
     return False
 
 
+def turn_on(adapter_path, run=_run, wait=0.5, tries=6):
+    """Lifts the block (KDE's applet, an airplane-mode key), then powers the adapter, trying again while it wakes
+    up. -> the state read afterwards."""
+    run(["rfkill", "unblock", "bluetooth"])
+    state = read(run)
+    for _ in range(tries):
+        if state["powered"]:
+            break
+        time.sleep(wait)
+        path = state["adapterPath"] or adapter_path
+        if path:
+            run(BUS + ["set-property", "org.bluez", path, "org.bluez.Adapter1", "Powered", "b", "true"])
+        state = read(run)
+    return state
+
+
 def read(run=_run):
     result = parse(run(BUS + ["call", "org.bluez", "/", "org.freedesktop.DBus.ObjectManager", "GetManagedObjects"]))
     # a blocked adapter can still report Powered for a moment: the block is what KDE's applet shows
@@ -78,6 +96,7 @@ def read(run=_run):
 class BluetoothController(QObject):
     changed = Signal()
     _loaded = Signal(object)
+    _turnedOn = Signal(object)   # the state after turning it on (separate: a refresh meanwhile is not the result)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -86,6 +105,7 @@ class BluetoothController(QObject):
         self._error = ""
         self._turning_on = False
         self._loaded.connect(self._on_loaded)
+        self._turnedOn.connect(self._on_turned_on)
         # read when the Drivers and hardware page opens (not at every start of Sloth Center)
 
     checked = Property(bool, lambda self: self._checked, notify=changed)
@@ -99,23 +119,22 @@ class BluetoothController(QObject):
         threading.Thread(target=lambda: self._loaded.emit(read()), daemon=True).start()
 
     def _on_loaded(self, data):
-        self._data, self._checked = data, True
         if self._turning_on:
-            self._turning_on = False
-            self._error = "" if data["powered"] else tr("Couldn't turn on Bluetooth.")
+            return  # turning it on is still going: its own result comes
+        self._data, self._checked = data, True
+        self.changed.emit()
+
+    def _on_turned_on(self, data):
+        self._turning_on = False
+        self._data, self._checked = data, True
+        self._error = "" if data["powered"] else tr("Couldn't turn on Bluetooth.")
         self.changed.emit()
 
     @Slot()
     def turnOn(self):
         self._error = ""
-        # the block of KDE's applet (or of an airplane-mode key) first, then the adapter itself
-        _run(["rfkill", "unblock", "bluetooth"])
-        path = self._data["adapterPath"]
-        if path:
-            _run(BUS + ["set-property", "org.bluez", path, "org.bluez.Adapter1", "Powered", "b", "true"])
-        # the adapter needs a moment after the block is lifted
         self._turning_on = True
-        QTimer.singleShot(1500, self.refresh)
+        threading.Thread(target=lambda: self._turnedOn.emit(turn_on(self._data["adapterPath"])), daemon=True).start()
 
     @Slot()
     def openSettings(self):

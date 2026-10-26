@@ -86,5 +86,37 @@ class Read(unittest.TestCase):
         self.assertTrue(bluetooth.blocked(lambda cmd: "bluetooth unblocked blocked\n"))
 
 
+class TurnOn(unittest.TestCase):
+    def machine(self, wakes_after):
+        """Blocked and off; after the block is lifted the adapter refuses Powered `wakes_after` times."""
+        state = {"blocked": True, "powered": False, "refused": 0, "calls": []}
+
+        def run(cmd):
+            state["calls"].append(cmd[:2] if cmd[0] == "rfkill" else cmd[-4:])
+            if cmd[:2] == ["rfkill", "unblock"]:
+                state["blocked"] = False
+            elif cmd[0] == "rfkill":
+                return f"bluetooth {'blocked' if state['blocked'] else 'unblocked'} unblocked\n"
+            elif "set-property" in cmd and not state["blocked"]:
+                if state["refused"] < wakes_after:
+                    state["refused"] += 1
+                else:
+                    state["powered"] = True
+            elif "GetManagedObjects" in cmd:
+                return managed({"/org/bluez/hci0": {"org.bluez.Adapter1": {"Powered": v("b", state["powered"])}}})
+            return ""
+        return run, state
+
+    def test_waits_for_the_adapter(self):
+        run, state = self.machine(wakes_after=2)
+        result = bluetooth.turn_on("/org/bluez/hci0", run, wait=0)
+        self.assertTrue(result["powered"])
+        self.assertEqual(state["calls"][0], ["rfkill", "unblock"])
+
+    def test_gives_up(self):
+        run, _ = self.machine(wakes_after=99)
+        self.assertFalse(bluetooth.turn_on("/org/bluez/hci0", run, wait=0, tries=3)["powered"])
+
+
 if __name__ == "__main__":
     unittest.main()
