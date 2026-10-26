@@ -245,36 +245,40 @@ Kirigami.ScrollablePage {
                 Repeater {
                     model: cloud.drives
                     delegate: RowLayout {
+                        id: driveRow
+                        // the page is ComponentBehavior: Bound, so the row only sees its data through this (without it
+                        // every binding failed: both spinners turned and the buttons did nothing, 2026-10-26)
+                        required property var modelData
                         Layout.fillWidth: true
                         spacing: Kirigami.Units.largeSpacing
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
-                            text: modelData.configured
-                                  ? L.tf("{name}: connected ({folder})", { name: modelData.name, folder: modelData.folder })
-                                  : modelData.name
+                            text: driveRow.modelData.configured
+                                  ? L.tf("{name}: connected ({folder})", { name: driveRow.modelData.name, folder: driveRow.modelData.folder })
+                                  : driveRow.modelData.name
                         }
-                        QQC2.BusyIndicator { visible: cloud.busy === modelData.service; running: visible }
+                        QQC2.BusyIndicator { visible: cloud.busy === driveRow.modelData.service; running: visible }
                         QQC2.Button {
-                            visible: !modelData.configured
+                            visible: !driveRow.modelData.configured
                             enabled: cloud.busy === ""
                             icon.name: "network-connect"
                             text: L.t("Sign in")
-                            onClicked: cloud.connectDrive(modelData.service)
+                            onClicked: cloud.connectDrive(driveRow.modelData.service)
                         }
                         QQC2.Button {
-                            visible: modelData.configured
+                            visible: driveRow.modelData.configured
                             enabled: cloud.busy === ""
                             icon.name: "folder-open"
                             text: L.t("Open")
-                            onClicked: Qt.openUrlExternally("file://" + modelData.folder)
+                            onClicked: Qt.openUrlExternally("file://" + driveRow.modelData.folder)
                         }
                         QQC2.Button {
-                            visible: modelData.configured
+                            visible: driveRow.modelData.configured
                             enabled: cloud.busy === ""
                             icon.name: "network-disconnect"
                             text: L.t("Disconnect")
-                            onClicked: cloud.disconnectDrive(modelData.service)
+                            onClicked: cloud.disconnectDrive(driveRow.modelData.service)
                         }
                     }
                 }
