@@ -738,5 +738,6 @@
   "Restore a file…": "Återställ en fil …",
   "Find deleted files…": "Hitta borttagna filer …",
   "Choose the file to restore": "Välj filen som ska återställas",
-  "Choose the folder the files were in": "Välj mappen där filerna låg"
+  "Choose the folder the files were in": "Välj mappen där filerna låg",
+  "Add a program…": "Lägg till ett program …"
 }

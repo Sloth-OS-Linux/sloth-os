@@ -738,5 +738,6 @@
   "Restore a file…": "Restaurar un archivo…",
   "Find deleted files…": "Buscar archivos eliminados…",
   "Choose the file to restore": "Elige el archivo que quieres restaurar",
-  "Choose the folder the files were in": "Elige la carpeta donde estaban los archivos"
+  "Choose the folder the files were in": "Elige la carpeta donde estaban los archivos",
+  "Add a program…": "Añadir un programa…"
 }

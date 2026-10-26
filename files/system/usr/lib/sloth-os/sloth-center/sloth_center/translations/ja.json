@@ -738,5 +738,6 @@
   "Restore a file…": "ファイルを復元…",
   "Find deleted files…": "削除したファイルを探す…",
   "Choose the file to restore": "復元するファイルを選んでください",
-  "Choose the folder the files were in": "ファイルがあったフォルダーを選んでください"
+  "Choose the folder the files were in": "ファイルがあったフォルダーを選んでください",
+  "Add a program…": "プログラムを追加…"
 }

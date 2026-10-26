@@ -738,5 +738,6 @@
   "Restore a file…": "استعادة ملف…",
   "Find deleted files…": "البحث عن الملفات المحذوفة…",
   "Choose the file to restore": "اختر الملف المراد استعادته",
-  "Choose the folder the files were in": "اختر المجلد الذي كانت فيه الملفات"
+  "Choose the folder the files were in": "اختر المجلد الذي كانت فيه الملفات",
+  "Add a program…": "إضافة برنامج…"
 }

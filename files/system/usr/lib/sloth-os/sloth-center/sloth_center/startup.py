@@ -9,6 +9,7 @@ import configparser
 import logging
 import os
 import re
+import subprocess
 from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, Signal, Slot
@@ -112,6 +113,16 @@ class StartupController(QObject):
     def refresh(self):
         self._entries = entries()
         self.changed.emit()
+
+    @Slot()
+    def addProgram(self):
+        """KDE's autostart settings ("Add New"): e.g. Steam, whose own "start with the computer" option cannot
+        write here from its Flatpak. What is added there shows up in this list."""
+        try:
+            subprocess.Popen(["systemsettings", "kcm_autostart"], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except OSError as e:
+            log.warning("System Settings: %s", e)
 
     @Slot(str, bool)
     def setEnabled(self, file_name, enabled):

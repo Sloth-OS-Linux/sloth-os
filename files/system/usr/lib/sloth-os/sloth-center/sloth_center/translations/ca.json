@@ -738,5 +738,6 @@
   "Restore a file…": "Restaura un fitxer…",
   "Find deleted files…": "Cerca fitxers suprimits…",
   "Choose the file to restore": "Trieu el fitxer que voleu restaurar",
-  "Choose the folder the files were in": "Trieu la carpeta on eren els fitxers"
+  "Choose the folder the files were in": "Trieu la carpeta on eren els fitxers",
+  "Add a program…": "Afegeix un programa…"
 }

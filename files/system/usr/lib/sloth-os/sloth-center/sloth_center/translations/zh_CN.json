@@ -738,5 +738,6 @@
   "Restore a file…": "恢复文件…",
   "Find deleted files…": "查找已删除的文件…",
   "Choose the file to restore": "选择要恢复的文件",
-  "Choose the folder the files were in": "选择文件原来所在的文件夹"
+  "Choose the folder the files were in": "选择文件原来所在的文件夹",
+  "Add a program…": "添加程序…"
 }

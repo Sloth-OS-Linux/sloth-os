@@ -738,5 +738,6 @@
   "Restore a file…": "Obnovit soubor…",
   "Find deleted files…": "Najít smazané soubory…",
   "Choose the file to restore": "Vyberte soubor k obnovení",
-  "Choose the folder the files were in": "Vyberte složku, ve které soubory byly"
+  "Choose the folder the files were in": "Vyberte složku, ve které soubory byly",
+  "Add a program…": "Přidat program…"
 }

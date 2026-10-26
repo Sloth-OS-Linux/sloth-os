@@ -738,5 +738,6 @@
   "Restore a file…": "Gendan en fil…",
   "Find deleted files…": "Find slettede filer…",
   "Choose the file to restore": "Vælg filen, der skal gendannes",
-  "Choose the folder the files were in": "Vælg mappen, filerne lå i"
+  "Choose the folder the files were in": "Vælg mappen, filerne lå i",
+  "Add a program…": "Tilføj et program…"
 }

@@ -78,6 +78,12 @@ Kirigami.ScrollablePage {
             }
         }
 
+        QQC2.Button {
+            icon.name: "list-add"
+            text: L.t("Add a program…")
+            onClicked: startup.addProgram()
+        }
+
         Kirigami.Heading { level: 3; text: L.t("Common services") }
 
         Repeater {

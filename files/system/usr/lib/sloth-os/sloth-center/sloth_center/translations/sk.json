@@ -738,5 +738,6 @@
   "Restore a file…": "Obnoviť súbor…",
   "Find deleted files…": "Nájsť odstránené súbory…",
   "Choose the file to restore": "Vyberte súbor na obnovenie",
-  "Choose the folder the files were in": "Vyberte priečinok, v ktorom boli súbory"
+  "Choose the folder the files were in": "Vyberte priečinok, v ktorom boli súbory",
+  "Add a program…": "Pridať program…"
 }

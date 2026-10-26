@@ -738,5 +738,6 @@
   "Restore a file…": "Vrati datoteku…",
   "Find deleted files…": "Pronađi izbrisane datoteke…",
   "Choose the file to restore": "Odaberite datoteku za vraćanje",
-  "Choose the folder the files were in": "Odaberite mapu u kojoj su bile datoteke"
+  "Choose the folder the files were in": "Odaberite mapu u kojoj su bile datoteke",
+  "Add a program…": "Dodaj program…"
 }

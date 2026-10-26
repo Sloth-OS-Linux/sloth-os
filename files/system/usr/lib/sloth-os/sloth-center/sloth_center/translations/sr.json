@@ -738,5 +738,6 @@
   "Restore a file…": "Врати датотеку…",
   "Find deleted files…": "Пронађи обрисане датотеке…",
   "Choose the file to restore": "Изаберите датотеку за враћање",
-  "Choose the folder the files were in": "Изаберите фасциклу у којој су биле датотеке"
+  "Choose the folder the files were in": "Изаберите фасциклу у којој су биле датотеке",
+  "Add a program…": "Додај програм…"
 }

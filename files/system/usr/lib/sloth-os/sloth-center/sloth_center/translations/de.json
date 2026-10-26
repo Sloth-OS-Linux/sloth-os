@@ -738,5 +738,6 @@
   "Restore a file…": "Datei wiederherstellen …",
   "Find deleted files…": "Gelöschte Dateien finden …",
   "Choose the file to restore": "Wählen Sie die Datei zum Wiederherstellen",
-  "Choose the folder the files were in": "Wählen Sie den Ordner, in dem die Dateien waren"
+  "Choose the folder the files were in": "Wählen Sie den Ordner, in dem die Dateien waren",
+  "Add a program…": "Programm hinzufügen …"
 }

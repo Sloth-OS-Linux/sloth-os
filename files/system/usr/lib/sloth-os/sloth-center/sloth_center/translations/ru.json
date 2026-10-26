@@ -738,5 +738,6 @@
   "Restore a file…": "Восстановить файл…",
   "Find deleted files…": "Найти удалённые файлы…",
   "Choose the file to restore": "Выберите файл для восстановления",
-  "Choose the folder the files were in": "Выберите папку, в которой были файлы"
+  "Choose the folder the files were in": "Выберите папку, в которой были файлы",
+  "Add a program…": "Добавить программу…"
 }

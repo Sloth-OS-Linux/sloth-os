@@ -738,5 +738,6 @@
   "Restore a file…": "還原檔案…",
   "Find deleted files…": "尋找已刪除的檔案…",
   "Choose the file to restore": "選擇要還原的檔案",
-  "Choose the folder the files were in": "選擇檔案原本所在的資料夾"
+  "Choose the folder the files were in": "選擇檔案原本所在的資料夾",
+  "Add a program…": "新增程式…"
 }

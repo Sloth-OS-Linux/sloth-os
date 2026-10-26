@@ -738,5 +738,6 @@
   "Restore a file…": "Taasta fail…",
   "Find deleted files…": "Leia kustutatud failid…",
   "Choose the file to restore": "Vali taastatav fail",
-  "Choose the folder the files were in": "Vali kaust, kus failid olid"
+  "Choose the folder the files were in": "Vali kaust, kus failid olid",
+  "Add a program…": "Lisa programm…"
 }

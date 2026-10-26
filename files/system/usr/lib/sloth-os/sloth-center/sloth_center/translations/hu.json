@@ -728,7 +728,7 @@
   "Couldn't change the display.": "Nem sikerült megváltoztatni a kijelzőt.",
   "Displays": "Kijelzők",
   "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, most {hz} Hz. {best} Hz-re is képes: a játékok simábbak lesznek.",
-  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (ennyit tud a legtöbbet).",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (ez a legtöbb, amire képes).",
   "Use {hz} Hz": "{hz} Hz használata",
   "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Változó képfrissítés (FreeSync, G-Sync): simább játék, képszakadás nélkül",
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: fényesebb csúcsfények és gazdagabb színek az ezt támogató játékokban és videókban",
@@ -738,5 +738,6 @@
   "Restore a file…": "Fájl visszaállítása…",
   "Find deleted files…": "Törölt fájlok keresése…",
   "Choose the file to restore": "Válaszd ki a visszaállítandó fájlt",
-  "Choose the folder the files were in": "Válaszd ki a mappát, amelyben a fájlok voltak"
+  "Choose the folder the files were in": "Válaszd ki a mappát, amelyben a fájlok voltak",
+  "Add a program…": "Program hozzáadása…"
 }

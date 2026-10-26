@@ -738,5 +738,6 @@
   "Restore a file…": "Een bestand herstellen…",
   "Find deleted files…": "Verwijderde bestanden zoeken…",
   "Choose the file to restore": "Kies het bestand dat je wilt herstellen",
-  "Choose the folder the files were in": "Kies de map waarin de bestanden stonden"
+  "Choose the folder the files were in": "Kies de map waarin de bestanden stonden",
+  "Add a program…": "Een programma toevoegen…"
 }

@@ -738,5 +738,6 @@
   "Restore a file…": "Palauta tiedosto…",
   "Find deleted files…": "Etsi poistettuja tiedostoja…",
   "Choose the file to restore": "Valitse palautettava tiedosto",
-  "Choose the folder the files were in": "Valitse kansio, jossa tiedostot olivat"
+  "Choose the folder the files were in": "Valitse kansio, jossa tiedostot olivat",
+  "Add a program…": "Lisää ohjelma…"
 }

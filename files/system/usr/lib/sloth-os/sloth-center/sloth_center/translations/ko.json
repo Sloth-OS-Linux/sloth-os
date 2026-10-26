@@ -738,5 +738,6 @@
   "Restore a file…": "파일 복원…",
   "Find deleted files…": "삭제된 파일 찾기…",
   "Choose the file to restore": "복원할 파일을 고르세요",
-  "Choose the folder the files were in": "파일이 있던 폴더를 고르세요"
+  "Choose the folder the files were in": "파일이 있던 폴더를 고르세요",
+  "Add a program…": "프로그램 추가…"
 }
