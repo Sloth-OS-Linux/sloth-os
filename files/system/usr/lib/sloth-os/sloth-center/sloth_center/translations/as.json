@@ -711,5 +711,18 @@
   "Microphone": "মাইক্ৰ'ফোন",
   "Location": "অৱস্থান",
   "No app can use it.": "কোনো এপে ইয়াক ব্যৱহাৰ কৰিব নোৱাৰে।",
-  "Change app permissions": "এপৰ অনুমতি সলনি কৰক"
+  "Change app permissions": "এপৰ অনুমতি সলনি কৰক",
+  "Say something now…": "এতিয়া কিবা কওক…",
+  "Playing it back…": "পুনৰ বজাই আছে…",
+  "Couldn't record from the microphone.": "মাইক্ৰ'ফোনৰ পৰা ৰেকৰ্ড কৰিব পৰা নগ'ল।",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "একো শুনা নগ'ল। এইটো সঠিক মাইক্ৰ'ফোন নেকি, প্লাগ কৰা আছে নেকি আৰু মিউট কৰা নাই নেকি পৰীক্ষা কৰক।",
+  "It heard you. If the playback sounded right, the microphone works.": "আপোনাৰ মাত শুনা গ'ল। পুনৰ বজোৱাটো ঠিক শুনা গ'লে মাইক্ৰ'ফোনে কাম কৰি আছে।",
+  "Sound": "শব্দ",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "শব্দ ক'লৈ যাব আৰু গেম আৰু কলে কোনটো মাইক্ৰ'ফোন ব্যৱহাৰ কৰিব বাছক, তাৰ পিছত পৰীক্ষা কৰক।",
+  "No sound devices were found.": "কোনো শব্দ ডিভাইচ পোৱা নগ'ল।",
+  "Speakers or headphones": "স্পীকাৰ বা হেডফোন",
+  "Play a test sound": "পৰীক্ষামূলক শব্দ বজাওক",
+  "Test the microphone": "মাইক্ৰ'ফোন পৰীক্ষা কৰক",
+  "This microphone is muted.": "এই মাইক্ৰ'ফোন মিউট কৰা আছে।",
+  "Unmute": "আনমিউট কৰক"
 }

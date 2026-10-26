@@ -711,5 +711,18 @@
   "Microphone": "Mikrofon",
   "Location": "Helyadatok",
   "No app can use it.": "Egyetlen app sem használhatja.",
-  "Change app permissions": "Appok engedélyeinek módosítása"
+  "Change app permissions": "Appok engedélyeinek módosítása",
+  "Say something now…": "Mondj valamit…",
+  "Playing it back…": "Visszajátszás…",
+  "Couldn't record from the microphone.": "Nem sikerült felvenni a mikrofonról.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Nem hallott semmit. Ellenőrizd, hogy ez-e a jó mikrofon, be van-e dugva, és nincs-e lenémítva.",
+  "It heard you. If the playback sounded right, the microphone works.": "Hallott téged. Ha a visszajátszás rendben szólt, a mikrofon működik.",
+  "Sound": "Hang",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Válaszd ki, hová menjen a hang, és melyik mikrofont használják a játékok és a hívások, aztán próbáld ki őket.",
+  "No sound devices were found.": "Nem található hangeszköz.",
+  "Speakers or headphones": "Hangszóró vagy fejhallgató",
+  "Play a test sound": "Teszthang lejátszása",
+  "Test the microphone": "Mikrofon kipróbálása",
+  "This microphone is muted.": "Ez a mikrofon le van némítva.",
+  "Unmute": "Némítás feloldása"
 }

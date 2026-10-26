@@ -711,5 +711,18 @@
   "Microphone": "الميكروفون",
   "Location": "الموقع",
   "No app can use it.": "لا يمكن لأي تطبيق استخدامه.",
-  "Change app permissions": "تغيير أذونات التطبيقات"
+  "Change app permissions": "تغيير أذونات التطبيقات",
+  "Say something now…": "قل شيئًا الآن…",
+  "Playing it back…": "جارٍ إعادة التشغيل…",
+  "Couldn't record from the microphone.": "تعذّر التسجيل من الميكروفون.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "لم يُسمع شيء. تأكد أن هذا هو الميكروفون الصحيح، وأنه موصول، وأنه غير مكتوم.",
+  "It heard you. If the playback sounded right, the microphone works.": "سُمع صوتك. إذا بدا التشغيل سليمًا، فالميكروفون يعمل.",
+  "Sound": "الصوت",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "اختر أين يذهب الصوت وأي ميكروفون تستخدمه الألعاب والمكالمات، ثم جرّبهما.",
+  "No sound devices were found.": "لم يُعثر على أجهزة صوت.",
+  "Speakers or headphones": "مكبرات الصوت أو السماعات",
+  "Play a test sound": "شغّل صوتًا تجريبيًا",
+  "Test the microphone": "اختبر الميكروفون",
+  "This microphone is muted.": "هذا الميكروفون مكتوم.",
+  "Unmute": "إلغاء الكتم"
 }

@@ -711,5 +711,18 @@
   "Microphone": "Mikrofon",
   "Location": "Plats",
   "No app can use it.": "Ingen app kan använda den.",
-  "Change app permissions": "Ändra appbehörigheter"
+  "Change app permissions": "Ändra appbehörigheter",
+  "Say something now…": "Säg något nu …",
+  "Playing it back…": "Spelar upp …",
+  "Couldn't record from the microphone.": "Det gick inte att spela in från mikrofonen.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Den hörde ingenting. Kontrollera att det är rätt mikrofon, att den är ansluten och att den inte är avstängd.",
+  "It heard you. If the playback sounded right, the microphone works.": "Den hörde dig. Om uppspelningen lät rätt fungerar mikrofonen.",
+  "Sound": "Ljud",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Välj vart ljudet ska gå och vilken mikrofon spel och samtal använder, och prova dem sedan.",
+  "No sound devices were found.": "Inga ljudenheter hittades.",
+  "Speakers or headphones": "Högtalare eller hörlurar",
+  "Play a test sound": "Spela upp ett testljud",
+  "Test the microphone": "Testa mikrofonen",
+  "This microphone is muted.": "Den här mikrofonen är avstängd.",
+  "Unmute": "Slå på ljud"
 }

@@ -711,5 +711,18 @@
   "Microphone": "Mikrofon",
   "Location": "Placering",
   "No app can use it.": "Ingen app kan bruge den.",
-  "Change app permissions": "Skift apptilladelser"
+  "Change app permissions": "Skift apptilladelser",
+  "Say something now…": "Sig noget nu…",
+  "Playing it back…": "Afspiller det…",
+  "Couldn't record from the microphone.": "Kunne ikke optage fra mikrofonen.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Den hørte ingenting. Tjek at det er den rigtige mikrofon, at den er sat i, og at den ikke er slået fra.",
+  "It heard you. If the playback sounded right, the microphone works.": "Den hørte dig. Hvis afspilningen lød rigtig, virker mikrofonen.",
+  "Sound": "Lyd",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Vælg, hvor lyden skal hen, og hvilken mikrofon spil og opkald bruger, og prøv dem så.",
+  "No sound devices were found.": "Der blev ikke fundet nogen lydenheder.",
+  "Speakers or headphones": "Højttalere eller hovedtelefoner",
+  "Play a test sound": "Afspil en testlyd",
+  "Test the microphone": "Test mikrofonen",
+  "This microphone is muted.": "Denne mikrofon er slået fra.",
+  "Unmute": "Slå lyd til"
 }

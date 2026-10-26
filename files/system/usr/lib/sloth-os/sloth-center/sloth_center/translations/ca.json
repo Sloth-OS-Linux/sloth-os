@@ -711,5 +711,18 @@
   "Microphone": "Micròfon",
   "Location": "Ubicació",
   "No app can use it.": "Cap aplicació no ho pot fer servir.",
-  "Change app permissions": "Canvia els permisos de les aplicacions"
+  "Change app permissions": "Canvia els permisos de les aplicacions",
+  "Say something now…": "Digueu alguna cosa ara…",
+  "Playing it back…": "S'està reproduint…",
+  "Couldn't record from the microphone.": "No s'ha pogut enregistrar del micròfon.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "No ha sentit res. Comproveu que sigui el micròfon correcte, que estigui connectat i que no estigui silenciat.",
+  "It heard you. If the playback sounded right, the microphone works.": "Us ha sentit. Si la reproducció sonava bé, el micròfon funciona.",
+  "Sound": "So",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Trieu on va el so i quin micròfon fan servir els jocs i les trucades, i després proveu-los.",
+  "No sound devices were found.": "No s'ha trobat cap dispositiu de so.",
+  "Speakers or headphones": "Altaveus o auriculars",
+  "Play a test sound": "Reprodueix un so de prova",
+  "Test the microphone": "Prova el micròfon",
+  "This microphone is muted.": "Aquest micròfon està silenciat.",
+  "Unmute": "Activa el so"
 }

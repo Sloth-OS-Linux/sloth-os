@@ -711,5 +711,18 @@
   "Microphone": "মাইক্রোফোন",
   "Location": "অবস্থান",
   "No app can use it.": "কোনো অ্যাপ এটি ব্যবহার করতে পারে না।",
-  "Change app permissions": "অ্যাপের অনুমতি বদলান"
+  "Change app permissions": "অ্যাপের অনুমতি বদলান",
+  "Say something now…": "এখন কিছু বলুন…",
+  "Playing it back…": "আবার বাজানো হচ্ছে…",
+  "Couldn't record from the microphone.": "মাইক্রোফোন থেকে রেকর্ড করা যায়নি।",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "কিছুই শোনা যায়নি। এটি সঠিক মাইক্রোফোন কি না, প্লাগ লাগানো আছে কি না এবং মিউট করা নেই কি না দেখুন।",
+  "It heard you. If the playback sounded right, the microphone works.": "আপনার কথা শোনা গেছে। আবার বাজানোটা ঠিক শোনালে মাইক্রোফোন কাজ করছে।",
+  "Sound": "শব্দ",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "শব্দ কোথায় যাবে আর গেম ও কলে কোন মাইক্রোফোন ব্যবহার হবে বেছে নিন, তারপর পরীক্ষা করুন।",
+  "No sound devices were found.": "কোনো শব্দ ডিভাইস পাওয়া যায়নি।",
+  "Speakers or headphones": "স্পিকার বা হেডফোন",
+  "Play a test sound": "পরীক্ষামূলক শব্দ বাজান",
+  "Test the microphone": "মাইক্রোফোন পরীক্ষা করুন",
+  "This microphone is muted.": "এই মাইক্রোফোন মিউট করা আছে।",
+  "Unmute": "আনমিউট করুন"
 }

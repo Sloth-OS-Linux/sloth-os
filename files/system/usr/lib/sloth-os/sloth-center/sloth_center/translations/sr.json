@@ -711,5 +711,18 @@
   "Microphone": "Микрофон",
   "Location": "Локација",
   "No app can use it.": "Ниједна апликација не може да га користи.",
-  "Change app permissions": "Промени дозволе апликација"
+  "Change app permissions": "Промени дозволе апликација",
+  "Say something now…": "Реците нешто сада…",
+  "Playing it back…": "Репродукција…",
+  "Couldn't record from the microphone.": "Није било могуће снимати са микрофона.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Ништа се није чуло. Проверите да ли је то прави микрофон, да ли је прикључен и да није утишан.",
+  "It heard you. If the playback sounded right, the microphone works.": "Чуо вас је. Ако је репродукција звучала добро, микрофон ради.",
+  "Sound": "Звук",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Изаберите где иде звук и који микрофон користе игре и позиви, па их испробајте.",
+  "No sound devices were found.": "Нису пронађени звучни уређаји.",
+  "Speakers or headphones": "Звучници или слушалице",
+  "Play a test sound": "Пусти пробни звук",
+  "Test the microphone": "Испробај микрофон",
+  "This microphone is muted.": "Овај микрофон је утишан.",
+  "Unmute": "Укључи звук"
 }

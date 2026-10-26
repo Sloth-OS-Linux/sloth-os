@@ -711,5 +711,18 @@
   "Microphone": "Microfone",
   "Location": "Localização",
   "No app can use it.": "Nenhuma aplicação pode usar.",
-  "Change app permissions": "Mudar as permissões das aplicações"
+  "Change app permissions": "Mudar as permissões das aplicações",
+  "Say something now…": "Diga alguma coisa agora…",
+  "Playing it back…": "A reproduzir…",
+  "Couldn't record from the microphone.": "Não foi possível gravar a partir do microfone.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Não ouviu nada. Verifique se é o microfone certo, se está ligado e se não está silenciado.",
+  "It heard you. If the playback sounded right, the microphone works.": "Ouviu-o. Se a reprodução soou bem, o microfone funciona.",
+  "Sound": "Som",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Escolha para onde vai o som e que microfone usam os jogos e as chamadas, e depois experimente-os.",
+  "No sound devices were found.": "Não foram encontrados dispositivos de som.",
+  "Speakers or headphones": "Altifalantes ou auscultadores",
+  "Play a test sound": "Reproduzir um som de teste",
+  "Test the microphone": "Testar o microfone",
+  "This microphone is muted.": "Este microfone está silenciado.",
+  "Unmute": "Ativar som"
 }

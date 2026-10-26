@@ -711,5 +711,18 @@
   "Microphone": "Mikrofoni",
   "Location": "Vendndodhja",
   "No app can use it.": "Asnjë aplikacion nuk mund ta përdorë.",
-  "Change app permissions": "Ndryshoni lejet e aplikacioneve"
+  "Change app permissions": "Ndryshoni lejet e aplikacioneve",
+  "Say something now…": "Thoni diçka tani…",
+  "Playing it back…": "Po luhet…",
+  "Couldn't record from the microphone.": "Nuk u regjistrua dot nga mikrofoni.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Nuk dëgjoi asgjë. Kontrolloni nëse është mikrofoni i duhur, nëse është i lidhur dhe nëse nuk është i heshtur.",
+  "It heard you. If the playback sounded right, the microphone works.": "Ju dëgjoi. Nëse riprodhimi tingëllonte mirë, mikrofoni punon.",
+  "Sound": "Zëri",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Zgjidhni ku shkon zëri dhe cilin mikrofon përdorin lojërat dhe thirrjet, pastaj provojini.",
+  "No sound devices were found.": "Nuk u gjet asnjë pajisje zëri.",
+  "Speakers or headphones": "Altoparlantë ose kufje",
+  "Play a test sound": "Luaj një tingull prove",
+  "Test the microphone": "Provoni mikrofonin",
+  "This microphone is muted.": "Ky mikrofon është i heshtur.",
+  "Unmute": "Hiqe heshtjen"
 }

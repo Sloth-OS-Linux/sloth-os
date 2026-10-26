@@ -711,5 +711,18 @@
   "Microphone": "Мікрафон",
   "Location": "Месцазнаходжанне",
   "No app can use it.": "Ніводная праграма не можа гэтым карыстацца.",
-  "Change app permissions": "Змяніць дазволы праграм"
+  "Change app permissions": "Змяніць дазволы праграм",
+  "Say something now…": "Скажыце што-небудзь…",
+  "Playing it back…": "Прайграванне запісу…",
+  "Couldn't record from the microphone.": "Не ўдалося запісаць з мікрафона.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Нічога не пачута. Праверце, ці гэта патрэбны мікрафон, ці ён падключаны і ці не выключаны гук.",
+  "It heard you. If the playback sounded right, the microphone works.": "Вас пачулі. Калі запіс прагучаў нармальна, мікрафон працуе.",
+  "Sound": "Гук",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Выберыце, куды ідзе гук і які мікрафон выкарыстоўваюць гульні і званкі, а потым праверце іх.",
+  "No sound devices were found.": "Гукавыя прылады не знойдзены.",
+  "Speakers or headphones": "Дынамікі або навушнікі",
+  "Play a test sound": "Прайграць праверачны гук",
+  "Test the microphone": "Праверыць мікрафон",
+  "This microphone is muted.": "Гэты мікрафон выключаны.",
+  "Unmute": "Уключыць гук"
 }

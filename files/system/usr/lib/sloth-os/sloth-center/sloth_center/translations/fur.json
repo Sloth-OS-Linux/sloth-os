@@ -711,5 +711,18 @@
   "Microphone": "Microfon",
   "Location": "Posizion",
   "No app can use it.": "Nissune aplicazion no le pues doprâ.",
-  "Change app permissions": "Cambie i permès des aplicazions"
+  "Change app permissions": "Cambie i permès des aplicazions",
+  "Say something now…": "Dîs alc cumò…",
+  "Playing it back…": "Daûr a tornâ a sunâ…",
+  "Couldn't record from the microphone.": "No si è rivâts a regjistrâ dal microfon.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Nol à sintût nuie. Controle che al sedi il microfon just, che al sedi tacât e che nol sedi cidinât.",
+  "It heard you. If the playback sounded right, the microphone works.": "Ti à sintût. Se la riproduzion e sunave ben, il microfon al funzione.",
+  "Sound": "Sun",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Sielç dulà che al va il sun e cuâl microfon che a doprin i zûcs e lis clamadis, dopo provilis.",
+  "No sound devices were found.": "Nol è stât cjatât nissun dispositîf di sun.",
+  "Speakers or headphones": "Cassis o scufis",
+  "Play a test sound": "Sune un sun di prove",
+  "Test the microphone": "Prove il microfon",
+  "This microphone is muted.": "Chest microfon al è cidinât.",
+  "Unmute": "Ative il sun"
 }

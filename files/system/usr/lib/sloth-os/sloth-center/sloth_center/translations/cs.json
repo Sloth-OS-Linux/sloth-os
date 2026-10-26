@@ -711,5 +711,18 @@
   "Microphone": "Mikrofon",
   "Location": "Poloha",
   "No app can use it.": "Žádná aplikace to nemůže používat.",
-  "Change app permissions": "Změnit oprávnění aplikací"
+  "Change app permissions": "Změnit oprávnění aplikací",
+  "Say something now…": "Teď něco řekněte…",
+  "Playing it back…": "Přehrávání nahrávky…",
+  "Couldn't record from the microphone.": "Z mikrofonu se nepodařilo nahrávat.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Nic neslyšel. Zkontrolujte, že je to správný mikrofon, že je připojený a není ztlumený.",
+  "It heard you. If the playback sounded right, the microphone works.": "Slyšel vás. Pokud nahrávka zněla dobře, mikrofon funguje.",
+  "Sound": "Zvuk",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Vyberte, kam jde zvuk a který mikrofon používají hry a hovory, a pak je vyzkoušejte.",
+  "No sound devices were found.": "Nebyla nalezena žádná zvuková zařízení.",
+  "Speakers or headphones": "Reproduktory nebo sluchátka",
+  "Play a test sound": "Přehrát zkušební zvuk",
+  "Test the microphone": "Vyzkoušet mikrofon",
+  "This microphone is muted.": "Tento mikrofon je ztlumený.",
+  "Unmute": "Zrušit ztlumení"
 }

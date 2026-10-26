@@ -711,5 +711,18 @@
   "Microphone": "Микрофон",
   "Location": "Орналасқан жер",
   "No app can use it.": "Ешбір қолданба оны қолдана алмайды.",
-  "Change app permissions": "Қолданба рұқсаттарын өзгерту"
+  "Change app permissions": "Қолданба рұқсаттарын өзгерту",
+  "Say something now…": "Қазір бірдеңе айтыңыз…",
+  "Playing it back…": "Қайта ойнатылуда…",
+  "Couldn't record from the microphone.": "Микрофоннан жазу мүмкін болмады.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Ештеңе естілмеді. Бұл дұрыс микрофон екенін, қосулы екенін және дыбысы өшірілмегенін тексеріңіз.",
+  "It heard you. If the playback sounded right, the microphone works.": "Сізді естіді. Қайта ойнату дұрыс естілсе, микрофон жұмыс істейді.",
+  "Sound": "Дыбыс",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Дыбыс қайда шығатынын және ойындар мен қоңыраулар қай микрофонды қолданатынын таңдап, оларды сынап көріңіз.",
+  "No sound devices were found.": "Дыбыс құрылғылары табылмады.",
+  "Speakers or headphones": "Динамиктер немесе құлаққаптар",
+  "Play a test sound": "Сынақ дыбысын ойнату",
+  "Test the microphone": "Микрофонды сынау",
+  "This microphone is muted.": "Бұл микрофонның дыбысы өшірулі.",
+  "Unmute": "Дыбысты қосу"
 }

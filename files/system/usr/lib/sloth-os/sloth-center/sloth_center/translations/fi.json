@@ -711,5 +711,18 @@
   "Microphone": "Mikrofoni",
   "Location": "Sijainti",
   "No app can use it.": "Mikään sovellus ei voi käyttää sitä.",
-  "Change app permissions": "Muuta sovellusten oikeuksia"
+  "Change app permissions": "Muuta sovellusten oikeuksia",
+  "Say something now…": "Sano nyt jotain…",
+  "Playing it back…": "Toistetaan…",
+  "Couldn't record from the microphone.": "Mikrofonista ei voitu tallentaa.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Se ei kuullut mitään. Tarkista, että tämä on oikea mikrofoni, että se on kytketty ja ettei se ole mykistetty.",
+  "It heard you. If the playback sounded right, the microphone works.": "Se kuuli sinut. Jos toisto kuulosti oikealta, mikrofoni toimii.",
+  "Sound": "Ääni",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Valitse, minne ääni menee ja mitä mikrofonia pelit ja puhelut käyttävät, ja kokeile niitä.",
+  "No sound devices were found.": "Äänilaitteita ei löytynyt.",
+  "Speakers or headphones": "Kaiuttimet tai kuulokkeet",
+  "Play a test sound": "Toista testiääni",
+  "Test the microphone": "Testaa mikrofoni",
+  "This microphone is muted.": "Tämä mikrofoni on mykistetty.",
+  "Unmute": "Poista mykistys"
 }

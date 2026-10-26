@@ -711,5 +711,18 @@
   "Microphone": "Microphono",
   "Location": "Location",
   "No app can use it.": "Nulle application pote usar lo.",
-  "Change app permissions": "Cambiar le permissiones del applicationes"
+  "Change app permissions": "Cambiar le permissiones del applicationes",
+  "Say something now…": "Di alique ora…",
+  "Playing it back…": "Reproduction…",
+  "Couldn't record from the microphone.": "Non poteva registrar del microphono.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Illo non audiva nihil. Verifica que isto es le microphono juste, que illo es connectite e que illo non es silentiate.",
+  "It heard you. If the playback sounded right, the microphone works.": "Illo te audiva. Si le reproduction sonava ben, le microphono functiona.",
+  "Sound": "Sono",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Selige ubi va le sono e qual microphono usa le jocos e le appellos, postea proba los.",
+  "No sound devices were found.": "Nulle dispositivo de sono esseva trovate.",
+  "Speakers or headphones": "Altoparlatores o auriculares",
+  "Play a test sound": "Reproducer un sono de prova",
+  "Test the microphone": "Probar le microphono",
+  "This microphone is muted.": "Iste microphono es silentiate.",
+  "Unmute": "Non plus silentiar"
 }

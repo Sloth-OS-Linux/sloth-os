@@ -711,5 +711,18 @@
   "Microphone": "ໄມໂຄຣໂຟນ",
   "Location": "ສະຖານທີ່",
   "No app can use it.": "ບໍ່ມີແອັບໃດໃຊ້ມັນໄດ້.",
-  "Change app permissions": "ປ່ຽນສິດຂອງແອັບ"
+  "Change app permissions": "ປ່ຽນສິດຂອງແອັບ",
+  "Say something now…": "ເວົ້າບາງຢ່າງດຽວນີ້…",
+  "Playing it back…": "ກຳລັງຫຼິ້ນຄືນ…",
+  "Couldn't record from the microphone.": "ບໍ່ສາມາດບັນທຶກຈາກໄມໂຄຣໂຟນໄດ້.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "ບໍ່ໄດ້ຍິນຫຍັງເລີຍ. ກວດເບິ່ງວ່າແມ່ນໄມໂຄຣໂຟນທີ່ຖືກຕ້ອງ, ສຽບຢູ່ ແລະ ບໍ່ໄດ້ປິດສຽງ.",
+  "It heard you. If the playback sounded right, the microphone works.": "ໄດ້ຍິນທ່ານແລ້ວ. ຖ້າການຫຼິ້ນຄືນຟັງຖືກຕ້ອງ, ໄມໂຄຣໂຟນໃຊ້ໄດ້.",
+  "Sound": "ສຽງ",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "ເລືອກວ່າສຽງຈະອອກໃສ ແລະ ເກມ ແລະ ການໂທໃຊ້ໄມໂຄຣໂຟນໃດ, ແລ້ວລອງໃຊ້.",
+  "No sound devices were found.": "ບໍ່ພົບອຸປະກອນສຽງ.",
+  "Speakers or headphones": "ລຳໂພງ ຫຼື ຫູຟັງ",
+  "Play a test sound": "ຫຼິ້ນສຽງທົດສອບ",
+  "Test the microphone": "ທົດສອບໄມໂຄຣໂຟນ",
+  "This microphone is muted.": "ໄມໂຄຣໂຟນນີ້ຖືກປິດສຽງ.",
+  "Unmute": "ເປີດສຽງ"
 }

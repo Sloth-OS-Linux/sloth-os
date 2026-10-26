@@ -711,5 +711,18 @@
   "Microphone": "Mikrofoon",
   "Location": "Ligging",
   "No app can use it.": "Geen program kan dit gebruik nie.",
-  "Change app permissions": "Verander programtoestemmings"
+  "Change app permissions": "Verander programtoestemmings",
+  "Say something now…": "Sê nou iets…",
+  "Playing it back…": "Speel dit terug…",
+  "Couldn't record from the microphone.": "Kon nie van die mikrofoon opneem nie.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Dit het niks gehoor nie. Kontroleer dat dit die regte mikrofoon is, dat dit ingeprop is en nie gedemp is nie.",
+  "It heard you. If the playback sounded right, the microphone works.": "Dit het jou gehoor. As die terugspeel reg geklink het, werk die mikrofoon.",
+  "Sound": "Klank",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Kies waarheen die klank gaan en watter mikrofoon speletjies en oproepe gebruik, en probeer dit dan.",
+  "No sound devices were found.": "Geen klanktoestelle is gevind nie.",
+  "Speakers or headphones": "Luidsprekers of oorfone",
+  "Play a test sound": "Speel 'n toetsklank",
+  "Test the microphone": "Toets die mikrofoon",
+  "This microphone is muted.": "Hierdie mikrofoon is gedemp.",
+  "Unmute": "Ontdemp"
 }

@@ -172,7 +172,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Kontrollerek -------------------------------------------------------------
+        // --- Controllers ---------------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -231,6 +231,123 @@ Kirigami.ScrollablePage {
                         icon.name: "input-gamepad"
                         text: L.t("Test the buttons")
                         onClicked: gamepads.openSettings("kcm_gamecontroller")
+                    }
+                }
+            }
+        }
+
+        // --- Sound: where it goes, which microphone, and trying both (sound.py) --------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            Component.onCompleted: sound.refresh()
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Sound") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: sound.outputs.length || sound.inputs.length
+                          ? L.t("Choose where the sound goes and which microphone games and calls use, then try them.")
+                          : L.t("No sound devices were found.")
+                }
+                GridLayout {
+                    Layout.fillWidth: true
+                    columns: 3
+                    columnSpacing: Kirigami.Units.largeSpacing
+                    rowSpacing: Kirigami.Units.largeSpacing
+                    visible: sound.outputs.length > 0
+
+                    Kirigami.Icon {
+                        source: "audio-headphones"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        QQC2.Label { text: L.t("Speakers or headphones"); font.bold: true }
+                        QQC2.ComboBox {
+                            Layout.fillWidth: true
+                            model: sound.outputs
+                            textRole: "label"
+                            currentIndex: sound.outputs.findIndex(d => d.name === sound.currentOutput)
+                            onActivated: index => sound.setOutput(sound.outputs[index].name)
+                        }
+                    }
+                    QQC2.Button {
+                        Layout.alignment: Qt.AlignBottom
+                        icon.name: "media-playback-start"
+                        text: L.t("Play a test sound")
+                        onClicked: sound.playTest()
+                    }
+                }
+                GridLayout {
+                    Layout.fillWidth: true
+                    columns: 3
+                    columnSpacing: Kirigami.Units.largeSpacing
+                    rowSpacing: Kirigami.Units.largeSpacing
+                    visible: sound.inputs.length > 0
+
+                    Kirigami.Icon {
+                        source: "audio-input-microphone"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        QQC2.Label { text: L.t("Microphone"); font.bold: true }
+                        QQC2.ComboBox {
+                            Layout.fillWidth: true
+                            enabled: sound.micState !== "recording" && sound.micState !== "playing"
+                            model: sound.inputs
+                            textRole: "label"
+                            currentIndex: sound.inputs.findIndex(d => d.name === sound.currentInput)
+                            onActivated: index => sound.setInput(sound.inputs[index].name)
+                        }
+                    }
+                    QQC2.Button {
+                        Layout.alignment: Qt.AlignBottom
+                        icon.name: "audio-input-microphone"
+                        text: L.t("Test the microphone")
+                        enabled: sound.micState !== "recording" && sound.micState !== "playing"
+                        onClicked: sound.testMic()
+                    }
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: sound.inputMuted
+                    type: Kirigami.MessageType.Warning
+                    text: L.t("This microphone is muted.")
+                    actions: [
+                        Kirigami.Action {
+                            text: L.t("Unmute")
+                            icon.name: "audio-input-microphone"
+                            onTriggered: sound.unmuteInput()
+                        }
+                    ]
+                }
+                RowLayout {
+                    Layout.fillWidth: true
+                    visible: sound.micText !== ""
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.BusyIndicator {
+                        visible: sound.micState === "recording" || sound.micState === "playing"
+                        running: visible
+                        implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                        implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                    }
+                    Kirigami.Icon {
+                        visible: !(sound.micState === "recording" || sound.micState === "playing")
+                        source: sound.micState === "ok" ? "emblem-ok-symbolic" : "emblem-warning"
+                        implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                        implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: sound.micText
                     }
                 }
             }

@@ -711,5 +711,18 @@
   "Microphone": "Mikrofon",
   "Location": "Lokasi",
   "No app can use it.": "Tidak ada aplikasi yang dapat menggunakannya.",
-  "Change app permissions": "Ubah izin aplikasi"
+  "Change app permissions": "Ubah izin aplikasi",
+  "Say something now…": "Ucapkan sesuatu sekarang…",
+  "Playing it back…": "Memutar ulang…",
+  "Couldn't record from the microphone.": "Tidak dapat merekam dari mikrofon.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Tidak terdengar apa pun. Periksa apakah ini mikrofon yang benar, sudah tercolok, dan tidak dibisukan.",
+  "It heard you. If the playback sounded right, the microphone works.": "Suara Anda terdengar. Jika pemutaran ulang terdengar benar, mikrofon berfungsi.",
+  "Sound": "Suara",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Pilih ke mana suara keluar dan mikrofon mana yang dipakai game dan panggilan, lalu coba keduanya.",
+  "No sound devices were found.": "Tidak ditemukan perangkat suara.",
+  "Speakers or headphones": "Speaker atau headphone",
+  "Play a test sound": "Putar suara uji",
+  "Test the microphone": "Uji mikrofon",
+  "This microphone is muted.": "Mikrofon ini dibisukan.",
+  "Unmute": "Bunyikan"
 }

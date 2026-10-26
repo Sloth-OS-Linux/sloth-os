@@ -711,5 +711,18 @@
   "Microphone": "Microfoon",
   "Location": "Locatie",
   "No app can use it.": "Geen enkele app kan het gebruiken.",
-  "Change app permissions": "App-machtigingen wijzigen"
+  "Change app permissions": "App-machtigingen wijzigen",
+  "Say something now…": "Zeg nu iets…",
+  "Playing it back…": "Afspelen…",
+  "Couldn't record from the microphone.": "Kon niet opnemen met de microfoon.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Er was niets te horen. Controleer of dit de juiste microfoon is, of hij is aangesloten en niet gedempt is.",
+  "It heard you. If the playback sounded right, the microphone works.": "Je was te horen. Als het afspelen goed klonk, werkt de microfoon.",
+  "Sound": "Geluid",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Kies waar het geluid heen gaat en welke microfoon games en gesprekken gebruiken, en probeer ze daarna uit.",
+  "No sound devices were found.": "Er zijn geen geluidsapparaten gevonden.",
+  "Speakers or headphones": "Luidsprekers of koptelefoon",
+  "Play a test sound": "Testgeluid afspelen",
+  "Test the microphone": "Microfoon testen",
+  "This microphone is muted.": "Deze microfoon is gedempt.",
+  "Unmute": "Dempen opheffen"
 }

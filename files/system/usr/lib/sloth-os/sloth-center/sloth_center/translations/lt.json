@@ -711,5 +711,18 @@
   "Microphone": "Mikrofonas",
   "Location": "Vieta",
   "No app can use it.": "Jokia programa negali to naudoti.",
-  "Change app permissions": "Keisti programų leidimus"
+  "Change app permissions": "Keisti programų leidimus",
+  "Say something now…": "Dabar ką nors pasakykite…",
+  "Playing it back…": "Atkuriama…",
+  "Couldn't record from the microphone.": "Nepavyko įrašyti iš mikrofono.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Nieko negirdėjo. Patikrinkite, ar tai tinkamas mikrofonas, ar jis prijungtas ir ar neišjungtas jo garsas.",
+  "It heard you. If the playback sounded right, the microphone works.": "Jus girdėjo. Jei atkūrimas skambėjo gerai, mikrofonas veikia.",
+  "Sound": "Garsas",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Pasirinkite, kur eina garsas ir kurį mikrofoną naudoja žaidimai ir skambučiai, tada juos išbandykite.",
+  "No sound devices were found.": "Garso įrenginių nerasta.",
+  "Speakers or headphones": "Garsiakalbiai arba ausinės",
+  "Play a test sound": "Groti bandomąjį garsą",
+  "Test the microphone": "Išbandyti mikrofoną",
+  "This microphone is muted.": "Šio mikrofono garsas išjungtas.",
+  "Unmute": "Įjungti garsą"
 }

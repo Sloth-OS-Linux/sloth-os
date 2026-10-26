@@ -711,5 +711,18 @@
   "Microphone": "마이크",
   "Location": "위치",
   "No app can use it.": "사용할 수 있는 앱이 없습니다.",
-  "Change app permissions": "앱 권한 변경"
+  "Change app permissions": "앱 권한 변경",
+  "Say something now…": "지금 무언가 말해 보세요…",
+  "Playing it back…": "다시 재생하는 중…",
+  "Couldn't record from the microphone.": "마이크에서 녹음하지 못했습니다.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "아무 소리도 들리지 않았습니다. 올바른 마이크인지, 연결되어 있는지, 음소거되지 않았는지 확인하세요.",
+  "It heard you. If the playback sounded right, the microphone works.": "목소리가 들렸습니다. 재생 소리가 괜찮다면 마이크가 작동합니다.",
+  "Sound": "소리",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "소리가 나갈 곳과 게임과 통화에서 쓸 마이크를 고른 뒤 테스트해 보세요.",
+  "No sound devices were found.": "소리 장치를 찾지 못했습니다.",
+  "Speakers or headphones": "스피커 또는 헤드폰",
+  "Play a test sound": "테스트 소리 재생",
+  "Test the microphone": "마이크 테스트",
+  "This microphone is muted.": "이 마이크는 음소거되어 있습니다.",
+  "Unmute": "음소거 해제"
 }

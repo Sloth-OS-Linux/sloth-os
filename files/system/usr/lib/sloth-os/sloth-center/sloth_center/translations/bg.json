@@ -711,5 +711,18 @@
   "Microphone": "Микрофон",
   "Location": "Местоположение",
   "No app can use it.": "Никое приложение не може да го използва.",
-  "Change app permissions": "Промяна на разрешенията"
+  "Change app permissions": "Промяна на разрешенията",
+  "Say something now…": "Кажете нещо сега…",
+  "Playing it back…": "Възпроизвеждане…",
+  "Couldn't record from the microphone.": "Не можа да се запише от микрофона.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Нищо не се чу. Проверете дали това е правилният микрофон, дали е включен и дали не е заглушен.",
+  "It heard you. If the playback sounded right, the microphone works.": "Чухте се. Ако записът звучеше добре, микрофонът работи.",
+  "Sound": "Звук",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Изберете къде отива звукът и кой микрофон ползват игрите и разговорите, после ги изпробвайте.",
+  "No sound devices were found.": "Не са намерени звукови устройства.",
+  "Speakers or headphones": "Високоговорители или слушалки",
+  "Play a test sound": "Пускане на пробен звук",
+  "Test the microphone": "Проба на микрофона",
+  "This microphone is muted.": "Този микрофон е заглушен.",
+  "Unmute": "Включване на звука"
 }

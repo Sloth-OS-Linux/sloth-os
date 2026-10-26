@@ -711,5 +711,18 @@
   "Microphone": "Mikrofon",
   "Location": "Konum",
   "No app can use it.": "Hiçbir uygulama kullanamıyor.",
-  "Change app permissions": "Uygulama izinlerini değiştir"
+  "Change app permissions": "Uygulama izinlerini değiştir",
+  "Say something now…": "Şimdi bir şey söyleyin…",
+  "Playing it back…": "Geri oynatılıyor…",
+  "Couldn't record from the microphone.": "Mikrofondan kayıt yapılamadı.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Hiçbir şey duyulmadı. Doğru mikrofon olduğunu, takılı olduğunu ve sesinin kapalı olmadığını denetleyin.",
+  "It heard you. If the playback sounded right, the microphone works.": "Sizi duydu. Geri oynatma doğru geldiyse mikrofon çalışıyor.",
+  "Sound": "Ses",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Sesin nereye gideceğini ve oyunlarla aramaların hangi mikrofonu kullanacağını seçin, sonra deneyin.",
+  "No sound devices were found.": "Ses aygıtı bulunamadı.",
+  "Speakers or headphones": "Hoparlörler veya kulaklık",
+  "Play a test sound": "Deneme sesi çal",
+  "Test the microphone": "Mikrofonu dene",
+  "This microphone is muted.": "Bu mikrofonun sesi kapalı.",
+  "Unmute": "Sesi aç"
 }

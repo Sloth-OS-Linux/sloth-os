@@ -711,5 +711,18 @@
   "Microphone": "Asawaḍ",
   "Location": "Adig",
   "No app can use it.": "Ulac asnas i yezmren ad t-isseqdec.",
-  "Change app permissions": "Beddel tisirag n yisnasen"
+  "Change app permissions": "Beddel tisirag n yisnasen",
+  "Say something now…": "Ini kra tura…",
+  "Playing it back…": "Taɣuri n usekles…",
+  "Couldn't record from the microphone.": "Ur yezmir ara ad isekles seg usawaḍ.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Ur yesli i wacemma. Senqed ma d asawaḍ ilaqen, ma yeqqen, ma ur yettwasusem ara.",
+  "It heard you. If the playback sounded right, the microphone works.": "Yesla-k·m. Ma yella taɣuri tella akken iwata, asawaḍ yeddu.",
+  "Sound": "Imesli",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Fren anida ara iruḥ imesli d wanta n usawaḍ i sseqdacen wurar d yisawalen, syin ɛreḍ-ten.",
+  "No sound devices were found.": "Ulac ibenkan n imesli i yettwafen.",
+  "Speakers or headphones": "Imesmeɣren neɣ isafagen n umeẓẓuɣ",
+  "Play a test sound": "Urar imesli n usekyed",
+  "Test the microphone": "Sekyed asawaḍ",
+  "This microphone is muted.": "Asawaḍ-a yettwasusem.",
+  "Unmute": "Kkes asusem"
 }

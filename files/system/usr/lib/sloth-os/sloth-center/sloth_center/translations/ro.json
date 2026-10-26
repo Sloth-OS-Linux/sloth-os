@@ -711,5 +711,18 @@
   "Microphone": "Microfon",
   "Location": "Locație",
   "No app can use it.": "Nicio aplicație nu îl poate folosi.",
-  "Change app permissions": "Schimbați permisiunile aplicațiilor"
+  "Change app permissions": "Schimbați permisiunile aplicațiilor",
+  "Say something now…": "Spuneți ceva acum…",
+  "Playing it back…": "Se redă…",
+  "Couldn't record from the microphone.": "Nu s-a putut înregistra de la microfon.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Nu s-a auzit nimic. Verificați că este microfonul potrivit, că este conectat și că nu este dezactivat.",
+  "It heard you. If the playback sounded right, the microphone works.": "V-a auzit. Dacă redarea a sunat bine, microfonul funcționează.",
+  "Sound": "Sunet",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Alegeți unde merge sunetul și ce microfon folosesc jocurile și apelurile, apoi încercați-le.",
+  "No sound devices were found.": "Nu s-au găsit dispozitive de sunet.",
+  "Speakers or headphones": "Difuzoare sau căști",
+  "Play a test sound": "Redă un sunet de test",
+  "Test the microphone": "Testează microfonul",
+  "This microphone is muted.": "Acest microfon este dezactivat.",
+  "Unmute": "Activează sunetul"
 }

@@ -711,5 +711,18 @@
   "Microphone": "Mikrofono",
   "Location": "Loko",
   "No app can use it.": "Neniu aplikaĵo povas uzi ĝin.",
-  "Change app permissions": "Ŝanĝi aplikaĵajn permesojn"
+  "Change app permissions": "Ŝanĝi aplikaĵajn permesojn",
+  "Say something now…": "Diru ion nun…",
+  "Playing it back…": "Reludante…",
+  "Couldn't record from the microphone.": "Ne eblis registri el la mikrofono.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Ĝi aŭdis nenion. Kontrolu, ke ĉi tiu estas la ĝusta mikrofono, ke ĝi estas konektita kaj ne silentigita.",
+  "It heard you. If the playback sounded right, the microphone works.": "Ĝi aŭdis vin. Se la reludado sonis ĝuste, la mikrofono funkcias.",
+  "Sound": "Sono",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Elektu, kien iras la sono kaj kiun mikrofonon uzas ludoj kaj vokoj, poste provu ilin.",
+  "No sound devices were found.": "Neniuj sonaparatoj troviĝis.",
+  "Speakers or headphones": "Laŭtparoliloj aŭ aŭdiloj",
+  "Play a test sound": "Ludi provan sonon",
+  "Test the microphone": "Provi la mikrofonon",
+  "This microphone is muted.": "Ĉi tiu mikrofono estas silentigita.",
+  "Unmute": "Malsilentigi"
 }

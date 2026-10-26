@@ -711,5 +711,18 @@
   "Microphone": "Mikrofon",
   "Location": "Standort",
   "No app can use it.": "Keine App kann darauf zugreifen.",
-  "Change app permissions": "App-Berechtigungen ändern"
+  "Change app permissions": "App-Berechtigungen ändern",
+  "Say something now…": "Sagen Sie jetzt etwas …",
+  "Playing it back…": "Wird abgespielt …",
+  "Couldn't record from the microphone.": "Vom Mikrofon konnte nicht aufgenommen werden.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Es war nichts zu hören. Prüfen Sie, ob das das richtige Mikrofon ist, ob es eingesteckt und nicht stummgeschaltet ist.",
+  "It heard you. If the playback sounded right, the microphone works.": "Sie waren zu hören. Wenn die Wiedergabe richtig klang, funktioniert das Mikrofon.",
+  "Sound": "Ton",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Wählen Sie, wohin der Ton geht und welches Mikrofon Spiele und Anrufe nutzen, und probieren Sie beides aus.",
+  "No sound devices were found.": "Es wurden keine Audiogeräte gefunden.",
+  "Speakers or headphones": "Lautsprecher oder Kopfhörer",
+  "Play a test sound": "Testton abspielen",
+  "Test the microphone": "Mikrofon testen",
+  "This microphone is muted.": "Dieses Mikrofon ist stummgeschaltet.",
+  "Unmute": "Stummschaltung aufheben"
 }

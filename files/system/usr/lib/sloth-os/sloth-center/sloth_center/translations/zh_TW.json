@@ -711,5 +711,18 @@
   "Microphone": "麥克風",
   "Location": "位置",
   "No app can use it.": "沒有應用程式可以使用。",
-  "Change app permissions": "變更應用程式權限"
+  "Change app permissions": "變更應用程式權限",
+  "Say something now…": "現在說點什麼…",
+  "Playing it back…": "正在播放錄音…",
+  "Couldn't record from the microphone.": "無法從麥克風錄音。",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "什麼也沒聽到。請檢查這是否是正確的麥克風、是否已插好，以及是否被靜音。",
+  "It heard you. If the playback sounded right, the microphone works.": "聽到你的聲音了。如果播放聽起來正常，麥克風就沒問題。",
+  "Sound": "聲音",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "選擇聲音從哪裡輸出，以及遊戲和通話使用哪個麥克風，然後試試看。",
+  "No sound devices were found.": "找不到聲音裝置。",
+  "Speakers or headphones": "喇叭或耳機",
+  "Play a test sound": "播放測試音",
+  "Test the microphone": "測試麥克風",
+  "This microphone is muted.": "這個麥克風已靜音。",
+  "Unmute": "取消靜音"
 }

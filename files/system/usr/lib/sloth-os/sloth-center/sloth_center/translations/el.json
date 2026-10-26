@@ -711,5 +711,18 @@
   "Microphone": "Μικρόφωνο",
   "Location": "Τοποθεσία",
   "No app can use it.": "Καμία εφαρμογή δεν μπορεί να το χρησιμοποιήσει.",
-  "Change app permissions": "Αλλαγή δικαιωμάτων εφαρμογών"
+  "Change app permissions": "Αλλαγή δικαιωμάτων εφαρμογών",
+  "Say something now…": "Πείτε κάτι τώρα…",
+  "Playing it back…": "Αναπαραγωγή…",
+  "Couldn't record from the microphone.": "Δεν ήταν δυνατή η ηχογράφηση από το μικρόφωνο.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Δεν ακούστηκε τίποτα. Ελέγξτε ότι είναι το σωστό μικρόφωνο, ότι είναι συνδεδεμένο και ότι δεν είναι σε σίγαση.",
+  "It heard you. If the playback sounded right, the microphone works.": "Σας άκουσε. Αν η αναπαραγωγή ακούστηκε σωστά, το μικρόφωνο λειτουργεί.",
+  "Sound": "Ήχος",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Επιλέξτε πού πηγαίνει ο ήχος και ποιο μικρόφωνο χρησιμοποιούν τα παιχνίδια και οι κλήσεις και δοκιμάστε τα.",
+  "No sound devices were found.": "Δεν βρέθηκαν συσκευές ήχου.",
+  "Speakers or headphones": "Ηχεία ή ακουστικά",
+  "Play a test sound": "Αναπαραγωγή δοκιμαστικού ήχου",
+  "Test the microphone": "Δοκιμή μικροφώνου",
+  "This microphone is muted.": "Αυτό το μικρόφωνο είναι σε σίγαση.",
+  "Unmute": "Κατάργηση σίγασης"
 }

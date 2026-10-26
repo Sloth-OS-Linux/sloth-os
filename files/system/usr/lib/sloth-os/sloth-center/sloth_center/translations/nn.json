@@ -711,5 +711,18 @@
   "Microphone": "Mikrofon",
   "Location": "Posisjon",
   "No app can use it.": "Ingen app kan bruke han.",
-  "Change app permissions": "Endre appløyve"
+  "Change app permissions": "Endre appløyve",
+  "Say something now…": "Sei noko no …",
+  "Playing it back…": "Speler av …",
+  "Couldn't record from the microphone.": "Klarte ikkje å ta opp frå mikrofonen.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Han høyrde ingenting. Sjekk at dette er rett mikrofon, at han er kopla til og at han ikkje er dempa.",
+  "It heard you. If the playback sounded right, the microphone works.": "Han høyrde deg. Om avspelinga høyrdest rett ut, verkar mikrofonen.",
+  "Sound": "Lyd",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Vel kvar lyden skal gå og kva mikrofon spel og samtalar brukar, og prøv dei etterpå.",
+  "No sound devices were found.": "Fann ingen lydeiningar.",
+  "Speakers or headphones": "Høgtalarar eller hovudtelefonar",
+  "Play a test sound": "Spel av ein testlyd",
+  "Test the microphone": "Test mikrofonen",
+  "This microphone is muted.": "Denne mikrofonen er dempa.",
+  "Unmute": "Slå på lyd"
 }

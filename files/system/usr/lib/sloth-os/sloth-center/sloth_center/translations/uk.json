@@ -711,5 +711,18 @@
   "Microphone": "Мікрофон",
   "Location": "Розташування",
   "No app can use it.": "Жодна програма не може цим користуватися.",
-  "Change app permissions": "Змінити дозволи програм"
+  "Change app permissions": "Змінити дозволи програм",
+  "Say something now…": "Скажіть щось зараз…",
+  "Playing it back…": "Відтворення запису…",
+  "Couldn't record from the microphone.": "Не вдалося записати з мікрофона.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Нічого не чути. Перевірте, що це потрібний мікрофон, що його під'єднано і що звук не вимкнено.",
+  "It heard you. If the playback sounded right, the microphone works.": "Вас почуто. Якщо запис прозвучав нормально, мікрофон працює.",
+  "Sound": "Звук",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Виберіть, куди йде звук і який мікрофон використовують ігри та дзвінки, а потім перевірте їх.",
+  "No sound devices were found.": "Звукові пристрої не знайдено.",
+  "Speakers or headphones": "Динаміки або навушники",
+  "Play a test sound": "Відтворити перевірний звук",
+  "Test the microphone": "Перевірити мікрофон",
+  "This microphone is muted.": "Цей мікрофон вимкнено.",
+  "Unmute": "Увімкнути звук"
 }

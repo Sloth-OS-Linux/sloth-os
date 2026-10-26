@@ -711,5 +711,18 @@
   "Microphone": "マイク",
   "Location": "位置情報",
   "No app can use it.": "使えるアプリはありません。",
-  "Change app permissions": "アプリの権限を変更"
+  "Change app permissions": "アプリの権限を変更",
+  "Say something now…": "何か話してください…",
+  "Playing it back…": "再生しています…",
+  "Couldn't record from the microphone.": "マイクから録音できませんでした。",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "何も聞こえませんでした。正しいマイクか、接続されているか、ミュートになっていないかを確認してください。",
+  "It heard you. If the playback sounded right, the microphone works.": "声が聞こえました。再生が正しく聞こえれば、マイクは使えます。",
+  "Sound": "サウンド",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "音の出力先と、ゲームや通話で使うマイクを選び、試してください。",
+  "No sound devices were found.": "サウンドデバイスが見つかりません。",
+  "Speakers or headphones": "スピーカーまたはヘッドホン",
+  "Play a test sound": "テスト音を再生",
+  "Test the microphone": "マイクを試す",
+  "This microphone is muted.": "このマイクはミュートされています。",
+  "Unmute": "ミュート解除"
 }

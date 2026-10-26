@@ -711,5 +711,18 @@
   "Microphone": "Mikrofon",
   "Location": "Asukoht",
   "No app can use it.": "Ükski rakendus ei saa seda kasutada.",
-  "Change app permissions": "Muuda rakenduste õigusi"
+  "Change app permissions": "Muuda rakenduste õigusi",
+  "Say something now…": "Ütle nüüd midagi…",
+  "Playing it back…": "Esitatakse…",
+  "Couldn't record from the microphone.": "Mikrofonist ei õnnestunud salvestada.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Midagi ei olnud kuulda. Kontrolli, et see on õige mikrofon, et see on ühendatud ja et see pole vaigistatud.",
+  "It heard you. If the playback sounded right, the microphone works.": "Sind oli kuulda. Kui taasesitus kõlas õigesti, töötab mikrofon.",
+  "Sound": "Heli",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Vali, kuhu heli läheb ja millist mikrofoni mängud ja kõned kasutavad, ning proovi neid.",
+  "No sound devices were found.": "Heliseadmeid ei leitud.",
+  "Speakers or headphones": "Kõlarid või kõrvaklapid",
+  "Play a test sound": "Esita proovheli",
+  "Test the microphone": "Proovi mikrofoni",
+  "This microphone is muted.": "See mikrofon on vaigistatud.",
+  "Unmute": "Tühista vaigistus"
 }

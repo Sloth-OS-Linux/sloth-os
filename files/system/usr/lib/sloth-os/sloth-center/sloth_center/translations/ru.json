@@ -711,5 +711,18 @@
   "Microphone": "Микрофон",
   "Location": "Местоположение",
   "No app can use it.": "Ни одно приложение не может этим пользоваться.",
-  "Change app permissions": "Изменить разрешения приложений"
+  "Change app permissions": "Изменить разрешения приложений",
+  "Say something now…": "Скажите что-нибудь…",
+  "Playing it back…": "Воспроизведение записи…",
+  "Couldn't record from the microphone.": "Не удалось записать с микрофона.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "Ничего не слышно. Проверьте, что это нужный микрофон, что он подключён и что звук не выключен.",
+  "It heard you. If the playback sounded right, the microphone works.": "Вас услышали. Если запись прозвучала нормально, микрофон работает.",
+  "Sound": "Звук",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "Выберите, куда идёт звук и какой микрофон используют игры и звонки, затем проверьте их.",
+  "No sound devices were found.": "Звуковые устройства не найдены.",
+  "Speakers or headphones": "Динамики или наушники",
+  "Play a test sound": "Воспроизвести проверочный звук",
+  "Test the microphone": "Проверить микрофон",
+  "This microphone is muted.": "Этот микрофон выключен.",
+  "Unmute": "Включить звук"
 }

@@ -711,5 +711,18 @@
   "Microphone": "מיקרופון",
   "Location": "מיקום",
   "No app can use it.": "אף יישום לא יכול להשתמש בזה.",
-  "Change app permissions": "שינוי הרשאות יישומים"
+  "Change app permissions": "שינוי הרשאות יישומים",
+  "Say something now…": "אמרו משהו עכשיו…",
+  "Playing it back…": "מנגן את ההקלטה…",
+  "Couldn't record from the microphone.": "לא ניתן היה להקליט מהמיקרופון.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "לא נשמע כלום. בדקו שזה המיקרופון הנכון, שהוא מחובר ושהוא לא מושתק.",
+  "It heard you. If the playback sounded right, the microphone works.": "שמענו אתכם. אם ההשמעה נשמעה תקינה, המיקרופון עובד.",
+  "Sound": "שמע",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "בחרו לאן הצליל יוצא ובאיזה מיקרופון משתמשים משחקים ושיחות, ואז נסו אותם.",
+  "No sound devices were found.": "לא נמצאו התקני שמע.",
+  "Speakers or headphones": "רמקולים או אוזניות",
+  "Play a test sound": "השמעת צליל בדיקה",
+  "Test the microphone": "בדיקת המיקרופון",
+  "This microphone is muted.": "המיקרופון הזה מושתק.",
+  "Unmute": "ביטול השתקה"
 }

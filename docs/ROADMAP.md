@@ -183,7 +183,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
   restores normal settings when it closes.
 - [ ] **Medium** — Add a performance display for frame rate, system load, and supported temperature sensors.
-- [ ] **Medium** — Make it easy to test and select controllers, microphones, and audio output devices before gaming.
+- [x] **Medium** — Test and select controllers, microphones, and audio output devices before gaming (2026-10-26):
+  Drivers and hardware → Sound: choose the speakers or headphones and the microphone (the default for games and
+  calls), "Play a test sound", "Test the microphone" (records four seconds, says whether it heard anything, plays
+  it back), and a muted microphone can be unmuted. The controllers were already there (list, battery, pairing,
+  "Test the buttons"). Tests: `tools/tests/test_sound.py`. Check on a real machine
 - [ ] **Medium** — Share concise, community-informed game fixes with version details and a way to report outdated guidance.
 - [ ] **Large** — When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
 - [ ] **Medium** — Help users move supported game libraries between drives without downloading again, updating launcher paths.

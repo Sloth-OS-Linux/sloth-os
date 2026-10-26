@@ -711,5 +711,18 @@
   "Microphone": "மைக்ரோஃபோன்",
   "Location": "இருப்பிடம்",
   "No app can use it.": "எந்தச் செயலியும் இதைப் பயன்படுத்த முடியாது.",
-  "Change app permissions": "செயலி அனுமதிகளை மாற்று"
+  "Change app permissions": "செயலி அனுமதிகளை மாற்று",
+  "Say something now…": "இப்போது ஏதாவது பேசுங்கள்…",
+  "Playing it back…": "மீண்டும் இயக்குகிறது…",
+  "Couldn't record from the microphone.": "மைக்ரோஃபோனிலிருந்து பதிவு செய்ய முடியவில்லை.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "எதுவும் கேட்கவில்லை. இது சரியான மைக்ரோஃபோனா, இணைக்கப்பட்டுள்ளதா, ஒலியடக்கப்படவில்லையா எனச் சரிபாருங்கள்.",
+  "It heard you. If the playback sounded right, the microphone works.": "உங்கள் குரல் கேட்டது. மீண்டும் இயக்கியது சரியாக ஒலித்தால், மைக்ரோஃபோன் வேலை செய்கிறது.",
+  "Sound": "ஒலி",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "ஒலி எங்கே செல்ல வேண்டும், விளையாட்டுகளும் அழைப்புகளும் எந்த மைக்ரோஃபோனைப் பயன்படுத்த வேண்டும் என்பதைத் தேர்ந்தெடுத்து, சோதித்துப் பாருங்கள்.",
+  "No sound devices were found.": "ஒலி சாதனங்கள் எதுவும் கிடைக்கவில்லை.",
+  "Speakers or headphones": "ஸ்பீக்கர்கள் அல்லது ஹெட்ஃபோன்கள்",
+  "Play a test sound": "சோதனை ஒலியை இயக்கு",
+  "Test the microphone": "மைக்ரோஃபோனைச் சோதி",
+  "This microphone is muted.": "இந்த மைக்ரோஃபோன் ஒலியடக்கப்பட்டுள்ளது.",
+  "Unmute": "ஒலியடக்கத்தை நீக்கு"
 }

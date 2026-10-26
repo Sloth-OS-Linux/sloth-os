@@ -711,5 +711,18 @@
   "Microphone": "მიკროფონი",
   "Location": "მდებარეობა",
   "No app can use it.": "ვერცერთ აპს არ შეუძლია მისი გამოყენება.",
-  "Change app permissions": "აპების ნებართვების შეცვლა"
+  "Change app permissions": "აპების ნებართვების შეცვლა",
+  "Say something now…": "ახლა თქვით რამე…",
+  "Playing it back…": "ჩანაწერის დაკვრა…",
+  "Couldn't record from the microphone.": "მიკროფონიდან ჩაწერა ვერ მოხერხდა.",
+  "It heard nothing. Check that this is the right microphone, that it is plugged in, and that it isn't muted.": "ვერაფერი გაიგო. შეამოწმეთ, სწორი მიკროფონია თუ არა, შეერთებულია თუ არა და არ არის თუ არა დადუმებული.",
+  "It heard you. If the playback sounded right, the microphone works.": "გაიგო თქვენი ხმა. თუ დაკვრა სწორად ჟღერდა, მიკროფონი მუშაობს.",
+  "Sound": "ხმა",
+  "Choose where the sound goes and which microphone games and calls use, then try them.": "აირჩიეთ, სად წავიდეს ხმა და რომელ მიკროფონს იყენებენ თამაშები და ზარები, შემდეგ გამოცადეთ.",
+  "No sound devices were found.": "ხმის მოწყობილობები ვერ მოიძებნა.",
+  "Speakers or headphones": "დინამიკები ან ყურსასმენები",
+  "Play a test sound": "საცდელი ხმის დაკვრა",
+  "Test the microphone": "მიკროფონის გამოცდა",
+  "This microphone is muted.": "ეს მიკროფონი დადუმებულია.",
+  "Unmute": "დადუმების მოხსნა"
 }
