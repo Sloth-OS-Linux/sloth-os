@@ -84,6 +84,8 @@ jobs:
             echo "::error::The layer named by ostree.final-diffid is missing: $final"; exit 1
           fi
           mkdir -p out && truncate -s 40G out/disk.raw
+          # the image has no install configuration of its own: btrfs, as the installer makes it
           sudo podman run --rm --privileged --pid=host --security-opt label=type:unconfined_t \
             -v /var/lib/containers:/var/lib/containers -v /dev:/dev -v "$PWD/out:/output" \
-            "$repo:$tag" bootc install to-disk --via-loopback --generic-image --skip-fetch-check --wipe /output/disk.raw
+            "$repo:$tag" bootc install to-disk --via-loopback --generic-image --skip-fetch-check --wipe \
+            --filesystem btrfs /output/disk.raw
