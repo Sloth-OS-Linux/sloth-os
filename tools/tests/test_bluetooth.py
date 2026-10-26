@@ -70,5 +70,21 @@ class Parse(unittest.TestCase):
         self.assertFalse(bluetooth.parse(managed({"/org/bluez": {}}))["adapter"])
 
 
+class Read(unittest.TestCase):
+    def run_with(self, rfkill):
+        return lambda cmd: rfkill if cmd[0] == "rfkill" else managed(OBJECTS)
+
+    def test_on(self):
+        r = bluetooth.read(self.run_with("wlan unblocked unblocked\nbluetooth unblocked unblocked\n"))
+        self.assertTrue(r["powered"])
+        self.assertEqual(len(r["devices"]), 2)
+
+    def test_turned_off_in_the_tray(self):
+        # KDE's applet blocks it with rfkill; BlueZ may still say Powered for a moment
+        r = bluetooth.read(self.run_with("bluetooth blocked unblocked\n"))
+        self.assertEqual((r["adapter"], r["powered"], r["devices"]), (True, False, []))
+        self.assertTrue(bluetooth.blocked(lambda cmd: "bluetooth unblocked blocked\n"))
+
+
 if __name__ == "__main__":
     unittest.main()

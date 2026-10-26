@@ -362,6 +362,13 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             visible: bluetooth.checked
             Component.onCompleted: bluetooth.refresh()
+            // follows turning it on and off in the tray too, while the page is open
+            Timer {
+                interval: 3000
+                repeat: true
+                running: page.visible && Qt.application.state === Qt.ApplicationActive
+                onTriggered: bluetooth.refresh()
+            }
             contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Heading { level: 3; text: L.t("Bluetooth") }

@@ -57,8 +57,22 @@ def parse(text):
     return result
 
 
+def blocked(run=_run):
+    """Whether Bluetooth is turned off with an rfkill block (KDE's applet, an airplane-mode key)."""
+    for line in run(["rfkill", "-n", "-o", "TYPE,SOFT,HARD"]).splitlines():
+        parts = line.split()
+        if len(parts) == 3 and parts[0] == "bluetooth" and "blocked" in parts[1:]:
+            return True
+    return False
+
+
 def read(run=_run):
-    return parse(run(BUS + ["call", "org.bluez", "/", "org.freedesktop.DBus.ObjectManager", "GetManagedObjects"]))
+    result = parse(run(BUS + ["call", "org.bluez", "/", "org.freedesktop.DBus.ObjectManager", "GetManagedObjects"]))
+    # a blocked adapter can still report Powered for a moment: the block is what KDE's applet shows
+    if result["adapter"] and blocked(run):
+        result["powered"] = False
+        result["devices"] = []
+    return result
 
 
 class BluetoothController(QObject):
