@@ -84,7 +84,7 @@ if (kind === "mac") {
     dock.alignment = "center";
     addTasks(dock);
 } else if (kind === "ubuntu") {
-    // A top bar with the date and time in the middle, a dock on the left with the app grid at its bottom
+    // A top bar with the date and time in the middle, a dock on the left with the app grid at its end
     const top = new Panel;
     top.location = "top";
     top.height = Math.round(gridUnit * 1.6);
@@ -95,15 +95,25 @@ if (kind === "mac") {
     clock.writeConfig("dateDisplayFormat", "BesideTime");
     top.addWidget("org.kde.plasma.panelspacer");
     top.addWidget("org.kde.plasma.systemtray");
+    // Floating and only as tall as its icons: it does not run into the top bar, its corners are rounded
     const dock = new Panel;
     dock.location = "left";
     dock.height = Math.round(gridUnit * 3.2);
-    dock.floating = false;
+    dock.floating = true;
+    dock.lengthMode = "fit";
+    dock.alignment = "center";
     addTasks(dock);
-    dock.addWidget("org.kde.plasma.panelspacer");
-    const grid = dock.addWidget("org.kde.plasma.kickerdash");
+    dock.addWidget("org.kde.plasma.marginsseparator");
+    // The app grid: the Start menu with large icons in a grid, sliding out from the dock
+    const grid = dock.addWidget("org.kde.plasma.kickoff");
     grid.currentConfigGroup = ["General"];
     grid.writeConfig("icon", "view-app-grid-symbolic");
+    grid.writeConfig("favoritesDisplay", 0);     // 0 = grid
+    grid.writeConfig("applicationsDisplay", 0);
+    // a roomy popup (Plasma keeps its size at the top of the widget's settings, not in General)
+    grid.currentConfigGroup = [];
+    grid.writeConfig("popupWidth", Math.round(gridUnit * 50));
+    grid.writeConfig("popupHeight", Math.round(gridUnit * 36));
 } else {
     const panel = new Panel;
     panel.location = "bottom";

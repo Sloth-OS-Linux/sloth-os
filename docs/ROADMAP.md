@@ -31,8 +31,9 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] Appearance in Sloth Center (2026-10-26): the color schemes and taskbar layouts of the welcome wizard can be
   changed any time later. Both tools use the same code (`sloth_common/appearance.py`) and the same drawings
   (`sloth_common/qml/SlothCommon/LayoutPreview.qml`), so a layout looks the same whichever set it. New layout:
-  Ubuntu-like (top bar with the date and time in the middle, a dock on the left with the app grid at its
-  bottom); GNOME itself is not added, KDE Plasma draws this look. Tests: `tools/tests/test_appearance.py`.
+  Ubuntu-like (top bar with the date and time in the middle, a floating dock on the left that does not run into
+  the top bar; the app grid slides out from the dock as the Start menu with large icons in a grid); GNOME
+  itself is not added, KDE Plasma draws this look. Clicking the current layout in Sloth Center builds it again. Tests: `tools/tests/test_appearance.py`.
   Check on a real machine (every layout, switching back and forth, the pinned apps stay)
 - [x] Installers heal themselves and are remembered too (2026-10-26): what installed an installer before (here,
   or from the shared knowledge) goes first; if the installer crashes or its log shows a known missing component

@@ -45,23 +45,25 @@ Rectangle {
             }
         }
     }
-    // dock on the left (Ubuntu), the app grid at its bottom
+    // floating dock on the left (Ubuntu), centred below the top bar, the app grid at its end
     Rectangle {
         visible: screen.kind === "ubuntu"
-        anchors { left: parent.left; top: topBar.bottom; bottom: parent.bottom; margins: 3 }
-        width: 12; radius: 2; color: screen.bar
+        x: 4
+        y: topBar.y + topBar.height + (parent.height - topBar.y - topBar.height - height) / 2
+        width: 12; height: dockColumn.height + 6
+        radius: 5; color: screen.bar
         Column {
-            anchors.horizontalCenter: parent.horizontalCenter
-            y: 3
+            id: dockColumn
+            anchors.centerIn: parent
             spacing: 3
             Repeater {
-                model: 3
-                Rectangle { width: 7; height: 7; radius: 2; color: Qt.alpha(Kirigami.Theme.backgroundColor, 0.9) }
+                model: 4
+                Rectangle {
+                    required property int index
+                    width: 7; height: 7; radius: 2
+                    color: index === 3 ? screen.dot : Qt.alpha(Kirigami.Theme.backgroundColor, 0.9)
+                }
             }
-        }
-        Rectangle {
-            anchors { horizontalCenter: parent.horizontalCenter; bottom: parent.bottom; bottomMargin: 3 }
-            width: 7; height: 7; radius: 2; color: screen.dot
         }
     }
 }

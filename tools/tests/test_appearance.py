@@ -60,7 +60,7 @@ class CurrentLayout(unittest.TestCase):
 
     def test_ubuntu(self):
         self.assertEqual(self.layout(panel(2, 3, ["org.kde.plasma.panelspacer", "org.kde.plasma.digitalclock"]),
-                                     panel(3, 5, ["org.kde.plasma.icontasks", "org.kde.plasma.kickerdash"])),
+                                     panel(3, 5, ["org.kde.plasma.icontasks", "org.kde.plasma.kickoff"])),
                          "ubuntu")
 
     def test_unknown(self):

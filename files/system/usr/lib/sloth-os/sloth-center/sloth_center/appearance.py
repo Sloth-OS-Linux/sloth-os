@@ -74,8 +74,7 @@ class AppearanceController(QObject):
 
     @Slot(str)
     def setLayout(self, kind):
-        if kind == self._layout:
-            return
+        # the current one may be clicked too: it is built again (e.g. after an update improved the layout)
         if shared.apply_layout(kind):
             self._layout, self._error = kind, ""
         else:
