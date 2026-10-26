@@ -19,7 +19,7 @@ from PySide6.QtCore import QObject, Property, QProcess, QTimer, QUrl, Signal, Sl
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
-from sloth_common.apps import detect, library, menu, native, packages
+from sloth_common.apps import detect, discimage, library, menu, native, packages
 
 from . import anticheat, backend, community, diagnose, heal, identify, quirks
 from .i18n import catalog, tr
@@ -141,12 +141,19 @@ class ExeController(QObject):
         self._locations = None
         self._location = 0
         self._remember_location = False
+        # A disc image (.iso): where it is mounted, the installer on it, and "always do this"
+        self._disc = None
+        self._disc_setup = None
+        self._remember_disc = False
 
     # --- Entry points -----------------------------------------------------
 
     def open_file(self, path):
         library.migrate_legacy()
         self._exe = Path(path).resolve()
+        if discimage.is_disc_image(self._exe):
+            self._open_disc()
+            return
         if self._exe.suffix.lower() not in (".exe", ".msi"):
             kind = packages.kind_of(self._exe)
             if kind:
@@ -310,6 +317,47 @@ class ExeController(QObject):
             if self._remember_location:
                 library.set_default_library(place)
         return library.create(self._name, library=place, installer=str(self._exe))
+
+    def _open_disc(self):
+        """A disc image: mount it; with an installer on it, offer that (or do what the user chose before)."""
+        self._name, self._kind = self._exe.stem, "iso"
+        self._update_window()
+        self._disc = discimage.mount(self._exe)
+        if self._disc is None:
+            self._fail(tr("error.disc_mount"))
+            return
+        self._disc_setup = discimage.installer_on(self._disc)
+        log.info("disc image: %s at %s, installer: %s", self._exe, self._disc, self._disc_setup)
+        choice = discimage.preference()
+        if self._disc_setup is None or choice == "folder":
+            self.openDiscFolder()
+            return
+        if choice == "install":
+            self.installFromDisc()
+            return
+        self._state = "choose"
+        self.changed.emit()
+
+    @Slot(bool)
+    def setRememberDisc(self, value):
+        self._remember_disc = value
+
+    @Slot()
+    def openDiscFolder(self):
+        if self._remember_disc:
+            discimage.remember("folder")
+        subprocess.Popen(["xdg-open", str(self._disc)], start_new_session=True,
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # this can come before the event loop starts (opening the file): quit from the loop
+        QTimer.singleShot(0, QApplication.quit)
+
+    @Slot()
+    def installFromDisc(self):
+        """The installer on the disc goes the usual way: the install screen (with the drive chooser)."""
+        if self._remember_disc:
+            discimage.remember("install")
+        self._kind = "windows"
+        self.open_file(str(self._disc_setup))
 
     @Slot()
     def openExisting(self):

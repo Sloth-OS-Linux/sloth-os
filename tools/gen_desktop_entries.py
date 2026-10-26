@@ -47,6 +47,17 @@ ENTRIES = {
         ("X-KDE-autostart-phase", "2"),
         ("OnlyShowIn", "KDE;"),
     ],
+    # First sign-in: the main screen chosen in the installer (/usr/libexec/sloth-os/display-setup)
+    "files/system/etc/xdg/autostart/org.slothos.display-setup.desktop": [
+        ("Type", "Application"),
+        ("Name", ("sloth-installer", "welcome.screen")),
+        ("Exec", "/usr/libexec/sloth-os/display-setup"),
+        ("Icon", "video-display"),
+        ("Terminal", "false"),
+        ("NoDisplay", "true"),
+        ("X-KDE-autostart-phase", "1"),
+        ("OnlyShowIn", "KDE;"),
+    ],
     "files/system/usr/share/applications/org.slothos.center.desktop": [
         ("Type", "Application"),
         ("Name", ("sloth-center", "Sloth Center")),
@@ -70,7 +81,9 @@ ENTRIES = {
         ("MimeType", "application/x-ms-dos-executable;application/x-msdownload;application/x-msi;"
                      "application/x-ms-installer;application/vnd.microsoft.portable-executable;application/x-dosexec;"
                      # Linux packages (AppImage, .deb, .rpm) and Mac files (a clear message)
-                     "application/vnd.appimage;application/x-iso9660-appimage;application/vnd.debian.binary-package;application/x-deb;application/x-rpm;application/x-redhat-package-manager;application/x-apple-diskimage;application/x-xar;"),
+                     "application/vnd.appimage;application/x-iso9660-appimage;application/vnd.debian.binary-package;application/x-deb;application/x-rpm;application/x-redhat-package-manager;application/x-apple-diskimage;application/x-xar;"
+                     # disc images (.iso): mounted with a double-click, the installer on them offered
+                     "application/x-cd-image;application/x-iso9660-image;"),
         ("Categories", "Utility;"),
     ],
     # Dolphin, right-click on a file or folder (on a folder's empty area: that folder): Previous versions

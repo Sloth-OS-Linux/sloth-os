@@ -39,7 +39,7 @@ extras = h.parse_extra(["erase:$erase", "keep:$keep"], "$root")
 extra = h.prepare_extra_disks(extras, True, "Játékok és programok")
 print(json.dumps({k: v for k, v in extra.items() if k != "keys"}, indent=1))
 account = {"username": "anna", "fullname": "Anna", "password_hash": "\$6\$x"}
-h.configure("$root", "hu_HU.UTF-8", ["hu"], [""], "Europe/Budapest", account, extra=extra)
+h.configure("$root", "hu_HU.UTF-8", ["hu"], [""], "Europe/Budapest", account, extra=extra, display="HDMI-A-1")
 EOF
 python3 -I "$work/run.py" || { cat "$work/install.log"; exit 1; }
 
@@ -55,6 +55,7 @@ test -d "$work/mnt/ostree/deploy/default/var/mnt/old-games"
 grep -q "/var/mnt/data btrfs defaults,nofail" "$etc/fstab"
 grep -q "/var/mnt/old-games ext4 defaults,nofail" "$etc/fstab"
 grep -q '"disks": \["/var/mnt/data"\]' "$etc/sloth-os/first-user.json"
+grep -q '"primary": "HDMI-A-1"' "$etc/sloth-os/display.json"
 # the erased disk opens with the key file and has the chosen name; the kept one still has its file
 cryptsetup open --key-file "$etc/sloth-os/keys/$key" "${erase}p1" sloth-test-erase
 test "$(blkid -o value -s LABEL /dev/mapper/sloth-test-erase)" = "Játékok és programok"

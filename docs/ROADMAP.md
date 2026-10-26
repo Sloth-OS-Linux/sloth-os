@@ -17,6 +17,16 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
+### Sloth OS 1.0.5 (test ISO, not released yet)
+- [x] Choose the main screen in the installer (first page, only with more than one screen); the installer moves
+  there at once, and the installed system makes it the main one at the first sign-in
+  (`/usr/libexec/sloth-os/display-setup`). The login screen itself is not set yet. Check on a real machine
+- [x] Other disks, "Use it": the Linux partitions can be chosen one by one, also on a disk with Windows (the
+  Windows partitions are never mounted or changed). Check on a real machine
+- [x] Disc images (.iso) open with a double-click: mounted read-only through UDisks (Dolphin shows it with an
+  eject button); with an installer on it (autorun.inf, setup.exe) the .exe handler offers "Install from it" or
+  "Open folder", and can remember the choice. Check on a real machine (a Windows program's ISO)
+
 ### Sloth OS 1.0.4 (2026-10-26, replaces the unreleased 1.0.3)
 Network, security and drive health on the System status and System health pages; what uses the space on the
 Disks page and a deeper cleanup; the installer asks about the other disks; the .exe handler asks which drive a
@@ -41,7 +51,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Medium** — 7-Zip required repeated installs: the saved log has one installer run, four quick-exit recovery attempts,
   and then a `7Z2605` Start menu entry. Reproduce the install and launch flow, then fix recognition or process tracking
   so a successful install is not mistaken for a failed app launch and repeated installation is unnecessary.
-- [ ] **Medium** — Open `.iso` disk images with a double-click (idea, 2026-10-26): mount them without a password and
+- [x] **Medium** — Open `.iso` disk images with a double-click (idea, 2026-10-26): mount them without a password and
   show the contents. If the image has a `setup.exe` or an `autorun.inf`/`autorun.exe`, ask what to do (start the
   installer through the .exe handler, or just open the folder); remember the choice if the user asks. Offer
   "Eject" in Dolphin and unmount at sign-out.
@@ -64,7 +74,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   the existing confirmation checkbox is required before applying changes. The temporary install partition is identified
   as mounted only during setup and deleted at the end.
 - [x] Guide users through creating Sloth OS installation media, with a clear warning before erasing a USB drive.
-- [ ] **Medium** — With more than one display, let users choose the main display in the installer (idea, 2026-10-26):
+- [x] **Medium** — With more than one display, let users choose the main display in the installer (idea, 2026-10-26):
   show the installer there, and carry the choice (main display, arrangement) over to the installed system's login
   screen and desktop.
 - [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.

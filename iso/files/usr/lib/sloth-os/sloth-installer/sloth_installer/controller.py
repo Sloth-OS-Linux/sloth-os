@@ -95,6 +95,10 @@ class InstallerController(QObject):
         self._encrypt_pw = ("", "")
         # The other internal disks: {path: "leave" | "keep" | "erase"}; by default they are not touched
         self._extra = {}
+        # With "keep": the chosen partitions of the disk {disk: [partition paths]}; by default all Linux ones
+        self._extra_parts = {}
+        # The main screen chosen on the first page (connector name, e.g. "HDMI-A-1"); "" = not chosen
+        self._display = ""
         # Switching the layout live with a small delay: stepping through the language list must not
         # switch for every language (overlapping switches could leave a wrong layout active)
         self._keyboard_timer = QTimer(self, singleShot=True, interval=400)
@@ -185,9 +189,34 @@ class InstallerController(QObject):
             if d["path"] == self._disk or d["removable"]:
                 continue
             windows = d["contents"] == "windows"
-            out.append({**d, "choice": self._extra.get(d["path"], "leave"),
-                        "canKeep": d.get("mountable", False) and not windows, "canErase": not windows})
+            # Linux partitions can be used on a disk with Windows too: the Windows ones are never mounted
+            linux = d.get("linuxParts", [])
+            chosen = self._extra_parts.get(d["path"], [p["path"] for p in linux])
+            out.append({**d, "choice": self._extra.get(d["path"], "leave"), "canKeep": bool(linux),
+                        "canErase": not windows,
+                        "parts": [{**p, "chosen": p["path"] in chosen} for p in linux]})
         return out
+
+    @Slot(str)
+    def setPrimaryDisplay(self, name):
+        """The main screen: now in the live session, and on the installed system at the first sign-in."""
+        if system.set_primary_display(name):
+            self._display = name
+        log.info("main screen: %s", name)
+
+    @Slot(str, str, bool)
+    def setExtraPartition(self, disk, part, chosen):
+        d = next((d for d in self.extraDisks if d["path"] == disk), None)
+        if not d or part not in [p["path"] for p in d["linuxParts"]]:
+            return
+        parts = [p for p in self._chosen_parts(d) if p != part] + ([part] if chosen else [])
+        self._extra_parts[disk] = parts
+        self._confirmed = False
+        self.changed.emit()
+
+    def _chosen_parts(self, d):
+        everything = [p["path"] for p in d["linuxParts"]]
+        return [p for p in self._extra_parts.get(d["path"], everything) if p in everything]
 
     @Slot(str, str)
     def setExtraChoice(self, path, choice):
@@ -204,8 +233,12 @@ class InstallerController(QObject):
         args = []
         for path, choice in self._extra.items():
             d = allowed.get(path)
-            if d and ((choice == "keep" and d["canKeep"]) or (choice == "erase" and d["canErase"])):
-                args += ["--extra-disk", f"{choice}:{path}"]
+            if d and choice == "keep" and d["canKeep"]:
+                parts = self._chosen_parts(d)
+                if parts:
+                    args += ["--extra-disk", f"keep:{path}:{','.join(parts)}"]
+            elif d and choice == "erase" and d["canErase"]:
+                args += ["--extra-disk", f"erase:{path}"]
         return args
 
     @Property("QVariantMap", notify=changed)
@@ -418,6 +451,8 @@ class InstallerController(QObject):
             args += ["--beside-windows", "--size-gib", str(self._size_gib)]
         if self._encrypt:
             args.append("--encrypt")
+        if self._display:
+            args += ["--primary-display", self._display]
         extra = self._extra_args()
         if extra:
             args += extra + ["--data-label", catalog.tr("disk.extra.label")]

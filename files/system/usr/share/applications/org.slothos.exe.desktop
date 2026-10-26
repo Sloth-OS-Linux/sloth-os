@@ -105,5 +105,5 @@ Exec=sloth-exe %f
 Icon=application-x-ms-dos-executable
 Terminal=false
 NoDisplay=true
-MimeType=application/x-ms-dos-executable;application/x-msdownload;application/x-msi;application/x-ms-installer;application/vnd.microsoft.portable-executable;application/x-dosexec;application/vnd.appimage;application/x-iso9660-appimage;application/vnd.debian.binary-package;application/x-deb;application/x-rpm;application/x-redhat-package-manager;application/x-apple-diskimage;application/x-xar;
+MimeType=application/x-ms-dos-executable;application/x-msdownload;application/x-msi;application/x-ms-installer;application/vnd.microsoft.portable-executable;application/x-dosexec;application/vnd.appimage;application/x-iso9660-appimage;application/vnd.debian.binary-package;application/x-deb;application/x-rpm;application/x-redhat-package-manager;application/x-apple-diskimage;application/x-xar;application/x-cd-image;application/x-iso9660-image;
 Categories=Utility;
