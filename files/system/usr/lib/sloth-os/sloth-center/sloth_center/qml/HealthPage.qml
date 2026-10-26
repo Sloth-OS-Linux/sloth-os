@@ -8,6 +8,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
+    property var navigation
     title: L.t("System health")
 
     actions: [
@@ -86,6 +87,15 @@ Kirigami.ScrollablePage {
                             opacity: card.modelData.state === "ok" ? 0.7 : 1
                             text: card.modelData.text
                         }
+                    }
+                    // A card can point to the page that helps (e.g. "backup", "services"); the button is its name
+                    QQC2.Button {
+                        readonly property int target: page.navigation && card.modelData.action
+                            ? page.navigation.modules.findIndex(m => m.id === card.modelData.action) : -1
+                        visible: target >= 0
+                        text: target >= 0 ? page.navigation.modules[target].name : ""
+                        icon.name: target >= 0 ? page.navigation.modules[target].icon : ""
+                        onClicked: page.navigation.openModule(target)
                     }
                 }
             }

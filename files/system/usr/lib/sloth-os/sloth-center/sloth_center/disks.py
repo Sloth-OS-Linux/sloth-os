@@ -12,6 +12,7 @@ import gi
 
 from sloth_common import windows_import
 
+from .health import smart_state
 from .i18n import tr
 
 gi.require_version("Flatpak", "1.0")
@@ -40,17 +41,9 @@ def list_drives():
         d = ifs.get(UD + ".Drive")
         if not d or not d.get("Size"):
             continue
-        health, temp = "ok", 0
-        nvme = ifs.get(UD + ".NVMe.Controller")
-        ata = ifs.get(UD + ".Drive.Ata")
-        if nvme:
-            if nvme.get("SmartCriticalWarning"):
-                health = "failing"
-            temp = nvme.get("SmartTemperature", 0)
-        elif ata and ata.get("SmartEnabled"):
-            if ata.get("SmartFailing"):
-                health = "failing"
-            temp = ata.get("SmartTemperature", 0)
+        # the same verdict as System health; a worn drive still counts as healthy here
+        health = "failing" if smart_state(ifs) == "failing" else "ok"
+        temp = (ifs.get(UD + ".NVMe.Controller") or ifs.get(UD + ".Drive.Ata") or {}).get("SmartTemperature", 0)
         kind = "SSD" if d.get("RotationRate") == 0 else tr("Hard disk")
         if d.get("Removable") or d.get("MediaRemovable"):
             kind = tr("Removable drive")

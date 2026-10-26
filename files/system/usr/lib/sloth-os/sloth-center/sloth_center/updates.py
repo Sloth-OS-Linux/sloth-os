@@ -206,6 +206,10 @@ class UpdatesController(QObject):
         if match:
             current, total, size = match.groups()
             self._detail = f"{current}/{total} · {size}"
+            # Without a PercentProgress signal the bar would only sweep back and forth: the finished layers
+            # move it forward instead (layer 1 of 29 → 0 %, the last one → 97 %)
+            if int(total) > 0:
+                self._progress = max(0, min(99, 100 * (int(current) - 1) // int(total)))
         self.changed.emit()
 
     def _on_percent(self, pct):

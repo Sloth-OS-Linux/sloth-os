@@ -11,6 +11,8 @@ Kirigami.ScrollablePage {
 
     readonly property var storage: health.results.find(item => item.id === "disk") || null
     readonly property var network: health.results.find(item => item.id === "network") || null
+    readonly property bool secure: updates.signatureVerified && health.security.length > 0
+                                   && health.security.every(item => item.state === "ok")
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
@@ -55,6 +57,46 @@ Kirigami.ScrollablePage {
                         wrapMode: Text.Wrap
                         text: page.network ? page.network.text
                               : health.busy ? L.t("Checking…") : L.t("Network status is not available.")
+                    }
+                }
+            }
+        }
+
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Icon {
+                    Layout.alignment: Qt.AlignTop
+                    source: page.secure ? "security-high" : "security-medium"
+                    implicitWidth: Kirigami.Units.iconSizes.large
+                    implicitHeight: Kirigami.Units.iconSizes.large
+                }
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.smallSpacing
+                    Kirigami.Heading { text: L.t("Security"); level: 3 }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        visible: health.busy && health.security.length === 0
+                        text: L.t("Checking…")
+                    }
+                    Repeater {
+                        model: health.security
+                        delegate: QQC2.Label {
+                            required property var modelData
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            text: modelData.text
+                        }
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: updates.signatureVerified
+                              ? L.t("Updates are signature-checked: only versions signed by Sloth OS are installed.")
+                              : L.t("The update signature check is not active yet. It turns on by itself in the background.")
                     }
                 }
             }

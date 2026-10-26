@@ -175,12 +175,123 @@ def check_kernel():
                              "it happens often, check the Drivers and hardware page, and whether the computer is "
                              "overheating.")
                   if found.get("gpu") else tr("The graphics card reported no errors.")})
-    items.append({"id": "diskerr", "title": tr("Disk health"), "icon": "drive-harddisk",
-                  "state": ERROR if found.get("disk") else OK,
-                  "text": tr("The disk reported a read or write error. This can be a sign that the disk is failing: "
-                             "copy your important files somewhere else as soon as possible!")
-                  if found.get("disk") else tr("The disk reported no errors.")})
+    items.append(check_drive_health(found.get("disk", False)))
     return items
+
+
+def smart_state(ifaces):
+    """"failing", "worn" or "ok" from a UDisks drive object's SMART data (the Disks page uses it too).
+
+    NVMe "temperature" warnings are left to the temperature check, and data UDisks has not read yet
+    (SmartUpdated 0) counts as "ok"."""
+    ata = ifaces.get("org.freedesktop.UDisks2.Drive.Ata") or {}
+    nvme = ifaces.get("org.freedesktop.UDisks2.NVMe.Controller") or {}
+    if ata.get("SmartEnabled") and ata.get("SmartUpdated"):
+        if ata.get("SmartFailing"):
+            return "failing"
+        if ata.get("SmartNumBadSectors", 0) > 0:
+            return "worn"
+    elif nvme.get("SmartUpdated"):
+        if set(nvme.get("SmartCriticalWarning", [])) - {"temperature"}:
+            return "failing"
+        if nvme.get("SmartPercentUsed", 0) >= 100:
+            return "worn"
+    return "ok"
+
+
+def _smart_drives():
+    """The drives' own health reports (SMART), as UDisks already collects them; no password needed.
+    Returns (failing, worn) lists of drive names."""
+    try:
+        bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
+        objects = bus.call_sync("org.freedesktop.UDisks2", "/org/freedesktop/UDisks2",
+                                "org.freedesktop.DBus.ObjectManager", "GetManagedObjects", None,
+                                GLib.VariantType("(a{oa{sa{sv}}})"), Gio.DBusCallFlags.NONE, 10000, None).unpack()[0]
+    except GLib.Error as e:
+        log.warning("drive health: %s", e.message)
+        return [], []
+    failing, worn = [], []
+    for path, ifaces in objects.items():
+        drive = ifaces.get("org.freedesktop.UDisks2.Drive")
+        if drive is None:
+            continue
+        name = " ".join(p for p in (drive.get("Vendor", "").strip(), drive.get("Model", "").strip()) if p) \
+            or path.rsplit("/", 1)[-1]
+        state = smart_state(ifaces)
+        if state == "failing":
+            failing.append(name)
+        elif state == "worn":
+            worn.append(name)
+    return failing, worn
+
+
+def check_drive_health(io_error):
+    """Disk errors in the kernel's log, and what the drives say about themselves."""
+    failing, worn = _smart_drives()
+    item = {"id": "diskerr", "title": tr("Disk health"), "icon": "drive-harddisk", "state": OK,
+            "text": tr("The disk reported no errors.")}
+    if failing:
+        item.update(state=ERROR, action="backup",
+                    text=tr("{names} reports that it may fail soon. Back up your important files as soon as "
+                            "possible, and plan to replace the disk.", names=", ".join(failing)))
+    elif io_error:
+        item.update(state=ERROR, action="backup",
+                    text=tr("The disk reported a read or write error. This can be a sign that the disk is failing: "
+                            "copy your important files somewhere else as soon as possible!"))
+    elif worn:
+        item.update(state=WARN, action="backup",
+                    text=tr("{names} is showing signs of wear. It still works, but back up your important files "
+                            "regularly.", names=", ".join(worn)))
+    return item
+
+
+SECURE_BOOT_VAR = Path("/sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c")
+
+
+def _secure_boot():
+    """"on", "off", or "" when the computer starts without UEFI (no Secure Boot at all)."""
+    if not Path("/sys/firmware/efi").exists():
+        return ""
+    try:
+        data = SECURE_BOOT_VAR.read_bytes()
+    except OSError:
+        return "off"
+    # 4 bytes of attributes, then the value
+    return "on" if len(data) >= 5 and data[4] == 1 else "off"
+
+
+def _encrypted(target="/var"):
+    """Whether the disk under the user's data is encrypted (a "crypt" device under the file system)."""
+    try:
+        source = subprocess.run(["findmnt", "-n", "-o", "SOURCE", "--target", target],
+                                capture_output=True, text=True, timeout=5).stdout.strip()
+        source = source.split("[", 1)[0]  # btrfs subvolume: /dev/mapper/luks-…[/var]
+        if not source.startswith("/dev/"):
+            return None
+        types = subprocess.run(["lsblk", "-s", "-n", "-o", "TYPE", source],
+                               capture_output=True, text=True, timeout=5).stdout.split()
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return "crypt" in types if types else None
+
+
+def security_overview():
+    """The protections the user can see at a glance (System status page). Not part of the health
+    summary: Secure Boot or encryption being off is a choice, not a fault."""
+    sb = _secure_boot()
+    enc = _encrypted()
+    return [
+        {"id": "secureboot", "state": OK if sb == "on" else WARN,
+         "text": tr("Secure Boot is on.") if sb == "on"
+         else tr("Secure Boot is off. The computer works without it; turning it on in the firmware settings "
+                 "(BIOS/UEFI) protects the start-up from tampering.") if sb == "off"
+         else tr("This computer starts without UEFI, so Secure Boot is not available.")},
+        {"id": "encryption", "state": OK if enc else WARN,
+         "text": tr("Disk encryption is on. Without your password, nobody can read your files.") if enc
+         else tr("Disk encryption is off. If the computer is lost or stolen, others could read your files. "
+                 "Encryption can be chosen when installing Sloth OS.") if enc is False
+         else tr("Could not check disk encryption.")},
+    ]
 
 
 def check_temperature():
@@ -254,12 +365,14 @@ class HealthController(QObject):
     def __init__(self, parent=None):
         super().__init__(parent)
         self._results = []
+        self._security = []
         self._busy = False
         self._saved = ""
         self._ready.connect(self._on_ready)
         self.check()
 
     results = Property("QVariantList", lambda self: list(self._results), notify=changed)
+    security = Property("QVariantList", lambda self: list(self._security), notify=changed)
     busy = Property(bool, lambda self: self._busy, notify=changed)
     savedPath = Property(str, lambda self: self._saved, notify=changed)
 
@@ -286,10 +399,10 @@ class HealthController(QObject):
             return
         self._busy = True
         self.changed.emit()
-        threading.Thread(target=lambda: self._ready.emit(run_all()), daemon=True).start()
+        threading.Thread(target=lambda: self._ready.emit((run_all(), security_overview())), daemon=True).start()
 
-    def _on_ready(self, results):
-        self._results, self._busy = results, False
+    def _on_ready(self, found):
+        (self._results, self._security), self._busy = found, False
         self.changed.emit()
 
     @Slot(str)

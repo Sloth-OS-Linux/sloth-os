@@ -49,7 +49,7 @@ Kirigami.ApplicationWindow {
         const m = modules[index];
         pageStack.clear();
         if (m.ready) {
-            if (m.id === "status")
+            if (m.id === "status" || m.id === "health")
                 pageStack.push(Qt.resolvedUrl(m.page), { navigation: root });
             else
                 pageStack.push(Qt.resolvedUrl(m.page));

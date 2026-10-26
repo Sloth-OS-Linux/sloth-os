@@ -20,9 +20,10 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 ### Sloth OS 1.0.3 (in preparation)
 - [ ] **Critical** — Resolve the Fedora 44 `rpm-ostree` crash during OCI image updates (`2026.3-2.fc44` aborts
   with `JoinHandle polled after completion` while importing layers), then verify a full update stages and boots.
-- [ ] **Medium** — Show OCI layer progress in Sloth Center, stop the spinner and explain the failure if the
+- [x] **Medium** — Show OCI layer progress in Sloth Center, stop the spinner and explain the failure if the
   transaction connection closes, and reconnect to `rpm-ostreed` after a daemon restart. Verify the flow without
-  requiring a terminal.
+  requiring a terminal. (2026-10-26: the Updates page shows "layer 3/29 · size" and the bar moves forward with the
+  finished layers when rpm-ostree sends no percentage; check on a real machine with the next update)
 
 #### Windows program launch follow-up (2026-10-22)
 - [x] **Reddit Desktop in a Fedora box:** package installs now fail visibly if a new desktop entry uses `sloth-exe`,
@@ -56,7 +57,8 @@ careful testing), and **Large** (broad work or significant safety and compatibil
   show the installer there, and carry the choice (main display, arrangement) over to the installed system's login
   screen and desktop.
 - [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
-- [ ] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
+- [x] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
+  (2026-10-26, System health: the drives' SMART reports through UDisks, with a File backup button; check on a real machine)
 - [ ] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
 
 #### Sloth Center, setup, and support
@@ -66,7 +68,8 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [ ] **Medium** — Add a system and driver overview for graphics, audio, Bluetooth, and connected peripherals, with guidance
   when something needs attention.
 - [ ] **Medium** — Add an application privacy overview for microphone, camera, and location access where supported.
-- [ ] **Medium** — Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
+- [x] **Medium** — Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
+  (2026-10-26, a Security card on the System status page; check on a real machine, with and without encryption)
 - [ ] **Large** — Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
   require their choice before attaching it.
 - [ ] **Medium** — Add guided Wi-Fi troubleshooting that checks adapter detection, Wi-Fi state, and connectivity, then
