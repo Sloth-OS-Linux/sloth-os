@@ -8,7 +8,7 @@ modules:
         - python3-pyside6   # Qt/QML from Python
         - python3-gobject   # D-Bus (rpm-ostree, Flatpak) through GLib
         - fuse-libs         # FUSE 2: for running AppImages (Linux packages, sloth_common/apps/packages.py)
-        - fastfetch         # system information with Sloth OS's custom silver ASCII logo
+        - fastfetch         # system information with the Sloth OS logo drawn in characters (/etc/fastfetch)
         # Sign-in methods (Sloth Center → Account and security)
         - authselect        # turning sign-in methods on and off (PAM)
         - fprintd-pam       # fingerprint

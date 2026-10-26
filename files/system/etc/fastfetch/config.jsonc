@@ -1,6 +1,49 @@
+// fastfetch (and the "fastfetch" command in Konsole): the Sloth OS logo drawn with characters, the details beside it.
+// The logo comes from tools/branding/fastfetch_logo.py; $1 is the silver mask, $2 the light face.
 {
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "file-raw",
-    "source": "/usr/share/sloth-os/logo/sloth-ascii.txt"
-  }
+    "type": "file",
+    "source": "/usr/share/sloth-os/logo/sloth-ascii.txt",
+    "color": {
+      "1": "38;2;150;156;164",
+      "2": "38;2;235;238;242"
+    },
+    "padding": {
+      "top": 1,
+      "right": 4
+    }
+  },
+  "display": {
+    "separator": "  ",
+    "color": {
+      "keys": "38;2;170;176;184",
+      "title": "38;2;235;238;242"
+    },
+    "key": {
+      "width": 12
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "host",
+    "kernel",
+    "uptime",
+    "packages",
+    "shell",
+    "display",
+    "de",
+    "wm",
+    "terminal",
+    "break",
+    "cpu",
+    "gpu",
+    "memory",
+    "swap",
+    "disk",
+    "break",
+    "colors"
+  ]
 }
