@@ -25,8 +25,8 @@ the installer asks for the main screen and lets partitions be chosen; disc image
 user-facing list is in `README.md`. Each item is under its topic (phases and the groups of 1.0.4 below).
 
 Release:
-- [ ] The "Turn on Bluetooth" button on a real machine (2026-10-26: the rfkill block is lifted first, then Powered is
-  set again while the adapter wakes up; the last test before that fix did not turn it on)
+- [x] The "Turn on Bluetooth" button on a real machine (2026-10-26: the rfkill block is lifted first, then Powered is
+  set again while the adapter wakes up; checked on the laptop with the `cb41505` build)
 - [ ] Decide the number (1.0.5 or 1.1): `files/scripts/branding.sh`, the README header and the SourceForge folder
 - [ ] Merge `codex/1.0.5-test` into `main` (the `test/chunked-oci` branch stays out, see "Smaller system updates")
 - [ ] Build the ISO from `main`, install it once in a VM, upload it to SourceForge with its SHA-256 checksum
@@ -146,8 +146,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   BlueZ with a short timeout in the background: without an adapter the service does not start and asking it would
   wait (found on the developer machine). It follows the tray (refresh every 3 s while the page is open) and counts an
   rfkill block as off; "Turn on Bluetooth" lifts the block and sets Powered again while the adapter wakes up.
-  Tests: `tools/tests/test_bluetooth.py`. The card: checked on a real machine (2026-10-26); the button: see the
-  1.0.5 release list
+  Tests: `tools/tests/test_bluetooth.py`. Checked on a real machine (2026-10-26)
 - [x] **Medium** — Application privacy overview (2026-10-26): Account and security → "App permissions" lists
   the Flatpak apps that can use the camera (all devices, or the camera portal), the microphone (the sound socket,
   or PipeWire directly) and the location (the location portal). It only reads; "Change app permissions" opens
