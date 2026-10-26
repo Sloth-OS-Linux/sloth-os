@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Viimases salvestatud olekus pole veel faile.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Viimase salvestatud oleku ({when}) {n} failist {bad} ei õnnestunud lugeda. Hoia oma tähtsatest failidest koopiat ka välisel kettal ja saada raport tagasiside kaudu.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Kontrolliti viimase salvestatud oleku ({when}) {n} faili: kõik on loetavad.",
-  "Check the backup": "Kontrolli varukoopiat"
+  "Check the backup": "Kontrolli varukoopiat",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Sellel arvutil pole Bluetoothi. Väike USB Bluetooth adapter lisab selle.",
+  "Bluetooth is turned off.": "Bluetooth on välja lülitatud.",
+  "No Bluetooth device is connected right now.": "Praegu pole ükski Bluetooth-seade ühendatud.",
+  "Turn on Bluetooth": "Lülita Bluetooth sisse",
+  "Pair a device": "Seo seade"
 }

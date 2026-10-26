@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "கடைசியாகச் சேமித்த நிலையில் இன்னும் கோப்புகள் இல்லை.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "கடைசியாகச் சேமித்த நிலையின் ({when}) {n} கோப்புகளில் {bad} படிக்க முடியவில்லை. உங்கள் முக்கியமான கோப்புகளின் நகலை வெளிப்புற வட்டிலும் வைத்திருங்கள், கருத்துப் பக்கத்திலிருந்து ஒரு அறிக்கையை அனுப்புங்கள்.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "கடைசியாகச் சேமித்த நிலையின் ({when}) {n} கோப்புகள் சரிபார்க்கப்பட்டன: அனைத்தையும் படிக்க முடியும்.",
-  "Check the backup": "காப்புப்பிரதியைச் சரிபார்"
+  "Check the backup": "காப்புப்பிரதியைச் சரிபார்",
+  "Bluetooth": "புளூடூத்",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "இந்தக் கணினியில் புளூடூத் இல்லை. ஒரு சிறிய USB புளூடூத் அடாப்டர் அதைச் சேர்க்கும்.",
+  "Bluetooth is turned off.": "புளூடூத் அணைக்கப்பட்டுள்ளது.",
+  "No Bluetooth device is connected right now.": "இப்போது எந்தப் புளூடூத் சாதனமும் இணைக்கப்படவில்லை.",
+  "Turn on Bluetooth": "புளூடூத்தை இயக்கு",
+  "Pair a device": "ஒரு சாதனத்தை இணை"
 }

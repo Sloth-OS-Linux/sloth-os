@@ -122,8 +122,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [x] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
 - [x] Offer a short first-run guide to Updates, Programs, Games, backups, Feedback, and Disks; users can skip it or
   reopen it from the sidebar.
-- [ ] **Medium** — Add a system and driver overview for graphics, audio, Bluetooth, and connected peripherals, with guidance
-  when something needs attention.
+- [x] **Medium** — System and driver overview for graphics, audio, Bluetooth, and connected peripherals (2026-10-26):
+  the Drivers and hardware page has the graphics card, Displays, Bluetooth (no adapter / off with "Turn on
+  Bluetooth" / the connected devices with battery, "Pair a device"), Sound and Controllers. Bluetooth is read from
+  BlueZ with a short timeout in the background: without an adapter the service does not start and asking it would
+  wait (found on the developer machine). Tests: `tools/tests/test_bluetooth.py`. Check on a laptop with Bluetooth
 - [x] **Medium** — Application privacy overview (2026-10-26): Account and security → "App permissions" lists
   the Flatpak apps that can use the camera (all devices, or the camera portal), the microphone (the sound socket,
   or PipeWire directly) and the location (the location portal). It only reads; "Change app permissions" opens

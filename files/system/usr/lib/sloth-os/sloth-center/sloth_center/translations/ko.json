@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "최근 저장된 상태에 아직 파일이 없습니다.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "최근 저장된 상태({when})의 파일 {n}개 중 {bad}개를 읽지 못했습니다. 중요한 파일은 외장 디스크에도 사본을 보관하고, 피드백에서 보고서를 보내 주세요.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "최근 저장된 상태({when})의 파일 {n}개를 확인했습니다: 모두 읽을 수 있습니다.",
-  "Check the backup": "백업 확인"
+  "Check the backup": "백업 확인",
+  "Bluetooth": "블루투스",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "이 컴퓨터에는 블루투스가 없습니다. 작은 USB 블루투스 어댑터로 추가할 수 있습니다.",
+  "Bluetooth is turned off.": "블루투스가 꺼져 있습니다.",
+  "No Bluetooth device is connected right now.": "지금 연결된 블루투스 장치가 없습니다.",
+  "Turn on Bluetooth": "블루투스 켜기",
+  "Pair a device": "장치 페어링"
 }

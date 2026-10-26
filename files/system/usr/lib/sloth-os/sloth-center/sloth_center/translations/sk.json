@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "V poslednom uloženom stave zatiaľ nie sú žiadne súbory.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} z {n} súborov v poslednom uloženom stave ({when}) sa nedalo prečítať. Uchovávajte kópiu dôležitých súborov aj na externom disku a pošlite hlásenie zo Spätnej väzby.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Skontrolovaných {n} súborov v poslednom uloženom stave ({when}): všetky sa dajú prečítať.",
-  "Check the backup": "Skontrolovať zálohu"
+  "Check the backup": "Skontrolovať zálohu",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Tento počítač nemá Bluetooth. Pridá ho malý USB adaptér Bluetooth.",
+  "Bluetooth is turned off.": "Bluetooth je vypnuté.",
+  "No Bluetooth device is connected right now.": "Teraz nie je pripojené žiadne zariadenie Bluetooth.",
+  "Turn on Bluetooth": "Zapnúť Bluetooth",
+  "Pair a device": "Spárovať zariadenie"
 }

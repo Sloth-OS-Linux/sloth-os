@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "A legutóbbi mentett állapotban még nincsenek fájlok.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "A legutóbbi mentett állapot ({when}) {n} fájljából {bad} nem olvasható. A fontos fájljaidról tarts másolatot egy külső lemezen is, és küldj hibajelentést a Visszajelzés oldalon.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "A legutóbbi mentett állapotból ({when}) {n} fájlt ellenőriztem: mind olvasható.",
-  "Check the backup": "Mentés ellenőrzése"
+  "Check the backup": "Mentés ellenőrzése",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Ebben a gépben nincs Bluetooth. Egy kis USB-s Bluetooth-adapterrel pótolható.",
+  "Bluetooth is turned off.": "A Bluetooth ki van kapcsolva.",
+  "No Bluetooth device is connected right now.": "Most egyetlen Bluetooth-eszköz sincs csatlakoztatva.",
+  "Turn on Bluetooth": "Bluetooth bekapcsolása",
+  "Pair a device": "Eszköz párosítása"
 }

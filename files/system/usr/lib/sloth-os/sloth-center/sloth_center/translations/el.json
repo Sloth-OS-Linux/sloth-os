@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Δεν υπάρχουν ακόμα αρχεία στην τελευταία αποθηκευμένη κατάσταση.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Δεν ήταν δυνατή η ανάγνωση {bad} από {n} αρχεία στην τελευταία αποθηκευμένη κατάσταση ({when}). Κρατήστε αντίγραφο των σημαντικών αρχείων σας και σε εξωτερικό δίσκο και στείλτε αναφορά από τα Σχόλια.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Ελέγχθηκαν {n} αρχεία στην τελευταία αποθηκευμένη κατάσταση ({when}): όλα διαβάζονται.",
-  "Check the backup": "Έλεγχος αντιγράφου ασφαλείας"
+  "Check the backup": "Έλεγχος αντιγράφου ασφαλείας",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Αυτός ο υπολογιστής δεν έχει Bluetooth. Ένας μικρός προσαρμογέας Bluetooth USB το προσθέτει.",
+  "Bluetooth is turned off.": "Το Bluetooth είναι απενεργοποιημένο.",
+  "No Bluetooth device is connected right now.": "Καμία συσκευή Bluetooth δεν είναι συνδεδεμένη αυτή τη στιγμή.",
+  "Turn on Bluetooth": "Ενεργοποίηση Bluetooth",
+  "Pair a device": "Σύζευξη συσκευής"
 }

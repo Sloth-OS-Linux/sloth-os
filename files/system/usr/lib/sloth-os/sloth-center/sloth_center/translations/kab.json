@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Ulac ula d yiwen ufaylu deg waddad aneggaru yettwaskelsen.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} seg {n} n yifuyla deg waddad aneggaru yettwaskelsen ({when}) ur ttwaɣṛan ara. Ḥrez anɣel n yifuyla-k·m ixataren ula ɣef uḍebsi uffiɣ, syin azen aneqqis seg Tamawt.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Ttwasneqden {n} n yifuyla deg waddad aneggaru yettwaskelsen ({when}): ttwaɣṛan akk.",
-  "Check the backup": "Senqed aḥraz"
+  "Check the backup": "Senqed aḥraz",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Aselkim-a ur yesɛi ara Bluetooth. Asezg amecṭuḥ Bluetooth USB yettarra-t-id.",
+  "Bluetooth is turned off.": "Bluetooth yensa.",
+  "No Bluetooth device is connected right now.": "Ulac ibenk Bluetooth yeqqnen tura.",
+  "Turn on Bluetooth": "Sermed Bluetooth",
+  "Pair a device": "Senteḍ ibenk"
 }

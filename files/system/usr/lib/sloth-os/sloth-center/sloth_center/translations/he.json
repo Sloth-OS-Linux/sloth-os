@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "עדיין אין קבצים במצב השמור האחרון.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "לא ניתן היה לקרוא {bad} מתוך {n} קבצים במצב השמור האחרון ({when}). שמרו עותק של הקבצים החשובים גם בכונן חיצוני, ושלחו דיווח מדף המשוב.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "נבדקו {n} קבצים במצב השמור האחרון ({when}): כולם קריאים.",
-  "Check the backup": "בדיקת הגיבוי"
+  "Check the backup": "בדיקת הגיבוי",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "במחשב הזה אין Bluetooth. מתאם Bluetooth קטן ב־USB מוסיף אותו.",
+  "Bluetooth is turned off.": "ה־Bluetooth כבוי.",
+  "No Bluetooth device is connected right now.": "אין כרגע התקן Bluetooth מחובר.",
+  "Turn on Bluetooth": "הפעלת Bluetooth",
+  "Pair a device": "צימוד התקן"
 }

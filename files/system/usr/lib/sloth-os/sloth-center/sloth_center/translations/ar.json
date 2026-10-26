@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "لا توجد ملفات في أحدث حالة محفوظة بعد.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "تعذّرت قراءة {bad} من أصل {n} ملفات في أحدث حالة محفوظة ({when}). احتفظ أيضًا بنسخة من ملفاتك المهمة على قرص خارجي، وأرسل تقريرًا من صفحة الملاحظات.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "فُحص {n} ملفًا في أحدث حالة محفوظة ({when}): يمكن قراءتها كلها.",
-  "Check the backup": "افحص النسخة الاحتياطية"
+  "Check the backup": "افحص النسخة الاحتياطية",
+  "Bluetooth": "بلوتوث",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "لا يحتوي هذا الكمبيوتر على بلوتوث. يضيفه محوّل بلوتوث صغير عبر USB.",
+  "Bluetooth is turned off.": "البلوتوث متوقف.",
+  "No Bluetooth device is connected right now.": "لا يوجد جهاز بلوتوث متصل الآن.",
+  "Turn on Bluetooth": "شغّل البلوتوث",
+  "Pair a device": "إقران جهاز"
 }

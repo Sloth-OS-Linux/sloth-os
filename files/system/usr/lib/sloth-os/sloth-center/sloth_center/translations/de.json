@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Im letzten gespeicherten Stand sind noch keine Dateien.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} von {n} Dateien im letzten gespeicherten Stand ({when}) konnten nicht gelesen werden. Bewahren Sie Ihre wichtigen Dateien auch auf einer externen Festplatte auf und senden Sie einen Bericht über „Feedback“.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "{n} Dateien im letzten gespeicherten Stand ({when}) geprüft: Alle sind lesbar.",
-  "Check the backup": "Sicherung prüfen"
+  "Check the backup": "Sicherung prüfen",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Dieser Computer hat kein Bluetooth. Ein kleiner USB-Bluetooth-Adapter rüstet es nach.",
+  "Bluetooth is turned off.": "Bluetooth ist ausgeschaltet.",
+  "No Bluetooth device is connected right now.": "Gerade ist kein Bluetooth-Gerät verbunden.",
+  "Turn on Bluetooth": "Bluetooth einschalten",
+  "Pair a device": "Gerät koppeln"
 }

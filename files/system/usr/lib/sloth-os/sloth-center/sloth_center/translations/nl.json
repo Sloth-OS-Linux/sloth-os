@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Er staan nog geen bestanden in de laatst opgeslagen staat.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} van de {n} bestanden in de laatst opgeslagen staat ({when}) konden niet worden gelezen. Bewaar je belangrijke bestanden ook op een externe schijf, en stuur een melding via Feedback.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "{n} bestanden in de laatst opgeslagen staat ({when}) gecontroleerd: ze zijn allemaal leesbaar.",
-  "Check the backup": "Back-up controleren"
+  "Check the backup": "Back-up controleren",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Deze computer heeft geen bluetooth. Een kleine USB-bluetoothadapter voegt het toe.",
+  "Bluetooth is turned off.": "Bluetooth staat uit.",
+  "No Bluetooth device is connected right now.": "Er is nu geen bluetoothapparaat verbonden.",
+  "Turn on Bluetooth": "Bluetooth aanzetten",
+  "Pair a device": "Een apparaat koppelen"
 }

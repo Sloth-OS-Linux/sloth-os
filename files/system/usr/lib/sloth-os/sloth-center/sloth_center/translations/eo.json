@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Ankoraŭ estas neniuj dosieroj en la lasta konservita stato.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} el {n} dosieroj en la lasta konservita stato ({when}) ne legeblis. Konservu kopion de viaj gravaj dosieroj ankaŭ sur ekstera disko, kaj sendu raporton el Komentoj.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Kontrolis {n} dosierojn en la lasta konservita stato ({when}): ĉiuj legeblas.",
-  "Check the backup": "Kontroli la savkopion"
+  "Check the backup": "Kontroli la savkopion",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Ĉi tiu komputilo ne havas Bluetooth. Malgranda USB-Bluetooth-adaptilo aldonas ĝin.",
+  "Bluetooth is turned off.": "Bluetooth estas malŝaltita.",
+  "No Bluetooth device is connected right now.": "Neniu Bluetooth-aparato estas nun konektita.",
+  "Turn on Bluetooth": "Ŝalti Bluetooth",
+  "Pair a device": "Parigi aparaton"
 }

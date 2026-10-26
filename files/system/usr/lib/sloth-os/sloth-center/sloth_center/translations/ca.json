@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Encara no hi ha fitxers a l'últim estat desat.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "No s'han pogut llegir {bad} de {n} fitxers de l'últim estat desat ({when}). Guardeu també una còpia dels fitxers importants en un disc extern i envieu un informe des de Comentaris.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "S'han comprovat {n} fitxers de l'últim estat desat ({when}): tots es poden llegir.",
-  "Check the backup": "Comprova la còpia de seguretat"
+  "Check the backup": "Comprova la còpia de seguretat",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Aquest ordinador no té Bluetooth. Un petit adaptador Bluetooth USB l'hi afegeix.",
+  "Bluetooth is turned off.": "El Bluetooth està desactivat.",
+  "No Bluetooth device is connected right now.": "Ara no hi ha cap dispositiu Bluetooth connectat.",
+  "Turn on Bluetooth": "Activa el Bluetooth",
+  "Pair a device": "Aparella un dispositiu"
 }

@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Paskutinėje įrašytoje būsenoje dar nėra failų.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Nepavyko perskaityti {bad} iš {n} failų paskutinėje įrašytoje būsenoje ({when}). Svarbių failų kopiją laikykite ir išoriniame diske, ir išsiųskite pranešimą per „Atsiliepimus“.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Patikrinta {n} failų paskutinėje įrašytoje būsenoje ({when}): visi skaitomi.",
-  "Check the backup": "Patikrinti atsarginę kopiją"
+  "Check the backup": "Patikrinti atsarginę kopiją",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Šiame kompiuteryje nėra Bluetooth. Jį prideda mažas USB Bluetooth adapteris.",
+  "Bluetooth is turned off.": "Bluetooth išjungtas.",
+  "No Bluetooth device is connected right now.": "Šiuo metu neprijungtas joks Bluetooth įrenginys.",
+  "Turn on Bluetooth": "Įjungti Bluetooth",
+  "Pair a device": "Susieti įrenginį"
 }

@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Der er endnu ingen filer i den seneste gemte tilstand.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} af {n} filer i den seneste gemte tilstand ({when}) kunne ikke læses. Gem også en kopi af dine vigtige filer på en ekstern disk, og send en rapport fra Feedback.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Tjekkede {n} filer i den seneste gemte tilstand ({when}): de kan alle læses.",
-  "Check the backup": "Tjek sikkerhedskopien"
+  "Check the backup": "Tjek sikkerhedskopien",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Denne computer har ikke Bluetooth. En lille USB-Bluetooth-adapter tilføjer det.",
+  "Bluetooth is turned off.": "Bluetooth er slået fra.",
+  "No Bluetooth device is connected right now.": "Ingen Bluetooth-enhed er forbundet lige nu.",
+  "Turn on Bluetooth": "Slå Bluetooth til",
+  "Pair a device": "Par en enhed"
 }

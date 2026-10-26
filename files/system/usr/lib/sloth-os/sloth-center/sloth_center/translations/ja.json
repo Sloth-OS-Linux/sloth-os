@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "最新の保存状態にはまだファイルがありません。",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "最新の保存状態（{when}）の {n} 個のファイルのうち {bad} 個を読み取れませんでした。大切なファイルは外付けディスクにもコピーを保管し、「フィードバック」から報告を送ってください。",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "最新の保存状態（{when}）の {n} 個のファイルを確認しました: すべて読み取れます。",
-  "Check the backup": "バックアップを確認"
+  "Check the backup": "バックアップを確認",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "このコンピューターには Bluetooth がありません。小さな USB Bluetooth アダプターで追加できます。",
+  "Bluetooth is turned off.": "Bluetooth はオフです。",
+  "No Bluetooth device is connected right now.": "現在接続されている Bluetooth デバイスはありません。",
+  "Turn on Bluetooth": "Bluetooth をオンにする",
+  "Pair a device": "デバイスをペアリング"
 }

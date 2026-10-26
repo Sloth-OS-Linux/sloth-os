@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Viimeisimmässä tallennetussa tilassa ei ole vielä tiedostoja.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad}/{n} tiedostoa viimeisimmässä tallennetussa tilassa ({when}) ei voitu lukea. Pidä tärkeistä tiedostoistasi kopio myös ulkoisella levyllä, ja lähetä raportti Palautteen kautta.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Tarkistettiin {n} tiedostoa viimeisimmässä tallennetussa tilassa ({when}): kaikki voidaan lukea.",
-  "Check the backup": "Tarkista varmuuskopio"
+  "Check the backup": "Tarkista varmuuskopio",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Tässä tietokoneessa ei ole Bluetoothia. Pieni USB-Bluetooth-sovitin lisää sen.",
+  "Bluetooth is turned off.": "Bluetooth on pois päältä.",
+  "No Bluetooth device is connected right now.": "Yhtään Bluetooth-laitetta ei ole nyt yhdistetty.",
+  "Turn on Bluetooth": "Kytke Bluetooth päälle",
+  "Pair a device": "Muodosta laitepari"
 }

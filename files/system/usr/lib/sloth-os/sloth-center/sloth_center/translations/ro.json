@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Încă nu există fișiere în ultima stare salvată.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} din {n} fișiere din ultima stare salvată ({when}) nu au putut fi citite. Păstrați o copie a fișierelor importante și pe un disc extern și trimiteți un raport din Feedback.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "S-au verificat {n} fișiere din ultima stare salvată ({when}): toate pot fi citite.",
-  "Check the backup": "Verificați copia de siguranță"
+  "Check the backup": "Verificați copia de siguranță",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Acest calculator nu are Bluetooth. Un mic adaptor Bluetooth USB îl adaugă.",
+  "Bluetooth is turned off.": "Bluetooth este oprit.",
+  "No Bluetooth device is connected right now.": "Niciun dispozitiv Bluetooth nu este conectat acum.",
+  "Turn on Bluetooth": "Porniți Bluetooth",
+  "Pair a device": "Asociați un dispozitiv"
 }

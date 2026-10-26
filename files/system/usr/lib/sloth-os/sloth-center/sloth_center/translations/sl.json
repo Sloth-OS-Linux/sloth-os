@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "V zadnjem shranjenem stanju še ni datotek.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} od {n} datotek v zadnjem shranjenem stanju ({when}) ni bilo mogoče prebrati. Kopijo pomembnih datotek hranite tudi na zunanjem disku in pošljite poročilo iz Povratnih informacij.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Preverjenih {n} datotek v zadnjem shranjenem stanju ({when}): vse je mogoče prebrati.",
-  "Check the backup": "Preveri varnostno kopijo"
+  "Check the backup": "Preveri varnostno kopijo",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Ta računalnik nima Bluetootha. Doda ga majhen vmesnik Bluetooth USB.",
+  "Bluetooth is turned off.": "Bluetooth je izklopljen.",
+  "No Bluetooth device is connected right now.": "Trenutno ni povezana nobena naprava Bluetooth.",
+  "Turn on Bluetooth": "Vklopi Bluetooth",
+  "Pair a device": "Seznani napravo"
 }

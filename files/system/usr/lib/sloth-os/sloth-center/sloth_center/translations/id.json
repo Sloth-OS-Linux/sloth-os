@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Belum ada berkas di keadaan tersimpan terakhir.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} dari {n} berkas di keadaan tersimpan terakhir ({when}) tidak dapat dibaca. Simpan juga salinan berkas penting Anda di disk eksternal, dan kirim laporan dari Umpan Balik.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "{n} berkas di keadaan tersimpan terakhir ({when}) diperiksa: semuanya dapat dibaca.",
-  "Check the backup": "Periksa cadangan"
+  "Check the backup": "Periksa cadangan",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Komputer ini tidak memiliki Bluetooth. Adaptor Bluetooth USB kecil dapat menambahkannya.",
+  "Bluetooth is turned off.": "Bluetooth mati.",
+  "No Bluetooth device is connected right now.": "Saat ini tidak ada perangkat Bluetooth yang terhubung.",
+  "Turn on Bluetooth": "Nyalakan Bluetooth",
+  "Pair a device": "Pasangkan perangkat"
 }

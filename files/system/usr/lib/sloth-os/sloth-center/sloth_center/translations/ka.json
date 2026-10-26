@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "ბოლო შენახულ მდგომარეობაში ჯერ ფაილები არ არის.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "ბოლო შენახული მდგომარეობის ({when}) {n} ფაილიდან {bad} ვერ წაიკითხა. მნიშვნელოვანი ფაილების ასლი გარე დისკზეც შეინახეთ და გამოგზავნეთ ანგარიში „გამოხმაურებიდან“.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "შემოწმდა ბოლო შენახული მდგომარეობის ({when}) {n} ფაილი: ყველა იკითხება.",
-  "Check the backup": "სარეზერვო ასლის შემოწმება"
+  "Check the backup": "სარეზერვო ასლის შემოწმება",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "ამ კომპიუტერს Bluetooth არ აქვს. პატარა USB Bluetooth ადაპტერი დაამატებს.",
+  "Bluetooth is turned off.": "Bluetooth გამორთულია.",
+  "No Bluetooth device is connected right now.": "ახლა არცერთი Bluetooth მოწყობილობა არ არის დაკავშირებული.",
+  "Turn on Bluetooth": "Bluetooth-ის ჩართვა",
+  "Pair a device": "მოწყობილობის დაწყვილება"
 }

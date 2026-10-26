@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Ende nuk ka skedarë në gjendjen e fundit të ruajtur.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} nga {n} skedarë në gjendjen e fundit të ruajtur ({when}) nuk u lexuan dot. Mbani një kopje të skedarëve të rëndësishëm edhe në një disk të jashtëm dhe dërgoni një raport nga Përshtypjet.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "U kontrolluan {n} skedarë në gjendjen e fundit të ruajtur ({when}): të gjithë mund të lexohen.",
-  "Check the backup": "Kontrolloni kopjeruajtjen"
+  "Check the backup": "Kontrolloni kopjeruajtjen",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Ky kompjuter nuk ka Bluetooth. Një përshtatës i vogël Bluetooth USB e shton.",
+  "Bluetooth is turned off.": "Bluetooth është i fikur.",
+  "No Bluetooth device is connected right now.": "Tani nuk është lidhur asnjë pajisje Bluetooth.",
+  "Turn on Bluetooth": "Ndizni Bluetooth",
+  "Pair a device": "Çiftoni një pajisje"
 }

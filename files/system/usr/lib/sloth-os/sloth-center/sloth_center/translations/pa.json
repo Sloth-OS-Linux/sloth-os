@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "ਆਖ਼ਰੀ ਸੰਭਾਲੀ ਹਾਲਤ ਵਿੱਚ ਅਜੇ ਕੋਈ ਫ਼ਾਈਲ ਨਹੀਂ।",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "ਆਖ਼ਰੀ ਸੰਭਾਲੀ ਹਾਲਤ ({when}) ਦੀਆਂ {n} ਫ਼ਾਈਲਾਂ ਵਿੱਚੋਂ {bad} ਪੜ੍ਹੀਆਂ ਨਹੀਂ ਜਾ ਸਕੀਆਂ। ਆਪਣੀਆਂ ਜ਼ਰੂਰੀ ਫ਼ਾਈਲਾਂ ਦੀ ਕਾਪੀ ਬਾਹਰੀ ਡਿਸਕ ਉੱਤੇ ਵੀ ਰੱਖੋ, ਅਤੇ ਫੀਡਬੈਕ ਤੋਂ ਰਿਪੋਰਟ ਭੇਜੋ।",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "ਆਖ਼ਰੀ ਸੰਭਾਲੀ ਹਾਲਤ ({when}) ਦੀਆਂ {n} ਫ਼ਾਈਲਾਂ ਜਾਂਚੀਆਂ: ਸਾਰੀਆਂ ਪੜ੍ਹੀਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ।",
-  "Check the backup": "ਬੈਕਅੱਪ ਜਾਂਚੋ"
+  "Check the backup": "ਬੈਕਅੱਪ ਜਾਂਚੋ",
+  "Bluetooth": "ਬਲੂਟੁੱਥ",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "ਇਸ ਕੰਪਿਊਟਰ ਵਿੱਚ ਬਲੂਟੁੱਥ ਨਹੀਂ ਹੈ। ਇੱਕ ਛੋਟਾ USB ਬਲੂਟੁੱਥ ਅਡੈਪਟਰ ਇਸਨੂੰ ਜੋੜਦਾ ਹੈ।",
+  "Bluetooth is turned off.": "ਬਲੂਟੁੱਥ ਬੰਦ ਹੈ।",
+  "No Bluetooth device is connected right now.": "ਇਸ ਵੇਲੇ ਕੋਈ ਬਲੂਟੁੱਥ ਡਿਵਾਈਸ ਕਨੈਕਟ ਨਹੀਂ ਹੈ।",
+  "Turn on Bluetooth": "ਬਲੂਟੁੱਥ ਚਾਲੂ ਕਰੋ",
+  "Pair a device": "ਡਿਵਾਈਸ ਜੋੜਾ ਬਣਾਓ"
 }

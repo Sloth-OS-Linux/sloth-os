@@ -357,6 +357,68 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Bluetooth: adapter, on or off, connected devices (bluetooth.py) ----------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: bluetooth.checked
+            Component.onCompleted: bluetooth.refresh()
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Bluetooth") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    visible: !bluetooth.adapter || !bluetooth.powered || bluetooth.devices.length === 0
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: !bluetooth.adapter ? L.t("This computer has no Bluetooth. A small USB Bluetooth adapter adds it.")
+                          : !bluetooth.powered ? L.t("Bluetooth is turned off.")
+                          : L.t("No Bluetooth device is connected right now.")
+                }
+                Repeater {
+                    model: bluetooth.devices
+                    delegate: RowLayout {
+                        id: btRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: btRow.modelData.icon
+                            fallback: "preferences-system-bluetooth"
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
+                        }
+                        QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: btRow.modelData.name; font.bold: true }
+                        Kirigami.Icon {
+                            visible: btRow.modelData.battery >= 0
+                            source: btRow.modelData.battery < 20 ? "battery-caution" : "battery"
+                            implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                            implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                        }
+                        QQC2.Label {
+                            visible: btRow.modelData.battery >= 0
+                            text: btRow.modelData.battery + "%"
+                        }
+                    }
+                }
+                RowLayout {
+                    visible: bluetooth.adapter
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Button {
+                        visible: !bluetooth.powered
+                        highlighted: true
+                        icon.name: "preferences-system-bluetooth"
+                        text: L.t("Turn on Bluetooth")
+                        onClicked: bluetooth.turnOn()
+                    }
+                    QQC2.Button {
+                        icon.name: "list-add"
+                        text: L.t("Pair a device")
+                        onClicked: bluetooth.openSettings()
+                    }
+                }
+            }
+        }
+
         // --- Sound: where it goes, which microphone, and trying both (sound.py) --------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

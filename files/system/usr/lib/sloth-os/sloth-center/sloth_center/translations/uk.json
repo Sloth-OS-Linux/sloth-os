@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "В останньому збереженому стані ще немає файлів.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Не вдалося прочитати {bad} з {n} файлів в останньому збереженому стані ({when}). Зберігайте копію важливих файлів і на зовнішньому диску та надішліть повідомлення через «Відгук».",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Перевірено {n} файлів в останньому збереженому стані ({when}): усі читаються.",
-  "Check the backup": "Перевірити резервну копію"
+  "Check the backup": "Перевірити резервну копію",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "У цього комп'ютера немає Bluetooth. Його додасть невеликий USB-адаптер Bluetooth.",
+  "Bluetooth is turned off.": "Bluetooth вимкнено.",
+  "No Bluetooth device is connected right now.": "Зараз не під'єднано жодного пристрою Bluetooth.",
+  "Turn on Bluetooth": "Увімкнути Bluetooth",
+  "Pair a device": "Під'єднати пристрій"
 }

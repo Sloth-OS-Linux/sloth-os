@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Соңғы сақталған күйде әлі файлдар жоқ.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "Соңғы сақталған күйдегі ({when}) {n} файлдың {bad} оқылмады. Маңызды файлдардың көшірмесін сыртқы дискіде де сақтаңыз және «Кері байланыс» арқылы есеп жіберіңіз.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Соңғы сақталған күйдегі ({when}) {n} файл тексерілді: барлығы оқылады.",
-  "Check the backup": "Сақтық көшірмені тексеру"
+  "Check the backup": "Сақтық көшірмені тексеру",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Бұл компьютерде Bluetooth жоқ. Кішкентай USB Bluetooth адаптері оны қосады.",
+  "Bluetooth is turned off.": "Bluetooth өшірулі.",
+  "No Bluetooth device is connected right now.": "Қазір ешбір Bluetooth құрылғысы қосылмаған.",
+  "Turn on Bluetooth": "Bluetooth қосу",
+  "Pair a device": "Құрылғыны жұптау"
 }

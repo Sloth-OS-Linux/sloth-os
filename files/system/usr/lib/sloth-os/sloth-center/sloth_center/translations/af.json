@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Daar is nog geen lêers in die jongste gestoorde toestand nie.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} van {n} lêers in die jongste gestoorde toestand ({when}) kon nie gelees word nie. Hou ook 'n kopie van jou belangrike lêers op 'n eksterne skyf, en stuur 'n verslag vanuit Terugvoer.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "{n} lêers in die jongste gestoorde toestand ({when}) is nagegaan: almal kan gelees word.",
-  "Check the backup": "Kontroleer die rugsteun"
+  "Check the backup": "Kontroleer die rugsteun",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Hierdie rekenaar het nie Bluetooth nie. 'n Klein USB-Bluetooth-adapter voeg dit by.",
+  "Bluetooth is turned off.": "Bluetooth is af.",
+  "No Bluetooth device is connected right now.": "Geen Bluetooth-toestel is tans gekoppel nie.",
+  "Turn on Bluetooth": "Skakel Bluetooth aan",
+  "Pair a device": "Koppel 'n toestel"
 }

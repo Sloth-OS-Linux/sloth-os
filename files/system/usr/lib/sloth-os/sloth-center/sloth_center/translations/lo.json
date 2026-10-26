@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "ຍັງບໍ່ມີໄຟລ໌ໃນສະພາບທີ່ບັນທຶກໄວ້ຫຼ້າສຸດ.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "ອ່ານບໍ່ໄດ້ {bad} ໃນ {n} ໄຟລ໌ຂອງສະພາບທີ່ບັນທຶກໄວ້ຫຼ້າສຸດ ({when}). ເກັບສຳເນົາໄຟລ໌ສຳຄັນໄວ້ໃນດິສພາຍນອກນຳ, ແລະ ສົ່ງລາຍງານຈາກຄຳຕິຊົມ.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "ກວດ {n} ໄຟລ໌ໃນສະພາບທີ່ບັນທຶກໄວ້ຫຼ້າສຸດ ({when}) ແລ້ວ: ອ່ານໄດ້ທັງໝົດ.",
-  "Check the backup": "ກວດການສຳຮອງ"
+  "Check the backup": "ກວດການສຳຮອງ",
+  "Bluetooth": "ບລູທູດ",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "ຄອມພິວເຕີນີ້ບໍ່ມີບລູທູດ. ອະແດັບເຕີບລູທູດ USB ນ້ອຍໆເພີ່ມມັນໄດ້.",
+  "Bluetooth is turned off.": "ບລູທູດປິດຢູ່.",
+  "No Bluetooth device is connected right now.": "ດຽວນີ້ບໍ່ມີອຸປະກອນບລູທູດເຊື່ອມຕໍ່.",
+  "Turn on Bluetooth": "ເປີດບລູທູດ",
+  "Pair a device": "ຈັບຄູ່ອຸປະກອນ"
 }

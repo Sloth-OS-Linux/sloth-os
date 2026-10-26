@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "最近儲存的狀態中還沒有檔案。",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "最近儲存的狀態（{when}）中，{n} 個檔案裡有 {bad} 個無法讀取。請把重要檔案在外接磁碟上也保留一份，並從「意見回饋」傳送報告。",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "已檢查最近儲存的狀態（{when}）中的 {n} 個檔案：全部可以讀取。",
-  "Check the backup": "檢查備份"
+  "Check the backup": "檢查備份",
+  "Bluetooth": "藍牙",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "這台電腦沒有藍牙。一個小巧的 USB 藍牙介面卡就能加上。",
+  "Bluetooth is turned off.": "藍牙已關閉。",
+  "No Bluetooth device is connected right now.": "目前沒有連線的藍牙裝置。",
+  "Turn on Bluetooth": "開啟藍牙",
+  "Pair a device": "配對裝置"
 }

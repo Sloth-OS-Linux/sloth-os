@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "Det finns inga filer i det senaste sparade läget än.",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "{bad} av {n} filer i det senaste sparade läget ({when}) kunde inte läsas. Ha en kopia av dina viktiga filer på en extern disk också, och skicka en rapport från Feedback.",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "Kontrollerade {n} filer i det senaste sparade läget ({when}): alla kan läsas.",
-  "Check the backup": "Kontrollera säkerhetskopian"
+  "Check the backup": "Kontrollera säkerhetskopian",
+  "Bluetooth": "Bluetooth",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "Den här datorn har inte Bluetooth. En liten USB-Bluetooth-adapter lägger till det.",
+  "Bluetooth is turned off.": "Bluetooth är avstängt.",
+  "No Bluetooth device is connected right now.": "Ingen Bluetooth-enhet är ansluten just nu.",
+  "Turn on Bluetooth": "Slå på Bluetooth",
+  "Pair a device": "Para ihop en enhet"
 }

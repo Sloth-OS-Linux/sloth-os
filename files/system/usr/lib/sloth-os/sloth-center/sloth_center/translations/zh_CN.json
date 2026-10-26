@@ -744,5 +744,11 @@
   "There are no files in the latest saved state yet.": "最近保存的状态中还没有文件。",
   "{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.": "最近保存的状态（{when}）中，{n} 个文件里有 {bad} 个无法读取。请把重要文件在外置磁盘上也保留一份，并从“反馈”发送报告。",
   "Checked {n} files in the latest saved state ({when}): all of them can be read.": "已检查最近保存的状态（{when}）中的 {n} 个文件：全部可以读取。",
-  "Check the backup": "检查备份"
+  "Check the backup": "检查备份",
+  "Bluetooth": "蓝牙",
+  "This computer has no Bluetooth. A small USB Bluetooth adapter adds it.": "这台电脑没有蓝牙。一个小巧的 USB 蓝牙适配器就能加上。",
+  "Bluetooth is turned off.": "蓝牙已关闭。",
+  "No Bluetooth device is connected right now.": "现在没有连接蓝牙设备。",
+  "Turn on Bluetooth": "打开蓝牙",
+  "Pair a device": "配对设备"
 }
