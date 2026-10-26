@@ -7,6 +7,8 @@ polkit shows a graphical password window.
 The GLib callbacks run in Qt's event loop (on Linux Qt uses GLib's
 event dispatcher), so no separate thread is needed.
 """
+import logging
+
 from gi.repository import Gio, GLib
 
 BUS_NAME = "org.projectatomic.rpmostree1"
