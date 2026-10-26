@@ -724,5 +724,15 @@
   "Play a test sound": "Prehrať skúšobný zvuk",
   "Test the microphone": "Vyskúšať mikrofón",
   "This microphone is muted.": "Tento mikrofón je stlmený.",
-  "Unmute": "Zrušiť stlmenie"
+  "Unmute": "Zrušiť stlmenie",
+  "Couldn't change the display.": "Displej sa nepodarilo zmeniť.",
+  "Displays": "Displeje",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, teraz {hz} Hz. Zvládne {best} Hz: hry vyzerajú plynulejšie.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (najviac, čo zvládne).",
+  "Use {hz} Hz": "Použiť {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Premenlivá obnovovacia frekvencia (FreeSync, G-Sync): plynulejšie hry bez trhania obrazu",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: jasnejšie svetlá a sýtejšie farby v hrách a videách, ktoré ho podporujú",
+  "More display settings": "Ďalšie nastavenia displeja",
+  "Keep this display setting?": "Ponechať toto nastavenie displeja?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ak obraz vyzerá dobre, ponechajte ho. Inak sa o {n} s samo vráti."
 }

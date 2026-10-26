@@ -194,7 +194,12 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [x] **Quick** — Show network status and latency, with basic guidance when the connection may affect online play (2026-10-23, Sloth Center's System status page).
 - [ ] **Medium** — Help configure NAS devices and shared folders, preserving the connection after restart when requested.
 - [ ] **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
-- [ ] **Medium** — Help configure monitor resolution and refresh rate, plus HDR or VRR where supported.
+- [x] **Medium** — Monitor refresh rate, VRR and HDR for gaming (2026-10-26): Drivers and hardware → Displays.
+  Each monitor by its own name (EDID), its refresh rate now and the highest at the same resolution with a "Use
+  144 Hz" button (found on a real machine: a 144 Hz monitor running at 100 Hz), and switches for VRR and HDR only
+  where the monitor supports them, through kscreen-doctor. After a change it asks "Keep?" and goes back by itself
+  after 15 seconds, as KDE's own display settings do. The resolution stays in "More display settings".
+  Tests: `tools/tests/test_display.py`. Check on a real machine (also HDR on, then "Go back")
 - [ ] **Medium** — Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
 - [ ] **Medium** — Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
 

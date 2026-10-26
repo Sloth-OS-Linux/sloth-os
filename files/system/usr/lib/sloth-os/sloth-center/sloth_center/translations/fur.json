@@ -724,5 +724,15 @@
   "Play a test sound": "Sune un sun di prove",
   "Test the microphone": "Prove il microfon",
   "This microphone is muted.": "Chest microfon al è cidinât.",
-  "Unmute": "Ative il sun"
+  "Unmute": "Ative il sun",
+  "Couldn't change the display.": "No si è rivâts a cambiâ il visôr.",
+  "Displays": "Visôrs",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, cumò {hz} Hz. Al pues lâ fin a {best} Hz: i zûcs a somein plui slis.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (il massim che al pues).",
+  "Use {hz} Hz": "Dopre {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Frecuence di inzornament variabile (FreeSync, G-Sync): zûcs plui slis cence sbregs",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: lûs plui lusorosis e colôrs plui sioris tai zûcs e tai videos che lu supuartin",
+  "More display settings": "Altris impostazions dal visôr",
+  "Keep this display setting?": "Tignî cheste impostazion dal visôr?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Se il visôr si viôt ben, tegnile. Se no e torne indaûr di bessole ca di {n} seconts."
 }

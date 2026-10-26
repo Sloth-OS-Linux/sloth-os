@@ -59,6 +59,7 @@ def main():
     from .wifi import WifiController
     from .privacy import PrivacyController
     from .sound import SoundController
+    from .display import DisplayController
     from .winprograms import WinProgramsController
 
     engine = QQmlApplicationEngine()
@@ -89,6 +90,7 @@ def main():
     wifi = WifiController()
     privacy = PrivacyController()
     sound = SoundController()
+    display = DisplayController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -112,6 +114,7 @@ def main():
     engine.rootContext().setContextProperty("wifi", wifi)
     engine.rootContext().setContextProperty("privacy", privacy)
     engine.rootContext().setContextProperty("sound", sound)
+    engine.rootContext().setContextProperty("displays", display)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1

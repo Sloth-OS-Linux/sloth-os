@@ -724,5 +724,15 @@
   "Play a test sound": "테스트 소리 재생",
   "Test the microphone": "마이크 테스트",
   "This microphone is muted.": "이 마이크는 음소거되어 있습니다.",
-  "Unmute": "음소거 해제"
+  "Unmute": "음소거 해제",
+  "Couldn't change the display.": "디스플레이를 바꾸지 못했습니다.",
+  "Displays": "디스플레이",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, 지금 {hz}Hz. 최대 {best}Hz까지 가능: 게임이 더 부드럽게 보입니다.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz}Hz(최대치).",
+  "Use {hz} Hz": "{hz}Hz 사용",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "가변 주사율(FreeSync, G-Sync): 화면 찢어짐 없이 부드러운 게임",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: 지원하는 게임과 동영상에서 더 밝은 하이라이트와 풍부한 색상",
+  "More display settings": "추가 디스플레이 설정",
+  "Keep this display setting?": "이 디스플레이 설정을 유지할까요?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "화면이 제대로 보이면 유지하세요. 그렇지 않으면 {n}초 뒤 저절로 되돌아갑니다."
 }

@@ -724,5 +724,15 @@
   "Play a test sound": "השמעת צליל בדיקה",
   "Test the microphone": "בדיקת המיקרופון",
   "This microphone is muted.": "המיקרופון הזה מושתק.",
-  "Unmute": "ביטול השתקה"
+  "Unmute": "ביטול השתקה",
+  "Couldn't change the display.": "לא ניתן היה לשנות את התצוגה.",
+  "Displays": "מסכים",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, כרגע {hz} הרץ. הוא מסוגל ל־{best} הרץ: משחקים נראים חלקים יותר.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} הרץ (המרב שהוא מסוגל).",
+  "Use {hz} Hz": "שימוש ב־{hz} הרץ",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "קצב רענון משתנה (FreeSync,‏ G-Sync): משחקים חלקים יותר ללא קריעה",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: הדגשות בהירות יותר וצבעים עשירים יותר במשחקים ובסרטונים שתומכים בזה",
+  "More display settings": "הגדרות תצוגה נוספות",
+  "Keep this display setting?": "לשמור את הגדרת התצוגה הזו?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "אם המסך נראה תקין, שמרו אותה. אחרת היא תחזור מעצמה בעוד {n} שניות."
 }

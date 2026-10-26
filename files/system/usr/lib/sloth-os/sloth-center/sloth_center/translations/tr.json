@@ -724,5 +724,15 @@
   "Play a test sound": "Deneme sesi çal",
   "Test the microphone": "Mikrofonu dene",
   "This microphone is muted.": "Bu mikrofonun sesi kapalı.",
-  "Unmute": "Sesi aç"
+  "Unmute": "Sesi aç",
+  "Couldn't change the display.": "Ekran değiştirilemedi.",
+  "Displays": "Ekranlar",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, şu an {hz} Hz. {best} Hz'e kadar çıkabilir: oyunlar daha akıcı görünür.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (çıkabildiği en yüksek değer).",
+  "Use {hz} Hz": "{hz} Hz kullan",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Değişken yenileme hızı (FreeSync, G-Sync): yırtılma olmadan daha akıcı oyunlar",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: destekleyen oyun ve videolarda daha parlak ışıklar ve daha zengin renkler",
+  "More display settings": "Diğer ekran ayarları",
+  "Keep this display setting?": "Bu ekran ayarı korunsun mu?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ekran doğru görünüyorsa koruyun. Yoksa {n} saniye içinde kendiliğinden geri döner."
 }

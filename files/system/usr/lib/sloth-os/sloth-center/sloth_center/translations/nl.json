@@ -724,5 +724,15 @@
   "Play a test sound": "Testgeluid afspelen",
   "Test the microphone": "Microfoon testen",
   "This microphone is muted.": "Deze microfoon is gedempt.",
-  "Unmute": "Dempen opheffen"
+  "Unmute": "Dempen opheffen",
+  "Couldn't change the display.": "Kon het scherm niet wijzigen.",
+  "Displays": "Schermen",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, nu {hz} Hz. Het kan {best} Hz: games zien er vloeiender uit.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (het hoogste dat het kan).",
+  "Use {hz} Hz": "{hz} Hz gebruiken",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Variabele verversingssnelheid (FreeSync, G-Sync): vloeiendere games zonder tearing",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: helderdere lichtpunten en rijkere kleuren in games en video's die het ondersteunen",
+  "More display settings": "Meer scherminstellingen",
+  "Keep this display setting?": "Deze scherminstelling behouden?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Als het scherm er goed uitziet, behoud het dan. Anders gaat het over {n} seconden vanzelf terug."
 }

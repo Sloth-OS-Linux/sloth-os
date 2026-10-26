@@ -724,5 +724,15 @@
   "Play a test sound": "পরীক্ষামূলক শব্দ বাজান",
   "Test the microphone": "মাইক্রোফোন পরীক্ষা করুন",
   "This microphone is muted.": "এই মাইক্রোফোন মিউট করা আছে।",
-  "Unmute": "আনমিউট করুন"
+  "Unmute": "আনমিউট করুন",
+  "Couldn't change the display.": "ডিসপ্লে পরিবর্তন করা যায়নি।",
+  "Displays": "ডিসপ্লে",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, এখন {hz} Hz। এটি {best} Hz পর্যন্ত পারে: গেম আরও মসৃণ দেখায়।",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (এটি সর্বোচ্চ যা পারে)।",
+  "Use {hz} Hz": "{hz} Hz ব্যবহার করুন",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "ভ্যারিয়েবল রিফ্রেশ রেট (FreeSync, G-Sync): টিয়ারিং ছাড়া মসৃণ গেম",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: সমর্থিত গেম ও ভিডিওতে আরও উজ্জ্বল হাইলাইট ও সমৃদ্ধ রং",
+  "More display settings": "আরও ডিসপ্লে সেটিংস",
+  "Keep this display setting?": "এই ডিসপ্লে সেটিং রাখবেন?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "স্ক্রিন ঠিক দেখালে রেখে দিন। না হলে {n} সেকেন্ডে নিজে থেকেই আগের অবস্থায় ফিরবে।"
 }

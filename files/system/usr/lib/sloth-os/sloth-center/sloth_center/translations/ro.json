@@ -724,5 +724,15 @@
   "Play a test sound": "Redă un sunet de test",
   "Test the microphone": "Testează microfonul",
   "This microphone is muted.": "Acest microfon este dezactivat.",
-  "Unmute": "Activează sunetul"
+  "Unmute": "Activează sunetul",
+  "Couldn't change the display.": "Nu s-a putut schimba ecranul.",
+  "Displays": "Ecrane",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, acum {hz} Hz. Poate {best} Hz: jocurile arată mai fluid.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (cât poate cel mai mult).",
+  "Use {hz} Hz": "Folosește {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Rată de reîmprospătare variabilă (FreeSync, G-Sync): jocuri mai fluide, fără rupturi de imagine",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: lumini mai strălucitoare și culori mai bogate în jocurile și videoclipurile care îl acceptă",
+  "More display settings": "Mai multe setări de ecran",
+  "Keep this display setting?": "Păstrați această setare de ecran?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Dacă ecranul arată bine, păstrați-o. Altfel revine singură în {n} secunde."
 }

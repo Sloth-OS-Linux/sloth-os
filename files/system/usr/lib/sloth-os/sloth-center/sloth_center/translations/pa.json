@@ -724,5 +724,15 @@
   "Play a test sound": "ਟੈਸਟ ਆਵਾਜ਼ ਚਲਾਓ",
   "Test the microphone": "ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਅਜ਼ਮਾਓ",
   "This microphone is muted.": "ਇਹ ਮਾਈਕ੍ਰੋਫ਼ੋਨ ਮਿਊਟ ਹੈ।",
-  "Unmute": "ਅਨਮਿਊਟ ਕਰੋ"
+  "Unmute": "ਅਨਮਿਊਟ ਕਰੋ",
+  "Couldn't change the display.": "ਡਿਸਪਲੇ ਬਦਲੀ ਨਹੀਂ ਜਾ ਸਕੀ।",
+  "Displays": "ਡਿਸਪਲੇ",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, ਹੁਣ {hz} Hz। ਇਹ {best} Hz ਤੱਕ ਜਾ ਸਕਦੀ ਹੈ: ਗੇਮਾਂ ਹੋਰ ਸਮੂਥ ਲੱਗਦੀਆਂ ਹਨ।",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (ਜਿੰਨਾ ਵੱਧ ਤੋਂ ਵੱਧ ਇਹ ਕਰ ਸਕਦੀ ਹੈ)।",
+  "Use {hz} Hz": "{hz} Hz ਵਰਤੋ",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "ਬਦਲਵੀਂ ਰਿਫ੍ਰੈਸ਼ ਦਰ (FreeSync, G-Sync): ਬਿਨਾਂ ਟੀਅਰਿੰਗ ਸਮੂਥ ਗੇਮਾਂ",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: ਸਮਰਥਿਤ ਗੇਮਾਂ ਅਤੇ ਵੀਡੀਓਜ਼ ਵਿੱਚ ਵਧੇਰੇ ਚਮਕਦਾਰ ਰੌਸ਼ਨੀਆਂ ਅਤੇ ਗੂੜ੍ਹੇ ਰੰਗ",
+  "More display settings": "ਹੋਰ ਡਿਸਪਲੇ ਸੈਟਿੰਗਾਂ",
+  "Keep this display setting?": "ਇਹ ਡਿਸਪਲੇ ਸੈਟਿੰਗ ਰੱਖਣੀ ਹੈ?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "ਜੇ ਸਕ੍ਰੀਨ ਠੀਕ ਲੱਗੇ, ਤਾਂ ਰੱਖੋ। ਨਹੀਂ ਤਾਂ ਇਹ {n} ਸਕਿੰਟਾਂ ਵਿੱਚ ਆਪਣੇ ਆਪ ਵਾਪਸ ਚਲੀ ਜਾਵੇਗੀ।"
 }

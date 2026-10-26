@@ -724,5 +724,15 @@
   "Play a test sound": "テスト音を再生",
   "Test the microphone": "マイクを試す",
   "This microphone is muted.": "このマイクはミュートされています。",
-  "Unmute": "ミュート解除"
+  "Unmute": "ミュート解除",
+  "Couldn't change the display.": "ディスプレイを変更できませんでした。",
+  "Displays": "ディスプレイ",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}、現在 {hz} Hz。{best} Hz まで出せます: ゲームがなめらかになります。",
+  "{size}, {hz} Hz (the most it can do).": "{size}、{hz} Hz（これが最大です）。",
+  "Use {hz} Hz": "{hz} Hz を使う",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "可変リフレッシュレート（FreeSync、G-Sync）: ティアリングのない、なめらかなゲーム",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: 対応するゲームや動画で、より明るいハイライトと豊かな色",
+  "More display settings": "その他のディスプレイ設定",
+  "Keep this display setting?": "このディスプレイ設定を保持しますか？",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "画面が正しく表示されていれば保持してください。そうでなければ {n} 秒後に自動で元に戻ります。"
 }

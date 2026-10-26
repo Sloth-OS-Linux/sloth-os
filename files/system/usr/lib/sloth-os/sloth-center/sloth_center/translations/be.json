@@ -724,5 +724,15 @@
   "Play a test sound": "Прайграць праверачны гук",
   "Test the microphone": "Праверыць мікрафон",
   "This microphone is muted.": "Гэты мікрафон выключаны.",
-  "Unmute": "Уключыць гук"
+  "Unmute": "Уключыць гук",
+  "Couldn't change the display.": "Не ўдалося змяніць дысплэй.",
+  "Displays": "Дысплэі",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, зараз {hz} Гц. Ён можа {best} Гц: гульні выглядаюць плаўней.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Гц (максімум, які ён можа).",
+  "Use {hz} Hz": "Выкарыстаць {hz} Гц",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Зменная частата абнаўлення (FreeSync, G-Sync): плаўныя гульні без разрываў",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: ярчэйшыя блікі і насычаныя колеры ў гульнях і відэа, што яго падтрымліваюць",
+  "More display settings": "Іншыя налады дысплэя",
+  "Keep this display setting?": "Пакінуць гэту наладу дысплэя?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Калі экран выглядае правільна, пакіньце яе. Інакш яна сама вернецца праз {n} с."
 }

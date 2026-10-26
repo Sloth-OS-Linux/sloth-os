@@ -724,5 +724,15 @@
   "Play a test sound": "ຫຼິ້ນສຽງທົດສອບ",
   "Test the microphone": "ທົດສອບໄມໂຄຣໂຟນ",
   "This microphone is muted.": "ໄມໂຄຣໂຟນນີ້ຖືກປິດສຽງ.",
-  "Unmute": "ເປີດສຽງ"
+  "Unmute": "ເປີດສຽງ",
+  "Couldn't change the display.": "ບໍ່ສາມາດປ່ຽນຈໍສະແດງຜົນໄດ້.",
+  "Displays": "ຈໍສະແດງຜົນ",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, ດຽວນີ້ {hz} Hz. ມັນເຮັດໄດ້ເຖິງ {best} Hz: ເກມເບິ່ງລື່ນຂຶ້ນ.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (ສູງສຸດທີ່ມັນເຮັດໄດ້).",
+  "Use {hz} Hz": "ໃຊ້ {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "ອັດຕາການໂຫຼດໜ້າຈໍແບບປ່ຽນແປງໄດ້ (FreeSync, G-Sync): ເກມລື່ນໂດຍບໍ່ມີພາບຈີກ",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: ຈຸດສະຫວ່າງສົດກວ່າ ແລະ ສີສັນອຸດົມກວ່າໃນເກມ ແລະ ວິດີໂອທີ່ຮອງຮັບ",
+  "More display settings": "ການຕັ້ງຄ່າຈໍສະແດງຜົນເພີ່ມເຕີມ",
+  "Keep this display setting?": "ເກັບການຕັ້ງຄ່າຈໍສະແດງຜົນນີ້ໄວ້ບໍ?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "ຖ້າໜ້າຈໍເບິ່ງຖືກຕ້ອງ, ເກັບໄວ້. ຖ້າບໍ່, ມັນຈະກັບຄືນເອງໃນ {n} ວິນາທີ."
 }

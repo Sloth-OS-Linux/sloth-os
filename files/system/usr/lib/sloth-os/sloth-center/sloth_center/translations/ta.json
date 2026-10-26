@@ -724,5 +724,15 @@
   "Play a test sound": "சோதனை ஒலியை இயக்கு",
   "Test the microphone": "மைக்ரோஃபோனைச் சோதி",
   "This microphone is muted.": "இந்த மைக்ரோஃபோன் ஒலியடக்கப்பட்டுள்ளது.",
-  "Unmute": "ஒலியடக்கத்தை நீக்கு"
+  "Unmute": "ஒலியடக்கத்தை நீக்கு",
+  "Couldn't change the display.": "காட்சித்திரையை மாற்ற முடியவில்லை.",
+  "Displays": "காட்சித்திரைகள்",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, இப்போது {hz} Hz. இது {best} Hz வரை செல்லும்: விளையாட்டுகள் மிருதுவாகத் தெரியும்.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (இதன் அதிகபட்சம்).",
+  "Use {hz} Hz": "{hz} Hz பயன்படுத்து",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "மாறும் புதுப்பிப்பு வீதம் (FreeSync, G-Sync): கிழிவில்லாத மிருதுவான விளையாட்டுகள்",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: ஆதரிக்கும் விளையாட்டுகளிலும் வீடியோக்களிலும் ஒளிமிக்க பகுதிகளும் செறிவான நிறங்களும்",
+  "More display settings": "மேலும் காட்சித்திரை அமைப்புகள்",
+  "Keep this display setting?": "இந்தக் காட்சித்திரை அமைப்பை வைத்திருக்கவா?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "திரை சரியாகத் தெரிந்தால் வைத்திருங்கள். இல்லையெனில் {n} வினாடிகளில் தானாகப் பழைய நிலைக்குத் திரும்பும்."
 }

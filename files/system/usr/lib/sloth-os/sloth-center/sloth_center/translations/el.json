@@ -724,5 +724,15 @@
   "Play a test sound": "Αναπαραγωγή δοκιμαστικού ήχου",
   "Test the microphone": "Δοκιμή μικροφώνου",
   "This microphone is muted.": "Αυτό το μικρόφωνο είναι σε σίγαση.",
-  "Unmute": "Κατάργηση σίγασης"
+  "Unmute": "Κατάργηση σίγασης",
+  "Couldn't change the display.": "Δεν ήταν δυνατή η αλλαγή της οθόνης.",
+  "Displays": "Οθόνες",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, τώρα {hz} Hz. Μπορεί {best} Hz: τα παιχνίδια φαίνονται πιο ομαλά.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (το μέγιστο που μπορεί).",
+  "Use {hz} Hz": "Χρήση {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Μεταβλητός ρυθμός ανανέωσης (FreeSync, G-Sync): πιο ομαλά παιχνίδια χωρίς σκισίματα",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: φωτεινότερα σημεία και πλουσιότερα χρώματα σε παιχνίδια και βίντεο που το υποστηρίζουν",
+  "More display settings": "Περισσότερες ρυθμίσεις οθόνης",
+  "Keep this display setting?": "Διατήρηση αυτής της ρύθμισης οθόνης;",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Αν η οθόνη φαίνεται σωστή, κρατήστε τη. Αλλιώς επανέρχεται μόνη της σε {n} δευτερόλεπτα."
 }

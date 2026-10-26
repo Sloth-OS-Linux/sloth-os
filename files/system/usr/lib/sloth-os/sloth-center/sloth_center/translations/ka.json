@@ -724,5 +724,15 @@
   "Play a test sound": "საცდელი ხმის დაკვრა",
   "Test the microphone": "მიკროფონის გამოცდა",
   "This microphone is muted.": "ეს მიკროფონი დადუმებულია.",
-  "Unmute": "დადუმების მოხსნა"
+  "Unmute": "დადუმების მოხსნა",
+  "Couldn't change the display.": "ეკრანის შეცვლა ვერ მოხერხდა.",
+  "Displays": "ეკრანები",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, ახლა {hz} ჰც. შეუძლია {best} ჰც: თამაშები უფრო გლუვად გამოიყურება.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} ჰც (მაქსიმუმი, რაც შეუძლია).",
+  "Use {hz} Hz": "{hz} ჰც-ის გამოყენება",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "ცვლადი განახლების სიხშირე (FreeSync, G-Sync): გლუვი თამაშები გაწყვეტის გარეშე",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: უფრო კაშკაშა ნათელი ადგილები და მდიდარი ფერები მხარდაჭერილ თამაშებსა და ვიდეოებში",
+  "More display settings": "ეკრანის სხვა პარამეტრები",
+  "Keep this display setting?": "შევინახოთ ეკრანის ეს პარამეტრი?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "თუ ეკრანი სწორად ჩანს, შეინახეთ. წინააღმდეგ შემთხვევაში {n} წამში თავისით დაბრუნდება."
 }

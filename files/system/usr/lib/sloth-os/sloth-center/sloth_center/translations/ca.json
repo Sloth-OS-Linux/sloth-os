@@ -724,5 +724,15 @@
   "Play a test sound": "Reprodueix un so de prova",
   "Test the microphone": "Prova el micròfon",
   "This microphone is muted.": "Aquest micròfon està silenciat.",
-  "Unmute": "Activa el so"
+  "Unmute": "Activa el so",
+  "Couldn't change the display.": "No s'ha pogut canviar la pantalla.",
+  "Displays": "Pantalles",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, ara a {hz} Hz. Pot fer {best} Hz: els jocs es veuen més fluids.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (el màxim que pot fer).",
+  "Use {hz} Hz": "Usa {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Freqüència d'actualització variable (FreeSync, G-Sync): jocs més fluids sense esquinçaments",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: llums més brillants i colors més rics als jocs i vídeos que l'admeten",
+  "More display settings": "Més opcions de pantalla",
+  "Keep this display setting?": "Voleu mantenir aquesta opció de pantalla?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Si la pantalla es veu bé, manteniu-la. Si no, tornarà enrere sola d'aquí a {n} segons."
 }

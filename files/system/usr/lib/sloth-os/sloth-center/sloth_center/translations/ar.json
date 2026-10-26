@@ -724,5 +724,15 @@
   "Play a test sound": "شغّل صوتًا تجريبيًا",
   "Test the microphone": "اختبر الميكروفون",
   "This microphone is muted.": "هذا الميكروفون مكتوم.",
-  "Unmute": "إلغاء الكتم"
+  "Unmute": "إلغاء الكتم",
+  "Couldn't change the display.": "تعذّر تغيير الشاشة.",
+  "Displays": "الشاشات",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}، الآن {hz} هرتز. يمكنها {best} هرتز: تبدو الألعاب أكثر سلاسة.",
+  "{size}, {hz} Hz (the most it can do).": "{size}، {hz} هرتز (أقصى ما تستطيعه).",
+  "Use {hz} Hz": "استخدم {hz} هرتز",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "معدل التحديث المتغير (FreeSync وG-Sync): ألعاب أكثر سلاسة بلا تمزّق",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: إضاءات أسطع وألوان أغنى في الألعاب والفيديوهات التي تدعمه",
+  "More display settings": "مزيد من إعدادات الشاشة",
+  "Keep this display setting?": "هل تريد الإبقاء على إعداد الشاشة هذا؟",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "إذا بدت الشاشة سليمة، فأبقِ عليه. وإلا فسيعود تلقائيًا خلال {n} ثانية."
 }

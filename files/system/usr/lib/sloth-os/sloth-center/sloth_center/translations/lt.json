@@ -724,5 +724,15 @@
   "Play a test sound": "Groti bandomąjį garsą",
   "Test the microphone": "Išbandyti mikrofoną",
   "This microphone is muted.": "Šio mikrofono garsas išjungtas.",
-  "Unmute": "Įjungti garsą"
+  "Unmute": "Įjungti garsą",
+  "Couldn't change the display.": "Nepavyko pakeisti ekrano.",
+  "Displays": "Ekranai",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, dabar {hz} Hz. Gali {best} Hz: žaidimai atrodo sklandžiau.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (daugiausia, ką gali).",
+  "Use {hz} Hz": "Naudoti {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Kintamas atnaujinimo dažnis (FreeSync, G-Sync): sklandesni žaidimai be vaizdo plyšimo",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: ryškesni šviesūs plotai ir sodresnės spalvos jį palaikančiuose žaidimuose ir vaizdo įrašuose",
+  "More display settings": "Daugiau ekrano nustatymų",
+  "Keep this display setting?": "Palikti šį ekrano nustatymą?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Jei ekranas atrodo gerai, palikite jį. Kitaip po {n} sekundžių jis pats grįš atgal."
 }

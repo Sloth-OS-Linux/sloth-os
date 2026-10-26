@@ -724,5 +724,15 @@
   "Play a test sound": "播放测试音",
   "Test the microphone": "测试麦克风",
   "This microphone is muted.": "这个麦克风已静音。",
-  "Unmute": "取消静音"
+  "Unmute": "取消静音",
+  "Couldn't change the display.": "无法更改显示器设置。",
+  "Displays": "显示器",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}，当前 {hz} Hz。它可以达到 {best} Hz：游戏会更流畅。",
+  "{size}, {hz} Hz (the most it can do).": "{size}，{hz} Hz（已是最高）。",
+  "Use {hz} Hz": "使用 {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "可变刷新率（FreeSync、G-Sync）：游戏更流畅，没有画面撕裂",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR：在支持的游戏和视频中，高光更亮、色彩更丰富",
+  "More display settings": "更多显示器设置",
+  "Keep this display setting?": "保留此显示器设置？",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "如果画面正常，请保留。否则它会在 {n} 秒后自动恢复。"
 }

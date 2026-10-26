@@ -724,5 +724,15 @@
   "Play a test sound": "Riproduci un suono di prova",
   "Test the microphone": "Prova il microfono",
   "This microphone is muted.": "Questo microfono è silenziato.",
-  "Unmute": "Riattiva"
+  "Unmute": "Riattiva",
+  "Couldn't change the display.": "Impossibile cambiare lo schermo.",
+  "Displays": "Schermi",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, ora a {hz} Hz. Può arrivare a {best} Hz: i giochi sembrano più fluidi.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (il massimo che può).",
+  "Use {hz} Hz": "Usa {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Frequenza di aggiornamento variabile (FreeSync, G-Sync): giochi più fluidi senza tearing",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: luci più brillanti e colori più ricchi nei giochi e nei video che lo supportano",
+  "More display settings": "Altre impostazioni dello schermo",
+  "Keep this display setting?": "Mantenere questa impostazione dello schermo?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Se lo schermo si vede bene, mantienila. Altrimenti torna indietro da sola tra {n} secondi."
 }

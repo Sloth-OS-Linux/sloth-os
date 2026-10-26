@@ -724,5 +724,15 @@
   "Play a test sound": "Spela upp ett testljud",
   "Test the microphone": "Testa mikrofonen",
   "This microphone is muted.": "Den här mikrofonen är avstängd.",
-  "Unmute": "Slå på ljud"
+  "Unmute": "Slå på ljud",
+  "Couldn't change the display.": "Det gick inte att ändra skärmen.",
+  "Displays": "Skärmar",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, nu {hz} Hz. Den klarar {best} Hz: spel ser jämnare ut.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (det mesta den klarar).",
+  "Use {hz} Hz": "Använd {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Variabel uppdateringsfrekvens (FreeSync, G-Sync): jämnare spel utan tearing",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: ljusare högdagrar och rikare färger i spel och videor som stöder det",
+  "More display settings": "Fler skärminställningar",
+  "Keep this display setting?": "Behålla den här skärminställningen?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Om skärmen ser rätt ut, behåll den. Annars går den tillbaka av sig själv om {n} sekunder."
 }

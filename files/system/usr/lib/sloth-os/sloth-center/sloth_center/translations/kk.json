@@ -724,5 +724,15 @@
   "Play a test sound": "Сынақ дыбысын ойнату",
   "Test the microphone": "Микрофонды сынау",
   "This microphone is muted.": "Бұл микрофонның дыбысы өшірулі.",
-  "Unmute": "Дыбысты қосу"
+  "Unmute": "Дыбысты қосу",
+  "Couldn't change the display.": "Дисплейді өзгерту мүмкін болмады.",
+  "Displays": "Дисплейлер",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, қазір {hz} Гц. Ол {best} Гц-ке дейін жетеді: ойындар тегісірек көрінеді.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Гц (ол жете алатын ең жоғарысы).",
+  "Use {hz} Hz": "{hz} Гц пайдалану",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Айнымалы жаңарту жиілігі (FreeSync, G-Sync): жыртылусыз тегіс ойындар",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: қолдайтын ойындар мен бейнелерде жарқынырақ жарықтар мен бай түстер",
+  "More display settings": "Дисплейдің басқа баптаулары",
+  "Keep this display setting?": "Бұл дисплей баптауын сақтау керек пе?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Экран дұрыс көрінсе, сақтаңыз. Әйтпесе ол {n} секундтан кейін өздігінен қайтады."
 }

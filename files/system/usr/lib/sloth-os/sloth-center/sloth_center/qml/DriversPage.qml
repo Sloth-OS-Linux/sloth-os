@@ -236,6 +236,127 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Displays: refresh rate, VRR and HDR for games (displays.py) ---------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: displays.monitors.length > 0
+            Component.onCompleted: displays.refresh()
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Displays") }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Error
+                    visible: displays.errorText !== ""
+                    text: displays.errorText
+                }
+                Repeater {
+                    model: displays.monitors
+                    delegate: ColumnLayout {
+                        id: monitor
+                        required property var modelData
+                        required property int index
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        Kirigami.Separator { Layout.fillWidth: true; visible: monitor.index > 0 }
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: Kirigami.Units.largeSpacing
+                            Kirigami.Icon {
+                                source: "video-display"
+                                implicitWidth: Kirigami.Units.iconSizes.medium
+                                implicitHeight: Kirigami.Units.iconSizes.medium
+                            }
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 0
+                                QQC2.Label { text: monitor.modelData.name; font.bold: true }
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    opacity: 0.8
+                                    text: monitor.modelData.bestHz > monitor.modelData.hz
+                                          ? L.tf("{size}, {hz} Hz now. It can do {best} Hz: games look smoother.", { size: monitor.modelData.size, hz: monitor.modelData.hz, best: monitor.modelData.bestHz })
+                                          : L.tf("{size}, {hz} Hz (the most it can do).", { size: monitor.modelData.size, hz: monitor.modelData.hz })
+                                }
+                            }
+                            QQC2.Button {
+                                visible: monitor.modelData.bestHz > monitor.modelData.hz
+                                highlighted: true
+                                enabled: !displays.confirming
+                                text: L.tf("Use {hz} Hz", { hz: monitor.modelData.bestHz })
+                                onClicked: displays.useBestRefresh(monitor.modelData.connector)
+                            }
+                        }
+                        QQC2.Switch {
+                            visible: monitor.modelData.vrr !== ""
+                            enabled: !displays.confirming
+                            text: L.t("Variable refresh rate (FreeSync, G-Sync): smoother games without tearing")
+                            checked: monitor.modelData.vrr === "on"
+                            onToggled: displays.setVrr(monitor.modelData.connector, checked)
+                        }
+                        QQC2.Switch {
+                            visible: monitor.modelData.hdr !== ""
+                            enabled: !displays.confirming
+                            text: L.t("HDR: brighter highlights and richer colors in games and videos that support it")
+                            checked: monitor.modelData.hdr === "on"
+                            onToggled: displays.setHdr(monitor.modelData.connector, checked)
+                        }
+                    }
+                }
+                QQC2.Button {
+                    icon.name: "preferences-desktop-display"
+                    text: L.t("More display settings")
+                    onClicked: displays.openSettings()
+                }
+            }
+        }
+
+        // After a display change: keep it, or it goes back by itself (a black screen cannot get stuck)
+        Kirigami.PromptDialog {
+            id: keepDisplay
+            property int left: 15
+            title: L.t("Keep this display setting?")
+            subtitle: L.tf("If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.", { n: keepDisplay.left })
+            standardButtons: Kirigami.Dialog.NoButton
+            closePolicy: QQC2.Popup.NoAutoClose
+            customFooterActions: [
+                Kirigami.Action {
+                    text: L.t("Keep")
+                    icon.name: "dialog-ok"
+                    onTriggered: { keepTimer.stop(); keepDisplay.close(); displays.keep(); }
+                },
+                Kirigami.Action {
+                    text: L.t("Go back")
+                    icon.name: "edit-undo"
+                    onTriggered: { keepTimer.stop(); keepDisplay.close(); displays.revert(); }
+                }
+            ]
+            Timer {
+                id: keepTimer
+                interval: 1000
+                repeat: true
+                onTriggered: {
+                    keepDisplay.left--;
+                    if (keepDisplay.left <= 0) {
+                        stop();
+                        keepDisplay.close();
+                        displays.revert();
+                    }
+                }
+            }
+        }
+        Connections {
+            target: displays
+            function onChanged() {
+                if (displays.confirming && !keepDisplay.opened) {
+                    keepDisplay.left = 15;
+                    keepDisplay.open();
+                    keepTimer.restart();
+                }
+            }
+        }
+
         // --- Sound: where it goes, which microphone, and trying both (sound.py) --------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

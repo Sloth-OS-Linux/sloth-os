@@ -724,5 +724,15 @@
   "Play a test sound": "Пусти пробни звук",
   "Test the microphone": "Испробај микрофон",
   "This microphone is muted.": "Овај микрофон је утишан.",
-  "Unmute": "Укључи звук"
+  "Unmute": "Укључи звук",
+  "Couldn't change the display.": "Није било могуће променити екран.",
+  "Displays": "Екрани",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, сада {hz} Hz. Може {best} Hz: игре изгледају глађе.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (највише што може).",
+  "Use {hz} Hz": "Користи {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Променљива учесталост освежавања (FreeSync, G-Sync): глађе игре без кидања слике",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: светлији одсјаји и богатије боје у играма и видео снимцима који га подржавају",
+  "More display settings": "Још подешавања екрана",
+  "Keep this display setting?": "Задржати ово подешавање екрана?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ако екран изгледа добро, задржите га. У супротном се само враћа за {n} секунди."
 }

@@ -724,5 +724,15 @@
   "Play a test sound": "Esita proovheli",
   "Test the microphone": "Proovi mikrofoni",
   "This microphone is muted.": "See mikrofon on vaigistatud.",
-  "Unmute": "Tühista vaigistus"
+  "Unmute": "Tühista vaigistus",
+  "Couldn't change the display.": "Ekraani ei õnnestunud muuta.",
+  "Displays": "Ekraanid",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, praegu {hz} Hz. See suudab {best} Hz: mängud näevad sujuvamad välja.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (kõige rohkem, mida see suudab).",
+  "Use {hz} Hz": "Kasuta {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Muutuv värskendussagedus (FreeSync, G-Sync): sujuvamad mängud ilma rebenemiseta",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: eredamad heledad kohad ja rikkamad värvid mängudes ja videotes, mis seda toetavad",
+  "More display settings": "Rohkem ekraaniseadeid",
+  "Keep this display setting?": "Kas jätta see ekraaniseade alles?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Kui ekraan näeb õige välja, jäta see alles. Muidu läheb see {n} sekundi pärast ise tagasi."
 }

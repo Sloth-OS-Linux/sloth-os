@@ -724,5 +724,15 @@
   "Play a test sound": "Toista testiääni",
   "Test the microphone": "Testaa mikrofoni",
   "This microphone is muted.": "Tämä mikrofoni on mykistetty.",
-  "Unmute": "Poista mykistys"
+  "Unmute": "Poista mykistys",
+  "Couldn't change the display.": "Näyttöä ei voitu muuttaa.",
+  "Displays": "Näytöt",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, nyt {hz} Hz. Se pystyy {best} Hz:iin: pelit näyttävät sulavammilta.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (eniten mihin se pystyy).",
+  "Use {hz} Hz": "Käytä {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Muuttuva virkistystaajuus (FreeSync, G-Sync): sulavammat pelit ilman repeilyä",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: kirkkaammat valokohdat ja rikkaammat värit sitä tukevissa peleissä ja videoissa",
+  "More display settings": "Lisää näyttöasetuksia",
+  "Keep this display setting?": "Pidetäänkö tämä näyttöasetus?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Jos näyttö näyttää oikealta, pidä se. Muuten se palautuu itsestään {n} sekunnin kuluttua."
 }

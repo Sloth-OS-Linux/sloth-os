@@ -724,5 +724,15 @@
   "Play a test sound": "Reproducer un sono de prova",
   "Test the microphone": "Probar le microphono",
   "This microphone is muted.": "Iste microphono es silentiate.",
-  "Unmute": "Non plus silentiar"
+  "Unmute": "Non plus silentiar",
+  "Couldn't change the display.": "Non poteva cambiar le schermo.",
+  "Displays": "Schermos",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, ora {hz} Hz. Illo pote facer {best} Hz: le jocos pare plus fluide.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (le maximo que illo pote).",
+  "Use {hz} Hz": "Usar {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Frequentia de refrescamento variabile (FreeSync, G-Sync): jocos plus fluide sin laceration",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: luces plus brillante e colores plus ric in jocos e videos que lo supporta",
+  "More display settings": "Plus parametros de schermo",
+  "Keep this display setting?": "Mantener iste parametro de schermo?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Si le schermo pare correcte, mantene lo. Alteremente illo retorna per se mesme in {n} secundas."
 }

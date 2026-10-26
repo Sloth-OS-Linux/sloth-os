@@ -724,5 +724,15 @@
   "Play a test sound": "Putar suara uji",
   "Test the microphone": "Uji mikrofon",
   "This microphone is muted.": "Mikrofon ini dibisukan.",
-  "Unmute": "Bunyikan"
+  "Unmute": "Bunyikan",
+  "Couldn't change the display.": "Tidak dapat mengubah layar.",
+  "Displays": "Layar",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, sekarang {hz} Hz. Bisa {best} Hz: game terlihat lebih mulus.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (paling tinggi yang bisa).",
+  "Use {hz} Hz": "Gunakan {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Laju penyegaran variabel (FreeSync, G-Sync): game lebih mulus tanpa sobekan gambar",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: sorotan lebih terang dan warna lebih kaya di game dan video yang mendukungnya",
+  "More display settings": "Pengaturan layar lainnya",
+  "Keep this display setting?": "Pertahankan pengaturan layar ini?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Jika layar terlihat benar, pertahankan. Jika tidak, akan kembali sendiri dalam {n} detik."
 }

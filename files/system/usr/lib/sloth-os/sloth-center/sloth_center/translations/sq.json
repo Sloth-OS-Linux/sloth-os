@@ -724,5 +724,15 @@
   "Play a test sound": "Luaj një tingull prove",
   "Test the microphone": "Provoni mikrofonin",
   "This microphone is muted.": "Ky mikrofon është i heshtur.",
-  "Unmute": "Hiqe heshtjen"
+  "Unmute": "Hiqe heshtjen",
+  "Couldn't change the display.": "Ekrani nuk u ndryshua dot.",
+  "Displays": "Ekranet",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, tani {hz} Hz. Mund të arrijë {best} Hz: lojërat duken më të rrjedhshme.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (maksimumi që mund të bëjë).",
+  "Use {hz} Hz": "Përdor {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Shpejtësi e ndryshueshme rifreskimi (FreeSync, G-Sync): lojëra më të rrjedhshme pa çarje të figurës",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: dritë më të ndritshme dhe ngjyra më të pasura në lojërat dhe videot që e mbështesin",
+  "More display settings": "Më shumë cilësime ekrani",
+  "Keep this display setting?": "Ta mbani këtë cilësim ekrani?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Nëse ekrani duket mirë, mbajeni. Përndryshe kthehet vetë pas {n} sekondash."
 }

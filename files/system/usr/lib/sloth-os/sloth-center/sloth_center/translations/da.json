@@ -724,5 +724,15 @@
   "Play a test sound": "Afspil en testlyd",
   "Test the microphone": "Test mikrofonen",
   "This microphone is muted.": "Denne mikrofon er slået fra.",
-  "Unmute": "Slå lyd til"
+  "Unmute": "Slå lyd til",
+  "Couldn't change the display.": "Kunne ikke ændre skærmen.",
+  "Displays": "Skærme",
+  "{size}, {hz} Hz now. It can do {best} Hz: games look smoother.": "{size}, {hz} Hz nu. Den kan køre {best} Hz: spil ser mere flydende ud.",
+  "{size}, {hz} Hz (the most it can do).": "{size}, {hz} Hz (det højeste, den kan).",
+  "Use {hz} Hz": "Brug {hz} Hz",
+  "Variable refresh rate (FreeSync, G-Sync): smoother games without tearing": "Variabel opdateringshastighed (FreeSync, G-Sync): mere flydende spil uden tearing",
+  "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: lysere højlys og rigere farver i spil og videoer, der understøtter det",
+  "More display settings": "Flere skærmindstillinger",
+  "Keep this display setting?": "Behold denne skærmindstilling?",
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Hvis skærmen ser rigtig ud, så behold den. Ellers går den selv tilbage om {n} sekunder."
 }
