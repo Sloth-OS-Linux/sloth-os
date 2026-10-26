@@ -1,20 +1,19 @@
-              $2;MM$1cc;.$2..
-             $1.$2;MMM$1cccc$2M$1c,.
-          $2.M$1cccccccccccccc;,.
-        $1,;cccccccccccccccccccc;,.
-      $1,ccc$2MMMMMMMM$1cccc$2MMMMMMMM$1ccc;.
-    $2.;MMMMM$1ccccccc$2MMMM$1cccccccc$2MMM$1cc.
-    $1;$2MMMMMMMMMMM$1cccccccc$2MMMMMMMMMMM$1;
-  $1.;$2MMMMMMMMMMMMM$1ccccccc$2MMMMMMMMMMM$1c,
- $1.cc$2MMMM$1ccccccc$2MM$1ccccccc$2MM$1cccccc$2MMMM$1c;
-$2,$1;ccccccccccccc$2M$1c$2MMMMMM$1c$2M$1cccccccccc$2M$1cc:
-$2M$1ccccccccc$2MMMMMM$1cccccccc$2MMMMM$1ccccccccc$2;`
-$2M$1ccccc$2MMMMMMMMMM$1c$2MM$1cc$2MM$1cc$2MMMMMMMM$1ccccc;
-$2`$1;ccc$2MMMMMMMM$1c$2MMMM$1cccc$2MMMMMMMMMMMMM$1ccc:
- $1`;cc$2MMMMMMMMMM$1cccccccccc$2MMMMMMMMMM$1cc:
-   $1;ccc$2MMMMMMMMMMMMMMMMMMMMMMMMMM$1ccc'
-    $1`''ccccc$2MMMMMMMMMMMMMMMMM$1ccccc'`
-        $1`;cccccccc$2MMMM$1ccccccccc'`
-          $2`$1'cccccccccccccccc;'
-             $1`$2`$1''cccccc$2M;$1''`
-                   $1c;
+                                    $1.,$2MM$1.
+ $1.,;cccccccccccccccccccccccccccccccc;$2MMM$1'
+$1'cccccccccccccccccccccccccccccccccccccccc'
+ $1``ccc'``````````````````````````````'ccc``
+    $1ccc,                            ,ccc
+    $1'ccc         .,;cccc;,.         ccc'
+     $1ccc,    .;cccccccccccccc;.    ,ccc
+     $1'ccc   ;cc$2MMMMM$1cccc$2MMMMM$1cc;   ccc'
+      $1ccc  ;cc$2MMM  MM$1cc$2MM  MMM$1cc;  ccc
+      $1'ccc;cc$2MMMMMM$1c$2MMMM$1c$2MMMMMM$1cc;ccc'
+        $1'ccc;ccccc$2MMMMMMMM$1ccccc;ccc'
+          $1'cccccccc'$2MMMM$1'cccccccc'
+            $1;ccccc$3oooooooo$1cccc;
+            $1ccc$3oooooooooooo$1ccc
+            $1'cc$3ooooooooooooo$1cc'
+             $1'ccc$3ooooooooo$1ccc'
+               $1'cccccccccccc'
+              $1,ccc'      'ccc,
+             $1'ccc'        'ccc'
