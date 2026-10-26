@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: lûs plui lusorosis e colôrs plui sioris tai zûcs e tai videos che lu supuartin",
   "More display settings": "Altris impostazions dal visôr",
   "Keep this display setting?": "Tignî cheste impostazion dal visôr?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Se il visôr si viôt ben, tegnile. Se no e torne indaûr di bessole ca di {n} seconts."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Se il visôr si viôt ben, tegnile. Se no e torne indaûr di bessole ca di {n} seconts.",
+  "Restore a file…": "Ripristine un file…",
+  "Find deleted files…": "Cjate i file eliminâts…",
+  "Choose the file to restore": "Sielç il file di ripristinâ",
+  "Choose the folder the files were in": "Sielç la cartele dulà che a jerin i file"
 }

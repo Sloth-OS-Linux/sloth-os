@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: eredamad heledad kohad ja rikkamad värvid mängudes ja videotes, mis seda toetavad",
   "More display settings": "Rohkem ekraaniseadeid",
   "Keep this display setting?": "Kas jätta see ekraaniseade alles?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Kui ekraan näeb õige välja, jäta see alles. Muidu läheb see {n} sekundi pärast ise tagasi."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Kui ekraan näeb õige välja, jäta see alles. Muidu läheb see {n} sekundi pärast ise tagasi.",
+  "Restore a file…": "Taasta fail…",
+  "Find deleted files…": "Leia kustutatud failid…",
+  "Choose the file to restore": "Vali taastatav fail",
+  "Choose the folder the files were in": "Vali kaust, kus failid olid"
 }

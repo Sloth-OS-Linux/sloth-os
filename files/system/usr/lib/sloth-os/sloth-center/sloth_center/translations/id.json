@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: sorotan lebih terang dan warna lebih kaya di game dan video yang mendukungnya",
   "More display settings": "Pengaturan layar lainnya",
   "Keep this display setting?": "Pertahankan pengaturan layar ini?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Jika layar terlihat benar, pertahankan. Jika tidak, akan kembali sendiri dalam {n} detik."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Jika layar terlihat benar, pertahankan. Jika tidak, akan kembali sendiri dalam {n} detik.",
+  "Restore a file…": "Pulihkan berkas…",
+  "Find deleted files…": "Cari berkas yang terhapus…",
+  "Choose the file to restore": "Pilih berkas yang akan dipulihkan",
+  "Choose the folder the files were in": "Pilih folder tempat berkas-berkas itu berada"
 }

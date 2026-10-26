@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: lysere høylys og rikere farger i spill og videoer som støtter det",
   "More display settings": "Flere skjerminnstillinger",
   "Keep this display setting?": "Beholde denne skjerminnstillingen?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Hvis skjermen ser riktig ut, behold den. Ellers går den tilbake av seg selv om {n} sekunder."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Hvis skjermen ser riktig ut, behold den. Ellers går den tilbake av seg selv om {n} sekunder.",
+  "Restore a file…": "Gjenopprett en fil …",
+  "Find deleted files…": "Finn slettede filer …",
+  "Choose the file to restore": "Velg filen som skal gjenopprettes",
+  "Choose the folder the files were in": "Velg mappen filene lå i"
 }

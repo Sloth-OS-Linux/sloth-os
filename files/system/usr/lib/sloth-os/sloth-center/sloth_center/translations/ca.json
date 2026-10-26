@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: llums més brillants i colors més rics als jocs i vídeos que l'admeten",
   "More display settings": "Més opcions de pantalla",
   "Keep this display setting?": "Voleu mantenir aquesta opció de pantalla?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Si la pantalla es veu bé, manteniu-la. Si no, tornarà enrere sola d'aquí a {n} segons."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Si la pantalla es veu bé, manteniu-la. Si no, tornarà enrere sola d'aquí a {n} segons.",
+  "Restore a file…": "Restaura un fitxer…",
+  "Find deleted files…": "Cerca fitxers suprimits…",
+  "Choose the file to restore": "Trieu el fitxer que voleu restaurar",
+  "Choose the folder the files were in": "Trieu la carpeta on eren els fitxers"
 }

@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: 対応するゲームや動画で、より明るいハイライトと豊かな色",
   "More display settings": "その他のディスプレイ設定",
   "Keep this display setting?": "このディスプレイ設定を保持しますか？",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "画面が正しく表示されていれば保持してください。そうでなければ {n} 秒後に自動で元に戻ります。"
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "画面が正しく表示されていれば保持してください。そうでなければ {n} 秒後に自動で元に戻ります。",
+  "Restore a file…": "ファイルを復元…",
+  "Find deleted files…": "削除したファイルを探す…",
+  "Choose the file to restore": "復元するファイルを選んでください",
+  "Choose the folder the files were in": "ファイルがあったフォルダーを選んでください"
 }

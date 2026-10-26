@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: kirkkaammat valokohdat ja rikkaammat värit sitä tukevissa peleissä ja videoissa",
   "More display settings": "Lisää näyttöasetuksia",
   "Keep this display setting?": "Pidetäänkö tämä näyttöasetus?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Jos näyttö näyttää oikealta, pidä se. Muuten se palautuu itsestään {n} sekunnin kuluttua."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Jos näyttö näyttää oikealta, pidä se. Muuten se palautuu itsestään {n} sekunnin kuluttua.",
+  "Restore a file…": "Palauta tiedosto…",
+  "Find deleted files…": "Etsi poistettuja tiedostoja…",
+  "Choose the file to restore": "Valitse palautettava tiedosto",
+  "Choose the folder the files were in": "Valitse kansio, jossa tiedostot olivat"
 }

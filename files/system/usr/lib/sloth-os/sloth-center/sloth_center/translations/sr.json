@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: светлији одсјаји и богатије боје у играма и видео снимцима који га подржавају",
   "More display settings": "Још подешавања екрана",
   "Keep this display setting?": "Задржати ово подешавање екрана?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ако екран изгледа добро, задржите га. У супротном се само враћа за {n} секунди."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ако екран изгледа добро, задржите га. У супротном се само враћа за {n} секунди.",
+  "Restore a file…": "Врати датотеку…",
+  "Find deleted files…": "Пронађи обрисане датотеке…",
+  "Choose the file to restore": "Изаберите датотеку за враћање",
+  "Choose the folder the files were in": "Изаберите фасциклу у којој су биле датотеке"
 }

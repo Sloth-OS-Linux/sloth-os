@@ -11,7 +11,7 @@ import subprocess
 import threading
 from pathlib import Path
 
-from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
+from PySide6.QtCore import QObject, Property, QTimer, QUrl, Signal, Slot
 
 from sloth_common import snapshots as snap
 
@@ -136,6 +136,15 @@ class BackupController(QObject):
     def openFolder(self, path):
         if path:
             subprocess.Popen(["xdg-open", path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    @Slot(str)
+    def showVersions(self, url):
+        """The "Previous versions" window of a file or folder (the same as right-click in the file manager), for
+        those who do not know that menu."""
+        path = QUrl(url).toLocalFile() if url.startswith("file:") else url
+        if path:
+            subprocess.Popen(["sloth-versions", path], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     # --- Backup to an external disk (Pika Backup) -------------------------------------------------------------
 

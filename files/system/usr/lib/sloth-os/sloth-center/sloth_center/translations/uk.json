@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: яскравіші відблиски та насиченіші кольори в іграх і відео, що його підтримують",
   "More display settings": "Інші налаштування дисплея",
   "Keep this display setting?": "Залишити це налаштування дисплея?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Якщо зображення правильне, залиште його. Інакше за {n} с воно повернеться саме."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Якщо зображення правильне, залиште його. Інакше за {n} с воно повернеться саме.",
+  "Restore a file…": "Відновити файл…",
+  "Find deleted files…": "Знайти видалені файли…",
+  "Choose the file to restore": "Виберіть файл для відновлення",
+  "Choose the folder the files were in": "Виберіть теку, у якій були файли"
 }

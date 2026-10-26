@@ -171,7 +171,10 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   try BlueBuild's `chunkah` option instead.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [ ] **Medium** — Let users schedule file backups, choose retention, and estimate required storage.
-- [ ] **Medium** — Verify backups by checking readability and guiding users through restoring a selected file.
+- [x] **Medium** — Guide users through restoring a selected file (2026-10-26): File backup → "Restore a file…"
+  (pick the file) or "Find deleted files…" (pick the folder it was in) opens the same "Previous versions" window
+  as right-click in the file manager, for those who do not know that menu. Check on a real machine
+- [ ] **Medium** — Verify backups by checking that the saved states can be read.
 - [ ] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
 - [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
 - [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart

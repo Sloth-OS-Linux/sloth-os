@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: destekleyen oyun ve videolarda daha parlak ışıklar ve daha zengin renkler",
   "More display settings": "Diğer ekran ayarları",
   "Keep this display setting?": "Bu ekran ayarı korunsun mu?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ekran doğru görünüyorsa koruyun. Yoksa {n} saniye içinde kendiliğinden geri döner."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ekran doğru görünüyorsa koruyun. Yoksa {n} saniye içinde kendiliğinden geri döner.",
+  "Restore a file…": "Bir dosyayı geri yükle…",
+  "Find deleted files…": "Silinen dosyaları bul…",
+  "Choose the file to restore": "Geri yüklenecek dosyayı seçin",
+  "Choose the folder the files were in": "Dosyaların bulunduğu klasörü seçin"
 }

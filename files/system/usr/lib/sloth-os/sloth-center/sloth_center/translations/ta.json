@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: ஆதரிக்கும் விளையாட்டுகளிலும் வீடியோக்களிலும் ஒளிமிக்க பகுதிகளும் செறிவான நிறங்களும்",
   "More display settings": "மேலும் காட்சித்திரை அமைப்புகள்",
   "Keep this display setting?": "இந்தக் காட்சித்திரை அமைப்பை வைத்திருக்கவா?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "திரை சரியாகத் தெரிந்தால் வைத்திருங்கள். இல்லையெனில் {n} வினாடிகளில் தானாகப் பழைய நிலைக்குத் திரும்பும்."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "திரை சரியாகத் தெரிந்தால் வைத்திருங்கள். இல்லையெனில் {n} வினாடிகளில் தானாகப் பழைய நிலைக்குத் திரும்பும்.",
+  "Restore a file…": "ஒரு கோப்பை மீட்டெடு…",
+  "Find deleted files…": "நீக்கிய கோப்புகளைக் கண்டுபிடி…",
+  "Choose the file to restore": "மீட்டெடுக்க வேண்டிய கோப்பைத் தேர்ந்தெடுங்கள்",
+  "Choose the folder the files were in": "கோப்புகள் இருந்த கோப்புறையைத் தேர்ந்தெடுங்கள்"
 }

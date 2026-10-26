@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: tafat yugaren d yiniten yeɣnan deg wuraren d tvidyutin i t-yessefraken",
   "More display settings": "Ugar n yiɣewwaren n ugdil",
   "Keep this display setting?": "Ad teǧǧeḍ aɣewwar-a n ugdil?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ma yella agdil yettban akken iwata, eǧǧ-it. Ma ulac, ad yuɣal iman-is deg {n} n tsinin."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ma yella agdil yettban akken iwata, eǧǧ-it. Ma ulac, ad yuɣal iman-is deg {n} n tsinin.",
+  "Restore a file…": "Err-d afaylu…",
+  "Find deleted files…": "Af ifuyla yettwakksen…",
+  "Choose the file to restore": "Fren afaylu ara d-terreḍ",
+  "Choose the folder the files were in": "Fren akaram anda llan yifuyla"
 }

@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: dritë më të ndritshme dhe ngjyra më të pasura në lojërat dhe videot që e mbështesin",
   "More display settings": "Më shumë cilësime ekrani",
   "Keep this display setting?": "Ta mbani këtë cilësim ekrani?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Nëse ekrani duket mirë, mbajeni. Përndryshe kthehet vetë pas {n} sekondash."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Nëse ekrani duket mirë, mbajeni. Përndryshe kthehet vetë pas {n} sekondash.",
+  "Restore a file…": "Riktheni një skedar…",
+  "Find deleted files…": "Gjeni skedarët e fshirë…",
+  "Choose the file to restore": "Zgjidhni skedarin për ta rikthyer",
+  "Choose the folder the files were in": "Zgjidhni dosjen ku ishin skedarët"
 }

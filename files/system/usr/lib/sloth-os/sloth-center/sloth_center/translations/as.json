@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: সমৰ্থন কৰা গেম আৰু ভিডিঅ'ত উজ্জ্বল হাইলাইট আৰু সমৃদ্ধ ৰং",
   "More display settings": "অধিক ডিছপ্লে ছেটিংছ",
   "Keep this display setting?": "এই ডিছপ্লে ছেটিং ৰাখিবনে?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "স্ক্ৰীণ ঠিক দেখা গ'লে ৰাখক। নহ'লে {n} ছেকেণ্ডত নিজে নিজে আগৰ অৱস্থালৈ যাব।"
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "স্ক্ৰীণ ঠিক দেখা গ'লে ৰাখক। নহ'লে {n} ছেকেণ্ডত নিজে নিজে আগৰ অৱস্থালৈ যাব।",
+  "Restore a file…": "এটা ফাইল পুনৰুদ্ধাৰ কৰক…",
+  "Find deleted files…": "মচি পেলোৱা ফাইল বিচাৰক…",
+  "Choose the file to restore": "পুনৰুদ্ধাৰ কৰিবলগীয়া ফাইলটো বাছক",
+  "Choose the folder the files were in": "ফাইলবোৰ থকা ফ'ল্ডাৰটো বাছক"
 }

@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR : des lumières plus éclatantes et des couleurs plus riches dans les jeux et vidéos compatibles",
   "More display settings": "Plus de réglages d'affichage",
   "Keep this display setting?": "Garder ce réglage d'affichage ?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Si l'écran s'affiche correctement, gardez-le. Sinon, il reviendra en arrière tout seul dans {n} secondes."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Si l'écran s'affiche correctement, gardez-le. Sinon, il reviendra en arrière tout seul dans {n} secondes.",
+  "Restore a file…": "Restaurer un fichier…",
+  "Find deleted files…": "Retrouver des fichiers supprimés…",
+  "Choose the file to restore": "Choisissez le fichier à restaurer",
+  "Choose the folder the files were in": "Choisissez le dossier où se trouvaient les fichiers"
 }

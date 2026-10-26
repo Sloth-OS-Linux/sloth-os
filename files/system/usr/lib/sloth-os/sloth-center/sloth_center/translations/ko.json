@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: 지원하는 게임과 동영상에서 더 밝은 하이라이트와 풍부한 색상",
   "More display settings": "추가 디스플레이 설정",
   "Keep this display setting?": "이 디스플레이 설정을 유지할까요?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "화면이 제대로 보이면 유지하세요. 그렇지 않으면 {n}초 뒤 저절로 되돌아갑니다."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "화면이 제대로 보이면 유지하세요. 그렇지 않으면 {n}초 뒤 저절로 되돌아갑니다.",
+  "Restore a file…": "파일 복원…",
+  "Find deleted files…": "삭제된 파일 찾기…",
+  "Choose the file to restore": "복원할 파일을 고르세요",
+  "Choose the folder the files were in": "파일이 있던 폴더를 고르세요"
 }

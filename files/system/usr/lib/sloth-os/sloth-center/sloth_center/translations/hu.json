@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: fényesebb csúcsfények és gazdagabb színek az ezt támogató játékokban és videókban",
   "More display settings": "További kijelzőbeállítások",
   "Keep this display setting?": "Megtartod ezt a kijelzőbeállítást?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ha a kép rendben van, tartsd meg. Ha nem, {n} másodperc múlva magától visszaáll."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Ha a kép rendben van, tartsd meg. Ha nem, {n} másodperc múlva magától visszaáll.",
+  "Restore a file…": "Fájl visszaállítása…",
+  "Find deleted files…": "Törölt fájlok keresése…",
+  "Choose the file to restore": "Válaszd ki a visszaállítandó fájlt",
+  "Choose the folder the files were in": "Válaszd ki a mappát, amelyben a fájlok voltak"
 }

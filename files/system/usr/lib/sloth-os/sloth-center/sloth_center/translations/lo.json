@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: ຈຸດສະຫວ່າງສົດກວ່າ ແລະ ສີສັນອຸດົມກວ່າໃນເກມ ແລະ ວິດີໂອທີ່ຮອງຮັບ",
   "More display settings": "ການຕັ້ງຄ່າຈໍສະແດງຜົນເພີ່ມເຕີມ",
   "Keep this display setting?": "ເກັບການຕັ້ງຄ່າຈໍສະແດງຜົນນີ້ໄວ້ບໍ?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "ຖ້າໜ້າຈໍເບິ່ງຖືກຕ້ອງ, ເກັບໄວ້. ຖ້າບໍ່, ມັນຈະກັບຄືນເອງໃນ {n} ວິນາທີ."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "ຖ້າໜ້າຈໍເບິ່ງຖືກຕ້ອງ, ເກັບໄວ້. ຖ້າບໍ່, ມັນຈະກັບຄືນເອງໃນ {n} ວິນາທີ.",
+  "Restore a file…": "ກູ້ຄືນໄຟລ໌…",
+  "Find deleted files…": "ຊອກຫາໄຟລ໌ທີ່ຖືກລຶບ…",
+  "Choose the file to restore": "ເລືອກໄຟລ໌ທີ່ຈະກູ້ຄືນ",
+  "Choose the folder the files were in": "ເລືອກໂຟນເດີທີ່ໄຟລ໌ເຄີຍຢູ່"
 }

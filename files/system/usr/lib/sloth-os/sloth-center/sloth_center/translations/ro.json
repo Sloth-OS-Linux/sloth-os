@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: lumini mai strălucitoare și culori mai bogate în jocurile și videoclipurile care îl acceptă",
   "More display settings": "Mai multe setări de ecran",
   "Keep this display setting?": "Păstrați această setare de ecran?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Dacă ecranul arată bine, păstrați-o. Altfel revine singură în {n} secunde."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Dacă ecranul arată bine, păstrați-o. Altfel revine singură în {n} secunde.",
+  "Restore a file…": "Restaurați un fișier…",
+  "Find deleted files…": "Găsiți fișierele șterse…",
+  "Choose the file to restore": "Alegeți fișierul de restaurat",
+  "Choose the folder the files were in": "Alegeți dosarul în care erau fișierele"
 }

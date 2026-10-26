@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: უფრო კაშკაშა ნათელი ადგილები და მდიდარი ფერები მხარდაჭერილ თამაშებსა და ვიდეოებში",
   "More display settings": "ეკრანის სხვა პარამეტრები",
   "Keep this display setting?": "შევინახოთ ეკრანის ეს პარამეტრი?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "თუ ეკრანი სწორად ჩანს, შეინახეთ. წინააღმდეგ შემთხვევაში {n} წამში თავისით დაბრუნდება."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "თუ ეკრანი სწორად ჩანს, შეინახეთ. წინააღმდეგ შემთხვევაში {n} წამში თავისით დაბრუნდება.",
+  "Restore a file…": "ფაილის აღდგენა…",
+  "Find deleted files…": "წაშლილი ფაილების პოვნა…",
+  "Choose the file to restore": "აირჩიეთ აღსადგენი ფაილი",
+  "Choose the folder the files were in": "აირჩიეთ საქაღალდე, სადაც ფაილები იყო"
 }

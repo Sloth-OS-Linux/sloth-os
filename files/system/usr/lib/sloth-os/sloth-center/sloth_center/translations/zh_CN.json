@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR：在支持的游戏和视频中，高光更亮、色彩更丰富",
   "More display settings": "更多显示器设置",
   "Keep this display setting?": "保留此显示器设置？",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "如果画面正常，请保留。否则它会在 {n} 秒后自动恢复。"
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "如果画面正常，请保留。否则它会在 {n} 秒后自动恢复。",
+  "Restore a file…": "恢复文件…",
+  "Find deleted files…": "查找已删除的文件…",
+  "Choose the file to restore": "选择要恢复的文件",
+  "Choose the folder the files were in": "选择文件原来所在的文件夹"
 }

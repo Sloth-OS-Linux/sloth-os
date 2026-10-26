@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: svetlejši poudarki in bogatejše barve v igrah in videoposnetkih, ki ga podpirajo",
   "More display settings": "Več nastavitev zaslona",
   "Keep this display setting?": "Želite obdržati to nastavitev zaslona?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Če je slika prava, jo obdržite. Sicer se čez {n} s sama vrne."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Če je slika prava, jo obdržite. Sicer se čez {n} s sama vrne.",
+  "Restore a file…": "Obnovi datoteko …",
+  "Find deleted files…": "Poišči izbrisane datoteke …",
+  "Choose the file to restore": "Izberite datoteko za obnovitev",
+  "Choose the folder the files were in": "Izberite mapo, v kateri so bile datoteke"
 }

@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: қолдайтын ойындар мен бейнелерде жарқынырақ жарықтар мен бай түстер",
   "More display settings": "Дисплейдің басқа баптаулары",
   "Keep this display setting?": "Бұл дисплей баптауын сақтау керек пе?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Экран дұрыс көрінсе, сақтаңыз. Әйтпесе ол {n} секундтан кейін өздігінен қайтады."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "Экран дұрыс көрінсе, сақтаңыз. Әйтпесе ол {n} секундтан кейін өздігінен қайтады.",
+  "Restore a file…": "Файлды қалпына келтіру…",
+  "Find deleted files…": "Жойылған файлдарды табу…",
+  "Choose the file to restore": "Қалпына келтіретін файлды таңдаңыз",
+  "Choose the folder the files were in": "Файлдар болған қалтаны таңдаңыз"
 }

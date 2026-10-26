@@ -734,5 +734,9 @@
   "HDR: brighter highlights and richer colors in games and videos that support it": "HDR: helderder hoogtepunte en ryker kleure in speletjies en video's wat dit ondersteun",
   "More display settings": "Meer skerminstellings",
   "Keep this display setting?": "Hou hierdie skerminstelling?",
-  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "As die skerm reg lyk, hou dit. Anders gaan dit vanself terug oor {n} sekondes."
+  "If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.": "As die skerm reg lyk, hou dit. Anders gaan dit vanself terug oor {n} sekondes.",
+  "Restore a file…": "Herstel 'n lêer…",
+  "Find deleted files…": "Soek geskrapte lêers…",
+  "Choose the file to restore": "Kies die lêer om te herstel",
+  "Choose the folder the files were in": "Kies die vouer waarin die lêers was"
 }
