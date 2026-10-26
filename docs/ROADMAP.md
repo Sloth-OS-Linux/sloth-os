@@ -25,7 +25,8 @@ careful testing), and **Large** (broad work or significant safety and compatibil
   Windows partitions are never mounted or changed). Check on a real machine
 - [x] Disc images (.iso) open with a double-click: mounted read-only through UDisks (Dolphin shows it with an
   eject button); with an installer on it (autorun.inf, setup.exe) the .exe handler offers "Install from it" or
-  "Open folder", and can remember the choice. Check on a real machine (a Windows program's ISO)
+  "Open folder", and can remember the choice. Ejecting clears the loop device (autoclear), and images still open
+  are ejected at sign-out (`sloth-disc-images.service`). Check on a real machine (a Windows program's ISO)
 
 - [x] Installers heal themselves and are remembered too (2026-10-26): what installed an installer before (here,
   or from the shared knowledge) goes first; if the installer crashes or its log shows a known missing component
@@ -128,7 +129,16 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 #### Updates, backup, and recovery
 - [x] **Quick** — Explain that updates download the needed system parts, their size varies, free disk space is needed, and a restart applies the new version.
 - [ ] **Medium** — Let users schedule updates and avoid restart prompts during user-defined quiet hours.
-- [ ] **Medium** — Let users limit update download speed and warn before large downloads on metered or mobile connections.
+- [x] **Medium** — Warn before large downloads on metered or mobile connections (2026-10-26): the Updates page shows
+  the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
+  anyway" / "Later"). The automatic update (uupd) already skips metered connections. Check on a real machine (a
+  phone hotspot)
+- [ ] **Medium** — Let users limit update download speed.
+- [ ] **Medium** — Smaller system updates (measured 2026-10-26 on ghcr): every build rebuilds all 23 of our own
+  layers, so even a one-line change downloads about 2.3 GB (with the daily base image changes 3.8 GB) of the
+  6.5 GB image; the two biggest are the gaming `dnf` module (~800 MB) and the umu/Proton script (~840 MB).
+  Rechunking (BlueBuild `rechunk`, content-based layers) would download only what changed. The first update after
+  the switch is a full download; check the installer (`ostree.final-diffid`) with a rechunked image first.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [ ] **Medium** — Let users schedule file backups, choose retention, and estimate required storage.
 - [ ] **Medium** — Verify backups by checking readability and guiding users through restoring a selected file.

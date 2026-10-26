@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Pembaruan terverifikasi ✓ – sistem ini hanya menerima pembaruan yang ditandatangani Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Pemeriksaan tanda tangan pembaruan tidak aktif. Sistem ini mungkin menerima pembaruan tanpa tanda tangan.",
   "Sloth OS": "Sloth OS",
-  "Next": "Berikutnya"
+  "Next": "Berikutnya",
+  "Available version: {version} (download: {size})": "Versi tersedia: {version} (unduhan: {size})",
+  "Download on a metered connection?": "Unduh lewat koneksi terukur?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Anda menggunakan koneksi seluler atau koneksi terukur lainnya, dan pembaruan ini mengunduh sekitar {size}. Itu bisa menghabiskan paket data Anda. Anda juga bisa menunggu Wi-Fi atau koneksi kabel: pembaruan akan terunduh dengan sendirinya.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Anda menggunakan koneksi seluler atau koneksi terukur lainnya, dan pembaruan sistem biasanya mengunduh beberapa gigabita. Itu bisa menghabiskan paket data Anda. Anda juga bisa menunggu Wi-Fi atau koneksi kabel: pembaruan akan terunduh dengan sendirinya.",
+  "Download anyway": "Tetap unduh",
+  "Later": "Nanti"
 }

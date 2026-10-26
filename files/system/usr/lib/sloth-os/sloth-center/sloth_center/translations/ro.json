@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Actualizări verificate ✓ – acest sistem acceptă doar actualizări semnate de Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Verificarea semnăturii actualizărilor nu este activă. Acest sistem ar putea accepta actualizări nesemnate.",
   "Sloth OS": "Sloth OS",
-  "Next": "Înainte"
+  "Next": "Înainte",
+  "Available version: {version} (download: {size})": "Versiune disponibilă: {version} (descărcare: {size})",
+  "Download on a metered connection?": "Descărcați pe o conexiune contorizată?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Sunteți pe o conexiune mobilă sau altă conexiune contorizată, iar această actualizare descarcă aproximativ {size}. Asta vă poate consuma abonamentul de date. Puteți și aștepta o conexiune Wi-Fi sau prin cablu: atunci actualizarea se descarcă singură.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Sunteți pe o conexiune mobilă sau altă conexiune contorizată, iar o actualizare de sistem descarcă de obicei câțiva gigaocteți. Asta vă poate consuma abonamentul de date. Puteți și aștepta o conexiune Wi-Fi sau prin cablu: atunci actualizarea se descarcă singură.",
+  "Download anyway": "Descarcă oricum",
+  "Later": "Mai târziu"
 }

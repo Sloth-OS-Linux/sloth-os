@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Përditësime të verifikuara ✓ – ky sistem pranon vetëm përditësime të nënshkruara nga Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Kontrolli i nënshkrimit të përditësimeve nuk është aktiv. Ky sistem mund të pranojë përditësime të panënshkruara.",
   "Sloth OS": "Sloth OS",
-  "Next": "Tjetër"
+  "Next": "Tjetër",
+  "Available version: {version} (download: {size})": "Version i disponueshëm: {version} (shkarkim: {size})",
+  "Download on a metered connection?": "Të shkarkohet me lidhje me matje?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Jeni në një lidhje celulare ose lidhje tjetër me matje, dhe ky përditësim shkarkon rreth {size}. Kjo mund të harxhojë paketën tuaj të të dhënave. Mund të prisni edhe për Wi-Fi ose lidhje me kabllo: atëherë përditësimi shkarkohet vetë.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Jeni në një lidhje celulare ose lidhje tjetër me matje, dhe një përditësim sistemi zakonisht shkarkon disa gigabajtë. Kjo mund të harxhojë paketën tuaj të të dhënave. Mund të prisni edhe për Wi-Fi ose lidhje me kabllo: atëherë përditësimi shkarkohet vetë.",
+  "Download anyway": "Shkarkoje gjithsesi",
+  "Later": "Më vonë"
 }

@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Provjerena ažuriranja ✓ – ovaj sustav prihvaća samo ažuriranja koja je potpisao Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Provjera potpisa ažuriranja nije uključena. Ovaj sustav može prihvatiti nepotpisana ažuriranja.",
   "Sloth OS": "Sloth OS",
-  "Next": "Dalje"
+  "Next": "Dalje",
+  "Available version: {version} (download: {size})": "Dostupna verzija: {version} (preuzimanje: {size})",
+  "Download on a metered connection?": "Preuzeti putem ograničene veze?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Spojeni ste putem mobilne ili druge ograničene veze, a ovo ažuriranje preuzima oko {size}. To može potrošiti vaš podatkovni paket. Možete i pričekati Wi-Fi ili kabelsku vezu: tada će se ažuriranje samo preuzeti.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Spojeni ste putem mobilne ili druge ograničene veze, a ažuriranje sustava obično preuzima nekoliko gigabajta. To može potrošiti vaš podatkovni paket. Možete i pričekati Wi-Fi ili kabelsku vezu: tada će se ažuriranje samo preuzeti.",
+  "Download anyway": "Ipak preuzmi",
+  "Later": "Kasnije"
 }

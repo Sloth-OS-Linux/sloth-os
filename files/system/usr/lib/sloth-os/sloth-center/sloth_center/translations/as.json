@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "পৰীক্ষিত আপডেট ✓ – এই ছিষ্টেমে কেৱল Sloth OS-এ স্বাক্ষৰ কৰা আপডেটহে গ্ৰহণ কৰে।",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "আপডেটৰ স্বাক্ষৰ পৰীক্ষা অন কৰা হোৱা নাই। এই ছিষ্টেমে স্বাক্ষৰবিহীন আপডেটো গ্ৰহণ কৰিব পাৰে।",
   "Sloth OS": "Sloth OS",
-  "Next": "পৰৱৰ্তী"
+  "Next": "পৰৱৰ্তী",
+  "Available version: {version} (download: {size})": "উপলব্ধ সংস্কৰণ: {version} (ডাউনল'ড: {size})",
+  "Download on a metered connection?": "মিটাৰযুক্ত সংযোগত ডাউনল'ড কৰিবনে?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "আপুনি মবাইল বা আন কোনো মিটাৰযুক্ত সংযোগত আছে, আৰু এই আপডেটে প্ৰায় {size} ডাউনল'ড কৰে। ই আপোনাৰ ডাটা প্লেন শেষ কৰিব পাৰে। আপুনি Wi-Fi বা কেবল সংযোগৰ বাবে অপেক্ষাও কৰিব পাৰে: তেতিয়া আপডেট নিজে নিজে ডাউনল'ড হ'ব।",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "আপুনি মবাইল বা আন কোনো মিটাৰযুক্ত সংযোগত আছে, আৰু চিস্টেম আপডেটে সাধাৰণতে কেইবা গিগাবাইট ডাউনল'ড কৰে। ই আপোনাৰ ডাটা প্লেন শেষ কৰিব পাৰে। আপুনি Wi-Fi বা কেবল সংযোগৰ বাবে অপেক্ষাও কৰিব পাৰে: তেতিয়া আপডেট নিজে নিজে ডাউনল'ড হ'ব।",
+  "Download anyway": "তথাপি ডাউনল'ড কৰক",
+  "Later": "পিছত"
 }

@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "עדכונים מאומתים ✓ – המערכת הזו מקבלת רק עדכונים שנחתמו על ידי Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "בדיקת החתימה של העדכונים אינה פעילה. המערכת הזו עלולה לקבל עדכונים לא חתומים.",
   "Sloth OS": "Sloth OS",
-  "Next": "הבא"
+  "Next": "הבא",
+  "Available version: {version} (download: {size})": "גרסה זמינה: {version} (הורדה: {size})",
+  "Download on a metered connection?": "להוריד בחיבור מוגבל נתונים?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "אתם מחוברים ברשת סלולרית או בחיבור אחר מוגבל נתונים, והעדכון הזה מוריד כ־{size}. זה עלול לנצל את חבילת הגלישה שלכם. אפשר גם לחכות ל־Wi-Fi או לחיבור כבל: העדכון יורד אז מעצמו.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "אתם מחוברים ברשת סלולרית או בחיבור אחר מוגבל נתונים, ועדכון מערכת מוריד בדרך כלל כמה ג׳יגה־בייט. זה עלול לנצל את חבילת הגלישה שלכם. אפשר גם לחכות ל־Wi-Fi או לחיבור כבל: העדכון יורד אז מעצמו.",
+  "Download anyway": "להוריד בכל זאת",
+  "Later": "מאוחר יותר"
 }

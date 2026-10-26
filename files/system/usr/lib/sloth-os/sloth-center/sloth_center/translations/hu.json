@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Ellenőrzött frissítések ✓ – ez a rendszer csak a Sloth OS által aláírt frissítéseket fogadja el.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "A frissítések aláírás-ellenőrzése nincs bekapcsolva. Ez a rendszer aláíratlan frissítéseket is elfogadhat.",
   "Sloth OS": "Sloth OS",
-  "Next": "Tovább"
+  "Next": "Tovább",
+  "Available version: {version} (download: {size})": "Elérhető verzió: {version} (letöltés: {size})",
+  "Download on a metered connection?": "Letöltöd forgalomkorlátos kapcsolaton?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Mobilneten vagy más forgalomkorlátos kapcsolaton vagy, és ez a frissítés kb. {size} adatot tölt le. Ez elfogyaszthatja az adatkereted. Meg is várhatod a wifit vagy a kábeles kapcsolatot: akkor a frissítés magától letöltődik.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Mobilneten vagy más forgalomkorlátos kapcsolaton vagy, és egy rendszerfrissítés általában több gigabájtot tölt le. Ez elfogyaszthatja az adatkereted. Meg is várhatod a wifit vagy a kábeles kapcsolatot: akkor a frissítés magától letöltődik.",
+  "Download anyway": "Mégis letöltöm",
+  "Later": "Később"
 }

@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "تحديثات موثّقة ✓ – لا يقبل هذا النظام إلا التحديثات الموقّعة من Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "التحقق من توقيع التحديثات غير مفعّل. قد يقبل هذا النظام تحديثات غير موقّعة.",
   "Sloth OS": "Sloth OS",
-  "Next": "التالي"
+  "Next": "التالي",
+  "Available version: {version} (download: {size})": "الإصدار المتاح: {version} (التنزيل: {size})",
+  "Download on a metered connection?": "هل تريد التنزيل على اتصال محدود البيانات؟",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "أنت متصل عبر شبكة جوال أو اتصال آخر محدود البيانات، وهذا التحديث ينزّل نحو {size}. قد يستهلك ذلك باقة بياناتك. يمكنك أيضًا انتظار شبكة Wi-Fi أو اتصال سلكي: سيُنزَّل التحديث حينها تلقائيًا.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "أنت متصل عبر شبكة جوال أو اتصال آخر محدود البيانات، وتحديث النظام ينزّل عادةً عدة غيغابايتات. قد يستهلك ذلك باقة بياناتك. يمكنك أيضًا انتظار شبكة Wi-Fi أو اتصال سلكي: سيُنزَّل التحديث حينها تلقائيًا.",
+  "Download anyway": "نزّل على أي حال",
+  "Later": "لاحقًا"
 }

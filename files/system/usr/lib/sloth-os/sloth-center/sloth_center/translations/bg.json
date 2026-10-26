@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Проверени обновления ✓ – тази система приема само обновления, подписани от Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Проверката на подписа на обновленията не е включена. Тази система може да приеме неподписани обновления.",
   "Sloth OS": "Sloth OS",
-  "Next": "Напред"
+  "Next": "Напред",
+  "Available version: {version} (download: {size})": "Налична версия: {version} (изтегляне: {size})",
+  "Download on a metered connection?": "Изтегляне през връзка с ограничен трафик?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Свързани сте чрез мобилна или друга връзка с ограничен трафик, а това обновяване изтегля около {size}. Това може да изразходва пакета ви с данни. Можете също да изчакате Wi-Fi или кабелна връзка: тогава обновяването ще се изтегли само.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Свързани сте чрез мобилна или друга връзка с ограничен трафик, а системното обновяване обикновено изтегля няколко гигабайта. Това може да изразходва пакета ви с данни. Можете също да изчакате Wi-Fi или кабелна връзка: тогава обновяването ще се изтегли само.",
+  "Download anyway": "Изтегли въпреки това",
+  "Later": "По-късно"
 }

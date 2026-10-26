@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "சரிபார்க்கப்பட்ட புதுப்பிப்புகள் ✓ – இந்தக் கணினி Sloth OS கையொப்பமிட்ட புதுப்பிப்புகளை மட்டுமே ஏற்கிறது.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "புதுப்பிப்புகளின் கையொப்பச் சரிபார்ப்பு இயக்கப்படவில்லை. இந்தக் கணினி கையொப்பமில்லாத புதுப்பிப்புகளை ஏற்கக்கூடும்.",
   "Sloth OS": "Sloth OS",
-  "Next": "அடுத்து"
+  "Next": "அடுத்து",
+  "Available version: {version} (download: {size})": "கிடைக்கும் பதிப்பு: {version} (பதிவிறக்கம்: {size})",
+  "Download on a metered connection?": "அளவிடப்பட்ட இணைப்பில் பதிவிறக்கவா?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "நீங்கள் மொபைல் அல்லது வேறு அளவிடப்பட்ட இணைப்பில் உள்ளீர்கள், இந்தப் புதுப்பிப்பு சுமார் {size} பதிவிறக்கும். இது உங்கள் டேட்டா திட்டத்தைத் தீர்த்துவிடக்கூடும். Wi-Fi அல்லது கேபிள் இணைப்புக்காகவும் காத்திருக்கலாம்: அப்போது புதுப்பிப்பு தானாகவே பதிவிறங்கும்.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "நீங்கள் மொபைல் அல்லது வேறு அளவிடப்பட்ட இணைப்பில் உள்ளீர்கள், கணினிப் புதுப்பிப்பு வழக்கமாகப் பல ஜிகாபைட்டுகளைப் பதிவிறக்கும். இது உங்கள் டேட்டா திட்டத்தைத் தீர்த்துவிடக்கூடும். Wi-Fi அல்லது கேபிள் இணைப்புக்காகவும் காத்திருக்கலாம்: அப்போது புதுப்பிப்பு தானாகவே பதிவிறங்கும்.",
+  "Download anyway": "இருந்தாலும் பதிவிறக்கு",
+  "Later": "பின்னர்"
 }

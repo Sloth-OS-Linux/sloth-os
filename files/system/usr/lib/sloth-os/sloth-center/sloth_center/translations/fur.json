@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Inzornaments verificâts ✓ – chest sisteme al acete dome inzornaments firmâts di Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Il control de firme dai inzornaments nol è atîf. Chest sisteme al podarès acetâ inzornaments cence firme.",
   "Sloth OS": "Sloth OS",
-  "Next": "Indenant"
+  "Next": "Indenant",
+  "Available version: {version} (download: {size})": "Version disponibile: {version} (discjariament: {size})",
+  "Download on a metered connection?": "Discjariâ cuntune conession a consum?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Tu sês suntune conession mobile o une altre conession a consum, e chest inzornament al discjame passe {size}. Al pues consumâ il to plan dâts. Tu puedis ancje spietâ il Wi-Fi o une conession via cabli: alore l'inzornament si discjamarà di bessôl.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Tu sês suntune conession mobile o une altre conession a consum, e un inzornament dal sisteme di solit al discjame cualchi gigabyte. Al pues consumâ il to plan dâts. Tu puedis ancje spietâ il Wi-Fi o une conession via cabli: alore l'inzornament si discjamarà di bessôl.",
+  "Download anyway": "Discjame distès",
+  "Later": "Plui indenant"
 }

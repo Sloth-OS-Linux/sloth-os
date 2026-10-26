@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Kontrolitaj ĝisdatigoj ✓ – ĉi tiu sistemo akceptas nur ĝisdatigojn subskribitajn de Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Subskriba kontrolo de ĝisdatigoj ne estas ŝaltita. Ĉi tiu sistemo eble akceptos nesubskribitajn ĝisdatigojn.",
   "Sloth OS": "Sloth OS",
-  "Next": "Sekva"
+  "Next": "Sekva",
+  "Available version: {version} (download: {size})": "Disponebla versio: {version} (elŝuto: {size})",
+  "Download on a metered connection?": "Ĉu elŝuti per mezurata konekto?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Vi estas per poŝtelefona aŭ alia mezurata konekto, kaj ĉi tiu ĝisdatigo elŝutas ĉirkaŭ {size}. Tio povas eluzi vian datumpakon. Vi ankaŭ povas atendi Wi-Fi-on aŭ kablan konekton: tiam la ĝisdatigo elŝutiĝos memstare.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Vi estas per poŝtelefona aŭ alia mezurata konekto, kaj sistema ĝisdatigo kutime elŝutas plurajn gigabajtojn. Tio povas eluzi vian datumpakon. Vi ankaŭ povas atendi Wi-Fi-on aŭ kablan konekton: tiam la ĝisdatigo elŝutiĝos memstare.",
+  "Download anyway": "Tamen elŝuti",
+  "Later": "Poste"
 }

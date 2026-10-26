@@ -645,5 +645,11 @@
   "Next": "Sequente",
   "Sloth OS": "Sloth OS",
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Actualisationes verificate ✓ – iste systema accepta solmente actualisationes signate per Sloth OS.",
-  "Update signature checking is not enabled. This system may accept unsigned updates.": "Le verification de signatura del actualisationes non es activate. Iste systema pote acceptar actualisationes non signate."
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Le verification de signatura del actualisationes non es activate. Iste systema pote acceptar actualisationes non signate.",
+  "Available version: {version} (download: {size})": "Version disponibile: {version} (discargamento: {size})",
+  "Download on a metered connection?": "Discargar per un connexion con limite de datos?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Tu es connectite per un connexion mobile o altere connexion con limite de datos, e iste actualisation discarga circa {size}. Isto pote consumer tu plano de datos. Tu pote etiam attender le Wi-Fi o un connexion per cablo: alora le actualisation se discargara per se mesme.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Tu es connectite per un connexion mobile o altere connexion con limite de datos, e un actualisation del systema normalmente discarga plure gigabytes. Isto pote consumer tu plano de datos. Tu pote etiam attender le Wi-Fi o un connexion per cablo: alora le actualisation se discargara per se mesme.",
+  "Download anyway": "Discargar totevia",
+  "Later": "Plus tarde"
 }

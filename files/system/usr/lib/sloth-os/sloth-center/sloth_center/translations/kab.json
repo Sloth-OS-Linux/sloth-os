@@ -645,5 +645,11 @@
   "Next": "Uḍfir",
   "Sloth OS": "Sloth OS",
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Ileqman yettwasneqden ✓ – anagraw-a yeqbal kan ileqman yettwazemlen sɣur Sloth OS.",
-  "Update signature checking is not enabled. This system may accept unsigned updates.": "Asenqed n uzmul n yileqman ur yermid ara. Anagraw-a yezmer ad yeqbel ileqman war azmul."
+  "Update signature checking is not enabled. This system may accept unsigned updates.": "Asenqed n uzmul n yileqman ur yermid ara. Anagraw-a yezmer ad yeqbel ileqman war azmul.",
+  "Available version: {version} (download: {size})": "Lqem yellan: {version} (asider: {size})",
+  "Download on a metered connection?": "Asider s tuqqna s talast n yisefka?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Aql-ik·ikem ɣef tuqqna n uziraz neɣ ɣef tuqqna-nniḍen s talast n yisefka, ileqqem-a ad d-isider azal n {size}. Aya yezmer ad yessali tasmilt-ik·im n yisefka. Tzemreḍ daɣen ad traǧuḍ Wi-Fi neɣ tuqqna s ugatu: ihi aleqqem ad d-isider iman-is.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Aql-ik·ikem ɣef tuqqna n uziraz neɣ ɣef tuqqna-nniḍen s talast n yisefka, aleqqem n unagraw s umata ad d-isider aṭas n yigigabiten. Aya yezmer ad yessali tasmilt-ik·im n yisefka. Tzemreḍ daɣen ad traǧuḍ Wi-Fi neɣ tuqqna s ugatu: ihi aleqqem ad d-isider iman-is.",
+  "Download anyway": "Sider akken yebɣu yili",
+  "Later": "Ticki"
 }

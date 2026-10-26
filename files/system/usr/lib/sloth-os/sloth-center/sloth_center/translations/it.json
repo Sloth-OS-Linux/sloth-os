@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Aggiornamenti verificati ✓ – questo sistema accetta solo aggiornamenti firmati da Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "La verifica della firma degli aggiornamenti non è attiva. Questo sistema potrebbe accettare aggiornamenti non firmati.",
   "Sloth OS": "Sloth OS",
-  "Next": "Avanti"
+  "Next": "Avanti",
+  "Available version: {version} (download: {size})": "Versione disponibile: {version} (download: {size})",
+  "Download on a metered connection?": "Scaricare con una connessione a consumo?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Sei connesso con una rete mobile o un'altra connessione a consumo, e questo aggiornamento scarica circa {size}. Potrebbe esaurire il tuo piano dati. Puoi anche aspettare il Wi-Fi o una connessione via cavo: l'aggiornamento verrà scaricato da solo.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Sei connesso con una rete mobile o un'altra connessione a consumo, e un aggiornamento di sistema di solito scarica diversi gigabyte. Potrebbe esaurire il tuo piano dati. Puoi anche aspettare il Wi-Fi o una connessione via cavo: l'aggiornamento verrà scaricato da solo.",
+  "Download anyway": "Scarica comunque",
+  "Later": "Più tardi"
 }

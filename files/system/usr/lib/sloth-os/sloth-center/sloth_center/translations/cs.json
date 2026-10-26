@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Ověřené aktualizace ✓ – tento systém přijímá pouze aktualizace podepsané Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Ověřování podpisu aktualizací není zapnuté. Tento systém může přijmout nepodepsané aktualizace.",
   "Sloth OS": "Sloth OS",
-  "Next": "Další"
+  "Next": "Další",
+  "Available version: {version} (download: {size})": "Dostupná verze: {version} (stahování: {size})",
+  "Download on a metered connection?": "Stahovat přes měřené připojení?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Jste na mobilním nebo jiném měřeném připojení a tato aktualizace stáhne asi {size}. To může vyčerpat váš datový tarif. Můžete také počkat na Wi-Fi nebo kabelové připojení: aktualizace se pak stáhne sama.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Jste na mobilním nebo jiném měřeném připojení a aktualizace systému obvykle stahuje několik gigabajtů. To může vyčerpat váš datový tarif. Můžete také počkat na Wi-Fi nebo kabelové připojení: aktualizace se pak stáhne sama.",
+  "Download anyway": "Přesto stáhnout",
+  "Later": "Později"
 }

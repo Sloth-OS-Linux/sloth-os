@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "已驗證的更新 ✓ – 本系統只接受 Sloth OS 簽署的更新。",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "更新簽章驗證未開啟。本系統可能會接受未簽署的更新。",
   "Sloth OS": "Sloth OS",
-  "Next": "下一步"
+  "Next": "下一步",
+  "Available version: {version} (download: {size})": "可用版本：{version}（下載：{size}）",
+  "Download on a metered connection?": "要透過計量連線下載嗎？",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "你正在使用行動網路或其他計量連線，此更新約需下載 {size}。這可能會用完你的數據方案。你也可以等到連上 Wi-Fi 或有線網路：屆時更新會自動下載。",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "你正在使用行動網路或其他計量連線，系統更新通常需要下載數 GB。這可能會用完你的數據方案。你也可以等到連上 Wi-Fi 或有線網路：屆時更新會自動下載。",
+  "Download anyway": "仍要下載",
+  "Later": "稍後"
 }

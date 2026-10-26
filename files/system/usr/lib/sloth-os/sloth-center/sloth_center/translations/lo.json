@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "ອັບເດດທີ່ກວດແລ້ວ ✓ – ລະບົບນີ້ຮັບສະເພາະອັບເດດທີ່ Sloth OS ລົງລາຍເຊັນ.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "ການກວດລາຍເຊັນອັບເດດບໍ່ໄດ້ເປີດ. ລະບົບນີ້ອາດຮັບອັບເດດທີ່ບໍ່ມີລາຍເຊັນ.",
   "Sloth OS": "Sloth OS",
-  "Next": "ຕໍ່ໄປ"
+  "Next": "ຕໍ່ໄປ",
+  "Available version: {version} (download: {size})": "ເວີຊັນທີ່ມີ: {version} (ດາວໂຫຼດ: {size})",
+  "Download on a metered connection?": "ດາວໂຫຼດຜ່ານການເຊື່ອມຕໍ່ທີ່ຈຳກັດຂໍ້ມູນບໍ?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "ທ່ານກຳລັງໃຊ້ການເຊື່ອມຕໍ່ມືຖື ຫຼື ການເຊື່ອມຕໍ່ອື່ນທີ່ຈຳກັດຂໍ້ມູນ, ແລະ ອັບເດດນີ້ຈະດາວໂຫຼດປະມານ {size}. ອາດຈະໃຊ້ແພັກເກດຂໍ້ມູນຂອງທ່ານໝົດ. ທ່ານສາມາດລໍຖ້າ Wi-Fi ຫຼື ການເຊື່ອມຕໍ່ດ້ວຍສາຍກໍໄດ້: ຕອນນັ້ນອັບເດດຈະດາວໂຫຼດເອງ.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "ທ່ານກຳລັງໃຊ້ການເຊື່ອມຕໍ່ມືຖື ຫຼື ການເຊື່ອມຕໍ່ອື່ນທີ່ຈຳກັດຂໍ້ມູນ, ແລະ ອັບເດດລະບົບປົກກະຕິຈະດາວໂຫຼດຫຼາຍກິກະໄບ. ອາດຈະໃຊ້ແພັກເກດຂໍ້ມູນຂອງທ່ານໝົດ. ທ່ານສາມາດລໍຖ້າ Wi-Fi ຫຼື ການເຊື່ອມຕໍ່ດ້ວຍສາຍກໍໄດ້: ຕອນນັ້ນອັບເດດຈະດາວໂຫຼດເອງ.",
+  "Download anyway": "ດາວໂຫຼດຢູ່ດີ",
+  "Later": "ພາຍຫຼັງ"
 }

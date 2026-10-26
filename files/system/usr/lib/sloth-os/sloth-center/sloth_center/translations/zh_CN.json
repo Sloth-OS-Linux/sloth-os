@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "已验证的更新 ✓ – 本系统只接受 Sloth OS 签名的更新。",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "更新签名验证未开启。本系统可能会接受未签名的更新。",
   "Sloth OS": "Sloth OS",
-  "Next": "下一步"
+  "Next": "下一步",
+  "Available version: {version} (download: {size})": "可用版本：{version}（下载：{size}）",
+  "Download on a metered connection?": "要通过按流量计费的连接下载吗？",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "你正在使用移动网络或其他按流量计费的连接，此更新大约需要下载 {size}。这可能会用完你的流量套餐。你也可以等到连上 Wi-Fi 或有线网络：届时更新会自动下载。",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "你正在使用移动网络或其他按流量计费的连接，系统更新通常需要下载数 GB。这可能会用完你的流量套餐。你也可以等到连上 Wi-Fi 或有线网络：届时更新会自动下载。",
+  "Download anyway": "仍然下载",
+  "Later": "稍后"
 }

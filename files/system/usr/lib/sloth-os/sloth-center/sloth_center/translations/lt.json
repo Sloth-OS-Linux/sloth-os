@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Patikrinti atnaujinimai ✓ – ši sistema priima tik „Sloth OS“ pasirašytus atnaujinimus.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Atnaujinimų parašo tikrinimas neįjungtas. Ši sistema gali priimti nepasirašytus atnaujinimus.",
   "Sloth OS": "Sloth OS",
-  "Next": "Toliau"
+  "Next": "Toliau",
+  "Available version: {version} (download: {size})": "Prieinama versija: {version} (atsisiuntimas: {size})",
+  "Download on a metered connection?": "Atsisiųsti per ribotą ryšį?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Esate prisijungę mobiliuoju ar kitu ribotu ryšiu, o šis atnaujinimas atsisiunčia apie {size}. Tai gali išnaudoti jūsų duomenų planą. Taip pat galite palaukti „Wi-Fi“ arba laidinio ryšio: tada atnaujinimas atsisiųs pats.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Esate prisijungę mobiliuoju ar kitu ribotu ryšiu, o sistemos atnaujinimas paprastai atsisiunčia kelis gigabaitus. Tai gali išnaudoti jūsų duomenų planą. Taip pat galite palaukti „Wi-Fi“ arba laidinio ryšio: tada atnaujinimas atsisiųs pats.",
+  "Download anyway": "Vis tiek atsisiųsti",
+  "Later": "Vėliau"
 }

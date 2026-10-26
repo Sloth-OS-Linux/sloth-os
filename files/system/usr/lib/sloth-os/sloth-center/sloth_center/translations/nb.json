@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Bekreftede oppdateringer ✓ – dette systemet godtar bare oppdateringer signert av Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Signaturkontroll av oppdateringer er ikke slått på. Dette systemet kan godta usignerte oppdateringer.",
   "Sloth OS": "Sloth OS",
-  "Next": "Neste"
+  "Next": "Neste",
+  "Available version: {version} (download: {size})": "Tilgjengelig versjon: {version} (nedlasting: {size})",
+  "Download on a metered connection?": "Laste ned på en forbindelse med datagrense?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Du er på en mobil- eller annen forbindelse med datagrense, og denne oppdateringen laster ned omtrent {size}. Det kan bruke opp dataabonnementet ditt. Du kan også vente på Wi-Fi eller en kablet forbindelse: da lastes oppdateringen ned av seg selv.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Du er på en mobil- eller annen forbindelse med datagrense, og en systemoppdatering laster vanligvis ned flere gigabyte. Det kan bruke opp dataabonnementet ditt. Du kan også vente på Wi-Fi eller en kablet forbindelse: da lastes oppdateringen ned av seg selv.",
+  "Download anyway": "Last ned likevel",
+  "Later": "Senere"
 }

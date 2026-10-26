@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Gecontroleerde updates ✓ – dit systeem accepteert alleen updates die door Sloth OS zijn ondertekend.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Handtekeningcontrole van updates staat niet aan. Dit systeem kan niet-ondertekende updates accepteren.",
   "Sloth OS": "Sloth OS",
-  "Next": "Volgende"
+  "Next": "Volgende",
+  "Available version: {version} (download: {size})": "Beschikbare versie: {version} (download: {size})",
+  "Download on a metered connection?": "Downloaden via een verbinding met datalimiet?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Je zit op een mobiele of andere verbinding met datalimiet, en deze update downloadt ongeveer {size}. Dat kan je databundel opmaken. Je kunt ook wachten op wifi of een kabelverbinding: dan downloadt de update vanzelf.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Je zit op een mobiele of andere verbinding met datalimiet, en een systeemupdate downloadt meestal enkele gigabytes. Dat kan je databundel opmaken. Je kunt ook wachten op wifi of een kabelverbinding: dan downloadt de update vanzelf.",
+  "Download anyway": "Toch downloaden",
+  "Later": "Later"
 }

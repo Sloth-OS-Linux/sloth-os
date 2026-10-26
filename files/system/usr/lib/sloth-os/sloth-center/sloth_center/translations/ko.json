@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "확인된 업데이트 ✓ – 이 시스템은 Sloth OS가 서명한 업데이트만 받습니다.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "업데이트 서명 확인이 꺼져 있습니다. 이 시스템은 서명되지 않은 업데이트를 받을 수 있습니다.",
   "Sloth OS": "Sloth OS",
-  "Next": "다음"
+  "Next": "다음",
+  "Available version: {version} (download: {size})": "사용 가능한 버전: {version} (다운로드: {size})",
+  "Download on a metered connection?": "데이터 요금제 연결로 다운로드할까요?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "모바일 또는 데이터 사용량이 제한된 연결을 사용 중이며, 이 업데이트는 약 {size}를 다운로드합니다. 데이터 요금제를 모두 써 버릴 수 있습니다. Wi-Fi나 유선 연결을 기다려도 됩니다. 그러면 업데이트가 저절로 다운로드됩니다.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "모바일 또는 데이터 사용량이 제한된 연결을 사용 중이며, 시스템 업데이트는 보통 몇 GB를 다운로드합니다. 데이터 요금제를 모두 써 버릴 수 있습니다. Wi-Fi나 유선 연결을 기다려도 됩니다. 그러면 업데이트가 저절로 다운로드됩니다.",
+  "Download anyway": "그래도 다운로드",
+  "Later": "나중에"
 }

@@ -76,6 +76,8 @@ Kirigami.ScrollablePage {
                             opacity: 0.8
                             text: updates.needsReboot && !updates.busy
                                   ? L.tf("After a restart, this starts: {version}", { version: updates.pendingVersion })
+                                  : updates.updateAvailable && !updates.busy && updates.downloadSize !== ""
+                                  ? L.tf("Available version: {version} (download: {size})", { version: updates.availableVersion, size: updates.downloadSize })
                                   : updates.updateAvailable && !updates.busy
                                   ? L.tf("Available version: {version}", { version: updates.availableVersion })
                                   : L.tf("Current version: {version}", { version: updates.currentVersion || "–" })
@@ -286,6 +288,40 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+    }
+
+    // Installing on a mobile or other metered connection: ask first (the download can cost money)
+    Connections {
+        target: updates
+        function onChanged() {
+            if (updates.meteredWarning && !confirmMetered.opened)
+                confirmMetered.open()
+            else if (!updates.meteredWarning && confirmMetered.opened)
+                confirmMetered.close()
+        }
+    }
+
+    Kirigami.PromptDialog {
+        id: confirmMetered
+        title: L.t("Download on a metered connection?")
+        subtitle: updates.downloadSize !== ""
+                  ? L.tf("You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.", { size: updates.downloadSize })
+                  : L.t("You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.")
+        standardButtons: Kirigami.Dialog.NoButton
+        // closed with Esc or the X too
+        onClosed: if (updates.meteredWarning) updates.dismissMeteredWarning()
+        customFooterActions: [
+            Kirigami.Action {
+                text: L.t("Download anyway")
+                icon.name: "download"
+                onTriggered: updates.installUpdateAnyway()
+            },
+            Kirigami.Action {
+                text: L.t("Later")
+                icon.name: "dialog-cancel"
+                onTriggered: updates.dismissMeteredWarning()
+            }
+        ]
     }
 
     Kirigami.PromptDialog {

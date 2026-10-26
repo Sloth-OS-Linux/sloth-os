@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Επαληθευμένες ενημερώσεις ✓ – αυτό το σύστημα δέχεται μόνο ενημερώσεις υπογεγραμμένες από το Sloth OS.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Ο έλεγχος υπογραφής των ενημερώσεων δεν είναι ενεργός. Αυτό το σύστημα μπορεί να δεχτεί μη υπογεγραμμένες ενημερώσεις.",
   "Sloth OS": "Sloth OS",
-  "Next": "Επόμενο"
+  "Next": "Επόμενο",
+  "Available version: {version} (download: {size})": "Διαθέσιμη έκδοση: {version} (λήψη: {size})",
+  "Download on a metered connection?": "Λήψη μέσω σύνδεσης με όριο δεδομένων;",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Είστε σε κινητή ή άλλη σύνδεση με όριο δεδομένων, και αυτή η ενημέρωση κατεβάζει περίπου {size}. Αυτό μπορεί να εξαντλήσει το πακέτο δεδομένων σας. Μπορείτε επίσης να περιμένετε για Wi-Fi ή ενσύρματη σύνδεση: τότε η ενημέρωση θα κατέβει μόνη της.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Είστε σε κινητή ή άλλη σύνδεση με όριο δεδομένων, και μια ενημέρωση συστήματος συνήθως κατεβάζει αρκετά gigabyte. Αυτό μπορεί να εξαντλήσει το πακέτο δεδομένων σας. Μπορείτε επίσης να περιμένετε για Wi-Fi ή ενσύρματη σύνδεση: τότε η ενημέρωση θα κατέβει μόνη της.",
+  "Download anyway": "Λήψη ούτως ή άλλως",
+  "Later": "Αργότερα"
 }

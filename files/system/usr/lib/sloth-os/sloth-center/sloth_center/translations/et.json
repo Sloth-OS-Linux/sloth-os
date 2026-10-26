@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Kontrollitud uuendused ✓ – see süsteem võtab vastu ainult Sloth OS-i allkirjastatud uuendusi.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Uuenduste allkirjakontroll pole sisse lülitatud. See süsteem võib vastu võtta allkirjastamata uuendusi.",
   "Sloth OS": "Sloth OS",
-  "Next": "Edasi"
+  "Next": "Edasi",
+  "Available version: {version} (download: {size})": "Saadaval versioon: {version} (allalaadimine: {size})",
+  "Download on a metered connection?": "Kas laadida alla mahupiiranguga ühenduse kaudu?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Oled mobiilse või muu mahupiiranguga ühenduse taga ja see uuendus laadib alla umbes {size}. See võib su andmemahu ära kulutada. Võid ka oodata Wi-Fi või kaabelühendust: siis laadib uuendus end ise alla.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Oled mobiilse või muu mahupiiranguga ühenduse taga ja süsteemiuuendus laadib tavaliselt alla mitu gigabaiti. See võib su andmemahu ära kulutada. Võid ka oodata Wi-Fi või kaabelühendust: siis laadib uuendus end ise alla.",
+  "Download anyway": "Laadi ikkagi alla",
+  "Later": "Hiljem"
 }

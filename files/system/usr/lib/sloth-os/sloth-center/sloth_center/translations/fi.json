@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Varmennetut päivitykset ✓ – tämä järjestelmä hyväksyy vain Sloth OS:n allekirjoittamat päivitykset.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Päivitysten allekirjoituksen tarkistus ei ole käytössä. Tämä järjestelmä voi hyväksyä allekirjoittamattomia päivityksiä.",
   "Sloth OS": "Sloth OS",
-  "Next": "Seuraava"
+  "Next": "Seuraava",
+  "Available version: {version} (download: {size})": "Saatavilla oleva versio: {version} (lataus: {size})",
+  "Download on a metered connection?": "Ladataanko käytön mukaan laskutettavalla yhteydellä?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Olet mobiili- tai muulla käytön mukaan laskutettavalla yhteydellä, ja tämä päivitys lataa noin {size}. Se voi kuluttaa datapakettisi loppuun. Voit myös odottaa Wi-Fi- tai kaapeliyhteyttä: päivitys latautuu silloin itsestään.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Olet mobiili- tai muulla käytön mukaan laskutettavalla yhteydellä, ja järjestelmäpäivitys lataa yleensä useita gigatavuja. Se voi kuluttaa datapakettisi loppuun. Voit myös odottaa Wi-Fi- tai kaapeliyhteyttä: päivitys latautuu silloin itsestään.",
+  "Download anyway": "Lataa silti",
+  "Later": "Myöhemmin"
 }

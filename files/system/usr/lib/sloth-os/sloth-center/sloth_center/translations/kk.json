@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Тексерілген жаңартулар ✓ – бұл жүйе тек Sloth OS қол қойған жаңартуларды қабылдайды.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Жаңартулардың қолтаңбасын тексеру қосылмаған. Бұл жүйе қол қойылмаған жаңартуларды қабылдауы мүмкін.",
   "Sloth OS": "Sloth OS",
-  "Next": "Келесі"
+  "Next": "Келесі",
+  "Available version: {version} (download: {size})": "Қолжетімді нұсқа: {version} (жүктеу: {size})",
+  "Download on a metered connection?": "Трафигі шектеулі байланыс арқылы жүктеу керек пе?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Сіз мобильді немесе трафигі шектеулі басқа байланыстасыз, ал бұл жаңарту шамамен {size} жүктейді. Бұл деректер пакетіңізді таусуы мүмкін. Wi-Fi немесе кабельді байланысты күтуге де болады: сонда жаңарту өздігінен жүктеледі.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Сіз мобильді немесе трафигі шектеулі басқа байланыстасыз, ал жүйе жаңартуы әдетте бірнеше гигабайт жүктейді. Бұл деректер пакетіңізді таусуы мүмкін. Wi-Fi немесе кабельді байланысты күтуге де болады: сонда жаңарту өздігінен жүктеледі.",
+  "Download anyway": "Бәрібір жүктеу",
+  "Later": "Кейінірек"
 }

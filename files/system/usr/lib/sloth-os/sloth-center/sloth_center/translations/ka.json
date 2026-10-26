@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "შემოწმებული განახლებები ✓ – ეს სისტემა მხოლოდ Sloth OS-ის მიერ ხელმოწერილ განახლებებს იღებს.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "განახლებების ხელმოწერის შემოწმება არ არის ჩართული. ამ სისტემამ შეიძლება ხელმოუწერელი განახლებებიც მიიღოს.",
   "Sloth OS": "Sloth OS",
-  "Next": "შემდეგი"
+  "Next": "შემდეგი",
+  "Available version: {version} (download: {size})": "ხელმისაწვდომი ვერსია: {version} (ჩამოტვირთვა: {size})",
+  "Download on a metered connection?": "ჩამოიტვირთოს ლიმიტირებული კავშირით?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "თქვენ მობილურ ან სხვა ლიმიტირებულ კავშირზე ხართ, ეს განახლება კი დაახლოებით {size}-ს ჩამოტვირთავს. ამან შეიძლება თქვენი მონაცემთა პაკეტი ამოწუროს. შეგიძლიათ Wi-Fi-ს ან კაბელით კავშირსაც დაელოდოთ: მაშინ განახლება თავისით ჩამოიტვირთება.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "თქვენ მობილურ ან სხვა ლიმიტირებულ კავშირზე ხართ, სისტემის განახლება კი ჩვეულებრივ რამდენიმე გიგაბაიტს ჩამოტვირთავს. ამან შეიძლება თქვენი მონაცემთა პაკეტი ამოწუროს. შეგიძლიათ Wi-Fi-ს ან კაბელით კავშირსაც დაელოდოთ: მაშინ განახლება თავისით ჩამოიტვირთება.",
+  "Download anyway": "მაინც ჩამოტვირთვა",
+  "Later": "მოგვიანებით"
 }

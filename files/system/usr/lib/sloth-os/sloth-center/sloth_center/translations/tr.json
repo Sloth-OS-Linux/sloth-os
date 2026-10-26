@@ -645,5 +645,11 @@
   "Verified updates ✓ – this system only accepts updates signed by Sloth OS.": "Doğrulanmış güncellemeler ✓ – bu sistem yalnızca Sloth OS tarafından imzalanan güncellemeleri kabul eder.",
   "Update signature checking is not enabled. This system may accept unsigned updates.": "Güncellemelerin imza denetimi açık değil. Bu sistem imzasız güncellemeleri kabul edebilir.",
   "Sloth OS": "Sloth OS",
-  "Next": "İleri"
+  "Next": "İleri",
+  "Available version: {version} (download: {size})": "Mevcut sürüm: {version} (indirme: {size})",
+  "Download on a metered connection?": "Kotalı bağlantıda indirilsin mi?",
+  "You're on a mobile or other metered connection, and this update downloads about {size}. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Mobil ya da başka bir kotalı bağlantıdasınız ve bu güncelleme yaklaşık {size} indirir. Bu, veri paketinizi bitirebilir. Wi-Fi veya kablolu bağlantıyı da bekleyebilirsiniz: o zaman güncelleme kendiliğinden iner.",
+  "You're on a mobile or other metered connection, and a system update usually downloads several gigabytes. That can use up your data plan. You can also wait for Wi-Fi or a cable connection: the update then downloads by itself.": "Mobil ya da başka bir kotalı bağlantıdasınız ve bir sistem güncellemesi genellikle birkaç gigabayt indirir. Bu, veri paketinizi bitirebilir. Wi-Fi veya kablolu bağlantıyı da bekleyebilirsiniz: o zaman güncelleme kendiliğinden iner.",
+  "Download anyway": "Yine de indir",
+  "Later": "Daha sonra"
 }
