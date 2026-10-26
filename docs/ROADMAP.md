@@ -41,6 +41,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 
 - [ ] **Critical** — Resolve the Fedora 44 `rpm-ostree` crash during OCI image updates (`2026.3-2.fc44` aborts
   with `JoinHandle polled after completion` while importing layers), then verify a full update stages and boots.
+  (2026-10-26, real machine on 1.0.4: no crash this time; systemd stopped `rpm-ostreed` halfway when the
+  `/boot` automount of systemd-gpt-auto-generator expired. 1.0.5: the automount no longer expires; a machine
+  gets this with its first finished update, until then retrying continues from the layers already fetched.)
+- [x] **Low** — `sloth-login-repair` failed at every boot on Fedora 44 (`Unknown profile feature
+  [with-altfiles]`): it now only turns the feature on if the authselect profile still has it.
 - [x] **Medium** — Show OCI layer progress in Sloth Center, stop the spinner and explain the failure if the
   transaction connection closes, and reconnect to `rpm-ostreed` after a daemon restart. Verify the flow without
   requiring a terminal. (2026-10-26: the Updates page shows "layer 3/29 · size" and the bar moves forward with the

@@ -245,14 +245,18 @@ DOMAIN_USER_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$")
 ALTFILES = "with-altfiles"
 
 
-def _needs_altfiles():
-    return os.path.isfile("/usr/lib/passwd")
+def _needs_altfiles(profile="local"):
+    """Only where the system users live in /usr/lib/passwd, and only if the profile has the feature at all: Fedora
+    44's "local" profile no longer has it (it reads altfiles by itself), enabling it there fails at every boot."""
+    if not os.path.isfile("/usr/lib/passwd"):
+        return False
+    return ALTFILES in run(["authselect", "list-features", profile]).stdout.split()
 
 
 def keep_altfiles():
     """If with-altfiles is missing from the selected authselect profile, turns it on (at startup too: login-repair)."""
     current = run(["authselect", "current", "--raw"]).stdout.split()
-    if not current or not _needs_altfiles() or ALTFILES in current[1:]:
+    if not current or ALTFILES in current[1:] or not _needs_altfiles(current[0]):
         return {"ok": True, "changed": False}
     r = run(["authselect", "enable-feature", ALTFILES])
     return {"ok": r.returncode == 0, "error": r.stderr.strip(), "changed": True}
