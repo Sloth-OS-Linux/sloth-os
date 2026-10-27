@@ -35,8 +35,8 @@ Release:
 - [x] Build the ISO from `main`, install it once, upload it to SourceForge with its SHA-256 checksum (2026-10-27:
   `sloth-os-1.1-x86_64.iso`, 7.05 GB, SHA-256 `cccae10e7cb195563a0f73facf25a25da4829a038309d2b93170e53c5b91a735`;
   written to a USB stick, verified, and installed on a real machine without problems)
-- [ ] Website: the 1.1 news and download link (the news and release notes are up; the download button moves to
-  1.1 when SourceForge's mirrors serve the ISO)
+- [x] Website: the 1.1 news and download link (2026-10-27; the release notes fold out on the download page, as in
+  the README)
 - NVIDIA (2026-10-27): the gaming machine (RTX 5060) runs 1.0.4 without problems, with Secure Boot turned off.
   Secure Boot on (MOK enrollment) is still untested
 
