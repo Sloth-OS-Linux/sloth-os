@@ -14,12 +14,8 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Current release: Sloth OS 1.1** (October 27, 2026). Machines already running Sloth OS get it as a normal update.
-What changed: [release notes](#release-notes) below.
-
-> **The 1.1 installer ISO is on its way:** it is being built right now and will be on
-> [SourceForge](https://sourceforge.net/projects/sloth-os/files/) soon. Until then, the
-> [1.0.4 ISO](https://sourceforge.net/projects/sloth-os/files/1.0.4/) installs a system that updates itself to 1.1.
+**Current release: [Sloth OS 1.1](https://sourceforge.net/projects/sloth-os/files/1.1/)** (October 27, 2026).
+Machines already running Sloth OS get it as a normal update. What changed: [release notes](#release-notes) below.
 
 ## What Sloth OS can do
 
