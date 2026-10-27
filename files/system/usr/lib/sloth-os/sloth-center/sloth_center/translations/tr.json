@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Ekranların ve sesin şu anki ayarını \"Masa\" veya \"TV\" gibi bir adla kaydedin ve aralarında tek tıkla geçiş yapın.",
   "Use": "Kullan",
   "Name, for example TV": "Ad, örneğin TV",
-  "Save the current setup": "Şu anki ayarı kaydet"
+  "Save the current setup": "Şu anki ayarı kaydet",
+  "Settings saved: {file}": "Ayarlar kaydedildi: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Ayarlar yüklendi. Her yerde görmek için Sloth Center'ı yeniden açın.",
+  "This file doesn't contain Sloth OS settings.": "Bu dosya Sloth OS ayarları içermiyor.",
+  "Couldn't save the settings there. Choose another folder.": "Ayarlar oraya kaydedilemedi. Başka bir klasör seçin.",
+  "Couldn't load the settings. Please try again.": "Ayarlar yüklenemedi. Lütfen tekrar deneyin.",
+  "Sloth OS settings": "Sloth OS ayarları",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Görünümü, ekran ve ses profillerini ve diğer Sloth OS ayarlarını bir dosyaya kaydedin; yeniden yüklemeden sonra veya başka bir bilgisayarda yükleyin. Dosyalarınız içinde değildir.",
+  "Save settings to a file…": "Ayarları bir dosyaya kaydet…",
+  "Load settings from a file…": "Ayarları bir dosyadan yükle…",
+  "Save Sloth OS settings": "Sloth OS ayarlarını kaydet",
+  "Load Sloth OS settings": "Sloth OS ayarlarını yükle"
 }

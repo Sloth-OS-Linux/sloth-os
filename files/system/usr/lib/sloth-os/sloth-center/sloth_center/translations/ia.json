@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Salva como le schermos e le sono es configurate ora, per exemplo \"Scriptorio\" o \"TV\", e cambia inter illos con un clic.",
   "Use": "Usar",
   "Name, for example TV": "Nomine, per exemplo TV",
-  "Save the current setup": "Salvar le configuration actual"
+  "Save the current setup": "Salvar le configuration actual",
+  "Settings saved: {file}": "Parametros salvate: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Parametros cargate. Aperi Sloth Center de novo pro vider los ubique.",
+  "This file doesn't contain Sloth OS settings.": "Iste file non contine parametros de Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Non poteva salvar le parametros illac. Selige un altere dossier.",
+  "Couldn't load the settings. Please try again.": "Non poteva cargar le parametros. Per favor tenta de novo.",
+  "Sloth OS settings": "Parametros de Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Salva le apparentia, le profilos de schermo e sono e le altere parametros de Sloth OS in un file, e carga los post reinstallar o sur un altere computator. Tu files non es in illo.",
+  "Save settings to a file…": "Salvar le parametros in un file…",
+  "Load settings from a file…": "Cargar le parametros ab un file…",
+  "Save Sloth OS settings": "Salvar le parametros de Sloth OS",
+  "Load Sloth OS settings": "Cargar le parametros de Sloth OS"
 }

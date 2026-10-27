@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Mentsd el, hogyan vannak most beállítva a kijelzők és a hang, például „Asztal” vagy „TV”, és válts köztük egy kattintással.",
   "Use": "Használat",
   "Name, for example TV": "Név, például TV",
-  "Save the current setup": "A mostani beállítás mentése"
+  "Save the current setup": "A mostani beállítás mentése",
+  "Settings saved: {file}": "Beállítások elmentve: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Beállítások betöltve. Nyisd meg újra a Sloth Centert, hogy mindenhol érvényesek legyenek.",
+  "This file doesn't contain Sloth OS settings.": "Ebben a fájlban nincsenek Sloth OS-beállítások.",
+  "Couldn't save the settings there. Choose another folder.": "Oda nem sikerült elmenteni a beállításokat. Válassz másik mappát.",
+  "Couldn't load the settings. Please try again.": "Nem sikerült betölteni a beállításokat. Próbáld újra.",
+  "Sloth OS settings": "Sloth OS-beállítások",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Mentsd fájlba a megjelenést, a kijelző- és hangprofilokat és a többi Sloth OS-beállítást, és töltsd vissza újratelepítés után vagy egy másik gépen. A fájljaid nincsenek benne.",
+  "Save settings to a file…": "Beállítások mentése fájlba…",
+  "Load settings from a file…": "Beállítások betöltése fájlból…",
+  "Save Sloth OS settings": "Sloth OS-beállítások mentése",
+  "Load Sloth OS settings": "Sloth OS-beállítások betöltése"
 }

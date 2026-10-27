@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Salvesta, kuidas ekraanid ja heli praegu seadistatud on, näiteks „Laud“ või „Teler“, ja vaheta nende vahel ühe klõpsuga.",
   "Use": "Kasuta",
   "Name, for example TV": "Nimi, näiteks Teler",
-  "Save the current setup": "Salvesta praegune seadistus"
+  "Save the current setup": "Salvesta praegune seadistus",
+  "Settings saved: {file}": "Seaded salvestatud: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Seaded laaditud. Ava Sloth Center uuesti, et neid kõikjal näha.",
+  "This file doesn't contain Sloth OS settings.": "See fail ei sisalda Sloth OS-i seadeid.",
+  "Couldn't save the settings there. Choose another folder.": "Seadeid ei õnnestunud sinna salvestada. Vali teine kaust.",
+  "Couldn't load the settings. Please try again.": "Seadeid ei õnnestunud laadida. Proovi uuesti.",
+  "Sloth OS settings": "Sloth OS-i seaded",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Salvesta välimus, ekraani- ja heliprofiilid ning muud Sloth OS-i seaded faili ja laadi need pärast uuesti paigaldamist või teises arvutis. Sinu faile selles pole.",
+  "Save settings to a file…": "Salvesta seaded faili…",
+  "Load settings from a file…": "Laadi seaded failist…",
+  "Save Sloth OS settings": "Salvesta Sloth OS-i seaded",
+  "Load Sloth OS settings": "Laadi Sloth OS-i seaded"
 }

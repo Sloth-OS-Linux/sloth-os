@@ -269,7 +269,15 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   "Check the backup" reads back a sample of 300 files of the latest saved state (no password, nothing changed)
   and says in plain language whether all of them can be read; files the user may not read anyway are not
   counted as a fault. Tests: `tools/tests/test_backup_verify.py`. Checked on a real machine (2026-10-26)
-- [ ] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
+- [x] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
+  (2026-10-27: File backup → Sloth OS settings: "Save settings to a file…" / "Load settings from a file…". The file
+  (readable JSON) holds Sloth OS's own settings files (sharing, the disc image choice, the display and sound profiles,
+  where Windows programs go, the developer panel) and the look (color scheme, taskbar layout). Nothing personal.
+  Loading writes only these files back (whatever the file says), keeps a program location only if that drive exists
+  here, and sets the look again. `sloth_center/settings_backup.py`, tests: `tools/tests/test_settings_backup.py`.
+  Check on a real machine)
+- [ ] **Medium** — Reinstall the apps too when loading the settings: save which catalog apps were installed and offer
+  them in Sloth Welcome, ticked (`welcome-progress.json` already keeps a selection).
 - [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
 - [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart
   flow (already on the Updates page: the explanation, a confirmation that files and settings are kept, then

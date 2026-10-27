@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Ruani si janë rregulluar tani ekranet dhe zëri, për shembull \"Tavolinë\" ose \"TV\", dhe kaloni mes tyre me një klikim.",
   "Use": "Përdor",
   "Name, for example TV": "Emër, për shembull TV",
-  "Save the current setup": "Ruani rregullimin aktual"
+  "Save the current setup": "Ruani rregullimin aktual",
+  "Settings saved: {file}": "Cilësimet u ruajtën: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Cilësimet u ngarkuan. Hapeni sërish Sloth Center për t'i parë kudo.",
+  "This file doesn't contain Sloth OS settings.": "Ky skedar nuk përmban cilësime të Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Cilësimet nuk u ruajtën dot atje. Zgjidhni një dosje tjetër.",
+  "Couldn't load the settings. Please try again.": "Cilësimet nuk u ngarkuan dot. Provoni sërish.",
+  "Sloth OS settings": "Cilësimet e Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Ruani pamjen, profilet e ekranit dhe zërit dhe cilësimet e tjera të Sloth OS në një skedar, dhe ngarkojini pas riinstalimit ose në një kompjuter tjetër. Skedarët tuaj nuk janë në të.",
+  "Save settings to a file…": "Ruani cilësimet në një skedar…",
+  "Load settings from a file…": "Ngarkoni cilësimet nga një skedar…",
+  "Save Sloth OS settings": "Ruani cilësimet e Sloth OS",
+  "Load Sloth OS settings": "Ngarkoni cilësimet e Sloth OS"
 }

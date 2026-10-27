@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "שמרו את ההגדרה הנוכחית של המסכים והשמע, למשל „שולחן” או „טלוויזיה”, ועברו ביניהן בלחיצה אחת.",
   "Use": "שימוש",
   "Name, for example TV": "שם, למשל טלוויזיה",
-  "Save the current setup": "שמירת ההגדרה הנוכחית"
+  "Save the current setup": "שמירת ההגדרה הנוכחית",
+  "Settings saved: {file}": "ההגדרות נשמרו: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "ההגדרות נטענו. פתחו שוב את Sloth Center כדי לראות אותן בכל מקום.",
+  "This file doesn't contain Sloth OS settings.": "הקובץ הזה לא מכיל הגדרות של Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "לא ניתן היה לשמור את ההגדרות שם. בחרו תיקייה אחרת.",
+  "Couldn't load the settings. Please try again.": "לא ניתן היה לטעון את ההגדרות. נסו שוב.",
+  "Sloth OS settings": "הגדרות Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "שמרו את המראה, פרופילי התצוגה והשמע ושאר הגדרות Sloth OS בקובץ, וטענו אותן אחרי התקנה מחדש או במחשב אחר. הקבצים שלכם לא נמצאים בו.",
+  "Save settings to a file…": "שמירת ההגדרות לקובץ…",
+  "Load settings from a file…": "טעינת הגדרות מקובץ…",
+  "Save Sloth OS settings": "שמירת הגדרות Sloth OS",
+  "Load Sloth OS settings": "טעינת הגדרות Sloth OS"
 }

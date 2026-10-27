@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "திரைகளும் ஒலியும் இப்போது எப்படி அமைக்கப்பட்டுள்ளன என்பதை \"மேசை\" அல்லது \"டிவி\" போலச் சேமித்து, ஒரே கிளிக்கில் மாறுங்கள்.",
   "Use": "பயன்படுத்து",
   "Name, for example TV": "பெயர், எ.கா. டிவி",
-  "Save the current setup": "தற்போதைய அமைப்பைச் சேமி"
+  "Save the current setup": "தற்போதைய அமைப்பைச் சேமி",
+  "Settings saved: {file}": "அமைப்புகள் சேமிக்கப்பட்டன: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "அமைப்புகள் ஏற்றப்பட்டன. எல்லா இடத்திலும் காண Sloth Center-ஐ மீண்டும் திறங்கள்.",
+  "This file doesn't contain Sloth OS settings.": "இந்தக் கோப்பில் Sloth OS அமைப்புகள் இல்லை.",
+  "Couldn't save the settings there. Choose another folder.": "அங்கே அமைப்புகளைச் சேமிக்க முடியவில்லை. வேறு கோப்புறையைத் தேர்ந்தெடுங்கள்.",
+  "Couldn't load the settings. Please try again.": "அமைப்புகளை ஏற்ற முடியவில்லை. மீண்டும் முயலவும்.",
+  "Sloth OS settings": "Sloth OS அமைப்புகள்",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "தோற்றம், காட்சி மற்றும் ஒலி சுயவிவரங்கள், பிற Sloth OS அமைப்புகளை ஒரு கோப்பில் சேமித்து, மீண்டும் நிறுவிய பின் அல்லது வேறு கணினியில் ஏற்றுங்கள். உங்கள் கோப்புகள் அதில் இல்லை.",
+  "Save settings to a file…": "அமைப்புகளைக் கோப்பில் சேமி…",
+  "Load settings from a file…": "கோப்பிலிருந்து அமைப்புகளை ஏற்று…",
+  "Save Sloth OS settings": "Sloth OS அமைப்புகளைச் சேமி",
+  "Load Sloth OS settings": "Sloth OS அமைப்புகளை ஏற்று"
 }

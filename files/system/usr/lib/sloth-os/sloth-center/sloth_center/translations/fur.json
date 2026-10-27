@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Salve cemût che a son metûts cumò i visôrs e il sun, par esempli \"Scrivanie\" o \"TV\", e passe di un a chel altri cuntun clic.",
   "Use": "Dopre",
   "Name, for example TV": "Non, par esempli TV",
-  "Save the current setup": "Salve la configurazion di cumò"
+  "Save the current setup": "Salve la configurazion di cumò",
+  "Settings saved: {file}": "Impostazions salvadis: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Impostazions cjamadis. Torne vierç Sloth Center par viodilis dapardut.",
+  "This file doesn't contain Sloth OS settings.": "Chest file nol à impostazions di Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "No si è rivâts a salvâ lis impostazions li. Sielç une altre cartele.",
+  "Couldn't load the settings. Please try again.": "No si è rivâts a cjamâ lis impostazions. Torne a provâ.",
+  "Sloth OS settings": "Impostazions di Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Salve l'aspiet, i profîi di visôr e sun e lis altris impostazions di Sloth OS intun file, e cjamilis dopo di tornâ a instalâ o suntun altri computer. I tiei file no son dentri.",
+  "Save settings to a file…": "Salve lis impostazions intun file…",
+  "Load settings from a file…": "Cjame lis impostazions di un file…",
+  "Save Sloth OS settings": "Salve lis impostazions di Sloth OS",
+  "Load Sloth OS settings": "Cjame lis impostazions di Sloth OS"
 }

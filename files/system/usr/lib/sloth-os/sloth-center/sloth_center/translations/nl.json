@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Sla op hoe de schermen en het geluid nu zijn ingesteld, bijvoorbeeld ‘Bureau’ of ‘Tv’, en wissel er met één klik tussen.",
   "Use": "Gebruiken",
   "Name, for example TV": "Naam, bijvoorbeeld Tv",
-  "Save the current setup": "Huidige instelling opslaan"
+  "Save the current setup": "Huidige instelling opslaan",
+  "Settings saved: {file}": "Instellingen opgeslagen: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Instellingen geladen. Open Sloth Center opnieuw om ze overal te zien.",
+  "This file doesn't contain Sloth OS settings.": "Dit bestand bevat geen Sloth OS-instellingen.",
+  "Couldn't save the settings there. Choose another folder.": "Kon de instellingen daar niet opslaan. Kies een andere map.",
+  "Couldn't load the settings. Please try again.": "Kon de instellingen niet laden. Probeer het opnieuw.",
+  "Sloth OS settings": "Sloth OS-instellingen",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Sla het uiterlijk, de scherm- en geluidsprofielen en de andere Sloth OS-instellingen op in een bestand, en laad ze na een herinstallatie of op een andere computer. Je bestanden zitten er niet in.",
+  "Save settings to a file…": "Instellingen opslaan in een bestand…",
+  "Load settings from a file…": "Instellingen laden uit een bestand…",
+  "Save Sloth OS settings": "Sloth OS-instellingen opslaan",
+  "Load Sloth OS settings": "Sloth OS-instellingen laden"
 }

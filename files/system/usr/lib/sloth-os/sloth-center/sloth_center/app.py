@@ -62,6 +62,7 @@ def main():
     from .display import DisplayController
     from .bluetooth import BluetoothController
     from .profiles import ProfilesController
+    from .settings_backup import SettingsBackupController
     from .winprograms import WinProgramsController
 
     engine = QQmlApplicationEngine()
@@ -95,6 +96,7 @@ def main():
     display = DisplayController()
     bluetooth = BluetoothController()
     profiles = ProfilesController(display)
+    settings_backup = SettingsBackupController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -121,6 +123,7 @@ def main():
     engine.rootContext().setContextProperty("displays", display)
     engine.rootContext().setContextProperty("bluetooth", bluetooth)
     engine.rootContext().setContextProperty("profiles", profiles)
+    engine.rootContext().setContextProperty("settingsBackup", settings_backup)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1

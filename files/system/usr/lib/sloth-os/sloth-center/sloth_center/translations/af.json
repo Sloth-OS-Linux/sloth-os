@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Stoor hoe die skerms en die klank nou opgestel is, byvoorbeeld \"Lessenaar\" of \"TV\", en wissel met een klik tussen hulle.",
   "Use": "Gebruik",
   "Name, for example TV": "Naam, byvoorbeeld TV",
-  "Save the current setup": "Stoor die huidige opstelling"
+  "Save the current setup": "Stoor die huidige opstelling",
+  "Settings saved: {file}": "Instellings gestoor: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Instellings gelaai. Maak Sloth Center weer oop om hulle oral te sien.",
+  "This file doesn't contain Sloth OS settings.": "Hierdie lêer bevat nie Sloth OS-instellings nie.",
+  "Couldn't save the settings there. Choose another folder.": "Kon nie die instellings daar stoor nie. Kies 'n ander vouer.",
+  "Couldn't load the settings. Please try again.": "Kon nie die instellings laai nie. Probeer asseblief weer.",
+  "Sloth OS settings": "Sloth OS-instellings",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Stoor die voorkoms, die skerm- en klankprofiele en die ander Sloth OS-instellings in 'n lêer, en laai hulle ná herinstallering of op 'n ander rekenaar. Jou lêers is nie daarin nie.",
+  "Save settings to a file…": "Stoor instellings in 'n lêer…",
+  "Load settings from a file…": "Laai instellings uit 'n lêer…",
+  "Save Sloth OS settings": "Stoor Sloth OS-instellings",
+  "Load Sloth OS settings": "Laai Sloth OS-instellings"
 }

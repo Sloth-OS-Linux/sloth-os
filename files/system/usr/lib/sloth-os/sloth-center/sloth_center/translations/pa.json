@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "ਸਕ੍ਰੀਨਾਂ ਅਤੇ ਆਵਾਜ਼ ਦੀ ਮੌਜੂਦਾ ਸੈਟਿੰਗ ਸੰਭਾਲੋ, ਜਿਵੇਂ \"ਡੈਸਕ\" ਜਾਂ \"ਟੀਵੀ\", ਅਤੇ ਇੱਕ ਕਲਿੱਕ ਨਾਲ ਬਦਲੋ।",
   "Use": "ਵਰਤੋ",
   "Name, for example TV": "ਨਾਂ, ਜਿਵੇਂ ਟੀਵੀ",
-  "Save the current setup": "ਮੌਜੂਦਾ ਸੈਟਿੰਗ ਸੰਭਾਲੋ"
+  "Save the current setup": "ਮੌਜੂਦਾ ਸੈਟਿੰਗ ਸੰਭਾਲੋ",
+  "Settings saved: {file}": "ਸੈਟਿੰਗਾਂ ਸੰਭਾਲੀਆਂ: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "ਸੈਟਿੰਗਾਂ ਲੋਡ ਹੋ ਗਈਆਂ। ਹਰ ਥਾਂ ਦੇਖਣ ਲਈ Sloth Center ਦੁਬਾਰਾ ਖੋਲ੍ਹੋ।",
+  "This file doesn't contain Sloth OS settings.": "ਇਸ ਫ਼ਾਈਲ ਵਿੱਚ Sloth OS ਸੈਟਿੰਗਾਂ ਨਹੀਂ ਹਨ।",
+  "Couldn't save the settings there. Choose another folder.": "ਉੱਥੇ ਸੈਟਿੰਗਾਂ ਸੰਭਾਲੀਆਂ ਨਹੀਂ ਜਾ ਸਕੀਆਂ। ਕੋਈ ਹੋਰ ਫ਼ੋਲਡਰ ਚੁਣੋ।",
+  "Couldn't load the settings. Please try again.": "ਸੈਟਿੰਗਾਂ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀਆਂ। ਮੁੜ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "Sloth OS settings": "Sloth OS ਸੈਟਿੰਗਾਂ",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "ਦਿੱਖ, ਡਿਸਪਲੇ ਅਤੇ ਆਵਾਜ਼ ਪ੍ਰੋਫ਼ਾਈਲ ਅਤੇ ਹੋਰ Sloth OS ਸੈਟਿੰਗਾਂ ਇੱਕ ਫ਼ਾਈਲ ਵਿੱਚ ਸੰਭਾਲੋ, ਅਤੇ ਮੁੜ ਇੰਸਟਾਲ ਤੋਂ ਬਾਅਦ ਜਾਂ ਕਿਸੇ ਹੋਰ ਕੰਪਿਊਟਰ ਉੱਤੇ ਲੋਡ ਕਰੋ। ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ ਇਸ ਵਿੱਚ ਨਹੀਂ ਹਨ।",
+  "Save settings to a file…": "ਸੈਟਿੰਗਾਂ ਫ਼ਾਈਲ ਵਿੱਚ ਸੰਭਾਲੋ…",
+  "Load settings from a file…": "ਫ਼ਾਈਲ ਤੋਂ ਸੈਟਿੰਗਾਂ ਲੋਡ ਕਰੋ…",
+  "Save Sloth OS settings": "Sloth OS ਸੈਟਿੰਗਾਂ ਸੰਭਾਲੋ",
+  "Load Sloth OS settings": "Sloth OS ਸੈਟਿੰਗਾਂ ਲੋਡ ਕਰੋ"
 }

@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Tallenna, miten näytöt ja ääni on nyt asetettu, esimerkiksi ”Työpöytä” tai ”TV”, ja vaihda niiden välillä yhdellä napsautuksella.",
   "Use": "Käytä",
   "Name, for example TV": "Nimi, esimerkiksi TV",
-  "Save the current setup": "Tallenna nykyiset asetukset"
+  "Save the current setup": "Tallenna nykyiset asetukset",
+  "Settings saved: {file}": "Asetukset tallennettu: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Asetukset ladattu. Avaa Sloth Center uudelleen nähdäksesi ne kaikkialla.",
+  "This file doesn't contain Sloth OS settings.": "Tämä tiedosto ei sisällä Sloth OS:n asetuksia.",
+  "Couldn't save the settings there. Choose another folder.": "Asetuksia ei voitu tallentaa sinne. Valitse toinen kansio.",
+  "Couldn't load the settings. Please try again.": "Asetuksia ei voitu ladata. Yritä uudelleen.",
+  "Sloth OS settings": "Sloth OS:n asetukset",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Tallenna ulkoasu, näyttö- ja ääniprofiilit ja muut Sloth OS:n asetukset tiedostoon ja lataa ne uudelleenasennuksen jälkeen tai toisella tietokoneella. Tiedostosi eivät ole siinä.",
+  "Save settings to a file…": "Tallenna asetukset tiedostoon…",
+  "Load settings from a file…": "Lataa asetukset tiedostosta…",
+  "Save Sloth OS settings": "Tallenna Sloth OS:n asetukset",
+  "Load Sloth OS settings": "Lataa Sloth OS:n asetukset"
 }

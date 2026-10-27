@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Захавайце, як зараз наладжаны экраны і гук, напрыклад «Стол» або «Тэлевізар», і пераключайцеся паміж імі адной пстрычкай.",
   "Use": "Выкарыстаць",
   "Name, for example TV": "Назва, напрыклад Тэлевізар",
-  "Save the current setup": "Захаваць цяперашнія налады"
+  "Save the current setup": "Захаваць цяперашнія налады",
+  "Settings saved: {file}": "Налады захаваны: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Налады загружаны. Адкрыйце Sloth Center зноў, каб убачыць іх усюды.",
+  "This file doesn't contain Sloth OS settings.": "Гэты файл не змяшчае налад Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Не ўдалося захаваць налады туды. Выберыце іншую папку.",
+  "Couldn't load the settings. Please try again.": "Не ўдалося загрузіць налады. Паспрабуйце яшчэ раз.",
+  "Sloth OS settings": "Налады Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Захавайце выгляд, профілі экранаў і гуку і іншыя налады Sloth OS у файл і загрузіце іх пасля пераўсталявання або на іншым камп'ютары. Вашых файлаў у ім няма.",
+  "Save settings to a file…": "Захаваць налады ў файл…",
+  "Load settings from a file…": "Загрузіць налады з файла…",
+  "Save Sloth OS settings": "Захаваць налады Sloth OS",
+  "Load Sloth OS settings": "Загрузіць налады Sloth OS"
 }

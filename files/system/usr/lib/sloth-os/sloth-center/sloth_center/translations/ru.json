@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Сохраните, как сейчас настроены экраны и звук, например «Стол» или «Телевизор», и переключайтесь между ними одним щелчком.",
   "Use": "Использовать",
   "Name, for example TV": "Название, например Телевизор",
-  "Save the current setup": "Сохранить текущие настройки"
+  "Save the current setup": "Сохранить текущие настройки",
+  "Settings saved: {file}": "Настройки сохранены: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Настройки загружены. Откройте Sloth Center снова, чтобы они применились везде.",
+  "This file doesn't contain Sloth OS settings.": "В этом файле нет настроек Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Не удалось сохранить настройки туда. Выберите другую папку.",
+  "Couldn't load the settings. Please try again.": "Не удалось загрузить настройки. Попробуйте ещё раз.",
+  "Sloth OS settings": "Настройки Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Сохраните внешний вид, профили экранов и звука и другие настройки Sloth OS в файл и загрузите их после переустановки или на другом компьютере. Ваших файлов в нём нет.",
+  "Save settings to a file…": "Сохранить настройки в файл…",
+  "Load settings from a file…": "Загрузить настройки из файла…",
+  "Save Sloth OS settings": "Сохранить настройки Sloth OS",
+  "Load Sloth OS settings": "Загрузить настройки Sloth OS"
 }

@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Lagra korleis skjermane og lyden er sette opp no, til dømes «Skrivebord» eller «TV», og byt mellom dei med eitt klikk.",
   "Use": "Bruk",
   "Name, for example TV": "Namn, til dømes TV",
-  "Save the current setup": "Lagra det noverande oppsettet"
+  "Save the current setup": "Lagra det noverande oppsettet",
+  "Settings saved: {file}": "Innstillingar lagra: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Innstillingar lasta inn. Opne Sloth Center att for å sjå dei overalt.",
+  "This file doesn't contain Sloth OS settings.": "Denne fila inneheld ikkje Sloth OS-innstillingar.",
+  "Couldn't save the settings there. Choose another folder.": "Klarte ikkje å lagra innstillingane der. Vel ei anna mappe.",
+  "Couldn't load the settings. Please try again.": "Klarte ikkje å lasta inn innstillingane. Prøv igjen.",
+  "Sloth OS settings": "Sloth OS-innstillingar",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Lagra utsjånaden, skjerm- og lydprofilane og dei andre Sloth OS-innstillingane i ei fil, og last dei inn etter ein ny installasjon eller på ei anna datamaskin. Filene dine er ikkje med.",
+  "Save settings to a file…": "Lagra innstillingar i ei fil …",
+  "Load settings from a file…": "Last inn innstillingar frå ei fil …",
+  "Save Sloth OS settings": "Lagra Sloth OS-innstillingar",
+  "Load Sloth OS settings": "Last inn Sloth OS-innstillingar"
 }

@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Speichern Sie, wie Bildschirme und Ton gerade eingerichtet sind, zum Beispiel „Schreibtisch“ oder „Fernseher“, und wechseln Sie mit einem Klick dazwischen.",
   "Use": "Verwenden",
   "Name, for example TV": "Name, zum Beispiel Fernseher",
-  "Save the current setup": "Aktuelle Einrichtung speichern"
+  "Save the current setup": "Aktuelle Einrichtung speichern",
+  "Settings saved: {file}": "Einstellungen gespeichert: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Einstellungen geladen. Öffnen Sie Sloth Center erneut, um sie überall zu sehen.",
+  "This file doesn't contain Sloth OS settings.": "Diese Datei enthält keine Sloth-OS-Einstellungen.",
+  "Couldn't save the settings there. Choose another folder.": "Die Einstellungen konnten dort nicht gespeichert werden. Wählen Sie einen anderen Ordner.",
+  "Couldn't load the settings. Please try again.": "Die Einstellungen konnten nicht geladen werden. Bitte versuchen Sie es erneut.",
+  "Sloth OS settings": "Sloth-OS-Einstellungen",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Speichern Sie das Aussehen, die Bildschirm- und Tonprofile und die übrigen Sloth-OS-Einstellungen in einer Datei und laden Sie sie nach einer Neuinstallation oder auf einem anderen Computer. Ihre Dateien sind nicht darin.",
+  "Save settings to a file…": "Einstellungen in eine Datei speichern …",
+  "Load settings from a file…": "Einstellungen aus einer Datei laden …",
+  "Save Sloth OS settings": "Sloth-OS-Einstellungen speichern",
+  "Load Sloth OS settings": "Sloth-OS-Einstellungen laden"
 }

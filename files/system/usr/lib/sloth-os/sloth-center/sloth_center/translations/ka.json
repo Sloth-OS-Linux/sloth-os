@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "შეინახეთ, როგორ არის ახლა მორგებული ეკრანები და ხმა, მაგალითად „მაგიდა“ ან „ტელევიზორი“, და გადართეთ მათ შორის ერთი დაწკაპუნებით.",
   "Use": "გამოყენება",
   "Name, for example TV": "სახელი, მაგალითად ტელევიზორი",
-  "Save the current setup": "მიმდინარე პარამეტრების შენახვა"
+  "Save the current setup": "მიმდინარე პარამეტრების შენახვა",
+  "Settings saved: {file}": "პარამეტრები შენახულია: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "პარამეტრები ჩაიტვირთა. ხელახლა გახსენით Sloth Center, რომ ყველგან დაინახოთ.",
+  "This file doesn't contain Sloth OS settings.": "ეს ფაილი Sloth OS-ის პარამეტრებს არ შეიცავს.",
+  "Couldn't save the settings there. Choose another folder.": "პარამეტრების იქ შენახვა ვერ მოხერხდა. აირჩიეთ სხვა საქაღალდე.",
+  "Couldn't load the settings. Please try again.": "პარამეტრების ჩატვირთვა ვერ მოხერხდა. სცადეთ ხელახლა.",
+  "Sloth OS settings": "Sloth OS-ის პარამეტრები",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "შეინახეთ გარეგნობა, ეკრანისა და ხმის პროფილები და Sloth OS-ის სხვა პარამეტრები ფაილში და ჩატვირთეთ ხელახლა დაყენების შემდეგ ან სხვა კომპიუტერზე. თქვენი ფაილები მასში არ არის.",
+  "Save settings to a file…": "პარამეტრების შენახვა ფაილში…",
+  "Load settings from a file…": "პარამეტრების ჩატვირთვა ფაილიდან…",
+  "Save Sloth OS settings": "Sloth OS-ის პარამეტრების შენახვა",
+  "Load Sloth OS settings": "Sloth OS-ის პარამეტრების ჩატვირთვა"
 }

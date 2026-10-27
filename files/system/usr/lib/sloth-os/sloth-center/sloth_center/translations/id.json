@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Simpan pengaturan layar dan suara saat ini, misalnya \"Meja\" atau \"TV\", lalu beralih di antaranya dengan satu klik.",
   "Use": "Gunakan",
   "Name, for example TV": "Nama, misalnya TV",
-  "Save the current setup": "Simpan pengaturan saat ini"
+  "Save the current setup": "Simpan pengaturan saat ini",
+  "Settings saved: {file}": "Pengaturan disimpan: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Pengaturan dimuat. Buka Sloth Center lagi untuk melihatnya di mana-mana.",
+  "This file doesn't contain Sloth OS settings.": "Berkas ini tidak berisi pengaturan Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Tidak dapat menyimpan pengaturan di sana. Pilih folder lain.",
+  "Couldn't load the settings. Please try again.": "Tidak dapat memuat pengaturan. Silakan coba lagi.",
+  "Sloth OS settings": "Pengaturan Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Simpan tampilan, profil layar dan suara, serta pengaturan Sloth OS lainnya ke sebuah berkas, lalu muat setelah instal ulang atau di komputer lain. Berkas Anda tidak ada di dalamnya.",
+  "Save settings to a file…": "Simpan pengaturan ke berkas…",
+  "Load settings from a file…": "Muat pengaturan dari berkas…",
+  "Save Sloth OS settings": "Simpan pengaturan Sloth OS",
+  "Load Sloth OS settings": "Muat pengaturan Sloth OS"
 }

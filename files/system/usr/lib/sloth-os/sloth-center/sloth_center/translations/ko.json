@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "지금의 화면과 사운드 설정을 \"책상\"이나 \"TV\"처럼 저장하고, 한 번의 클릭으로 바꿔 보세요.",
   "Use": "사용",
   "Name, for example TV": "이름(예: TV)",
-  "Save the current setup": "현재 설정 저장"
+  "Save the current setup": "현재 설정 저장",
+  "Settings saved: {file}": "설정 저장됨: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "설정을 불러왔습니다. 모든 곳에 적용하려면 Sloth Center를 다시 여세요.",
+  "This file doesn't contain Sloth OS settings.": "이 파일에는 Sloth OS 설정이 없습니다.",
+  "Couldn't save the settings there. Choose another folder.": "그곳에 설정을 저장하지 못했습니다. 다른 폴더를 고르세요.",
+  "Couldn't load the settings. Please try again.": "설정을 불러오지 못했습니다. 다시 시도해 주세요.",
+  "Sloth OS settings": "Sloth OS 설정",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "모양, 디스플레이 및 사운드 프로필, 그 밖의 Sloth OS 설정을 파일로 저장해 두었다가 재설치 후나 다른 컴퓨터에서 불러오세요. 내 파일은 들어 있지 않습니다.",
+  "Save settings to a file…": "설정을 파일로 저장…",
+  "Load settings from a file…": "파일에서 설정 불러오기…",
+  "Save Sloth OS settings": "Sloth OS 설정 저장",
+  "Load Sloth OS settings": "Sloth OS 설정 불러오기"
 }

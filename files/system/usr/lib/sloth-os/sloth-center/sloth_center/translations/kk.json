@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Экрандар мен дыбыстың қазіргі баптауын, мысалы «Үстел» не «Теледидар», сақтап, олардың арасында бір шертумен ауысыңыз.",
   "Use": "Пайдалану",
   "Name, for example TV": "Атауы, мысалы Теледидар",
-  "Save the current setup": "Қазіргі баптауды сақтау"
+  "Save the current setup": "Қазіргі баптауды сақтау",
+  "Settings saved: {file}": "Баптаулар сақталды: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Баптаулар жүктелді. Барлық жерде көру үшін Sloth Center-ді қайта ашыңыз.",
+  "This file doesn't contain Sloth OS settings.": "Бұл файлда Sloth OS баптаулары жоқ.",
+  "Couldn't save the settings there. Choose another folder.": "Баптауларды ол жерге сақтау мүмкін болмады. Басқа қалтаны таңдаңыз.",
+  "Couldn't load the settings. Please try again.": "Баптауларды жүктеу мүмкін болмады. Қайталап көріңіз.",
+  "Sloth OS settings": "Sloth OS баптаулары",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Сыртқы түрді, экран мен дыбыс профильдерін және Sloth OS-тың басқа баптауларын файлға сақтап, қайта орнатқаннан кейін не басқа компьютерде жүктеңіз. Файлдарыңыз оған кірмейді.",
+  "Save settings to a file…": "Баптауларды файлға сақтау…",
+  "Load settings from a file…": "Баптауларды файлдан жүктеу…",
+  "Save Sloth OS settings": "Sloth OS баптауларын сақтау",
+  "Load Sloth OS settings": "Sloth OS баптауларын жүктеу"
 }

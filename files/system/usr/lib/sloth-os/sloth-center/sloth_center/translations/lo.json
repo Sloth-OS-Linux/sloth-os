@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "ບັນທຶກການຕັ້ງຄ່າໜ້າຈໍ ແລະ ສຽງປັດຈຸບັນ, ເຊັ່ນ \"ໂຕະ\" ຫຼື \"TV\", ແລ້ວສະຫຼັບກັນດ້ວຍຄລິກດຽວ.",
   "Use": "ໃຊ້",
   "Name, for example TV": "ຊື່, ເຊັ່ນ TV",
-  "Save the current setup": "ບັນທຶກການຕັ້ງຄ່າປັດຈຸບັນ"
+  "Save the current setup": "ບັນທຶກການຕັ້ງຄ່າປັດຈຸບັນ",
+  "Settings saved: {file}": "ບັນທຶກການຕັ້ງຄ່າແລ້ວ: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "ໂຫຼດການຕັ້ງຄ່າແລ້ວ. ເປີດ Sloth Center ໃໝ່ເພື່ອເຫັນທຸກບ່ອນ.",
+  "This file doesn't contain Sloth OS settings.": "ໄຟລ໌ນີ້ບໍ່ມີການຕັ້ງຄ່າ Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "ບໍ່ສາມາດບັນທຶກການຕັ້ງຄ່າຢູ່ບ່ອນນັ້ນໄດ້. ເລືອກໂຟນເດີອື່ນ.",
+  "Couldn't load the settings. Please try again.": "ບໍ່ສາມາດໂຫຼດການຕັ້ງຄ່າໄດ້. ກະລຸນາລອງໃໝ່.",
+  "Sloth OS settings": "ການຕັ້ງຄ່າ Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "ບັນທຶກຮູບລັກສະນະ, ໂປຣໄຟລ໌ໜ້າຈໍ ແລະ ສຽງ ແລະ ການຕັ້ງຄ່າອື່ນຂອງ Sloth OS ໄວ້ໃນໄຟລ໌, ແລ້ວໂຫຼດຫຼັງຕິດຕັ້ງໃໝ່ ຫຼື ໃນຄອມພິວເຕີອື່ນ. ໄຟລ໌ຂອງທ່ານບໍ່ຢູ່ໃນນັ້ນ.",
+  "Save settings to a file…": "ບັນທຶກການຕັ້ງຄ່າເປັນໄຟລ໌…",
+  "Load settings from a file…": "ໂຫຼດການຕັ້ງຄ່າຈາກໄຟລ໌…",
+  "Save Sloth OS settings": "ບັນທຶກການຕັ້ງຄ່າ Sloth OS",
+  "Load Sloth OS settings": "ໂຫຼດການຕັ້ງຄ່າ Sloth OS"
 }

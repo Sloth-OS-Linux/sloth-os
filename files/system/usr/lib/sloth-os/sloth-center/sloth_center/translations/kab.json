@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Sekles amek i ttwasbedden tura igdilen d yimesli, amedya \"Tanarit\" neɣ \"TV\", syin beddel gar-asen s yiwen n usiti.",
   "Use": "Seqdec",
   "Name, for example TV": "Isem, amedya TV",
-  "Save the current setup": "Sekles asbadu amiran"
+  "Save the current setup": "Sekles asbadu amiran",
+  "Settings saved: {file}": "Iɣewwaren ttwaskelsen: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Iɣewwaren ttwasalyen. Ales alday n Sloth Center akken ad ten-twaliḍ anda yellan.",
+  "This file doesn't contain Sloth OS settings.": "Afaylu-a ur yegbir ara iɣewwaren n Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Ur yezmir ara ad isekles iɣewwaren dinna. Fren akaram-nniḍen.",
+  "Couldn't load the settings. Please try again.": "Ur yezmir ara ad yessali iɣewwaren. Ttxil-k·m ɛreḍ tikkelt-nniḍen.",
+  "Sloth OS settings": "Iɣewwaren n Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Sekles udem, imuɣna n ugdil d yimesli d yiɣewwaren-nniḍen n Sloth OS deg ufaylu, syin sali-ten seld asebded tikkelt-nniḍen neɣ ɣef uselkim-nniḍen. Ifuyla-k·m ulac-iten deg-s.",
+  "Save settings to a file…": "Sekles iɣewwaren deg ufaylu…",
+  "Load settings from a file…": "Sali iɣewwaren seg ufaylu…",
+  "Save Sloth OS settings": "Sekles iɣewwaren n Sloth OS",
+  "Load Sloth OS settings": "Sali iɣewwaren n Sloth OS"
 }

@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Deseu com estan configurades ara les pantalles i el so, per exemple «Escriptori» o «TV», i canvieu entre ells amb un clic.",
   "Use": "Utilitza",
   "Name, for example TV": "Nom, per exemple TV",
-  "Save the current setup": "Desa la configuració actual"
+  "Save the current setup": "Desa la configuració actual",
+  "Settings saved: {file}": "Configuració desada: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Configuració carregada. Torneu a obrir el Sloth Center per veure-la a tot arreu.",
+  "This file doesn't contain Sloth OS settings.": "Aquest fitxer no conté configuració de Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "No s'ha pogut desar la configuració allà. Trieu una altra carpeta.",
+  "Couldn't load the settings. Please try again.": "No s'ha pogut carregar la configuració. Torneu-ho a provar.",
+  "Sloth OS settings": "Configuració de Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Deseu l'aspecte, els perfils de pantalla i so i la resta de la configuració de Sloth OS en un fitxer, i carregueu-la després de reinstal·lar o en un altre ordinador. Els vostres fitxers no hi són.",
+  "Save settings to a file…": "Desa la configuració en un fitxer…",
+  "Load settings from a file…": "Carrega la configuració d'un fitxer…",
+  "Save Sloth OS settings": "Desa la configuració de Sloth OS",
+  "Load Sloth OS settings": "Carrega la configuració de Sloth OS"
 }

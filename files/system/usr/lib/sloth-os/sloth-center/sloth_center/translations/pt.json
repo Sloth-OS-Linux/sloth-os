@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Guarde como estão configurados agora os ecrãs e o som, por exemplo \"Secretária\" ou \"TV\", e alterne entre eles com um clique.",
   "Use": "Usar",
   "Name, for example TV": "Nome, por exemplo TV",
-  "Save the current setup": "Guardar a configuração atual"
+  "Save the current setup": "Guardar a configuração atual",
+  "Settings saved: {file}": "Definições guardadas: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Definições carregadas. Abra o Sloth Center de novo para as ver em todo o lado.",
+  "This file doesn't contain Sloth OS settings.": "Este ficheiro não contém definições do Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Não foi possível guardar as definições aí. Escolha outra pasta.",
+  "Couldn't load the settings. Please try again.": "Não foi possível carregar as definições. Tente novamente.",
+  "Sloth OS settings": "Definições do Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Guarde o aspeto, os perfis de ecrã e som e as restantes definições do Sloth OS num ficheiro e carregue-as depois de reinstalar ou noutro computador. Os seus ficheiros não estão nele.",
+  "Save settings to a file…": "Guardar definições num ficheiro…",
+  "Load settings from a file…": "Carregar definições de um ficheiro…",
+  "Save Sloth OS settings": "Guardar definições do Sloth OS",
+  "Load Sloth OS settings": "Carregar definições do Sloth OS"
 }

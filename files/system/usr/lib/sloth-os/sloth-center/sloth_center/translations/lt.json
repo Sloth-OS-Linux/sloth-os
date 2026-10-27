@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Įrašykite, kaip dabar nustatyti ekranai ir garsas, pavyzdžiui, „Stalas“ ar „TV“, ir perjunkite juos vienu spustelėjimu.",
   "Use": "Naudoti",
   "Name, for example TV": "Pavadinimas, pavyzdžiui, TV",
-  "Save the current setup": "Įrašyti dabartinius nustatymus"
+  "Save the current setup": "Įrašyti dabartinius nustatymus",
+  "Settings saved: {file}": "Nustatymai įrašyti: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Nustatymai įkelti. Atverkite „Sloth Center“ iš naujo, kad jie galiotų visur.",
+  "This file doesn't contain Sloth OS settings.": "Šiame faile nėra „Sloth OS“ nustatymų.",
+  "Couldn't save the settings there. Choose another folder.": "Nepavyko ten įrašyti nustatymų. Pasirinkite kitą aplanką.",
+  "Couldn't load the settings. Please try again.": "Nepavyko įkelti nustatymų. Bandykite dar kartą.",
+  "Sloth OS settings": "„Sloth OS“ nustatymai",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Įrašykite išvaizdą, ekrano ir garso profilius bei kitus „Sloth OS“ nustatymus į failą ir įkelkite juos įdiegę iš naujo ar kitame kompiuteryje. Jūsų failų jame nėra.",
+  "Save settings to a file…": "Įrašyti nustatymus į failą…",
+  "Load settings from a file…": "Įkelti nustatymus iš failo…",
+  "Save Sloth OS settings": "Įrašyti „Sloth OS“ nustatymus",
+  "Load Sloth OS settings": "Įkelti „Sloth OS“ nustatymus"
 }

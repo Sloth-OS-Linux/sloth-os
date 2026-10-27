@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Spara hur skärmarna och ljudet är inställda nu, till exempel ”Skrivbord” eller ”TV”, och växla mellan dem med ett klick.",
   "Use": "Använd",
   "Name, for example TV": "Namn, till exempel TV",
-  "Save the current setup": "Spara nuvarande inställning"
+  "Save the current setup": "Spara nuvarande inställning",
+  "Settings saved: {file}": "Inställningar sparade: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Inställningar inlästa. Öppna Sloth Center igen för att se dem överallt.",
+  "This file doesn't contain Sloth OS settings.": "Den här filen innehåller inga Sloth OS-inställningar.",
+  "Couldn't save the settings there. Choose another folder.": "Det gick inte att spara inställningarna där. Välj en annan mapp.",
+  "Couldn't load the settings. Please try again.": "Det gick inte att läsa in inställningarna. Försök igen.",
+  "Sloth OS settings": "Sloth OS-inställningar",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Spara utseendet, skärm- och ljudprofilerna och de andra Sloth OS-inställningarna i en fil, och läs in dem efter en ominstallation eller på en annan dator. Dina filer finns inte i den.",
+  "Save settings to a file…": "Spara inställningar i en fil …",
+  "Load settings from a file…": "Läs in inställningar från en fil …",
+  "Save Sloth OS settings": "Spara Sloth OS-inställningar",
+  "Load Sloth OS settings": "Läs in Sloth OS-inställningar"
 }

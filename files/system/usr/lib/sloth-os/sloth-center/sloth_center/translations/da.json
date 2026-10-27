@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Gem, hvordan skærmene og lyden er sat op nu, for eksempel \"Skrivebord\" eller \"TV\", og skift mellem dem med ét klik.",
   "Use": "Brug",
   "Name, for example TV": "Navn, for eksempel TV",
-  "Save the current setup": "Gem den nuværende opsætning"
+  "Save the current setup": "Gem den nuværende opsætning",
+  "Settings saved: {file}": "Indstillinger gemt: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Indstillinger indlæst. Åbn Sloth Center igen for at se dem overalt.",
+  "This file doesn't contain Sloth OS settings.": "Denne fil indeholder ikke Sloth OS-indstillinger.",
+  "Couldn't save the settings there. Choose another folder.": "Kunne ikke gemme indstillingerne der. Vælg en anden mappe.",
+  "Couldn't load the settings. Please try again.": "Kunne ikke indlæse indstillingerne. Prøv igen.",
+  "Sloth OS settings": "Sloth OS-indstillinger",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Gem udseendet, skærm- og lydprofilerne og de andre Sloth OS-indstillinger i en fil, og indlæs dem efter en geninstallation eller på en anden computer. Dine filer er ikke med.",
+  "Save settings to a file…": "Gem indstillinger i en fil…",
+  "Load settings from a file…": "Indlæs indstillinger fra en fil…",
+  "Save Sloth OS settings": "Gem Sloth OS-indstillinger",
+  "Load Sloth OS settings": "Indlæs Sloth OS-indstillinger"
 }

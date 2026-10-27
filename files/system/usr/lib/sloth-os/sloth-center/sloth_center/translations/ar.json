@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "احفظ إعداد الشاشات والصوت الحالي، مثل \"المكتب\" أو \"التلفاز\"، وبدّل بينها بنقرة واحدة.",
   "Use": "استخدم",
   "Name, for example TV": "الاسم، مثل التلفاز",
-  "Save the current setup": "احفظ الإعداد الحالي"
+  "Save the current setup": "احفظ الإعداد الحالي",
+  "Settings saved: {file}": "حُفظت الإعدادات: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "حُمّلت الإعدادات. افتح Sloth Center مرة أخرى لتراها في كل مكان.",
+  "This file doesn't contain Sloth OS settings.": "لا يحتوي هذا الملف على إعدادات Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "تعذّر حفظ الإعدادات هناك. اختر مجلدًا آخر.",
+  "Couldn't load the settings. Please try again.": "تعذّر تحميل الإعدادات. يُرجى المحاولة مرة أخرى.",
+  "Sloth OS settings": "إعدادات Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "احفظ المظهر وملفات العرض والصوت وإعدادات Sloth OS الأخرى في ملف، ثم حمّلها بعد إعادة التثبيت أو على كمبيوتر آخر. ملفاتك ليست فيه.",
+  "Save settings to a file…": "احفظ الإعدادات في ملف…",
+  "Load settings from a file…": "حمّل الإعدادات من ملف…",
+  "Save Sloth OS settings": "حفظ إعدادات Sloth OS",
+  "Load Sloth OS settings": "تحميل إعدادات Sloth OS"
 }

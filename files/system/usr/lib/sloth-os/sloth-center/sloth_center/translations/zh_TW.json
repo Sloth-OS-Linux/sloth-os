@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "把目前的螢幕和聲音設定存起來，例如「書桌」或「電視」，一鍵切換。",
   "Use": "使用",
   "Name, for example TV": "名稱，例如 電視",
-  "Save the current setup": "儲存目前的設定"
+  "Save the current setup": "儲存目前的設定",
+  "Settings saved: {file}": "設定已儲存：{file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "設定已載入。重新開啟 Sloth Center 即可處處生效。",
+  "This file doesn't contain Sloth OS settings.": "這個檔案不包含 Sloth OS 設定。",
+  "Couldn't save the settings there. Choose another folder.": "無法把設定儲存到那裡。請選擇其他資料夾。",
+  "Couldn't load the settings. Please try again.": "無法載入設定，請再試一次。",
+  "Sloth OS settings": "Sloth OS 設定",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "把外觀、顯示與聲音設定檔以及其他 Sloth OS 設定存到一個檔案，重新安裝後或在另一台電腦上再載入。你的檔案不在其中。",
+  "Save settings to a file…": "將設定儲存到檔案…",
+  "Load settings from a file…": "從檔案載入設定…",
+  "Save Sloth OS settings": "儲存 Sloth OS 設定",
+  "Load Sloth OS settings": "載入 Sloth OS 設定"
 }

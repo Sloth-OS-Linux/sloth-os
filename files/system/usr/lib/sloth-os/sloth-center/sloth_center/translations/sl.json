@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Shranite, kako so zdaj nastavljeni zasloni in zvok, na primer »Miza« ali »TV«, in preklapljajte med njimi z enim klikom.",
   "Use": "Uporabi",
   "Name, for example TV": "Ime, na primer TV",
-  "Save the current setup": "Shrani trenutno nastavitev"
+  "Save the current setup": "Shrani trenutno nastavitev",
+  "Settings saved: {file}": "Nastavitve shranjene: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Nastavitve naložene. Znova odprite Sloth Center, da jih vidite povsod.",
+  "This file doesn't contain Sloth OS settings.": "Ta datoteka ne vsebuje nastavitev Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Nastavitev ni bilo mogoče shraniti tja. Izberite drugo mapo.",
+  "Couldn't load the settings. Please try again.": "Nastavitev ni bilo mogoče naložiti. Poskusite znova.",
+  "Sloth OS settings": "Nastavitve Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Shranite videz, profile zaslona in zvoka ter druge nastavitve Sloth OS v datoteko in jih naložite po ponovni namestitvi ali na drugem računalniku. Vaših datotek ni v njej.",
+  "Save settings to a file…": "Shrani nastavitve v datoteko …",
+  "Load settings from a file…": "Naloži nastavitve iz datoteke …",
+  "Save Sloth OS settings": "Shrani nastavitve Sloth OS",
+  "Load Sloth OS settings": "Naloži nastavitve Sloth OS"
 }

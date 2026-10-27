@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Salvați cum sunt configurate acum ecranele și sunetul, de exemplu „Birou” sau „TV”, și comutați între ele cu un clic.",
   "Use": "Folosește",
   "Name, for example TV": "Nume, de exemplu TV",
-  "Save the current setup": "Salvează configurația actuală"
+  "Save the current setup": "Salvează configurația actuală",
+  "Settings saved: {file}": "Setări salvate: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Setări încărcate. Deschideți din nou Sloth Center ca să le vedeți peste tot.",
+  "This file doesn't contain Sloth OS settings.": "Acest fișier nu conține setări Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Setările nu au putut fi salvate acolo. Alegeți alt dosar.",
+  "Couldn't load the settings. Please try again.": "Setările nu au putut fi încărcate. Încercați din nou.",
+  "Sloth OS settings": "Setări Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Salvați aspectul, profilurile de ecran și sunet și celelalte setări Sloth OS într-un fișier și încărcați-le după reinstalare sau pe alt calculator. Fișierele dvs. nu sunt în el.",
+  "Save settings to a file…": "Salvează setările într-un fișier…",
+  "Load settings from a file…": "Încarcă setările dintr-un fișier…",
+  "Save Sloth OS settings": "Salvează setările Sloth OS",
+  "Load Sloth OS settings": "Încarcă setările Sloth OS"
 }

@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Запазете как са настроени екраните и звукът сега, например „Бюро“ или „Телевизор“, и превключвайте между тях с едно щракване.",
   "Use": "Използване",
   "Name, for example TV": "Име, например Телевизор",
-  "Save the current setup": "Запазване на текущата настройка"
+  "Save the current setup": "Запазване на текущата настройка",
+  "Settings saved: {file}": "Настройките са запазени: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Настройките са заредени. Отворете отново Sloth Center, за да ги видите навсякъде.",
+  "This file doesn't contain Sloth OS settings.": "Този файл не съдържа настройки на Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Настройките не можаха да бъдат запазени там. Изберете друга папка.",
+  "Couldn't load the settings. Please try again.": "Настройките не можаха да бъдат заредени. Опитайте отново.",
+  "Sloth OS settings": "Настройки на Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Запазете външния вид, профилите за екран и звук и другите настройки на Sloth OS във файл и ги заредете след преинсталиране или на друг компютър. Вашите файлове не са в него.",
+  "Save settings to a file…": "Запазване на настройките във файл…",
+  "Load settings from a file…": "Зареждане на настройки от файл…",
+  "Save Sloth OS settings": "Запазване на настройките на Sloth OS",
+  "Load Sloth OS settings": "Зареждане на настройките на Sloth OS"
 }

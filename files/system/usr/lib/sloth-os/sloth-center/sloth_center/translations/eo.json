@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Konservu, kiel la ekranoj kaj la sono estas nun agorditaj, ekzemple „Skribotablo“ aŭ „Televidilo“, kaj ŝanĝu inter ili per unu klako.",
   "Use": "Uzi",
   "Name, for example TV": "Nomo, ekzemple Televidilo",
-  "Save the current setup": "Konservi la nunan agordon"
+  "Save the current setup": "Konservi la nunan agordon",
+  "Settings saved: {file}": "Agordoj konservitaj: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Agordoj ŝargitaj. Malfermu Sloth Center denove por vidi ilin ĉie.",
+  "This file doesn't contain Sloth OS settings.": "Ĉi tiu dosiero ne enhavas agordojn de Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Ne eblis konservi la agordojn tie. Elektu alian dosierujon.",
+  "Couldn't load the settings. Please try again.": "Ne eblis ŝargi la agordojn. Bonvolu reprovi.",
+  "Sloth OS settings": "Agordoj de Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Konservu la aspekton, la ekranajn kaj sonajn profilojn kaj la aliajn agordojn de Sloth OS en dosieron, kaj ŝargu ilin post reinstalo aŭ en alia komputilo. Viaj dosieroj ne estas en ĝi.",
+  "Save settings to a file…": "Konservi agordojn en dosieron…",
+  "Load settings from a file…": "Ŝargi agordojn el dosiero…",
+  "Save Sloth OS settings": "Konservi agordojn de Sloth OS",
+  "Load Sloth OS settings": "Ŝargi agordojn de Sloth OS"
 }

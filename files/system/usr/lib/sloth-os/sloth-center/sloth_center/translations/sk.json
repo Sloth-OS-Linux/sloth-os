@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Uložte, ako sú teraz nastavené obrazovky a zvuk, napríklad „Stôl“ alebo „Televízor“, a prepínajte medzi nimi jedným kliknutím.",
   "Use": "Použiť",
   "Name, for example TV": "Názov, napríklad Televízor",
-  "Save the current setup": "Uložiť súčasné nastavenie"
+  "Save the current setup": "Uložiť súčasné nastavenie",
+  "Settings saved: {file}": "Nastavenia uložené: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Nastavenia načítané. Otvorte Sloth Center znova, aby sa prejavili všade.",
+  "This file doesn't contain Sloth OS settings.": "Tento súbor neobsahuje nastavenia Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Nastavenia sa tam nepodarilo uložiť. Vyberte iný priečinok.",
+  "Couldn't load the settings. Please try again.": "Nastavenia sa nepodarilo načítať. Skúste to znova.",
+  "Sloth OS settings": "Nastavenia Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Uložte vzhľad, profily obrazoviek a zvuku a ďalšie nastavenia Sloth OS do súboru a načítajte ich po preinštalovaní alebo na inom počítači. Vaše súbory v ňom nie sú.",
+  "Save settings to a file…": "Uložiť nastavenia do súboru…",
+  "Load settings from a file…": "Načítať nastavenia zo súboru…",
+  "Save Sloth OS settings": "Uložiť nastavenia Sloth OS",
+  "Load Sloth OS settings": "Načítať nastavenia Sloth OS"
 }

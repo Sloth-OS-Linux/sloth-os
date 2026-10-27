@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Αποθηκεύστε πώς είναι ρυθμισμένες τώρα οι οθόνες και ο ήχος, για παράδειγμα «Γραφείο» ή «Τηλεόραση», και αλλάζετε μεταξύ τους με ένα κλικ.",
   "Use": "Χρήση",
   "Name, for example TV": "Όνομα, για παράδειγμα Τηλεόραση",
-  "Save the current setup": "Αποθήκευση τρέχουσας ρύθμισης"
+  "Save the current setup": "Αποθήκευση τρέχουσας ρύθμισης",
+  "Settings saved: {file}": "Οι ρυθμίσεις αποθηκεύτηκαν: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "Οι ρυθμίσεις φορτώθηκαν. Ανοίξτε ξανά το Sloth Center για να τις δείτε παντού.",
+  "This file doesn't contain Sloth OS settings.": "Αυτό το αρχείο δεν περιέχει ρυθμίσεις του Sloth OS.",
+  "Couldn't save the settings there. Choose another folder.": "Δεν ήταν δυνατή η αποθήκευση των ρυθμίσεων εκεί. Επιλέξτε άλλο φάκελο.",
+  "Couldn't load the settings. Please try again.": "Δεν ήταν δυνατή η φόρτωση των ρυθμίσεων. Δοκιμάστε ξανά.",
+  "Sloth OS settings": "Ρυθμίσεις Sloth OS",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "Αποθηκεύστε την εμφάνιση, τα προφίλ οθόνης και ήχου και τις άλλες ρυθμίσεις του Sloth OS σε αρχείο και φορτώστε τις μετά από επανεγκατάσταση ή σε άλλο υπολογιστή. Τα αρχεία σας δεν περιλαμβάνονται.",
+  "Save settings to a file…": "Αποθήκευση ρυθμίσεων σε αρχείο…",
+  "Load settings from a file…": "Φόρτωση ρυθμίσεων από αρχείο…",
+  "Save Sloth OS settings": "Αποθήκευση ρυθμίσεων Sloth OS",
+  "Load Sloth OS settings": "Φόρτωση ρυθμίσεων Sloth OS"
 }

@@ -773,5 +773,16 @@
   "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "স্ক্রিন আর শব্দ এখন কীভাবে সাজানো আছে সংরক্ষণ করুন, যেমন \"ডেস্ক\" বা \"টিভি\", আর এক ক্লিকে বদলান।",
   "Use": "ব্যবহার করুন",
   "Name, for example TV": "নাম, যেমন টিভি",
-  "Save the current setup": "বর্তমান সেটআপ সংরক্ষণ করুন"
+  "Save the current setup": "বর্তমান সেটআপ সংরক্ষণ করুন",
+  "Settings saved: {file}": "সেটিংস সংরক্ষিত: {file}",
+  "Settings loaded. Open Sloth Center again to see them everywhere.": "সেটিংস লোড হয়েছে। সব জায়গায় দেখতে Sloth Center আবার খুলুন।",
+  "This file doesn't contain Sloth OS settings.": "এই ফাইলে Sloth OS-এর সেটিংস নেই।",
+  "Couldn't save the settings there. Choose another folder.": "সেখানে সেটিংস সংরক্ষণ করা যায়নি। অন্য ফোল্ডার বেছে নিন।",
+  "Couldn't load the settings. Please try again.": "সেটিংস লোড করা যায়নি। আবার চেষ্টা করুন।",
+  "Sloth OS settings": "Sloth OS সেটিংস",
+  "Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.": "চেহারা, ডিসপ্লে ও শব্দের প্রোফাইল আর অন্য Sloth OS সেটিংস একটি ফাইলে সংরক্ষণ করুন, আর আবার ইনস্টলের পরে বা অন্য কম্পিউটারে লোড করুন। আপনার ফাইল এতে নেই।",
+  "Save settings to a file…": "সেটিংস ফাইলে সংরক্ষণ করুন…",
+  "Load settings from a file…": "ফাইল থেকে সেটিংস লোড করুন…",
+  "Save Sloth OS settings": "Sloth OS সেটিংস সংরক্ষণ",
+  "Load Sloth OS settings": "Sloth OS সেটিংস লোড"
 }
