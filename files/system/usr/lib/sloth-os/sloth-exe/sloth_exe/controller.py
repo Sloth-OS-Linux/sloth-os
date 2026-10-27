@@ -152,6 +152,7 @@ class ExeController(QObject):
         self._install_key = ""
         self._install_fresh = False
         self._install_exit = None
+        self._install_seen = None  # the last install check's findings (_check_install_done logs the changes)
         # Where a new program goes, if there is more than one drive to choose from (library.install_locations)
         self._locations = None
         self._location = 0
@@ -994,6 +995,11 @@ class ExeController(QObject):
         installer = self._exe.name.lower()
         others = running - {installer}
         started = detect.installed_running(self._program, others, self._baseline.get("time", 0))
+        seen = (sorted(running), self._runner.running(), sorted(started))
+        if seen != self._install_seen:
+            # only when it changes: what runs in the environment and what we wait for (for the diagnosis)
+            self._install_seen = seen
+            log.info("install check: running %s, installer process %s, installed program %s", *seen)
         if not started and others:
             found = detect.detect(self._program, self._baseline, fallback_name=self._name)
             if found.sure:
