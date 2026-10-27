@@ -3,7 +3,7 @@
 The automatic update (rpm-ostreed-automatic, "stage") downloads and prepares the new version by itself; until now
 only Sloth Center showed this, so it looked as if the update came "only after a restart". It runs in the user's
 session (sloth-update-notify.path / .service): when the system prepares a new version
-(/run/ostree/staged-deployment), and at login. It speaks up about a version only once.
+(/run/ostree/staged-deployment), and at login. It speaks up about a version only once (a new version means a new notification).
 Start: python3 -m sloth_center.update_notify
 """
 import json
