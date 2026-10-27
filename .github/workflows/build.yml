@@ -45,9 +45,10 @@ jobs:
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
-          # Content-based layers (rpm-ostree compose build-chunked-oci): an update downloads only what changed,
-          # not every one of our layers again (~2.3 GB per build without it, measured 2026-10-26)
-          build_chunked_oci: true
+          # Content-based layers: an update downloads only what changed, not every one of our layers again
+          # (~2.3 GB per build without it, measured 2026-10-26). build_chunked_oci crashed in rpm-ostree 2026.2 from
+          # the second build on (it starts from the previous image); chunkah does not use the previous image
+          chunkah: true
 
   # The finished image must be installable: bootc installs it onto a disk file, the same way the installer does.
   # A squashed image once passed the build but could not be installed ("Missing ostree.final-diffid").
@@ -82,6 +83,17 @@ jobs:
           final=$(jq -r '.[0].Labels["ostree.final-diffid"] // empty' image.json)
           if [ -n "$final" ] && ! jq -e --arg f "$final" '.[0].RootFS.Layers | index($f)' image.json >/dev/null; then
             echo "::error::The layer named by ostree.final-diffid is missing: $final"; exit 1
+          fi
+          # What a machine on the previous build would download: the layers that are not in that image
+          before="${{ github.event.before }}"
+          prev=$(skopeo list-tags "docker://$repo" | jq -r '.Tags[]' | grep -E "^${before::7}-[0-9]+$" | head -1)
+          if [ -n "$prev" ]; then
+            skopeo inspect "docker://$repo:$prev" | jq '[.LayersData[] | {(.Digest): .Size}] | add' > prev.json
+            skopeo inspect "docker://$repo:$tag" | jq -r --arg prev "$prev" --slurpfile p prev.json \
+              '[.LayersData[] | select($p[0][.Digest] == null) | .Size] as $new | "Update from \($prev): \($new | length) new layers of \(.LayersData | length), \(($new | add // 0) / 1048576 | floor) MB to download (the whole image: \([.LayersData[].Size] | add / 1048576 | floor) MB)"' \
+              | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No image of the previous push (${before::7}) to compare with"
           fi
           mkdir -p out && truncate -s 40G out/disk.raw
           # the image has no install configuration of its own: btrfs, as the installer makes it
