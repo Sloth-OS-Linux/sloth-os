@@ -126,6 +126,12 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   builder's name inside the program, and Proton's helper processes keeping the installer's name in their command
   line after it exited. Now an .exe written during the install (its change time, which installers cannot set
   back) that runs is enough, by name only, whether the installer or its helpers still run or not.
+  Third round, from the log (2026-10-27): the real cause. Only "iview476_x64_setup.exe" was ever seen running, even
+  with IrfanView open: Proton gives Wine `WINEPREFIX=<prefix>/pfx/` (umu's `pfx` link points to the environment
+  itself), and `library._prefix_procs` looked for the plain path, so it only found umu's own processes (whose
+  command line has the installer's name) and never a Windows program. Now the resolved path is compared. This
+  also affects "already running" at launch and the launcher hand-over watch (Battle.net), which saw only umu's
+  processes too: check those on a real machine as well
 - [x] **Small** — The same when reinstalling or updating into the existing folder: the program's .exe was already
   there before the install, so it was not "new". Done 2026-10-27 with the change time (above).
 #### Installation and storage

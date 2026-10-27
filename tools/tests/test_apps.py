@@ -286,6 +286,22 @@ class LibraryTest(unittest.TestCase):
 
 
 class WindowsProcessTest(unittest.TestCase):
+    def test_proton_prefix_path(self):
+        """Proton gives Wine "<prefix>/pfx/" (umu's pfx link points to the environment itself), IrfanView 2026-10-27."""
+        real = TMP / "realprefix"
+        real.mkdir(exist_ok=True)
+        if not (real / "pfx").exists():
+            (real / "pfx").symlink_to(".")
+        link = TMP / "linkhome"
+        if not link.exists():
+            link.symlink_to(TMP)
+        prefix = os.path.realpath(real)
+        for value in (str(real), f"{real}/", f"{real}/pfx", f"{real}/pfx/", f"{link}/realprefix/pfx/"):
+            env = b"HOME=/x\0WINEPREFIX=" + value.encode() + b"\0LANG=C\0"
+            self.assertTrue(library._in_prefix(env, prefix), value)
+        self.assertFalse(library._in_prefix(b"WINEPREFIX=" + str(TMP / "other").encode() + b"\0", prefix))
+        self.assertFalse(library._in_prefix(b"HOME=/x\0", prefix))
+
     def test_windows_exe_after_wrapper_args(self):
         proc = TMP / "proc-cmdline"
         proc.mkdir(exist_ok=True)
