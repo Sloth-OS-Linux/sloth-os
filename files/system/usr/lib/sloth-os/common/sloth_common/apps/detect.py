@@ -14,6 +14,7 @@ import fnmatch
 import os
 import re
 import struct
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -45,6 +46,8 @@ WINE_BUILTIN = re.compile(
     r"^drive_c/(windows/|program files( \(x86\))?/(internet explorer|windows media player|windows nt|common files)/)")
 # A versioned folder in the path (e.g. "13.809.0.6322", "app-1.0.9"): it may disappear after an update
 VERSION_DIR = re.compile(r"[\\/][^\\/]*\d+\.\d+\.\d+[^\\/]*[\\/]")
+# File times may be a little coarser than the clock: written this many seconds before the install started still counts
+CTIME_SLACK_S = 2
 
 
 # Installer builders leave their name in the .exe's stub (the part before the packed data)
@@ -198,6 +201,7 @@ def _rel(app, path):
 def baseline(app):
     """What is already in the Windows environment before installing (nothing in a new environment)."""
     return {
+        "time": time.time(),
         "keys": set(winreg.uninstall_entries(app.prefix)),
         "exes": {_rel(app, p) for p in app.list_exes()},
         "links": {_rel(app, lnk) for _n, _h, lnk in find_shortcuts(app)},
@@ -223,18 +227,27 @@ def _exe_score(path, install_dir, name):
     return score
 
 
-def installed_running(found, running):
-    """The new .exe files of the install that run now (running: lowercase .exe names), for when the install is not
-    certain yet: no shortcut, and Wine writes the registry to disk only later, or when the environment stops.
+def installed_running(app, running, since):
+    """The .exe files written by the install (since: when it started) that run now (running: lowercase .exe names).
     IrfanView's installer starts the program at its end, and the install screen waited until the user closed it
-    (2026-10-26). A second-stage installer (in a temporary folder, or one that looks like an installer) does not count."""
+    (2026-10-26/27): with no shortcut it is not certain what got installed until Wine writes the registry to disk,
+    which may be only when the environment stops. A reinstall writes the files again, so the change time (which an
+    installer cannot set back, unlike the modification time) counts, not whether the file is new. A second-stage
+    installer (in a temporary folder, or with an installer's name) and helpers do not count. Only the name is looked
+    at: the contents check (looks_like_installer) can find an installer builder's name inside a big program."""
     out = set()
-    for c in found.candidates:
-        name = c.path.name.lower()
-        if name not in running or "/temp/" in str(c.path).lower().replace("\\", "/"):
+    if not running:
+        return out
+    for p in app.list_exes():
+        name, stem, rel = p.name.lower(), p.stem.lower(), _rel(app, p).replace("\\", "/")
+        if (name not in running or "/temp/" in rel or WINE_BUILTIN.match(rel) or HELPER_EXE.search(stem)
+                or any(w in stem for w in INSTALLER_WORDS)):
             continue
-        if not looks_like_installer(c.path):
-            out.add(name)
+        try:
+            if p.stat().st_ctime >= since - CTIME_SLACK_S:
+                out.add(name)
+        except OSError:
+            continue
     return out
 
 

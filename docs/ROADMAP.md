@@ -121,10 +121,13 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   a new .exe of the install that runs is enough (`detect.installed_running`; not in a temporary folder and not an
   installer itself), and the uninstall entry is saved afterwards, when the installer's environment stops. Tests:
   `tools/tests/test_apps.py`. Check on a real machine
-- [ ] **Small** — The same when reinstalling or updating into the existing folder (after 1.1): the program's .exe was
-  already there before the install, so it is not "new", and without a new shortcut the install screen still waits
-  until the program is closed. Idea: an .exe changed during the install (its modification time after the baseline)
-  counts too. Risk to check: an installer that touches every file but does not start the program.
+  2026-10-27, real machine with the 1.1 build: it still waited. Without the log the cause is not known; the second
+  round fixes the three likely ones: a reinstall (the .exe was not new), the contents check finding an installer
+  builder's name inside the program, and Proton's helper processes keeping the installer's name in their command
+  line after it exited. Now an .exe written during the install (its change time, which installers cannot set
+  back) that runs is enough, by name only, whether the installer or its helpers still run or not.
+- [x] **Small** — The same when reinstalling or updating into the existing folder: the program's .exe was already
+  there before the install, so it was not "new". Done 2026-10-27 with the change time (above).
 #### Installation and storage
 - [x] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.

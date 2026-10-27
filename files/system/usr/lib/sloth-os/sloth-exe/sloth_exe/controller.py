@@ -980,7 +980,9 @@ class ExeController(QObject):
         e.g. Battle.net: we do not wait until the user closes it). It is also done when the installer still
         runs but the installed program has already started (_program_exes): the EA app installer does not exit while the
         EA app runs, and the Battle.net installer stays open while its client already shows the login window.
-        While the installed program runs, a new .exe of the install running is enough (detect.installed_running)."""
+        An .exe written by this install that runs is enough too (detect.installed_running): the recognition is not
+        certain while the program runs (IrfanView), and Proton's helper processes keep the installer's name in their
+        command line even after the installer exited."""
         running = library.running_exes(self._program)
         if self._runner.running():
             if self._state != "working" or not self._runner.main_running():
@@ -989,20 +991,20 @@ class ExeController(QObject):
                 # The installer already runs on the Windows side: preparation is over (even if nothing had
                 # to be downloaded, so the runner did not report it); the "still working…" text must not stay up
                 self._on_setup_done()
-            others = running - {self._exe.name.lower()}
-            if not others:
-                return
+        installer = self._exe.name.lower()
+        others = running - {installer}
+        started = detect.installed_running(self._program, others, self._baseline.get("time", 0))
+        if not started and others:
             found = detect.detect(self._program, self._baseline, fallback_name=self._name)
-            if not (others & _program_exes(found) if found.sure else detect.installed_running(found, others)):
-                return
-            log.info("the installer still runs, but the installed program has already started: %s", sorted(others))
-            self._installer_alive = True
-        elif running:
-            if self._exe.name.lower() in running:
-                return
-            found = detect.detect(self._program, self._baseline, fallback_name=self._name)
-            if not (found.sure or detect.installed_running(found, running)):
-                return
+            if found.sure:
+                started = others & _program_exes(found)
+        if started:
+            log.info("the installed program has already started: %s", sorted(started))
+            self._installer_alive = self._runner.running()
+        elif self._runner.running() or installer in running:
+            return
+        elif running and not detect.detect(self._program, self._baseline, fallback_name=self._name).sure:
+            return
         self._install_timer.stop()
         self._after_install()
 

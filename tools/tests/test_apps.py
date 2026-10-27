@@ -211,19 +211,23 @@ class DetectTest(unittest.TestCase):
         library.remove(app)
 
     def test_installed_program_runs_before_registry(self):
-        """IrfanView (2026-10-26): the installer starts the program at its end, before Wine writes the registry to
-        disk. The running program ends the install; a second-stage installer in a temporary folder does not."""
+        """IrfanView (2026-10-26/27): the installer starts the program at its end, before Wine writes the registry to
+        disk. The running program ends the install, also when reinstalling (the file is not new, only written again);
+        a second-stage installer in a temporary folder, a helper, or a file from before the install does not."""
         app = library.create("IrfanView")
-        before = detect.baseline(app)
         d = app.prefix / "drive_c/Program Files/IrfanView"
+        touch(d / "i_view64.exe")  # already there: a reinstall
+        before = detect.baseline(app)
         touch(d / "i_view64.exe", 3 * 1024 ** 2)
+        # an installer builder's name inside the program does not make it an installer here
+        (d / "i_view64.exe").write_bytes(b"MZ" + b"\0" * 64 + b"Nullsoft Install System" + b"\0" * 64)
+        touch(d / "iv_uninstall.exe")
         touch(app.prefix / "drive_c/users/steamuser/AppData/Local/Temp/xyz/stage2.exe")
-        found = detect.detect(app, before, fallback_name="IrfanView")
-        self.assertFalse(found.sure)
-        self.assertEqual(detect.installed_running(found, {"i_view64.exe", "iview470_x64_setup.exe"}),
-                         {"i_view64.exe"})
-        self.assertEqual(detect.installed_running(found, {"stage2.exe"}), set())
-        self.assertEqual(detect.installed_running(found, {"iview470_x64_setup.exe"}), set())
+        since = before["time"]
+        running = {"i_view64.exe", "iv_uninstall.exe", "stage2.exe"}
+        self.assertEqual(detect.installed_running(app, running, since), {"i_view64.exe"})
+        self.assertEqual(detect.installed_running(app, {"iview470_x64_setup.exe"}, since), set())
+        self.assertEqual(detect.installed_running(app, running, since + 100), set())  # written before the install
         library.remove(app)
 
 
