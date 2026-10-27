@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Lataa Sloth OS:n asetukset",
   "Couldn't open Sloth Welcome.": "Sloth Welcomea ei voitu avata.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Tiedostossa on {n} sovellusta toiselta tietokoneelta. Sloth Welcome voi asentaa ne, jotka se tuntee; voit yhä poistaa minkä tahansa valinnan.",
-  "Install them with Sloth Welcome": "Asenna ne Sloth Welcomella"
+  "Install them with Sloth Welcome": "Asenna ne Sloth Welcomella",
+  "Quiet hours": "Hiljaiset tunnit",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Tänä aikana mikään ilmoitus ei pyydä käynnistämään uudelleen, esimerkiksi kun pelaat illalla. Se tulee, kun hiljaiset tunnit loppuvat; mikään ei käynnisty uudelleen itsestään.",
+  "From": "Alkaen",
+  "to": "asti"
 }

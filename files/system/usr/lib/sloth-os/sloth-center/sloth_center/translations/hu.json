@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Sloth OS-beállítások betöltése",
   "Couldn't open Sloth Welcome.": "Nem sikerült megnyitni a Sloth Üdvözlőt.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "A fájlban {n} app szerepel a másik gépről. A Sloth Üdvözlő feltelepíti azokat, amelyeket ismer; bármelyikből kiveheted a pipát.",
-  "Install them with Sloth Welcome": "Telepítés a Sloth Üdvözlővel"
+  "Install them with Sloth Welcome": "Telepítés a Sloth Üdvözlővel",
+  "Quiet hours": "Csendes órák",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Ebben a napszakban egyetlen értesítés sem kér újraindítást, például amíg este játszol. A csendes órák végén jön; semmi nem indul újra magától.",
+  "From": "Ettől:",
+  "to": "eddig:"
 }

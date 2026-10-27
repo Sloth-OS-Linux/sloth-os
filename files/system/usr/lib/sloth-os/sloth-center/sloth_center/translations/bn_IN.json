@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Sloth OS সেটিংস লোড",
   "Couldn't open Sloth Welcome.": "Sloth Welcome খোলা যায়নি।",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "ফাইলে অন্য কম্পিউটারের {n}টি অ্যাপের তালিকা আছে। Sloth Welcome যেগুলো চেনে সেগুলো ইনস্টল করতে পারে; আপনি এখনও যেকোনোটির টিক তুলে দিতে পারেন।",
-  "Install them with Sloth Welcome": "Sloth Welcome দিয়ে ইনস্টল করুন"
+  "Install them with Sloth Welcome": "Sloth Welcome দিয়ে ইনস্টল করুন",
+  "Quiet hours": "শান্ত সময়",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "দিনের এই সময়ে কোনো বিজ্ঞপ্তি রিস্টার্ট করতে বলবে না, যেমন সন্ধ্যায় খেলার সময়। শান্ত সময় শেষ হলে সেটি আসবে; কিছুই নিজে থেকে রিস্টার্ট হয় না।",
+  "From": "থেকে",
+  "to": "পর্যন্ত"
 }

@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Učitaj postavke Sloth OS-a",
   "Couldn't open Sloth Welcome.": "Sloth Welcome se nije mogao otvoriti.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Datoteka navodi aplikacije s drugog računala: {n}. Sloth Welcome može instalirati one koje poznaje; svaku i dalje možete odznačiti.",
-  "Install them with Sloth Welcome": "Instaliraj ih putem Sloth Welcomea"
+  "Install them with Sloth Welcome": "Instaliraj ih putem Sloth Welcomea",
+  "Quiet hours": "Tihi sati",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "U ovom dijelu dana nijedna obavijest ne traži ponovno pokretanje, na primjer dok navečer igrate. Stiže kad tihi sati završe; ništa se ne pokreće ponovno samo.",
+  "From": "Od",
+  "to": "do"
 }

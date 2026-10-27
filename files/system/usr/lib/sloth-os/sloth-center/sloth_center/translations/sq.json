@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Ngarkoni cilësimet e Sloth OS",
   "Couldn't open Sloth Welcome.": "Sloth Welcome nuk u hap dot.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Skedari liston {n} aplikacione nga kompjuteri tjetër. Sloth Welcome mund të instalojë ato që njeh; mund ta hiqni shenjën nga cilido.",
-  "Install them with Sloth Welcome": "Instalojini me Sloth Welcome"
+  "Install them with Sloth Welcome": "Instalojini me Sloth Welcome",
+  "Quiet hours": "Orë qetësie",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Në këtë pjesë të ditës asnjë njoftim nuk ju kërkon të rinisni, për shembull ndërsa luani në mbrëmje. Vjen kur mbarojnë orët e qetësisë; asgjë nuk riniset vetë.",
+  "From": "Nga",
+  "to": "deri"
 }

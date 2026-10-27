@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Wczytaj ustawienia Sloth OS",
   "Couldn't open Sloth Welcome.": "Nie udało się otworzyć Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Plik wymienia aplikacje z drugiego komputera: {n}. Sloth Welcome może zainstalować te, które zna; każdą możesz jeszcze odznaczyć.",
-  "Install them with Sloth Welcome": "Zainstaluj je w Sloth Welcome"
+  "Install them with Sloth Welcome": "Zainstaluj je w Sloth Welcome",
+  "Quiet hours": "Godziny ciszy",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "W tej porze dnia żadne powiadomienie nie poprosi o ponowne uruchomienie, na przykład gdy grasz wieczorem. Przyjdzie, gdy godziny ciszy się skończą; nic nie uruchamia się ponownie samo.",
+  "From": "Od",
+  "to": "do"
 }

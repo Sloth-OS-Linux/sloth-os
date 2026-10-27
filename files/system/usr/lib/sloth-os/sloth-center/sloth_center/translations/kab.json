@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Sali iɣewwaren n Sloth OS",
   "Couldn't open Sloth Welcome.": "Ur yezmir ara ad yeldi Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Afaylu yegber {n} n yisnasen seg uselkim-nniḍen. Sloth Welcome yezmer ad yesbedd wid yessen; tzemreḍ ad tekkseḍ tacreḍt i yal yiwen.",
-  "Install them with Sloth Welcome": "Sebded-ten s Sloth Welcome"
+  "Install them with Sloth Welcome": "Sebded-ten s Sloth Welcome",
+  "Quiet hours": "Isragen n tsusmi",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Deg teswiɛt-a n wass ulac alɣu ara k·m-yessutren ad talseḍ asekker, amedya mi ara turareḍ tameddit. Ad d-yas mi ara fakken yisragen n tsusmi; ulac ayen ara yalsen asekker iman-is.",
+  "From": "Seg",
+  "to": "ar"
 }

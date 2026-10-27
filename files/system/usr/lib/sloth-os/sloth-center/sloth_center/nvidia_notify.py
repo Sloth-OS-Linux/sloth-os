@@ -7,6 +7,8 @@ import os
 import subprocess
 from pathlib import Path
 
+from sloth_common import quiet_hours
+
 from .i18n import tr
 
 STATE = Path("/var/lib/sloth-os/nvidia-auto")
@@ -25,6 +27,9 @@ def main():
             return 0
     except OSError:
         pass
+    # quiet hours (Sloth Center → Updates): not now, it comes again when they end
+    if quiet_hours.defer("sloth_center.nvidia_notify"):
+        return 0
     SEEN.parent.mkdir(parents=True, exist_ok=True)
     SEEN.write_text(state + "\n")
     if state == "ready":

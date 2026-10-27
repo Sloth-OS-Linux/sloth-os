@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Muat pengaturan Sloth OS",
   "Couldn't open Sloth Welcome.": "Tidak dapat membuka Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Berkas ini mencantumkan {n} aplikasi dari komputer lain. Sloth Welcome dapat memasang yang dikenalnya; Anda tetap bisa menghapus centang mana pun.",
-  "Install them with Sloth Welcome": "Pasang dengan Sloth Welcome"
+  "Install them with Sloth Welcome": "Pasang dengan Sloth Welcome",
+  "Quiet hours": "Jam tenang",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Pada jam ini tidak ada notifikasi yang meminta Anda memulai ulang, misalnya saat Anda bermain di malam hari. Notifikasi datang setelah jam tenang berakhir; tidak ada yang dimulai ulang dengan sendirinya.",
+  "From": "Dari",
+  "to": "sampai"
 }

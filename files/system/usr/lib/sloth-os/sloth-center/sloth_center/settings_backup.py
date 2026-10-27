@@ -1,11 +1,11 @@
 """Sloth OS's own settings in one file, to take them along to a reinstalled or another computer (File backup page).
 
 What goes in: the settings files Sloth OS writes (~/.config/sloth-os: sharing, the disc image choice, the display and
-sound profiles, where Windows programs go, the developer panel), the look (color scheme and taskbar layout, the
-same ones as in the welcome wizard) and the installed apps (their Flatpak ids). Nothing personal: no files, no
-passwords, no accounts. Restoring writes the files back and sets the look again; a program location on a drive this
-computer does not have is left out. The apps are offered in Sloth Welcome, ticked (welcome_selection): the wizard
-keeps only the ones its catalog knows and does not install again what is already there.
+sound profiles, where Windows programs go, the developer panel, the quiet hours), the look (color scheme and taskbar
+layout, the same ones as in the welcome wizard) and the installed apps (their Flatpak ids). Nothing personal: no
+files, no passwords, no accounts. Restoring writes the files back and sets the look again; a program location on a
+drive this computer does not have is left out. The apps are offered in Sloth Welcome, ticked (welcome_selection):
+the wizard keeps only the ones its catalog knows and does not install again what is already there.
 """
 import datetime
 import json
@@ -18,7 +18,8 @@ CONFIG = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "slo
 FORMAT = "sloth-os-settings"
 VERSION = 1
 # The settings files that are worth taking along (only these are read and written)
-FILES = ("community.json", "disc-images.json", "profiles.json", "applications.json", "devpanel.json")
+FILES = ("community.json", "disc-images.json", "profiles.json", "applications.json", "devpanel.json",
+         "quiet-hours.json")
 MAX_BYTES = 1024 * 1024
 # Sloth Welcome continues from this file (its own name for it: PROGRESS)
 WELCOME_PROGRESS = CONFIG / "welcome-progress.json"

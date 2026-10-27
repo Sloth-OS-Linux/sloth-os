@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "载入 Sloth OS 设置",
   "Couldn't open Sloth Welcome.": "无法打开 Sloth Welcome。",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "文件中列出了另一台电脑上的 {n} 个应用。Sloth Welcome 可以安装它认识的应用；你仍然可以取消勾选任何一个。",
-  "Install them with Sloth Welcome": "用 Sloth Welcome 安装"
+  "Install them with Sloth Welcome": "用 Sloth Welcome 安装",
+  "Quiet hours": "免打扰时段",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "在这段时间内，不会有通知要求你重启，例如晚上玩游戏时。免打扰时段结束后通知才会出现；不会自动重启。",
+  "From": "从",
+  "to": "到"
 }

@@ -247,7 +247,12 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 
 #### Updates, backup, and recovery
 - [x] **Quick** — Explain that updates download the needed system parts, their size varies, free disk space is needed, and a restart applies the new version.
-- [ ] **Medium** — Let users schedule updates and avoid restart prompts during user-defined quiet hours.
+- [x] **Medium** — Avoid restart prompts during user-defined quiet hours (2026-10-27): Updates → Quiet hours, on/off
+  and from / to in whole hours (over midnight too). The notifications that ask for a restart (an update is ready,
+  the NVIDIA driver is ready) do not speak then and come again when the quiet hours end (a one-time user timer,
+  `systemd-run --user`); nothing restarts by itself. It goes into the settings file too.
+  `sloth_common/quiet_hours.py`, tests: `tools/tests/test_quiet_hours.py`. Check on a real machine
+- [ ] **Medium** — Let users choose when the automatic updates download (uupd's timer; needs administrator approval).
 - [x] **Medium** — Warn before large downloads on metered or mobile connections (2026-10-26): the Updates page shows
   the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
   anyway" / "Later"). The automatic update (uupd) already skips metered connections. The size: checked on a real

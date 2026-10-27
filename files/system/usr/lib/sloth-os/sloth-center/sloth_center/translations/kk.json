@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Sloth OS баптауларын жүктеу",
   "Couldn't open Sloth Welcome.": "Sloth Welcome-ді ашу мүмкін болмады.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Файлда басқа компьютердегі {n} қолданба бар. Sloth Welcome өзі білетіндерін орната алады; кез келгенінен белгіні алып тастауға болады.",
-  "Install them with Sloth Welcome": "Оларды Sloth Welcome арқылы орнату"
+  "Install them with Sloth Welcome": "Оларды Sloth Welcome арқылы орнату",
+  "Quiet hours": "Тыныш сағаттар",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Тәуліктің осы бөлігінде ешбір хабарландыру қайта іске қосуды сұрамайды, мысалы кешке ойнап отырғанда. Ол тыныш сағаттар біткенде келеді; ештеңе өздігінен қайта іске қосылмайды.",
+  "From": "Басы",
+  "to": "соңы"
 }

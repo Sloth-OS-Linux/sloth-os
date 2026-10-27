@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Sloth OS-instellingen laden",
   "Couldn't open Sloth Welcome.": "Kon Sloth Welcome niet openen.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Het bestand noemt {n} apps van de andere computer. Sloth Welcome kan de apps installeren die het kent; je kunt elke app nog uitvinken.",
-  "Install them with Sloth Welcome": "Installeren met Sloth Welcome"
+  "Install them with Sloth Welcome": "Installeren met Sloth Welcome",
+  "Quiet hours": "Stille uren",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "In dit deel van de dag vraagt geen enkele melding je om opnieuw op te starten, bijvoorbeeld terwijl je 's avonds speelt. Die komt als de stille uren voorbij zijn; niets start vanzelf opnieuw op.",
+  "From": "Van",
+  "to": "tot"
 }

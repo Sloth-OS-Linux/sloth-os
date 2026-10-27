@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Sloth OS の設定を読み込む",
   "Couldn't open Sloth Welcome.": "Sloth Welcome を開けませんでした。",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "このファイルには別のコンピューターのアプリが {n} 個あります。Sloth Welcome が知っているものをインストールできます。どれでもチェックを外せます。",
-  "Install them with Sloth Welcome": "Sloth Welcome でインストール"
+  "Install them with Sloth Welcome": "Sloth Welcome でインストール",
+  "Quiet hours": "おやすみ時間",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "この時間帯は、たとえば夜にゲームをしているときなど、再起動を求める通知は出ません。おやすみ時間が終わると通知されます。勝手に再起動することはありません。",
+  "From": "開始",
+  "to": "終了"
 }

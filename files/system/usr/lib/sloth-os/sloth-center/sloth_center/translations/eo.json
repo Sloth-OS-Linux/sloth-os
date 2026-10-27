@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Ŝargi agordojn de Sloth OS",
   "Couldn't open Sloth Welcome.": "Ne eblis malfermi Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "La dosiero listigas {n} aplikaĵojn el la alia komputilo. Sloth Welcome povas instali tiujn, kiujn ĝi konas; vi ankoraŭ povas malmarki iun ajn.",
-  "Install them with Sloth Welcome": "Instali ilin per Sloth Welcome"
+  "Install them with Sloth Welcome": "Instali ilin per Sloth Welcome",
+  "Quiet hours": "Trankvilaj horoj",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "En ĉi tiu parto de la tago neniu sciigo petas vin restartigi, ekzemple dum vi ludas vespere. Ĝi venas, kiam la trankvilaj horoj finiĝas; nenio restartiĝas memstare.",
+  "From": "De",
+  "to": "ĝis"
 }

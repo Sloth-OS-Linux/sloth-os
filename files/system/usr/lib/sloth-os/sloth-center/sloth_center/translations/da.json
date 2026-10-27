@@ -787,5 +787,9 @@
   "Load Sloth OS settings": "Indlæs Sloth OS-indstillinger",
   "Couldn't open Sloth Welcome.": "Kunne ikke åbne Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Filen nævner {n} apps fra den anden computer. Sloth Welcome kan installere dem, den kender; du kan stadig fravælge hvilken som helst.",
-  "Install them with Sloth Welcome": "Installer dem med Sloth Welcome"
+  "Install them with Sloth Welcome": "Installer dem med Sloth Welcome",
+  "Quiet hours": "Stille timer",
+  "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "I denne del af dagen beder ingen notifikation dig om at genstarte, for eksempel mens du spiller om aftenen. Den kommer, når de stille timer slutter; intet genstarter af sig selv.",
+  "From": "Fra",
+  "to": "til"
 }

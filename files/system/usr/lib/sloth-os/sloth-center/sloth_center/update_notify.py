@@ -11,6 +11,8 @@ import os
 import subprocess
 from pathlib import Path
 
+from sloth_common import quiet_hours
+
 from . import texts
 from .i18n import tr
 
@@ -39,6 +41,9 @@ def main():
             return 0
     except OSError:
         pass
+    # quiet hours (Sloth Center → Updates): not now, it comes again when they end
+    if quiet_hours.defer("sloth_center.update_notify"):
+        return 0
     SEEN.parent.mkdir(parents=True, exist_ok=True)
     SEEN.write_text(key + "\n")
     body = tr("The new system version ({version}) has been downloaded. It will be installed at the next restart; "
