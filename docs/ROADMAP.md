@@ -121,6 +121,10 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   a new .exe of the install that runs is enough (`detect.installed_running`; not in a temporary folder and not an
   installer itself), and the uninstall entry is saved afterwards, when the installer's environment stops. Tests:
   `tools/tests/test_apps.py`. Check on a real machine
+- [ ] **Small** — The same when reinstalling or updating into the existing folder (after 1.1): the program's .exe was
+  already there before the install, so it is not "new", and without a new shortcut the install screen still waits
+  until the program is closed. Idea: an .exe changed during the install (its modification time after the baseline)
+  counts too. Risk to check: an installer that touches every file but does not start the program.
 #### Installation and storage
 - [x] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
