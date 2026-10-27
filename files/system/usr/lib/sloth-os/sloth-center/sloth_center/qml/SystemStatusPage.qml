@@ -58,6 +58,11 @@ Kirigami.ScrollablePage {
                         text: page.network ? page.network.text
                               : health.busy ? L.t("Checking…") : L.t("Network status is not available.")
                     }
+                    QQC2.Button {
+                        text: L.t("Check Wi-Fi")
+                        icon.name: "network-wireless"
+                        onClicked: { wifiCheck.open(); wifi.check(); }
+                    }
                 }
             }
         }
@@ -166,6 +171,85 @@ Kirigami.ScrollablePage {
             text: L.t("Get help")
             icon.name: "mail-message-new"
             onClicked: navigation.openModule(navigation.modules.findIndex(item => item.id === "feedback"))
+        }
+    }
+
+    // The Wi-Fi check (wifi.py): the steps one under the other; the last one that is not right has a button
+    Kirigami.Dialog {
+        id: wifiCheck
+        title: L.t("Wi-Fi check")
+        preferredWidth: Kirigami.Units.gridUnit * 30
+        standardButtons: Kirigami.Dialog.NoButton
+        customFooterActions: [
+            Kirigami.Action {
+                text: L.t("Check again")
+                icon.name: "view-refresh"
+                enabled: !wifi.busy
+                onTriggered: wifi.check()
+            },
+            Kirigami.Action {
+                text: L.t("Close")
+                icon.name: "dialog-close"
+                onTriggered: wifiCheck.close()
+            }
+        ]
+
+        ColumnLayout {
+            spacing: Kirigami.Units.largeSpacing
+
+            RowLayout {
+                visible: wifi.busy
+                spacing: Kirigami.Units.largeSpacing
+                QQC2.BusyIndicator { running: wifi.busy }
+                QQC2.Label { text: L.t("Checking…") }
+            }
+
+            Repeater {
+                model: wifi.busy ? [] : wifi.steps
+                delegate: RowLayout {
+                    id: stepRow
+                    required property var modelData
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    Kirigami.Icon {
+                        Layout.alignment: Qt.AlignTop
+                        source: stepRow.modelData.state === "ok" ? "emblem-ok-symbolic"
+                              : stepRow.modelData.state === "warning" ? "emblem-warning" : "emblem-error"
+                        implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                        implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        QQC2.Label { text: stepRow.modelData.title; font.bold: true }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            text: stepRow.modelData.text
+                        }
+                        QQC2.Button {
+                            visible: stepRow.modelData.action !== ""
+                            highlighted: true
+                            icon.name: stepRow.modelData.action === "turnOn" ? "network-wireless"
+                                     : stepRow.modelData.action === "networks" ? "network-wireless-connected-75"
+                                     : stepRow.modelData.action === "portal" ? "internet-web-browser"
+                                     : "preferences-devices-cpu"
+                            text: stepRow.modelData.action === "turnOn" ? L.t("Turn on Wi-Fi")
+                                : stepRow.modelData.action === "networks" ? L.t("Choose a network")
+                                : stepRow.modelData.action === "portal" ? L.t("Open the sign-in page")
+                                : L.t("Drivers and hardware")
+                            onClicked: {
+                                if (stepRow.modelData.action === "drivers") {
+                                    wifiCheck.close();
+                                    page.navigation.openModule(page.navigation.modules.findIndex(m => m.id === "drivers"));
+                                } else {
+                                    wifi.act(stepRow.modelData.action);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

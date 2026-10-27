@@ -210,6 +210,26 @@ class DetectTest(unittest.TestCase):
         self.assertNotIn("updater.exe", [c.path.name for c in found.candidates])
         library.remove(app)
 
+    def test_installed_program_runs_before_registry(self):
+        """IrfanView (2026-10-26/27): the installer starts the program at its end, before Wine writes the registry to
+        disk. The running program ends the install, also when reinstalling (the file is not new, only written again);
+        a second-stage installer in a temporary folder, a helper, or a file from before the install does not."""
+        app = library.create("IrfanView")
+        d = app.prefix / "drive_c/Program Files/IrfanView"
+        touch(d / "i_view64.exe")  # already there: a reinstall
+        before = detect.baseline(app)
+        touch(d / "i_view64.exe", 3 * 1024 ** 2)
+        # an installer builder's name inside the program does not make it an installer here
+        (d / "i_view64.exe").write_bytes(b"MZ" + b"\0" * 64 + b"Nullsoft Install System" + b"\0" * 64)
+        touch(d / "iv_uninstall.exe")
+        touch(app.prefix / "drive_c/users/steamuser/AppData/Local/Temp/xyz/stage2.exe")
+        since = before["time"]
+        running = {"i_view64.exe", "iv_uninstall.exe", "stage2.exe"}
+        self.assertEqual(detect.installed_running(app, running, since), {"i_view64.exe"})
+        self.assertEqual(detect.installed_running(app, {"iview470_x64_setup.exe"}, since), set())
+        self.assertEqual(detect.installed_running(app, running, since + 100), set())  # written before the install
+        library.remove(app)
+
 
 class LibraryTest(unittest.TestCase):
     def test_create_unique(self):
@@ -266,6 +286,22 @@ class LibraryTest(unittest.TestCase):
 
 
 class WindowsProcessTest(unittest.TestCase):
+    def test_proton_prefix_path(self):
+        """Proton gives Wine "<prefix>/pfx/" (umu's pfx link points to the environment itself), IrfanView 2026-10-27."""
+        real = TMP / "realprefix"
+        real.mkdir(exist_ok=True)
+        if not (real / "pfx").exists():
+            (real / "pfx").symlink_to(".")
+        link = TMP / "linkhome"
+        if not link.exists():
+            link.symlink_to(TMP)
+        prefix = os.path.realpath(real)
+        for value in (str(real), f"{real}/", f"{real}/pfx", f"{real}/pfx/", f"{link}/realprefix/pfx/"):
+            env = b"HOME=/x\0WINEPREFIX=" + value.encode() + b"\0LANG=C\0"
+            self.assertTrue(library._in_prefix(env, prefix), value)
+        self.assertFalse(library._in_prefix(b"WINEPREFIX=" + str(TMP / "other").encode() + b"\0", prefix))
+        self.assertFalse(library._in_prefix(b"HOME=/x\0", prefix))
+
     def test_windows_exe_after_wrapper_args(self):
         proc = TMP / "proc-cmdline"
         proc.mkdir(exist_ok=True)

@@ -1,18 +1,14 @@
 {
   "_language": "Français",
-
   "app.title": "Bienvenue Sloth",
   "window.title": "Bienvenue sur Sloth OS",
-
   "welcome.heading": "Bienvenue sur Sloth OS !",
   "welcome.text": "Quelques questions rapides et votre ordinateur est prêt. Vous pourrez tout modifier plus tard.",
   "welcome.language": "Langue",
   "welcome.start": "C'est parti",
-
   "look.colors": "Quelles couleurs préférez-vous ?",
   "look.colors_hint": "Cliquez sur l'une d'elles pour la voir tout de suite. Vous pourrez la changer plus tard dans la Configuration du système.",
   "look.taskbar": "À quoi doit ressembler la barre des tâches ?",
-
   "scheme.SlothSilverDark": "Argent (sombre)",
   "scheme.SlothSilverLight": "Argent (clair)",
   "scheme.SlothWhite": "Blanc neige",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Bleu brume",
   "scheme.SlothNight": "Bleu nuit",
   "scheme.SlothSage": "Sauge",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menu Démarrer et icônes à gauche",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menu Démarrer et icônes au centre",
   "layout.mac.name": "Façon macOS",
   "layout.mac.description": "Barre en haut, dock flottant en bas",
+  "layout.ubuntu.name": "Façon Ubuntu",
+  "layout.ubuntu.description": "Barre en haut, dock à gauche",
   "security.heading": "Quand votre ordinateur doit-il demander votre mot de passe ?",
   "security.text": "Certains réglages (comme l’installation de programmes) demandent votre mot de passe. Ainsi, personne ne peut modifier votre ordinateur à votre insu.",
   "security.all": "À chaque modification (le plus sûr)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Oui, partager anonymement",
   "sharing.no": "Non, merci",
   "sharing.later": "Tu peux changer cela plus tard à tout moment dans Sloth Center. Tu reçois de toute façon les réglages qui ont fonctionné sur d’autres ordinateurs.",
-
   "windows.heading": "Récupérer vos fichiers de Windows ?",
   "windows.text": "Cet ordinateur contient aussi Windows. Nous pouvons copier vos fichiers ici ; Windows n'est pas modifié, nous ne faisons que lire.",
   "windows.scanning": "Examen du disque Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Aucun fichier Windows à récupérer n'a été trouvé sur cet ordinateur.",
   "windows.failed": "Impossible d'ouvrir le disque Windows. Démarrez Windows et arrêtez-le complètement (Arrêter, pas Redémarrer), puis réessayez depuis Sloth Center (Disques).",
   "windows.bookmarks_file": "Favoris Windows.html",
-
   "nav.back": "Retour",
   "nav.next": "Suivant",
   "nav.skip": "Passer",
   "nav.finish": "Terminer",
   "nav.install": "Installer",
-
   "step.counter": "Étape {n} sur {total}",
   "step.selected_one": "1 application sélectionnée",
   "step.selected_many": "{count} applications sélectionnées",
-
   "category.multiple": "Vous pouvez en choisir plusieurs, ou aucune.",
   "category.browser.name": "Navigateur web",
   "category.browser.hint": "C'est avec lui que vous allez sur Internet. Sans navigateur, impossible d'ouvrir des sites web.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Boutiques et lanceurs de jeux. Les jeux et programmes Windows fonctionnent aussi sans eux.",
   "category.creative.name": "Création",
   "category.creative.hint": "Retouche photo, dessin, montage vidéo, enregistrement.",
-
   "app.org.mozilla.firefox": "Rapide, respectueux de la vie privée, open source",
   "app.com.google.Chrome": "Le navigateur de Google, synchronisé avec votre compte Google",
   "app.com.brave.Browser": "Avec un bloqueur de publicités intégré",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Les programmes d'installation Windows ont été téléchargés ({names}). Ils vont s'ouvrir un par un : suivez chaque installation, comme sous Windows. Le redémarrage vient à la fin.",
   "done.windows_continue": "Continuer vers l'installation des programmes Windows",
   "done.windows_finished": "Tout est prêt, les programmes Windows aussi ! Après un redémarrage, tout se chargera correctement.",
-
   "offline.text": "Pas de connexion Internet. Connectez-vous à un réseau pour installer des applications.",
   "offline.settings": "Paramètres réseau",
   "offline.retry": "Réessayer",
-
   "nobrowser.title": "Vous n'avez choisi aucun navigateur",
   "nobrowser.text": "Sans navigateur, vous ne pourrez pas ouvrir de sites web. En êtes-vous sûr ?",
   "nobrowser.choose": "J'en choisis un",
   "nobrowser.ok": "Ça me va",
-
   "install.preparing": "Préparation de l'installation…",
   "install.retrying": "La connexion a été coupée, nouvelle tentative…",
   "install.installing": "Installation de {name}…",
   "install.note": "Selon votre connexion, cela peut prendre quelques minutes.",
-
   "error.network": "Pas de connexion Internet, ou le serveur est injoignable.",
   "error.disk_full": "Il n'y a pas assez d'espace disque libre.",
   "error.not_authorized": "Nous n'avons pas obtenu l'autorisation d'installer.",
   "error.checksum": "Le fichier téléchargé était endommagé, il n'a donc pas été installé.",
   "error.generic": "L'installation a échoué.",
-
   "done.nothing_selected": "C'est terminé ! Vous pourrez installer des applications plus tard dans Discover.",
   "done.all_ok": "Tout est prêt ! Vos applications vous attendent dans le menu Démarrer.",
   "done.some_failed": "Presque terminé. Certaines applications n'ont pas pu être installées :",
@@ -184,7 +171,6 @@
   "done.start": "Amusez-vous bien !",
   "done.restart": "Redémarrer",
   "done.restart_hint": "Redémarrez l'ordinateur pour que toutes les nouvelles applications se chargent correctement.",
-
   "desktop.generic": "Applications et apparence",
   "desktop.comment": "Installer un navigateur, une suite bureautique, un lecteur multimédia et plus encore, choisir un jeu de couleurs",
   "desktop.keywords": "bienvenue;applications;navigateur;bureautique;thème",

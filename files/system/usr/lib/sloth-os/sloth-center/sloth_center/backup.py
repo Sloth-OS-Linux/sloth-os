@@ -11,7 +11,7 @@ import subprocess
 import threading
 from pathlib import Path
 
-from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
+from PySide6.QtCore import QObject, Property, QTimer, QUrl, Signal, Slot
 
 from sloth_common import snapshots as snap
 
@@ -44,6 +44,7 @@ def own_home_rel():
 class BackupController(QObject):
     changed = Signal()
     _done = Signal(str, object)   # from the background thread: (operation, result)
+    _verified = Signal(int, int, str)   # from the check: (checked, unreadable, the saved state's time)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -58,7 +59,9 @@ class BackupController(QObject):
         self._pika_timer = QTimer(self, interval=5000)
         self._pika_timer.timeout.connect(self._check_pika)
         self._pika_checks = 0
+        self._verify_state, self._verify_text = "", ""   # "", "checking", "ok", "bad", "empty"
         self._done.connect(self._on_done)
+        self._verified.connect(self._on_verified)
         self.refresh()
 
     state = Property(str, lambda self: self._state, notify=changed)
@@ -69,6 +72,36 @@ class BackupController(QObject):
     errorText = Property(str, lambda self: self._error, notify=changed)
     infoText = Property(str, lambda self: self._info, notify=changed)
     pikaInstalled = Property(bool, lambda self: self._pika, notify=changed)
+    verifyState = Property(str, lambda self: self._verify_state, notify=changed)
+    verifyText = Property(str, lambda self: self._verify_text, notify=changed)
+
+    @Slot()
+    def verify(self):
+        """Reads back a sample of the files of the latest saved state (no password, nothing is changed)."""
+        if self._verify_state == "checking" or not self._snapshots or not self._snapshots[0]["path"]:
+            return
+        latest = self._snapshots[0]
+        self._verify_state, self._verify_text = "checking", tr("Checking the latest saved state…")
+        self.changed.emit()
+
+        def work():
+            checked, unreadable = snap.verify(latest["path"])
+            for path in unreadable[:20]:
+                log.warning("unreadable in the backup: %s", path)
+            self._verified.emit(checked, len(unreadable), latest["dateText"])
+
+        threading.Thread(target=work, daemon=True).start()
+
+    def _on_verified(self, checked, bad, when):
+        if not checked:
+            self._verify_state, self._verify_text = "empty", tr("There are no files in the latest saved state yet.")
+        elif bad:
+            self._verify_state = "bad"
+            self._verify_text = tr("{bad} of {n} files in the latest saved state ({when}) couldn't be read. Keep a copy of your important files on an external disk too, and send a report from Feedback.", bad=bad, n=checked, when=when)
+        else:
+            self._verify_state = "ok"
+            self._verify_text = tr("Checked {n} files in the latest saved state ({when}): all of them can be read.", n=checked, when=when)
+        self.changed.emit()
 
     @Slot()
     def refresh(self):
@@ -136,6 +169,15 @@ class BackupController(QObject):
     def openFolder(self, path):
         if path:
             subprocess.Popen(["xdg-open", path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    @Slot(str)
+    def showVersions(self, url):
+        """The "Previous versions" window of a file or folder (the same as right-click in the file manager), for
+        those who do not know that menu."""
+        path = QUrl(url).toLocalFile() if url.startswith("file:") else url
+        if path:
+            subprocess.Popen(["sloth-versions", path], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     # --- Backup to an external disk (Pika Backup) -------------------------------------------------------------
 

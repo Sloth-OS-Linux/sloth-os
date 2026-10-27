@@ -1,18 +1,14 @@
 {
   "_language": "Română",
-
   "app.title": "Bun venit Sloth",
   "window.title": "Bun venit în Sloth OS",
-
   "welcome.heading": "Bun venit în Sloth OS!",
   "welcome.text": "Câteva întrebări rapide și calculatorul e gata. Poți schimba totul mai târziu.",
   "welcome.language": "Limbă",
   "welcome.start": "Să începem",
-
   "look.colors": "Ce culori îți plac?",
   "look.colors_hint": "Dă clic pe una și vezi imediat cum arată. O poți schimba mai târziu în Configurările sistemului.",
   "look.taskbar": "Cum să arate bara de activități?",
-
   "scheme.SlothSilverDark": "Argintiu (întunecat)",
   "scheme.SlothSilverLight": "Argintiu (luminos)",
   "scheme.SlothWhite": "Alb ca zăpada",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Albastru ceață",
   "scheme.SlothNight": "Albastru noapte",
   "scheme.SlothSage": "Salvie",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Meniul Start și pictogramele în stânga",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Meniul Start și pictogramele în centru",
   "layout.mac.name": "Ca macOS",
   "layout.mac.description": "Bară sus, doc plutitor jos",
+  "layout.ubuntu.name": "Ca Ubuntu",
+  "layout.ubuntu.description": "Bară sus, dock în stânga",
   "security.heading": "Când să-ți ceară calculatorul parola?",
   "security.text": "Unele setări (de exemplu instalarea programelor) îți cer parola. Astfel nimeni nu poate schimba calculatorul fără să știi.",
   "security.all": "La fiecare modificare (cel mai sigur)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Da, împărtășește anonim",
   "sharing.no": "Nu, mulțumesc",
   "sharing.later": "Poți schimba asta oricând mai târziu în Sloth Center. Setările care au mers pe alte calculatoare le primești oricum.",
-
   "windows.heading": "Aducem fișierele tale din Windows?",
   "windows.text": "Pe acest calculator există și Windows. Putem copia fișierele tale aici; Windows nu este modificat, doar citim din el.",
   "windows.scanning": "Se examinează unitatea Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Nu s-au găsit fișiere Windows de adus pe acest calculator.",
   "windows.failed": "Unitatea Windows nu a putut fi deschisă. Pornește Windows și oprește-l complet (Închidere, nu Repornire), apoi încearcă din nou din Sloth Center (Discuri).",
   "windows.bookmarks_file": "Marcaje Windows.html",
-
   "nav.back": "Înapoi",
   "nav.next": "Înainte",
   "nav.skip": "Omite",
   "nav.finish": "Termină",
   "nav.install": "Instalează",
-
   "step.counter": "Pasul {n} din {total}",
   "step.selected_one": "1 aplicație selectată",
   "step.selected_many": "aplicații selectate: {count}",
-
   "category.multiple": "Poți alege mai multe sau niciuna.",
   "category.browser.name": "Navigator web",
   "category.browser.hint": "Cu el intri pe internet. Fără navigator nu poți deschide site-uri.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Magazine și lansatoare de jocuri. Jocurile și programele Windows merg și fără ele.",
   "category.creative.name": "Creație",
   "category.creative.hint": "Editare foto, desen, montaj video, înregistrare.",
-
   "app.org.mozilla.firefox": "Rapid, atent la confidențialitate, open source",
   "app.com.google.Chrome": "Navigatorul Google, se sincronizează cu contul tău Google",
   "app.com.brave.Browser": "Cu blocare de reclame integrată",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Programele de instalare Windows au fost descărcate ({names}). Acum se vor deschide pe rând: parcurge fiecare instalare, ca în Windows. Repornirea vine la final.",
   "done.windows_continue": "Continuă cu instalarea programelor Windows",
   "done.windows_finished": "Totul e gata, inclusiv programele Windows! După o repornire, totul se va încărca corect.",
-
   "offline.text": "Nu există conexiune la internet. Conectează-te la o rețea pentru a instala aplicații.",
   "offline.settings": "Setări de rețea",
   "offline.retry": "Reîncearcă",
-
   "nobrowser.title": "Nu ai ales niciun navigator",
   "nobrowser.text": "Fără navigator nu poți deschide site-uri. Ești sigur?",
   "nobrowser.choose": "Aleg unul",
   "nobrowser.ok": "E bine așa",
-
   "install.preparing": "Se pregătește instalarea…",
   "install.retrying": "Conexiunea s-a întrerupt, se reîncearcă…",
   "install.installing": "Se instalează {name}…",
   "install.note": "În funcție de conexiune, poate dura câteva minute.",
-
   "error.network": "Nu există conexiune la internet sau serverul nu poate fi accesat.",
   "error.disk_full": "Nu există suficient spațiu liber pe disc.",
   "error.not_authorized": "Nu am primit permisiunea de a instala.",
   "error.checksum": "Fișierul descărcat era deteriorat, așa că nu a fost instalat.",
   "error.generic": "Instalarea a eșuat.",
-
   "done.nothing_selected": "Gata! Poți instala aplicații mai târziu din Discover.",
   "done.all_ok": "Totul e gata! Aplicațiile te așteaptă în meniul Start.",
   "done.some_failed": "Aproape gata. Unele aplicații nu au putut fi instalate:",
@@ -184,7 +171,6 @@
   "done.start": "Distracție plăcută!",
   "done.restart": "Repornește",
   "done.restart_hint": "Repornește calculatorul ca toate aplicațiile noi să se încarce corect.",
-
   "desktop.generic": "Aplicații și aspect",
   "desktop.comment": "Instalarea unui navigator, a unei suite de birou, a unui player media și altele, alegerea unei scheme de culori",
   "desktop.keywords": "bun venit;aplicații;navigator;birou;temă",

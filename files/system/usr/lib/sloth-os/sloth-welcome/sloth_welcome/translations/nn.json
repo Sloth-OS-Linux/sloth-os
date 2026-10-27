@@ -1,18 +1,14 @@
 {
   "_language": "Norsk nynorsk",
-
   "app.title": "Sloth Velkomen",
   "window.title": "Velkomen til Sloth OS",
-
   "welcome.heading": "Velkomen til Sloth OS!",
   "welcome.text": "Nokre raske spørsmål, så er datamaskina klar. Du kan endra alt seinare.",
   "welcome.language": "Språk",
   "welcome.start": "Set i gang",
-
   "look.colors": "Kva fargar likar du?",
   "look.colors_hint": "Klikk på ein, så ser du med ein gong korleis det blir. Du kan endra det seinare i Systeminnstillingar.",
   "look.taskbar": "Korleis skal oppgåvelinja sjå ut?",
-
   "scheme.SlothSilverDark": "Sølv (mørk)",
   "scheme.SlothSilverLight": "Sølv (lys)",
   "scheme.SlothWhite": "Snøkvit",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Skoddeblå",
   "scheme.SlothNight": "Nattblå",
   "scheme.SlothSage": "Salvie",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Startmeny og ikon til venstre",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Startmeny og ikon i midten",
   "layout.mac.name": "Som macOS",
   "layout.mac.description": "Linje øvst, flytande dokk nedst",
+  "layout.ubuntu.name": "Ubuntu-liknande",
+  "layout.ubuntu.description": "Topplinje, dokk til venstre",
   "security.heading": "Når skal datamaskina spørja om passord?",
   "security.text": "Nokre innstillingar (til dømes å installera program) ber om passordet ditt. Slik kan ingen endra datamaskina utan at du veit det.",
   "security.all": "Ved kvar endring (tryggast)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Ja, del anonymt",
   "sharing.no": "Nei takk",
   "sharing.later": "Du kan endra dette når som helst seinare i Sloth Center. Innstillingane som har verka på andre datamaskiner, får du uansett.",
-
   "windows.heading": "Flytte filene dine frå Windows?",
   "windows.text": "Datamaskina har òg Windows. Vi kan kopiere filene dine hit; Windows vert ikkje rørt, vi les berre frå det.",
   "windows.scanning": "Går gjennom Windows-stasjonen…",
@@ -63,17 +59,14 @@
   "windows.none": "Fann ingen Windows-filer å flytte på denne datamaskina.",
   "windows.failed": "Windows-stasjonen kunne ikkje opnast. Start Windows og slå det heilt av (Slå av, ikkje Start på nytt), og prøv igjen frå Sloth Center (Diskar).",
   "windows.bookmarks_file": "Windows-bokmerke.html",
-
   "nav.back": "Tilbake",
   "nav.next": "Neste",
   "nav.skip": "Hopp over",
   "nav.finish": "Fullfør",
   "nav.install": "Installer",
-
   "step.counter": "Steg {n} av {total}",
   "step.selected_one": "1 app vald",
   "step.selected_many": "{count} appar valde",
-
   "category.multiple": "Du kan velja fleire, eller ingen.",
   "category.browser.name": "Nettlesar",
   "category.browser.hint": "Med han går du på nettet. Utan nettlesar kan du ikkje opna nettsider.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Spelbutikkar og startprogram. Windows-spel og -program køyrer òg utan dei.",
   "category.creative.name": "Kreativt",
   "category.creative.hint": "Biletredigering, teikning, videoredigering, opptak.",
-
   "app.org.mozilla.firefox": "Rask, personvernmedviten, open kjeldekode",
   "app.com.google.Chrome": "Nettlesaren til Google, synkroniserer med Google-kontoen din",
   "app.com.brave.Browser": "Med innebygd reklameblokkering",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Installasjonsprogramma for Windows-programma er lasta ned ({names}). No vert dei opna éin etter éin: gå gjennom kvar installasjon, akkurat som i Windows. Omstarten kjem til slutt.",
   "done.windows_continue": "Hald fram til installering av Windows-program",
   "done.windows_finished": "Alt er klart, Windows-programma òg! Etter ein omstart vert alt lasta rett.",
-
   "offline.text": "Inga internettilkopling. Kopla til eit nettverk for å installera appar.",
   "offline.settings": "Nettverksinnstillingar",
   "offline.retry": "Prøv igjen",
-
   "nobrowser.title": "Du har ikkje valt nettlesar",
   "nobrowser.text": "Utan nettlesar kan du ikkje opna nettsider. Er du sikker?",
   "nobrowser.choose": "Eg vel ein",
   "nobrowser.ok": "Det går fint",
-
   "install.preparing": "Gjer klar til installasjon…",
   "install.retrying": "Tilkoplinga vart broten, prøver igjen…",
   "install.installing": "Installerer {name}…",
   "install.note": "Avhengig av tilkoplinga kan dette ta nokre minutt.",
-
   "error.network": "Inga internettilkopling, eller tenaren kan ikkje nåast.",
   "error.disk_full": "Det er ikkje nok ledig diskplass.",
   "error.not_authorized": "Vi fekk ikkje løyve til å installera.",
   "error.checksum": "Den nedlasta fila var skadd og vart difor ikkje installert.",
   "error.generic": "Installasjonen mislukkast.",
-
   "done.nothing_selected": "Ferdig! Du kan installera appar seinare i Discover.",
   "done.all_ok": "Alt er klart! Appane dine ventar i startmenyen.",
   "done.some_failed": "Nesten ferdig. Nokre appar kunne ikkje installerast:",
@@ -184,7 +171,6 @@
   "done.start": "Kos deg!",
   "done.restart": "Start på nytt",
   "done.restart_hint": "Start datamaskina på nytt så alle nye appar vert lasta inn rett.",
-
   "desktop.generic": "Appar og utsjånad",
   "desktop.comment": "Installer ein nettlesar, kontorpakke, mediespelar og meir, vel eit fargeoppsett",
   "desktop.keywords": "velkomen;appar;nettlesar;kontor;tema",

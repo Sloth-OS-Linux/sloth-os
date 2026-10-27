@@ -152,6 +152,7 @@ class ExeController(QObject):
         self._install_key = ""
         self._install_fresh = False
         self._install_exit = None
+        self._install_seen = None  # the last install check's findings (_check_install_done logs the changes)
         # Where a new program goes, if there is more than one drive to choose from (library.install_locations)
         self._locations = None
         self._location = 0
@@ -820,6 +821,7 @@ class ExeController(QObject):
         log.info("exited: code=%s, %.0f s", code, elapsed)
         if self._installer_alive:
             self._installer_alive = False
+            self._complete_install_info()
             if not self._closing:
                 return  # the installer exited; the user is still working in this window
             # the install was already done, we were only waiting for the installer's end (_quit)
@@ -978,7 +980,10 @@ class ExeController(QObject):
         has exited and the program is certainly there (many installers start the program by themselves at the end,
         e.g. Battle.net: we do not wait until the user closes it). It is also done when the installer still
         runs but the installed program has already started (_program_exes): the EA app installer does not exit while the
-        EA app runs, and the Battle.net installer stays open while its client already shows the login window."""
+        EA app runs, and the Battle.net installer stays open while its client already shows the login window.
+        An .exe written by this install that runs is enough too (detect.installed_running): the recognition is not
+        certain while the program runs (IrfanView), and Proton's helper processes keep the installer's name in their
+        command line even after the installer exited."""
         running = library.running_exes(self._program)
         if self._runner.running():
             if self._state != "working" or not self._runner.main_running():
@@ -987,19 +992,41 @@ class ExeController(QObject):
                 # The installer already runs on the Windows side: preparation is over (even if nothing had
                 # to be downloaded, so the runner did not report it); the "still working…" text must not stay up
                 self._on_setup_done()
-            others = running - {self._exe.name.lower()}
-            if not others:
-                return
+        installer = self._exe.name.lower()
+        others = running - {installer}
+        started = detect.installed_running(self._program, others, self._baseline.get("time", 0))
+        seen = (sorted(running), self._runner.running(), sorted(started))
+        if seen != self._install_seen:
+            # only when it changes: what runs in the environment and what we wait for (for the diagnosis)
+            self._install_seen = seen
+            log.info("install check: running %s, installer process %s, installed program %s", *seen)
+        if not started and others:
             found = detect.detect(self._program, self._baseline, fallback_name=self._name)
-            if not (found.sure and others & _program_exes(found)):
-                return
-            log.info("the installer still runs, but the installed program has already started: %s", sorted(others))
-            self._installer_alive = True
-        elif running and (self._exe.name.lower() in running
-                          or not detect.detect(self._program, self._baseline, fallback_name=self._name).sure):
+            if found.sure:
+                started = others & _program_exes(found)
+        if started:
+            log.info("the installed program has already started: %s", sorted(started))
+            self._installer_alive = self._runner.running()
+        elif self._runner.running() or installer in running:
+            return
+        elif running and not detect.detect(self._program, self._baseline, fallback_name=self._name).sure:
             return
         self._install_timer.stop()
         self._after_install()
+
+    def _complete_install_info(self):
+        """The install was done while the installed program ran, so Wine may have written the registry only now that
+        the environment stopped: the uninstall entry (publisher, version, install folder) is saved afterwards."""
+        if not self._program or "uninstall_key" in self._program.meta:
+            return
+        found = detect.detect(self._program, self._baseline, fallback_name=self._name)
+        if not found.uninstall_key:
+            return
+        info = {"publisher": found.publisher, "version": found.version, "uninstall_key": found.uninstall_key}
+        if found.install_dir:
+            info["install_dir"] = self._program.host_to_windows(found.install_dir) or ""
+        log.info("uninstall entry after the install: %s", found.uninstall_key)
+        self._program.save_meta(**info)
 
     def _after_install(self):
         # The program's folder is on the Proton version the installer ran with

@@ -1,18 +1,14 @@
 {
   "_language": "Hrvatski",
-
   "app.title": "Sloth dobrodošlica",
   "window.title": "Dobrodošli u Sloth OS",
-
   "welcome.heading": "Dobrodošli u Sloth OS!",
   "welcome.text": "Nekoliko brzih pitanja i računalo je spremno. Sve možete promijeniti kasnije.",
   "welcome.language": "Jezik",
   "welcome.start": "Krenimo",
-
   "look.colors": "Koje vam se boje sviđaju?",
   "look.colors_hint": "Kliknite na jednu i odmah ćete vidjeti kako izgleda. Kasnije je možete promijeniti u Postavkama sustava.",
   "look.taskbar": "Kako treba izgledati programska traka?",
-
   "scheme.SlothSilverDark": "Srebrna (tamna)",
   "scheme.SlothSilverLight": "Srebrna (svijetla)",
   "scheme.SlothWhite": "Snježnobijela",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Maglovito plava",
   "scheme.SlothNight": "Noćno plava",
   "scheme.SlothSage": "Kadulja",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Izbornik Start i ikone lijevo",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Izbornik Start i ikone u sredini",
   "layout.mac.name": "Kao macOS",
   "layout.mac.description": "Gornja traka, plutajući dok dolje",
+  "layout.ubuntu.name": "Poput Ubuntua",
+  "layout.ubuntu.description": "Gornja traka, dok s lijeve strane",
   "security.heading": "Kada računalo treba tražiti lozinku?",
   "security.text": "Neke postavke (npr. instalacija programa) traže vašu lozinku. Tako nitko ne može mijenjati računalo bez vašeg znanja.",
   "security.all": "Pri svakoj promjeni (najsigurnije)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Da, dijeli anonimno",
   "sharing.no": "Ne, hvala",
   "sharing.later": "To možeš kasnije bilo kada promijeniti u Sloth Centeru. Postavke koje su radile na drugim računalima dobivaš u svakom slučaju.",
-
   "windows.heading": "Prenijeti datoteke iz Windowsa?",
   "windows.text": "Na ovom računalu je i Windows. Možemo ovamo kopirati vaše datoteke; sam Windows ostaje netaknut, samo čitamo s njega.",
   "windows.scanning": "Pregledavanje Windows diska…",
@@ -63,17 +59,14 @@
   "windows.none": "Na ovom računalu nisu pronađene Windows datoteke za prijenos.",
   "windows.failed": "Windows disk nije bilo moguće otvoriti. Pokrenite Windows i potpuno ga isključite (Isključi, ne Ponovno pokreni), pa pokušajte ponovno iz Sloth Centera (Diskovi).",
   "windows.bookmarks_file": "Windows oznake.html",
-
   "nav.back": "Natrag",
   "nav.next": "Dalje",
   "nav.skip": "Preskoči",
   "nav.finish": "Završi",
   "nav.install": "Instaliraj",
-
   "step.counter": "Korak {n} od {total}",
   "step.selected_one": "odabrana 1 aplikacija",
   "step.selected_many": "odabrane aplikacije: {count}",
-
   "category.multiple": "Možete odabrati nekoliko ili nijednu.",
   "category.browser.name": "Web preglednik",
   "category.browser.hint": "S njim pretražujete internet. Bez preglednika ne možete otvoriti web stranice.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Trgovine i pokretači igara. Windows igre i programi rade i bez njih.",
   "category.creative.name": "Stvaralaštvo",
   "category.creative.hint": "Uređivanje fotografija, crtanje, montaža videa, snimanje.",
-
   "app.org.mozilla.firefox": "Brz, brine o privatnosti, otvorenog koda",
   "app.com.google.Chrome": "Googleov preglednik, sinkronizira se s Google računom",
   "app.com.brave.Browser": "S ugrađenim blokiranjem oglasa",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Instalacijski programi za Windows su preuzeti ({names}). Sada će se otvarati jedan po jedan: prođite kroz svaku instalaciju kao u Windowsima. Ponovno pokretanje dolazi na kraju.",
   "done.windows_continue": "Nastavi na instalaciju Windows programa",
   "done.windows_finished": "Sve je gotovo, i Windows programi! Nakon ponovnog pokretanja sve će se ispravno učitati.",
-
   "offline.text": "Nema internetske veze. Za instalaciju aplikacija spojite se na mrežu.",
   "offline.settings": "Mrežne postavke",
   "offline.retry": "Pokušaj ponovno",
-
   "nobrowser.title": "Niste odabrali preglednik",
   "nobrowser.text": "Bez preglednika ne možete otvoriti web stranice. Jeste li sigurni?",
   "nobrowser.choose": "Odabrat ću jedan",
   "nobrowser.ok": "Može ovako",
-
   "install.preparing": "Priprema instalacije…",
   "install.retrying": "Veza je prekinuta, pokušavam ponovno…",
   "install.installing": "Instalacija: {name}…",
   "install.note": "Ovisno o vezi, ovo može potrajati nekoliko minuta.",
-
   "error.network": "Nema internetske veze ili poslužitelj nije dostupan.",
   "error.disk_full": "Nema dovoljno slobodnog prostora na disku.",
   "error.not_authorized": "Nismo dobili dopuštenje za instalaciju.",
   "error.checksum": "Preuzeta datoteka bila je oštećena pa nije instalirana.",
   "error.generic": "Instalacija nije uspjela.",
-
   "done.nothing_selected": "Gotovo! Aplikacije možete instalirati kasnije u Discoveru.",
   "done.all_ok": "Sve je spremno! Vaše aplikacije čekaju u izborniku Start.",
   "done.some_failed": "Skoro gotovo. Neke aplikacije nije bilo moguće instalirati:",
@@ -184,7 +171,6 @@
   "done.start": "Zabavite se!",
   "done.restart": "Ponovno pokreni",
   "done.restart_hint": "Ponovno pokrenite računalo kako bi se sve nove aplikacije ispravno učitale.",
-
   "desktop.generic": "Aplikacije i izgled",
   "desktop.comment": "Instaliranje preglednika, uredskog paketa, medijskog reproduktora i drugog, odabir sheme boja",
   "desktop.keywords": "dobrodošlica;aplikacije;preglednik;ured;tema",

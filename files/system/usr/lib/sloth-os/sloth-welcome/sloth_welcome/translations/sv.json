@@ -1,18 +1,14 @@
 {
   "_language": "Svenska",
-
   "app.title": "Sloth Välkommen",
   "window.title": "Välkommen till Sloth OS",
-
   "welcome.heading": "Välkommen till Sloth OS!",
   "welcome.text": "Några snabba frågor, sedan är datorn klar. Du kan ändra allt senare.",
   "welcome.language": "Språk",
   "welcome.start": "Sätt igång",
-
   "look.colors": "Vilka färger gillar du?",
   "look.colors_hint": "Klicka på en så ser du direkt hur det blir. Du kan ändra det senare i Systeminställningar.",
   "look.taskbar": "Hur ska aktivitetsfältet se ut?",
-
   "scheme.SlothSilverDark": "Silver (mörk)",
   "scheme.SlothSilverLight": "Silver (ljus)",
   "scheme.SlothWhite": "Snövit",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Dimblå",
   "scheme.SlothNight": "Nattblå",
   "scheme.SlothSage": "Salvia",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Startmeny och ikoner till vänster",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Startmeny och ikoner i mitten",
   "layout.mac.name": "Som macOS",
   "layout.mac.description": "Fält upptill, flytande docka nertill",
+  "layout.ubuntu.name": "Ubuntu-likt",
+  "layout.ubuntu.description": "Övre list, docka till vänster",
   "security.heading": "När ska datorn fråga efter ditt lösenord?",
   "security.text": "Vissa inställningar (som att installera program) kräver ditt lösenord. Då kan ingen ändra datorn utan att du vet om det.",
   "security.all": "Vid varje ändring (säkrast)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Ja, dela anonymt",
   "sharing.no": "Nej tack",
   "sharing.later": "Du kan ändra det när som helst senare i Sloth Center. Inställningarna som fungerat på andra datorer får du i vilket fall som helst.",
-
   "windows.heading": "Flytta över dina filer från Windows?",
   "windows.text": "Datorn har också Windows. Vi kan kopiera hit dina filer; Windows rörs inte, vi läser bara från det.",
   "windows.scanning": "Går igenom Windows-enheten…",
@@ -63,17 +59,14 @@
   "windows.none": "Inga Windows-filer att flytta över hittades på datorn.",
   "windows.failed": "Windows-enheten kunde inte öppnas. Starta Windows och stäng av det helt (Stäng av, inte Starta om), och försök sedan igen från Sloth Center (Diskar).",
   "windows.bookmarks_file": "Windows-bokmärken.html",
-
   "nav.back": "Tillbaka",
   "nav.next": "Nästa",
   "nav.skip": "Hoppa över",
   "nav.finish": "Slutför",
   "nav.install": "Installera",
-
   "step.counter": "Steg {n} av {total}",
   "step.selected_one": "1 app vald",
   "step.selected_many": "{count} appar valda",
-
   "category.multiple": "Du kan välja flera, eller ingen.",
   "category.browser.name": "Webbläsare",
   "category.browser.hint": "Med den surfar du på internet. Utan webbläsare kan du inte öppna webbsidor.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Spelbutiker och startprogram. Windows-spel och -program fungerar även utan dem.",
   "category.creative.name": "Skapande",
   "category.creative.hint": "Bildredigering, ritande, videoredigering, inspelning.",
-
   "app.org.mozilla.firefox": "Snabb, integritetsmedveten, öppen källkod",
   "app.com.google.Chrome": "Googles webbläsare, synkas med ditt Google-konto",
   "app.com.brave.Browser": "Med inbyggd annonsblockerare",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Installationsprogrammen för Windows-programmen har laddats ner ({names}). Nu öppnas de en i taget: gå igenom varje installation, precis som i Windows. Omstarten kommer i slutet.",
   "done.windows_continue": "Fortsätt till installationen av Windows-program",
   "done.windows_finished": "Allt klart, även Windows-programmen! Efter en omstart laddas allt som det ska.",
-
   "offline.text": "Ingen internetanslutning. Anslut till ett nätverk för att installera appar.",
   "offline.settings": "Nätverksinställningar",
   "offline.retry": "Försök igen",
-
   "nobrowser.title": "Du har inte valt någon webbläsare",
   "nobrowser.text": "Utan webbläsare kan du inte öppna webbsidor. Är du säker?",
   "nobrowser.choose": "Jag väljer en",
   "nobrowser.ok": "Det är bra så",
-
   "install.preparing": "Förbereder installationen…",
   "install.retrying": "Anslutningen bröts, försöker igen…",
   "install.installing": "Installerar {name}…",
   "install.note": "Beroende på din anslutning kan det ta några minuter.",
-
   "error.network": "Ingen internetanslutning, eller så går servern inte att nå.",
   "error.disk_full": "Det finns inte tillräckligt med ledigt diskutrymme.",
   "error.not_authorized": "Vi fick inte behörighet att installera.",
   "error.checksum": "Den nedladdade filen var skadad och installerades därför inte.",
   "error.generic": "Installationen misslyckades.",
-
   "done.nothing_selected": "Klart! Du kan installera appar senare i Discover.",
   "done.all_ok": "Allt är klart! Dina appar väntar i startmenyn.",
   "done.some_failed": "Nästan klart. Några appar kunde inte installeras:",
@@ -184,7 +171,6 @@
   "done.start": "Ha det så kul!",
   "done.restart": "Starta om",
   "done.restart_hint": "Starta om datorn så att alla nya appar läses in ordentligt.",
-
   "desktop.generic": "Appar och utseende",
   "desktop.comment": "Installera en webbläsare, ett kontorspaket, en mediaspelare med mera, välj ett färgschema",
   "desktop.keywords": "välkommen;appar;webbläsare;kontor;tema",

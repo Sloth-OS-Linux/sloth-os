@@ -425,5 +425,64 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        // --- Which apps can use the camera, the microphone and the location (privacy.py) ---
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            Component.onCompleted: privacy.refresh()
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("App permissions") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Apps installed from Discover or Sloth Welcome that can use these. Many reach the camera only because they can use all devices, for example game controllers.")
+                }
+                RowLayout {
+                    visible: privacy.busy
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.BusyIndicator { running: privacy.busy }
+                    QQC2.Label { text: L.t("Checking…") }
+                }
+                Repeater {
+                    model: privacy.busy ? [] : [
+                        { icon: "camera-web", title: L.t("Camera"), apps: privacy.camera },
+                        { icon: "audio-input-microphone", title: L.t("Microphone"), apps: privacy.microphone },
+                        { icon: "find-location", title: L.t("Location"), apps: privacy.location }
+                    ]
+                    delegate: RowLayout {
+                        id: permRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignTop
+                            source: permRow.modelData.icon
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { text: permRow.modelData.title; font.bold: true }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                opacity: 0.8
+                                text: permRow.modelData.apps.length
+                                      ? permRow.modelData.apps.map(a => a.name).join(", ")
+                                      : L.t("No app can use it.")
+                            }
+                        }
+                    }
+                }
+                QQC2.Button {
+                    text: L.t("Change app permissions")
+                    icon.name: "preferences-security"
+                    onClicked: privacy.openSettings("")
+                }
+            }
+        }
     }
 }

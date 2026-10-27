@@ -1,18 +1,14 @@
 {
   "_language": "Čeština",
-
   "app.title": "Uvítání Sloth",
   "window.title": "Vítejte v Sloth OS",
-
   "welcome.heading": "Vítejte v Sloth OS!",
   "welcome.text": "Pár rychlých otázek a počítač je připravený. Všechno můžete později změnit.",
   "welcome.language": "Jazyk",
   "welcome.start": "Začneme",
-
   "look.colors": "Jaké barvy se vám líbí?",
   "look.colors_hint": "Klikněte na jednu a hned uvidíte, jak vypadá. Později ji můžete změnit v Nastavení systému.",
   "look.taskbar": "Jak má vypadat hlavní panel?",
-
   "scheme.SlothSilverDark": "Stříbrná (tmavá)",
   "scheme.SlothSilverLight": "Stříbrná (světlá)",
   "scheme.SlothWhite": "Sněhově bílá",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Mlhavě modrá",
   "scheme.SlothNight": "Noční modrá",
   "scheme.SlothSage": "Šalvějová",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Nabídka Start a ikony vlevo",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Nabídka Start a ikony uprostřed",
   "layout.mac.name": "Jako macOS",
   "layout.mac.description": "Horní lišta, plovoucí dok dole",
+  "layout.ubuntu.name": "Jako Ubuntu",
+  "layout.ubuntu.description": "Horní lišta, dok vlevo",
   "security.heading": "Kdy se má počítač ptát na heslo?",
   "security.text": "Některá nastavení (například instalace programů) vyžadují vaše heslo. Nikdo tak nemůže počítač změnit bez vašeho vědomí.",
   "security.all": "Při každé změně (nejbezpečnější)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Ano, sdílet anonymně",
   "sharing.no": "Ne, děkuji",
   "sharing.later": "Kdykoli později to můžete změnit v Sloth Center. Nastavení, která fungovala na jiných počítačích, dostanete v každém případě.",
-
   "windows.heading": "Přenést soubory z Windows?",
   "windows.text": "Na tomto počítači jsou také Windows. Můžeme sem zkopírovat vaše soubory; Windows zůstanou netknuté, jen z nich čteme.",
   "windows.scanning": "Prohledávání disku Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Na tomto počítači nebyly nalezeny žádné soubory Windows k přenesení.",
   "windows.failed": "Disk Windows se nepodařilo otevřít. Spusťte Windows a úplně je vypněte (Vypnout, ne Restartovat), pak to zkuste znovu ze Sloth Center (Disky).",
   "windows.bookmarks_file": "Záložky Windows.html",
-
   "nav.back": "Zpět",
   "nav.next": "Další",
   "nav.skip": "Přeskočit",
   "nav.finish": "Dokončit",
   "nav.install": "Nainstalovat",
-
   "step.counter": "Krok {n} z {total}",
   "step.selected_one": "vybrána 1 aplikace",
   "step.selected_many": "vybrané aplikace: {count}",
-
   "category.multiple": "Můžete vybrat několik, nebo žádnou.",
   "category.browser.name": "Webový prohlížeč",
   "category.browser.hint": "S ním chodíte na internet. Bez prohlížeče neotevřete žádné webové stránky.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Obchody a spouštěče her. Hry a programy pro Windows běží i bez nich.",
   "category.creative.name": "Tvorba",
   "category.creative.hint": "Úprava fotek, kreslení, střih videa, nahrávání.",
-
   "app.org.mozilla.firefox": "Rychlý, dbá na soukromí, open source",
   "app.com.google.Chrome": "Prohlížeč od Googlu, synchronizuje se s účtem Google",
   "app.com.brave.Browser": "S vestavěným blokováním reklam",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Instalátory programů pro Windows jsou stažené ({names}). Teď se budou otevírat jeden po druhém: projděte každou instalaci jako ve Windows. Restart přijde na konci.",
   "done.windows_continue": "Pokračovat k instalaci programů pro Windows",
   "done.windows_finished": "Vše hotovo, i programy pro Windows! Po restartu se vše správně načte.",
-
   "offline.text": "Nejste připojeni k internetu. Pro instalaci aplikací se připojte k síti.",
   "offline.settings": "Nastavení sítě",
   "offline.retry": "Zkusit znovu",
-
   "nobrowser.title": "Nevybrali jste prohlížeč",
   "nobrowser.text": "Bez prohlížeče neotevřete webové stránky. Opravdu?",
   "nobrowser.choose": "Nějaký vyberu",
   "nobrowser.ok": "Takhle je to dobré",
-
   "install.preparing": "Příprava instalace…",
   "install.retrying": "Spojení se přerušilo, zkouším znovu…",
   "install.installing": "Instalace: {name}…",
   "install.note": "Podle rychlosti připojení to může trvat několik minut.",
-
   "error.network": "Nejste připojeni k internetu, nebo server není dostupný.",
   "error.disk_full": "Na disku není dost volného místa.",
   "error.not_authorized": "Nedostali jsme oprávnění k instalaci.",
   "error.checksum": "Stažený soubor byl poškozený, proto nebyl nainstalován.",
   "error.generic": "Instalace se nezdařila.",
-
   "done.nothing_selected": "Hotovo! Aplikace můžete nainstalovat později v Discoveru.",
   "done.all_ok": "Vše hotovo! Vaše aplikace čekají v nabídce Start.",
   "done.some_failed": "Skoro hotovo. Některé aplikace se nepodařilo nainstalovat:",
@@ -184,7 +171,6 @@
   "done.start": "Užijte si to!",
   "done.restart": "Restartovat",
   "done.restart_hint": "Restartujte počítač, aby se všechny nové aplikace správně načetly.",
-
   "desktop.generic": "Aplikace a vzhled",
   "desktop.comment": "Instalace prohlížeče, kancelářského balíku, přehrávače médií a dalších aplikací, výběr barevného schématu",
   "desktop.keywords": "vítejte;aplikace;prohlížeč;kancelář;motiv",

@@ -1,18 +1,14 @@
 {
   "_language": "Interlingua",
-
   "app.title": "Benvenita de Sloth",
   "window.title": "Benvenite a Sloth OS",
-
   "welcome.heading": "Benvenite a Sloth OS!",
   "welcome.text": "Alcun questiones rapide e tu computator es preste. Tu pote cambiar toto plus tarde.",
   "welcome.language": "Lingua",
   "welcome.start": "Comenciar",
-
   "look.colors": "Qual colores te place?",
   "look.colors_hint": "Clicca sur un e vide immediatemente como illo pare. Tu pote cambiar lo plus tarde in le Configuration del systema.",
   "look.taskbar": "Como debe parer le barra de cargas?",
-
   "scheme.SlothSilverDark": "Argento (obscur)",
   "scheme.SlothSilverLight": "Argento (clar)",
   "scheme.SlothWhite": "Blanc de nive",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Blau de nebula",
   "scheme.SlothNight": "Blau de nocte",
   "scheme.SlothSage": "Salvia",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menu Initio e icones a sinistra",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menu Initio e icones in le centro",
   "layout.mac.name": "Como macOS",
   "layout.mac.description": "Barra in alto, dock flottante in basso",
+  "layout.ubuntu.name": "Como Ubuntu",
+  "layout.ubuntu.description": "Barra superior, dock a sinistra",
   "security.heading": "Quando debe tu computator demandar tu contrasigno?",
   "security.text": "Alcun parametros (como installar programmas) demanda tu contrasigno. Assi nemo pote cambiar tu computator sin que tu lo sape.",
   "security.all": "A cata cambio (le plus secur)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Si, compartir anonymemente",
   "sharing.no": "No, gratias",
   "sharing.later": "Tu pote cambiar isto plus tarde a omne momento in Sloth Center. Tu recipe in omne caso le configurationes que functionava sur altere computatores.",
-
   "windows.heading": "Transferer tu files ab Windows?",
   "windows.text": "Iste computator ha anque Windows. Nos pote copiar tu files hic; Windows mesme non es tangite, nos solmente lege ab illo.",
   "windows.scanning": "Examinante le disco de Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Nulle files de Windows a transferer esseva trovate sur iste computator.",
   "windows.failed": "Le disco de Windows non poteva esser aperite. Initia Windows e extingue lo completemente (Extinguer, non Reinitiar), postea reproba ab Sloth Center (Discos).",
   "windows.bookmarks_file": "Marcapaginas de Windows.html",
-
   "nav.back": "Retro",
   "nav.next": "Sequente",
   "nav.skip": "Saltar",
   "nav.finish": "Finir",
   "nav.install": "Installar",
-
   "step.counter": "Passo {n} de {total}",
   "step.selected_one": "1 application seligite",
   "step.selected_many": "{count} applicationes seligite",
-
   "category.multiple": "Tu pote seliger plure, o necun.",
   "category.browser.name": "Navigator web",
   "category.browser.hint": "Con illo tu naviga in Internet. Sin navigator tu non pote aperir sitos web.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Botecas e lanceatores de jocos. Jocos e programmas de Windows functiona etiam sin illos.",
   "category.creative.name": "Creation",
   "category.creative.hint": "Modification de photos, designo, montage de video, registration.",
-
   "app.org.mozilla.firefox": "Rapide, respectuose del vita private, de codice aperte",
   "app.com.google.Chrome": "Le navigator de Google, se synchronisa con tu conto Google",
   "app.com.brave.Browser": "Con blocator de publicitate integrate",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Le installatores del programmas Windows ha essite discargate ({names}). Ora illos se aperira un post le altere: completa cata installation, como in Windows. Le reinitio veni al fin.",
   "done.windows_continue": "Continuar al installation del programmas Windows",
   "done.windows_finished": "Toto es preste, anque le programmas Windows! Post un reinitio toto se carga correctemente.",
-
   "offline.text": "Nulle connexion a Internet. Connecte te a un rete pro installar applicationes.",
   "offline.settings": "Configuration del rete",
   "offline.retry": "Reprobar",
-
   "nobrowser.title": "Tu non ha seligite un navigator",
   "nobrowser.text": "Sin navigator tu non pote aperir sitos web. Es tu secur?",
   "nobrowser.choose": "Io seligera un",
   "nobrowser.ok": "Il es ben assi",
-
   "install.preparing": "Preparation del installation…",
   "install.retrying": "Le connexion se interrumpeva, nove tentativa…",
   "install.installing": "Installation de {name}…",
   "install.note": "Secundo tu connexion, isto pote durar alcun minutas.",
-
   "error.network": "Nulle connexion a Internet, o le servitor non es attingibile.",
   "error.disk_full": "Il non ha bastante spatio libere sur le disco.",
   "error.not_authorized": "Nos non obteneva le permission de installar.",
   "error.checksum": "Le file discargate esseva damnificate, dunque illo non esseva installate.",
   "error.generic": "Le installation falleva.",
-
   "done.nothing_selected": "Facite! Tu pote installar applicationes plus tarde in Discover.",
   "done.all_ok": "Toto es preste! Tu applicationes te attende in le menu Initio.",
   "done.some_failed": "Quasi facite. Alcun applicationes non poteva esser installate:",
@@ -184,7 +171,6 @@
   "done.start": "Bon divertimento!",
   "done.restart": "Reinitiar",
   "done.restart_hint": "Reinitia le computator a fin que tote le nove applicationes se carga correctemente.",
-
   "desktop.generic": "Applicationes e apparentia",
   "desktop.comment": "Installar un navigator, un suite de officio, un reproductor de medios e plus, seliger un schema de colores",
   "desktop.keywords": "benvenita;applicationes;navigator;officio;thema",

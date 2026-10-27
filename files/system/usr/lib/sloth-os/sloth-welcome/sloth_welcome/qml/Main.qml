@@ -6,6 +6,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
+import SlothCommon
 import QtQuick.Window
 import org.kde.kirigami as Kirigami
 
@@ -212,7 +213,9 @@ Kirigami.ApplicationWindow {
                     }
                     Flow {
                         Layout.alignment: Qt.AlignHCenter
-                        Layout.preferredWidth: (Kirigami.Units.gridUnit * 12 + Kirigami.Units.largeSpacing) * 3
+                        // four in a row if they fit, otherwise two by two
+                        Layout.preferredWidth: (Kirigami.Units.gridUnit * 12 + Kirigami.Units.largeSpacing)
+                                               * (root.contentWidth >= (Kirigami.Units.gridUnit * 12 + Kirigami.Units.largeSpacing) * 4 ? 4 : 2)
                         spacing: Kirigami.Units.largeSpacing
                         Repeater {
                             model: welcome.layouts
@@ -226,46 +229,12 @@ Kirigami.ApplicationWindow {
                                 Accessible.name: modelData.name
                                 contentItem: ColumnLayout {
                                     spacing: Kirigami.Units.smallSpacing
-                                    // A small drawing of the layout
-                                    Rectangle {
-                                        id: screen
+                                    // A small drawing of the layout (shared with Sloth Center)
+                                    LayoutPreview {
                                         Layout.fillWidth: true
                                         Layout.fillHeight: true
-                                        radius: Kirigami.Units.cornerRadius
-                                        color: Qt.alpha(Kirigami.Theme.textColor, 0.08)
-                                        border.width: layoutCard.current ? 3 : 1
-                                        border.color: layoutCard.current ? Kirigami.Theme.highlightColor : Qt.rgba(0.5, 0.5, 0.5, 0.4)
-                                        readonly property color bar: Qt.alpha(Kirigami.Theme.textColor, 0.35)
-                                        readonly property color dot: Kirigami.Theme.highlightColor
-                                        // top bar (macOS)
-                                        Rectangle {
-                                            visible: layoutCard.modelData.id === "mac"
-                                            anchors { left: parent.left; right: parent.right; top: parent.top; margins: 3 }
-                                            height: 6; radius: 2; color: screen.bar
-                                        }
-                                        // bottom taskbar / dock
-                                        Rectangle {
-                                            id: taskbar
-                                            anchors.bottom: parent.bottom
-                                            anchors.bottomMargin: layoutCard.modelData.id === "mac" ? 8 : 3
-                                            x: layoutCard.modelData.id === "mac" ? parent.width * 0.3 : 3
-                                            width: layoutCard.modelData.id === "mac" ? parent.width * 0.4 : parent.width - 6
-                                            height: 12; radius: layoutCard.modelData.id === "mac" ? 5 : 2
-                                            color: screen.bar
-                                            Row {
-                                                anchors.verticalCenter: parent.verticalCenter
-                                                x: layoutCard.modelData.id === "windows10" ? 4 : (parent.width - width) / 2
-                                                spacing: 3
-                                                Repeater {
-                                                    model: 4
-                                                    Rectangle {
-                                                        required property int index
-                                                        width: 7; height: 7; radius: 2
-                                                        color: index === 0 && layoutCard.modelData.id !== "mac" ? screen.dot : Qt.alpha(Kirigami.Theme.backgroundColor, 0.9)
-                                                    }
-                                                }
-                                            }
-                                        }
+                                        kind: layoutCard.modelData.id
+                                        current: layoutCard.current
                                     }
                                     QQC2.Label {
                                         Layout.fillWidth: true

@@ -1,6 +1,8 @@
 // File backup: hourly backups of your own files, browsing the saved states (backup.py).
+import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Dialogs
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
@@ -69,6 +71,64 @@ Kirigami.ScrollablePage {
                     onToggled: backup.setEnabled(checked)
                 }
             }
+        }
+
+        // The "Previous versions" window without knowing the right-click menu: pick the file, or the folder of a
+        // deleted one
+        RowLayout {
+            visible: backup.snapshots.length > 0
+            spacing: Kirigami.Units.largeSpacing
+            QQC2.Button {
+                icon.name: "document-revert"
+                text: L.t("Restore a file…")
+                onClicked: pickFile.open()
+            }
+            QQC2.Button {
+                icon.name: "edit-undo"
+                text: L.t("Find deleted files…")
+                onClicked: pickFolder.open()
+            }
+            QQC2.Button {
+                icon.name: "checkmark"
+                text: L.t("Check the backup")
+                enabled: backup.verifyState !== "checking"
+                onClicked: backup.verify()
+            }
+        }
+        // The result of "Check the backup": a sample of the latest saved state read back
+        RowLayout {
+            Layout.fillWidth: true
+            visible: backup.verifyText !== ""
+            spacing: Kirigami.Units.largeSpacing
+            QQC2.BusyIndicator {
+                visible: backup.verifyState === "checking"
+                running: visible
+                implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                implicitHeight: Kirigami.Units.iconSizes.smallMedium
+            }
+            Kirigami.Icon {
+                visible: backup.verifyState !== "checking"
+                source: backup.verifyState === "ok" ? "emblem-ok-symbolic" : "emblem-warning"
+                implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                implicitHeight: Kirigami.Units.iconSizes.smallMedium
+            }
+            QQC2.Label {
+                Layout.fillWidth: true
+                wrapMode: Text.Wrap
+                text: backup.verifyText
+            }
+        }
+        FileDialog {
+            id: pickFile
+            title: L.t("Choose the file to restore")
+            currentFolder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+            onAccepted: backup.showVersions(selectedFile.toString())
+        }
+        FolderDialog {
+            id: pickFolder
+            title: L.t("Choose the folder the files were in")
+            currentFolder: StandardPaths.writableLocation(StandardPaths.HomeLocation)
+            onAccepted: backup.showVersions(selectedFolder.toString())
         }
 
         Kirigami.AbstractCard {

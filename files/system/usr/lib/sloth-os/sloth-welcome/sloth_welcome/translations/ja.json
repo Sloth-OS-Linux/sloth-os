@@ -1,18 +1,14 @@
 {
   "_language": "日本語",
-
   "app.title": "Sloth ようこそ",
   "window.title": "Sloth OS へようこそ",
-
   "welcome.heading": "Sloth OS へようこそ！",
   "welcome.text": "いくつかの簡単な質問に答えるだけで準備完了です。設定はすべて後から変更できます。",
   "welcome.language": "言語",
   "welcome.start": "はじめる",
-
   "look.colors": "どの色が好きですか？",
   "look.colors_hint": "クリックするとすぐに見た目が変わります。後からシステム設定で変更できます。",
   "look.taskbar": "タスクバーのスタイルは？",
-
   "scheme.SlothSilverDark": "シルバー（ダーク）",
   "scheme.SlothSilverLight": "シルバー（ライト）",
   "scheme.SlothWhite": "スノーホワイト",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "ミストブルー",
   "scheme.SlothNight": "ナイトブルー",
   "scheme.SlothSage": "セージ",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "スタートメニューとアイコンが左側",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "スタートメニューとアイコンが中央",
   "layout.mac.name": "macOS 風",
   "layout.mac.description": "上部にバー、下部にフローティングドック",
+  "layout.ubuntu.name": "Ubuntu 風",
+  "layout.ubuntu.description": "上部バー、左側にドック",
   "security.heading": "パスワードを求めるタイミング",
   "security.text": "一部の設定(プログラムのインストールなど)ではパスワードが必要です。これで、知らないうちに他の人がコンピューターを変更することはできません。",
   "security.all": "すべての変更で求める(最も安全)",
@@ -40,7 +37,6 @@
   "sharing.yes": "はい、匿名で共有する",
   "sharing.no": "いいえ、共有しない",
   "sharing.later": "あとから Sloth Center でいつでも変更できます。ほかのコンピューターでうまくいった設定は、どちらを選んでも受け取れます。",
-
   "windows.heading": "Windows からファイルを移しますか?",
   "windows.text": "このパソコンには Windows も入っています。ファイルをこちらにコピーできます。Windows には何も書き込まず、読み取るだけです。",
   "windows.scanning": "Windows ドライブを確認しています…",
@@ -63,17 +59,14 @@
   "windows.none": "このパソコンには移せる Windows のファイルが見つかりませんでした。",
   "windows.failed": "Windows ドライブを開けませんでした。Windows を起動して完全にシャットダウンし (再起動ではなくシャットダウン)、Sloth Center (ディスク) からもう一度お試しください。",
   "windows.bookmarks_file": "Windows のブックマーク.html",
-
   "nav.back": "戻る",
   "nav.next": "次へ",
   "nav.skip": "スキップ",
   "nav.finish": "完了",
   "nav.install": "インストール",
-
   "step.counter": "ステップ {n} / {total}",
   "step.selected_one": "1 個のアプリを選択中",
   "step.selected_many": "{count} 個のアプリを選択中",
-
   "category.multiple": "複数選んでも、何も選ばなくてもかまいません。",
   "category.browser.name": "ウェブブラウザー",
   "category.browser.hint": "インターネットを見るためのアプリです。ブラウザーがないとウェブサイトを開けません。",
@@ -87,7 +80,6 @@
   "category.games.hint": "ゲームストアとランチャー。Windows のゲームやプログラムはこれらがなくても動きます。",
   "category.creative.name": "クリエイティブ",
   "category.creative.hint": "写真編集、お絵描き、動画編集、録画。",
-
   "app.org.mozilla.firefox": "高速でプライバシー重視のオープンソース",
   "app.com.google.Chrome": "Google のブラウザー。Google アカウントと同期",
   "app.com.brave.Browser": "広告ブロッカー内蔵",
@@ -150,27 +142,22 @@
   "done.windows_hint": "Windows プログラムのインストーラーをダウンロードしました ({names})。これから 1 つずつ開きます。Windows と同じように各インストールを進めてください。再起動は最後です。",
   "done.windows_continue": "Windows プログラムのインストールへ進む",
   "done.windows_finished": "すべて完了しました。Windows プログラムも!再起動すると、すべて正しく読み込まれます。",
-
   "offline.text": "インターネットに接続されていません。アプリをインストールするにはネットワークに接続してください。",
   "offline.settings": "ネットワーク設定",
   "offline.retry": "再試行",
-
   "nobrowser.title": "ブラウザーが選ばれていません",
   "nobrowser.text": "ブラウザーがないとウェブサイトを開けません。このまま進みますか？",
   "nobrowser.choose": "選び直す",
   "nobrowser.ok": "このままでいい",
-
   "install.preparing": "インストールの準備中…",
   "install.retrying": "接続が切れました。再試行しています…",
   "install.installing": "{name} をインストール中…",
   "install.note": "回線の速さによっては数分かかることがあります。",
-
   "error.network": "インターネットに接続されていないか、サーバーに接続できません。",
   "error.disk_full": "ディスクの空き容量が足りません。",
   "error.not_authorized": "インストールの許可が得られませんでした。",
   "error.checksum": "ダウンロードしたファイルが壊れていたため、インストールしませんでした。",
   "error.generic": "インストールできませんでした。",
-
   "done.nothing_selected": "完了です！アプリは後から Discover でインストールできます。",
   "done.all_ok": "準備完了！選んだアプリはスタートメニューにあります。",
   "done.some_failed": "ほぼ完了です。一部のアプリをインストールできませんでした：",
@@ -184,7 +171,6 @@
   "done.start": "さあ、楽しみましょう！",
   "done.restart": "再起動",
   "done.restart_hint": "新しいアプリをすべて正しく読み込むために、コンピューターを再起動してください。",
-
   "desktop.generic": "アプリと外観",
   "desktop.comment": "ブラウザー、オフィスソフト、メディアプレーヤーなどをインストールし、配色を選びます",
   "desktop.keywords": "ようこそ;アプリ;ブラウザー;オフィス;テーマ",

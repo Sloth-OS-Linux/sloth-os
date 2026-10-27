@@ -34,10 +34,12 @@ def main():
     app.setDesktopFileName("org.slothos.welcome")
     app.setWindowIcon(QIcon.fromTheme("sloth-os"))
 
+    from sloth_common import appearance
     from .welcome import WelcomeController, apply_language
     apply_language()
 
     engine = QQmlApplicationEngine()
+    engine.addImportPath(appearance.QML_IMPORT_PATH)  # import SlothCommon (the layout drawings)
     welcome = WelcomeController(windows_only=args.windows_import)
     # if the window is closed, the Windows partition must not stay mounted either
     app.aboutToQuit.connect(welcome.release_windows)

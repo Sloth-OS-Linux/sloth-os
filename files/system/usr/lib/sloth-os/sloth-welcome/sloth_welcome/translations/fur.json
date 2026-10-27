@@ -1,18 +1,14 @@
 {
   "_language": "Furlan",
-
   "app.title": "Benvignût di Sloth",
   "window.title": "Benvignûts in Sloth OS",
-
   "welcome.heading": "Benvignûts in Sloth OS!",
   "welcome.text": "Cualchi domande svelte e il to computer al è pront. Tu podarâs cambiâ dut plui indenant.",
   "welcome.language": "Lenghe",
   "welcome.start": "Scomencìn",
-
   "look.colors": "Ce colôrs ti plasino?",
   "look.colors_hint": "Clic suntun e tu viodis subit cemût che al è. Tu podarâs cambiâlu plui indenant tes Impostazions di sisteme.",
   "look.taskbar": "Cemût âe di jessi la sbare des ativitâts?",
-
   "scheme.SlothSilverDark": "Arint (scûr)",
   "scheme.SlothSilverLight": "Arint (clâr)",
   "scheme.SlothWhite": "Blanc nêf",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Blu fumate",
   "scheme.SlothNight": "Blu gnot",
   "scheme.SlothSage": "Salvie",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menù Start e iconis a çampe",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menù Start e iconis tal mieç",
   "layout.mac.name": "Come macOS",
   "layout.mac.description": "Sbare in alt, dock che al svole in bas",
+  "layout.ubuntu.name": "Come Ubuntu",
+  "layout.ubuntu.description": "Sbare in alt, dock a çampe",
   "security.heading": "Cuant il computer al à di domandâti la password?",
   "security.text": "Cualchi impostazion (tant che instalâ programs) e domande la tô password. Cussì nissun nol pues cambiâ il to computer cence che tu lu sepis.",
   "security.all": "Par ogni cambiament (il plui sigûr)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Sì, condivît in mût anonim",
   "sharing.no": "No, graciis",
   "sharing.later": "Tu puedis cambiâ chest plui indenant cuant che tu vûs in Sloth Center. Lis impostazions che a àn funzionât su altris computers tu lis ricevis distès.",
-
   "windows.heading": "Puartâ i tiei files di Windows?",
   "windows.text": "Su chest computer al è ancje Windows. O podin copiâ achì i tiei files; Windows nol ven tocjât, o lein dome.",
   "windows.scanning": "Si cjale la unitât di Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Su chest computer no son stâts cjatâts files di Windows di puartâ.",
   "windows.failed": "No si è rivâts a vierzi la unitât di Windows. Invie Windows e distudilu dal dut (Distude, no Torne invie), po torne prove di Sloth Center (Discs).",
   "windows.bookmarks_file": "Segnelibris di Windows.html",
-
   "nav.back": "Indaûr",
   "nav.next": "Indenant",
   "nav.skip": "Salte",
   "nav.finish": "Finìs",
   "nav.install": "Instale",
-
   "step.counter": "Pas {n} di {total}",
   "step.selected_one": "1 aplicazion selezionade",
   "step.selected_many": "{count} aplicazions selezionadis",
-
   "category.multiple": "Tu puedis sielzi plui di une, o nissune.",
   "category.browser.name": "Navigadôr web",
   "category.browser.hint": "Cun chest tu navighis su internet. Cence navigadôr no tu puedis vierzi sîts web.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Buteghis e inviadôrs di zûcs. I zûcs e i programs di Windows a van ancje cence.",
   "category.creative.name": "Creativitât",
   "category.creative.hint": "Modifiche di fotos, dissen, montaç video, regjistrazion.",
-
   "app.org.mozilla.firefox": "Svelt, atent ae riservatece, a codiç viert",
   "app.com.google.Chrome": "Il navigadôr di Google, si sincronize cul to account Google",
   "app.com.brave.Browser": "Cun bloc de publicitât integrât",
@@ -150,27 +142,22 @@
   "done.windows_hint": "I instaladôrs dai programs Windows a son stâts discjamâts ({names}). Cumò si vierzaran un ae volte: complete ogni instalazion, come in Windows. Il gnûf inviament al ven ae fin.",
   "done.windows_continue": "Va indenant cu la instalazion dai programs Windows",
   "done.windows_finished": "Dut fat, ancje i programs Windows! Dopo un gnûf inviament dut si cjariarà ben.",
-
   "offline.text": "Nissune conession a internet. Conetiti a une rêt par instalâ aplicazions.",
   "offline.settings": "Impostazions de rêt",
   "offline.retry": "Torne prove",
-
   "nobrowser.title": "No tu âs sielt un navigadôr",
   "nobrowser.text": "Cence navigadôr no tu podarâs vierzi sîts web. Sêstu sigûr?",
   "nobrowser.choose": "Int sielç un",
   "nobrowser.ok": "Al va ben cussì",
-
   "install.preparing": "Preparazion de instalazion…",
   "install.retrying": "La conession si è interote, o torni a provâ…",
   "install.installing": "Instalazion di {name}…",
   "install.note": "In base ae conession, al podarès volê cualchi minût.",
-
   "error.network": "Nissune conession a internet, o il servidôr nol è rivabil.",
   "error.disk_full": "No je vonde spazi libar sul disc.",
   "error.not_authorized": "No vin vût il permès di instalâ.",
   "error.checksum": "Il file discjariât al jere ruvinât, duncje nol è stât instalât.",
   "error.generic": "Instalazion falide.",
-
   "done.nothing_selected": "Fat! Tu podarâs instalâ aplicazions plui indenant in Discover.",
   "done.all_ok": "Dut pront! Lis tôs aplicazions ti spietin tal menù Start.",
   "done.some_failed": "Cuasi fat. Cualchi aplicazion no je stade instalade:",
@@ -184,7 +171,6 @@
   "done.start": "Divertissiti!",
   "done.restart": "Torne invie",
   "done.restart_hint": "Torne invie il computer par che dutis lis gnovis aplicazions a vegnin cjariadis ben.",
-
   "desktop.generic": "Aplicazions e aspiet",
   "desktop.comment": "Instalâ un navigadôr, une suite di ufici, un riprodutôr multimediâl e altri, sielzi un scheme di colôrs",
   "desktop.keywords": "benvignût;aplicazions;navigadôr;ufici;teme",
