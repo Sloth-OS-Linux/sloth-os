@@ -195,6 +195,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   default, they are the user's own files), and the system's temporary files (rpm-ostree, administrator approval,
   size only known afterwards). Only the ticked ones are deleted; the result is the space really freed.
   `sloth_center/cleanup.py`, tests: `tools/tests/test_cleanup.py`. Check on a real machine)
+
+#### Sloth Center, setup, and support
 - [x] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
 - [x] Offer a short first-run guide to Updates, Programs, Games, backups, Feedback, and Disks; users can skip it or
   reopen it from the sidebar.
