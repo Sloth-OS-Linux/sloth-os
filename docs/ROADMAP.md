@@ -140,6 +140,16 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   processes too: check those on a real machine as well
 - [x] **Small** — The same when reinstalling or updating into the existing folder: the program's .exe was already
   there before the install, so it was not "new". Done 2026-10-27 with the change time (above).
+- [ ] **Small** — Recognize WinUI 3 / .NET MAUI programs and say so in plain language instead of trying every
+  setting (2026-10-27, a real .NET 10 MAUI app: `Microsoft.WinUI.dll`, `Microsoft.WindowsAppRuntime.dll`,
+  `WebView2Loader.dll` in its single-file bundle). Wine cannot run WinUI 3 (DirectComposition, Windows App Runtime),
+  so no Proton setting helps. Text like the anti-cheat one (`anticheat.maybe_text`): "This program is built on
+  Windows' newest interface, which does not run on Linux yet." The bundle manifest of a single-file .NET app lists
+  its files uncompressed, so the names can be read without running it.
+- [ ] **Medium** — Live mode: Windows programs should start in the live system too (2026-10-27, real machine: they
+  did not). Waiting for the error text and the log. Planned anyway: in the live system run the bundled Proton and
+  runtime from `/usr/share/sloth-os/windows-runtime` (writable there) instead of copying ~2 GB into a home folder
+  that lives in RAM or on the USB stick.
 #### Installation and storage
 - [x] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
