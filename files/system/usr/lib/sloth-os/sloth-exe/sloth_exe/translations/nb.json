@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} bruker juksebeskyttelsen {system}, som ikke lar spillet kjøre på Linux. Det skyldes ikke datamaskinen din, og vi kan ikke omgå det. Dessverre kan ikke dette spillet spilles her.",
   "anticheat.maybe": "{game} bruker juksebeskyttelsen {system}. På Linux virker den bare hvis spillets utviklere har tillatt det. Hvis spillet ikke starter eller kaster deg ut, er det sannsynligvis derfor. Sjekk om spillet finnes på Steam.",
+  "winui.unsupported": "{name} er bygget på Windows' nyeste grensesnitt (WinUI 3), som ennå ikke kan kjøre på Linux. Det er ikke datamaskinens feil, og ingen innstilling kan fikse det. Hvis programmet finnes i en Linux- eller nettversjon, bruk den i stedet.",
 
   "misc.program": "Program",
   "misc.other_programs": "Andre programmer",

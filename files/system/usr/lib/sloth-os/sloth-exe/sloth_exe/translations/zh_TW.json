@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} 使用了 {system} 反作弊，它不允許遊戲在 Linux 上執行。這不是你電腦的問題，我們也無法繞過。很遺憾，這款遊戲無法在這裡玩。",
   "anticheat.maybe": "{game} 使用了 {system} 反作弊。只有遊戲開發者允許時，它才能在 Linux 上執行。如果遊戲無法啟動或把你踢出，很可能就是這個原因。可以看看這款遊戲有沒有 Steam 版本。",
+  "winui.unsupported": "{name} 採用 Windows 最新的介面（WinUI 3）建構，目前還無法在 Linux 上執行。這不是你的電腦的問題，任何設定都無法解決。如果該程式有 Linux 版或網頁版，請改用該版本。",
 
   "misc.program": "程式",
   "misc.other_programs": "其他程式",

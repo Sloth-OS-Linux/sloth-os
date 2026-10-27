@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} koristi zaštitu od varanja {system}, koja ne dopušta igri da radi na Linuxu. Nije do vašeg računala i ne možemo to zaobići. Nažalost, ovu igru ovdje nije moguće igrati.",
   "anticheat.maybe": "{game} koristi zaštitu od varanja {system}. Na Linuxu radi samo ako su to dopustili autori igre. Ako se igra ne pokreće ili vas izbacuje, vjerojatno je to razlog. Provjerite postoji li verzija igre na Steamu.",
+  "winui.unsupported": "{name} izrađen je na najnovijem sučelju sustava Windows (WinUI 3), koje još ne može raditi na Linuxu. Nije do vašeg računala i nijedna postavka to ne može popraviti. Ako program ima verziju za Linux ili web, koristite nju.",
 
   "misc.program": "Program",
   "misc.other_programs": "Ostali programi",

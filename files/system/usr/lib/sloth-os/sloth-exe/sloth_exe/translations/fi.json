@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} käyttää huijauksenestojärjestelmää {system}, joka ei salli pelin toimia Linuxissa. Vika ei ole tietokoneessasi, emmekä voi kiertää sitä. Valitettavasti tätä peliä ei voi pelata täällä.",
   "anticheat.maybe": "{game} käyttää huijauksenestojärjestelmää {system}. Linuxissa se toimii vain, jos pelin tekijät ovat sallineet sen. Jos peli ei käynnisty tai heittää sinut ulos, syy on todennäköisesti tämä. Kannattaa tarkistaa, onko pelistä Steam-versio.",
+  "winui.unsupported": "{name} on tehty Windowsin uusimmalla käyttöliittymällä (WinUI 3), joka ei vielä toimi Linuxissa. Vika ei ole tietokoneessasi, eikä mikään asetus voi korjata sitä. Jos ohjelmasta on Linux- tai verkkoversio, käytä sitä.",
 
   "misc.program": "Ohjelma",
   "misc.other_programs": "Muut ohjelmat",

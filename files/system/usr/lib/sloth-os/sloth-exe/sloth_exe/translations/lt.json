@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} naudoja apsaugą nuo sukčiavimo {system}, kuri neleidžia žaidimui veikti Linux sistemoje. Tai ne jūsų kompiuterio kaltė, ir mes negalime to apeiti. Deja, šio žaidimo čia žaisti negalima.",
   "anticheat.maybe": "{game} naudoja apsaugą nuo sukčiavimo {system}. Linux sistemoje ji veikia tik tada, jei tai leido žaidimo kūrėjai. Jei žaidimas nepasileidžia arba jus išmeta, greičiausiai dėl to. Verta patikrinti, ar žaidimas turi Steam versiją.",
+  "winui.unsupported": "{name} sukurta naudojant naujausią Windows sąsają (WinUI 3), kuri kol kas neveikia Linux sistemoje. Tai ne jūsų kompiuterio kaltė, ir jokie nustatymai to nepataisys. Jei programa turi Linux ar žiniatinklio versiją, naudokite ją.",
 
   "misc.program": "Programa",
   "misc.other_programs": "Kitos programos",

@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} gebruikt de anti-cheat {system}, die het spel op Linux niet laat draaien. Het ligt niet aan je computer en we kunnen het niet omzeilen. Helaas kun je dit spel hier niet spelen.",
   "anticheat.maybe": "{game} gebruikt de anti-cheat {system}. Op Linux werkt die alleen als de makers van het spel het hebben toegestaan. Als het spel niet start of je eruit gooit, ligt het waarschijnlijk hieraan. Kijk of er een Steam-versie van het spel is.",
+  "winui.unsupported": "{name} is gebouwd op de nieuwste interface van Windows (WinUI 3), die nog niet op Linux kan draaien. Het ligt niet aan je computer en geen enkele instelling kan het oplossen. Als er een Linux- of webversie van het programma is, gebruik die dan.",
 
   "misc.program": "Programma",
   "misc.other_programs": "Andere programma's",

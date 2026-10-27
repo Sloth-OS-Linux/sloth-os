@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} isseqdac asemmesten mgal tixxidin {system}, ur yeǧǧi ara urar ad iteddu deg Linux. Mačči d aselkim-ik i d sebba, ur nezmir ara ad t-nezgel. Nesḥassef, urar-a ur yettwaurar ara da.",
   "anticheat.maybe": "{game} isseqdac asemmesten mgal tixxidin {system}. Deg Linux iteddu kan ma sirgen-t yimesnulfuyen n wurar. Ma yella urar ur yekker ara neɣ ak-d-yessufeɣ, ahat d ayagi i d sebba. Wali ma yella lqem n Steam i wurar-a.",
+  "winui.unsupported": "{name} yettwabna ɣef ugrudem amaynut n Windows (WinUI 3), ur nezmir ara ad iteddu ɣef Linux akka tura. Mačči d tuccḍa n uselkim-ik, ulac aɣewwar ara t-yesseɣtin. Ma yella lqem n Linux neɣ n web n wahil-a, seqdec-it deg wadeg-is.",
 
   "misc.program": "Ahil",
   "misc.other_programs": "Ihilen nniḍen",

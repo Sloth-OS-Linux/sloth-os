@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} bruger anti-snyd-systemet {system}, som ikke lader spillet køre på Linux. Det skyldes ikke din computer, og vi kan ikke komme uden om det. Desværre kan dette spil ikke spilles her.",
   "anticheat.maybe": "{game} bruger anti-snyd-systemet {system}. På Linux virker det kun, hvis spillets udviklere har tilladt det. Hvis spillet ikke starter eller smider dig ud, er det sandsynligvis derfor. Tjek, om spillet findes på Steam.",
+  "winui.unsupported": "{name} er bygget på Windows' nyeste brugerflade (WinUI 3), som endnu ikke kan køre på Linux. Det er ikke din computers skyld, og ingen indstilling kan rette det. Hvis programmet findes i en Linux- eller webversion, så brug den i stedet.",
 
   "misc.program": "Program",
   "misc.other_programs": "Andre programmer",

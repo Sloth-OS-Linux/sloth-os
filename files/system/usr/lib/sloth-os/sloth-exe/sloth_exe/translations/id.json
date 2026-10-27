@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} memakai anti-cheat {system}, yang tidak mengizinkan game berjalan di Linux. Ini bukan karena komputer Anda, dan kami tidak bisa mengakalinya. Sayangnya game ini tidak bisa dimainkan di sini.",
   "anticheat.maybe": "{game} memakai anti-cheat {system}. Di Linux, ini hanya berfungsi jika pembuat game mengizinkannya. Jika game tidak mau berjalan atau mengeluarkan Anda, kemungkinan inilah penyebabnya. Coba cek apakah game ini punya versi Steam.",
+  "winui.unsupported": "{name} dibuat dengan antarmuka terbaru Windows (WinUI 3), yang belum bisa berjalan di Linux. Ini bukan karena komputer Anda, dan tidak ada pengaturan yang bisa memperbaikinya. Jika program ini punya versi Linux atau versi web, gunakan itu saja.",
 
   "misc.program": "Program",
   "misc.other_programs": "Program lainnya",

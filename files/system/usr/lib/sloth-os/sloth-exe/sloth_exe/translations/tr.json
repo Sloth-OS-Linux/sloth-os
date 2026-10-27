@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game}, oyunun Linux'ta çalışmasına izin vermeyen {system} hile korumasını kullanıyor. Bu sizin bilgisayarınızdan kaynaklanmıyor ve bunu aşamayız. Ne yazık ki bu oyun burada oynanamaz.",
   "anticheat.maybe": "{game}, {system} hile korumasını kullanıyor. Bu koruma Linux'ta yalnızca oyunun yapımcıları izin verdiyse çalışır. Oyun açılmıyor ya da sizi atıyorsa sebebi büyük olasılıkla budur. Oyunun Steam sürümü olup olmadığına bakmaya değer.",
+  "winui.unsupported": "{name}, Windows'un en yeni arayüzü (WinUI 3) üzerine kurulu ve bu arayüz henüz Linux'ta çalışamıyor. Bu sizin bilgisayarınızın suçu değil ve hiçbir ayar bunu düzeltemez. Programın Linux veya web sürümü varsa onu kullanın.",
 
   "misc.program": "Program",
   "misc.other_programs": "Diğer programlar",

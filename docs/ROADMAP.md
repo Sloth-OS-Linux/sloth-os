@@ -140,7 +140,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   processes too: check those on a real machine as well
 - [x] **Small** — The same when reinstalling or updating into the existing folder: the program's .exe was already
   there before the install, so it was not "new". Done 2026-10-27 with the change time (above).
-- [ ] **Small** — Recognize WinUI 3 / .NET MAUI programs and say so in plain language instead of trying every
+- [x] Done 2026-10-27: `sloth_exe/winui.py` (the marker files next to the program, or named in the last 1 MB of a
+  single-file bundle), checked before the anti-cheat check when a program starts; the text in all 50 languages.
+  Tests: `tools/tests/test_winui.py` (with .exe paths as arguments it tells what each one is; the real MAUI app:
+  WinUI 3, its Avalonia rewrite: not). Check on a real machine.
+  **Small** — Recognize WinUI 3 / .NET MAUI programs and say so in plain language instead of trying every
   setting (2026-10-27, a real .NET 10 MAUI app: `Microsoft.WinUI.dll`, `Microsoft.WindowsAppRuntime.dll`,
   `WebView2Loader.dll` in its single-file bundle). Wine cannot run WinUI 3 (DirectComposition, Windows App Runtime),
   so no Proton setting helps. Text like the anti-cheat one (`anticheat.maybe_text`): "This program is built on

@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} kasutab petmisvastast süsteemi {system}, mis ei lase mängul Linuxis töötada. See ei sõltu sinu arvutist ja me ei saa sellest mööda. Kahjuks ei saa seda mängu siin mängida.",
   "anticheat.maybe": "{game} kasutab petmisvastast süsteemi {system}. Linuxis töötab see ainult siis, kui mängu tegijad on seda lubanud. Kui mäng ei käivitu või viskab sind välja, on põhjus tõenäoliselt selles. Tasub vaadata, kas mängul on Steami versioon.",
+  "winui.unsupported": "{name} on ehitatud Windowsi uusimale liidesele (WinUI 3), mis ei tööta veel Linuxis. See pole sinu arvuti süü ja ükski seadistus ei saa seda parandada. Kui programmil on Linuxi- või veebiversioon, kasuta pigem seda.",
 
   "misc.program": "Programm",
   "misc.other_programs": "Muud programmid",

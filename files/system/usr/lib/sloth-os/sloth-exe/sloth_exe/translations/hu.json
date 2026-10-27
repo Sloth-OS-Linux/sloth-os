@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} a(z) {system} csalásvédelmet használja, ami Linuxon nem engedi futni a játékot. Ez nem a gépeden múlik, és mi sem tudjuk megkerülni. Sajnos ezt a játékot itt nem lehet játszani.",
   "anticheat.maybe": "{game} a(z) {system} csalásvédelmet használja. Ez Linuxon csak akkor működik, ha a játék készítői engedélyezték. Ha a játék nem indul vagy kidob, valószínűleg ez az oka. Érdemes megnézni, van-e a játéknak Steames változata.",
+  "winui.unsupported": "A(z) {name} a Windows legújabb felületére (WinUI 3) épül, ami Linuxon még nem tud futni. Ez nem a gépeden múlik, és semmilyen beállítás nem segít rajta. Ha a programnak van linuxos vagy webes változata, inkább azt használd.",
 
   "misc.program": "Program",
   "misc.other_programs": "Egyéb programok",
