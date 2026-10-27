@@ -74,6 +74,8 @@ class InstallerController(QObject):
         self._disks = []
         self._disk = ""
         self._confirmed = False
+        # What to know about the computer before installing (first page): legacy BIOS mode blocks
+        self._check = system.machine_check()
         self._full_name = ""
         self._username = ""
         self._username_edited = False   # if the user typed it, a change of the name does not overwrite it
@@ -109,6 +111,8 @@ class InstallerController(QObject):
     # --- Properties -------------------------------------------------------------
 
     page = Property(str, lambda self: self._page, notify=changed)
+    machineCheck = Property("QVariantList", lambda self: list(self._check), constant=True)
+    canInstall = Property(bool, lambda self: not any(c["level"] == "block" for c in self._check), constant=True)
     languages = Property("QVariantList", lambda self: self._languages, constant=True)
     keyboards = Property("QVariantList", lambda self: self._keyboards, constant=True)
     timezones = Property("QVariantList", lambda self: self._timezones, constant=True)
@@ -414,6 +418,8 @@ class InstallerController(QObject):
     def next(self):
         order = NAV_PAGES
         log.info("next: %s (disk: %s)", self._page, self._disk or "-")
+        if self._page == "welcome" and not self.canInstall:
+            return
         if self._page in order[:-1]:
             self._page = order[order.index(self._page) + 1]
             if self._page == "disk":

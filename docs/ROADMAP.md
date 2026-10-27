@@ -174,8 +174,15 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [x] **Medium** — The .exe handler asks which drive a new Windows program goes to when there is more than one
   (with the free space, and "Always install here"); internal drives under /var/mnt or /run/media with a Linux file
   system are offered by themselves, USB sticks are not (2026-10-26; check on a real machine)
-- [ ] **Medium** — Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
-  encryption or hibernation. Explain blockers and safe next steps in plain language.
+- [x] **Medium** — Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
+  encryption or hibernation. Explain blockers and safe next steps in plain language. (2026-10-27: the installer's
+  first page checks the computer (`sloth_installer.system.machine_check`): legacy BIOS mode blocks "Install" and
+  says how to start in UEFI mode (the whole-disk install did not check this before; the helper refuses it too,
+  before any disk is touched, `error.not_uefi`); less than 4 GB of memory and a laptop on battery are warnings;
+  Secure Boot with an NVIDIA card is a note (Sloth Center asks for the key once after installing). Next to Windows,
+  the disk survey already explained BitLocker, hibernation / fast startup, a disk to be checked, MBR, legacy mode and
+  too little space; the disk list marks disks that are too small. Texts in all 50 languages. Tests:
+  `tools/tests/test_machine_check.py`. Check on a real machine, also one started in legacy mode)
 - [x] Show the target disk and planned erase/resize/create/format/mount operations on the installer's confirmation page;
   the existing confirmation checkbox is required before applying changes. The temporary install partition is identified
   as mounted only during setup and deleted at the end.

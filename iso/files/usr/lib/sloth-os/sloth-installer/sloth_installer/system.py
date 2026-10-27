@@ -262,3 +262,68 @@ def disks():
             "small": size < RECOMMENDED_BYTES,
         })
     return out
+
+
+# --- Checking the computer before anything is done (the first page) ----------------------------------------------
+
+# The checks' ids; the texts are "check.<id>" in the translations
+CHECKS = ("bios", "memory", "battery", "secureboot_nvidia")
+SECURE_BOOT_VAR = "efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-e39e1b2c9b4b"
+MIN_MEMORY_BYTES = 3584 * 1024**2   # "4 GB": a 4 GB computer reports a little less, some is kept by the hardware
+
+
+def _read(path, binary=False):
+    try:
+        return Path(path).read_bytes() if binary else Path(path).read_text(errors="replace").strip()
+    except OSError:
+        return b"" if binary else ""
+
+
+def secure_boot_on(firmware="/sys/firmware/efi"):
+    """The SecureBoot variable: 4 bytes of attributes, then 1 = on."""
+    data = _read(Path(firmware) / SECURE_BOOT_VAR, binary=True)
+    return len(data) >= 5 and data[4] == 1
+
+
+def has_nvidia(pci="/sys/bus/pci/devices"):
+    """An NVIDIA graphics card (vendor 0x10de, display controller class 0x03…)."""
+    try:
+        devices = list(Path(pci).iterdir())
+    except OSError:
+        return False
+    return any(_read(d / "vendor") == "0x10de" and _read(d / "class").startswith("0x03") for d in devices)
+
+
+def on_battery(power="/sys/class/power_supply"):
+    """A battery and no charger plugged in."""
+    try:
+        supplies = list(Path(power).iterdir())
+    except OSError:
+        return False
+    battery = any(_read(s / "type") == "Battery" and _read(s / "scope") != "Device" for s in supplies)
+    plugged = any(_read(s / "type") in ("Mains", "USB", "USB_C", "USB_PD") and _read(s / "online") == "1"
+                  for s in supplies)
+    return battery and not plugged
+
+
+def memory_bytes(meminfo="/proc/meminfo"):
+    m = re.search(r"^MemTotal:\s+(\d+)\s+kB", _read(meminfo), re.M)
+    return int(m.group(1)) * 1024 if m else 0
+
+
+def machine_check(firmware="/sys/firmware/efi", pci="/sys/bus/pci/devices", power="/sys/class/power_supply",
+                  meminfo="/proc/meminfo"):
+    """What to know about this computer before installing: [{"id", "level"}], level "block" (cannot install),
+    "warn" or "info". The texts are "check.<id>" in the translations. Nothing here touches a disk."""
+    out = []
+    if not Path(firmware).is_dir():
+        # Sloth OS boots with UEFI only; in legacy (BIOS) mode the installed system would not start
+        out.append({"id": "bios", "level": "block"})
+    memory = memory_bytes(meminfo)
+    if memory and memory < MIN_MEMORY_BYTES:
+        out.append({"id": "memory", "level": "warn"})
+    if on_battery(power):
+        out.append({"id": "battery", "level": "warn"})
+    if secure_boot_on(firmware) and has_nvidia(pci):
+        out.append({"id": "secureboot_nvidia", "level": "info"})
+    return out

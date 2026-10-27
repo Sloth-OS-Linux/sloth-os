@@ -1107,6 +1107,10 @@ def main():
         fail("error.not_authorized")
     if not whole_disk(args.disk):
         fail("error.bad_disk", f"disk cannot be installed to: {args.disk}")
+    # Sloth OS starts with UEFI only: in legacy (BIOS) mode the installed system would not start. The first page
+    # says so too (sloth_installer.system.machine_check); this is the last word, before any disk is touched.
+    if not Path("/sys/firmware/efi").is_dir():
+        fail("error.not_uefi", "started in legacy (BIOS) mode")
     if args.beside_windows and not 40 <= args.size_gib <= 100000:
         fail("error.bad_input", f"bad size: {args.size_gib} GiB")
     if not re.fullmatch(r"[a-z]{2,3}(_[A-Z]{2})?\.UTF-8", args.locale):
