@@ -150,7 +150,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   so no Proton setting helps. Text like the anti-cheat one (`anticheat.maybe_text`): "This program is built on
   Windows' newest interface, which does not run on Linux yet." The bundle manifest of a single-file .NET app lists
   its files uncompressed, so the names can be read without running it.
-- [ ] **Small** — An `.exe` on a USB stick or other FAT/exFAT/NTFS drive (every file looks executable there) must open
+- [ ] (Set aside 2026-10-27, not important for now) **Small** — An `.exe` on a USB stick or other FAT/exFAT/NTFS drive (every file looks executable there) must open
   with the `.exe` handler on a double-click: Dolphin offered to run it directly, and that failed with "failed to
   launch, status code: 203" (2026-10-27, real machine). Copied into Downloads it started fine.
 - [x] Live mode: Windows programs start in the live system too (2026-10-27, real machine: an Avalonia .NET program
@@ -158,7 +158,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Small** — Live mode, optional: run the bundled Proton and runtime from `/usr/share/sloth-os/windows-runtime`
   (writable there) instead of copying ~2 GB into a home folder that lives in RAM or on the USB stick: a faster
   first start and less memory
-- [ ] **Small** — Ejecting a USB stick took about a minute ("closing the process") after `.exe` files were started
+- [ ] (Set aside 2026-10-27, not important for now) **Small** — Ejecting a USB stick took about a minute ("closing the process") after `.exe` files were started
   from it (2026-10-27). Suspect: the runner uses the program's folder as the working directory, so Wine's
   background processes (wineserver) hold the stick for a while. Waiting for `fuser -vm` output; fix idea: a working
   directory outside removable drives, and stop the environment's background processes when the program closes
