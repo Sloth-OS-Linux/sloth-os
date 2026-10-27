@@ -784,5 +784,8 @@
   "Save settings to a file…": "Зберегти налаштування у файл…",
   "Load settings from a file…": "Завантажити налаштування з файлу…",
   "Save Sloth OS settings": "Зберегти налаштування Sloth OS",
-  "Load Sloth OS settings": "Завантажити налаштування Sloth OS"
+  "Load Sloth OS settings": "Завантажити налаштування Sloth OS",
+  "Couldn't open Sloth Welcome.": "Не вдалося відкрити Sloth Welcome.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "У файлі перелічено програми з іншого комп'ютера: {n}. Sloth Welcome може встановити ті, які знає; з будь-якої можна зняти позначку.",
+  "Install them with Sloth Welcome": "Встановити їх через Sloth Welcome"
 }

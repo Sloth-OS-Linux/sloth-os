@@ -784,5 +784,8 @@
   "Save settings to a file…": "Spara inställningar i en fil …",
   "Load settings from a file…": "Läs in inställningar från en fil …",
   "Save Sloth OS settings": "Spara Sloth OS-inställningar",
-  "Load Sloth OS settings": "Läs in Sloth OS-inställningar"
+  "Load Sloth OS settings": "Läs in Sloth OS-inställningar",
+  "Couldn't open Sloth Welcome.": "Det gick inte att öppna Sloth Welcome.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Filen listar {n} appar från den andra datorn. Sloth Welcome kan installera dem den känner till; du kan fortfarande avmarkera vilken som helst.",
+  "Install them with Sloth Welcome": "Installera dem med Sloth Welcome"
 }

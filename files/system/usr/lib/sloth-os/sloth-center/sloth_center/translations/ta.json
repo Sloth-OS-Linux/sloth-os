@@ -784,5 +784,8 @@
   "Save settings to a file…": "அமைப்புகளைக் கோப்பில் சேமி…",
   "Load settings from a file…": "கோப்பிலிருந்து அமைப்புகளை ஏற்று…",
   "Save Sloth OS settings": "Sloth OS அமைப்புகளைச் சேமி",
-  "Load Sloth OS settings": "Sloth OS அமைப்புகளை ஏற்று"
+  "Load Sloth OS settings": "Sloth OS அமைப்புகளை ஏற்று",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome-ஐத் திறக்க முடியவில்லை.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "இந்தக் கோப்பில் மற்ற கணினியின் {n} செயலிகள் உள்ளன. Sloth Welcome தனக்குத் தெரிந்தவற்றை நிறுவும்; எதையும் தேர்வு நீக்கலாம்.",
+  "Install them with Sloth Welcome": "Sloth Welcome மூலம் நிறுவு"
 }

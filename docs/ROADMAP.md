@@ -276,8 +276,12 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   Loading writes only these files back (whatever the file says), keeps a program location only if that drive exists
   here, and sets the look again. `sloth_center/settings_backup.py`, tests: `tools/tests/test_settings_backup.py`.
   Check on a real machine)
-- [ ] **Medium** — Reinstall the apps too when loading the settings: save which catalog apps were installed and offer
-  them in Sloth Welcome, ticked (`welcome-progress.json` already keeps a selection).
+- [x] **Medium** — Reinstall the apps too when loading the settings (2026-10-27): the settings file keeps the installed
+  apps (their Flatpak ids); after loading, "Install them with Sloth Welcome" opens the wizard at the first app step
+  with them ticked (`welcome-progress.json`, added to a selection already there; the passwords and sharing steps
+  are not shown again). The wizard keeps only the apps its catalog knows and does not install again what is there.
+  Windows catalog apps (e.g. Battle.net) are not in it yet. Tests: `tools/tests/test_settings_backup.py`. Check on
+  a real machine
 - [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
 - [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart
   flow (already on the Updates page: the explanation, a confirmation that files and settings are kept, then

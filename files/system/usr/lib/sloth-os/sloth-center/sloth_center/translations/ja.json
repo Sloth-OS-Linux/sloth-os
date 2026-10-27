@@ -784,5 +784,8 @@
   "Save settings to a file…": "設定をファイルに保存…",
   "Load settings from a file…": "ファイルから設定を読み込む…",
   "Save Sloth OS settings": "Sloth OS の設定を保存",
-  "Load Sloth OS settings": "Sloth OS の設定を読み込む"
+  "Load Sloth OS settings": "Sloth OS の設定を読み込む",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome を開けませんでした。",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "このファイルには別のコンピューターのアプリが {n} 個あります。Sloth Welcome が知っているものをインストールできます。どれでもチェックを外せます。",
+  "Install them with Sloth Welcome": "Sloth Welcome でインストール"
 }

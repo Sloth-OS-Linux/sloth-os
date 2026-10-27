@@ -1,13 +1,17 @@
 """Sloth OS's own settings in one file, to take them along to a reinstalled or another computer (File backup page).
 
 What goes in: the settings files Sloth OS writes (~/.config/sloth-os: sharing, the disc image choice, the display and
-sound profiles, where Windows programs go, the developer panel) and the look (color scheme and taskbar layout, the
-same ones as in the welcome wizard). Nothing personal: no files, no passwords, no accounts. Restoring writes the files
-back and sets the look again; a program location on a drive this computer does not have is left out.
+sound profiles, where Windows programs go, the developer panel), the look (color scheme and taskbar layout, the
+same ones as in the welcome wizard) and the installed apps (their Flatpak ids). Nothing personal: no files, no
+passwords, no accounts. Restoring writes the files back and sets the look again; a program location on a drive this
+computer does not have is left out. The apps are offered in Sloth Welcome, ticked (welcome_selection): the wizard
+keeps only the ones its catalog knows and does not install again what is already there.
 """
 import datetime
 import json
 import os
+import re
+import subprocess
 from pathlib import Path
 
 CONFIG = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os"
@@ -16,10 +20,23 @@ VERSION = 1
 # The settings files that are worth taking along (only these are read and written)
 FILES = ("community.json", "disc-images.json", "profiles.json", "applications.json", "devpanel.json")
 MAX_BYTES = 1024 * 1024
+# Sloth Welcome continues from this file (its own name for it: PROGRESS)
+WELCOME_PROGRESS = CONFIG / "welcome-progress.json"
+APP_ID = re.compile(r"[A-Za-z0-9_.-]{3,255}")
 
 
-def collect(config=None, appearance=None):
-    """The backup as a dictionary. appearance: {"scheme", "layout"} (the caller reads them from KDE)."""
+def installed_apps():
+    """The installed Flatpak apps (user and system), by id."""
+    try:
+        out = subprocess.run(["flatpak", "list", "--app", "--columns=application"], capture_output=True, text=True,
+                             timeout=30).stdout
+    except (OSError, subprocess.SubprocessError):
+        return []
+    return sorted({line.strip() for line in out.splitlines() if APP_ID.fullmatch(line.strip())})
+
+
+def collect(config=None, appearance=None, apps=None):
+    """The backup as a dictionary. appearance: {"scheme", "layout"} (the caller reads them from KDE); apps: ids."""
     config = Path(config or CONFIG)
     files = {}
     for name in FILES:
@@ -31,7 +48,31 @@ def collect(config=None, appearance=None):
             continue
     return {"format": FORMAT, "version": VERSION,
             "created": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
-            "files": files, "appearance": {k: v for k, v in (appearance or {}).items() if v}}
+            "files": files, "appearance": {k: v for k, v in (appearance or {}).items() if v},
+            "apps": [a for a in (apps or []) if isinstance(a, str) and APP_ID.fullmatch(a)]}
+
+
+def backup_apps(backup):
+    return [a for a in backup.get("apps", []) if isinstance(a, str) and APP_ID.fullmatch(a)]
+
+
+def welcome_selection(apps, progress=None):
+    """Ticks the apps in Sloth Welcome: it opens at the first app step with them selected (added to a selection
+    already there). The passwords and sharing steps are skipped as already done; nothing else is changed."""
+    progress = Path(progress or WELCOME_PROGRESS)
+    try:
+        state = json.loads(progress.read_text(encoding="utf-8"))
+        if not isinstance(state, dict):
+            state = {}
+    except (OSError, ValueError):
+        state = {}
+    selected = [a for a in state.get("selected", []) if isinstance(a, str)]
+    state["selected"] = selected + [a for a in apps if a not in selected]
+    if state.get("step") in (None, "", "welcome", "look", "security", "sharing", "windows"):
+        state["step"] = "cat0"
+    progress.parent.mkdir(parents=True, exist_ok=True)
+    progress.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
+    return state
 
 
 def write(path, backup):
@@ -103,9 +144,11 @@ class SettingsBackupController(QObject):
         super().__init__(parent)
         self._text = ""
         self._ok = True
+        self._apps = []   # the apps of the loaded file, to offer in Sloth Welcome
 
     resultText = Property(str, lambda self: self._text, notify=changed)
     resultOk = Property(bool, lambda self: self._ok, notify=changed)
+    appsCount = Property(int, lambda self: len(self._apps), notify=changed)
 
     @Property(str, constant=True)
     def suggestedName(self):
@@ -124,7 +167,7 @@ class SettingsBackupController(QObject):
             path += ".json"
         look = {"scheme": appearance.current_color_scheme(), "layout": appearance.current_layout()}
         try:
-            write(path, collect(appearance=look))
+            write(path, collect(appearance=look, apps=installed_apps()))
         except OSError:
             self._done(False, tr("Couldn't save the settings there. Choose another folder."))
             return
@@ -146,4 +189,20 @@ class SettingsBackupController(QObject):
             appearance.apply_color_scheme(look["scheme"])
         if look.get("layout"):
             appearance.apply_layout(look["layout"])
+        self._apps = backup_apps(backup)
         self._done(True, tr("Settings loaded. Open Sloth Center again to see them everywhere."))
+
+    @Slot()
+    def installApps(self):
+        """Sloth Welcome with the saved apps ticked (it installs the ones its catalog knows)."""
+        if not self._apps:
+            return
+        try:
+            welcome_selection(self._apps)
+            subprocess.Popen(["sloth-welcome"], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except OSError:
+            self._done(False, tr("Couldn't open Sloth Welcome."))
+            return
+        self._apps = []
+        self.changed.emit()

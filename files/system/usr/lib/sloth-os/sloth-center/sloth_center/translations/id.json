@@ -784,5 +784,8 @@
   "Save settings to a file…": "Simpan pengaturan ke berkas…",
   "Load settings from a file…": "Muat pengaturan dari berkas…",
   "Save Sloth OS settings": "Simpan pengaturan Sloth OS",
-  "Load Sloth OS settings": "Muat pengaturan Sloth OS"
+  "Load Sloth OS settings": "Muat pengaturan Sloth OS",
+  "Couldn't open Sloth Welcome.": "Tidak dapat membuka Sloth Welcome.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Berkas ini mencantumkan {n} aplikasi dari komputer lain. Sloth Welcome dapat memasang yang dikenalnya; Anda tetap bisa menghapus centang mana pun.",
+  "Install them with Sloth Welcome": "Pasang dengan Sloth Welcome"
 }

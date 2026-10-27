@@ -784,5 +784,8 @@
   "Save settings to a file…": "שמירת ההגדרות לקובץ…",
   "Load settings from a file…": "טעינת הגדרות מקובץ…",
   "Save Sloth OS settings": "שמירת הגדרות Sloth OS",
-  "Load Sloth OS settings": "טעינת הגדרות Sloth OS"
+  "Load Sloth OS settings": "טעינת הגדרות Sloth OS",
+  "Couldn't open Sloth Welcome.": "לא ניתן היה לפתוח את Sloth Welcome.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "הקובץ מפרט {n} יישומים מהמחשב האחר. Sloth Welcome יכול להתקין את אלה שהוא מכיר; עדיין אפשר לבטל את הסימון של כל אחד מהם.",
+  "Install them with Sloth Welcome": "התקנה בעזרת Sloth Welcome"
 }

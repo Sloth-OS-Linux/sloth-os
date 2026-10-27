@@ -784,5 +784,8 @@
   "Save settings to a file…": "Įrašyti nustatymus į failą…",
   "Load settings from a file…": "Įkelti nustatymus iš failo…",
   "Save Sloth OS settings": "Įrašyti „Sloth OS“ nustatymus",
-  "Load Sloth OS settings": "Įkelti „Sloth OS“ nustatymus"
+  "Load Sloth OS settings": "Įkelti „Sloth OS“ nustatymus",
+  "Couldn't open Sloth Welcome.": "Nepavyko atverti „Sloth Welcome“.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Faile yra programų iš kito kompiuterio: {n}. „Sloth Welcome“ gali įdiegti tas, kurias žino; bet kurią vis tiek galite atžymėti.",
+  "Install them with Sloth Welcome": "Įdiegti su „Sloth Welcome“"
 }

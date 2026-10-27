@@ -784,5 +784,8 @@
   "Save settings to a file…": "Stoor instellings in 'n lêer…",
   "Load settings from a file…": "Laai instellings uit 'n lêer…",
   "Save Sloth OS settings": "Stoor Sloth OS-instellings",
-  "Load Sloth OS settings": "Laai Sloth OS-instellings"
+  "Load Sloth OS settings": "Laai Sloth OS-instellings",
+  "Couldn't open Sloth Welcome.": "Kon nie Sloth Welcome oopmaak nie.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Die lêer noem {n} programme van die ander rekenaar. Sloth Welcome kan dié installeer wat dit ken; jy kan steeds enigeen ontmerk.",
+  "Install them with Sloth Welcome": "Installeer hulle met Sloth Welcome"
 }

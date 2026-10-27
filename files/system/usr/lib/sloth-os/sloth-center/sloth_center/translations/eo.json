@@ -784,5 +784,8 @@
   "Save settings to a file…": "Konservi agordojn en dosieron…",
   "Load settings from a file…": "Ŝargi agordojn el dosiero…",
   "Save Sloth OS settings": "Konservi agordojn de Sloth OS",
-  "Load Sloth OS settings": "Ŝargi agordojn de Sloth OS"
+  "Load Sloth OS settings": "Ŝargi agordojn de Sloth OS",
+  "Couldn't open Sloth Welcome.": "Ne eblis malfermi Sloth Welcome.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "La dosiero listigas {n} aplikaĵojn el la alia komputilo. Sloth Welcome povas instali tiujn, kiujn ĝi konas; vi ankoraŭ povas malmarki iun ajn.",
+  "Install them with Sloth Welcome": "Instali ilin per Sloth Welcome"
 }

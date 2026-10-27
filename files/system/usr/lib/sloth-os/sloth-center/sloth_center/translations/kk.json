@@ -784,5 +784,8 @@
   "Save settings to a file…": "Баптауларды файлға сақтау…",
   "Load settings from a file…": "Баптауларды файлдан жүктеу…",
   "Save Sloth OS settings": "Sloth OS баптауларын сақтау",
-  "Load Sloth OS settings": "Sloth OS баптауларын жүктеу"
+  "Load Sloth OS settings": "Sloth OS баптауларын жүктеу",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome-ді ашу мүмкін болмады.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Файлда басқа компьютердегі {n} қолданба бар. Sloth Welcome өзі білетіндерін орната алады; кез келгенінен белгіні алып тастауға болады.",
+  "Install them with Sloth Welcome": "Оларды Sloth Welcome арқылы орнату"
 }

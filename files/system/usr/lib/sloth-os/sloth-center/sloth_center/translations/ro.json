@@ -784,5 +784,8 @@
   "Save settings to a file…": "Salvează setările într-un fișier…",
   "Load settings from a file…": "Încarcă setările dintr-un fișier…",
   "Save Sloth OS settings": "Salvează setările Sloth OS",
-  "Load Sloth OS settings": "Încarcă setările Sloth OS"
+  "Load Sloth OS settings": "Încarcă setările Sloth OS",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome nu a putut fi deschis.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Fișierul conține {n} aplicații de pe celălalt calculator. Sloth Welcome le poate instala pe cele pe care le cunoaște; puteți debifa oricare dintre ele.",
+  "Install them with Sloth Welcome": "Instalează-le cu Sloth Welcome"
 }

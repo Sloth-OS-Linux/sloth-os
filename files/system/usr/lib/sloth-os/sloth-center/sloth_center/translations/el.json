@@ -784,5 +784,8 @@
   "Save settings to a file…": "Αποθήκευση ρυθμίσεων σε αρχείο…",
   "Load settings from a file…": "Φόρτωση ρυθμίσεων από αρχείο…",
   "Save Sloth OS settings": "Αποθήκευση ρυθμίσεων Sloth OS",
-  "Load Sloth OS settings": "Φόρτωση ρυθμίσεων Sloth OS"
+  "Load Sloth OS settings": "Φόρτωση ρυθμίσεων Sloth OS",
+  "Couldn't open Sloth Welcome.": "Δεν ήταν δυνατό το άνοιγμα του Sloth Welcome.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Το αρχείο αναφέρει {n} εφαρμογές από τον άλλο υπολογιστή. Το Sloth Welcome μπορεί να εγκαταστήσει όσες γνωρίζει· μπορείτε ακόμα να αποεπιλέξετε οποιαδήποτε.",
+  "Install them with Sloth Welcome": "Εγκατάσταση με το Sloth Welcome"
 }

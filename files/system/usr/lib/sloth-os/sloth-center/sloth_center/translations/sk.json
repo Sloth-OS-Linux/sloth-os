@@ -784,5 +784,8 @@
   "Save settings to a file…": "Uložiť nastavenia do súboru…",
   "Load settings from a file…": "Načítať nastavenia zo súboru…",
   "Save Sloth OS settings": "Uložiť nastavenia Sloth OS",
-  "Load Sloth OS settings": "Načítať nastavenia Sloth OS"
+  "Load Sloth OS settings": "Načítať nastavenia Sloth OS",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome sa nepodarilo otvoriť.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Súbor uvádza aplikácie z druhého počítača: {n}. Sloth Welcome nainštaluje tie, ktoré pozná; ktorúkoľvek môžete odškrtnúť.",
+  "Install them with Sloth Welcome": "Nainštalovať ich cez Sloth Welcome"
 }

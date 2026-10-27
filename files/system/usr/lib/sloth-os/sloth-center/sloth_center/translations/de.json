@@ -784,5 +784,8 @@
   "Save settings to a file…": "Einstellungen in eine Datei speichern …",
   "Load settings from a file…": "Einstellungen aus einer Datei laden …",
   "Save Sloth OS settings": "Sloth-OS-Einstellungen speichern",
-  "Load Sloth OS settings": "Sloth-OS-Einstellungen laden"
+  "Load Sloth OS settings": "Sloth-OS-Einstellungen laden",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome konnte nicht geöffnet werden.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Die Datei nennt {n} Apps vom anderen Computer. Sloth Welcome kann die installieren, die es kennt; Sie können jede davon noch abwählen.",
+  "Install them with Sloth Welcome": "Mit Sloth Welcome installieren"
 }

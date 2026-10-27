@@ -784,5 +784,8 @@
   "Save settings to a file…": "Salvesta seaded faili…",
   "Load settings from a file…": "Laadi seaded failist…",
   "Save Sloth OS settings": "Salvesta Sloth OS-i seaded",
-  "Load Sloth OS settings": "Laadi Sloth OS-i seaded"
+  "Load Sloth OS settings": "Laadi Sloth OS-i seaded",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome'i ei õnnestunud avada.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Failis on {n} rakendust teisest arvutist. Sloth Welcome saab paigaldada need, mida ta tunneb; saad endiselt ükskõik millise märkimata jätta.",
+  "Install them with Sloth Welcome": "Paigalda need Sloth Welcome'iga"
 }

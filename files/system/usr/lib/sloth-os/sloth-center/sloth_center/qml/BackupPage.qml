@@ -149,6 +149,23 @@ Kirigami.ScrollablePage {
                     type: settingsBackup.resultOk ? Kirigami.MessageType.Positive : Kirigami.MessageType.Error
                     text: settingsBackup.resultText
                 }
+                // The loaded file lists apps: Sloth Welcome offers them, ticked
+                RowLayout {
+                    Layout.fillWidth: true
+                    visible: settingsBackup.appsCount > 0
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: L.tf("The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.", { n: settingsBackup.appsCount })
+                    }
+                    QQC2.Button {
+                        highlighted: true
+                        icon.name: "plasmadiscover"
+                        text: L.t("Install them with Sloth Welcome")
+                        onClicked: settingsBackup.installApps()
+                    }
+                }
                 RowLayout {
                     spacing: Kirigami.Units.largeSpacing
                     QQC2.Button {

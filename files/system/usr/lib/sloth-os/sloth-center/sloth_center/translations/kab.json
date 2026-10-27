@@ -784,5 +784,8 @@
   "Save settings to a file…": "Sekles iɣewwaren deg ufaylu…",
   "Load settings from a file…": "Sali iɣewwaren seg ufaylu…",
   "Save Sloth OS settings": "Sekles iɣewwaren n Sloth OS",
-  "Load Sloth OS settings": "Sali iɣewwaren n Sloth OS"
+  "Load Sloth OS settings": "Sali iɣewwaren n Sloth OS",
+  "Couldn't open Sloth Welcome.": "Ur yezmir ara ad yeldi Sloth Welcome.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Afaylu yegber {n} n yisnasen seg uselkim-nniḍen. Sloth Welcome yezmer ad yesbedd wid yessen; tzemreḍ ad tekkseḍ tacreḍt i yal yiwen.",
+  "Install them with Sloth Welcome": "Sebded-ten s Sloth Welcome"
 }

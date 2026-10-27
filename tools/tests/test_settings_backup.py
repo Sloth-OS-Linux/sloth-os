@@ -78,6 +78,23 @@ class SettingsBackup(unittest.TestCase):
         self.assertFalse((self.new / "welcome-done").exists())
         self.assertFalse((Path(self.tmp.name) / ".bashrc").exists())
 
+    def test_apps_are_kept_and_checked(self):
+        backup = sb.collect(self.old, apps=["org.mozilla.firefox", "com.valvesoftware.Steam", "bad id; rm -rf", ""])
+        self.assertEqual(backup["apps"], ["org.mozilla.firefox", "com.valvesoftware.Steam"])
+        backup["apps"].append("../../evil")
+        self.assertEqual(sb.backup_apps(backup), ["org.mozilla.firefox", "com.valvesoftware.Steam"])
+
+    def test_welcome_selection_new_and_merged(self):
+        progress = self.new / "welcome-progress.json"
+        state = sb.welcome_selection(["org.mozilla.firefox"], progress)
+        self.assertEqual((state["step"], state["selected"]), ("cat0", ["org.mozilla.firefox"]))
+        # the wizard was further on, with its own selection: it stays there, the apps are added
+        progress.write_text(json.dumps({"step": "cat3", "selected": ["org.videolan.VLC"], "language": "hu"}))
+        state = sb.welcome_selection(["org.mozilla.firefox", "org.videolan.VLC"], progress)
+        self.assertEqual(state["step"], "cat3")
+        self.assertEqual(state["selected"], ["org.videolan.VLC", "org.mozilla.firefox"])
+        self.assertEqual(state["language"], "hu")
+
     def test_not_a_backup(self):
         other = Path(self.tmp.name) / "other.json"
         other.write_text('{"files": {}}')

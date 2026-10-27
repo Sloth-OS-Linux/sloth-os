@@ -784,5 +784,8 @@
   "Save settings to a file…": "সেটিংস ফাইলে সংরক্ষণ করুন…",
   "Load settings from a file…": "ফাইল থেকে সেটিংস লোড করুন…",
   "Save Sloth OS settings": "Sloth OS সেটিংস সংরক্ষণ",
-  "Load Sloth OS settings": "Sloth OS সেটিংস লোড"
+  "Load Sloth OS settings": "Sloth OS সেটিংস লোড",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome খোলা যায়নি।",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "ফাইলে অন্য কম্পিউটারের {n}টি অ্যাপের তালিকা আছে। Sloth Welcome যেগুলো চেনে সেগুলো ইনস্টল করতে পারে; আপনি এখনও যেকোনোটির টিক তুলে দিতে পারেন।",
+  "Install them with Sloth Welcome": "Sloth Welcome দিয়ে ইনস্টল করুন"
 }

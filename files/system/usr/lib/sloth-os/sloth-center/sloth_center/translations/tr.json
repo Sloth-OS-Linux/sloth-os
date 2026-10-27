@@ -784,5 +784,8 @@
   "Save settings to a file…": "Ayarları bir dosyaya kaydet…",
   "Load settings from a file…": "Ayarları bir dosyadan yükle…",
   "Save Sloth OS settings": "Sloth OS ayarlarını kaydet",
-  "Load Sloth OS settings": "Sloth OS ayarlarını yükle"
+  "Load Sloth OS settings": "Sloth OS ayarlarını yükle",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome açılamadı.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Dosyada diğer bilgisayardan {n} uygulama var. Sloth Welcome tanıdıklarını yükleyebilir; dilediğinizin işaretini yine kaldırabilirsiniz.",
+  "Install them with Sloth Welcome": "Sloth Welcome ile yükle"
 }

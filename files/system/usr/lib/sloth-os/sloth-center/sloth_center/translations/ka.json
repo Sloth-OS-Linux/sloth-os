@@ -784,5 +784,8 @@
   "Save settings to a file…": "პარამეტრების შენახვა ფაილში…",
   "Load settings from a file…": "პარამეტრების ჩატვირთვა ფაილიდან…",
   "Save Sloth OS settings": "Sloth OS-ის პარამეტრების შენახვა",
-  "Load Sloth OS settings": "Sloth OS-ის პარამეტრების ჩატვირთვა"
+  "Load Sloth OS settings": "Sloth OS-ის პარამეტრების ჩატვირთვა",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome-ის გახსნა ვერ მოხერხდა.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "ფაილში სხვა კომპიუტერის {n} აპია. Sloth Welcome დააყენებს იმას, რასაც იცნობს; ნებისმიერის მონიშვნის მოხსნა მაინც შეგიძლიათ.",
+  "Install them with Sloth Welcome": "დაყენება Sloth Welcome-ით"
 }

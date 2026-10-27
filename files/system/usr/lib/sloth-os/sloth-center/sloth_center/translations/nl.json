@@ -784,5 +784,8 @@
   "Save settings to a file…": "Instellingen opslaan in een bestand…",
   "Load settings from a file…": "Instellingen laden uit een bestand…",
   "Save Sloth OS settings": "Sloth OS-instellingen opslaan",
-  "Load Sloth OS settings": "Sloth OS-instellingen laden"
+  "Load Sloth OS settings": "Sloth OS-instellingen laden",
+  "Couldn't open Sloth Welcome.": "Kon Sloth Welcome niet openen.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Het bestand noemt {n} apps van de andere computer. Sloth Welcome kan de apps installeren die het kent; je kunt elke app nog uitvinken.",
+  "Install them with Sloth Welcome": "Installeren met Sloth Welcome"
 }

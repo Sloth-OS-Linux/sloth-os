@@ -784,5 +784,8 @@
   "Save settings to a file…": "Ruani cilësimet në një skedar…",
   "Load settings from a file…": "Ngarkoni cilësimet nga një skedar…",
   "Save Sloth OS settings": "Ruani cilësimet e Sloth OS",
-  "Load Sloth OS settings": "Ngarkoni cilësimet e Sloth OS"
+  "Load Sloth OS settings": "Ngarkoni cilësimet e Sloth OS",
+  "Couldn't open Sloth Welcome.": "Sloth Welcome nuk u hap dot.",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Skedari liston {n} aplikacione nga kompjuteri tjetër. Sloth Welcome mund të instalojë ato që njeh; mund ta hiqni shenjën nga cilido.",
+  "Install them with Sloth Welcome": "Instalojini me Sloth Welcome"
 }

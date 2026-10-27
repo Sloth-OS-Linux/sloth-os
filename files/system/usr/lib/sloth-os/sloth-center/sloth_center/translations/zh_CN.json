@@ -784,5 +784,8 @@
   "Save settings to a file…": "将设置保存到文件…",
   "Load settings from a file…": "从文件载入设置…",
   "Save Sloth OS settings": "保存 Sloth OS 设置",
-  "Load Sloth OS settings": "载入 Sloth OS 设置"
+  "Load Sloth OS settings": "载入 Sloth OS 设置",
+  "Couldn't open Sloth Welcome.": "无法打开 Sloth Welcome。",
+  "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "文件中列出了另一台电脑上的 {n} 个应用。Sloth Welcome 可以安装它认识的应用；你仍然可以取消勾选任何一个。",
+  "Install them with Sloth Welcome": "用 Sloth Welcome 安装"
 }
