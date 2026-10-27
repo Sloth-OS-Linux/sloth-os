@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Δείχνει τι μπορεί να διαγραφεί και πόσο χώρο ελευθερώνει, πριν διαγραφεί οτιδήποτε. Τα αρχεία σας, η προηγούμενη έκδοση συστήματος και οι διατηρημένες δεν αγγίζονται.",
   "Clean up…": "Καθαρισμός…",
   "Delete the selected ones ({size})": "Διαγραφή επιλεγμένων ({size})",
-  "Delete the selected ones": "Διαγραφή επιλεγμένων"
+  "Delete the selected ones": "Διαγραφή επιλεγμένων",
+  "Saved: {name}": "Αποθηκεύτηκε: {name}",
+  "None of this profile's screens is connected now.": "Καμία οθόνη αυτού του προφίλ δεν είναι συνδεδεμένη τώρα.",
+  "Not connected now, so left out: {names}": "Δεν είναι συνδεδεμένη τώρα, γι' αυτό παραλείφθηκε: {names}",
+  "Display and sound profiles": "Προφίλ οθόνης και ήχου",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Αποθηκεύστε πώς είναι ρυθμισμένες τώρα οι οθόνες και ο ήχος, για παράδειγμα «Γραφείο» ή «Τηλεόραση», και αλλάζετε μεταξύ τους με ένα κλικ.",
+  "Use": "Χρήση",
+  "Name, for example TV": "Όνομα, για παράδειγμα Τηλεόραση",
+  "Save the current setup": "Αποθήκευση τρέχουσας ρύθμισης"
 }

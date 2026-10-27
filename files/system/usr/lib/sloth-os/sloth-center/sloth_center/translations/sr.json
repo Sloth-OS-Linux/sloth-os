@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Приказује шта може да се обрише и колико простора то ослобађа, пре него што се било шта обрише. Ваше датотеке, претходна верзија система и задржане се не дирају.",
   "Clean up…": "Очисти…",
   "Delete the selected ones ({size})": "Обриши изабране ({size})",
-  "Delete the selected ones": "Обриши изабране"
+  "Delete the selected ones": "Обриши изабране",
+  "Saved: {name}": "Сачувано: {name}",
+  "None of this profile's screens is connected now.": "Ниједан екран овог профила тренутно није повезан.",
+  "Not connected now, so left out: {names}": "Тренутно није повезан, па је изостављен: {names}",
+  "Display and sound profiles": "Профили екрана и звука",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Сачувајте како су сада подешени екрани и звук, на пример „Сто” или „ТВ”, и пребацујте се између њих једним кликом.",
+  "Use": "Користи",
+  "Name, for example TV": "Назив, на пример ТВ",
+  "Save the current setup": "Сачувај тренутно подешавање"
 }

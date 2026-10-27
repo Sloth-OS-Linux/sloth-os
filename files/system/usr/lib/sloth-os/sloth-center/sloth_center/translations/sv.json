@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Visar vad som kan tas bort och hur mycket utrymme det frigör, innan något tas bort. Dina filer, den tidigare systemversionen och de sparade rörs inte.",
   "Clean up…": "Rensa …",
   "Delete the selected ones ({size})": "Ta bort de markerade ({size})",
-  "Delete the selected ones": "Ta bort de markerade"
+  "Delete the selected ones": "Ta bort de markerade",
+  "Saved: {name}": "Sparad: {name}",
+  "None of this profile's screens is connected now.": "Ingen av den här profilens skärmar är ansluten nu.",
+  "Not connected now, so left out: {names}": "Inte ansluten nu, så utelämnad: {names}",
+  "Display and sound profiles": "Skärm- och ljudprofiler",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Spara hur skärmarna och ljudet är inställda nu, till exempel ”Skrivbord” eller ”TV”, och växla mellan dem med ett klick.",
+  "Use": "Använd",
+  "Name, for example TV": "Namn, till exempel TV",
+  "Save the current setup": "Spara nuvarande inställning"
 }

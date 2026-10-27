@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Laat zien wat er verwijderd kan worden en hoeveel ruimte dat vrijmaakt, voordat er iets wordt verwijderd. Je bestanden, de vorige systeemversie en de bewaarde blijven onaangeroerd.",
   "Clean up…": "Opruimen…",
   "Delete the selected ones ({size})": "Geselecteerde verwijderen ({size})",
-  "Delete the selected ones": "Geselecteerde verwijderen"
+  "Delete the selected ones": "Geselecteerde verwijderen",
+  "Saved: {name}": "Opgeslagen: {name}",
+  "None of this profile's screens is connected now.": "Geen van de schermen van dit profiel is nu aangesloten.",
+  "Not connected now, so left out: {names}": "Nu niet aangesloten, dus weggelaten: {names}",
+  "Display and sound profiles": "Scherm- en geluidsprofielen",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Sla op hoe de schermen en het geluid nu zijn ingesteld, bijvoorbeeld ‘Bureau’ of ‘Tv’, en wissel er met één klik tussen.",
+  "Use": "Gebruiken",
+  "Name, for example TV": "Naam, bijvoorbeeld Tv",
+  "Save the current setup": "Huidige instelling opslaan"
 }

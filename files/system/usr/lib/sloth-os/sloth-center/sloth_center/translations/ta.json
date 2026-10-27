@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "எதையும் நீக்கும் முன், எதை நீக்கலாம், எவ்வளவு இடம் கிடைக்கும் என்பதைக் காட்டுகிறது. உங்கள் கோப்புகள், முந்தைய கணினிப் பதிப்பு, வைத்திருப்பவை தொடப்படாது.",
   "Clean up…": "சுத்தம் செய்…",
   "Delete the selected ones ({size})": "தேர்ந்தெடுத்தவற்றை நீக்கு ({size})",
-  "Delete the selected ones": "தேர்ந்தெடுத்தவற்றை நீக்கு"
+  "Delete the selected ones": "தேர்ந்தெடுத்தவற்றை நீக்கு",
+  "Saved: {name}": "சேமிக்கப்பட்டது: {name}",
+  "None of this profile's screens is connected now.": "இந்தச் சுயவிவரத்தின் எந்தத் திரையும் இப்போது இணைக்கப்படவில்லை.",
+  "Not connected now, so left out: {names}": "இப்போது இணைக்கப்படவில்லை, அதனால் விடப்பட்டது: {names}",
+  "Display and sound profiles": "காட்சி மற்றும் ஒலி சுயவிவரங்கள்",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "திரைகளும் ஒலியும் இப்போது எப்படி அமைக்கப்பட்டுள்ளன என்பதை \"மேசை\" அல்லது \"டிவி\" போலச் சேமித்து, ஒரே கிளிக்கில் மாறுங்கள்.",
+  "Use": "பயன்படுத்து",
+  "Name, for example TV": "பெயர், எ.கா. டிவி",
+  "Save the current setup": "தற்போதைய அமைப்பைச் சேமி"
 }

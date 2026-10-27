@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Tregon çfarë mund të fshihet dhe sa hapësirë çliron, para se të fshihet çfarëdo. Skedarët tuaj, versioni i mëparshëm i sistemit dhe ato të mbajtura nuk preken.",
   "Clean up…": "Pastroni…",
   "Delete the selected ones ({size})": "Fshini të zgjedhurat ({size})",
-  "Delete the selected ones": "Fshini të zgjedhurat"
+  "Delete the selected ones": "Fshini të zgjedhurat",
+  "Saved: {name}": "U ruajt: {name}",
+  "None of this profile's screens is connected now.": "Asnjë ekran i këtij profili nuk është i lidhur tani.",
+  "Not connected now, so left out: {names}": "Nuk është i lidhur tani, ndaj u la jashtë: {names}",
+  "Display and sound profiles": "Profile ekrani dhe zëri",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Ruani si janë rregulluar tani ekranet dhe zëri, për shembull \"Tavolinë\" ose \"TV\", dhe kaloni mes tyre me një klikim.",
+  "Use": "Përdor",
+  "Name, for example TV": "Emër, për shembull TV",
+  "Save the current setup": "Ruani rregullimin aktual"
 }

@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "কিছু মোছার আগে দেখায় কী মোছা যায় আর কতটা জায়গা খালি হয়। আপনার ফাইল, আগের সিস্টেম সংস্করণ ও রাখাগুলো ছোঁয়া হয় না।",
   "Clean up…": "পরিষ্কার করুন…",
   "Delete the selected ones ({size})": "নির্বাচিতগুলো মুছুন ({size})",
-  "Delete the selected ones": "নির্বাচিতগুলো মুছুন"
+  "Delete the selected ones": "নির্বাচিতগুলো মুছুন",
+  "Saved: {name}": "সংরক্ষিত: {name}",
+  "None of this profile's screens is connected now.": "এই প্রোফাইলের কোনো স্ক্রিন এখন সংযুক্ত নেই।",
+  "Not connected now, so left out: {names}": "এখন সংযুক্ত নয়, তাই বাদ দেওয়া হলো: {names}",
+  "Display and sound profiles": "ডিসপ্লে ও শব্দের প্রোফাইল",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "স্ক্রিন আর শব্দ এখন কীভাবে সাজানো আছে সংরক্ষণ করুন, যেমন \"ডেস্ক\" বা \"টিভি\", আর এক ক্লিকে বদলান।",
+  "Use": "ব্যবহার করুন",
+  "Name, for example TV": "নাম, যেমন টিভি",
+  "Save the current setup": "বর্তমান সেটআপ সংরক্ষণ করুন"
 }

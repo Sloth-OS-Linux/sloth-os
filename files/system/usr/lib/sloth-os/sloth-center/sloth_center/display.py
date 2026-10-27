@@ -107,6 +107,7 @@ class DisplayController(QObject):
         super().__init__(parent)
         self._outputs = []
         self._undo = []       # the kscreen-doctor arguments that put back the previous setting
+        self._undo_extra = None   # and what else goes back with it (a profile's sound devices)
         self._error = ""
         # the monitors are read when the Drivers and hardware page opens (not at every start of Sloth Center)
 
@@ -119,16 +120,26 @@ class DisplayController(QObject):
         self._outputs = outputs()
         self.changed.emit()
 
-    def _apply(self, args, undo):
+    def _apply(self, args, undo, undo_extra=None):
+        """Applies, then the page asks "Keep this setting?" (revert puts back `undo`, and runs `undo_extra`)."""
         self._error = ""
         r = subprocess.run(["kscreen-doctor", *args], capture_output=True, text=True, timeout=20)
         if r.returncode != 0:
             log.warning("kscreen-doctor %s: %s", args, r.stderr.strip())
             self._error = tr("Couldn't change the display.")
-            self._undo = []
+            self._undo, self._undo_extra = [], None
+            if undo_extra:
+                undo_extra()
         else:
-            self._undo = undo
+            self._undo, self._undo_extra = undo, undo_extra
         self.refresh()
+
+    def screens(self):
+        """kscreen-doctor -j's data now (for the profiles)."""
+        try:
+            return json.loads(_run(["kscreen-doctor", "-j"]) or "{}")
+        except ValueError:
+            return {}
 
     @Slot(str)
     def useBestRefresh(self, connector):
@@ -151,14 +162,16 @@ class DisplayController(QObject):
 
     @Slot()
     def keep(self):
-        self._undo = []
+        self._undo, self._undo_extra = [], None
         self.changed.emit()
 
     @Slot()
     def revert(self):
-        undo, self._undo = self._undo, []
+        undo, extra, self._undo, self._undo_extra = self._undo, self._undo_extra, [], None
         if undo:
             subprocess.run(["kscreen-doctor", *undo], capture_output=True, timeout=20)
+        if extra:
+            extra()
         self.refresh()
 
     @Slot()

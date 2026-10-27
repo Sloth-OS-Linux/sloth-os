@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "აჩვენებს, რისი წაშლა შეიძლება და რამდენ ადგილს გაათავისუფლებს, სანამ რამე წაიშლება. თქვენს ფაილებს, სისტემის წინა ვერსიას და შენახულებს არ ეხება.",
   "Clean up…": "გასუფთავება…",
   "Delete the selected ones ({size})": "მონიშნულების წაშლა ({size})",
-  "Delete the selected ones": "მონიშნულების წაშლა"
+  "Delete the selected ones": "მონიშნულების წაშლა",
+  "Saved: {name}": "შენახულია: {name}",
+  "None of this profile's screens is connected now.": "ამ პროფილის არცერთი ეკრანი ახლა არ არის შეერთებული.",
+  "Not connected now, so left out: {names}": "ახლა არ არის შეერთებული, ამიტომ გამოტოვებულია: {names}",
+  "Display and sound profiles": "ეკრანისა და ხმის პროფილები",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "შეინახეთ, როგორ არის ახლა მორგებული ეკრანები და ხმა, მაგალითად „მაგიდა“ ან „ტელევიზორი“, და გადართეთ მათ შორის ერთი დაწკაპუნებით.",
+  "Use": "გამოყენება",
+  "Name, for example TV": "სახელი, მაგალითად ტელევიზორი",
+  "Save the current setup": "მიმდინარე პარამეტრების შენახვა"
 }

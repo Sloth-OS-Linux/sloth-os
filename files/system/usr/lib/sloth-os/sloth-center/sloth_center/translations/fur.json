@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Al mostre ce che si pues eliminâ e trop spazi che al libere, prime di eliminâ alc. I tiei file, la version di prime dal sisteme e chês tignudis no vegnin tocjâts.",
   "Clean up…": "Nete…",
   "Delete the selected ones ({size})": "Elimine i selezionâts ({size})",
-  "Delete the selected ones": "Elimine i selezionâts"
+  "Delete the selected ones": "Elimine i selezionâts",
+  "Saved: {name}": "Salvât: {name}",
+  "None of this profile's screens is connected now.": "Nissun visôr di chest profîl al è colegât cumò.",
+  "Not connected now, so left out: {names}": "No colegât cumò, duncje lassât fûr: {names}",
+  "Display and sound profiles": "Profîi di visôr e sun",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Salve cemût che a son metûts cumò i visôrs e il sun, par esempli \"Scrivanie\" o \"TV\", e passe di un a chel altri cuntun clic.",
+  "Use": "Dopre",
+  "Name, for example TV": "Non, par esempli TV",
+  "Save the current setup": "Salve la configurazion di cumò"
 }

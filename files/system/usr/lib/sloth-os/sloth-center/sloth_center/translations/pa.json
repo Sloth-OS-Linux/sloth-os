@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "ਕੁਝ ਵੀ ਮਿਟਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਦਿਖਾਉਂਦਾ ਹੈ ਕਿ ਕੀ ਮਿਟ ਸਕਦਾ ਹੈ ਅਤੇ ਕਿੰਨੀ ਥਾਂ ਖ਼ਾਲੀ ਹੁੰਦੀ ਹੈ। ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ, ਪਿਛਲਾ ਸਿਸਟਮ ਵਰਜਨ ਅਤੇ ਰੱਖੇ ਹੋਏ ਛੂਹੇ ਨਹੀਂ ਜਾਂਦੇ।",
   "Clean up…": "ਸਾਫ਼ ਕਰੋ…",
   "Delete the selected ones ({size})": "ਚੁਣੇ ਹੋਏ ਮਿਟਾਓ ({size})",
-  "Delete the selected ones": "ਚੁਣੇ ਹੋਏ ਮਿਟਾਓ"
+  "Delete the selected ones": "ਚੁਣੇ ਹੋਏ ਮਿਟਾਓ",
+  "Saved: {name}": "ਸੰਭਾਲਿਆ: {name}",
+  "None of this profile's screens is connected now.": "ਇਸ ਪ੍ਰੋਫ਼ਾਈਲ ਦੀ ਕੋਈ ਵੀ ਸਕ੍ਰੀਨ ਇਸ ਵੇਲੇ ਕਨੈਕਟ ਨਹੀਂ ਹੈ।",
+  "Not connected now, so left out: {names}": "ਇਸ ਵੇਲੇ ਕਨੈਕਟ ਨਹੀਂ, ਇਸ ਲਈ ਛੱਡਿਆ: {names}",
+  "Display and sound profiles": "ਡਿਸਪਲੇ ਅਤੇ ਆਵਾਜ਼ ਪ੍ਰੋਫ਼ਾਈਲ",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "ਸਕ੍ਰੀਨਾਂ ਅਤੇ ਆਵਾਜ਼ ਦੀ ਮੌਜੂਦਾ ਸੈਟਿੰਗ ਸੰਭਾਲੋ, ਜਿਵੇਂ \"ਡੈਸਕ\" ਜਾਂ \"ਟੀਵੀ\", ਅਤੇ ਇੱਕ ਕਲਿੱਕ ਨਾਲ ਬਦਲੋ।",
+  "Use": "ਵਰਤੋ",
+  "Name, for example TV": "ਨਾਂ, ਜਿਵੇਂ ਟੀਵੀ",
+  "Save the current setup": "ਮੌਜੂਦਾ ਸੈਟਿੰਗ ਸੰਭਾਲੋ"
 }

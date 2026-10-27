@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "何かを削除する前に、削除できるものと空く容量を表示します。あなたのファイル、以前のシステムバージョン、保持したものには触れません。",
   "Clean up…": "クリーンアップ…",
   "Delete the selected ones ({size})": "選択したものを削除（{size}）",
-  "Delete the selected ones": "選択したものを削除"
+  "Delete the selected ones": "選択したものを削除",
+  "Saved: {name}": "保存しました: {name}",
+  "None of this profile's screens is connected now.": "このプロファイルの画面はどれも今は接続されていません。",
+  "Not connected now, so left out: {names}": "今は接続されていないため省きました: {names}",
+  "Display and sound profiles": "画面とサウンドのプロファイル",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "今の画面とサウンドの設定を「デスク」や「テレビ」などの名前で保存し、ワンクリックで切り替えられます。",
+  "Use": "使う",
+  "Name, for example TV": "名前（例: テレビ）",
+  "Save the current setup": "今の設定を保存"
 }

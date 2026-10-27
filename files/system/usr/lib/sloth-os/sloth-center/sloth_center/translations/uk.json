@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Показує, що можна видалити і скільки місця це звільнить, перш ніж щось видалити. Ваші файли, попередня версія системи та збережені не зачіпаються.",
   "Clean up…": "Очистити…",
   "Delete the selected ones ({size})": "Видалити вибрані ({size})",
-  "Delete the selected ones": "Видалити вибрані"
+  "Delete the selected ones": "Видалити вибрані",
+  "Saved: {name}": "Збережено: {name}",
+  "None of this profile's screens is connected now.": "Жоден екран цього профілю зараз не під'єднано.",
+  "Not connected now, so left out: {names}": "Зараз не під'єднано, тому пропущено: {names}",
+  "Display and sound profiles": "Профілі екранів і звуку",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Збережіть, як зараз налаштовані екрани та звук, наприклад «Стіл» або «Телевізор», і перемикайтеся між ними одним клацанням.",
+  "Use": "Використати",
+  "Name, for example TV": "Назва, наприклад Телевізор",
+  "Save the current setup": "Зберегти поточні налаштування"
 }

@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "在删除任何内容之前，先显示可以删除什么以及能腾出多少空间。你的文件、上一个系统版本和保留的版本不会被动到。",
   "Clean up…": "清理…",
   "Delete the selected ones ({size})": "删除所选项（{size}）",
-  "Delete the selected ones": "删除所选项"
+  "Delete the selected ones": "删除所选项",
+  "Saved: {name}": "已保存：{name}",
+  "None of this profile's screens is connected now.": "此配置的屏幕现在都没有连接。",
+  "Not connected now, so left out: {names}": "现在未连接，因此略过：{names}",
+  "Display and sound profiles": "显示与声音配置",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "把现在的屏幕和声音设置保存下来，例如“书桌”或“电视”，一键切换。",
+  "Use": "使用",
+  "Name, for example TV": "名称，例如 电视",
+  "Save the current setup": "保存当前设置"
 }

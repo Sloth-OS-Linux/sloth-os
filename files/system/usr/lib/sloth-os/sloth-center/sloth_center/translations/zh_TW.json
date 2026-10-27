@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "在刪除任何東西之前，先顯示可以刪除什麼以及能騰出多少空間。你的檔案、上一個系統版本和保留的版本不會被動到。",
   "Clean up…": "清理…",
   "Delete the selected ones ({size})": "刪除選取的項目（{size}）",
-  "Delete the selected ones": "刪除選取的項目"
+  "Delete the selected ones": "刪除選取的項目",
+  "Saved: {name}": "已儲存：{name}",
+  "None of this profile's screens is connected now.": "此設定檔的螢幕目前都沒有連接。",
+  "Not connected now, so left out: {names}": "目前未連接，因此略過：{names}",
+  "Display and sound profiles": "顯示與聲音設定檔",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "把目前的螢幕和聲音設定存起來，例如「書桌」或「電視」，一鍵切換。",
+  "Use": "使用",
+  "Name, for example TV": "名稱，例如 電視",
+  "Save the current setup": "儲存目前的設定"
 }

@@ -301,7 +301,13 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   where the monitor supports them, through kscreen-doctor. After a change it asks "Keep?" and goes back by itself
   after 15 seconds, as KDE's own display settings do. The resolution stays in "More display settings".
   Tests: `tools/tests/test_display.py`. Checked on a real machine (2026-10-26)
-- [ ] **Medium** — Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
+- [x] **Medium** — Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
+  (2026-10-27: Drivers and hardware → Display and sound profiles. A profile is the monitors' state (on or off, size,
+  refresh rate, position, scale, main one) and the default speakers / headphones and microphone, saved with a name
+  from the current setup and applied with one click through the Displays card's "Keep this setting?" (going back
+  puts the sound back too). Only connected monitors are changed, a missing one is left out and named; a profile
+  that would turn every screen off is not applied; the mode is found again by size and refresh rate.
+  `sloth_center/profiles.py`, tests: `tools/tests/test_profiles.py`. Check on a real machine, also with a TV)
 - [ ] **Medium** — Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
 
 ### Sloth OS 1.0 released (2026-10-21)

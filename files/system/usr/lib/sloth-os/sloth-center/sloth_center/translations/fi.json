@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Näyttää ennen poistamista, mitä voidaan poistaa ja kuinka paljon tilaa vapautuu. Tiedostoihisi, edelliseen järjestelmäversioon ja säilytettyihin ei kosketa.",
   "Clean up…": "Siivoa…",
   "Delete the selected ones ({size})": "Poista valitut ({size})",
-  "Delete the selected ones": "Poista valitut"
+  "Delete the selected ones": "Poista valitut",
+  "Saved: {name}": "Tallennettu: {name}",
+  "None of this profile's screens is connected now.": "Mikään tämän profiilin näytöistä ei ole nyt kytkettynä.",
+  "Not connected now, so left out: {names}": "Ei nyt kytkettynä, joten jätetty pois: {names}",
+  "Display and sound profiles": "Näyttö- ja ääniprofiilit",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Tallenna, miten näytöt ja ääni on nyt asetettu, esimerkiksi ”Työpöytä” tai ”TV”, ja vaihda niiden välillä yhdellä napsautuksella.",
+  "Use": "Käytä",
+  "Name, for example TV": "Nimi, esimerkiksi TV",
+  "Save the current setup": "Tallenna nykyiset asetukset"
 }

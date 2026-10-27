@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Yeskanay-d ayen yezmer ad yettwakkes d wacḥal n tallunt ara d-yeǧǧ, uqbel ad yettwakkes kra. Ifuyla-k·m, lqem uzwir n unagraw d wid yettwaḥerzen ur ttwannalen ara.",
   "Clean up…": "Sizdeg…",
   "Delete the selected ones ({size})": "Kkes wid yettwafernen ({size})",
-  "Delete the selected ones": "Kkes wid yettwafernen"
+  "Delete the selected ones": "Kkes wid yettwafernen",
+  "Saved: {name}": "Yettwasekles: {name}",
+  "None of this profile's screens is connected now.": "Ulac agdil n umaɣnu-a yeqqnen tura.",
+  "Not connected now, so left out: {names}": "Ur yeqqin ara tura, ihi yettwaǧǧa: {names}",
+  "Display and sound profiles": "Imuɣna n ugdil d yimesli",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Sekles amek i ttwasbedden tura igdilen d yimesli, amedya \"Tanarit\" neɣ \"TV\", syin beddel gar-asen s yiwen n usiti.",
+  "Use": "Seqdec",
+  "Name, for example TV": "Isem, amedya TV",
+  "Save the current setup": "Sekles asbadu amiran"
 }

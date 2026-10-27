@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Ukáže, čo sa dá odstrániť a koľko miesta to uvoľní, ešte predtým, než sa čokoľvek odstráni. Vašich súborov, predchádzajúcej verzie systému a ponechaných sa to nedotkne.",
   "Clean up…": "Vyčistiť…",
   "Delete the selected ones ({size})": "Odstrániť vybrané ({size})",
-  "Delete the selected ones": "Odstrániť vybrané"
+  "Delete the selected ones": "Odstrániť vybrané",
+  "Saved: {name}": "Uložené: {name}",
+  "None of this profile's screens is connected now.": "Žiadna obrazovka tohto profilu teraz nie je pripojená.",
+  "Not connected now, so left out: {names}": "Teraz nepripojené, preto vynechané: {names}",
+  "Display and sound profiles": "Profily obrazoviek a zvuku",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Uložte, ako sú teraz nastavené obrazovky a zvuk, napríklad „Stôl“ alebo „Televízor“, a prepínajte medzi nimi jedným kliknutím.",
+  "Use": "Použiť",
+  "Name, for example TV": "Názov, napríklad Televízor",
+  "Save the current setup": "Uložiť súčasné nastavenie"
 }

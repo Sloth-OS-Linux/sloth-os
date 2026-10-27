@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Montras, kio povas esti forigita kaj kiom da spaco tio liberigas, antaŭ ol io ajn estas forigita. Viaj dosieroj, la antaŭa sistema versio kaj la konservitaj ne estas tuŝitaj.",
   "Clean up…": "Purigi…",
   "Delete the selected ones ({size})": "Forigi la elektitajn ({size})",
-  "Delete the selected ones": "Forigi la elektitajn"
+  "Delete the selected ones": "Forigi la elektitajn",
+  "Saved: {name}": "Konservita: {name}",
+  "None of this profile's screens is connected now.": "Neniu ekrano de ĉi tiu profilo estas nun konektita.",
+  "Not connected now, so left out: {names}": "Ne konektita nun, do preterlasita: {names}",
+  "Display and sound profiles": "Profiloj de ekrano kaj sono",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Konservu, kiel la ekranoj kaj la sono estas nun agorditaj, ekzemple „Skribotablo“ aŭ „Televidilo“, kaj ŝanĝu inter ili per unu klako.",
+  "Use": "Uzi",
+  "Name, for example TV": "Nomo, ekzemple Televidilo",
+  "Save the current setup": "Konservi la nunan agordon"
 }

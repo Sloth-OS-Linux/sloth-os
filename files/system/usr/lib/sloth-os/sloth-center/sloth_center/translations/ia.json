@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Monstra lo que pote esser delite e quante spatio isto libera, ante que alique es delite. Tu files, le version precedente del systema e le mantenite non es tangite.",
   "Clean up…": "Mundar…",
   "Delete the selected ones ({size})": "Deler le seligite ({size})",
-  "Delete the selected ones": "Deler le seligite"
+  "Delete the selected ones": "Deler le seligite",
+  "Saved: {name}": "Salvate: {name}",
+  "None of this profile's screens is connected now.": "Nulle schermo de iste profilo es connectite ora.",
+  "Not connected now, so left out: {names}": "Non connectite ora, dunque omittite: {names}",
+  "Display and sound profiles": "Profilos de schermo e sono",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Salva como le schermos e le sono es configurate ora, per exemplo \"Scriptorio\" o \"TV\", e cambia inter illos con un clic.",
+  "Use": "Usar",
+  "Name, for example TV": "Nomine, per exemplo TV",
+  "Save the current setup": "Salvar le configuration actual"
 }

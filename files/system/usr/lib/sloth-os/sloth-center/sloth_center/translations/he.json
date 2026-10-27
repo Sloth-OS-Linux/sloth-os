@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "מציג מה אפשר למחוק וכמה מקום זה מפנה, לפני שמשהו נמחק. הקבצים שלכם, גרסת המערכת הקודמת והשמורות לא נפגעים.",
   "Clean up…": "ניקוי…",
   "Delete the selected ones ({size})": "מחיקת הנבחרים ({size})",
-  "Delete the selected ones": "מחיקת הנבחרים"
+  "Delete the selected ones": "מחיקת הנבחרים",
+  "Saved: {name}": "נשמר: {name}",
+  "None of this profile's screens is connected now.": "אף מסך של הפרופיל הזה לא מחובר עכשיו.",
+  "Not connected now, so left out: {names}": "לא מחובר עכשיו, ולכן הושמט: {names}",
+  "Display and sound profiles": "פרופילי תצוגה ושמע",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "שמרו את ההגדרה הנוכחית של המסכים והשמע, למשל „שולחן” או „טלוויזיה”, ועברו ביניהן בלחיצה אחת.",
+  "Use": "שימוש",
+  "Name, for example TV": "שם, למשל טלוויזיה",
+  "Save the current setup": "שמירת ההגדרה הנוכחית"
 }

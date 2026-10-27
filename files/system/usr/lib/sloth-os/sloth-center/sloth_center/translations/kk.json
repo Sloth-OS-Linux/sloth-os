@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Бірдеңе жойылмас бұрын нені жоюға болатынын және қанша орын босайтынын көрсетеді. Файлдарыңызға, жүйенің алдыңғы нұсқасына және сақталғандарға тиіспейді.",
   "Clean up…": "Тазалау…",
   "Delete the selected ones ({size})": "Таңдалғандарды жою ({size})",
-  "Delete the selected ones": "Таңдалғандарды жою"
+  "Delete the selected ones": "Таңдалғандарды жою",
+  "Saved: {name}": "Сақталды: {name}",
+  "None of this profile's screens is connected now.": "Бұл профильдің бірде-бір экраны қазір қосылмаған.",
+  "Not connected now, so left out: {names}": "Қазір қосылмаған, сондықтан қалдырылды: {names}",
+  "Display and sound profiles": "Экран және дыбыс профильдері",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Экрандар мен дыбыстың қазіргі баптауын, мысалы «Үстел» не «Теледидар», сақтап, олардың арасында бір шертумен ауысыңыз.",
+  "Use": "Пайдалану",
+  "Name, for example TV": "Атауы, мысалы Теледидар",
+  "Save the current setup": "Қазіргі баптауды сақтау"
 }

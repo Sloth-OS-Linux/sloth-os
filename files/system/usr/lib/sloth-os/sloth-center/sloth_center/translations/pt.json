@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "Mostra o que pode ser eliminado e quanto espaço liberta, antes de eliminar o que quer que seja. Os seus ficheiros, a versão anterior do sistema e as mantidas não são tocados.",
   "Clean up…": "Limpar…",
   "Delete the selected ones ({size})": "Eliminar os selecionados ({size})",
-  "Delete the selected ones": "Eliminar os selecionados"
+  "Delete the selected ones": "Eliminar os selecionados",
+  "Saved: {name}": "Guardado: {name}",
+  "None of this profile's screens is connected now.": "Nenhum ecrã deste perfil está ligado agora.",
+  "Not connected now, so left out: {names}": "Não ligado agora, por isso ficou de fora: {names}",
+  "Display and sound profiles": "Perfis de ecrã e som",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "Guarde como estão configurados agora os ecrãs e o som, por exemplo \"Secretária\" ou \"TV\", e alterne entre eles com um clique.",
+  "Use": "Usar",
+  "Name, for example TV": "Nome, por exemplo TV",
+  "Save the current setup": "Guardar a configuração atual"
 }

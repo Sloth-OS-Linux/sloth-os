@@ -765,5 +765,13 @@
   "Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.": "কিবা মচাৰ আগতে কি মচিব পাৰি আৰু কিমান ঠাই মুকলি হয় দেখুৱায়। আপোনাৰ ফাইল, আগৰ চিস্টেম সংস্কৰণ আৰু ৰখাবোৰ স্পৰ্শ কৰা নহয়।",
   "Clean up…": "চাফা কৰক…",
   "Delete the selected ones ({size})": "বাছনি কৰাবোৰ মচক ({size})",
-  "Delete the selected ones": "বাছনি কৰাবোৰ মচক"
+  "Delete the selected ones": "বাছনি কৰাবোৰ মচক",
+  "Saved: {name}": "সংৰক্ষিত: {name}",
+  "None of this profile's screens is connected now.": "এই প্ৰ'ফাইলৰ কোনো স্ক্ৰীণ এতিয়া সংযুক্ত নহয়।",
+  "Not connected now, so left out: {names}": "এতিয়া সংযুক্ত নহয়, গতিকে বাদ দিয়া হ'ল: {names}",
+  "Display and sound profiles": "ডিছপ্লে আৰু শব্দৰ প্ৰ'ফাইল",
+  "Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.": "স্ক্ৰীণ আৰু শব্দ এতিয়া কেনেকৈ ছেট কৰা আছে সংৰক্ষণ কৰক, যেনে \"ডেস্ক\" বা \"TV\", আৰু এটা ক্লিকতে সলনি কৰক।",
+  "Use": "ব্যৱহাৰ কৰক",
+  "Name, for example TV": "নাম, যেনে TV",
+  "Save the current setup": "বৰ্তমানৰ ছেটআপ সংৰক্ষণ কৰক"
 }
