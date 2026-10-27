@@ -32,8 +32,13 @@ Release:
 - [x] Finish the install when the installer starts the program at its end (the IrfanView bug, below)
 - [x] Merge `codex/1.0.5-test` into `main` (2026-10-27; the `test/chunked-oci` branch stays out, see "Smaller system
   updates")
-- [ ] Build the ISO from `main`, install it once in a VM, upload it to SourceForge with its SHA-256 checksum
-- [ ] Website: the 1.1 news and download link
+- [x] Build the ISO from `main`, install it once, upload it to SourceForge with its SHA-256 checksum (2026-10-27:
+  `sloth-os-1.1-x86_64.iso`, 7.05 GB, SHA-256 `cccae10e7cb195563a0f73facf25a25da4829a038309d2b93170e53c5b91a735`;
+  written to a USB stick, verified, and installed on a real machine without problems)
+- [ ] Website: the 1.1 news and download link (the news and release notes are up; the download button moves to
+  1.1 when SourceForge's mirrors serve the ISO)
+- NVIDIA (2026-10-27): the gaming machine (RTX 5060) runs 1.0.4 without problems, with Secure Boot turned off.
+  Secure Boot on (MOK enrollment) is still untested
 
 Not checked on a real machine yet: the FPS display's temperatures, the metered-connection question (a phone
 hotspot), disc images (eject, sign-out), the main-screen question and partition choice in the installer, the
@@ -608,7 +613,11 @@ fine there needs to be checked only once on a real machine:
   Suggested order: 1+2+3 in one round, web filtering separately
   Until then a "Coming soon" menu item shows it in Sloth Center (Parental controls, 2026-10-20)
 - [ ] Our own Flatpak repository for the apps from GitHub (e.g. ArtCraft), so Discover updates them
-- [ ] A link instead of the duplicated copy of Proton (about 1.4 GB on disk). Plan (2026-10-20): first check on the machine
+- [x] Not needed (2026-10-27, measured on the laptop: `btrfs filesystem du` shows 0 B exclusive for
+  `compatibilitytools.d`, so the `--reflink=auto` copy already shares its blocks with the image's copy; a link
+  would also break Proton, which writes `dist.lock` and `default_pfx` into its own folder, and a newer bundled
+  Proton would remove the old one under programs pinned to it).
+  A link instead of the duplicated copy of Proton (about 1.4 GB on disk). Plan (2026-10-20): first check on the machine
   whether it really takes space (`windows-runtime-seed` already copies with `--reflink=auto`); if so, a link to the bundled
   copy instead of the Proton folder (Proton does not write into its own folder), the runtime (Steam Linux Runtime)
   stays a copy, because umu updates it in place. Small work
