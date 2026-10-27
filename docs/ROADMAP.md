@@ -155,9 +155,12 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   launch, status code: 203" (2026-10-27, real machine). Copied into Downloads it started fine.
 - [x] Live mode: Windows programs start in the live system too (2026-10-27, real machine: an Avalonia .NET program
   ran without problems; the one that did not was the WinUI 3 / MAUI app above, which runs nowhere on Linux)
-- [ ] **Small** — Live mode, optional: run the bundled Proton and runtime from `/usr/share/sloth-os/windows-runtime`
+- [x] **Small** — Live mode, optional: run the bundled Proton and runtime from `/usr/share/sloth-os/windows-runtime`
   (writable there) instead of copying ~2 GB into a home folder that lives in RAM or on the USB stick: a faster
-  first start and less memory
+  first start and less memory. (2026-10-27: `windows-runtime-seed` links them in the live system (`rd.live.image`
+  and the bundled folder writable), the installed system still copies; `windows-prepare` does not look for a newer
+  Proton in the live system, that would download into the memory too. Tests: `tools/tests/test_runtime_seed.py`
+  (installed, live, live but read-only, a second run). Check with the next ISO)
 - [ ] (Set aside 2026-10-27, not important for now) **Small** — Ejecting a USB stick took about a minute ("closing the process") after `.exe` files were started
   from it (2026-10-27). Suspect: the runner uses the program's folder as the working directory, so Wine's
   background processes (wineserver) hold the stick for a while. Waiting for `fuser -vm` output; fix idea: a working
@@ -261,7 +264,13 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   baseline (`ostree-ext/src/chunking.rs:423` assertion, `left: 845, right: 0`). Wait for a fixed rpm-ostree, or
   try BlueBuild's `chunkah` option instead.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
-- [ ] **Medium** — Let users schedule file backups, choose retention, and estimate required storage.
+- [x] **Medium** — Let users schedule file backups, choose retention, and estimate required storage. (Closed
+  2026-10-27: the backup runs every hour by itself (`sloth-home-snapshot.timer`, also caught up after the computer
+  was off) and "Back up now" is on the page; the keep time is chosen there (2 weeks / 1 month / 3 months: every hour
+  of the last day, then one a day, then one a week; the oldest go sooner when the disk is filling up). A separate
+  schedule is not offered: a snapshot only stores what changed and takes a moment, so hourly is right for everyone.
+  The storage is not estimated in advance: Btrfs snapshots share the unchanged data, so a number would be a guess;
+  the Disks page shows the space really used ("System, earlier versions and other").)
 - [x] **Medium** — Guide users through restoring a selected file (2026-10-26): File backup → "Restore a file…"
   (pick the file) or "Find deleted files…" (pick the folder it was in) opens the same "Previous versions" window
   as right-click in the file manager, for those who do not know that menu. Checked on a real machine (2026-10-26)
