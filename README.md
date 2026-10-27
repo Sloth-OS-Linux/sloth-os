@@ -14,10 +14,10 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Current release: [Sloth OS 1.0.5](https://sourceforge.net/projects/sloth-os/files/1.0.5/)** (October 27, 2026).
+**Current release: [Sloth OS 1.1](https://sourceforge.net/projects/sloth-os/files/1.1/)** (October 27, 2026).
 Machines already running Sloth OS get it as a normal update.
 
-### What's new in 1.0.5
+### What's new in 1.1
 
 **Updates that finish.** A system update could stop halfway and never finish (the system switched off a part of the
 disk in the middle of it). This is fixed and was checked with a full 2.3 GB update on a real machine. The Updates page
@@ -57,6 +57,8 @@ also shows how big the waiting update is, and on a mobile or other metered conne
   to run it. It is ejected again when you sign out.
 - **Installers fix themselves:** if a Windows installer crashes because something is missing, it is tried again with
   the fix, and what worked is remembered (and shared, if sharing is on).
+- **Installers that open the program at the end** (like IrfanView's) no longer keep the install screen waiting until
+  you close the program.
 - Closed Windows programs are no longer started again by themselves, and installers like 7-Zip's are recognized
   correctly.
 - The terminal's system information (fastfetch) shows the Sloth OS logo.

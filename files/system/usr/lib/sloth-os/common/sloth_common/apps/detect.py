@@ -223,6 +223,21 @@ def _exe_score(path, install_dir, name):
     return score
 
 
+def installed_running(found, running):
+    """The new .exe files of the install that run now (running: lowercase .exe names), for when the install is not
+    certain yet: no shortcut, and Wine writes the registry to disk only later, or when the environment stops.
+    IrfanView's installer starts the program at its end, and the install screen waited until the user closed it
+    (2026-10-26). A second-stage installer (in a temporary folder, or one that looks like an installer) does not count."""
+    out = set()
+    for c in found.candidates:
+        name = c.path.name.lower()
+        if name not in running or "/temp/" in str(c.path).lower().replace("\\", "/"):
+            continue
+        if not looks_like_installer(c.path):
+            out.add(name)
+    return out
+
+
 def _common_dir(paths, drive_c):
     """The shared folder of the installed .exe files under Program Files (or another top folder)."""
     common = None

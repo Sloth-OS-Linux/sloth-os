@@ -210,6 +210,22 @@ class DetectTest(unittest.TestCase):
         self.assertNotIn("updater.exe", [c.path.name for c in found.candidates])
         library.remove(app)
 
+    def test_installed_program_runs_before_registry(self):
+        """IrfanView (2026-10-26): the installer starts the program at its end, before Wine writes the registry to
+        disk. The running program ends the install; a second-stage installer in a temporary folder does not."""
+        app = library.create("IrfanView")
+        before = detect.baseline(app)
+        d = app.prefix / "drive_c/Program Files/IrfanView"
+        touch(d / "i_view64.exe", 3 * 1024 ** 2)
+        touch(app.prefix / "drive_c/users/steamuser/AppData/Local/Temp/xyz/stage2.exe")
+        found = detect.detect(app, before, fallback_name="IrfanView")
+        self.assertFalse(found.sure)
+        self.assertEqual(detect.installed_running(found, {"i_view64.exe", "iview470_x64_setup.exe"}),
+                         {"i_view64.exe"})
+        self.assertEqual(detect.installed_running(found, {"stage2.exe"}), set())
+        self.assertEqual(detect.installed_running(found, {"iview470_x64_setup.exe"}), set())
+        library.remove(app)
+
 
 class LibraryTest(unittest.TestCase):
     def test_create_unique(self):

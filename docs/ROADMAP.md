@@ -17,7 +17,7 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
-### Sloth OS 1.0.5 (release planned for 2026-10-27; the number may become 1.1)
+### Sloth OS 1.1 (release planned for 2026-10-27; tested as 1.0.5)
 The `codex/1.0.5-test` branch, tested on a real machine (laptop) on 2026-10-26. Updates finish again (the rpm-ostree
 crash, under 1.0.4 below); Sloth Center got a spotlight guide, Appearance (with an Ubuntu-like layout), Displays,
 Sound, Bluetooth, a Wi-Fi check, programs that start at sign-in, app permissions, file restore and backup check;
@@ -27,14 +27,16 @@ user-facing list is in `README.md`. Each item is under its topic (phases and the
 Release:
 - [x] The "Turn on Bluetooth" button on a real machine (2026-10-26: the rfkill block is lifted first, then Powered is
   set again while the adapter wakes up; checked on the laptop with the `cb41505` build)
-- [ ] Decide the number (1.0.5 or 1.1): `files/scripts/branding.sh`, the README header and the SourceForge folder
+- [x] Decide the number: 1.1 (2026-10-27; `files/scripts/branding.sh`, the README header; the SourceForge folder is
+  `1.1`)
+- [x] Finish the install when the installer starts the program at its end (the IrfanView bug, below)
 - [ ] Merge `codex/1.0.5-test` into `main` (the `test/chunked-oci` branch stays out, see "Smaller system updates")
 - [ ] Build the ISO from `main`, install it once in a VM, upload it to SourceForge with its SHA-256 checksum
-- [ ] Website: the 1.0.5 news and download link
+- [ ] Website: the 1.1 news and download link
 
 Not checked on a real machine yet: the FPS display's temperatures, the metered-connection question (a phone
-hotspot), disc images (eject, sign-out), the main-screen question and partition choice in the installer, and the
-self-healing installers.
+hotspot), disc images (eject, sign-out), the main-screen question and partition choice in the installer, the
+self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
 
 - [x] Choose the main screen in the installer (first page, only with more than one screen); the installer moves
   there at once, and the installed system makes it the main one at the first sign-in
@@ -106,13 +108,19 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   installer through the .exe handler, or just open the folder); remember the choice if the user asks. Offer
   "Eject" in Dolphin and unmount at sign-out.
 
-- [ ] **Medium** — Finish the install when the installer starts the program at its end (2026-10-26, real machine,
+- [x] **Medium** — Finish the install when the installer starts the program at its end (2026-10-26, real machine,
   IrfanView): with the installer's last "Open IrfanView" box left ticked, the program started from the installer
   and the install screen kept waiting; the Start menu question only came after the program was closed. Everything
   worked after that (installed, started without errors), but the user waits without knowing why. Likely cause: the
   `.exe` handler waits until the whole Windows environment is quiet, and the started program runs in it. Fix idea:
   treat the install as done when the installer's own process ends (or when a new program window of the installed
   program appears), ask the Start menu question then, and leave the running program alone.
+  Done 2026-10-27: the cause was the recognition, not the waiting. The install only counted as done when it was
+  certain what got installed (a shortcut, or the registry's uninstall entry), and Wine writes the registry to disk
+  only later or when the environment stops, so with no shortcut it became certain only after IrfanView closed. Now
+  a new .exe of the install that runs is enough (`detect.installed_running`; not in a temporary folder and not an
+  installer itself), and the uninstall entry is saved afterwards, when the installer's environment stops. Tests:
+  `tools/tests/test_apps.py`. Check on a real machine
 #### Installation and storage
 - [x] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.

@@ -21,7 +21,7 @@ CONFIG = REPO / "files/system/etc/fastfetch/config.jsonc"
 EXAMPLE = [
     ("", "anna@sloth-os"),
     ("", "-------------"),
-    ("OS", "Sloth OS 1.0.5 (Fedora Atomic 44) x86_64"),
+    ("OS", "Sloth OS 1.1 (Fedora Atomic 44) x86_64"),
     ("Host", "HP EliteDesk 800 G4 SFF"),
     ("Kernel", "Linux 6.17.4-300.fc44.x86_64"),
     ("Uptime", "2 hours, 14 mins"),
