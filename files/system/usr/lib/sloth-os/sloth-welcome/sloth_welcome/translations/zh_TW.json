@@ -1,18 +1,14 @@
 {
   "_language": "繁體中文",
-
   "app.title": "Sloth 歡迎",
   "window.title": "歡迎使用 Sloth OS",
-
   "welcome.heading": "歡迎使用 Sloth OS！",
   "welcome.text": "回答幾個簡單的問題，電腦就準備好了。所有設定之後都可以更改。",
   "welcome.language": "語言",
   "welcome.start": "開始",
-
   "look.colors": "你喜歡哪種顏色？",
   "look.colors_hint": "點選一個即可立即看到效果。之後可以在系統設定中更改。",
   "look.taskbar": "工作列要什麼樣式？",
-
   "scheme.SlothSilverDark": "銀色（深色）",
   "scheme.SlothSilverLight": "銀色（淺色）",
   "scheme.SlothWhite": "雪白",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "霧藍",
   "scheme.SlothNight": "夜藍",
   "scheme.SlothSage": "鼠尾草綠",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "開始功能表和圖示靠左",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "開始功能表和圖示置中",
   "layout.mac.name": "類似 macOS",
   "layout.mac.description": "頂部列，底部浮動 Dock",
+  "layout.ubuntu.name": "類似 Ubuntu",
+  "layout.ubuntu.description": "頂部列，左側 Dock",
   "security.heading": "電腦何時要詢問密碼?",
   "security.text": "有些設定(例如安裝程式)需要你的密碼。這樣別人就無法在你不知情的情況下變更電腦。",
   "security.all": "每次變更都詢問(最安全)",
@@ -39,8 +36,7 @@
   "sharing.what": "只會傳送這些：設定（例如「舊版圖形模式」）、你的顯示卡製造商，以及無法還原出程式名稱的程式指紋。除此之外，什麼都不會離開你的電腦：不包括你的名字、你的檔案、程式名稱，也不包括你何時使用以及使用多久。",
   "sharing.yes": "是，匿名分享",
   "sharing.no": "不，謝謝",
-  "sharing.later": "之後可以隨時在 Sloth 中心（Windows 程式）中變更。無論選擇哪一項，你都會取得在其他電腦上有效的設定。",
-
+  "sharing.later": "以後可以隨時在 Sloth Center 中變更。無論怎麼選，你都會取得在其他電腦上可行的設定。",
   "windows.heading": "要把檔案從 Windows 搬過來嗎？",
   "windows.text": "這台電腦上還有 Windows。我們可以把您的檔案複製到這裡；不會更動 Windows，只讀取。",
   "windows.scanning": "正在檢查 Windows 磁碟機…",
@@ -63,17 +59,14 @@
   "windows.none": "這台電腦上找不到可搬過來的 Windows 檔案。",
   "windows.failed": "無法開啟 Windows 磁碟機。請啟動 Windows 並完全關機（關機，而不是重新啟動），然後從 Sloth Center（磁碟）重試。",
   "windows.bookmarks_file": "Windows 書籤.html",
-
   "nav.back": "上一步",
   "nav.next": "下一步",
   "nav.skip": "略過",
   "nav.finish": "完成",
   "nav.install": "安裝",
-
   "step.counter": "第 {n} 步，共 {total} 步",
   "step.selected_one": "已選擇 1 個應用程式",
   "step.selected_many": "已選擇 {count} 個應用程式",
-
   "category.multiple": "可以選擇多個，也可以都不選。",
   "category.browser.name": "網頁瀏覽器",
   "category.browser.hint": "用來上網。沒有瀏覽器就無法開啟網站。",
@@ -87,7 +80,6 @@
   "category.games.hint": "遊戲商店和啟動器。沒有它們，Windows 遊戲和程式也能執行。",
   "category.creative.name": "創作",
   "category.creative.hint": "修圖、繪畫、影片剪輯、錄製。",
-
   "app.org.mozilla.firefox": "快速、注重隱私、開放原始碼",
   "app.com.google.Chrome": "Google 的瀏覽器，與 Google 帳號同步",
   "app.com.brave.Browser": "內建廣告封鎖",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Windows 程式的安裝程式已下載（{names}）。現在會逐一開啟：請像在 Windows 中一樣完成每個安裝。重新啟動在最後。",
   "done.windows_continue": "繼續安裝 Windows 程式",
   "done.windows_finished": "全部完成，Windows 程式也裝好了！重新啟動後一切都會正常載入。",
-
   "offline.text": "沒有網路連線。請連上網路以安裝應用程式。",
   "offline.settings": "網路設定",
   "offline.retry": "重試",
-
   "nobrowser.title": "你沒有選擇瀏覽器",
   "nobrowser.text": "沒有瀏覽器就無法開啟網站。確定要這樣嗎？",
   "nobrowser.choose": "我選一個",
   "nobrowser.ok": "就這樣吧",
-
   "install.preparing": "正在準備安裝…",
   "install.retrying": "連線中斷，正在重試…",
   "install.installing": "正在安裝 {name}…",
   "install.note": "視網速而定，可能需要幾分鐘。",
-
   "error.network": "沒有網路連線，或無法連上伺服器。",
   "error.disk_full": "磁碟空間不足。",
   "error.not_authorized": "未取得安裝權限。",
   "error.checksum": "下載的檔案已損毀，因此未安裝。",
   "error.generic": "安裝失敗。",
-
   "done.nothing_selected": "完成！之後可以在 Discover 中安裝應用程式。",
   "done.all_ok": "全部完成！你選的應用程式已在開始功能表中。",
   "done.some_failed": "快完成了。部分應用程式未能安裝：",
   "done.all_failed": "抱歉，目前無法安裝應用程式：",
   "done.retry_hint": "之後可以從開始功能表開啟「Sloth 歡迎」再試一次。",
+  "done.taskbar": "要把哪些放到工作列？",
   "done.extras": "如果願意，還有幾件事：",
   "done.steam": "登入 Steam",
   "done.accounts": "線上帳號（Google、Microsoft…）",
@@ -183,7 +171,6 @@
   "done.start": "盡情享受吧！",
   "done.restart": "重新啟動",
   "done.restart_hint": "重新啟動電腦，讓所有新應用程式正常載入。",
-
   "desktop.generic": "應用程式與外觀",
   "desktop.comment": "安裝瀏覽器、辦公室套件、媒體播放器等，選擇配色",
   "desktop.keywords": "歡迎;應用程式;瀏覽器;辦公室;主題",

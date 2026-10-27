@@ -1,18 +1,14 @@
 {
   "_language": "Magyar",
-
   "app.title": "Sloth Üdvözlő",
   "window.title": "Üdv a Sloth OS-en",
-
   "welcome.heading": "Üdv a Sloth OS-en!",
   "welcome.text": "Pár gyors kérdés, és már kész is a géped. Mindent később is megváltoztathatsz.",
   "welcome.language": "Nyelv",
   "welcome.start": "Kezdjük",
-
   "look.colors": "Milyen színeket szeretnél?",
   "look.colors_hint": "Kattints egyre, és rögtön látod, hogyan néz ki. Később a Rendszerbeállításokban is átállíthatod.",
   "look.taskbar": "Milyen legyen a tálca?",
-
   "scheme.SlothSilverDark": "Ezüst (sötét)",
   "scheme.SlothSilverLight": "Ezüst (világos)",
   "scheme.SlothWhite": "Hófehér",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Ködkék",
   "scheme.SlothNight": "Éjkék",
   "scheme.SlothSage": "Zsálya",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Start menü és ikonok balra",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Start menü és ikonok középen",
   "layout.mac.name": "macOS-szerű",
   "layout.mac.description": "Felső sáv, alul lebegő dokk",
+  "layout.ubuntu.name": "Ubuntu-szerű",
+  "layout.ubuntu.description": "Felső sáv, dokk a bal oldalon",
   "security.heading": "Mihez kérjen jelszót a gép?",
   "security.text": "Bizonyos beállításokhoz (például programok telepítéséhez) a gép a jelszavadat kéri. Így más nem tud a tudtod nélkül változtatni rajta.",
   "security.all": "Mindenhez kérjen jelszót (a legbiztonságosabb)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Igen, megosztom névtelenül",
   "sharing.no": "Nem, köszönöm",
   "sharing.later": "Később a Sloth Központban bármikor átállíthatod. A más gépeken bevált beállításokat így is, úgy is megkapod.",
-
   "windows.heading": "Áthozzuk a fájljaidat a Windowsból?",
   "windows.text": "A gépen van egy Windows is. A fájljaidat átmásolhatjuk ide; a Windowshoz nem nyúlunk, csak olvasunk róla.",
   "windows.scanning": "A Windows-meghajtó átnézése…",
@@ -63,17 +59,14 @@
   "windows.none": "Nem találtunk áthozható Windows-fájlokat a gépen.",
   "windows.failed": "A Windows-meghajtót nem sikerült megnyitni. Indítsd el a Windowst, és állítsd le teljesen (Leállítás, nem Újraindítás), utána próbáld újra a Sloth Központból (Lemezek).",
   "windows.bookmarks_file": "Windows-könyvjelzők.html",
-
   "nav.back": "Vissza",
   "nav.next": "Tovább",
   "nav.skip": "Kihagyom",
   "nav.finish": "Befejezés",
   "nav.install": "Telepítés",
-
   "step.counter": "{n}. lépés / {total}",
   "step.selected_one": "összesen 1 app kiválasztva",
   "step.selected_many": "összesen {count} app kiválasztva",
-
   "category.multiple": "Többet is választhatsz, vagy egyet sem.",
   "category.browser.name": "Böngésző",
   "category.browser.hint": "Ezzel netezel. Böngésző nélkül nem tudsz weboldalakat megnyitni.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Játékboltok és játékindítók. A Windowsos játékok és programok nélkülük is elindulnak.",
   "category.creative.name": "Alkotás",
   "category.creative.hint": "Képszerkesztés, rajzolás, videóvágás, felvétel.",
-
   "app.org.mozilla.firefox": "Gyors, adatvédelemre figyelő, nyílt forrású",
   "app.com.google.Chrome": "A Google böngészője, Google-fiókkal szinkronizál",
   "app.com.brave.Browser": "Beépített reklámblokkolóval",
@@ -150,32 +142,28 @@
   "done.windows_hint": "A Windows-programok telepítői letöltődtek ({names}). Most egyesével megnyílnak: mindegyiknél végigmész a telepítésen, mint Windowson. Az újraindítás a végén jön.",
   "done.windows_continue": "Tovább a Windows-programok telepítéséhez",
   "done.windows_finished": "Minden kész, a Windows-programok is! Egy újraindítás után minden rendesen betöltődik.",
-
   "offline.text": "Nincs internetkapcsolat. Az appok telepítéséhez csatlakozz egy hálózathoz.",
   "offline.settings": "Hálózati beállítások",
   "offline.retry": "Újra",
-
   "nobrowser.title": "Nem választottál böngészőt",
   "nobrowser.text": "Böngésző nélkül nem tudsz weboldalakat megnyitni. Biztosan így szeretnéd?",
   "nobrowser.choose": "Választok egyet",
   "nobrowser.ok": "Így is jó",
-
   "install.preparing": "Felkészülés a telepítésre…",
   "install.retrying": "A kapcsolat megszakadt, újrapróbálom…",
   "install.installing": "{name} telepítése…",
   "install.note": "Ez a netkapcsolattól függően pár perc is lehet.",
-
   "error.network": "Nincs internetkapcsolat, vagy a szerver nem érhető el.",
   "error.disk_full": "Nincs elég szabad hely a lemezen.",
   "error.not_authorized": "Nem kaptunk engedélyt a telepítéshez.",
   "error.checksum": "A letöltött fájl sérült volt, ezért nem telepítettük.",
   "error.generic": "Nem sikerült telepíteni.",
-
   "done.nothing_selected": "Kész is vagyunk! Appokat később is telepíthetsz a Discoverben.",
   "done.all_ok": "Minden kész! A kiválasztott appok a Start menüben várnak.",
   "done.some_failed": "Majdnem minden kész. Néhány appot nem sikerült telepíteni:",
   "done.all_failed": "Sajnos most nem sikerült telepíteni az appokat:",
   "done.retry_hint": "A Start menüben a „Sloth Üdvözlő” megnyitásával később újra megpróbálhatod.",
+  "done.taskbar": "Mi kerüljön a tálcára?",
   "done.extras": "Még egy-két dolog, ha szeretnéd:",
   "done.steam": "Bejelentkezés a Steambe",
   "done.accounts": "Online fiókok (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Indulhat a móka!",
   "done.restart": "Újraindítás",
   "done.restart_hint": "Egy újraindítás után minden új app rendesen betöltődik.",
-
   "desktop.generic": "Appok és megjelenés",
   "desktop.comment": "Böngésző, irodai programok, médialejátszó és más appok telepítése, színtéma választás",
   "desktop.keywords": "üdvözlő;appok;böngésző;irodai;téma",

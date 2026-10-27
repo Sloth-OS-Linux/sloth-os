@@ -36,7 +36,9 @@ def main():
 
     # The controllers use gi (GLib); Qt's event loop is GLib's, so the
     # D-Bus callbacks arrive without problems.
+    from sloth_common import appearance as shared_appearance
     from .updates import UpdatesController
+    from .appearance import AppearanceController
     from .accounts import AccountsController
     from .advanced import AdvancedController
     from .backup import BackupController
@@ -53,9 +55,16 @@ def main():
     from .health import HealthController
     from .reset import ResetController
     from .services import ServicesController
+    from .startup import StartupController
+    from .wifi import WifiController
+    from .privacy import PrivacyController
+    from .sound import SoundController
+    from .display import DisplayController
+    from .bluetooth import BluetoothController
     from .winprograms import WinProgramsController
 
     engine = QQmlApplicationEngine()
+    engine.addImportPath(shared_appearance.QML_IMPORT_PATH)  # import SlothCommon (the layout drawings)
     translator = Translator()
     engine.rootContext().setContextProperty("L", translator)
     engine.rootContext().setContextProperty("startPage", start_page)
@@ -77,6 +86,13 @@ def main():
     games = GamesController()
     devpanel = DevPanelController()
     guide = GuideController()
+    appearance = AppearanceController()
+    startup = StartupController()
+    wifi = WifiController()
+    privacy = PrivacyController()
+    sound = SoundController()
+    display = DisplayController()
+    bluetooth = BluetoothController()
     engine.rootContext().setContextProperty("updates", updates)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
@@ -95,6 +111,13 @@ def main():
     engine.rootContext().setContextProperty("games", games)
     engine.rootContext().setContextProperty("devpanel", devpanel)
     engine.rootContext().setContextProperty("guide", guide)
+    engine.rootContext().setContextProperty("appearance", appearance)
+    engine.rootContext().setContextProperty("startup", startup)
+    engine.rootContext().setContextProperty("wifi", wifi)
+    engine.rootContext().setContextProperty("privacy", privacy)
+    engine.rootContext().setContextProperty("sound", sound)
+    engine.rootContext().setContextProperty("displays", display)
+    engine.rootContext().setContextProperty("bluetooth", bluetooth)
     engine.load(QUrl.fromLocalFile(str(QML_DIR / "Main.qml")))
     if not engine.rootObjects():
         return 1

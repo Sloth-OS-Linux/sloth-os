@@ -1,0 +1,47 @@
+#!/usr/bin/python3 -I
+"""At sign-out: ejects the disc images (.iso) the user opened and left open.
+
+The .exe handler mounts them through UDisks (sloth_common/apps/discimage.py); the user unit
+sloth-disc-images.service runs this when the session ends. Only loop devices this user set up are touched.
+"""
+import json
+import os
+import subprocess
+
+UDISKS = "org.freedesktop.UDisks2"
+
+
+def setup_by_me(dev):
+    obj = "/org/freedesktop/UDisks2/block_devices/" + os.path.basename(dev)
+    r = subprocess.run(["gdbus", "call", "--system", "--dest", UDISKS, "--object-path", obj, "--method",
+                        "org.freedesktop.DBus.Properties.Get", UDISKS + ".Loop", "SetupByUID"],
+                       capture_output=True, text=True, timeout=10)
+    # "(<uint32 1000>,)"
+    return r.returncode == 0 and f"uint32 {os.getuid()}>" in r.stdout
+
+
+def udisks(*args):
+    subprocess.run(["udisksctl", *args, "--no-user-interaction"], capture_output=True, timeout=30)
+
+
+def main():
+    try:
+        out = subprocess.run(["lsblk", "--json", "--output", "PATH,TYPE,MOUNTPOINTS"],
+                             capture_output=True, text=True, timeout=10).stdout
+        devices = json.loads(out)["blockdevices"]
+    except (OSError, subprocess.SubprocessError, ValueError, KeyError):
+        return
+    for disk in devices:
+        if disk.get("type") != "loop" or not setup_by_me(disk["path"]):
+            continue
+        # a hybrid image is mounted from its partition (loopNp1)
+        for part in disk.get("children") or []:
+            if any(part.get("mountpoints") or []):
+                udisks("unmount", "-b", part["path"])
+        if any(disk.get("mountpoints") or []):
+            udisks("unmount", "-b", disk["path"])
+        udisks("loop-delete", "-b", disk["path"])
+
+
+if __name__ == "__main__":
+    main()

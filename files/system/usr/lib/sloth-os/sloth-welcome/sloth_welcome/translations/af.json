@@ -1,18 +1,14 @@
 {
   "_language": "Afrikaans",
-
   "app.title": "Sloth Welkom",
   "window.title": "Welkom by Sloth OS",
-
   "welcome.heading": "Welkom by Sloth OS!",
   "welcome.text": "'n Paar vinnige vrae en jou rekenaar is gereed. Jy kan later alles verander.",
   "welcome.language": "Taal",
   "welcome.start": "Kom ons begin",
-
   "look.colors": "Watter kleure hou jy van?",
   "look.colors_hint": "Klik op een en sien dadelik hoe dit lyk. Jy kan dit later in Stelselinstellings verander.",
   "look.taskbar": "Hoe moet die taakbalk lyk?",
-
   "scheme.SlothSilverDark": "Silwer (donker)",
   "scheme.SlothSilverLight": "Silwer (lig)",
   "scheme.SlothWhite": "Sneeuwit",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Misblou",
   "scheme.SlothNight": "Nagblou",
   "scheme.SlothSage": "Salie",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Beginkieslys en ikone links",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Beginkieslys en ikone in die middel",
   "layout.mac.name": "Soos macOS",
   "layout.mac.description": "Balk bo, swewende dok onder",
+  "layout.ubuntu.name": "Ubuntu-agtig",
+  "layout.ubuntu.description": "Boonste balk, dok aan die linkerkant",
   "security.heading": "Wanneer moet jou rekenaar vir jou wagwoord vra?",
   "security.text": "Sommige instellings (soos om programme te installeer) vra jou wagwoord. So kan niemand sonder jou medewete jou rekenaar verander nie.",
   "security.all": "Vra vir elke verandering (die veiligste)",
@@ -39,8 +36,7 @@
   "sharing.what": "Slegs dit word gestuur: die instelling (byvoorbeeld \"ouer grafiese modus\"), jou grafiese kaart se vervaardiger, en 'n vingerafdruk van die program waaruit die naam nie herwin kan word nie. Niks anders verlaat jou rekenaar nie: nie jou naam, jou lêers, die program se naam, of wanneer en hoeveel jy dit gebruik nie.",
   "sharing.yes": "Ja, deel anoniem",
   "sharing.no": "Nee, dankie",
-  "sharing.later": "Jy kan dit later enige tyd in Sloth-sentrum verander. Jy kry in elk geval die instellings wat op ander rekenaars gewerk het.",
-
+  "sharing.later": "Jy kan dit later enige tyd in Sloth Center verander. Jy kry in elk geval die instellings wat op ander rekenaars gewerk het.",
   "windows.heading": "Bring jou lêers van Windows oor?",
   "windows.text": "Hierdie rekenaar het ook Windows. Ons kan jou lêers hierheen kopieer; Windows self word nie aangeraak nie, ons lees net daarvan.",
   "windows.scanning": "Deursoek die Windows-skyf…",
@@ -63,17 +59,14 @@
   "windows.none": "Geen Windows-lêers om oor te bring is op hierdie rekenaar gevind nie.",
   "windows.failed": "Die Windows-skyf kon nie oopgemaak word nie. Begin Windows en skakel dit heeltemal af (Skakel af, nie Herbegin nie), en probeer dan weer in Sloth Center (Skywe).",
   "windows.bookmarks_file": "Windows-boekmerke.html",
-
   "nav.back": "Terug",
   "nav.next": "Volgende",
   "nav.skip": "Slaan oor",
   "nav.finish": "Voltooi",
   "nav.install": "Installeer",
-
   "step.counter": "Stap {n} van {total}",
   "step.selected_one": "1 toep gekies",
   "step.selected_many": "{count} toepe gekies",
-
   "category.multiple": "Jy kan meer as een kies, of geen.",
   "category.browser.name": "Webblaaier",
   "category.browser.hint": "Hiermee gaan jy op die internet. Sonder 'n blaaier kan jy nie webwerwe oopmaak nie.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Speletjiewinkels en lanseerders. Windows-speletjies en -programme werk ook daarsonder.",
   "category.creative.name": "Kreatief",
   "category.creative.hint": "Fotoredigering, teken, videoredigering, opneem.",
-
   "app.org.mozilla.firefox": "Vinnig, privaatheidsbewus, oopbron",
   "app.com.google.Chrome": "Google se blaaier, sinkroniseer met jou Google-rekening",
   "app.com.brave.Browser": "Met ingeboude advertensieblokkeerder",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Die installeerders van die Windows-programme is afgelaai ({names}). Hulle maak nou een vir een oop: gaan deur elke installasie, net soos op Windows. Herbegin kom aan die einde.",
   "done.windows_continue": "Gaan voort na die installering van Windows-programme",
   "done.windows_finished": "Alles klaar, die Windows-programme ook! Ná 'n herbegin laai alles reg.",
-
   "offline.text": "Geen internetverbinding nie. Koppel aan 'n netwerk om toepe te installeer.",
   "offline.settings": "Netwerkinstellings",
   "offline.retry": "Probeer weer",
-
   "nobrowser.title": "Jy het nie 'n blaaier gekies nie",
   "nobrowser.text": "Sonder 'n blaaier kan jy nie webwerwe oopmaak nie. Is jy seker?",
   "nobrowser.choose": "Ek kies een",
   "nobrowser.ok": "Dis reg so",
-
   "install.preparing": "Berei installasie voor…",
   "install.retrying": "Die verbinding is verbreek, probeer weer…",
   "install.installing": "Installeer {name}…",
   "install.note": "Afhangend van jou verbinding kan dit 'n paar minute duur.",
-
   "error.network": "Geen internetverbinding nie, of die bediener is nie bereikbaar nie.",
   "error.disk_full": "Daar is nie genoeg vrye skyfspasie nie.",
   "error.not_authorized": "Ons het nie toestemming gekry om te installeer nie.",
   "error.checksum": "Die afgelaaide lêer was beskadig en is dus nie geïnstalleer nie.",
   "error.generic": "Installasie het misluk.",
-
   "done.nothing_selected": "Klaar! Jy kan later toepe in Discover installeer.",
   "done.all_ok": "Alles is gereed! Jou toepe wag in die beginkieslys.",
   "done.some_failed": "Amper klaar. Sommige toepe kon nie geïnstalleer word nie:",
   "done.all_failed": "Jammer, die toepe kon nie nou geïnstalleer word nie:",
   "done.retry_hint": "Jy kan later weer probeer deur “Sloth Welkom” in die beginkieslys oop te maak.",
+  "done.taskbar": "Wat moet op die taakbalk kom?",
   "done.extras": "Nog een of twee dinge, as jy wil:",
   "done.steam": "Meld aan by Steam",
   "done.accounts": "Aanlyn rekeninge (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Geniet dit!",
   "done.restart": "Herbegin",
   "done.restart_hint": "Herbegin die rekenaar sodat alle nuwe programme behoorlik laai.",
-
   "desktop.generic": "Toepassings en voorkoms",
   "desktop.comment": "Installeer 'n blaaier, kantoorpakket, mediaspeler en meer, kies 'n kleurskema",
   "desktop.keywords": "welkom;toepassings;blaaier;kantoor;tema",

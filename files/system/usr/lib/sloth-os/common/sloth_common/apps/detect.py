@@ -14,6 +14,7 @@ import fnmatch
 import os
 import re
 import struct
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -45,6 +46,35 @@ WINE_BUILTIN = re.compile(
     r"^drive_c/(windows/|program files( \(x86\))?/(internet explorer|windows media player|windows nt|common files)/)")
 # A versioned folder in the path (e.g. "13.809.0.6322", "app-1.0.9"): it may disappear after an update
 VERSION_DIR = re.compile(r"[\\/][^\\/]*\d+\.\d+\.\d+[^\\/]*[\\/]")
+# File times may be a little coarser than the clock: written this many seconds before the install started still counts
+CTIME_SLACK_S = 2
+
+
+# Installer builders leave their name in the .exe's stub (the part before the packed data)
+INSTALLER_MARKS = (b"Nullsoft Install System", b"NullsoftInst", b"Inno Setup", b"InstallShield", b".wixburn",
+                   b"WixBundle", b"Squirrel", b"InstallAware", b"Setup Factory", b"Advanced Installer")
+# A version resource string: the UTF-16 key, its terminating zero, padding to 4 bytes, then the value
+VERSION_FIELD = re.compile(rb"(?:F\0i\0l\0e\0D\0e\0s\0c\0r\0i\0p\0t\0i\0o\0n\0|"
+                           rb"O\0r\0i\0g\0i\0n\0a\0l\0F\0i\0l\0e\0n\0a\0m\0e\0)\0\0(?:\0\0)?((?:[^\0]\0){1,80})")
+
+
+def _installer_inside(path, limit=8 * 1024 * 1024):
+    """Whether the .exe is an installer by its contents: a known installer builder, or "setup"/"install" in its
+    version information (e.g. 7-Zip's 7z2605-x64.exe: "7-Zip Setup"), when the file name does not say so."""
+    try:
+        with open(path, "rb") as f:
+            data = f.read(limit)
+    except OSError:
+        return False
+    if data[:2] != b"MZ":
+        return False
+    if any(mark in data for mark in INSTALLER_MARKS):
+        return True
+    for m in VERSION_FIELD.finditer(data):
+        value = m.group(1).decode("utf-16-le", "replace").lower()
+        if any(w in value for w in INSTALLER_WORDS):
+            return True
+    return False
 
 
 def looks_like_installer(path):
@@ -52,7 +82,7 @@ def looks_like_installer(path):
     if p.suffix.lower() == ".msi":
         return True
     low = p.stem.lower()
-    return any(w in low for w in INSTALLER_WORDS)
+    return any(w in low for w in INSTALLER_WORDS) or _installer_inside(p)
 
 
 def display_name(path):
@@ -171,6 +201,7 @@ def _rel(app, path):
 def baseline(app):
     """What is already in the Windows environment before installing (nothing in a new environment)."""
     return {
+        "time": time.time(),
         "keys": set(winreg.uninstall_entries(app.prefix)),
         "exes": {_rel(app, p) for p in app.list_exes()},
         "links": {_rel(app, lnk) for _n, _h, lnk in find_shortcuts(app)},
@@ -194,6 +225,30 @@ def _exe_score(path, install_dir, name):
     except OSError:
         pass
     return score
+
+
+def installed_running(app, running, since):
+    """The .exe files written by the install (since: when it started) that run now (running: lowercase .exe names).
+    IrfanView's installer starts the program at its end, and the install screen waited until the user closed it
+    (2026-10-26/27): with no shortcut it is not certain what got installed until Wine writes the registry to disk,
+    which may be only when the environment stops. A reinstall writes the files again, so the change time (which an
+    installer cannot set back, unlike the modification time) counts, not whether the file is new. A second-stage
+    installer (in a temporary folder, or with an installer's name) and helpers do not count. Only the name is looked
+    at: the contents check (looks_like_installer) can find an installer builder's name inside a big program."""
+    out = set()
+    if not running:
+        return out
+    for p in app.list_exes():
+        name, stem, rel = p.name.lower(), p.stem.lower(), _rel(app, p).replace("\\", "/")
+        if (name not in running or "/temp/" in rel or WINE_BUILTIN.match(rel) or HELPER_EXE.search(stem)
+                or any(w in stem for w in INSTALLER_WORDS)):
+            continue
+        try:
+            if p.stat().st_ctime >= since - CTIME_SLACK_S:
+                out.add(name)
+        except OSError:
+            continue
+    return out
 
 
 def _common_dir(paths, drive_c):

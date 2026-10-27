@@ -130,6 +130,34 @@ Kirigami.ApplicationWindow {
                             onActivated: installer.setLanguage(currentValue)
                         }
                     }
+                    // More than one screen: which is the main one. The installer moves there at once, so it is
+                    // easy to see which one was chosen; the installed system starts with it too.
+                    RowLayout {
+                        Layout.alignment: Qt.AlignHCenter
+                        visible: Qt.application.screens.length > 1
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: "video-display"
+                            implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                            implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                        }
+                        QQC2.Label { text: root.t("welcome.screen") }
+                        QQC2.ComboBox {
+                            Accessible.name: root.t("welcome.screen")
+                            implicitWidth: Kirigami.Units.gridUnit * 14
+                            popup.popupType: QQC2.Popup.Item
+                            model: Array.from(Qt.application.screens).map((sc, i) => root.t("welcome.screen_item", {
+                                n: i + 1, name: (sc.manufacturer + " " + sc.model).trim() || sc.name,
+                                size: sc.width + "×" + sc.height }))
+                            currentIndex: Math.max(0, Array.from(Qt.application.screens).findIndex(sc => sc.name === root.screen.name))
+                            onActivated: index => {
+                                const sc = Qt.application.screens[index];
+                                installer.setPrimaryDisplay(sc.name);
+                                root.screen = sc;
+                                root.visibility = Window.FullScreen;
+                            }
+                        }
+                    }
                     RowLayout {
                         Layout.alignment: Qt.AlignHCenter
                         Layout.topMargin: Kirigami.Units.largeSpacing
@@ -585,11 +613,29 @@ Kirigami.ApplicationWindow {
                                         }
                                         QQC2.Label {
                                             Layout.fillWidth: true
-                                            visible: !extraCard.modelData.canErase
+                                            visible: !extraCard.modelData.canErase && extraCard.modelData.choice !== "keep"
                                             wrapMode: Text.Wrap
                                             font: Kirigami.Theme.smallFont
                                             opacity: 0.75
                                             text: root.t("disk.extra.windows")
+                                        }
+                                        // "Use it": which Linux partitions should be available (Windows ones never)
+                                        ColumnLayout {
+                                            Layout.fillWidth: true
+                                            Layout.leftMargin: Kirigami.Units.gridUnit * 2
+                                            visible: extraCard.modelData.choice === "keep" && extraCard.modelData.parts.length > 1
+                                            spacing: 0
+                                            QQC2.Label { text: root.t("disk.extra.keep_parts"); opacity: 0.75 }
+                                            Repeater {
+                                                model: extraCard.modelData.parts
+                                                delegate: QQC2.CheckBox {
+                                                    required property var modelData
+                                                    text: modelData.label + " (" + modelData.fstype + ", " + modelData.sizeText + ")"
+                                                    checked: modelData.chosen
+                                                    onToggled: installer.setExtraPartition(extraCard.modelData.path,
+                                                                                           modelData.path, checked)
+                                                }
+                                            }
                                         }
                                         Kirigami.InlineMessage {
                                             Layout.fillWidth: true

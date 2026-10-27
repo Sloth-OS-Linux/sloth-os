@@ -66,7 +66,8 @@ Kirigami.ApplicationWindow {
                             Layout.maximumWidth: Kirigami.Units.gridUnit * 18
                             wrapMode: Text.Wrap
                             opacity: 0.8
-                            text: exe.alreadyInstalled ? root.t("choose.already_installed", { name: exe.name })
+                            text: exe.fileKind === "iso" ? root.t("choose.disc_text")
+                                  : exe.alreadyInstalled ? root.t("choose.already_installed", { name: exe.name })
                                   : exe.nativeReason === "heroic" ? root.t("choose.native_heroic")
                                   : exe.nativeReason === "broken" ? root.t("choose.native_broken", { name: exe.flathubName })
                                   : exe.flathubName !== "" ? root.t("choose.flathub_available", { name: exe.flathubName })
@@ -98,9 +99,15 @@ Kirigami.ApplicationWindow {
                     }
                 }
                 QQC2.CheckBox {
+                    Layout.alignment: Qt.AlignHCenter
+                    visible: exe.fileKind === "iso"
+                    text: root.t("choose.disc_remember")
+                    onToggled: exe.setRememberDisc(checked)
+                }
+                QQC2.CheckBox {
                     id: addToMenu
                     Layout.alignment: Qt.AlignHCenter
-                    visible: !exe.isInstaller
+                    visible: !exe.isInstaller && exe.fileKind !== "iso"
                     text: root.t("choose.add_to_menu")
                 }
                 RowLayout {
@@ -147,8 +154,22 @@ Kirigami.ApplicationWindow {
                         icon.name: "plasmadiscover"
                         onClicked: exe.installFromDiscover()
                     }
+                    // A disc image with an installer on it: open the folder, or install from it
                     QQC2.Button {
-                        visible: !exe.alreadyInstalled
+                        visible: exe.fileKind === "iso"
+                        text: root.t("button.open_folder")
+                        icon.name: "folder-open"
+                        onClicked: exe.openDiscFolder()
+                    }
+                    QQC2.Button {
+                        visible: exe.fileKind === "iso"
+                        highlighted: true
+                        text: root.t("button.disc_install")
+                        icon.name: "download"
+                        onClicked: exe.installFromDisc()
+                    }
+                    QQC2.Button {
+                        visible: !exe.alreadyInstalled && exe.fileKind !== "iso"
                         highlighted: exe.flathubName === ""
                         text: root.t(exe.isInstaller ? "button.install" : "button.start")
                         icon.name: exe.isInstaller ? "download" : "media-playback-start"
@@ -209,14 +230,25 @@ Kirigami.ApplicationWindow {
                     ListView {
                         model: exe.shortcuts
                         spacing: Kirigami.Units.smallSpacing
-                        delegate: QQC2.CheckDelegate {
+                        // Each entry: in the Start menu, and (asked right next to it) on the taskbar too
+                        delegate: RowLayout {
+                            id: shortcutRow
                             required property var modelData
                             required property int index
                             width: ListView.view.width
-                            checked: modelData.checked
-                            text: modelData.name
-                            icon.source: modelData.iconUrl !== "" ? modelData.iconUrl : "sloth-os"
-                            onClicked: exe.toggleShortcut(index)
+                            QQC2.CheckDelegate {
+                                Layout.fillWidth: true
+                                checked: shortcutRow.modelData.checked
+                                text: shortcutRow.modelData.name
+                                icon.source: shortcutRow.modelData.iconUrl !== "" ? shortcutRow.modelData.iconUrl : "sloth-os"
+                                onClicked: exe.toggleShortcut(shortcutRow.index)
+                            }
+                            QQC2.CheckBox {
+                                enabled: shortcutRow.modelData.checked
+                                checked: shortcutRow.modelData.checked && shortcutRow.modelData.taskbar
+                                text: root.t("pick.taskbar")
+                                onToggled: exe.setShortcutTaskbar(shortcutRow.index, checked)
+                            }
                         }
                     }
                 }

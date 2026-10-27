@@ -1,18 +1,14 @@
 {
   "_language": "Bahasa Indonesia",
-
   "app.title": "Sambutan Sloth",
   "window.title": "Selamat datang di Sloth OS",
-
   "welcome.heading": "Selamat datang di Sloth OS!",
   "welcome.text": "Beberapa pertanyaan singkat dan komputer Anda siap. Semuanya bisa diubah nanti.",
   "welcome.language": "Bahasa",
   "welcome.start": "Ayo mulai",
-
   "look.colors": "Warna apa yang Anda suka?",
   "look.colors_hint": "Klik salah satu dan langsung lihat hasilnya. Anda bisa mengubahnya nanti di Pengaturan Sistem.",
   "look.taskbar": "Seperti apa bilah tugasnya?",
-
   "scheme.SlothSilverDark": "Perak (gelap)",
   "scheme.SlothSilverLight": "Perak (terang)",
   "scheme.SlothWhite": "Putih salju",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Biru kabut",
   "scheme.SlothNight": "Biru malam",
   "scheme.SlothSage": "Sage",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menu Start dan ikon di kiri",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menu Start dan ikon di tengah",
   "layout.mac.name": "Mirip macOS",
   "layout.mac.description": "Bilah di atas, dok mengambang di bawah",
+  "layout.ubuntu.name": "Seperti Ubuntu",
+  "layout.ubuntu.description": "Bilah atas, dok di kiri",
   "security.heading": "Kapan komputer harus meminta kata sandi?",
   "security.text": "Beberapa pengaturan (misalnya memasang program) meminta kata sandi Anda. Dengan begitu tidak ada yang bisa mengubah komputer tanpa sepengetahuan Anda.",
   "security.all": "Setiap ada perubahan (paling aman)",
@@ -39,8 +36,7 @@
   "sharing.what": "Hanya ini yang dikirim: pengaturannya (misalnya \"mode grafis lama\"), produsen kartu grafismu, dan sidik jari program yang tidak bisa dipakai untuk mengetahui namanya. Tidak ada hal lain yang keluar dari komputermu: bukan namamu, berkasmu, nama programnya, atau kapan dan seberapa sering kamu memakainya.",
   "sharing.yes": "Ya, bagikan secara anonim",
   "sharing.no": "Tidak, terima kasih",
-  "sharing.later": "Kamu bisa mengubahnya kapan saja nanti di Pusat Sloth. Pengaturan yang berhasil di komputer lain tetap kamu dapatkan.",
-
+  "sharing.later": "Anda bisa mengubahnya kapan saja nanti di Sloth Center. Pengaturan yang berhasil di komputer lain tetap Anda dapatkan.",
   "windows.heading": "Bawa berkas Anda dari Windows?",
   "windows.text": "Komputer ini juga memiliki Windows. Kami dapat menyalin berkas Anda ke sini; Windows tidak diubah, kami hanya membacanya.",
   "windows.scanning": "Memeriksa drive Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Tidak ditemukan berkas Windows untuk dibawa di komputer ini.",
   "windows.failed": "Drive Windows tidak dapat dibuka. Jalankan Windows lalu matikan sepenuhnya (Matikan, bukan Mulai ulang), kemudian coba lagi dari Sloth Center (Disk).",
   "windows.bookmarks_file": "Markah Windows.html",
-
   "nav.back": "Kembali",
   "nav.next": "Lanjut",
   "nav.skip": "Lewati",
   "nav.finish": "Selesai",
   "nav.install": "Pasang",
-
   "step.counter": "Langkah {n} dari {total}",
   "step.selected_one": "1 aplikasi dipilih",
   "step.selected_many": "{count} aplikasi dipilih",
-
   "category.multiple": "Anda bisa memilih beberapa, atau tidak sama sekali.",
   "category.browser.name": "Peramban web",
   "category.browser.hint": "Dengan ini Anda menjelajah internet. Tanpa peramban, Anda tidak bisa membuka situs web.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Toko dan peluncur game. Game dan program Windows tetap bisa jalan tanpanya.",
   "category.creative.name": "Kreativitas",
   "category.creative.hint": "Edit foto, menggambar, edit video, merekam.",
-
   "app.org.mozilla.firefox": "Cepat, peduli privasi, sumber terbuka",
   "app.com.google.Chrome": "Peramban Google, tersinkron dengan akun Google Anda",
   "app.com.brave.Browser": "Dengan pemblokir iklan bawaan",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Pemasang program Windows sudah diunduh ({names}). Sekarang akan dibuka satu per satu: selesaikan setiap pemasangan, seperti di Windows. Mulai ulang dilakukan di akhir.",
   "done.windows_continue": "Lanjut ke pemasangan program Windows",
   "done.windows_finished": "Semua selesai, termasuk program Windows! Setelah mulai ulang, semuanya dimuat dengan benar.",
-
   "offline.text": "Tidak ada koneksi internet. Sambungkan ke jaringan untuk memasang aplikasi.",
   "offline.settings": "Pengaturan jaringan",
   "offline.retry": "Coba lagi",
-
   "nobrowser.title": "Anda belum memilih peramban",
   "nobrowser.text": "Tanpa peramban Anda tidak bisa membuka situs web. Yakin?",
   "nobrowser.choose": "Saya pilih satu",
   "nobrowser.ok": "Begini saja",
-
   "install.preparing": "Menyiapkan pemasangan…",
   "install.retrying": "Koneksi terputus, mencoba lagi…",
   "install.installing": "Memasang {name}…",
   "install.note": "Tergantung koneksi Anda, ini bisa memakan beberapa menit.",
-
   "error.network": "Tidak ada koneksi internet, atau server tidak dapat dijangkau.",
   "error.disk_full": "Ruang kosong di disk tidak cukup.",
   "error.not_authorized": "Kami tidak mendapat izin untuk memasang.",
   "error.checksum": "Berkas yang diunduh rusak, jadi tidak dipasang.",
   "error.generic": "Gagal memasang.",
-
   "done.nothing_selected": "Selesai! Anda bisa memasang aplikasi nanti lewat Discover.",
   "done.all_ok": "Semua siap! Aplikasi Anda menunggu di menu Start.",
   "done.some_failed": "Hampir selesai. Beberapa aplikasi tidak dapat dipasang:",
   "done.all_failed": "Maaf, aplikasi tidak dapat dipasang saat ini:",
   "done.retry_hint": "Anda bisa mencoba lagi nanti dengan membuka \"Sambutan Sloth\" dari menu Start.",
+  "done.taskbar": "Apa yang ditaruh di bilah tugas?",
   "done.extras": "Satu-dua hal lagi, jika mau:",
   "done.steam": "Masuk ke Steam",
   "done.accounts": "Akun daring (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Selamat bersenang-senang!",
   "done.restart": "Mulai ulang",
   "done.restart_hint": "Mulai ulang komputer agar semua aplikasi baru dimuat dengan benar.",
-
   "desktop.generic": "Aplikasi dan tampilan",
   "desktop.comment": "Pasang peramban, paket perkantoran, pemutar media, dan lainnya, pilih skema warna",
   "desktop.keywords": "selamat datang;aplikasi;peramban;perkantoran;tema",

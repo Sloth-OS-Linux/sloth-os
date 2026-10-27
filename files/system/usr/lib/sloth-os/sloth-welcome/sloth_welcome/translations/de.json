@@ -1,18 +1,14 @@
 {
   "_language": "Deutsch",
-
   "app.title": "Sloth Willkommen",
   "window.title": "Willkommen bei Sloth OS",
-
   "welcome.heading": "Willkommen bei Sloth OS!",
   "welcome.text": "Ein paar kurze Fragen, und dein Computer ist bereit. Du kannst alles später ändern.",
   "welcome.language": "Sprache",
   "welcome.start": "Los geht's",
-
   "look.colors": "Welche Farben gefallen dir?",
   "look.colors_hint": "Klicke auf eine, und du siehst sofort, wie es aussieht. Später kannst du sie in den Systemeinstellungen ändern.",
   "look.taskbar": "Wie soll die Taskleiste aussehen?",
-
   "scheme.SlothSilverDark": "Silber (dunkel)",
   "scheme.SlothSilverLight": "Silber (hell)",
   "scheme.SlothWhite": "Schneeweiß",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Nebelblau",
   "scheme.SlothNight": "Nachtblau",
   "scheme.SlothSage": "Salbei",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Startmenü und Symbole links",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Startmenü und Symbole in der Mitte",
   "layout.mac.name": "Wie macOS",
   "layout.mac.description": "Leiste oben, schwebendes Dock unten",
+  "layout.ubuntu.name": "Wie Ubuntu",
+  "layout.ubuntu.description": "Obere Leiste, Dock links",
   "security.heading": "Wann soll dein Computer nach dem Passwort fragen?",
   "security.text": "Manche Einstellungen (zum Beispiel das Installieren von Programmen) verlangen dein Passwort. So kann niemand ohne dein Wissen etwas an deinem Computer ändern.",
   "security.all": "Bei jeder Änderung fragen (am sichersten)",
@@ -40,7 +37,6 @@
   "sharing.yes": "Ja, anonym teilen",
   "sharing.no": "Nein, danke",
   "sharing.later": "Du kannst das später jederzeit im Sloth Center ändern. Die Einstellungen, die auf anderen Computern funktioniert haben, bekommst du so oder so.",
-
   "windows.heading": "Deine Dateien aus Windows mitnehmen?",
   "windows.text": "Auf diesem Computer ist auch Windows. Wir können deine Dateien herüberkopieren; Windows selbst bleibt unberührt, wir lesen nur davon.",
   "windows.scanning": "Das Windows-Laufwerk wird durchsucht…",
@@ -63,17 +59,14 @@
   "windows.none": "Auf diesem Computer wurden keine Windows-Dateien zum Übernehmen gefunden.",
   "windows.failed": "Das Windows-Laufwerk konnte nicht geöffnet werden. Starte Windows und fahre es vollständig herunter (Herunterfahren, nicht Neu starten), dann versuche es erneut im Sloth Center (Laufwerke).",
   "windows.bookmarks_file": "Windows-Lesezeichen.html",
-
   "nav.back": "Zurück",
   "nav.next": "Weiter",
   "nav.skip": "Überspringen",
   "nav.finish": "Fertig",
   "nav.install": "Installieren",
-
   "step.counter": "Schritt {n} von {total}",
   "step.selected_one": "1 App ausgewählt",
   "step.selected_many": "{count} Apps ausgewählt",
-
   "category.multiple": "Du kannst mehrere wählen oder keine.",
   "category.browser.name": "Webbrowser",
   "category.browser.hint": "Damit gehst du ins Internet. Ohne Browser kannst du keine Webseiten öffnen.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Spiele-Stores und Launcher. Windows-Spiele und -Programme laufen auch ohne sie.",
   "category.creative.name": "Kreativ",
   "category.creative.hint": "Bildbearbeitung, Zeichnen, Videoschnitt, Aufnahme.",
-
   "app.org.mozilla.firefox": "Schnell, datenschutzbewusst, Open Source",
   "app.com.google.Chrome": "Der Browser von Google, synchronisiert mit deinem Google-Konto",
   "app.com.brave.Browser": "Mit eingebautem Werbeblocker",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Die Installationsprogramme der Windows-Programme wurden heruntergeladen ({names}). Sie öffnen sich jetzt nacheinander: Geh jede Installation durch, wie unter Windows. Der Neustart kommt am Ende.",
   "done.windows_continue": "Weiter zur Installation der Windows-Programme",
   "done.windows_finished": "Alles fertig, auch die Windows-Programme! Nach einem Neustart wird alles richtig geladen.",
-
   "offline.text": "Keine Internetverbindung. Verbinde dich mit einem Netzwerk, um Apps zu installieren.",
   "offline.settings": "Netzwerkeinstellungen",
   "offline.retry": "Erneut versuchen",
-
   "nobrowser.title": "Du hast keinen Browser gewählt",
   "nobrowser.text": "Ohne Browser kannst du keine Webseiten öffnen. Bist du sicher?",
   "nobrowser.choose": "Ich wähle einen",
   "nobrowser.ok": "Passt so",
-
   "install.preparing": "Installation wird vorbereitet…",
   "install.retrying": "Die Verbindung wurde unterbrochen, neuer Versuch…",
   "install.installing": "{name} wird installiert…",
   "install.note": "Je nach Internetverbindung kann das ein paar Minuten dauern.",
-
   "error.network": "Keine Internetverbindung, oder der Server ist nicht erreichbar.",
   "error.disk_full": "Nicht genug freier Speicherplatz.",
   "error.not_authorized": "Wir haben keine Erlaubnis zum Installieren bekommen.",
   "error.checksum": "Die heruntergeladene Datei war beschädigt und wurde nicht installiert.",
   "error.generic": "Die Installation ist fehlgeschlagen.",
-
   "done.nothing_selected": "Fertig! Apps kannst du später in Discover installieren.",
   "done.all_ok": "Alles fertig! Deine Apps warten im Startmenü.",
   "done.some_failed": "Fast fertig. Einige Apps konnten nicht installiert werden:",
   "done.all_failed": "Leider konnten die Apps gerade nicht installiert werden:",
   "done.retry_hint": "Du kannst es später erneut versuchen: Öffne „Sloth Willkommen“ im Startmenü.",
+  "done.taskbar": "Was soll in die Taskleiste?",
   "done.extras": "Noch ein, zwei Dinge, wenn du möchtest:",
   "done.steam": "Bei Steam anmelden",
   "done.accounts": "Online-Konten (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Viel Spaß!",
   "done.restart": "Neu starten",
   "done.restart_hint": "Starte den Computer neu, damit alle neuen Apps richtig geladen werden.",
-
   "desktop.generic": "Apps und Aussehen",
   "desktop.comment": "Browser, Office-Paket, Mediaplayer und mehr installieren, Farbschema wählen",
   "desktop.keywords": "willkommen;apps;browser;office;design",

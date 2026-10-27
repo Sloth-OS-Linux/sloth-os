@@ -1,18 +1,14 @@
 {
   "_language": "Nederlands",
-
   "app.title": "Sloth Welkom",
   "window.title": "Welkom bij Sloth OS",
-
   "welcome.heading": "Welkom bij Sloth OS!",
   "welcome.text": "Een paar korte vragen en je computer is klaar. Je kunt later alles nog wijzigen.",
   "welcome.language": "Taal",
   "welcome.start": "Aan de slag",
-
   "look.colors": "Welke kleuren vind je mooi?",
   "look.colors_hint": "Klik op een kleur en je ziet meteen hoe het eruitziet. Je kunt het later wijzigen in Systeeminstellingen.",
   "look.taskbar": "Hoe moet de taakbalk eruitzien?",
-
   "scheme.SlothSilverDark": "Zilver (donker)",
   "scheme.SlothSilverLight": "Zilver (licht)",
   "scheme.SlothWhite": "Sneeuwwit",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Nevelblauw",
   "scheme.SlothNight": "Nachtblauw",
   "scheme.SlothSage": "Salie",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Startmenu en pictogrammen links",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Startmenu en pictogrammen in het midden",
   "layout.mac.name": "Zoals macOS",
   "layout.mac.description": "Balk bovenaan, zwevend dock onderaan",
+  "layout.ubuntu.name": "Zoals Ubuntu",
+  "layout.ubuntu.description": "Bovenbalk, dock links",
   "security.heading": "Wanneer moet je computer om je wachtwoord vragen?",
   "security.text": "Sommige instellingen (zoals programma’s installeren) vragen om je wachtwoord. Zo kan niemand je computer zonder jouw medeweten aanpassen.",
   "security.all": "Bij elke wijziging (het veiligst)",
@@ -39,8 +36,7 @@
   "sharing.what": "Alleen dit wordt verstuurd: de instelling (bijvoorbeeld 'oudere grafische modus'), de fabrikant van je videokaart en een vingerafdruk van het programma waaruit de naam niet te herleiden is. Niets anders verlaat je computer: niet je naam, niet je bestanden, niet de naam van het programma en niet wanneer of hoeveel je het gebruikt.",
   "sharing.yes": "Ja, anoniem delen",
   "sharing.no": "Nee, bedankt",
-  "sharing.later": "Je kunt dit later altijd wijzigen in Sloth Centrum. De instellingen die op andere computers werkten, krijg je hoe dan ook.",
-
+  "sharing.later": "Je kunt dit later altijd wijzigen in Sloth Center. De instellingen die op andere computers werkten, krijg je hoe dan ook.",
   "windows.heading": "Je bestanden uit Windows overzetten?",
   "windows.text": "Op deze computer staat ook Windows. We kunnen je bestanden hierheen kopiëren; aan Windows zelf komen we niet, we lezen er alleen van.",
   "windows.scanning": "Windows-schijf wordt doorzocht…",
@@ -63,17 +59,14 @@
   "windows.none": "Er zijn op deze computer geen Windows-bestanden gevonden om over te zetten.",
   "windows.failed": "De Windows-schijf kon niet worden geopend. Start Windows en sluit het volledig af (Afsluiten, niet Opnieuw opstarten) en probeer het daarna opnieuw via Sloth Center (Schijven).",
   "windows.bookmarks_file": "Windows-bladwijzers.html",
-
   "nav.back": "Terug",
   "nav.next": "Volgende",
   "nav.skip": "Overslaan",
   "nav.finish": "Voltooien",
   "nav.install": "Installeren",
-
   "step.counter": "Stap {n} van {total}",
   "step.selected_one": "1 app geselecteerd",
   "step.selected_many": "{count} apps geselecteerd",
-
   "category.multiple": "Je kunt er meerdere kiezen, of geen.",
   "category.browser.name": "Webbrowser",
   "category.browser.hint": "Hiermee ga je het internet op. Zonder browser kun je geen websites openen.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Gamewinkels en launchers. Windows-games en -programma's werken ook zonder.",
   "category.creative.name": "Creatief",
   "category.creative.hint": "Fotobewerking, tekenen, videobewerking, opnemen.",
-
   "app.org.mozilla.firefox": "Snel, privacybewust, open source",
   "app.com.google.Chrome": "De browser van Google, synchroniseert met je Google-account",
   "app.com.brave.Browser": "Met ingebouwde advertentieblokkering",
@@ -150,40 +142,35 @@
   "done.windows_hint": "De installatieprogramma's van de Windows-programma's zijn gedownload ({names}). Ze openen nu één voor één: doorloop elke installatie, net als in Windows. Het opnieuw opstarten komt aan het eind.",
   "done.windows_continue": "Verder met het installeren van Windows-programma's",
   "done.windows_finished": "Alles klaar, ook de Windows-programma's! Na een herstart wordt alles goed geladen.",
-
   "offline.text": "Geen internetverbinding. Maak verbinding met een netwerk om apps te installeren.",
   "offline.settings": "Netwerkinstellingen",
   "offline.retry": "Opnieuw proberen",
-
   "nobrowser.title": "Je hebt geen browser gekozen",
   "nobrowser.text": "Zonder browser kun je geen websites openen. Weet je het zeker?",
   "nobrowser.choose": "Ik kies er een",
   "nobrowser.ok": "Zo is het goed",
-
   "install.preparing": "Installatie voorbereiden…",
   "install.retrying": "De verbinding is weggevallen, opnieuw proberen…",
   "install.installing": "{name} installeren…",
   "install.note": "Afhankelijk van je verbinding kan dit een paar minuten duren.",
-
   "error.network": "Geen internetverbinding, of de server is niet bereikbaar.",
   "error.disk_full": "Er is niet genoeg vrije schijfruimte.",
   "error.not_authorized": "We hebben geen toestemming gekregen om te installeren.",
   "error.checksum": "Het gedownloade bestand was beschadigd en is daarom niet geïnstalleerd.",
   "error.generic": "Installatie mislukt.",
-
   "done.nothing_selected": "Klaar! Je kunt later apps installeren in Discover.",
   "done.all_ok": "Alles klaar! Je apps staan voor je klaar in het startmenu.",
   "done.some_failed": "Bijna klaar. Sommige apps konden niet worden geïnstalleerd:",
   "done.all_failed": "Helaas konden de apps nu niet worden geïnstalleerd:",
   "done.retry_hint": "Je kunt het later opnieuw proberen door 'Sloth Welkom' te openen in het startmenu.",
+  "done.taskbar": "Wat moet er op de taakbalk?",
   "done.extras": "Nog een paar dingen, als je wilt:",
   "done.steam": "Aanmelden bij Steam",
-  "done.accounts": "Online accounts (Google, Microsoft…)",
+  "done.accounts": "Online-accounts (Google, Microsoft…)",
   "done.language": "Taal en regio",
   "done.start": "Veel plezier!",
   "done.restart": "Opnieuw opstarten",
   "done.restart_hint": "Start de computer opnieuw op zodat alle nieuwe apps goed worden geladen.",
-
   "desktop.generic": "Apps en uiterlijk",
   "desktop.comment": "Een browser, kantoorpakket, mediaspeler en meer installeren, een kleurenschema kiezen",
   "desktop.keywords": "welkom;apps;browser;kantoor;thema",

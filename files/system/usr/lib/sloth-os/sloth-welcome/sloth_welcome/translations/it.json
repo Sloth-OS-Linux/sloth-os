@@ -1,18 +1,14 @@
 {
   "_language": "Italiano",
-
   "app.title": "Benvenuto in Sloth",
   "window.title": "Benvenuto in Sloth OS",
-
   "welcome.heading": "Benvenuto in Sloth OS!",
   "welcome.text": "Poche domande veloci e il tuo computer è pronto. Potrai cambiare tutto in seguito.",
   "welcome.language": "Lingua",
   "welcome.start": "Iniziamo",
-
   "look.colors": "Quali colori preferisci?",
   "look.colors_hint": "Fai clic su uno per vederlo subito. Potrai cambiarlo in seguito nelle Impostazioni di sistema.",
   "look.taskbar": "Come vuoi la barra delle applicazioni?",
-
   "scheme.SlothSilverDark": "Argento (scuro)",
   "scheme.SlothSilverLight": "Argento (chiaro)",
   "scheme.SlothWhite": "Bianco neve",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Blu nebbia",
   "scheme.SlothNight": "Blu notte",
   "scheme.SlothSage": "Salvia",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menu Start e icone a sinistra",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menu Start e icone al centro",
   "layout.mac.name": "Stile macOS",
   "layout.mac.description": "Barra in alto, dock fluttuante in basso",
+  "layout.ubuntu.name": "Stile Ubuntu",
+  "layout.ubuntu.description": "Barra in alto, dock a sinistra",
   "security.heading": "Quando deve chiederti la password il computer?",
   "security.text": "Alcune impostazioni (come installare programmi) chiedono la tua password. Così nessuno può modificare il computer a tua insaputa.",
   "security.all": "A ogni modifica (la più sicura)",
@@ -39,8 +36,7 @@
   "sharing.what": "Viene inviato solo questo: l'impostazione (per esempio «modalità grafica più vecchia»), il produttore della tua scheda grafica e un'impronta del programma da cui non si può risalire al suo nome. Nient'altro lascia il tuo computer: né il tuo nome, né i tuoi file, né il nome del programma, né quando o quanto lo usi.",
   "sharing.yes": "Sì, condividi in modo anonimo",
   "sharing.no": "No, grazie",
-  "sharing.later": "Puoi cambiarlo in qualsiasi momento più avanti nel Centro Sloth. Le impostazioni che hanno funzionato su altri computer le ricevi comunque.",
-
+  "sharing.later": "Puoi cambiarlo più tardi in qualsiasi momento in Sloth Center. Le impostazioni che hanno funzionato su altri computer le ricevi comunque.",
   "windows.heading": "Portiamo qui i tuoi file da Windows?",
   "windows.text": "Su questo computer c'è anche Windows. Possiamo copiare qui i tuoi file; Windows non viene toccato, leggiamo soltanto.",
   "windows.scanning": "Esame dell'unità di Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Su questo computer non ci sono file di Windows da portare qui.",
   "windows.failed": "Impossibile aprire l'unità di Windows. Avvia Windows e spegnilo completamente (Arresta, non Riavvia), poi riprova da Sloth Center (Dischi).",
   "windows.bookmarks_file": "Segnalibri di Windows.html",
-
   "nav.back": "Indietro",
   "nav.next": "Avanti",
   "nav.skip": "Salta",
   "nav.finish": "Fine",
   "nav.install": "Installa",
-
   "step.counter": "Passo {n} di {total}",
   "step.selected_one": "1 app selezionata",
   "step.selected_many": "{count} app selezionate",
-
   "category.multiple": "Puoi sceglierne più di una, o nessuna.",
   "category.browser.name": "Browser web",
   "category.browser.hint": "Serve per navigare in Internet. Senza browser non puoi aprire siti web.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Negozi e launcher di giochi. Giochi e programmi Windows funzionano anche senza.",
   "category.creative.name": "Creatività",
   "category.creative.hint": "Fotoritocco, disegno, montaggio video, registrazione.",
-
   "app.org.mozilla.firefox": "Veloce, attento alla privacy, open source",
   "app.com.google.Chrome": "Il browser di Google, si sincronizza con il tuo account Google",
   "app.com.brave.Browser": "Con blocco della pubblicità integrato",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Gli installer dei programmi Windows sono stati scaricati ({names}). Ora si apriranno uno alla volta: completa ogni installazione, come su Windows. Il riavvio arriva alla fine.",
   "done.windows_continue": "Continua con l'installazione dei programmi Windows",
   "done.windows_finished": "Tutto pronto, anche i programmi Windows! Dopo un riavvio tutto si caricherà correttamente.",
-
   "offline.text": "Nessuna connessione a Internet. Collegati a una rete per installare le app.",
   "offline.settings": "Impostazioni di rete",
   "offline.retry": "Riprova",
-
   "nobrowser.title": "Non hai scelto un browser",
   "nobrowser.text": "Senza browser non potrai aprire siti web. Sei sicuro?",
   "nobrowser.choose": "Ne scelgo uno",
   "nobrowser.ok": "Va bene così",
-
   "install.preparing": "Preparazione dell'installazione…",
   "install.retrying": "La connessione si è interrotta, nuovo tentativo…",
   "install.installing": "Installazione di {name}…",
   "install.note": "A seconda della connessione, potrebbe volerci qualche minuto.",
-
   "error.network": "Nessuna connessione a Internet, oppure il server non è raggiungibile.",
   "error.disk_full": "Non c'è abbastanza spazio libero sul disco.",
   "error.not_authorized": "Non abbiamo ottenuto il permesso di installare.",
   "error.checksum": "Il file scaricato era danneggiato, quindi non è stato installato.",
   "error.generic": "Installazione non riuscita.",
-
   "done.nothing_selected": "Fatto! Potrai installare app in seguito da Discover.",
   "done.all_ok": "Tutto pronto! Le tue app ti aspettano nel menu Start.",
   "done.some_failed": "Quasi fatto. Alcune app non sono state installate:",
   "done.all_failed": "Purtroppo al momento non è stato possibile installare le app:",
   "done.retry_hint": "Potrai riprovare in seguito aprendo «Benvenuto in Sloth» dal menu Start.",
+  "done.taskbar": "Cosa mettere nella barra delle applicazioni?",
   "done.extras": "Ancora un paio di cose, se vuoi:",
   "done.steam": "Accedi a Steam",
   "done.accounts": "Account online (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Buon divertimento!",
   "done.restart": "Riavvia",
   "done.restart_hint": "Riavvia il computer perché tutte le nuove app si carichino correttamente.",
-
   "desktop.generic": "App e aspetto",
   "desktop.comment": "Installare un browser, una suite per ufficio, un lettore multimediale e altro, scegliere uno schema di colori",
   "desktop.keywords": "benvenuto;app;browser;ufficio;tema",

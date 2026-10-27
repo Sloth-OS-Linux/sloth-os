@@ -1,18 +1,14 @@
 {
   "_language": "עברית",
-
   "app.title": "ברוכים הבאים ל־Sloth",
   "window.title": "ברוכים הבאים ל־Sloth OS",
-
   "welcome.heading": "ברוכים הבאים ל־Sloth OS!",
   "welcome.text": "כמה שאלות קצרות והמחשב מוכן. אפשר לשנות הכול גם אחר כך.",
   "welcome.language": "שפה",
   "welcome.start": "בואו נתחיל",
-
   "look.colors": "אילו צבעים אתם אוהבים?",
   "look.colors_hint": "לחצו על אחד ותראו מיד איך זה נראה. אפשר לשנות זאת בהמשך בהגדרות המערכת.",
   "look.taskbar": "איך שורת המשימות צריכה להיראות?",
-
   "scheme.SlothSilverDark": "כסף (כהה)",
   "scheme.SlothSilverLight": "כסף (בהיר)",
   "scheme.SlothWhite": "לבן שלג",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "כחול ערפל",
   "scheme.SlothNight": "כחול לילה",
   "scheme.SlothSage": "מרווה",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "תפריט התחל וסמלים בצד",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "תפריט התחל וסמלים במרכז",
   "layout.mac.name": "כמו macOS",
   "layout.mac.description": "פס עליון, מעגן צף למטה",
+  "layout.ubuntu.name": "בסגנון אובונטו",
+  "layout.ubuntu.description": "סרגל עליון, מעגן משמאל",
   "security.heading": "מתי המחשב צריך לבקש את הסיסמה שלך?",
   "security.text": "הגדרות מסוימות (כמו התקנת תוכנות) מבקשות את הסיסמה שלך. כך אף אחד לא יכול לשנות את המחשב בלי ידיעתך.",
   "security.all": "בכל שינוי (הכי בטוח)",
@@ -39,8 +36,7 @@
   "sharing.what": "נשלח רק זה: ההגדרה (למשל „מצב גרפיקה ישן יותר”), יצרן כרטיס המסך שלך וטביעת אצבע של התוכנה שממנה אי אפשר לשחזר את שמה. שום דבר אחר לא יוצא מהמחשב שלך: לא השם שלך, לא הקבצים שלך, לא שם התוכנה, ולא מתי וכמה אתה משתמש בה.",
   "sharing.yes": "כן, לשתף באופן אנונימי",
   "sharing.no": "לא, תודה",
-  "sharing.later": "אפשר לשנות זאת בכל עת מאוחר יותר במרכז Sloth. את ההגדרות שעבדו במחשבים אחרים תקבל בכל מקרה.",
-
+  "sharing.later": "אפשר לשנות זאת בכל עת מאוחר יותר ב־Sloth Center. את ההגדרות שעבדו במחשבים אחרים מקבלים בכל מקרה.",
   "windows.heading": "להעביר את הקבצים שלך מ-Windows?",
   "windows.text": "במחשב הזה יש גם Windows. אפשר להעתיק את הקבצים שלך לכאן; ב-Windows עצמו לא נוגעים, רק קוראים ממנו.",
   "windows.scanning": "סורקים את כונן ה-Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "לא נמצאו במחשב קובצי Windows להעברה.",
   "windows.failed": "לא ניתן היה לפתוח את כונן ה-Windows. הפעילו את Windows וכבו אותו לגמרי (כיבוי, לא הפעלה מחדש), ואז נסו שוב מ-Sloth Center (כוננים).",
   "windows.bookmarks_file": "סימניות Windows.html",
-
   "nav.back": "הקודם",
   "nav.next": "הבא",
   "nav.skip": "דילוג",
   "nav.finish": "סיום",
   "nav.install": "התקנה",
-
   "step.counter": "שלב {n} מתוך {total}",
   "step.selected_one": "נבחר יישום אחד",
   "step.selected_many": "נבחרו {count} יישומים",
-
   "category.multiple": "אפשר לבחור כמה, או אף אחד.",
   "category.browser.name": "דפדפן",
   "category.browser.hint": "איתו גולשים באינטרנט. בלי דפדפן אי אפשר לפתוח אתרים.",
@@ -87,7 +80,6 @@
   "category.games.hint": "חנויות ומשגרי משחקים. משחקים ותוכנות של Windows פועלים גם בלעדיהם.",
   "category.creative.name": "יצירה",
   "category.creative.hint": "עריכת תמונות, ציור, עריכת וידאו, הקלטה.",
-
   "app.org.mozilla.firefox": "מהיר, שומר על פרטיות, קוד פתוח",
   "app.com.google.Chrome": "הדפדפן של Google, מסתנכרן עם חשבון Google",
   "app.com.brave.Browser": "עם חוסם פרסומות מובנה",
@@ -150,32 +142,28 @@
   "done.windows_hint": "תוכניות ההתקנה של תוכנות Windows ירדו ({names}). עכשיו הן ייפתחו אחת אחרי השנייה: עברו על כל התקנה כמו ב-Windows. ההפעלה מחדש בסוף.",
   "done.windows_continue": "המשך להתקנת תוכנות Windows",
   "done.windows_finished": "הכול מוכן, גם תוכנות Windows! אחרי הפעלה מחדש הכול ייטען כמו שצריך.",
-
   "offline.text": "אין חיבור לאינטרנט. התחברו לרשת כדי להתקין יישומים.",
   "offline.settings": "הגדרות רשת",
   "offline.retry": "ניסיון חוזר",
-
   "nobrowser.title": "לא בחרתם דפדפן",
   "nobrowser.text": "בלי דפדפן לא תוכלו לפתוח אתרים. להמשיך בכל זאת?",
   "nobrowser.choose": "אבחר אחד",
   "nobrowser.ok": "זה בסדר",
-
   "install.preparing": "מתכוננים להתקנה…",
   "install.retrying": "החיבור נותק, מנסים שוב…",
   "install.installing": "מתקין את {name}…",
   "install.note": "בהתאם לחיבור, זה עשוי לקחת כמה דקות.",
-
   "error.network": "אין חיבור לאינטרנט, או שהשרת אינו זמין.",
   "error.disk_full": "אין מספיק מקום פנוי בדיסק.",
   "error.not_authorized": "לא קיבלנו הרשאה להתקין.",
   "error.checksum": "הקובץ שהורד היה פגום ולכן לא הותקן.",
   "error.generic": "ההתקנה נכשלה.",
-
   "done.nothing_selected": "סיימנו! אפשר להתקין יישומים בהמשך דרך Discover.",
   "done.all_ok": "הכול מוכן! היישומים מחכים לכם בתפריט התחל.",
   "done.some_failed": "כמעט סיימנו. חלק מהיישומים לא הותקנו:",
   "done.all_failed": "מצטערים, לא ניתן היה להתקין את היישומים כרגע:",
   "done.retry_hint": "אפשר לנסות שוב בהמשך דרך „ברוכים הבאים ל־Sloth” בתפריט התחל.",
+  "done.taskbar": "מה לשים בשורת המשימות?",
   "done.extras": "עוד דבר או שניים, אם תרצו:",
   "done.steam": "כניסה ל־Steam",
   "done.accounts": "חשבונות מקוונים (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "תהנו!",
   "done.restart": "הפעלה מחדש",
   "done.restart_hint": "הפעילו מחדש את המחשב כדי שכל היישומים החדשים ייטענו כראוי.",
-
   "desktop.generic": "יישומים ומראה",
   "desktop.comment": "התקנת דפדפן, חבילה משרדית, נגן מדיה ועוד, ובחירת ערכת צבעים",
   "desktop.keywords": "ברוכים הבאים;יישומים;דפדפן;משרד;ערכת נושא",

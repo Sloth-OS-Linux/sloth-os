@@ -14,10 +14,69 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Current release: [Sloth OS 1.0.4](https://sourceforge.net/projects/sloth-os/files/1.0.4/)** (October 26, 2026). It
-replaces 1.0.3, which was never published. Machines already running Sloth OS get it as a normal update.
+**Current release: [Sloth OS 1.1](https://sourceforge.net/projects/sloth-os/files/1.1/)** (October 27, 2026).
+Machines already running Sloth OS get it as a normal update.
 
-### What's new in 1.0.4
+### What's new in 1.1
+
+The biggest update since 1.0: Sloth Center learned most of what people look for in Windows' Settings (displays,
+sound, Bluetooth, Wi-Fi, startup programs, app permissions, appearance), and Windows programs install and start more
+reliably.
+
+**Updates that finish.** A system update could stop halfway and never finish (the system switched off a part of the
+disk in the middle of it). This is fixed and was checked with a full 2.3 GB update on a real machine. The Updates page
+also shows how big the waiting update is, and on a mobile or other metered connection it asks before downloading.
+
+**Sloth Center**
+
+- **A guided tour that shows where things are:** the first-run guide darkens the window and lights up the pages it
+  talks about, one step at a time.
+- **Appearance:** change the taskbar layout and the colors any time, the same ones as in the welcome wizard. New
+  layout: **Ubuntu-like** (a top bar with the date and time in the middle, a floating dock on the left, the app grid
+  sliding out from it), also in the wizard.
+- **Displays:** each monitor by its own name, with its refresh rate and the highest one it can do. If it runs below
+  that (a 144 Hz monitor at 60 or 100 Hz), one button switches it. Variable refresh rate (FreeSync, G-Sync) and HDR
+  switches where the monitor supports them. After a change it asks whether to keep it and goes back by itself after
+  15 seconds.
+- **Sound:** choose the speakers or headphones and the microphone, play a test sound, and test the microphone (it
+  records a few seconds, plays it back, and tells you if it heard nothing).
+- **Bluetooth:** whether the computer has it, whether it is on (with a button to turn it on), and the connected
+  devices with their battery.
+- **Wi-Fi check:** step by step in plain language (adapter, switched on, connected, signal, internet, a hotel or train
+  network that wants a sign-in), with a button where one helps.
+- **Programs that start when you sign in:** see them, turn them off, or add one (for example Steam).
+- **App permissions:** which apps can use the camera, the microphone and the location.
+- **File backup:** restore a file or find deleted ones without knowing the right-click menu, and check that the
+  backup can really be read back.
+- **FPS display while playing** now also shows the CPU and GPU temperatures and the memory.
+
+**Installing and Windows programs**
+
+- **More than one screen:** the installer asks which one is the main screen, and the installed system keeps it.
+- **Your taskbar, your choice:** at the end of the welcome wizard you pick which of the installed apps go on the
+  taskbar.
+- **Other disks:** "Use it" now lets you pick the Linux partitions one by one, also on a disk with Windows (Windows
+  partitions are never touched).
+- **Disc images:** double-click an `.iso` and it opens like a disc on Windows; if it has an installer, Sloth OS offers
+  to run it. It is ejected again when you sign out.
+- **Installers fix themselves:** if a Windows installer crashes because something is missing, it is tried again with
+  the fix, and what worked is remembered (and shared, if sharing is on).
+- **Installers that open the program at the end** (like IrfanView's) no longer keep the install screen waiting until
+  you close the program, also when reinstalling.
+- **Sloth OS sees which Windows programs are running:** starting one that is already open says so instead of opening
+  it twice, and a launcher that hands over to its client (like Battle.net) is followed correctly.
+- Closed Windows programs are no longer started again by themselves, and installers like 7-Zip's are recognized
+  correctly.
+
+**Smaller fixes**
+
+- Cloud storage in Sloth Center: the connect buttons work again (before, both spinners turned and nothing happened).
+- A background sign-in check no longer reports an error at every start.
+- The terminal's system information (fastfetch) shows the Sloth OS logo.
+
+Every new text is in all 50 languages.
+
+### 1.0.4 (October 26, 2026)
 
 - **More than one disk:** the installer asks what to do with each other disk: leave it alone (the default), use it
   with its files, or erase it for programs and games. A disk with Windows on it is never changed.

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # The Sloth .exe handler should be the default opener of Windows programs (.exe, .msi), Linux packages
-# (AppImage, .deb, .rpm) and Mac files (for Mac files it gives a clear message).
+# (AppImage, .deb, .rpm), Mac files (for Mac files it gives a clear message) and disc images (.iso).
 # The existing settings are kept, only these types are overwritten.
 set -euo pipefail
 
@@ -16,7 +16,9 @@ for mime in ("application/x-ms-dos-executable", "application/x-msdownload", "app
              "application/x-ms-installer", "application/vnd.microsoft.portable-executable",
              "application/x-dosexec", "application/vnd.appimage", "application/x-iso9660-appimage",
              "application/vnd.debian.binary-package", "application/x-deb", "application/x-rpm",
-             "application/x-redhat-package-manager", "application/x-apple-diskimage", "application/x-xar"):
+             "application/x-redhat-package-manager", "application/x-apple-diskimage", "application/x-xar",
+             # disc images: mounted, and the installer on them offered
+             "application/x-cd-image", "application/x-iso9660-image"):
     cp.set("Default Applications", mime, "org.slothos.exe.desktop;")
 with open(target, "w", encoding="utf-8") as f:
     cp.write(f, space_around_delimiters=False)

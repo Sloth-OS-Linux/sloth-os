@@ -11,15 +11,18 @@ Where programs live, their data and Start menu entries are in the shared sloth_c
 """
 import logging
 import re
+import shutil
 import subprocess
 import threading
+import time
 from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, QProcess, QTimer, QUrl, Signal, Slot
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
-from sloth_common.apps import detect, library, menu, native, packages
+from sloth_common import taskbar
+from sloth_common.apps import detect, discimage, library, menu, native, packages
 
 from . import anticheat, backend, community, diagnose, heal, identify, quirks
 from .i18n import catalog, tr
@@ -39,6 +42,10 @@ def _size_text(n):
 STARTED_AFTER_S = 8
 # If it exits sooner than this, it may not have started properly (self-healing, heal.py)
 QUICK_EXIT_S = 20
+# After a quick exit we wait this long for Wine to finish in the environment before deciding (Notepad++ hands over)
+SETTLE_S = 6
+# A clean exit (code 0, no error in the log) after this many seconds counts as the user closing the program
+USER_CLOSE_S = 3
 # If it runs this long, the setting worked: we remember it
 WORKED_AFTER_S = 45
 # After the installer exits, we wait this long for its other processes (e.g. the actual installer
@@ -137,16 +144,32 @@ class ExeController(QObject):
         self._succeeded = False
         self._gameid = None
         self._key = ""
+        # Installer attempts (heal.install_plan): the plan, the current attempt, the installer's fingerprint
+        # (community.program_key), whether its environment is new (another Proton version is only tried then),
+        # and how the installer exited (code, log lines) for deciding whether to try again
+        self._install_plan = []
+        self._install_attempt = None
+        self._install_key = ""
+        self._install_fresh = False
+        self._install_exit = None
+        self._install_seen = None  # the last install check's findings (_check_install_done logs the changes)
         # Where a new program goes, if there is more than one drive to choose from (library.install_locations)
         self._locations = None
         self._location = 0
         self._remember_location = False
+        # A disc image (.iso): where it is mounted, the installer on it, and "always do this"
+        self._disc = None
+        self._disc_setup = None
+        self._remember_disc = False
 
     # --- Entry points -----------------------------------------------------
 
     def open_file(self, path):
         library.migrate_legacy()
         self._exe = Path(path).resolve()
+        if discimage.is_disc_image(self._exe):
+            self._open_disc()
+            return
         if self._exe.suffix.lower() not in (".exe", ".msi"):
             kind = packages.kind_of(self._exe)
             if kind:
@@ -291,16 +314,75 @@ class ExeController(QObject):
             self._install_package()
             return
         # Reinstalling into the existing folder: the Start menu entries stay the same, no duplicates
+        self._install_fresh = not (self._existing or self._unfinished)
         self._program = self._existing or self._unfinished or self._create_program()
         self._program.save_meta(installer=str(self._exe))
-        self._baseline = detect.baseline(self._program)
         self._mode = "install"
         self._update_window()
         self._set_working(tr("status.preparing_install", name=self._name))
+        # What installed this installer before (here or, from the shared knowledge, on other machines) goes first
+        self._install_key = community.program_key(self._exe, [self._name])
+        self._install_plan = heal.install_plan(self._install_key, community.suggestion(self._install_key),
+                                               self._install_fresh)
+        self._tries = 0
+        self._start_install_attempt(self._install_plan.pop(0) if self._install_plan else None)
+
+    def _start_install_attempt(self, attempt):
+        """Runs the installer with one setting. Before another Proton version, a new environment is emptied."""
+        previous = self._install_attempt
+        if previous and attempt and self._install_fresh and heal.resolved_name(previous) != heal.resolved_name(attempt):
+            shutil.rmtree(self._program.prefix, ignore_errors=True)
+        self._install_attempt, self._install_exit = attempt, None
+        self._tries += 1
+        self._baseline = detect.baseline(self._program)
         self._slow_timer.start()
-        self._start_runner(self._program, self._exe)
+        self._start_runner(self._program, self._exe, attempt)
         # we already watch while the installer runs (_check_install_done)
         self._install_timer.start()
+
+    def _install_failed(self):
+        """Nothing got installed. If the installer failed (it crashed, or its log shows a known missing component),
+        it is tried again: with the recognized fix, or with the next setting. Otherwise the user cancelled it:
+        then we stop, and report nothing. The exit code alone does not count: many installers exit with an error
+        code when the user clicks Cancel (NSIS 1, Inno Setup 2 or 5, MSI 1602), and trying again would reopen an
+        installer the user has just closed."""
+        attempt = self._install_attempt
+        code, lines = self._install_exit or (0, [])
+        new = [f for f in diagnose.fixes(lines) if attempt and f not in attempt.fixes]
+        failed = diagnose.crashed(lines) or bool(new)
+        if not attempt or not failed or self._runner.uses_wine or self._tries >= heal.MAX_ATTEMPTS + 2:
+            if attempt and failed:
+                self._remember_install(attempt, worked=False)
+            self._fail(tr("error.nothing_installed"))
+            return
+        log.info("the installer failed with %s (code %s, fixes %s)", attempt.key, code, new)
+        if new:
+            # Recognized error: once more with the same setting, together with the fix
+            attempt.fixes = attempt.fixes + new
+            self._start_install_attempt(attempt)
+            return
+        self._remember_install(attempt, worked=False)
+        if not self._install_plan:
+            self._fail(tr("error.nothing_installed"))
+            return
+        nxt = self._install_plan.pop(0)
+        nxt.fixes = nxt.fixes + [f for f in attempt.fixes if f not in nxt.fixes]
+        self._set_working(tr("status.preparing_install", name=self._name))
+        self._start_install_attempt(nxt)
+
+    def _remember_install(self, attempt, worked):
+        """What installed this installer (or did not): here, and in the shared knowledge if sharing is on."""
+        rec = heal.installer_record(self._install_key)
+        name = heal.resolved_name(attempt)
+        key = f"{name}|{attempt.profile}"
+        if worked:
+            rec["good"] = {"proton": name, "profile": attempt.profile}
+            rec["fixes"] = [list(f) for f in attempt.fixes]
+            rec["failed"] = [k for k in rec.get("failed", []) if k != key]
+        else:
+            rec["failed"] = sorted(set(rec.get("failed", [])) | {key, attempt.key})
+        heal.save_installer_record(self._install_key, rec)
+        community.queue_report(self._install_key, attempt, "worked" if worked else "failed")
 
     def _create_program(self):
         """A new program's folder, on the drive chosen in the window (by default the default library)."""
@@ -310,6 +392,47 @@ class ExeController(QObject):
             if self._remember_location:
                 library.set_default_library(place)
         return library.create(self._name, library=place, installer=str(self._exe))
+
+    def _open_disc(self):
+        """A disc image: mount it; with an installer on it, offer that (or do what the user chose before)."""
+        self._name, self._kind = self._exe.stem, "iso"
+        self._update_window()
+        self._disc = discimage.mount(self._exe)
+        if self._disc is None:
+            self._fail(tr("error.disc_mount"))
+            return
+        self._disc_setup = discimage.installer_on(self._disc)
+        log.info("disc image: %s at %s, installer: %s", self._exe, self._disc, self._disc_setup)
+        choice = discimage.preference()
+        if self._disc_setup is None or choice == "folder":
+            self.openDiscFolder()
+            return
+        if choice == "install":
+            self.installFromDisc()
+            return
+        self._state = "choose"
+        self.changed.emit()
+
+    @Slot(bool)
+    def setRememberDisc(self, value):
+        self._remember_disc = value
+
+    @Slot()
+    def openDiscFolder(self):
+        if self._remember_disc:
+            discimage.remember("folder")
+        subprocess.Popen(["xdg-open", str(self._disc)], start_new_session=True,
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        # this can come before the event loop starts (opening the file): quit from the loop
+        QTimer.singleShot(0, QApplication.quit)
+
+    @Slot()
+    def installFromDisc(self):
+        """The installer on the disc goes the usual way: the install screen (with the drive chooser)."""
+        if self._remember_disc:
+            discimage.remember("install")
+        self._kind = "windows"
+        self.open_file(str(self._disc_setup))
 
     @Slot()
     def openExisting(self):
@@ -348,6 +471,13 @@ class ExeController(QObject):
             self._shortcuts.insert(0, self._shortcut_item(detect.display_name(path), path, True))
         self.changed.emit()
 
+    @Slot(int, bool)
+    def setShortcutTaskbar(self, index, on):
+        """The entry should go on the taskbar too (asked next to the Start menu question)."""
+        if 0 <= index < len(self._shortcuts):
+            self._shortcuts[index] = {**self._shortcuts[index], "taskbar": on}
+            self.changed.emit()
+
     @Slot(bool)
     def confirmShortcuts(self, start=False):
         first = None
@@ -365,6 +495,12 @@ class ExeController(QObject):
                 desktop.unlink()
         icon = next((e["icon"] for e in menu.entries(self._program) if e["icon"].startswith("/")), None)
         self._program.set_folder_icon(icon)
+        pins = [menu.desktop_file_path(self._program, Path(s["path"])).stem
+                for s in self._shortcuts if s["checked"] and s.get("taskbar")]
+        if pins:
+            # Plasma has to know the new entries first, or the taskbar would show a generic icon
+            taskbar.refresh_app_cache()
+            taskbar.pin(pins)
         if start and first:
             if self._queued or self._installer_alive:
                 # the next installer in the queue comes (or the installer still runs, and this instance waits for it):
@@ -522,7 +658,8 @@ class ExeController(QObject):
 
     def _shortcut_item(self, name, path, checked):
         icon = menu.extract_icon(path, menu.icon_path(self._program, path))
-        return {"name": name, "path": str(path), "checked": checked, "iconUrl": f"file://{icon}" if icon else ""}
+        return {"name": name, "path": str(path), "checked": checked, "taskbar": False,
+                "iconUrl": f"file://{icon}" if icon else ""}
 
     def _start_run(self):
         found = anticheat.detect(self._exe)
@@ -684,6 +821,7 @@ class ExeController(QObject):
         log.info("exited: code=%s, %.0f s", code, elapsed)
         if self._installer_alive:
             self._installer_alive = False
+            self._complete_install_info()
             if not self._closing:
                 return  # the installer exited; the user is still working in this window
             # the install was already done, we were only waiting for the installer's end (_quit)
@@ -694,6 +832,7 @@ class ExeController(QObject):
             return
         if self._mode == "install":
             # The installer exited; downloaders and multi-stage installers may still be working
+            self._install_exit = (code, self._runner.lines())
             self._status = tr("status.finish_in_installer")
             self.changed.emit()
             self._install_timer.start()
@@ -713,13 +852,32 @@ class ExeController(QObject):
                 log.info("exited with an error code (%s), not remembered as a working setting", code)
             QApplication.quit()
             return
+        self._settle(code, elapsed, time.monotonic())
+
+    def _settle(self, code, elapsed, since):
+        """After a quick exit: is it really over? While Wine still runs in the environment (the program is starting
+        or handing over, e.g. Notepad++), we look again for up to SETTLE_S seconds before calling it a failure;
+        otherwise a program that was open would get started again with another setting."""
         if self._program.busy():
             # The launcher handed over: the program keeps running, this is not an error
             log.info("the launcher exited, the program keeps running")
             self._busy_timer.start()
             self._worked_timer.start()
             return
+        if library.prefix_alive(self._program) and time.monotonic() - since < SETTLE_S:
+            QTimer.singleShot(500, lambda: self._settle(code, elapsed, since))
+            return
         lines = self._runner.lines()
+        if code == 0 and elapsed >= USER_CLOSE_S and not diagnose.crashed(lines) and not diagnose.fixes(lines):
+            # A clean exit after a few seconds, without any error in the log: the user closed it. Starting it again
+            # with another setting would reopen a window the user has just closed (Notepad++, 2026-10-22)
+            log.info("clean exit after %.0f s without errors: closed by the user, not restarted", elapsed)
+            QApplication.quit()
+            return
+        self._quick_exit(code, lines)
+
+    def _quick_exit(self, code, lines):
+        """It exited quickly and nothing runs any more: a known good setting, give up, or self-healing."""
         rec = heal.record(self._program, self._exe)
         if code == 0 and rec.get("good") and not diagnose.crashed(lines):
             # It worked before and did not crash now either: the user closed it
@@ -822,7 +980,10 @@ class ExeController(QObject):
         has exited and the program is certainly there (many installers start the program by themselves at the end,
         e.g. Battle.net: we do not wait until the user closes it). It is also done when the installer still
         runs but the installed program has already started (_program_exes): the EA app installer does not exit while the
-        EA app runs, and the Battle.net installer stays open while its client already shows the login window."""
+        EA app runs, and the Battle.net installer stays open while its client already shows the login window.
+        An .exe written by this install that runs is enough too (detect.installed_running): the recognition is not
+        certain while the program runs (IrfanView), and Proton's helper processes keep the installer's name in their
+        command line even after the installer exited."""
         running = library.running_exes(self._program)
         if self._runner.running():
             if self._state != "working" or not self._runner.main_running():
@@ -831,24 +992,47 @@ class ExeController(QObject):
                 # The installer already runs on the Windows side: preparation is over (even if nothing had
                 # to be downloaded, so the runner did not report it); the "still working…" text must not stay up
                 self._on_setup_done()
-            others = running - {self._exe.name.lower()}
-            if not others:
-                return
+        installer = self._exe.name.lower()
+        others = running - {installer}
+        started = detect.installed_running(self._program, others, self._baseline.get("time", 0))
+        seen = (sorted(running), self._runner.running(), sorted(started))
+        if seen != self._install_seen:
+            # only when it changes: what runs in the environment and what we wait for (for the diagnosis)
+            self._install_seen = seen
+            log.info("install check: running %s, installer process %s, installed program %s", *seen)
+        if not started and others:
             found = detect.detect(self._program, self._baseline, fallback_name=self._name)
-            if not (found.sure and others & _program_exes(found)):
-                return
-            log.info("the installer still runs, but the installed program has already started: %s", sorted(others))
-            self._installer_alive = True
-        elif running and (self._exe.name.lower() in running
-                          or not detect.detect(self._program, self._baseline, fallback_name=self._name).sure):
+            if found.sure:
+                started = others & _program_exes(found)
+        if started:
+            log.info("the installed program has already started: %s", sorted(started))
+            self._installer_alive = self._runner.running()
+        elif self._runner.running() or installer in running:
+            return
+        elif running and not detect.detect(self._program, self._baseline, fallback_name=self._name).sure:
             return
         self._install_timer.stop()
         self._after_install()
 
+    def _complete_install_info(self):
+        """The install was done while the installed program ran, so Wine may have written the registry only now that
+        the environment stopped: the uninstall entry (publisher, version, install folder) is saved afterwards."""
+        if not self._program or "uninstall_key" in self._program.meta:
+            return
+        found = detect.detect(self._program, self._baseline, fallback_name=self._name)
+        if not found.uninstall_key:
+            return
+        info = {"publisher": found.publisher, "version": found.version, "uninstall_key": found.uninstall_key}
+        if found.install_dir:
+            info["install_dir"] = self._program.host_to_windows(found.install_dir) or ""
+        log.info("uninstall entry after the install: %s", found.uninstall_key)
+        self._program.save_meta(**info)
+
     def _after_install(self):
-        # The installer ran with the latest Proton: the program's folder is on this version
+        # The program's folder is on the Proton version the installer ran with
         if not self._runner.uses_wine:
-            self._program.save_meta(prefix_proton=heal.newest() or "auto")
+            self._program.save_meta(prefix_proton=heal.resolved_name(self._install_attempt) if self._install_attempt
+                                    else heal.newest() or "auto")
         before = self._baseline
         found = detect.detect(self._program, before, fallback_name=self._name)
         if not found.candidates:
@@ -858,8 +1042,10 @@ class ExeController(QObject):
         log.info("installed: %s (%s), launchers: %s", found.name or self._name, found.install_dir,
                  [(c.name, c.path.name, c.score) for c in found.candidates])
         if not found.candidates:
-            self._fail(tr("error.nothing_installed"))
+            self._install_failed()
             return
+        if self._install_attempt and not self._runner.uses_wine:
+            self._remember_install(self._install_attempt, worked=True)
         info = {"publisher": found.publisher, "version": found.version, "uninstall_key": found.uninstall_key}
         if found.install_dir:
             info["install_dir"] = self._program.host_to_windows(found.install_dir) or ""

@@ -1,0 +1,42 @@
+#!/usr/bin/python3 -I
+"""At the first sign-in: the main screen chosen in the installer (/etc/sloth-os/display.json).
+
+With more than one screen the installer asks which one is the main one (the panel and new windows go there).
+This makes it the main one in the user's own screen settings (KScreen) once; after that the user's own choice
+in the system settings counts. If that screen is not connected now, it is simply left out.
+"""
+import json
+import os
+import re
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+CHOICE = Path("/etc/sloth-os/display.json")
+DONE = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os" / "display-set"
+
+
+def main():
+    if DONE.exists():
+        return 0
+    try:
+        name = json.loads(CHOICE.read_text(encoding="utf-8")).get("primary", "")
+    except (OSError, ValueError):
+        return 0
+    if re.fullmatch(r"[A-Za-z0-9-]{1,32}", name):
+        # KWin may still be setting up the screens right after sign-in
+        for _ in range(10):
+            r = subprocess.run(["kscreen-doctor", f"output.{name}.priority.1"], capture_output=True, text=True)
+            if r.returncode == 0:
+                break
+            time.sleep(1)
+        else:
+            print(f"could not make {name} the main screen: {r.stderr.strip()}", file=sys.stderr)
+    DONE.parent.mkdir(parents=True, exist_ok=True)
+    DONE.touch()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

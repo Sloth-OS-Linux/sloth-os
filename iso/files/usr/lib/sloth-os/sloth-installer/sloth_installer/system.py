@@ -152,6 +152,19 @@ def apply_live_language(code, locale):
         log.warning("language (live): %s", e)
 
 
+# --- Screens ----------------------------------------------------------------------
+
+def set_primary_display(name):
+    """Makes the screen the main one in the live session too (KScreen: the panel and new windows go there)."""
+    if not re.fullmatch(r"[A-Za-z0-9-]{1,32}", name or ""):
+        return False
+    try:
+        return subprocess.run(["kscreen-doctor", f"output.{name}.priority.1"], capture_output=True,
+                              timeout=15).returncode == 0
+    except (OSError, subprocess.SubprocessError):
+        return False
+
+
 # --- Lemezek ----------------------------------------------------------------------
 
 def _lsblk():
@@ -239,8 +252,11 @@ def disks():
             "transport": (d.get("tran") or "").lower(),   # nvme, sata, usb…
             "removable": bool(d.get("rm")) or (d.get("tran") or "").lower() == "usb",
             "contents": kind,
-            # a Linux file system that can be used as it is, if it is not the install target ("keep")
-            "mountable": any((p.get("fstype") or "").lower() in ("ext4", "btrfs", "xfs") for p in parts),
+            # Linux file systems that can be used as they are, if it is not the install target ("keep")
+            "linuxParts": [{"path": p["path"], "fstype": (p.get("fstype") or "").lower(),
+                            "label": p.get("label") or p.get("partlabel") or p.get("name", ""),
+                            "sizeText": f"{int(p.get('size') or 0) / 1000**3:.0f} GB"}
+                           for p in parts if (p.get("fstype") or "").lower() in ("ext4", "btrfs", "xfs")],
             "partitionNames": names[:4],
             "tooSmall": size < MIN_DISK_BYTES,
             "small": size < RECOMMENDED_BYTES,

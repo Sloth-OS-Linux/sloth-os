@@ -1,18 +1,14 @@
 {
   "_language": "Eesti",
-
   "app.title": "Sloth Tere tulemast",
   "window.title": "Tere tulemast Sloth OS-i",
-
   "welcome.heading": "Tere tulemast Sloth OS-i!",
   "welcome.text": "Mõned kiired küsimused ja arvuti on valmis. Kõike saab hiljem muuta.",
   "welcome.language": "Keel",
   "welcome.start": "Alustame",
-
   "look.colors": "Millised värvid sulle meeldivad?",
   "look.colors_hint": "Klõpsa ühel ja näed kohe, kuidas see välja näeb. Hiljem saad seda muuta Süsteemi seadistustes.",
   "look.taskbar": "Milline peaks tegumiriba olema?",
-
   "scheme.SlothSilverDark": "Hõbe (tume)",
   "scheme.SlothSilverLight": "Hõbe (hele)",
   "scheme.SlothWhite": "Lumivalge",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Udusinine",
   "scheme.SlothNight": "Öösinine",
   "scheme.SlothSage": "Salvei",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Start-menüü ja ikoonid vasakul",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Start-menüü ja ikoonid keskel",
   "layout.mac.name": "Nagu macOS",
   "layout.mac.description": "Riba üleval, hõljuv dokk all",
+  "layout.ubuntu.name": "Ubuntu-laadne",
+  "layout.ubuntu.description": "Ülemine riba, dokk vasakul",
   "security.heading": "Millal peaks arvuti parooli küsima?",
   "security.text": "Mõned seaded (näiteks programmide paigaldamine) küsivad sinu parooli. Nii ei saa keegi su arvutit sinu teadmata muuta.",
   "security.all": "Iga muudatuse korral (kõige turvalisem)",
@@ -39,8 +36,7 @@
   "sharing.what": "Saadetakse ainult see: seadistus (näiteks „vanem graafikarežiim“), sinu graafikakaardi tootja ja programmi sõrmejälg, millest selle nime tuletada ei saa. Mitte midagi muud sinu arvutist ei lahku: ei sinu nimi, failid, programmi nimi ega see, millal ja kui palju sa seda kasutad.",
   "sharing.yes": "Jah, jaga anonüümselt",
   "sharing.no": "Ei, tänan",
-  "sharing.later": "Saad seda hiljem igal ajal muuta Sloth Keskuses. Teistes arvutites töötanud seadistused saad igal juhul.",
-
+  "sharing.later": "Saad seda hiljem igal ajal Sloth Centeris muuta. Teistes arvutites töötanud seaded saad igal juhul.",
   "windows.heading": "Kas tuua su failid Windowsist üle?",
   "windows.text": "Selles arvutis on ka Windows. Saame su failid siia kopeerida; Windowsit ennast ei muudeta, sealt ainult loetakse.",
   "windows.scanning": "Windowsi ketta läbivaatamine…",
@@ -63,17 +59,14 @@
   "windows.none": "Selles arvutis ei leitud Windowsi faile, mida üle tuua.",
   "windows.failed": "Windowsi ketast ei õnnestunud avada. Käivita Windows ja lülita see täielikult välja (Sule arvuti, mitte Taaskäivita), seejärel proovi uuesti Sloth Centeris (Kettad).",
   "windows.bookmarks_file": "Windowsi järjehoidjad.html",
-
   "nav.back": "Tagasi",
   "nav.next": "Edasi",
   "nav.skip": "Jäta vahele",
   "nav.finish": "Lõpeta",
   "nav.install": "Paigalda",
-
   "step.counter": "Samm {n}/{total}",
   "step.selected_one": "1 rakendus valitud",
   "step.selected_many": "{count} rakendust valitud",
-
   "category.multiple": "Võid valida mitu või mitte ühtegi.",
   "category.browser.name": "Veebibrauser",
   "category.browser.hint": "Sellega käid internetis. Ilma brauserita ei saa veebilehti avada.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Mängupoed ja käivitajad. Windowsi mängud ja programmid töötavad ka ilma nendeta.",
   "category.creative.name": "Loovus",
   "category.creative.hint": "Fototöötlus, joonistamine, videotöötlus, salvestamine.",
-
   "app.org.mozilla.firefox": "Kiire, privaatsust hoidev, avatud lähtekoodiga",
   "app.com.google.Chrome": "Google'i brauser, sünkroonib sinu Google'i kontoga",
   "app.com.brave.Browser": "Sisseehitatud reklaamiblokeerijaga",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Windowsi programmide paigaldajad on alla laaditud ({names}). Nüüd avanevad need ükshaaval: läbi iga paigaldus nagu Windowsis. Taaskäivitus tuleb lõpus.",
   "done.windows_continue": "Jätka Windowsi programmide paigaldamisega",
   "done.windows_finished": "Kõik valmis, ka Windowsi programmid! Pärast taaskäivitust laaditakse kõik korralikult.",
-
   "offline.text": "Internetiühendus puudub. Rakenduste paigaldamiseks ühenda arvuti võrku.",
   "offline.settings": "Võrgu seadistused",
   "offline.retry": "Proovi uuesti",
-
   "nobrowser.title": "Sa ei valinud brauserit",
   "nobrowser.text": "Ilma brauserita ei saa veebilehti avada. Kas oled kindel?",
   "nobrowser.choose": "Valin ühe",
   "nobrowser.ok": "Nii sobib",
-
   "install.preparing": "Paigaldamise ettevalmistamine…",
   "install.retrying": "Ühendus katkes, proovin uuesti…",
   "install.installing": "Paigaldamine: {name}…",
   "install.note": "Sõltuvalt ühendusest võib see võtta paar minutit.",
-
   "error.network": "Internetiühendus puudub või server pole kättesaadav.",
   "error.disk_full": "Kettal pole piisavalt vaba ruumi.",
   "error.not_authorized": "Me ei saanud paigaldamiseks luba.",
   "error.checksum": "Allalaaditud fail oli vigane, seetõttu seda ei paigaldatud.",
   "error.generic": "Paigaldamine ebaõnnestus.",
-
   "done.nothing_selected": "Valmis! Rakendusi saad hiljem paigaldada Discoveris.",
   "done.all_ok": "Kõik on valmis! Sinu rakendused ootavad Start-menüüs.",
   "done.some_failed": "Peaaegu valmis. Mõnda rakendust ei õnnestunud paigaldada:",
   "done.all_failed": "Kahjuks ei õnnestunud rakendusi praegu paigaldada:",
   "done.retry_hint": "Saad hiljem uuesti proovida, avades Start-menüüst „Sloth Tere tulemast“.",
+  "done.taskbar": "Mis tegumiribale panna?",
   "done.extras": "Veel paar asja, kui soovid:",
   "done.steam": "Logi Steami sisse",
   "done.accounts": "Võrgukontod (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Head lõbutsemist!",
   "done.restart": "Taaskäivita",
   "done.restart_hint": "Taaskäivita arvuti, et kõik uued rakendused korralikult laaditaks.",
-
   "desktop.generic": "Rakendused ja välimus",
   "desktop.comment": "Veebilehitseja, kontoritarkvara, meediapleieri ja muu paigaldamine, värviskeemi valimine",
   "desktop.keywords": "tere tulemast;rakendused;veebilehitseja;kontor;teema",

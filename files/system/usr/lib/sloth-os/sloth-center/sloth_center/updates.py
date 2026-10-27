@@ -10,6 +10,7 @@ import subprocess
 
 from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
+from sloth_common.apps import packages
 
 from .i18n import tr
 
@@ -30,6 +31,15 @@ def update_available(cached):
         return True
     diff = cached.get("manifest-diff") or {}
     return bool(diff.get("n-added") or diff.get("n-removed"))
+
+
+def download_size(cached):
+    """How much the update downloads (the new layers), in bytes; 0 if it is not known."""
+    diff = cached.get("manifest-diff") or {}
+    try:
+        return max(0, int(diff.get("added-size") or 0))
+    except (TypeError, ValueError):
+        return 0
 
 
 class UpdatesController(QObject):
@@ -59,6 +69,8 @@ class UpdatesController(QObject):
         self._rollback = ""
         self._signature_verified = False
         self._available = ""
+        self._download_size = 0
+        self._metered_warning = False
         self._unavailable = ""
         self._pinned = False
         self._booted_index = -1
@@ -103,6 +115,16 @@ class UpdatesController(QObject):
     @Property(bool, notify=changed)
     def updateAvailable(self):
         return bool(self._available)
+
+    @Property(str, notify=changed)
+    def downloadSize(self):
+        """The size of the waiting update ("2,3 GB"), or "" if it is not known."""
+        return texts.size_text(self._download_size) if self._download_size else ""
+
+    @Property(bool, notify=changed)
+    def meteredWarning(self):
+        """The update was started on a mobile or other metered connection: the page asks first."""
+        return self._metered_warning
 
     @Property(bool, notify=changed)
     def signatureVerified(self):
@@ -165,8 +187,10 @@ class UpdatesController(QObject):
         cached = self._ostree.cached_update() or {}
         if update_available(cached) and not self._pending:
             self._available = texts.version_text(cached) or tr("New version")
+            self._download_size = download_size(cached)
         else:
             self._available = ""
+            self._download_size = 0
         self.changed.emit()
 
     def _attach_background(self):
@@ -273,9 +297,27 @@ class UpdatesController(QObject):
 
     @Slot()
     def installUpdate(self):
+        # On a mobile or other metered connection the download can cost money (an update is often several GB):
+        # the page asks first. The automatic update in the background skips these connections by itself (uupd).
+        if self._ostree and not self._mode and packages.metered():
+            self._metered_warning = True
+            self.changed.emit()
+            return
+        self.installUpdateAnyway()
+
+    @Slot()
+    def installUpdateAnyway(self):
+        self._metered_warning = False
         if self._ostree and not self._mode:
             self._begin("upgrade", tr("Looking for updates…"))
             self._ostree.upgrade(self._follow, self._on_error)
+        else:
+            self.changed.emit()
+
+    @Slot()
+    def dismissMeteredWarning(self):
+        self._metered_warning = False
+        self.changed.emit()
 
     @Slot()
     def rollback(self):

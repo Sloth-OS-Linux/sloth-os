@@ -1,18 +1,14 @@
 {
   "_language": "한국어",
-
   "app.title": "Sloth 환영",
   "window.title": "Sloth OS에 오신 것을 환영합니다",
-
   "welcome.heading": "Sloth OS에 오신 것을 환영합니다!",
   "welcome.text": "간단한 질문 몇 가지면 컴퓨터 준비가 끝납니다. 모든 설정은 나중에 바꿀 수 있습니다.",
   "welcome.language": "언어",
   "welcome.start": "시작하기",
-
   "look.colors": "어떤 색이 좋으세요?",
   "look.colors_hint": "하나를 클릭하면 바로 적용된 모습을 볼 수 있습니다. 나중에 시스템 설정에서 바꿀 수 있습니다.",
   "look.taskbar": "작업 표시줄은 어떤 모양이 좋으세요?",
-
   "scheme.SlothSilverDark": "실버 (어둡게)",
   "scheme.SlothSilverLight": "실버 (밝게)",
   "scheme.SlothWhite": "스노 화이트",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "미스트 블루",
   "scheme.SlothNight": "나이트 블루",
   "scheme.SlothSage": "세이지",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "시작 메뉴와 아이콘이 왼쪽에",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "시작 메뉴와 아이콘이 가운데에",
   "layout.mac.name": "macOS 스타일",
   "layout.mac.description": "위쪽 막대, 아래쪽 떠 있는 독",
+  "layout.ubuntu.name": "Ubuntu 스타일",
+  "layout.ubuntu.description": "상단 바, 왼쪽 독",
   "security.heading": "언제 비밀번호를 물어볼까요?",
   "security.text": "일부 설정(예: 프로그램 설치)은 비밀번호가 필요합니다. 그래서 다른 사람이 몰래 컴퓨터를 바꿀 수 없습니다.",
   "security.all": "모든 변경에 묻기 (가장 안전)",
@@ -39,8 +36,7 @@
   "sharing.what": "전송되는 것은 이것뿐입니다: 설정(예: \"이전 그래픽 모드\"), 그래픽 카드 제조사, 이름을 알아낼 수 없는 프로그램의 지문. 그 밖에는 아무것도 컴퓨터 밖으로 나가지 않습니다. 이름, 파일, 프로그램 이름, 언제 얼마나 사용하는지도 전송되지 않습니다.",
   "sharing.yes": "예, 익명으로 공유",
   "sharing.no": "아니요, 괜찮습니다",
-  "sharing.later": "나중에 언제든지 Sloth 센터에서 바꿀 수 있습니다. 다른 컴퓨터에서 효과가 있었던 설정은 어느 쪽을 선택해도 받을 수 있습니다.",
-
+  "sharing.later": "나중에 언제든지 Sloth Center에서 바꿀 수 있습니다. 다른 컴퓨터에서 잘 작동한 설정은 어느 쪽을 골라도 받을 수 있습니다.",
   "windows.heading": "Windows에서 파일을 가져올까요?",
   "windows.text": "이 컴퓨터에는 Windows도 있습니다. 파일을 이곳으로 복사할 수 있으며, Windows는 건드리지 않고 읽기만 합니다.",
   "windows.scanning": "Windows 드라이브를 살펴보는 중…",
@@ -63,17 +59,14 @@
   "windows.none": "이 컴퓨터에서 가져올 Windows 파일을 찾지 못했습니다.",
   "windows.failed": "Windows 드라이브를 열 수 없습니다. Windows를 시작한 뒤 완전히 종료하고 (다시 시작이 아닌 시스템 종료), Sloth Center(디스크)에서 다시 시도하세요.",
   "windows.bookmarks_file": "Windows 북마크.html",
-
   "nav.back": "뒤로",
   "nav.next": "다음",
   "nav.skip": "건너뛰기",
   "nav.finish": "마침",
   "nav.install": "설치",
-
   "step.counter": "{total}단계 중 {n}단계",
   "step.selected_one": "앱 1개 선택됨",
   "step.selected_many": "앱 {count}개 선택됨",
-
   "category.multiple": "여러 개를 고르거나 하나도 고르지 않아도 됩니다.",
   "category.browser.name": "웹 브라우저",
   "category.browser.hint": "인터넷을 사용하는 앱입니다. 브라우저가 없으면 웹사이트를 열 수 없습니다.",
@@ -87,7 +80,6 @@
   "category.games.hint": "게임 스토어와 런처. Windows 게임과 프로그램은 이것들 없이도 실행됩니다.",
   "category.creative.name": "창작",
   "category.creative.hint": "사진 편집, 그림, 동영상 편집, 녹화.",
-
   "app.org.mozilla.firefox": "빠르고 개인정보를 존중하는 오픈 소스",
   "app.com.google.Chrome": "Google 브라우저, Google 계정과 동기화",
   "app.com.brave.Browser": "광고 차단 기능 내장",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Windows 프로그램 설치 파일을 다운로드했습니다 ({names}). 이제 하나씩 열립니다. Windows에서처럼 각 설치를 진행하세요. 다시 시작은 마지막에 합니다.",
   "done.windows_continue": "Windows 프로그램 설치로 계속",
   "done.windows_finished": "모두 완료되었습니다. Windows 프로그램도요! 다시 시작하면 모든 것이 제대로 불러와집니다.",
-
   "offline.text": "인터넷에 연결되어 있지 않습니다. 앱을 설치하려면 네트워크에 연결하세요.",
   "offline.settings": "네트워크 설정",
   "offline.retry": "다시 시도",
-
   "nobrowser.title": "브라우저를 선택하지 않았습니다",
   "nobrowser.text": "브라우저가 없으면 웹사이트를 열 수 없습니다. 이대로 진행할까요?",
   "nobrowser.choose": "하나 고를게요",
   "nobrowser.ok": "괜찮아요",
-
   "install.preparing": "설치 준비 중…",
   "install.retrying": "연결이 끊겼습니다. 다시 시도하는 중…",
   "install.installing": "{name} 설치 중…",
   "install.note": "인터넷 속도에 따라 몇 분 정도 걸릴 수 있습니다.",
-
   "error.network": "인터넷에 연결되어 있지 않거나 서버에 연결할 수 없습니다.",
   "error.disk_full": "디스크 여유 공간이 부족합니다.",
   "error.not_authorized": "설치 권한을 받지 못했습니다.",
   "error.checksum": "다운로드한 파일이 손상되어 설치하지 않았습니다.",
   "error.generic": "설치하지 못했습니다.",
-
   "done.nothing_selected": "완료! 앱은 나중에 Discover에서 설치할 수 있습니다.",
   "done.all_ok": "모두 끝났습니다! 선택한 앱은 시작 메뉴에 있습니다.",
   "done.some_failed": "거의 끝났습니다. 일부 앱을 설치하지 못했습니다:",
   "done.all_failed": "죄송합니다. 지금은 앱을 설치하지 못했습니다:",
   "done.retry_hint": "나중에 시작 메뉴에서 'Sloth 환영'을 열어 다시 시도할 수 있습니다.",
+  "done.taskbar": "작업 표시줄에 무엇을 둘까요?",
   "done.extras": "원하시면 몇 가지 더:",
   "done.steam": "Steam 로그인",
   "done.accounts": "온라인 계정 (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "즐거운 시간 되세요!",
   "done.restart": "다시 시작",
   "done.restart_hint": "새 앱이 모두 제대로 불러와지도록 컴퓨터를 다시 시작하세요.",
-
   "desktop.generic": "앱 및 모양",
   "desktop.comment": "브라우저, 오피스 제품군, 미디어 플레이어 등을 설치하고 색 구성표를 선택합니다",
   "desktop.keywords": "환영;앱;브라우저;오피스;테마",

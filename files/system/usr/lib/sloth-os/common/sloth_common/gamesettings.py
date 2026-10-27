@@ -5,12 +5,56 @@ dictionary: {"fps": bool, "performance": bool, "upscale": "off" | "quality" | "b
 For Steam games it becomes a command at the front of the launch options; for Windows programs
 the .exe handler builds the start from it. The user does not see the words "Proton", "Wine".
 """
+import os
 import re
 import shlex
+from pathlib import Path
 
 UPSCALE_SCALES = {"quality": 0.77, "balanced": 0.67, "performance": 0.5}
 DEFAULTS = {"fps": False, "performance": False, "upscale": "off"}
 OUR_COMMANDS = ("mangohud", "gamemoderun", "gamescope")
+
+
+# The FPS display (MangoHud): without a settings file it shows the frame rate and the CPU and GPU load; this one adds
+# the temperatures and the memory. Written only where there is no MangoHud.conf yet: the user's own one is kept.
+OVERLAY_CONFIG = """# Sloth OS: the FPS display while playing (MangoHud). You can edit this file; Sloth OS does not overwrite it.
+fps
+frametime
+frame_timing
+cpu_stats
+cpu_temp
+gpu_stats
+gpu_temp
+ram
+vram
+position=top-left
+"""
+
+
+def overlay_config_paths(home=None, config_home=None):
+    """Where MangoHud looks: the user's settings (Windows programs), and Steam's own folder (Steam is a Flatpak)."""
+    home = Path(home or Path.home())
+    config = Path(config_home or os.environ.get("XDG_CONFIG_HOME") or home / ".config")
+    paths = [config / "MangoHud" / "MangoHud.conf"]
+    steam = home / ".var/app/com.valvesoftware.Steam"
+    if steam.is_dir():
+        paths.append(steam / "config/MangoHud/MangoHud.conf")
+    return paths
+
+
+def ensure_overlay_config(home=None, config_home=None):
+    """Writes our MangoHud settings where there are none yet. -> the files written."""
+    written = []
+    for path in overlay_config_paths(home, config_home):
+        if path.exists():
+            continue
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(OVERLAY_CONFIG, encoding="utf-8")
+            written.append(path)
+        except OSError:
+            pass
+    return written
 
 
 def normalize(settings):

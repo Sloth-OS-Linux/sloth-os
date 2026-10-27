@@ -1,18 +1,14 @@
 {
   "_language": "Esperanto",
-
   "app.title": "Sloth Bonvenon",
   "window.title": "Bonvenon al Sloth OS",
-
   "welcome.heading": "Bonvenon al Sloth OS!",
   "welcome.text": "Kelkaj rapidaj demandoj, kaj via komputilo estas preta. Vi povos ŝanĝi ĉion poste.",
   "welcome.language": "Lingvo",
   "welcome.start": "Ni komencu",
-
   "look.colors": "Kiujn kolorojn vi ŝatas?",
   "look.colors_hint": "Alklaku unu kaj tuj vidu, kiel ĝi aspektas. Vi povos ŝanĝi ĝin poste en la Sistemaj agordoj.",
   "look.taskbar": "Kiel aspektu la taskobreto?",
-
   "scheme.SlothSilverDark": "Arĝenta (malhela)",
   "scheme.SlothSilverLight": "Arĝenta (hela)",
   "scheme.SlothWhite": "Neĝblanka",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Nebulblua",
   "scheme.SlothNight": "Noktoblua",
   "scheme.SlothSage": "Salvio",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Startmenuo kaj piktogramoj maldekstre",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Startmenuo kaj piktogramoj meze",
   "layout.mac.name": "Kiel macOS",
   "layout.mac.description": "Breto supre, ŝvebanta doko malsupre",
+  "layout.ubuntu.name": "Kiel Ubuntu",
+  "layout.ubuntu.description": "Supra breto, doko maldekstre",
   "security.heading": "Kiam via komputilo petu vian pasvorton?",
   "security.text": "Iuj agordoj (ekzemple instali programojn) petas vian pasvorton. Tiel neniu povas ŝanĝi vian komputilon sen via scio.",
   "security.all": "Ĉe ĉiu ŝanĝo (plej sekure)",
@@ -39,8 +36,7 @@
   "sharing.what": "Nur ĉi tio estas sendata: la agordo (ekzemple „malnova grafika reĝimo“), la fabrikanto de via grafika karto, kaj fingrospuro de la programo, el kiu ĝia nomo ne retroveblas. Nenio alia forlasas vian komputilon: nek via nomo, nek viaj dosieroj, nek la nomo de la programo, nek kiam kaj kiom vi uzas ĝin.",
   "sharing.yes": "Jes, kunhavigi anonime",
   "sharing.no": "Ne, dankon",
-  "sharing.later": "Vi povas ŝanĝi tion iam ajn poste en Sloth-Centro. La agordojn, kiuj funkciis en aliaj komputiloj, vi ricevas ĉiuokaze.",
-
+  "sharing.later": "Vi povas ŝanĝi tion poste iam ajn en Sloth Center. La agordojn, kiuj funkciis en aliaj komputiloj, vi ricevas ĉiuokaze.",
   "windows.heading": "Ĉu transporti viajn dosierojn el Windows?",
   "windows.text": "En ĉi tiu komputilo estas ankaŭ Windows. Ni povas kopii viajn dosierojn ĉi tien; Windows mem restas netuŝita, ni nur legas el ĝi.",
   "windows.scanning": "Trarigardado de la Windows-disko…",
@@ -63,17 +59,14 @@
   "windows.none": "Neniuj transporteblaj Windows-dosieroj troviĝis en ĉi tiu komputilo.",
   "windows.failed": "Ne eblis malfermi la Windows-diskon. Startigu Windows kaj tute malŝaltu ĝin (Malŝalti, ne Restartigi), poste reprovu el Sloth Center (Diskoj).",
   "windows.bookmarks_file": "Windows-legosignoj.html",
-
   "nav.back": "Reen",
   "nav.next": "Sekva",
   "nav.skip": "Preterlasi",
   "nav.finish": "Fini",
   "nav.install": "Instali",
-
   "step.counter": "Paŝo {n} el {total}",
   "step.selected_one": "1 aplikaĵo elektita",
   "step.selected_many": "{count} aplikaĵoj elektitaj",
-
   "category.multiple": "Vi povas elekti plurajn, aŭ neniun.",
   "category.browser.name": "Retumilo",
   "category.browser.hint": "Per ĝi vi retumas. Sen retumilo vi ne povas malfermi retejojn.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Ludvendejoj kaj lanĉiloj. Ludoj kaj programoj por Windows funkcias ankaŭ sen ili.",
   "category.creative.name": "Kreado",
   "category.creative.hint": "Foto-redaktado, desegnado, video-redaktado, registrado.",
-
   "app.org.mozilla.firefox": "Rapida, privatecema, malfermitkoda",
   "app.com.google.Chrome": "La retumilo de Google, sinkroniĝas kun via Google-konto",
   "app.com.brave.Browser": "Kun enkonstruita reklamblokilo",
@@ -150,32 +142,28 @@
   "done.windows_hint": "La instaliloj de la Windows-programoj estas elŝutitaj ({names}). Nun ili malfermiĝos unu post la alia: trairu ĉiun instaladon, kiel en Windows. La restartigo venas fine.",
   "done.windows_continue": "Daŭrigi al instalado de Windows-programoj",
   "done.windows_finished": "Ĉio pretas, ankaŭ la Windows-programoj! Post restartigo ĉio ŝargiĝos ĝuste.",
-
   "offline.text": "Neniu interreta konekto. Konektiĝu al reto por instali aplikaĵojn.",
   "offline.settings": "Retaj agordoj",
   "offline.retry": "Reprovi",
-
   "nobrowser.title": "Vi ne elektis retumilon",
   "nobrowser.text": "Sen retumilo vi ne povos malfermi retejojn. Ĉu vi certas?",
   "nobrowser.choose": "Mi elektos unu",
   "nobrowser.ok": "Tiel estas bone",
-
   "install.preparing": "Preparado de la instalado…",
   "install.retrying": "La konekto rompiĝis, reprovante…",
   "install.installing": "Instalado de {name}…",
   "install.note": "Depende de via konekto, tio povas daŭri kelkajn minutojn.",
-
   "error.network": "Neniu interreta konekto, aŭ la servilo ne atingeblas.",
   "error.disk_full": "Ne estas sufiĉe da libera diskospaco.",
   "error.not_authorized": "Ni ne ricevis permeson instali.",
   "error.checksum": "La elŝutita dosiero estis difektita, do ĝi ne estis instalita.",
   "error.generic": "La instalado malsukcesis.",
-
   "done.nothing_selected": "Farite! Vi povos instali aplikaĵojn poste per Discover.",
   "done.all_ok": "Ĉio pretas! Viaj aplikaĵoj atendas en la startmenuo.",
   "done.some_failed": "Preskaŭ farite. Kelkaj aplikaĵoj ne instaliĝis:",
   "done.all_failed": "Bedaŭrinde la aplikaĵoj ne instaliĝis nun:",
   "done.retry_hint": "Vi povos reprovi poste, malfermante „Sloth Bonvenon” el la startmenuo.",
+  "done.taskbar": "Kio estu sur la taskobreto?",
   "done.extras": "Ankoraŭ unu-du aferoj, se vi volas:",
   "done.steam": "Ensaluti al Steam",
   "done.accounts": "Retaj kontoj (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Amuziĝu!",
   "done.restart": "Restartigi",
   "done.restart_hint": "Restartigu la komputilon, por ke ĉiuj novaj aplikaĵoj ŝargiĝu ĝuste.",
-
   "desktop.generic": "Aplikaĵoj kaj aspekto",
   "desktop.comment": "Instalu retumilon, oficejan programaron, aŭdvidan ludilon kaj pli, elektu kolorskemon",
   "desktop.keywords": "bonvenon;aplikaĵoj;retumilo;oficejo;etoso",

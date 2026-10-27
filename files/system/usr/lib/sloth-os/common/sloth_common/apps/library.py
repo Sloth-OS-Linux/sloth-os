@@ -622,24 +622,51 @@ def _windows_exe(proc):
     return name if name.endswith(".exe") and name not in INFRA else None
 
 
-def running_exes(app):
-    """The names of the programs running in the program's Windows environment (without Wine's own processes)."""
-    marker = b"WINEPREFIX=" + str(app.prefix).encode() + b"\0"
-    out = set()
+def _in_prefix(environ, prefix):
+    """Whether a process's environment (/proc/<pid>/environ) belongs to the Windows environment (prefix: real path).
+
+    umu puts a "pfx" link into the environment that points to itself, and Proton gives Wine "<prefix>/pfx/": only
+    umu's own processes had the plain path, so the Windows programs themselves were never seen running (IrfanView,
+    2026-10-27). The path is compared resolved, not as text (/home is a link to /var/home on Fedora Atomic)."""
+    for var in environ.split(b"\0"):
+        if var.startswith(b"WINEPREFIX="):
+            value = os.fsdecode(var[len(b"WINEPREFIX="):]).rstrip("/")
+            if value.endswith("/pfx"):
+                value = value[:-len("/pfx")]
+            return value == prefix or os.path.realpath(value) == prefix
+    return False
+
+
+def _prefix_procs(app):
+    """The processes running with the program's Windows environment (WINEPREFIX), Wine's own ones too."""
+    prefix = os.path.realpath(app.prefix)
     proc_root = Path("/proc")
     if not proc_root.is_dir():
-        return out
+        return
     for proc in proc_root.iterdir():
         if not proc.name.isdigit() or int(proc.name) == os.getpid():
             continue
         try:
-            if marker in (proc / "environ").read_bytes():
-                name = _windows_exe(proc)
-                if name and name not in INFRA:
-                    out.add(name)
+            if _in_prefix((proc / "environ").read_bytes(), prefix):
+                yield proc
         except OSError:
             continue
+
+
+def running_exes(app):
+    """The names of the programs running in the program's Windows environment (without Wine's own processes)."""
+    out = set()
+    for proc in _prefix_procs(app):
+        name = _windows_exe(proc)
+        if name and name not in INFRA:
+            out.add(name)
     return out
+
+
+def prefix_alive(app):
+    """Whether anything still runs in the environment, Wine's own processes (wineserver) included. Right after the
+    launcher exits the program may still be starting or handing over, so "nothing runs" is only certain then."""
+    return next(_prefix_procs(app), None) is not None
 
 
 def prefix_busy(app):

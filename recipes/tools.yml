@@ -8,7 +8,7 @@ modules:
         - python3-pyside6   # Qt/QML from Python
         - python3-gobject   # D-Bus (rpm-ostree, Flatpak) through GLib
         - fuse-libs         # FUSE 2: for running AppImages (Linux packages, sloth_common/apps/packages.py)
-        - fastfetch         # system information with Sloth OS's custom silver ASCII logo
+        - fastfetch         # system information with the Sloth OS logo drawn in characters (/etc/fastfetch)
         # Sign-in methods (Sloth Center → Account and security)
         - authselect        # turning sign-in methods on and off (PAM)
         - fprintd-pam       # fingerprint
@@ -43,6 +43,8 @@ modules:
         - sloth-update-notify.service
         # the Windows programs' taskbar balloons next to the taskbar (not in the top left corner of the screen)
         - sloth-wine-balloons.service
+        # disc images (.iso) opened with a double-click are ejected at sign-out
+        - sloth-disc-images.service
 
   # Slimming: only what is needed to work or to troubleshoot stays (keep it at the end of the modules)
   - type: script

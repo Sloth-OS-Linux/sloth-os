@@ -1,18 +1,14 @@
 {
   "_language": "Taqbaylit",
-
   "app.title": "Ansuf n Sloth",
   "window.title": "Ansuf ɣer Sloth OS",
-
   "welcome.heading": "Ansuf ɣer Sloth OS!",
   "welcome.text": "Kra n yesteqsiyen arurad, syin aselkim-ik ad yehyi. Tzemreḍ ad tbeddleḍ kullec ticki.",
   "welcome.language": "Tutlayt",
   "welcome.start": "Yya ad nebdu",
-
   "look.colors": "Anwi initen i k-iɛeǧben?",
   "look.colors_hint": "Sit ɣef yiwen, ad twaliḍ imir-nni amek yettban. Tzemreḍ ad t-tbeddleḍ ticki deg yiɣewwaren n unagraw.",
   "look.taskbar": "Amek ara yili ufeggag n twuriwin?",
-
   "scheme.SlothSilverDark": "Lfeṭṭa (aberkan)",
   "scheme.SlothSilverLight": "Lfeṭṭa (afaw)",
   "scheme.SlothWhite": "Amellal am wedfel",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Anili n usigna",
   "scheme.SlothNight": "Anili n yiḍ",
   "scheme.SlothSage": "Ameẓẓir",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Umuɣ n usenker d tignitin ɣer zelmeḍ",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Umuɣ n usenker d tignitin di tlemmast",
   "layout.mac.name": "Am macOS",
   "layout.mac.description": "Afeggag d asawen, dock yettɛummen d akessar",
+  "layout.ubuntu.name": "Am Ubuntu",
+  "layout.ubuntu.description": "Afeggag n ufella, dock ɣer zelmeḍ",
   "security.heading": "Melmi ara k-d-isuter uselkim-ik awal uffir?",
   "security.text": "Kra n yiɣewwaren (am usebded n wahilen) ttuteren awal-ik uffir. Akka yiwen ur yezmir ad ibeddel aselkim-ik war ma teẓriḍ.",
   "security.all": "Deg yal abeddel (d aɣelsan akk)",
@@ -39,8 +36,7 @@
   "sharing.what": "Ala wa i yettwaznen: aɣewwar (amedya «askar udlif aqbur»), amfaras n tkarḍa-k tudlift, d udsil n wahil ur nezmir ad d-nerr isem-is. Ulac ayen nniḍen ara yeffɣen seg uselkim-ik: mačči isem-ik, mačči ifuyla-k, mačči isem n wahil, mačči melmi d acḥal i t-tesqedceḍ.",
   "sharing.yes": "Ih, bḍu s war isem",
   "sharing.no": "Ala, tanemmirt",
-  "sharing.later": "Tzemreḍ ad tbeddleḍ aya melmi i tebɣiḍ ar zdat deg Ammas n Sloth. Iɣewwaren i yeddan deg yiselkimen-nniḍen ad ten-tawiḍ ula d acu i tferneḍ.",
-
+  "sharing.later": "Tzemreḍ ad t-tbeddleḍ ticki melmi i k-yehwa deg Sloth Center. Iɣewwaren yeddan deg yiselkimen nniḍen ad ten-tawiḍ ɣas akken.",
   "windows.heading": "Ad d-nawi ifuyla-k seg Windows?",
   "windows.text": "Aselkim-a yesɛa daɣen Windows. Nezmer ad d-nnɣel ifuyla-k da; Windows ur yettbeddil ara, nɣer kan seg-s.",
   "windows.scanning": "Asenqed n umeskar n Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Ulac ifuyla n Windows ara d-nawi deg uselkim-a.",
   "windows.failed": "Ur yezmir ara ad yeldi umeskar n Windows. Sekker Windows syin sens-it akk (Sens, mačči Ales asekker), sakin ɛreḍ tikkelt-nniḍen seg Sloth Center (Ideɣraren).",
   "windows.bookmarks_file": "Ticraḍ n Windows.html",
-
   "nav.back": "Ɣer deffir",
   "nav.next": "Ɣer zdat",
   "nav.skip": "Zgel",
   "nav.finish": "Fak",
   "nav.install": "Sebded",
-
   "step.counter": "Aḥric {n} seg {total}",
   "step.selected_one": "1 usnas yettwafren",
   "step.selected_many": "{count} yisnasen ttwafernen",
-
   "category.multiple": "Tzemreḍ ad tferneḍ aṭas, neɣ ula yiwen.",
   "category.browser.name": "Iminig web",
   "category.browser.hint": "S yis ara tiniggeḍ deg internet. Mebla iminig, ur tettizmireḍ ara ad teldiḍ ismal web.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Tiḥuna d yisekkaren n wuraren. Uraren d yiseɣzanen n Windows ddun ula mebla nsen.",
   "category.creative.name": "Asnulfu",
   "category.creative.hint": "Aseẓreg n tewlafin, asuneɣ, aseẓreg n tvidyut, asekles.",
-
   "app.org.mozilla.firefox": "Arurad, yettḥazaz tabaḍnit, d aɣbalu yeldin",
   "app.com.google.Chrome": "Iminig n Google, yemtawan d umiḍan-ik Google",
   "app.com.brave.Browser": "S usewḥel n udellel yettwasidfen",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Imsebdad n yihilen n Windows ttwasidren ({names}). Tura ad ldin yiwen yiwen: fakk yal asebded am deg Windows. Allus n usekker ad yili deg taggara.",
   "done.windows_continue": "Kemmel ɣer usebded n yihilen n Windows",
   "done.windows_finished": "Kullec yewjed, ula d ihilen n Windows! Deffir n wallus n usekker, kullec ad d-yettwasali akken iwata.",
-
   "offline.text": "Ulac tuqqna ɣer internet. Qqen ɣer uẓeṭṭa akken ad tesbeddeḍ isnasen.",
   "offline.settings": "Iɣewwaren n uẓeṭṭa",
   "offline.retry": "Ɛreḍ tikkelt nniḍen",
-
   "nobrowser.title": "Ur tferneḍ ara iminig",
   "nobrowser.text": "Mebla iminig, ur tettizmireḍ ara ad teldiḍ ismal web. Tetḥeqqeḍ?",
   "nobrowser.choose": "Ad fereɣ yiwen",
   "nobrowser.ok": "Ihi akka",
-
   "install.preparing": "Aheyyi n usebded…",
   "install.retrying": "Tuqqna tegzem, aɛraḍ tikkelt nniḍen…",
   "install.installing": "Asebded n {name}…",
   "install.note": "Ɣef leḥsab n tuqqna, aya yezmer ad yeṭṭef kra n tesdatin.",
-
   "error.network": "Ulac tuqqna ɣer internet, neɣ aqeddac ur yettwaṭṭaf ara.",
   "error.disk_full": "Ulac tallunt tilellit yekfan deg uḍebsi.",
   "error.not_authorized": "Ur d-nwi ara tasiregt n usebded.",
   "error.checksum": "Afaylu yettwasdren yexsar, ihi ur yebdid ara.",
   "error.generic": "Asebded ur yeddi ara.",
-
   "done.nothing_selected": "Ifuk! Tzemreḍ ad tesbeddeḍ isnasen ticki deg Discover.",
   "done.all_ok": "Kullec yehyi! Isnasen-ik ttraǧun-k deg umuɣ n usenker.",
   "done.some_failed": "Qrib ifuk. Kra n yisnasen ur ttwasbedden ara:",
   "done.all_failed": "Nesḥassef, isnasen ur ttwasbedden ara tura:",
   "done.retry_hint": "Tzemreḍ ad tɛerḍeḍ tikkelt nniḍen ticki s twaledyawt n «Ansuf n Sloth» seg umuɣ n usenker.",
+  "done.taskbar": "D acu ara yilin deg ufeggag n twuriwin?",
   "done.extras": "Yiwet neɣ snat n tɣawsiwin nniḍen, ma tebɣiḍ:",
   "done.steam": "Kcem ɣer Steam",
   "done.accounts": "Imiḍanen srid (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Zhu!",
   "done.restart": "Ales asekker",
   "done.restart_hint": "Ales asekker n uselkim akken ad d-alint akk teɣzinin timaynutin akken iwata.",
-
   "desktop.generic": "Isnasen d urwas",
   "desktop.comment": "Sebded iminig, isnasen n tnarit, imeɣri n umidya d wiyaḍ, fren asentel n yiniten",
   "desktop.keywords": "ansuf;isnasen;iminig;tanarit;asentel",

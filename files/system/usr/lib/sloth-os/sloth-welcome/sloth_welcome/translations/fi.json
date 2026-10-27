@@ -1,18 +1,14 @@
 {
   "_language": "Suomi",
-
   "app.title": "Sloth Tervetuloa",
   "window.title": "Tervetuloa Sloth OS:ään",
-
   "welcome.heading": "Tervetuloa Sloth OS:ään!",
   "welcome.text": "Muutama nopea kysymys, ja tietokoneesi on valmis. Voit muuttaa kaiken myöhemmin.",
   "welcome.language": "Kieli",
   "welcome.start": "Aloitetaan",
-
   "look.colors": "Mistä väreistä pidät?",
   "look.colors_hint": "Napsauta yhtä, niin näet heti, miltä se näyttää. Voit vaihtaa sen myöhemmin Järjestelmäasetuksissa.",
   "look.taskbar": "Millainen tehtäväpalkin pitäisi olla?",
-
   "scheme.SlothSilverDark": "Hopea (tumma)",
   "scheme.SlothSilverLight": "Hopea (vaalea)",
   "scheme.SlothWhite": "Lumivalkoinen",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Usvansininen",
   "scheme.SlothNight": "Yönsininen",
   "scheme.SlothSage": "Salvia",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Käynnistä-valikko ja kuvakkeet vasemmalla",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Käynnistä-valikko ja kuvakkeet keskellä",
   "layout.mac.name": "macOS-tyylinen",
   "layout.mac.description": "Palkki ylhäällä, kelluva telakka alhaalla",
+  "layout.ubuntu.name": "Ubuntun kaltainen",
+  "layout.ubuntu.description": "Yläpalkki, telakka vasemmalla",
   "security.heading": "Milloin tietokoneen pitää kysyä salasanaa?",
   "security.text": "Jotkin asetukset (kuten ohjelmien asentaminen) kysyvät salasanaasi. Näin kukaan ei voi muuttaa tietokonettasi tietämättäsi.",
   "security.all": "Jokaisen muutoksen kohdalla (turvallisin)",
@@ -39,8 +36,7 @@
   "sharing.what": "Vain tämä lähetetään: asetus (esimerkiksi ”vanhempi grafiikkatila”), näytönohjaimesi valmistaja ja ohjelman sormenjälki, josta sen nimeä ei voi selvittää. Mikään muu ei poistu tietokoneeltasi: ei nimesi, tiedostosi, ohjelman nimi eikä se, milloin ja kuinka paljon käytät sitä.",
   "sharing.yes": "Kyllä, jaa nimettömästi",
   "sharing.no": "Ei kiitos",
-  "sharing.later": "Voit muuttaa tätä myöhemmin milloin tahansa Sloth-keskuksessa. Muissa tietokoneissa toimineet asetukset saat joka tapauksessa.",
-
+  "sharing.later": "Voit muuttaa tätä myöhemmin milloin tahansa Sloth Centerissä. Saat muilla tietokoneilla toimineet asetukset joka tapauksessa.",
   "windows.heading": "Siirretäänkö tiedostosi Windowsista?",
   "windows.text": "Tietokoneella on myös Windows. Voimme kopioida tiedostosi tänne; Windowsiin ei kosketa, siitä vain luetaan.",
   "windows.scanning": "Windows-asemaa käydään läpi…",
@@ -63,17 +59,14 @@
   "windows.none": "Tietokoneelta ei löytynyt siirrettäviä Windows-tiedostoja.",
   "windows.failed": "Windows-asemaa ei voitu avata. Käynnistä Windows ja sammuta se kokonaan (Sammuta, ei Käynnistä uudelleen), ja yritä sitten uudelleen Sloth Centeristä (Levyt).",
   "windows.bookmarks_file": "Windows-kirjanmerkit.html",
-
   "nav.back": "Takaisin",
   "nav.next": "Seuraava",
   "nav.skip": "Ohita",
   "nav.finish": "Valmis",
   "nav.install": "Asenna",
-
   "step.counter": "Vaihe {n}/{total}",
   "step.selected_one": "1 sovellus valittu",
   "step.selected_many": "{count} sovellusta valittu",
-
   "category.multiple": "Voit valita useita tai ei yhtään.",
   "category.browser.name": "Verkkoselain",
   "category.browser.hint": "Sillä käytät internetiä. Ilman selainta et voi avata verkkosivuja.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Pelikaupat ja käynnistimet. Windows-pelit ja -ohjelmat toimivat myös ilman niitä.",
   "category.creative.name": "Luovuus",
   "category.creative.hint": "Kuvankäsittely, piirtäminen, videoeditointi, tallennus.",
-
   "app.org.mozilla.firefox": "Nopea, yksityisyyttä kunnioittava, avoin lähdekoodi",
   "app.com.google.Chrome": "Googlen selain, synkronoituu Google-tiliisi",
   "app.com.brave.Browser": "Sisäänrakennetulla mainosten estolla",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Windows-ohjelmien asennusohjelmat on ladattu ({names}). Ne avautuvat nyt yksi kerrallaan: käy jokainen asennus läpi kuten Windowsissa. Uudelleenkäynnistys tulee lopuksi.",
   "done.windows_continue": "Jatka Windows-ohjelmien asennukseen",
   "done.windows_finished": "Kaikki valmista, myös Windows-ohjelmat! Uudelleenkäynnistyksen jälkeen kaikki latautuu kunnolla.",
-
   "offline.text": "Ei internetyhteyttä. Yhdistä verkkoon asentaaksesi sovelluksia.",
   "offline.settings": "Verkkoasetukset",
   "offline.retry": "Yritä uudelleen",
-
   "nobrowser.title": "Et valinnut selainta",
   "nobrowser.text": "Ilman selainta et voi avata verkkosivuja. Oletko varma?",
   "nobrowser.choose": "Valitsen jonkin",
   "nobrowser.ok": "Tämä käy",
-
   "install.preparing": "Valmistellaan asennusta…",
   "install.retrying": "Yhteys katkesi, yritetään uudelleen…",
   "install.installing": "Asennetaan: {name}…",
   "install.note": "Yhteydestä riippuen tämä voi kestää muutaman minuutin.",
-
   "error.network": "Ei internetyhteyttä, tai palvelimeen ei saada yhteyttä.",
   "error.disk_full": "Levyllä ei ole tarpeeksi vapaata tilaa.",
   "error.not_authorized": "Emme saaneet lupaa asentaa.",
   "error.checksum": "Ladattu tiedosto oli vioittunut, joten sitä ei asennettu.",
   "error.generic": "Asennus epäonnistui.",
-
   "done.nothing_selected": "Valmista! Voit asentaa sovelluksia myöhemmin Discoverissa.",
   "done.all_ok": "Kaikki valmista! Sovelluksesi odottavat Käynnistä-valikossa.",
   "done.some_failed": "Melkein valmista. Joitakin sovelluksia ei voitu asentaa:",
   "done.all_failed": "Valitettavasti sovelluksia ei voitu nyt asentaa:",
   "done.retry_hint": "Voit yrittää myöhemmin uudelleen avaamalla ”Sloth Tervetuloa” Käynnistä-valikosta.",
+  "done.taskbar": "Mitä tehtäväpalkkiin tulee?",
   "done.extras": "Vielä pari juttua, jos haluat:",
   "done.steam": "Kirjaudu Steamiin",
   "done.accounts": "Verkkotilit (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Pidä hauskaa!",
   "done.restart": "Käynnistä uudelleen",
   "done.restart_hint": "Käynnistä tietokone uudelleen, jotta kaikki uudet sovellukset latautuvat oikein.",
-
   "desktop.generic": "Sovellukset ja ulkoasu",
   "desktop.comment": "Asenna selain, toimisto-ohjelmat, mediasoitin ja muuta, valitse väriteema",
   "desktop.keywords": "tervetuloa;sovellukset;selain;toimisto;teema",

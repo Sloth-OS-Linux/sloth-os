@@ -1,18 +1,14 @@
 {
   "_language": "Norsk bokmål",
-
   "app.title": "Sloth Velkommen",
   "window.title": "Velkommen til Sloth OS",
-
   "welcome.heading": "Velkommen til Sloth OS!",
   "welcome.text": "Noen raske spørsmål, så er datamaskinen klar. Du kan endre alt senere.",
   "welcome.language": "Språk",
   "welcome.start": "Sett i gang",
-
   "look.colors": "Hvilke farger liker du?",
   "look.colors_hint": "Klikk på en, så ser du med en gang hvordan det blir. Du kan endre det senere i Systeminnstillinger.",
   "look.taskbar": "Hvordan skal oppgavelinjen se ut?",
-
   "scheme.SlothSilverDark": "Sølv (mørk)",
   "scheme.SlothSilverLight": "Sølv (lys)",
   "scheme.SlothWhite": "Snøhvit",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Tåkeblå",
   "scheme.SlothNight": "Nattblå",
   "scheme.SlothSage": "Salvie",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Startmeny og ikoner til venstre",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Startmeny og ikoner i midten",
   "layout.mac.name": "Som macOS",
   "layout.mac.description": "Linje øverst, flytende dokk nederst",
+  "layout.ubuntu.name": "Ubuntu-lignende",
+  "layout.ubuntu.description": "Topplinje, dokk til venstre",
   "security.heading": "Når skal datamaskinen spørre om passord?",
   "security.text": "Noen innstillinger (for eksempel å installere programmer) ber om passordet ditt. Slik kan ingen endre datamaskinen uten at du vet det.",
   "security.all": "Ved hver endring (sikrest)",
@@ -39,8 +36,7 @@
   "sharing.what": "Bare dette sendes: innstillingen (for eksempel «eldre grafikkmodus»), produsenten av skjermkortet ditt og et fingeravtrykk av programmet som navnet ikke kan gjenskapes fra. Ingenting annet forlater datamaskinen din: verken navnet ditt, filene dine, navnet på programmet eller når og hvor mye du bruker det.",
   "sharing.yes": "Ja, del anonymt",
   "sharing.no": "Nei takk",
-  "sharing.later": "Du kan når som helst endre dette senere i Sloth-senteret. Innstillingene som har fungert på andre maskiner, får du uansett.",
-
+  "sharing.later": "Du kan endre dette når som helst senere i Sloth Center. Innstillingene som har virket på andre datamaskiner, får du uansett.",
   "windows.heading": "Flytte filene dine fra Windows?",
   "windows.text": "Datamaskinen har også Windows. Vi kan kopiere filene dine hit; Windows røres ikke, vi leser bare fra det.",
   "windows.scanning": "Går gjennom Windows-stasjonen…",
@@ -63,17 +59,14 @@
   "windows.none": "Fant ingen Windows-filer å flytte på denne datamaskinen.",
   "windows.failed": "Windows-stasjonen kunne ikke åpnes. Start Windows og slå det helt av (Avslutt, ikke Start på nytt), og prøv igjen fra Sloth Center (Disker).",
   "windows.bookmarks_file": "Windows-bokmerker.html",
-
   "nav.back": "Tilbake",
   "nav.next": "Neste",
   "nav.skip": "Hopp over",
   "nav.finish": "Fullfør",
   "nav.install": "Installer",
-
   "step.counter": "Trinn {n} av {total}",
   "step.selected_one": "1 app valgt",
   "step.selected_many": "{count} apper valgt",
-
   "category.multiple": "Du kan velge flere, eller ingen.",
   "category.browser.name": "Nettleser",
   "category.browser.hint": "Med den går du på nettet. Uten nettleser kan du ikke åpne nettsider.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Spillbutikker og startprogrammer. Windows-spill og -programmer kjører også uten dem.",
   "category.creative.name": "Kreativt",
   "category.creative.hint": "Bilderedigering, tegning, videoredigering, opptak.",
-
   "app.org.mozilla.firefox": "Rask, personvernbevisst, åpen kildekode",
   "app.com.google.Chrome": "Googles nettleser, synkroniseres med Google-kontoen din",
   "app.com.brave.Browser": "Med innebygd reklameblokkering",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Installasjonsprogrammene for Windows-programmene er lastet ned ({names}). Nå åpnes de én etter én: gå gjennom hver installasjon, akkurat som i Windows. Omstarten kommer til slutt.",
   "done.windows_continue": "Fortsett til installering av Windows-programmer",
   "done.windows_finished": "Alt er klart, også Windows-programmene! Etter en omstart lastes alt riktig.",
-
   "offline.text": "Ingen internettilkobling. Koble til et nettverk for å installere apper.",
   "offline.settings": "Nettverksinnstillinger",
   "offline.retry": "Prøv igjen",
-
   "nobrowser.title": "Du har ikke valgt nettleser",
   "nobrowser.text": "Uten nettleser kan du ikke åpne nettsider. Er du sikker?",
   "nobrowser.choose": "Jeg velger en",
   "nobrowser.ok": "Det går fint",
-
   "install.preparing": "Gjør klar til installasjon…",
   "install.retrying": "Tilkoblingen ble brutt, prøver igjen…",
   "install.installing": "Installerer {name}…",
   "install.note": "Avhengig av tilkoblingen kan dette ta noen minutter.",
-
   "error.network": "Ingen internettilkobling, eller serveren kan ikke nås.",
   "error.disk_full": "Det er ikke nok ledig diskplass.",
   "error.not_authorized": "Vi fikk ikke tillatelse til å installere.",
   "error.checksum": "Den nedlastede filen var skadet og ble derfor ikke installert.",
   "error.generic": "Installasjonen mislyktes.",
-
   "done.nothing_selected": "Ferdig! Du kan installere apper senere i Discover.",
   "done.all_ok": "Alt er klart! Appene dine venter i startmenyen.",
   "done.some_failed": "Nesten ferdig. Noen apper kunne ikke installeres:",
   "done.all_failed": "Dessverre kunne ikke appene installeres akkurat nå:",
   "done.retry_hint": "Du kan prøve igjen senere ved å åpne «Sloth Velkommen» fra startmenyen.",
+  "done.taskbar": "Hva skal på oppgavelinjen?",
   "done.extras": "Et par ting til, hvis du vil:",
   "done.steam": "Logg inn på Steam",
   "done.accounts": "Nettkontoer (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Kos deg!",
   "done.restart": "Start på nytt",
   "done.restart_hint": "Start datamaskinen på nytt så alle nye apper lastes inn riktig.",
-
   "desktop.generic": "Apper og utseende",
   "desktop.comment": "Installer en nettleser, kontorpakke, mediespiller og mer, velg et fargeoppsett",
   "desktop.keywords": "velkommen;apper;nettleser;kontor;tema",

@@ -1,18 +1,14 @@
 {
   "_language": "Polski",
-
   "app.title": "Powitanie Sloth",
   "window.title": "Witaj w Sloth OS",
-
   "welcome.heading": "Witaj w Sloth OS!",
   "welcome.text": "Kilka szybkich pytań i komputer będzie gotowy. Wszystko możesz później zmienić.",
   "welcome.language": "Język",
   "welcome.start": "Zaczynamy",
-
   "look.colors": "Jakie kolory lubisz?",
   "look.colors_hint": "Kliknij jeden, a od razu zobaczysz efekt. Możesz go później zmienić w Ustawieniach systemowych.",
   "look.taskbar": "Jak ma wyglądać pasek zadań?",
-
   "scheme.SlothSilverDark": "Srebrny (ciemny)",
   "scheme.SlothSilverLight": "Srebrny (jasny)",
   "scheme.SlothWhite": "Śnieżnobiały",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Mglisty błękit",
   "scheme.SlothNight": "Nocny błękit",
   "scheme.SlothSage": "Szałwia",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menu Start i ikony po lewej",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menu Start i ikony na środku",
   "layout.mac.name": "W stylu macOS",
   "layout.mac.description": "Pasek u góry, pływający dok na dole",
+  "layout.ubuntu.name": "Jak Ubuntu",
+  "layout.ubuntu.description": "Górny pasek, dok po lewej",
   "security.heading": "Kiedy komputer ma pytać o hasło?",
   "security.text": "Niektóre ustawienia (np. instalowanie programów) wymagają hasła. Dzięki temu nikt nie zmieni komputera bez Twojej wiedzy.",
   "security.all": "Przy każdej zmianie (najbezpieczniej)",
@@ -39,8 +36,7 @@
   "sharing.what": "Wysyłane jest tylko to: ustawienie (na przykład „starszy tryb grafiki”), producent twojej karty graficznej i odcisk programu, z którego nie da się odtworzyć jego nazwy. Nic innego nie opuszcza twojego komputera: ani twoje imię, ani twoje pliki, ani nazwa programu, ani to, kiedy i ile z niego korzystasz.",
   "sharing.yes": "Tak, udostępniaj anonimowo",
   "sharing.no": "Nie, dziękuję",
-  "sharing.later": "Możesz to zmienić w dowolnym momencie później w Centrum Sloth. Ustawienia, które zadziałały na innych komputerach, otrzymasz w każdym przypadku.",
-
+  "sharing.later": "Możesz to zmienić później w dowolnej chwili w Sloth Center. Ustawienia, które zadziałały na innych komputerach, dostajesz w każdym przypadku.",
   "windows.heading": "Przenieść pliki z Windows?",
   "windows.text": "Na tym komputerze jest też Windows. Możemy skopiować tu Twoje pliki; Windows pozostaje nietknięty, tylko z niego czytamy.",
   "windows.scanning": "Przeglądanie dysku Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Na tym komputerze nie znaleziono plików Windows do przeniesienia.",
   "windows.failed": "Nie udało się otworzyć dysku Windows. Uruchom Windows i wyłącz go całkowicie (Zamknij, nie Uruchom ponownie), a potem spróbuj ponownie w Sloth Center (Dyski).",
   "windows.bookmarks_file": "Zakładki Windows.html",
-
   "nav.back": "Wstecz",
   "nav.next": "Dalej",
   "nav.skip": "Pomiń",
   "nav.finish": "Zakończ",
   "nav.install": "Zainstaluj",
-
   "step.counter": "Krok {n} z {total}",
   "step.selected_one": "wybrano 1 aplikację",
   "step.selected_many": "wybrane aplikacje: {count}",
-
   "category.multiple": "Możesz wybrać kilka albo żadnej.",
   "category.browser.name": "Przeglądarka",
   "category.browser.hint": "Dzięki niej korzystasz z internetu. Bez przeglądarki nie otworzysz stron WWW.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Sklepy i launchery gier. Gry i programy z Windowsa działają też bez nich.",
   "category.creative.name": "Tworzenie",
   "category.creative.hint": "Edycja zdjęć, rysowanie, montaż wideo, nagrywanie.",
-
   "app.org.mozilla.firefox": "Szybka, dba o prywatność, otwartoźródłowa",
   "app.com.google.Chrome": "Przeglądarka Google, synchronizuje się z kontem Google",
   "app.com.brave.Browser": "Z wbudowanym blokowaniem reklam",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Instalatory programów dla Windows zostały pobrane ({names}). Teraz otworzą się po kolei: przejdź przez każdą instalację, jak w Windows. Ponowne uruchomienie będzie na końcu.",
   "done.windows_continue": "Przejdź do instalacji programów dla Windows",
   "done.windows_finished": "Wszystko gotowe, także programy dla Windows! Po ponownym uruchomieniu wszystko załaduje się poprawnie.",
-
   "offline.text": "Brak połączenia z internetem. Połącz się z siecią, aby instalować aplikacje.",
   "offline.settings": "Ustawienia sieci",
   "offline.retry": "Spróbuj ponownie",
-
   "nobrowser.title": "Nie wybrano przeglądarki",
   "nobrowser.text": "Bez przeglądarki nie otworzysz stron WWW. Na pewno?",
   "nobrowser.choose": "Wybiorę jakąś",
   "nobrowser.ok": "Tak jest dobrze",
-
   "install.preparing": "Przygotowywanie instalacji…",
   "install.retrying": "Połączenie zostało przerwane, ponowna próba…",
   "install.installing": "Instalowanie: {name}…",
   "install.note": "W zależności od połączenia może to potrwać kilka minut.",
-
   "error.network": "Brak połączenia z internetem lub serwer jest niedostępny.",
   "error.disk_full": "Za mało wolnego miejsca na dysku.",
   "error.not_authorized": "Nie otrzymaliśmy zgody na instalację.",
   "error.checksum": "Pobrany plik był uszkodzony, więc nie został zainstalowany.",
   "error.generic": "Instalacja nie powiodła się.",
-
   "done.nothing_selected": "Gotowe! Aplikacje możesz zainstalować później w Discover.",
   "done.all_ok": "Wszystko gotowe! Twoje aplikacje czekają w menu Start.",
   "done.some_failed": "Prawie gotowe. Niektórych aplikacji nie udało się zainstalować:",
   "done.all_failed": "Niestety nie udało się teraz zainstalować aplikacji:",
   "done.retry_hint": "Możesz spróbować ponownie później, otwierając „Powitanie Sloth” z menu Start.",
+  "done.taskbar": "Co umieścić na pasku zadań?",
   "done.extras": "Jeszcze jedna czy dwie rzeczy, jeśli chcesz:",
   "done.steam": "Zaloguj się do Steam",
   "done.accounts": "Konta online (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Miłej zabawy!",
   "done.restart": "Uruchom ponownie",
   "done.restart_hint": "Uruchom komputer ponownie, aby wszystkie nowe aplikacje załadowały się poprawnie.",
-
   "desktop.generic": "Aplikacje i wygląd",
   "desktop.comment": "Instalacja przeglądarki, pakietu biurowego, odtwarzacza multimediów i innych aplikacji, wybór schematu kolorów",
   "desktop.keywords": "witaj;aplikacje;przeglądarka;biuro;motyw",

@@ -1,18 +1,14 @@
 {
   "_language": "Slovenčina",
-
   "app.title": "Privítanie Sloth",
   "window.title": "Vitajte v Sloth OS",
-
   "welcome.heading": "Vitajte v Sloth OS!",
   "welcome.text": "Pár rýchlych otázok a počítač je pripravený. Všetko môžete neskôr zmeniť.",
   "welcome.language": "Jazyk",
   "welcome.start": "Začnime",
-
   "look.colors": "Aké farby sa vám páčia?",
   "look.colors_hint": "Kliknite na jednu a hneď uvidíte, ako vyzerá. Neskôr ju môžete zmeniť v Nastaveniach systému.",
   "look.taskbar": "Ako má vyzerať panel úloh?",
-
   "scheme.SlothSilverDark": "Strieborná (tmavá)",
   "scheme.SlothSilverLight": "Strieborná (svetlá)",
   "scheme.SlothWhite": "Snehovo biela",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Hmlisto modrá",
   "scheme.SlothNight": "Nočná modrá",
   "scheme.SlothSage": "Šalviová",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Ponuka Štart a ikony vľavo",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Ponuka Štart a ikony v strede",
   "layout.mac.name": "Ako macOS",
   "layout.mac.description": "Horná lišta, plávajúci dok dole",
+  "layout.ubuntu.name": "Ako Ubuntu",
+  "layout.ubuntu.description": "Horná lišta, dok vľavo",
   "security.heading": "Kedy sa má počítač pýtať heslo?",
   "security.text": "Niektoré nastavenia (napríklad inštalácia programov) vyžadujú vaše heslo. Nikto tak nemôže zmeniť počítač bez vášho vedomia.",
   "security.all": "Pri každej zmene (najbezpečnejšie)",
@@ -39,8 +36,7 @@
   "sharing.what": "Odosiela sa len toto: nastavenie (napríklad „starší grafický režim“), výrobca vašej grafickej karty a odtlačok programu, z ktorého nemožno zistiť jeho názov. Nič iné váš počítač neopúšťa: ani vaše meno, ani vaše súbory, ani názov programu, ani kedy a koľko ho používate.",
   "sharing.yes": "Áno, zdieľať anonymne",
   "sharing.no": "Nie, ďakujem",
-  "sharing.later": "Neskôr to môžete kedykoľvek zmeniť v Centre Sloth. Nastavenia, ktoré fungovali na iných počítačoch, dostanete v každom prípade.",
-
+  "sharing.later": "Kedykoľvek neskôr to môžete zmeniť v Sloth Center. Nastavenia, ktoré fungovali na iných počítačoch, dostanete v každom prípade.",
   "windows.heading": "Preniesť súbory z Windows?",
   "windows.text": "Na tomto počítači je aj Windows. Vaše súbory môžeme skopírovať sem; Windows zostane nedotknutý, iba z neho čítame.",
   "windows.scanning": "Prehľadávanie disku Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Na tomto počítači sa nenašli žiadne súbory Windows na prenesenie.",
   "windows.failed": "Disk Windows sa nepodarilo otvoriť. Spustite Windows a úplne ho vypnite (Vypnúť, nie Reštartovať), potom to skúste znova zo Sloth Center (Disky).",
   "windows.bookmarks_file": "Záložky Windows.html",
-
   "nav.back": "Späť",
   "nav.next": "Ďalej",
   "nav.skip": "Preskočiť",
   "nav.finish": "Dokončiť",
   "nav.install": "Nainštalovať",
-
   "step.counter": "Krok {n} z {total}",
   "step.selected_one": "vybraná 1 aplikácia",
   "step.selected_many": "vybrané aplikácie: {count}",
-
   "category.multiple": "Môžete vybrať niekoľko, alebo žiadnu.",
   "category.browser.name": "Webový prehliadač",
   "category.browser.hint": "S ním chodíte na internet. Bez prehliadača neotvoríte žiadne webové stránky.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Obchody a spúšťače hier. Hry a programy pre Windows bežia aj bez nich.",
   "category.creative.name": "Tvorba",
   "category.creative.hint": "Úprava fotiek, kreslenie, strih videa, nahrávanie.",
-
   "app.org.mozilla.firefox": "Rýchly, dbá na súkromie, open source",
   "app.com.google.Chrome": "Prehliadač od Googlu, synchronizuje sa s účtom Google",
   "app.com.brave.Browser": "So zabudovaným blokovaním reklám",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Inštalátory programov pre Windows sú stiahnuté ({names}). Teraz sa budú otvárať jeden po druhom: prejdite každou inštaláciou ako vo Windows. Reštart príde na konci.",
   "done.windows_continue": "Pokračovať k inštalácii programov pre Windows",
   "done.windows_finished": "Všetko hotovo, aj programy pre Windows! Po reštarte sa všetko správne načíta.",
-
   "offline.text": "Nie ste pripojení k internetu. Na inštaláciu aplikácií sa pripojte k sieti.",
   "offline.settings": "Nastavenia siete",
   "offline.retry": "Skúsiť znova",
-
   "nobrowser.title": "Nevybrali ste prehliadač",
   "nobrowser.text": "Bez prehliadača neotvoríte webové stránky. Naozaj?",
   "nobrowser.choose": "Nejaký vyberiem",
   "nobrowser.ok": "Takto je to dobré",
-
   "install.preparing": "Príprava inštalácie…",
   "install.retrying": "Spojenie sa prerušilo, skúšam znova…",
   "install.installing": "Inštalácia: {name}…",
   "install.note": "V závislosti od pripojenia to môže trvať niekoľko minút.",
-
   "error.network": "Nie ste pripojení k internetu, alebo server nie je dostupný.",
   "error.disk_full": "Na disku nie je dosť voľného miesta.",
   "error.not_authorized": "Nedostali sme povolenie na inštaláciu.",
   "error.checksum": "Stiahnutý súbor bol poškodený, preto nebol nainštalovaný.",
   "error.generic": "Inštalácia zlyhala.",
-
   "done.nothing_selected": "Hotovo! Aplikácie môžete nainštalovať neskôr v Discoveri.",
   "done.all_ok": "Všetko hotové! Vaše aplikácie čakajú v ponuke Štart.",
   "done.some_failed": "Takmer hotovo. Niektoré aplikácie sa nepodarilo nainštalovať:",
   "done.all_failed": "Aplikácie sa, žiaľ, teraz nepodarilo nainštalovať:",
   "done.retry_hint": "Neskôr to môžete skúsiť znova otvorením „Privítanie Sloth“ v ponuke Štart.",
+  "done.taskbar": "Čo má byť na paneli úloh?",
   "done.extras": "Ešte pár vecí, ak chcete:",
   "done.steam": "Prihlásiť sa do Steamu",
   "done.accounts": "Online účty (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Príjemnú zábavu!",
   "done.restart": "Reštartovať",
   "done.restart_hint": "Reštartujte počítač, aby sa všetky nové aplikácie správne načítali.",
-
   "desktop.generic": "Aplikácie a vzhľad",
   "desktop.comment": "Inštalácia prehliadača, kancelárskeho balíka, prehrávača médií a ďalších aplikácií, výber farebnej schémy",
   "desktop.keywords": "vitajte;aplikácie;prehliadač;kancelária;téma",

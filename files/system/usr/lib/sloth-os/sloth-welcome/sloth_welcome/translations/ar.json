@@ -1,18 +1,14 @@
 {
   "_language": "العربية",
-
   "app.title": "ترحيب Sloth",
   "window.title": "مرحبًا بك في Sloth OS",
-
   "welcome.heading": "مرحبًا بك في Sloth OS!",
   "welcome.text": "بضعة أسئلة سريعة ويصبح حاسوبك جاهزًا. يمكنك تغيير كل شيء لاحقًا.",
   "welcome.language": "اللغة",
   "welcome.start": "لنبدأ",
-
   "look.colors": "ما الألوان التي تفضّلها؟",
   "look.colors_hint": "انقر على أحدها وسترى شكله فورًا. يمكنك تغييره لاحقًا من إعدادات النظام.",
   "look.taskbar": "كيف تريد شريط المهام؟",
-
   "scheme.SlothSilverDark": "فضي (داكن)",
   "scheme.SlothSilverLight": "فضي (فاتح)",
   "scheme.SlothWhite": "أبيض ثلجي",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "أزرق ضبابي",
   "scheme.SlothNight": "أزرق ليلي",
   "scheme.SlothSage": "مريمية",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "قائمة ابدأ والأيقونات على الجانب",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "قائمة ابدأ والأيقونات في المنتصف",
   "layout.mac.name": "مثل macOS",
   "layout.mac.description": "شريط في الأعلى ومرسى عائم في الأسفل",
+  "layout.ubuntu.name": "مثل أوبونتو",
+  "layout.ubuntu.description": "شريط علوي، ورصيف على اليسار",
   "security.heading": "متى يطلب جهازك كلمة المرور؟",
   "security.text": "بعض الإعدادات (مثل تثبيت البرامج) تطلب كلمة مرورك. بهذا لا يستطيع أحد تغيير جهازك دون علمك.",
   "security.all": "اطلب كلمة المرور لكل تغيير (الأكثر أمانًا)",
@@ -39,8 +36,7 @@
   "sharing.what": "يُرسل هذا فقط: الإعداد (مثل «وضع الرسوميات الأقدم»)، والشركة المصنعة لبطاقة الرسوميات، وبصمة للبرنامج لا يمكن استعادة اسمه منها. لا شيء آخر يغادر حاسوبك: لا اسمك ولا ملفاتك ولا اسم البرنامج ولا متى أو كم تستخدمه.",
   "sharing.yes": "نعم، شارك دون الكشف عن الهوية",
   "sharing.no": "لا، شكرًا",
-  "sharing.later": "يمكنك تغيير ذلك لاحقًا في أي وقت من مركز Sloth. ستحصل على الإعدادات التي نجحت على أجهزة أخرى في كل الأحوال.",
-
+  "sharing.later": "يمكنك تغيير ذلك لاحقًا في أي وقت من Sloth Center. وستحصل في الحالتين على الإعدادات التي نجحت على أجهزة أخرى.",
   "windows.heading": "هل ننقل ملفاتك من Windows؟",
   "windows.text": "على هذا الحاسوب نظام Windows أيضًا. يمكننا نسخ ملفاتك إلى هنا؛ لن نغيّر شيئًا في Windows، بل نقرأ منه فقط.",
   "windows.scanning": "جارٍ فحص قرص Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "لم نعثر على ملفات Windows لنقلها على هذا الحاسوب.",
   "windows.failed": "تعذّر فتح قرص Windows. شغّل Windows ثم أوقف تشغيله تمامًا (إيقاف التشغيل، لا إعادة التشغيل)، ثم أعد المحاولة من Sloth Center (الأقراص).",
   "windows.bookmarks_file": "إشارات Windows المرجعية.html",
-
   "nav.back": "رجوع",
   "nav.next": "التالي",
   "nav.skip": "تخطٍّ",
   "nav.finish": "إنهاء",
   "nav.install": "تثبيت",
-
   "step.counter": "الخطوة {n} من {total}",
   "step.selected_one": "تم اختيار تطبيق واحد",
   "step.selected_many": "التطبيقات المختارة: {count}",
-
   "category.multiple": "يمكنك اختيار أكثر من واحد، أو لا شيء.",
   "category.browser.name": "متصفح الويب",
   "category.browser.hint": "به تتصفح الإنترنت. بدون متصفح لا يمكنك فتح المواقع.",
@@ -87,7 +80,6 @@
   "category.games.hint": "متاجر الألعاب ومشغّلاتها. تعمل ألعاب وبرامج Windows بدونها أيضًا.",
   "category.creative.name": "الإبداع",
   "category.creative.hint": "تحرير الصور والرسم ومونتاج الفيديو والتسجيل.",
-
   "app.org.mozilla.firefox": "سريع ويحترم الخصوصية ومفتوح المصدر",
   "app.com.google.Chrome": "متصفح Google، يتزامن مع حسابك في Google",
   "app.com.brave.Browser": "مع مانع إعلانات مدمج",
@@ -150,32 +142,28 @@
   "done.windows_hint": "نُزّلت مثبّتات برامج Windows ‏({names}). ستُفتح الآن واحدًا تلو الآخر: أكمل كل تثبيت كما في Windows. إعادة التشغيل تأتي في النهاية.",
   "done.windows_continue": "المتابعة إلى تثبيت برامج Windows",
   "done.windows_finished": "اكتمل كل شيء، وبرامج Windows أيضًا! بعد إعادة التشغيل سيُحمَّل كل شيء كما يجب.",
-
   "offline.text": "لا يوجد اتصال بالإنترنت. اتصل بشبكة لتثبيت التطبيقات.",
   "offline.settings": "إعدادات الشبكة",
   "offline.retry": "إعادة المحاولة",
-
   "nobrowser.title": "لم تختر متصفحًا",
   "nobrowser.text": "بدون متصفح لا يمكنك فتح المواقع. هل أنت متأكد؟",
   "nobrowser.choose": "سأختار واحدًا",
   "nobrowser.ok": "لا بأس هكذا",
-
   "install.preparing": "جارٍ التحضير للتثبيت…",
   "install.retrying": "انقطع الاتصال، جارٍ إعادة المحاولة…",
   "install.installing": "جارٍ تثبيت {name}…",
   "install.note": "قد يستغرق ذلك بضع دقائق حسب سرعة الاتصال.",
-
   "error.network": "لا يوجد اتصال بالإنترنت، أو تعذّر الوصول إلى الخادم.",
   "error.disk_full": "لا توجد مساحة كافية على القرص.",
   "error.not_authorized": "لم نحصل على إذن بالتثبيت.",
   "error.checksum": "الملف الذي تم تنزيله تالف، لذلك لم يُثبَّت.",
   "error.generic": "فشل التثبيت.",
-
   "done.nothing_selected": "تم! يمكنك تثبيت التطبيقات لاحقًا من Discover.",
   "done.all_ok": "كل شيء جاهز! تطبيقاتك بانتظارك في قائمة ابدأ.",
   "done.some_failed": "اقتربنا من الانتهاء. تعذّر تثبيت بعض التطبيقات:",
   "done.all_failed": "عذرًا، تعذّر تثبيت التطبيقات الآن:",
   "done.retry_hint": "يمكنك المحاولة لاحقًا بفتح «ترحيب Sloth» من قائمة ابدأ.",
+  "done.taskbar": "ما الذي تريد وضعه على شريط المهام؟",
   "done.extras": "أمر أو اثنان آخران إن أردت:",
   "done.steam": "تسجيل الدخول إلى Steam",
   "done.accounts": "الحسابات على الإنترنت (Google وMicrosoft…)",
@@ -183,7 +171,6 @@
   "done.start": "استمتع!",
   "done.restart": "إعادة التشغيل",
   "done.restart_hint": "أعد تشغيل الجهاز لتعمل كل التطبيقات الجديدة بشكل صحيح.",
-
   "desktop.generic": "التطبيقات والمظهر",
   "desktop.comment": "تثبيت متصفح وحزمة مكتبية ومشغّل وسائط والمزيد، واختيار نظام ألوان",
   "desktop.keywords": "ترحيب;تطبيقات;متصفح;مكتب;سمة",

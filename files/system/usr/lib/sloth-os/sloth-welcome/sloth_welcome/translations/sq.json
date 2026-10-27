@@ -1,18 +1,14 @@
 {
   "_language": "Shqip",
-
   "app.title": "Mirëseardhja Sloth",
   "window.title": "Mirë se vini në Sloth OS",
-
   "welcome.heading": "Mirë se vini në Sloth OS!",
   "welcome.text": "Disa pyetje të shpejta dhe kompjuteri juaj është gati. Gjithçka mund ta ndryshoni më vonë.",
   "welcome.language": "Gjuha",
   "welcome.start": "Ta nisim",
-
   "look.colors": "Cilat ngjyra ju pëlqejnë?",
   "look.colors_hint": "Klikoni njërën dhe shihni menjëherë si duket. Mund ta ndryshoni më vonë te Rregullimet e sistemit.",
   "look.taskbar": "Si të duket shiriti i detyrave?",
-
   "scheme.SlothSilverDark": "Argjend (e errët)",
   "scheme.SlothSilverLight": "Argjend (e çelët)",
   "scheme.SlothWhite": "E bardhë si bora",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Blu mjegulle",
   "scheme.SlothNight": "Blu nate",
   "scheme.SlothSage": "Sherebelë",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menuja Start dhe ikonat majtas",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menuja Start dhe ikonat në mes",
   "layout.mac.name": "Si macOS",
   "layout.mac.description": "Shirit sipër, stacion lundrues poshtë",
+  "layout.ubuntu.name": "Si Ubuntu",
+  "layout.ubuntu.description": "Shirit sipër, dok majtas",
   "security.heading": "Kur duhet ta kërkojë kompjuteri fjalëkalimin?",
   "security.text": "Disa rregullime (si instalimi i programeve) kërkojnë fjalëkalimin tuaj. Kështu askush nuk mund ta ndryshojë kompjuterin pa dijeninë tuaj.",
   "security.all": "Për çdo ndryshim (më i sigurti)",
@@ -39,8 +36,7 @@
   "sharing.what": "Dërgohet vetëm kjo: cilësimi (për shembull „modalitet më i vjetër grafik”), prodhuesi i kartës tënde grafike dhe një gjurmë e programit nga e cila nuk mund të gjendet emri i tij. Asgjë tjetër nuk largohet nga kompjuteri yt: as emri yt, as skedarët e tu, as emri i programit, as kur dhe sa e përdor.",
   "sharing.yes": "Po, ndaj në mënyrë anonime",
   "sharing.no": "Jo, faleminderit",
-  "sharing.later": "Mund ta ndryshosh këtë në çdo kohë më vonë te Qendra Sloth. Cilësimet që funksionuan në kompjuterë të tjerë i merr gjithsesi.",
-
+  "sharing.later": "Mund ta ndryshosh këtë më vonë në çdo kohë te Sloth Center. Cilësimet që kanë funksionuar në kompjuterë të tjerë i merr gjithsesi.",
   "windows.heading": "T'i sjellim skedarët tuaj nga Windows?",
   "windows.text": "Ky kompjuter ka edhe Windows. Mund t'i kopjojmë skedarët tuaj këtu; Windows nuk preket, vetëm lexojmë prej tij.",
   "windows.scanning": "Po kontrollohet disku i Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Në këtë kompjuter nuk u gjetën skedarë Windows për t'u sjellë.",
   "windows.failed": "Disku i Windows nuk u hap dot. Nisni Windows dhe fikeni plotësisht (Fike, jo Rinise), pastaj provoni sërish nga Sloth Center (Disqet).",
   "windows.bookmarks_file": "Faqerojtës Windows.html",
-
   "nav.back": "Prapa",
   "nav.next": "Tjetër",
   "nav.skip": "Kapërceje",
   "nav.finish": "Përfundo",
   "nav.install": "Instalo",
-
   "step.counter": "Hapi {n} nga {total}",
   "step.selected_one": "1 aplikacion i zgjedhur",
   "step.selected_many": "{count} aplikacione të zgjedhura",
-
   "category.multiple": "Mund të zgjidhni disa, ose asnjë.",
   "category.browser.name": "Shfletues",
   "category.browser.hint": "Me të hyni në internet. Pa shfletues nuk mund të hapni faqe interneti.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Dyqane dhe nisës lojërash. Lojërat dhe programet e Windows punojnë edhe pa to.",
   "category.creative.name": "Krijimtari",
   "category.creative.hint": "Përpunim fotosh, vizatim, montim videoje, regjistrim.",
-
   "app.org.mozilla.firefox": "I shpejtë, kujdeset për privatësinë, me burim të hapur",
   "app.com.google.Chrome": "Shfletuesi i Google, sinkronizohet me llogarinë tuaj Google",
   "app.com.brave.Browser": "Me bllokues reklamash të integruar",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Instaluesit e programeve Windows u shkarkuan ({names}). Tani do të hapen një nga një: kaloni çdo instalim si në Windows. Rinisja vjen në fund.",
   "done.windows_continue": "Vazhdo me instalimin e programeve Windows",
   "done.windows_finished": "Gjithçka gati, edhe programet Windows! Pas një rinisjeje gjithçka do të ngarkohet si duhet.",
-
   "offline.text": "Nuk ka lidhje interneti. Lidhuni me një rrjet për të instaluar aplikacione.",
   "offline.settings": "Rregullime rrjeti",
   "offline.retry": "Riprovo",
-
   "nobrowser.title": "Nuk zgjodhët shfletues",
   "nobrowser.text": "Pa shfletues nuk mund të hapni faqe interneti. Jeni i sigurt?",
   "nobrowser.choose": "Do të zgjedh një",
   "nobrowser.ok": "Mirë kështu",
-
   "install.preparing": "Po përgatitet instalimi…",
   "install.retrying": "Lidhja u ndërpre, po riprovohet…",
   "install.installing": "Po instalohet {name}…",
   "install.note": "Në varësi të lidhjes, kjo mund të zgjasë disa minuta.",
-
   "error.network": "Nuk ka lidhje interneti ose shërbyesi nuk arrihet.",
   "error.disk_full": "Nuk ka hapësirë të mjaftueshme në disk.",
   "error.not_authorized": "Nuk morëm leje për instalim.",
   "error.checksum": "Skedari i shkarkuar ishte i dëmtuar, prandaj nuk u instalua.",
   "error.generic": "Instalimi dështoi.",
-
   "done.nothing_selected": "Gati! Aplikacione mund të instaloni më vonë te Discover.",
   "done.all_ok": "Gjithçka gati! Aplikacionet ju presin te menuja Start.",
   "done.some_failed": "Pothuajse gati. Disa aplikacione nuk u instaluan dot:",
   "done.all_failed": "Na vjen keq, aplikacionet nuk u instaluan dot tani:",
   "done.retry_hint": "Mund të riprovoni më vonë duke hapur „Mirëseardhja Sloth” nga menuja Start.",
+  "done.taskbar": "Çfarë të vendoset në shiritin e detyrave?",
   "done.extras": "Edhe një-dy gjëra, nëse doni:",
   "done.steam": "Hyni në Steam",
   "done.accounts": "Llogari në internet (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Kënaquni!",
   "done.restart": "Rinis",
   "done.restart_hint": "Rinisni kompjuterin që të gjitha aplikacionet e reja të ngarkohen si duhet.",
-
   "desktop.generic": "Aplikacione dhe pamje",
   "desktop.comment": "Instalimi i një shfletuesi, pakete zyre, luajtësi mediash dhe më shumë, zgjedhja e një skeme ngjyrash",
   "desktop.keywords": "mirë se vini;aplikacione;shfletues;zyrë;temë",

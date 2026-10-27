@@ -172,7 +172,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Kontrollerek -------------------------------------------------------------
+        // --- Controllers ---------------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: ColumnLayout {
@@ -231,6 +231,319 @@ Kirigami.ScrollablePage {
                         icon.name: "input-gamepad"
                         text: L.t("Test the buttons")
                         onClicked: gamepads.openSettings("kcm_gamecontroller")
+                    }
+                }
+            }
+        }
+
+        // --- Displays: refresh rate, VRR and HDR for games (displays.py) ---------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: displays.monitors.length > 0
+            Component.onCompleted: displays.refresh()
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Displays") }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Error
+                    visible: displays.errorText !== ""
+                    text: displays.errorText
+                }
+                Repeater {
+                    model: displays.monitors
+                    delegate: ColumnLayout {
+                        id: monitor
+                        required property var modelData
+                        required property int index
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        Kirigami.Separator { Layout.fillWidth: true; visible: monitor.index > 0 }
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: Kirigami.Units.largeSpacing
+                            Kirigami.Icon {
+                                source: "video-display"
+                                implicitWidth: Kirigami.Units.iconSizes.medium
+                                implicitHeight: Kirigami.Units.iconSizes.medium
+                            }
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 0
+                                QQC2.Label { text: monitor.modelData.name; font.bold: true }
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    opacity: 0.8
+                                    text: monitor.modelData.bestHz > monitor.modelData.hz
+                                          ? L.tf("{size}, {hz} Hz now. It can do {best} Hz: games look smoother.", { size: monitor.modelData.size, hz: monitor.modelData.hz, best: monitor.modelData.bestHz })
+                                          : L.tf("{size}, {hz} Hz (the most it can do).", { size: monitor.modelData.size, hz: monitor.modelData.hz })
+                                }
+                            }
+                            QQC2.Button {
+                                visible: monitor.modelData.bestHz > monitor.modelData.hz
+                                highlighted: true
+                                enabled: !displays.confirming
+                                text: L.tf("Use {hz} Hz", { hz: monitor.modelData.bestHz })
+                                onClicked: displays.useBestRefresh(monitor.modelData.connector)
+                            }
+                        }
+                        QQC2.Switch {
+                            visible: monitor.modelData.vrr !== ""
+                            enabled: !displays.confirming
+                            text: L.t("Variable refresh rate (FreeSync, G-Sync): smoother games without tearing")
+                            checked: monitor.modelData.vrr === "on"
+                            onToggled: displays.setVrr(monitor.modelData.connector, checked)
+                        }
+                        QQC2.Switch {
+                            visible: monitor.modelData.hdr !== ""
+                            enabled: !displays.confirming
+                            text: L.t("HDR: brighter highlights and richer colors in games and videos that support it")
+                            checked: monitor.modelData.hdr === "on"
+                            onToggled: displays.setHdr(monitor.modelData.connector, checked)
+                        }
+                    }
+                }
+                QQC2.Button {
+                    icon.name: "preferences-desktop-display"
+                    text: L.t("More display settings")
+                    onClicked: displays.openSettings()
+                }
+            }
+        }
+
+        // After a display change: keep it, or it goes back by itself (a black screen cannot get stuck)
+        Kirigami.PromptDialog {
+            id: keepDisplay
+            property int left: 15
+            title: L.t("Keep this display setting?")
+            subtitle: L.tf("If the screen looks right, keep it. Otherwise it goes back by itself in {n} seconds.", { n: keepDisplay.left })
+            standardButtons: Kirigami.Dialog.NoButton
+            closePolicy: QQC2.Popup.NoAutoClose
+            customFooterActions: [
+                Kirigami.Action {
+                    text: L.t("Keep")
+                    icon.name: "dialog-ok"
+                    onTriggered: { keepTimer.stop(); keepDisplay.close(); displays.keep(); }
+                },
+                Kirigami.Action {
+                    text: L.t("Go back")
+                    icon.name: "edit-undo"
+                    onTriggered: { keepTimer.stop(); keepDisplay.close(); displays.revert(); }
+                }
+            ]
+            Timer {
+                id: keepTimer
+                interval: 1000
+                repeat: true
+                onTriggered: {
+                    keepDisplay.left--;
+                    if (keepDisplay.left <= 0) {
+                        stop();
+                        keepDisplay.close();
+                        displays.revert();
+                    }
+                }
+            }
+        }
+        Connections {
+            target: displays
+            function onChanged() {
+                if (displays.confirming && !keepDisplay.opened) {
+                    keepDisplay.left = 15;
+                    keepDisplay.open();
+                    keepTimer.restart();
+                }
+            }
+        }
+
+        // --- Bluetooth: adapter, on or off, connected devices (bluetooth.py) ----------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: bluetooth.checked
+            Component.onCompleted: bluetooth.refresh()
+            // follows turning it on and off in the tray too, while the page is open
+            Timer {
+                interval: 3000
+                repeat: true
+                running: page.visible && Qt.application.state === Qt.ApplicationActive
+                onTriggered: bluetooth.refresh()
+            }
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Bluetooth") }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Error
+                    visible: bluetooth.errorText !== ""
+                    text: bluetooth.errorText
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    visible: !bluetooth.adapter || !bluetooth.powered || bluetooth.devices.length === 0
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: !bluetooth.adapter ? L.t("This computer has no Bluetooth. A small USB Bluetooth adapter adds it.")
+                          : !bluetooth.powered ? L.t("Bluetooth is turned off.")
+                          : L.t("No Bluetooth device is connected right now.")
+                }
+                Repeater {
+                    model: bluetooth.devices
+                    delegate: RowLayout {
+                        id: btRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: btRow.modelData.icon
+                            fallback: "preferences-system-bluetooth"
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
+                        }
+                        QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: btRow.modelData.name; font.bold: true }
+                        Kirigami.Icon {
+                            visible: btRow.modelData.battery >= 0
+                            source: btRow.modelData.battery < 20 ? "battery-caution" : "battery"
+                            implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                            implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                        }
+                        QQC2.Label {
+                            visible: btRow.modelData.battery >= 0
+                            text: btRow.modelData.battery + "%"
+                        }
+                    }
+                }
+                RowLayout {
+                    visible: bluetooth.adapter
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Button {
+                        visible: !bluetooth.powered
+                        highlighted: true
+                        icon.name: "preferences-system-bluetooth"
+                        text: L.t("Turn on Bluetooth")
+                        onClicked: bluetooth.turnOn()
+                    }
+                    QQC2.Button {
+                        icon.name: "list-add"
+                        text: L.t("Pair a device")
+                        onClicked: bluetooth.openSettings()
+                    }
+                }
+            }
+        }
+
+        // --- Sound: where it goes, which microphone, and trying both (sound.py) --------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            Component.onCompleted: sound.refresh()
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Sound") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: sound.outputs.length || sound.inputs.length
+                          ? L.t("Choose where the sound goes and which microphone games and calls use, then try them.")
+                          : L.t("No sound devices were found.")
+                }
+                GridLayout {
+                    Layout.fillWidth: true
+                    columns: 3
+                    columnSpacing: Kirigami.Units.largeSpacing
+                    rowSpacing: Kirigami.Units.largeSpacing
+                    visible: sound.outputs.length > 0
+
+                    Kirigami.Icon {
+                        source: "audio-headphones"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        QQC2.Label { text: L.t("Speakers or headphones"); font.bold: true }
+                        QQC2.ComboBox {
+                            Layout.fillWidth: true
+                            model: sound.outputs
+                            textRole: "label"
+                            currentIndex: sound.outputs.findIndex(d => d.name === sound.currentOutput)
+                            onActivated: index => sound.setOutput(sound.outputs[index].name)
+                        }
+                    }
+                    QQC2.Button {
+                        Layout.alignment: Qt.AlignBottom
+                        icon.name: "media-playback-start"
+                        text: L.t("Play a test sound")
+                        onClicked: sound.playTest()
+                    }
+                }
+                GridLayout {
+                    Layout.fillWidth: true
+                    columns: 3
+                    columnSpacing: Kirigami.Units.largeSpacing
+                    rowSpacing: Kirigami.Units.largeSpacing
+                    visible: sound.inputs.length > 0
+
+                    Kirigami.Icon {
+                        source: "audio-input-microphone"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        QQC2.Label { text: L.t("Microphone"); font.bold: true }
+                        QQC2.ComboBox {
+                            Layout.fillWidth: true
+                            enabled: sound.micState !== "recording" && sound.micState !== "playing"
+                            model: sound.inputs
+                            textRole: "label"
+                            currentIndex: sound.inputs.findIndex(d => d.name === sound.currentInput)
+                            onActivated: index => sound.setInput(sound.inputs[index].name)
+                        }
+                    }
+                    QQC2.Button {
+                        Layout.alignment: Qt.AlignBottom
+                        icon.name: "audio-input-microphone"
+                        text: L.t("Test the microphone")
+                        enabled: sound.micState !== "recording" && sound.micState !== "playing"
+                        onClicked: sound.testMic()
+                    }
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: sound.inputMuted
+                    type: Kirigami.MessageType.Warning
+                    text: L.t("This microphone is muted.")
+                    actions: [
+                        Kirigami.Action {
+                            text: L.t("Unmute")
+                            icon.name: "audio-input-microphone"
+                            onTriggered: sound.unmuteInput()
+                        }
+                    ]
+                }
+                RowLayout {
+                    Layout.fillWidth: true
+                    visible: sound.micText !== ""
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.BusyIndicator {
+                        visible: sound.micState === "recording" || sound.micState === "playing"
+                        running: visible
+                        implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                        implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                    }
+                    Kirigami.Icon {
+                        visible: !(sound.micState === "recording" || sound.micState === "playing")
+                        source: sound.micState === "ok" ? "emblem-ok-symbolic" : "emblem-warning"
+                        implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                        implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: sound.micText
                     }
                 }
             }

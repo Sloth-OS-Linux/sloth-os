@@ -327,19 +327,26 @@ def disk_filesystems(disk):
 
 
 def parse_extra(values, target):
-    """The --extra-disk choices, checked again here (the UI offers only these too)."""
+    """The --extra-disk choices (erase:/dev/Y, keep:/dev/Y or keep:/dev/Y:/dev/Y1,/dev/Y3), checked again here.
+    Returns [(choice, disk, [partitions to mount])]. A disk with Windows data is never erased; on such a disk only
+    its Linux partitions can be mounted."""
     extras = []
     for value in values:
-        choice, _, path = value.partition(":")
+        choice, _, rest = value.partition(":")
+        path, _, wanted = rest.partition(":")
         if choice not in ("keep", "erase") or path == target or not whole_disk(path) \
-                or path in {d for _c, d in extras}:
+                or path in {d for _c, d, _p in extras}:
             fail("error.bad_input", f"bad extra disk: {value}")
-        fstypes = {fs for _dev, fs in disk_filesystems(path)}
-        if fstypes & NEVER_CHANGE_FS:
-            fail("error.bad_input", f"a disk with Windows data is never changed: {path}")
-        if choice == "keep" and not fstypes & KEEP_FS:
-            fail("error.bad_input", f"nothing to mount on: {path}")
-        extras.append((choice, path))
+        filesystems = dict(disk_filesystems(path))
+        if choice == "erase" and set(filesystems.values()) & NEVER_CHANGE_FS:
+            fail("error.bad_input", f"a disk with Windows data is never erased: {path}")
+        parts = []
+        if choice == "keep":
+            linux = [dev for dev, fs in filesystems.items() if fs in KEEP_FS]
+            parts = wanted.split(",") if wanted else linux
+            if not parts or any(p not in linux for p in parts):
+                fail("error.bad_input", f"not a Linux file system on {path}: {wanted}")
+        extras.append((choice, path, parts))
     return extras
 
 
@@ -359,18 +366,20 @@ def prepare_extra_disks(extras, encrypt, label):
     result = {"fstab": [], "crypttab": [], "keys": {}, "mounts": [], "owned": []}
     used = set()
     options = "defaults,nofail,X-mount.mkdir,x-systemd.device-timeout=10s"
-    for n, (choice, disk) in enumerate(extras, 1):
-        release_disk(disk)
+    for n, (choice, disk, chosen) in enumerate(extras, 1):
         if choice == "keep":
+            # only the chosen partitions are let go (a Windows partition next to them is not touched at all)
             for dev, fs in disk_filesystems(disk):
-                if fs not in KEEP_FS:
+                if dev not in chosen:
                     continue
+                release_disk(dev)
                 name = subprocess.run(["blkid", "-o", "value", "-s", "LABEL", dev],
                                       capture_output=True, text=True).stdout.strip()
                 name = _mount_name(name or os.path.basename(dev), used)
                 result["fstab"].append(f"UUID={fs_uuid(dev)} /var/mnt/{name} {fs} {options} 0 0")
                 result["mounts"].append(name)
             continue
+        release_disk(disk)
         run(["wipefs", "--all", "--force", disk])
         run(["sfdisk", "--wipe", "always", "--wipe-partitions", "always", disk],
             input=f"label: gpt\ntype={LINUX_DATA}, name=\"sloth-data\"\n")
@@ -881,7 +890,7 @@ def password_hash(password):
 
 
 def configure(root_part, locale, layouts, variants, timezone, account, beside_windows=False, luks_uuid="",
-              extra=None):
+              extra=None, display=""):
     """Writes the language, keyboard and time zone into the installed system's /etc (and the other disks' mounts)."""
     extra = extra or {"fstab": [], "crypttab": [], "keys": {}, "mounts": [], "owned": []}
     mnt = Path(tempfile.mkdtemp(prefix="sloth-install-"))
@@ -923,6 +932,9 @@ def configure(root_part, locale, layouts, variants, timezone, account, beside_wi
         crypttab += extra["crypttab"]
         if crypttab:
             files[etc / "crypttab"] = "\n".join(crypttab) + "\n"
+        if display:
+            # the main screen chosen in the installer; set at the first sign-in (/usr/libexec/sloth-os/display-setup)
+            files[etc / "sloth-os/display.json"] = json.dumps({"primary": display}) + "\n"
         if extra["fstab"]:
             fstab = etc / "fstab"
             old = fstab.read_text(encoding="utf-8") if fstab.exists() else ""
@@ -1069,6 +1081,7 @@ def main():
     inst.add_argument("--encrypt", action="store_true", help="the encryption password is the 2nd line of the input")
     inst.add_argument("--extra-disk", action="append", default=[], help="keep:/dev/Y or erase:/dev/Y")
     inst.add_argument("--data-label", default="Sloth OS data", help="the erased disks' name (in Dolphin)")
+    inst.add_argument("--primary-display", default="", help="the main screen's connector name (e.g. HDMI-A-1)")
     prb = sub.add_parser("probe")
     prb.add_argument("--disk", required=True)
     args = parser.parse_args()
@@ -1117,6 +1130,8 @@ def main():
     extras = parse_extra(args.extra_disk, args.disk)
     if not 0 < len(args.data_label) <= 60 or any(ord(c) < 32 for c in args.data_label):
         fail("error.bad_input", "bad data disk label")
+    if args.primary_display and not re.fullmatch(r"[A-Za-z0-9-]{1,32}", args.primary_display):
+        fail("error.bad_input", f"bad screen name: {args.primary_display}")
 
     LOG.write_text(f"Sloth OS installation: {time.ctime()}\n", encoding="utf-8")
     emit(stage="verify", progress=2)
@@ -1154,7 +1169,7 @@ def main():
         place_windows_helper(args.disk)
     emit(stage="configure", progress=95)
     configure(root_part, args.locale, *keyboard, args.timezone, account, beside_windows=args.beside_windows,
-              luks_uuid=parts.get("luks_uuid", ""), extra=extra)
+              luks_uuid=parts.get("luks_uuid", ""), extra=extra, display=args.primary_display)
     if parts.get("luks_uuid"):
         subprocess.run(["cryptsetup", "close", CRYPT_NAME], capture_output=True)
     emit(done=True)

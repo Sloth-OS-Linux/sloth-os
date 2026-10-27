@@ -88,7 +88,15 @@ class ExtraDiskChoiceTest(unittest.TestCase):
     def test_choices_are_parsed(self):
         result = self.parse(["erase:/dev/sdb", "keep:/dev/sdc"],
                             {"/dev/sdb": [], "/dev/sdc": [("/dev/sdc1", "ext4")]})
-        self.assertEqual(result, [("erase", "/dev/sdb"), ("keep", "/dev/sdc")])
+        self.assertEqual(result, [("erase", "/dev/sdb", []), ("keep", "/dev/sdc", ["/dev/sdc1"])])
+
+    def test_only_chosen_linux_partitions_are_kept(self):
+        disk = {"/dev/sdb": [("/dev/sdb1", "ext4"), ("/dev/sdb2", "btrfs"), ("/dev/sdb3", "exfat")]}
+        self.assertEqual(self.parse(["keep:/dev/sdb:/dev/sdb2"], disk), [("keep", "/dev/sdb", ["/dev/sdb2"])])
+        with self.assertRaises(Failed):
+            self.parse(["keep:/dev/sdb:/dev/sdb3"], disk)   # not a Linux file system
+        with self.assertRaises(Failed):
+            self.parse(["keep:/dev/sdb:/dev/sdc1"], disk)   # not on this disk
 
     def test_windows_data_is_never_erased(self):
         for fs in ("ntfs", "bitlocker"):
@@ -96,8 +104,12 @@ class ExtraDiskChoiceTest(unittest.TestCase):
                 self.parse(["erase:/dev/sdb"], {"/dev/sdb": [("/dev/sdb1", "vfat"), ("/dev/sdb2", fs)]})
 
     def test_windows_data_is_never_mounted(self):
-        with self.assertRaises(Failed):
-            self.parse(["keep:/dev/sdb"], {"/dev/sdb": [("/dev/sdb1", "ext4"), ("/dev/sdb2", "ntfs")]})
+        disk = {"/dev/sdb": [("/dev/sdb1", "ext4"), ("/dev/sdb2", "ntfs"), ("/dev/sdb3", "bitlocker")]}
+        # the Linux partition next to Windows can be used, the Windows ones never
+        self.assertEqual(self.parse(["keep:/dev/sdb"], disk), [("keep", "/dev/sdb", ["/dev/sdb1"])])
+        for part in ("/dev/sdb2", "/dev/sdb3"):
+            with self.assertRaises(Failed):
+                self.parse([f"keep:/dev/sdb:{part}"], disk)
 
     def test_keep_needs_a_linux_file_system(self):
         with self.assertRaises(Failed):

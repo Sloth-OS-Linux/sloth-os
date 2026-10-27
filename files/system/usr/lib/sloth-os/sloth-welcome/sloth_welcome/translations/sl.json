@@ -1,18 +1,14 @@
 {
   "_language": "Slovenščina",
-
   "app.title": "Dobrodošlica Sloth",
   "window.title": "Dobrodošli v Sloth OS",
-
   "welcome.heading": "Dobrodošli v Sloth OS!",
   "welcome.text": "Nekaj hitrih vprašanj in računalnik je pripravljen. Vse lahko pozneje spremenite.",
   "welcome.language": "Jezik",
   "welcome.start": "Začnimo",
-
   "look.colors": "Katere barve so vam všeč?",
   "look.colors_hint": "Kliknite eno in takoj boste videli, kako je videti. Pozneje jo lahko spremenite v Sistemskih nastavitvah.",
   "look.taskbar": "Kakšna naj bo opravilna vrstica?",
-
   "scheme.SlothSilverDark": "Srebrna (temna)",
   "scheme.SlothSilverLight": "Srebrna (svetla)",
   "scheme.SlothWhite": "Snežno bela",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Megleno modra",
   "scheme.SlothNight": "Nočno modra",
   "scheme.SlothSage": "Žajbelj",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Meni Start in ikone na levi",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Meni Start in ikone na sredini",
   "layout.mac.name": "Kot macOS",
   "layout.mac.description": "Zgornja vrstica, plavajoči dok spodaj",
+  "layout.ubuntu.name": "Kot Ubuntu",
+  "layout.ubuntu.description": "Zgornja vrstica, sidrišče na levi",
   "security.heading": "Kdaj naj računalnik vpraša za geslo?",
   "security.text": "Nekatere nastavitve (npr. nameščanje programov) zahtevajo vaše geslo. Tako nihče ne more spremeniti računalnika brez vaše vednosti.",
   "security.all": "Pri vsaki spremembi (najvarneje)",
@@ -39,8 +36,7 @@
   "sharing.what": "Pošlje se samo to: nastavitev (na primer »starejši grafični način«), proizvajalec tvoje grafične kartice in prstni odtis programa, iz katerega ni mogoče ugotoviti njegovega imena. Nič drugega ne zapusti tvojega računalnika: ne tvoje ime, ne tvoje datoteke, ne ime programa in ne to, kdaj in koliko ga uporabljaš.",
   "sharing.yes": "Da, deli anonimno",
   "sharing.no": "Ne, hvala",
-  "sharing.later": "To lahko kadar koli pozneje spremeniš v Središču Sloth. Nastavitve, ki so delovale na drugih računalnikih, dobiš v vsakem primeru.",
-
+  "sharing.later": "To lahko pozneje kadar koli spremeniš v Sloth Center. Nastavitve, ki so delovale na drugih računalnikih, dobiš v vsakem primeru.",
   "windows.heading": "Prenesemo datoteke iz sistema Windows?",
   "windows.text": "Na tem računalniku je tudi Windows. Vaše datoteke lahko kopiramo sem; samega sistema Windows ne spreminjamo, le beremo z njega.",
   "windows.scanning": "Pregledovanje pogona Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Na tem računalniku ni bilo najdenih datotek Windows za prenos.",
   "windows.failed": "Pogona Windows ni bilo mogoče odpreti. Zaženite Windows in ga povsem zaustavite (Zaustavitev, ne Ponovni zagon), nato poskusite znova v Sloth Center (Diski).",
   "windows.bookmarks_file": "Zaznamki Windows.html",
-
   "nav.back": "Nazaj",
   "nav.next": "Naprej",
   "nav.skip": "Preskoči",
   "nav.finish": "Končaj",
   "nav.install": "Namesti",
-
   "step.counter": "Korak {n} od {total}",
   "step.selected_one": "izbrana 1 aplikacija",
   "step.selected_many": "izbrane aplikacije: {count}",
-
   "category.multiple": "Izberete jih lahko več ali nobene.",
   "category.browser.name": "Spletni brskalnik",
   "category.browser.hint": "Z njim brskate po internetu. Brez brskalnika ne morete odpreti spletnih strani.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Trgovine in zaganjalniki iger. Igre in programi za Windows delujejo tudi brez njih.",
   "category.creative.name": "Ustvarjanje",
   "category.creative.hint": "Urejanje fotografij, risanje, montaža videa, snemanje.",
-
   "app.org.mozilla.firefox": "Hiter, skrbi za zasebnost, odprtokoden",
   "app.com.google.Chrome": "Googlov brskalnik, sinhronizira se z računom Google",
   "app.com.brave.Browser": "Z vgrajenim zaviralcem oglasov",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Namestitveni programi za Windows so preneseni ({names}). Zdaj se bodo odpirali eden za drugim: pojdite skozi vsako namestitev kot v sistemu Windows. Ponovni zagon pride na koncu.",
   "done.windows_continue": "Nadaljuj z namestitvijo programov za Windows",
   "done.windows_finished": "Vse je pripravljeno, tudi programi za Windows! Po ponovnem zagonu se bo vse pravilno naložilo.",
-
   "offline.text": "Ni internetne povezave. Za namestitev aplikacij se povežite z omrežjem.",
   "offline.settings": "Omrežne nastavitve",
   "offline.retry": "Poskusi znova",
-
   "nobrowser.title": "Niste izbrali brskalnika",
   "nobrowser.text": "Brez brskalnika ne morete odpreti spletnih strani. Ste prepričani?",
   "nobrowser.choose": "Izbral bom enega",
   "nobrowser.ok": "Tako je v redu",
-
   "install.preparing": "Priprava namestitve…",
   "install.retrying": "Povezava se je prekinila, poskušam znova…",
   "install.installing": "Nameščanje: {name}…",
   "install.note": "Glede na povezavo lahko to traja nekaj minut.",
-
   "error.network": "Ni internetne povezave ali pa strežnik ni dosegljiv.",
   "error.disk_full": "Na disku ni dovolj prostora.",
   "error.not_authorized": "Nismo dobili dovoljenja za namestitev.",
   "error.checksum": "Prenesena datoteka je bila poškodovana, zato ni bila nameščena.",
   "error.generic": "Namestitev ni uspela.",
-
   "done.nothing_selected": "Končano! Aplikacije lahko pozneje namestite v Discoverju.",
   "done.all_ok": "Vse je pripravljeno! Vaše aplikacije čakajo v meniju Start.",
   "done.some_failed": "Skoraj končano. Nekaterih aplikacij ni bilo mogoče namestiti:",
   "done.all_failed": "Žal aplikacij trenutno ni bilo mogoče namestiti:",
   "done.retry_hint": "Pozneje lahko poskusite znova tako, da v meniju Start odprete »Dobrodošlica Sloth«.",
+  "done.taskbar": "Kaj naj bo v opravilni vrstici?",
   "done.extras": "Še nekaj stvari, če želite:",
   "done.steam": "Prijava v Steam",
   "done.accounts": "Spletni računi (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Zabavajte se!",
   "done.restart": "Znova zaženi",
   "done.restart_hint": "Znova zaženite računalnik, da se vse nove aplikacije pravilno naložijo.",
-
   "desktop.generic": "Aplikacije in videz",
   "desktop.comment": "Namestitev brskalnika, pisarniškega paketa, predvajalnika predstavnosti in drugega, izbira barvne sheme",
   "desktop.keywords": "dobrodošli;aplikacije;brskalnik;pisarna;tema",

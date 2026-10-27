@@ -17,13 +17,69 @@ careful testing), and **Large** (broad work or significant safety and compatibil
 - [x] Replace the incorrect 1.0.2 ISO on SourceForge with the current build and publish its SHA-256 checksum.
 - [x] Publish the installer fix and reinstall notice on GitHub and the website.
 
+### Sloth OS 1.1 (release planned for 2026-10-27; tested as 1.0.5)
+The `codex/1.0.5-test` branch, tested on a real machine (laptop) on 2026-10-26. Updates finish again (the rpm-ostree
+crash, under 1.0.4 below); Sloth Center got a spotlight guide, Appearance (with an Ubuntu-like layout), Displays,
+Sound, Bluetooth, a Wi-Fi check, programs that start at sign-in, app permissions, file restore and backup check;
+the installer asks for the main screen and lets partitions be chosen; disc images open with a double-click. The
+user-facing list is in `README.md`. Each item is under its topic (phases and the groups of 1.0.4 below).
+
+Release:
+- [x] The "Turn on Bluetooth" button on a real machine (2026-10-26: the rfkill block is lifted first, then Powered is
+  set again while the adapter wakes up; checked on the laptop with the `cb41505` build)
+- [x] Decide the number: 1.1 (2026-10-27; `files/scripts/branding.sh`, the README header; the SourceForge folder is
+  `1.1`)
+- [x] Finish the install when the installer starts the program at its end (the IrfanView bug, below)
+- [x] Merge `codex/1.0.5-test` into `main` (2026-10-27; the `test/chunked-oci` branch stays out, see "Smaller system
+  updates")
+- [ ] Build the ISO from `main`, install it once in a VM, upload it to SourceForge with its SHA-256 checksum
+- [ ] Website: the 1.1 news and download link
+
+Not checked on a real machine yet: the FPS display's temperatures, the metered-connection question (a phone
+hotspot), disc images (eject, sign-out), the main-screen question and partition choice in the installer, the
+self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
+
+- [x] Choose the main screen in the installer (first page, only with more than one screen); the installer moves
+  there at once, and the installed system makes it the main one at the first sign-in
+  (`/usr/libexec/sloth-os/display-setup`). The login screen itself is not set yet. Check on a real machine
+- [x] Other disks, "Use it": the Linux partitions can be chosen one by one, also on a disk with Windows (the
+  Windows partitions are never mounted or changed). Check on a real machine
+- [x] Disc images (.iso) open with a double-click: mounted read-only through UDisks (Dolphin shows it with an
+  eject button); with an installer on it (autorun.inf, setup.exe) the .exe handler offers "Install from it" or
+  "Open folder", and can remember the choice. Ejecting clears the loop device (autoclear), and images still open
+  are ejected at sign-out (`sloth-disc-images.service`). Check on a real machine (a Windows program's ISO)
+
+- [x] The Sloth Center first-run guide lights up what it talks about (2026-10-26): each step darkens the window
+  except its pages in the list on the left (a pulsing frame around them), a bubble next to them explains, and the
+  light slides to the next step's pages. A new step shows Appearance. Check on a real machine (also with a
+  small window, and "Open guide" at the bottom of the list). Checked on a real machine (2026-10-26)
+- [x] Appearance in Sloth Center (2026-10-26): the color schemes and taskbar layouts of the welcome wizard can be
+  changed any time later. Both tools use the same code (`sloth_common/appearance.py`) and the same drawings
+  (`sloth_common/qml/SlothCommon/LayoutPreview.qml`), so a layout looks the same whichever set it. New layout:
+  Ubuntu-like (top bar with the date and time in the middle, a floating dock on the left that does not run into
+  the top bar; the app grid slides out from the dock as the Start menu with large icons in a grid); GNOME
+  itself is not added, KDE Plasma draws this look. Clicking the current layout in Sloth Center builds it again. Tests: `tools/tests/test_appearance.py`.
+  Checked on a real machine (2026-10-26): every layout, switching back and forth, the pinned apps stay
+- [x] Installers heal themselves and are remembered too (2026-10-26): what installed an installer before (here,
+  or from the shared knowledge) goes first; if the installer crashes or its log shows a known missing component
+  and nothing got installed, it is tried again with the fix or the next setting (another Proton version only into
+  a new, emptied environment). A cancelled installer is not reopened (an error code alone does not count). What
+  worked is kept in `~/.local/share/sloth-os/installers.json` and shared like the programs' settings. Tests:
+  `tools/tests/test_install_heal.py`. Check on a real machine
+
 ### Sloth OS 1.0.4 (2026-10-26, replaces the unreleased 1.0.3)
 Network, security and drive health on the System status and System health pages; what uses the space on the
 Disks page and a deeper cleanup; the installer asks about the other disks; the .exe handler asks which drive a
 program goes to; layer-by-layer update progress; every text in 50 languages.
 
-- [ ] **Critical** — Resolve the Fedora 44 `rpm-ostree` crash during OCI image updates (`2026.3-2.fc44` aborts
+- [x] **Critical** — Resolve the Fedora 44 `rpm-ostree` crash during OCI image updates (`2026.3-2.fc44` aborts
   with `JoinHandle polled after completion` while importing layers), then verify a full update stages and boots.
+  (2026-10-26, real machine on 1.0.4: no crash this time; systemd stopped `rpm-ostreed` halfway when the
+  `/boot` automount of systemd-gpt-auto-generator expired. 1.0.5: the automount no longer expires; a machine
+  gets this with its first finished update, until then retrying continues from the layers already fetched.
+  2026-10-26 evening, real machine on 1.0.5: a 2.3 GB update (23 new layers) went through, staged and booted.)
+- [x] **Low** — `sloth-login-repair` failed at every boot on Fedora 44 (`Unknown profile feature
+  [with-altfiles]`): it now only turns the feature on if the authselect profile still has it.
 - [x] **Medium** — Show OCI layer progress in Sloth Center, stop the spinner and explain the failure if the
   transaction connection closes, and reconnect to `rpm-ostreed` after a daemon restart. Verify the flow without
   requiring a terminal. (2026-10-26: the Updates page shows "layer 3/29 · size" and the bar moves forward with the
@@ -34,18 +90,51 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   if export fails, or if the exported host `.desktop` lacks a `distrobox-enter` command or still invokes `sloth-exe`.
   The running Fedora box no longer has the Reddit package's source desktop entry, so a live relaunch could not be
   reproduced; `tools/tests/test_apps.py` checks that invalid exports cannot be recorded as successful installs.
-- [ ] **Medium** — Notepad++ starts again after closing: the install succeeded, but the start handler exited after 4–9 seconds
+- [x] **Medium** — Notepad++ starts again after closing: the install succeeded, but the start handler exited after 4–9 seconds
   and cycled through four runner settings even though the user saw the app open. Improve detection of a live Windows
   process after `umu-run` exits (check the prefix's Wine processes/wineserver), and only start another recovery attempt
   after confirming the previous app is no longer running. Reproduce that closing the app does not reopen it.
-- [ ] **Medium** — 7-Zip required repeated installs: the saved log has one installer run, four quick-exit recovery attempts,
+  (2026-10-26: after a quick exit the handler waits up to 6 s while anything, wineserver included, still runs in
+  the environment; a clean exit (code 0, no error in the log) after 3 s counts as the user closing it and is not
+  restarted. Check on a real machine with Notepad++)
+- [x] **Medium** — 7-Zip required repeated installs: the saved log has one installer run, four quick-exit recovery attempts,
   and then a `7Z2605` Start menu entry. Reproduce the install and launch flow, then fix recognition or process tracking
   so a successful install is not mistaken for a failed app launch and repeated installation is unnecessary.
-- [ ] **Medium** — Open `.iso` disk images with a double-click (idea, 2026-10-26): mount them without a password and
+  (2026-10-26: the cause was that `7z2605-x64.exe` was not recognized as an installer, so it was run as a program
+  and "healed" by running the installer again. Installers are now recognized by their contents too: known
+  installer builders, or setup/install in the version information (7-Zip: "7-Zip Installer", checked on the real
+  file). Check on a real machine)
+- [x] **Medium** — Open `.iso` disk images with a double-click (idea, 2026-10-26): mount them without a password and
   show the contents. If the image has a `setup.exe` or an `autorun.inf`/`autorun.exe`, ask what to do (start the
   installer through the .exe handler, or just open the folder); remember the choice if the user asks. Offer
   "Eject" in Dolphin and unmount at sign-out.
 
+- [x] **Medium** — Finish the install when the installer starts the program at its end (2026-10-26, real machine,
+  IrfanView): with the installer's last "Open IrfanView" box left ticked, the program started from the installer
+  and the install screen kept waiting; the Start menu question only came after the program was closed. Everything
+  worked after that (installed, started without errors), but the user waits without knowing why. Likely cause: the
+  `.exe` handler waits until the whole Windows environment is quiet, and the started program runs in it. Fix idea:
+  treat the install as done when the installer's own process ends (or when a new program window of the installed
+  program appears), ask the Start menu question then, and leave the running program alone.
+  Done 2026-10-27: the cause was the recognition, not the waiting. The install only counted as done when it was
+  certain what got installed (a shortcut, or the registry's uninstall entry), and Wine writes the registry to disk
+  only later or when the environment stops, so with no shortcut it became certain only after IrfanView closed. Now
+  a new .exe of the install that runs is enough (`detect.installed_running`; not in a temporary folder and not an
+  installer itself), and the uninstall entry is saved afterwards, when the installer's environment stops. Tests:
+  `tools/tests/test_apps.py`. Check on a real machine
+  2026-10-27, real machine with the 1.1 build: it still waited. Without the log the cause is not known; the second
+  round fixes the three likely ones: a reinstall (the .exe was not new), the contents check finding an installer
+  builder's name inside the program, and Proton's helper processes keeping the installer's name in their command
+  line after it exited. Now an .exe written during the install (its change time, which installers cannot set
+  back) that runs is enough, by name only, whether the installer or its helpers still run or not.
+  Third round, from the log (2026-10-27): the real cause. Only "iview476_x64_setup.exe" was ever seen running, even
+  with IrfanView open: Proton gives Wine `WINEPREFIX=<prefix>/pfx/` (umu's `pfx` link points to the environment
+  itself), and `library._prefix_procs` looked for the plain path, so it only found umu's own processes (whose
+  command line has the installer's name) and never a Windows program. Now the resolved path is compared. This
+  also affects "already running" at launch and the launcher hand-over watch (Battle.net), which saw only umu's
+  processes too: check those on a real machine as well
+- [x] **Small** — The same when reinstalling or updating into the existing folder: the program's .exe was already
+  there before the install, so it was not "new". Done 2026-10-27 with the change time (above).
 #### Installation and storage
 - [x] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
@@ -64,7 +153,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   the existing confirmation checkbox is required before applying changes. The temporary install partition is identified
   as mounted only during setup and deleted at the end.
 - [x] Guide users through creating Sloth OS installation media, with a clear warning before erasing a USB drive.
-- [ ] **Medium** — With more than one display, let users choose the main display in the installer (idea, 2026-10-26):
+- [x] **Medium** — With more than one display, let users choose the main display in the installer (idea, 2026-10-26):
   show the installer there, and carry the choice (main display, arrangement) over to the installed system's login
   screen and desktop.
 - [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
@@ -80,46 +169,100 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [x] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
 - [x] Offer a short first-run guide to Updates, Programs, Games, backups, Feedback, and Disks; users can skip it or
   reopen it from the sidebar.
-- [ ] **Medium** — Add a system and driver overview for graphics, audio, Bluetooth, and connected peripherals, with guidance
-  when something needs attention.
-- [ ] **Medium** — Add an application privacy overview for microphone, camera, and location access where supported.
+- [x] **Medium** — System and driver overview for graphics, audio, Bluetooth, and connected peripherals (2026-10-26):
+  the Drivers and hardware page has the graphics card, Displays, Bluetooth (no adapter / off with "Turn on
+  Bluetooth" / the connected devices with battery, "Pair a device"), Sound and Controllers. Bluetooth is read from
+  BlueZ with a short timeout in the background: without an adapter the service does not start and asking it would
+  wait (found on the developer machine). It follows the tray (refresh every 3 s while the page is open) and counts an
+  rfkill block as off; "Turn on Bluetooth" lifts the block and sets Powered again while the adapter wakes up.
+  Tests: `tools/tests/test_bluetooth.py`. Checked on a real machine (2026-10-26)
+- [x] **Medium** — Application privacy overview (2026-10-26): Account and security → "App permissions" lists
+  the Flatpak apps that can use the camera (all devices, or the camera portal), the microphone (the sound socket,
+  or PipeWire directly) and the location (the location portal). It only reads; "Change app permissions" opens
+  KDE's Flatpak permissions page (a switch here would also take the speaker or the game controllers away).
+  Tests: `tools/tests/test_privacy.py`. Checked on a real machine (2026-10-26)
 - [x] **Medium** — Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
   (2026-10-26, a Security card on the System status page; check on a real machine, with and without encryption)
 - [ ] **Large** — Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
   require their choice before attaching it.
-- [ ] **Medium** — Add guided Wi-Fi troubleshooting that checks adapter detection, Wi-Fi state, and connectivity, then
-  offers understandable next steps.
+- [x] **Medium** — Guided Wi-Fi troubleshooting (2026-10-26): System status → Network → "Check Wi-Fi". Step by
+  step in plain language: is there an adapter (if not: Drivers and hardware), is it turned on (a key or switch on
+  the computer, or "Turn on Wi-Fi"), is it connected ("Choose a network"), how strong the signal is, does the
+  internet answer (a sign-in network: "Open the sign-in page"; no internet: restart the router). It reads
+  NetworkManager and rfkill only. Tests: `tools/tests/test_wifi.py`. Checked on a real machine (2026-10-26); a hotel
+  or train network not yet
 - [ ] **Medium** — Keep essential installation, recovery, and troubleshooting help available offline.
 - [ ] **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
 - [ ] **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
-- [ ] **Medium** — Manage startup applications: explain what launches at sign-in where known, and show startup impact.
+- [x] **Medium** — Manage startup applications (2026-10-26): Services page, "Programs that start when you sign
+  in": the user's own autostart entries (Steam, Discord, … also those added through the Flatpak background portal)
+  with their name, description and a switch (`Hidden=true`, as KDE's own settings do). The system's parts
+  (/etc/xdg/autostart) are not listed, turning those off would break something. The startup impact is not shown:
+  it cannot be measured reliably. "Add a program…" opens KDE's autostart settings: Steam's own "start with the
+  computer" option cannot write there from its Flatpak. Tests: `tools/tests/test_startup.py`. Checked on a real
+  machine (2026-10-26, Steam added and turned off)
 - [ ] **Large** — Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
   health or charge limits in one place, with clear effects on battery life and gaming.
 
 #### Updates, backup, and recovery
 - [x] **Quick** — Explain that updates download the needed system parts, their size varies, free disk space is needed, and a restart applies the new version.
 - [ ] **Medium** — Let users schedule updates and avoid restart prompts during user-defined quiet hours.
-- [ ] **Medium** — Let users limit update download speed and warn before large downloads on metered or mobile connections.
+- [x] **Medium** — Warn before large downloads on metered or mobile connections (2026-10-26): the Updates page shows
+  the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
+  anyway" / "Later"). The automatic update (uupd) already skips metered connections. The size: checked on a real
+  machine (2026-10-26); the metered question (a phone hotspot) not yet
+- [ ] **Medium** — Let users limit update download speed.
+- [ ] **Medium** — Smaller system updates (measured 2026-10-26 on ghcr): every build rebuilds all 23 of our own
+  layers, so even a one-line change downloads about 2.3 GB (with the daily base image changes 3.8 GB) of the
+  6.5 GB image; the two biggest are the gaming `dnf` module (~800 MB) and the umu/Proton script (~840 MB).
+  Rechunking (BlueBuild `rechunk`, content-based layers) would download only what changed. The first update after
+  the switch is a full download; check the installer (`ostree.final-diffid`) with a rechunked image first.
+  Tried 2026-10-26 on the `test/chunked-oci` branch (`build_chunked_oci: true`, plus an install-test CI job):
+  the first build worked (129 layers, 4.7 GB instead of 6.5 GB; `ostree.final-diffid` present, so the installer
+  check passes), but every later build crashes in rpm-ostree 2026.2 when it uses the previous image as the
+  baseline (`ostree-ext/src/chunking.rs:423` assertion, `left: 845, right: 0`). Wait for a fixed rpm-ostree, or
+  try BlueBuild's `chunkah` option instead.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [ ] **Medium** — Let users schedule file backups, choose retention, and estimate required storage.
-- [ ] **Medium** — Verify backups by checking readability and guiding users through restoring a selected file.
+- [x] **Medium** — Guide users through restoring a selected file (2026-10-26): File backup → "Restore a file…"
+  (pick the file) or "Find deleted files…" (pick the folder it was in) opens the same "Previous versions" window
+  as right-click in the file manager, for those who do not know that menu. Checked on a real machine (2026-10-26)
+- [x] **Medium** — Verify backups by checking that the saved states can be read (2026-10-26): File backup →
+  "Check the backup" reads back a sample of 300 files of the latest saved state (no password, nothing changed)
+  and says in plain language whether all of them can be read; files the user may not read anyway are not
+  counted as a fault. Tests: `tools/tests/test_backup_verify.py`. Checked on a real machine (2026-10-26)
 - [ ] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
 - [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
-- [ ] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart flow.
+- [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart
+  flow (already on the Updates page: the explanation, a confirmation that files and settings are kept, then
+  "Restart now"; earlier versions can be kept and started there too)
 - [ ] **Large** — Before significant settings or driver changes, offer a recoverable state and a clear way to revert.
 
 #### Gaming, devices, and connectivity
 - [ ] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
   restores normal settings when it closes.
-- [ ] **Medium** — Add a performance display for frame rate, system load, and supported temperature sensors.
-- [ ] **Medium** — Make it easy to test and select controllers, microphones, and audio output devices before gaming.
+- [x] **Medium** — Performance display for frame rate, system load, and temperatures (2026-10-26): the per-game
+  "Show FPS and performance while playing" (Games page, MangoHud) showed the frame rate and the CPU and GPU load;
+  turning it on now also writes a MangoHud.conf with the CPU and GPU temperatures and the memory, for Windows
+  programs and in Steam's Flatpak folder, only where there is none yet. Tests: `tools/tests/test_overlay.py`.
+  Check on a real machine (a Steam game with the FPS display on)
+- [x] **Medium** — Test and select controllers, microphones, and audio output devices before gaming (2026-10-26):
+  Drivers and hardware → Sound: choose the speakers or headphones and the microphone (the default for games and
+  calls), "Play a test sound", "Test the microphone" (records four seconds, says whether it heard anything, plays
+  it back), and a muted microphone can be unmuted. The controllers were already there (list, battery, pairing,
+  "Test the buttons"). Tests: `tools/tests/test_sound.py`. Checked on a real machine (2026-10-26)
 - [ ] **Medium** — Share concise, community-informed game fixes with version details and a way to report outdated guidance.
 - [ ] **Large** — When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
 - [ ] **Medium** — Help users move supported game libraries between drives without downloading again, updating launcher paths.
 - [x] **Quick** — Show network status and latency, with basic guidance when the connection may affect online play (2026-10-23, Sloth Center's System status page).
 - [ ] **Medium** — Help configure NAS devices and shared folders, preserving the connection after restart when requested.
 - [ ] **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
-- [ ] **Medium** — Help configure monitor resolution and refresh rate, plus HDR or VRR where supported.
+- [x] **Medium** — Monitor refresh rate, VRR and HDR for gaming (2026-10-26): Drivers and hardware → Displays.
+  Each monitor by its own name (EDID), its refresh rate now and the highest at the same resolution with a "Use
+  144 Hz" button (found on a real machine: a 144 Hz monitor running at 100 Hz), and switches for VRR and HDR only
+  where the monitor supports them, through kscreen-doctor. After a change it asks "Keep?" and goes back by itself
+  after 15 seconds, as KDE's own display settings do. The resolution stays in "More display settings".
+  Tests: `tools/tests/test_display.py`. Checked on a real machine (2026-10-26)
 - [ ] **Medium** — Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
 - [ ] **Medium** — Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
 

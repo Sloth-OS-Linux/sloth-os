@@ -1,4 +1,5 @@
-// Services: the common ones with understandable names and switches; an advanced list of all running ones.
+// Services: the programs that start at sign-in (startup.py), the common services with understandable names and
+// switches; an advanced list of all running ones.
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -12,7 +13,7 @@ Kirigami.ScrollablePage {
         Kirigami.Action {
             text: L.t("Refresh")
             icon.name: "view-refresh"
-            onTriggered: services.refresh()
+            onTriggered: { services.refresh(); startup.refresh(); }
         }
     ]
 
@@ -24,6 +25,63 @@ Kirigami.ScrollablePage {
             type: Kirigami.MessageType.Error
             visible: services.errorText !== ""
             text: services.errorText
+        }
+
+        // --- Programs that start by themselves at sign-in ---
+        Kirigami.Heading { level: 3; text: L.t("Programs that start when you sign in") }
+        QQC2.Label {
+            Layout.fillWidth: true
+            wrapMode: Text.Wrap
+            opacity: 0.8
+            text: startup.programs.length
+                  ? L.t("These start by themselves after you sign in. Turning one off makes signing in faster; you can still start it from the Start menu.")
+                  : L.t("No programs start by themselves when you sign in.")
+        }
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Error
+            visible: startup.errorText !== ""
+            text: startup.errorText
+        }
+        Repeater {
+            model: startup.programs
+            delegate: Kirigami.AbstractCard {
+                id: startCard
+                required property var modelData
+                Layout.fillWidth: true
+                contentItem: RowLayout {
+                    spacing: Kirigami.Units.largeSpacing
+                    Kirigami.Icon {
+                        source: startCard.modelData.icon
+                        fallback: "application-x-executable"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: 0
+                        QQC2.Label { text: startCard.modelData.name; font.bold: true }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            visible: text !== ""
+                            wrapMode: Text.Wrap
+                            opacity: 0.7
+                            text: startCard.modelData.description
+                        }
+                    }
+                    QQC2.Switch {
+                        checked: startCard.modelData.enabled
+                        Accessible.name: startCard.modelData.name
+                        onToggled: startup.setEnabled(startCard.modelData.file, checked)
+                    }
+                }
+            }
+        }
+
+        QQC2.Button {
+            icon.name: "list-add"
+            text: L.t("Add a program…")
+            onClicked: startup.addProgram()
         }
 
         Kirigami.Heading { level: 3; text: L.t("Common services") }

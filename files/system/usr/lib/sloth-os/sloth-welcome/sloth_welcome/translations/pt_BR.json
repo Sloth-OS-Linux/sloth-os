@@ -1,18 +1,14 @@
 {
   "_language": "Português (Brasil)",
-
   "app.title": "Boas-vindas do Sloth",
   "window.title": "Boas-vindas ao Sloth OS",
-
   "welcome.heading": "Bem-vindo ao Sloth OS!",
   "welcome.text": "Algumas perguntas rápidas e seu computador estará pronto. Você pode mudar tudo depois.",
   "welcome.language": "Idioma",
   "welcome.start": "Vamos lá",
-
   "look.colors": "Quais cores você prefere?",
   "look.colors_hint": "Clique em uma para ver na hora. Você pode mudar depois nas Configurações do sistema.",
   "look.taskbar": "Como deve ser a barra de tarefas?",
-
   "scheme.SlothSilverDark": "Prata (escuro)",
   "scheme.SlothSilverLight": "Prata (claro)",
   "scheme.SlothWhite": "Branco neve",
@@ -20,13 +16,14 @@
   "scheme.SlothMist": "Azul névoa",
   "scheme.SlothNight": "Azul noite",
   "scheme.SlothSage": "Sálvia",
-
   "layout.windows10.name": "Windows 10",
   "layout.windows10.description": "Menu Iniciar e ícones à esquerda",
   "layout.windows11.name": "Windows 11",
   "layout.windows11.description": "Menu Iniciar e ícones no centro",
   "layout.mac.name": "Estilo macOS",
   "layout.mac.description": "Barra no topo, dock flutuante embaixo",
+  "layout.ubuntu.name": "Estilo Ubuntu",
+  "layout.ubuntu.description": "Barra superior, dock à esquerda",
   "security.heading": "Quando o computador deve pedir sua senha?",
   "security.text": "Algumas configurações (como instalar programas) pedem sua senha. Assim ninguém pode alterar seu computador sem você saber.",
   "security.all": "Em toda alteração (o mais seguro)",
@@ -39,8 +36,7 @@
   "sharing.what": "Só isto é enviado: a configuração (por exemplo, \"modo gráfico mais antigo\"), o fabricante da sua placa de vídeo e uma impressão digital do programa da qual não é possível descobrir o nome dele. Nada mais sai do seu computador: nem o seu nome, nem os seus arquivos, nem o nome do programa, nem quando ou quanto você o usa.",
   "sharing.yes": "Sim, compartilhar de forma anônima",
   "sharing.no": "Não, obrigado",
-  "sharing.later": "Você pode mudar isso a qualquer momento depois na Central Sloth. As configurações que funcionaram em outros computadores você recebe de qualquer forma.",
-
+  "sharing.later": "Você pode mudar isso depois a qualquer momento no Sloth Center. As configurações que funcionaram em outros computadores você recebe de qualquer forma.",
   "windows.heading": "Trazer seus arquivos do Windows?",
   "windows.text": "Este computador também tem Windows. Podemos copiar seus arquivos para cá; o Windows não é alterado, só lemos dele.",
   "windows.scanning": "Verificando a unidade do Windows…",
@@ -63,17 +59,14 @@
   "windows.none": "Nenhum arquivo do Windows para trazer foi encontrado neste computador.",
   "windows.failed": "Não foi possível abrir a unidade do Windows. Inicie o Windows e desligue-o completamente (Desligar, não Reiniciar), depois tente de novo pelo Sloth Center (Discos).",
   "windows.bookmarks_file": "Favoritos do Windows.html",
-
   "nav.back": "Voltar",
   "nav.next": "Avançar",
   "nav.skip": "Pular",
   "nav.finish": "Concluir",
   "nav.install": "Instalar",
-
   "step.counter": "Etapa {n} de {total}",
   "step.selected_one": "1 aplicativo selecionado",
   "step.selected_many": "{count} aplicativos selecionados",
-
   "category.multiple": "Você pode escolher vários, ou nenhum.",
   "category.browser.name": "Navegador",
   "category.browser.hint": "É com ele que você acessa a internet. Sem navegador, não dá para abrir sites.",
@@ -87,7 +80,6 @@
   "category.games.hint": "Lojas e iniciadores de jogos. Jogos e programas do Windows também funcionam sem eles.",
   "category.creative.name": "Criação",
   "category.creative.hint": "Edição de fotos, desenho, edição de vídeo, gravação.",
-
   "app.org.mozilla.firefox": "Rápido, focado em privacidade, código aberto",
   "app.com.google.Chrome": "O navegador do Google, sincroniza com sua conta Google",
   "app.com.brave.Browser": "Com bloqueador de anúncios embutido",
@@ -150,32 +142,28 @@
   "done.windows_hint": "Os instaladores dos programas do Windows foram baixados ({names}). Agora eles vão abrir um por um: siga cada instalação, como no Windows. A reinicialização vem no fim.",
   "done.windows_continue": "Continuar para a instalação dos programas do Windows",
   "done.windows_finished": "Tudo pronto, inclusive os programas do Windows! Depois de reiniciar, tudo carrega direitinho.",
-
   "offline.text": "Sem conexão com a internet. Conecte-se a uma rede para instalar aplicativos.",
   "offline.settings": "Configurações de rede",
   "offline.retry": "Tentar novamente",
-
   "nobrowser.title": "Você não escolheu um navegador",
   "nobrowser.text": "Sem navegador você não consegue abrir sites. Tem certeza?",
   "nobrowser.choose": "Vou escolher um",
   "nobrowser.ok": "Tudo bem assim",
-
   "install.preparing": "Preparando a instalação…",
   "install.retrying": "A conexão caiu, tentando novamente…",
   "install.installing": "Instalando {name}…",
   "install.note": "Dependendo da sua conexão, isso pode levar alguns minutos.",
-
   "error.network": "Sem conexão com a internet, ou o servidor não está acessível.",
   "error.disk_full": "Não há espaço livre suficiente no disco.",
   "error.not_authorized": "Não recebemos permissão para instalar.",
   "error.checksum": "O arquivo baixado estava corrompido, por isso não foi instalado.",
   "error.generic": "Não foi possível instalar.",
-
   "done.nothing_selected": "Pronto! Você pode instalar aplicativos depois pelo Discover.",
   "done.all_ok": "Tudo pronto! Seus aplicativos estão esperando no menu Iniciar.",
   "done.some_failed": "Quase pronto. Alguns aplicativos não puderam ser instalados:",
   "done.all_failed": "Infelizmente não foi possível instalar os aplicativos agora:",
   "done.retry_hint": "Você pode tentar de novo depois abrindo “Boas-vindas do Sloth” no menu Iniciar.",
+  "done.taskbar": "O que colocar na barra de tarefas?",
   "done.extras": "Mais uma ou duas coisas, se quiser:",
   "done.steam": "Entrar na Steam",
   "done.accounts": "Contas on-line (Google, Microsoft…)",
@@ -183,7 +171,6 @@
   "done.start": "Divirta-se!",
   "done.restart": "Reiniciar",
   "done.restart_hint": "Reinicie o computador para que todos os novos aplicativos carreguem corretamente.",
-
   "desktop.generic": "Aplicativos e aparência",
   "desktop.comment": "Instalar um navegador, um pacote de escritório, um reprodutor de mídia e mais, escolher um esquema de cores",
   "desktop.keywords": "boas-vindas;aplicativos;navegador;escritório;tema",
