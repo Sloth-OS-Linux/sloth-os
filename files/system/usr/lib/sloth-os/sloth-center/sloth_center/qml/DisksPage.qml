@@ -177,31 +177,88 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Deleting unneeded files: measured first, reviewed item by item (cleanup.py) -----
         Kirigami.AbstractCard {
             Layout.fillWidth: true
-            contentItem: RowLayout {
+            contentItem: ColumnLayout {
                 spacing: Kirigami.Units.largeSpacing
-                ColumnLayout {
+                RowLayout {
                     Layout.fillWidth: true
-                    spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: L.t("Delete unneeded files") }
-                    QQC2.Label {
+                    spacing: Kirigami.Units.largeSpacing
+                    ColumnLayout {
                         Layout.fillWidth: true
-                        wrapMode: Text.Wrap
-                        opacity: 0.8
-                        text: disks.cleanupText !== "" ? disks.cleanupText
-                              : L.t("Removes temporary system files, cached update data and components no app uses anymore. Your files, the previous system version and the kept ones aren't touched.")
+                        spacing: Kirigami.Units.smallSpacing
+                        Kirigami.Heading { level: 3; text: L.t("Delete unneeded files") }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.8
+                            text: disks.scanning ? L.t("Looking for unneeded files…")
+                                  : disks.cleanupItems.length > 0 ? L.t("Choose what to delete. Your own files are only deleted if you tick them.")
+                                  : disks.cleanupText !== "" ? disks.cleanupText
+                                  : L.t("Shows what could be deleted and how much space it frees, before anything is deleted. Your files, the previous system version and the kept ones aren't touched.")
+                        }
+                    }
+                    QQC2.BusyIndicator {
+                        visible: disks.busy || disks.scanning
+                        running: visible
+                    }
+                    QQC2.Button {
+                        visible: disks.cleanupItems.length === 0
+                        enabled: !disks.busy && !disks.scanning
+                        icon.name: "edit-clear-all"
+                        text: L.t("Clean up…")
+                        onClicked: disks.scanCleanup()
                     }
                 }
-                QQC2.BusyIndicator {
-                    visible: disks.busy
-                    running: visible
+
+                // The items to review, with their size; the ticked ones are deleted
+                Repeater {
+                    model: disks.cleanupItems
+                    delegate: RowLayout {
+                        id: itemRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.CheckBox {
+                            Layout.alignment: Qt.AlignTop
+                            checked: itemRow.modelData.selected
+                            Accessible.name: itemRow.modelData.name
+                            onToggled: disks.setCleanupSelected(itemRow.modelData.id, checked)
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; text: itemRow.modelData.name; font.bold: true }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                opacity: 0.7
+                                text: itemRow.modelData.description
+                            }
+                        }
+                        QQC2.Label {
+                            Layout.alignment: Qt.AlignTop
+                            text: itemRow.modelData.size
+                        }
+                    }
                 }
-                QQC2.Button {
-                    enabled: !disks.busy
-                    icon.name: "edit-clear-all"
-                    text: L.t("Clean up")
-                    onClicked: disks.cleanup()
+                RowLayout {
+                    visible: disks.cleanupItems.length > 0
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Button {
+                        highlighted: true
+                        enabled: disks.cleanupItems.some(i => i.selected)
+                        icon.name: "edit-delete"
+                        text: disks.selectedSize !== "" ? L.tf("Delete the selected ones ({size})", { size: disks.selectedSize })
+                                                         : L.t("Delete the selected ones")
+                        onClicked: disks.cleanupSelected()
+                    }
+                    QQC2.Button {
+                        text: L.t("Cancel")
+                        icon.name: "dialog-cancel"
+                        onClicked: disks.cancelCleanup()
+                    }
                 }
             }
         }

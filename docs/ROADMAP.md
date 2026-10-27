@@ -186,13 +186,15 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
 - [x] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
   (2026-10-26, System health: the drives' SMART reports through UDisks, with a File backup button; check on a real machine)
-- [ ] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
-  (2026-10-26, a first step: the Disks page shows what uses the space (your files, games, Windows programs, apps,
-  cache, system and earlier versions, counted without the ostree double counting), warns about kept versions, and
-  Clean up also removes the system's temporary files and cached update data, reporting the space really freed.
-  Still missing: reviewing items one by one before deleting)
-
-#### Sloth Center, setup, and support
+- [x] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
+  (2026-10-26, a first step: the Disks page shows what uses the space, and Clean up also removes the system's
+  temporary files and cached update data. 2026-10-27, the review: "Clean up…" first measures and lists the items
+  with their size, each with a tick box: temporary files not used for a month (~/.cache, except Sloth OS's own
+  folder: the self-healing logs and the shared knowledge; links are not followed), the Trash, components no app uses
+  anymore (Flatpak), Windows installers already used (in the home folder, from the programs' records; not ticked by
+  default, they are the user's own files), and the system's temporary files (rpm-ostree, administrator approval,
+  size only known afterwards). Only the ticked ones are deleted; the result is the space really freed.
+  `sloth_center/cleanup.py`, tests: `tools/tests/test_cleanup.py`. Check on a real machine)
 - [x] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
 - [x] Offer a short first-run guide to Updates, Programs, Games, backups, Feedback, and Disks; users can skip it or
   reopen it from the sidebar.
