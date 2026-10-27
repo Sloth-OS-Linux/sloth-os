@@ -15,9 +15,39 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
 **Current release: [Sloth OS 1.1](https://sourceforge.net/projects/sloth-os/files/1.1/)** (October 27, 2026).
-Machines already running Sloth OS get it as a normal update.
+Machines already running Sloth OS get it as a normal update. What changed: [release notes](#release-notes) below.
 
-### What's new in 1.1
+## What Sloth OS can do
+
+**Feels familiar from the first minute.** Pick a taskbar layout that looks like Windows 10, Windows 11, a Mac or
+Ubuntu, and a color scheme, in the welcome wizard or any time later. Nothing is preinstalled: the Sloth Welcome
+wizard lets you choose your apps (browsers, Steam, Discord, office, media and more) and installs them for you, and
+only what you chose goes on the taskbar. Every text is available in 50 languages.
+
+**One place for settings: Sloth Center.** Updates, disks and what uses the space, file backup and restore,
+displays (refresh rate, VRR, HDR), sound and microphone test, Bluetooth, a Wi-Fi check in plain language,
+controllers, programs that start at sign-in, app permissions, a security overview and system health, and a
+Feedback page. A short guided tour shows where everything is.
+
+**Games that just work.** Steam, Proton, GameMode and gamescope are ready to go, with an FPS and temperature display
+per game, controller support, and the NVIDIA driver set up by itself on computers with an NVIDIA card.
+
+**Windows programs without fuss.** Double-click an `.exe`, `.msi` or a disc image and it installs or runs, without
+Steam and without settings. If a program does not start, Sloth OS finds a setting that works by itself and
+remembers it ([how it works](#windows-programs-that-just-start)).
+
+**Safe, quiet updates.** The system updates itself in the background as one piece and switches over at the next
+restart. If something goes wrong, the previous version is one click away. Images are signed, and your home folder
+keeps earlier versions of your files so you can restore one or find a deleted file.
+
+**An installer that explains itself.** Install on the whole disk or next to Windows (Windows is never touched),
+choose what happens with other disks, and encrypt the disk if you like. No terminal, no text scrolling by: just a
+progress bar and plain sentences.
+
+## Release notes
+
+<details>
+<summary><b>What's new in 1.1</b> (October 27, 2026)</summary>
 
 The biggest update since 1.0: Sloth Center learned most of what people look for in Windows' Settings (displays,
 sound, Bluetooth, Wi-Fi, startup programs, app permissions, appearance), and Windows programs install and start more
@@ -76,7 +106,10 @@ also shows how big the waiting update is, and on a mobile or other metered conne
 
 Every new text is in all 50 languages.
 
-### 1.0.4 (October 26, 2026)
+</details>
+
+<details>
+<summary><b>1.0.4</b> (October 26, 2026)</summary>
 
 - **More than one disk:** the installer asks what to do with each other disk: leave it alone (the default), use it
   with its files, or erase it for programs and games. A disk with Windows on it is never changed.
@@ -92,6 +125,8 @@ Every new text is in all 50 languages.
 
 If you tried installing with an earlier 1.0.2 ISO and ran into problems, we are sorry: that installer issue is fixed.
 
+</details>
+
 ## System requirements
 
 | | Minimum | Recommended for games |
@@ -104,7 +139,7 @@ If you tried installing with an earlier 1.0.2 ISO and ran into problems, we are 
 | USB stick | 8 GB or more for the installer | |
 
 Not supported yet: BIOS-only PCs, ARM computers, and NVIDIA cards older than the GTX 16 series (the NVIDIA image uses
-NVIDIA's open kernel driver). NVIDIA computers have not been tested yet. Installing next to Windows needs at least
+NVIDIA's open kernel driver). NVIDIA computers have been tried with Secure Boot turned off. Installing next to Windows needs at least
 64 GB of free space for Sloth OS. Download and step-by-step guide:
 [sloth-os-linux.github.io/download.html](https://sloth-os-linux.github.io/download.html).
 
