@@ -19,6 +19,10 @@ Machines already running Sloth OS get it as a normal update.
 
 ### What's new in 1.1
 
+The biggest update since 1.0: Sloth Center learned most of what people look for in Windows' Settings (displays,
+sound, Bluetooth, Wi-Fi, startup programs, app permissions, appearance), and Windows programs install and start more
+reliably.
+
 **Updates that finish.** A system update could stop halfway and never finish (the system switched off a part of the
 disk in the middle of it). This is fixed and was checked with a full 2.3 GB update on a real machine. The Updates page
 also shows how big the waiting update is, and on a mobile or other metered connection it asks before downloading.
@@ -58,9 +62,16 @@ also shows how big the waiting update is, and on a mobile or other metered conne
 - **Installers fix themselves:** if a Windows installer crashes because something is missing, it is tried again with
   the fix, and what worked is remembered (and shared, if sharing is on).
 - **Installers that open the program at the end** (like IrfanView's) no longer keep the install screen waiting until
-  you close the program.
+  you close the program, also when reinstalling.
+- **Sloth OS sees which Windows programs are running:** starting one that is already open says so instead of opening
+  it twice, and a launcher that hands over to its client (like Battle.net) is followed correctly.
 - Closed Windows programs are no longer started again by themselves, and installers like 7-Zip's are recognized
   correctly.
+
+**Smaller fixes**
+
+- Cloud storage in Sloth Center: the connect buttons work again (before, both spinners turned and nothing happened).
+- A background sign-in check no longer reports an error at every start.
 - The terminal's system information (fastfetch) shows the Sloth OS logo.
 
 Every new text is in all 50 languages.

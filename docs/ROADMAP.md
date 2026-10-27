@@ -30,7 +30,8 @@ Release:
 - [x] Decide the number: 1.1 (2026-10-27; `files/scripts/branding.sh`, the README header; the SourceForge folder is
   `1.1`)
 - [x] Finish the install when the installer starts the program at its end (the IrfanView bug, below)
-- [ ] Merge `codex/1.0.5-test` into `main` (the `test/chunked-oci` branch stays out, see "Smaller system updates")
+- [x] Merge `codex/1.0.5-test` into `main` (2026-10-27; the `test/chunked-oci` branch stays out, see "Smaller system
+  updates")
 - [ ] Build the ISO from `main`, install it once in a VM, upload it to SourceForge with its SHA-256 checksum
 - [ ] Website: the 1.1 news and download link
 
