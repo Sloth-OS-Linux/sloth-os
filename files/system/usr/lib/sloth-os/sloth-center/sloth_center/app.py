@@ -46,6 +46,7 @@ def main():
     from .containers import ContainersController
     from .devpanel import DevPanelController
     from .disks import DisksController
+    from .netfolders import NetFoldersController
     from .drivers import DriversController
     from .environment import EnvironmentController
     from .gamepads import GamepadsController
@@ -77,6 +78,7 @@ def main():
     health = HealthController()
     feedback = FeedbackController()
     disks = DisksController()
+    netfolders = NetFoldersController()
     backup = BackupController()
     advanced = AdvancedController()
     reset = ResetController()
@@ -104,6 +106,7 @@ def main():
     engine.rootContext().setContextProperty("health", health)
     engine.rootContext().setContextProperty("feedback", feedback)
     engine.rootContext().setContextProperty("disks", disks)
+    engine.rootContext().setContextProperty("netfolders", netfolders)
     engine.rootContext().setContextProperty("backup", backup)
     engine.rootContext().setContextProperty("advanced", advanced)
     engine.rootContext().setContextProperty("reset", reset)

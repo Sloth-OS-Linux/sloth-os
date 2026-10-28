@@ -854,5 +854,15 @@
   "Quiet hours": "Oris cidinis",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "In cheste part de zornade nissune notifiche no ti domande di tornâ a inviâ, par esempli intant che tu zuies di sere. E rive cuant che a finissin lis oris cidinis; nuie nol torne a inviâsi di bessôl.",
   "From": "Di",
-  "to": "a"
+  "to": "a",
+  "Network folders": "Cartelis di rêt",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Un NAS o la cartele condividude di un altri computer, tal panel laterâl dal gjestôr dai files. E reste li ancje dopo di un tornâ a inviâ.",
+  "Search the network": "Cîr te rêt",
+  "Found on your network": "Cjatât te tô rêt",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Nissun altri computer al condivît cartelis te tô rêt, o nol si anuncie. Scrîf la sô direzion chi sot.",
+  "Address, e.g. {example}": "Direzion, par es. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Dome dal panel laterâl. I files te rêt no vegnin tocjâts.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Zontade. Cuant che al domande la tô password, lasse che le ricuardi: la prossime volte si coleghe di bessole.",
+  "This isn't a network address. Example: {example}": "Cheste no je une direzion di rêt. Esempli: {example}",
+  "Couldn't add the folder.": "Impussibil zontâ la cartele."
 }

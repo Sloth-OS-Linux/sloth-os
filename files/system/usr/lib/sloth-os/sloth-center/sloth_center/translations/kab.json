@@ -854,5 +854,15 @@
   "Quiet hours": "Isragen n tsusmi",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Deg teswiɛt-a n wass ulac alɣu ara k·m-yessutren ad talseḍ asekker, amedya mi ara turareḍ tameddit. Ad d-yas mi ara fakken yisragen n tsusmi; ulac ayen ara yalsen asekker iman-is.",
   "From": "Seg",
-  "to": "ar"
+  "to": "ar",
+  "Network folders": "Ikaramen n uẓeṭṭa",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS neɣ akaram yettwabḍan n uselkim nniḍen, deg ugalis n tama n umsefrak n yifuyla. Ad yeqqim dinna ula deffir n tulsa n usekker.",
+  "Search the network": "Nadi deg uẓeṭṭa",
+  "Found on your network": "Yettwaf deg uẓeṭṭa-k",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Ulac aselkim nniḍen ara yebḍun ikaramen deg uẓeṭṭa-k, neɣ ur d-yettbeggin ara iman-is. Aru tansa-s ddaw-a.",
+  "Address, e.g. {example}": "Tansa, amedya {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Seg ugalis n tama kan. Ifuyla deg uẓeṭṭa ur ttwannalen ara.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Yettwarna. Mi ara k-d-yessuter awal uffir, eǧǧ-it ad t-yecfu: tikkelt-nniḍen ad iqqen weḥd-s.",
+  "This isn't a network address. Example: {example}": "Wagi mačči d tansa n uẓeṭṭa. Amedya: {example}",
+  "Couldn't add the folder.": "Ur yezmir ara ad yernu akaram."
 }

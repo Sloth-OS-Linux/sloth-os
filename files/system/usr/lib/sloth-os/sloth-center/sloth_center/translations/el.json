@@ -854,5 +854,15 @@
   "Quiet hours": "Ώρες ησυχίας",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Αυτές τις ώρες καμία ειδοποίηση δεν σας ζητά επανεκκίνηση, για παράδειγμα όσο παίζετε το βράδυ. Έρχεται όταν τελειώσουν οι ώρες ησυχίας· τίποτα δεν κάνει επανεκκίνηση μόνο του.",
   "From": "Από",
-  "to": "έως"
+  "to": "έως",
+  "Network folders": "Φάκελοι δικτύου",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Ένα NAS ή ο κοινόχρηστος φάκελος άλλου υπολογιστή, στην πλαϊνή στήλη της διαχείρισης αρχείων. Παραμένει εκεί και μετά από επανεκκίνηση.",
+  "Search the network": "Αναζήτηση στο δίκτυο",
+  "Found on your network": "Βρέθηκε στο δίκτυό σας",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Κανένας άλλος υπολογιστής δεν μοιράζεται φακέλους στο δίκτυό σας ή δεν ανακοινώνεται. Πληκτρολογήστε τη διεύθυνσή του παρακάτω.",
+  "Address, e.g. {example}": "Διεύθυνση, π.χ. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Μόνο από την πλαϊνή στήλη. Τα αρχεία στο δίκτυο δεν αγγίζονται.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Προστέθηκε. Όταν ζητήσει τον κωδικό σας, αφήστε τον να τον θυμάται: την επόμενη φορά θα συνδεθεί μόνος του.",
+  "This isn't a network address. Example: {example}": "Αυτό δεν είναι διεύθυνση δικτύου. Παράδειγμα: {example}",
+  "Couldn't add the folder.": "Δεν ήταν δυνατή η προσθήκη του φακέλου."
 }

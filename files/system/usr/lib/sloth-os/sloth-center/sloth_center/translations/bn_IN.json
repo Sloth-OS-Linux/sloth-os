@@ -854,5 +854,15 @@
   "Quiet hours": "শান্ত সময়",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "দিনের এই সময়ে কোনো বিজ্ঞপ্তি রিস্টার্ট করতে বলবে না, যেমন সন্ধ্যায় খেলার সময়। শান্ত সময় শেষ হলে সেটি আসবে; কিছুই নিজে থেকে রিস্টার্ট হয় না।",
   "From": "থেকে",
-  "to": "পর্যন্ত"
+  "to": "পর্যন্ত",
+  "Network folders": "নেটওয়ার্ক ফোল্ডার",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "একটি NAS বা অন্য কম্পিউটারের শেয়ার করা ফোল্ডার, ফাইল ম্যানেজারের পাশের প্যানেলে। রিস্টার্টের পরেও এটি সেখানে থাকে।",
+  "Search the network": "নেটওয়ার্কে খুঁজুন",
+  "Found on your network": "আপনার নেটওয়ার্কে পাওয়া গেছে",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "আপনার নেটওয়ার্কে অন্য কোনো কম্পিউটার ফোল্ডার শেয়ার করে না, অথবা নিজেকে জানায় না। নিচে তার ঠিকানা লিখুন।",
+  "Address, e.g. {example}": "ঠিকানা, যেমন {example}",
+  "Only from the side panel. The files on the network aren't touched.": "শুধু পাশের প্যানেল থেকে। নেটওয়ার্কের ফাইলগুলিতে হাত দেওয়া হয় না।",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "যোগ করা হয়েছে। পাসওয়ার্ড চাইলে সেটি মনে রাখতে দিন: পরের বার নিজে থেকেই সংযুক্ত হবে।",
+  "This isn't a network address. Example: {example}": "এটি নেটওয়ার্ক ঠিকানা নয়। উদাহরণ: {example}",
+  "Couldn't add the folder.": "ফোল্ডার যোগ করা যায়নি।"
 }

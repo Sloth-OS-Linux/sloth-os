@@ -854,5 +854,15 @@
   "Quiet hours": "Tysta timmar",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Under den här delen av dygnet ber ingen avisering dig att starta om, till exempel medan du spelar på kvällen. Den kommer när de tysta timmarna är slut; inget startar om av sig självt.",
   "From": "Från",
-  "to": "till"
+  "to": "till",
+  "Network folders": "Nätverksmappar",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "En NAS eller en annan dators delade mapp, i filhanterarens sidopanel. Den finns kvar där även efter en omstart.",
+  "Search the network": "Sök i nätverket",
+  "Found on your network": "Hittad i ditt nätverk",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Ingen annan dator delar mappar i ditt nätverk, eller så meddelar den sig inte. Skriv dess adress nedan.",
+  "Address, e.g. {example}": "Adress, t.ex. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Bara från sidopanelen. Filerna i nätverket rörs inte.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Tillagd. När den frågar efter ditt lösenord, låt den komma ihåg det: då ansluter den av sig själv nästa gång.",
+  "This isn't a network address. Example: {example}": "Det här är ingen nätverksadress. Exempel: {example}",
+  "Couldn't add the folder.": "Det gick inte att lägga till mappen."
 }

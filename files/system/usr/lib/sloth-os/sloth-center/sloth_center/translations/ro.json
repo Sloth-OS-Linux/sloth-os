@@ -854,5 +854,15 @@
   "Quiet hours": "Ore de liniște",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "În această parte a zilei nicio notificare nu vă cere să reporniți, de exemplu cât timp vă jucați seara. Vine când se termină orele de liniște; nimic nu repornește singur.",
   "From": "De la",
-  "to": "până la"
+  "to": "până la",
+  "Network folders": "Dosare din rețea",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Un NAS sau dosarul partajat al altui calculator, în panoul lateral al managerului de fișiere. Rămâne acolo și după o repornire.",
+  "Search the network": "Caută în rețea",
+  "Found on your network": "Găsit în rețeaua ta",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Niciun alt calculator nu partajează dosare în rețeaua ta sau nu se anunță. Scrie adresa lui mai jos.",
+  "Address, e.g. {example}": "Adresă, de ex. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Doar din panoul lateral. Fișierele din rețea nu sunt atinse.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Adăugat. Când îți cere parola, lasă-l să o rețină: data viitoare se conectează singur.",
+  "This isn't a network address. Example: {example}": "Aceasta nu este o adresă de rețea. Exemplu: {example}",
+  "Couldn't add the folder.": "Dosarul nu a putut fi adăugat."
 }

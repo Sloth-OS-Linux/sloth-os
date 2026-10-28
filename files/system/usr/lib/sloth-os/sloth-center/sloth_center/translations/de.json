@@ -854,5 +854,15 @@
   "Quiet hours": "Ruhezeiten",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "In dieser Tageszeit fordert Sie keine Benachrichtigung zum Neustart auf, zum Beispiel während Sie abends spielen. Sie kommt, wenn die Ruhezeit endet; nichts startet von selbst neu.",
   "From": "Von",
-  "to": "bis"
+  "to": "bis",
+  "Network folders": "Netzwerkordner",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Ein NAS oder der freigegebene Ordner eines anderen Computers, in der Seitenleiste der Dateiverwaltung. Er bleibt auch nach einem Neustart dort.",
+  "Search the network": "Netzwerk durchsuchen",
+  "Found on your network": "In deinem Netzwerk gefunden",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Kein anderer Computer gibt in deinem Netzwerk Ordner frei, oder er meldet sich nicht. Gib unten seine Adresse ein.",
+  "Address, e.g. {example}": "Adresse, z. B. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Nur aus der Seitenleiste. Die Dateien im Netzwerk werden nicht angerührt.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Hinzugefügt. Wenn nach deinem Passwort gefragt wird, lass es speichern: Dann verbindet es sich beim nächsten Mal von selbst.",
+  "This isn't a network address. Example: {example}": "Das ist keine Netzwerkadresse. Beispiel: {example}",
+  "Couldn't add the folder.": "Der Ordner konnte nicht hinzugefügt werden."
 }

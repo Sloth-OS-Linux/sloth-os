@@ -854,5 +854,15 @@
   "Quiet hours": "Stil ure",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "In hierdie deel van die dag vra geen kennisgewing jou om te herbegin nie, byvoorbeeld terwyl jy saans speel. Dit kom wanneer die stil ure verby is; niks herbegin vanself nie.",
   "From": "Van",
-  "to": "tot"
+  "to": "tot",
+  "Network folders": "Netwerkvouers",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "'n NAS of 'n ander rekenaar se gedeelde vouer, in die lêerbestuurder se sypaneel. Dit bly ook ná 'n herbegin daar.",
+  "Search the network": "Deursoek die netwerk",
+  "Found on your network": "Op jou netwerk gevind",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Geen ander rekenaar deel vouers op jou netwerk nie, of dit kondig homself nie aan nie. Tik sy adres hieronder.",
+  "Address, e.g. {example}": "Adres, bv. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Net uit die sypaneel. Die lêers op die netwerk word nie aangeraak nie.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Bygevoeg. Wanneer dit vir jou wagwoord vra, laat dit dit onthou: dan koppel dit volgende keer vanself.",
+  "This isn't a network address. Example: {example}": "Dit is nie 'n netwerkadres nie. Voorbeeld: {example}",
+  "Couldn't add the folder.": "Kon nie die vouer byvoeg nie."
 }

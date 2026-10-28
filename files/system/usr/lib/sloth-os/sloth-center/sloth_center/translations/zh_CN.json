@@ -854,5 +854,15 @@
   "Quiet hours": "免打扰时段",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "在这段时间内，不会有通知要求你重启，例如晚上玩游戏时。免打扰时段结束后通知才会出现；不会自动重启。",
   "From": "从",
-  "to": "到"
+  "to": "到",
+  "Network folders": "网络文件夹",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS 或其他计算机的共享文件夹，显示在文件管理器的侧边栏中。重启后它仍会在那里。",
+  "Search the network": "搜索网络",
+  "Found on your network": "在你的网络中找到",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "你的网络中没有其他计算机共享文件夹，或者它没有广播自己。请在下方输入它的地址。",
+  "Address, e.g. {example}": "地址，例如 {example}",
+  "Only from the side panel. The files on the network aren't touched.": "仅从侧边栏移除。网络上的文件不会受影响。",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "已添加。询问密码时，让它记住密码：下次就会自动连接。",
+  "This isn't a network address. Example: {example}": "这不是网络地址。示例：{example}",
+  "Couldn't add the folder.": "无法添加文件夹。"
 }

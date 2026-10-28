@@ -854,5 +854,15 @@
   "Quiet hours": "Sessiz saatler",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Günün bu kısmında hiçbir bildirim yeniden başlatmanızı istemez, örneğin akşam oyun oynarken. Sessiz saatler bitince gelir; hiçbir şey kendiliğinden yeniden başlamaz.",
   "From": "Başlangıç",
-  "to": "bitiş"
+  "to": "bitiş",
+  "Network folders": "Ağ klasörleri",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Bir NAS veya başka bir bilgisayarın paylaşılan klasörü, dosya yöneticisinin yan panelinde. Yeniden başlattıktan sonra da orada kalır.",
+  "Search the network": "Ağda ara",
+  "Found on your network": "Ağınızda bulundu",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Ağınızda klasör paylaşan başka bilgisayar yok ya da kendini duyurmuyor. Adresini aşağıya yazın.",
+  "Address, e.g. {example}": "Adres, ör. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Yalnızca yan panelden. Ağdaki dosyalara dokunulmaz.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Eklendi. Parolanızı sorduğunda hatırlamasına izin verin: bir dahaki sefere kendiliğinden bağlanır.",
+  "This isn't a network address. Example: {example}": "Bu bir ağ adresi değil. Örnek: {example}",
+  "Couldn't add the folder.": "Klasör eklenemedi."
 }

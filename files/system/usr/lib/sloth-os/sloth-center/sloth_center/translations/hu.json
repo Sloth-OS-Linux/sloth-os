@@ -854,5 +854,15 @@
   "Quiet hours": "Csendes órák",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Ebben a napszakban egyetlen értesítés sem kér újraindítást, például amíg este játszol. A csendes órák végén jön; semmi nem indul újra magától.",
   "From": "Ettől:",
-  "to": "eddig:"
+  "to": "eddig:",
+  "Network folders": "Hálózati mappák",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Egy NAS vagy egy másik számítógép megosztott mappája a fájlkezelő oldalsávjában. Újraindítás után is ott marad.",
+  "Search the network": "Keresés a hálózaton",
+  "Found on your network": "A hálózatodon található",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Más számítógép nem oszt meg mappát a hálózatodon, vagy nem jelzi magát. Írd be a címét lent.",
+  "Address, e.g. {example}": "Cím, pl. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Csak az oldalsávból. A hálózaton lévő fájlokhoz nem nyúl.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Hozzáadva. Amikor a jelszavadat kéri, hagyd, hogy megjegyezze: így legközelebb magától csatlakozik.",
+  "This isn't a network address. Example: {example}": "Ez nem hálózati cím. Példa: {example}",
+  "Couldn't add the folder.": "Nem sikerült hozzáadni a mappát."
 }

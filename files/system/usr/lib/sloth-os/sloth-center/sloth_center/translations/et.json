@@ -854,5 +854,15 @@
   "Quiet hours": "Vaiksed tunnid",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Sel kellaajal ei palu ükski teavitus taaskäivitada, näiteks kui sa õhtul mängid. See tuleb, kui vaiksed tunnid lõpevad; midagi ei taaskäivitu ise.",
   "From": "Alates",
-  "to": "kuni"
+  "to": "kuni",
+  "Network folders": "Võrgukaustad",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS või teise arvuti jagatud kaust failihalduri külgpaneelil. See jääb sinna ka pärast taaskäivitust.",
+  "Search the network": "Otsi võrgust",
+  "Found on your network": "Leitud sinu võrgust",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Ükski teine arvuti ei jaga sinu võrgus kaustu või ei anna endast teada. Sisesta selle aadress allpool.",
+  "Address, e.g. {example}": "Aadress, nt {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Ainult külgpaneelilt. Võrgus olevaid faile ei puudutata.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Lisatud. Kui see küsib parooli, lase see meelde jätta: järgmisel korral ühendub see ise.",
+  "This isn't a network address. Example: {example}": "See pole võrguaadress. Näide: {example}",
+  "Couldn't add the folder.": "Kausta ei õnnestunud lisada."
 }

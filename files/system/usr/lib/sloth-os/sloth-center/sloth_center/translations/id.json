@@ -854,5 +854,15 @@
   "Quiet hours": "Jam tenang",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Pada jam ini tidak ada notifikasi yang meminta Anda memulai ulang, misalnya saat Anda bermain di malam hari. Notifikasi datang setelah jam tenang berakhir; tidak ada yang dimulai ulang dengan sendirinya.",
   "From": "Dari",
-  "to": "sampai"
+  "to": "sampai",
+  "Network folders": "Folder jaringan",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS atau folder bersama dari komputer lain, di panel samping pengelola berkas. Tetap ada di sana setelah dimulai ulang.",
+  "Search the network": "Cari di jaringan",
+  "Found on your network": "Ditemukan di jaringan Anda",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Tidak ada komputer lain yang berbagi folder di jaringan Anda, atau tidak mengumumkan dirinya. Ketik alamatnya di bawah.",
+  "Address, e.g. {example}": "Alamat, mis. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Hanya dari panel samping. Berkas di jaringan tidak disentuh.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Ditambahkan. Saat meminta kata sandi, biarkan diingat: lain kali akan tersambung sendiri.",
+  "This isn't a network address. Example: {example}": "Ini bukan alamat jaringan. Contoh: {example}",
+  "Couldn't add the folder.": "Tidak dapat menambahkan folder."
 }

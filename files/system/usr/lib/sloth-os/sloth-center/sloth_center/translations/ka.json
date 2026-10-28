@@ -854,5 +854,15 @@
   "Quiet hours": "მშვიდი საათები",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "დღის ამ ნაწილში არცერთი შეტყობინება არ გთხოვთ გადატვირთვას, მაგალითად საღამოს თამაშისას. ის მოვა, როცა მშვიდი საათები დასრულდება; არაფერი გადაიტვირთება თავისით.",
   "From": "დან",
-  "to": "მდე"
+  "to": "მდე",
+  "Network folders": "ქსელის საქაღალდეები",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS ან სხვა კომპიუტერის გაზიარებული საქაღალდე, ფაილების მმართველის გვერდით პანელზე. ის იქ რჩება გადატვირთვის შემდეგაც.",
+  "Search the network": "ქსელში ძებნა",
+  "Found on your network": "ნაპოვნია თქვენს ქსელში",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "სხვა კომპიუტერი თქვენს ქსელში საქაღალდეებს არ აზიარებს, ან თავს არ აცხადებს. ჩაწერეთ მისი მისამართი ქვემოთ.",
+  "Address, e.g. {example}": "მისამართი, მაგ. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "მხოლოდ გვერდითი პანელიდან. ქსელში არსებულ ფაილებს არაფერი ემართება.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "დაემატა. როცა პაროლს მოგთხოვთ, ნება დართეთ დაიმახსოვროს: შემდეგ ჯერზე თავად დაუკავშირდება.",
+  "This isn't a network address. Example: {example}": "ეს არ არის ქსელის მისამართი. მაგალითი: {example}",
+  "Couldn't add the folder.": "საქაღალდის დამატება ვერ მოხერხდა."
 }

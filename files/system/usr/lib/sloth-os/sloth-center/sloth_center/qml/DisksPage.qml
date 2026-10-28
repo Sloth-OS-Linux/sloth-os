@@ -14,7 +14,10 @@ Kirigami.ScrollablePage {
                                           cache: "#fdbc4b", system: "#7f8c8d" })
     readonly property int keptVersions: updates.versions.filter(v => v.pinned && !v.booted).length
 
-    Component.onCompleted: if (!disks.usage.items) disks.measure()
+    Component.onCompleted: {
+        if (!disks.usage.items) disks.measure()
+        if (!netfolders.searched) netfolders.search()
+    }
 
     actions: [
         Kirigami.Action {
@@ -173,6 +176,131 @@ Kirigami.ScrollablePage {
                         type: Kirigami.MessageType.Error
                         text: L.t("According to its own self-check, this drive may fail. Copy your important files somewhere else as soon as possible!")
                     }
+                }
+            }
+        }
+
+        // --- Network folders: a NAS or another computer's shared folder in the side panel (netfolders.py) ----
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        Kirigami.Heading { level: 3; text: L.t("Network folders") }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.8
+                            text: L.t("A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.")
+                        }
+                    }
+                    QQC2.BusyIndicator {
+                        visible: netfolders.searching
+                        running: visible
+                    }
+                    QQC2.Button {
+                        enabled: !netfolders.searching
+                        icon.name: "network-workgroup"
+                        text: L.t("Search the network")
+                        onClicked: netfolders.search()
+                    }
+                }
+
+                // The ones already added
+                Repeater {
+                    model: netfolders.folders
+                    delegate: RowLayout {
+                        id: folderRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: "folder-network"
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: implicitWidth
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: folderRow.modelData.name; font.bold: true }
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideMiddle; opacity: 0.7; text: folderRow.modelData.url }
+                        }
+                        QQC2.Button {
+                            text: L.t("Open")
+                            icon.name: "folder-open"
+                            onClicked: netfolders.open(folderRow.modelData.url)
+                        }
+                        QQC2.Button {
+                            text: L.t("Remove")
+                            icon.name: "list-remove"
+                            QQC2.ToolTip.visible: hovered
+                            QQC2.ToolTip.text: L.t("Only from the side panel. The files on the network aren't touched.")
+                            onClicked: netfolders.removeFolder(folderRow.modelData.url)
+                        }
+                    }
+                }
+
+                // Found on the network (Avahi), not added yet
+                Repeater {
+                    model: netfolders.found
+                    delegate: RowLayout {
+                        id: foundRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: "network-server"
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: implicitWidth
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: foundRow.modelData.name; font.bold: true }
+                            QQC2.Label { Layout.fillWidth: true; opacity: 0.7; text: L.t("Found on your network") }
+                        }
+                        QQC2.Button {
+                            text: L.t("Add")
+                            icon.name: "list-add"
+                            onClicked: netfolders.addFolder(foundRow.modelData.url, foundRow.modelData.name)
+                        }
+                    }
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    visible: !netfolders.searching && netfolders.searched && netfolders.found.length === 0
+                    wrapMode: Text.Wrap
+                    opacity: 0.7
+                    text: L.t("No other computer shares folders on your network, or it doesn't announce itself. Type its address below.")
+                }
+
+                // By address: \\NAS\Photos, smb://…, nfs://…
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.TextField {
+                        id: addressField
+                        Layout.fillWidth: true
+                        placeholderText: L.tf("Address, e.g. {example}", { example: "\\\\NAS\\Photos" })
+                        onAccepted: if (netfolders.isValid(text) && netfolders.addFolder(text, "")) text = ""
+                    }
+                    QQC2.Button {
+                        enabled: netfolders.isValid(addressField.text)
+                        text: L.t("Add")
+                        icon.name: "list-add"
+                        onClicked: if (netfolders.addFolder(addressField.text, "")) addressField.text = ""
+                    }
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: netfolders.message !== ""
+                    type: Kirigami.MessageType.Information
+                    text: netfolders.message
                 }
             }
         }

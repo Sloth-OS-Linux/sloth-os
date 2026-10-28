@@ -854,5 +854,15 @@
   "Quiet hours": "Ore di silenzio",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "In questa parte della giornata nessuna notifica ti chiede di riavviare, per esempio mentre giochi la sera. Arriva quando finiscono le ore di silenzio; niente si riavvia da solo.",
   "From": "Dalle",
-  "to": "alle"
+  "to": "alle",
+  "Network folders": "Cartelle di rete",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Un NAS o la cartella condivisa di un altro computer, nel pannello laterale del gestore di file. Resta lì anche dopo un riavvio.",
+  "Search the network": "Cerca nella rete",
+  "Found on your network": "Trovato nella tua rete",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Nessun altro computer condivide cartelle nella tua rete, oppure non si annuncia. Scrivi il suo indirizzo qui sotto.",
+  "Address, e.g. {example}": "Indirizzo, ad es. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Solo dal pannello laterale. I file nella rete non vengono toccati.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Aggiunta. Quando chiede la password, lascia che la ricordi: la prossima volta si collegherà da sola.",
+  "This isn't a network address. Example: {example}": "Questo non è un indirizzo di rete. Esempio: {example}",
+  "Couldn't add the folder.": "Impossibile aggiungere la cartella."
 }

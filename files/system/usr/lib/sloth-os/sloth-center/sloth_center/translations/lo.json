@@ -854,5 +854,15 @@
   "Quiet hours": "ຊົ່ວໂມງງຽບ",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "ໃນຊ່ວງເວລານີ້ຂອງມື້ ຈະບໍ່ມີການແຈ້ງເຕືອນໃດຂໍໃຫ້ເລີ່ມໃໝ່, ເຊັ່ນ ຕອນທີ່ທ່ານຫຼິ້ນເກມຕອນແລງ. ມັນຈະມາເມື່ອຊົ່ວໂມງງຽບສິ້ນສຸດ; ບໍ່ມີຫຍັງເລີ່ມໃໝ່ເອງ.",
   "From": "ຈາກ",
-  "to": "ຫາ"
+  "to": "ຫາ",
+  "Network folders": "ໂຟນເດີເຄືອຂ່າຍ",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS ຫຼື ໂຟນເດີທີ່ແບ່ງປັນຂອງຄອມພິວເຕີອື່ນ, ຢູ່ໃນແຖບຂ້າງຂອງຕົວຈັດການໄຟລ໌. ມັນຍັງຢູ່ບ່ອນນັ້ນຫຼັງຈາກເປີດເຄື່ອງຄືນໃໝ່.",
+  "Search the network": "ຊອກຫາໃນເຄືອຂ່າຍ",
+  "Found on your network": "ພົບໃນເຄືອຂ່າຍຂອງທ່ານ",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "ບໍ່ມີຄອມພິວເຕີອື່ນແບ່ງປັນໂຟນເດີໃນເຄືອຂ່າຍຂອງທ່ານ, ຫຼື ມັນບໍ່ປະກາດຕົວເອງ. ພິມທີ່ຢູ່ຂອງມັນຂ້າງລຸ່ມ.",
+  "Address, e.g. {example}": "ທີ່ຢູ່, ເຊັ່ນ {example}",
+  "Only from the side panel. The files on the network aren't touched.": "ພຽງແຕ່ຈາກແຖບຂ້າງ. ໄຟລ໌ໃນເຄືອຂ່າຍບໍ່ຖືກແຕະຕ້ອງ.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "ເພີ່ມແລ້ວ. ເມື່ອມັນຖາມລະຫັດຜ່ານ, ໃຫ້ມັນຈື່ໄວ້: ເທື່ອໜ້າມັນຈະເຊື່ອມຕໍ່ເອງ.",
+  "This isn't a network address. Example: {example}": "ນີ້ບໍ່ແມ່ນທີ່ຢູ່ເຄືອຂ່າຍ. ຕົວຢ່າງ: {example}",
+  "Couldn't add the folder.": "ບໍ່ສາມາດເພີ່ມໂຟນເດີໄດ້."
 }

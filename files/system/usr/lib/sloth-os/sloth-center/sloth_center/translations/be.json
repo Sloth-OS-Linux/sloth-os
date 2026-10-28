@@ -854,5 +854,15 @@
   "Quiet hours": "Ціхія гадзіны",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "У гэты час дня ніводнае апавяшчэнне не просіць перазапусціць камп'ютар, напрыклад пакуль вы гуляеце ўвечары. Яно з'явіцца, калі ціхія гадзіны скончацца; нічога не перазапускаецца само.",
   "From": "З",
-  "to": "да"
+  "to": "да",
+  "Network folders": "Сеткавыя папкі",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS або агульная папка іншага камп'ютара на бакавой панэлі файлавага менеджара. Яна застаецца там і пасля перазапуску.",
+  "Search the network": "Шукаць у сетцы",
+  "Found on your network": "Знойдзена ў вашай сетцы",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Ніводны іншы камп'ютар не адкрывае папкі ў вашай сетцы або не паведамляе пра сябе. Увядзіце яго адрас ніжэй.",
+  "Address, e.g. {example}": "Адрас, напрыклад {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Толькі з бакавой панэлі. Файлы ў сетцы не закранаюцца.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Дададзена. Калі спытае пароль, дазвольце яго запомніць: наступным разам падключэнне будзе аўтаматычным.",
+  "This isn't a network address. Example: {example}": "Гэта не сеткавы адрас. Прыклад: {example}",
+  "Couldn't add the folder.": "Не ўдалося дадаць папку."
 }

@@ -854,5 +854,15 @@
   "Quiet hours": "Tiché hodiny",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "V tejto časti dňa vás žiadne oznámenie nežiada o reštart, napríklad keď večer hráte. Príde, keď tiché hodiny skončia; nič sa samo nereštartuje.",
   "From": "Od",
-  "to": "do"
+  "to": "do",
+  "Network folders": "Sieťové priečinky",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS alebo zdieľaný priečinok iného počítača v bočnom paneli správcu súborov. Zostane tam aj po reštarte.",
+  "Search the network": "Hľadať v sieti",
+  "Found on your network": "Nájdené vo vašej sieti",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Žiadny iný počítač vo vašej sieti nezdieľa priečinky, alebo sa neohlasuje. Zadajte jeho adresu nižšie.",
+  "Address, e.g. {example}": "Adresa, napr. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Len z bočného panela. Súborov v sieti sa to nedotkne.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Pridané. Keď sa opýta na heslo, nechajte ho zapamätať: nabudúce sa pripojí samo.",
+  "This isn't a network address. Example: {example}": "Toto nie je sieťová adresa. Príklad: {example}",
+  "Couldn't add the folder.": "Priečinok sa nepodarilo pridať."
 }

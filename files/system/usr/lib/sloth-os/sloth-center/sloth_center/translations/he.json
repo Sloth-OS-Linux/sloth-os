@@ -854,5 +854,15 @@
   "Quiet hours": "שעות שקטות",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "בחלק הזה של היום שום הודעה לא תבקש מכם להפעיל מחדש, למשל בזמן שאתם משחקים בערב. היא תגיע כשהשעות השקטות ייגמרו; שום דבר לא מופעל מחדש מעצמו.",
   "From": "מ־",
-  "to": "עד"
+  "to": "עד",
+  "Network folders": "תיקיות רשת",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS או תיקייה משותפת של מחשב אחר, בלוח הצד של מנהל הקבצים. היא נשארת שם גם אחרי הפעלה מחדש.",
+  "Search the network": "חיפוש ברשת",
+  "Found on your network": "נמצא ברשת שלך",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "אף מחשב אחר לא משתף תיקיות ברשת שלך, או שהוא לא מכריז על עצמו. יש להקליד את הכתובת שלו למטה.",
+  "Address, e.g. {example}": "כתובת, למשל {example}",
+  "Only from the side panel. The files on the network aren't touched.": "רק מלוח הצד. הקבצים ברשת לא נפגעים.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "נוסף. כשתתבקש הסיסמה, יש לאפשר לזכור אותה: כך בפעם הבאה החיבור יתבצע מעצמו.",
+  "This isn't a network address. Example: {example}": "זו אינה כתובת רשת. דוגמה: {example}",
+  "Couldn't add the folder.": "לא ניתן להוסיף את התיקייה."
 }

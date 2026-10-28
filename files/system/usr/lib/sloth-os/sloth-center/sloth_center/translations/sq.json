@@ -854,5 +854,15 @@
   "Quiet hours": "Orë qetësie",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Në këtë pjesë të ditës asnjë njoftim nuk ju kërkon të rinisni, për shembull ndërsa luani në mbrëmje. Vjen kur mbarojnë orët e qetësisë; asgjë nuk riniset vetë.",
   "From": "Nga",
-  "to": "deri"
+  "to": "deri",
+  "Network folders": "Dosjet e rrjetit",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Një NAS ose dosja e ndarë e një kompjuteri tjetër, në panelin anësor të menaxherit të skedarëve. Mbetet aty edhe pas rinisjes.",
+  "Search the network": "Kërko në rrjet",
+  "Found on your network": "Gjetur në rrjetin tënd",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Asnjë kompjuter tjetër nuk ndan dosje në rrjetin tënd, ose nuk e njofton veten. Shkruaj adresën e tij më poshtë.",
+  "Address, e.g. {example}": "Adresa, p.sh. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Vetëm nga paneli anësor. Skedarët në rrjet nuk preken.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "U shtua. Kur të kërkojë fjalëkalimin, lëre ta mbajë mend: herën tjetër lidhet vetë.",
+  "This isn't a network address. Example: {example}": "Kjo nuk është adresë rrjeti. Shembull: {example}",
+  "Couldn't add the folder.": "Dosja nuk mund të shtohej."
 }

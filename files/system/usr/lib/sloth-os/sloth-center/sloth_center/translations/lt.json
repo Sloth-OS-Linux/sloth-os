@@ -854,5 +854,15 @@
   "Quiet hours": "Ramybės valandos",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Šiuo paros metu jokis pranešimas neprašys paleisti iš naujo, pavyzdžiui, kai vakare žaidžiate. Jis ateis, kai ramybės valandos baigsis; niekas nepasileidžia iš naujo savaime.",
   "From": "Nuo",
-  "to": "iki"
+  "to": "iki",
+  "Network folders": "Tinklo aplankai",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS arba kito kompiuterio bendrinamas aplankas failų tvarkytuvės šoniniame skydelyje. Jis lieka ten ir paleidus iš naujo.",
+  "Search the network": "Ieškoti tinkle",
+  "Found on your network": "Rasta jūsų tinkle",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Joks kitas kompiuteris jūsų tinkle nebendrina aplankų arba apie save nepraneša. Įveskite jo adresą žemiau.",
+  "Address, e.g. {example}": "Adresas, pvz., {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Tik iš šoninio skydelio. Tinkle esantys failai neliečiami.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Pridėta. Kai paklaus slaptažodžio, leiskite jį įsiminti: kitą kartą prisijungs savaime.",
+  "This isn't a network address. Example: {example}": "Tai ne tinklo adresas. Pavyzdys: {example}",
+  "Couldn't add the folder.": "Nepavyko pridėti aplanko."
 }

@@ -854,5 +854,15 @@
   "Quiet hours": "Тихи часове",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "В тази част от деня никое известие не ви моли да рестартирате, например докато играете вечер. То идва, когато тихите часове свършат; нищо не се рестартира само.",
   "From": "От",
-  "to": "до"
+  "to": "до",
+  "Network folders": "Мрежови папки",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS или споделена папка на друг компютър, в страничния панел на файловия мениджър. Остава там и след рестарт.",
+  "Search the network": "Търсене в мрежата",
+  "Found on your network": "Намерено във вашата мрежа",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Никой друг компютър не споделя папки във вашата мрежа или не се обявява. Въведете адреса му по-долу.",
+  "Address, e.g. {example}": "Адрес, напр. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Само от страничния панел. Файловете в мрежата не се засягат.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Добавено. Когато поиска паролата ви, оставете я да се запомни: следващия път ще се свърже само.",
+  "This isn't a network address. Example: {example}": "Това не е мрежов адрес. Пример: {example}",
+  "Couldn't add the folder.": "Папката не можа да бъде добавена."
 }

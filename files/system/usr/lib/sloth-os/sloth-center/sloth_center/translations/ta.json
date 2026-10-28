@@ -854,5 +854,15 @@
   "Quiet hours": "அமைதி நேரம்",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "நாளின் இந்த நேரத்தில், மாலையில் விளையாடும்போது போல, எந்த அறிவிப்பும் மறுதொடக்கம் செய்யச் சொல்லாது. அமைதி நேரம் முடிந்ததும் அது வரும்; எதுவும் தானாக மறுதொடக்கம் ஆகாது.",
   "From": "முதல்",
-  "to": "வரை"
+  "to": "வரை",
+  "Network folders": "பிணைய கோப்புறைகள்",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "ஒரு NAS அல்லது மற்றொரு கணினியின் பகிரப்பட்ட கோப்புறை, கோப்பு மேலாளரின் பக்கப் பலகத்தில். மறுதொடக்கத்திற்குப் பிறகும் அது அங்கேயே இருக்கும்.",
+  "Search the network": "பிணையத்தில் தேடு",
+  "Found on your network": "உங்கள் பிணையத்தில் கண்டறியப்பட்டது",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "உங்கள் பிணையத்தில் வேறு எந்தக் கணினியும் கோப்புறைகளைப் பகிரவில்லை, அல்லது தன்னை அறிவிக்கவில்லை. அதன் முகவரியைக் கீழே தட்டச்சு செய்யவும்.",
+  "Address, e.g. {example}": "முகவரி, எ.கா. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "பக்கப் பலகத்திலிருந்து மட்டும். பிணையத்தில் உள்ள கோப்புகள் தொடப்படாது.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "சேர்க்கப்பட்டது. கடவுச்சொல்லைக் கேட்கும்போது அதை நினைவில் வைக்க அனுமதிக்கவும்: அடுத்த முறை தானாக இணையும்.",
+  "This isn't a network address. Example: {example}": "இது பிணைய முகவரி அல்ல. எடுத்துக்காட்டு: {example}",
+  "Couldn't add the folder.": "கோப்புறையைச் சேர்க்க முடியவில்லை."
 }

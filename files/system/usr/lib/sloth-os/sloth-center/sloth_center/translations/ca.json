@@ -854,5 +854,15 @@
   "Quiet hours": "Hores de silenci",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "En aquesta part del dia cap notificació us demana reiniciar, per exemple mentre jugueu al vespre. Arriba quan s'acaben les hores de silenci; res no es reinicia sol.",
   "From": "De",
-  "to": "a"
+  "to": "a",
+  "Network folders": "Carpetes de xarxa",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Un NAS o la carpeta compartida d'un altre ordinador, al plafó lateral del gestor de fitxers. S'hi queda també després de reiniciar.",
+  "Search the network": "Cerca a la xarxa",
+  "Found on your network": "Trobat a la teva xarxa",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Cap altre ordinador no comparteix carpetes a la teva xarxa, o no s'anuncia. Escriu-ne l'adreça a sota.",
+  "Address, e.g. {example}": "Adreça, p. ex. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Només del plafó lateral. Els fitxers de la xarxa no es toquen.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Afegida. Quan et demani la contrasenya, deixa que la recordi: la propera vegada es connectarà sola.",
+  "This isn't a network address. Example: {example}": "Això no és una adreça de xarxa. Exemple: {example}",
+  "Couldn't add the folder.": "No s'ha pogut afegir la carpeta."
 }

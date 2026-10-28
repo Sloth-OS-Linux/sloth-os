@@ -360,7 +360,15 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   Tests: `tools/tests/test_steam_move.py` (rename, copy, a copy failing halfway, refusals, a manifest pointing
   outside the library). Heroic / other launchers: not yet. Check on a real machine with a second drive)
 - [x] **Quick** — Show network status and latency, with basic guidance when the connection may affect online play (2026-10-23, Sloth Center's System status page).
-- [ ] **Medium** — Help configure NAS devices and shared folders, preserving the connection after restart when requested.
+- [x] **Medium** — Help configure NAS devices and shared folders, preserving the connection after restart when requested.
+  (2026-10-28, Disks → Network folders: the computers that share folders on the network are found by themselves
+  (Avahi, `avahi-browse _smb._tcp`, the same as Dolphin's Network place), or an address is typed the way Windows
+  writes it (`\\NAS\Photos`), or `smb://`, `nfs://`, `sftp://`. "Add" puts it in KDE's side panel
+  (`user-places.xbel`, so Dolphin and every file dialog show it, after a restart too) and opens it; KIO's sign-in
+  window remembers the password in KWallet, which keeps the connection over a restart, and kio-fuse gives the
+  files to non-KDE programs as paths. No administrator rights, no fstab. `sloth_center/netfolders.py`; tests:
+  `tools/tests/test_netfolders.py`. Found the NAS at home (2026-10-28); opening and signing in to be checked on a
+  real machine)
 - [ ] **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
 - [x] **Medium** — Monitor refresh rate, VRR and HDR for gaming (2026-10-26): Drivers and hardware → Displays.
   Each monitor by its own name (EDID), its refresh rate now and the highest at the same resolution with a "Use

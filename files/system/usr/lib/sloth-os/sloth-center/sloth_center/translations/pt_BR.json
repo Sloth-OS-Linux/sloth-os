@@ -854,5 +854,15 @@
   "Quiet hours": "Horas de silêncio",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Nesta parte do dia nenhuma notificação pede para reiniciar, por exemplo enquanto você joga à noite. Ela chega quando as horas de silêncio terminam; nada reinicia sozinho.",
   "From": "Das",
-  "to": "às"
+  "to": "às",
+  "Network folders": "Pastas de rede",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Um NAS ou a pasta compartilhada de outro computador, no painel lateral do gerenciador de arquivos. Ela continua lá depois de reiniciar.",
+  "Search the network": "Procurar na rede",
+  "Found on your network": "Encontrado na sua rede",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Nenhum outro computador compartilha pastas na sua rede, ou ele não se anuncia. Digite o endereço abaixo.",
+  "Address, e.g. {example}": "Endereço, ex.: {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Só do painel lateral. Os arquivos na rede não são tocados.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Adicionada. Quando pedir sua senha, deixe que ela seja lembrada: na próxima vez ela se conecta sozinha.",
+  "This isn't a network address. Example: {example}": "Isto não é um endereço de rede. Exemplo: {example}",
+  "Couldn't add the folder.": "Não foi possível adicionar a pasta."
 }

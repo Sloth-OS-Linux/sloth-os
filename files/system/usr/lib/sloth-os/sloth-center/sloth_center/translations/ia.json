@@ -854,5 +854,15 @@
   "Quiet hours": "Horas quiete",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "In iste parte del die nulle notification te demanda de reinitiar, per exemplo durante que tu joca le vespere. Illo veni quando le horas quiete fini; nihil reinitia per se mesme.",
   "From": "De",
-  "to": "a"
+  "to": "a",
+  "Network folders": "Dossieres de rete",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "Un NAS o le dossier compartite de un altere computator, in le pannello lateral del gestor de files. Illo remane ibi anque post un reinitio.",
+  "Search the network": "Cercar in le rete",
+  "Found on your network": "Trovate in tu rete",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "Nulle altere computator comparti dossieres in tu rete, o illo non se annuncia. Scribe su adresse hic infra.",
+  "Address, e.g. {example}": "Adresse, p.ex. {example}",
+  "Only from the side panel. The files on the network aren't touched.": "Solmente del pannello lateral. Le files in le rete non es tocate.",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Addite. Quando illo demanda tu contrasigno, lassa lo memorisar lo: le proxime vice illo se connecte per se mesme.",
+  "This isn't a network address. Example: {example}": "Isto non es un adresse de rete. Exemplo: {example}",
+  "Couldn't add the folder.": "Non poteva adder le dossier."
 }

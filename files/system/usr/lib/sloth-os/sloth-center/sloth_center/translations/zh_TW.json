@@ -854,5 +854,15 @@
   "Quiet hours": "勿擾時段",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "在這段時間內，不會有通知要求你重新啟動，例如晚上玩遊戲時。勿擾時段結束後通知才會出現；不會自動重新啟動。",
   "From": "從",
-  "to": "到"
+  "to": "到",
+  "Network folders": "網路資料夾",
+  "A NAS or another computer's shared folder, in the side panel of the file manager. It stays there after a restart too.": "NAS 或其他電腦的共用資料夾，顯示在檔案管理員的側邊欄中。重新開機後仍會在那裡。",
+  "Search the network": "搜尋網路",
+  "Found on your network": "在你的網路中找到",
+  "No other computer shares folders on your network, or it doesn't announce itself. Type its address below.": "你的網路中沒有其他電腦共用資料夾，或者它沒有廣播自己。請在下方輸入它的位址。",
+  "Address, e.g. {example}": "位址，例如 {example}",
+  "Only from the side panel. The files on the network aren't touched.": "僅從側邊欄移除。網路上的檔案不會受影響。",
+  "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "已新增。詢問密碼時，讓它記住密碼：下次就會自動連線。",
+  "This isn't a network address. Example: {example}": "這不是網路位址。範例：{example}",
+  "Couldn't add the folder.": "無法新增資料夾。"
 }
