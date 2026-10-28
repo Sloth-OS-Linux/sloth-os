@@ -279,6 +279,13 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   check passes), but every later build crashes in rpm-ostree 2026.2 when it uses the previous image as the
   baseline (`ostree-ext/src/chunking.rs:423` assertion, `left: 845, right: 0`). Wait for a fixed rpm-ostree, or
   try BlueBuild's `chunkah` option instead.
+  `chunkah` (2026-10-27/28, same branch): every build works (128 layers, 4.5 GB image, the ISO 5.2 GB instead of
+  7.05 GB); the CI install test passes; installed on the HP laptop from a test ISO and updated on it. Downloads: a
+  one-line change ~1.05 GB, the whole 1.1.1 work 1.6 GB, a rebuild with nothing changed still ~1 GB (12 of 128
+  layers differ every build: find which and make them reproducible). Before it goes to `main`: the build pulls
+  `quay.io/coreos/chunkah:latest` every time, and a quay.io outage (502) failed a build (2026-10-28): pin a version
+  if BlueBuild allows it; the installer's 80% step is longer with 128 layers (a stage text says so now); a way for
+  a test machine to move from the branch tag back to `latest`.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [x] **Medium** — Let users schedule file backups, choose retention, and estimate required storage. (Closed
   2026-10-27: the backup runs every hour by itself (`sloth-home-snapshot.timer`, also caught up after the computer
