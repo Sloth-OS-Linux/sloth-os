@@ -15,7 +15,7 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, Signal, Slot
 from PySide6.QtGui import QGuiApplication
 
-from sloth_common import gamesettings
+from sloth_common import game_check, gamesettings
 from sloth_common.apps import library, steam, steam_library
 from sloth_common.apps.steam import steam_root, vdf_dump, vdf_load
 
@@ -94,6 +94,46 @@ MOVE_ERRORS = {
 }
 
 
+# The "Will it run?" verdicts (sloth_common.game_check): (mark, text)
+BADGES = {
+    "great": ("🟢", N_("Runs well")),
+    "ok": ("🟡", N_("Runs, but may have issues")),
+    "poor": ("🟠", N_("Often doesn't start")),
+    "blocked": ("🔴", N_("Blocked by its makers")),
+    "broken": ("🔴", N_("Its anti-cheat blocks it")),
+    "tested": ("🦥", N_("Tested by Sloth OS")),
+    "unknown": ("⚪", N_("Too few reports")),
+}
+TESTED = {
+    "works": N_("The Sloth OS team tried it: it works."),
+    "issues": N_("The Sloth OS team tried it: it works, with some issues."),
+    "no": N_("The Sloth OS team tried it: it didn't work."),
+}
+
+
+def describe(v):
+    """A verdict (game_check.verdict) as the page shows it: the mark, the badge text and the explanation lines."""
+    mark, badge = BADGES.get(v["badge"], BADGES["unknown"])
+    lines = []
+    if v["badge"] == "blocked":
+        lines.append(tr("Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥"))
+    elif v["badge"] == "broken":
+        lines.append(tr("Its anti-cheat doesn't work on Linux, so it can't be played (or only offline)."))
+    if v["tested"]:
+        lines.append(tr(TESTED.get(v["tested"], TESTED["works"])))
+    if v["works"] >= 0 and v["reports"]:
+        lines.append(tr("{works}% of {reports} players say it works.", works=v["works"], reports=v["reports"]))
+    if v["gpus"]:
+        lines.append(tr("By graphics card: {list}", list=" · ".join(f"{n} {p}%" for n, p in v["gpus"])))
+    if v["anticheat"]:
+        lines.append(tr("Anti-cheat: {names}", names=", ".join(v["anticheat"])))
+    if v["native"]:
+        lines.append(tr("It has its own Linux version."))
+    if v["known"]:
+        lines.append(tr("A setting that worked for other players is known: Sloth OS uses it by itself."))
+    return {"name": v["name"], "badge": v["badge"], "mark": mark, "badgeText": tr(badge), "lines": lines}
+
+
 def place_label(path, root):
     """A library's name for the user: the main drive, or the drive's name."""
     path = Path(path)
@@ -105,6 +145,7 @@ def place_label(path, root):
 class GamesController(QObject):
     changed = Signal()
     _moved = Signal(str, str, str)  # from the background thread: game id, error key ("" = done), new place
+    _indexed = Signal(bool)  # from the background thread: the "Will it run?" list was downloaded
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -114,7 +155,35 @@ class GamesController(QObject):
         self._steam_running = False
         self._moving = ""  # the id of the game being moved
         self._moved.connect(self._on_moved)
+        # "Will it run?": the game list (kept on disk, downloaded weekly in the background)
+        self._index, self._names, self._known = {}, {}, set()
+        self._index_state = "loading"
+        self._indexed.connect(self._on_indexed)
+        self._load_index()
+        if game_check.needs_download():
+            threading.Thread(target=lambda: self._indexed.emit(game_check.download()), daemon=True).start()
+        else:
+            self._index_state = "ready" if self._index else "missing"
         self.refresh()
+
+    def _load_index(self):
+        self._index = game_check.load()
+        self._names = game_check.index_names(self._index)
+        self._known = game_check.known_settings()
+
+    def _on_indexed(self, downloaded):
+        if downloaded:
+            self._load_index()
+        self._index_state = "ready" if self._index else "missing"
+        self.refresh()
+
+    # "ready", "loading" (the first download is running) or "missing" (not downloaded yet: no internet)
+    checkState = Property(str, lambda self: self._index_state, notify=changed)
+
+    @Slot(str, result="QVariantList")
+    def checkSearch(self, query):
+        """"Will it run?": the games whose name matches, with the verdict and its explanation."""
+        return [describe(v) for v in game_check.search(self._index, query, self._known, names=self._names)]
 
     games = Property("QVariantList", lambda self: list(self._games), notify=changed)
     errorText = Property(str, lambda self: self._error, notify=changed)
@@ -139,14 +208,16 @@ class GamesController(QObject):
             options = _ci(_ci(apps, g["appid"]) or {}, "LaunchOptions") or ""
             settings, _rest, _after = gamesettings.parse_launch_options(options)
             found = steam_library.find_game(root, g["appid"]) if root else None
+            check = game_check.lookup(self._index, g["appid"], self._known)
             games.append({"id": "steam:" + g["appid"], "name": g["name"], "source": "steam", **settings,
+                          "check": describe(check) if check else {},
                           "place": place_label(found["library"], root) if found else "",
                           "size": texts.size_text(found["size"]) if found and found["size"] else "",
                           "movable": movable and found is not None})
         for app in library.all_apps():
             if app.kind != "windows" or app.id == library.SHARED_ID:
                 continue
-            games.append({"id": "win:" + app.id, "name": app.name, "source": "windows",
+            games.append({"id": "win:" + app.id, "name": app.name, "source": "windows", "check": {},
                           **gamesettings.normalize(app.meta.get("game"))})
         self._games = sorted(games, key=lambda g: g["name"].lower())
         self.changed.emit()

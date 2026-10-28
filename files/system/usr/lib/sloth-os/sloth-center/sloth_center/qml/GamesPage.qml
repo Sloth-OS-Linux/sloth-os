@@ -27,6 +27,78 @@ Kirigami.ScrollablePage {
             opacity: 0.8
             text: L.t("Here you can choose for each game whether to show the FPS, give the game more power, and upscale it. The change takes effect the next time the game starts.")
         }
+
+        // --- "Will it run?": how well a game runs, from other players' reports (sloth_common.game_check) ---
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                Kirigami.Heading { level: 3; text: L.t("Will it run?") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.7
+                    text: L.t("Type a game's name to see how well it runs on Sloth OS, based on other players' reports.")
+                }
+                Kirigami.SearchField {
+                    id: checkField
+                    Layout.fillWidth: true
+                    enabled: games.checkState === "ready"
+                    placeholderText: L.t("Game name")
+                    // the list is searched at once (a few milliseconds): every key press shows the matches
+                    onTextChanged: checkResults.model = games.checkSearch(text)
+                }
+                QQC2.Label {
+                    visible: games.checkState !== "ready"
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.7
+                    text: games.checkState === "loading" ? L.t("Downloading the game list…")
+                        : L.t("The game list hasn't been downloaded yet. It downloads by itself when the computer is online.")
+                }
+                QQC2.Label {
+                    visible: checkField.text.trim().length >= 2 && checkResults.count === 0 && games.checkState === "ready"
+                    opacity: 0.7
+                    text: L.t("No game found with that name.")
+                }
+                Repeater {
+                    id: checkResults
+                    model: []
+                    delegate: ColumnLayout {
+                        required property var modelData
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.smallSpacing
+                        spacing: 0
+                        RowLayout {
+                            Layout.fillWidth: true
+                            spacing: Kirigami.Units.smallSpacing
+                            QQC2.Label { text: modelData.mark }
+                            QQC2.Label { font.bold: true; text: modelData.badgeText }
+                            QQC2.Label { text: "·"; opacity: 0.5 }
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: modelData.name }
+                        }
+                        Repeater {
+                            model: modelData.lines
+                            delegate: QQC2.Label {
+                                required property string modelData
+                                Layout.fillWidth: true
+                                Layout.leftMargin: Kirigami.Units.gridUnit * 1.5
+                                wrapMode: Text.Wrap
+                                opacity: 0.8
+                                text: modelData
+                            }
+                        }
+                    }
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.5
+                    font: Kirigami.Theme.smallFont
+                    text: L.t("Data: ProtonDB (ODbL) and AreWeAntiCheatYet (MIT), updated monthly.")
+                }
+            }
+        }
         Kirigami.InlineMessage {
             Layout.fillWidth: true
             type: Kirigami.MessageType.Error
@@ -91,6 +163,13 @@ Kirigami.ScrollablePage {
                                 text: [gameCard.modelData.source === "steam" ? L.t("Steam") : L.t("Windows program"),
                                        gameCard.modelData.place || "", gameCard.modelData.size || ""]
                                       .filter(s => s !== "").join(" · ")
+                            }
+                            // "Will it run?" for the installed game: the mark and the verdict
+                            QQC2.Label {
+                                visible: !!gameCard.modelData.check && !!gameCard.modelData.check.badgeText
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                text: visible ? gameCard.modelData.check.mark + " " + gameCard.modelData.check.badgeText : ""
                             }
                         }
                         // Moving a Steam game to another drive (sloth_common.apps.steam_library)

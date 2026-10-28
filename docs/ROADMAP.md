@@ -365,7 +365,17 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   puts the sound back too). Only connected monitors are changed, a missing one is left out and named; a profile
   that would turn every screen off is not applied; the mode is found again by size and refresh rate.
   `sloth_center/profiles.py`, tests: `tools/tests/test_profiles.py`. Check on a real machine, also with a TV)
-- [ ] **Medium** — Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
+- [x] **Medium** — Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
+  (2026-10-28, together with the "Will it run?" idea: Games → "Will it run?", a search over ~20 000 games. Marks:
+  🟢 runs well (85%+ of the reports say it works), 🟡 runs but may have issues (50%+), 🟠 often doesn't start,
+  🔴 blocked by its makers (AreWeAntiCheatYet "Denied": "Not Sloth OS's fault…") or by its anti-cheat ("Broken"),
+  🦥 tested by Sloth OS, ⚪ too few reports. Each result says how many players report it working, the share per
+  GPU vendor (AMD / NVIDIA / Intel), the anti-cheat, a Linux version, and whether the shared knowledge has a
+  working setting (applied by itself; no "Proton" wording). Installed Steam games show their mark too. Data: the
+  knowledge repository's `games-index.json` (monthly, `seed/games_index.py` from ProtonDB (ODbL) and
+  AreWeAntiCheatYet (MIT); `sloth-tested.json` by hand), downloaded weekly by Sloth Center and kept for offline use.
+  `sloth_common/game_check.py`; tests: `tools/tests/test_game_check.py`. Controllers are not in the data
+  (ProtonDB has no controller field); a later step could add them to `sloth-tested.json`)
 
 ### Sloth OS 1.0 released (2026-10-21)
 The repository is public (`Sloth-OS-Linux/sloth-os`), the daily build is back on, the installer ISO is on SourceForge
