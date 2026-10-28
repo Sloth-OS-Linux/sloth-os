@@ -135,20 +135,20 @@ class UpdatesController(QObject):
         quiet_hours.save({"enabled": enabled, "start": max(0, min(last, start)), "end": max(0, min(last, end))})
         self.changed.emit()
 
-    # --- When the automatic update runs (uupd.timer: daily at 4:00, or at the next start if the computer was off) ---
+    # --- When the automatic system update runs (sloth_common.update_time) ---
 
     @Property(int, notify=changed)
     def updateHour(self):
-        """The hour the automatic update runs (0–23), or -1 if there is no automatic update to set."""
+        """The hour the automatic system update runs (0–23), or -1 if there is no automatic update to set."""
         return update_time.update_hour()
 
     @Slot(int)
     def setUpdateHour(self, hour):
+        """From now on only at this hour (or at the next start if the computer was off then)."""
         hour = max(0, min(23, hour))
-        arg = "default" if hour == update_time.DEFAULT_HOUR else str(hour)
         self._error = ""
         try:
-            r = subprocess.run(["pkexec", "/usr/libexec/sloth-os/sloth-helper-versions", "update-time", arg],
+            r = subprocess.run(["pkexec", "/usr/libexec/sloth-os/sloth-helper-versions", "update-time", str(hour)],
                                capture_output=True, text=True, timeout=120)
             ok = json.loads(r.stdout or "{}").get("ok", False)
         except (OSError, subprocess.SubprocessError, ValueError) as e:
@@ -335,7 +335,7 @@ class UpdatesController(QObject):
     @Slot()
     def installUpdate(self):
         # On a mobile or other metered connection the download can cost money (an update is often several GB):
-        # the page asks first. The automatic update in the background skips these connections by itself (uupd).
+        # the page asks first. The automatic update in the background skips these connections by itself (rpm-ostreed-automatic's ExecCondition).
         if self._ostree and not self._mode and packages.metered():
             self._metered_warning = True
             self.changed.emit()

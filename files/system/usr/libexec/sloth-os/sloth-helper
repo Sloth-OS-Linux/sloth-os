@@ -32,7 +32,9 @@ Operations:
   factory-reset keep|all                         prepares resetting the computer (factory-reset
                                                  prepare; JSON on the input, JSON lines on the output)
   factory-reset-cancel                           withdraws a reset that has not been done yet
-  update-time default|<0-23>                     the hour the automatic update (uupd.timer) runs; by default 4:00
+  update-time default|<0-23>                     the hour the automatic system update (rpm-ostreed-automatic.timer)
+                                                 runs, instead of the base image's triggers (an hour after start,
+                                                 daily, 4:00)
 
 The operations on versions (pin, unpin, set-default) and update-time are also available under the name
 sloth-helper-versions: that is a separate polkit action (org.slothos.helper.versions), so it can be put
@@ -430,12 +432,16 @@ def zram(mode):
 
 # --- When the automatic update runs (Sloth Center → Updates) -----------------------------------------------
 
-# uupd.timer (Universal Blue) runs daily at 4:00, or at the next start if the computer was off then (Persistent)
-UPDATE_TIME_CONF = "/etc/systemd/system/uupd.timer.d/50-sloth-time.conf"
+# rpm-ostreed-automatic.timer downloads and prepares the system update. The base image runs it an hour after start,
+# a day after its last run and daily at 4:00; Persistent=true makes a missed run happen at the next start
+UPDATE_TIMER_UNIT = "rpm-ostreed-automatic.timer"
+# systemd applies the drop-ins of every folder in the order of their file names: "zz-" comes after Universal Blue's
+# override.conf (OnCalendar 4:00), so ours clears that too ("50-" came before it and the 4:00 stayed, 2026-10-28)
+UPDATE_TIME_CONF = f"/etc/systemd/system/{UPDATE_TIMER_UNIT}.d/zz-sloth-time.conf"
 
 
 def update_time(hour):
-    """hour: "default" (the base image's 4:00) or 0–23."""
+    """hour: "default" (the base image's triggers) or 0–23: then only at that hour (or at the next start)."""
     if hour == "default":
         try:
             os.unlink(UPDATE_TIME_CONF)
@@ -443,12 +449,12 @@ def update_time(hour):
             pass
     else:
         os.makedirs(os.path.dirname(UPDATE_TIME_CONF), exist_ok=True)
-        # the empty OnCalendar= clears the base image's time, the next line sets ours
-        _write(UPDATE_TIME_CONF, "# sloth-os: Sloth Center -> Updates\n[Timer]\nOnCalendar=\n"
-                                 f"OnCalendar=*-*-* {int(hour):02d}:00:00\n")
+        # an empty value clears the base image's triggers (systemd.timer), the last line sets ours
+        _write(UPDATE_TIME_CONF, "# sloth-os: Sloth Center -> Updates\n[Timer]\nOnBootSec=\nOnUnitInactiveSec=\n"
+                                 f"OnCalendar=\nOnCalendar=*-*-* {int(hour):02d}:00:00\n")
     run(["systemctl", "daemon-reload"])
     # the timer works out its next run again (only if it is on: a switched-off timer stays off)
-    run(["systemctl", "try-restart", "uupd.timer"])
+    run(["systemctl", "try-restart", UPDATE_TIMER_UNIT])
     return {"ok": True}
 
 
