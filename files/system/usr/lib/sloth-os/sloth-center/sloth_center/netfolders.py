@@ -7,6 +7,10 @@ there after a restart too. KIO connects when it is opened, and its sign-in windo
 the password store, KWallet): that is what keeps the connection over a restart. Programs that are not KDE's get
 the files through kio-fuse as ordinary paths. The computers on the network that share folders are found with
 Avahi (`avahi-browse`, the same as Dolphin's Network place).
+
+A computer that shares no folder at all (e.g. a NAS whose share is not exported) still answers, and KIO then asks
+for a password that can never work. So the shares are listed first (`smbclient -L`, as a guest); when the list is
+known and has no folder, or not the one asked for, the page says so instead of adding it.
 """
 import logging
 import re
@@ -138,18 +142,64 @@ def parse_avahi(output):
     return sorted(found.values(), key=lambda s: s["name"].lower())
 
 
+def parse_smb_list(output):
+    """`smbclient -L //host -N -g` -> the names of the shared folders, or None if the list is not known (the
+    computer did not answer, or does not show it to a guest)."""
+    if "NT_STATUS_" in output:
+        return None
+    lines = [l.split("|") for l in output.splitlines()]
+    if not any(f[0] in ("Disk", "IPC", "Printer") for f in lines if len(f) >= 2):
+        return None
+    return [f[1] for f in lines if len(f) >= 2 and f[0] == "Disk" and not f[1].endswith("$")]
+
+
+def smb_shares(host):
+    try:
+        r = subprocess.run(["smbclient", "-L", f"//{host}", "-N", "-g"], capture_output=True, text=True, timeout=15)
+        return parse_smb_list(r.stdout + r.stderr)
+    except (OSError, subprocess.SubprocessError) as e:
+        log.warning("smbclient: %s", e)
+        return None
+
+
+def check(url, shares=smb_shares):
+    """Why this folder cannot be opened, or "" if it can (or it cannot be known: then KIO tries)."""
+    parts = urlsplit(url)
+    host = parts.netloc.rsplit("@", 1)[-1].split(":")[0]   # as written: hostname would be lowercase
+    if parts.scheme != "smb" or not host:
+        return ""
+    names = shares(host)
+    if names is None:
+        return ""
+    if not names:
+        return tr("{computer} shares no folder now. Turn on sharing for a folder in its settings "
+                  "(on Unraid: Shares → the folder → Export: Yes).", computer=host)
+    wanted = unquote(parts.path.strip("/").split("/")[0])
+    if wanted and wanted.lower() not in (n.lower() for n in names):
+        return tr("{computer} has no shared folder called {folder}. Its shared folders: {list}",
+                  computer=host, folder=wanted, list=", ".join(names))
+    return ""
+
+
 def discover():
+    """The computers found, each with the number of its shared folders (-1: not known)."""
     try:
         r = subprocess.run(["avahi-browse", "-tpr", "_smb._tcp"], capture_output=True, text=True, timeout=10)
-        return parse_avahi(r.stdout)
+        found = parse_avahi(r.stdout)
     except (OSError, subprocess.SubprocessError) as e:
         log.warning("avahi-browse: %s", e)
         return []
+    for s in found:
+        names = smb_shares(urlsplit(s["url"]).hostname)
+        s["shares"] = -1 if names is None else len(names)
+    return found
 
 
 class NetFoldersController(QObject):
     changed = Signal()
+    added = Signal()
     _found_ready = Signal(object)
+    _checked = Signal(str, str, str)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -158,12 +208,17 @@ class NetFoldersController(QObject):
         self._searching = False
         self._searched = False
         self._message = ""
+        self._adding = False
+        self._problem = False      # the message says why it was not added
         self._found_ready.connect(self._on_found)
+        self._checked.connect(self._on_checked)
 
     folders = Property("QVariantList", lambda self: list(self._folders), notify=changed)
     searching = Property(bool, lambda self: self._searching, notify=changed)
     searched = Property(bool, lambda self: self._searched, notify=changed)
     message = Property(str, lambda self: self._message, notify=changed)
+    adding = Property(bool, lambda self: self._adding, notify=changed)
+    problem = Property(bool, lambda self: self._problem, notify=changed)
 
     @Property("QVariantList", notify=changed)
     def found(self):
@@ -187,26 +242,41 @@ class NetFoldersController(QObject):
     def isValid(self, text):
         return parse_address(text) != ""
 
-    @Slot(str, str, result=bool)
+    @Slot(str, str)
     def addFolder(self, text, name):
-        """Adds it to the side panel and opens it: the first time KIO asks for the user name and password."""
+        """Checks that it shares the folder (in the background: it asks the computer), then adds it to the side
+        panel and opens it: the first time KIO asks for the user name and password."""
         url = parse_address(text)
         if not url:
             self._message = tr("This isn't a network address. Example: {example}", example=r"\\NAS\Photos")
+            self._problem = True
             self.changed.emit()
-            return False
+            return
+        if self._adding:
+            return
+        self._adding, self._message = True, ""
+        self.changed.emit()
+        threading.Thread(target=lambda: self._checked.emit(url, name, check(url)), daemon=True).start()
+
+    def _on_checked(self, url, name, problem):
+        self._adding = False
+        if problem:
+            self._message, self._problem = problem, True
+            self.changed.emit()
+            return
         try:
             add(url, name.strip())
         except (OSError, ValueError) as e:
             log.warning("places: %s", e)
-            self._message = tr("Couldn't add the folder.")
+            self._message, self._problem = tr("Couldn't add the folder."), True
             self.changed.emit()
-            return False
+            return
         self._folders = folders()
+        self._problem = False
         self._message = tr("Added. When it asks for your password, let it remember it: then it connects by itself next time too.")
         self.changed.emit()
+        self.added.emit()
         self.open(url)
-        return True
 
     @Slot(str)
     def removeFolder(self, url):

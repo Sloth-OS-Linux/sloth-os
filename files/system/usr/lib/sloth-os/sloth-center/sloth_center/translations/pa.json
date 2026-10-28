@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "ਸਿਰਫ਼ ਪਾਸੇ ਵਾਲੇ ਪੈਨਲ ਤੋਂ। ਨੈੱਟਵਰਕ ਉੱਤੇ ਫਾਈਲਾਂ ਨੂੰ ਛੂਹਿਆ ਨਹੀਂ ਜਾਂਦਾ।",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "ਜੋੜਿਆ ਗਿਆ। ਜਦੋਂ ਇਹ ਪਾਸਵਰਡ ਪੁੱਛੇ, ਇਸਨੂੰ ਯਾਦ ਰੱਖਣ ਦਿਓ: ਅਗਲੀ ਵਾਰ ਇਹ ਆਪਣੇ ਆਪ ਜੁੜ ਜਾਵੇਗਾ।",
   "This isn't a network address. Example: {example}": "ਇਹ ਨੈੱਟਵਰਕ ਪਤਾ ਨਹੀਂ ਹੈ। ਉਦਾਹਰਨ: {example}",
-  "Couldn't add the folder.": "ਫੋਲਡਰ ਜੋੜਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।"
+  "Couldn't add the folder.": "ਫੋਲਡਰ ਜੋੜਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} ਉੱਤੇ {folder} ਨਾਂ ਦਾ ਕੋਈ ਸਾਂਝਾ ਫੋਲਡਰ ਨਹੀਂ ਹੈ। ਇਸਦੇ ਸਾਂਝੇ ਫੋਲਡਰ: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} ਹੁਣ ਕੋਈ ਫੋਲਡਰ ਸਾਂਝਾ ਨਹੀਂ ਕਰਦਾ। ਇਸਦੀਆਂ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਫੋਲਡਰ ਸਾਂਝਾ ਕਰਨਾ ਚਾਲੂ ਕਰੋ (Unraid ਵਿੱਚ: Shares → … → Export: Yes)।",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "ਤੁਹਾਡੇ ਨੈੱਟਵਰਕ ਉੱਤੇ ਮਿਲਿਆ, ਪਰ ਹੁਣ ਇਹ ਕੋਈ ਫੋਲਡਰ ਸਾਂਝਾ ਨਹੀਂ ਕਰਦਾ। ਇਸਦੀਆਂ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਸਾਂਝਾ ਕਰਨਾ ਚਾਲੂ ਕਰੋ।"
 }

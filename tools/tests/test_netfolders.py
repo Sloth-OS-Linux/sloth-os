@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Network folders (sloth_center.netfolders): reading what the user typed, adding to and removing from KDE's side
-panel without touching the rest of the file, and the computers Avahi finds."""
+panel without touching the rest of the file, the computers Avahi finds, and a computer that shares no folder."""
 import sys
 import tempfile
 import types
@@ -117,6 +117,29 @@ class Avahi(unittest.TestCase):
         self.assertEqual(nf.parse_avahi(out), [{"name": "anna-pc", "url": "smb://anna-pc.local/"},
                                                {"name": "Big NAS", "url": "smb://bignas.local/"}])
         self.assertEqual(nf.parse_avahi(""), [])
+
+
+class Shares(unittest.TestCase):
+    def test_parse_smb_list(self):
+        self.assertEqual(nf.parse_smb_list("Disk|Media|\nDisk|backup$|\nIPC|IPC$|IPC Service (Yes)\n"
+                                           "SMB1 disabled -- no workgroup available\n"), ["Media"])
+        # Unraid with "Export: No": the computer answers, but shares nothing
+        self.assertEqual(nf.parse_smb_list("IPC|IPC$|IPC Service (Yes)\n"), [])
+        self.assertIsNone(nf.parse_smb_list("do_connect: Connection to nas failed "
+                                            "(Error NT_STATUS_CONNECTION_REFUSED)\n"))
+        self.assertIsNone(nf.parse_smb_list("session setup failed: NT_STATUS_ACCESS_DENIED\n"))
+        self.assertIsNone(nf.parse_smb_list(""))
+
+    def test_check(self):
+        def shares(names):
+            return lambda host: names
+        self.assertEqual(nf.check("smb://nas/Media", shares(["Media"])), "")
+        self.assertEqual(nf.check("smb://nas/media/2026", shares(["Media"])), "")   # SMB ignores the case
+        self.assertEqual(nf.check("smb://nas/", shares(["Media"])), "")
+        self.assertEqual(nf.check("smb://nas/Media", shares(None)), "")          # not known: KIO tries
+        self.assertIn("Export", nf.check("smb://nas/", shares([])))
+        self.assertIn("Media, Photos", nf.check("smb://nas/Films", shares(["Media", "Photos"])))
+        self.assertEqual(nf.check("nfs://nas/export", shares([])), "")           # only SMB is asked
 
 
 if __name__ == "__main__":

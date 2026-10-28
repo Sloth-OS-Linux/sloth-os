@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Samo s bočne trake. Datoteke na mreži ostaju netaknute.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Dodano. Kada zatraži lozinku, dopustite da je zapamti: sljedeći put spojit će se samo.",
   "This isn't a network address. Example: {example}": "Ovo nije mrežna adresa. Primjer: {example}",
-  "Couldn't add the folder.": "Mapu nije moguće dodati."
+  "Couldn't add the folder.": "Mapu nije moguće dodati.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} nema dijeljenu mapu naziva {folder}. Njegove dijeljene mape: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} trenutačno ne dijeli nijednu mapu. Uključite dijeljenje mape u njegovim postavkama (na Unraidu: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Pronađeno na vašoj mreži, ali trenutačno ne dijeli nijednu mapu. Uključite dijeljenje u njegovim postavkama."
 }

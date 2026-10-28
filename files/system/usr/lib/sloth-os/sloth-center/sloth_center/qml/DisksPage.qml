@@ -200,7 +200,7 @@ Kirigami.ScrollablePage {
                         }
                     }
                     QQC2.BusyIndicator {
-                        visible: netfolders.searching
+                        visible: netfolders.searching || netfolders.adding
                         running: visible
                     }
                     QQC2.Button {
@@ -262,9 +262,18 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true
                             spacing: 0
                             QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: foundRow.modelData.name; font.bold: true }
-                            QQC2.Label { Layout.fillWidth: true; opacity: 0.7; text: L.t("Found on your network") }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                opacity: foundRow.modelData.shares === 0 ? 1 : 0.7
+                                color: foundRow.modelData.shares === 0 ? Kirigami.Theme.neutralTextColor : Kirigami.Theme.textColor
+                                text: foundRow.modelData.shares === 0
+                                      ? L.t("Found on your network, but it shares no folder now. Turn on sharing in its settings.")
+                                      : L.t("Found on your network")
+                            }
                         }
                         QQC2.Button {
+                            enabled: !netfolders.adding
                             text: L.t("Add")
                             icon.name: "list-add"
                             onClicked: netfolders.addFolder(foundRow.modelData.url, foundRow.modelData.name)
@@ -287,19 +296,23 @@ Kirigami.ScrollablePage {
                         id: addressField
                         Layout.fillWidth: true
                         placeholderText: L.tf("Address, e.g. {example}", { example: "\\\\NAS\\Photos" })
-                        onAccepted: if (netfolders.isValid(text) && netfolders.addFolder(text, "")) text = ""
+                        onAccepted: if (netfolders.isValid(text) && !netfolders.adding) netfolders.addFolder(text, "")
                     }
                     QQC2.Button {
-                        enabled: netfolders.isValid(addressField.text)
+                        enabled: netfolders.isValid(addressField.text) && !netfolders.adding
                         text: L.t("Add")
                         icon.name: "list-add"
-                        onClicked: if (netfolders.addFolder(addressField.text, "")) addressField.text = ""
+                        onClicked: netfolders.addFolder(addressField.text, "")
+                    }
+                    Connections {
+                        target: netfolders
+                        function onAdded() { addressField.text = "" }
                     }
                 }
                 Kirigami.InlineMessage {
                     Layout.fillWidth: true
                     visible: netfolders.message !== ""
-                    type: Kirigami.MessageType.Information
+                    type: netfolders.problem ? Kirigami.MessageType.Warning : Kirigami.MessageType.Information
                     text: netfolders.message
                 }
             }

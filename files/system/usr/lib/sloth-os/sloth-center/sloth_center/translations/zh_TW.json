@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "僅從側邊欄移除。網路上的檔案不會受影響。",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "已新增。詢問密碼時，讓它記住密碼：下次就會自動連線。",
   "This isn't a network address. Example: {example}": "這不是網路位址。範例：{example}",
-  "Couldn't add the folder.": "無法新增資料夾。"
+  "Couldn't add the folder.": "無法新增資料夾。",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} 上沒有名為 {folder} 的共用資料夾。它的共用資料夾：{list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} 目前沒有共用任何資料夾。請在它的設定中開啟資料夾共用（Unraid：Shares → … → Export: Yes）。",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "在你的網路中找到，但它目前沒有共用任何資料夾。請在它的設定中開啟共用。"
 }

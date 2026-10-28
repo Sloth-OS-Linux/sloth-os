@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "பக்கப் பலகத்திலிருந்து மட்டும். பிணையத்தில் உள்ள கோப்புகள் தொடப்படாது.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "சேர்க்கப்பட்டது. கடவுச்சொல்லைக் கேட்கும்போது அதை நினைவில் வைக்க அனுமதிக்கவும்: அடுத்த முறை தானாக இணையும்.",
   "This isn't a network address. Example: {example}": "இது பிணைய முகவரி அல்ல. எடுத்துக்காட்டு: {example}",
-  "Couldn't add the folder.": "கோப்புறையைச் சேர்க்க முடியவில்லை."
+  "Couldn't add the folder.": "கோப்புறையைச் சேர்க்க முடியவில்லை.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} இல் {folder} என்ற பெயரில் பகிரப்பட்ட கோப்புறை இல்லை. அதன் பகிரப்பட்ட கோப்புறைகள்: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} இப்போது எந்தக் கோப்புறையையும் பகிரவில்லை. அதன் அமைப்புகளில் ஒரு கோப்புறையின் பகிர்வை இயக்கவும் (Unraid இல்: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "உங்கள் பிணையத்தில் கண்டறியப்பட்டது, ஆனால் இப்போது எந்தக் கோப்புறையையும் பகிரவில்லை. அதன் அமைப்புகளில் பகிர்வை இயக்கவும்."
 }

@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Só do painel lateral. Os arquivos na rede não são tocados.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Adicionada. Quando pedir sua senha, deixe que ela seja lembrada: na próxima vez ela se conecta sozinha.",
   "This isn't a network address. Example: {example}": "Isto não é um endereço de rede. Exemplo: {example}",
-  "Couldn't add the folder.": "Não foi possível adicionar a pasta."
+  "Couldn't add the folder.": "Não foi possível adicionar a pasta.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} não tem nenhuma pasta compartilhada chamada {folder}. As pastas compartilhadas dele: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} não compartilha nenhuma pasta agora. Ative o compartilhamento de uma pasta nas configurações dele (no Unraid: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Encontrado na sua rede, mas não compartilha nenhuma pasta agora. Ative o compartilhamento nas configurações dele."
 }

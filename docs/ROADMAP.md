@@ -369,8 +369,10 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   (`user-places.xbel`, so Dolphin and every file dialog show it, after a restart too) and opens it; KIO's sign-in
   window remembers the password in KWallet, which keeps the connection over a restart, and kio-fuse gives the
   files to non-KDE programs as paths. No administrator rights, no fstab. `sloth_center/netfolders.py`; tests:
-  `tools/tests/test_netfolders.py`. Found the NAS at home (2026-10-28); opening and signing in to be checked on a
-  real machine)
+  `tools/tests/test_netfolders.py`. Checked on the HP with the Unraid NAS at home (2026-10-28). A computer that
+  shares no folder (Unraid: "Export: No") answered with a password prompt that could never work: now the shares
+  are listed first (`smbclient -L` as a guest), and the page says it shares nothing, or which folders it has,
+  instead of adding it)
 - [ ] **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
 - [x] **Medium** — Monitor refresh rate, VRR and HDR for gaming (2026-10-26): Drivers and hardware → Displays.
   Each monitor by its own name (EDID), its refresh rate now and the highest at the same resolution with a "Use

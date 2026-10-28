@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Dome dal panel laterâl. I files te rêt no vegnin tocjâts.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Zontade. Cuant che al domande la tô password, lasse che le ricuardi: la prossime volte si coleghe di bessole.",
   "This isn't a network address. Example: {example}": "Cheste no je une direzion di rêt. Esempli: {example}",
-  "Couldn't add the folder.": "Impussibil zontâ la cartele."
+  "Couldn't add the folder.": "Impussibil zontâ la cartele.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} nol à nissune cartele condividude clamade {folder}. Lis sôs cartelis condividudis: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} cumò nol condivît nissune cartele. Ative la condivision di une cartele tes sôs impostazions (su Unraid: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Cjatât te tô rêt, ma cumò nol condivît nissune cartele. Ative la condivision tes sôs impostazions."
 }

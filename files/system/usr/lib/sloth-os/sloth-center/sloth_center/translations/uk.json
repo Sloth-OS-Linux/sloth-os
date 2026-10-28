@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Лише з бічної панелі. Файли в мережі не зачіпаються.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Додано. Коли запитає пароль, дозвольте його запам'ятати: наступного разу підключення буде автоматичним.",
   "This isn't a network address. Example: {example}": "Це не мережева адреса. Приклад: {example}",
-  "Couldn't add the folder.": "Не вдалося додати теку."
+  "Couldn't add the folder.": "Не вдалося додати теку.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "На {computer} немає спільної теки з назвою {folder}. Його спільні теки: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} зараз не надає жодної спільної теки. Увімкніть спільний доступ до теки в його налаштуваннях (в Unraid: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Знайдено у вашій мережі, але зараз не надає жодної спільної теки. Увімкніть спільний доступ у його налаштуваннях."
 }

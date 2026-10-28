@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Net uit die sypaneel. Die lêers op die netwerk word nie aangeraak nie.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Bygevoeg. Wanneer dit vir jou wagwoord vra, laat dit dit onthou: dan koppel dit volgende keer vanself.",
   "This isn't a network address. Example: {example}": "Dit is nie 'n netwerkadres nie. Voorbeeld: {example}",
-  "Couldn't add the folder.": "Kon nie die vouer byvoeg nie."
+  "Couldn't add the folder.": "Kon nie die vouer byvoeg nie.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} het geen gedeelde vouer met die naam {folder} nie. Sy gedeelde vouers: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} deel nou geen vouer nie. Skakel deling vir 'n vouer in sy instellings aan (op Unraid: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Op jou netwerk gevind, maar dit deel nou geen vouer nie. Skakel deling in sy instellings aan."
 }

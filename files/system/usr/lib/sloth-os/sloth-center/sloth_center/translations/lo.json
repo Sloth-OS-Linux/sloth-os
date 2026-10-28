@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "ພຽງແຕ່ຈາກແຖບຂ້າງ. ໄຟລ໌ໃນເຄືອຂ່າຍບໍ່ຖືກແຕະຕ້ອງ.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "ເພີ່ມແລ້ວ. ເມື່ອມັນຖາມລະຫັດຜ່ານ, ໃຫ້ມັນຈື່ໄວ້: ເທື່ອໜ້າມັນຈະເຊື່ອມຕໍ່ເອງ.",
   "This isn't a network address. Example: {example}": "ນີ້ບໍ່ແມ່ນທີ່ຢູ່ເຄືອຂ່າຍ. ຕົວຢ່າງ: {example}",
-  "Couldn't add the folder.": "ບໍ່ສາມາດເພີ່ມໂຟນເດີໄດ້."
+  "Couldn't add the folder.": "ບໍ່ສາມາດເພີ່ມໂຟນເດີໄດ້.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} ບໍ່ມີໂຟນເດີແບ່ງປັນຊື່ {folder}. ໂຟນເດີທີ່ແບ່ງປັນຂອງມັນ: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} ບໍ່ໄດ້ແບ່ງປັນໂຟນເດີໃດໆໃນຕອນນີ້. ເປີດການແບ່ງປັນໂຟນເດີໃນການຕັ້ງຄ່າຂອງມັນ (ໃນ Unraid: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "ພົບໃນເຄືອຂ່າຍຂອງທ່ານ, ແຕ່ຕອນນີ້ມັນບໍ່ໄດ້ແບ່ງປັນໂຟນເດີໃດໆ. ເປີດການແບ່ງປັນໃນການຕັ້ງຄ່າຂອງມັນ."
 }

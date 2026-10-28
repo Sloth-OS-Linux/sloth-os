@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Само от страничния панел. Файловете в мрежата не се засягат.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Добавено. Когато поиска паролата ви, оставете я да се запомни: следващия път ще се свърже само.",
   "This isn't a network address. Example: {example}": "Това не е мрежов адрес. Пример: {example}",
-  "Couldn't add the folder.": "Папката не можа да бъде добавена."
+  "Couldn't add the folder.": "Папката не можа да бъде добавена.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} няма споделена папка с име {folder}. Споделените му папки: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} в момента не споделя нито една папка. Включете споделянето на папка в настройките му (в Unraid: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Намерено във вашата мрежа, но в момента не споделя нито една папка. Включете споделянето в настройките му."
 }

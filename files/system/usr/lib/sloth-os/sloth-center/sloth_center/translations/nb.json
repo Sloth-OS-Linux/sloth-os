@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Bare fra sidepanelet. Filene på nettverket blir ikke rørt.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Lagt til. Når den spør om passordet ditt, la den huske det: da kobler den til av seg selv neste gang.",
   "This isn't a network address. Example: {example}": "Dette er ikke en nettverksadresse. Eksempel: {example}",
-  "Couldn't add the folder.": "Kunne ikke legge til mappen."
+  "Couldn't add the folder.": "Kunne ikke legge til mappen.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} har ingen delt mappe som heter {folder}. Dens delte mapper: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} deler ingen mappe nå. Slå på deling av en mappe i innstillingene (i Unraid: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Funnet på nettverket ditt, men den deler ingen mappe nå. Slå på deling i innstillingene."
 }

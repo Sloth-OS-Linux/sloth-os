@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Csak az oldalsávból. A hálózaton lévő fájlokhoz nem nyúl.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Hozzáadva. Amikor a jelszavadat kéri, hagyd, hogy megjegyezze: így legközelebb magától csatlakozik.",
   "This isn't a network address. Example: {example}": "Ez nem hálózati cím. Példa: {example}",
-  "Couldn't add the folder.": "Nem sikerült hozzáadni a mappát."
+  "Couldn't add the folder.": "Nem sikerült hozzáadni a mappát.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "A(z) {computer} gépen nincs {folder} nevű megosztott mappa. A megosztott mappái: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "A(z) {computer} most egy mappát sem oszt meg. A beállításaiban kapcsold be egy mappa megosztását (Unraidben: Megosztások → a mappa → Exportálás: Igen).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Megtalálható a hálózatodon, de most egy mappát sem oszt meg. Kapcsold be a megosztást a beállításaiban."
 }

@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Len z bočného panela. Súborov v sieti sa to nedotkne.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Pridané. Keď sa opýta na heslo, nechajte ho zapamätať: nabudúce sa pripojí samo.",
   "This isn't a network address. Example: {example}": "Toto nie je sieťová adresa. Príklad: {example}",
-  "Couldn't add the folder.": "Priečinok sa nepodarilo pridať."
+  "Couldn't add the folder.": "Priečinok sa nepodarilo pridať.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} nemá zdieľaný priečinok s názvom {folder}. Jeho zdieľané priečinky: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} teraz nezdieľa žiadny priečinok. Zapnite v jeho nastaveniach zdieľanie priečinka (v Unraide: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Nájdené vo vašej sieti, ale teraz nezdieľa žiadny priečinok. Zapnite zdieľanie v jeho nastaveniach."
 }

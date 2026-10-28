@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Alleen uit het zijpaneel. De bestanden op het netwerk worden niet aangeraakt.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Toegevoegd. Als om je wachtwoord wordt gevraagd, laat het onthouden: dan maakt hij de volgende keer zelf verbinding.",
   "This isn't a network address. Example: {example}": "Dit is geen netwerkadres. Voorbeeld: {example}",
-  "Couldn't add the folder.": "Kan de map niet toevoegen."
+  "Couldn't add the folder.": "Kan de map niet toevoegen.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} heeft geen gedeelde map met de naam {folder}. Zijn gedeelde mappen: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} deelt nu geen enkele map. Zet in zijn instellingen het delen van een map aan (bij Unraid: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Gevonden op je netwerk, maar deelt nu geen enkele map. Zet het delen aan in zijn instellingen."
 }

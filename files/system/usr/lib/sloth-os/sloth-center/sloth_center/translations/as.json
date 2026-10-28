@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "কেৱল কাষৰ পেনেলৰ পৰা। নেটৱৰ্কৰ ফাইলসমূহ চুই চোৱা নহয়।",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "যোগ কৰা হ'ল। পাছৱৰ্ড বিচাৰিলে ইয়াক মনত ৰাখিবলৈ দিয়ক: পিছৰ বাৰ ই নিজে সংযোগ কৰিব।",
   "This isn't a network address. Example: {example}": "এইটো নেটৱৰ্ক ঠিকনা নহয়। উদাহৰণ: {example}",
-  "Couldn't add the folder.": "ফ'ল্ডাৰটো যোগ কৰিব পৰা নগ'ল।"
+  "Couldn't add the folder.": "ফ'ল্ডাৰটো যোগ কৰিব পৰা নগ'ল।",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer}ত {folder} নামৰ কোনো শ্বেয়াৰ কৰা ফ'ল্ডাৰ নাই। ইয়াৰ শ্বেয়াৰ কৰা ফ'ল্ডাৰ: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer}এ এতিয়া কোনো ফ'ল্ডাৰ শ্বেয়াৰ কৰা নাই। ইয়াৰ ছেটিংছত এটা ফ'ল্ডাৰৰ শ্বেয়াৰিং অন কৰক (Unraidত: Shares → … → Export: Yes)।",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "আপোনাৰ নেটৱৰ্কত পোৱা গ'ল, কিন্তু এতিয়া কোনো ফ'ল্ডাৰ শ্বেয়াৰ কৰা নাই। ইয়াৰ ছেটিংছত শ্বেয়াৰিং অন কৰক।"
 }

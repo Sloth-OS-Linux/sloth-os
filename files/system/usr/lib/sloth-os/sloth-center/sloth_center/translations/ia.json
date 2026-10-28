@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Solmente del pannello lateral. Le files in le rete non es tocate.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Addite. Quando illo demanda tu contrasigno, lassa lo memorisar lo: le proxime vice illo se connecte per se mesme.",
   "This isn't a network address. Example: {example}": "Isto non es un adresse de rete. Exemplo: {example}",
-  "Couldn't add the folder.": "Non poteva adder le dossier."
+  "Couldn't add the folder.": "Non poteva adder le dossier.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} non ha un dossier compartite nominate {folder}. Su dossieres compartite: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} non comparti alcun dossier ora. Activa le compartimento de un dossier in su configurationes (in Unraid: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Trovate in tu rete, ma illo non comparti alcun dossier ora. Activa le compartimento in su configurationes."
 }

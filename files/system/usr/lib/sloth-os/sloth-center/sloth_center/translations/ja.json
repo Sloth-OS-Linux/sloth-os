@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "サイドパネルから外すだけです。ネットワーク上のファイルには触れません。",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "追加しました。パスワードを求められたら記憶させてください。次回からは自動で接続します。",
   "This isn't a network address. Example: {example}": "これはネットワークアドレスではありません。例: {example}",
-  "Couldn't add the folder.": "フォルダーを追加できませんでした。"
+  "Couldn't add the folder.": "フォルダーを追加できませんでした。",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} には {folder} という共有フォルダーはありません。共有フォルダー: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} は現在フォルダーを共有していません。その設定でフォルダーの共有をオンにしてください（Unraid の場合: Shares → … → Export: Yes）。",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "ネットワーク上で見つかりましたが、現在フォルダーを共有していません。その設定で共有をオンにしてください。"
 }

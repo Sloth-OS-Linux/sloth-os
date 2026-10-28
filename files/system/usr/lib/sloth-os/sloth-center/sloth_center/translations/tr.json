@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Yalnızca yan panelden. Ağdaki dosyalara dokunulmaz.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Eklendi. Parolanızı sorduğunda hatırlamasına izin verin: bir dahaki sefere kendiliğinden bağlanır.",
   "This isn't a network address. Example: {example}": "Bu bir ağ adresi değil. Örnek: {example}",
-  "Couldn't add the folder.": "Klasör eklenemedi."
+  "Couldn't add the folder.": "Klasör eklenemedi.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} üzerinde {folder} adlı paylaşılan klasör yok. Paylaşılan klasörleri: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} şu anda hiçbir klasör paylaşmıyor. Ayarlarından bir klasörün paylaşımını açın (Unraid'de: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Ağınızda bulundu, ancak şu anda hiçbir klasör paylaşmıyor. Ayarlarından paylaşımı açın."
 }

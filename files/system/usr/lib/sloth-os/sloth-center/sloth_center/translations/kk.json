@@ -864,5 +864,8 @@
   "Only from the side panel. The files on the network aren't touched.": "Тек бүйір панелінен. Желідегі файлдарға тиіспейді.",
   "Added. When it asks for your password, let it remember it: then it connects by itself next time too.": "Қосылды. Құпиясөзді сұрағанда, оны есте сақтауға рұқсат етіңіз: келесі жолы өзі қосылады.",
   "This isn't a network address. Example: {example}": "Бұл желілік мекенжай емес. Мысал: {example}",
-  "Couldn't add the folder.": "Қалтаны қосу мүмкін болмады."
+  "Couldn't add the folder.": "Қалтаны қосу мүмкін болмады.",
+  "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} құрылғысында {folder} атты ортақ қалта жоқ. Оның ортақ қалталары: {list}",
+  "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} қазір ешбір қалтаны ортақ етпейді. Оның баптауларында қалтаны ортақ етуді қосыңыз (Unraid-та: Shares → … → Export: Yes).",
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Желіңізден табылды, бірақ қазір ешбір қалтаны ортақ етпейді. Оның баптауларында ортақ етуді қосыңыз."
 }
