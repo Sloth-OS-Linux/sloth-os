@@ -95,6 +95,17 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
   Plymouth later, and the shared area (Window.GetX/GetWidth without an index: what every screen shows) moves.
   Now `layout()` runs again whenever that area changes (refresh_callback), the password field too. Check on the
   gaming PC with two monitors (shutdown, restart, boot)
+- [ ] (Idea, 2026-10-28; decide later) **Updates without the restart feeling.** A truly reboot-free update is not
+  possible on an atomic system (by design: the running system is never changed, the new one waits beside it),
+  but it can feel like one:
+  - **Small:** the "update ready" notification says it takes effect the next time the computer is turned on, so
+    there is nothing to do now (the staged deployment is finalized at shutdown anyway), instead of asking for a
+    restart.
+  - **Small:** "Update and shut down" / "Update and restart" in the power menu, as on Windows.
+  - **Larger:** a soft reboot when the update does not change the kernel (`systemctl soft-reboot`; bootc can do it
+    with `--soft-reboot=auto` in newer versions, ostree has `admin prepare-soft-reboot`): the new version starts in
+    seconds, without the firmware and the boot screen; programs still close, KDE's session restore opens them
+    again. First check what rpm-ostree on Fedora 44 supports.
 - [ ] **Small** — The screen locks after 5 minutes although every power setting is off (reported 2026-10-28 on the
   HP): that is KDE's own screen locker default (`kscreenlockerrc` Autolock after 5 min, separate from Power
   Management; Sloth OS sets nothing there). Coming from Windows it looks like being signed out. Plan (test branch
