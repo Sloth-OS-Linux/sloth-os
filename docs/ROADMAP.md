@@ -76,7 +76,7 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
     sliders follow it at once. "Take the color from the wallpaper" too (KDE can do that as well), and "Back to the
     scheme's own color". A live preview in the layout drawing before applying; the choice goes into the settings
     file like the scheme.
-- [ ] **Small, important** — "No updates" although there is one, on a machine with layered packages (found
+- [x] **Small, important** — "No updates" although there is one, on a machine with layered packages (found
   2026-10-28 on the gaming PC: `nmap` layered, the 1.2 `latest` in the registry, still "No updates available"). With
   layered packages `rpm-ostree upgrade --check` cannot read the base image ("failed to query container image base
   metadata: Missing ostree.manifest-digest metadata on merge commit") and only looks at the Fedora repos; Sloth
@@ -84,6 +84,12 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
   when CachedUpdate has no manifest-diff, compare the registry's digest of the image (`skopeo inspect`, signed
   ref) with the booted deployment's base digest, and offer the update by that. The real upgrade (button, the
   04:00 timer) works; only the check is blind. Test on the gaming PC (nmap layered) and on the HP (nothing layered).
+  Done 2026-10-28: `sloth_center/registry_check.py`: when the check is blind (layered packages and no
+  manifest-diff), `skopeo inspect --raw` reads the image's index and the running digest is looked for among this
+  architecture's manifests; a newer one is offered with its date ("Sloth OS · October 28, 2026", no size), asked
+  once per running image and again on "Check for updates", in the background. A registry that does not answer
+  claims nothing. Tests: `tools/tests/test_registry_check.py`. Checked on the gaming PC: the 1.2 image shows as
+  "A new update is available"
 - [ ] **Small** — The screen locks after 5 minutes although every power setting is off (reported 2026-10-28 on the
   HP): that is KDE's own screen locker default (`kscreenlockerrc` Autolock after 5 min, separate from Power
   Management; Sloth OS sets nothing there). Coming from Windows it looks like being signed out. Plan (test branch

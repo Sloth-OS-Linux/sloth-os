@@ -7,6 +7,7 @@ import json
 import logging
 import re
 import subprocess
+import threading
 
 from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
@@ -15,7 +16,7 @@ from sloth_common.apps import packages
 
 from .i18n import tr
 
-from . import texts
+from . import registry_check, texts
 from .rpmostree import RpmOstree, Transaction
 
 log = logging.getLogger("sloth-center.updates")
@@ -45,6 +46,7 @@ def download_size(cached):
 
 class UpdatesController(QObject):
     changed = Signal()
+    _registry_ready = Signal(str, object)
 
     @Slot()
     def openDiscover(self):
@@ -76,6 +78,12 @@ class UpdatesController(QObject):
         self._pinned = False
         self._booted_index = -1
         self._versions = []
+        # Where rpm-ostree's check is blind (layered packages), the registry is asked (registry_check): the
+        # running image's digest it was asked for, and the newer image it found (None: the same)
+        self._registry_for = ""
+        self._registry_newer = None
+        self._registry_busy = False
+        self._registry_ready.connect(self._on_registry)
         try:
             self._ostree = RpmOstree()
             self._ostree.connect_changed(self._on_system_changed)
@@ -228,7 +236,33 @@ class UpdatesController(QObject):
         else:
             self._available = ""
             self._download_size = 0
+            if not self._pending and registry_check.is_blind(booted, cached):
+                self._ask_registry(booted)
         self.changed.emit()
+
+    def _ask_registry(self, booted):
+        """rpm-ostree's check could not see the image (layered packages): the registry says whether there is a
+        newer one. Asked once per running image, or again when the user looks for updates; meanwhile the last
+        answer stands. The size is not known this way."""
+        digest = str(booted.get("container-image-reference-digest") or "")
+        if digest and digest == self._registry_for:
+            if self._registry_newer:
+                self._available = texts.version_text(self._registry_newer) or tr("New version")
+            return
+        if self._registry_busy:
+            return
+        self._registry_busy = True
+        booted = dict(booted)
+        threading.Thread(target=lambda: self._registry_ready.emit(digest, registry_check.newer_image(booted)),
+                         daemon=True).start()
+
+    def _on_registry(self, digest, newer):
+        self._registry_busy = False
+        self._registry_for, self._registry_newer = digest, newer
+        if newer and not self._pending and not self._mode:
+            self._available = texts.version_text(newer) or tr("New version")
+            self._download_size = 0
+            self.changed.emit()
 
     def _attach_background(self):
         """If something runs in the background (automatic update), show its state."""
@@ -301,6 +335,8 @@ class UpdatesController(QObject):
             self._ostree.reload()
         except GLib.Error:
             pass
+        if mode == "check":
+            self._registry_for = ""   # the user looked for updates: the registry is asked again too
         self.refresh()
         # The service may still write the state after the transaction ends (the new version found, the prepared
         # version): we look again a bit later, so Sloth Center does not need to be reopened
