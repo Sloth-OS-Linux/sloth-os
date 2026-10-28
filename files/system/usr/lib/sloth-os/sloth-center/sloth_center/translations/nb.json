@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Kunne ikke legge til mappen.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} har ingen delt mappe som heter {folder}. Dens delte mapper: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} deler ingen mappe nå. Slå på deling av en mappe i innstillingene (i Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Funnet på nettverket ditt, men den deler ingen mappe nå. Slå på deling i innstillingene."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Funnet på nettverket ditt, men den deler ingen mappe nå. Slå på deling i innstillingene.",
+  "Download speed limit": "Begrens nedlastingshastighet",
+  "Only while updates download": "Bare mens oppdateringer lastes ned",
+  "Always": "Alltid",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Begrenser hvor raskt denne datamaskinen laster ned, slik at resten av hjemmenettverket forblir raskt: for en samtale, et spill eller en annen datamaskin. Den gjelder alltid, eller bare mens oppdateringer lastes ned.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Velg en grense mellom 64 kbit/s og 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Kunne ikke endre grensen."
 }

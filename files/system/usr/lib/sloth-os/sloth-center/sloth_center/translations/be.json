@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Не ўдалося дадаць папку.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "На {computer} няма агульнай папкі з назвай {folder}. Яго агульныя папкі: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} зараз не адкрывае ніводнай папкі. Уключыце агульны доступ да папкі ў яго наладах (у Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Знойдзена ў вашай сетцы, але зараз не адкрывае ніводнай папкі. Уключыце агульны доступ у яго наладах."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Знойдзена ў вашай сетцы, але зараз не адкрывае ніводнай папкі. Уключыце агульны доступ у яго наладах.",
+  "Download speed limit": "Абмежаванне хуткасці спампоўвання",
+  "Only while updates download": "Толькі падчас спампоўвання абнаўленняў",
+  "Always": "Заўсёды",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Абмяжоўвае хуткасць спампоўвання на гэтым камп'ютары, каб астатняя хатняя сетка заставалася хуткай: для званка, гульні ці іншага камп'ютара. Дзейнічае заўсёды або толькі падчас спампоўвання абнаўленняў.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Выберыце абмежаванне ад 64 кбіт/с да 10 000 Мбіт/с.",
+  "Couldn't change the limit.": "Не ўдалося змяніць абмежаванне."
 }

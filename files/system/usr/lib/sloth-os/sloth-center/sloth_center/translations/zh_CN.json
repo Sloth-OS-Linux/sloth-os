@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "无法添加文件夹。",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} 上没有名为 {folder} 的共享文件夹。它的共享文件夹：{list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} 目前没有共享任何文件夹。请在它的设置中开启文件夹共享（Unraid：Shares → … → Export: Yes）。",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "在你的网络中找到，但它目前没有共享任何文件夹。请在它的设置中开启共享。"
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "在你的网络中找到，但它目前没有共享任何文件夹。请在它的设置中开启共享。",
+  "Download speed limit": "下载速度限制",
+  "Only while updates download": "仅在下载更新时",
+  "Always": "始终",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "限制这台电脑的下载速度，让家里其余的网络保持流畅：用于通话、游戏或其他电脑。可以始终生效，或仅在下载更新时生效。",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "请选择 64 kbit/秒 到 10 000 Mbit/秒 之间的限制。",
+  "Couldn't change the limit.": "无法更改限制。"
 }

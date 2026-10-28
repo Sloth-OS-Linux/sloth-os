@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "கோப்புறையைச் சேர்க்க முடியவில்லை.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} இல் {folder} என்ற பெயரில் பகிரப்பட்ட கோப்புறை இல்லை. அதன் பகிரப்பட்ட கோப்புறைகள்: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} இப்போது எந்தக் கோப்புறையையும் பகிரவில்லை. அதன் அமைப்புகளில் ஒரு கோப்புறையின் பகிர்வை இயக்கவும் (Unraid இல்: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "உங்கள் பிணையத்தில் கண்டறியப்பட்டது, ஆனால் இப்போது எந்தக் கோப்புறையையும் பகிரவில்லை. அதன் அமைப்புகளில் பகிர்வை இயக்கவும்."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "உங்கள் பிணையத்தில் கண்டறியப்பட்டது, ஆனால் இப்போது எந்தக் கோப்புறையையும் பகிரவில்லை. அதன் அமைப்புகளில் பகிர்வை இயக்கவும்.",
+  "Download speed limit": "பதிவிறக்க வேக வரம்பு",
+  "Only while updates download": "புதுப்பிப்புகள் பதிவிறக்கப்படும்போது மட்டும்",
+  "Always": "எப்போதும்",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "வீட்டின் மற்ற பிணையம் வேகமாக இருக்க, இந்தக் கணினி எவ்வளவு வேகமாகப் பதிவிறக்குகிறது என்பதைக் கட்டுப்படுத்துகிறது: ஒரு அழைப்பு, விளையாட்டு அல்லது மற்றொரு கணினிக்காக. எப்போதும் அல்லது புதுப்பிப்புகள் பதிவிறக்கப்படும்போது மட்டும் பொருந்தும்.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/s முதல் 10 000 Mbit/s வரை ஒரு வரம்பைத் தேர்வுசெய்யவும்.",
+  "Couldn't change the limit.": "வரம்பை மாற்ற முடியவில்லை."
 }

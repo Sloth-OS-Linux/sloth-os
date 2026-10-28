@@ -21,6 +21,7 @@ modules:
         - sane-backends-drivers-scanners  # the scanners' drivers
         - skanpage                        # scanning (KDE); hardware, like setting up printers
         - fwupd                           # BIOS/firmware updates (LVFS), on Sloth Center's Updates page
+        - iproute-tc                      # tc: the download speed limit (Sloth Center → System status, net-limit)
         # Cloud storage (OneDrive, Google Drive) as a folder: /usr/libexec/sloth-os/cloud-drive
         - rclone
         - fuse3

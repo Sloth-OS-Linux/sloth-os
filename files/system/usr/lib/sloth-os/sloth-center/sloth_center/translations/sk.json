@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Priečinok sa nepodarilo pridať.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} nemá zdieľaný priečinok s názvom {folder}. Jeho zdieľané priečinky: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} teraz nezdieľa žiadny priečinok. Zapnite v jeho nastaveniach zdieľanie priečinka (v Unraide: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Nájdené vo vašej sieti, ale teraz nezdieľa žiadny priečinok. Zapnite zdieľanie v jeho nastaveniach."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Nájdené vo vašej sieti, ale teraz nezdieľa žiadny priečinok. Zapnite zdieľanie v jeho nastaveniach.",
+  "Download speed limit": "Obmedzenie rýchlosti sťahovania",
+  "Only while updates download": "Len pri sťahovaní aktualizácií",
+  "Always": "Vždy",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Obmedzuje, ako rýchlo tento počítač sťahuje, aby zvyšok domácej siete zostal rýchly: pre hovor, hru alebo iný počítač. Platí vždy, alebo len pri sťahovaní aktualizácií.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Zvoľte obmedzenie medzi 64 kbit/s a 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Obmedzenie sa nepodarilo zmeniť."
 }

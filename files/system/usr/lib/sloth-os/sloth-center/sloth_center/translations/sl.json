@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Mape ni bilo mogoče dodati.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} nima deljene mape z imenom {folder}. Njegove deljene mape: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} trenutno ne deli nobene mape. V njegovih nastavitvah vklopite deljenje mape (v Unraidu: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Najdeno v vašem omrežju, vendar trenutno ne deli nobene mape. Vklopite deljenje v njegovih nastavitvah."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Najdeno v vašem omrežju, vendar trenutno ne deli nobene mape. Vklopite deljenje v njegovih nastavitvah.",
+  "Download speed limit": "Omejitev hitrosti prenosa",
+  "Only while updates download": "Samo med prenosom posodobitev",
+  "Always": "Vedno",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Omeji, kako hitro ta računalnik prenaša, da ostane preostanek domačega omrežja hiter: za klic, igro ali drug računalnik. Velja vedno ali samo med prenosom posodobitev.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Izberite omejitev med 64 kbit/s in 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Omejitve ni bilo mogoče spremeniti."
 }

@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Kon nie die vouer byvoeg nie.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} het geen gedeelde vouer met die naam {folder} nie. Sy gedeelde vouers: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} deel nou geen vouer nie. Skakel deling vir 'n vouer in sy instellings aan (op Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Op jou netwerk gevind, maar dit deel nou geen vouer nie. Skakel deling in sy instellings aan."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Op jou netwerk gevind, maar dit deel nou geen vouer nie. Skakel deling in sy instellings aan.",
+  "Download speed limit": "Aflaaispoedperk",
+  "Only while updates download": "Net terwyl opdaterings aflaai",
+  "Always": "Altyd",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Beperk hoe vinnig hierdie rekenaar aflaai, sodat die res van jou tuisnetwerk vinnig bly: vir 'n oproep, 'n speletjie of 'n ander rekenaar. Dit geld altyd, of net terwyl opdaterings aflaai.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Kies 'n perk tussen 64 kbit/s en 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Kon nie die perk verander nie."
 }

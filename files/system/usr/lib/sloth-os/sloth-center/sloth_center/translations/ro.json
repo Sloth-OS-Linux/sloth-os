@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Dosarul nu a putut fi adăugat.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} nu are niciun dosar partajat numit {folder}. Dosarele lui partajate: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} nu partajează acum niciun dosar. Activează partajarea unui dosar în setările lui (pe Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Găsit în rețeaua ta, dar acum nu partajează niciun dosar. Activează partajarea în setările lui."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Găsit în rețeaua ta, dar acum nu partajează niciun dosar. Activează partajarea în setările lui.",
+  "Download speed limit": "Limită de viteză la descărcare",
+  "Only while updates download": "Doar cât se descarcă actualizări",
+  "Always": "Mereu",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limitează cât de repede descarcă acest calculator, ca restul rețelei de acasă să rămână rapid: pentru un apel, un joc sau alt calculator. Se aplică mereu sau doar cât se descarcă actualizări.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Alege o limită între 64 kbit/s și 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Limita nu a putut fi schimbată."
 }

@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "تعذّرت إضافة المجلد.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "لا يحتوي {computer} على مجلد مشترك باسم {folder}. مجلداته المشتركة: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "لا يشارك {computer} أي مجلد حاليًا. فعّل مشاركة مجلد في إعداداته (في Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "موجود على شبكتك، لكنه لا يشارك أي مجلد حاليًا. فعّل المشاركة في إعداداته."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "موجود على شبكتك، لكنه لا يشارك أي مجلد حاليًا. فعّل المشاركة في إعداداته.",
+  "Download speed limit": "حد سرعة التنزيل",
+  "Only while updates download": "فقط أثناء تنزيل التحديثات",
+  "Always": "دائمًا",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "يحدّ من سرعة التنزيل على هذا الحاسوب، لتبقى بقية شبكة المنزل سريعة: لمكالمة أو لعبة أو حاسوب آخر. يُطبَّق دائمًا، أو فقط أثناء تنزيل التحديثات.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "اختر حدًا بين 64 كيلوبت/ث و10000 ميغابت/ث.",
+  "Couldn't change the limit.": "تعذّر تغيير الحد."
 }

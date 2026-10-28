@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Папката не можа да бъде добавена.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} няма споделена папка с име {folder}. Споделените му папки: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} в момента не споделя нито една папка. Включете споделянето на папка в настройките му (в Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Намерено във вашата мрежа, но в момента не споделя нито една папка. Включете споделянето в настройките му."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Намерено във вашата мрежа, но в момента не споделя нито една папка. Включете споделянето в настройките му.",
+  "Download speed limit": "Ограничение на скоростта на изтегляне",
+  "Only while updates download": "Само докато се изтеглят обновления",
+  "Always": "Винаги",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ограничава колко бързо изтегля този компютър, за да остане бърза останалата домашна мрежа: за разговор, игра или друг компютър. Важи винаги или само докато се изтеглят обновления.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Изберете ограничение между 64 kbit/s и 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Ограничението не можа да бъде променено."
 }

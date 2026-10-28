@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Klasör eklenemedi.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} üzerinde {folder} adlı paylaşılan klasör yok. Paylaşılan klasörleri: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} şu anda hiçbir klasör paylaşmıyor. Ayarlarından bir klasörün paylaşımını açın (Unraid'de: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Ağınızda bulundu, ancak şu anda hiçbir klasör paylaşmıyor. Ayarlarından paylaşımı açın."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Ağınızda bulundu, ancak şu anda hiçbir klasör paylaşmıyor. Ayarlarından paylaşımı açın.",
+  "Download speed limit": "İndirme hızı sınırı",
+  "Only while updates download": "Yalnızca güncellemeler inerken",
+  "Always": "Her zaman",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ev ağınızın geri kalanı hızlı kalsın diye bu bilgisayarın indirme hızını sınırlar: bir arama, bir oyun veya başka bir bilgisayar için. Her zaman ya da yalnızca güncellemeler inerken geçerli olur.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/sn ile 10 000 Mbit/sn arasında bir sınır seçin.",
+  "Couldn't change the limit.": "Sınır değiştirilemedi."
 }

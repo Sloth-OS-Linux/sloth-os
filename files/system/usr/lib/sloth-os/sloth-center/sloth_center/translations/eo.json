@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Ne eblis aldoni la dosierujon.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} ne havas kunhavigitan dosierujon nomitan {folder}. Ĝiaj kunhavigitaj dosierujoj: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} nun kunhavigas neniun dosierujon. Ŝaltu la kunhavigon de dosierujo en ĝiaj agordoj (en Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Trovita en via reto, sed ĝi nun kunhavigas neniun dosierujon. Ŝaltu la kunhavigon en ĝiaj agordoj."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Trovita en via reto, sed ĝi nun kunhavigas neniun dosierujon. Ŝaltu la kunhavigon en ĝiaj agordoj.",
+  "Download speed limit": "Limo de elŝuta rapido",
+  "Only while updates download": "Nur dum ĝisdatigoj elŝutiĝas",
+  "Always": "Ĉiam",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limigas kiom rapide ĉi tiu komputilo elŝutas, por ke la cetera hejma reto restu rapida: por voko, ludo aŭ alia komputilo. Ĝi validas ĉiam, aŭ nur dum ĝisdatigoj elŝutiĝas.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Elektu limon inter 64 kbit/s kaj 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Ne eblis ŝanĝi la limon."
 }

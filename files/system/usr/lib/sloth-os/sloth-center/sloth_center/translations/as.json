@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "ফ'ল্ডাৰটো যোগ কৰিব পৰা নগ'ল।",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer}ত {folder} নামৰ কোনো শ্বেয়াৰ কৰা ফ'ল্ডাৰ নাই। ইয়াৰ শ্বেয়াৰ কৰা ফ'ল্ডাৰ: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer}এ এতিয়া কোনো ফ'ল্ডাৰ শ্বেয়াৰ কৰা নাই। ইয়াৰ ছেটিংছত এটা ফ'ল্ডাৰৰ শ্বেয়াৰিং অন কৰক (Unraidত: Shares → … → Export: Yes)।",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "আপোনাৰ নেটৱৰ্কত পোৱা গ'ল, কিন্তু এতিয়া কোনো ফ'ল্ডাৰ শ্বেয়াৰ কৰা নাই। ইয়াৰ ছেটিংছত শ্বেয়াৰিং অন কৰক।"
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "আপোনাৰ নেটৱৰ্কত পোৱা গ'ল, কিন্তু এতিয়া কোনো ফ'ল্ডাৰ শ্বেয়াৰ কৰা নাই। ইয়াৰ ছেটিংছত শ্বেয়াৰিং অন কৰক।",
+  "Download speed limit": "ডাউনলোডৰ গতিসীমা",
+  "Only while updates download": "কেৱল আপডেট ডাউনলোডৰ সময়ত",
+  "Always": "সদায়",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "এই কম্পিউটাৰে কিমান দ্ৰুতকৈ ডাউনলোড কৰে সেয়া সীমিত কৰে, যাতে ঘৰৰ বাকী নেটৱৰ্ক দ্ৰুত থাকে: কল, খেল বা আন কম্পিউটাৰৰ বাবে। সদায় বা কেৱল আপডেট ডাউনলোডৰ সময়ত কাৰ্যকৰী হয়।",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/s ৰ পৰা 10 000 Mbit/s ৰ ভিতৰত এটা সীমা বাছক।",
+  "Couldn't change the limit.": "সীমা সলনি কৰিব পৰা নগ'ল।"
 }

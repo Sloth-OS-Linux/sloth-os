@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Složku se nepodařilo přidat.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} nemá sdílenou složku s názvem {folder}. Jeho sdílené složky: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} teď nesdílí žádnou složku. Zapněte v jeho nastavení sdílení složky (v Unraidu: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Nalezeno ve vaší síti, ale teď nesdílí žádnou složku. Zapněte sdílení v jeho nastavení."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Nalezeno ve vaší síti, ale teď nesdílí žádnou složku. Zapněte sdílení v jeho nastavení.",
+  "Download speed limit": "Omezení rychlosti stahování",
+  "Only while updates download": "Jen při stahování aktualizací",
+  "Always": "Vždy",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Omezuje, jak rychle tento počítač stahuje, aby zbytek domácí sítě zůstal rychlý: pro hovor, hru nebo jiný počítač. Platí vždy, nebo jen při stahování aktualizací.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Zvolte omezení mezi 64 kbit/s a 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Omezení se nepodařilo změnit."
 }

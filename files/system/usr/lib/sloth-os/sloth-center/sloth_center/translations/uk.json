@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Не вдалося додати теку.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "На {computer} немає спільної теки з назвою {folder}. Його спільні теки: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} зараз не надає жодної спільної теки. Увімкніть спільний доступ до теки в його налаштуваннях (в Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Знайдено у вашій мережі, але зараз не надає жодної спільної теки. Увімкніть спільний доступ у його налаштуваннях."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Знайдено у вашій мережі, але зараз не надає жодної спільної теки. Увімкніть спільний доступ у його налаштуваннях.",
+  "Download speed limit": "Обмеження швидкості завантаження",
+  "Only while updates download": "Лише під час завантаження оновлень",
+  "Always": "Завжди",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Обмежує швидкість завантаження на цьому комп'ютері, щоб решта домашньої мережі залишалася швидкою: для дзвінка, гри чи іншого комп'ютера. Діє завжди або лише під час завантаження оновлень.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Виберіть обмеження від 64 кбіт/с до 10 000 Мбіт/с.",
+  "Couldn't change the limit.": "Не вдалося змінити обмеження."
 }

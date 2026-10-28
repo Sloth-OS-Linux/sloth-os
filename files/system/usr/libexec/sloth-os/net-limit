@@ -1,0 +1,61 @@
+#!/usr/bin/python3 -I
+"""The download speed limit on the network connections (sloth_common.net_limit has the logic).
+
+  net-limit apply                 puts the limit on or off as the setting and the running updates say
+                                  (NetworkManager dispatcher, sloth-helper net-limit)
+  net-limit update-start          an update service starts (its drop-in's ExecStartPre)
+  net-limit update-stop <unit>    an update service stopped (its drop-in's ExecStopPost)
+
+Runs as root. It never fails its caller: an update must not stop because of the limit.
+"""
+import json
+import subprocess
+import sys
+
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+from sloth_common import net_limit as nl  # noqa: E402
+
+
+def run(cmd):
+    try:
+        return subprocess.run(cmd, capture_output=True, text=True, timeout=20)
+    except (OSError, subprocess.SubprocessError) as e:
+        print(f"net-limit: {cmd[0]}: {e}", file=sys.stderr)
+        return None
+
+
+def ip_json(*args):
+    r = run(["ip", "-j", *args])
+    try:
+        return json.loads(r.stdout) if r and r.returncode == 0 else []
+    except ValueError:
+        return []
+
+
+def active_units():
+    return [u for u in nl.UPDATE_UNITS
+            if (r := run(["systemctl", "is-active", u])) and r.stdout.strip() in ("active", "activating", "reloading")]
+
+
+def main(argv):
+    op = argv[0] if argv else "apply"
+    if op not in ("apply", "update-start", "update-stop"):
+        print(__doc__, file=sys.stderr)
+        return 0
+    cfg = nl.load()
+    on = nl.wanted(cfg, op, active_units(), argv[1] if len(argv) > 1 else "")
+    # every interface is cleared first: a connection that lost its default route must not keep the limit
+    links = [link.get("ifname") for link in ip_json("link", "show") if link.get("ifname") not in (None, "lo")]
+    for dev in links:
+        run(nl.off_command(dev))
+    if on:
+        for dev in nl.default_devices(ip_json("route", "show", "default"), ip_json("-6", "route", "show", "default")):
+            for cmd in nl.on_commands(dev, cfg["kbit"]):
+                r = run(cmd)
+                if r and r.returncode != 0:
+                    print(f"net-limit: {' '.join(cmd)}: {r.stderr.strip()}", file=sys.stderr)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

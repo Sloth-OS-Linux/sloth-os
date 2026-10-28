@@ -90,6 +90,11 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
   once per running image and again on "Check for updates", in the background. A registry that does not answer
   claims nothing. Tests: `tools/tests/test_registry_check.py`. Checked on the gaming PC: the 1.2 image shows as
   "A new update is available"
+- [x] **Small** — The boot logo slid to the bottom right corner at shutdown and restart with more than one monitor
+  (reported 2026-10-28). The Plymouth script placed it once; a second monitor (or its real mode) often reaches
+  Plymouth later, and the shared area (Window.GetX/GetWidth without an index: what every screen shows) moves.
+  Now `layout()` runs again whenever that area changes (refresh_callback), the password field too. Check on the
+  gaming PC with two monitors (shutdown, restart, boot)
 - [ ] **Small** — The screen locks after 5 minutes although every power setting is off (reported 2026-10-28 on the
   HP): that is KDE's own screen locker default (`kscreenlockerrc` Autolock after 5 min, separate from Power
   Management; Sloth OS sets nothing there). Coming from Windows it looks like being signed out. Plan (test branch
@@ -311,8 +316,17 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   one approval per change (a list, not a spin box). App updates (`flatpak-system-update.timer`, 2 minutes after
   start) are not changed. Tests: `tools/tests/test_update_time.py`. Check on a real machine: `systemctl
   list-timers rpm-ostreed-automatic.timer` after choosing an hour)
-- [ ] (Not doable as asked) Limit the update download speed: neither rpm-ostree / bootc nor Flatpak can limit it.
-  What it is for is covered: the automatic update waits while the computer is busy, and the hour can be chosen.
+- [x] Limit the download speed (2026-10-28; asked for again and again, it was missing from every system the
+  developer tried). Neither rpm-ostree nor Flatpak can limit their own download, so it is on the connection:
+  Sloth Center → System status → Download speed limit: a switch, any number with kbit/s, KB/s, Mbit/s or MB/s,
+  and **always** (every download of the computer, the default) or **only while updates download**
+  (rpm-ostreed and flatpak-system-update drop-ins: `net-limit update-start/update-stop`). No password:
+  `sloth-helper-netlimit` has its own polkit action (org.slothos.helper.netlimit, allow_active yes), it can only
+  slow the downloads down. tc's ingress policer on the interfaces with a default route
+  (`/usr/libexec/sloth-os/net-limit`, logic in `sloth_common/net_limit.py`); `iproute-tc` was not in the image
+  (that is why the limit asked for during the 1.2 ISO build did not work); a connection that comes up later gets
+  it from the NetworkManager dispatcher (`90-sloth-net-limit`). Tests: `tools/tests/test_net_limit.py`. Check on a
+  real machine: a speed test at 10 MB/s, Wi-Fi reconnect, "only while updates", no password prompt
 - [x] **Medium** — Warn before large downloads on metered or mobile connections (2026-10-26): the Updates page shows
   the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
   anyway" / "Later"). The automatic update (rpm-ostreed-automatic) already skips metered connections. The size: checked on a real

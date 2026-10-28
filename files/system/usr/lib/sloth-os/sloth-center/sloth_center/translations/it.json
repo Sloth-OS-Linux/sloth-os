@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Impossibile aggiungere la cartella.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} non ha una cartella condivisa chiamata {folder}. Le sue cartelle condivise: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} al momento non condivide nessuna cartella. Attiva la condivisione di una cartella nelle sue impostazioni (su Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Trovato nella tua rete, ma al momento non condivide nessuna cartella. Attiva la condivisione nelle sue impostazioni."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Trovato nella tua rete, ma al momento non condivide nessuna cartella. Attiva la condivisione nelle sue impostazioni.",
+  "Download speed limit": "Limite di velocità di download",
+  "Only while updates download": "Solo durante il download degli aggiornamenti",
+  "Always": "Sempre",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limita la velocità di download di questo computer, così il resto della rete di casa resta veloce: per una chiamata, un gioco o un altro computer. Vale sempre, oppure solo durante il download degli aggiornamenti.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Scegli un limite tra 64 kbit/s e 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Impossibile modificare il limite."
 }

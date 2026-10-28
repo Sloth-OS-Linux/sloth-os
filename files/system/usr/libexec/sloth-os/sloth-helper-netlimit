@@ -1,0 +1,8 @@
+#!/usr/bin/python3 -I
+"""sloth-helper's download speed limit (net-limit) with a separate polkit action (org.slothos.helper.netlimit):
+it needs no password, because it can only slow the computer's downloads down (Sloth Center → System status)."""
+import runpy
+import sys
+
+sys.argv[0] = "sloth-helper-netlimit"
+runpy.run_path("/usr/libexec/sloth-os/sloth-helper", run_name="__main__")

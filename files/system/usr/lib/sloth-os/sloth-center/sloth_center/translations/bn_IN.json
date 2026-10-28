@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "ফোল্ডার যোগ করা যায়নি।",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer}-এ {folder} নামে কোনো শেয়ার করা ফোল্ডার নেই। এর শেয়ার করা ফোল্ডার: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} এখন কোনো ফোল্ডার শেয়ার করছে না। এর সেটিংসে একটি ফোল্ডারের শেয়ারিং চালু করুন (Unraid-এ: Shares → … → Export: Yes)।",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "আপনার নেটওয়ার্কে পাওয়া গেছে, কিন্তু এখন কোনো ফোল্ডার শেয়ার করছে না। এর সেটিংসে শেয়ারিং চালু করুন।"
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "আপনার নেটওয়ার্কে পাওয়া গেছে, কিন্তু এখন কোনো ফোল্ডার শেয়ার করছে না। এর সেটিংসে শেয়ারিং চালু করুন।",
+  "Download speed limit": "ডাউনলোডের গতিসীমা",
+  "Only while updates download": "শুধু আপডেট ডাউনলোডের সময়",
+  "Always": "সবসময়",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "এই কম্পিউটার কত দ্রুত ডাউনলোড করবে তা সীমিত করে, যাতে বাড়ির বাকি নেটওয়ার্ক দ্রুত থাকে: কল, গেম বা অন্য কম্পিউটারের জন্য। সবসময় অথবা শুধু আপডেট ডাউনলোডের সময় কার্যকর হয়।",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/s থেকে 10 000 Mbit/s-এর মধ্যে একটি সীমা বেছে নিন।",
+  "Couldn't change the limit.": "সীমা পরিবর্তন করা যায়নি।"
 }

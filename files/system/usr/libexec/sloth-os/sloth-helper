@@ -35,10 +35,14 @@ Operations:
   update-time default|<0-23>                     the hour the automatic system update (rpm-ostreed-automatic.timer)
                                                  runs, instead of the base image's triggers (an hour after start,
                                                  daily, 4:00)
+  net-limit off|<kbit/s> <unit> always|updates   the download speed limit (/etc/sloth-os/net-limit.json; the unit
+                                                 the user chose: kbit, KB, Mbit, MB), put on or off at once
+                                                 (/usr/libexec/sloth-os/net-limit)
 
 The operations on versions (pin, unpin, set-default) and update-time are also available under the name
 sloth-helper-versions: that is a separate polkit action (org.slothos.helper.versions), so it can be put
-under the "updates" topic, not under booting.
+under the "updates" topic, not under booting. net-limit alone is available as sloth-helper-netlimit, without a
+password (org.slothos.helper.netlimit): it only slows the computer's downloads down.
 """
 import json
 import os
@@ -53,6 +57,8 @@ SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
 VERSIONS_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-versions"
 # Started as sloth-helper-backup, only "Back up now" (without a password, see org.slothos.helper.backup)
 BACKUP_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-backup"
+# Started as sloth-helper-netlimit, only the download speed limit (without a password, see org.slothos.helper.netlimit)
+NETLIMIT_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-netlimit"
 # The Universal Blue key's enrollment password; the user types this on the blue screen
 SB_PASSWORD = "universalblue"
 
@@ -458,6 +464,28 @@ def update_time(hour):
     return {"ok": True}
 
 
+# --- The download speed limit (Sloth Center → System status; sloth_common.net_limit) ------------------------------
+
+NET_LIMIT_CONF = "/etc/sloth-os/net-limit.json"
+NET_LIMIT = "/usr/libexec/sloth-os/net-limit"
+NET_LIMIT_UNITS = ("kbit", "KB", "Mbit", "MB")
+
+
+def net_limit(kbit, unit, when):
+    """kbit: "off" or the limit in kbit/s (64 – 10 000 000); unit: the one the user chose (only shown);
+    when: "always" or "updates"."""
+    if kbit == "off":
+        try:
+            os.unlink(NET_LIMIT_CONF)
+        except FileNotFoundError:
+            pass
+    else:
+        os.makedirs(os.path.dirname(NET_LIMIT_CONF), exist_ok=True)
+        _write(NET_LIMIT_CONF, json.dumps({"kbit": int(kbit), "unit": unit, "when": when}) + "\n")
+    r = subprocess.run([NET_LIMIT, "apply"], capture_output=True, text=True, timeout=60)
+    return {"ok": r.returncode == 0}
+
+
 # --- Backing up your own files (Sloth Center → File backup; home-snapshots does the work) ------------------
 
 SNAPSHOTS_CONF = "/etc/sloth-os/snapshots.json"
@@ -492,7 +520,8 @@ def main(argv):
     if not argv:
         return 2
     op, args = argv[0], argv[1:]
-    if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])):
+    if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])) \
+            or (NETLIMIT_ONLY and op != "net-limit"):
         print(json.dumps({"ok": False, "error": "unknown operation"}))
         return 2
     if op == "secureboot-status" and not args:
@@ -507,6 +536,10 @@ def main(argv):
         result = set_default(int(args[0]))
     elif op == "update-time" and len(args) == 1 and re.fullmatch(r"default|1?\d|2[0-3]", args[0]):
         result = update_time(args[0])
+    elif op == "net-limit" and len(args) == 3 and (args[0] == "off" or (
+            re.fullmatch(r"[1-9]\d{1,7}", args[0]) and 64 <= int(args[0]) <= 10_000_000)) \
+            and args[1] in NET_LIMIT_UNITS and args[2] in ("always", "updates"):
+        result = net_limit(*args)
     elif op == "login-feature" and len(args) == 2 and args[0] in LOGIN_FEATURES and args[1] in ("on", "off"):
         result = login_feature(args[0], args[1] == "on")
     elif op == "domain-join" and len(args) == 2 and DOMAIN_RE.match(args[0]) and DOMAIN_USER_RE.match(args[1]):

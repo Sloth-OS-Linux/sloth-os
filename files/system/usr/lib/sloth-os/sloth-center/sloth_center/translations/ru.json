@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Не удалось добавить папку.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "На {computer} нет общей папки с именем {folder}. Его общие папки: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} сейчас не открывает доступ ни к одной папке. Включите общий доступ к папке в его настройках (в Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Найдено в вашей сети, но сейчас не открывает доступ ни к одной папке. Включите общий доступ в его настройках."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Найдено в вашей сети, но сейчас не открывает доступ ни к одной папке. Включите общий доступ в его настройках.",
+  "Download speed limit": "Ограничение скорости загрузки",
+  "Only while updates download": "Только во время загрузки обновлений",
+  "Always": "Всегда",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ограничивает скорость загрузки на этом компьютере, чтобы остальная домашняя сеть оставалась быстрой: для звонка, игры или другого компьютера. Действует всегда или только во время загрузки обновлений.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Выберите ограничение от 64 кбит/с до 10 000 Мбит/с.",
+  "Couldn't change the limit.": "Не удалось изменить ограничение."
 }

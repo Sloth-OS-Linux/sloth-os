@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Nepavyko pridėti aplanko.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} neturi bendrinamo aplanko pavadinimu {folder}. Jo bendrinami aplankai: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} dabar nebendrina jokio aplanko. Jo nustatymuose įjunkite aplanko bendrinimą (Unraid: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Rasta jūsų tinkle, bet dabar nebendrina jokio aplanko. Įjunkite bendrinimą jo nustatymuose."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Rasta jūsų tinkle, bet dabar nebendrina jokio aplanko. Įjunkite bendrinimą jo nustatymuose.",
+  "Download speed limit": "Atsisiuntimo greičio riba",
+  "Only while updates download": "Tik kol atsisiunčiami naujinimai",
+  "Always": "Visada",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Riboja, kaip greitai šis kompiuteris siunčiasi, kad likęs namų tinklas liktų greitas: skambučiui, žaidimui ar kitam kompiuteriui. Galioja visada arba tik kol atsisiunčiami naujinimai.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Pasirinkite ribą nuo 64 kbit/s iki 10 000 Mbit/s.",
+  "Couldn't change the limit.": "Nepavyko pakeisti ribos."
 }

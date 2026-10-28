@@ -67,6 +67,84 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- The download speed limit (netlimit.py): every download of the computer, no password needed ---
+        Kirigami.AbstractCard {
+            id: limitCard
+            Layout.fillWidth: true
+            // a change takes effect a moment after the last click or key press, not at every step of the number
+            function apply() { limitTimer.restart() }
+            Timer {
+                id: limitTimer
+                interval: 700
+                onTriggered: netlimit.set(limitSwitch.checked, limitValue.value, netlimit.state.units[limitUnit.currentIndex],
+                                          limitAlways.checked ? "always" : "updates")
+            }
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: 0
+                        Kirigami.Heading { level: 3; text: L.t("Download speed limit"); Layout.fillWidth: true }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.7
+                            text: L.t("Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.")
+                        }
+                    }
+                    QQC2.Switch {
+                        id: limitSwitch
+                        Accessible.name: L.t("Download speed limit")
+                        checked: netlimit.state.on
+                        onToggled: limitCard.apply()
+                    }
+                }
+                RowLayout {
+                    enabled: limitSwitch.checked
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.SpinBox {
+                        id: limitValue
+                        // the number in the chosen unit; whole numbers (0.5 MB/s is 500 KB/s)
+                        from: 1; to: 100000; editable: true
+                        value: Math.max(1, Math.round(netlimit.state.value))
+                        Accessible.name: L.t("Download speed limit")
+                        onValueModified: limitCard.apply()
+                    }
+                    QQC2.ComboBox {
+                        id: limitUnit
+                        // the units are the same in every language
+                        model: ["kbit/s", "KB/s", "Mbit/s", "MB/s"]
+                        currentIndex: Math.max(0, netlimit.state.units.indexOf(netlimit.state.unit))
+                        onActivated: limitCard.apply()
+                    }
+                }
+                RowLayout {
+                    enabled: limitSwitch.checked
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.RadioButton {
+                        id: limitAlways
+                        text: L.t("Always")
+                        checked: netlimit.state.when === "always"
+                        onToggled: limitCard.apply()
+                    }
+                    QQC2.RadioButton {
+                        text: L.t("Only while updates download")
+                        checked: netlimit.state.when === "updates"
+                        onToggled: limitCard.apply()
+                    }
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: netlimit.error !== ""
+                    type: Kirigami.MessageType.Warning
+                    text: netlimit.error
+                }
+            }
+        }
+
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             contentItem: RowLayout {

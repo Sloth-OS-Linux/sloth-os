@@ -1,0 +1,7 @@
+#!/bin/sh
+# Sloth OS: a connection that comes up gets the download speed limit too, if it applies now
+# (Sloth Center -> System status, /usr/libexec/sloth-os/net-limit)
+case "$2" in
+  up|dhcp4-change|dhcp6-change|down) exec /usr/libexec/sloth-os/net-limit apply ;;
+esac
+exit 0

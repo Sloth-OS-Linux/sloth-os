@@ -867,5 +867,11 @@
   "Couldn't add the folder.": "Қалтаны қосу мүмкін болмады.",
   "{computer} has no shared folder called {folder}. Its shared folders: {list}": "{computer} құрылғысында {folder} атты ортақ қалта жоқ. Оның ортақ қалталары: {list}",
   "{computer} shares no folder now. Turn on sharing for a folder in its settings (on Unraid: Shares → the folder → Export: Yes).": "{computer} қазір ешбір қалтаны ортақ етпейді. Оның баптауларында қалтаны ортақ етуді қосыңыз (Unraid-та: Shares → … → Export: Yes).",
-  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Желіңізден табылды, бірақ қазір ешбір қалтаны ортақ етпейді. Оның баптауларында ортақ етуді қосыңыз."
+  "Found on your network, but it shares no folder now. Turn on sharing in its settings.": "Желіңізден табылды, бірақ қазір ешбір қалтаны ортақ етпейді. Оның баптауларында ортақ етуді қосыңыз.",
+  "Download speed limit": "Жүктеп алу жылдамдығын шектеу",
+  "Only while updates download": "Тек жаңартулар жүктелгенде",
+  "Always": "Әрқашан",
+  "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Үй желісінің қалған бөлігі жылдам қалуы үшін осы компьютердің жүктеп алу жылдамдығын шектейді: қоңырау, ойын немесе басқа компьютер үшін. Әрқашан немесе тек жаңартулар жүктелгенде әрекет етеді.",
+  "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 кбит/с пен 10 000 Мбит/с аралығындағы шекті таңдаңыз.",
+  "Couldn't change the limit.": "Шекті өзгерту мүмкін болмады."
 }
