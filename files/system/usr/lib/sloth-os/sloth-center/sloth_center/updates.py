@@ -130,7 +130,9 @@ class UpdatesController(QObject):
 
     @Slot(bool, int, int)
     def setQuietHours(self, enabled, start, end):
-        quiet_hours.save({"enabled": enabled, "start": max(0, min(23, start)), "end": max(0, min(23, end))})
+        """start, end: minutes after midnight."""
+        last = quiet_hours.DAY - 1
+        quiet_hours.save({"enabled": enabled, "start": max(0, min(last, start)), "end": max(0, min(last, end))})
         self.changed.emit()
 
     # --- When the automatic update runs (uupd.timer: daily at 4:00, or at the next start if the computer was off) ---
