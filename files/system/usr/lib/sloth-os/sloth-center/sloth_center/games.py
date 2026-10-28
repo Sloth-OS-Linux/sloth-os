@@ -1,22 +1,26 @@
-"""Games: per-game settings (FPS display, performance mode, upscaling).
+"""Games: per-game settings (FPS display, performance mode, upscaling), and moving a Steam game to another drive.
 
 For Steam games the setting goes into Steam's own launch options (localconfig.vdf, the
 user's own entries stay); this can only be written while Steam is not running, otherwise
 it overwrites it on exit. For Windows programs (sloth-exe) it goes into the program's data (sloth_common.apps), and the
 .exe handler applies it when starting. No password is needed: everything is in the user's own folder.
+Moving a Steam game is sloth_common.apps.steam_library (in the background: copying a big game takes a while).
 """
 import logging
 import re
 import subprocess
+import threading
+from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, Signal, Slot
 from PySide6.QtGui import QGuiApplication
 
 from sloth_common import gamesettings
-from sloth_common.apps import library, steam
+from sloth_common.apps import library, steam, steam_library
 from sloth_common.apps.steam import steam_root, vdf_dump, vdf_load
 
-from .i18n import tr
+from . import texts
+from .i18n import N_, tr
 log = logging.getLogger("sloth-center.games")
 
 # Not games: runtimes, Proton, shared components
@@ -78,8 +82,29 @@ def screen_size():
     return (int(size.width() * ratio), int(size.height() * ratio))
 
 
+# What went wrong while moving a game (steam_library.move_game) -> the text the user sees
+MOVE_ERRORS = {
+    "not_found": N_("The game wasn't found. Refresh the list and try again."),
+    "same_place": N_("The game is already there."),
+    "unsupported": N_("Games can't go on that drive: its file system doesn't support them."),
+    "exists": N_("There is already a copy of this game on that drive. Remove it in Steam first."),
+    "no_space": N_("There isn't enough free space on that drive."),
+    "no_access": N_("Steam couldn't be given access to that drive."),
+    "copy_failed": N_("Moving didn't work. The game stayed where it was and still works."),
+}
+
+
+def place_label(path, root):
+    """A library's name for the user: the main drive, or the drive's name."""
+    path = Path(path)
+    if steam_library._same(path, root):
+        return tr("Main drive")
+    return path.parent.name if path.name == steam_library.LIBRARY_NAME else path.name
+
+
 class GamesController(QObject):
     changed = Signal()
+    _moved = Signal(str, str, str)  # from the background thread: game id, error key ("" = done), new place
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -87,12 +112,15 @@ class GamesController(QObject):
         self._error = ""
         self._info = ""
         self._steam_running = False
+        self._moving = ""  # the id of the game being moved
+        self._moved.connect(self._on_moved)
         self.refresh()
 
     games = Property("QVariantList", lambda self: list(self._games), notify=changed)
     errorText = Property(str, lambda self: self._error, notify=changed)
     infoText = Property(str, lambda self: self._info, notify=changed)
     steamRunning = Property(bool, lambda self: self._steam_running, notify=changed)
+    movingId = Property(str, lambda self: self._moving, notify=changed)
 
     @Slot()
     def refresh(self):
@@ -105,10 +133,16 @@ class GamesController(QObject):
                 apps = _apps_node(vdf_load(cfg.read_text(errors="replace")))
             except OSError:
                 pass
+        root = steam_root()
+        movable = root is not None and len(steam_library.targets(root)) > 1
         for g in steam_games():
             options = _ci(_ci(apps, g["appid"]) or {}, "LaunchOptions") or ""
             settings, _rest, _after = gamesettings.parse_launch_options(options)
-            games.append({"id": "steam:" + g["appid"], "name": g["name"], "source": "steam", **settings})
+            found = steam_library.find_game(root, g["appid"]) if root else None
+            games.append({"id": "steam:" + g["appid"], "name": g["name"], "source": "steam", **settings,
+                          "place": place_label(found["library"], root) if found else "",
+                          "size": texts.size_text(found["size"]) if found and found["size"] else "",
+                          "movable": movable and found is not None})
         for app in library.all_apps():
             if app.kind != "windows" or app.id == library.SHARED_ID:
                 continue
@@ -176,6 +210,52 @@ class GamesController(QObject):
         except OSError as e:
             log.warning("program adatai: %s", e)
             self._error = tr("Could not save.")
+
+    # --- Moving a Steam game to another drive ---
+
+    @Slot(str, result="QVariantList")
+    def moveTargets(self, game_id):
+        """The drives the game can go to (not where it is now): [{"path", "label", "free"}]."""
+        root = steam_root()
+        found = steam_library.find_game(root, game_id.split(":", 1)[1]) if root and game_id.startswith("steam:") else None
+        if not found:
+            return []
+        return [{"path": t["path"], "label": place_label(t["path"], root),
+                 "free": tr("{size} free", size=texts.size_text(t["free"]))}
+                for t in steam_library.targets(root) if not steam_library._same(t["path"], found["library"])]
+
+    @Slot(str, str)
+    def moveGame(self, game_id, target):
+        """Moves the game in the background; the page shows the progress, and the result when it is done."""
+        self._error, self._info = "", ""
+        root = steam_root()
+        if self._moving or not root or not game_id.startswith("steam:"):
+            return
+        if steam_running():
+            self._error = tr("Close Steam first, then move the game: Steam would undo it while running.")
+            self.changed.emit()
+            return
+        self._moving = game_id
+        self.changed.emit()
+        appid = game_id.split(":", 1)[1]
+
+        def work():
+            try:
+                result = steam_library.move_game(root, appid, target, flatpak=steam.is_flatpak(root))
+            except OSError as e:
+                log.warning("moving %s: %s", appid, e)
+                result = "copy_failed"
+            self._moved.emit(game_id, result, place_label(target, root))
+        threading.Thread(target=work, daemon=True).start()
+
+    def _on_moved(self, game_id, result, place):
+        name = next((g["name"] for g in self._games if g["id"] == game_id), "")
+        self._moving = ""
+        if result:
+            self._error = tr(MOVE_ERRORS.get(result, MOVE_ERRORS["copy_failed"]))
+        else:
+            self._info = tr("{name} is now on {place}. Start Steam and play as before.", name=name, place=place)
+        self.refresh()
 
     @Slot()
     def closeSteam(self):

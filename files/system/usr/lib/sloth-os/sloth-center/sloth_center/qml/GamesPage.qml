@@ -66,6 +66,7 @@ Kirigami.ScrollablePage {
                 id: gameCard
                 required property var modelData
                 readonly property bool locked: gameCard.modelData.source === "steam" && games.steamRunning
+                property var moveTargets: []  // filled by "Move to another drive…": the choices shown
                 Layout.fillWidth: true
                 contentItem: ColumnLayout {
                     spacing: Kirigami.Units.largeSpacing
@@ -83,9 +84,61 @@ Kirigami.ScrollablePage {
                             spacing: 0
                             Kirigami.Heading { Layout.fillWidth: true; level: 3; elide: Text.ElideRight; text: gameCard.modelData.name }
                             QQC2.Label {
+                                Layout.fillWidth: true
                                 opacity: 0.7
-                                text: gameCard.modelData.source === "steam" ? L.t("Steam") : L.t("Windows program")
+                                elide: Text.ElideRight
+                                // "Steam · Main drive · 64 GB"
+                                text: [gameCard.modelData.source === "steam" ? L.t("Steam") : L.t("Windows program"),
+                                       gameCard.modelData.place || "", gameCard.modelData.size || ""]
+                                      .filter(s => s !== "").join(" · ")
                             }
+                        }
+                        // Moving a Steam game to another drive (sloth_common.apps.steam_library)
+                        QQC2.Button {
+                            visible: gameCard.modelData.movable === true && games.movingId !== gameCard.modelData.id
+                                     && gameCard.moveTargets.length === 0
+                            enabled: !games.steamRunning && games.movingId === ""
+                            text: L.t("Move to another drive…")
+                            icon.name: "folder-move"
+                            onClicked: gameCard.moveTargets = games.moveTargets(gameCard.modelData.id)
+                        }
+                    }
+                    // The drives it can go to, one button each
+                    Flow {
+                        visible: gameCard.moveTargets.length > 0
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        QQC2.Label {
+                            height: implicitHeight
+                            text: L.t("Move it to:")
+                        }
+                        Repeater {
+                            model: gameCard.moveTargets
+                            delegate: QQC2.Button {
+                                required property var modelData
+                                text: modelData.label + " (" + modelData.free + ")"
+                                icon.name: "drive-harddisk"
+                                onClicked: {
+                                    games.moveGame(gameCard.modelData.id, modelData.path)
+                                    gameCard.moveTargets = []
+                                }
+                            }
+                        }
+                        QQC2.Button {
+                            text: L.t("Cancel")
+                            onClicked: gameCard.moveTargets = []
+                        }
+                    }
+                    // While the game is moving: it may take a while for a big game
+                    RowLayout {
+                        visible: games.movingId === gameCard.modelData.id
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        QQC2.BusyIndicator { running: parent.visible }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            text: L.t("Moving the game… With a big game this can take a while. Don't start Steam until it is done.")
                         }
                     }
                     GridLayout {

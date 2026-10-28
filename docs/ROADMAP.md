@@ -339,7 +339,16 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   "Test the buttons"). Tests: `tools/tests/test_sound.py`. Checked on a real machine (2026-10-26)
 - [ ] **Medium** — Share concise, community-informed game fixes with version details and a way to report outdated guidance.
 - [ ] **Large** — When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
-- [ ] **Medium** — Help users move supported game libraries between drives without downloading again, updating launcher paths.
+- [x] **Medium** — Help users move supported game libraries between drives without downloading again, updating launcher paths.
+  (2026-10-28, Steam: Games → each Steam game shows its drive and size, and "Move to another drive…" lists Steam's
+  own folder, the libraries Steam has, and a `SteamLibrary` folder on every other internal Linux drive (USB sticks
+  left out). `sloth_common/apps/steam_library.py` moves what Steam's storage manager moves: the files, the Proton
+  environment (`compatdata`, part of the saves), the shader cache and workshop content, then the manifest last, and
+  updates `libraryfolders.vdf` (registering a new library with its `libraryfolder.vdf`). Same drive: a rename;
+  another drive: copy, size check, only then delete the old one; a failed copy leaves the game where it was. The
+  Flatpak Steam gets a user filesystem override for the new library. Steam must be closed (the page offers it).
+  Tests: `tools/tests/test_steam_move.py` (rename, copy, a copy failing halfway, refusals, a manifest pointing
+  outside the library). Heroic / other launchers: not yet. Check on a real machine with a second drive)
 - [x] **Quick** — Show network status and latency, with basic guidance when the connection may affect online play (2026-10-23, Sloth Center's System status page).
 - [ ] **Medium** — Help configure NAS devices and shared folders, preserving the connection after restart when requested.
 - [ ] **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
