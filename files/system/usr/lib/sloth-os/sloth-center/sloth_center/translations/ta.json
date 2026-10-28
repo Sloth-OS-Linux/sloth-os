@@ -1,5 +1,8 @@
 {
   "_language": "தமிழ்",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "இது Sloth OS-இன் தவறு அல்ல: {publisher} இந்த விளையாட்டை Linux-இல் அனுமதிப்பதில்லை. இங்கே விளையாட விரும்பினால், {publisher}-இடம் சொல்லுங்கள். 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "இது Sloth OS-இன் தவறு அல்ல: விளையாட்டின் உருவாக்குநர்கள் அதை Linux-இல் அனுமதிப்பதில்லை. இங்கே விளையாட விரும்பினால், அவர்களிடம் சொல்லுங்கள். 🦥",
+  "Source: {sources}": "மூலம்: {sources}",
   "Will it run?": "இயங்குமா?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "மற்ற வீரர்களின் அறிக்கைகளின் அடிப்படையில் Sloth OS-இல் விளையாட்டு எவ்வளவு நன்றாக இயங்குகிறது என்று பார்க்க அதன் பெயரைத் தட்டச்சு செய்யுங்கள்.",
   "Game name": "விளையாட்டின் பெயர்",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "அதன் ஏமாற்று எதிர்ப்பு அதைத் தடுக்கிறது",
   "Tested by Sloth OS": "Sloth OS சோதித்தது",
   "Too few reports": "அறிக்கைகள் மிகக் குறைவு",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Sloth OS-இன் தவறு அல்ல: விளையாட்டின் உருவாக்குநர்கள் அதை Linux-இல் அனுமதிப்பதில்லை. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "அதன் ஏமாற்று எதிர்ப்பு Linux-இல் இயங்காது, எனவே விளையாட முடியாது (அல்லது ஆஃப்லைனில் மட்டும்).",
   "The Sloth OS team tried it: it works.": "Sloth OS குழு முயன்றது: இயங்குகிறது.",
   "The Sloth OS team tried it: it works, with some issues.": "Sloth OS குழு முயன்றது: சில சிக்கல்களுடன் இயங்குகிறது.",

@@ -1,5 +1,8 @@
 {
   "_language": "ქართული",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Sloth OS-ის ბრალი არ არის: {publisher} Linux-ზე თამაშს არ უშვებს. თუ აქ თამაში გსურთ, უთხარით {publisher}-ს. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Sloth OS-ის ბრალი არ არის: თამაშის შემქმნელები Linux-ზე არ უშვებენ. თუ აქ თამაში გსურთ, უთხარით მათ. 🦥",
+  "Source: {sources}": "წყარო: {sources}",
   "Will it run?": "გაეშვება?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "შეიყვანეთ თამაშის სახელი და ნახეთ, რამდენად კარგად მუშაობს Sloth OS-ზე სხვა მოთამაშეების ანგარიშების მიხედვით.",
   "Game name": "თამაშის სახელი",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "მას ანტიჩიტი ბლოკავს",
   "Tested by Sloth OS": "გამოცდილია Sloth OS-ის მიერ",
   "Too few reports": "ძალიან ცოტა ანგარიში",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Sloth OS-ის ბრალი არ არის: თამაშის შემქმნელები Linux-ზე არ უშვებენ. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "მისი ანტიჩიტი Linux-ზე არ მუშაობს, ამიტომ თამაში შეუძლებელია (ან მხოლოდ ოფლაინ).",
   "The Sloth OS team tried it: it works.": "Sloth OS-ის გუნდმა სცადა: მუშაობს.",
   "The Sloth OS team tried it: it works, with some issues.": "Sloth OS-ის გუნდმა სცადა: მუშაობს, გარკვეული პრობლემებით.",

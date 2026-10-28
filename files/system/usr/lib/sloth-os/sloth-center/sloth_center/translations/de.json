@@ -1,5 +1,8 @@
 {
   "_language": "Deutsch",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Nicht die Schuld von Sloth OS: {publisher} lässt das Spiel unter Linux nicht zu. Wenn du es hier spielen möchtest, sag es {publisher}. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Nicht die Schuld von Sloth OS: Die Hersteller des Spiels lassen es unter Linux nicht zu. Wenn du es hier spielen möchtest, sag es ihnen. 🦥",
+  "Source: {sources}": "Quelle: {sources}",
   "Will it run?": "Läuft das?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "Gib den Namen eines Spiels ein und sieh, wie gut es unter Sloth OS läuft, nach Berichten anderer Spieler.",
   "Game name": "Name des Spiels",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "Der Anti-Cheat blockiert es",
   "Tested by Sloth OS": "Von Sloth OS getestet",
   "Too few reports": "Zu wenige Berichte",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Nicht die Schuld von Sloth OS: Die Hersteller des Spiels lassen es unter Linux nicht zu. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "Der Anti-Cheat funktioniert unter Linux nicht, daher ist das Spiel nicht spielbar (oder nur offline).",
   "The Sloth OS team tried it: it works.": "Das Sloth-OS-Team hat es ausprobiert: Es läuft.",
   "The Sloth OS team tried it: it works, with some issues.": "Das Sloth-OS-Team hat es ausprobiert: Es läuft, mit einigen Problemen.",

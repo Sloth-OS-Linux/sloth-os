@@ -79,7 +79,8 @@ def known_settings(path=KNOWLEDGE):
 
 def verdict(key, entry, known=()):
     """What the page shows about one game:
-    {"key", "name", "badge", "works", "reports", "native", "gpus" [(name, %)], "anticheat" [..], "tested", "known"}"""
+    {"key", "name", "badge", "works", "reports", "native", "gpus" [(name, %)], "anticheat" [..], "publisher", "tested",
+    "known", "sources" [where the data comes from]}"""
     if entry.get("a") == "denied":
         badge = "blocked"
     elif entry.get("a") == "broken":
@@ -89,6 +90,9 @@ def verdict(key, entry, known=()):
     else:
         badge = entry.get("r") or "unknown"
     appid = key.split(":", 1)[1] if key.startswith("steam:") else ""
+    # where it comes from (shown under every result: the team did not try them all)
+    sources = (["ProtonDB"] if entry.get("t") else []) + (["AreWeAntiCheatYet"] if entry.get("a") else []) \
+        + (["Sloth OS"] if entry.get("st") else [])
     return {
         "key": key,
         "name": entry.get("n", ""),
@@ -98,8 +102,10 @@ def verdict(key, entry, known=()):
         "native": bool(entry.get("l")),
         "gpus": [(GPU_NAMES[g], p) for g, p in (entry.get("g") or {}).items() if g in GPU_NAMES],
         "anticheat": list(entry.get("ac") or []),
+        "publisher": entry.get("p", ""),
         "tested": entry.get("st", ""),
         "known": bool(appid) and appid in known,
+        "sources": sources,
     }
 
 

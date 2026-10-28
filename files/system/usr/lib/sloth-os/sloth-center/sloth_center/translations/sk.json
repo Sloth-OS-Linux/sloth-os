@@ -1,5 +1,8 @@
 {
   "_language": "Slovenčina",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Nie je to chyba Sloth OS: {publisher} hru v Linuxe nepovoľuje. Ak ju tu chcete hrať, povedzte to {publisher}. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Nie je to chyba Sloth OS: tvorcovia hry ju v Linuxe nepovoľujú. Ak ju tu chcete hrať, povedzte im to. 🦥",
+  "Source: {sources}": "Zdroj: {sources}",
   "Will it run?": "Pôjde to?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "Napíšte názov hry a uvidíte, ako dobre beží v Sloth OS podľa hlásení ostatných hráčov.",
   "Game name": "Názov hry",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "Blokuje ju ochrana proti podvádzaniu",
   "Tested by Sloth OS": "Vyskúšané Sloth OS",
   "Too few reports": "Príliš málo hlásení",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Nie je to chyba Sloth OS: tvorcovia hry ju v Linuxe nepovoľujú. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "Jej ochrana proti podvádzaniu v Linuxe nefunguje, takže sa nedá hrať (alebo len offline).",
   "The Sloth OS team tried it: it works.": "Tím Sloth OS ju vyskúšal: funguje.",
   "The Sloth OS team tried it: it works, with some issues.": "Tím Sloth OS ju vyskúšal: funguje, s niektorými problémami.",

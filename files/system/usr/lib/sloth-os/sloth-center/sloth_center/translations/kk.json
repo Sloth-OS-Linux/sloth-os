@@ -1,5 +1,8 @@
 {
   "_language": "Қазақ тілі",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Sloth OS кінәлі емес: {publisher} ойынды Linux-та рұқсат етпейді. Мұнда ойнағыңыз келсе, {publisher} компаниясына айтыңыз. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Sloth OS кінәлі емес: ойынды жасаушылар оны Linux-та рұқсат етпейді. Мұнда ойнағыңыз келсе, оларға айтыңыз. 🦥",
+  "Source: {sources}": "Дереккөз: {sources}",
   "Will it run?": "Іске қосыла ма?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "Ойынның атын жазып, басқа ойыншылардың есептері бойынша оның Sloth OS-те қаншалықты жақсы жұмыс істейтінін көріңіз.",
   "Game name": "Ойын атауы",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "Алаяқтыққа қарсы қорғаныс бұғаттайды",
   "Tested by Sloth OS": "Sloth OS сынаған",
   "Too few reports": "Есептер тым аз",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Sloth OS кінәлі емес: ойынды жасаушылар оны Linux-та рұқсат етпейді. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "Оның алаяқтыққа қарсы қорғанысы Linux-та жұмыс істемейді, сондықтан ойнау мүмкін емес (немесе тек офлайн).",
   "The Sloth OS team tried it: it works.": "Sloth OS командасы байқап көрді: жұмыс істейді.",
   "The Sloth OS team tried it: it works, with some issues.": "Sloth OS командасы байқап көрді: кейбір ақаулармен жұмыс істейді.",

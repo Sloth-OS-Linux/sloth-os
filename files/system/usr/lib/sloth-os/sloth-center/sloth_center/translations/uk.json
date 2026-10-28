@@ -1,5 +1,8 @@
 {
   "_language": "Українська",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Це не вина Sloth OS: {publisher} не дозволяє гру в Linux. Якщо хочете грати тут, скажіть про це {publisher}. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Це не вина Sloth OS: розробники гри не дозволяють її в Linux. Якщо хочете грати тут, скажіть їм про це. 🦥",
+  "Source: {sources}": "Джерело: {sources}",
   "Will it run?": "Чи запуститься?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "Введіть назву гри, щоб побачити, наскільки добре вона працює в Sloth OS, за звітами інших гравців.",
   "Game name": "Назва гри",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "Її блокує античит",
   "Tested by Sloth OS": "Перевірено Sloth OS",
   "Too few reports": "Замало звітів",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Це не вина Sloth OS: розробники гри не дозволяють її в Linux. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "Її античит не працює в Linux, тому грати неможливо (або лише офлайн).",
   "The Sloth OS team tried it: it works.": "Команда Sloth OS перевірила: працює.",
   "The Sloth OS team tried it: it works, with some issues.": "Команда Sloth OS перевірила: працює з деякими проблемами.",

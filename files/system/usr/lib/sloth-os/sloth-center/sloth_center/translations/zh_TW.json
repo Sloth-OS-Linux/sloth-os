@@ -1,5 +1,8 @@
 {
   "_language": "繁體中文",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "不是 Sloth OS 的問題：{publisher} 不允許在 Linux 上執行該遊戲。如果你想在這裡玩，請告訴 {publisher}。🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "不是 Sloth OS 的問題：遊戲開發商不允許在 Linux 上執行。如果你想在這裡玩，請告訴他們。🦥",
+  "Source: {sources}": "來源：{sources}",
   "Will it run?": "能執行嗎？",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "輸入遊戲名稱，根據其他玩家的回報，看看它在 Sloth OS 上執行得如何。",
   "Game name": "遊戲名稱",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "遭反作弊封鎖",
   "Tested by Sloth OS": "Sloth OS 已測試",
   "Too few reports": "回報太少",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "不是 Sloth OS 的問題：遊戲開發商不允許在 Linux 上執行。🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "它的反作弊在 Linux 上無法運作，所以無法遊玩（或只能離線遊玩）。",
   "The Sloth OS team tried it: it works.": "Sloth OS 團隊試過了：可以執行。",
   "The Sloth OS team tried it: it works, with some issues.": "Sloth OS 團隊試過了：可以執行，但有一些問題。",

@@ -1,5 +1,8 @@
 {
   "_language": "한국어",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Sloth OS 탓이 아닙니다: {publisher}이(가) Linux에서 이 게임을 허용하지 않습니다. 여기서 플레이하고 싶다면 {publisher}에 알려 주세요. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Sloth OS 탓이 아닙니다: 게임 제작사가 Linux에서 허용하지 않습니다. 여기서 플레이하고 싶다면 제작사에 알려 주세요. 🦥",
+  "Source: {sources}": "출처: {sources}",
   "Will it run?": "실행될까요?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "게임 이름을 입력하면 다른 플레이어의 보고를 바탕으로 Sloth OS에서 얼마나 잘 실행되는지 볼 수 있습니다.",
   "Game name": "게임 이름",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "안티치트가 차단함",
   "Tested by Sloth OS": "Sloth OS 테스트 완료",
   "Too few reports": "보고가 너무 적음",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Sloth OS 탓이 아닙니다: 게임 제작사가 Linux에서 허용하지 않습니다. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "안티치트가 Linux에서 작동하지 않아 플레이할 수 없습니다(또는 오프라인만 가능).",
   "The Sloth OS team tried it: it works.": "Sloth OS 팀이 시도해 봤습니다: 실행됩니다.",
   "The Sloth OS team tried it: it works, with some issues.": "Sloth OS 팀이 시도해 봤습니다: 실행되지만 몇 가지 문제가 있습니다.",

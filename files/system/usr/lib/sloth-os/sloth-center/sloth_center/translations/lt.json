@@ -1,5 +1,8 @@
 {
   "_language": "Lietuvių",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Ne Sloth OS kaltė: {publisher} neleidžia žaidimo Linux sistemoje. Jei norite jį žaisti čia, praneškite {publisher}. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Ne Sloth OS kaltė: žaidimo kūrėjai neleidžia jo Linux sistemoje. Jei norite jį žaisti čia, praneškite jiems. 🦥",
+  "Source: {sources}": "Šaltinis: {sources}",
   "Will it run?": "Ar veiks?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "Įveskite žaidimo pavadinimą ir pamatysite, kaip gerai jis veikia Sloth OS, pagal kitų žaidėjų ataskaitas.",
   "Game name": "Žaidimo pavadinimas",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "Jį blokuoja apsauga nuo sukčiavimo",
   "Tested by Sloth OS": "Išbandė Sloth OS",
   "Too few reports": "Per mažai ataskaitų",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Ne Sloth OS kaltė: žaidimo kūrėjai neleidžia jo Linux sistemoje. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "Jo apsauga nuo sukčiavimo neveikia Linux sistemoje, todėl žaisti negalima (arba tik neprisijungus).",
   "The Sloth OS team tried it: it works.": "Sloth OS komanda išbandė: veikia.",
   "The Sloth OS team tried it: it works, with some issues.": "Sloth OS komanda išbandė: veikia, su kai kuriomis problemomis.",

@@ -1,5 +1,8 @@
 {
   "_language": "বাংলা (ভারত)",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Sloth OS-এর দোষ নয়: {publisher} Linux-এ গেমটি চালাতে দেয় না। এখানে খেলতে চাইলে {publisher}-কে জানান। 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Sloth OS-এর দোষ নয়: গেমের নির্মাতারা Linux-এ এটি চালাতে দেন না। এখানে খেলতে চাইলে তাঁদের জানান। 🦥",
+  "Source: {sources}": "উৎস: {sources}",
   "Will it run?": "চলবে কি?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "অন্য খেলোয়াড়দের রিপোর্টের ভিত্তিতে Sloth OS-এ গেমটি কতটা ভালো চলে দেখতে গেমের নাম লিখুন।",
   "Game name": "গেমের নাম",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "এর অ্যান্টি-চিট এটি ব্লক করে",
   "Tested by Sloth OS": "Sloth OS পরীক্ষা করেছে",
   "Too few reports": "রিপোর্ট খুব কম",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Sloth OS-এর দোষ নয়: গেমের নির্মাতারা Linux-এ এটি চালাতে দেন না। 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "এর অ্যান্টি-চিট Linux-এ কাজ করে না, তাই খেলা যায় না (বা শুধু অফলাইনে)।",
   "The Sloth OS team tried it: it works.": "Sloth OS দল চেষ্টা করেছে: এটি চলে।",
   "The Sloth OS team tried it: it works, with some issues.": "Sloth OS দল চেষ্টা করেছে: কিছু সমস্যাসহ চলে।",

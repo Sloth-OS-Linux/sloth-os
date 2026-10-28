@@ -1,5 +1,8 @@
 {
   "_language": "Furlan",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "No je colpe di Sloth OS: {publisher} nol permet il zûc su Linux. Se tu vûs zuiâlu achì, dilu a {publisher}. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "No je colpe di Sloth OS: i autôrs dal zûc no lu permetin su Linux. Se tu vûs zuiâlu achì, dîlu a lôr. 🦥",
+  "Source: {sources}": "Font: {sources}",
   "Will it run?": "Al larà?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "Scrîf il non di un zûc par viodi trop ben che al va su Sloth OS, daûr dai rapuarts di altris zuiadôrs.",
   "Game name": "Non dal zûc",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "Il so anti-imbroi lu bloche",
   "Tested by Sloth OS": "Provât di Sloth OS",
   "Too few reports": "Masse pôcs rapuarts",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "No je colpe di Sloth OS: i autôrs dal zûc no lu permetin su Linux. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "Il so anti-imbroi nol va su Linux, duncje nol è pussibil zuiâ (o dome fûr di linie).",
   "The Sloth OS team tried it: it works.": "La scuadre di Sloth OS lu à provât: al va.",
   "The Sloth OS team tried it: it works, with some issues.": "La scuadre di Sloth OS lu à provât: al va, cun cualchi probleme.",

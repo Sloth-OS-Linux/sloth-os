@@ -1,5 +1,8 @@
 {
   "_language": "עברית",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "זו לא אשמת Sloth OS: {publisher} לא מאפשרת את המשחק ב-Linux. אם תרצו לשחק בו כאן, ספרו ל-{publisher}. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "זו לא אשמת Sloth OS: יוצרי המשחק לא מאפשרים אותו ב-Linux. אם תרצו לשחק בו כאן, ספרו להם. 🦥",
+  "Source: {sources}": "מקור: {sources}",
   "Will it run?": "זה ירוץ?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "הקלידו שם של משחק כדי לראות כמה טוב הוא רץ ב-Sloth OS, לפי דיווחים של שחקנים אחרים.",
   "Game name": "שם המשחק",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "מערכת נגד הרמאות שלו חוסמת אותו",
   "Tested by Sloth OS": "נבדק על ידי Sloth OS",
   "Too few reports": "מעט מדי דיווחים",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "זו לא אשמת Sloth OS: יוצרי המשחק לא מאפשרים אותו ב-Linux. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "מערכת נגד הרמאות שלו לא עובדת ב-Linux, כך שאי אפשר לשחק בו (או רק במצב לא מקוון).",
   "The Sloth OS team tried it: it works.": "צוות Sloth OS ניסה: זה עובד.",
   "The Sloth OS team tried it: it works, with some issues.": "צוות Sloth OS ניסה: זה עובד, עם כמה תקלות.",

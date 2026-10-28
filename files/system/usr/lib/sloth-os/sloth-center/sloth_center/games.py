@@ -115,8 +115,12 @@ def describe(v):
     """A verdict (game_check.verdict) as the page shows it: the mark, the badge text and the explanation lines."""
     mark, badge = BADGES.get(v["badge"], BADGES["unknown"])
     lines = []
-    if v["badge"] == "blocked":
-        lines.append(tr("Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥"))
+    if v["badge"] == "blocked" and v["publisher"]:
+        lines.append(tr("Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it "
+                        "here, tell {publisher}. 🦥", publisher=v["publisher"]))
+    elif v["badge"] == "blocked":
+        lines.append(tr("Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it "
+                        "here, tell them. 🦥"))
     elif v["badge"] == "broken":
         lines.append(tr("Its anti-cheat doesn't work on Linux, so it can't be played (or only offline)."))
     if v["tested"]:
@@ -131,6 +135,8 @@ def describe(v):
         lines.append(tr("It has its own Linux version."))
     if v["known"]:
         lines.append(tr("A setting that worked for other players is known: Sloth OS uses it by itself."))
+    if v["sources"]:
+        lines.append(tr("Source: {sources}", sources=", ".join(v["sources"])))
     return {"name": v["name"], "badge": v["badge"], "mark": mark, "badgeText": tr(badge), "lines": lines}
 
 

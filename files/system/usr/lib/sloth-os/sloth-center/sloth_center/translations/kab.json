@@ -1,5 +1,8 @@
 {
   "_language": "Taqbaylit",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Mačči d tuccḍa n Sloth OS: {publisher} ur isireg ara urar ɣef Linux. Ma tebɣiḍ ad t-turareḍ dagi, ini-as i {publisher}. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Mačči d tuccḍa n Sloth OS: imeskaren n wurar ur t-sirigen ara ɣef Linux. Ma tebɣiḍ ad t-turareḍ dagi, ini-asen. 🦥",
+  "Source: {sources}": "Aɣbalu: {sources}",
   "Will it run?": "Ad iddu?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "Aru isem n wurar akken ad twaliḍ amek iteddu ɣef Sloth OS, almend n yineqqisen n yimyurar-nniḍen.",
   "Game name": "Isem n wurar",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "Anti-tikerkas-is iḥbes-it",
   "Tested by Sloth OS": "Yettwarem sɣur Sloth OS",
   "Too few reports": "Drus n yineqqisen",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Mačči d tuccḍa n Sloth OS: imeskaren n wurar ur t-sirigen ara ɣef Linux. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "Anti-tikerkas-is ur yeddi ara ɣef Linux, ihi ur yezmir ara ad yettwurar (neɣ war tuqqna kan).",
   "The Sloth OS team tried it: it works.": "Agraw n Sloth OS yerma-t: iteddu.",
   "The Sloth OS team tried it: it works, with some issues.": "Agraw n Sloth OS yerma-t: iteddu, s kra n wuguren.",

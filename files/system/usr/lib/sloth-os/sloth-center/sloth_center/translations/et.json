@@ -1,5 +1,8 @@
 {
   "_language": "Eesti",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "See pole Sloth OS-i süü: {publisher} ei luba mängu Linuxis. Kui soovid seda siin mängida, ütle seda {publisher}-ile. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "See pole Sloth OS-i süü: mängu tegijad ei luba seda Linuxis. Kui soovid seda siin mängida, ütle seda neile. 🦥",
+  "Source: {sources}": "Allikas: {sources}",
   "Will it run?": "Kas see töötab?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "Sisesta mängu nimi, et näha, kui hästi see Sloth OS-is töötab, teiste mängijate aruannete põhjal.",
   "Game name": "Mängu nimi",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "Selle petmisvastane kaitse blokeerib",
   "Tested by Sloth OS": "Sloth OS-i poolt testitud",
   "Too few reports": "Liiga vähe aruandeid",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "See pole Sloth OS-i süü: mängu tegijad ei luba seda Linuxis. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "Selle petmisvastane kaitse ei tööta Linuxis, seega ei saa seda mängida (või ainult võrguühenduseta).",
   "The Sloth OS team tried it: it works.": "Sloth OS-i meeskond proovis: töötab.",
   "The Sloth OS team tried it: it works, with some issues.": "Sloth OS-i meeskond proovis: töötab, mõne probleemiga.",

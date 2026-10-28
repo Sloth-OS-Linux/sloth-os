@@ -15,7 +15,7 @@ from sloth_common import game_check as gc  # noqa: E402
 
 GAMES = {
     "steam:1172470": {"n": "Apex Legends", "r": "poor", "t": 424, "w": 0, "a": "denied",
-                      "ac": ["Easy Anti-Cheat", "Hyperion"]},
+                      "ac": ["Easy Anti-Cheat", "Hyperion"], "p": "Electronic Arts"},
     "steam:1091500": {"n": "Cyberpunk 2077", "r": "great", "t": 757, "w": 93,
                       "g": {"amd": 95, "nvidia": 91, "intel": 86}},
     "steam:292030": {"n": "The Witcher 3: Wild Hunt", "r": "great", "t": 339, "w": 88},
@@ -52,6 +52,12 @@ class GameCheckTest(unittest.TestCase):
     def test_verdicts(self):
         apex = gc.search(GAMES, "apex")[0]
         self.assertEqual((apex["badge"], apex["anticheat"]), ("blocked", ["Easy Anti-Cheat", "Hyperion"]))
+        # whom to ask, and where the verdict comes from (the team did not try them all)
+        self.assertEqual(apex["publisher"], "Electronic Arts")
+        self.assertEqual(apex["sources"], ["ProtonDB", "AreWeAntiCheatYet"])
+        self.assertEqual(gc.search(GAMES, "valorant")[0]["sources"], ["AreWeAntiCheatYet"])
+        self.assertEqual(gc.lookup(GAMES, "1245620")["sources"], ["ProtonDB", "Sloth OS"])
+        self.assertEqual(gc.lookup(GAMES, "1091500")["sources"], ["ProtonDB"])
         self.assertEqual(gc.search(GAMES, "broken shooter")[0]["badge"], "broken")
         cp = gc.lookup(GAMES, "1091500", known={"1091500"})
         self.assertEqual((cp["badge"], cp["works"], cp["reports"], cp["known"]), ("great", 93, 757, True))

@@ -1,5 +1,8 @@
 {
   "_language": "Norsk bokmål",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "Ikke Sloth OS sin skyld: {publisher} tillater ikke spillet på Linux. Hvis du vil spille det her, si det til {publisher}. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "Ikke Sloth OS sin skyld: spillets utviklere tillater det ikke på Linux. Hvis du vil spille det her, si det til dem. 🦥",
+  "Source: {sources}": "Kilde: {sources}",
   "Will it run?": "Kjører det?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "Skriv navnet på et spill for å se hvor godt det kjører på Sloth OS, ut fra andre spilleres rapporter.",
   "Game name": "Spillets navn",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "Juksebeskyttelsen blokkerer det",
   "Tested by Sloth OS": "Testet av Sloth OS",
   "Too few reports": "For få rapporter",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "Ikke Sloth OS sin skyld: spillets utviklere tillater det ikke på Linux. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "Juksebeskyttelsen virker ikke på Linux, så det kan ikke spilles (eller bare frakoblet).",
   "The Sloth OS team tried it: it works.": "Sloth OS-teamet har prøvd det: det virker.",
   "The Sloth OS team tried it: it works, with some issues.": "Sloth OS-teamet har prøvd det: det virker, med noen problemer.",

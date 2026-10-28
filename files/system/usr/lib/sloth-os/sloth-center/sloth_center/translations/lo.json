@@ -1,5 +1,8 @@
 {
   "_language": "ລາວ",
+  "Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it here, tell {publisher}. 🦥": "ບໍ່ແມ່ນຄວາມຜິດຂອງ Sloth OS: {publisher} ບໍ່ອະນຸຍາດໃຫ້ຫຼິ້ນເກມນີ້ໃນ Linux. ຖ້າຢາກຫຼິ້ນທີ່ນີ້, ບອກ {publisher}. 🦥",
+  "Not Sloth OS's fault: the game's makers don't allow it on Linux. If you'd like to play it here, tell them. 🦥": "ບໍ່ແມ່ນຄວາມຜິດຂອງ Sloth OS: ຜູ້ສ້າງເກມບໍ່ອະນຸຍາດໃຫ້ຫຼິ້ນໃນ Linux. ຖ້າຢາກຫຼິ້ນທີ່ນີ້, ບອກພວກເຂົາ. 🦥",
+  "Source: {sources}": "ແຫຼ່ງທີ່ມາ: {sources}",
   "Will it run?": "ຈະເຮັດວຽກບໍ່?",
   "Type a game's name to see how well it runs on Sloth OS, based on other players' reports.": "ພິມຊື່ເກມເພື່ອເບິ່ງວ່າມັນເຮັດວຽກໃນ Sloth OS ດີປານໃດ, ອີງຕາມລາຍງານຂອງຜູ້ຫຼິ້ນຄົນອື່ນ.",
   "Game name": "ຊື່ເກມ",
@@ -14,7 +17,6 @@
   "Its anti-cheat blocks it": "ລະບົບກັນໂກງບລັອກມັນ",
   "Tested by Sloth OS": "ທົດສອບໂດຍ Sloth OS",
   "Too few reports": "ລາຍງານໜ້ອຍເກີນໄປ",
-  "Not Sloth OS's fault: the game's makers don't allow it on Linux. 🦥": "ບໍ່ແມ່ນຄວາມຜິດຂອງ Sloth OS: ຜູ້ສ້າງເກມບໍ່ອະນຸຍາດໃຫ້ຫຼິ້ນໃນ Linux. 🦥",
   "Its anti-cheat doesn't work on Linux, so it can't be played (or only offline).": "ລະບົບກັນໂກງຂອງມັນບໍ່ເຮັດວຽກໃນ Linux, ຈຶ່ງຫຼິ້ນບໍ່ໄດ້ (ຫຼື ແບບອອບລາຍເທົ່ານັ້ນ).",
   "The Sloth OS team tried it: it works.": "ທີມ Sloth OS ໄດ້ລອງແລ້ວ: ມັນເຮັດວຽກ.",
   "The Sloth OS team tried it: it works, with some issues.": "ທີມ Sloth OS ໄດ້ລອງແລ້ວ: ມັນເຮັດວຽກ, ມີບັນຫາບາງຢ່າງ.",
