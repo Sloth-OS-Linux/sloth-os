@@ -14,8 +14,10 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Current release: [Sloth OS 1.1](https://sourceforge.net/projects/sloth-os/files/1.1/)** (October 27, 2026).
-Machines already running Sloth OS get it as a normal update. What changed: [release notes](#release-notes) below.
+**Current release: [Sloth OS 1.2](https://sourceforge.net/projects/sloth-os/files/1.2/)** (October 28, 2026).
+Machines already running Sloth OS get it as a normal update; coming from 1.1, that first update is a one-time
+download of about 4.5 GB, and later ones are small. What changed: [release notes](#release-notes) below (also in
+[docs/releases/1.2.md](docs/releases/1.2.md)).
 
 ## What Sloth OS can do
 
@@ -24,20 +26,22 @@ Ubuntu, and a color scheme, in the welcome wizard or any time later. Nothing is 
 wizard lets you choose your apps (browsers, Steam, Discord, office, media and more) and installs them for you, and
 only what you chose goes on the taskbar. Every text is available in 50 languages.
 
-**One place for settings: Sloth Center.** Updates, disks and what uses the space, file backup and restore,
-displays (refresh rate, VRR, HDR), sound and microphone test, Bluetooth, a Wi-Fi check in plain language,
-controllers, programs that start at sign-in, app permissions, a security overview and system health, and a
-Feedback page. A short guided tour shows where everything is.
+**One place for settings: Sloth Center.** Updates, disks and what uses the space, network folders (NAS), file
+backup and restore, displays (refresh rate, VRR, HDR), sound and microphone test, Bluetooth, a Wi-Fi check in plain
+language, controllers, programs that start at sign-in, app permissions, a security overview and system health, a
+Feedback page and offline Help for the most common problems. A short guided tour shows where everything is.
 
 **Games that just work.** Steam, Proton, GameMode and gamescope are ready to go, with an FPS and temperature display
-per game, controller support, and the NVIDIA driver set up by itself on computers with an NVIDIA card.
+per game, controller support, and the NVIDIA driver set up by itself on computers with an NVIDIA card. "Will it run?"
+tells how well a game runs before you buy it, and a Steam game moves to another drive without downloading it again.
 
 **Windows programs without fuss.** Double-click an `.exe`, `.msi` or a disc image and it installs or runs, without
 Steam and without settings. If a program does not start, Sloth OS finds a setting that works by itself and
 remembers it ([how it works](#windows-programs-that-just-start)).
 
 **Safe, quiet updates.** The system updates itself in the background as one piece and switches over at the next
-restart. If something goes wrong, the previous version is one click away. Images are signed, and your home folder
+restart. An update downloads only the parts that changed (a typical one is a few hundred MB), and it never asks
+for a restart in your quiet hours. If something goes wrong, the previous version is one click away. Images are signed, and your home folder
 keeps earlier versions of your files so you can restore one or find a deleted file.
 
 **An installer that explains itself.** Install on the whole disk or next to Windows (Windows is never touched),
@@ -45,6 +49,39 @@ choose what happens with other disks, and encrypt the disk if you like. No termi
 progress bar and plain sentences.
 
 ## Release notes
+
+<details open>
+<summary><b>What's new in 1.2</b> (October 28, 2026)</summary>
+
+**Much smaller updates.** An update now downloads only the parts of the system that changed: on a real machine a
+typical update was about 300 MB instead of 2–4 GB, and the installer ISO shrank from 7.0 GB to 5.2 GB. Coming from
+1.1, the first update downloads the whole system once (about 4.5 GB); after that, updates are small.
+
+**Sloth Center**
+
+- **Help:** the most common problems answered offline, in every language, each with a button to the page that
+  fixes it.
+- **"Will it run?"** on the Games page: about 20 000 games with how well they run, from other players' reports, the
+  anti-cheat and the source of every answer; when the makers block Linux, it says so and whom to ask.
+- **Move a Steam game to another drive** without downloading it again (the game, its saves and Steam's library list).
+- **Network folders** (Disks page): a NAS or a shared folder in the file manager's side panel, found by itself or
+  typed as `\\NAS\Photos`; it says which setting to turn on when a NAS shares nothing.
+- **Quiet hours** for restart reminders, and **the hour the automatic update downloads**.
+- **Display and sound profiles:** save "Desk", "TV" or "Headset" and switch with one click.
+- **Settings to a file and back:** the look, the profiles, the quiet hours and the apps, which Sloth Welcome installs
+  again on a new machine.
+- **Clean up** shows each item and its size first, and deletes only what you tick.
+
+**Installer and Windows programs**
+
+- The installer checks the computer on its first page (UEFI mode, memory, a laptop on battery), and its last steps
+  say what is happening instead of standing at 80%.
+- WinUI 3 / .NET MAUI programs, which do not run on Linux yet, are recognized and explained.
+- In live mode (from the USB stick) Windows programs start sooner and use less memory.
+
+Every new text is in all 50 languages.
+
+</details>
 
 <details>
 <summary><b>What's new in 1.1</b> (October 27, 2026)</summary>
