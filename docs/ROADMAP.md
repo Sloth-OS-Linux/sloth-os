@@ -257,17 +257,21 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   `systemd-run --user`); nothing restarts by itself. It goes into the settings file too.
   `sloth_common/quiet_hours.py`, tests: `tools/tests/test_quiet_hours.py`. Check on a real machine
 - [x] **Medium** — Let users choose when the automatic updates download (uupd's timer; needs administrator approval).
-  (2026-10-28: Updates → "When updates download", an hour list. `uupd.timer` runs daily at 4:00 (`Persistent`, so
-  at the next start if the computer was off) and skips by itself while the computer is busy (CPU, memory, network
-  checks in `/etc/uupd/config.json`), so a game is not disturbed. `sloth-helper update-time <hour>|default` writes a
-  drop-in that clears and sets `OnCalendar` (also under `sloth-helper-versions`, the updates topic); one approval
-  per change (a list, not a spin box). The card hides if the image has no `uupd.timer`. Tests:
-  `tools/tests/test_update_time.py`. Check on a real machine: the hour after a restart, `systemctl list-timers`)
+  (2026-10-28: Updates → "When system updates download", an hour list. The first version set `uupd.timer`, but the
+  image has no uupd (the HP did not show the card): the system update is `rpm-ostreed-automatic.timer` (an hour
+  after start, a day after the last run, and 4:00 from Universal Blue's `override.conf`; never on a metered
+  connection, the service's `ExecCondition`), and it does not wait for a busy computer, so that sentence went.
+  `sloth-helper update-time <hour>|default` writes `zz-sloth-time.conf`, which clears every trigger and sets only
+  the chosen hour (`Persistent`: at the next start if the computer was off); the name must sort after
+  `override.conf`, `50-` did not (checked with `systemctl cat` in the image). Also under `sloth-helper-versions`;
+  one approval per change (a list, not a spin box). App updates (`flatpak-system-update.timer`, 2 minutes after
+  start) are not changed. Tests: `tools/tests/test_update_time.py`. Check on a real machine: `systemctl
+  list-timers rpm-ostreed-automatic.timer` after choosing an hour)
 - [ ] (Not doable as asked) Limit the update download speed: neither rpm-ostree / bootc nor Flatpak can limit it.
   What it is for is covered: the automatic update waits while the computer is busy, and the hour can be chosen.
 - [x] **Medium** — Warn before large downloads on metered or mobile connections (2026-10-26): the Updates page shows
   the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
-  anyway" / "Later"). The automatic update (uupd) already skips metered connections. The size: checked on a real
+  anyway" / "Later"). The automatic update (rpm-ostreed-automatic) already skips metered connections. The size: checked on a real
   machine (2026-10-26); the metered question (a phone hotspot) not yet
 - [ ] **Medium** — Smaller system updates (measured 2026-10-26 on ghcr): every build rebuilds all 23 of our own
   layers, so even a one-line change downloads about 2.3 GB (with the daily base image changes 3.8 GB) of the
