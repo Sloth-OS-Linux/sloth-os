@@ -300,6 +300,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   2026-10-28: `normalize-mtimes.sh` (fixed times for files changed in the last 3 days, before the initramfs and at
   the end): a rebuild with nothing changed went from ~1 GB to 353 MB (3 of 128 layers); the CI now also boots the
   installed disk in a UEFI VM (`sloth login:` reached).
+  On a real machine (2026-10-28, the HP, from the chunkah ISO): the network folders commit (5793d74) came as an
+  update of 3 layers, about 300 MB, and installed fine.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [x] **Medium** — Let users schedule file backups, choose retention, and estimate required storage. (Closed
   2026-10-27: the backup runs every hour by itself (`sloth-home-snapshot.timer`, also caught up after the computer
