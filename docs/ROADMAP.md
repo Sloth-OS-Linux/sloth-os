@@ -236,7 +236,14 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   internet answer (a sign-in network: "Open the sign-in page"; no internet: restart the router). It reads
   NetworkManager and rfkill only. Tests: `tools/tests/test_wifi.py`. Checked on a real machine (2026-10-26); a hotel
   or train network not yet
-- [ ] **Medium** — Keep essential installation, recovery, and troubleshooting help available offline.
+- [x] **Medium** — Keep essential installation, recovery, and troubleshooting help available offline.
+  (2026-10-28: Sloth Center → Help (`HelpPage.qml`), built in, nothing downloaded: Sloth OS doesn't start (the
+  boot menu shows itself after a failed start, or Esc / Shift; the second entry is the previous version; "Reset
+  this PC" in the same menu), an update caused trouble, no internet / Wi-Fi, a missing or overwritten file, a
+  Windows program or game doesn't start, no sound, the screen looks wrong, installing again or on another
+  computer (save the settings file first), asking for help. Each answer has a button to the page that fixes it
+  (`openModuleById`). In every language the answers quote the page and button names from that language's own
+  translations, so they match the screen. Check on a real machine)
 - [ ] **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
 - [ ] **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
 - [x] **Medium** — Manage startup applications (2026-10-26): Services page, "Programs that start when you sign

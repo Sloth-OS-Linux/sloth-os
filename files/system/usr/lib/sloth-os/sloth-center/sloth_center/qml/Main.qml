@@ -27,6 +27,7 @@ Kirigami.ApplicationWindow {
         { id: "parental", name: L.t("Parental controls"), icon: "user-group-properties", ready: false,
           description: L.t("Child accounts, age-appropriate apps and screen time. This part is coming in a future update.") },
         { id: "health", name: L.t("System health"), icon: "dialog-information", page: "HealthPage.qml", ready: true },
+        { id: "help", name: L.t("Help"), icon: "help-contents", page: "HelpPage.qml", ready: true },
         { id: "feedback", name: L.t("Feedback"), icon: "mail-message-new", page: "FeedbackPage.qml", ready: true },
         { id: "usbguide", name: L.t("Create installation media"), icon: "drive-removable-media-usb", page: "UsbGuidePage.qml", ready: true },
         { id: "backup", name: L.t("File backup"), icon: "backup", page: "BackupPage.qml", ready: true },
@@ -63,13 +64,20 @@ Kirigami.ApplicationWindow {
         const m = modules[index];
         pageStack.clear();
         if (m.ready) {
-            if (["status", "health", "disks"].includes(m.id))
+            if (["status", "health", "disks", "help"].includes(m.id))
                 pageStack.push(Qt.resolvedUrl(m.page), { navigation: root });
             else
                 pageStack.push(Qt.resolvedUrl(m.page));
         } else {
             pageStack.push(comingSoon, { module: m });
         }
+    }
+
+    // From another page (Help): opens a module by its id
+    function openModuleById(id) {
+        const index = modules.findIndex(m => m.id === id);
+        if (index >= 0)
+            openModule(index);
     }
 
     globalDrawer: Kirigami.OverlayDrawer {
