@@ -106,6 +106,20 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
     with `--soft-reboot=auto` in newer versions, ostree has `admin prepare-soft-reboot`): the new version starts in
     seconds, without the firmware and the boot screen; programs still close, KDE's session restore opens them
     again. First check what rpm-ostree on Fedora 44 supports.
+- [ ] **Important** — The update 1.1 → 1.2 was refused on the gaming PC (2026-10-29 00:21): "Upgrade target revision
+  … with timestamp 2026-10-28 04:14:50 UTC is chronologically older than current revision … 11:53:12 UTC; use
+  --allow-downgrade". rpm-ostree takes an image's time from the manifest annotation
+  `org.opencontainers.image.created`, and with chunkah that annotation (with `org.opencontainers.image.version`,
+  `ostree.commit`) is the **base image's** (Universal Blue's kinoite, built daily around 02:00–04:00 UTC):
+  BlueBuild hands chunkah `podman inspect` of our image, and buildah inherited the base's annotations. The 1.1 images
+  (no chunkah) carried their own build time, so a machine on the last 1.1 build (2026-10-28 11:53) refused every
+  chunked image built on the 2026-10-28 base. It heals by itself with the first build on a newer base (the daily
+  build at 06:00 UTC on 2026-10-29): the base's time moves past every 1.1 build. Since then every build's time is
+  its base's: always moving forward, two builds on the same base have the same time (rpm-ostree accepts equal).
+  Still to do: (1) check on the gaming PC that the update goes through after that build; (2) set the annotation to
+  our build time: chunkah has `--annotation KEY=VALUE`, BlueBuild does not pass it (ask upstream / a PR to
+  blue-build/cli); (3) Sloth Center says "Something went wrong" for this: a plain text ("The new version isn't
+  ready for this computer yet. It will be offered again later.") would be better.
 - [ ] **Small** — The screen locks after 5 minutes although every power setting is off (reported 2026-10-28 on the
   HP): that is KDE's own screen locker default (`kscreenlockerrc` Autolock after 5 min, separate from Power
   Management; Sloth OS sets nothing there). Coming from Windows it looks like being signed out. Plan (test branch
