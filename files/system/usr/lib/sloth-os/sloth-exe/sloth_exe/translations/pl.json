@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} używa zabezpieczenia antycheatowego {system}, które nie pozwala uruchomić gry w Linuksie. To nie wina twojego komputera i nie możemy tego obejść. Niestety w tę grę nie da się tu zagrać.",
   "anticheat.maybe": "{game} używa zabezpieczenia antycheatowego {system}. W Linuksie działa ono tylko, jeśli twórcy gry na to pozwolili. Jeśli gra się nie uruchamia albo cię wyrzuca, to prawdopodobnie dlatego. Warto sprawdzić, czy gra ma wersję na Steam.",
+  "winui.unsupported": "{name} korzysta z najnowszego interfejsu Windows (WinUI 3), który nie działa jeszcze w Linuksie. To nie wina twojego komputera i żadne ustawienie tego nie naprawi. Jeśli program ma wersję na Linuksa lub wersję przeglądarkową, użyj jej.",
 
   "misc.program": "Program",
   "misc.other_programs": "Inne programy",

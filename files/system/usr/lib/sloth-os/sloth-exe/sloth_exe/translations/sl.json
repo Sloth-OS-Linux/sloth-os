@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} uporablja zaščito pred goljufanjem {system}, ki igri ne dovoli delovanja v Linuxu. Ni krivda vašega računalnika in tega ne moremo obiti. Žal te igre tukaj ni mogoče igrati.",
   "anticheat.maybe": "{game} uporablja zaščito pred goljufanjem {system}. V Linuxu deluje le, če so to dovolili ustvarjalci igre. Če se igra ne zažene ali vas vrže ven, je verjetno zato. Preverite, ali ima igra različico na Steamu.",
+  "winui.unsupported": "{name} je zgrajen na najnovejšem vmesniku sistema Windows (WinUI 3), ki v Linuxu še ne more delovati. Ni krivda vašega računalnika in nobena nastavitev tega ne more popraviti. Če ima program različico za Linux ali splet, uporabite to.",
 
   "misc.program": "Program",
   "misc.other_programs": "Drugi programi",

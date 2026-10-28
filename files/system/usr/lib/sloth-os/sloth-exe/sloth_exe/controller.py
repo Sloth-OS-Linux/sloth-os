@@ -24,7 +24,7 @@ from PySide6.QtWidgets import QApplication
 from sloth_common import taskbar
 from sloth_common.apps import detect, discimage, library, menu, native, packages
 
-from . import anticheat, backend, community, diagnose, heal, identify, quirks
+from . import anticheat, backend, community, diagnose, heal, identify, quirks, winui
 from .i18n import catalog, tr
 from .runner import Runner
 
@@ -662,6 +662,11 @@ class ExeController(QObject):
                 "iconUrl": f"file://{icon}" if icon else ""}
 
     def _start_run(self):
+        if winui.detect(self._exe):
+            # WinUI 3 (also .NET MAUI): Wine cannot run it, no setting helps
+            log.info("WinUI 3 program, not started: %s", self._exe)
+            self._fail(winui.text(self._name))
+            return
         found = anticheat.detect(self._exe)
         self._anticheat = found
         if found and not found[1]:

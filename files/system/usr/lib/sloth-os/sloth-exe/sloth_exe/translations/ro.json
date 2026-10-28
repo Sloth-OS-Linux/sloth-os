@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} folosește sistemul anti-trișare {system}, care nu lasă jocul să ruleze pe Linux. Nu e vina calculatorului tău și nu îl putem ocoli. Din păcate, acest joc nu poate fi jucat aici.",
   "anticheat.maybe": "{game} folosește sistemul anti-trișare {system}. Pe Linux funcționează doar dacă l-au permis creatorii jocului. Dacă jocul nu pornește sau te dă afară, probabil acesta e motivul. Merită să verifici dacă jocul are o versiune pe Steam.",
+  "winui.unsupported": "{name} este construit pe cea mai nouă interfață Windows (WinUI 3), care încă nu poate rula pe Linux. Nu e vina calculatorului tău și nicio setare nu poate rezolva asta. Dacă programul are o versiune pentru Linux sau pentru web, folosește-o pe aceea.",
 
   "misc.program": "Program",
   "misc.other_programs": "Alte programe",

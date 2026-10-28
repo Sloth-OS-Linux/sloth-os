@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game}은(는) {system} 안티치트를 사용하며, 이 때문에 Linux에서 게임을 실행할 수 없습니다. 컴퓨터 문제가 아니며 우회할 방법도 없습니다. 아쉽지만 이 게임은 여기서 할 수 없습니다.",
   "anticheat.maybe": "{game}은(는) {system} 안티치트를 사용합니다. Linux에서는 게임 개발사가 허용한 경우에만 동작합니다. 게임이 실행되지 않거나 강제로 종료된다면 아마 이 때문일 겁니다. 게임의 Steam 버전이 있는지 확인해 보세요.",
+  "winui.unsupported": "{name}은(는) Windows의 최신 인터페이스(WinUI 3)로 만들어져 아직 Linux에서 실행할 수 없습니다. 컴퓨터 문제가 아니며 어떤 설정으로도 해결할 수 없습니다. 프로그램에 Linux 버전이나 웹 버전이 있다면 그것을 사용하세요.",
 
   "misc.program": "프로그램",
   "misc.other_programs": "기타 프로그램",

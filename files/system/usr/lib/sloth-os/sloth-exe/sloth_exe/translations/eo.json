@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} uzas la kontraŭtrompan sistemon {system}, kiu ne permesas al la ludo funkcii en Linukso. Tio ne dependas de via komputilo, kaj ni ne povas ĉirkaŭiri ĝin. Bedaŭrinde ĉi tiu ludo ne ludeblas ĉi tie.",
   "anticheat.maybe": "{game} uzas la kontraŭtrompan sistemon {system}. En Linukso ĝi funkcias nur se la kreintoj de la ludo permesis tion. Se la ludo ne lanĉiĝas aŭ elĵetas vin, verŝajne tio estas la kialo. Indas kontroli, ĉu la ludo havas Steam-version.",
+  "winui.unsupported": "{name} estas konstruita sur la plej nova interfaco de Windows (WinUI 3), kiu ankoraŭ ne povas funkcii en Linux. Ne kulpas via komputilo, kaj neniu agordo povas ripari tion. Se la programo havas Linux- aŭ retan version, uzu tiun anstataŭe.",
 
   "misc.program": "Programo",
   "misc.other_programs": "Aliaj programoj",

@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} usa o anti-batota {system}, que não deixa o jogo correr no Linux. Não é culpa do seu computador e não o conseguimos contornar. Infelizmente este jogo não pode ser jogado aqui.",
   "anticheat.maybe": "{game} usa o anti-batota {system}. No Linux só funciona se os criadores do jogo o permitiram. Se o jogo não arranca ou o expulsa, provavelmente é por isso. Vale a pena ver se o jogo tem versão no Steam.",
+  "winui.unsupported": "{name} foi feito com a interface mais recente do Windows (WinUI 3), que ainda não funciona no Linux. Não é culpa do seu computador e nenhuma definição o pode resolver. Se o programa tiver uma versão para Linux ou para a web, use essa.",
 
   "misc.program": "Programa",
   "misc.other_programs": "Outros programas",

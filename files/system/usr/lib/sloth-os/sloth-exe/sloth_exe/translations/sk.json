@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} používa ochranu proti podvádzaniu {system}, ktorá nedovolí spustiť hru v Linuxe. Nie je to chyba vášho počítača a nedá sa to obísť. Žiaľ, túto hru tu hrať nemožno.",
   "anticheat.maybe": "{game} používa ochranu proti podvádzaniu {system}. V Linuxe funguje len vtedy, ak to tvorcovia hry povolili. Ak sa hra nespustí alebo vás vyhodí, je to pravdepodobne preto. Oplatí sa zistiť, či hra nemá verziu na Steame.",
+  "winui.unsupported": "{name} je postavený na najnovšom rozhraní Windows (WinUI 3), ktoré zatiaľ v Linuxe nefunguje. Nie je to chyba vášho počítača a žiadne nastavenie to neopraví. Ak má program verziu pre Linux alebo pre web, použite radšej tú.",
 
   "misc.program": "Program",
   "misc.other_programs": "Ostatné programy",

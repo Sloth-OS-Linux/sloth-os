@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} usa o antitrapaça {system}, que não deixa o jogo rodar no Linux. Não é culpa do seu computador, e não conseguimos contornar isso. Infelizmente este jogo não pode ser jogado aqui.",
   "anticheat.maybe": "{game} usa o antitrapaça {system}. No Linux ele só funciona se os criadores do jogo permitiram. Se o jogo não abre ou te expulsa, provavelmente é por isso. Vale ver se o jogo tem versão na Steam.",
+  "winui.unsupported": "{name} foi feito com a interface mais nova do Windows (WinUI 3), que ainda não funciona no Linux. Não é culpa do seu computador, e nenhuma configuração consegue resolver isso. Se o programa tiver uma versão para Linux ou para a web, use essa.",
 
   "misc.program": "Programa",
   "misc.other_programs": "Outros programas",

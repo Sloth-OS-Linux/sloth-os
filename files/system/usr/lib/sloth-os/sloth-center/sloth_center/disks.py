@@ -2,6 +2,7 @@
 
 The graphical equivalent of `df`, `smartctl` and `flatpak uninstall --unused`.
 The drives' data comes from UDisks2's D-Bus interface (reading needs no password).
+"Clean up" first measures what could go (cleanup.py) and shows it item by item; only the ticked ones are deleted.
 """
 import logging
 import os
@@ -14,8 +15,9 @@ import gi
 from sloth_common import windows_import
 from sloth_common.apps import library
 
+from . import cleanup as cl
 from .health import smart_state
-from .i18n import tr
+from .i18n import N_, tr
 from .rpmostree import RpmOstree, Transaction
 
 gi.require_version("Flatpak", "1.0")
@@ -151,11 +153,27 @@ def unused_flatpak_refs():
     return refs
 
 
+def cleanup_items(apps_unused=None):
+    """What "Clean up" could delete, measured: [{id, bytes, selected}] (the system's part has no size: it is only
+    known after rpm-ostree has cleaned up). The user's own files (used installers) are not ticked by default."""
+    refs = unused_flatpak_refs() if apps_unused is None else apps_unused
+    installers = cl.used_installers(a.meta.get("installer", "") for a in library.all_apps())
+    items = [
+        {"id": "cache", "bytes": sum(s for _, s in cl.old_cache_files()), "selected": True},
+        {"id": "trash", "bytes": cl.trash_size(), "selected": True},
+        {"id": "apps", "bytes": sum(r.get_installed_size() for _, r in refs), "selected": True},
+        {"id": "installers", "bytes": sum(s for _, s in installers), "selected": False},
+        {"id": "system", "bytes": -1, "selected": True},
+    ]
+    return [i for i in items if i["bytes"] != 0]
+
+
 class DisksController(QObject):
     changed = Signal()
     _drives_ready = Signal(object)
     _cleanup_ready = Signal(object, str)
     _usage_ready = Signal(object)
+    _items_ready = Signal(object)
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -168,6 +186,10 @@ class DisksController(QObject):
         self._free_before = 0
         self._ostree = None
         self._txn = None
+        self._items = []           # what "Clean up" could delete (cleanup_items), shown for review
+        self._scanning = False
+        self._chosen = set()       # what is being deleted now
+        self._items_ready.connect(self._on_items)
         self._drives_ready.connect(self._on_drives)
         self._usage_ready.connect(self._on_usage)
         self._cleanup_ready.connect(self._on_cleanup)
@@ -181,6 +203,55 @@ class DisksController(QObject):
     hasWindows = Property(bool, lambda self: self._windows, constant=True)
     usage = Property("QVariantMap", lambda self: dict(self._usage), notify=changed)
     usageBusy = Property(bool, lambda self: self._usage_busy, notify=changed)
+    scanning = Property(bool, lambda self: self._scanning, notify=changed)
+
+    _ITEM_TEXTS = {
+        "cache": (N_("Temporary files not used for a month"),
+                  N_("Programs make these again when they need them.")),
+        "trash": (N_("Trash"), N_("The files you deleted earlier.")),
+        "apps": (N_("Components no app uses anymore"), N_("Left over after removing or updating apps.")),
+        "installers": (N_("Windows installers already used"),
+                       N_("A program was already installed from these. Only needed to install it again.")),
+        "system": (N_("Temporary system files and cached update data"),
+                   N_("Needs administrator approval. The previous system version and the kept ones stay.")),
+    }
+
+    @Property("QVariantList", notify=changed)
+    def cleanupItems(self):
+        return [{**i, "name": tr(self._ITEM_TEXTS[i["id"]][0]), "description": tr(self._ITEM_TEXTS[i["id"]][1]),
+                 "size": _size_text(i["bytes"]) if i["bytes"] > 0 else ""} for i in self._items]
+
+    @Property(str, notify=changed)
+    def selectedSize(self):
+        total = sum(i["bytes"] for i in self._items if i["selected"] and i["bytes"] > 0)
+        return _size_text(total) if total else ""
+
+    @Slot()
+    def scanCleanup(self):
+        """Measures what could be deleted (in the background: it walks the cache)."""
+        if self._scanning or self._busy:
+            return
+        self._scanning, self._cleanup = True, ""
+        self.changed.emit()
+        threading.Thread(target=lambda: self._items_ready.emit(cleanup_items()), daemon=True).start()
+
+    def _on_items(self, items):
+        self._items, self._scanning = items, False
+        if not items:
+            self._cleanup = tr("Nothing to clean up, everything's fine.")
+        self.changed.emit()
+
+    @Slot()
+    def cancelCleanup(self):
+        self._items = []
+        self.changed.emit()
+
+    @Slot(str, bool)
+    def setCleanupSelected(self, item_id, selected):
+        for i in self._items:
+            if i["id"] == item_id:
+                i["selected"] = selected
+        self.changed.emit()
 
     @Slot()
     def measure(self):
@@ -233,15 +304,22 @@ class DisksController(QObject):
         return st.f_bavail * st.f_frsize
 
     @Slot()
-    def cleanup(self):
-        """First the system's temporary files and cached update data (rpm-ostree cleanup), then the Flatpak
-        components no app uses any more. The result is the space really freed."""
+    def cleanupSelected(self):
+        """Deletes the ticked items: first the system's temporary files and cached update data (rpm-ostree
+        cleanup, with administrator approval), then the user's own parts and the apps' unused components. The
+        result is the space really freed."""
         if self._busy:
             return
-        self._busy = True
-        self._cleanup = tr("Looking for unneeded files…")
+        chosen = {i["id"] for i in self._items if i["selected"]}
+        if not chosen:
+            return
+        self._busy, self._chosen, self._items = True, chosen, []
+        self._cleanup = tr("Deleting…")
         self._free_before = self._free_bytes()
         self.changed.emit()
+        if "system" not in chosen:
+            self._apps_cleanup()
+            return
         try:
             self._ostree = self._ostree or RpmOstree()
             self._ostree.cleanup(self._follow_cleanup, lambda raw: self._apps_cleanup(f"rpm-ostree: {raw}"))
@@ -256,10 +334,11 @@ class DisksController(QObject):
                                 lambda ok, raw: self._apps_cleanup("" if ok else raw))
 
     def _apps_cleanup(self, problem=""):
-        """The second step (in the background): unused Flatpak components."""
+        """The second step (in the background): the user's own parts and the unused Flatpak components."""
         self._txn = None
+        chosen = self._chosen
         if problem:
-            # e.g. no administrator approval: the apps' part still goes on
+            # e.g. no administrator approval: the rest still goes on
             log.warning("system cleanup: %s", problem)
 
         def freed_text():
@@ -269,7 +348,14 @@ class DisksController(QObject):
             return tr("Done! {size} of space freed.", size=_size_text(freed))
 
         def work():
-            refs = unused_flatpak_refs()
+            if "cache" in chosen:
+                cl.delete_files(cl.old_cache_files())
+                cl.remove_empty_dirs()
+            if "trash" in chosen:
+                cl.empty_trash()
+            if "installers" in chosen:
+                cl.delete_files(cl.used_installers(a.meta.get("installer", "") for a in library.all_apps()))
+            refs = unused_flatpak_refs() if "apps" in chosen else []
             if not refs:
                 self._cleanup_ready.emit(None, freed_text())
                 return

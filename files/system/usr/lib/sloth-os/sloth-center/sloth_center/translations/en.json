@@ -44,7 +44,6 @@
   "{free} free of {total}": "{free} free of {total}",
   "{n} kept system version(s) take up extra space. If everything works, you can stop keeping the ones you no longer need.": "{n} kept system version(s) take up extra space. If everything works, you can stop keeping the ones you no longer need.",
   "Show versions": "Show versions",
-  "Removes temporary system files, cached update data and components no app uses anymore. Your files, the previous system version and the kept ones aren't touched.": "Removes temporary system files, cached update data and components no app uses anymore. Your files, the previous system version and the kept ones aren't touched.",
   "Get help": "Get help",
   "{gb} GB free": "{gb} GB free",
   "Last backup: {date}": "Last backup: {date}",

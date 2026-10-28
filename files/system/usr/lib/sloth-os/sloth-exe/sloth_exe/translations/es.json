@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} usa el antitrampas {system}, que no permite ejecutar el juego en Linux. No es culpa de tu ordenador y no podemos evitarlo. Por desgracia, este juego no se puede jugar aquí.",
   "anticheat.maybe": "{game} usa el antitrampas {system}. En Linux solo funciona si los creadores del juego lo han permitido. Si el juego no arranca o te expulsa, probablemente sea por esto. Vale la pena ver si el juego tiene versión de Steam.",
+  "winui.unsupported": "{name} está hecho con la interfaz más reciente de Windows (WinUI 3), que todavía no puede funcionar en Linux. No es culpa de tu ordenador y ningún ajuste puede solucionarlo. Si el programa tiene una versión para Linux o para la web, usa esa en su lugar.",
 
   "misc.program": "Programa",
   "misc.other_programs": "Otros programas",

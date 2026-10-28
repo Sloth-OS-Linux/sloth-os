@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} usa le systema anti-fraude {system}, que non permitte al joco functionar sur Linux. Isto non depende de tu computator e nos non pote evitar lo. Regrettabilemente iste joco non pote esser jocate hic.",
   "anticheat.maybe": "{game} usa le systema anti-fraude {system}. Sur Linux illo functiona solmente si le creatores del joco lo ha permittite. Si le joco non se lancea o te expelle, isto es probabilemente le ration. Il vale le pena verificar si le joco ha un version Steam.",
+  "winui.unsupported": "{name} es construite sur le interfacie le plus nove de Windows (WinUI 3), que ancora non pote functionar sur Linux. Isto non es le culpa de tu computator, e nulle configuration pote corriger lo. Si le programma ha un version pro Linux o pro le web, usa illo in loco.",
 
   "misc.program": "Programma",
   "misc.other_programs": "Altere programmas",

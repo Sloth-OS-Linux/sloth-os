@@ -74,6 +74,12 @@ class InstallerController(QObject):
         self._disks = []
         self._disk = ""
         self._confirmed = False
+        # What to know about the computer before installing (first page): legacy BIOS mode blocks
+        self._check = system.machine_check()
+        # Checked again while the first page is open: plugging in the charger removes the battery warning
+        self._check_timer = QTimer(self, interval=3000)
+        self._check_timer.timeout.connect(self._refresh_check)
+        self._check_timer.start()
         self._full_name = ""
         self._username = ""
         self._username_edited = False   # if the user typed it, a change of the name does not overwrite it
@@ -109,6 +115,8 @@ class InstallerController(QObject):
     # --- Properties -------------------------------------------------------------
 
     page = Property(str, lambda self: self._page, notify=changed)
+    machineCheck = Property("QVariantList", lambda self: list(self._check), notify=changed)
+    canInstall = Property(bool, lambda self: not any(c["level"] == "block" for c in self._check), notify=changed)
     languages = Property("QVariantList", lambda self: self._languages, constant=True)
     keyboards = Property("QVariantList", lambda self: self._keyboards, constant=True)
     timezones = Property("QVariantList", lambda self: self._timezones, constant=True)
@@ -244,6 +252,15 @@ class InstallerController(QObject):
     @Property("QVariantMap", notify=changed)
     def diskInfo(self):
         return next((d for d in self._disks if d["path"] == self._disk), {})
+
+    def _refresh_check(self):
+        """The first page's checks again (the charger may have been plugged in), only while that page is shown."""
+        if self._page != "welcome":
+            return
+        check = system.machine_check()
+        if check != self._check:
+            self._check = check
+            self.changed.emit()
 
     # --- Choices -----------------------------------------------------------------
 
@@ -414,6 +431,8 @@ class InstallerController(QObject):
     def next(self):
         order = NAV_PAGES
         log.info("next: %s (disk: %s)", self._page, self._disk or "-")
+        if self._page == "welcome" and not self.canInstall:
+            return
         if self._page in order[:-1]:
             self._page = order[order.index(self._page) + 1]
             if self._page == "disk":

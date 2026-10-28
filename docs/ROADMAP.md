@@ -140,6 +140,31 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   processes too: check those on a real machine as well
 - [x] **Small** — The same when reinstalling or updating into the existing folder: the program's .exe was already
   there before the install, so it was not "new". Done 2026-10-27 with the change time (above).
+- [x] Done 2026-10-27: `sloth_exe/winui.py` (the marker files next to the program, or named in the last 1 MB of a
+  single-file bundle), checked before the anti-cheat check when a program starts; the text in all 50 languages.
+  Tests: `tools/tests/test_winui.py` (with .exe paths as arguments it tells what each one is; the real MAUI app:
+  WinUI 3, its Avalonia rewrite: not). Check on a real machine.
+  **Small** — Recognize WinUI 3 / .NET MAUI programs and say so in plain language instead of trying every
+  setting (2026-10-27, a real .NET 10 MAUI app: `Microsoft.WinUI.dll`, `Microsoft.WindowsAppRuntime.dll`,
+  `WebView2Loader.dll` in its single-file bundle). Wine cannot run WinUI 3 (DirectComposition, Windows App Runtime),
+  so no Proton setting helps. Text like the anti-cheat one (`anticheat.maybe_text`): "This program is built on
+  Windows' newest interface, which does not run on Linux yet." The bundle manifest of a single-file .NET app lists
+  its files uncompressed, so the names can be read without running it.
+- [ ] (Set aside 2026-10-27, not important for now) **Small** — An `.exe` on a USB stick or other FAT/exFAT/NTFS drive (every file looks executable there) must open
+  with the `.exe` handler on a double-click: Dolphin offered to run it directly, and that failed with "failed to
+  launch, status code: 203" (2026-10-27, real machine). Copied into Downloads it started fine.
+- [x] Live mode: Windows programs start in the live system too (2026-10-27, real machine: an Avalonia .NET program
+  ran without problems; the one that did not was the WinUI 3 / MAUI app above, which runs nowhere on Linux)
+- [x] **Small** — Live mode, optional: run the bundled Proton and runtime from `/usr/share/sloth-os/windows-runtime`
+  (writable there) instead of copying ~2 GB into a home folder that lives in RAM or on the USB stick: a faster
+  first start and less memory. (2026-10-27: `windows-runtime-seed` links them in the live system (`rd.live.image`
+  and the bundled folder writable), the installed system still copies; `windows-prepare` does not look for a newer
+  Proton in the live system, that would download into the memory too. Tests: `tools/tests/test_runtime_seed.py`
+  (installed, live, live but read-only, a second run). Check with the next ISO)
+- [ ] (Set aside 2026-10-27, not important for now) **Small** — Ejecting a USB stick took about a minute ("closing the process") after `.exe` files were started
+  from it (2026-10-27). Suspect: the runner uses the program's folder as the working directory, so Wine's
+  background processes (wineserver) hold the stick for a while. Waiting for `fuser -vm` output; fix idea: a working
+  directory outside removable drives, and stop the environment's background processes when the program closes
 #### Installation and storage
 - [x] **Large** — Ask what to do with additional disks and partitions during installation. Leave them untouched and
   unmounted by default; only format after explicit selection and confirmation, then offer automatic mounting.
@@ -152,8 +177,19 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [x] **Medium** — The .exe handler asks which drive a new Windows program goes to when there is more than one
   (with the free space, and "Always install here"); internal drives under /var/mnt or /run/media with a Linux file
   system are offered by themselves, USB sticks are not (2026-10-26; check on a real machine)
-- [ ] **Medium** — Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
-  encryption or hibernation. Explain blockers and safe next steps in plain language.
+- [x] **Medium** — Before disk changes, run a compatibility check for boot mode, free space, Secure Boot, and Windows
+  encryption or hibernation. Explain blockers and safe next steps in plain language. (2026-10-27: the installer's
+  first page checks the computer (`sloth_installer.system.machine_check`): legacy BIOS mode blocks "Install" and
+  says how to start in UEFI mode (the whole-disk install did not check this before; the helper refuses it too,
+  before any disk is touched, `error.not_uefi`); less than 4 GB of memory and a laptop on battery are warnings;
+  Secure Boot with an NVIDIA card is a note (Sloth Center asks for the key once after installing). Next to Windows,
+  the disk survey already explained BitLocker, hibernation / fast startup, a disk to be checked, MBR, legacy mode and
+  too little space; the disk list marks disks that are too small. Texts in all 50 languages. Tests:
+  `tools/tests/test_machine_check.py`. Check on a real machine, also one started in legacy mode)
+  2026-10-28, HP laptop: the battery warning stayed after the charger was plugged in; the first page now checks
+  again every 3 s. Also from that install: with the 128-layer chunkah image the bar stood at 80% for minutes (the
+  files are copied, bootc puts the system together and writes little); a new stage text says so ("Putting Sloth OS
+  together… this can take a few minutes", all 50 languages). Both need a new ISO
 - [x] Show the target disk and planned erase/resize/create/format/mount operations on the installer's confirmation page;
   the existing confirmation checkbox is required before applying changes. The temporary install partition is identified
   as mounted only during setup and deleted at the end.
@@ -164,11 +200,15 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
 - [x] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
   (2026-10-26, System health: the drives' SMART reports through UDisks, with a File backup button; check on a real machine)
-- [ ] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
-  (2026-10-26, a first step: the Disks page shows what uses the space (your files, games, Windows programs, apps,
-  cache, system and earlier versions, counted without the ostree double counting), warns about kept versions, and
-  Clean up also removes the system's temporary files and cached update data, reporting the space really freed.
-  Still missing: reviewing items one by one before deleting)
+- [x] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
+  (2026-10-26, a first step: the Disks page shows what uses the space, and Clean up also removes the system's
+  temporary files and cached update data. 2026-10-27, the review: "Clean up…" first measures and lists the items
+  with their size, each with a tick box: temporary files not used for a month (~/.cache, except Sloth OS's own
+  folder: the self-healing logs and the shared knowledge; links are not followed), the Trash, components no app uses
+  anymore (Flatpak), Windows installers already used (in the home folder, from the programs' records; not ticked by
+  default, they are the user's own files), and the system's temporary files (rpm-ostree, administrator approval,
+  size only known afterwards). Only the ticked ones are deleted; the result is the space really freed.
+  `sloth_center/cleanup.py`, tests: `tools/tests/test_cleanup.py`. Check on a real machine)
 
 #### Sloth Center, setup, and support
 - [x] Add a system status page with OS version, update status, available storage, and a direct Feedback link.
@@ -211,7 +251,12 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 
 #### Updates, backup, and recovery
 - [x] **Quick** — Explain that updates download the needed system parts, their size varies, free disk space is needed, and a restart applies the new version.
-- [ ] **Medium** — Let users schedule updates and avoid restart prompts during user-defined quiet hours.
+- [x] **Medium** — Avoid restart prompts during user-defined quiet hours (2026-10-27): Updates → Quiet hours, on/off
+  and from / to in whole hours (over midnight too). The notifications that ask for a restart (an update is ready,
+  the NVIDIA driver is ready) do not speak then and come again when the quiet hours end (a one-time user timer,
+  `systemd-run --user`); nothing restarts by itself. It goes into the settings file too.
+  `sloth_common/quiet_hours.py`, tests: `tools/tests/test_quiet_hours.py`. Check on a real machine
+- [ ] **Medium** — Let users choose when the automatic updates download (uupd's timer; needs administrator approval).
 - [x] **Medium** — Warn before large downloads on metered or mobile connections (2026-10-26): the Updates page shows
   the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
   anyway" / "Later"). The automatic update (uupd) already skips metered connections. The size: checked on a real
@@ -228,7 +273,13 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   baseline (`ostree-ext/src/chunking.rs:423` assertion, `left: 845, right: 0`). Wait for a fixed rpm-ostree, or
   try BlueBuild's `chunkah` option instead.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
-- [ ] **Medium** — Let users schedule file backups, choose retention, and estimate required storage.
+- [x] **Medium** — Let users schedule file backups, choose retention, and estimate required storage. (Closed
+  2026-10-27: the backup runs every hour by itself (`sloth-home-snapshot.timer`, also caught up after the computer
+  was off) and "Back up now" is on the page; the keep time is chosen there (2 weeks / 1 month / 3 months: every hour
+  of the last day, then one a day, then one a week; the oldest go sooner when the disk is filling up). A separate
+  schedule is not offered: a snapshot only stores what changed and takes a moment, so hourly is right for everyone.
+  The storage is not estimated in advance: Btrfs snapshots share the unchanged data, so a number would be a guess;
+  the Disks page shows the space really used ("System, earlier versions and other").)
 - [x] **Medium** — Guide users through restoring a selected file (2026-10-26): File backup → "Restore a file…"
   (pick the file) or "Find deleted files…" (pick the folder it was in) opens the same "Previous versions" window
   as right-click in the file manager, for those who do not know that menu. Checked on a real machine (2026-10-26)
@@ -236,7 +287,19 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   "Check the backup" reads back a sample of 300 files of the latest saved state (no password, nothing changed)
   and says in plain language whether all of them can be read; files the user may not read anyway are not
   counted as a fault. Tests: `tools/tests/test_backup_verify.py`. Checked on a real machine (2026-10-26)
-- [ ] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
+- [x] **Medium** — Back up and restore Sloth OS settings after reinstalling or when moving to another machine.
+  (2026-10-27: File backup → Sloth OS settings: "Save settings to a file…" / "Load settings from a file…". The file
+  (readable JSON) holds Sloth OS's own settings files (sharing, the disc image choice, the display and sound profiles,
+  where Windows programs go, the developer panel) and the look (color scheme, taskbar layout). Nothing personal.
+  Loading writes only these files back (whatever the file says), keeps a program location only if that drive exists
+  here, and sets the look again. `sloth_center/settings_backup.py`, tests: `tools/tests/test_settings_backup.py`.
+  Check on a real machine)
+- [x] **Medium** — Reinstall the apps too when loading the settings (2026-10-27): the settings file keeps the installed
+  apps (their Flatpak ids); after loading, "Install them with Sloth Welcome" opens the wizard at the first app step
+  with them ticked (`welcome-progress.json`, added to a selection already there; the passwords and sharing steps
+  are not shown again). The wizard keeps only the apps its catalog knows and does not install again what is there.
+  Windows catalog apps (e.g. Battle.net) are not in it yet. Tests: `tools/tests/test_settings_backup.py`. Check on
+  a real machine
 - [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
 - [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart
   flow (already on the Updates page: the explanation, a confirmation that files and settings are kept, then
@@ -268,7 +331,13 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   where the monitor supports them, through kscreen-doctor. After a change it asks "Keep?" and goes back by itself
   after 15 seconds, as KDE's own display settings do. The resolution stays in "More display settings".
   Tests: `tools/tests/test_display.py`. Checked on a real machine (2026-10-26)
-- [ ] **Medium** — Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
+- [x] **Medium** — Let users save and quickly switch display and audio profiles, such as desktop, TV, or headset setups.
+  (2026-10-27: Drivers and hardware → Display and sound profiles. A profile is the monitors' state (on or off, size,
+  refresh rate, position, scale, main one) and the default speakers / headphones and microphone, saved with a name
+  from the current setup and applied with one click through the Displays card's "Keep this setting?" (going back
+  puts the sound back too). Only connected monitors are changed, a missing one is left out and named; a profile
+  that would turn every screen off is not applied; the mode is found again by size and refresh rate.
+  `sloth_center/profiles.py`, tests: `tools/tests/test_profiles.py`. Check on a real machine, also with a TV)
 - [ ] **Medium** — Maintain hardware and game compatibility notes, including which GPU, controller, and settings worked well.
 
 ### Sloth OS 1.0 released (2026-10-21)

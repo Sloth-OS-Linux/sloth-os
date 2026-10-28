@@ -183,6 +183,57 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Quiet hours: no notification asks for a restart then (sloth_common.quiet_hours) ---
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: 0
+                        Kirigami.Heading { level: 3; text: L.t("Quiet hours"); Layout.fillWidth: true }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.7
+                            text: L.t("In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.")
+                        }
+                    }
+                    QQC2.Switch {
+                        id: quietSwitch
+                        Accessible.name: L.t("Quiet hours")
+                        checked: updates.quietHours.enabled
+                        onToggled: updates.setQuietHours(checked, quietStart.value, quietEnd.value)
+                    }
+                }
+                RowLayout {
+                    enabled: quietSwitch.checked
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Label { text: L.t("From") }
+                    QQC2.SpinBox {
+                        id: quietStart
+                        from: 0; to: 23
+                        value: updates.quietHours.start
+                        textFromValue: (v, locale) => (v < 10 ? "0" : "") + v + ":00"
+                        valueFromText: (text, locale) => parseInt(text)
+                        onValueModified: updates.setQuietHours(quietSwitch.checked, value, quietEnd.value)
+                    }
+                    QQC2.Label { text: L.t("to") }
+                    QQC2.SpinBox {
+                        id: quietEnd
+                        from: 0; to: 23
+                        value: updates.quietHours.end
+                        textFromValue: (v, locale) => (v < 10 ? "0" : "") + v + ":00"
+                        valueFromText: (text, locale) => parseInt(text)
+                        onValueModified: updates.setQuietHours(quietSwitch.checked, quietStart.value, value)
+                    }
+                }
+            }
+        }
+
         // --- Keeping a version ---------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

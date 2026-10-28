@@ -10,6 +10,7 @@ import subprocess
 
 from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
+from sloth_common import quiet_hours
 from sloth_common.apps import packages
 
 from .i18n import tr
@@ -120,6 +121,17 @@ class UpdatesController(QObject):
     def downloadSize(self):
         """The size of the waiting update ("2,3 GB"), or "" if it is not known."""
         return texts.size_text(self._download_size) if self._download_size else ""
+
+    # --- Quiet hours: no restart notification in this part of the day (sloth_common.quiet_hours) ---
+
+    @Property("QVariantMap", notify=changed)
+    def quietHours(self):
+        return quiet_hours.load()
+
+    @Slot(bool, int, int)
+    def setQuietHours(self, enabled, start, end):
+        quiet_hours.save({"enabled": enabled, "start": max(0, min(23, start)), "end": max(0, min(23, end))})
+        self.changed.emit()
 
     @Property(bool, notify=changed)
     def meteredWarning(self):

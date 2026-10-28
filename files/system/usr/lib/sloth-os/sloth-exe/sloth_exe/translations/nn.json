@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} brukar juksevernet {system}, som ikkje lèt spelet køyra på Linux. Det kjem ikkje av datamaskina di, og vi kan ikkje gå rundt det. Diverre kan ikkje dette spelet spelast her.",
   "anticheat.maybe": "{game} brukar juksevernet {system}. På Linux verkar det berre om utviklarane av spelet har tillate det. Om spelet ikkje startar eller kastar deg ut, er det truleg difor. Sjekk om spelet finst på Steam.",
+  "winui.unsupported": "{name} er laga på det nyaste grensesnittet til Windows (WinUI 3), som enno ikkje kan køyre på Linux. Det er ikkje datamaskina sin feil, og ingen innstilling kan fikse det. Viss programmet finst i ein Linux- eller nettversjon, bruk han i staden.",
 
   "misc.program": "Program",
   "misc.other_programs": "Andre program",

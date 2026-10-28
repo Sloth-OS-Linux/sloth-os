@@ -312,6 +312,89 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Display and sound profiles: "Desk", "TV", "Headset" (profiles.py) ---------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Display and sound profiles") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Save how the screens and the sound are set up now, for example \"Desk\" or \"TV\", and switch between them with one click.")
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Error
+                    visible: profiles.errorText !== ""
+                    text: profiles.errorText
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Information
+                    visible: profiles.infoText !== ""
+                    text: profiles.infoText
+                }
+                Repeater {
+                    model: profiles.profiles
+                    delegate: RowLayout {
+                        id: profileRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: "preferences-desktop-display-randr"
+                            fallback: "video-display"
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: profileRow.modelData.name; font.bold: true }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                visible: text !== ""
+                                elide: Text.ElideRight
+                                opacity: 0.7
+                                text: profileRow.modelData.summary
+                            }
+                        }
+                        QQC2.Button {
+                            text: L.t("Use")
+                            icon.name: "dialog-ok-apply"
+                            enabled: !displays.confirming
+                            onClicked: profiles.apply(profileRow.modelData.name)
+                        }
+                        QQC2.ToolButton {
+                            icon.name: "edit-delete"
+                            Accessible.name: L.t("Delete")
+                            QQC2.ToolTip.text: L.t("Delete")
+                            QQC2.ToolTip.visible: hovered
+                            onClicked: profiles.remove(profileRow.modelData.name)
+                        }
+                    }
+                }
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.TextField {
+                        id: profileName
+                        Layout.fillWidth: true
+                        placeholderText: L.t("Name, for example TV")
+                        onAccepted: if (text.trim() !== "") { profiles.saveCurrent(text); text = ""; }
+                    }
+                    QQC2.Button {
+                        icon.name: "document-save"
+                        text: L.t("Save the current setup")
+                        enabled: profileName.text.trim() !== ""
+                        onClicked: { profiles.saveCurrent(profileName.text); profileName.text = ""; }
+                    }
+                }
+            }
+        }
+
         // After a display change: keep it, or it goes back by itself (a black screen cannot get stuck)
         Kirigami.PromptDialog {
             id: keepDisplay

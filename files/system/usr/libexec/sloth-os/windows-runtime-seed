@@ -3,19 +3,31 @@
 # where umu-launcher looks for them. Without downloading, a few seconds; afterwards the first .exe starts
 # without internet too. It only copies what is still missing (it does not overwrite a newer version already downloaded).
 # The .exe handler (sloth_exe/runner.py) and sloth-windows-prepare call it before umu.
+# In the live system (started from the USB stick) the home folder is in memory, but /usr is writable: there it links
+# to the bundled ones instead of copying ~2 GB, so the first .exe starts sooner and the memory stays free.
 set -euo pipefail
 
-SRC=/usr/share/sloth-os/windows-runtime
+SRC="${SLOTH_RUNTIME_SRC:-/usr/share/sloth-os/windows-runtime}"
 DATA="${XDG_DATA_HOME:-$HOME/.local/share}"
 COMPAT="$DATA/Steam/compatibilitytools.d"
 RUNTIME="$DATA/umu/steamrt3"
 
 [[ -d "$SRC" ]] || exit 0
 
+LIVE=0
+if grep -qw rd.live.image "${SLOTH_CMDLINE:-/proc/cmdline}" 2>/dev/null && [[ -w "$SRC" ]]; then
+    LIVE=1
+fi
+
 # Proton: if there is no UMU-Proton at all yet (umu picks the latest of them)
 if ! compgen -G "$COMPAT/UMU-Proton-*/proton" >/dev/null; then
     for proton in "$SRC"/UMU-Proton-*; do
         mkdir -p "$COMPAT"
+        if [[ $LIVE == 1 ]]; then
+            ln -sfn "$proton" "$COMPAT/$(basename "$proton")"
+            echo "Proton linked in (live system): $(basename "$proton")"
+            continue
+        fi
         tmp="$(mktemp -d "$COMPAT/.sloth-seed.XXXXXX")"
         cp -a --reflink=auto "$proton" "$tmp/"
         mv "$tmp/$(basename "$proton")" "$COMPAT/"
@@ -28,6 +40,16 @@ fi
 # marker file, which is fine too if the platform folder exists). An unfinished, empty folder is replaced
 if [[ ! -f "$RUNTIME/.installed.ok" ]] && ! compgen -G "$RUNTIME/sniper_platform_*" >/dev/null; then
     mkdir -p "$DATA/umu"
+    if [[ $LIVE == 1 && -w "$SRC/steamrt3" ]]; then
+        # the same marks as a copy gets, written into the bundled one (the live /usr is in memory too, but only
+        # these few bytes change there)
+        ln -sfn _v2-entry-point "$SRC/steamrt3/umu"
+        echo ok > "$SRC/steamrt3/.installed.ok"
+        rm -rf "$RUNTIME"
+        ln -sfn "$SRC/steamrt3" "$RUNTIME"
+        echo "Runtime linked in (live system)"
+        exit 0
+    fi
     tmp="$(mktemp -d "$DATA/umu/.sloth-seed.XXXXXX")"
     cp -a --reflink=auto "$SRC/steamrt3" "$tmp/"
     ln -sfn _v2-entry-point "$tmp/steamrt3/umu"

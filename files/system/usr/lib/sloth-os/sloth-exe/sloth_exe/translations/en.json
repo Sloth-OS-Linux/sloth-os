@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} uses the {system} anti-cheat, which doesn't allow the game to run on Linux. It's not your computer's fault, and we can't get around it. Unfortunately this game can't be played here.",
   "anticheat.maybe": "{game} uses the {system} anti-cheat. It only works on Linux if the game's makers have allowed it. If the game won't start or kicks you out, this is probably why. It's worth checking whether the game has a Steam version.",
+  "winui.unsupported": "{name} is built on Windows' newest interface (WinUI 3), which can't run on Linux yet. It's not your computer's fault, and no setting can fix it. If the program has a Linux or web version, use that instead.",
 
   "misc.program": "Program",
   "misc.other_programs": "Other programs",

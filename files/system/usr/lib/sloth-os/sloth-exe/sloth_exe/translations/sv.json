@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} använder fuskskyddet {system}, som inte låter spelet köras på Linux. Det beror inte på din dator, och vi kan inte kringgå det. Tyvärr går det här spelet inte att spela här.",
   "anticheat.maybe": "{game} använder fuskskyddet {system}. På Linux fungerar det bara om spelets skapare har tillåtit det. Om spelet inte startar eller kastar ut dig är det troligen därför. Kolla om spelet finns på Steam.",
+  "winui.unsupported": "{name} är byggt på Windows nyaste gränssnitt (WinUI 3), som ännu inte kan köras på Linux. Det är inte din dators fel, och ingen inställning kan åtgärda det. Om programmet finns i en Linux- eller webbversion, använd den i stället.",
 
   "misc.program": "Program",
   "misc.other_programs": "Övriga program",

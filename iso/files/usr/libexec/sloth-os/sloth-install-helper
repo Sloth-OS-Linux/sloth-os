@@ -665,13 +665,19 @@ def image_size(source):
 
 
 def copy_progress(stop, expected, progress):
-    """During the copy, the progress bar follows the space used on the system partition (25–80%)."""
+    """During the copy, the progress bar follows the space used on the system partition (25–80%). Once the files are
+    there, bootc puts the system together from them and writes little, so the bar stands at 80% for minutes (longer
+    with many layers: the 128-layer chunkah image, 2026-10-28): the text says so, so it does not look stuck."""
     st = os.statvfs(TARGET)
     base = (st.f_blocks - st.f_bfree) * st.f_frsize
     while not stop.wait(2):
         st = os.statvfs(TARGET)
         used = (st.f_blocks - st.f_bfree) * st.f_frsize - base
         pct = 25 + int(55 * min(1.0, used / expected))
+        if pct >= 80:
+            progress[0] = 80
+            emit(stage="assemble", progress=80)
+            return
         if pct > progress[0]:
             progress[0] = pct
             emit(stage="copy", progress=pct)
@@ -1059,8 +1065,8 @@ def place_windows_helper(disk):
 
 
 def dry_run(beside=False):
-    for stage, pct in [("shrink", 8)] * beside + [("partition", 10), ("encrypt", 12), ("prepare", 20)] + [("copy", p) for p in range(25, 81, 5)] + \
-            [("bootloader", 85), ("finishing", 90), ("configure", 95)]:
+    for stage, pct in [("shrink", 8)] * beside + [("partition", 10), ("encrypt", 12), ("prepare", 20)] + [("copy", p) for p in range(25, 80, 5)] + \
+            [("assemble", 80), ("bootloader", 85), ("finishing", 90), ("configure", 95)]:
         time.sleep(1.5)
         emit(stage=stage, progress=pct)
     emit(done=True)
@@ -1107,6 +1113,10 @@ def main():
         fail("error.not_authorized")
     if not whole_disk(args.disk):
         fail("error.bad_disk", f"disk cannot be installed to: {args.disk}")
+    # Sloth OS starts with UEFI only: in legacy (BIOS) mode the installed system would not start. The first page
+    # says so too (sloth_installer.system.machine_check); this is the last word, before any disk is touched.
+    if not Path("/sys/firmware/efi").is_dir():
+        fail("error.not_uefi", "started in legacy (BIOS) mode")
     if args.beside_windows and not 40 <= args.size_gib <= 100000:
         fail("error.bad_input", f"bad size: {args.size_gib} GiB")
     if not re.fullmatch(r"[a-z]{2,3}(_[A-Z]{2})?\.UTF-8", args.locale):

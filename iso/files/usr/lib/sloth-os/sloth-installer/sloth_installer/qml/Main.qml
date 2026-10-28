@@ -111,6 +111,22 @@ Kirigami.ApplicationWindow {
                         opacity: 0.8
                         text: root.t("welcome.text")
                     }
+                    // What to know about this computer before installing (system.machine_check): legacy BIOS mode
+                    // blocks the install, a weak or unplugged laptop is a warning, Secure Boot with NVIDIA a note
+                    Repeater {
+                        model: installer.machineCheck
+                        delegate: Kirigami.InlineMessage {
+                            required property var modelData
+                            Layout.alignment: Qt.AlignHCenter
+                            Layout.preferredWidth: Kirigami.Units.gridUnit * 34
+                            Layout.maximumWidth: root.width - Kirigami.Units.gridUnit * 4
+                            visible: true
+                            type: modelData.level === "block" ? Kirigami.MessageType.Error
+                                : modelData.level === "warn" ? Kirigami.MessageType.Warning
+                                : Kirigami.MessageType.Information
+                            text: root.t("check." + modelData.id)
+                        }
+                    }
                     RowLayout {
                         Layout.alignment: Qt.AlignHCenter
                         spacing: Kirigami.Units.largeSpacing
@@ -173,6 +189,7 @@ Kirigami.ApplicationWindow {
                             Keys.onEnterPressed: clicked()
                             text: root.t("welcome.install")
                             icon.name: "go-next"
+                            enabled: installer.canInstall
                             onClicked: installer.next()
                         }
                     }

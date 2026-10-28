@@ -9,6 +9,12 @@ set -euo pipefail
 
 # Copying in the bundled Proton and runtime (without internet too); then umu only looks for the update
 /usr/libexec/sloth-os/windows-runtime-seed || true
+# The live system (from the USB stick): the bundled ones are linked in and are enough; looking for a newer Proton would
+# download into the memory, and its trial start would fill it too
+if grep -qw rd.live.image /proc/cmdline 2>/dev/null; then
+    echo "Live system: the bundled runner is used, no update."
+    exit 0
+fi
 
 # Without internet there is nothing to do; we try again next time
 if [[ "$(nmcli --terse --fields CONNECTIVITY general 2>/dev/null || echo full)" != "full" ]]; then

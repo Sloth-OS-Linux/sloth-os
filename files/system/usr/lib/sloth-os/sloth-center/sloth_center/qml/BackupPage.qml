@@ -131,6 +131,73 @@ Kirigami.ScrollablePage {
             onAccepted: backup.showVersions(selectedFolder.toString())
         }
 
+        // --- Sloth OS's own settings in one file, for a reinstalled or another computer (settings_backup.py) ---
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                Kirigami.Heading { level: 3; text: L.t("Sloth OS settings") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Save the look, the display and sound profiles and the other Sloth OS settings to a file, and load them after reinstalling or on another computer. Your files are not in it.")
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: settingsBackup.resultText !== ""
+                    type: settingsBackup.resultOk ? Kirigami.MessageType.Positive : Kirigami.MessageType.Error
+                    text: settingsBackup.resultText
+                }
+                // The loaded file lists apps: Sloth Welcome offers them, ticked
+                RowLayout {
+                    Layout.fillWidth: true
+                    visible: settingsBackup.appsCount > 0
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: L.tf("The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.", { n: settingsBackup.appsCount })
+                    }
+                    QQC2.Button {
+                        highlighted: true
+                        icon.name: "plasmadiscover"
+                        text: L.t("Install them with Sloth Welcome")
+                        onClicked: settingsBackup.installApps()
+                    }
+                }
+                RowLayout {
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Button {
+                        icon.name: "document-save"
+                        text: L.t("Save settings to a file…")
+                        onClicked: saveSettings.open()
+                    }
+                    QQC2.Button {
+                        icon.name: "document-open"
+                        text: L.t("Load settings from a file…")
+                        onClicked: loadSettings.open()
+                    }
+                }
+            }
+        }
+        FileDialog {
+            id: saveSettings
+            fileMode: FileDialog.SaveFile
+            title: L.t("Save Sloth OS settings")
+            nameFilters: [L.t("Sloth OS settings") + " (*.json)"]
+            currentFolder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+            selectedFile: currentFolder + "/" + settingsBackup.suggestedName
+            onAccepted: settingsBackup.exportTo(selectedFile.toString())
+        }
+        FileDialog {
+            id: loadSettings
+            title: L.t("Load Sloth OS settings")
+            nameFilters: [L.t("Sloth OS settings") + " (*.json)"]
+            currentFolder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+            onAccepted: settingsBackup.importFrom(selectedFile.toString())
+        }
+
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             enabled: backup.state !== "unsupported" && !backup.busy

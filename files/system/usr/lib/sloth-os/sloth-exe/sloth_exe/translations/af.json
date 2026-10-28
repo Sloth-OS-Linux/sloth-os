@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} gebruik die teen-kul-stelsel {system}, wat nie die speletjie op Linux laat loop nie. Dit is nie jou rekenaar se skuld nie, en ons kan dit nie omseil nie. Ongelukkig kan hierdie speletjie nie hier gespeel word nie.",
   "anticheat.maybe": "{game} gebruik die teen-kul-stelsel {system}. Op Linux werk dit net as die makers van die speletjie dit toegelaat het. As die speletjie nie begin nie of jou uitskop, is dit waarskynlik hoekom. Kyk of die speletjie 'n Steam-weergawe het.",
+  "winui.unsupported": "{name} is gebou op Windows se nuutste koppelvlak (WinUI 3), wat nog nie op Linux kan loop nie. Dit is nie jou rekenaar se skuld nie, en geen instelling kan dit regmaak nie. As daar 'n Linux- of webweergawe van die program is, gebruik eerder dit.",
 
   "misc.program": "Program",
   "misc.other_programs": "Ander programme",

@@ -68,6 +68,7 @@
 
   "anticheat.blocked": "{game} përdor mbrojtjen kundër mashtrimit {system}, që nuk e lejon lojën të punojë në Linux. Nuk varet nga kompjuteri juaj dhe nuk mund ta anashkalojmë. Fatkeqësisht kjo lojë nuk mund të luhet këtu.",
   "anticheat.maybe": "{game} përdor mbrojtjen kundër mashtrimit {system}. Në Linux punon vetëm nëse e kanë lejuar krijuesit e lojës. Nëse loja nuk niset ose ju nxjerr jashtë, ka gjasa që arsyeja të jetë kjo. Ia vlen të shihni nëse loja ka version në Steam.",
+  "winui.unsupported": "{name} është ndërtuar mbi ndërfaqen më të re të Windows (WinUI 3), e cila ende nuk mund të punojë në Linux. Nuk varet nga kompjuteri yt dhe asnjë rregullim nuk mund ta ndreqë. Nëse programi ka një version për Linux ose për ueb, përdor atë.",
 
   "misc.program": "Program",
   "misc.other_programs": "Programe të tjera",

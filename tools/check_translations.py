@@ -75,6 +75,8 @@ def installer_keys():
     keys |= {f"disk.encrypt.{p}" for p in ("mismatch", "short", "short_same")}
     # Installing next to Windows: explanations of the obstacles (sent by the helper, combined by the UI)
     keys |= {f"disk.beside.{p}" for p in literal(INSTALL_HELPER, "BESIDE_PROBLEMS")}
+    # What the first page says about the computer (system.machine_check, "check." + id in the UI)
+    keys |= {f"check.{c}" for c in literal(INSTALLER / "system.py", "CHECKS")}
     return keys | {f"disk.contents.{c}" for c in ("empty", "windows", "linux", "other")} | DESKTOP_KEYS["sloth-installer"]
 
 
