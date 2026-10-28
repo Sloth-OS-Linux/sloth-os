@@ -65,6 +65,23 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
   the top bar; the app grid slides out from the dock as the Start menu with large icons in a grid); GNOME
   itself is not added, KDE Plasma draws this look. Clicking the current layout in Sloth Center builds it again. Tests: `tools/tests/test_appearance.py`.
   Checked on a real machine (2026-10-26): every layout, switching back and forth, the pinned apps stay
+- [ ] **Medium** — More colors, and your own (idea 2026-10-28, for the update after 1.2; on `test/chunked-oci` first,
+  tried on the HP before it goes to `main`). In Appearance (Sloth Center and the welcome wizard, the same code):
+  - More ready-made color schemes next to the seven calm ones, a few with real color: e.g. ocean blue, forest
+    green, sunset orange, rose, grape purple, amber; each in dark and light, with readable contrast (the same
+    check as the Breeze schemes: text on background at least 4.5 : 1).
+  - "Your own color": a color scale (a hue slider or a color wheel, plus a few suggested swatches) that sets the
+    accent color on top of any scheme: KDE has it built in (`AccentColor` in kdeglobals,
+    `plasma-apply-colorscheme --accent-color`), so the highlights, the selected items, the buttons and the
+    sliders follow it at once. "Take the color from the wallpaper" too (KDE can do that as well), and "Back to the
+    scheme's own color". A live preview in the layout drawing before applying; the choice goes into the settings
+    file like the scheme.
+- [ ] **Medium** — More taskbar layouts (same idea, same test path): candidates that look good and that people
+  coming from elsewhere know: **Classic** (Windows 7 style: task buttons with names, the clock and the tray on the
+  right, a classic two-column Start menu), **ChromeOS-like** (a centered shelf, a launcher that opens a search
+  first, the clock and status in a corner bubble), **Floating** (a short floating panel in the middle that hides
+  when a window touches it, for small laptop screens and games). Each with its own drawing in `LayoutPreview.qml`
+  and in all 50 languages.
 - [x] Installers heal themselves and are remembered too (2026-10-26): what installed an installer before (here,
   or from the shared knowledge) goes first; if the installer crashes or its log shows a known missing component
   and nothing got installed, it is tried again with the fix or the next setting (another Proton version only into
