@@ -322,6 +322,9 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   chunkah pinned (2026-10-28): `BB_BUILD_CHUNKAH_VERSION: v0.7.1` in `build.yml` (the same image as `latest` then;
   the action has no input for it, the CLI reads the variable). It is still pulled from quay.io on every build
   (the CLI retries 5 times), so a long quay.io outage can still fail a build; a later build fixes it.
+  Released as **Sloth OS 1.2** (2026-10-28, `main` = `v1.2`): the ISO 5.2 GB, the first update from 1.1 is a
+  full 4.5 GB download (128 of 128 layers, as expected); the build tries a second time when a registry does not
+  answer (ghcr.io 503 the same day).
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [x] **Medium** — Let users schedule file backups, choose retention, and estimate required storage. (Closed
   2026-10-27: the backup runs every hour by itself (`sloth-home-snapshot.timer`, also caught up after the computer
