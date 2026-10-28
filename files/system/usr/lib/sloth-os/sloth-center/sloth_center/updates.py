@@ -10,7 +10,7 @@ import subprocess
 
 from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
-from sloth_common import quiet_hours
+from sloth_common import quiet_hours, update_time
 from sloth_common.apps import packages
 
 from .i18n import tr
@@ -131,6 +131,29 @@ class UpdatesController(QObject):
     @Slot(bool, int, int)
     def setQuietHours(self, enabled, start, end):
         quiet_hours.save({"enabled": enabled, "start": max(0, min(23, start)), "end": max(0, min(23, end))})
+        self.changed.emit()
+
+    # --- When the automatic update runs (uupd.timer: daily at 4:00, or at the next start if the computer was off) ---
+
+    @Property(int, notify=changed)
+    def updateHour(self):
+        """The hour the automatic update runs (0–23), or -1 if there is no automatic update to set."""
+        return update_time.update_hour()
+
+    @Slot(int)
+    def setUpdateHour(self, hour):
+        hour = max(0, min(23, hour))
+        arg = "default" if hour == update_time.DEFAULT_HOUR else str(hour)
+        self._error = ""
+        try:
+            r = subprocess.run(["pkexec", "/usr/libexec/sloth-os/sloth-helper-versions", "update-time", arg],
+                               capture_output=True, text=True, timeout=120)
+            ok = json.loads(r.stdout or "{}").get("ok", False)
+        except (OSError, subprocess.SubprocessError, ValueError) as e:
+            log.warning("update-time: %s", e)
+            ok = False
+        if not ok:
+            self._error = tr("Couldn't change it. This needs administrator approval.")
         self.changed.emit()
 
     @Property(bool, notify=changed)

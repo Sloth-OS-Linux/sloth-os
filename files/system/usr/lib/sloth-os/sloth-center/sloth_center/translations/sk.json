@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Sloth Welcome sa nepodarilo otvoriť.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Súbor uvádza aplikácie z druhého počítača: {n}. Sloth Welcome nainštaluje tie, ktoré pozná; ktorúkoľvek môžete odškrtnúť.",
   "Install them with Sloth Welcome": "Nainštalovať ich cez Sloth Welcome",
+  "When updates download": "Kedy sa sťahujú aktualizácie",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Každý deň v tomto čase alebo pri ďalšom zapnutí počítača, ak bol vtedy vypnutý. Počká, kým je počítač zaneprázdnený, napríklad počas hry.",
   "Quiet hours": "Tiché hodiny",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "V tejto časti dňa vás žiadne oznámenie nežiada o reštart, napríklad keď večer hráte. Príde, keď tiché hodiny skončia; nič sa samo nereštartuje.",
   "From": "Od",

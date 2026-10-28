@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Није било могуће отворити Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Датотека наводи апликације са другог рачунара: {n}. Sloth Welcome може да инсталира оне које познаје; сваку и даље можете да одзначите.",
   "Install them with Sloth Welcome": "Инсталирај их кроз Sloth Welcome",
+  "When updates download": "Када се преузимају ажурирања",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Сваког дана у ово време или при следећем укључивању рачунара ако је тада био искључен. Чека док је рачунар заузет, на пример током игре.",
   "Quiet hours": "Тихи сати",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "У овом делу дана ниједно обавештење не тражи поновно покретање, на пример док увече играте. Стиже када тихи сати истекну; ништа се не покреће поново само.",
   "From": "Од",

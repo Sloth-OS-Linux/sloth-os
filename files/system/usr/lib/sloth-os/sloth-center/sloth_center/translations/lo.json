@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "ບໍ່ສາມາດເປີດ Sloth Welcome ໄດ້.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "ໄຟລ໌ນີ້ມີລາຍຊື່ແອັບ {n} ແອັບຈາກຄອມພິວເຕີອື່ນ. Sloth Welcome ຕິດຕັ້ງແອັບທີ່ມັນຮູ້ຈັກໄດ້; ທ່ານຍັງເອົາເຄື່ອງໝາຍອອກຈາກແອັບໃດກໍໄດ້.",
   "Install them with Sloth Welcome": "ຕິດຕັ້ງດ້ວຍ Sloth Welcome",
+  "When updates download": "ເວລາດາວໂຫຼດການອັບເດດ",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "ທຸກມື້ໃນເວລານີ້, ຫຼື ເມື່ອທ່ານເປີດຄອມພິວເຕີເທື່ອຕໍ່ໄປຖ້າຕອນນັ້ນປິດຢູ່. ມັນຈະລໍຖ້າໃນຂະນະທີ່ຄອມພິວເຕີຫຍຸ້ງຢູ່, ເຊັ່ນ ຕອນຫຼິ້ນເກມ.",
   "Quiet hours": "ຊົ່ວໂມງງຽບ",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "ໃນຊ່ວງເວລານີ້ຂອງມື້ ຈະບໍ່ມີການແຈ້ງເຕືອນໃດຂໍໃຫ້ເລີ່ມໃໝ່, ເຊັ່ນ ຕອນທີ່ທ່ານຫຼິ້ນເກມຕອນແລງ. ມັນຈະມາເມື່ອຊົ່ວໂມງງຽບສິ້ນສຸດ; ບໍ່ມີຫຍັງເລີ່ມໃໝ່ເອງ.",
   "From": "ຈາກ",

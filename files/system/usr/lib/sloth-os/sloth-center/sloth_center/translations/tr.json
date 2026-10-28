@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Sloth Welcome açılamadı.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Dosyada diğer bilgisayardan {n} uygulama var. Sloth Welcome tanıdıklarını yükleyebilir; dilediğinizin işaretini yine kaldırabilirsiniz.",
   "Install them with Sloth Welcome": "Sloth Welcome ile yükle",
+  "When updates download": "Güncellemelerin ne zaman indirileceği",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Her gün bu saatte veya bilgisayar o sırada kapalıysa bir sonraki açılışta. Bilgisayar meşgulken, örneğin oyun sırasında, bekler.",
   "Quiet hours": "Sessiz saatler",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Günün bu kısmında hiçbir bildirim yeniden başlatmanızı istemez, örneğin akşam oyun oynarken. Sessiz saatler bitince gelir; hiçbir şey kendiliğinden yeniden başlamaz.",
   "From": "Başlangıç",

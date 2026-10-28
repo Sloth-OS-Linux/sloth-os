@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Não foi possível abrir o Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "O arquivo lista {n} apps do outro computador. O Sloth Welcome pode instalar os que conhece; você ainda pode desmarcar qualquer um.",
   "Install them with Sloth Welcome": "Instalar com o Sloth Welcome",
+  "When updates download": "Quando as atualizações são baixadas",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Todos os dias neste horário, ou na próxima vez que você ligar o computador se ele estava desligado. Espera enquanto o computador está ocupado, por exemplo durante um jogo.",
   "Quiet hours": "Horas de silêncio",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Nesta parte do dia nenhuma notificação pede para reiniciar, por exemplo enquanto você joga à noite. Ela chega quando as horas de silêncio terminam; nada reinicia sozinho.",
   "From": "Das",

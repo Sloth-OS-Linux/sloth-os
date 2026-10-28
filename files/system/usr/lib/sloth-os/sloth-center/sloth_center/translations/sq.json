@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Sloth Welcome nuk u hap dot.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Skedari liston {n} aplikacione nga kompjuteri tjetër. Sloth Welcome mund të instalojë ato që njeh; mund ta hiqni shenjën nga cilido.",
   "Install them with Sloth Welcome": "Instalojini me Sloth Welcome",
+  "When updates download": "Kur shkarkohen përditësimet",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Çdo ditë në këtë orë, ose kur ta ndezësh kompjuterin herën tjetër nëse atëherë ishte i fikur. Pret sa kohë kompjuteri është i zënë, për shembull gjatë një loje.",
   "Quiet hours": "Orë qetësie",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Në këtë pjesë të ditës asnjë njoftim nuk ju kërkon të rinisni, për shembull ndërsa luani në mbrëmje. Vjen kur mbarojnë orët e qetësisë; asgjë nuk riniset vetë.",
   "From": "Nga",

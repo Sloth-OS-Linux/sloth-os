@@ -256,12 +256,19 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   the NVIDIA driver is ready) do not speak then and come again when the quiet hours end (a one-time user timer,
   `systemd-run --user`); nothing restarts by itself. It goes into the settings file too.
   `sloth_common/quiet_hours.py`, tests: `tools/tests/test_quiet_hours.py`. Check on a real machine
-- [ ] **Medium** — Let users choose when the automatic updates download (uupd's timer; needs administrator approval).
+- [x] **Medium** — Let users choose when the automatic updates download (uupd's timer; needs administrator approval).
+  (2026-10-28: Updates → "When updates download", an hour list. `uupd.timer` runs daily at 4:00 (`Persistent`, so
+  at the next start if the computer was off) and skips by itself while the computer is busy (CPU, memory, network
+  checks in `/etc/uupd/config.json`), so a game is not disturbed. `sloth-helper update-time <hour>|default` writes a
+  drop-in that clears and sets `OnCalendar` (also under `sloth-helper-versions`, the updates topic); one approval
+  per change (a list, not a spin box). The card hides if the image has no `uupd.timer`. Tests:
+  `tools/tests/test_update_time.py`. Check on a real machine: the hour after a restart, `systemctl list-timers`)
+- [ ] (Not doable as asked) Limit the update download speed: neither rpm-ostree / bootc nor Flatpak can limit it.
+  What it is for is covered: the automatic update waits while the computer is busy, and the hour can be chosen.
 - [x] **Medium** — Warn before large downloads on metered or mobile connections (2026-10-26): the Updates page shows
   the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
   anyway" / "Later"). The automatic update (uupd) already skips metered connections. The size: checked on a real
   machine (2026-10-26); the metered question (a phone hotspot) not yet
-- [ ] **Medium** — Let users limit update download speed.
 - [ ] **Medium** — Smaller system updates (measured 2026-10-26 on ghcr): every build rebuilds all 23 of our own
   layers, so even a one-line change downloads about 2.3 GB (with the daily base image changes 3.8 GB) of the
   6.5 GB image; the two biggest are the gaming `dnf` module (~800 MB) and the umu/Proton script (~840 MB).

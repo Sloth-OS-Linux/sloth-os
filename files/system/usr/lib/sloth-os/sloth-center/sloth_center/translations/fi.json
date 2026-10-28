@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Sloth Welcomea ei voitu avata.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Tiedostossa on {n} sovellusta toiselta tietokoneelta. Sloth Welcome voi asentaa ne, jotka se tuntee; voit yhä poistaa minkä tahansa valinnan.",
   "Install them with Sloth Welcome": "Asenna ne Sloth Welcomella",
+  "When updates download": "Milloin päivitykset ladataan",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Joka päivä tähän aikaan, tai kun seuraavan kerran käynnistät tietokoneen, jos se oli silloin sammutettuna. Lataus odottaa, kun tietokone on kiireinen, esimerkiksi pelin aikana.",
   "Quiet hours": "Hiljaiset tunnit",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Tänä aikana mikään ilmoitus ei pyydä käynnistämään uudelleen, esimerkiksi kun pelaat illalla. Se tulee, kun hiljaiset tunnit loppuvat; mikään ei käynnisty uudelleen itsestään.",
   "From": "Alkaen",

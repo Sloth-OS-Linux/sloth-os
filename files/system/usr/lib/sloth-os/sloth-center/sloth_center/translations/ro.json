@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Sloth Welcome nu a putut fi deschis.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Fișierul conține {n} aplicații de pe celălalt calculator. Sloth Welcome le poate instala pe cele pe care le cunoaște; puteți debifa oricare dintre ele.",
   "Install them with Sloth Welcome": "Instalează-le cu Sloth Welcome",
+  "When updates download": "Când se descarcă actualizările",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "În fiecare zi la această oră sau la următoarea pornire a calculatorului, dacă atunci era oprit. Așteaptă cât timp calculatorul e ocupat, de exemplu în timpul unui joc.",
   "Quiet hours": "Ore de liniște",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "În această parte a zilei nicio notificare nu vă cere să reporniți, de exemplu cât timp vă jucați seara. Vine când se termină orele de liniște; nimic nu repornește singur.",
   "From": "De la",
