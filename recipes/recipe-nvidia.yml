@@ -13,8 +13,12 @@ modules:
   - from-file: apps.yml
   - from-file: tools.yml
   - from-file: rpm-ostree-fix.yml
+  - type: script # the same content gives the same layers (chunkah): fixed modification times
+    scripts:
+      - normalize-mtimes.sh
   - type: initramfs # needed for the boot animation; keep it at the end, before signing
   - type: signing
   - type: script # also accepts the other variant's signature (switching AMD/Intel <-> NVIDIA)
     scripts:
       - signing-family.sh
+      - normalize-mtimes.sh # last: the files written by the steps above too
