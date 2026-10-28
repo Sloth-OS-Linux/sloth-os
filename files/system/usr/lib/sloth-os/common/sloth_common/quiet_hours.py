@@ -3,16 +3,38 @@
 The notifications that ask for a restart (a system update is ready, the NVIDIA driver is ready) call defer() first:
 in the quiet hours they do not speak, but come back by themselves when the quiet hours end (a one-time user timer
 runs the same notification again). Nothing is lost and nothing restarts on its own: the update waits for the next
-restart anyway. The hours are whole hours, the period may go over midnight (22 to 7).
+restart anyway. The times are to the minute ("22:30"), the period may go over midnight (22:30 to 7:15). Inside, a
+time is minutes after midnight; the file has "HH:MM", and a whole hour as a number (as the first version saved it)
+is still read.
 """
 import datetime
 import json
 import os
+import re
 import subprocess
 from pathlib import Path
 
 CONFIG = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os" / "quiet-hours.json"
-DEFAULTS = {"enabled": False, "start": 22, "end": 7}
+DEFAULTS = {"enabled": False, "start": 22 * 60, "end": 7 * 60}
+DAY = 24 * 60
+
+
+def minutes(value):
+    """"22:30" (or a whole hour as a number) -> minutes after midnight, or None if it is not a time."""
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, int):
+        return value * 60 if 0 <= value <= 23 else None
+    if isinstance(value, str):
+        m = re.fullmatch(r"(\d{1,2}):(\d{2})", value.strip())
+        if m and int(m[1]) <= 23 and int(m[2]) <= 59:
+            return int(m[1]) * 60 + int(m[2])
+    return None
+
+
+def clock(value):
+    """Minutes after midnight -> "HH:MM"."""
+    return f"{value // 60:02d}:{value % 60:02d}"
 
 
 def load(path=None):
@@ -25,30 +47,33 @@ def load(path=None):
         if isinstance(data.get("enabled"), bool):
             cfg["enabled"] = data["enabled"]
         for key in ("start", "end"):
-            if isinstance(data.get(key), int) and 0 <= data[key] <= 23:
-                cfg[key] = data[key]
+            value = minutes(data.get(key))
+            if value is not None:
+                cfg[key] = value
     return cfg
 
 
 def save(cfg, path=None):
     path = Path(path or CONFIG)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps({k: cfg[k] for k in DEFAULTS}) + "\n", encoding="utf-8")
+    data = {"enabled": bool(cfg["enabled"]), "start": clock(cfg["start"] % DAY), "end": clock(cfg["end"] % DAY)}
+    path.write_text(json.dumps(data) + "\n", encoding="utf-8")
 
 
 def is_quiet(cfg, now=None):
     if not cfg.get("enabled") or cfg["start"] == cfg["end"]:
         return False
-    hour = (now or datetime.datetime.now()).hour
+    now = now or datetime.datetime.now()
+    m = now.hour * 60 + now.minute
     if cfg["start"] < cfg["end"]:
-        return cfg["start"] <= hour < cfg["end"]
-    return hour >= cfg["start"] or hour < cfg["end"]   # over midnight
+        return cfg["start"] <= m < cfg["end"]
+    return m >= cfg["start"] or m < cfg["end"]   # over midnight
 
 
 def seconds_left(cfg, now=None):
     """Seconds until the quiet hours end (they are on now)."""
     now = now or datetime.datetime.now()
-    end = now.replace(hour=cfg["end"], minute=0, second=0, microsecond=0)
+    end = now.replace(hour=cfg["end"] // 60, minute=cfg["end"] % 60, second=0, microsecond=0)
     if end <= now:
         end += datetime.timedelta(days=1)
     return int((end - now).total_seconds())

@@ -242,24 +242,39 @@ Kirigami.ScrollablePage {
                     }
                 }
                 RowLayout {
+                    id: quietTimes
                     enabled: quietSwitch.checked
                     spacing: Kirigami.Units.largeSpacing
+                    // the times are minutes after midnight: the arrows step 15 minutes, any time can be typed
+                    function clockText(v) {
+                        const h = Math.floor(v / 60), m = v % 60
+                        return (h < 10 ? "0" : "") + h + ":" + (m < 10 ? "0" : "") + m
+                    }
+                    function clockValue(text, fallback) {
+                        // "21:30", "21.30", "2130" or "21"
+                        const t = text.trim().match(/^(\d{1,2})(?:[:.]?(\d{2}))?$/)
+                        if (!t || Number(t[1]) > 23 || Number(t[2] || 0) > 59)
+                            return fallback
+                        return Number(t[1]) * 60 + Number(t[2] || 0)
+                    }
                     QQC2.Label { text: L.t("From") }
                     QQC2.SpinBox {
                         id: quietStart
-                        from: 0; to: 23
+                        from: 0; to: 24 * 60 - 1; stepSize: 15; wrap: true; editable: true
                         value: updates.quietHours.start
-                        textFromValue: (v, locale) => (v < 10 ? "0" : "") + v + ":00"
-                        valueFromText: (text, locale) => parseInt(text)
+                        textFromValue: (v, locale) => quietTimes.clockText(v)
+                        valueFromText: (text, locale) => quietTimes.clockValue(text, value)
+                        validator: RegularExpressionValidator { regularExpression: /^\d{0,2}[:.]?\d{0,2}$/ }
                         onValueModified: updates.setQuietHours(quietSwitch.checked, value, quietEnd.value)
                     }
                     QQC2.Label { text: L.t("to") }
                     QQC2.SpinBox {
                         id: quietEnd
-                        from: 0; to: 23
+                        from: 0; to: 24 * 60 - 1; stepSize: 15; wrap: true; editable: true
                         value: updates.quietHours.end
-                        textFromValue: (v, locale) => (v < 10 ? "0" : "") + v + ":00"
-                        valueFromText: (text, locale) => parseInt(text)
+                        textFromValue: (v, locale) => quietTimes.clockText(v)
+                        valueFromText: (text, locale) => quietTimes.clockValue(text, value)
+                        validator: RegularExpressionValidator { regularExpression: /^\d{0,2}[:.]?\d{0,2}$/ }
                         onValueModified: updates.setQuietHours(quietSwitch.checked, quietStart.value, value)
                     }
                 }
