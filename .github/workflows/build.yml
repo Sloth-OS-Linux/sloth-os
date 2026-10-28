@@ -43,6 +43,11 @@ jobs:
           - recipe-nvidia.yml # NVIDIA
     steps:
       - name: Build Custom Image
+        id: build
+        # A registry that does not answer for a moment (ghcr.io 503 while pulling the base image, 2026-10-28;
+        # quay.io 502 the day before) must not fail the build: the second attempt below builds it again. A failed
+        # build pushes nothing, so the machines stay on the last good image either way.
+        continue-on-error: true
         uses: blue-build/github-action@v1.13
         with:
           recipe: ${{ matrix.recipe }}
@@ -53,6 +58,24 @@ jobs:
           # Content-based layers: an update downloads only what changed, not every one of our layers again
           # (~2.3 GB per build without it, measured 2026-10-26). build_chunked_oci crashed in rpm-ostree 2026.2 from
           # the second build on (it starts from the previous image); chunkah does not use the previous image
+          chunkah: true
+
+      - name: Free the space of the failed attempt
+        if: steps.build.outcome == 'failure'
+        run: |
+          podman system prune --all --force || true
+          sudo podman system prune --all --force || true
+          sleep 60   # give the registry a minute
+
+      - name: Build Custom Image (second attempt)
+        if: steps.build.outcome == 'failure'
+        uses: blue-build/github-action@v1.13
+        with:
+          recipe: ${{ matrix.recipe }}
+          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
+          registry_token: ${{ github.token }}
+          pr_event_number: ${{ github.event.number }}
+          maximize_build_space: false   # done by the first attempt
           chunkah: true
 
   # The finished image must be installable: bootc installs it onto a disk file, the same way the installer does.
