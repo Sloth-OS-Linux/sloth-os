@@ -248,31 +248,48 @@ px[237] = 0.3917; py[237] = 0.0852;
 px[238] = 0.4015; py[238] = 0.0816;
 px[239] = 0.4119; py[239] = 0.0806;
 
-# --- Logo ---------------------------------------------------------------
-screen_w = Window.GetWidth();
-screen_h = Window.GetHeight();
-size = Math.Int(screen_h * 0.32);
-if (size > 480) size = 480;
-if (size < 160) size = 160;
-
-logo.image = Image("logo.png").Scale(size, size);
-logo.sprite = Sprite(logo.image);
-logo.x = Window.GetX() + Math.Int((screen_w - size) / 2);
-logo.y = Window.GetY() + Math.Int((screen_h - size) / 2);
-logo.sprite.SetPosition(logo.x, logo.y, 1);
-
-# --- Dot and fading trail -------------------------------------------
+# --- Logo and dot trail, laid out for the screens -----------------------
+# Without an index, Window.GetX/GetWidth give the area every screen shows (the screens are centered on each
+# other). A screen can come later: at shutdown and restart the second monitor, or its real mode, often reaches
+# Plymouth after the script started. Then that area moves, and a logo placed only once stood in the bottom right
+# corner (2026-10-28, two monitors). So the layout is made again whenever the area changes (refresh_callback).
 TRAIL = 7;        # the trail's length (number of points behind the leading dot)
 STEP = 2;         # this many positions per frame (at 50 fps ~2.4 s per round)
-dot_size = Math.Int(size * 0.075);
+logo.sprite = Sprite();
+logo.sprite.SetZ(1);
 for (i = 0; i < TRAIL; i++) {
-  s = Math.Int(dot_size * (1 - i * 0.09));
-  trail[i].image = Image("dot.png").Scale(s, s);
-  trail[i].sprite = Sprite(trail[i].image);
+  trail[i].sprite = Sprite();
   trail[i].sprite.SetOpacity(1 - i * 0.14);
   trail[i].sprite.SetZ(10 - i);
-  trail[i].half = s / 2;
 }
+size = 0;
+
+fun layout() {
+  global.win_x = Window.GetX();
+  global.win_y = Window.GetY();
+  global.screen_w = Window.GetWidth();
+  global.screen_h = Window.GetHeight();
+  new_size = Math.Int(global.screen_h * 0.32);
+  if (new_size > 480) new_size = 480;
+  if (new_size < 160) new_size = 160;
+  if (new_size != global.size) {
+    global.size = new_size;
+    global.logo.image = Image("logo.png").Scale(new_size, new_size);
+    global.logo.sprite.SetImage(global.logo.image);
+    dot_size = Math.Int(new_size * 0.075);
+    for (i = 0; i < global.TRAIL; i++) {
+      s = Math.Int(dot_size * (1 - i * 0.09));
+      global.trail[i].image = Image("dot.png").Scale(s, s);
+      global.trail[i].sprite.SetImage(global.trail[i].image);
+      global.trail[i].half = s / 2;
+    }
+  }
+  global.logo.x = global.win_x + Math.Int((global.screen_w - global.size) / 2);
+  global.logo.y = global.win_y + Math.Int((global.screen_h - global.size) / 2);
+  global.logo.sprite.SetPosition(global.logo.x, global.logo.y, 1);
+  global.text_y = global.logo.y + global.size + Math.Int(global.size * 0.12);
+}
+layout();
 
 frame = 0;
 fun place_dots() {
@@ -285,6 +302,10 @@ fun place_dots() {
 }
 
 fun refresh_callback() {
+  if (Window.GetWidth() != global.screen_w || Window.GetHeight() != global.screen_h || Window.GetX() != global.win_x || Window.GetY() != global.win_y) {
+    layout();
+    if (global.password_shown) display_password_callback("", global.password_count);
+  }
   global.frame = global.frame + 1;
   if (global.frame * STEP >= N * 1000) global.frame = 0;
   place_dots();
@@ -296,7 +317,8 @@ place_dots();
 prompt.sprite = Sprite();
 bullets.sprite = Sprite();
 message.sprite = Sprite();
-text_y = logo.y + size + Math.Int(size * 0.12);
+password_shown = 0;
+password_count = 0;
 
 fun center_text(sprite, image, y) {
   sprite.SetImage(image);
@@ -315,7 +337,7 @@ field_w = Math.Int(size * 0.9);
 field.image = Image("dot.png").Scale(field_w, 4);
 field.sprite = Sprite();
 field.sprite.SetZ(20);
-field_y = text_y + padlock_size + 52;
+field_y = text_y + padlock_size + 52;   # set again in display_password_callback (the layout can change)
 # The dots of the typed characters come from an image (the initramfs font has no "●", squares would show)
 MAX_BULLETS = 24;
 bullet_size = Math.Int(size * 0.045);
@@ -342,6 +364,7 @@ fun show_bullets(count) {
 }
 
 fun display_normal_callback() {
+  global.password_shown = 0;
   prompt.sprite.SetImage(Image("blank.png"));
   bullets.sprite.SetImage(Image("blank.png"));
   padlock.sprite.SetImage(Image("blank.png"));
@@ -350,6 +373,9 @@ fun display_normal_callback() {
 }
 
 fun display_password_callback(text, count) {
+  global.password_shown = 1;
+  global.password_count = count;
+  global.field_y = global.text_y + padlock_size + 52;
   prompt.sprite.SetImage(Image("blank.png"));
   padlock.sprite.SetImage(padlock.image);
   padlock.sprite.SetPosition(Window.GetX() + (screen_w - padlock_size) / 2, text_y, 20);
