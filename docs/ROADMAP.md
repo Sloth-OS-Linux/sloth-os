@@ -76,6 +76,14 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
     sliders follow it at once. "Take the color from the wallpaper" too (KDE can do that as well), and "Back to the
     scheme's own color". A live preview in the layout drawing before applying; the choice goes into the settings
     file like the scheme.
+- [ ] **Small, important** — "No updates" although there is one, on a machine with layered packages (found
+  2026-10-28 on the gaming PC: `nmap` layered, the 1.2 `latest` in the registry, still "No updates available"). With
+  layered packages `rpm-ostree upgrade --check` cannot read the base image ("failed to query container image base
+  metadata: Missing ostree.manifest-digest metadata on merge commit") and only looks at the Fedora repos; Sloth
+  Center's check uses the same mode, and Advanced settings → packages can layer one, so users can hit it. Fix:
+  when CachedUpdate has no manifest-diff, compare the registry's digest of the image (`skopeo inspect`, signed
+  ref) with the booted deployment's base digest, and offer the update by that. The real upgrade (button, the
+  04:00 timer) works; only the check is blind. Test on the gaming PC (nmap layered) and on the HP (nothing layered).
 - [ ] **Small** — The screen locks after 5 minutes although every power setting is off (reported 2026-10-28 on the
   HP): that is KDE's own screen locker default (`kscreenlockerrc` Autolock after 5 min, separate from Power
   Management; Sloth OS sets nothing there). Coming from Windows it looks like being signed out. Plan (test branch
