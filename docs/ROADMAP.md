@@ -76,6 +76,12 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
     sliders follow it at once. "Take the color from the wallpaper" too (KDE can do that as well), and "Back to the
     scheme's own color". A live preview in the layout drawing before applying; the choice goes into the settings
     file like the scheme.
+- [ ] **Small** — The screen locks after 5 minutes although every power setting is off (reported 2026-10-28 on the
+  HP): that is KDE's own screen locker default (`kscreenlockerrc` Autolock after 5 min, separate from Power
+  Management; Sloth OS sets nothing there). Coming from Windows it looks like being signed out. Plan (test branch
+  first): a calmer default in `/etc/xdg/kscreenlockerrc` (lock when the screen turns off, or after 15 minutes), and
+  in Sloth Center → Account and security a plain "Lock the screen after: Never / 5 / 15 / 30 minutes" with "this is
+  not signing out: your programs keep running", plus "Lock after sleep" on/off. In all 50 languages.
 - [ ] **Medium** — More taskbar layouts (same idea, same test path): candidates that look good and that people
   coming from elsewhere know: **Classic** (Windows 7 style: task buttons with names, the clock and the tray on the
   right, a classic two-column Start menu), **ChromeOS-like** (a centered shelf, a launcher that opens a search
