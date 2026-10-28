@@ -302,6 +302,9 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   installed disk in a UEFI VM (`sloth login:` reached).
   On a real machine (2026-10-28, the HP, from the chunkah ISO): the network folders commit (5793d74) came as an
   update of 3 layers, about 300 MB, and installed fine.
+  chunkah pinned (2026-10-28): `BB_BUILD_CHUNKAH_VERSION: v0.7.1` in `build.yml` (the same image as `latest` then;
+  the action has no input for it, the CLI reads the variable). It is still pulled from quay.io on every build
+  (the CLI retries 5 times), so a long quay.io outage can still fail a build; a later build fixes it.
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [x] **Medium** — Let users schedule file backups, choose retention, and estimate required storage. (Closed
   2026-10-27: the backup runs every hour by itself (`sloth-home-snapshot.timer`, also caught up after the computer

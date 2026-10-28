@@ -30,6 +30,11 @@ jobs:
       contents: read
       packages: write
       id-token: write
+    env:
+      # The chunkah version, pinned (the BlueBuild CLI reads it; the action has no input for it): with "latest" a
+      # new chunkah could change every layer of the next update by itself. v0.7.1 is the image "latest" was on
+      # 2026-10-28 (sha256:71e59342…). A tag, not a digest: CLI 0.9.37 takes only 32-character digests.
+      BB_BUILD_CHUNKAH_VERSION: v0.7.1
     strategy:
       fail-fast: false
       matrix:
