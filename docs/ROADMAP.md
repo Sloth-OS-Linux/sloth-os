@@ -288,8 +288,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   one-line change ~1.05 GB, the whole 1.1.1 work 1.6 GB, a rebuild with nothing changed still ~1 GB (12 of 128
   layers differ every build: find which and make them reproducible). Before it goes to `main`: the build pulls
   `quay.io/coreos/chunkah:latest` every time, and a quay.io outage (502) failed a build (2026-10-28): pin a version
-  if BlueBuild allows it; the installer's 80% step is longer with 128 layers (a stage text says so now); a way for
-  a test machine to move from the branch tag back to `latest`.
+  if BlueBuild allows it; the installer's 80% step is longer with 128 layers (a stage text says so now). The HP
+  laptop stays on the branch image for good: it is the preview machine, two steps ahead of the release.
+  2026-10-28: `normalize-mtimes.sh` (fixed times for files changed in the last 3 days, before the initramfs and at
+  the end): a rebuild with nothing changed went from ~1 GB to 353 MB (3 of 128 layers); the CI now also boots the
+  installed disk in a UEFI VM (`sloth login:` reached).
 - [x] Show backup availability and last backup time in Sloth Center (File backup page).
 - [x] **Medium** — Let users schedule file backups, choose retention, and estimate required storage. (Closed
   2026-10-27: the backup runs every hour by itself (`sloth-home-snapshot.timer`, also caught up after the computer
