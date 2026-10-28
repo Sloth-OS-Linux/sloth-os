@@ -96,6 +96,7 @@
   "stage.encrypt": "S'està configurant el xifratge…",
   "stage.prepare": "S'està preparant el sistema…",
   "stage.copy": "S'està copiant Sloth OS al disc…",
+  "stage.assemble": "S'està muntant Sloth OS… pot trigar uns minuts",
   "stage.bootloader": "S'està configurant l'arrencada…",
   "stage.finishing": "S'està acabant…",
   "stage.configure": "S'estan desant la llengua i la configuració…",

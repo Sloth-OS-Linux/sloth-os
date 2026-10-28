@@ -96,6 +96,7 @@
   "stage.encrypt": "এনক্ৰিপশ্বন ছেট আপ কৰি থকা হৈছে…",
   "stage.prepare": "চিস্টেম প্ৰস্তুত কৰা হৈছে…",
   "stage.copy": "Sloth OS ডিস্কলৈ কপি হৈছে…",
+  "stage.assemble": "Sloth OS একত্ৰিত কৰা হৈছে… ইয়াত কেইমিনিটমান লাগিব পাৰে",
   "stage.bootloader": "আৰম্ভণি ছেট কৰা হৈছে…",
   "stage.finishing": "শেষ কৰা হৈছে…",
   "stage.configure": "ভাষা আৰু ছেটিংছ সাঁচি থোৱা হৈছে…",

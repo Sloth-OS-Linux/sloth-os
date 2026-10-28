@@ -96,6 +96,7 @@
   "stage.encrypt": "جارٍ إعداد التشفير…",
   "stage.prepare": "جارٍ تحضير النظام…",
   "stage.copy": "جارٍ نسخ Sloth OS إلى القرص…",
+  "stage.assemble": "جارٍ تجميع Sloth OS… قد يستغرق هذا بضع دقائق",
   "stage.bootloader": "جارٍ إعداد بدء التشغيل…",
   "stage.finishing": "جارٍ الإنهاء…",
   "stage.configure": "جارٍ حفظ اللغة والإعدادات…",

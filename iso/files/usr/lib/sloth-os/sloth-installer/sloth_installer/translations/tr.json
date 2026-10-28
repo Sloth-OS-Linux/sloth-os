@@ -96,6 +96,7 @@
   "stage.encrypt": "Şifreleme ayarlanıyor…",
   "stage.prepare": "Sistem hazırlanıyor…",
   "stage.copy": "Sloth OS diske kopyalanıyor…",
+  "stage.assemble": "Sloth OS bir araya getiriliyor… bu birkaç dakika sürebilir",
   "stage.bootloader": "Başlatma ayarlanıyor…",
   "stage.finishing": "Bitiriliyor…",
   "stage.configure": "Dil ve ayarlar kaydediliyor…",

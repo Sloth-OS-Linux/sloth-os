@@ -96,6 +96,7 @@
   "stage.encrypt": "正在设置加密…",
   "stage.prepare": "正在准备系统…",
   "stage.copy": "正在将 Sloth OS 复制到磁盘…",
+  "stage.assemble": "正在组装 Sloth OS… 这可能需要几分钟",
   "stage.bootloader": "正在设置启动…",
   "stage.finishing": "正在完成…",
   "stage.configure": "正在保存语言和设置…",

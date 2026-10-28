@@ -96,6 +96,7 @@
   "stage.encrypt": "ਇਨਕ੍ਰਿਪਸ਼ਨ ਸੈੱਟ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…",
   "stage.prepare": "ਸਿਸਟਮ ਤਿਆਰ ਹੋ ਰਿਹਾ ਹੈ…",
   "stage.copy": "Sloth OS ਡਿਸਕ ’ਤੇ ਕਾਪੀ ਹੋ ਰਿਹਾ ਹੈ…",
+  "stage.assemble": "Sloth OS ਨੂੰ ਜੋੜਿਆ ਜਾ ਰਿਹਾ ਹੈ… ਇਸ ਵਿੱਚ ਕੁਝ ਮਿੰਟ ਲੱਗ ਸਕਦੇ ਹਨ",
   "stage.bootloader": "ਸ਼ੁਰੂਆਤ ਸੈੱਟ ਹੋ ਰਹੀ ਹੈ…",
   "stage.finishing": "ਮੁਕੰਮਲ ਹੋ ਰਿਹਾ ਹੈ…",
   "stage.configure": "ਭਾਸ਼ਾ ਅਤੇ ਸੈਟਿੰਗਾਂ ਸੰਭਾਲੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ…",

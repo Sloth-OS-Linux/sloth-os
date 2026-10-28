@@ -96,6 +96,7 @@
   "stage.encrypt": "Määritetään salausta…",
   "stage.prepare": "Valmistellaan järjestelmää…",
   "stage.copy": "Kopioidaan Sloth OS levylle…",
+  "stage.assemble": "Sloth OS:ää kootaan… tämä voi kestää muutaman minuutin",
   "stage.bootloader": "Määritetään käynnistystä…",
   "stage.finishing": "Viimeistellään…",
   "stage.configure": "Tallennetaan kieli ja asetukset…",

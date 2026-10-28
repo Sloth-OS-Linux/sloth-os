@@ -96,6 +96,7 @@
   "stage.encrypt": "Шифрлау бапталуда…",
   "stage.prepare": "Жүйе дайындалуда…",
   "stage.copy": "Sloth OS дискіге көшірілуде…",
+  "stage.assemble": "Sloth OS жинақталуда… бұл бірнеше минутқа созылуы мүмкін",
   "stage.bootloader": "Іске қосу бапталуда…",
   "stage.finishing": "Аяқталуда…",
   "stage.configure": "Тіл мен баптаулар сақталуда…",

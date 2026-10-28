@@ -96,6 +96,7 @@
   "stage.encrypt": "Nustatomas šifravimas…",
   "stage.prepare": "Ruošiama sistema…",
   "stage.copy": "Sloth OS kopijuojama į diską…",
+  "stage.assemble": "Sloth OS sudedama… tai gali užtrukti kelias minutes",
   "stage.bootloader": "Nustatomas paleidimas…",
   "stage.finishing": "Baigiama…",
   "stage.configure": "Įrašoma kalba ir nuostatos…",

@@ -96,6 +96,7 @@
   "stage.encrypt": "Po konfigurohet enkriptimi…",
   "stage.prepare": "Po përgatitet sistemi…",
   "stage.copy": "Po kopjohet Sloth OS në disk…",
+  "stage.assemble": "Po montohet Sloth OS… kjo mund të zgjasë disa minuta",
   "stage.bootloader": "Po rregullohet nisja…",
   "stage.finishing": "Po përfundon…",
   "stage.configure": "Po ruhen gjuha dhe rregullimet…",

@@ -109,6 +109,7 @@
   "stage.encrypt": "Titkosítás beállítása…",
   "stage.prepare": "Rendszer előkészítése…",
   "stage.copy": "Sloth OS másolása a lemezre…",
+  "stage.assemble": "A Sloth OS összeállítása… ez eltarthat néhány percig",
   "stage.bootloader": "Rendszerindító beállítása…",
   "stage.finishing": "Befejezés…",
   "stage.configure": "Nyelv és beállítások mentése…",

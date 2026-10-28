@@ -96,6 +96,7 @@
   "stage.encrypt": "დაშიფვრის დაყენება…",
   "stage.prepare": "სისტემის მომზადება…",
   "stage.copy": "Sloth OS-ის კოპირება დისკზე…",
+  "stage.assemble": "Sloth OS-ის აწყობა… ამას შეიძლება რამდენიმე წუთი დასჭირდეს",
   "stage.bootloader": "ჩატვირთვის მორგება…",
   "stage.finishing": "დასრულება…",
   "stage.configure": "ენისა და პარამეტრების შენახვა…",

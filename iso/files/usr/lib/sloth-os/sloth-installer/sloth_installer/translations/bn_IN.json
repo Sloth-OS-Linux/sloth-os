@@ -96,6 +96,7 @@
   "stage.encrypt": "এনক্রিপশন সেট আপ করা হচ্ছে…",
   "stage.prepare": "সিস্টেম প্রস্তুত হচ্ছে…",
   "stage.copy": "Sloth OS ডিস্কে কপি হচ্ছে…",
+  "stage.assemble": "Sloth OS একত্র করা হচ্ছে… এতে কয়েক মিনিট লাগতে পারে",
   "stage.bootloader": "চালু হওয়ার ব্যবস্থা সেট হচ্ছে…",
   "stage.finishing": "শেষ হচ্ছে…",
   "stage.configure": "ভাষা ও সেটিংস সংরক্ষণ হচ্ছে…",

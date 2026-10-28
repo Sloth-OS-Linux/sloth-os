@@ -96,6 +96,7 @@
   "stage.encrypt": "Krüpteerimise seadistamine…",
   "stage.prepare": "Süsteemi ettevalmistamine…",
   "stage.copy": "Sloth OS-i kopeerimine kettale…",
+  "stage.assemble": "Sloth OS-i kokkupanek… see võib võtta mõne minuti",
   "stage.bootloader": "Käivituse seadistamine…",
   "stage.finishing": "Lõpetamine…",
   "stage.configure": "Keele ja seadete salvestamine…",

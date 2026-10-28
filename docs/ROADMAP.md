@@ -186,6 +186,10 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   the disk survey already explained BitLocker, hibernation / fast startup, a disk to be checked, MBR, legacy mode and
   too little space; the disk list marks disks that are too small. Texts in all 50 languages. Tests:
   `tools/tests/test_machine_check.py`. Check on a real machine, also one started in legacy mode)
+  2026-10-28, HP laptop: the battery warning stayed after the charger was plugged in; the first page now checks
+  again every 3 s. Also from that install: with the 128-layer chunkah image the bar stood at 80% for minutes (the
+  files are copied, bootc puts the system together and writes little); a new stage text says so ("Putting Sloth OS
+  together… this can take a few minutes", all 50 languages). Both need a new ISO
 - [x] Show the target disk and planned erase/resize/create/format/mount operations on the installer's confirmation page;
   the existing confirmation checkbox is required before applying changes. The temporary install partition is identified
   as mounted only during setup and deleted at the end.

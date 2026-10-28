@@ -96,6 +96,7 @@
   "stage.encrypt": "Настройка шифрования…",
   "stage.prepare": "Подготовка системы…",
   "stage.copy": "Копирование Sloth OS на диск…",
+  "stage.assemble": "Сборка Sloth OS… это может занять несколько минут",
   "stage.bootloader": "Настройка загрузки…",
   "stage.finishing": "Завершение…",
   "stage.configure": "Сохранение языка и настроек…",

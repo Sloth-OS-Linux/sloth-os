@@ -96,6 +96,7 @@
   "stage.encrypt": "Opsætter kryptering…",
   "stage.prepare": "Forbereder systemet…",
   "stage.copy": "Kopierer Sloth OS til disken…",
+  "stage.assemble": "Sloth OS sættes sammen… det kan tage et par minutter",
   "stage.bootloader": "Opsætter opstart…",
   "stage.finishing": "Afslutter…",
   "stage.configure": "Gemmer sprog og indstillinger…",

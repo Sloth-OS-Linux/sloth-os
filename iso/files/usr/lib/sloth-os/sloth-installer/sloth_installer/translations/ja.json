@@ -96,6 +96,7 @@
   "stage.encrypt": "暗号化を設定しています…",
   "stage.prepare": "システムを準備しています…",
   "stage.copy": "Sloth OS をディスクにコピーしています…",
+  "stage.assemble": "Sloth OS を組み立てています… 数分かかることがあります",
   "stage.bootloader": "起動を設定しています…",
   "stage.finishing": "仕上げています…",
   "stage.configure": "言語と設定を保存しています…",

@@ -96,6 +96,7 @@
   "stage.encrypt": "Stel tans enkripsie op…",
   "stage.prepare": "Berei die stelsel voor…",
   "stage.copy": "Kopieer Sloth OS na die skyf…",
+  "stage.assemble": "Sloth OS word saamgestel… dit kan 'n paar minute duur",
   "stage.bootloader": "Stel die opstart op…",
   "stage.finishing": "Voltooi…",
   "stage.configure": "Stoor taal en instellings…",

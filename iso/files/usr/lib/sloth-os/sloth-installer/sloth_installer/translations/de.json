@@ -96,6 +96,7 @@
   "stage.encrypt": "Verschlüsselung wird eingerichtet…",
   "stage.prepare": "System wird vorbereitet…",
   "stage.copy": "Sloth OS wird auf das Laufwerk kopiert…",
+  "stage.assemble": "Sloth OS wird zusammengesetzt… das kann ein paar Minuten dauern",
   "stage.bootloader": "Start wird eingerichtet…",
   "stage.finishing": "Abschluss…",
   "stage.configure": "Sprache und Einstellungen werden gespeichert…",

@@ -96,6 +96,7 @@
   "stage.encrypt": "Menyiapkan enkripsi…",
   "stage.prepare": "Menyiapkan sistem…",
   "stage.copy": "Menyalin Sloth OS ke disk…",
+  "stage.assemble": "Menyusun Sloth OS… ini bisa memakan waktu beberapa menit",
   "stage.bootloader": "Mengatur proses mulai…",
   "stage.finishing": "Menyelesaikan…",
   "stage.configure": "Menyimpan bahasa dan pengaturan…",

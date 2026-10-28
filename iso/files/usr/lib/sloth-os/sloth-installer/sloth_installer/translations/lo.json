@@ -96,6 +96,7 @@
   "stage.encrypt": "ກຳລັງຕັ້ງຄ່າການເຂົ້າລະຫັດ…",
   "stage.prepare": "ກຳລັງກຽມລະບົບ…",
   "stage.copy": "ກຳລັງສຳເນົາ Sloth OS ລົງດິສກ໌…",
+  "stage.assemble": "ກຳລັງປະກອບ Sloth OS… ອາດໃຊ້ເວລາສອງສາມນາທີ",
   "stage.bootloader": "ກຳລັງຕັ້ງຄ່າການເປີດເຄື່ອງ…",
   "stage.finishing": "ກຳລັງສຳເລັດ…",
   "stage.configure": "ກຳລັງບັນທຶກພາສາ ແລະ ການຕັ້ງຄ່າ…",

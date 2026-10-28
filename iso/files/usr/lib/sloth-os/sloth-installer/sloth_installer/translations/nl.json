@@ -96,6 +96,7 @@
   "stage.encrypt": "Versleuteling instellen…",
   "stage.prepare": "Systeem voorbereiden…",
   "stage.copy": "Sloth OS naar de schijf kopiëren…",
+  "stage.assemble": "Sloth OS wordt samengesteld… dit kan een paar minuten duren",
   "stage.bootloader": "Opstarten instellen…",
   "stage.finishing": "Afronden…",
   "stage.configure": "Taal en instellingen opslaan…",
