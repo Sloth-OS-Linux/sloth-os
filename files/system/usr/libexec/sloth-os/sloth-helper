@@ -32,8 +32,9 @@ Operations:
   factory-reset keep|all                         prepares resetting the computer (factory-reset
                                                  prepare; JSON on the input, JSON lines on the output)
   factory-reset-cancel                           withdraws a reset that has not been done yet
+  update-time default|<0-23>                     the hour the automatic update (uupd.timer) runs; by default 4:00
 
-The operations on versions (pin, unpin, set-default) are also available under the name
+The operations on versions (pin, unpin, set-default) and update-time are also available under the name
 sloth-helper-versions: that is a separate polkit action (org.slothos.helper.versions), so it can be put
 under the "updates" topic, not under booting.
 """
@@ -427,6 +428,30 @@ def zram(mode):
     return {"ok": True}
 
 
+# --- When the automatic update runs (Sloth Center → Updates) -----------------------------------------------
+
+# uupd.timer (Universal Blue) runs daily at 4:00, or at the next start if the computer was off then (Persistent)
+UPDATE_TIME_CONF = "/etc/systemd/system/uupd.timer.d/50-sloth-time.conf"
+
+
+def update_time(hour):
+    """hour: "default" (the base image's 4:00) or 0–23."""
+    if hour == "default":
+        try:
+            os.unlink(UPDATE_TIME_CONF)
+        except FileNotFoundError:
+            pass
+    else:
+        os.makedirs(os.path.dirname(UPDATE_TIME_CONF), exist_ok=True)
+        # the empty OnCalendar= clears the base image's time, the next line sets ours
+        _write(UPDATE_TIME_CONF, "# sloth-os: Sloth Center -> Updates\n[Timer]\nOnCalendar=\n"
+                                 f"OnCalendar=*-*-* {int(hour):02d}:00:00\n")
+    run(["systemctl", "daemon-reload"])
+    # the timer works out its next run again (only if it is on: a switched-off timer stays off)
+    run(["systemctl", "try-restart", "uupd.timer"])
+    return {"ok": True}
+
+
 # --- Backing up your own files (Sloth Center → File backup; home-snapshots does the work) ------------------
 
 SNAPSHOTS_CONF = "/etc/sloth-os/snapshots.json"
@@ -461,7 +486,7 @@ def main(argv):
     if not argv:
         return 2
     op, args = argv[0], argv[1:]
-    if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])):
+    if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])):
         print(json.dumps({"ok": False, "error": "unknown operation"}))
         return 2
     if op == "secureboot-status" and not args:
@@ -474,6 +499,8 @@ def main(argv):
         result = pin(int(args[0]), unpin=(op == "unpin"))
     elif op == "set-default" and len(args) == 1 and re.fullmatch(r"\d{1,2}", args[0]):
         result = set_default(int(args[0]))
+    elif op == "update-time" and len(args) == 1 and re.fullmatch(r"default|1?\d|2[0-3]", args[0]):
+        result = update_time(args[0])
     elif op == "login-feature" and len(args) == 2 and args[0] in LOGIN_FEATURES and args[1] in ("on", "off"):
         result = login_feature(args[0], args[1] == "on")
     elif op == "domain-join" and len(args) == 2 and DOMAIN_RE.match(args[0]) and DOMAIN_USER_RE.match(args[1]):

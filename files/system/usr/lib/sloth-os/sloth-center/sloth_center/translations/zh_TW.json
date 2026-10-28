@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "無法開啟 Sloth Welcome。",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "檔案中列出了另一台電腦上的 {n} 個應用程式。Sloth Welcome 可以安裝它認識的應用程式；你仍然可以取消勾選任何一個。",
   "Install them with Sloth Welcome": "用 Sloth Welcome 安裝",
+  "When updates download": "何時下載更新",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "每天在這個時間下載，若那時電腦是關機狀態，就在下次開機時下載。電腦忙碌時（例如玩遊戲時）會等待。",
   "Quiet hours": "勿擾時段",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "在這段時間內，不會有通知要求你重新啟動，例如晚上玩遊戲時。勿擾時段結束後通知才會出現；不會自動重新啟動。",
   "From": "從",

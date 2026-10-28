@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Sloth Welcome-ді ашу мүмкін болмады.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Файлда басқа компьютердегі {n} қолданба бар. Sloth Welcome өзі білетіндерін орната алады; кез келгенінен белгіні алып тастауға болады.",
   "Install them with Sloth Welcome": "Оларды Sloth Welcome арқылы орнату",
+  "When updates download": "Жаңартулар қашан жүктеледі",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Күн сайын осы уақытта немесе компьютер сол кезде өшірулі болса, келесі қосқанда. Компьютер бос емес кезде, мысалы ойын кезінде, күтеді.",
   "Quiet hours": "Тыныш сағаттар",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Тәуліктің осы бөлігінде ешбір хабарландыру қайта іске қосуды сұрамайды, мысалы кешке ойнап отырғанда. Ол тыныш сағаттар біткенде келеді; ештеңе өздігінен қайта іске қосылмайды.",
   "From": "Басы",

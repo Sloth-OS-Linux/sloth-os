@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Non poteva aperir Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Le file lista {n} applicationes del altere computator. Sloth Welcome pote installar illos que illo cognosce; tu pote ancora dismarcar qualcunque.",
   "Install them with Sloth Welcome": "Installar los con Sloth Welcome",
+  "When updates download": "Quando le actualisationes se discarga",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Cata die a iste hora, o quando tu reaccende le computator si illo esseva extincte alora. Illo attende durante que le computator es occupate, per exemplo durante un joco.",
   "Quiet hours": "Horas quiete",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "In iste parte del die nulle notification te demanda de reinitiar, per exemplo durante que tu joca le vespere. Illo veni quando le horas quiete fini; nihil reinitia per se mesme.",
   "From": "De",

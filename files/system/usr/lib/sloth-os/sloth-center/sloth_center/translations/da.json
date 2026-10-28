@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Kunne ikke åbne Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Filen nævner {n} apps fra den anden computer. Sloth Welcome kan installere dem, den kender; du kan stadig fravælge hvilken som helst.",
   "Install them with Sloth Welcome": "Installer dem med Sloth Welcome",
+  "When updates download": "Hvornår opdateringer hentes",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Hver dag på dette tidspunkt, eller næste gang du tænder computeren, hvis den var slukket. Den venter, mens computeren har travlt, for eksempel under et spil.",
   "Quiet hours": "Stille timer",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "I denne del af dagen beder ingen notifikation dig om at genstarte, for eksempel mens du spiller om aftenen. Den kommer, når de stille timer slutter; intet genstarter af sig selv.",
   "From": "Fra",

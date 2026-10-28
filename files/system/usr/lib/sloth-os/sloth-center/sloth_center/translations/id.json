@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Tidak dapat membuka Sloth Welcome.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "Berkas ini mencantumkan {n} aplikasi dari komputer lain. Sloth Welcome dapat memasang yang dikenalnya; Anda tetap bisa menghapus centang mana pun.",
   "Install them with Sloth Welcome": "Pasang dengan Sloth Welcome",
+  "When updates download": "Kapan pembaruan diunduh",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "Setiap hari pada jam ini, atau saat komputer dinyalakan berikutnya jika saat itu mati. Pengunduhan menunggu selama komputer sibuk, misalnya saat bermain game.",
   "Quiet hours": "Jam tenang",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "Pada jam ini tidak ada notifikasi yang meminta Anda memulai ulang, misalnya saat Anda bermain di malam hari. Notifikasi datang setelah jam tenang berakhir; tidak ada yang dimulai ulang dengan sendirinya.",
   "From": "Dari",

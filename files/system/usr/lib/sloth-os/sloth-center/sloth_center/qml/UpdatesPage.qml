@@ -183,6 +183,38 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- When the automatic update downloads (uupd.timer, sloth-helper update-time) ---
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: updates.updateHour >= 0
+            contentItem: RowLayout {
+                spacing: Kirigami.Units.largeSpacing
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: 0
+                    Kirigami.Heading { level: 3; text: L.t("When updates download"); Layout.fillWidth: true }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        text: L.t("Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.")
+                    }
+                }
+                QQC2.ComboBox {
+                    // a list, not a spin box: every change asks for administrator approval once
+                    Accessible.name: L.t("When updates download")
+                    model: Array.from({ length: 24 }, (_, h) => (h < 10 ? "0" : "") + h + ":00")
+                    currentIndex: Math.max(0, updates.updateHour)
+                    onActivated: index => {
+                        if (index !== updates.updateHour)
+                            updates.setUpdateHour(index)
+                        // shows what is really set (also if the password prompt was cancelled)
+                        currentIndex = Qt.binding(() => Math.max(0, updates.updateHour))
+                    }
+                }
+            }
+        }
+
         // --- Quiet hours: no notification asks for a restart then (sloth_common.quiet_hours) ---
         Kirigami.AbstractCard {
             Layout.fillWidth: true

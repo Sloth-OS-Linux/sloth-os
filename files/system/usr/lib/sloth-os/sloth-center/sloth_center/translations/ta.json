@@ -788,6 +788,8 @@
   "Couldn't open Sloth Welcome.": "Sloth Welcome-ஐத் திறக்க முடியவில்லை.",
   "The file lists {n} apps from the other computer. Sloth Welcome can install the ones it knows; you can still untick any of them.": "இந்தக் கோப்பில் மற்ற கணினியின் {n} செயலிகள் உள்ளன. Sloth Welcome தனக்குத் தெரிந்தவற்றை நிறுவும்; எதையும் தேர்வு நீக்கலாம்.",
   "Install them with Sloth Welcome": "Sloth Welcome மூலம் நிறுவு",
+  "When updates download": "புதுப்பிப்புகள் எப்போது பதிவிறங்கும்",
+  "Every day at this time, or when you next turn the computer on if it was off then. It waits while the computer is busy, for example during a game.": "தினமும் இந்த நேரத்தில், அல்லது அப்போது கணினி அணைக்கப்பட்டிருந்தால் அடுத்த முறை இயக்கும்போது. கணினி வேலையாக இருக்கும்போது, உதாரணமாக விளையாட்டின்போது, அது காத்திருக்கும்.",
   "Quiet hours": "அமைதி நேரம்",
   "In this part of the day no notification asks you to restart, for example while you play in the evening. It comes when the quiet hours end; nothing restarts by itself.": "நாளின் இந்த நேரத்தில், மாலையில் விளையாடும்போது போல, எந்த அறிவிப்பும் மறுதொடக்கம் செய்யச் சொல்லாது. அமைதி நேரம் முடிந்ததும் அது வரும்; எதுவும் தானாக மறுதொடக்கம் ஆகாது.",
   "From": "முதல்",
