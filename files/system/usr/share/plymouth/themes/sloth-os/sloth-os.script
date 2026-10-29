@@ -249,10 +249,12 @@ px[238] = 0.4015; py[238] = 0.0816;
 px[239] = 0.4119; py[239] = 0.0806;
 
 # --- Logo and dot trail, laid out for the screens -----------------------
-# Without an index, Window.GetX/GetWidth give the area every screen shows (the screens are centered on each
-# other). A screen can come later: at shutdown and restart the second monitor, or its real mode, often reaches
-# Plymouth after the script started. Then that area moves, and a logo placed only once stood in the bottom right
-# corner (2026-10-28, two monitors). So the layout is made again whenever the area changes (refresh_callback).
+# Plymouth centers every screen in an area as large as the largest one; Window.GetWidth/GetHeight without an index
+# give that area, so its middle is the middle of every screen. (Window.GetX/GetY without an index give the smallest
+# screen's offset in it: adding that to the area pushed the logo to the bottom right with two screens of different
+# sizes, 2026-10-29.) The logo's size follows the smallest screen. A screen can come later: at shutdown and restart
+# the second monitor, or its real mode, often reaches Plymouth after the script started, so the layout is made again
+# whenever the screens change (refresh_callback).
 TRAIL = 7;        # the trail's length (number of points behind the leading dot)
 STEP = 2;         # this many positions per frame (at 50 fps ~2.4 s per round)
 logo.sprite = Sprite();
@@ -264,12 +266,21 @@ for (i = 0; i < TRAIL; i++) {
 }
 size = 0;
 
+fun smallest_height() {
+  h = Window.GetHeight();
+  for (i = 0; i < 16; i++) {
+    hi = Window.GetHeight(i);
+    if (!hi) return h;
+    if (hi < h) h = hi;
+  }
+  return h;
+}
+
 fun layout() {
-  global.win_x = Window.GetX();
-  global.win_y = Window.GetY();
   global.screen_w = Window.GetWidth();
   global.screen_h = Window.GetHeight();
-  new_size = Math.Int(global.screen_h * 0.32);
+  global.small_h = smallest_height();
+  new_size = Math.Int(global.small_h * 0.32);
   if (new_size > 480) new_size = 480;
   if (new_size < 160) new_size = 160;
   if (new_size != global.size) {
@@ -284,8 +295,8 @@ fun layout() {
       global.trail[i].half = s / 2;
     }
   }
-  global.logo.x = global.win_x + Math.Int((global.screen_w - global.size) / 2);
-  global.logo.y = global.win_y + Math.Int((global.screen_h - global.size) / 2);
+  global.logo.x = Math.Int((global.screen_w - global.size) / 2);
+  global.logo.y = Math.Int((global.screen_h - global.size) / 2);
   global.logo.sprite.SetPosition(global.logo.x, global.logo.y, 1);
   global.text_y = global.logo.y + global.size + Math.Int(global.size * 0.12);
 }
@@ -302,7 +313,7 @@ fun place_dots() {
 }
 
 fun refresh_callback() {
-  if (Window.GetWidth() != global.screen_w || Window.GetHeight() != global.screen_h || Window.GetX() != global.win_x || Window.GetY() != global.win_y) {
+  if (Window.GetWidth() != global.screen_w || Window.GetHeight() != global.screen_h || smallest_height() != global.small_h) {
     layout();
     if (global.password_shown) display_password_callback("", global.password_count);
   }
@@ -322,7 +333,7 @@ password_count = 0;
 
 fun center_text(sprite, image, y) {
   sprite.SetImage(image);
-  sprite.SetPosition(Window.GetX() + (screen_w - image.GetWidth()) / 2, y, 20);
+  sprite.SetPosition((screen_w - image.GetWidth()) / 2, y, 20);
 }
 
 # The encrypted disk's password prompt: systemd's text is English and technical ("Please enter passphrase for disk
@@ -352,7 +363,7 @@ for (i = 0; i < MAX_BULLETS; i++) {
 fun show_bullets(count) {
   if (count > MAX_BULLETS) count = MAX_BULLETS;
   row_w = count * bullet_size + (count - 1) * bullet_gap;
-  x0 = Window.GetX() + Math.Int((screen_w - row_w) / 2);
+  x0 = Math.Int((screen_w - row_w) / 2);
   for (i = 0; i < MAX_BULLETS; i++) {
     if (i < count) {
       bullet[i].sprite.SetImage(bullet_image);
@@ -378,9 +389,9 @@ fun display_password_callback(text, count) {
   global.field_y = global.text_y + padlock_size + 52;
   prompt.sprite.SetImage(Image("blank.png"));
   padlock.sprite.SetImage(padlock.image);
-  padlock.sprite.SetPosition(Window.GetX() + (screen_w - padlock_size) / 2, text_y, 20);
+  padlock.sprite.SetPosition((screen_w - padlock_size) / 2, text_y, 20);
   field.sprite.SetImage(field.image);
-  field.sprite.SetPosition(Window.GetX() + (screen_w - field_w) / 2, field_y, 20);
+  field.sprite.SetPosition((screen_w - field_w) / 2, field_y, 20);
   show_bullets(count);
 }
 
@@ -391,7 +402,7 @@ fun display_question_callback(text, entry) {
 }
 
 fun message_callback(text) {
-  center_text(message.sprite, Image.Text(text, 0.6, 0.63, 0.66), screen_h - 60);
+  center_text(message.sprite, Image.Text(text, 0.6, 0.63, 0.66), Math.Int((screen_h + small_h) / 2) - 60);
 }
 
 Plymouth.SetDisplayNormalFunction(display_normal_callback);
