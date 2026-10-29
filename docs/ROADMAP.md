@@ -6,12 +6,16 @@ from a terminal must also work from a GUI.
 ## Where we are
 
 ### Next: Sloth OS 1.2.1 (to do, in order)
-1. [ ] **An official torrent next to the ISO** (Reddit, 2026-10-29: SourceForge is slow), made at home with the
+1. [x] **An official torrent next to the ISO** (Reddit, 2026-10-29: SourceForge is slow), made at home with the
    1.2.1 ISO: the SourceForge link as a web seed, the `.torrent` next to the ISO, a "Torrent" link on the website
    (details: Phase 4)
-2. [ ] Release what the test branch has since 1.2: the official Roblox Studio in Sloth Welcome, browser logins for
+2. [x] Release what the test branch has since 1.2: the official Roblox Studio in Sloth Welcome, browser logins for
    Windows programs, WebView2 not counted as the program (try Welcome → Roblox Studio on the HP first); then the PR
-   to `main`, the ISO, SourceForge, the website
+   to `main`, the ISO, SourceForge, the website (2026-10-29: `sloth-os-1.2.1-x86_64.iso`, 5.2 GB, SHA-256
+   `17e24d611fda24bba8fbf7c247f282c6cff1f2be974462e57ecd32a14c84ac14`, with its `.torrent`)
+3. [ ] Reddit, 2026-10-29 (ThinkPad, 1.2): the first restart after the install needed a hard reboot; the
+   encrypted disk's password prompt at boot does not make clear that it waits for typing (a text like "Type your
+   password"); say more clearly that Sloth OS is based on Fedora Atomic (the commenter thought Arch)
 
 ### Sloth OS 1.0.2 (2026-10-22)
 The current 1.0.2 ISO is published on SourceForge and is working in current testing. Sorry to anyone who ran
@@ -1720,7 +1724,7 @@ directly; the GitHub calls tried live):
     chosen size
   - [ ] Old (BIOS-only) machines (after 1.0)
   - [x] Downloading the ISO: on SourceForge (2026-10-21; GitHub releases allow at most 2 GB per file)
-  - [ ] **Small** — An official torrent next to the ISO, from 1.2.1 on (2026-10-29, Reddit: SourceForge is slow).
+  - [x] **Small** — An official torrent next to the ISO, from 1.2.1 on (2026-10-29, Reddit: SourceForge is slow).
     The SourceForge download link as a web seed, so it works even when nobody seeds; the `.torrent` uploaded next to
     the ISO, and a "Torrent" link next to the website's download button
 - [x] Website, download, documentation (sloth-os-linux.github.io, 2026-10-21)
