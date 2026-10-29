@@ -1712,4 +1712,7 @@ directly; the GitHub calls tried live):
     chosen size
   - [ ] Old (BIOS-only) machines (after 1.0)
   - [x] Downloading the ISO: on SourceForge (2026-10-21; GitHub releases allow at most 2 GB per file)
+  - [ ] **Small** — An official torrent next to the ISO, from 1.2.1 on (2026-10-29, Reddit: SourceForge is slow).
+    The SourceForge download link as a web seed, so it works even when nobody seeds; the `.torrent` uploaded next to
+    the ISO, and a "Torrent" link next to the website's download button
 - [x] Website, download, documentation (sloth-os-linux.github.io, 2026-10-21)
