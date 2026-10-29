@@ -423,6 +423,12 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   Windows version on Linux, so the Sloth Welcome offers the community apps instead: **Sober** (the games, runs
   Roblox's Android version natively; ~3.3 M installs on Flathub) and **Vinegar** (Roblox Studio under Wine; works,
   with rough edges). Both are unofficial: Roblox could block them. Icons from Flathub, texts in 50 languages
+- [ ] **Medium** — "Two settings apps" (2026-10-29, a Reddit comment): Sloth Center and KDE's System Settings live
+  side by side, like Windows' Control Panel and Settings. Suggested: Sloth Center's pages as KCMs inside System
+  Settings (https://develop.kde.org/docs/features/configuration/kcm/). KCMs are C++ plugins and Sloth Center is
+  Python, so not as a rewrite now; first make the two find each other: a "Sloth Center" entry in System Settings
+  (a .desktop entry in its sidebar), an "All settings" button in Sloth Center, and a look at which KDE pages
+  duplicate a Sloth Center page (hide or link them). Later: whether some pages could be real KCMs
 - [ ] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
   restores normal settings when it closes.
 - [x] **Medium** — Performance display for frame rate, system load, and temperatures (2026-10-26): the per-game
