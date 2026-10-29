@@ -536,8 +536,8 @@ muting, Heroic/Epic, zram, taskbar balloon on the right, WoW Classic from Battle
   (GitHub "Sponsor" button), the website's footer and FAQ
 - [x] **Moved to the Sloth-OS-Linux organization** (2026-10-21): `sloth-os` and `sloth-os-knowledge` moved, the
   secrets stayed, the first build to the new place (`ghcr.io/sloth-os-linux/sloth-os(-nvidia)`) is fine. The packages
-  are still private: set them public in Package settings when going public. The old `ghcr.io/bathorizsolt/…`
-  images can be deleted after the final ISO
+  are still private: set them public in Package settings when going public. The old images under the
+  personal GitHub account can be deleted after the final ISO
 - [x] **ISO hosting: SourceForge** (2026-10-21, free, unlimited, with mirrors): sourceforge.net/projects/sloth-os,
   user `slothos`; upload with SFTP/rsync (`frs.sourceforge.net:/home/frs/project/sloth-os/`), the key on this
   machine: `~/.ssh/sloth_sourceforge` (tried). Metadata, categories, logo done
