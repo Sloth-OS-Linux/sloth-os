@@ -1,5 +1,7 @@
 {
   "_language": "অসমীয়া",
+  "Runs with {app}": "{app}-ৰ সৈতে চলে",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "ইয়াৰ Windows সংস্কৰণ Linux-ত অৱৰোধ কৰা হৈছে, কিন্তু Linux-ৰ বাবে সমাজে বনোৱা এপ {app}-এ ইয়াক চলায়। Sloth Welcome আৰু Discover-এ ইয়াক ইনষ্টল কৰিব পাৰে।",
   "Help": "সহায়",
   "The most common problems and where to fix them. This help works without internet too.": "আটাইতকৈ সাধাৰণ সমস্যা আৰু কʼত সেইবোৰ সমাধান কৰিব পাৰি। এই সহায় ইণ্টাৰনেট নোহোৱাকৈও চলে।",
   "Open {page}": "{page} খোলক",

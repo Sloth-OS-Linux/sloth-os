@@ -74,12 +74,13 @@ class Runner(QObject):
     def lines(self):
         return list(self._lines)
 
-    def start(self, program, exe, attempt=None, gameid=None, join=False):
+    def start(self, program, exe, attempt=None, gameid=None, join=False, extra_args=()):
         """program: library.App, exe: the file to run on the host.
 
         attempt: heal.Attempt (which Proton, with which setting and fixes), gameid: umu GAMEID.
         join: something already runs in the program's environment (e.g. the launcher this game could also start from):
         the new program joins it and does not wait until the previous one stops.
+        extra_args: given to the program after the settings' own (e.g. a link to open: sloth-exe --open-url).
         """
         program.prefix.mkdir(parents=True, exist_ok=True)
         self._prefix = program.prefix
@@ -115,6 +116,7 @@ class Runner(QObject):
             for key, value in attempt.env().items():
                 env.insert(key, value)
             args = attempt.args() + [a for a in args if a not in attempt.args()]
+        args += list(extra_args)
         # Do not download a newer Proton / runtime while the user waits (it updates in the background)
         proton, runtime = backend.local_runtime()
         if proton and not env.contains("PROTONPATH"):

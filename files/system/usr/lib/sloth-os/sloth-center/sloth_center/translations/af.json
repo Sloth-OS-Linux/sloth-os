@@ -1,5 +1,7 @@
 {
   "_language": "Afrikaans",
+  "Runs with {app}": "Loop met {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Sy Windows-weergawe is op Linux geblokkeer, maar {app}, 'n gemeenskapsprogram vir Linux, laat dit loop. Sloth Welcome en Discover kan dit installeer.",
   "Help": "Hulp",
   "The most common problems and where to fix them. This help works without internet too.": "Die algemeenste probleme en waar om hulle reg te stel. Hierdie hulp werk ook sonder internet.",
   "Open {page}": "Maak {page} oop",

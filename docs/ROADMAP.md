@@ -5,6 +5,14 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Next: Sloth OS 1.2.1 (to do, in order)
+1. [ ] **An official torrent next to the ISO** (Reddit, 2026-10-29: SourceForge is slow), made at home with the
+   1.2.1 ISO: the SourceForge link as a web seed, the `.torrent` next to the ISO, a "Torrent" link on the website
+   (details: Phase 4)
+2. [ ] Release what the test branch has since 1.2: the official Roblox Studio in Sloth Welcome, browser logins for
+   Windows programs, WebView2 not counted as the program (try Welcome → Roblox Studio on the HP first); then the PR
+   to `main`, the ISO, SourceForge, the website
+
 ### Sloth OS 1.0.2 (2026-10-22)
 The current 1.0.2 ISO is published on SourceForge and is working in current testing. Sorry to anyone who ran
 into trouble installing with the earlier 1.0.2 ISO: the installer issue has been fixed, and the current ISO
@@ -419,6 +427,29 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Large** — Before significant settings or driver changes, offer a recoverable state and a clear way to revert.
 
 #### Gaming, devices, and connectivity
+- [x] Roblox (2026-10-29, a Reddit comment: "roblox studio" stopped someone from switching): Roblox blocks its
+  Windows version on Linux, so the Sloth Welcome offers the community apps instead: **Sober** (the games, runs
+  Roblox's Android version natively; ~3.3 M installs on Flathub) and **Vinegar** (Roblox Studio under Wine; works,
+  with rough edges). Both are unofficial: Roblox could block them. Icons from Flathub, texts in 50 languages
+  Later the same day Vinegar was replaced by the official Roblox Studio installer (`win.robloxstudio`, like the
+  game launchers): it runs in the .exe handler with a working login (see below), Vinegar crashed a lot (Reddit)
+- [x] Logins through the browser for Windows programs (2026-10-29, Roblox Studio through the .exe handler: it starts,
+  but the login never came back). The browser hands the result back with a link (`roblox-studio-auth:…`) that the
+  program registered in Windows; Linux did not know it. Now the .exe handler reads the link types from the program's
+  registry after installing and on every start, and registers a hidden handler (`sloth-url-<program>.desktop`,
+  `sloth-exe --open-url`) that gives the link to the program, joining it if it runs. Works for every such program
+  (battlenet:, uplay:…), not only Roblox. Also: Microsoft Edge WebView2 (which installers bring for these logins)
+  no longer counts as the installed program and gets no Start menu entry. Tried on the HP the same day: the
+  Roblox Studio login works, without Vinegar. Known rough edge: the maximize button does nothing (Wine undoes the
+  maximized state, KWin rules "ignore requested geometry" and "obey geometry restrictions" did not help), but
+  resizing works and Studio opens in a large window (it does not remember a size). Note: every Proton window has the class `steam_app_default`, so a
+  KWin rule by class would hit every Windows program
+- [ ] **Medium** — "Two settings apps" (2026-10-29, a Reddit comment): Sloth Center and KDE's System Settings live
+  side by side, like Windows' Control Panel and Settings. Suggested: Sloth Center's pages as KCMs inside System
+  Settings (https://develop.kde.org/docs/features/configuration/kcm/). KCMs are C++ plugins and Sloth Center is
+  Python, so not as a rewrite now; first make the two find each other: a "Sloth Center" entry in System Settings
+  (a .desktop entry in its sidebar), an "All settings" button in Sloth Center, and a look at which KDE pages
+  duplicate a Sloth Center page (hide or link them). Later: whether some pages could be real KCMs
 - [ ] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
   restores normal settings when it closes.
 - [x] **Medium** — Performance display for frame rate, system load, and temperatures (2026-10-26): the per-game
@@ -536,8 +567,8 @@ muting, Heroic/Epic, zram, taskbar balloon on the right, WoW Classic from Battle
   (GitHub "Sponsor" button), the website's footer and FAQ
 - [x] **Moved to the Sloth-OS-Linux organization** (2026-10-21): `sloth-os` and `sloth-os-knowledge` moved, the
   secrets stayed, the first build to the new place (`ghcr.io/sloth-os-linux/sloth-os(-nvidia)`) is fine. The packages
-  are still private: set them public in Package settings when going public. The old `ghcr.io/bathorizsolt/…`
-  images can be deleted after the final ISO
+  are still private: set them public in Package settings when going public. The old images under the
+  personal GitHub account can be deleted after the final ISO
 - [x] **ISO hosting: SourceForge** (2026-10-21, free, unlimited, with mirrors): sourceforge.net/projects/sloth-os,
   user `slothos`; upload with SFTP/rsync (`frs.sourceforge.net:/home/frs/project/sloth-os/`), the key on this
   machine: `~/.ssh/sloth_sourceforge` (tried). Metadata, categories, logo done
@@ -936,6 +967,8 @@ yet, see above).
   - [ ] Battle.net again, after the background preparation: does its own installer come up (see the bugs below); because
     of the boot loop (below) it did not get this far yet
 - [ ] The rest of the morning test: encryption, updates with signature verification, an NVIDIA machine, next to Windows (needs a tester)
+  (2026-10-29: next to Windows done on a real computer, see "Installer, next to Windows"; NVIDIA works with Secure
+  Boot off; encryption and signed updates were checked earlier)
 - [x] Watching the still open bugs (2026-10-20: all solved): muting (which button: key / tray icon; when does it come back: by itself, on a
   notification's sound, on changing the volume, at login?), Discover updating the fresh apps (what did it update:
   the app itself or an extension, e.g. `GL.default`?), Vivaldi from Welcome (the error message in the saved log)
@@ -963,9 +996,11 @@ On a real machine and/or in a VM; whatever does not work comes back here as a bu
 - [x] **Live system:** after choosing a language, "Try" → the desktop comes up in the chosen language; notifications at the top right
 - [x] **Installer, whole disk:** a plain install; then the same **with encryption** (a padlock icon at boot, the password works with the
   chosen layout, e.g. "z"/"y" for Hungarian; after a wrong password it asks again)
-- [ ] **Installer, next to Windows** (in a VM with a Windows disk or an NTFS + EFI test disk): the survey and
+- [x] **Installer, next to Windows** (in a VM with a Windows disk or an NTFS + EFI test disk): the survey and
   the slider, the explanations (e.g. hibernated Windows), the install, the Windows entry in the boot menu, Windows
-  still starts afterwards, the clock is right in both systems
+  still starts afterwards, the clock is right in both systems. 2026-10-29: installed next to Windows on a real
+  computer with the 1.2 ISO, everything worked. The website (Download, FAQ, Getting started, Press) and the press
+  kit no longer say it was tried on few real Windows computers
 - [x] **First start:** quiet boot, hidden GRUB (a visible menu next to Windows), the account from the installer, Welcome
 - [x] **Welcome:** the new "Sharing experiences" step (yes / no, Next only after a choice), installing the apps
   (what it downloads / installs, "x / y MB"), the icons show right away, Steam on the taskbar with its icon
@@ -1685,4 +1720,7 @@ directly; the GitHub calls tried live):
     chosen size
   - [ ] Old (BIOS-only) machines (after 1.0)
   - [x] Downloading the ISO: on SourceForge (2026-10-21; GitHub releases allow at most 2 GB per file)
+  - [ ] **Small** — An official torrent next to the ISO, from 1.2.1 on (2026-10-29, Reddit: SourceForge is slow).
+    The SourceForge download link as a web seed, so it works even when nobody seeds; the `.torrent` uploaded next to
+    the ISO, and a "Torrent" link next to the website's download button
 - [x] Website, download, documentation (sloth-os-linux.github.io, 2026-10-21)

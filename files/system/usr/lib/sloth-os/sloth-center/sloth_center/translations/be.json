@@ -1,5 +1,7 @@
 {
   "_language": "Беларуская",
+  "Runs with {app}": "Працуе з {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Яе версія для Windows заблакаваная ў Linux, але {app}, праграма супольнасці для Linux, запускае яе. Sloth Welcome і Discover могуць яе ўсталяваць.",
   "Help": "Даведка",
   "The most common problems and where to fix them. This help works without internet too.": "Найчасцейшыя праблемы і дзе іх выправіць. Гэтая даведка працуе і без інтэрнэту.",
   "Open {page}": "Адкрыць {page}",

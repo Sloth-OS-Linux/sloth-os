@@ -141,12 +141,84 @@ def add_link(app, name, command, icon=None):
     return path
 
 
+def url_handler_path(app):
+    # not "sloth-win-<program>-…": it is not a Start menu entry (entries() does not list it)
+    return APPS_DIR / f"sloth-url-{app.id}.desktop"
+
+
+def register_url_handlers(app):
+    """The link types the program registered in Windows (roblox-studio-auth:, battlenet:…) open it on Linux too.
+
+    A login in the browser hands the result back to the program with such a link; without a handler the browser
+    does nothing and the program waits in vain (Roblox Studio, 2026-10-29). The hidden entry passes the link to
+    sloth-exe --open-url, which starts the registered command in the program's environment.
+    -> the schemes now handled
+    """
+    from . import winreg
+
+    schemes = sorted(s for s, command in winreg.url_protocols(app.prefix).items() if _own_command(app, command))
+    path = url_handler_path(app)
+    old = _read(path)
+    old_schemes = sorted(m[len("x-scheme-handler/"):] for m in (old.get("MimeType", "") if old else "").split(";") if m)
+    if schemes == old_schemes:
+        return schemes
+    if not schemes:
+        try:
+            path.unlink()
+        except OSError:
+            pass
+        _update_database()
+        return schemes
+    APPS_DIR.mkdir(parents=True, exist_ok=True)
+    exec_line = " ".join(shlex.quote(a) for a in ["sloth-exe", "--open-url", app.id]) + " %u"
+    path.write_text(
+        "[Desktop Entry]\n"
+        "Type=Application\n"
+        f"Name={app.name}\n"
+        f"Exec={exec_line}\n"
+        "Terminal=false\n"
+        "NoDisplay=true\n"
+        f"MimeType={''.join(f'x-scheme-handler/{s};' for s in schemes)}\n"
+        f"X-Sloth-Program={app.id}\n",
+        encoding="utf-8")
+    _update_database()
+    for scheme in schemes:
+        try:
+            subprocess.run(["xdg-mime", "default", path.name, f"x-scheme-handler/{scheme}"],
+                           capture_output=True, timeout=20)
+        except (OSError, subprocess.SubprocessError) as e:
+            log.warning("xdg-mime %s: %s", scheme, e)
+    log.info("link types of %s: %s", app.id, ", ".join(schemes))
+    return schemes
+
+
+def _own_command(app, command):
+    """Whether the command starts a program in the environment (not Wine's own, e.g. winebrowser)."""
+    from . import detect, winreg
+
+    exe, _args = winreg.split_command(command, "")
+    host = app.windows_to_host(exe or "")
+    if host is None or not host.is_file() or host.suffix.lower() != ".exe":
+        return False
+    return not detect.not_program(detect._rel(app, host))
+
+
+def _update_database():
+    try:
+        subprocess.run(["update-desktop-database", str(APPS_DIR)], capture_output=True, timeout=30)
+    except (OSError, subprocess.SubprocessError):
+        pass
+
+
 def remove_entries(app):
     for e in entries(app):
         try:
             Path(e["desktop"]).unlink()
         except OSError:
             pass
+    if url_handler_path(app).exists():
+        url_handler_path(app).unlink(missing_ok=True)
+        _update_database()
 
 
 def set_category(app):

@@ -25,6 +25,7 @@ GAMES = {
     "steam:1": {"n": "Some Broken Shooter", "r": "", "t": 1, "w": 0, "a": "broken", "ac": ["Vanguard"]},
     "awacy:valorant": {"n": "VALORANT", "r": "", "t": 0, "a": "denied", "ac": ["Vanguard"]},
     "steam:2": {"n": "Tiny Indie", "r": "", "t": 2, "w": 100},
+    "awacy:roblox": {"n": "Roblox", "r": "", "t": 0, "a": "denied", "ac": ["Hyperion"], "p": "Roblox"},
     "steam:1245620": {"n": "ELDEN RING", "r": "great", "t": 387, "w": 94, "st": "works", "sd": "2026-10-28"},
 }
 
@@ -68,6 +69,12 @@ class GameCheckTest(unittest.TestCase):
         self.assertEqual((elden["badge"], elden["tested"]), ("tested", "works"))
         self.assertEqual(gc.search(GAMES, "valorant")[0]["works"], -1)  # no reports at all
         self.assertIsNone(gc.lookup(GAMES, "999"))
+
+    def test_community_alternative(self):
+        """Roblox blocks its Windows version, but Sober runs it: that is the answer (a Reddit comment, 2026-10-29)."""
+        roblox = gc.search(GAMES, "roblox")[0]
+        self.assertEqual((roblox["badge"], roblox["alternative"]), ("alternative", "Sober"))
+        self.assertEqual(gc.search(GAMES, "apex")[0]["alternative"], "")
 
     def test_cache_and_known_settings(self):
         with tempfile.TemporaryDirectory() as tmp:

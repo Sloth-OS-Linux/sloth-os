@@ -1,5 +1,7 @@
 {
   "_language": "Türkçe",
+  "Runs with {app}": "{app} ile çalışıyor",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Windows sürümü Linux'ta engelli, ama Linux için yapılmış bir topluluk uygulaması olan {app} onu çalıştırıyor. Sloth Welcome ve Discover onu kurabilir.",
   "Help": "Yardım",
   "The most common problems and where to fix them. This help works without internet too.": "En sık karşılaşılan sorunlar ve nerede çözüleceği. Bu yardım internet olmadan da çalışır.",
   "Open {page}": "{page} aç",

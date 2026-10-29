@@ -1,5 +1,7 @@
 {
   "_language": "Eesti",
+  "Runs with {app}": "Töötab rakendusega {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Selle Windowsi versioon on Linuxis blokeeritud, kuid {app}, Linuxile tehtud kogukonna rakendus, käivitab selle. Sloth Welcome ja Discover saavad selle paigaldada.",
   "Help": "Abi",
   "The most common problems and where to fix them. This help works without internet too.": "Kõige sagedasemad probleemid ja kus neid lahendada. See abi töötab ka ilma internetita.",
   "Open {page}": "Ava {page}",

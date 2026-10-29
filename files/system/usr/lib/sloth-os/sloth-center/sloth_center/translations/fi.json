@@ -1,5 +1,7 @@
 {
   "_language": "Suomi",
+  "Runs with {app}": "Toimii sovelluksella {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Sen Windows-versio on estetty Linuxissa, mutta {app}, Linuxille tehty yhteisön sovellus, pyörittää sitä. Sloth Welcome ja Discover voivat asentaa sen.",
   "Help": "Ohje",
   "The most common problems and where to fix them. This help works without internet too.": "Yleisimmät ongelmat ja missä ne korjataan. Tämä ohje toimii myös ilman internetiä.",
   "Open {page}": "Avaa {page}",

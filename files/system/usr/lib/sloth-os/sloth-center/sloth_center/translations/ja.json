@@ -1,5 +1,7 @@
 {
   "_language": "日本語",
+  "Runs with {app}": "{app} で動作",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Windows 版は Linux ではブロックされていますが、Linux 向けのコミュニティ製アプリ {app} で動かせます。Sloth Welcome と Discover からインストールできます。",
   "Help": "ヘルプ",
   "The most common problems and where to fix them. This help works without internet too.": "よくある問題と、その直し方の場所です。このヘルプはインターネットがなくても使えます。",
   "Open {page}": "{page} を開く",

@@ -3,6 +3,7 @@ repository (games-index.json: ProtonDB reports, AreWeAntiCheatYet, the Sloth OS 
 its seed/games_index.py). The list is downloaded in the background and kept, so the search works offline too.
 
 The verdict, most important first:
+  alternative  its Windows version is blocked, but a community app made for Linux runs it (ALTERNATIVES: Roblox -> Sober)
   blocked  the makers don't allow it on Linux (the anti-cheat refuses it; AreWeAntiCheatYet "Denied")
   broken   its anti-cheat does not work on Linux (AreWeAntiCheatYet "Broken")
   tested   the Sloth OS team tried it (the result says how it went)
@@ -24,6 +25,9 @@ KNOWLEDGE = CACHE.with_name("knowledge.json")
 MAX_AGE_S = 7 * 86400
 TIMEOUT_S = 30
 GPU_NAMES = {"amd": "AMD", "nvidia": "NVIDIA", "intel": "Intel"}
+# Games whose Windows version is blocked on Linux but which run with a community app made for Linux (offered in
+# Sloth Welcome too), by the searchable form of the name: Roblox blocks Wine; Sober runs its Android version natively
+ALTERNATIVES = {"roblox": "Sober"}
 
 
 def normalize(text):
@@ -80,8 +84,11 @@ def known_settings(path=KNOWLEDGE):
 def verdict(key, entry, known=()):
     """What the page shows about one game:
     {"key", "name", "badge", "works", "reports", "native", "gpus" [(name, %)], "anticheat" [..], "publisher", "tested",
-    "known", "sources" [where the data comes from]}"""
-    if entry.get("a") == "denied":
+    "known", "sources" [where the data comes from], "alternative" [the app that runs it instead, or ""]}"""
+    alternative = ALTERNATIVES.get(normalize(entry.get("n", "")), "")
+    if alternative and entry.get("a") in ("denied", "broken"):
+        badge = "alternative"
+    elif entry.get("a") == "denied":
         badge = "blocked"
     elif entry.get("a") == "broken":
         badge = "broken"
@@ -106,6 +113,7 @@ def verdict(key, entry, known=()):
         "tested": entry.get("st", ""),
         "known": bool(appid) and appid in known,
         "sources": sources,
+        "alternative": alternative,
     }
 
 

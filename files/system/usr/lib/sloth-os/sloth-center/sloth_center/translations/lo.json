@@ -1,5 +1,7 @@
 {
   "_language": "ລາວ",
+  "Runs with {app}": "ເຮັດວຽກດ້ວຍ {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "ເວີຊັນ Windows ຂອງມັນຖືກບລັອກໃນ Linux, ແຕ່ {app}, ແອັບຂອງຊຸມຊົນທີ່ສ້າງສຳລັບ Linux, ເປີດມັນໄດ້. Sloth Welcome ແລະ Discover ສາມາດຕິດຕັ້ງມັນໄດ້.",
   "Help": "ຊ່ວຍເຫຼືອ",
   "The most common problems and where to fix them. This help works without internet too.": "ບັນຫາທີ່ພົບເລື້ອຍທີ່ສຸດ ແລະ ບ່ອນແກ້ໄຂ. ການຊ່ວຍເຫຼືອນີ້ໃຊ້ໄດ້ໂດຍບໍ່ຕ້ອງມີອິນເຕີເນັດ.",
   "Open {page}": "ເປີດ {page}",

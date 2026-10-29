@@ -1,5 +1,7 @@
 {
   "_language": "Norsk bokmål",
+  "Runs with {app}": "Kjører med {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Windows-versjonen er blokkert på Linux, men {app}, en fellesskapsapp laget for Linux, kjører det. Sloth Welcome og Discover kan installere den.",
   "Help": "Hjelp",
   "The most common problems and where to fix them. This help works without internet too.": "De vanligste problemene og hvor du fikser dem. Denne hjelpen virker også uten internett.",
   "Open {page}": "Åpne {page}",

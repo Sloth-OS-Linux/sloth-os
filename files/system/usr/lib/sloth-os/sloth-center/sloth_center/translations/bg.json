@@ -1,5 +1,7 @@
 {
   "_language": "Български",
+  "Runs with {app}": "Върви с {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Версията ѝ за Windows е блокирана под Linux, но {app}, програма от общността, направена за Linux, я пуска. Sloth Welcome и Discover могат да я инсталират.",
   "Help": "Помощ",
   "The most common problems and where to fix them. This help works without internet too.": "Най-честите проблеми и къде да ги оправите. Тази помощ работи и без интернет.",
   "Open {page}": "Отвори {page}",

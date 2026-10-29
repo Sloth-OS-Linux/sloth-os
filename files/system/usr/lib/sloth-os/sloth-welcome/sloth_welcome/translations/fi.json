@@ -104,6 +104,8 @@
   "app.com.valvesoftware.Steam": "PC:n suurin pelikauppa",
   "app.com.heroicgameslauncher.hgl": "Epic Gamesin, GOG:n ja Amazonin pelit; tehty Linuxille, luotettavampi kuin Windows-käynnistimet",
   "app.org.prismlauncher.PrismLauncher": "Minecraft",
+  "app.org.vinegarhq.Sober": "Roblox-pelit; yhteisön sovellus, tehty Linuxille",
+  "app.win.robloxstudio": "Tee omia Roblox-pelejä (virallinen sovellus)",
   "app.net.lutris.Lutris": "Monet muut pelikaupat ja vanhemmat pelit",
   "app.ai.storyteller.artcraft-launcher": "Kaikki Craft-sovellukset (PhotoCraft, FilmCraft…) yhdessä paikassa",
   "app.org.gimp.GIMP": "Kuvankäsittely",

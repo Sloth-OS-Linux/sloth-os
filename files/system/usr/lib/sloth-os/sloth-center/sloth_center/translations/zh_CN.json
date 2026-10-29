@@ -1,5 +1,7 @@
 {
   "_language": "简体中文",
+  "Runs with {app}": "可用 {app} 运行",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "它的 Windows 版在 Linux 上被屏蔽，但为 Linux 制作的社区应用 {app} 可以运行它。Sloth Welcome 和 Discover 都能安装。",
   "Help": "帮助",
   "The most common problems and where to fix them. This help works without internet too.": "最常见的问题以及解决它们的位置。此帮助在没有网络时也能使用。",
   "Open {page}": "打开{page}",

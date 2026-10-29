@@ -230,6 +230,52 @@ class DetectTest(unittest.TestCase):
         self.assertEqual(detect.installed_running(app, running, since + 100), set())  # written before the install
         library.remove(app)
 
+    def test_roblox_studio_webview_and_links(self):
+        """Roblox Studio (2026-10-29): the installer brings Microsoft Edge WebView2 (with an Edge installer and a
+        Microsoft Edge shortcut); that is not the program. The login comes back from the browser with a
+        roblox-studio-auth: link, which Studio registered in the user's registry: that becomes a Linux link handler."""
+        app = library.create("Roblox Studio")
+        before = detect.baseline(app)
+        local = app.prefix / "drive_c/users/steamuser/AppData/Local/Roblox/Versions/version-1"
+        touch(local / "RobloxStudioBeta.exe", 50 * 1024 ** 2)
+        edge = app.prefix / "drive_c/Program Files (x86)/Microsoft/Edge/Application"
+        touch(edge / "msedge.exe", 3 * 1024 ** 2)
+        touch(app.prefix / "drive_c/Program Files (x86)/Microsoft/EdgeUpdate/Download/x/microsoftedge_x64_156.exe")
+        start = app.prefix / "drive_c/ProgramData/Microsoft/Windows/Start Menu/Programs"
+        start.mkdir(parents=True)
+        (start / "Microsoft Edge.lnk").write_bytes(
+            make_lnk(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"))
+        running = {"microsoftedge_x64_156.exe", "msedge.exe"}
+        self.assertEqual(detect.installed_running(app, running, before["time"]), set())
+        found = detect.detect(app, before, fallback_name="Roblox Studio")
+        self.assertEqual([c.path.name for c in found.candidates], ["RobloxStudioBeta.exe"])
+
+        studio = r"C:\\users\\steamuser\\AppData\\Local\\Roblox\\Versions\\version-1\\RobloxStudioBeta.exe"
+        (app.prefix / "user.reg").write_text(
+            "WINE REGISTRY Version 2\n\n"
+            "[Software\\\\Classes\\\\roblox-studio-auth] 1\n\"URL Protocol\"=\"\"\n\n"
+            f"[Software\\\\Classes\\\\roblox-studio-auth\\\\shell\\\\open\\\\command] 1\n@=\"\\\"{studio}\\\" %1\"\n\n"
+            "[Software\\\\Classes\\\\microsoft-edge] 1\n\"URL Protocol\"=\"\"\n\n"
+            "[Software\\\\Classes\\\\microsoft-edge\\\\shell\\\\open\\\\command] 1\n"
+            "@=\"\\\"C:\\\\Program Files (x86)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\\\" --single-argument %1\"\n\n"
+            "[Software\\\\Classes\\\\http\\\\shell\\\\open\\\\command] 1\n@=\"C:\\\\windows\\\\system32\\\\winebrowser.exe\"\n",
+            encoding="utf-8")
+        protocols = winreg.url_protocols(app.prefix)
+        self.assertEqual(set(protocols), {"roblox-studio-auth", "microsoft-edge"})
+        exe, args = winreg.split_command(protocols["roblox-studio-auth"], "roblox-studio-auth:x?code=1")
+        self.assertEqual(app.windows_to_host(exe), local / "RobloxStudioBeta.exe")
+        self.assertEqual(args, ["roblox-studio-auth:x?code=1"])
+        self.assertEqual(winreg.split_command(r'C:\a.exe -url:"%1" /x', "y:z")[1], ["-url:y:z", "/x"])
+        self.assertEqual(winreg.split_command(r'C:\a.exe', "y:z")[1], ["y:z"])
+
+        self.assertEqual(menu.register_url_handlers(app), ["roblox-studio-auth"])  # not Edge's own link type
+        text = menu.url_handler_path(app).read_text(encoding="utf-8")
+        self.assertIn("MimeType=x-scheme-handler/roblox-studio-auth;", text)
+        self.assertIn(f"Exec=sloth-exe --open-url {app.id} %u", text)
+        self.assertEqual(menu.entries(app), [])  # hidden, not a Start menu entry
+        library.remove(app)
+        self.assertFalse(menu.url_handler_path(app).exists())
+
 
 class LibraryTest(unittest.TestCase):
     def test_create_unique(self):

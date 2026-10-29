@@ -1,5 +1,7 @@
 {
   "_language": "Magyar",
+  "Runs with {app}": "Megy a(z) {app} appal",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "A Windowsos változata Linuxon blokkolva van, de a(z) {app}, egy Linuxra készült közösségi app, futtatja. A Sloth Welcome és a Discover is telepíti.",
   "Help": "Súgó",
   "The most common problems and where to fix them. This help works without internet too.": "A leggyakoribb gondok, és hogy hol lehet megoldani őket. Ez a súgó internet nélkül is működik.",
   "Open {page}": "{page} megnyitása",

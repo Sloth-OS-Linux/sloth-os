@@ -1,5 +1,7 @@
 {
   "_language": "தமிழ்",
+  "Runs with {app}": "{app} மூலம் இயங்கும்",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "இதன் Windows பதிப்பு Linux-இல் தடுக்கப்பட்டுள்ளது, ஆனால் Linux-க்காக உருவான சமூக ஆப் {app} இதை இயக்குகிறது. Sloth Welcome மற்றும் Discover அதை நிறுவ முடியும்.",
   "Help": "உதவி",
   "The most common problems and where to fix them. This help works without internet too.": "மிகவும் பொதுவான சிக்கல்களும் அவற்றைச் சரிசெய்யும் இடங்களும். இந்த உதவி இணையம் இல்லாமலும் வேலை செய்யும்.",
   "Open {page}": "{page} திற",

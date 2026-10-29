@@ -1,5 +1,7 @@
 {
   "_language": "Bahasa Indonesia",
+  "Runs with {app}": "Berjalan dengan {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Versi Windows-nya diblokir di Linux, tetapi {app}, aplikasi komunitas yang dibuat untuk Linux, bisa menjalankannya. Sloth Welcome dan Discover dapat memasangnya.",
   "Help": "Bantuan",
   "The most common problems and where to fix them. This help works without internet too.": "Masalah yang paling umum dan tempat memperbaikinya. Bantuan ini juga berfungsi tanpa internet.",
   "Open {page}": "Buka {page}",

@@ -1,5 +1,7 @@
 {
   "_language": "Shqip",
+  "Runs with {app}": "Punon me {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Versioni i saj për Windows është i bllokuar në Linux, por {app}, një aplikacion i komunitetit i bërë për Linux, e nis. Sloth Welcome dhe Discover mund ta instalojnë.",
   "Help": "Ndihmë",
   "The most common problems and where to fix them. This help works without internet too.": "Problemet më të shpeshta dhe ku t'i rregullosh. Kjo ndihmë punon edhe pa internet.",
   "Open {page}": "Hap {page}",

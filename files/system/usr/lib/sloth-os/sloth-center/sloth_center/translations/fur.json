@@ -1,5 +1,7 @@
 {
   "_language": "Furlan",
+  "Runs with {app}": "Al va cun {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "La sô version par Windows e je blocade su Linux, ma {app}, une aplicazion de comunitât fate par Linux, le fâs lâ. Sloth Welcome e Discover le puedin instalâ.",
   "Help": "Jutori",
   "The most common problems and where to fix them. This help works without internet too.": "I problemis plui dispès e dulà justâju. Chest jutori al va ancje cence internet.",
   "Open {page}": "Vierç {page}",
