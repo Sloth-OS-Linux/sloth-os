@@ -936,6 +936,8 @@ yet, see above).
   - [ ] Battle.net again, after the background preparation: does its own installer come up (see the bugs below); because
     of the boot loop (below) it did not get this far yet
 - [ ] The rest of the morning test: encryption, updates with signature verification, an NVIDIA machine, next to Windows (needs a tester)
+  (2026-10-29: next to Windows done on a real computer, see "Installer, next to Windows"; NVIDIA works with Secure
+  Boot off; encryption and signed updates were checked earlier)
 - [x] Watching the still open bugs (2026-10-20: all solved): muting (which button: key / tray icon; when does it come back: by itself, on a
   notification's sound, on changing the volume, at login?), Discover updating the fresh apps (what did it update:
   the app itself or an extension, e.g. `GL.default`?), Vivaldi from Welcome (the error message in the saved log)
@@ -963,9 +965,11 @@ On a real machine and/or in a VM; whatever does not work comes back here as a bu
 - [x] **Live system:** after choosing a language, "Try" → the desktop comes up in the chosen language; notifications at the top right
 - [x] **Installer, whole disk:** a plain install; then the same **with encryption** (a padlock icon at boot, the password works with the
   chosen layout, e.g. "z"/"y" for Hungarian; after a wrong password it asks again)
-- [ ] **Installer, next to Windows** (in a VM with a Windows disk or an NTFS + EFI test disk): the survey and
+- [x] **Installer, next to Windows** (in a VM with a Windows disk or an NTFS + EFI test disk): the survey and
   the slider, the explanations (e.g. hibernated Windows), the install, the Windows entry in the boot menu, Windows
-  still starts afterwards, the clock is right in both systems
+  still starts afterwards, the clock is right in both systems. 2026-10-29: installed next to Windows on a real
+  computer with the 1.2 ISO, everything worked. The website (Download, FAQ, Getting started, Press) and the press
+  kit no longer say it was tried on few real Windows computers
 - [x] **First start:** quiet boot, hidden GRUB (a visible menu next to Windows), the account from the installer, Welcome
 - [x] **Welcome:** the new "Sharing experiences" step (yes / no, Next only after a choice), installing the apps
   (what it downloads / installs, "x / y MB"), the icons show right away, Steam on the taskbar with its icon
