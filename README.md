@@ -14,10 +14,10 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Current release: [Sloth OS 1.2](https://sourceforge.net/projects/sloth-os/files/1.2/)** (October 28, 2026).
+**Current release: [Sloth OS 1.2.1](https://sourceforge.net/projects/sloth-os/files/1.2.1/)** (October 29, 2026).
 Machines already running Sloth OS get it as a normal update; coming from 1.1, that first update is a one-time
 download of about 4.5 GB, and later ones are small. What changed: [release notes](#release-notes) below (also in
-[docs/releases/1.2.md](docs/releases/1.2.md)).
+[docs/releases/1.2.1.md](docs/releases/1.2.1.md)).
 
 ## What Sloth OS can do
 
@@ -51,6 +51,20 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
+<summary><b>What's new in 1.2.1</b> (October 29, 2026)</summary>
+
+**Roblox:** Sloth Welcome offers **Sober** for Roblox games (a community app made for Linux; Roblox blocks its
+Windows version on Linux) and the official **Roblox Studio**, installed after the wizard like the other Windows
+launchers, with a working login. "Will it run?" answers Roblox with Sober.
+
+**Windows programs:** logging in through the browser works (the browser's link back to the program now reaches it),
+and the Microsoft Edge WebView2 component that some installers bring is no longer mistaken for the program.
+
+Every new text is in all 50 languages.
+
+</details>
+
+<details>
 <summary><b>What's new in 1.2</b> (October 28, 2026)</summary>
 
 **Much smaller updates.** An update now downloads only the parts of the system that changed: on a real machine a
