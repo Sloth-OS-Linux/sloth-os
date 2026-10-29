@@ -5,6 +5,14 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Next: Sloth OS 1.2.1 (to do, in order)
+1. [ ] **An official torrent next to the ISO** (Reddit, 2026-10-29: SourceForge is slow), made at home with the
+   1.2.1 ISO: the SourceForge link as a web seed, the `.torrent` next to the ISO, a "Torrent" link on the website
+   (details: Phase 4)
+2. [ ] Release what the test branch has since 1.2: the official Roblox Studio in Sloth Welcome, browser logins for
+   Windows programs, WebView2 not counted as the program (try Welcome → Roblox Studio on the HP first); then the PR
+   to `main`, the ISO, SourceForge, the website
+
 ### Sloth OS 1.0.2 (2026-10-22)
 The current 1.0.2 ISO is published on SourceForge and is working in current testing. Sorry to anyone who ran
 into trouble installing with the earlier 1.0.2 ISO: the installer issue has been fixed, and the current ISO
