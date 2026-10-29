@@ -419,6 +419,10 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [ ] **Large** — Before significant settings or driver changes, offer a recoverable state and a clear way to revert.
 
 #### Gaming, devices, and connectivity
+- [x] Roblox (2026-10-29, a Reddit comment: "roblox studio" stopped someone from switching): Roblox blocks its
+  Windows version on Linux, so the Sloth Welcome offers the community apps instead: **Sober** (the games, runs
+  Roblox's Android version natively; ~3.3 M installs on Flathub) and **Vinegar** (Roblox Studio under Wine; works,
+  with rough edges). Both are unofficial: Roblox could block them. Icons from Flathub, texts in 50 languages
 - [ ] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
   restores normal settings when it closes.
 - [x] **Medium** — Performance display for frame rate, system load, and temperatures (2026-10-26): the per-game

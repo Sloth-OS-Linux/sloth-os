@@ -84,6 +84,10 @@ CATEGORIES = [
             # (sloth_common.apps.native)
             {"id": "com.heroicgameslauncher.hgl", "name": "Heroic"},
             {"id": "org.prismlauncher.PrismLauncher", "name": "Prism Launcher"},
+            # Roblox blocks its Windows version on Linux (its anti-cheat, AreWeAntiCheatYet "Denied"): Sober runs the
+            # games natively, Vinegar runs Roblox Studio; both are community apps, not Roblox's (2026-10-29, Reddit)
+            {"id": "org.vinegarhq.Sober", "name": "Sober"},
+            {"id": "org.vinegarhq.Vinegar", "name": "Vinegar"},
             {"id": "net.lutris.Lutris", "name": "Lutris"},
             {"id": "io.itch.itch", "name": "itch"},
             {"id": "org.libretro.RetroArch", "name": "RetroArch"},
