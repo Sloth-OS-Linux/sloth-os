@@ -44,6 +44,10 @@ REDIST_NAMES = re.compile(
 # runs, so they look like "new" .exe files, but they do not belong to the program (by the lowercase _rel() path)
 WINE_BUILTIN = re.compile(
     r"^drive_c/(windows/|program files( \(x86\))?/(internet explorer|windows media player|windows nt|common files)/)")
+# Shared runtimes an installer brings along: Microsoft Edge WebView2 (with its updater and the Edge it may install),
+# a built-in browser for logins (Roblox Studio, 2026-10-29). Not the program, and not a Start menu entry
+SHARED_RUNTIME = re.compile(
+    r"^drive_c/program files( \(x86\))?/microsoft/(edge|edgeupdate|edgewebview|edgecore|temp)/")
 # A versioned folder in the path (e.g. "13.809.0.6322", "app-1.0.9"): it may disappear after an update
 VERSION_DIR = re.compile(r"[\\/][^\\/]*\d+\.\d+\.\d+[^\\/]*[\\/]")
 # File times may be a little coarser than the clock: written this many seconds before the install started still counts
@@ -190,6 +194,12 @@ class Detection:
         return any(c.score >= 80 for c in self.candidates)
 
 
+def not_program(rel):
+    """Wine's own files and shared runtimes (rel: _rel()): never the installed program."""
+    rel = rel.replace("\\", "/")
+    return bool(WINE_BUILTIN.match(rel) or SHARED_RUNTIME.match(rel))
+
+
 def _rel(app, path):
     """Relative to the environment (so it can be compared even after the folder is renamed)."""
     try:
@@ -240,7 +250,7 @@ def installed_running(app, running, since):
         return out
     for p in app.list_exes():
         name, stem, rel = p.name.lower(), p.stem.lower(), _rel(app, p).replace("\\", "/")
-        if (name not in running or "/temp/" in rel or WINE_BUILTIN.match(rel) or HELPER_EXE.search(stem)
+        if (name not in running or "/temp/" in rel or not_program(rel) or HELPER_EXE.search(stem)
                 or any(w in stem for w in INSTALLER_WORDS)):
             continue
         try:
@@ -315,7 +325,8 @@ def detect(app, before=None, fallback_name=""):
         host = app.windows_to_host(winreg.exe_from_icon(v.get("displayicon")) or "")
         location = app.windows_to_host(str(v.get("installlocation") or "").strip('"')) \
             if v.get("installlocation") else None
-        valid_icon = host is not None and host.is_file() and not HELPER_EXE.search(host.stem)
+        valid_icon = (host is not None and host.is_file() and not HELPER_EXE.search(host.stem)
+                      and not not_program(_rel(app, host)))
         if valid_icon:
             icon_exes.append((str(v["displayname"]), host))
         # the program is the entry that has a startable icon or an install location
@@ -333,6 +344,8 @@ def detect(app, before=None, fallback_name=""):
     found = {}
 
     def add(cand_name, path, score):
+        if not_program(_rel(app, path)):
+            return  # e.g. the Microsoft Edge shortcut the WebView2 installer puts down
         path = _via_link(path)
         key = str(path).lower()
         if key not in found or found[key].score < score:
@@ -347,7 +360,7 @@ def detect(app, before=None, fallback_name=""):
 
     # 3. the new .exe files in the install location (or, if that is not known, in their shared folder)
     new_exes = [p for p in app.list_exes()
-                if _rel(app, p) not in before["exes"] and not WINE_BUILTIN.match(_rel(app, p))]
+                if _rel(app, p) not in before["exes"] and not not_program(_rel(app, p))]
     if not out.install_dir:
         out.install_dir = _common_dir(new_exes, drive_c)
     for p in new_exes:
@@ -386,5 +399,5 @@ def launch_candidates(app):
     seen = {str(c.path).lower() for c in det.candidates}
     rest = [Candidate(display_name(p), p, 0) for p in app.list_exes()
             if str(p).lower() not in seen and not any(w in p.name.lower() for w in SKIP_WORDS)
-            and not WINE_BUILTIN.match(_rel(app, p))]
+            and not not_program(_rel(app, p))]
     return det.candidates + rest[:30]

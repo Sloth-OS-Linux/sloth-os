@@ -22,7 +22,7 @@ from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QApplication
 
 from sloth_common import taskbar
-from sloth_common.apps import detect, discimage, library, menu, native, packages
+from sloth_common.apps import detect, discimage, library, menu, native, packages, winreg
 
 from . import anticheat, backend, community, diagnose, heal, identify, quirks, winui
 from .i18n import catalog, tr
@@ -104,6 +104,7 @@ class ExeController(QObject):
         self._sure = True      # whether it became certain after the install what the program starts with
         self._mode = ""  # "install" | "run" | "manage"
         self._join = False     # something already runs in the program's environment: we join it
+        self._extra_args = []  # given to the program (a link to open: open_url)
         self._installer_alive = False  # the install is done, but the installer still runs (_check_install_done)
         self._closing = False  # we are only waiting for the installer to exit (_quit)
         self._anticheat = None
@@ -228,6 +229,33 @@ class ExeController(QObject):
         # Another program runs in the same environment (e.g. the launcher, and now the user starts a
         # game): we join it, without self-healing, so the running program is not disturbed
         self._join = bool(running)
+        self._start_run()
+        # The program's link types (e.g. a login through the browser) open it; after an update the path may change
+        program = self._program
+        threading.Thread(target=menu.register_url_handlers, args=(program,), daemon=True).start()
+
+    def open_url(self, app_id, url):
+        """A link the program registered in Windows (e.g. roblox-studio-auth:…, after a login in the browser): the
+        registered command gets it in the program's environment. If the program runs, the new process joins it and
+        hands the link over to it, as on Windows."""
+        library.migrate_legacy()
+        self._program = library.find(app_id)
+        self._name = self._program.name if self._program else app_id
+        self._mode = "run"
+        self._update_window()
+        scheme = url.split(":", 1)[0].lower()
+        command = winreg.url_protocols(self._program.prefix).get(scheme) if self._program else None
+        exe, args = winreg.split_command(command, url) if command else (None, [])
+        host = self._program.windows_to_host(exe) if exe else None
+        if host is None or not host.is_file():
+            log.warning("no program for the link: %s", scheme)
+            self._fail(tr("error.not_found"))
+            return
+        log.info("opening a link (%s:) with %s", scheme, host.name)
+        self._exe = host
+        self._set_icon(menu.icon_path(self._program, host))
+        self._extra_args = args
+        self._join = bool(library.running_exes(self._program))
         self._start_run()
 
     def missing(self, app_id):
@@ -769,7 +797,7 @@ class ExeController(QObject):
     def _start_runner(self, *args, **kwargs):
         # An unexpected error here must not leave the window spinning forever: error page, details in the log
         try:
-            self._runner.start(*args, **kwargs)
+            self._runner.start(*args, extra_args=self._extra_args, **kwargs)
         except Exception:
             log.exception("starting the runner failed")
             self._fail(tr("error.not_started", name=self._name))
@@ -1062,6 +1090,7 @@ class ExeController(QObject):
             found = detect.detect(self._program, before, fallback_name=self._name)
         self._program.link_files(self._program.windows_to_host(self._program.meta.get("install_dir", "")),
                                  tr("misc.program_files"))
+        menu.register_url_handlers(self._program)
         self._sure = found.sure
         self._shortcuts = [self._shortcut_item(c.name, c.path, c.checked) for c in found.candidates]
         self._update_window()

@@ -108,3 +108,52 @@ def exe_from_icon(value):
     m = re.match(r'^"([^"]+)"', s)
     s = m.group(1) if m else re.sub(r",\s*-?\d+$", "", s).strip()
     return s if s.lower().endswith(".exe") else None
+
+
+# Web and system schemes: Wine and the browser handle these, a program never takes them over
+COMMON_SCHEMES = {"http", "https", "ftp", "file", "mailto", "news", "nntp", "snews", "telnet", "irc", "ldap",
+                  "callto", "tel", "sms", "data", "javascript", "about", "res", "mk", "its", "ms-its"}
+_SCHEME = re.compile(r"^[a-z][a-z0-9+.-]{1,40}$")
+
+
+def url_protocols(prefix):
+    """The link types (URL schemes) the programs in the environment registered: {scheme: Windows command}.
+
+    A program's login often goes through the browser, which hands the result back with such a link
+    (roblox-studio-auth:…, battlenet:…). Windows keeps them under Classes (HKLM in system.reg, HKCU in user.reg):
+      [Software\\Classes\\roblox-studio-auth]  "URL Protocol"=""
+      [Software\\Classes\\roblox-studio-auth\\shell\\open\\command]  @="\\"C:\\…\\RobloxStudioBeta.exe\\" %1"
+    The user's own registration (user.reg) wins, as on Windows.
+    """
+    base = "software\classes\\"
+    out = {}
+    for reg in ("system.reg", "user.reg"):
+        keys = read(Path(prefix) / reg)
+        for key, values in keys.items():
+            if not key.startswith(base) or "url protocol" not in values:
+                continue
+            scheme = key[len(base):]
+            if not _SCHEME.match(scheme) or scheme in COMMON_SCHEMES or scheme.startswith("ms-"):
+                continue
+            command = keys.get(f"{key}\shell\open\command", {}).get("")
+            if isinstance(command, str) and command.strip():
+                out[scheme] = command.strip()
+    return out
+
+
+def split_command(command, url):
+    """A registered command with the link put in: '"C:\X\a.exe" --x "%1"' -> ('C:\X\a.exe', ['--x', url])."""
+    # a quoted part is one argument; quotes inside a word (-url:"%1") only group, Windows drops them
+    parts = [bare.replace('"', "") if bare else quoted
+             for quoted, bare in re.findall(r'"([^"]*)"|((?:[^\s"]|"[^"]*")+)', command)]
+    if not parts:
+        return None, []
+    args = []
+    for arg in parts[1:]:
+        if re.fullmatch(r"%[1lL]", arg):
+            args.append(url)
+        elif arg != "%*":
+            args.append(arg.replace("%1", url))
+    if not any(url in a for a in args):
+        args.append(url)
+    return parts[0], args

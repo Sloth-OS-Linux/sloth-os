@@ -4,6 +4,7 @@
                                       package (AppImage, .deb, .rpm) or a Mac file
   sloth-exe --launch <program> <exe>  from a Start menu entry (exe: relative to the program's environment)
   sloth-exe --run <program> [files]   starts an installed AppImage (without Qt, at once)
+  sloth-exe --open-url <program> <url> a link type the program registered (e.g. a login from the browser)
   sloth-exe --shortcuts <program>     edits the Start menu entries (from Sloth Center)
   sloth-exe --maintenance             background maintenance (sloth-windows-prepare)
 """
@@ -20,6 +21,7 @@ def main():
     parser = argparse.ArgumentParser(prog="sloth-exe")
     parser.add_argument("file", nargs="?")
     parser.add_argument("--launch", nargs=2, metavar=("PROGRAM", "EXE"))
+    parser.add_argument("--open-url", nargs=2, metavar=("PROGRAM", "URL"))
     parser.add_argument("--shortcuts", metavar="PROGRAM", help="edit the Start menu entries")
     parser.add_argument("--run", metavar="PROGRAM", help="start an installed AppImage")
     parser.add_argument("--queued", action="store_true",
@@ -54,7 +56,7 @@ def main():
         print("Deleted old versions:", ", ".join(removed) if removed else "none")
         print("Reports sent (shared knowledge):", community.send_queue())
         return 0
-    if not args.file and not args.launch and not args.shortcuts and not args.run:
+    if not args.file and not args.launch and not args.shortcuts and not args.run and not args.open_url:
         parser.print_usage()
         return 2
 
@@ -83,6 +85,8 @@ def main():
         exe.missing(args.run)  # the installed AppImage is missing (deleted or moved)
     elif args.launch:
         exe.launch(*args.launch)
+    elif args.open_url:
+        exe.open_url(*args.open_url)
     elif args.shortcuts:
         exe.manage_shortcuts(args.shortcuts)
     else:
