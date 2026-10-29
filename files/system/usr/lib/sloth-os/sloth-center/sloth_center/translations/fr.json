@@ -1,5 +1,7 @@
 {
   "_language": "Français",
+  "Runs with {app}": "Fonctionne avec {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Sa version Windows est bloquée sous Linux, mais {app}, une application de la communauté faite pour Linux, le fait tourner. Sloth Welcome et Discover peuvent l'installer.",
   "Help": "Aide",
   "The most common problems and where to fix them. This help works without internet too.": "Les problèmes les plus courants et où les résoudre. Cette aide fonctionne aussi sans internet.",
   "Open {page}": "Ouvrir {page}",

@@ -1,5 +1,7 @@
 {
   "_language": "Lietuvių",
+  "Runs with {app}": "Veikia su {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Jo Windows versija Linux sistemoje užblokuota, bet {app}, Linux sistemai sukurta bendruomenės programėlė, jį paleidžia. Sloth Welcome ir Discover gali ją įdiegti.",
   "Help": "Pagalba",
   "The most common problems and where to fix them. This help works without internet too.": "Dažniausios problemos ir kur jas išspręsti. Ši pagalba veikia ir be interneto.",
   "Open {page}": "Atverti {page}",

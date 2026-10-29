@@ -1,5 +1,7 @@
 {
   "_language": "Қазақ тілі",
+  "Runs with {app}": "{app} арқылы жұмыс істейді",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Оның Windows нұсқасы Linux-та бұғатталған, бірақ Linux үшін жасалған қауымдастық қолданбасы {app} оны іске қосады. Оны Sloth Welcome мен Discover орната алады.",
   "Help": "Анықтама",
   "The most common problems and where to fix them. This help works without internet too.": "Ең жиі кездесетін мәселелер және оларды қай жерде түзетуге болады. Бұл анықтама интернетсіз де жұмыс істейді.",
   "Open {page}": "{page} ашу",

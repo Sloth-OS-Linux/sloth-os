@@ -1,5 +1,7 @@
 {
   "_language": "Taqbaylit",
+  "Runs with {app}": "Iteddu s {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Lqem-is n Windows yettwaḥbes ɣef Linux, maca {app}, asnas n temɣiwent yettwaxedmen i Linux, yessekkar-it. Sloth Welcome d Discover zemren ad t-sbedden.",
   "Help": "Tallalt",
   "The most common problems and where to fix them. This help works without internet too.": "Uguren yettilin s waṭas d wanda ara ten-teṣeggmeḍ. Tallalt-a teddu ula war internet.",
   "Open {page}": "Ldi {page}",

@@ -1,5 +1,7 @@
 {
   "_language": "Esperanto",
+  "Runs with {app}": "Funkcias per {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Ĝia Windows-versio estas blokita en Linux, sed {app}, komunuma aplikaĵo farita por Linux, rulas ĝin. Sloth Welcome kaj Discover povas instali ĝin.",
   "Help": "Helpo",
   "The most common problems and where to fix them. This help works without internet too.": "La plej oftaj problemoj kaj kie ripari ilin. Ĉi tiu helpo funkcias ankaŭ sen interreto.",
   "Open {page}": "Malfermi {page}",

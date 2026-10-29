@@ -1,5 +1,7 @@
 {
   "_language": "Čeština",
+  "Runs with {app}": "Běží s {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Její verze pro Windows je v Linuxu blokovaná, ale {app}, komunitní aplikace vytvořená pro Linux, ji spustí. Nainstalovat ji umí Sloth Welcome i Discover.",
   "Help": "Nápověda",
   "The most common problems and where to fix them. This help works without internet too.": "Nejčastější problémy a kde je vyřešit. Tato nápověda funguje i bez internetu.",
   "Open {page}": "Otevřít {page}",

@@ -1,5 +1,7 @@
 {
   "_language": "Română",
+  "Runs with {app}": "Merge cu {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Versiunea pentru Windows e blocată pe Linux, dar {app}, o aplicație a comunității făcută pentru Linux, îl rulează. Sloth Welcome și Discover o pot instala.",
   "Help": "Ajutor",
   "The most common problems and where to fix them. This help works without internet too.": "Cele mai frecvente probleme și unde le rezolvi. Acest ajutor funcționează și fără internet.",
   "Open {page}": "Deschide {page}",

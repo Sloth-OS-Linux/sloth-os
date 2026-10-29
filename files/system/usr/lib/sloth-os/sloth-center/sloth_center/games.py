@@ -114,7 +114,13 @@ TESTED = {
 def describe(v):
     """A verdict (game_check.verdict) as the page shows it: the mark, the badge text and the explanation lines."""
     mark, badge = BADGES.get(v["badge"], BADGES["unknown"])
-    lines = []
+    badge_text, lines = "", []
+    if v["badge"] == "alternative":
+        # its Windows version is blocked, but a community app runs it: that is the answer, not the block
+        mark, badge = "🟢", ""
+        badge_text = tr("Runs with {app}", app=v["alternative"])
+        lines.append(tr("Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. "
+                        "Sloth Welcome and Discover can install it.", app=v["alternative"]))
     if v["badge"] == "blocked" and v["publisher"]:
         lines.append(tr("Not Sloth OS's fault: {publisher} doesn't allow the game on Linux. If you'd like to play it "
                         "here, tell {publisher}. 🦥", publisher=v["publisher"]))
@@ -137,7 +143,8 @@ def describe(v):
         lines.append(tr("A setting that worked for other players is known: Sloth OS uses it by itself."))
     if v["sources"]:
         lines.append(tr("Source: {sources}", sources=", ".join(v["sources"])))
-    return {"name": v["name"], "badge": v["badge"], "mark": mark, "badgeText": tr(badge), "lines": lines}
+    return {"name": v["name"], "badge": v["badge"], "mark": mark, "badgeText": tr(badge) if badge else badge_text,
+            "lines": lines}
 
 
 def place_label(path, root):

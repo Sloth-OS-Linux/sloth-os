@@ -1,5 +1,7 @@
 {
   "_language": "עברית",
+  "Runs with {app}": "רץ עם {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "גרסת ה-Windows שלו חסומה ב-Linux, אבל {app}, אפליקציה של הקהילה שנבנתה ל-Linux, מריצה אותו. Sloth Welcome ו-Discover יכולים להתקין אותה.",
   "Help": "עזרה",
   "The most common problems and where to fix them. This help works without internet too.": "הבעיות הנפוצות ביותר והיכן לתקן אותן. העזרה הזו עובדת גם בלי אינטרנט.",
   "Open {page}": "פתיחת {page}",

@@ -1,5 +1,7 @@
 {
   "_language": "ქართული",
+  "Runs with {app}": "მუშაობს {app}-ით",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "მისი Windows-ვერსია Linux-ზე დაბლოკილია, მაგრამ {app}, Linux-ისთვის შექმნილი საზოგადოების აპი, უშვებს მას. მისი დაყენება Sloth Welcome-ს და Discover-ს შეუძლიათ.",
   "Help": "დახმარება",
   "The most common problems and where to fix them. This help works without internet too.": "ყველაზე ხშირი პრობლემები და სად შეიძლება მათი გამოსწორება. ეს დახმარება ინტერნეტის გარეშეც მუშაობს.",
   "Open {page}": "{page}-ის გახსნა",

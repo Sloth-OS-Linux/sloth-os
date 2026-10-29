@@ -1,5 +1,7 @@
 {
   "_language": "বাংলা (ভারত)",
+  "Runs with {app}": "{app} দিয়ে চলে",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "এর Windows সংস্করণ Linux-এ ব্লক করা, কিন্তু Linux-এর জন্য তৈরি কমিউনিটি অ্যাপ {app} এটি চালায়। Sloth Welcome ও Discover এটি ইনস্টল করতে পারে।",
   "Help": "সহায়তা",
   "The most common problems and where to fix them. This help works without internet too.": "সবচেয়ে সাধারণ সমস্যা এবং কোথায় সেগুলো ঠিক করা যায়। এই সহায়তা ইন্টারনেট ছাড়াও কাজ করে।",
   "Open {page}": "{page} খুলুন",

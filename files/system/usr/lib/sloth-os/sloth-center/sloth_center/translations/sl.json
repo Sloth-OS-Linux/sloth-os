@@ -1,5 +1,7 @@
 {
   "_language": "Slovenščina",
+  "Runs with {app}": "Deluje z aplikacijo {app}",
+  "Its Windows version is blocked on Linux, but {app}, a community app made for Linux, runs it. Sloth Welcome and Discover can install it.": "Njena različica za Windows je v Linuxu blokirana, a {app}, aplikacija skupnosti, narejena za Linux, jo zažene. Sloth Welcome in Discover jo lahko namestita.",
   "Help": "Pomoč",
   "The most common problems and where to fix them. This help works without internet too.": "Najpogostejše težave in kje jih odpraviti. Ta pomoč deluje tudi brez interneta.",
   "Open {page}": "Odpri {page}",
