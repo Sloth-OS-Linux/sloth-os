@@ -432,7 +432,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   no longer counts as the installed program and gets no Start menu entry. Tried on the HP the same day: the
   Roblox Studio login works, without Vinegar. Known rough edge: the maximize button does nothing (Wine undoes the
   maximized state, KWin rules "ignore requested geometry" and "obey geometry restrictions" did not help), but
-  resizing works and Studio remembers its size. Note: every Proton window has the class `steam_app_default`, so a
+  resizing works and Studio opens in a large window (it does not remember a size). Note: every Proton window has the class `steam_app_default`, so a
   KWin rule by class would hit every Windows program
 - [ ] **Medium** — "Two settings apps" (2026-10-29, a Reddit comment): Sloth Center and KDE's System Settings live
   side by side, like Windows' Control Panel and Settings. Suggested: Sloth Center's pages as KCMs inside System
