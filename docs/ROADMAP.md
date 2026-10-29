@@ -423,6 +423,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   Windows version on Linux, so the Sloth Welcome offers the community apps instead: **Sober** (the games, runs
   Roblox's Android version natively; ~3.3 M installs on Flathub) and **Vinegar** (Roblox Studio under Wine; works,
   with rough edges). Both are unofficial: Roblox could block them. Icons from Flathub, texts in 50 languages
+  Later the same day Vinegar was replaced by the official Roblox Studio installer (`win.robloxstudio`, like the
+  game launchers): it runs in the .exe handler with a working login (see below), Vinegar crashed a lot (Reddit)
 - [x] Logins through the browser for Windows programs (2026-10-29, Roblox Studio through the .exe handler: it starts,
   but the login never came back). The browser hands the result back with a link (`roblox-studio-auth:…`) that the
   program registered in Windows; Linux did not know it. Now the .exe handler reads the link types from the program's

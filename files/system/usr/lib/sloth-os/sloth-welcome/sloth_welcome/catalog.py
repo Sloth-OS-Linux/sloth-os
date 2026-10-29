@@ -84,11 +84,12 @@ CATEGORIES = [
             # (sloth_common.apps.native)
             {"id": "com.heroicgameslauncher.hgl", "name": "Heroic"},
             {"id": "org.prismlauncher.PrismLauncher", "name": "Prism Launcher"},
-            # Roblox blocks its Windows version on Linux (its anti-cheat, AreWeAntiCheatYet "Denied"): Sober runs the
-            # games natively, Vinegar runs Roblox Studio (under Wine: it can crash, its description says so); both are community
-            # apps, not Roblox's (2026-10-29, Reddit)
+            # Roblox blocks its Windows version on Linux (its anti-cheat, AreWeAntiCheatYet "Denied"): Sober (a community
+            # app, not Roblox's) runs the games natively. Roblox Studio runs from its official installer in the .exe
+            # handler, login included (2026-10-29, tried on the HP); it replaced Vinegar, which crashed a lot (Reddit)
             {"id": "org.vinegarhq.Sober", "name": "Sober"},
-            {"id": "org.vinegarhq.Vinegar", "name": "Vinegar"},
+            {"id": "win.robloxstudio", "name": "Roblox Studio", "source": "windows", "file": "RobloxStudioInstaller.exe",
+             "url": "https://setup.rbxcdn.com/RobloxStudioInstaller.exe"},
             {"id": "net.lutris.Lutris", "name": "Lutris"},
             {"id": "io.itch.itch", "name": "itch"},
             {"id": "org.libretro.RetroArch", "name": "RetroArch"},
