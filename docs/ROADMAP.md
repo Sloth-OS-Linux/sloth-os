@@ -15,7 +15,7 @@ from a terminal must also work from a GUI.
    `17e24d611fda24bba8fbf7c247f282c6cff1f2be974462e57ecd32a14c84ac14`, with its `.torrent`)
 3. [ ] Reddit, 2026-10-29 (ThinkPad, 1.2): the first restart after the install needed a hard reboot; the
    encrypted disk's password prompt at boot does not make clear that it waits for typing (a text like "Type your
-   password"); say more clearly that Sloth OS is based on Fedora Atomic (the commenter thought Arch)
+   password")
 
 ### Sloth OS 1.0.2 (2026-10-22)
 The current 1.0.2 ISO is published on SourceForge and is working in current testing. Sorry to anyone who ran
