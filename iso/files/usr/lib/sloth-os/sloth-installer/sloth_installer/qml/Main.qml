@@ -297,6 +297,8 @@ Kirigami.ApplicationWindow {
                         Kirigami.PasswordField {
                             id: passwordField
                             placeholderText: ""
+                            // Tab goes on to the second password, not to the show-password button first (Reddit, 2026-10-30)
+                            KeyNavigation.tab: passwordAgain
                             Kirigami.FormData.label: root.t("account.password")
                             Layout.fillWidth: true
                             onTextEdited: accountError.text = ""
@@ -304,6 +306,7 @@ Kirigami.ApplicationWindow {
                         Kirigami.PasswordField {
                             id: passwordAgain
                             placeholderText: ""
+                            KeyNavigation.backtab: passwordField
                             Kirigami.FormData.label: root.t("account.password_again")
                             Layout.fillWidth: true
                             onTextEdited: accountError.text = ""
@@ -548,12 +551,14 @@ Kirigami.ApplicationWindow {
                                     Kirigami.PasswordField {
                                         id: encryptPw
                                         placeholderText: ""
+                                        KeyNavigation.tab: encryptPw2
                                         Kirigami.FormData.label: root.t("disk.encrypt.password")
                                         onTextEdited: installer.setEncryptPassword(encryptPw.text, encryptPw2.text)
                                     }
                                     Kirigami.PasswordField {
                                         id: encryptPw2
                                         placeholderText: ""
+                                        KeyNavigation.backtab: encryptPw
                                         Kirigami.FormData.label: root.t("disk.encrypt.repeat")
                                         onTextEdited: installer.setEncryptPassword(encryptPw.text, encryptPw2.text)
                                     }
