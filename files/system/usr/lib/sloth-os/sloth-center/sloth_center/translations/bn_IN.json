@@ -894,5 +894,6 @@
   "Password for other computers": "অন্য কম্পিউটারের জন্য পাসওয়ার্ড",
   "Other computers sign in with your user name ({user}) and this password.": "অন্য কম্পিউটারগুলি আপনার ব্যবহারকারীর নাম ({user}) ও এই পাসওয়ার্ড দিয়ে সাইন ইন করে।",
   "Leave it empty to keep the current password.": "বর্তমান পাসওয়ার্ড রাখতে ফাঁকা রাখুন।",
-  "Choose a folder to share…": "শেয়ার করার ফোল্ডার বাছুন…"
+  "Choose a folder to share…": "শেয়ার করার ফোল্ডার বাছুন…",
+  "Color the window title bars too": "উইন্ডোর শিরোনাম বারও রঙিন করুন"
 }

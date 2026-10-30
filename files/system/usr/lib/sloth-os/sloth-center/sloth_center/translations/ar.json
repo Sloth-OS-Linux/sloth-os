@@ -894,5 +894,6 @@
   "Password for other computers": "كلمة مرور للحواسيب الأخرى",
   "Other computers sign in with your user name ({user}) and this password.": "تسجّل الحواسيب الأخرى الدخول باسم المستخدم ({user}) وكلمة المرور هذه.",
   "Leave it empty to keep the current password.": "اتركه فارغًا للإبقاء على كلمة المرور الحالية.",
-  "Choose a folder to share…": "اختر مجلدًا للمشاركة…"
+  "Choose a folder to share…": "اختر مجلدًا للمشاركة…",
+  "Color the window title bars too": "لوّن أشرطة عناوين النوافذ أيضًا"
 }

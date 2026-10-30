@@ -894,5 +894,6 @@
   "Password for other computers": "其他电脑使用的密码",
   "Other computers sign in with your user name ({user}) and this password.": "其他电脑使用你的用户名（{user}）和此密码登录。",
   "Leave it empty to keep the current password.": "留空则保留当前密码。",
-  "Choose a folder to share…": "选择要共享的文件夹…"
+  "Choose a folder to share…": "选择要共享的文件夹…",
+  "Color the window title bars too": "窗口标题栏也使用此颜色"
 }

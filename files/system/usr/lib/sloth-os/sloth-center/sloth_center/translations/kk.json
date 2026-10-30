@@ -894,5 +894,6 @@
   "Password for other computers": "Басқа компьютерлерге арналған құпиясөз",
   "Other computers sign in with your user name ({user}) and this password.": "Басқа компьютерлер сіздің пайдаланушы атыңызбен ({user}) және осы құпиясөзбен кіреді.",
   "Leave it empty to keep the current password.": "Ағымдағы құпиясөзді сақтау үшін бос қалдырыңыз.",
-  "Choose a folder to share…": "Ортақ ететін қалтаны таңдаңыз…"
+  "Choose a folder to share…": "Ортақ ететін қалтаны таңдаңыз…",
+  "Color the window title bars too": "Терезелердің тақырып жолақтарын да бояу"
 }

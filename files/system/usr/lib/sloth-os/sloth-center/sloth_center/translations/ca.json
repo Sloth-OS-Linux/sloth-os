@@ -894,5 +894,6 @@
   "Password for other computers": "Contrasenya per als altres ordinadors",
   "Other computers sign in with your user name ({user}) and this password.": "Els altres ordinadors entren amb el teu nom d'usuari ({user}) i aquesta contrasenya.",
   "Leave it empty to keep the current password.": "Deixa-ho buit per mantenir la contrasenya actual.",
-  "Choose a folder to share…": "Tria una carpeta per compartir…"
+  "Choose a folder to share…": "Tria una carpeta per compartir…",
+  "Color the window title bars too": "Acoloreix també les barres de títol de les finestres"
 }

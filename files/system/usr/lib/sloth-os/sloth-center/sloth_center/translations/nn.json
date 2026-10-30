@@ -894,5 +894,6 @@
   "Password for other computers": "Passord for andre datamaskiner",
   "Other computers sign in with your user name ({user}) and this password.": "Andre datamaskiner loggar inn med brukarnamnet ditt ({user}) og dette passordet.",
   "Leave it empty to keep the current password.": "La feltet stå tomt for å behalde det noverande passordet.",
-  "Choose a folder to share…": "Vel ei mappe å dele…"
+  "Choose a folder to share…": "Vel ei mappe å dele…",
+  "Color the window title bars too": "Farg òg tittellinjene til vindauga"
 }

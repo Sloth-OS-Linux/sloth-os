@@ -894,5 +894,6 @@
   "Password for other computers": "Пароль для іншых камп'ютараў",
   "Other computers sign in with your user name ({user}) and this password.": "Іншыя камп'ютары ўваходзяць з вашым імем карыстальніка ({user}) і гэтым паролем.",
   "Leave it empty to keep the current password.": "Пакіньце пустым, каб захаваць цяперашні пароль.",
-  "Choose a folder to share…": "Выбраць папку для агульнага доступу…"
+  "Choose a folder to share…": "Выбраць папку для агульнага доступу…",
+  "Color the window title bars too": "Фарбаваць і загалоўкі вокнаў"
 }

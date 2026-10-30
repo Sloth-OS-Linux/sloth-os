@@ -894,5 +894,6 @@
   "Password for other computers": "Fjalëkalim për kompjuterët e tjerë",
   "Other computers sign in with your user name ({user}) and this password.": "Kompjuterët e tjerë hyjnë me emrin tënd të përdoruesit ({user}) dhe këtë fjalëkalim.",
   "Leave it empty to keep the current password.": "Lëre bosh për të mbajtur fjalëkalimin e tanishëm.",
-  "Choose a folder to share…": "Zgjidh një dosje për ta ndarë…"
+  "Choose a folder to share…": "Zgjidh një dosje për ta ndarë…",
+  "Color the window title bars too": "Ngjyros edhe shiritat e titullit të dritareve"
 }

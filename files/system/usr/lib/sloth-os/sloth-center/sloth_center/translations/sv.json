@@ -894,5 +894,6 @@
   "Password for other computers": "Lösenord för andra datorer",
   "Other computers sign in with your user name ({user}) and this password.": "Andra datorer loggar in med ditt användarnamn ({user}) och det här lösenordet.",
   "Leave it empty to keep the current password.": "Lämna tomt för att behålla det nuvarande lösenordet.",
-  "Choose a folder to share…": "Välj en mapp att dela…"
+  "Choose a folder to share…": "Välj en mapp att dela…",
+  "Color the window title bars too": "Färga även fönstrens namnlister"
 }

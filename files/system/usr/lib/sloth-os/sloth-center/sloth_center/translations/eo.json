@@ -894,5 +894,6 @@
   "Password for other computers": "Pasvorto por aliaj komputiloj",
   "Other computers sign in with your user name ({user}) and this password.": "Aliaj komputiloj ensalutas per via uzantnomo ({user}) kaj ĉi tiu pasvorto.",
   "Leave it empty to keep the current password.": "Lasu malplena por konservi la nunan pasvorton.",
-  "Choose a folder to share…": "Elektu dosierujon por kunhavigi…"
+  "Choose a folder to share…": "Elektu dosierujon por kunhavigi…",
+  "Color the window title bars too": "Kolorigi ankaŭ la titolbreton de la fenestroj"
 }

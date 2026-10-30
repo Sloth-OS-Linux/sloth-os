@@ -894,5 +894,6 @@
   "Password for other computers": "Parool teistele arvutitele",
   "Other computers sign in with your user name ({user}) and this password.": "Teised arvutid logivad sisse sinu kasutajanime ({user}) ja selle parooliga.",
   "Leave it empty to keep the current password.": "Jäta tühjaks, et praegune parool alles jääks.",
-  "Choose a folder to share…": "Vali jagatav kaust…"
+  "Choose a folder to share…": "Vali jagatav kaust…",
+  "Color the window title bars too": "Värvi ka akende tiitliribad"
 }

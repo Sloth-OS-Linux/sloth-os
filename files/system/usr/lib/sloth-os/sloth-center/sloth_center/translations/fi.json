@@ -894,5 +894,6 @@
   "Password for other computers": "Salasana muille tietokoneille",
   "Other computers sign in with your user name ({user}) and this password.": "Muut tietokoneet kirjautuvat käyttäjänimelläsi ({user}) ja tällä salasanalla.",
   "Leave it empty to keep the current password.": "Jätä tyhjäksi, niin nykyinen salasana säilyy.",
-  "Choose a folder to share…": "Valitse jaettava kansio…"
+  "Choose a folder to share…": "Valitse jaettava kansio…",
+  "Color the window title bars too": "Väritä myös ikkunoiden otsikkopalkit"
 }

@@ -138,6 +138,11 @@ Kirigami.ScrollablePage {
             otherText: L.t("Other color…")
             onPicked: color => appearance.setAccent(color)
         }
+        QQC2.CheckBox {
+            text: L.t("Color the window title bars too")
+            checked: appearance.titlebarAccent
+            onToggled: appearance.setTitlebarAccent(checked)
+        }
 
         QQC2.Button {
             text: L.t("More appearance settings")

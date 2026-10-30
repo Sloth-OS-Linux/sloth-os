@@ -894,5 +894,6 @@
   "Password for other computers": "Parolă pentru celelalte calculatoare",
   "Other computers sign in with your user name ({user}) and this password.": "Celelalte calculatoare se conectează cu numele tău de utilizator ({user}) și această parolă.",
   "Leave it empty to keep the current password.": "Lasă gol pentru a păstra parola actuală.",
-  "Choose a folder to share…": "Alege un dosar de partajat…"
+  "Choose a folder to share…": "Alege un dosar de partajat…",
+  "Color the window title bars too": "Colorează și barele de titlu ale ferestrelor"
 }

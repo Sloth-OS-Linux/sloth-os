@@ -40,6 +40,7 @@ class AppearanceController(QObject):
         self._scheme = shared.current_color_scheme()
         self._layout = shared.current_layout()
         self._accent = shared.current_accent()
+        self._titlebar = shared.current_titlebar_accent()
         self._error = ""
 
     @Property("QVariantList", constant=True)
@@ -77,6 +78,20 @@ class AppearanceController(QObject):
             return
         if shared.apply_accent(color):
             self._accent, self._error = color, ""
+        else:
+            self._error = tr("Couldn't change the colors. Please try again.")
+        self.changed.emit()
+
+    @Property(bool, notify=changed)
+    def titlebarAccent(self):
+        return self._titlebar
+
+    @Slot(bool)
+    def setTitlebarAccent(self, on):
+        if on == self._titlebar:
+            return
+        if shared.apply_titlebar_accent(on):
+            self._titlebar, self._error = on, ""
         else:
             self._error = tr("Couldn't change the colors. Please try again.")
         self.changed.emit()

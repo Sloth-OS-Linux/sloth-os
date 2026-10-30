@@ -894,5 +894,6 @@
   "Password for other computers": "Diğer bilgisayarlar için parola",
   "Other computers sign in with your user name ({user}) and this password.": "Diğer bilgisayarlar kullanıcı adınız ({user}) ve bu parolayla oturum açar.",
   "Leave it empty to keep the current password.": "Mevcut parolayı korumak için boş bırakın.",
-  "Choose a folder to share…": "Paylaşılacak klasörü seçin…"
+  "Choose a folder to share…": "Paylaşılacak klasörü seçin…",
+  "Color the window title bars too": "Pencerelerin başlık çubuklarını da renklendir"
 }

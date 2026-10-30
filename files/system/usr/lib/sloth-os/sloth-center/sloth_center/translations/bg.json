@@ -894,5 +894,6 @@
   "Password for other computers": "Парола за другите компютри",
   "Other computers sign in with your user name ({user}) and this password.": "Другите компютри влизат с вашето потребителско име ({user}) и тази парола.",
   "Leave it empty to keep the current password.": "Оставете празно, за да запазите текущата парола.",
-  "Choose a folder to share…": "Изберете папка за споделяне…"
+  "Choose a folder to share…": "Изберете папка за споделяне…",
+  "Color the window title bars too": "Оцветявай и заглавните ленти на прозорците"
 }

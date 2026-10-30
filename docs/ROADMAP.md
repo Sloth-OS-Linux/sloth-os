@@ -17,6 +17,12 @@ from a terminal must also work from a GUI.
    encrypted disk's password prompt at boot does not make clear that it waits for typing (a text like "Type your
    password")
 
+### Ideas from Reddit (2026-10-30)
+- [ ] **Medium** — An app launcher like the Mac's Launchpad (all apps as a full-screen grid of icons), above all for
+  the macOS-like layout; KDE has one to start from (the Application Dashboard widget). And workspaces (virtual
+  desktops) set up and easy to reach: "a must" for the commenter (someone coming from Puppy Linux who liked the
+  Mac-like and Ubuntu-like layouts and the settings approach). Answered: probably next week
+
 ### From a Reddit test in a VM (2026-10-30)
 - [x] **Quick** — Sloth Center among the Start menu favorites too: new users do not know it exists. (It is on the
   taskbar by default for a new user, but for an existing user only after changing the layout.) Done: the default

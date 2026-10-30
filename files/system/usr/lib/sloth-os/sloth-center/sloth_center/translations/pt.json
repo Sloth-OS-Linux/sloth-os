@@ -894,5 +894,6 @@
   "Password for other computers": "Palavra-passe para outros computadores",
   "Other computers sign in with your user name ({user}) and this password.": "Os outros computadores entram com o seu nome de utilizador ({user}) e esta palavra-passe.",
   "Leave it empty to keep the current password.": "Deixe vazio para manter a palavra-passe atual.",
-  "Choose a folder to share…": "Escolher uma pasta para partilhar…"
+  "Choose a folder to share…": "Escolher uma pasta para partilhar…",
+  "Color the window title bars too": "Colorir também as barras de título das janelas"
 }

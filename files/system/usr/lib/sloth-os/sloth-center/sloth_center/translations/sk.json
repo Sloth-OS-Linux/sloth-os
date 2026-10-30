@@ -894,5 +894,6 @@
   "Password for other computers": "Heslo pre ostatné počítače",
   "Other computers sign in with your user name ({user}) and this password.": "Ostatné počítače sa prihlásia vaším používateľským menom ({user}) a týmto heslom.",
   "Leave it empty to keep the current password.": "Nechajte prázdne, ak chcete ponechať súčasné heslo.",
-  "Choose a folder to share…": "Vybrať priečinok na zdieľanie…"
+  "Choose a folder to share…": "Vybrať priečinok na zdieľanie…",
+  "Color the window title bars too": "Zafarbiť aj záhlavia okien"
 }

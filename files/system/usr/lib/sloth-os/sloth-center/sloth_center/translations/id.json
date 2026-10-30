@@ -894,5 +894,6 @@
   "Password for other computers": "Kata sandi untuk komputer lain",
   "Other computers sign in with your user name ({user}) and this password.": "Komputer lain masuk dengan nama penggunamu ({user}) dan kata sandi ini.",
   "Leave it empty to keep the current password.": "Biarkan kosong untuk mempertahankan kata sandi saat ini.",
-  "Choose a folder to share…": "Pilih folder untuk dibagikan…"
+  "Choose a folder to share…": "Pilih folder untuk dibagikan…",
+  "Color the window title bars too": "Warnai juga bilah judul jendela"
 }

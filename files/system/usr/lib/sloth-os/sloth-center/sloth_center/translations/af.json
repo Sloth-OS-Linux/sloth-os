@@ -894,5 +894,6 @@
   "Password for other computers": "Wagwoord vir ander rekenaars",
   "Other computers sign in with your user name ({user}) and this password.": "Ander rekenaars meld aan met jou gebruikersnaam ({user}) en hierdie wagwoord.",
   "Leave it empty to keep the current password.": "Laat leeg om die huidige wagwoord te hou.",
-  "Choose a folder to share…": "Kies 'n vouer om te deel…"
+  "Choose a folder to share…": "Kies 'n vouer om te deel…",
+  "Color the window title bars too": "Kleur ook die vensters se titelbalke"
 }

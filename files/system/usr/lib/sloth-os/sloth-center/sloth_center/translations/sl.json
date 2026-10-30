@@ -894,5 +894,6 @@
   "Password for other computers": "Geslo za druge računalnike",
   "Other computers sign in with your user name ({user}) and this password.": "Drugi računalniki se prijavijo z vašim uporabniškim imenom ({user}) in tem geslom.",
   "Leave it empty to keep the current password.": "Pustite prazno, da ohranite trenutno geslo.",
-  "Choose a folder to share…": "Izberite mapo za deljenje…"
+  "Choose a folder to share…": "Izberite mapo za deljenje…",
+  "Color the window title bars too": "Obarvaj tudi naslovne vrstice oken"
 }

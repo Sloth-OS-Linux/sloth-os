@@ -68,5 +68,6 @@
   "Password for other computers": "Password for other computers",
   "Other computers sign in with your user name ({user}) and this password.": "Other computers sign in with your user name ({user}) and this password.",
   "Leave it empty to keep the current password.": "Leave it empty to keep the current password.",
-  "Choose a folder to share…": "Choose a folder to share…"
+  "Choose a folder to share…": "Choose a folder to share…",
+  "Color the window title bars too": "Color the window title bars too"
 }

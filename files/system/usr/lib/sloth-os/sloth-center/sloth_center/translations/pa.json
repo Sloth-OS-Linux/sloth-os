@@ -894,5 +894,6 @@
   "Password for other computers": "ਹੋਰ ਕੰਪਿਊਟਰਾਂ ਲਈ ਪਾਸਵਰਡ",
   "Other computers sign in with your user name ({user}) and this password.": "ਹੋਰ ਕੰਪਿਊਟਰ ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ ਨਾਂ ({user}) ਅਤੇ ਇਸ ਪਾਸਵਰਡ ਨਾਲ ਸਾਈਨ ਇਨ ਕਰਦੇ ਹਨ।",
   "Leave it empty to keep the current password.": "ਮੌਜੂਦਾ ਪਾਸਵਰਡ ਰੱਖਣ ਲਈ ਖਾਲੀ ਛੱਡੋ।",
-  "Choose a folder to share…": "ਸਾਂਝਾ ਕਰਨ ਲਈ ਫੋਲਡਰ ਚੁਣੋ…"
+  "Choose a folder to share…": "ਸਾਂਝਾ ਕਰਨ ਲਈ ਫੋਲਡਰ ਚੁਣੋ…",
+  "Color the window title bars too": "ਵਿੰਡੋਆਂ ਦੀਆਂ ਸਿਰਲੇਖ ਪੱਟੀਆਂ ਨੂੰ ਵੀ ਰੰਗੋ"
 }

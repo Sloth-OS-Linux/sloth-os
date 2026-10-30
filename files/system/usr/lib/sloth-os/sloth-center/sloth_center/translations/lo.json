@@ -894,5 +894,6 @@
   "Password for other computers": "ລະຫັດຜ່ານສຳລັບຄອມພິວເຕີອື່ນ",
   "Other computers sign in with your user name ({user}) and this password.": "ຄອມພິວເຕີອື່ນເຂົ້າສູ່ລະບົບດ້ວຍຊື່ຜູ້ໃຊ້ຂອງທ່ານ ({user}) ແລະລະຫັດຜ່ານນີ້.",
   "Leave it empty to keep the current password.": "ປ່ອຍຫວ່າງໄວ້ເພື່ອໃຊ້ລະຫັດຜ່ານປັດຈຸບັນຕໍ່.",
-  "Choose a folder to share…": "ເລືອກໂຟນເດີທີ່ຈະແບ່ງປັນ…"
+  "Choose a folder to share…": "ເລືອກໂຟນເດີທີ່ຈະແບ່ງປັນ…",
+  "Color the window title bars too": "ໃສ່ສີແຖບຫົວຂໍ້ຂອງໜ້າຕ່າງນຳ"
 }

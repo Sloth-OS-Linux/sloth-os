@@ -894,5 +894,6 @@
   "Password for other computers": "மற்ற கணினிகளுக்கான கடவுச்சொல்",
   "Other computers sign in with your user name ({user}) and this password.": "மற்ற கணினிகள் உங்கள் பயனர்பெயர் ({user}) மற்றும் இந்தக் கடவுச்சொல்லுடன் உள்நுழையும்.",
   "Leave it empty to keep the current password.": "தற்போதைய கடவுச்சொல்லை வைத்திருக்க காலியாக விடவும்.",
-  "Choose a folder to share…": "பகிர வேண்டிய கோப்புறையைத் தேர்வுசெய்…"
+  "Choose a folder to share…": "பகிர வேண்டிய கோப்புறையைத் தேர்வுசெய்…",
+  "Color the window title bars too": "சாளரங்களின் தலைப்புப் பட்டைகளுக்கும் வண்ணம் தீட்டு"
 }

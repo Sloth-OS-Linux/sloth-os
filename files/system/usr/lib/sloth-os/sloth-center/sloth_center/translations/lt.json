@@ -894,5 +894,6 @@
   "Password for other computers": "Slaptažodis kitiems kompiuteriams",
   "Other computers sign in with your user name ({user}) and this password.": "Kiti kompiuteriai prisijungia jūsų naudotojo vardu ({user}) ir šiuo slaptažodžiu.",
   "Leave it empty to keep the current password.": "Palikite tuščią, kad liktų dabartinis slaptažodis.",
-  "Choose a folder to share…": "Pasirinkite aplanką bendrinti…"
+  "Choose a folder to share…": "Pasirinkite aplanką bendrinti…",
+  "Color the window title bars too": "Spalvinti ir langų antraštės juostas"
 }

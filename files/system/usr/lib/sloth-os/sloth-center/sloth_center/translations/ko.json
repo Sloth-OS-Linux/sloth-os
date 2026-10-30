@@ -894,5 +894,6 @@
   "Password for other computers": "다른 컴퓨터용 비밀번호",
   "Other computers sign in with your user name ({user}) and this password.": "다른 컴퓨터는 사용자 이름({user})과 이 비밀번호로 로그인합니다.",
   "Leave it empty to keep the current password.": "현재 비밀번호를 유지하려면 비워 두세요.",
-  "Choose a folder to share…": "공유할 폴더 선택…"
+  "Choose a folder to share…": "공유할 폴더 선택…",
+  "Color the window title bars too": "창 제목 표시줄에도 색 적용"
 }

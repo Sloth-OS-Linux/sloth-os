@@ -205,6 +205,28 @@ def apply_accent(color):
         return False
 
 
+def current_titlebar_accent():
+    """Whether the windows' title bars take the highlight color too (KDE's own setting, as in System Settings)."""
+    return read_ini(CONFIG_HOME / "kdeglobals").get("General", "TitlebarIsAccentColored",
+                                                    fallback="false").lower() == "true"
+
+
+def apply_titlebar_accent(on):
+    """The title bars in the highlight color too, or in the scheme's own; plasma-apply-colorscheme reads the setting
+    when it applies the colors, so they are applied again."""
+    try:
+        if on:
+            _run(["kwriteconfig6", "--file", "kdeglobals", "--group", "General", "--key", "TitlebarIsAccentColored",
+                  "--type", "bool", "true"])
+        else:
+            _run(["kwriteconfig6", "--file", "kdeglobals", "--group", "General", "--key", "TitlebarIsAccentColored",
+                  "--delete"])
+    except (OSError, subprocess.SubprocessError) as e:
+        log.warning("title bar color: %s", e)
+        return False
+    return apply_accent(current_accent())
+
+
 def current_layout():
     """The current taskbar layout from Plasma's settings: a top panel with a left one = Ubuntu-like, with another =
     macOS-like; with a bottom panel only, if there is a spacer before the Start menu (centred icons) = Windows 11,

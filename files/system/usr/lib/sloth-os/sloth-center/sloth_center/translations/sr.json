@@ -894,5 +894,6 @@
   "Password for other computers": "Лозинка за друге рачунаре",
   "Other computers sign in with your user name ({user}) and this password.": "Други рачунари се пријављују вашим корисничким именом ({user}) и овом лозинком.",
   "Leave it empty to keep the current password.": "Оставите празно да задржите тренутну лозинку.",
-  "Choose a folder to share…": "Изаберите фасциклу за дељење…"
+  "Choose a folder to share…": "Изаберите фасциклу за дељење…",
+  "Color the window title bars too": "Обоји и насловне траке прозора"
 }

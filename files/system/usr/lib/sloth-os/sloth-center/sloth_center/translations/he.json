@@ -894,5 +894,6 @@
   "Password for other computers": "סיסמה למחשבים אחרים",
   "Other computers sign in with your user name ({user}) and this password.": "המחשבים האחרים נכנסים עם שם המשתמש שלך ({user}) והסיסמה הזאת.",
   "Leave it empty to keep the current password.": "יש להשאיר ריק כדי לשמור על הסיסמה הנוכחית.",
-  "Choose a folder to share…": "בחירת תיקייה לשיתוף…"
+  "Choose a folder to share…": "בחירת תיקייה לשיתוף…",
+  "Color the window title bars too": "לצבוע גם את שורות הכותרת של החלונות"
 }

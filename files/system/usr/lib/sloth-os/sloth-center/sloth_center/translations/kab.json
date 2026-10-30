@@ -894,5 +894,6 @@
   "Password for other computers": "Awal uffir i yiselkimen nniḍen",
   "Other computers sign in with your user name ({user}) and this password.": "Iselkimen nniḍen ttkecmen s yisem-ik n useqdac ({user}) d wawal-a uffir.",
   "Leave it empty to keep the current password.": "Eǧǧ-it d ilem akken ad yeqqim wawal uffir n tura.",
-  "Choose a folder to share…": "Fren akaram ara tebduḍ…"
+  "Choose a folder to share…": "Fren akaram ara tebduḍ…",
+  "Color the window title bars too": "Ini daɣen ifeggagen n uzwel n yisfuyla"
 }

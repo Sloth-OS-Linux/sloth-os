@@ -894,5 +894,6 @@
   "Password for other computers": "Adgangskode til andre computere",
   "Other computers sign in with your user name ({user}) and this password.": "Andre computere logger ind med dit brugernavn ({user}) og denne adgangskode.",
   "Leave it empty to keep the current password.": "Lad feltet være tomt for at beholde den nuværende adgangskode.",
-  "Choose a folder to share…": "Vælg en mappe at dele…"
+  "Choose a folder to share…": "Vælg en mappe at dele…",
+  "Color the window title bars too": "Farv også vinduernes titellinjer"
 }

@@ -894,5 +894,6 @@
   "Password for other computers": "Jelszó a többi gépnek",
   "Other computers sign in with your user name ({user}) and this password.": "A többi gép a felhasználóneveddel ({user}) és ezzel a jelszóval lép be.",
   "Leave it empty to keep the current password.": "Hagyd üresen, ha a mostani jelszó marad.",
-  "Choose a folder to share…": "Megosztandó mappa kiválasztása…"
+  "Choose a folder to share…": "Megosztandó mappa kiválasztása…",
+  "Color the window title bars too": "Az ablakok címsorát is színezze"
 }
