@@ -27,6 +27,14 @@ from a terminal must also work from a GUI.
   as a game (e.g. Notepad++). Keep only games there (the rest belongs under Programs)
 - [ ] **Medium** — File backup → "Find deleted files…" did not work in the VM (restoring through the saved states
   did). It worked on a real machine on 2026-10-26, so find out what differs
+- [x] **Medium** — Chinese, Japanese and Korean typing (2026-10-30, a Reddit comment: "KDE Plasma is not good for
+  Korean input"). Our own bug: removing `ibus` in `slim-image.sh` took its engines too (ibus-hangul, ibus-libpinyin,
+  ibus-anthy…, 23 packages; the CI log), and fcitx5 was not in the image. Now fcitx5 with its Korean (hangul),
+  Chinese (pinyin, chewing) and Japanese (mozc) engines is in `branding.yml` (about 150 MB), and at sign-in
+  `/usr/libexec/sloth-os/input-method` makes it Plasma's input method for those whose language is zh/ja/ko (once per
+  language; turning it off in System Settings is kept). fcitx5 picks the language's engine by itself (tried in a
+  container: ko → hangul, zh_CN → pinyin, zh_TW → chewing, ja → mozc). Check in a VM with Korean: typing Hangul in
+  Firefox, Dolphin and a Flatpak app; switching with Ctrl+Space. The live ISO is not covered yet
 
 ### Sloth OS 1.0.2 (2026-10-22)
 The current 1.0.2 ISO is published on SourceForge and is working in current testing. Sorry to anyone who ran

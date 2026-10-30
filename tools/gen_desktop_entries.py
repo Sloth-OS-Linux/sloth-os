@@ -58,6 +58,18 @@ ENTRIES = {
         ("X-KDE-autostart-phase", "1"),
         ("OnlyShowIn", "KDE;"),
     ],
+    # Sign-in: Chinese, Japanese and Korean typing for those whose language needs it
+    # (/usr/libexec/sloth-os/input-method). Hidden, so its name is not translated
+    "files/system/etc/xdg/autostart/org.slothos.input-method.desktop": [
+        ("Type", "Application"),
+        ("Name", "Input method"),
+        ("Exec", "/usr/libexec/sloth-os/input-method"),
+        ("Icon", "input-keyboard"),
+        ("Terminal", "false"),
+        ("NoDisplay", "true"),
+        ("X-KDE-autostart-phase", "1"),
+        ("OnlyShowIn", "KDE;"),
+    ],
     "files/system/usr/share/applications/org.slothos.center.desktop": [
         ("Type", "Application"),
         ("Name", ("sloth-center", "Sloth Center")),

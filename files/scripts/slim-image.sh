@@ -9,7 +9,8 @@ set -euo pipefail
 # kate: KWrite stays · khelpcenter: help center
 # just: for the ujust recipes (together with ublue-os-just), we do not use it · toolbox: distrobox stays
 # buildah, cosign: developer tools (signature verification works through policy.json, not the cosign command)
-# ibus: fcitx5 stays (the recommended one in KDE on Wayland; the Chinese/Japanese/Korean input methods work with it too)
+# ibus: fcitx5 instead (the recommended one in KDE on Wayland). Removing ibus takes its Chinese/Japanese/Korean
+#   engines too (ibus-hangul, ibus-libpinyin, ibus-anthy…), so the fcitx5 ones are installed in branding.yml
 # plasma-workspace-wallpapers: KDE's wallpapers (only Sloth OS's own pictures stay)
 # pipewire-config-raop: adds the network's AirPlay speakers (e.g. all MacBooks of a school) as sound
 #   outputs. On a Wi-Fi change and with unresponsive devices these disappear and reappear every few seconds,

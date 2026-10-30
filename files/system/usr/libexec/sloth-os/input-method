@@ -1,0 +1,55 @@
+#!/usr/bin/python3 -I
+"""At sign-in: Chinese, Japanese and Korean typing (fcitx5) for those whose language needs it.
+
+With the system language set to Chinese, Japanese or Korean, fcitx5 becomes Plasma's input method (System
+Settings → Keyboard → Virtual Keyboard; KWin starts it). On its first start fcitx5 picks the engine of the
+language by itself (Korean: hangul, Simplified Chinese: pinyin, Traditional Chinese: chewing, Japanese: mozc),
+next to the keyboard layout. Everyone else is left alone: fcitx5 does not run and shows no tray icon for them.
+
+Once per language: if the user turns it off in the system settings, it stays off, until they switch to another
+language that needs it.
+"""
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+FCITX = "/usr/share/applications/org.fcitx.Fcitx5.desktop"
+LANGUAGES = ("zh", "ja", "ko")
+DONE = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os" / "input-method-set"
+
+
+def language():
+    """The language of the session: the first of LANGUAGE (Plasma's choice), otherwise LANG ("ko_KR.UTF-8" → "ko")."""
+    for var in ("LANGUAGE", "LANG"):
+        value = os.environ.get(var, "").split(":")[0]
+        if value and value not in ("C", "POSIX"):
+            return value.split(".")[0].split("_")[0]
+    return ""
+
+
+def main():
+    lang = language()
+    if lang not in LANGUAGES or not Path(FCITX).exists():
+        return 0
+    try:
+        if DONE.read_text(encoding="utf-8").strip() == lang:
+            return 0
+    except OSError:
+        pass
+    try:
+        # --notify: KWin takes the new setting at once and starts fcitx5, no need to sign out
+        subprocess.run(["kwriteconfig6", "--file", "kwinrc", "--group", "Wayland", "--key", "InputMethod",
+                        "--notify", FCITX], check=True, timeout=10)
+        subprocess.run(["dbus-send", "--session", "--type=method_call", "--dest=org.kde.KWin", "/KWin",
+                        "org.kde.KWin.reconfigure"], timeout=10)
+    except (OSError, subprocess.SubprocessError) as e:
+        print(f"could not turn on the input method: {e}", file=sys.stderr)
+        return 0
+    DONE.parent.mkdir(parents=True, exist_ok=True)
+    DONE.write_text(lang + "\n", encoding="utf-8")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -14,6 +14,17 @@ modules:
         # so Sloth Welcome's language chooser and the interface are readable in any installer language
         - default-fonts-cjk-sans
         - default-fonts-other-sans
+        # Chinese, Japanese and Korean typing (fcitx5; ibus goes in slim-image.sh). It is turned on at sign-in
+        # only for those whose language needs it (/usr/libexec/sloth-os/input-method). No fcitx5-autostart: on
+        # Wayland KWin starts it, and its GTK_IM_MODULE / QT_IM_MODULE variables would only get in the way
+        - fcitx5
+        - fcitx5-qt
+        - fcitx5-gtk
+        - fcitx5-configtool # its settings in System Settings
+        - fcitx5-hangul # Korean
+        - fcitx5-chinese-addons # Simplified Chinese (pinyin)
+        - fcitx5-chewing # Traditional Chinese (zhuyin)
+        - fcitx5-mozc # Japanese
 
   - type: script
     scripts:
