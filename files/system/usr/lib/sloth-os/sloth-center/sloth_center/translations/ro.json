@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Descrie în câteva propoziții",
   "For example: I started Battle.net, but it closed after a minute.": "De exemplu: am pornit Battle.net, dar s-a închis după un minut.",
   "Attach computer information and log (helps find the problem)": "Atașează informațiile despre calculator și jurnalul (ajută la găsirea problemei)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Jurnalul nu este public: îl văd doar dezvoltatorii și se șterge după 30 de zile. Poate conține numele tău de utilizator și numele dispozitivelor, dar nu fișierele tale. Descrierea ta va fi publică, fără numele tău.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Jurnalul nu este public: îl văd doar dezvoltatorii și se șterge după 30 de zile. Poate conține numele tău de utilizator și numele dispozitivelor, dar nu fișierele tale. Nici descrierea ta nu este publică: o văd doar dezvoltatorii.",
   "Sending…": "Se trimite…",
   "Send": "Trimite",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Vor fi șterse și stările salvate de pe acest computer. Copiază mai întâi tot ce îți trebuie pe un disc extern sau un stick USB, altfel nu va exista de unde să le recuperezi.",

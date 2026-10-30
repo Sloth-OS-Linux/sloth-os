@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "כמה משפטים של תיאור",
   "For example: I started Battle.net, but it closed after a minute.": "לדוגמה: הפעלתי את Battle.net, אבל הוא נסגר אחרי דקה.",
   "Attach computer information and log (helps find the problem)": "צירוף פרטי המחשב והיומן (עוזר למצוא את התקלה)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "היומן אינו ציבורי: רק המפתחים רואים אותו, והוא נמחק אחרי 30 יום. הוא עשוי לכלול את שם המשתמש שלך ואת שמות ההתקנים שלך, אך לא את הקבצים שלך. התיאור שלך יהיה ציבורי, ללא שמך.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "היומן אינו ציבורי: רק המפתחים רואים אותו, והוא נמחק אחרי 30 יום. הוא עשוי לכלול את שם המשתמש שלך ואת שמות ההתקנים שלך, אך לא את הקבצים שלך. גם התיאור שלך אינו ציבורי: רק המפתחים רואים אותו.",
   "Sending…": "בשליחה…",
   "Send": "שליחה",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "גם המצבים השמורים במחשב הזה יימחקו. העתיקו קודם כל מה שצריך לכונן חיצוני או לדיסק און קי, אחרת לא יהיה ממה לשחזר.",

@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "কেইটামান বাক্যত লিখক",
   "For example: I started Battle.net, but it closed after a minute.": "উদাহৰণ: মই Battle.net আৰম্ভ কৰিছিলোঁ, কিন্তু এক মিনিটৰ পিছত বন্ধ হৈ গ'ল।",
   "Attach computer information and log (helps find the problem)": "কম্পিউটাৰৰ তথ্য আৰু লগ সংলগ্ন কৰক (সমস্যা বিচাৰি পোৱাত সহায় কৰে)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "লগ ৰাজহুৱা নহয়: কেৱল বিকাশকসকলে দেখে, আৰু ৩০ দিনৰ পিছত মচি পেলোৱা হয়। ইয়াত আপোনাৰ ব্যৱহাৰকাৰীৰ নাম আৰু ডিভাইচৰ নাম থাকিব পাৰে, কিন্তু আপোনাৰ ফাইল নাথাকে। আপোনাৰ বিৱৰণ আপোনাৰ নাম অবিহনে ৰাজহুৱা হ'ব।",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "লগ ৰাজহুৱা নহয়: কেৱল বিকাশকসকলে দেখে, আৰু ৩০ দিনৰ পিছত মচি পেলোৱা হয়। ইয়াত আপোনাৰ ব্যৱহাৰকাৰীৰ নাম আৰু ডিভাইচৰ নাম থাকিব পাৰে, কিন্তু আপোনাৰ ফাইল নাথাকে। আপোনাৰ বিৱৰণো ৰাজহুৱা নহয়: কেৱল বিকাশকসকলে দেখে।",
   "Sending…": "পঠোৱা হৈছে…",
   "Send": "পঠিয়াওক",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "এই কম্পিউটাৰৰ সংৰক্ষিত অৱস্থাবোৰো মচি পেলোৱা হ'ব। প্ৰয়োজনীয় সকলো আগতে এটা বাহ্যিক ডিস্ক বা USB ষ্টিকলৈ কপি কৰক, নহ'লে উভতাই আনিবলৈ একো নাথাকিব।",

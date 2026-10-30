@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Beskriv det med et par sætninger",
   "For example: I started Battle.net, but it closed after a minute.": "For eksempel: Jeg startede Battle.net, men det lukkede efter et minut.",
   "Attach computer information and log (helps find the problem)": "Vedhæft computeroplysninger og log (hjælper med at finde fejlen)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Loggen er ikke offentlig: kun udviklerne ser den, og den slettes efter 30 dage. Den kan indeholde dit brugernavn og navnene på dine enheder, men ikke dine filer. Din beskrivelse bliver offentlig, uden dit navn.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Loggen er ikke offentlig: kun udviklerne ser den, og den slettes efter 30 dage. Den kan indeholde dit brugernavn og navnene på dine enheder, men ikke dine filer. Din beskrivelse er heller ikke offentlig: kun udviklerne ser den.",
   "Sending…": "Sender…",
   "Send": "Send",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "De gemte tilstande på denne computer bliver også slettet. Kopiér alt, hvad du har brug for, til et eksternt drev eller et USB-stik først, ellers er der intet at gendanne det fra.",

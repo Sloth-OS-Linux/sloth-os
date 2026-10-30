@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "صِفه في بضع جمل",
   "For example: I started Battle.net, but it closed after a minute.": "مثلًا: شغّلت Battle.net، لكنه أُغلق بعد دقيقة.",
   "Attach computer information and log (helps find the problem)": "إرفاق معلومات الحاسوب والسجل (يساعد في العثور على المشكلة)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "السجل ليس عامًّا: لا يراه إلا المطوّرون، ويُحذف بعد 30 يومًا. قد يحتوي على اسم المستخدم الخاص بك وأسماء أجهزتك، لكنه لا يحتوي على ملفاتك. سيكون وصفك عامًّا، بدون اسمك.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "السجل ليس عامًّا: لا يراه إلا المطوّرون، ويُحذف بعد 30 يومًا. قد يحتوي على اسم المستخدم الخاص بك وأسماء أجهزتك، لكنه لا يحتوي على ملفاتك. وصفك أيضًا ليس عامًّا: لا يراه إلا المطوّرون.",
   "Sending…": "جارٍ الإرسال…",
   "Send": "إرسال",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "ستُحذف أيضًا الحالات المحفوظة على هذا الحاسوب. انسخ كل ما تحتاجه إلى قرص خارجي أو ذاكرة USB أولًا، وإلا فلن يكون هناك ما تستعيده منه.",

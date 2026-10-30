@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Priskribu ĝin per kelkaj frazoj",
   "For example: I started Battle.net, but it closed after a minute.": "Ekzemple: mi lanĉis Battle.net, sed ĝi fermiĝis post unu minuto.",
   "Attach computer information and log (helps find the problem)": "Kunsendi komputilajn informojn kaj la protokolon (helpas trovi la problemon)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "La protokolo ne estas publika: nur la programistoj vidas ĝin, kaj ĝi estas forigita post 30 tagoj. Ĝi povas enhavi vian uzantnomon kaj la nomojn de viaj aparatoj, sed ne viajn dosierojn. Via priskribo estos publika, sen via nomo.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "La protokolo ne estas publika: nur la programistoj vidas ĝin, kaj ĝi estas forigita post 30 tagoj. Ĝi povas enhavi vian uzantnomon kaj la nomojn de viaj aparatoj, sed ne viajn dosierojn. Ankaŭ via priskribo ne estas publika: nur la programistoj vidas ĝin.",
   "Sending…": "Sendante…",
   "Send": "Sendi",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Ankaŭ la konservitaj statoj en ĉi tiu komputilo estos forigitaj. Unue kopiu ĉion bezonatan al ekstera disko aŭ USB-memorilo, alie estos nenio, el kio restarigi ĝin.",

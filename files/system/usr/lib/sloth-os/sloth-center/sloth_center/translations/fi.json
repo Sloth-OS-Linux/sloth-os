@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Kerro muutamalla lauseella",
   "For example: I started Battle.net, but it closed after a minute.": "Esimerkiksi: käynnistin Battle.netin, mutta se sulkeutui minuutin päästä.",
   "Attach computer information and log (helps find the problem)": "Liitä tietokoneen tiedot ja loki (auttaa löytämään vian)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Loki ei ole julkinen: vain kehittäjät näkevät sen, ja se poistetaan 30 päivän kuluttua. Siinä voi näkyä käyttäjätunnuksesi ja laitteidesi nimet, mutta ei tiedostojasi. Kuvauksesi on julkinen, ilman nimeäsi.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Loki ei ole julkinen: vain kehittäjät näkevät sen, ja se poistetaan 30 päivän kuluttua. Siinä voi näkyä käyttäjätunnuksesi ja laitteidesi nimet, mutta ei tiedostojasi. Myöskään kuvauksesi ei ole julkinen: vain kehittäjät näkevät sen.",
   "Sending…": "Lähetetään…",
   "Send": "Lähetä",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Myös tämän tietokoneen tallennetut tilat poistetaan. Kopioi ensin kaikki tarvitsemasi ulkoiselle levylle tai USB-tikulle, muuten mitään ei voi palauttaa.",

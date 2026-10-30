@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Бірнеше сөйлеммен сипаттаңыз",
   "For example: I started Battle.net, but it closed after a minute.": "Мысалы: Battle.net іске қостым, бірақ ол бір минуттан кейін жабылды.",
   "Attach computer information and log (helps find the problem)": "Компьютер ақпараты мен журналды тіркеу (қатені табуға көмектеседі)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Журнал жария емес: оны тек әзірлеушілер көреді және 30 күннен кейін жойылады. Онда пайдаланушы атыңыз бен құрылғыларыңыздың атаулары болуы мүмкін, бірақ файлдарыңыз болмайды. Сипаттамаңыз атыңызсыз жария болады.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Журнал жария емес: оны тек әзірлеушілер көреді және 30 күннен кейін жойылады. Онда пайдаланушы атыңыз бен құрылғыларыңыздың атаулары болуы мүмкін, бірақ файлдарыңыз болмайды. Сипаттамаңыз да жария емес: оны тек әзірлеушілер көреді.",
   "Sending…": "Жіберілуде…",
   "Send": "Жіберу",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Осы компьютердегі сақталған күйлер де жойылады. Алдымен керектің бәрін сыртқы дискіге немесе USB флешкаға көшіріңіз, әйтпесе оны қалпына келтіретін ештеңе қалмайды.",

@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Írd le pár mondatban",
   "For example: I started Battle.net, but it closed after a minute.": "Például: elindítottam a Battle.net-et, de egy perc után bezárult.",
   "Attach computer information and log (helps find the problem)": "Gépinformáció és napló csatolása (segít megtalálni a hibát)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod nyilvános lesz, név nélkül.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod sem nyilvános: azt is csak a fejlesztők látják.",
   "Sending…": "Küldés…",
   "Send": "Küldés",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.",

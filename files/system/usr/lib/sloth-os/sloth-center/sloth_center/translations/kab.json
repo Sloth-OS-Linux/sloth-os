@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Glem-it s kra n tefyar",
   "For example: I started Battle.net, but it closed after a minute.": "Amedya: senkereɣ Battle.net, maca yemdel deffir n tesdat.",
   "Attach computer information and log (helps find the problem)": "Seddu talɣut n uselkim d uɣmis (ad yall ad tettwaf tuccḍa)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Aɣmis mačči d azayez: walan-t-id kan yineflayen, ad yettwakkes deffir n 30 n wussan. Yezmer ad yegber isem-ik n useqdac d yismawen n yibenkan-ik, maca mačči ifuyla-k. Aglam-ik ad yili d azayez, war isem-ik.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Aɣmis mačči d azayez: walan-t-id kan yineflayen, ad yettwakkes deffir n 30 n wussan. Yezmer ad yegber isem-ik n useqdac d yismawen n yibenkan-ik, maca mačči ifuyla-k. Aglam-ik daɣen mačči d azayez: walan-t-id kan yineflayen.",
   "Sending…": "Tuzna…",
   "Send": "Azen",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Ad ttwakksen daɣen waddaden yettwaskelsen deg uselkim-a. Nɣel uqbel kra n wayen tesriḍ ɣer uḍebsi azɣaran neɣ ɣer tsarut USB, neɣ ulac ansi ara t-id-terreḍ.",

@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "数文で書いてください",
   "For example: I started Battle.net, but it closed after a minute.": "例：Battle.net を起動したら、1分後に閉じてしまいました。",
   "Attach computer information and log (helps find the problem)": "コンピューターの情報とログを添付する（問題の発見に役立ちます）",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "ログは公開されません。見られるのは開発者だけで、30日後に削除されます。ユーザー名やデバイス名が含まれることがありますが、ファイルは含まれません。説明文は名前なしで公開されます。",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "ログは公開されません。見られるのは開発者だけで、30日後に削除されます。ユーザー名やデバイス名が含まれることがありますが、ファイルは含まれません。説明文も公開されません。見られるのは開発者だけです。",
   "Sending…": "送信中…",
   "Send": "送信",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "この PC の保存した状態も削除されます。必要なものは先に外付けドライブや USB メモリにコピーしてください。そうしないと、元に戻す手段がなくなります。",

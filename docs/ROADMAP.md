@@ -891,7 +891,9 @@ fine there needs to be checked only once on a real machine:
     and GitHub, then live too (test issue #1: labels, the log 401 without the token, readable with it)
   - [x] Sloth Center: a "Feedback" page under System health (`feedback.py`, `FeedbackPage.qml`; the log from
     `health.write_log`, its end, max. 500 KB). Works on a real machine (#5)
-  - [x] Repository: the public `Sloth-OS-Linux/feedback` (English README), labels: `feedback`, `bug`, `idea`, `other`
+  - [x] Repository: `Sloth-OS-Linux/feedback` (English README), labels: `feedback`, `bug`, `idea`, `other`. Private
+    since 2026-10-30 (it was public): people write their e-mail address or name into the description without
+    reading the note. The Feedback page's note (50 languages), the repository's README and the website's FAQ say so
   - [x] Going live: the `feedback_logs` table (with `--command`; the `--file` import gives a permission error with the OAuth token),
     `GITHUB_TOKEN` (fine-grained, only writing Issues of the feedback repository; **replace it before it expires**), `LOG_TOKEN` (on the
     machine: `/mnt/adatok/sloth-dev/feedback-log-token`), `FEEDBACK_REPO` in `wrangler.toml`, `wrangler deploy`

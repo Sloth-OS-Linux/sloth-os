@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Décrivez-le en quelques phrases",
   "For example: I started Battle.net, but it closed after a minute.": "Par exemple : j'ai lancé Battle.net, mais il s'est fermé au bout d'une minute.",
   "Attach computer information and log (helps find the problem)": "Joindre les informations de l'ordinateur et le journal (aide à trouver le problème)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Le journal n'est pas public : seuls les développeurs le voient, et il est supprimé après 30 jours. Il peut contenir votre nom d'utilisateur et le nom de vos appareils, mais pas vos fichiers. Votre description sera publique, sans votre nom.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Le journal n'est pas public : seuls les développeurs le voient, et il est supprimé après 30 jours. Il peut contenir votre nom d'utilisateur et le nom de vos appareils, mais pas vos fichiers. Votre description n'est pas publique non plus : seuls les développeurs la voient.",
   "Sending…": "Envoi…",
   "Send": "Envoyer",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Les états enregistrés sur cet ordinateur seront aussi supprimés. Copiez d’abord tout ce dont vous avez besoin sur un disque externe ou une clé USB, sinon il n’y aura rien à partir de quoi le récupérer.",

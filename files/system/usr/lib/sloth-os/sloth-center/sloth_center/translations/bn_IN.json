@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "কয়েকটি বাক্যে লিখুন",
   "For example: I started Battle.net, but it closed after a minute.": "উদাহরণ: আমি Battle.net চালু করেছিলাম, কিন্তু এক মিনিট পরে বন্ধ হয়ে গেল।",
   "Attach computer information and log (helps find the problem)": "কম্পিউটারের তথ্য ও লগ সংযুক্ত করুন (সমস্যা খুঁজে পেতে সাহায্য করে)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "লগ সর্বজনীন নয়: শুধু ডেভেলপাররা দেখতে পান, আর ৩০ দিন পরে মুছে ফেলা হয়। এতে আপনার ব্যবহারকারীর নাম ও ডিভাইসের নাম থাকতে পারে, তবে আপনার ফাইল থাকে না। আপনার বিবরণ আপনার নাম ছাড়াই সর্বজনীন হবে।",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "লগ সর্বজনীন নয়: শুধু ডেভেলপাররা দেখতে পান, আর ৩০ দিন পরে মুছে ফেলা হয়। এতে আপনার ব্যবহারকারীর নাম ও ডিভাইসের নাম থাকতে পারে, তবে আপনার ফাইল থাকে না। আপনার বিবরণও সর্বজনীন নয়: শুধু ডেভেলপাররা দেখতে পান।",
   "Sending…": "পাঠানো হচ্ছে…",
   "Send": "পাঠান",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "এই কম্পিউটারের সংরক্ষিত অবস্থাগুলিও মুছে যাবে। যা দরকার তা আগে একটি বাহ্যিক ডিস্ক বা USB স্টিকে কপি করুন, নইলে ফেরত আনার মতো কিছু থাকবে না।",

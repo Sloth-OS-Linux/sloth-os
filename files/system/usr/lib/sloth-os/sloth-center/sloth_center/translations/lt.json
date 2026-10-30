@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Aprašykite keliais sakiniais",
   "For example: I started Battle.net, but it closed after a minute.": "Pavyzdžiui: paleidau Battle.net, bet po minutės jis užsidarė.",
   "Attach computer information and log (helps find the problem)": "Pridėti kompiuterio informaciją ir žurnalą (padeda rasti klaidą)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Žurnalas nėra viešas: jį mato tik kūrėjai, o po 30 dienų jis ištrinamas. Jame gali būti jūsų naudotojo vardas ir įrenginių pavadinimai, bet ne jūsų failai. Jūsų aprašymas bus viešas, be jūsų vardo.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Žurnalas nėra viešas: jį mato tik kūrėjai, o po 30 dienų jis ištrinamas. Jame gali būti jūsų naudotojo vardas ir įrenginių pavadinimai, bet ne jūsų failai. Jūsų aprašymas taip pat nėra viešas: jį mato tik kūrėjai.",
   "Sending…": "Siunčiama…",
   "Send": "Siųsti",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Bus ištrintos ir šiame kompiuteryje išsaugotos būsenos. Pirmiausia nukopijuokite viską, ko reikia, į išorinį diską ar USB atmintinę, kitaip nebus iš ko atkurti.",

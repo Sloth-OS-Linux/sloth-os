@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Beskriv det med nokre få setningar",
   "For example: I started Battle.net, but it closed after a minute.": "Til dømes: Eg starta Battle.net, men det lukka seg etter eitt minutt.",
   "Attach computer information and log (helps find the problem)": "Legg ved datamaskininformasjon og logg (hjelper med å finne feilen)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Loggen er ikkje offentleg: berre utviklarane ser han, og han vert sletta etter 30 dagar. Han kan innehalde brukarnamnet ditt og namna på einingane dine, men ikkje filene dine. Skildringa di vert offentleg, utan namnet ditt.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Loggen er ikkje offentleg: berre utviklarane ser han, og han vert sletta etter 30 dagar. Han kan innehalde brukarnamnet ditt og namna på einingane dine, men ikkje filene dine. Skildringa di er heller ikkje offentleg: berre utviklarane ser ho.",
   "Sending…": "Sender …",
   "Send": "Send",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Dei lagra tilstandane på denne datamaskina blir òg sletta. Kopier alt du treng til ein ekstern disk eller minnepinne først, elles er det ingenting å henta det tilbake frå.",

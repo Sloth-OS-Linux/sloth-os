@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "აღწერეთ რამდენიმე წინადადებით",
   "For example: I started Battle.net, but it closed after a minute.": "მაგალითად: გავუშვი Battle.net, მაგრამ ერთ წუთში დაიხურა.",
   "Attach computer information and log (helps find the problem)": "კომპიუტერის ინფორმაციისა და ჟურნალის მიმაგრება (ეხმარება შეცდომის პოვნას)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "ჟურნალი არ არის საჯარო: მას მხოლოდ დეველოპერები ხედავენ და 30 დღის შემდეგ იშლება. შეიძლება შეიცავდეს თქვენს მომხმარებლის სახელს და მოწყობილობების სახელებს, მაგრამ არა თქვენს ფაილებს. თქვენი აღწერა საჯარო იქნება, სახელის გარეშე.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "ჟურნალი არ არის საჯარო: მას მხოლოდ დეველოპერები ხედავენ და 30 დღის შემდეგ იშლება. შეიძლება შეიცავდეს თქვენს მომხმარებლის სახელს და მოწყობილობების სახელებს, მაგრამ არა თქვენს ფაილებს. არც თქვენი აღწერაა საჯარო: მას მხოლოდ დეველოპერები ხედავენ.",
   "Sending…": "იგზავნება…",
   "Send": "გაგზავნა",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "ამ კომპიუტერზე შენახული მდგომარეობებიც წაიშლება. ჯერ დააკოპირეთ ყველაფერი საჭირო გარე დისკზე ან USB ფლეშკაზე, თორემ აღსადგენი არაფერი დარჩება.",

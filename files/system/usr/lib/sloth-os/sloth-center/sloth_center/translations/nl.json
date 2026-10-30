@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Beschrijf het in een paar zinnen",
   "For example: I started Battle.net, but it closed after a minute.": "Bijvoorbeeld: ik startte Battle.net, maar het sloot na een minuut.",
   "Attach computer information and log (helps find the problem)": "Computergegevens en logboek bijvoegen (helpt het probleem te vinden)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Het logboek is niet openbaar: alleen de ontwikkelaars zien het, en het wordt na 30 dagen verwijderd. Het kan je gebruikersnaam en de namen van je apparaten bevatten, maar niet je bestanden. Je beschrijving wordt openbaar, zonder je naam.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Het logboek is niet openbaar: alleen de ontwikkelaars zien het, en het wordt na 30 dagen verwijderd. Het kan je gebruikersnaam en de namen van je apparaten bevatten, maar niet je bestanden. Je beschrijving is ook niet openbaar: alleen de ontwikkelaars zien die.",
   "Sending…": "Versturen…",
   "Send": "Versturen",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "De opgeslagen staten op deze computer worden ook verwijderd. Kopieer eerst alles wat je nodig hebt naar een externe schijf of usb-stick, anders is er niets om het uit terug te halen.",

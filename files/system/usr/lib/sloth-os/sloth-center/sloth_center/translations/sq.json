@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Përshkruajeni me disa fjali",
   "For example: I started Battle.net, but it closed after a minute.": "Për shembull: hapa Battle.net, por u mbyll pas një minute.",
   "Attach computer information and log (helps find the problem)": "Bashkëngjit informacionin e kompjuterit dhe regjistrin (ndihmon të gjendet problemi)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Regjistri nuk është publik: e shohin vetëm zhvilluesit dhe fshihet pas 30 ditësh. Mund të përmbajë emrin tuaj të përdoruesit dhe emrat e pajisjeve, por jo skedarët tuaj. Përshkrimi juaj do të jetë publik, pa emrin tuaj.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Regjistri nuk është publik: e shohin vetëm zhvilluesit dhe fshihet pas 30 ditësh. Mund të përmbajë emrin tuaj të përdoruesit dhe emrat e pajisjeve, por jo skedarët tuaj. As përshkrimi juaj nuk është publik: e shohin vetëm zhvilluesit.",
   "Sending…": "Po dërgohet…",
   "Send": "Dërgo",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Do të fshihen edhe gjendjet e ruajtura në këtë kompjuter. Kopjo më parë gjithçka që të duhet në një disk të jashtëm ose USB, përndryshe nuk do të ketë nga t’i rikthesh.",

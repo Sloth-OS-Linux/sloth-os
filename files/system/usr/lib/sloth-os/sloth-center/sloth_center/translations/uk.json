@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Опишіть кількома реченнями",
   "For example: I started Battle.net, but it closed after a minute.": "Наприклад: я запустив Battle.net, але за хвилину він закрився.",
   "Attach computer information and log (helps find the problem)": "Додати відомості про комп’ютер і журнал (допомагає знайти помилку)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Журнал не публікується: його бачать лише розробники, і через 30 днів він видаляється. У ньому можуть бути ваше ім’я користувача та назви пристроїв, але не ваші файли. Ваш опис буде публічним, без вашого імені.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Журнал не публікується: його бачать лише розробники, і через 30 днів він видаляється. У ньому можуть бути ваше ім’я користувача та назви пристроїв, але не ваші файли. Ваш опис теж не публікується: його бачать лише розробники.",
   "Sending…": "Надсилання…",
   "Send": "Надіслати",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Збережені стани на цьому комп’ютері також буде видалено. Спершу скопіюйте все потрібне на зовнішній диск або флешку, інакше не буде звідки це відновити.",

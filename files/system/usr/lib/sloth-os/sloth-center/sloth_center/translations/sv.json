@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Beskriv det med några meningar",
   "For example: I started Battle.net, but it closed after a minute.": "Till exempel: Jag startade Battle.net, men det stängdes efter en minut.",
   "Attach computer information and log (helps find the problem)": "Bifoga datorinformation och logg (hjälper till att hitta felet)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Loggen är inte offentlig: bara utvecklarna ser den, och den raderas efter 30 dagar. Den kan innehålla ditt användarnamn och namnen på dina enheter, men inte dina filer. Din beskrivning blir offentlig, utan ditt namn.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Loggen är inte offentlig: bara utvecklarna ser den, och den raderas efter 30 dagar. Den kan innehålla ditt användarnamn och namnen på dina enheter, men inte dina filer. Din beskrivning är inte heller offentlig: bara utvecklarna ser den.",
   "Sending…": "Skickar…",
   "Send": "Skicka",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "De sparade lägena på den här datorn raderas också. Kopiera först allt du behöver till en extern disk eller ett USB-minne, annars finns det inget att återställa från.",

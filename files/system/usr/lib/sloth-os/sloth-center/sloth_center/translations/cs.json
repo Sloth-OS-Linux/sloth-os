@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Popište to v několika větách",
   "For example: I started Battle.net, but it closed after a minute.": "Například: spustil jsem Battle.net, ale po minutě se zavřel.",
   "Attach computer information and log (helps find the problem)": "Připojit informace o počítači a protokol (pomůže najít chybu)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Protokol není veřejný: vidí ho jen vývojáři a po 30 dnech se smaže. Může obsahovat vaše uživatelské jméno a názvy zařízení, ale ne vaše soubory. Váš popis bude veřejný, bez vašeho jména.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Protokol není veřejný: vidí ho jen vývojáři a po 30 dnech se smaže. Může obsahovat vaše uživatelské jméno a názvy zařízení, ale ne vaše soubory. Ani váš popis není veřejný: vidí ho jen vývojáři.",
   "Sending…": "Odesílání…",
   "Send": "Odeslat",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Smažou se i uložené stavy na tomto počítači. Vše potřebné si nejdřív zkopírujte na externí disk nebo flashku, jinak nebude odkud to obnovit.",

@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "用幾句話描述",
   "For example: I started Battle.net, but it closed after a minute.": "例如：我開啟了 Battle.net，但一分鐘後就關閉了。",
   "Attach computer information and log (helps find the problem)": "附上電腦資訊與記錄檔（有助於找出問題）",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "記錄檔不會公開：只有開發者看得到，30 天後會刪除。其中可能包含你的使用者名稱和裝置名稱，但不包含你的檔案。你的描述會公開，但不顯示你的名字。",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "記錄檔不會公開：只有開發者看得到，30 天後會刪除。其中可能包含你的使用者名稱和裝置名稱，但不包含你的檔案。你的描述也不會公開：只有開發者看得到。",
   "Sending…": "傳送中…",
   "Send": "傳送",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "這台電腦上儲存的狀態也會被刪除。請先把需要的內容複製到外接硬碟或隨身碟，否則將無從還原。",

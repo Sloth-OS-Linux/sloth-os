@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Descriu-ho en unes poques frases",
   "For example: I started Battle.net, but it closed after a minute.": "Per exemple: vaig obrir Battle.net, però es va tancar al cap d'un minut.",
   "Attach computer information and log (helps find the problem)": "Adjunta la informació de l'ordinador i el registre (ajuda a trobar el problema)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "El registre no és públic: només el veuen els desenvolupadors i s'esborra al cap de 30 dies. Pot contenir el teu nom d'usuari i els noms dels teus dispositius, però no els teus fitxers. La teva descripció serà pública, sense el teu nom.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "El registre no és públic: només el veuen els desenvolupadors i s'esborra al cap de 30 dies. Pot contenir el teu nom d'usuari i els noms dels teus dispositius, però no els teus fitxers. La teva descripció tampoc és pública: només la veuen els desenvolupadors.",
   "Sending…": "S'està enviant…",
   "Send": "Envia",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "També s'esborraran els estats desats d'aquest ordinador. Copia abans tot el que necessitis a un disc extern o un llapis USB; si no, no hi haurà d'on recuperar-ho.",

@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Opišite v nekaj stavkih",
   "For example: I started Battle.net, but it closed after a minute.": "Na primer: zagnal sem Battle.net, a se je po minuti zaprl.",
   "Attach computer information and log (helps find the problem)": "Priloži podatke o računalniku in dnevnik (pomaga najti napako)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Dnevnik ni javen: vidijo ga samo razvijalci in se po 30 dneh izbriše. Lahko vsebuje vaše uporabniško ime in imena naprav, ne pa vaših datotek. Vaš opis bo javen, brez vašega imena.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Dnevnik ni javen: vidijo ga samo razvijalci in se po 30 dneh izbriše. Lahko vsebuje vaše uporabniško ime in imena naprav, ne pa vaših datotek. Tudi vaš opis ni javen: vidijo ga samo razvijalci.",
   "Sending…": "Pošiljanje …",
   "Send": "Pošlji",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Izbrisana bodo tudi shranjena stanja na tem računalniku. Najprej kopirajte vse, kar potrebujete, na zunanji disk ali USB-ključek, sicer ne bo od kod obnoviti.",

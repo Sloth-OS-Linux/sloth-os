@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "用几句话描述一下",
   "For example: I started Battle.net, but it closed after a minute.": "例如：我打开了 Battle.net，但一分钟后它就关闭了。",
   "Attach computer information and log (helps find the problem)": "附上电脑信息和日志（有助于找到问题）",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "日志不公开：只有开发者能看到，30 天后删除。其中可能包含你的用户名和设备名称，但不包含你的文件。你的描述将会公开，但不显示你的名字。",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "日志不公开：只有开发者能看到，30 天后删除。其中可能包含你的用户名和设备名称，但不包含你的文件。你的描述也不公开：只有开发者能看到。",
   "Sending…": "正在发送…",
   "Send": "发送",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "此电脑上保存的状态也会被删除。请先把需要的内容复制到外置硬盘或 U 盘，否则将无从恢复。",

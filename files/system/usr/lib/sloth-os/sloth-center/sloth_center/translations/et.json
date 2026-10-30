@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Kirjelda seda paari lausega",
   "For example: I started Battle.net, but it closed after a minute.": "Näiteks: käivitasin Battle.neti, aga see sulgus minuti pärast.",
   "Attach computer information and log (helps find the problem)": "Lisa arvuti andmed ja logi (aitab vea üles leida)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Logi ei ole avalik: seda näevad ainult arendajad ja see kustutatakse 30 päeva pärast. Selles võib olla sinu kasutajanimi ja seadmete nimed, kuid mitte sinu faile. Sinu kirjeldus on avalik, ilma sinu nimeta.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Logi ei ole avalik: seda näevad ainult arendajad ja see kustutatakse 30 päeva pärast. Selles võib olla sinu kasutajanimi ja seadmete nimed, kuid mitte sinu faile. Ka sinu kirjeldus ei ole avalik: seda näevad ainult arendajad.",
   "Sending…": "Saatmine…",
   "Send": "Saada",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Kustutatakse ka selle arvuti salvestatud olekud. Kopeeri kõik vajalik enne välisele kettale või USB-mälupulgale, muidu pole kust seda taastada.",

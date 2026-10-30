@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "ອະທິບາຍສອງສາມປະໂຫຍກ",
   "For example: I started Battle.net, but it closed after a minute.": "ຕົວຢ່າງ: ຂ້ອຍເປີດ Battle.net ແຕ່ມັນປິດໄປຫຼັງຈາກໜຶ່ງນາທີ.",
   "Attach computer information and log (helps find the problem)": "ແນບຂໍ້ມູນຄອມພິວເຕີ ແລະ ບັນທຶກ (ຊ່ວຍຊອກຫາບັນຫາ)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "ບັນທຶກບໍ່ເປັນສາທາລະນະ: ມີແຕ່ຜູ້ພັດທະນາທີ່ເຫັນ ແລະ ຈະຖືກລຶບຫຼັງ 30 ມື້. ອາດມີຊື່ຜູ້ໃຊ້ ແລະ ຊື່ອຸປະກອນຂອງທ່ານ ແຕ່ບໍ່ມີໄຟລ໌ຂອງທ່ານ. ຄຳອະທິບາຍຂອງທ່ານຈະເປັນສາທາລະນະ ໂດຍບໍ່ມີຊື່ຂອງທ່ານ.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "ບັນທຶກບໍ່ເປັນສາທາລະນະ: ມີແຕ່ຜູ້ພັດທະນາທີ່ເຫັນ ແລະ ຈະຖືກລຶບຫຼັງ 30 ມື້. ອາດມີຊື່ຜູ້ໃຊ້ ແລະ ຊື່ອຸປະກອນຂອງທ່ານ ແຕ່ບໍ່ມີໄຟລ໌ຂອງທ່ານ. ຄຳອະທິບາຍຂອງທ່ານກໍບໍ່ເປັນສາທາລະນະ: ມີແຕ່ຜູ້ພັດທະນາທີ່ເຫັນ.",
   "Sending…": "ກຳລັງສົ່ງ…",
   "Send": "ສົ່ງ",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "ສະຖານະທີ່ບັນທຶກໄວ້ໃນຄອມພິວເຕີນີ້ກໍຈະຖືກລຶບເຊັ່ນກັນ. ໃຫ້ສຳເນົາທຸກຢ່າງທີ່ຕ້ອງການໄປໃສ່ດິສພາຍນອກ ຫຼື USB ກ່ອນ, ບໍ່ດັ່ງນັ້ນຈະບໍ່ມີບ່ອນໃຫ້ກູ້ຄືນ.",

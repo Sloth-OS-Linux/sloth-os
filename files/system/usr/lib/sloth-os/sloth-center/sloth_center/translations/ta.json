@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "சில வாக்கியங்களில் விவரிக்கவும்",
   "For example: I started Battle.net, but it closed after a minute.": "எடுத்துக்காட்டு: Battle.net-ஐத் தொடங்கினேன், ஆனால் ஒரு நிமிடத்தில் மூடிவிட்டது.",
   "Attach computer information and log (helps find the problem)": "கணினித் தகவலையும் பதிவையும் இணைக்கவும் (சிக்கலைக் கண்டறிய உதவும்)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "பதிவு பொதுவில் இல்லை: உருவாக்குநர்கள் மட்டுமே பார்ப்பார்கள், 30 நாட்களுக்குப் பிறகு நீக்கப்படும். அதில் உங்கள் பயனர் பெயரும் சாதனங்களின் பெயர்களும் இருக்கலாம், ஆனால் உங்கள் கோப்புகள் இருக்காது. உங்கள் விளக்கம் உங்கள் பெயர் இல்லாமல் பொதுவில் இருக்கும்.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "பதிவு பொதுவில் இல்லை: உருவாக்குநர்கள் மட்டுமே பார்ப்பார்கள், 30 நாட்களுக்குப் பிறகு நீக்கப்படும். அதில் உங்கள் பயனர் பெயரும் சாதனங்களின் பெயர்களும் இருக்கலாம், ஆனால் உங்கள் கோப்புகள் இருக்காது. உங்கள் விளக்கமும் பொதுவில் இல்லை: உருவாக்குநர்கள் மட்டுமே பார்ப்பார்கள்.",
   "Sending…": "அனுப்புகிறது…",
   "Send": "அனுப்பு",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "இந்தக் கணினியில் சேமித்த நிலைகளும் நீக்கப்படும். தேவையான அனைத்தையும் முதலில் வெளிப்புற வட்டு அல்லது USB குச்சிக்கு நகலெடுங்கள், இல்லையெனில் மீட்டெடுக்க எதுவும் இருக்காது.",

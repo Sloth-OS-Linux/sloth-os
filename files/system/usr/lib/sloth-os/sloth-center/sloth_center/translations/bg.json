@@ -640,7 +640,7 @@
   "Describe it in a few sentences": "Опишете го с няколко изречения",
   "For example: I started Battle.net, but it closed after a minute.": "Например: стартирах Battle.net, но той се затвори след минута.",
   "Attach computer information and log (helps find the problem)": "Прикачване на информация за компютъра и дневника (помага да се открие проблемът)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description will be public, without your name.": "Дневникът не е публичен: виждат го само разработчиците и се изтрива след 30 дни. Може да съдържа потребителското ви име и имената на устройствата ви, но не и вашите файлове. Описанието ви ще бъде публично, без името ви.",
+  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Дневникът не е публичен: виждат го само разработчиците и се изтрива след 30 дни. Може да съдържа потребителското ви име и имената на устройствата ви, но не и вашите файлове. Описанието ви също не е публично: виждат го само разработчиците.",
   "Sending…": "Изпращане…",
   "Send": "Изпращане",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Запазените състояния на този компютър също ще бъдат изтрити. Първо копирайте всичко нужно на външен диск или USB памет, иначе няма да има откъде да го върнете.",
