@@ -3,7 +3,7 @@
 backing up your own files needs no password, because it deletes and overwrites nothing (like Windows' File History).
 Deleting backups and their settings still go through the password-protected sloth-helper."""
 import runpy
-import sys
 
-sys.argv[0] = "sloth-helper-backup"
-runpy.run_path("/usr/libexec/sloth-os/sloth-helper", run_name="__main__")
+# The name goes in as a global: runpy.run_path sets sys.argv[0] to the path it runs, so a name put there is lost
+runpy.run_path("/usr/libexec/sloth-os/sloth-helper", init_globals={"HELPER_NAME": "sloth-helper-backup"},
+               run_name="__main__")

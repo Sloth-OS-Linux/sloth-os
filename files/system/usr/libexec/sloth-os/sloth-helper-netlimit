@@ -2,7 +2,7 @@
 """sloth-helper's download speed limit (net-limit) with a separate polkit action (org.slothos.helper.netlimit):
 it needs no password, because it can only slow the computer's downloads down (Sloth Center → System status)."""
 import runpy
-import sys
 
-sys.argv[0] = "sloth-helper-netlimit"
-runpy.run_path("/usr/libexec/sloth-os/sloth-helper", run_name="__main__")
+# The name goes in as a global: runpy.run_path sets sys.argv[0] to the path it runs, so a name put there is lost
+runpy.run_path("/usr/libexec/sloth-os/sloth-helper", init_globals={"HELPER_NAME": "sloth-helper-netlimit"},
+               run_name="__main__")

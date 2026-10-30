@@ -59,15 +59,19 @@ import sys
 import tempfile
 
 SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
+# The name it was started as: the wrappers (sloth-helper-versions, -backup, -netlimit, -sharing) pass it as the
+# HELPER_NAME global, because runpy sets sys.argv[0] to this file's path. Before 2026-10-30 they put it in
+# sys.argv[0], so the limits below never applied (a password-free wrapper could run any operation)
+HELPER_NAME = globals().get("HELPER_NAME") or os.path.basename(sys.argv[0])
 # Started as sloth-helper-versions, only the operations on versions are allowed
-VERSIONS_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-versions"
+VERSIONS_ONLY = HELPER_NAME == "sloth-helper-versions"
 # Started as sloth-helper-backup, only "Back up now" (without a password, see org.slothos.helper.backup)
-BACKUP_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-backup"
+BACKUP_ONLY = HELPER_NAME == "sloth-helper-backup"
 # Started as sloth-helper-sharing, only folder sharing (always with the password, see org.slothos.helper.sharing);
 # folder sharing is not available through the other names
-SHARING_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-sharing"
+SHARING_ONLY = HELPER_NAME == "sloth-helper-sharing"
 # Started as sloth-helper-netlimit, only the download speed limit (without a password, see org.slothos.helper.netlimit)
-NETLIMIT_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-netlimit"
+NETLIMIT_ONLY = HELPER_NAME == "sloth-helper-netlimit"
 # The Universal Blue key's enrollment password; the user types this on the blue screen
 SB_PASSWORD = "universalblue"
 
