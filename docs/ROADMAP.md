@@ -482,6 +482,11 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   Python, so not as a rewrite now; first make the two find each other: a "Sloth Center" entry in System Settings
   (a .desktop entry in its sidebar), an "All settings" button in Sloth Center, and a look at which KDE pages
   duplicate a Sloth Center page (hide or link them). Later: whether some pages could be real KCMs
+  Decision (2026-10-30): the real merge (one settings app) is set aside. Estimate: Sloth Center is 18 pages
+  (~5800 lines of QML, ~7700 of Python); each page would need a C++ KCM wrapper and its Python backend rewritten in
+  C++ or moved behind a D-Bus service, with KDE's gettext translations, about 3–6 weeks, and every Plasma update
+  could break it. A middle way if it comes back: each Sloth Center page as its own entry in System Settings' sidebar
+  that opens Sloth Center at that page, about 1–2 days
 - [ ] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
   restores normal settings when it closes.
 - [x] **Medium** — Performance display for frame rate, system load, and temperatures (2026-10-26): the per-game
