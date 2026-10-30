@@ -38,6 +38,23 @@ from a terminal must also work from a GUI.
   on a real machine
 - [ ] **Medium** — File backup → "Find deleted files…" did not work in the VM (restoring through the saved states
   did). It worked on a real machine on 2026-10-26, so find out what differs
+- [ ] **Large** — Bring files and apps over from another Linux (2026-10-30, a Reddit question: "does it work from
+  CachyOS?"; today only from a Windows on the same computer). Most of `windows_import.py` (read-only mounting,
+  folder choice, space check, progress) and "Other disks → Use it" can be reused. Parts and rough sizes:
+  - Files (1–2 days): find the other system's `/home/<user>` and its folders (their names from `user-dirs.dirs`,
+    they differ by language). Pitfalls: btrfs subvolumes (`@home` on CachyOS), an encrypted disk (ask for its
+    password), LVM
+  - Flatpak apps (half a day): read the other system's Flatpak list and open Sloth Welcome with them ticked (the
+    same path as loading a settings file)
+  - Native apps (pacman, apt; 1–2 days): guess the Flathub ID from the other system's `.desktop` files (often the
+    same for KDE and GNOME apps, e.g. `org.kde.krita`; a small table for the rest, e.g. `firefox` →
+    `org.mozilla.firefox`); list what could not be brought over
+  - Steam games (about a day): add the other system's Steam library to Steam here, so hundreds of GB need no new
+    download (the drive mounted for good, as "Use it" does)
+  - Not brought over: settings files (dotfiles) and whole browser profiles (other versions and paths, they can
+    break things); from browsers only the bookmarks, as from Windows
+  About 4–6 days, every part needs a VM with another Linux next to Sloth OS. Order: files + Flatpak apps first,
+  then Steam and native apps
 - [x] **Medium** — Chinese, Japanese and Korean typing (2026-10-30, a Reddit comment: "KDE Plasma is not good for
   Korean input"). Our own bug: removing `ibus` in `slim-image.sh` took its engines too (ibus-hangul, ibus-libpinyin,
   ibus-anthy…, 23 packages; the CI log), and fcitx5 was not in the image. Now fcitx5 with its Korean (hangul),
