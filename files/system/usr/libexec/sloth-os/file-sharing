@@ -6,15 +6,19 @@ Dolphin's Share tab uses Samba's "usershares". Out of the box it got stuck (Redd
   Dolphin's "add me to the group" step fails (usermod only edits /etc/group);
 - the Samba server (smb) is off, the firewall blocks its port (445), and SELinux does not let it read the folders.
 
-As safe as it can be: nobody is put into the group automatically (Dolphin asks for the administrator password, as
+As safe as it can be: turning a share on always needs the administrator password (Sloth Center), nobody is put into
+the group automatically (Dolphin asks for the administrator password, as
 Windows does to turn sharing on), Samba can read only the home folders and the folders that are really shared
 (not the whole system), and only the local network can connect (never the internet, not even over IPv6).
 
 groups: at startup, before the login screen: the group goes into /etc/group, so Dolphin's step works.
 serve:  whenever the shared folders change (sloth-file-sharing.path): a shared folder on another disk gets Samba's
         SELinux label (samba_share_t), the firewall lets Samba in from the local network and the Samba server
-        starts. When nothing is shared any more, the server stops and the firewall closes again.
+        starts, with wsdd, so the computer shows up in Windows' Network window. When nothing is shared any more,
+        they stop and the firewall closes again. Each account's shares and whether it has a Samba password go
+        into STATUS/<uid>.json (readable by that account only), for Sloth Center.
 """
+import json
 import os
 import re
 import subprocess
@@ -22,6 +26,7 @@ import sys
 
 GROUP = "usershares"
 SHARES = "/var/lib/samba/usershares"
+STATUS = "/run/sloth-os/sharing"
 
 
 def ensure_group():
@@ -54,12 +59,12 @@ LOCAL = [("ipv4", "10.0.0.0/8"), ("ipv4", "172.16.0.0/12"), ("ipv4", "192.168.0.
          ("ipv6", "fe80::/10"), ("ipv6", "fc00::/7")]
 
 
-def shared_paths():
-    """The folders of Dolphin's shares (one file per share in SHARES, with a "path=" line), with the uid of the
-    account that shared it (the owner of the share's file)."""
+def read_shares():
+    """The shares (one file per share in SHARES, "key=value" lines), with the uid of the account that shared it
+    (the owner of the share's file)."""
     shares = []
     try:
-        names = os.listdir(SHARES)
+        names = sorted(os.listdir(SHARES))
     except OSError:
         return shares
     for name in names:
@@ -67,12 +72,38 @@ def shared_paths():
         try:
             uid = os.stat(file).st_uid
             with open(file, encoding="utf-8", errors="replace") as f:
-                for line in f:
-                    if line.startswith("path="):
-                        shares.append((line[5:].strip(), uid))
+                fields = dict(line.rstrip("\n").split("=", 1) for line in f if "=" in line)
         except OSError:
-            pass
+            continue
+        if fields.get("path"):
+            shares.append({"name": fields.get("sharename", name), "path": fields["path"], "uid": uid,
+                           "write": fields.get("usershare_acl", "").rstrip(",").endswith(":F"),
+                           "guests": fields.get("guest_ok") == "y"})
     return shares
+
+
+def write_status(shares):
+    """For Sloth Center: each account's shares and whether it has a Samba password."""
+    with_password = set()
+    r = subprocess.run(["pdbedit", "-L"], capture_output=True, text=True)
+    for line in r.stdout.splitlines():
+        parts = line.split(":")
+        if len(parts) > 1 and parts[1].isdigit():
+            with_password.add(int(parts[1]))
+    os.makedirs(STATUS, mode=0o755, exist_ok=True)
+    uids = with_password | {s["uid"] for s in shares}
+    for old in os.listdir(STATUS):
+        if old.removesuffix(".json").isdigit() and int(old.removesuffix(".json")) not in uids:
+            os.unlink(os.path.join(STATUS, old))
+    for uid in uids:
+        mine = [{k: s[k] for k in ("name", "path", "write", "guests")} for s in shares if s["uid"] == uid]
+        path = os.path.join(STATUS, f"{uid}.json")
+        tmp = path + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump({"shares": mine, "password": uid in with_password}, f)
+        os.chown(tmp, uid, -1)
+        os.chmod(tmp, 0o600)
+        os.replace(tmp, path)
 
 
 def label(path, uid):
@@ -98,21 +129,23 @@ def label(path, uid):
 def firewall(action):
     # runtime only: the next startup asks again, and only if something is still shared
     for family, net in LOCAL:
-        subprocess.run(["firewall-cmd", f"--{action}-rich-rule=rule family={family} source address={net} "
-                        "service name=samba accept"], capture_output=True)
+        for service in ("samba", "wsdd", "wsdd-http"):
+            subprocess.run(["firewall-cmd", f"--{action}-rich-rule=rule family={family} source address={net} "
+                            f"service name={service} accept"], capture_output=True)
 
 
 def serve():
-    shares = shared_paths()
+    shares = read_shares()
+    write_status(shares)
     if not shares:
-        subprocess.run(["systemctl", "stop", "smb.service"], check=False)
+        subprocess.run(["systemctl", "stop", "smb.service", "wsdd.service"], check=False)
         firewall("remove")
         return
-    for path, uid in shares:
-        label(path, uid)
+    for share in shares:
+        label(share["path"], share["uid"])
     subprocess.run(["setsebool", "samba_enable_home_dirs=1"], capture_output=True)
     firewall("add")
-    subprocess.run(["systemctl", "start", "smb.service"], check=False)
+    subprocess.run(["systemctl", "start", "smb.service", "wsdd.service"], check=False)
 
 
 if __name__ == "__main__":

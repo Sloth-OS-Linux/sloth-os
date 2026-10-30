@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "限制這台電腦的下載速度，讓家中其餘網路保持順暢：用於通話、遊戲或其他電腦。可以一律生效，或僅在下載更新時生效。",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "請選擇 64 kbit/秒 到 10 000 Mbit/秒 之間的限制。",
   "Couldn't change the limit.": "無法變更限制。",
-  "Restarting…": "正在重新啟動…"
+  "Restarting…": "正在重新啟動…",
+  "Set a password for other computers first.": "請先為其他電腦設定密碼。",
+  "Only your own folders can be shared.": "只能分享你自己的資料夾。",
+  "Couldn't share the folder.": "無法分享該資料夾。",
+  "Share a folder": "分享資料夾",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "家中的其他電腦（Windows、Mac、電視）可以開啟此資料夾。只有家用網路能存取，網際網路永遠無法存取。",
+  "Open it from another computer: {address}": "從其他電腦開啟：{address}",
+  "Without a password": "不需密碼",
+  "Others can change files too": "其他人也可以變更檔案",
+  "Stop sharing": "停止分享",
+  "Without a password (anyone on your home network)": "不需密碼（家用網路中的任何人）",
+  "Password for other computers": "其他電腦使用的密碼",
+  "Other computers sign in with your user name ({user}) and this password.": "其他電腦使用你的使用者名稱（{user}）和此密碼登入。",
+  "Leave it empty to keep the current password.": "留空即保留目前的密碼。",
+  "Choose a folder to share…": "選擇要分享的資料夾…"
 }

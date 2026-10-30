@@ -35,6 +35,11 @@ Operations:
   update-time default|<0-23>                     the hour the automatic system update (rpm-ostreed-automatic.timer)
                                                  runs, instead of the base image's triggers (an hour after start,
                                                  daily, 4:00)
+  share-add                                      shares a folder of the calling user on the home network, always
+                                                 (JSON on the input: {"name", "path", "write", "guests",
+                                                 "password"}; without guests, a Samba password is needed the
+                                                 first time)
+  share-remove <name>                            stops sharing the calling user's folder
   net-limit off|<kbit/s> <unit> always|updates   the download speed limit (/etc/sloth-os/net-limit.json; the unit
                                                  the user chose: kbit, KB, Mbit, MB), put on or off at once
                                                  (/usr/libexec/sloth-os/net-limit)
@@ -42,7 +47,8 @@ Operations:
 The operations on versions (pin, unpin, set-default) and update-time are also available under the name
 sloth-helper-versions: that is a separate polkit action (org.slothos.helper.versions), so it can be put
 under the "updates" topic, not under booting. net-limit alone is available as sloth-helper-netlimit, without a
-password (org.slothos.helper.netlimit): it only slows the computer's downloads down.
+password (org.slothos.helper.netlimit): it only slows the computer's downloads down. share-add and share-remove
+are available only as sloth-helper-sharing (org.slothos.helper.sharing), which always asks for the password.
 """
 import json
 import os
@@ -57,6 +63,9 @@ SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
 VERSIONS_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-versions"
 # Started as sloth-helper-backup, only "Back up now" (without a password, see org.slothos.helper.backup)
 BACKUP_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-backup"
+# Started as sloth-helper-sharing, only folder sharing (always with the password, see org.slothos.helper.sharing);
+# folder sharing is not available through the other names
+SHARING_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-sharing"
 # Started as sloth-helper-netlimit, only the download speed limit (without a password, see org.slothos.helper.netlimit)
 NETLIMIT_ONLY = os.path.basename(sys.argv[0]) == "sloth-helper-netlimit"
 # The Universal Blue key's enrollment password; the user types this on the blue screen
@@ -486,6 +495,62 @@ def net_limit(kbit, unit, when):
     return {"ok": r.returncode == 0}
 
 
+# --- Sharing a folder on the home network (Sloth Center → Disks; /usr/libexec/sloth-os/file-sharing) -------------
+
+FILE_SHARING = "/usr/libexec/sloth-os/file-sharing"
+SHARE_NAME_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$")
+
+
+def _samba_has_password(user):
+    r = run(["pdbedit", "-L"])
+    return any(line.split(":")[0] == user for line in r.stdout.splitlines())
+
+
+def share_add(request):
+    pw = _caller()
+    if pw is None:
+        return {"ok": False, "error": "pkexec only"}
+    name, path, password = request.get("name"), request.get("path"), request.get("password") or ""
+    if not isinstance(name, str) or not SHARE_NAME_RE.match(name) or not isinstance(path, str) \
+            or not isinstance(password, str) or len(password) > 127 or "\n" in password:
+        return {"ok": False, "error": "bad input"}
+    path = os.path.realpath(path)
+    try:
+        st = os.stat(path)
+    except OSError:
+        return {"ok": False, "error": "not owner"}
+    # only the caller's own folder, never a system folder (Samba checks this too: usershare owner only)
+    if not os.path.isdir(path) or st.st_uid != pw.pw_uid or path.count("/") < 2:
+        return {"ok": False, "error": "not owner"}
+    guests = request.get("guests") is True
+    if not guests and not password and not _samba_has_password(pw.pw_name):
+        return {"ok": False, "error": "password needed"}
+    run([FILE_SHARING, "groups"])
+    run(["usermod", "--append", "--groups", "usershares", pw.pw_name])
+    if password:
+        r = subprocess.run(["smbpasswd", "-s", "-a", pw.pw_name], input=f"{password}\n{password}\n",
+                           capture_output=True, text=True)
+        if r.returncode != 0:
+            return {"ok": False, "error": r.stderr.strip()[-500:] or "smbpasswd"}
+    acl = "Everyone:F" if request.get("write") else "Everyone:R"
+    # as the user (runuser reads the groups again, so no new sign-in is needed)
+    r = run(["runuser", "-u", pw.pw_name, "--", "net", "usershare", "add", name, path, "", acl,
+             "guest_ok=y" if guests else "guest_ok=n"])
+    if r.returncode != 0:
+        return {"ok": False, "error": (r.stderr or r.stdout).strip()[-500:]}
+    run([FILE_SHARING, "serve"])
+    return {"ok": True}
+
+
+def share_remove(name):
+    pw = _caller()
+    if pw is None:
+        return {"ok": False, "error": "pkexec only"}
+    r = run(["runuser", "-u", pw.pw_name, "--", "net", "usershare", "delete", name])
+    run([FILE_SHARING, "serve"])
+    return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
+
+
 # --- Backing up your own files (Sloth Center → File backup; home-snapshots does the work) ------------------
 
 SNAPSHOTS_CONF = "/etc/sloth-os/snapshots.json"
@@ -521,7 +586,7 @@ def main(argv):
         return 2
     op, args = argv[0], argv[1:]
     if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])) \
-            or (NETLIMIT_ONLY and op != "net-limit"):
+            or (NETLIMIT_ONLY and op != "net-limit") or (SHARING_ONLY != (op in ("share-add", "share-remove"))):
         print(json.dumps({"ok": False, "error": "unknown operation"}))
         return 2
     if op == "secureboot-status" and not args:
@@ -574,6 +639,14 @@ def main(argv):
             result = json.loads(r.stdout.strip().splitlines()[-1])
         except (ValueError, IndexError):
             result = {"ok": False, "error": r.stderr.strip()[-500:]}
+    elif op == "share-add" and not args and not VERSIONS_ONLY:
+        try:
+            request = json.loads(sys.stdin.read(4096) or "{}")
+        except ValueError:
+            request = None
+        result = share_add(request) if isinstance(request, dict) else {"ok": False, "error": "bad input"}
+    elif op == "share-remove" and len(args) == 1 and SHARE_NAME_RE.match(args[0]) and not VERSIONS_ONLY:
+        result = share_remove(args[0])
     elif op == "login-repair" and not args and not VERSIONS_ONLY:
         result = keep_altfiles()
     elif op == "admin-policy" and not args and not VERSIONS_ONLY:

@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limita lo rápido que descarga este ordenador, para que el resto de tu red doméstica siga rápida: para una llamada, un juego u otro ordenador. Se aplica siempre, o solo mientras se descargan actualizaciones.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Elige un límite entre 64 kbit/s y 10 000 Mbit/s.",
   "Couldn't change the limit.": "No se pudo cambiar el límite.",
-  "Restarting…": "Reiniciando…"
+  "Restarting…": "Reiniciando…",
+  "Set a password for other computers first.": "Primero establece una contraseña para los otros equipos.",
+  "Only your own folders can be shared.": "Solo puedes compartir tus propias carpetas.",
+  "Couldn't share the folder.": "No se pudo compartir la carpeta.",
+  "Share a folder": "Compartir una carpeta",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Otros equipos de casa (Windows, Mac, un televisor) pueden abrir la carpeta. Solo tu red doméstica puede acceder, nunca internet.",
+  "Open it from another computer: {address}": "Ábrela desde otro equipo: {address}",
+  "Without a password": "Sin contraseña",
+  "Others can change files too": "Otros también pueden cambiar archivos",
+  "Stop sharing": "Dejar de compartir",
+  "Without a password (anyone on your home network)": "Sin contraseña (cualquiera en tu red doméstica)",
+  "Password for other computers": "Contraseña para otros equipos",
+  "Other computers sign in with your user name ({user}) and this password.": "Los otros equipos inician sesión con tu nombre de usuario ({user}) y esta contraseña.",
+  "Leave it empty to keep the current password.": "Déjalo vacío para mantener la contraseña actual.",
+  "Choose a folder to share…": "Elegir una carpeta para compartir…"
 }

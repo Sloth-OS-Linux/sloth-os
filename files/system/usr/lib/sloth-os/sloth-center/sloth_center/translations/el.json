@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Περιορίζει πόσο γρήγορα κατεβάζει αυτός ο υπολογιστής, ώστε το υπόλοιπο οικιακό δίκτυο να μένει γρήγορο: για μια κλήση, ένα παιχνίδι ή άλλον υπολογιστή. Ισχύει πάντα ή μόνο όσο κατεβαίνουν ενημερώσεις.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Επιλέξτε όριο από 64 kbit/s έως 10 000 Mbit/s.",
   "Couldn't change the limit.": "Δεν ήταν δυνατή η αλλαγή του ορίου.",
-  "Restarting…": "Γίνεται επανεκκίνηση…"
+  "Restarting…": "Γίνεται επανεκκίνηση…",
+  "Set a password for other computers first.": "Ορίστε πρώτα κωδικό για τους άλλους υπολογιστές.",
+  "Only your own folders can be shared.": "Μπορείτε να μοιραστείτε μόνο δικούς σας φακέλους.",
+  "Couldn't share the folder.": "Δεν ήταν δυνατή η κοινή χρήση του φακέλου.",
+  "Share a folder": "Κοινή χρήση φακέλου",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Άλλοι υπολογιστές στο σπίτι (Windows, Mac, μια τηλεόραση) μπορούν να ανοίξουν τον φάκελο. Τον φτάνει μόνο το οικιακό δίκτυο, ποτέ το διαδίκτυο.",
+  "Open it from another computer: {address}": "Ανοίξτε τον από άλλον υπολογιστή: {address}",
+  "Without a password": "Χωρίς κωδικό",
+  "Others can change files too": "Και άλλοι μπορούν να αλλάζουν αρχεία",
+  "Stop sharing": "Διακοπή κοινής χρήσης",
+  "Without a password (anyone on your home network)": "Χωρίς κωδικό (οποιοσδήποτε στο οικιακό σας δίκτυο)",
+  "Password for other computers": "Κωδικός για τους άλλους υπολογιστές",
+  "Other computers sign in with your user name ({user}) and this password.": "Οι άλλοι υπολογιστές συνδέονται με το όνομα χρήστη σας ({user}) και αυτόν τον κωδικό.",
+  "Leave it empty to keep the current password.": "Αφήστε το κενό για να κρατήσετε τον τρέχοντα κωδικό.",
+  "Choose a folder to share…": "Επιλέξτε φάκελο για κοινή χρήση…"
 }

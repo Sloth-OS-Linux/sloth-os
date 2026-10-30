@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "এই কম্পিউটার কত দ্রুত ডাউনলোড করবে তা সীমিত করে, যাতে বাড়ির বাকি নেটওয়ার্ক দ্রুত থাকে: কল, গেম বা অন্য কম্পিউটারের জন্য। সবসময় অথবা শুধু আপডেট ডাউনলোডের সময় কার্যকর হয়।",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/s থেকে 10 000 Mbit/s-এর মধ্যে একটি সীমা বেছে নিন।",
   "Couldn't change the limit.": "সীমা পরিবর্তন করা যায়নি।",
-  "Restarting…": "পুনরায় চালু হচ্ছে…"
+  "Restarting…": "পুনরায় চালু হচ্ছে…",
+  "Set a password for other computers first.": "আগে অন্য কম্পিউটারগুলির জন্য একটি পাসওয়ার্ড সেট করুন।",
+  "Only your own folders can be shared.": "শুধু নিজের ফোল্ডারই শেয়ার করা যায়।",
+  "Couldn't share the folder.": "ফোল্ডারটি শেয়ার করা যায়নি।",
+  "Share a folder": "ফোল্ডার শেয়ার করুন",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "বাড়ির অন্য কম্পিউটার (Windows, Mac, টিভি) ফোল্ডারটি খুলতে পারে। শুধু আপনার বাড়ির নেটওয়ার্ক এতে পৌঁছায়, ইন্টারনেট কখনও নয়।",
+  "Open it from another computer: {address}": "অন্য কম্পিউটার থেকে খুলুন: {address}",
+  "Without a password": "পাসওয়ার্ড ছাড়া",
+  "Others can change files too": "অন্যরাও ফাইল পরিবর্তন করতে পারে",
+  "Stop sharing": "শেয়ার করা বন্ধ করুন",
+  "Without a password (anyone on your home network)": "পাসওয়ার্ড ছাড়া (আপনার বাড়ির নেটওয়ার্কের যে কেউ)",
+  "Password for other computers": "অন্য কম্পিউটারের জন্য পাসওয়ার্ড",
+  "Other computers sign in with your user name ({user}) and this password.": "অন্য কম্পিউটারগুলি আপনার ব্যবহারকারীর নাম ({user}) ও এই পাসওয়ার্ড দিয়ে সাইন ইন করে।",
+  "Leave it empty to keep the current password.": "বর্তমান পাসওয়ার্ড রাখতে ফাঁকা রাখুন।",
+  "Choose a folder to share…": "শেয়ার করার ফোল্ডার বাছুন…"
 }

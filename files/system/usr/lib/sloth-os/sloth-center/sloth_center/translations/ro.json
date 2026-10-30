@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limitează cât de repede descarcă acest calculator, ca restul rețelei de acasă să rămână rapid: pentru un apel, un joc sau alt calculator. Se aplică mereu sau doar cât se descarcă actualizări.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Alege o limită între 64 kbit/s și 10 000 Mbit/s.",
   "Couldn't change the limit.": "Limita nu a putut fi schimbată.",
-  "Restarting…": "Se repornește…"
+  "Restarting…": "Se repornește…",
+  "Set a password for other computers first.": "Setează mai întâi o parolă pentru celelalte calculatoare.",
+  "Only your own folders can be shared.": "Poți partaja doar propriile dosare.",
+  "Couldn't share the folder.": "Dosarul nu a putut fi partajat.",
+  "Share a folder": "Partajează un dosar",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Celelalte calculatoare de acasă (Windows, Mac, un televizor) pot deschide dosarul. Doar rețeaua de acasă ajunge la el, niciodată internetul.",
+  "Open it from another computer: {address}": "Deschide-l de pe alt calculator: {address}",
+  "Without a password": "Fără parolă",
+  "Others can change files too": "Și alții pot modifica fișierele",
+  "Stop sharing": "Oprește partajarea",
+  "Without a password (anyone on your home network)": "Fără parolă (oricine din rețeaua de acasă)",
+  "Password for other computers": "Parolă pentru celelalte calculatoare",
+  "Other computers sign in with your user name ({user}) and this password.": "Celelalte calculatoare se conectează cu numele tău de utilizator ({user}) și această parolă.",
+  "Leave it empty to keep the current password.": "Lasă gol pentru a păstra parola actuală.",
+  "Choose a folder to share…": "Alege un dosar de partajat…"
 }

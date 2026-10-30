@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Beperk hoe vinnig hierdie rekenaar aflaai, sodat die res van jou tuisnetwerk vinnig bly: vir 'n oproep, 'n speletjie of 'n ander rekenaar. Dit geld altyd, of net terwyl opdaterings aflaai.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Kies 'n perk tussen 64 kbit/s en 10 000 Mbit/s.",
   "Couldn't change the limit.": "Kon nie die perk verander nie.",
-  "Restarting…": "Herbegin tans…"
+  "Restarting…": "Herbegin tans…",
+  "Set a password for other computers first.": "Stel eers 'n wagwoord vir die ander rekenaars.",
+  "Only your own folders can be shared.": "Jy kan net jou eie vouers deel.",
+  "Couldn't share the folder.": "Kon nie die vouer deel nie.",
+  "Share a folder": "Deel 'n vouer",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Ander rekenaars by die huis (Windows, Mac, 'n TV) kan die vouer oopmaak. Net jou tuisnetwerk kan dit bereik, nooit die internet nie.",
+  "Open it from another computer: {address}": "Maak dit oop van 'n ander rekenaar: {address}",
+  "Without a password": "Sonder wagwoord",
+  "Others can change files too": "Ander kan ook lêers verander",
+  "Stop sharing": "Hou op deel",
+  "Without a password (anyone on your home network)": "Sonder wagwoord (enigiemand op jou tuisnetwerk)",
+  "Password for other computers": "Wagwoord vir ander rekenaars",
+  "Other computers sign in with your user name ({user}) and this password.": "Ander rekenaars meld aan met jou gebruikersnaam ({user}) en hierdie wagwoord.",
+  "Leave it empty to keep the current password.": "Laat leeg om die huidige wagwoord te hou.",
+  "Choose a folder to share…": "Kies 'n vouer om te deel…"
 }

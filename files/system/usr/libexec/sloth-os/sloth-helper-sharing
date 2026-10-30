@@ -1,0 +1,9 @@
+#!/usr/bin/python3 -I
+"""sloth-helper's folder sharing (share-add, share-remove) with a separate polkit action (org.slothos.helper.sharing):
+it always asks for the administrator password, also when Sloth Center's password-free settings are on (no topic
+contains it), because it opens the computer to the network (Sloth Center → Disks → Share a folder)."""
+import runpy
+import sys
+
+sys.argv[0] = "sloth-helper-sharing"
+runpy.run_path("/usr/libexec/sloth-os/sloth-helper", run_name="__main__")

@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "এই কম্পিউটাৰে কিমান দ্ৰুতকৈ ডাউনলোড কৰে সেয়া সীমিত কৰে, যাতে ঘৰৰ বাকী নেটৱৰ্ক দ্ৰুত থাকে: কল, খেল বা আন কম্পিউটাৰৰ বাবে। সদায় বা কেৱল আপডেট ডাউনলোডৰ সময়ত কাৰ্যকৰী হয়।",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/s ৰ পৰা 10 000 Mbit/s ৰ ভিতৰত এটা সীমা বাছক।",
   "Couldn't change the limit.": "সীমা সলনি কৰিব পৰা নগ'ল।",
-  "Restarting…": "পুনৰাৰম্ভ কৰি আছে…"
+  "Restarting…": "পুনৰাৰম্ভ কৰি আছে…",
+  "Set a password for other computers first.": "প্ৰথমে আন কম্পিউটাৰৰ বাবে এটা পাছৱৰ্ড ছেট কৰক।",
+  "Only your own folders can be shared.": "কেৱল নিজৰ ফোল্ডাৰহে শ্বেয়াৰ কৰিব পাৰি।",
+  "Couldn't share the folder.": "ফোল্ডাৰটো শ্বেয়াৰ কৰিব পৰা নগ'ল।",
+  "Share a folder": "ফোল্ডাৰ শ্বেয়াৰ কৰক",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "ঘৰৰ আন কম্পিউটাৰে (Windows, Mac, টিভি) ফোল্ডাৰটো খুলিব পাৰে। কেৱল আপোনাৰ ঘৰৰ নেটৱৰ্কেহে ইয়াত উপনীত হ'ব পাৰে, ইণ্টাৰনেটে কেতিয়াও নোৱাৰে।",
+  "Open it from another computer: {address}": "আন কম্পিউটাৰৰ পৰা খোলক: {address}",
+  "Without a password": "পাছৱৰ্ড অবিহনে",
+  "Others can change files too": "আনেও ফাইল সলনি কৰিব পাৰে",
+  "Stop sharing": "শ্বেয়াৰ কৰা বন্ধ কৰক",
+  "Without a password (anyone on your home network)": "পাছৱৰ্ড অবিহনে (আপোনাৰ ঘৰৰ নেটৱৰ্কৰ যিকোনো লোক)",
+  "Password for other computers": "আন কম্পিউটাৰৰ বাবে পাছৱৰ্ড",
+  "Other computers sign in with your user name ({user}) and this password.": "আন কম্পিউটাৰে আপোনাৰ ব্যৱহাৰকাৰীৰ নাম ({user}) আৰু এই পাছৱৰ্ডেৰে ছাইন ইন কৰে।",
+  "Leave it empty to keep the current password.": "বৰ্তমানৰ পাছৱৰ্ড ৰাখিবলৈ খালী ৰাখক।",
+  "Choose a folder to share…": "শ্বেয়াৰ কৰিবলগীয়া ফোল্ডাৰ বাছক…"
 }

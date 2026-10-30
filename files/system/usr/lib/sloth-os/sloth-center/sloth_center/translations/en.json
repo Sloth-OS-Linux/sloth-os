@@ -54,5 +54,19 @@
   "Open the installation guide": "Open the installation guide",
   "Download the Sloth OS ISO": "Download the Sloth OS ISO",
   "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "After writing the USB drive, restart the computer and choose the USB device from its boot menu.",
-  "Restarting…": "Restarting…"
+  "Restarting…": "Restarting…",
+  "Set a password for other computers first.": "Set a password for other computers first.",
+  "Only your own folders can be shared.": "Only your own folders can be shared.",
+  "Couldn't share the folder.": "Couldn't share the folder.",
+  "Share a folder": "Share a folder",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.",
+  "Open it from another computer: {address}": "Open it from another computer: {address}",
+  "Without a password": "Without a password",
+  "Others can change files too": "Others can change files too",
+  "Stop sharing": "Stop sharing",
+  "Without a password (anyone on your home network)": "Without a password (anyone on your home network)",
+  "Password for other computers": "Password for other computers",
+  "Other computers sign in with your user name ({user}) and this password.": "Other computers sign in with your user name ({user}) and this password.",
+  "Leave it empty to keep the current password.": "Leave it empty to keep the current password.",
+  "Choose a folder to share…": "Choose a folder to share…"
 }

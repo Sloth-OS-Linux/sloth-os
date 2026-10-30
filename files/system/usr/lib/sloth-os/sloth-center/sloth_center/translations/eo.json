@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limigas kiom rapide ĉi tiu komputilo elŝutas, por ke la cetera hejma reto restu rapida: por voko, ludo aŭ alia komputilo. Ĝi validas ĉiam, aŭ nur dum ĝisdatigoj elŝutiĝas.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Elektu limon inter 64 kbit/s kaj 10 000 Mbit/s.",
   "Couldn't change the limit.": "Ne eblis ŝanĝi la limon.",
-  "Restarting…": "Rekomencante…"
+  "Restarting…": "Rekomencante…",
+  "Set a password for other computers first.": "Unue agordu pasvorton por la aliaj komputiloj.",
+  "Only your own folders can be shared.": "Vi povas kunhavigi nur viajn proprajn dosierujojn.",
+  "Couldn't share the folder.": "Ne eblis kunhavigi la dosierujon.",
+  "Share a folder": "Kunhavigi dosierujon",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Aliaj hejmaj komputiloj (Windows, Mac, televidilo) povas malfermi la dosierujon. Nur via hejma reto atingas ĝin, neniam la interreto.",
+  "Open it from another computer: {address}": "Malfermu ĝin de alia komputilo: {address}",
+  "Without a password": "Sen pasvorto",
+  "Others can change files too": "Aliaj ankaŭ povas ŝanĝi dosierojn",
+  "Stop sharing": "Ĉesi kunhavigi",
+  "Without a password (anyone on your home network)": "Sen pasvorto (iu ajn en via hejma reto)",
+  "Password for other computers": "Pasvorto por aliaj komputiloj",
+  "Other computers sign in with your user name ({user}) and this password.": "Aliaj komputiloj ensalutas per via uzantnomo ({user}) kaj ĉi tiu pasvorto.",
+  "Leave it empty to keep the current password.": "Lasu malplena por konservi la nunan pasvorton.",
+  "Choose a folder to share…": "Elektu dosierujon por kunhavigi…"
 }

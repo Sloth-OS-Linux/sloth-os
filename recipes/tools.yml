@@ -25,6 +25,9 @@ modules:
         # Cloud storage (OneDrive, Google Drive) as a folder: /usr/libexec/sloth-os/cloud-drive
         - rclone
         - fuse3
+        # Folder sharing (Dolphin → Share, Sloth Center → Network folders): the computer shows up in Windows'
+        # Network window; it runs only while something is shared (/usr/libexec/sloth-os/file-sharing)
+        - wsdd
 
   - type: systemd
     system:

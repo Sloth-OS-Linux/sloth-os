@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Rajoittaa, kuinka nopeasti tämä tietokone lataa, jotta muu kotiverkko pysyy nopeana: puhelulle, pelille tai toiselle tietokoneelle. Se on voimassa aina tai vain päivitysten latautuessa.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Valitse rajoitus väliltä 64 kbit/s – 10 000 Mbit/s.",
   "Couldn't change the limit.": "Rajoitusta ei voitu muuttaa.",
-  "Restarting…": "Käynnistetään uudelleen…"
+  "Restarting…": "Käynnistetään uudelleen…",
+  "Set a password for other computers first.": "Aseta ensin salasana muille tietokoneille.",
+  "Only your own folders can be shared.": "Voit jakaa vain omia kansioitasi.",
+  "Couldn't share the folder.": "Kansion jakaminen epäonnistui.",
+  "Share a folder": "Jaa kansio",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Kodin muut tietokoneet (Windows, Mac, televisio) voivat avata kansion. Vain kotiverkkosi pääsee siihen, ei koskaan internet.",
+  "Open it from another computer: {address}": "Avaa se toiselta tietokoneelta: {address}",
+  "Without a password": "Ilman salasanaa",
+  "Others can change files too": "Muut voivat myös muuttaa tiedostoja",
+  "Stop sharing": "Lopeta jakaminen",
+  "Without a password (anyone on your home network)": "Ilman salasanaa (kuka tahansa kotiverkossasi)",
+  "Password for other computers": "Salasana muille tietokoneille",
+  "Other computers sign in with your user name ({user}) and this password.": "Muut tietokoneet kirjautuvat käyttäjänimelläsi ({user}) ja tällä salasanalla.",
+  "Leave it empty to keep the current password.": "Jätä tyhjäksi, niin nykyinen salasana säilyy.",
+  "Choose a folder to share…": "Valitse jaettava kansio…"
 }

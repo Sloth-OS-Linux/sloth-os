@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Begrenzt, wie schnell dieser Computer herunterlädt, damit der Rest deines Heimnetzes schnell bleibt: für ein Gespräch, ein Spiel oder einen anderen Computer. Sie gilt immer oder nur, während Updates herunterladen.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Wähle eine Grenze zwischen 64 kbit/s und 10 000 Mbit/s.",
   "Couldn't change the limit.": "Die Grenze konnte nicht geändert werden.",
-  "Restarting…": "Wird neu gestartet…"
+  "Restarting…": "Wird neu gestartet…",
+  "Set a password for other computers first.": "Lege zuerst ein Passwort für andere Computer fest.",
+  "Only your own folders can be shared.": "Nur deine eigenen Ordner können freigegeben werden.",
+  "Couldn't share the folder.": "Der Ordner konnte nicht freigegeben werden.",
+  "Share a folder": "Ordner freigeben",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Andere Computer zu Hause (Windows, Mac, ein Fernseher) können den Ordner öffnen. Nur dein Heimnetz erreicht ihn, nie das Internet.",
+  "Open it from another computer: {address}": "Von einem anderen Computer öffnen: {address}",
+  "Without a password": "Ohne Passwort",
+  "Others can change files too": "Andere können Dateien auch ändern",
+  "Stop sharing": "Freigabe beenden",
+  "Without a password (anyone on your home network)": "Ohne Passwort (jeder in deinem Heimnetz)",
+  "Password for other computers": "Passwort für andere Computer",
+  "Other computers sign in with your user name ({user}) and this password.": "Andere Computer melden sich mit deinem Benutzernamen ({user}) und diesem Passwort an.",
+  "Leave it empty to keep the current password.": "Leer lassen, um das aktuelle Passwort zu behalten.",
+  "Choose a folder to share…": "Ordner zum Freigeben wählen…"
 }

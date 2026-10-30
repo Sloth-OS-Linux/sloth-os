@@ -47,6 +47,7 @@ def main():
     from .devpanel import DevPanelController
     from .disks import DisksController
     from .netfolders import NetFoldersController
+    from .sharing import SharingController
     from .netlimit import NetLimitController
     from .drivers import DriversController
     from .environment import EnvironmentController
@@ -80,6 +81,7 @@ def main():
     feedback = FeedbackController()
     disks = DisksController()
     netfolders = NetFoldersController()
+    sharing = SharingController()
     netlimit = NetLimitController()
     backup = BackupController()
     advanced = AdvancedController()
@@ -109,6 +111,7 @@ def main():
     engine.rootContext().setContextProperty("feedback", feedback)
     engine.rootContext().setContextProperty("disks", disks)
     engine.rootContext().setContextProperty("netfolders", netfolders)
+    engine.rootContext().setContextProperty("sharing", sharing)
     engine.rootContext().setContextProperty("netlimit", netlimit)
     engine.rootContext().setContextProperty("backup", backup)
     engine.rootContext().setContextProperty("advanced", advanced)

@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Абмяжоўвае хуткасць спампоўвання на гэтым камп'ютары, каб астатняя хатняя сетка заставалася хуткай: для званка, гульні ці іншага камп'ютара. Дзейнічае заўсёды або толькі падчас спампоўвання абнаўленняў.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Выберыце абмежаванне ад 64 кбіт/с да 10 000 Мбіт/с.",
   "Couldn't change the limit.": "Не ўдалося змяніць абмежаванне.",
-  "Restarting…": "Перазапуск…"
+  "Restarting…": "Перазапуск…",
+  "Set a password for other computers first.": "Спачатку задайце пароль для іншых камп'ютараў.",
+  "Only your own folders can be shared.": "Можна адкрыць доступ толькі да сваіх папак.",
+  "Couldn't share the folder.": "Не ўдалося адкрыць агульны доступ да папкі.",
+  "Share a folder": "Агульны доступ да папкі",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Іншыя камп'ютары дома (Windows, Mac, тэлевізар) могуць адкрыць папку. Доступ ёсць толькі з хатняй сеткі, ніколі з інтэрнэту.",
+  "Open it from another computer: {address}": "Адкрыйце яе з іншага камп'ютара: {address}",
+  "Without a password": "Без пароля",
+  "Others can change files too": "Іншыя таксама могуць змяняць файлы",
+  "Stop sharing": "Закрыць доступ",
+  "Without a password (anyone on your home network)": "Без пароля (любы ў вашай хатняй сетцы)",
+  "Password for other computers": "Пароль для іншых камп'ютараў",
+  "Other computers sign in with your user name ({user}) and this password.": "Іншыя камп'ютары ўваходзяць з вашым імем карыстальніка ({user}) і гэтым паролем.",
+  "Leave it empty to keep the current password.": "Пакіньце пустым, каб захаваць цяперашні пароль.",
+  "Choose a folder to share…": "Выбраць папку для агульнага доступу…"
 }

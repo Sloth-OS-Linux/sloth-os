@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limita le velocitate de discargamento de iste computator, a fin que le resto de tu rete domestic remane rapide: pro un appello, un joco o un altere computator. Illo vale sempre, o solmente durante le discargamento de actualisationes.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Elige un limite inter 64 kbit/s e 10 000 Mbit/s.",
   "Couldn't change the limit.": "Non poteva cambiar le limite.",
-  "Restarting…": "Reinitiante…"
+  "Restarting…": "Reinitiante…",
+  "Set a password for other computers first.": "Prime defini un contrasigno pro le altere computatores.",
+  "Only your own folders can be shared.": "Tu pote solmente compartir tu proprie dossiers.",
+  "Couldn't share the folder.": "Non poteva compartir le dossier.",
+  "Share a folder": "Compartir un dossier",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Altere computatores in casa (Windows, Mac, un TV) pote aperir le dossier. Solmente tu rete domestic lo attinge, nunquam internet.",
+  "Open it from another computer: {address}": "Aperi lo ab un altere computator: {address}",
+  "Without a password": "Sin contrasigno",
+  "Others can change files too": "Alteres pote anque modificar files",
+  "Stop sharing": "Cessar de compartir",
+  "Without a password (anyone on your home network)": "Sin contrasigno (omnes in tu rete domestic)",
+  "Password for other computers": "Contrasigno pro altere computatores",
+  "Other computers sign in with your user name ({user}) and this password.": "Altere computatores accede con tu nomine de usator ({user}) e iste contrasigno.",
+  "Leave it empty to keep the current password.": "Lassa lo vacue pro mantener le contrasigno actual.",
+  "Choose a folder to share…": "Elige un dossier a compartir…"
 }

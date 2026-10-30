@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Begrenser hvor raskt denne datamaskinen laster ned, slik at resten av hjemmenettverket forblir raskt: for en samtale, et spill eller en annen datamaskin. Den gjelder alltid, eller bare mens oppdateringer lastes ned.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Velg en grense mellom 64 kbit/s og 10 000 Mbit/s.",
   "Couldn't change the limit.": "Kunne ikke endre grensen.",
-  "Restarting…": "Starter på nytt…"
+  "Restarting…": "Starter på nytt…",
+  "Set a password for other computers first.": "Angi først et passord for de andre datamaskinene.",
+  "Only your own folders can be shared.": "Du kan bare dele dine egne mapper.",
+  "Couldn't share the folder.": "Mappen kunne ikke deles.",
+  "Share a folder": "Del en mappe",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Andre datamaskiner hjemme (Windows, Mac, en TV) kan åpne mappen. Bare hjemmenettverket ditt når den, aldri internett.",
+  "Open it from another computer: {address}": "Åpne den fra en annen datamaskin: {address}",
+  "Without a password": "Uten passord",
+  "Others can change files too": "Andre kan også endre filer",
+  "Stop sharing": "Slutt å dele",
+  "Without a password (anyone on your home network)": "Uten passord (alle på hjemmenettverket ditt)",
+  "Password for other computers": "Passord for andre datamaskiner",
+  "Other computers sign in with your user name ({user}) and this password.": "Andre datamaskiner logger inn med brukernavnet ditt ({user}) og dette passordet.",
+  "Leave it empty to keep the current password.": "La feltet stå tomt for å beholde det nåværende passordet.",
+  "Choose a folder to share…": "Velg en mappe å dele…"
 }

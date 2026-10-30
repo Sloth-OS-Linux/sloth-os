@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Үй желісінің қалған бөлігі жылдам қалуы үшін осы компьютердің жүктеп алу жылдамдығын шектейді: қоңырау, ойын немесе басқа компьютер үшін. Әрқашан немесе тек жаңартулар жүктелгенде әрекет етеді.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 кбит/с пен 10 000 Мбит/с аралығындағы шекті таңдаңыз.",
   "Couldn't change the limit.": "Шекті өзгерту мүмкін болмады.",
-  "Restarting…": "Қайта іске қосылуда…"
+  "Restarting…": "Қайта іске қосылуда…",
+  "Set a password for other computers first.": "Алдымен басқа компьютерлер үшін құпиясөз орнатыңыз.",
+  "Only your own folders can be shared.": "Тек өз қалталарыңызды ортақ ете аласыз.",
+  "Couldn't share the folder.": "Қалтаны ортақ ету мүмкін болмады.",
+  "Share a folder": "Қалтаны ортақ ету",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Үйдегі басқа компьютерлер (Windows, Mac, теледидар) қалтаны аша алады. Оған тек үй желісі жетеді, интернет ешқашан.",
+  "Open it from another computer: {address}": "Басқа компьютерден ашыңыз: {address}",
+  "Without a password": "Құпиясөзсіз",
+  "Others can change files too": "Басқалар да файлдарды өзгерте алады",
+  "Stop sharing": "Ортақ етуді тоқтату",
+  "Without a password (anyone on your home network)": "Құпиясөзсіз (үй желіңіздегі кез келген адам)",
+  "Password for other computers": "Басқа компьютерлерге арналған құпиясөз",
+  "Other computers sign in with your user name ({user}) and this password.": "Басқа компьютерлер сіздің пайдаланушы атыңызбен ({user}) және осы құпиясөзбен кіреді.",
+  "Leave it empty to keep the current password.": "Ағымдағы құпиясөзді сақтау үшін бос қалдырыңыз.",
+  "Choose a folder to share…": "Ортақ ететін қалтаны таңдаңыз…"
 }

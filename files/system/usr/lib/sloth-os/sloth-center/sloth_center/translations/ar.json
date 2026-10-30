@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "يحدّ من سرعة التنزيل على هذا الحاسوب، لتبقى بقية شبكة المنزل سريعة: لمكالمة أو لعبة أو حاسوب آخر. يُطبَّق دائمًا، أو فقط أثناء تنزيل التحديثات.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "اختر حدًا بين 64 كيلوبت/ث و10000 ميغابت/ث.",
   "Couldn't change the limit.": "تعذّر تغيير الحد.",
-  "Restarting…": "جارٍ إعادة التشغيل…"
+  "Restarting…": "جارٍ إعادة التشغيل…",
+  "Set a password for other computers first.": "عيّن أولًا كلمة مرور للحواسيب الأخرى.",
+  "Only your own folders can be shared.": "يمكنك مشاركة مجلداتك فقط.",
+  "Couldn't share the folder.": "تعذّرت مشاركة المجلد.",
+  "Share a folder": "مشاركة مجلد",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "يمكن للحواسيب الأخرى في المنزل (Windows أو Mac أو تلفاز) فتح المجلد. لا تصل إليه إلا شبكتك المنزلية، ولا يصل إليه الإنترنت أبدًا.",
+  "Open it from another computer: {address}": "افتحه من حاسوب آخر: {address}",
+  "Without a password": "بدون كلمة مرور",
+  "Others can change files too": "يمكن للآخرين أيضًا تغيير الملفات",
+  "Stop sharing": "إيقاف المشاركة",
+  "Without a password (anyone on your home network)": "بدون كلمة مرور (أي شخص على شبكتك المنزلية)",
+  "Password for other computers": "كلمة مرور للحواسيب الأخرى",
+  "Other computers sign in with your user name ({user}) and this password.": "تسجّل الحواسيب الأخرى الدخول باسم المستخدم ({user}) وكلمة المرور هذه.",
+  "Leave it empty to keep the current password.": "اتركه فارغًا للإبقاء على كلمة المرور الحالية.",
+  "Choose a folder to share…": "اختر مجلدًا للمشاركة…"
 }

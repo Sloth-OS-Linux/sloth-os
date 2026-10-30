@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Membatasi seberapa cepat komputer ini mengunduh, agar sisa jaringan rumah tetap cepat: untuk panggilan, game, atau komputer lain. Berlaku selalu, atau hanya saat pembaruan diunduh.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Pilih batas antara 64 kbit/dtk dan 10 000 Mbit/dtk.",
   "Couldn't change the limit.": "Tidak dapat mengubah batas.",
-  "Restarting…": "Memulai ulang…"
+  "Restarting…": "Memulai ulang…",
+  "Set a password for other computers first.": "Atur dulu kata sandi untuk komputer lain.",
+  "Only your own folders can be shared.": "Hanya folder milikmu yang bisa dibagikan.",
+  "Couldn't share the folder.": "Tidak dapat membagikan folder.",
+  "Share a folder": "Bagikan folder",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Komputer lain di rumah (Windows, Mac, TV) bisa membuka folder ini. Hanya jaringan rumahmu yang bisa menjangkaunya, tidak pernah internet.",
+  "Open it from another computer: {address}": "Buka dari komputer lain: {address}",
+  "Without a password": "Tanpa kata sandi",
+  "Others can change files too": "Orang lain juga bisa mengubah file",
+  "Stop sharing": "Berhenti berbagi",
+  "Without a password (anyone on your home network)": "Tanpa kata sandi (siapa pun di jaringan rumahmu)",
+  "Password for other computers": "Kata sandi untuk komputer lain",
+  "Other computers sign in with your user name ({user}) and this password.": "Komputer lain masuk dengan nama penggunamu ({user}) dan kata sandi ini.",
+  "Leave it empty to keep the current password.": "Biarkan kosong untuk mempertahankan kata sandi saat ini.",
+  "Choose a folder to share…": "Pilih folder untuk dibagikan…"
 }

@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limite la vitesse de téléchargement de cet ordinateur, pour que le reste de votre réseau domestique reste rapide : pour un appel, un jeu ou un autre ordinateur. Elle s'applique toujours, ou seulement pendant le téléchargement des mises à jour.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Choisissez une limite entre 64 kbit/s et 10 000 Mbit/s.",
   "Couldn't change the limit.": "Impossible de modifier la limite.",
-  "Restarting…": "Redémarrage…"
+  "Restarting…": "Redémarrage…",
+  "Set a password for other computers first.": "Définissez d'abord un mot de passe pour les autres ordinateurs.",
+  "Only your own folders can be shared.": "Seuls vos propres dossiers peuvent être partagés.",
+  "Couldn't share the folder.": "Impossible de partager le dossier.",
+  "Share a folder": "Partager un dossier",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Les autres ordinateurs de la maison (Windows, Mac, une TV) peuvent ouvrir le dossier. Seul votre réseau domestique y accède, jamais Internet.",
+  "Open it from another computer: {address}": "L'ouvrir depuis un autre ordinateur : {address}",
+  "Without a password": "Sans mot de passe",
+  "Others can change files too": "Les autres peuvent aussi modifier les fichiers",
+  "Stop sharing": "Arrêter le partage",
+  "Without a password (anyone on your home network)": "Sans mot de passe (tout le monde sur votre réseau domestique)",
+  "Password for other computers": "Mot de passe pour les autres ordinateurs",
+  "Other computers sign in with your user name ({user}) and this password.": "Les autres ordinateurs se connectent avec votre nom d'utilisateur ({user}) et ce mot de passe.",
+  "Leave it empty to keep the current password.": "Laissez vide pour garder le mot de passe actuel.",
+  "Choose a folder to share…": "Choisir un dossier à partager…"
 }

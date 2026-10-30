@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Piirab, kui kiiresti see arvuti alla laadib, et ülejäänud koduvõrk jääks kiireks: kõne, mängu või teise arvuti jaoks. Kehtib alati või ainult uuenduste allalaadimise ajal.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Vali piirang vahemikus 64 kbit/s kuni 10 000 Mbit/s.",
   "Couldn't change the limit.": "Piirangut ei õnnestunud muuta.",
-  "Restarting…": "Taaskäivitamine…"
+  "Restarting…": "Taaskäivitamine…",
+  "Set a password for other computers first.": "Määra esmalt teistele arvutitele parool.",
+  "Only your own folders can be shared.": "Jagada saab ainult oma kaustu.",
+  "Couldn't share the folder.": "Kausta ei õnnestunud jagada.",
+  "Share a folder": "Jaga kausta",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Teised kodused arvutid (Windows, Mac, teler) saavad kausta avada. Sellele pääseb ligi ainult koduvõrk, mitte kunagi internet.",
+  "Open it from another computer: {address}": "Ava see teisest arvutist: {address}",
+  "Without a password": "Ilma paroolita",
+  "Others can change files too": "Teised saavad ka faile muuta",
+  "Stop sharing": "Lõpeta jagamine",
+  "Without a password (anyone on your home network)": "Ilma paroolita (igaüks sinu koduvõrgus)",
+  "Password for other computers": "Parool teistele arvutitele",
+  "Other computers sign in with your user name ({user}) and this password.": "Teised arvutid logivad sisse sinu kasutajanime ({user}) ja selle parooliga.",
+  "Leave it empty to keep the current password.": "Jäta tühjaks, et praegune parool alles jääks.",
+  "Choose a folder to share…": "Vali jagatav kaust…"
 }

@@ -56,4 +56,18 @@
     </defaults>
     <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper-netlimit</annotate>
   </action>
+  <!-- Always with the password (no keep, and no Sloth Center topic contains it): it opens the computer to the network -->
+  <action id="org.slothos.helper.sharing">
+    <description>Share a folder on the home network</description>
+    <description xml:lang="hu">Mappa megosztása az otthoni hálózaton</description>
+    <message>Sloth Center wants to share a folder on your home network. Enter your password to allow it.</message>
+    <message xml:lang="hu">A Sloth Központ meg szeretne osztani egy mappát az otthoni hálózaton. Ehhez add meg a jelszavad.</message>
+    <icon_name>sloth-os</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper-sharing</annotate>
+  </action>
 </policyconfig>

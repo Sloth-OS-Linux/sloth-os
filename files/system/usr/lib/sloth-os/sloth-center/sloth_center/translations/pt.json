@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limita a velocidade a que este computador transfere, para que o resto da sua rede doméstica continue rápida: para uma chamada, um jogo ou outro computador. Aplica-se sempre, ou só durante a transferência de atualizações.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Escolha um limite entre 64 kbit/s e 10 000 Mbit/s.",
   "Couldn't change the limit.": "Não foi possível alterar o limite.",
-  "Restarting…": "A reiniciar…"
+  "Restarting…": "A reiniciar…",
+  "Set a password for other computers first.": "Defina primeiro uma palavra-passe para os outros computadores.",
+  "Only your own folders can be shared.": "Só pode partilhar as suas próprias pastas.",
+  "Couldn't share the folder.": "Não foi possível partilhar a pasta.",
+  "Share a folder": "Partilhar uma pasta",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Outros computadores em casa (Windows, Mac, uma TV) podem abrir a pasta. Só a sua rede doméstica a alcança, nunca a Internet.",
+  "Open it from another computer: {address}": "Abra-a a partir de outro computador: {address}",
+  "Without a password": "Sem palavra-passe",
+  "Others can change files too": "Outros também podem alterar ficheiros",
+  "Stop sharing": "Parar de partilhar",
+  "Without a password (anyone on your home network)": "Sem palavra-passe (qualquer pessoa na sua rede doméstica)",
+  "Password for other computers": "Palavra-passe para outros computadores",
+  "Other computers sign in with your user name ({user}) and this password.": "Os outros computadores entram com o seu nome de utilizador ({user}) e esta palavra-passe.",
+  "Leave it empty to keep the current password.": "Deixe vazio para manter a palavra-passe atual.",
+  "Choose a folder to share…": "Escolher uma pasta para partilhar…"
 }

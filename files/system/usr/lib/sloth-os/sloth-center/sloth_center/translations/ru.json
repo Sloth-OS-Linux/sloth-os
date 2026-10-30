@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ограничивает скорость загрузки на этом компьютере, чтобы остальная домашняя сеть оставалась быстрой: для звонка, игры или другого компьютера. Действует всегда или только во время загрузки обновлений.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Выберите ограничение от 64 кбит/с до 10 000 Мбит/с.",
   "Couldn't change the limit.": "Не удалось изменить ограничение.",
-  "Restarting…": "Перезагрузка…"
+  "Restarting…": "Перезагрузка…",
+  "Set a password for other computers first.": "Сначала задайте пароль для других компьютеров.",
+  "Only your own folders can be shared.": "Можно открыть доступ только к своим папкам.",
+  "Couldn't share the folder.": "Не удалось открыть общий доступ к папке.",
+  "Share a folder": "Общий доступ к папке",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Другие компьютеры дома (Windows, Mac, телевизор) могут открыть папку. Доступ есть только из домашней сети, никогда из интернета.",
+  "Open it from another computer: {address}": "Откройте её с другого компьютера: {address}",
+  "Without a password": "Без пароля",
+  "Others can change files too": "Другие тоже могут изменять файлы",
+  "Stop sharing": "Закрыть доступ",
+  "Without a password (anyone on your home network)": "Без пароля (любой в вашей домашней сети)",
+  "Password for other computers": "Пароль для других компьютеров",
+  "Other computers sign in with your user name ({user}) and this password.": "Другие компьютеры входят с вашим именем пользователя ({user}) и этим паролем.",
+  "Leave it empty to keep the current password.": "Оставьте пустым, чтобы сохранить текущий пароль.",
+  "Choose a folder to share…": "Выбрать папку для общего доступа…"
 }

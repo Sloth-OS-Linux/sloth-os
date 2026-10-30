@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "ຈຳກັດຄວາມໄວການດາວໂຫຼດຂອງຄອມພິວເຕີນີ້ ເພື່ອໃຫ້ເຄືອຂ່າຍສ່ວນອື່ນໃນເຮືອນຍັງໄວ: ສຳລັບການໂທ, ເກມ ຫຼື ຄອມພິວເຕີອື່ນ. ມີຜົນສະເໝີ ຫຼື ສະເພາະຕອນດາວໂຫຼດການອັບເດດ.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "ເລືອກຂີດຈຳກັດລະຫວ່າງ 64 kbit/s ຫາ 10 000 Mbit/s.",
   "Couldn't change the limit.": "ບໍ່ສາມາດປ່ຽນຂີດຈຳກັດໄດ້.",
-  "Restarting…": "ກຳລັງເລີ່ມໃໝ່…"
+  "Restarting…": "ກຳລັງເລີ່ມໃໝ່…",
+  "Set a password for other computers first.": "ກະລຸນາຕັ້ງລະຫັດຜ່ານສຳລັບຄອມພິວເຕີອື່ນກ່ອນ.",
+  "Only your own folders can be shared.": "ທ່ານແບ່ງປັນໄດ້ສະເພາະໂຟນເດີຂອງທ່ານເອງ.",
+  "Couldn't share the folder.": "ບໍ່ສາມາດແບ່ງປັນໂຟນເດີໄດ້.",
+  "Share a folder": "ແບ່ງປັນໂຟນເດີ",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "ຄອມພິວເຕີອື່ນໃນເຮືອນ (Windows, Mac, ໂທລະທັດ) ສາມາດເປີດໂຟນເດີນີ້ໄດ້. ມີແຕ່ເຄືອຂ່າຍໃນເຮືອນເທົ່ານັ້ນທີ່ເຂົ້າເຖິງໄດ້, ອິນເຕີເນັດບໍ່ເຄີຍໄດ້.",
+  "Open it from another computer: {address}": "ເປີດຈາກຄອມພິວເຕີອື່ນ: {address}",
+  "Without a password": "ບໍ່ມີລະຫັດຜ່ານ",
+  "Others can change files too": "ຄົນອື່ນກໍປ່ຽນໄຟລ໌ໄດ້",
+  "Stop sharing": "ຢຸດການແບ່ງປັນ",
+  "Without a password (anyone on your home network)": "ບໍ່ມີລະຫັດຜ່ານ (ໃຜກໍໄດ້ໃນເຄືອຂ່າຍເຮືອນຂອງທ່ານ)",
+  "Password for other computers": "ລະຫັດຜ່ານສຳລັບຄອມພິວເຕີອື່ນ",
+  "Other computers sign in with your user name ({user}) and this password.": "ຄອມພິວເຕີອື່ນເຂົ້າສູ່ລະບົບດ້ວຍຊື່ຜູ້ໃຊ້ຂອງທ່ານ ({user}) ແລະລະຫັດຜ່ານນີ້.",
+  "Leave it empty to keep the current password.": "ປ່ອຍຫວ່າງໄວ້ເພື່ອໃຊ້ລະຫັດຜ່ານປັດຈຸບັນຕໍ່.",
+  "Choose a folder to share…": "ເລືອກໂຟນເດີທີ່ຈະແບ່ງປັນ…"
 }

@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limita la velocitat de baixada d'aquest ordinador, perquè la resta de la xarxa de casa continuï ràpida: per a una trucada, un joc o un altre ordinador. S'aplica sempre, o només mentre es baixen actualitzacions.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Tria un límit entre 64 kbit/s i 10 000 Mbit/s.",
   "Couldn't change the limit.": "No s'ha pogut canviar el límit.",
-  "Restarting…": "S'està reiniciant…"
+  "Restarting…": "S'està reiniciant…",
+  "Set a password for other computers first.": "Primer estableix una contrasenya per als altres ordinadors.",
+  "Only your own folders can be shared.": "Només pots compartir les teves carpetes.",
+  "Couldn't share the folder.": "No s'ha pogut compartir la carpeta.",
+  "Share a folder": "Comparteix una carpeta",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Altres ordinadors de casa (Windows, Mac, un televisor) poden obrir la carpeta. Només la xarxa de casa hi arriba, mai internet.",
+  "Open it from another computer: {address}": "Obre-la des d'un altre ordinador: {address}",
+  "Without a password": "Sense contrasenya",
+  "Others can change files too": "Els altres també poden canviar fitxers",
+  "Stop sharing": "Deixa de compartir",
+  "Without a password (anyone on your home network)": "Sense contrasenya (qualsevol de la xarxa de casa)",
+  "Password for other computers": "Contrasenya per als altres ordinadors",
+  "Other computers sign in with your user name ({user}) and this password.": "Els altres ordinadors entren amb el teu nom d'usuari ({user}) i aquesta contrasenya.",
+  "Leave it empty to keep the current password.": "Deixa-ho buit per mantenir la contrasenya actual.",
+  "Choose a folder to share…": "Tria una carpeta per compartir…"
 }

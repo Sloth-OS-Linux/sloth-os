@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ograničava koliko brzo ovo računalo preuzima, kako bi ostatak kućne mreže ostao brz: za poziv, igru ili drugo računalo. Vrijedi uvijek ili samo dok se preuzimaju ažuriranja.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Odaberite ograničenje između 64 kbit/s i 10 000 Mbit/s.",
   "Couldn't change the limit.": "Ograničenje nije moguće promijeniti.",
-  "Restarting…": "Ponovno pokretanje…"
+  "Restarting…": "Ponovno pokretanje…",
+  "Set a password for other computers first.": "Najprije postavite lozinku za druga računala.",
+  "Only your own folders can be shared.": "Možete dijeliti samo vlastite mape.",
+  "Couldn't share the folder.": "Mapu nije moguće podijeliti.",
+  "Share a folder": "Dijeli mapu",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Druga računala kod kuće (Windows, Mac, televizor) mogu otvoriti mapu. Pristupa joj samo kućna mreža, nikad internet.",
+  "Open it from another computer: {address}": "Otvorite je s drugog računala: {address}",
+  "Without a password": "Bez lozinke",
+  "Others can change files too": "I drugi mogu mijenjati datoteke",
+  "Stop sharing": "Prestani dijeliti",
+  "Without a password (anyone on your home network)": "Bez lozinke (bilo tko na vašoj kućnoj mreži)",
+  "Password for other computers": "Lozinka za druga računala",
+  "Other computers sign in with your user name ({user}) and this password.": "Druga računala prijavljuju se vašim korisničkim imenom ({user}) i ovom lozinkom.",
+  "Leave it empty to keep the current password.": "Ostavite prazno da zadržite trenutnu lozinku.",
+  "Choose a folder to share…": "Odaberite mapu za dijeljenje…"
 }

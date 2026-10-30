@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Omezuje, jak rychle tento počítač stahuje, aby zbytek domácí sítě zůstal rychlý: pro hovor, hru nebo jiný počítač. Platí vždy, nebo jen při stahování aktualizací.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Zvolte omezení mezi 64 kbit/s a 10 000 Mbit/s.",
   "Couldn't change the limit.": "Omezení se nepodařilo změnit.",
-  "Restarting…": "Restartování…"
+  "Restarting…": "Restartování…",
+  "Set a password for other computers first.": "Nejprve nastavte heslo pro ostatní počítače.",
+  "Only your own folders can be shared.": "Sdílet lze jen vlastní složky.",
+  "Couldn't share the folder.": "Složku se nepodařilo sdílet.",
+  "Share a folder": "Sdílet složku",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Ostatní počítače doma (Windows, Mac, televize) mohou složku otevřít. Dostane se k ní jen domácí síť, nikdy internet.",
+  "Open it from another computer: {address}": "Otevřete ji z jiného počítače: {address}",
+  "Without a password": "Bez hesla",
+  "Others can change files too": "Ostatní mohou soubory i měnit",
+  "Stop sharing": "Ukončit sdílení",
+  "Without a password (anyone on your home network)": "Bez hesla (kdokoli ve vaší domácí síti)",
+  "Password for other computers": "Heslo pro ostatní počítače",
+  "Other computers sign in with your user name ({user}) and this password.": "Ostatní počítače se přihlásí vaším uživatelským jménem ({user}) a tímto heslem.",
+  "Leave it empty to keep the current password.": "Ponechte prázdné, chcete-li zachovat současné heslo.",
+  "Choose a folder to share…": "Vybrat složku ke sdílení…"
 }

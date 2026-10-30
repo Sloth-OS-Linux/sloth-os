@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Kufizon sa shpejt shkarkon ky kompjuter, që pjesa tjetër e rrjetit të shtëpisë të mbetet e shpejtë: për një telefonatë, një lojë ose një kompjuter tjetër. Vlen gjithmonë ose vetëm kur shkarkohen përditësime.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Zgjidh një kufi midis 64 kbit/s dhe 10 000 Mbit/s.",
   "Couldn't change the limit.": "Kufiri nuk mund të ndryshohej.",
-  "Restarting…": "Po riniset…"
+  "Restarting…": "Po riniset…",
+  "Set a password for other computers first.": "Vendos fillimisht një fjalëkalim për kompjuterët e tjerë.",
+  "Only your own folders can be shared.": "Mund të ndash vetëm dosjet e tua.",
+  "Couldn't share the folder.": "Dosja nuk u nda dot.",
+  "Share a folder": "Ndaj një dosje",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Kompjuterët e tjerë në shtëpi (Windows, Mac, një televizor) mund ta hapin dosjen. Vetëm rrjeti i shtëpisë e arrin, kurrë interneti.",
+  "Open it from another computer: {address}": "Hape nga një kompjuter tjetër: {address}",
+  "Without a password": "Pa fjalëkalim",
+  "Others can change files too": "Edhe të tjerët mund t'i ndryshojnë skedarët",
+  "Stop sharing": "Ndalo ndarjen",
+  "Without a password (anyone on your home network)": "Pa fjalëkalim (kushdo në rrjetin e shtëpisë)",
+  "Password for other computers": "Fjalëkalim për kompjuterët e tjerë",
+  "Other computers sign in with your user name ({user}) and this password.": "Kompjuterët e tjerë hyjnë me emrin tënd të përdoruesit ({user}) dhe këtë fjalëkalim.",
+  "Leave it empty to keep the current password.": "Lëre bosh për të mbajtur fjalëkalimin e tanishëm.",
+  "Choose a folder to share…": "Zgjidh një dosje për ta ndarë…"
 }

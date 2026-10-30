@@ -1,6 +1,7 @@
 // Disks: the drives' usage and health, deleting unneeded files.
 import QtQuick
 import QtQuick.Controls as QQC2
+import QtQuick.Dialogs
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
 
@@ -17,6 +18,7 @@ Kirigami.ScrollablePage {
     Component.onCompleted: {
         if (!disks.usage.items) disks.measure()
         if (!netfolders.searched) netfolders.search()
+        sharing.refresh()
     }
 
     actions: [
@@ -314,6 +316,112 @@ Kirigami.ScrollablePage {
                     visible: netfolders.message !== ""
                     type: netfolders.problem ? Kirigami.MessageType.Warning : Kirigami.MessageType.Information
                     text: netfolders.message
+                }
+            }
+        }
+
+        // --- Sharing a folder on the home network; turning it on always asks for the password (sharing.py) ----
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        Kirigami.Heading { level: 3; text: L.t("Share a folder") }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.8
+                            text: L.t("Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.")
+                        }
+                    }
+                    QQC2.BusyIndicator {
+                        visible: sharing.busy
+                        running: visible
+                    }
+                }
+
+                // The folders shared now
+                Repeater {
+                    model: sharing.shares
+                    delegate: RowLayout {
+                        id: shareRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: "folder-remote"
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: implicitWidth
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideMiddle; text: shareRow.modelData.path; font.bold: true }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                opacity: 0.7
+                                text: L.tf("Open it from another computer: {address}", { address: shareRow.modelData.address })
+                                      + (shareRow.modelData.guests ? " · " + L.t("Without a password") : "")
+                                      + (shareRow.modelData.write ? " · " + L.t("Others can change files too") : "")
+                            }
+                        }
+                        QQC2.Button {
+                            enabled: !sharing.busy
+                            text: L.t("Stop sharing")
+                            icon.name: "list-remove"
+                            onClicked: sharing.removeShare(shareRow.modelData.name)
+                        }
+                    }
+                }
+
+                QQC2.CheckBox {
+                    id: shareGuests
+                    text: L.t("Without a password (anyone on your home network)")
+                }
+                QQC2.CheckBox {
+                    id: shareWrite
+                    text: L.t("Others can change files too")
+                }
+                Kirigami.PasswordField {
+                    id: sharePassword
+                    Layout.fillWidth: true
+                    visible: !shareGuests.checked
+                    placeholderText: L.t("Password for other computers")
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    visible: !shareGuests.checked
+                    wrapMode: Text.Wrap
+                    opacity: 0.7
+                    text: L.tf("Other computers sign in with your user name ({user}) and this password.", { user: sharing.user })
+                          + (sharing.hasPassword ? " " + L.t("Leave it empty to keep the current password.") : "")
+                }
+                QQC2.Button {
+                    enabled: !sharing.busy && (shareGuests.checked || sharing.hasPassword || sharePassword.text !== "")
+                    icon.name: "folder-remote"
+                    text: L.t("Choose a folder to share…")
+                    onClicked: pickShareFolder.open()
+                }
+                FolderDialog {
+                    id: pickShareFolder
+                    title: L.t("Choose a folder to share…")
+                    onAccepted: {
+                        sharing.addShare(selectedFolder.toString(), shareWrite.checked, shareGuests.checked,
+                                         shareGuests.checked ? "" : sharePassword.text)
+                        sharePassword.text = ""
+                    }
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: sharing.message !== ""
+                    type: sharing.problem ? Kirigami.MessageType.Warning : Kirigami.MessageType.Information
+                    text: sharing.message
                 }
             }
         }

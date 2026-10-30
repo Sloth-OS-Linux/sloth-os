@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "このコンピューターのダウンロード速度を制限し、家庭内の他のネットワーク利用（通話、ゲーム、他のコンピューター）を快適に保ちます。常に、または更新のダウンロード中のみ有効にできます。",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/秒から 10 000 Mbit/秒の間で制限を選んでください。",
   "Couldn't change the limit.": "制限を変更できませんでした。",
-  "Restarting…": "再起動しています…"
+  "Restarting…": "再起動しています…",
+  "Set a password for other computers first.": "まずほかのコンピューター用のパスワードを設定してください。",
+  "Only your own folders can be shared.": "共有できるのは自分のフォルダーだけです。",
+  "Couldn't share the folder.": "フォルダーを共有できませんでした。",
+  "Share a folder": "フォルダーを共有",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "家のほかのコンピューター (Windows、Mac、テレビ) がこのフォルダーを開けます。届くのは家のネットワークだけで、インターネットからは決して届きません。",
+  "Open it from another computer: {address}": "ほかのコンピューターから開く: {address}",
+  "Without a password": "パスワードなし",
+  "Others can change files too": "ほかの人もファイルを変更できる",
+  "Stop sharing": "共有を停止",
+  "Without a password (anyone on your home network)": "パスワードなし (家のネットワークの誰でも)",
+  "Password for other computers": "ほかのコンピューター用のパスワード",
+  "Other computers sign in with your user name ({user}) and this password.": "ほかのコンピューターはあなたのユーザー名 ({user}) とこのパスワードでサインインします。",
+  "Leave it empty to keep the current password.": "今のパスワードのままにするには空欄にしてください。",
+  "Choose a folder to share…": "共有するフォルダーを選ぶ…"
 }

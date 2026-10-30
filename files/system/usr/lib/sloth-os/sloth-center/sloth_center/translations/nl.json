@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Beperkt hoe snel deze computer downloadt, zodat de rest van je thuisnetwerk snel blijft: voor een gesprek, een game of een andere computer. Het geldt altijd, of alleen tijdens het downloaden van updates.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Kies een limiet tussen 64 kbit/s en 10 000 Mbit/s.",
   "Couldn't change the limit.": "Kan de limiet niet wijzigen.",
-  "Restarting…": "Opnieuw opstarten…"
+  "Restarting…": "Opnieuw opstarten…",
+  "Set a password for other computers first.": "Stel eerst een wachtwoord in voor andere computers.",
+  "Only your own folders can be shared.": "Alleen je eigen mappen kunnen worden gedeeld.",
+  "Couldn't share the folder.": "De map kon niet worden gedeeld.",
+  "Share a folder": "Een map delen",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Andere computers thuis (Windows, Mac, een tv) kunnen de map openen. Alleen je thuisnetwerk kan erbij, nooit het internet.",
+  "Open it from another computer: {address}": "Open hem vanaf een andere computer: {address}",
+  "Without a password": "Zonder wachtwoord",
+  "Others can change files too": "Anderen kunnen ook bestanden wijzigen",
+  "Stop sharing": "Delen stoppen",
+  "Without a password (anyone on your home network)": "Zonder wachtwoord (iedereen op je thuisnetwerk)",
+  "Password for other computers": "Wachtwoord voor andere computers",
+  "Other computers sign in with your user name ({user}) and this password.": "Andere computers melden zich aan met je gebruikersnaam ({user}) en dit wachtwoord.",
+  "Leave it empty to keep the current password.": "Laat leeg om het huidige wachtwoord te houden.",
+  "Choose a folder to share…": "Kies een map om te delen…"
 }

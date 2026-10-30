@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Riboja, kaip greitai šis kompiuteris siunčiasi, kad likęs namų tinklas liktų greitas: skambučiui, žaidimui ar kitam kompiuteriui. Galioja visada arba tik kol atsisiunčiami naujinimai.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Pasirinkite ribą nuo 64 kbit/s iki 10 000 Mbit/s.",
   "Couldn't change the limit.": "Nepavyko pakeisti ribos.",
-  "Restarting…": "Paleidžiama iš naujo…"
+  "Restarting…": "Paleidžiama iš naujo…",
+  "Set a password for other computers first.": "Pirmiausia nustatykite slaptažodį kitiems kompiuteriams.",
+  "Only your own folders can be shared.": "Bendrinti galima tik savo aplankus.",
+  "Couldn't share the folder.": "Nepavyko bendrinti aplanko.",
+  "Share a folder": "Bendrinti aplanką",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Kiti namų kompiuteriai (Windows, Mac, televizorius) gali atidaryti aplanką. Jį pasiekia tik namų tinklas, niekada internetas.",
+  "Open it from another computer: {address}": "Atidarykite jį iš kito kompiuterio: {address}",
+  "Without a password": "Be slaptažodžio",
+  "Others can change files too": "Kiti taip pat gali keisti failus",
+  "Stop sharing": "Nustoti bendrinti",
+  "Without a password (anyone on your home network)": "Be slaptažodžio (bet kas jūsų namų tinkle)",
+  "Password for other computers": "Slaptažodis kitiems kompiuteriams",
+  "Other computers sign in with your user name ({user}) and this password.": "Kiti kompiuteriai prisijungia jūsų naudotojo vardu ({user}) ir šiuo slaptažodžiu.",
+  "Leave it empty to keep the current password.": "Palikite tuščią, kad liktų dabartinis slaptažodis.",
+  "Choose a folder to share…": "Pasirinkite aplanką bendrinti…"
 }

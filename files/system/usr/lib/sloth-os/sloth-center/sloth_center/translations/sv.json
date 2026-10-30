@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Begränsar hur snabbt den här datorn laddar ner, så att resten av hemnätverket förblir snabbt: för ett samtal, ett spel eller en annan dator. Den gäller alltid eller bara medan uppdateringar laddas ner.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Välj en gräns mellan 64 kbit/s och 10 000 Mbit/s.",
   "Couldn't change the limit.": "Det gick inte att ändra gränsen.",
-  "Restarting…": "Startar om…"
+  "Restarting…": "Startar om…",
+  "Set a password for other computers first.": "Ange först ett lösenord för de andra datorerna.",
+  "Only your own folders can be shared.": "Du kan bara dela dina egna mappar.",
+  "Couldn't share the folder.": "Mappen kunde inte delas.",
+  "Share a folder": "Dela en mapp",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Andra datorer hemma (Windows, Mac, en tv) kan öppna mappen. Bara ditt hemnätverk når den, aldrig internet.",
+  "Open it from another computer: {address}": "Öppna den från en annan dator: {address}",
+  "Without a password": "Utan lösenord",
+  "Others can change files too": "Andra kan också ändra filer",
+  "Stop sharing": "Sluta dela",
+  "Without a password (anyone on your home network)": "Utan lösenord (alla i ditt hemnätverk)",
+  "Password for other computers": "Lösenord för andra datorer",
+  "Other computers sign in with your user name ({user}) and this password.": "Andra datorer loggar in med ditt användarnamn ({user}) och det här lösenordet.",
+  "Leave it empty to keep the current password.": "Lämna tomt för att behålla det nuvarande lösenordet.",
+  "Choose a folder to share…": "Välj en mapp att dela…"
 }

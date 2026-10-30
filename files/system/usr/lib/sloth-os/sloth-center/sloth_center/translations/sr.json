@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ограничава колико брзо овај рачунар преузима, да би остатак кућне мреже остао брз: за позив, игру или други рачунар. Важи увек или само док се преузимају ажурирања.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Изаберите ограничење између 64 kbit/s и 10 000 Mbit/s.",
   "Couldn't change the limit.": "Ограничење не може да се промени.",
-  "Restarting…": "Поновно покретање…"
+  "Restarting…": "Поновно покретање…",
+  "Set a password for other computers first.": "Прво поставите лозинку за друге рачунаре.",
+  "Only your own folders can be shared.": "Можете делити само своје фасцикле.",
+  "Couldn't share the folder.": "Дељење фасцикле није успело.",
+  "Share a folder": "Дели фасциклу",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Други рачунари код куће (Windows, Mac, телевизор) могу да отворе фасциклу. Приступа јој само кућна мрежа, никада интернет.",
+  "Open it from another computer: {address}": "Отворите је са другог рачунара: {address}",
+  "Without a password": "Без лозинке",
+  "Others can change files too": "И други могу да мењају датотеке",
+  "Stop sharing": "Заустави дељење",
+  "Without a password (anyone on your home network)": "Без лозинке (било ко на вашој кућној мрежи)",
+  "Password for other computers": "Лозинка за друге рачунаре",
+  "Other computers sign in with your user name ({user}) and this password.": "Други рачунари се пријављују вашим корисничким именом ({user}) и овом лозинком.",
+  "Leave it empty to keep the current password.": "Оставите празно да задржите тренутну лозинку.",
+  "Choose a folder to share…": "Изаберите фасциклу за дељење…"
 }

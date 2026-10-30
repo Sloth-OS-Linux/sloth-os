@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Begrænser, hvor hurtigt denne computer downloader, så resten af hjemmenetværket forbliver hurtigt: til et opkald, et spil eller en anden computer. Den gælder altid eller kun, mens opdateringer downloades.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Vælg en grænse mellem 64 kbit/s og 10 000 Mbit/s.",
   "Couldn't change the limit.": "Grænsen kunne ikke ændres.",
-  "Restarting…": "Genstarter…"
+  "Restarting…": "Genstarter…",
+  "Set a password for other computers first.": "Angiv først en adgangskode til de andre computere.",
+  "Only your own folders can be shared.": "Du kan kun dele dine egne mapper.",
+  "Couldn't share the folder.": "Mappen kunne ikke deles.",
+  "Share a folder": "Del en mappe",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Andre computere derhjemme (Windows, Mac, et tv) kan åbne mappen. Kun dit hjemmenetværk kan nå den, aldrig internettet.",
+  "Open it from another computer: {address}": "Åbn den fra en anden computer: {address}",
+  "Without a password": "Uden adgangskode",
+  "Others can change files too": "Andre kan også ændre filer",
+  "Stop sharing": "Stop deling",
+  "Without a password (anyone on your home network)": "Uden adgangskode (alle på dit hjemmenetværk)",
+  "Password for other computers": "Adgangskode til andre computere",
+  "Other computers sign in with your user name ({user}) and this password.": "Andre computere logger ind med dit brugernavn ({user}) og denne adgangskode.",
+  "Leave it empty to keep the current password.": "Lad feltet være tomt for at beholde den nuværende adgangskode.",
+  "Choose a folder to share…": "Vælg en mappe at dele…"
 }

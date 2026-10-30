@@ -880,5 +880,19 @@
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ограничава колко бързо изтегля този компютър, за да остане бърза останалата домашна мрежа: за разговор, игра или друг компютър. Важи винаги или само докато се изтеглят обновления.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Изберете ограничение между 64 kbit/s и 10 000 Mbit/s.",
   "Couldn't change the limit.": "Ограничението не можа да бъде променено.",
-  "Restarting…": "Рестартиране…"
+  "Restarting…": "Рестартиране…",
+  "Set a password for other computers first.": "Първо задайте парола за другите компютри.",
+  "Only your own folders can be shared.": "Можете да споделяте само свои папки.",
+  "Couldn't share the folder.": "Папката не можа да бъде споделена.",
+  "Share a folder": "Споделяне на папка",
+  "Other computers at home (Windows, Mac, a TV) can open the folder. Only your home network can reach it, never the internet.": "Другите компютри у дома (Windows, Mac, телевизор) могат да отворят папката. Достъп има само домашната мрежа, никога интернет.",
+  "Open it from another computer: {address}": "Отворете я от друг компютър: {address}",
+  "Without a password": "Без парола",
+  "Others can change files too": "Другите също могат да променят файлове",
+  "Stop sharing": "Спиране на споделянето",
+  "Without a password (anyone on your home network)": "Без парола (всеки в домашната ви мрежа)",
+  "Password for other computers": "Парола за другите компютри",
+  "Other computers sign in with your user name ({user}) and this password.": "Другите компютри влизат с вашето потребителско име ({user}) и тази парола.",
+  "Leave it empty to keep the current password.": "Оставете празно, за да запазите текущата парола.",
+  "Choose a folder to share…": "Изберете папка за споделяне…"
 }
