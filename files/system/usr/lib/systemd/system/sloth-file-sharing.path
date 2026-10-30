@@ -1,8 +1,10 @@
 [Unit]
-Description=Sloth OS: folder sharing, waiting for the first shared folder
+Description=Sloth OS: folder sharing, watching the shared folders (Dolphin → Share)
 
 [Path]
+# at startup if something is shared, then at every new or removed share
 DirectoryNotEmpty=/var/lib/samba/usershares
+PathChanged=/var/lib/samba/usershares
 
 [Install]
 WantedBy=multi-user.target

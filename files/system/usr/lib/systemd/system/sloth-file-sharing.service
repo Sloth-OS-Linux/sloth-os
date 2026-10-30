@@ -4,5 +4,4 @@ After=network.target firewalld.service
 
 [Service]
 Type=oneshot
-RemainAfterExit=yes
 ExecStart=-/usr/libexec/sloth-os/file-sharing serve

@@ -7,18 +7,21 @@ Dolphin's Share tab uses Samba's "usershares". Out of the box it got stuck (Redd
 - the Samba server (smb) is off, the firewall blocks its port (445), and SELinux does not let it read the folders.
 
 As safe as it can be: nobody is put into the group automatically (Dolphin asks for the administrator password, as
-Windows does to turn sharing on), only folders in the home folders can be shared (not the whole system), and only
-the local network can connect (never the internet, not even over IPv6).
+Windows does to turn sharing on), Samba can read only the home folders and the folders that are really shared
+(not the whole system), and only the local network can connect (never the internet, not even over IPv6).
 
 groups: at startup, before the login screen: the group goes into /etc/group, so Dolphin's step works.
-serve:  once the first folder is shared (sloth-file-sharing.path): the firewall lets Samba in from the local network,
-        SELinux lets it read the home folders, and the Samba server starts. Nothing of this runs while nothing is
-        shared.
+serve:  whenever the shared folders change (sloth-file-sharing.path): a shared folder on another disk gets Samba's
+        SELinux label (samba_share_t), the firewall lets Samba in from the local network and the Samba server
+        starts. When nothing is shared any more, the server stops and the firewall closes again.
 """
+import os
+import re
 import subprocess
 import sys
 
 GROUP = "usershares"
+SHARES = "/var/lib/samba/usershares"
 
 
 def ensure_group():
@@ -51,12 +54,64 @@ LOCAL = [("ipv4", "10.0.0.0/8"), ("ipv4", "172.16.0.0/12"), ("ipv4", "192.168.0.
          ("ipv6", "fe80::/10"), ("ipv6", "fc00::/7")]
 
 
-def serve():
+def shared_paths():
+    """The folders of Dolphin's shares (one file per share in SHARES, with a "path=" line), with the uid of the
+    account that shared it (the owner of the share's file)."""
+    shares = []
+    try:
+        names = os.listdir(SHARES)
+    except OSError:
+        return shares
+    for name in names:
+        file = os.path.join(SHARES, name)
+        try:
+            uid = os.stat(file).st_uid
+            with open(file, encoding="utf-8", errors="replace") as f:
+                for line in f:
+                    if line.startswith("path="):
+                        shares.append((line[5:].strip(), uid))
+        except OSError:
+            pass
+    return shares
+
+
+def label(path, uid):
+    """Samba may read this folder and what is in it, nothing else; it stays so after a relabel too.
+    Only a person's own folder: the group's members can write a share's file by hand too, and a path like /etc
+    must never get the label."""
+    path = os.path.realpath(path)
+    if path.startswith(("/var/home/", "/home/")):
+        return  # home folders: samba_enable_home_dirs
+    try:
+        st = os.stat(path)
+    except OSError:
+        return
+    if uid < 1000 or st.st_uid != uid or not os.path.isdir(path) or path.count("/") < 3:
+        return
+    rule = re.escape(path) + "(/.*)?"
+    if subprocess.run(["semanage", "fcontext", "--add", "--type", "samba_share_t", rule],
+                      capture_output=True).returncode != 0:
+        subprocess.run(["semanage", "fcontext", "--modify", "--type", "samba_share_t", rule], capture_output=True)
+    subprocess.run(["restorecon", "-R", path], capture_output=True)
+
+
+def firewall(action):
     # runtime only: the next startup asks again, and only if something is still shared
     for family, net in LOCAL:
-        subprocess.run(["firewall-cmd", f"--add-rich-rule=rule family={family} source address={net} "
+        subprocess.run(["firewall-cmd", f"--{action}-rich-rule=rule family={family} source address={net} "
                         "service name=samba accept"], capture_output=True)
+
+
+def serve():
+    shares = shared_paths()
+    if not shares:
+        subprocess.run(["systemctl", "stop", "smb.service"], check=False)
+        firewall("remove")
+        return
+    for path, uid in shares:
+        label(path, uid)
     subprocess.run(["setsebool", "samba_enable_home_dirs=1"], capture_output=True)
+    firewall("add")
     subprocess.run(["systemctl", "start", "smb.service"], check=False)
 
 
