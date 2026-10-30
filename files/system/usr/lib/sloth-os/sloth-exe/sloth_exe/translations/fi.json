@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} löytyy myös Discoverista. Se versio sopii paremmin järjestelmään ja päivittyy itsestään, joten suosittelemme sitä.",
   "choose.native_broken": "Tämän ohjelman Windows-versio ei toimi täällä luotettavasti. Linux-versio ({name}) toimii, joten suosittelemme sitä.",
   "choose.native_heroic": "Epic Gamesin ja GOG:n peleihin suosittelemme Heroic-käynnistintä: se on tehty Linuxille, asentuu luotettavasti ja käynnistää pelit samalla tavalla kuin Steam. Kirjaudut sisään nykyisellä tililläsi, ja ostamasi pelit ovat siellä myös.",
+  "choose.windows_note": "Useimmat Windows-ohjelmat toimivat täällä, mutta eivät kaikki. Jos tämä ei toimi, etsi se tai samanlainen sovellus Discoverista.",
 
   "button.cancel": "Peruuta",
   "button.run_only": "Käynnistä vain",

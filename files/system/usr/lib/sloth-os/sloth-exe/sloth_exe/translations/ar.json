@@ -19,6 +19,7 @@
   "choose.flathub_available": "يتوفر {name} في Discover أيضًا. تلك النسخة أنسب للنظام وتُحدِّث نفسها، لذا ننصح بها.",
   "choose.native_broken": "إصدار Windows من هذا البرنامج لا يعمل بشكل موثوق هنا. أما إصدار Linux ‏({name}) فيعمل، لذا ننصح به.",
   "choose.native_heroic": "لألعاب Epic Games وGOG ننصح بمشغّل Heroic: صُنع لنظام Linux، ويُثبَّت بشكل موثوق، ويشغّل الألعاب كما يفعل Steam. تسجّل الدخول بحسابك الحالي، وتجد ألعابك المشتراة هناك أيضًا.",
+  "choose.windows_note": "معظم برامج Windows تعمل هنا، لكن ليس كلها. إن لم يعمل هذا البرنامج، فابحث عنه أو عن تطبيق مشابه في Discover.",
 
   "button.cancel": "إلغاء",
   "button.run_only": "تشغيل فقط",

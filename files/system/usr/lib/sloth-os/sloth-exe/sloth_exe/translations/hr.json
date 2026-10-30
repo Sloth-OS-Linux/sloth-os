@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} postoji i u Discoveru. Ta se verzija bolje uklapa u sustav i sama se ažurira, pa je preporučujemo.",
   "choose.native_broken": "Verzija ovog programa za Windows ovdje ne radi pouzdano. Verzija za Linux ({name}) radi, zato preporučujemo nju.",
   "choose.native_heroic": "Za igre s Epic Gamesa i GOG-a preporučujemo pokretač Heroic: napravljen je za Linux, pouzdano se instalira i pokreće igre jednako kao Steam. Prijavljujete se svojim postojećim računom, a kupljene igre su i tamo.",
+  "choose.windows_note": "Većina programa za Windows ovdje radi, ali ne svi. Ako ovaj ne radi, potražite ga ili sličnu aplikaciju u Discoveru.",
 
   "button.cancel": "Odustani",
   "button.run_only": "Samo pokreni",

@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} al è ancje in Discover. Chê version si integre miôr cul sisteme e si inzorne di bessole, duncje le conseìn.",
   "choose.native_broken": "La version par Windows di chest program achì no funzione in maniere sigure. La version par Linux ({name}) sì, par chel o conseìn chê.",
   "choose.native_heroic": "Pai zûcs di Epic Games e GOG o conseìn il inviadôr Heroic: al è fat par Linux, si instale cence problemis e al invie i zûcs come Steam. Tu jentris cul to account di simpri, e i zûcs che tu âs comprât a son ancje li.",
+  "choose.windows_note": "La plui part dai programs par Windows a funzionin achì, ma no ducj. Se chest nol funzione, cirilu o une aplicazion compagne in Discover.",
 
   "button.cancel": "Anule",
   "button.run_only": "Invie e basta",

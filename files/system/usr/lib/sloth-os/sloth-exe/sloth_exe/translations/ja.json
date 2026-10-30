@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} は Discover にもあります。そちらのほうがシステムになじみ、自動で更新されるため、おすすめです。",
   "choose.native_broken": "このプログラムのWindows版は、ここでは安定して動作しません。Linux版（{name}）は動作するので、そちらをおすすめします。",
   "choose.native_heroic": "Epic GamesとGOGのゲームには、Heroicランチャーをおすすめします。Linux向けに作られていて、問題なくインストールでき、Steamと同じようにゲームを実行します。いつものアカウントでサインインでき、購入したゲームもそこにあります。",
+  "choose.windows_note": "ほとんどの Windows プログラムはここで動きますが、すべてではありません。動かない場合は、Discover でそのプログラムか似たアプリを探してください。",
 
   "button.cancel": "キャンセル",
   "button.run_only": "実行のみ",

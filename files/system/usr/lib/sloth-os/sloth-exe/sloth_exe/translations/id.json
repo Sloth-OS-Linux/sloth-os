@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} juga tersedia di Discover. Versi itu lebih cocok dengan sistem dan memperbarui dirinya sendiri, jadi kami menyarankannya.",
   "choose.native_broken": "Versi Windows program ini tidak berjalan dengan andal di sini. Versi untuk Linux ({name}) berjalan, jadi kami menyarankan yang itu.",
   "choose.native_heroic": "Untuk game Epic Games dan GOG, kami menyarankan peluncur Heroic: dibuat untuk Linux, terpasang dengan andal, dan menjalankan game sama seperti Steam. Anda masuk dengan akun yang sudah ada, dan game yang Anda beli juga ada di sana.",
+  "choose.windows_note": "Sebagian besar program Windows berjalan di sini, tetapi tidak semuanya. Jika program ini tidak berjalan, cari program itu atau aplikasi serupa di Discover.",
 
   "button.cancel": "Batal",
   "button.run_only": "Jalankan saja",

@@ -741,8 +741,8 @@ class ExeController(QObject):
             heal.save_record(self._program, self._exe, rec)
             if gameid:
                 log.info("felismerve: %s (%s)", title, gameid)
-        if gameid and not self._program.meta.get("is_game") and self._program.id != library.SHARED_ID:
-            # Recognized game: goes among the Games in the Start menu
+        if gameid and self._program.meta.get("is_game") is None and self._program.id != library.SHARED_ID:
+            # Recognized game: goes among the Games in the Start menu (unless the user already said what it is)
             self._program.save_meta(is_game=True)
             menu.set_category(self._program)
         self._gameid = gameid or None

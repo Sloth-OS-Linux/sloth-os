@@ -227,8 +227,9 @@ class GamesController(QObject):
                           "place": place_label(found["library"], root) if found else "",
                           "size": texts.size_text(found["size"]) if found and found["size"] else "",
                           "movable": movable and found is not None})
+        # Only games (recognized, a game launcher, or the user said so in Programs), not e.g. Notepad++
         for app in library.all_apps():
-            if app.kind != "windows" or app.id == library.SHARED_ID:
+            if not library.is_game(app):
                 continue
             games.append({"id": "win:" + app.id, "name": app.name, "source": "windows", "check": {},
                           **gamesettings.normalize(app.meta.get("game"))})

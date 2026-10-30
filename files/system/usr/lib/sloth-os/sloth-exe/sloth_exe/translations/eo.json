@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} haveblas ankaŭ en Discover. Tiu versio pli bone kongruas kun la sistemo kaj ĝisdatiĝas mem, do ni rekomendas ĝin.",
   "choose.native_broken": "La Windows-versio de ĉi tiu programo ne funkcias fidinde ĉi tie. La versio por Linukso ({name}) funkcias, do ni rekomendas ĝin.",
   "choose.native_heroic": "Por ludoj de Epic Games kaj GOG ni rekomendas la lanĉilon Heroic: ĝi estas farita por Linukso, instaliĝas fidinde kaj lanĉas la ludojn same kiel Steam. Vi ensalutas per via kutima konto, kaj viaj aĉetitaj ludoj ankaŭ estas tie.",
+  "choose.windows_note": "Plej multaj programoj por Windows funkcias ĉi tie, sed ne ĉiuj. Se ĉi tiu ne funkcias, serĉu ĝin aŭ similan aplikaĵon en Discover.",
 
   "button.cancel": "Nuligi",
   "button.run_only": "Nur lanĉi",

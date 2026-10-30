@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} gjendet edhe në Discover. Ai version përshtatet më mirë me sistemin dhe përditësohet vetë, ndaj e rekomandojmë.",
   "choose.native_broken": "Versioni për Windows i këtij programi nuk punon me besueshmëri këtu. Versioni për Linux ({name}) po, ndaj rekomandojmë atë.",
   "choose.native_heroic": "Për lojërat e Epic Games dhe GOG rekomandojmë nisësin Heroic: është bërë për Linux, instalohet pa probleme dhe i nis lojërat njësoj si Steam. Hyni me llogarinë tuaj të zakonshme, dhe lojërat e blera janë edhe aty.",
+  "choose.windows_note": "Shumica e programeve të Windows funksionojnë këtu, por jo të gjitha. Nëse ky nuk funksionon, kërkojeni atë ose një aplikacion të ngjashëm në Discover.",
 
   "button.cancel": "Anulo",
   "button.run_only": "Vetëm nise",

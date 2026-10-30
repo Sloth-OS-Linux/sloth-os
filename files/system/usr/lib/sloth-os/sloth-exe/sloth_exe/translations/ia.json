@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} es etiam disponibile in Discover. Ille version se integra melior con le systema e se actualisa per se, dunque nos lo recommenda.",
   "choose.native_broken": "Le version Windows de iste programma non functiona de maniera fidabile hic. Le version pro Linux ({name}) functiona, dunque nos recommenda illo.",
   "choose.native_heroic": "Pro le jocos de Epic Games e GOG nos recommenda le lanceator Heroic: illo es facite pro Linux, se installa sin problemas e lancea le jocos como Steam. Tu accede con tu conto existente, e le jocos que tu ha comprate es anque ibi.",
+  "choose.windows_note": "Le major parte del programmas de Windows functiona hic, ma non omnes. Si iste non functiona, cerca lo o un application simile in Discover.",
 
   "button.cancel": "Cancellar",
   "button.run_only": "Solmente executar",

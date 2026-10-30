@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name}은(는) Discover에도 있습니다. 그 버전이 시스템에 더 잘 맞고 스스로 업데이트되므로 권장합니다.",
   "choose.native_broken": "이 프로그램의 Windows 버전은 여기서 안정적으로 작동하지 않습니다. Linux 버전({name})은 작동하므로 그것을 권장합니다.",
   "choose.native_heroic": "Epic Games와 GOG 게임에는 Heroic 런처를 권장합니다. Linux용으로 만들어져 문제없이 설치되고, Steam과 같은 방식으로 게임을 실행합니다. 기존 계정으로 로그인하면 구매한 게임도 그대로 있습니다.",
+  "choose.windows_note": "대부분의 Windows 프로그램은 여기서 실행되지만 모두 그런 것은 아닙니다. 이 프로그램이 실행되지 않으면 Discover에서 이 프로그램이나 비슷한 앱을 찾아보세요.",
 
   "button.cancel": "취소",
   "button.run_only": "실행만 하기",

@@ -9,6 +9,8 @@ import org.kde.kirigami as Kirigami
 Kirigami.ScrollablePage {
     id: page
     title: L.t("Games")
+    // Fresh every time the page opens: a program removed (or marked) in Programs must not stay here
+    Component.onCompleted: games.refresh()
 
     actions: [
         Kirigami.Action {
@@ -129,7 +131,7 @@ Kirigami.ScrollablePage {
             visible: games.games.length === 0
             icon.name: "input-gamepad"
             text: L.t("No games installed yet")
-            explanation: L.t("Games installed from Steam and Windows programs appear here.")
+            explanation: L.t("Your Steam games and Windows games appear here. Is a Windows game missing? Mark it as a game in Programs.")
         }
 
         Repeater {

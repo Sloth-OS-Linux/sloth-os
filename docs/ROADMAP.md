@@ -22,12 +22,20 @@ from a terminal must also work from a GUI.
   taskbar by default for a new user, but for an existing user only after changing the layout.) Done: the default
   layout writes Kickoff's `favorites` (Sloth Center, Dolphin, Discover), which Kickoff takes over at its first start
   while there are no favorites yet, so only for new users. Check on a real machine with a new account
-- [ ] **Medium** — Windows programs: say up front that not every Windows program runs (someone double-clicks the
+- [x] **Medium** — Windows programs: say up front that not every Windows program runs (someone double-clicks the
   Adobe Reader installer and wonders why nothing works). A short note in Sloth Welcome, and a note when an .exe is
-  opened (with a native alternative where one is known). The Welcome note is done (2026-10-30: on the last page,
-  `done.windows_tip`, 50 languages); the note when an .exe is opened is still to do
-- [ ] **Medium** — Games page bugs: a removed Windows program stays on the list, and every Windows program shows up
-  as a game (e.g. Notepad++). Keep only games there (the rest belongs under Programs)
+  opened (with a native alternative where one is known). Done (2026-10-30): Welcome's last page
+  (`done.windows_tip`) and the .exe handler's first window (`choose.windows_note`, only for a Windows file without a
+  Linux version recommended above it; the native alternatives were already there: `sloth_common/apps/native.py`).
+  50 languages. Adobe Reader is not in the native list: there is no Linux version, and "also available in
+  Discover" would be wrong for another PDF reader
+- [x] **Medium** — Games page bugs: a removed Windows program stays on the list, and every Windows program shows up
+  as a game (e.g. Notepad++). Keep only games there (the rest belongs under Programs). Done (2026-10-30): the page
+  loads its list again whenever it opens (it was loaded once, when Sloth Center started); only games are listed:
+  `library.is_game` (a game recognized on its first start, a Welcome game launcher by its installer's name, or the
+  user's own word), the same rule as the Start menu's Games category. Programs → More → "It's a game" lets the
+  user say it either way, and the .exe handler no longer overrides that. Tests: `tools/tests/test_apps.py`. Check
+  on a real machine
 - [ ] **Medium** — File backup → "Find deleted files…" did not work in the VM (restoring through the saved states
   did). It worked on a real machine on 2026-10-26, so find out what differs
 - [x] **Medium** — Chinese, Japanese and Korean typing (2026-10-30, a Reddit comment: "KDE Plasma is not good for

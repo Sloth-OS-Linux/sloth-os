@@ -19,6 +19,7 @@
   "choose.flathub_available": "Discover 中也有 {name}。那个版本与系统更契合，并且会自动更新，因此我们推荐它。",
   "choose.native_broken": "此程序的 Windows 版本在这里无法稳定运行。Linux 版本（{name}）可以，所以我们推荐它。",
   "choose.native_heroic": "对于 Epic Games 和 GOG 的游戏，我们推荐 Heroic 启动器：它专为 Linux 打造，安装稳定，并像 Steam 一样运行游戏。用你现有的账户登录，已购买的游戏也都在那里。",
+  "choose.windows_note": "大多数 Windows 程序可以在这里运行，但并非全部。如果这个程序无法运行，可以在 Discover 中查找它或类似的应用。",
 
   "button.cancel": "取消",
   "button.run_only": "仅运行",

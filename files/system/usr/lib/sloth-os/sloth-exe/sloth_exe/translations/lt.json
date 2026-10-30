@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} yra ir Discover. Ta versija geriau dera su sistema ir atsinaujina pati, todėl ją rekomenduojame.",
   "choose.native_broken": "Šios programos Windows versija čia veikia nepatikimai. Linux versija ({name}) veikia, todėl rekomenduojame ją.",
   "choose.native_heroic": "Epic Games ir GOG žaidimams rekomenduojame paleidyklę Heroic: ji sukurta Linux, patikimai įsidiegia ir paleidžia žaidimus taip pat kaip Steam. Prisijungiate savo įprasta paskyra, o nupirkti žaidimai ten taip pat yra.",
+  "choose.windows_note": "Dauguma Windows programų čia veikia, bet ne visos. Jei ši neveikia, ieškokite jos ar panašios programėlės Discover.",
 
   "button.cancel": "Atšaukti",
   "button.run_only": "Tik paleisti",

@@ -360,6 +360,28 @@ def all_apps():
     return out
 
 
+# The Windows game launchers Sloth Welcome offers (sloth_welcome.catalog, by their installer's file name): the games
+# run inside them, so their per-game settings (FPS display, upscaling…) belong on the Games page
+GAME_LAUNCHER_INSTALLERS = {"battle.net-setup.exe", "eaappinstaller.exe", "ubisoftconnectinstaller.exe",
+                            "rockstar-games-launcher.exe"}
+
+
+def is_game(app):
+    """Is this Windows program a game (Start menu: Games; Sloth Center: the Games page)?
+
+    The user's own choice ("is_game" True or False in Sloth Center → Programs) wins; otherwise a game recognized
+    on its first start (umu / Steam database) or one of the game launchers.
+    """
+    if app.kind != "windows" or app.id == SHARED_ID:
+        return False
+    choice = app.meta.get("is_game")
+    if choice is not None:
+        return bool(choice)
+    gameid = app.meta.get("gameid") or ""
+    return (bool(gameid) and gameid != "umu-default") or \
+        Path(app.meta.get("installer", "")).name.lower() in GAME_LAUNCHER_INSTALLERS
+
+
 def find(app_id):
     return next((a for a in all_apps() if a.id == app_id), None)
 

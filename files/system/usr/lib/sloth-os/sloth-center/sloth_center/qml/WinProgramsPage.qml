@@ -255,6 +255,16 @@ Kirigami.ScrollablePage {
                             icon.name: "tools-wizard"
                             onTriggered: winprograms.repair(card.modelData.id)
                         }
+                        // Recognized games are ticked by themselves; the user can say otherwise (e.g. Notepad++
+                        // is not one, a small indie game is)
+                        QQC2.MenuItem {
+                            visible: card.modelData.kind === "windows" && !card.modelData.shared
+                            height: visible ? implicitHeight : 0
+                            text: L.t("It's a game (on the Games page)")
+                            checkable: true
+                            checked: card.modelData.isGame
+                            onTriggered: winprograms.setGame(card.modelData.id, checked)
+                        }
                         QQC2.MenuItem {
                             visible: card.modelData.canReinstall
                             height: visible ? implicitHeight : 0

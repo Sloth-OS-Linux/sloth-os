@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} există și în Discover. Acea versiune se potrivește mai bine cu sistemul și se actualizează singură, așa că o recomandăm.",
   "choose.native_broken": "Versiunea pentru Windows a acestui program nu funcționează sigur aici. Versiunea pentru Linux ({name}) funcționează, de aceea o recomandăm pe ea.",
   "choose.native_heroic": "Pentru jocurile Epic Games și GOG recomandăm lansatorul Heroic: este făcut pentru Linux, se instalează fără probleme și pornește jocurile la fel ca Steam. Te conectezi cu contul tău obișnuit, iar jocurile cumpărate sunt și acolo.",
+  "choose.windows_note": "Majoritatea programelor Windows funcționează aici, dar nu toate. Dacă acesta nu merge, caută-l pe el sau o aplicație asemănătoare în Discover.",
 
   "button.cancel": "Anulează",
   "button.run_only": "Doar rulează",

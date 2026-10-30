@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} je k dispozici i v Discoveru. Tato verze lépe zapadá do systému a sama se aktualizuje, proto ji doporučujeme.",
   "choose.native_broken": "Verze tohoto programu pro Windows tu nefunguje spolehlivě. Verze pro Linux ({name}) ano, proto doporučujeme ji.",
   "choose.native_heroic": "Pro hry z Epic Games a GOG doporučujeme spouštěč Heroic: je vytvořený pro Linux, spolehlivě se nainstaluje a spouští hry stejně jako Steam. Přihlásíte se svým stávajícím účtem a koupené hry tam máte také.",
+  "choose.windows_note": "Většina programů pro Windows tu funguje, ale ne všechny. Pokud tento nefunguje, hledejte ho nebo podobnou aplikaci v Discoveru.",
 
   "button.cancel": "Zrušit",
   "button.run_only": "Jen spustit",

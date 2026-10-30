@@ -288,6 +288,26 @@ class LibraryTest(unittest.TestCase):
         self.assertTrue(library.remove(a) and library.remove(b))
         self.assertFalse(a.dir.exists())
 
+    def test_is_game(self):
+        # Games page / Start menu Games: recognized, a game launcher, or the user's own word (which wins)
+        tool = library.create("Notepad++", installer="/tmp/npp.8.6.Installer.x64.exe")
+        recognized = library.create("Some Game")
+        recognized.save_meta(gameid="umu-12345")
+        unknown = library.create("Unknown")
+        unknown.save_meta(gameid="umu-default")
+        launcher = library.create("Battle.net", installer="/tmp/Battle.net-Setup.exe")
+        self.assertFalse(library.is_game(tool))
+        self.assertTrue(library.is_game(recognized))
+        self.assertFalse(library.is_game(unknown))
+        self.assertTrue(library.is_game(launcher))
+        tool.save_meta(is_game=True)
+        recognized.save_meta(is_game=False)
+        self.assertTrue(library.is_game(tool))
+        self.assertFalse(library.is_game(recognized))
+        self.assertEqual(menu._categories(recognized), "Utility;")
+        for app in (tool, recognized, unknown, launcher):
+            library.remove(app)
+
     def test_remove_refuses_outside(self):
         outside = TMP / "not-a-library" / "X"
         (outside / ".sloth").mkdir(parents=True)

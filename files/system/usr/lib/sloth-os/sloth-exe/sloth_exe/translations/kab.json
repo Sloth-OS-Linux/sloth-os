@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} yella daɣen deg Discover. Lqem-nni yemṣada akken iwata d unagraw yerna ttalɣen-d iman-is, ihi nwelleh-it.",
   "choose.native_broken": "Lqem n Windows n wahil-a ur iteddu ara akken iwata da. Lqem n Linux ({name}) iteddu, ihi d netta i nwelleh.",
   "choose.native_heroic": "I wurar n Epic Games d GOG nwelleh amsenker Heroic: yettwaxdem i Linux, yettwasbedd mebla uguren, yessenkar uraren am Steam. Ad tkecmeḍ s umiḍan-ik yellan, uraren i d-tuɣeḍ llan ula dinna.",
+  "choose.windows_note": "Tuget n yihilen n Windows teddun dagi, maca mačči akk. Ma yella wa ur iteddu ara, nadi-t neɣ nadi asnas am netta deg Discover.",
 
   "button.cancel": "Sefsex",
   "button.run_only": "Sekker kan",

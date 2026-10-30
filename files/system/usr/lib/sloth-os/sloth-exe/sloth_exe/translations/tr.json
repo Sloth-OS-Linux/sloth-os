@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} Discover’da da var. O sürüm sisteme daha iyi uyar ve kendini günceller, bu yüzden onu öneriyoruz.",
   "choose.native_broken": "Bu programın Windows sürümü burada güvenilir şekilde çalışmıyor. Linux sürümü ({name}) çalışıyor, bu yüzden onu öneriyoruz.",
   "choose.native_heroic": "Epic Games ve GOG oyunları için Heroic başlatıcısını öneriyoruz: Linux için yapıldı, sorunsuz kurulur ve oyunları Steam gibi çalıştırır. Mevcut hesabınızla giriş yaparsınız; satın aldığınız oyunlar orada da vardır.",
+  "choose.windows_note": "Windows programlarının çoğu burada çalışır, ama hepsi değil. Bu çalışmazsa, Discover'da onu ya da benzer bir uygulamayı arayın.",
 
   "button.cancel": "İptal",
   "button.run_only": "Yalnızca çalıştır",

@@ -76,6 +76,19 @@ Kirigami.ApplicationWindow {
                         }
                     }
                 }
+                // Up front: not every Windows program runs (a Reddit test, 2026-10-30: someone opens the Adobe Reader
+                // installer and wonders why nothing works). Not when a Linux version is recommended above
+                QQC2.Label {
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.maximumWidth: Kirigami.Units.gridUnit * 24
+                    visible: exe.fileKind === "windows" && !exe.alreadyInstalled && exe.nativeReason === ""
+                             && exe.flathubName === ""
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.Wrap
+                    opacity: 0.6
+                    font: Kirigami.Theme.smallFont
+                    text: root.t("choose.windows_note")
+                }
                 // More than one drive: which one the program goes to (with the free space)
                 ColumnLayout {
                     Layout.alignment: Qt.AlignHCenter

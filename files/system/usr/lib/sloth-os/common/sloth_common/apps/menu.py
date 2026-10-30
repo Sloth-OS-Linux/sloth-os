@@ -14,7 +14,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from .library import DATA_HOME, slugify
+from .library import DATA_HOME, is_game, slugify
 
 log = logging.getLogger("sloth-os.apps")
 
@@ -96,9 +96,9 @@ def entries(app):
 
 
 def _categories(app):
-    # A recognized game (umu / Steam database) goes among Games, everything else among Utilities
-    gameid = app.meta.get("gameid") or ""
-    return "Game;" if app.meta.get("is_game") or (gameid and gameid != "umu-default") else "Utility;"
+    # A game (library.is_game: recognized, a game launcher, or the user said so) goes among Games, the rest among
+    # Utilities
+    return "Game;" if is_game(app) else "Utility;"
 
 
 def _write(path, app, name, exec_line, icon, categories=None):

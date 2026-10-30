@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} is also available in Discover. That version fits the system better and updates itself, so we recommend it.",
   "choose.native_broken": "The Windows version of this program doesn't work reliably here. The version made for Linux ({name}) does, so we recommend that one.",
   "choose.native_heroic": "For Epic Games and GOG games we recommend the Heroic launcher: it's made for Linux, installs reliably and runs the games the same way Steam does. You sign in with your existing account, and the games you bought are there too.",
+  "choose.windows_note": "Most Windows programs work here, but not every one does. If this one doesn't, look for it or a similar app in Discover.",
 
   "button.cancel": "Cancel",
   "button.run_only": "Just run it",

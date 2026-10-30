@@ -19,6 +19,7 @@
   "choose.flathub_available": "{name} is ook beschikbaar in Discover. Die versie past beter bij het systeem en werkt zichzelf bij, dus die raden we aan.",
   "choose.native_broken": "De Windows-versie van dit programma werkt hier niet betrouwbaar. De versie voor Linux ({name}) wel, daarom raden we die aan.",
   "choose.native_heroic": "Voor games van Epic Games en GOG raden we de Heroic-launcher aan: die is gemaakt voor Linux, installeert betrouwbaar en start de games net zoals Steam. Je logt in met je bestaande account, en je gekochte games staan daar ook.",
+  "choose.windows_note": "De meeste Windows-programma's werken hier, maar niet allemaal. Werkt deze niet, zoek hem dan of een vergelijkbare app op in Discover.",
 
   "button.cancel": "Annuleren",
   "button.run_only": "Alleen uitvoeren",

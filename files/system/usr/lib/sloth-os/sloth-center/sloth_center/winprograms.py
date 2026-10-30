@@ -131,6 +131,7 @@ class WinProgramsController(QObject):
                 "source": _source_label((meta.get("source") or {}).get("from", "")),
                 "publisher": meta.get("publisher", ""),
                 "shared": app.id == library.SHARED_ID,
+                "isGame": library.is_game(app),
                 "canReinstall": bool(installer) and Path(installer).is_file(),
                 "hasFiles": app.kind in ("windows", "appimage"),
                 "canMove": app.kind in ("windows", "appimage") and not app.legacy and app.dir.parent != default,
@@ -226,6 +227,16 @@ class WinProgramsController(QObject):
             return
         proc = subprocess.Popen(["sloth-exe", "--shortcuts", app.id])
         threading.Thread(target=lambda: (proc.wait(), self._work_done.emit("")), daemon=True).start()
+
+    @Slot(str, bool)
+    def setGame(self, app_id, on):
+        """The user's own word on whether it is a game: the Games page and the Start menu's Games category follow it."""
+        app = self._app(app_id)
+        if app is None or app.kind != "windows" or app.id == library.SHARED_ID:
+            return
+        app.save_meta(is_game=bool(on))
+        menu.set_category(app)
+        self.refresh()
 
     @Slot(str)
     def repair(self, app_id):
