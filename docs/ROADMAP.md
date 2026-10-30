@@ -17,6 +17,17 @@ from a terminal must also work from a GUI.
    encrypted disk's password prompt at boot does not make clear that it waits for typing (a text like "Type your
    password")
 
+### From a Reddit test in a VM (2026-10-30)
+- [ ] **Quick** — Sloth Center among the Start menu favorites too: new users do not know it exists. (It is on the
+  taskbar by default for a new user, but for an existing user only after changing the layout.)
+- [ ] **Medium** — Windows programs: say up front that not every Windows program runs (someone double-clicks the
+  Adobe Reader installer and wonders why nothing works). A short note in Sloth Welcome, and a note when an .exe is
+  opened (with a native alternative where one is known)
+- [ ] **Medium** — Games page bugs: a removed Windows program stays on the list, and every Windows program shows up
+  as a game (e.g. Notepad++). Keep only games there (the rest belongs under Programs)
+- [ ] **Medium** — File backup → "Find deleted files…" did not work in the VM (restoring through the saved states
+  did). It worked on a real machine on 2026-10-26, so find out what differs
+
 ### Sloth OS 1.0.2 (2026-10-22)
 The current 1.0.2 ISO is published on SourceForge and is working in current testing. Sorry to anyone who ran
 into trouble installing with the earlier 1.0.2 ISO: the installer issue has been fixed, and the current ISO
