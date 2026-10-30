@@ -129,10 +129,22 @@ Kirigami.ScrollablePage {
                         onClicked: updates.installUpdate()
                     }
                     QQC2.Button {
+                        id: restartButton
+                        // The restart takes a few seconds to show; without feedback the button got clicked again and
+                        // again (Reddit, 2026-10-30). If nothing happens in a minute, it can be clicked again.
+                        property bool restarting: false
                         visible: !updates.busy && updates.needsReboot
+                        enabled: !restarting
                         icon.name: "system-reboot"
-                        text: L.t("Restart now")
-                        onClicked: updates.reboot()
+                        text: restarting ? L.t("Restarting…") : L.t("Restart now")
+                        onClicked: { restarting = true; restartReset.restart(); updates.reboot(); }
+                        Timer { id: restartReset; interval: 60000; onTriggered: restartButton.restarting = false }
+                    }
+                    QQC2.BusyIndicator {
+                        visible: restartButton.restarting && restartButton.visible
+                        running: visible
+                        Layout.preferredHeight: restartButton.height
+                        Layout.preferredWidth: restartButton.height
                     }
                     QQC2.Button {
                         visible: updates.busy && (updates.mode === "check" || updates.mode === "upgrade")

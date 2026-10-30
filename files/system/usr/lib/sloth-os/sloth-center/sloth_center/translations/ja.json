@@ -879,5 +879,6 @@
   "Always": "常に",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "このコンピューターのダウンロード速度を制限し、家庭内の他のネットワーク利用（通話、ゲーム、他のコンピューター）を快適に保ちます。常に、または更新のダウンロード中のみ有効にできます。",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/秒から 10 000 Mbit/秒の間で制限を選んでください。",
-  "Couldn't change the limit.": "制限を変更できませんでした。"
+  "Couldn't change the limit.": "制限を変更できませんでした。",
+  "Restarting…": "再起動しています…"
 }

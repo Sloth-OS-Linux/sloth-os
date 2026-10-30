@@ -879,5 +879,6 @@
   "Always": "Увек",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ограничава колико брзо овај рачунар преузима, да би остатак кућне мреже остао брз: за позив, игру или други рачунар. Важи увек или само док се преузимају ажурирања.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Изаберите ограничење између 64 kbit/s и 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Ограничење не може да се промени."
+  "Couldn't change the limit.": "Ограничење не може да се промени.",
+  "Restarting…": "Поновно покретање…"
 }

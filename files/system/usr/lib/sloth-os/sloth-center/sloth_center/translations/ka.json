@@ -879,5 +879,6 @@
   "Always": "ყოველთვის",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "ზღუდავს, რამდენად სწრაფად ჩამოტვირთავს ეს კომპიუტერი, რომ სახლის დანარჩენი ქსელი სწრაფი დარჩეს: ზარისთვის, თამაშისთვის ან სხვა კომპიუტერისთვის. მოქმედებს ყოველთვის ან მხოლოდ განახლებების ჩამოტვირთვისას.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "აირჩიეთ ლიმიტი 64 kbit/წმ-დან 10 000 Mbit/წმ-მდე.",
-  "Couldn't change the limit.": "ლიმიტის შეცვლა ვერ მოხერხდა."
+  "Couldn't change the limit.": "ლიმიტის შეცვლა ვერ მოხერხდა.",
+  "Restarting…": "გადატვირთვა…"
 }

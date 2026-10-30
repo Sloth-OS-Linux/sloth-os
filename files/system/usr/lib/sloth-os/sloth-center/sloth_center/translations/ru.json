@@ -879,5 +879,6 @@
   "Always": "Всегда",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ограничивает скорость загрузки на этом компьютере, чтобы остальная домашняя сеть оставалась быстрой: для звонка, игры или другого компьютера. Действует всегда или только во время загрузки обновлений.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Выберите ограничение от 64 кбит/с до 10 000 Мбит/с.",
-  "Couldn't change the limit.": "Не удалось изменить ограничение."
+  "Couldn't change the limit.": "Не удалось изменить ограничение.",
+  "Restarting…": "Перезагрузка…"
 }

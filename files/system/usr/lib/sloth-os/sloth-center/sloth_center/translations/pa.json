@@ -879,5 +879,6 @@
   "Always": "ਹਮੇਸ਼ਾ",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "ਇਹ ਕੰਪਿਊਟਰ ਕਿੰਨੀ ਤੇਜ਼ੀ ਨਾਲ ਡਾਊਨਲੋਡ ਕਰੇ, ਇਸ ਨੂੰ ਸੀਮਤ ਕਰਦਾ ਹੈ, ਤਾਂ ਜੋ ਘਰ ਦਾ ਬਾਕੀ ਨੈੱਟਵਰਕ ਤੇਜ਼ ਰਹੇ: ਕਾਲ, ਗੇਮ ਜਾਂ ਹੋਰ ਕੰਪਿਊਟਰ ਲਈ। ਇਹ ਹਮੇਸ਼ਾ ਜਾਂ ਸਿਰਫ਼ ਅੱਪਡੇਟ ਡਾਊਨਲੋਡ ਹੋਣ ਦੌਰਾਨ ਲਾਗੂ ਹੁੰਦਾ ਹੈ।",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/s ਅਤੇ 10 000 Mbit/s ਵਿਚਕਾਰ ਸੀਮਾ ਚੁਣੋ।",
-  "Couldn't change the limit.": "ਸੀਮਾ ਬਦਲੀ ਨਹੀਂ ਜਾ ਸਕੀ।"
+  "Couldn't change the limit.": "ਸੀਮਾ ਬਦਲੀ ਨਹੀਂ ਜਾ ਸਕੀ।",
+  "Restarting…": "ਮੁੜ ਚਾਲੂ ਹੋ ਰਿਹਾ ਹੈ…"
 }

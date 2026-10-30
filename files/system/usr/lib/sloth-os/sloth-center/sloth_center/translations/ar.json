@@ -879,5 +879,6 @@
   "Always": "دائمًا",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "يحدّ من سرعة التنزيل على هذا الحاسوب، لتبقى بقية شبكة المنزل سريعة: لمكالمة أو لعبة أو حاسوب آخر. يُطبَّق دائمًا، أو فقط أثناء تنزيل التحديثات.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "اختر حدًا بين 64 كيلوبت/ث و10000 ميغابت/ث.",
-  "Couldn't change the limit.": "تعذّر تغيير الحد."
+  "Couldn't change the limit.": "تعذّر تغيير الحد.",
+  "Restarting…": "جارٍ إعادة التشغيل…"
 }

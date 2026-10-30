@@ -879,5 +879,6 @@
   "Always": "Simpri",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Al limite trop svelt che chest computer al discjarie, par che il rest de rêt di cjase al resti svelt: par une clamade, un zûc o un altri computer. Al vâl simpri, o dome intant che si discjariin i inzornaments.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Sielç un limit tra 64 kbit/s e 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Impussibil cambiâ il limit."
+  "Couldn't change the limit.": "Impussibil cambiâ il limit.",
+  "Restarting…": "Daûr a tornâ a inviâ…"
 }

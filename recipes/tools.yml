@@ -36,6 +36,9 @@ modules:
         - sloth-factory-reset.service
         - sloth-boot-reset.service    # the same, requested from the boot menu (the files stay)
         - sloth-login-repair.service  # the login screen must not get lost after an authselect change
+        # sharing a folder on the home network from Dolphin (Properties → Share): the group, then Samba when needed
+        - sloth-file-sharing-groups.service
+        - sloth-file-sharing.path
     user:
       enabled:
         - sloth-github-bundle-update.timer   # daily update of the apps installed as GitHub packages (e.g. ArtCraft)

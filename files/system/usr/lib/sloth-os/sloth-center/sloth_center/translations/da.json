@@ -879,5 +879,6 @@
   "Always": "Altid",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Begrænser, hvor hurtigt denne computer downloader, så resten af hjemmenetværket forbliver hurtigt: til et opkald, et spil eller en anden computer. Den gælder altid eller kun, mens opdateringer downloades.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Vælg en grænse mellem 64 kbit/s og 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Grænsen kunne ikke ændres."
+  "Couldn't change the limit.": "Grænsen kunne ikke ændres.",
+  "Restarting…": "Genstarter…"
 }

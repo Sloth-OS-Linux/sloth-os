@@ -879,5 +879,6 @@
   "Always": "Siempre",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limita lo rápido que descarga este ordenador, para que el resto de tu red doméstica siga rápida: para una llamada, un juego u otro ordenador. Se aplica siempre, o solo mientras se descargan actualizaciones.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Elige un límite entre 64 kbit/s y 10 000 Mbit/s.",
-  "Couldn't change the limit.": "No se pudo cambiar el límite."
+  "Couldn't change the limit.": "No se pudo cambiar el límite.",
+  "Restarting…": "Reiniciando…"
 }

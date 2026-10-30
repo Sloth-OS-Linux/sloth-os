@@ -1,0 +1,8 @@
+[Unit]
+Description=Sloth OS: folder sharing, waiting for the first shared folder
+
+[Path]
+DirectoryNotEmpty=/var/lib/samba/usershares
+
+[Install]
+WantedBy=multi-user.target

@@ -55,7 +55,10 @@ def main():
     except OSError:
         return 0
     if r.stdout.strip() == "reboot":
-        subprocess.Popen(["systemctl", "reboot"])
+        # the KDE way: the screen fades at once (with systemctl nothing showed for seconds) and unsaved work is asked
+        if subprocess.run(["gdbus", "call", "--session", "--dest", "org.kde.Shutdown", "--object-path", "/Shutdown",
+                           "--method", "org.kde.Shutdown.logoutAndReboot"], capture_output=True).returncode != 0:
+            subprocess.Popen(["systemctl", "reboot"])
     return 0
 
 

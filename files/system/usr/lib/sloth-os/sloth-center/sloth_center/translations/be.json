@@ -879,5 +879,6 @@
   "Always": "Заўсёды",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Абмяжоўвае хуткасць спампоўвання на гэтым камп'ютары, каб астатняя хатняя сетка заставалася хуткай: для званка, гульні ці іншага камп'ютара. Дзейнічае заўсёды або толькі падчас спампоўвання абнаўленняў.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Выберыце абмежаванне ад 64 кбіт/с да 10 000 Мбіт/с.",
-  "Couldn't change the limit.": "Не ўдалося змяніць абмежаванне."
+  "Couldn't change the limit.": "Не ўдалося змяніць абмежаванне.",
+  "Restarting…": "Перазапуск…"
 }

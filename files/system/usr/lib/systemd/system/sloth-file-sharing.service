@@ -1,0 +1,8 @@
+[Unit]
+Description=Sloth OS: folder sharing, the Samba server on for the shared folders
+After=network.target firewalld.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=-/usr/libexec/sloth-os/file-sharing serve

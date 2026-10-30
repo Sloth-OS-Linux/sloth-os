@@ -879,5 +879,6 @@
   "Always": "ສະເໝີ",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "ຈຳກັດຄວາມໄວການດາວໂຫຼດຂອງຄອມພິວເຕີນີ້ ເພື່ອໃຫ້ເຄືອຂ່າຍສ່ວນອື່ນໃນເຮືອນຍັງໄວ: ສຳລັບການໂທ, ເກມ ຫຼື ຄອມພິວເຕີອື່ນ. ມີຜົນສະເໝີ ຫຼື ສະເພາະຕອນດາວໂຫຼດການອັບເດດ.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "ເລືອກຂີດຈຳກັດລະຫວ່າງ 64 kbit/s ຫາ 10 000 Mbit/s.",
-  "Couldn't change the limit.": "ບໍ່ສາມາດປ່ຽນຂີດຈຳກັດໄດ້."
+  "Couldn't change the limit.": "ບໍ່ສາມາດປ່ຽນຂີດຈຳກັດໄດ້.",
+  "Restarting…": "ກຳລັງເລີ່ມໃໝ່…"
 }

@@ -879,5 +879,6 @@
   "Always": "Altyd",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Beperk hoe vinnig hierdie rekenaar aflaai, sodat die res van jou tuisnetwerk vinnig bly: vir 'n oproep, 'n speletjie of 'n ander rekenaar. Dit geld altyd, of net terwyl opdaterings aflaai.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Kies 'n perk tussen 64 kbit/s en 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Kon nie die perk verander nie."
+  "Couldn't change the limit.": "Kon nie die perk verander nie.",
+  "Restarting…": "Herbegin tans…"
 }

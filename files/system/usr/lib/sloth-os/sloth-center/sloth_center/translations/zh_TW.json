@@ -879,5 +879,6 @@
   "Always": "一律",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "限制這台電腦的下載速度，讓家中其餘網路保持順暢：用於通話、遊戲或其他電腦。可以一律生效，或僅在下載更新時生效。",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "請選擇 64 kbit/秒 到 10 000 Mbit/秒 之間的限制。",
-  "Couldn't change the limit.": "無法變更限制。"
+  "Couldn't change the limit.": "無法變更限制。",
+  "Restarting…": "正在重新啟動…"
 }

@@ -879,5 +879,6 @@
   "Always": "Altijd",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Beperkt hoe snel deze computer downloadt, zodat de rest van je thuisnetwerk snel blijft: voor een gesprek, een game of een andere computer. Het geldt altijd, of alleen tijdens het downloaden van updates.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Kies een limiet tussen 64 kbit/s en 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Kan de limiet niet wijzigen."
+  "Couldn't change the limit.": "Kan de limiet niet wijzigen.",
+  "Restarting…": "Opnieuw opstarten…"
 }

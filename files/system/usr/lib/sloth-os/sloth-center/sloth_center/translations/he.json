@@ -879,5 +879,6 @@
   "Always": "תמיד",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "מגבילה את מהירות ההורדה של המחשב הזה, כדי ששאר הרשת הביתית תישאר מהירה: לשיחה, למשחק או למחשב אחר. היא חלה תמיד, או רק בזמן הורדת עדכונים.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "יש לבחור הגבלה בין 64 kbit/s ל-10 000 Mbit/s.",
-  "Couldn't change the limit.": "לא ניתן לשנות את ההגבלה."
+  "Couldn't change the limit.": "לא ניתן לשנות את ההגבלה.",
+  "Restarting…": "מופעל מחדש…"
 }

@@ -879,5 +879,6 @@
   "Always": "Yal tikkelt",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Ad iḥedded acḥal yettɣawal uselkim-a deg usader, akken ad yeqqim uẓeṭṭa n uxxam d aɣawlan: i usiwel, i wurar neɣ i uselkim nniḍen. Ad yeddu yal tikkelt, neɣ mi ara d-ttwasadren ileqman kan.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Fren talast gar 64 kbit/s d 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Ur yezmir ara ad ibeddel talast."
+  "Couldn't change the limit.": "Ur yezmir ara ad ibeddel talast.",
+  "Restarting…": "Allus n usenker…"
 }

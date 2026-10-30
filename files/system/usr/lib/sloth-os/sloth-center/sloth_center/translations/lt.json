@@ -879,5 +879,6 @@
   "Always": "Visada",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Riboja, kaip greitai šis kompiuteris siunčiasi, kad likęs namų tinklas liktų greitas: skambučiui, žaidimui ar kitam kompiuteriui. Galioja visada arba tik kol atsisiunčiami naujinimai.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Pasirinkite ribą nuo 64 kbit/s iki 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Nepavyko pakeisti ribos."
+  "Couldn't change the limit.": "Nepavyko pakeisti ribos.",
+  "Restarting…": "Paleidžiama iš naujo…"
 }

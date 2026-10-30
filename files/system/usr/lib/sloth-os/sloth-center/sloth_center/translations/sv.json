@@ -879,5 +879,6 @@
   "Always": "Alltid",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Begränsar hur snabbt den här datorn laddar ner, så att resten av hemnätverket förblir snabbt: för ett samtal, ett spel eller en annan dator. Den gäller alltid eller bara medan uppdateringar laddas ner.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Välj en gräns mellan 64 kbit/s och 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Det gick inte att ändra gränsen."
+  "Couldn't change the limit.": "Det gick inte att ändra gränsen.",
+  "Restarting…": "Startar om…"
 }

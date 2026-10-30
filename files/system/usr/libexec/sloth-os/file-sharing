@@ -1,0 +1,89 @@
+#!/usr/bin/python3 -I
+"""Sharing a folder on the home network (Dolphin → Properties → Share), without a terminal.
+
+Dolphin's Share tab uses Samba's "usershares". Out of the box it got stuck (Reddit, 2026-10-30):
+- the users must be in the "usershares" group, but on an atomic system that group is only in /usr/lib/group, so
+  Dolphin's "add me to the group" step fails (usermod only edits /etc/group);
+- the Samba server (smb) is off, the firewall blocks its port (445), and SELinux does not let it read the folders.
+
+groups: at startup, before the login screen: the group goes into /etc/group and every person's account into it.
+serve:  once the first folder is shared (sloth-file-sharing.path): the firewall lets Samba in, SELinux lets it read
+        the shared folders, and the Samba server starts. Nothing of this runs while nothing is shared.
+"""
+import subprocess
+import sys
+
+GROUP = "usershares"
+
+
+def ensure_group():
+    with open("/etc/group", encoding="utf-8") as f:
+        if any(line.startswith(GROUP + ":") for line in f):
+            return
+    try:
+        with open("/usr/lib/group", encoding="utf-8") as f:
+            line = next((l for l in f if l.startswith(GROUP + ":")), None)
+    except OSError:
+        line = None
+    if line is None:
+        subprocess.run(["groupadd", "--system", GROUP], check=False)
+        return
+    gid = line.split(":")[2]
+    with open("/etc/group", "a", encoding="utf-8") as f:
+        f.write(f"{GROUP}:x:{gid}:\n")
+    try:
+        with open("/etc/gshadow", encoding="utf-8") as f:
+            present = any(l.startswith(GROUP + ":") for l in f)
+        if not present:
+            with open("/etc/gshadow", "a", encoding="utf-8") as f:
+                f.write(f"{GROUP}:!::\n")
+    except OSError:
+        pass
+
+
+def people():
+    """The accounts of people (not system users), from /etc/passwd."""
+    with open("/etc/passwd", encoding="utf-8") as f:
+        for line in f:
+            parts = line.rstrip("\n").split(":")
+            if len(parts) < 7:
+                continue
+            try:
+                uid = int(parts[2])
+            except ValueError:
+                continue
+            if 1000 <= uid < 60000 and not parts[6].endswith(("nologin", "false")):
+                yield parts[0]
+
+
+def members():
+    with open("/etc/group", encoding="utf-8") as f:
+        for line in f:
+            if line.startswith(GROUP + ":"):
+                return set(filter(None, line.rstrip("\n").split(":")[3].split(",")))
+    return set()
+
+
+def groups():
+    ensure_group()
+    inside = members()
+    for user in people():
+        if user not in inside:
+            subprocess.run(["usermod", "--append", "--groups", GROUP, user], check=False)
+
+
+def serve():
+    # runtime only: the next startup asks again, and only if something is still shared
+    subprocess.run(["firewall-cmd", "--add-service=samba"], capture_output=True)
+    subprocess.run(["setsebool", "samba_enable_home_dirs=1", "samba_export_all_rw=1"], capture_output=True)
+    subprocess.run(["systemctl", "start", "smb.service"], check=False)
+
+
+if __name__ == "__main__":
+    mode = sys.argv[1] if len(sys.argv) > 1 else ""
+    if mode == "groups":
+        groups()
+    elif mode == "serve":
+        serve()
+    else:
+        sys.exit("usage: file-sharing groups|serve")

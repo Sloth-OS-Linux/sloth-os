@@ -879,5 +879,6 @@
   "Always": "Әрқашан",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Үй желісінің қалған бөлігі жылдам қалуы үшін осы компьютердің жүктеп алу жылдамдығын шектейді: қоңырау, ойын немесе басқа компьютер үшін. Әрқашан немесе тек жаңартулар жүктелгенде әрекет етеді.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 кбит/с пен 10 000 Мбит/с аралығындағы шекті таңдаңыз.",
-  "Couldn't change the limit.": "Шекті өзгерту мүмкін болмады."
+  "Couldn't change the limit.": "Шекті өзгерту мүмкін болмады.",
+  "Restarting…": "Қайта іске қосылуда…"
 }

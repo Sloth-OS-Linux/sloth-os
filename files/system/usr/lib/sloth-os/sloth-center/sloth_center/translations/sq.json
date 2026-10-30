@@ -879,5 +879,6 @@
   "Always": "Gjithmonë",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Kufizon sa shpejt shkarkon ky kompjuter, që pjesa tjetër e rrjetit të shtëpisë të mbetet e shpejtë: për një telefonatë, një lojë ose një kompjuter tjetër. Vlen gjithmonë ose vetëm kur shkarkohen përditësime.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Zgjidh një kufi midis 64 kbit/s dhe 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Kufiri nuk mund të ndryshohej."
+  "Couldn't change the limit.": "Kufiri nuk mund të ndryshohej.",
+  "Restarting…": "Po riniset…"
 }

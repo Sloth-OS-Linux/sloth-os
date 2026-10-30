@@ -16,9 +16,9 @@ set_key() {
 }
 
 # Sloth OS's own version; VERSION_ID stays Fedora's (Fedora's tools build on it).
-# The displayed version shows the base too: "Sloth OS 1.2.1 (Fedora Atomic 44)". KDE's
+# The displayed version shows the base too: "Sloth OS 1.2.2 (Fedora Atomic 44)". KDE's
 # System information shows VERSION (/etc/xdg/kcm-about-distrorc), not VERSION_ID.
-SLOTH_VERSION="1.2.1"
+SLOTH_VERSION="1.2.2"
 FEDORA_VERSION="$(. "$OS_RELEASE" && echo "$VERSION_ID")"
 set_key NAME "Sloth OS"
 set_key VERSION "${SLOTH_VERSION} (Fedora Atomic ${FEDORA_VERSION})"

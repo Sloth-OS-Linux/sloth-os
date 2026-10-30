@@ -879,5 +879,6 @@
   "Always": "Aina",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Rajoittaa, kuinka nopeasti tämä tietokone lataa, jotta muu kotiverkko pysyy nopeana: puhelulle, pelille tai toiselle tietokoneelle. Se on voimassa aina tai vain päivitysten latautuessa.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Valitse rajoitus väliltä 64 kbit/s – 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Rajoitusta ei voitu muuttaa."
+  "Couldn't change the limit.": "Rajoitusta ei voitu muuttaa.",
+  "Restarting…": "Käynnistetään uudelleen…"
 }

@@ -879,5 +879,6 @@
   "Always": "Vedno",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Omeji, kako hitro ta računalnik prenaša, da ostane preostanek domačega omrežja hiter: za klic, igro ali drug računalnik. Velja vedno ali samo med prenosom posodobitev.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Izberite omejitev med 64 kbit/s in 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Omejitve ni bilo mogoče spremeniti."
+  "Couldn't change the limit.": "Omejitve ni bilo mogoče spremeniti.",
+  "Restarting…": "Ponovni zagon…"
 }

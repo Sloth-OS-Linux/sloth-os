@@ -53,5 +53,6 @@
   "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.": "Writing the ISO erases everything on the selected USB drive. Check the drive name and size carefully, and copy any files you want to keep before you start.",
   "Open the installation guide": "Open the installation guide",
   "Download the Sloth OS ISO": "Download the Sloth OS ISO",
-  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "After writing the USB drive, restart the computer and choose the USB device from its boot menu."
+  "After writing the USB drive, restart the computer and choose the USB device from its boot menu.": "After writing the USB drive, restart the computer and choose the USB device from its boot menu.",
+  "Restarting…": "Restarting…"
 }

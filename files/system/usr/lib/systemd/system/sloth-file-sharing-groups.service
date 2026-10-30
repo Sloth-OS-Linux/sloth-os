@@ -1,0 +1,11 @@
+[Unit]
+Description=Sloth OS: folder sharing, the accounts in the usershares group (Dolphin → Share)
+After=local-fs.target sloth-first-user.service
+Before=display-manager.service plasmalogin.service sddm.service
+
+[Service]
+Type=oneshot
+ExecStart=-/usr/libexec/sloth-os/file-sharing groups
+
+[Install]
+WantedBy=multi-user.target

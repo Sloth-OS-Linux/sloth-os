@@ -879,5 +879,6 @@
   "Always": "সবসময়",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "এই কম্পিউটার কত দ্রুত ডাউনলোড করবে তা সীমিত করে, যাতে বাড়ির বাকি নেটওয়ার্ক দ্রুত থাকে: কল, গেম বা অন্য কম্পিউটারের জন্য। সবসময় অথবা শুধু আপডেট ডাউনলোডের সময় কার্যকর হয়।",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "64 kbit/s থেকে 10 000 Mbit/s-এর মধ্যে একটি সীমা বেছে নিন।",
-  "Couldn't change the limit.": "সীমা পরিবর্তন করা যায়নি।"
+  "Couldn't change the limit.": "সীমা পরিবর্তন করা যায়নি।",
+  "Restarting…": "পুনরায় চালু হচ্ছে…"
 }

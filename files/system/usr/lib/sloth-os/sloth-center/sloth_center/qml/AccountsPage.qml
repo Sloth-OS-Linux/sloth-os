@@ -133,6 +133,8 @@ Kirigami.ScrollablePage {
                     Kirigami.PasswordField {
                         id: pinField
                         Layout.fillWidth: true
+                        // Tab goes on to the second field, not to the show button first
+                        KeyNavigation.tab: pinField2
                         placeholderText: L.t("New PIN (4–8 digits)")
                         maximumLength: 8
                         inputMethodHints: Qt.ImhDigitsOnly
@@ -141,6 +143,7 @@ Kirigami.ScrollablePage {
                     Kirigami.PasswordField {
                         id: pinField2
                         Layout.fillWidth: true
+                        KeyNavigation.backtab: pinField
                         placeholderText: L.t("Once more")
                         maximumLength: 8
                         inputMethodHints: Qt.ImhDigitsOnly

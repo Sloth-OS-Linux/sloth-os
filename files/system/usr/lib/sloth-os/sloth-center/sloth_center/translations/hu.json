@@ -879,5 +879,6 @@
   "Always": "Mindig",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Korlátozza, milyen gyorsan tölt le ez a gép, hogy az otthoni hálózat többi része gyors maradjon: egy hívásnak, egy játéknak vagy egy másik gépnek. Érvényes lehet mindig, vagy csak frissítés letöltése közben.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Válassz 64 kbit/s és 10 000 Mbit/s közötti korlátot.",
-  "Couldn't change the limit.": "Nem sikerült módosítani a korlátot."
+  "Couldn't change the limit.": "Nem sikerült módosítani a korlátot.",
+  "Restarting…": "Újraindítás…"
 }

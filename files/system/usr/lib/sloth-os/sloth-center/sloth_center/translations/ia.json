@@ -879,5 +879,6 @@
   "Always": "Sempre",
   "Limits how fast this computer downloads, so the rest of your home network stays fast: for a call, a game or another computer. It applies always, or only while updates download.": "Limita le velocitate de discargamento de iste computator, a fin que le resto de tu rete domestic remane rapide: pro un appello, un joco o un altere computator. Illo vale sempre, o solmente durante le discargamento de actualisationes.",
   "Choose a limit between 64 kbit/s and 10 000 Mbit/s.": "Elige un limite inter 64 kbit/s e 10 000 Mbit/s.",
-  "Couldn't change the limit.": "Non poteva cambiar le limite."
+  "Couldn't change the limit.": "Non poteva cambiar le limite.",
+  "Restarting…": "Reinitiante…"
 }
