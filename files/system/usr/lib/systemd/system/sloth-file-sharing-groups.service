@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: folder sharing, the accounts in the usershares group (Dolphin → Share)
+Description=Sloth OS: folder sharing, the usershares group in /etc/group (Dolphin → Share)
 After=local-fs.target sloth-first-user.service
 Before=display-manager.service plasmalogin.service sddm.service
 

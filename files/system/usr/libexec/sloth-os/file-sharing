@@ -6,9 +6,14 @@ Dolphin's Share tab uses Samba's "usershares". Out of the box it got stuck (Redd
   Dolphin's "add me to the group" step fails (usermod only edits /etc/group);
 - the Samba server (smb) is off, the firewall blocks its port (445), and SELinux does not let it read the folders.
 
-groups: at startup, before the login screen: the group goes into /etc/group and every person's account into it.
-serve:  once the first folder is shared (sloth-file-sharing.path): the firewall lets Samba in, SELinux lets it read
-        the shared folders, and the Samba server starts. Nothing of this runs while nothing is shared.
+As safe as it can be: nobody is put into the group automatically (Dolphin asks for the administrator password, as
+Windows does to turn sharing on), only folders in the home folders can be shared (not the whole system), and only
+the local network can connect (never the internet, not even over IPv6).
+
+groups: at startup, before the login screen: the group goes into /etc/group, so Dolphin's step works.
+serve:  once the first folder is shared (sloth-file-sharing.path): the firewall lets Samba in from the local network,
+        SELinux lets it read the home folders, and the Samba server starts. Nothing of this runs while nothing is
+        shared.
 """
 import subprocess
 import sys
@@ -41,48 +46,24 @@ def ensure_group():
         pass
 
 
-def people():
-    """The accounts of people (not system users), from /etc/passwd."""
-    with open("/etc/passwd", encoding="utf-8") as f:
-        for line in f:
-            parts = line.rstrip("\n").split(":")
-            if len(parts) < 7:
-                continue
-            try:
-                uid = int(parts[2])
-            except ValueError:
-                continue
-            if 1000 <= uid < 60000 and not parts[6].endswith(("nologin", "false")):
-                yield parts[0]
-
-
-def members():
-    with open("/etc/group", encoding="utf-8") as f:
-        for line in f:
-            if line.startswith(GROUP + ":"):
-                return set(filter(None, line.rstrip("\n").split(":")[3].split(",")))
-    return set()
-
-
-def groups():
-    ensure_group()
-    inside = members()
-    for user in people():
-        if user not in inside:
-            subprocess.run(["usermod", "--append", "--groups", GROUP, user], check=False)
+# the local network's addresses: home and office ranges, IPv6 link-local and unique local (no global addresses)
+LOCAL = [("ipv4", "10.0.0.0/8"), ("ipv4", "172.16.0.0/12"), ("ipv4", "192.168.0.0/16"),
+         ("ipv6", "fe80::/10"), ("ipv6", "fc00::/7")]
 
 
 def serve():
     # runtime only: the next startup asks again, and only if something is still shared
-    subprocess.run(["firewall-cmd", "--add-service=samba"], capture_output=True)
-    subprocess.run(["setsebool", "samba_enable_home_dirs=1", "samba_export_all_rw=1"], capture_output=True)
+    for family, net in LOCAL:
+        subprocess.run(["firewall-cmd", f"--add-rich-rule=rule family={family} source address={net} "
+                        "service name=samba accept"], capture_output=True)
+    subprocess.run(["setsebool", "samba_enable_home_dirs=1"], capture_output=True)
     subprocess.run(["systemctl", "start", "smb.service"], check=False)
 
 
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else ""
     if mode == "groups":
-        groups()
+        ensure_group()
     elif mode == "serve":
         serve()
     else:

@@ -1,5 +1,5 @@
 [Unit]
-Description=Sloth OS: folder sharing, the Samba server on for the shared folders
+Description=Sloth OS: folder sharing, the Samba server on for the local network
 After=network.target firewalld.service
 
 [Service]
