@@ -536,7 +536,9 @@ def share_add(request):
                            capture_output=True, text=True)
         if r.returncode != 0:
             return {"ok": False, "error": r.stderr.strip()[-500:] or "smbpasswd"}
-    acl = "Everyone:F" if request.get("write") else "Everyone:R"
+    # S-1-1-0 is "Everyone": the name would be looked up through smbd, which refuses it ("cannot convert name
+    # Everyone to a SID", the error Dolphin's Share tab shows; tried in a Fedora 44 container, 2026-10-30)
+    acl = "S-1-1-0:F" if request.get("write") else "S-1-1-0:R"
     # as the user (runuser reads the groups again, so no new sign-in is needed)
     r = run(["runuser", "-u", pw.pw_name, "--", "net", "usershare", "add", name, path, "", acl,
              "guest_ok=y" if guests else "guest_ok=n"])
