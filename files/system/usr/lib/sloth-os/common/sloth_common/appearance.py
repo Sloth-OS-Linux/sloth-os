@@ -8,6 +8,7 @@ import configparser
 import json
 import logging
 import os
+import re
 import subprocess
 from pathlib import Path
 
@@ -30,8 +31,15 @@ COLOR_SCHEMES = [
     {"id": "SlothSage", "colors": ["#e1e7e0", "#56715b", "#212a23"]},
 ]
 
+# "Your own color": an accent color on top of any scheme (the highlights, selected items, buttons and sliders).
+# plasma-apply-colorscheme --accent-color tints the current scheme but does not remember it, and the next scheme
+# drops it (tried 2026-10-30). So the choice is kept where KDE's own color settings keep it (kdeglobals [General]
+# AccentColor, "r,g,b") and set again after every scheme change. "" = the scheme's own color.
+ACCENT_COLORS = ["#3d8fd9", "#1aa39a", "#3fa34d", "#e0a526", "#e0662b", "#d6404a", "#d6457e", "#8a5cd6"]
+_HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
+
 # Their names and descriptions are in each tool's translations
-LAYOUTS = ["windows10", "windows11", "mac", "ubuntu"]
+LAYOUTS =["windows10", "windows11", "mac", "ubuntu"]
 
 _LAYOUT_SCRIPT = """
 const kind = %s;
@@ -146,15 +154,54 @@ def current_color_scheme():
     return name if name in {c["id"] for c in COLOR_SCHEMES} else ""
 
 
+def _run(cmd):
+    subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=30)
+
+
 def apply_color_scheme(scheme_id):
     if scheme_id not in {c["id"] for c in COLOR_SCHEMES}:
         return False
     try:
-        subprocess.run(["plasma-apply-colorscheme", scheme_id], check=True,
-                       stdout=subprocess.DEVNULL, stderr=subprocess.PIPE, timeout=30)
+        _run(["plasma-apply-colorscheme", scheme_id])
+        accent = current_accent()
+        if accent:
+            _run(["plasma-apply-colorscheme", "--accent-color", accent])
         return True
     except (OSError, subprocess.SubprocessError) as e:
         log.warning("color scheme: %s", e)
+        return False
+
+
+def current_accent():
+    """The own accent color ("#rrggbb"), or "" for the scheme's own."""
+    value = read_ini(CONFIG_HOME / "kdeglobals").get("General", "AccentColor", fallback="")
+    try:
+        r, g, b = (int(x) for x in value.split(",")[:3])
+        return f"#{r:02x}{g:02x}{b:02x}"
+    except ValueError:
+        return value if _HEX.match(value) else ""
+
+
+def apply_accent(color):
+    """Sets the own accent color ("#rrggbb"), or goes back to the scheme's own ("")."""
+    if color and not _HEX.match(color):
+        return False
+    try:
+        if color:
+            rgb = ",".join(str(int(color[i:i + 2], 16)) for i in (1, 3, 5))
+            _run(["kwriteconfig6", "--file", "kdeglobals", "--group", "General", "--key", "AccentColor", rgb])
+            _run(["plasma-apply-colorscheme", "--accent-color", color])
+            return True
+        _run(["kwriteconfig6", "--file", "kdeglobals", "--group", "General", "--key", "AccentColor", "--delete"])
+        # The scheme's own colors again: plasma-apply-colorscheme refuses the scheme already set, so it is
+        # forgotten first (nothing is applied in between, so the screen does not flash)
+        scheme = read_ini(CONFIG_HOME / "kdeglobals").get("General", "ColorScheme", fallback="")
+        if scheme:
+            _run(["kwriteconfig6", "--file", "kdeglobals", "--group", "General", "--key", "ColorScheme", "--delete"])
+            _run(["plasma-apply-colorscheme", scheme])
+        return True
+    except (OSError, subprocess.SubprocessError) as e:
+        log.warning("accent color: %s", e)
         return False
 
 

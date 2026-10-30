@@ -18,11 +18,14 @@ from a terminal must also work from a GUI.
    password")
 
 ### From a Reddit test in a VM (2026-10-30)
-- [ ] **Quick** — Sloth Center among the Start menu favorites too: new users do not know it exists. (It is on the
-  taskbar by default for a new user, but for an existing user only after changing the layout.)
+- [x] **Quick** — Sloth Center among the Start menu favorites too: new users do not know it exists. (It is on the
+  taskbar by default for a new user, but for an existing user only after changing the layout.) Done: the default
+  layout writes Kickoff's `favorites` (Sloth Center, Dolphin, Discover), which Kickoff takes over at its first start
+  while there are no favorites yet, so only for new users. Check on a real machine with a new account
 - [ ] **Medium** — Windows programs: say up front that not every Windows program runs (someone double-clicks the
   Adobe Reader installer and wonders why nothing works). A short note in Sloth Welcome, and a note when an .exe is
-  opened (with a native alternative where one is known)
+  opened (with a native alternative where one is known). The Welcome note is done (2026-10-30: on the last page,
+  `done.windows_tip`, 50 languages); the note when an .exe is opened is still to do
 - [ ] **Medium** — Games page bugs: a removed Windows program stays on the list, and every Windows program shows up
   as a game (e.g. Notepad++). Keep only games there (the rest belongs under Programs)
 - [ ] **Medium** — File backup → "Find deleted files…" did not work in the VM (restoring through the saved states
@@ -107,6 +110,12 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
     sliders follow it at once. "Take the color from the wallpaper" too (KDE can do that as well), and "Back to the
     scheme's own color". A live preview in the layout drawing before applying; the choice goes into the settings
     file like the scheme.
+    **Done (2026-10-30, a Reddit question):** "Highlight color" under the schemes in Sloth Welcome and Sloth Center
+    (`SlothCommon/AccentPicker.qml`): the scheme's own, 8 suggested colors, "Other color…" (Qt's color picker). It
+    is kept in kdeglobals `[General] AccentColor` (where KDE's own color settings keep it) and set again after every
+    scheme change, because `plasma-apply-colorscheme --accent-color` does not remember it (tried in a container);
+    it goes into the settings file too. Tests: `tools/tests/test_appearance.py`. Still open: the color from the
+    wallpaper, the preview in the layout drawing, more ready-made schemes. Check on a real machine
 - [x] **Small, important** — "No updates" although there is one, on a machine with layered packages (found
   2026-10-28 on the gaming PC: `nmap` layered, the 1.2 `latest` in the registry, still "No updates available"). With
   layered packages `rpm-ostree upgrade --check` cannot read the base image ("failed to query container image base

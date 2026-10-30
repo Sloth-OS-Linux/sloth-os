@@ -1,2 +1,3 @@
 module SlothCommon
 LayoutPreview 1.0 LayoutPreview.qml
+AccentPicker 1.0 AccentPicker.qml

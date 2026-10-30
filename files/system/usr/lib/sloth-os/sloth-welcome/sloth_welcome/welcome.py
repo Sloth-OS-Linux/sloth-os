@@ -121,6 +121,7 @@ class WelcomeController(QObject):
         self._selected = []
         # When run again, the current appearance should be selected (on first start the factory default)
         self._scheme = desktop.current_color_scheme() or "SlothSilverDark"
+        self._accent = desktop.current_accent()
         self._layout = desktop.current_layout() or "windows10"
         self._present = installed_apps()  # what is already installed: ticked, not installed again
         self._status = ""
@@ -349,6 +350,14 @@ class WelcomeController(QObject):
     @Property(str, notify=changed)
     def currentScheme(self):
         return self._scheme
+
+    @Property("QVariantList", constant=True)
+    def accentColors(self):
+        return desktop.ACCENT_COLORS
+
+    @Property(str, notify=changed)
+    def currentAccent(self):
+        return self._accent
 
     @Property(str, notify=changed)
     def statusText(self):
@@ -654,6 +663,12 @@ class WelcomeController(QObject):
         if scheme_id != self._scheme and desktop.apply_color_scheme(scheme_id):
             self._scheme = scheme_id
             self._save()
+            self.changed.emit()
+
+    @Slot(str)
+    def setAccent(self, color):
+        if color != self._accent and desktop.apply_accent(color):
+            self._accent = color
             self.changed.emit()
 
     @Slot(str)

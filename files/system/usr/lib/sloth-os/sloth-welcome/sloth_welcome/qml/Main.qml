@@ -204,6 +204,23 @@ Kirigami.ApplicationWindow {
                             }
                         }
                     }
+                    // "Your own color" on top of the chosen scheme
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        horizontalAlignment: Text.AlignHCenter
+                        level: 4
+                        text: root.t("look.accent")
+                    }
+                    AccentPicker {
+                        Layout.alignment: Qt.AlignHCenter
+                        Layout.preferredWidth: Math.min(implicitWidth, root.contentWidth)
+                        colors: welcome.accentColors
+                        current: welcome.currentAccent
+                        ownText: root.t("look.accent_own")
+                        otherText: root.t("look.accent_other")
+                        onPicked: color => welcome.setAccent(color)
+                    }
                     Kirigami.Heading {
                         Layout.fillWidth: true
                         Layout.topMargin: Kirigami.Units.largeSpacing * 2
@@ -635,6 +652,15 @@ Kirigami.ApplicationWindow {
                         icon.name: "go-next"
                         text: root.t("done.windows_continue")
                         onClicked: welcome.runWindowsQueue()
+                    }
+                    // Up front: not every Windows program runs (otherwise people try an installer and wonder why
+                    // nothing happens; a Reddit test, 2026-10-30)
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        Layout.topMargin: Kirigami.Units.largeSpacing
+                        visible: !welcome.pendingWindows
+                        type: Kirigami.MessageType.Information
+                        text: root.t("done.windows_tip")
                     }
                     // After installing, restarting is the main button: then every new app loads properly
                     QQC2.Label {

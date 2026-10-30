@@ -126,6 +126,19 @@ Kirigami.ScrollablePage {
             }
         }
 
+        Kirigami.Heading {
+            level: 3
+            text: L.t("Highlight color")
+        }
+        AccentPicker {
+            Layout.fillWidth: true
+            colors: appearance.accentColors
+            current: appearance.currentAccent
+            ownText: L.t("The scheme's own")
+            otherText: L.t("Other color…")
+            onPicked: color => appearance.setAccent(color)
+        }
+
         QQC2.Button {
             text: L.t("More appearance settings")
             icon.name: "preferences-desktop-theme-global"

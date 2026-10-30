@@ -16,6 +16,9 @@ COLOR_SCHEMES = appearance.COLOR_SCHEMES
 LAYOUTS = [{"id": kind} for kind in appearance.LAYOUTS]
 current_color_scheme = appearance.current_color_scheme
 apply_color_scheme = appearance.apply_color_scheme
+ACCENT_COLORS = appearance.ACCENT_COLORS
+current_accent = appearance.current_accent
+apply_accent = appearance.apply_accent
 current_layout = appearance.current_layout
 apply_layout = appearance.apply_layout
 

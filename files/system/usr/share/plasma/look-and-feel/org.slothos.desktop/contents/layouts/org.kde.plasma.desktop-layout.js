@@ -10,10 +10,17 @@ panel.floating = false;
 const kickoff = panel.addWidget("org.kde.plasma.kickoff");
 kickoff.currentConfigGroup = ["General"];
 kickoff.writeConfig("icon", "sloth-os");
+// The Start menu's favorites: Sloth Center first, so new users find it (a Reddit test, 2026-10-30). Kickoff takes
+// this list over into the shared favorites at its first start, only while there are none yet (a new user)
+kickoff.writeConfig("favorites", [
+    "org.slothos.center.desktop",
+    "org.kde.dolphin.desktop",
+    "org.kde.discover.desktop",
+].join(","));
 
 // Pinned apps + running windows (icons only, as in Windows).
 // Sloth Welcome pins the browser and Steam if the user installed them.
-// Sloth Center is out by default: every setting and the updates can be reached from it.
+// Sloth Center is pinned by default: every setting and the updates can be reached from it.
 const tasks = panel.addWidget("org.kde.plasma.icontasks");
 tasks.currentConfigGroup = ["General"];
 tasks.writeConfig("launchers", [

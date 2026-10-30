@@ -72,6 +72,37 @@ class CurrentLayout(unittest.TestCase):
         self.assertFalse(appearance.apply_color_scheme("NotOurs"))
 
 
+class Accent(unittest.TestCase):
+    """The own accent color (kdeglobals [General] AccentColor, as KDE's color settings keep it)."""
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        appearance.CONFIG_HOME = Path(self.tmp.name)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def accent(self, value=None):
+        if value is not None:
+            (Path(self.tmp.name) / "kdeglobals").write_text(f"[General]\nAccentColor={value}\n", encoding="utf-8")
+        return appearance.current_accent()
+
+    def test_read(self):
+        self.assertEqual(self.accent(), "")
+        self.assertEqual(self.accent("224,102,43"), "#e0662b")
+        self.assertEqual(self.accent("224,102,43,255"), "#e0662b")
+        self.assertEqual(self.accent("#3fa34d"), "#3fa34d")
+        self.assertEqual(self.accent("nonsense"), "")
+
+    def test_bad_color_is_not_applied(self):
+        for bad in ("red", "#12345", "#1234567", "#gg0000", "1,2,3"):
+            self.assertFalse(appearance.apply_accent(bad), bad)
+
+    def test_suggestions_are_lowercase_hex(self):
+        # AccentPicker.qml compares them with the current color in lower case
+        for c in appearance.ACCENT_COLORS:
+            self.assertRegex(c, r"^#[0-9a-f]{6}$")
+
+
 if __name__ == "__main__":
     os.environ.setdefault("XDG_CONFIG_HOME", tempfile.gettempdir())
     unittest.main()

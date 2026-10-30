@@ -39,6 +39,7 @@ class AppearanceController(QObject):
         super().__init__(parent)
         self._scheme = shared.current_color_scheme()
         self._layout = shared.current_layout()
+        self._accent = shared.current_accent()
         self._error = ""
 
     @Property("QVariantList", constant=True)
@@ -61,6 +62,24 @@ class AppearanceController(QObject):
     @Property(str, notify=changed)
     def errorText(self):
         return self._error
+
+    @Property("QVariantList", constant=True)
+    def accentColors(self):
+        return shared.ACCENT_COLORS
+
+    @Property(str, notify=changed)
+    def currentAccent(self):
+        return self._accent
+
+    @Slot(str)
+    def setAccent(self, color):
+        if color == self._accent:
+            return
+        if shared.apply_accent(color):
+            self._accent, self._error = color, ""
+        else:
+            self._error = tr("Couldn't change the colors. Please try again.")
+        self.changed.emit()
 
     @Slot(str)
     def setScheme(self, scheme_id):
