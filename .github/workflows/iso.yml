@@ -5,6 +5,11 @@ name: iso
 # While the repository was private the ISO could not be uploaded (the Actions storage is 500 MB, an ISO several GB),
 # so the workflow only checked that it builds. In the public repository it can be downloaded as an artifact.
 on:
+  # A test-only path filter lets us produce a test ISO by changing this workflow,
+  # without rebuilding the system image or affecting normal pushes.
+  push:
+    branches: [test/chunked-oci]
+    paths: [.github/workflows/iso.yml]
   workflow_dispatch:
     inputs:
       variant:
@@ -24,6 +29,9 @@ on:
 env:
   # The pinned commit of the Titanoboa ISO builder (when updating: change the SHA in tools/build-iso.sh too)
   TITANOBOA_COMMIT: 5c457c3d0518bd17e754be0fd98a60d29d26abb4
+  VARIANT: ${{ inputs.variant || 'sloth-os' }}
+  IMAGE_TAG: ${{ inputs.image_tag || 'br-test_chunked-oci-44' }}
+  SQUASH: ${{ inputs.squash || false }}
 
 jobs:
   iso:
@@ -49,14 +57,14 @@ jobs:
       - name: Build live image
         run: |
           owner="${{ github.repository_owner }}"  # ghcr.io only accepts lowercase names (Sloth-OS-Linux)
-          image="ghcr.io/${owner,,}/${{ inputs.variant }}:${{ inputs.image_tag }}"
+          image="ghcr.io/${owner,,}/${VARIANT}:${IMAGE_TAG}"
           sudo podman build --security-opt label=disable --authfile /tmp/auth.json \
             --build-arg BASE_IMAGE="$image" -t localhost/sloth-os-live:latest iso/
           # The unpacked container storage of the image to install goes into a separate folder (iso/payload.sh); when
           # the ISO is made it is mounted in place of the live system's /var/lib/containers/storage (no podman commit).
           # It is not downloaded again: the unpacker reads from the storage downloaded while building the live system.
           src="$image"
-          if [ "${{ inputs.squash }}" = "true" ]; then
+          if [ "$SQUASH" = "true" ]; then
             # a squashed image cannot be installed ("Too many links" in bootc; tools/build-iso.sh, SLOTH_SQUASH)
             echo "::error::Squashing is no longer supported: a squashed image cannot be installed"
             exit 1
@@ -88,14 +96,14 @@ jobs:
       - name: Checksum
         run: |
           sudo chown -R "$(id -u):$(id -g)" output
-          mv output/*.iso "output/${{ inputs.variant }}.iso"
-          (cd output && sha256sum "${{ inputs.variant }}.iso" | tee "${{ inputs.variant }}.iso.sha256")
+          mv output/*.iso "output/${VARIANT}.iso"
+          (cd output && sha256sum "${VARIANT}.iso" | tee "${VARIANT}.iso.sha256")
           ls -lh output
 
       - name: Upload ISO
         if: ${{ !github.event.repository.private }}
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ inputs.variant }}-iso
+          name: ${{ inputs.variant || 'sloth-os' }}-iso
           path: output/
           retention-days: 7
