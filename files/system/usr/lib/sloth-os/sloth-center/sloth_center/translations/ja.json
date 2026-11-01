@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "ほかのコンピューターはあなたのユーザー名 ({user}) とこのパスワードでサインインします。",
   "Leave it empty to keep the current password.": "今のパスワードのままにするには空欄にしてください。",
   "Choose a folder to share…": "共有するフォルダーを選ぶ…",
-  "Color the window title bars too": "ウィンドウのタイトルバーにも色を付ける"
+  "Color the window title bars too": "ウィンドウのタイトルバーにも色を付ける",
+  "Groups with access": "アクセス権のあるグループ",
+  "Members need a Samba account and permission to open the folder.": "メンバーがフォルダーを開くには、Sambaアカウントと権限が必要です。",
+  "Add a share": "共有フォルダーを追加"
 }

@@ -7,6 +7,7 @@ the share; no new sign-in is needed. /usr/libexec/sloth-os/file-sharing then sta
 and writes the account's shares into /run/sloth-os/sharing/<uid>.json, which this page reads.
 """
 import json
+import grp
 import logging
 import os
 import re
@@ -35,6 +36,18 @@ def read_status():
         return [], False
 
 
+def local_groups():
+    """Groups NSS can resolve, including Winbind-provided AD groups."""
+    try:
+        groups = grp.getgrall()
+    except OSError:
+        groups = []
+    result = [{"name": group.gr_name, "gid": group.gr_gid} for group in groups
+              if group.gr_gid >= 1000 and group.gr_name != "usershares"
+              and (group.gr_gid < 60000 or "\\" in group.gr_name)]
+    return sorted({group["gid"]: group for group in result}.values(), key=lambda item: item["name"].casefold())
+
+
 def share_name(path):
     """The folder's name as a share name Windows accepts (letters, digits, _ . -)."""
     name = re.sub(r"[^A-Za-z0-9_.-]+", "-", os.path.basename(path.rstrip("/"))).strip("-.") or "Share"
@@ -55,6 +68,7 @@ class SharingController(QObject):
 
     shares = Property("QVariantList", lambda self: [dict(s, address=self.address(s["name"])) for s in self._shares],
                       notify=changed)
+    groups = Property("QVariantList", lambda self: local_groups(), notify=changed)
     hasPassword = Property(bool, lambda self: self._password, notify=changed)
     busy = Property(bool, lambda self: self._busy, notify=changed)
     message = Property(str, lambda self: self._message, notify=changed)
@@ -70,8 +84,8 @@ class SharingController(QObject):
         self._shares, self._password = read_status()
         self.changed.emit()
 
-    @Slot(str, bool, bool, str)
-    def addShare(self, folder_url, write, guests, password):
+    @Slot(str, bool, bool, str, "QVariantList")
+    def addShare(self, folder_url, write, guests, password, groups):
         path = unquote(urlsplit(folder_url).path) if folder_url.startswith("file:") else folder_url
         if not path:
             return
@@ -83,7 +97,8 @@ class SharingController(QObject):
         base = name
         while name.lower() in names:
             name, n = f"{base[:76]}-{n}", n + 1
-        request = json.dumps({"name": name, "path": path, "write": write, "guests": guests, "password": password})
+        request = json.dumps({"name": name, "path": path, "write": write, "guests": guests,
+                              "password": password, "groups": groups})
         self._run(["share-add"], request)
 
     @Slot(str)

@@ -14,8 +14,6 @@ modules:
         - fprintd-pam       # fingerprint
         - pam-u2f           # security key (FIDO2 / YubiKey); for enrolling: pamu2fcfg
         - realmd            # work account: joining an Active Directory domain
-        - adcli
-        - sssd-ad
         # Printer and scanner (if they are already in the base, dnf does nothing)
         - hplip                           # drivers for HP printers and scanners (HP machines are common)
         - sane-backends-drivers-scanners  # the scanners' drivers
@@ -26,12 +24,21 @@ modules:
         - rclone
         - fuse3
         # Folder sharing (Dolphin → Share, Sloth Center → Network folders): the computer shows up in Windows'
-        # Network window; it runs only while something is shared (/usr/libexec/sloth-os/file-sharing)
+        # Network window; the firewall opens only while something is shared (/usr/libexec/sloth-os/file-sharing)
         - wsdd
+        - samba                       # SMB server and usershare commands
+        - samba-winbind               # AD sign-in and group ACLs (Sloth Center joins with Winbind)
+        - samba-winbind-clients       # wbinfo: map AD group names and SIDs for share ACLs
+        - samba-common-tools          # net, pdbedit, smbpasswd and testparm
+        - samba-usershares            # usershares group, directory and Samba configuration
+        - kdenetwork-filesharing      # Dolphin → Properties → Share
 
   - type: systemd
     system:
       enabled:
+        # Dolphin's Share tab expects Samba to be enabled and running before it can configure a share.
+        # With no shares the firewall stays closed and smb.conf exports nothing.
+        - smb.service
         # Backing up your own files (Sloth Center → File backup, Dolphin → Previous versions)
         - sloth-home-layout.service   # at startup: /var/home as a separate subvolume (for the snapshots)
         - sloth-home-snapshot.timer   # one snapshot an hour, thinning out the old ones

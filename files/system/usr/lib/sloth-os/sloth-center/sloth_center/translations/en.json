@@ -69,5 +69,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Other computers sign in with your user name ({user}) and this password.",
   "Leave it empty to keep the current password.": "Leave it empty to keep the current password.",
   "Choose a folder to share…": "Choose a folder to share…",
-  "Color the window title bars too": "Color the window title bars too"
+  "Color the window title bars too": "Color the window title bars too",
+  "Groups with access": "Groups with access",
+  "Members need a Samba account and permission to open the folder.": "Members need a Samba account and permission to open the folder.",
+  "Add a share": "Add a share"
 }

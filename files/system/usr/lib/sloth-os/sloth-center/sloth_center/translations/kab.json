@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Iselkimen nniḍen ttkecmen s yisem-ik n useqdac ({user}) d wawal-a uffir.",
   "Leave it empty to keep the current password.": "Eǧǧ-it d ilem akken ad yeqqim wawal uffir n tura.",
   "Choose a folder to share…": "Fren akaram ara tebduḍ…",
-  "Color the window title bars too": "Ini daɣen ifeggagen n uzwel n yisfuyla"
+  "Color the window title bars too": "Ini daɣen ifeggagen n uzwel n yisfuyla",
+  "Groups with access": "Taggayin s tuqqna",
+  "Members need a Samba account and permission to open the folder.": "Imttekkiyen ilaq ad sɛun amiḍan Samba d tisirag iwakken ad ldin akaram.",
+  "Add a share": "Rnu akaram yettwabḍan"
 }

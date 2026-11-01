@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Druga računala prijavljuju se vašim korisničkim imenom ({user}) i ovom lozinkom.",
   "Leave it empty to keep the current password.": "Ostavite prazno da zadržite trenutnu lozinku.",
   "Choose a folder to share…": "Odaberite mapu za dijeljenje…",
-  "Color the window title bars too": "Oboji i naslovne trake prozora"
+  "Color the window title bars too": "Oboji i naslovne trake prozora",
+  "Groups with access": "Grupe s pristupom",
+  "Members need a Samba account and permission to open the folder.": "Članovi trebaju Samba račun i dozvolu za otvaranje mape.",
+  "Add a share": "Dodaj dijeljenu mapu"
 }

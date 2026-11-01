@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Басқа компьютерлер сіздің пайдаланушы атыңызбен ({user}) және осы құпиясөзбен кіреді.",
   "Leave it empty to keep the current password.": "Ағымдағы құпиясөзді сақтау үшін бос қалдырыңыз.",
   "Choose a folder to share…": "Ортақ ететін қалтаны таңдаңыз…",
-  "Color the window title bars too": "Терезелердің тақырып жолақтарын да бояу"
+  "Color the window title bars too": "Терезелердің тақырып жолақтарын да бояу",
+  "Groups with access": "Қолжетімді топтар",
+  "Members need a Samba account and permission to open the folder.": "Мүшелерге Samba тіркелгісі және қалтаны ашуға рұқсат қажет.",
+  "Add a share": "Ортақ қалтаны қосу"
 }

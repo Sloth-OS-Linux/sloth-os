@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "I altris computers a jentrin cul to non utent ({user}) e cheste password.",
   "Leave it empty to keep the current password.": "Lasse vueit par tignî la password di cumò.",
   "Choose a folder to share…": "Sielç une cartele di condividi…",
-  "Color the window title bars too": "Colore ancje lis sbaris dal titul dai barcons"
+  "Color the window title bars too": "Colore ancje lis sbaris dal titul dai barcons",
+  "Groups with access": "Grups cun acès",
+  "Members need a Samba account and permission to open the folder.": "I membris a àn bisugne di un cont Samba e di un permès par vierzi la cartele.",
+  "Add a share": "Zonte une cartele condividude"
 }

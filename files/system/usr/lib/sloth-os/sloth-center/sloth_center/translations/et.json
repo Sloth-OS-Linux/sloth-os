@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Teised arvutid logivad sisse sinu kasutajanime ({user}) ja selle parooliga.",
   "Leave it empty to keep the current password.": "Jäta tühjaks, et praegune parool alles jääks.",
   "Choose a folder to share…": "Vali jagatav kaust…",
-  "Color the window title bars too": "Värvi ka akende tiitliribad"
+  "Color the window title bars too": "Värvi ka akende tiitliribad",
+  "Groups with access": "Juurdepääsuga rühmad",
+  "Members need a Samba account and permission to open the folder.": "Liikmed vajavad kausta avamiseks Samba kontot ja luba.",
+  "Add a share": "Lisa jagatud kaust"
 }

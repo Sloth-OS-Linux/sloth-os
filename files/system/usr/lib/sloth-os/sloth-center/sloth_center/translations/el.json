@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Οι άλλοι υπολογιστές συνδέονται με το όνομα χρήστη σας ({user}) και αυτόν τον κωδικό.",
   "Leave it empty to keep the current password.": "Αφήστε το κενό για να κρατήσετε τον τρέχοντα κωδικό.",
   "Choose a folder to share…": "Επιλέξτε φάκελο για κοινή χρήση…",
-  "Color the window title bars too": "Χρωματισμός και των γραμμών τίτλου των παραθύρων"
+  "Color the window title bars too": "Χρωματισμός και των γραμμών τίτλου των παραθύρων",
+  "Groups with access": "Ομάδες με πρόσβαση",
+  "Members need a Samba account and permission to open the folder.": "Τα μέλη χρειάζονται έναν λογαριασμό Samba και άδεια για να ανοίξουν τον φάκελο.",
+  "Add a share": "Προσθήκη κοινόχρηστου φακέλου"
 }

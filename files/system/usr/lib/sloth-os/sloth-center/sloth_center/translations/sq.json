@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Kompjuterët e tjerë hyjnë me emrin tënd të përdoruesit ({user}) dhe këtë fjalëkalim.",
   "Leave it empty to keep the current password.": "Lëre bosh për të mbajtur fjalëkalimin e tanishëm.",
   "Choose a folder to share…": "Zgjidh një dosje për ta ndarë…",
-  "Color the window title bars too": "Ngjyros edhe shiritat e titullit të dritareve"
+  "Color the window title bars too": "Ngjyros edhe shiritat e titullit të dritareve",
+  "Groups with access": "Grupet me qasje",
+  "Members need a Samba account and permission to open the folder.": "Anëtarët kanë nevojë për një llogari Samba dhe leje për të hapur dosjen.",
+  "Add a share": "Shto dosje të përbashkët"
 }

@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "অন্য কম্পিউটারগুলি আপনার ব্যবহারকারীর নাম ({user}) ও এই পাসওয়ার্ড দিয়ে সাইন ইন করে।",
   "Leave it empty to keep the current password.": "বর্তমান পাসওয়ার্ড রাখতে ফাঁকা রাখুন।",
   "Choose a folder to share…": "শেয়ার করার ফোল্ডার বাছুন…",
-  "Color the window title bars too": "উইন্ডোর শিরোনাম বারও রঙিন করুন"
+  "Color the window title bars too": "উইন্ডোর শিরোনাম বারও রঙিন করুন",
+  "Groups with access": "অ্যাক্সেস সহ গ্রুপ",
+  "Members need a Samba account and permission to open the folder.": "সদস্যদের একটি সাম্বা অ্যাকাউন্ট এবং ফোল্ডারটি খোলার জন্য অনুমতি প্রয়োজন ।",
+  "Add a share": "একটি ভাগ করা ফোল্ডার যোগ করুন"
 }

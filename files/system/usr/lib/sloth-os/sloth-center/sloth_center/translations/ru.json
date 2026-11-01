@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Другие компьютеры входят с вашим именем пользователя ({user}) и этим паролем.",
   "Leave it empty to keep the current password.": "Оставьте пустым, чтобы сохранить текущий пароль.",
   "Choose a folder to share…": "Выбрать папку для общего доступа…",
-  "Color the window title bars too": "Окрашивать и заголовки окон"
+  "Color the window title bars too": "Окрашивать и заголовки окон",
+  "Groups with access": "Группы с доступом",
+  "Members need a Samba account and permission to open the folder.": "Для открытия папки участникам требуется учетная запись Samba и разрешение.",
+  "Add a share": "Добавить общую папку"
 }

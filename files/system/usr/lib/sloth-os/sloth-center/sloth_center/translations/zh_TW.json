@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "其他電腦使用你的使用者名稱（{user}）和此密碼登入。",
   "Leave it empty to keep the current password.": "留空即保留目前的密碼。",
   "Choose a folder to share…": "選擇要分享的資料夾…",
-  "Color the window title bars too": "視窗標題列也使用此顏色"
+  "Color the window title bars too": "視窗標題列也使用此顏色",
+  "Groups with access": "擁有存取權限的羣組",
+  "Members need a Samba account and permission to open the folder.": "成員需要Samba帳戶和權限才能開啟資料夾。",
+  "Add a share": "新增共享資料夾"
 }

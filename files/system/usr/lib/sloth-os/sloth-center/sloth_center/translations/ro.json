@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Celelalte calculatoare se conectează cu numele tău de utilizator ({user}) și această parolă.",
   "Leave it empty to keep the current password.": "Lasă gol pentru a păstra parola actuală.",
   "Choose a folder to share…": "Alege un dosar de partajat…",
-  "Color the window title bars too": "Colorează și barele de titlu ale ferestrelor"
+  "Color the window title bars too": "Colorează și barele de titlu ale ferestrelor",
+  "Groups with access": "Grupuri cu acces",
+  "Members need a Samba account and permission to open the folder.": "Membrii au nevoie de un cont Samba și de permisiunea de a deschide dosarul.",
+  "Add a share": "Adaugă un folder partajat"
 }

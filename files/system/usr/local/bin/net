@@ -1,0 +1,35 @@
+#!/usr/bin/python3 -I
+"""Make Dolphin's Samba usershare ACL compatible with Fedora's Samba name lookup.
+
+KDE's Dolphin plugin writes the built-in Everyone principal by name. On Sloth OS,
+Samba rejects that name while creating a usershare, although the well-known SID is
+accepted. Translate only that principal in `net usershare add`; pass every other
+Samba command and argument through untouched.
+"""
+import os
+import sys
+
+
+SAMBA_NET = "/usr/bin/net"
+
+
+def acl_with_well_known_sid(acl):
+    entries = []
+    for entry in acl.split(","):
+        principal, separator, permission = entry.partition(":")
+        if principal.casefold() == "everyone":
+            principal = "S-1-1-0"
+        entries.append(principal + separator + permission)
+    return ",".join(entries)
+
+
+def main():
+    args = sys.argv[1:]
+    # `net usershare add name path comment ACL guest_ok=...`
+    if len(args) >= 6 and args[:2] == ["usershare", "add"]:
+        args[5] = acl_with_well_known_sid(args[5])
+    os.execv(SAMBA_NET, [SAMBA_NET, *args])
+
+
+if __name__ == "__main__":
+    main()

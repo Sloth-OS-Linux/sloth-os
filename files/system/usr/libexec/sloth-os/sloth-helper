@@ -37,8 +37,9 @@ Operations:
                                                  daily, 4:00)
   share-add                                      shares a folder of the calling user on the home network, always
                                                  (JSON on the input: {"name", "path", "write", "guests",
-                                                 "password"}; without guests, a Samba password is needed the
-                                                 first time)
+                                                 "password", "groups"}; group members need their own Samba account
+                                                 and filesystem access; without guests, a Samba password is needed
+                                                 the first time)
   share-remove <name>                            stops sharing the calling user's folder
   net-limit off|<kbit/s> <unit> always|updates   the download speed limit (/etc/sloth-os/net-limit.json; the unit
                                                  the user chose: kbit, KB, Mbit, MB), put on or off at once
@@ -50,6 +51,7 @@ under the "updates" topic, not under booting. net-limit alone is available as sl
 password (org.slothos.helper.netlimit): it only slows the computer's downloads down. share-add and share-remove
 are available only as sloth-helper-sharing (org.slothos.helper.sharing), which always asks for the password.
 """
+import grp
 import json
 import os
 import pwd
@@ -301,13 +303,48 @@ def login_feature(name, on):
 
 
 def domain_join(domain, user, password):
-    r = run(["realm", "join", "--user", user, domain], input=password + "\n")
-    keep_altfiles()  # realm selects the sssd profile, likewise without with-altfiles
+    # Winbind is the identity provider used by Samba as well as NSS/PAM. That lets
+    # the SMB server authenticate domain users and resolve their groups to Unix IDs.
+    r = run(["realm", "join", "--client-software=winbind", "--membership-software=samba",
+             "--user", user, domain], input=password + "\n")
+    if r.returncode == 0:
+        ensure_samba_usershares()
+    keep_altfiles()  # realm changes authselect; preserve Sloth OS's system-account lookup
     return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
 
 
+def ensure_samba_usershares():
+    """Keep usershares and AD group enumeration enabled in realmd's Samba config."""
+    path = "/etc/samba/smb.conf"
+    try:
+        with open(path, encoding="utf-8") as f:
+            config = f.read()
+    except OSError:
+        return
+    required = []
+    include_added = False
+    group_enumeration_added = False
+    if "include = /etc/samba/usershares.conf" not in config:
+        required.append("\tinclude = /etc/samba/usershares.conf")
+        include_added = True
+    # realmd writes `winbind enum groups = no` after the usershares include. Put
+    # this override in a later [global] section so NSS can list AD groups in Sloth Center.
+    if not re.search(r"(?im)^\s*winbind enum groups\s*=\s*yes\s*$", config):
+        required.append("\twinbind enum groups = yes")
+        group_enumeration_added = True
+    if required:
+        with open(path, "a", encoding="utf-8") as f:
+            f.write("\n[global]\n" + "\n".join(required) + "\n")
+        if include_added:
+            run(["systemctl", "try-restart", "smb.service"])
+        if group_enumeration_added:
+            run(["systemctl", "try-restart", "winbind.service"])
+
+
 def domain_leave():
-    r = run(["realm", "leave"])
+    r = run(["realm", "leave", "--client-software=winbind"])
+    if r.returncode == 0:
+        ensure_samba_usershares()
     return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
 
 
@@ -515,9 +552,20 @@ def share_add(request):
     if pw is None:
         return {"ok": False, "error": "pkexec only"}
     name, path, password = request.get("name"), request.get("path"), request.get("password") or ""
+    groups = request.get("groups", [])
     if not isinstance(name, str) or not SHARE_NAME_RE.match(name) or not isinstance(path, str) \
-            or not isinstance(password, str) or len(password) > 127 or "\n" in password:
+            or not isinstance(password, str) or len(password) > 127 or "\n" in password \
+            or not isinstance(groups, list) or len(groups) > 32:
         return {"ok": False, "error": "bad input"}
+    selected_groups = []
+    groups_by_gid = {group.gr_gid: group for group in grp.getgrall()}
+    for gid in groups:
+        if isinstance(gid, bool) or not isinstance(gid, int) or gid < 1000:
+            return {"ok": False, "error": "bad group"}
+        group = groups_by_gid.get(gid)
+        if group is None or group.gr_name == "usershares" or (gid >= 60000 and "\\" not in group.gr_name):
+            return {"ok": False, "error": "bad group"}
+        selected_groups.append(group)
     path = os.path.realpath(path)
     try:
         st = os.stat(path)
@@ -527,6 +575,9 @@ def share_add(request):
     if not os.path.isdir(path) or st.st_uid != pw.pw_uid or path.count("/") < 2:
         return {"ok": False, "error": "not owner"}
     guests = request.get("guests") is True
+    write = request.get("write") is True
+    if guests and selected_groups:
+        return {"ok": False, "error": "guest groups conflict"}
     if not guests and not password and not _samba_has_password(pw.pw_name):
         return {"ok": False, "error": "password needed"}
     run([FILE_SHARING, "groups"])
@@ -538,7 +589,30 @@ def share_add(request):
             return {"ok": False, "error": r.stderr.strip()[-500:] or "smbpasswd"}
     # S-1-1-0 is "Everyone": the name would be looked up through smbd, which refuses it ("cannot convert name
     # Everyone to a SID", the error Dolphin's Share tab shows; tried in a Fedora 44 container, 2026-10-30)
-    acl = "S-1-1-0:F" if request.get("write") else "S-1-1-0:R"
+    if selected_groups:
+        # Use the Unix SID for the local owner and an AD SID for domain groups. A
+        # Unix group SID does not appear in an AD user's authorization token.
+        permission = "F" if write else "R"
+        group_sids = []
+        for group in selected_groups:
+            if "\\" in group.gr_name:
+                try:
+                    result = subprocess.run(["wbinfo", "--name-to-sid", group.gr_name],
+                                            capture_output=True, text=True, timeout=15)
+                    fields = result.stdout.split()
+                    sid = fields[0] if result.returncode == 0 and len(fields) > 1 \
+                        and fields[1] == "SID_DOM_GROUP" else ""
+                except (OSError, subprocess.SubprocessError):
+                    sid = ""
+                if not re.fullmatch(r"S-\d+(?:-\d+)+", sid):
+                    return {"ok": False, "error": "domain group unavailable"}
+                group_sids.append(sid)
+            else:
+                group_sids.append(f"S-1-22-2-{group.gr_gid}")
+        acl = ",".join([f"S-1-22-1-{pw.pw_uid}:F"]
+                       + [f"{sid}:{permission}" for sid in group_sids])
+    else:
+        acl = "S-1-1-0:F" if write else "S-1-1-0:R"
     # as the user (runuser reads the groups again, so no new sign-in is needed)
     r = run(["runuser", "-u", pw.pw_name, "--", "net", "usershare", "add", name, path, "", acl,
              "guest_ok=y" if guests else "guest_ok=n"])

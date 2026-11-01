@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Kiti kompiuteriai prisijungia jūsų naudotojo vardu ({user}) ir šiuo slaptažodžiu.",
   "Leave it empty to keep the current password.": "Palikite tuščią, kad liktų dabartinis slaptažodis.",
   "Choose a folder to share…": "Pasirinkite aplanką bendrinti…",
-  "Color the window title bars too": "Spalvinti ir langų antraštės juostas"
+  "Color the window title bars too": "Spalvinti ir langų antraštės juostas",
+  "Groups with access": "Grupės su prieiga",
+  "Members need a Samba account and permission to open the folder.": "Nariams reikia „Samba“ paskyros ir leidimo atidaryti aplanką.",
+  "Add a share": "Pridėti bendrinamą aplanką"
 }

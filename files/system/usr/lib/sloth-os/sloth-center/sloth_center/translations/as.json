@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "আন কম্পিউটাৰে আপোনাৰ ব্যৱহাৰকাৰীৰ নাম ({user}) আৰু এই পাছৱৰ্ডেৰে ছাইন ইন কৰে।",
   "Leave it empty to keep the current password.": "বৰ্তমানৰ পাছৱৰ্ড ৰাখিবলৈ খালী ৰাখক।",
   "Choose a folder to share…": "শ্বেয়াৰ কৰিবলগীয়া ফোল্ডাৰ বাছক…",
-  "Color the window title bars too": "উইণ্ড'ৰ শিৰোনাম বাৰো ৰং কৰক"
+  "Color the window title bars too": "উইণ্ড'ৰ শিৰোনাম বাৰো ৰং কৰক",
+  "Groups with access": "প্ৰৱেশাধিকাৰ থকা গোটসমূহ",
+  "Members need a Samba account and permission to open the folder.": "সদস্যসকলক ফ 'ল্ডাৰটো খুলিবলৈ এটা চাম্বা একাউণ্ট আৰু অনুমতিৰ প্ৰয়োজন ।",
+  "Add a share": "এটা অংশীদাৰী ফোল্ডাৰ যোগ কৰক"
 }

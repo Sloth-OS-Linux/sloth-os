@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Los otros equipos inician sesión con tu nombre de usuario ({user}) y esta contraseña.",
   "Leave it empty to keep the current password.": "Déjalo vacío para mantener la contraseña actual.",
   "Choose a folder to share…": "Elegir una carpeta para compartir…",
-  "Color the window title bars too": "Colorear también las barras de título de las ventanas"
+  "Color the window title bars too": "Colorear también las barras de título de las ventanas",
+  "Groups with access": "Grupos con acceso",
+  "Members need a Samba account and permission to open the folder.": "Los miembros necesitan una cuenta de Samba y permiso para abrir la carpeta.",
+  "Add a share": "Añadir una carpeta compartida"
 }

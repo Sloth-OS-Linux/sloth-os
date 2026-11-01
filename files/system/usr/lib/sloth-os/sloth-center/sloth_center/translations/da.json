@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Andre computere logger ind med dit brugernavn ({user}) og denne adgangskode.",
   "Leave it empty to keep the current password.": "Lad feltet være tomt for at beholde den nuværende adgangskode.",
   "Choose a folder to share…": "Vælg en mappe at dele…",
-  "Color the window title bars too": "Farv også vinduernes titellinjer"
+  "Color the window title bars too": "Farv også vinduernes titellinjer",
+  "Groups with access": "Grupper med adgang",
+  "Members need a Samba account and permission to open the folder.": "Medlemmer skal have en Samba-konto og tilladelse til at åbne mappen.",
+  "Add a share": "Tilføj en delt mappe"
 }

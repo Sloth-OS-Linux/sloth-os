@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "تسجّل الحواسيب الأخرى الدخول باسم المستخدم ({user}) وكلمة المرور هذه.",
   "Leave it empty to keep the current password.": "اتركه فارغًا للإبقاء على كلمة المرور الحالية.",
   "Choose a folder to share…": "اختر مجلدًا للمشاركة…",
-  "Color the window title bars too": "لوّن أشرطة عناوين النوافذ أيضًا"
+  "Color the window title bars too": "لوّن أشرطة عناوين النوافذ أيضًا",
+  "Groups with access": "المجموعات التي تتمتع بإمكانية الوصول",
+  "Members need a Samba account and permission to open the folder.": "يحتاج الأعضاء إلى حساب سامبا وإذن لفتح المجلد.",
+  "Add a share": "إضافة مجلد مشترك"
 }

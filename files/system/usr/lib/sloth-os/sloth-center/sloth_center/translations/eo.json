@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Aliaj komputiloj ensalutas per via uzantnomo ({user}) kaj ĉi tiu pasvorto.",
   "Leave it empty to keep the current password.": "Lasu malplena por konservi la nunan pasvorton.",
   "Choose a folder to share…": "Elektu dosierujon por kunhavigi…",
-  "Color the window title bars too": "Kolorigi ankaŭ la titolbreton de la fenestroj"
+  "Color the window title bars too": "Kolorigi ankaŭ la titolbreton de la fenestroj",
+  "Groups with access": "Grupoj kun aliro",
+  "Members need a Samba account and permission to open the folder.": "Membroj bezonas Samba-konton kaj permeson malfermi la dosierujon.",
+  "Add a share": "Aldoni komunan dosierujon"
 }

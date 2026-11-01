@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Ostatní počítače se přihlásí vaším uživatelským jménem ({user}) a tímto heslem.",
   "Leave it empty to keep the current password.": "Ponechte prázdné, chcete-li zachovat současné heslo.",
   "Choose a folder to share…": "Vybrat složku ke sdílení…",
-  "Color the window title bars too": "Obarvit i záhlaví oken"
+  "Color the window title bars too": "Obarvit i záhlaví oken",
+  "Groups with access": "Skupiny s přístupem",
+  "Members need a Samba account and permission to open the folder.": "Členové potřebují účet Samba a oprávnění k otevření složky.",
+  "Add a share": "Přidat sdílenou složku"
 }

@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Ander rekenaars meld aan met jou gebruikersnaam ({user}) en hierdie wagwoord.",
   "Leave it empty to keep the current password.": "Laat leeg om die huidige wagwoord te hou.",
   "Choose a folder to share…": "Kies 'n vouer om te deel…",
-  "Color the window title bars too": "Kleur ook die vensters se titelbalke"
+  "Color the window title bars too": "Kleur ook die vensters se titelbalke",
+  "Groups with access": "Groepe met toegang",
+  "Members need a Samba account and permission to open the folder.": "Lede benodig 'n Samba-rekening en toestemming om die gids oop te maak.",
+  "Add a share": "Voeg 'n gedeelde gids by"
 }

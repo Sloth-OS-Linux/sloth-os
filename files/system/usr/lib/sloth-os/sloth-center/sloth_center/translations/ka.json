@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "სხვა კომპიუტერები შედიან თქვენი მომხმარებლის სახელით ({user}) და ამ პაროლით.",
   "Leave it empty to keep the current password.": "დატოვეთ ცარიელი, რომ მიმდინარე პაროლი შენარჩუნდეს.",
   "Choose a folder to share…": "აირჩიეთ გასაზიარებელი საქაღალდე…",
-  "Color the window title bars too": "ფანჯრების სათაურის ზოლებიც შეიღებოს"
+  "Color the window title bars too": "ფანჯრების სათაურის ზოლებიც შეიღებოს",
+  "Groups with access": "Წვდომის მქონე ჯგუფები",
+  "Members need a Samba account and permission to open the folder.": "Წევრებს სჭირდებათ სამბას ანგარიში და საქაღალდის გახსნის ნებართვა.",
+  "Add a share": "გაზიარებული საქაღალდის დამატება"
 }

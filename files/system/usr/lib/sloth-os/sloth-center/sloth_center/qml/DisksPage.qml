@@ -369,6 +369,9 @@ Kirigami.ScrollablePage {
                                 text: L.tf("Open it from another computer: {address}", { address: shareRow.modelData.address })
                                       + (shareRow.modelData.guests ? " · " + L.t("Without a password") : "")
                                       + (shareRow.modelData.write ? " · " + L.t("Others can change files too") : "")
+                                      + (shareRow.modelData.groups && shareRow.modelData.groups.length
+                                         ? " · " + L.t("Groups with access") + ": "
+                                           + shareRow.modelData.groups.map(g => g.name).join(", ") : "")
                             }
                         }
                         QQC2.Button {
@@ -380,9 +383,72 @@ Kirigami.ScrollablePage {
                     }
                 }
 
+                QQC2.Button {
+                    enabled: !sharing.busy
+                    icon.name: "list-add"
+                    text: L.t("Add a share")
+                    onClicked: shareDialog.open()
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: sharing.message !== ""
+                    type: sharing.problem ? Kirigami.MessageType.Warning : Kirigami.MessageType.Information
+                    text: sharing.message
+                }
+            }
+        }
+
+        Kirigami.Dialog {
+            id: shareDialog
+            title: L.t("Share a folder")
+            preferredWidth: Kirigami.Units.gridUnit * 30
+            standardButtons: Kirigami.Dialog.NoButton
+            property string selectedPath: ""
+            property var selectedGroups: ({})
+            onOpened: {
+                selectedPath = ""
+                selectedGroups = ({})
+                sharePassword.text = ""
+                shareGuests.checked = false
+                shareWrite.checked = false
+            }
+            customFooterActions: [
+                Kirigami.Action {
+                    text: L.t("Share a folder")
+                    icon.name: "folder-remote"
+                    enabled: !sharing.busy && shareDialog.selectedPath !== ""
+                             && (shareGuests.checked || sharing.hasPassword || sharePassword.text !== "")
+                    onTriggered: {
+                        var groups = []
+                        for (var i = 0; i < sharing.groups.length; ++i) {
+                            var group = sharing.groups[i]
+                            if (shareDialog.selectedGroups[group.gid]) groups.push(group.gid)
+                        }
+                        sharing.addShare(shareDialog.selectedPath, shareWrite.checked, shareGuests.checked,
+                                         shareGuests.checked ? "" : sharePassword.text, groups)
+                        shareDialog.close()
+                    }
+                },
+                Kirigami.Action {
+                    text: L.t("Cancel")
+                    icon.name: "dialog-cancel"
+                    onTriggered: shareDialog.close()
+                }
+            ]
+
+            ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+
+                QQC2.Button {
+                    Layout.fillWidth: true
+                    icon.name: "folder-open"
+                    text: shareDialog.selectedPath || L.t("Choose a folder to share…")
+                    onClicked: pickShareFolder.open()
+                }
                 QQC2.CheckBox {
                     id: shareGuests
                     text: L.t("Without a password (anyone on your home network)")
+                    onToggled: if (checked) shareDialog.selectedGroups = ({})
                 }
                 QQC2.CheckBox {
                     id: shareWrite
@@ -402,26 +468,41 @@ Kirigami.ScrollablePage {
                     text: L.tf("Other computers sign in with your user name ({user}) and this password.", { user: sharing.user })
                           + (sharing.hasPassword ? " " + L.t("Leave it empty to keep the current password.") : "")
                 }
-                QQC2.Button {
-                    enabled: !sharing.busy && (shareGuests.checked || sharing.hasPassword || sharePassword.text !== "")
-                    icon.name: "folder-remote"
-                    text: L.t("Choose a folder to share…")
-                    onClicked: pickShareFolder.open()
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    text: L.t("Groups with access")
+                    font.bold: true
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.7
+                    text: L.t("Members need a Samba account and permission to open the folder.")
+                }
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    enabled: !shareGuests.checked
+                    Repeater {
+                        model: sharing.groups
+                        delegate: QQC2.CheckBox {
+                            required property var modelData
+                            text: modelData.name
+                            checked: shareDialog.selectedGroups[modelData.gid] === true
+                            onToggled: {
+                                var next = Object.assign({}, shareDialog.selectedGroups)
+                                if (checked) next[modelData.gid] = true
+                                else delete next[modelData.gid]
+                                shareDialog.selectedGroups = next
+                            }
+                        }
+                    }
                 }
                 FolderDialog {
                     id: pickShareFolder
                     title: L.t("Choose a folder to share…")
                     onAccepted: {
-                        sharing.addShare(selectedFolder.toString(), shareWrite.checked, shareGuests.checked,
-                                         shareGuests.checked ? "" : sharePassword.text)
-                        sharePassword.text = ""
+                        shareDialog.selectedPath = selectedFolder.toString()
                     }
-                }
-                Kirigami.InlineMessage {
-                    Layout.fillWidth: true
-                    visible: sharing.message !== ""
-                    type: sharing.problem ? Kirigami.MessageType.Warning : Kirigami.MessageType.Information
-                    text: sharing.message
                 }
             }
         }

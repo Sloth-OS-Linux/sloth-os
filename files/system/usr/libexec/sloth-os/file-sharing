@@ -1,24 +1,20 @@
 #!/usr/bin/python3 -I
 """Sharing a folder on the home network (Dolphin → Properties → Share), without a terminal.
 
-Dolphin's Share tab uses Samba's "usershares". Out of the box it got stuck (Reddit, 2026-10-30):
-- the users must be in the "usershares" group, but on an atomic system that group is only in /usr/lib/group, so
-  Dolphin's "add me to the group" step fails (usermod only edits /etc/group);
-- the Samba server (smb) is off, the firewall blocks its port (445), and SELinux does not let it read the folders.
+The usershares group lets Dolphin create share definitions, not access files. At startup, before the login screen,
+the group is copied into /etc/group and human accounts are added so Dolphin can share without a separate setup step.
+Samba can read only home folders and folders that are actually shared (not the whole system), and only the local
+network can connect (never the internet, not even over IPv6).
 
-As safe as it can be: turning a share on always needs the administrator password (Sloth Center), nobody is put into
-the group automatically (Dolphin asks for the administrator password, as
-Windows does to turn sharing on), Samba can read only the home folders and the folders that are really shared
-(not the whole system), and only the local network can connect (never the internet, not even over IPv6).
-
-groups: at startup, before the login screen: the group goes into /etc/group, so Dolphin's step works.
+groups: at startup, before the login screen: make the usershares group visible to usermod, then add human accounts.
 serve:  whenever the shared folders change (sloth-file-sharing.path): a shared folder on another disk gets Samba's
-        SELinux label (samba_share_t), the firewall lets Samba in from the local network and the Samba server
-        starts, with wsdd, so the computer shows up in Windows' Network window. When nothing is shared any more,
-        they stop and the firewall closes again. Each account's shares and whether it has a Samba password go
-        into STATUS/<uid>.json (readable by that account only), for Sloth Center.
+        SELinux label (samba_share_t), the firewall lets Samba in from the local network and wsdd starts, so the
+        computer shows up in Windows' Network window. Samba stays ready for Dolphin's Share tab; when nothing is
+        shared, the firewall closes and wsdd stops. smb.conf exports no other folders. Each account's shares and
+        whether it has a Samba password go into STATUS/<uid>.json (readable by that account only), for Sloth Center.
 """
 import json
+import grp
 import os
 import re
 import subprocess
@@ -76,9 +72,30 @@ def read_shares():
         except OSError:
             continue
         if fields.get("path"):
+            groups = []
+            groups_by_gid = {group.gr_gid: group for group in grp.getgrall()}
+            for ace in fields.get("usershare_acl", "").rstrip(",").split(","):
+                principal, separator, permission = ace.partition(":")
+                if not separator:
+                    continue
+                group = None
+                if principal.startswith("S-1-22-2-"):
+                    try:
+                        group = groups_by_gid.get(int(principal.removeprefix("S-1-22-2-")))
+                    except ValueError:
+                        continue
+                elif principal.startswith("S-1-5-21-"):
+                    try:
+                        result = subprocess.run(["wbinfo", "--sid-to-gid", principal],
+                                                capture_output=True, text=True, timeout=15)
+                        group = groups_by_gid.get(int(result.stdout.strip())) if result.returncode == 0 else None
+                    except (OSError, ValueError, subprocess.SubprocessError):
+                        continue
+                if group is not None:
+                    groups.append({"name": group.gr_name, "write": permission.upper() == "F"})
             shares.append({"name": fields.get("sharename", name), "path": fields["path"], "uid": uid,
                            "write": fields.get("usershare_acl", "").rstrip(",").endswith(":F"),
-                           "guests": fields.get("guest_ok") == "y"})
+                           "guests": fields.get("guest_ok") == "y", "groups": groups})
     return shares
 
 
@@ -96,7 +113,7 @@ def write_status(shares):
         if old.removesuffix(".json").isdigit() and int(old.removesuffix(".json")) not in uids:
             os.unlink(os.path.join(STATUS, old))
     for uid in uids:
-        mine = [{k: s[k] for k in ("name", "path", "write", "guests")} for s in shares if s["uid"] == uid]
+        mine = [{k: s[k] for k in ("name", "path", "write", "guests", "groups")} for s in shares if s["uid"] == uid]
         path = os.path.join(STATUS, f"{uid}.json")
         tmp = path + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
@@ -138,7 +155,7 @@ def serve():
     shares = read_shares()
     write_status(shares)
     if not shares:
-        subprocess.run(["systemctl", "stop", "smb.service", "wsdd.service"], check=False)
+        subprocess.run(["systemctl", "stop", "wsdd.service"], check=False)
         firewall("remove")
         return
     for share in shares:

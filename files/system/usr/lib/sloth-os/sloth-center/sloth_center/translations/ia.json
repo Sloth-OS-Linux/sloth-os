@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Altere computatores accede con tu nomine de usator ({user}) e iste contrasigno.",
   "Leave it empty to keep the current password.": "Lassa lo vacue pro mantener le contrasigno actual.",
   "Choose a folder to share…": "Elige un dossier a compartir…",
-  "Color the window title bars too": "Colorar anque le barras de titulo del fenestras"
+  "Color the window title bars too": "Colorar anque le barras de titulo del fenestras",
+  "Groups with access": "Gruppos con accesso",
+  "Members need a Samba account and permission to open the folder.": "Membros necessita un conto Samba e permission de aperir le dossier.",
+  "Add a share": "Adder un dossier compartite"
 }

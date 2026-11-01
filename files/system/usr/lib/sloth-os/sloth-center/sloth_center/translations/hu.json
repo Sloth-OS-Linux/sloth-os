@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "A többi gép a felhasználóneveddel ({user}) és ezzel a jelszóval lép be.",
   "Leave it empty to keep the current password.": "Hagyd üresen, ha a mostani jelszó marad.",
   "Choose a folder to share…": "Megosztandó mappa kiválasztása…",
-  "Color the window title bars too": "Az ablakok címsorát is színezze"
+  "Color the window title bars too": "Az ablakok címsorát is színezze",
+  "Groups with access": "Hozzáféréssel rendelkező csoportok",
+  "Members need a Samba account and permission to open the folder.": "A tagoknak Samba-fiókra és engedélyre van szükségük a mappa megnyitásához.",
+  "Add a share": "Megosztás hozzáadása"
 }

@@ -895,5 +895,8 @@
   "Other computers sign in with your user name ({user}) and this password.": "Muut tietokoneet kirjautuvat käyttäjänimelläsi ({user}) ja tällä salasanalla.",
   "Leave it empty to keep the current password.": "Jätä tyhjäksi, niin nykyinen salasana säilyy.",
   "Choose a folder to share…": "Valitse jaettava kansio…",
-  "Color the window title bars too": "Väritä myös ikkunoiden otsikkopalkit"
+  "Color the window title bars too": "Väritä myös ikkunoiden otsikkopalkit",
+  "Groups with access": "Ryhmät, joilla on käyttöoikeus",
+  "Members need a Samba account and permission to open the folder.": "Jäsenet tarvitsevat Samba-tilin ja luvan kansion avaamiseen.",
+  "Add a share": "Lisää jaettu kansio"
 }
