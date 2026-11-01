@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# Install Dolphin's Samba usershare shim after the files module copies the system tree.
-# Fedora's /usr/local is a symlink into /var, so placing it in files/system makes cp fail.
+# Dolphin's KAuth helper invokes `net` from a restricted system PATH, which can
+# bypass /usr/local/bin. Preserve Samba's real binary and put the shim at its
+# canonical path so both Dolphin and Sloth Center use it.
 set -euo pipefail
-install -D -m 0755 /usr/libexec/sloth-os/dolphin-net /usr/local/bin/net
+if [[ ! -e /usr/libexec/sloth-os/net.real ]]; then
+  install -D -m 0755 /usr/bin/net /usr/libexec/sloth-os/net.real
+fi
+ln -sfn /usr/libexec/sloth-os/dolphin-net /usr/bin/net

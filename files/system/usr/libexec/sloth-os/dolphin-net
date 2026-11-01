@@ -10,7 +10,7 @@ import os
 import sys
 
 
-SAMBA_NET = "/usr/bin/net"
+SAMBA_NET = "/usr/libexec/sloth-os/net.real"
 
 
 def acl_with_well_known_sid(acl):
