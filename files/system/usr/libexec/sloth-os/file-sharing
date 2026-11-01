@@ -9,9 +9,10 @@ network can connect (never the internet, not even over IPv6).
 groups: at startup, before the login screen: make the usershares group visible to usermod, then add human accounts.
 serve:  whenever the shared folders change (sloth-file-sharing.path): a shared folder on another disk gets Samba's
         SELinux label (samba_share_t), the firewall lets Samba in from the local network and wsdd starts, so the
-        computer shows up in Windows' Network window. Samba stays ready for Dolphin's Share tab; when nothing is
-        shared, the firewall closes and wsdd stops. smb.conf exports no other folders. Each account's shares and
-        whether it has a Samba password go into STATUS/<uid>.json (readable by that account only), for Sloth Center.
+        computer shows up in Windows' Network window (over IPv4 only, see wsdd.service.d/sloth-ipv4.conf). Samba
+        stays ready for Dolphin's Share tab; when nothing is shared, the firewall closes and wsdd stops. smb.conf
+        exports no other folders. Each account's shares and whether it has a Samba password go into
+        STATUS/<uid>.json (readable by that account only), for Sloth Center.
 """
 import json
 import grp
