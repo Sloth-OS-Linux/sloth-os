@@ -5,6 +5,13 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Sloth OS 1.3
+- [x] Folder sharing on the home network (Dolphin → Share, Sloth Center → Disks), AD groups, the highlight color on
+  the title bars, Chinese/Japanese/Korean typing; tried in a VM 2026-11-01, SMB works
+- [x] The computer showed up under an IPv6 address instead of its name in the Network view: wsdd announces over IPv4
+  only (`wsdd.service.d/sloth-ipv4.conf`)
+- [x] `main` fast-forwarded to `test/chunked-oci`, the version is 1.3 (`files/scripts/branding.sh`)
+
 ### Next: Sloth OS 1.2.1 (to do, in order)
 1. [x] **An official torrent next to the ISO** (Reddit, 2026-10-29: SourceForge is slow), made at home with the
    1.2.1 ISO: the SourceForge link as a web seed, the `.torrent` next to the ISO, a "Torrent" link on the website
