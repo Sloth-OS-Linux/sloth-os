@@ -21,11 +21,23 @@ Kirigami.ScrollablePage {
         sharing.refresh()
     }
 
+    // Dolphin can add or remove a Samba usershare while this page is open.
+    // The system service republishes the share list; refresh it periodically.
+    Timer {
+        interval: 3000
+        repeat: true
+        running: page.visible
+        onTriggered: sharing.refresh()
+    }
+
     actions: [
         Kirigami.Action {
             text: L.t("Refresh")
             icon.name: "view-refresh"
-            onTriggered: disks.refresh()
+            onTriggered: {
+                disks.refresh()
+                sharing.refresh()
+            }
         }
     ]
 

@@ -1,12 +1,15 @@
 #!/usr/bin/python3 -I
-"""Make Dolphin's Samba usershare ACL compatible with Fedora's Samba name lookup.
+"""Make Dolphin's Samba usershare ACL compatible with Samba SID lookup.
 
 KDE's Dolphin plugin writes the built-in Everyone principal by name. On Sloth OS,
 Samba rejects that name while creating a usershare, although the well-known SID is
-accepted. Translate only that principal in `net usershare add`; pass every other
-Samba command and argument through untouched.
+accepted. KDE also writes local Unix account names, which need Unix SIDs in the
+usershare ACL. Translate those principals in `net usershare add`; pass all other
+Samba commands and arguments through untouched.
 """
 import os
+import grp
+import pwd
 import sys
 
 
@@ -19,6 +22,30 @@ def acl_with_well_known_sid(acl):
         principal, separator, permission = entry.partition(":")
         if principal.casefold() == "everyone":
             principal = "S-1-1-0"
+        # KDE offers local Unix accounts in this list. Samba's net usershare
+        # needs a SID, and local accounts have stable Unix SIDs (S-1-22-1-UID
+        # for users, S-1-22-2-GID for groups). Keep domain names and any SID
+        # supplied by Samba untouched.
+        elif principal and not principal.upper().startswith("S-") and "\\" not in principal:
+            mapped = False
+            try:
+                user = pwd.getpwnam(principal)
+                with open("/etc/passwd", encoding="utf-8") as accounts:
+                    is_local = any(line.split(":", 1)[0] == principal for line in accounts)
+                if is_local:
+                    principal = f"S-1-22-1-{user.pw_uid}"
+                    mapped = True
+            except KeyError:
+                pass
+            if not mapped:
+                try:
+                    group = grp.getgrnam(principal)
+                    with open("/etc/group", encoding="utf-8") as groups:
+                        is_local = any(line.split(":", 1)[0] == principal for line in groups)
+                    if is_local:
+                        principal = f"S-1-22-2-{group.gr_gid}"
+                except KeyError:
+                    pass
         entries.append(principal + separator + permission)
     return ",".join(entries)
 
