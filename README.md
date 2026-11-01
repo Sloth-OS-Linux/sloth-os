@@ -19,6 +19,10 @@ update. Download: [sloth-os-1.2.1-x86_64.iso](https://sourceforge.net/projects/s
 [torrent](https://sourceforge.net/projects/sloth-os/files/1.2.1/sloth-os-1.2.1-x86_64.iso.torrent/download)), SHA-256 `17e24d611fda24bba8fbf7c247f282c6cff1f2be974462e57ecd32a14c84ac14`. What changed:
 [release notes](#release-notes) below (also in [docs/releases/1.2.1.md](docs/releases/1.2.1.md)).
 
+**Coming soon: Sloth OS 1.3** (folder sharing on the home network, Chinese/Japanese/Korean typing, the highlight color
+on the window title bars). Machines already running Sloth OS will get it shortly as a normal update. The 1.3 installer
+ISO follows in the next few days; until then, install with the 1.2.1 ISO above and it updates to 1.3 on its own.
+
 ## What Sloth OS can do
 
 **Feels familiar from the first minute.** Pick a taskbar layout that looks like Windows 10, Windows 11, a Mac or
