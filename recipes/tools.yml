@@ -63,5 +63,6 @@ modules:
   # Slimming: only what is needed to work or to troubleshoot stays (keep it at the end of the modules)
   - type: script
     scripts:
+      - install-net-wrapper.sh # /usr/local is a symlink in the base image, so install after the files module
       - pin-authselect.sh   # PIN sign-in: the "sloth" authselect profile (with-sloth-pin)
       - slim-image.sh
