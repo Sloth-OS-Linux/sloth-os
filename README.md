@@ -55,6 +55,26 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
+<summary><b>What's new in 1.3</b> (November 1, 2026)</summary>
+
+**Folder sharing on the home network:** share a folder from Sloth Center → Disks or Dolphin's Share tab, with or
+without a password, read-only or with changes allowed, also from another disk. The computer shows up by its name in
+Windows' Network window. Turning it on asks for the administrator password, only the local network can connect, and
+sharing switches itself off when nothing is shared. **At work**, on a computer joined to a domain, a shared folder
+can be opened to Active Directory groups.
+
+**Typing and looks:** Chinese, Japanese and Korean typing works (fcitx5). Your own highlight color (8 suggestions or
+any color), on the window title bars too if you like. The boot logo stays in the middle with two screens.
+
+**Smaller changes:** Sloth Center among the Start menu favorites, the Games page lists only games, a note that not
+every Windows program runs, the restart button shows that it is restarting, private feedback reports, and Tab goes
+to the second password field in the installer.
+
+Every new text is in all 50 languages. Full notes: [docs/releases/1.3.md](docs/releases/1.3.md).
+
+</details>
+
+<details>
 <summary><b>What's new in 1.2.1</b> (October 29, 2026)</summary>
 
 **Roblox:** Sloth Welcome offers **Sober** for Roblox games (a community app made for Linux; Roblox blocks its
