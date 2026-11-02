@@ -920,5 +920,6 @@
   "Share on this network too": "이 네트워크에서도 공유",
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "홈에서는 다른 컴퓨터가 이 컴퓨터를 보고 공유 폴더를 열 수 있습니다. 개인 네트워크(직장)에서는 폴더를 열 수 있지만 이 컴퓨터가 스스로 표시되지는 않습니다. 공용 네트워크(카페, 호텔)에서는 허용하지 않는 한 아무것도 공유되지 않습니다.",
   "Public, sharing allowed": "공용, 공유 허용됨",
-  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name}은(는) 카페나 호텔 같은 공용 네트워크입니다. 여기서 폴더를 공유하면 이 네트워크의 누구나 폴더를 열려고 시도할 수 있습니다. 이제부터 이 네트워크에서는 공유가 계속 허용됩니다. 언제든지 {where}에서 변경할 수 있습니다."
+  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name}은(는) 카페나 호텔 같은 공용 네트워크입니다. 여기서 폴더를 공유하면 이 네트워크의 누구나 폴더를 열려고 시도할 수 있습니다. 이제부터 이 네트워크에서는 공유가 계속 허용됩니다. 언제든지 {where}에서 변경할 수 있습니다.",
+  "Wired network {n}": "유선 네트워크 {n}"
 }

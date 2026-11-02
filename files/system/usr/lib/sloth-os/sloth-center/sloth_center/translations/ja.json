@@ -920,5 +920,6 @@
   "Share on this network too": "このネットワークでも共有する",
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "ホームでは、ほかのコンピューターからこのコンピューターが見え、共有フォルダーを開けます。プライベートネットワーク（職場など）では開けますが、このコンピューターは自分からは表示されません。パブリックネットワーク（カフェ、ホテルなど）では、許可しない限り何も共有されません。",
   "Public, sharing allowed": "パブリック（共有を許可）",
-  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} はカフェやホテルなどのパブリックネットワークです。ここでフォルダーを共有すると、このネットワーク上の誰でもそれを開こうとすることができます。今後、このネットワークでは共有が許可されたままになります。変更はいつでも {where} でできます。"
+  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} はカフェやホテルなどのパブリックネットワークです。ここでフォルダーを共有すると、このネットワーク上の誰でもそれを開こうとすることができます。今後、このネットワークでは共有が許可されたままになります。変更はいつでも {where} でできます。",
+  "Wired network {n}": "有線ネットワーク {n}"
 }

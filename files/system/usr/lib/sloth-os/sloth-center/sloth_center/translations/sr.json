@@ -920,5 +920,6 @@
   "Share on this network too": "Дели и на овој мрежи",
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Код куће други рачунари виде овај рачунар и могу да отворе дељене фасцикле. На приватној мрежи (посао) могу да их отворе, али се овај рачунар сам не приказује. На јавној мрежи (кафић, хотел) ништа се не дели осим ако то не дозволите.",
   "Public, sharing allowed": "Јавна, дељење дозвољено",
-  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} је јавна мрежа, на пример у кафићу или хотелу. Ако овде делите фасцикле, свако на овој мрежи може да покуша да их отвори. Од сада дељење на овој мрежи остаје дозвољено; то можете било када да промените у {where}."
+  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} је јавна мрежа, на пример у кафићу или хотелу. Ако овде делите фасцикле, свако на овој мрежи може да покуша да их отвори. Од сада дељење на овој мрежи остаје дозвољено; то можете било када да промените у {where}.",
+  "Wired network {n}": "Жичана мрежа {n}"
 }

@@ -920,5 +920,6 @@
   "Share on this network too": "ແບ່ງປັນໃນເຄືອຂ່າຍນີ້ນຳ",
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "ຢູ່ເຮືອນ ຄອມພິວເຕີອື່ນຈະເຫັນຄອມພິວເຕີນີ້ ແລະ ເປີດໂຟນເດີທີ່ແບ່ງປັນໄດ້. ໃນເຄືອຂ່າຍສ່ວນຕົວ (ບ່ອນເຮັດວຽກ) ເປີດໄດ້ ແຕ່ຄອມພິວເຕີນີ້ຈະບໍ່ສະແດງຕົວເອງ. ໃນເຄືອຂ່າຍສາທາລະນະ (ຮ້ານກາເຟ, ໂຮງແຮມ) ຈະບໍ່ມີຫຍັງຖືກແບ່ງປັນ ເວັ້ນເສຍແຕ່ທ່ານອະນຸຍາດ.",
   "Public, sharing allowed": "ສາທາລະນະ, ອະນຸຍາດການແບ່ງປັນ",
-  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} ແມ່ນເຄືອຂ່າຍສາທາລະນະ ເຊັ່ນໃນຮ້ານກາເຟ ຫຼື ໂຮງແຮມ. ຖ້າທ່ານແບ່ງປັນໂຟນເດີຢູ່ນີ້ ທຸກຄົນໃນເຄືອຂ່າຍນີ້ສາມາດລອງເປີດມັນໄດ້. ຕັ້ງແຕ່ນີ້ໄປ ການແບ່ງປັນຈະຍັງຖືກອະນຸຍາດໃນເຄືອຂ່າຍນີ້; ທ່ານສາມາດປ່ຽນໄດ້ທຸກເວລາໃນ {where}."
+  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} ແມ່ນເຄືອຂ່າຍສາທາລະນະ ເຊັ່ນໃນຮ້ານກາເຟ ຫຼື ໂຮງແຮມ. ຖ້າທ່ານແບ່ງປັນໂຟນເດີຢູ່ນີ້ ທຸກຄົນໃນເຄືອຂ່າຍນີ້ສາມາດລອງເປີດມັນໄດ້. ຕັ້ງແຕ່ນີ້ໄປ ການແບ່ງປັນຈະຍັງຖືກອະນຸຍາດໃນເຄືອຂ່າຍນີ້; ທ່ານສາມາດປ່ຽນໄດ້ທຸກເວລາໃນ {where}.",
+  "Wired network {n}": "ເຄືອຂ່າຍມີສາຍ {n}"
 }

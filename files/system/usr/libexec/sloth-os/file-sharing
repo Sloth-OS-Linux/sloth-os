@@ -6,15 +6,17 @@ the group is copied into /etc/group, so usermod can add an account to it (Sloth 
 Samba can read only home folders and folders that are actually shared (not the whole system), and only the local
 network can connect (never the internet, not even over IPv6).
 
-Every network (NetworkManager connection) has a kind, as in Windows:
+Every network has a kind, as in Windows:
   home           the folders open, and the computer is announced (Windows' Network window, Macs, Linux);
   private        (a workplace) the folders open, but the computer is not announced: only who knows its name finds it;
   public         (a café, a hotel, which use the same private addresses) the computer stays hidden, nothing opens;
   public-shared  a public network on which the user allowed sharing (asked once, Sloth Center → Disks): the
                  folders open as on a private network, without announcing the computer.
-A new network counts as public until the user answers the question about it (sloth_center.network_notify); the
-networks saved before this existed became home networks once, so sharing kept working (the same notification tells
-about it). Sharing can be turned off altogether (Sloth Center → Disks): then Samba and wsdd stop and stay stopped.
+A Wi-Fi network is its NetworkManager connection; a wired one is its router (active_networks), since one wired
+connection serves every cable. A new network counts as public until the user answers the question about it
+(sloth_center.network_notify); the networks saved before this existed became home networks once, so sharing kept
+working (the same notification tells about it). Sharing can be turned off altogether (Sloth Center → Disks): then
+Samba and wsdd stop and stay stopped.
 
 groups:     at startup, before the login screen: make the usershares group visible to usermod.
 serve:      at startup, whenever the shared folders change (sloth-file-sharing.path) and when a network connects
@@ -27,7 +29,7 @@ serve:      at startup, whenever the shared folders change (sloth-file-sharing.p
             and whether it has a Samba password go into STATUS/<uid>.json (readable by that account only); sharing
             on or off and the networks (name, kind, connected) into STATUS/state.json, for Sloth Center and the
             network question.
-kind <uuid> <kind>: a saved network's kind (sloth-helper-network, no password).
+kind <key> <kind>: a network's kind (sloth-helper-network, no password); key: a connection's UUID, or wired:<MAC>.
 enable on|off: turns sharing on or off (sloth-helper sharing).
 """
 import json
@@ -60,7 +62,9 @@ NETWORK_TYPES = ("802-3-ethernet", "802-11-wireless")
 KINDS = ("home", "private", "public", "public-shared")
 # the kinds on which shared folders open; only a home network announces the computer too
 OPEN_KINDS = ("home", "private", "public-shared")
-UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+# a network's key: a connection's UUID (Wi-Fi), or "wired:" and the router's MAC address (cable, see active_networks)
+NETWORK_KEY_RE = re.compile(r"^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+                            r"|wired:[0-9a-f]{2}(:[0-9a-f]{2}){5})$")
 
 
 def _write(path, text, mode=0o644):
@@ -73,8 +77,9 @@ def _write(path, text, mode=0o644):
 
 
 def read_config():
-    """{"enabled": bool, "networks": {connection UUID: kind}, "defaulted": [UUID, ...] or None, "version": 2};
-    sharing is on until it is turned off. "defaulted" is None until the saved networks got their default kind."""
+    """{"enabled": bool, "networks": {network key: kind}, "wired": {"wired:<MAC>": number}, "defaulted": [UUID, ...]
+    or None, "version": 2}; sharing is on until it is turned off. "defaulted" is None until the saved networks got
+    their default kind; "wired" numbers the routers seen over a cable ("Wired network 2")."""
     try:
         with open(CONFIG, encoding="utf-8") as f:
             cfg = json.load(f)
@@ -91,8 +96,11 @@ def read_config():
     old = defaulted is not None and cfg.get("version") != 2
     if old:
         networks.update({u: "home" for u in defaulted if networks.get(u) == "private"})
-    return {"enabled": cfg.get("enabled") is not False, "networks": networks, "defaulted": defaulted, "version": 2,
-            "old": old}
+    wired = cfg.get("wired")
+    wired = {k: n for k, n in wired.items() if NETWORK_KEY_RE.match(k) and k.startswith("wired:")
+             and isinstance(n, int) and not isinstance(n, bool)} if isinstance(wired, dict) else {}
+    return {"enabled": cfg.get("enabled") is not False, "networks": networks, "wired": wired,
+            "defaulted": defaulted, "version": 2, "old": old}
 
 
 def write_config(cfg):
@@ -104,18 +112,78 @@ def _fields(line):
     return [f.replace("\\:", ":").replace("\\\\", "\\") for f in re.split(r"(?<!\\):", line)]
 
 
-def connections(active):
-    """NetworkManager's Ethernet and Wi-Fi connections: {uuid: name}, the active ones only or all saved ones."""
-    cmd = ["nmcli", "-e", "yes", "-t", "-f", "UUID,TYPE,NAME", "connection", "show"] + (["--active"] if active else [])
+def nm_connections(active):
+    """NetworkManager's Ethernet and Wi-Fi connections: [{uuid, type, device, name}], the active ones only or all
+    saved ones."""
+    cmd = ["nmcli", "-e", "yes", "-t", "-f", "UUID,TYPE,DEVICE,NAME", "connection", "show"] \
+        + (["--active"] if active else [])
     try:
         out = subprocess.run(cmd, capture_output=True, text=True, timeout=20).stdout
     except (OSError, subprocess.SubprocessError):
-        return {}
-    result = {}
+        return []
+    result = []
     for line in out.splitlines():
         fields = _fields(line)
-        if len(fields) >= 3 and fields[1] in NETWORK_TYPES:
-            result[fields[0]] = ":".join(fields[2:])
+        if len(fields) >= 4 and fields[1] in NETWORK_TYPES:
+            result.append({"uuid": fields[0], "type": fields[1], "device": fields[2], "name": ":".join(fields[3:])})
+    return result
+
+
+def connections(active):
+    """{uuid: name} of nm_connections."""
+    return {c["uuid"]: c["name"] for c in nm_connections(active)}
+
+
+def _ip_json(*args):
+    try:
+        return json.loads(subprocess.run(["ip", "-j", *args], capture_output=True, text=True, timeout=10).stdout
+                          or "[]")
+    except (OSError, ValueError, subprocess.SubprocessError):
+        return []
+
+
+def gateway_mac(device):
+    """The MAC address of the router a wired connection goes through: "" while it is not known (yet), None if the
+    connection has no router at all (a cable straight to another computer)."""
+    if not device or device == "--":
+        return ""
+    gateway = next((r["gateway"] for r in _ip_json("route", "show", "default", "dev", device) if r.get("gateway")),
+                   None)
+    if not gateway:
+        return None
+    for _ in range(3):
+        mac = next((n["lladdr"] for n in _ip_json("neigh", "show", gateway, "dev", device) if n.get("lladdr")), "")
+        if mac:
+            return mac.lower()
+        # not asked yet since the cable was plugged in: one ping makes the computer learn it
+        subprocess.run(["ping", "-c", "1", "-W", "1", "-I", device, gateway], capture_output=True)
+    return ""
+
+
+def active_networks(cfg):
+    """The networks the computer is on now: {key: name}. A Wi-Fi network's key is its connection (each has its own
+    name). Over a cable NetworkManager uses the same connection ("Wired connection 1") for every network, so a wired
+    network's key is its router's MAC address, as in Windows: the cable at home and the one in a hotel are two
+    networks. A new router gets the next number (shown as "Wired network 2", name ""); the first one seen inherits
+    the kind given to the wired connection itself before (once). Without a router (a cable straight to another
+    computer) the connection itself is the network; while the router is not known, the cable counts as no network."""
+    result, changed = {}, False
+    for c in nm_connections(active=True):
+        mac = gateway_mac(c["device"]) if c["type"] == "802-3-ethernet" else None
+        if mac is None:
+            result[c["uuid"]] = c["name"]
+            continue
+        if not mac:
+            continue
+        key = "wired:" + mac
+        if key not in cfg["wired"]:
+            cfg["wired"][key] = max(cfg["wired"].values(), default=0) + 1
+            if c["uuid"] in cfg["networks"]:
+                cfg["networks"].setdefault(key, cfg["networks"].pop(c["uuid"]))
+            changed = True
+        result[key] = ""
+    if changed:
+        write_config(cfg)
     return result
 
 
@@ -133,11 +201,12 @@ def default_kinds(cfg):
     write_config(cfg)
 
 
-def set_kind(uuid, kind):
-    if uuid not in connections(active=False):
-        return False
+def set_kind(key, kind):
+    """A known network's kind: a saved connection, or a router seen over a cable."""
     cfg = read_config()
-    cfg["networks"][uuid] = kind
+    if key not in connections(active=False) and key not in cfg["wired"]:
+        return False
+    cfg["networks"][key] = kind
     write_config(cfg)
     return True
 
@@ -295,16 +364,21 @@ def serve():
     cfg = read_config()
     default_kinds(cfg)
     shares = read_shares()
-    active = connections(active=True)
-    saved = connections(active=False)
-    kinds = {cfg["networks"].get(uuid, "") for uuid in active}
+    active = active_networks(cfg)
+    saved = nm_connections(active=False)
+    kinds = {cfg["networks"].get(key, "") for key in active}
     reachable = cfg["enabled"] and bool(shares) and bool(kinds & set(OPEN_KINDS))
     visible = reachable and "home" in kinds
-    # kind: one of KINDS or "" (not asked yet: it counts as public)
-    networks = [{"uuid": uuid, "name": name, "kind": cfg["networks"].get(uuid, ""), "connected": uuid in active}
-                for uuid, name in saved.items()]
+    # the saved Wi-Fi networks, the routers seen over a cable ("wired": their number, shown as "Wired network 2"),
+    # and a cable without a router while it is connected; kind: one of KINDS or "" (not asked yet: counts as public)
+    listed = {c["uuid"]: (c["name"], 0) for c in saved if c["type"] == "802-11-wireless"}
+    listed.update({key: ("", n) for key, n in cfg["wired"].items()})
+    listed.update({key: (name, 0) for key, name in active.items() if key not in listed})
+    networks = [{"uuid": key, "name": name, "wired": n, "kind": cfg["networks"].get(key, ""),
+                 "connected": key in active} for key, (name, n) in listed.items()]
+    names = {c["uuid"]: c["name"] for c in saved}
     write_status(shares, {"enabled": cfg["enabled"], "reachable": reachable, "visible": visible,
-                          "networks": networks, "defaulted": [saved[u] for u in cfg["defaulted"] if u in saved]})
+                          "networks": networks, "defaulted": [names[u] for u in cfg["defaulted"] if u in names]})
     if not reachable:
         announce(False)
         subprocess.run(["systemctl", "stop", "wsdd.service"], check=False)
@@ -332,7 +406,7 @@ if __name__ == "__main__":
         ensure_group()
     elif mode == ["serve"]:
         serve()
-    elif len(mode) == 3 and mode[0] == "kind" and UUID_RE.match(mode[1]) and mode[2] in KINDS:
+    elif len(mode) == 3 and mode[0] == "kind" and NETWORK_KEY_RE.match(mode[1]) and mode[2] in KINDS:
         if not set_kind(mode[1], mode[2]):
             sys.exit("unknown network")
         serve()
@@ -340,4 +414,4 @@ if __name__ == "__main__":
         enable(mode[1] == "on")
         serve()
     else:
-        sys.exit("usage: file-sharing groups|serve|kind <uuid> home|private|public|public-shared|enable on|off")
+        sys.exit("usage: file-sharing groups|serve|kind <key> home|private|public|public-shared|enable on|off")

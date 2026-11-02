@@ -43,7 +43,7 @@ Operations:
   share-remove <name>                            stops sharing the calling user's folder
   sharing on|off                                 folder sharing on or off altogether (off: Samba stops and stays
                                                  stopped, the computer does not show up on the network)
-  network-kind <uuid> home|private|public|public-shared
+  network-kind <uuid|wired:MAC> home|private|public|public-shared
                                                  a saved network's kind: home (shared folders open, the computer is
                                                  announced), private (they open, not announced), public (hidden),
                                                  public-shared (public, sharing allowed by the user); only as
@@ -647,7 +647,9 @@ def sharing(on):
     return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
 
 
-NETWORK_UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+# a connection's UUID (Wi-Fi), or wired: and a router's MAC address (cable; file-sharing's NETWORK_KEY_RE)
+NETWORK_UUID_RE = re.compile(r"^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
+                             r"|wired:[0-9a-f]{2}(:[0-9a-f]{2}){5})$")
 
 
 def network_kind(uuid, kind):

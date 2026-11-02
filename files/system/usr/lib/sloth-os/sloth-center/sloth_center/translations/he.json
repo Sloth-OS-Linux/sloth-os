@@ -920,5 +920,6 @@
   "Share on this network too": "לשתף גם ברשת הזו",
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "בבית מחשבים אחרים רואים את המחשב הזה ויכולים לפתוח את התיקיות המשותפות. ברשת פרטית (מקום עבודה) הם יכולים לפתוח אותן, אבל המחשב הזה לא מציג את עצמו. ברשת ציבורית (בית קפה, מלון) שום דבר לא משותף בלי אישור.",
   "Public, sharing allowed": "ציבורית, השיתוף מותר",
-  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} היא רשת ציבורית, למשל בבית קפה או במלון. שיתוף תיקיות כאן יאפשר לכל מי שברשת לנסות לפתוח אותן. מעכשיו השיתוף נשאר מותר ברשת הזו; אפשר לשנות זאת בכל עת ב־{where}."
+  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} היא רשת ציבורית, למשל בבית קפה או במלון. שיתוף תיקיות כאן יאפשר לכל מי שברשת לנסות לפתוח אותן. מעכשיו השיתוף נשאר מותר ברשת הזו; אפשר לשנות זאת בכל עת ב־{where}.",
+  "Wired network {n}": "רשת קווית {n}"
 }

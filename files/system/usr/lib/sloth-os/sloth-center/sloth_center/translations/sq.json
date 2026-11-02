@@ -920,5 +920,6 @@
   "Share on this network too": "Ndaje edhe në këtë rrjet",
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Në shtëpi, kompjuterët e tjerë e shohin këtë kompjuter dhe mund të hapin dosjet e ndara. Në një rrjet privat (vend pune) mund t'i hapin, por ky kompjuter nuk shfaqet vetë. Në një rrjet publik (kafene, hotel), asgjë nuk ndahet nëse nuk e lejon.",
   "Public, sharing allowed": "Publik, ndarja e lejuar",
-  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} është rrjet publik, për shembull në një kafene ose hotel. Nëse ndan dosje këtu, kushdo në këtë rrjet mund të provojë t'i hapë. Që tani ndarja mbetet e lejuar në këtë rrjet; mund ta ndryshosh kurdo te {where}."
+  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} është rrjet publik, për shembull në një kafene ose hotel. Nëse ndan dosje këtu, kushdo në këtë rrjet mund të provojë t'i hapë. Që tani ndarja mbetet e lejuar në këtë rrjet; mund ta ndryshosh kurdo te {where}.",
+  "Wired network {n}": "Rrjet me kabllo {n}"
 }

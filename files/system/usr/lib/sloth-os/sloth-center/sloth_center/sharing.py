@@ -45,16 +45,23 @@ def read_status():
         return [], False
 
 
+def network_label(network):
+    """A network's name to show: a router seen over a cable has a number instead ("Wired network 2")."""
+    return tr("Wired network {n}", n=network["wired"]) if network.get("wired") else str(network.get("name", ""))
+
+
 def read_state():
-    """{"enabled", "reachable", "networks": [{uuid, name, kind, connected}]}; sharing is on if nothing says so."""
+    """{"enabled", "reachable", "networks": [{uuid, name, wired, kind, connected, label}]}; sharing is on if nothing
+    says so."""
     try:
         data = json.loads(STATE.read_text())
     except (OSError, ValueError):
         data = {}
     data = data if isinstance(data, dict) else {}
-    networks = [n for n in data.get("networks", []) if isinstance(n, dict) and n.get("uuid")]
+    networks = [dict(n, label=network_label(n)) for n in data.get("networks", [])
+                if isinstance(n, dict) and n.get("uuid")]
     # the connected ones first, then by name
-    networks.sort(key=lambda n: (not n.get("connected"), str(n.get("name", "")).casefold()))
+    networks.sort(key=lambda n: (not n.get("connected"), n["label"].casefold()))
     return {"enabled": data.get("enabled") is not False, "reachable": bool(data.get("reachable")),
             "networks": networks}
 
@@ -110,7 +117,7 @@ class SharingController(QObject):
         connected = self._connected()
         if not connected or any(n.get("kind") in OPEN_KINDS for n in connected):
             return {}
-        return {"uuid": connected[0]["uuid"], "name": connected[0]["name"]}
+        return {"uuid": connected[0]["uuid"], "name": connected[0]["label"]}
 
     onPublic = Property(bool, lambda self: bool(self._public()), notify=changed)
     publicNetwork = Property("QVariantMap", lambda self: self._public(), notify=changed)

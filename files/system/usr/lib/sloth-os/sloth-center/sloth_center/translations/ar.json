@@ -920,5 +920,6 @@
   "Share on this network too": "شارك على هذه الشبكة أيضًا",
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "في المنزل ترى الحواسيب الأخرى هذا الحاسوب ويمكنها فتح المجلدات المشتركة. على الشبكة الخاصة (مكان عمل) يمكنها فتحها، لكن هذا الحاسوب لا يُظهر نفسه. وعلى الشبكة العامة (مقهى، فندق) لا يُشارَك شيء ما لم تسمح بذلك.",
   "Public, sharing allowed": "عامة، المشاركة مسموحة",
-  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} شبكة عامة، مثلًا في مقهى أو فندق. إن شاركت مجلدات هنا، فيمكن لكل من على هذه الشبكة محاولة فتحها. من الآن تبقى المشاركة مسموحة على هذه الشبكة؛ ويمكنك تغيير ذلك في أي وقت في {where}."
+  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} شبكة عامة، مثلًا في مقهى أو فندق. إن شاركت مجلدات هنا، فيمكن لكل من على هذه الشبكة محاولة فتحها. من الآن تبقى المشاركة مسموحة على هذه الشبكة؛ ويمكنك تغيير ذلك في أي وقت في {where}.",
+  "Wired network {n}": "شبكة سلكية {n}"
 }

@@ -920,5 +920,6 @@
   "Share on this network too": "Jaga ka selles võrgus",
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Kodus näevad teised arvutid seda arvutit ja saavad avada jagatud kaustu. Privaatses võrgus (töökoht) saavad nad neid avada, kuid see arvuti ise end ei näita. Avalikus võrgus (kohvik, hotell) ei jagata midagi, kui sa seda ei luba.",
   "Public, sharing allowed": "Avalik, jagamine lubatud",
-  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} on avalik võrk, näiteks kohvikus või hotellis. Kui jagad siin kaustu, saavad kõik selles võrgus proovida neid avada. Edaspidi jääb jagamine selles võrgus lubatuks; saad seda igal ajal muuta: {where}."
+  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} on avalik võrk, näiteks kohvikus või hotellis. Kui jagad siin kaustu, saavad kõik selles võrgus proovida neid avada. Edaspidi jääb jagamine selles võrgus lubatuks; saad seda igal ajal muuta: {where}.",
+  "Wired network {n}": "Juhtmega võrk {n}"
 }

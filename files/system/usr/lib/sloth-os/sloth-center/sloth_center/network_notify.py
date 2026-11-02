@@ -14,6 +14,7 @@ import subprocess
 from pathlib import Path
 
 from .i18n import tr
+from .sharing import network_label
 
 STATE = Path("/run/sloth-os/sharing/state.json")
 HELPER = "/usr/libexec/sloth-os/sloth-helper-network"
@@ -65,12 +66,13 @@ def main():
         asked.add(uuid)
         STATE_DIR.mkdir(parents=True, exist_ok=True)
         ASKED.write_text(json.dumps(sorted(asked)))
-        answer = notify(tr("New network: {name}", name=network.get("name", "")),
+        answer = notify(tr("New network: {name}", name=network_label(network)),
                         tr("What kind of network is it? At home, other computers see this computer and can open the "
                            "folders you share. On a private network (a workplace), they can open them, but this "
                            "computer doesn't show up by itself. On a public network (a café, a hotel), this computer "
                            "stays hidden."),
-                        [("home", tr("Home")), ("private", tr("Private")), ("public", tr("Public"))])
+                        [("home", tr("Home")), ("private", tr("Private")), ("public", tr("Public"))],
+                        icon="network-wired" if network.get("wired") else "network-wireless")
         # closed without an answer: public, the safe one (it can be changed in Sloth Center → Disks)
         kind = answer if answer in ("home", "private") else "public"
         subprocess.run(["pkexec", HELPER, "network-kind", uuid, kind], capture_output=True)

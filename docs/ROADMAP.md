@@ -19,7 +19,8 @@ from a terminal must also work from a GUI.
   (a workplace): they open, not announced; public: hidden, unless the user allows sharing on it (asked once, it
   says it is remembered and where to change it). The networks saved before became home networks once, with a
   notification. Sloth Center → Disks: a switch for folder sharing (off: Samba stops and stays stopped), the
-  networks with their kind.
+  networks with their kind. Over a cable a network is its router (its MAC address), as in Windows: NetworkManager
+  uses one wired connection for every cable, so the cable at home and in a hotel were one network before.
   Still open: a guest share ("without a password") of a folder in the home folder probably cannot be opened (the
   home folder is 0700 and the guest is `nobody`); after the first share, Dolphin shares without the password
 

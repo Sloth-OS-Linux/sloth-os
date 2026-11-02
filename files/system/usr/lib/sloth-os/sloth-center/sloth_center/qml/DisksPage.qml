@@ -469,7 +469,7 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true
                             spacing: Kirigami.Units.largeSpacing
                             Kirigami.Icon {
-                                source: networkRow.modelData.connected ? "network-connect" : "network-disconnect"
+                                source: networkRow.modelData.wired ? "network-wired" : "network-wireless"
                                 implicitWidth: Kirigami.Units.iconSizes.smallMedium
                                 implicitHeight: implicitWidth
                             }
@@ -478,8 +478,8 @@ Kirigami.ScrollablePage {
                                 elide: Text.ElideRight
                                 font.bold: networkRow.modelData.connected
                                 text: networkRow.modelData.connected
-                                      ? L.tf("{name} (connected)", { name: networkRow.modelData.name })
-                                      : networkRow.modelData.name
+                                      ? L.tf("{name} (connected)", { name: networkRow.modelData.label })
+                                      : networkRow.modelData.label
                             }
                             // not asked yet ("") counts as public; allowing sharing on a public one asks first
                             QQC2.ComboBox {
@@ -489,7 +489,7 @@ Kirigami.ScrollablePage {
                                 currentIndex: Math.max(0, kinds.indexOf(networkRow.modelData.kind || "public"))
                                 onActivated: index => {
                                     if (kinds[index] === "public-shared")
-                                        page.askPublic(networkRow.modelData.uuid, networkRow.modelData.name, false)
+                                        page.askPublic(networkRow.modelData.uuid, networkRow.modelData.label, false)
                                     else
                                         sharing.setNetworkKind(networkRow.modelData.uuid, kinds[index])
                                     // shows the stored kind until it really changes (the question may be cancelled)

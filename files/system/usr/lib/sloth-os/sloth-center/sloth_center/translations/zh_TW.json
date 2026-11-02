@@ -920,5 +920,6 @@
   "Share on this network too": "也在此網路上分享",
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "在家裡，其他電腦可以看到這台電腦，並開啟分享的資料夾。在私人網路上（工作場所），它們可以開啟這些資料夾，但這台電腦不會主動顯示。在公用網路上（咖啡廳、飯店），除非你允許，否則不會分享任何內容。",
   "Public, sharing allowed": "公用，允許分享",
-  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} 是公用網路，例如咖啡廳或飯店的網路。如果你在這裡分享資料夾，這個網路上的任何人都可以嘗試開啟它們。從現在起，此網路將持續允許分享；你可以隨時在 {where} 中變更。"
+  "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} 是公用網路，例如咖啡廳或飯店的網路。如果你在這裡分享資料夾，這個網路上的任何人都可以嘗試開啟它們。從現在起，此網路將持續允許分享；你可以隨時在 {where} 中變更。",
+  "Wired network {n}": "有線網路 {n}"
 }
