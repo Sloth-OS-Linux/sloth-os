@@ -49,6 +49,7 @@
   "disk.beside.option": "Windowsin rinnalle (Windows ja sen tiedostot säilyvät)",
   "disk.beside.erase": "Tyhjennä koko levy (Windows ja kaikki tiedostot katoavat)",
   "disk.beside.size": "Tila Sloth OS:lle: {size} Gt (enintään {max} Gt)",
+  "disk.beside.replaces": "Tämän levyn aiempi Sloth OS korvataan: sen tiedostot poistetaan. Windows ja sen tiedostot säilyvät.",
   "disk.beside.not_uefi": "Tietokone käynnistyi vanhassa (BIOS) tilassa, joten emme voi asentaa Windowsin rinnalle. Jos tietokone tukee sitä, ota UEFI-tila käyttöön sen asetuksista ja käynnistä uudelleen USB-tikulta.",
   "disk.beside.not_gpt": "Tällä levyllä on vanha osiotaulu (MBR), joten emme voi asentaa Windowsin rinnalle.",
   "disk.beside.hibernated": "Windows ei sammunut kokonaan (nopea käynnistys tai lepotila), joten emme voi nyt koskea sen asemaan. Käynnistä Windows, poista nopea käynnistys käytöstä (Ohjauspaneeli → Virranhallinta-asetukset → Valitse virtapainikkeiden toiminta), valitse sitten ”Käynnistä uudelleen” ja käynnistä tietokone USB-tikulta.",

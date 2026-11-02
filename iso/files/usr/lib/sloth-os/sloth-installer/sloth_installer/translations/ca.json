@@ -49,6 +49,7 @@
   "disk.beside.option": "Al costat de Windows (Windows i els seus fitxers es conserven)",
   "disk.beside.erase": "Esborra tot el disc (Windows i tots els fitxers es perden)",
   "disk.beside.size": "Espai per a Sloth OS: {size} GB (com a màxim {max} GB)",
+  "disk.beside.replaces": "Se substituirà el Sloth OS anterior d'aquest disc: se n'esborraran els fitxers. Windows i els seus fitxers es conserven.",
   "disk.beside.not_uefi": "L'ordinador s'ha iniciat en mode antic (BIOS), així que no podem instal·lar al costat de Windows. Si l'ordinador ho permet, activa el mode UEFI a la seva configuració i torna a iniciar des de l'USB.",
   "disk.beside.not_gpt": "Aquest disc fa servir una taula de particions antiga (MBR), així que no podem instal·lar al costat de Windows.",
   "disk.beside.hibernated": "Windows no s'ha apagat del tot (inici ràpid o hibernació), així que ara no podem tocar la seva unitat. Inicia Windows, desactiva l'inici ràpid (Tauler de control → Opcions d'energia → Trieu el comportament dels botons d'engegada), després tria «Reinicia» i inicia l'ordinador des de l'USB.",

@@ -483,8 +483,53 @@ def ntfs_info(dev):
     return int(m.group(1)), ""
 
 
+def previous_sloth(pt):
+    """The partitions of an earlier Sloth OS installed next to Windows (its EFI partition, /boot if encrypted, and
+    the system partition), or [] if there is none. They are told by the names and types partition_beside gave them,
+    and the EFI partition must hold our boot loader and not Windows' (the Windows EFI is never touched)."""
+    parts = pt["partitions"]
+
+    def named(ptype, *names):
+        return [p for p in parts if (p.get("type") or "").lower() == ptype and p.get("name") in names]
+
+    esp, root = named(ESP_TYPE, "EFI-SYSTEM"), named(ROOT_X86_64, "root")
+    if len(esp) != 1 or len(root) != 1 or fstype(esp[0]["node"]) != "vfat":
+        return []
+    mnt = Path(tempfile.mkdtemp(prefix="sloth-esp-"))
+    try:
+        if subprocess.run(["mount", "-o", "ro", esp[0]["node"], str(mnt)], capture_output=True).returncode:
+            return []
+        try:
+            ours = (mnt / "EFI/fedora").is_dir() and not (mnt / "EFI/Microsoft/Boot/bootmgfw.efi").exists()
+        finally:
+            subprocess.run(["umount", str(mnt)], capture_output=True)
+    finally:
+        mnt.rmdir()
+    return esp + named(LINUX_DATA, "boot", "sloth-install-tmp") + root if ours else []
+
+
+def remove_previous(disk, previous):
+    """The earlier Sloth OS goes: its entries in the firmware's boot list (they point to its EFI partition), then
+    its partitions; their space is free again for the new one."""
+    esp_uuid = (previous[0].get("uuid") or "").lower()
+    if esp_uuid and Path("/sys/firmware/efi").is_dir():
+        listing = subprocess.run(["efibootmgr", "--verbose"], capture_output=True, text=True).stdout
+        for line in listing.splitlines():
+            if line.startswith("Boot") and line[4:8].isalnum() and esp_uuid in line.lower():
+                r = subprocess.run(["efibootmgr", "--bootnum", line[4:8], "--delete-bootnum"], capture_output=True)
+                log(f"old boot entry {line[4:8]} deleted: {r.returncode}")
+    for p in previous:
+        subprocess.run(["wipefs", "--all", "--quiet", p["node"]], capture_output=True)
+    run(["sfdisk", "--no-reread", "--delete", disk, *[str(partnum(disk, p["node"])) for p in previous]])
+    run(["partx", "--update", disk])
+    run(["udevadm", "settle", "--timeout=30"])
+    log(f"the earlier Sloth OS was removed: {[p['node'] for p in previous]}")
+
+
 def probe(disk):
-    """The options for installing next to Windows: how much space Sloth OS can get, and what prevents it."""
+    """The options for installing next to Windows: how much space Sloth OS can get, and what prevents it.
+
+    An earlier Sloth OS next to Windows counts as free space: it is replaced ("previous", its partitions)."""
     pt = table(disk)
     ss = pt["sectorsize"]
     info = {"uefi": Path("/sys/firmware/efi").is_dir(), "gpt": pt.get("label") == "gpt",
@@ -503,6 +548,10 @@ def probe(disk):
         info["problems"].append("unknown")
         return info
     info["windowsEsp"] = windows_esps_found[0]["uuid"]
+    previous = previous_sloth(pt)
+    if previous:
+        info["previous"] = [p["node"] for p in previous]
+        pt = {**pt, "partitions": [p for p in pt["partitions"] if p not in previous]}
     regions = free_regions(pt)
     info["free"] = max((size * ss for _s, size in regions), default=0)
     types = {p["node"]: fstype(p["node"]) for p in pt["partitions"]}
@@ -549,6 +598,11 @@ def partition_beside(disk, size_bytes, encrypt=False):
         fail(BESIDE_ERRORS[blocking[0]], f"cannot install next to Windows: {info}")
     if size_bytes > info["max"]:
         fail(BESIDE_ERRORS["no_space"], f"not enough space: {size_bytes} (max {info['max']})")
+    if info.get("previous"):
+        previous = previous_sloth(table(disk))
+        if [p["node"] for p in previous] != info["previous"]:
+            fail("error.install_failed", f"the earlier Sloth OS changed since the survey: {previous}")
+        remove_previous(disk, previous)
     pt = table(disk)
     ss = pt["sectorsize"]
     need = size_bytes // ss

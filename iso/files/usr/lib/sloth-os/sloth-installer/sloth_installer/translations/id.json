@@ -49,6 +49,7 @@
   "disk.beside.option": "Di samping Windows (Windows dan berkasnya tetap ada)",
   "disk.beside.erase": "Hapus seluruh disk (Windows dan semua berkas akan hilang)",
   "disk.beside.size": "Ruang untuk Sloth OS: {size} GB (paling banyak {max} GB)",
+  "disk.beside.replaces": "Sloth OS sebelumnya di disk ini akan diganti: berkasnya dihapus. Windows dan berkasnya tetap ada.",
   "disk.beside.not_uefi": "Komputer dimulai dalam mode lama (BIOS), jadi kami tidak bisa memasang di samping Windows. Jika komputermu mendukung, nyalakan mode UEFI di pengaturannya, lalu mulai ulang dari flashdisk.",
   "disk.beside.not_gpt": "Disk ini memakai tabel partisi lama (MBR), jadi kami tidak bisa memasang di samping Windows.",
   "disk.beside.hibernated": "Windows tidak dimatikan sepenuhnya (fast startup atau hibernasi), jadi sekarang kami tidak boleh mengubah drive-nya. Jalankan Windows, matikan fast startup (Control Panel → Power Options → Choose what the power buttons do), lalu pilih \"Restart\" dan mulai komputer dari flashdisk.",

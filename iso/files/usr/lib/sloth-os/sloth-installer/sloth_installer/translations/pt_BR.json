@@ -49,6 +49,7 @@
   "disk.beside.option": "Ao lado do Windows (o Windows e os arquivos dele continuam)",
   "disk.beside.erase": "Apagar o disco inteiro (o Windows e todos os arquivos serão perdidos)",
   "disk.beside.size": "Espaço para o Sloth OS: {size} GB (no máximo {max} GB)",
+  "disk.beside.replaces": "O Sloth OS anterior neste disco será substituído: os arquivos dele serão apagados. O Windows e os arquivos dele são mantidos.",
   "disk.beside.not_uefi": "O computador iniciou no modo antigo (BIOS), então não conseguimos instalar ao lado do Windows. Se o computador permitir, ative o modo UEFI nas configurações dele e inicie de novo pelo pendrive.",
   "disk.beside.not_gpt": "Este disco usa uma tabela de partições antiga (MBR), então não conseguimos instalar ao lado do Windows.",
   "disk.beside.hibernated": "O Windows não foi totalmente desligado (inicialização rápida ou hibernação), então agora não podemos mexer na unidade dele. Inicie o Windows, desative a inicialização rápida (Painel de Controle → Opções de Energia → Escolher a função dos botões de energia), depois escolha \"Reiniciar\" e inicie o computador pelo pendrive.",

@@ -49,6 +49,7 @@
   "disk.beside.option": "Next to Windows (Windows and its files are kept)",
   "disk.beside.erase": "Erase the whole disk (Windows and all files are lost)",
   "disk.beside.size": "Space for Sloth OS: {size} GB (at most {max} GB)",
+  "disk.beside.replaces": "The earlier Sloth OS on this disk is replaced: its files are deleted. Windows and its files are kept.",
   "disk.beside.not_uefi": "This computer started in legacy (BIOS) mode, so we can't install next to Windows. If your computer supports it, turn on UEFI mode in its settings and start from the USB drive again.",
   "disk.beside.not_gpt": "This disk uses an old-style (MBR) partition table, so we can't install next to Windows.",
   "disk.beside.hibernated": "Windows didn't fully shut down (fast startup or hibernation), so we can't touch its drive right now. Start Windows, turn off fast startup (Control Panel → Power Options → Choose what the power buttons do), then choose Restart and start the computer from the USB drive.",

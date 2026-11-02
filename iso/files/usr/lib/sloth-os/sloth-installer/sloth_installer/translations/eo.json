@@ -49,6 +49,7 @@
   "disk.beside.option": "Apud Windows (Windows kaj ĝiaj dosieroj restas)",
   "disk.beside.erase": "Forviŝi la tutan diskon (Windows kaj ĉiuj dosieroj perdiĝas)",
   "disk.beside.size": "Spaco por Sloth OS: {size} GB (maksimume {max} GB)",
+  "disk.beside.replaces": "La antaŭa Sloth OS sur ĉi tiu disko estos anstataŭigita: ĝiaj dosieroj estos forigitaj. Windows kaj ĝiaj dosieroj restas.",
   "disk.beside.not_uefi": "La komputilo startis en malnova (BIOS) reĝimo, do ni ne povas instali apud Windows. Se via komputilo subtenas ĝin, ŝaltu la UEFI-reĝimon en ĝiaj agordoj kaj restartigu de la USB-memorilo.",
   "disk.beside.not_gpt": "Ĉi tiu disko uzas malnovan subdisktabelon (MBR), do ni ne povas instali apud Windows.",
   "disk.beside.hibernated": "Windows ne tute malŝaltiĝis (rapida starto aŭ pasivumado), do ni nun ne povas tuŝi ĝian diskon. Startigu Windows, malŝaltu la rapidan starton (Stirpanelo → Energiaj agordoj → Elekti, kion faras la ŝaltiloj), poste elektu „Restartigi“ kaj startigu la komputilon de la USB-memorilo.",

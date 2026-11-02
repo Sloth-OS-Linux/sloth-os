@@ -49,6 +49,7 @@
   "disk.beside.option": "Pokraj Windowsa (Windows i njegove datoteke ostaju)",
   "disk.beside.erase": "Izbriši cijeli disk (Windows i sve datoteke se gube)",
   "disk.beside.size": "Prostor za Sloth OS: {size} GB (najviše {max} GB)",
+  "disk.beside.replaces": "Prethodni Sloth OS na ovom disku bit će zamijenjen: njegove datoteke bit će izbrisane. Windows i njegove datoteke ostaju.",
   "disk.beside.not_uefi": "Računalo se pokrenulo u starom načinu (BIOS), pa ne možemo instalirati pokraj Windowsa. Ako računalo to podržava, uključi UEFI način u njegovim postavkama i ponovno ga pokreni s USB stick-a.",
   "disk.beside.not_gpt": "Ovaj disk koristi staru tablicu particija (MBR), pa ne možemo instalirati pokraj Windowsa.",
   "disk.beside.hibernated": "Windows se nije potpuno isključio (brzo pokretanje ili hibernacija), pa sada ne smijemo dirati njegov pogon. Pokreni Windows, isključi brzo pokretanje (Upravljačka ploča → Mogućnosti napajanja → Odaberite funkciju gumba za uključivanje), zatim odaberi „Ponovno pokreni” i pokreni računalo s USB stick-a.",

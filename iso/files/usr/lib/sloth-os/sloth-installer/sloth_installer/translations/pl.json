@@ -49,6 +49,7 @@
   "disk.beside.option": "Obok Windows (Windows i jego pliki zostają)",
   "disk.beside.erase": "Wyczyść cały dysk (Windows i wszystkie pliki przepadną)",
   "disk.beside.size": "Miejsce na Sloth OS: {size} GB (najwyżej {max} GB)",
+  "disk.beside.replaces": "Wcześniejszy Sloth OS na tym dysku zostanie zastąpiony: jego pliki zostaną usunięte. Windows i jego pliki pozostaną.",
   "disk.beside.not_uefi": "Komputer uruchomił się w starym trybie (BIOS), więc nie możemy zainstalować obok Windows. Jeśli komputer to obsługuje, włącz tryb UEFI w jego ustawieniach i uruchom ponownie z pendrive'a.",
   "disk.beside.not_gpt": "Ten dysk ma starą tablicę partycji (MBR), więc nie możemy zainstalować obok Windows.",
   "disk.beside.hibernated": "Windows nie został całkowicie wyłączony (szybkie uruchamianie lub hibernacja), więc teraz nie możemy ruszać jego dysku. Uruchom Windows, wyłącz szybkie uruchamianie (Panel sterowania → Opcje zasilania → Wybierz działanie przycisków zasilania), potem wybierz „Uruchom ponownie” i uruchom komputer z pendrive'a.",

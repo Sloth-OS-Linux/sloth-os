@@ -49,6 +49,7 @@
   "disk.beside.option": "À côté de Windows (Windows et ses fichiers sont conservés)",
   "disk.beside.erase": "Effacer tout le disque (Windows et tous les fichiers sont perdus)",
   "disk.beside.size": "Espace pour Sloth OS : {size} Go (au maximum {max} Go)",
+  "disk.beside.replaces": "Le Sloth OS précédent de ce disque sera remplacé : ses fichiers seront supprimés. Windows et ses fichiers sont conservés.",
   "disk.beside.not_uefi": "L'ordinateur a démarré en mode ancien (BIOS), nous ne pouvons donc pas installer à côté de Windows. Si ton ordinateur le permet, active le mode UEFI dans ses réglages et redémarre sur la clé USB.",
   "disk.beside.not_gpt": "Ce disque utilise une ancienne table de partitions (MBR), nous ne pouvons donc pas installer à côté de Windows.",
   "disk.beside.hibernated": "Windows ne s'est pas complètement arrêté (démarrage rapide ou mise en veille prolongée), nous ne pouvons donc pas toucher à son disque pour l'instant. Démarre Windows, désactive le démarrage rapide (Panneau de configuration → Options d'alimentation → Choisir l'action des boutons d'alimentation), puis choisis « Redémarrer » et démarre l'ordinateur sur la clé USB.",

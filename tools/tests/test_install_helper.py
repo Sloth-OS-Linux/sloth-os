@@ -56,6 +56,36 @@ class WindowsDiskSurveyTest(unittest.TestCase):
         self.assertIn("unknown", result["problems"])
         self.assertEqual(result["windowsEsp"], "")
 
+    def test_earlier_sloth_os_counts_as_free_space(self):
+        # Windows shrunk by the first install, then the earlier Sloth OS right after it, then nothing free
+        gib = 1024**3 // 512
+        win = {"node": "/dev/testp2", "type": helper.LINUX_DATA, "start": 206848, "size": 200 * gib}
+        old = [{"node": "/dev/testp3", "type": helper.ESP_TYPE, "name": "EFI-SYSTEM", "start": 206848 + 200 * gib,
+                "size": 1 * gib},
+               {"node": "/dev/testp4", "type": helper.ROOT_X86_64, "name": "root", "start": 206848 + 201 * gib,
+                "size": 99 * gib}]
+        parts = [{"node": "/dev/testp1", "type": helper.ESP_TYPE, "start": 2048, "size": 204800}, win, *old]
+        pt = {"label": "gpt", "sectorsize": 512, "partitions": parts, "firstlba": 2048,
+              "lastlba": 206848 + 300 * gib - 1}
+        with (patch.object(helper.Path, "is_dir", return_value=True),
+              patch.object(helper, "table", return_value=pt),
+              patch.object(helper, "release_disk"),
+              patch.object(helper, "windows_esps", return_value=[{"path": "/dev/testp1", "uuid": "esp"}]),
+              patch.object(helper, "previous_sloth", return_value=old),
+              patch.object(helper, "fstype", side_effect=lambda dev: {"/dev/testp1": "vfat"}.get(dev, "ntfs")),
+              patch.object(helper, "has_windows_system_files", side_effect=lambda dev: dev == "/dev/testp2"),
+              patch.object(helper, "ntfs_info", return_value=(190 * 1024**3, ""))):
+            result = helper.probe("/dev/test")
+        self.assertEqual(result["previous"], ["/dev/testp3", "/dev/testp4"])
+        self.assertNotIn("no_space", result["problems"])
+        self.assertGreaterEqual(result["max"], 99 * 1024**3)
+
+    def test_earlier_sloth_os_needs_its_system_partition(self):
+        # an EFI partition with our name alone is not enough (nothing is mounted to find that out)
+        parts = [{"node": "/dev/testp3", "type": helper.ESP_TYPE, "name": "EFI-SYSTEM", "start": 2048, "size": 1}]
+        with patch.object(helper, "fstype", side_effect=AssertionError("must not look")):
+            self.assertEqual(helper.previous_sloth({"partitions": parts}), [])
+
     def test_efi_types_are_restored_after_partial_failure(self):
         partitions = [
             {"node": "/dev/testp1", "type": helper.ESP_TYPE},

@@ -49,6 +49,7 @@
   "disk.beside.option": "Windows 옆에 설치 (Windows와 파일이 그대로 남습니다)",
   "disk.beside.erase": "디스크 전체 지우기 (Windows와 모든 파일이 사라집니다)",
   "disk.beside.size": "Sloth OS 공간: {size}GB (최대 {max}GB)",
+  "disk.beside.replaces": "이 디스크에 있던 이전 Sloth OS를 대체합니다. 그 파일은 삭제됩니다. Windows와 그 파일은 그대로 유지됩니다.",
   "disk.beside.not_uefi": "컴퓨터가 예전 BIOS 모드로 시작되어 Windows 옆에 설치할 수 없습니다. 컴퓨터가 지원한다면 설정에서 UEFI 모드를 켜고 USB에서 다시 시작하세요.",
   "disk.beside.not_gpt": "이 디스크는 예전 방식의 파티션 테이블(MBR)을 사용하므로 Windows 옆에 설치할 수 없습니다.",
   "disk.beside.hibernated": "Windows가 완전히 종료되지 않아(빠른 시작 또는 최대 절전 모드) 지금은 드라이브를 건드릴 수 없습니다. Windows를 시작하고 빠른 시작을 끈 다음(제어판 → 전원 옵션 → 전원 단추 작동 설정), \"다시 시작\"을 선택하고 USB에서 컴퓨터를 시작하세요.",

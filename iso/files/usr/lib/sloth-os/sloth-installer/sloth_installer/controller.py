@@ -185,6 +185,8 @@ class InstallerController(QObject):
         return {"state": "ready", "possible": possible, "problems": problems[:1],
                 "minGib": MIN_BESIDE_GIB, "maxGib": max_gib, "bitlocker": bool(p.get("bitlocker")),
                 "shrinkGib": shrink_gib, "windowsPath": windows.get("path", ""),
+                # an earlier Sloth OS next to Windows: the new one takes its place
+                "replaces": bool(p.get("previous")),
                 "windowsBeforeGib": before_gib,
                 "windowsAfterGib": int(max(0, windows.get("size", 0) - shrink_bytes) // GIB)}
 

@@ -49,6 +49,7 @@
   "disk.beside.option": "Neben Windows (Windows und seine Dateien bleiben erhalten)",
   "disk.beside.erase": "Den ganzen Datenträger löschen (Windows und alle Dateien gehen verloren)",
   "disk.beside.size": "Platz für Sloth OS: {size} GB (höchstens {max} GB)",
+  "disk.beside.replaces": "Das bisherige Sloth OS auf diesem Laufwerk wird ersetzt: Seine Dateien werden gelöscht. Windows und seine Dateien bleiben erhalten.",
   "disk.beside.not_uefi": "Der Computer wurde im alten BIOS-Modus gestartet, daher können wir nicht neben Windows installieren. Wenn dein Computer es kann, schalte in seinen Einstellungen den UEFI-Modus ein und starte erneut vom USB-Stick.",
   "disk.beside.not_gpt": "Dieser Datenträger hat eine alte Partitionstabelle (MBR), daher können wir nicht neben Windows installieren.",
   "disk.beside.hibernated": "Windows wurde nicht vollständig heruntergefahren (Schnellstart oder Ruhezustand), daher dürfen wir sein Laufwerk gerade nicht anfassen. Starte Windows, schalte den Schnellstart aus (Systemsteuerung → Energieoptionen → Auswählen, was beim Drücken des Netzschalters geschehen soll), wähle dann „Neu starten“ und starte den Computer vom USB-Stick.",

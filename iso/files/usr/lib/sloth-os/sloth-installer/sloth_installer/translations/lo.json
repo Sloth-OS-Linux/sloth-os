@@ -49,6 +49,7 @@
   "disk.beside.option": "ຂ້າງ Windows (Windows ແລະ ໄຟລ໌ຂອງມັນຍັງຢູ່)",
   "disk.beside.erase": "ລຶບດິສທັງໝົດ (Windows ແລະ ໄຟລ໌ທັງໝົດຈະເສຍໄປ)",
   "disk.beside.size": "ພື້ນທີ່ສຳລັບ Sloth OS: {size} GB (ສູງສຸດ {max} GB)",
+  "disk.beside.replaces": "Sloth OS ເກົ່າໃນດິສກ໌ນີ້ຈະຖືກແທນທີ່: ໄຟລ໌ຂອງມັນຈະຖືກລຶບ. Windows ແລະໄຟລ໌ຂອງມັນຍັງຢູ່ຄືເກົ່າ.",
   "disk.beside.not_uefi": "ຄອມພິວເຕີເລີ່ມໃນໂໝດເກົ່າ (BIOS), ສະນັ້ນພວກເຮົາບໍ່ສາມາດຕິດຕັ້ງຂ້າງ Windows ໄດ້. ຖ້າຄອມພິວເຕີຮອງຮັບ, ໃຫ້ເປີດໂໝດ UEFI ໃນການຕັ້ງຄ່າຂອງມັນ ແລ້ວເລີ່ມຈາກ USB ໃໝ່.",
   "disk.beside.not_gpt": "ດິສນີ້ໃຊ້ຕາຕະລາງພາທິຊັນແບບເກົ່າ (MBR), ສະນັ້ນພວກເຮົາບໍ່ສາມາດຕິດຕັ້ງຂ້າງ Windows ໄດ້.",
   "disk.beside.hibernated": "Windows ບໍ່ໄດ້ປິດຢ່າງສົມບູນ (ເລີ່ມໄວ ຫຼື ໄຮເບີເນດ), ສະນັ້ນຕອນນີ້ພວກເຮົາແຕະໄດຣຟ໌ຂອງມັນບໍ່ໄດ້. ເປີດ Windows, ປິດການເລີ່ມໄວ (Control Panel → Power Options → Choose what the power buttons do), ແລ້ວເລືອກ \"Restart\" ແລະ ເລີ່ມຄອມພິວເຕີຈາກ USB.",

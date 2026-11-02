@@ -49,6 +49,7 @@
   "disk.beside.option": "Ved siden af Windows (Windows og dets filer bevares)",
   "disk.beside.erase": "Slet hele disken (Windows og alle filer går tabt)",
   "disk.beside.size": "Plads til Sloth OS: {size} GB (højst {max} GB)",
+  "disk.beside.replaces": "Det tidligere Sloth OS på denne disk erstattes: dets filer slettes. Windows og dets filer bevares.",
   "disk.beside.not_uefi": "Computeren startede i den gamle BIOS-tilstand, så vi kan ikke installere ved siden af Windows. Hvis computeren understøtter det, så slå UEFI-tilstand til i dens indstillinger og start igen fra USB-nøglen.",
   "disk.beside.not_gpt": "Denne disk bruger en gammel partitionstabel (MBR), så vi kan ikke installere ved siden af Windows.",
   "disk.beside.hibernated": "Windows blev ikke lukket helt ned (hurtig start eller dvale), så vi kan ikke røre dets drev lige nu. Start Windows, slå hurtig start fra (Kontrolpanel → Strømstyring → Vælg, hvad tænd/sluk-knapperne gør), vælg derefter \"Genstart\" og start computeren fra USB-nøglen.",

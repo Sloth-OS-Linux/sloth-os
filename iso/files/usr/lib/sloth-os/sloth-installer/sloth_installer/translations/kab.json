@@ -49,6 +49,7 @@
   "disk.beside.option": "Ɣer yidis n Windows (Windows d ifuyla-s ad qqimen)",
   "disk.beside.erase": "Kkes aḍebsi akk (Windows d yifuyla akk ad ṛuḥen)",
   "disk.beside.size": "Tallunt i Sloth OS: {size} GB (ugar n {max} GB ala)",
+  "disk.beside.replaces": "Sloth OS yezrin deg uḍebsi-a ad yettusenfel: ifuyla-ines ad ttwakksen. Windows d yifuyla-ines ad qqimen.",
   "disk.beside.not_uefi": "Aselkim yekker s uskar aqbur (BIOS), ihi ur nezmir ara ad nesbedd ɣer yidis n Windows. Ma yella aselkim-ik yessefrak-it, rmed askar UEFI deg yiɣewwaren-is, sakin ales asenker seg USB.",
   "disk.beside.not_gpt": "Aḍebsi-a yesseqdac tafelwit n yibḍan taqburt (MBR), ihi ur nezmir ara ad nesbedd ɣer yidis n Windows.",
   "disk.beside.hibernated": "Windows ur yensi ara akk (asenker arurad neɣ asgunfu), ihi tura ur nezmir ara ad nennal tabṛaṛt-is. Sekker Windows, sens asenker arurad (Agalis n usenqed → Tixtiṛiyin n tezmert → Fren ayen xeddmen tqeffalin n tezmert), sakin fren “Ales asenker” syin sekker aselkim seg USB.",

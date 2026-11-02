@@ -49,6 +49,7 @@
   "disk.beside.option": "Windows mellé (a Windows és a fájljai megmaradnak)",
   "disk.beside.erase": "Az egész lemez törlése (a Windows és minden fájl elvész)",
   "disk.beside.size": "A Sloth OS helye: {size} GB (legfeljebb {max} GB)",
+  "disk.beside.replaces": "A lemezen lévő korábbi Sloth OS helyére kerül: annak fájljai törlődnek. A Windows és a fájljai megmaradnak.",
   "disk.beside.not_uefi": "A gép régi (BIOS) módban indult, így Windows mellé nem tudunk telepíteni. Ha a gép tudja, kapcsold be az UEFI módot a gép beállításaiban, és indítsd újra a pendrive-ról.",
   "disk.beside.not_gpt": "Ezen a lemezen régi típusú (MBR) partíciós tábla van, így Windows mellé nem tudunk telepíteni.",
   "disk.beside.hibernated": "A Windows nem állt le teljesen (gyors indítás vagy hibernálás), ezért most nem nyúlhatunk a meghajtójához. Indítsd el a Windowst, kapcsold ki a gyors indítást (Vezérlőpult → Energiagazdálkodási lehetőségek → A főkapcsoló funkciójának megadása), majd válaszd az Újraindítást, és indítsd a gépet a pendrive-ról.",

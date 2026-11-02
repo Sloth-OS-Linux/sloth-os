@@ -49,6 +49,7 @@
   "disk.beside.option": "Langs Windows (Windows en sy lêers bly behoue)",
   "disk.beside.erase": "Vee die hele skyf uit (Windows en alle lêers gaan verlore)",
   "disk.beside.size": "Spasie vir Sloth OS: {size} GB (hoogstens {max} GB)",
+  "disk.beside.replaces": "Die vorige Sloth OS op hierdie skyf word vervang: sy lêers word uitgevee. Windows en sy lêers bly behoue.",
   "disk.beside.not_uefi": "Die rekenaar het in die ou BIOS-modus begin, so ons kan nie langs Windows installeer nie. As jou rekenaar dit ondersteun, skakel UEFI-modus in sy instellings aan en begin weer van die USB-stokkie af.",
   "disk.beside.not_gpt": "Hierdie skyf gebruik 'n ou partisietabel (MBR), so ons kan nie langs Windows installeer nie.",
   "disk.beside.hibernated": "Windows het nie heeltemal afgeskakel nie (vinnige opstart of hibernasie), so ons kan nie nou aan sy skyf raak nie. Begin Windows, skakel vinnige opstart af (Beheerpaneel → Kragopsies → Kies wat die kragknoppies doen), kies dan \"Herbegin\" en begin die rekenaar van die USB-stokkie af.",

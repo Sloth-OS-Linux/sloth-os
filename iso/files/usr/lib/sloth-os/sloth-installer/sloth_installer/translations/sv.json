@@ -49,6 +49,7 @@
   "disk.beside.option": "Bredvid Windows (Windows och dess filer finns kvar)",
   "disk.beside.erase": "Radera hela disken (Windows och alla filer går förlorade)",
   "disk.beside.size": "Plats för Sloth OS: {size} GB (högst {max} GB)",
+  "disk.beside.replaces": "Det tidigare Sloth OS på den här disken ersätts: dess filer raderas. Windows och dess filer behålls.",
   "disk.beside.not_uefi": "Datorn startade i det gamla BIOS-läget, så vi kan inte installera bredvid Windows. Om datorn stöder det, slå på UEFI-läget i dess inställningar och starta om från USB-minnet.",
   "disk.beside.not_gpt": "Den här disken använder en gammal partitionstabell (MBR), så vi kan inte installera bredvid Windows.",
   "disk.beside.hibernated": "Windows stängdes inte av helt (snabbstart eller viloläge), så vi kan inte röra dess enhet just nu. Starta Windows, stäng av snabbstart (Kontrollpanelen → Energialternativ → Välj vad strömknapparna ska göra), välj sedan ”Starta om” och starta datorn från USB-minnet.",

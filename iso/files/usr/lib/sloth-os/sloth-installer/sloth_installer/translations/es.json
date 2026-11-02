@@ -49,6 +49,7 @@
   "disk.beside.option": "Junto a Windows (Windows y sus archivos se conservan)",
   "disk.beside.erase": "Borrar todo el disco (Windows y todos los archivos se pierden)",
   "disk.beside.size": "Espacio para Sloth OS: {size} GB (como máximo {max} GB)",
+  "disk.beside.replaces": "Se reemplazará el Sloth OS anterior de este disco: se borrarán sus archivos. Windows y sus archivos se conservan.",
   "disk.beside.not_uefi": "El ordenador arrancó en modo antiguo (BIOS), así que no podemos instalar junto a Windows. Si tu ordenador lo permite, activa el modo UEFI en su configuración y vuelve a arrancar desde el USB.",
   "disk.beside.not_gpt": "Este disco usa una tabla de particiones antigua (MBR), así que no podemos instalar junto a Windows.",
   "disk.beside.hibernated": "Windows no se apagó del todo (inicio rápido o hibernación), así que ahora no podemos tocar su unidad. Inicia Windows, desactiva el inicio rápido (Panel de control → Opciones de energía → Elegir el comportamiento de los botones de inicio/apagado), luego elige «Reiniciar» y arranca el ordenador desde el USB.",

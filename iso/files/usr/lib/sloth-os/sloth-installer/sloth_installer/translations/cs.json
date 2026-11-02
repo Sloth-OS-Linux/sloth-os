@@ -49,6 +49,7 @@
   "disk.beside.option": "Vedle Windows (Windows a jeho soubory zůstanou)",
   "disk.beside.erase": "Smazat celý disk (Windows a všechny soubory se ztratí)",
   "disk.beside.size": "Místo pro Sloth OS: {size} GB (nejvýše {max} GB)",
+  "disk.beside.replaces": "Dřívější Sloth OS na tomto disku bude nahrazen: jeho soubory budou smazány. Windows a jeho soubory zůstanou.",
   "disk.beside.not_uefi": "Počítač se spustil ve starém režimu (BIOS), takže nemůžeme instalovat vedle Windows. Pokud to počítač umí, zapněte v jeho nastavení režim UEFI a spusťte ho znovu z flash disku.",
   "disk.beside.not_gpt": "Tento disk používá starou tabulku oddílů (MBR), takže nemůžeme instalovat vedle Windows.",
   "disk.beside.hibernated": "Windows se úplně nevypnul (rychlé spuštění nebo hibernace), takže teď nemůžeme sahat na jeho disk. Spusťte Windows, vypněte rychlé spuštění (Ovládací panely → Možnosti napájení → Nastavit chování tlačítek napájení), pak zvolte Restartovat a spusťte počítač z flash disku.",

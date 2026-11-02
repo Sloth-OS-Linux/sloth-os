@@ -49,6 +49,7 @@
   "disk.beside.option": "Accanto a Windows (Windows e i suoi file restano)",
   "disk.beside.erase": "Cancella l'intero disco (Windows e tutti i file vanno persi)",
   "disk.beside.size": "Spazio per Sloth OS: {size} GB (al massimo {max} GB)",
+  "disk.beside.replaces": "Il Sloth OS precedente su questo disco viene sostituito: i suoi file vengono eliminati. Windows e i suoi file restano.",
   "disk.beside.not_uefi": "Il computer si è avviato in modalità legacy (BIOS), quindi non possiamo installare accanto a Windows. Se il computer lo supporta, attiva la modalità UEFI nelle sue impostazioni e riavvia dalla chiavetta USB.",
   "disk.beside.not_gpt": "Questo disco usa una vecchia tabella delle partizioni (MBR), quindi non possiamo installare accanto a Windows.",
   "disk.beside.hibernated": "Windows non si è spento del tutto (avvio rapido o ibernazione), quindi ora non possiamo toccare la sua unità. Avvia Windows, disattiva l'avvio rapido (Pannello di controllo → Opzioni risparmio energia → Specifica comportamento pulsanti di alimentazione), poi scegli «Riavvia» e avvia il computer dalla chiavetta USB.",

@@ -491,6 +491,13 @@ Kirigami.ApplicationWindow {
                                     wrapMode: Text.Wrap
                                     text: root.t("disk.beside.size", { size: installer.sizeGib, max: installer.besideInfo.maxGib || 0 })
                                 }
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    visible: installer.besideInfo.replaces === true
+                                    wrapMode: Text.Wrap
+                                    opacity: 0.8
+                                    text: root.t("disk.beside.replaces")
+                                }
                                 QQC2.Slider {
                                     id: sizeSlider
                                     Layout.fillWidth: true
@@ -777,6 +784,12 @@ Kirigami.ApplicationWindow {
                         visible: installer.diskInfo.contents === "windows" && !installer.beside
                         type: Kirigami.MessageType.Warning
                         text: root.t("confirm.windows")
+                    }
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        visible: installer.beside && installer.besideInfo.replaces === true
+                        type: Kirigami.MessageType.Warning
+                        text: root.t("disk.beside.replaces")
                     }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true

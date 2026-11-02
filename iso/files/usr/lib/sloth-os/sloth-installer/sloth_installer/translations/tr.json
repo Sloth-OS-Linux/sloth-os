@@ -49,6 +49,7 @@
   "disk.beside.option": "Windows'un yanına (Windows ve dosyaları korunur)",
   "disk.beside.erase": "Diskin tamamını sil (Windows ve tüm dosyalar kaybolur)",
   "disk.beside.size": "Sloth OS için alan: {size} GB (en fazla {max} GB)",
+  "disk.beside.replaces": "Bu diskteki önceki Sloth OS değiştirilir: dosyaları silinir. Windows ve dosyaları korunur.",
   "disk.beside.not_uefi": "Bilgisayar eski (BIOS) modunda başladı, bu yüzden Windows'un yanına kuramıyoruz. Bilgisayarın destekliyorsa ayarlarından UEFI modunu aç ve USB bellekten yeniden başlat.",
   "disk.beside.not_gpt": "Bu disk eski bir bölüm tablosu (MBR) kullanıyor, bu yüzden Windows'un yanına kuramıyoruz.",
   "disk.beside.hibernated": "Windows tam olarak kapanmamış (hızlı başlatma veya hazırda bekletme), bu yüzden şu an sürücüsüne dokunamayız. Windows'u başlat, hızlı başlatmayı kapat (Denetim Masası → Güç Seçenekleri → Güç düğmelerinin yapacaklarını seçin), sonra \"Yeniden başlat\"ı seç ve bilgisayarı USB bellekten başlat.",

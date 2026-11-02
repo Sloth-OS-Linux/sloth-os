@@ -49,6 +49,7 @@
   "disk.beside.option": "Lângă Windows (Windows și fișierele lui rămân)",
   "disk.beside.erase": "Șterge tot discul (Windows și toate fișierele se pierd)",
   "disk.beside.size": "Spațiu pentru Sloth OS: {size} GB (cel mult {max} GB)",
+  "disk.beside.replaces": "Sloth OS-ul anterior de pe acest disc va fi înlocuit: fișierele lui vor fi șterse. Windows și fișierele lui rămân.",
   "disk.beside.not_uefi": "Calculatorul a pornit în modul vechi (BIOS), așa că nu putem instala lângă Windows. Dacă se poate, activează modul UEFI din setările calculatorului și pornește din nou de pe stick-ul USB.",
   "disk.beside.not_gpt": "Acest disc folosește o tabelă de partiții veche (MBR), așa că nu putem instala lângă Windows.",
   "disk.beside.hibernated": "Windows nu s-a oprit complet (pornire rapidă sau hibernare), așa că acum nu putem atinge unitatea lui. Pornește Windows, dezactivează pornirea rapidă (Panou de control → Opțiuni de alimentare → Alegeți ce fac butoanele de alimentare), apoi alege „Repornire” și pornește calculatorul de pe stick-ul USB.",

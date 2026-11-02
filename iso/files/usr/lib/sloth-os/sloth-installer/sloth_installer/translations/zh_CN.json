@@ -49,6 +49,7 @@
   "disk.beside.option": "安装在 Windows 旁边（保留 Windows 及其文件）",
   "disk.beside.erase": "清除整个磁盘（Windows 和所有文件都会丢失）",
   "disk.beside.size": "Sloth OS 的空间：{size} GB（最多 {max} GB）",
+  "disk.beside.replaces": "将替换此磁盘上之前的 Sloth OS：其文件将被删除。Windows 及其文件保持不变。",
   "disk.beside.not_uefi": "这台电脑以旧的 BIOS 模式启动，因此无法安装在 Windows 旁边。如果电脑支持，请在其设置中开启 UEFI 模式，然后重新从 U 盘启动。",
   "disk.beside.not_gpt": "此磁盘使用旧式分区表 (MBR)，因此无法安装在 Windows 旁边。",
   "disk.beside.hibernated": "Windows 没有完全关机（快速启动或休眠），所以现在不能改动它的驱动器。请启动 Windows，关闭快速启动（控制面板 → 电源选项 → 选择电源按钮的功能），然后选择“重启”，再从 U 盘启动电脑。",

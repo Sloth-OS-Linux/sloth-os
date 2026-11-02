@@ -49,6 +49,7 @@
   "disk.beside.option": "Al latere de Windows (Windows e su files remane)",
   "disk.beside.erase": "Deler tote le disco (Windows e tote le files es perdite)",
   "disk.beside.size": "Spatio pro Sloth OS: {size} GB (al maximo {max} GB)",
+  "disk.beside.replaces": "Le Sloth OS precedente sur iste disco es reimplaciate: su files es delite. Windows e su files es conservate.",
   "disk.beside.not_uefi": "Le computator ha initiate in le modo ancian (BIOS), dunque nos non pote installar al latere de Windows. Si tu computator lo supporta, activa le modo UEFI in su configuration e reinitia ab le clave USB.",
   "disk.beside.not_gpt": "Iste disco usa un tabula de partitiones ancian (MBR), dunque nos non pote installar al latere de Windows.",
   "disk.beside.hibernated": "Windows non se ha arrestate completemente (initio rapide o hibernation), dunque ora nos non pote tocar su disco. Initia Windows, disactiva le initio rapide (Pannello de controlo → Optiones de energia → Seliger lo que face le buttones de energia), postea selige «Reinitiar» e initia le computator ab le clave USB.",

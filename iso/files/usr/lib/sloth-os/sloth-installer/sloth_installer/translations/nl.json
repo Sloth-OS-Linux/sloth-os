@@ -49,6 +49,7 @@
   "disk.beside.option": "Naast Windows (Windows en zijn bestanden blijven behouden)",
   "disk.beside.erase": "De hele schijf wissen (Windows en alle bestanden gaan verloren)",
   "disk.beside.size": "Ruimte voor Sloth OS: {size} GB (hoogstens {max} GB)",
+  "disk.beside.replaces": "Het eerdere Sloth OS op deze schijf wordt vervangen: de bestanden ervan worden verwijderd. Windows en de bestanden blijven behouden.",
   "disk.beside.not_uefi": "De computer is in de oude BIOS-modus gestart, daarom kunnen we niet naast Windows installeren. Als je computer het ondersteunt, zet dan in de instellingen de UEFI-modus aan en start opnieuw vanaf de USB-stick.",
   "disk.beside.not_gpt": "Deze schijf gebruikt een oude partitietabel (MBR), daarom kunnen we niet naast Windows installeren.",
   "disk.beside.hibernated": "Windows is niet volledig afgesloten (snel opstarten of sluimerstand), daarom kunnen we de schijf nu niet aanraken. Start Windows, zet snel opstarten uit (Configuratiescherm → Energiebeheer → Het gedrag van de aan/uit-knoppen bepalen), kies daarna 'Opnieuw opstarten' en start de computer vanaf de USB-stick.",

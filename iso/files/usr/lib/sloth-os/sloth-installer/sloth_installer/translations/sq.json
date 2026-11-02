@@ -49,6 +49,7 @@
   "disk.beside.option": "Pranë Windows (Windows dhe skedarët e tij mbeten)",
   "disk.beside.erase": "Fshi të gjithë diskun (Windows dhe të gjithë skedarët humbasin)",
   "disk.beside.size": "Hapësirë për Sloth OS: {size} GB (më së shumti {max} GB)",
+  "disk.beside.replaces": "Sloth OS i mëparshëm në këtë disk do të zëvendësohet: skedarët e tij do të fshihen. Windows dhe skedarët e tij mbeten.",
   "disk.beside.not_uefi": "Kompjuteri u nis në modalitetin e vjetër (BIOS), prandaj nuk mund të instalojmë pranë Windows. Nëse kompjuteri e mbështet, aktivizo modalitetin UEFI te cilësimet e tij dhe nise përsëri nga USB-ja.",
   "disk.beside.not_gpt": "Ky disk përdor një tabelë të vjetër ndarjesh (MBR), prandaj nuk mund të instalojmë pranë Windows.",
   "disk.beside.hibernated": "Windows nuk u fik plotësisht (nisje e shpejtë ose hibernim), prandaj tani nuk mund ta prekim diskun e tij. Nis Windows, çaktivizo nisjen e shpejtë (Paneli i kontrollit → Opsionet e energjisë → Zgjidh çfarë bëjnë butonat e energjisë), pastaj zgjidh „Rinis” dhe nise kompjuterin nga USB-ja.",

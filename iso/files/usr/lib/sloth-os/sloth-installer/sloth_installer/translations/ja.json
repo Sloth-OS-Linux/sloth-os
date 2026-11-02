@@ -49,6 +49,7 @@
   "disk.beside.option": "Windows と共存（Windows とそのファイルは残ります）",
   "disk.beside.erase": "ディスク全体を消去（Windows とすべてのファイルが失われます）",
   "disk.beside.size": "Sloth OS の容量: {size} GB（最大 {max} GB）",
+  "disk.beside.replaces": "このディスクにある以前の Sloth OS は置き換えられ、そのファイルは削除されます。Windows とそのファイルはそのまま残ります。",
   "disk.beside.not_uefi": "このコンピューターは古い BIOS モードで起動したため、Windows と共存させるインストールはできません。対応していれば、コンピューターの設定で UEFI モードをオンにして、USB メモリーから起動し直してください。",
   "disk.beside.not_gpt": "このディスクは古い形式のパーティションテーブル (MBR) を使っているため、Windows と共存させるインストールはできません。",
   "disk.beside.hibernated": "Windows が完全にシャットダウンしていない（高速スタートアップまたは休止状態）ため、今はそのドライブに触れられません。Windows を起動し、高速スタートアップをオフにして（コントロール パネル → 電源オプション → 電源ボタンの動作を選択する）、「再起動」を選び、USB メモリーからコンピューターを起動してください。",

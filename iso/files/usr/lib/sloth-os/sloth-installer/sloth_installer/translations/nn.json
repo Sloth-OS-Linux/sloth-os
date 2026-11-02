@@ -49,6 +49,7 @@
   "disk.beside.option": "Ved sida av Windows (Windows og filene vert tekne vare på)",
   "disk.beside.erase": "Slett heile disken (Windows og alle filer går tapt)",
   "disk.beside.size": "Plass til Sloth OS: {size} GB (høgst {max} GB)",
+  "disk.beside.replaces": "Det tidlegare Sloth OS på denne disken vert erstatta: filene vert sletta. Windows og filene vert tekne vare på.",
   "disk.beside.not_uefi": "Datamaskina starta i den gamle BIOS-modusen, så vi kan ikkje installere ved sida av Windows. Om datamaskina støttar det, slå på UEFI-modus i innstillingane og start på nytt frå minnepinnen.",
   "disk.beside.not_gpt": "Denne disken brukar ein gammal partisjonstabell (MBR), så vi kan ikkje installere ved sida av Windows.",
   "disk.beside.hibernated": "Windows vart ikkje slått heilt av (rask oppstart eller dvalemodus), så vi kan ikkje røre stasjonen no. Start Windows, slå av rask oppstart (Kontrollpanel → Straumalternativ → Vel kva av/på-knappane gjer), vel deretter «Start på nytt» og start datamaskina frå minnepinnen.",

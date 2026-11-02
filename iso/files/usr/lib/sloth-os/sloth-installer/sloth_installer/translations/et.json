@@ -49,6 +49,7 @@
   "disk.beside.option": "Windowsi kõrvale (Windows ja selle failid jäävad alles)",
   "disk.beside.erase": "Kustuta kogu ketas (Windows ja kõik failid lähevad kaotsi)",
   "disk.beside.size": "Sloth OS-i ruum: {size} GB (kõige rohkem {max} GB)",
+  "disk.beside.replaces": "Selle ketta varasem Sloth OS asendatakse: selle failid kustutatakse. Windows ja selle failid jäävad alles.",
   "disk.beside.not_uefi": "Arvuti käivitus vanas (BIOS) režiimis, seega ei saa me Windowsi kõrvale paigaldada. Kui arvuti seda toetab, lülita selle seadetes sisse UEFI-režiim ja käivita uuesti USB-pulgalt.",
   "disk.beside.not_gpt": "Sellel kettal on vana partitsioonitabel (MBR), seega ei saa me Windowsi kõrvale paigaldada.",
   "disk.beside.hibernated": "Windows ei lülitunud täielikult välja (kiirkäivitus või talveunerežiim), seega ei saa me praegu selle ketast puutuda. Käivita Windows, lülita kiirkäivitus välja (Juhtpaneel → Toitesuvandid → Valige toitenuppude toimingud), vali siis „Taaskäivita” ja käivita arvuti USB-pulgalt.",

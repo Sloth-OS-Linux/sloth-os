@@ -49,6 +49,7 @@
   "disk.beside.option": "Dongje Windows (Windows e i siei files a restin)",
   "disk.beside.erase": "Scancele dut il disc (Windows e ducj i files a van pierdûts)",
   "disk.beside.size": "Puest par Sloth OS: {size} GB (al massim {max} GB)",
+  "disk.beside.replaces": "Il Sloth OS di prime su chest disc al ven sostituît: i siei files a vegnin eliminâts. Windows e i siei files a restin.",
   "disk.beside.not_uefi": "Il computer al è partît te modalitât vecje (BIOS), duncje no podìn instalâ dongje Windows. Se il to computer lu supuarte, ative la modalitât UEFI tes sôs impostazions e torne a fâ partî de clâf USB.",
   "disk.beside.not_gpt": "Chest disc al dopre une tabele des partizions vecje (MBR), duncje no podìn instalâ dongje Windows.",
   "disk.beside.hibernated": "Windows nol è stât distudât dal dut (inviament svelt o ibernazion), duncje cumò no podìn tocjâ il so disc. Invie Windows, distude l'inviament svelt (Panel di control → Opzions di energjie → Sielç ce che a fasin i botons di alimentazion), dopo sielç «Torne invie» e fâs partî il computer de clâf USB.",
