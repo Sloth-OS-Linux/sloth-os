@@ -927,5 +927,7 @@
   "Allow": "Sireg",
   "Don't share": "Ur bḍu ara",
   "Share a folder on the network?": "Ad tebḍuḍ akaram deg uẓeṭṭa?",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Ahil (am Dolphin) yebɣa ad yebḍu {path}. Ikaramen yettwabḍan ḥwajen turagt-ik: ur yettwabḍu ara alamma tsirgeḍ-t."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Ahil (am Dolphin) yebɣa ad yebḍu {path}. Ikaramen yettwabḍan ḥwajen turagt-ik: ur yettwabḍu ara alamma tsirgeḍ-t.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Mi ara yili ukaram yebḍan war awal uffir, iselkimen-nniḍen ur ttwasutren ara awal uffir n yikaramen-ik-nniḍen yebḍan. Ad kecmen kan ma qqnen s yisem-ik n useqdac ({user}) s yiman-nsen; deg Windows: Map network drive → Connect using different credentials.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Iselkimen imaynuten s Windows 11 ur ldin ara ikaramen yebḍan war awal uffir. S wawal uffir, iteddu deg yal adeg."
 }

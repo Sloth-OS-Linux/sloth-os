@@ -927,5 +927,7 @@
   "Allow": "அனுமதி",
   "Don't share": "பகிர வேண்டாம்",
   "Share a folder on the network?": "நெட்வொர்க்கில் ஒரு கோப்புறையைப் பகிரவா?",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "ஒரு நிரல் (Dolphin போன்றவை) {path} ஐப் பகிர விரும்புகிறது. பகிர்ந்த கோப்புறைகளுக்கு உங்கள் அனுமதி தேவை: நீங்கள் அனுமதிக்கும் வரை அது பகிரப்படாது."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "ஒரு நிரல் (Dolphin போன்றவை) {path} ஐப் பகிர விரும்புகிறது. பகிர்ந்த கோப்புறைகளுக்கு உங்கள் அனுமதி தேவை: நீங்கள் அனுமதிக்கும் வரை அது பகிரப்படாது.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "ஒரு கோப்புறை கடவுச்சொல் இல்லாமல் பகிரப்பட்டிருக்கும் வரை, உங்கள் மற்ற பகிர்ந்த கோப்புறைகளின் கடவுச்சொல் மற்ற கணினிகளிடம் கேட்கப்படாது. அவை உங்கள் பயனர் பெயருடன் ({user}) தாமாக உள்நுழைந்தால் மட்டுமே உள்ளே வர முடியும்; Windows-இல்: Map network drive → Connect using different credentials.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "புதிய Windows 11 கணினிகள் கடவுச்சொல் இல்லாமல் பகிரப்பட்ட கோப்புறைகளைத் திறக்காது. கடவுச்சொல்லுடன் எல்லா இடத்திலும் வேலை செய்யும்."
 }

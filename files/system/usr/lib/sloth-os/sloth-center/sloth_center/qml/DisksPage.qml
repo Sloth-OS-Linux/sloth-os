@@ -473,6 +473,13 @@ Kirigami.ScrollablePage {
                     }
                 }
 
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: sharing.enabled && sharing.mixed
+                    type: Kirigami.MessageType.Warning
+                    text: L.tf("While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.", { user: sharing.user })
+                }
+
                 QQC2.Button {
                     visible: sharing.enabled
                     enabled: !sharing.busy
@@ -629,6 +636,13 @@ Kirigami.ScrollablePage {
                     id: shareGuests
                     text: L.t("Without a password (anyone on your home network)")
                     onToggled: if (checked) shareDialog.selectedGroups = ({})
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    visible: shareGuests.checked
+                    wrapMode: Text.Wrap
+                    opacity: 0.7
+                    text: L.t("Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.")
                 }
                 QQC2.CheckBox {
                     id: shareWrite

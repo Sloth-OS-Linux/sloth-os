@@ -27,6 +27,8 @@ are made (add), under the same lock as serve, so serve never moves them aside.
 A share without a password lets people in as Samba's guest account (sloth-guest, its own account so that no other
 program gets what it is given), which may not enter the home folder (0700). So the guest may pass through the folders above a shared folder (x only: not look inside them) and read the
 shared folder, or write it too if so shared (ACLs, guest_access); taken away again when the share stops.
+Samba lets an unknown user name in as the guest only while such a share exists (GUEST_CONF, map to guest = Bad User);
+otherwise it refuses it (Never), so Windows, which tries its own user name first, asks for the password.
 
 groups:     at startup, before the login screen: make the usershares group visible to usermod.
 serve:      at startup, whenever the shared folders change (sloth-file-sharing.path) and when a network connects
@@ -513,6 +515,25 @@ def write_status(shares, state, pending=()):
 
 # Samba's guest account (usershares.conf, sysusers.d/sloth-os-guest.conf): who comes in to a share without a password
 GUEST = "sloth-guest"
+# included by usershares.conf: whether an unknown user name comes in as the guest
+GUEST_CONF = "/etc/samba/sloth-guest.conf"
+GUEST_CONF_TEXT = ("# Written by /usr/libexec/sloth-os/file-sharing: Bad User only while a folder is shared without a "
+                   "password\n[global]\n\tmap to guest = {}\n")
+
+
+def guest_login(shares):
+    """Bad User while a folder is shared without a password (Windows comes in to it with any user name), Never
+    otherwise: then an unknown user name is refused and Windows asks for the user name and password. With Bad User
+    it came in as the guest, the password share refused it, and Windows never asked (2026-11-02, two computers)."""
+    text = GUEST_CONF_TEXT.format("Bad User" if any(s["guests"] for s in shares) else "Never")
+    try:
+        with open(GUEST_CONF, encoding="utf-8") as f:
+            if f.read() == text:
+                return
+    except OSError:
+        pass
+    _write(GUEST_CONF, text)
+    subprocess.run(["smbcontrol", "smbd", "reload-config"], capture_output=True)
 
 
 def _setfacl(*args):
@@ -633,6 +654,7 @@ def serve():
     default_kinds(cfg)
     shares = read_shares()
     guest_access(cfg, shares)
+    guest_login(shares)
     active = active_networks(cfg)
     saved = nm_connections(active=False)
     kinds = {cfg["networks"].get(key, "") for key in active}

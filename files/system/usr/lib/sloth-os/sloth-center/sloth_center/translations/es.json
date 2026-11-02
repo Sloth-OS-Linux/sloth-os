@@ -927,5 +927,7 @@
   "Allow": "Permitir",
   "Don't share": "No compartir",
   "Share a folder on the network?": "¿Compartir una carpeta en la red?",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Un programa (como Dolphin) quiere compartir {path}. Las carpetas compartidas necesitan tu permiso: no se comparte hasta que lo permitas."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Un programa (como Dolphin) quiere compartir {path}. Las carpetas compartidas necesitan tu permiso: no se comparte hasta que lo permitas.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Mientras una carpeta se comparte sin contraseña, a los demás equipos no se les pide la contraseña de tus otras carpetas compartidas. Solo entran si inician sesión ellos mismos con tu nombre de usuario ({user}); en Windows: Conectar a unidad de red → Conectar con otras credenciales.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Los equipos con Windows 11 más recientes no abren carpetas compartidas sin contraseña. Con contraseña funciona en todas partes."
 }

@@ -927,5 +927,7 @@
   "Allow": "Leisti",
   "Don't share": "Nebendrinti",
   "Share a folder on the network?": "Bendrinti aplanką tinkle?",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Programa (pvz., Dolphin) nori bendrinti {path}. Bendrinamiems aplankams reikia jūsų leidimo: jis nebus bendrinamas, kol neleisite."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Programa (pvz., Dolphin) nori bendrinti {path}. Bendrinamiems aplankams reikia jūsų leidimo: jis nebus bendrinamas, kol neleisite.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Kol kuris nors aplankas bendrinamas be slaptažodžio, kiti kompiuteriai neprašomi jūsų kitų bendrinamų aplankų slaptažodžio. Jie patenka tik tada, jei patys prisijungia jūsų naudotojo vardu ({user}); sistemoje Windows: Susieti tinklo diską → Prisijungti naudojant kitus kredencialus.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Naujesni Windows 11 kompiuteriai neatidaro aplankų, bendrinamų be slaptažodžio. Su slaptažodžiu veikia visur."
 }

@@ -927,5 +927,7 @@
   "Allow": "Дазволіць",
   "Don't share": "Не адкрываць доступ",
   "Share a folder on the network?": "Адкрыць агульны доступ да папкі ў сетцы?",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Праграма (напрыклад, Dolphin) хоча адкрыць агульны доступ да {path}. Для агульных папак патрэбны ваш дазвол: доступу не будзе, пакуль вы не дазволіце."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Праграма (напрыклад, Dolphin) хоча адкрыць агульны доступ да {path}. Для агульных папак патрэбны ваш дазвол: доступу не будзе, пакуль вы не дазволіце.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Пакуль папка адкрыта без пароля, у іншых камп'ютараў не пытаюцца пароль ад іншых вашых агульных папак. Яны трапяць туды, толькі калі самі ўвойдуць пад вашым імем карыстальніка ({user}); у Windows: Падключыць сеткавы дыск → Выкарыстоўваць іншыя ўліковыя даныя.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Навейшыя камп'ютары з Windows 11 не адкрываюць папкі без пароля. З паролем гэта працуе ўсюды."
 }

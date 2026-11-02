@@ -105,6 +105,10 @@ class SharingController(QObject):
                       notify=changed)
     groups = Property("QVariantList", lambda self: local_groups(), notify=changed)
     pending = Property("QVariantList", lambda self: self._pending, notify=changed)
+    # folders shared both with and without a password: while one is shared without, Samba lets an unknown user name
+    # in as the guest (file-sharing's guest_login), so Windows does not ask for the password of the others
+    mixed = Property(bool, lambda self: any(s.get("guests") for s in self._shares)
+                     and any(not s.get("guests") for s in self._shares), notify=changed)
     hasPassword = Property(bool, lambda self: self._password, notify=changed)
     busy = Property(bool, lambda self: self._busy, notify=changed)
     message = Property(str, lambda self: self._message, notify=changed)
