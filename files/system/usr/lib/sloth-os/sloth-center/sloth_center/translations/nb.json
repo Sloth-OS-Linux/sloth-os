@@ -939,5 +939,17 @@
   "15 minutes": "15 minutter",
   "30 minutes": "30 minutter",
   "Also lock after sleep": "Lås også etter hvilemodus",
-  "Full-screen app grid in the dock": "Apprutenett i fullskjerm i dokken"
+  "Full-screen app grid in the dock": "Apprutenett i fullskjerm i dokken",
+  "ChromeOS-like": "Som ChromeOS",
+  "Floating": "Svevende",
+  "Classic Start menu, window names on the taskbar": "Klassisk startmeny, vindusnavn på oppgavelinjen",
+  "Launcher in the corner, apps in the center": "Starter i hjørnet, apper i midten",
+  "A small bar that gets out of the way of windows": "En liten linje som viker for vinduene",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Havblå",
+  "Forest Green": "Skoggrønn",
+  "Sunset Orange": "Solnedgangsoransje",
+  "Grape Purple": "Druelilla",
+  "Rose": "Rosa",
+  "Amber": "Rav"
 }

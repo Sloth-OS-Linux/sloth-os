@@ -939,5 +939,17 @@
   "15 minutes": "15 ນາທີ",
   "30 minutes": "30 ນາທີ",
   "Also lock after sleep": "ລັອກຫຼັງຈາກນອນນຳ",
-  "Full-screen app grid in the dock": "ຕາຕະລາງແອັບເຕັມຈໍໃນດັອກ"
+  "Full-screen app grid in the dock": "ຕາຕະລາງແອັບເຕັມຈໍໃນດັອກ",
+  "ChromeOS-like": "ຄ້າຍ ChromeOS",
+  "Floating": "ລອຍ",
+  "Classic Start menu, window names on the taskbar": "ເມນູເລີ່ມແບບຄລາສສິກ, ຊື່ໜ້າຕ່າງໃນແຖບວຽກ",
+  "Launcher in the corner, apps in the center": "ຕົວເປີດຢູ່ມຸມ, ແອັບຢູ່ກາງ",
+  "A small bar that gets out of the way of windows": "ແຖບນ້ອຍທີ່ຫຼີກທາງໃຫ້ໜ້າຕ່າງ",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "ສີຟ້າມະຫາສະໝຸດ",
+  "Forest Green": "ສີຂຽວປ່າ",
+  "Sunset Orange": "ສີສົ້ມຕາເວັນຕົກ",
+  "Grape Purple": "ສີມ່ວງອະງຸ່ນ",
+  "Rose": "ສີກຸຫຼາບ",
+  "Amber": "ສີອຳພັນ"
 }

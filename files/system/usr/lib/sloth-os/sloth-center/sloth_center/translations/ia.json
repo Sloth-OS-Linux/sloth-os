@@ -939,5 +939,17 @@
   "15 minutes": "15 minutas",
   "30 minutes": "30 minutas",
   "Also lock after sleep": "Blocar etiam post le dormir",
-  "Full-screen app grid in the dock": "Grillia de applicationes a schermo plen in le dock"
+  "Full-screen app grid in the dock": "Grillia de applicationes a schermo plen in le dock",
+  "ChromeOS-like": "Como ChromeOS",
+  "Floating": "Flottante",
+  "Classic Start menu, window names on the taskbar": "Menu Initio classic, nomines del fenestras in le barra",
+  "Launcher in the corner, apps in the center": "Lanceator in le angulo, applicationes in le centro",
+  "A small bar that gets out of the way of windows": "Un parve barra que cede le loco al fenestras",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Blau oceano",
+  "Forest Green": "Verde foreste",
+  "Sunset Orange": "Orange de crepusculo",
+  "Grape Purple": "Purpura uva",
+  "Rose": "Rosa",
+  "Amber": "Ambra"
 }

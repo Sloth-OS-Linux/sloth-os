@@ -939,5 +939,17 @@
   "15 minutes": "15 דקות",
   "30 minutes": "30 דקות",
   "Also lock after sleep": "לנעול גם אחרי שינה",
-  "Full-screen app grid in the dock": "רשת יישומים במסך מלא במעגן"
+  "Full-screen app grid in the dock": "רשת יישומים במסך מלא במעגן",
+  "ChromeOS-like": "בסגנון ChromeOS",
+  "Floating": "צף",
+  "Classic Start menu, window names on the taskbar": "תפריט התחלה קלאסי, שמות החלונות בשורת המשימות",
+  "Launcher in the corner, apps in the center": "משגר בפינה, יישומים במרכז",
+  "A small bar that gets out of the way of windows": "סרגל קטן שמפנה מקום לחלונות",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "כחול אוקיינוס",
+  "Forest Green": "ירוק יער",
+  "Sunset Orange": "כתום שקיעה",
+  "Grape Purple": "סגול ענבים",
+  "Rose": "ורד",
+  "Amber": "ענבר"
 }

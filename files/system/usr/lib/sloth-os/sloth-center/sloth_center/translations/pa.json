@@ -939,5 +939,17 @@
   "15 minutes": "15 ਮਿੰਟ",
   "30 minutes": "30 ਮਿੰਟ",
   "Also lock after sleep": "ਸਲੀਪ ਤੋਂ ਬਾਅਦ ਵੀ ਲਾਕ ਕਰੋ",
-  "Full-screen app grid in the dock": "ਡੌਕ ਵਿੱਚ ਪੂਰੀ ਸਕਰੀਨ ਐਪ ਗਰਿੱਡ"
+  "Full-screen app grid in the dock": "ਡੌਕ ਵਿੱਚ ਪੂਰੀ ਸਕਰੀਨ ਐਪ ਗਰਿੱਡ",
+  "ChromeOS-like": "ChromeOS ਵਰਗਾ",
+  "Floating": "ਤੈਰਦਾ",
+  "Classic Start menu, window names on the taskbar": "ਕਲਾਸਿਕ ਸਟਾਰਟ ਮੀਨੂ, ਟਾਸਕਬਾਰ 'ਤੇ ਵਿੰਡੋਆਂ ਦੇ ਨਾਂ",
+  "Launcher in the corner, apps in the center": "ਕੋਨੇ ਵਿੱਚ ਲਾਂਚਰ, ਵਿਚਕਾਰ ਐਪਾਂ",
+  "A small bar that gets out of the way of windows": "ਇੱਕ ਛੋਟੀ ਪੱਟੀ ਜੋ ਵਿੰਡੋਆਂ ਲਈ ਰਾਹ ਛੱਡਦੀ ਹੈ",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "ਸਮੁੰਦਰੀ ਨੀਲਾ",
+  "Forest Green": "ਜੰਗਲੀ ਹਰਾ",
+  "Sunset Orange": "ਸੂਰਜ ਡੁੱਬਣ ਵਾਲਾ ਸੰਤਰੀ",
+  "Grape Purple": "ਅੰਗੂਰੀ ਜਾਮਨੀ",
+  "Rose": "ਗੁਲਾਬੀ",
+  "Amber": "ਅੰਬਰ"
 }

@@ -939,5 +939,17 @@
   "15 minutes": "15 minutit",
   "30 minutes": "30 minutit",
   "Also lock after sleep": "Lukusta ka pärast unerežiimi",
-  "Full-screen app grid in the dock": "Täisekraanil rakenduste ruudustik dokis"
+  "Full-screen app grid in the dock": "Täisekraanil rakenduste ruudustik dokis",
+  "ChromeOS-like": "Nagu ChromeOS",
+  "Floating": "Hõljuv",
+  "Classic Start menu, window names on the taskbar": "Klassikaline Start-menüü, akende nimed tegumiribal",
+  "Launcher in the corner, apps in the center": "Käivitaja nurgas, rakendused keskel",
+  "A small bar that gets out of the way of windows": "Väike riba, mis akende eest kõrvale läheb",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Ookeanisinine",
+  "Forest Green": "Metsaroheline",
+  "Sunset Orange": "Päikeseloojangu oranž",
+  "Grape Purple": "Viinamarjalilla",
+  "Rose": "Roos",
+  "Amber": "Merevaik"
 }

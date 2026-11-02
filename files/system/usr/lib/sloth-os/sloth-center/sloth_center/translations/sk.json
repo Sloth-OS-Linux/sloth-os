@@ -939,5 +939,17 @@
   "15 minutes": "15 minútach",
   "30 minutes": "30 minútach",
   "Also lock after sleep": "Zamknúť aj po uspaní",
-  "Full-screen app grid in the dock": "Mriežka aplikácií na celú obrazovku v doku"
+  "Full-screen app grid in the dock": "Mriežka aplikácií na celú obrazovku v doku",
+  "ChromeOS-like": "Ako ChromeOS",
+  "Floating": "Plávajúci",
+  "Classic Start menu, window names on the taskbar": "Klasická ponuka Štart, názvy okien na paneli úloh",
+  "Launcher in the corner, apps in the center": "Spúšťač v rohu, aplikácie v strede",
+  "A small bar that gets out of the way of windows": "Malý panel, ktorý uhne oknám",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Oceánska modrá",
+  "Forest Green": "Lesná zelená",
+  "Sunset Orange": "Oranžový západ slnka",
+  "Grape Purple": "Hroznová fialová",
+  "Rose": "Ružová",
+  "Amber": "Jantárová"
 }

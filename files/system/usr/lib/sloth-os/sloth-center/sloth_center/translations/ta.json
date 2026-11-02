@@ -939,5 +939,17 @@
   "15 minutes": "15 நிமிடங்கள்",
   "30 minutes": "30 நிமிடங்கள்",
   "Also lock after sleep": "உறக்கத்திற்குப் பிறகும் பூட்டு",
-  "Full-screen app grid in the dock": "டாக்கில் முழுத்திரை செயலி கட்டம்"
+  "Full-screen app grid in the dock": "டாக்கில் முழுத்திரை செயலி கட்டம்",
+  "ChromeOS-like": "ChromeOS போன்றது",
+  "Floating": "மிதக்கும்",
+  "Classic Start menu, window names on the taskbar": "பழைய பாணி தொடக்கப் பட்டி, பணிப்பட்டியில் சாளரப் பெயர்கள்",
+  "Launcher in the corner, apps in the center": "மூலையில் துவக்கி, நடுவில் செயலிகள்",
+  "A small bar that gets out of the way of windows": "சாளரங்களுக்கு வழிவிடும் ஒரு சிறிய பட்டை",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "கடல் நீலம்",
+  "Forest Green": "காட்டுப் பச்சை",
+  "Sunset Orange": "அந்தி ஆரஞ்சு",
+  "Grape Purple": "திராட்சை ஊதா",
+  "Rose": "ரோஜா",
+  "Amber": "அம்பர்"
 }

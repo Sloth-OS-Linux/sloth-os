@@ -939,5 +939,17 @@
   "15 minutes": "15 хвилин",
   "30 minutes": "30 хвилин",
   "Also lock after sleep": "Блокувати й після сну",
-  "Full-screen app grid in the dock": "Сітка програм на весь екран у доку"
+  "Full-screen app grid in the dock": "Сітка програм на весь екран у доку",
+  "ChromeOS-like": "Як ChromeOS",
+  "Floating": "Плаваюча",
+  "Classic Start menu, window names on the taskbar": "Класичне меню «Пуск», назви вікон на панелі завдань",
+  "Launcher in the corner, apps in the center": "Запускач у куті, програми в центрі",
+  "A small bar that gets out of the way of windows": "Невелика панель, яка поступається місцем вікнам",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Океанський синій",
+  "Forest Green": "Лісовий зелений",
+  "Sunset Orange": "Помаранчевий захід",
+  "Grape Purple": "Виноградний фіолетовий",
+  "Rose": "Рожевий",
+  "Amber": "Бурштиновий"
 }

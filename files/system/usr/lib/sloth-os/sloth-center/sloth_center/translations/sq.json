@@ -939,5 +939,17 @@
   "15 minutes": "15 minutash",
   "30 minutes": "30 minutash",
   "Also lock after sleep": "Kyçe edhe pas gjumit",
-  "Full-screen app grid in the dock": "Rrjetë aplikacionesh në ekran të plotë në dok"
+  "Full-screen app grid in the dock": "Rrjetë aplikacionesh në ekran të plotë në dok",
+  "ChromeOS-like": "Si ChromeOS",
+  "Floating": "Pluskuese",
+  "Classic Start menu, window names on the taskbar": "Menu klasike Start, emrat e dritareve në shirit",
+  "Launcher in the corner, apps in the center": "Lëshuesi në cep, aplikacionet në qendër",
+  "A small bar that gets out of the way of windows": "Një shirit i vogël që u hap rrugë dritareve",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Blu oqeani",
+  "Forest Green": "Jeshile pylli",
+  "Sunset Orange": "Portokalli perëndimi",
+  "Grape Purple": "Vjollcë rrushi",
+  "Rose": "Trëndafili",
+  "Amber": "Qelibar"
 }

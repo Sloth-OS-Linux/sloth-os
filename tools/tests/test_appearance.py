@@ -49,6 +49,21 @@ class CurrentLayout(unittest.TestCase):
         self.assertEqual(self.layout(panel(2, 4, ["org.kde.plasma.kickoff", "org.kde.plasma.icontasks"])),
                          "windows10")
 
+    def test_windows7(self):
+        self.assertEqual(self.layout(panel(2, 4, ["org.kde.plasma.kicker", "org.kde.plasma.taskmanager",
+                                                  "org.kde.plasma.systemtray"])), "windows7")
+
+    def test_chromeos(self):
+        self.assertEqual(self.layout(panel(2, 4, ["org.slothos.appgrid", "org.kde.plasma.panelspacer",
+                                                  "org.kde.plasma.icontasks", "org.kde.plasma.panelspacer"])),
+                         "chromeos")
+
+    def test_floating(self):
+        # the same widgets as Windows 10, but the panel is only as long as its contents
+        (Path(self.tmp.name) / "plasmashellrc").write_text("[PlasmaViews][Panel 2]\npanelLengthMode=1\n")
+        self.assertEqual(self.layout(panel(2, 4, ["org.kde.plasma.kickoff", "org.kde.plasma.icontasks"])),
+                         "floating")
+
     def test_windows11(self):
         self.assertEqual(self.layout(panel(2, 4, ["org.kde.plasma.panelspacer", "org.kde.plasma.kickoff",
                                                   "org.kde.plasma.icontasks", "org.kde.plasma.panelspacer"])),

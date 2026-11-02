@@ -939,5 +939,17 @@
   "15 minutes": "15 分",
   "30 minutes": "30 分",
   "Also lock after sleep": "スリープ後にもロックする",
-  "Full-screen app grid in the dock": "ドックに全画面のアプリグリッド"
+  "Full-screen app grid in the dock": "ドックに全画面のアプリグリッド",
+  "ChromeOS-like": "ChromeOS 風",
+  "Floating": "フローティング",
+  "Classic Start menu, window names on the taskbar": "クラシックなスタートメニュー、タスクバーにウィンドウ名",
+  "Launcher in the corner, apps in the center": "隅にランチャー、中央にアプリ",
+  "A small bar that gets out of the way of windows": "ウィンドウの邪魔にならない小さなバー",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "オーシャンブルー",
+  "Forest Green": "フォレストグリーン",
+  "Sunset Orange": "サンセットオレンジ",
+  "Grape Purple": "グレープパープル",
+  "Rose": "ローズ",
+  "Amber": "アンバー"
 }

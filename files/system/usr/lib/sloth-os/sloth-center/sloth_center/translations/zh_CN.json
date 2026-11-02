@@ -939,5 +939,17 @@
   "15 minutes": "15 分钟",
   "30 minutes": "30 分钟",
   "Also lock after sleep": "睡眠后也锁定",
-  "Full-screen app grid in the dock": "程序坞中的全屏应用网格"
+  "Full-screen app grid in the dock": "程序坞中的全屏应用网格",
+  "ChromeOS-like": "类似 ChromeOS",
+  "Floating": "浮动",
+  "Classic Start menu, window names on the taskbar": "经典开始菜单，任务栏显示窗口名称",
+  "Launcher in the corner, apps in the center": "角落里的启动器，应用居中",
+  "A small bar that gets out of the way of windows": "会为窗口让路的小横条",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "海洋蓝",
+  "Forest Green": "森林绿",
+  "Sunset Orange": "日落橙",
+  "Grape Purple": "葡萄紫",
+  "Rose": "玫瑰",
+  "Amber": "琥珀"
 }

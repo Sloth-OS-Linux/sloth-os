@@ -939,5 +939,17 @@
   "15 minutes": "15 minučių",
   "30 minutes": "30 minučių",
   "Also lock after sleep": "Užrakinti ir po miego",
-  "Full-screen app grid in the dock": "Viso ekrano programų tinklelis doke"
+  "Full-screen app grid in the dock": "Viso ekrano programų tinklelis doke",
+  "ChromeOS-like": "Kaip ChromeOS",
+  "Floating": "Plūduriuojanti",
+  "Classic Start menu, window names on the taskbar": "Klasikinis meniu Pradžia, langų pavadinimai užduočių juostoje",
+  "Launcher in the corner, apps in the center": "Paleidiklis kampe, programos viduryje",
+  "A small bar that gets out of the way of windows": "Maža juosta, kuri pasitraukia nuo langų",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Vandenyno mėlyna",
+  "Forest Green": "Miško žalia",
+  "Sunset Orange": "Saulėlydžio oranžinė",
+  "Grape Purple": "Vynuogių violetinė",
+  "Rose": "Rožinė",
+  "Amber": "Gintarinė"
 }

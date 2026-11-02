@@ -939,5 +939,17 @@
   "15 minutes": "15 minute",
   "30 minutes": "30 de minute",
   "Also lock after sleep": "Blochează și după repaus",
-  "Full-screen app grid in the dock": "Grilă de aplicații pe tot ecranul în dock"
+  "Full-screen app grid in the dock": "Grilă de aplicații pe tot ecranul în dock",
+  "ChromeOS-like": "Ca ChromeOS",
+  "Floating": "Plutitoare",
+  "Classic Start menu, window names on the taskbar": "Meniu Start clasic, numele ferestrelor în bară",
+  "Launcher in the corner, apps in the center": "Lansator în colț, aplicații în centru",
+  "A small bar that gets out of the way of windows": "O bară mică ce se ferește din calea ferestrelor",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Albastru ocean",
+  "Forest Green": "Verde pădure",
+  "Sunset Orange": "Portocaliu apus",
+  "Grape Purple": "Mov strugure",
+  "Rose": "Roz",
+  "Amber": "Chihlimbar"
 }

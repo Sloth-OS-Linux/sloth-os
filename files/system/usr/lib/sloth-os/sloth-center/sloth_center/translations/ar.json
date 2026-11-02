@@ -939,5 +939,17 @@
   "15 minutes": "15 دقيقة",
   "30 minutes": "30 دقيقة",
   "Also lock after sleep": "القفل أيضًا بعد السكون",
-  "Full-screen app grid in the dock": "شبكة تطبيقات بملء الشاشة في الشريط"
+  "Full-screen app grid in the dock": "شبكة تطبيقات بملء الشاشة في الشريط",
+  "ChromeOS-like": "شبيه بـ ChromeOS",
+  "Floating": "عائم",
+  "Classic Start menu, window names on the taskbar": "قائمة ابدأ كلاسيكية وأسماء النوافذ في شريط المهام",
+  "Launcher in the corner, apps in the center": "المشغّل في الزاوية والتطبيقات في الوسط",
+  "A small bar that gets out of the way of windows": "شريط صغير يفسح المجال للنوافذ",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "أزرق المحيط",
+  "Forest Green": "أخضر الغابة",
+  "Sunset Orange": "برتقالي الغروب",
+  "Grape Purple": "بنفسجي العنب",
+  "Rose": "وردي",
+  "Amber": "كهرماني"
 }

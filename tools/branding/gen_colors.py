@@ -61,6 +61,43 @@ SCHEMES = {
         button="#d4dcd3", button_alt="#cbd4ca", header="#d7dfd6", header_inactive="#e1e7e0",
         tooltip="#f0f3ef", fg="#212a23", fg_inactive="#606c62",
         sel="#56715b", sel_alt="#617c66", sel_fg="#ffffff", focus="#56715b", hover="#7a937e"),
+    # With real color (2026-11-02): you can tell the color at once; the text stays readable (at least 4.5 : 1)
+    "SlothOcean": dict(
+        name="Sloth Ocean Blue", dark=True,
+        window="#162a3a", window_alt="#1b3245", view="#10202d", view_alt="#162838",
+        button="#1f3a50", button_alt="#244259", header="#122331", header_inactive="#162a3a",
+        tooltip="#0e1c27", fg="#e2eef7", fg_inactive="#8fa9bd",
+        sel="#4fb0e6", sel_alt="#3fa2da", sel_fg="#071722", focus="#4fb0e6", hover="#7cc6ee"),
+    "SlothForest": dict(
+        name="Sloth Forest Green", dark=True,
+        window="#1a2a20", window_alt="#203327", view="#13211a", view_alt="#1a2b21",
+        button="#25392c", button_alt="#2b4233", header="#16241c", header_inactive="#1a2a20",
+        tooltip="#111c16", fg="#e3efe6", fg_inactive="#93ab9a",
+        sel="#5cbf7a", sel_alt="#4fb06d", sel_fg="#0b1a10", focus="#5cbf7a", hover="#86d39d"),
+    "SlothSunset": dict(
+        name="Sloth Sunset Orange", dark=True,
+        window="#2e211c", window_alt="#362720", view="#241915", view_alt="#2d201b",
+        button="#3d2c24", button_alt="#46322a", header="#281d18", header_inactive="#2e211c",
+        tooltip="#1f1511", fg="#f5e9e2", fg_inactive="#b49c90",
+        sel="#f08a4b", sel_alt="#e07a3b", sel_fg="#1f0f06", focus="#f08a4b", hover="#f5a877"),
+    "SlothGrape": dict(
+        name="Sloth Grape Purple", dark=True,
+        window="#261f33", window_alt="#2d253c", view="#1d1828", view_alt="#251f31",
+        button="#342b45", button_alt="#3b314e", header="#211b2c", header_inactive="#261f33",
+        tooltip="#191422", fg="#ece6f5", fg_inactive="#a397b8",
+        sel="#a57ee6", sel_alt="#956dd9", sel_fg="#140b22", focus="#a57ee6", hover="#bfa2ef"),
+    "SlothRose": dict(
+        name="Sloth Rose", dark=False,
+        window="#f3e6ea", window_alt="#eddce2", view="#fbf4f6", view_alt="#f5eaee",
+        button="#ebd8de", button_alt="#e3ccd4", header="#efdfe4", header_inactive="#f3e6ea",
+        tooltip="#fbf4f6", fg="#33202a", fg_inactive="#735c67",
+        sel="#b8406e", sel_alt="#c44f7b", sel_fg="#ffffff", focus="#b8406e", hover="#cf6f93"),
+    "SlothAmber": dict(
+        name="Sloth Amber", dark=False,
+        window="#f4ead8", window_alt="#eee1ca", view="#fbf6ec", view_alt="#f5eddd",
+        button="#ebdcc0", button_alt="#e3d1b2", header="#efe3cc", header_inactive="#f4ead8",
+        tooltip="#fbf6ec", fg="#2f2414", fg_inactive="#726249",
+        sel="#9a5f00", sel_alt="#a86a08", sel_fg="#ffffff", focus="#9a5f00", hover="#c08420"),
 }
 
 DEFAULT = "SlothSilverDark"

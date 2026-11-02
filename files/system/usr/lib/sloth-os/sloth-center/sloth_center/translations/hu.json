@@ -939,5 +939,17 @@
   "15 minutes": "15 perc",
   "30 minutes": "30 perc",
   "Also lock after sleep": "Alvás után is zároljon",
-  "Full-screen app grid in the dock": "Teljes képernyős alkalmazásrács a dokkban"
+  "Full-screen app grid in the dock": "Teljes képernyős alkalmazásrács a dokkban",
+  "ChromeOS-like": "ChromeOS-szerű",
+  "Floating": "Lebegő",
+  "Classic Start menu, window names on the taskbar": "Klasszikus Start menü, ablaknevek a tálcán",
+  "Launcher in the corner, apps in the center": "Indító a sarokban, appok középen",
+  "A small bar that gets out of the way of windows": "Kis sáv, amely kitér az ablakok elől",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Óceánkék",
+  "Forest Green": "Erdőzöld",
+  "Sunset Orange": "Naplemente-narancs",
+  "Grape Purple": "Szőlőlila",
+  "Rose": "Rózsa",
+  "Amber": "Borostyán"
 }

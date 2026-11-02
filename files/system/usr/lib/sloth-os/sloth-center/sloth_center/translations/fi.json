@@ -939,5 +939,17 @@
   "15 minutes": "15 minuuttia",
   "30 minutes": "30 minuuttia",
   "Also lock after sleep": "Lukitse myös lepotilan jälkeen",
-  "Full-screen app grid in the dock": "Koko näytön sovellusruudukko telakassa"
+  "Full-screen app grid in the dock": "Koko näytön sovellusruudukko telakassa",
+  "ChromeOS-like": "ChromeOS-tyylinen",
+  "Floating": "Kelluva",
+  "Classic Start menu, window names on the taskbar": "Perinteinen Käynnistä-valikko, ikkunoiden nimet tehtäväpalkissa",
+  "Launcher in the corner, apps in the center": "Käynnistin kulmassa, sovellukset keskellä",
+  "A small bar that gets out of the way of windows": "Pieni palkki, joka väistää ikkunoita",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Valtameren sininen",
+  "Forest Green": "Metsänvihreä",
+  "Sunset Orange": "Auringonlaskun oranssi",
+  "Grape Purple": "Rypäleen violetti",
+  "Rose": "Ruusu",
+  "Amber": "Meripihka"
 }

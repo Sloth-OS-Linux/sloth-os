@@ -939,5 +939,17 @@
   "15 minutes": "15 minutoj",
   "30 minutes": "30 minutoj",
   "Also lock after sleep": "Ŝlosi ankaŭ post dormo",
-  "Full-screen app grid in the dock": "Plenekrana krado de aplikaĵoj en la doko"
+  "Full-screen app grid in the dock": "Plenekrana krado de aplikaĵoj en la doko",
+  "ChromeOS-like": "Kiel ChromeOS",
+  "Floating": "Ŝvebanta",
+  "Classic Start menu, window names on the taskbar": "Klasika Start-menuo, nomoj de fenestroj en la taskobreto",
+  "Launcher in the corner, apps in the center": "Lanĉilo en la angulo, aplikaĵoj en la mezo",
+  "A small bar that gets out of the way of windows": "Malgranda breto, kiu cedas al fenestroj",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Oceana bluo",
+  "Forest Green": "Arbara verdo",
+  "Sunset Orange": "Sunsubira oranĝo",
+  "Grape Purple": "Vinbera purpuro",
+  "Rose": "Rozo",
+  "Amber": "Sukceno"
 }

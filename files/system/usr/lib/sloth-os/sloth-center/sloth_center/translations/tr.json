@@ -939,5 +939,17 @@
   "15 minutes": "15 dakika",
   "30 minutes": "30 dakika",
   "Also lock after sleep": "Uyku modundan sonra da kilitle",
-  "Full-screen app grid in the dock": "Rıhtımda tam ekran uygulama ızgarası"
+  "Full-screen app grid in the dock": "Rıhtımda tam ekran uygulama ızgarası",
+  "ChromeOS-like": "ChromeOS benzeri",
+  "Floating": "Yüzen",
+  "Classic Start menu, window names on the taskbar": "Klasik Başlat menüsü, görev çubuğunda pencere adları",
+  "Launcher in the corner, apps in the center": "Köşede başlatıcı, ortada uygulamalar",
+  "A small bar that gets out of the way of windows": "Pencerelerin önünden çekilen küçük bir çubuk",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Okyanus mavisi",
+  "Forest Green": "Orman yeşili",
+  "Sunset Orange": "Gün batımı turuncusu",
+  "Grape Purple": "Üzüm moru",
+  "Rose": "Gül",
+  "Amber": "Kehribar"
 }

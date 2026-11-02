@@ -939,5 +939,17 @@
   "15 minutes": "15분",
   "30 minutes": "30분",
   "Also lock after sleep": "절전 후에도 잠금",
-  "Full-screen app grid in the dock": "독에 전체 화면 앱 그리드"
+  "Full-screen app grid in the dock": "독에 전체 화면 앱 그리드",
+  "ChromeOS-like": "ChromeOS 스타일",
+  "Floating": "떠 있는 막대",
+  "Classic Start menu, window names on the taskbar": "클래식 시작 메뉴, 작업 표시줄에 창 이름",
+  "Launcher in the corner, apps in the center": "모서리에 실행기, 가운데에 앱",
+  "A small bar that gets out of the way of windows": "창을 가리지 않도록 비켜 주는 작은 막대",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "오션 블루",
+  "Forest Green": "포레스트 그린",
+  "Sunset Orange": "선셋 오렌지",
+  "Grape Purple": "그레이프 퍼플",
+  "Rose": "로즈",
+  "Amber": "앰버"
 }

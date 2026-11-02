@@ -22,6 +22,12 @@ SCHEME_NAMES = {
     "SlothMist": N_("Mist Blue"),
     "SlothNight": N_("Night Blue"),
     "SlothSage": N_("Sage"),
+    "SlothOcean": N_("Ocean Blue"),
+    "SlothForest": N_("Forest Green"),
+    "SlothSunset": N_("Sunset Orange"),
+    "SlothGrape": N_("Grape Purple"),
+    "SlothRose": N_("Rose"),
+    "SlothAmber": N_("Amber"),
 }
 
 LAYOUT_TEXTS = {
@@ -29,6 +35,9 @@ LAYOUT_TEXTS = {
     "windows11": (N_("Windows 11"), N_("Start menu and icons in the center")),
     "mac": (N_("macOS-like"), N_("Top bar, floating dock at the bottom")),
     "ubuntu": (N_("Ubuntu-like"), N_("Top bar, dock on the left")),
+    "windows7": (N_("Windows 7"), N_("Classic Start menu, window names on the taskbar")),
+    "chromeos": (N_("ChromeOS-like"), N_("Launcher in the corner, apps in the center")),
+    "floating": (N_("Floating"), N_("A small bar that gets out of the way of windows")),
 }
 
 

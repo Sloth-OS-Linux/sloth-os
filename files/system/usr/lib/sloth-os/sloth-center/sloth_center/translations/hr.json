@@ -939,5 +939,17 @@
   "15 minutes": "15 minuta",
   "30 minutes": "30 minuta",
   "Also lock after sleep": "Zaključaj i nakon spavanja",
-  "Full-screen app grid in the dock": "Mreža aplikacija preko cijelog zaslona na doku"
+  "Full-screen app grid in the dock": "Mreža aplikacija preko cijelog zaslona na doku",
+  "ChromeOS-like": "Kao ChromeOS",
+  "Floating": "Plutajuća",
+  "Classic Start menu, window names on the taskbar": "Klasični izbornik Start, nazivi prozora na traci",
+  "Launcher in the corner, apps in the center": "Pokretač u kutu, aplikacije u sredini",
+  "A small bar that gets out of the way of windows": "Mala traka koja se sklanja prozorima",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Oceansko plava",
+  "Forest Green": "Šumsko zelena",
+  "Sunset Orange": "Narančasti zalazak",
+  "Grape Purple": "Ljubičasta grožđa",
+  "Rose": "Ružičasta",
+  "Amber": "Jantar"
 }

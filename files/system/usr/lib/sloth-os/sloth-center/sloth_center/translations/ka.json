@@ -939,5 +939,17 @@
   "15 minutes": "15 წუთის შემდეგ",
   "30 minutes": "30 წუთის შემდეგ",
   "Also lock after sleep": "დაბლოკვა ძილის შემდეგაც",
-  "Full-screen app grid in the dock": "აპების სრულეკრანიანი ბადე დოკში"
+  "Full-screen app grid in the dock": "აპების სრულეკრანიანი ბადე დოკში",
+  "ChromeOS-like": "ChromeOS-ის მსგავსი",
+  "Floating": "მცურავი",
+  "Classic Start menu, window names on the taskbar": "კლასიკური „დაწყების“ მენიუ, ფანჯრების სახელები პანელზე",
+  "Launcher in the corner, apps in the center": "გამშვები კუთხეში, აპები შუაში",
+  "A small bar that gets out of the way of windows": "პატარა ზოლი, რომელიც ფანჯრებს გზას უთმობს",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "ოკეანისფერი ლურჯი",
+  "Forest Green": "ტყისფერი მწვანე",
+  "Sunset Orange": "მზის ჩასვლის ნარინჯისფერი",
+  "Grape Purple": "ყურძნისფერი იისფერი",
+  "Rose": "ვარდისფერი",
+  "Amber": "ქარვისფერი"
 }

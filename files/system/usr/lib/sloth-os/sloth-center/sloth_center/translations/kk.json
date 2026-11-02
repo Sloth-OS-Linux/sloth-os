@@ -939,5 +939,17 @@
   "15 minutes": "15 минут",
   "30 minutes": "30 минут",
   "Also lock after sleep": "Ұйқы режимінен кейін де құлыптау",
-  "Full-screen app grid in the dock": "Докта толық экранды қолданбалар торы"
+  "Full-screen app grid in the dock": "Докта толық экранды қолданбалар торы",
+  "ChromeOS-like": "ChromeOS сияқты",
+  "Floating": "Қалқымалы",
+  "Classic Start menu, window names on the taskbar": "Классикалық «Бастау» мәзірі, тапсырмалар панелінде терезе атаулары",
+  "Launcher in the corner, apps in the center": "Іске қосқыш бұрышта, қолданбалар ортада",
+  "A small bar that gets out of the way of windows": "Терезелерге жол беретін шағын панель",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Мұхит көгі",
+  "Forest Green": "Орман жасылы",
+  "Sunset Orange": "Күн батуы қызғылт сарысы",
+  "Grape Purple": "Жүзім күлгіні",
+  "Rose": "Раушан",
+  "Amber": "Кәріптас"
 }

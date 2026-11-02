@@ -62,9 +62,14 @@ from a terminal must also work from a GUI.
    counted as used and Windows was already shrunk). To try in a VM: Windows + Sloth OS, then reinstall
 5. [ ] Installer, advanced (agreed 2026-11-02): a small "Advanced" button on the disk page opens KDE Partition
    Manager, then the installer asks which partition the system goes to (size and EFI partition checked)
-6. [ ] New taskbar layouts (agreed 2026-11-02): ChromeOS-like (centered shelf, the app grid as a bubble from the
-   launcher button: search, recent apps, all apps; the clock and quick settings in a corner bubble), Windows 7
-   classic, floating; and more color schemes with real color
+6. [x] New taskbar layouts (agreed 2026-11-02, done the same day on the test branch, to look at on the HP):
+   **Windows 7** (Kicker's classic menu, task buttons with names, show desktop), **ChromeOS-like** (a shelf: the
+   round launcher in the corner opens the app grid as a bubble, style "chromeos": search, the recently used apps,
+   every app scrolling; the apps in the center, tray and clock on the right), **Floating** (a short bar in the
+   middle that dodges windows). Recognized from Plasma's settings (`appearance.current_layout`, the floating one
+   by `panelLengthMode` in plasmashellrc); previews in `LayoutPreview.qml`. And six schemes with real color:
+   Ocean Blue, Forest Green, Sunset Orange, Grape Purple (dark), Rose, Amber (light); text at least 4.5 : 1.
+   Not yet: the ChromeOS quick settings as one corner bubble (Plasma's tray stays)
 
 ### Ideas from Reddit (2026-10-30)
 - [ ] (First version 2026-11-02, test branch, to look at on the HP) Mac-like and Ubuntu-like: a workspace switcher

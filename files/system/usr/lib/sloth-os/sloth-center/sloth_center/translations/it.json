@@ -939,5 +939,17 @@
   "15 minutes": "15 minuti",
   "30 minutes": "30 minuti",
   "Also lock after sleep": "Blocca anche dopo la sospensione",
-  "Full-screen app grid in the dock": "Griglia delle applicazioni a schermo intero nel dock"
+  "Full-screen app grid in the dock": "Griglia delle applicazioni a schermo intero nel dock",
+  "ChromeOS-like": "Come ChromeOS",
+  "Floating": "Fluttuante",
+  "Classic Start menu, window names on the taskbar": "Menu Start classico, nomi delle finestre nella barra",
+  "Launcher in the corner, apps in the center": "Avviatore nell'angolo, app al centro",
+  "A small bar that gets out of the way of windows": "Una piccola barra che si sposta per le finestre",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Blu oceano",
+  "Forest Green": "Verde bosco",
+  "Sunset Orange": "Arancio tramonto",
+  "Grape Purple": "Viola uva",
+  "Rose": "Rosa",
+  "Amber": "Ambra"
 }

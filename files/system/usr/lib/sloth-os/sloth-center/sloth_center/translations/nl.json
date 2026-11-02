@@ -939,5 +939,17 @@
   "15 minutes": "15 minuten",
   "30 minutes": "30 minuten",
   "Also lock after sleep": "Ook vergrendelen na slaapstand",
-  "Full-screen app grid in the dock": "Appraster op volledig scherm in het dock"
+  "Full-screen app grid in the dock": "Appraster op volledig scherm in het dock",
+  "ChromeOS-like": "Zoals ChromeOS",
+  "Floating": "Zwevend",
+  "Classic Start menu, window names on the taskbar": "Klassiek Startmenu, vensternamen op de taakbalk",
+  "Launcher in the corner, apps in the center": "Starter in de hoek, apps in het midden",
+  "A small bar that gets out of the way of windows": "Een kleine balk die voor vensters wijkt",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Oceaanblauw",
+  "Forest Green": "Bosgroen",
+  "Sunset Orange": "Zonsondergangoranje",
+  "Grape Purple": "Druifpaars",
+  "Rose": "Roze",
+  "Amber": "Amber"
 }

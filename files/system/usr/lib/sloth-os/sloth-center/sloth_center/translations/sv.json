@@ -939,5 +939,17 @@
   "15 minutes": "15 minuter",
   "30 minutes": "30 minuter",
   "Also lock after sleep": "Lås även efter strömsparläge",
-  "Full-screen app grid in the dock": "Apprutnät i helskärm i dockan"
+  "Full-screen app grid in the dock": "Apprutnät i helskärm i dockan",
+  "ChromeOS-like": "Som ChromeOS",
+  "Floating": "Svävande",
+  "Classic Start menu, window names on the taskbar": "Klassisk startmeny, fönsternamn i aktivitetsfältet",
+  "Launcher in the corner, apps in the center": "Startare i hörnet, appar i mitten",
+  "A small bar that gets out of the way of windows": "Ett litet fält som viker undan för fönster",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Havsblå",
+  "Forest Green": "Skogsgrön",
+  "Sunset Orange": "Solnedgångsorange",
+  "Grape Purple": "Druvlila",
+  "Rose": "Rosa",
+  "Amber": "Bärnsten"
 }

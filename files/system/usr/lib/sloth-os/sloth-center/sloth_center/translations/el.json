@@ -939,5 +939,17 @@
   "15 minutes": "15 λεπτά",
   "30 minutes": "30 λεπτά",
   "Also lock after sleep": "Κλείδωμα και μετά την αναστολή",
-  "Full-screen app grid in the dock": "Πλέγμα εφαρμογών πλήρους οθόνης στη μπάρα"
+  "Full-screen app grid in the dock": "Πλέγμα εφαρμογών πλήρους οθόνης στη μπάρα",
+  "ChromeOS-like": "Σαν το ChromeOS",
+  "Floating": "Αιωρούμενη",
+  "Classic Start menu, window names on the taskbar": "Κλασικό μενού Έναρξης, ονόματα παραθύρων στη γραμμή",
+  "Launcher in the corner, apps in the center": "Εκκινητής στη γωνία, εφαρμογές στη μέση",
+  "A small bar that gets out of the way of windows": "Μια μικρή μπάρα που παραμερίζει για τα παράθυρα",
+  "Windows 7": "Windows 7",
+  "Ocean Blue": "Μπλε ωκεανού",
+  "Forest Green": "Πράσινο δάσους",
+  "Sunset Orange": "Πορτοκαλί ηλιοβασιλέματος",
+  "Grape Purple": "Μωβ σταφυλιού",
+  "Rose": "Ροζ",
+  "Amber": "Κεχριμπάρι"
 }

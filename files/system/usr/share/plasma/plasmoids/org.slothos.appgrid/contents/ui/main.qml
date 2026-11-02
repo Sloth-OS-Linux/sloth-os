@@ -3,6 +3,8 @@
     style "ubuntu": as GNOME's "Show Apps" on Ubuntu: the desktop shrinks to a small live picture at the top (the
                     wallpaper with the open windows, as the taskbar's previews show them) and the grid rises below.
     style "mac":    the grid grows out of the dock button and shrinks back into it, as the Mac's Launchpad.
+    style "chromeos": not full-screen: a bubble above the shelf's launcher button, as ChromeOS's launcher (the search,
+                    the recently used apps in a row, then every app in a grid that scrolls).
     The window, the app list and the search come from KDE's own launcher (Kicker, the Application Dashboard);
     the search field's text, the tooltip and the menu use KDE's translations.
 
@@ -11,6 +13,7 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
+import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 
 import org.kde.kirigami as Kirigami
@@ -27,6 +30,7 @@ PlasmoidItem {
     id: root
 
     readonly property bool mac: Plasmoid.configuration.style === "mac"
+    readonly property bool chromeos: Plasmoid.configuration.style === "chromeos"
     // the flat, alphabetical list of every app (null until the root model is filled)
     property var allApps: null
     // bumped when the list is rebuilt: the tiles read their row again
@@ -39,11 +43,19 @@ PlasmoidItem {
     toolTipMainText: i18nd("libkicker", "All Applications")
     toolTipSubText: ""
 
-    // a button in the panel, never a popup: the grid is a window of its own
-    preferredRepresentation: fullRepresentation
+    // Ubuntu and Mac: a button in the panel, never a popup (the grid is a window of its own);
+    // ChromeOS: Plasma's own popup above the button (the bubble)
+    preferredRepresentation: chromeos ? compactRepresentation : fullRepresentation
     switchWidth: 0
     switchHeight: 0
-    fullRepresentation: button
+    compactRepresentation: chromeos ? bubbleButton : null
+    fullRepresentation: chromeos ? bubble : button
+
+    Component.onCompleted: {
+        if (Plasmoid.hasOwnProperty("activationTogglesExpanded")) {
+            Plasmoid.activationTogglesExpanded = chromeos;
+        }
+    }
 
     function findAllApps() {
         for (let i = 0; i < rootModel.count; ++i) {
@@ -137,6 +149,8 @@ PlasmoidItem {
         required property var iconSource
         required property int iconSize
         property bool current: false
+        // white over the dimmed desktop; the bubble passes the theme's text color
+        property color textColor: "white"
         signal launched()
 
         Accessible.role: Accessible.Button
@@ -146,7 +160,7 @@ PlasmoidItem {
             anchors.fill: parent
             anchors.margins: Kirigami.Units.smallSpacing
             radius: Kirigami.Units.cornerRadius * 3
-            color: "white"
+            color: tile.textColor
             opacity: tileMouse.pressed ? 0.22 : (tileMouse.containsMouse || tile.current ? 0.12 : 0)
             Behavior on opacity { NumberAnimation { duration: Kirigami.Units.shortDuration } }
         }
@@ -172,7 +186,7 @@ PlasmoidItem {
             horizontalAlignment: Text.AlignHCenter
             text: tile.label
             textFormat: Text.PlainText
-            color: "white"
+            color: tile.textColor
             elide: Text.ElideRight
             wrapMode: Text.Wrap
             maximumLineCount: 2
@@ -183,6 +197,183 @@ PlasmoidItem {
             anchors.fill: parent
             hoverEnabled: true
             onClicked: tile.launched()
+        }
+    }
+
+    // ChromeOS: the recently used apps, the first row of the bubble
+    Kicker.RecentUsageModel {
+        id: recentApps
+        shownItems: Kicker.RecentUsageModel.OnlyApps
+        ordering: 0 // the most recent first
+    }
+
+    Component {
+        id: bubbleButton
+
+        Kirigami.Icon {
+            source: Plasmoid.icon
+            active: bubbleButtonMouse.containsMouse
+            roundToIconSize: true
+            Layout.maximumWidth: Kirigami.Units.iconSizes.huge
+            Layout.maximumHeight: Kirigami.Units.iconSizes.huge
+
+            MouseArea {
+                id: bubbleButtonMouse
+                anchors.fill: parent
+                hoverEnabled: true
+                property bool wasExpanded: false
+                onPressed: wasExpanded = root.expanded
+                onClicked: root.expanded = !wasExpanded
+            }
+        }
+    }
+
+    // ChromeOS: the launcher bubble (in Plasma's popup above the shelf)
+    Component {
+        id: bubble
+
+        Item {
+            id: bubbleItem
+
+            readonly property int iconSize: Kirigami.Units.iconSizes.large
+            readonly property int columns: 5
+            readonly property int cellWidth: iconSize + Kirigami.Units.gridUnit * 3
+            readonly property int cellHeight: iconSize + Kirigami.Units.gridUnit * 3.5
+            readonly property bool searching: bubbleSearch.text !== ""
+
+            function launch(model, row) {
+                model.trigger(row, "", null);
+                root.expanded = false;
+            }
+
+            Layout.preferredWidth: columns * cellWidth + Kirigami.Units.gridUnit * 2
+            Layout.minimumWidth: Layout.preferredWidth
+            Layout.preferredHeight: Kirigami.Units.gridUnit * 32
+            Layout.minimumHeight: Kirigami.Units.gridUnit * 24
+
+            Connections {
+                target: root
+                function onExpandedChanged() {
+                    if (root.expanded) {
+                        bubbleSearch.clear();
+                        bubbleSearch.forceActiveFocus(Qt.OtherFocusReason);
+                        allGrid.positionViewAtBeginning();
+                    } else {
+                        runnerModel.query = "";
+                    }
+                }
+            }
+
+            ColumnLayout {
+                anchors.fill: parent
+                anchors.margins: Kirigami.Units.smallSpacing
+                spacing: Kirigami.Units.largeSpacing
+
+                PlasmaExtras.SearchField {
+                    id: bubbleSearch
+                    Layout.fillWidth: true
+                    focus: true
+                    onTextChanged: runnerModel.query = text
+                    // Enter starts the first result
+                    function launchFirst() {
+                        if (bubbleItem.searching && resultsGrid.count > 0) {
+                            bubbleItem.launch(resultsGrid.model, 0);
+                        }
+                    }
+                    Keys.onReturnPressed: launchFirst()
+                    Keys.onEnterPressed: launchFirst()
+                    Keys.onEscapePressed: {
+                        if (bubbleItem.searching) {
+                            clear();
+                        } else {
+                            root.expanded = false;
+                        }
+                    }
+                }
+
+                // the recently used apps: one row
+                GridView {
+                    id: recentGrid
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: bubbleItem.cellHeight
+                    visible: !bubbleItem.searching && count > 0
+                    interactive: false
+                    clip: true
+                    cellWidth: bubbleItem.cellWidth
+                    cellHeight: bubbleItem.cellHeight
+                    model: recentApps
+                    delegate: Tile {
+                        required property int index
+                        required property string display
+                        required property var decoration
+                        width: bubbleItem.cellWidth
+                        height: bubbleItem.cellHeight
+                        iconSize: bubbleItem.iconSize
+                        textColor: Kirigami.Theme.textColor
+                        label: display
+                        iconSource: decoration
+                        onLaunched: bubbleItem.launch(recentApps, index)
+                    }
+                }
+
+                Kirigami.Separator {
+                    Layout.fillWidth: true
+                    visible: recentGrid.visible
+                }
+
+                // every app, alphabetical, scrolling
+                GridView {
+                    id: allGrid
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    visible: !bubbleItem.searching
+                    clip: true
+                    boundsBehavior: Flickable.StopAtBounds
+                    cellWidth: bubbleItem.cellWidth
+                    cellHeight: bubbleItem.cellHeight
+                    model: root.allApps
+                    QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+                    delegate: Tile {
+                        required property int index
+                        required property string display
+                        required property var decoration
+                        width: bubbleItem.cellWidth
+                        height: bubbleItem.cellHeight
+                        iconSize: bubbleItem.iconSize
+                        textColor: Kirigami.Theme.textColor
+                        label: display
+                        iconSource: decoration
+                        onLaunched: bubbleItem.launch(root.allApps, index)
+                    }
+                }
+
+                // the search results
+                GridView {
+                    id: resultsGrid
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    visible: bubbleItem.searching
+                    clip: true
+                    boundsBehavior: Flickable.StopAtBounds
+                    cellWidth: bubbleItem.cellWidth
+                    cellHeight: bubbleItem.cellHeight
+                    model: bubbleItem.searching && runnerModel.count > 0 ? runnerModel.modelForRow(0) : null
+                    QQC2.ScrollBar.vertical: QQC2.ScrollBar {}
+                    delegate: Tile {
+                        required property int index
+                        required property string display
+                        required property var decoration
+                        width: bubbleItem.cellWidth
+                        height: bubbleItem.cellHeight
+                        iconSize: bubbleItem.iconSize
+                        textColor: Kirigami.Theme.textColor
+                        current: index === 0
+                        label: display
+                        iconSource: decoration
+                        onLaunched: bubbleItem.launch(resultsGrid.model, index)
+                    }
+                }
+            }
         }
     }
 

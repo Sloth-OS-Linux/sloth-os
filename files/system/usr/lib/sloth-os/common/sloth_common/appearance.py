@@ -29,6 +29,12 @@ COLOR_SCHEMES = [
     {"id": "SlothMist", "colors": ["#dfe6ed", "#56728f", "#1f2a35"]},
     {"id": "SlothNight", "colors": ["#1f2630", "#8aa5bf", "#dde4ec"]},
     {"id": "SlothSage", "colors": ["#e1e7e0", "#56715b", "#212a23"]},
+    {"id": "SlothOcean", "colors": ["#162a3a", "#4fb0e6", "#e2eef7"]},
+    {"id": "SlothForest", "colors": ["#1a2a20", "#5cbf7a", "#e3efe6"]},
+    {"id": "SlothSunset", "colors": ["#2e211c", "#f08a4b", "#f5e9e2"]},
+    {"id": "SlothGrape", "colors": ["#261f33", "#a57ee6", "#ece6f5"]},
+    {"id": "SlothRose", "colors": ["#f3e6ea", "#b8406e", "#33202a"]},
+    {"id": "SlothAmber", "colors": ["#f4ead8", "#9a5f00", "#2f2414"]},
 ]
 
 # "Your own color": an accent color on top of any scheme (the highlights, selected items, buttons and sliders).
@@ -39,7 +45,7 @@ ACCENT_COLORS = ["#3d8fd9", "#1aa39a", "#3fa34d", "#e0a526", "#e0662b", "#d6404a
 _HEX = re.compile(r"^#[0-9a-fA-F]{6}$")
 
 # Their names and descriptions are in each tool's translations
-LAYOUTS =["windows10", "windows11", "mac", "ubuntu"]
+LAYOUTS = ["windows10", "windows11", "windows7", "mac", "ubuntu", "chromeos", "floating"]
 
 _LAYOUT_SCRIPT = """
 const kind = %s;
@@ -50,7 +56,7 @@ let launchers = ["applications:org.kde.dolphin.desktop", "applications:org.kde.d
                  "applications:org.slothos.center.desktop"];
 for (const p of panels()) {
     for (const w of p.widgets()) {
-        if (w.type === "org.kde.plasma.icontasks") {
+        if (w.type === "org.kde.plasma.icontasks" || w.type === "org.kde.plasma.taskmanager") {
             w.currentConfigGroup = ["General"];
             const l = w.readConfig("launchers", "");
             const list = Array.isArray(l) ? l : String(l).split(",").filter(x => x);
@@ -60,8 +66,8 @@ for (const p of panels()) {
     p.remove();
 }
 
-function addTasks(panel) {
-    const t = panel.addWidget("org.kde.plasma.icontasks");
+function addTasks(panel, plugin) {
+    const t = panel.addWidget(plugin || "org.kde.plasma.icontasks");
     t.currentConfigGroup = ["General"];
     t.writeConfig("launchers", launchers);
     return t;
@@ -142,6 +148,46 @@ if (kind === "mac") {
         grid.writeConfig("popupWidth", Math.round(gridUnit * 50));
         grid.writeConfig("popupHeight", Math.round(gridUnit * 36));
     }
+} else if (kind === "windows7") {
+    // Classic: the two-column Start menu (Kicker), task buttons with the windows' names, the tray and clock on the
+    // right, "show desktop" in the corner
+    const panel = new Panel;
+    panel.location = "bottom";
+    panel.height = height;
+    panel.floating = false;
+    const menu = panel.addWidget("org.kde.plasma.kicker");
+    menu.currentConfigGroup = ["General"];
+    menu.writeConfig("icon", "sloth-os");
+    addTasks(panel, "org.kde.plasma.taskmanager");
+    addTrayAndClock(panel);
+    panel.addWidget("org.kde.plasma.showdesktop");
+} else if (kind === "chromeos") {
+    // ChromeOS-like: a shelf with the launcher in the corner (the app grid as a bubble), the apps in the center,
+    // the tray and the clock on the right
+    const panel = new Panel;
+    panel.location = "bottom";
+    panel.height = height;
+    panel.floating = false;
+    const launcher = panel.addWidget("org.slothos.appgrid");
+    launcher.currentConfigGroup = ["General"];
+    launcher.writeConfig("style", "chromeos");
+    launcher.writeConfig("icon", "draw-circle");
+    panel.addWidget("org.kde.plasma.panelspacer");
+    addTasks(panel);
+    panel.addWidget("org.kde.plasma.panelspacer");
+    addTrayAndClock(panel);
+} else if (kind === "floating") {
+    // Floating: a short bar in the middle that gets out of the way of windows (it comes back at the screen's edge)
+    const panel = new Panel;
+    panel.location = "bottom";
+    panel.height = height;
+    panel.floating = true;
+    panel.lengthMode = "fit";
+    panel.alignment = "center";
+    panel.hiding = "dodgewindows";
+    addKickoff(panel);
+    addTasks(panel);
+    addTrayAndClock(panel);
 } else {
     const panel = new Panel;
     panel.location = "bottom";
@@ -249,8 +295,9 @@ def apply_titlebar_accent(on):
 
 def current_layout():
     """The current taskbar layout from Plasma's settings: a top panel with a left one = Ubuntu-like, with another =
-    macOS-like; with a bottom panel only, if there is a spacer before the Start menu (centred icons) = Windows 11,
-    otherwise Windows 10. If it cannot be told: ""."""
+    macOS-like. With a bottom panel only: the app grid in it = ChromeOS-like, the classic menu or task buttons with
+    names = Windows 7, a Start menu in a panel only as long as its contents (plasmashellrc) = Floating, a spacer
+    before the Start menu (centred icons) = Windows 11, otherwise Windows 10. If it cannot be told: ""."""
     ini = read_ini(CONFIG_HOME / "plasma-org.kde.plasma.desktop-appletsrc")
     panels = {}
     for section in ini.sections():
@@ -269,9 +316,17 @@ def current_layout():
         if not plugins:
             plugins = [ini.get(sec, "plugin", fallback="") for sec in ini.sections()
                        if sec.startswith(f"Containments][{cid}][Applets][") and sec.count("][") == 3]
+        if "org.slothos.appgrid" in plugins:
+            return "chromeos"
+        if "org.kde.plasma.kicker" in plugins or "org.kde.plasma.taskmanager" in plugins:
+            return "windows7"
         if "org.kde.plasma.kickoff" in plugins:
             before = plugins[:plugins.index("org.kde.plasma.kickoff")]
-            return "windows11" if "org.kde.plasma.panelspacer" in before else "windows10"
+            if "org.kde.plasma.panelspacer" in before:
+                return "windows11"
+            view = read_ini(CONFIG_HOME / "plasmashellrc")
+            fit = view.get(f"PlasmaViews][Panel {cid}", "panelLengthMode", fallback="0") == "1"  # 1 = fit contents
+            return "floating" if fit else "windows10"
     return ""
 
 
