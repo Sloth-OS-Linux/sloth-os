@@ -135,5 +135,7 @@
   "error.beside_shrink_failed": "Nem sikerült kisebbre venni a Windows meghajtóját. Indítsd el a Windowst, ellenőrizd a lemezt (Ez a gép → C: → Tulajdonságok → Eszközök → Ellenőrzés), majd próbáld újra.",
   "error.encrypt_failed": "A titkosítás beállítása nem sikerült. Próbáld újra; ha megint nem megy, telepíts titkosítás nélkül.",
   "desktop.comment": "A Sloth OS telepítése erre a gépre",
-  "desktop.keywords": "telepítés;telepítő"
+  "desktop.keywords": "telepítés;telepítő",
+  "boot.password_hint": "Írd be a lemez jelszavát, majd nyomj Entert",
+  "list.search": "Keresés…"
 }

@@ -135,5 +135,7 @@
   "confirm.summary.extra_keep": "{disk}: vert tilgjengeleg med filene sine",
   "confirm.summary.free": "Den ledige plassen på denne disken vert brukt; storleiken på eksisterande partisjonar vert ikkje endra.",
   "confirm.summary.keep_windows": "Windows og filene vert verande. Nye EFI- og Sloth OS-systempartisjonar vert laga i den ledige plassen.",
-  "confirm.summary.shrink": "Windows-partisjonen vert gjord {size} GiB mindre, og den frigjorde plassen går til Sloth OS."
+  "confirm.summary.shrink": "Windows-partisjonen vert gjord {size} GiB mindre, og den frigjorde plassen går til Sloth OS.",
+  "boot.password_hint": "Skriv inn passordet til disken, og trykk Enter",
+  "list.search": "Søk …"
 }

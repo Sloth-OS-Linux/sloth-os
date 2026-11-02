@@ -135,5 +135,7 @@
   "confirm.summary.temporary": "Spațiul temporar de instalare va avea ext4, va fi montat în timpul instalării și eliminat la final.",
   "confirm.summary.extra_erase": "{disk}: va fi șters și pregătit pentru programe și jocuri",
   "confirm.summary.extra_keep": "{disk}: va fi disponibil cu fișierele sale",
-  "confirm.summary.free": "Se va folosi spațiul liber de pe acest disc; dimensiunea partițiilor existente nu se schimbă."
+  "confirm.summary.free": "Se va folosi spațiul liber de pe acest disc; dimensiunea partițiilor existente nu se schimbă.",
+  "boot.password_hint": "Tastează parola discului, apoi apasă Enter",
+  "list.search": "Caută…"
 }

@@ -52,9 +52,19 @@ from a terminal must also work from a GUI.
    Windows programs, WebView2 not counted as the program (try Welcome → Roblox Studio on the HP first); then the PR
    to `main`, the ISO, SourceForge, the website (2026-10-29: `sloth-os-1.2.1-x86_64.iso`, 5.2 GB, SHA-256
    `17e24d611fda24bba8fbf7c247f282c6cff1f2be974462e57ecd32a14c84ac14`, with its `.torrent`)
-3. [ ] Reddit, 2026-10-29 (ThinkPad, 1.2): the first restart after the install needed a hard reboot; the
-   encrypted disk's password prompt at boot does not make clear that it waits for typing (a text like "Type your
-   password")
+3. [x] Reddit, 2026-10-29 (ThinkPad, 1.2): the first restart after the install needed a hard reboot (probably
+   the USB stick was pulled too early); the encrypted disk's password prompt at boot does not make clear that it
+   waits for typing. Done 2026-11-02 (test branch, to try in a VM with encryption): below the input line a smaller
+   "Type your disk password, then press Enter" in the installer's language (`sloth.lang=` kernel argument, the
+   initramfs service `sloth-plymouth-lang`, pictures `hint-<language>.png` from `tools/branding/plymouth_hints.py`)
+4. [x] Installer (2026-11-02): a search field in the language, keyboard and time zone lists (`SearchCombo.qml`);
+   installing next to Windows a second time replaces the earlier Sloth OS (it was not offered: its partitions
+   counted as used and Windows was already shrunk). To try in a VM: Windows + Sloth OS, then reinstall
+5. [ ] Installer, advanced (agreed 2026-11-02): a small "Advanced" button on the disk page opens KDE Partition
+   Manager, then the installer asks which partition the system goes to (size and EFI partition checked)
+6. [ ] New taskbar layouts (agreed 2026-11-02): ChromeOS-like (centered shelf, the app grid as a bubble from the
+   launcher button: search, recent apps, all apps; the clock and quick settings in a corner bubble), Windows 7
+   classic, floating; and more color schemes with real color
 
 ### Ideas from Reddit (2026-10-30)
 - [ ] (First version 2026-11-02, test branch, to look at on the HP) Mac-like and Ubuntu-like: a workspace switcher

@@ -135,5 +135,7 @@
   "confirm.summary.extra_erase": "{disk}: zostanie wyczyszczony i przygotowany na programy i gry",
   "confirm.summary.extra_keep": "{disk}: będzie dostępny razem z plikami",
   "confirm.summary.heading": "Planowane zmiany na dysku",
-  "confirm.summary.shrink": "Partycja Windows zostanie zmniejszona o {size} GiB, a zwolnione miejsce dostanie Sloth OS."
+  "confirm.summary.shrink": "Partycja Windows zostanie zmniejszona o {size} GiB, a zwolnione miejsce dostanie Sloth OS.",
+  "boot.password_hint": "Wpisz hasło do dysku i naciśnij Enter",
+  "list.search": "Szukaj…"
 }

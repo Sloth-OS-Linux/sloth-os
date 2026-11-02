@@ -135,5 +135,7 @@
   "confirm.summary.heading": "Cambios previstos en el disco",
   "confirm.summary.target": "Disco de destino: {disk} ({size})",
   "confirm.summary.erase": "Se borrará este disco, con sus particiones y archivos actuales.",
-  "confirm.summary.create_all": "Se creará una nueva tabla GPT con una partición de arranque BIOS, una partición EFI, una partición de sistema de Sloth OS y espacio temporal de instalación."
+  "confirm.summary.create_all": "Se creará una nueva tabla GPT con una partición de arranque BIOS, una partición EFI, una partición de sistema de Sloth OS y espacio temporal de instalación.",
+  "boot.password_hint": "Escribe la contraseña del disco y pulsa Intro",
+  "list.search": "Buscar…"
 }

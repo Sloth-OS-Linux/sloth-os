@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows e i suoi file restano. Le nuove partizioni EFI e di sistema di Sloth OS verranno create nello spazio libero.",
   "confirm.summary.temporary": "Lo spazio temporaneo per l’installazione avrà ext4, verrà montato durante l’installazione e rimosso alla fine.",
   "confirm.summary.extra_erase": "{disk}: verrà cancellato e preparato per programmi e giochi",
-  "confirm.summary.extra_keep": "{disk}: sarà disponibile con i suoi file"
+  "confirm.summary.extra_keep": "{disk}: sarà disponibile con i suoi file",
+  "boot.password_hint": "Digita la password del disco, poi premi Invio",
+  "list.search": "Cerca…"
 }

@@ -135,5 +135,7 @@
   "confirm.summary.free": "Буде використано вільне місце на цьому диску; розмір наявних розділів не зміниться.",
   "confirm.summary.keep_windows": "Windows і його файли залишаться. У вільному місці буде створено нові розділи EFI та системи Sloth OS.",
   "confirm.summary.heading": "Заплановані зміни диска",
-  "confirm.summary.shrink": "Розділ Windows зменшиться на {size} ГіБ, а звільнене місце отримає Sloth OS."
+  "confirm.summary.shrink": "Розділ Windows зменшиться на {size} ГіБ, а звільнене місце отримає Sloth OS.",
+  "boot.password_hint": "Введіть пароль диска й натисніть Enter",
+  "list.search": "Пошук…"
 }

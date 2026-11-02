@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows ve dosyaları kalır. Boş alanda yeni EFI ve Sloth OS sistem bölümleri oluşturulacak.",
   "confirm.summary.temporary": "Geçici kurulum alanı ext4 olacak, kurulum sırasında bağlanacak ve sonunda kaldırılacak.",
   "confirm.summary.extra_erase": "{disk}: silinecek ve programlar ile oyunlar için hazırlanacak",
-  "confirm.summary.extra_keep": "{disk}: dosyalarıyla birlikte kullanılabilir olacak"
+  "confirm.summary.extra_keep": "{disk}: dosyalarıyla birlikte kullanılabilir olacak",
+  "boot.password_hint": "Disk parolanızı yazın, ardından Enter'a basın",
+  "list.search": "Ara…"
 }

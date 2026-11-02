@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows et ses fichiers sont conservés. De nouvelles partitions EFI et système Sloth OS seront créées dans l’espace libre.",
   "confirm.summary.target": "Disque cible : {disk} ({size})",
   "confirm.summary.heading": "Modifications prévues du disque",
-  "confirm.summary.shrink": "La partition Windows sera réduite de {size} Gio, et l’espace libéré ira à Sloth OS."
+  "confirm.summary.shrink": "La partition Windows sera réduite de {size} Gio, et l’espace libéré ira à Sloth OS.",
+  "boot.password_hint": "Saisissez le mot de passe du disque, puis appuyez sur Entrée",
+  "list.search": "Rechercher…"
 }

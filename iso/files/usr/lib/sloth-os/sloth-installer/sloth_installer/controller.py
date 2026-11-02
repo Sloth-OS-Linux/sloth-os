@@ -465,7 +465,7 @@ class InstallerController(QObject):
         self._proc = QProcess(self)
         self._proc.readyReadStandardOutput.connect(self._read)
         self._proc.finished.connect(self._finished)
-        args = [HELPER, "install", "--disk", self._disk, "--locale", locale,
+        args = [HELPER, "install", "--disk", self._disk, "--locale", locale, "--language", self._language,
                 "--keyboard", self._keyboard, "--timezone", self._timezone,
                 "--username", self._username, "--fullname", self._full_name]
         if self._beside:

@@ -135,5 +135,7 @@
   "confirm.summary.free": "Uporabljen bo prosti prostor na tem disku; velikost obstoječih razdelkov se ne spremeni.",
   "confirm.summary.temporary": "Začasni prostor za namestitev bo dobil ext4, med namestitvijo bo priklopljen, na koncu pa odstranjen.",
   "confirm.summary.extra_erase": "{disk}: bo izbrisan in pripravljen za programe in igre",
-  "confirm.summary.extra_keep": "{disk}: bo na voljo s svojimi datotekami"
+  "confirm.summary.extra_keep": "{disk}: bo na voljo s svojimi datotekami",
+  "boot.password_hint": "Vnesite geslo diska in pritisnite Enter",
+  "list.search": "Iskanje …"
 }

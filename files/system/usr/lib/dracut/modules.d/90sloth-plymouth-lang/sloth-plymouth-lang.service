@@ -1,0 +1,10 @@
+[Unit]
+Description=Sloth OS: the language of the boot screen's password hint
+DefaultDependencies=no
+ConditionKernelCommandLine=sloth.lang
+After=plymouth-start.service
+Before=cryptsetup-pre.target systemd-ask-password-plymouth.service sysinit.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-plymouth-lang

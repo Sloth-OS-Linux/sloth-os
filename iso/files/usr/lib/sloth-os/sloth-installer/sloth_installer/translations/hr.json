@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows i njegove datoteke ostaju. U slobodnom prostoru izradit će se nove EFI i sustavske particije Sloth OS-a.",
   "confirm.summary.temporary": "Privremeni prostor za instalaciju dobit će ext4, bit će montiran tijekom instalacije i uklonjen na kraju.",
   "confirm.summary.extra_erase": "{disk}: bit će izbrisan i pripremljen za programe i igre",
-  "confirm.summary.extra_keep": "{disk}: bit će dostupan sa svojim datotekama"
+  "confirm.summary.extra_keep": "{disk}: bit će dostupan sa svojim datotekama",
+  "boot.password_hint": "Upišite lozinku diska i pritisnite Enter",
+  "list.search": "Traži…"
 }

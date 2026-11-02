@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows והקבצים שלו נשארים. במקום הפנוי ייווצרו מחיצות EFI ומערכת חדשות של Sloth OS.",
   "confirm.summary.create_all": "תיווצר טבלת GPT חדשה עם מחיצת אתחול BIOS, מחיצת EFI, מחיצת מערכת של Sloth OS ומקום התקנה זמני.",
   "confirm.summary.shrink": "מחיצת Windows תוקטן ב־{size} GiB, והמקום שיתפנה יעבור ל־Sloth OS.",
-  "confirm.summary.target": "דיסק יעד: {disk} ({size})"
+  "confirm.summary.target": "דיסק יעד: {disk} ({size})",
+  "boot.password_hint": "הקלידו את סיסמת הדיסק ולחצו Enter",
+  "list.search": "חיפוש…"
 }

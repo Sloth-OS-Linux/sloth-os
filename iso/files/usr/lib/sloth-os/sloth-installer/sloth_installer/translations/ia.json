@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows e su files remane. Nove partitiones EFI e de systema de Sloth OS essera create in le spatio libere.",
   "confirm.summary.temporary": "Le spatio temporari de installation habera ext4, essera montate durante le installation e removite al fin.",
   "confirm.summary.extra_erase": "{disk}: essera delite e preparate pro programmas e jocos",
-  "confirm.summary.extra_keep": "{disk}: essera disponibile con su files"
+  "confirm.summary.extra_keep": "{disk}: essera disponibile con su files",
+  "boot.password_hint": "Scribe le contrasigno del disco, postea pulsa Enter",
+  "list.search": "Cercar…"
 }

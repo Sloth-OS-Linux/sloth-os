@@ -135,5 +135,7 @@
   "confirm.summary.heading": "Geplante Änderungen am Laufwerk",
   "confirm.summary.target": "Ziellaufwerk: {disk} ({size})",
   "confirm.summary.erase": "Dieses Laufwerk wird mit seinen aktuellen Partitionen und Dateien gelöscht.",
-  "confirm.summary.create_all": "Es wird eine neue GPT-Aufteilung angelegt: eine BIOS-Bootpartition, eine EFI-Partition, eine Sloth OS-Systempartition und temporärer Installationsplatz."
+  "confirm.summary.create_all": "Es wird eine neue GPT-Aufteilung angelegt: eine BIOS-Bootpartition, eine EFI-Partition, eine Sloth OS-Systempartition und temporärer Installationsplatz.",
+  "boot.password_hint": "Gib das Passwort für das Laufwerk ein und drücke Enter",
+  "list.search": "Suchen…"
 }

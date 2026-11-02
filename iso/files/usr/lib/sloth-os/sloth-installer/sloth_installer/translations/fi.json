@@ -135,5 +135,7 @@
   "confirm.summary.encrypted": "EFI-osio saa FAT32:n, Sloth OS -järjestelmä salataan LUKS2:lla ja saa Btrfs:n, ja luodaan erillinen käynnistysosio.",
   "confirm.summary.temporary": "Väliaikainen asennustila saa ext4:n, liitetään asennuksen ajaksi ja poistetaan lopuksi.",
   "confirm.summary.extra_erase": "{disk}: tyhjennetään ja valmistellaan ohjelmille ja peleille",
-  "confirm.summary.extra_keep": "{disk}: on käytettävissä tiedostoineen"
+  "confirm.summary.extra_keep": "{disk}: on käytettävissä tiedostoineen",
+  "boot.password_hint": "Kirjoita levyn salasana ja paina Enter",
+  "list.search": "Hae…"
 }

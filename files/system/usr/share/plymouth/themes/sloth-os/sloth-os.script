@@ -349,6 +349,27 @@ field.image = Image("dot.png").Scale(field_w, 4);
 field.sprite = Sprite();
 field.sprite.SetZ(20);
 field_y = text_y + padlock_size + 52;   # set again in display_password_callback (the layout can change)
+# Below the input line, smaller, what the machine waits for ("Type your disk password, then press Enter"), in the
+# language chosen in the installer. The initramfs tells it as a message (sloth-plymouth-lang, from the sloth.lang=…
+# kernel argument the installer sets), and the text is a picture, hint-<language>.png
+# (tools/branding/plymouth_hints.py): the initramfs has no fonts for every script. Without it only the lock shows.
+hint.sprite = Sprite();
+hint.sprite.SetZ(20);
+fun show_hint() {
+  if (!global.hint_image || !global.password_shown) {
+    hint.sprite.SetImage(Image("blank.png"));
+    return;
+  }
+  h = Math.Int(size * 0.085);
+  w = Math.Int(global.hint_image.GetWidth() * h / global.hint_image.GetHeight());
+  if (w > screen_w * 0.9) {
+    h = Math.Int(h * screen_w * 0.9 / w);
+    w = Math.Int(screen_w * 0.9);
+  }
+  hint.sprite.SetImage(global.hint_image.Scale(w, h));
+  hint.sprite.SetPosition(Math.Int((screen_w - w) / 2), field_y + Math.Int(size * 0.06), 20);
+}
+
 # The dots of the typed characters come from an image (the initramfs font has no "●", squares would show)
 MAX_BULLETS = 24;
 bullet_size = Math.Int(size * 0.045);
@@ -381,6 +402,7 @@ fun display_normal_callback() {
   padlock.sprite.SetImage(Image("blank.png"));
   field.sprite.SetImage(Image("blank.png"));
   show_bullets(0);
+  show_hint();
 }
 
 fun display_password_callback(text, count) {
@@ -393,6 +415,7 @@ fun display_password_callback(text, count) {
   field.sprite.SetImage(field.image);
   field.sprite.SetPosition((screen_w - field_w) / 2, field_y, 20);
   show_bullets(count);
+  show_hint();
 }
 
 fun display_question_callback(text, entry) {
@@ -402,6 +425,12 @@ fun display_question_callback(text, entry) {
 }
 
 fun message_callback(text) {
+  # "sloth-lang:hu": the language of the password hint, not a message to show
+  if (text.SubString(0, 11) == "sloth-lang:") {
+    global.hint_image = Image("hint-" + text.SubString(11, 40) + ".png");
+    show_hint();
+    return;
+  }
   center_text(message.sprite, Image.Text(text, 0.6, 0.63, 0.66), Math.Int((screen_h + small_h) / 2) - 60);
 }
 

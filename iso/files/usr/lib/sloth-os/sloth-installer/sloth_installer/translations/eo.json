@@ -135,5 +135,7 @@
   "confirm.summary.temporary": "La provizora instala spaco ricevos ext4, estos muntita dum la instalado kaj forigita je la fino.",
   "confirm.summary.extra_erase": "{disk}: estos viŝita kaj preparita por programoj kaj ludoj",
   "confirm.summary.extra_keep": "{disk}: estos disponebla kun siaj dosieroj",
-  "confirm.summary.shrink": "La Windows-subdisko malgrandiĝos je {size} GiB, kaj la liberigitan spacon ricevos Sloth OS."
+  "confirm.summary.shrink": "La Windows-subdisko malgrandiĝos je {size} GiB, kaj la liberigitan spacon ricevos Sloth OS.",
+  "boot.password_hint": "Tajpu la pasvorton de la disko, poste premu Enigon",
+  "list.search": "Serĉi…"
 }

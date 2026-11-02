@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows a jeho súbory zostanú. Vo voľnom mieste sa vytvoria nové oddiely EFI a systému Sloth OS.",
   "confirm.summary.temporary": "Dočasné miesto na inštaláciu dostane ext4, počas inštalácie bude pripojené a na konci odstránené.",
   "confirm.summary.extra_erase": "{disk}: bude vymazaný a pripravený pre programy a hry",
-  "confirm.summary.extra_keep": "{disk}: bude dostupný aj so svojimi súbormi"
+  "confirm.summary.extra_keep": "{disk}: bude dostupný aj so svojimi súbormi",
+  "boot.password_hint": "Zadajte heslo k disku a stlačte Enter",
+  "list.search": "Hľadať…"
 }

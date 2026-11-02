@@ -135,5 +135,7 @@
   "confirm.summary.extra_keep": "{disk}: do të jetë në dispozicion me skedarët e tij",
   "confirm.summary.free": "Do të përdoret hapësira e lirë e këtij disku; madhësia e ndarjeve ekzistuese nuk ndryshon.",
   "confirm.summary.keep_windows": "Windows dhe skedarët e tij mbeten. Ndarjet e reja EFI dhe të sistemit të Sloth OS do të krijohen në hapësirën e lirë.",
-  "confirm.summary.shrink": "Ndarja e Windows do të zvogëlohet me {size} GiB, dhe hapësira e liruar do t’i shkojë Sloth OS."
+  "confirm.summary.shrink": "Ndarja e Windows do të zvogëlohet me {size} GiB, dhe hapësira e liruar do t’i shkojë Sloth OS.",
+  "boot.password_hint": "Shkruani fjalëkalimin e diskut, pastaj shtypni Enter",
+  "list.search": "Kërko…"
 }

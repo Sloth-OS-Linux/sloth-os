@@ -135,5 +135,7 @@
   "confirm.summary.extra_erase": "{disk}: ad yettwasfeḍ, ad yewjed i wahilen d wuraren",
   "confirm.summary.extra_keep": "{disk}: ad yili yella s yifuyla-s",
   "confirm.summary.free": "Ad tettwaseqdec tallunt tilellit n uḍebsi-a; teɣzi n tḥuna yellan ur tettbeddil ara.",
-  "confirm.summary.keep_windows": "Windows d yifuyla-s ad qqimen. Tiḥuna timaynutin EFI d unagraw n Sloth OS ad ttwarnunt deg tallunt tilellit."
+  "confirm.summary.keep_windows": "Windows d yifuyla-s ad qqimen. Tiḥuna timaynutin EFI d unagraw n Sloth OS ad ttwarnunt deg tallunt tilellit.",
+  "boot.password_hint": "Aru awal uffir n uḍebsi, sakin sit ɣef Enter",
+  "list.search": "Nadi…"
 }

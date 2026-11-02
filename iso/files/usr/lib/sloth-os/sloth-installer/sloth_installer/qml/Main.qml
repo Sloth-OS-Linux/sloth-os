@@ -135,15 +135,15 @@ Kirigami.ApplicationWindow {
                             implicitWidth: Kirigami.Units.iconSizes.smallMedium
                             implicitHeight: Kirigami.Units.iconSizes.smallMedium
                         }
-                        QQC2.ComboBox {
+                        SearchCombo {
                             Accessible.name: root.t("welcome.language")
                             implicitWidth: Kirigami.Units.gridUnit * 14
                             model: installer.languages
                             textRole: "name"
                             valueRole: "code"
-                            popup.popupType: QQC2.Popup.Item
-                            currentIndex: count > 0 ? indexOfValue(installer.language) : -1
-                            onActivated: installer.setLanguage(currentValue)
+                            value: installer.language
+                            searchText: root.t("list.search")
+                            onPicked: value => installer.setLanguage(value)
                         }
                     }
                     // More than one screen: which is the main one. The installer moves there at once, so it is
@@ -216,30 +216,30 @@ Kirigami.ApplicationWindow {
                     }
                     Kirigami.FormLayout {
                         Layout.fillWidth: true
-                        QQC2.ComboBox {
+                        SearchCombo {
                             Kirigami.FormData.label: root.t("region.keyboard")
                             Layout.fillWidth: true
                             model: installer.keyboards
                             textRole: "name"
                             valueRole: "id"
-                            popup.popupType: QQC2.Popup.Item
-                            currentIndex: count > 0 ? indexOfValue(installer.keyboard) : -1
-                            onActivated: installer.setKeyboard(currentValue)
+                            value: installer.keyboard
+                            searchText: root.t("list.search")
+                            onPicked: value => installer.setKeyboard(value)
                         }
                         QQC2.TextField {
                             Kirigami.FormData.label: root.t("region.try_keyboard")
                             Layout.fillWidth: true
                             placeholderText: root.t("region.try_keyboard_hint")
                         }
-                        QQC2.ComboBox {
+                        SearchCombo {
                             Kirigami.FormData.label: root.t("region.timezone")
                             Layout.fillWidth: true
                             model: installer.timezones
                             textRole: "name"
                             valueRole: "id"
-                            popup.popupType: QQC2.Popup.Item
-                            currentIndex: count > 0 ? indexOfValue(installer.timezone) : -1
-                            onActivated: installer.setTimezone(currentValue)
+                            value: installer.timezone
+                            searchText: root.t("list.search")
+                            onPicked: value => installer.setTimezone(value)
                         }
                     }
                     QQC2.Label {

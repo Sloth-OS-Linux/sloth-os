@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows пен оның файлдары қалады. Бос орында жаңа EFI және Sloth OS жүйелік бөлімдері жасалады.",
   "confirm.summary.temporary": "Уақытша орнату орны ext4 болады, орнату кезінде қосылып, соңында жойылады.",
   "confirm.summary.extra_erase": "{disk}: тазартылып, бағдарламалар мен ойындарға дайындалады",
-  "confirm.summary.extra_keep": "{disk}: файлдарымен бірге қолжетімді болады"
+  "confirm.summary.extra_keep": "{disk}: файлдарымен бірге қолжетімді болады",
+  "boot.password_hint": "Диск құпиясөзін енгізіп, Enter пернесін басыңыз",
+  "list.search": "Іздеу…"
 }

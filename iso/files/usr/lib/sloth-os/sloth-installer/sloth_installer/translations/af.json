@@ -135,5 +135,7 @@
   "confirm.summary.heading": "Beplande skyfveranderinge",
   "confirm.summary.erase": "Hierdie skyf word uitgevee, saam met sy huidige partisies en lêers.",
   "confirm.summary.create_all": "'n Nuwe GPT-uitleg word geskep met 'n BIOS-selflaaipartisie, 'n EFI-partisie, 'n Sloth OS-stelselpartisie en tydelike installasieruimte.",
-  "confirm.summary.target": "Teikenskyf: {disk} ({size})"
+  "confirm.summary.target": "Teikenskyf: {disk} ({size})",
+  "boot.password_hint": "Tik jou skyfwagwoord en druk Enter",
+  "list.search": "Soek…"
 }

@@ -135,5 +135,7 @@
   "confirm.summary.encrypted": "EFI-partitsioon saab FAT32, Sloth OS-i süsteem krüpteeritakse LUKS2-ga ja saab Btrfs-i ning luuakse eraldi alglaadimispartitsioon.",
   "confirm.summary.temporary": "Ajutine paigaldusruum saab ext4, see ühendatakse paigalduse ajaks ja eemaldatakse lõpus.",
   "confirm.summary.extra_erase": "{disk}: kustutatakse ja valmistatakse ette programmide ja mängude jaoks",
-  "confirm.summary.extra_keep": "{disk}: on koos oma failidega kasutatav"
+  "confirm.summary.extra_keep": "{disk}: on koos oma failidega kasutatav",
+  "boot.password_hint": "Sisesta ketta parool ja vajuta Enter",
+  "list.search": "Otsi…"
 }

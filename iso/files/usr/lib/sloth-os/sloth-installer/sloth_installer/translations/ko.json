@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows와 파일은 그대로 남습니다. 빈 공간에 새 EFI 파티션과 Sloth OS 시스템 파티션을 만듭니다.",
   "confirm.summary.temporary": "임시 설치 공간은 ext4로 만들어 설치 중에만 마운트하고 끝나면 삭제합니다.",
   "confirm.summary.extra_erase": "{disk}: 지우고 프로그램과 게임용으로 준비합니다",
-  "confirm.summary.extra_keep": "{disk}: 파일을 유지한 채 사용할 수 있게 됩니다"
+  "confirm.summary.extra_keep": "{disk}: 파일을 유지한 채 사용할 수 있게 됩니다",
+  "boot.password_hint": "디스크 비밀번호를 입력한 다음 Enter 키를 누르세요",
+  "list.search": "검색…"
 }

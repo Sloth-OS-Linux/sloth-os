@@ -135,5 +135,7 @@
   "confirm.summary.heading": "تغييرات القرص المخطط لها",
   "confirm.summary.target": "القرص الهدف: {disk} ({size})",
   "confirm.summary.erase": "سيُمسح هذا القرص بما فيه من أقسام وملفات حالية.",
-  "confirm.summary.create_all": "سيُنشأ جدول أقسام GPT جديد يضم قسم إقلاع BIOS وقسم EFI وقسم نظام Sloth OS ومساحة تثبيت مؤقتة."
+  "confirm.summary.create_all": "سيُنشأ جدول أقسام GPT جديد يضم قسم إقلاع BIOS وقسم EFI وقسم نظام Sloth OS ومساحة تثبيت مؤقتة.",
+  "boot.password_hint": "اكتب كلمة مرور القرص ثم اضغط Enter",
+  "list.search": "ابحث…"
 }

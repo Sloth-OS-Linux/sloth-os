@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows dan berkasnya tetap ada. Partisi EFI dan sistem Sloth OS yang baru dibuat di ruang kosong.",
   "confirm.summary.temporary": "Ruang pemasangan sementara memakai ext4, dikaitkan selama pemasangan, dan dihapus di akhir.",
   "confirm.summary.extra_erase": "{disk}: akan dihapus dan disiapkan untuk program dan game",
-  "confirm.summary.extra_keep": "{disk}: akan tersedia beserta file-nya"
+  "confirm.summary.extra_keep": "{disk}: akan tersedia beserta file-nya",
+  "boot.password_hint": "Ketik kata sandi disk, lalu tekan Enter",
+  "list.search": "Cari…"
 }

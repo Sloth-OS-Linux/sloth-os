@@ -135,5 +135,7 @@
   "confirm.summary.erase": "此磁盘将被清空，包括其中现有的分区和文件。",
   "confirm.summary.create_all": "将创建新的 GPT 布局：BIOS 启动分区、EFI 分区、Sloth OS 系统分区和临时安装空间。",
   "confirm.summary.keep_windows": "保留 Windows 及其文件。在空闲空间中创建新的 EFI 分区和 Sloth OS 系统分区。",
-  "confirm.summary.formatted": "新的 EFI 分区使用 FAT32，系统分区使用 Btrfs。"
+  "confirm.summary.formatted": "新的 EFI 分区使用 FAT32，系统分区使用 Btrfs。",
+  "boot.password_hint": "请输入磁盘密码，然后按 Enter 键",
+  "list.search": "搜索…"
 }

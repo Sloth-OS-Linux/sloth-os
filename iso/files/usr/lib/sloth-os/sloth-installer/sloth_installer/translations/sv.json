@@ -135,5 +135,7 @@
   "confirm.summary.temporary": "Det tillfälliga installationsutrymmet får ext4, monteras under installationen och tas bort på slutet.",
   "confirm.summary.extra_erase": "{disk}: raderas och förbereds för program och spel",
   "confirm.summary.extra_keep": "{disk}: blir tillgänglig med sina filer",
-  "confirm.summary.free": "Det lediga utrymmet på den här disken används; storleken på befintliga partitioner ändras inte."
+  "confirm.summary.free": "Det lediga utrymmet på den här disken används; storleken på befintliga partitioner ändras inte.",
+  "boot.password_hint": "Skriv lösenordet till disken och tryck på Enter",
+  "list.search": "Sök…"
 }

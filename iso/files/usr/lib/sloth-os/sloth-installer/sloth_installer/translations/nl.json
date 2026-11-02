@@ -135,5 +135,7 @@
   "confirm.summary.temporary": "De tijdelijke installatieruimte krijgt ext4, wordt tijdens de installatie gekoppeld en aan het eind verwijderd.",
   "confirm.summary.extra_erase": "{disk}: wordt gewist en klaargemaakt voor programma's en games",
   "confirm.summary.extra_keep": "{disk}: wordt beschikbaar met zijn bestanden",
-  "confirm.summary.free": "De vrije ruimte op deze schijf wordt gebruikt; de grootte van bestaande partities verandert niet."
+  "confirm.summary.free": "De vrije ruimte op deze schijf wordt gebruikt; de grootte van bestaande partities verandert niet.",
+  "boot.password_hint": "Typ het wachtwoord van de schijf en druk op Enter",
+  "list.search": "Zoeken…"
 }

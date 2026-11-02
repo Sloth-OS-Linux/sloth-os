@@ -135,5 +135,7 @@
   "confirm.summary.temporary": "一時的なインストール領域は ext4 にし、インストール中だけマウントして、最後に削除します。",
   "confirm.summary.extra_erase": "{disk}: 消去して、プログラムとゲーム用に準備します",
   "confirm.summary.extra_keep": "{disk}: ファイルを残したまま使えるようにします",
-  "confirm.summary.target": "インストール先: {disk} ({size})"
+  "confirm.summary.target": "インストール先: {disk} ({size})",
+  "boot.password_hint": "ディスクのパスワードを入力して Enter を押してください",
+  "list.search": "検索…"
 }

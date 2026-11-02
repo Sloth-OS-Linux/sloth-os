@@ -135,5 +135,7 @@
   "confirm.summary.heading": "ডিস্কত কৰিবলগীয়া পৰিৱৰ্তন",
   "confirm.summary.target": "লক্ষ্য ডিস্ক: {disk} ({size})",
   "confirm.summary.erase": "এই ডিস্কখন ইয়াৰ বৰ্তমানৰ পাৰ্টিচন আৰু ফাইলসহ মচি পেলোৱা হ'ব।",
-  "confirm.summary.create_all": "এটা নতুন GPT গঠন হ'ব: এটা BIOS বুট পাৰ্টিচন, এটা EFI পাৰ্টিচন, এটা Sloth OS ছিষ্টেম পাৰ্টিচন আৰু অস্থায়ী ইনষ্টলেচনৰ ঠাই।"
+  "confirm.summary.create_all": "এটা নতুন GPT গঠন হ'ব: এটা BIOS বুট পাৰ্টিচন, এটা EFI পাৰ্টিচন, এটা Sloth OS ছিষ্টেম পাৰ্টিচন আৰু অস্থায়ী ইনষ্টলেচনৰ ঠাই।",
+  "boot.password_hint": "আপোনাৰ ডিস্কৰ পাছৱৰ্ড টাইপ কৰক, তাৰ পিছত Enter টিপক",
+  "list.search": "সন্ধান কৰক…"
 }

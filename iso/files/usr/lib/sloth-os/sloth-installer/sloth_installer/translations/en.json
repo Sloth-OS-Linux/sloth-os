@@ -135,5 +135,7 @@
   "error.beside_shrink_failed": "We couldn't make the Windows drive smaller. Start Windows, check the disk (This PC → C: → Properties → Tools → Check), then try again.",
   "error.encrypt_failed": "Setting up encryption didn't work. Try again; if it still fails, install without encryption.",
   "desktop.comment": "Install Sloth OS on this computer",
-  "desktop.keywords": "install;installer"
+  "desktop.keywords": "install;installer",
+  "boot.password_hint": "Type your disk password, then press Enter",
+  "list.search": "Search…"
 }

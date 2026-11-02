@@ -135,5 +135,7 @@
   "confirm.summary.heading": "Canvis previstos al disc",
   "confirm.summary.target": "Disc de destinació: {disk} ({size})",
   "confirm.summary.erase": "S’esborrarà aquest disc, amb les particions i els fitxers que té ara.",
-  "confirm.summary.create_all": "Es crearà una nova taula GPT amb una partició d’arrencada BIOS, una partició EFI, una partició de sistema de Sloth OS i espai temporal d’instal·lació."
+  "confirm.summary.create_all": "Es crearà una nova taula GPT amb una partició d’arrencada BIOS, una partició EFI, una partició de sistema de Sloth OS i espai temporal d’instal·lació.",
+  "boot.password_hint": "Escriviu la contrasenya del disc i premeu Retorn",
+  "list.search": "Cerca…"
 }

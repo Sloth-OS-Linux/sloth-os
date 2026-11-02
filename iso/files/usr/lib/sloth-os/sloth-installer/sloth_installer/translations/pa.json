@@ -135,5 +135,7 @@
   "confirm.summary.extra_erase": "{disk}: ਮਿਟਾ ਕੇ ਪ੍ਰੋਗਰਾਮਾਂ ਅਤੇ ਗੇਮਾਂ ਲਈ ਤਿਆਰ ਕੀਤੀ ਜਾਵੇਗੀ",
   "confirm.summary.extra_keep": "{disk}: ਆਪਣੀਆਂ ਫ਼ਾਈਲਾਂ ਸਮੇਤ ਉਪਲਬਧ ਹੋਵੇਗੀ",
   "confirm.summary.target": "ਟੀਚਾ ਡਿਸਕ: {disk} ({size})",
-  "confirm.summary.shrink": "Windows ਭਾਗ {size} GiB ਛੋਟਾ ਕੀਤਾ ਜਾਵੇਗਾ, ਅਤੇ ਖਾਲੀ ਹੋਈ ਥਾਂ Sloth OS ਨੂੰ ਮਿਲੇਗੀ।"
+  "confirm.summary.shrink": "Windows ਭਾਗ {size} GiB ਛੋਟਾ ਕੀਤਾ ਜਾਵੇਗਾ, ਅਤੇ ਖਾਲੀ ਹੋਈ ਥਾਂ Sloth OS ਨੂੰ ਮਿਲੇਗੀ।",
+  "boot.password_hint": "ਆਪਣੀ ਡਿਸਕ ਦਾ ਪਾਸਵਰਡ ਲਿਖੋ, ਫਿਰ Enter ਦੱਬੋ",
+  "list.search": "ਖੋਜੋ…"
 }

@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "„Windows“ ir jos failai lieka. Laisvoje vietoje bus sukurti nauji EFI ir „Sloth OS“ sistemos skaidiniai.",
   "confirm.summary.temporary": "Laikina diegimo vieta gaus ext4, bus prijungta diegimo metu ir pašalinta pabaigoje.",
   "confirm.summary.extra_erase": "{disk}: bus ištrintas ir paruoštas programoms ir žaidimams",
-  "confirm.summary.extra_keep": "{disk}: bus pasiekiamas su savo failais"
+  "confirm.summary.extra_keep": "{disk}: bus pasiekiamas su savo failais",
+  "boot.password_hint": "Įveskite disko slaptažodį ir paspauskite Enter",
+  "list.search": "Ieškoti…"
 }

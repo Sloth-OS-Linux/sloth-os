@@ -135,5 +135,7 @@
   "confirm.summary.encrypted": "EFI পার্টিশন FAT32 হবে, Sloth OS সিস্টেম LUKS2 দিয়ে এনক্রিপ্ট করা হবে Btrfs-সহ, আর একটি আলাদা বুট পার্টিশন তৈরি হবে।",
   "confirm.summary.temporary": "অস্থায়ী ইনস্টলেশনের জায়গা ext4 হবে, ইনস্টলেশনের সময় মাউন্ট করা হবে এবং শেষে সরিয়ে ফেলা হবে।",
   "confirm.summary.extra_erase": "{disk}: মুছে প্রোগ্রাম ও গেমের জন্য তৈরি করা হবে",
-  "confirm.summary.extra_keep": "{disk}: এর ফাইলসহ পাওয়া যাবে"
+  "confirm.summary.extra_keep": "{disk}: এর ফাইলসহ পাওয়া যাবে",
+  "boot.password_hint": "আপনার ডিস্কের পাসওয়ার্ড লিখুন, তারপর Enter চাপুন",
+  "list.search": "অনুসন্ধান…"
 }

@@ -135,5 +135,7 @@
   "confirm.summary.temporary": "暫時安裝空間使用 ext4，在安裝期間掛載，完成後刪除。",
   "confirm.summary.extra_erase": "{disk}：將被清空並準備用於程式和遊戲",
   "confirm.summary.extra_keep": "{disk}：將連同其中的檔案一起可用",
-  "confirm.summary.free": "使用此磁碟上的可用空間；現有分割區的大小不變。"
+  "confirm.summary.free": "使用此磁碟上的可用空間；現有分割區的大小不變。",
+  "boot.password_hint": "請輸入磁碟密碼，然後按 Enter 鍵",
+  "list.search": "搜尋…"
 }

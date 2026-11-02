@@ -135,5 +135,7 @@
   "confirm.summary.heading": "Plánované změny disku",
   "confirm.summary.target": "Cílový disk: {disk} ({size})",
   "confirm.summary.erase": "Tento disk bude vymazán včetně současných oddílů a souborů.",
-  "confirm.summary.create_all": "Vytvoří se nové rozložení GPT se spouštěcím oddílem BIOS, oddílem EFI, systémovým oddílem Sloth OS a dočasným místem pro instalaci."
+  "confirm.summary.create_all": "Vytvoří se nové rozložení GPT se spouštěcím oddílem BIOS, oddílem EFI, systémovým oddílem Sloth OS a dočasným místem pro instalaci.",
+  "boot.password_hint": "Zadejte heslo k disku a stiskněte Enter",
+  "list.search": "Hledat…"
 }

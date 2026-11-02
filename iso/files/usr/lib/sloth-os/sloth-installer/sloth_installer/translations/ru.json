@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows и его файлы останутся. В свободном месте будут созданы новые разделы EFI и системы Sloth OS.",
   "confirm.summary.temporary": "Временное место для установки получит ext4, будет подключено на время установки и удалено в конце.",
   "confirm.summary.extra_erase": "{disk}: будет стёрт и подготовлен для программ и игр",
-  "confirm.summary.extra_keep": "{disk}: будет доступен вместе с файлами"
+  "confirm.summary.extra_keep": "{disk}: будет доступен вместе с файлами",
+  "boot.password_hint": "Введите пароль диска и нажмите Enter",
+  "list.search": "Поиск…"
 }

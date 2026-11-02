@@ -135,5 +135,7 @@
   "confirm.summary.free": "ຈະໃຊ້ພື້ນທີ່ວ່າງໃນດິສນີ້; ຂະໜາດຂອງພາທິຊັນທີ່ມີຢູ່ຈະບໍ່ປ່ຽນ.",
   "confirm.summary.keep_windows": "Windows ແລະ ໄຟລ໌ຂອງມັນຍັງຢູ່. ຈະສ້າງພາທິຊັນ EFI ແລະ ລະບົບ Sloth OS ໃໝ່ໃນພື້ນທີ່ວ່າງ.",
   "confirm.summary.create_all": "ຈະສ້າງໂຄງສ້າງ GPT ໃໝ່: ພາທິຊັນບູດ BIOS, ພາທິຊັນ EFI, ພາທິຊັນລະບົບ Sloth OS ແລະ ພື້ນທີ່ຕິດຕັ້ງຊົ່ວຄາວ.",
-  "confirm.summary.shrink": "ພາທິຊັນ Windows ຈະຖືກຫຍໍ້ລົງ {size} GiB ແລະ ພື້ນທີ່ທີ່ວ່າງອອກຈະໃຫ້ Sloth OS."
+  "confirm.summary.shrink": "ພາທິຊັນ Windows ຈະຖືກຫຍໍ້ລົງ {size} GiB ແລະ ພື້ນທີ່ທີ່ວ່າງອອກຈະໃຫ້ Sloth OS.",
+  "boot.password_hint": "ພິມລະຫັດຜ່ານຂອງດິສກ໌ ແລ້ວກົດ Enter",
+  "list.search": "ຊອກຫາ…"
 }

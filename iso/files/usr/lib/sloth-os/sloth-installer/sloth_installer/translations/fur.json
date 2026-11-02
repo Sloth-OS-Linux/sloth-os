@@ -135,5 +135,7 @@
   "confirm.summary.extra_keep": "{disk}: al sarà disponibil cui siei files",
   "confirm.summary.free": "Al vignarà doprât il spazi libar di chest disc; la dimension des partizions che a esistin no cambie.",
   "confirm.summary.keep_windows": "Windows e i siei files a restin. Lis gnovis partizions EFI e di sisteme di Sloth OS a vignaran creadis tal spazi libar.",
-  "confirm.summary.shrink": "La partizion di Windows e vignarà ridote di {size} GiB, e il spazi liberât al larà a Sloth OS."
+  "confirm.summary.shrink": "La partizion di Windows e vignarà ridote di {size} GiB, e il spazi liberât al larà a Sloth OS.",
+  "boot.password_hint": "Scrîf la password dal disc e frache Invie",
+  "list.search": "Cîr…"
 }

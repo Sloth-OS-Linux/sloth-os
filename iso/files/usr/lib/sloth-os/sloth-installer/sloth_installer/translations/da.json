@@ -135,5 +135,7 @@
   "confirm.summary.heading": "Planlagte ændringer af disken",
   "confirm.summary.target": "Måldisk: {disk} ({size})",
   "confirm.summary.erase": "Denne disk bliver slettet sammen med dens nuværende partitioner og filer.",
-  "confirm.summary.create_all": "Der oprettes en ny GPT-opdeling med en BIOS-opstartspartition, en EFI-partition, en Sloth OS-systempartition og midlertidig installationsplads."
+  "confirm.summary.create_all": "Der oprettes en ny GPT-opdeling med en BIOS-opstartspartition, en EFI-partition, en Sloth OS-systempartition og midlertidig installationsplads.",
+  "boot.password_hint": "Skriv adgangskoden til disken, og tryk på Enter",
+  "list.search": "Søg…"
 }

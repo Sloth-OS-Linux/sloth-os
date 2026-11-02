@@ -1132,6 +1132,7 @@ def main():
     inst = sub.add_parser("install")
     inst.add_argument("--disk", required=True)
     inst.add_argument("--locale", required=True)
+    inst.add_argument("--language", default="", help="the installer's language code (hu, pt_BR…)")
     inst.add_argument("--keyboard", required=True)
     inst.add_argument("--timezone", required=True)
     inst.add_argument("--username", required=True)
@@ -1220,6 +1221,9 @@ def main():
     if parts.get("luks_uuid"):
         # at boot this is what has to be opened, and the password is asked with the chosen keyboard layout
         kargs = [f"rd.luks.uuid=luks-{parts['luks_uuid']}", f"rd.vconsole.keymap={console_keymap(keyboard[0])}"]
+        # the boot screen's hint below the password field, in the installer's language (sloth-plymouth-lang)
+        if re.fullmatch(r"[a-z]{2,3}(_[A-Z]{2})?", args.language):
+            kargs.append(f"sloth.lang={args.language}")
     emit(stage="prepare", progress=20)
     hidden = hide_other_esps(args.disk, parts["numbers"]["esp"])
     try:

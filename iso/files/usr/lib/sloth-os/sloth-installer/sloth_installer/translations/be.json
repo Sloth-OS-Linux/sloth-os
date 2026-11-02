@@ -135,5 +135,7 @@
   "confirm.summary.temporary": "Часовае месца для ўсталёўкі атрымае ext4, будзе падключана на час усталёўкі і выдалена ў канцы.",
   "confirm.summary.extra_erase": "{disk}: будзе сцёрты і падрыхтаваны для праграм і гульняў",
   "confirm.summary.extra_keep": "{disk}: будзе даступны разам з файламі",
-  "confirm.summary.encrypted": "Раздзел EFI атрымае FAT32, сістэма Sloth OS будзе зашыфравана LUKS2 з Btrfs, і будзе створаны асобны раздзел загрузкі."
+  "confirm.summary.encrypted": "Раздзел EFI атрымае FAT32, сістэма Sloth OS будзе зашыфравана LUKS2 з Btrfs, і будзе створаны асобны раздзел загрузкі.",
+  "boot.password_hint": "Увядзіце пароль дыска і націсніце Enter",
+  "list.search": "Пошук…"
 }

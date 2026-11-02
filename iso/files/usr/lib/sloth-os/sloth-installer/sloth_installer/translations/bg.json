@@ -135,5 +135,7 @@
   "confirm.summary.heading": "Планирани промени по диска",
   "confirm.summary.target": "Целеви диск: {disk} ({size})",
   "confirm.summary.erase": "Този диск ще бъде изтрит заедно с текущите му дялове и файлове.",
-  "confirm.summary.create_all": "Ще бъде създадена нова GPT подредба с дял за зареждане BIOS, EFI дял, системен дял за Sloth OS и временно място за инсталиране."
+  "confirm.summary.create_all": "Ще бъде създадена нова GPT подредба с дял за зареждане BIOS, EFI дял, системен дял за Sloth OS и временно място за инсталиране.",
+  "boot.password_hint": "Въведете паролата на диска и натиснете Enter",
+  "list.search": "Търсене…"
 }

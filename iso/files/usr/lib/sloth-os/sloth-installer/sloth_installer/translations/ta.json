@@ -135,5 +135,7 @@
   "confirm.summary.keep_windows": "Windows மற்றும் அதன் கோப்புகள் அப்படியே இருக்கும். காலி இடத்தில் புதிய EFI மற்றும் Sloth OS கணினிப் பகிர்வுகள் உருவாக்கப்படும்.",
   "confirm.summary.temporary": "தற்காலிக நிறுவல் இடம் ext4 ஆக இருக்கும்; நிறுவலின்போது ஏற்றப்பட்டு, முடிவில் நீக்கப்படும்.",
   "confirm.summary.extra_erase": "{disk}: அழிக்கப்பட்டு நிரல்கள், விளையாட்டுகளுக்குத் தயாராக்கப்படும்",
-  "confirm.summary.extra_keep": "{disk}: அதன் கோப்புகளுடன் கிடைக்கும்"
+  "confirm.summary.extra_keep": "{disk}: அதன் கோப்புகளுடன் கிடைக்கும்",
+  "boot.password_hint": "வட்டின் கடவுச்சொல்லை உள்ளிட்டு Enter ஐ அழுத்தவும்",
+  "list.search": "தேடு…"
 }
