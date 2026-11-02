@@ -53,6 +53,15 @@ if grep -qi microsoft /proc/version; then
 fi
 pm() { podman --root "$WORK/storage" --runroot "$WORK/run" "${pm_opts[@]}" "$@"; }
 
+# Every build pulls a new image and builds a new live system; the old ones stayed untagged in the storage (84 GB
+# after a month, 2026-11-02), and an interrupted build left its temporary folder in /var/tmp. Both go away now, at the
+# start (after an interrupted build too) and at the end; the current image stays, so unchanged layers are not
+# downloaded again.
+export TMPDIR="$WORK/tmp"
+rm -rf "$TMPDIR"
+mkdir -p "$TMPDIR"
+pm image prune -f >/dev/null || true
+
 echo "== Downloading the base image: $IMAGE"
 pm pull --authfile "$AUTH" "$IMAGE"
 
@@ -102,4 +111,6 @@ iso="$(ls -t "$OUT_DIR"/*.iso | head -n1)"
 [[ "$iso" == "$OUT_DIR/sloth-os.iso" ]] || mv -f "$iso" "$OUT_DIR/sloth-os.iso"
 (cd "$OUT_DIR" && sha256sum sloth-os.iso > sloth-os.iso.sha256)
 [[ -n "${SLOTH_OWNER:-}" ]] && chown -R "$SLOTH_OWNER" "$OUT_DIR"
+pm image prune -f >/dev/null || true
+rm -rf "$TMPDIR"
 echo "== Done: $OUT_DIR/sloth-os.iso ($(du -h "$OUT_DIR/sloth-os.iso" | cut -f1))"

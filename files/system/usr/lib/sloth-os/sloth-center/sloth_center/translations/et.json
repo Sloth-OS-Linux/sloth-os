@@ -927,5 +927,7 @@
   "Allow": "Luba",
   "Don't share": "Ära jaga",
   "Share a folder on the network?": "Kas jagada kausta võrgus?",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Programm (näiteks Dolphin) soovib jagada kausta {path}. Jagatud kaustad vajavad sinu luba: seda ei jagata enne, kui sa lubad."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Programm (näiteks Dolphin) soovib jagada kausta {path}. Jagatud kaustad vajavad sinu luba: seda ei jagata enne, kui sa lubad.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Kuni mõnda kausta jagatakse ilma paroolita, ei küsita teistelt arvutitelt sinu teiste jagatud kaustade parooli. Nad pääsevad sisse ainult siis, kui logivad ise sisse sinu kasutajanimega ({user}); Windowsis: Ühenda võrguketas → Ühenda teiste mandaatidega.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Uuemad Windows 11 arvutid ei ava ilma paroolita jagatud kaustu. Parooliga töötab see kõikjal."
 }

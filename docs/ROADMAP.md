@@ -32,6 +32,11 @@ from a terminal must also work from a GUI.
   sysusers.d/sloth-os-guest.conf; no other program runs as it), which may pass through the folders above the shared
   folder (x only, it cannot list them) and read (or write) the shared folder, with ACLs that go away when the
   share stops. Samba keeps it inside the share (links out of it do not open). Tried with smbclient.
+  Windows never asked for the password (2026-11-02, two computers could not get in, only the one with saved
+  credentials): with `map to guest = Bad User` Windows' own unknown user name came in as the guest and the password
+  share refused it (ACCESS_DENIED, no prompt). Now Bad User only while a folder is shared without a password
+  (`/etc/samba/sloth-guest.conf`, written by `file-sharing`), otherwise Never: LOGON_FAILURE, and Windows asks.
+  Sloth Center warns when both kinds are shared, and that newer Windows 11 refuses guest shares. Tried with smbclient.
   Still open: a share made in Dolphin is reachable for a moment (until the path unit runs, under a second) if the
   firewall is already open for another share
 

@@ -68,8 +68,8 @@ shared folders open; on a private network (a workplace) they open, but the compu
 public network (a café, a hotel) it stays hidden. A new network is asked about once, without a password, and over a
 cable each router counts as its own network. Sharing on a public network is possible after a clear warning. Every
 share needs the administrator password, also one made in Dolphin, even if you turned the other password prompts
-off. A switch in Sloth Center → Disks turns sharing off altogether. Stopping a share in Dolphin now closes it
-everywhere, and a folder shared without a password opens from your home folder too, while the guest sees only that
+off. Other computers are asked for the password (before, Windows only said that access was denied). A switch in
+Sloth Center → Disks turns sharing off altogether. Stopping a share in Dolphin now closes it everywhere, and a folder shared without a password opens from your home folder too, while the guest sees only that
 folder.
 
 **Typing and looks:** Chinese, Japanese and Korean typing works (fcitx5). Your own highlight color (8 suggestions or

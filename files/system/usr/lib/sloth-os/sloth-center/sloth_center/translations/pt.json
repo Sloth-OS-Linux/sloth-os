@@ -927,5 +927,7 @@
   "Allow": "Permitir",
   "Don't share": "Não partilhar",
   "Share a folder on the network?": "Partilhar uma pasta na rede?",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Um programa (como o Dolphin) quer partilhar {path}. As pastas partilhadas precisam da sua autorização: não é partilhada até a permitir."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Um programa (como o Dolphin) quer partilhar {path}. As pastas partilhadas precisam da sua autorização: não é partilhada até a permitir.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Enquanto uma pasta estiver partilhada sem palavra-passe, os outros computadores não são questionados sobre a palavra-passe das suas outras pastas partilhadas. Só entram se iniciarem sessão eles próprios com o seu nome de utilizador ({user}); no Windows: Mapear unidade de rede → Ligar com credenciais diferentes.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Os computadores com Windows 11 mais recentes não abrem pastas partilhadas sem palavra-passe. Com palavra-passe, funciona em todo o lado."
 }

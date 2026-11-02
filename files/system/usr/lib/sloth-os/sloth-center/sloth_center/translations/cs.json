@@ -927,5 +927,7 @@
   "Allow": "Povolit",
   "Don't share": "Nesdílet",
   "Share a folder on the network?": "Sdílet složku v síti?",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Program (například Dolphin) chce sdílet {path}. Sdílené složky potřebují vaše svolení: dokud ho nepovolíte, sdílena nebude."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Program (například Dolphin) chce sdílet {path}. Sdílené složky potřebují vaše svolení: dokud ho nepovolíte, sdílena nebude.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Dokud je některá složka sdílená bez hesla, ostatní počítače nejsou dotázány na heslo k vašim dalším sdíleným složkám. Dostanou se do nich, jen pokud se samy přihlásí vaším uživatelským jménem ({user}); ve Windows: Připojit síťovou jednotku → Připojit pomocí jiných přihlašovacích údajů.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Novější počítače s Windows 11 neotevřou složky sdílené bez hesla. S heslem to funguje všude."
 }

@@ -927,5 +927,7 @@
   "Allow": "ອະນຸຍາດ",
   "Don't share": "ບໍ່ແບ່ງປັນ",
   "Share a folder on the network?": "ແບ່ງປັນໂຟນເດີໃນເຄືອຂ່າຍບໍ?",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "ໂປຣແກຣມໜຶ່ງ (ເຊັ່ນ Dolphin) ຕ້ອງການແບ່ງປັນ {path}. ໂຟນເດີທີ່ແບ່ງປັນຕ້ອງການການອະນຸຍາດຂອງທ່ານ: ມັນຈະບໍ່ຖືກແບ່ງປັນຈົນກວ່າທ່ານຈະອະນຸຍາດ."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "ໂປຣແກຣມໜຶ່ງ (ເຊັ່ນ Dolphin) ຕ້ອງການແບ່ງປັນ {path}. ໂຟນເດີທີ່ແບ່ງປັນຕ້ອງການການອະນຸຍາດຂອງທ່ານ: ມັນຈະບໍ່ຖືກແບ່ງປັນຈົນກວ່າທ່ານຈະອະນຸຍາດ.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "ຕາບໃດທີ່ມີໂຟນເດີແບ່ງປັນໂດຍບໍ່ມີລະຫັດຜ່ານ, ຄອມພິວເຕີອື່ນຈະບໍ່ຖືກຖາມລະຫັດຜ່ານຂອງໂຟນເດີແບ່ງປັນອື່ນຂອງທ່ານ. ພວກເຂົາຈະເຂົ້າໄດ້ກໍຕໍ່ເມື່ອເຂົ້າສູ່ລະບົບເອງດ້ວຍຊື່ຜູ້ໃຊ້ຂອງທ່ານ ({user}); ໃນ Windows: Map network drive → Connect using different credentials.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "ຄອມພິວເຕີ Windows 11 ລຸ້ນໃໝ່ບໍ່ເປີດໂຟນເດີທີ່ແບ່ງປັນໂດຍບໍ່ມີລະຫັດຜ່ານ. ມີລະຫັດຜ່ານກໍໃຊ້ໄດ້ທຸກບ່ອນ."
 }

@@ -927,5 +927,7 @@
   "Allow": "اسمح",
   "Don't share": "لا تشارك",
   "Share a folder on the network?": "مشاركة مجلد على الشبكة؟",
-  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "يريد برنامج (مثل Dolphin) مشاركة {path}. المجلدات المشتركة تحتاج إلى إذنك: لن تتم مشاركته حتى تسمح بذلك."
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "يريد برنامج (مثل Dolphin) مشاركة {path}. المجلدات المشتركة تحتاج إلى إذنك: لن تتم مشاركته حتى تسمح بذلك.",
+  "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "ما دام هناك مجلد مشترك بدون كلمة مرور، فلن تُطلب من الحواسيب الأخرى كلمة مرور مجلداتك المشتركة الأخرى. ولن تدخل إليها إلا إذا سجّلت الدخول باسم المستخدم الخاص بك ({user}) بنفسها؛ في Windows: تعيين محرك أقراص شبكة ← الاتصال باستخدام بيانات اعتماد مختلفة.",
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "حواسيب Windows 11 الأحدث لا تفتح المجلدات المشتركة بدون كلمة مرور. مع كلمة مرور يعمل ذلك في كل مكان."
 }
