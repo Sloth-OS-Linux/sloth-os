@@ -387,6 +387,45 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- When the screen locks by itself (the user's own setting, no password) ----------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Screen lock") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.")
+                }
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; text: L.t("Lock the screen after") }
+                    QQC2.ComboBox {
+                        id: lockMinutes
+                        readonly property var labels: [L.t("Never"), L.t("5 minutes"), L.t("15 minutes"), L.t("30 minutes")]
+                        model: labels
+                        currentIndex: Math.max(0, accounts.lockChoices.indexOf(accounts.lockMinutes))
+                        onActivated: (index) => {
+                            accounts.setLockMinutes(accounts.lockChoices[index])
+                            currentIndex = Qt.binding(() => Math.max(0, accounts.lockChoices.indexOf(accounts.lockMinutes)))
+                        }
+                    }
+                }
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; text: L.t("Also lock after sleep") }
+                    QQC2.Switch {
+                        checked: accounts.lockOnResume
+                        onToggled: accounts.setLockOnResume(checked)
+                    }
+                }
+            }
+        }
+
         // --- Login and terminal ------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

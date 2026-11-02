@@ -929,5 +929,14 @@
   "Share a folder on the network?": "გავაზიაროთ საქაღალდე ქსელში?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "პროგრამას (მაგ. Dolphin) სურს გააზიაროს {path}. გაზიარებულ საქაღალდეებს თქვენი ნებართვა სჭირდება: არ გაზიარდება, სანამ არ დაუშვებთ.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "სანამ რომელიმე საქაღალდე პაროლის გარეშეა გაზიარებული, სხვა კომპიუტერებს თქვენი სხვა გაზიარებული საქაღალდეების პაროლს არ ეკითხებიან. ისინი მხოლოდ მაშინ შევლენ, თუ თავად შევლენ თქვენი მომხმარებლის სახელით ({user}); Windows-ში: ქსელური დისკის მიერთება → დაკავშირება სხვა ავტორიზაციის მონაცემებით.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "ახალი Windows 11 კომპიუტერები არ ხსნიან პაროლის გარეშე გაზიარებულ საქაღალდეებს. პაროლით ყველგან მუშაობს."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "ახალი Windows 11 კომპიუტერები არ ხსნიან პაროლის გარეშე გაზიარებულ საქაღალდეებს. პაროლით ყველგან მუშაობს.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "ახალი ვერსია ამ კომპიუტერისთვის ჯერ მზად არ არის. მოგვიანებით ისევ შემოგთავაზებთ.",
+  "Screen lock": "ეკრანის დაბლოკვა",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "დაბლოკვა გამოსვლა არ არის: თქვენი პროგრამები აგრძელებენ მუშაობას, ხოლო თქვენი პაროლი (ან PIN) ეკრანს ისევ გახსნის.",
+  "Lock the screen after": "ეკრანის დაბლოკვა",
+  "Never": "არასოდეს",
+  "5 minutes": "5 წუთის შემდეგ",
+  "15 minutes": "15 წუთის შემდეგ",
+  "30 minutes": "30 წუთის შემდეგ",
+  "Also lock after sleep": "დაბლოკვა ძილის შემდეგაც"
 }

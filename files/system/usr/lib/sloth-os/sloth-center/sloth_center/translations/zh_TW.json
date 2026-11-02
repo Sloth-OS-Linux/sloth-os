@@ -929,5 +929,14 @@
   "Share a folder on the network?": "要在網路上分享資料夾嗎？",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "某個程式（例如 Dolphin）想要分享 {path}。分享的資料夾需要你的許可：在你允許之前不會分享。",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "只要有資料夾以無密碼方式分享，其他電腦存取你其他分享資料夾時就不會被要求輸入密碼。只有它們自己用你的使用者名稱（{user}）登入時才能進入；在 Windows 中：連線網路磁碟機 → 使用其他認證連線。",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "較新的 Windows 11 電腦不會開啟無密碼分享的資料夾。設定密碼後，在任何地方都能使用。"
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "較新的 Windows 11 電腦不會開啟無密碼分享的資料夾。設定密碼後，在任何地方都能使用。",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "新版本尚未為這台電腦準備好。稍後會再次提供。",
+  "Screen lock": "螢幕鎖定",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "鎖定不是登出：你的程式會繼續執行，輸入密碼（或 PIN）即可再次開啟螢幕。",
+  "Lock the screen after": "鎖定螢幕的時間",
+  "Never": "永不",
+  "5 minutes": "5 分鐘",
+  "15 minutes": "15 分鐘",
+  "30 minutes": "30 分鐘",
+  "Also lock after sleep": "睡眠後也鎖定"
 }

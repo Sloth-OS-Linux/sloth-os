@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Condividi une cartele te rêt?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Un program (come Dolphin) al vûl condividi {path}. Lis cartelis condividudis a àn bisugne dal to permès: no ven condividude fin che no tu le permetis.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Fin che une cartele e je condividude cence password, ai altris computers no ur ven domandade la password des tôs altris cartelis condividudis. A jentrin dome se a jentrin lôr stes cul to non utent ({user}); in Windows: Conet unitât di rêt → Conet doprant credenziâls diferentis.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "I computers plui gnûfs cun Windows 11 no vierzin lis cartelis condividudis cence password. Cuntune password al funzione dapardut."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "I computers plui gnûfs cun Windows 11 no vierzin lis cartelis condividudis cence password. Cuntune password al funzione dapardut.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "La gnove version no je ancjemò pronte par chest computer. E vignarà ufierte di gnûf plui indevant.",
+  "Screen lock": "Bloc dal schermi",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Blocâ nol vûl dî lâ fûr: i tiei programs a continuin a lâ, e la tô password (o PIN) e torne a vierzi il schermi.",
+  "Lock the screen after": "Bloche il schermi dopo",
+  "Never": "Mai",
+  "5 minutes": "5 minûts",
+  "15 minutes": "15 minûts",
+  "30 minutes": "30 minûts",
+  "Also lock after sleep": "Bloche ancje dopo de sospension"
 }

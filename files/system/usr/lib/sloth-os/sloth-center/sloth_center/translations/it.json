@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Condividere una cartella in rete?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Un programma (come Dolphin) vuole condividere {path}. Le cartelle condivise hanno bisogno del tuo permesso: non viene condivisa finché non lo consenti.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Finché una cartella è condivisa senza password, agli altri computer non viene chiesta la password delle altre cartelle condivise. Entrano solo se accedono loro stessi con il tuo nome utente ({user}); in Windows: Connetti unità di rete → Connetti con credenziali diverse.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "I computer con Windows 11 più recenti non aprono le cartelle condivise senza password. Con una password funziona ovunque."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "I computer con Windows 11 più recenti non aprono le cartelle condivise senza password. Con una password funziona ovunque.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "La nuova versione non è ancora pronta per questo computer. Ti verrà proposta di nuovo più avanti.",
+  "Screen lock": "Blocco dello schermo",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Bloccare non è disconnettersi: i tuoi programmi continuano a funzionare e la password (o il PIN) riapre lo schermo.",
+  "Lock the screen after": "Blocca lo schermo dopo",
+  "Never": "Mai",
+  "5 minutes": "5 minuti",
+  "15 minutes": "15 minuti",
+  "30 minutes": "30 minuti",
+  "Also lock after sleep": "Blocca anche dopo la sospensione"
 }

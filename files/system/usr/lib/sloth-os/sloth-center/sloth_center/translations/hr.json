@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Podijeliti mapu na mreži?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Program (npr. Dolphin) želi podijeliti {path}. Za dijeljene mape potrebno je vaše dopuštenje: neće biti podijeljena dok to ne dopustite.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Dok je neka mapa dijeljena bez lozinke, druga računala ne bivaju upitana za lozinku vaših ostalih dijeljenih mapa. Ulaze samo ako se sama prijave vašim korisničkim imenom ({user}); u Windowsima: Mapiraj mrežni pogon → Poveži se pomoću drugih vjerodajnica.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Noviji računali sa sustavom Windows 11 ne otvaraju mape dijeljene bez lozinke. S lozinkom radi svugdje."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Noviji računali sa sustavom Windows 11 ne otvaraju mape dijeljene bez lozinke. S lozinkom radi svugdje.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Nova verzija još nije spremna za ovo računalo. Bit će ponovno ponuđena kasnije.",
+  "Screen lock": "Zaključavanje zaslona",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Zaključavanje nije odjava: vaši programi i dalje rade, a vaša lozinka (ili PIN) ponovno otvara zaslon.",
+  "Lock the screen after": "Zaključaj zaslon nakon",
+  "Never": "Nikad",
+  "5 minutes": "5 minuta",
+  "15 minutes": "15 minuta",
+  "30 minutes": "30 minuta",
+  "Also lock after sleep": "Zaključaj i nakon spavanja"
 }

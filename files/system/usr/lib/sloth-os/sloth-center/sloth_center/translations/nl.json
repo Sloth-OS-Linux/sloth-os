@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Een map delen op het netwerk?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Een programma (zoals Dolphin) wil {path} delen. Gedeelde mappen hebben je toestemming nodig: de map wordt pas gedeeld als je het toestaat.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Zolang een map zonder wachtwoord gedeeld is, wordt andere computers niet om het wachtwoord van je andere gedeelde mappen gevraagd. Ze komen er alleen in als ze zelf aanmelden met je gebruikersnaam ({user}); in Windows: Netwerkverbinding maken → Verbinding maken met andere referenties.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Nieuwere Windows 11-computers openen geen mappen die zonder wachtwoord gedeeld zijn. Met een wachtwoord werkt het overal."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Nieuwere Windows 11-computers openen geen mappen die zonder wachtwoord gedeeld zijn. Met een wachtwoord werkt het overal.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "De nieuwe versie is nog niet klaar voor deze computer. Hij wordt later opnieuw aangeboden.",
+  "Screen lock": "Schermvergrendeling",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Vergrendelen is geen afmelden: je programma's blijven draaien en je wachtwoord (of pincode) ontgrendelt het scherm weer.",
+  "Lock the screen after": "Scherm vergrendelen na",
+  "Never": "Nooit",
+  "5 minutes": "5 minuten",
+  "15 minutes": "15 minuten",
+  "30 minutes": "30 minuten",
+  "Also lock after sleep": "Ook vergrendelen na slaapstand"
 }

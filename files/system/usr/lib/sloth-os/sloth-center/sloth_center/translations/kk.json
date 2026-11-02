@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Қалтаны желіде ортақ ету керек пе?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Бағдарлама (мысалы, Dolphin) {path} қалтасын ортақ еткісі келеді. Ортақ қалталарға сіздің рұқсатыңыз керек: рұқсат етпейінше ортақ болмайды.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Қалта құпиясөзсіз ортақ болып тұрғанда, басқа компьютерлерден басқа ортақ қалталарыңыздың құпиясөзі сұралмайды. Олар өздері сіздің пайдаланушы атыңызбен ({user}) кірген жағдайда ғана кіреді; Windows-та: Желілік дискіні қосу → Басқа тіркелгі деректерімен қосылу.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Жаңа Windows 11 компьютерлері құпиясөзсіз ортақ қалталарды ашпайды. Құпиясөзбен барлық жерде жұмыс істейді."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Жаңа Windows 11 компьютерлері құпиясөзсіз ортақ қалталарды ашпайды. Құпиясөзбен барлық жерде жұмыс істейді.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Жаңа нұсқа бұл компьютерге әлі дайын емес. Ол кейінірек қайта ұсынылады.",
+  "Screen lock": "Экран құлпы",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Құлыптау — шығу емес: бағдарламаларыңыз жұмысын жалғастырады, ал құпиясөзіңіз (немесе PIN) экранды қайта ашады.",
+  "Lock the screen after": "Экранды құлыптау уақыты",
+  "Never": "Ешқашан",
+  "5 minutes": "5 минут",
+  "15 minutes": "15 минут",
+  "30 minutes": "30 минут",
+  "Also lock after sleep": "Ұйқы режимінен кейін де құлыптау"
 }

@@ -1,3 +1,11 @@
 # Sloth OS: the lock screen's background is the same as the desktop's
 [Greeter][Wallpaper][org.kde.image][General]
 Image=file:///usr/share/wallpapers/SlothOS-metallic-sloth-over-silver-waves/
+
+# KDE locks the screen after 5 minutes by itself, also when every power setting is off; coming from Windows that looks
+# like being signed out (2026-10-28, the HP). 15 minutes by default; Sloth Center → Account and security changes it
+# per user (Never / 5 / 15 / 30 minutes, and whether to lock after sleep)
+[Daemon]
+Autolock=true
+Timeout=15
+LockOnResume=true

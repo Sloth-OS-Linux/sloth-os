@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Compartir un dossier in le rete?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Un programma (como Dolphin) vole compartir {path}. Le dossieres compartite require tu permission: illo non es compartite usque tu lo permitte.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Durante que un dossier es compartite sin contrasigno, al altere computatores non es demandate le contrasigno de tu altere dossieres compartite. Illos entra solmente si illos mesme se connecte con tu nomine de usator ({user}); in Windows: Mappar unitate de rete → Connecter usante altere credentiales.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Le plus nove computatores con Windows 11 non aperi dossieres compartite sin contrasigno. Con un contrasigno illo functiona ubique."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Le plus nove computatores con Windows 11 non aperi dossieres compartite sin contrasigno. Con un contrasigno illo functiona ubique.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Le nove version non es ancora preste pro iste computator. Illo essera offerite de novo plus tarde.",
+  "Screen lock": "Blocada del schermo",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Blocar non es disconnecter: tu programmas continua a functionar, e tu contrasigno (o PIN) aperi le schermo de novo.",
+  "Lock the screen after": "Blocar le schermo post",
+  "Never": "Nunquam",
+  "5 minutes": "5 minutas",
+  "15 minutes": "15 minutas",
+  "30 minutes": "30 minutas",
+  "Also lock after sleep": "Blocar etiam post le dormir"
 }

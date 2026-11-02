@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Dela en mapp på nätverket?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Ett program (till exempel Dolphin) vill dela {path}. Delade mappar behöver ditt tillstånd: den delas inte förrän du tillåter det.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Så länge en mapp delas utan lösenord blir andra datorer inte tillfrågade om lösenordet till dina andra delade mappar. De kommer bara in om de själva loggar in med ditt användarnamn ({user}); i Windows: Anslut nätverksenhet → Anslut med andra autentiseringsuppgifter.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Nyare Windows 11-datorer öppnar inte mappar som delas utan lösenord. Med lösenord fungerar det överallt."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Nyare Windows 11-datorer öppnar inte mappar som delas utan lösenord. Med lösenord fungerar det överallt.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Den nya versionen är inte klar för den här datorn än. Den erbjuds igen senare.",
+  "Screen lock": "Skärmlås",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Att låsa är inte att logga ut: dina program fortsätter att köras, och ditt lösenord (eller PIN-kod) öppnar skärmen igen.",
+  "Lock the screen after": "Lås skärmen efter",
+  "Never": "Aldrig",
+  "5 minutes": "5 minuter",
+  "15 minutes": "15 minuter",
+  "30 minutes": "30 minuter",
+  "Also lock after sleep": "Lås även efter strömsparläge"
 }

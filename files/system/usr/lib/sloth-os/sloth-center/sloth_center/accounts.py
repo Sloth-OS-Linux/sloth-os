@@ -1,5 +1,6 @@
 """Account and security: what the system asks a password for, automatic login, sudo,
-sign-in methods (fingerprint, security key, work account) based on the machine's hardware.
+sign-in methods (fingerprint, security key, work account) based on the machine's hardware,
+and when the screen locks by itself (the user's own kscreenlockerrc, no password).
 
 The setting is per topic (installing programs, updating, …). Saving is done by
 sloth-helper (admin-policy): it writes a polkit rule, sudoers and login settings,
@@ -97,6 +98,42 @@ def _domain():
         return ""
 
 
+# the choices for locking the screen by itself, in minutes (0: never)
+LOCK_MINUTES = (0, 5, 15, 30)
+
+
+def _lock_setting(key, default):
+    """A [Daemon] key of kscreenlockerrc: the user's own, else /etc/xdg's default (15 minutes, Sloth OS)."""
+    try:
+        r = subprocess.run(["kreadconfig6", "--file", "kscreenlockerrc", "--group", "Daemon", "--key", key,
+                            "--default", default], capture_output=True, text=True, timeout=10)
+        return r.stdout.strip() or default
+    except (OSError, subprocess.SubprocessError):
+        return default
+
+
+def screen_lock():
+    """(minutes, lock after sleep); 0 minutes: the screen never locks by itself."""
+    try:
+        minutes = int(_lock_setting("Timeout", "15"))
+    except ValueError:
+        minutes = 15
+    if _lock_setting("Autolock", "true") != "true":
+        minutes = 0
+    return minutes, _lock_setting("LockOnResume", "true") == "true"
+
+
+def set_screen_lock(minutes, on_resume):
+    for key, value, kind in (("Autolock", "true" if minutes else "false", "bool"),
+                             ("Timeout", str(minutes or 15), "int"),
+                             ("LockOnResume", "true" if on_resume else "false", "bool")):
+        subprocess.run(["kwriteconfig6", "--file", "kscreenlockerrc", "--group", "Daemon", "--key", key,
+                        "--type", kind, value], capture_output=True, timeout=10)
+    # the running screen locker reads it again (what KDE's own Screen Locking settings do)
+    subprocess.run(["dbus-send", "--session", "--type=method_call", "--dest=org.freedesktop.ScreenSaver",
+                    "/ScreenSaver", "org.kde.screensaver.configure"], capture_output=True, timeout=10)
+
+
 class AccountsController(QObject):
     changed = Signal()
     _enroll_done = Signal(bool, str)
@@ -114,6 +151,7 @@ class AccountsController(QObject):
         self._methods = []
         self._domain = ""
         self._busy = ""         # "securitykey" (enrolling a key), "domain" (joining) or ""
+        self._lock = (15, True)  # screen_lock()
         self._enroll_done.connect(self._on_enrolled)
         self._join_done.connect(self._on_joined)
         self.refresh()
@@ -127,6 +165,22 @@ class AccountsController(QObject):
     autologin = Property(bool, lambda self: self._autologin, notify=changed)
     errorText = Property(str, lambda self: self._error, notify=changed)
     infoText = Property(str, lambda self: self._info, notify=changed)
+    lockMinutes = Property(int, lambda self: self._lock[0], notify=changed)
+    lockOnResume = Property(bool, lambda self: self._lock[1], notify=changed)
+    lockChoices = Property("QVariantList", lambda self: list(LOCK_MINUTES), constant=True)
+
+    @Slot(int)
+    def setLockMinutes(self, minutes):
+        if minutes in LOCK_MINUTES:
+            set_screen_lock(minutes, self._lock[1])
+            self._lock = screen_lock()
+            self.changed.emit()
+
+    @Slot(bool)
+    def setLockOnResume(self, on):
+        set_screen_lock(self._lock[0], on)
+        self._lock = screen_lock()
+        self.changed.emit()
 
     @Property("QVariantList", notify=changed)
     def topics(self):
@@ -155,6 +209,7 @@ class AccountsController(QObject):
         self._autologin = bool(cfg.get("autologin"))
         self._methods = self._login_methods()
         self._domain = _domain()
+        self._lock = screen_lock()
         self.changed.emit()
 
     def _login_methods(self):

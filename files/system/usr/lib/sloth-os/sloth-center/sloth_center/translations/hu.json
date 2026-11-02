@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Megosztasz egy mappát a hálózaton?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Egy program (például a Dolphin) meg szeretné osztani ezt: {path}. A megosztott mappákhoz az engedélyed kell: addig nincs megosztva, amíg nem engedélyezed.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Amíg egy mappa jelszó nélkül van megosztva, a többi gép nem kap jelszókérést a többi megosztott mappádhoz. Csak akkor jutnak be, ha maguk lépnek be a felhasználóneveddel ({user}); Windowsban: Hálózati meghajtó csatlakoztatása → Csatlakozás más hitelesítő adatokkal.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Az újabb Windows 11-es gépek nem nyitják meg a jelszó nélkül megosztott mappákat. Jelszóval mindenhol működik."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Az újabb Windows 11-es gépek nem nyitják meg a jelszó nélkül megosztott mappákat. Jelszóval mindenhol működik.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Az új verzió még nem áll készen ehhez a géphez. Később újra felajánljuk.",
+  "Screen lock": "Képernyőzár",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "A zárolás nem kijelentkezés: a programjaid tovább futnak, és a jelszavad (vagy a PIN-kódod) újra feloldja a képernyőt.",
+  "Lock the screen after": "Képernyő zárolása ennyi idő után",
+  "Never": "Soha",
+  "5 minutes": "5 perc",
+  "15 minutes": "15 perc",
+  "30 minutes": "30 perc",
+  "Also lock after sleep": "Alvás után is zároljon"
 }

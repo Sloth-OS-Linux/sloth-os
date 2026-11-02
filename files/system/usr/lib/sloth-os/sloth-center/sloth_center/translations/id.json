@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Bagikan folder di jaringan?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Sebuah program (seperti Dolphin) ingin membagikan {path}. Folder yang dibagikan memerlukan izin Anda: folder ini tidak dibagikan sampai Anda mengizinkannya.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Selama ada folder yang dibagikan tanpa kata sandi, komputer lain tidak dimintai kata sandi untuk folder bersama Anda yang lain. Mereka hanya bisa masuk jika masuk sendiri dengan nama pengguna Anda ({user}); di Windows: Petakan drive jaringan → Sambungkan menggunakan kredensial yang berbeda.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Komputer Windows 11 yang lebih baru tidak membuka folder yang dibagikan tanpa kata sandi. Dengan kata sandi, ini berfungsi di mana saja."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Komputer Windows 11 yang lebih baru tidak membuka folder yang dibagikan tanpa kata sandi. Dengan kata sandi, ini berfungsi di mana saja.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Versi baru belum siap untuk komputer ini. Nanti akan ditawarkan lagi.",
+  "Screen lock": "Kunci layar",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Mengunci bukan keluar: program Anda tetap berjalan, dan kata sandi (atau PIN) Anda membuka layar lagi.",
+  "Lock the screen after": "Kunci layar setelah",
+  "Never": "Tidak pernah",
+  "5 minutes": "5 menit",
+  "15 minutes": "15 menit",
+  "30 minutes": "30 menit",
+  "Also lock after sleep": "Kunci juga setelah tidur"
 }

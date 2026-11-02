@@ -929,5 +929,14 @@
   "Share a folder on the network?": "ਕੀ ਨੈੱਟਵਰਕ 'ਤੇ ਫੋਲਡਰ ਸਾਂਝਾ ਕਰਨਾ ਹੈ?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "ਇੱਕ ਪ੍ਰੋਗਰਾਮ (ਜਿਵੇਂ Dolphin) {path} ਨੂੰ ਸਾਂਝਾ ਕਰਨਾ ਚਾਹੁੰਦਾ ਹੈ। ਸਾਂਝੇ ਫੋਲਡਰਾਂ ਲਈ ਤੁਹਾਡੀ ਇਜਾਜ਼ਤ ਲੋੜੀਂਦੀ ਹੈ: ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੰਦੇ, ਇਹ ਸਾਂਝਾ ਨਹੀਂ ਹੋਵੇਗਾ।",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "ਜਦੋਂ ਤੱਕ ਕੋਈ ਫੋਲਡਰ ਪਾਸਵਰਡ ਤੋਂ ਬਿਨਾਂ ਸਾਂਝਾ ਹੈ, ਦੂਜੇ ਕੰਪਿਊਟਰਾਂ ਤੋਂ ਤੁਹਾਡੇ ਹੋਰ ਸਾਂਝੇ ਫੋਲਡਰਾਂ ਦਾ ਪਾਸਵਰਡ ਨਹੀਂ ਪੁੱਛਿਆ ਜਾਂਦਾ। ਉਹ ਤਾਂ ਹੀ ਅੰਦਰ ਆ ਸਕਦੇ ਹਨ ਜੇ ਉਹ ਖ਼ੁਦ ਤੁਹਾਡੇ ਵਰਤੋਂਕਾਰ ਨਾਂ ({user}) ਨਾਲ ਸਾਈਨ ਇਨ ਕਰਨ; Windows ਵਿੱਚ: Map network drive → Connect using different credentials।",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "ਨਵੇਂ Windows 11 ਕੰਪਿਊਟਰ ਪਾਸਵਰਡ ਤੋਂ ਬਿਨਾਂ ਸਾਂਝੇ ਫੋਲਡਰ ਨਹੀਂ ਖੋਲ੍ਹਦੇ। ਪਾਸਵਰਡ ਨਾਲ ਇਹ ਹਰ ਥਾਂ ਕੰਮ ਕਰਦਾ ਹੈ।"
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "ਨਵੇਂ Windows 11 ਕੰਪਿਊਟਰ ਪਾਸਵਰਡ ਤੋਂ ਬਿਨਾਂ ਸਾਂਝੇ ਫੋਲਡਰ ਨਹੀਂ ਖੋਲ੍ਹਦੇ। ਪਾਸਵਰਡ ਨਾਲ ਇਹ ਹਰ ਥਾਂ ਕੰਮ ਕਰਦਾ ਹੈ।",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "ਨਵਾਂ ਸੰਸਕਰਣ ਅਜੇ ਇਸ ਕੰਪਿਊਟਰ ਲਈ ਤਿਆਰ ਨਹੀਂ ਹੈ। ਇਹ ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਪੇਸ਼ ਕੀਤਾ ਜਾਵੇਗਾ।",
+  "Screen lock": "ਸਕ੍ਰੀਨ ਲਾਕ",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "ਲਾਕ ਕਰਨਾ ਸਾਈਨ ਆਊਟ ਨਹੀਂ ਹੈ: ਤੁਹਾਡੇ ਪ੍ਰੋਗਰਾਮ ਚੱਲਦੇ ਰਹਿੰਦੇ ਹਨ, ਅਤੇ ਤੁਹਾਡਾ ਪਾਸਵਰਡ (ਜਾਂ PIN) ਸਕ੍ਰੀਨ ਨੂੰ ਦੁਬਾਰਾ ਖੋਲ੍ਹਦਾ ਹੈ।",
+  "Lock the screen after": "ਇੰਨੇ ਸਮੇਂ ਬਾਅਦ ਸਕ੍ਰੀਨ ਲਾਕ ਕਰੋ",
+  "Never": "ਕਦੇ ਨਹੀਂ",
+  "5 minutes": "5 ਮਿੰਟ",
+  "15 minutes": "15 ਮਿੰਟ",
+  "30 minutes": "30 ਮਿੰਟ",
+  "Also lock after sleep": "ਸਲੀਪ ਤੋਂ ਬਾਅਦ ਵੀ ਲਾਕ ਕਰੋ"
 }

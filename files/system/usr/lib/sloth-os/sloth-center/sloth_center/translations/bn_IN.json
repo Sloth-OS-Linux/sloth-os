@@ -929,5 +929,14 @@
   "Share a folder on the network?": "নেটওয়ার্কে একটি ফোল্ডার শেয়ার করবেন?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "একটি প্রোগ্রাম (যেমন Dolphin) {path} শেয়ার করতে চায়। শেয়ার করা ফোল্ডারের জন্য আপনার অনুমতি লাগে: আপনি অনুমতি না দেওয়া পর্যন্ত এটি শেয়ার হবে না।",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "যতক্ষণ একটি ফোল্ডার পাসওয়ার্ড ছাড়া শেয়ার করা থাকে, অন্য কম্পিউটারগুলোর কাছে আপনার অন্য শেয়ার করা ফোল্ডারের পাসওয়ার্ড চাওয়া হয় না। তারা নিজেরা আপনার ব্যবহারকারীর নাম ({user}) দিয়ে সাইন ইন করলেই কেবল ঢুকতে পারে; Windows-এ: Map network drive → Connect using different credentials।",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "নতুন Windows 11 কম্পিউটার পাসওয়ার্ড ছাড়া শেয়ার করা ফোল্ডার খোলে না। পাসওয়ার্ড দিলে এটি সব জায়গায় কাজ করে।"
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "নতুন Windows 11 কম্পিউটার পাসওয়ার্ড ছাড়া শেয়ার করা ফোল্ডার খোলে না। পাসওয়ার্ড দিলে এটি সব জায়গায় কাজ করে।",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "নতুন সংস্করণটি এখনও এই কম্পিউটারের জন্য প্রস্তুত নয়। পরে আবার দেওয়া হবে।",
+  "Screen lock": "স্ক্রিন লক",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "লক করা মানে সাইন আউট নয়: আপনার প্রোগ্রামগুলো চলতে থাকে, আর আপনার পাসওয়ার্ড (বা PIN) আবার স্ক্রিন খোলে।",
+  "Lock the screen after": "এত সময় পরে স্ক্রিন লক করুন",
+  "Never": "কখনও না",
+  "5 minutes": "৫ মিনিট",
+  "15 minutes": "১৫ মিনিট",
+  "30 minutes": "৩০ মিনিট",
+  "Also lock after sleep": "স্লিপের পরেও লক করুন"
 }

@@ -216,7 +216,7 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
     with `--soft-reboot=auto` in newer versions, ostree has `admin prepare-soft-reboot`): the new version starts in
     seconds, without the firmware and the boot screen; programs still close, KDE's session restore opens them
     again. First check what rpm-ostree on Fedora 44 supports.
-- [ ] **Important** — The update 1.1 → 1.2 was refused on the gaming PC (2026-10-29 00:21): "Upgrade target revision
+- [x] **Important** — The update 1.1 → 1.2 was refused on the gaming PC (2026-10-29 00:21): "Upgrade target revision
   … with timestamp 2026-10-28 04:14:50 UTC is chronologically older than current revision … 11:53:12 UTC; use
   --allow-downgrade". rpm-ostree takes an image's time from the manifest annotation
   `org.opencontainers.image.created`, and with chunkah that annotation (with `org.opencontainers.image.version`,
@@ -230,12 +230,20 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
   our build time: chunkah has `--annotation KEY=VALUE`, BlueBuild does not pass it (ask upstream / a PR to
   blue-build/cli); (3) Sloth Center says "Something went wrong" for this: a plain text ("The new version isn't
   ready for this computer yet. It will be offered again later.") would be better.
-- [ ] **Small** — The screen locks after 5 minutes although every power setting is off (reported 2026-10-28 on the
+  2026-11-02 (test branch): (2) is fine by now: the images carry our own build time
+  (`org.opencontainers.image.created` 13:22:05 UTC on the main build started 13:17, the config's `created` the same;
+  checked through the registry), so nothing to change in BlueBuild. (3) done: `texts.py` maps "chronologically
+  older" / "allow-downgrade" to that sentence, in all 50 languages. (1) is the gaming PC's next update.
+- [x] **Small** — The screen locks after 5 minutes although every power setting is off (reported 2026-10-28 on the
   HP): that is KDE's own screen locker default (`kscreenlockerrc` Autolock after 5 min, separate from Power
   Management; Sloth OS sets nothing there). Coming from Windows it looks like being signed out. Plan (test branch
   first): a calmer default in `/etc/xdg/kscreenlockerrc` (lock when the screen turns off, or after 15 minutes), and
   in Sloth Center → Account and security a plain "Lock the screen after: Never / 5 / 15 / 30 minutes" with "this is
   not signing out: your programs keep running", plus "Lock after sleep" on/off. In all 50 languages.
+  Done 2026-11-02 (test branch): `/etc/xdg/kscreenlockerrc` locks after 15 minutes; Sloth Center → Account and
+  security → Screen lock: Never / 5 / 15 / 30 minutes and "Also lock after sleep" (the user's own kscreenlockerrc
+  through kwriteconfig6, the running locker reloads over D-Bus, no password). Tried with the real
+  kreadconfig6/kwriteconfig6; on the HP: whether the locker picks the change up without signing out.
 - [ ] **Medium** — More taskbar layouts (same idea, same test path): candidates that look good and that people
   coming from elsewhere know: **Classic** (Windows 7 style: task buttons with names, the clock and the tray on the
   right, a classic two-column Start menu), **ChromeOS-like** (a centered shelf, a launcher that opens a search

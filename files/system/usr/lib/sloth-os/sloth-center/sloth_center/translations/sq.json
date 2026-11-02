@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Të ndahet një dosje në rrjet?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Një program (si Dolphin) dëshiron të ndajë {path}. Dosjet e ndara kanë nevojë për lejen tuaj: nuk ndahet derisa ta lejoni.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Për sa kohë që një dosje ndahet pa fjalëkalim, kompjuterëve të tjerë nuk u kërkohet fjalëkalimi i dosjeve të tjera të ndara. Ata hyjnë vetëm nëse hyjnë vetë me emrin tuaj të përdoruesit ({user}); në Windows: Lidh diskun e rrjetit → Lidhu duke përdorur kredenciale të tjera.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Kompjuterët më të rinj me Windows 11 nuk i hapin dosjet e ndara pa fjalëkalim. Me fjalëkalim funksionon kudo."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Kompjuterët më të rinj me Windows 11 nuk i hapin dosjet e ndara pa fjalëkalim. Me fjalëkalim funksionon kudo.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Versioni i ri ende nuk është gati për këtë kompjuter. Do të ofrohet përsëri më vonë.",
+  "Screen lock": "Kyçja e ekranit",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Kyçja nuk është dalje: programet tuaja vazhdojnë të punojnë dhe fjalëkalimi (ose PIN-i) e hap përsëri ekranin.",
+  "Lock the screen after": "Kyçe ekranin pas",
+  "Never": "Asnjëherë",
+  "5 minutes": "5 minutash",
+  "15 minutes": "15 minutash",
+  "30 minutes": "30 minutash",
+  "Also lock after sleep": "Kyçe edhe pas gjumit"
 }

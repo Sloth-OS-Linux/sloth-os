@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Κοινή χρήση φακέλου στο δίκτυο;",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Ένα πρόγραμμα (π.χ. Dolphin) θέλει να μοιραστεί το {path}. Οι κοινόχρηστοι φάκελοι χρειάζονται την άδειά σας: δεν θα γίνει κοινόχρηστος μέχρι να το επιτρέψετε.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Όσο ένας φάκελος είναι κοινόχρηστος χωρίς κωδικό πρόσβασης, οι άλλοι υπολογιστές δεν ερωτώνται για τον κωδικό των άλλων κοινόχρηστων φακέλων σας. Μπαίνουν μόνο αν συνδεθούν οι ίδιοι με το όνομα χρήστη σας ({user}). Στα Windows: Αντιστοίχιση μονάδας δικτύου → Σύνδεση με χρήση διαφορετικών διαπιστευτηρίων.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Οι νεότεροι υπολογιστές με Windows 11 δεν ανοίγουν φακέλους κοινόχρηστους χωρίς κωδικό πρόσβασης. Με κωδικό λειτουργεί παντού."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Οι νεότεροι υπολογιστές με Windows 11 δεν ανοίγουν φακέλους κοινόχρηστους χωρίς κωδικό πρόσβασης. Με κωδικό λειτουργεί παντού.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Η νέα έκδοση δεν είναι ακόμη έτοιμη για αυτόν τον υπολογιστή. Θα προσφερθεί ξανά αργότερα.",
+  "Screen lock": "Κλείδωμα οθόνης",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Το κλείδωμα δεν είναι αποσύνδεση: τα προγράμματά σας συνεχίζουν να τρέχουν και ο κωδικός σας (ή το PIN) ξεκλειδώνει ξανά την οθόνη.",
+  "Lock the screen after": "Κλείδωμα οθόνης μετά από",
+  "Never": "Ποτέ",
+  "5 minutes": "5 λεπτά",
+  "15 minutes": "15 λεπτά",
+  "30 minutes": "30 λεπτά",
+  "Also lock after sleep": "Κλείδωμα και μετά την αναστολή"
 }

@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Compartilhar uma pasta na rede?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Um programa (como o Dolphin) quer compartilhar {path}. Pastas compartilhadas precisam da sua permissão: ela não é compartilhada até você permitir.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Enquanto uma pasta estiver compartilhada sem senha, os outros computadores não são solicitados a informar a senha das suas outras pastas compartilhadas. Eles só entram se fizerem login com o seu nome de usuário ({user}) por conta própria; no Windows: Mapear unidade de rede → Conectar usando credenciais diferentes.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Computadores com Windows 11 mais recentes não abrem pastas compartilhadas sem senha. Com senha, funciona em todo lugar."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Computadores com Windows 11 mais recentes não abrem pastas compartilhadas sem senha. Com senha, funciona em todo lugar.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "A nova versão ainda não está pronta para este computador. Ela será oferecida novamente mais tarde.",
+  "Screen lock": "Bloqueio de tela",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Bloquear não é sair: seus programas continuam rodando e sua senha (ou PIN) abre a tela de novo.",
+  "Lock the screen after": "Bloquear a tela após",
+  "Never": "Nunca",
+  "5 minutes": "5 minutos",
+  "15 minutes": "15 minutos",
+  "30 minutes": "30 minutos",
+  "Also lock after sleep": "Bloquear também após a suspensão"
 }

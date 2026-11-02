@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Sdílet složku v síti?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Program (například Dolphin) chce sdílet {path}. Sdílené složky potřebují vaše svolení: dokud ho nepovolíte, sdílena nebude.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Dokud je některá složka sdílená bez hesla, ostatní počítače nejsou dotázány na heslo k vašim dalším sdíleným složkám. Dostanou se do nich, jen pokud se samy přihlásí vaším uživatelským jménem ({user}); ve Windows: Připojit síťovou jednotku → Připojit pomocí jiných přihlašovacích údajů.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Novější počítače s Windows 11 neotevřou složky sdílené bez hesla. S heslem to funguje všude."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Novější počítače s Windows 11 neotevřou složky sdílené bez hesla. S heslem to funguje všude.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Nová verze pro tento počítač ještě není připravená. Bude nabídnuta později.",
+  "Screen lock": "Zámek obrazovky",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Zamknutí není odhlášení: vaše programy dál běží a heslo (nebo PIN) obrazovku znovu odemkne.",
+  "Lock the screen after": "Zamknout obrazovku po",
+  "Never": "Nikdy",
+  "5 minutes": "5 minutách",
+  "15 minutes": "15 minutách",
+  "30 minutes": "30 minutách",
+  "Also lock after sleep": "Zamknout i po uspání"
 }

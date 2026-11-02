@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Dele ei mappe på nettverket?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Eit program (til dømes Dolphin) vil dele {path}. Delte mapper treng løyvet ditt: ho blir ikkje delt før du tillèt det.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Så lenge ei mappe er delt utan passord, blir ikkje andre datamaskiner spurde om passordet til dei andre delte mappene dine. Dei kjem berre inn om dei sjølve loggar på med brukarnamnet ditt ({user}); i Windows: Tilordne nettverksstasjon → Kople til med anna legitimasjon.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Nyare Windows 11-datamaskiner opnar ikkje mapper som er delte utan passord. Med passord fungerer det overalt."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Nyare Windows 11-datamaskiner opnar ikkje mapper som er delte utan passord. Med passord fungerer det overalt.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Den nye versjonen er ikkje klar for denne datamaskina enno. Han blir tilboden igjen seinare.",
+  "Screen lock": "Skjermlås",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Å låse er ikkje å logge ut: programma dine held fram med å køyre, og passordet ditt (eller PIN-koden) opnar skjermen igjen.",
+  "Lock the screen after": "Lås skjermen etter",
+  "Never": "Aldri",
+  "5 minutes": "5 minutt",
+  "15 minutes": "15 minutt",
+  "30 minutes": "30 minutt",
+  "Also lock after sleep": "Lås òg etter kvilemodus"
 }

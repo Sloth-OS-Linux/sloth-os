@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Udostępnić folder w sieci?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Program (np. Dolphin) chce udostępnić {path}. Udostępnione foldery wymagają twojej zgody: nie zostanie udostępniony, dopóki nie zezwolisz.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Dopóki jakiś folder jest udostępniony bez hasła, inne komputery nie są pytane o hasło do pozostałych udostępnionych folderów. Wejdą tylko wtedy, gdy same zalogują się twoją nazwą użytkownika ({user}); w Windows: Mapuj dysk sieciowy → Połącz przy użyciu innych poświadczeń.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Nowsze komputery z Windows 11 nie otwierają folderów udostępnionych bez hasła. Z hasłem działa wszędzie."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Nowsze komputery z Windows 11 nie otwierają folderów udostępnionych bez hasła. Z hasłem działa wszędzie.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Nowa wersja nie jest jeszcze gotowa dla tego komputera. Zostanie zaproponowana ponownie później.",
+  "Screen lock": "Blokada ekranu",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Zablokowanie to nie wylogowanie: programy dalej działają, a hasło (lub PIN) ponownie odblokowuje ekran.",
+  "Lock the screen after": "Blokuj ekran po",
+  "Never": "Nigdy",
+  "5 minutes": "5 minutach",
+  "15 minutes": "15 minutach",
+  "30 minutes": "30 minutach",
+  "Also lock after sleep": "Blokuj też po uśpieniu"
 }

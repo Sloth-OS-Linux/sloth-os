@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Einen Ordner im Netzwerk freigeben?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Ein Programm (zum Beispiel Dolphin) möchte {path} freigeben. Freigegebene Ordner brauchen deine Erlaubnis: Er wird erst freigegeben, wenn du es erlaubst.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Solange ein Ordner ohne Passwort freigegeben ist, werden andere Computer nicht nach dem Passwort deiner anderen Freigaben gefragt. Sie kommen nur hinein, wenn sie sich selbst mit deinem Benutzernamen ({user}) anmelden; in Windows: Netzlaufwerk verbinden → Verbindung mit anderen Anmeldeinformationen herstellen.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Neuere Windows-11-Computer öffnen keine Ordner, die ohne Passwort freigegeben sind. Mit Passwort funktioniert es überall."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Neuere Windows-11-Computer öffnen keine Ordner, die ohne Passwort freigegeben sind. Mit Passwort funktioniert es überall.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Die neue Version ist für diesen Computer noch nicht bereit. Sie wird später erneut angeboten.",
+  "Screen lock": "Bildschirmsperre",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Sperren ist kein Abmelden: Deine Programme laufen weiter, und dein Passwort (oder deine PIN) entsperrt den Bildschirm wieder.",
+  "Lock the screen after": "Bildschirm sperren nach",
+  "Never": "Nie",
+  "5 minutes": "5 Minuten",
+  "15 minutes": "15 Minuten",
+  "30 minutes": "30 Minuten",
+  "Also lock after sleep": "Auch nach dem Ruhezustand sperren"
 }

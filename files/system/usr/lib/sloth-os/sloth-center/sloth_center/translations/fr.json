@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Partager un dossier sur le réseau ?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Un programme (comme Dolphin) veut partager {path}. Les dossiers partagés ont besoin de votre autorisation : il n'est pas partagé tant que vous ne l'avez pas autorisé.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Tant qu'un dossier est partagé sans mot de passe, les autres ordinateurs ne sont pas invités à saisir le mot de passe de vos autres dossiers partagés. Ils n'y entrent que s'ils se connectent eux-mêmes avec votre nom d'utilisateur ({user}) ; dans Windows : Connecter un lecteur réseau → Se connecter à l'aide d'informations d'identification différentes.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Les ordinateurs Windows 11 récents n'ouvrent pas les dossiers partagés sans mot de passe. Avec un mot de passe, cela fonctionne partout."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Les ordinateurs Windows 11 récents n'ouvrent pas les dossiers partagés sans mot de passe. Avec un mot de passe, cela fonctionne partout.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "La nouvelle version n'est pas encore prête pour cet ordinateur. Elle sera proposée de nouveau plus tard.",
+  "Screen lock": "Verrouillage de l'écran",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Verrouiller n'est pas se déconnecter : vos programmes continuent de fonctionner, et votre mot de passe (ou code PIN) déverrouille l'écran.",
+  "Lock the screen after": "Verrouiller l'écran après",
+  "Never": "Jamais",
+  "5 minutes": "5 minutes",
+  "15 minutes": "15 minutes",
+  "30 minutes": "30 minutes",
+  "Also lock after sleep": "Verrouiller aussi après la mise en veille"
 }

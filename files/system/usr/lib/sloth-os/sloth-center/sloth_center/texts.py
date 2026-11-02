@@ -26,6 +26,11 @@ _STAGES = [
 ]
 
 _ERRORS = [
+    # "Upgrade target revision … is chronologically older than current revision …; use --allow-downgrade": the image
+    # on the server looks older than the running one (1.1 -> 1.2, 2026-10-29: chunkah took the base image's time). It
+    # heals with a later build, so nothing to do for the user; first, since the text may contain other patterns
+    (("chronologically older", "allow-downgrade"),
+     N_("The new version isn't ready for this computer yet. It will be offered again later.")),
     (("not authorized", "authentication", "permission denied", "polkit"),
      N_("This needs administrator approval. Try again and enter your password.")),
     (("no space", "enospc", "disk full"),

@@ -929,5 +929,14 @@
   "Share a folder on the network?": "לשתף תיקייה ברשת?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "תוכנה (כמו Dolphin) רוצה לשתף את {path}. תיקיות משותפות צריכות את האישור שלך: היא לא תשותף עד שתאשר.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "כל עוד תיקייה משותפת ללא סיסמה, מחשבים אחרים לא מתבקשים להזין את הסיסמה של התיקיות המשותפות האחרות שלך. הם נכנסים רק אם הם עצמם מתחברים עם שם המשתמש שלך ({user}); ב-Windows: מיפוי כונן רשת ← התחבר באמצעות אישורים אחרים.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "מחשבי Windows 11 חדשים יותר לא פותחים תיקיות שמשותפות ללא סיסמה. עם סיסמה זה עובד בכל מקום."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "מחשבי Windows 11 חדשים יותר לא פותחים תיקיות שמשותפות ללא סיסמה. עם סיסמה זה עובד בכל מקום.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "הגרסה החדשה עדיין לא מוכנה למחשב הזה. היא תוצע שוב מאוחר יותר.",
+  "Screen lock": "נעילת מסך",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "נעילה היא לא התנתקות: התוכנות שלך ממשיכות לרוץ, והסיסמה (או ה-PIN) פותחת את המסך שוב.",
+  "Lock the screen after": "לנעול את המסך אחרי",
+  "Never": "אף פעם",
+  "5 minutes": "5 דקות",
+  "15 minutes": "15 דקות",
+  "30 minutes": "30 דקות",
+  "Also lock after sleep": "לנעול גם אחרי שינה"
 }

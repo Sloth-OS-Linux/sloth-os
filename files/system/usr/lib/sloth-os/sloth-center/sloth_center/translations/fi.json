@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Jaetaanko kansio verkossa?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Ohjelma (esimerkiksi Dolphin) haluaa jakaa kansion {path}. Jaetut kansiot tarvitsevat lupasi: sitä ei jaeta ennen kuin sallit sen.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Niin kauan kuin jokin kansio on jaettu ilman salasanaa, muilta tietokoneilta ei kysytä muiden jaettujen kansioidesi salasanaa. Ne pääsevät sisään vain, jos ne itse kirjautuvat käyttäjänimelläsi ({user}); Windowsissa: Yhdistä verkkoasema → Yhdistä käyttämällä eri tunnistetietoja.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Uudemmat Windows 11 -tietokoneet eivät avaa ilman salasanaa jaettuja kansioita. Salasanan kanssa se toimii kaikkialla."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Uudemmat Windows 11 -tietokoneet eivät avaa ilman salasanaa jaettuja kansioita. Salasanan kanssa se toimii kaikkialla.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "Uusi versio ei ole vielä valmis tälle tietokoneelle. Sitä tarjotaan myöhemmin uudelleen.",
+  "Screen lock": "Näytön lukitus",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Lukitseminen ei ole uloskirjautuminen: ohjelmasi jatkavat toimintaansa, ja salasanasi (tai PIN) avaa näytön uudelleen.",
+  "Lock the screen after": "Lukitse näyttö, kun on kulunut",
+  "Never": "Ei koskaan",
+  "5 minutes": "5 minuuttia",
+  "15 minutes": "15 minuuttia",
+  "30 minutes": "30 minuuttia",
+  "Also lock after sleep": "Lukitse myös lepotilan jälkeen"
 }

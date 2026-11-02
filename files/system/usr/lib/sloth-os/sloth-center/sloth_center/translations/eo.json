@@ -929,5 +929,14 @@
   "Share a folder on the network?": "Ĉu kunhavigi dosierujon en la reto?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Programo (ekzemple Dolphin) volas kunhavigi {path}. Kunhavigitaj dosierujoj bezonas vian permeson: ĝi ne estos kunhavigita ĝis vi permesos.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "Dum dosierujo estas kunhavigita sen pasvorto, aliaj komputiloj ne estas petataj pri la pasvorto de viaj aliaj kunhavigitaj dosierujoj. Ili eniras nur se ili mem ensalutas per via uzantnomo ({user}); en Windows: Mapi retan diskon → Konekti per aliaj akreditaĵoj.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Pli novaj komputiloj kun Windows 11 ne malfermas dosierujojn kunhavigitajn sen pasvorto. Kun pasvorto ĝi funkcias ĉie."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "Pli novaj komputiloj kun Windows 11 ne malfermas dosierujojn kunhavigitajn sen pasvorto. Kun pasvorto ĝi funkcias ĉie.",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "La nova versio ankoraŭ ne pretas por ĉi tiu komputilo. Ĝi estos proponata denove poste.",
+  "Screen lock": "Ekranŝloso",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "Ŝlosi ne estas elsaluti: viaj programoj daŭre funkcias, kaj via pasvorto (aŭ PIN) malŝlosas la ekranon denove.",
+  "Lock the screen after": "Ŝlosi la ekranon post",
+  "Never": "Neniam",
+  "5 minutes": "5 minutoj",
+  "15 minutes": "15 minutoj",
+  "30 minutes": "30 minutoj",
+  "Also lock after sleep": "Ŝlosi ankaŭ post dormo"
 }

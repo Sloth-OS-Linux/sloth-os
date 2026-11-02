@@ -929,5 +929,14 @@
   "Share a folder on the network?": "নেটৱৰ্কত এটা ফোল্ডাৰ শ্বেয়াৰ কৰিবনে?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "এটা প্ৰগ্ৰামে (যেনে Dolphin) {path} শ্বেয়াৰ কৰিব বিচাৰে। শ্বেয়াৰ কৰা ফোল্ডাৰৰ বাবে আপোনাৰ অনুমতি লাগে: আপুনি অনুমতি নিদিয়ালৈকে ই শ্বেয়াৰ কৰা নহয়।",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "যেতিয়ালৈকে এটা ফোল্ডাৰ পাছৱৰ্ড অবিহনে শ্বেয়াৰ কৰা থাকে, আন কম্পিউটাৰক আপোনাৰ আন শ্বেয়াৰ কৰা ফোল্ডাৰৰ পাছৱৰ্ড সোধা নহয়। সিহঁতে নিজে আপোনাৰ ব্যৱহাৰকাৰীৰ নামেৰে ({user}) ছাইন ইন কৰিলেহে সোমাব পাৰে; Windows-ত: Map network drive → Connect using different credentials।",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "নতুন Windows 11 কম্পিউটাৰে পাছৱৰ্ড অবিহনে শ্বেয়াৰ কৰা ফোল্ডাৰ নোখোলে। পাছৱৰ্ডৰ সৈতে ই সকলোতে চলে।"
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "নতুন Windows 11 কম্পিউটাৰে পাছৱৰ্ড অবিহনে শ্বেয়াৰ কৰা ফোল্ডাৰ নোখোলে। পাছৱৰ্ডৰ সৈতে ই সকলোতে চলে।",
+  "The new version isn't ready for this computer yet. It will be offered again later.": "নতুন সংস্কৰণটো এই কম্পিউটাৰৰ বাবে এতিয়াও সাজু হোৱা নাই। পিছত পুনৰ আগবঢ়োৱা হ'ব।",
+  "Screen lock": "স্ক্ৰীণ লক",
+  "Locking isn't signing out: your programs keep running, and your password (or PIN) opens the screen again.": "লক কৰা মানে ছাইন আউট নহয়: আপোনাৰ প্ৰগ্ৰামবোৰ চলি থাকে, আৰু আপোনাৰ পাছৱৰ্ডে (বা PIN-এ) স্ক্ৰীণখন পুনৰ খোলে।",
+  "Lock the screen after": "ইমান সময়ৰ পিছত স্ক্ৰীণ লক কৰক",
+  "Never": "কেতিয়াও নহয়",
+  "5 minutes": "৫ মিনিট",
+  "15 minutes": "১৫ মিনিট",
+  "30 minutes": "৩০ মিনিট",
+  "Also lock after sleep": "টোপনিৰ পিছতো লক কৰক"
 }
