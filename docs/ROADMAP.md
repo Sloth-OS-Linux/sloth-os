@@ -37,6 +37,10 @@ from a terminal must also work from a GUI.
   share refused it (ACCESS_DENIED, no prompt). Now Bad User only while a folder is shared without a password
   (`/etc/samba/sloth-guest.conf`, written by `file-sharing`), otherwise Never: LOGON_FAILURE, and Windows asks.
   Sloth Center warns when both kinds are shared, and that newer Windows 11 refuses guest shares. Tried with smbclient.
+  An open connection kept its rights (2026-11-02: a share made read-only stayed writable for a computer already
+  connected; closing the firewall does not end a connection either): `file-sharing` closes the connections of a
+  changed or stopped share, and all of them when the folders close on this network (smbcontrol close-share).
+  Windows connects again by itself. Tried with smbclient. After the 1.3 ISO: comes as an update.
   Still open: a share made in Dolphin is reachable for a moment (until the path unit runs, under a second) if the
   firewall is already open for another share
 
