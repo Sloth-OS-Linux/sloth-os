@@ -43,8 +43,11 @@ Operations:
   share-remove <name>                            stops sharing the calling user's folder
   sharing on|off                                 folder sharing on or off altogether (off: Samba stops and stays
                                                  stopped, the computer does not show up on the network)
-  network-kind <uuid> private|public             a saved network is private (shared folders open on it) or public
-                                                 (only as sloth-helper-network, without a password)
+  network-kind <uuid> home|private|public|public-shared
+                                                 a saved network's kind: home (shared folders open, the computer is
+                                                 announced), private (they open, not announced), public (hidden),
+                                                 public-shared (public, sharing allowed by the user); only as
+                                                 sloth-helper-network, without a password
   net-limit off|<kbit/s> <unit> always|updates   the download speed limit (/etc/sloth-os/net-limit.json; the unit
                                                  the user chose: kbit, KB, Mbit, MB), put on or off at once
                                                  (/usr/libexec/sloth-os/net-limit)
@@ -648,7 +651,7 @@ NETWORK_UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-
 
 
 def network_kind(uuid, kind):
-    """A saved network is private (shared folders open on it) or public (the computer stays hidden on it)."""
+    """A saved network's kind (file-sharing: home, private, public, public-shared)."""
     r = run([FILE_SHARING, "kind", uuid, kind])
     return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
 
@@ -754,7 +757,7 @@ def main(argv):
     elif op == "sharing" and args in (["on"], ["off"]) and not VERSIONS_ONLY:
         result = sharing(args[0] == "on")
     elif op == "network-kind" and len(args) == 2 and NETWORK_UUID_RE.match(args[0]) \
-            and args[1] in ("private", "public") and not VERSIONS_ONLY:
+            and args[1] in ("home", "private", "public", "public-shared") and not VERSIONS_ONLY:
         result = network_kind(*args)
     elif op == "login-repair" and not args and not VERSIONS_ONLY:
         result = keep_altfiles()

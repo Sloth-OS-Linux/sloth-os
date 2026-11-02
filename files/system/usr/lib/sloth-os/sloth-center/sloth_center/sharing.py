@@ -6,8 +6,9 @@ everything (sloth-helper share-add): the usershares group, the Samba password an
 the share; no new sign-in is needed. /usr/libexec/sloth-os/file-sharing then starts Samba for the local network only
 and writes the account's shares into /run/sloth-os/sharing/<uid>.json, which this page reads.
 
-The folders open only on private networks (as in Windows): the networks, private or public, and whether sharing is
-on at all are in /run/sloth-os/sharing/state.json. Whether a network is private or public needs no password
+Every network has a kind, as in Windows (file-sharing): home (the folders open, the computer is announced), private
+(they open, not announced), public (hidden), or public with sharing allowed (asked once). The networks and whether
+sharing is on at all are in /run/sloth-os/sharing/state.json. A network's kind needs no password
 (org.slothos.helper.network); turning sharing on or off does (org.slothos.helper.sharing).
 """
 import json
@@ -32,6 +33,8 @@ NETWORK_HELPER = "/usr/libexec/sloth-os/sloth-helper-network"
 STATUS = Path("/run/sloth-os/sharing") / f"{os.getuid()}.json"
 STATE = Path("/run/sloth-os/sharing/state.json")
 HOME_PREFIXES = ("/var/home/", "/home/")
+# the network kinds on which shared folders open (file-sharing's OPEN_KINDS)
+OPEN_KINDS = ("home", "private", "public-shared")
 
 
 def read_status():
@@ -101,10 +104,16 @@ class SharingController(QObject):
     def _connected(self):
         return [n for n in self._state["networks"] if n.get("connected")]
 
-    # on a network now, and none of them is private: shared folders are closed, a new share asks first
-    onPublic = Property(bool, lambda self: bool(self._connected())
-                        and not any(n.get("kind") == "private" for n in self._connected()), notify=changed)
-    currentNetwork = Property(str, lambda self: ", ".join(n["name"] for n in self._connected()), notify=changed)
+    def _public(self):
+        """The connected network if the shared folders are closed on every connected one (public, or not asked yet),
+        else {}: then sharing here asks first."""
+        connected = self._connected()
+        if not connected or any(n.get("kind") in OPEN_KINDS for n in connected):
+            return {}
+        return {"uuid": connected[0]["uuid"], "name": connected[0]["name"]}
+
+    onPublic = Property(bool, lambda self: bool(self._public()), notify=changed)
+    publicNetwork = Property("QVariantMap", lambda self: self._public(), notify=changed)
 
     @Slot(str, result=str)
     def address(self, name):
@@ -127,13 +136,6 @@ class SharingController(QObject):
     @Slot(str, str)
     def setNetworkKind(self, uuid, kind):
         self._run(["network-kind", uuid, kind], None, helper=NETWORK_HELPER, error=tr("Couldn't change the network."))
-
-    @Slot()
-    def makeCurrentPrivate(self):
-        """Share anyway on a public network: the network the computer is on now counts as private from now on."""
-        for n in self._connected():
-            self.setNetworkKind(n["uuid"], "private")
-            break
 
     @Slot(str, bool, bool, str, "QVariantList")
     def addShare(self, folder_url, write, guests, password, groups):

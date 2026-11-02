@@ -1,11 +1,11 @@
-"""The question at a new network, as in Windows: is it private (shared folders open on it) or public (the computer
-stays hidden)?
+"""The question at a new network, as in Windows: is it a home network (shared folders open, the computer shows up),
+a private one (a workplace: they open, the computer does not show up by itself) or a public one (hidden)?
 
 It runs in the user's session (sloth-network-notify.path / .service) whenever the network state changes
 (/run/sloth-os/sharing/state.json, written by /usr/libexec/sloth-os/file-sharing) and at login. A network not asked
 about yet counts as public; closing the notification leaves it public, and it is not asked again (Sloth Center →
-Disks can change it). The networks saved before this existed became private once, so sharing kept working: that is
-told once too. Setting the kind needs no password (sloth-helper-network).
+Disks can change it). The networks saved before this existed became home networks once, so sharing kept working:
+that is told once too. Setting the kind needs no password (sloth-helper-network).
 Start: python3 -m sloth_center.network_notify
 """
 import json
@@ -34,12 +34,12 @@ def notify(title, body, actions, icon="network-wireless"):
 
 
 def tell_defaulted(names):
-    """Once: the saved networks count as private."""
+    """Once: the saved networks count as home networks."""
     if not names or DEFAULTED_TOLD.exists():
         return
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     DEFAULTED_TOLD.write_text("1\n")
-    answer = notify(tr("Your saved networks count as private"),
+    answer = notify(tr("Your saved networks count as home networks"),
                     tr("Shared folders work on them as before: {names}. If one of them is public (a café, a hotel), "
                        "change it in Sloth Center → Disks.", names=", ".join(names)),
                     [("open", tr("Open Sloth Center"))], icon="network-workgroup")
@@ -66,12 +66,13 @@ def main():
         STATE_DIR.mkdir(parents=True, exist_ok=True)
         ASKED.write_text(json.dumps(sorted(asked)))
         answer = notify(tr("New network: {name}", name=network.get("name", "")),
-                        tr("Is it a private network, like your home? On a private network, other computers can see "
-                           "this computer and open the folders you share. On a public network (a café, a hotel), "
-                           "this computer stays hidden."),
-                        [("private", tr("Private")), ("public", tr("Public"))])
+                        tr("What kind of network is it? At home, other computers see this computer and can open the "
+                           "folders you share. On a private network (a workplace), they can open them, but this "
+                           "computer doesn't show up by itself. On a public network (a café, a hotel), this computer "
+                           "stays hidden."),
+                        [("home", tr("Home")), ("private", tr("Private")), ("public", tr("Public"))])
         # closed without an answer: public, the safe one (it can be changed in Sloth Center → Disks)
-        kind = "private" if answer == "private" else "public"
+        kind = answer if answer in ("home", "private") else "public"
         subprocess.run(["pkexec", HELPER, "network-kind", uuid, kind], capture_output=True)
     return 0
 

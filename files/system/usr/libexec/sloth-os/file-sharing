@@ -6,25 +6,28 @@ the group is copied into /etc/group, so usermod can add an account to it (Sloth 
 Samba can read only home folders and folders that are actually shared (not the whole system), and only the local
 network can connect (never the internet, not even over IPv6).
 
-Only on private networks, as in Windows: every network (NetworkManager connection) is private (a home, a
-workplace you trust) or public (a café, a hotel, which use the same private addresses); the folders open only while
-the computer is on a private one. A new network counts as public until the user answers the question about it
-(sloth_center.network_notify); the networks saved before this existed became private once, so sharing kept working
-(the same notification tells about it). Sharing can be turned off altogether (Sloth Center → Disks): then Samba
-and wsdd stop and stay stopped.
+Every network (NetworkManager connection) has a kind, as in Windows:
+  home           the folders open, and the computer is announced (Windows' Network window, Macs, Linux);
+  private        (a workplace) the folders open, but the computer is not announced: only who knows its name finds it;
+  public         (a café, a hotel, which use the same private addresses) the computer stays hidden, nothing opens;
+  public-shared  a public network on which the user allowed sharing (asked once, Sloth Center → Disks): the
+                 folders open as on a private network, without announcing the computer.
+A new network counts as public until the user answers the question about it (sloth_center.network_notify); the
+networks saved before this existed became home networks once, so sharing kept working (the same notification tells
+about it). Sharing can be turned off altogether (Sloth Center → Disks): then Samba and wsdd stop and stay stopped.
 
 groups:     at startup, before the login screen: make the usershares group visible to usermod.
 serve:      at startup, whenever the shared folders change (sloth-file-sharing.path) and when a network connects
             or disconnects (NetworkManager dispatcher.d/90-sloth-file-sharing). With something shared, sharing on
-            and the computer on a private network: a shared folder on another disk gets Samba's SELinux label
-            (samba_share_t), the firewall lets Samba in from the local network, wsdd starts (Windows' Network
-            window, over IPv4 only, see wsdd.service.d/sloth-ipv4.conf) and Avahi announces it (Macs, Linux).
+            and the computer on a network where the folders open: a shared folder on another disk gets Samba's
+            SELinux label (samba_share_t) and the firewall lets Samba in from the local network; on a home network
+            wsdd starts too (over IPv4 only, see wsdd.service.d/sloth-ipv4.conf) and Avahi announces the computer.
             Otherwise the firewall closes, wsdd stops and nothing is announced; Samba keeps running (only for
             Dolphin's Share tab) unless sharing is off. smb.conf exports no other folders. Each account's shares
             and whether it has a Samba password go into STATUS/<uid>.json (readable by that account only); sharing
-            on or off and the networks (name, private or public, connected) into STATUS/state.json, for Sloth
-            Center and the network question.
-kind <uuid> private|public: a saved network is private or public (sloth-helper-network, no password).
+            on or off and the networks (name, kind, connected) into STATUS/state.json, for Sloth Center and the
+            network question.
+kind <uuid> <kind>: a saved network's kind (sloth-helper-network, no password).
 enable on|off: turns sharing on or off (sloth-helper sharing).
 """
 import json
@@ -43,7 +46,7 @@ CONFIG = "/etc/sloth-os/sharing.json"
 AVAHI_SERVICE = "/etc/avahi/services/sloth-file-sharing.service"
 AVAHI_XML = """<?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-<!-- Sloth OS: written only while a folder is shared on a private network (/usr/libexec/sloth-os/file-sharing) -->
+<!-- Sloth OS: written only while a folder is shared on a home network (/usr/libexec/sloth-os/file-sharing) -->
 <service-group>
   <name replace-wildcards="yes">%h</name>
   <service>
@@ -54,7 +57,9 @@ AVAHI_XML = """<?xml version="1.0" standalone='no'?>
 """
 # NetworkManager connection types that are a network to share on (not VPNs, bridges of virtual machines, loopback)
 NETWORK_TYPES = ("802-3-ethernet", "802-11-wireless")
-KINDS = ("private", "public")
+KINDS = ("home", "private", "public", "public-shared")
+# the kinds on which shared folders open; only a home network announces the computer too
+OPEN_KINDS = ("home", "private", "public-shared")
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
 
@@ -68,7 +73,7 @@ def _write(path, text, mode=0o644):
 
 
 def read_config():
-    """{"enabled": bool, "networks": {connection UUID: "private" | "public"}, "defaulted": [UUID, ...] or None};
+    """{"enabled": bool, "networks": {connection UUID: kind}, "defaulted": [UUID, ...] or None, "version": 2};
     sharing is on until it is turned off. "defaulted" is None until the saved networks got their default kind."""
     try:
         with open(CONFIG, encoding="utf-8") as f:
@@ -77,15 +82,21 @@ def read_config():
         cfg = {}
     cfg = cfg if isinstance(cfg, dict) else {}
     networks = cfg.get("networks")
+    networks = {k: v for k, v in networks.items() if isinstance(k, str) and v in KINDS} \
+        if isinstance(networks, dict) else {}
     defaulted = cfg.get("defaulted")
-    return {"enabled": cfg.get("enabled") is not False,
-            "networks": {k: v for k, v in networks.items() if isinstance(k, str) and v in KINDS}
-                        if isinstance(networks, dict) else {},
-            "defaulted": [u for u in defaulted if isinstance(u, str)] if isinstance(defaulted, list) else None}
+    defaulted = [u for u in defaulted if isinstance(u, str)] if isinstance(defaulted, list) else None
+    # the test image of 2026-11-02 knew only private (then: announced) and public: what it made private by itself is
+    # a home network now (default_kinds saves it)
+    old = defaulted is not None and cfg.get("version") != 2
+    if old:
+        networks.update({u: "home" for u in defaulted if networks.get(u) == "private"})
+    return {"enabled": cfg.get("enabled") is not False, "networks": networks, "defaulted": defaulted, "version": 2,
+            "old": old}
 
 
 def write_config(cfg):
-    _write(CONFIG, json.dumps(cfg, indent=2) + "\n")
+    _write(CONFIG, json.dumps({k: v for k, v in cfg.items() if k != "old"}, indent=2) + "\n")
 
 
 def _fields(line):
@@ -109,13 +120,15 @@ def connections(active):
 
 
 def default_kinds(cfg):
-    """Once: the networks saved before private and public networks existed become private, so the folders shared on
-    them stay reachable; which ones, is kept for the notification that tells about it."""
+    """Once: the networks saved before network kinds existed become home networks, so the folders shared on them
+    stay reachable as before; which ones, is kept for the notification that tells about it."""
     if cfg["defaulted"] is not None:
+        if cfg["old"]:
+            write_config(cfg)
         return
     saved = connections(active=False)
     for uuid in saved:
-        cfg["networks"].setdefault(uuid, "private")
+        cfg["networks"].setdefault(uuid, "home")
     cfg["defaulted"] = list(saved)
     write_config(cfg)
 
@@ -257,10 +270,12 @@ def label(path, uid):
     subprocess.run(["restorecon", "-R", path], capture_output=True)
 
 
-def firewall(action):
-    # runtime only: the next startup asks again, and only if something is still shared
+def firewall(services):
+    """Only these services are let in from the local network (none: closed). Runtime only: the next startup asks
+    again, and only if something is still shared."""
     for family, net in LOCAL:
         for service in ("samba", "wsdd", "wsdd-http"):
+            action = "add" if service in services else "remove"
             subprocess.run(["firewall-cmd", f"--{action}-rich-rule=rule family={family} source address={net} "
                             f"service name={service} accept"], capture_output=True)
 
@@ -282,26 +297,33 @@ def serve():
     shares = read_shares()
     active = connections(active=True)
     saved = connections(active=False)
-    private = any(cfg["networks"].get(uuid) == "private" for uuid in active)
-    reachable = cfg["enabled"] and bool(shares) and private
-    # kind: "private", "public" or "" (not asked yet: it counts as public)
+    kinds = {cfg["networks"].get(uuid, "") for uuid in active}
+    reachable = cfg["enabled"] and bool(shares) and bool(kinds & set(OPEN_KINDS))
+    visible = reachable and "home" in kinds
+    # kind: one of KINDS or "" (not asked yet: it counts as public)
     networks = [{"uuid": uuid, "name": name, "kind": cfg["networks"].get(uuid, ""), "connected": uuid in active}
                 for uuid, name in saved.items()]
-    write_status(shares, {"enabled": cfg["enabled"], "reachable": reachable, "networks": networks,
-                          "defaulted": [saved[u] for u in cfg["defaulted"] if u in saved]})
+    write_status(shares, {"enabled": cfg["enabled"], "reachable": reachable, "visible": visible,
+                          "networks": networks, "defaulted": [saved[u] for u in cfg["defaulted"] if u in saved]})
     if not reachable:
         announce(False)
         subprocess.run(["systemctl", "stop", "wsdd.service"], check=False)
-        firewall("remove")
+        firewall(())
         if not cfg["enabled"]:
             subprocess.run(["systemctl", "stop", "smb.service"], check=False)
         return
     for share in shares:
         label(share["path"], share["uid"])
     subprocess.run(["setsebool", "samba_enable_home_dirs=1"], capture_output=True)
-    firewall("add")
-    subprocess.run(["systemctl", "start", "smb.service", "wsdd.service"], check=False)
-    announce(True)
+    subprocess.run(["systemctl", "start", "smb.service"], check=False)
+    if visible:
+        firewall(("samba", "wsdd", "wsdd-http"))
+        subprocess.run(["systemctl", "start", "wsdd.service"], check=False)
+    else:
+        # private or allowed public network: the folders open, but the computer does not announce itself
+        firewall(("samba",))
+        subprocess.run(["systemctl", "stop", "wsdd.service"], check=False)
+    announce(visible)
 
 
 if __name__ == "__main__":
@@ -318,4 +340,4 @@ if __name__ == "__main__":
         enable(mode[1] == "on")
         serve()
     else:
-        sys.exit("usage: file-sharing groups|serve|kind <uuid> private|public|enable on|off")
+        sys.exit("usage: file-sharing groups|serve|kind <uuid> home|private|public|public-shared|enable on|off")

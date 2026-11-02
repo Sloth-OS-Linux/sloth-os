@@ -15,6 +15,14 @@ Kirigami.ScrollablePage {
                                           cache: "#fdbc4b", system: "#7f8c8d" })
     readonly property int keptVersions: updates.versions.filter(v => v.pinned && !v.booted).length
 
+    // Sharing on a public network asks first (publicNetworkDialog); thenAdd: the folder is chosen right after
+    function askPublic(uuid, name, thenAdd) {
+        publicNetworkDialog.uuid = uuid
+        publicNetworkDialog.name = name
+        publicNetworkDialog.thenAdd = thenAdd
+        publicNetworkDialog.open()
+    }
+
     Component.onCompleted: {
         if (!disks.usage.items) disks.measure()
         if (!netfolders.searched) netfolders.search()
@@ -377,7 +385,13 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     visible: sharing.enabled && sharing.onPublic && sharing.shares.length > 0
                     type: Kirigami.MessageType.Information
-                    text: L.t("You're on a public network, so other computers can't see this computer or open your shared folders now. They can again on a private network.")
+                    text: L.t("You're on a public network, so your shared folders are closed here.")
+                    actions: Kirigami.Action {
+                        text: L.t("Share on this network too")
+                        icon.name: "folder-remote"
+                        enabled: !sharing.busy
+                        onTriggered: page.askPublic(sharing.publicNetwork.uuid, sharing.publicNetwork.name, false)
+                    }
                 }
 
                 // The folders shared now
@@ -424,8 +438,9 @@ Kirigami.ScrollablePage {
                     enabled: !sharing.busy
                     icon.name: "list-add"
                     text: L.t("Add a share")
-                    // on a public network it says so first (publicNetworkDialog)
-                    onClicked: sharing.onPublic ? publicNetworkDialog.open() : shareDialog.open()
+                    // on a public network it asks first (publicNetworkDialog)
+                    onClicked: sharing.onPublic ? page.askPublic(sharing.publicNetwork.uuid, sharing.publicNetwork.name, true)
+                                                : shareDialog.open()
                 }
                 Kirigami.InlineMessage {
                     Layout.fillWidth: true
@@ -434,7 +449,7 @@ Kirigami.ScrollablePage {
                     text: sharing.message
                 }
 
-                // Private or public networks (as in Windows): the folders open only on private ones
+                // Home, private or public networks (as in Windows; file-sharing)
                 ColumnLayout {
                     Layout.fillWidth: true
                     visible: sharing.enabled && sharing.networks.length > 0
@@ -444,7 +459,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: L.t("Folders are shared only on private networks, like your home. On a public network (a café, a hotel), this computer stays hidden.")
+                        text: L.t("At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.")
                     }
                     Repeater {
                         model: sharing.networks
@@ -466,13 +481,20 @@ Kirigami.ScrollablePage {
                                       ? L.tf("{name} (connected)", { name: networkRow.modelData.name })
                                       : networkRow.modelData.name
                             }
-                            // not asked yet ("") counts as public
+                            // not asked yet ("") counts as public; allowing sharing on a public one asks first
                             QQC2.ComboBox {
+                                readonly property var kinds: ["home", "private", "public", "public-shared"]
                                 enabled: !sharing.busy
-                                model: [L.t("Private"), L.t("Public")]
-                                currentIndex: networkRow.modelData.kind === "private" ? 0 : 1
-                                onActivated: index => sharing.setNetworkKind(networkRow.modelData.uuid,
-                                                                             index === 0 ? "private" : "public")
+                                model: [L.t("Home"), L.t("Private"), L.t("Public"), L.t("Public, sharing allowed")]
+                                currentIndex: Math.max(0, kinds.indexOf(networkRow.modelData.kind || "public"))
+                                onActivated: index => {
+                                    if (kinds[index] === "public-shared")
+                                        page.askPublic(networkRow.modelData.uuid, networkRow.modelData.name, false)
+                                    else
+                                        sharing.setNetworkKind(networkRow.modelData.uuid, kinds[index])
+                                    // shows the stored kind until it really changes (the question may be cancelled)
+                                    currentIndex = Qt.binding(() => Math.max(0, kinds.indexOf(networkRow.modelData.kind || "public")))
+                                }
                             }
                         }
                     }
@@ -480,11 +502,16 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // Sharing on a public network: asked once per network, and it says that it is remembered and where to change it
         Kirigami.PromptDialog {
             id: publicNetworkDialog
+            property string uuid: ""
+            property string name: ""
+            property bool thenAdd: false   // opened by "Add a share": the folder is chosen next
             title: L.t("You're on a public network")
-            subtitle: L.tf("{name} is a public network, for example in a café or a hotel. If you share a folder here, everyone on this network can see this computer and try to open the folder. This network will count as private from now on.",
-                           { name: sharing.currentNetwork })
+            subtitle: L.tf("{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.",
+                           { name: publicNetworkDialog.name,
+                             where: L.t("Sloth Center") + " → " + L.t("Disks") + " → " + L.t("Networks") })
             standardButtons: Kirigami.Dialog.NoButton
             customFooterActions: [
                 Kirigami.Action {
@@ -492,8 +519,9 @@ Kirigami.ScrollablePage {
                     icon.name: "folder-remote"
                     onTriggered: {
                         publicNetworkDialog.close()
-                        sharing.makeCurrentPrivate()
-                        shareDialog.open()
+                        sharing.setNetworkKind(publicNetworkDialog.uuid, "public-shared")
+                        if (publicNetworkDialog.thenAdd)
+                            shareDialog.open()
                     }
                 },
                 Kirigami.Action {
