@@ -5,6 +5,41 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Test plan for 2026-11-03 (test branch, after the evening builds of 2026-11-02)
+Setup: a VM program on the gaming PC (GNOME Boxes as a Flatpak was suggested) and a test ISO built from the
+`test/chunked-oci` image (CI `iso` workflow). The HP follows the test branch, so the desktop items can be tried there
+too.
+
+Installer (new ISO needed):
+- [ ] The search field in the language, keyboard and time zone lists ("buda" → Europe / Budapest)
+- [ ] English language with a Hungarian keyboard (the keyboard list on the 2nd step)
+- [ ] Encrypted install: at boot, below the password line, "Írd be a lemez jelszavát, majd nyomj Entert" (in the
+      installer's language); without encryption nothing changes
+- [ ] Windows + Sloth OS next to it, then install again: "Next to Windows" is offered, the notice says the earlier
+      Sloth OS is replaced, Windows still starts, and the firmware boot list has one "Sloth OS"
+- [ ] Advanced: "Advanced: choose the partitions yourself…" → open KDE Partition Manager from the page, make a
+      partition, back in the installer the list refreshes; choose system + EFI partition, install, it starts; the
+      other partitions (and a Windows on the disk) are untouched
+- [ ] The installer stays alive to the end in all three ways (the old /var/tmp crash must not come back)
+
+Desktop (Sloth Center → Appearance, each layout once):
+- [ ] Ubuntu-like: Show Apps with the small live picture of the desktop (live window pictures, not only icons);
+      a click on a window goes back to it
+- [ ] Mac-like: Launchpad grows out of the dock button and shrinks back
+- [ ] An existing Mac-/Ubuntu-like desktop gets the app grid by itself at the next sign-in
+- [ ] "Full-screen app grid in the dock" off and on again (Ubuntu-like: the Start menu with large icons comes back)
+- [ ] Windows 7, ChromeOS-like and Floating layouts look right; the right card is highlighted after reopening
+      Sloth Center
+- [ ] ChromeOS-like: the launcher bubble (search, recent apps, all apps); the quick settings pill and its bubble
+      (Wi-Fi, Bluetooth, do not disturb, airplane mode, power saver, volume, brightness, Settings, Screenshot,
+      Lock, Shut down); the tray does not show the network and sound icons twice
+- [ ] The six new color schemes (Ocean Blue, Forest Green, Sunset Orange, Grape Purple, Rose, Amber)
+
+Sharing:
+- [ ] The computer shows up by name (not an IPv6 address) in another computer's Network view
+- [ ] Tab in the sharing password (Disks → Share a folder) and the domain password goes to the next field, not
+      to the show-password button
+
 ### Sloth OS 1.3
 - [x] Folder sharing on the home network (Dolphin → Share, Sloth Center → Disks), AD groups, the highlight color on
   the title bars, Chinese/Japanese/Korean typing; tried in a VM 2026-11-01, SMB works
