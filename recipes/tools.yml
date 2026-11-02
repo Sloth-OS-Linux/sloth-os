@@ -49,12 +49,16 @@ modules:
         # sharing a folder on the home network from Dolphin (Properties → Share): the group, then Samba when needed
         - sloth-file-sharing-groups.service
         - sloth-file-sharing.path
+        - sloth-file-sharing.service  # at startup, if something is still shared
     user:
       enabled:
         - sloth-github-bundle-update.timer   # daily update of the apps installed as GitHub packages (e.g. ArtCraft)
         # a notification when a system update was prepared in the background (it installs at the next restart)
         - sloth-update-notify.path
         - sloth-update-notify.service
+        # the question at a new network, as in Windows: private (shared folders open) or public (hidden)
+        - sloth-network-notify.path
+        - sloth-network-notify.service
         # the Windows programs' taskbar balloons next to the taskbar (not in the top left corner of the screen)
         - sloth-wine-balloons.service
         # disc images (.iso) opened with a double-click are ejected at sign-out

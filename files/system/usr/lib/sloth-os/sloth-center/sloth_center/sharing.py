@@ -5,6 +5,10 @@ Turning it on always asks for the administrator password (org.slothos.helper.sha
 everything (sloth-helper share-add): the usershares group, the Samba password and
 the share; no new sign-in is needed. /usr/libexec/sloth-os/file-sharing then starts Samba for the local network only
 and writes the account's shares into /run/sloth-os/sharing/<uid>.json, which this page reads.
+
+The folders open only on private networks (as in Windows): the networks, private or public, and whether sharing is
+on at all are in /run/sloth-os/sharing/state.json. Whether a network is private or public needs no password
+(org.slothos.helper.network); turning sharing on or off does (org.slothos.helper.sharing).
 """
 import json
 import grp
@@ -24,7 +28,9 @@ from .i18n import tr
 log = logging.getLogger("sloth-center.sharing")
 
 HELPER = "/usr/libexec/sloth-os/sloth-helper-sharing"
+NETWORK_HELPER = "/usr/libexec/sloth-os/sloth-helper-network"
 STATUS = Path("/run/sloth-os/sharing") / f"{os.getuid()}.json"
+STATE = Path("/run/sloth-os/sharing/state.json")
 HOME_PREFIXES = ("/var/home/", "/home/")
 
 
@@ -34,6 +40,20 @@ def read_status():
         return list(data.get("shares", [])), bool(data.get("password"))
     except (OSError, ValueError):
         return [], False
+
+
+def read_state():
+    """{"enabled", "reachable", "networks": [{uuid, name, kind, connected}]}; sharing is on if nothing says so."""
+    try:
+        data = json.loads(STATE.read_text())
+    except (OSError, ValueError):
+        data = {}
+    data = data if isinstance(data, dict) else {}
+    networks = [n for n in data.get("networks", []) if isinstance(n, dict) and n.get("uuid")]
+    # the connected ones first, then by name
+    networks.sort(key=lambda n: (not n.get("connected"), str(n.get("name", "")).casefold()))
+    return {"enabled": data.get("enabled") is not False, "reachable": bool(data.get("reachable")),
+            "networks": networks}
 
 
 def local_groups():
@@ -61,6 +81,7 @@ class SharingController(QObject):
     def __init__(self, parent=None):
         super().__init__(parent)
         self._shares, self._password = read_status()
+        self._state = read_state()
         self._busy = False
         self._message = ""
         self._problem = False
@@ -74,6 +95,16 @@ class SharingController(QObject):
     message = Property(str, lambda self: self._message, notify=changed)
     problem = Property(bool, lambda self: self._problem, notify=changed)
     user = Property(str, lambda self: os.environ.get("USER") or os.getlogin(), constant=True)
+    enabled = Property(bool, lambda self: self._state["enabled"], notify=changed)
+    networks = Property("QVariantList", lambda self: self._state["networks"], notify=changed)
+
+    def _connected(self):
+        return [n for n in self._state["networks"] if n.get("connected")]
+
+    # on a network now, and none of them is private: shared folders are closed, a new share asks first
+    onPublic = Property(bool, lambda self: bool(self._connected())
+                        and not any(n.get("kind") == "private" for n in self._connected()), notify=changed)
+    currentNetwork = Property(str, lambda self: ", ".join(n["name"] for n in self._connected()), notify=changed)
 
     @Slot(str, result=str)
     def address(self, name):
@@ -81,8 +112,28 @@ class SharingController(QObject):
 
     @Slot()
     def refresh(self):
-        self._shares, self._password = read_status()
-        self.changed.emit()
+        # only when something changed: the page asks every few seconds, and rebuilding the lists would close an
+        # open network menu
+        new = read_status(), read_state()
+        if new != ((self._shares, self._password), self._state):
+            (self._shares, self._password), self._state = new
+            self.changed.emit()
+
+    @Slot(bool)
+    def setEnabled(self, on):
+        if on != self._state["enabled"]:
+            self._run(["sharing", "on" if on else "off"], None, error=tr("Couldn't change folder sharing."))
+
+    @Slot(str, str)
+    def setNetworkKind(self, uuid, kind):
+        self._run(["network-kind", uuid, kind], None, helper=NETWORK_HELPER, error=tr("Couldn't change the network."))
+
+    @Slot()
+    def makeCurrentPrivate(self):
+        """Share anyway on a public network: the network the computer is on now counts as private from now on."""
+        for n in self._connected():
+            self.setNetworkKind(n["uuid"], "private")
+            break
 
     @Slot(str, bool, bool, str, "QVariantList")
     def addShare(self, folder_url, write, guests, password, groups):
@@ -105,15 +156,16 @@ class SharingController(QObject):
     def removeShare(self, name):
         self._run(["share-remove", name], None)
 
-    def _run(self, args, stdin):
+    def _run(self, args, stdin, helper=HELPER, error=None):
         if self._busy:
             return
         self._busy, self._message = True, ""
         self.changed.emit()
+        failed = error or tr("Couldn't share the folder.")
 
         def work():
             try:
-                r = subprocess.run(["pkexec", HELPER, *args], input=stdin, capture_output=True, text=True,
+                r = subprocess.run(["pkexec", helper, *args], input=stdin, capture_output=True, text=True,
                                    timeout=300)
                 result = json.loads(r.stdout.strip().splitlines()[-1]) if r.stdout.strip() else {}
             except (OSError, ValueError, IndexError, subprocess.TimeoutExpired) as e:
@@ -131,13 +183,14 @@ class SharingController(QObject):
             elif error == "password needed":
                 self._done.emit(False, tr("Set a password for other computers first."))
             else:
-                self._done.emit(False, tr("Couldn't share the folder."))
+                self._done.emit(False, failed)
 
         threading.Thread(target=work, daemon=True).start()
 
     def _on_done(self, ok, message):
         self._busy = False
         self._shares, self._password = read_status()
+        self._state = read_state()
         self._report(ok, message)
 
     def _report(self, ok, message):

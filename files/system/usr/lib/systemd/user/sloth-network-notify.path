@@ -1,0 +1,10 @@
+[Unit]
+Description=Sloth OS: watching for a new network (private or public?)
+
+[Path]
+# file-sharing writes this when a network connects or disconnects (and when shares change)
+PathChanged=/run/sloth-os/sharing/state.json
+Unit=sloth-network-notify.service
+
+[Install]
+WantedBy=default.target

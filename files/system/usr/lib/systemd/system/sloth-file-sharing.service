@@ -5,3 +5,7 @@ After=network.target firewalld.service
 [Service]
 Type=oneshot
 ExecStart=-/usr/libexec/sloth-os/file-sharing serve
+
+[Install]
+# at startup: the firewall rules are runtime only, so they are opened again if something is still shared
+WantedBy=multi-user.target

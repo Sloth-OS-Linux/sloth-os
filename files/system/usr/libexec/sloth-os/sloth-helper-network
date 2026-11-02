@@ -1,0 +1,9 @@
+#!/usr/bin/python3 -I
+"""sloth-helper's private or public network (network-kind) with a separate polkit action (org.slothos.helper.network):
+it needs no password for the person at the computer, like Wi-Fi settings, because the question comes at every new
+network (sloth_center.network_notify, Sloth Center → Disks)."""
+import runpy
+
+# The name goes in as a global: runpy.run_path sets sys.argv[0] to the path it runs, so a name put there is lost
+runpy.run_path("/usr/libexec/sloth-os/sloth-helper", init_globals={"HELPER_NAME": "sloth-helper-network"},
+               run_name="__main__")

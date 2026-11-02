@@ -2,8 +2,9 @@
 Description=Sloth OS: folder sharing, watching the shared folders (Dolphin → Share)
 
 [Path]
-# at startup if something is shared, then at every new or removed share
-DirectoryNotEmpty=/var/lib/samba/usershares
+# at every new or removed share; at startup sloth-file-sharing.service runs by itself (its own [Install])
+# Not DirectoryNotEmpty=: that starts the service again and again while something is shared, the service hits its
+# start limit within seconds and the path unit stops watching (then Dolphin → Stop sharing was never noticed)
 PathChanged=/var/lib/samba/usershares
 
 [Install]

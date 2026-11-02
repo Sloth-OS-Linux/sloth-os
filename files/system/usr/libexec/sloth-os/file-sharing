@@ -2,17 +2,30 @@
 """Sharing a folder on the home network (Dolphin → Properties → Share), without a terminal.
 
 The usershares group lets Dolphin create share definitions, not access files. At startup, before the login screen,
-the group is copied into /etc/group and human accounts are added so Dolphin can share without a separate setup step.
+the group is copied into /etc/group, so usermod can add an account to it (Sloth Center, or Dolphin's own prompt).
 Samba can read only home folders and folders that are actually shared (not the whole system), and only the local
 network can connect (never the internet, not even over IPv6).
 
-groups: at startup, before the login screen: make the usershares group visible to usermod, then add human accounts.
-serve:  whenever the shared folders change (sloth-file-sharing.path): a shared folder on another disk gets Samba's
-        SELinux label (samba_share_t), the firewall lets Samba in from the local network and wsdd starts, so the
-        computer shows up in Windows' Network window (over IPv4 only, see wsdd.service.d/sloth-ipv4.conf). Samba
-        stays ready for Dolphin's Share tab; when nothing is shared, the firewall closes and wsdd stops. smb.conf
-        exports no other folders. Each account's shares and whether it has a Samba password go into
-        STATUS/<uid>.json (readable by that account only), for Sloth Center.
+Only on private networks, as in Windows: every network (NetworkManager connection) is private (a home, a
+workplace you trust) or public (a café, a hotel, which use the same private addresses); the folders open only while
+the computer is on a private one. A new network counts as public until the user answers the question about it
+(sloth_center.network_notify); the networks saved before this existed became private once, so sharing kept working
+(the same notification tells about it). Sharing can be turned off altogether (Sloth Center → Disks): then Samba
+and wsdd stop and stay stopped.
+
+groups:     at startup, before the login screen: make the usershares group visible to usermod.
+serve:      at startup, whenever the shared folders change (sloth-file-sharing.path) and when a network connects
+            or disconnects (NetworkManager dispatcher.d/90-sloth-file-sharing). With something shared, sharing on
+            and the computer on a private network: a shared folder on another disk gets Samba's SELinux label
+            (samba_share_t), the firewall lets Samba in from the local network, wsdd starts (Windows' Network
+            window, over IPv4 only, see wsdd.service.d/sloth-ipv4.conf) and Avahi announces it (Macs, Linux).
+            Otherwise the firewall closes, wsdd stops and nothing is announced; Samba keeps running (only for
+            Dolphin's Share tab) unless sharing is off. smb.conf exports no other folders. Each account's shares
+            and whether it has a Samba password go into STATUS/<uid>.json (readable by that account only); sharing
+            on or off and the networks (name, private or public, connected) into STATUS/state.json, for Sloth
+            Center and the network question.
+kind <uuid> private|public: a saved network is private or public (sloth-helper-network, no password).
+enable on|off: turns sharing on or off (sloth-helper sharing).
 """
 import json
 import grp
@@ -20,10 +33,108 @@ import os
 import re
 import subprocess
 import sys
+import tempfile
 
 GROUP = "usershares"
 SHARES = "/var/lib/samba/usershares"
 STATUS = "/run/sloth-os/sharing"
+CONFIG = "/etc/sloth-os/sharing.json"
+# Avahi announces the computer to Macs and Linux only from this file (smb.conf: multicast dns register = no)
+AVAHI_SERVICE = "/etc/avahi/services/sloth-file-sharing.service"
+AVAHI_XML = """<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<!-- Sloth OS: written only while a folder is shared on a private network (/usr/libexec/sloth-os/file-sharing) -->
+<service-group>
+  <name replace-wildcards="yes">%h</name>
+  <service>
+    <type>_smb._tcp</type>
+    <port>445</port>
+  </service>
+</service-group>
+"""
+# NetworkManager connection types that are a network to share on (not VPNs, bridges of virtual machines, loopback)
+NETWORK_TYPES = ("802-3-ethernet", "802-11-wireless")
+KINDS = ("private", "public")
+UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
+
+
+def _write(path, text, mode=0o644):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    fd, tmp = tempfile.mkstemp(dir=os.path.dirname(path))
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        f.write(text)
+    os.chmod(tmp, mode)
+    os.replace(tmp, path)
+
+
+def read_config():
+    """{"enabled": bool, "networks": {connection UUID: "private" | "public"}, "defaulted": [UUID, ...] or None};
+    sharing is on until it is turned off. "defaulted" is None until the saved networks got their default kind."""
+    try:
+        with open(CONFIG, encoding="utf-8") as f:
+            cfg = json.load(f)
+    except (OSError, ValueError):
+        cfg = {}
+    cfg = cfg if isinstance(cfg, dict) else {}
+    networks = cfg.get("networks")
+    defaulted = cfg.get("defaulted")
+    return {"enabled": cfg.get("enabled") is not False,
+            "networks": {k: v for k, v in networks.items() if isinstance(k, str) and v in KINDS}
+                        if isinstance(networks, dict) else {},
+            "defaulted": [u for u in defaulted if isinstance(u, str)] if isinstance(defaulted, list) else None}
+
+
+def write_config(cfg):
+    _write(CONFIG, json.dumps(cfg, indent=2) + "\n")
+
+
+def _fields(line):
+    """nmcli -t fields: separated by ":", a ":" inside a value (e.g. in a network name) is written as "\\:"."""
+    return [f.replace("\\:", ":").replace("\\\\", "\\") for f in re.split(r"(?<!\\):", line)]
+
+
+def connections(active):
+    """NetworkManager's Ethernet and Wi-Fi connections: {uuid: name}, the active ones only or all saved ones."""
+    cmd = ["nmcli", "-e", "yes", "-t", "-f", "UUID,TYPE,NAME", "connection", "show"] + (["--active"] if active else [])
+    try:
+        out = subprocess.run(cmd, capture_output=True, text=True, timeout=20).stdout
+    except (OSError, subprocess.SubprocessError):
+        return {}
+    result = {}
+    for line in out.splitlines():
+        fields = _fields(line)
+        if len(fields) >= 3 and fields[1] in NETWORK_TYPES:
+            result[fields[0]] = ":".join(fields[2:])
+    return result
+
+
+def default_kinds(cfg):
+    """Once: the networks saved before private and public networks existed become private, so the folders shared on
+    them stay reachable; which ones, is kept for the notification that tells about it."""
+    if cfg["defaulted"] is not None:
+        return
+    saved = connections(active=False)
+    for uuid in saved:
+        cfg["networks"].setdefault(uuid, "private")
+    cfg["defaulted"] = list(saved)
+    write_config(cfg)
+
+
+def set_kind(uuid, kind):
+    if uuid not in connections(active=False):
+        return False
+    cfg = read_config()
+    cfg["networks"][uuid] = kind
+    write_config(cfg)
+    return True
+
+
+def enable(on):
+    cfg = read_config()
+    cfg["enabled"] = on
+    write_config(cfg)
+    # off: Samba stops and does not start again at startup either; on: it runs again (for Dolphin's Share tab)
+    subprocess.run(["systemctl", "enable" if on else "disable", "--now", "smb.service"], capture_output=True)
 
 
 def ensure_group():
@@ -100,8 +211,9 @@ def read_shares():
     return shares
 
 
-def write_status(shares):
-    """For Sloth Center: each account's shares and whether it has a Samba password."""
+def write_status(shares, state):
+    """For Sloth Center: each account's shares and whether it has a Samba password; the shared state (sharing on,
+    the home networks' names, whether the computer is on one now) for everyone."""
     with_password = set()
     r = subprocess.run(["pdbedit", "-L"], capture_output=True, text=True)
     for line in r.stdout.splitlines():
@@ -122,6 +234,7 @@ def write_status(shares):
         os.chown(tmp, uid, -1)
         os.chmod(tmp, 0o600)
         os.replace(tmp, path)
+    _write(os.path.join(STATUS, "state.json"), json.dumps(state))
 
 
 def label(path, uid):
@@ -152,25 +265,57 @@ def firewall(action):
                             f"service name={service} accept"], capture_output=True)
 
 
+def announce(on):
+    """Avahi's announcement for Macs and Linux (Avahi notices the file by itself)."""
+    if on:
+        _write(AVAHI_SERVICE, AVAHI_XML)
+    else:
+        try:
+            os.unlink(AVAHI_SERVICE)
+        except FileNotFoundError:
+            pass
+
+
 def serve():
+    cfg = read_config()
+    default_kinds(cfg)
     shares = read_shares()
-    write_status(shares)
-    if not shares:
+    active = connections(active=True)
+    saved = connections(active=False)
+    private = any(cfg["networks"].get(uuid) == "private" for uuid in active)
+    reachable = cfg["enabled"] and bool(shares) and private
+    # kind: "private", "public" or "" (not asked yet: it counts as public)
+    networks = [{"uuid": uuid, "name": name, "kind": cfg["networks"].get(uuid, ""), "connected": uuid in active}
+                for uuid, name in saved.items()]
+    write_status(shares, {"enabled": cfg["enabled"], "reachable": reachable, "networks": networks,
+                          "defaulted": [saved[u] for u in cfg["defaulted"] if u in saved]})
+    if not reachable:
+        announce(False)
         subprocess.run(["systemctl", "stop", "wsdd.service"], check=False)
         firewall("remove")
+        if not cfg["enabled"]:
+            subprocess.run(["systemctl", "stop", "smb.service"], check=False)
         return
     for share in shares:
         label(share["path"], share["uid"])
     subprocess.run(["setsebool", "samba_enable_home_dirs=1"], capture_output=True)
     firewall("add")
     subprocess.run(["systemctl", "start", "smb.service", "wsdd.service"], check=False)
+    announce(True)
 
 
 if __name__ == "__main__":
-    mode = sys.argv[1] if len(sys.argv) > 1 else ""
-    if mode == "groups":
+    mode = sys.argv[1:]
+    if mode == ["groups"]:
         ensure_group()
-    elif mode == "serve":
+    elif mode == ["serve"]:
+        serve()
+    elif len(mode) == 3 and mode[0] == "kind" and UUID_RE.match(mode[1]) and mode[2] in KINDS:
+        if not set_kind(mode[1], mode[2]):
+            sys.exit("unknown network")
+        serve()
+    elif mode in (["enable", "on"], ["enable", "off"]):
+        enable(mode[1] == "on")
         serve()
     else:
-        sys.exit("usage: file-sharing groups|serve")
+        sys.exit("usage: file-sharing groups|serve|kind <uuid> private|public|enable on|off")

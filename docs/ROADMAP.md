@@ -11,6 +11,15 @@ from a terminal must also work from a GUI.
 - [x] The computer showed up under an IPv6 address instead of its name in the Network view: wsdd announces over IPv4
   only (`wsdd.service.d/sloth-ipv4.conf`)
 - [x] `main` fast-forwarded to `test/chunked-oci`, the version is 1.3 (`files/scripts/branding.sh`)
+- [ ] Folder sharing, safer (2026-11-02, to try on the HP): stopping a share in Dolphin was never noticed
+  (`sloth-file-sharing.path` had `DirectoryNotEmpty=`, which restarted the service until it hit its start limit and
+  the watch stopped: the firewall stayed open, wsdd kept announcing; reproduced in a systemd container). Private and
+  public networks as in Windows: a new network is asked about (`sloth_center.network_notify`, no password), the
+  folders open and the computer is announced (wsdd, Avahi; Samba's own mDNS is off) only on private networks; the
+  networks saved before became private once, with a notification. Sloth Center → Disks: a switch for folder sharing
+  (off: Samba stops and stays stopped), the networks with private/public, a warning before sharing on a public one.
+  Still open: a guest share ("without a password") of a folder in the home folder probably cannot be opened (the
+  home folder is 0700 and the guest is `nobody`); after the first share, Dolphin shares without the password
 
 ### Next: Sloth OS 1.2.1 (to do, in order)
 1. [x] **An official torrent next to the ISO** (Reddit, 2026-10-29: SourceForge is slow), made at home with the

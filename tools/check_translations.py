@@ -23,6 +23,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 WELCOME = REPO / "files/system/usr/lib/sloth-os/sloth-welcome/sloth_welcome"
 APPEARANCE = REPO / "files/system/usr/lib/sloth-os/common/sloth_common/appearance.py"
+WINDOWS_IMPORT = REPO / "files/system/usr/lib/sloth-os/common/sloth_common/windows_import.py"
 INSTALLER = REPO / "iso/files/usr/lib/sloth-os/sloth-installer/sloth_installer"
 INSTALL_HELPER = REPO / "iso/files/usr/libexec/sloth-os/sloth-install-helper"
 EXE = REPO / "files/system/usr/lib/sloth-os/sloth-exe/sloth_exe"
@@ -64,13 +65,19 @@ def welcome_keys():
     keys |= {f"scheme.{s['id']}" for s in literal(APPEARANCE, "COLOR_SCHEMES")}
     for kind in literal(APPEARANCE, "LAYOUTS"):
         keys |= {f"layout.{kind}.name", f"layout.{kind}.description"}
+    # Copying from Windows: the folders ("windows.folder." + key) and the states shown as text ("windows." + state)
+    keys |= {f"windows.folder.{f}" for f in literal(WINDOWS_IMPORT, "FOLDERS")}
+    keys |= {f"windows.{s}" for s in ("locked", "none", "failed")}
     return keys | DESKTOP_KEYS["sloth-welcome"]
 
 
 def installer_keys():
     """The installer's keys built at run time: stages (sent by the helper) and the disk contents."""
     stages = {stage for _keys, stage, _pct in literal(INSTALL_HELPER, "STAGES")}
+    stages |= set(re.findall(r'emit\(stage="(\w+)"', INSTALL_HELPER.read_text(encoding="utf-8")))
     keys = {f"stage.{s}" for s in stages | {"start", "verify", "partition", "shrink", "encrypt", "configure"}}
+    # What happens to the other disks ("disk.extra." + choice in the UI)
+    keys |= {f"disk.extra.{c}" for c in ("leave", "keep", "erase")}
     # Disk encryption: password problems (returned by the controller as keys)
     keys |= {f"disk.encrypt.{p}" for p in ("mismatch", "short", "short_same")}
     # Installing next to Windows: explanations of the obstacles (sent by the helper, combined by the UI)
