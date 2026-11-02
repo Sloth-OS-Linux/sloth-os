@@ -55,13 +55,22 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
-<summary><b>What's new in 1.3</b> (November 1, 2026)</summary>
+<summary><b>What's new in 1.3</b> (November 2, 2026)</summary>
 
 **Folder sharing on the home network:** share a folder from Sloth Center → Disks or Dolphin's Share tab, with or
 without a password, read-only or with changes allowed, also from another disk. The computer shows up by its name in
 Windows' Network window. Turning it on asks for the administrator password, only the local network can connect, and
 sharing switches itself off when nothing is shared. **At work**, on a computer joined to a domain, a shared folder
 can be opened to Active Directory groups.
+
+**Safer folder sharing (SMB):** like in Windows, every network has a kind. At home the computer shows up and your
+shared folders open; on a private network (a workplace) they open, but the computer does not announce itself; on a
+public network (a café, a hotel) it stays hidden. A new network is asked about once, without a password, and over a
+cable each router counts as its own network. Sharing on a public network is possible after a clear warning. Every
+share needs the administrator password, also one made in Dolphin, even if you turned the other password prompts
+off. A switch in Sloth Center → Disks turns sharing off altogether. Stopping a share in Dolphin now closes it
+everywhere, and a folder shared without a password opens from your home folder too, while the guest sees only that
+folder.
 
 **Typing and looks:** Chinese, Japanese and Korean typing works (fcitx5). Your own highlight color (8 suggestions or
 any color), on the window title bars too if you like. The boot logo stays in the middle with two screens.

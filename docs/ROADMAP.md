@@ -11,6 +11,29 @@ from a terminal must also work from a GUI.
 - [x] The computer showed up under an IPv6 address instead of its name in the Network view: wsdd announces over IPv4
   only (`wsdd.service.d/sloth-ipv4.conf`)
 - [x] `main` fast-forwarded to `test/chunked-oci`, the version is 1.3 (`files/scripts/branding.sh`)
+- [ ] Folder sharing, safer (2026-11-02, to try on the HP): stopping a share in Dolphin was never noticed
+  (`sloth-file-sharing.path` had `DirectoryNotEmpty=`, which restarted the service until it hit its start limit and
+  the watch stopped: the firewall stayed open, wsdd kept announcing; reproduced in a systemd container). Home,
+  private and public networks as in Windows: a new network is asked about (`sloth_center.network_notify`, no
+  password). Home: the folders open and the computer is announced (wsdd, Avahi; Samba's own mDNS is off); private
+  (a workplace): they open, not announced; public: hidden, unless the user allows sharing on it (asked once, it
+  says it is remembered and where to change it). The networks saved before became home networks once, with a
+  notification. Sloth Center → Disks: a switch for folder sharing (off: Samba stops and stays stopped), the
+  networks with their kind. Over a cable a network is its router (its MAC address), as in Windows: NetworkManager
+  uses one wired connection for every cable, so the cable at home and in a hotel were one network before.
+  Every share needs the password, also one made in Dolphin (the usershares group let Dolphin share without asking
+  after the first share): `file-sharing` moves a share file nobody allowed aside at once, a notification asks
+  ("Allow" asks for the password), and Sloth Center → Disks lists it as waiting; allowed shares are remembered by
+  the file's content, so a change made in Dolphin needs permission again. Allowing sharing on a public network
+  needs the password too; Account and security says that both always ask, whatever is chosen there. Tried with
+  real Samba in a Fedora 44 container.
+  A share without a password inside the home folder could not be opened (the home folder is 0700, the guest was
+  `nobody`: access denied, tried with smbclient). The guest is its own account now (`sloth-guest`,
+  sysusers.d/sloth-os-guest.conf; no other program runs as it), which may pass through the folders above the shared
+  folder (x only, it cannot list them) and read (or write) the shared folder, with ACLs that go away when the
+  share stops. Samba keeps it inside the share (links out of it do not open). Tried with smbclient.
+  Still open: a share made in Dolphin is reachable for a moment (until the path unit runs, under a second) if the
+  firewall is already open for another share
 
 ### Next: Sloth OS 1.2.1 (to do, in order)
 1. [x] **An official torrent next to the ISO** (Reddit, 2026-10-29: SourceForge is slow), made at home with the

@@ -1,0 +1,8 @@
+#!/bin/sh
+# Sloth OS: shared folders open only on the home network; when a network connects or disconnects, the firewall and
+# the announcement follow (Sloth Center -> Disks -> Share a folder, /usr/libexec/sloth-os/file-sharing)
+case "$2" in
+  # dhcp4-change: the cable now leads to another router (a wired network is its router)
+  up|down|dhcp4-change) exec systemctl start --no-block sloth-file-sharing.service ;;
+esac
+exit 0
