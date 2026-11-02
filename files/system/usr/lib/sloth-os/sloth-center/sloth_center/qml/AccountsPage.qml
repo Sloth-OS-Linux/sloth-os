@@ -4,6 +4,7 @@ import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import SlothCommon
 
 Kirigami.ScrollablePage {
     id: page
@@ -208,7 +209,7 @@ Kirigami.ScrollablePage {
                         Kirigami.FormData.label: L.t("Username:")
                         placeholderText: L.t("an account allowed to join")
                     }
-                    Kirigami.PasswordField {
+                    PasswordInput {
                         id: domainPassword
                         Kirigami.FormData.label: L.t("Password:")
                     }

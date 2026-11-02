@@ -4,6 +4,7 @@ import QtQuick.Controls as QQC2
 import QtQuick.Dialogs
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
+import SlothCommon
 
 Kirigami.ScrollablePage {
     id: page
@@ -648,7 +649,7 @@ Kirigami.ScrollablePage {
                     id: shareWrite
                     text: L.t("Others can change files too")
                 }
-                Kirigami.PasswordField {
+                PasswordInput {
                     id: sharePassword
                     Layout.fillWidth: true
                     visible: !shareGuests.checked

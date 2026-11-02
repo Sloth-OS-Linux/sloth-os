@@ -1,3 +1,4 @@
 module SlothCommon
 LayoutPreview 1.0 LayoutPreview.qml
 AccentPicker 1.0 AccentPicker.qml
+PasswordInput 1.0 PasswordInput.qml
