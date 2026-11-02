@@ -83,6 +83,8 @@ if (kind === "mac") {
     addKickoff(top);
     top.addWidget("org.kde.plasma.appmenu");
     top.addWidget("org.kde.plasma.panelspacer");
+    // the workspaces (virtual desktops, apply_layout makes 4), as on a Mac
+    top.addWidget("org.kde.plasma.pager");
     addTrayAndClock(top);
     const dock = new Panel;
     dock.location = "bottom";
@@ -90,6 +92,10 @@ if (kind === "mac") {
     dock.floating = true;
     dock.lengthMode = "fit";
     dock.alignment = "center";
+    // Launchpad: every app as a full-screen grid of icons (KDE's Application Dashboard), first in the dock
+    const launchpad = dock.addWidget("org.kde.plasma.kickerdash");
+    launchpad.currentConfigGroup = ["General"];
+    launchpad.writeConfig("icon", "view-app-grid-symbolic");
     addTasks(dock);
 } else if (kind === "ubuntu") {
     // A top bar with the date and time in the middle, a dock on the left with the app grid at its end
@@ -102,6 +108,8 @@ if (kind === "mac") {
     clock.writeConfig("showDate", true);
     clock.writeConfig("dateDisplayFormat", "BesideTime");
     top.addWidget("org.kde.plasma.panelspacer");
+    // the workspaces (virtual desktops, apply_layout makes 4), as in Ubuntu
+    top.addWidget("org.kde.plasma.pager");
     top.addWidget("org.kde.plasma.systemtray");
     // Floating and only as tall as its icons: it does not run into the top bar, its corners are rounded
     const dock = new Panel;
@@ -255,9 +263,31 @@ def current_layout():
     return ""
 
 
+# the layouts with a workspace switcher in the top bar: they get 4 workspaces (KDE starts with 1)
+WORKSPACE_LAYOUTS = ("mac", "ubuntu")
+
+
+def _workspaces(count):
+    """At least this many virtual desktops, in one row; KWin takes it at once."""
+    try:
+        r = subprocess.run(["kreadconfig6", "--file", "kwinrc", "--group", "Desktops", "--key", "Number",
+                            "--default", "1"], capture_output=True, text=True, timeout=10)
+        if int(r.stdout.strip() or 1) >= count:
+            return
+        for key, value in (("Number", str(count)), ("Rows", "1")):
+            subprocess.run(["kwriteconfig6", "--file", "kwinrc", "--group", "Desktops", "--key", key, value],
+                           capture_output=True, timeout=10)
+        subprocess.run(["dbus-send", "--session", "--type=signal", "/KWin", "org.kde.KWin.reloadConfig"],
+                       capture_output=True, timeout=10)
+    except (OSError, ValueError, subprocess.SubprocessError) as e:
+        log.warning("workspaces: %s", e)
+
+
 def apply_layout(kind):
     if kind not in LAYOUTS:
         return False
+    if kind in WORKSPACE_LAYOUTS:
+        _workspaces(4)
     try:
         bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
         bus.call_sync("org.kde.plasmashell", "/PlasmaShell", "org.kde.PlasmaShell", "evaluateScript",
