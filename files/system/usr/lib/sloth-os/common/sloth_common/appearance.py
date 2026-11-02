@@ -92,10 +92,10 @@ if (kind === "mac") {
     dock.floating = true;
     dock.lengthMode = "fit";
     dock.alignment = "center";
-    // Launchpad: every app as a full-screen grid of icons (KDE's Application Dashboard), first in the dock
-    const launchpad = dock.addWidget("org.kde.plasma.kickerdash");
+    // Launchpad: every app as a full-screen grid of icons, growing out of its button, first in the dock
+    const launchpad = dock.addWidget("org.slothos.appgrid");
     launchpad.currentConfigGroup = ["General"];
-    launchpad.writeConfig("icon", "view-app-grid-symbolic");
+    launchpad.writeConfig("style", "mac");
     addTasks(dock);
 } else if (kind === "ubuntu") {
     // A top bar with the date and time in the middle, a dock on the left with the app grid at its end
@@ -120,16 +120,10 @@ if (kind === "mac") {
     dock.alignment = "center";
     addTasks(dock);
     dock.addWidget("org.kde.plasma.marginsseparator");
-    // The app grid: the Start menu with large icons in a grid, sliding out from the dock
-    const grid = dock.addWidget("org.kde.plasma.kickoff");
+    // Show Apps: every app as a full-screen grid of icons in pages, rising from below, as on Ubuntu
+    const grid = dock.addWidget("org.slothos.appgrid");
     grid.currentConfigGroup = ["General"];
-    grid.writeConfig("icon", "view-app-grid-symbolic");
-    grid.writeConfig("favoritesDisplay", 0);     // 0 = grid
-    grid.writeConfig("applicationsDisplay", 0);
-    // a roomy popup (Plasma keeps its size at the top of the widget's settings, not in General)
-    grid.currentConfigGroup = [];
-    grid.writeConfig("popupWidth", Math.round(gridUnit * 50));
-    grid.writeConfig("popupHeight", Math.round(gridUnit * 36));
+    grid.writeConfig("style", "ubuntu");
 } else {
     const panel = new Panel;
     panel.location = "bottom";

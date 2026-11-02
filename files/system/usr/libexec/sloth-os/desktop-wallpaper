@@ -1,0 +1,95 @@
+#!/usr/bin/python3 -I
+"""The wallpaper of a screen's desktop, as an image file (for the app grid's small picture of the desktop).
+
+Usage: desktop-wallpaper SCREEN [WIDTHxHEIGHT]
+Prints the image's path, or nothing if the desktop has no single picture (a slideshow, a plain color…).
+SCREEN is Plasma's screen number (a panel's containment knows it). A wallpaper package (a folder with
+contents/images/1920x1080.jpg, …) gives the picture closest to the screen's shape, the largest of those.
+"""
+import configparser
+import os
+import re
+import sys
+from pathlib import Path
+from urllib.parse import unquote, urlsplit
+
+CONFIG = Path(os.environ.get("XDG_CONFIG_HOME") or Path.home() / ".config")
+DESKTOPS = ("org.kde.plasma.folder", "org.kde.desktopcontainment")
+IMAGES = (".jpg", ".jpeg", ".png", ".webp", ".avif", ".jxl")
+
+
+def read_ini(path):
+    ini = configparser.ConfigParser(interpolation=None, strict=False)
+    ini.optionxform = str
+    try:
+        ini.read(path, encoding="utf-8")
+    except configparser.Error:
+        pass
+    return ini
+
+
+def wallpaper_url(screen):
+    """The Image setting of the desktop on this screen (the current activity's, if there are several)."""
+    ini = read_ini(CONFIG / "plasma-org.kde.plasma.desktop-appletsrc")
+    activity = read_ini(CONFIG / "kactivitymanagerdrc").get("main", "currentActivity", fallback="")
+    found = []
+    for section in ini.sections():
+        parts = section.split("][")
+        if len(parts) != 2 or parts[0] != "Containments":
+            continue
+        if ini.get(section, "plugin", fallback="") not in DESKTOPS:
+            continue
+        if ini.get(section, "lastScreen", fallback="") != str(screen):
+            continue
+        if ini.get(section, "wallpaperplugin", fallback="org.kde.image") != "org.kde.image":
+            continue
+        image = ini.get(f"{section}][Wallpaper][org.kde.image][General", "Image", fallback="")
+        current = bool(activity) and ini.get(section, "activityId", fallback="") == activity
+        found.append((current, image))
+    found.sort(key=lambda f: f[0], reverse=True)
+    return found[0][1] if found else ""
+
+
+def to_path(url):
+    if url.startswith("file:"):
+        return Path(unquote(urlsplit(url).path))
+    return Path(url) if url.startswith("/") else None
+
+
+def best_image(folder, size):
+    """From a wallpaper package: the picture closest to the screen's shape, then the largest."""
+    images = folder / "contents" / "images"
+    try:
+        files = [f for f in images.iterdir() if f.suffix.lower() in IMAGES]
+    except OSError:
+        return None
+    if not files:
+        return None
+    want = size[0] / size[1] if size else 16 / 9
+
+    def score(f):
+        m = re.match(r"(\d+)x(\d+)", f.stem)
+        if not m:
+            return (1.0, 0)
+        w, h = int(m[1]), int(m[2])
+        return (abs(w / h - want), -w * h)
+
+    return min(files, key=score)
+
+
+def main():
+    if len(sys.argv) < 2:
+        sys.exit("usage: desktop-wallpaper SCREEN [WIDTHxHEIGHT]")
+    m = re.fullmatch(r"(\d+)x(\d+)", sys.argv[2]) if len(sys.argv) > 2 else None
+    size = (int(m[1]), int(m[2])) if m and int(m[2]) else None
+    path = to_path(wallpaper_url(sys.argv[1]))
+    if path is None:
+        return
+    if path.is_dir():
+        path = best_image(path, size)
+    if path and path.is_file():
+        print(path)
+
+
+if __name__ == "__main__":
+    main()

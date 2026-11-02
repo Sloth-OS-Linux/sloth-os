@@ -57,9 +57,15 @@ from a terminal must also work from a GUI.
    password")
 
 ### Ideas from Reddit (2026-10-30)
-- [ ] (First version 2026-11-02, test branch, to look at on the HP) Mac-like layout: a Launchpad button first in the
-  dock (KDE's Application Dashboard, `org.kde.plasma.kickerdash`, full-screen app grid); Mac-like and Ubuntu-like:
-  a workspace switcher (pager) in the top bar and 4 workspaces (`appearance._workspaces`, kwinrc, only raised).
+- [ ] (First version 2026-11-02, test branch, to look at on the HP) Mac-like and Ubuntu-like: a workspace switcher
+  (pager) in the top bar and 4 workspaces (`appearance._workspaces`, kwinrc, only raised). Our own app grid widget
+  (`org.slothos.appgrid`, built on Kicker's Application Dashboard window, app list and search; tried on the gaming
+  PC 2026-11-02, liked): all apps in pages of up to 8×4, search on top, page dots, wheel/drag/arrow keys.
+  Mac-like: first in the dock, it grows out of its button and shrinks back (Launchpad). Ubuntu-like: last in the
+  dock, the desktop shrinks to a small live picture above the grid (wallpaper from
+  `/usr/libexec/sloth-os/desktop-wallpaper`, live windows as the taskbar previews; a click on a window goes back to
+  it), as GNOME's Show Apps. Still open: existing Mac-/Ubuntu-like users get it only after choosing the layout
+  again (an automatic swap at sign-in, if wanted).
 - [ ] **Medium** — An app launcher like the Mac's Launchpad (all apps as a full-screen grid of icons), above all for
   the macOS-like layout; KDE has one to start from (the Application Dashboard widget). And workspaces (virtual
   desktops) set up and easy to reach: "a must" for the commenter (someone coming from Puppy Linux who liked the
