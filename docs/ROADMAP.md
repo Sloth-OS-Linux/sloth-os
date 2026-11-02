@@ -65,7 +65,10 @@ from a terminal must also work from a GUI.
   dock, the desktop shrinks to a small live picture above the grid (wallpaper from
   `/usr/libexec/sloth-os/desktop-wallpaper`, live windows as the taskbar previews; a click on a window goes back to
   it), as GNOME's Show Apps. Existing Mac-/Ubuntu-like users get it at the next sign-in, once
-  (`/usr/libexec/sloth-os/app-grid-update` applies their layout again; the pinned apps stay).
+  (`/usr/libexec/sloth-os/app-grid-update` applies their layout again; the pinned apps stay). On by default; Sloth
+  Center → Appearance → "Full-screen app grid in the dock" turns it off (Mac-like: no Launchpad, the Start menu in
+  the top bar stays; Ubuntu-like: the Start menu with large icons in its place; `~/.config/sloth-os/appearance.json`,
+  kept in the settings file too).
 - [ ] **Medium** — An app launcher like the Mac's Launchpad (all apps as a full-screen grid of icons), above all for
   the macOS-like layout; KDE has one to start from (the Application Dashboard widget). And workspaces (virtual
   desktops) set up and easy to reach: "a must" for the commenter (someone coming from Puppy Linux who liked the

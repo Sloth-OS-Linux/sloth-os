@@ -938,5 +938,6 @@
   "5 minutes": "5 минут",
   "15 minutes": "15 минут",
   "30 minutes": "30 минут",
-  "Also lock after sleep": "Ұйқы режимінен кейін де құлыптау"
+  "Also lock after sleep": "Ұйқы режимінен кейін де құлыптау",
+  "Full-screen app grid in the dock": "Докта толық экранды қолданбалар торы"
 }

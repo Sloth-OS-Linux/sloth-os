@@ -167,7 +167,8 @@ class SettingsBackupController(QObject):
         if not path.lower().endswith(".json"):
             path += ".json"
         look = {"scheme": appearance.current_color_scheme(), "accent": appearance.current_accent(),
-                "titlebar": appearance.current_titlebar_accent(), "layout": appearance.current_layout()}
+                "titlebar": appearance.current_titlebar_accent(), "layout": appearance.current_layout(),
+                "appGrid": appearance.current_app_grid()}
         try:
             write(path, collect(appearance=look, apps=installed_apps()))
         except OSError:
@@ -193,6 +194,8 @@ class SettingsBackupController(QObject):
             appearance.apply_accent(look["accent"])
         if "titlebar" in look:  # files saved before 2026-10-31 have none
             appearance.apply_titlebar_accent(bool(look["titlebar"]))
+        if "appGrid" in look:  # files saved before 2026-11-02 have none: the app grid stays on
+            appearance.apply_app_grid(bool(look["appGrid"]), rebuild=False)
         if look.get("layout"):
             appearance.apply_layout(look["layout"])
         self._apps = backup_apps(backup)

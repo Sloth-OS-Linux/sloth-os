@@ -41,6 +41,7 @@ class AppearanceController(QObject):
         self._layout = shared.current_layout()
         self._accent = shared.current_accent()
         self._titlebar = shared.current_titlebar_accent()
+        self._app_grid = shared.current_app_grid()
         self._error = ""
 
     @Property("QVariantList", constant=True)
@@ -94,6 +95,24 @@ class AppearanceController(QObject):
             self._titlebar, self._error = on, ""
         else:
             self._error = tr("Couldn't change the colors. Please try again.")
+        self.changed.emit()
+
+    @Property(bool, notify=changed)
+    def appGrid(self):
+        return self._app_grid
+
+    @Property("QStringList", constant=True)
+    def appGridLayouts(self):
+        return list(shared.APP_GRID_LAYOUTS)
+
+    @Slot(bool)
+    def setAppGrid(self, on):
+        if on == self._app_grid:
+            return
+        if shared.apply_app_grid(on):
+            self._app_grid, self._error = on, ""
+        else:
+            self._error = tr("Couldn't change the taskbar. Please try again.")
         self.changed.emit()
 
     @Slot(str)

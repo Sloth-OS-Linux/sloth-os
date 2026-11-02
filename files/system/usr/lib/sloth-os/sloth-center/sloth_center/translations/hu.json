@@ -938,5 +938,6 @@
   "5 minutes": "5 perc",
   "15 minutes": "15 perc",
   "30 minutes": "30 perc",
-  "Also lock after sleep": "Alvás után is zároljon"
+  "Also lock after sleep": "Alvás után is zároljon",
+  "Full-screen app grid in the dock": "Teljes képernyős alkalmazásrács a dokkban"
 }

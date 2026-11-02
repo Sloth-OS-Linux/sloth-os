@@ -72,6 +72,13 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+        // only with a dock that has it: the Mac-like Launchpad, the Ubuntu-like Show Apps
+        QQC2.CheckBox {
+            visible: appearance.appGridLayouts.indexOf(appearance.currentLayout) >= 0
+            text: L.t("Full-screen app grid in the dock")
+            checked: appearance.appGrid
+            onToggled: appearance.setAppGrid(checked)
+        }
 
         Kirigami.Heading {
             level: 2

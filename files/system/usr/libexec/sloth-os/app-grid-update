@@ -4,6 +4,7 @@
 Those who chose one of these layouts before the app grid existed have KDE's Application Dashboard (Mac-like) or the
 Start menu with large icons (Ubuntu-like) in the dock. The layout is applied again, as if they chose it in Sloth
 Center: the pinned apps stay. Done once per account: if the user removes the app grid later, it stays removed.
+Nothing changes for those who turned it off in Sloth Center → Appearance.
 """
 import os
 import sys
@@ -50,7 +51,7 @@ def main():
         return 0
     kind = appearance.current_layout()
     # other layouts get the app grid when they choose one of these (apply_layout adds it)
-    if kind not in ("mac", "ubuntu") or has_app_grid():
+    if kind not in appearance.APP_GRID_LAYOUTS or not appearance.current_app_grid() or has_app_grid():
         done()
         return 0
     if not wait_for_plasmashell():

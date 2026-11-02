@@ -938,5 +938,6 @@
   "5 minutes": "5 minuuttia",
   "15 minutes": "15 minuuttia",
   "30 minutes": "30 minuuttia",
-  "Also lock after sleep": "Lukitse myös lepotilan jälkeen"
+  "Also lock after sleep": "Lukitse myös lepotilan jälkeen",
+  "Full-screen app grid in the dock": "Koko näytön sovellusruudukko telakassa"
 }

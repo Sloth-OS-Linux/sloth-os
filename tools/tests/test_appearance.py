@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Recognizing the taskbar layout from Plasma's settings (sloth_common.appearance.current_layout)."""
+"""Recognizing the taskbar layout from Plasma's settings (sloth_common.appearance.current_layout), the app grid setting."""
 import os
 import sys
 import tempfile
@@ -101,6 +101,35 @@ class Accent(unittest.TestCase):
         # AccentPicker.qml compares them with the current color in lower case
         for c in appearance.ACCENT_COLORS:
             self.assertRegex(c, r"^#[0-9a-f]{6}$")
+
+
+class AppGrid(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        appearance.CONFIG_HOME = Path(self.tmp.name)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_on_by_default(self):
+        self.assertTrue(appearance.current_app_grid())
+
+    def test_choice_is_kept(self):
+        # without a Mac-like or Ubuntu-like taskbar nothing is built again, only remembered
+        self.assertTrue(appearance.apply_app_grid(False))
+        self.assertFalse(appearance.current_app_grid())
+        self.assertTrue(appearance.apply_app_grid(True, rebuild=False))
+        self.assertTrue(appearance.current_app_grid())
+
+    def test_broken_file_means_on(self):
+        path = Path(self.tmp.name) / "sloth-os" / "appearance.json"
+        path.parent.mkdir()
+        path.write_text("nonsense", encoding="utf-8")
+        self.assertTrue(appearance.current_app_grid())
+
+    def test_layout_script_takes_both_values(self):
+        script = appearance._LAYOUT_SCRIPT % ('"ubuntu"', "false")
+        self.assertIn("const appGrid = false;", script)
 
 
 if __name__ == "__main__":

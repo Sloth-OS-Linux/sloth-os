@@ -938,5 +938,6 @@
   "5 minutes": "5 минута",
   "15 minutes": "15 минута",
   "30 minutes": "30 минута",
-  "Also lock after sleep": "Закључај и после спавања"
+  "Also lock after sleep": "Закључај и после спавања",
+  "Full-screen app grid in the dock": "Мрежа апликација преко целог екрана на доку"
 }

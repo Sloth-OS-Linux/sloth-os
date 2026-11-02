@@ -938,5 +938,6 @@
   "5 minutes": "5 分",
   "15 minutes": "15 分",
   "30 minutes": "30 分",
-  "Also lock after sleep": "スリープ後にもロックする"
+  "Also lock after sleep": "スリープ後にもロックする",
+  "Full-screen app grid in the dock": "ドックに全画面のアプリグリッド"
 }

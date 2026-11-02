@@ -938,5 +938,6 @@
   "5 minutes": "5 minutit",
   "15 minutes": "15 minutit",
   "30 minutes": "30 minutit",
-  "Also lock after sleep": "Lukusta ka pärast unerežiimi"
+  "Also lock after sleep": "Lukusta ka pärast unerežiimi",
+  "Full-screen app grid in the dock": "Täisekraanil rakenduste ruudustik dokis"
 }

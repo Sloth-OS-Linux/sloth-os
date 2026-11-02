@@ -938,5 +938,6 @@
   "5 minutes": "5 minutes",
   "15 minutes": "15 minutes",
   "30 minutes": "30 minutes",
-  "Also lock after sleep": "Verrouiller aussi après la mise en veille"
+  "Also lock after sleep": "Verrouiller aussi après la mise en veille",
+  "Full-screen app grid in the dock": "Grille d'applications en plein écran dans le dock"
 }

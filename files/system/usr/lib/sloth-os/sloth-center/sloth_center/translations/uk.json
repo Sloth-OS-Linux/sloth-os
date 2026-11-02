@@ -938,5 +938,6 @@
   "5 minutes": "5 хвилин",
   "15 minutes": "15 хвилин",
   "30 minutes": "30 хвилин",
-  "Also lock after sleep": "Блокувати й після сну"
+  "Also lock after sleep": "Блокувати й після сну",
+  "Full-screen app grid in the dock": "Сітка програм на весь екран у доку"
 }

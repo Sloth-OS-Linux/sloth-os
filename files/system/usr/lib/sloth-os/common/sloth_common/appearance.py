@@ -43,6 +43,8 @@ LAYOUTS =["windows10", "windows11", "mac", "ubuntu"]
 
 _LAYOUT_SCRIPT = """
 const kind = %s;
+// Sloth OS's app grid in the Mac-like and Ubuntu-like docks (Sloth Center → Appearance can turn it off)
+const appGrid = %s;
 // The pinned apps are kept
 let launchers = ["applications:org.kde.dolphin.desktop", "applications:org.kde.discover.desktop",
                  "applications:org.slothos.center.desktop"];
@@ -93,9 +95,12 @@ if (kind === "mac") {
     dock.lengthMode = "fit";
     dock.alignment = "center";
     // Launchpad: every app as a full-screen grid of icons, growing out of its button, first in the dock
-    const launchpad = dock.addWidget("org.slothos.appgrid");
-    launchpad.currentConfigGroup = ["General"];
-    launchpad.writeConfig("style", "mac");
+    // (without it the Start menu in the top bar is the way to the apps)
+    if (appGrid) {
+        const launchpad = dock.addWidget("org.slothos.appgrid");
+        launchpad.currentConfigGroup = ["General"];
+        launchpad.writeConfig("style", "mac");
+    }
     addTasks(dock);
 } else if (kind === "ubuntu") {
     // A top bar with the date and time in the middle, a dock on the left with the app grid at its end
@@ -120,10 +125,23 @@ if (kind === "mac") {
     dock.alignment = "center";
     addTasks(dock);
     dock.addWidget("org.kde.plasma.marginsseparator");
-    // Show Apps: every app as a full-screen grid of icons in pages, rising from below, as on Ubuntu
-    const grid = dock.addWidget("org.slothos.appgrid");
-    grid.currentConfigGroup = ["General"];
-    grid.writeConfig("style", "ubuntu");
+    if (appGrid) {
+        // Show Apps: every app as a full-screen grid of icons in pages, rising from below, as on Ubuntu
+        const grid = dock.addWidget("org.slothos.appgrid");
+        grid.currentConfigGroup = ["General"];
+        grid.writeConfig("style", "ubuntu");
+    } else {
+        // without it: the Start menu with large icons in a grid, sliding out from the dock
+        const grid = dock.addWidget("org.kde.plasma.kickoff");
+        grid.currentConfigGroup = ["General"];
+        grid.writeConfig("icon", "view-app-grid-symbolic");
+        grid.writeConfig("favoritesDisplay", 0);     // 0 = grid
+        grid.writeConfig("applicationsDisplay", 0);
+        // a roomy popup (Plasma keeps its size at the top of the widget's settings, not in General)
+        grid.currentConfigGroup = [];
+        grid.writeConfig("popupWidth", Math.round(gridUnit * 50));
+        grid.writeConfig("popupHeight", Math.round(gridUnit * 36));
+    }
 } else {
     const panel = new Panel;
     panel.location = "bottom";
@@ -259,6 +277,43 @@ def current_layout():
 
 # the layouts with a workspace switcher in the top bar: they get 4 workspaces (KDE starts with 1)
 WORKSPACE_LAYOUTS = ("mac", "ubuntu")
+# the layouts with Sloth OS's app grid in the dock (org.slothos.appgrid)
+APP_GRID_LAYOUTS = ("mac", "ubuntu")
+
+
+def _settings_file():
+    """Sloth OS's own appearance settings (now only whether the app grid is wanted)."""
+    return CONFIG_HOME / "sloth-os" / "appearance.json"
+
+
+def _settings():
+    try:
+        data = json.loads(_settings_file().read_text(encoding="utf-8"))
+        return data if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def current_app_grid():
+    """Whether the Mac-like and Ubuntu-like docks have the app grid (on unless the user turned it off)."""
+    return _settings().get("appGrid", True) is not False
+
+
+def apply_app_grid(on, rebuild=True):
+    """Remembers the choice; with rebuild, a Mac-like or Ubuntu-like taskbar is built again with it (or without)."""
+    data = _settings()
+    data["appGrid"] = bool(on)
+    path = _settings_file()
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_suffix(".json.tmp")
+        tmp.write_text(json.dumps(data) + "\n", encoding="utf-8")
+        tmp.replace(path)
+    except OSError as e:
+        log.warning("app grid: %s", e)
+        return False
+    kind = current_layout()
+    return apply_layout(kind) if rebuild and kind in APP_GRID_LAYOUTS else True
 
 
 def _workspaces(count):
@@ -285,7 +340,7 @@ def apply_layout(kind):
     try:
         bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
         bus.call_sync("org.kde.plasmashell", "/PlasmaShell", "org.kde.PlasmaShell", "evaluateScript",
-                      GLib.Variant("(s)", (_LAYOUT_SCRIPT % json.dumps(kind),)), None,
+                      GLib.Variant("(s)", (_LAYOUT_SCRIPT % (json.dumps(kind), json.dumps(current_app_grid())),)), None,
                       Gio.DBusCallFlags.NONE, 15000, None)
         return True
     except GLib.Error as e:
