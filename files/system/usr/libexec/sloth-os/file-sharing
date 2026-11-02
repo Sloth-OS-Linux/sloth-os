@@ -27,6 +27,9 @@ are made (add), under the same lock as serve, so serve never moves them aside.
 A share without a password lets people in as Samba's guest account (sloth-guest, its own account so that no other
 program gets what it is given), which may not enter the home folder (0700). So the guest may pass through the folders above a shared folder (x only: not look inside them) and read the
 shared folder, or write it too if so shared (ACLs, guest_access); taken away again when the share stops.
+A connection that is already open keeps the rights it got (Samba checks them only when it connects): when a share
+changes or stops, its connections are closed (close_stale), and when the folders close on this network, all of them;
+Windows connects again by itself, with the new rights.
 Samba lets an unknown user name in as the guest only while such a share exists (GUEST_CONF, map to guest = Bad User);
 otherwise it refuses it (Never), so Windows, which tries its own user name first, asks for the password.
 
@@ -521,6 +524,30 @@ GUEST_CONF_TEXT = ("# Written by /usr/libexec/sloth-os/file-sharing: Bad User on
                    "password\n[global]\n\tmap to guest = {}\n")
 
 
+def close_stale(reachable):
+    """Samba keeps an open connection's rights: a share made read-only stayed writable for a computer already
+    connected (2026-11-02), and closing the firewall does not end a connection either. So a changed or stopped share's
+    connections are closed, and all of them when the folders close here (a public network, sharing off)."""
+    # what the open connections were made with: {share file: SHA-256 of its content}
+    served = os.path.join(STATUS, "served.json")
+    now = {}
+    for name in _listdir(SHARES):
+        data = _read_bytes(os.path.join(SHARES, name))
+        if not name.startswith(":") and data is not None:
+            now[name] = _digest(data)
+    try:
+        with open(served, encoding="utf-8") as f:
+            before = json.load(f)
+        before = before if isinstance(before, dict) else {}
+    except (OSError, ValueError):
+        before = {}
+    stale = ["*"] if not reachable else [name for name, digest in before.items() if now.get(name) != digest]
+    for name in stale:
+        subprocess.run(["smbcontrol", "smbd", "close-share", name], capture_output=True)
+    if now != before:
+        _write(served, json.dumps(now), mode=0o600)
+
+
 def guest_login(shares):
     """Bad User while a folder is shared without a password (Windows comes in to it with any user name), Never
     otherwise: then an unknown user name is refused and Windows asks for the user name and password. With Bad User
@@ -659,6 +686,7 @@ def serve():
     saved = nm_connections(active=False)
     kinds = {cfg["networks"].get(key, "") for key in active}
     reachable = cfg["enabled"] and bool(shares) and bool(kinds & set(OPEN_KINDS))
+    close_stale(reachable)
     visible = reachable and "home" in kinds
     # the saved Wi-Fi networks, the routers seen over a cable ("wired": their number, shown as "Wired network 2"),
     # and a cable without a router while it is connected; kind: one of KINDS or "" (not asked yet: counts as public)
