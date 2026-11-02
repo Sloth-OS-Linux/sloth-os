@@ -137,5 +137,18 @@
   "confirm.summary.shrink": "מחיצת Windows תוקטן ב־{size} GiB, והמקום שיתפנה יעבור ל־Sloth OS.",
   "confirm.summary.target": "דיסק יעד: {disk} ({size})",
   "boot.password_hint": "הקלידו את סיסמת הדיסק ולחצו Enter",
-  "list.search": "חיפוש…"
+  "list.search": "חיפוש…",
+  "disk.manual.open": "מתקדם: בחירת המחיצות בעצמך…",
+  "manual.heading": "בחירת מחיצות",
+  "manual.text": "אם תרצו, הכינו קודם את הדיסק בעורך המחיצות (פנו מקום, צרו מחיצות). אחר כך בחרו לאן Sloth OS יותקן: מחיצת מערכת של {size} GB לפחות ומחיצת EFI באותו דיסק. הצפנת דיסק אינה זמינה כאן.",
+  "manual.editor": "פתיחת עורך המחיצות",
+  "manual.system": "מחיצת מערכת ({size} GB לפחות):",
+  "manual.esp": "מחיצת EFI:",
+  "manual.none_system": "אין מחיצה גדולה מספיק. צרו מחיצה של {size} GB לפחות בעורך המחיצות ורעננו את הרשימה.",
+  "manual.none_esp": "בדיסק זה אין מחיצת EFI. צרו אחת בעורך המחיצות (FAT32, ‏300 MB לפחות, עם הדגלים boot ו־esp) ורעננו את הרשימה.",
+  "manual.warning": "כל מה שנמצא ב־{partition} יימחק. המחיצות האחרות לא ייפגעו, ומחיצת ה־EFI תשמור את קובצי האתחול של המערכות האחרות.",
+  "confirm.manual.text": "Sloth OS יותקן במחיצה {partition}.",
+  "confirm.summary.manual_esp": "קובצי אתחול: במחיצת ה־EFI ‏{partition} (היא מפורמטת רק אם היא ריקה).",
+  "error.manual_esp": "לא ניתן להשתמש במחיצת ה־EFI שנבחרה. בחרו אחרת או צרו חדשה בעורך המחיצות.",
+  "error.manual_small": "מחיצת המערכת שנבחרה קטנה מדי. בחרו גדולה יותר."
 }

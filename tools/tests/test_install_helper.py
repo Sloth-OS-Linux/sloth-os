@@ -86,6 +86,43 @@ class WindowsDiskSurveyTest(unittest.TestCase):
         with patch.object(helper, "fstype", side_effect=AssertionError("must not look")):
             self.assertEqual(helper.previous_sloth({"partitions": parts}), [])
 
+    def manual(self, root_size, esp_type=None, esp_fs="vfat"):
+        """partition_manual on a fake GPT disk: -> (the sfdisk inputs, the result or the failure key)."""
+        gib = 1024**3 // 512
+        parts = [{"node": "/dev/testp1", "type": esp_type or helper.ESP_TYPE, "start": 2048, "size": gib},
+                 {"node": "/dev/testp2", "type": helper.LINUX_DATA, "start": 2048 + gib, "size": root_size * gib}]
+        after = parts + [{"node": "/dev/testp3", "type": helper.LINUX_DATA,
+                          "start": 2048 + gib + root_size * gib - helper.scratch_bytes // 512,
+                          "size": helper.scratch_bytes // 512}]
+        tables = iter([{"label": "gpt", "sectorsize": 512, "partitions": parts},
+                       {"label": "gpt", "sectorsize": 512, "partitions": after}])
+        inputs = []
+        with (patch.object(helper, "table", side_effect=lambda disk: next(tables)),
+              patch.object(helper, "fstype", side_effect=lambda dev: esp_fs if dev == "/dev/testp1" else ""),
+              patch.object(helper, "windows_esps", return_value=[]),
+              patch.object(helper, "partnum", side_effect=lambda disk, node: int(node[-1])),
+              patch.object(helper.subprocess, "run"),
+              patch.object(helper, "run", side_effect=lambda cmd, **kw: inputs.append(kw.get("input"))),
+              patch.object(helper, "fail", side_effect=lambda key, detail="": (_ for _ in ()).throw(Failed(key)))):
+            try:
+                return inputs, helper.partition_manual("/dev/test", "/dev/testp2", "/dev/testp1")
+            except Failed as e:
+                return inputs, str(e)
+
+    def test_manual_splits_the_work_area_off_the_end(self):
+        inputs, (parts, windows_esp) = self.manual(100)
+        self.assertEqual((parts["root"], parts["scratch"], parts["esp"]), ("/dev/testp2", "/dev/testp3", "/dev/testp1"))
+        self.assertTrue(parts["keep_esp"])   # an EFI partition with FAT is kept, not formatted
+        self.assertIn("name=\"root\"", inputs[0])
+        self.assertIn("sloth-install-tmp", inputs[1])
+
+    def test_manual_refuses_a_small_system_partition(self):
+        self.assertEqual(self.manual(45)[1], "error.manual_small")
+
+    def test_manual_refuses_a_partition_that_is_not_efi(self):
+        self.assertEqual(self.manual(100, esp_type=helper.LINUX_DATA)[1], "error.manual_esp")
+        self.assertEqual(self.manual(100, esp_fs="ntfs")[1], "error.manual_esp")
+
     def test_efi_types_are_restored_after_partial_failure(self):
         partitions = [
             {"node": "/dev/testp1", "type": helper.ESP_TYPE},

@@ -22,7 +22,7 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
 
     readonly property int contentWidth: Math.min(width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 40)
-    readonly property var pages: ["welcome", "region", "account", "disk", "confirm", "install", "done", "error"]
+    readonly property var pages: ["welcome", "region", "account", "disk", "confirm", "install", "done", "error", "manual"]
 
     readonly property var strings: installer.strings
     function t(key, args) {
@@ -66,7 +66,7 @@ Kirigami.ApplicationWindow {
         onTriggered: {
             const target = {
                 welcome: installButton, region: regionNav.nextButton, account: fullNameField, disk: diskNav.nextButton,
-                confirm: confirmCheck, done: rebootButton, error: retryButton
+                confirm: confirmCheck, done: rebootButton, error: retryButton, manual: manualNav.nextButton
             }[installer.page];
             if (target)
                 target.forceActiveFocus(Qt.TabFocusReason);
@@ -679,6 +679,15 @@ Kirigami.ApplicationWindow {
                         Item { implicitHeight: Kirigami.Units.gridUnit }
                     }
                 }
+                // Advanced: the partitions chosen by hand (the "manual" page)
+                QQC2.Button {
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.margins: Kirigami.Units.largeSpacing
+                    flat: true
+                    icon.name: "partitionmanager"
+                    text: root.t("disk.manual.open")
+                    onClicked: installer.openManual()
+                }
                 Rectangle {
                     Layout.fillWidth: true
                     implicitHeight: diskNav.implicitHeight + Kirigami.Units.largeSpacing * 2
@@ -714,7 +723,9 @@ Kirigami.ApplicationWindow {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
-                        text: installer.beside
+                        text: installer.manual
+                              ? root.t("confirm.manual.text", { partition: installer.manualRootText })
+                              : installer.beside
                               ? root.t("confirm.beside.text", { size: installer.sizeGib, disk: root.diskName(installer.diskInfo) })
                               : root.t("confirm.text", { disk: root.diskName(installer.diskInfo) + " (" + (installer.diskInfo.sizeText || "") + ")" })
                     }
@@ -727,6 +738,20 @@ Kirigami.ApplicationWindow {
                                 level: 3
                                 text: root.t("confirm.summary.heading")
                             }
+                            // Advanced: only the chosen partitions change
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                visible: installer.manual
+                                wrapMode: Text.Wrap
+                                color: Kirigami.Theme.negativeTextColor
+                                text: root.t("manual.warning", { partition: installer.manualRootText })
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                visible: installer.manual
+                                wrapMode: Text.Wrap
+                                text: root.t("confirm.summary.manual_esp", { partition: installer.manualEspText })
+                            }
                             QQC2.Label {
                                 Layout.fillWidth: true
                                 wrapMode: Text.Wrap
@@ -738,6 +763,7 @@ Kirigami.ApplicationWindow {
                             QQC2.Label {
                                 Layout.fillWidth: true
                                 wrapMode: Text.Wrap
+                                visible: !installer.manual
                                 text: installer.beside
                                       ? (installer.besideInfo.shrinkGib > 0
                                          ? root.t("confirm.summary.shrink", { size: installer.besideInfo.shrinkGib })
@@ -747,6 +773,7 @@ Kirigami.ApplicationWindow {
                             QQC2.Label {
                                 Layout.fillWidth: true
                                 wrapMode: Text.Wrap
+                                visible: !installer.manual
                                 text: installer.beside
                                       ? root.t("confirm.summary.keep_windows")
                                       : root.t("confirm.summary.create_all")
@@ -754,6 +781,7 @@ Kirigami.ApplicationWindow {
                             QQC2.Label {
                                 Layout.fillWidth: true
                                 wrapMode: Text.Wrap
+                                visible: !installer.manual
                                 text: installer.encrypt
                                       ? root.t("confirm.summary.encrypted")
                                       : root.t("confirm.summary.formatted")
@@ -781,7 +809,7 @@ Kirigami.ApplicationWindow {
                     }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
-                        visible: installer.diskInfo.contents === "windows" && !installer.beside
+                        visible: installer.diskInfo.contents === "windows" && !installer.beside && !installer.manual
                         type: Kirigami.MessageType.Warning
                         text: root.t("confirm.windows")
                     }
@@ -991,6 +1019,120 @@ Kirigami.ApplicationWindow {
                             icon.name: "view-refresh"
                             onClicked: installer.retry()
                         }
+                    }
+                }
+            }
+
+            // --- Advanced: choosing the partitions ------------------------------------------
+            ColumnLayout {
+                spacing: 0
+                // back from the partition editor: the list shows the partitions as they are now
+                Connections {
+                    target: Qt.application
+                    function onStateChanged() {
+                        if (Qt.application.state === Qt.ApplicationActive && installer.page === "manual")
+                            installer.refreshPartitions();
+                    }
+                }
+                QQC2.ScrollView {
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    contentWidth: availableWidth
+                    ColumnLayout {
+                        x: (parent.width - width) / 2
+                        width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 32)
+                        spacing: Kirigami.Units.largeSpacing * 2
+                        Item { implicitHeight: Kirigami.Units.gridUnit * 2 }
+                        Kirigami.Icon {
+                            Layout.alignment: Qt.AlignHCenter
+                            source: "partitionmanager"
+                            fallback: "drive-harddisk"
+                            implicitWidth: Kirigami.Units.iconSizes.huge
+                            implicitHeight: Kirigami.Units.iconSizes.huge
+                        }
+                        Kirigami.Heading {
+                            Layout.fillWidth: true
+                            horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.Wrap
+                            text: root.t("manual.heading")
+                        }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            horizontalAlignment: Text.AlignHCenter
+                            wrapMode: Text.Wrap
+                            opacity: 0.8
+                            text: root.t("manual.text", { size: installer.manualMinGib })
+                        }
+                        RowLayout {
+                            Layout.alignment: Qt.AlignHCenter
+                            spacing: Kirigami.Units.largeSpacing
+                            QQC2.Button {
+                                text: root.t("manual.editor")
+                                icon.name: "partitionmanager"
+                                onClicked: installer.openPartitionEditor()
+                            }
+                            QQC2.Button {
+                                text: root.t("disk.refresh")
+                                icon.name: "view-refresh"
+                                onClicked: installer.refreshPartitions()
+                            }
+                        }
+                        Kirigami.FormLayout {
+                            Layout.fillWidth: true
+                            QQC2.ComboBox {
+                                id: manualRootBox
+                                Kirigami.FormData.label: root.t("manual.system", { size: installer.manualMinGib })
+                                Layout.fillWidth: true
+                                model: installer.partitions.filter(p => p.system)
+                                textRole: "text"
+                                valueRole: "path"
+                                popup.popupType: QQC2.Popup.Item
+                                displayText: currentIndex < 0 ? "—" : currentText
+                                currentIndex: count > 0 ? indexOfValue(installer.manualRoot) : -1
+                                onActivated: installer.setManualRoot(currentValue)
+                            }
+                            QQC2.ComboBox {
+                                Kirigami.FormData.label: root.t("manual.esp")
+                                Layout.fillWidth: true
+                                enabled: installer.manualRoot !== ""
+                                model: installer.partitions.filter(p => p.esp && installer.partitions.some(
+                                           r => r.path === installer.manualRoot && r.disk === p.disk))
+                                textRole: "text"
+                                valueRole: "path"
+                                popup.popupType: QQC2.Popup.Item
+                                displayText: currentIndex < 0 ? "—" : currentText
+                                currentIndex: count > 0 ? indexOfValue(installer.manualEsp) : -1
+                                onActivated: installer.setManualEsp(currentValue)
+                            }
+                        }
+                        Kirigami.InlineMessage {
+                            Layout.fillWidth: true
+                            visible: manualRootBox.count === 0
+                            type: Kirigami.MessageType.Information
+                            text: root.t("manual.none_system", { size: installer.manualMinGib })
+                        }
+                        Kirigami.InlineMessage {
+                            Layout.fillWidth: true
+                            visible: installer.manualRoot !== "" && installer.manualEsp === ""
+                            type: Kirigami.MessageType.Information
+                            text: root.t("manual.none_esp")
+                        }
+                        Kirigami.InlineMessage {
+                            Layout.fillWidth: true
+                            visible: installer.manualReady
+                            type: Kirigami.MessageType.Warning
+                            text: root.t("manual.warning", { partition: installer.manualRootText })
+                        }
+                    }
+                }
+                Rectangle {
+                    Layout.fillWidth: true
+                    implicitHeight: manualNav.implicitHeight + Kirigami.Units.largeSpacing * 2
+                    color: Kirigami.Theme.alternateBackgroundColor
+                    NavRow {
+                        id: manualNav
+                        anchors.centerIn: parent
+                        nextEnabled: installer.manualReady
                     }
                 }
             }

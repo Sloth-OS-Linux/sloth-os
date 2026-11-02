@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: akan dihapus dan disiapkan untuk program dan game",
   "confirm.summary.extra_keep": "{disk}: akan tersedia beserta file-nya",
   "boot.password_hint": "Ketik kata sandi disk, lalu tekan Enter",
-  "list.search": "Cari…"
+  "list.search": "Cari…",
+  "disk.manual.open": "Lanjutan: pilih partisi sendiri…",
+  "manual.heading": "Pilih partisi",
+  "manual.text": "Jika mau, siapkan dulu disk di penyunting partisi (buat ruang, buat partisi). Lalu pilih tempat Sloth OS: partisi sistem minimal {size} GB dan partisi EFI di disk yang sama. Enkripsi disk tidak tersedia di sini.",
+  "manual.editor": "Buka penyunting partisi",
+  "manual.system": "Partisi sistem (minimal {size} GB):",
+  "manual.esp": "Partisi EFI:",
+  "manual.none_system": "Tidak ada partisi yang cukup besar. Buat satu minimal {size} GB di penyunting partisi, lalu segarkan daftar.",
+  "manual.none_esp": "Disk ini tidak punya partisi EFI. Buat satu di penyunting partisi (FAT32, minimal 300 MB, dengan tanda boot dan esp), lalu segarkan daftar.",
+  "manual.warning": "Semua isi {partition} akan dihapus. Partisi lain tidak disentuh, dan partisi EFI menyimpan berkas boot sistem lain.",
+  "confirm.manual.text": "Sloth OS akan dipasang di partisi {partition}.",
+  "confirm.summary.manual_esp": "Berkas boot: di partisi EFI {partition} (hanya diformat jika kosong).",
+  "error.manual_esp": "Partisi EFI yang dipilih tidak dapat dipakai. Pilih yang lain atau buat yang baru di penyunting partisi.",
+  "error.manual_small": "Partisi sistem yang dipilih terlalu kecil. Pilih yang lebih besar."
 }

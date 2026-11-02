@@ -137,5 +137,18 @@
   "confirm.summary.keep_windows": "保留 Windows 及其文件。在空闲空间中创建新的 EFI 分区和 Sloth OS 系统分区。",
   "confirm.summary.formatted": "新的 EFI 分区使用 FAT32，系统分区使用 Btrfs。",
   "boot.password_hint": "请输入磁盘密码，然后按 Enter 键",
-  "list.search": "搜索…"
+  "list.search": "搜索…",
+  "disk.manual.open": "高级：自行选择分区…",
+  "manual.heading": "选择分区",
+  "manual.text": "如有需要，请先在分区编辑器中准备磁盘（腾出空间、创建分区）。然后选择 Sloth OS 的位置：至少 {size} GB 的系统分区，以及同一磁盘上的 EFI 分区。此处不支持磁盘加密。",
+  "manual.editor": "打开分区编辑器",
+  "manual.system": "系统分区（至少 {size} GB）：",
+  "manual.esp": "EFI 分区：",
+  "manual.none_system": "没有足够大的分区。请在分区编辑器中创建至少 {size} GB 的分区，然后刷新列表。",
+  "manual.none_esp": "此磁盘没有 EFI 分区。请在分区编辑器中创建一个（FAT32，至少 300 MB，带 boot 和 esp 标志），然后刷新列表。",
+  "manual.warning": "{partition} 上的所有内容都将被清除。其他分区不受影响，EFI 分区会保留其他系统的启动文件。",
+  "confirm.manual.text": "Sloth OS 将安装到分区 {partition}。",
+  "confirm.summary.manual_esp": "启动文件：放在 EFI 分区 {partition}（仅在其为空时格式化）。",
+  "error.manual_esp": "无法使用所选的 EFI 分区。请选择其他分区，或在分区编辑器中新建一个。",
+  "error.manual_small": "所选的系统分区太小。请选择更大的分区。"
 }

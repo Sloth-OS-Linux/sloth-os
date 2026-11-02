@@ -137,5 +137,18 @@
   "confirm.summary.erase": "Denne disk bliver slettet sammen med dens nuværende partitioner og filer.",
   "confirm.summary.create_all": "Der oprettes en ny GPT-opdeling med en BIOS-opstartspartition, en EFI-partition, en Sloth OS-systempartition og midlertidig installationsplads.",
   "boot.password_hint": "Skriv adgangskoden til disken, og tryk på Enter",
-  "list.search": "Søg…"
+  "list.search": "Søg…",
+  "disk.manual.open": "Avanceret: vælg selv partitionerne…",
+  "manual.heading": "Vælg partitioner",
+  "manual.text": "Hvis du vil, kan du først forberede disken i partitionseditoren (gøre plads, oprette partitioner). Vælg derefter, hvor Sloth OS skal ligge: en systempartition på mindst {size} GB og en EFI-partition på samme disk. Diskkryptering er ikke tilgængelig her.",
+  "manual.editor": "Åbn partitionseditoren",
+  "manual.system": "Systempartition (mindst {size} GB):",
+  "manual.esp": "EFI-partition:",
+  "manual.none_system": "Ingen partition er stor nok. Opret en på mindst {size} GB i partitionseditoren, og opdater listen.",
+  "manual.none_esp": "Denne disk har ingen EFI-partition. Opret en i partitionseditoren (FAT32, mindst 300 MB, med flagene boot og esp), og opdater listen.",
+  "manual.warning": "Alt på {partition} bliver slettet. De andre partitioner røres ikke, og EFI-partitionen beholder de andre systemers opstartsfiler.",
+  "confirm.manual.text": "Sloth OS bliver installeret på partitionen {partition}.",
+  "confirm.summary.manual_esp": "Opstartsfiler: på EFI-partitionen {partition} (den formateres kun, hvis den er tom).",
+  "error.manual_esp": "Den valgte EFI-partition kan ikke bruges. Vælg en anden, eller opret en ny i partitionseditoren.",
+  "error.manual_small": "Den valgte systempartition er for lille. Vælg en større."
 }

@@ -137,5 +137,18 @@
   "confirm.summary.keep_windows": "Windows dhe skedarët e tij mbeten. Ndarjet e reja EFI dhe të sistemit të Sloth OS do të krijohen në hapësirën e lirë.",
   "confirm.summary.shrink": "Ndarja e Windows do të zvogëlohet me {size} GiB, dhe hapësira e liruar do t’i shkojë Sloth OS.",
   "boot.password_hint": "Shkruani fjalëkalimin e diskut, pastaj shtypni Enter",
-  "list.search": "Kërko…"
+  "list.search": "Kërko…",
+  "disk.manual.open": "Të avancuara: zgjidhni vetë ndarjet…",
+  "manual.heading": "Zgjidhni ndarjet",
+  "manual.text": "Nëse dëshironi, përgatitni fillimisht diskun te redaktori i ndarjeve (lironi hapësirë, krijoni ndarje). Pastaj zgjidhni ku shkon Sloth OS: një ndarje sistemi të paktën {size} GB dhe një ndarje EFI në të njëjtin disk. Fshehtëzimi i diskut nuk ofrohet këtu.",
+  "manual.editor": "Hap redaktorin e ndarjeve",
+  "manual.system": "Ndarja e sistemit (të paktën {size} GB):",
+  "manual.esp": "Ndarja EFI:",
+  "manual.none_system": "Asnjë ndarje nuk është mjaftueshëm e madhe. Krijoni një të paktën {size} GB te redaktori i ndarjeve, pastaj rifreskoni listën.",
+  "manual.none_esp": "Ky disk nuk ka ndarje EFI. Krijoni një te redaktori i ndarjeve (FAT32, të paktën 300 MB, me flamujt boot dhe esp), pastaj rifreskoni listën.",
+  "manual.warning": "Gjithçka në {partition} do të fshihet. Ndarjet e tjera nuk preken dhe ndarja EFI ruan skedarët e nisjes së sistemeve të tjera.",
+  "confirm.manual.text": "Sloth OS do të instalohet në ndarjen {partition}.",
+  "confirm.summary.manual_esp": "Skedarët e nisjes: në ndarjen EFI {partition} (formatohet vetëm nëse është bosh).",
+  "error.manual_esp": "Ndarja EFI e zgjedhur nuk mund të përdoret. Zgjidhni një tjetër ose krijoni një të re te redaktori i ndarjeve.",
+  "error.manual_small": "Ndarja e sistemit e zgjedhur është shumë e vogël. Zgjidhni një më të madhe."
 }

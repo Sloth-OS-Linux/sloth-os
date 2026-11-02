@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: bude vymazaný a pripravený pre programy a hry",
   "confirm.summary.extra_keep": "{disk}: bude dostupný aj so svojimi súbormi",
   "boot.password_hint": "Zadajte heslo k disku a stlačte Enter",
-  "list.search": "Hľadať…"
+  "list.search": "Hľadať…",
+  "disk.manual.open": "Pokročilé: vyberte oddiely sami…",
+  "manual.heading": "Výber oddielov",
+  "manual.text": "Ak chcete, pripravte najprv disk v editore oddielov (uvoľnite miesto, vytvorte oddiely). Potom vyberte, kam sa Sloth OS nainštaluje: systémový oddiel s veľkosťou aspoň {size} GB a oddiel EFI na tom istom disku. Šifrovanie disku tu nie je k dispozícii.",
+  "manual.editor": "Otvoriť editor oddielov",
+  "manual.system": "Systémový oddiel (aspoň {size} GB):",
+  "manual.esp": "Oddiel EFI:",
+  "manual.none_system": "Žiadny oddiel nie je dosť veľký. Vytvorte v editore oddielov oddiel s veľkosťou aspoň {size} GB a obnovte zoznam.",
+  "manual.none_esp": "Tento disk nemá oddiel EFI. Vytvorte ho v editore oddielov (FAT32, aspoň 300 MB, s príznakmi boot a esp) a obnovte zoznam.",
+  "manual.warning": "Všetko na {partition} sa vymaže. Ostatných oddielov sa nič nedotkne a oddiel EFI si ponechá zavádzacie súbory ostatných systémov.",
+  "confirm.manual.text": "Sloth OS sa nainštaluje na oddiel {partition}.",
+  "confirm.summary.manual_esp": "Zavádzacie súbory: na oddiel EFI {partition} (naformátuje sa, len ak je prázdny).",
+  "error.manual_esp": "Vybraný oddiel EFI sa nedá použiť. Vyberte iný alebo vytvorte nový v editore oddielov.",
+  "error.manual_small": "Vybraný systémový oddiel je príliš malý. Vyberte väčší."
 }

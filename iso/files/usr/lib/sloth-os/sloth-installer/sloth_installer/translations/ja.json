@@ -137,5 +137,18 @@
   "confirm.summary.extra_keep": "{disk}: ファイルを残したまま使えるようにします",
   "confirm.summary.target": "インストール先: {disk} ({size})",
   "boot.password_hint": "ディスクのパスワードを入力して Enter を押してください",
-  "list.search": "検索…"
+  "list.search": "検索…",
+  "disk.manual.open": "詳細: パーティションを自分で選ぶ…",
+  "manual.heading": "パーティションの選択",
+  "manual.text": "必要なら、まずパーティションエディターでディスクを準備してください (空き領域を作る、パーティションを作成する)。次に Sloth OS の場所を選びます: {size} GB 以上のシステムパーティションと、同じディスク上の EFI パーティションです。ここではディスクの暗号化は使えません。",
+  "manual.editor": "パーティションエディターを開く",
+  "manual.system": "システムパーティション ({size} GB 以上):",
+  "manual.esp": "EFI パーティション:",
+  "manual.none_system": "十分な大きさのパーティションがありません。パーティションエディターで {size} GB 以上のパーティションを作成し、一覧を更新してください。",
+  "manual.none_esp": "このディスクには EFI パーティションがありません。パーティションエディターで作成し (FAT32、300 MB 以上、boot と esp フラグ付き)、一覧を更新してください。",
+  "manual.warning": "{partition} の内容はすべて消去されます。他のパーティションには触れず、EFI パーティションには他のシステムの起動ファイルが残ります。",
+  "confirm.manual.text": "Sloth OS はパーティション {partition} にインストールされます。",
+  "confirm.summary.manual_esp": "起動ファイル: EFI パーティション {partition} に置きます (空の場合のみフォーマットします)。",
+  "error.manual_esp": "選択した EFI パーティションは使用できません。別のものを選ぶか、パーティションエディターで新しく作成してください。",
+  "error.manual_small": "選択したシステムパーティションが小さすぎます。もっと大きいものを選んでください。"
 }

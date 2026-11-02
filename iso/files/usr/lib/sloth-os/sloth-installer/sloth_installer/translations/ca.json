@@ -137,5 +137,18 @@
   "confirm.summary.erase": "S’esborrarà aquest disc, amb les particions i els fitxers que té ara.",
   "confirm.summary.create_all": "Es crearà una nova taula GPT amb una partició d’arrencada BIOS, una partició EFI, una partició de sistema de Sloth OS i espai temporal d’instal·lació.",
   "boot.password_hint": "Escriviu la contrasenya del disc i premeu Retorn",
-  "list.search": "Cerca…"
+  "list.search": "Cerca…",
+  "disk.manual.open": "Avançat: trieu vós mateix les particions…",
+  "manual.heading": "Trieu les particions",
+  "manual.text": "Si voleu, prepareu primer el disc a l'editor de particions (feu espai, creeu particions). Després trieu on va Sloth OS: una partició del sistema d'almenys {size} GB i una partició EFI al mateix disc. El xifratge del disc no està disponible aquí.",
+  "manual.editor": "Obre l'editor de particions",
+  "manual.system": "Partició del sistema (almenys {size} GB):",
+  "manual.esp": "Partició EFI:",
+  "manual.none_system": "Cap partició no és prou gran. Creeu-ne una d'almenys {size} GB a l'editor de particions i actualitzeu la llista.",
+  "manual.none_esp": "Aquest disc no té cap partició EFI. Creeu-ne una a l'editor de particions (FAT32, almenys 300 MB, amb els indicadors boot i esp) i actualitzeu la llista.",
+  "manual.warning": "S'esborrarà tot el que hi ha a {partition}. Les altres particions no es toquen i la partició EFI conserva els fitxers d'arrencada dels altres sistemes.",
+  "confirm.manual.text": "Sloth OS s'instal·larà a la partició {partition}.",
+  "confirm.summary.manual_esp": "Fitxers d'arrencada: a la partició EFI {partition} (només es formata si és buida).",
+  "error.manual_esp": "No es pot fer servir la partició EFI triada. Trieu-ne una altra o creeu-ne una de nova a l'editor de particions.",
+  "error.manual_small": "La partició del sistema triada és massa petita. Trieu-ne una de més gran."
 }

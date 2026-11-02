@@ -17,6 +17,10 @@ log = logging.getLogger("sloth-installer.system")
 
 WELCOME_TRANSLATIONS = Path("/usr/lib/sloth-os/sloth-welcome/sloth_welcome/translations")
 MIN_DISK_BYTES = 40 * 1024**3       # we do not install on a smaller disk
+# Advanced: the system partition chosen by hand needs room for Sloth OS (40 GB) and, during the install, for the
+# work area at its end (sloth-install-helper: partition_manual); the helper checks the exact size again
+MIN_MANUAL_BYTES = 56 * 1024**3
+ESP_TYPE = "c12a7328-f81f-11d2-ba4b-00a0c93ec93b"
 RECOMMENDED_BYTES = 120 * 1024**3   # recommended for games
 
 # Language -> (locale, keyboard, time zone). The keyboard is an XKB name; for languages not written in Latin
@@ -170,7 +174,7 @@ def set_primary_display(name):
 def _lsblk():
     out = subprocess.run(
         ["lsblk", "--json", "--bytes", "--output",
-         "NAME,PATH,SIZE,TYPE,RO,RM,ROTA,TRAN,MODEL,VENDOR,FSTYPE,LABEL,PARTLABEL,MOUNTPOINTS"],
+         "NAME,PATH,SIZE,TYPE,RO,RM,ROTA,TRAN,MODEL,VENDOR,FSTYPE,LABEL,PARTLABEL,PARTTYPE,MOUNTPOINTS"],
         capture_output=True, text=True, check=True, timeout=20).stdout
     return json.loads(out).get("blockdevices", [])
 
@@ -208,6 +212,34 @@ def _contents(disk):
     else:
         kind = "other"
     return kind, names
+
+
+def partitions():
+    """Advanced: the partitions of the disks that can be installed to (after KDE Partition Manager, as they are now),
+    for choosing the system partition and the EFI partition. "system": big enough to hold Sloth OS; "esp": an EFI
+    partition. Each with a human description: "nvme0n1p3 · 120 GB · ntfs · Data"."""
+    live = _live_disks()
+    out = []
+    for d in _lsblk():
+        if d.get("type") != "disk" or d.get("ro") or d.get("path") in live:
+            continue
+        if d.get("name", "").startswith(("zram", "loop", "sr")):
+            continue
+        for p in d.get("children") or []:
+            if p.get("type") != "part":
+                continue
+            # a partition in use (mounted, or the live system's swap) is never offered
+            if any(p.get("mountpoints") or []) or any(c.get("mountpoints") for c in p.get("children") or []):
+                continue
+            size = int(p.get("size") or 0)
+            fstype = (p.get("fstype") or "").lower()
+            label = p.get("label") or p.get("partlabel") or ""
+            esp = (p.get("parttype") or "").lower() == ESP_TYPE
+            text = " · ".join(x for x in (p.get("name", ""), f"{size / 1000**3:.0f} GB" if size >= 10**9
+                                          else f"{size / 1000**2:.0f} MB", fstype, label) if x)
+            out.append({"path": p["path"], "disk": d["path"], "text": text, "esp": esp,
+                        "system": not esp and size >= MIN_MANUAL_BYTES})
+    return out
 
 
 def _disk_name(d):

@@ -137,5 +137,18 @@
   "confirm.summary.extra_keep": "{disk}: wordt beschikbaar met zijn bestanden",
   "confirm.summary.free": "De vrije ruimte op deze schijf wordt gebruikt; de grootte van bestaande partities verandert niet.",
   "boot.password_hint": "Typ het wachtwoord van de schijf en druk op Enter",
-  "list.search": "Zoeken…"
+  "list.search": "Zoeken…",
+  "disk.manual.open": "Geavanceerd: zelf de partities kiezen…",
+  "manual.heading": "Partities kiezen",
+  "manual.text": "Bereid desgewenst eerst de schijf voor in de partitie-editor (ruimte maken, partities aanmaken). Kies daarna waar Sloth OS komt: een systeempartitie van minstens {size} GB en een EFI-partitie op dezelfde schijf. Schijfversleuteling is hier niet beschikbaar.",
+  "manual.editor": "Partitie-editor openen",
+  "manual.system": "Systeempartitie (minstens {size} GB):",
+  "manual.esp": "EFI-partitie:",
+  "manual.none_system": "Geen enkele partitie is groot genoeg. Maak er een van minstens {size} GB in de partitie-editor en vernieuw de lijst.",
+  "manual.none_esp": "Deze schijf heeft geen EFI-partitie. Maak er een in de partitie-editor (FAT32, minstens 300 MB, met de vlaggen boot en esp) en vernieuw de lijst.",
+  "manual.warning": "Alles op {partition} wordt gewist. De andere partities blijven ongemoeid en de EFI-partitie houdt de opstartbestanden van de andere systemen.",
+  "confirm.manual.text": "Sloth OS wordt geïnstalleerd op de partitie {partition}.",
+  "confirm.summary.manual_esp": "Opstartbestanden: op de EFI-partitie {partition} (die wordt alleen geformatteerd als ze leeg is).",
+  "error.manual_esp": "De gekozen EFI-partitie kan niet worden gebruikt. Kies een andere of maak een nieuwe in de partitie-editor.",
+  "error.manual_small": "De gekozen systeempartitie is te klein. Kies een grotere."
 }

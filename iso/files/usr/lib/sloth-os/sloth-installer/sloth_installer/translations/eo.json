@@ -137,5 +137,18 @@
   "confirm.summary.extra_keep": "{disk}: estos disponebla kun siaj dosieroj",
   "confirm.summary.shrink": "La Windows-subdisko malgrandiĝos je {size} GiB, kaj la liberigitan spacon ricevos Sloth OS.",
   "boot.password_hint": "Tajpu la pasvorton de la disko, poste premu Enigon",
-  "list.search": "Serĉi…"
+  "list.search": "Serĉi…",
+  "disk.manual.open": "Altnivele: elektu mem la subdiskojn…",
+  "manual.heading": "Elektu la subdiskojn",
+  "manual.text": "Se vi volas, unue preparu la diskon en la subdiska redaktilo (faru lokon, kreu subdiskojn). Poste elektu, kien iru Sloth OS: sistema subdisko de almenaŭ {size} GB kaj EFI-subdisko sur la sama disko. Diskĉifrado ne disponeblas ĉi tie.",
+  "manual.editor": "Malfermi la subdiskan redaktilon",
+  "manual.system": "Sistema subdisko (almenaŭ {size} GB):",
+  "manual.esp": "EFI-subdisko:",
+  "manual.none_system": "Neniu subdisko estas sufiĉe granda. Kreu unu de almenaŭ {size} GB en la subdiska redaktilo, poste refreŝigu la liston.",
+  "manual.none_esp": "Ĉi tiu disko ne havas EFI-subdiskon. Kreu unu en la subdiska redaktilo (FAT32, almenaŭ 300 MB, kun la flagoj boot kaj esp), poste refreŝigu la liston.",
+  "manual.warning": "Ĉio sur {partition} estos forigita. La aliaj subdiskoj ne estas tuŝataj, kaj la EFI-subdisko konservas la startdosierojn de la aliaj sistemoj.",
+  "confirm.manual.text": "Sloth OS estos instalita sur la subdisko {partition}.",
+  "confirm.summary.manual_esp": "Startdosieroj: sur la EFI-subdisko {partition} (ĝi estas formatita nur se ĝi estas malplena).",
+  "error.manual_esp": "La elektita EFI-subdisko ne uzeblas. Elektu alian aŭ kreu novan en la subdiska redaktilo.",
+  "error.manual_small": "La elektita sistema subdisko estas tro malgranda. Elektu pli grandan."
 }

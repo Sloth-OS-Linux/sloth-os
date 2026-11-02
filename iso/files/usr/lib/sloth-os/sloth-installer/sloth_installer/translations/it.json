@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: verrà cancellato e preparato per programmi e giochi",
   "confirm.summary.extra_keep": "{disk}: sarà disponibile con i suoi file",
   "boot.password_hint": "Digita la password del disco, poi premi Invio",
-  "list.search": "Cerca…"
+  "list.search": "Cerca…",
+  "disk.manual.open": "Avanzate: scegli tu le partizioni…",
+  "manual.heading": "Scegli le partizioni",
+  "manual.text": "Se vuoi, prepara prima il disco nell'editor delle partizioni (fai spazio, crea partizioni). Poi scegli dove va Sloth OS: una partizione di sistema di almeno {size} GB e una partizione EFI sullo stesso disco. La cifratura del disco qui non è disponibile.",
+  "manual.editor": "Apri l'editor delle partizioni",
+  "manual.system": "Partizione di sistema (almeno {size} GB):",
+  "manual.esp": "Partizione EFI:",
+  "manual.none_system": "Nessuna partizione è abbastanza grande. Creane una di almeno {size} GB nell'editor delle partizioni, poi aggiorna l'elenco.",
+  "manual.none_esp": "Questo disco non ha una partizione EFI. Creane una nell'editor delle partizioni (FAT32, almeno 300 MB, con i flag boot ed esp), poi aggiorna l'elenco.",
+  "manual.warning": "Tutto ciò che è su {partition} verrà cancellato. Le altre partizioni non vengono toccate e la partizione EFI conserva i file di avvio degli altri sistemi.",
+  "confirm.manual.text": "Sloth OS verrà installato sulla partizione {partition}.",
+  "confirm.summary.manual_esp": "File di avvio: sulla partizione EFI {partition} (viene formattata solo se è vuota).",
+  "error.manual_esp": "La partizione EFI scelta non può essere usata. Scegline un'altra o creane una nuova nell'editor delle partizioni.",
+  "error.manual_small": "La partizione di sistema scelta è troppo piccola. Scegline una più grande."
 }

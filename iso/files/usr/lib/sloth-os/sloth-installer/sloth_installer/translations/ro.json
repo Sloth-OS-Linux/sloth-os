@@ -137,5 +137,18 @@
   "confirm.summary.extra_keep": "{disk}: va fi disponibil cu fișierele sale",
   "confirm.summary.free": "Se va folosi spațiul liber de pe acest disc; dimensiunea partițiilor existente nu se schimbă.",
   "boot.password_hint": "Tastează parola discului, apoi apasă Enter",
-  "list.search": "Caută…"
+  "list.search": "Caută…",
+  "disk.manual.open": "Avansat: alegi singur partițiile…",
+  "manual.heading": "Alege partițiile",
+  "manual.text": "Dacă vrei, pregătește întâi discul în editorul de partiții (fă loc, creează partiții). Apoi alege unde merge Sloth OS: o partiție de sistem de cel puțin {size} GB și o partiție EFI pe același disc. Criptarea discului nu este disponibilă aici.",
+  "manual.editor": "Deschide editorul de partiții",
+  "manual.system": "Partiție de sistem (cel puțin {size} GB):",
+  "manual.esp": "Partiție EFI:",
+  "manual.none_system": "Nicio partiție nu este destul de mare. Creează una de cel puțin {size} GB în editorul de partiții, apoi reîmprospătează lista.",
+  "manual.none_esp": "Acest disc nu are partiție EFI. Creează una în editorul de partiții (FAT32, cel puțin 300 MB, cu indicatorii boot și esp), apoi reîmprospătează lista.",
+  "manual.warning": "Tot ce este pe {partition} va fi șters. Celelalte partiții nu sunt atinse, iar partiția EFI păstrează fișierele de pornire ale celorlalte sisteme.",
+  "confirm.manual.text": "Sloth OS va fi instalat pe partiția {partition}.",
+  "confirm.summary.manual_esp": "Fișiere de pornire: pe partiția EFI {partition} (este formatată doar dacă e goală).",
+  "error.manual_esp": "Partiția EFI aleasă nu poate fi folosită. Alege alta sau creează una nouă în editorul de partiții.",
+  "error.manual_small": "Partiția de sistem aleasă este prea mică. Alege una mai mare."
 }

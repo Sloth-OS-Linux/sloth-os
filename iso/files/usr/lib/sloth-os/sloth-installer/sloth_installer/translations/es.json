@@ -137,5 +137,18 @@
   "confirm.summary.erase": "Se borrará este disco, con sus particiones y archivos actuales.",
   "confirm.summary.create_all": "Se creará una nueva tabla GPT con una partición de arranque BIOS, una partición EFI, una partición de sistema de Sloth OS y espacio temporal de instalación.",
   "boot.password_hint": "Escribe la contraseña del disco y pulsa Intro",
-  "list.search": "Buscar…"
+  "list.search": "Buscar…",
+  "disk.manual.open": "Avanzado: elige tú las particiones…",
+  "manual.heading": "Elige las particiones",
+  "manual.text": "Si quieres, prepara primero el disco en el editor de particiones (haz espacio, crea particiones). Luego elige dónde va Sloth OS: una partición del sistema de al menos {size} GB y una partición EFI en el mismo disco. El cifrado de disco no está disponible aquí.",
+  "manual.editor": "Abrir el editor de particiones",
+  "manual.system": "Partición del sistema (al menos {size} GB):",
+  "manual.esp": "Partición EFI:",
+  "manual.none_system": "Ninguna partición es lo bastante grande. Crea una de al menos {size} GB en el editor de particiones y actualiza la lista.",
+  "manual.none_esp": "Este disco no tiene partición EFI. Crea una en el editor de particiones (FAT32, al menos 300 MB, con los indicadores boot y esp) y actualiza la lista.",
+  "manual.warning": "Se borrará todo lo que hay en {partition}. Las demás particiones no se tocan y la partición EFI conserva los archivos de arranque de los otros sistemas.",
+  "confirm.manual.text": "Sloth OS se instalará en la partición {partition}.",
+  "confirm.summary.manual_esp": "Archivos de arranque: en la partición EFI {partition} (solo se formatea si está vacía).",
+  "error.manual_esp": "No se puede usar la partición EFI elegida. Elige otra o crea una nueva en el editor de particiones.",
+  "error.manual_small": "La partición del sistema elegida es demasiado pequeña. Elige una más grande."
 }

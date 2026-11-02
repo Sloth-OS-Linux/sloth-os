@@ -29,7 +29,7 @@ log = logging.getLogger("sloth-installer")
 LOG_FILE = Path("/tmp/sloth-install.log")  # written by sloth-install-helper
 
 HELPER = "/usr/libexec/sloth-os/sloth-install-helper"
-PAGES = ["welcome", "region", "account", "disk", "confirm", "install", "done", "error"]
+PAGES = ["welcome", "region", "account", "disk", "confirm", "install", "done", "error", "manual"]
 NAV_PAGES = PAGES[:5]   # one can step back and forth between these
 USERNAME_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
 GIB = 1024**3
@@ -105,6 +105,11 @@ class InstallerController(QObject):
         self._extra_parts = {}
         # The main screen chosen on the first page (connector name, e.g. "HDMI-A-1"); "" = not chosen
         self._display = ""
+        # Advanced (the "manual" page): the partitions chosen by hand, after KDE Partition Manager if wanted
+        self._manual = False
+        self._partitions = []
+        self._manual_root = ""
+        self._manual_esp = ""
         # Switching the layout live with a small delay: stepping through the language list must not
         # switch for every language (overlapping switches could leave a wrong layout active)
         self._keyboard_timer = QTimer(self, singleShot=True, interval=400)
@@ -391,6 +396,72 @@ class InstallerController(QObject):
         else:
             proc.start("pkexec", args)
 
+    # --- Advanced: choosing the partitions --------------------------------------------------
+
+    manual = Property(bool, lambda self: self._manual, notify=changed)
+    partitions = Property("QVariantList", lambda self: self._partitions, notify=changed)
+    manualRoot = Property(str, lambda self: self._manual_root, notify=changed)
+    manualEsp = Property(str, lambda self: self._manual_esp, notify=changed)
+    manualMinGib = Property(int, lambda self: system.MIN_MANUAL_BYTES // GIB, constant=True)
+
+    @Property(bool, notify=changed)
+    def manualReady(self):
+        by_path = {p["path"]: p for p in self._partitions}
+        root, esp = by_path.get(self._manual_root), by_path.get(self._manual_esp)
+        return bool(root and esp and root["system"] and esp["esp"] and root["disk"] == esp["disk"])
+
+    def _manual_text(self, path):
+        return next((p["text"] for p in self._partitions if p["path"] == path), path)
+
+    manualRootText = Property(str, lambda self: self._manual_text(self._manual_root), notify=changed)
+    manualEspText = Property(str, lambda self: self._manual_text(self._manual_esp), notify=changed)
+
+    @Slot()
+    def openManual(self):
+        """The disk page's "Advanced" button: the partitions are chosen by hand (no encryption, no Windows sizing)."""
+        self._manual, self._beside, self._encrypt, self._confirmed = True, False, False, False
+        self._page = "manual"
+        self.refreshPartitions()
+
+    @Slot()
+    def refreshPartitions(self):
+        try:
+            self._partitions = system.partitions()
+        except Exception as e:  # lsblk error: an empty list, the page says so
+            log.error("partitions: %s", e)
+            self._partitions = []
+        paths = {p["path"]: p for p in self._partitions}
+        if not paths.get(self._manual_root, {}).get("system"):
+            self._manual_root = ""
+        disk = paths.get(self._manual_root, {}).get("disk", "")
+        esps = [p for p in self._partitions if p["esp"] and p["disk"] == disk]
+        if self._manual_esp not in {p["path"] for p in esps}:
+            # the EFI partition of the system partition's disk is chosen in advance (there is usually one)
+            self._manual_esp = esps[0]["path"] if len(esps) == 1 else ""
+        self.changed.emit()
+
+    @Slot(str)
+    def setManualRoot(self, path):
+        part = next((p for p in self._partitions if p["path"] == path and p["system"]), None)
+        if part:
+            self._manual_root, self._confirmed = path, False
+            # the target disk is the system partition's disk (the other disks' choices know it)
+            self._disk = part["disk"]
+            self._extra.pop(part["disk"], None)
+            self.refreshPartitions()
+
+    @Slot(str)
+    def setManualEsp(self, path):
+        if any(p["path"] == path and p["esp"] for p in self._partitions):
+            self._manual_esp, self._confirmed = path, False
+            self.changed.emit()
+
+    @Slot()
+    def openPartitionEditor(self):
+        """KDE Partition Manager, as a separate program; when the user comes back, the list is refreshed."""
+        if not QProcess.startDetached("partitionmanager", []):
+            log.warning("could not start partitionmanager")
+
     @Slot(bool)
     def setBeside(self, value):
         if value and not self.besideInfo.get("possible"):
@@ -435,6 +506,11 @@ class InstallerController(QObject):
         log.info("next: %s (disk: %s)", self._page, self._disk or "-")
         if self._page == "welcome" and not self.canInstall:
             return
+        if self._page == "manual":
+            if self.manualReady:
+                self._page = "confirm"
+                self.changed.emit()
+            return
         if self._page in order[:-1]:
             self._page = order[order.index(self._page) + 1]
             if self._page == "disk":
@@ -445,6 +521,15 @@ class InstallerController(QObject):
     def back(self):
         order = NAV_PAGES
         log.info("back: %s", self._page)
+        if self._page == "manual":
+            # back to the simple choice of a disk
+            self._manual, self._page, self._confirmed = False, "disk", False
+            self.refreshDisks()
+            return
+        if self._page == "confirm" and self._manual:
+            self._page = "manual"
+            self.changed.emit()
+            return
         if self._page in order[1:]:
             self._page = order[order.index(self._page) - 1]
             self.changed.emit()
@@ -455,6 +540,8 @@ class InstallerController(QObject):
         if self._proc or not self._disk or not self._confirmed:
             return
         if self._beside and not self.besideInfo.get("possible"):
+            return
+        if self._manual and not self.manualReady:
             return
         if self.encryptProblem:
             return
@@ -468,9 +555,11 @@ class InstallerController(QObject):
         args = [HELPER, "install", "--disk", self._disk, "--locale", locale, "--language", self._language,
                 "--keyboard", self._keyboard, "--timezone", self._timezone,
                 "--username", self._username, "--fullname", self._full_name]
-        if self._beside:
+        if self._manual:
+            args += ["--manual-root", self._manual_root, "--manual-esp", self._manual_esp]
+        elif self._beside:
             args += ["--beside-windows", "--size-gib", str(self._size_gib)]
-        if self._encrypt:
+        if self._encrypt and not self._manual:
             args.append("--encrypt")
         if self._display:
             args += ["--primary-display", self._display]

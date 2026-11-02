@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: silinecek ve programlar ile oyunlar için hazırlanacak",
   "confirm.summary.extra_keep": "{disk}: dosyalarıyla birlikte kullanılabilir olacak",
   "boot.password_hint": "Disk parolanızı yazın, ardından Enter'a basın",
-  "list.search": "Ara…"
+  "list.search": "Ara…",
+  "disk.manual.open": "Gelişmiş: bölümleri kendin seç…",
+  "manual.heading": "Bölümleri seç",
+  "manual.text": "İstersen önce diski bölüm düzenleyicisinde hazırla (yer aç, bölüm oluştur). Sonra Sloth OS'un nereye kurulacağını seç: en az {size} GB'lık bir sistem bölümü ve aynı diskte bir EFI bölümü. Disk şifreleme burada kullanılamaz.",
+  "manual.editor": "Bölüm düzenleyicisini aç",
+  "manual.system": "Sistem bölümü (en az {size} GB):",
+  "manual.esp": "EFI bölümü:",
+  "manual.none_system": "Hiçbir bölüm yeterince büyük değil. Bölüm düzenleyicisinde en az {size} GB'lık bir bölüm oluştur, sonra listeyi yenile.",
+  "manual.none_esp": "Bu diskte EFI bölümü yok. Bölüm düzenleyicisinde bir tane oluştur (FAT32, en az 300 MB, boot ve esp bayraklarıyla), sonra listeyi yenile.",
+  "manual.warning": "{partition} üzerindeki her şey silinecek. Diğer bölümlere dokunulmaz ve EFI bölümü diğer sistemlerin önyükleme dosyalarını korur.",
+  "confirm.manual.text": "Sloth OS {partition} bölümüne kurulacak.",
+  "confirm.summary.manual_esp": "Önyükleme dosyaları: {partition} EFI bölümüne (yalnızca boşsa biçimlendirilir).",
+  "error.manual_esp": "Seçilen EFI bölümü kullanılamıyor. Başka birini seç veya bölüm düzenleyicisinde yenisini oluştur.",
+  "error.manual_small": "Seçilen sistem bölümü çok küçük. Daha büyük birini seç."
 }

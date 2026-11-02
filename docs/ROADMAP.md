@@ -60,8 +60,17 @@ from a terminal must also work from a GUI.
 4. [x] Installer (2026-11-02): a search field in the language, keyboard and time zone lists (`SearchCombo.qml`);
    installing next to Windows a second time replaces the earlier Sloth OS (it was not offered: its partitions
    counted as used and Windows was already shrunk). To try in a VM: Windows + Sloth OS, then reinstall
-5. [ ] Installer, advanced (agreed 2026-11-02): a small "Advanced" button on the disk page opens KDE Partition
-   Manager, then the installer asks which partition the system goes to (size and EFI partition checked)
+5. [x] Installer, advanced (agreed and done 2026-11-02, to try in a VM): "Advanced: choose the partitions
+   yourself…" on the disk page opens its own page: KDE Partition Manager can be opened from it, then a system
+   partition (at least 56 GB, erased) and an EFI partition on the same disk are chosen (kept if it is FAT, so the
+   other systems' boot files stay; formatted only if empty). Partitions in use are not offered; no encryption here.
+   The install splits a work area off the end of the system partition and joins it back afterwards
+   (`partition_manual`), so the borders stay where the user put them; a Windows on the disk gets its boot menu
+   line. 50 languages
+7. [x] ChromeOS-like quick settings (2026-11-02, `org.slothos.quicksettings`): a pill in the shelf's corner with
+   the network, the sound and the clock; its bubble: the date, Wi-Fi, Bluetooth, do not disturb, airplane mode,
+   power saver, volume and brightness, Settings, Screenshot, Lock, Shut down. Built on KDE's own parts; the
+   tray's network/sound/Bluetooth/battery/brightness icons go behind its arrow in this layout. 50 languages
 6. [x] New taskbar layouts (agreed 2026-11-02, done the same day on the test branch, to look at on the HP):
    **Windows 7** (Kicker's classic menu, task buttons with names, show desktop), **ChromeOS-like** (a shelf: the
    round launcher in the corner opens the app grid as a bubble, style "chromeos": search, the recently used apps,
@@ -69,7 +78,7 @@ from a terminal must also work from a GUI.
    middle that dodges windows). Recognized from Plasma's settings (`appearance.current_layout`, the floating one
    by `panelLengthMode` in plasmashellrc); previews in `LayoutPreview.qml`. And six schemes with real color:
    Ocean Blue, Forest Green, Sunset Orange, Grape Purple (dark), Rose, Amber (light); text at least 4.5 : 1.
-   Not yet: the ChromeOS quick settings as one corner bubble (Plasma's tray stays)
+   The quick settings bubble: item 7
 
 ### Ideas from Reddit (2026-10-30)
 - [ ] (First version 2026-11-02, test branch, to look at on the HP) Mac-like and Ubuntu-like: a workspace switcher

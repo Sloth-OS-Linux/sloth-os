@@ -137,5 +137,18 @@
   "confirm.summary.keep_windows": "Windows og filene vert verande. Nye EFI- og Sloth OS-systempartisjonar vert laga i den ledige plassen.",
   "confirm.summary.shrink": "Windows-partisjonen vert gjord {size} GiB mindre, og den frigjorde plassen går til Sloth OS.",
   "boot.password_hint": "Skriv inn passordet til disken, og trykk Enter",
-  "list.search": "Søk …"
+  "list.search": "Søk …",
+  "disk.manual.open": "Avansert: vel partisjonane sjølv…",
+  "manual.heading": "Vel partisjonar",
+  "manual.text": "Om du vil, kan du først gjere klar disken i partisjonsredigeraren (frigjere plass, lage partisjonar). Vel så kvar Sloth OS skal liggje: ein systempartisjon på minst {size} GB og ein EFI-partisjon på same disk. Diskkryptering er ikkje tilgjengeleg her.",
+  "manual.editor": "Opna partisjonsredigeraren",
+  "manual.system": "Systempartisjon (minst {size} GB):",
+  "manual.esp": "EFI-partisjon:",
+  "manual.none_system": "Ingen partisjon er stor nok. Lag ein på minst {size} GB i partisjonsredigeraren, og oppdater lista.",
+  "manual.none_esp": "Denne disken har ingen EFI-partisjon. Lag ein i partisjonsredigeraren (FAT32, minst 300 MB, med flagga boot og esp), og oppdater lista.",
+  "manual.warning": "Alt på {partition} vert sletta. Dei andre partisjonane vert ikkje rørte, og EFI-partisjonen held på oppstartsfilene til dei andre systema.",
+  "confirm.manual.text": "Sloth OS vert installert på partisjonen {partition}.",
+  "confirm.summary.manual_esp": "Oppstartsfiler: på EFI-partisjonen {partition} (han vert berre formatert om han er tom).",
+  "error.manual_esp": "Den valde EFI-partisjonen kan ikkje brukast. Vel ein annan, eller lag ein ny i partisjonsredigeraren.",
+  "error.manual_small": "Den valde systempartisjonen er for lita. Vel ein større."
 }

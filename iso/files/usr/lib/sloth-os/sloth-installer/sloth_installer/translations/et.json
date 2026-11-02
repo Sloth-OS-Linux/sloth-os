@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: kustutatakse ja valmistatakse ette programmide ja mängude jaoks",
   "confirm.summary.extra_keep": "{disk}: on koos oma failidega kasutatav",
   "boot.password_hint": "Sisesta ketta parool ja vajuta Enter",
-  "list.search": "Otsi…"
+  "list.search": "Otsi…",
+  "disk.manual.open": "Täpsem: vali partitsioonid ise…",
+  "manual.heading": "Partitsioonide valimine",
+  "manual.text": "Soovi korral valmista ketas esmalt partitsiooniredaktoris ette (tee ruumi, loo partitsioonid). Seejärel vali, kuhu Sloth OS läheb: vähemalt {size} GB süsteemipartitsioon ja EFI-partitsioon samal kettal. Ketta krüptimine pole siin saadaval.",
+  "manual.editor": "Ava partitsiooniredaktor",
+  "manual.system": "Süsteemipartitsioon (vähemalt {size} GB):",
+  "manual.esp": "EFI-partitsioon:",
+  "manual.none_system": "Ükski partitsioon pole piisavalt suur. Loo partitsiooniredaktoris vähemalt {size} GB partitsioon ja värskenda loendit.",
+  "manual.none_esp": "Sellel kettal pole EFI-partitsiooni. Loo see partitsiooniredaktoris (FAT32, vähemalt 300 MB, lippudega boot ja esp) ja värskenda loendit.",
+  "manual.warning": "Kõik partitsioonil {partition} kustutatakse. Teisi partitsioone ei puudutata ja EFI-partitsioon säilitab teiste süsteemide käivitusfailid.",
+  "confirm.manual.text": "Sloth OS paigaldatakse partitsioonile {partition}.",
+  "confirm.summary.manual_esp": "Käivitusfailid: EFI-partitsioonile {partition} (see vormindatakse ainult siis, kui see on tühi).",
+  "error.manual_esp": "Valitud EFI-partitsiooni ei saa kasutada. Vali mõni teine või loo partitsiooniredaktoris uus.",
+  "error.manual_small": "Valitud süsteemipartitsioon on liiga väike. Vali suurem."
 }

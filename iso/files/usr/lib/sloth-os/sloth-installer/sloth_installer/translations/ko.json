@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: 지우고 프로그램과 게임용으로 준비합니다",
   "confirm.summary.extra_keep": "{disk}: 파일을 유지한 채 사용할 수 있게 됩니다",
   "boot.password_hint": "디스크 비밀번호를 입력한 다음 Enter 키를 누르세요",
-  "list.search": "검색…"
+  "list.search": "검색…",
+  "disk.manual.open": "고급: 파티션 직접 선택…",
+  "manual.heading": "파티션 선택",
+  "manual.text": "원한다면 먼저 파티션 편집기에서 디스크를 준비하세요(공간 확보, 파티션 만들기). 그런 다음 Sloth OS를 설치할 곳을 고르세요: {size}GB 이상의 시스템 파티션과 같은 디스크의 EFI 파티션입니다. 여기서는 디스크 암호화를 사용할 수 없습니다.",
+  "manual.editor": "파티션 편집기 열기",
+  "manual.system": "시스템 파티션({size}GB 이상):",
+  "manual.esp": "EFI 파티션:",
+  "manual.none_system": "충분히 큰 파티션이 없습니다. 파티션 편집기에서 {size}GB 이상의 파티션을 만든 다음 목록을 새로 고치세요.",
+  "manual.none_esp": "이 디스크에는 EFI 파티션이 없습니다. 파티션 편집기에서 만든 다음(FAT32, 300MB 이상, boot 및 esp 플래그) 목록을 새로 고치세요.",
+  "manual.warning": "{partition}의 모든 내용이 지워집니다. 다른 파티션은 건드리지 않으며 EFI 파티션에는 다른 시스템의 부팅 파일이 그대로 남습니다.",
+  "confirm.manual.text": "Sloth OS가 {partition} 파티션에 설치됩니다.",
+  "confirm.summary.manual_esp": "부팅 파일: EFI 파티션 {partition}에 저장됩니다(비어 있을 때만 포맷합니다).",
+  "error.manual_esp": "선택한 EFI 파티션을 사용할 수 없습니다. 다른 파티션을 고르거나 파티션 편집기에서 새로 만드세요.",
+  "error.manual_small": "선택한 시스템 파티션이 너무 작습니다. 더 큰 파티션을 고르세요."
 }

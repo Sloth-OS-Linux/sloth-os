@@ -137,5 +137,18 @@
   "confirm.summary.extra_keep": "{disk}：將連同其中的檔案一起可用",
   "confirm.summary.free": "使用此磁碟上的可用空間；現有分割區的大小不變。",
   "boot.password_hint": "請輸入磁碟密碼，然後按 Enter 鍵",
-  "list.search": "搜尋…"
+  "list.search": "搜尋…",
+  "disk.manual.open": "進階：自行選擇分割區…",
+  "manual.heading": "選擇分割區",
+  "manual.text": "如有需要，請先在分割區編輯器中準備磁碟（騰出空間、建立分割區）。然後選擇 Sloth OS 的位置：至少 {size} GB 的系統分割區，以及同一磁碟上的 EFI 分割區。此處無法使用磁碟加密。",
+  "manual.editor": "開啟分割區編輯器",
+  "manual.system": "系統分割區（至少 {size} GB）：",
+  "manual.esp": "EFI 分割區：",
+  "manual.none_system": "沒有夠大的分割區。請在分割區編輯器中建立至少 {size} GB 的分割區，然後重新整理清單。",
+  "manual.none_esp": "此磁碟沒有 EFI 分割區。請在分割區編輯器中建立一個（FAT32，至少 300 MB，具備 boot 與 esp 旗標），然後重新整理清單。",
+  "manual.warning": "{partition} 上的所有內容都會被清除。其他分割區不會受影響，EFI 分割區會保留其他系統的開機檔案。",
+  "confirm.manual.text": "Sloth OS 將安裝到分割區 {partition}。",
+  "confirm.summary.manual_esp": "開機檔案：放在 EFI 分割區 {partition}（僅在其為空時格式化）。",
+  "error.manual_esp": "無法使用所選的 EFI 分割區。請選擇其他分割區，或在分割區編輯器中建立新的。",
+  "error.manual_small": "所選的系統分割區太小。請選擇更大的分割區。"
 }

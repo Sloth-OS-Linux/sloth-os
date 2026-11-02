@@ -62,6 +62,7 @@ SCRATCH_BYTES = 10 * 1024**3                     # for the unpacked layers (meas
 scratch_bytes = SCRATCH_BYTES
 
 MIN_BESIDE_BYTES = 40 * 1024**3                  # next to Windows, Sloth OS needs at least this much
+MIN_ESP_BYTES = 200 * 1024**2                    # an existing EFI partition chosen by hand (advanced)
 WINDOWS_RESERVE = 20 * 1024**3                   # after shrinking, Windows keeps this much free space
 ESP_MIB = 512
 BOOT_MIB = 1024    # separate /boot with encryption (GRUB cannot open LUKS2; the kernel lives here)
@@ -660,6 +661,55 @@ def partition_beside(disk, size_bytes, encrypt=False):
     return parts, info["windowsEsp"]
 
 
+def partition_manual(disk, root_node, esp_node):
+    """Advanced: the partitions the user chose (made in KDE Partition Manager if they wanted). The system partition
+    is erased; the EFI partition is kept as it is if it already has a FAT file system (the other systems' boot
+    loaders on it stay), and only formatted if it is empty. For the install the end of the system partition becomes
+    the work partition for a while (finish_partitions joins it back), so the partitions' borders stay where the
+    user put them.
+
+    -> (partitions {"esp", "root", "scratch"} by device and partition number, the FS-UUID of a Windows EFI or "")
+    """
+    pt = table(disk)
+    ss = pt["sectorsize"]
+    if pt.get("label") != "gpt":
+        fail("disk.beside.not_gpt", f"not a GPT disk: {disk}")
+    by_node = {p["node"]: p for p in pt["partitions"]}
+    root, esp = by_node.get(root_node), by_node.get(esp_node)
+    if not root or not esp or root is esp:
+        fail("error.bad_input", f"the partitions are not on {disk}: {root_node} {esp_node}")
+    if (esp.get("type") or "").lower() != ESP_TYPE or esp["size"] * ss < MIN_ESP_BYTES:
+        fail("error.manual_esp", f"not a usable EFI partition: {esp}")
+    esp_fs = fstype(esp_node)
+    if esp_fs not in ("vfat", ""):
+        fail("error.manual_esp", f"the EFI partition holds {esp_fs}")
+    align = MIB // ss
+    scratch = -(-scratch_bytes // ss // align) * align
+    if (root["size"] - scratch) * ss < MIN_BESIDE_BYTES:
+        fail("error.manual_small", f"the system partition is too small: {root['size'] * ss}")
+    # a Windows on this disk gets its line in the boot menu (its EFI may be the chosen one or another)
+    windows = windows_esps(disk)
+    windows_esp = windows[0]["uuid"] if len(windows) == 1 else ""
+    subprocess.run(["wipefs", "--all", "--quiet", root_node], capture_output=True)
+    keep = root["size"] - scratch
+    root_n = partnum(disk, root_node)
+    run(["sfdisk", "--no-reread", "-N", str(root_n), disk],
+        input=f"start={root['start']}, size={keep}, type={ROOT_X86_64}, name=\"root\"\n")
+    run(["sfdisk", "--append", "--no-reread", disk],
+        input=f"start={root['start'] + keep}, size={root['size'] - keep}, type={LINUX_DATA}, name=\"sloth-install-tmp\"\n")
+    run(["partx", "--update", disk])
+    run(["udevadm", "settle", "--timeout=30"])
+    by_start = {p["start"]: p for p in table(disk)["partitions"]}
+    work = by_start.get(root["start"] + keep)
+    if not work:
+        fail("error.install_failed", "the work partition did not appear")
+    parts = {"esp": esp_node, "root": root_node, "scratch": work["node"], "keep_esp": esp_fs == "vfat"}
+    parts["numbers"] = {"esp": partnum(disk, esp_node), "root": root_n, "scratch": partnum(disk, work["node"])}
+    log(f"advanced: system {root_node} (work partition {work['node']}), EFI {esp_node} "
+        f"({'kept' if parts['keep_esp'] else 'formatted'})")
+    return parts, windows_esp
+
+
 def partnum(disk, node):
     # The number comes straight from the kernel. lsblk also listed the encrypted layer open on the partition
     # (/dev/mapper/sloth-root, without a number), first (2026-10-21, real machine with encryption: TypeError, the install failed)
@@ -688,7 +738,8 @@ def format_and_mount(parts, passphrase=""):
     The password reaches cryptsetup only on standard input (without a line ending: that is how it will
     have to be typed at boot too). TRIM (discard) is enabled in the header (--persistent).
     """
-    run(["mkfs.fat", "-F", "32", "-n", "EFI-SYSTEM", parts["esp"]])
+    if not parts.get("keep_esp"):
+        run(["mkfs.fat", "-F", "32", "-n", "EFI-SYSTEM", parts["esp"]])
     if parts.get("boot"):
         run(["mkfs.ext4", "-F", "-q", "-L", "boot", parts["boot"]])
     root_dev = parts["root"]
@@ -1138,6 +1189,8 @@ def main():
     inst.add_argument("--username", required=True)
     inst.add_argument("--fullname", default="")
     inst.add_argument("--beside-windows", action="store_true")
+    inst.add_argument("--manual-root", default="", help="advanced: the system partition (it is erased)")
+    inst.add_argument("--manual-esp", default="", help="advanced: the EFI partition (kept if it is FAT)")
     inst.add_argument("--size-gib", type=int, default=0)
     inst.add_argument("--encrypt", action="store_true", help="the encryption password is the 2nd line of the input")
     inst.add_argument("--extra-disk", action="append", default=[], help="keep:/dev/Y or erase:/dev/Y")
@@ -1172,6 +1225,9 @@ def main():
     # says so too (sloth_installer.system.machine_check); this is the last word, before any disk is touched.
     if not Path("/sys/firmware/efi").is_dir():
         fail("error.not_uefi", "started in legacy (BIOS) mode")
+    manual = bool(args.manual_root or args.manual_esp)
+    if manual and (not args.manual_root or not args.manual_esp or args.beside_windows or args.encrypt):
+        fail("error.bad_input", "advanced: a system and an EFI partition, without encryption or Windows sizing")
     if args.beside_windows and not 40 <= args.size_gib <= 100000:
         fail("error.bad_input", f"bad size: {args.size_gib} GiB")
     if not re.fullmatch(r"[a-z]{2,3}(_[A-Z]{2})?\.UTF-8", args.locale):
@@ -1212,7 +1268,9 @@ def main():
     extra = prepare_extra_disks(extras, args.encrypt, args.data_label)
     release_disk(args.disk)
     windows_esp = ""
-    if args.beside_windows:
+    if manual:
+        parts, windows_esp = partition_manual(args.disk, args.manual_root, args.manual_esp)
+    elif args.beside_windows:
         parts, windows_esp = partition_beside(args.disk, args.size_gib * 1024**3, args.encrypt)
     else:
         parts = partition(args.disk, args.encrypt)
@@ -1233,10 +1291,10 @@ def main():
     setup_boot_menu(windows_esp)
     root_part = finish_partitions(args.disk, parts, passphrase)
     rename_boot_entry(args.disk, parts["numbers"]["esp"])
-    if args.beside_windows:
+    if windows_esp:
         place_windows_helper(args.disk)
     emit(stage="configure", progress=95)
-    configure(root_part, args.locale, *keyboard, args.timezone, account, beside_windows=args.beside_windows,
+    configure(root_part, args.locale, *keyboard, args.timezone, account, beside_windows=bool(windows_esp),
               luks_uuid=parts.get("luks_uuid", ""), extra=extra, display=args.primary_display)
     if parts.get("luks_uuid"):
         subprocess.run(["cryptsetup", "close", CRYPT_NAME], capture_output=True)

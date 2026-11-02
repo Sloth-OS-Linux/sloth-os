@@ -137,5 +137,18 @@
   "confirm.summary.keep_windows": "Windows e i siei files a restin. Lis gnovis partizions EFI e di sisteme di Sloth OS a vignaran creadis tal spazi libar.",
   "confirm.summary.shrink": "La partizion di Windows e vignarà ridote di {size} GiB, e il spazi liberât al larà a Sloth OS.",
   "boot.password_hint": "Scrîf la password dal disc e frache Invie",
-  "list.search": "Cîr…"
+  "list.search": "Cîr…",
+  "disk.manual.open": "Avanzât: sielç tu lis partizions…",
+  "manual.heading": "Sielç lis partizions",
+  "manual.text": "Se tu vuelis, prepare prime il disc tal editôr des partizions (fâs puest, cree partizions). Dopo sielç dulà che al va Sloth OS: une partizion di sisteme di almancul {size} GB e une partizion EFI sul stes disc. La cifradure dal disc no je disponibile achì.",
+  "manual.editor": "Vierç l'editôr des partizions",
+  "manual.system": "Partizion di sisteme (almancul {size} GB):",
+  "manual.esp": "Partizion EFI:",
+  "manual.none_system": "Nissune partizion e je avonde grande. Cree une di almancul {size} GB tal editôr des partizions e dopo inzorne la liste.",
+  "manual.none_esp": "Chest disc nol à une partizion EFI. Creile tal editôr des partizions (FAT32, almancul 300 MB, cui segnadôrs boot e esp) e dopo inzorne la liste.",
+  "manual.warning": "Dut ce che al è su {partition} al vignarà scancelât. Lis altris partizions no vegnin tocjadis e la partizion EFI e ten i files di inviament dai altris sistemis.",
+  "confirm.manual.text": "Sloth OS al vignarà instalât su la partizion {partition}.",
+  "confirm.summary.manual_esp": "Files di inviament: su la partizion EFI {partition} (e ven formatade dome se e je vueide).",
+  "error.manual_esp": "La partizion EFI sielte no pues jessi doprade. Sielç une altre o cree une gnove tal editôr des partizions.",
+  "error.manual_small": "La partizion di sisteme sielte e je masse piçule. Sielç une plui grande."
 }

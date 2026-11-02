@@ -137,5 +137,18 @@
   "confirm.summary.free": "Ad tettwaseqdec tallunt tilellit n uḍebsi-a; teɣzi n tḥuna yellan ur tettbeddil ara.",
   "confirm.summary.keep_windows": "Windows d yifuyla-s ad qqimen. Tiḥuna timaynutin EFI d unagraw n Sloth OS ad ttwarnunt deg tallunt tilellit.",
   "boot.password_hint": "Aru awal uffir n uḍebsi, sakin sit ɣef Enter",
-  "list.search": "Nadi…"
+  "list.search": "Nadi…",
+  "disk.manual.open": "Talqayt: fren iḥricen s yiman-ik…",
+  "manual.heading": "Fren iḥricen",
+  "manual.text": "Ma tebɣiḍ, heggi uqbel aḍebsi deg umaẓrag n yiḥricen (serreḥ adeg, snulfu-d iḥricen). Syin fren anida ara yili Sloth OS: aḥric n unagraw n {size} GB ma drus, d uḥric EFI deg yiwen n uḍebsi. Awgelhen n uḍebsi ulac-it da.",
+  "manual.editor": "Ldi amaẓrag n yiḥricen",
+  "manual.system": "Aḥric n unagraw ({size} GB ma drus):",
+  "manual.esp": "Aḥric EFI:",
+  "manual.none_system": "Ulac aḥric meqqren aṭas. Snulfu-d yiwen n {size} GB ma drus deg umaẓrag n yiḥricen, syin smiren tabdart.",
+  "manual.none_esp": "Aḍebsi-a ulac deg-s aḥric EFI. Snulfu-d yiwen deg umaẓrag n yiḥricen (FAT32, 300 MB ma drus, s yicraḍ boot d esp), syin smiren tabdart.",
+  "manual.warning": "Akk ayen yellan deg {partition} ad yettwakkes. Iḥricen nniḍen ur ttwannalen ara, aḥric EFI ad yeǧǧ ifuyla n usekker n yinagrawen nniḍen.",
+  "confirm.manual.text": "Sloth OS ad yettwasebded ɣef uḥric {partition}.",
+  "confirm.summary.manual_esp": "Ifuyla n usekker: ɣef uḥric EFI {partition} (ad yettwamsel kan ma yella d ilem).",
+  "error.manual_esp": "Aḥric EFI yettwafernen ur yezmir ara ad yettwaseqdec. Fren wayeḍ neɣ snulfu-d amaynut deg umaẓrag n yiḥricen.",
+  "error.manual_small": "Aḥric n unagraw yettwafernen meẓẓi aṭas. Fren win meqqren."
 }

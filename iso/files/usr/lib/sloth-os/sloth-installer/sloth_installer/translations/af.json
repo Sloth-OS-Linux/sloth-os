@@ -137,5 +137,18 @@
   "confirm.summary.create_all": "'n Nuwe GPT-uitleg word geskep met 'n BIOS-selflaaipartisie, 'n EFI-partisie, 'n Sloth OS-stelselpartisie en tydelike installasieruimte.",
   "confirm.summary.target": "Teikenskyf: {disk} ({size})",
   "boot.password_hint": "Tik jou skyfwagwoord en druk Enter",
-  "list.search": "Soek…"
+  "list.search": "Soek…",
+  "disk.manual.open": "Gevorderd: kies self die partisies…",
+  "manual.heading": "Kies die partisies",
+  "manual.text": "As jy wil, berei eers die skyf in die partisieredigeerder voor (maak plek, skep partisies). Kies dan waar Sloth OS gaan: 'n stelselpartisie van minstens {size} GB en 'n EFI-partisie op dieselfde skyf. Skyfenkripsie is nie hier beskikbaar nie.",
+  "manual.editor": "Maak die partisieredigeerder oop",
+  "manual.system": "Stelselpartisie (minstens {size} GB):",
+  "manual.esp": "EFI-partisie:",
+  "manual.none_system": "Geen partisie is groot genoeg nie. Skep een van minstens {size} GB in die partisieredigeerder en verfris dan die lys.",
+  "manual.none_esp": "Hierdie skyf het geen EFI-partisie nie. Skep een in die partisieredigeerder (FAT32, minstens 300 MB, met die vlae boot en esp) en verfris dan die lys.",
+  "manual.warning": "Alles op {partition} sal uitgevee word. Die ander partisies word nie aangeraak nie, en die EFI-partisie behou die ander stelsels se selflaailêers.",
+  "confirm.manual.text": "Sloth OS sal op die partisie {partition} geïnstalleer word.",
+  "confirm.summary.manual_esp": "Selflaailêers: op die EFI-partisie {partition} (dit word net geformateer as dit leeg is).",
+  "error.manual_esp": "Die gekose EFI-partisie kan nie gebruik word nie. Kies 'n ander een of skep 'n nuwe een in die partisieredigeerder.",
+  "error.manual_small": "Die gekose stelselpartisie is te klein. Kies 'n groter een."
 }

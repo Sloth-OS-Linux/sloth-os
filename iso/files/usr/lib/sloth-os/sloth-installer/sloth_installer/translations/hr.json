@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: bit će izbrisan i pripremljen za programe i igre",
   "confirm.summary.extra_keep": "{disk}: bit će dostupan sa svojim datotekama",
   "boot.password_hint": "Upišite lozinku diska i pritisnite Enter",
-  "list.search": "Traži…"
+  "list.search": "Traži…",
+  "disk.manual.open": "Napredno: sami odaberite particije…",
+  "manual.heading": "Odabir particija",
+  "manual.text": "Ako želite, najprije pripremite disk u uređivaču particija (oslobodite prostor, stvorite particije). Zatim odaberite kamo ide Sloth OS: sistemska particija od najmanje {size} GB i EFI particija na istom disku. Šifriranje diska ovdje nije dostupno.",
+  "manual.editor": "Otvori uređivač particija",
+  "manual.system": "Sistemska particija (najmanje {size} GB):",
+  "manual.esp": "EFI particija:",
+  "manual.none_system": "Nijedna particija nije dovoljno velika. U uređivaču particija stvorite jednu od najmanje {size} GB pa osvježite popis.",
+  "manual.none_esp": "Ovaj disk nema EFI particiju. Stvorite je u uređivaču particija (FAT32, najmanje 300 MB, s oznakama boot i esp) pa osvježite popis.",
+  "manual.warning": "Sve na {partition} bit će izbrisano. Ostale particije ostaju netaknute, a EFI particija zadržava datoteke za pokretanje drugih sustava.",
+  "confirm.manual.text": "Sloth OS bit će instaliran na particiju {partition}.",
+  "confirm.summary.manual_esp": "Datoteke za pokretanje: na EFI particiju {partition} (formatira se samo ako je prazna).",
+  "error.manual_esp": "Odabrana EFI particija ne može se upotrijebiti. Odaberite drugu ili stvorite novu u uređivaču particija.",
+  "error.manual_small": "Odabrana sistemska particija je premala. Odaberite veću."
 }

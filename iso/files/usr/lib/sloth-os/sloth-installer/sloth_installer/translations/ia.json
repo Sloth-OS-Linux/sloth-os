@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: essera delite e preparate pro programmas e jocos",
   "confirm.summary.extra_keep": "{disk}: essera disponibile con su files",
   "boot.password_hint": "Scribe le contrasigno del disco, postea pulsa Enter",
-  "list.search": "Cercar…"
+  "list.search": "Cercar…",
+  "disk.manual.open": "Avantiate: elige tu mesme le partitiones…",
+  "manual.heading": "Elige le partitiones",
+  "manual.text": "Si tu vole, prepara primo le disco in le editor de partitiones (face spatio, crea partitiones). Postea elige ubi va Sloth OS: un partition de systema de al minus {size} GB e un partition EFI sur le mesme disco. Le cryptation del disco non es disponibile hic.",
+  "manual.editor": "Aperi le editor de partitiones",
+  "manual.system": "Partition de systema (al minus {size} GB):",
+  "manual.esp": "Partition EFI:",
+  "manual.none_system": "Nulle partition es satis grande. Crea un de al minus {size} GB in le editor de partitiones, postea refresca le lista.",
+  "manual.none_esp": "Iste disco non ha un partition EFI. Crea un in le editor de partitiones (FAT32, al minus 300 MB, con le marcas boot e esp), postea refresca le lista.",
+  "manual.warning": "Toto sur {partition} essera delite. Le altere partitiones non es tocate, e le partition EFI conserva le files de initio del altere systemas.",
+  "confirm.manual.text": "Sloth OS essera installate sur le partition {partition}.",
+  "confirm.summary.manual_esp": "Files de initio: sur le partition EFI {partition} (illo es formatate solmente si illo es vacue).",
+  "error.manual_esp": "Le partition EFI eligite non pote esser usate. Elige un altere o crea un nove in le editor de partitiones.",
+  "error.manual_small": "Le partition de systema eligite es troppo parve. Elige un plus grande."
 }

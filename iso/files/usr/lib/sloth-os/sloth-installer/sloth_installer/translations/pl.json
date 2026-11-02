@@ -137,5 +137,18 @@
   "confirm.summary.heading": "Planowane zmiany na dysku",
   "confirm.summary.shrink": "Partycja Windows zostanie zmniejszona o {size} GiB, a zwolnione miejsce dostanie Sloth OS.",
   "boot.password_hint": "Wpisz hasło do dysku i naciśnij Enter",
-  "list.search": "Szukaj…"
+  "list.search": "Szukaj…",
+  "disk.manual.open": "Zaawansowane: wybierz partycje samodzielnie…",
+  "manual.heading": "Wybierz partycje",
+  "manual.text": "Jeśli chcesz, najpierw przygotuj dysk w edytorze partycji (zwolnij miejsce, utwórz partycje). Potem wybierz, gdzie trafi Sloth OS: partycja systemowa o rozmiarze co najmniej {size} GB i partycja EFI na tym samym dysku. Szyfrowanie dysku nie jest tu dostępne.",
+  "manual.editor": "Otwórz edytor partycji",
+  "manual.system": "Partycja systemowa (co najmniej {size} GB):",
+  "manual.esp": "Partycja EFI:",
+  "manual.none_system": "Żadna partycja nie jest wystarczająco duża. Utwórz w edytorze partycji taką o rozmiarze co najmniej {size} GB i odśwież listę.",
+  "manual.none_esp": "Ten dysk nie ma partycji EFI. Utwórz ją w edytorze partycji (FAT32, co najmniej 300 MB, z flagami boot i esp) i odśwież listę.",
+  "manual.warning": "Wszystko na {partition} zostanie usunięte. Inne partycje pozostaną nietknięte, a partycja EFI zachowa pliki rozruchowe innych systemów.",
+  "confirm.manual.text": "Sloth OS zostanie zainstalowany na partycji {partition}.",
+  "confirm.summary.manual_esp": "Pliki rozruchowe: na partycji EFI {partition} (zostanie sformatowana tylko, jeśli jest pusta).",
+  "error.manual_esp": "Wybranej partycji EFI nie można użyć. Wybierz inną lub utwórz nową w edytorze partycji.",
+  "error.manual_small": "Wybrana partycja systemowa jest za mała. Wybierz większą."
 }

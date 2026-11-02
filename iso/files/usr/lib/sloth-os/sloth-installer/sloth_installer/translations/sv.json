@@ -137,5 +137,18 @@
   "confirm.summary.extra_keep": "{disk}: blir tillgänglig med sina filer",
   "confirm.summary.free": "Det lediga utrymmet på den här disken används; storleken på befintliga partitioner ändras inte.",
   "boot.password_hint": "Skriv lösenordet till disken och tryck på Enter",
-  "list.search": "Sök…"
+  "list.search": "Sök…",
+  "disk.manual.open": "Avancerat: välj partitionerna själv…",
+  "manual.heading": "Välj partitioner",
+  "manual.text": "Om du vill kan du först förbereda disken i partitionsredigeraren (frigöra utrymme, skapa partitioner). Välj sedan var Sloth OS ska ligga: en systempartition på minst {size} GB och en EFI-partition på samma disk. Diskkryptering finns inte här.",
+  "manual.editor": "Öppna partitionsredigeraren",
+  "manual.system": "Systempartition (minst {size} GB):",
+  "manual.esp": "EFI-partition:",
+  "manual.none_system": "Ingen partition är tillräckligt stor. Skapa en på minst {size} GB i partitionsredigeraren och uppdatera listan.",
+  "manual.none_esp": "Den här disken saknar EFI-partition. Skapa en i partitionsredigeraren (FAT32, minst 300 MB, med flaggorna boot och esp) och uppdatera listan.",
+  "manual.warning": "Allt på {partition} raderas. De andra partitionerna rörs inte, och EFI-partitionen behåller de andra systemens startfiler.",
+  "confirm.manual.text": "Sloth OS installeras på partitionen {partition}.",
+  "confirm.summary.manual_esp": "Startfiler: på EFI-partitionen {partition} (den formateras bara om den är tom).",
+  "error.manual_esp": "Den valda EFI-partitionen kan inte användas. Välj en annan eller skapa en ny i partitionsredigeraren.",
+  "error.manual_small": "Den valda systempartitionen är för liten. Välj en större."
 }

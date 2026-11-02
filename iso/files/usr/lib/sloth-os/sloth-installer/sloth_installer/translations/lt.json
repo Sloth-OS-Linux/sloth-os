@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: bus ištrintas ir paruoštas programoms ir žaidimams",
   "confirm.summary.extra_keep": "{disk}: bus pasiekiamas su savo failais",
   "boot.password_hint": "Įveskite disko slaptažodį ir paspauskite Enter",
-  "list.search": "Ieškoti…"
+  "list.search": "Ieškoti…",
+  "disk.manual.open": "Išplėstinė: skaidinius pasirinkite patys…",
+  "manual.heading": "Skaidinių pasirinkimas",
+  "manual.text": "Jei norite, pirmiausia paruoškite diską skaidinių rengyklėje (atlaisvinkite vietos, sukurkite skaidinius). Tada pasirinkite, kur bus Sloth OS: bent {size} GB sistemos skaidinys ir EFI skaidinys tame pačiame diske. Disko šifravimas čia negalimas.",
+  "manual.editor": "Atverti skaidinių rengyklę",
+  "manual.system": "Sistemos skaidinys (bent {size} GB):",
+  "manual.esp": "EFI skaidinys:",
+  "manual.none_system": "Nė vienas skaidinys nėra pakankamai didelis. Skaidinių rengyklėje sukurkite bent {size} GB skaidinį ir atnaujinkite sąrašą.",
+  "manual.none_esp": "Šiame diske nėra EFI skaidinio. Sukurkite jį skaidinių rengyklėje (FAT32, bent 300 MB, su vėliavėlėmis boot ir esp) ir atnaujinkite sąrašą.",
+  "manual.warning": "Viskas skaidinyje {partition} bus ištrinta. Kiti skaidiniai nepaliečiami, o EFI skaidinys išsaugo kitų sistemų paleidimo failus.",
+  "confirm.manual.text": "Sloth OS bus įdiegta į skaidinį {partition}.",
+  "confirm.summary.manual_esp": "Paleidimo failai: į EFI skaidinį {partition} (jis formatuojamas tik jei tuščias).",
+  "error.manual_esp": "Pasirinkto EFI skaidinio naudoti negalima. Pasirinkite kitą arba sukurkite naują skaidinių rengyklėje.",
+  "error.manual_small": "Pasirinktas sistemos skaidinys per mažas. Pasirinkite didesnį."
 }

@@ -137,5 +137,18 @@
   "desktop.comment": "A Sloth OS telepítése erre a gépre",
   "desktop.keywords": "telepítés;telepítő",
   "boot.password_hint": "Írd be a lemez jelszavát, majd nyomj Entert",
-  "list.search": "Keresés…"
+  "list.search": "Keresés…",
+  "disk.manual.open": "Haladó: a partíciókat magad választod…",
+  "manual.heading": "Partíciók kiválasztása",
+  "manual.text": "Ha szeretnéd, előbb készítsd elő a lemezt a partíciókezelőben (helyet csinálhatsz, partíciókat hozhatsz létre). Utána válaszd ki, hová kerüljön a Sloth OS: egy legalább {size} GB-os rendszerpartíciót és egy EFI partíciót ugyanazon a lemezen. Lemeztitkosítás itt nem választható.",
+  "manual.editor": "Partíciókezelő megnyitása",
+  "manual.system": "Rendszerpartíció (legalább {size} GB):",
+  "manual.esp": "EFI partíció:",
+  "manual.none_system": "Nincs elég nagy partíció. Hozz létre egy legalább {size} GB-osat a partíciókezelőben, majd frissítsd a listát.",
+  "manual.none_esp": "Ezen a lemezen nincs EFI partíció. Hozz létre egyet a partíciókezelőben (FAT32, legalább 300 MB, boot és esp jelzővel), majd frissítsd a listát.",
+  "manual.warning": "A(z) {partition} partíción minden törlődik. A többi partícióhoz nem nyúlunk, és az EFI partíción megmaradnak a többi rendszer indítófájljai.",
+  "confirm.manual.text": "A Sloth OS a(z) {partition} partícióra kerül.",
+  "confirm.summary.manual_esp": "Indítófájlok: a(z) {partition} EFI partícióra (csak akkor formázzuk, ha üres).",
+  "error.manual_esp": "A kiválasztott EFI partíció nem használható. Válassz másikat, vagy hozz létre újat a partíciókezelőben.",
+  "error.manual_small": "A kiválasztott rendszerpartíció túl kicsi. Válassz nagyobbat."
 }

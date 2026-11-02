@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: tyhjennetään ja valmistellaan ohjelmille ja peleille",
   "confirm.summary.extra_keep": "{disk}: on käytettävissä tiedostoineen",
   "boot.password_hint": "Kirjoita levyn salasana ja paina Enter",
-  "list.search": "Hae…"
+  "list.search": "Hae…",
+  "disk.manual.open": "Lisäasetukset: valitse osiot itse…",
+  "manual.heading": "Valitse osiot",
+  "manual.text": "Halutessasi valmistele levy ensin osioeditorissa (vapauta tilaa, luo osioita). Valitse sitten, minne Sloth OS asennetaan: vähintään {size} Gt:n järjestelmäosio ja EFI-osio samalla levyllä. Levyn salaus ei ole käytettävissä täällä.",
+  "manual.editor": "Avaa osioeditori",
+  "manual.system": "Järjestelmäosio (vähintään {size} Gt):",
+  "manual.esp": "EFI-osio:",
+  "manual.none_system": "Mikään osio ei ole tarpeeksi suuri. Luo osioeditorissa vähintään {size} Gt:n osio ja päivitä luettelo.",
+  "manual.none_esp": "Tällä levyllä ei ole EFI-osiota. Luo sellainen osioeditorissa (FAT32, vähintään 300 Mt, boot- ja esp-liputuksin) ja päivitä luettelo.",
+  "manual.warning": "Kaikki osiolla {partition} poistetaan. Muihin osioihin ei kosketa, ja EFI-osio säilyttää muiden järjestelmien käynnistystiedostot.",
+  "confirm.manual.text": "Sloth OS asennetaan osiolle {partition}.",
+  "confirm.summary.manual_esp": "Käynnistystiedostot: EFI-osiolle {partition} (se alustetaan vain, jos se on tyhjä).",
+  "error.manual_esp": "Valittua EFI-osiota ei voi käyttää. Valitse toinen tai luo uusi osioeditorissa.",
+  "error.manual_small": "Valittu järjestelmäosio on liian pieni. Valitse suurempi."
 }

@@ -137,5 +137,18 @@
   "desktop.comment": "Install Sloth OS on this computer",
   "desktop.keywords": "install;installer",
   "boot.password_hint": "Type your disk password, then press Enter",
-  "list.search": "Search…"
+  "list.search": "Search…",
+  "disk.manual.open": "Advanced: choose the partitions yourself…",
+  "manual.heading": "Choose the partitions",
+  "manual.text": "If you want, prepare the disk in the partition editor first (make room, create partitions). Then choose where Sloth OS goes: a system partition of at least {size} GB and an EFI partition on the same disk. Disk encryption is not available here.",
+  "manual.editor": "Open the partition editor",
+  "manual.system": "System partition (at least {size} GB):",
+  "manual.esp": "EFI partition:",
+  "manual.none_system": "No partition is big enough. Create one of at least {size} GB in the partition editor, then refresh the list.",
+  "manual.none_esp": "This disk has no EFI partition. Create one in the partition editor (FAT32, at least 300 MB, with the boot and esp flags), then refresh the list.",
+  "manual.warning": "Everything on {partition} will be erased. The other partitions are not touched, and the EFI partition keeps the other systems' boot files.",
+  "confirm.manual.text": "Sloth OS will be installed on the partition {partition}.",
+  "confirm.summary.manual_esp": "Boot files: on the EFI partition {partition} (it is only formatted if it is empty).",
+  "error.manual_esp": "The chosen EFI partition can't be used. Choose another one, or create a new one in the partition editor.",
+  "error.manual_small": "The chosen system partition is too small. Choose a bigger one."
 }

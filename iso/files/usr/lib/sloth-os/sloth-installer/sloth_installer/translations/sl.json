@@ -137,5 +137,18 @@
   "confirm.summary.extra_erase": "{disk}: bo izbrisan in pripravljen za programe in igre",
   "confirm.summary.extra_keep": "{disk}: bo na voljo s svojimi datotekami",
   "boot.password_hint": "Vnesite geslo diska in pritisnite Enter",
-  "list.search": "Iskanje …"
+  "list.search": "Iskanje …",
+  "disk.manual.open": "Napredno: sami izberite razdelke…",
+  "manual.heading": "Izbira razdelkov",
+  "manual.text": "Če želite, najprej pripravite disk v urejevalniku razdelkov (sprostite prostor, ustvarite razdelke). Nato izberite, kam gre Sloth OS: sistemski razdelek z vsaj {size} GB in razdelek EFI na istem disku. Šifriranje diska tu ni na voljo.",
+  "manual.editor": "Odpri urejevalnik razdelkov",
+  "manual.system": "Sistemski razdelek (vsaj {size} GB):",
+  "manual.esp": "Razdelek EFI:",
+  "manual.none_system": "Noben razdelek ni dovolj velik. V urejevalniku razdelkov ustvarite razdelek z vsaj {size} GB in osvežite seznam.",
+  "manual.none_esp": "Ta disk nima razdelka EFI. Ustvarite ga v urejevalniku razdelkov (FAT32, vsaj 300 MB, z zastavicama boot in esp) in osvežite seznam.",
+  "manual.warning": "Vse na {partition} bo izbrisano. Drugi razdelki ostanejo nedotaknjeni, razdelek EFI pa obdrži zagonske datoteke drugih sistemov.",
+  "confirm.manual.text": "Sloth OS bo nameščen na razdelek {partition}.",
+  "confirm.summary.manual_esp": "Zagonske datoteke: na razdelek EFI {partition} (formatira se le, če je prazen).",
+  "error.manual_esp": "Izbranega razdelka EFI ni mogoče uporabiti. Izberite drugega ali ustvarite novega v urejevalniku razdelkov.",
+  "error.manual_small": "Izbrani sistemski razdelek je premajhen. Izberite večjega."
 }

@@ -137,5 +137,18 @@
   "confirm.summary.erase": "Tento disk bude vymazán včetně současných oddílů a souborů.",
   "confirm.summary.create_all": "Vytvoří se nové rozložení GPT se spouštěcím oddílem BIOS, oddílem EFI, systémovým oddílem Sloth OS a dočasným místem pro instalaci.",
   "boot.password_hint": "Zadejte heslo k disku a stiskněte Enter",
-  "list.search": "Hledat…"
+  "list.search": "Hledat…",
+  "disk.manual.open": "Pokročilé: vyberte oddíly sami…",
+  "manual.heading": "Výběr oddílů",
+  "manual.text": "Pokud chcete, připravte nejprve disk v editoru oddílů (uvolněte místo, vytvořte oddíly). Potom vyberte, kam se Sloth OS nainstaluje: systémový oddíl o velikosti alespoň {size} GB a oddíl EFI na stejném disku. Šifrování disku zde není k dispozici.",
+  "manual.editor": "Otevřít editor oddílů",
+  "manual.system": "Systémový oddíl (alespoň {size} GB):",
+  "manual.esp": "Oddíl EFI:",
+  "manual.none_system": "Žádný oddíl není dost velký. Vytvořte v editoru oddílů oddíl o velikosti alespoň {size} GB a obnovte seznam.",
+  "manual.none_esp": "Tento disk nemá oddíl EFI. Vytvořte jej v editoru oddílů (FAT32, alespoň 300 MB, s příznaky boot a esp) a obnovte seznam.",
+  "manual.warning": "Vše na {partition} bude smazáno. Ostatních oddílů se nic nedotkne a oddíl EFI si ponechá spouštěcí soubory ostatních systémů.",
+  "confirm.manual.text": "Sloth OS bude nainstalován na oddíl {partition}.",
+  "confirm.summary.manual_esp": "Spouštěcí soubory: na oddíl EFI {partition} (naformátuje se jen tehdy, když je prázdný).",
+  "error.manual_esp": "Vybraný oddíl EFI nelze použít. Vyberte jiný nebo vytvořte nový v editoru oddílů.",
+  "error.manual_small": "Vybraný systémový oddíl je příliš malý. Vyberte větší."
 }
