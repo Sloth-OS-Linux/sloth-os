@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Derhjemme kan andre computere se denne computer og åbne de delte mapper. På et privat netværk (en arbejdsplads) kan de åbne dem, men denne computer viser sig ikke af sig selv. På et offentligt netværk (en café, et hotel) deles intet, medmindre du tillader det.",
   "Public, sharing allowed": "Offentligt, deling tilladt",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} er et offentligt netværk, for eksempel på en café eller et hotel. Hvis du deler mapper her, kan alle på netværket forsøge at åbne dem. Fra nu af forbliver deling tilladt på dette netværk; du kan til enhver tid ændre det i {where}.",
-  "Wired network {n}": "Kablet netværk {n}"
+  "Wired network {n}": "Kablet netværk {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Deling af mapper på netværket beder altid om adgangskoden, uanset hvad du vælger her, og det gør det også at tillade deling på et offentligt netværk. De åbner din computer for andre mennesker, så de forbliver beskyttet.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Delt fra et andet program (fx Dolphin). Den er ikke delt endnu: den venter på din tilladelse.",
+  "Allow": "Tillad",
+  "Don't share": "Del ikke",
+  "Share a folder on the network?": "Del en mappe på netværket?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Et program (fx Dolphin) vil dele {path}. Delte mapper kræver din tilladelse: den deles ikke, før du tillader det."
 }

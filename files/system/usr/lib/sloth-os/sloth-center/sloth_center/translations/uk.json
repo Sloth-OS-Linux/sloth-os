@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Удома інші комп'ютери бачать цей комп'ютер і можуть відкривати спільні теки. У приватній мережі (робота) вони можуть їх відкрити, але цей комп'ютер сам себе не показує. У загальнодоступній мережі (кав'ярня, готель) нічого не відкрито, доки ви не дозволите.",
   "Public, sharing allowed": "Загальнодоступна, доступ дозволено",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} — загальнодоступна мережа, наприклад у кав'ярні чи готелі. Якщо ви надасте тут доступ до тек, будь-хто в цій мережі зможе спробувати їх відкрити. Відтепер доступ у цій мережі залишається дозволеним; змінити це можна будь-коли в {where}.",
-  "Wired network {n}": "Дротова мережа {n}"
+  "Wired network {n}": "Дротова мережа {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Спільний доступ до тек у мережі завжди запитує пароль, що б ви тут не вибрали, як і дозвіл на спільний доступ у загальнодоступній мережі. Вони відкривають ваш комп'ютер іншим людям, тому залишаються захищеними.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Доступ надано з іншої програми (наприклад, Dolphin). Доступу ще немає: він чекає на ваш дозвіл.",
+  "Allow": "Дозволити",
+  "Don't share": "Не надавати доступ",
+  "Share a folder on the network?": "Надати спільний доступ до теки в мережі?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Програма (наприклад, Dolphin) хоче надати спільний доступ до {path}. Для спільних тек потрібен ваш дозвіл: доступу не буде, доки ви не дозволите."
 }

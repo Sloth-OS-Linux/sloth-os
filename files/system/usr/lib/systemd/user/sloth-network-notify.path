@@ -1,9 +1,11 @@
 [Unit]
-Description=Sloth OS: watching for a new network (private or public?)
+Description=Sloth OS: watching for a new network (private or public?) and for a share waiting for permission
 
 [Path]
-# file-sharing writes this when a network connects or disconnects (and when shares change)
+# file-sharing writes these when a network connects or disconnects and when shares change; %U.json: this account's
+# shares, among them the ones made in Dolphin that wait for permission
 PathChanged=/run/sloth-os/sharing/state.json
+PathChanged=/run/sloth-os/sharing/%U.json
 Unit=sloth-network-notify.service
 
 [Install]

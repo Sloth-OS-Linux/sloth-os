@@ -433,6 +433,46 @@ Kirigami.ScrollablePage {
                     }
                 }
 
+                // Shared in Dolphin: waits until the user allows it with the password (file-sharing)
+                Repeater {
+                    model: sharing.enabled ? sharing.pending : []
+                    delegate: RowLayout {
+                        id: pendingRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: "folder-remote"
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: implicitWidth
+                            opacity: 0.5
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideMiddle; text: pendingRow.modelData.path; font.bold: true }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                color: Kirigami.Theme.neutralTextColor
+                                text: L.t("Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.")
+                            }
+                        }
+                        QQC2.Button {
+                            enabled: !sharing.busy
+                            text: L.t("Allow")
+                            icon.name: "dialog-ok"
+                            onClicked: sharing.approveShare(pendingRow.modelData.file)
+                        }
+                        QQC2.Button {
+                            enabled: !sharing.busy
+                            text: L.t("Don't share")
+                            icon.name: "list-remove"
+                            onClicked: sharing.removeShare(pendingRow.modelData.file)
+                        }
+                    }
+                }
+
                 QQC2.Button {
                     visible: sharing.enabled
                     enabled: !sharing.busy
@@ -519,9 +559,13 @@ Kirigami.ScrollablePage {
                     icon.name: "folder-remote"
                     onTriggered: {
                         publicNetworkDialog.close()
-                        sharing.setNetworkKind(publicNetworkDialog.uuid, "public-shared")
-                        if (publicNetworkDialog.thenAdd)
+                        // with a folder next: allowed together with the share, so the password is asked once
+                        if (publicNetworkDialog.thenAdd) {
+                            shareDialog.network = publicNetworkDialog.uuid
                             shareDialog.open()
+                        } else {
+                            sharing.setNetworkKind(publicNetworkDialog.uuid, "public-shared")
+                        }
                     }
                 },
                 Kirigami.Action {
@@ -539,6 +583,8 @@ Kirigami.ScrollablePage {
             standardButtons: Kirigami.Dialog.NoButton
             property string selectedPath: ""
             property var selectedGroups: ({})
+            property string network: ""   // the public network to allow sharing on together with this share
+            onClosed: network = ""
             onOpened: {
                 selectedPath = ""
                 selectedGroups = ({})
@@ -559,7 +605,7 @@ Kirigami.ScrollablePage {
                             if (shareDialog.selectedGroups[group.gid]) groups.push(group.gid)
                         }
                         sharing.addShare(shareDialog.selectedPath, shareWrite.checked, shareGuests.checked,
-                                         shareGuests.checked ? "" : sharePassword.text, groups)
+                                         shareGuests.checked ? "" : sharePassword.text, groups, shareDialog.network)
                         shareDialog.close()
                     }
                 },

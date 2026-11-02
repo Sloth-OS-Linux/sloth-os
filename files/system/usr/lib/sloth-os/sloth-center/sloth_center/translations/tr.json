@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Evde diğer bilgisayarlar bu bilgisayarı görür ve paylaşılan klasörleri açabilir. Özel ağda (iş yeri) onları açabilirler, ancak bu bilgisayar kendini göstermez. Genel ağda (kafe, otel) siz izin vermedikçe hiçbir şey paylaşılmaz.",
   "Public, sharing allowed": "Genel, paylaşıma izin verildi",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} genel bir ağ, örneğin bir kafede veya otelde. Burada klasör paylaşırsanız bu ağdaki herkes onları açmayı deneyebilir. Bundan sonra bu ağda paylaşıma izin verilmeye devam edecek; bunu istediğiniz zaman {where} bölümünden değiştirebilirsiniz.",
-  "Wired network {n}": "Kablolu ağ {n}"
+  "Wired network {n}": "Kablolu ağ {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Klasörleri ağda paylaşmak, burada ne seçerseniz seçin her zaman parolayı sorar; genel bir ağda paylaşıma izin vermek de öyle. Bunlar bilgisayarınızı başka insanlara açar, bu yüzden korunmaya devam eder.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Başka bir programdan (Dolphin gibi) paylaşıldı. Henüz paylaşılmadı: izninizi bekliyor.",
+  "Allow": "İzin ver",
+  "Don't share": "Paylaşma",
+  "Share a folder on the network?": "Ağda bir klasör paylaşılsın mı?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Bir program (Dolphin gibi) {path} klasörünü paylaşmak istiyor. Paylaşılan klasörler izninizi gerektirir: siz izin verene kadar paylaşılmaz."
 }

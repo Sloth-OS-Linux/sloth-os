@@ -18,6 +18,12 @@ connection serves every cable. A new network counts as public until the user ans
 working (the same notification tells about it). Sharing can be turned off altogether (Sloth Center → Disks): then
 Samba and wsdd stop and stay stopped.
 
+Every share needs the administrator password, also one made in Dolphin: the usershares group lets its members write
+share files without asking, so a share file nobody allowed (a new one, or one changed since) is moved aside at once
+(PENDING) and waits for the user's permission (the notification, Sloth Center → Disks; sloth-helper share-approve).
+What was allowed is remembered by the file's content (CONFIG "shares"). Sloth Center's own shares are allowed as they
+are made (add), under the same lock as serve, so serve never moves them aside.
+
 groups:     at startup, before the login screen: make the usershares group visible to usermod.
 serve:      at startup, whenever the shared folders change (sloth-file-sharing.path) and when a network connects
             or disconnects (NetworkManager dispatcher.d/90-sloth-file-sharing). With something shared, sharing on
@@ -31,10 +37,17 @@ serve:      at startup, whenever the shared folders change (sloth-file-sharing.p
             network question.
 kind <key> <kind>: a network's kind (sloth-helper-network, no password); key: a connection's UUID, or wired:<MAC>.
 enable on|off: turns sharing on or off (sloth-helper sharing).
+add <uid>:  a share made by Sloth Center (sloth-helper share-add, JSON on the input: name, path, acl, guests): made as
+            the account, allowed at once.
+approve <uid> <file>: puts a share waiting for permission back (sloth-helper share-approve, with the password).
+discard <uid> <file>: drops a share waiting for permission (sloth-helper share-remove).
 """
+import fcntl
+import hashlib
 import json
 import grp
 import os
+import pwd
 import re
 import subprocess
 import sys
@@ -44,6 +57,12 @@ GROUP = "usershares"
 SHARES = "/var/lib/samba/usershares"
 STATUS = "/run/sloth-os/sharing"
 CONFIG = "/etc/sloth-os/sharing.json"
+# the shares made without permission (Dolphin), as "<uid>-<file name>"; only root can read them
+PENDING = "/var/lib/sloth-os/pending-shares"
+LOCK = "/run/sloth-os/file-sharing.lock"
+# a share's file name: the share name in lowercase (net usershare), without the characters Samba refuses in one
+# (Dolphin allows spaces too); net's own temporary files start with ":"
+SHARE_FILE_RE = re.compile(r'^[^.:%<>*?|/\\+=;,"\x00-\x1f][^:%<>*?|/\\+=;,"\x00-\x1f]{0,79}$')
 # Avahi announces the computer to Macs and Linux only from this file (smb.conf: multicast dns register = no)
 AVAHI_SERVICE = "/etc/avahi/services/sloth-file-sharing.service"
 AVAHI_XML = """<?xml version="1.0" standalone='no'?>
@@ -99,8 +118,13 @@ def read_config():
     wired = cfg.get("wired")
     wired = {k: n for k, n in wired.items() if NETWORK_KEY_RE.match(k) and k.startswith("wired:")
              and isinstance(n, int) and not isinstance(n, bool)} if isinstance(wired, dict) else {}
+    # the allowed shares: {file name: SHA-256 of its content}; None until the shares made before this existed were
+    # allowed once (allow_existing)
+    shares = cfg.get("shares")
+    shares = {k: v for k, v in shares.items() if isinstance(k, str) and isinstance(v, str)} \
+        if isinstance(shares, dict) else None
     return {"enabled": cfg.get("enabled") is not False, "networks": networks, "wired": wired,
-            "defaulted": defaulted, "version": 2, "old": old}
+            "defaulted": defaulted, "shares": shares, "version": 2, "old": old}
 
 
 def write_config(cfg):
@@ -211,6 +235,164 @@ def set_kind(key, kind):
     return True
 
 
+def _digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def _read_bytes(path):
+    try:
+        with open(path, "rb") as f:
+            return f.read(65536)
+    except OSError:
+        return None
+
+
+def _listdir(path):
+    try:
+        return sorted(os.listdir(path))
+    except OSError:
+        return []
+
+
+def allow_existing(cfg):
+    """Once: the shares made before every share needed permission stay shared."""
+    if cfg["shares"] is not None:
+        return
+    cfg["shares"] = {}
+    for name in _listdir(SHARES):
+        data = _read_bytes(os.path.join(SHARES, name))
+        if data is not None:
+            cfg["shares"][name] = _digest(data)
+    write_config(cfg)
+
+
+def hold_unallowed(cfg):
+    """A share file nobody allowed (made or changed in Dolphin) is moved aside at once, before Samba serves it to
+    anyone; a removed share is forgotten, so making it again needs permission again."""
+    changed = False
+    present = set()
+    for name in _listdir(SHARES):
+        # net usershare writes ":tmpXXXXXX" first and renames it (Samba never reads such a name): the rename
+        # changes the folder again, so the share is looked at then
+        if name.startswith(":"):
+            continue
+        file = os.path.join(SHARES, name)
+        try:
+            uid = os.lstat(file).st_uid
+        except OSError:
+            continue
+        data = _read_bytes(file)
+        if data is None:
+            continue
+        if cfg["shares"].get(name) == _digest(data):
+            present.add(name)
+            continue
+        if SHARE_FILE_RE.match(name):
+            os.makedirs(PENDING, mode=0o700, exist_ok=True)
+            _write(os.path.join(PENDING, f"{uid}-{name}"), data.decode("utf-8", "replace"), mode=0o600)
+        os.unlink(file)
+    for name in list(cfg["shares"]):
+        if name not in present:
+            del cfg["shares"][name]
+            changed = True
+    if changed:
+        write_config(cfg)
+
+
+def _parse(data):
+    return dict(line.split("=", 1) for line in data.decode("utf-8", "replace").splitlines() if "=" in line)
+
+
+def read_pending():
+    """The shares waiting for permission: [{name, path, uid, write, guests, file}]."""
+    result = []
+    for entry in _listdir(PENDING):
+        uid, _, name = entry.partition("-")
+        data = _read_bytes(os.path.join(PENDING, entry))
+        if not uid.isdigit() or not SHARE_FILE_RE.match(name) or data is None:
+            continue
+        fields = _parse(data)
+        if fields.get("path"):
+            result.append({"name": fields.get("sharename", name), "path": fields["path"], "uid": int(uid),
+                           "write": fields.get("usershare_acl", "").rstrip(",").endswith(":F"),
+                           "guests": fields.get("guest_ok") == "y", "file": name})
+    return result
+
+
+def _owns_folder(path, uid):
+    """The same rule as sloth-helper share-add: only the account's own folder, never a system folder."""
+    path = os.path.realpath(path)
+    try:
+        st = os.stat(path)
+    except OSError:
+        return False
+    return os.path.isdir(path) and st.st_uid == uid and path.count("/") >= 2
+
+
+def approve(uid, name):
+    """A share waiting for permission is put back as it was made, and allowed."""
+    cfg = read_config()
+    allow_existing(cfg)
+    pending = os.path.join(PENDING, f"{uid}-{name}")
+    data = _read_bytes(pending)
+    if data is None:
+        return "not found"
+    if not _owns_folder(_parse(data).get("path", ""), uid):
+        return "not owner"
+    target = os.path.join(SHARES, name)
+    if os.path.lexists(target):
+        return "exists"
+    fd, tmp = tempfile.mkstemp(dir=SHARES)
+    with os.fdopen(fd, "wb") as f:
+        f.write(data)
+    os.chown(tmp, uid, -1)
+    os.chmod(tmp, 0o644)
+    os.replace(tmp, target)
+    cfg["shares"][name] = _digest(data)
+    write_config(cfg)
+    os.unlink(pending)
+    return ""
+
+
+def discard(uid, name):
+    try:
+        os.unlink(os.path.join(PENDING, f"{uid}-{name}"))
+    except FileNotFoundError:
+        return "not found"
+    return ""
+
+
+def add(uid, request):
+    """A share made by Sloth Center (sloth-helper share-add checked it and has the password): made as the account,
+    so Samba's own checks apply, and allowed at once."""
+    name, path, acl = request.get("name"), request.get("path"), request.get("acl")
+    if not all(isinstance(v, str) for v in (name, path, acl)) or not SHARE_FILE_RE.match(name.lower()):
+        return "bad input"
+    cfg = read_config()
+    allow_existing(cfg)
+    # as the user (runuser reads the groups again, so no new sign-in is needed)
+    r = subprocess.run(["runuser", "-u", pwd.getpwuid(uid).pw_name, "--", "net", "usershare", "add", name, path, "",
+                        acl, "guest_ok=y" if request.get("guests") is True else "guest_ok=n"],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        return (r.stderr or r.stdout).strip()[-500:] or "net usershare"
+    data = _read_bytes(os.path.join(SHARES, name.lower()))
+    if data is not None:
+        cfg["shares"][name.lower()] = _digest(data)
+        write_config(cfg)
+    discard(uid, name.lower())
+    return ""
+
+
+def locked():
+    """serve, add, approve and the others one at a time: a share Sloth Center is making is not moved aside
+    meanwhile."""
+    os.makedirs(os.path.dirname(LOCK), exist_ok=True)
+    f = open(LOCK, "w")
+    fcntl.flock(f, fcntl.LOCK_EX)
+    return f
+
+
 def enable(on):
     cfg = read_config()
     cfg["enabled"] = on
@@ -293,9 +475,9 @@ def read_shares():
     return shares
 
 
-def write_status(shares, state):
-    """For Sloth Center: each account's shares and whether it has a Samba password; the shared state (sharing on,
-    the home networks' names, whether the computer is on one now) for everyone."""
+def write_status(shares, state, pending=()):
+    """For Sloth Center: each account's shares, the ones waiting for permission and whether it has a Samba password;
+    the shared state (sharing on, the networks, whether the folders open now) for everyone."""
     with_password = set()
     r = subprocess.run(["pdbedit", "-L"], capture_output=True, text=True)
     for line in r.stdout.splitlines():
@@ -303,16 +485,17 @@ def write_status(shares, state):
         if len(parts) > 1 and parts[1].isdigit():
             with_password.add(int(parts[1]))
     os.makedirs(STATUS, mode=0o755, exist_ok=True)
-    uids = with_password | {s["uid"] for s in shares}
+    uids = with_password | {s["uid"] for s in shares} | {p["uid"] for p in pending}
     for old in os.listdir(STATUS):
         if old.removesuffix(".json").isdigit() and int(old.removesuffix(".json")) not in uids:
             os.unlink(os.path.join(STATUS, old))
     for uid in uids:
         mine = [{k: s[k] for k in ("name", "path", "write", "guests", "groups")} for s in shares if s["uid"] == uid]
+        waiting = [{k: p[k] for k in ("name", "path", "write", "guests", "file")} for p in pending if p["uid"] == uid]
         path = os.path.join(STATUS, f"{uid}.json")
         tmp = path + ".tmp"
         with open(tmp, "w", encoding="utf-8") as f:
-            json.dump({"shares": mine, "password": uid in with_password}, f)
+            json.dump({"shares": mine, "pending": waiting, "password": uid in with_password}, f)
         os.chown(tmp, uid, -1)
         os.chmod(tmp, 0o600)
         os.replace(tmp, path)
@@ -362,6 +545,9 @@ def announce(on):
 
 def serve():
     cfg = read_config()
+    # first, before anything slower: a share nobody allowed must not stay reachable
+    allow_existing(cfg)
+    hold_unallowed(cfg)
     default_kinds(cfg)
     shares = read_shares()
     active = active_networks(cfg)
@@ -378,7 +564,8 @@ def serve():
                  "connected": key in active} for key, (name, n) in listed.items()]
     names = {c["uuid"]: c["name"] for c in saved}
     write_status(shares, {"enabled": cfg["enabled"], "reachable": reachable, "visible": visible,
-                          "networks": networks, "defaulted": [names[u] for u in cfg["defaulted"] if u in names]})
+                          "networks": networks, "defaulted": [names[u] for u in cfg["defaulted"] if u in names]},
+                 read_pending())
     if not reachable:
         announce(False)
         subprocess.run(["systemctl", "stop", "wsdd.service"], check=False)
@@ -400,12 +587,32 @@ def serve():
     announce(visible)
 
 
+def _uid(text):
+    return int(text) if text.isdigit() and int(text) >= 1000 else None
+
+
 if __name__ == "__main__":
     mode = sys.argv[1:]
+    lock = locked() if mode[:1] != ["groups"] else None
     if mode == ["groups"]:
         ensure_group()
     elif mode == ["serve"]:
         serve()
+    elif len(mode) == 2 and mode[0] == "add" and _uid(mode[1]) is not None:
+        try:
+            request = json.loads(sys.stdin.read(4096) or "{}")
+        except ValueError:
+            request = None
+        error = add(_uid(mode[1]), request) if isinstance(request, dict) else "bad input"
+        serve()
+        if error:
+            sys.exit(error)
+    elif len(mode) == 3 and mode[0] in ("approve", "discard") and _uid(mode[1]) is not None \
+            and SHARE_FILE_RE.match(mode[2]):
+        error = (approve if mode[0] == "approve" else discard)(_uid(mode[1]), mode[2])
+        serve()
+        if error:
+            sys.exit(error)
     elif len(mode) == 3 and mode[0] == "kind" and NETWORK_KEY_RE.match(mode[1]) and mode[2] in KINDS:
         if not set_kind(mode[1], mode[2]):
             sys.exit("unknown network")
@@ -414,4 +621,5 @@ if __name__ == "__main__":
         enable(mode[1] == "on")
         serve()
     else:
-        sys.exit("usage: file-sharing groups|serve|kind <key> home|private|public|public-shared|enable on|off")
+        sys.exit("usage: file-sharing groups|serve|kind <key> home|private|public|public-shared|enable on|off"
+                 "|add <uid>|approve <uid> <file>|discard <uid> <file>")

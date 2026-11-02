@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Heime kan andre datamaskiner sjå denne datamaskina og opna dei delte mappene. På eit privat nettverk (ein arbeidsplass) kan dei opna dei, men denne datamaskina syner seg ikkje av seg sjølv. På eit offentleg nettverk (ein kafé, eit hotell) vert ingenting delt med mindre du tillèt det.",
   "Public, sharing allowed": "Offentleg, deling tillaten",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} er eit offentleg nettverk, til dømes på ein kafé eller eit hotell. Viss du deler mapper her, kan alle på dette nettverket prøva å opna dei. Frå no av er deling framleis tillaten på dette nettverket; du kan endra det når som helst i {where}.",
-  "Wired network {n}": "Kabla nettverk {n}"
+  "Wired network {n}": "Kabla nettverk {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Deling av mapper på nettverket ber alltid om passordet, same kva du vel her, og det same gjer det å tillate deling på eit offentleg nettverk. Dei opnar datamaskina di for andre menneske, så dei blir verande verna.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Delt frå eit anna program (til dømes Dolphin). Ho er ikkje delt enno: ho ventar på løyvet ditt.",
+  "Allow": "Tillat",
+  "Don't share": "Ikkje del",
+  "Share a folder on the network?": "Dele ei mappe på nettverket?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Eit program (til dømes Dolphin) vil dele {path}. Delte mapper treng løyvet ditt: ho blir ikkje delt før du tillèt det."
 }

@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Дома другие компьютеры видят этот компьютер и могут открывать общие папки. В частной сети (работа) они могут их открыть, но этот компьютер сам себя не показывает. В общественной сети (кафе, гостиница) ничего не открыто, пока вы не разрешите.",
   "Public, sharing allowed": "Общественная, доступ разрешён",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} — общественная сеть, например в кафе или гостинице. Если вы откроете здесь доступ к папкам, любой в этой сети сможет попытаться их открыть. С этого момента доступ в этой сети остаётся разрешённым; изменить это можно в любое время в {where}.",
-  "Wired network {n}": "Проводная сеть {n}"
+  "Wired network {n}": "Проводная сеть {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Общий доступ к папкам в сети всегда запрашивает пароль, что бы вы здесь ни выбрали, как и разрешение общего доступа в общественной сети. Они открывают ваш компьютер другим людям, поэтому остаются защищёнными.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Общий доступ из другой программы (например, Dolphin). Доступа пока нет: он ждёт вашего разрешения.",
+  "Allow": "Разрешить",
+  "Don't share": "Не открывать доступ",
+  "Share a folder on the network?": "Открыть общий доступ к папке в сети?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Программа (например, Dolphin) хочет открыть общий доступ к {path}. Для общих папок нужно ваше разрешение: доступа не будет, пока вы не разрешите."
 }

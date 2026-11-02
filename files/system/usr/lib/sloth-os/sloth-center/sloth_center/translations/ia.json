@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "A casa, altere computatores vide iste computator e pote aperir le dossiers compartite. In un rete private (un loco de labor), illos pote aperir los, ma iste computator non se monstra per se. In un rete public (un café, un hotel), nihil es compartite si tu non lo permitte.",
   "Public, sharing allowed": "Public, compartimento permittite",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} es un rete public, per exemplo in un café o un hotel. Si tu comparti dossiers hic, omnes in iste rete pote tentar aperir los. Ab ora le compartimento resta permittite in iste rete; tu pote cambiar lo a omne momento in {where}.",
-  "Wired network {n}": "Rete con filo {n}"
+  "Wired network {n}": "Rete con filo {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Compartir dossieres in le rete sempre demanda le contrasigno, qualcunque cosa tu elige hic, e assi anque permitter le compartimento in un rete public. Illos aperi tu computator a altere personas, dunque illos remane protegite.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Compartite ab un altere programma (como Dolphin). Illo non es ancora compartite: illo attende tu permission.",
+  "Allow": "Permitter",
+  "Don't share": "Non compartir",
+  "Share a folder on the network?": "Compartir un dossier in le rete?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Un programma (como Dolphin) vole compartir {path}. Le dossieres compartite require tu permission: illo non es compartite usque tu lo permitte."
 }

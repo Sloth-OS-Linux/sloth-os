@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Em casa, outros computadores veem este computador e podem abrir as pastas compartilhadas. Em uma rede privada (um local de trabalho), eles podem abri-las, mas este computador não aparece por conta própria. Em uma rede pública (um café, um hotel), nada é compartilhado sem a sua permissão.",
   "Public, sharing allowed": "Pública, compartilhamento permitido",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} é uma rede pública, por exemplo em um café ou hotel. Se você compartilhar pastas aqui, qualquer pessoa nesta rede pode tentar abri-las. A partir de agora, o compartilhamento fica permitido nesta rede; você pode mudar isso a qualquer momento em {where}.",
-  "Wired network {n}": "Rede cabeada {n}"
+  "Wired network {n}": "Rede cabeada {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Compartilhar pastas na rede sempre pede a senha, seja qual for a sua escolha aqui, assim como permitir o compartilhamento em uma rede pública. Elas abrem o computador para outras pessoas, então continuam protegidas.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Compartilhada a partir de outro programa (como o Dolphin). Ainda não está compartilhada: aguarda a sua permissão.",
+  "Allow": "Permitir",
+  "Don't share": "Não compartilhar",
+  "Share a folder on the network?": "Compartilhar uma pasta na rede?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Um programa (como o Dolphin) quer compartilhar {path}. Pastas compartilhadas precisam da sua permissão: ela não é compartilhada até você permitir."
 }

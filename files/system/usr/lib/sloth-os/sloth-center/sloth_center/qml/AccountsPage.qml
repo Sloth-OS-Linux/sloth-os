@@ -320,6 +320,13 @@ Kirigami.ScrollablePage {
                     color: Kirigami.Theme.neutralTextColor
                     text: L.t("Only an administrator account can turn this on.")
                 }
+                // org.slothos.helper.sharing is in no topic (sloth-helper TOPICS), so this holds whatever is chosen
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: true
+                    type: Kirigami.MessageType.Information
+                    text: L.t("Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.")
+                }
                 QQC2.ButtonGroup { id: presets }
                 QQC2.RadioButton {
                     QQC2.ButtonGroup.group: presets

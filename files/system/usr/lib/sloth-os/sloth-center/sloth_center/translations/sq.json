@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Në shtëpi, kompjuterët e tjerë e shohin këtë kompjuter dhe mund të hapin dosjet e ndara. Në një rrjet privat (vend pune) mund t'i hapin, por ky kompjuter nuk shfaqet vetë. Në një rrjet publik (kafene, hotel), asgjë nuk ndahet nëse nuk e lejon.",
   "Public, sharing allowed": "Publik, ndarja e lejuar",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} është rrjet publik, për shembull në një kafene ose hotel. Nëse ndan dosje këtu, kushdo në këtë rrjet mund të provojë t'i hapë. Që tani ndarja mbetet e lejuar në këtë rrjet; mund ta ndryshosh kurdo te {where}.",
-  "Wired network {n}": "Rrjet me kabllo {n}"
+  "Wired network {n}": "Rrjet me kabllo {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Ndarja e dosjeve në rrjet kërkon gjithmonë fjalëkalimin, çfarëdo që të zgjidhni këtu, po ashtu edhe lejimi i ndarjes në një rrjet publik. Ato e hapin kompjuterin tuaj për njerëz të tjerë, prandaj mbeten të mbrojtura.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Ndarë nga një program tjetër (si Dolphin). Ende nuk është ndarë: pret lejen tuaj.",
+  "Allow": "Lejoje",
+  "Don't share": "Mos e ndaj",
+  "Share a folder on the network?": "Të ndahet një dosje në rrjet?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Një program (si Dolphin) dëshiron të ndajë {path}. Dosjet e ndara kanë nevojë për lejen tuaj: nuk ndahet derisa ta lejoni."
 }

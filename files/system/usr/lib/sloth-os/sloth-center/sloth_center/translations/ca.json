@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "A casa, els altres ordinadors veuen aquest ordinador i poden obrir les carpetes compartides. En una xarxa privada (una feina), les poden obrir, però aquest ordinador no es mostra per si sol. En una xarxa pública (una cafeteria, un hotel), no es comparteix res si no ho permets.",
   "Public, sharing allowed": "Pública, compartició permesa",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} és una xarxa pública, per exemple en una cafeteria o un hotel. Si hi comparteixes carpetes, tothom en aquesta xarxa pot intentar obrir-les. A partir d'ara, la compartició queda permesa en aquesta xarxa; ho pots canviar quan vulguis a {where}.",
-  "Wired network {n}": "Xarxa amb cable {n}"
+  "Wired network {n}": "Xarxa amb cable {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Compartir carpetes a la xarxa sempre demana la contrasenya, triïs el que triïs aquí, i també permetre compartir en una xarxa pública. Obren l'ordinador a altres persones, així que continuen protegides.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Compartida des d'un altre programa (com ara Dolphin). Encara no es comparteix: espera el teu permís.",
+  "Allow": "Permet",
+  "Don't share": "No la comparteixis",
+  "Share a folder on the network?": "Vols compartir una carpeta a la xarxa?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Un programa (com ara Dolphin) vol compartir {path}. Les carpetes compartides necessiten el teu permís: no es comparteix fins que ho permetis."
 }

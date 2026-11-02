@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "სახლში სხვა კომპიუტერები ხედავენ ამ კომპიუტერს და შეუძლიათ გაზიარებული საქაღალდეების გახსნა. კერძო ქსელში (სამსახური) მათ შეუძლიათ მათი გახსნა, მაგრამ ეს კომპიუტერი თავისით არ ჩანს. საჯარო ქსელში (კაფე, სასტუმრო) არაფერი ზიარდება, თუ არ დაუშვებთ.",
   "Public, sharing allowed": "საჯარო, გაზიარება დაშვებულია",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} საჯარო ქსელია, მაგალითად კაფეში ან სასტუმროში. თუ აქ საქაღალდეებს გააზიარებთ, ამ ქსელში ყველას შეეძლება მათი გახსნის ცდა. ამიერიდან ამ ქსელში გაზიარება დაშვებული რჩება; ამის შეცვლა ნებისმიერ დროს შეგიძლიათ აქ: {where}.",
-  "Wired network {n}": "სადენიანი ქსელი {n}"
+  "Wired network {n}": "სადენიანი ქსელი {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "ქსელში საქაღალდეების გაზიარება ყოველთვის ითხოვს პაროლს, რაც არ უნდა აირჩიოთ აქ, ისევე როგორც საჯარო ქსელში გაზიარების დაშვება. ისინი თქვენს კომპიუტერს სხვა ადამიანებისთვის ხსნის, ამიტომ დაცული რჩება.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "გაზიარებულია სხვა პროგრამიდან (მაგ. Dolphin). ჯერ არ არის გაზიარებული: ელოდება თქვენს ნებართვას.",
+  "Allow": "დაშვება",
+  "Don't share": "არ გაზიარდეს",
+  "Share a folder on the network?": "გავაზიაროთ საქაღალდე ქსელში?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "პროგრამას (მაგ. Dolphin) სურს გააზიაროს {path}. გაზიარებულ საქაღალდეებს თქვენი ნებართვა სჭირდება: არ გაზიარდება, სანამ არ დაუშვებთ."
 }

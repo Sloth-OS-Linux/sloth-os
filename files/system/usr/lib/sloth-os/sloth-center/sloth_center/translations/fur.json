@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "A cjase, i altris computers a viodin chest computer e a puedin vierzi lis cartelis condividudis. Suntune rêt privade (un puest di lavôr), lis puedin vierzi, ma chest computer nol si mostre di bessôl. Suntune rêt publiche (un bar, un albergo), nol ven condividût nuie se no tu lu permetis.",
   "Public, sharing allowed": "Publiche, condivision permetude",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} e je une rêt publiche, par esempli intun bar o intun albergo. Se tu condividis cartelis achì, ducj su cheste rêt a puedin provâ a vierzilis. Di cumò indenant la condivision e reste permetude su cheste rêt; tu puedis cambiâlu cuant che tu vuelis in {where}.",
-  "Wired network {n}": "Rêt cul fîl {n}"
+  "Wired network {n}": "Rêt cul fîl {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Condividi cartelis te rêt al domande simpri la password, ce che tu sielzis ca, e ancje permeti di condividi suntune rêt publiche. A vierzin il to computer a altris personis, duncje a restin protezudis.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Condividude di un altri program (come Dolphin). No je ancjemò condividude: e spiete il to permès.",
+  "Allow": "Permet",
+  "Don't share": "No sta condividi",
+  "Share a folder on the network?": "Condividi une cartele te rêt?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Un program (come Dolphin) al vûl condividi {path}. Lis cartelis condividudis a àn bisugne dal to permès: no ven condividude fin che no tu le permetis."
 }

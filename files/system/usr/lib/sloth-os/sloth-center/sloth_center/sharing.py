@@ -9,7 +9,11 @@ and writes the account's shares into /run/sloth-os/sharing/<uid>.json, which thi
 Every network has a kind, as in Windows (file-sharing): home (the folders open, the computer is announced), private
 (they open, not announced), public (hidden), or public with sharing allowed (asked once). The networks and whether
 sharing is on at all are in /run/sloth-os/sharing/state.json. A network's kind needs no password
-(org.slothos.helper.network); turning sharing on or off does (org.slothos.helper.sharing).
+(org.slothos.helper.network); turning sharing on or off, and allowing sharing on a public network, does
+(org.slothos.helper.sharing).
+
+A share made in Dolphin waits for permission (file-sharing moves it aside): "pending", allowed with approveShare
+(the password), also from the notification (network_notify).
 """
 import json
 import grp
@@ -40,9 +44,9 @@ OPEN_KINDS = ("home", "private", "public-shared")
 def read_status():
     try:
         data = json.loads(STATUS.read_text())
-        return list(data.get("shares", [])), bool(data.get("password"))
-    except (OSError, ValueError):
-        return [], False
+        return list(data.get("shares", [])), bool(data.get("password")), list(data.get("pending", []))
+    except (OSError, ValueError, AttributeError):
+        return [], False, []
 
 
 def network_label(network):
@@ -90,7 +94,7 @@ class SharingController(QObject):
 
     def __init__(self, parent=None):
         super().__init__(parent)
-        self._shares, self._password = read_status()
+        self._shares, self._password, self._pending = read_status()
         self._state = read_state()
         self._busy = False
         self._message = ""
@@ -100,6 +104,7 @@ class SharingController(QObject):
     shares = Property("QVariantList", lambda self: [dict(s, address=self.address(s["name"])) for s in self._shares],
                       notify=changed)
     groups = Property("QVariantList", lambda self: local_groups(), notify=changed)
+    pending = Property("QVariantList", lambda self: self._pending, notify=changed)
     hasPassword = Property(bool, lambda self: self._password, notify=changed)
     busy = Property(bool, lambda self: self._busy, notify=changed)
     message = Property(str, lambda self: self._message, notify=changed)
@@ -131,8 +136,8 @@ class SharingController(QObject):
         # only when something changed: the page asks every few seconds, and rebuilding the lists would close an
         # open network menu
         new = read_status(), read_state()
-        if new != ((self._shares, self._password), self._state):
-            (self._shares, self._password), self._state = new
+        if new != ((self._shares, self._password, self._pending), self._state):
+            (self._shares, self._password, self._pending), self._state = new
             self.changed.emit()
 
     @Slot(bool)
@@ -142,10 +147,13 @@ class SharingController(QObject):
 
     @Slot(str, str)
     def setNetworkKind(self, uuid, kind):
-        self._run(["network-kind", uuid, kind], None, helper=NETWORK_HELPER, error=tr("Couldn't change the network."))
+        # sharing allowed on a public network opens the folders there: the password, as for sharing itself
+        self._run(["network-kind", uuid, kind], None, helper=HELPER if kind == "public-shared" else NETWORK_HELPER,
+                  error=tr("Couldn't change the network."))
 
-    @Slot(str, bool, bool, str, "QVariantList")
-    def addShare(self, folder_url, write, guests, password, groups):
+    @Slot(str, bool, bool, str, "QVariantList", str)
+    def addShare(self, folder_url, write, guests, password, groups, network=""):
+        """network: the public network to allow sharing on in the same step (one password), or empty."""
         path = unquote(urlsplit(folder_url).path) if folder_url.startswith("file:") else folder_url
         if not path:
             return
@@ -158,8 +166,12 @@ class SharingController(QObject):
         while name.lower() in names:
             name, n = f"{base[:76]}-{n}", n + 1
         request = json.dumps({"name": name, "path": path, "write": write, "guests": guests,
-                              "password": password, "groups": groups})
+                              "password": password, "groups": groups, **({"network": network} if network else {})})
         self._run(["share-add"], request)
+
+    @Slot(str)
+    def approveShare(self, name):
+        self._run(["share-approve", name], None)
 
     @Slot(str)
     def removeShare(self, name):
@@ -198,7 +210,7 @@ class SharingController(QObject):
 
     def _on_done(self, ok, message):
         self._busy = False
-        self._shares, self._password = read_status()
+        self._shares, self._password, self._pending = read_status()
         self._state = read_state()
         self._report(ok, message)
 

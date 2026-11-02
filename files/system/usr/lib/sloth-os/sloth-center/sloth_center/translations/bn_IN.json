@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "বাড়িতে অন্য কম্পিউটারগুলি এই কম্পিউটারটি দেখতে পায় এবং শেয়ার করা ফোল্ডার খুলতে পারে। ব্যক্তিগত নেটওয়ার্কে (কর্মক্ষেত্র) সেগুলি খুলতে পারে, কিন্তু এই কম্পিউটারটি নিজে থেকে দেখা দেয় না। সর্বজনীন নেটওয়ার্কে (ক্যাফে, হোটেল) আপনি অনুমতি না দিলে কিছুই শেয়ার হয় না।",
   "Public, sharing allowed": "সর্বজনীন, শেয়ারিং অনুমোদিত",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} একটি সর্বজনীন নেটওয়ার্ক, যেমন কোনো ক্যাফে বা হোটেলে। আপনি এখানে ফোল্ডার শেয়ার করলে এই নেটওয়ার্কের সবাই সেগুলি খোলার চেষ্টা করতে পারবে। এখন থেকে এই নেটওয়ার্কে শেয়ারিং অনুমোদিত থাকবে; আপনি যেকোনো সময় {where}-এ এটি পরিবর্তন করতে পারেন।",
-  "Wired network {n}": "তারযুক্ত নেটওয়ার্ক {n}"
+  "Wired network {n}": "তারযুক্ত নেটওয়ার্ক {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "নেটওয়ার্কে ফোল্ডার শেয়ার করলে সবসময় পাসওয়ার্ড চাওয়া হয়, আপনি এখানে যা-ই বেছে নিন, আর পাবলিক নেটওয়ার্কে শেয়ার করার অনুমতি দিলেও। এগুলো আপনার কম্পিউটার অন্য লোকেদের জন্য খুলে দেয়, তাই এগুলো সুরক্ষিত থাকে।",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "অন্য একটি প্রোগ্রাম থেকে শেয়ার করা হয়েছে (যেমন Dolphin)। এখনও শেয়ার হয়নি: এটি আপনার অনুমতির অপেক্ষায় আছে।",
+  "Allow": "অনুমতি দিন",
+  "Don't share": "শেয়ার করবেন না",
+  "Share a folder on the network?": "নেটওয়ার্কে একটি ফোল্ডার শেয়ার করবেন?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "একটি প্রোগ্রাম (যেমন Dolphin) {path} শেয়ার করতে চায়। শেয়ার করা ফোল্ডারের জন্য আপনার অনুমতি লাগে: আপনি অনুমতি না দেওয়া পর্যন্ত এটি শেয়ার হবে না।"
 }

@@ -21,8 +21,15 @@ from a terminal must also work from a GUI.
   notification. Sloth Center → Disks: a switch for folder sharing (off: Samba stops and stays stopped), the
   networks with their kind. Over a cable a network is its router (its MAC address), as in Windows: NetworkManager
   uses one wired connection for every cable, so the cable at home and in a hotel were one network before.
+  Every share needs the password, also one made in Dolphin (the usershares group let Dolphin share without asking
+  after the first share): `file-sharing` moves a share file nobody allowed aside at once, a notification asks
+  ("Allow" asks for the password), and Sloth Center → Disks lists it as waiting; allowed shares are remembered by
+  the file's content, so a change made in Dolphin needs permission again. Allowing sharing on a public network
+  needs the password too; Account and security says that both always ask, whatever is chosen there. Tried with
+  real Samba in a Fedora 44 container.
   Still open: a guest share ("without a password") of a folder in the home folder probably cannot be opened (the
-  home folder is 0700 and the guest is `nobody`); after the first share, Dolphin shares without the password
+  home folder is 0700 and the guest is `nobody`); a share made in Dolphin is reachable for a moment (until the
+  path unit runs, under a second) if the firewall is already open for another share
 
 ### Next: Sloth OS 1.2.1 (to do, in order)
 1. [x] **An official torrent next to the ISO** (Reddit, 2026-10-29: SourceForge is slow), made at home with the

@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Kodus näevad teised arvutid seda arvutit ja saavad avada jagatud kaustu. Privaatses võrgus (töökoht) saavad nad neid avada, kuid see arvuti ise end ei näita. Avalikus võrgus (kohvik, hotell) ei jagata midagi, kui sa seda ei luba.",
   "Public, sharing allowed": "Avalik, jagamine lubatud",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} on avalik võrk, näiteks kohvikus või hotellis. Kui jagad siin kaustu, saavad kõik selles võrgus proovida neid avada. Edaspidi jääb jagamine selles võrgus lubatuks; saad seda igal ajal muuta: {where}.",
-  "Wired network {n}": "Juhtmega võrk {n}"
+  "Wired network {n}": "Juhtmega võrk {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Kaustade jagamine võrgus küsib alati parooli, mida iganes sa siin valid, ja nii ka jagamise lubamine avalikus võrgus. Need avavad su arvuti teistele inimestele, seega jäävad need kaitstuks.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Jagatud teisest programmist (näiteks Dolphin). Seda pole veel jagatud: see ootab sinu luba.",
+  "Allow": "Luba",
+  "Don't share": "Ära jaga",
+  "Share a folder on the network?": "Kas jagada kausta võrgus?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Programm (näiteks Dolphin) soovib jagada kausta {path}. Jagatud kaustad vajavad sinu luba: seda ei jagata enne, kui sa lubad."
 }

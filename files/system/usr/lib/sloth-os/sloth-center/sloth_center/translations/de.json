@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Zu Hause sehen andere Computer diesen Computer und können die freigegebenen Ordner öffnen. In einem privaten Netzwerk (Arbeitsplatz) können sie sie öffnen, aber dieser Computer zeigt sich nicht von selbst. In einem öffentlichen Netzwerk (Café, Hotel) wird nichts freigegeben, außer du erlaubst es.",
   "Public, sharing allowed": "Öffentlich, Freigabe erlaubt",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} ist ein öffentliches Netzwerk, zum Beispiel in einem Café oder Hotel. Wenn du hier Ordner freigibst, können alle in diesem Netzwerk versuchen, sie zu öffnen. Ab jetzt bleibt die Freigabe in diesem Netzwerk erlaubt; du kannst das jederzeit unter {where} ändern.",
-  "Wired network {n}": "Kabelnetzwerk {n}"
+  "Wired network {n}": "Kabelnetzwerk {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Das Freigeben von Ordnern im Netzwerk fragt immer nach dem Passwort, egal was du hier wählst, ebenso das Erlauben von Freigaben in einem öffentlichen Netzwerk. Beides öffnet deinen Computer für andere Menschen und bleibt deshalb geschützt.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Von einem anderen Programm freigegeben (zum Beispiel Dolphin). Noch nicht freigegeben: Es wartet auf deine Erlaubnis.",
+  "Allow": "Erlauben",
+  "Don't share": "Nicht freigeben",
+  "Share a folder on the network?": "Einen Ordner im Netzwerk freigeben?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Ein Programm (zum Beispiel Dolphin) möchte {path} freigeben. Freigegebene Ordner brauchen deine Erlaubnis: Er wird erst freigegeben, wenn du es erlaubst."
 }

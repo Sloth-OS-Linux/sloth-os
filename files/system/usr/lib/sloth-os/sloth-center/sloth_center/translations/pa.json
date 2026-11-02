@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "ਘਰ ਵਿੱਚ ਹੋਰ ਕੰਪਿਊਟਰ ਇਸ ਕੰਪਿਊਟਰ ਨੂੰ ਦੇਖਦੇ ਹਨ ਅਤੇ ਸਾਂਝੇ ਫੋਲਡਰ ਖੋਲ੍ਹ ਸਕਦੇ ਹਨ। ਨਿੱਜੀ ਨੈੱਟਵਰਕ 'ਤੇ (ਕੰਮ ਦੀ ਥਾਂ) ਉਹ ਇਹਨਾਂ ਨੂੰ ਖੋਲ੍ਹ ਸਕਦੇ ਹਨ, ਪਰ ਇਹ ਕੰਪਿਊਟਰ ਆਪਣੇ ਆਪ ਨਹੀਂ ਦਿਖਦਾ। ਜਨਤਕ ਨੈੱਟਵਰਕ 'ਤੇ (ਕੈਫ਼ੇ, ਹੋਟਲ) ਤੁਹਾਡੀ ਇਜਾਜ਼ਤ ਤੋਂ ਬਿਨਾਂ ਕੁਝ ਵੀ ਸਾਂਝਾ ਨਹੀਂ ਹੁੰਦਾ।",
   "Public, sharing allowed": "ਜਨਤਕ, ਸਾਂਝਾ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} ਇੱਕ ਜਨਤਕ ਨੈੱਟਵਰਕ ਹੈ, ਜਿਵੇਂ ਕਿਸੇ ਕੈਫ਼ੇ ਜਾਂ ਹੋਟਲ ਵਿੱਚ। ਜੇ ਤੁਸੀਂ ਇੱਥੇ ਫੋਲਡਰ ਸਾਂਝੇ ਕਰਦੇ ਹੋ, ਤਾਂ ਇਸ ਨੈੱਟਵਰਕ 'ਤੇ ਹਰ ਕੋਈ ਉਹਨਾਂ ਨੂੰ ਖੋਲ੍ਹਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਸਕਦਾ ਹੈ। ਹੁਣ ਤੋਂ ਇਸ ਨੈੱਟਵਰਕ 'ਤੇ ਸਾਂਝਾ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਬਣੀ ਰਹੇਗੀ; ਤੁਸੀਂ ਇਸਨੂੰ ਕਦੇ ਵੀ {where} ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹੋ।",
-  "Wired network {n}": "ਤਾਰ ਵਾਲਾ ਨੈੱਟਵਰਕ {n}"
+  "Wired network {n}": "ਤਾਰ ਵਾਲਾ ਨੈੱਟਵਰਕ {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "ਨੈੱਟਵਰਕ 'ਤੇ ਫੋਲਡਰ ਸਾਂਝੇ ਕਰਨ ਲਈ ਹਮੇਸ਼ਾ ਪਾਸਵਰਡ ਮੰਗਿਆ ਜਾਂਦਾ ਹੈ, ਤੁਸੀਂ ਇੱਥੇ ਜੋ ਵੀ ਚੁਣੋ, ਅਤੇ ਜਨਤਕ ਨੈੱਟਵਰਕ 'ਤੇ ਸਾਂਝਾ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦੇਣ ਲਈ ਵੀ। ਇਹ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਨੂੰ ਹੋਰ ਲੋਕਾਂ ਲਈ ਖੋਲ੍ਹਦੇ ਹਨ, ਇਸ ਲਈ ਇਹ ਸੁਰੱਖਿਅਤ ਰਹਿੰਦੇ ਹਨ।",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "ਕਿਸੇ ਹੋਰ ਪ੍ਰੋਗਰਾਮ (ਜਿਵੇਂ Dolphin) ਤੋਂ ਸਾਂਝਾ ਕੀਤਾ ਗਿਆ। ਇਹ ਅਜੇ ਸਾਂਝਾ ਨਹੀਂ ਹੈ: ਇਹ ਤੁਹਾਡੀ ਇਜਾਜ਼ਤ ਦੀ ਉਡੀਕ ਕਰ ਰਿਹਾ ਹੈ।",
+  "Allow": "ਇਜਾਜ਼ਤ ਦਿਓ",
+  "Don't share": "ਸਾਂਝਾ ਨਾ ਕਰੋ",
+  "Share a folder on the network?": "ਕੀ ਨੈੱਟਵਰਕ 'ਤੇ ਫੋਲਡਰ ਸਾਂਝਾ ਕਰਨਾ ਹੈ?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "ਇੱਕ ਪ੍ਰੋਗਰਾਮ (ਜਿਵੇਂ Dolphin) {path} ਨੂੰ ਸਾਂਝਾ ਕਰਨਾ ਚਾਹੁੰਦਾ ਹੈ। ਸਾਂਝੇ ਫੋਲਡਰਾਂ ਲਈ ਤੁਹਾਡੀ ਇਜਾਜ਼ਤ ਲੋੜੀਂਦੀ ਹੈ: ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਇਜਾਜ਼ਤ ਨਹੀਂ ਦਿੰਦੇ, ਇਹ ਸਾਂਝਾ ਨਹੀਂ ਹੋਵੇਗਾ।"
 }

@@ -6,6 +6,9 @@ It runs in the user's session (sloth-network-notify.path / .service) whenever th
 about yet counts as public; closing the notification leaves it public, and it is not asked again (Sloth Center →
 Disks can change it). The networks saved before this existed became home networks once, so sharing kept working:
 that is told once too. Setting the kind needs no password (sloth-helper-network).
+
+A folder shared in another program (Dolphin) waits for permission (file-sharing): it is asked here once, "Allow"
+asks for the password (sloth-helper-sharing share-approve); otherwise it waits in Sloth Center → Disks.
 Start: python3 -m sloth_center.network_notify
 """
 import json
@@ -17,10 +20,13 @@ from .i18n import tr
 from .sharing import network_label
 
 STATE = Path("/run/sloth-os/sharing/state.json")
+MINE = Path("/run/sloth-os/sharing") / f"{os.getuid()}.json"
 HELPER = "/usr/libexec/sloth-os/sloth-helper-network"
+SHARING_HELPER = "/usr/libexec/sloth-os/sloth-helper-sharing"
 STATE_DIR = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "sloth-os"
 ASKED = STATE_DIR / "networks-asked.json"
 DEFAULTED_TOLD = STATE_DIR / "networks-defaulted-told"
+SHARES_ASKED = STATE_DIR / "shares-asked.json"
 
 
 def notify(title, body, actions, icon="network-wireless"):
@@ -48,7 +54,37 @@ def tell_defaulted(names):
         subprocess.Popen(["sloth-center", "--page", "disks"])
 
 
+def ask_pending():
+    """Once per share: a folder shared in another program is shared only after "Allow" (and the password)."""
+    try:
+        pending = json.loads(MINE.read_text()).get("pending", [])
+    except (OSError, ValueError, AttributeError):
+        return
+    try:
+        asked = set(json.loads(SHARES_ASKED.read_text()))
+    except (OSError, ValueError, TypeError):
+        asked = set()
+    for share in pending:
+        if not isinstance(share, dict) or not share.get("file"):
+            continue
+        key = f"{share['file']}:{share.get('path', '')}"
+        if key in asked:
+            continue
+        asked.add(key)
+        STATE_DIR.mkdir(parents=True, exist_ok=True)
+        SHARES_ASKED.write_text(json.dumps(sorted(asked)))
+        answer = notify(tr("Share a folder on the network?"),
+                        tr("A program (such as Dolphin) wants to share {path}. Shared folders need your permission: "
+                           "it isn't shared until you allow it.", path=share.get("path", "")),
+                        [("allow", tr("Allow")), ("open", tr("Open Sloth Center"))], icon="folder-remote")
+        if answer == "allow":
+            subprocess.run(["pkexec", SHARING_HELPER, "share-approve", share["file"]], capture_output=True)
+        elif answer == "open":
+            subprocess.Popen(["sloth-center", "--page", "disks"])
+
+
 def main():
+    ask_pending()
     try:
         state = json.loads(STATE.read_text())
     except (OSError, ValueError):

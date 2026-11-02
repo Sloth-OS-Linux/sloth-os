@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "在家裡，其他電腦可以看到這台電腦，並開啟分享的資料夾。在私人網路上（工作場所），它們可以開啟這些資料夾，但這台電腦不會主動顯示。在公用網路上（咖啡廳、飯店），除非你允許，否則不會分享任何內容。",
   "Public, sharing allowed": "公用，允許分享",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} 是公用網路，例如咖啡廳或飯店的網路。如果你在這裡分享資料夾，這個網路上的任何人都可以嘗試開啟它們。從現在起，此網路將持續允許分享；你可以隨時在 {where} 中變更。",
-  "Wired network {n}": "有線網路 {n}"
+  "Wired network {n}": "有線網路 {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "無論你在這裡選擇什麼，在網路上分享資料夾一律會要求輸入密碼，允許在公用網路上分享也是如此。它們會向其他人開放你的電腦，因此始終受到保護。",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "由其他程式（例如 Dolphin）分享。尚未分享：正在等待你的許可。",
+  "Allow": "允許",
+  "Don't share": "不分享",
+  "Share a folder on the network?": "要在網路上分享資料夾嗎？",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "某個程式（例如 Dolphin）想要分享 {path}。分享的資料夾需要你的許可：在你允許之前不會分享。"
 }

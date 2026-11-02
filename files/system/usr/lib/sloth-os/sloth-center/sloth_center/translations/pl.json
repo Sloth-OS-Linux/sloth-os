@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "W domu inne komputery widzą ten komputer i mogą otwierać udostępnione foldery. W sieci prywatnej (praca) mogą je otwierać, ale ten komputer sam się nie pokazuje. W sieci publicznej (kawiarnia, hotel) nic nie jest udostępniane, chyba że na to pozwolisz.",
   "Public, sharing allowed": "Publiczna, udostępnianie dozwolone",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} to sieć publiczna, na przykład w kawiarni lub hotelu. Jeśli udostępnisz tu foldery, każdy w tej sieci może spróbować je otworzyć. Od teraz udostępnianie w tej sieci pozostaje dozwolone; możesz to zmienić w dowolnej chwili w {where}.",
-  "Wired network {n}": "Sieć przewodowa {n}"
+  "Wired network {n}": "Sieć przewodowa {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Udostępnianie folderów w sieci zawsze wymaga hasła, niezależnie od tego, co tu wybierzesz, podobnie jak zezwolenie na udostępnianie w sieci publicznej. Otwierają one komputer dla innych ludzi, więc pozostają chronione.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Udostępniony z innego programu (np. Dolphin). Jeszcze nie jest udostępniony: czeka na twoją zgodę.",
+  "Allow": "Zezwól",
+  "Don't share": "Nie udostępniaj",
+  "Share a folder on the network?": "Udostępnić folder w sieci?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Program (np. Dolphin) chce udostępnić {path}. Udostępnione foldery wymagają twojej zgody: nie zostanie udostępniony, dopóki nie zezwolisz."
 }

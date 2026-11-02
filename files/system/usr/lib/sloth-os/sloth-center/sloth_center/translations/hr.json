@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Kod kuće druga računala vide ovo računalo i mogu otvoriti dijeljene mape. Na privatnoj mreži (posao) mogu ih otvoriti, ali se ovo računalo ne prikazuje samo od sebe. Na javnoj mreži (kafić, hotel) ništa se ne dijeli osim ako to ne dopustite.",
   "Public, sharing allowed": "Javna, dijeljenje dopušteno",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} je javna mreža, na primjer u kafiću ili hotelu. Ako ovdje dijelite mape, svi na ovoj mreži mogu ih pokušati otvoriti. Od sada dijeljenje na ovoj mreži ostaje dopušteno; to možete bilo kada promijeniti u {where}.",
-  "Wired network {n}": "Žičana mreža {n}"
+  "Wired network {n}": "Žičana mreža {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Dijeljenje mapa na mreži uvijek traži lozinku, što god ovdje odabrali, kao i dopuštanje dijeljenja na javnoj mreži. Ona otvaraju vaše računalo drugim ljudima, pa ostaju zaštićena.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Podijeljeno iz drugog programa (npr. Dolphin). Još nije podijeljeno: čeka vaše dopuštenje.",
+  "Allow": "Dopusti",
+  "Don't share": "Ne dijeli",
+  "Share a folder on the network?": "Podijeliti mapu na mreži?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Program (npr. Dolphin) želi podijeliti {path}. Za dijeljene mape potrebno je vaše dopuštenje: neće biti podijeljena dok to ne dopustite."
 }

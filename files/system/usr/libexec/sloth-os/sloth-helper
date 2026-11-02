@@ -40,14 +40,19 @@ Operations:
                                                  "password", "groups"}; group members need their own Samba account
                                                  and filesystem access; without guests, a Samba password is needed
                                                  the first time)
-  share-remove <name>                            stops sharing the calling user's folder
+  share-remove <name>                            stops sharing the calling user's folder (also one waiting for
+                                                 permission)
+  share-approve <name>                           allows a share the calling user made in Dolphin: it waits until
+                                                 then (file-sharing moves a share nobody allowed aside)
   sharing on|off                                 folder sharing on or off altogether (off: Samba stops and stays
                                                  stopped, the computer does not show up on the network)
   network-kind <uuid|wired:MAC> home|private|public|public-shared
                                                  a saved network's kind: home (shared folders open, the computer is
                                                  announced), private (they open, not announced), public (hidden),
                                                  public-shared (public, sharing allowed by the user); only as
-                                                 sloth-helper-network, without a password
+                                                 sloth-helper-network, without a password, except public-shared:
+                                                 that one opens the folders on a public network, so only as
+                                                 sloth-helper-sharing, with the password
   net-limit off|<kbit/s> <unit> always|updates   the download speed limit (/etc/sloth-os/net-limit.json; the unit
                                                  the user chose: kbit, KB, Mbit, MB), put on or off at once
                                                  (/usr/libexec/sloth-os/net-limit)
@@ -55,8 +60,9 @@ Operations:
 The operations on versions (pin, unpin, set-default) and update-time are also available under the name
 sloth-helper-versions: that is a separate polkit action (org.slothos.helper.versions), so it can be put
 under the "updates" topic, not under booting. net-limit alone is available as sloth-helper-netlimit, without a
-password (org.slothos.helper.netlimit): it only slows the computer's downloads down. share-add, share-remove and
-sharing are available only as sloth-helper-sharing (org.slothos.helper.sharing), which always asks for the password.
+password (org.slothos.helper.netlimit): it only slows the computer's downloads down. share-add, share-remove,
+share-approve, sharing and network-kind public-shared are available only as sloth-helper-sharing
+(org.slothos.helper.sharing), which always asks for the password (no password-free topic contains it).
 """
 import grp
 import json
@@ -550,6 +556,8 @@ def net_limit(kbit, unit, when):
 
 FILE_SHARING = "/usr/libexec/sloth-os/file-sharing"
 SHARE_NAME_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$")
+# a share made in Dolphin may have other characters too (a space); file-sharing's SHARE_FILE_RE
+SHARE_FILE_RE = re.compile(r'^[^.:%<>*?|/\\+=;,"\x00-\x1f][^:%<>*?|/\\+=;,"\x00-\x1f]{0,79}$')
 
 
 def _samba_has_password(user):
@@ -563,6 +571,10 @@ def share_add(request):
         return {"ok": False, "error": "pkexec only"}
     name, path, password = request.get("name"), request.get("path"), request.get("password") or ""
     groups = request.get("groups", [])
+    # sharing allowed on the public network the computer is on, in the same step (one password, Sloth Center)
+    network = request.get("network")
+    if network is not None and (not isinstance(network, str) or not NETWORK_UUID_RE.match(network)):
+        return {"ok": False, "error": "bad input"}
     if not isinstance(name, str) or not SHARE_NAME_RE.match(name) or not isinstance(path, str) \
             or not isinstance(password, str) or len(password) > 127 or "\n" in password \
             or not isinstance(groups, list) or len(groups) > 32:
@@ -623,12 +635,15 @@ def share_add(request):
                        + [f"{sid}:{permission}" for sid in group_sids])
     else:
         acl = "S-1-1-0:F" if write else "S-1-1-0:R"
-    # as the user (runuser reads the groups again, so no new sign-in is needed)
-    r = run(["runuser", "-u", pw.pw_name, "--", "net", "usershare", "add", name, path, "", acl,
-             "guest_ok=y" if guests else "guest_ok=n"])
+    if network is not None:
+        r = run([FILE_SHARING, "kind", network, "public-shared"])
+        if r.returncode != 0:
+            return {"ok": False, "error": (r.stderr or r.stdout).strip()[-500:]}
+    # file-sharing makes it as the user and remembers it as allowed (a share nobody allowed is moved aside)
+    r = run([FILE_SHARING, "add", str(pw.pw_uid)],
+            input=json.dumps({"name": name, "path": path, "acl": acl, "guests": guests}))
     if r.returncode != 0:
         return {"ok": False, "error": (r.stderr or r.stdout).strip()[-500:]}
-    run([FILE_SHARING, "serve"])
     return {"ok": True}
 
 
@@ -637,8 +652,22 @@ def share_remove(name):
     if pw is None:
         return {"ok": False, "error": "pkexec only"}
     r = run(["runuser", "-u", pw.pw_name, "--", "net", "usershare", "delete", name])
-    run([FILE_SHARING, "serve"])
+    if r.returncode != 0:
+        # one waiting for permission (made in Dolphin) is only dropped
+        r = run([FILE_SHARING, "discard", str(pw.pw_uid), name.lower()])
+    else:
+        run([FILE_SHARING, "serve"])
     return {"ok": r.returncode == 0, "error": (r.stderr or r.stdout).strip()[-500:]}
+
+
+def share_approve(name):
+    """A share the calling user made in Dolphin: until now it waited for permission (file-sharing approve)."""
+    pw = _caller()
+    if pw is None:
+        return {"ok": False, "error": "pkexec only"}
+    r = run([FILE_SHARING, "approve", str(pw.pw_uid), name.lower()])
+    error = (r.stderr or r.stdout).strip()[-500:]
+    return {"ok": r.returncode == 0, "error": "not owner" if error == "not owner" else error}
 
 
 def sharing(on):
@@ -692,10 +721,13 @@ def main(argv):
     if not argv:
         return 2
     op, args = argv[0], argv[1:]
+    # allowing sharing on a public network opens the folders there, so it needs the password like sharing itself
+    sharing_op = op in ("share-add", "share-remove", "share-approve", "sharing") \
+        or (op == "network-kind" and args[1:2] == ["public-shared"])
+    network_op = op == "network-kind" and not sharing_op
     if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])) \
             or (NETLIMIT_ONLY and op != "net-limit") \
-            or (SHARING_ONLY != (op in ("share-add", "share-remove", "sharing"))) \
-            or (NETWORK_ONLY != (op == "network-kind")):
+            or (SHARING_ONLY != sharing_op) or (NETWORK_ONLY != network_op):
         print(json.dumps({"ok": False, "error": "unknown operation"}))
         return 2
     if op == "secureboot-status" and not args:
@@ -754,8 +786,10 @@ def main(argv):
         except ValueError:
             request = None
         result = share_add(request) if isinstance(request, dict) else {"ok": False, "error": "bad input"}
-    elif op == "share-remove" and len(args) == 1 and SHARE_NAME_RE.match(args[0]) and not VERSIONS_ONLY:
+    elif op == "share-remove" and len(args) == 1 and SHARE_FILE_RE.match(args[0]) and not VERSIONS_ONLY:
         result = share_remove(args[0])
+    elif op == "share-approve" and len(args) == 1 and SHARE_FILE_RE.match(args[0]) and not VERSIONS_ONLY:
+        result = share_approve(args[0])
     elif op == "sharing" and args in (["on"], ["off"]) and not VERSIONS_ONLY:
         result = sharing(args[0] == "on")
     elif op == "network-kind" and len(args) == 2 and NETWORK_UUID_RE.match(args[0]) \

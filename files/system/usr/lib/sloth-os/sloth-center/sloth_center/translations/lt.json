@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Namuose kiti kompiuteriai mato šį kompiuterį ir gali atidaryti bendrinamus aplankus. Privačiame tinkle (darbovietė) jie gali juos atidaryti, bet šis kompiuteris pats savęs nerodo. Viešame tinkle (kavinė, viešbutis) niekas nebendrinama, nebent leisite.",
   "Public, sharing allowed": "Viešas, bendrinti leidžiama",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} yra viešas tinklas, pavyzdžiui, kavinėje ar viešbutyje. Jei čia bendrinsite aplankus, visi šiame tinkle galės bandyti juos atidaryti. Nuo šiol šiame tinkle bendrinti lieka leidžiama; tai bet kada galite pakeisti: {where}.",
-  "Wired network {n}": "Laidinis tinklas {n}"
+  "Wired network {n}": "Laidinis tinklas {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Aplankų bendrinimas tinkle visada prašo slaptažodžio, ką čia bepasirinktumėte, kaip ir bendrinimo leidimas viešajame tinkle. Jie atveria jūsų kompiuterį kitiems žmonėms, todėl lieka apsaugoti.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Bendrinama iš kitos programos (pvz., Dolphin). Dar nebendrinama: laukiama jūsų leidimo.",
+  "Allow": "Leisti",
+  "Don't share": "Nebendrinti",
+  "Share a folder on the network?": "Bendrinti aplanką tinkle?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Programa (pvz., Dolphin) nori bendrinti {path}. Bendrinamiems aplankams reikia jūsų leidimo: jis nebus bendrinamas, kol neleisite."
 }

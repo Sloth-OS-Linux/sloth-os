@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Deg wexxam, iselkimen nniḍen walan aselkim-a yerna zemren ad ldin ikaramen yettwabḍan. Deg uẓeṭṭa uslig (axeddim), zemren ad ten-ldin, maca aselkim-a ur d-yettban ara s yiman-is. Deg uẓeṭṭa azayez (lqahwa, lutil), ulac ayen yettwabḍan ma ur t-tsirgeḍ ara.",
   "Public, sharing allowed": "Azayez, beṭṭu yettusireg",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} d aẓeṭṭa azayez, amedya deg lqahwa neɣ deg lutil. Ma tebḍiḍ ikaramen dagi, yal yiwen deg uẓeṭṭa-a yezmer ad iɛreḍ ad ten-yeldi. Seg tura beṭṭu ad yeqqim yettusireg deg uẓeṭṭa-a; tzemreḍ ad t-tbeddleḍ melmi i tebɣiḍ deg {where}.",
-  "Wired network {n}": "Aẓeṭṭa s lxiḍ {n}"
+  "Wired network {n}": "Aẓeṭṭa s lxiḍ {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Beṭṭu n yikaramen deg uẓeṭṭa yettsuter yal tikkelt awal uffir, ayen ibɣun tferneḍ da, akken daɣen asireg n beṭṭu deg uẓeṭṭa azayez. Ldin aselkim-ik i wiyaḍ, ihi ad qqimen d iḥrazen.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Yebḍa seg wahil nniḍen (am Dolphin). Mazal ur yebḍi ara: yettraǧu turagt-ik.",
+  "Allow": "Sireg",
+  "Don't share": "Ur bḍu ara",
+  "Share a folder on the network?": "Ad tebḍuḍ akaram deg uẓeṭṭa?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Ahil (am Dolphin) yebɣa ad yebḍu {path}. Ikaramen yettwabḍan ḥwajen turagt-ik: ur yettwabḍu ara alamma tsirgeḍ-t."
 }

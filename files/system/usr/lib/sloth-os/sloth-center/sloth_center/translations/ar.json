@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "في المنزل ترى الحواسيب الأخرى هذا الحاسوب ويمكنها فتح المجلدات المشتركة. على الشبكة الخاصة (مكان عمل) يمكنها فتحها، لكن هذا الحاسوب لا يُظهر نفسه. وعلى الشبكة العامة (مقهى، فندق) لا يُشارَك شيء ما لم تسمح بذلك.",
   "Public, sharing allowed": "عامة، المشاركة مسموحة",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} شبكة عامة، مثلًا في مقهى أو فندق. إن شاركت مجلدات هنا، فيمكن لكل من على هذه الشبكة محاولة فتحها. من الآن تبقى المشاركة مسموحة على هذه الشبكة؛ ويمكنك تغيير ذلك في أي وقت في {where}.",
-  "Wired network {n}": "شبكة سلكية {n}"
+  "Wired network {n}": "شبكة سلكية {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "مشاركة المجلدات على الشبكة تطلب كلمة المرور دائمًا، مهما اخترت هنا، وكذلك السماح بالمشاركة على شبكة عامة. فهي تفتح حاسوبك للآخرين، لذا تبقى محمية.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "تمت مشاركته من برنامج آخر (مثل Dolphin). لم تتم مشاركته بعد: إنه ينتظر إذنك.",
+  "Allow": "اسمح",
+  "Don't share": "لا تشارك",
+  "Share a folder on the network?": "مشاركة مجلد على الشبكة؟",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "يريد برنامج (مثل Dolphin) مشاركة {path}. المجلدات المشتركة تحتاج إلى إذنك: لن تتم مشاركته حتى تسمح بذلك."
 }

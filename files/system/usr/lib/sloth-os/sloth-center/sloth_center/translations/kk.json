@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Үйде басқа компьютерлер осы компьютерді көріп, ортақ қалталарды аша алады. Жеке желіде (жұмыс орны) оларды аша алады, бірақ бұл компьютер өзін өзі көрсетпейді. Жалпыға ортақ желіде (кафе, қонақүй) сіз рұқсат етпесеңіз, ештеңе ортақ етілмейді.",
   "Public, sharing allowed": "Жалпыға ортақ, ортақ етуге рұқсат",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "{name} — жалпыға ортақ желі, мысалы, кафеде немесе қонақүйде. Мұнда қалталарды ортақ етсеңіз, осы желідегілердің бәрі оларды ашып көре алады. Енді бұл желіде ортақ етуге рұқсат сақталады; мұны кез келген уақытта {where} бөлімінде өзгерте аласыз.",
-  "Wired network {n}": "Сымды желі {n}"
+  "Wired network {n}": "Сымды желі {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "Желіде қалталарды ортақ пайдалану мұнда не таңдасаңыз да әрқашан құпиясөзді сұрайды, қоғамдық желіде ортақ пайдалануға рұқсат беру де солай. Олар компьютеріңізді басқа адамдарға ашады, сондықтан қорғалған күйде қалады.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Басқа бағдарламадан ортақ қылынды (мысалы, Dolphin). Әзірге ортақ емес: сіздің рұқсатыңызды күтуде.",
+  "Allow": "Рұқсат ету",
+  "Don't share": "Ортақ етпеу",
+  "Share a folder on the network?": "Қалтаны желіде ортақ ету керек пе?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Бағдарлама (мысалы, Dolphin) {path} қалтасын ортақ еткісі келеді. Ортақ қалталарға сіздің рұқсатыңыз керек: рұқсат етпейінше ортақ болмайды."
 }

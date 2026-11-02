@@ -921,5 +921,11 @@
   "At home, other computers see this computer and can open the shared folders. On a private network (a workplace), they can open them, but this computer doesn't show up by itself. On a public network (a café, a hotel), nothing is shared unless you allow it.": "Otthon a többi gép látja ezt a gépet, és megnyithatja a megosztott mappákat. Privát hálózaton (munkahely) megnyithatják őket, de ez a gép magától nem látszik. Nyilvános hálózaton (kávézó, szálloda) semmit nem oszt meg, csak ha engeded.",
   "Public, sharing allowed": "Nyilvános, megosztás engedélyezve",
   "{name} is a public network, for example in a café or a hotel. If you share folders here, everyone on this network can try to open them. From now on, sharing stays allowed on this network; you can change it any time in {where}.": "A(z) {name} nyilvános hálózat, például egy kávézóban vagy szállodában. Ha itt megosztasz mappákat, a hálózaton bárki megpróbálhatja megnyitni őket. Ezen a hálózaton mostantól engedélyezve marad a megosztás; ezt bármikor megváltoztathatod itt: {where}.",
-  "Wired network {n}": "Vezetékes hálózat {n}"
+  "Wired network {n}": "Vezetékes hálózat {n}",
+  "Sharing folders on the network always asks for the password, whatever you choose here, and so does allowing sharing on a public network. They open your computer to other people, so they stay protected.": "A mappák megosztása a hálózaton mindig kéri a jelszót, bármit választasz itt, és a megosztás engedélyezése nyilvános hálózaton is. Ezek másoknak nyitják meg a gépedet, ezért védve maradnak.",
+  "Shared from another program (such as Dolphin). It isn't shared yet: it waits for your permission.": "Egy másik programból osztották meg (például a Dolphinból). Még nincs megosztva: az engedélyedre vár.",
+  "Allow": "Engedélyezés",
+  "Don't share": "Ne legyen megosztva",
+  "Share a folder on the network?": "Megosztasz egy mappát a hálózaton?",
+  "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "Egy program (például a Dolphin) meg szeretné osztani ezt: {path}. A megosztott mappákhoz az engedélyed kell: addig nincs megosztva, amíg nem engedélyezed."
 }
