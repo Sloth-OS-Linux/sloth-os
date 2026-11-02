@@ -175,7 +175,21 @@ if (kind === "mac") {
     panel.addWidget("org.kde.plasma.panelspacer");
     addTasks(panel);
     panel.addWidget("org.kde.plasma.panelspacer");
-    addTrayAndClock(panel);
+    panel.addWidget("org.kde.plasma.marginsseparator");
+    const tray = panel.addWidget("org.kde.plasma.systemtray");
+    // the network, sound, Bluetooth, battery and brightness are in the quick settings: in the tray they go behind
+    // the arrow (still there, so nothing is lost)
+    try {
+        const systray = desktopById(tray.readConfig("SystrayContainmentId"));
+        systray.currentConfigGroup = ["General"];
+        systray.writeConfig("hiddenItems", ["org.kde.plasma.networkmanagement", "org.kde.plasma.volume",
+                                            "org.kde.plasma.bluetooth", "org.kde.plasma.battery",
+                                            "org.kde.plasma.brightness"]);
+    } catch (e) {
+        print("quick settings: the tray stays as it is: " + e);
+    }
+    // the clock, the network and the sound in a pill; a click opens the quick settings
+    panel.addWidget("org.slothos.quicksettings");
 } else if (kind === "floating") {
     // Floating: a short bar in the middle that gets out of the way of windows (it comes back at the screen's edge)
     const panel = new Panel;
