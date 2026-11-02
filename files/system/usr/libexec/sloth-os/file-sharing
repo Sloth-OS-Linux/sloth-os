@@ -24,6 +24,10 @@ share files without asking, so a share file nobody allowed (a new one, or one ch
 What was allowed is remembered by the file's content (CONFIG "shares"). Sloth Center's own shares are allowed as they
 are made (add), under the same lock as serve, so serve never moves them aside.
 
+A share without a password lets people in as Samba's guest account (sloth-guest, its own account so that no other
+program gets what it is given), which may not enter the home folder (0700). So the guest may pass through the folders above a shared folder (x only: not look inside them) and read the
+shared folder, or write it too if so shared (ACLs, guest_access); taken away again when the share stops.
+
 groups:     at startup, before the login screen: make the usershares group visible to usermod.
 serve:      at startup, whenever the shared folders change (sloth-file-sharing.path) and when a network connects
             or disconnects (NetworkManager dispatcher.d/90-sloth-file-sharing). With something shared, sharing on
@@ -123,8 +127,13 @@ def read_config():
     shares = cfg.get("shares")
     shares = {k: v for k, v in shares.items() if isinstance(k, str) and isinstance(v, str)} \
         if isinstance(shares, dict) else None
+    # what the guest account was given: {folder: {"write": bool, "dirs": [the folders above it]}} (guest_access)
+    guest = cfg.get("guest_acl")
+    guest = {k: v for k, v in guest.items() if isinstance(k, str) and isinstance(v, dict)
+             and isinstance(v.get("write"), bool) and isinstance(v.get("dirs"), list)} \
+        if isinstance(guest, dict) else {}
     return {"enabled": cfg.get("enabled") is not False, "networks": networks, "wired": wired,
-            "defaulted": defaulted, "shares": shares, "version": 2, "old": old}
+            "defaulted": defaulted, "shares": shares, "guest_acl": guest, "version": 2, "old": old}
 
 
 def write_config(cfg):
@@ -502,6 +511,79 @@ def write_status(shares, state, pending=()):
     _write(os.path.join(STATUS, "state.json"), json.dumps(state))
 
 
+# Samba's guest account (usershares.conf, sysusers.d/sloth-os-guest.conf): who comes in to a share without a password
+GUEST = "sloth-guest"
+
+
+def _setfacl(*args):
+    # -P: never through a symbolic link (one inside a shared folder could point anywhere)
+    subprocess.run(["setfacl", "-P", *args], capture_output=True)
+
+
+def _above(path, uid):
+    """The folders above a shared folder that belong to its owner (up to the home folder): the guest has to pass
+    through them."""
+    dirs = []
+    parent = os.path.dirname(path)
+    while parent not in ("/", ""):
+        try:
+            if os.stat(parent).st_uid != uid:
+                break
+        except OSError:
+            break
+        dirs.append(parent)
+        parent = os.path.dirname(parent)
+    return dirs
+
+
+def guest_access(cfg, shares):
+    """The guest account may open the folders shared without a password and nothing else: x on the folders above
+    (pass through, not list), r (and w if so shared) inside, also for new files (default ACL). Done only when the
+    guest shares change: a large folder takes a while."""
+    want = {}
+    for share in shares:
+        if not share["guests"]:
+            continue
+        path = os.path.realpath(share["path"])
+        try:
+            st = os.stat(path)
+        except OSError:
+            continue
+        # only a person's own folder, as in label()
+        if share["uid"] < 1000 or st.st_uid != share["uid"] or not os.path.isdir(path) or path.count("/") < 3:
+            continue
+        want[path] = {"write": share["write"], "dirs": _above(path, share["uid"])}
+    have = cfg["guest_acl"]
+    if want == have:
+        return
+    try:
+        pwd.getpwnam(GUEST)
+    except KeyError:
+        # made at startup; this only matters right after an update
+        subprocess.run(["systemd-sysusers", "/usr/lib/sysusers.d/sloth-os-guest.conf"], capture_output=True)
+    removed = False
+    for path, info in have.items():
+        if want.get(path, {}).get("write") != info["write"]:
+            _setfacl("-R", "-x", f"u:{GUEST}", path)
+            _setfacl("-R", "-d", "-x", f"u:{GUEST}", path)
+            removed = True
+    needed = {d for info in want.values() for d in info["dirs"]} | set(want)
+    for d in {d for info in have.values() for d in info["dirs"]} - needed:
+        _setfacl("-x", f"u:{GUEST}", d)
+    for path, info in want.items():
+        # after a removal everything again: one shared folder may be inside another
+        if have.get(path) == info and not removed:
+            continue
+        permission = "rwX" if info["write"] else "rX"
+        _setfacl("-R", "-m", f"u:{GUEST}:{permission}", path)
+        _setfacl("-R", "-d", "-m", f"u:{GUEST}:{permission}", path)
+        for d in info["dirs"]:
+            if d not in want:
+                _setfacl("-m", f"u:{GUEST}:x", d)
+    cfg["guest_acl"] = want
+    write_config(cfg)
+
+
 def label(path, uid):
     """Samba may read this folder and what is in it, nothing else; it stays so after a relabel too.
     Only a person's own folder: the group's members can write a share's file by hand too, and a path like /etc
@@ -550,6 +632,7 @@ def serve():
     hold_unallowed(cfg)
     default_kinds(cfg)
     shares = read_shares()
+    guest_access(cfg, shares)
     active = active_networks(cfg)
     saved = nm_connections(active=False)
     kinds = {cfg["networks"].get(key, "") for key in active}

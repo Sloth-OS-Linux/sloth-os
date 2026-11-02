@@ -27,9 +27,13 @@ from a terminal must also work from a GUI.
   the file's content, so a change made in Dolphin needs permission again. Allowing sharing on a public network
   needs the password too; Account and security says that both always ask, whatever is chosen there. Tried with
   real Samba in a Fedora 44 container.
-  Still open: a guest share ("without a password") of a folder in the home folder probably cannot be opened (the
-  home folder is 0700 and the guest is `nobody`); a share made in Dolphin is reachable for a moment (until the
-  path unit runs, under a second) if the firewall is already open for another share
+  A share without a password inside the home folder could not be opened (the home folder is 0700, the guest was
+  `nobody`: access denied, tried with smbclient). The guest is its own account now (`sloth-guest`,
+  sysusers.d/sloth-os-guest.conf; no other program runs as it), which may pass through the folders above the shared
+  folder (x only, it cannot list them) and read (or write) the shared folder, with ACLs that go away when the
+  share stops. Samba keeps it inside the share (links out of it do not open). Tried with smbclient.
+  Still open: a share made in Dolphin is reachable for a moment (until the path unit runs, under a second) if the
+  firewall is already open for another share
 
 ### Next: Sloth OS 1.2.1 (to do, in order)
 1. [x] **An official torrent next to the ISO** (Reddit, 2026-10-29: SourceForge is slow), made at home with the
