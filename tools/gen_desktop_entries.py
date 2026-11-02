@@ -70,6 +70,18 @@ ENTRIES = {
         ("X-KDE-autostart-phase", "1"),
         ("OnlyShowIn", "KDE;"),
     ],
+    # Sign-in, once: the Mac-like and Ubuntu-like layouts get the app grid
+    # (/usr/libexec/sloth-os/app-grid-update). Hidden, so its name is not translated
+    "files/system/etc/xdg/autostart/org.slothos.app-grid-update.desktop": [
+        ("Type", "Application"),
+        ("Name", "App grid update"),
+        ("Exec", "/usr/libexec/sloth-os/app-grid-update"),
+        ("Icon", "view-app-grid-symbolic"),
+        ("Terminal", "false"),
+        ("NoDisplay", "true"),
+        ("X-KDE-autostart-phase", "2"),
+        ("OnlyShowIn", "KDE;"),
+    ],
     "files/system/usr/share/applications/org.slothos.center.desktop": [
         ("Type", "Application"),
         ("Name", ("sloth-center", "Sloth Center")),

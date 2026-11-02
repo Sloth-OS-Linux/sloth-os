@@ -1,0 +1,66 @@
+#!/usr/bin/python3 -I
+"""At sign-in, once: the Mac-like and Ubuntu-like layouts get Sloth OS's own app grid (org.slothos.appgrid).
+
+Those who chose one of these layouts before the app grid existed have KDE's Application Dashboard (Mac-like) or the
+Start menu with large icons (Ubuntu-like) in the dock. The layout is applied again, as if they chose it in Sloth
+Center: the pinned apps stay. Done once per account: if the user removes the app grid later, it stays removed.
+"""
+import os
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+
+from gi.repository import Gio, GLib  # noqa: E402
+
+from sloth_common import appearance  # noqa: E402
+
+DONE = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os" / "app-grid-set"
+APP_GRID = "org.slothos.appgrid"
+
+
+def has_app_grid():
+    ini = appearance.read_ini(appearance.CONFIG_HOME / "plasma-org.kde.plasma.desktop-appletsrc")
+    return any(ini.get(section, "plugin", fallback="") == APP_GRID for section in ini.sections())
+
+
+def wait_for_plasmashell(seconds=60):
+    bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+    for _ in range(seconds):
+        try:
+            owner = bus.call_sync("org.freedesktop.DBus", "/org/freedesktop/DBus", "org.freedesktop.DBus",
+                                  "NameHasOwner", GLib.Variant("(s)", ("org.kde.plasmashell",)),
+                                  GLib.VariantType("(b)"), Gio.DBusCallFlags.NONE, 5000, None)
+            if owner.unpack()[0]:
+                return True
+        except GLib.Error:
+            pass
+        time.sleep(1)
+    return False
+
+
+def done():
+    DONE.parent.mkdir(parents=True, exist_ok=True)
+    DONE.write_text("1\n", encoding="utf-8")
+
+
+def main():
+    if DONE.exists():
+        return 0
+    kind = appearance.current_layout()
+    # other layouts get the app grid when they choose one of these (apply_layout adds it)
+    if kind not in ("mac", "ubuntu") or has_app_grid():
+        done()
+        return 0
+    if not wait_for_plasmashell():
+        print("app grid: Plasma did not start, trying again at the next sign-in", file=sys.stderr)
+        return 0
+    time.sleep(3)  # the panels are loaded a moment after plasmashell is on the bus
+    if appearance.apply_layout(kind):
+        done()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
