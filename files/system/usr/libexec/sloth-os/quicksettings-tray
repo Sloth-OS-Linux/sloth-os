@@ -1,0 +1,15 @@
+#!/usr/bin/python3 -I
+"""ChromeOS-like layout: the tray's icons that the quick settings show go behind the tray's arrow.
+
+Started by the quick settings widget (org.slothos.quicksettings) whenever it starts, so a desktop set up before this
+existed is fixed without choosing the layout again. Does nothing where there is no quick settings widget, and nothing
+twice (sloth_common.appearance.hide_tray_icons).
+"""
+import sys
+
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+
+from sloth_common import appearance  # noqa: E402
+
+if __name__ == "__main__":
+    sys.exit(0 if appearance.hide_tray_icons(tries=5) else 1)

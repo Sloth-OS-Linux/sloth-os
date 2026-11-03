@@ -56,6 +56,14 @@ PlasmoidItem {
         onTriggered: root.now = new Date()
     }
 
+    // the tray's network, sound… icons go behind its arrow (they are here): also on desktops set up before, a moment
+    // after start, when the tray is up (/usr/libexec/sloth-os/quicksettings-tray; it does nothing twice)
+    Timer {
+        interval: 3000
+        running: true
+        onTriggered: root.run("/usr/libexec/sloth-os/quicksettings-tray")
+    }
+
     P5Support.DataSource {
         id: executable
         engine: "executable"

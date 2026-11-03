@@ -7,8 +7,10 @@ from a terminal must also work from a GUI.
 
 ### From the VM test of 2026-11-03 (test ISO of 16:29)
 - [x] ChromeOS-like: the tray showed the network, sound, Bluetooth, battery and brightness next to the quick
-  settings: its inner part did not exist yet when the layout script ran; a second script hides them once it does
-  (`appearance._hide_tray_icons`, with reloadConfig). The quick settings' toggles were uneven and the bubble ran off
+  settings. Plasma 6.8's tray keeps its items in its own [General] group (no inner containment any more, so the
+  first fix found nothing); now `appearance.hide_tray_icons` puts network, sound, Bluetooth, brightness and screens
+  behind the arrow (the battery stays), also run by the quick settings widget at start
+  (`/usr/libexec/sloth-os/quicksettings-tray`), so earlier desktops are fixed too. The quick settings' toggles were uneven and the bubble ran off
   the screen: equal widths, the bubble as wide as four; a checked toggle's icon was invisible on a light highlight
 - [x] macOS-like: the Start menu at the top left is a small system menu now, as the Apple menu
   (`org.slothos.systemmenu`: About This Computer, System Settings, App Store, Force Quit, Sleep, Restart, Shut Down,

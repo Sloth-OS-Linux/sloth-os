@@ -401,12 +401,13 @@ def _workspaces(count):
         log.warning("workspaces: %s", e)
 
 
-# ChromeOS-like: the tray's icons that the quick settings show go behind its arrow. The tray keeps them in its own
-# inner containment, which is created a moment after the tray itself (SystrayContainmentId in its Configuration), so
-# this runs as a second script once it exists; reloadConfig makes the tray take it at once (2026-11-03, VM: with one
-# script the icons stayed, twice: the quick settings' and the tray's).
+# ChromeOS-like: the tray's icons that the quick settings show (network, sound, Bluetooth, brightness, screens) go
+# behind its arrow, still there; the battery stays, the bubble has no battery. In Plasma 6.8 the tray keeps its items
+# in its own [General] group (hiddenItems), it has no inner containment any more (SystrayContainmentId is gone: the
+# first try looked for it and did nothing, 2026-11-03 VM). Run by apply_layout once the tray is up, and by the quick
+# settings widget whenever it starts (/usr/libexec/sloth-os/quicksettings-tray), so desktops set up before are fixed.
 QUICK_SETTINGS_HIDDEN = ["org.kde.plasma.networkmanagement", "org.kde.plasma.volume", "org.kde.plasma.bluetooth",
-                         "org.kde.plasma.battery", "org.kde.plasma.brightness"]
+                         "org.kde.plasma.brightness", "org.kde.kscreen"]
 _TRAY_SCRIPT = """
 const hidden = %s;
 let done = 0;
@@ -414,14 +415,13 @@ for (const p of panels()) {
     if (!p.widgets().some(w => w.type === "org.slothos.quicksettings")) continue;
     for (const w of p.widgets()) {
         if (w.type !== "org.kde.plasma.systemtray") continue;
-        w.currentConfigGroup = [];
-        const tray = desktopById(w.readConfig("SystrayContainmentId"));
-        if (!tray) continue;
-        tray.currentConfigGroup = ["General"];
-        const old = tray.readConfig("hiddenItems", []);
+        w.currentConfigGroup = ["General"];
+        const old = w.readConfig("hiddenItems", "");
         const list = (Array.isArray(old) ? old : String(old).split(",")).filter(x => x);
-        tray.writeConfig("hiddenItems", Array.from(new Set(list.concat(hidden))));
-        tray.reloadConfig();
+        if (!hidden.every(h => list.indexOf(h) >= 0)) {
+            w.writeConfig("hiddenItems", Array.from(new Set(list.concat(hidden))));
+            w.reloadConfig();
+        }
         done++;
     }
 }
@@ -429,7 +429,7 @@ print(done);
 """
 
 
-def _hide_tray_icons(tries=10):
+def hide_tray_icons(tries=10):
     """ChromeOS-like: hides the tray's network, sound… icons (the quick settings has them); waits for the tray."""
     bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
     for _ in range(tries):
@@ -457,7 +457,7 @@ def apply_layout(kind):
                       Gio.DBusCallFlags.NONE, 15000, None)
         if kind == "chromeos":
             # in the background: Sloth Center and Sloth Welcome stay responsive while the tray comes up
-            threading.Thread(target=_hide_tray_icons, daemon=True).start()
+            threading.Thread(target=hide_tray_icons, daemon=True).start()
         return True
     except GLib.Error as e:
         log.warning("layout: %s", e.message)
