@@ -14,15 +14,10 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Current release: Sloth OS 1.3** (November 2, 2026). Machines already running Sloth OS get it as a normal
-update. Download: [sloth-os-1.3-x86_64.iso](https://sourceforge.net/projects/sloth-os/files/1.3/sloth-os-1.3-x86_64.iso/download) (5.4 GB, also as a
-[torrent](https://sourceforge.net/projects/sloth-os/files/1.3/sloth-os-1.3-x86_64.iso.torrent/download)), SHA-256 `f9db0cab664cbb38142677b2d5be7543627601c7b54465b976b145e3864b0ee2`. What changed:
-[release notes](#release-notes) below (also in [docs/releases/1.3.md](docs/releases/1.3.md)).
-
-**Coming soon: Sloth OS 1.4** (seven taskbar layouts with a Launchpad, Show Apps and ChromeOS-like quick settings, six
-new color schemes, an advanced partitioning option in the installer). Machines already running Sloth OS get it as a
-normal update. The 1.4 installer ISO follows shortly; until then, install with the 1.3 ISO above and it updates to
-1.4 on its own.
+**Current release: Sloth OS 1.4** (November 3, 2026). Machines already running Sloth OS get it as a normal
+update. Download: [sloth-os-1.4-x86_64.iso](https://sourceforge.net/projects/sloth-os/files/1.4/sloth-os-1.4-x86_64.iso/download) (5.3 GB, also as a
+[torrent](https://sourceforge.net/projects/sloth-os/files/1.4/sloth-os-1.4-x86_64.iso.torrent/download)), SHA-256 `0e90742cbd680ee553395fa5c94b66af8abf09938686824253d9d663db5df7cc`. What changed:
+[release notes](#release-notes) below (also in [docs/releases/1.4.md](docs/releases/1.4.md)).
 
 ## What Sloth OS can do
 
@@ -68,7 +63,9 @@ the desktop. Six new color schemes with real color.
 keyboard and time zone lists, a plain text on the encrypted disk's password prompt in your language, and a second
 install next to Windows replaces the earlier Sloth OS. **Installing next to Windows again?** Unplug the USB stick,
 start Windows to the desktop, hold **Shift** while you click **Shut down**, then start from the USB stick: Windows
-has to be fully shut down before its partition is made smaller.
+has to be fully shut down before its partition is made smaller. If it still asks for a disk check, free at least
+64 GB in Windows (Disk Management → right-click C: → Shrink Volume): the installer then uses that space and does not
+touch Windows at all.
 
 **Smaller changes:** Num Lock is on from the start, the screen locks after 15 minutes (adjustable), old NVIDIA cards
 stay on the open driver, going back to an older version sticks, Ralink Wi-Fi cards stay connected, and Tab in
