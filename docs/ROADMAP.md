@@ -60,6 +60,15 @@ Sharing:
 - [ ] Tab in the sharing password (Disks → Share a folder) and the domain password goes to the next field, not
       to the show-password button
 
+### GitHub issue #17 (2026-11-03, an older PC: GTS 450, Ralink RT2790 Wi-Fi)
+- [x] Old NVIDIA cards stay on the standard version; going back to an older version pauses the automatic update
+  (`53b1c3d`, on `main` with PR #18)
+- [x] The Wi-Fi card drops off after a while: RT28xx/RT30xx (rt2800pci/usb) without hardware encryption
+  (`modprobe.d/sloth-rt2800.conf`) and without Wi-Fi power saving (NetworkManager `conf.d/sloth-rt2800-powersave.conf`,
+  only these drivers). To confirm with the reporter
+- [ ] Brave, Chrome, Spotify (Chromium/Electron) crash at start on the GTS 450: check again once the machine is
+  back on the standard version with nouveau; if they still crash, their GPU acceleration is the suspect
+
 ### Sloth OS 1.3
 - [x] Folder sharing on the home network (Dolphin → Share, Sloth Center → Disks), AD groups, the highlight color on
   the title bars, Chinese/Japanese/Korean typing; tried in a VM 2026-11-01, SMB works
