@@ -929,5 +929,10 @@
   "Share a folder on the network?": "ネットワークでフォルダーを共有しますか？",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "プログラム（Dolphin など）が {path} を共有しようとしています。共有フォルダーにはあなたの許可が必要です。許可するまで共有されません。",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "パスワードなしで共有しているフォルダーがある間は、ほかのコンピューターはほかの共有フォルダーのパスワードを求められません。あなたのユーザー名（{user}）で自分からサインインしたときだけ入れます。Windows では「ネットワーク ドライブの割り当て」→「別の資格情報を使用して接続する」。",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "新しい Windows 11 のコンピューターは、パスワードなしで共有されたフォルダーを開きません。パスワードがあればどこでも使えます。"
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "新しい Windows 11 のコンピューターは、パスワードなしで共有されたフォルダーを開きません。パスワードがあればどこでも使えます。",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "お使いの NVIDIA グラフィックスカードは NVIDIA の現在のドライバーには古すぎるため、適切なドライバーがありませんでした。Sloth OS は、オープンドライバーでカードを動かす標準版を用意しました。使うには再起動してください。",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "お使いの NVIDIA グラフィックスカードは NVIDIA の現在のドライバーには古すぎるため、Sloth OS はシステムに含まれるオープンドライバーで動かしています。問題ありません。",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "お使いの NVIDIA グラフィックスカードは NVIDIA 版のドライバーには古すぎるため、そちらでは適切なドライバーがありません。AMD/Intel 版はオープンドライバーで動かします。ファイルと設定はそのまま残ります。",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "以前のバージョンを選んだため、自動更新は一時停止しています。自分で更新をインストールすると再開します。",
+  "Resume automatic updates": "自動更新を再開"
 }

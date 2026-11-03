@@ -929,5 +929,10 @@
   "Share a folder on the network?": "在网络上共享文件夹？",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "某个程序（例如 Dolphin）想要共享 {path}。共享文件夹需要你的许可：在你允许之前不会共享。",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "只要有文件夹以无密码方式共享，其他电脑在访问你的其他共享文件夹时就不会被要求输入密码。只有它们自己用你的用户名（{user}）登录时才能进入；在 Windows 中：映射网络驱动器 → 使用其他凭据连接。",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "较新的 Windows 11 电脑不会打开无密码共享的文件夹。设置密码后，在任何地方都能使用。"
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "较新的 Windows 11 电脑不会打开无密码共享的文件夹。设置密码后，在任何地方都能使用。",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "你的 NVIDIA 显卡对 NVIDIA 当前的驱动来说太旧了，因此一直没有合适的驱动。Sloth OS 已准备好它的标准版本，用开源驱动来驱动这块显卡。重新启动即可使用。",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "你的 NVIDIA 显卡对 NVIDIA 当前的驱动来说太旧了，因此 Sloth OS 使用系统自带的开源驱动来驱动它。一切正常。",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "你的 NVIDIA 显卡对 NVIDIA 版本中的驱动来说太旧了，因此在那里没有合适的驱动。AMD/Intel 版本会用开源驱动来驱动它。你的文件和设置会保留。",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "由于你选择了较早的版本，自动更新已暂停。当你自己安装更新时，它们会重新开始。",
+  "Resume automatic updates": "恢复自动更新"
 }

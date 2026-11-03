@@ -10,6 +10,12 @@ The state is in the /var/lib/sloth-os/nvidia-auto file; the user side notifies f
 (sloth-center/sloth_center/nvidia_notify.py): downloading | ready | ready-mok | failed.
 If it has already run once (or there is no NVIDIA card), it does not run again: if the user later switches back by hand
 in Sloth Center, we do not overwrite that.
+
+Only a card the NVIDIA version's driver supports counts: that is NVIDIA's open kernel module, which needs a Turing card
+or newer (GTX 16xx, RTX 20xx and later; PCI device 0x1e00 and up). An older card (a GTS 450, a GTX 1060) has no driver
+there at all, since nouveau is turned off in the NVIDIA version: no proper resolution, no graphics acceleration
+(2026-11-03, GitHub issue #17). Such a card stays on the AMD/Intel version with nouveau, and a machine that was
+switched before this existed goes back once by itself (state "back", LEGACY_DONE).
 """
 import json
 import os
@@ -19,6 +25,11 @@ from pathlib import Path
 
 STATE_DIR = Path("/var/lib/sloth-os")
 DONE = STATE_DIR / "nvidia-auto-done"
+# the check for an old card on the NVIDIA version (switched before old cards were told apart) has been done
+LEGACY_DONE = STATE_DIR / "nvidia-auto-legacy-done"
+# the first PCI device ID of the Turing generation: NVIDIA's open kernel module supports this and newer
+# (Sloth Center's drivers.py has the same rule)
+FIRST_SUPPORTED = 0x1E00
 STATE = STATE_DIR / "nvidia-auto"
 SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
 SB_PASSWORD = "universalblue"   # the same as in sloth-helper secureboot-enroll
@@ -39,16 +50,24 @@ def done(reason):
     return 0
 
 
-def has_nvidia():
+def nvidia_cards():
+    """The PCI device IDs of the NVIDIA graphics cards."""
+    cards = []
     for dev in Path("/sys/bus/pci/devices").iterdir():
         try:
             vendor = (dev / "vendor").read_text().strip()
             klass = (dev / "class").read_text().strip()
-        except OSError:
+            device = int((dev / "device").read_text().strip(), 16)
+        except (OSError, ValueError):
             continue
         if vendor == "0x10de" and klass.startswith("0x03"):
-            return True
-    return False
+            cards.append(device)
+    return cards
+
+
+def has_nvidia():
+    """An NVIDIA card the NVIDIA version's driver supports."""
+    return any(device >= FIRST_SUPPORTED for device in nvidia_cards())
 
 
 def booted_image():
@@ -72,10 +91,43 @@ def secure_boot_needs_key():
     return "already enrolled" not in (t.stdout + t.stderr).lower()
 
 
+def back_from_nvidia():
+    """Once: an old NVIDIA card on the NVIDIA version (switched before old cards were told apart) goes back to the
+    AMD/Intel version, where nouveau drives it. Returns True when it is settled (nothing to do, or done)."""
+    cards = nvidia_cards()
+    if not cards or has_nvidia():
+        return True
+    image = booted_image()
+    if "/sloth-os-nvidia:" not in image:
+        return True
+    if not online():
+        print("No internet, trying again later.")
+        return False
+    target = image.replace("/sloth-os-nvidia:", "/sloth-os:", 1)
+    print(f"An NVIDIA card too old for the NVIDIA version's driver, switching back: {image} -> {target}")
+    set_state("downloading")
+    r = subprocess.run(["nice", "-n", "19", "ionice", "-c", "3", "rpm-ostree", "rebase", target])
+    if r.returncode != 0:
+        set_state("failed")
+        print("Failed, trying again next time.", file=sys.stderr)
+        return False
+    set_state("back")
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    DONE.write_text("an old NVIDIA card: back to the AMD/Intel version\n")
+    return True
+
+
 def main():
+    if not LEGACY_DONE.exists():
+        if not back_from_nvidia():
+            return 1
+        STATE_DIR.mkdir(parents=True, exist_ok=True)
+        LEGACY_DONE.write_text("checked\n")
     if DONE.exists():
         return 0
     if not has_nvidia():
+        if nvidia_cards():
+            return done("an NVIDIA card too old for the NVIDIA version's driver: nouveau stays")
         return done("no NVIDIA graphics card")
     image = booted_image()
     if "/sloth-os-nvidia:" in image:

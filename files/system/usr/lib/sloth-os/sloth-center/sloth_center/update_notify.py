@@ -3,7 +3,8 @@
 The automatic update (rpm-ostreed-automatic, "stage") downloads and prepares the new version by itself; until now
 only Sloth Center showed this, so it looked as if the update came "only after a restart". It runs in the user's
 session (sloth-update-notify.path / .service): when the system prepares a new version
-(/run/ostree/staged-deployment), and at login. It speaks up about a version only once.
+(/run/ostree/staged-deployment), and at login. It speaks up about a version only once, and closes the notification
+when that version no longer starts next (an earlier version was chosen in Sloth Center, issue #17).
 Start: python3 -m sloth_center.update_notify
 """
 import json
@@ -49,12 +50,29 @@ def main():
     body = tr("The new system version ({version}) has been downloaded. It will be installed at the next restart; "
               "until then you can keep working.", version=texts.version_text(d))
     try:
-        r = subprocess.run(["notify-send", "--app-name=Sloth OS", "--icon=system-software-update",
-                            "--expire-time=0", "--action=reboot=" + tr("Restart now"),
-                            tr("An update is ready"), body], capture_output=True, text=True)
+        proc = subprocess.Popen(["notify-send", "--app-name=Sloth OS", "--icon=system-software-update",
+                                 "--expire-time=0", "--print-id", "--action=reboot=" + tr("Restart now"),
+                                 tr("An update is ready"), body], stdout=subprocess.PIPE, text=True)
     except OSError:
         return 0
-    if r.stdout.strip() == "reboot":
+    notification = proc.stdout.readline().strip()
+    answer = ""
+    while True:
+        try:
+            answer = proc.communicate(timeout=30)[0].strip()
+            break
+        except subprocess.TimeoutExpired:
+            now = pending_deployment()
+            if now and f"{now.get('checksum')}.{now.get('serial')}" == key:
+                continue
+            # this version no longer starts next: the notification goes away
+            if notification.isdigit():
+                subprocess.run(["gdbus", "call", "--session", "--dest", "org.freedesktop.Notifications",
+                                "--object-path", "/org/freedesktop/Notifications", "--method",
+                                "org.freedesktop.Notifications.CloseNotification", notification], capture_output=True)
+            proc.terminate()
+            return 0
+    if answer == "reboot":
         # the KDE way: the screen fades at once (with systemctl nothing showed for seconds) and unsaved work is asked
         if subprocess.run(["gdbus", "call", "--session", "--dest", "org.kde.Shutdown", "--object-path", "/Shutdown",
                            "--method", "org.kde.Shutdown.logoutAndReboot"], capture_output=True).returncode != 0:
