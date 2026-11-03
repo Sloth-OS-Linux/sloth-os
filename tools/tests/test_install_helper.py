@@ -150,6 +150,43 @@ class WindowsDiskSurveyTest(unittest.TestCase):
             result = helper.probe("/dev/test")
         self.assertEqual(result["problems"], ["hibernated"])
 
+    def test_earlier_sloth_os_on_windows_efi_partition(self):
+        # the advanced way put Sloth OS on Windows' EFI partition: only its system partition is replaced
+        win_esp = {"node": "/dev/testp1", "type": helper.ESP_TYPE, "name": "Basic data partition", "uuid": "WIN-ESP"}
+        root = {"node": "/dev/testp4", "type": helper.ROOT_X86_64, "name": "root"}
+        pt = {"partitions": [win_esp, {"node": "/dev/testp3", "type": helper.LINUX_DATA}, root]}
+        with (patch.object(helper, "fstype", side_effect=lambda dev: "vfat" if dev == "/dev/testp1" else "btrfs"),
+              patch.object(helper, "_esp_has", return_value=True),
+              patch.object(helper, "_is_sloth_root", return_value=True)):
+            previous = helper.previous_sloth(pt)
+        self.assertEqual([p["node"] for p in previous], ["/dev/testp4"])
+        self.assertEqual(previous[0]["shared_esp"], "WIN-ESP")
+        # another Linux on Windows' EFI partition is not taken for Sloth OS
+        with (patch.object(helper, "fstype", side_effect=lambda dev: "vfat" if dev == "/dev/testp1" else "btrfs"),
+              patch.object(helper, "_esp_has", return_value=True),
+              patch.object(helper, "_is_sloth_root", return_value=False)):
+            self.assertEqual(helper.previous_sloth(pt), [])
+
+    def test_shared_efi_removal_keeps_windows_boot_entry(self):
+        listing = ("BootCurrent: 0001\n"
+                   "Boot0000* Windows Boot Manager\tHD(1,GPT,win-esp,0x800,0x64000)/File(\\EFI\\Microsoft\\Boot\\bootmgfw.efi)\n"
+                   "Boot0001* Fedora\tHD(1,GPT,win-esp,0x800,0x64000)/File(\\EFI\\fedora\\shimx64.efi)\n")
+        deleted = []
+
+        def fake_run(cmd, *a, **k):
+            class R:
+                returncode, stdout, stderr = 0, listing if cmd[:2] == ["efibootmgr", "--verbose"] else "", ""
+            if "--delete-bootnum" in cmd:
+                deleted.append(cmd[2])
+            return R()
+        previous = [{"node": "/dev/testp4", "shared_esp": "WIN-ESP"}]
+        with (patch.object(helper.Path, "is_dir", return_value=True),
+              patch.object(helper.subprocess, "run", side_effect=fake_run),
+              patch.object(helper, "run"),
+              patch.object(helper, "partnum", return_value=4)):
+            helper.remove_previous("/dev/test", previous)
+        self.assertEqual(deleted, ["0001"])
+
     def test_earlier_sloth_os_needs_its_system_partition(self):
         # an EFI partition with our name alone is not enough (nothing is mounted to find that out)
         parts = [{"node": "/dev/testp3", "type": helper.ESP_TYPE, "name": "EFI-SYSTEM", "start": 2048, "size": 1}]
