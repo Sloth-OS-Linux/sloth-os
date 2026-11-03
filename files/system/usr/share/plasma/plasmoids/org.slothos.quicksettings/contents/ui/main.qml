@@ -1,6 +1,6 @@
 /*
-    Sloth OS quick settings, for the ChromeOS-like layout: in the shelf's corner a pill with the network, the sound
-    and the clock; a click opens a bubble with the date, toggles (Wi-Fi, Bluetooth, do not disturb, airplane mode,
+    Sloth OS quick settings, for the ChromeOS-like layout: in the shelf's corner a pill with the network, Bluetooth
+    (if the computer has it), the sound and the clock; a click opens a bubble with the date, toggles (Wi-Fi, Bluetooth, do not disturb, airplane mode,
     power saver), the volume and the screen brightness, and Settings (Sloth Center), Screenshot, Lock and Shut down. It is built on the same parts as KDE's own network, sound,
     Bluetooth and brightness widgets. Texts: strings.js (Sloth OS's 50 languages).
 
@@ -155,6 +155,13 @@ PlasmoidItem {
                 Layout.preferredWidth: Kirigami.Units.iconSizes.small
                 Layout.preferredHeight: Kirigami.Units.iconSizes.small
                 source: connectionIcon.connectionIcon
+            }
+            // Bluetooth only on a computer that has it (on or off at a glance)
+            Kirigami.Icon {
+                Layout.preferredWidth: Kirigami.Units.iconSizes.small
+                Layout.preferredHeight: Kirigami.Units.iconSizes.small
+                visible: BluezQt.Manager.adapters.length > 0
+                source: BluezQt.Manager.bluetoothBlocked ? "network-bluetooth-inactive" : "network-bluetooth"
             }
             Kirigami.Icon {
                 Layout.preferredWidth: Kirigami.Units.iconSizes.small
