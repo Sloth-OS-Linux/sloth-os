@@ -161,6 +161,9 @@ PlasmoidItem {
     }
 
     // a round toggle with its name below (Wi-Fi, Bluetooth)
+    // every toggle as wide as the others, so the grid's columns line up (a long name wraps to a second line)
+    readonly property int toggleWidth: Kirigami.Units.gridUnit * 5
+
     component Toggle: ColumnLayout {
         id: toggle
 
@@ -169,6 +172,9 @@ PlasmoidItem {
         required property bool checked
         signal toggled()
 
+        Layout.preferredWidth: root.toggleWidth
+        Layout.maximumWidth: root.toggleWidth
+        Layout.alignment: Qt.AlignTop
         spacing: Kirigami.Units.smallSpacing
 
         PlasmaComponents.ToolButton {
@@ -178,6 +184,8 @@ PlasmoidItem {
             icon.name: toggle.iconName
             icon.width: Kirigami.Units.iconSizes.smallMedium
             icon.height: Kirigami.Units.iconSizes.smallMedium
+            // on the highlight color the icon takes its text color (on a light highlight a light icon vanished)
+            icon.color: toggle.checked ? Kirigami.Theme.highlightedTextColor : Kirigami.Theme.textColor
             checkable: true
             checked: toggle.checked
             onClicked: toggle.toggled()
@@ -188,16 +196,21 @@ PlasmoidItem {
             }
         }
         PlasmaComponents.Label {
-            Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
             text: toggle.label
             font: Kirigami.Theme.smallFont
+            wrapMode: Text.Wrap
+            maximumLineCount: 2
+            elide: Text.ElideRight
         }
     }
 
     // the bubble
     fullRepresentation: ColumnLayout {
-        Layout.preferredWidth: Kirigami.Units.gridUnit * 20
-        Layout.minimumWidth: Kirigami.Units.gridUnit * 18
+        // room for four toggles in a row
+        Layout.preferredWidth: root.toggleWidth * 4 + Kirigami.Units.largeSpacing * 5
+        Layout.minimumWidth: Layout.preferredWidth
         spacing: Kirigami.Units.largeSpacing
 
         Kirigami.Heading {
@@ -207,7 +220,7 @@ PlasmoidItem {
         }
 
         GridLayout {
-            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignHCenter
             columns: 4
             columnSpacing: Kirigami.Units.largeSpacing
             rowSpacing: Kirigami.Units.largeSpacing

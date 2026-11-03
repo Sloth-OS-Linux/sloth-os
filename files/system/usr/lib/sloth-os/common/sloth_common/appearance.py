@@ -10,6 +10,8 @@ import logging
 import os
 import re
 import subprocess
+import threading
+import time
 from pathlib import Path
 
 from gi.repository import Gio, GLib
@@ -88,7 +90,13 @@ if (kind === "mac") {
     const top = new Panel;
     top.location = "top";
     top.height = Math.round(gridUnit * 1.6);
-    addKickoff(top);
+    if (appGrid) {
+        // as on a Mac: the logo opens a small system menu (about, settings, sleep, restart…), the apps start from
+        // the Launchpad in the dock
+        top.addWidget("org.slothos.systemmenu");
+    } else {
+        addKickoff(top);  // without the Launchpad the Start menu is the way to the apps
+    }
     top.addWidget("org.kde.plasma.appmenu");
     top.addWidget("org.kde.plasma.panelspacer");
     // the workspaces (virtual desktops, apply_layout makes 4), as on a Mac
@@ -176,18 +184,10 @@ if (kind === "mac") {
     addTasks(panel);
     panel.addWidget("org.kde.plasma.panelspacer");
     panel.addWidget("org.kde.plasma.marginsseparator");
-    const tray = panel.addWidget("org.kde.plasma.systemtray");
     // the network, sound, Bluetooth, battery and brightness are in the quick settings: in the tray they go behind
-    // the arrow (still there, so nothing is lost)
-    try {
-        const systray = desktopById(tray.readConfig("SystrayContainmentId"));
-        systray.currentConfigGroup = ["General"];
-        systray.writeConfig("hiddenItems", ["org.kde.plasma.networkmanagement", "org.kde.plasma.volume",
-                                            "org.kde.plasma.bluetooth", "org.kde.plasma.battery",
-                                            "org.kde.plasma.brightness"]);
-    } catch (e) {
-        print("quick settings: the tray stays as it is: " + e);
-    }
+    // the arrow (still there, so nothing is lost). The tray's own inner part only exists a moment later, so
+    // apply_layout does this in a second script too (_TRAY_SCRIPT)
+    panel.addWidget("org.kde.plasma.systemtray");
     // the clock, the network and the sound in a pill; a click opens the quick settings
     panel.addWidget("org.slothos.quicksettings");
 } else if (kind === "floating") {
@@ -401,6 +401,50 @@ def _workspaces(count):
         log.warning("workspaces: %s", e)
 
 
+# ChromeOS-like: the tray's icons that the quick settings show go behind its arrow. The tray keeps them in its own
+# inner containment, which is created a moment after the tray itself (SystrayContainmentId in its Configuration), so
+# this runs as a second script once it exists; reloadConfig makes the tray take it at once (2026-11-03, VM: with one
+# script the icons stayed, twice: the quick settings' and the tray's).
+QUICK_SETTINGS_HIDDEN = ["org.kde.plasma.networkmanagement", "org.kde.plasma.volume", "org.kde.plasma.bluetooth",
+                         "org.kde.plasma.battery", "org.kde.plasma.brightness"]
+_TRAY_SCRIPT = """
+const hidden = %s;
+let done = 0;
+for (const p of panels()) {
+    if (!p.widgets().some(w => w.type === "org.slothos.quicksettings")) continue;
+    for (const w of p.widgets()) {
+        if (w.type !== "org.kde.plasma.systemtray") continue;
+        w.currentConfigGroup = [];
+        const tray = desktopById(w.readConfig("SystrayContainmentId"));
+        if (!tray) continue;
+        tray.currentConfigGroup = ["General"];
+        const old = tray.readConfig("hiddenItems", []);
+        const list = (Array.isArray(old) ? old : String(old).split(",")).filter(x => x);
+        tray.writeConfig("hiddenItems", Array.from(new Set(list.concat(hidden))));
+        tray.reloadConfig();
+        done++;
+    }
+}
+print(done);
+"""
+
+
+def _hide_tray_icons(tries=10):
+    """ChromeOS-like: hides the tray's network, sound… icons (the quick settings has them); waits for the tray."""
+    bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+    for _ in range(tries):
+        time.sleep(1)
+        try:
+            out = bus.call_sync("org.kde.plasmashell", "/PlasmaShell", "org.kde.PlasmaShell", "evaluateScript",
+                                GLib.Variant("(s)", (_TRAY_SCRIPT % json.dumps(QUICK_SETTINGS_HIDDEN),)),
+                                GLib.VariantType("(s)"), Gio.DBusCallFlags.NONE, 15000, None).unpack()[0]
+            if out.strip() not in ("", "0"):
+                return True
+        except GLib.Error as e:
+            log.warning("tray: %s", e.message)
+    return False
+
+
 def apply_layout(kind):
     if kind not in LAYOUTS:
         return False
@@ -411,6 +455,9 @@ def apply_layout(kind):
         bus.call_sync("org.kde.plasmashell", "/PlasmaShell", "org.kde.PlasmaShell", "evaluateScript",
                       GLib.Variant("(s)", (_LAYOUT_SCRIPT % (json.dumps(kind), json.dumps(current_app_grid())),)), None,
                       Gio.DBusCallFlags.NONE, 15000, None)
+        if kind == "chromeos":
+            # in the background: Sloth Center and Sloth Welcome stay responsive while the tray comes up
+            threading.Thread(target=_hide_tray_icons, daemon=True).start()
         return True
     except GLib.Error as e:
         log.warning("layout: %s", e.message)

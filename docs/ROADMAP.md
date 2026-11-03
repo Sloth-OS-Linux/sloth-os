@@ -5,6 +5,16 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### From the VM test of 2026-11-03 (test ISO of 16:29)
+- [x] ChromeOS-like: the tray showed the network, sound, Bluetooth, battery and brightness next to the quick
+  settings: its inner part did not exist yet when the layout script ran; a second script hides them once it does
+  (`appearance._hide_tray_icons`, with reloadConfig). The quick settings' toggles were uneven and the bubble ran off
+  the screen: equal widths, the bubble as wide as four; a checked toggle's icon was invisible on a light highlight
+- [x] macOS-like: the Start menu at the top left is a small system menu now, as the Apple menu
+  (`org.slothos.systemmenu`: About This Computer, System Settings, App Store, Force Quit, Sleep, Restart, Shut Down,
+  Lock Screen, Log Out; 50 languages); without the Launchpad the Start menu stays. Existing desktops get it when the
+  layout is chosen again
+
 ### Next to Windows: "a disk check is due" that never goes away (2026-11-03, set aside for now)
 - [x] An unclean journal (Windows not shut down completely) was taken for a due disk check: told apart now
   (`35bcb89`, "unclean"), with Shift + Shut down in the text
