@@ -5,6 +5,16 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Next to Windows: "a disk check is due" that never goes away (2026-11-03, set aside for now)
+- [x] An unclean journal (Windows not shut down completely) was taken for a due disk check: told apart now
+  (`35bcb89`, "unclean"), with Shift + Shut down in the text
+- [ ] On the gaming-PC test the disk check message stayed even after starting Windows to the desktop and Shift +
+  Shut down (ISO of 2026-11-03 16:29, before `35bcb89`). Suspect: ntfsresize's own check finds the volume
+  "inconsistent" ("Run chkdsk /f"), which Windows does not check by itself. Next time: read `ntfsresize --info` in
+  /tmp/sloth-install.log; if so, its own text (Windows: This PC → C: → Properties → Tools → Check, let Windows
+  restart to finish); a "Save log" button on the disk page; one text for hibernated/unclean/dirty so one trip to
+  Windows is enough
+
 ### GitHub issue #17 (2026-11-03, KiLLeR-Tech-Rek: i3-9100F, GeForce GTS 450, Lite-On 802.11n PCIe Wi-Fi)
 - [x] **Old NVIDIA cards got the NVIDIA version** (test branch, to try): `nvidia-auto` switched on any NVIDIA card, but
   the NVIDIA version's driver (NVIDIA's open kernel module) needs Turing or newer, and nouveau is off there: a GTS 450
