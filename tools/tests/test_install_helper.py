@@ -92,7 +92,7 @@ class WindowsDiskSurveyTest(unittest.TestCase):
         parts = [{"node": "/dev/testp1", "type": helper.ESP_TYPE, "start": 2048, "size": 204800}, win, *old]
         pt = {"label": "gpt", "sectorsize": 512, "partitions": parts, "firstlba": 2048,
               "lastlba": 206848 + 300 * gib - 1}
-        for problem in ("hibernated", "dirty"):
+        for problem in ("hibernated", "unclean", "dirty"):
             with (patch.object(helper.Path, "is_dir", return_value=True),
                   patch.object(helper, "table", return_value=pt),
                   patch.object(helper, "release_disk"),
@@ -229,6 +229,21 @@ class WindowsDiskSurveyTest(unittest.TestCase):
     def test_manual_refuses_a_partition_that_is_not_efi(self):
         self.assertEqual(self.manual(100, esp_type=helper.LINUX_DATA)[1], "error.manual_esp")
         self.assertEqual(self.manual(100, esp_fs="ntfs")[1], "error.manual_esp")
+
+    def ntfs_problem(self, output):
+        result = type("R", (), {"returncode": 1, "stdout": output, "stderr": ""})()
+        with (patch.object(helper, "hibernated", return_value=False),
+              patch.object(helper.subprocess, "run", return_value=result)):
+            return helper.ntfs_info("/dev/testp3")[1]
+
+    def test_unclean_journal_is_not_a_disk_check(self):
+        # ntfsresize's journal message mentions chkdsk too: it used to be taken for a due disk check
+        self.assertEqual(self.ntfs_problem(
+            "The NTFS journal file is unclean. Please shutdown Windows properly before\n"
+            "using this software! Note, if you have run chkdsk previously then boot\n"
+            "Windows again which will automatically initialize the journal correctly.\n"), "unclean")
+        self.assertEqual(self.ntfs_problem("Volume is scheduled for check.\nRun chkdsk /f and please try again"), "dirty")
+        self.assertEqual(self.ntfs_problem("The NTFS partition is hibernated. Windows must be resumed"), "hibernated")
 
     def test_efi_types_are_restored_after_partial_failure(self):
         partitions = [

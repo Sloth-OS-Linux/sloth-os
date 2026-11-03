@@ -472,7 +472,10 @@ def hibernated(dev):
 
 
 def ntfs_info(dev):
-    """(minimum size in bytes or None, problem: "" | "hibernated" | "dirty" | "unknown") according to ntfsresize."""
+    """(minimum size in bytes or None, problem: "" | "hibernated" | "unclean" | "dirty" | "unknown") according to
+    ntfsresize. "unclean": Windows was not shut down completely (its journal is not empty); "dirty": a disk check is
+    due, which Windows only runs while it starts. ntfsresize's journal message mentions chkdsk too, so it was taken for
+    a disk check and the user went round in circles (2026-11-03): the journal is told first, by its own words."""
     if hibernated(dev):
         return None, "hibernated"
     r = subprocess.run(["ntfsresize", "--info", "--no-progress-bar", dev], capture_output=True, text=True)
@@ -481,7 +484,9 @@ def ntfs_info(dev):
     low = text.lower()
     if "hibernat" in low or "unsafe state" in low or "fast restart" in low:
         return None, "hibernated"
-    if "scheduled for check" in low or "dirty" in low or "chkdsk" in low:
+    if "journal file is unclean" in low:
+        return None, "unclean"
+    if "scheduled for check" in low or "inconsistent" in low or "dirty" in low:
         return None, "dirty"
     m = re.search(r"you might resize at (\d+) bytes", low)
     if r.returncode != 0 or not m:
@@ -635,21 +640,21 @@ def probe(disk):
     # next to Windows was refused after Windows had been shut down with fast startup on, although the earlier Sloth
     # OS's place was enough (2026-11-03). A Windows that was not found at all ("unknown") still blocks.
     if info["free"] >= MIN_BESIDE_BYTES:
-        info["problems"] = [p for p in info["problems"] if p not in ("hibernated", "dirty")]
+        info["problems"] = [p for p in info["problems"] if p not in ("hibernated", "unclean", "dirty")]
     # An earlier Sloth OS next to Windows (and Windows' boot loader found, above): its place is enough, and the
     # Windows volume does not have to be read at all. The second install next to Windows said "we couldn't check
     # the Windows drive" (2026-11-03, cause not found yet: ntfsprogs do read a fast-startup volume)
     if info.get("previous") and info["free"] >= MIN_BESIDE_BYTES:
         info["problems"] = [p for p in info["problems"] if p != "unknown"]
     info["max"] = max(info["free"], info["shrinkable"])
-    if info["max"] < MIN_BESIDE_BYTES and not set(info["problems"]) & {"hibernated", "dirty", "bitlocker"}:
+    if info["max"] < MIN_BESIDE_BYTES and not set(info["problems"]) & {"hibernated", "unclean", "dirty", "bitlocker"}:
         info["problems"].append("no_space")
     return info
 
 
 # Why installing next to Windows is not possible -> the UI's error message (translation key; the same
 # explanation that the disk selection page shows)
-BESIDE_PROBLEMS = ("not_uefi", "not_gpt", "hibernated", "dirty", "unknown", "bitlocker", "no_space")
+BESIDE_PROBLEMS = ("not_uefi", "not_gpt", "hibernated", "unclean", "dirty", "unknown", "bitlocker", "no_space")
 BESIDE_ERRORS = {p: f"disk.beside.{p}" for p in BESIDE_PROBLEMS if p != "bitlocker"}
 
 
