@@ -45,6 +45,8 @@ Kirigami.ScrollablePage {
                     visible: drivers.canSwitch && !drivers.mismatch
                     text: drivers.nvidiaImage
                           ? L.t("The NVIDIA edition of Sloth OS is running and the NVIDIA driver is installed. Everything is fine.")
+                          : drivers.oldNvidia
+                          ? L.t("Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.")
                           : L.t("The AMD/Intel edition of Sloth OS is running; the drivers are part of the system. Everything is fine.")
                 }
             }
@@ -70,6 +72,8 @@ Kirigami.ScrollablePage {
                     visible: !drivers.busy && drivers.infoText !== "switched"
                     text: drivers.hasNvidia
                           ? L.t("Your computer has an NVIDIA graphics card, but the AMD/Intel edition of Sloth OS is running. Games run much better with the NVIDIA edition. Your files and settings are kept.")
+                          : drivers.oldNvidia
+                          ? L.t("Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.")
                           : L.t("Your computer has no NVIDIA graphics card, so the AMD/Intel edition is the better choice. Your files and settings are kept.")
                 }
                 QQC2.Label {

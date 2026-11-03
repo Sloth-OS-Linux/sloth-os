@@ -34,6 +34,22 @@ Kirigami.ScrollablePage {
             text: updates.infoText
         }
 
+        // An earlier version was chosen: the automatic update waits, so it does not bring the newer one back
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Information
+            visible: updates.updatesPaused
+            text: L.t("Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.")
+            actions: [
+                Kirigami.Action {
+                    text: L.t("Resume automatic updates")
+                    icon.name: "media-playback-start"
+                    enabled: !updates.busy
+                    onTriggered: updates.resumeUpdates()
+                }
+            ]
+        }
+
         Kirigami.InlineMessage {
             Layout.fillWidth: true
             type: updates.signatureVerified ? Kirigami.MessageType.Positive : Kirigami.MessageType.Warning

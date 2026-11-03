@@ -20,7 +20,7 @@ def main():
         state = STATE.read_text().strip()
     except OSError:
         return 0
-    if state not in ("ready", "ready-mok"):
+    if state not in ("ready", "ready-mok", "back"):
         return 0  # we do not disturb while downloading or on error (it tries again in the background)
     try:
         if SEEN.read_text().strip() == state:
@@ -32,7 +32,12 @@ def main():
         return 0
     SEEN.parent.mkdir(parents=True, exist_ok=True)
     SEEN.write_text(state + "\n")
-    if state == "ready":
+    if state == "back":
+        body = tr("Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. "
+                  "Sloth OS has prepared its standard edition, which drives the card with the open driver. "
+                  "Restart to use it.")
+        actions = ["--action=reboot=" + tr("Restart now")]
+    elif state == "ready":
         body = tr("The driver for your NVIDIA graphics card is ready. After a restart it runs at full power.")
         actions = ["--action=reboot=" + tr("Restart now")]
     else:

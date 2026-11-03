@@ -929,5 +929,10 @@
   "Share a folder on the network?": "네트워크에서 폴더를 공유할까요?",
   "A program (such as Dolphin) wants to share {path}. Shared folders need your permission: it isn't shared until you allow it.": "프로그램(예: Dolphin)이 {path}을(를) 공유하려고 합니다. 공유 폴더에는 사용자의 허락이 필요합니다. 허용할 때까지 공유되지 않습니다.",
   "While a folder is shared without a password, other computers aren't asked for the password of your other shared folders. They get in only if they sign in with your user name ({user}) themselves; in Windows: Map network drive → Connect using different credentials.": "암호 없이 공유된 폴더가 있는 동안에는 다른 컴퓨터에 다른 공유 폴더의 암호를 묻지 않습니다. 다른 컴퓨터가 직접 사용자 이름({user})으로 로그인해야만 들어올 수 있습니다. Windows에서는 네트워크 드라이브 연결 → 다른 자격 증명을 사용하여 연결.",
-  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "최신 Windows 11 컴퓨터는 암호 없이 공유된 폴더를 열지 않습니다. 암호를 쓰면 어디서나 됩니다."
+  "Newer Windows 11 computers don't open folders shared without a password. With a password, it works everywhere.": "최신 Windows 11 컴퓨터는 암호 없이 공유된 폴더를 열지 않습니다. 암호를 쓰면 어디서나 됩니다.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "사용 중인 NVIDIA 그래픽 카드는 현재 NVIDIA 드라이버에 비해 너무 오래되어 알맞은 드라이버가 없었습니다. Sloth OS가 열린 드라이버로 카드를 구동하는 표준 버전을 준비했습니다. 사용하려면 다시 시작하세요.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "사용 중인 NVIDIA 그래픽 카드는 현재 NVIDIA 드라이버에 비해 너무 오래되어, Sloth OS가 시스템에 포함된 열린 드라이버로 구동합니다. 문제없습니다.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "사용 중인 NVIDIA 그래픽 카드는 NVIDIA 버전의 드라이버에 비해 너무 오래되어 그곳에서는 알맞은 드라이버가 없습니다. AMD/Intel 버전은 열린 드라이버로 구동합니다. 파일과 설정은 그대로 유지됩니다.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "이전 버전을 선택했기 때문에 자동 업데이트가 일시 중지되었습니다. 직접 업데이트를 설치하면 다시 시작됩니다.",
+  "Resume automatic updates": "자동 업데이트 다시 시작"
 }

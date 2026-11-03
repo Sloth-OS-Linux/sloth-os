@@ -8,6 +8,7 @@ import logging
 import re
 import subprocess
 import threading
+from pathlib import Path
 
 from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
@@ -20,6 +21,9 @@ from . import registry_check, texts
 from .rpmostree import RpmOstree, Transaction
 
 log = logging.getLogger("sloth-center.updates")
+
+# sloth-helper updates-pause
+UPDATES_PAUSED = "/etc/sloth-os/updates-paused"
 _LAYER_TASK = re.compile(r"\[(\d+)\s*/\s*(\d+)\]\s+Fetching layer\s+\S+\s+\(([^)]+)\)", re.I)
 
 
@@ -190,6 +194,29 @@ class UpdatesController(QObject):
         return list(self._versions)
 
     @Property(bool, notify=changed)
+    def updatesPaused(self):
+        """An earlier version was chosen: the automatic update waits (sloth-helper updates-pause)."""
+        return Path(UPDATES_PAUSED).exists()
+
+    @Slot()
+    def resumeUpdates(self):
+        if self._pause(False):
+            self.checkForUpdates()
+
+    def _pause(self, on):
+        try:
+            r = subprocess.run(["pkexec", "/usr/libexec/sloth-os/sloth-helper-versions", "updates-pause",
+                                "on" if on else "off"], capture_output=True, text=True, timeout=120)
+            ok = json.loads(r.stdout or "{}").get("ok", False)
+        except (OSError, subprocess.SubprocessError, ValueError) as e:
+            log.warning("updates-pause: %s", e)
+            ok = False
+        if not ok and not on:
+            self._error = tr("Couldn't change it. This needs administrator approval.")
+        self.changed.emit()
+        return ok
+
+    @Property(bool, notify=changed)
     def canRollback(self):
         return bool(self._rollback) and not self._mode
 
@@ -214,9 +241,11 @@ class UpdatesController(QObject):
         deployments = self._ostree.deployments()
         ids = [d.get("id") for d in deployments]
         self._booted_index = ids.index(booted.get("id")) if booted.get("id") in ids else -1
+        names = [texts.version_text(d) for d in deployments]
         self._versions = [{
             "index": i,
-            "name": texts.version_text(d),
+            # two builds of the same day have the same name: the time tells them apart
+            "name": names[i] + (" · " + texts.time_text(d.get("timestamp")) if names.count(names[i]) > 1 else ""),
             "booted": d.get("id") == booted.get("id"),
             # in ostree's order the first one starts at the next restart
             "next": i == 0,
@@ -345,8 +374,13 @@ class UpdatesController(QObject):
         # The "up to date" state is shown by the title; only what needs doing goes here
         if mode in ("upgrade", "background") and self._pending:
             self._info = tr("The update is ready. Restart the computer whenever it suits you.")
+            # installed by hand: the automatic update runs again
+            if mode == "upgrade" and self.updatesPaused:
+                self._pause(False)
         elif mode == "rollback":
             self._info = tr("Done. After a restart, the previous version will start.")
+            # the automatic update would bring the newer version back
+            self._pause(True)
         self.changed.emit()
 
     def _late_refresh(self):

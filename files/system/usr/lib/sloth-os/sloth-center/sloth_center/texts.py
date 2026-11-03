@@ -117,6 +117,14 @@ def _pretty_name(deployment):
     return ""
 
 
+def time_text(timestamp):
+    """The time of day of a build ("11:22"), in the chosen language's format."""
+    if not timestamp:
+        return ""
+    t = datetime.datetime.fromtimestamp(int(timestamp))
+    return QLocale().toString(QTime(t.hour, t.minute), QLocale.FormatType.ShortFormat)
+
+
 def version_text(deployment):
     """E.g. "Sloth OS 1.0.2 (Fedora Atomic 44) · October 13, 2026" from the installed version."""
     if not deployment:
