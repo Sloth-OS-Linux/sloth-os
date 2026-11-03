@@ -19,10 +19,15 @@ update. Download: [sloth-os-1.3-x86_64.iso](https://sourceforge.net/projects/slo
 [torrent](https://sourceforge.net/projects/sloth-os/files/1.3/sloth-os-1.3-x86_64.iso.torrent/download)), SHA-256 `f9db0cab664cbb38142677b2d5be7543627601c7b54465b976b145e3864b0ee2`. What changed:
 [release notes](#release-notes) below (also in [docs/releases/1.3.md](docs/releases/1.3.md)).
 
+**Coming soon: Sloth OS 1.4** (seven taskbar layouts with a Launchpad, Show Apps and ChromeOS-like quick settings, six
+new color schemes, an advanced partitioning option in the installer). Machines already running Sloth OS get it as a
+normal update. The 1.4 installer ISO follows shortly; until then, install with the 1.3 ISO above and it updates to
+1.4 on its own.
+
 ## What Sloth OS can do
 
-**Feels familiar from the first minute.** Pick a taskbar layout that looks like Windows 10, Windows 11, a Mac or
-Ubuntu, and a color scheme, in the welcome wizard or any time later. Nothing is preinstalled: the Sloth Welcome
+**Feels familiar from the first minute.** Pick a taskbar layout that looks like Windows 10, Windows 11, Windows 7, a
+Mac (with a Launchpad), Ubuntu (with Show Apps), ChromeOS (with quick settings) or a floating bar, and a color scheme, in the welcome wizard or any time later. Nothing is preinstalled: the Sloth Welcome
 wizard lets you choose your apps (browsers, Steam, Discord, office, media and more) and installs them for you, and
 only what you chose goes on the taskbar. Every text is available in 50 languages.
 
@@ -51,6 +56,29 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
+<summary><b>What's new in 1.4</b> (November 3, 2026)</summary>
+
+**Your desktop, your way:** seven taskbar layouts. New: **Windows 7** (classic Start menu, task buttons with names),
+**ChromeOS-like** (a round launcher that opens the apps as a bubble, and quick settings in the corner: Wi-Fi,
+Bluetooth, do not disturb, airplane mode, power saver, volume, brightness) and **Floating**. The **macOS-like**
+layout gets a Launchpad and a system menu under the logo, the **Ubuntu-like** one Show Apps with a live picture of
+the desktop. Six new color schemes with real color.
+
+**The installer:** choose the partitions yourself with KDE Partition Manager, a search field in the language,
+keyboard and time zone lists, a plain text on the encrypted disk's password prompt in your language, and a second
+install next to Windows replaces the earlier Sloth OS. **Installing next to Windows again?** Unplug the USB stick,
+start Windows to the desktop, hold **Shift** while you click **Shut down**, then start from the USB stick: Windows
+has to be fully shut down before its partition is made smaller.
+
+**Smaller changes:** Num Lock is on from the start, the screen locks after 15 minutes (adjustable), old NVIDIA cards
+stay on the open driver, going back to an older version sticks, Ralink Wi-Fi cards stay connected, and Tab in
+password fields goes to the next field.
+
+Every new text is in all 50 languages. Full notes: [docs/releases/1.4.md](docs/releases/1.4.md).
+
+</details>
+
+<details>
 <summary><b>What's new in 1.3</b> (November 2, 2026)</summary>
 
 **Folder sharing on the home network:** share a folder from Sloth Center → Disks or Dolphin's Share tab, with or
