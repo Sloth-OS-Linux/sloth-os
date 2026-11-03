@@ -5,6 +5,14 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Sloth OS 1.4 (released 2026-11-03)
+- [x] Released: `main` = `v1.4` (`4cada88`), ISO `sloth-os-1.4-x86_64.iso` (5.3 GB, SHA-256
+  `0e90742cbd680ee553395fa5c94b66af8abf09938686824253d9d663db5df7cc`) with its `.torrent` on SourceForge, the
+  website and README updated. Tried before release: whole disk with encryption (the hint at boot in Hungarian), the
+  advanced way, the ChromeOS-like tray. Next to Windows still kept asking for a disk check on the test PC: the
+  release notes give the way around it (free the space in Windows' Disk Management)
+- [ ] GitHub release for `v1.4`; SourceForge default download set to the 1.4 ISO (both need the user)
+
 ### From the VM test of 2026-11-03 (test ISO of 16:29)
 - [x] ChromeOS-like: the tray showed the network, sound, Bluetooth, battery and brightness next to the quick
   settings. Plasma 6.8's tray keeps its items in its own [General] group (no inner containment any more, so the
