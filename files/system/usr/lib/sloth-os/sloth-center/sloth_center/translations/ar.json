@@ -951,5 +951,10 @@
   "Sunset Orange": "برتقالي الغروب",
   "Grape Purple": "بنفسجي العنب",
   "Rose": "وردي",
-  "Amber": "كهرماني"
+  "Amber": "كهرماني",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "بطاقة الرسوميات NVIDIA لديك أقدم من أن يدعمها برنامج تشغيل NVIDIA الحالي، لذا لم يكن لها برنامج تشغيل مناسب. جهّز Sloth OS إصداره القياسي الذي يشغّل البطاقة ببرنامج التشغيل المفتوح. أعد التشغيل لاستخدامه.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "بطاقة الرسوميات NVIDIA لديك أقدم من أن يدعمها برنامج تشغيل NVIDIA الحالي، لذا يشغّلها Sloth OS ببرنامج التشغيل المفتوح المضمّن في النظام. كل شيء على ما يرام.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "بطاقة الرسوميات NVIDIA لديك أقدم من أن يدعمها برنامج التشغيل في إصدار NVIDIA، لذا لا يوجد لها هناك برنامج تشغيل مناسب. إصدار AMD/Intel يشغّلها ببرنامج التشغيل المفتوح. تبقى ملفاتك وإعداداتك.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "التحديثات التلقائية متوقفة مؤقتًا لأنك اخترت إصدارًا سابقًا. ستعود عندما تثبّت تحديثًا بنفسك.",
+  "Resume automatic updates": "استئناف التحديثات التلقائية"
 }

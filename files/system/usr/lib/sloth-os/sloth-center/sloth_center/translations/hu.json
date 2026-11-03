@@ -951,5 +951,10 @@
   "Sunset Orange": "Naplemente-narancs",
   "Grape Purple": "Szőlőlila",
   "Rose": "Rózsa",
-  "Amber": "Borostyán"
+  "Amber": "Borostyán",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "Az NVIDIA-videókártyád túl régi az NVIDIA mostani meghajtójához, ezért nem volt rendes meghajtója. A Sloth OS előkészítette a normál változatát, amely a nyílt meghajtóval hajtja a kártyát. Indítsd újra a gépet a használatához.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Az NVIDIA-videókártyád túl régi az NVIDIA mostani meghajtójához, ezért a Sloth OS a rendszer részét képező nyílt meghajtóval hajtja. Minden rendben van.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Az NVIDIA-videókártyád túl régi az NVIDIA változatban lévő meghajtóhoz, ezért ott nincs rendes meghajtója. Az AMD/Intel változat a nyílt meghajtóval hajtja. A fájljaid és beállításaid megmaradnak.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Az automatikus frissítések szünetelnek, mert egy korábbi verziót választottál. Akkor indulnak újra, ha magad telepítesz egy frissítést.",
+  "Resume automatic updates": "Automatikus frissítések folytatása"
 }

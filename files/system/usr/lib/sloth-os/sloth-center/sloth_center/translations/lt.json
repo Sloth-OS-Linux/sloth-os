@@ -951,5 +951,10 @@
   "Sunset Orange": "Saulėlydžio oranžinė",
   "Grape Purple": "Vynuogių violetinė",
   "Rose": "Rožinė",
-  "Amber": "Gintarinė"
+  "Amber": "Gintarinė",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "Jūsų NVIDIA vaizdo plokštė per sena dabartinei NVIDIA tvarkyklei, todėl ji neturėjo tinkamos tvarkyklės. Sloth OS paruošė savo standartinę versiją, kuri plokštę valdo atvirąja tvarkykle. Norėdami ja naudotis, paleiskite kompiuterį iš naujo.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Jūsų NVIDIA vaizdo plokštė per sena dabartinei NVIDIA tvarkyklei, todėl Sloth OS ją valdo atvirąja tvarkykle, kuri yra sistemos dalis. Viskas gerai.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Jūsų NVIDIA vaizdo plokštė per sena NVIDIA versijos tvarkyklei, todėl ten ji neturi tinkamos tvarkyklės. AMD/Intel versija ją valdo atvirąja tvarkykle. Jūsų failai ir nuostatos išlieka.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Automatiniai naujinimai pristabdyti, nes pasirinkote ankstesnę versiją. Jie vėl prasidės, kai patys įdiegsite naujinimą.",
+  "Resume automatic updates": "Tęsti automatinius naujinimus"
 }

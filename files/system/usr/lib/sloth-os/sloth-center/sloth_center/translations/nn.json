@@ -951,5 +951,10 @@
   "Sunset Orange": "Solnedgangsoransje",
   "Grape Purple": "Druelilla",
   "Rose": "Rosa",
-  "Amber": "Rav"
+  "Amber": "Rav",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "NVIDIA-skjermkortet ditt er for gammalt for den noverande drivaren frå NVIDIA, så det hadde ingen skikkeleg drivar. Sloth OS har gjort klar standardvarianten sin, som driv kortet med den opne drivaren. Start på nytt for å bruke han.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "NVIDIA-skjermkortet ditt er for gammalt for den noverande drivaren frå NVIDIA, så Sloth OS driv det med den opne drivaren som er ein del av systemet. Alt er i orden.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "NVIDIA-skjermkortet ditt er for gammalt for drivaren i NVIDIA-varianten, så der har det ingen skikkeleg drivar. AMD/Intel-varianten driv det med den opne drivaren. Filene og innstillingane dine blir verande.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Automatiske oppdateringar er sette på pause fordi du valde ein tidlegare versjon. Dei startar igjen når du sjølv installerer ei oppdatering.",
+  "Resume automatic updates": "Hald fram med automatiske oppdateringar"
 }

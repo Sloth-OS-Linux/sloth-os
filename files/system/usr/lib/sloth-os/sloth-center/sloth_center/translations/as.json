@@ -951,5 +951,10 @@
   "Sunset Orange": "সূৰ্যাস্তৰ কমলা",
   "Grape Purple": "আঙুৰৰ বেঙুনীয়া",
   "Rose": "গোলাপী",
-  "Amber": "এম্বাৰ"
+  "Amber": "এম্বাৰ",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "আপোনাৰ NVIDIA গ্ৰাফিক্স কাৰ্ডখন NVIDIA-ৰ বৰ্তমানৰ ড্ৰাইভাৰৰ বাবে অতি পুৰণি, সেয়ে ইয়াৰ উপযুক্ত ড্ৰাইভাৰ নাছিল। Sloth OS-এ ইয়াৰ সাধাৰণ সংস্কৰণ সাজু কৰিছে, যিয়ে মুক্ত ড্ৰাইভাৰেৰে কাৰ্ডখন চলায়। ব্যৱহাৰ কৰিবলৈ পুনৰাৰম্ভ কৰক।",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "আপোনাৰ NVIDIA গ্ৰাফিক্স কাৰ্ডখন NVIDIA-ৰ বৰ্তমানৰ ড্ৰাইভাৰৰ বাবে অতি পুৰণি, সেয়ে Sloth OS-এ ইয়াক চিষ্টেমৰ অংশ মুক্ত ড্ৰাইভাৰেৰে চলায়। সকলো ঠিক আছে।",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "আপোনাৰ NVIDIA গ্ৰাফিক্স কাৰ্ডখন NVIDIA সংস্কৰণৰ ড্ৰাইভাৰৰ বাবে অতি পুৰণি, সেয়ে তাত ইয়াৰ উপযুক্ত ড্ৰাইভাৰ নাই। AMD/Intel সংস্কৰণে ইয়াক মুক্ত ড্ৰাইভাৰেৰে চলায়। আপোনাৰ ফাইল আৰু ছেটিংছ থাকে।",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "আপুনি এটা আগৰ সংস্কৰণ বাছিছে বাবে স্বয়ংক্ৰিয় আপডেট ৰখোৱা হৈছে। আপুনি নিজে এটা আপডেট ইনষ্টল কৰিলে সেইবোৰ পুনৰ আৰম্ভ হ'ব।",
+  "Resume automatic updates": "স্বয়ংক্ৰিয় আপডেট পুনৰ আৰম্ভ কৰক"
 }

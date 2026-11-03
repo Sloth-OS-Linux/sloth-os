@@ -1,6 +1,8 @@
 [Unit]
 Description=Sloth OS: preparing the NVIDIA version in the background on an NVIDIA machine
-ConditionPathExists=!/var/lib/sloth-os/nvidia-auto-done
+# either is still to do: the switch, or the check for an old card on the NVIDIA version (nvidia-auto)
+ConditionPathExists=|!/var/lib/sloth-os/nvidia-auto-done
+ConditionPathExists=|!/var/lib/sloth-os/nvidia-auto-legacy-done
 Wants=network-online.target
 After=network-online.target rpm-ostreed.service
 

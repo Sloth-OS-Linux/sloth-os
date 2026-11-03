@@ -951,5 +951,10 @@
   "Sunset Orange": "Sonsondergang-oranje",
   "Grape Purple": "Druiwepers",
   "Rose": "Roos",
-  "Amber": "Amber"
+  "Amber": "Amber",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "Jou NVIDIA-grafiekkaart is te oud vir NVIDIA se huidige drywer, so dit het nie 'n behoorlike drywer gehad nie. Sloth OS het sy standaardweergawe voorberei, wat die kaart met die oop drywer bestuur. Herbegin om dit te gebruik.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Jou NVIDIA-grafiekkaart is te oud vir NVIDIA se huidige drywer, so Sloth OS bestuur dit met die oop drywer wat deel van die stelsel is. Alles is reg.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Jou NVIDIA-grafiekkaart is te oud vir die drywer in die NVIDIA-weergawe, so dit het daar geen behoorlike drywer nie. Die AMD/Intel-weergawe bestuur dit met die oop drywer. Jou lêers en instellings bly behoue.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Outomatiese opdaterings is onderbreek omdat jy 'n vroeër weergawe gekies het. Hulle begin weer wanneer jy self 'n opdatering installeer.",
+  "Resume automatic updates": "Hervat outomatiese opdaterings"
 }

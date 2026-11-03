@@ -951,5 +951,10 @@
   "Sunset Orange": "Аранжавы захад",
   "Grape Purple": "Вінаградны фіялетавы",
   "Rose": "Ружовы",
-  "Amber": "Бурштынавы"
+  "Amber": "Бурштынавы",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "Ваша відэакарта NVIDIA занадта старая для цяперашняга драйвера NVIDIA, таму ў яе не было належнага драйвера. Sloth OS падрыхтавала стандартную версію, якая кіруе картай праз адкрыты драйвер. Перазапусціце камп'ютар, каб ёю карыстацца.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Ваша відэакарта NVIDIA занадта старая для цяперашняга драйвера NVIDIA, таму Sloth OS кіруе ёю праз адкрыты драйвер, які ўваходзіць у сістэму. Усё ў парадку.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Ваша відэакарта NVIDIA занадта старая для драйвера ў версіі для NVIDIA, таму там у яе няма належнага драйвера. Версія для AMD/Intel кіруе ёю праз адкрыты драйвер. Вашы файлы і налады захоўваюцца.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Аўтаматычныя абнаўленні прыпынены, бо вы выбралі ранейшую версію. Яны зноў пачнуцца, калі вы самі ўсталюеце абнаўленне.",
+  "Resume automatic updates": "Аднавіць аўтаматычныя абнаўленні"
 }

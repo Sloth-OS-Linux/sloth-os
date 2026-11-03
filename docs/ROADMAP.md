@@ -5,6 +5,26 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### GitHub issue #17 (2026-11-03, KiLLeR-Tech-Rek: i3-9100F, GeForce GTS 450, Lite-On 802.11n PCIe Wi-Fi)
+- [x] **Old NVIDIA cards got the NVIDIA version** (test branch, to try): `nvidia-auto` switched on any NVIDIA card, but
+  the NVIDIA version's driver (NVIDIA's open kernel module) needs Turing or newer, and nouveau is off there: a GTS 450
+  (and a GTX 900/1000) had no driver at all (low resolution, Brave/Chrome/Spotify did not open). Now only PCI device
+  0x1e00 and up switches; an old card stays on the AMD/Intel version with nouveau, and a machine switched before goes
+  back once by itself (state "back", a notification, `nvidia-auto-legacy-done`; the units run while either marker is
+  missing). Sloth Center → Drivers explains it. Tried with fake PCI devices (GTS 450, GTX 1060, GTX 1650, RTX 4060).
+- [x] **Going back to an older version did not stick:** the automatic update downloaded 1.3 again and made it the
+  next start. Now going back (rollback) or "Start this one next time" pauses the automatic update
+  (`/etc/sloth-os/updates-paused`, an ExecCondition on rpm-ostreed-automatic.service; `sloth-helper updates-pause`);
+  Sloth Center → Updates says so with "Resume automatic updates", and installing an update by hand resumes it. The
+  "An update is ready" notification closes when that version no longer starts next; two versions with the same name
+  show their build time. Tried: the notification closing (fake notify-send / rpm-ostree), the helper's gate.
+- [ ] Wi-Fi: Lite-On 802.11n PCIe card crashes on Linux; waiting for the chip's name (Realtek rtl8188ee/rtl8192ce
+  usually need `ips=0 fwlps=0`-like options)
+- [ ] A desktop shortcut to a web address is hard to find (dragging a Firefox bookmark to the desktop did nothing):
+  maybe "New web link" in Sloth OS's own desktop menu
+- [ ] Issue #12 (fluffynuts): a link to the GitHub issues on Sloth Center's Feedback page (no Discord: one person,
+  one place)
+
 ### Test plan for 2026-11-03 (test branch, after the evening builds of 2026-11-02)
 Setup: a VM program on the gaming PC (GNOME Boxes as a Flatpak was suggested) and a test ISO built from the
 `test/chunked-oci` image (CI `iso` workflow). The HP follows the test branch, so the desktop items can be tried there

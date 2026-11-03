@@ -951,5 +951,10 @@
   "Sunset Orange": "日落橙",
   "Grape Purple": "葡萄紫",
   "Rose": "玫瑰",
-  "Amber": "琥珀"
+  "Amber": "琥珀",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "你的 NVIDIA 显卡对 NVIDIA 当前的驱动来说太旧了，因此一直没有合适的驱动。Sloth OS 已准备好它的标准版本，用开源驱动来驱动这块显卡。重新启动即可使用。",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "你的 NVIDIA 显卡对 NVIDIA 当前的驱动来说太旧了，因此 Sloth OS 使用系统自带的开源驱动来驱动它。一切正常。",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "你的 NVIDIA 显卡对 NVIDIA 版本中的驱动来说太旧了，因此在那里没有合适的驱动。AMD/Intel 版本会用开源驱动来驱动它。你的文件和设置会保留。",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "由于你选择了较早的版本，自动更新已暂停。当你自己安装更新时，它们会重新开始。",
+  "Resume automatic updates": "恢复自动更新"
 }

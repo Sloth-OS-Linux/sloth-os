@@ -951,5 +951,10 @@
   "Sunset Orange": "Narančasti zalazak",
   "Grape Purple": "Ljubičasta grožđa",
   "Rose": "Ružičasta",
-  "Amber": "Jantar"
+  "Amber": "Jantar",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "Vaša grafička kartica NVIDIA prestara je za trenutačni NVIDIA upravljački program, pa nije imala odgovarajući upravljački program. Sloth OS je pripremio svoju standardnu varijantu, koja karticu pokreće otvorenim upravljačkim programom. Ponovno pokrenite računalo da biste je koristili.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Vaša grafička kartica NVIDIA prestara je za trenutačni NVIDIA upravljački program, pa je Sloth OS pokreće otvorenim upravljačkim programom koji je dio sustava. Sve je u redu.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Vaša grafička kartica NVIDIA prestara je za upravljački program u NVIDIA varijanti, pa tamo nema odgovarajući upravljački program. AMD/Intel varijanta pokreće je otvorenim upravljačkim programom. Vaše datoteke i postavke ostaju.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Automatska ažuriranja su pauzirana jer ste odabrali raniju verziju. Ponovno će krenuti kad sami instalirate ažuriranje.",
+  "Resume automatic updates": "Nastavi automatska ažuriranja"
 }

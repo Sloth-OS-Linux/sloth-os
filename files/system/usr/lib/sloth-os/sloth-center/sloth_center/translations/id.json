@@ -951,5 +951,10 @@
   "Sunset Orange": "Jingga senja",
   "Grape Purple": "Ungu anggur",
   "Rose": "Mawar",
-  "Amber": "Amber"
+  "Amber": "Amber",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "Kartu grafis NVIDIA Anda terlalu lama untuk driver NVIDIA saat ini, jadi kartu itu tidak punya driver yang layak. Sloth OS telah menyiapkan varian standarnya, yang menjalankan kartu dengan driver terbuka. Mulai ulang untuk menggunakannya.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Kartu grafis NVIDIA Anda terlalu lama untuk driver NVIDIA saat ini, jadi Sloth OS menjalankannya dengan driver terbuka yang menjadi bagian dari sistem. Semuanya baik-baik saja.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Kartu grafis NVIDIA Anda terlalu lama untuk driver di varian NVIDIA, jadi di sana kartu itu tidak punya driver yang layak. Varian AMD/Intel menjalankannya dengan driver terbuka. File dan pengaturan Anda tetap tersimpan.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Pembaruan otomatis dijeda karena Anda memilih versi sebelumnya. Pembaruan akan berjalan lagi saat Anda memasang pembaruan sendiri.",
+  "Resume automatic updates": "Lanjutkan pembaruan otomatis"
 }

@@ -951,5 +951,10 @@
   "Sunset Orange": "Πορτοκαλί ηλιοβασιλέματος",
   "Grape Purple": "Μωβ σταφυλιού",
   "Rose": "Ροζ",
-  "Amber": "Κεχριμπάρι"
+  "Amber": "Κεχριμπάρι",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "Η κάρτα γραφικών NVIDIA σας είναι πολύ παλιά για τον τρέχοντα οδηγό της NVIDIA, οπότε δεν είχε κατάλληλο οδηγό. Το Sloth OS ετοίμασε την τυπική έκδοσή του, που λειτουργεί την κάρτα με τον ανοιχτό οδηγό. Κάντε επανεκκίνηση για να τη χρησιμοποιήσετε.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Η κάρτα γραφικών NVIDIA σας είναι πολύ παλιά για τον τρέχοντα οδηγό της NVIDIA, οπότε το Sloth OS τη λειτουργεί με τον ανοιχτό οδηγό που είναι μέρος του συστήματος. Όλα είναι εντάξει.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Η κάρτα γραφικών NVIDIA σας είναι πολύ παλιά για τον οδηγό της έκδοσης για NVIDIA, οπότε εκεί δεν έχει κατάλληλο οδηγό. Η έκδοση για AMD/Intel τη λειτουργεί με τον ανοιχτό οδηγό. Τα αρχεία και οι ρυθμίσεις σας διατηρούνται.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Οι αυτόματες ενημερώσεις είναι σε παύση επειδή επιλέξατε προηγούμενη έκδοση. Θα ξεκινήσουν ξανά όταν εγκαταστήσετε μόνοι σας μια ενημέρωση.",
+  "Resume automatic updates": "Συνέχιση αυτόματων ενημερώσεων"
 }

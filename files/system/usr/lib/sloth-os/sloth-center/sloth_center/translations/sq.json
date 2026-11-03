@@ -951,5 +951,10 @@
   "Sunset Orange": "Portokalli perëndimi",
   "Grape Purple": "Vjollcë rrushi",
   "Rose": "Trëndafili",
-  "Amber": "Qelibar"
+  "Amber": "Qelibar",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "Karta juaj grafike NVIDIA është shumë e vjetër për drejtuesin aktual të NVIDIA-s, prandaj nuk kishte drejtues të përshtatshëm. Sloth OS përgatiti variantin e vet standard, që e vë në punë kartën me drejtuesin e hapur. Rinisni për ta përdorur.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Karta juaj grafike NVIDIA është shumë e vjetër për drejtuesin aktual të NVIDIA-s, prandaj Sloth OS e vë në punë me drejtuesin e hapur që është pjesë e sistemit. Gjithçka në rregull.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Karta juaj grafike NVIDIA është shumë e vjetër për drejtuesin në variantin NVIDIA, prandaj atje nuk ka drejtues të përshtatshëm. Varianti AMD/Intel e vë në punë me drejtuesin e hapur. Skedarët dhe rregullimet tuaja ruhen.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Përditësimet automatike janë ndalur përkohësisht sepse zgjodhët një version të mëparshëm. Do të rinisin kur të instaloni vetë një përditësim.",
+  "Resume automatic updates": "Rifillo përditësimet automatike"
 }

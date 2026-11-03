@@ -32,6 +32,8 @@ Operations:
   factory-reset keep|all                         prepares resetting the computer (factory-reset
                                                  prepare; JSON on the input, JSON lines on the output)
   factory-reset-cancel                           withdraws a reset that has not been done yet
+  updates-pause on|off                           the automatic system update waits (an earlier version was chosen) or
+                                                 runs again (/etc/sloth-os/updates-paused); set-default pauses too
   update-time default|<0-23>                     the hour the automatic system update (rpm-ostreed-automatic.timer)
                                                  runs, instead of the base image's triggers (an hour after start,
                                                  daily, 4:00)
@@ -142,8 +144,26 @@ def pin(index, unpin=False):
     return {"ok": r.returncode == 0, "error": r.stderr.strip()}
 
 
+# while it exists, the automatic update skips (rpm-ostreed-automatic.service.d/50-sloth-paused.conf)
+UPDATES_PAUSED = "/etc/sloth-os/updates-paused"
+
+
+def updates_pause(on):
+    if on:
+        _write(UPDATES_PAUSED, "# Sloth Center -> Updates: an earlier version was chosen, automatic updates wait\n")
+    else:
+        try:
+            os.unlink(UPDATES_PAUSED)
+        except FileNotFoundError:
+            pass
+    return {"ok": True}
+
+
 def set_default(index):
+    """The chosen version starts next; the automatic update waits, so it does not bring the newer one back."""
     r = run(["ostree", "admin", "set-default", str(index)])
+    if r.returncode == 0:
+        updates_pause(True)
     return {"ok": r.returncode == 0, "error": r.stderr.strip()}
 
 
@@ -725,7 +745,7 @@ def main(argv):
     sharing_op = op in ("share-add", "share-remove", "share-approve", "sharing") \
         or (op == "network-kind" and args[1:2] == ["public-shared"])
     network_op = op == "network-kind" and not sharing_op
-    if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])) \
+    if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time", "updates-pause")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])) \
             or (NETLIMIT_ONLY and op != "net-limit") \
             or (SHARING_ONLY != sharing_op) or (NETWORK_ONLY != network_op):
         print(json.dumps({"ok": False, "error": "unknown operation"}))
@@ -738,6 +758,8 @@ def main(argv):
         result = boot_menu(args[0])
     elif op in ("pin", "unpin") and len(args) == 1 and re.fullmatch(r"\d{1,2}", args[0]):
         result = pin(int(args[0]), unpin=(op == "unpin"))
+    elif op == "updates-pause" and args in (["on"], ["off"]):
+        result = updates_pause(args[0] == "on")
     elif op == "set-default" and len(args) == 1 and re.fullmatch(r"\d{1,2}", args[0]):
         result = set_default(int(args[0]))
     elif op == "update-time" and len(args) == 1 and re.fullmatch(r"default|1?\d|2[0-3]", args[0]):

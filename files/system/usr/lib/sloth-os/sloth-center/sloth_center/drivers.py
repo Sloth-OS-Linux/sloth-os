@@ -23,6 +23,9 @@ PCI_IDS = Path("/usr/share/hwdata/pci.ids")
 HELPER = "/usr/libexec/sloth-os/sloth-helper"
 PHONE_LINK = "/usr/libexec/sloth-os/phone-link"   # connecting a phone (KDE Connect), per user
 SB_KEY = "/etc/pki/akmods/certs/akmods-ublue.der"
+# the NVIDIA edition's driver (NVIDIA's open kernel module) supports Turing and newer: PCI device 0x1e00 and up
+# (/usr/libexec/sloth-os/nvidia-auto has the same rule)
+NVIDIA_FIRST_SUPPORTED = 0x1E00
 
 
 def _pci_name(vendor, device):
@@ -58,7 +61,12 @@ def detect_gpus():
             continue
         brand = VENDORS.get(vendor, tr("Other"))
         name = _pci_name(vendor, device)
-        gpus.append({"brand": brand, "name": f"{brand} {name}".strip() if name and brand not in name else (name or brand)})
+        try:
+            supported = vendor != "0x10de" or int(device, 16) >= NVIDIA_FIRST_SUPPORTED
+        except ValueError:
+            supported = True
+        gpus.append({"brand": brand, "supported": supported,
+                     "name": f"{brand} {name}".strip() if name and brand not in name else (name or brand)})
     return gpus
 
 
@@ -100,6 +108,9 @@ class DriversController(QObject):
             self._busy, self._status, self._progress = True, tr("Downloading the new edition…"), -1
         elif auto in ("ready", "ready-mok") and not self.nvidiaImage:
             self._info = "switched"
+        elif auto == "back" and self.nvidiaImage:
+            # an old NVIDIA card: the AMD/Intel edition is prepared (nvidia-auto), it starts after a restart
+            self._info = "switched"
         self.refreshSecureBoot()
         self._phone = self._phone_link("status")
 
@@ -117,7 +128,13 @@ class DriversController(QObject):
 
     @Property(bool, notify=changed)
     def hasNvidia(self):
-        return any(g["brand"] == "NVIDIA" for g in self._gpus)
+        """An NVIDIA card the NVIDIA edition's driver supports."""
+        return any(g["brand"] == "NVIDIA" and g["supported"] for g in self._gpus)
+
+    @Property(bool, notify=changed)
+    def oldNvidia(self):
+        """Only NVIDIA cards too old for the NVIDIA edition's driver: the AMD/Intel edition drives them (nouveau)."""
+        return not self.hasNvidia and any(g["brand"] == "NVIDIA" for g in self._gpus)
 
     @Property(bool, notify=changed)
     def nvidiaImage(self):

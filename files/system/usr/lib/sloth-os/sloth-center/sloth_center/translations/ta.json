@@ -951,5 +951,10 @@
   "Sunset Orange": "அந்தி ஆரஞ்சு",
   "Grape Purple": "திராட்சை ஊதா",
   "Rose": "ரோஜா",
-  "Amber": "அம்பர்"
+  "Amber": "அம்பர்",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "உங்கள் NVIDIA கிராஃபிக்ஸ் கார்டு NVIDIA-வின் தற்போதைய இயக்கிக்கு மிகவும் பழையது, அதனால் அதற்குச் சரியான இயக்கி இல்லை. Sloth OS தனது நிலையான பதிப்பைத் தயார் செய்துள்ளது, அது திறந்த இயக்கியுடன் கார்டை இயக்குகிறது. அதைப் பயன்படுத்த மறுதொடக்கம் செய்யுங்கள்.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "உங்கள் NVIDIA கிராஃபிக்ஸ் கார்டு NVIDIA-வின் தற்போதைய இயக்கிக்கு மிகவும் பழையது, அதனால் Sloth OS அதை அமைப்பின் பகுதியான திறந்த இயக்கியுடன் இயக்குகிறது. எல்லாம் சரியாக உள்ளது.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "உங்கள் NVIDIA கிராஃபிக்ஸ் கார்டு NVIDIA பதிப்பிலுள்ள இயக்கிக்கு மிகவும் பழையது, அதனால் அங்கு அதற்குச் சரியான இயக்கி இல்லை. AMD/Intel பதிப்பு அதைத் திறந்த இயக்கியுடன் இயக்குகிறது. உங்கள் கோப்புகளும் அமைப்புகளும் அப்படியே இருக்கும்.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "நீங்கள் முந்தைய பதிப்பைத் தேர்ந்தெடுத்ததால் தானியங்கு புதுப்பிப்புகள் இடைநிறுத்தப்பட்டுள்ளன. நீங்களே ஒரு புதுப்பிப்பை நிறுவும்போது அவை மீண்டும் தொடங்கும்.",
+  "Resume automatic updates": "தானியங்கு புதுப்பிப்புகளைத் தொடரவும்"
 }

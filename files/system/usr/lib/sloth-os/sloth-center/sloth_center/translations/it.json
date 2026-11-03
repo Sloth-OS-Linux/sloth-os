@@ -951,5 +951,10 @@
   "Sunset Orange": "Arancio tramonto",
   "Grape Purple": "Viola uva",
   "Rose": "Rosa",
-  "Amber": "Ambra"
+  "Amber": "Ambra",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "La tua scheda grafica NVIDIA è troppo vecchia per il driver attuale di NVIDIA, quindi non aveva un driver adatto. Sloth OS ha preparato la sua variante standard, che fa funzionare la scheda con il driver libero. Riavvia per usarla.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "La tua scheda grafica NVIDIA è troppo vecchia per il driver attuale di NVIDIA, quindi Sloth OS la fa funzionare con il driver libero che fa parte del sistema. Va tutto bene.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "La tua scheda grafica NVIDIA è troppo vecchia per il driver della variante NVIDIA, quindi lì non ha un driver adatto. La variante AMD/Intel la fa funzionare con il driver libero. I tuoi file e le impostazioni restano.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Gli aggiornamenti automatici sono in pausa perché hai scelto una versione precedente. Riprenderanno quando installerai tu un aggiornamento.",
+  "Resume automatic updates": "Riprendi gli aggiornamenti automatici"
 }

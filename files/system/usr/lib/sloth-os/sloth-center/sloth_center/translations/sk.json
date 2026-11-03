@@ -951,5 +951,10 @@
   "Sunset Orange": "Oranžový západ slnka",
   "Grape Purple": "Hroznová fialová",
   "Rose": "Ružová",
-  "Amber": "Jantárová"
+  "Amber": "Jantárová",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "Vaša grafická karta NVIDIA je pre súčasný ovládač NVIDIA príliš stará, takže nemala správny ovládač. Sloth OS pripravil svoju štandardnú variantu, ktorá kartu ovláda otvoreným ovládačom. Na jej použitie reštartujte počítač.",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Vaša grafická karta NVIDIA je pre súčasný ovládač NVIDIA príliš stará, takže ju Sloth OS ovláda otvoreným ovládačom, ktorý je súčasťou systému. Všetko je v poriadku.",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Vaša grafická karta NVIDIA je pre ovládač vo variante pre NVIDIA príliš stará, takže tam nemá správny ovládač. Varianta pre AMD/Intel ju ovláda otvoreným ovládačom. Vaše súbory a nastavenia zostanú zachované.",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Automatické aktualizácie sú pozastavené, pretože ste vybrali staršiu verziu. Znova sa spustia, keď sami nainštalujete aktualizáciu.",
+  "Resume automatic updates": "Obnoviť automatické aktualizácie"
 }

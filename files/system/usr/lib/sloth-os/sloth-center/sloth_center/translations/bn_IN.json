@@ -951,5 +951,10 @@
   "Sunset Orange": "সূর্যাস্ত কমলা",
   "Grape Purple": "আঙুর বেগুনি",
   "Rose": "গোলাপি",
-  "Amber": "অ্যাম্বার"
+  "Amber": "অ্যাম্বার",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so it had no proper driver. Sloth OS has prepared its standard edition, which drives the card with the open driver. Restart to use it.": "আপনার NVIDIA গ্রাফিক্স কার্ডটি NVIDIA-র বর্তমান ড্রাইভারের জন্য খুব পুরোনো, তাই এর উপযুক্ত ড্রাইভার ছিল না। Sloth OS তার সাধারণ সংস্করণ প্রস্তুত করেছে, যা ওপেন ড্রাইভার দিয়ে কার্ডটি চালায়। এটি ব্যবহার করতে রিস্টার্ট করুন।",
+  "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "আপনার NVIDIA গ্রাফিক্স কার্ডটি NVIDIA-র বর্তমান ড্রাইভারের জন্য খুব পুরোনো, তাই Sloth OS এটি সিস্টেমের অংশ ওপেন ড্রাইভার দিয়ে চালায়। সব ঠিক আছে।",
+  "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "আপনার NVIDIA গ্রাফিক্স কার্ডটি NVIDIA সংস্করণের ড্রাইভারের জন্য খুব পুরোনো, তাই সেখানে এর উপযুক্ত ড্রাইভার নেই। AMD/Intel সংস্করণ এটি ওপেন ড্রাইভার দিয়ে চালায়। আপনার ফাইল ও সেটিংস থেকে যায়।",
+  "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "আপনি একটি আগের সংস্করণ বেছে নিয়েছেন বলে স্বয়ংক্রিয় আপডেট থামানো আছে। আপনি নিজে একটি আপডেট ইনস্টল করলে এগুলো আবার শুরু হবে।",
+  "Resume automatic updates": "স্বয়ংক্রিয় আপডেট আবার চালু করুন"
 }
