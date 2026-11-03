@@ -1,0 +1,6 @@
+# Sloth OS: Num Lock is on from the start, so the number pad works right away (GitHub issue #17: a PIN of digits,
+# and Num Lock was off at every start). KWin sets it when it starts (0 = on, 1 = off, 2 = leave it as it is): on the
+# login screen too, which runs KWin as well (Plasma Login Manager). The user can still change it in System Settings
+# → Keyboard (that goes to ~/.config/kcminputrc).
+[Keyboard]
+NumLock=0
