@@ -106,6 +106,33 @@ class WindowsDiskSurveyTest(unittest.TestCase):
             self.assertGreaterEqual(result["max"], 99 * 1024**3)
             self.assertEqual(result["shrinkable"], 0)
 
+    def _previous_and_unreadable_windows(self):
+        gib = 1024**3 // 512
+        win = {"node": "/dev/testp2", "type": helper.LINUX_DATA, "start": 206848, "size": 200 * gib}
+        old = [{"node": "/dev/testp3", "type": helper.ESP_TYPE, "name": "EFI-SYSTEM", "start": 206848 + 200 * gib,
+                "size": 1 * gib},
+               {"node": "/dev/testp4", "type": helper.ROOT_X86_64, "name": "root", "start": 206848 + 201 * gib,
+                "size": 99 * gib}]
+        parts = [{"node": "/dev/testp1", "type": helper.ESP_TYPE, "start": 2048, "size": 204800}, win, *old]
+        pt = {"label": "gpt", "sectorsize": 512, "partitions": parts, "firstlba": 2048,
+              "lastlba": 206848 + 300 * gib - 1}
+        with (patch.object(helper.Path, "is_dir", return_value=True),
+              patch.object(helper, "table", return_value=pt),
+              patch.object(helper, "release_disk"),
+              patch.object(helper, "windows_esps", return_value=[{"path": "/dev/testp1", "uuid": "esp"}]),
+              patch.object(helper, "previous_sloth", return_value=old),
+              patch.object(helper, "fstype", side_effect=lambda dev: {"/dev/testp1": "vfat"}.get(dev, "ntfs")),
+              # the Windows volume could not be checked (its system files not read)
+              patch.object(helper, "has_windows_system_files", return_value=False),
+              patch.object(helper, "ntfs_info", return_value=(None, "unknown"))):
+            return helper.probe("/dev/test")
+
+    def test_earlier_sloth_os_place_is_enough_with_windows_unreadable(self):
+        result = self._previous_and_unreadable_windows()
+        self.assertEqual(result["problems"], [])
+        self.assertGreaterEqual(result["max"], 99 * 1024**3)
+        self.assertNotIn("windows", result)
+
     def test_windows_hibernated_without_free_space_still_blocks(self):
         gib = 1024**3 // 512
         win = {"node": "/dev/testp2", "type": helper.LINUX_DATA, "start": 206848, "size": 200 * gib}
