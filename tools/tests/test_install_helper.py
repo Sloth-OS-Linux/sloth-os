@@ -80,6 +80,49 @@ class WindowsDiskSurveyTest(unittest.TestCase):
         self.assertNotIn("no_space", result["problems"])
         self.assertGreaterEqual(result["max"], 99 * 1024**3)
 
+    def test_earlier_sloth_os_place_is_enough_with_windows_hibernated(self):
+        # Windows shut down with fast startup after the first install: it cannot be made smaller, but the earlier
+        # Sloth OS's place is enough, so installing next to it again is possible (Windows is not touched)
+        gib = 1024**3 // 512
+        win = {"node": "/dev/testp2", "type": helper.LINUX_DATA, "start": 206848, "size": 200 * gib}
+        old = [{"node": "/dev/testp3", "type": helper.ESP_TYPE, "name": "EFI-SYSTEM", "start": 206848 + 200 * gib,
+                "size": 1 * gib},
+               {"node": "/dev/testp4", "type": helper.ROOT_X86_64, "name": "root", "start": 206848 + 201 * gib,
+                "size": 99 * gib}]
+        parts = [{"node": "/dev/testp1", "type": helper.ESP_TYPE, "start": 2048, "size": 204800}, win, *old]
+        pt = {"label": "gpt", "sectorsize": 512, "partitions": parts, "firstlba": 2048,
+              "lastlba": 206848 + 300 * gib - 1}
+        for problem in ("hibernated", "dirty"):
+            with (patch.object(helper.Path, "is_dir", return_value=True),
+                  patch.object(helper, "table", return_value=pt),
+                  patch.object(helper, "release_disk"),
+                  patch.object(helper, "windows_esps", return_value=[{"path": "/dev/testp1", "uuid": "esp"}]),
+                  patch.object(helper, "previous_sloth", return_value=old),
+                  patch.object(helper, "fstype", side_effect=lambda dev: {"/dev/testp1": "vfat"}.get(dev, "ntfs")),
+                  patch.object(helper, "has_windows_system_files", side_effect=lambda dev: dev == "/dev/testp2"),
+                  patch.object(helper, "ntfs_info", return_value=(None, problem))):
+                result = helper.probe("/dev/test")
+            self.assertEqual(result["problems"], [], problem)
+            self.assertGreaterEqual(result["max"], 99 * 1024**3)
+            self.assertEqual(result["shrinkable"], 0)
+
+    def test_windows_hibernated_without_free_space_still_blocks(self):
+        gib = 1024**3 // 512
+        win = {"node": "/dev/testp2", "type": helper.LINUX_DATA, "start": 206848, "size": 200 * gib}
+        parts = [{"node": "/dev/testp1", "type": helper.ESP_TYPE, "start": 2048, "size": 204800}, win]
+        pt = {"label": "gpt", "sectorsize": 512, "partitions": parts, "firstlba": 2048,
+              "lastlba": 206848 + 200 * gib - 1}
+        with (patch.object(helper.Path, "is_dir", return_value=True),
+              patch.object(helper, "table", return_value=pt),
+              patch.object(helper, "release_disk"),
+              patch.object(helper, "windows_esps", return_value=[{"path": "/dev/testp1", "uuid": "esp"}]),
+              patch.object(helper, "previous_sloth", return_value=[]),
+              patch.object(helper, "fstype", side_effect=lambda dev: {"/dev/testp1": "vfat"}.get(dev, "ntfs")),
+              patch.object(helper, "has_windows_system_files", side_effect=lambda dev: dev == "/dev/testp2"),
+              patch.object(helper, "ntfs_info", return_value=(None, "hibernated"))):
+            result = helper.probe("/dev/test")
+        self.assertEqual(result["problems"], ["hibernated"])
+
     def test_earlier_sloth_os_needs_its_system_partition(self):
         # an EFI partition with our name alone is not enough (nothing is mounted to find that out)
         parts = [{"node": "/dev/testp3", "type": helper.ESP_TYPE, "name": "EFI-SYSTEM", "start": 2048, "size": 1}]

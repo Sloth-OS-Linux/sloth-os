@@ -576,6 +576,12 @@ def probe(disk):
         info["problems"].append("bitlocker")
     else:
         info["problems"].append("unknown")
+    # Space that is free already (an earlier Sloth OS's too) is used without touching Windows: what only keeps it
+    # from being made smaller (fast startup / hibernation, a disk check due) does not matter then. The second install
+    # next to Windows was refused after Windows had been shut down with fast startup on, although the earlier Sloth
+    # OS's place was enough (2026-11-03). A Windows that was not found at all ("unknown") still blocks.
+    if info["free"] >= MIN_BESIDE_BYTES:
+        info["problems"] = [p for p in info["problems"] if p not in ("hibernated", "dirty")]
     info["max"] = max(info["free"], info["shrinkable"])
     if info["max"] < MIN_BESIDE_BYTES and not set(info["problems"]) & {"hibernated", "dirty", "bitlocker"}:
         info["problems"].append("no_space")
