@@ -36,3 +36,16 @@ Fedora container with the repository mounted at `/repo`, e.g.
 `podman run --rm -v .:/repo:ro registry.fedoraproject.org/fedora:44 bash /repo/tools/tests/pin_pam_test.sh`.
 It checks password and PIN in the same prompt, rejection over SSH, the lock screen running as the user,
 the lockout after repeated wrong PINs, and removal.
+
+## Releases
+
+1. Bump `SLOTH_VERSION` in `files/scripts/branding.sh`, write `docs/releases/<version>.md` (its download line says the
+   ISO is on its way) and add the release to `README.md` (a "Coming soon" line and an open `<details>` block).
+   Merge to `main`; the CI builds the image every machine updates to.
+2. Build the ISO from `main`'s image: `tools/build-iso.ps1` (Windows) or `tools/build-iso.sh` (Linux).
+3. `python tools/release-finish.py <version> out/release-<version>/sloth-os.iso --site ../sloth-os-linux.github.io`
+   names the ISO for SourceForge, makes its `.sha256`, `.torrent` and `README.txt`, puts the links and the checksum
+   into `README.md`, the release notes and the website, and prints the SourceForge upload. Nothing is uploaded or
+   committed by it.
+4. Upload, wait until the ISO's `/download` link answers (the mirrors need a few minutes), then commit and push the
+   repository and the website, and make the GitHub release (`gh release create v<version> --notes-file …`).
