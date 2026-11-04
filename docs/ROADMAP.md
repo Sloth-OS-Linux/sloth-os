@@ -5,6 +5,12 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Sloth OS 1.4.1 (released 2026-11-04)
+- [x] Released: `main` = `v1.4.1` (`2ba775e`), ISO `sloth-os-1.4.1-x86_64.iso` (5.3 GB, SHA-256
+  `aeb60acdac2ff2910f0106edad8cf231ac5f9190ed5062f52b3d5ace0a666b3f`, the CI artifact of the `iso` run on `51ff368`)
+  with its `.torrent` on SourceForge, the website, README and the GitHub release (`v1.4.1`, Latest)
+- [ ] SourceForge default download set to the 1.4.1 ISO (needs the user)
+
 ### Sloth OS 1.4 (released 2026-11-03)
 - [x] Released: `main` = `v1.4` (`4cada88`), ISO `sloth-os-1.4-x86_64.iso` (5.3 GB, SHA-256
   `0e90742cbd680ee553395fa5c94b66af8abf09938686824253d9d663db5df7cc`) with its `.torrent` on SourceForge, the
@@ -12,7 +18,7 @@ from a terminal must also work from a GUI.
   advanced way, the ChromeOS-like tray. Next to Windows still kept asking for a disk check on the test PC: the
   release notes give the way around it (free the space in Windows' Disk Management)
 - [x] GitHub release for `v1.4` (2026-11-03 22:12)
-- [ ] SourceForge default download set to the 1.4 ISO (needs the user)
+- [x] SourceForge default download: replaced by 1.4.1
 
 ### From the VM test of 2026-11-03 (test ISO of 16:29)
 - [x] ChromeOS-like: the tray showed the network, sound, Bluetooth, battery and brightness next to the quick
