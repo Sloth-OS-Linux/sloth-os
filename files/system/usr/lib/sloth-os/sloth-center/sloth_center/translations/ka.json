@@ -240,7 +240,7 @@
   "Custom, by topic": "ინდივიდუალურად, თემების მიხედვით",
   "Password needed": "პაროლი საჭიროა",
   "Sign in automatically": "ავტომატური შესვლა",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "ჩართვის შემდეგ კომპიუტერი პაროლის გარეშე პირდაპირ თქვენს სამუშაო მაგიდას ხსნის. ამ შემთხვევაში შენახული პაროლების (მაგ. Wi-Fi, ბრაუზერი) საცავი პირველი გამოყენებისას პაროლს მოგთხოვთ.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "ჩართვის შემდეგ კომპიუტერი პაროლის გარეშე პირდაპირ თქვენს სამუშაო მაგიდას ხსნის. ამ შემთხვევაში შენახული პაროლები (მაგ. Wi-Fi, ქსელური საქაღალდეები) იხსნება ჩართვისას აკრეფილი პაროლით, თუ დისკი დაშიფრულია; წინააღმდეგ შემთხვევაში ყოველი ჩართვის შემდეგ ერთხელ მოგთხოვთ პაროლს.",
   "Password in the terminal (sudo)": "პაროლი ტერმინალში (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "გამოცდილთათვის: გამორთეთ, თუ არ გინდათ, რომ ტერმინალში „sudo“ ბრძანებამ პაროლი მოითხოვოს.",
   "Advanced settings": "დამატებითი პარამეტრები",

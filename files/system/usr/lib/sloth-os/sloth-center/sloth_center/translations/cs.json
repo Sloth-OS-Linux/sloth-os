@@ -240,7 +240,7 @@
   "Custom, by topic": "Vlastní, podle oblastí",
   "Password needed": "Vyžaduje heslo",
   "Sign in automatically": "Automatické přihlášení",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Po zapnutí počítač naběhne rovnou do vaší plochy bez hesla. Úložiště uložených hesel (např. Wi-Fi, prohlížeč) si pak heslo vyžádá při prvním použití.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Po zapnutí počítač naběhne rovnou do vaší plochy bez hesla. Uložená hesla (např. Wi-Fi, síťové složky) se pak otevřou heslem zadaným při spuštění, pokud je disk zašifrovaný; jinak si po každém spuštění jednou vyžádají vaše heslo.",
   "Password in the terminal (sudo)": "Heslo v terminálu (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Pro pokročilé: vypněte, pokud nechcete, aby příkaz „sudo“ v terminálu žádal heslo.",
   "Advanced settings": "Pokročilá nastavení",

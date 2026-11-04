@@ -240,7 +240,7 @@
   "Custom, by topic": "항목별로 직접 설정",
   "Password needed": "비밀번호 필요",
   "Sign in automatically": "자동 로그인",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "전원을 켜면 비밀번호 없이 바로 내 바탕 화면이 열립니다. 이 경우 저장된 비밀번호(예: Wi-Fi, 브라우저) 보관함이 처음 사용할 때 비밀번호를 묻습니다.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "전원을 켜면 비밀번호 없이 바로 내 바탕 화면이 열립니다. 이 경우 저장된 비밀번호(예: Wi-Fi, 네트워크 폴더)는 디스크가 암호화되어 있으면 시작할 때 입력한 비밀번호로 열리고, 그렇지 않으면 시작할 때마다 한 번 비밀번호를 묻습니다.",
   "Password in the terminal (sudo)": "터미널 비밀번호(sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "고급 사용자용: 터미널의 “sudo” 명령이 비밀번호를 묻지 않게 하려면 끄세요.",
   "Advanced settings": "고급 설정",

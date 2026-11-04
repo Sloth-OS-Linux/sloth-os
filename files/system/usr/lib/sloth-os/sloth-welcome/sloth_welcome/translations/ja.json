@@ -45,6 +45,7 @@
   "security.recommended": "危険な操作だけ: ディスク、ユーザー、起動(より便利)",
   "security.not_admin": "これを変更できるのは管理者アカウントだけです。",
   "security.autologin": "自動ログイン: パスワードなしでそのままデスクトップを開く",
+  "security.autologin_note": "その場合、保存済みパスワード（Wi-Fi、ネットワークフォルダーなど）は、ディスクが暗号化されていない限り、起動のたびに一度パスワードを求めます。",
   "security.later": "後で Sloth Center(アカウントとセキュリティ)で細かく設定できます。",
   "sharing.heading": "Windows プログラムが誰の環境でも一度で起動するよう協力してください",
   "sharing.text": "Windows のプログラムやゲームを起動すると、Sloth OS は動作する設定を自動で見つけます。許可していただくと、うまくいった設定を匿名で共有し、ほかの Sloth OS コンピューターでも一度で起動できるようにします。",

@@ -45,6 +45,7 @@
   "security.recommended": "위험한 작업만: 디스크, 사용자, 시동 (더 편리)",
   "security.not_admin": "관리자 계정만 이 설정을 바꿀 수 있습니다.",
   "security.autologin": "자동 로그인: 비밀번호 없이 바로 바탕 화면으로",
+  "security.autologin_note": "이 경우 저장된 비밀번호(예: Wi-Fi, 네트워크 폴더)는 디스크가 암호화되어 있지 않으면 시작할 때마다 한 번 비밀번호를 묻습니다.",
   "security.later": "나중에 Sloth Center(계정 및 보안)에서 자세히 설정할 수 있습니다.",
   "sharing.heading": "Windows 프로그램이 모두에게 한 번에 실행되도록 도와주세요",
   "sharing.text": "Windows 프로그램이나 게임을 실행하면 Sloth OS가 잘 작동하는 설정을 스스로 찾아냅니다. 허용하시면 효과가 있었던 설정을 익명으로 공유하여, 다른 Sloth OS 컴퓨터에서도 한 번에 실행되도록 합니다.",

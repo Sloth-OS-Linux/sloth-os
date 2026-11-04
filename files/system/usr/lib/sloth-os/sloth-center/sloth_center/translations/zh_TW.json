@@ -240,7 +240,7 @@
   "Custom, by topic": "依主題個別設定",
   "Password needed": "需要密碼",
   "Sign in automatically": "自動登入",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "開機後電腦不需密碼，直接進入你的桌面。此時已儲存密碼（例如 Wi-Fi、瀏覽器）的保管庫會在首次使用時要求輸入你的密碼。",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "開機後電腦不需密碼，直接進入你的桌面。此時，如果磁碟已加密，已儲存的密碼（例如 Wi-Fi、網路資料夾）會用開機時輸入的密碼開啟；否則每次開機後會要求輸入一次你的密碼。",
   "Password in the terminal (sudo)": "終端機中的密碼（sudo）",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "進階使用者：如果不想讓終端機中的「sudo」指令要求密碼，請關閉此項。",
   "Advanced settings": "進階設定",

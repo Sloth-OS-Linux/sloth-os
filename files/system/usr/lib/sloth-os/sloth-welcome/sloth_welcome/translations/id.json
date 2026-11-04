@@ -45,6 +45,7 @@
   "security.recommended": "Hanya untuk hal berisiko: disk, pengguna, startup (lebih praktis)",
   "security.not_admin": "Hanya akun administrator yang dapat mengubah ini.",
   "security.autologin": "Masuk otomatis: langsung ke desktop tanpa kata sandi",
+  "security.autologin_note": "Kata sandi tersimpan (mis. Wi-Fi, folder jaringan) lalu meminta kata sandi Anda sekali setelah setiap kali menyala, kecuali disk dienkripsi.",
   "security.later": "Nanti Anda dapat mengaturnya lebih rinci di Sloth Center (Akun dan keamanan).",
   "sharing.heading": "Bantu program Windows langsung berjalan pada percobaan pertama untuk semua orang",
   "sharing.text": "Saat kamu menjalankan program atau game Windows, Sloth OS sendiri yang mencari pengaturan yang membuatnya berjalan. Jika kamu mengizinkan, kami membagikan pengaturan yang berhasil secara anonim, agar program itu juga langsung berjalan di komputer Sloth OS lain.",

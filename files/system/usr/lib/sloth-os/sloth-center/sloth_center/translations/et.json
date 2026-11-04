@@ -240,7 +240,7 @@
   "Custom, by topic": "Kohandatud, teemade kaupa",
   "Password needed": "Parool on vajalik",
   "Sign in automatically": "Automaatne sisselogimine",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Sisselülitamisel käivitub arvuti otse sinu töölauaga, ilma paroolita. Salvestatud paroolide hoidla (nt Wi-Fi, brauser) küsib siis su parooli esimesel kasutamisel.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Sisselülitamisel käivitub arvuti otse sinu töölauaga, ilma paroolita. Salvestatud paroolid (nt Wi-Fi, võrgukaustad) avanevad siis käivitamisel sisestatud parooliga, kui ketas on krüptitud; muidu küsivad nad su parooli pärast igat käivitamist üks kord.",
   "Password in the terminal (sudo)": "Parool terminalis (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Edasijõudnutele: lülita välja, kui sa ei taha, et käsk „sudo“ küsiks terminalis parooli.",
   "Advanced settings": "Täpsemad sätted",

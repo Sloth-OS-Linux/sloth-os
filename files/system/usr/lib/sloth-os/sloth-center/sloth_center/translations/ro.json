@@ -240,7 +240,7 @@
   "Custom, by topic": "Personalizat, pe teme",
   "Password needed": "Cere parolă",
   "Sign in automatically": "Autentificare automată",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "La pornire, calculatorul intră direct în desktopul tău, fără parolă. Depozitul de parole salvate (de ex. Wi-Fi, browser) îți cere atunci parola la prima folosire.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "La pornire, calculatorul intră direct în desktopul tău, fără parolă. Parolele salvate (de ex. Wi-Fi, foldere din rețea) se deschid atunci cu parola tastată la pornire dacă discul este criptat; altfel îți cer parola o dată după fiecare pornire.",
   "Password in the terminal (sudo)": "Parolă în terminal (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Pentru avansați: oprește dacă nu vrei ca comanda „sudo” să ceară parolă în terminal.",
   "Advanced settings": "Setări avansate",

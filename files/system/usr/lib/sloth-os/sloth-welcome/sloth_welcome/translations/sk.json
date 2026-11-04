@@ -45,6 +45,7 @@
   "security.recommended": "Len pri rizikových veciach: disky, používatelia, spúšťanie (pohodlnejšie)",
   "security.not_admin": "Toto môže zmeniť len účet správcu.",
   "security.autologin": "Automatické prihlásenie: rovno na plochu bez hesla",
+  "security.autologin_note": "Uložené heslá (napr. Wi-Fi, sieťové priečinky) si potom po každom spustení raz vyžiadajú vaše heslo, ak disk nie je zašifrovaný.",
   "security.later": "Neskôr to môžete podrobne nastaviť v Sloth Center (Účet a zabezpečenie).",
   "sharing.heading": "Pomôžte, aby sa programy pre Windows spúšťali napoprvé všetkým",
   "sharing.text": "Keď spustíte program alebo hru pre Windows, Sloth OS sám nájde nastavenie, s ktorým funguje. Ak to povolíte, anonymne zdieľame nastavenie, ktoré fungovalo, aby sa napoprvé spustil aj na iných počítačoch so Sloth OS.",

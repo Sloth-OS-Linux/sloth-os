@@ -45,6 +45,7 @@
   "security.recommended": "Seulement pour les choses risquées : disques, utilisateurs, démarrage (plus pratique)",
   "security.not_admin": "Seul un compte administrateur peut modifier ceci.",
   "security.autologin": "Connexion automatique : directement sur le bureau sans mot de passe",
+  "security.autologin_note": "Les mots de passe enregistrés (Wi-Fi, dossiers réseau…) demandent alors votre mot de passe une fois après chaque démarrage, sauf si le disque est chiffré.",
   "security.later": "Vous pourrez l’affiner plus tard dans Sloth Center (Compte et sécurité).",
   "sharing.heading": "Aide les programmes Windows à démarrer du premier coup pour tout le monde",
   "sharing.text": "Quand tu lances un programme ou un jeu Windows, Sloth OS trouve tout seul le réglage qui le fait fonctionner. Si tu l'autorises, nous partageons anonymement le réglage qui a fonctionné, pour qu'il démarre du premier coup sur les autres ordinateurs Sloth OS aussi.",

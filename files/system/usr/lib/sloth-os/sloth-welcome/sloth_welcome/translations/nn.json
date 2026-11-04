@@ -45,6 +45,7 @@
   "security.recommended": "Berre for risikable ting: diskar, brukarar, oppstart (meir praktisk)",
   "security.not_admin": "Berre ein administratorkonto kan endra dette.",
   "security.autologin": "Logg inn automatisk: rett til skrivebordet utan passord",
+  "security.autologin_note": "Lagra passord (t.d. Wi-Fi, nettverksmapper) ber då om passordet ditt éin gong etter kvar oppstart, med mindre disken er kryptert.",
   "security.later": "Du kan finjustera dette seinare i Sloth Center (Konto og tryggleik).",
   "sharing.heading": "Hjelp Windows-program å starte på første forsøk for alle",
   "sharing.text": "Når du startar eit Windows-program eller -spel, finn Sloth OS sjølv innstillinga som får det til å fungere. Om du tillèt det, deler vi den fungerande innstillinga anonymt, slik at det òg startar på første forsøk på andre Sloth OS-maskiner.",

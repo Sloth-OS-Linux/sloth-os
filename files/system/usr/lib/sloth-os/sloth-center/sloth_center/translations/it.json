@@ -240,7 +240,7 @@
   "Custom, by topic": "Personalizzato, per argomento",
   "Password needed": "Password richiesta",
   "Sign in automatically": "Accesso automatico",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "All’accensione il computer parte direttamente con il tuo desktop, senza password. L’archivio delle password salvate (es. Wi-Fi, browser) chiede allora la tua password al primo utilizzo.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "All’accensione il computer parte direttamente con il tuo desktop, senza password. Le password salvate (es. Wi-Fi, cartelle di rete) si aprono allora con la password digitata all’avvio se il disco è cifrato; altrimenti chiedono la tua password una volta dopo ogni avvio.",
   "Password in the terminal (sudo)": "Password nel terminale (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Per utenti esperti: disattivalo se non vuoi che il comando «sudo» chieda la password nel terminale.",
   "Advanced settings": "Impostazioni avanzate",

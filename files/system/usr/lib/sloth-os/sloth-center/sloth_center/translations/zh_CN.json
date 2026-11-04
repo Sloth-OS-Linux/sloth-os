@@ -240,7 +240,7 @@
   "Custom, by topic": "按主题单独设置",
   "Password needed": "需要密码",
   "Sign in automatically": "自动登录",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "开机后计算机无需密码，直接进入你的桌面。此时已保存密码（如 Wi-Fi、浏览器）的存储库会在首次使用时要求输入你的密码。",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "开机后计算机无需密码，直接进入你的桌面。此时，如果磁盘已加密，已保存的密码（如 Wi-Fi、网络文件夹）会用开机时输入的密码打开；否则每次开机后会要求输入一次你的密码。",
   "Password in the terminal (sudo)": "终端中的密码（sudo）",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "高级用户：如果不想让终端中的“sudo”命令要求密码，请关闭此项。",
   "Advanced settings": "高级设置",

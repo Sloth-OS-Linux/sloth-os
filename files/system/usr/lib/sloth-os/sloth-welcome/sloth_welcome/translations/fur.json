@@ -45,6 +45,7 @@
   "security.recommended": "Dome par robis riscjosis: discs, utents, inviament (plui comut)",
   "security.not_admin": "Dome un account di aministradôr al pues cambiâ chest.",
   "security.autologin": "Jentrade automatiche: dret sul scritori cence password",
+  "security.autologin_note": "Lis password salvadis (par es. Wi-Fi, cartelis di rêt) a domandin alore la tô password une volte dopo ogni inviament, gjavât che il disc al sedi cifrât.",
   "security.later": "Plui indevant tu puedis regolâlu tal Sloth Center (Account e sigurece).",
   "sharing.heading": "Jude i programs di Windows a partî al prin tentatîf par ducj",
   "sharing.text": "Cuant che tu fasis partî un program o un zûc di Windows, Sloth OS al cjate di bessôl la impostazion che lu fâs lâ. Se tu lu permetis, o condividìn in mût anonim la impostazion che e à funzionât, par che al partissi al prin tentatîf ancje su altris computers cun Sloth OS.",

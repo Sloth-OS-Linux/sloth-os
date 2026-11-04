@@ -240,7 +240,7 @@
   "Custom, by topic": "Propra, laŭ temoj",
   "Password needed": "Pasvorto necesas",
   "Sign in automatically": "Aŭtomata ensaluto",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Post ŝaltado la komputilo startas rekte kun via labortablo, sen pasvorto. La konservejo de konservitaj pasvortoj (ekz. Wi-Fi, retumilo) tiam petas vian pasvorton ĉe la unua uzo.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Post ŝaltado la komputilo startas rekte kun via labortablo, sen pasvorto. Konservitaj pasvortoj (ekz. Wi-Fi, retaj dosierujoj) tiam malfermiĝas per la pasvorto tajpita ĉe la starto, se la disko estas ĉifrita; alie ili petas vian pasvorton unufoje post ĉiu starto.",
   "Password in the terminal (sudo)": "Pasvorto en la terminalo (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Por spertuloj: malŝaltu, se vi ne volas, ke la komando „sudo“ petu pasvorton en la terminalo.",
   "Advanced settings": "Altnivelaj agordoj",

@@ -240,7 +240,7 @@
   "Custom, by topic": "নিজৰ মতে, বিষয় অনুসৰি",
   "Password needed": "পাছৱৰ্ড লাগে",
   "Sign in automatically": "স্বয়ংক্ৰিয় ছাইন-ইন",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "অন কৰাৰ পিছত কম্পিউটাৰে পাছৱৰ্ড নোহোৱাকৈ পোনপটীয়াকৈ আপোনাৰ ডেস্কটপ খোলে। তেতিয়া সংৰক্ষিত পাছৱৰ্ডৰ (যেনে Wi-Fi, ব্ৰাউজাৰ) ভঁৰালে প্ৰথম ব্যৱহাৰৰ সময়ত আপোনাৰ পাছৱৰ্ড বিচাৰিব।",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "অন কৰাৰ পিছত কম্পিউটাৰে পাছৱৰ্ড নোহোৱাকৈ পোনপটীয়াকৈ আপোনাৰ ডেস্কটপ খোলে। তেতিয়া ডিস্ক এনক্ৰিপ্ট কৰা থাকিলে সংৰক্ষিত পাছৱৰ্ড (যেনে Wi-Fi, নেটৱৰ্ক ফোল্ডাৰ) আৰম্ভণিত লিখা পাছৱৰ্ডেৰে খোল খায়; নহ'লে প্ৰতিবাৰ আৰম্ভ হোৱাৰ পিছত এবাৰ আপোনাৰ পাছৱৰ্ড বিচাৰে।",
   "Password in the terminal (sudo)": "টাৰ্মিনেলত পাছৱৰ্ড (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "অভিজ্ঞসকলৰ বাবে: টাৰ্মিনেলত “sudo” কমাণ্ডে পাছৱৰ্ড বিচৰাটো নিবিচাৰিলে অফ কৰক।",
   "Advanced settings": "উন্নত ছেটিং",

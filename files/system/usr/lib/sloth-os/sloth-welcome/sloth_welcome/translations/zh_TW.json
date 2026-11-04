@@ -45,6 +45,7 @@
   "security.recommended": "只在有風險的操作時詢問:磁碟、使用者、開機(更方便)",
   "security.not_admin": "只有管理員帳號可以變更此項。",
   "security.autologin": "自動登入:不需密碼直接進入桌面",
+  "security.autologin_note": "此時，除非磁碟已加密，已儲存的密碼（例如 Wi-Fi、網路資料夾）每次開機後會要求輸入一次你的密碼。",
   "security.later": "之後可以在 Sloth 中心(帳號與安全性)中細部調整。",
   "sharing.heading": "幫助 Windows 程式在每個人的電腦上一次啟動",
   "sharing.text": "當你啟動 Windows 程式或遊戲時，Sloth OS 會自己找到能讓它執行的設定。如果你允許，我們會匿名分享有效的設定，讓它在其他 Sloth OS 電腦上也能一次啟動。",

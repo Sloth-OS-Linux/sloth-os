@@ -240,7 +240,7 @@
   "Custom, by topic": "Вручну, за темами",
   "Password needed": "Потрібен пароль",
   "Sign in automatically": "Автоматичний вхід",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Після ввімкнення комп’ютер одразу відкриває вашу стільницю без пароля. Сховище збережених паролів (напр. Wi-Fi, браузер) тоді попросить пароль під час першого використання.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Після ввімкнення комп’ютер одразу відкриває вашу стільницю без пароля. Збережені паролі (напр. Wi-Fi, мережеві теки) тоді відкриваються паролем, уведеним під час запуску, якщо диск зашифровано; інакше вони один раз після кожного запуску просять ваш пароль.",
   "Password in the terminal (sudo)": "Пароль у терміналі (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Для досвідчених: вимкніть, якщо не хочете, щоб команда «sudo» питала пароль у терміналі.",
   "Advanced settings": "Додаткові налаштування",

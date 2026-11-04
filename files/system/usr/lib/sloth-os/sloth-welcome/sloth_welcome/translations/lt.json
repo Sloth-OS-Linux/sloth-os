@@ -45,6 +45,7 @@
   "security.recommended": "Tik rizikingiems dalykams: diskai, naudotojai, paleidimas (patogiau)",
   "security.not_admin": "Tai gali pakeisti tik administratoriaus paskyra.",
   "security.autologin": "Automatinis prisijungimas: tiesiai į darbalaukį be slaptažodžio",
+  "security.autologin_note": "Įrašyti slaptažodžiai (pvz., Wi-Fi, tinklo aplankai) tada po kiekvieno paleidimo vieną kartą paprašo jūsų slaptažodžio, nebent diskas užšifruotas.",
   "security.later": "Vėliau tai galėsite tiksliau nustatyti Sloth Center (Paskyra ir sauga).",
   "sharing.heading": "Padėkite, kad „Windows“ programos visiems pasileistų iš pirmo karto",
   "sharing.text": "Kai paleidžiate „Windows“ programą ar žaidimą, „Sloth OS“ pati suranda nustatymą, su kuriuo ji veikia. Jei leisite, anonimiškai pasidalinsime suveikusiu nustatymu, kad ji iš pirmo karto pasileistų ir kituose „Sloth OS“ kompiuteriuose.",

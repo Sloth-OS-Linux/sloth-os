@@ -240,7 +240,7 @@
   "Custom, by topic": "I personalizuar, sipas temave",
   "Password needed": "Kërkohet fjalëkalim",
   "Sign in automatically": "Hyrje automatike",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Pas ndezjes kompjuteri niset drejtpërdrejt me desktopin tuaj, pa fjalëkalim. Depoja e fjalëkalimeve të ruajtura (p.sh. Wi-Fi, shfletuesi) atëherë kërkon fjalëkalimin tuaj në përdorimin e parë.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Pas ndezjes kompjuteri niset drejtpërdrejt me desktopin tuaj, pa fjalëkalim. Fjalëkalimet e ruajtura (p.sh. Wi-Fi, dosjet e rrjetit) atëherë hapen me fjalëkalimin e shtypur në nisje nëse disku është i enkriptuar; përndryshe kërkojnë fjalëkalimin tuaj një herë pas çdo nisjeje.",
   "Password in the terminal (sudo)": "Fjalëkalim në terminal (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Për të avancuarit: fikeni nëse nuk doni që komanda “sudo” të kërkojë fjalëkalim në terminal.",
   "Advanced settings": "Rregullime të avancuara",
