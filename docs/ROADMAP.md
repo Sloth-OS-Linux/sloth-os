@@ -11,7 +11,8 @@ from a terminal must also work from a GUI.
   website and README updated. Tried before release: whole disk with encryption (the hint at boot in Hungarian), the
   advanced way, the ChromeOS-like tray. Next to Windows still kept asking for a disk check on the test PC: the
   release notes give the way around it (free the space in Windows' Disk Management)
-- [ ] GitHub release for `v1.4`; SourceForge default download set to the 1.4 ISO (both need the user)
+- [x] GitHub release for `v1.4` (2026-11-03 22:12)
+- [ ] SourceForge default download set to the 1.4 ISO (needs the user)
 
 ### From the VM test of 2026-11-03 (test ISO of 16:29)
 - [x] ChromeOS-like: the tray showed the network, sound, Bluetooth, battery and brightness next to the quick
@@ -22,8 +23,9 @@ from a terminal must also work from a GUI.
   the screen: equal widths, the bubble as wide as four; a checked toggle's icon was invisible on a light highlight
 - [x] macOS-like: the Start menu at the top left is a small system menu now, as the Apple menu
   (`org.slothos.systemmenu`: About This Computer, System Settings, App Store, Force Quit, Sleep, Restart, Shut Down,
-  Lock Screen, Log Out; 50 languages); without the Launchpad the Start menu stays. Existing desktops get it when the
-  layout is chosen again
+  Lock Screen, Log Out; 50 languages); without the Launchpad the Start menu stays. 2026-11-04 (test branch): Switch
+  User in it too, existing macOS-like desktops get it by themselves at the next sign-in (`app-grid-update`, once),
+  and the ChromeOS-like quick settings have Restart and Log out next to Lock and Shut down (the user missed them)
 
 ### Next to Windows: "a disk check is due" that never goes away (2026-11-03, set aside for now)
 - [x] An unclean journal (Windows not shut down completely) was taken for a due disk check: told apart now

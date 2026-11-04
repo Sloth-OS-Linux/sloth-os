@@ -129,6 +129,12 @@ PlasmoidItem {
                 onClicked: session.lock()
             }
             PlasmaExtras.MenuItem {
+                text: root.t("switchuser")
+                icon: "system-switch-user"
+                visible: session.canSwitchUser
+                onClicked: session.switchUser()
+            }
+            PlasmaExtras.MenuItem {
                 text: root.t("logout")
                 icon: "system-log-out"
                 visible: session.canLogout

@@ -371,6 +371,28 @@ PlasmoidItem {
                 PlasmaComponents.ToolTip.visible: hovered
             }
             PlasmaComponents.ToolButton {
+                visible: session.canLogout
+                icon.name: "system-log-out"
+                onClicked: {
+                    root.expanded = false;
+                    session.requestLogout();
+                }
+                Accessible.name: root.t("logout")
+                PlasmaComponents.ToolTip.text: root.t("logout")
+                PlasmaComponents.ToolTip.visible: hovered
+            }
+            PlasmaComponents.ToolButton {
+                visible: session.canReboot
+                icon.name: "system-reboot"
+                onClicked: {
+                    root.expanded = false;
+                    session.requestReboot();
+                }
+                Accessible.name: root.t("restart")
+                PlasmaComponents.ToolTip.text: root.t("restart")
+                PlasmaComponents.ToolTip.visible: hovered
+            }
+            PlasmaComponents.ToolButton {
                 visible: session.canShutdown
                 icon.name: "system-shutdown"
                 onClicked: {
