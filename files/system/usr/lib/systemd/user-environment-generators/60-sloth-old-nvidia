@@ -1,0 +1,21 @@
+#!/bin/sh
+# Sloth OS: an NVIDIA card older than Turing on the open driver (nouveau) gets KWin's legacy mode setting.
+# Such a card (a GeForce GTS 450, a GTX 1060) has no driver in the NVIDIA version, so it runs on nouveau
+# (/usr/libexec/sloth-os/nvidia-auto). There KWin's atomic mode setting left the screen black with only the pointer
+# when nothing moved, and made it flash while something did (2026-11-04, GitHub issue #17, a GTS 450 on VGA; it
+# worked on Sloth OS 1.2.1, before a KWin/Mesa/kernel update). KWIN_DRM_NO_AMS=1 is the known way around it.
+# A user environment generator: it runs when the user's session starts, so it holds for every account, and for a
+# card changed later too. The same test as old-nvidia-apps: PCI device below 0x1e00, driver nouveau.
+root="${SLOTH_SYSFS:-/sys}"
+for dev in "$root"/class/drm/card[0-9]*/device; do
+    [ "$(cat "$dev/vendor" 2>/dev/null)" = "0x10de" ] || continue
+    driver="$(readlink "$dev/driver" 2>/dev/null)"
+    [ "${driver##*/}" = "nouveau" ] || continue
+    id="$(cat "$dev/device" 2>/dev/null)"
+    [ -n "$id" ] || continue
+    if [ $((id)) -lt $((0x1e00)) ]; then
+        echo "KWIN_DRM_NO_AMS=1"
+        exit 0
+    fi
+done
+exit 0
