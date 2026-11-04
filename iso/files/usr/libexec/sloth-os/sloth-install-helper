@@ -32,6 +32,7 @@ mounted under /var/mnt with nofail. A disk with Windows data (NTFS, BitLocker) i
 Dry run without erasing anything (for testing the UI): SLOTH_INSTALL_DRY_RUN=1
 """
 import argparse
+import contextlib
 import glob
 import json
 import os
@@ -409,26 +410,45 @@ def prepare_extra_disks(extras, encrypt, label):
     return result
 
 
+@contextlib.contextmanager
+def mounted_ro(node, prefix="sloth-mnt-"):
+    """The partition mounted read-only for a look inside: the mount point, or None if it cannot be mounted.
+
+    On the live desktop KDE notices every new mount and looks at it for a moment, so the first umount may say
+    "busy"; then rmdir failed with EBUSY and the whole disk survey crashed: "we couldn't check the Windows drive" on
+    every real PC (2026-11-04, a Windows 11 VM; containers have no desktop, so the tests never saw it). Unmounting is
+    tried again, lazily at last, and a mount point that stays does not stop anything."""
+    mnt = Path(tempfile.mkdtemp(prefix=prefix))
+    mounted = subprocess.run(["mount", "-o", "ro", node, str(mnt)], capture_output=True).returncode == 0
+    try:
+        yield mnt if mounted else None
+    finally:
+        if mounted:
+            for _ in range(10):
+                if subprocess.run(["umount", str(mnt)], capture_output=True).returncode == 0:
+                    break
+                time.sleep(0.3)
+            else:
+                log(f"{node} stayed busy at {mnt}: unmounted lazily")
+                subprocess.run(["umount", "--lazy", str(mnt)], capture_output=True)
+        try:
+            mnt.rmdir()
+        except OSError as e:
+            log(f"{mnt} stays: {e}")
+
+
 def windows_esps(disk):
     """Windows EFI partitions on this disk; a different disk's boot loader must not be paired with it."""
     found = []
     for p in table(disk)["partitions"]:
         if (p.get("type") or "").lower() != ESP_TYPE or fstype(p["node"]) != "vfat":
             continue
-        mnt = Path(tempfile.mkdtemp(prefix="sloth-esp-"))
-        try:
-            if subprocess.run(["mount", "-o", "ro", p["node"], str(mnt)], capture_output=True).returncode:
-                continue
-            try:
-                found_bootloader = (mnt / "EFI/Microsoft/Boot/bootmgfw.efi").is_file()
-            finally:
-                subprocess.run(["umount", str(mnt)], capture_output=True)
-            if found_bootloader:
-                uuid = fs_uuid(p["node"])
-                if uuid:
-                    found.append({"path": p["node"], "uuid": uuid})
-        finally:
-            mnt.rmdir()
+        with mounted_ro(p["node"], "sloth-esp-") as mnt:
+            found_bootloader = mnt is not None and (mnt / "EFI/Microsoft/Boot/bootmgfw.efi").is_file()
+        if found_bootloader:
+            uuid = fs_uuid(p["node"])
+            if uuid:
+                found.append({"path": p["node"], "uuid": uuid})
     return found
 
 
@@ -515,16 +535,9 @@ def previous_sloth(pt):
         return []
     if len(esp) != 1 or len(root) != 1 or fstype(esp[0]["node"]) != "vfat":
         return []
-    mnt = Path(tempfile.mkdtemp(prefix="sloth-esp-"))
-    try:
-        if subprocess.run(["mount", "-o", "ro", esp[0]["node"], str(mnt)], capture_output=True).returncode:
-            return []
-        try:
-            ours = (mnt / "EFI/fedora").is_dir() and not (mnt / "EFI/Microsoft/Boot/bootmgfw.efi").exists()
-        finally:
-            subprocess.run(["umount", str(mnt)], capture_output=True)
-    finally:
-        mnt.rmdir()
+    with mounted_ro(esp[0]["node"], "sloth-esp-") as mnt:
+        ours = mnt is not None and (mnt / "EFI/fedora").is_dir() \
+            and not (mnt / "EFI/Microsoft/Boot/bootmgfw.efi").exists()
     return esp + named(LINUX_DATA, "boot", "sloth-install-tmp") + root if ours else []
 
 
@@ -532,35 +545,21 @@ def _is_sloth_root(node):
     """Sloth OS is installed on this (unencrypted) system partition: an ostree deployment that follows our image."""
     if fstype(node) not in ("btrfs", "xfs", "ext4"):
         return False
-    mnt = Path(tempfile.mkdtemp(prefix="sloth-root-"))
-    try:
-        if subprocess.run(["mount", "-o", "ro", node, str(mnt)], capture_output=True).returncode:
+    with mounted_ro(node, "sloth-root-") as mnt:
+        if mnt is None:
             return False
-        try:
-            for origin in mnt.glob("ostree/deploy/*/deploy/*.origin"):
-                try:
-                    if "sloth-os" in origin.read_text(encoding="utf-8", errors="replace"):
-                        return True
-                except OSError:
-                    continue
-            return False
-        finally:
-            subprocess.run(["umount", str(mnt)], capture_output=True)
-    finally:
-        mnt.rmdir()
+        for origin in mnt.glob("ostree/deploy/*/deploy/*.origin"):
+            try:
+                if "sloth-os" in origin.read_text(encoding="utf-8", errors="replace"):
+                    return True
+            except OSError:
+                continue
+        return False
 
 
 def _esp_has(node, path):
-    mnt = Path(tempfile.mkdtemp(prefix="sloth-esp-"))
-    try:
-        if subprocess.run(["mount", "-o", "ro", node, str(mnt)], capture_output=True).returncode:
-            return False
-        try:
-            return (mnt / path).exists()
-        finally:
-            subprocess.run(["umount", str(mnt)], capture_output=True)
-    finally:
-        mnt.rmdir()
+    with mounted_ro(node, "sloth-esp-") as mnt:
+        return mnt is not None and (mnt / path).exists()
 
 
 def remove_previous(disk, previous):
@@ -629,9 +628,11 @@ def probe(disk):
             shrink = max(0, size - minimum - WINDOWS_RESERVE) // MIB * MIB
             info["windows"] = {"path": win["node"], "size": size, "min": minimum, "after": after}
             info["shrinkable"] = shrink + after if shrink else 0
-    elif not windows and not ntfs and info["bitlocker"]:
+    elif not windows and info["bitlocker"]:
         # A locked BitLocker Windows volume cannot be inspected or resized. It can only proceed if
         # the user already freed enough unallocated space; the UI warns about the recovery key.
+        # Other NTFS volumes do not change that: every PC has a Recovery partition, and Windows 11 encrypts C:
+        # by itself on new installs (device encryption), so this said "couldn't check" (2026-11-04, a Windows 11 VM)
         info["problems"].append("bitlocker")
     else:
         info["problems"].append("unknown")
