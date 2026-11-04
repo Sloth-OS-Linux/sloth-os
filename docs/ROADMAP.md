@@ -85,6 +85,11 @@ from a terminal must also work from a GUI.
   different one -> locked, the session fine; no crash. The automatic sign-in switch says it in Welcome
   (`security.autologin_note`, shown when ticked) and in Sloth Center (50 languages). Still to check: that the
   wallet really asks only once per session (his screenshots showed the network folder's sign-in again and again)
+- [x] His SMB errors (2026-11-04, "Access denied" opening `-  MOVIES/…-%5BYTS.LT%5D.mp4` through KIOExec, "does not
+  exist" copying `-  App's/-= OS =-/LINUX OS's/Sloth Oct 2026`) are not a name problem: rebuilt the same shares
+  and names on a Windows 11 host, used from the VM with autologin and the wallet refused. Dolphin lists them,
+  KIOExec opens the file, the folder copies, and the wallet asked once only. So it is on his side: the file's NTFS
+  rights for his account, a file open on Windows, or the Wi-Fi dropping (he was going to try a cable)
 
 ### Next to Windows, tried in a Windows 11 25H2 VM on Hyper-V (2026-11-04)
 - [x] The real cause of "we couldn't check the Windows drive": the disk survey crashed (EBUSY on rmdir after the
