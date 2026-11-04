@@ -64,6 +64,9 @@ and other Chromium-based apps no longer crash.
 **Signing in automatically:** on an encrypted disk, the password you type at startup now opens the store of saved
 passwords too. Without encryption it asks once after each start, and the switch says so.
 
+**The desktop:** Switch User in the macOS-like system menu, Restart and Log out in the ChromeOS-like quick
+settings.
+
 **Installing next to Windows:** "we couldn't check the Windows drive" is fixed, and a BitLocker-encrypted Windows
 drive is named as such, with what to do.
 
