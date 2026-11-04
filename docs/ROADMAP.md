@@ -56,14 +56,16 @@ from a terminal must also work from a GUI.
   one place)
 
 ### Older NVIDIA cards on nouveau (2026-11-04, GitHub issue #17 again: GTS 450 on VGA, Sloth OS 1.4)
-- [x] (test branch, then `main`) The screen went black with only the pointer when nothing moved and flashed while
-  something did (fine on 1.2.1; since then kernel 7.2.12 -> 7.2.14 and the KWin/Mesa updates): a user environment
-  generator (`60-sloth-old-nvidia`) gives KWin `KWIN_DRM_NO_AMS=1` when an NVIDIA card below PCI device 0x1e00
-  runs on nouveau. Brave, Chrome, Spotify crashed in the GPU process (SIGSEGV in Flatpak Mesa's libgallium on
+- [ ] The screen went black with only the pointer when nothing moved and flashed while
+  something did (fine on 1.2.1; since then kernel 7.2.12 -> 7.2.14 and the KWin/Mesa updates). NOT
+  `KWIN_DRM_NO_AMS=1`: tried in the VM through a user environment generator, KWin 6.8 crashes with it at once
+  (assertion in its output layers, plasma-login-kwin_wayland core dump: no login screen at all), so it was taken
+  out again; the flashing is still open. Brave, Chrome, Spotify crashed in the GPU process (SIGSEGV in Flatpak Mesa's libgallium on
   nouveau): `old-nvidia-apps` (sloth-old-nvidia-apps.service, every start) writes Flatpak overrides with
   `LIBGL_ALWAYS_SOFTWARE=1` for Chromium-based apps (browsers, Electron, CEF, Qt WebEngine), only files it owns,
   and removes them when the card is gone. Tried with fake sysfs trees (GTS 450, GTX 1060, RTX 4060, the NVIDIA
-  driver, AMD). Still to see on his machine.
+  driver, AMD), and in the VM that Flatpak takes the override (`flatpak override --show`). Still to see on his
+  machine.
 - [ ] KWallet on a password-free login (autologin): every network password asks for the wallet's password (his
   Windows shares); see "Opening the password store (KWallet) on a password-free login" below
 

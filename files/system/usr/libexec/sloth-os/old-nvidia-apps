@@ -9,8 +9,7 @@ the clock anyway, so little is lost. Firefox, Steam and games are left alone.
 
 It runs at every start (sloth-old-nvidia-apps.service): the overrides are written when such a card is in use and
 removed again when it is not (another card, or the NVIDIA version). It only touches the override files it wrote
-(MARK); an app the user set overrides for by hand is left alone. The same test as the user environment generator
-60-sloth-old-nvidia (KWin's legacy mode setting): PCI device below 0x1e00, driver nouveau.
+(MARK); an app the user set overrides for by hand is left alone.
 """
 import os
 import sys
