@@ -14,14 +14,10 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Current release: Sloth OS 1.4** (November 3, 2026). Machines already running Sloth OS get it as a normal
-update. Download: [sloth-os-1.4-x86_64.iso](https://sourceforge.net/projects/sloth-os/files/1.4/sloth-os-1.4-x86_64.iso/download) (5.3 GB, also as a
-[torrent](https://sourceforge.net/projects/sloth-os/files/1.4/sloth-os-1.4-x86_64.iso.torrent/download)), SHA-256 `0e90742cbd680ee553395fa5c94b66af8abf09938686824253d9d663db5df7cc`. What changed:
-[release notes](#release-notes) below (also in [docs/releases/1.4.md](docs/releases/1.4.md)).
-
-**Coming soon: Sloth OS 1.4.1** (older NVIDIA cards: no more black screen after signing in; the password store opens
-by itself on an encrypted disk; installing next to Windows no longer says it couldn't check the Windows drive).
-Machines already running Sloth OS get it as a normal update. The 1.4.1 installer ISO follows shortly.
+**Current release: Sloth OS 1.4.1** (November 4, 2026). Machines already running Sloth OS get it as a normal
+update. Download: [sloth-os-1.4.1-x86_64.iso](https://sourceforge.net/projects/sloth-os/files/1.4.1/sloth-os-1.4.1-x86_64.iso/download) (5.3 GB, also as a
+[torrent](https://sourceforge.net/projects/sloth-os/files/1.4.1/sloth-os-1.4.1-x86_64.iso.torrent/download)), SHA-256 `aeb60acdac2ff2910f0106edad8cf231ac5f9190ed5062f52b3d5ace0a666b3f`. What changed:
+[release notes](#release-notes) below (also in [docs/releases/1.4.1.md](docs/releases/1.4.1.md)).
 
 ## What Sloth OS can do
 
