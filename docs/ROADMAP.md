@@ -77,7 +77,14 @@ from a terminal must also work from a GUI.
   driver, AMD), and in the VM that Flatpak takes the override (`flatpak override --show`). Still to see on his
   machine.
 - [ ] KWallet on a password-free login (autologin): every network password asks for the wallet's password (his
-  Windows shares); see "Opening the password store (KWallet) on a password-free login" below
+  Windows shares); see "Opening the password store (KWallet) on a password-free login" below. On an encrypted
+  disk the boot password opens it now (`kwallet-autologin.sh`: pam_systemd_loadkey + pam_kwallet in the auth part of
+  plasmalogin-autologin, `KeyringMode=inherit` for plasmalogin.service; the man page's recipe). NOT an empty wallet
+  password: the saved passwords would be readable on the disk. Tried in the VM with real reboots, the boot password
+  put in root's keyring by a test service: the same password -> the wallet open; none -> locked, as before; a
+  different one -> locked, the session fine; no crash. Still to do: without encryption a short note at the
+  automatic sign-in switch (Welcome, Sloth Center) that saved passwords ask once after each start, and check that
+  it really asks only once per session
 
 ### Next to Windows, tried in a Windows 11 25H2 VM on Hyper-V (2026-11-04)
 - [x] The real cause of "we couldn't check the Windows drive": the disk survey crashed (EBUSY on rmdir after the
