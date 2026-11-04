@@ -11,7 +11,8 @@ const TEXTS = {
   "restart": "Herbegin…",
   "shutdown": "Skakel af…",
   "lock": "Sluit skerm",
-  "logout": "Meld af…"
+  "logout": "Meld af…",
+  "switchuser": "Wissel gebruiker…"
  },
  "ar": {
   "about": "حول هذا الحاسوب",
@@ -22,7 +23,8 @@ const TEXTS = {
   "restart": "إعادة التشغيل…",
   "shutdown": "إيقاف التشغيل…",
   "lock": "قفل الشاشة",
-  "logout": "تسجيل الخروج…"
+  "logout": "تسجيل الخروج…",
+  "switchuser": "تبديل المستخدم…"
  },
  "as": {
   "about": "এই কম্পিউটাৰৰ বিষয়ে",
@@ -33,7 +35,8 @@ const TEXTS = {
   "restart": "পুনৰাৰম্ভ কৰক…",
   "shutdown": "বন্ধ কৰক…",
   "lock": "স্ক্ৰীণ লক কৰক",
-  "logout": "লগ আউট…"
+  "logout": "লগ আউট…",
+  "switchuser": "ব্যৱহাৰকাৰী সলনি কৰক…"
  },
  "be": {
   "about": "Пра гэты камп'ютар",
@@ -44,7 +47,8 @@ const TEXTS = {
   "restart": "Перазапусціць…",
   "shutdown": "Выключыць…",
   "lock": "Заблакаваць экран",
-  "logout": "Выйсці…"
+  "logout": "Выйсці…",
+  "switchuser": "Змяніць карыстальніка…"
  },
  "bg": {
   "about": "За този компютър",
@@ -55,7 +59,8 @@ const TEXTS = {
   "restart": "Рестартиране…",
   "shutdown": "Изключване…",
   "lock": "Заключване на екрана",
-  "logout": "Изход…"
+  "logout": "Изход…",
+  "switchuser": "Смяна на потребител…"
  },
  "bn_IN": {
   "about": "এই কম্পিউটার সম্পর্কে",
@@ -66,7 +71,8 @@ const TEXTS = {
   "restart": "পুনরায় চালু করুন…",
   "shutdown": "বন্ধ করুন…",
   "lock": "স্ক্রিন লক করুন",
-  "logout": "লগ আউট…"
+  "logout": "লগ আউট…",
+  "switchuser": "ব্যবহারকারী বদলান…"
  },
  "ca": {
   "about": "Quant a aquest ordinador",
@@ -77,7 +83,8 @@ const TEXTS = {
   "restart": "Reinicia…",
   "shutdown": "Atura…",
   "lock": "Bloqueja la pantalla",
-  "logout": "Surt de la sessió…"
+  "logout": "Surt de la sessió…",
+  "switchuser": "Canviar d'usuari…"
  },
  "cs": {
   "about": "O tomto počítači",
@@ -88,7 +95,8 @@ const TEXTS = {
   "restart": "Restartovat…",
   "shutdown": "Vypnout…",
   "lock": "Zamknout obrazovku",
-  "logout": "Odhlásit…"
+  "logout": "Odhlásit…",
+  "switchuser": "Přepnout uživatele…"
  },
  "da": {
   "about": "Om denne computer",
@@ -99,7 +107,8 @@ const TEXTS = {
   "restart": "Genstart…",
   "shutdown": "Luk ned…",
   "lock": "Lås skærmen",
-  "logout": "Log ud…"
+  "logout": "Log ud…",
+  "switchuser": "Skift bruger…"
  },
  "de": {
   "about": "Über diesen Computer",
@@ -110,7 +119,8 @@ const TEXTS = {
   "restart": "Neustart…",
   "shutdown": "Ausschalten…",
   "lock": "Bildschirm sperren",
-  "logout": "Abmelden…"
+  "logout": "Abmelden…",
+  "switchuser": "Benutzer wechseln …"
  },
  "el": {
   "about": "Πληροφορίες για αυτόν τον υπολογιστή",
@@ -121,7 +131,8 @@ const TEXTS = {
   "restart": "Επανεκκίνηση…",
   "shutdown": "Τερματισμός…",
   "lock": "Κλείδωμα οθόνης",
-  "logout": "Αποσύνδεση…"
+  "logout": "Αποσύνδεση…",
+  "switchuser": "Αλλαγή χρήστη…"
  },
  "en": {
   "about": "About This Computer",
@@ -132,7 +143,8 @@ const TEXTS = {
   "restart": "Restart…",
   "shutdown": "Shut Down…",
   "lock": "Lock Screen",
-  "logout": "Log Out…"
+  "logout": "Log Out…",
+  "switchuser": "Switch User…"
  },
  "eo": {
   "about": "Pri ĉi tiu komputilo",
@@ -143,7 +155,8 @@ const TEXTS = {
   "restart": "Restartigi…",
   "shutdown": "Malŝalti…",
   "lock": "Ŝlosi ekranon",
-  "logout": "Elsaluti…"
+  "logout": "Elsaluti…",
+  "switchuser": "Ŝanĝi uzanton…"
  },
  "es": {
   "about": "Acerca de este equipo",
@@ -154,7 +167,8 @@ const TEXTS = {
   "restart": "Reiniciar…",
   "shutdown": "Apagar…",
   "lock": "Bloquear pantalla",
-  "logout": "Cerrar sesión…"
+  "logout": "Cerrar sesión…",
+  "switchuser": "Cambiar de usuario…"
  },
  "et": {
   "about": "Selle arvuti teave",
@@ -165,7 +179,8 @@ const TEXTS = {
   "restart": "Taaskäivita…",
   "shutdown": "Lülita välja…",
   "lock": "Lukusta ekraan",
-  "logout": "Logi välja…"
+  "logout": "Logi välja…",
+  "switchuser": "Vaheta kasutajat…"
  },
  "fi": {
   "about": "Tietoja tästä tietokoneesta",
@@ -176,7 +191,8 @@ const TEXTS = {
   "restart": "Käynnistä uudelleen…",
   "shutdown": "Sammuta…",
   "lock": "Lukitse näyttö",
-  "logout": "Kirjaudu ulos…"
+  "logout": "Kirjaudu ulos…",
+  "switchuser": "Vaihda käyttäjää…"
  },
  "fr": {
   "about": "À propos de cet ordinateur",
@@ -187,7 +203,8 @@ const TEXTS = {
   "restart": "Redémarrer…",
   "shutdown": "Éteindre…",
   "lock": "Verrouiller l'écran",
-  "logout": "Se déconnecter…"
+  "logout": "Se déconnecter…",
+  "switchuser": "Changer d'utilisateur…"
  },
  "fur": {
   "about": "Informazions su chest computer",
@@ -198,7 +215,8 @@ const TEXTS = {
   "restart": "Torne invie…",
   "shutdown": "Distude…",
   "lock": "Bloche il schermi",
-  "logout": "Jes de session…"
+  "logout": "Jes de session…",
+  "switchuser": "Cambie utent…"
  },
  "he": {
   "about": "אודות מחשב זה",
@@ -209,7 +227,8 @@ const TEXTS = {
   "restart": "הפעלה מחדש…",
   "shutdown": "כיבוי…",
   "lock": "נעילת המסך",
-  "logout": "יציאה…"
+  "logout": "יציאה…",
+  "switchuser": "החלפת משתמש…"
  },
  "hr": {
   "about": "O ovom računalu",
@@ -220,7 +239,8 @@ const TEXTS = {
   "restart": "Ponovno pokreni…",
   "shutdown": "Isključi…",
   "lock": "Zaključaj zaslon",
-  "logout": "Odjava…"
+  "logout": "Odjava…",
+  "switchuser": "Promijeni korisnika…"
  },
  "hu": {
   "about": "A számítógépről",
@@ -231,7 +251,8 @@ const TEXTS = {
   "restart": "Újraindítás…",
   "shutdown": "Leállítás…",
   "lock": "Képernyő zárolása",
-  "logout": "Kijelentkezés…"
+  "logout": "Kijelentkezés…",
+  "switchuser": "Felhasználóváltás…"
  },
  "ia": {
   "about": "A proposito de iste computator",
@@ -242,7 +263,8 @@ const TEXTS = {
   "restart": "Reinitiar…",
   "shutdown": "Arrestar…",
   "lock": "Blocar le schermo",
-  "logout": "Clauder session…"
+  "logout": "Clauder session…",
+  "switchuser": "Cambiar de usator…"
  },
  "id": {
   "about": "Tentang komputer ini",
@@ -253,7 +275,8 @@ const TEXTS = {
   "restart": "Mulai ulang…",
   "shutdown": "Matikan…",
   "lock": "Kunci layar",
-  "logout": "Keluar…"
+  "logout": "Keluar…",
+  "switchuser": "Ganti Pengguna…"
  },
  "it": {
   "about": "Informazioni su questo computer",
@@ -264,7 +287,8 @@ const TEXTS = {
   "restart": "Riavvia…",
   "shutdown": "Spegni…",
   "lock": "Blocca schermo",
-  "logout": "Esci…"
+  "logout": "Esci…",
+  "switchuser": "Cambia utente…"
  },
  "ja": {
   "about": "このコンピューターについて",
@@ -275,7 +299,8 @@ const TEXTS = {
   "restart": "再起動…",
   "shutdown": "システム終了…",
   "lock": "画面をロック",
-  "logout": "ログアウト…"
+  "logout": "ログアウト…",
+  "switchuser": "ユーザーを切り替える…"
  },
  "ka": {
   "about": "ამ კომპიუტერის შესახებ",
@@ -286,7 +311,8 @@ const TEXTS = {
   "restart": "გადატვირთვა…",
   "shutdown": "გამორთვა…",
   "lock": "ეკრანის ჩაკეტვა",
-  "logout": "გასვლა…"
+  "logout": "გასვლა…",
+  "switchuser": "მომხმარებლის შეცვლა…"
  },
  "kab": {
   "about": "Ɣef uselkim-a",
@@ -297,7 +323,8 @@ const TEXTS = {
   "restart": "Ales asekker…",
   "shutdown": "Sexsi…",
   "lock": "Sekkeṛ agdil",
-  "logout": "Ffeɣ…"
+  "logout": "Ffeɣ…",
+  "switchuser": "Beddel aseqdac…"
  },
  "kk": {
   "about": "Бұл компьютер туралы",
@@ -308,7 +335,8 @@ const TEXTS = {
   "restart": "Қайта іске қосу…",
   "shutdown": "Сөндіру…",
   "lock": "Экранды құлыптау",
-  "logout": "Шығу…"
+  "logout": "Шығу…",
+  "switchuser": "Пайдаланушыны ауыстыру…"
  },
  "ko": {
   "about": "이 컴퓨터에 관하여",
@@ -319,7 +347,8 @@ const TEXTS = {
   "restart": "재시동…",
   "shutdown": "시스템 종료…",
   "lock": "화면 잠금",
-  "logout": "로그아웃…"
+  "logout": "로그아웃…",
+  "switchuser": "사용자 전환…"
  },
  "lo": {
   "about": "ກ່ຽວກັບຄອມພິວເຕີນີ້",
@@ -330,7 +359,8 @@ const TEXTS = {
   "restart": "ເປີດໃໝ່…",
   "shutdown": "ປິດເຄື່ອງ…",
   "lock": "ລັອກໜ້າຈໍ",
-  "logout": "ອອກຈາກລະບົບ…"
+  "logout": "ອອກຈາກລະບົບ…",
+  "switchuser": "ສະຫຼັບຜູ້ໃຊ້…"
  },
  "lt": {
   "about": "Apie šį kompiuterį",
@@ -341,7 +371,8 @@ const TEXTS = {
   "restart": "Paleisti iš naujo…",
   "shutdown": "Išjungti…",
   "lock": "Užrakinti ekraną",
-  "logout": "Atsijungti…"
+  "logout": "Atsijungti…",
+  "switchuser": "Perjungti naudotoją…"
  },
  "nb": {
   "about": "Om denne datamaskinen",
@@ -352,7 +383,8 @@ const TEXTS = {
   "restart": "Start på nytt…",
   "shutdown": "Slå av…",
   "lock": "Lås skjermen",
-  "logout": "Logg ut…"
+  "logout": "Logg ut…",
+  "switchuser": "Bytt bruker…"
  },
  "nl": {
   "about": "Over deze computer",
@@ -363,7 +395,8 @@ const TEXTS = {
   "restart": "Herstarten…",
   "shutdown": "Uitschakelen…",
   "lock": "Scherm vergrendelen",
-  "logout": "Afmelden…"
+  "logout": "Afmelden…",
+  "switchuser": "Wissel van gebruiker…"
  },
  "nn": {
   "about": "Om denne datamaskina",
@@ -374,7 +407,8 @@ const TEXTS = {
   "restart": "Start på nytt…",
   "shutdown": "Slå av…",
   "lock": "Lås skjermen",
-  "logout": "Logg ut…"
+  "logout": "Logg ut…",
+  "switchuser": "Byt brukar…"
  },
  "pa": {
   "about": "ਇਸ ਕੰਪਿਊਟਰ ਬਾਰੇ",
@@ -385,7 +419,8 @@ const TEXTS = {
   "restart": "ਮੁੜ-ਚਾਲੂ ਕਰੋ…",
   "shutdown": "ਬੰਦ ਕਰੋ…",
   "lock": "ਸਕਰੀਨ ਲਾਕ ਕਰੋ",
-  "logout": "ਲੌਗ ਆਉਟ…"
+  "logout": "ਲੌਗ ਆਉਟ…",
+  "switchuser": "ਵਰਤੋਂਕਾਰ ਬਦਲੋ…"
  },
  "pl": {
   "about": "Ten komputer",
@@ -396,7 +431,8 @@ const TEXTS = {
   "restart": "Uruchom ponownie…",
   "shutdown": "Wyłącz…",
   "lock": "Zablokuj ekran",
-  "logout": "Wyloguj…"
+  "logout": "Wyloguj…",
+  "switchuser": "Przełącz użytkownika…"
  },
  "pt": {
   "about": "Acerca deste computador",
@@ -407,7 +443,8 @@ const TEXTS = {
   "restart": "Reiniciar…",
   "shutdown": "Encerrar…",
   "lock": "Bloquear ecrã",
-  "logout": "Terminar sessão…"
+  "logout": "Terminar sessão…",
+  "switchuser": "Mudar de utilizador…"
  },
  "pt_BR": {
   "about": "Sobre este computador",
@@ -418,7 +455,8 @@ const TEXTS = {
   "restart": "Reiniciar…",
   "shutdown": "Desligar…",
   "lock": "Bloquear tela",
-  "logout": "Sair…"
+  "logout": "Sair…",
+  "switchuser": "Trocar Usuário…"
  },
  "ro": {
   "about": "Despre acest calculator",
@@ -429,7 +467,8 @@ const TEXTS = {
   "restart": "Repornește…",
   "shutdown": "Închide…",
   "lock": "Blochează ecranul",
-  "logout": "Deconectează-te…"
+  "logout": "Deconectează-te…",
+  "switchuser": "Schimbă utilizatorul…"
  },
  "ru": {
   "about": "Об этом компьютере",
@@ -440,7 +479,8 @@ const TEXTS = {
   "restart": "Перезагрузить…",
   "shutdown": "Выключить…",
   "lock": "Заблокировать экран",
-  "logout": "Выйти…"
+  "logout": "Выйти…",
+  "switchuser": "Сменить пользователя…"
  },
  "sk": {
   "about": "O tomto počítači",
@@ -451,7 +491,8 @@ const TEXTS = {
   "restart": "Reštartovať…",
   "shutdown": "Vypnúť…",
   "lock": "Zamknúť obrazovku",
-  "logout": "Odhlásiť…"
+  "logout": "Odhlásiť…",
+  "switchuser": "Prepnúť používateľa…"
  },
  "sl": {
   "about": "O tem računalniku",
@@ -462,7 +503,8 @@ const TEXTS = {
   "restart": "Znova zaženi…",
   "shutdown": "Zaustavi…",
   "lock": "Zakleni zaslon",
-  "logout": "Odjava…"
+  "logout": "Odjava…",
+  "switchuser": "Preklopi uporabnika…"
  },
  "sq": {
   "about": "Rreth këtij kompjuteri",
@@ -473,7 +515,8 @@ const TEXTS = {
   "restart": "Rinis…",
   "shutdown": "Fik…",
   "lock": "Kyç ekranin",
-  "logout": "Dil…"
+  "logout": "Dil…",
+  "switchuser": "Ndërro përdoruesin…"
  },
  "sr": {
   "about": "О овом рачунару",
@@ -484,7 +527,8 @@ const TEXTS = {
   "restart": "Поново покрени…",
   "shutdown": "Искључи…",
   "lock": "Закључај екран",
-  "logout": "Одјави се…"
+  "logout": "Одјави се…",
+  "switchuser": "Промени корисника…"
  },
  "sv": {
   "about": "Om den här datorn",
@@ -495,7 +539,8 @@ const TEXTS = {
   "restart": "Starta om…",
   "shutdown": "Stäng av…",
   "lock": "Lås skärmen",
-  "logout": "Logga ut…"
+  "logout": "Logga ut…",
+  "switchuser": "Byt användare…"
  },
  "ta": {
   "about": "இந்தக் கணினியைப் பற்றி",
@@ -506,7 +551,8 @@ const TEXTS = {
   "restart": "மறுதொடக்கம்…",
   "shutdown": "பணிநிறுத்தம்…",
   "lock": "திரையைப் பூட்டு",
-  "logout": "வெளியேறு…"
+  "logout": "வெளியேறு…",
+  "switchuser": "பயனரை மாற்று…"
  },
  "tr": {
   "about": "Bu bilgisayar hakkında",
@@ -517,7 +563,8 @@ const TEXTS = {
   "restart": "Yeniden başlat…",
   "shutdown": "Kapat…",
   "lock": "Ekranı kilitle",
-  "logout": "Oturumu kapat…"
+  "logout": "Oturumu kapat…",
+  "switchuser": "Kullanıcı Değiştir…"
  },
  "uk": {
   "about": "Про цей комп'ютер",
@@ -528,7 +575,8 @@ const TEXTS = {
   "restart": "Перезапустити…",
   "shutdown": "Вимкнути…",
   "lock": "Заблокувати екран",
-  "logout": "Вийти…"
+  "logout": "Вийти…",
+  "switchuser": "Змінити користувача…"
  },
  "zh_CN": {
   "about": "关于本机",
@@ -539,7 +587,8 @@ const TEXTS = {
   "restart": "重新启动…",
   "shutdown": "关机…",
   "lock": "锁定屏幕",
-  "logout": "注销…"
+  "logout": "注销…",
+  "switchuser": "切换用户…"
  },
  "zh_TW": {
   "about": "關於這台電腦",
@@ -550,7 +599,8 @@ const TEXTS = {
   "restart": "重新開機…",
   "shutdown": "關機…",
   "lock": "鎖定螢幕",
-  "logout": "登出…"
+  "logout": "登出…",
+  "switchuser": "切換使用者…"
  }
 };
 
