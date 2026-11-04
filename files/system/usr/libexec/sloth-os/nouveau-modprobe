@@ -1,0 +1,22 @@
+#!/bin/sh
+# Loads nouveau with atomic modesetting on an NVIDIA card older than Turing (/usr/lib/modprobe.d/sloth-nouveau.conf).
+#
+# Without it nouveau gives KWin only the old (legacy) mode setting, and KWin 6.8 has a bug there: the screen goes black
+# or flickers, and only moving the mouse brings the picture back (KDE bug 527421; GitHub issue #17, a GTS 450 that was
+# fine on 1.2.1 with Plasma 6.7). Upstream turns atomic on by default for these cards in a later kernel ("drm/nouveau:
+# Enable atomic modesetting by default", NV50 and newer; older cards ignore it). Only older cards get it here: they
+# stay on nouveau for good (/usr/libexec/sloth-os/nvidia-auto), while a Turing or newer card soon moves to the NVIDIA
+# version. Everything else loads nouveau exactly as before; nouveau.atomic=0 on the kernel command line still wins.
+# It runs in the initramfs too (the boot animation needs the driver), so plain sh, no Python.
+PATH=/usr/sbin:/usr/bin:/sbin:/bin
+sysfs=${SLOTH_SYSFS:-/sys}
+atomic=
+for dev in "$sysfs"/bus/pci/devices/*; do
+    [ "$(cat "$dev/vendor" 2>/dev/null)" = 0x10de ] || continue
+    case "$(cat "$dev/class" 2>/dev/null)" in 0x03*) ;; *) continue ;; esac
+    id=$(cat "$dev/device" 2>/dev/null)
+    case "$id" in 0x[0-9a-fA-F][0-9a-fA-F][0-9a-fA-F][0-9a-fA-F]) ;; *) continue ;; esac
+    # the first PCI device ID of the Turing generation (the same rule as nvidia-auto)
+    [ $((id)) -lt $((0x1e00)) ] && atomic=atomic=1
+done
+exec modprobe --ignore-install nouveau $atomic "$@"

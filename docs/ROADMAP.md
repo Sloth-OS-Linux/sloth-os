@@ -60,7 +60,15 @@ from a terminal must also work from a GUI.
   something did (fine on 1.2.1; since then kernel 7.2.12 -> 7.2.14 and the KWin/Mesa updates). NOT
   `KWIN_DRM_NO_AMS=1`: tried in the VM through a user environment generator, KWin 6.8 crashes with it at once
   (assertion in its output layers, plasma-login-kwin_wayland core dump: no login screen at all), so it was taken
-  out again; the flashing is still open. Brave, Chrome, Spotify crashed in the GPU process (SIGSEGV in Flatpak Mesa's libgallium on
+  out again. The cause is KDE bug 527421 (Plasma 6.8, legacy mode setting, nearly only on nouveau; 1.2.1 still had
+  6.7): its 6.8.2 fix (MR 10173, in the image) does not stop it, per the reports after it, and NO_AMS forces exactly
+  the broken path. Fix: nouveau with atomic modesetting, what the kernel turns on by default for NV50+ later ("drm/
+  nouveau: Enable atomic modesetting by default"). `nouveau-modprobe` (an `install` line in
+  /usr/lib/modprobe.d/sloth-nouveau.conf, in the initramfs too) adds `atomic=1` only on an NVIDIA card before Turing.
+  Tried in the VM with the real modprobe and fake PCI trees: GTS 450 / GTX 1060 -> 1, RTX 4060, AMD, NVIDIA audio
+  -> 0, `atomic=0` by hand wins. Still to see on his machine (KWin's log must not say "Using legacy mode"). The
+  community workaround if not: `KWIN_FORCE_SW_CURSOR=1`, `KWIN_USE_BUFFER_AGE=0`,
+  `KWIN_DRM_FORCE_GL_FINISH_PRESENT=1` and the shake cursor effect off. Brave, Chrome, Spotify crashed in the GPU process (SIGSEGV in Flatpak Mesa's libgallium on
   nouveau): `old-nvidia-apps` (sloth-old-nvidia-apps.service, every start) writes Flatpak overrides with
   `LIBGL_ALWAYS_SOFTWARE=1` for Chromium-based apps (browsers, Electron, CEF, Qt WebEngine), only files it owns,
   and removes them when the card is gone. Tried with fake sysfs trees (GTS 450, GTX 1060, RTX 4060, the NVIDIA
