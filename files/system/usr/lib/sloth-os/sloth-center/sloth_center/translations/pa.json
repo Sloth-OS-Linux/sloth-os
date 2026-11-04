@@ -240,7 +240,7 @@
   "Custom, by topic": "ਆਪਣੀ ਮਰਜ਼ੀ ਨਾਲ, ਵਿਸ਼ੇ ਮੁਤਾਬਕ",
   "Password needed": "ਪਾਸਵਰਡ ਚਾਹੀਦਾ ਹੈ",
   "Sign in automatically": "ਆਟੋਮੈਟਿਕ ਸਾਈਨ-ਇਨ",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "ਚਾਲੂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਕੰਪਿਊਟਰ ਬਿਨਾਂ ਪਾਸਵਰਡ ਸਿੱਧਾ ਤੁਹਾਡਾ ਡੈਸਕਟਾਪ ਖੋਲ੍ਹਦਾ ਹੈ। ਉਸ ਵੇਲੇ ਸੰਭਾਲੇ ਪਾਸਵਰਡਾਂ (ਜਿਵੇਂ Wi-Fi, ਬ੍ਰਾਊਜ਼ਰ) ਦਾ ਭੰਡਾਰ ਪਹਿਲੀ ਵਰਤੋਂ ਵੇਲੇ ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਮੰਗੇਗਾ।",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "ਚਾਲੂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਕੰਪਿਊਟਰ ਬਿਨਾਂ ਪਾਸਵਰਡ ਸਿੱਧਾ ਤੁਹਾਡਾ ਡੈਸਕਟਾਪ ਖੋਲ੍ਹਦਾ ਹੈ। ਉਸ ਵੇਲੇ ਜੇ ਡਿਸਕ ਇਨਕ੍ਰਿਪਟ ਹੈ ਤਾਂ ਸੰਭਾਲੇ ਪਾਸਵਰਡ (ਜਿਵੇਂ Wi-Fi, ਨੈੱਟਵਰਕ ਫੋਲਡਰ) ਚਾਲੂ ਕਰਨ ਵੇਲੇ ਲਿਖੇ ਪਾਸਵਰਡ ਨਾਲ ਖੁੱਲ੍ਹਦੇ ਹਨ; ਨਹੀਂ ਤਾਂ ਹਰ ਵਾਰ ਚਾਲੂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਇੱਕ ਵਾਰ ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਮੰਗਦੇ ਹਨ।",
   "Password in the terminal (sudo)": "ਟਰਮੀਨਲ ਵਿੱਚ ਪਾਸਵਰਡ (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "ਮਾਹਰਾਂ ਲਈ: ਜੇ ਤੁਸੀਂ ਨਹੀਂ ਚਾਹੁੰਦੇ ਕਿ ਟਰਮੀਨਲ ਵਿੱਚ “sudo” ਕਮਾਂਡ ਪਾਸਵਰਡ ਮੰਗੇ ਤਾਂ ਬੰਦ ਕਰੋ।",
   "Advanced settings": "ਉੱਨਤ ਸੈਟਿੰਗਾਂ",

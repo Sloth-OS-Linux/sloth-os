@@ -45,6 +45,7 @@
   "security.recommended": "Csak a kockázatos dolgokhoz: lemezek, felhasználók, rendszerindítás (kényelmesebb)",
   "security.not_admin": "Ezt csak rendszergazda fiókkal lehet átállítani.",
   "security.autologin": "Automatikus bejelentkezés: a gép jelszó nélkül, egyből az asztallal induljon",
+  "security.autologin_note": "A mentett jelszavak (pl. Wi-Fi, hálózati mappák) ilyenkor minden indítás után egyszer kérik a jelszavad, kivéve, ha a lemez titkosított.",
   "security.later": "Később a Sloth Központban (Fiók és biztonság) témakörönként is beállíthatod.",
   "sharing.heading": "Segíts, hogy a Windows-programok mindenkinél elsőre elinduljanak",
   "sharing.text": "Ha Windows-programot vagy játékot indítasz, a Sloth OS magától megkeresi a neki működő beállítást. Ha engeded, a bevált beállítást névtelenül megosztjuk, így más Sloth OS-es gépeken is elsőre elindul.",

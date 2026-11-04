@@ -45,6 +45,7 @@
   "security.recommended": "Samo za rizične stvari: diskovi, korisnici, pokretanje (udobnije)",
   "security.not_admin": "Ovo može promijeniti samo administratorski račun.",
   "security.autologin": "Automatska prijava: ravno na radnu površinu bez lozinke",
+  "security.autologin_note": "Spremljene lozinke (npr. Wi-Fi, mrežne mape) tada traže vašu lozinku jednom nakon svakog pokretanja, osim ako je disk šifriran.",
   "security.later": "Kasnije to možete detaljno podesiti u Sloth Centeru (Račun i sigurnost).",
   "sharing.heading": "Pomozi da se Windows programi kod svih pokrenu iz prvog pokušaja",
   "sharing.text": "Kad pokreneš Windows program ili igru, Sloth OS sam pronađe postavku s kojom radi. Ako dopustiš, anonimno dijelimo postavku koja je uspjela, kako bi se i na drugim računalima sa Sloth OS-om pokrenuo iz prvog pokušaja.",

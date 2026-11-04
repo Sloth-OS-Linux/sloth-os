@@ -45,6 +45,7 @@
   "security.recommended": "Solo per le cose rischiose: dischi, utenti, avvio (più comoda)",
   "security.not_admin": "Solo un account amministratore può modificarlo.",
   "security.autologin": "Accesso automatico: direttamente al desktop senza password",
+  "security.autologin_note": "Le password salvate (es. Wi-Fi, cartelle di rete) chiedono allora la tua password una volta dopo ogni avvio, a meno che il disco non sia cifrato.",
   "security.later": "Più avanti puoi regolarlo in Sloth Center (Account e sicurezza).",
   "sharing.heading": "Aiuta i programmi Windows ad avviarsi al primo colpo per tutti",
   "sharing.text": "Quando avvii un programma o un gioco Windows, Sloth OS trova da solo l'impostazione con cui funziona. Se lo consenti, condividiamo in modo anonimo l'impostazione che ha funzionato, così si avvia al primo tentativo anche su altri computer con Sloth OS.",

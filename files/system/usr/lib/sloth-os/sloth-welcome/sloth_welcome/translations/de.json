@@ -45,6 +45,7 @@
   "security.recommended": "Nur bei riskanten Dingen: Laufwerke, Benutzer, Systemstart (bequemer)",
   "security.not_admin": "Das kann nur ein Administratorkonto ändern.",
   "security.autologin": "Automatisch anmelden: ohne Passwort direkt zum Desktop starten",
+  "security.autologin_note": "Gespeicherte Passwörter (z. B. WLAN, Netzwerkordner) fragen dann nach jedem Start einmal nach deinem Passwort, außer die Festplatte ist verschlüsselt.",
   "security.later": "Später kannst du das im Sloth Center (Konto und Sicherheit) genauer einstellen.",
   "sharing.heading": "Hilf mit, dass Windows-Programme bei allen auf Anhieb starten",
   "sharing.text": "Wenn du ein Windows-Programm oder -Spiel startest, findet Sloth OS selbst die Einstellung, mit der es läuft. Wenn du es erlaubst, teilen wir die funktionierende Einstellung anonym, damit es auch auf anderen Sloth-OS-Computern auf Anhieb startet.",

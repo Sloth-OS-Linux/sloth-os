@@ -45,6 +45,7 @@
   "security.recommended": "Tylko przy ryzykownych rzeczach: dyski, użytkownicy, uruchamianie (wygodniej)",
   "security.not_admin": "Tylko konto administratora może to zmienić.",
   "security.autologin": "Automatyczne logowanie: od razu pulpit, bez hasła",
+  "security.autologin_note": "Zapisane hasła (np. Wi-Fi, foldery sieciowe) proszą wtedy o twoje hasło raz po każdym uruchomieniu, chyba że dysk jest zaszyfrowany.",
   "security.later": "Później możesz to dokładnie ustawić w Sloth Center (Konto i bezpieczeństwo).",
   "sharing.heading": "Pomóż, by programy dla Windows uruchamiały się każdemu za pierwszym razem",
   "sharing.text": "Gdy uruchamiasz program lub grę dla Windows, Sloth OS sam znajduje ustawienie, z którym działa. Jeśli pozwolisz, anonimowo udostępnimy ustawienie, które zadziałało, aby za pierwszym razem uruchamiał się także na innych komputerach z Sloth OS.",

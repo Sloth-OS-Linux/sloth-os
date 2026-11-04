@@ -80,9 +80,9 @@ from a terminal must also work from a GUI.
   plasmalogin-autologin, `KeyringMode=inherit` for plasmalogin.service; the man page's recipe). NOT an empty wallet
   password: the saved passwords would be readable on the disk. Tried in the VM with real reboots, the boot password
   put in root's keyring by a test service: the same password -> the wallet open; none -> locked, as before; a
-  different one -> locked, the session fine; no crash. Still to do: without encryption a short note at the
-  automatic sign-in switch (Welcome, Sloth Center) that saved passwords ask once after each start, and check that
-  it really asks only once per session
+  different one -> locked, the session fine; no crash. The automatic sign-in switch says it in Welcome
+  (`security.autologin_note`, shown when ticked) and in Sloth Center (50 languages). Still to check: that the
+  wallet really asks only once per session (his screenshots showed the network folder's sign-in again and again)
 
 ### Next to Windows, tried in a Windows 11 25H2 VM on Hyper-V (2026-11-04)
 - [x] The real cause of "we couldn't check the Windows drive": the disk survey crashed (EBUSY on rmdir after the

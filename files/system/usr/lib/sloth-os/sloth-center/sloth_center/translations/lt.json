@@ -240,7 +240,7 @@
   "Custom, by topic": "Pasirinktinai, pagal temas",
   "Password needed": "Reikia slaptažodžio",
   "Sign in automatically": "Automatinis prisijungimas",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Įjungtas kompiuteris iškart atveria jūsų darbalaukį be slaptažodžio. Įrašytų slaptažodžių saugykla (pvz., Wi-Fi, naršyklė) tada paprašys slaptažodžio pirmą kartą naudojant.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Įjungtas kompiuteris iškart atveria jūsų darbalaukį be slaptažodžio. Įrašyti slaptažodžiai (pvz., Wi-Fi, tinklo aplankai) tada atsidaro paleidžiant įvestu slaptažodžiu, jei diskas užšifruotas; kitaip jie po kiekvieno paleidimo vieną kartą paprašo jūsų slaptažodžio.",
   "Password in the terminal (sudo)": "Slaptažodis terminale (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Pažengusiems: išjunkite, jei nenorite, kad komanda „sudo“ terminale prašytų slaptažodžio.",
   "Advanced settings": "Išplėstiniai nustatymai",

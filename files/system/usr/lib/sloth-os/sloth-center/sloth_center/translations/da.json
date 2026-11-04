@@ -240,7 +240,7 @@
   "Custom, by topic": "Tilpasset, efter emne",
   "Password needed": "Kræver adgangskode",
   "Sign in automatically": "Automatisk login",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Når computeren tændes, går den direkte til dit skrivebord uden adgangskode. Lageret til gemte adgangskoder (f.eks. Wi-Fi, browser) beder så om din adgangskode første gang, det bruges.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Når computeren tændes, går den direkte til dit skrivebord uden adgangskode. Gemte adgangskoder (f.eks. Wi-Fi, netværksmapper) åbnes så med adgangskoden, der blev tastet ved opstart, hvis disken er krypteret; ellers beder de om din adgangskode én gang efter hver opstart.",
   "Password in the terminal (sudo)": "Adgangskode i terminalen (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "For øvede: slå fra, hvis du ikke vil have, at kommandoen »sudo« beder om adgangskode i terminalen.",
   "Advanced settings": "Avancerede indstillinger",

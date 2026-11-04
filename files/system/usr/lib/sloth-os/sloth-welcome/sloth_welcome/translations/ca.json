@@ -45,6 +45,7 @@
   "security.recommended": "Només per a coses arriscades: discs, usuaris, arrencada (més còmode)",
   "security.not_admin": "Només un compte d’administrador pot canviar-ho.",
   "security.autologin": "Inici de sessió automàtic: directament a l’escriptori sense contrasenya",
+  "security.autologin_note": "Llavors les contrasenyes desades (p. ex. Wi-Fi, carpetes de xarxa) us demanen la contrasenya una vegada després de cada engegada, tret que el disc estigui xifrat.",
   "security.later": "Més endavant ho podeu ajustar al Sloth Center (Compte i seguretat).",
   "sharing.heading": "Ajuda que els programes de Windows s'iniciïn al primer intent per a tothom",
   "sharing.text": "Quan inicies un programa o un joc de Windows, Sloth OS troba tot sol la configuració que hi funciona. Si ho permets, compartim la configuració que ha funcionat de manera anònima, perquè també s'iniciï al primer intent en altres ordinadors amb Sloth OS.",

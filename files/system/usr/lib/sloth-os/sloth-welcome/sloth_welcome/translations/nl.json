@@ -45,6 +45,7 @@
   "security.recommended": "Alleen bij riskante dingen: schijven, gebruikers, opstarten (handiger)",
   "security.not_admin": "Alleen een beheerdersaccount kan dit wijzigen.",
   "security.autologin": "Automatisch aanmelden: direct naar het bureaublad zonder wachtwoord",
+  "security.autologin_note": "Bewaarde wachtwoorden (bv. wifi, netwerkmappen) vragen dan na elke start één keer om je wachtwoord, tenzij de schijf versleuteld is.",
   "security.later": "Later kun je dit verfijnen in Sloth Center (Account en beveiliging).",
   "sharing.heading": "Help Windows-programma's bij iedereen in één keer te laten starten",
   "sharing.text": "Als je een Windows-programma of -game start, zoekt Sloth OS zelf de instelling waarmee het werkt. Als je het toestaat, delen we de werkende instelling anoniem, zodat het ook op andere Sloth OS-computers in één keer start.",

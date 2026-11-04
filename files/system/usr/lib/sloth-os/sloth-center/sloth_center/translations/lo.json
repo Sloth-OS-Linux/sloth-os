@@ -240,7 +240,7 @@
   "Custom, by topic": "ກຳນົດເອງ, ຕາມຫົວຂໍ້",
   "Password needed": "ຕ້ອງໃຊ້ລະຫັດຜ່ານ",
   "Sign in automatically": "ເຂົ້າສູ່ລະບົບອັດຕະໂນມັດ",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "ຫຼັງເປີດເຄື່ອງ ຄອມພິວເຕີຈະເປີດໜ້າຈໍຂອງທ່ານທັນທີໂດຍບໍ່ຕ້ອງໃຊ້ລະຫັດຜ່ານ. ໃນກໍລະນີນີ້ ບ່ອນເກັບລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ (ເຊັ່ນ Wi-Fi, ບຣາວເຊີ) ຈະຖາມລະຫັດຜ່ານຂອງທ່ານໃນການໃຊ້ຄັ້ງທຳອິດ.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "ຫຼັງເປີດເຄື່ອງ ຄອມພິວເຕີຈະເປີດໜ້າຈໍຂອງທ່ານທັນທີໂດຍບໍ່ຕ້ອງໃຊ້ລະຫັດຜ່ານ. ໃນກໍລະນີນີ້ ລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ (ເຊັ່ນ Wi-Fi, ໂຟນເດີເຄືອຂ່າຍ) ຈະເປີດດ້ວຍລະຫັດຜ່ານທີ່ພິມຕອນເປີດເຄື່ອງ ຖ້າດິສຖືກເຂົ້າລະຫັດ; ຖ້າບໍ່ດັ່ງນັ້ນ ຈະຖາມລະຫັດຜ່ານຂອງທ່ານໜຶ່ງຄັ້ງຫຼັງການເປີດເຄື່ອງແຕ່ລະເທື່ອ.",
   "Password in the terminal (sudo)": "ລະຫັດຜ່ານໃນເທີມິນອນ (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "ສຳລັບຜູ້ຊຳນານ: ປິດອັນນີ້ ຖ້າບໍ່ຕ້ອງການໃຫ້ຄຳສັ່ງ “sudo” ໃນເທີມິນອນຖາມລະຫັດຜ່ານ.",
   "Advanced settings": "ການຕັ້ງຄ່າຂັ້ນສູງ",

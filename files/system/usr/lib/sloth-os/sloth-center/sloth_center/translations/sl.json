@@ -240,7 +240,7 @@
   "Custom, by topic": "Po meri, po področjih",
   "Password needed": "Potrebno geslo",
   "Sign in automatically": "Samodejna prijava",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Po vklopu se računalnik zažene neposredno z vašim namizjem, brez gesla. Shramba shranjenih gesel (npr. Wi-Fi, brskalnik) nato ob prvi uporabi zahteva geslo.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Po vklopu se računalnik zažene neposredno z vašim namizjem, brez gesla. Shranjena gesla (npr. Wi-Fi, omrežne mape) se nato odprejo z geslom, vpisanim ob zagonu, če je disk šifriran; sicer po vsakem zagonu enkrat zahtevajo vaše geslo.",
   "Password in the terminal (sudo)": "Geslo v terminalu (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Za napredne: izklopite, če ne želite, da ukaz »sudo« v terminalu zahteva geslo.",
   "Advanced settings": "Napredne nastavitve",

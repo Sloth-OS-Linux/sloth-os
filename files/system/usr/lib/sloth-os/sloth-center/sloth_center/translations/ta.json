@@ -240,7 +240,7 @@
   "Custom, by topic": "தனிப்பயன், தலைப்பு வாரியாக",
   "Password needed": "கடவுச்சொல் தேவை",
   "Sign in automatically": "தானியங்கு உள்நுழைவு",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "இயக்கியதும் கணினி கடவுச்சொல் இல்லாமல் நேரடியாக உங்கள் மேசைத்தளத்தைத் திறக்கும். அப்போது சேமித்த கடவுச்சொற்களின் (எ.கா. Wi-Fi, உலாவி) களஞ்சியம் முதல் பயன்பாட்டில் உங்கள் கடவுச்சொல்லைக் கேட்கும்.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "இயக்கியதும் கணினி கடவுச்சொல் இல்லாமல் நேரடியாக உங்கள் மேசைத்தளத்தைத் திறக்கும். அப்போது வட்டு மறையாக்கப்பட்டிருந்தால் சேமித்த கடவுச்சொற்கள் (எ.கா. Wi-Fi, பிணைய கோப்புறைகள்) தொடக்கத்தில் தட்டச்சு செய்த கடவுச்சொல்லால் திறக்கும்; இல்லையெனில் ஒவ்வொரு தொடக்கத்துக்குப் பிறகும் ஒருமுறை உங்கள் கடவுச்சொல்லைக் கேட்கும்.",
   "Password in the terminal (sudo)": "முனையத்தில் கடவுச்சொல் (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "மேம்பட்ட பயனர்களுக்கு: முனையத்தில் “sudo” கட்டளை கடவுச்சொல் கேட்க வேண்டாம் என்றால் இதை அணைக்கவும்.",
   "Advanced settings": "மேம்பட்ட அமைப்புகள்",

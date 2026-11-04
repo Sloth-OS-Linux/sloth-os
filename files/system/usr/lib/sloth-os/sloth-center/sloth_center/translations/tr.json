@@ -240,7 +240,7 @@
   "Custom, by topic": "Özel, konulara göre",
   "Password needed": "Parola gerekir",
   "Sign in automatically": "Otomatik oturum açma",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Açıldığında bilgisayar parola olmadan doğrudan masaüstünüzle başlar. Kayıtlı parolalar deposu (ör. Wi-Fi, tarayıcı) bu durumda ilk kullanımda parolanızı ister.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Açıldığında bilgisayar parola olmadan doğrudan masaüstünüzle başlar. Kayıtlı parolalar (ör. Wi-Fi, ağ klasörleri) bu durumda disk şifreliyse açılışta yazılan parolayla açılır; değilse her açılıştan sonra bir kez parolanızı ister.",
   "Password in the terminal (sudo)": "Uçbirimde parola (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "İleri düzey kullanıcılar için: “sudo” komutunun uçbirimde parola sormasını istemiyorsanız kapatın.",
   "Advanced settings": "Gelişmiş ayarlar",

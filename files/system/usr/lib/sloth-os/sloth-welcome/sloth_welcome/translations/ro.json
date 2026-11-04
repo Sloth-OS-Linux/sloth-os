@@ -45,6 +45,7 @@
   "security.recommended": "Doar pentru lucruri riscante: discuri, utilizatori, pornire (mai comod)",
   "security.not_admin": "Doar un cont de administrator poate schimba asta.",
   "security.autologin": "Autentificare automată: direct la desktop, fără parolă",
+  "security.autologin_note": "Parolele salvate (de ex. Wi-Fi, foldere din rețea) îți cer atunci parola o dată după fiecare pornire, cu excepția cazului în care discul este criptat.",
   "security.later": "Mai târziu poți regla asta în Sloth Center (Cont și securitate).",
   "sharing.heading": "Ajută programele Windows să pornească din prima pentru toată lumea",
   "sharing.text": "Când pornești un program sau un joc Windows, Sloth OS găsește singur setarea cu care funcționează. Dacă permiți, împărtășim anonim setarea care a funcționat, ca să pornească din prima și pe alte calculatoare cu Sloth OS.",

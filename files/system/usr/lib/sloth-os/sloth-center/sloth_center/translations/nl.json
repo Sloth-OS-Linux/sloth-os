@@ -240,7 +240,7 @@
   "Custom, by topic": "Aangepast, per onderwerp",
   "Password needed": "Wachtwoord nodig",
   "Sign in automatically": "Automatisch aanmelden",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Na het aanzetten start de computer zonder wachtwoord meteen met je bureaublad. De opslag van bewaarde wachtwoorden (bv. wifi, browser) vraagt dan bij het eerste gebruik om je wachtwoord.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Na het aanzetten start de computer zonder wachtwoord meteen met je bureaublad. Bewaarde wachtwoorden (bv. wifi, netwerkmappen) gaan dan open met het wachtwoord dat bij het opstarten is getypt als de schijf versleuteld is; anders vragen ze na elke start één keer om je wachtwoord.",
   "Password in the terminal (sudo)": "Wachtwoord in de terminal (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Voor gevorderden: zet dit uit als je niet wilt dat de opdracht ‘sudo’ in de terminal om een wachtwoord vraagt.",
   "Advanced settings": "Geavanceerde instellingen",

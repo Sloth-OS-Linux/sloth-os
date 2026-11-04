@@ -240,7 +240,7 @@
   "Custom, by topic": "Жеке, тақырыптар бойынша",
   "Password needed": "Құпиясөз қажет",
   "Sign in automatically": "Автоматты кіру",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Қосылғаннан кейін компьютер құпиясөзсіз бірден жұмыс үстеліңізді ашады. Бұл жағдайда сақталған құпиясөздер (мыс. Wi-Fi, браузер) қоймасы алғаш пайдаланғанда құпиясөзіңізді сұрайды.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Қосылғаннан кейін компьютер құпиясөзсіз бірден жұмыс үстеліңізді ашады. Бұл жағдайда сақталған құпиясөздер (мыс. Wi-Fi, желілік қалталар) диск шифрланған болса, іске қосу кезінде терілген құпиясөзбен ашылады; әйтпесе әр іске қосудан кейін бір рет құпиясөзіңізді сұрайды.",
   "Password in the terminal (sudo)": "Терминалдағы құпиясөз (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Тәжірибелілерге: терминалда «sudo» командасы құпиясөз сұрамасын десеңіз, өшіріңіз.",
   "Advanced settings": "Кеңейтілген баптаулар",

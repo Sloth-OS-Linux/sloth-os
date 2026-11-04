@@ -45,6 +45,7 @@
   "security.recommended": "Solmente pro cosas riscose: discos, usatores, initio (plus commode)",
   "security.not_admin": "Solmente un conto de administrator pote cambiar isto.",
   "security.autologin": "Accesso automatic: directemente al scriptorio sin contrasigno",
+  "security.autologin_note": "Le contrasignos salvate (p. ex. Wi-Fi, dossieres de rete) demanda alora tu contrasigno un vice post cata initio, excepte si le disco es cryptate.",
   "security.later": "Postea tu pote adjustar isto in Sloth Center (Conto e securitate).",
   "sharing.heading": "Adjuta le programmas de Windows a initiar se al prime tentativa pro totes",
   "sharing.text": "Quando tu initia un programma o un joco de Windows, Sloth OS trova per se mesme le configuration con le qual illo functiona. Si tu lo permitte, nos comparti anonymemente le configuration que ha functionate, de maniera que illo se initia al prime tentativa anque in altere computatores con Sloth OS.",

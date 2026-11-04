@@ -240,7 +240,7 @@
   "Custom, by topic": "Personnalisé, par domaine",
   "Password needed": "Mot de passe requis",
   "Sign in automatically": "Connexion automatique",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Une fois allumé, l’ordinateur démarre directement sur votre bureau, sans mot de passe. Le coffre des mots de passe enregistrés (Wi-Fi, navigateur) demande alors votre mot de passe à la première utilisation.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Une fois allumé, l’ordinateur démarre directement sur votre bureau, sans mot de passe. Les mots de passe enregistrés (Wi-Fi, dossiers réseau…) s’ouvrent alors avec le mot de passe saisi au démarrage si le disque est chiffré ; sinon, ils demandent votre mot de passe une fois après chaque démarrage.",
   "Password in the terminal (sudo)": "Mot de passe dans le terminal (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Pour utilisateurs avancés : désactivez-le si vous ne voulez pas que la commande « sudo » demande un mot de passe dans le terminal.",
   "Advanced settings": "Réglages avancés",

@@ -767,6 +767,14 @@ Kirigami.ApplicationWindow {
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
+                        visible: welcome.autologin
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        font: Kirigami.Theme.smallFont
+                        text: root.t("security.autologin_note")
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.7
                         font: Kirigami.Theme.smallFont

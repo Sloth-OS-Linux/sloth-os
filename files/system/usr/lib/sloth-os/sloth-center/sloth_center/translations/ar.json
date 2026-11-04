@@ -240,7 +240,7 @@
   "Custom, by topic": "مخصّص، حسب الموضوع",
   "Password needed": "تلزم كلمة مرور",
   "Sign in automatically": "تسجيل الدخول التلقائي",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "بعد التشغيل يبدأ الحاسوب مباشرة بسطح مكتبك دون كلمة مرور. ثم يطلب مخزن كلمات المرور المحفوظة (مثل Wi-Fi والمتصفح) كلمة مرورك عند أول استخدام.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "بعد التشغيل يبدأ الحاسوب مباشرة بسطح مكتبك دون كلمة مرور. ثم تُفتح كلمات المرور المحفوظة (مثل Wi-Fi ومجلدات الشبكة) بكلمة المرور المكتوبة عند بدء التشغيل إذا كان القرص مشفرًا؛ وإلا فإنها تطلب كلمة مرورك مرة واحدة بعد كل تشغيل.",
   "Password in the terminal (sudo)": "كلمة المرور في الطرفية (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "للمتقدمين: عطّله إن كنت لا تريد أن يطلب الأمر “sudo” كلمة مرور في الطرفية.",
   "Advanced settings": "إعدادات متقدمة",
