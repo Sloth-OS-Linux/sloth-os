@@ -187,6 +187,22 @@ class WindowsDiskSurveyTest(unittest.TestCase):
             helper.remove_previous("/dev/test", previous)
         self.assertEqual(deleted, ["0001"])
 
+    def test_a_busy_mount_point_does_not_stop_the_survey(self):
+        # the live desktop looks at a new mount for a moment: umount says busy and the folder cannot be removed
+        calls = []
+
+        def fake_run(cmd, *a, **k):
+            calls.append(cmd[:2])
+            class R:
+                returncode = 0 if cmd[0] == "mount" or "--lazy" in cmd else 32
+            return R()
+        with (patch.object(helper.subprocess, "run", side_effect=fake_run),
+              patch.object(helper.time, "sleep"),
+              patch.object(helper.Path, "rmdir", side_effect=OSError(16, "Device or resource busy"))):
+            with helper.mounted_ro("/dev/testp1") as mnt:
+                self.assertIsNotNone(mnt)
+        self.assertIn(["umount", "--lazy"], calls)
+
     def test_earlier_sloth_os_needs_its_system_partition(self):
         # an EFI partition with our name alone is not enough (nothing is mounted to find that out)
         parts = [{"node": "/dev/testp3", "type": helper.ESP_TYPE, "name": "EFI-SYSTEM", "start": 2048, "size": 1}]
