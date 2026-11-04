@@ -19,6 +19,10 @@ update. Download: [sloth-os-1.4-x86_64.iso](https://sourceforge.net/projects/slo
 [torrent](https://sourceforge.net/projects/sloth-os/files/1.4/sloth-os-1.4-x86_64.iso.torrent/download)), SHA-256 `0e90742cbd680ee553395fa5c94b66af8abf09938686824253d9d663db5df7cc`. What changed:
 [release notes](#release-notes) below (also in [docs/releases/1.4.md](docs/releases/1.4.md)).
 
+**Coming soon: Sloth OS 1.4.1** (older NVIDIA cards: no more black screen after signing in; the password store opens
+by itself on an encrypted disk; installing next to Windows no longer says it couldn't check the Windows drive).
+Machines already running Sloth OS get it as a normal update. The 1.4.1 installer ISO follows shortly.
+
 ## What Sloth OS can do
 
 **Feels familiar from the first minute.** Pick a taskbar layout that looks like Windows 10, Windows 11, Windows 7, a
@@ -51,6 +55,26 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
+<summary><b>What's new in 1.4.1</b> (November 4, 2026)</summary>
+
+**Older NVIDIA cards** (older than the GeForce RTX 20 series, on the open driver): no more black screen or
+flickering after signing in (a bug in KDE Plasma 6.8 that these cards ran into), and Brave, Chrome, Spotify, Discord
+and other Chromium-based apps no longer crash.
+
+**Signing in automatically:** on an encrypted disk, the password you type at startup now opens the store of saved
+passwords too. Without encryption it asks once after each start, and the switch says so.
+
+**The desktop:** Switch User in the macOS-like system menu, Restart and Log out in the ChromeOS-like quick
+settings.
+
+**Installing next to Windows:** "we couldn't check the Windows drive" is fixed, and a BitLocker-encrypted Windows
+drive is named as such, with what to do.
+
+Full notes: [docs/releases/1.4.1.md](docs/releases/1.4.1.md).
+
+</details>
+
+<details>
 <summary><b>What's new in 1.4</b> (November 3, 2026)</summary>
 
 **Your desktop, your way:** seven taskbar layouts. New: **Windows 7** (classic Start menu, task buttons with names),
