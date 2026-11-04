@@ -66,7 +66,8 @@ from a terminal must also work from a GUI.
   nouveau: Enable atomic modesetting by default"). `nouveau-modprobe` (an `install` line in
   /usr/lib/modprobe.d/sloth-nouveau.conf, in the initramfs too) adds `atomic=1` only on an NVIDIA card before Turing.
   Tried in the VM with the real modprobe and fake PCI trees: GTS 450 / GTX 1060 -> 1, RTX 4060, AMD, NVIDIA audio
-  -> 0, `atomic=0` by hand wins. Still to see on his machine (KWin's log must not say "Using legacy mode"). The
+  -> 0, `atomic=0` by hand wins; in the built image it is in the initramfs, and a blacklisted nouveau (the NVIDIA
+  version) still does not load through it. Still to see on his machine (KWin's log must not say "Using legacy mode"). The
   community workaround if not: `KWIN_FORCE_SW_CURSOR=1`, `KWIN_USE_BUFFER_AGE=0`,
   `KWIN_DRM_FORCE_GL_FINISH_PRESENT=1` and the shake cursor effect off. Brave, Chrome, Spotify crashed in the GPU process (SIGSEGV in Flatpak Mesa's libgallium on
   nouveau): `old-nvidia-apps` (sloth-old-nvidia-apps.service, every start) writes Flatpak overrides with
@@ -80,7 +81,8 @@ from a terminal must also work from a GUI.
   plasmalogin-autologin, `KeyringMode=inherit` for plasmalogin.service; the man page's recipe). NOT an empty wallet
   password: the saved passwords would be readable on the disk. Tried in the VM with real reboots, the boot password
   put in root's keyring by a test service: the same password -> the wallet open; none -> locked, as before; a
-  different one -> locked, the session fine; no crash. The automatic sign-in switch says it in Welcome
+  different one -> locked, the session fine; no crash. Again on the built image (44.20261104.3): a password
+  sign-in opens it as before, autologin with / without the boot password -> open / locked. The automatic sign-in switch says it in Welcome
   (`security.autologin_note`, shown when ticked) and in Sloth Center (50 languages). Still to check: that the
   wallet really asks only once per session (his screenshots showed the network folder's sign-in again and again)
 - [x] His SMB errors (2026-11-04, "Access denied" opening `-  MOVIES/…-%5BYTS.LT%5D.mp4` through KIOExec, "does not
@@ -99,7 +101,8 @@ from a terminal must also work from a GUI.
   gone, the boot prompt "Type your disk password", Windows starts), and again unencrypted from the fixed ISO
   (`18f9580c…`, no hand patching). Small things seen: the boot menu lists "UEFI Firmware Settings" before Windows
   and has "Reset this PC"; the live session shows the "saved networks count as home networks" notification; the
-  dual-boot clock (Windows keeps local time in the RTC) is not checked yet
+  dual-boot clock (Windows keeps local time in the RTC): the installer writes `LOCAL` to /etc/adjtime next to
+  Windows since 2026-10-15 (checked in the VM)
 
 ### Test plan for 2026-11-03 (test branch, after the evening builds of 2026-11-02)
 Setup: a VM program on the gaming PC (GNOME Boxes as a Flatpak was suggested) and a test ISO built from the
