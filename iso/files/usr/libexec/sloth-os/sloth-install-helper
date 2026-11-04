@@ -628,9 +628,11 @@ def probe(disk):
             shrink = max(0, size - minimum - WINDOWS_RESERVE) // MIB * MIB
             info["windows"] = {"path": win["node"], "size": size, "min": minimum, "after": after}
             info["shrinkable"] = shrink + after if shrink else 0
-    elif not windows and not ntfs and info["bitlocker"]:
+    elif not windows and info["bitlocker"]:
         # A locked BitLocker Windows volume cannot be inspected or resized. It can only proceed if
         # the user already freed enough unallocated space; the UI warns about the recovery key.
+        # Other NTFS volumes do not change that: every PC has a Recovery partition, and Windows 11 encrypts C:
+        # by itself on new installs (device encryption), so this said "couldn't check" (2026-11-04, a Windows 11 VM)
         info["problems"].append("bitlocker")
     else:
         info["problems"].append("unknown")
