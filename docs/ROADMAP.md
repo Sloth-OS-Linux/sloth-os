@@ -55,6 +55,30 @@ from a terminal must also work from a GUI.
 - [ ] Issue #12 (fluffynuts): a link to the GitHub issues on Sloth Center's Feedback page (no Discord: one person,
   one place)
 
+### Older NVIDIA cards on nouveau (2026-11-04, GitHub issue #17 again: GTS 450 on VGA, Sloth OS 1.4)
+- [x] (test branch, then `main`) The screen went black with only the pointer when nothing moved and flashed while
+  something did (fine on 1.2.1; since then kernel 7.2.12 -> 7.2.14 and the KWin/Mesa updates): a user environment
+  generator (`60-sloth-old-nvidia`) gives KWin `KWIN_DRM_NO_AMS=1` when an NVIDIA card below PCI device 0x1e00
+  runs on nouveau. Brave, Chrome, Spotify crashed in the GPU process (SIGSEGV in Flatpak Mesa's libgallium on
+  nouveau): `old-nvidia-apps` (sloth-old-nvidia-apps.service, every start) writes Flatpak overrides with
+  `LIBGL_ALWAYS_SOFTWARE=1` for Chromium-based apps (browsers, Electron, CEF, Qt WebEngine), only files it owns,
+  and removes them when the card is gone. Tried with fake sysfs trees (GTS 450, GTX 1060, RTX 4060, the NVIDIA
+  driver, AMD). Still to see on his machine.
+- [ ] KWallet on a password-free login (autologin): every network password asks for the wallet's password (his
+  Windows shares); see "Opening the password store (KWallet) on a password-free login" below
+
+### Next to Windows, tried in a Windows 11 25H2 VM on Hyper-V (2026-11-04)
+- [x] The real cause of "we couldn't check the Windows drive": the disk survey crashed (EBUSY on rmdir after the
+  live KDE desktop opened the freshly mounted EFI partition); `mounted_ro` retries, unmounts lazily at last
+  (`34507f7`). A BitLocker C: (Windows 11's own device encryption) with the Recovery partition said "unknown"
+  instead of "bitlocker" (`ac7d1e3`).
+- [x] Three rounds, all fine: next to Windows (shrinking a 254 GB C:), Windows started from the boot menu and shut
+  down from the Start menu (fast startup), installed again encrypted (the earlier one replaced, its firmware entry
+  gone, the boot prompt "Type your disk password", Windows starts), and again unencrypted from the fixed ISO
+  (`18f9580c…`, no hand patching). Small things seen: the boot menu lists "UEFI Firmware Settings" before Windows
+  and has "Reset this PC"; the live session shows the "saved networks count as home networks" notification; the
+  dual-boot clock (Windows keeps local time in the RTC) is not checked yet
+
 ### Test plan for 2026-11-03 (test branch, after the evening builds of 2026-11-02)
 Setup: a VM program on the gaming PC (GNOME Boxes as a Flatpak was suggested) and a test ISO built from the
 `test/chunked-oci` image (CI `iso` workflow). The HP follows the test branch, so the desktop items can be tried there

@@ -1,0 +1,12 @@
+[Unit]
+Description=Sloth OS: Chromium-based apps without graphics acceleration on an older NVIDIA card (nouveau)
+# the graphics driver is loaded by then (it is in the initramfs, for the boot screen)
+After=systemd-modules-load.service
+ConditionPathIsDirectory=/sys/class/drm
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/old-nvidia-apps
+
+[Install]
+WantedBy=multi-user.target

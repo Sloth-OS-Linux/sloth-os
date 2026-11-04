@@ -44,6 +44,7 @@ modules:
       enabled:
         - sloth-steam-vulkan-layers.timer
         - sloth-nvidia-auto.timer        # on an NVIDIA machine, the NVIDIA version in the background
+        - sloth-old-nvidia-apps.service  # an older NVIDIA card on nouveau: Chromium-based apps without GPU
     user:
       enabled:
         - sloth-steam-proton-default.service
