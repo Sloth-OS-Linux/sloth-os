@@ -203,6 +203,15 @@ class WindowsDiskSurveyTest(unittest.TestCase):
                 self.assertIsNotNone(mnt)
         self.assertIn(["umount", "--lazy"], calls)
 
+    def test_bitlocker_c_with_a_recovery_partition_says_bitlocker(self):
+        # Windows 11's device encryption: C: is BitLocker, the Recovery partition is plain NTFS without Windows
+        parts = [{"node": "/dev/testp1", "type": helper.ESP_TYPE, "start": 2048, "size": 204800},
+                 {"node": "/dev/testp3", "type": helper.LINUX_DATA, "start": 206848, "size": 400000000},
+                 {"node": "/dev/testp4", "type": helper.LINUX_DATA, "start": 400206848, "size": 2000000}]
+        result = self.survey(parts, {"/dev/testp1": "vfat", "/dev/testp3": "BitLocker", "/dev/testp4": "ntfs"})
+        self.assertIn("bitlocker", result["problems"])
+        self.assertNotIn("unknown", result["problems"])
+
     def test_earlier_sloth_os_needs_its_system_partition(self):
         # an EFI partition with our name alone is not enough (nothing is mounted to find that out)
         parts = [{"node": "/dev/testp3", "type": helper.ESP_TYPE, "name": "EFI-SYSTEM", "start": 2048, "size": 1}]
