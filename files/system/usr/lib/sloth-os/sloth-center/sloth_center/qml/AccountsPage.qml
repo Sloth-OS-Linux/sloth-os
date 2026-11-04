@@ -443,7 +443,7 @@ Kirigami.ScrollablePage {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
                             opacity: 0.8
-                            text: L.t("When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.")
+                            text: L.t("When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.")
                         }
                     }
                     QQC2.Switch {

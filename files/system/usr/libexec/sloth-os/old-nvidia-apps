@@ -1,0 +1,73 @@
+#!/usr/bin/python3 -I
+"""Chromium-based apps without graphics acceleration on an NVIDIA card older than Turing on the open driver.
+
+Such a card (a GeForce GTS 450, a GTX 1060) has no driver in the NVIDIA version, so it runs on nouveau
+(/usr/libexec/sloth-os/nvidia-auto). There the GPU process of Chromium-based apps crashed in Mesa's nouveau driver
+(SIGSEGV in libgallium, 2026-11-04, GitHub issue #17: Brave, Chrome and Spotify did not open on a GTS 450). They
+render in software then (LIBGL_ALWAYS_SOFTWARE in a Flatpak override per app); on these cards nouveau cannot raise
+the clock anyway, so little is lost. Firefox, Steam and games are left alone.
+
+It runs at every start (sloth-old-nvidia-apps.service): the overrides are written when such a card is in use and
+removed again when it is not (another card, or the NVIDIA version). It only touches the override files it wrote
+(MARK); an app the user set overrides for by hand is left alone.
+"""
+import os
+import sys
+from pathlib import Path
+
+SYSFS = Path(os.environ.get("SLOTH_SYSFS", "/sys"))
+OVERRIDES = Path(os.environ.get("SLOTH_FLATPAK_OVERRIDES", "/var/lib/flatpak/overrides"))
+MARK = "# Sloth OS: an older NVIDIA card on the open driver (/usr/libexec/sloth-os/old-nvidia-apps)"
+FIRST_TURING = 0x1E00
+# Chromium-based apps (browsers, Electron, CEF, Qt WebEngine) from Sloth Welcome's catalog and a few more
+APPS = (
+    "com.google.Chrome", "com.brave.Browser", "com.microsoft.Edge", "com.vivaldi.Vivaldi", "com.opera.Opera",
+    "org.chromium.Chromium", "io.github.ungoogled_software.ungoogled_chromium",
+    "com.spotify.Client", "com.discordapp.Discord", "com.slack.Slack", "org.signal.Signal", "im.riot.Riot",
+    "com.github.IsmaelMartinez.teams_for_linux", "us.zoom.Zoom", "com.viber.Viber", "com.rtosta.zapzap",
+    "md.obsidian.Obsidian", "net.cozic.joplin_desktop", "com.bitwarden.desktop", "com.visualstudio.code",
+    "tv.plex.PlexDesktop", "com.github.iwalton3.jellyfin-media-player", "com.stremio.Stremio",
+    "com.heroicgameslauncher.hgl", "io.itch.itch",
+)
+CONTENT = MARK + "\n[Environment]\nLIBGL_ALWAYS_SOFTWARE=1\n"
+
+
+def old_nvidia_on_nouveau():
+    for dev in sorted((SYSFS / "class/drm").glob("card[0-9]*/device")):
+        try:
+            if (dev / "vendor").read_text().strip() != "0x10de":
+                continue
+            if os.path.basename(os.readlink(dev / "driver")) != "nouveau":
+                continue
+            if int((dev / "device").read_text().strip(), 16) < FIRST_TURING:
+                return True
+        except (OSError, ValueError):
+            continue
+    return False
+
+
+def main():
+    wanted = old_nvidia_on_nouveau()
+    changed = 0
+    for app in APPS:
+        path = OVERRIDES / app
+        try:
+            current = path.read_text(encoding="utf-8")
+        except FileNotFoundError:
+            current = None
+        except OSError:
+            continue
+        ours = current is not None and current.startswith(MARK)
+        if wanted and current is None:
+            OVERRIDES.mkdir(parents=True, exist_ok=True)
+            path.write_text(CONTENT, encoding="utf-8")
+            changed += 1
+        elif not wanted and ours:
+            path.unlink()
+            changed += 1
+    print(f"older NVIDIA card on nouveau: {wanted}; overrides changed: {changed}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

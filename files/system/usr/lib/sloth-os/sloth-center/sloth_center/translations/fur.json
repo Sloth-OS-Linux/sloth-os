@@ -240,7 +240,7 @@
   "Custom, by topic": "Personalizât, par argoment",
   "Password needed": "Al covente la password",
   "Sign in automatically": "Jentrade automatiche",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Cuant che si impie, il computer al partìs dret cul to scritori, cence password. L’archivi des password salvadis (par es. Wi-Fi, navigadôr) al domande alore la tô password la prime volte che si lu dopre.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Cuant che si impie, il computer al partìs dret cul to scritori, cence password. Lis password salvadis (par es. Wi-Fi, cartelis di rêt) si vierzin alore cu la password scrite al inviament se il disc al è cifrât; se no a domandin la tô password une volte dopo ogni inviament.",
   "Password in the terminal (sudo)": "Password tal terminâl (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Par esperts: disative se no tu vûs che il comant «sudo» al domandi la password tal terminâl.",
   "Advanced settings": "Impostazions avanzadis",

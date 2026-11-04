@@ -240,7 +240,7 @@
   "Custom, by topic": "Yettwagen, s usentel",
   "Password needed": "Yesra awal uffir",
   "Sign in automatically": "Tuqqna tawurmant",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Mi ara yebdu, aselkim yeldi srid tanarit-ik, war awal uffir. Aklas n wawalen uffiren yettwaskelsen (amedya Wi-Fi, iminig) ad ak-d-isuter dɣa awal-ik uffir deg useqdec amezwaru.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Mi ara yebdu, aselkim yeldi srid tanarit-ik, war awal uffir. Awalen uffiren yettwaskelsen (amedya Wi-Fi, ikaramen n uẓeṭṭa) ad ldin dɣa s wawal uffir yettwaru deg usenker ma yella adebṣi yettwawgelhen; ma ulac, ad ak-d-sutren awal-ik uffir yiwet n tikkelt seld yal asenker.",
   "Password in the terminal (sudo)": "Awal uffir deg tdiwent (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "I yimazzalen: sens-it ma yella ur tebɣiḍ ara tiludna “sudo” ad tsuter awal uffir deg tdiwent.",
   "Advanced settings": "Iɣewwaren leqqayen",

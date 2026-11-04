@@ -45,6 +45,7 @@
   "security.recommended": "Nur por riskaj aferoj: diskoj, uzantoj, starto (pli oportune)",
   "security.not_admin": "Nur administranta konto povas ŝanĝi tion.",
   "security.autologin": "Aŭtomata ensaluto: rekte al la labortablo sen pasvorto",
+  "security.autologin_note": "Konservitaj pasvortoj (ekz. Wi-Fi, retaj dosierujoj) tiam petas vian pasvorton unufoje post ĉiu starto, krom se la disko estas ĉifrita.",
   "security.later": "Poste vi povas agordi tion detale en Sloth Center (Konto kaj sekureco).",
   "sharing.heading": "Helpu, ke Windows-programoj startu je la unua provo ĉe ĉiuj",
   "sharing.text": "Kiam vi startigas Windows-programon aŭ ludon, Sloth OS mem trovas la agordon, kun kiu ĝi funkcias. Se vi permesas, ni anonime kunhavigas la funkciintan agordon, por ke ĝi startu je la unua provo ankaŭ en aliaj komputiloj kun Sloth OS.",

@@ -45,6 +45,7 @@
   "security.recommended": "Só para coisas arriscadas: discos, utilizadores, arranque (mais prático)",
   "security.not_admin": "Só uma conta de administrador pode alterar isto.",
   "security.autologin": "Iniciar sessão automaticamente: diretamente no ambiente de trabalho sem palavra-passe",
+  "security.autologin_note": "As palavras-passe guardadas (p. ex. Wi-Fi, pastas de rede) pedem então a sua palavra-passe uma vez após cada arranque, exceto se o disco estiver encriptado.",
   "security.later": "Mais tarde pode ajustar isto no Sloth Center (Conta e segurança).",
   "sharing.heading": "Ajuda os programas do Windows a arrancar à primeira para todos",
   "sharing.text": "Quando arrancas um programa ou jogo do Windows, o Sloth OS encontra sozinho a definição com que funciona. Se permitires, partilhamos de forma anónima a definição que funcionou, para que arranque à primeira também noutros computadores com Sloth OS.",

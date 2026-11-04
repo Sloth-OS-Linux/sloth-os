@@ -45,6 +45,7 @@
   "security.recommended": "Yalnızca riskli işlerde: diskler, kullanıcılar, başlangıç (daha kolay)",
   "security.not_admin": "Bunu yalnızca bir yönetici hesabı değiştirebilir.",
   "security.autologin": "Otomatik oturum açma: parolasız doğrudan masaüstüne",
+  "security.autologin_note": "Kayıtlı parolalar (ör. Wi-Fi, ağ klasörleri) bu durumda disk şifreli değilse her açılıştan sonra bir kez parolanızı ister.",
   "security.later": "Daha sonra bunu Sloth Center'da (Hesap ve güvenlik) ayrıntılı ayarlayabilirsiniz.",
   "sharing.heading": "Windows programlarının herkeste ilk denemede açılmasına yardım et",
   "sharing.text": "Bir Windows programı veya oyunu başlattığında, Sloth OS onunla çalışan ayarı kendisi bulur. İzin verirsen, işe yarayan ayarı anonim olarak paylaşırız; böylece diğer Sloth OS bilgisayarlarında da ilk denemede açılır.",

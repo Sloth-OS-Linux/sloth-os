@@ -240,7 +240,7 @@
   "Custom, by topic": "Prilagođeno, po temama",
   "Password needed": "Potrebna lozinka",
   "Sign in automatically": "Automatska prijava",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Nakon uključivanja računalo se pokreće izravno s vašom radnom površinom, bez lozinke. Spremište spremljenih lozinki (npr. Wi-Fi, preglednik) tada traži lozinku pri prvoj upotrebi.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Nakon uključivanja računalo se pokreće izravno s vašom radnom površinom, bez lozinke. Spremljene lozinke (npr. Wi-Fi, mrežne mape) tada se otvaraju lozinkom upisanom pri pokretanju ako je disk šifriran; inače traže vašu lozinku jednom nakon svakog pokretanja.",
   "Password in the terminal (sudo)": "Lozinka u terminalu (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Za napredne: isključite ako ne želite da naredba „sudo” traži lozinku u terminalu.",
   "Advanced settings": "Napredne postavke",

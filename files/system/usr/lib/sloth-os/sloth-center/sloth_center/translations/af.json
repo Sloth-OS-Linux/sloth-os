@@ -240,7 +240,7 @@
   "Custom, by topic": "Pasgemaak, per onderwerp",
   "Password needed": "Wagwoord nodig",
   "Sign in automatically": "Outomatiese aanmelding",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Wanneer dit aangeskakel word, begin die rekenaar reguit by jou werkskerm sonder ’n wagwoord. Die stoor van gestoorde wagwoorde (bv. Wi-Fi, blaaier) vra dan jou wagwoord die eerste keer wat dit gebruik word.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Wanneer dit aangeskakel word, begin die rekenaar reguit by jou werkskerm sonder ’n wagwoord. Gestoorde wagwoorde (bv. Wi-Fi, netwerkvouers) maak dan oop met die wagwoord wat by die aanskakel getik is as die skyf geënkripteer is; andersins vra hulle een keer na elke aanskakel jou wagwoord.",
   "Password in the terminal (sudo)": "Wagwoord in die terminaal (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Vir gevorderdes: skakel af as jy nie wil hê dat die opdrag “sudo” in die terminaal ’n wagwoord vra nie.",
   "Advanced settings": "Gevorderde instellings",

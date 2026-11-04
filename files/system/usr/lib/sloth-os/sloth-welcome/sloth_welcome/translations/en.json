@@ -45,6 +45,7 @@
   "security.recommended": "Only for risky things: disks, users, startup (more convenient)",
   "security.not_admin": "Only an administrator account can change this.",
   "security.autologin": "Sign in automatically: start straight to the desktop without a password",
+  "security.autologin_note": "Saved passwords (e.g. Wi-Fi, network folders) then ask for your password once after each start, unless the disk is encrypted.",
   "security.later": "You can fine-tune this later in Sloth Center (Account and security).",
   "sharing.heading": "Help Windows programs start on the first try for everyone",
   "sharing.text": "When you start a Windows program or game, Sloth OS finds the setting that works for it on its own. If you allow it, we share the working setting anonymously, so it starts on the first try on other Sloth OS computers too.",

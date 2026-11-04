@@ -55,6 +55,55 @@ from a terminal must also work from a GUI.
 - [ ] Issue #12 (fluffynuts): a link to the GitHub issues on Sloth Center's Feedback page (no Discord: one person,
   one place)
 
+### Older NVIDIA cards on nouveau (2026-11-04, GitHub issue #17 again: GTS 450 on VGA, Sloth OS 1.4)
+- [ ] The screen went black with only the pointer when nothing moved and flashed while
+  something did (fine on 1.2.1; since then kernel 7.2.12 -> 7.2.14 and the KWin/Mesa updates). NOT
+  `KWIN_DRM_NO_AMS=1`: tried in the VM through a user environment generator, KWin 6.8 crashes with it at once
+  (assertion in its output layers, plasma-login-kwin_wayland core dump: no login screen at all), so it was taken
+  out again. The cause is KDE bug 527421 (Plasma 6.8, legacy mode setting, nearly only on nouveau; 1.2.1 still had
+  6.7): its 6.8.2 fix (MR 10173, in the image) does not stop it, per the reports after it, and NO_AMS forces exactly
+  the broken path. Fix: nouveau with atomic modesetting, what the kernel turns on by default for NV50+ later ("drm/
+  nouveau: Enable atomic modesetting by default"). `nouveau-modprobe` (an `install` line in
+  /usr/lib/modprobe.d/sloth-nouveau.conf, in the initramfs too) adds `atomic=1` only on an NVIDIA card before Turing.
+  Tried in the VM with the real modprobe and fake PCI trees: GTS 450 / GTX 1060 -> 1, RTX 4060, AMD, NVIDIA audio
+  -> 0, `atomic=0` by hand wins; in the built image it is in the initramfs, and a blacklisted nouveau (the NVIDIA
+  version) still does not load through it. Still to see on his machine (KWin's log must not say "Using legacy mode"). The
+  community workaround if not: `KWIN_FORCE_SW_CURSOR=1`, `KWIN_USE_BUFFER_AGE=0`,
+  `KWIN_DRM_FORCE_GL_FINISH_PRESENT=1` and the shake cursor effect off. Brave, Chrome, Spotify crashed in the GPU process (SIGSEGV in Flatpak Mesa's libgallium on
+  nouveau): `old-nvidia-apps` (sloth-old-nvidia-apps.service, every start) writes Flatpak overrides with
+  `LIBGL_ALWAYS_SOFTWARE=1` for Chromium-based apps (browsers, Electron, CEF, Qt WebEngine), only files it owns,
+  and removes them when the card is gone. Tried with fake sysfs trees (GTS 450, GTX 1060, RTX 4060, the NVIDIA
+  driver, AMD), and in the VM that Flatpak takes the override (`flatpak override --show`). Still to see on his
+  machine.
+- [ ] KWallet on a password-free login (autologin): every network password asks for the wallet's password (his
+  Windows shares); see "Opening the password store (KWallet) on a password-free login" below. On an encrypted
+  disk the boot password opens it now (`kwallet-autologin.sh`: pam_systemd_loadkey + pam_kwallet in the auth part of
+  plasmalogin-autologin, `KeyringMode=inherit` for plasmalogin.service; the man page's recipe). NOT an empty wallet
+  password: the saved passwords would be readable on the disk. Tried in the VM with real reboots, the boot password
+  put in root's keyring by a test service: the same password -> the wallet open; none -> locked, as before; a
+  different one -> locked, the session fine; no crash. Again on the built image (44.20261104.3): a password
+  sign-in opens it as before, autologin with / without the boot password -> open / locked. The automatic sign-in switch says it in Welcome
+  (`security.autologin_note`, shown when ticked) and in Sloth Center (50 languages). Still to check: that the
+  wallet really asks only once per session (his screenshots showed the network folder's sign-in again and again)
+- [x] His SMB errors (2026-11-04, "Access denied" opening `-  MOVIES/…-%5BYTS.LT%5D.mp4` through KIOExec, "does not
+  exist" copying `-  App's/-= OS =-/LINUX OS's/Sloth Oct 2026`) are not a name problem: rebuilt the same shares
+  and names on a Windows 11 host, used from the VM with autologin and the wallet refused. Dolphin lists them,
+  KIOExec opens the file, the folder copies, and the wallet asked once only. So it is on his side: the file's NTFS
+  rights for his account, a file open on Windows, or the Wi-Fi dropping (he was going to try a cable)
+
+### Next to Windows, tried in a Windows 11 25H2 VM on Hyper-V (2026-11-04)
+- [x] The real cause of "we couldn't check the Windows drive": the disk survey crashed (EBUSY on rmdir after the
+  live KDE desktop opened the freshly mounted EFI partition); `mounted_ro` retries, unmounts lazily at last
+  (`34507f7`). A BitLocker C: (Windows 11's own device encryption) with the Recovery partition said "unknown"
+  instead of "bitlocker" (`ac7d1e3`).
+- [x] Three rounds, all fine: next to Windows (shrinking a 254 GB C:), Windows started from the boot menu and shut
+  down from the Start menu (fast startup), installed again encrypted (the earlier one replaced, its firmware entry
+  gone, the boot prompt "Type your disk password", Windows starts), and again unencrypted from the fixed ISO
+  (`18f9580c…`, no hand patching). Small things seen: the boot menu lists "UEFI Firmware Settings" before Windows
+  and has "Reset this PC"; the live session shows the "saved networks count as home networks" notification; the
+  dual-boot clock (Windows keeps local time in the RTC): the installer writes `LOCAL` to /etc/adjtime next to
+  Windows since 2026-10-15 (checked in the VM)
+
 ### Test plan for 2026-11-03 (test branch, after the evening builds of 2026-11-02)
 Setup: a VM program on the gaming PC (GNOME Boxes as a Flatpak was suggested) and a test ISO built from the
 `test/chunked-oci` image (CI `iso` workflow). The HP follows the test branch, so the desktop items can be tried there

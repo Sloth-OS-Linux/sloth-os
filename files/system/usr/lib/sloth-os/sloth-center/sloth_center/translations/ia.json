@@ -240,7 +240,7 @@
   "Custom, by topic": "Personalisate, per thema",
   "Password needed": "Contrasigno necessari",
   "Sign in automatically": "Accesso automatic",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Post le accension le computator initia directemente con tu scriptorio, sin contrasigno. Le deposito de contrasignos salvate (p. ex. Wi-Fi, navigator) demanda alora tu contrasigno al prime uso.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Post le accension le computator initia directemente con tu scriptorio, sin contrasigno. Le contrasignos salvate (p. ex. Wi-Fi, dossieres de rete) se aperi alora con le contrasigno scribite al initio si le disco es cryptate; alteremente illos demanda tu contrasigno un vice post cata initio.",
   "Password in the terminal (sudo)": "Contrasigno in le terminal (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Pro expertos: disactiva lo si tu non vole que le commando “sudo” demanda contrasigno in le terminal.",
   "Advanced settings": "Parametros avantiate",

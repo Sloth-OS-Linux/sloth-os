@@ -45,6 +45,7 @@
   "security.recommended": "Só para coisas arriscadas: discos, usuários, inicialização (mais prático)",
   "security.not_admin": "Somente uma conta de administrador pode alterar isso.",
   "security.autologin": "Entrar automaticamente: direto para a área de trabalho sem senha",
+  "security.autologin_note": "As senhas salvas (ex.: Wi-Fi, pastas de rede) então pedem sua senha uma vez após cada inicialização, a menos que o disco esteja criptografado.",
   "security.later": "Depois você pode ajustar isso no Sloth Center (Conta e segurança).",
   "sharing.heading": "Ajude os programas do Windows a abrir de primeira para todo mundo",
   "sharing.text": "Quando você abre um programa ou jogo do Windows, o Sloth OS encontra sozinho a configuração com que ele funciona. Se você permitir, compartilhamos de forma anônima a configuração que funcionou, para que ele abra de primeira também em outros computadores com Sloth OS.",

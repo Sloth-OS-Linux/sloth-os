@@ -240,7 +240,7 @@
   "Custom, by topic": "מותאם אישית, לפי נושא",
   "Password needed": "נדרשת סיסמה",
   "Sign in automatically": "כניסה אוטומטית",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "לאחר ההדלקה המחשב עולה ישר לשולחן העבודה שלכם, בלי סיסמה. מאגר הסיסמאות השמורות (למשל Wi-Fi, דפדפן) יבקש אז את הסיסמה בשימוש הראשון.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "לאחר ההדלקה המחשב עולה ישר לשולחן העבודה שלכם, בלי סיסמה. הסיסמאות השמורות (למשל Wi-Fi, תיקיות רשת) נפתחות אז בסיסמה שהוקלדה בהפעלה אם הדיסק מוצפן; אחרת הן מבקשות את הסיסמה שלכם פעם אחת אחרי כל הפעלה.",
   "Password in the terminal (sudo)": "סיסמה במסוף (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "למתקדמים: כבו אם אינכם רוצים שהפקודה „sudo” תבקש סיסמה במסוף.",
   "Advanced settings": "הגדרות מתקדמות",

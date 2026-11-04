@@ -240,7 +240,7 @@
   "Custom, by topic": "Egyénileg, témakörönként",
   "Password needed": "Jelszó kell",
   "Sign in automatically": "Automatikus bejelentkezés",
-  "When turned on, the computer starts straight to your desktop without a password. The store of saved passwords (e.g. Wi-Fi, browser) then asks for your password the first time it is used.": "Bekapcsolás után a gép jelszó nélkül, egyből a te asztaloddal indul. A mentett jelszavak (pl. Wi-Fi, böngésző) tárolója ilyenkor az első használatkor kéri a jelszavad.",
+  "When turned on, the computer starts straight to your desktop without a password. Saved passwords (e.g. Wi-Fi, network folders) then open with the password typed at startup if the disk is encrypted; otherwise they ask for your password once after each start.": "Bekapcsolás után a gép jelszó nélkül, egyből a te asztaloddal indul. A mentett jelszavak (pl. Wi-Fi, hálózati mappák) ilyenkor titkosított lemeznél az induláskor beírt jelszóval nyílnak; különben minden indítás után egyszer kérik a jelszavad.",
   "Password in the terminal (sudo)": "Jelszó a terminálban (sudo)",
   "For advanced users: turn this off if you do not want the “sudo” command to ask for a password in the terminal.": "Haladóknak: kapcsold ki, ha nem szeretnéd, hogy a terminálban a „sudo” parancs jelszót kérjen.",
   "Advanced settings": "Haladó beállítások",

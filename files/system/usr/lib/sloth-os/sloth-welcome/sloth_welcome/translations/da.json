@@ -45,6 +45,7 @@
   "security.recommended": "Kun ved risikable ting: diske, brugere, opstart (mere bekvemt)",
   "security.not_admin": "Kun en administratorkonto kan ændre dette.",
   "security.autologin": "Log ind automatisk: start direkte på skrivebordet uden adgangskode",
+  "security.autologin_note": "Gemte adgangskoder (f.eks. Wi-Fi, netværksmapper) beder så om din adgangskode én gang efter hver opstart, medmindre disken er krypteret.",
   "security.later": "Du kan finjustere det senere i Sloth Center (Konto og sikkerhed).",
   "sharing.heading": "Hjælp Windows-programmer med at starte i første forsøg for alle",
   "sharing.text": "Når du starter et Windows-program eller -spil, finder Sloth OS selv den indstilling, der virker for det. Hvis du tillader det, deler vi den virkende indstilling anonymt, så det også starter i første forsøg på andre Sloth OS-computere.",
