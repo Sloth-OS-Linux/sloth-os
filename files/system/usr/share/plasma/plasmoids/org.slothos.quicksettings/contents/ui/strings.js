@@ -14,7 +14,9 @@ const TEXTS = {
   "dnd": "Moenie steur nie",
   "airplane": "Vliegtuigmodus",
   "powersave": "Kragbesparing",
-  "screenshot": "Skermskoot"
+  "screenshot": "Skermskoot",
+  "restart": "Herbegin",
+  "logout": "Meld af"
  },
  "ar": {
   "wifi": "Wi-Fi",
@@ -27,7 +29,9 @@ const TEXTS = {
   "dnd": "عدم الإزعاج",
   "airplane": "وضع الطيران",
   "powersave": "توفير الطاقة",
-  "screenshot": "لقطة شاشة"
+  "screenshot": "لقطة شاشة",
+  "restart": "إعادة التشغيل",
+  "logout": "تسجيل الخروج"
  },
  "as": {
   "wifi": "Wi-Fi",
@@ -40,7 +44,9 @@ const TEXTS = {
   "dnd": "অসুবিধা নিদিব",
   "airplane": "এয়াৰপ্লেন ম'ড",
   "powersave": "শক্তি সঞ্চয়",
-  "screenshot": "স্ক্ৰীণশ্বট"
+  "screenshot": "স্ক্ৰীণশ্বট",
+  "restart": "পুনৰাৰম্ভ",
+  "logout": "লগ আউট"
  },
  "be": {
   "wifi": "Wi-Fi",
@@ -53,7 +59,9 @@ const TEXTS = {
   "dnd": "Не турбаваць",
   "airplane": "Рэжым палёту",
   "powersave": "Эканомія энергіі",
-  "screenshot": "Здымак экрана"
+  "screenshot": "Здымак экрана",
+  "restart": "Перазапусціць",
+  "logout": "Выйсці"
  },
  "bg": {
   "wifi": "Wi-Fi",
@@ -66,7 +74,9 @@ const TEXTS = {
   "dnd": "Не безпокойте",
   "airplane": "Самолетен режим",
   "powersave": "Пестене на енергия",
-  "screenshot": "Снимка на екрана"
+  "screenshot": "Снимка на екрана",
+  "restart": "Рестартиране",
+  "logout": "Излизане"
  },
  "bn_IN": {
   "wifi": "Wi-Fi",
@@ -79,7 +89,9 @@ const TEXTS = {
   "dnd": "বিরক্ত করবেন না",
   "airplane": "বিমান মোড",
   "powersave": "শক্তি সাশ্রয়",
-  "screenshot": "স্ক্রিনশট"
+  "screenshot": "স্ক্রিনশট",
+  "restart": "রিস্টার্ট",
+  "logout": "লগ আউট"
  },
  "ca": {
   "wifi": "Wi-Fi",
@@ -92,7 +104,9 @@ const TEXTS = {
   "dnd": "No molesteu",
   "airplane": "Mode avió",
   "powersave": "Estalvi d'energia",
-  "screenshot": "Captura de pantalla"
+  "screenshot": "Captura de pantalla",
+  "restart": "Reinicia",
+  "logout": "Tanca la sessió"
  },
  "cs": {
   "wifi": "Wi-Fi",
@@ -105,7 +119,9 @@ const TEXTS = {
   "dnd": "Nerušit",
   "airplane": "Režim letadlo",
   "powersave": "Úspora energie",
-  "screenshot": "Snímek obrazovky"
+  "screenshot": "Snímek obrazovky",
+  "restart": "Restartovat",
+  "logout": "Odhlásit se"
  },
  "da": {
   "wifi": "Wi-Fi",
@@ -118,7 +134,9 @@ const TEXTS = {
   "dnd": "Forstyr ikke",
   "airplane": "Flytilstand",
   "powersave": "Strømbesparelse",
-  "screenshot": "Skærmbillede"
+  "screenshot": "Skærmbillede",
+  "restart": "Genstart",
+  "logout": "Log ud"
  },
  "de": {
   "wifi": "WLAN",
@@ -131,7 +149,9 @@ const TEXTS = {
   "dnd": "Nicht stören",
   "airplane": "Flugmodus",
   "powersave": "Energiesparen",
-  "screenshot": "Bildschirmfoto"
+  "screenshot": "Bildschirmfoto",
+  "restart": "Neustart",
+  "logout": "Abmelden"
  },
  "el": {
   "wifi": "Wi-Fi",
@@ -144,7 +164,9 @@ const TEXTS = {
   "dnd": "Μην ενοχλείτε",
   "airplane": "Λειτουργία πτήσης",
   "powersave": "Εξοικονόμηση ενέργειας",
-  "screenshot": "Στιγμιότυπο οθόνης"
+  "screenshot": "Στιγμιότυπο οθόνης",
+  "restart": "Επανεκκίνηση",
+  "logout": "Αποσύνδεση"
  },
  "en": {
   "wifi": "Wi-Fi",
@@ -157,7 +179,9 @@ const TEXTS = {
   "dnd": "Do not disturb",
   "airplane": "Airplane mode",
   "powersave": "Power saver",
-  "screenshot": "Screenshot"
+  "screenshot": "Screenshot",
+  "restart": "Restart",
+  "logout": "Log out"
  },
  "eo": {
   "wifi": "Wi-Fi",
@@ -170,7 +194,9 @@ const TEXTS = {
   "dnd": "Ne ĝeni",
   "airplane": "Aviadila reĝimo",
   "powersave": "Energiŝparo",
-  "screenshot": "Ekrankopio"
+  "screenshot": "Ekrankopio",
+  "restart": "Restartigi",
+  "logout": "Elsaluti"
  },
  "es": {
   "wifi": "Wi-Fi",
@@ -183,7 +209,9 @@ const TEXTS = {
   "dnd": "No molestar",
   "airplane": "Modo avión",
   "powersave": "Ahorro de energía",
-  "screenshot": "Captura de pantalla"
+  "screenshot": "Captura de pantalla",
+  "restart": "Reiniciar",
+  "logout": "Cerrar sesión"
  },
  "et": {
   "wifi": "Wi-Fi",
@@ -196,7 +224,9 @@ const TEXTS = {
   "dnd": "Ära sega",
   "airplane": "Lennukirežiim",
   "powersave": "Energiasäästja",
-  "screenshot": "Ekraanipilt"
+  "screenshot": "Ekraanipilt",
+  "restart": "Taaskäivita",
+  "logout": "Logi välja"
  },
  "fi": {
   "wifi": "Wi-Fi",
@@ -209,7 +239,9 @@ const TEXTS = {
   "dnd": "Älä häiritse",
   "airplane": "Lentokonetila",
   "powersave": "Virransäästö",
-  "screenshot": "Kuvakaappaus"
+  "screenshot": "Kuvakaappaus",
+  "restart": "Käynnistä uudelleen",
+  "logout": "Kirjaudu ulos"
  },
  "fr": {
   "wifi": "Wi-Fi",
@@ -222,7 +254,9 @@ const TEXTS = {
   "dnd": "Ne pas déranger",
   "airplane": "Mode avion",
   "powersave": "Économie d'énergie",
-  "screenshot": "Capture d'écran"
+  "screenshot": "Capture d'écran",
+  "restart": "Redémarrer",
+  "logout": "Se déconnecter"
  },
  "fur": {
   "wifi": "Wi-Fi",
@@ -235,7 +269,9 @@ const TEXTS = {
   "dnd": "No sta disturbâ",
   "airplane": "Modalitât avion",
   "powersave": "Sparagn di energjie",
-  "screenshot": "Cature di schermi"
+  "screenshot": "Cature di schermi",
+  "restart": "Torne invie",
+  "logout": "Jes"
  },
  "he": {
   "wifi": "Wi-Fi",
@@ -248,7 +284,9 @@ const TEXTS = {
   "dnd": "נא לא להפריע",
   "airplane": "מצב טיסה",
   "powersave": "חיסכון בחשמל",
-  "screenshot": "צילום מסך"
+  "screenshot": "צילום מסך",
+  "restart": "הפעלה מחדש",
+  "logout": "התנתקות"
  },
  "hr": {
   "wifi": "Wi-Fi",
@@ -261,7 +299,9 @@ const TEXTS = {
   "dnd": "Ne ometaj",
   "airplane": "Način rada u zrakoplovu",
   "powersave": "Štednja energije",
-  "screenshot": "Snimka zaslona"
+  "screenshot": "Snimka zaslona",
+  "restart": "Ponovno pokreni",
+  "logout": "Odjava"
  },
  "hu": {
   "wifi": "Wi-Fi",
@@ -274,7 +314,9 @@ const TEXTS = {
   "dnd": "Ne zavarjanak",
   "airplane": "Repülő üzemmód",
   "powersave": "Energiatakarékos",
-  "screenshot": "Képernyőkép"
+  "screenshot": "Képernyőkép",
+  "restart": "Újraindítás",
+  "logout": "Kijelentkezés"
  },
  "ia": {
   "wifi": "Wi-Fi",
@@ -287,7 +329,9 @@ const TEXTS = {
   "dnd": "Non disturbar",
   "airplane": "Modo avion",
   "powersave": "Sparnio de energia",
-  "screenshot": "Captura de schermo"
+  "screenshot": "Captura de schermo",
+  "restart": "Reinitiar",
+  "logout": "Disconnecter"
  },
  "id": {
   "wifi": "Wi-Fi",
@@ -300,7 +344,9 @@ const TEXTS = {
   "dnd": "Jangan ganggu",
   "airplane": "Mode pesawat",
   "powersave": "Hemat daya",
-  "screenshot": "Tangkapan layar"
+  "screenshot": "Tangkapan layar",
+  "restart": "Mulai ulang",
+  "logout": "Keluar"
  },
  "it": {
   "wifi": "Wi-Fi",
@@ -313,7 +359,9 @@ const TEXTS = {
   "dnd": "Non disturbare",
   "airplane": "Modalità aereo",
   "powersave": "Risparmio energetico",
-  "screenshot": "Schermata"
+  "screenshot": "Schermata",
+  "restart": "Riavvia",
+  "logout": "Esci"
  },
  "ja": {
   "wifi": "Wi-Fi",
@@ -326,7 +374,9 @@ const TEXTS = {
   "dnd": "通知を停止",
   "airplane": "機内モード",
   "powersave": "省電力",
-  "screenshot": "スクリーンショット"
+  "screenshot": "スクリーンショット",
+  "restart": "再起動",
+  "logout": "ログアウト"
  },
  "ka": {
   "wifi": "Wi-Fi",
@@ -339,7 +389,9 @@ const TEXTS = {
   "dnd": "არ შემაწუხოთ",
   "airplane": "თვითმფრინავის რეჟიმი",
   "powersave": "ენერგიის დაზოგვა",
-  "screenshot": "ეკრანის ანაბეჭდი"
+  "screenshot": "ეკრანის ანაბეჭდი",
+  "restart": "გადატვირთვა",
+  "logout": "გამოსვლა"
  },
  "kab": {
   "wifi": "Wi-Fi",
@@ -352,7 +404,9 @@ const TEXTS = {
   "dnd": "Ur iyi-tcewwiq ara",
   "airplane": "Askar n usafag",
   "powersave": "Asekles n tezmert",
-  "screenshot": "Tuṭṭfa n ugdil"
+  "screenshot": "Tuṭṭfa n ugdil",
+  "restart": "Ales asenker",
+  "logout": "Ffeɣ"
  },
  "kk": {
   "wifi": "Wi-Fi",
@@ -365,7 +419,9 @@ const TEXTS = {
   "dnd": "Мазаламау",
   "airplane": "Ұшақ режимі",
   "powersave": "Қуат үнемдеу",
-  "screenshot": "Скриншот"
+  "screenshot": "Скриншот",
+  "restart": "Қайта іске қосу",
+  "logout": "Шығу"
  },
  "ko": {
   "wifi": "Wi-Fi",
@@ -378,7 +434,9 @@ const TEXTS = {
   "dnd": "방해 금지",
   "airplane": "비행기 모드",
   "powersave": "절전",
-  "screenshot": "스크린샷"
+  "screenshot": "스크린샷",
+  "restart": "재시동",
+  "logout": "로그아웃"
  },
  "lo": {
   "wifi": "Wi-Fi",
@@ -391,7 +449,9 @@ const TEXTS = {
   "dnd": "ຫ້າມລົບກວນ",
   "airplane": "ໂໝດຢູ່ໃນຍົນ",
   "powersave": "ປະຢັດພະລັງງານ",
-  "screenshot": "ຖ່າຍພາບໜ້າຈໍ"
+  "screenshot": "ຖ່າຍພາບໜ້າຈໍ",
+  "restart": "ເລີ່ມໃໝ່",
+  "logout": "ອອກຈາກລະບົບ"
  },
  "lt": {
   "wifi": "Wi-Fi",
@@ -404,7 +464,9 @@ const TEXTS = {
   "dnd": "Netrukdyti",
   "airplane": "Lėktuvo režimas",
   "powersave": "Energijos taupymas",
-  "screenshot": "Ekrano nuotrauka"
+  "screenshot": "Ekrano nuotrauka",
+  "restart": "Paleisti iš naujo",
+  "logout": "Atsijungti"
  },
  "nb": {
   "wifi": "Wi-Fi",
@@ -417,7 +479,9 @@ const TEXTS = {
   "dnd": "Ikke forstyrr",
   "airplane": "Flymodus",
   "powersave": "Strømsparing",
-  "screenshot": "Skjermbilde"
+  "screenshot": "Skjermbilde",
+  "restart": "Start på nytt",
+  "logout": "Logg ut"
  },
  "nl": {
   "wifi": "Wi-Fi",
@@ -430,7 +494,9 @@ const TEXTS = {
   "dnd": "Niet storen",
   "airplane": "Vliegtuigmodus",
   "powersave": "Energiebesparing",
-  "screenshot": "Schermafdruk"
+  "screenshot": "Schermafdruk",
+  "restart": "Herstart",
+  "logout": "Afmelden"
  },
  "nn": {
   "wifi": "Wi-Fi",
@@ -443,7 +509,9 @@ const TEXTS = {
   "dnd": "Ikkje forstyrr",
   "airplane": "Flymodus",
   "powersave": "Straumsparing",
-  "screenshot": "Skjermbilete"
+  "screenshot": "Skjermbilete",
+  "restart": "Start på nytt",
+  "logout": "Logg ut"
  },
  "pa": {
   "wifi": "Wi-Fi",
@@ -456,7 +524,9 @@ const TEXTS = {
   "dnd": "ਤੰਗ ਨਾ ਕਰੋ",
   "airplane": "ਜਹਾਜ਼ ਮੋਡ",
   "powersave": "ਪਾਵਰ ਬਚਤ",
-  "screenshot": "ਸਕਰੀਨਸ਼ਾਟ"
+  "screenshot": "ਸਕਰੀਨਸ਼ਾਟ",
+  "restart": "ਰੀਸਟਾਰਟ",
+  "logout": "ਲਾਗ ਆਊਟ"
  },
  "pl": {
   "wifi": "Wi-Fi",
@@ -469,7 +539,9 @@ const TEXTS = {
   "dnd": "Nie przeszkadzać",
   "airplane": "Tryb samolotowy",
   "powersave": "Oszczędzanie energii",
-  "screenshot": "Zrzut ekranu"
+  "screenshot": "Zrzut ekranu",
+  "restart": "Uruchom ponownie",
+  "logout": "Wyloguj"
  },
  "pt": {
   "wifi": "Wi-Fi",
@@ -482,7 +554,9 @@ const TEXTS = {
   "dnd": "Não incomodar",
   "airplane": "Modo de avião",
   "powersave": "Poupança de energia",
-  "screenshot": "Captura de ecrã"
+  "screenshot": "Captura de ecrã",
+  "restart": "Reiniciar",
+  "logout": "Terminar sessão"
  },
  "pt_BR": {
   "wifi": "Wi-Fi",
@@ -495,7 +569,9 @@ const TEXTS = {
   "dnd": "Não perturbe",
   "airplane": "Modo avião",
   "powersave": "Economia de energia",
-  "screenshot": "Captura de tela"
+  "screenshot": "Captura de tela",
+  "restart": "Reiniciar",
+  "logout": "Sair"
  },
  "ro": {
   "wifi": "Wi-Fi",
@@ -508,7 +584,9 @@ const TEXTS = {
   "dnd": "Nu deranja",
   "airplane": "Mod avion",
   "powersave": "Economisire energie",
-  "screenshot": "Captură de ecran"
+  "screenshot": "Captură de ecran",
+  "restart": "Repornește",
+  "logout": "Deconectare"
  },
  "ru": {
   "wifi": "Wi-Fi",
@@ -521,7 +599,9 @@ const TEXTS = {
   "dnd": "Не беспокоить",
   "airplane": "Режим полёта",
   "powersave": "Энергосбережение",
-  "screenshot": "Снимок экрана"
+  "screenshot": "Снимок экрана",
+  "restart": "Перезагрузить",
+  "logout": "Выйти"
  },
  "sk": {
   "wifi": "Wi-Fi",
@@ -534,7 +614,9 @@ const TEXTS = {
   "dnd": "Nerušiť",
   "airplane": "Režim v lietadle",
   "powersave": "Úspora energie",
-  "screenshot": "Snímka obrazovky"
+  "screenshot": "Snímka obrazovky",
+  "restart": "Reštartovať",
+  "logout": "Odhlásiť sa"
  },
  "sl": {
   "wifi": "Wi-Fi",
@@ -547,7 +629,9 @@ const TEXTS = {
   "dnd": "Ne moti",
   "airplane": "Letalski način",
   "powersave": "Varčevanje z energijo",
-  "screenshot": "Posnetek zaslona"
+  "screenshot": "Posnetek zaslona",
+  "restart": "Znova zaženi",
+  "logout": "Odjava"
  },
  "sq": {
   "wifi": "Wi-Fi",
@@ -560,7 +644,9 @@ const TEXTS = {
   "dnd": "Mos shqetëso",
   "airplane": "Modaliteti i aeroplanit",
   "powersave": "Kursim energjie",
-  "screenshot": "Pamje ekrani"
+  "screenshot": "Pamje ekrani",
+  "restart": "Rinis",
+  "logout": "Dil"
  },
  "sr": {
   "wifi": "Wi-Fi",
@@ -573,7 +659,9 @@ const TEXTS = {
   "dnd": "Не узнемиравај",
   "airplane": "Режим рада у авиону",
   "powersave": "Уштеда енергије",
-  "screenshot": "Снимак екрана"
+  "screenshot": "Снимак екрана",
+  "restart": "Поново покрени",
+  "logout": "Одјави се"
  },
  "sv": {
   "wifi": "Wi-Fi",
@@ -586,7 +674,9 @@ const TEXTS = {
   "dnd": "Stör ej",
   "airplane": "Flygplansläge",
   "powersave": "Energisparläge",
-  "screenshot": "Skärmbild"
+  "screenshot": "Skärmbild",
+  "restart": "Starta om",
+  "logout": "Logga ut"
  },
  "ta": {
   "wifi": "Wi-Fi",
@@ -599,7 +689,9 @@ const TEXTS = {
   "dnd": "தொந்தரவு செய்யாதே",
   "airplane": "விமானப் பயன்முறை",
   "powersave": "மின் சேமிப்பு",
-  "screenshot": "திரைப்பிடிப்பு"
+  "screenshot": "திரைப்பிடிப்பு",
+  "restart": "மறுதொடக்கம்",
+  "logout": "வெளியேறு"
  },
  "tr": {
   "wifi": "Wi-Fi",
@@ -612,7 +704,9 @@ const TEXTS = {
   "dnd": "Rahatsız etme",
   "airplane": "Uçak modu",
   "powersave": "Güç tasarrufu",
-  "screenshot": "Ekran görüntüsü"
+  "screenshot": "Ekran görüntüsü",
+  "restart": "Yeniden başlat",
+  "logout": "Oturumu kapat"
  },
  "uk": {
   "wifi": "Wi-Fi",
@@ -625,7 +719,9 @@ const TEXTS = {
   "dnd": "Не турбувати",
   "airplane": "Режим польоту",
   "powersave": "Енергозбереження",
-  "screenshot": "Знімок екрана"
+  "screenshot": "Знімок екрана",
+  "restart": "Перезапустити",
+  "logout": "Вийти"
  },
  "zh_CN": {
   "wifi": "Wi-Fi",
@@ -638,7 +734,9 @@ const TEXTS = {
   "dnd": "勿扰",
   "airplane": "飞行模式",
   "powersave": "省电",
-  "screenshot": "截图"
+  "screenshot": "截图",
+  "restart": "重新启动",
+  "logout": "退出登录"
  },
  "zh_TW": {
   "wifi": "Wi-Fi",
@@ -651,7 +749,9 @@ const TEXTS = {
   "dnd": "勿擾",
   "airplane": "飛航模式",
   "powersave": "省電",
-  "screenshot": "螢幕擷圖"
+  "screenshot": "螢幕擷圖",
+  "restart": "重新開機",
+  "logout": "登出"
  }
 };
 
