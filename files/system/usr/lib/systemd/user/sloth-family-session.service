@@ -1,0 +1,13 @@
+[Unit]
+Description=Sloth OS: screen time warnings and blocked apps for a child account
+After=plasma-workspace.target
+
+[Service]
+Type=oneshot
+# the notification waits for a click in its own process; it must stay after the service ends
+KillMode=process
+Environment=PYTHONPATH=/usr/lib/sloth-os/sloth-center:/usr/lib/sloth-os/common
+ExecStart=/usr/bin/python3 -m sloth_center.family_session
+
+[Install]
+WantedBy=plasma-workspace.target

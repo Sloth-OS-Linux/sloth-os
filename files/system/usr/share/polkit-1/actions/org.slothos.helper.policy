@@ -661,4 +661,115 @@
     </defaults>
     <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper-network</annotate>
   </action>
+  <!-- Parental controls (Sloth Center → Parental controls): the administrator password, kept for a while like
+       the other changes; Sloth Center's "users" topic can make it password-free for its own administrator -->
+  <action id="org.slothos.helper.family">
+    <description>Change parental controls</description>
+    <description xml:lang="af">Verander ouerbeheer</description>
+    <description xml:lang="ar">تغيير الرقابة الأبوية</description>
+    <description xml:lang="as">অভিভাৱকীয় নিয়ন্ত্ৰণ সলনি কৰক</description>
+    <description xml:lang="be">Змяніць бацькоўскі кантроль</description>
+    <description xml:lang="bg">Промяна на родителския контрол</description>
+    <description xml:lang="bn_IN">অভিভাবকীয় নিয়ন্ত্রণ পরিবর্তন করুন</description>
+    <description xml:lang="ca">Canvia el control parental</description>
+    <description xml:lang="cs">Změna rodičovské kontroly</description>
+    <description xml:lang="da">Ændr forældrekontrol</description>
+    <description xml:lang="de">Jugendschutz ändern</description>
+    <description xml:lang="el">Αλλαγή γονικού ελέγχου</description>
+    <description xml:lang="eo">Ŝanĝi gepatran kontrolon</description>
+    <description xml:lang="es">Cambiar el control parental</description>
+    <description xml:lang="et">Muuda vanemlikku järelevalvet</description>
+    <description xml:lang="fi">Muuta lapsilukkoa</description>
+    <description xml:lang="fr">Modifier le contrôle parental</description>
+    <description xml:lang="fur">Cambie il control dai gjenitôrs</description>
+    <description xml:lang="he">שינוי בקרת הורים</description>
+    <description xml:lang="hr">Promjena roditeljskog nadzora</description>
+    <description xml:lang="hu">A szülői felügyelet módosítása</description>
+    <description xml:lang="ia">Cambiar le controlo parental</description>
+    <description xml:lang="id">Ubah kontrol orang tua</description>
+    <description xml:lang="it">Modifica il controllo parentale</description>
+    <description xml:lang="ja">ペアレンタルコントロールの変更</description>
+    <description xml:lang="ka">მშობლის კონტროლის შეცვლა</description>
+    <description xml:lang="kab">Beddel asenqed n imawlan</description>
+    <description xml:lang="kk">Ата-ана бақылауын өзгерту</description>
+    <description xml:lang="ko">자녀 보호 기능 변경</description>
+    <description xml:lang="lo">ປ່ຽນການຄວບຄຸມຂອງພໍ່ແມ່</description>
+    <description xml:lang="lt">Keisti tėvų kontrolę</description>
+    <description xml:lang="nb">Endre foreldrekontroll</description>
+    <description xml:lang="nl">Ouderlijk toezicht wijzigen</description>
+    <description xml:lang="nn">Endre foreldrekontroll</description>
+    <description xml:lang="pa">ਮਾਪਿਆਂ ਦਾ ਕੰਟਰੋਲ ਬਦਲੋ</description>
+    <description xml:lang="pl">Zmień kontrolę rodzicielską</description>
+    <description xml:lang="pt">Alterar o controlo parental</description>
+    <description xml:lang="pt_BR">Alterar o controle dos pais</description>
+    <description xml:lang="ro">Modifică controlul parental</description>
+    <description xml:lang="ru">Изменить родительский контроль</description>
+    <description xml:lang="sk">Zmena rodičovskej kontroly</description>
+    <description xml:lang="sl">Spremeni starševski nadzor</description>
+    <description xml:lang="sq">Ndrysho kontrollin prindëror</description>
+    <description xml:lang="sr">Промена родитељског надзора</description>
+    <description xml:lang="sv">Ändra föräldrakontroll</description>
+    <description xml:lang="ta">பெற்றோர் கட்டுப்பாட்டை மாற்று</description>
+    <description xml:lang="tr">Ebeveyn denetimini değiştir</description>
+    <description xml:lang="uk">Змінити батьківський контроль</description>
+    <description xml:lang="zh_CN">更改家长控制</description>
+    <description xml:lang="zh_TW">變更家長監護</description>
+    <message>Sloth Center wants to change the parental controls. Enter your password to allow it.</message>
+    <message xml:lang="af">Sloth Center wil die ouerbeheer verander. Tik jou wagwoord in om dit toe te laat.</message>
+    <message xml:lang="ar">يريد Sloth Center تغيير الرقابة الأبوية. أدخل كلمة المرور للسماح بذلك.</message>
+    <message xml:lang="as">Sloth Center-এ অভিভাৱকীয় নিয়ন্ত্ৰণ সলনি কৰিব বিচাৰে। অনুমতি দিবলৈ আপোনাৰ পাছৱৰ্ড দিয়ক।</message>
+    <message xml:lang="be">Sloth Center хоча змяніць бацькоўскі кантроль. Каб дазволіць гэта, увядзіце свой пароль.</message>
+    <message xml:lang="bg">Sloth Center иска да промени родителския контрол. Въведете паролата си, за да го разрешите.</message>
+    <message xml:lang="bn_IN">Sloth Center অভিভাবকীয় নিয়ন্ত্রণ পরিবর্তন করতে চায়। অনুমতি দিতে আপনার পাসওয়ার্ড লিখুন।</message>
+    <message xml:lang="ca">Sloth Center vol canviar el control parental. Escriu la teva contrasenya per permetre-ho.</message>
+    <message xml:lang="cs">Sloth Center chce změnit rodičovskou kontrolu. Pro povolení zadejte své heslo.</message>
+    <message xml:lang="da">Sloth Center vil ændre forældrekontrollen. Indtast din adgangskode for at tillade det.</message>
+    <message xml:lang="de">Sloth Center möchte den Jugendschutz ändern. Gib dein Passwort ein, um es zu erlauben.</message>
+    <message xml:lang="el">Το Sloth Center θέλει να αλλάξει τον γονικό έλεγχο. Εισαγάγετε τον κωδικό σας για να το επιτρέψετε.</message>
+    <message xml:lang="eo">Sloth Center volas ŝanĝi la gepatran kontrolon. Entajpu vian pasvorton por permesi tion.</message>
+    <message xml:lang="es">Sloth Center quiere cambiar el control parental. Escribe tu contraseña para permitirlo.</message>
+    <message xml:lang="et">Sloth Center soovib muuta vanemlikku järelevalvet. Selle lubamiseks sisesta oma parool.</message>
+    <message xml:lang="fi">Sloth Center haluaa muuttaa lapsilukkoa. Anna salasanasi salliaksesi sen.</message>
+    <message xml:lang="fr">Sloth Center veut modifier le contrôle parental. Saisissez votre mot de passe pour l'autoriser.</message>
+    <message xml:lang="fur">Sloth Center al vûl cambiâ il control dai gjenitôrs. Met la tô password par permetilu.</message>
+    <message xml:lang="he">Sloth Center רוצה לשנות את בקרת ההורים. יש להזין את הסיסמה כדי לאשר זאת.</message>
+    <message xml:lang="hr">Sloth Center želi promijeniti roditeljski nadzor. Upišite svoju lozinku da biste to dopustili.</message>
+    <message xml:lang="hu">A Sloth Központ módosítani szeretné a szülői felügyeletet. Ehhez add meg a jelszavad.</message>
+    <message xml:lang="ia">Sloth Center vole cambiar le controlo parental. Entra tu contrasigno pro permitter lo.</message>
+    <message xml:lang="id">Sloth Center ingin mengubah kontrol orang tua. Masukkan kata sandi Anda untuk mengizinkannya.</message>
+    <message xml:lang="it">Sloth Center vuole modificare il controllo parentale. Inserisci la tua password per consentirlo.</message>
+    <message xml:lang="ja">Sloth Center がペアレンタルコントロールを変更しようとしています。許可するにはパスワードを入力してください。</message>
+    <message xml:lang="ka">Sloth Center-ს სურს მშობლის კონტროლის შეცვლა. ნებართვისთვის შეიყვანეთ თქვენი პაროლი.</message>
+    <message xml:lang="kab">Sloth Center yebɣa ad ibeddel asenqed n imawlan. Sekcem awal-ik uffir akken ad t-tsirgeḍ.</message>
+    <message xml:lang="kk">Sloth Center ата-ана бақылауын өзгерткісі келеді. Рұқсат беру үшін құпиясөзіңізді енгізіңіз.</message>
+    <message xml:lang="ko">Sloth Center가 자녀 보호 기능을 변경하려고 합니다. 허용하려면 비밀번호를 입력하세요.</message>
+    <message xml:lang="lo">Sloth Center ຕ້ອງການປ່ຽນການຄວບຄຸມຂອງພໍ່ແມ່. ກະລຸນາໃສ່ລະຫັດຜ່ານຂອງທ່ານເພື່ອອະນຸຍາດ.</message>
+    <message xml:lang="lt">Sloth Center nori pakeisti tėvų kontrolę. Norėdami tai leisti, įveskite savo slaptažodį.</message>
+    <message xml:lang="nb">Sloth Center vil endre foreldrekontrollen. Skriv inn passordet ditt for å tillate det.</message>
+    <message xml:lang="nl">Sloth Center wil het ouderlijk toezicht wijzigen. Voer je wachtwoord in om dit toe te staan.</message>
+    <message xml:lang="nn">Sloth Center vil endre foreldrekontrollen. Skriv inn passordet ditt for å tillate det.</message>
+    <message xml:lang="pa">Sloth Center ਮਾਪਿਆਂ ਦਾ ਕੰਟਰੋਲ ਬਦਲਣਾ ਚਾਹੁੰਦਾ ਹੈ। ਇਜਾਜ਼ਤ ਦੇਣ ਲਈ ਆਪਣਾ ਪਾਸਵਰਡ ਦਿਓ।</message>
+    <message xml:lang="pl">Sloth Center chce zmienić kontrolę rodzicielską. Wpisz swoje hasło, aby na to zezwolić.</message>
+    <message xml:lang="pt">O Sloth Center quer alterar o controlo parental. Introduza a sua palavra-passe para o permitir.</message>
+    <message xml:lang="pt_BR">O Sloth Center quer alterar o controle dos pais. Digite sua senha para permitir.</message>
+    <message xml:lang="ro">Sloth Center vrea să modifice controlul parental. Introdu parola pentru a permite acest lucru.</message>
+    <message xml:lang="ru">Sloth Center хочет изменить родительский контроль. Введите свой пароль, чтобы разрешить это.</message>
+    <message xml:lang="sk">Sloth Center chce zmeniť rodičovskú kontrolu. Na povolenie zadajte svoje heslo.</message>
+    <message xml:lang="sl">Sloth Center želi spremeniti starševski nadzor. Vnesite svoje geslo, da to dovolite.</message>
+    <message xml:lang="sq">Sloth Center dëshiron të ndryshojë kontrollin prindëror. Shkruaj fjalëkalimin për ta lejuar.</message>
+    <message xml:lang="sr">Sloth Center жели да промени родитељски надзор. Унесите своју лозинку да бисте то дозволили.</message>
+    <message xml:lang="sv">Sloth Center vill ändra föräldrakontrollen. Ange ditt lösenord för att tillåta det.</message>
+    <message xml:lang="ta">Sloth Center பெற்றோர் கட்டுப்பாட்டை மாற்ற விரும்புகிறது. அனுமதிக்க உங்கள் கடவுச்சொல்லை உள்ளிடவும்.</message>
+    <message xml:lang="tr">Sloth Center ebeveyn denetimini değiştirmek istiyor. İzin vermek için parolanızı girin.</message>
+    <message xml:lang="uk">Sloth Center хоче змінити батьківський контроль. Введіть свій пароль, щоб дозволити це.</message>
+    <message xml:lang="zh_CN">Sloth Center 想要更改家长控制。请输入密码以允许此操作。</message>
+    <message xml:lang="zh_TW">Sloth Center 想要變更家長監護。請輸入密碼以允許此操作。</message>
+    <icon_name>sloth-os</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/libexec/sloth-os/sloth-helper-family</annotate>
+  </action>
 </policyconfig>

@@ -37,6 +37,13 @@ Fedora container with the repository mounted at `/repo`, e.g.
 It checks password and PIN in the same prompt, rejection over SSH, the lock screen running as the user,
 the lockout after repeated wrong PINs, and removal.
 
+`python3 tools/tests/test_parental_controls.py` checks the parental controls without root, D-Bus or Qt: the screen
+time service's decisions (warnings, signing out, locked screens, a broken timer daemon), `sloth-helper-family`'s
+input checks and the child session's warnings and hidden apps. `tools/tests/parental_controls_test.sh` runs the
+system side against the real AccountsService and malcontent-timerd in a throwaway Fedora container, the same way as
+the PIN test:
+`podman run --rm -v .:/repo:ro registry.fedoraproject.org/fedora:44 bash /repo/tools/tests/parental_controls_test.sh`.
+
 ## Releases
 
 1. Bump `SLOTH_VERSION` in `files/scripts/branding.sh`, write `docs/releases/<version>.md` (its download line says the

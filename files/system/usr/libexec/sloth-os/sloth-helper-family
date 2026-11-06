@@ -1,0 +1,9 @@
+#!/usr/bin/python3 -I
+"""sloth-helper's parental controls (child-add, child-limits, child-apps, child-remove) with a separate polkit action
+(org.slothos.helper.family): the administrator password, which Sloth Center's "users" topic can make password-free for
+its own administrator (Sloth Center → Parental controls)."""
+import runpy
+
+# The name goes in as a global: runpy.run_path sets sys.argv[0] to the path it runs, so a name put there is lost
+runpy.run_path("/usr/libexec/sloth-os/sloth-helper", init_globals={"HELPER_NAME": "sloth-helper-family"},
+               run_name="__main__")

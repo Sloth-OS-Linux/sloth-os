@@ -32,6 +32,11 @@ modules:
         - samba-common-tools          # net, pdbedit, smbpasswd and testparm
         - samba-usershares            # usershares group, directory and Samba configuration
         - kdenetwork-filesharing      # Dolphin → Properties → Share
+        # Parental controls (Sloth Center → Parental controls): malcontent keeps the settings (AccountsService) and
+        # the screen time used (malcontent-timerd); Flatpak refuses blocked apps by itself. Our screen-time service
+        # does what GNOME's shell does: it records the time and signs the child out (/usr/libexec/sloth-os/screen-time)
+        - malcontent
+        - malcontent-tools            # malcontent-client: for looking at the settings when something goes wrong
 
   - type: systemd
     system:
@@ -50,12 +55,16 @@ modules:
         - sloth-file-sharing-groups.service
         - sloth-file-sharing.path
         - sloth-file-sharing.service  # at startup, if something is still shared
+        - sloth-screen-time.service   # parental controls: a child's screen time (does nothing without a child)
     user:
       enabled:
         - sloth-github-bundle-update.timer   # daily update of the apps installed as GitHub packages (e.g. ArtCraft)
         # a notification when a system update was prepared in the background (it installs at the next restart)
         - sloth-update-notify.path
         - sloth-update-notify.service
+        # parental controls in a child's session: the screen time warnings, the blocked apps hidden
+        - sloth-family-session.path
+        - sloth-family-session.service
         # the question at a new network, as in Windows: private (shared folders open) or public (hidden)
         - sloth-network-notify.path
         - sloth-network-notify.service

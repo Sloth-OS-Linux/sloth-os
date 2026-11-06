@@ -40,6 +40,7 @@ def main():
     from .updates import UpdatesController
     from .appearance import AppearanceController
     from .accounts import AccountsController
+    from .family import FamilyController
     from .advanced import AdvancedController
     from .backup import BackupController
     from .cloud import CloudController
@@ -90,6 +91,7 @@ def main():
     environment = EnvironmentController()
     gamepads = GamepadsController()
     accounts = AccountsController()
+    family = FamilyController()
     cloud = CloudController()
     games = GamesController()
     devpanel = DevPanelController()
@@ -120,6 +122,7 @@ def main():
     engine.rootContext().setContextProperty("environment", environment)
     engine.rootContext().setContextProperty("gamepads", gamepads)
     engine.rootContext().setContextProperty("accounts", accounts)
+    engine.rootContext().setContextProperty("family", family)
     engine.rootContext().setContextProperty("cloud", cloud)
     engine.rootContext().setContextProperty("games", games)
     engine.rootContext().setContextProperty("devpanel", devpanel)
