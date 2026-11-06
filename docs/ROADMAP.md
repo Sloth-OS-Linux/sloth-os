@@ -13,6 +13,10 @@ from a terminal must also work from a GUI.
   logged), and puts GRUB on the fallback path (EFI/BOOT: grubx64.efi, mmx64.efi, grub.cfg, bootuuid.cfg) so the
   system starts without an entry too. Unit tests: tools/tests/test_install_helper.py (FirmwareTest)
 - [x] On the HP with the test ISO: a whole-disk install went through and starts (2026-11-06)
+- [x] Reproduced in a VM (2026-11-07): OVMF with its variable store filled (room for its own variables, not for a
+  boot entry); the 1.4.1 ISO stopped at 80% with the same "Cannot allocate memory" as the ASUS, the 1.4.2 ISO
+  finished (the firmware refused the entry, only logged) and the installed system started from the fallback path
+  to the sign-in screen
 - [ ] The reporter's ASUS VivoBook with the 1.4.2 ISO
 - [ ] On the HP: without its boot entry (deleted in the BIOS) it still starts from the disk (the fallback path)
 
