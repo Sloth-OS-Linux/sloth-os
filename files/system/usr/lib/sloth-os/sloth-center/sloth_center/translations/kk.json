@@ -1002,5 +1002,7 @@
   "Websites": "Веб-сайттар",
   "Block adult websites and use safe search": "Ересектерге арналған сайттарды бұғаттау және қауіпсіз іздеу",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Кез келген браузер мен қолданбада жұмыс істейді. Google, Bing және YouTube тек отбасына лайық нәтижелерді көрсетеді, ал ересектерге арналған сайттар, прокси және VPN ашылмайды. Сүзгі — CleanBrowsing отбасылық сүзгісі; өз тіркелгіңіз сүзілмейді.",
-  "Windows programs and downloaded apps": "Windows бағдарламалары және жүктелген қолданбалар"
+  "Windows programs and downloaded apps": "Windows бағдарламалары және жүктелген қолданбалар",
+  "OK": "Жарайды",
+  "Your screen time is over for now.": "Экран уақытың әзірге бітті."
 }

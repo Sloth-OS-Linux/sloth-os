@@ -1002,5 +1002,7 @@
   "Websites": "Ιστότοποι",
   "Block adult websites and use safe search": "Αποκλεισμός ιστότοπων για ενήλικες και ασφαλής αναζήτηση",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Λειτουργεί σε κάθε πρόγραμμα περιήγησης και εφαρμογή. Το Google, το Bing και το YouTube δείχνουν μόνο αποτελέσματα κατάλληλα για οικογένειες, και οι ιστότοποι για ενήλικες, οι διακομιστές μεσολάβησης και τα VPN δεν ανοίγουν. Το φίλτρο είναι το οικογενειακό φίλτρο της CleanBrowsing· ο δικός σας λογαριασμός δεν φιλτράρεται.",
-  "Windows programs and downloaded apps": "Προγράμματα Windows και εφαρμογές από λήψη"
+  "Windows programs and downloaded apps": "Προγράμματα Windows και εφαρμογές από λήψη",
+  "OK": "Εντάξει",
+  "Your screen time is over for now.": "Ο χρόνος οθόνης σου τελείωσε για τώρα."
 }

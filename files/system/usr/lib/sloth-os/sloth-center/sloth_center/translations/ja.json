@@ -1002,5 +1002,7 @@
   "Websites": "Web サイト",
   "Block adult websites and use safe search": "成人向けサイトをブロックしてセーフサーチを使う",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "すべてのブラウザーとアプリで有効です。Google、Bing、YouTube はファミリー向けの結果だけを表示し、成人向けサイト、プロキシ、VPN は開きません。フィルターは CleanBrowsing のファミリーフィルターです。あなた自身のアカウントはフィルターされません。",
-  "Windows programs and downloaded apps": "Windows プログラムとダウンロードしたアプリ"
+  "Windows programs and downloaded apps": "Windows プログラムとダウンロードしたアプリ",
+  "OK": "OK",
+  "Your screen time is over for now.": "今の画面時間は終わりです。"
 }

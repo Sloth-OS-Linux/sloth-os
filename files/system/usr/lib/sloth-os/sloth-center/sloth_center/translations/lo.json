@@ -1002,5 +1002,7 @@
   "Websites": "ເວັບໄຊ",
   "Block adult websites and use safe search": "ບລັອກເວັບໄຊສຳລັບຜູ້ໃຫຍ່ ແລະ ໃຊ້ການຊອກຫາແບບປອດໄພ",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "ໃຊ້ໄດ້ໃນທຸກບຣາວເຊີ ແລະ ແອັບ. Google, Bing ແລະ YouTube ສະແດງສະເພາະຜົນທີ່ເໝາະກັບຄອບຄົວ, ແລະ ເວັບໄຊສຳລັບຜູ້ໃຫຍ່, ພຣັອກຊີ ແລະ VPN ຈະບໍ່ເປີດ. ຕົວກັ່ນຕອງແມ່ນຕົວກັ່ນຕອງຄອບຄົວຂອງ CleanBrowsing; ບັນຊີຂອງທ່ານເອງບໍ່ຖືກກັ່ນຕອງ.",
-  "Windows programs and downloaded apps": "ໂປຣແກຣມ Windows ແລະ ແອັບທີ່ດາວໂຫຼດມາ"
+  "Windows programs and downloaded apps": "ໂປຣແກຣມ Windows ແລະ ແອັບທີ່ດາວໂຫຼດມາ",
+  "OK": "ຕົກລົງ",
+  "Your screen time is over for now.": "ເວລາໃຊ້ໜ້າຈໍຂອງເຈົ້າໝົດແລ້ວໃນຕອນນີ້."
 }

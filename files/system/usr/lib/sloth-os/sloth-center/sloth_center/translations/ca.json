@@ -1002,5 +1002,7 @@
   "Websites": "Llocs web",
   "Block adult websites and use safe search": "Bloqueja els llocs per a adults i fes servir la cerca segura",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Funciona en tots els navegadors i aplicacions. Google, Bing i YouTube només mostren resultats aptes per a la família, i els llocs per a adults, els servidors intermediaris i les VPN no s'obren. El filtre és el filtre familiar de CleanBrowsing; el teu propi compte no es filtra.",
-  "Windows programs and downloaded apps": "Programes de Windows i aplicacions baixades"
+  "Windows programs and downloaded apps": "Programes de Windows i aplicacions baixades",
+  "OK": "D'acord",
+  "Your screen time is over for now.": "El teu temps de pantalla s'ha acabat de moment."
 }

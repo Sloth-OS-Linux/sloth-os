@@ -1002,5 +1002,7 @@
   "Websites": "Site-uri web",
   "Block adult websites and use safe search": "Blochează site-urile pentru adulți și folosește căutarea sigură",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Funcționează în orice browser și aplicație. Google, Bing și YouTube arată doar rezultate potrivite pentru familie, iar site-urile pentru adulți, proxy-urile și VPN-urile nu se deschid. Filtrul este filtrul pentru familii al CleanBrowsing; contul tău nu este filtrat.",
-  "Windows programs and downloaded apps": "Programe Windows și aplicații descărcate"
+  "Windows programs and downloaded apps": "Programe Windows și aplicații descărcate",
+  "OK": "OK",
+  "Your screen time is over for now.": "Timpul tău în fața ecranului s-a terminat deocamdată."
 }

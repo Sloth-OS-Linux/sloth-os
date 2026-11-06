@@ -1002,5 +1002,7 @@
   "Websites": "Nettstader",
   "Block adult websites and use safe search": "Blokker vaksennettstader og bruk trygt søk",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Verkar i alle nettlesarar og appar. Google, Bing og YouTube viser berre familievenlege resultat, og nettstader for vaksne, proxyar og VPN-ar vert ikkje opna. Filteret er familiefilteret til CleanBrowsing; din eigen konto vert ikkje filtrert.",
-  "Windows programs and downloaded apps": "Windows-program og nedlasta appar"
+  "Windows programs and downloaded apps": "Windows-program og nedlasta appar",
+  "OK": "OK",
+  "Your screen time is over for now.": "Skjermtida di er brukt opp for no."
 }

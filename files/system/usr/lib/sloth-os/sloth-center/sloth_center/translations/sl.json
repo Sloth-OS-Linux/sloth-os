@@ -1002,5 +1002,7 @@
   "Websites": "Spletne strani",
   "Block adult websites and use safe search": "Blokiraj strani za odrasle in uporabi varno iskanje",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Deluje v vsakem brskalniku in aplikaciji. Google, Bing in YouTube prikazujejo le družini prijazne rezultate, strani za odrasle, posredniški strežniki in VPN-ji pa se ne odprejo. Filter je družinski filter CleanBrowsing; tvoj račun ni filtriran.",
-  "Windows programs and downloaded apps": "Programi za Windows in prenesene aplikacije"
+  "Windows programs and downloaded apps": "Programi za Windows in prenesene aplikacije",
+  "OK": "V redu",
+  "Your screen time is over for now.": "Tvoj čas pred zaslonom je za zdaj potekel."
 }

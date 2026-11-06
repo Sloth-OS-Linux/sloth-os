@@ -1002,5 +1002,7 @@
   "Websites": "ვებსაიტები",
   "Block adult websites and use safe search": "ზრდასრულთა საიტების დაბლოკვა და უსაფრთხო ძიება",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "მუშაობს ყველა ბრაუზერსა და აპში. Google, Bing და YouTube მხოლოდ ოჯახისთვის შესაფერის შედეგებს აჩვენებს, ხოლო ზრდასრულთა საიტები, პროქსები და VPN-ები არ იხსნება. ფილტრი არის CleanBrowsing-ის საოჯახო ფილტრი; თქვენი საკუთარი ანგარიში არ იფილტრება.",
-  "Windows programs and downloaded apps": "Windows-ის პროგრამები და ჩამოტვირთული აპები"
+  "Windows programs and downloaded apps": "Windows-ის პროგრამები და ჩამოტვირთული აპები",
+  "OK": "კარგი",
+  "Your screen time is over for now.": "შენი ეკრანის დრო ამჯერად ამოიწურა."
 }

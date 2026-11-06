@@ -83,4 +83,5 @@ modules:
       - install-net-wrapper.sh # the Dolphin KAuth helper needs the shim at /usr/bin/net
       - pin-authselect.sh   # PIN sign-in: the "sloth" authselect profile (with-sloth-pin)
       - kwallet-autologin.sh  # automatic sign-in on an encrypted disk: the boot password opens KWallet
+      - screen-time-pam.sh    # parental controls: a child outside their screen time is not let in
       - slim-image.sh

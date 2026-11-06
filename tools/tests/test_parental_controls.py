@@ -61,6 +61,39 @@ class Stages(unittest.TestCase):
                          ["ok", "10", "10", "5", "5", "1", "1", "up", "up"])
         self.assertEqual(st.stage_for(True, 5000), "up")
 
+    def test_decide(self):
+        day = st.midnight(50000)
+        hours = (16 * 3600, 20 * 3600)
+        # outside the hours: time's up, no asking, the next start is today's or tomorrow's 16:00
+        before = st.decide(day + 10 * 3600, hours, False, None)
+        self.assertEqual((before["stage"], before["ask"], before["next"]), ("up", False, day + 16 * 3600))
+        after = st.decide(day + 21 * 3600, hours, True, (False, day + 22 * 3600, 0))
+        self.assertEqual((after["stage"], after["ask"], after["next"]), ("up", False, st.midnight(50000, 1) + 16 * 3600))
+        # inside, the daily limit ends first: warnings for it, and asking is allowed
+        state = st.decide(day + 17 * 3600, hours, True, (False, day + 17 * 3600 + 500, 99))
+        self.assertEqual((state["stage"], state["end"], state["ask"], state["next"]), ("10", day + 17 * 3600 + 500, True, 99))
+        # inside, the hours end first: no asking (more time would go past the hours)
+        state = st.decide(day + 20 * 3600 - 50, hours, True, (False, day + 23 * 3600, 99))
+        self.assertEqual((state["stage"], state["end"], state["ask"]), ("1", day + 20 * 3600, False))
+        # the daily limit used up inside the hours: up, and asking is allowed
+        self.assertEqual(st.decide(day + 17 * 3600, hours, True, (True, 0, 99))["ask"], True)
+        self.assertIsNone(st.decide(day, None, False, None))
+
+    def test_may_sign_in(self):
+        st.pwd = types.SimpleNamespace(getpwnam=lambda n: {"anna": ANNA, "parent": PARENT}[n])
+        st.is_admin = lambda pw: pw.pw_name == "parent"
+        day = st.midnight(int(time.time()))
+        now = int(time.time()) - day
+        st.session_limits = lambda pw: (((now + 3600) % 86400 // 3600 * 3600, (now + 3600) % 86400 // 3600 * 3600 + 1800)
+                                        if now < 82800 else (0, 60), False)
+        st.estimated = lambda pw: None
+        st.refusal_text = lambda state: "no"
+        self.assertFalse(st.may_sign_in("anna"))     # outside her hours
+        self.assertTrue(st.may_sign_in("parent"))    # a parent always
+        self.assertTrue(st.may_sign_in("nobody"))    # unknown: let in (the rest of PAM decides)
+        st.session_limits = lambda pw: (_ for _ in ()).throw(RuntimeError("AccountsService is gone"))
+        self.assertTrue(st.may_sign_in("anna"))      # a broken check never locks anyone out
+
     def test_usage_span(self):
         self.assertIsNone(st.usage_span(None, 100))           # the first round only starts counting
         self.assertEqual(st.usage_span(80, 100), (80, 100))
@@ -76,7 +109,11 @@ class ScreenTimeRounds(unittest.TestCase):
         self.written = {}
         self.removed = []
         self.terminated = []
+        self.logouts = []
+        self.limits = {}      # uid -> (schedule, daily); by default a daily limit when timerd has times for it
         st.estimated = lambda pw: self.times.get(pw.pw_uid)
+        st.session_limits = lambda pw: self.limits.get(
+            pw.pw_uid, (None, True) if self.times.get(pw.pw_uid) is not None else None)
         st.record = lambda pw, a, b: self.recorded.append((pw.pw_name, a, b))
         st.write_state = lambda pw, state: self.written.__setitem__(pw.pw_name, dict(state))
         st.remove_state = lambda name: self.removed.append(name)
@@ -92,6 +129,9 @@ class ScreenTimeRounds(unittest.TestCase):
 
             def terminate(self, uid):
                 test.terminated.append(uid)
+
+            def logout(self, pw):
+                test.logouts.append(pw.pw_name)
         self.bus = Bus()
         self.service = st.ScreenTime(self.bus)
 
@@ -108,15 +148,36 @@ class ScreenTimeRounds(unittest.TestCase):
         self.assertEqual(self.written["anna"]["stage"], "ok")
         self.times[1001] = (False, 1500, 9000)
         self.service.round(1040)
-        self.assertEqual(self.written["anna"], {"stage": "10", "end": 1500, "next": 9000})
+        self.assertEqual(self.written["anna"], {"stage": "10", "end": 1500, "next": 9000, "ask": True})
         self.times[1001] = (True, 1060, 9000)
         self.service.round(1060)
         self.assertEqual(self.written["anna"]["stage"], "up")
         self.assertEqual(self.written["anna"]["logout"], 1060 + st.GRACE)
-        self.assertEqual(self.terminated, [])
+        self.assertEqual((self.logouts, self.terminated), ([], []))
         self.service.round(1060 + st.GRACE)
-        self.assertEqual(self.terminated, [1001])
+        self.assertEqual((self.logouts, self.terminated), (["anna"], []))  # Plasma's own sign-out first
+        self.service.round(1060 + st.GRACE + 20)
+        self.assertEqual(self.logouts, ["anna"])                             # asked once
+        self.service.round(1060 + st.GRACE + st.FORCE)
+        self.assertEqual(self.terminated, [1001])                            # still there: ended
         self.assertNotIn(1000, [u for u in self.terminated])  # the parent is never touched
+
+    def test_no_plasma_session_is_ended_at_once(self):
+        def no_plasma(pw):
+            raise RuntimeError("org.kde.Shutdown is not there")
+        self.bus.logout = no_plasma
+        self.times[1001] = (True, 1000, 9000)
+        self.service.round(1000)
+        self.service.round(1000 + st.GRACE)
+        self.assertEqual(self.terminated, [1001])
+
+    def test_allowed_hours_warn_before_their_end(self):
+        midnight = st.midnight(50000)
+        self.limits[1001] = ((16 * 3600, 20 * 3600), False)  # 16:00-20:00, no daily limit
+        state = self.service.round(midnight + 20 * 3600 - 290)[1001]
+        self.assertEqual((state["stage"], state["end"], state["ask"]), ("5", midnight + 20 * 3600, False))
+        self.assertEqual(state["next"], st.midnight(50000, 1) + 16 * 3600)  # tomorrow at 16:00
+        self.assertEqual(self.service.round(midnight + 20 * 3600)[1001]["stage"], "up")
 
     def test_more_time_takes_the_warning_back(self):
         self.times[1001] = (True, 1000, 9000)
@@ -300,19 +361,23 @@ class ChildSession(unittest.TestCase):
 
     def test_each_stage_once(self):
         now = int(time.time())
-        self.state(stage="10", end=now + 600, next=now + 86400)
+        shown = lambda: [c for c in self.started if c[-2] == "show"]  # noqa: E731
+        self.state(stage="10", end=now + 600, next=now + 86400, ask=True)
         family_session.screen_time()
         family_session.screen_time()  # the same stage again: nothing new
-        self.assertEqual(len(self.started), 1)
-        title, text, ask = json.loads(self.started[0][-1])
+        self.assertEqual(len(shown()), 1)
+        # and the same message as a banner above full-screen windows
+        self.assertEqual([c[-2:] for c in self.started if c[-2] == "banner"], [["banner", shown()[0][-1]]])
+        title, text, ask = json.loads(shown()[0][-1])
         self.assertTrue(ask and "10" in text)
-        self.state(stage="up", end=now, next=now + 86400, logout=now + 60)
+        self.state(stage="up", end=now, next=now + 86400, logout=now + 60, ask=False)
         family_session.screen_time()
-        title, text, ask = json.loads(self.started[1][-1])
+        title, text, ask = json.loads(shown()[1][-1])
         self.assertEqual(title, "Time's up")
-        self.state(stage="ok", end=now + 1800, next=now + 86400)
+        self.assertFalse(ask)  # the end of the allowed hours: no asking for more
+        self.state(stage="ok", end=now + 1800, next=now + 86400, ask=True)
         family_session.screen_time()
-        title, text, ask = json.loads(self.started[2][-1])
+        title, text, ask = json.loads(shown()[2][-1])
         self.assertFalse(ask)
         self.assertIn("more time", text)
 

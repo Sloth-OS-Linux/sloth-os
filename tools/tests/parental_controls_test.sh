@@ -6,7 +6,16 @@
 # AccountsService (malcontent), screen-time records and reads the usage in the child's name (malcontent-timerd).
 set -uo pipefail
 dnf -q -y install malcontent malcontent-tools accountsservice polkit dbus-daemon python3-gobject shadow-utils \
-    systemd passwd util-linux >/dev/null 2>&1 || { echo "dnf failed"; exit 1; }
+    systemd passwd util-linux pamtester >/dev/null 2>&1 || { echo "dnf failed"; exit 1; }
+# the sign-in screen's refusal reads Sloth Center's translations
+mkdir -p /usr/lib/sloth-os/sloth-center/sloth_center
+cp -r /repo/files/system/usr/lib/sloth-os/common /usr/lib/sloth-os/
+cp -r /repo/files/system/usr/lib/sloth-os/sloth-center/sloth_center/translations /usr/lib/sloth-os/sloth-center/sloth_center/
+# plasmalogin's account part as files/scripts/screen-time-pam.sh leaves it (pam_permit standing in for the rest)
+printf 'auth required pam_permit.so\naccount required pam_nologin.so\naccount include password-auth\n' \
+    > /usr/lib/pam.d/plasmalogin
+printf 'auth required pam_permit.so\naccount include password-auth\n' > /usr/lib/pam.d/plasmalogin-autologin
+sed 's/\r$//' /repo/files/scripts/screen-time-pam.sh | bash || { echo "screen-time-pam.sh failed"; exit 1; }
 mkdir -p /usr/libexec/sloth-os
 for f in sloth-helper sloth-helper-family screen-time; do
     sed 's/\r$//' "/repo/files/system/usr/libexec/sloth-os/$f" > "/usr/libexec/sloth-os/$f"
@@ -127,6 +136,33 @@ echo "$out" | sed 's/^/    /'
 [[ $out == *"gone False"* ]] && ok "signed out: the state file goes" || bad "state file left"
 crit=$(grep -c CRITICAL /tmp/timerd.log)
 [[ $crit == 0 ]] && ok "malcontent-timerd logged no errors" || bad "malcontent-timerd: $crit CRITICAL lines"
+
+echo "== The sign-in screen (pam_exec, the lines of files/scripts/screen-time-pam.sh)"
+hour=$(date +%H); hour=${hour#0}
+away=$(( (hour + 3) % 24 ))     # an hour of allowed time three hours from now: outside it now
+[[ $away -ge 23 ]] && away=1
+expect "allowed hours away from now" '"ok": true' \
+    family "{\"daily\": 0, \"start\": $((away * 3600)), \"end\": $(((away + 1) * 3600))}" child-limits anna
+signin() { pamtester plasmalogin "$1" acct_mgmt 2>&1; }
+expect "outside her hours the child is refused" "System error" signin anna
+expect "and told why" "screen time is over" signin anna
+expect "a parent is let in" "account management done" signin parent
+expect "now inside her hours" '"ok": true' family '{"daily": 0, "start": 0, "end": 86400}' child-limits anna
+expect "the child is let in" "account management done" signin anna
+echo "== The service, with the allowed hours (warnings before their end, no asking for more)"
+out=$(python3 -I - <<'EOF2'
+import importlib.machinery, importlib.util, pwd, time
+loader = importlib.machinery.SourceFileLoader("st", "/usr/libexec/sloth-os/screen-time")
+spec = importlib.util.spec_from_loader("st", loader); st = importlib.util.module_from_spec(spec); loader.exec_module(st)
+anna = pwd.getpwnam("anna")
+print("limits", st.session_limits(anna))
+now = int(time.time())
+state = st.decide(now, st.session_limits(anna)[0], False, None)
+print("state", state["stage"], state["ask"])
+EOF2
+)
+[[ $out == *"limits ((0, 86400), False)"* ]] && ok "the allowed hours read as root" || bad "limits: $out"
+[[ $out == *"state ok False"* ]] && ok "inside the hours, no asking for more at their end" || bad "state: $out"
 
 echo "== Off again, and the account removed"
 expect "limits off" '"ok": true' family '{"daily": 0, "start": null, "end": null}' child-limits anna

@@ -1002,5 +1002,7 @@
   "Websites": "웹사이트",
   "Block adult websites and use safe search": "성인 웹사이트 차단 및 세이프서치 사용",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "모든 브라우저와 앱에서 작동합니다. Google, Bing, YouTube는 가족 친화적인 결과만 보여 주고, 성인용 웹사이트, 프록시, VPN은 열리지 않습니다. 필터는 CleanBrowsing의 가족 필터이며, 내 계정은 필터링되지 않습니다.",
-  "Windows programs and downloaded apps": "Windows 프로그램 및 다운로드한 앱"
+  "Windows programs and downloaded apps": "Windows 프로그램 및 다운로드한 앱",
+  "OK": "확인",
+  "Your screen time is over for now.": "지금은 사용 시간이 끝났습니다."
 }

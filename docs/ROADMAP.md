@@ -49,10 +49,20 @@ from a terminal must also work from a GUI.
   anything a child downloaded, past the app list. Off: their content types go into the child's malcontent app filter
   and sloth-exe says a parent turned it off. Tried: parental_controls_test.sh (now 38 checks). Not covered: a child
   who makes a downloaded file executable by hand in a terminal (noexec on the home folder would break Steam games)
-- [x] Signing in outside the allowed hours: left as it is on purpose. The child can sign in, sees "Time's up" with
-  when the computer can be used again and "Ask for more time", and is signed out a minute later. Refusing it at the
-  sign-in screen (pam_malcontent) would say only "login failed", and it fails every sign-in when AccountsService
-  has trouble
+- [x] After trying it on the HP (2026-11-06): no warnings came before the end of the allowed hours, a full-screen
+  window hid the notifications, and logind's TerminateUser left the sign-in screen unusable (only the text consoles
+  answered). Now screen-time works out the end of the hours itself from malcontent's settings (the warnings 10, 5
+  and 1 minutes before it), the warnings also come as a banner on the overlay layer above full-screen windows
+  (layer-shell, Fusion style: Kirigami's import hung there), the child is signed out with Plasma's own sign-out
+  (org.kde.Shutdown.logout, back to the sign-in screen) and TerminateUser only 45 seconds later if that did not
+  work, and "Ask for more time" is offered only for the daily limit inside the hours
+- [x] Outside the allowed hours (or with the day's time used up) the sign-in screen refuses a child, telling them
+  when they can use the computer again: pam_exec runs `screen-time --may-sign-in` in plasmalogin's account part
+  (files/scripts/screen-time-pam.sh); administrators skip it (pam_succeed_if), and anything unexpected in the check
+  lets a child in. Tried: parental_controls_test.sh with pamtester (now 46 checks)
+- [ ] On the HP: allowed hours ending in 15 minutes: the warnings at 10, 5 and 1 minutes, also over a full-screen
+  video; no "Ask for more time"; signed out to the sign-in screen, which works; signing in again is refused with
+  the time it can be used again
 - [ ] On the HP: with the web filter on, an adult site doesn't open in Firefox / Brave for the child, Google search
   is SafeSearch; the parent's account is unchanged; after turning it off the child's sites open again
 - [ ] On the HP: "Windows programs and downloaded apps" off: double-clicking an .exe as the child gives the

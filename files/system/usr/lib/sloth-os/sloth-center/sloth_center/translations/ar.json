@@ -1002,5 +1002,7 @@
   "Websites": "مواقع الويب",
   "Block adult websites and use safe search": "حظر مواقع البالغين واستخدام البحث الآمن",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "يعمل في كل متصفح وتطبيق. لا يعرض Google وBing وYouTube إلا نتائج مناسبة للعائلة، ولا تُفتح مواقع البالغين والوكلاء والشبكات الافتراضية الخاصة. الفلتر هو الفلتر العائلي من CleanBrowsing؛ لا يُفلتر حسابك أنت.",
-  "Windows programs and downloaded apps": "برامج Windows والتطبيقات المنزّلة"
+  "Windows programs and downloaded apps": "برامج Windows والتطبيقات المنزّلة",
+  "OK": "حسنًا",
+  "Your screen time is over for now.": "انتهى وقت الشاشة الخاص بك الآن."
 }

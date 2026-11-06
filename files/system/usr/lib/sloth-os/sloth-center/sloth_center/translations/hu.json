@@ -1002,5 +1002,7 @@
   "Websites": "Weboldalak",
   "Block adult websites and use safe search": "Felnőtt tartalmú oldalak tiltása és biztonságos keresés",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Minden böngészőben és appban működik. A Google, a Bing és a YouTube csak családbarát találatokat mutat, a felnőtteknek szóló oldalak, a proxyk és a VPN-ek pedig nem nyílnak meg. A szűrő a CleanBrowsing családi szűrője; a te saját fiókodat nem szűri.",
-  "Windows programs and downloaded apps": "Windows-programok és letöltött appok"
+  "Windows programs and downloaded apps": "Windows-programok és letöltött appok",
+  "OK": "Rendben",
+  "Your screen time is over for now.": "A képernyőidőd most lejárt."
 }

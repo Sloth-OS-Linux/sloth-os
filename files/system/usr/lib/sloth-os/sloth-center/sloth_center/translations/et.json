@@ -1002,5 +1002,7 @@
   "Websites": "Veebisaidid",
   "Block adult websites and use safe search": "Blokeeri täiskasvanutele mõeldud saidid ja kasuta turvalist otsingut",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Töötab igas brauseris ja rakenduses. Google, Bing ja YouTube näitavad ainult peresõbralikke tulemusi ning täiskasvanutele mõeldud saidid, proksid ja VPN-id ei avane. Filter on CleanBrowsingu perefilter; sinu enda kontot ei filtreerita.",
-  "Windows programs and downloaded apps": "Windowsi programmid ja allalaaditud rakendused"
+  "Windows programs and downloaded apps": "Windowsi programmid ja allalaaditud rakendused",
+  "OK": "OK",
+  "Your screen time is over for now.": "Sinu ekraaniaeg on praegu läbi."
 }

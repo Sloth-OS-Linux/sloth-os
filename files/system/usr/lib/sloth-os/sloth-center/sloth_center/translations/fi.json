@@ -1002,5 +1002,7 @@
   "Websites": "Verkkosivustot",
   "Block adult websites and use safe search": "Estä aikuisille tarkoitetut sivustot ja käytä turvallista hakua",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Toimii kaikissa selaimissa ja sovelluksissa. Google, Bing ja YouTube näyttävät vain perheystävällisiä tuloksia, eivätkä aikuisille tarkoitetut sivustot, välityspalvelimet ja VPN:t aukea. Suodatin on CleanBrowsingin perhesuodatin; omaa tiliäsi ei suodateta.",
-  "Windows programs and downloaded apps": "Windows-ohjelmat ja ladatut sovellukset"
+  "Windows programs and downloaded apps": "Windows-ohjelmat ja ladatut sovellukset",
+  "OK": "OK",
+  "Your screen time is over for now.": "Ruutuaikasi on nyt loppunut."
 }

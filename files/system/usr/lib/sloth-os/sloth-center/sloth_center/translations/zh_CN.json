@@ -1002,5 +1002,7 @@
   "Websites": "网站",
   "Block adult websites and use safe search": "屏蔽成人网站并使用安全搜索",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "在所有浏览器和应用中生效。Google、Bing 和 YouTube 只显示适合家庭的结果，成人网站、代理和 VPN 无法打开。过滤器是 CleanBrowsing 的家庭过滤器；你自己的账户不受过滤。",
-  "Windows programs and downloaded apps": "Windows 程序和下载的应用"
+  "Windows programs and downloaded apps": "Windows 程序和下载的应用",
+  "OK": "确定",
+  "Your screen time is over for now.": "你现在的屏幕时间已用完。"
 }

@@ -1002,5 +1002,7 @@
   "Websites": "இணையதளங்கள்",
   "Block adult websites and use safe search": "பெரியவர்களுக்கான தளங்களைத் தடுத்து பாதுகாப்பான தேடலைப் பயன்படுத்து",
   "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "எல்லா உலாவிகளிலும் பயன்பாடுகளிலும் வேலை செய்யும். Google, Bing, YouTube ஆகியவை குடும்பத்துக்கு ஏற்ற முடிவுகளை மட்டுமே காட்டும்; பெரியவர்களுக்கான தளங்கள், ப்ராக்ஸிகள், VPN-கள் திறக்காது. வடிகட்டி CleanBrowsing-இன் குடும்ப வடிகட்டி; உங்கள் சொந்தக் கணக்கு வடிகட்டப்படாது.",
-  "Windows programs and downloaded apps": "Windows நிரல்களும் பதிவிறக்கிய பயன்பாடுகளும்"
+  "Windows programs and downloaded apps": "Windows நிரல்களும் பதிவிறக்கிய பயன்பாடுகளும்",
+  "OK": "சரி",
+  "Your screen time is over for now.": "உன் திரை நேரம் இப்போதைக்கு முடிந்தது."
 }
