@@ -998,5 +998,9 @@
   "Password again:": "パスワード (確認):",
   "Create account": "アカウントを作成",
   "Delete {name}'s account?": "{name} のアカウントを削除しますか?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "ファイル (書類、写真、ゲームのセーブデータ) も削除され、元に戻せません。サインイン中の場合は、先にサインアウトします。"
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "ファイル (書類、写真、ゲームのセーブデータ) も削除され、元に戻せません。サインイン中の場合は、先にサインアウトします。",
+  "Websites": "Web サイト",
+  "Block adult websites and use safe search": "成人向けサイトをブロックしてセーフサーチを使う",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "すべてのブラウザーとアプリで有効です。Google、Bing、YouTube はファミリー向けの結果だけを表示し、成人向けサイト、プロキシ、VPN は開きません。フィルターは CleanBrowsing のファミリーフィルターです。あなた自身のアカウントはフィルターされません。",
+  "Windows programs and downloaded apps": "Windows プログラムとダウンロードしたアプリ"
 }

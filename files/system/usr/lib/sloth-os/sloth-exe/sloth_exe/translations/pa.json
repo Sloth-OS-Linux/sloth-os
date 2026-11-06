@@ -76,5 +76,8 @@
   "misc.program_files": "ਪ੍ਰੋਗਰਾਮ ਦੀਆਂ ਫ਼ਾਈਲਾਂ",
 
   "desktop.name": "Windows ਪ੍ਰੋਗਰਾਮ",
-  "desktop.comment": "Windows ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਗੇਮਾਂ ਇੰਸਟਾਲ ਕਰੋ ਅਤੇ ਚਲਾਓ"
+  "desktop.comment": "Windows ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਗੇਮਾਂ ਇੰਸਟਾਲ ਕਰੋ ਅਤੇ ਚਲਾਓ",
+
+  "parental.blocked_title": "ਮਾਪਿਆਂ ਨੇ ਬੰਦ ਕੀਤਾ",
+  "parental.blocked_text": "ਮਾਪਿਆਂ ਨੇ ਤੁਹਾਡੇ ਖਾਤੇ ਵਿੱਚ Windows ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਡਾਊਨਲੋਡ ਕੀਤੀਆਂ ਐਪਾਂ ਬੰਦ ਕਰ ਦਿੱਤੀਆਂ ਹਨ। ਉਹਨਾਂ ਨੂੰ Sloth Center → ਮਾਪਿਆਂ ਦੇ ਕੰਟਰੋਲ ਵਿੱਚ ਇਜਾਜ਼ਤ ਦੇਣ ਲਈ ਕਹੋ।"
 }

@@ -998,5 +998,9 @@
   "Password again:": "Awal uffir tikkelt-nniḍen:",
   "Create account": "Snulfu-d amiḍan",
   "Delete {name}'s account?": "Ad tekkseḍ amiḍan n {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Ifuyla-s (isemliyen, tugniwin, isekles n wuraren) ad ttwakksen daɣen, ur yezmir ara ad yettwasefsex. Ma yeqqen, ad yeffeɣ uqbel."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Ifuyla-s (isemliyen, tugniwin, isekles n wuraren) ad ttwakksen daɣen, ur yezmir ara ad yettwasefsex. Ma yeqqen, ad yeffeɣ uqbel.",
+  "Websites": "Ismal web",
+  "Block adult websites and use safe search": "Sewḥel ismal n imeqqranen u seqdec anadi aɣelsan",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Iteddu deg yal iminig d yal asnas. Google, Bing d YouTube sseknen kan igmaḍ yelhan i twacult, ismal n imeqqranen, ipṛuksi d VPN ur tteldin ara. Imzizdig d imzizdig n twacult n CleanBrowsing; amiḍan-ik ur yettwasizdeg ara.",
+  "Windows programs and downloaded apps": "Ihilen n Windows d yesnasen i d-yettwasidren"
 }

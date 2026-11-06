@@ -998,5 +998,9 @@
   "Password again:": "Pasvorto denove:",
   "Create account": "Krei konton",
   "Delete {name}'s account?": "Ĉu forigi la konton de {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Ĝiaj dosieroj (dokumentoj, bildoj, konservitaj ludoj) ankaŭ estos forigitaj, kaj tio ne malfareblas. Se ĝi estas ensalutinta, ĝi unue estos elsalutita."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Ĝiaj dosieroj (dokumentoj, bildoj, konservitaj ludoj) ankaŭ estos forigitaj, kaj tio ne malfareblas. Se ĝi estas ensalutinta, ĝi unue estos elsalutita.",
+  "Websites": "Retejoj",
+  "Block adult websites and use safe search": "Bloki retejojn por plenkreskuloj kaj uzi sekuran serĉon",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Funkcias en ĉiu retumilo kaj aplikaĵo. Google, Bing kaj YouTube montras nur familiajn rezultojn, kaj retejoj por plenkreskuloj, prokuriloj kaj VPN-oj ne malfermiĝas. La filtrilo estas la familia filtrilo de CleanBrowsing; via propra konto ne estas filtrata.",
+  "Windows programs and downloaded apps": "Windows-programoj kaj elŝutitaj aplikaĵoj"
 }

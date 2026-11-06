@@ -998,5 +998,9 @@
   "Password again:": "Parola din nou:",
   "Create account": "Creează contul",
   "Delete {name}'s account?": "Ștergi contul lui {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Se șterg și fișierele lui (documente, imagini, salvări din jocuri), iar asta nu se poate anula. Dacă este autentificat, mai întâi este deconectat."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Se șterg și fișierele lui (documente, imagini, salvări din jocuri), iar asta nu se poate anula. Dacă este autentificat, mai întâi este deconectat.",
+  "Websites": "Site-uri web",
+  "Block adult websites and use safe search": "Blochează site-urile pentru adulți și folosește căutarea sigură",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Funcționează în orice browser și aplicație. Google, Bing și YouTube arată doar rezultate potrivite pentru familie, iar site-urile pentru adulți, proxy-urile și VPN-urile nu se deschid. Filtrul este filtrul pentru familii al CleanBrowsing; contul tău nu este filtrat.",
+  "Windows programs and downloaded apps": "Programe Windows și aplicații descărcate"
 }

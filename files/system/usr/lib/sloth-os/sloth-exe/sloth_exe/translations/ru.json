@@ -76,5 +76,8 @@
   "misc.program_files": "Файлы программы",
 
   "desktop.name": "Программы Windows",
-  "desktop.comment": "Установка и запуск программ и игр для Windows"
+  "desktop.comment": "Установка и запуск программ и игр для Windows",
+
+  "parental.blocked_title": "Отключено родителем",
+  "parental.blocked_text": "Родитель отключил программы Windows и скачанные приложения для твоей учётной записи. Попроси разрешить их в Sloth Center → Родительский контроль."
 }

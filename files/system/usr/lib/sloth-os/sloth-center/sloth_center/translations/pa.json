@@ -998,5 +998,9 @@
   "Password again:": "ਪਾਸਵਰਡ ਦੁਬਾਰਾ:",
   "Create account": "ਖਾਤਾ ਬਣਾਓ",
   "Delete {name}'s account?": "ਕੀ {name} ਦਾ ਖਾਤਾ ਮਿਟਾਉਣਾ ਹੈ?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "ਉਸਦੀਆਂ ਫ਼ਾਈਲਾਂ (ਦਸਤਾਵੇਜ਼, ਤਸਵੀਰਾਂ, ਗੇਮ ਸੇਵ) ਵੀ ਮਿਟ ਜਾਣਗੀਆਂ, ਅਤੇ ਇਸਨੂੰ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਜੇ ਉਹ ਸਾਈਨ-ਇਨ ਹੈ, ਤਾਂ ਪਹਿਲਾਂ ਸਾਈਨ-ਆਊਟ ਕੀਤਾ ਜਾਵੇਗਾ।"
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "ਉਸਦੀਆਂ ਫ਼ਾਈਲਾਂ (ਦਸਤਾਵੇਜ਼, ਤਸਵੀਰਾਂ, ਗੇਮ ਸੇਵ) ਵੀ ਮਿਟ ਜਾਣਗੀਆਂ, ਅਤੇ ਇਸਨੂੰ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਜੇ ਉਹ ਸਾਈਨ-ਇਨ ਹੈ, ਤਾਂ ਪਹਿਲਾਂ ਸਾਈਨ-ਆਊਟ ਕੀਤਾ ਜਾਵੇਗਾ।",
+  "Websites": "ਵੈੱਬਸਾਈਟਾਂ",
+  "Block adult websites and use safe search": "ਬਾਲਗਾਂ ਵਾਲੀਆਂ ਸਾਈਟਾਂ ਰੋਕੋ ਅਤੇ ਸੁਰੱਖਿਅਤ ਖੋਜ ਵਰਤੋ",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "ਹਰ ਬ੍ਰਾਊਜ਼ਰ ਅਤੇ ਐਪ ਵਿੱਚ ਕੰਮ ਕਰਦਾ ਹੈ। Google, Bing ਅਤੇ YouTube ਸਿਰਫ਼ ਪਰਿਵਾਰ ਲਈ ਢੁਕਵੇਂ ਨਤੀਜੇ ਦਿਖਾਉਂਦੇ ਹਨ, ਅਤੇ ਬਾਲਗਾਂ ਵਾਲੀਆਂ ਸਾਈਟਾਂ, ਪ੍ਰੌਕਸੀ ਅਤੇ VPN ਨਹੀਂ ਖੁੱਲ੍ਹਦੇ। ਫਿਲਟਰ CleanBrowsing ਦਾ ਪਰਿਵਾਰਕ ਫਿਲਟਰ ਹੈ; ਤੁਹਾਡਾ ਆਪਣਾ ਖਾਤਾ ਫਿਲਟਰ ਨਹੀਂ ਹੁੰਦਾ।",
+  "Windows programs and downloaded apps": "Windows ਪ੍ਰੋਗਰਾਮ ਅਤੇ ਡਾਊਨਲੋਡ ਕੀਤੀਆਂ ਐਪਾਂ"
 }

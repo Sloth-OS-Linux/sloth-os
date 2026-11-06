@@ -1,0 +1,14 @@
+[Unit]
+Description=Sloth OS: the web filter for child accounts (Sloth Center → Parental controls)
+Documentation=file:///usr/libexec/sloth-os/family-web
+# after firewalld: it loads its own nftables table; ours is separate and stays when firewalld reloads
+After=network-pre.target firewalld.service
+Before=network.target systemd-user-sessions.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/libexec/sloth-os/family-web
+
+[Install]
+WantedBy=multi-user.target

@@ -76,5 +76,8 @@
   "misc.program_files": "ملفات البرنامج",
 
   "desktop.name": "برامج Windows",
-  "desktop.comment": "تثبيت برامج وألعاب Windows وتشغيلها"
+  "desktop.comment": "تثبيت برامج وألعاب Windows وتشغيلها",
+
+  "parental.blocked_title": "أوقفه أحد الوالدين",
+  "parental.blocked_text": "أوقف أحد الوالدين برامج Windows والتطبيقات المنزّلة في حسابك. اطلب منه السماح بها في Sloth Center ← الرقابة الأبوية."
 }

@@ -37,11 +37,26 @@ from a terminal must also work from a GUI.
   the end and can't sign back in until the next day / the allowed hours (signed out again within a minute)
 - [ ] On the HP: a blocked app does not start and is not in the child's Start menu; after allowing it again it is back
 - [ ] On the HP: nothing changes for the parent's own account (every app starts, no screen time)
-- [ ] Web filtering (malcontent-webd and its NSS module in the "hosts" line, the browsers' own DNS over HTTPS off by
-  policy for a child): a separate round
-- [ ] Signing in outside the allowed hours is not refused at the sign-in screen yet (the child is signed out within a
-  minute); pam_malcontent could refuse it, but it fails every sign-in when AccountsService has trouble, so it is left
-  out for now
+- [x] Websites (2026-11-06): "Block adult websites and use safe search" per child, on for a new child account.
+  malcontent's own web filter (malcontent-webd, an NSS module) was left out: every browser here is a Flatpak, which
+  looks names up with its runtime's libraries and would never ask it. `family-web` (sloth-family-web.service) works
+  below the apps instead: nftables redirects a child's lookups (matched on the socket's owner, so Flatpaks too) to
+  sloth-family-dns.service, a dnsmasq on 127.0.0.2 that asks CleanBrowsing's family filter (no adult sites, proxies
+  or VPNs; Google, Bing and YouTube in their safe mode) and tells Firefox to keep its own encrypted lookups off; DNS
+  over TLS, DNS over HTTPS to the public resolvers and IPv6 name servers are closed for the child. Parents are not
+  touched. Tried: tools/tests/family_web_test.sh (13 checks with real dnsmasq and nftables)
+- [x] "Windows programs and downloaded apps" per child (2026-11-06): sloth-exe (.exe, .msi, AppImages) started
+  anything a child downloaded, past the app list. Off: their content types go into the child's malcontent app filter
+  and sloth-exe says a parent turned it off. Tried: parental_controls_test.sh (now 38 checks). Not covered: a child
+  who makes a downloaded file executable by hand in a terminal (noexec on the home folder would break Steam games)
+- [x] Signing in outside the allowed hours: left as it is on purpose. The child can sign in, sees "Time's up" with
+  when the computer can be used again and "Ask for more time", and is signed out a minute later. Refusing it at the
+  sign-in screen (pam_malcontent) would say only "login failed", and it fails every sign-in when AccountsService
+  has trouble
+- [ ] On the HP: with the web filter on, an adult site doesn't open in Firefox / Brave for the child, Google search
+  is SafeSearch; the parent's account is unchanged; after turning it off the child's sites open again
+- [ ] On the HP: "Windows programs and downloaded apps" off: double-clicking an .exe as the child gives the
+  notification and starts nothing
 
 ### Sloth OS 1.4.1 (released 2026-11-04)
 - [x] Released: `main` = `v1.4.1` (`2ba775e`), ISO `sloth-os-1.4.1-x86_64.iso` (5.3 GB, SHA-256

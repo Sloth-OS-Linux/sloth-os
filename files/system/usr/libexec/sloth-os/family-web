@@ -1,0 +1,129 @@
+#!/usr/bin/python3 -I
+"""The web filter for child accounts (Sloth Center → Parental controls → Websites), on the system side.
+
+malcontent's own web filter works through an NSS module in the host's name lookup; every browser on Sloth OS is a
+Flatpak, and a Flatpak looks names up with its runtime's own libraries, so that filter would never see them. This one
+works below the apps, for everything a child's account starts (Flatpaks too, they share the host's network):
+  - the child's name lookups (to systemd-resolved's 127.0.0.53, or to any other server on port 53) are redirected by
+    nftables, matched on the socket's owner (meta skuid), to sloth-family-dns.service: a dnsmasq on 127.0.0.2 that
+    asks CleanBrowsing's family filter (it leaves out adult content, proxies and VPNs, and gives Google, Bing and
+    YouTube in their safe mode), and answers "no such name" for Firefox's canary domain, so Firefox turns its own
+    encrypted lookups off;
+  - the ways around it are closed for the child: encrypted DNS (DNS over TLS/QUIC on port 853, DNS over HTTPS to the
+    well-known public resolvers) and name servers over IPv6.
+Other accounts (the parents) are not touched: their lookups go to systemd-resolved as before.
+
+The children are listed in /etc/sloth-os/family-web.json ({"users": [names]}, written by sloth-helper-family's
+child-web); administrators are never filtered, whatever the file says.
+
+  family-web          applies the file (sloth-family-web.service at startup, and sloth-helper after a change)
+  family-web --print  prints the nftables rules it would load
+"""
+import grp
+import json
+import os
+import pwd
+import subprocess
+import sys
+
+CONFIG = os.environ.get("SLOTH_FAMILY_WEB", "/etc/sloth-os/family-web.json")
+LISTEN = "127.0.0.2"
+TABLE = "sloth_family"
+DNS_UNIT = "sloth-family-dns.service"
+# Public resolvers that answer DNS over HTTPS (their port 443 is closed for a child; browsers then use the system's
+# lookup): Cloudflare (also mozilla.cloudflare-dns.com), Google, Quad9, OpenDNS, AdGuard, NextDNS, Control D, Mullvad
+DOH4 = ("1.1.1.1", "1.0.0.1", "1.1.1.2", "1.0.0.2", "1.1.1.3", "1.0.0.3", "104.16.248.249", "104.16.249.249",
+        "162.159.61.4", "172.64.41.4", "8.8.8.8", "8.8.4.4", "9.9.9.9", "9.9.9.10", "9.9.9.11", "149.112.112.112",
+        "149.112.112.10", "149.112.112.11", "208.67.222.222", "208.67.220.220", "94.140.14.14", "94.140.15.15",
+        "94.140.14.15", "94.140.15.16", "45.90.28.0/24", "45.90.30.0/24", "76.76.2.0/24", "76.76.10.0/24",
+        "194.242.2.0/24")
+DOH6 = ("2606:4700:4700::1111", "2606:4700:4700::1001", "2606:4700:4700::1112", "2606:4700:4700::1002",
+        "2606:4700:4700::1113", "2606:4700:4700::1003", "2001:4860:4860::8888", "2001:4860:4860::8844",
+        "2620:fe::fe", "2620:fe::9", "2620:fe::10", "2620:fe::11", "2620:119:35::35", "2620:119:53::53",
+        "2a10:50c0::ad1:ff", "2a10:50c0::ad2:ff", "2a07:a8c0::/32", "2a07:a8c1::/32", "2a07:e340::/32")
+
+
+def log(msg):
+    print(msg, file=sys.stderr, flush=True)
+
+
+def children(path=CONFIG):
+    """The user IDs to filter: the listed accounts that exist and are ordinary accounts (never an administrator)."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            names = json.load(f).get("users", [])
+    except (OSError, ValueError, AttributeError):
+        return []
+    try:
+        wheel = grp.getgrnam("wheel")
+        admins, admin_gid = set(wheel.gr_mem), wheel.gr_gid
+    except KeyError:
+        admins, admin_gid = set(), -1
+    uids = set()
+    for name in names if isinstance(names, list) else []:
+        try:
+            pw = pwd.getpwnam(name) if isinstance(name, str) else None
+        except KeyError:
+            continue
+        if pw and 1000 <= pw.pw_uid < 60000 and name not in admins and pw.pw_gid != admin_gid:
+            uids.add(pw.pw_uid)
+    return sorted(uids)
+
+
+def ruleset(uids):
+    """The nftables table for these accounts (replaced as a whole: created, deleted, made again in one go)."""
+    kids = ", ".join(str(u) for u in uids)
+    return f"""table inet {TABLE}
+delete table inet {TABLE}
+table inet {TABLE} {{
+    set children {{ typeof meta skuid; elements = {{ {kids} }} }}
+    set doh4 {{ type ipv4_addr; flags interval; elements = {{ {", ".join(DOH4)} }} }}
+    set doh6 {{ type ipv6_addr; flags interval; elements = {{ {", ".join(DOH6)} }} }}
+    chain lookups {{
+        type nat hook output priority dstnat; policy accept;
+        meta skuid @children meta nfproto ipv4 udp dport 53 dnat ip to {LISTEN}:53
+        meta skuid @children meta nfproto ipv4 tcp dport 53 dnat ip to {LISTEN}:53
+    }}
+    chain ways_around {{
+        type filter hook output priority filter; policy accept;
+        meta skuid @children meta nfproto ipv6 udp dport 53 reject
+        meta skuid @children meta nfproto ipv6 tcp dport 53 reject with tcp reset
+        meta skuid @children tcp dport 853 reject with tcp reset
+        meta skuid @children udp dport 853 reject
+        meta skuid @children ip daddr @doh4 tcp dport 443 reject with tcp reset
+        meta skuid @children ip daddr @doh4 udp dport 443 reject
+        meta skuid @children ip6 daddr @doh6 tcp dport 443 reject with tcp reset
+        meta skuid @children ip6 daddr @doh6 udp dport 443 reject
+    }}
+}}
+"""
+
+
+def apply():
+    uids = children()
+    if uids:
+        # the name server first: a child's lookups are redirected to it as soon as the rules are in
+        r = subprocess.run(["systemctl", "start", DNS_UNIT], capture_output=True, text=True)
+        if r.returncode:
+            log(f"{DNS_UNIT}: {r.stderr.strip()}")
+        r = subprocess.run(["nft", "-f", "-"], input=ruleset(uids), capture_output=True, text=True)
+        if r.returncode:
+            log(f"nft: {r.stderr.strip()}")
+            return 1
+        log(f"web filter on for user IDs {uids}")
+        return 0
+    subprocess.run(["nft", "delete", "table", "inet", TABLE], capture_output=True)
+    subprocess.run(["systemctl", "stop", DNS_UNIT], capture_output=True)
+    log("web filter off (no child account has it)")
+    return 0
+
+
+def main(argv):
+    if argv[:1] == ["--print"]:
+        print(ruleset(children() or [65534]), end="")
+        return 0
+    return apply()
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

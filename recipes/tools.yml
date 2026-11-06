@@ -37,6 +37,9 @@ modules:
         # does what GNOME's shell does: it records the time and signs the child out (/usr/libexec/sloth-os/screen-time)
         - malcontent
         - malcontent-tools            # malcontent-client: for looking at the settings when something goes wrong
+        # the web filter for child accounts (/usr/libexec/sloth-os/family-web): a dnsmasq only for their lookups
+        - dnsmasq
+        - nftables
 
   - type: systemd
     system:
@@ -56,6 +59,7 @@ modules:
         - sloth-file-sharing.path
         - sloth-file-sharing.service  # at startup, if something is still shared
         - sloth-screen-time.service   # parental controls: a child's screen time (does nothing without a child)
+        - sloth-family-web.service    # parental controls: the web filter (does nothing without a child who has it)
     user:
       enabled:
         - sloth-github-bundle-update.timer   # daily update of the apps installed as GitHub packages (e.g. ArtCraft)

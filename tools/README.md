@@ -43,6 +43,10 @@ input checks and the child session's warnings and hidden apps. `tools/tests/pare
 system side against the real AccountsService and malcontent-timerd in a throwaway Fedora container, the same way as
 the PIN test:
 `podman run --rm -v .:/repo:ro registry.fedoraproject.org/fedora:44 bash /repo/tools/tests/parental_controls_test.sh`.
+`tools/tests/family_web_test.sh` tries the web filter (`/usr/libexec/sloth-os/family-web`) with real dnsmasq and
+nftables in a container with its own network (it needs the internet): a child's and a parent's lookups side by side,
+SafeSearch, and the ways around it (another name server, DNS over HTTPS and TLS):
+`podman run --rm --cap-add NET_ADMIN,NET_RAW -v .:/repo:ro registry.fedoraproject.org/fedora:44 bash /repo/tools/tests/family_web_test.sh`.
 
 ## Releases
 

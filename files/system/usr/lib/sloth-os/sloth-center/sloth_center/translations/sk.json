@@ -998,5 +998,9 @@
   "Password again:": "Heslo znova:",
   "Create account": "Vytvoriť účet",
   "Delete {name}'s account?": "Odstrániť účet {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Odstránia sa aj jeho súbory (dokumenty, obrázky, uložené hry) a nedá sa to vrátiť späť. Ak je prihlásené, najprv sa odhlási."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Odstránia sa aj jeho súbory (dokumenty, obrázky, uložené hry) a nedá sa to vrátiť späť. Ak je prihlásené, najprv sa odhlási.",
+  "Websites": "Webové stránky",
+  "Block adult websites and use safe search": "Blokovať stránky pre dospelých a používať bezpečné vyhľadávanie",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Funguje v každom prehliadači a aplikácii. Google, Bing a YouTube zobrazujú iba výsledky vhodné pre rodinu a stránky pre dospelých, proxy a VPN sa neotvoria. Filter je rodinný filter CleanBrowsing; tvoj vlastný účet sa nefiltruje.",
+  "Windows programs and downloaded apps": "Programy pre Windows a stiahnuté aplikácie"
 }

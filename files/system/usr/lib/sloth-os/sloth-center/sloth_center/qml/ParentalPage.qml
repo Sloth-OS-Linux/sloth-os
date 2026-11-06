@@ -168,8 +168,32 @@ Kirigami.ScrollablePage {
                         text: L.t("A few minutes before the time is up, the child gets a warning, then the computer signs them out. They can ask for more time: you allow it with your password on their screen.")
                     }
 
+                    // Websites (family-web: the child's name lookups go through a family filter)
+                    Kirigami.Heading { level: 4; text: L.t("Websites") }
+                    QQC2.CheckBox {
+                        Layout.fillWidth: true
+                        text: L.t("Block adult websites and use safe search")
+                        checked: card.modelData.web
+                        enabled: !family.busy
+                        onToggled: family.setWebFilter(card.modelData.user, checked)
+                    }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        text: L.t("Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.")
+                    }
+
                     // Apps
                     Kirigami.Heading { level: 4; text: L.t("Apps") }
+                    QQC2.CheckDelegate {
+                        Layout.fillWidth: true
+                        icon.name: "application-x-ms-dos-executable"
+                        text: L.t("Windows programs and downloaded apps")
+                        checked: card.modelData.programs
+                        enabled: !family.busy && card.modelData.readable
+                        onToggled: family.setProgramsAllowed(card.modelData.user, checked)
+                    }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap

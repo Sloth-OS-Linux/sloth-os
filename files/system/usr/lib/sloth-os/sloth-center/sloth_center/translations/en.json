@@ -130,5 +130,9 @@
   "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.": "Your NVIDIA graphics card is too old for NVIDIA's current driver, so Sloth OS drives it with the open driver that is part of the system. Everything is fine.",
   "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.": "Your NVIDIA graphics card is too old for the driver in the NVIDIA edition, so it has no proper driver there. The AMD/Intel edition drives it with the open driver. Your files and settings are kept.",
   "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.": "Automatic updates are paused because you chose an earlier version. They start again when you install an update yourself.",
-  "Resume automatic updates": "Resume automatic updates"
+  "Resume automatic updates": "Resume automatic updates",
+  "Websites": "Websites",
+  "Block adult websites and use safe search": "Block adult websites and use safe search",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.",
+  "Windows programs and downloaded apps": "Windows programs and downloaded apps"
 }

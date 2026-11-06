@@ -998,5 +998,9 @@
   "Password again:": "再次输入密码：",
   "Create account": "创建账户",
   "Delete {name}'s account?": "删除 {name} 的账户？",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "其文件（文档、图片、游戏存档）也会被删除，且无法撤销。如果其正在登录，会先退出登录。"
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "其文件（文档、图片、游戏存档）也会被删除，且无法撤销。如果其正在登录，会先退出登录。",
+  "Websites": "网站",
+  "Block adult websites and use safe search": "屏蔽成人网站并使用安全搜索",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "在所有浏览器和应用中生效。Google、Bing 和 YouTube 只显示适合家庭的结果，成人网站、代理和 VPN 无法打开。过滤器是 CleanBrowsing 的家庭过滤器；你自己的账户不受过滤。",
+  "Windows programs and downloaded apps": "Windows 程序和下载的应用"
 }

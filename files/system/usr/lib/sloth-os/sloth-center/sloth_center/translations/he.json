@@ -998,5 +998,9 @@
   "Password again:": "הסיסמה שוב:",
   "Create account": "יצירת חשבון",
   "Delete {name}'s account?": "למחוק את החשבון של {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "גם הקבצים שלו (מסמכים, תמונות, שמירות משחקים) יימחקו, ואי אפשר לבטל זאת. אם הוא מחובר, תתבצע קודם יציאה מהחשבון."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "גם הקבצים שלו (מסמכים, תמונות, שמירות משחקים) יימחקו, ואי אפשר לבטל זאת. אם הוא מחובר, תתבצע קודם יציאה מהחשבון.",
+  "Websites": "אתרים",
+  "Block adult websites and use safe search": "חסימת אתרים למבוגרים וחיפוש בטוח",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "עובד בכל דפדפן ואפליקציה. Google,‏ Bing ו־YouTube מציגים רק תוצאות מתאימות למשפחה, ואתרים למבוגרים, שרתי פרוקסי ו־VPN לא נפתחים. המסנן הוא המסנן המשפחתי של CleanBrowsing; החשבון שלך לא מסונן.",
+  "Windows programs and downloaded apps": "תוכנות Windows ואפליקציות שהורדו"
 }

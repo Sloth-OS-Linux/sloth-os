@@ -76,5 +76,8 @@
   "misc.program_files": "প্ৰ'গ্ৰামৰ ফাইল",
 
   "desktop.name": "Windows প্ৰ'গ্ৰাম",
-  "desktop.comment": "Windows প্ৰগ্ৰাম আৰু খেল ইনষ্টল কৰক আৰু চলাওক"
+  "desktop.comment": "Windows প্ৰগ্ৰাম আৰু খেল ইনষ্টল কৰক আৰু চলাওক",
+
+  "parental.blocked_title": "অভিভাৱকে বন্ধ কৰিছে",
+  "parental.blocked_text": "অভিভাৱকে তোমাৰ একাউণ্টত Windows প্ৰগ্ৰাম আৰু ডাউনলোড কৰা এপ বন্ধ কৰিছে। Sloth Center → অভিভাৱকীয় নিয়ন্ত্ৰণত অনুমতি দিবলৈ কোৱা।"
 }

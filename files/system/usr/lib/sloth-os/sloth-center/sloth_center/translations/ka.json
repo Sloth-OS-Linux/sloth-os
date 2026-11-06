@@ -998,5 +998,9 @@
   "Password again:": "პაროლი ხელახლა:",
   "Create account": "ანგარიშის შექმნა",
   "Delete {name}'s account?": "წაიშალოს {name}-ის ანგარიში?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "მისი ფაილებიც (დოკუმენტები, სურათები, თამაშების შენახვები) წაიშლება და ამის გაუქმება შეუძლებელია. თუ ის შესულია, ჯერ სისტემიდან გამოვა."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "მისი ფაილებიც (დოკუმენტები, სურათები, თამაშების შენახვები) წაიშლება და ამის გაუქმება შეუძლებელია. თუ ის შესულია, ჯერ სისტემიდან გამოვა.",
+  "Websites": "ვებსაიტები",
+  "Block adult websites and use safe search": "ზრდასრულთა საიტების დაბლოკვა და უსაფრთხო ძიება",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "მუშაობს ყველა ბრაუზერსა და აპში. Google, Bing და YouTube მხოლოდ ოჯახისთვის შესაფერის შედეგებს აჩვენებს, ხოლო ზრდასრულთა საიტები, პროქსები და VPN-ები არ იხსნება. ფილტრი არის CleanBrowsing-ის საოჯახო ფილტრი; თქვენი საკუთარი ანგარიში არ იფილტრება.",
+  "Windows programs and downloaded apps": "Windows-ის პროგრამები და ჩამოტვირთული აპები"
 }

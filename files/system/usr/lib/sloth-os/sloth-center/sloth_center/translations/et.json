@@ -998,5 +998,9 @@
   "Password again:": "Parool uuesti:",
   "Create account": "Loo konto",
   "Delete {name}'s account?": "Kas kustutada kasutaja {name} konto?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Ka tema failid (dokumendid, pildid, mängude salvestused) kustutatakse ja seda ei saa tagasi võtta. Kui ta on sisse logitud, logitakse ta enne välja."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Ka tema failid (dokumendid, pildid, mängude salvestused) kustutatakse ja seda ei saa tagasi võtta. Kui ta on sisse logitud, logitakse ta enne välja.",
+  "Websites": "Veebisaidid",
+  "Block adult websites and use safe search": "Blokeeri täiskasvanutele mõeldud saidid ja kasuta turvalist otsingut",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Töötab igas brauseris ja rakenduses. Google, Bing ja YouTube näitavad ainult peresõbralikke tulemusi ning täiskasvanutele mõeldud saidid, proksid ja VPN-id ei avane. Filter on CleanBrowsingu perefilter; sinu enda kontot ei filtreerita.",
+  "Windows programs and downloaded apps": "Windowsi programmid ja allalaaditud rakendused"
 }

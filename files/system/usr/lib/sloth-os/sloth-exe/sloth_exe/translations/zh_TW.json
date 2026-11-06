@@ -76,5 +76,8 @@
   "misc.program_files": "程式檔案",
 
   "desktop.name": "Windows 程式",
-  "desktop.comment": "安裝並執行 Windows 程式與遊戲"
+  "desktop.comment": "安裝並執行 Windows 程式與遊戲",
+
+  "parental.blocked_title": "已被家長關閉",
+  "parental.blocked_text": "家長已在你的帳號中關閉 Windows 程式和下載的應用程式。請家長在 Sloth Center → 家長監護中允許。"
 }

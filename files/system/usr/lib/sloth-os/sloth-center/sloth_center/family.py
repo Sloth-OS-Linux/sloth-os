@@ -6,6 +6,8 @@ polkit rule), and changes go through sloth-helper-family (pkexec). The screen ti
 start a blocked app by itself.
 
 A child account is an ordinary account (not an administrator). An administrator is never limited.
+Websites: /usr/libexec/sloth-os/family-web filters a child's name lookups (the list: /etc/sloth-os/family-web.json).
+Windows programs and AppImages (sloth-exe): blocked by content type in the same malcontent app filter.
 """
 import getpass
 import grp
@@ -27,6 +29,9 @@ log = logging.getLogger("sloth-center.family")
 
 HELPER = "/usr/libexec/sloth-os/sloth-helper-family"
 POLICY = "/etc/sloth-os/admin-policy.json"
+FAMILY_WEB = "/etc/sloth-os/family-web.json"
+# sloth-exe checks the first one; sloth-helper blocks all of them together (PROGRAM_TYPES)
+PROGRAM_TYPE = "application/x-ms-dos-executable"
 TIMER = ("org.freedesktop.MalcontentTimer1", "/org/freedesktop/MalcontentTimer1")
 # the daily limit choices, in minutes (0: no limit)
 DAILY_CHOICES = (0, 30, 60, 90, 120, 180, 240, 360)
@@ -118,6 +123,15 @@ def own_time_left():
     return 0 if entry[0] else max(0, int(entry[2]) - int(now))
 
 
+def web_filtered():
+    """The accounts with the web filter on."""
+    try:
+        users = json.load(open(FAMILY_WEB, encoding="utf-8")).get("users", [])
+    except (OSError, ValueError, AttributeError):
+        return set()
+    return {u for u in users if isinstance(u, str)} if isinstance(users, list) else set()
+
+
 def autologin_user():
     try:
         users = json.load(open(POLICY, encoding="utf-8")).get("users", {})
@@ -206,11 +220,13 @@ class FamilyController(QObject):
             log.warning("malcontent: %s", e)
             Malcontent = manager = bus = None
         signed_in = self._signed_in()
+        filtered = web_filtered()
         out = []
         for pw in child_accounts():
             item = {"user": pw.pw_name, "name": pw.pw_gecos.split(",")[0] or pw.pw_name, "uid": pw.pw_uid,
                     "signedIn": pw.pw_uid in signed_in, "daily": 0, "scheduleOn": False, "start": 16, "end": 20,
-                    "blocked": [], "used": "", "readable": manager is not None}
+                    "blocked": [], "programs": True, "web": pw.pw_name in filtered, "used": "",
+                    "readable": manager is not None}
             if manager is not None:
                 try:
                     limits = manager.get_session_limits(pw.pw_uid, Malcontent.ManagerGetValueFlags.NONE, None)
@@ -222,6 +238,7 @@ class FamilyController(QObject):
                     item["daily"] = daily // 60 if on else 0
                     app_filter = manager.get_app_filter(pw.pw_uid, Malcontent.ManagerGetValueFlags.NONE, None)
                     item["blocked"] = [a["id"] for a in self._apps if not app_filter.is_flatpak_app_allowed(a["id"])]
+                    item["programs"] = bool(app_filter.is_content_type_allowed(PROGRAM_TYPE))
                     if item["daily"] or item["scheduleOn"]:
                         item["used"] = tr("Used today: {time}", time=duration_text(used_today(bus, pw.pw_uid)))
                 except Exception as e:
@@ -297,6 +314,7 @@ class FamilyController(QObject):
     @Slot(str, int, bool, int, int)
     def setScreenTime(self, user, daily_minutes, schedule_on, start_hour, end_hour):
         if daily_minutes not in DAILY_CHOICES or not 0 <= start_hour < end_hour <= 24:
+            self.refresh()  # the lists on the page go back to what is saved
             self._error = tr("The end of the allowed hours must be later than the start.")
             self.changed.emit()
             return
@@ -312,7 +330,20 @@ class FamilyController(QObject):
             return
         blocked = set(child["blocked"]) - {app_id} if allowed else set(child["blocked"]) | {app_id}
         refs = [a["ref"] for a in self._apps if a["id"] in blocked]
-        self._run("apps", ["child-apps", user], {"blocked": refs})
+        self._run("apps", ["child-apps", user], {"blocked": refs, "programs": child["programs"]})
+
+    @Slot(str, bool)
+    def setProgramsAllowed(self, user, allowed):
+        """Windows programs and AppImages (sloth-exe)."""
+        child = next((c for c in self._children if c["user"] == user), None)
+        if child is None:
+            return
+        refs = [a["ref"] for a in self._apps if a["id"] in set(child["blocked"])]
+        self._run("apps", ["child-apps", user], {"blocked": refs, "programs": bool(allowed)})
+
+    @Slot(str, bool)
+    def setWebFilter(self, user, on):
+        self._run("web", ["child-web", user, "on" if on else "off"], None)
 
     @Slot(str)
     def removeChild(self, user):

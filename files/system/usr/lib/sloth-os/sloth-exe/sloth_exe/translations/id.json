@@ -76,5 +76,8 @@
   "misc.program_files": "File program",
 
   "desktop.name": "Program Windows",
-  "desktop.comment": "Pasang dan jalankan program dan game Windows"
+  "desktop.comment": "Pasang dan jalankan program dan game Windows",
+
+  "parental.blocked_title": "Dimatikan oleh orang tua",
+  "parental.blocked_text": "Orang tua mematikan program Windows dan aplikasi yang diunduh di akunmu. Minta mereka mengizinkannya di Sloth Center → Kontrol orang tua."
 }

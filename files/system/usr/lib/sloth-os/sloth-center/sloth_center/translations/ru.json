@@ -998,5 +998,9 @@
   "Password again:": "Пароль ещё раз:",
   "Create account": "Создать учётную запись",
   "Delete {name}'s account?": "Удалить учётную запись {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Его файлы (документы, фотографии, сохранения игр) тоже будут удалены, и это нельзя отменить. Если он вошёл в систему, сначала будет выполнен выход."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Его файлы (документы, фотографии, сохранения игр) тоже будут удалены, и это нельзя отменить. Если он вошёл в систему, сначала будет выполнен выход.",
+  "Websites": "Сайты",
+  "Block adult websites and use safe search": "Блокировать сайты для взрослых и включить безопасный поиск",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Работает в любом браузере и приложении. Google, Bing и YouTube показывают только семейные результаты, а сайты для взрослых, прокси и VPN не открываются. Фильтр — семейный фильтр CleanBrowsing; ваша собственная учётная запись не фильтруется.",
+  "Windows programs and downloaded apps": "Программы Windows и скачанные приложения"
 }

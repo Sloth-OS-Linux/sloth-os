@@ -65,7 +65,10 @@ Operations:
                                                  0 = no daily limit, "start", "end": allowed hours in seconds
                                                  since midnight, or null}); screen-time enforces it
   child-apps <user>                              the apps a child may not start (JSON on the input: {"blocked":
-                                                 [Flatpak refs]}); Flatpak enforces it (malcontent)
+                                                 [Flatpak refs], "programs": false: no Windows programs or
+                                                 AppImages either}); Flatpak and sloth-exe enforce it (malcontent)
+  child-web <user> on|off                        the web filter for a child (/etc/sloth-os/family-web.json,
+                                                 /usr/libexec/sloth-os/family-web); new child accounts have it on
   child-remove <user>                            deletes a child account with its files
 
 The parental controls (child-*) are available only as sloth-helper-family (org.slothos.helper.family, Sloth Center's
@@ -754,7 +757,11 @@ USER_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
 FLATPAK_REF_RE = re.compile(r"^app/[A-Za-z_][A-Za-z0-9_-]*(\.[A-Za-z0-9_-]+){2,}/[A-Za-z0-9_]+/[A-Za-z0-9_.-]+$")
 # screen-time watches these; the child's session hides the blocked apps when <user>.apps changes
 FAMILY_STATE = "/run/sloth-os/family"
+FAMILY_WEB = "/etc/sloth-os/family-web.json"
 DAY = 24 * 60 * 60
+# What sloth-exe starts (Windows programs, AppImages): blocked by content type in the child's malcontent app filter
+PROGRAM_TYPES = ("application/x-ms-dos-executable", "application/x-msdownload", "application/x-msi",
+                 "application/vnd.appimage", "application/x-iso9660-appimage")
 
 
 def _malcontent():
@@ -780,10 +787,13 @@ def _child(name):
     return pw
 
 
-def _app_filter(Malcontent, blocked):
+def _app_filter(Malcontent, blocked, programs=True):
     builder = Malcontent.AppFilterBuilder.new()
     for ref in blocked:
         builder.blocklist_flatpak_ref(ref)
+    if not programs:
+        for content_type in PROGRAM_TYPES:
+            builder.blocklist_content_type(content_type)
     # a child installs apps only with a parent's password (system-wide), never by itself (per user)
     builder.set_allow_user_installation(False)
     builder.set_allow_system_installation(False)
@@ -810,6 +820,7 @@ def child_add(request):
     if r.returncode != 0:
         run(["userdel", "--remove", user])
         return {"ok": False, "error": r.stderr.strip()[-500:]}
+    _set_web(user, True)  # a new child starts with the web filter on; the parent can turn it off
     try:
         Malcontent, manager = _malcontent()
         manager.set_app_filter(pwd.getpwnam(user).pw_uid, _app_filter(Malcontent, []),
@@ -847,15 +858,15 @@ def child_limits(name, request):
 
 def child_apps(name, request):
     pw = _child(name)
-    blocked = request.get("blocked")
+    blocked, programs = request.get("blocked"), request.get("programs", True)
     if pw is None:
         return {"ok": False, "error": "not a child account"}
-    if not isinstance(blocked, list) or len(blocked) > 2000 \
+    if not isinstance(blocked, list) or len(blocked) > 2000 or not isinstance(programs, bool) \
             or not all(isinstance(r, str) and FLATPAK_REF_RE.match(r) for r in blocked):
         return {"ok": False, "error": "bad input"}
     Malcontent, manager = _malcontent()
     try:
-        manager.set_app_filter(pw.pw_uid, _app_filter(Malcontent, sorted(set(blocked))),
+        manager.set_app_filter(pw.pw_uid, _app_filter(Malcontent, sorted(set(blocked)), programs),
                                Malcontent.ManagerSetValueFlags.NONE, None)
     except Exception as e:
         return {"ok": False, "error": str(e)[-500:]}
@@ -865,10 +876,39 @@ def child_apps(name, request):
     return {"ok": True}
 
 
+def web_users():
+    try:
+        with open(FAMILY_WEB, encoding="utf-8") as f:
+            users = json.load(f).get("users", [])
+    except (OSError, ValueError, AttributeError):
+        return []
+    return [u for u in users if isinstance(u, str)] if isinstance(users, list) else []
+
+
+def _set_web(name, on):
+    """The web filter on or off for an account, in effect at once (/usr/libexec/sloth-os/family-web)."""
+    users = [u for u in web_users() if u != name] + ([name] if on else [])
+    _write(FAMILY_WEB, _js({"users": sorted(users)}) + "\n")
+    try:
+        r = run(["/usr/libexec/sloth-os/family-web"])
+    except (OSError, subprocess.SubprocessError) as e:  # the setting is saved; sloth-family-web.service applies it
+        return False, str(e)
+    return r.returncode == 0, r.stderr.strip()[-500:]
+
+
+def child_web(name, on):
+    if _child(name) is None:
+        return {"ok": False, "error": "not a child account"}
+    ok, err = _set_web(name, on)
+    return {"ok": True} if ok else {"ok": False, "error": err or "family-web failed"}
+
+
 def child_remove(name):
     pw = _child(name)
     if pw is None:
         return {"ok": False, "error": "not a child account"}
+    if name in web_users():
+        _set_web(name, False)
     from gi.repository import Gio, GLib
     bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
     try:  # signed in: signed out first, or the account's processes keep its files busy
@@ -987,6 +1027,8 @@ def main(argv):
             result = (child_limits if op == "child-limits" else child_apps)(args[0], request)
     elif op == "child-remove" and len(args) == 1 and USER_RE.match(args[0]):
         result = child_remove(args[0])
+    elif op == "child-web" and len(args) == 2 and USER_RE.match(args[0]) and args[1] in ("on", "off"):
+        result = child_web(args[0], args[1] == "on")
     elif op == "login-repair" and not args and not VERSIONS_ONLY:
         result = keep_altfiles()
     elif op == "admin-policy" and not args and not VERSIONS_ONLY:

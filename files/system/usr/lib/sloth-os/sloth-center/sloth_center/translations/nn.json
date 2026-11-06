@@ -998,5 +998,9 @@
   "Password again:": "Passord igjen:",
   "Create account": "Opprett konto",
   "Delete {name}'s account?": "Slette kontoen til {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Filene (dokument, bilete, lagra spel) blir også sletta, og dette kan ikkje angrast. Om barnet er pålogga, blir det logga av først."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Filene (dokument, bilete, lagra spel) blir også sletta, og dette kan ikkje angrast. Om barnet er pålogga, blir det logga av først.",
+  "Websites": "Nettstader",
+  "Block adult websites and use safe search": "Blokker vaksennettstader og bruk trygt søk",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Verkar i alle nettlesarar og appar. Google, Bing og YouTube viser berre familievenlege resultat, og nettstader for vaksne, proxyar og VPN-ar vert ikkje opna. Filteret er familiefilteret til CleanBrowsing; din eigen konto vert ikkje filtrert.",
+  "Windows programs and downloaded apps": "Windows-program og nedlasta appar"
 }

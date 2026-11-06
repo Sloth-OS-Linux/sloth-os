@@ -72,6 +72,20 @@ expect "child-apps" '"ok": true' \
 expect "Firefox is blocked" "is not allowed" malcontent-client check-app-filter anna app/org.mozilla.firefox/x86_64/stable
 expect "KCalc is allowed" "is allowed" malcontent-client check-app-filter anna app/org.kde.kcalc/x86_64/stable
 [[ -s /run/sloth-os/family/anna.apps ]] && ok "the child's session is told (anna.apps)" || bad "no anna.apps"
+# what sloth-exe asks (Windows programs and AppImages), with the real malcontent through GObject introspection
+programs() { setpriv --reuid anna --regid anna --clear-groups python3 -I -c '
+import gi; gi.require_version("Malcontent", "0"); from gi.repository import Gio, Malcontent
+m = Malcontent.Manager.new(Gio.bus_get_sync(Gio.BusType.SYSTEM, None))
+f = m.get_app_filter(__import__("os").getuid(), Malcontent.ManagerGetValueFlags.NONE, None)
+print("programs", f.is_content_type_allowed("application/x-ms-dos-executable"),
+      "firefox", f.is_flatpak_app_allowed("org.mozilla.firefox"))'; }
+expect "Windows programs allowed until turned off (read as the child)" "programs True firefox False" programs
+expect "Windows programs off" '"ok": true' \
+    family '{"blocked": ["app/org.mozilla.firefox/x86_64/stable"], "programs": false}' child-apps anna
+expect "sloth-exe's question says no, the blocked app stays blocked" "programs False firefox False" programs
+expect "a new child starts with the web filter on" '"anna"' cat /etc/sloth-os/family-web.json
+expect "child-web off" '"ok": false' family '' child-web anna off  # family-web cannot run here (no nft)
+expect "but the list is saved" '"users": []' cat /etc/sloth-os/family-web.json
 
 echo "== The screen time service, with the real malcontent-timerd"
 out=$(python3 -I - <<'EOF'

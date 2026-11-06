@@ -998,5 +998,9 @@
   "Password again:": "Mot de passe (confirmation) :",
   "Create account": "Créer le compte",
   "Delete {name}'s account?": "Supprimer le compte de {name} ?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Ses fichiers (documents, images, sauvegardes de jeux) sont aussi supprimés, et c'est irréversible. S'il est connecté, il est d'abord déconnecté."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Ses fichiers (documents, images, sauvegardes de jeux) sont aussi supprimés, et c'est irréversible. S'il est connecté, il est d'abord déconnecté.",
+  "Websites": "Sites web",
+  "Block adult websites and use safe search": "Bloquer les sites pour adultes et utiliser la recherche sécurisée",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Fonctionne dans tous les navigateurs et toutes les applications. Google, Bing et YouTube n'affichent que des résultats adaptés aux familles, et les sites pour adultes, les proxys et les VPN ne s'ouvrent pas. Le filtre est le filtre familial de CleanBrowsing ; votre propre compte n'est pas filtré.",
+  "Windows programs and downloaded apps": "Programmes Windows et applications téléchargées"
 }

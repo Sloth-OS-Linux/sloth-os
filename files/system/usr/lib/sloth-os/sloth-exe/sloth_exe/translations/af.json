@@ -76,5 +76,8 @@
   "misc.program_files": "Programlêers",
 
   "desktop.name": "Windows-programme",
-  "desktop.comment": "Installeer en laat Windows-programme en -speletjies loop"
+  "desktop.comment": "Installeer en laat Windows-programme en -speletjies loop",
+
+  "parental.blocked_title": "Deur 'n ouer afgeskakel",
+  "parental.blocked_text": "'n Ouer het Windows-programme en afgelaaide apps vir jou rekening afgeskakel. Vra hulle om dit toe te laat in Sloth Center → Ouerbeheer."
 }

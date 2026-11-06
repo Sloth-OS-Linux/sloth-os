@@ -998,5 +998,9 @@
   "Password again:": "Slaptažodis dar kartą:",
   "Create account": "Sukurti paskyrą",
   "Delete {name}'s account?": "Ištrinti {name} paskyrą?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Jo failai (dokumentai, nuotraukos, žaidimų išsaugojimai) taip pat ištrinami, ir to negalima atšaukti. Jei jis prisijungęs, pirmiausia jis atjungiamas."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Jo failai (dokumentai, nuotraukos, žaidimų išsaugojimai) taip pat ištrinami, ir to negalima atšaukti. Jei jis prisijungęs, pirmiausia jis atjungiamas.",
+  "Websites": "Svetainės",
+  "Block adult websites and use safe search": "Blokuoti svetaines suaugusiesiems ir naudoti saugią paiešką",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Veikia kiekvienoje naršyklėje ir programėlėje. Google, Bing ir YouTube rodo tik šeimai tinkamus rezultatus, o svetainės suaugusiesiems, tarpiniai serveriai ir VPN neatsidaro. Filtras yra CleanBrowsing šeimos filtras; jūsų paskyra nefiltruojama.",
+  "Windows programs and downloaded apps": "Windows programos ir atsisiųstos programėlės"
 }

@@ -998,5 +998,9 @@
   "Password again:": "Repeteix la contrasenya:",
   "Create account": "Crea el compte",
   "Delete {name}'s account?": "Vols suprimir el compte de {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "També se suprimeixen els seus fitxers (documents, imatges, partides desades) i no es pot desfer. Si té la sessió iniciada, primer se li tanca."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "També se suprimeixen els seus fitxers (documents, imatges, partides desades) i no es pot desfer. Si té la sessió iniciada, primer se li tanca.",
+  "Websites": "Llocs web",
+  "Block adult websites and use safe search": "Bloqueja els llocs per a adults i fes servir la cerca segura",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Funciona en tots els navegadors i aplicacions. Google, Bing i YouTube només mostren resultats aptes per a la família, i els llocs per a adults, els servidors intermediaris i les VPN no s'obren. El filtre és el filtre familiar de CleanBrowsing; el teu propi compte no es filtra.",
+  "Windows programs and downloaded apps": "Programes de Windows i aplicacions baixades"
 }

@@ -76,5 +76,8 @@
   "misc.program_files": "프로그램 파일",
 
   "desktop.name": "Windows 프로그램",
-  "desktop.comment": "Windows 프로그램과 게임을 설치하고 실행합니다"
+  "desktop.comment": "Windows 프로그램과 게임을 설치하고 실행합니다",
+
+  "parental.blocked_title": "보호자가 껐습니다",
+  "parental.blocked_text": "보호자가 내 계정에서 Windows 프로그램과 다운로드한 앱을 껐습니다. Sloth Center → 자녀 보호에서 허용해 달라고 부탁하세요."
 }

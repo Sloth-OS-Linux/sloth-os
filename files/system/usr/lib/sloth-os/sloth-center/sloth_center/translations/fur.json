@@ -998,5 +998,9 @@
   "Password again:": "Password di gnûf:",
   "Create account": "Cree account",
   "Delete {name}'s account?": "Eliminâ l'account di {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "A vegnin eliminâts ancje i siei files (documents, imagjins, salvaments dai zûcs), e nol è pussibil tornâ indaûr. Se al è jentrât, al ven fat jessî prime."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "A vegnin eliminâts ancje i siei files (documents, imagjins, salvaments dai zûcs), e nol è pussibil tornâ indaûr. Se al è jentrât, al ven fat jessî prime.",
+  "Websites": "Sîts web",
+  "Block adult websites and use safe search": "Bloche i sîts par adults e dopre la ricercje sigure",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Al funzione in ogni navigadôr e aplicazion. Google, Bing e YouTube a mostrin dome risultâts adats aes fameis, e i sîts par adults, i proxy e lis VPN no si vierzin. Il filtri al è il filtri pes fameis di CleanBrowsing; il to account nol ven filtrât.",
+  "Windows programs and downloaded apps": "Programs di Windows e aplicazions discjariadis"
 }

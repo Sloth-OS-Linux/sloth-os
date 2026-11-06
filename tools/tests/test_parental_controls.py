@@ -43,6 +43,7 @@ def load(name, path):
 
 
 st = load("screen_time", REPO / "files/system/usr/libexec/sloth-os/screen-time")
+web = load("family_web", REPO / "files/system/usr/libexec/sloth-os/family-web")
 helper = load("sloth_helper", REPO / "files/system/usr/libexec/sloth-os/sloth-helper")
 
 
@@ -215,6 +216,28 @@ class HelperChecks(unittest.TestCase):
         for bad in (["../x"], ["app/org.x/x86_64/stable;rm"], ["runtime/org.x.Y/x86_64/1"], "app/a.b.c/x/y", [1]):
             self.assertEqual(helper.child_apps("anna", {"blocked": bad})["error"], "bad input", bad)
 
+    def test_programs_switch(self):
+        self.assertEqual(helper.child_apps("anna", {"blocked": [], "programs": False}), {"ok": True})
+        self.assertIn(("blocklist_content_type", ("application/x-ms-dos-executable",)), self.calls)
+        self.assertIn(("blocklist_content_type", ("application/vnd.appimage",)), self.calls)
+        self.calls.clear()
+        helper.child_apps("anna", {"blocked": []})  # left out: allowed, as before
+        self.assertFalse([c for c in self.calls if c[0] == "blocklist_content_type"])
+        self.assertEqual(helper.child_apps("anna", {"blocked": [], "programs": "no"})["error"], "bad input")
+
+    def test_web_filter_list(self):
+        helper.FAMILY_WEB = str(TMP / "family-web.json")
+        ran = []
+        helper.run = lambda cmd, **k: ran.append(cmd) or types.SimpleNamespace(returncode=0, stderr="")
+        self.assertEqual(helper.child_web("anna", True), {"ok": True})
+        self.assertEqual(json.loads(Path(helper.FAMILY_WEB).read_text()), {"users": ["anna"]})
+        self.assertEqual(ran, [["/usr/libexec/sloth-os/family-web"]])  # in effect at once
+        helper.child_web("anna", True)
+        self.assertEqual(helper.web_users(), ["anna"])  # not twice
+        helper.child_web("anna", False)
+        self.assertEqual(helper.web_users(), [])
+        self.assertEqual(helper.child_web("parent", True)["error"], "not a child account")
+
     def test_add_checks(self):
         helper.run = lambda *a, **k: self.fail("must not run anything")
         for bad in ({"username": "Anna", "fullname": "A", "password": "x"},
@@ -224,6 +247,37 @@ class HelperChecks(unittest.TestCase):
                     {"username": "anna2", "fullname": 5, "password": "x"}):
             self.assertEqual(helper.child_add(bad)["error"], "bad input", bad)
         self.assertEqual(helper.child_add({"username": "anna", "fullname": "A", "password": "x"})["error"], "exists")
+
+
+class WebFilter(unittest.TestCase):
+    def setUp(self):
+        users = {"anna": ANNA, "parent": PARENT, "svc": Pw(pw_name="svc", pw_uid=980, pw_gid=980, pw_shell="/bin/bash")}
+
+        def getpwnam(name):
+            if name not in users:
+                raise KeyError(name)
+            return users[name]
+        web.pwd = types.SimpleNamespace(getpwnam=getpwnam)
+        web.grp = types.SimpleNamespace(getgrnam=lambda n: types.SimpleNamespace(gr_mem=["parent"], gr_gid=10))
+        self.config = TMP / "web.json"
+
+    def test_only_children_are_filtered(self):
+        self.config.write_text(json.dumps({"users": ["anna", "parent", "svc", "gone", 5]}))
+        self.assertEqual(web.children(str(self.config)), [1001])  # never a parent or a system account
+        for bad in ("", "[]", '{"users": "anna"}', "not json"):
+            self.config.write_text(bad)
+            self.assertEqual(web.children(str(self.config)), [], bad)
+
+    def test_rules(self):
+        rules = web.ruleset([1001, 1002])
+        self.assertIn("elements = { 1001, 1002 }", rules)
+        self.assertIn("dnat ip to 127.0.0.2:53", rules)
+        self.assertIn("tcp dport 853 reject", rules)
+        self.assertTrue(rules.startswith("table inet sloth_family\ndelete table inet sloth_family\n"))
+        # every rule is for the children's sockets only: a parent's traffic is never touched
+        for line in rules.splitlines():
+            if "dport" in line:
+                self.assertIn("meta skuid @children", line)
 
 
 class ChildSession(unittest.TestCase):

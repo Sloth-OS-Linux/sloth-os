@@ -76,5 +76,8 @@
   "misc.program_files": "Pliki programu",
 
   "desktop.name": "Programy Windows",
-  "desktop.comment": "Instalacja i uruchamianie programów i gier dla Windows"
+  "desktop.comment": "Instalacja i uruchamianie programów i gier dla Windows",
+
+  "parental.blocked_title": "Wyłączone przez rodzica",
+  "parental.blocked_text": "Rodzic wyłączył na Twoim koncie programy Windows i pobrane aplikacje. Poproś go, żeby zezwolił na nie w Sloth Center → Kontrola rodzicielska."
 }

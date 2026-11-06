@@ -76,5 +76,8 @@
   "misc.program_files": "Fichiers du programme",
 
   "desktop.name": "Programmes Windows",
-  "desktop.comment": "Installer et lancer des programmes et des jeux Windows"
+  "desktop.comment": "Installer et lancer des programmes et des jeux Windows",
+
+  "parental.blocked_title": "Désactivé par un parent",
+  "parental.blocked_text": "Un parent a désactivé les programmes Windows et les applications téléchargées pour ton compte. Demande-lui de les autoriser dans Sloth Center → Contrôle parental."
 }

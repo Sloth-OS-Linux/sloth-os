@@ -998,5 +998,9 @@
   "Password again:": "Kata sandi lagi:",
   "Create account": "Buat akun",
   "Delete {name}'s account?": "Hapus akun {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "File-filenya (dokumen, gambar, simpanan game) juga dihapus, dan ini tidak dapat dibatalkan. Jika ia sedang masuk, ia dikeluarkan terlebih dahulu."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "File-filenya (dokumen, gambar, simpanan game) juga dihapus, dan ini tidak dapat dibatalkan. Jika ia sedang masuk, ia dikeluarkan terlebih dahulu.",
+  "Websites": "Situs web",
+  "Block adult websites and use safe search": "Blokir situs dewasa dan gunakan pencarian aman",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Berfungsi di setiap peramban dan aplikasi. Google, Bing, dan YouTube hanya menampilkan hasil yang ramah keluarga, dan situs dewasa, proksi, serta VPN tidak terbuka. Filternya adalah filter keluarga CleanBrowsing; akun Anda sendiri tidak difilter.",
+  "Windows programs and downloaded apps": "Program Windows dan aplikasi yang diunduh"
 }

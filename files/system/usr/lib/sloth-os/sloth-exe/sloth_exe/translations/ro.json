@@ -76,5 +76,8 @@
   "misc.program_files": "Fișierele programului",
 
   "desktop.name": "Programe Windows",
-  "desktop.comment": "Instalarea și rularea programelor și jocurilor Windows"
+  "desktop.comment": "Instalarea și rularea programelor și jocurilor Windows",
+
+  "parental.blocked_title": "Dezactivat de un părinte",
+  "parental.blocked_text": "Un părinte a dezactivat programele Windows și aplicațiile descărcate pentru contul tău. Roagă-l să le permită în Sloth Center → Control parental."
 }

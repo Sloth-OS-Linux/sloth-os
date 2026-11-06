@@ -998,5 +998,9 @@
   "Password again:": "Wagwoord weer:",
   "Create account": "Skep rekening",
   "Delete {name}'s account?": "Vee {name} se rekening uit?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Hulle lêers (dokumente, foto's, gestoorde speletjies) word ook uitgevee, en dit kan nie ontdoen word nie. As hulle aangemeld is, word hulle eers afgemeld."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Hulle lêers (dokumente, foto's, gestoorde speletjies) word ook uitgevee, en dit kan nie ontdoen word nie. As hulle aangemeld is, word hulle eers afgemeld.",
+  "Websites": "Webwerwe",
+  "Block adult websites and use safe search": "Blokkeer webwerwe vir volwassenes en gebruik veilige soektog",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Werk in elke blaaier en app. Google, Bing en YouTube wys net gesinsvriendelike resultate, en webwerwe vir volwassenes, instaanbedieners en VPN's maak nie oop nie. Die filter is CleanBrowsing se gesinsfilter; jou eie rekening word nie gefiltreer nie.",
+  "Windows programs and downloaded apps": "Windows-programme en afgelaaide apps"
 }

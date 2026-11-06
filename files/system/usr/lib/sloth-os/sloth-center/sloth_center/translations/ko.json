@@ -998,5 +998,9 @@
   "Password again:": "비밀번호 확인:",
   "Create account": "계정 만들기",
   "Delete {name}'s account?": "{name}의 계정을 삭제할까요?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "파일(문서, 사진, 게임 저장 데이터)도 함께 삭제되며 되돌릴 수 없습니다. 로그인되어 있으면 먼저 로그아웃됩니다."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "파일(문서, 사진, 게임 저장 데이터)도 함께 삭제되며 되돌릴 수 없습니다. 로그인되어 있으면 먼저 로그아웃됩니다.",
+  "Websites": "웹사이트",
+  "Block adult websites and use safe search": "성인 웹사이트 차단 및 세이프서치 사용",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "모든 브라우저와 앱에서 작동합니다. Google, Bing, YouTube는 가족 친화적인 결과만 보여 주고, 성인용 웹사이트, 프록시, VPN은 열리지 않습니다. 필터는 CleanBrowsing의 가족 필터이며, 내 계정은 필터링되지 않습니다.",
+  "Windows programs and downloaded apps": "Windows 프로그램 및 다운로드한 앱"
 }

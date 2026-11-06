@@ -76,5 +76,8 @@
   "misc.program_files": "Datoteke programa",
 
   "desktop.name": "Programi Windows",
-  "desktop.comment": "Nameščanje in zaganjanje programov in iger za Windows"
+  "desktop.comment": "Nameščanje in zaganjanje programov in iger za Windows",
+
+  "parental.blocked_title": "Izklopil starš",
+  "parental.blocked_text": "Starš je v tvojem računu izklopil programe za Windows in prenesene aplikacije. Prosi ga, naj jih dovoli v Sloth Center → Starševski nadzor."
 }

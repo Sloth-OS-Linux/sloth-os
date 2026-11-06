@@ -998,5 +998,9 @@
   "Password again:": "Jelszó újra:",
   "Create account": "Fiók létrehozása",
   "Delete {name}'s account?": "Törlöd {name} fiókját?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "A fájljai (dokumentumok, képek, játékmentések) is törlődnek, és ezt nem lehet visszavonni. Ha be van jelentkezve, előbb kijelentkezik."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "A fájljai (dokumentumok, képek, játékmentések) is törlődnek, és ezt nem lehet visszavonni. Ha be van jelentkezve, előbb kijelentkezik.",
+  "Websites": "Weboldalak",
+  "Block adult websites and use safe search": "Felnőtt tartalmú oldalak tiltása és biztonságos keresés",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Minden böngészőben és appban működik. A Google, a Bing és a YouTube csak családbarát találatokat mutat, a felnőtteknek szóló oldalak, a proxyk és a VPN-ek pedig nem nyílnak meg. A szűrő a CleanBrowsing családi szűrője; a te saját fiókodat nem szűri.",
+  "Windows programs and downloaded apps": "Windows-programok és letöltött appok"
 }

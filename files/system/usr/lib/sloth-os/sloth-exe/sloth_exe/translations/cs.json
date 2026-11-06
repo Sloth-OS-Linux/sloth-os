@@ -76,5 +76,8 @@
   "misc.program_files": "Soubory programu",
 
   "desktop.name": "Programy pro Windows",
-  "desktop.comment": "Instalace a spouštění programů a her pro Windows"
+  "desktop.comment": "Instalace a spouštění programů a her pro Windows",
+
+  "parental.blocked_title": "Vypnuto rodičem",
+  "parental.blocked_text": "Rodič ti v účtu vypnul programy pro Windows a stažené aplikace. Popros ho, ať je povolí v Sloth Center → Rodičovská kontrola."
 }

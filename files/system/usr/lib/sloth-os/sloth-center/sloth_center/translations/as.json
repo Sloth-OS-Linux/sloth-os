@@ -998,5 +998,9 @@
   "Password again:": "পাছৱৰ্ড পুনৰ:",
   "Create account": "একাউণ্ট সৃষ্টি কৰক",
   "Delete {name}'s account?": "{name}ৰ একাউণ্ট মচিবনে?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "তেওঁৰ ফাইলবোৰো (নথি, ছবি, খেলৰ ছেভ) মচি পেলোৱা হ'ব, আৰু ইয়াক পূৰ্বাৱস্থালৈ নিব নোৱাৰি। তেওঁ ছাইন-ইন কৰি থাকিলে প্ৰথমে ছাইন-আউট কৰা হ'ব।"
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "তেওঁৰ ফাইলবোৰো (নথি, ছবি, খেলৰ ছেভ) মচি পেলোৱা হ'ব, আৰু ইয়াক পূৰ্বাৱস্থালৈ নিব নোৱাৰি। তেওঁ ছাইন-ইন কৰি থাকিলে প্ৰথমে ছাইন-আউট কৰা হ'ব।",
+  "Websites": "ৱেবছাইট",
+  "Block adult websites and use safe search": "প্ৰাপ্তবয়স্কৰ ছাইট অৱৰোধ কৰক আৰু সুৰক্ষিত সন্ধান ব্যৱহাৰ কৰক",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "সকলো ব্ৰাউজাৰ আৰু এপত কাম কৰে। Google, Bing আৰু YouTube-এ কেৱল পৰিয়ালৰ বাবে উপযুক্ত ফলাফল দেখুৱায়, আৰু প্ৰাপ্তবয়স্কৰ ছাইট, প্ৰক্সি আৰু VPN নোখোলে। ফিল্টাৰটো CleanBrowsing-ৰ পাৰিবাৰিক ফিল্টাৰ; আপোনাৰ নিজৰ একাউণ্ট ফিল্টাৰ কৰা নহয়।",
+  "Windows programs and downloaded apps": "Windows প্ৰগ্ৰাম আৰু ডাউনলোড কৰা এপ"
 }

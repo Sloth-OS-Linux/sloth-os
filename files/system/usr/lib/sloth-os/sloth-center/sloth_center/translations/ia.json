@@ -998,5 +998,9 @@
   "Password again:": "Contrasigno de novo:",
   "Create account": "Crear conto",
   "Delete {name}'s account?": "Deler le conto de {name}?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Su files (documentos, imagines, jocos salvate) es etiam delite, e isto non pote esser disfacite. Si illo es connectite, illo es primo disconnectite."
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "Su files (documentos, imagines, jocos salvate) es etiam delite, e isto non pote esser disfacite. Si illo es connectite, illo es primo disconnectite.",
+  "Websites": "Sitos web",
+  "Block adult websites and use safe search": "Blocar sitos pro adultos e usar le recerca secur",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "Functiona in omne navigator e application. Google, Bing e YouTube monstra solmente resultatos apte pro familias, e sitos pro adultos, proxies e VPN non se aperi. Le filtro es le filtro familial de CleanBrowsing; tu proprie conto non es filtrate.",
+  "Windows programs and downloaded apps": "Programmas de Windows e applicationes discargate"
 }

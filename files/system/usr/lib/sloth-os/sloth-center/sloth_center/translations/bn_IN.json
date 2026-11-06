@@ -998,5 +998,9 @@
   "Password again:": "আবার পাসওয়ার্ড:",
   "Create account": "অ্যাকাউন্ট তৈরি করুন",
   "Delete {name}'s account?": "{name}-এর অ্যাকাউন্ট মুছবেন?",
-  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "তার ফাইলগুলোও (নথি, ছবি, গেম সেভ) মুছে যাবে, এবং এটি পূর্বাবস্থায় ফেরানো যাবে না। সে সাইন-ইন করা থাকলে প্রথমে সাইন-আউট করা হবে।"
+  "Their files (documents, pictures, game saves) are deleted too, and this can't be undone. If they are signed in, they are signed out first.": "তার ফাইলগুলোও (নথি, ছবি, গেম সেভ) মুছে যাবে, এবং এটি পূর্বাবস্থায় ফেরানো যাবে না। সে সাইন-ইন করা থাকলে প্রথমে সাইন-আউট করা হবে।",
+  "Websites": "ওয়েবসাইট",
+  "Block adult websites and use safe search": "প্রাপ্তবয়স্কদের সাইট ব্লক করুন এবং নিরাপদ অনুসন্ধান ব্যবহার করুন",
+  "Works in every browser and app. Google, Bing and YouTube show only family-friendly results, and websites for adults, proxies and VPNs don't open. The filter is CleanBrowsing's family filter; your own account is not filtered.": "সব ব্রাউজার ও অ্যাপে কাজ করে। Google, Bing ও YouTube শুধু পরিবারের উপযোগী ফলাফল দেখায়, আর প্রাপ্তবয়স্কদের সাইট, প্রক্সি ও VPN খোলে না। ফিল্টারটি CleanBrowsing-এর পারিবারিক ফিল্টার; আপনার নিজের অ্যাকাউন্ট ফিল্টার করা হয় না।",
+  "Windows programs and downloaded apps": "Windows প্রোগ্রাম ও ডাউনলোড করা অ্যাপ"
 }
