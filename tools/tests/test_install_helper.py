@@ -2,6 +2,7 @@
 """Safety checks for the installer helper's Windows-disk survey (no disk access)."""
 import importlib.machinery
 import importlib.util
+import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
@@ -340,6 +341,54 @@ class ExtraDiskChoiceTest(unittest.TestCase):
         self.assertEqual(helper._mount_name("games stuff", used), "games-stuff-2")
         self.assertEqual(helper._mount_name("Ünnep", used), "nnep")
         self.assertEqual(helper._mount_name("!!!", used), "disk")
+
+
+class FirmwareTest(unittest.TestCase):
+    """GitHub issue #23: firmware that refuses to change its boot entries must not stop the install."""
+
+    LISTING = (
+        "BootCurrent: 0001\nBootOrder: 0004,0000,0001\n"
+        "Boot0000* Windows Boot Manager\tHD(1,GPT,aaaaaaaa-1111-2222-3333-444444444444,0x800,0x32000)"
+        "/\\EFI\\Microsoft\\Boot\\bootmgfw.efi\n"
+        "Boot0001* USB HDD\tPciRoot(0x0)/Pci(0x14,0x0)/USB(1,0)\n"
+        "Boot0004* Fedora\tHD(2,GPT,bbbbbbbb-1111-2222-3333-444444444444,0x1000,0x100000)/\\EFI\\fedora\\shimx64.efi\n"
+        "Boot0005* Sloth OS\tHD(2,GPT,cccccccc-1111-2222-3333-444444444444,0x1000,0x100000)"
+        "/\\EFI\\fedora\\shimx64.efi\n"
+        # another Fedora install on a disk that is not plugged in: not ours, it stays
+        "Boot0006* Fedora 43\tHD(1,GPT,dddddddd-1111-2222-3333-444444444444,0x800,0x100000)"
+        "/\\EFI\\fedora\\shimx64.efi\n")
+
+    def test_entries_of_vanished_partitions_are_stale(self):
+        present = {"aaaaaaaa-1111-2222-3333-444444444444", "cccccccc-1111-2222-3333-444444444444"}
+        self.assertEqual(helper.stale_entries(self.LISTING, present), ["0004"])
+
+    def test_other_systems_entries_are_never_stale(self):
+        # Windows' partition gone too: its entry still stays, only our loader's entries are ours to remove
+        self.assertEqual(helper.stale_entries(self.LISTING, set()), ["0004", "0005"])
+
+    def test_fallback_path_gets_the_boot_loader(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(helper, "TARGET", Path(tmp)), \
+                patch.object(helper, "log"):
+            fedora, boot = Path(tmp, "boot/efi/EFI/fedora"), Path(tmp, "boot/efi/EFI/BOOT")
+            fedora.mkdir(parents=True)
+            boot.mkdir(parents=True)
+            for name in ("shimx64.efi", "grubx64.efi", "mmx64.efi", "grub.cfg", "bootuuid.cfg"):
+                (fedora / name).write_text(name)
+            (boot / "BOOTX64.EFI").write_text("shim")
+            (boot / "grub.cfg").write_text("someone else's")
+            helper.place_fallback_loader()
+            self.assertEqual((boot / "grubx64.efi").read_text(), "grubx64.efi")
+            self.assertEqual((boot / "bootuuid.cfg").read_text(), "bootuuid.cfg")
+            self.assertEqual((boot / "grub.cfg").read_text(), "someone else's")
+
+    def test_no_shim_on_the_fallback_path_adds_nothing(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(helper, "TARGET", Path(tmp)), \
+                patch.object(helper, "log"):
+            fedora = Path(tmp, "boot/efi/EFI/fedora")
+            fedora.mkdir(parents=True)
+            (fedora / "grubx64.efi").write_text("grub")
+            helper.place_fallback_loader()
+            self.assertFalse(Path(tmp, "boot/efi/EFI/BOOT").exists())
 
 
 if __name__ == "__main__":

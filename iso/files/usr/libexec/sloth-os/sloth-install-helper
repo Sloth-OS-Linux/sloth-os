@@ -1019,18 +1019,98 @@ def finish_partitions(disk, parts, passphrase=""):
 
 
 LOADER = r"\EFI\fedora\shimx64.efi"
+EFIVARS = Path("/sys/firmware/efi/efivars")
+# The fallback path every UEFI firmware starts when it has no boot entry for the disk
+FALLBACK_FILES = ("grubx64.efi", "mmx64.efi", "grub.cfg", "bootuuid.cfg")
 
 
-def rename_boot_entry(disk, esp_partn):
-    """The boot loader registers the system in the firmware as "Fedora"; we change that to "Sloth OS".
+@contextlib.contextmanager
+def firmware_untouched():
+    """While bootc runs, the firmware's variables are read-only: bootupd then leaves the boot entries alone.
 
-    efibootmgr cannot rename, so we create a new entry for the same loader
-    and delete the old one. If anything fails, the old one stays: the machine still boots.
-    The new entry goes to the front of the boot order (next to Windows too: the choice is in
-    Sloth OS's menu). Windows' own entry is not touched.
-    """
+    bootupd (bootc install) first deletes every boot entry called "Fedora", then makes a new one, and stops the whole
+    install if the firmware refuses either. Some firmware does: an ASUS VivoBook answered "Cannot allocate memory" to
+    deleting an old entry, its variable store full (GitHub issue #23, 2026-11-06: the install failed at 80%, every
+    time). With read-only efivars bootupd skips the firmware ("efivars not writable") and only writes the EFI
+    partition; the entry is made afterwards by boot_entry(), where a refusal stops nothing (the fallback path in
+    place_fallback_loader() starts the system then)."""
+    remounted = False
+    if os.path.ismount(EFIVARS):
+        r = subprocess.run(["mount", "-o", "remount,ro", str(EFIVARS)], capture_output=True, text=True)
+        remounted = r.returncode == 0
+        log(f"firmware variables read-only for bootc: {remounted} {r.stderr.strip()}")
+    try:
+        yield
+    finally:
+        if remounted:
+            r = subprocess.run(["mount", "-o", "remount,rw", str(EFIVARS)], capture_output=True, text=True)
+            log(f"firmware variables writable again: {r.returncode == 0} {r.stderr.strip()}")
+
+
+def place_fallback_loader():
+    """The boot loader on the fallback path too (EFI/BOOT): the system starts even without a boot entry.
+
+    bootupd puts shim there as BOOTX64.EFI, but Fedora's shim has no fallback program (fbx64.efi) any more, so from
+    EFI/BOOT it looks for grubx64.efi next to itself. GRUB reads its grub.cfg (and bootupd's bootuuid.cfg) from its
+    own folder; our custom.cfg finds EFI/fedora by name, so the hidden menu works from here too. Existing files are
+    left alone (on Windows' EFI partition, the advanced way, they may belong to something else)."""
+    src, dst = TARGET / "boot/efi/EFI/fedora", TARGET / "boot/efi/EFI/BOOT"
+    if not (dst / "BOOTX64.EFI").is_file():
+        log("fallback path: no EFI/BOOT/BOOTX64.EFI, nothing added")
+        return
+    copied = []
+    for name in FALLBACK_FILES:
+        if (src / name).is_file() and not (dst / name).exists():
+            try:
+                shutil.copyfile(src / name, dst / name)
+                copied.append(name)
+            except OSError as e:
+                log(f"fallback path: {name} not copied ({e})")
+    log(f"fallback path: {copied}")
+
+
+def free_firmware_space():
+    """Room in the firmware's variable store before our boot entry is made, without touching anything that matters:
+    the kernel's crash records (dump-*, written there by efi-pstore after a crash, never read again) and boot entries
+    that start our boot loader from a partition that no longer exists (left by earlier installs: whole-disk installs
+    make new partitions every time)."""
+    removed = 0
+    for var in EFIVARS.glob("dump-*"):
+        subprocess.run(["chattr", "-i", str(var)], capture_output=True)
+        try:
+            var.unlink()
+            removed += 1
+        except OSError as e:
+            log(f"crash record {var.name} not removed: {e}")
+    listing = subprocess.run(["efibootmgr", "--verbose"], capture_output=True, text=True).stdout
+    for num in stale_entries(listing, set(p.name.lower() for p in Path("/dev/disk/by-partuuid").glob("*"))):
+        r = subprocess.run(["efibootmgr", "--bootnum", num, "--delete-bootnum"], capture_output=True, text=True)
+        log(f"stale boot entry {num} deleted: {r.returncode} {r.stderr.strip()}")
+    log(f"crash records removed from the firmware: {removed}")
+
+
+def stale_entries(listing, partuuids):
+    """The boot entries (numbers) in `efibootmgr --verbose` output called "Fedora" or "Sloth OS" that start
+    \\EFI\\fedora\\ from a GPT partition that is not in `partuuids` (lowercase). Entries of other systems and of
+    existing partitions stay (bootupd used to delete every "Fedora" entry, existing or not)."""
+    stale = []
+    for line in listing.splitlines():
+        m = re.match(r"Boot([0-9A-Fa-f]{4})\*? (Fedora|Sloth OS)\t", line)
+        g = re.search(r"HD\(\d+,GPT,([0-9a-fA-F-]{36}),", line)
+        if m and g and "\\efi\\fedora\\" in line.lower() and g.group(1).lower() not in partuuids:
+            stale.append(m.group(1))
+    return stale
+
+
+def boot_entry(disk, esp_partn):
+    """The system's entry in the firmware's boot list, called "Sloth OS", at the front of the boot order (next to
+    Windows too: the choice is in Sloth OS's menu). Windows' own entry is not touched.
+
+    bootupd does not make one any more (firmware_untouched); older "Fedora" entries of our loader go once the new
+    one is there. If the firmware refuses, the install goes on: the fallback path starts the system."""
     if not Path("/sys/firmware/efi").is_dir():
         return
+    free_firmware_space()
     listing = subprocess.run(["efibootmgr"], capture_output=True, text=True).stdout
     old = [line[4:8] for line in listing.splitlines()
            if line.startswith("Boot") and line[8:9] == "*" and "Fedora" in line]
@@ -1038,6 +1118,7 @@ def rename_boot_entry(disk, esp_partn):
                         "--loader", LOADER, "--label", "Sloth OS"], capture_output=True, text=True)
     log(f"boot entry: {r.returncode} {r.stderr.strip()}")
     if r.returncode != 0:
+        log("boot entry: the firmware refused it; the system starts from the fallback path (EFI/BOOT)")
         return
     for num in old:
         subprocess.run(["efibootmgr", "--bootnum", num, "--delete-bootnum"], capture_output=True)
@@ -1356,12 +1437,14 @@ def main():
     emit(stage="prepare", progress=20)
     hidden = hide_other_esps(args.disk, parts["numbers"]["esp"])
     try:
-        run_bootc(kargs)
+        with firmware_untouched():
+            run_bootc(kargs)
     finally:
         restore_esps(args.disk, hidden)
     setup_boot_menu(windows_esp)
+    place_fallback_loader()
     root_part = finish_partitions(args.disk, parts, passphrase)
-    rename_boot_entry(args.disk, parts["numbers"]["esp"])
+    boot_entry(args.disk, parts["numbers"]["esp"])
     if windows_esp:
         place_windows_helper(args.disk)
     emit(stage="configure", progress=95)
