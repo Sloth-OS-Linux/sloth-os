@@ -5,14 +5,15 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
-### Installer: firmware that refuses boot entries (GitHub issue #23, 2026-11-06, test branch)
+### Installer: firmware that refuses boot entries (GitHub issue #23, 2026-11-06, Sloth OS 1.4.2)
 - [x] An ASUS VivoBook (whole disk) failed at 80% every time: bootupd deletes every "Fedora" boot entry before making
   its own, the firmware answered "Cannot allocate memory" (its variable store full) and bootc stopped the install.
   Now efivars is read-only while bootc runs (bootupd then skips the firmware), the installer removes the kernel's
   crash records and our own entries of vanished partitions, makes the "Sloth OS" entry itself (a refusal is only
   logged), and puts GRUB on the fallback path (EFI/BOOT: grubx64.efi, mmx64.efi, grub.cfg, bootuuid.cfg) so the
   system starts without an entry too. Unit tests: tools/tests/test_install_helper.py (FirmwareTest)
-- [ ] On the HP with the test ISO: a whole-disk install; the "Sloth OS" entry is there, no "Fedora" entry, starts
+- [x] On the HP with the test ISO: a whole-disk install went through and starts (2026-11-06)
+- [ ] The reporter's ASUS VivoBook with the 1.4.2 ISO
 - [ ] On the HP: without its boot entry (deleted in the BIOS) it still starts from the disk (the fallback path)
 
 ### Sloth OS 1.4.1 (released 2026-11-04)

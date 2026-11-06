@@ -19,6 +19,9 @@ update. Download: [sloth-os-1.4.1-x86_64.iso](https://sourceforge.net/projects/s
 [torrent](https://sourceforge.net/projects/sloth-os/files/1.4.1/sloth-os-1.4.1-x86_64.iso.torrent/download)), SHA-256 `aeb60acdac2ff2910f0106edad8cf231ac5f9190ed5062f52b3d5ace0a666b3f`. What changed:
 [release notes](#release-notes) below (also in [docs/releases/1.4.1.md](docs/releases/1.4.1.md)).
 
+**Coming soon: Sloth OS 1.4.2** (the installer no longer stops at 80% on laptops whose firmware refuses to change its
+boot entries). Machines already running Sloth OS get it as a normal update. The 1.4.2 installer ISO follows shortly.
+
 ## What Sloth OS can do
 
 **Feels familiar from the first minute.** Pick a taskbar layout that looks like Windows 10, Windows 11, Windows 7, a
@@ -51,6 +54,17 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
+<summary><b>What's new in 1.4.2</b> (November 6, 2026)</summary>
+
+**The installer:** the install no longer stops at 80% on some laptops (an ASUS VivoBook, for example) whose firmware
+refused to change its list of boot entries. The installer now makes the "Sloth OS" boot entry itself and carries on
+if the firmware says no, and Sloth OS starts from the disk even without that entry.
+
+Full notes: [docs/releases/1.4.2.md](docs/releases/1.4.2.md).
+
+</details>
+
+<details>
 <summary><b>What's new in 1.4.1</b> (November 4, 2026)</summary>
 
 **Older NVIDIA cards** (older than the GeForce RTX 20 series, on the open driver): no more black screen or

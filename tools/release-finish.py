@@ -230,7 +230,8 @@ def main():
             sys.exit("ERROR: download.html: the release notes heading has changed")
         text = text.replace(head, '<h2 id="whats-new">Release notes</h2>'
                             f"<details open><summary>What is new in {v} ({date})</summary><ul>{items}"
-                            "<li>Every new text is available in all 50 languages.</li></ul></details><details>", 1)
+                            + ("<li>Every new text is available in all 50 languages.</li>" if "50 languages" in notes
+                               else "") + "</ul></details><details>", 1)
         write(dl, text)
         for page in ("index.html", "faq.html"):
             p = docs / page
