@@ -55,11 +55,12 @@ $CRYPT"; }
 say "installing: ${ARGS[*]}"
 START=$(date +%s)
 cat > /tmp/wrap.py <<'PY'
-import importlib.machinery, importlib.util, sys
+import contextlib, importlib.machinery, importlib.util, sys
 l = importlib.machinery.SourceFileLoader("h", "/usr/libexec/sloth-os/sloth-install-helper")
 spec = importlib.util.spec_from_loader("h", l); h = importlib.util.module_from_spec(spec); l.exec_module(h)
 h.whole_disk = lambda path: True           # loop device
-h.rename_boot_entry = lambda *a: None      # do not touch the host's firmware
+h.boot_entry = lambda *a: None             # do not touch the host's firmware
+h.firmware_untouched = contextlib.nullcontext
 sys.argv = ["sloth-install-helper"] + sys.argv[1:]
 sys.exit(h.main())
 PY
