@@ -17,7 +17,7 @@ from a terminal must also work from a GUI.
   boot entry); the 1.4.1 ISO stopped at 80% with the same "Cannot allocate memory" as the ASUS, the 1.4.2 ISO
   finished (the firmware refused the entry, only logged) and the installed system started from the fallback path
   to the sign-in screen
-- [ ] The reporter's ASUS VivoBook with the 1.4.2 ISO
+- [x] The reporter's ASUS VivoBook with the 1.4.2 ISO: the install went through (2026-11-07)
 - [ ] On the HP: without its boot entry (deleted in the BIOS) it still starts from the disk (the fallback path)
 
 ### Parental controls (2026-11-06, test branch, to try on the HP)
