@@ -9,11 +9,11 @@ Kirigami.ScrollablePage {
     id: page
     title: L.t("Parental controls")
 
-    // "16:00" in the user's own time format; 24 is midnight at the end of the day
-    function hourText(h) {
-        if (h >= 24)
+    // A half-hour step as "16:30" in the user's own time format; 48 (24:00) is midnight at the end of the day
+    function slotText(i) {
+        if (i >= 48)
             return L.t("midnight");
-        return Qt.formatTime(new Date(2000, 0, 1, h, 0), Qt.locale().timeFormat(Locale.ShortFormat));
+        return Qt.formatTime(new Date(2000, 0, 1, Math.floor(i / 2), (i % 2) * 30), Qt.locale().timeFormat(Locale.ShortFormat));
     }
 
     actions: [
@@ -140,7 +140,7 @@ Kirigami.ScrollablePage {
                             enabled: schedule.checked
                             QQC2.ComboBox {
                                 id: start
-                                model: Array.from({ length: 24 }, (_, h) => page.hourText(h))
+                                model: Array.from({ length: 48 }, (_, i) => page.slotText(i))
                                 currentIndex: card.modelData.start
                                 onActivated: family.setScreenTime(card.modelData.user, family.dailyChoices[daily.currentIndex],
                                                                   true, currentIndex, end.currentIndex + 1)
@@ -148,7 +148,7 @@ Kirigami.ScrollablePage {
                             QQC2.Label { text: "–" }
                             QQC2.ComboBox {
                                 id: end
-                                model: Array.from({ length: 24 }, (_, h) => page.hourText(h + 1))
+                                model: Array.from({ length: 48 }, (_, i) => page.slotText(i + 1))
                                 currentIndex: card.modelData.end - 1
                                 onActivated: family.setScreenTime(card.modelData.user, family.dailyChoices[daily.currentIndex],
                                                                   true, start.currentIndex, currentIndex + 1)

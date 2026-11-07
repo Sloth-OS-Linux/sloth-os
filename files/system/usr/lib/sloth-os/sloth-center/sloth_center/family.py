@@ -33,6 +33,9 @@ FAMILY_WEB = "/etc/sloth-os/family-web.json"
 # sloth-exe checks the first one; sloth-helper blocks all of them together (PROGRAM_TYPES)
 PROGRAM_TYPE = "application/x-ms-dos-executable"
 TIMER = ("org.freedesktop.MalcontentTimer1", "/org/freedesktop/MalcontentTimer1")
+# the allowed hours go in half-hour steps
+SLOT = 30 * 60
+SLOTS = 24 * 60 * 60 // SLOT
 # the daily limit choices, in minutes (0: no limit)
 DAILY_CHOICES = (0, 30, 60, 90, 120, 180, 240, 360)
 USER_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
@@ -226,7 +229,7 @@ class FamilyController(QObject):
         out = []
         for pw in child_accounts():
             item = {"user": pw.pw_name, "name": pw.pw_gecos.split(",")[0] or pw.pw_name, "uid": pw.pw_uid,
-                    "signedIn": pw.pw_uid in signed_in, "daily": 0, "scheduleOn": False, "start": 16, "end": 20,
+                    "signedIn": pw.pw_uid in signed_in, "daily": 0, "scheduleOn": False, "start": 32, "end": 40,
                     "blocked": [], "programs": True, "web": pw.pw_name in filtered, "used": "",
                     "readable": manager is not None}
             if manager is not None:
@@ -235,7 +238,8 @@ class FamilyController(QObject):
                     on, start, end = limits.get_daily_schedule()
                     item["scheduleOn"] = bool(on)
                     if on:
-                        item["start"], item["end"] = start // 3600, (end + 3599) // 3600
+                        # half hours (16:00 = 32): the page's lists go in half-hour steps
+                        item["start"], item["end"] = start // SLOT, (end + SLOT - 1) // SLOT
                     on, daily = limits.get_daily_limit()
                     item["daily"] = daily // 60 if on else 0
                     app_filter = manager.get_app_filter(pw.pw_uid, Malcontent.ManagerGetValueFlags.NONE, None)
@@ -314,15 +318,16 @@ class FamilyController(QObject):
         self.changed.emit()
 
     @Slot(str, int, bool, int, int)
-    def setScreenTime(self, user, daily_minutes, schedule_on, start_hour, end_hour):
-        if daily_minutes not in DAILY_CHOICES or not 0 <= start_hour < end_hour <= 24:
+    def setScreenTime(self, user, daily_minutes, schedule_on, start_slot, end_slot):
+        """The allowed hours in half hours since midnight (32 = 16:00, 48 = midnight at the end of the day)."""
+        if daily_minutes not in DAILY_CHOICES or not 0 <= start_slot < end_slot <= SLOTS:
             self.refresh()  # the lists on the page go back to what is saved
             self._error = tr("The end of the allowed hours must be later than the start.")
             self.changed.emit()
             return
         request = {"daily": daily_minutes * 60, "start": None, "end": None}
         if schedule_on:
-            request.update(start=start_hour * 3600, end=end_hour * 3600)
+            request.update(start=start_slot * SLOT, end=end_slot * SLOT)
         self._run("limits", ["child-limits", user], request)
 
     @Slot(str, str, bool)

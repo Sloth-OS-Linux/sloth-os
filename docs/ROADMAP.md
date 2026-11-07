@@ -103,7 +103,14 @@ from a terminal must also work from a GUI.
   when they can use the computer again: pam_exec runs `screen-time --may-sign-in` in plasmalogin's account part
   (files/scripts/screen-time-pam.sh); administrators skip it (pam_succeed_if), and anything unexpected in the check
   lets a child in. Tried: parental_controls_test.sh with pamtester (now 46 checks)
-- [ ] On the HP: allowed hours ending in 15 minutes: the warnings at 10, 5 and 1 minutes, also over a full-screen
+- [x] From the HP test (2026-11-07): the allowed hours went only in whole hours (22:30 was not possible), and only
+  the 10-minute banner came, not the 5- and 1-minute ones (the child session reacted to the state file changing,
+  a path unit, which stopped working after the first time). Now: half-hour steps; the child session runs all
+  through (`family_session watch`) and works out the warnings from the end time every 5 seconds: a banner on the
+  overlay layer at 15, 10, 5 and 1 minutes, 10 seconds each, whichever ends first (the daily limit or the allowed
+  hours); signing in late shows only the nearest; no notifications any more (the banner was the one that worked);
+  "Time's up" stays until the sign-out. Tried: test_parental_controls.py (28), the real watcher on the desktop
+- [ ] On the HP again: allowed hours ending in 15 minutes: the warnings at 10, 5 and 1 minutes, also over a full-screen
   video; no "Ask for more time"; signed out to the sign-in screen, which works; signing in again is refused with
   the time it can be used again
 - [ ] On the HP: with the web filter on, an adult site doesn't open in Firefox / Brave for the child, Google search

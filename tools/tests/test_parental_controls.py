@@ -343,43 +343,56 @@ class WebFilter(unittest.TestCase):
 
 class ChildSession(unittest.TestCase):
     def setUp(self):
-        family_session.SEEN.unlink(missing_ok=True)
         family_session.STATE_DIR.mkdir(parents=True, exist_ok=True)
-        self.started = []
-        test = self
+        self.banners = []
+        self.watcher = family_session.Watcher(self.banners.append)
 
-        class Proc:
-            pid = 4242
+    def tick(self, now, **state):
+        self.watcher.tick(state, now)
 
-        def popen(cmd, **kw):
-            test.started.append(cmd)
-            return Proc()
-        family_session.subprocess = types.SimpleNamespace(Popen=popen, run=lambda *a, **k: None, PIPE=-1)
+    def minutes(self):
+        """The minutes of the warnings shown so far ("1 minute …" is 1)."""
+        out = []
+        for title, text, _ask, seconds in self.banners:
+            if title == "Screen time" and "left today" in text:
+                self.assertEqual(seconds, 10)  # on the screen for 10 seconds
+                out.append(1 if text.startswith("1 minute") else int(text.split()[0]))
+        return out
 
-    def state(self, **state):
-        (family_session.STATE_DIR / "anna.json").write_text(json.dumps(state))
+    def test_warnings_at_15_10_5_1(self):
+        end = 100000
+        for now in range(end - 1200, end, 5):  # the watcher looks every 5 seconds
+            self.tick(now, stage="ok", end=end, ask=True)
+        self.assertEqual(self.minutes(), [15, 10, 5, 1])  # each once, in order
 
-    def test_each_stage_once(self):
-        now = int(time.time())
-        shown = lambda: [c for c in self.started if c[-2] == "show"]  # noqa: E731
-        self.state(stage="10", end=now + 600, next=now + 86400, ask=True)
-        family_session.screen_time()
-        family_session.screen_time()  # the same stage again: nothing new
-        self.assertEqual(len(shown()), 1)
-        # and the same message as a banner above full-screen windows
-        self.assertEqual([c[-2:] for c in self.started if c[-2] == "banner"], [["banner", shown()[0][-1]]])
-        title, text, ask = json.loads(shown()[0][-1])
-        self.assertTrue(ask and "10" in text)
-        self.state(stage="up", end=now, next=now + 86400, logout=now + 60, ask=False)
-        family_session.screen_time()
-        title, text, ask = json.loads(shown()[1][-1])
-        self.assertEqual(title, "Time's up")
-        self.assertFalse(ask)  # the end of the allowed hours: no asking for more
-        self.state(stage="ok", end=now + 1800, next=now + 86400, ask=True)
-        family_session.screen_time()
-        title, text, ask = json.loads(shown()[2][-1])
-        self.assertFalse(ask)
-        self.assertIn("more time", text)
+    def test_the_same_for_the_end_of_the_allowed_hours(self):
+        end = 100000  # e.g. 23:00, the end of the hours: the state's end time is the same kind of time
+        for now in range(end - 1000, end, 5):
+            self.tick(now, stage="5" if end - now <= 300 else "ok", end=end, ask=False)
+        self.assertEqual(self.minutes(), [15, 10, 5, 1])
+        self.assertFalse(any(b[2] for b in self.banners))  # no "Ask for more time" for the end of the hours
+
+    def test_signing_in_late_shows_only_the_nearest(self):
+        self.tick(1000, stage="5", end=1000 + 170, ask=True)  # 2 min 50 s left
+        self.tick(1005, stage="5", end=1000 + 170, ask=True)
+        self.assertEqual(self.minutes(), [5])
+        self.tick(1000 + 115, stage="1", end=1000 + 170, ask=True)
+        self.assertEqual(self.minutes(), [5, 1])
+
+    def test_times_up_stays_and_more_time(self):
+        self.tick(1000, stage="ok", end=1300, ask=True)
+        self.tick(1000, stage="up", end=1000, logout=1060, next=90000, ask=False)
+        self.tick(1005, stage="up", end=1000, logout=1060, next=90000, ask=False)
+        up = [b for b in self.banners if b[0] == "Time's up"]
+        self.assertEqual(len(up), 1)
+        self.assertEqual(up[0][3], 0)  # stays until the sign-out
+        self.tick(1010, stage="ok", end=1010 + 1800, ask=True)  # a parent allowed half an hour
+        self.assertIn("more time", self.banners[-1][1])
+
+    def test_no_limit_shows_nothing(self):
+        self.tick(1000)
+        self.tick(1005)
+        self.assertEqual(self.banners, [])
 
     def test_when_again(self):
         t = time.localtime()

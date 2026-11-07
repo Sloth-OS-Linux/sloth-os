@@ -1,21 +1,22 @@
 """Parental controls in a child's own session (the system side: /usr/libexec/sloth-os/screen-time, sloth-helper-family).
 
-It runs in every account's session (sloth-family-session.path / .service): at sign-in and whenever the state files
-in /run/sloth-os/family change. For an account without parental controls it does nothing (it only cleans up after
-itself).
-  - Screen time: the warnings (10, 5 and 1 minutes left, time's up) as notifications and as a banner at the top of
-    the screen above everything, full-screen games and videos too (a layer-shell surface on the overlay layer; a
-    notification stays behind a full-screen window). "Ask for more time" (malcontent-timerd's RequestExtension: a
-    parent types their password in the window that comes up) only when the system side offers it: for the daily
-    limit inside the allowed hours, not for the end of the hours. Signing out is done by the system side, not
-    here: the child could stop this.
+It runs all through every account's session (sloth-family-session.service, `watch`), and looks every few seconds at
+the state the system side writes (/run/sloth-os/family/<user>.json). For an account without parental controls it
+does nothing but look (it only cleans up after itself).
+  - Screen time: a banner at the top of the screen, above everything, full-screen games and videos too (a
+    layer-shell surface on the overlay layer), 15, 10, 5 and 1 minutes before the time ends, for 10 seconds each:
+    whichever ends first, the daily limit or the allowed hours. The minutes are worked out here from the end time,
+    not from the moment a file changes (the warnings at 5 and 1 minutes did not come on the HP, 2026-11-07).
+    Signing in with less time left shows only the nearest warning. "Time's up" stays until the system side signs
+    the child out. "Ask for more time" (malcontent-timerd's RequestExtension: a parent types their password in the
+    window that comes up) only when the system side offers it: for the daily limit inside the allowed hours.
+    Signing out is done by the system side, not here: the child could stop this.
   - Blocked apps: they are hidden from the menus (a Hidden=true entry of our own in ~/.local/share/applications);
     Flatpak would not start them anyway (malcontent's app filter).
-Start: python3 -m sloth_center.family_session [show <message> | banner <message>]
+Start: python3 -m sloth_center.family_session [watch | banner <message>]
 """
 import json
 import os
-import signal
 import subprocess
 import sys
 import time
@@ -30,7 +31,9 @@ SIGN_IN_REFUSED = N_("Your screen time is over for now.")
 STATE_DIR = Path(os.environ.get("SLOTH_FAMILY_STATE", "/run/sloth-os/family"))
 USER = os.environ.get("USER") or os.getlogin()
 RUNTIME = Path(os.environ.get("XDG_RUNTIME_DIR", f"/run/user/{os.getuid()}"))
-SEEN = RUNTIME / "sloth-family-seen.json"       # the stage last shown, and the notification's process and number
+TICK = 5                       # seconds between two looks at the state
+WARN_AT = (900, 600, 300, 60)  # seconds left: the banners
+BANNER_SECONDS = 10
 APPS_DIR = Path(os.environ.get("XDG_DATA_HOME", Path.home() / ".local/share")) / "applications"
 MARK = "X-Sloth-Parental-Controls=hidden"
 EXPORTS = [Path("/var/lib/flatpak/exports/share/applications"),
@@ -61,23 +64,23 @@ def when_again(ts):
     return ""
 
 
-def message(state, previous):
-    """(title, text, with "Ask for more time") for a stage, or None if there is nothing to say."""
-    stage, end = state.get("stage"), state.get("end", 0)
-    ask = bool(state.get("ask", True))
-    if stage in ("10", "5", "1"):
-        minutes = int(stage)
-        text = tr("{n} minutes of screen time left today. At {time} you'll be signed out, so save your work.",
-                  n=minutes, time=_clock(end)) if minutes > 1 else \
-            tr("1 minute of screen time left today. Save your work now.")
-        return tr("Screen time"), text, ask
-    if stage == "up":
-        text = tr("Your screen time is over for now. You'll be signed out in a minute, so save your work now.")
-        again = when_again(state.get("next", 0)) if state.get("next") else ""
-        return tr("Time's up"), (text + " " + again).strip(), ask
-    if stage == "ok" and previous.get("stage") in ("10", "5", "1", "up") and end > previous.get("end", 0):
-        return tr("Screen time"), tr("You got more time: you can use the computer until {time}.", time=_clock(end)), False
-    return None
+def warning(minutes, end, ask):
+    """(title, text, with "Ask for more time", seconds on screen) of a warning."""
+    text = tr("{n} minutes of screen time left today. At {time} you'll be signed out, so save your work.",
+              n=minutes, time=_clock(end)) if minutes > 1 else \
+        tr("1 minute of screen time left today. Save your work now.")
+    return tr("Screen time"), text, bool(ask), BANNER_SECONDS
+
+
+def times_up(state):
+    text = tr("Your screen time is over for now. You'll be signed out in a minute, so save your work now.")
+    again = when_again(state.get("next", 0)) if state.get("next") else ""
+    return tr("Time's up"), (text + " " + again).strip(), bool(state.get("ask", False)), 0
+
+
+def more_time(end):
+    return tr("Screen time"), tr("You got more time: you can use the computer until {time}.", time=_clock(end)), \
+        False, BANNER_SECONDS
 
 
 def _read_json(path):
@@ -87,64 +90,77 @@ def _read_json(path):
         return {}
 
 
-def _close_previous(seen):
-    """The previous notification's process stops waiting for a click (its notification is replaced), and the
-    previous banner goes."""
-    for pid in (seen.get("pid"), seen.get("banner")):
-        if isinstance(pid, int) and pid > 1:
+class Watcher:
+    """What to show, from the state file and the clock; show() puts a banner on the screen (replacing the one
+    there)."""
+
+    def __init__(self, show):
+        self.show = show
+        self.shown = {}        # end time -> the warnings (seconds) already shown or skipped for it
+        self.up_for = None     # the sign-out time the "Time's up" banner was shown for
+        self.end = None        # the end time seen last
+        self.warned = False    # a warning was shown for that end time
+
+    def tick(self, state, now):
+        if not state:  # no limit (any more), or signed out and in again: start again
+            self.shown, self.up_for, self.end, self.warned = {}, None, None, False
+            return
+        end = int(state.get("end", 0))
+        if state.get("stage") == "up":
+            if self.up_for != state.get("logout", end):
+                self.up_for = state.get("logout", end)
+                self.show(times_up(state))
+            return
+        if self.up_for is not None or (self.end is not None and self.warned and end > self.end + 60):
+            self.show(more_time(end))  # a parent allowed more time
+            self.warned = False
+        self.up_for = None
+        if end != self.end:
+            self.end = end
+            self.warned = False
+        left = end - now
+        due = [s for s in WARN_AT if left <= s]
+        done = self.shown.setdefault(end, set())
+        new = [s for s in due if s not in done]
+        if new and left > 0:
+            done.update(due)  # signing in with 3 minutes left: only the 5-minute warning, not three at once
+            self.warned = True
+            self.show(warning(min(new) // 60, end, state.get("ask", True)))
+
+
+def _start_banner(msg, previous):
+    if previous is not None and previous.poll() is None:
+        previous.terminate()
+    # every window of the banner's process is a layer-shell surface (above full-screen windows)
+    return subprocess.Popen([sys.executable, "-m", "sloth_center.family_session", "banner", json.dumps(msg)],
+                            env={**os.environ, "QT_WAYLAND_SHELL_INTEGRATION": "layer-shell",
+                                 "QT_QUICK_CONTROLS_STYLE": "Fusion"})
+
+
+def watch():
+    """The session's loop: the screen time banners, and the blocked apps hidden when the parent changes them."""
+    state_file, apps_file = STATE_DIR / f"{USER}.json", STATE_DIR / f"{USER}.apps"
+    current = [None]
+
+    def show(msg):
+        current[0] = _start_banner(msg, current[0])
+    watcher = Watcher(show)
+    apps_seen = None
+    hide_blocked_apps()  # also cleans up after an account that had parental controls before
+    while True:
+        try:
+            watcher.tick(_read_json(state_file), time.time())
             try:
-                if "family_session" in Path(f"/proc/{pid}/cmdline").read_text(errors="replace"):
-                    os.kill(pid, signal.SIGTERM)
-            except (OSError, ProcessLookupError):
-                pass
-
-
-def screen_time():
-    state = _read_json(STATE_DIR / f"{USER}.json")
-    seen = _read_json(SEEN)
-    if not state:
-        if seen:  # the limit was taken off, or a new session: start again
-            SEEN.unlink(missing_ok=True)
-        return
-    if state.get("stage") == seen.get("stage") and state.get("end") == seen.get("end"):
-        return
-    msg = message(state, seen)
-    _close_previous(seen)
-    seen.update({"stage": state.get("stage"), "end": state.get("end"), "pid": None, "banner": None})
-    if msg:
-        proc = subprocess.Popen([sys.executable, "-m", "sloth_center.family_session", "show", json.dumps(msg)],
-                                start_new_session=True)
-        seen["pid"] = proc.pid
-        # every window of the banner's process is a layer-shell surface (above full-screen windows)
-        proc = subprocess.Popen([sys.executable, "-m", "sloth_center.family_session", "banner", json.dumps(msg)],
-                                start_new_session=True, env={**os.environ, "QT_WAYLAND_SHELL_INTEGRATION": "layer-shell",
-                                                              "QT_QUICK_CONTROLS_STYLE": "Fusion"})
-        seen["banner"] = proc.pid
-    SEEN.write_text(json.dumps(seen))
-
-
-def show(msg):
-    """One notification (in its own process: it waits for the click)."""
-    title, text, ask = json.loads(msg)
-    seen = _read_json(SEEN)
-    replace = [f"--replace-id={seen['id']}"] if isinstance(seen.get("id"), int) else []
-    actions = ["--action=more=" + tr("Ask for more time")] if ask else []
-    try:
-        proc = subprocess.Popen(["notify-send", "--app-name=Sloth OS", "--icon=preferences-desktop-user-password",
-                                 "--urgency=critical", "--expire-time=0", "--print-id", *replace, *actions, title,
-                                 text], stdout=subprocess.PIPE, text=True)
-    except OSError:
-        return 0
-    first = proc.stdout.readline().strip()
-    if first.isdigit():
-        seen = _read_json(SEEN)
-        seen["id"] = int(first)
-        SEEN.write_text(json.dumps(seen))
-    choice = proc.stdout.readline().strip()
-    proc.wait()
-    if choice == "more":
-        ask_for_more_time()
-    return 0
+                stamp = apps_file.stat().st_mtime
+            except OSError:
+                stamp = None
+            if stamp != apps_seen:
+                if apps_seen is not None or stamp is not None:
+                    hide_blocked_apps()
+                apps_seen = stamp
+        except Exception as e:  # never stop watching because of one bad round
+            print(f"family_session: {e}", file=sys.stderr, flush=True)
+        time.sleep(TICK)
 
 
 BANNER_QML = """
@@ -202,9 +218,8 @@ Window {
 
 
 def banner(msg):
-    """The warning at the top of the screen, above full-screen windows; a warning goes after 30 seconds, "time's up"
-    stays until the sign-out. Without layer-shell support (or a Wayland session) only the notification is there."""
-    title, text, ask = json.loads(msg)
+    """The warning at the top of the screen, above full-screen windows, for `seconds` (0: until the sign-out)."""
+    title, text, ask, seconds = json.loads(msg)
     try:
         from PySide6.QtCore import Property, QObject, Slot
         from PySide6.QtGui import QGuiApplication
@@ -222,7 +237,7 @@ def banner(msg):
         ask_ = Property(bool, lambda self: bool(ask), constant=True)
         askText = Property(str, lambda self: tr("Ask for more time"), constant=True)
         okText = Property(str, lambda self: tr("OK"), constant=True)
-        timeout = Property(int, lambda self: 0 if title == tr("Time's up") else 30000, constant=True)
+        timeout = Property(int, lambda self: int(seconds) * 1000, constant=True)
 
         @Slot()
         def askMore(self):
@@ -314,14 +329,11 @@ def hide_blocked_apps():
 
 
 def main(argv):
-    if argv[:1] == ["show"] and len(argv) == 2:
-        return show(argv[1])
     if argv[:1] == ["banner"] and len(argv) == 2:
         return banner(argv[1])
-    if not STATE_DIR.is_dir() and not SEEN.exists():
-        hide_blocked_apps()  # also cleans up after an account that had parental controls before
+    if argv[:1] == ["watch"]:
+        watch()
         return 0
-    screen_time()
     hide_blocked_apps()
     return 0
 
