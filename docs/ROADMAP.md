@@ -110,6 +110,9 @@ from a terminal must also work from a GUI.
   overlay layer at 15, 10, 5 and 1 minutes, 10 seconds each, whichever ends first (the daily limit or the allowed
   hours); signing in late shows only the nearest; no notifications any more (the banner was the one that worked);
   "Time's up" stays until the sign-out. Tried: test_parental_controls.py (28), the real watcher on the desktop
+- [x] The banner over full-screen windows, tried on the desktop PC (two screens): a Wayland window, an XWayland one,
+  glxgears full screen (OpenGL) and vkcube in gamescope (Vulkan): above all four, on the screen in use
+  (wantsToBeOnActiveScreen)
 - [ ] On the HP again: allowed hours ending in 15 minutes: the warnings at 10, 5 and 1 minutes, also over a full-screen
   video; no "Ask for more time"; signed out to the sign-in screen, which works; signing in again is refused with
   the time it can be used again

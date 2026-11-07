@@ -182,6 +182,7 @@ Window {
     LayerShell.Window.keyboardInteractivity: LayerShell.Window.KeyboardInteractivityNone
     LayerShell.Window.exclusionZone: -1
     LayerShell.Window.scope: "sloth-screen-time"
+    LayerShell.Window.wantsToBeOnActiveScreen: true  // the screen the child is using (with the game, the video)
     SystemPalette { id: palette; colorGroup: SystemPalette.Active }
     FontMetrics { id: fontMetrics }
     Rectangle {
