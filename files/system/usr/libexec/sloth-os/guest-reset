@@ -1,0 +1,97 @@
+#!/usr/bin/python3 -I
+"""Empties the guest account (Sloth Center → Account and security → Guest account): its home folder goes back to a
+fresh one from /etc/skel, and its files in the temporary folders go.
+
+It runs when the guest's last session has ended (ExecStopPost of its user@<uid>.service, a drop-in written by
+sloth-helper-family's guest-on) and at every start (sloth-guest-reset.service), so a power cut leaves nothing behind
+either. It only ever touches the account named in /etc/sloth-os/guest.json, and only if that account still has the
+same user ID, has no password (as the guest has; someone's own account called "guest", made after ours was removed,
+would get the same free user ID, but always has a password) and is not an administrator; anything else is left
+alone.
+"""
+import grp
+import json
+import os
+import pwd
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+MARKER = Path(os.environ.get("SLOTH_GUEST_MARKER", "/etc/sloth-os/guest.json"))
+SKEL = Path(os.environ.get("SLOTH_GUEST_SKEL", "/etc/skel"))
+TEMP_DIRS = ("/tmp", "/var/tmp")
+
+
+def log(msg):
+    print(msg, file=sys.stderr, flush=True)
+
+
+def the_guest():
+    try:
+        data = json.loads(MARKER.read_text(encoding="utf-8"))
+        pw = pwd.getpwnam(data["user"])
+    except (OSError, ValueError, KeyError, TypeError):
+        return None
+    if pw.pw_uid != data.get("uid") or pw.pw_uid < 1000 or not empty_password(pw.pw_name):
+        return None
+    try:
+        wheel = grp.getgrnam("wheel")
+        if pw.pw_name in wheel.gr_mem or pw.pw_gid == wheel.gr_gid:
+            return None
+    except KeyError:
+        pass
+    return pw
+
+
+def empty_password(name):
+    """passwd -S: "NP" is no password at all (the guest); "P" a password, "L"/"LK" locked."""
+    r = subprocess.run(["passwd", "--status", name], capture_output=True, text=True)
+    parts = r.stdout.split()
+    return r.returncode == 0 and len(parts) > 1 and parts[1] == "NP"
+
+
+def signed_in(uid):
+    r = subprocess.run(["loginctl", "show-user", str(uid), "--property=State", "--value"],
+                       capture_output=True, text=True)
+    return r.returncode == 0 and r.stdout.strip() in ("active", "online")
+
+
+def reset(pw):
+    home = Path(pw.pw_dir)
+    if home.resolve() in (Path("/"), Path("/home").resolve(), Path("/var/home").resolve()) or len(home.parts) < 3:
+        log(f"{home}: not a home folder of its own, left alone")
+        return 1
+    if home.is_symlink():
+        home.unlink()
+    elif home.exists():
+        shutil.rmtree(home)
+    shutil.copytree(SKEL, home, symlinks=True)
+    for root, dirs, files in os.walk(home):
+        for name in dirs + files:
+            os.lchown(os.path.join(root, name), pw.pw_uid, pw.pw_gid)
+    os.chown(home, pw.pw_uid, pw.pw_gid)
+    os.chmod(home, 0o700)
+    try:  # the SELinux labels of a home folder
+        subprocess.run(["restorecon", "-R", str(home)], capture_output=True)
+    except OSError:
+        pass
+    for folder in TEMP_DIRS:  # what the guest left in the shared temporary folders
+        subprocess.run(["find", folder, "-xdev", "-mindepth", "1", "-user", str(pw.pw_uid), "-delete"],
+                       capture_output=True)
+    log(f"{pw.pw_name}: emptied")
+    return 0
+
+
+def main():
+    pw = the_guest()
+    if pw is None:
+        return 0
+    if signed_in(pw.pw_uid):  # never under a running session (a second one may have started meanwhile)
+        log(f"{pw.pw_name}: signed in, nothing deleted")
+        return 0
+    return reset(pw)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

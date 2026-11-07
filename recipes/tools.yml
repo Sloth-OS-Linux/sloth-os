@@ -60,6 +60,7 @@ modules:
         - sloth-file-sharing.service  # at startup, if something is still shared
         - sloth-screen-time.service   # parental controls: a child's screen time (does nothing without a child)
         - sloth-family-web.service    # parental controls: the web filter (does nothing without a child who has it)
+        - sloth-guest-reset.service   # the guest account starts empty (does nothing without one)
     user:
       enabled:
         - sloth-github-bundle-update.timer   # daily update of the apps installed as GitHub packages (e.g. ArtCraft)

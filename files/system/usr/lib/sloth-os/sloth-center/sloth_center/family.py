@@ -55,12 +55,14 @@ def _wheel():
 
 
 def child_accounts():
-    """The ordinary accounts (not administrators, not system accounts), sorted by name."""
+    """The ordinary accounts (not administrators, not system accounts, not the guest account), sorted by name."""
+    from sloth_common.guest import guest
     members, gid = _wheel()
+    the_guest = (guest() or {}).get("user")
     out = []
     for pw in pwd.getpwall():
         if 1000 <= pw.pw_uid < 60000 and pw.pw_name not in members and pw.pw_gid != gid \
-                and not pw.pw_shell.endswith(("nologin", "false")):
+                and pw.pw_name != the_guest and not pw.pw_shell.endswith(("nologin", "false")):
             out.append(pw)
     return sorted(out, key=lambda p: (p.pw_gecos.split(",")[0] or p.pw_name).casefold())
 

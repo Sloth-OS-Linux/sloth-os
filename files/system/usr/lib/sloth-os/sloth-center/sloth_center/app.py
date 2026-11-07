@@ -41,6 +41,9 @@ def main():
     from .appearance import AppearanceController
     from .accounts import AccountsController
     from .family import FamilyController
+    from .guest import GuestController
+    from .accessibility import AccessibilityController
+    from .power import PowerController
     from .advanced import AdvancedController
     from .backup import BackupController
     from .cloud import CloudController
@@ -92,6 +95,9 @@ def main():
     gamepads = GamepadsController()
     accounts = AccountsController()
     family = FamilyController()
+    guest_account = GuestController()
+    accessibility = AccessibilityController()
+    power = PowerController()
     cloud = CloudController()
     games = GamesController()
     devpanel = DevPanelController()
@@ -123,6 +129,9 @@ def main():
     engine.rootContext().setContextProperty("gamepads", gamepads)
     engine.rootContext().setContextProperty("accounts", accounts)
     engine.rootContext().setContextProperty("family", family)
+    engine.rootContext().setContextProperty("guestAccount", guest_account)
+    engine.rootContext().setContextProperty("accessibility", accessibility)
+    engine.rootContext().setContextProperty("power", power)
     engine.rootContext().setContextProperty("cloud", cloud)
     engine.rootContext().setContextProperty("games", games)
     engine.rootContext().setContextProperty("devpanel", devpanel)

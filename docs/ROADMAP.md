@@ -5,6 +5,28 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Accessibility, Power and battery, Guest account (2026-11-07, test branch)
+- [x] Sloth Center → **Accessibility**: text size (100–200%, the desktop's fonts in kdeglobals), mouse pointer size,
+  high contrast (the new SlothHighContrast scheme; the scheme before comes back), less motion (no animations), the
+  magnifier (KWin's zoom), the screen reader (Orca, through kaccess), sticky keys; "More settings" opens KDE's own.
+  Everything in KDE's own files, no password
+- [x] Sloth Center → **Power and battery**: the battery (charge, time left, health against when it was new), the power
+  mode (power-profiles-daemon: power saver / balanced / best performance), when the screen turns off and when the
+  computer sleeps (plugged in and on battery; "As KDE sets it" until chosen), the lid and the power button
+  (powerdevilrc, PowerDevil reads it again at once). Without a battery or a lid those parts are hidden
+- [x] Account and security → **Guest account**: one switch (sloth-helper-family guest-on / guest-off). The guest
+  signs in without a password, is never an administrator, and everything it leaves goes when its last session ends
+  (guest-reset as ExecStopPost of its user@ service) and at every start (sloth-guest-reset.service); a fresh home
+  from /etc/skel. No Sloth Welcome for it, not listed as a child. guest-reset only touches the marked account if it
+  has the same user ID and no password (someone's own "guest" account, made later, could get the same free ID)
+- Tried: tools/tests/guest_test.sh (22 checks with real accounts), tools/tests/test_access_power.py (6), the pages
+  opened on the desktop PC (no battery: the battery and lid parts hidden), every text in 50 languages
+- [ ] On the HP (a laptop): the battery card, the lid setting, a power mode change shows in the quick settings too
+- [ ] On the HP: text size 150% and back, a large pointer, high contrast on and off (the old scheme comes back),
+  the magnifier with Meta and +, Orca starts and stops
+- [ ] On the HP: the guest account: sign in without a password, leave a file and a browser bookmark, sign out, sign
+  in again: everything is gone; the owner's files can't be opened from the guest
+
 ### Installer: firmware that refuses boot entries (GitHub issue #23, 2026-11-06, Sloth OS 1.4.2)
 - [x] An ASUS VivoBook (whole disk) failed at 80% every time: bootupd deletes every "Fedora" boot entry before making
   its own, the firmware answered "Cannot allocate memory" (its variable store full) and bootc stopped the install.
@@ -426,7 +448,7 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
   the top bar; the app grid slides out from the dock as the Start menu with large icons in a grid); GNOME
   itself is not added, KDE Plasma draws this look. Clicking the current layout in Sloth Center builds it again. Tests: `tools/tests/test_appearance.py`.
   Checked on a real machine (2026-10-26): every layout, switching back and forth, the pinned apps stay
-- [ ] **Medium** — More colors, and your own (idea 2026-10-28, for the update after 1.2; on `test/chunked-oci` first,
+- [x] **Medium** — More colors (done: own highlight color in 1.3, six more schemes in 1.4), and your own (idea 2026-10-28, for the update after 1.2; on `test/chunked-oci` first,
   tried on the HP before it goes to `main`). In Appearance (Sloth Center and the welcome wizard, the same code):
   - More ready-made color schemes next to the seven calm ones, a few with real color: e.g. ocean blue, forest
     green, sunset orange, rose, grape purple, amber; each in dark and light, with readable contrast (the same
@@ -501,7 +523,7 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
   security → Screen lock: Never / 5 / 15 / 30 minutes and "Also lock after sleep" (the user's own kscreenlockerrc
   through kwriteconfig6, the running locker reloads over D-Bus, no password). Tried with the real
   kreadconfig6/kwriteconfig6; on the HP: whether the locker picks the change up without signing out.
-- [ ] **Medium** — More taskbar layouts (same idea, same test path): candidates that look good and that people
+- [x] **Medium** — More taskbar layouts (done in 1.4: Windows 7, ChromeOS-like, Floating) (same idea, same test path): candidates that look good and that people
   coming from elsewhere know: **Classic** (Windows 7 style: task buttons with names, the clock and the tray on the
   right, a classic two-column Start menu), **ChromeOS-like** (a centered shelf, a launcher that opens a search
   first, the clock and status in a corner bubble), **Floating** (a short floating panel in the middle that hides
@@ -731,7 +753,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
   anyway" / "Later"). The automatic update (rpm-ostreed-automatic) already skips metered connections. The size: checked on a real
   machine (2026-10-26); the metered question (a phone hotspot) not yet
-- [ ] **Medium** — Smaller system updates (measured 2026-10-26 on ghcr): every build rebuilds all 23 of our own
+- [x] **Medium** — Smaller system updates (done in 1.2: chunked images, a typical update ~300 MB) (measured 2026-10-26 on ghcr): every build rebuilds all 23 of our own
   layers, so even a one-line change downloads about 2.3 GB (with the daily base image changes 3.8 GB) of the
   6.5 GB image; the two biggest are the gaming `dnf` module (~800 MB) and the umu/Proton script (~840 MB).
   Rechunking (BlueBuild `rechunk`, content-based layers) would download only what changed. The first update after

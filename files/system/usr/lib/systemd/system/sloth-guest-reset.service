@@ -1,0 +1,14 @@
+[Unit]
+Description=Sloth OS: the guest account starts empty (Sloth Center → Account and security)
+Documentation=file:///usr/libexec/sloth-os/guest-reset
+# before anyone can sign in; does nothing without a guest account
+After=local-fs.target
+Before=systemd-user-sessions.service
+ConditionPathExists=/etc/sloth-os/guest.json
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/sloth-os/guest-reset
+
+[Install]
+WantedBy=multi-user.target
