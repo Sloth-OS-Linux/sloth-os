@@ -1067,5 +1067,21 @@
   "Lid and power button": "Cuvierte e boton di impiament",
   "Power button": "Boton di impiament",
   "When I close the lid": "Cuant che o sieri la cuvierte",
-  "When I press the power button": "Cuant che o frachi il boton di impiament"
+  "When I press the power button": "Cuant che o frachi il boton di impiament",
+  "Game saves are no longer backed up. The backups made so far stay.": "I salvaments dai zûcs no vegnin plui copiâts. Lis copiis fatis fin cumò a restin.",
+  "today at {time}": "vuê aes {time}",
+  "yesterday at {time}": "îr aes {time}",
+  "Last backup: {when}": "Ultime copie: {when}",
+  "Your game saves are backed up.": "I salvaments dai tiei zûcs a son copiâts.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "No si à podût copiâ i salvaments dai zûcs. La prime volte controle la conession a internet, po torne prove.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: il salvament de copie al è tornât. Invie il zûc par continuâ di li.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: no si à podût tornâ a meti il salvament. Siere il zûc se al è vierzût, po torne prove.",
+  "Game saves": "Salvaments dai zûcs",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Tancj zûcs a tegnin i salvaments dome su chest computer, cence copie tal nûl. Sloth OS al pues copiâju ogni ore, par Steam, Heroic e i tiei zûcs di Windows, e tornâ a meti un salvament di prime se un zûc lu ruvine.",
+  "Turn on": "Impie",
+  "Turn on (installs Ludusavi, 43 MB)": "Impie (al instale Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Fâs clic su Instale in Discover. La copie e partìs di bessole apene che Ludusavi al è instalât.",
+  "Open folder": "Vierç la cartele",
+  "Put back the saved game of {game}?": "Tornâ a meti il salvament di {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Il salvament su chest computer al ven sostituît de copie plui gnove. Prime siere il zûc. Se tu cambiis idee, la copie dai files e à ancjemò il salvament di prime."
 }

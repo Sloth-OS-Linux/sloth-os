@@ -1067,5 +1067,21 @@
   "Lid and power button": "Afeggag d tqeffalt n tezmert",
   "Power button": "Taqeffalt n tezmert",
   "When I close the lid": "Mi ara rreɣ afeggag",
-  "When I press the power button": "Mi ara ssedɣ ɣef tqeffalt n tezmert"
+  "When I press the power button": "Mi ara ssedɣ ɣef tqeffalt n tezmert",
+  "Game saves are no longer backed up. The backups made so far stay.": "Isekles n wuraren ur ttwaneɣlen ara tura. Inɣalen yettwagen armi d tura ad qqimen.",
+  "today at {time}": "ass-a ɣef {time}",
+  "yesterday at {time}": "iḍelli ɣef {time}",
+  "Last backup: {when}": "Anɣal aneggaru: {when}",
+  "Your game saves are backed up.": "Isekles n wuraren-ik ttwaneɣlen.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Ur nezmir ara ad nenɣel isekles n wuraren. Tikkelt tamezwarut, senqed tuqqna n internet, sakin ɛreḍ tikkelt nniḍen.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: asekles seg unɣal yuɣal-d. Sekker urar akken ad tkemmleḍ seg din.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: ur nezmir ara ad d-nerr asekles. Mdel urar ma yella iteddu, sakin ɛreḍ tikkelt nniḍen.",
+  "Game saves": "Isekles n wuraren",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Aṭas n wuraren ttḥerrizen isekles-nsen kan deg uselkim-a, war anɣal deg usigna. Sloth OS yezmer ad ten-yenɣel yal asrag, i Steam, Heroic d wuraren-ik n Windows, ad d-yerr asekles uqbel ma yella urar ixesr-it.",
+  "Turn on": "Rmed",
+  "Turn on (installs Ludusavi, 43 MB)": "Rmed (ad yesbedd Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Sit ɣef Sbedd deg Discover. Anɣal ad yebdu s yiman-is mi ara yettwasbedd Ludusavi.",
+  "Open folder": "Ldi akaram",
+  "Put back the saved game of {game}?": "Ad d-terreḍ asekles n {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Asekles deg uselkim-a ad yettwasemselsi s unɣal amaynut. Mdel urar qbel. Ma tbeddleḍ ṛṛay, anɣal n yifuyla mazal yesɛa asekles uqbel."
 }

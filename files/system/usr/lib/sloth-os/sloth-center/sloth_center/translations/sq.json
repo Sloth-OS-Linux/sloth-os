@@ -1067,5 +1067,21 @@
   "Lid and power button": "Kapaku dhe butoni i energjisë",
   "Power button": "Butoni i energjisë",
   "When I close the lid": "Kur mbyll kapakun",
-  "When I press the power button": "Kur shtyp butonin e energjisë"
+  "When I press the power button": "Kur shtyp butonin e energjisë",
+  "Game saves are no longer backed up. The backups made so far stay.": "Ruajtjet e lojërave nuk kopjohen më. Kopjet e bëra deri tani mbeten.",
+  "today at {time}": "sot në {time}",
+  "yesterday at {time}": "dje në {time}",
+  "Last backup: {when}": "Kopja e fundit: {when}",
+  "Your game saves are backed up.": "Ruajtjet e lojërave të tua janë kopjuar.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Ruajtjet e lojërave nuk u kopjuan dot. Herën e parë kontrollo lidhjen me internetin, pastaj provo sërish.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: ruajtja nga kopja u kthye. Nis lojën për të vazhduar prej andej.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: ruajtja nuk u vu dot sërish. Mbyll lojën nëse po punon, pastaj provo sërish.",
+  "Game saves": "Ruajtjet e lojërave",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Shumë lojëra i mbajnë ruajtjet vetëm në këtë kompjuter, pa kopje në re. Sloth OS mund t'i kopjojë çdo orë, për Steam, Heroic dhe lojërat e tua të Windows, dhe të kthejë një ruajtje të mëparshme nëse një lojë e prish.",
+  "Turn on": "Aktivizo",
+  "Turn on (installs Ludusavi, 43 MB)": "Aktivizo (instalon Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Kliko Instalo te Discover. Kopjimi nis vetë sapo të instalohet Ludusavi.",
+  "Open folder": "Hap dosjen",
+  "Put back the saved game of {game}?": "Ta kthesh ruajtjen e {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Ruajtja në këtë kompjuter zëvendësohet nga kopja më e re. Mbyll më parë lojën. Nëse ndërron mendje, kopja e skedarëve ka ende ruajtjen e mëparshme."
 }

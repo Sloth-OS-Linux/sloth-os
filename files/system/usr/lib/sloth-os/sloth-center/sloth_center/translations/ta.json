@@ -1067,5 +1067,21 @@
   "Lid and power button": "மூடி மற்றும் மின் பொத்தான்",
   "Power button": "மின் பொத்தான்",
   "When I close the lid": "மூடியை மூடும்போது",
-  "When I press the power button": "மின் பொத்தானை அழுத்தும்போது"
+  "When I press the power button": "மின் பொத்தானை அழுத்தும்போது",
+  "Game saves are no longer backed up. The backups made so far stay.": "விளையாட்டுச் சேமிப்புகள் இனி காப்புப்பிரதி எடுக்கப்படாது. இதுவரை எடுத்தவை இருக்கும்.",
+  "today at {time}": "இன்று {time}-க்கு",
+  "yesterday at {time}": "நேற்று {time}-க்கு",
+  "Last backup: {when}": "கடைசி காப்புப்பிரதி: {when}",
+  "Your game saves are backed up.": "உங்கள் விளையாட்டுச் சேமிப்புகள் காப்புப்பிரதி எடுக்கப்பட்டன.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "விளையாட்டுச் சேமிப்புகளைக் காப்புப்பிரதி எடுக்க முடியவில்லை. முதல் முறை இணைய இணைப்பைச் சரிபார்த்து மீண்டும் முயலுங்கள்.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: காப்புப்பிரதியிலிருந்து சேமிப்பு திரும்ப வந்தது. அங்கிருந்து தொடர விளையாட்டைத் தொடங்குங்கள்.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: சேமிப்பைத் திரும்ப வைக்க முடியவில்லை. விளையாட்டு இயங்கினால் மூடி மீண்டும் முயலுங்கள்.",
+  "Game saves": "விளையாட்டுச் சேமிப்புகள்",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "பல விளையாட்டுகள் மேகக் காப்பு இல்லாமல் இந்தக் கணினியில் மட்டுமே சேமிப்புகளை வைக்கின்றன. Steam, Heroic மற்றும் உங்கள் Windows விளையாட்டுகளுக்கு Sloth OS அவற்றை ஒவ்வொரு மணி நேரமும் காப்புப்பிரதி எடுக்கலாம்; விளையாட்டு சேமிப்பைக் கெடுத்தால் முந்தையதைத் திரும்ப வைக்கலாம்.",
+  "Turn on": "இயக்கு",
+  "Turn on (installs Ludusavi, 43 MB)": "இயக்கு (Ludusavi-ஐ நிறுவும், 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover-இல் நிறுவு என்பதைச் சொடுக்குங்கள். Ludusavi நிறுவப்பட்டதும் காப்புப்பிரதி தானாகத் தொடங்கும்.",
+  "Open folder": "கோப்புறையைத் திற",
+  "Put back the saved game of {game}?": "{game} சேமிப்பைத் திரும்ப வைக்கவா?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "இந்தக் கணினியில் உள்ள சேமிப்பு புதிய காப்புப்பிரதியால் மாற்றப்படும். முதலில் விளையாட்டை மூடுங்கள். மனம் மாறினால், கோப்புக் காப்புப்பிரதியில் முந்தைய சேமிப்பு இன்னும் இருக்கும்."
 }

@@ -1067,5 +1067,21 @@
   "Lid and power button": "Қақпақ және қуат түймесі",
   "Power button": "Қуат түймесі",
   "When I close the lid": "Қақпақты жапқанда",
-  "When I press the power button": "Қуат түймесін басқанда"
+  "When I press the power button": "Қуат түймесін басқанда",
+  "Game saves are no longer backed up. The backups made so far stay.": "Ойын сақтаулары енді көшірілмейді. Осы уақытқа дейінгі көшірмелер қалады.",
+  "today at {time}": "бүгін {time}",
+  "yesterday at {time}": "кеше {time}",
+  "Last backup: {when}": "Соңғы көшірме: {when}",
+  "Your game saves are backed up.": "Ойын сақтауларыңыз көшірілді.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Ойын сақтауларын көшіру мүмкін болмады. Бірінші рет интернет байланысын тексеріп, қайталап көріңіз.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: көшірмедегі сақтау қайтарылды. Сол жерден жалғастыру үшін ойынды іске қосыңыз.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: сақтауды қайтару мүмкін болмады. Ойын іске қосулы болса, жабып, қайталап көріңіз.",
+  "Game saves": "Ойын сақтаулары",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Көп ойын сақтауларын бұлттағы көшірмесіз тек осы компьютерде ұстайды. Sloth OS оларды Steam, Heroic және Windows ойындарыңыз үшін сағат сайын көшіре алады және ойын бүлдірсе, бұрынғы сақтауды қайтара алады.",
+  "Turn on": "Қосу",
+  "Turn on (installs Ludusavi, 43 MB)": "Қосу (Ludusavi орнатылады, 43 МБ)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover-де «Орнату» батырмасын басыңыз. Ludusavi орнатылған соң көшіру өзі басталады.",
+  "Open folder": "Буманы ашу",
+  "Put back the saved game of {game}?": "{game} сақтауын қайтару керек пе?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Осы компьютердегі сақтау ең жаңа көшірмемен ауыстырылады. Алдымен ойынды жабыңыз. Ойыңыз өзгерсе, файлдардың сақтық көшірмесінде бұрынғы сақтау әлі бар."
 }

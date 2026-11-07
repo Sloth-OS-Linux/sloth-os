@@ -1067,5 +1067,21 @@
   "Lid and power button": "ຝາ ແລະ ປຸ່ມເປີດປິດ",
   "Power button": "ປຸ່ມເປີດປິດ",
   "When I close the lid": "ເມື່ອຂ້ອຍປິດຝາ",
-  "When I press the power button": "ເມື່ອຂ້ອຍກົດປຸ່ມເປີດປິດ"
+  "When I press the power button": "ເມື່ອຂ້ອຍກົດປຸ່ມເປີດປິດ",
+  "Game saves are no longer backed up. The backups made so far stay.": "ບໍ່ສຳຮອງບັນທຶກເກມອີກແລ້ວ. ສຳເນົາທີ່ເຮັດມາແລ້ວຍັງຢູ່.",
+  "today at {time}": "ມື້ນີ້ເວລາ {time}",
+  "yesterday at {time}": "ມື້ວານເວລາ {time}",
+  "Last backup: {when}": "ສຳຮອງຫຼ້າສຸດ: {when}",
+  "Your game saves are backed up.": "ບັນທຶກເກມຂອງທ່ານໄດ້ຮັບການສຳຮອງແລ້ວ.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "ບໍ່ສາມາດສຳຮອງບັນທຶກເກມໄດ້. ຄັ້ງທຳອິດ ກວດເບິ່ງການເຊື່ອມຕໍ່ອິນເຕີເນັດ ແລ້ວລອງໃໝ່.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: ບັນທຶກຈາກສຳຮອງກັບມາແລ້ວ. ເປີດເກມເພື່ອຫຼິ້ນຕໍ່ຈາກບ່ອນນັ້ນ.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: ບໍ່ສາມາດເອົາບັນທຶກກັບຄືນໄດ້. ປິດເກມຖ້າມັນກຳລັງເຮັດວຽກ ແລ້ວລອງໃໝ່.",
+  "Game saves": "ບັນທຶກເກມ",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "ຫຼາຍເກມເກັບບັນທຶກໄວ້ໃນຄອມພິວເຕີນີ້ເທົ່ານັ້ນ ໂດຍບໍ່ມີສຳເນົາໃນຄລາວ. Sloth OS ສາມາດສຳຮອງພວກມັນທຸກຊົ່ວໂມງ ສຳລັບ Steam, Heroic ແລະ ເກມ Windows ຂອງທ່ານ ແລະ ເອົາບັນທຶກກ່ອນໜ້າກັບຄືນໄດ້ຖ້າເກມເຮັດມັນເສຍ.",
+  "Turn on": "ເປີດ",
+  "Turn on (installs Ludusavi, 43 MB)": "ເປີດ (ຕິດຕັ້ງ Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "ຄລິກ ຕິດຕັ້ງ ໃນ Discover. ການສຳຮອງຈະເລີ່ມເອງເມື່ອຕິດຕັ້ງ Ludusavi ແລ້ວ.",
+  "Open folder": "ເປີດໂຟນເດີ",
+  "Put back the saved game of {game}?": "ເອົາບັນທຶກຂອງ {game} ກັບຄືນບໍ?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "ບັນທຶກໃນຄອມພິວເຕີນີ້ຈະຖືກແທນທີ່ດ້ວຍສຳຮອງໃໝ່ທີ່ສຸດ. ປິດເກມກ່ອນ. ຖ້າທ່ານປ່ຽນໃຈ, ການສຳຮອງໄຟລ໌ຍັງມີບັນທຶກກ່ອນໜ້ານັ້ນຢູ່."
 }

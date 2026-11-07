@@ -1067,5 +1067,21 @@
   "Lid and power button": "Deckel und Ein-/Ausschalter",
   "Power button": "Ein-/Ausschalter",
   "When I close the lid": "Wenn ich den Deckel schließe",
-  "When I press the power button": "Wenn ich den Ein-/Ausschalter drücke"
+  "When I press the power button": "Wenn ich den Ein-/Ausschalter drücke",
+  "Game saves are no longer backed up. The backups made so far stay.": "Spielstände werden nicht mehr gesichert. Die bisherigen Sicherungen bleiben.",
+  "today at {time}": "heute um {time}",
+  "yesterday at {time}": "gestern um {time}",
+  "Last backup: {when}": "Letzte Sicherung: {when}",
+  "Your game saves are backed up.": "Deine Spielstände sind gesichert.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Die Spielstände konnten nicht gesichert werden. Prüfe beim ersten Mal die Internetverbindung und versuche es erneut.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: Der Spielstand aus der Sicherung ist zurück. Starte das Spiel, um dort weiterzumachen.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: Der Spielstand konnte nicht zurückgelegt werden. Schließe das Spiel, falls es läuft, und versuche es erneut.",
+  "Game saves": "Spielstände",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Viele Spiele speichern ihre Spielstände nur auf diesem Computer, ohne Kopie in der Cloud. Sloth OS kann sie stündlich sichern – für Steam, Heroic und deine Windows-Spiele – und einen früheren Spielstand zurücklegen, wenn ein Spiel ihn kaputt macht.",
+  "Turn on": "Einschalten",
+  "Turn on (installs Ludusavi, 43 MB)": "Einschalten (installiert Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klicke in Discover auf Installieren. Die Sicherung startet von selbst, sobald Ludusavi installiert ist.",
+  "Open folder": "Ordner öffnen",
+  "Put back the saved game of {game}?": "Den Spielstand von {game} zurücklegen?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Der Spielstand auf diesem Computer wird durch die neueste Sicherung ersetzt. Schließe zuerst das Spiel. Falls du es dir anders überlegst, hat die Dateisicherung noch den Spielstand von vorher."
 }

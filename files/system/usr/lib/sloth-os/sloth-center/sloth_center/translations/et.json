@@ -1067,5 +1067,21 @@
   "Lid and power button": "Kaas ja toitenupp",
   "Power button": "Toitenupp",
   "When I close the lid": "Kui ma kaane sulgen",
-  "When I press the power button": "Kui ma vajutan toitenuppu"
+  "When I press the power button": "Kui ma vajutan toitenuppu",
+  "Game saves are no longer backed up. The backups made so far stay.": "Mängusalvestisi enam ei varundata. Seni tehtud varukoopiad jäävad alles.",
+  "today at {time}": "täna kell {time}",
+  "yesterday at {time}": "eile kell {time}",
+  "Last backup: {when}": "Viimane varukoopia: {when}",
+  "Your game saves are backed up.": "Sinu mängusalvestised on varundatud.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Mängusalvestisi ei õnnestunud varundada. Esimesel korral kontrolli internetiühendust ja proovi uuesti.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: salvestis varukoopiast on tagasi. Käivita mäng, et sealt jätkata.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: salvestist ei õnnestunud tagasi panna. Sulge mäng, kui see töötab, ja proovi uuesti.",
+  "Game saves": "Mängusalvestised",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Paljud mängud hoiavad salvestisi ainult selles arvutis, ilma pilvekoopiata. Sloth OS saab neid iga tund varundada – Steami, Heroicu ja sinu Windowsi mängude jaoks – ja panna tagasi varasema salvestise, kui mäng selle rikub.",
+  "Turn on": "Lülita sisse",
+  "Turn on (installs Ludusavi, 43 MB)": "Lülita sisse (paigaldab Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klõpsa Discoveris nuppu Paigalda. Varundamine algab ise, kui Ludusavi on paigaldatud.",
+  "Open folder": "Ava kaust",
+  "Put back the saved game of {game}?": "Kas panna mängu {game} salvestis tagasi?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Selle arvuti salvestis asendatakse uusima varukoopiaga. Sulge enne mäng. Kui meelt muudad, on failivarunduses veel varasem salvestis."
 }

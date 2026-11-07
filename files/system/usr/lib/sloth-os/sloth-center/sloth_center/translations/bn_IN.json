@@ -1067,5 +1067,21 @@
   "Lid and power button": "ঢাকনা এবং পাওয়ার বোতাম",
   "Power button": "পাওয়ার বোতাম",
   "When I close the lid": "যখন আমি ঢাকনা বন্ধ করি",
-  "When I press the power button": "যখন আমি পাওয়ার বোতাম চাপি"
+  "When I press the power button": "যখন আমি পাওয়ার বোতাম চাপি",
+  "Game saves are no longer backed up. The backups made so far stay.": "গেম সেভের আর ব্যাকআপ হয় না। এ পর্যন্ত নেওয়া ব্যাকআপগুলো থাকবে।",
+  "today at {time}": "আজ {time}-এ",
+  "yesterday at {time}": "গতকাল {time}-এ",
+  "Last backup: {when}": "শেষ ব্যাকআপ: {when}",
+  "Your game saves are backed up.": "আপনার গেম সেভের ব্যাকআপ নেওয়া হয়েছে।",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "গেম সেভের ব্যাকআপ নেওয়া গেল না। প্রথমবার ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: ব্যাকআপ থেকে সেভ ফিরে এসেছে। সেখান থেকে চালিয়ে যেতে গেমটি চালু করুন।",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: সেভ ফিরিয়ে রাখা গেল না। গেমটি চললে বন্ধ করে আবার চেষ্টা করুন।",
+  "Game saves": "গেম সেভ",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "অনেক গেম ক্লাউড কপি ছাড়াই শুধু এই কম্পিউটারে সেভ রাখে। Sloth OS Steam, Heroic এবং আপনার Windows গেমের জন্য প্রতি ঘণ্টায় সেগুলোর ব্যাকআপ নিতে পারে, আর কোনো গেম নষ্ট করলে আগের সেভ ফিরিয়ে রাখতে পারে।",
+  "Turn on": "চালু করুন",
+  "Turn on (installs Ludusavi, 43 MB)": "চালু করুন (Ludusavi ইনস্টল করে, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover-এ ইনস্টল ক্লিক করুন। Ludusavi ইনস্টল হলেই ব্যাকআপ নিজে থেকে শুরু হয়।",
+  "Open folder": "ফোল্ডার খুলুন",
+  "Put back the saved game of {game}?": "{game}-এর সেভ ফিরিয়ে রাখবেন?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "এই কম্পিউটারের সেভ সবচেয়ে নতুন ব্যাকআপ দিয়ে বদলে যাবে। আগে গেমটি বন্ধ করুন। মত বদলালে, ফাইল ব্যাকআপে আগের সেভ এখনও আছে।"
 }

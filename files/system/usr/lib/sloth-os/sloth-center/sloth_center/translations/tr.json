@@ -1067,5 +1067,21 @@
   "Lid and power button": "Kapak ve güç düğmesi",
   "Power button": "Güç düğmesi",
   "When I close the lid": "Kapağı kapattığımda",
-  "When I press the power button": "Güç düğmesine bastığımda"
+  "When I press the power button": "Güç düğmesine bastığımda",
+  "Game saves are no longer backed up. The backups made so far stay.": "Oyun kayıtları artık yedeklenmiyor. Şimdiye kadarki yedekler kalıyor.",
+  "today at {time}": "bugün {time}",
+  "yesterday at {time}": "dün {time}",
+  "Last backup: {when}": "Son yedek: {when}",
+  "Your game saves are backed up.": "Oyun kayıtların yedeklendi.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Oyun kayıtları yedeklenemedi. İlk seferde internet bağlantısını kontrol edip yeniden dene.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: yedekteki kayıt geri geldi. Kaldığın yerden devam etmek için oyunu başlat.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: kayıt geri konamadı. Açıksa oyunu kapatıp yeniden dene.",
+  "Game saves": "Oyun kayıtları",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Birçok oyun kayıtlarını bulutta kopyası olmadan yalnızca bu bilgisayarda tutar. Sloth OS bunları Steam, Heroic ve Windows oyunların için saat başı yedekleyebilir ve bir oyun bozarsa önceki bir kaydı geri koyabilir.",
+  "Turn on": "Aç",
+  "Turn on (installs Ludusavi, 43 MB)": "Aç (Ludusavi'yi kurar, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover'da Kur'a tıkla. Ludusavi kurulunca yedekleme kendiliğinden başlar.",
+  "Open folder": "Klasörü aç",
+  "Put back the saved game of {game}?": "{game} oyununun kaydı geri konsun mu?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Bu bilgisayardaki kayıt en yeni yedekle değiştirilir. Önce oyunu kapat. Fikrini değiştirirsen dosya yedeğinde önceki kayıt hâlâ var."
 }

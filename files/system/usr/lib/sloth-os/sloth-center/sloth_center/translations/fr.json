@@ -1067,5 +1067,21 @@
   "Lid and power button": "Capot et bouton d'alimentation",
   "Power button": "Bouton d'alimentation",
   "When I close the lid": "Quand je ferme le capot",
-  "When I press the power button": "Quand j'appuie sur le bouton d'alimentation"
+  "When I press the power button": "Quand j'appuie sur le bouton d'alimentation",
+  "Game saves are no longer backed up. The backups made so far stay.": "Les sauvegardes de jeux ne sont plus effectuées. Celles déjà faites restent.",
+  "today at {time}": "aujourd'hui à {time}",
+  "yesterday at {time}": "hier à {time}",
+  "Last backup: {when}": "Dernière sauvegarde : {when}",
+  "Your game saves are backed up.": "Vos sauvegardes de jeux sont à l'abri.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Impossible de sauvegarder les parties. La première fois, vérifiez la connexion Internet, puis réessayez.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game} : la partie sauvegardée est de retour. Lancez le jeu pour reprendre à cet endroit.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game} : impossible de remettre la partie. Fermez le jeu s'il tourne, puis réessayez.",
+  "Game saves": "Sauvegardes de jeux",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Beaucoup de jeux gardent leurs parties uniquement sur cet ordinateur, sans copie dans le cloud. Sloth OS peut les sauvegarder toutes les heures, pour Steam, Heroic et vos jeux Windows, et remettre une partie antérieure si un jeu l'abîme.",
+  "Turn on": "Activer",
+  "Turn on (installs Ludusavi, 43 MB)": "Activer (installe Ludusavi, 43 Mo)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Cliquez sur Installer dans Discover. La sauvegarde démarre toute seule dès que Ludusavi est installé.",
+  "Open folder": "Ouvrir le dossier",
+  "Put back the saved game of {game}?": "Remettre la partie sauvegardée de {game} ?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "La partie sur cet ordinateur est remplacée par la sauvegarde la plus récente. Fermez d'abord le jeu. Si vous changez d'avis, la sauvegarde des fichiers garde encore la partie d'avant."
 }

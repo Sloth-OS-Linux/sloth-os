@@ -1067,5 +1067,21 @@
   "Lid and power button": "Tapa y botón de encendido",
   "Power button": "Botón de encendido",
   "When I close the lid": "Al cerrar la tapa",
-  "When I press the power button": "Al pulsar el botón de encendido"
+  "When I press the power button": "Al pulsar el botón de encendido",
+  "Game saves are no longer backed up. The backups made so far stay.": "Las partidas guardadas ya no se respaldan. Las copias hechas hasta ahora se quedan.",
+  "today at {time}": "hoy a las {time}",
+  "yesterday at {time}": "ayer a las {time}",
+  "Last backup: {when}": "Última copia: {when}",
+  "Your game saves are backed up.": "Tus partidas guardadas están respaldadas.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "No se pudieron respaldar las partidas. La primera vez, comprueba la conexión a Internet y vuelve a intentarlo.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: la partida de la copia ha vuelto. Abre el juego para seguir desde ahí.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: no se pudo devolver la partida. Cierra el juego si está abierto y vuelve a intentarlo.",
+  "Game saves": "Partidas guardadas",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Muchos juegos guardan sus partidas solo en este ordenador, sin copia en la nube. Sloth OS puede respaldarlas cada hora, para Steam, Heroic y tus juegos de Windows, y devolver una partida anterior si un juego la estropea.",
+  "Turn on": "Activar",
+  "Turn on (installs Ludusavi, 43 MB)": "Activar (instala Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Pulsa Instalar en Discover. La copia empieza sola en cuanto Ludusavi esté instalado.",
+  "Open folder": "Abrir carpeta",
+  "Put back the saved game of {game}?": "¿Devolver la partida guardada de {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "La partida de este ordenador se sustituye por la copia más reciente. Cierra antes el juego. Si cambias de idea, la copia de archivos aún tiene la partida de antes."
 }

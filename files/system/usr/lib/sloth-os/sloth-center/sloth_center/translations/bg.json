@@ -1067,5 +1067,21 @@
   "Lid and power button": "Капак и бутон за захранване",
   "Power button": "Бутон за захранване",
   "When I close the lid": "Когато затворя капака",
-  "When I press the power button": "Когато натисна бутона за захранване"
+  "When I press the power button": "Когато натисна бутона за захранване",
+  "Game saves are no longer backed up. The backups made so far stay.": "Записите от игри вече не се архивират. Досегашните архиви остават.",
+  "today at {time}": "днес в {time}",
+  "yesterday at {time}": "вчера в {time}",
+  "Last backup: {when}": "Последен архив: {when}",
+  "Your game saves are backed up.": "Записите от игрите ви са архивирани.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Записите от игрите не можаха да се архивират. Първия път проверете интернет връзката и опитайте отново.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: записът от архива е върнат. Стартирайте играта, за да продължите оттам.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: записът не можа да се върне. Затворете играта, ако работи, и опитайте отново.",
+  "Game saves": "Записи от игри",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Много игри пазят записите си само на този компютър, без копие в облака. Sloth OS може да ги архивира всеки час – за Steam, Heroic и вашите игри за Windows – и да върне по-ранен запис, ако игра го повреди.",
+  "Turn on": "Включване",
+  "Turn on (installs Ludusavi, 43 MB)": "Включване (инсталира Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Щракнете Инсталиране в Discover. Архивирането започва само, щом Ludusavi бъде инсталиран.",
+  "Open folder": "Отваряне на папката",
+  "Put back the saved game of {game}?": "Да се върне ли записът от {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Записът на този компютър се заменя с най-новия архив. Първо затворете играта. Ако се откажете, архивът на файловете още пази предишния запис."
 }

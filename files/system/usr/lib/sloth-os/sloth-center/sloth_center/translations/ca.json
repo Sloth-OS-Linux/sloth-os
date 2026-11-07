@@ -1067,5 +1067,21 @@
   "Lid and power button": "Tapa i botó d'engegada",
   "Power button": "Botó d'engegada",
   "When I close the lid": "Quan tanco la tapa",
-  "When I press the power button": "Quan premo el botó d'engegada"
+  "When I press the power button": "Quan premo el botó d'engegada",
+  "Game saves are no longer backed up. The backups made so far stay.": "Les partides desades ja no es copien. Les còpies fetes fins ara es queden.",
+  "today at {time}": "avui a les {time}",
+  "yesterday at {time}": "ahir a les {time}",
+  "Last backup: {when}": "Última còpia: {when}",
+  "Your game saves are backed up.": "Les teves partides desades estan copiades.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "No s'han pogut copiar les partides desades. La primera vegada, comprova la connexió a Internet i torna-ho a provar.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: la partida de la còpia ha tornat. Inicia el joc per continuar des d'allà.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: no s'ha pogut tornar la partida. Tanca el joc si està obert i torna-ho a provar.",
+  "Game saves": "Partides desades",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Molts jocs guarden les partides només en aquest ordinador, sense còpia al núvol. Sloth OS les pot copiar cada hora, per a Steam, Heroic i els teus jocs de Windows, i tornar una partida anterior si un joc l'espatlla.",
+  "Turn on": "Activa",
+  "Turn on (installs Ludusavi, 43 MB)": "Activa (instal·la Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Fes clic a Instal·la al Discover. La còpia comença sola quan Ludusavi està instal·lat.",
+  "Open folder": "Obre la carpeta",
+  "Put back the saved game of {game}?": "Vols tornar la partida desada de {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "La partida d'aquest ordinador se substitueix per la còpia més recent. Primer tanca el joc. Si canvies d'opinió, la còpia de fitxers encara té la partida d'abans."
 }

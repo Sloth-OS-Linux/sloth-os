@@ -1067,5 +1067,21 @@
   "Lid and power button": "Вечка і кнопка сілкавання",
   "Power button": "Кнопка сілкавання",
   "When I close the lid": "Калі я зачыняю вечка",
-  "When I press the power button": "Калі я націскаю кнопку сілкавання"
+  "When I press the power button": "Калі я націскаю кнопку сілкавання",
+  "Game saves are no longer backed up. The backups made so far stay.": "Захаванні гульняў больш не капіруюцца. Ужо зробленыя копіі застаюцца.",
+  "today at {time}": "сёння а {time}",
+  "yesterday at {time}": "учора а {time}",
+  "Last backup: {when}": "Апошняя копія: {when}",
+  "Your game saves are backed up.": "Захаванні вашых гульняў скапіраваныя.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Не ўдалося скапіраваць захаванні гульняў. Першы раз праверце злучэнне з інтэрнэтам і паспрабуйце зноў.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: захаванне з копіі вернута. Запусціце гульню, каб працягнуць адтуль.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: не ўдалося вярнуць захаванне. Закрыйце гульню, калі яна запушчана, і паспрабуйце зноў.",
+  "Game saves": "Захаванні гульняў",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Многія гульні захоўваюць прагрэс толькі на гэтым камп'ютары, без копіі ў воблаку. Sloth OS можа капіраваць іх кожную гадзіну — для Steam, Heroic і вашых гульняў для Windows — і вярнуць ранейшае захаванне, калі гульня яго сапсуе.",
+  "Turn on": "Уключыць",
+  "Turn on (installs Ludusavi, 43 MB)": "Уключыць (усталюе Ludusavi, 43 МБ)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Націсніце «Усталяваць» у Discover. Капіраванне пачнецца само, як толькі Ludusavi будзе ўсталяваны.",
+  "Open folder": "Адкрыць папку",
+  "Put back the saved game of {game}?": "Вярнуць захаванне гульні {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Захаванне на гэтым камп'ютары будзе заменена найноўшай копіяй. Спачатку закрыйце гульню. Калі перадумаеце, у рэзервовай копіі файлаў ёсць папярэдняе захаванне."
 }

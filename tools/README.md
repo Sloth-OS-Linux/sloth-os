@@ -49,6 +49,9 @@ the PIN test:
 `python3 tools/tests/test_access_power.py` checks what the Accessibility and Power and battery pages write into KDE's
 files.
 
+`python3 tools/tests/test_game_saves.py` checks the game saves backup (`/usr/libexec/sloth-os/game-saves`): the
+Ludusavi config it writes and how it reads Ludusavi's JSON output.
+
 `tools/tests/family_web_test.sh` tries the web filter (`/usr/libexec/sloth-os/family-web`) with real dnsmasq and
 nftables in a container with its own network (it needs the internet): a child's and a parent's lookups side by side,
 SafeSearch, and the ways around it (another name server, DNS over HTTPS and TLS):

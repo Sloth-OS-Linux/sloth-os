@@ -1067,5 +1067,21 @@
   "Lid and power button": "الغطاء وزر الطاقة",
   "Power button": "زر الطاقة",
   "When I close the lid": "عندما أغلق الغطاء",
-  "When I press the power button": "عندما أضغط زر الطاقة"
+  "When I press the power button": "عندما أضغط زر الطاقة",
+  "Game saves are no longer backed up. The backups made so far stay.": "لم يعد يُنسخ احتياطيًا حفظ الألعاب. تبقى النسخ التي صُنعت حتى الآن.",
+  "today at {time}": "اليوم الساعة {time}",
+  "yesterday at {time}": "أمس الساعة {time}",
+  "Last backup: {when}": "آخر نسخة احتياطية: {when}",
+  "Your game saves are backed up.": "حفظ ألعابك منسوخ احتياطيًا.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "تعذّر نسخ حفظ الألعاب احتياطيًا. في المرة الأولى تحقّق من الاتصال بالإنترنت ثم حاول مجددًا.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: عاد الحفظ من النسخة الاحتياطية. شغّل اللعبة لتكمل من هناك.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: تعذّرت إعادة الحفظ. أغلق اللعبة إن كانت تعمل ثم حاول مجددًا.",
+  "Game saves": "حفظ الألعاب",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "كثير من الألعاب تحفظ تقدّمك على هذا الحاسوب فقط، دون نسخة في السحابة. يمكن لـ Sloth OS نسخها احتياطيًا كل ساعة، لـ Steam وHeroic وألعاب Windows، وإعادة حفظ سابق إذا أفسدته لعبة.",
+  "Turn on": "تشغيل",
+  "Turn on (installs Ludusavi, 43 MB)": "تشغيل (يثبّت Ludusavi، ‏43 م.ب)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "انقر تثبيت في Discover. يبدأ النسخ الاحتياطي تلقائيًا فور تثبيت Ludusavi.",
+  "Open folder": "فتح المجلد",
+  "Put back the saved game of {game}?": "إعادة حفظ لعبة {game}؟",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "يُستبدل الحفظ الموجود على هذا الحاسوب بأحدث نسخة احتياطية. أغلق اللعبة أولًا. وإن غيّرت رأيك، فما زال الحفظ السابق في نسخ الملفات الاحتياطية."
 }

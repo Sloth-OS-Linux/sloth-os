@@ -1067,5 +1067,21 @@
   "Lid and power button": "カバーと電源ボタン",
   "Power button": "電源ボタン",
   "When I close the lid": "カバーを閉じたとき",
-  "When I press the power button": "電源ボタンを押したとき"
+  "When I press the power button": "電源ボタンを押したとき",
+  "Game saves are no longer backed up. The backups made so far stay.": "ゲームのセーブデータはバックアップされなくなりました。これまでのバックアップは残ります。",
+  "today at {time}": "今日 {time}",
+  "yesterday at {time}": "昨日 {time}",
+  "Last backup: {when}": "最終バックアップ: {when}",
+  "Your game saves are backed up.": "ゲームのセーブデータはバックアップされています。",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "セーブデータをバックアップできませんでした。初回はインターネット接続を確認してから、もう一度お試しください。",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: バックアップからセーブデータを戻しました。ゲームを起動すると、そこから続けられます。",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: セーブデータを戻せませんでした。ゲームが起動中なら閉じてから、もう一度お試しください。",
+  "Game saves": "ゲームのセーブデータ",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "多くのゲームは、クラウドにコピーを置かず、このコンピューターだけにセーブデータを保存します。Sloth OS は Steam、Heroic、Windows ゲームのセーブデータを 1 時間ごとにバックアップし、ゲームが壊したときは以前の状態に戻せます。",
+  "Turn on": "オンにする",
+  "Turn on (installs Ludusavi, 43 MB)": "オンにする (Ludusavi をインストール、43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover で「インストール」をクリックしてください。Ludusavi がインストールされると、バックアップが自動で始まります。",
+  "Open folder": "フォルダーを開く",
+  "Put back the saved game of {game}?": "{game} のセーブデータを戻しますか?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "このコンピューター上のセーブデータが最新のバックアップに置き換わります。先にゲームを閉じてください。気が変わっても、ファイルのバックアップに以前の状態が残っています。"
 }

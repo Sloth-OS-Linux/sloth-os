@@ -1067,5 +1067,21 @@
   "Lid and power button": "Lock och strömknapp",
   "Power button": "Strömknapp",
   "When I close the lid": "När jag stänger locket",
-  "When I press the power button": "När jag trycker på strömknappen"
+  "When I press the power button": "När jag trycker på strömknappen",
+  "Game saves are no longer backed up. The backups made so far stay.": "Sparfiler säkerhetskopieras inte längre. De kopior som redan finns blir kvar.",
+  "today at {time}": "i dag kl. {time}",
+  "yesterday at {time}": "i går kl. {time}",
+  "Last backup: {when}": "Senaste kopia: {when}",
+  "Your game saves are backed up.": "Dina sparfiler är säkerhetskopierade.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Sparfilerna kunde inte säkerhetskopieras. Kontrollera internetanslutningen första gången och försök igen.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: sparfilen från kopian är tillbaka. Starta spelet för att fortsätta därifrån.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: sparfilen kunde inte läggas tillbaka. Stäng spelet om det körs och försök igen.",
+  "Game saves": "Sparfiler",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Många spel sparar bara på den här datorn, utan kopia i molnet. Sloth OS kan säkerhetskopiera sparfilerna varje timme, för Steam, Heroic och dina Windows-spel, och lägga tillbaka en tidigare sparfil om ett spel förstör den.",
+  "Turn on": "Slå på",
+  "Turn on (installs Ludusavi, 43 MB)": "Slå på (installerar Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klicka på Installera i Discover. Säkerhetskopieringen startar av sig själv när Ludusavi är installerat.",
+  "Open folder": "Öppna mappen",
+  "Put back the saved game of {game}?": "Lägga tillbaka sparfilen för {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Sparfilen på den här datorn ersätts av den senaste kopian. Stäng spelet först. Ångrar du dig har filsäkerhetskopian fortfarande sparfilen från innan."
 }

@@ -1,0 +1,156 @@
+#!/usr/bin/python3 -I
+"""Game saves (Sloth Center → Games → Game saves): many games keep their saves only on this computer, and the
+saves of Windows games under Proton are inside Steam's game folder (steamapps/compatdata), which the hourly file
+backup leaves out with the games themselves. Ludusavi (Flathub, installed from the Games page) knows where about
+20 000 games keep their saves; this runs it for the signed-in user.
+
+  game-saves backup          backs up the changed saves (sloth-game-saves.timer, hourly; "Back up now"), if the
+                             user turned it on; writes a summary for Sloth Center (summary.json)
+  game-saves list            the backups (JSON: {game: {"when": ISO time of the newest, "count": n}})
+  game-saves restore <game>  puts a game's newest backup back in place
+
+The backups go to ~/.local/share/sloth-os/game-saves: inside the home folder, so the hourly file backup keeps
+earlier versions of them too, and a backup to an external drive takes them along. Ludusavi keeps one full backup
+and up to 10 differential ones per game. Its settings (which folders to look in) are written here every time, in
+a config folder of our own (~/.config/sloth-os/ludusavi), so the user's own Ludusavi settings are not touched.
+"""
+import json
+import os
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+HOME = Path.home()
+CONFIG_HOME = Path(os.environ.get("XDG_CONFIG_HOME", HOME / ".config"))
+DATA_HOME = Path(os.environ.get("XDG_DATA_HOME", HOME / ".local/share"))
+SETTINGS = CONFIG_HOME / "sloth-os/game-saves.json"
+LUDUSAVI_CONFIG = CONFIG_HOME / "sloth-os/ludusavi"
+DEST = DATA_HOME / "sloth-os/game-saves"
+SUMMARY = DEST / "summary.json"
+APP = "com.github.mtkennerly.ludusavi"
+APP_EXPORTS = (Path("/var/lib/flatpak/app") / APP, DATA_HOME / "flatpak/app" / APP)
+MANIFEST = "https://raw.githubusercontent.com/mtkennerly/ludusavi-manifest/master/data/manifest.yaml"
+# (path, Ludusavi's store type): the places games and their Windows environments live on Sloth OS
+ROOTS = (
+    (".var/app/com.valvesoftware.Steam/.local/share/Steam", "steam"),
+    (".steam/steam", "steam"),
+    (".local/share/Steam", "steam"),
+    (".var/app/com.heroicgameslauncher.hgl/config/heroic", "heroic"),
+    (".config/heroic", "heroic"),
+    (".var/app/net.lutris.Lutris/data/lutris", "lutris"),
+    (".local/share/lutris", "lutris"),
+)
+WINE_GLOB = "Applications/*/windows"  # the Windows programs' own environments (sloth-exe)
+
+
+def log(msg):
+    print(msg, file=sys.stderr, flush=True)
+
+
+def installed():
+    return any(p.is_dir() for p in APP_EXPORTS)
+
+
+def enabled():
+    try:
+        return json.loads(SETTINGS.read_text(encoding="utf-8")).get("enabled") is True
+    except (OSError, ValueError, AttributeError):
+        return False
+
+
+def roots(home=HOME):
+    out = [(str(home / rel), store) for rel, store in ROOTS if (home / rel).is_dir()]
+    if any((home / "Applications").glob("*/windows")):
+        out.append((str(home / WINE_GLOB), "otherWine"))
+    return out
+
+
+def yaml_str(s):
+    return json.dumps(s, ensure_ascii=False)  # a JSON string is a valid YAML string (UTF-8: accents stay readable)
+
+
+def config_text(home=HOME, dest=DEST):
+    lines = ["# Written by /usr/libexec/sloth-os/game-saves at every run: changes here are overwritten.",
+             "manifest:", f"  url: {yaml_str(MANIFEST)}", "roots:"]
+    found = roots(home)
+    if not found:
+        lines[-1] = "roots: []"
+    for path, store in found:
+        lines += [f"  - path: {yaml_str(path)}", f"    store: {store}"]
+    lines += ["backup:", f"  path: {yaml_str(str(dest))}", "restore:", f"  path: {yaml_str(str(dest))}", ""]
+    return "\n".join(lines)
+
+
+def ludusavi(*args, timeout=3600):
+    """Ludusavi's command line in --api mode: (the parsed JSON or None, the exit code)."""
+    LUDUSAVI_CONFIG.mkdir(parents=True, exist_ok=True)
+    (LUDUSAVI_CONFIG / "config.yaml").write_text(config_text(), encoding="utf-8")
+    r = subprocess.run(["flatpak", "run", APP, "--config", str(LUDUSAVI_CONFIG), "--try-manifest-update", *args,
+                        "--api"], capture_output=True, text=True, timeout=timeout)
+    if r.stderr.strip():
+        log(r.stderr.strip()[-2000:])
+    try:
+        return (json.loads(r.stdout) if r.stdout.strip() else None), r.returncode
+    except ValueError:
+        return None, r.returncode
+
+
+def summarize(output, when=None):
+    """Sloth Center's summary of a backup run: {"when", "games": {name: bytes}, "failed": bool}."""
+    games = {}
+    for name, game in (output or {}).get("games", {}).items():
+        if game.get("decision") == "Processed":
+            games[name] = sum(int(f.get("bytes", 0)) for f in game.get("files", {}).values())
+    errors = (output or {}).get("errors") or {}
+    return {"when": int(when or time.time()), "games": games, "failed": bool(errors.get("someGamesFailed"))}
+
+
+def backups(output):
+    """{game: {"when": newest backup's time, "count": n}} from `backups --api`."""
+    out = {}
+    for name, game in (output or {}).get("games", {}).items():
+        items = game.get("backups") or []
+        if items:
+            out[name] = {"when": max(b.get("when", "") for b in items), "count": len(items)}
+    return out
+
+
+def backup():
+    if not (enabled() and installed()):
+        return 0
+    DEST.mkdir(parents=True, exist_ok=True)
+    output, code = ludusavi("backup", "--force", "--path", str(DEST), "--full-limit", "1",
+                            "--differential-limit", "10")
+    if output is None:
+        log(f"ludusavi backup: no answer (exit {code})")
+        return 1
+    summary = summarize(output)
+    tmp = SUMMARY.with_suffix(".tmp")
+    tmp.write_text(json.dumps(summary), encoding="utf-8")
+    os.replace(tmp, SUMMARY)
+    log(f"backed up: {len(summary['games'])} games")
+    return 0
+
+
+def main(argv):
+    if argv[:1] == ["backup"]:
+        return backup()
+    if argv[:1] == ["list"]:
+        if not installed() or not DEST.is_dir():
+            print("{}")
+            return 0
+        output, _code = ludusavi("backups", "--path", str(DEST), timeout=300)
+        print(json.dumps(backups(output)))
+        return 0
+    if argv[:1] == ["restore"] and len(argv) == 2 and installed():
+        output, code = ludusavi("restore", "--force", "--path", str(DEST), argv[1], timeout=1800)
+        ok = output is not None and not ((output.get("errors") or {}).get("someGamesFailed"))
+        print(json.dumps({"ok": ok}))
+        return 0 if ok else 1
+    print(__doc__, file=sys.stderr)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

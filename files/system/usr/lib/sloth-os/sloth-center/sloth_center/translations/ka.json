@@ -1067,5 +1067,21 @@
   "Lid and power button": "სახურავი და ჩართვის ღილაკი",
   "Power button": "ჩართვის ღილაკი",
   "When I close the lid": "როცა სახურავს ვხურავ",
-  "When I press the power button": "როცა ჩართვის ღილაკს ვაჭერ"
+  "When I press the power button": "როცა ჩართვის ღილაკს ვაჭერ",
+  "Game saves are no longer backed up. The backups made so far stay.": "თამაშების შენახვები აღარ კოპირდება. აქამდე გაკეთებული ასლები რჩება.",
+  "today at {time}": "დღეს {time}-ზე",
+  "yesterday at {time}": "გუშინ {time}-ზე",
+  "Last backup: {when}": "ბოლო ასლი: {when}",
+  "Your game saves are backed up.": "თქვენი თამაშების შენახვები დაკოპირებულია.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "თამაშების შენახვების დაკოპირება ვერ მოხერხდა. პირველად შეამოწმეთ ინტერნეტკავშირი და სცადეთ ხელახლა.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: შენახვა ასლიდან დაბრუნდა. გაუშვით თამაში, რომ იქიდან გააგრძელოთ.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: შენახვის დაბრუნება ვერ მოხერხდა. დახურეთ თამაში, თუ გაშვებულია, და სცადეთ ხელახლა.",
+  "Game saves": "თამაშების შენახვები",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "ბევრი თამაში შენახვებს მხოლოდ ამ კომპიუტერზე ინახავს, ღრუბლოვანი ასლის გარეშე. Sloth OS-ს შეუძლია მათი ყოველსაათობრივი კოპირება Steam-ის, Heroic-ისა და თქვენი Windows-თამაშებისთვის და ადრინდელი შენახვის დაბრუნება, თუ თამაში მას გააფუჭებს.",
+  "Turn on": "ჩართვა",
+  "Turn on (installs Ludusavi, 43 MB)": "ჩართვა (დააყენებს Ludusavi-ს, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover-ში დააწკაპეთ „დაყენება“. კოპირება თავად დაიწყება, როგორც კი Ludusavi დაყენდება.",
+  "Open folder": "საქაღალდის გახსნა",
+  "Put back the saved game of {game}?": "დავაბრუნოთ {game}-ის შენახვა?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "ამ კომპიუტერზე არსებული შენახვა უახლესი ასლით შეიცვლება. ჯერ თამაში დახურეთ. თუ გადაიფიქრებთ, ფაილების სარეზერვო ასლში წინა შენახვა ჯერ კიდევ არის."
 }

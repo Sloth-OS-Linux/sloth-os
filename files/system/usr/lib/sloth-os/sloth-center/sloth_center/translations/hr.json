@@ -1067,5 +1067,21 @@
   "Lid and power button": "Poklopac i tipka za uključivanje",
   "Power button": "Tipka za uključivanje",
   "When I close the lid": "Kad zatvorim poklopac",
-  "When I press the power button": "Kad pritisnem tipku za uključivanje"
+  "When I press the power button": "Kad pritisnem tipku za uključivanje",
+  "Game saves are no longer backed up. The backups made so far stay.": "Spremljene igre se više ne sigurnosno kopiraju. Dosadašnje kopije ostaju.",
+  "today at {time}": "danas u {time}",
+  "yesterday at {time}": "jučer u {time}",
+  "Last backup: {when}": "Zadnja kopija: {when}",
+  "Your game saves are backed up.": "Vaše spremljene igre su sigurnosno kopirane.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Spremljene igre nije bilo moguće kopirati. Prvi put provjerite internetsku vezu pa pokušajte ponovno.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: spremljena igra iz kopije je vraćena. Pokrenite igru i nastavite odande.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: spremljenu igru nije bilo moguće vratiti. Zatvorite igru ako je pokrenuta pa pokušajte ponovno.",
+  "Game saves": "Spremljene igre",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Mnoge igre čuvaju spremljena stanja samo na ovom računalu, bez kopije u oblaku. Sloth OS ih može kopirati svaki sat – za Steam, Heroic i vaše Windows igre – i vratiti ranije stanje ako ga igra pokvari.",
+  "Turn on": "Uključi",
+  "Turn on (installs Ludusavi, 43 MB)": "Uključi (instalira Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "U Discoveru kliknite Instaliraj. Kopiranje počinje samo kad se Ludusavi instalira.",
+  "Open folder": "Otvori mapu",
+  "Put back the saved game of {game}?": "Vratiti spremljenu igru {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Stanje na ovom računalu zamjenjuje se najnovijom kopijom. Prvo zatvorite igru. Ako se predomislite, sigurnosna kopija datoteka još ima prijašnje stanje."
 }

@@ -1067,5 +1067,21 @@
   "Lid and power button": "Kovrilo kaj ŝaltbutono",
   "Power button": "Ŝaltbutono",
   "When I close the lid": "Kiam mi fermas la kovrilon",
-  "When I press the power button": "Kiam mi premas la ŝaltbutonon"
+  "When I press the power button": "Kiam mi premas la ŝaltbutonon",
+  "Game saves are no longer backed up. The backups made so far stay.": "Ludkonservoj ne plu estas savkopiataj. La ĝis nun faritaj kopioj restas.",
+  "today at {time}": "hodiaŭ je {time}",
+  "yesterday at {time}": "hieraŭ je {time}",
+  "Last backup: {when}": "Lasta savkopio: {when}",
+  "Your game saves are backed up.": "Viaj ludkonservoj estas savkopiitaj.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Ne eblis savkopii la ludkonservojn. La unuan fojon kontrolu la retkonekton kaj reprovu.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: la konservo el la savkopio revenis. Startigu la ludon por daŭrigi de tie.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: ne eblis remeti la konservon. Fermu la ludon, se ĝi funkcias, kaj reprovu.",
+  "Game saves": "Ludkonservoj",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Multaj ludoj tenas siajn konservojn nur en ĉi tiu komputilo, sen kopio en la nubo. Sloth OS povas savkopii ilin ĉiuhore, por Steam, Heroic kaj viaj Windows-ludoj, kaj remeti pli fruan konservon, se ludo difektas ĝin.",
+  "Turn on": "Ŝalti",
+  "Turn on (installs Ludusavi, 43 MB)": "Ŝalti (instalas Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Alklaku Instali en Discover. La savkopiado komenciĝas mem, kiam Ludusavi estas instalita.",
+  "Open folder": "Malfermi dosierujon",
+  "Put back the saved game of {game}?": "Ĉu remeti la konservitan ludon de {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "La konservo en ĉi tiu komputilo estos anstataŭigita de la plej nova savkopio. Unue fermu la ludon. Se vi ŝanĝos opinion, la dosiera savkopio ankoraŭ havas la antaŭan konservon."
 }

@@ -1,0 +1,10 @@
+[Unit]
+Description=Sloth OS: back up game saves (Sloth Center → Games → Game saves)
+Documentation=file:///usr/libexec/sloth-os/game-saves
+
+[Service]
+Type=oneshot
+# does nothing until the user turns it on in Sloth Center (and Ludusavi is installed)
+ExecStart=/usr/libexec/sloth-os/game-saves backup
+Nice=10
+IOSchedulingClass=idle

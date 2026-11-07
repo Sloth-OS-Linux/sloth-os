@@ -1067,5 +1067,21 @@
   "Lid and power button": "Låg og tænd/sluk-knap",
   "Power button": "Tænd/sluk-knap",
   "When I close the lid": "Når jeg lukker låget",
-  "When I press the power button": "Når jeg trykker på tænd/sluk-knappen"
+  "When I press the power button": "Når jeg trykker på tænd/sluk-knappen",
+  "Game saves are no longer backed up. The backups made so far stay.": "Gemte spil sikkerhedskopieres ikke længere. De kopier, der allerede er lavet, bliver.",
+  "today at {time}": "i dag kl. {time}",
+  "yesterday at {time}": "i går kl. {time}",
+  "Last backup: {when}": "Seneste kopi: {when}",
+  "Your game saves are backed up.": "Dine gemte spil er sikkerhedskopieret.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "De gemte spil kunne ikke sikkerhedskopieres. Tjek internetforbindelsen første gang, og prøv igen.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: det gemte spil fra kopien er tilbage. Start spillet for at fortsætte derfra.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: det gemte spil kunne ikke lægges tilbage. Luk spillet, hvis det kører, og prøv igen.",
+  "Game saves": "Gemte spil",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Mange spil gemmer kun på denne computer, uden kopi i skyen. Sloth OS kan sikkerhedskopiere dem hver time, for Steam, Heroic og dine Windows-spil, og lægge et tidligere gem tilbage, hvis et spil ødelægger det.",
+  "Turn on": "Slå til",
+  "Turn on (installs Ludusavi, 43 MB)": "Slå til (installerer Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klik på Installer i Discover. Sikkerhedskopieringen starter af sig selv, når Ludusavi er installeret.",
+  "Open folder": "Åbn mappen",
+  "Put back the saved game of {game}?": "Lægge det gemte spil fra {game} tilbage?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Gemmet på denne computer erstattes af den nyeste kopi. Luk spillet først. Fortryder du, har filbackuppen stadig gemmet fra før."
 }

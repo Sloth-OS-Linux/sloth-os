@@ -1067,5 +1067,21 @@
   "Lid and power button": "Fedél és bekapcsológomb",
   "Power button": "Bekapcsológomb",
   "When I close the lid": "Ha lecsukom a fedelet",
-  "When I press the power button": "Ha megnyomom a bekapcsológombot"
+  "When I press the power button": "Ha megnyomom a bekapcsológombot",
+  "Game saves are no longer backed up. The backups made so far stay.": "A játékmentések mentése kikapcsolva. Az eddigi mentések megmaradnak.",
+  "today at {time}": "ma {time}-kor",
+  "yesterday at {time}": "tegnap {time}-kor",
+  "Last backup: {when}": "Utolsó mentés: {when}",
+  "Your game saves are backed up.": "A játékmentéseid el vannak mentve.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Nem sikerült elmenteni a játékmentéseket. Az első alkalommal nézd meg az internetkapcsolatot, aztán próbáld újra.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: visszakerült a mentésből a játékállás. Indítsd el a játékot, és onnan folytathatod.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: nem sikerült visszatenni a játékállást. Zárd be a játékot, ha fut, aztán próbáld újra.",
+  "Game saves": "Játékmentések",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Sok játék csak ezen a gépen tárolja a mentéseit, felhős másolat nélkül. A Sloth OS óránként elmentheti őket a Steam, a Heroic és a Windows-játékaid esetében is, és visszateheti egy korábbi állást, ha egy játék elrontja.",
+  "Turn on": "Bekapcsolás",
+  "Turn on (installs Ludusavi, 43 MB)": "Bekapcsolás (telepíti a Ludusavit, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Kattints a Telepítés gombra a Discoverben. A mentés magától elindul, amint a Ludusavi települt.",
+  "Open folder": "Mappa megnyitása",
+  "Put back the saved game of {game}?": "Visszateszed a(z) {game} mentett játékállását?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "A gépen lévő mentést a legújabb mentett állás váltja fel. Előbb zárd be a játékot. Ha meggondolnád magad, a Fájlmentésben a korábbi állás is megvan."
 }

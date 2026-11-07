@@ -64,6 +64,7 @@ modules:
     user:
       enabled:
         - sloth-github-bundle-update.timer   # daily update of the apps installed as GitHub packages (e.g. ArtCraft)
+        - sloth-game-saves.timer             # hourly backup of game saves, once turned on in Sloth Center → Games
         # a notification when a system update was prepared in the background (it installs at the next restart)
         - sloth-update-notify.path
         - sloth-update-notify.service

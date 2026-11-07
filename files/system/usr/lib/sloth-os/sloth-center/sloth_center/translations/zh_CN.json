@@ -1067,5 +1067,21 @@
   "Lid and power button": "盖子和电源按钮",
   "Power button": "电源按钮",
   "When I close the lid": "合上盖子时",
-  "When I press the power button": "按下电源按钮时"
+  "When I press the power button": "按下电源按钮时",
+  "Game saves are no longer backed up. The backups made so far stay.": "游戏存档不再备份。之前的备份会保留。",
+  "today at {time}": "今天 {time}",
+  "yesterday at {time}": "昨天 {time}",
+  "Last backup: {when}": "上次备份：{when}",
+  "Your game saves are backed up.": "你的游戏存档已备份。",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "无法备份游戏存档。第一次请检查网络连接，然后重试。",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}：已从备份恢复存档。启动游戏即可从那里继续。",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}：无法恢复存档。如果游戏正在运行，请先关闭再重试。",
+  "Game saves": "游戏存档",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "很多游戏只把存档保存在这台电脑上，没有云端副本。Sloth OS 可以每小时备份 Steam、Heroic 和你的 Windows 游戏的存档，游戏把存档弄坏时还能恢复之前的。",
+  "Turn on": "开启",
+  "Turn on (installs Ludusavi, 43 MB)": "开启（安装 Ludusavi，43 MB）",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "在 Discover 中点击“安装”。Ludusavi 安装完成后，备份会自动开始。",
+  "Open folder": "打开文件夹",
+  "Put back the saved game of {game}?": "要恢复 {game} 的存档吗？",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "这台电脑上的存档将被最新的备份替换。请先关闭游戏。如果你改变主意，文件备份里仍有之前的存档。"
 }

@@ -1067,5 +1067,21 @@
   "Lid and power button": "Tampa e botão liga/desliga",
   "Power button": "Botão liga/desliga",
   "When I close the lid": "Quando eu fecho a tampa",
-  "When I press the power button": "Quando eu aperto o botão liga/desliga"
+  "When I press the power button": "Quando eu aperto o botão liga/desliga",
+  "Game saves are no longer backed up. The backups made so far stay.": "Os saves dos jogos não são mais copiados. As cópias feitas até agora ficam.",
+  "today at {time}": "hoje às {time}",
+  "yesterday at {time}": "ontem às {time}",
+  "Last backup: {when}": "Última cópia: {when}",
+  "Your game saves are backed up.": "Seus saves de jogos estão copiados.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Não deu para copiar os saves. Na primeira vez, confira a conexão com a internet e tente de novo.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: o save da cópia voltou. Abra o jogo para continuar de lá.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: não deu para devolver o save. Feche o jogo se estiver aberto e tente de novo.",
+  "Game saves": "Saves dos jogos",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Muitos jogos guardam os saves só neste computador, sem cópia na nuvem. O Sloth OS pode copiá-los a cada hora, para Steam, Heroic e seus jogos de Windows, e devolver um save anterior se um jogo estragar o atual.",
+  "Turn on": "Ativar",
+  "Turn on (installs Ludusavi, 43 MB)": "Ativar (instala o Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Clique em Instalar no Discover. A cópia começa sozinha assim que o Ludusavi for instalado.",
+  "Open folder": "Abrir pasta",
+  "Put back the saved game of {game}?": "Devolver o save de {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "O save deste computador é trocado pela cópia mais recente. Feche o jogo antes. Se mudar de ideia, o backup de arquivos ainda tem o save de antes."
 }

@@ -5,6 +5,22 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Game saves (2026-11-07, test branch)
+- [x] The hourly file backup leaves out Steam's whole `steamapps` folder (the games are big and can be downloaded
+  again), and with it `steamapps/compatdata`, where the saves of Windows games under Proton are: those saves were in
+  no backup at all. Games → **Game saves**: "Turn on" installs Ludusavi from Discover (Flathub, MIT, 43 MB; it knows
+  where about 20 000 games keep their saves, Proton included), then `game-saves` (sloth-game-saves.timer, hourly)
+  backs up the changed saves into ~/.local/share/sloth-os/game-saves (inside home: the file backup keeps earlier
+  versions of them, a backup to an external drive takes them along); one full and up to 10 differential backups per
+  game. The card lists the games with their last backup, "Back up now", "Restore" per game (after a confirmation).
+  Ludusavi's settings are written into a config folder of our own every run (roots: Steam, also Flatpak; Heroic;
+  Lutris; the Windows programs' environments ~/Applications/*/windows), the user's own Ludusavi settings stay
+- Not tried with the real Ludusavi here (running a downloaded program was not allowed in this session): built on its
+  documented command line and JSON output (0.31), with tools/tests/test_game_saves.py on those shapes
+- [ ] On the HP: turn it on (Discover installs Ludusavi), a Steam game's save shows up after "Back up now"; change the
+  save in the game, "Restore", the old one is back; turning it off keeps the backups
+- Medium, later: restore an older backup than the newest (Ludusavi's `--backup <id>`)
+
 ### Accessibility, Power and battery, Guest account (2026-11-07, test branch)
 - [x] Sloth Center → **Accessibility**: text size (100–200%, the desktop's fonts in kdeglobals), mouse pointer size,
   high contrast (the new SlothHighContrast scheme; the scheme before comes back), less motion (no animations), the

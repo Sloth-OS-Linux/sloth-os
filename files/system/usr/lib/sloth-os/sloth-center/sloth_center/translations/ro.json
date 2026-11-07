@@ -1067,5 +1067,21 @@
   "Lid and power button": "Capac și buton de pornire",
   "Power button": "Buton de pornire",
   "When I close the lid": "Când închid capacul",
-  "When I press the power button": "Când apăs butonul de pornire"
+  "When I press the power button": "Când apăs butonul de pornire",
+  "Game saves are no longer backed up. The backups made so far stay.": "Salvările jocurilor nu mai sunt copiate. Copiile făcute până acum rămân.",
+  "today at {time}": "azi la {time}",
+  "yesterday at {time}": "ieri la {time}",
+  "Last backup: {when}": "Ultima copie: {when}",
+  "Your game saves are backed up.": "Salvările jocurilor tale sunt copiate.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Salvările jocurilor nu au putut fi copiate. Prima dată verifică conexiunea la internet, apoi încearcă din nou.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: salvarea din copie a revenit. Pornește jocul ca să continui de acolo.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: salvarea nu a putut fi pusă înapoi. Închide jocul dacă rulează, apoi încearcă din nou.",
+  "Game saves": "Salvările jocurilor",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Multe jocuri își țin salvările doar pe acest computer, fără copie în cloud. Sloth OS le poate copia în fiecare oră, pentru Steam, Heroic și jocurile tale de Windows, și poate pune înapoi o salvare anterioară dacă un joc o strică.",
+  "Turn on": "Activează",
+  "Turn on (installs Ludusavi, 43 MB)": "Activează (instalează Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Apasă Instalează în Discover. Copierea pornește singură imediat ce Ludusavi e instalat.",
+  "Open folder": "Deschide dosarul",
+  "Put back the saved game of {game}?": "Pui înapoi salvarea din {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Salvarea de pe acest computer este înlocuită cu cea mai nouă copie. Închide mai întâi jocul. Dacă te răzgândești, copia de siguranță a fișierelor mai are salvarea de dinainte."
 }

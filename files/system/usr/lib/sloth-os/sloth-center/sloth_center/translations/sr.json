@@ -1067,5 +1067,21 @@
   "Lid and power button": "Поклопац и дугме за напајање",
   "Power button": "Дугме за напајање",
   "When I close the lid": "Кад затворим поклопац",
-  "When I press the power button": "Кад притиснем дугме за напајање"
+  "When I press the power button": "Кад притиснем дугме за напајање",
+  "Game saves are no longer backed up. The backups made so far stay.": "Сачуване игре се више не копирају. Досадашње копије остају.",
+  "today at {time}": "данас у {time}",
+  "yesterday at {time}": "јуче у {time}",
+  "Last backup: {when}": "Последња копија: {when}",
+  "Your game saves are backed up.": "Ваше сачуване игре су копиране.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Сачуване игре није било могуће копирати. Први пут проверите интернет везу па покушајте поново.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: сачувана игра из копије је враћена. Покрените игру и наставите одатле.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: сачувану игру није било могуће вратити. Затворите игру ако ради па покушајте поново.",
+  "Game saves": "Сачуване игре",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Многе игре чувају сачувана стања само на овом рачунару, без копије у облаку. Sloth OS може да их копира сваког сата – за Steam, Heroic и ваше Windows игре – и да врати раније стање ако га игра поквари.",
+  "Turn on": "Укључи",
+  "Turn on (installs Ludusavi, 43 MB)": "Укључи (инсталира Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "У Discover-у кликните Инсталирај. Копирање почиње само кад се Ludusavi инсталира.",
+  "Open folder": "Отвори фасциклу",
+  "Put back the saved game of {game}?": "Вратити сачувану игру {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Стање на овом рачунару замењује се најновијом копијом. Прво затворите игру. Ако се предомислите, резервна копија фајлова још има претходно стање."
 }

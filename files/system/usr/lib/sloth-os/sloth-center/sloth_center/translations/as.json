@@ -1067,5 +1067,21 @@
   "Lid and power button": "ঢাকনি আৰু পাৱাৰ বুটাম",
   "Power button": "পাৱাৰ বুটাম",
   "When I close the lid": "মই ঢাকনি বন্ধ কৰিলে",
-  "When I press the power button": "মই পাৱাৰ বুটাম টিপিলে"
+  "When I press the power button": "মই পাৱাৰ বুটাম টিপিলে",
+  "Game saves are no longer backed up. The backups made so far stay.": "খেলৰ ছেভ আৰু বেকআপ কৰা নহয়। এতিয়ালৈকে কৰা বেকআপবোৰ থাকিব।",
+  "today at {time}": "আজি {time}ত",
+  "yesterday at {time}": "কালি {time}ত",
+  "Last backup: {when}": "শেষ বেকআপ: {when}",
+  "Your game saves are backed up.": "আপোনাৰ খেলৰ ছেভ বেকআপ কৰা হৈছে।",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "খেলৰ ছেভ বেকআপ কৰিব পৰা নগ'ল। প্ৰথমবাৰ ইণ্টাৰনেট সংযোগ পৰীক্ষা কৰি পুনৰ চেষ্টা কৰক।",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: বেকআপৰ পৰা ছেভ ঘূৰি আহিল। তাৰ পৰা আগবাঢ়িবলৈ খেলটো আৰম্ভ কৰক।",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: ছেভ ঘূৰাই ৰাখিব পৰা নগ'ল। খেলটো চলি থাকিলে বন্ধ কৰি পুনৰ চেষ্টা কৰক।",
+  "Game saves": "খেলৰ ছেভ",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "বহুতো খেলে ক্লাউড কপি অবিহনে কেৱল এই কম্পিউটাৰতে ছেভ ৰাখে। Sloth OS-এ Steam, Heroic আৰু আপোনাৰ Windows খেলৰ বাবে প্ৰতি ঘণ্টাত সেইবোৰ বেকআপ কৰিব পাৰে, আৰু কোনো খেলে নষ্ট কৰিলে আগৰ ছেভ ঘূৰাই ৰাখিব পাৰে।",
+  "Turn on": "অন কৰক",
+  "Turn on (installs Ludusavi, 43 MB)": "অন কৰক (Ludusavi ইনষ্টল কৰে, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover-ত ইনষ্টল ক্লিক কৰক। Ludusavi ইনষ্টল হোৱাৰ লগে লগে বেকআপ নিজে আৰম্ভ হয়।",
+  "Open folder": "ফ'ল্ডাৰ খোলক",
+  "Put back the saved game of {game}?": "{game}ৰ ছেভ ঘূৰাই ৰাখিবনে?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "এই কম্পিউটাৰৰ ছেভ আটাইতকৈ নতুন বেকআপেৰে সলনি কৰা হ'ব। প্ৰথমে খেলটো বন্ধ কৰক। মন সলনি হ'লে, ফাইল বেকআপত আগৰ ছেভ এতিয়াও আছে।"
 }

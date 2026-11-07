@@ -1067,5 +1067,21 @@
   "Lid and power button": "Dangtis ir maitinimo mygtukas",
   "Power button": "Maitinimo mygtukas",
   "When I close the lid": "Kai uždarau dangtį",
-  "When I press the power button": "Kai paspaudžiu maitinimo mygtuką"
+  "When I press the power button": "Kai paspaudžiu maitinimo mygtuką",
+  "Game saves are no longer backed up. The backups made so far stay.": "Žaidimų išsaugojimai nebekopijuojami. Jau padarytos kopijos lieka.",
+  "today at {time}": "šiandien {time}",
+  "yesterday at {time}": "vakar {time}",
+  "Last backup: {when}": "Paskutinė kopija: {when}",
+  "Your game saves are backed up.": "Jūsų žaidimų išsaugojimai nukopijuoti.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Nepavyko nukopijuoti žaidimų išsaugojimų. Pirmą kartą patikrinkite interneto ryšį ir bandykite dar kartą.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: išsaugojimas iš kopijos grąžintas. Paleiskite žaidimą ir tęskite nuo ten.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: nepavyko grąžinti išsaugojimo. Uždarykite žaidimą, jei jis veikia, ir bandykite dar kartą.",
+  "Game saves": "Žaidimų išsaugojimai",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Daug žaidimų išsaugojimus laiko tik šiame kompiuteryje, be kopijos debesyje. Sloth OS gali juos kopijuoti kas valandą – „Steam“, „Heroic“ ir jūsų „Windows“ žaidimams – ir grąžinti ankstesnį išsaugojimą, jei žaidimas jį sugadina.",
+  "Turn on": "Įjungti",
+  "Turn on (installs Ludusavi, 43 MB)": "Įjungti (įdiegs „Ludusavi“, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "„Discover“ spustelėkite Įdiegti. Kopijavimas prasidės savaime, kai „Ludusavi“ bus įdiegta.",
+  "Open folder": "Atverti aplanką",
+  "Put back the saved game of {game}?": "Grąžinti žaidimo {game} išsaugojimą?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Šio kompiuterio išsaugojimas pakeičiamas naujausia kopija. Pirmiau uždarykite žaidimą. Jei persigalvosite, failų atsarginėje kopijoje dar yra ankstesnis išsaugojimas."
 }

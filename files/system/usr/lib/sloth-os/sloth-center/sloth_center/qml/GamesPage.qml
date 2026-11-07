@@ -113,6 +113,104 @@ Kirigami.ScrollablePage {
             visible: games.infoText !== ""
             text: games.infoText
         }
+
+        // --- Game saves: an hourly backup of every game's saves (game_saves.py, Ludusavi) ------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                RowLayout {
+                    Layout.fillWidth: true
+                    Kirigami.Heading { level: 3; Layout.fillWidth: true; text: L.t("Game saves") }
+                    QQC2.Switch {
+                        visible: gameSaves.installed
+                        checked: gameSaves.enabled
+                        onToggled: {
+                            if (checked) gameSaves.turnOn(); else gameSaves.turnOff();
+                            checked = Qt.binding(() => gameSaves.enabled)
+                        }
+                    }
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.")
+                }
+                QQC2.Button {
+                    visible: !gameSaves.installed || !gameSaves.enabled
+                    icon.name: "document-save"
+                    text: gameSaves.installed ? L.t("Turn on") : L.t("Turn on (installs Ludusavi, 43 MB)")
+                    onClicked: gameSaves.turnOn()
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    visible: !gameSaves.installed && gameSaves.enabled
+                    opacity: 0.8
+                    text: L.t("Click Install in Discover. The backup starts by itself when Ludusavi is installed.")
+                }
+                RowLayout {
+                    Layout.fillWidth: true
+                    visible: gameSaves.installed && gameSaves.enabled
+                    QQC2.Label { Layout.fillWidth: true; opacity: 0.8; text: gameSaves.lastBackup }
+                    QQC2.Button {
+                        icon.name: "document-save"
+                        text: L.t("Back up now")
+                        enabled: gameSaves.busy === "" || gameSaves.busy === "list"
+                        onClicked: gameSaves.backupNow()
+                    }
+                    QQC2.Button {
+                        icon.name: "folder-open"
+                        text: L.t("Open folder")
+                        onClicked: gameSaves.openFolder()
+                    }
+                }
+                QQC2.ProgressBar {
+                    Layout.fillWidth: true
+                    visible: gameSaves.busy === "backup" || gameSaves.busy === "restore"
+                    indeterminate: true
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Error
+                    visible: gameSaves.errorText !== ""
+                    text: gameSaves.errorText
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Positive
+                    visible: gameSaves.infoText !== "" && gameSaves.busy === ""
+                    text: gameSaves.infoText
+                }
+                Repeater {
+                    model: gameSaves.enabled ? gameSaves.saves : []
+                    delegate: RowLayout {
+                        id: saveRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon { source: "input-gamepad"; implicitWidth: Kirigami.Units.iconSizes.smallMedium; implicitHeight: implicitWidth }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { Layout.fillWidth: true; elide: Text.ElideRight; text: saveRow.modelData.name }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                opacity: 0.7
+                                text: [saveRow.modelData.when, saveRow.modelData.size].filter(t => t !== "").join(" · ")
+                            }
+                        }
+                        QQC2.Button {
+                            icon.name: "edit-undo"
+                            text: L.t("Restore")
+                            enabled: gameSaves.busy === "" || gameSaves.busy === "list"
+                            onClicked: { confirmRestore.game = saveRow.modelData.name; confirmRestore.open(); }
+                        }
+                    }
+                }
+            }
+        }
         Kirigami.InlineMessage {
             Layout.fillWidth: true
             type: Kirigami.MessageType.Information
@@ -260,6 +358,26 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+    }
+
+    Kirigami.PromptDialog {
+        id: confirmRestore
+        property string game: ""
+        title: L.tf("Put back the saved game of {game}?", { game: game })
+        subtitle: L.t("The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.")
+        standardButtons: Kirigami.Dialog.NoButton
+        customFooterActions: [
+            Kirigami.Action {
+                text: L.t("Restore")
+                icon.name: "edit-undo"
+                onTriggered: { gameSaves.restore(confirmRestore.game); confirmRestore.close(); }
+            },
+            Kirigami.Action {
+                text: L.t("Cancel")
+                icon.name: "dialog-cancel"
+                onTriggered: confirmRestore.close()
+            }
+        ]
     }
 
     // Closing Steam takes a few seconds

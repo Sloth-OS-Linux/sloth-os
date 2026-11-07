@@ -1067,5 +1067,21 @@
   "Lid and power button": "Kansi ja virtapainike",
   "Power button": "Virtapainike",
   "When I close the lid": "Kun suljen kannen",
-  "When I press the power button": "Kun painan virtapainiketta"
+  "When I press the power button": "Kun painan virtapainiketta",
+  "Game saves are no longer backed up. The backups made so far stay.": "Pelitallennuksia ei enää varmuuskopioida. Tähän asti tehdyt kopiot säilyvät.",
+  "today at {time}": "tänään klo {time}",
+  "yesterday at {time}": "eilen klo {time}",
+  "Last backup: {when}": "Viimeisin varmuuskopio: {when}",
+  "Your game saves are backed up.": "Pelitallennuksesi on varmuuskopioitu.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Pelitallennuksia ei voitu varmuuskopioida. Tarkista ensimmäisellä kerralla internetyhteys ja yritä uudelleen.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: tallennus varmuuskopiosta on palautettu. Käynnistä peli jatkaaksesi siitä.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: tallennusta ei voitu palauttaa. Sulje peli, jos se on käynnissä, ja yritä uudelleen.",
+  "Game saves": "Pelitallennukset",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Monet pelit säilyttävät tallennuksensa vain tällä tietokoneella ilman pilvikopiota. Sloth OS voi varmuuskopioida ne tunnin välein Steamille, Heroicille ja Windows-peleillesi ja palauttaa aiemman tallennuksen, jos peli rikkoo sen.",
+  "Turn on": "Ota käyttöön",
+  "Turn on (installs Ludusavi, 43 MB)": "Ota käyttöön (asentaa Ludusavin, 43 Mt)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Napsauta Discoverissa Asenna. Varmuuskopiointi alkaa itsestään, kun Ludusavi on asennettu.",
+  "Open folder": "Avaa kansio",
+  "Put back the saved game of {game}?": "Palautetaanko pelin {game} tallennus?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Tämän tietokoneen tallennus korvataan uusimmalla varmuuskopiolla. Sulje peli ensin. Jos muutat mielesi, tiedostojen varmuuskopiossa on vielä aiempi tallennus."
 }

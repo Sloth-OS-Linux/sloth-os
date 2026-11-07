@@ -1067,5 +1067,21 @@
   "Lid and power button": "Крышка и кнопка питания",
   "Power button": "Кнопка питания",
   "When I close the lid": "Когда я закрываю крышку",
-  "When I press the power button": "Когда я нажимаю кнопку питания"
+  "When I press the power button": "Когда я нажимаю кнопку питания",
+  "Game saves are no longer backed up. The backups made so far stay.": "Сохранения игр больше не копируются. Уже сделанные копии остаются.",
+  "today at {time}": "сегодня в {time}",
+  "yesterday at {time}": "вчера в {time}",
+  "Last backup: {when}": "Последняя копия: {when}",
+  "Your game saves are backed up.": "Сохранения ваших игр скопированы.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Не удалось скопировать сохранения игр. В первый раз проверьте подключение к интернету и попробуйте снова.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: сохранение из копии возвращено. Запустите игру, чтобы продолжить с этого места.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: не удалось вернуть сохранение. Закройте игру, если она запущена, и попробуйте снова.",
+  "Game saves": "Сохранения игр",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Многие игры хранят сохранения только на этом компьютере, без копии в облаке. Sloth OS может копировать их каждый час — для Steam, Heroic и ваших Windows-игр — и вернуть прежнее сохранение, если игра его испортит.",
+  "Turn on": "Включить",
+  "Turn on (installs Ludusavi, 43 MB)": "Включить (установит Ludusavi, 43 МБ)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Нажмите «Установить» в Discover. Копирование начнётся само, как только Ludusavi будет установлен.",
+  "Open folder": "Открыть папку",
+  "Put back the saved game of {game}?": "Вернуть сохранение игры {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Сохранение на этом компьютере будет заменено самой новой копией. Сначала закройте игру. Если передумаете, в резервной копии файлов есть сохранение до этого."
 }

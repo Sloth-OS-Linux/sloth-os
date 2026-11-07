@@ -1067,5 +1067,21 @@
   "Lid and power button": "Deksel en kragknoppie",
   "Power button": "Kragknoppie",
   "When I close the lid": "Wanneer ek die deksel toemaak",
-  "When I press the power button": "Wanneer ek die kragknoppie druk"
+  "When I press the power button": "Wanneer ek die kragknoppie druk",
+  "Game saves are no longer backed up. The backups made so far stay.": "Speletjiestore word nie meer gerugsteun nie. Die rugsteune tot nou toe bly.",
+  "today at {time}": "vandag om {time}",
+  "yesterday at {time}": "gister om {time}",
+  "Last backup: {when}": "Laaste rugsteun: {when}",
+  "Your game saves are backed up.": "Jou speletjiestore is gerugsteun.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Die speletjiestore kon nie gerugsteun word nie. Kyk die eerste keer na die internetverbinding en probeer weer.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: die stoor uit die rugsteun is terug. Begin die speletjie om van daar af voort te gaan.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: die stoor kon nie teruggesit word nie. Maak die speletjie toe as dit loop, en probeer weer.",
+  "Game saves": "Speletjiestore",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Baie speletjies hou hul store net op hierdie rekenaar, sonder 'n kopie in die wolk. Sloth OS kan hulle elke uur rugsteun, vir Steam, Heroic en jou Windows-speletjies, en 'n vroeëre stoor terugsit as 'n speletjie dit breek.",
+  "Turn on": "Skakel aan",
+  "Turn on (installs Ludusavi, 43 MB)": "Skakel aan (installeer Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klik Installeer in Discover. Die rugsteun begin vanself sodra Ludusavi geïnstalleer is.",
+  "Open folder": "Maak vouer oop",
+  "Put back the saved game of {game}?": "Die stoor van {game} terugsit?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Die stoor op hierdie rekenaar word deur die nuutste rugsteun vervang. Maak eers die speletjie toe. As jy van plan verander, het die lêerrugsteun nog die stoor van voorheen."
 }

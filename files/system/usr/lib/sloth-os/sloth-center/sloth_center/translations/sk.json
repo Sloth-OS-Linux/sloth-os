@@ -1067,5 +1067,21 @@
   "Lid and power button": "Veko a vypínač",
   "Power button": "Vypínač",
   "When I close the lid": "Keď zatvorím veko",
-  "When I press the power button": "Keď stlačím vypínač"
+  "When I press the power button": "Keď stlačím vypínač",
+  "Game saves are no longer backed up. The backups made so far stay.": "Uložené hry sa už nezálohujú. Doterajšie zálohy zostanú.",
+  "today at {time}": "dnes o {time}",
+  "yesterday at {time}": "včera o {time}",
+  "Last backup: {when}": "Posledná záloha: {when}",
+  "Your game saves are backed up.": "Vaše uložené hry sú zálohované.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Uložené hry sa nepodarilo zálohovať. Prvýkrát skontrolujte pripojenie k internetu a skúste to znova.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: uložená hra zo zálohy je späť. Spustite hru a pokračujte odtiaľ.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: uloženú hru sa nepodarilo vrátiť. Zatvorte hru, ak beží, a skúste to znova.",
+  "Game saves": "Uložené hry",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Mnoho hier ukladá postup len na tomto počítači, bez kópie v cloude. Sloth OS ich môže každú hodinu zálohovať – pre Steam, Heroic aj vaše hry z Windows – a vrátiť skoršiu uloženú hru, keď ju hra pokazí.",
+  "Turn on": "Zapnúť",
+  "Turn on (installs Ludusavi, 43 MB)": "Zapnúť (nainštaluje Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "V Discoveri kliknite na Inštalovať. Zálohovanie sa spustí samo, keď bude Ludusavi nainštalované.",
+  "Open folder": "Otvoriť priečinok",
+  "Put back the saved game of {game}?": "Vrátiť uloženú hru {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Uložená hra na tomto počítači sa nahradí najnovšou zálohou. Najprv hru zatvorte. Ak by ste si to rozmysleli, záloha súborov má ešte skorší stav."
 }

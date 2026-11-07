@@ -1067,5 +1067,21 @@
   "Lid and power button": "מכסה ולחצן הפעלה",
   "Power button": "לחצן הפעלה",
   "When I close the lid": "כשאני סוגר את המכסה",
-  "When I press the power button": "כשאני לוחץ על לחצן ההפעלה"
+  "When I press the power button": "כשאני לוחץ על לחצן ההפעלה",
+  "Game saves are no longer backed up. The backups made so far stay.": "שמירות המשחקים כבר לא מגובות. הגיבויים שנעשו עד עכשיו נשארים.",
+  "today at {time}": "היום ב־{time}",
+  "yesterday at {time}": "אתמול ב־{time}",
+  "Last backup: {when}": "גיבוי אחרון: {when}",
+  "Your game saves are backed up.": "שמירות המשחקים שלכם מגובות.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "לא ניתן היה לגבות את שמירות המשחקים. בפעם הראשונה בדקו את החיבור לאינטרנט ונסו שוב.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: השמירה מהגיבוי חזרה. הפעילו את המשחק כדי להמשיך משם.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: לא ניתן היה להחזיר את השמירה. סגרו את המשחק אם הוא פועל ונסו שוב.",
+  "Game saves": "שמירות משחקים",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "משחקים רבים שומרים את ההתקדמות רק במחשב הזה, בלי עותק בענן. Sloth OS יכול לגבות אותן כל שעה, ל־Steam, ל־Heroic ולמשחקי Windows שלכם, ולהחזיר שמירה קודמת אם משחק הורס אותה.",
+  "Turn on": "הפעלה",
+  "Turn on (installs Ludusavi, 43 MB)": "הפעלה (מתקין את Ludusavi, ‏43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "לחצו \"התקנה\" ב־Discover. הגיבוי יתחיל מעצמו ברגע ש־Ludusavi יותקן.",
+  "Open folder": "פתיחת התיקייה",
+  "Put back the saved game of {game}?": "להחזיר את השמירה של {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "השמירה במחשב הזה תוחלף בגיבוי החדש ביותר. סגרו קודם את המשחק. אם תתחרטו, בגיבוי הקבצים עדיין יש את השמירה הקודמת."
 }

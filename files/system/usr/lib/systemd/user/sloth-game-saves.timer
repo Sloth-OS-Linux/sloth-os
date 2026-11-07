@@ -1,0 +1,11 @@
+[Unit]
+Description=Sloth OS: back up game saves every hour (Sloth Center → Games → Game saves)
+
+[Timer]
+OnStartupSec=10min
+OnCalendar=hourly
+RandomizedDelaySec=10min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

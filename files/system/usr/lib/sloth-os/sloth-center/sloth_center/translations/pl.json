@@ -1067,5 +1067,21 @@
   "Lid and power button": "Pokrywa i przycisk zasilania",
   "Power button": "Przycisk zasilania",
   "When I close the lid": "Gdy zamykam pokrywę",
-  "When I press the power button": "Gdy naciskam przycisk zasilania"
+  "When I press the power button": "Gdy naciskam przycisk zasilania",
+  "Game saves are no longer backed up. The backups made so far stay.": "Zapisy gier nie są już kopiowane. Dotychczasowe kopie zostają.",
+  "today at {time}": "dziś o {time}",
+  "yesterday at {time}": "wczoraj o {time}",
+  "Last backup: {when}": "Ostatnia kopia: {when}",
+  "Your game saves are backed up.": "Zapisy twoich gier są skopiowane.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Nie udało się skopiować zapisów gier. Za pierwszym razem sprawdź połączenie z internetem i spróbuj ponownie.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: zapis z kopii wrócił. Uruchom grę, by kontynuować od tego miejsca.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: nie udało się przywrócić zapisu. Zamknij grę, jeśli działa, i spróbuj ponownie.",
+  "Game saves": "Zapisy gier",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Wiele gier trzyma zapisy tylko na tym komputerze, bez kopii w chmurze. Sloth OS może je kopiować co godzinę — dla Steama, Heroic i twoich gier z Windows — i przywrócić wcześniejszy zapis, jeśli gra go zepsuje.",
+  "Turn on": "Włącz",
+  "Turn on (installs Ludusavi, 43 MB)": "Włącz (instaluje Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Kliknij Zainstaluj w Discover. Kopiowanie zacznie się samo, gdy Ludusavi zostanie zainstalowane.",
+  "Open folder": "Otwórz folder",
+  "Put back the saved game of {game}?": "Przywrócić zapis gry {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Zapis na tym komputerze zostanie zastąpiony najnowszą kopią. Najpierw zamknij grę. Jeśli zmienisz zdanie, kopia plików wciąż ma wcześniejszy zapis."
 }

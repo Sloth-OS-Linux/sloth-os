@@ -1067,5 +1067,21 @@
   "Lid and power button": "Klep en aan/uit-knop",
   "Power button": "Aan/uit-knop",
   "When I close the lid": "Als ik de klep sluit",
-  "When I press the power button": "Als ik op de aan/uit-knop druk"
+  "When I press the power button": "Als ik op de aan/uit-knop druk",
+  "Game saves are no longer backed up. The backups made so far stay.": "Spelopslagen worden niet meer geback-upt. De back-ups tot nu toe blijven.",
+  "today at {time}": "vandaag om {time}",
+  "yesterday at {time}": "gisteren om {time}",
+  "Last backup: {when}": "Laatste back-up: {when}",
+  "Your game saves are backed up.": "Je spelopslagen zijn geback-upt.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "De spelopslagen konden niet worden geback-upt. Controleer de eerste keer de internetverbinding en probeer het opnieuw.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: de opslag uit de back-up is terug. Start het spel om daar verder te gaan.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: de opslag kon niet worden teruggezet. Sluit het spel als het draait en probeer het opnieuw.",
+  "Game saves": "Spelopslagen",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Veel games bewaren hun opslagen alleen op deze computer, zonder kopie in de cloud. Sloth OS kan ze elk uur back-uppen, voor Steam, Heroic en je Windows-games, en een eerdere opslag terugzetten als een game hem kapotmaakt.",
+  "Turn on": "Aanzetten",
+  "Turn on (installs Ludusavi, 43 MB)": "Aanzetten (installeert Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klik in Discover op Installeren. De back-up start vanzelf zodra Ludusavi geïnstalleerd is.",
+  "Open folder": "Map openen",
+  "Put back the saved game of {game}?": "De opgeslagen game van {game} terugzetten?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "De opslag op deze computer wordt vervangen door de nieuwste back-up. Sluit eerst het spel. Bedenk je je, dan heeft de bestandsback-up nog de opslag van daarvoor."
 }

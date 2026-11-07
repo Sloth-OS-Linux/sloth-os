@@ -1067,5 +1067,21 @@
   "Lid and power button": "Lok og av/på-knapp",
   "Power button": "Av/på-knapp",
   "When I close the lid": "Når eg lèt att loket",
-  "When I press the power button": "Når eg trykkjer på av/på-knappen"
+  "When I press the power button": "Når eg trykkjer på av/på-knappen",
+  "Game saves are no longer backed up. The backups made so far stay.": "Lagra spel blir ikkje lenger tryggingskopierte. Kopiane som alt er laga, blir verande.",
+  "today at {time}": "i dag kl. {time}",
+  "yesterday at {time}": "i går kl. {time}",
+  "Last backup: {when}": "Siste kopi: {when}",
+  "Your game saves are backed up.": "Dei lagra spela dine er tryggingskopierte.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Dei lagra spela kunne ikkje tryggingskopierast. Sjekk internettsambandet første gongen, og prøv igjen.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: det lagra spelet frå kopien er tilbake. Start spelet for å halda fram derifrå.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: det lagra spelet kunne ikkje leggjast tilbake. Lukk spelet viss det køyrer, og prøv igjen.",
+  "Game saves": "Lagra spel",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Mange spel lagrar berre på denne datamaskina, utan kopi i skyen. Sloth OS kan tryggingskopiera dei kvar time, for Steam, Heroic og Windows-spela dine, og leggja tilbake ei tidlegare lagring viss eit spel øydelegg henne.",
+  "Turn on": "Slå på",
+  "Turn on (installs Ludusavi, 43 MB)": "Slå på (installerer Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klikk Installer i Discover. Tryggingskopieringa startar av seg sjølv når Ludusavi er installert.",
+  "Open folder": "Opna mappa",
+  "Put back the saved game of {game}?": "Leggja tilbake det lagra spelet frå {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Lagringa på denne datamaskina blir erstatta av den nyaste kopien. Lukk spelet først. Angrar du, har filtryggingskopien framleis lagringa frå før."
 }

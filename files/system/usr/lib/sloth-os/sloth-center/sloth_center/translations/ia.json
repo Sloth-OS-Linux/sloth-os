@@ -1067,5 +1067,21 @@
   "Lid and power button": "Coperculo e button de energia",
   "Power button": "Button de energia",
   "When I close the lid": "Quando io claude le coperculo",
-  "When I press the power button": "Quando io preme le button de energia"
+  "When I press the power button": "Quando io preme le button de energia",
+  "Game saves are no longer backed up. The backups made so far stay.": "Le salvamentos de jocos non es plus copiate. Le copias facite usque ora remane.",
+  "today at {time}": "hodie a {time}",
+  "yesterday at {time}": "heri a {time}",
+  "Last backup: {when}": "Ultime copia: {when}",
+  "Your game saves are backed up.": "Tu salvamentos de jocos es copiate.",
+  "Couldn't back up the game saves. Check the internet connection the first time, then try again.": "Non poteva copiar le salvamentos de jocos. Le prime vice, verifica le connexion a internet e reproba.",
+  "{game}: the save from the backup is back. Start the game to continue from there.": "{game}: le salvamento del copia ha retornate. Lancea le joco pro continuar ab ibi.",
+  "{game}: couldn't put the save back. Close the game if it is running, then try again.": "{game}: non poteva remitter le salvamento. Claude le joco si illo es in execution e reproba.",
+  "Game saves": "Salvamentos de jocos",
+  "Many games keep their saves only on this computer, without a cloud copy. Sloth OS can back them up every hour, for Steam, Heroic and your Windows games, and put an earlier save back if a game breaks it.": "Multe jocos tene lor salvamentos solmente in iste computator, sin copia in le nube. Sloth OS pote copiar los cata hora, pro Steam, Heroic e tu jocos de Windows, e remitter un salvamento anterior si un joco lo guasta.",
+  "Turn on": "Activar",
+  "Turn on (installs Ludusavi, 43 MB)": "Activar (installa Ludusavi, 43 MB)",
+  "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Clicca Installar in Discover. Le copia comencia sol quando Ludusavi es installate.",
+  "Open folder": "Aperir le dossier",
+  "Put back the saved game of {game}?": "Remitter le salvamento de {game}?",
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Le salvamento in iste computator es reimplaciate per le copia le plus nove. Prime claude le joco. Si tu cambia de opinion, le copia de files ancora ha le salvamento de ante."
 }
