@@ -44,6 +44,11 @@ from a terminal must also work from a GUI.
 - Tried: tools/tests/guest_test.sh (22 checks with real accounts), tools/tests/test_access_power.py (6), the pages
   opened on the desktop PC (no battery: the battery and lid parts hidden), every text in 50 languages
 - [ ] On the HP (a laptop): the battery card, the lid setting, a power mode change shows in the quick settings too
+- [x] (2026-11-09) Text size: right after signing in again (seen on the HP); the page says so now, with "Sign out
+  now" when the text or pointer size was changed. Pointer size: never saved, even after signing in again:
+  plasma-apply-cursortheme with the theme already in use succeeds without saving the size, and the page wrote the
+  size itself only when it failed. Now kcminputrc's cursorSize is always written. The magnifier's text names Meta+0
+  and the three-finger pinch. test_access_power.py (7); the page loads offscreen
 - From the HP test (2026-11-09): high contrast works; the text size and the pointer size did not change (to see
   whether they apply after signing in again, or are not written at all). The magnifier works, but its shortcuts
   (Meta+= / Meta+-) are awkward on a Hungarian layout without a number pad; what worked: Meta+0 back to normal, and

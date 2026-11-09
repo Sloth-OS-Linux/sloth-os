@@ -59,6 +59,14 @@ class TextSize(unittest.TestCase):
         accessibility.set_text_scale(100)  # back: from the 100% sizes, not from the bigger ones
         self.assertEqual(self.cfg.values[("kdeglobals", "General", "font")], "Inter,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1")
 
+    def test_pointer_size_is_always_saved(self):
+        # plasma-apply-cursortheme with the theme already in use succeeds without saving the size (HP, 2026-11-09)
+        ran = []
+        accessibility._run = lambda cmd: ran.append(cmd) or types.SimpleNamespace(returncode=0, stdout="")
+        accessibility.set_cursor_size(48)
+        self.assertEqual(str(self.cfg.values[("kcminputrc", "Mouse", "cursorSize")]), "48")
+        self.assertTrue(any(c[0] == "plasma-apply-cursortheme" for c in ran))
+
 
 class PowerSettings(unittest.TestCase):
     def setUp(self):

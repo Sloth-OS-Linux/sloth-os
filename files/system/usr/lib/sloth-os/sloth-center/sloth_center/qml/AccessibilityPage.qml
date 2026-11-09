@@ -45,7 +45,22 @@ Kirigami.ScrollablePage {
             Layout.fillWidth: true
             wrapMode: Text.Wrap
             opacity: 0.8
-            text: L.t("Make the computer easier to see, hear and use. Every change works at once and stays after a restart.")
+            text: L.t("Make the computer easier to see, hear and use. Your changes stay after a restart.")
+        }
+
+        // The text and pointer size show everywhere only after signing in again (seen on the HP, 2026-11-09)
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Information
+            visible: accessibility.signOutNeeded
+            text: L.t("Sign out and in again to see the new size everywhere.")
+            actions: [
+                Kirigami.Action {
+                    text: L.t("Sign out now")
+                    icon.name: "system-log-out"
+                    onTriggered: accessibility.signOut()
+                }
+            ]
         }
 
         // --- Seeing ------------------------------------------------------------------------------
@@ -61,7 +76,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         spacing: 0
                         QQC2.Label { Layout.fillWidth: true; font.bold: true; text: L.t("Text size") }
-                        QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; opacity: 0.75; text: L.t("Bigger text in menus, windows and apps. Some apps show it after they are opened again.") }
+                        QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; opacity: 0.75; text: L.t("Bigger text in menus, windows and apps. It shows everywhere after you sign out and in again.") }
                     }
                     QQC2.ComboBox {
                         model: accessibility.textScales.map(p => p + " %")
@@ -79,7 +94,7 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         spacing: 0
                         QQC2.Label { Layout.fillWidth: true; font.bold: true; text: L.t("Mouse pointer size") }
-                        QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; opacity: 0.75; text: L.t("A bigger pointer is easier to find on the screen.") }
+                        QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; opacity: 0.75; text: L.t("A bigger pointer is easier to find on the screen. It shows everywhere after you sign out and in again.") }
                     }
                     QQC2.ComboBox {
                         readonly property var labels: [L.t("Normal"), L.t("Large"), L.t("Extra large")]
@@ -99,7 +114,7 @@ Kirigami.ScrollablePage {
                 }
                 SwitchRow {
                     title: L.t("Magnifier")
-                    description: L.t("Zoom in with the Windows key and +, zoom out with the Windows key and −. The view follows the mouse.")
+                    description: L.t("Zoom in and out with the Windows key and + or −, or on a touchpad by pinching with three fingers. The Windows key and 0 brings the normal size back. The view follows the mouse.")
                     on: accessibility.magnifier
                     onToggled: (checked) => accessibility.setMagnifier(checked)
                 }

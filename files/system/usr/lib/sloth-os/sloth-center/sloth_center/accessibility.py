@@ -103,11 +103,19 @@ def cursor_size():
 
 
 def set_cursor_size(size):
+    """The size is always written here: plasma-apply-cursortheme with the theme already in use says so and succeeds
+    without saving the new size (the HP test of 2026-11-09: no change even after signing in again). It still runs, to
+    show the size at once where it can; everywhere else it shows after signing in again."""
+    write("kcminputrc", "Mouse", "cursorSize", size, "int")
     theme = read("kcminputrc", "Mouse", "cursorTheme", "breeze_cursors") or "breeze_cursors"
-    r = _run(["plasma-apply-cursortheme", "--size", str(size), theme])
-    if not r or r.returncode != 0:  # the setting at least, for the next sign-in
-        write("kcminputrc", "Mouse", "cursorSize", size, "int")
-        notify(CURSOR_CHANGED)
+    _run(["plasma-apply-cursortheme", "--size", str(size), theme])
+    notify(CURSOR_CHANGED)
+
+
+def sign_out():
+    """Plasma's sign-out window (the user can still change their mind there)."""
+    _run(["dbus-send", "--session", "--type=method_call", "--dest=org.kde.LogoutPrompt", "/LogoutPrompt",
+          "org.kde.LogoutPrompt.promptLogout"])
 
 
 def screen_reader_running():
@@ -135,6 +143,7 @@ class AccessibilityController(QObject):
     def __init__(self, parent=None):
         super().__init__(parent)
         self._state = load_state()
+        self._sign_out = False  # the text or pointer size was changed: it shows everywhere after signing in again
         self.refresh()
 
     textScales = Property("QVariantList", lambda self: list(TEXT_SCALES), constant=True)
@@ -146,6 +155,11 @@ class AccessibilityController(QObject):
     screenReader = Property(bool, lambda self: self._reader, notify=changed)
     magnifier = Property(bool, lambda self: self._zoom, notify=changed)
     stickyKeys = Property(bool, lambda self: self._sticky, notify=changed)
+    signOutNeeded = Property(bool, lambda self: self._sign_out, notify=changed)
+
+    @Slot()
+    def signOut(self):
+        sign_out()
 
     @Slot()
     def refresh(self):
@@ -166,12 +180,14 @@ class AccessibilityController(QObject):
             set_text_scale(percent)
             self._state["textScale"] = percent
             save_state(self._state)
+            self._sign_out = True
         self.refresh()
 
     @Slot(int)
     def setCursorSize(self, size):
         if size in CURSOR_SIZES:
             set_cursor_size(size)
+            self._sign_out = True
         self.refresh()
 
     @Slot(bool)
