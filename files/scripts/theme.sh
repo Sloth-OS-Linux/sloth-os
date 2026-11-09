@@ -69,3 +69,17 @@ else
 fi
 
 gtk-update-icon-cache -f /usr/share/icons/hicolor 2>/dev/null || true
+
+# Fedora's global themes ("Fedora", "Fedora Dark", "Fedora Light", plasma-lookandfeel-fedora) showed up by name in
+# System Settings → Global Theme. plasma-workspace requires the package, so only its theme folders go; the
+# kde-settings fallback that named Fedora's theme points to ours (/etc/xdg/kdeglobals already does). A user who had
+# picked one of them falls back to Breeze; nothing else refers to them (checked in the image, 2026-11-09).
+for theme in org.fedoraproject.fedora.desktop org.fedoraproject.fedoradark.desktop \
+             org.fedoraproject.fedoralight.desktop; do
+  rm -rf "/usr/share/plasma/look-and-feel/${theme}"
+done
+FALLBACK=/usr/share/kde-settings/kde-profile/default/xdg/kdeglobals
+if [ -f "$FALLBACK" ]; then
+  sed -i 's|^LookAndFeelPackage=org\.fedoraproject\..*|LookAndFeelPackage=org.slothos.desktop|' "$FALLBACK"
+fi
+ls /usr/share/plasma/look-and-feel
