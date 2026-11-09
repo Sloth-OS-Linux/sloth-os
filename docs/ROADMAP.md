@@ -74,7 +74,6 @@ from a terminal must also work from a GUI.
   Tried: tools/tests/test_parental_controls.py (16 tests) and tools/tests/parental_controls_test.sh (32 checks with
   the real AccountsService and malcontent-timerd in a container; it found that timerd 0.14 mishandles an empty usage
   span, so none is sent); the page loads offscreen with Kirigami for a parent and for a child
-- Where it stands (2026-11-06 noon): on `test/chunked-oci` since `abaef22`, the CI image build was still running when I left it; not tried on a real machine yet. Next: let the HP update (or check the build in Actions first), then the three HP checks below; if they are fine, it can go to `main` with the next release
 - [ ] On the HP: make a child account, sign in with it, set a 30-minute limit; the warnings come, "Ask for more time"
   brings up the password window (malcontent's extension agent with KDE's polkit agent), the child is signed out at
   the end and can't sign back in until the next day / the allowed hours (signed out again within a minute)
