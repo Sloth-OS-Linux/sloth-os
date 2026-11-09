@@ -46,6 +46,12 @@ from a terminal must also work from a GUI.
 - [ ] On the HP (a laptop): the battery card, the lid setting, a power mode change shows in the quick settings too
 - [ ] On the HP: text size 150% and back, a large pointer, high contrast on and off (the old scheme comes back),
   the magnifier with Meta and +, Orca starts and stops
+- [x] From the HP test (2026-11-09): nothing was emptied, and KDE's password store asked for a wallet when the
+  browser opened (closing it let the browser go online). The ExecStopPost drop-in ran guest-reset as the guest
+  (user@.service runs as the user), who could not check the account, so it left everything alone. Now one drop-in for
+  every user@ service (/usr/lib/systemd/system/user@.service.d/50-sloth-guest.conf: ExecStopPost=-+… --uid %i, as
+  root; guest-reset acts only for the guest's user ID), the old per-user drop-in goes at start, and the guest's
+  password store is off (kwalletrc Enabled=false, written with every fresh home). guest_test.sh: 28 checks
 - [ ] On the HP: the guest account: sign in without a password, leave a file and a browser bookmark, sign out, sign
   in again: everything is gone; the owner's files can't be opened from the guest
 

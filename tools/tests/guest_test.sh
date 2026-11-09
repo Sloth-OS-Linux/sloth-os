@@ -28,20 +28,33 @@ expect "an ordinary account" "groups=$(id -g guest)(guest)" id guest
 expect "its name" "Vendég" getent passwd guest
 expect "no password (signs in with an empty one)" "guest NP" passwd -S guest
 expect "the marker" "\"user\": \"guest\"" cat /etc/sloth-os/guest.json
-expect "emptied when its last session ends" "ExecStopPost=/usr/libexec/sloth-os/guest-reset" \
-    cat "/etc/systemd/system/user@$(id -u guest).service.d/50-sloth-guest.conf"
+expect "emptied when its last session ends, as root" "ExecStopPost=-+/usr/libexec/sloth-os/guest-reset --uid %i" \
+    cat /repo/files/system/usr/lib/systemd/system/user@.service.d/50-sloth-guest.conf
+[[ ! -e "/etc/systemd/system/user@$(id -u guest).service.d" ]] && ok "no per-user drop-in (it ran as the guest)" \
+    || bad "per-user drop-in written"
+expect "KDE's password store is off for the guest" "Enabled=false" cat /home/guest/.config/kwalletrc
+[[ $(stat -c %U /home/guest/.config/kwalletrc) == guest ]] && ok "its own file" || bad "kwalletrc owner"
 expect "again: nothing changes" '"ok": true' family '{"fullname": "Vendég"}' guest-on
 expect "a bad name" '"bad input"' family '{"fullname": "a:b"}' guest-on
 expect "no parental controls on the guest" '"not a child account"' family '{"daily": 3600}' child-limits guest
 
 echo "== Emptied after use"
 runuser -u guest -- sh -c 'echo secret > ~/notes.txt; mkdir -p ~/.config; echo x > ~/.config/app; echo t > /tmp/guest-left-this'
-/usr/libexec/sloth-os/guest-reset
+/usr/libexec/sloth-os/guest-reset --uid "$PARENT_UID"
+[[ -e /home/guest/notes.txt ]] && ok "another user's sign-out leaves the guest alone" || bad "emptied for another user"
+/usr/libexec/sloth-os/guest-reset --uid "$(id -u guest)"
 [[ ! -e /home/guest/notes.txt && ! -e /home/guest/.config/app ]] && ok "its files are gone" || bad "files left: $(ls -A /home/guest)"
 [[ -f /home/guest/.welcome ]] && ok "a fresh home from /etc/skel" || bad "no skel"
 [[ $(stat -c %U:%a /home/guest) == guest:700 ]] && ok "still its own, private" || bad "owner/mode: $(stat -c %U:%a /home/guest)"
 [[ ! -e /tmp/guest-left-this ]] && ok "its temporary files are gone" || bad "/tmp file left"
 [[ -d /home/parent ]] && ok "the parent's home is untouched" || bad "parent home gone"
+
+[[ $(grep -c Enabled=false /home/guest/.config/kwalletrc) == 1 ]] && ok "the password store stays off" || bad "kwalletrc"
+mkdir -p "/etc/systemd/system/user@$(id -u guest).service.d"
+echo old > "/etc/systemd/system/user@$(id -u guest).service.d/50-sloth-guest.conf"
+/usr/libexec/sloth-os/guest-reset
+[[ ! -e "/etc/systemd/system/user@$(id -u guest).service.d" ]] && ok "the old per-user drop-in goes at start" \
+    || bad "old drop-in left"
 
 echo "== Never someone else's account"
 userdel -r guest; useradd -m guest  # the same free user ID as our guest had

@@ -2,8 +2,8 @@
 """Empties the guest account (Sloth Center → Account and security → Guest account): its home folder goes back to a
 fresh one from /etc/skel, and its files in the temporary folders go.
 
-It runs when the guest's last session has ended (ExecStopPost of its user@<uid>.service, a drop-in written by
-sloth-helper-family's guest-on) and at every start (sloth-guest-reset.service), so a power cut leaves nothing behind
+It runs when the guest's last session has ended (ExecStopPost=+ of user@.service, as root, with --uid %i:
+/usr/lib/systemd/system/user@.service.d/50-sloth-guest.conf) and at every start (sloth-guest-reset.service), so a power cut leaves nothing behind
 either. It only ever touches the account named in /etc/sloth-os/guest.json, and only if that account still has the
 same user ID, has no password (as the guest has; someone's own account called "guest", made after ours was removed,
 would get the same free user ID, but always has a password) and is not an administrator; anything else is left
@@ -18,6 +18,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+# Until 2026-11-09 sloth-helper wrote this drop-in for the guest's user ID; it ran guest-reset as the guest, who could
+# not check the account, so nothing was emptied. The drop-in in /usr/lib does it now; the old one is removed at start.
+LEGACY_DROPIN = "/etc/systemd/system/user@{uid}.service.d/50-sloth-guest.conf"
 MARKER = Path(os.environ.get("SLOTH_GUEST_MARKER", "/etc/sloth-os/guest.json"))
 SKEL = Path(os.environ.get("SLOTH_GUEST_SKEL", "/etc/skel"))
 TEMP_DIRS = ("/tmp", "/var/tmp")
@@ -79,14 +82,40 @@ def reset(pw):
     for folder in TEMP_DIRS:  # what the guest left in the shared temporary folders
         subprocess.run(["find", folder, "-xdev", "-mindepth", "1", "-user", str(pw.pw_uid), "-delete"],
                        capture_output=True)
+    no_wallet(home, pw)
     log(f"{pw.pw_name}: emptied")
     return 0
 
 
-def main():
+def no_wallet(home, pw):
+    """The guest has no password and keeps nothing: KDE's password store would only ask to set up a wallet (its
+    window blocked the browser until closed), so it is off for the guest."""
+    config = home / ".config"
+    config.mkdir(exist_ok=True)
+    rc = config / "kwalletrc"
+    rc.write_text("[Wallet]\nEnabled=false\nFirst Use=false\n", encoding="utf-8")
+    for path in (config, rc):
+        os.chown(path, pw.pw_uid, pw.pw_gid)
+
+
+def remove_legacy_dropin(uid):
+    path = Path(LEGACY_DROPIN.format(uid=uid))
+    try:
+        path.unlink()
+        path.parent.rmdir()
+    except OSError:
+        pass
+
+
+def main(argv):
     pw = the_guest()
     if pw is None:
         return 0
+    if argv[:1] == ["--uid"]:  # a user@ service stopped: only the guest's own counts
+        if len(argv) != 2 or argv[1] != str(pw.pw_uid):
+            return 0
+    else:
+        remove_legacy_dropin(pw.pw_uid)
     if signed_in(pw.pw_uid):  # never under a running session (a second one may have started meanwhile)
         log(f"{pw.pw_name}: signed in, nothing deleted")
         return 0
@@ -94,4 +123,4 @@ def main():
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(main(sys.argv[1:]))

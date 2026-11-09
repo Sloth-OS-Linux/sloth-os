@@ -934,7 +934,7 @@ def _guest_dropin(uid):
 
 def guest_on(request):
     """The guest account: no password, not an administrator, emptied by guest-reset when its last session ends
-    (ExecStopPost of its user@<uid>.service) and at every start (sloth-guest-reset.service)."""
+    (ExecStopPost=+ of user@.service, as root) and at every start (sloth-guest-reset.service)."""
     full = request.get("fullname")
     if not isinstance(full, str) or not 0 < len(full) <= 100 or any(c in full for c in ":\n\r,"):
         return {"ok": False, "error": "bad input"}
@@ -957,10 +957,12 @@ def guest_on(request):
         run(["userdel", "--remove", GUEST_NAME])
         return {"ok": False, "error": r.stderr.strip()[-500:]}
     _write(GUEST_MARKER, _js({"user": GUEST_NAME, "uid": pw.pw_uid}) + "\n")
-    _write(os.path.join(_guest_dropin(pw.pw_uid), "50-sloth-guest.conf"),
-           "# Sloth OS: the guest account is emptied when its last session ends (sloth-helper guest-on)\n"
-           "[Service]\nExecStopPost=/usr/libexec/sloth-os/guest-reset\n")
-    run(["systemctl", "daemon-reload"])
+    # emptied when its last session ends: /usr/lib/systemd/system/user@.service.d/50-sloth-guest.conf (as root);
+    # the per-user drop-in written here until 2026-11-09 ran it as the guest, who could not empty the account
+    if os.path.isdir(_guest_dropin(pw.pw_uid)):
+        shutil.rmtree(_guest_dropin(pw.pw_uid), ignore_errors=True)
+        run(["systemctl", "daemon-reload"])
+    run(["/usr/libexec/sloth-os/guest-reset"])  # a fresh home, without KDE's password store asking
     return {"ok": True}
 
 
