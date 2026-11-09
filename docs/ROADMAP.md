@@ -44,6 +44,11 @@ from a terminal must also work from a GUI.
 - Tried: tools/tests/guest_test.sh (22 checks with real accounts), tools/tests/test_access_power.py (6), the pages
   opened on the desktop PC (no battery: the battery and lid parts hidden), every text in 50 languages
 - [ ] On the HP (a laptop): the battery card, the lid setting, a power mode change shows in the quick settings too
+- From the HP test (2026-11-09): high contrast works; the text size and the pointer size did not change (to see
+  whether they apply after signing in again, or are not written at all). The magnifier works, but its shortcuts
+  (Meta+= / Meta+-) are awkward on a Hungarian layout without a number pad; what worked: Meta+0 back to normal, and
+  a three-finger pinch on the touchpad (one finger still, two moving). To do: the page shows the zoom shortcuts and
+  the touchpad gesture, with a way to change them, and Meta+0
 - [ ] On the HP: text size 150% and back, a large pointer, high contrast on and off (the old scheme comes back),
   the magnifier with Meta and +, Orca starts and stops
 - [x] From the HP test (2026-11-09): nothing was emptied, and KDE's password store asked for a wallet when the
