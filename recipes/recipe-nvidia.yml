@@ -5,7 +5,7 @@ name: sloth-os-nvidia
 description: Sloth OS – a desktop for everyday use and gaming, without a terminal (NVIDIA).
 
 base-image: ghcr.io/ublue-os/kinoite-nvidia
-image-version: latest
+image-version: 44 # pinned 2026-11-09: kinoite-main:latest moved to Fedora 45 untested (no umu-launcher package for it yet); move to 45 on the test branch on purpose
 
 modules:
   - from-file: branding.yml
