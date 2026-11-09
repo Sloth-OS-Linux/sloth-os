@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Apasă Instalează în Discover. Copierea pornește singură imediat ce Ludusavi e instalat.",
   "Open folder": "Deschide dosarul",
   "Put back the saved game of {game}?": "Pui înapoi salvarea din {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Salvarea de pe acest computer este înlocuită cu cea mai nouă copie. Închide mai întâi jocul. Dacă te răzgândești, copia de siguranță a fișierelor mai are salvarea de dinainte."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Salvarea de pe acest computer este înlocuită cu cea mai nouă copie. Închide mai întâi jocul. Dacă te răzgândești, copia de siguranță a fișierelor mai are salvarea de dinainte.",
+  "Show the last start's log": "Arată jurnalul ultimei porniri"
 }

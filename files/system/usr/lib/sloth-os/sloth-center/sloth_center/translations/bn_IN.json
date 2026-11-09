@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover-এ ইনস্টল ক্লিক করুন। Ludusavi ইনস্টল হলেই ব্যাকআপ নিজে থেকে শুরু হয়।",
   "Open folder": "ফোল্ডার খুলুন",
   "Put back the saved game of {game}?": "{game}-এর সেভ ফিরিয়ে রাখবেন?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "এই কম্পিউটারের সেভ সবচেয়ে নতুন ব্যাকআপ দিয়ে বদলে যাবে। আগে গেমটি বন্ধ করুন। মত বদলালে, ফাইল ব্যাকআপে আগের সেভ এখনও আছে।"
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "এই কম্পিউটারের সেভ সবচেয়ে নতুন ব্যাকআপ দিয়ে বদলে যাবে। আগে গেমটি বন্ধ করুন। মত বদলালে, ফাইল ব্যাকআপে আগের সেভ এখনও আছে।",
+  "Show the last start's log": "শেষ চালুর লগ দেখান"
 }

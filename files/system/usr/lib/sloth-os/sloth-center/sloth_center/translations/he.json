@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "לחצו \"התקנה\" ב־Discover. הגיבוי יתחיל מעצמו ברגע ש־Ludusavi יותקן.",
   "Open folder": "פתיחת התיקייה",
   "Put back the saved game of {game}?": "להחזיר את השמירה של {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "השמירה במחשב הזה תוחלף בגיבוי החדש ביותר. סגרו קודם את המשחק. אם תתחרטו, בגיבוי הקבצים עדיין יש את השמירה הקודמת."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "השמירה במחשב הזה תוחלף בגיבוי החדש ביותר. סגרו קודם את המשחק. אם תתחרטו, בגיבוי הקבצים עדיין יש את השמירה הקודמת.",
+  "Show the last start's log": "הצגת יומן ההפעלה האחרונה"
 }

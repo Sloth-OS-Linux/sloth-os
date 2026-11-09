@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Clique em Instalar no Discover. A cópia começa sozinha assim que o Ludusavi for instalado.",
   "Open folder": "Abrir pasta",
   "Put back the saved game of {game}?": "Devolver o save de {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "O save deste computador é trocado pela cópia mais recente. Feche o jogo antes. Se mudar de ideia, o backup de arquivos ainda tem o save de antes."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "O save deste computador é trocado pela cópia mais recente. Feche o jogo antes. Se mudar de ideia, o backup de arquivos ainda tem o save de antes.",
+  "Show the last start's log": "Mostrar o log da última inicialização"
 }

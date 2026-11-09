@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover-ში დააწკაპეთ „დაყენება“. კოპირება თავად დაიწყება, როგორც კი Ludusavi დაყენდება.",
   "Open folder": "საქაღალდის გახსნა",
   "Put back the saved game of {game}?": "დავაბრუნოთ {game}-ის შენახვა?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "ამ კომპიუტერზე არსებული შენახვა უახლესი ასლით შეიცვლება. ჯერ თამაში დახურეთ. თუ გადაიფიქრებთ, ფაილების სარეზერვო ასლში წინა შენახვა ჯერ კიდევ არის."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "ამ კომპიუტერზე არსებული შენახვა უახლესი ასლით შეიცვლება. ჯერ თამაში დახურეთ. თუ გადაიფიქრებთ, ფაილების სარეზერვო ასლში წინა შენახვა ჯერ კიდევ არის.",
+  "Show the last start's log": "ბოლო გაშვების ჟურნალის ჩვენება"
 }

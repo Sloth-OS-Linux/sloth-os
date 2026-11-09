@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klõpsa Discoveris nuppu Paigalda. Varundamine algab ise, kui Ludusavi on paigaldatud.",
   "Open folder": "Ava kaust",
   "Put back the saved game of {game}?": "Kas panna mängu {game} salvestis tagasi?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Selle arvuti salvestis asendatakse uusima varukoopiaga. Sulge enne mäng. Kui meelt muudad, on failivarunduses veel varasem salvestis."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Selle arvuti salvestis asendatakse uusima varukoopiaga. Sulge enne mäng. Kui meelt muudad, on failivarunduses veel varasem salvestis.",
+  "Show the last start's log": "Näita viimase käivituse logi"
 }

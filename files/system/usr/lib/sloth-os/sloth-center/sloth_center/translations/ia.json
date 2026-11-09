@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Clicca Installar in Discover. Le copia comencia sol quando Ludusavi es installate.",
   "Open folder": "Aperir le dossier",
   "Put back the saved game of {game}?": "Remitter le salvamento de {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Le salvamento in iste computator es reimplaciate per le copia le plus nove. Prime claude le joco. Si tu cambia de opinion, le copia de files ancora ha le salvamento de ante."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Le salvamento in iste computator es reimplaciate per le copia le plus nove. Prime claude le joco. Si tu cambia de opinion, le copia de files ancora ha le salvamento de ante.",
+  "Show the last start's log": "Monstrar le registro del ultime lancea"
 }

@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover에서 설치를 누르세요. Ludusavi가 설치되면 백업이 자동으로 시작됩니다.",
   "Open folder": "폴더 열기",
   "Put back the saved game of {game}?": "{game}의 저장 파일을 되돌릴까요?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "이 컴퓨터의 저장 파일이 가장 최근 백업으로 바뀝니다. 먼저 게임을 닫으세요. 마음이 바뀌어도 파일 백업에 이전 저장 파일이 남아 있습니다."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "이 컴퓨터의 저장 파일이 가장 최근 백업으로 바뀝니다. 먼저 게임을 닫으세요. 마음이 바뀌어도 파일 백업에 이전 저장 파일이 남아 있습니다.",
+  "Show the last start's log": "마지막 실행 로그 보기"
 }

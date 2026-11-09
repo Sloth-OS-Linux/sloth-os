@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover で「インストール」をクリックしてください。Ludusavi がインストールされると、バックアップが自動で始まります。",
   "Open folder": "フォルダーを開く",
   "Put back the saved game of {game}?": "{game} のセーブデータを戻しますか?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "このコンピューター上のセーブデータが最新のバックアップに置き換わります。先にゲームを閉じてください。気が変わっても、ファイルのバックアップに以前の状態が残っています。"
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "このコンピューター上のセーブデータが最新のバックアップに置き換わります。先にゲームを閉じてください。気が変わっても、ファイルのバックアップに以前の状態が残っています。",
+  "Show the last start's log": "前回の起動のログを表示"
 }

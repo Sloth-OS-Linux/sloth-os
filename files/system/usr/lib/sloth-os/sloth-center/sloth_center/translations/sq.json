@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Kliko Instalo te Discover. Kopjimi nis vetë sapo të instalohet Ludusavi.",
   "Open folder": "Hap dosjen",
   "Put back the saved game of {game}?": "Ta kthesh ruajtjen e {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Ruajtja në këtë kompjuter zëvendësohet nga kopja më e re. Mbyll më parë lojën. Nëse ndërron mendje, kopja e skedarëve ka ende ruajtjen e mëparshme."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Ruajtja në këtë kompjuter zëvendësohet nga kopja më e re. Mbyll më parë lojën. Nëse ndërron mendje, kopja e skedarëve ka ende ruajtjen e mëparshme.",
+  "Show the last start's log": "Shfaq regjistrin e nisjes së fundit"
 }

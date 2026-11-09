@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Натисніть «Встановити» в Discover. Копіювання почнеться саме, щойно Ludusavi буде встановлено.",
   "Open folder": "Відкрити теку",
   "Put back the saved game of {game}?": "Повернути збереження гри {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Збереження на цьому комп'ютері буде замінено найновішою копією. Спершу закрийте гру. Якщо передумаєте, у резервній копії файлів є попереднє збереження."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Збереження на цьому комп'ютері буде замінено найновішою копією. Спершу закрийте гру. Якщо передумаєте, у резервній копії файлів є попереднє збереження.",
+  "Show the last start's log": "Показати журнал останнього запуску"
 }

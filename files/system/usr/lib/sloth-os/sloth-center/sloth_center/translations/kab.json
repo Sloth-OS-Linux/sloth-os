@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Sit ɣef Sbedd deg Discover. Anɣal ad yebdu s yiman-is mi ara yettwasbedd Ludusavi.",
   "Open folder": "Ldi akaram",
   "Put back the saved game of {game}?": "Ad d-terreḍ asekles n {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Asekles deg uselkim-a ad yettwasemselsi s unɣal amaynut. Mdel urar qbel. Ma tbeddleḍ ṛṛay, anɣal n yifuyla mazal yesɛa asekles uqbel."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Asekles deg uselkim-a ad yettwasemselsi s unɣal amaynut. Mdel urar qbel. Ma tbeddleḍ ṛṛay, anɣal n yifuyla mazal yesɛa asekles uqbel.",
+  "Show the last start's log": "Sken aɣmis n usekker aneggaru"
 }

@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "U Discoveru kliknite Instaliraj. Kopiranje počinje samo kad se Ludusavi instalira.",
   "Open folder": "Otvori mapu",
   "Put back the saved game of {game}?": "Vratiti spremljenu igru {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Stanje na ovom računalu zamjenjuje se najnovijom kopijom. Prvo zatvorite igru. Ako se predomislite, sigurnosna kopija datoteka još ima prijašnje stanje."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Stanje na ovom računalu zamjenjuje se najnovijom kopijom. Prvo zatvorite igru. Ako se predomislite, sigurnosna kopija datoteka još ima prijašnje stanje.",
+  "Show the last start's log": "Prikaži zapisnik zadnjeg pokretanja"
 }

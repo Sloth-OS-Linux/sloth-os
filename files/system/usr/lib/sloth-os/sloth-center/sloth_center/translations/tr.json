@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Discover'da Kur'a tıkla. Ludusavi kurulunca yedekleme kendiliğinden başlar.",
   "Open folder": "Klasörü aç",
   "Put back the saved game of {game}?": "{game} oyununun kaydı geri konsun mu?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Bu bilgisayardaki kayıt en yeni yedekle değiştirilir. Önce oyunu kapat. Fikrini değiştirirsen dosya yedeğinde önceki kayıt hâlâ var."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Bu bilgisayardaki kayıt en yeni yedekle değiştirilir. Önce oyunu kapat. Fikrini değiştirirsen dosya yedeğinde önceki kayıt hâlâ var.",
+  "Show the last start's log": "Son başlatmanın günlüğünü göster"
 }

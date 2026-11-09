@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "在 Discover 中按「安裝」。Ludusavi 安裝完成後，備份會自動開始。",
   "Open folder": "開啟資料夾",
   "Put back the saved game of {game}?": "要還原 {game} 的存檔嗎？",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "這台電腦上的存檔會被最新的備份取代。請先關閉遊戲。如果你改變主意，檔案備份裡仍有先前的存檔。"
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "這台電腦上的存檔會被最新的備份取代。請先關閉遊戲。如果你改變主意，檔案備份裡仍有先前的存檔。",
+  "Show the last start's log": "顯示上次啟動的記錄"
 }

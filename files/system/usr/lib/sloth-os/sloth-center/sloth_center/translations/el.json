@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Πατήστε Εγκατάσταση στο Discover. Η αντιγραφή ξεκινά μόνη της μόλις εγκατασταθεί το Ludusavi.",
   "Open folder": "Άνοιγμα φακέλου",
   "Put back the saved game of {game}?": "Επαναφορά της αποθήκευσης του {game};",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Η αποθήκευση σε αυτόν τον υπολογιστή αντικαθίσταται από το νεότερο αντίγραφο. Κλείστε πρώτα το παιχνίδι. Αν αλλάξετε γνώμη, το αντίγραφο αρχείων έχει ακόμα την προηγούμενη."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Η αποθήκευση σε αυτόν τον υπολογιστή αντικαθίσταται από το νεότερο αντίγραφο. Κλείστε πρώτα το παιχνίδι. Αν αλλάξετε γνώμη, το αντίγραφο αρχείων έχει ακόμα την προηγούμενη.",
+  "Show the last start's log": "Εμφάνιση του αρχείου καταγραφής της τελευταίας εκκίνησης"
 }

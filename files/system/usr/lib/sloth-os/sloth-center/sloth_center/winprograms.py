@@ -58,6 +58,15 @@ def _pretty(path):
         return str(path)
 
 
+def _latest_log(app):
+    """The newest log of a program's starts (~/.cache/sloth-os/apps/<program>/naplo/<exe>.log), or None."""
+    try:
+        logs = [p for p in app.log_dir.glob("*.log") if p.is_file()]
+    except OSError:
+        return None
+    return max(logs, key=lambda p: p.stat().st_mtime) if logs else None
+
+
 class WinProgramsController(QObject):
     changed = Signal()
     _sizes_ready = Signal(object)
@@ -135,6 +144,7 @@ class WinProgramsController(QObject):
                 "canReinstall": bool(installer) and Path(installer).is_file(),
                 "hasFiles": app.kind in ("windows", "appimage"),
                 "canMove": app.kind in ("windows", "appimage") and not app.legacy and app.dir.parent != default,
+                "hasLog": _latest_log(app) is not None,
             })
         self._items = items
         self.changed.emit()
@@ -217,6 +227,15 @@ class WinProgramsController(QObject):
         app = self._app(app_id)
         if app is not None:
             subprocess.Popen(["xdg-open", str(app.dir)], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+    @Slot(str)
+    def openLog(self, app_id):
+        """The program's last start, as the .exe handler wrote it down, in the text editor (for asking for help)."""
+        app = self._app(app_id)
+        path = _latest_log(app) if app is not None else None
+        if path is not None:
+            subprocess.Popen(["xdg-open", str(path)], start_new_session=True,
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
     @Slot(str)

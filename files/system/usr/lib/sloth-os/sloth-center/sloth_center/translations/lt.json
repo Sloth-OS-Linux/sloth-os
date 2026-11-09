@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "„Discover“ spustelėkite Įdiegti. Kopijavimas prasidės savaime, kai „Ludusavi“ bus įdiegta.",
   "Open folder": "Atverti aplanką",
   "Put back the saved game of {game}?": "Grąžinti žaidimo {game} išsaugojimą?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Šio kompiuterio išsaugojimas pakeičiamas naujausia kopija. Pirmiau uždarykite žaidimą. Jei persigalvosite, failų atsarginėje kopijoje dar yra ankstesnis išsaugojimas."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Šio kompiuterio išsaugojimas pakeičiamas naujausia kopija. Pirmiau uždarykite žaidimą. Jei persigalvosite, failų atsarginėje kopijoje dar yra ankstesnis išsaugojimas.",
+  "Show the last start's log": "Rodyti paskutinio paleidimo žurnalą"
 }

@@ -5,6 +5,12 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Windows programs: the log of a start (2026-11-09, test branch)
+- [x] Sloth Center → Programs → ⋯ → "Show the last start's log": the newest log of the program's starts
+  (~/.cache/sloth-os/apps/<program>/naplo/) opens in the text editor. Finding it meant a hidden folder; asking for help
+  with a Windows program (Winamp, 2026-11-09) needed it. 50 languages
+- [ ] On the HP: the menu item shows only for a program that was started, and opens its newest log
+
 ### Game saves (2026-11-07, test branch)
 - [x] The hourly file backup leaves out Steam's whole `steamapps` folder (the games are big and can be downloaded
   again), and with it `steamapps/compatdata`, where the saves of Windows games under Proton are: those saves were in
@@ -733,8 +739,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   computer (save the settings file first), asking for help. Each answer has a button to the page that fixes it
   (`openModuleById`). In every language the answers quote the page and button names from that language's own
   translations, so they match the screen. Check on a real machine)
-- [ ] **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
-- [ ] **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
+- [x] (2026-11-07, the guest account, test branch) **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
+- [x] (2026-11-07, Sloth Center → Accessibility, test branch) **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
 - [x] **Medium** — Manage startup applications (2026-10-26): Services page, "Programs that start when you sign
   in": the user's own autostart entries (Steam, Discord, … also those added through the Flatpak background portal)
   with their name, description and a switch (`Hidden=true`, as KDE's own settings do). The system's parts
@@ -742,7 +748,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   it cannot be measured reliably. "Add a program…" opens KDE's autostart settings: Steam's own "start with the
   computer" option cannot write there from its Flatpak. Tests: `tools/tests/test_startup.py`. Checked on a real
   machine (2026-10-26, Steam added and turned off)
-- [ ] **Large** — Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
+- [x] (2026-11-07, Sloth Center → Power and battery, test branch) **Large** — Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
   health or charge limits in one place, with clear effects on battery life and gaming.
 
 #### Updates, backup, and recovery
@@ -834,7 +840,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   are not shown again). The wizard keeps only the apps its catalog knows and does not install again what is there.
   Windows catalog apps (e.g. Battle.net) are not in it yet. Tests: `tools/tests/test_settings_backup.py`. Check on
   a real machine
-- [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
+- [x] (2026-11-07, Games → Game saves, test branch) **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
 - [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart
   flow (already on the Updates page: the explanation, a confirmation that files and settings are kept, then
   "Restart now"; earlier versions can be kept and started there too)

@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klik Installeer in Discover. Die rugsteun begin vanself sodra Ludusavi geïnstalleer is.",
   "Open folder": "Maak vouer oop",
   "Put back the saved game of {game}?": "Die stoor van {game} terugsit?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Die stoor op hierdie rekenaar word deur die nuutste rugsteun vervang. Maak eers die speletjie toe. As jy van plan verander, het die lêerrugsteun nog die stoor van voorheen."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Die stoor op hierdie rekenaar word deur die nuutste rugsteun vervang. Maak eers die speletjie toe. As jy van plan verander, het die lêerrugsteun nog die stoor van voorheen.",
+  "Show the last start's log": "Wys die logboek van die laaste begin"
 }

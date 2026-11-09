@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "انقر تثبيت في Discover. يبدأ النسخ الاحتياطي تلقائيًا فور تثبيت Ludusavi.",
   "Open folder": "فتح المجلد",
   "Put back the saved game of {game}?": "إعادة حفظ لعبة {game}؟",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "يُستبدل الحفظ الموجود على هذا الحاسوب بأحدث نسخة احتياطية. أغلق اللعبة أولًا. وإن غيّرت رأيك، فما زال الحفظ السابق في نسخ الملفات الاحتياطية."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "يُستبدل الحفظ الموجود على هذا الحاسوب بأحدث نسخة احتياطية. أغلق اللعبة أولًا. وإن غيّرت رأيك، فما زال الحفظ السابق في نسخ الملفات الاحتياطية.",
+  "Show the last start's log": "عرض سجل آخر تشغيل"
 }

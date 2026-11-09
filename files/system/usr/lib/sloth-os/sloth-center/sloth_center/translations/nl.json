@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klik in Discover op Installeren. De back-up start vanzelf zodra Ludusavi geïnstalleerd is.",
   "Open folder": "Map openen",
   "Put back the saved game of {game}?": "De opgeslagen game van {game} terugzetten?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "De opslag op deze computer wordt vervangen door de nieuwste back-up. Sluit eerst het spel. Bedenk je je, dan heeft de bestandsback-up nog de opslag van daarvoor."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "De opslag op deze computer wordt vervangen door de nieuwste back-up. Sluit eerst het spel. Bedenk je je, dan heeft de bestandsback-up nog de opslag van daarvoor.",
+  "Show the last start's log": "Log van de laatste start tonen"
 }

@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Kattints a Telepítés gombra a Discoverben. A mentés magától elindul, amint a Ludusavi települt.",
   "Open folder": "Mappa megnyitása",
   "Put back the saved game of {game}?": "Visszateszed a(z) {game} mentett játékállását?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "A gépen lévő mentést a legújabb mentett állás váltja fel. Előbb zárd be a játékot. Ha meggondolnád magad, a Fájlmentésben a korábbi állás is megvan."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "A gépen lévő mentést a legújabb mentett állás váltja fel. Előbb zárd be a játékot. Ha meggondolnád magad, a Fájlmentésben a korábbi állás is megvan.",
+  "Show the last start's log": "Az utolsó indítás naplója"
 }

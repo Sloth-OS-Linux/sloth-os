@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Klicka på Installera i Discover. Säkerhetskopieringen startar av sig själv när Ludusavi är installerat.",
   "Open folder": "Öppna mappen",
   "Put back the saved game of {game}?": "Lägga tillbaka sparfilen för {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Sparfilen på den här datorn ersätts av den senaste kopian. Stäng spelet först. Ångrar du dig har filsäkerhetskopian fortfarande sparfilen från innan."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Sparfilen på den här datorn ersätts av den senaste kopian. Stäng spelet först. Ångrar du dig har filsäkerhetskopian fortfarande sparfilen från innan.",
+  "Show the last start's log": "Visa loggen från senaste start"
 }

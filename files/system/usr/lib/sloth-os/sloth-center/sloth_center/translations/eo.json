@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Alklaku Instali en Discover. La savkopiado komenciĝas mem, kiam Ludusavi estas instalita.",
   "Open folder": "Malfermi dosierujon",
   "Put back the saved game of {game}?": "Ĉu remeti la konservitan ludon de {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "La konservo en ĉi tiu komputilo estos anstataŭigita de la plej nova savkopio. Unue fermu la ludon. Se vi ŝanĝos opinion, la dosiera savkopio ankoraŭ havas la antaŭan konservon."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "La konservo en ĉi tiu komputilo estos anstataŭigita de la plej nova savkopio. Unue fermu la ludon. Se vi ŝanĝos opinion, la dosiera savkopio ankoraŭ havas la antaŭan konservon.",
+  "Show the last start's log": "Montri la protokolon de la lasta lanĉo"
 }

@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "V Discoveri kliknite na Inštalovať. Zálohovanie sa spustí samo, keď bude Ludusavi nainštalované.",
   "Open folder": "Otvoriť priečinok",
   "Put back the saved game of {game}?": "Vrátiť uloženú hru {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Uložená hra na tomto počítači sa nahradí najnovšou zálohou. Najprv hru zatvorte. Ak by ste si to rozmysleli, záloha súborov má ešte skorší stav."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "Uložená hra na tomto počítači sa nahradí najnovšou zálohou. Najprv hru zatvorte. Ak by ste si to rozmysleli, záloha súborov má ešte skorší stav.",
+  "Show the last start's log": "Zobraziť protokol posledného spustenia"
 }

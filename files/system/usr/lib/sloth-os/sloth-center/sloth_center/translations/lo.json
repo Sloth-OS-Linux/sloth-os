@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "ຄລິກ ຕິດຕັ້ງ ໃນ Discover. ການສຳຮອງຈະເລີ່ມເອງເມື່ອຕິດຕັ້ງ Ludusavi ແລ້ວ.",
   "Open folder": "ເປີດໂຟນເດີ",
   "Put back the saved game of {game}?": "ເອົາບັນທຶກຂອງ {game} ກັບຄືນບໍ?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "ບັນທຶກໃນຄອມພິວເຕີນີ້ຈະຖືກແທນທີ່ດ້ວຍສຳຮອງໃໝ່ທີ່ສຸດ. ປິດເກມກ່ອນ. ຖ້າທ່ານປ່ຽນໃຈ, ການສຳຮອງໄຟລ໌ຍັງມີບັນທຶກກ່ອນໜ້ານັ້ນຢູ່."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "ບັນທຶກໃນຄອມພິວເຕີນີ້ຈະຖືກແທນທີ່ດ້ວຍສຳຮອງໃໝ່ທີ່ສຸດ. ປິດເກມກ່ອນ. ຖ້າທ່ານປ່ຽນໃຈ, ການສຳຮອງໄຟລ໌ຍັງມີບັນທຶກກ່ອນໜ້ານັ້ນຢູ່.",
+  "Show the last start's log": "ສະແດງບັນທຶກການເປີດຄັ້ງລ່າສຸດ"
 }

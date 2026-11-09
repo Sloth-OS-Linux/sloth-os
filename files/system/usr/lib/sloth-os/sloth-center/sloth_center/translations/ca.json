@@ -1083,5 +1083,6 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Fes clic a Instal·la al Discover. La còpia comença sola quan Ludusavi està instal·lat.",
   "Open folder": "Obre la carpeta",
   "Put back the saved game of {game}?": "Vols tornar la partida desada de {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "La partida d'aquest ordinador se substitueix per la còpia més recent. Primer tanca el joc. Si canvies d'opinió, la còpia de fitxers encara té la partida d'abans."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "La partida d'aquest ordinador se substitueix per la còpia més recent. Primer tanca el joc. Si canvies d'opinió, la còpia de fitxers encara té la partida d'abans.",
+  "Show the last start's log": "Mostra el registre de l'última execució"
 }
