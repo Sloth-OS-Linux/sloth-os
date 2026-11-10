@@ -3,10 +3,12 @@
 The Windows partition is only mounted read-only (udisksctl, with the system's password prompt if needed), and nothing
 is written to it. The files go into the matching Sloth OS folders (xdg-user-dir); whatever is already there with the
 same size is skipped (so an interrupted copy can continue), and a different file with the same name gets a "(Windows)" suffix.
-The bookmarks (Chrome, Edge, Firefox) go into an HTML file on the Desktop; any browser can import it.
+The bookmarks (Chrome, Edge, Brave, Vivaldi, Opera, Firefox) go straight into the browsers installed here
+(browser_bookmarks) and into an HTML file on the Desktop, which any browser can import.
 The OneDrive folder is skipped: it can be reached through the Cloud storage card in Sloth Center.
 The programs in Windows' Start menu are matched to the wizard's apps (programs()), and the installed Steam games are
-copied into Sloth OS's Steam library, so they need no new download (steam_games(), copy_games()).
+copied into Sloth OS's Steam library (or another one set in Steam, steam_libraries()), so they need no new download
+(steam_games(), copy_games()).
 
 Sloth Welcome (sloth_welcome) uses it; Sloth Center (Disks) opens Welcome with this step.
 """
@@ -39,6 +41,9 @@ MIN_NTFS_BYTES = 10 * 1024**3   # a smaller NTFS partition (e.g. recovery) is no
 CHROMIUM_BROWSERS = {
     "Google Chrome": "AppData/Local/Google/Chrome/User Data",
     "Microsoft Edge": "AppData/Local/Microsoft/Edge/User Data",
+    "Brave": "AppData/Local/BraveSoftware/Brave-Browser/User Data",
+    "Vivaldi": "AppData/Local/Vivaldi/User Data",
+    "Opera": "AppData/Roaming/Opera Software/Opera Stable",   # the profile is the folder itself
 }
 FIREFOX_PROFILES = "AppData/Roaming/Mozilla/Firefox/Profiles"
 
@@ -523,12 +528,14 @@ def copy_saves(win_home, games, root=None, manifest_text=None):
     return done
 
 
-def finish_games(games, win_home, root=None):
+def finish_games(games, win_home, root=None, library=None):
     """After copying: the games now in Steam here get Proton where Steam would download a Linux version instead,
     and their saves kept on Windows. Both need the internet; offline Steam decides itself and the saves stay on
-    Windows. -> {"proton": count, "saves": [names]}"""
+    Windows. root: Steam's own folder (its settings); library: where the games went (their Proton environments are
+    there too), by default the same. -> {"proton": count, "saves": [names]}"""
     root = Path(root or steam_target())
-    here = [g for g in games if (root / "steamapps" / f"appmanifest_{g['appid']}.acf").exists()]
+    library = Path(library or root)
+    here = [g for g in games if (library / "steamapps" / f"appmanifest_{g['appid']}.acf").exists()]
     out = {"proton": 0, "saves": []}
     try:
         linux = [g["appid"] for g in here if has_linux_version(g["appid"])]
@@ -536,9 +543,31 @@ def finish_games(games, win_home, root=None):
     except OSError:
         pass
     try:
-        out["saves"] = copy_saves(win_home, here, root)
+        out["saves"] = copy_saves(win_home, here, library)
     except OSError:
         pass
+    return out
+
+
+def steam_libraries():
+    """Where the games can go: Steam's own library and the others set in Steam (e.g. on a second disk), those that
+    are there now and can be written. -> [{"path", "free"}], Steam's own first"""
+    out = []
+    for path in steam.library_folders(Path(steam_target())):
+        path = Path(path)
+        target = path if (path / "steamapps").is_dir() else None
+        if path == Path(steam_target()):
+            target = path   # Steam may not be installed yet: its folder is made when copying
+        if target is None:
+            continue
+        probe = target if target.exists() else next(p for p in target.parents if p.exists())
+        if not os.access(probe, os.W_OK):
+            continue
+        try:
+            free = shutil.disk_usage(probe).free
+        except OSError:
+            continue
+        out.append({"path": str(target), "free": free})
     return out
 
 
@@ -695,7 +724,7 @@ def copy(home, keys, on_progress=lambda done, total, name: None, cancelled=lambd
 def _bookmark_sources(home):
     found = []
     for browser, base in CHROMIUM_BROWSERS.items():
-        for f in sorted((home / base).glob("*/Bookmarks")):
+        for f in sorted((home / base).glob("*/Bookmarks")) + sorted((home / base).glob("Bookmarks")):
             found.append((browser, "chromium", f))
     for f in sorted((home / FIREFOX_PROFILES).glob("*/places.sqlite")):
         found.append(("Firefox", "firefox", f))
@@ -755,22 +784,28 @@ def _html(nodes, depth=1):
     return out
 
 
-def export_bookmarks(home, dest):
-    """The Windows browsers' bookmarks into one HTML file (Netscape format). -> the number of bookmarks"""
+def bookmark_folders(home):
+    """The Windows browsers' bookmarks: one folder per browser (and profile). [{title, children}]"""
     folders = []
-    for browser, kind, path in _bookmark_sources(Path(home)):
+    sources = _bookmark_sources(Path(home))
+    for browser, kind, path in sources:
         try:
             tree = _chromium_tree(path) if kind == "chromium" else _firefox_tree(path)
         except (OSError, ValueError, sqlite3.Error):
             continue
-        label = browser if len([s for s in _bookmark_sources(Path(home)) if s[0] == browser]) == 1 \
-            else f"{browser} ({path.parent.name})"
+        label = browser if len([s for s in sources if s[0] == browser]) == 1 else f"{browser} ({path.parent.name})"
         folders.append({"title": label, "children": tree})
+    return folders
 
-    def count(nodes):
-        return sum(1 if "url" in n else count(n.get("children", [])) for n in nodes)
 
-    total = count(folders)
+def count_bookmarks(nodes):
+    return sum(1 if "url" in n else count_bookmarks(n.get("children", [])) for n in nodes)
+
+
+def export_bookmarks(folders, dest):
+    """The bookmarks (bookmark_folders()) into one HTML file (Netscape format), which any browser can import.
+    -> the number of bookmarks"""
+    total = count_bookmarks(folders)
     if not total:
         return 0
     lines = ["<!DOCTYPE NETSCAPE-Bookmark-file-1>",

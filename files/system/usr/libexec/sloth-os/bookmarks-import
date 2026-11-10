@@ -1,0 +1,18 @@
+#!/usr/bin/python3 -I
+"""At sign-in: the bookmarks brought over from Windows into the browsers that have got them since the last time.
+
+A browser installed in the wizard gets them at once if it is Chromium-based; Firefox makes its profile only at its
+first start, so it gets them here, at the next sign-in (sloth_common.browser_bookmarks). Without bookmarks from
+Windows this does nothing.
+"""
+import sys
+
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+
+from sloth_common import browser_bookmarks  # noqa: E402
+
+if browser_bookmarks.PENDING.exists():
+    try:
+        browser_bookmarks.apply_pending()
+    except Exception as e:  # noqa: BLE001
+        print(f"bookmarks-import: {e}", file=sys.stderr)

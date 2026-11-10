@@ -82,6 +82,18 @@ ENTRIES = {
         ("X-KDE-autostart-phase", "2"),
         ("OnlyShowIn", "KDE;"),
     ],
+    # Sign-in: the bookmarks from Windows into browsers that got a profile since (/usr/libexec/sloth-os/
+    # bookmarks-import; nothing without bookmarks from Windows). Phase 1: before the user can open a browser
+    "files/system/etc/xdg/autostart/org.slothos.bookmarks-import.desktop": [
+        ("Type", "Application"),
+        ("Name", "Bookmarks import"),
+        ("Exec", "/usr/libexec/sloth-os/bookmarks-import"),
+        ("Icon", "bookmarks"),
+        ("Terminal", "false"),
+        ("NoDisplay", "true"),
+        ("X-KDE-autostart-phase", "1"),
+        ("OnlyShowIn", "KDE;"),
+    ],
     "files/system/usr/share/applications/org.slothos.center.desktop": [
         ("Type", "Application"),
         ("Name", ("sloth-center", "Sloth Center")),

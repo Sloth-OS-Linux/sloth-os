@@ -11,7 +11,7 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, Qt, Signal, Slot
 from PySide6.QtWidgets import QApplication
 
-from sloth_common import sharing, taskbar, windows_import
+from sloth_common import browser_bookmarks, sharing, taskbar, windows_import
 
 from . import catalog, desktop, i18n
 from .i18n import tr
@@ -68,6 +68,14 @@ def _run_queued(path):
 
 
 FLATPAK_APP_DIRS = [Path("/var/lib/flatpak/app"), Path.home() / ".local/share/flatpak/app"]
+
+
+def apply_bookmarks():
+    """The bookmarks from Windows into the browsers installed meanwhile (never a reason for the wizard to fail)."""
+    try:
+        browser_bookmarks.apply_pending()
+    except Exception as e:  # noqa: BLE001
+        log.warning("bookmarks into the browsers: %s", e)
 
 
 def installed_apps():
@@ -146,7 +154,7 @@ class WelcomeController(QObject):
         self._installer = Installer(self._status_sig.emit, self._app_sig.emit, self._done_sig.emit)
         # Windows step: "idle" | "scanning" | "ready" | "copying" | "done" | "locked" | "none" | "failed" | "nospace"
         self._win = {"state": "idle", "users": [], "user": "", "keys": [], "bookmarks": True,
-                     "games": [], "game_ids": [], "done": 0, "total": 0, "result": {}, "games_result": {},
+                     "games": [], "game_ids": [], "libraries": [], "library": 0, "done": 0, "total": 0, "result": {}, "games_result": {},
                      "need": 0, "free": 0}
         self._win_mounts = []        # what we mounted (unmounted at the end)
         self._win_cancel = threading.Event()
@@ -524,6 +532,27 @@ class WelcomeController(QObject):
             ids.append(appid)
         self.changed.emit()
 
+    @Property("QVariantList", notify=changed)
+    def windowsLibraries(self):
+        """Where the games can go (Steam's libraries), as text: ["/path (123.4 GB free)"]; one means no choice."""
+        return [tr("windows.games_library_item", free=_size_text(lib["free"]),
+                   path=tr("windows.games_library_main") if i == 0 else lib["path"])
+                for i, lib in enumerate(self._win["libraries"])]
+
+    @Property(int, notify=changed)
+    def windowsLibrary(self):
+        return self._win["library"]
+
+    @Slot(int)
+    def setWindowsLibrary(self, index):
+        if 0 <= index < len(self._win["libraries"]):
+            self._win["library"] = index
+            self.changed.emit()
+
+    def _win_library(self):
+        libs = self._win["libraries"]
+        return Path(libs[self._win["library"]]["path"]) if libs else Path(windows_import.steam_target())
+
     @Property(int, notify=changed)
     def windowsProgress(self):
         total = self._win["total"]
@@ -596,8 +625,13 @@ class WelcomeController(QObject):
                     self._win_mounts.remove(device)
                     windows_import.unmount(device)  # nothing to bring over from it (e.g. a data disk)
             state = "ready" if found or games else "locked" if locked else "failed" if failed else "none"
-            self._win_sig.emit({"state": state, "users": found, "games": games,
-                                "game_ids": [g["appid"] for g in games]})
+            try:
+                libraries = windows_import.steam_libraries() if games else []
+            except Exception as e:  # noqa: BLE001
+                log.warning("steam libraries: %s", e)
+                libraries = []
+            self._win_sig.emit({"state": state, "users": found, "games": games, "libraries": libraries,
+                                "library": 0, "game_ids": [g["appid"] for g in games]})
 
         threading.Thread(target=work, daemon=True).start()
 
@@ -645,11 +679,19 @@ class WelcomeController(QObject):
             self._win["state"] = "steamopen"
             self.changed.emit()
             return
+        library = self._win_library()
         files_need = sum(user["folders"][k] for k in keys)
-        need = files_need + sum(g["size"] for g in games)
-        free = shutil.disk_usage(Path.home()).free
-        if need + 1024**3 > free:  # 1 GB headroom
-            self._win.update(state="nospace", need=need, free=free)
+        games_need = sum(g["size"] for g in games)
+        need = files_need + games_need
+        home_free = shutil.disk_usage(Path.home()).free
+        lib_probe = library if library.exists() else next(p for p in library.parents if p.exists())
+        lib_free = shutil.disk_usage(lib_probe).free
+        if os.stat(lib_probe).st_dev == os.stat(Path.home()).st_dev:   # the same disk
+            short = need + 1024**3 > home_free and (need, home_free)    # 1 GB headroom
+        else:
+            short = (files_need + 1024**3 > home_free and (files_need, home_free))                 or (games and games_need + 1024**3 > lib_free and (games_need, lib_free))
+        if short:
+            self._win.update(state="nospace", need=short[0], free=short[1])
             self.changed.emit()
             return
         self._win.update(state="copying", done=0, total=need, result={}, games_result={})
@@ -673,18 +715,24 @@ class WelcomeController(QObject):
                     on_progress=lambda done, _t, _n: self._win_sig.emit({"done": done, "total": need}),
                     cancelled=self._win_cancel.is_set)
             if bookmarks:
+                # straight into the browsers (those not installed or not started yet: later, browser_bookmarks), and
+                # a file on the Desktop as well, which any browser can import
                 try:
+                    folders = windows_import.bookmark_folders(user["home"])
                     windows_import.export_bookmarks(
-                        user["home"], windows_import.target_dir("desktop") / tr("windows.bookmarks_file"))
+                        folders, windows_import.target_dir("desktop") / tr("windows.bookmarks_file"))
+                    browser_bookmarks.save_pending(folders, tr("windows.bookmarks_folder"))
+                    browser_bookmarks.apply_pending()
                 except OSError as e:
                     log.warning("bookmarks: %s", e)
             if games and not self._win_cancel.is_set():
                 games_result = windows_import.copy_games(
-                    games, on_progress=lambda done, _t, _n: self._win_sig.emit({"done": files_need + done,
+                    games, root=library, on_progress=lambda done, _t, _n: self._win_sig.emit({"done": files_need + done,
                                                                                  "total": need}),
                     cancelled=self._win_cancel.is_set)
                 if not self._win_cancel.is_set():  # Proton for games with a Linux version, and their saves
-                    games_result.update(windows_import.finish_games(games, user["home"] if user else None))
+                    games_result.update(windows_import.finish_games(games, user["home"] if user else None,
+                                                                         library=library))
             self._win_sig.emit({"state": "done", "result": result, "games_result": games_result})
 
         threading.Thread(target=work, daemon=True).start()
@@ -854,6 +902,7 @@ class WelcomeController(QObject):
         PROGRESS.unlink(missing_ok=True)
         if self._installed and not restart:
             taskbar.refresh_app_cache()
+        apply_bookmarks()
         # What the user ticked on the last page goes on the taskbar (by default the browsers and Steam)
         taskbar.pin(sorted(self._taskbar_choice()))
         if restart:
@@ -885,3 +934,4 @@ class WelcomeController(QObject):
         self._step = self._steps.index("done")
         self._save()
         self.changed.emit()
+        apply_bookmarks()

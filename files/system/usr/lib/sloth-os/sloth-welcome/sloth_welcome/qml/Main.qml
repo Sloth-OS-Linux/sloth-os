@@ -1002,12 +1002,30 @@ Kirigami.ApplicationWindow {
                                 onToggled: welcome.toggleWindowsGame(modelData.appid)
                             }
                         }
+                        // more than one Steam library (e.g. on a second disk): which one they go into
+                        RowLayout {
+                            Layout.fillWidth: true
+                            visible: welcome.windowsLibraries.length > 1
+                            QQC2.Label { text: root.t("windows.games_library") }
+                            QQC2.ComboBox {
+                                Layout.fillWidth: true
+                                model: welcome.windowsLibraries
+                                currentIndex: welcome.windowsLibrary
+                                onActivated: index => welcome.setWindowsLibrary(index)
+                            }
+                        }
                     }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
                         visible: parent.winState === "ready"
                         type: Kirigami.MessageType.Information
                         text: root.t("windows.onedrive")
+                    }
+                    Kirigami.InlineMessage {
+                        Layout.fillWidth: true
+                        visible: parent.winState === "ready"
+                        type: Kirigami.MessageType.Information
+                        text: root.t("windows.passwords")
                     }
                     // copying
                     ColumnLayout {

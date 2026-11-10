@@ -37,8 +37,24 @@ tests: `tools/tests/test_windows_import.py`, 50 languages).
   and starts without a download
 - [x] On the HP (OK 2026-11-10): a game with a Linux version (Muck) starts with Proton instead of downloading the
   Linux version; a game without Steam Cloud (Doki Doki Literature Club!) finds its save
-- Next parts (not started): bookmarks straight into the browser, a preview to pick subfolders, the wallpaper, fonts
-  and Saved Games, an honest note about passwords
+- [x] Bookmarks straight into the browsers (2026-11-10, `sloth_common/browser_bookmarks.py`): from Chrome, Edge, Brave,
+  Vivaldi, Opera and Firefox on Windows, as one "From Windows" folder on the bookmarks toolbar of every browser from
+  the wizard installed as a Flatpak; each browser once, never while it runs, nothing there changed. Chromium-based:
+  the profile's Bookmarks JSON without its checksum (Chromium's reader never checks it); a browser never started gets
+  the file in advance. Firefox-based: places.sqlite written the way Firefox writes a bookmark (url_hash ported from
+  Helpers.cpp and checked against a real profile; moz_origins and foreign_count as its triggers do); Firefox only
+  makes its profile at its first start, so it gets them at the next sign-in (`/usr/libexec/sloth-os/bookmarks-import`).
+  Checked in a container with real Firefox 159 (it shows them; its own checkAndFixDatabase: "coherent") and Chromium
+  156 (a profile made in advance is loaded and kept). The HTML file on the Desktop stays as well
+- [x] Saved Games: Steam games' saves there come over with the rest (the Ludusavi paths under `<home>/Saved Games`)
+- [x] Steam library choice: with more than one library set in Steam (e.g. on a second disk), "Copy them to:" picks
+  where the games go; their Proton environments and saves go next to them, the space check is per disk
+- [x] An honest note about passwords: browsers' saved passwords can't come over (locked to the Windows account); turn
+  on sync or export them on Windows
+- [ ] On the HP: bookmarks from Windows show up in a browser installed in the wizard (Chrome/Brave at once, Firefox
+  after its first start and a new sign-in); with a second Steam library the choice shows and the game starts from it
+- Next parts (not started): a preview to pick subfolders. Not planned: the Windows wallpaper (Sloth OS keeps its own);
+  fonts (the user decides)
 
 ### Windows programs: the log of a start (2026-11-09, test branch)
 - [x] Sloth Center → Programs → ⋯ → "Show the last start's log": the newest log of the program's starts
