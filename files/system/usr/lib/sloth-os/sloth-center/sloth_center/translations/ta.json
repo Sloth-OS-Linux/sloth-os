@@ -1085,5 +1085,7 @@
   "Sign out and in again to see the new size everywhere.": "புதிய அளவை எல்லா இடங்களிலும் பார்க்க வெளியேறி மீண்டும் உள்நுழையவும்.",
   "Bigger text in menus, windows and apps. It shows everywhere after you sign out and in again.": "மெனுக்கள், சாளரங்கள், பயன்பாடுகளில் பெரிய எழுத்து. வெளியேறி மீண்டும் உள்நுழைந்த பிறகு எல்லா இடங்களிலும் தெரியும்.",
   "A bigger pointer is easier to find on the screen. It shows everywhere after you sign out and in again.": "பெரிய சுட்டியைத் திரையில் கண்டுபிடிப்பது எளிது. வெளியேறி மீண்டும் உள்நுழைந்த பிறகு எல்லா இடங்களிலும் தெரியும்.",
-  "Zoom in and out with the Windows key and + or −, or on a touchpad by pinching with three fingers. The Windows key and 0 brings the normal size back. The view follows the mouse.": "Windows விசையும் + அல்லது −-உம் கொண்டு பெரிதாக்கவும் சிறிதாக்கவும், அல்லது டச்பேடில் மூன்று விரல்களால் கிள்ளவும். Windows விசையும் 0-உம் இயல்பான அளவைத் திரும்பக் கொண்டுவரும். காட்சி சுட்டியைப் பின்தொடரும்."
+  "Zoom in and out with the Windows key and + or −, or on a touchpad by pinching with three fingers. The Windows key and 0 brings the normal size back. The view follows the mouse.": "Windows விசையும் + அல்லது −-உம் கொண்டு பெரிதாக்கவும் சிறிதாக்கவும், அல்லது டச்பேடில் மூன்று விரல்களால் கிள்ளவும். Windows விசையும் 0-உம் இயல்பான அளவைத் திரும்பக் கொண்டுவரும். காட்சி சுட்டியைப் பின்தொடரும்.",
+  "Website shortcut…": "இணையதள குறுக்குவழி…",
+  "Website address:": "இணையதள முகவரி:"
 }

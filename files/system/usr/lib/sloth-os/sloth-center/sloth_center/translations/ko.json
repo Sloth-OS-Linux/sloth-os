@@ -1085,5 +1085,7 @@
   "Sign out and in again to see the new size everywhere.": "로그아웃했다가 다시 로그인하면 새 크기가 모든 곳에 적용됩니다.",
   "Bigger text in menus, windows and apps. It shows everywhere after you sign out and in again.": "메뉴, 창, 앱의 글자를 크게 합니다. 로그아웃했다가 다시 로그인하면 모든 곳에 적용됩니다.",
   "A bigger pointer is easier to find on the screen. It shows everywhere after you sign out and in again.": "큰 포인터는 화면에서 찾기 쉽습니다. 로그아웃했다가 다시 로그인하면 모든 곳에 적용됩니다.",
-  "Zoom in and out with the Windows key and + or −, or on a touchpad by pinching with three fingers. The Windows key and 0 brings the normal size back. The view follows the mouse.": "Windows 키와 + 또는 −로 확대·축소하거나, 터치패드에서 세 손가락으로 집어서 조절하세요. Windows 키와 0을 누르면 원래 크기로 돌아갑니다. 화면은 마우스를 따라갑니다."
+  "Zoom in and out with the Windows key and + or −, or on a touchpad by pinching with three fingers. The Windows key and 0 brings the normal size back. The view follows the mouse.": "Windows 키와 + 또는 −로 확대·축소하거나, 터치패드에서 세 손가락으로 집어서 조절하세요. Windows 키와 0을 누르면 원래 크기로 돌아갑니다. 화면은 마우스를 따라갑니다.",
+  "Website shortcut…": "웹사이트 바로 가기…",
+  "Website address:": "웹사이트 주소:"
 }

@@ -124,6 +124,23 @@ ENTRIES = {
         ("Icon", "view-history"),
         ("Exec", "sloth-versions %f"),
     ],
+    # Right-click on the desktop (or in Dolphin) → Create New → Website shortcut…: asks for a name and an address and
+    # makes a link icon (GitHub issue #17: a desktop shortcut to a web address was hard to find). KIO's own entry for
+    # this ("Link to Location (URL)…") is built in, last in the menu and named for experts. A Type=Link template
+    # pointing at a .source file of Type=Link gets the same name + address dialog (KNewFileMenu); Comment is the
+    # label above the address field.
+    "files/system/usr/share/templates/org.slothos.weblink.desktop": [
+        ("Type", "Link"),
+        ("Name", ("sloth-center", "Website shortcut…")),
+        ("Comment", ("sloth-center", "Website address:")),
+        ("URL", ".source/org.slothos.weblink.desktop"),
+        ("Icon", "text-html"),
+    ],
+    "files/system/usr/share/templates/.source/org.slothos.weblink.desktop": [
+        ("Type", "Link"),
+        ("URL", ""),
+        ("Icon", "text-html"),
+    ],
     "iso/files/usr/share/applications/org.slothos.installer.desktop": [
         ("Type", "Application"),
         ("Name", ("sloth-installer", "app.title")),
