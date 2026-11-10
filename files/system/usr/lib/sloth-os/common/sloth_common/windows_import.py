@@ -113,8 +113,12 @@ def users(mnt):
         folders = {key: _size(home / win) for key, (win, _xdg) in FOLDERS.items() if (home / win).is_dir()}
         if not any(folders.values()):
             continue
+        try:
+            found = programs(root, home)
+        except Exception:  # noqa: BLE001 (only an extra: the files can still be brought over)
+            found = []
         result.append({"name": home.name, "home": str(home), "folders": folders,
-                       "bookmarks": len(_bookmark_sources(home)), "programs": programs(root, home)})
+                       "bookmarks": len(_bookmark_sources(home)), "programs": found})
     return result
 
 

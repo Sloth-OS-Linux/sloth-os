@@ -558,6 +558,14 @@ class WelcomeController(QObject):
         self.changed.emit()
 
         def work():
+            # Whatever goes wrong, the step must leave "scanning" (its Next button waits for that)
+            try:
+                scan()
+            except Exception as e:  # noqa: BLE001
+                log.warning("windows scan: %s", e)
+                self._win_sig.emit({"state": "failed", "users": [], "games": [], "game_ids": []})
+
+        def scan():
             found, mounted, locked, failed = [], [], False, False
             for part in windows_import.candidates():
                 if part["locked"]:
@@ -567,21 +575,23 @@ class WelcomeController(QObject):
                 if not mnt:
                     failed = True
                     continue
+                if ours:
+                    self._win_mounts.append(part["device"])  # unmounted at the end in any case
                 users = windows_import.users(mnt)
                 mounted.append((part["device"], mnt, ours, bool(users)))
                 found.extend(users)
-            # Steam games: on the Windows drive, or on another one (a data disk with a Steam library)
+            # Steam games: on the Windows drive, or on another one (a data disk with a Steam library). Only an extra:
+            # if it fails, the files can still be brought over
             try:
                 games = windows_import.steam_games([mnt for _d, mnt, _o, _u in mounted])
-            except OSError as e:
+            except Exception as e:  # noqa: BLE001
                 log.warning("steam games: %s", e)
                 games = []
             for device, mnt, ours, has_users in mounted:
                 if not ours:
                     continue
-                if has_users or any(Path(g["dir"]).is_relative_to(mnt) for g in games):
-                    self._win_mounts.append(device)
-                else:
+                if not has_users and not any(Path(g["dir"]).is_relative_to(mnt) for g in games):
+                    self._win_mounts.remove(device)
                     windows_import.unmount(device)  # nothing to bring over from it (e.g. a data disk)
             state = "ready" if found or games else "locked" if locked else "failed" if failed else "none"
             self._win_sig.emit({"state": state, "users": found, "games": games,
@@ -641,6 +651,15 @@ class WelcomeController(QObject):
         self.changed.emit()
 
         def work():
+            # Whatever goes wrong, the step must leave "copying" (its buttons wait for that)
+            try:
+                copy_all()
+            except Exception as e:  # noqa: BLE001
+                log.warning("windows copy: %s", e)
+                self._win_sig.emit({"state": "done", "result": {"copied": 0, "skipped": 0, "failed": [str(e)]},
+                                    "games_result": {}})
+
+        def copy_all():
             result, games_result = {}, {}
             if keys:
                 result = windows_import.copy(
