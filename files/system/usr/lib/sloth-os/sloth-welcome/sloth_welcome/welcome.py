@@ -146,7 +146,8 @@ class WelcomeController(QObject):
         self._installer = Installer(self._status_sig.emit, self._app_sig.emit, self._done_sig.emit)
         # Windows step: "idle" | "scanning" | "ready" | "copying" | "done" | "locked" | "none" | "failed" | "nospace"
         self._win = {"state": "idle", "users": [], "user": "", "keys": [], "bookmarks": True,
-                     "done": 0, "total": 0, "result": {}, "need": 0, "free": 0}
+                     "games": [], "game_ids": [], "done": 0, "total": 0, "result": {}, "games_result": {},
+                     "need": 0, "free": 0}
         self._win_mounts = []        # what we mounted (unmounted at the end)
         self._win_cancel = threading.Event()
         self._win_sig.connect(self._on_win)
@@ -485,6 +486,44 @@ class WelcomeController(QObject):
     def windowsBookmarks(self):
         return self._win["bookmarks"]
 
+    @Property("QVariantList", notify=changed)
+    def windowsPrograms(self):
+        """The wizard's apps matching the chosen account's Windows programs: [{id, name, instead, selected, present}]
+        (ticking one is the same as ticking it in its category; nothing is ticked by default)."""
+        user = self._win_user()
+        out = []
+        for p in (user or {}).get("programs", []):
+            app = catalog.find_app(p["id"])
+            if not app or (self._windows_only and app.get("source", "flathub") != "flathub"):
+                continue  # on its own (from Sloth Center) only what Discover can install
+            out.append({"id": p["id"], "name": app["name"], "instead": p["instead"],
+                        "selected": p["id"] in self._selected, "present": p["id"] in self._present})
+        return out
+
+    @Slot(str)
+    def installWindowsProgram(self, app_id):
+        """On its own (from Sloth Center): the app's page in Discover."""
+        try:
+            subprocess.Popen(["plasma-discover", f"appstream://{app_id}"], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except OSError as e:
+            log.warning("discover: %s", e)
+
+    @Property("QVariantList", notify=changed)
+    def windowsGames(self):
+        """The Steam games installed on Windows: [{appid, name, size (as text), selected}]"""
+        return [{"appid": g["appid"], "name": g["name"], "size": _size_text(g["size"]),
+                 "selected": g["appid"] in self._win["game_ids"]} for g in self._win["games"]]
+
+    @Slot(str)
+    def toggleWindowsGame(self, appid):
+        ids = self._win["game_ids"]
+        if appid in ids:
+            ids.remove(appid)
+        else:
+            ids.append(appid)
+        self.changed.emit()
+
     @Property(int, notify=changed)
     def windowsProgress(self):
         total = self._win["total"]
@@ -498,11 +537,17 @@ class WelcomeController(QObject):
         if w["state"] == "nospace":
             return tr("windows.nospace", need=_size_text(w["need"]), free=_size_text(w["free"]))
         if w["state"] == "done":
-            r = w["result"]
-            text = tr("windows.done", count=r.get("copied", 0) + r.get("skipped", 0))
-            if r.get("failed"):
-                text += " " + tr("windows.failed_some", count=len(r["failed"]))
-            return text
+            r, g = w["result"], w["games_result"]
+            parts = []
+            if r:
+                parts.append(tr("windows.done", count=r.get("copied", 0) + r.get("skipped", 0)))
+                if r.get("failed"):
+                    parts.append(tr("windows.failed_some", count=len(r["failed"])))
+            if g:
+                parts.append(tr("windows.games_done", count=g.get("games", 0) + g.get("skipped", 0)))
+                if g.get("failed"):
+                    parts.append(tr("windows.games_failed", names=", ".join(g["failed"])))
+            return " ".join(parts)
         return ""
 
     def _win_user(self):
@@ -513,7 +558,7 @@ class WelcomeController(QObject):
         self.changed.emit()
 
         def work():
-            found, locked, failed = [], False, False
+            found, mounted, locked, failed = [], [], False, False
             for part in windows_import.candidates():
                 if part["locked"]:
                     locked = True
@@ -523,14 +568,24 @@ class WelcomeController(QObject):
                     failed = True
                     continue
                 users = windows_import.users(mnt)
-                if ours:
-                    if users:
-                        self._win_mounts.append(part["device"])
-                    else:
-                        windows_import.unmount(part["device"])  # not a Windows system (e.g. a data disk)
+                mounted.append((part["device"], mnt, ours, bool(users)))
                 found.extend(users)
-            state = "ready" if found else "locked" if locked else "failed" if failed else "none"
-            self._win_sig.emit({"state": state, "users": found})
+            # Steam games: on the Windows drive, or on another one (a data disk with a Steam library)
+            try:
+                games = windows_import.steam_games([mnt for _d, mnt, _o, _u in mounted])
+            except OSError as e:
+                log.warning("steam games: %s", e)
+                games = []
+            for device, mnt, ours, has_users in mounted:
+                if not ours:
+                    continue
+                if has_users or any(Path(g["dir"]).is_relative_to(mnt) for g in games):
+                    self._win_mounts.append(device)
+                else:
+                    windows_import.unmount(device)  # nothing to bring over from it (e.g. a data disk)
+            state = "ready" if found or games else "locked" if locked else "failed" if failed else "none"
+            self._win_sig.emit({"state": state, "users": found, "games": games,
+                                "game_ids": [g["appid"] for g in games]})
 
         threading.Thread(target=work, daemon=True).start()
 
@@ -567,30 +622,43 @@ class WelcomeController(QObject):
     @Slot()
     def startWindowsCopy(self):
         user = self._win_user()
-        if not user or self._win["state"] != "ready":
+        if self._win["state"] != "ready":
             return
-        keys = [k for k in self._win["keys"] if user["folders"].get(k)]
-        need = sum(user["folders"][k] for k in keys)
+        keys = [k for k in self._win["keys"] if user and user["folders"].get(k)]
+        games = [g for g in self._win["games"] if g["appid"] in self._win["game_ids"]]
+        bookmarks = bool(user and self._win["bookmarks"] and user["bookmarks"])
+        if not keys and not games and not bookmarks:
+            return
+        files_need = sum(user["folders"][k] for k in keys)
+        need = files_need + sum(g["size"] for g in games)
         free = shutil.disk_usage(Path.home()).free
         if need + 1024**3 > free:  # 1 GB headroom
             self._win.update(state="nospace", need=need, free=free)
             self.changed.emit()
             return
-        self._win.update(state="copying", done=0, total=need)
+        self._win.update(state="copying", done=0, total=need, result={}, games_result={})
         self._win_cancel.clear()
         self.changed.emit()
 
         def work():
-            result = windows_import.copy(
-                user["home"], keys, on_progress=lambda done, total, _n: self._win_sig.emit({"done": done, "total": total}),
-                cancelled=self._win_cancel.is_set)
-            if self._win["bookmarks"] and user["bookmarks"]:
+            result, games_result = {}, {}
+            if keys:
+                result = windows_import.copy(
+                    user["home"], keys,
+                    on_progress=lambda done, _t, _n: self._win_sig.emit({"done": done, "total": need}),
+                    cancelled=self._win_cancel.is_set)
+            if bookmarks:
                 try:
                     windows_import.export_bookmarks(
                         user["home"], windows_import.target_dir("desktop") / tr("windows.bookmarks_file"))
                 except OSError as e:
                     log.warning("bookmarks: %s", e)
-            self._win_sig.emit({"state": "done", "result": result})
+            if games and not self._win_cancel.is_set():
+                games_result = windows_import.copy_games(
+                    games, on_progress=lambda done, _t, _n: self._win_sig.emit({"done": files_need + done,
+                                                                                 "total": need}),
+                    cancelled=self._win_cancel.is_set)
+            self._win_sig.emit({"state": "done", "result": result, "games_result": games_result})
 
         threading.Thread(target=work, daemon=True).start()
 

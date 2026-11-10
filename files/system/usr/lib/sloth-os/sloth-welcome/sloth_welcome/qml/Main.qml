@@ -860,8 +860,20 @@ Kirigami.ApplicationWindow {
             }
 
             // --- 7. Bringing files over from Windows (only if there is a Windows partition) ----------
-            Item {
+            // Scrolls: with the programs and the Steam games it can be longer than the screen
+            QQC2.ScrollView {
+                id: winScroll
+                // its size comes from the StackLayout; an implicit size from the content would loop back into it
+                implicitWidth: 0
+                implicitHeight: 0
+                contentWidth: availableWidth
+                contentHeight: winContent.height
+                Item {
+                id: winContent
+                width: winScroll.availableWidth
+                height: Math.max(winColumn.implicitHeight + Kirigami.Units.gridUnit * 2, winScroll.height)
                 ColumnLayout {
+                    id: winColumn
                     anchors.centerIn: parent
                     width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 32)
                     spacing: Kirigami.Units.largeSpacing * 2
@@ -926,6 +938,71 @@ Kirigami.ApplicationWindow {
                             onToggled: welcome.setWindowsBookmarks(checked)
                         }
                     }
+                    // programs used on Windows: ticking one is ticking it in its category (installed at the end)
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        visible: parent.winState === "ready" && welcome.windowsPrograms.length > 0
+                        Kirigami.Heading { level: 3; Layout.fillWidth: true; wrapMode: Text.Wrap; text: root.t("windows.apps_heading") }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.8
+                            text: root.t(welcome.windowsOnly ? "windows.apps_text_only" : "windows.apps_text")
+                        }
+                        Repeater {
+                            model: welcome.windowsPrograms
+                            delegate: RowLayout {
+                                id: progRow
+                                required property var modelData
+                                Layout.fillWidth: true
+                                readonly property string label: modelData.name
+                                    + (modelData.instead ? " – " + root.t("windows.apps_instead", { name: modelData.instead }) : "")
+                                    + (modelData.present ? " (" + root.t("windows.apps_present") + ")" : "")
+                                QQC2.CheckBox {
+                                    visible: !welcome.windowsOnly
+                                    Layout.fillWidth: true
+                                    text: progRow.label
+                                    checked: progRow.modelData.selected || progRow.modelData.present
+                                    enabled: !progRow.modelData.present
+                                    onToggled: welcome.toggle(progRow.modelData.id)
+                                }
+                                QQC2.Label {
+                                    visible: welcome.windowsOnly
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    text: progRow.label
+                                }
+                                QQC2.Button {
+                                    visible: welcome.windowsOnly && !progRow.modelData.present
+                                    icon.name: "plasmadiscover"
+                                    text: root.t("windows.apps_install")
+                                    onClicked: welcome.installWindowsProgram(progRow.modelData.id)
+                                }
+                            }
+                        }
+                    }
+                    // Steam games: copied into Steam here, no new download
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        visible: parent.winState === "ready" && welcome.windowsGames.length > 0
+                        Kirigami.Heading { level: 3; Layout.fillWidth: true; wrapMode: Text.Wrap; text: root.t("windows.games_heading") }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.8
+                            text: root.t("windows.games_text")
+                        }
+                        Repeater {
+                            model: welcome.windowsGames
+                            delegate: QQC2.CheckBox {
+                                required property var modelData
+                                Layout.fillWidth: true
+                                text: modelData.name + " (" + modelData.size + ")"
+                                checked: modelData.selected
+                                onToggled: welcome.toggleWindowsGame(modelData.appid)
+                            }
+                        }
+                    }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
                         visible: parent.winState === "ready"
@@ -972,6 +1049,7 @@ Kirigami.ApplicationWindow {
                             visible: parent.parent.winState === "ready"
                             enabled: welcome.windowsFolders.some(f => f.selected)
                                      || (welcome.windowsBookmarks && welcome.windowsBookmarkCount > 0)
+                                     || welcome.windowsGames.some(g => g.selected)
                             highlighted: true
                             icon.name: "folder-download"
                             text: root.t("windows.copy")
@@ -982,11 +1060,13 @@ Kirigami.ApplicationWindow {
                             highlighted: parent.parent.winState !== "ready"
                             icon.name: "go-next"
                             text: welcome.windowsOnly ? root.t("nav.finish")
-                                  : parent.parent.winState === "ready" || parent.parent.winState === "nospace"
+                                  : (parent.parent.winState === "ready" || parent.parent.winState === "nospace")
+                                    && !welcome.windowsPrograms.some(p => p.selected)
                                     ? root.t("nav.skip") : root.t("nav.next")
                             onClicked: welcome.next()
                         }
                     }
+                }
                 }
             }
         }

@@ -5,6 +5,28 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Moving over from Windows: programs and Steam games (2026-11-10, test branch)
+The first two parts of the large item "migrate from Windows" (Updates, backup… → Installation and storage); the
+Welcome step and the Disks page's "Bring over from Windows" got them (`sloth_common/windows_import.py`,
+tests: `tools/tests/test_windows_import.py`, 50 languages).
+- [x] **"Programs you used on Windows":** the Start menu (all users' and the account's own) and the Microsoft Store
+  apps' package folders are matched to the wizard's apps (`PROGRAMS`: e.g. Spotify, Discord, Steam, Battle.net), or
+  to their counterparts with "instead of …" (Word/Excel → LibreOffice, Epic Games → Heroic, WhatsApp → ZapZap,
+  Photoshop → GIMP). Nothing is ticked; ticking one is the same as ticking it in its category, so it is installed at
+  the end of the wizard. From Sloth Center (the step on its own) each Flathub app has an "Install" button that opens
+  Discover. Edge is left out (on every Windows)
+- [x] **Steam games without a new download:** the fully installed games (StateFlags 4) of Windows' Steam and of every
+  library its libraryfolders.vdf names (the drive letter is dropped and every Windows drive is looked at, so a
+  D:\SteamLibrary on a data disk is found too; such a disk stays mounted read-only until the end) are copied into
+  Sloth OS's Steam library (the one in use, or the Flatpak Steam's own: Steam finds them at its first start). A game's
+  manifest is written only when all its files are there (an interruption shows no broken game; the next try
+  continues), with the space check of the files. Steamworks Common Redistributables are skipped
+- [ ] On the HP or next to a real Windows: the programs list matches what was installed; a copied Steam game shows as
+  installed in Steam (also when Steam was first started after the copy) and starts without a download; a game with a
+  Linux version: what Steam does (it may download the Linux build: said in the step's text)
+- Next parts (not started): bookmarks straight into the browser, a preview to pick subfolders, the wallpaper, fonts
+  and Saved Games, an honest note about passwords
+
 ### Windows programs: the log of a start (2026-11-09, test branch)
 - [x] Sloth Center → Programs → ⋯ → "Show the last start's log": the newest log of the program's starts
   (~/.cache/sloth-os/apps/<program>/naplo/) opens in the text editor. Finding it meant a hidden folder; asking for help
@@ -714,6 +736,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   show the installer there, and carry the choice (main display, arrangement) over to the installed system's login
   screen and desktop.
 - [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
+  (2026-11-10, first parts: the programs used on Windows offered in the wizard, and the Steam games copied without a
+  new download; see "Moving over from Windows: programs and Steam games" at the top)
 - [x] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
   (2026-10-26, System health: the drives' SMART reports through UDisks, with a File backup button; check on a real machine)
 - [x] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
