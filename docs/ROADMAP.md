@@ -32,10 +32,11 @@ tests: `tools/tests/test_windows_import.py`, 50 languages).
   (compatdata/<appid>/pfx/drive_c/users/steamuser/…), where Proton keeps them at the first start (its copy_pfx only
   adds; Steam drops cloud files there the same way). Steam Cloud games are left to Steam (no conflict question);
   nothing already there is overwritten; over 4 GB per game is left out
-- [ ] On the HP (it has Windows; Sloth Center → Disks → "Bring files over from Windows"): the programs list matches
-  what is installed on Windows; a copied Steam game shows as installed in Steam (also when Steam is first started
-  after the copy) and starts without a download; a game with a Linux version starts with Proton; a game without
-  Steam Cloud finds its save
+- [x] On the HP (OK 2026-11-10; Sloth Center → Disks → "Bring files over from Windows"): the programs list matches
+  what is installed on Windows; a copied Windows-only Steam game (Bloons TD Battles 2) shows as installed in Steam
+  and starts without a download
+- [ ] On the HP: a game with a Linux version (e.g. Muck, free) starts with Proton instead of downloading the Linux
+  version; a game without Steam Cloud finds its save
 - Next parts (not started): bookmarks straight into the browser, a preview to pick subfolders, the wallpaper, fonts
   and Saved Games, an honest note about passwords
 
