@@ -1025,7 +1025,7 @@ Kirigami.ApplicationWindow {
                     // result, errors
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
-                        visible: ["done", "nospace", "locked", "none", "failed"].indexOf(parent.winState) >= 0
+                        visible: ["done", "nospace", "locked", "none", "failed", "steamopen"].indexOf(parent.winState) >= 0
                         type: parent.winState === "done" ? Kirigami.MessageType.Positive
                               : parent.winState === "none" ? Kirigami.MessageType.Information
                               : Kirigami.MessageType.Warning
@@ -1042,7 +1042,7 @@ Kirigami.ApplicationWindow {
                             text: root.t("nav.back"); icon.name: "go-previous"; onClicked: welcome.back()
                         }
                         QQC2.Button {
-                            visible: parent.parent.winState === "nospace"
+                            visible: parent.parent.winState === "nospace" || parent.parent.winState === "steamopen"
                             text: root.t("windows.change"); icon.name: "edit-undo"; onClicked: welcome.retryWindows()
                         }
                         QQC2.Button {

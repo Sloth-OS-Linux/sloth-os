@@ -547,6 +547,8 @@ class WelcomeController(QObject):
                 parts.append(tr("windows.games_done", count=g.get("games", 0) + g.get("skipped", 0)))
                 if g.get("failed"):
                     parts.append(tr("windows.games_failed", names=", ".join(g["failed"])))
+                if g.get("saves"):
+                    parts.append(tr("windows.games_saves", names=", ".join(g["saves"])))
             return " ".join(parts)
         return ""
 
@@ -639,6 +641,10 @@ class WelcomeController(QObject):
         bookmarks = bool(user and self._win["bookmarks"] and user["bookmarks"])
         if not keys and not games and not bookmarks:
             return
+        if games and windows_import.steam_running():  # it would overwrite the Proton settings when it exits
+            self._win["state"] = "steamopen"
+            self.changed.emit()
+            return
         files_need = sum(user["folders"][k] for k in keys)
         need = files_need + sum(g["size"] for g in games)
         free = shutil.disk_usage(Path.home()).free
@@ -677,14 +683,16 @@ class WelcomeController(QObject):
                     games, on_progress=lambda done, _t, _n: self._win_sig.emit({"done": files_need + done,
                                                                                  "total": need}),
                     cancelled=self._win_cancel.is_set)
+                if not self._win_cancel.is_set():  # Proton for games with a Linux version, and their saves
+                    games_result.update(windows_import.finish_games(games, user["home"] if user else None))
             self._win_sig.emit({"state": "done", "result": result, "games_result": games_result})
 
         threading.Thread(target=work, daemon=True).start()
 
     @Slot()
     def retryWindows(self):
-        """After "not enough space": back to choosing."""
-        if self._win["state"] == "nospace":
+        """After "not enough space" or "Steam is open": back to choosing."""
+        if self._win["state"] in ("nospace", "steamopen"):
             self._win["state"] = "ready"
             self.changed.emit()
 

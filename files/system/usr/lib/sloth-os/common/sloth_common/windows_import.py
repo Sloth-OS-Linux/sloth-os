@@ -277,6 +277,271 @@ def steam_games(mounts):
     return sorted(games.values(), key=lambda g: g["name"].lower())
 
 
+def steam_running():
+    """Steam rewrites its settings (config.vdf) when it exits, so it must be closed while games come over."""
+    try:
+        return subprocess.run(["pgrep", "-x", "steam"], capture_output=True).returncode == 0
+    except OSError:
+        return False
+
+
+# --- Steam games: Proton instead of a Linux version ------------------------------------------------------
+
+STORE_API = "https://store.steampowered.com/api/appdetails?appids={appid}&filters=platforms"
+USER_AGENT = "Sloth-OS (https://github.com/Sloth-OS-Linux/sloth-os)"
+DEFAULT_TOOL = "proton_experimental"
+
+
+def _fetch(url, timeout):
+    import urllib.request
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return r.read()
+
+
+def has_linux_version(appid):
+    """Whether the game also has a Linux version (Steam's store). None: unknown (offline)."""
+    try:
+        data = json.loads(_fetch(STORE_API.format(appid=appid), 15))
+        entry = data.get(str(appid)) or {}
+        if not entry.get("success"):
+            return None
+        return bool((entry.get("data") or {}).get("platforms", {}).get("linux"))
+    except Exception:  # noqa: BLE001 (offline, a changed answer: Steam then decides itself)
+        return None
+
+
+def force_proton(root, appids):
+    """Steam's "Force the use of a specific compatibility tool" for these games (config.vdf, CompatToolMapping):
+    a game with a Linux version would otherwise download that one instead of using the Windows files that came
+    over. The tool is the one Steam uses for every other game if that is set, else Proton Experimental (Steam
+    downloads it at the first start). Steam must be closed. -> the number of games set"""
+    path = Path(root) / "config" / "config.vdf"
+    try:
+        data = steam.vdf_load(path.read_text(encoding="utf-8", errors="replace"))
+    except OSError:
+        data = {}
+    node = data
+    for key in ("InstallConfigStore", "Software", "Valve", "Steam", "CompatToolMapping"):
+        child = steam.ci(node, key)
+        if not isinstance(child, dict):
+            child = node[key] = {}
+        node = child
+    default = steam.ci(steam.ci(node, "0"), "name") or DEFAULT_TOOL
+    count = 0
+    for appid in appids:
+        if str(appid) in node:
+            continue  # the user's own choice stays
+        node[str(appid)] = {"name": default, "config": "", "priority": "250"}
+        count += 1
+    if count:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = path.with_name(path.name + ".sloth-tmp")
+        tmp.write_text(steam.vdf_dump(data) + "\n", encoding="utf-8")
+        tmp.replace(path)
+    return count
+
+
+# --- Steam games: saves kept on the computer ----------------------------------------------------------
+
+# Where games keep their saves (PCGamingWiki's data, the list Ludusavi uses; downloaded when needed, ~18 MB)
+SAVES_MANIFEST = "https://raw.githubusercontent.com/mtkennerly/ludusavi-manifest/master/data/manifest.yaml"
+CACHE = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache")) / "sloth-os" / "ludusavi-manifest.yaml"
+# The Windows folders a save can be in (from the user's folder) and their place in a Proton environment
+SAVE_ROOTS = {"<home>": "", "<winAppData>": "AppData/Roaming", "<winLocalAppData>": "AppData/Local",
+              "<winDocuments>": "Documents"}
+SAVE_LIMIT = 4 * 1024**3   # a "save" folder bigger than this per game is left out (videos, mods)
+
+
+def _saves_manifest():
+    try:
+        if CACHE.is_file() and time.time() - CACHE.stat().st_mtime < 7 * 86400:
+            return CACHE.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        pass
+    try:
+        text = _fetch(SAVES_MANIFEST, 120).decode("utf-8", errors="replace")
+    except Exception:  # noqa: BLE001 (offline: no saves, the games still come over)
+        return ""
+    try:
+        CACHE.parent.mkdir(parents=True, exist_ok=True)
+        CACHE.write_text(text, encoding="utf-8")
+    except OSError:
+        pass
+    return text
+
+
+def _unquote_yaml(key):
+    key = key.strip()
+    if len(key) >= 2 and key[0] == key[-1] == '"':
+        return key[1:-1].replace('\\"', '"').replace("\\\\", "\\")
+    if len(key) >= 2 and key[0] == key[-1] == "'":
+        return key[1:-1].replace("''", "'")
+    return key
+
+
+def _parse_game(block):
+    """One game of the manifest (YAML, written by a tool, so its layout is fixed). -> (Steam Cloud, [save paths])"""
+    lines = block.split("\n")
+    cloud, saves, section = False, [], ""
+    entry, tags, whens, when = None, [], [], None
+
+    def flush():
+        if entry is None:
+            return
+        if when is not None:
+            whens.append(when)
+        windows = not whens or any(w.get("os") in (None, "windows") and w.get("store") in (None, "steam")
+                                   for w in whens)
+        if "save" in tags and windows:
+            saves.append(entry)
+
+    sub = ""
+    for line in lines[1:]:
+        indent = len(line) - len(line.lstrip(" "))
+        text = line.strip()
+        if not text:
+            continue
+        if indent == 2:
+            if section == "files":
+                flush()
+                entry = None
+            section = text.rstrip(":")
+            continue
+        if section == "cloud" and indent == 4 and text.replace(" ", "") == "steam:true":
+            cloud = True
+        if section != "files":
+            continue
+        if indent == 4:
+            flush()
+            entry, tags, whens, when, sub = _unquote_yaml(text[:-1] if text.endswith(":") else text), [], [], None, ""
+        elif indent == 6:
+            sub = text.rstrip(":")
+            if when is not None:
+                whens.append(when)
+                when = None
+        elif indent >= 8 and sub == "tags" and text.startswith("- "):
+            tags.append(text[2:].strip())
+        elif indent >= 8 and sub == "when":
+            if text.startswith("- "):
+                if when is not None:
+                    whens.append(when)
+                when = {}
+                text = text[2:]
+            if ":" in text and when is not None:
+                k, v = text.split(":", 1)
+                when[k.strip()] = v.strip()
+    if section == "files":
+        flush()
+    return cloud, saves
+
+
+def save_locations(text, appids):
+    """The manifest's games by Steam ID. -> {appid: (Steam Cloud, [save paths])}"""
+    wanted, found = {str(a) for a in appids}, {}
+    for m in re.finditer(r"^  steam:\n    id: (\d+)$", text, re.M):
+        appid = m.group(1)
+        if appid not in wanted or appid in found:
+            continue
+        start = text.rfind("\n", 0, text.rfind("\n", 0, m.start()))  # back to the game's own line
+        while start > 0 and text[start + 1:start + 2] == " ":
+            start = text.rfind("\n", 0, start)
+        nxt = re.compile(r"^\S", re.M).search(text, m.end())
+        found[appid] = _parse_game(text[start + 1:nxt.start() if nxt else len(text)])
+    return found
+
+
+def _ci_pattern(rel):
+    """NTFS ignores the case of names, Linux does not: "AppData/locallow" must find "AppData/LocalLow"."""
+    out, in_class = [], False
+    for c in rel:
+        if c == "[":
+            in_class = True
+        elif c == "]":
+            in_class = False
+        out.append(f"[{c.lower()}{c.upper()}]" if c.isalpha() and not in_class and c.lower() != c.upper() else c)
+    return "".join(out)
+
+
+def _copy_new(src, dest):
+    """A file or a folder, without overwriting anything already there. -> bytes copied"""
+    total = 0
+    pairs = [(src, dest)] if src.is_file() else [
+        (Path(r, f), dest / Path(r, f).relative_to(src)) for r, _d, files in os.walk(src) for f in files]
+    for s, d in pairs:
+        if s.is_symlink() or d.exists():
+            continue
+        d.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(s, d)
+        total += s.stat().st_size
+    return total
+
+
+def copy_saves(win_home, games, root=None, manifest_text=None):
+    """The saves the games kept on Windows (not in Steam Cloud) into each game's Proton environment, where the
+    game looks for them (steamapps/compatdata/<appid>/pfx/drive_c/users/steamuser/…). Proton fills in the rest of
+    the environment at the first start without touching what is there (Steam drops its cloud files there the same
+    way). Nothing already there is overwritten. -> [names of the games whose saves came over]"""
+    import glob
+    text = _saves_manifest() if manifest_text is None else manifest_text
+    if not text or not win_home:
+        return []
+    win_home = Path(win_home)
+    # Documents may have been moved into OneDrive by Windows
+    documents = [win_home / "Documents"] + sorted(p for p in win_home.glob("OneDrive*/Documents") if p.is_dir())
+    locations = save_locations(text, [g["appid"] for g in games])
+    done = []
+    for g in games:
+        cloud, paths = locations.get(g["appid"], (False, []))
+        if cloud or not paths:
+            continue  # Steam Cloud brings them itself (copying too could ask which one to keep)
+        user = Path(root or steam_target()) / "steamapps" / "compatdata" / g["appid"] / "pfx" / "drive_c" / "users" / "steamuser"
+        plan = []
+        for path in paths:
+            prefix = next((p for p in SAVE_ROOTS if path.startswith(p + "/")), None)
+            # a folder named after the Steam account's number (e.g. EldenRing/7656119…): whichever is there
+            rest = path[len(prefix) + 1:].replace("<storeUserId>", "*") if prefix else ""
+            if not prefix or "<" in rest or ".." in rest.split("/"):
+                continue  # in the game's folder (already here), Steam's own folder, other users' places
+            bases = [(d, "Documents") for d in documents] if prefix == "<winDocuments>" else \
+                [(win_home / SAVE_ROOTS[prefix], SAVE_ROOTS[prefix])]
+            for base, target in bases:
+                for match in glob.glob(glob.escape(str(base)) + "/" + _ci_pattern(rest), recursive=True):
+                    m = Path(match)
+                    plan.append((m, user / target / m.relative_to(base)))
+        size = 0
+        for src, _dest in plan:
+            size += src.stat().st_size if src.is_file() else _size(src)
+        if not plan or size > SAVE_LIMIT:
+            continue
+        try:
+            for src, dest in plan:
+                _copy_new(src, dest)
+        except OSError:
+            continue
+        done.append(g["name"])
+    return done
+
+
+def finish_games(games, win_home, root=None):
+    """After copying: the games now in Steam here get Proton where Steam would download a Linux version instead,
+    and their saves kept on Windows. Both need the internet; offline Steam decides itself and the saves stay on
+    Windows. -> {"proton": count, "saves": [names]}"""
+    root = Path(root or steam_target())
+    here = [g for g in games if (root / "steamapps" / f"appmanifest_{g['appid']}.acf").exists()]
+    out = {"proton": 0, "saves": []}
+    try:
+        linux = [g["appid"] for g in here if has_linux_version(g["appid"])]
+        out["proton"] = force_proton(root, linux) if linux else 0
+    except OSError:
+        pass
+    try:
+        out["saves"] = copy_saves(win_home, here, root)
+    except OSError:
+        pass
+    return out
+
+
 def steam_target():
     """Sloth OS's Steam library: the one in use, or the Flatpak Steam's own (Steam may not be installed yet: it
     finds the games in its folder at its first start)."""

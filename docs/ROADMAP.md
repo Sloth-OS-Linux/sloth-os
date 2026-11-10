@@ -21,9 +21,21 @@ tests: `tools/tests/test_windows_import.py`, 50 languages).
   Sloth OS's Steam library (the one in use, or the Flatpak Steam's own: Steam finds them at its first start). A game's
   manifest is written only when all its files are there (an interruption shows no broken game; the next try
   continues), with the space check of the files. Steamworks Common Redistributables are skipped
-- [ ] On the HP or next to a real Windows: the programs list matches what was installed; a copied Steam game shows as
-  installed in Steam (also when Steam was first started after the copy) and starts without a download; a game with a
-  Linux version: what Steam does (it may download the Linux build: said in the step's text)
+- [x] **A game with a Linux version** would make Steam download that build instead of using the Windows files: the
+  store (store.steampowered.com/api/appdetails, platforms) says which ones have it, and those get Steam's "Force a
+  compatibility tool" (config.vdf CompatToolMapping: the tool set for every game, else Proton Experimental; a choice
+  the user already made stays). Steam must be closed (it rewrites config.vdf when it exits): the step asks for it.
+  A Windows-only game needs nothing: Steam runs those with Proton by default since 2025-06. Offline: Steam decides
+- [x] **Saves kept on the computer:** where each game saves (Ludusavi's manifest, PCGamingWiki's data, downloaded
+  when needed and kept for a week) is looked up by Steam ID; the saves found on Windows (AppData, Documents also in
+  OneDrive, Saved Games; NTFS's case-blindness imitated) go into the game's Proton environment
+  (compatdata/<appid>/pfx/drive_c/users/steamuser/…), where Proton keeps them at the first start (its copy_pfx only
+  adds; Steam drops cloud files there the same way). Steam Cloud games are left to Steam (no conflict question);
+  nothing already there is overwritten; over 4 GB per game is left out
+- [ ] On the HP (it has Windows; Sloth Center → Disks → "Bring files over from Windows"): the programs list matches
+  what is installed on Windows; a copied Steam game shows as installed in Steam (also when Steam is first started
+  after the copy) and starts without a download; a game with a Linux version starts with Proton; a game without
+  Steam Cloud finds its save
 - Next parts (not started): bookmarks straight into the browser, a preview to pick subfolders, the wallpaper, fonts
   and Saved Games, an honest note about passwords
 

@@ -134,5 +134,115 @@ class SteamGames(Base):
         self.assertEqual(wi.steam_games([self.c]), [])
 
 
+MANIFEST = '''Some Game:
+  files:
+    "<base>/save":
+      tags:
+        - save
+  steam:
+    id: 999
+Hollow Knight:
+  cloud:
+    gog: true
+  files:
+    "<base>/hollow_knight_Data/Config.ini":
+      tags:
+        - config
+    "<home>/AppData/LocalLow/Team Cherry/Hollow Knight/*.dat":
+      tags:
+        - save
+      when:
+        - os: windows
+    "<home>/Library/Application Support/unity.Team Cherry.Hollow Knight":
+      tags:
+        - save
+      when:
+        - os: mac
+  id:
+    lutris: hollow-knight
+  steam:
+    id: 10
+Clouded:
+  cloud:
+    steam: true
+  files:
+    "<winAppData>/Clouded":
+      tags:
+        - save
+  steam:
+    id: 20
+'''
+
+
+class Saves(Base):
+    GAMES = [{"appid": "10", "name": "Alpha"}, {"appid": "20", "name": "Beta"}]
+
+    def test_manifest(self):
+        found = wi.save_locations(MANIFEST, ["10", "20", "30"])
+        self.assertEqual(found["10"], (False, ["<home>/AppData/LocalLow/Team Cherry/Hollow Knight/*.dat"]))
+        self.assertEqual(found["20"], (True, ["<winAppData>/Clouded"]))
+        self.assertNotIn("30", found)
+
+    def test_into_the_proton_environment(self):
+        low = self.home / "AppData" / "LocalLow" / "team cherry" / "Hollow Knight"   # another case on NTFS
+        touch(low / "user1.dat", b"save1")
+        touch(low / "user2.dat", b"save2")
+        touch(low / "screenshot.png")
+        touch(self.home / "AppData/Roaming/Clouded/cloud.sav")
+        root = self.tmp / "linux-steam"
+        user = root / "steamapps/compatdata/10/pfx/drive_c/users/steamuser"
+        touch(user / "AppData/LocalLow/team cherry/Hollow Knight/user2.dat", b"newer, played here")
+        done = wi.copy_saves(self.home, self.GAMES, root, manifest_text=MANIFEST)
+        self.assertEqual(done, ["Alpha"])
+        self.assertEqual((user / "AppData/LocalLow/team cherry/Hollow Knight/user1.dat").read_bytes(), b"save1")
+        self.assertEqual((user / "AppData/LocalLow/team cherry/Hollow Knight/user2.dat").read_bytes(),
+                         b"newer, played here")  # never overwritten
+        self.assertFalse((user / "AppData/LocalLow/team cherry/Hollow Knight/screenshot.png").exists())
+        self.assertFalse((root / "steamapps/compatdata/20").exists())  # Steam Cloud brings that one
+
+    def test_documents_in_onedrive(self):
+        manifest = 'Docs Game:\n  files:\n    "<winDocuments>/My Games/Docs Game":\n      tags:\n        - save\n' \
+                   '  steam:\n    id: 10\n'
+        touch(self.home / "OneDrive" / "Documents" / "My Games" / "Docs Game" / "slot1.sav", b"s")
+        root = self.tmp / "linux-steam"
+        self.assertEqual(wi.copy_saves(self.home, self.GAMES[:1], root, manifest_text=manifest), ["Alpha"])
+        self.assertTrue((root / "steamapps/compatdata/10/pfx/drive_c/users/steamuser/Documents/My Games/Docs Game/slot1.sav")
+                        .is_file())
+
+    def test_offline(self):
+        with mock.patch.object(wi, "_fetch", side_effect=OSError("offline")), \
+                mock.patch.object(wi, "CACHE", self.tmp / "none.yaml"):
+            self.assertEqual(wi.copy_saves(self.home, self.GAMES, self.tmp / "s"), [])
+
+
+class Proton(Base):
+    def test_store_answer(self):
+        with mock.patch.object(wi, "_fetch", return_value=b'{"620": {"success": true, "data": {"platforms": '
+                                                          b'{"windows": true, "mac": true, "linux": true}}}}'):
+            self.assertTrue(wi.has_linux_version("620"))
+        with mock.patch.object(wi, "_fetch", side_effect=OSError("offline")):
+            self.assertIsNone(wi.has_linux_version("620"))
+
+    def test_force_proton(self):
+        root = self.tmp / "steam"
+        self.assertEqual(wi.force_proton(root, ["620"]), 1)  # no config.vdf yet (Steam never started)
+        mapping = self.mapping(root)
+        self.assertEqual(mapping["620"]["name"], "proton_experimental")
+        mapping["0"] = {"name": "proton_9", "config": "", "priority": "75"}
+        mapping["620"]["name"] = "proton_8"  # the user's own choice
+        cfg = root / "config/config.vdf"
+        cfg.write_text(wi.steam.vdf_dump({"InstallConfigStore": {"Software": {"Valve": {"Steam": {
+            "CompatToolMapping": mapping, "AutoUpdateWindowEnabled": "0"}}}}}))
+        self.assertEqual(wi.force_proton(root, ["620", "730"]), 1)
+        mapping = self.mapping(root)
+        self.assertEqual((mapping["620"]["name"], mapping["730"]["name"]), ("proton_8", "proton_9"))
+        self.assertIn("AutoUpdateWindowEnabled", cfg.read_text())  # the rest of the file stays
+
+    @staticmethod
+    def mapping(root):
+        data = wi.steam.vdf_load((root / "config/config.vdf").read_text())
+        return data["InstallConfigStore"]["Software"]["Valve"]["Steam"]["CompatToolMapping"]
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
