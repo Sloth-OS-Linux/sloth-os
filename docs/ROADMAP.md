@@ -35,8 +35,8 @@ tests: `tools/tests/test_windows_import.py`, 50 languages).
 - [x] On the HP (OK 2026-11-10; Sloth Center → Disks → "Bring files over from Windows"): the programs list matches
   what is installed on Windows; a copied Windows-only Steam game (Bloons TD Battles 2) shows as installed in Steam
   and starts without a download
-- [ ] On the HP: a game with a Linux version (e.g. Muck, free) starts with Proton instead of downloading the Linux
-  version; a game without Steam Cloud finds its save
+- [x] On the HP (OK 2026-11-10): a game with a Linux version (Muck) starts with Proton instead of downloading the
+  Linux version; a game without Steam Cloud (Doki Doki Literature Club!) finds its save
 - Next parts (not started): bookmarks straight into the browser, a preview to pick subfolders, the wallpaper, fonts
   and Saved Games, an honest note about passwords
 
