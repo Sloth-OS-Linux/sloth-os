@@ -21,6 +21,7 @@ Kirigami.ApplicationWindow {
         { id: "winprograms", name: L.t("Programs"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true },
         { id: "games", name: L.t("Games"), icon: "input-gamepad", page: "GamesPage.qml", ready: true },
         { id: "drivers", name: L.t("Drivers and hardware"), icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true },
+        { id: "printers", name: L.t("Printers and scanners"), icon: "printer", page: "PrintersPage.qml", ready: true },
         { id: "power", name: L.t("Power and battery"), icon: "preferences-system-power-management", page: "PowerPage.qml", ready: true },
         { id: "services", name: L.t("Services"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true },
         { id: "accounts", name: L.t("Account and security"), icon: "preferences-system-users", page: "AccountsPage.qml", ready: true },

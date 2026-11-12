@@ -24,6 +24,8 @@ NOTES = {
         N_("Moving over from Windows: your files, bookmarks (straight into your browsers), Steam games with their "
            "saves, and a list of the programs you used, with their Sloth OS versions."),
         N_("BIOS and device firmware updates in Sloth Center → Updates, only when you choose to."),
+        N_("Help from someone you know: in Sloth Center → Help, they can see your screen and help over the internet."),
+        N_("Printers and scanners: a page in Sloth Center with a test page and scanning."),
         N_("Parental controls: child accounts with screen time, allowed apps and safe websites."),
         N_("A guest account that forgets everything when the guest signs out."),
         N_("Accessibility, and Power and battery pages in Sloth Center."),
