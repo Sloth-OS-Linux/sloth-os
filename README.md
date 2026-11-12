@@ -19,6 +19,10 @@ update. Download: [sloth-os-1.4.2-x86_64.iso](https://sourceforge.net/projects/s
 [torrent](https://sourceforge.net/projects/sloth-os/files/1.4.2/sloth-os-1.4.2-x86_64.iso.torrent/download)), SHA-256 `bcbb0dcf77dc49d1226fbbf501c31c0712a35ca84a3574f6968f72bd94350c87`. What changed:
 [release notes](#release-notes) below (also in [docs/releases/1.4.2.md](docs/releases/1.4.2.md)).
 
+**Coming soon: Sloth OS 1.5** (moving over from Windows with your bookmarks and Steam games, BIOS updates,
+parental controls, a guest account, printers and scanners, and more). Machines already running Sloth OS get it as a
+normal update. The 1.5 installer ISO follows shortly.
+
 ## What Sloth OS can do
 
 **Feels familiar from the first minute.** Pick a taskbar layout that looks like Windows 10, Windows 11, Windows 7, a
@@ -28,7 +32,7 @@ only what you chose goes on the taskbar. Every text is available in 50 languages
 
 **One place for settings: Sloth Center.** Updates, disks and what uses the space, network folders (NAS), file
 backup and restore, displays (refresh rate, VRR, HDR), sound and microphone test, Bluetooth, a Wi-Fi check in plain
-language, controllers, programs that start at sign-in, app permissions, a security overview and system health, a
+language, printers and scanners, BIOS updates, parental controls, accessibility, power and battery, controllers, programs that start at sign-in, app permissions, a security overview and system health, a
 Feedback page and offline Help for the most common problems. A short guided tour shows where everything is.
 
 **Games that just work.** Steam, Proton, GameMode and gamescope are ready to go, with an FPS and temperature display
@@ -51,6 +55,20 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
+<summary><b>What's new in 1.5</b> (November 12, 2026)</summary>
+
+**Moving over from Windows:** your files, your bookmarks straight into your browsers, your Steam games (with their
+saves) without downloading them again, and a list of the programs you used with what to use on Sloth OS instead.
+
+**Sloth Center:** BIOS and device firmware updates (signed ones only, and only when you choose), parental controls
+(child accounts, screen time, allowed apps, safe websites), a guest account, Accessibility, Power and battery,
+Printers and scanners, help from someone you know over the internet, and hourly backups of your game saves.
+
+Full notes: [docs/releases/1.5.md](docs/releases/1.5.md).
+
+</details>
+
+<details>
 <summary><b>What's new in 1.4.2</b> (November 6, 2026)</summary>
 
 **The installer:** the install no longer stops at 80% on some laptops (an ASUS VivoBook, for example) whose firmware

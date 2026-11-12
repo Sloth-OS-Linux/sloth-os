@@ -5,7 +5,7 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
-### Before Sloth OS 1.5 (2026-11-12, test branch): firmware, what's new, remote help, printers
+### Sloth OS 1.5 (2026-11-12): firmware, what's new, remote help, printers
 - [x] **BIOS/firmware updates** (`sloth_center/firmware.py`, Updates page): fwupd's fwupdmgr in JSON mode; only
   signed (`trusted-payload`) upgrades (`is-upgrade`) from the stable LVFS (lvfs-testing stays off, as Fedora ships
   it); never by themselves; a laptop must be plugged in and at 30% or more, fwupd's device problems (lid closed,
@@ -23,12 +23,13 @@ from a terminal must also work from a GUI.
   ipp-usb), test page, default printer (lpoptions, per user), print queue, adding by hand (KDE's printer settings);
   scanners (SANE, sane-airscan added), Skanpage; tests: `tools/tests/test_printers.py`
 - [x] All of it in 50 languages
-- [ ] On the HP: Updates → Computer firmware (BIOS) → Check: what HP offers through the LVFS; if there is an
+- [x] On the HP (OK 2026-11-12): Updates → Computer firmware (BIOS) → Check: what HP offers through the LVFS; if there is an
   update, the BitLocker question shows (the HP has Windows), and only plugged in
 - [ ] On the HP: Help → Install RustDesk → a phone or another computer connects; the screen shows and the mouse and
   keyboard work (Wayland asks to allow it)
 - [ ] On the HP: Printers and scanners with a real printer (Wi-Fi or USB): it shows by itself, the test page prints
-- [ ] After the 1.5 update on the HP: the "Sloth OS 1.5 is here" notification once
+- [x] After the 1.5 update on the HP (OK 2026-11-12): the "Sloth OS 1.5 is here" notification once, and its button
+  opens the Updates page
 
 ### Moving over from Windows: programs and Steam games (2026-11-10, test branch)
 The first two parts of the large item "migrate from Windows" (Updates, backup… → Installation and storage); the
