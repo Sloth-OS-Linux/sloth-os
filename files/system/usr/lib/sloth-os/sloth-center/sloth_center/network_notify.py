@@ -16,6 +16,7 @@ import os
 import subprocess
 from pathlib import Path
 
+from . import launch
 from .i18n import tr
 from .sharing import network_label
 
@@ -51,7 +52,7 @@ def tell_defaulted(names):
                        "change it in Sloth Center → Disks.", names=", ".join(names)),
                     [("open", tr("Open Sloth Center"))], icon="network-workgroup")
     if answer == "open":
-        subprocess.Popen(["sloth-center", "--page", "disks"])
+        launch.open_center("disks")
 
 
 def ask_pending():
@@ -80,7 +81,7 @@ def ask_pending():
         if answer == "allow":
             subprocess.run(["pkexec", SHARING_HELPER, "share-approve", share["file"]], capture_output=True)
         elif answer == "open":
-            subprocess.Popen(["sloth-center", "--page", "disks"])
+            launch.open_center("disks")
 
 
 def main():

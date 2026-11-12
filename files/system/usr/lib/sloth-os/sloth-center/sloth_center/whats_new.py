@@ -12,6 +12,7 @@ from pathlib import Path
 
 from sloth_common import quiet_hours
 
+from . import launch
 from .i18n import N_, tr
 
 SEEN = Path(os.environ.get("XDG_STATE_HOME", Path.home() / ".local/state")) / "sloth-os" / "whats-new-seen"
@@ -78,8 +79,7 @@ def main():
     except OSError:
         return 0
     if answer == "show":
-        subprocess.Popen(["sloth-center", "--page", "updates"], start_new_session=True,
-                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        launch.open_center("updates")
     return 0
 
 

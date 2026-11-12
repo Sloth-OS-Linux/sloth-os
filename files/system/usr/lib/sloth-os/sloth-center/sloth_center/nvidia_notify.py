@@ -9,6 +9,7 @@ from pathlib import Path
 
 from sloth_common import quiet_hours
 
+from . import launch
 from .i18n import tr
 
 STATE = Path("/var/lib/sloth-os/nvidia-auto")
@@ -54,7 +55,7 @@ def main():
     if choice == "reboot":
         subprocess.Popen(["systemctl", "reboot"])
     elif choice == "guide":
-        subprocess.Popen(["sloth-center", "--page", "drivers"], start_new_session=True)
+        launch.open_center("drivers")
     return 0
 
 

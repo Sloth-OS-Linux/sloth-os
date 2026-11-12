@@ -1116,7 +1116,7 @@
   "Game saves can be backed up by themselves.": "Сохранения игр могут резервироваться сами.",
   "Create New → Website shortcut… on the desktop and in the file manager.": "Создать → Ярлык сайта… на рабочем столе и в файловом менеджере.",
   "Sloth OS {version} is here": "Вышел Sloth OS {version}",
-  "See what's new": "Что нового",
+  "See what's new": "Посмотреть, что нового",
   "Let someone you know help you": "Пусть вам поможет знакомый",
   "With RustDesk, someone you trust can see your screen and help you from their own computer, over the internet. They need RustDesk too: it is free, also for Windows, Mac and phones. RustDesk shows an ID and a one-time password: tell them those, then allow the screen sharing when Sloth OS asks. You can end it at any time.": "С RustDesk человек, которому вы доверяете, может видеть ваш экран и помогать со своего компьютера через интернет. Ему тоже нужен RustDesk: он бесплатный, есть и для Windows, Mac и телефонов. RustDesk показывает ID и одноразовый пароль: сообщите их ему, затем разрешите показ экрана, когда Sloth OS спросит. Завершить можно в любой момент.",
   "Only do this with someone you know. Microsoft, your bank or Sloth OS never call you to ask for remote access: whoever does is a scammer.": "Делайте это только с тем, кого знаете. Microsoft, ваш банк или Sloth OS никогда не звонят с просьбой об удалённом доступе: кто так делает — мошенник.",
