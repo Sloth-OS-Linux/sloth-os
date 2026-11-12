@@ -46,9 +46,15 @@ def save_pending(folders, title):
     """folders: [{title, children: [{title, url} | {title, children}]}] -> into one folder called `title`."""
     if not count(folders):
         return
+    # bringing over again: the browsers that already got the same bookmarks don't get a second folder
+    try:
+        old = json.loads(PENDING.read_text(encoding="utf-8"))
+        done = old.get("done", []) if old.get("children") == folders else []
+    except (OSError, ValueError, AttributeError):
+        done = []
     PENDING.parent.mkdir(parents=True, exist_ok=True)
     tmp = PENDING.with_suffix(".tmp")
-    tmp.write_text(json.dumps({"title": title, "children": folders, "done": []}, ensure_ascii=False),
+    tmp.write_text(json.dumps({"title": title, "children": folders, "done": done}, ensure_ascii=False),
                    encoding="utf-8")
     tmp.replace(PENDING)
 

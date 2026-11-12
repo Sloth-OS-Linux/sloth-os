@@ -366,6 +366,11 @@ class Bookmarks(Base):
             walk(r)
         self.assertEqual(len(ids), len(set(ids)))          # no id twice
         self.assertEqual(bb.apply_pending(), [])           # only once
+        bb.save_pending(TREE, "From Windows")              # brought over again: the same bookmarks
+        self.assertEqual(bb.apply_pending(), [])
+        bb.save_pending(TREE + [{"title": "Edge", "children": [{"title": "N", "url": "https://n.example/"}]}],
+                        "From Windows")                    # new ones on Windows meanwhile
+        self.assertEqual(bb.apply_pending(), ["com.brave.Browser"])
 
     def test_chromium_never_started_and_running(self):
         self.install("com.google.Chrome")

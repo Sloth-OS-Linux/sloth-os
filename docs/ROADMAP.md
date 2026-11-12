@@ -51,7 +51,7 @@ tests: `tools/tests/test_windows_import.py`, 50 languages).
   where the games go; their Proton environments and saves go next to them, the space check is per disk
 - [x] An honest note about passwords: browsers' saved passwords can't come over (locked to the Windows account); turn
   on sync or export them on Windows
-- [ ] On the HP: bookmarks from Windows show up in a browser installed in the wizard (Chrome/Brave at once, Firefox
+- [x] On the HP (OK 2026-11-12): bookmarks from Windows show up in a browser installed in the wizard (Chrome/Brave at once, Firefox
   after its first start and a new sign-in); with a second Steam library the choice shows and the game starts from it
 - Next parts (not started): a preview to pick subfolders. Not planned: the Windows wallpaper (Sloth OS keeps its own);
   fonts (the user decides)
