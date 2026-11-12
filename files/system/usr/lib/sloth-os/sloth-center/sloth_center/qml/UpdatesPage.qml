@@ -211,6 +211,119 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- The computer's firmware (BIOS/UEFI…) from the LVFS, through fwupd (firmware.py): only by hand ---
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: firmware.available
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                RowLayout {
+                    spacing: Kirigami.Units.largeSpacing
+                    Kirigami.Icon {
+                        source: "cpu"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: 0
+                        Kirigami.Heading { level: 3; text: L.t("Computer firmware (BIOS)"); Layout.fillWidth: true }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.7
+                            text: L.t("Updates for the computer's BIOS and for some devices (disks, docks), signed by their makers. They never install by themselves: only when you press Install.")
+                        }
+                    }
+                    QQC2.Button {
+                        text: L.t("Check")
+                        icon.name: "view-refresh"
+                        enabled: firmware.state !== "checking" && firmware.state !== "installing"
+                        onClicked: firmware.check()
+                    }
+                }
+                RowLayout {
+                    visible: firmware.state === "checking" || firmware.state === "installing"
+                    QQC2.BusyIndicator { running: parent.visible }
+                    QQC2.Label {
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: firmware.state === "checking" ? L.t("Looking for firmware updates…")
+                              : L.t("Installing the firmware update… Don't turn the computer off.")
+                    }
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: firmware.message !== ""
+                    type: firmware.state === "failed" ? Kirigami.MessageType.Error
+                          : firmware.state === "restart" ? Kirigami.MessageType.Warning
+                          : Kirigami.MessageType.Positive
+                    text: firmware.message
+                    actions: [
+                        Kirigami.Action {
+                            visible: firmware.state === "restart"
+                            text: L.t("Restart now")
+                            icon.name: "system-reboot"
+                            onTriggered: updates.reboot()
+                        }
+                    ]
+                }
+                Repeater {
+                    model: firmware.state === "ready" ? firmware.updates : []
+                    delegate: ColumnLayout {
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.smallSpacing
+                        Kirigami.Separator { Layout.fillWidth: true }
+                        RowLayout {
+                            Layout.fillWidth: true
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                spacing: 0
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    font.bold: true
+                                    text: modelData.name + (modelData.vendor ? " (" + modelData.vendor + ")" : "")
+                                }
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    text: L.tf("Version {current} → {version}", { current: modelData.current, version: modelData.version })
+                                          + (modelData.urgent ? " – " + L.t("an important fix") : "")
+                                }
+                            }
+                            QQC2.Button {
+                                text: L.t("Install")
+                                icon.name: "install"
+                                enabled: modelData.blockers.length === 0
+                                onClicked: {
+                                    fwConfirm.device = modelData
+                                    fwConfirm.keyOk = false
+                                    fwConfirm.open()
+                                }
+                            }
+                        }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.7
+                            visible: text !== ""
+                            text: modelData.notes || modelData.summary
+                            maximumLineCount: 6
+                            elide: Text.ElideRight
+                        }
+                        Kirigami.InlineMessage {
+                            Layout.fillWidth: true
+                            visible: modelData.blockers.length > 0
+                            type: Kirigami.MessageType.Warning
+                            text: modelData.blockers.join(" ")
+                        }
+                    }
+                }
+            }
+        }
+
         // --- When the automatic system update downloads (rpm-ostreed-automatic.timer, sloth-helper update-time) ---
         Kirigami.AbstractCard {
             Layout.fillWidth: true
@@ -446,6 +559,44 @@ Kirigami.ScrollablePage {
                 text: L.t("Later")
                 icon.name: "dialog-cancel"
                 onTriggered: updates.dismissMeteredWarning()
+            }
+        ]
+    }
+
+    Kirigami.PromptDialog {
+        id: fwConfirm
+        property var device: ({})
+        property bool keyOk: false
+        title: L.t("Install the firmware update?")
+        subtitle: fwConfirm.device.reboot
+                  ? L.t("The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.")
+                  : L.t("It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.")
+        standardButtons: Kirigami.Dialog.NoButton
+        ColumnLayout {
+            Kirigami.InlineMessage {
+                Layout.fillWidth: true
+                visible: fwConfirm.device.recoveryKey === true
+                type: Kirigami.MessageType.Warning
+                text: L.t("Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.")
+            }
+            QQC2.CheckBox {
+                visible: fwConfirm.device.recoveryKey === true
+                text: L.t("I have the recovery key")
+                checked: fwConfirm.keyOk
+                onToggled: fwConfirm.keyOk = checked
+            }
+        }
+        customFooterActions: [
+            Kirigami.Action {
+                text: L.t("Install")
+                icon.name: "install"
+                enabled: fwConfirm.device.recoveryKey !== true || fwConfirm.keyOk
+                onTriggered: { fwConfirm.close(); firmware.install(fwConfirm.device.id) }
+            },
+            Kirigami.Action {
+                text: L.t("Cancel")
+                icon.name: "dialog-cancel"
+                onTriggered: fwConfirm.close()
             }
         ]
     }

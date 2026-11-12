@@ -72,6 +72,7 @@ def main():
     from .profiles import ProfilesController
     from .settings_backup import SettingsBackupController
     from .winprograms import WinProgramsController
+    from .firmware import FirmwareController
 
     engine = QQmlApplicationEngine()
     engine.addImportPath(shared_appearance.QML_IMPORT_PATH)  # import SlothCommon (the layout drawings)
@@ -79,6 +80,7 @@ def main():
     engine.rootContext().setContextProperty("L", translator)
     engine.rootContext().setContextProperty("startPage", start_page)
     updates = UpdatesController()
+    firmware = FirmwareController()
     winprograms = WinProgramsController()
     services = ServicesController()
     drivers = DriversController()
@@ -114,6 +116,7 @@ def main():
     profiles = ProfilesController(display)
     settings_backup = SettingsBackupController()
     engine.rootContext().setContextProperty("updates", updates)
+    engine.rootContext().setContextProperty("firmware", firmware)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
     engine.rootContext().setContextProperty("drivers", drivers)
