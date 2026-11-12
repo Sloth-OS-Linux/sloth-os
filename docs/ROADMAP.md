@@ -5,6 +5,31 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Before Sloth OS 1.5 (2026-11-12, test branch): firmware, what's new, remote help, printers
+- [x] **BIOS/firmware updates** (`sloth_center/firmware.py`, Updates page): fwupd's fwupdmgr in JSON mode; only
+  signed (`trusted-payload`) upgrades (`is-upgrade`) from the stable LVFS (lvfs-testing stays off, as Fedora ships
+  it); never by themselves; a laptop must be plugged in and at 30% or more, fwupd's device problems (lid closed,
+  power too low, update pending…) block it in plain words; with BitLocker on the machine (lsblk) or an update that
+  affects disk encryption the user confirms having the recovery key; a BIOS update offers the restart. No password
+  for signed updates (fwupd's polkit: update-internal-trusted is "yes" for the active user). Checked end to end with
+  fwupd 2.1.9's fake test device (fwupd-tests) in a container; tests: `tools/tests/test_firmware.py`
+- [x] **What's new** (`sloth_center/whats_new.py`, `sloth-whats-new.service`): after an update to a new version a
+  notification lists what it brings (once; never on a fresh install), and a card on the Updates page; the notes
+  are Sloth Center texts (`NOTES`, 1.5's written); tests: `tools/tests/test_whats_new.py`
+- [x] **Remote help** (Help page, `sloth_center/remote_help.py`): RustDesk from Discover (com.rustdesk.RustDesk,
+  verified on Flathub), with a plain warning about "support call" scams first. Not tried: whether RustDesk's
+  incoming control works under Plasma 6.8 Wayland as a Flatpak (forum reports are mixed)
+- [x] **Printers and scanners** page (`sloth_center/printers.py`): the printers CUPS finds by itself (driverless,
+  ipp-usb), test page, default printer (lpoptions, per user), print queue, adding by hand (KDE's printer settings);
+  scanners (SANE, sane-airscan added), Skanpage; tests: `tools/tests/test_printers.py`
+- [x] All of it in 50 languages
+- [ ] On the HP: Updates → Computer firmware (BIOS) → Check: what HP offers through the LVFS; if there is an
+  update, the BitLocker question shows (the HP has Windows), and only plugged in
+- [ ] On the HP: Help → Install RustDesk → a phone or another computer connects; the screen shows and the mouse and
+  keyboard work (Wayland asks to allow it)
+- [ ] On the HP: Printers and scanners with a real printer (Wi-Fi or USB): it shows by itself, the test page prints
+- [ ] After the 1.5 update on the HP: the "Sloth OS 1.5 is here" notification once
+
 ### Moving over from Windows: programs and Steam games (2026-11-10, test branch)
 The first two parts of the large item "migrate from Windows" (Updates, backup… → Installation and storage); the
 Welcome step and the Disks page's "Bring over from Windows" got them (`sloth_common/windows_import.py`,
