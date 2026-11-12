@@ -243,7 +243,7 @@ Done: {name} ({size})
 SHA-256: {sha}
 
 1. Upload to SourceForge (the folder {v} is made if it is missing):
-   sftp -i ~/.ssh/sloth-os-sourceforge-rsa -b - slothos@frs.sourceforge.net <<'SFTP'
+   sftp -i ~/.ssh/sloth-os-sourceforge -b - slothos@frs.sourceforge.net <<'SFTP'
    -mkdir /home/frs/project/sloth-os/{v}
    put "{iso.as_posix()}" /home/frs/project/sloth-os/{v}/
    put "{iso.as_posix()}.sha256" /home/frs/project/sloth-os/{v}/

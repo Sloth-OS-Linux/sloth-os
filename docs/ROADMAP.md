@@ -5,7 +5,7 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
-### Sloth OS 1.5 (2026-11-12): firmware, what's new, remote help, printers
+### Sloth OS 1.5 (released 2026-11-12): firmware, what's new, remote help, printers
 - [x] **BIOS/firmware updates** (`sloth_center/firmware.py`, Updates page): fwupd's fwupdmgr in JSON mode; only
   signed (`trusted-payload`) upgrades (`is-upgrade`) from the stable LVFS (lvfs-testing stays off, as Fedora ships
   it); never by themselves; a laptop must be plugged in and at 30% or more, fwupd's device problems (lid closed,
