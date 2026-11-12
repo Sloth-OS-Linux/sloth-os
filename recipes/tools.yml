@@ -68,6 +68,7 @@ modules:
         # a notification when a system update was prepared in the background (it installs at the next restart)
         - sloth-update-notify.path
         - sloth-update-notify.service
+        - sloth-whats-new.service
         # parental controls in a child's session: the screen time banners, the blocked apps hidden
         - sloth-family-session.service
         # the question at a new network, as in Windows: private (shared folders open) or public (hidden)

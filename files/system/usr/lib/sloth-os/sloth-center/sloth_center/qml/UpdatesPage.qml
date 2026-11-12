@@ -180,6 +180,30 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- What the running version brought (whats_new.py; the notification after an update opens this page) ---
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: updates.whatsNew.length > 0
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                Kirigami.Heading {
+                    level: 3
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    text: L.tf("What's new in Sloth OS {version}", { version: updates.runningVersion })
+                }
+                Repeater {
+                    model: updates.whatsNew
+                    delegate: QQC2.Label {
+                        required property string modelData
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        text: "• " + modelData
+                    }
+                }
+            }
+        }
+
         // --- Apps: Discover and the automatic app updates ------------------------------------
         // This page updates the system; the apps (Flatpak) are updated in the background by a daily updater, by hand in
         // Discover; Discover does not show the system update (there are not two separate system updates)

@@ -1,0 +1,11 @@
+[Unit]
+Description=Sloth OS: what's new after an update brought a new version
+After=plasma-workspace.target
+
+[Service]
+Type=oneshot
+Environment=PYTHONPATH=/usr/lib/sloth-os/sloth-center:/usr/lib/sloth-os/common
+ExecStart=/usr/bin/python3 -m sloth_center.whats_new
+
+[Install]
+WantedBy=plasma-workspace.target
