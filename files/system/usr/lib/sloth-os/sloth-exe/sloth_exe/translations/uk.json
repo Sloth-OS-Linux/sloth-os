@@ -76,5 +76,8 @@
   "misc.program_files": "Файли програми",
 
   "desktop.name": "Програми Windows",
-  "desktop.comment": "Встановлення та запуск програм і ігор для Windows"
+  "desktop.comment": "Встановлення та запуск програм і ігор для Windows",
+
+  "parental.blocked_title": "Вимкнено батьками",
+  "parental.blocked_text": "Батьки вимкнули програми Windows і завантажені застосунки для твого облікового запису. Попроси дозволити їх у Sloth Center → Батьківський контроль."
 }

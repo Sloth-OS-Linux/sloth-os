@@ -1,0 +1,14 @@
+[Unit]
+Description=Sloth OS: screen time banners and blocked apps for a child account
+Documentation=file:///usr/lib/sloth-os/sloth-center/sloth_center/family_session.py
+After=plasma-workspace.target
+
+[Service]
+# all through the session: it looks at /run/sloth-os/family every few seconds (does nothing without parental controls)
+Environment=PYTHONPATH=/usr/lib/sloth-os/sloth-center:/usr/lib/sloth-os/common
+ExecStart=/usr/bin/python3 -m sloth_center.family_session watch
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=plasma-workspace.target

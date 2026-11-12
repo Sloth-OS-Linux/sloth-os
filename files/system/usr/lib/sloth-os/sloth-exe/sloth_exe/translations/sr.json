@@ -76,5 +76,8 @@
   "misc.program_files": "Датотеке програма",
 
   "desktop.name": "Windows програми",
-  "desktop.comment": "Инсталирање и покретање Windows програма и игара"
+  "desktop.comment": "Инсталирање и покретање Windows програма и игара",
+
+  "parental.blocked_title": "Искључио родитељ",
+  "parental.blocked_text": "Родитељ је на твом налогу искључио Windows програме и преузете апликације. Замоли га да их дозволи у Sloth Center → Родитељски надзор."
 }

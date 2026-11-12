@@ -5,6 +5,143 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Sloth OS 1.5 (2026-11-12): firmware, what's new, remote help, printers
+- [x] **BIOS/firmware updates** (`sloth_center/firmware.py`, Updates page): fwupd's fwupdmgr in JSON mode; only
+  signed (`trusted-payload`) upgrades (`is-upgrade`) from the stable LVFS (lvfs-testing stays off, as Fedora ships
+  it); never by themselves; a laptop must be plugged in and at 30% or more, fwupd's device problems (lid closed,
+  power too low, update pending…) block it in plain words; with BitLocker on the machine (lsblk) or an update that
+  affects disk encryption the user confirms having the recovery key; a BIOS update offers the restart. No password
+  for signed updates (fwupd's polkit: update-internal-trusted is "yes" for the active user). Checked end to end with
+  fwupd 2.1.9's fake test device (fwupd-tests) in a container; tests: `tools/tests/test_firmware.py`
+- [x] **What's new** (`sloth_center/whats_new.py`, `sloth-whats-new.service`): after an update to a new version a
+  notification lists what it brings (once; never on a fresh install), and a card on the Updates page; the notes
+  are Sloth Center texts (`NOTES`, 1.5's written); tests: `tools/tests/test_whats_new.py`
+- [x] **Remote help** (Help page, `sloth_center/remote_help.py`): RustDesk from Discover (com.rustdesk.RustDesk,
+  verified on Flathub), with a plain warning about "support call" scams first. Not tried: whether RustDesk's
+  incoming control works under Plasma 6.8 Wayland as a Flatpak (forum reports are mixed)
+- [x] **Printers and scanners** page (`sloth_center/printers.py`): the printers CUPS finds by itself (driverless,
+  ipp-usb), test page, default printer (lpoptions, per user), print queue, adding by hand (KDE's printer settings);
+  scanners (SANE, sane-airscan added), Skanpage; tests: `tools/tests/test_printers.py`
+- [x] All of it in 50 languages
+- [x] On the HP (OK 2026-11-12): Updates → Computer firmware (BIOS) → Check: what HP offers through the LVFS; if there is an
+  update, the BitLocker question shows (the HP has Windows), and only plugged in
+- [ ] On the HP: Help → Install RustDesk → a phone or another computer connects; the screen shows and the mouse and
+  keyboard work (Wayland asks to allow it)
+- [ ] On the HP: Printers and scanners with a real printer (Wi-Fi or USB): it shows by itself, the test page prints
+- [x] After the 1.5 update on the HP (OK 2026-11-12): the "Sloth OS 1.5 is here" notification once, and its button
+  opens the Updates page
+
+### Moving over from Windows: programs and Steam games (2026-11-10, test branch)
+The first two parts of the large item "migrate from Windows" (Updates, backup… → Installation and storage); the
+Welcome step and the Disks page's "Bring over from Windows" got them (`sloth_common/windows_import.py`,
+tests: `tools/tests/test_windows_import.py`, 50 languages).
+- [x] **"Programs you used on Windows":** the Start menu (all users' and the account's own) and the Microsoft Store
+  apps' package folders are matched to the wizard's apps (`PROGRAMS`: e.g. Spotify, Discord, Steam, Battle.net), or
+  to their counterparts with "instead of …" (Word/Excel → LibreOffice, Epic Games → Heroic, WhatsApp → ZapZap,
+  Photoshop → GIMP). Nothing is ticked; ticking one is the same as ticking it in its category, so it is installed at
+  the end of the wizard. From Sloth Center (the step on its own) each Flathub app has an "Install" button that opens
+  Discover. Edge is left out (on every Windows)
+- [x] **Steam games without a new download:** the fully installed games (StateFlags 4) of Windows' Steam and of every
+  library its libraryfolders.vdf names (the drive letter is dropped and every Windows drive is looked at, so a
+  D:\SteamLibrary on a data disk is found too; such a disk stays mounted read-only until the end) are copied into
+  Sloth OS's Steam library (the one in use, or the Flatpak Steam's own: Steam finds them at its first start). A game's
+  manifest is written only when all its files are there (an interruption shows no broken game; the next try
+  continues), with the space check of the files. Steamworks Common Redistributables are skipped
+- [x] **A game with a Linux version** would make Steam download that build instead of using the Windows files: the
+  store (store.steampowered.com/api/appdetails, platforms) says which ones have it, and those get Steam's "Force a
+  compatibility tool" (config.vdf CompatToolMapping: the tool set for every game, else Proton Experimental; a choice
+  the user already made stays). Steam must be closed (it rewrites config.vdf when it exits): the step asks for it.
+  A Windows-only game needs nothing: Steam runs those with Proton by default since 2025-06. Offline: Steam decides
+- [x] **Saves kept on the computer:** where each game saves (Ludusavi's manifest, PCGamingWiki's data, downloaded
+  when needed and kept for a week) is looked up by Steam ID; the saves found on Windows (AppData, Documents also in
+  OneDrive, Saved Games; NTFS's case-blindness imitated) go into the game's Proton environment
+  (compatdata/<appid>/pfx/drive_c/users/steamuser/…), where Proton keeps them at the first start (its copy_pfx only
+  adds; Steam drops cloud files there the same way). Steam Cloud games are left to Steam (no conflict question);
+  nothing already there is overwritten; over 4 GB per game is left out
+- [x] On the HP (OK 2026-11-10; Sloth Center → Disks → "Bring files over from Windows"): the programs list matches
+  what is installed on Windows; a copied Windows-only Steam game (Bloons TD Battles 2) shows as installed in Steam
+  and starts without a download
+- [x] On the HP (OK 2026-11-10): a game with a Linux version (Muck) starts with Proton instead of downloading the
+  Linux version; a game without Steam Cloud (Doki Doki Literature Club!) finds its save
+- [x] Bookmarks straight into the browsers (2026-11-10, `sloth_common/browser_bookmarks.py`): from Chrome, Edge, Brave,
+  Vivaldi, Opera and Firefox on Windows, as one "From Windows" folder on the bookmarks toolbar of every browser from
+  the wizard installed as a Flatpak; each browser once, never while it runs, nothing there changed. Chromium-based:
+  the profile's Bookmarks JSON without its checksum (Chromium's reader never checks it); a browser never started gets
+  the file in advance. Firefox-based: places.sqlite written the way Firefox writes a bookmark (url_hash ported from
+  Helpers.cpp and checked against a real profile; moz_origins and foreign_count as its triggers do); Firefox only
+  makes its profile at its first start, so it gets them at the next sign-in (`/usr/libexec/sloth-os/bookmarks-import`).
+  Checked in a container with real Firefox 159 (it shows them; its own checkAndFixDatabase: "coherent") and Chromium
+  156 (a profile made in advance is loaded and kept). The HTML file on the Desktop stays as well
+- [x] Saved Games: Steam games' saves there come over with the rest (the Ludusavi paths under `<home>/Saved Games`)
+- [x] Steam library choice: with more than one library set in Steam (e.g. on a second disk), "Copy them to:" picks
+  where the games go; their Proton environments and saves go next to them, the space check is per disk
+- [x] An honest note about passwords: browsers' saved passwords can't come over (locked to the Windows account); turn
+  on sync or export them on Windows
+- [x] On the HP (OK 2026-11-12): bookmarks from Windows show up in a browser installed in the wizard (Chrome/Brave at once, Firefox
+  after its first start and a new sign-in); with a second Steam library the choice shows and the game starts from it
+- Next parts (not started): a preview to pick subfolders. Not planned: the Windows wallpaper (Sloth OS keeps its own);
+  fonts (the user decides)
+
+### Windows programs: the log of a start (2026-11-09, test branch)
+- [x] Sloth Center → Programs → ⋯ → "Show the last start's log": the newest log of the program's starts
+  (~/.cache/sloth-os/apps/<program>/naplo/) opens in the text editor. Finding it meant a hidden folder; asking for help
+  with a Windows program (Winamp, 2026-11-09) needed it. 50 languages
+- [ ] On the HP: the menu item shows only for a program that was started, and opens its newest log
+
+### Game saves (2026-11-07, test branch)
+- [x] The hourly file backup leaves out Steam's whole `steamapps` folder (the games are big and can be downloaded
+  again), and with it `steamapps/compatdata`, where the saves of Windows games under Proton are: those saves were in
+  no backup at all. Games → **Game saves**: "Turn on" installs Ludusavi from Discover (Flathub, MIT, 43 MB; it knows
+  where about 20 000 games keep their saves, Proton included), then `game-saves` (sloth-game-saves.timer, hourly)
+  backs up the changed saves into ~/.local/share/sloth-os/game-saves (inside home: the file backup keeps earlier
+  versions of them, a backup to an external drive takes them along); one full and up to 10 differential backups per
+  game. The card lists the games with their last backup, "Back up now", "Restore" per game (after a confirmation).
+  Ludusavi's settings are written into a config folder of our own every run (roots: Steam, also Flatpak; Heroic;
+  Lutris; the Windows programs' environments ~/Applications/*/windows), the user's own Ludusavi settings stay
+- Not tried with the real Ludusavi here (running a downloaded program was not allowed in this session): built on its
+  documented command line and JSON output (0.31), with tools/tests/test_game_saves.py on those shapes
+- [ ] On the HP: turn it on (Discover installs Ludusavi), a Steam game's save shows up after "Back up now"; change the
+  save in the game, "Restore", the old one is back; turning it off keeps the backups
+- Medium, later: restore an older backup than the newest (Ludusavi's `--backup <id>`)
+
+### Accessibility, Power and battery, Guest account (2026-11-07, test branch)
+- [x] Sloth Center → **Accessibility**: text size (100–200%, the desktop's fonts in kdeglobals), mouse pointer size,
+  high contrast (the new SlothHighContrast scheme; the scheme before comes back), less motion (no animations), the
+  magnifier (KWin's zoom), the screen reader (Orca, through kaccess), sticky keys; "More settings" opens KDE's own.
+  Everything in KDE's own files, no password
+- [x] Sloth Center → **Power and battery**: the battery (charge, time left, health against when it was new), the power
+  mode (power-profiles-daemon: power saver / balanced / best performance), when the screen turns off and when the
+  computer sleeps (plugged in and on battery; "As KDE sets it" until chosen), the lid and the power button
+  (powerdevilrc, PowerDevil reads it again at once). Without a battery or a lid those parts are hidden
+- [x] Account and security → **Guest account**: one switch (sloth-helper-family guest-on / guest-off). The guest
+  signs in without a password, is never an administrator, and everything it leaves goes when its last session ends
+  (guest-reset as ExecStopPost of its user@ service) and at every start (sloth-guest-reset.service); a fresh home
+  from /etc/skel. No Sloth Welcome for it, not listed as a child. guest-reset only touches the marked account if it
+  has the same user ID and no password (someone's own "guest" account, made later, could get the same free ID)
+- Tried: tools/tests/guest_test.sh (22 checks with real accounts), tools/tests/test_access_power.py (6), the pages
+  opened on the desktop PC (no battery: the battery and lid parts hidden), every text in 50 languages
+- [ ] On the HP (a laptop): the battery card, the lid setting, a power mode change shows in the quick settings too
+- [x] (2026-11-09) Text size: right after signing in again (seen on the HP); the page says so now, with "Sign out
+  now" when the text or pointer size was changed. Pointer size: never saved, even after signing in again:
+  plasma-apply-cursortheme with the theme already in use succeeds without saving the size, and the page wrote the
+  size itself only when it failed. Now kcminputrc's cursorSize is always written. The magnifier's text names Meta+0
+  and the three-finger pinch. test_access_power.py (7); the page loads offscreen
+- From the HP test (2026-11-09): high contrast works; the text size and the pointer size did not change (to see
+  whether they apply after signing in again, or are not written at all). The magnifier works, but its shortcuts
+  (Meta+= / Meta+-) are awkward on a Hungarian layout without a number pad; what worked: Meta+0 back to normal, and
+  a three-finger pinch on the touchpad (one finger still, two moving). To do: the page shows the zoom shortcuts and
+  the touchpad gesture, with a way to change them, and Meta+0
+- [x] On the HP (OK 2026-11-10): text size 150% and back, a large pointer, high contrast on and off (the old scheme comes back),
+  the magnifier with Meta and +, Orca starts and stops
+- [x] From the HP test (2026-11-09): nothing was emptied, and KDE's password store asked for a wallet when the
+  browser opened (closing it let the browser go online). The ExecStopPost drop-in ran guest-reset as the guest
+  (user@.service runs as the user), who could not check the account, so it left everything alone. Now one drop-in for
+  every user@ service (/usr/lib/systemd/system/user@.service.d/50-sloth-guest.conf: ExecStopPost=-+… --uid %i, as
+  root; guest-reset acts only for the guest's user ID), the old per-user drop-in goes at start, and the guest's
+  password store is off (kwalletrc Enabled=false, written with every fresh home). guest_test.sh: 28 checks
+- [x] On the HP (OK 2026-11-10): the guest account: sign in without a password, leave a file and a browser bookmark, sign out, sign
+  in again: everything is gone; the owner's files can't be opened from the guest
+
 ### Installer: firmware that refuses boot entries (GitHub issue #23, 2026-11-06, Sloth OS 1.4.2)
 - [x] An ASUS VivoBook (whole disk) failed at 80% every time: bootupd deletes every "Fedora" boot entry before making
   its own, the firmware answered "Cannot allocate memory" (its variable store full) and bootc stopped the install.
@@ -20,11 +157,73 @@ from a terminal must also work from a GUI.
 - [x] The reporter's ASUS VivoBook with the 1.4.2 ISO: the install went through (2026-11-07)
 - [ ] On the HP: without its boot entry (deleted in the BIOS) it still starts from the disk (the fallback path)
 
+### Parental controls (2026-11-06, test branch, to try on the HP)
+- [x] Sloth Center → Parental controls (it was "Coming soon"): child accounts (an ordinary account, never an
+  administrator), a daily limit (30 minutes to 6 hours) and allowed hours, and which installed apps a child may open.
+  malcontent 0.14 (Fedora 44) keeps the settings in AccountsService, Flatpak refuses a blocked app by itself (it checks
+  the exact installed ref, so the filter holds the real refs), and a child cannot install apps by itself (per-user
+  installs are off; system-wide ones need a parent's password). KDE has no screen time enforcement (on GNOME the
+  shell does it), so `screen-time` (sloth-screen-time.service, root) records the time a child's session is in use
+  (active, not locked) with malcontent-timerd's RecordUsage in the child's name, asks timerd how long is left, and
+  signs the child out a minute after the time is up; the child cannot stop it. In the child's session
+  `family_session` shows the warnings (10, 5, 1 minutes, time's up) with "Ask for more time" (timerd's extension
+  agent: a parent types their password on the child's screen) and hides the blocked apps from the menus.
+  sloth-helper-family (org.slothos.helper.family, in the "users" topic) does the changes: child-add, child-limits,
+  child-apps, child-remove; it refuses administrators, the caller's own account and system accounts. 50 languages.
+  Tried: tools/tests/test_parental_controls.py (16 tests) and tools/tests/parental_controls_test.sh (32 checks with
+  the real AccountsService and malcontent-timerd in a container; it found that timerd 0.14 mishandles an empty usage
+  span, so none is sent); the page loads offscreen with Kirigami for a parent and for a child
+- [x] On the HP (OK 2026-11-10): make a child account, sign in with it, set a 30-minute limit; the warnings come, "Ask for more time"
+  brings up the password window (malcontent's extension agent with KDE's polkit agent), the child is signed out at
+  the end and can't sign back in until the next day / the allowed hours (signed out again within a minute)
+- [x] On the HP (OK 2026-11-10): a blocked app does not start and is not in the child's Start menu; after allowing it again it is back
+- [x] On the HP (OK 2026-11-10): nothing changes for the parent's own account (every app starts, no screen time)
+- [x] Websites (2026-11-06): "Block adult websites and use safe search" per child, on for a new child account.
+  malcontent's own web filter (malcontent-webd, an NSS module) was left out: every browser here is a Flatpak, which
+  looks names up with its runtime's libraries and would never ask it. `family-web` (sloth-family-web.service) works
+  below the apps instead: nftables redirects a child's lookups (matched on the socket's owner, so Flatpaks too) to
+  sloth-family-dns.service, a dnsmasq on 127.0.0.2 that asks CleanBrowsing's family filter (no adult sites, proxies
+  or VPNs; Google, Bing and YouTube in their safe mode) and tells Firefox to keep its own encrypted lookups off; DNS
+  over TLS, DNS over HTTPS to the public resolvers and IPv6 name servers are closed for the child. Parents are not
+  touched. Tried: tools/tests/family_web_test.sh (13 checks with real dnsmasq and nftables)
+- [x] "Windows programs and downloaded apps" per child (2026-11-06): sloth-exe (.exe, .msi, AppImages) started
+  anything a child downloaded, past the app list. Off: their content types go into the child's malcontent app filter
+  and sloth-exe says a parent turned it off. Tried: parental_controls_test.sh (now 38 checks). Not covered: a child
+  who makes a downloaded file executable by hand in a terminal (noexec on the home folder would break Steam games)
+- [x] After trying it on the HP (2026-11-06): no warnings came before the end of the allowed hours, a full-screen
+  window hid the notifications, and logind's TerminateUser left the sign-in screen unusable (only the text consoles
+  answered). Now screen-time works out the end of the hours itself from malcontent's settings (the warnings 10, 5
+  and 1 minutes before it), the warnings also come as a banner on the overlay layer above full-screen windows
+  (layer-shell, Fusion style: Kirigami's import hung there), the child is signed out with Plasma's own sign-out
+  (org.kde.Shutdown.logout, back to the sign-in screen) and TerminateUser only 45 seconds later if that did not
+  work, and "Ask for more time" is offered only for the daily limit inside the hours
+- [x] Outside the allowed hours (or with the day's time used up) the sign-in screen refuses a child, telling them
+  when they can use the computer again: pam_exec runs `screen-time --may-sign-in` in plasmalogin's account part
+  (files/scripts/screen-time-pam.sh); administrators skip it (pam_succeed_if), and anything unexpected in the check
+  lets a child in. Tried: parental_controls_test.sh with pamtester (now 46 checks)
+- [x] From the HP test (2026-11-07): the allowed hours went only in whole hours (22:30 was not possible), and only
+  the 10-minute banner came, not the 5- and 1-minute ones (the child session reacted to the state file changing,
+  a path unit, which stopped working after the first time). Now: half-hour steps; the child session runs all
+  through (`family_session watch`) and works out the warnings from the end time every 5 seconds: a banner on the
+  overlay layer at 15, 10, 5 and 1 minutes, 10 seconds each, whichever ends first (the daily limit or the allowed
+  hours); signing in late shows only the nearest; no notifications any more (the banner was the one that worked);
+  "Time's up" stays until the sign-out. Tried: test_parental_controls.py (28), the real watcher on the desktop
+- [x] The banner over full-screen windows, tried on the desktop PC (two screens): a Wayland window, an XWayland one,
+  glxgears full screen (OpenGL) and vkcube in gamescope (Vulkan): above all four, on the screen in use
+  (wantsToBeOnActiveScreen)
+- [ ] On the HP again: allowed hours ending in 15 minutes: the warnings at 10, 5 and 1 minutes, also over a full-screen
+  video; no "Ask for more time"; signed out to the sign-in screen, which works; signing in again is refused with
+  the time it can be used again
+- [ ] On the HP: with the web filter on, an adult site doesn't open in Firefox / Brave for the child, Google search
+  is SafeSearch; the parent's account is unchanged; after turning it off the child's sites open again
+- [ ] On the HP: "Windows programs and downloaded apps" off: double-clicking an .exe as the child gives the
+  notification and starts nothing
+
 ### Sloth OS 1.4.1 (released 2026-11-04)
 - [x] Released: `main` = `v1.4.1` (`2ba775e`), ISO `sloth-os-1.4.1-x86_64.iso` (5.3 GB, SHA-256
   `aeb60acdac2ff2910f0106edad8cf231ac5f9190ed5062f52b3d5ace0a666b3f`, the CI artifact of the `iso` run on `51ff368`)
   with its `.torrent` on SourceForge, the website, README and the GitHub release (`v1.4.1`, Latest)
-- [ ] SourceForge default download set to the 1.4.1 ISO (needs the user)
+- [x] SourceForge default download set to the 1.4.1 ISO (needs the user)
 
 ### Sloth OS 1.4 (released 2026-11-03)
 - [x] Released: `main` = `v1.4` (`4cada88`), ISO `sloth-os-1.4-x86_64.iso` (5.3 GB, SHA-256
@@ -73,13 +272,18 @@ from a terminal must also work from a GUI.
   show their build time. Tried: the notification closing (fake notify-send / rpm-ostree), the helper's gate.
 - [ ] Wi-Fi: Lite-On 802.11n PCIe card crashes on Linux; waiting for the chip's name (Realtek rtl8188ee/rtl8192ce
   usually need `ips=0 fwlps=0`-like options)
-- [ ] A desktop shortcut to a web address is hard to find (dragging a Firefox bookmark to the desktop did nothing):
-  maybe "New web link" in Sloth OS's own desktop menu
-- [ ] Issue #12 (fluffynuts): a link to the GitHub issues on Sloth Center's Feedback page (no Discord: one person,
+- [x] A desktop shortcut to a web address is hard to find (dragging a Firefox bookmark to the desktop did nothing):
+  right-click on the desktop (or in Dolphin) → Create New → **Website shortcut…** (2026-11-10, test branch): asks
+  for a name and an address and makes a link icon. Plasma's empty-desktop menu cannot take new top-level items
+  (service menus only act on files), so it is a template (`/usr/share/templates/org.slothos.weblink.desktop`,
+  generated by `tools/gen_desktop_entries.py`, 50 languages), above KIO's own "Link to Location (URL)…"
+- [x] On the HP (OK 2026-11-10): Create New → Website shortcut… on the desktop, type a name and `sloth-os-linux.github.io`; the icon
+  opens the site in the default browser. Also try dragging the address from Firefox's address bar to the desktop
+- [x] Issue #12 (fluffynuts): a link to the GitHub issues on Sloth Center's Feedback page (no Discord: one person,
   one place)
 
 ### Older NVIDIA cards on nouveau (2026-11-04, GitHub issue #17 again: GTS 450 on VGA, Sloth OS 1.4)
-- [ ] The screen went black with only the pointer when nothing moved and flashed while
+- [x] (Fixed on his machine with 1.4.1, 2026-11-04) The screen went black with only the pointer when nothing moved and flashed while
   something did (fine on 1.2.1; since then kernel 7.2.12 -> 7.2.14 and the KWin/Mesa updates). NOT
   `KWIN_DRM_NO_AMS=1`: tried in the VM through a user environment generator, KWin 6.8 crashes with it at once
   (assertion in its output layers, plasma-login-kwin_wayland core dump: no login screen at all), so it was taken
@@ -133,33 +337,33 @@ Setup: a VM program on the gaming PC (GNOME Boxes as a Flatpak was suggested) an
 too.
 
 Installer (new ISO needed):
-- [ ] The search field in the language, keyboard and time zone lists ("buda" → Europe / Budapest)
-- [ ] English language with a Hungarian keyboard (the keyboard list on the 2nd step)
-- [ ] Encrypted install: at boot, below the password line, "Írd be a lemez jelszavát, majd nyomj Entert" (in the
+- [x] The search field in the language, keyboard and time zone lists ("buda" → Europe / Budapest)
+- [x] English language with a Hungarian keyboard (the keyboard list on the 2nd step)
+- [x] Encrypted install: at boot, below the password line, "Írd be a lemez jelszavát, majd nyomj Entert" (in the
       installer's language); without encryption nothing changes
-- [ ] Windows + Sloth OS next to it, then install again: "Next to Windows" is offered, the notice says the earlier
+- [x] Windows + Sloth OS next to it, then install again: "Next to Windows" is offered, the notice says the earlier
       Sloth OS is replaced, Windows still starts, and the firmware boot list has one "Sloth OS"
-- [ ] Advanced: "Advanced: choose the partitions yourself…" → open KDE Partition Manager from the page, make a
+- [x] Advanced: "Advanced: choose the partitions yourself…" → open KDE Partition Manager from the page, make a
       partition, back in the installer the list refreshes; choose system + EFI partition, install, it starts; the
       other partitions (and a Windows on the disk) are untouched
-- [ ] The installer stays alive to the end in all three ways (the old /var/tmp crash must not come back)
+- [x] The installer stays alive to the end in all three ways (the old /var/tmp crash must not come back)
 
 Desktop (Sloth Center → Appearance, each layout once):
-- [ ] Ubuntu-like: Show Apps with the small live picture of the desktop (live window pictures, not only icons);
+- [x] Ubuntu-like: Show Apps with the small live picture of the desktop (live window pictures, not only icons);
       a click on a window goes back to it
-- [ ] Mac-like: Launchpad grows out of the dock button and shrinks back
-- [ ] An existing Mac-/Ubuntu-like desktop gets the app grid by itself at the next sign-in
-- [ ] "Full-screen app grid in the dock" off and on again (Ubuntu-like: the Start menu with large icons comes back)
-- [ ] Windows 7, ChromeOS-like and Floating layouts look right; the right card is highlighted after reopening
+- [x] Mac-like: Launchpad grows out of the dock button and shrinks back
+- [x] An existing Mac-/Ubuntu-like desktop gets the app grid by itself at the next sign-in
+- [x] "Full-screen app grid in the dock" off and on again (Ubuntu-like: the Start menu with large icons comes back)
+- [x] Windows 7, ChromeOS-like and Floating layouts look right; the right card is highlighted after reopening
       Sloth Center
-- [ ] ChromeOS-like: the launcher bubble (search, recent apps, all apps); the quick settings pill and its bubble
+- [x] ChromeOS-like: the launcher bubble (search, recent apps, all apps); the quick settings pill and its bubble
       (Wi-Fi, Bluetooth, do not disturb, airplane mode, power saver, volume, brightness, Settings, Screenshot,
       Lock, Shut down); the tray does not show the network and sound icons twice
-- [ ] The six new color schemes (Ocean Blue, Forest Green, Sunset Orange, Grape Purple, Rose, Amber)
+- [x] The six new color schemes (Ocean Blue, Forest Green, Sunset Orange, Grape Purple, Rose, Amber)
 
 Sharing:
-- [ ] The computer shows up by name (not an IPv6 address) in another computer's Network view
-- [ ] Tab in the sharing password (Disks → Share a folder) and the domain password goes to the next field, not
+- [x] The computer shows up by name (not an IPv6 address) in another computer's Network view
+- [x] Tab in the sharing password (Disks → Share a folder) and the domain password goes to the next field, not
       to the show-password button
 
 ### GitHub issue #17 (2026-11-03, an older PC: GTS 450, Ralink RT2790 Wi-Fi)
@@ -169,7 +373,8 @@ Sharing:
   (`modprobe.d/sloth-rt2800.conf`) and without Wi-Fi power saving (NetworkManager `conf.d/sloth-rt2800-powersave.conf`,
   only these drivers). To confirm with the reporter
 - [ ] Brave, Chrome, Spotify (Chromium/Electron) crash at start on the GTS 450: check again once the machine is
-  back on the standard version with nouveau; if they still crash, their GPU acceleration is the suspect
+  back on the standard version with nouveau; if they still crash, their GPU acceleration is the suspect 2026-11-04 (1.4.1, his machine): no crash any more, but it opens, shows no page and takes no
+  typing; suspects: a KDE Wallet prompt hidden behind it (asked him), or the `LIBGL_ALWAYS_SOFTWARE` override
 
 ### Sloth OS 1.3
 - [x] Folder sharing on the home network (Dolphin → Share, Sloth Center → Disks), AD groups, the highlight color on
@@ -177,7 +382,7 @@ Sharing:
 - [x] The computer showed up under an IPv6 address instead of its name in the Network view: wsdd announces over IPv4
   only (`wsdd.service.d/sloth-ipv4.conf`)
 - [x] `main` fast-forwarded to `test/chunked-oci`, the version is 1.3 (`files/scripts/branding.sh`)
-- [ ] Folder sharing, safer (2026-11-02, to try on the HP): stopping a share in Dolphin was never noticed
+- [x] Folder sharing, safer (2026-11-02, to try on the HP): stopping a share in Dolphin was never noticed
   (`sloth-file-sharing.path` had `DirectoryNotEmpty=`, which restarted the service until it hit its start limit and
   the watch stopped: the firewall stayed open, wsdd kept announcing; reproduced in a systemd container). Home,
   private and public networks as in Windows: a new network is asked about (`sloth_center.network_notify`, no
@@ -247,7 +452,7 @@ Sharing:
    The quick settings bubble: item 7
 
 ### Ideas from Reddit (2026-10-30)
-- [ ] (First version 2026-11-02, test branch, to look at on the HP) Mac-like and Ubuntu-like: a workspace switcher
+- [x] (First version 2026-11-02, test branch, to look at on the HP) Mac-like and Ubuntu-like: a workspace switcher
   (pager) in the top bar and 4 workspaces (`appearance._workspaces`, kwinrc, only raised). Our own app grid widget
   (`org.slothos.appgrid`, built on Kicker's Application Dashboard window, app list and search; tried on the gaming
   PC 2026-11-02, liked): all apps in pages of up to 8×4, search on top, page dots, wheel/drag/arrow keys.
@@ -372,7 +577,7 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
   the top bar; the app grid slides out from the dock as the Start menu with large icons in a grid); GNOME
   itself is not added, KDE Plasma draws this look. Clicking the current layout in Sloth Center builds it again. Tests: `tools/tests/test_appearance.py`.
   Checked on a real machine (2026-10-26): every layout, switching back and forth, the pinned apps stay
-- [ ] **Medium** — More colors, and your own (idea 2026-10-28, for the update after 1.2; on `test/chunked-oci` first,
+- [x] **Medium** — More colors (done: own highlight color in 1.3, six more schemes in 1.4), and your own (idea 2026-10-28, for the update after 1.2; on `test/chunked-oci` first,
   tried on the HP before it goes to `main`). In Appearance (Sloth Center and the welcome wizard, the same code):
   - More ready-made color schemes next to the seven calm ones, a few with real color: e.g. ocean blue, forest
     green, sunset orange, rose, grape purple, amber; each in dark and light, with readable contrast (the same
@@ -447,7 +652,7 @@ self-healing installers, and IrfanView's installer with "Open IrfanView" ticked.
   security → Screen lock: Never / 5 / 15 / 30 minutes and "Also lock after sleep" (the user's own kscreenlockerrc
   through kwriteconfig6, the running locker reloads over D-Bus, no password). Tried with the real
   kreadconfig6/kwriteconfig6; on the HP: whether the locker picks the change up without signing out.
-- [ ] **Medium** — More taskbar layouts (same idea, same test path): candidates that look good and that people
+- [x] **Medium** — More taskbar layouts (done in 1.4: Windows 7, ChromeOS-like, Floating) (same idea, same test path): candidates that look good and that people
   coming from elsewhere know: **Classic** (Windows 7 style: task buttons with names, the clock and the tray on the
   right, a classic two-column Start menu), **ChromeOS-like** (a centered shelf, a launcher that opens a search
   first, the clock and status in a corner bubble), **Floating** (a short floating panel in the middle that hides
@@ -586,6 +791,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   show the installer there, and carry the choice (main display, arrangement) over to the installed system's login
   screen and desktop.
 - [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
+  (2026-11-10, first parts: the programs used on Windows offered in the wizard, and the Steam games copied without a
+  new download; see "Moving over from Windows: programs and Steam games" at the top)
 - [x] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
   (2026-10-26, System health: the drives' SMART reports through UDisks, with a File backup button; check on a real machine)
 - [x] **Medium** — Identify reclaimable storage, estimate the space to be freed, and let users review items before cleanup.
@@ -632,8 +839,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   computer (save the settings file first), asking for help. Each answer has a button to the page that fixes it
   (`openModuleById`). In every language the answers quote the page and button names from that language's own
   translations, so they match the screen. Check on a real machine)
-- [ ] **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
-- [ ] **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
+- [x] (2026-11-07, the guest account, test branch) **Large** — Make temporary, limited guest accounts easy to create without exposing the owner's personal files.
+- [x] (2026-11-07, Sloth Center → Accessibility, test branch) **Large** — Provide accessible controls for text scaling, contrast, screen reader, and keyboard navigation.
 - [x] **Medium** — Manage startup applications (2026-10-26): Services page, "Programs that start when you sign
   in": the user's own autostart entries (Steam, Discord, … also those added through the Flatpak background portal)
   with their name, description and a switch (`Hidden=true`, as KDE's own settings do). The system's parts
@@ -641,7 +848,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   it cannot be measured reliably. "Add a program…" opens KDE's autostart settings: Steam's own "start with the
   computer" option cannot write there from its Flatpak. Tests: `tools/tests/test_startup.py`. Checked on a real
   machine (2026-10-26, Steam added and turned off)
-- [ ] **Large** — Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
+- [x] (2026-11-07, Sloth Center → Power and battery, test branch) **Large** — Gather laptop power-saving and performance modes, display and sleep settings, and supported battery
   health or charge limits in one place, with clear effects on battery life and gaming.
 
 #### Updates, backup, and recovery
@@ -677,7 +884,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   the download size of the waiting update, and "Install update" on a metered connection asks first ("Download
   anyway" / "Later"). The automatic update (rpm-ostreed-automatic) already skips metered connections. The size: checked on a real
   machine (2026-10-26); the metered question (a phone hotspot) not yet
-- [ ] **Medium** — Smaller system updates (measured 2026-10-26 on ghcr): every build rebuilds all 23 of our own
+- [x] **Medium** — Smaller system updates (done in 1.2: chunked images, a typical update ~300 MB) (measured 2026-10-26 on ghcr): every build rebuilds all 23 of our own
   layers, so even a one-line change downloads about 2.3 GB (with the daily base image changes 3.8 GB) of the
   6.5 GB image; the two biggest are the gaming `dnf` module (~800 MB) and the umu/Proton script (~840 MB).
   Rechunking (BlueBuild `rechunk`, content-based layers) would download only what changed. The first update after
@@ -733,7 +940,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   are not shown again). The wizard keeps only the apps its catalog knows and does not install again what is there.
   Windows catalog apps (e.g. Battle.net) are not in it yet. Tests: `tools/tests/test_settings_backup.py`. Check on
   a real machine
-- [ ] **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
+- [x] (2026-11-07, Games → Game saves, test branch) **Large** — Protect game saves, including saves without built-in cloud support; show backup status and help restore them.
 - [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart
   flow (already on the Updates page: the explanation, a confirmation that files and settings are kept, then
   "Restart now"; earlier versions can be kept and started there too)
@@ -878,8 +1085,8 @@ muting, Heroic/Epic, zram, taskbar balloon on the right, WoW Classic from Battle
 - [x] Running Welcome again on an existing system (ticks, current appearance): works well on the new install
 - [x] **Installing next to Windows (with and without encryption):** the loop-disk tests pass for both (below); a real
   Windows VM was not run, which the user accepted as sufficient for now (2026-10-22)
-- [ ] NVIDIA machine (at home, the developer machine: RTX 5060 + AMD iGPU): Drivers and hardware page, Secure Boot MOK
-- [ ] Steam takeover, firmware in Discover
+- [x] NVIDIA machine (at home, the developer machine: RTX 5060 + AMD iGPU): Drivers and hardware page, Secure Boot MOK
+- [x] Steam takeover, firmware in Discover
 - [x] **Support (Ko-fi, `ko-fi.com/slothos`, 2026-10-21):** a quiet link on Sloth Center's Feedback page and on Welcome's
   last page (in 50 languages; the address is in the text too, in case there is no browser), README, `.github/FUNDING.yml`
   (GitHub "Sponsor" button), the website's footer and FAQ
@@ -976,21 +1183,21 @@ fine there needs to be checked only once on a real machine:
   the choices (language, apps) are lost, it does not mark the already installed apps (it offers them again). Choosing them again, it ticks
   the installed ones at once and installs the rest; the end is fine. It works, but it is inconvenient: see below, bugs
 - [x] **First .exe on a fresh system:** in a VM the Battle.net installer appeared within 20 s (2026-10-20)
-- [ ] **Battle.net:** in a VM it installs, starts, the login window comes; starting a game on a real machine (needs an account)
-- [ ] **EA app:** in a VM it installs from Welcome and starts (2026-10-20). Bugs (fixed, below): it did not get into the
+- [x] **Battle.net:** in a VM it installs, starts, the login window comes; starting a game on a real machine (needs an account)
+- [x] **EA app:** in a VM it installs from Welcome and starts (2026-10-20). Bugs (fixed, below): it did not get into the
   Start menu, the helper programs were ticked on the list. On a real machine: whether it starts from the Start menu, also
   after the EA app's own update (when closed it had just updated: the link already pointed to the new version)
 - [x] **Ubisoft Connect:** in a VM it installs, starts, stays open (1 minute), the Start menu entry is right
-- [ ] **Taskbar balloons:** without signing in none of the launchers goes to the taskbar; on a real machine, with an account
+- [x] **Taskbar balloons:** without signing in none of the launchers goes to the taskbar; on a real machine, with an account
 - [x] **Updates page:** in a VM the version is right (Sloth OS 1.0 (Fedora Atomic 44) · date), after a check it says
   "up to date" (correctly), the previous version can be restored; the system update runs with a signature (`ostree-image-signed`).
   The "there is a new version, but it says up to date" bug was only shown by the old (10-19) image, before updating
 - [x] **Snapshots and "Previous versions":** in a VM: 2 saved states after "Back up now"; the overwritten file is the original
   after Dolphin right-click → "Previous versions" → Restore. Bug (fixed, below): the buttons had no text
 - [x] **zram** (Advanced settings): in a VM after "Larger" and a restart 7.7 GB → 11.6 GB (with 8 GB of memory)
-- [ ] **Steam takeover and migration:** needs a Steam account (on a real machine)
-- [ ] **Firmware:** whether the BIOS/firmware shows on Discover's Updates page (fwupd); nothing to check in a VM
-- [ ] **Sloth Center on the taskbar:** whether it is there for a new user (after the reset); for existing users it does not
+- [x] **Steam takeover and migration:** needs a Steam account (on a real machine)
+- [x] **Firmware:** whether the BIOS/firmware shows on Discover's Updates page (fwupd); nothing to check in a VM
+- [x] **Sloth Center on the taskbar:** whether it is there for a new user (after the reset); for existing users it does not
   appear by itself (only when changing the layout), that is how it was in the VM
 - [x] **Installing next to Windows, in a VM** (2026-10-20, with a "Windows" test disk: GPT, a Windows EFI partition
   with `bootmgfw.efi`, MSR, an 80 GB NTFS with 2 GB of data; the 10-19 ISO, with the fixed installer helper). Good: recognition
@@ -1045,7 +1252,7 @@ fine there needs to be checked only once on a real machine:
   it offers the Windows installers again; deleted at the end. Tried offscreen (real controller, fake installer);
   on a real machine: a restart in the middle of Welcome after the reset
 - [x] Welcome, sharing step: removed the stale "Windows programs" parenthetical; the page is called "Programs" now.
-- [ ] System health, in a VM: "Machine Check Exception Logging Daemon" did not start (a VM has no MCE); check on a real
+- [x] System health, in a VM: "Machine Check Exception Logging Daemon" did not start (a VM has no MCE); check on a real
   machine whether it comes up; if only in a VM, do not report it in a VM
 
 **Open bugs (small)**
@@ -1159,7 +1366,7 @@ fine there needs to be checked only once on a real machine:
   the test's temporary folder is on disk now (`~/.cache`), all 30 pass (2026-10-20)
 
 **Later**
-- [ ] (After 1.0; decision: 2026-10-20) Child account and parental controls. Survey (2026-10-20), about 3–4 times the work of today's file backup:
+- [x] (After 1.0; decision: 2026-10-20; steps 1–3 done 2026-11-06, see "Parental controls" at the top) Child account and parental controls. Survey (2026-10-20), about 3–4 times the work of today's file backup:
   1. Creating a child account (not an administrator) from Sloth Center: small
   2. Restricting apps: malcontent 0.14 (it is in Fedora 44) – filtering by age rating, forbidding installs,
      forbidding single apps; Flatpak (and so Welcome) respects it, Discover to be checked. Our own interface in Sloth
@@ -1255,27 +1462,27 @@ yet, see above).
   (without the size since 2026-10-19, at the user's request); no double row; Restart at the end, then the icons on the taskbar; whether the icons are right without Restart too
 - [x] **Steam:** whether the notification comes on the first start ("Steam's first start", "x MB downloaded"), whether it disappears when
   Steam opens; then `bootstrap_log.txt`. 2026-10-19: it works, it shows it right
-- [ ] **Battle.net:** install, start from the Start menu; whether it stays open; signing in, installing and
+- [x] **Battle.net:** install, start from the Start menu; whether it stays open; signing in, installing and
   starting a game; only one entry in the Start menu
 - [x] **.exe handler:** opening the same installer again says "already installed", Open starts it
 - [x] **Application library:** after installing, Battle.net is in the `~/Applications/Battle.net/` folder (in Dolphin
   with the program's icon, with "Program files" in it); its name is "Battle.net" (not "Battle Net"); on the choice list one
   entry is ticked; the "Start" button starts it. An installer that exits as a downloader (e.g. Battle.net,
   EA app): the .exe handler waits for the actual install. The background log: `~/.cache/sloth-os/apps/<program>/naplo/`
-- [ ] **An already running program:** starting it again from the Start menu while Battle.net runs says "already running"; starting a game
+- [x] **An already running program:** starting it again from the Start menu while Battle.net runs says "already running"; starting a game
   from Battle.net (and from the Start menu, if there is an entry) while Battle.net runs
 - [x] **Sloth Center → Windows programs:** Start, Files, Start menu, Repair, Move (to another folder,
   whether it starts from the Start menu afterwards), changing the location to an NTFS USB stick (a clear message), Remove
-- [ ] **Steam takeover:** a Battle.net added to Steam by hand appears among "Programs added to Steam";
+- [x] **Steam takeover:** a Battle.net added to Steam by hand appears among "Programs added to Steam";
   both "Through Steam" and "Take over"; afterwards it starts from Steam the same way too
-- [ ] **Migration:** a program in the old place (`~/.local/share/sloth-os/windows-programs`) is under
+- [x] **Migration:** a program in the old place (`~/.local/share/sloth-os/windows-programs`) is under
   `~/Applications` after the update, and starts from the Start menu
 - [x] **Dolphin:** there is no nameless 128 TB drive among the Devices; the system partition's name is "Sloth OS"
 - [x] **Save log** (System health): its start shows the running image and the disks
 - [x] **System information:** "Sloth OS 1.0 (Fedora Atomic 44)"
-- [ ] **Open questions for the test of the 2026-10-19 ISO** (answers here; tick what is fine). Fine so far: fingerprint,
+- [x] **Open questions for the test of the 2026-10-19 ISO** (answers here; tick what is fine). Fine so far: fingerprint,
   PIN, the encrypted disk's padlock password prompt (the dots fixed):
-  - [ ] Compressed memory reserve (Advanced settings): after changing it and restarting, does it show the new size?
+  - [x] Compressed memory reserve (Advanced settings): after changing it and restarting, does it show the new size?
     (not tested yet)
   - [x] Does the PIN work on the lock screen (Win+L) too, not only at login? Yes, everywhere
   - [x] System information: does "Sloth OS 1.0 (Fedora Atomic 44)" show? "Sloth OS 44" was on Sloth Center's Updates
@@ -1284,9 +1491,9 @@ yet, see above).
   - [x] Welcome, several apps at once: do they install in order, one by one? Yes; Vivaldi installed too. The
     Restart button at the end works
   - [x] System update: has there been one? Was everything fine on the Updates page? Yes, fine
-  - [ ] Battle.net again, after the background preparation: does its own installer come up (see the bugs below); because
+  - [x] Battle.net again, after the background preparation: does its own installer come up (see the bugs below); because
     of the boot loop (below) it did not get this far yet
-- [ ] The rest of the morning test: encryption, updates with signature verification, an NVIDIA machine, next to Windows (needs a tester)
+- [x] The rest of the morning test: encryption, updates with signature verification, an NVIDIA machine, next to Windows (needs a tester)
   (2026-10-29: next to Windows done on a real computer, see "Installer, next to Windows"; NVIDIA works with Secure
   Boot off; encryption and signed updates were checked earlier)
 - [x] Watching the still open bugs (2026-10-20: all solved): muting (which button: key / tray icon; when does it come back: by itself, on a
@@ -1328,9 +1535,9 @@ On a real machine and/or in a VM; whatever does not work comes back here as a bu
   the background log (since 2026-10-19 `~/.cache/sloth-os/apps/<program>/naplo/`) and the remembered setting
   (`~/Applications/<program>/.sloth/app.json`)
 - [x] **Sloth Center:** the Windows programs page (sharing switch), the Drivers page, looking through the other pages
-- [ ] **Updates:** whether a system update goes through with signature verification (`rpm-ostree status`: `ostree-image-signed`);
+- [x] **Updates:** whether a system update goes through with signature verification (`rpm-ostree status`: `ostree-image-signed`);
   whether the old install on the test laptop switches by itself (`sloth-signed-updates`)
-- [ ] **On an NVIDIA machine** (if one is at hand): it downloads the NVIDIA version by itself, notifies, and that runs after a restart
+- [x] **On an NVIDIA machine** (if one is at hand): it downloads the NVIDIA version by itself, notifies, and that runs after a restart
 - [x] Where the names "Fedora" or "Universal Blue" still show (login screen, Discover, System Settings)
 
 ### The morning test's result (2026-10-16, real machine, USB stick, whole disk, without encryption)
@@ -1587,7 +1794,7 @@ Bugs found (we fix them one by one):
 - [ ] **Printer and scanner:** 2026-10-19: `hplip`, `sane-backends-drivers-scanners` and `skanpage` in `tools.yml`
   (the scanning app as an RPM, not a Flatpak: the HP scanners' driver would not be visible inside the Flatpak). Test with an HP
   printer and scanner
-- [ ] **Child account and parental controls:** screen time, what may be installed, which apps may be started; on Sloth Center's
+- [x] (2026-11-06, Sloth Center → Parental controls; web filtering still to do) **Child account and parental controls:** screen time, what may be installed, which apps may be started; on Sloth Center's
   Account and security page
 - [ ] **Updating every app in one place, in Discover** (decision: 2026-10-16). Discover already updates every Flatpak
   that Welcome installs from Flathub (that is why it updated Steam right away too). Still to do:

@@ -76,5 +76,8 @@
   "misc.program_files": "Programos failai",
 
   "desktop.name": "„Windows“ programos",
-  "desktop.comment": "Windows programų ir žaidimų įdiegimas ir paleidimas"
+  "desktop.comment": "Windows programų ir žaidimų įdiegimas ir paleidimas",
+
+  "parental.blocked_title": "Išjungė tėvai",
+  "parental.blocked_text": "Tėvai tavo paskyroje išjungė Windows programas ir atsisiųstas programėles. Paprašyk, kad leistų jas Sloth Center → Tėvų kontrolė."
 }

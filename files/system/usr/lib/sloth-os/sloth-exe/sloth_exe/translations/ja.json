@@ -76,5 +76,8 @@
   "misc.program_files": "プログラムのファイル",
 
   "desktop.name": "Windows プログラム",
-  "desktop.comment": "Windows のプログラムやゲームをインストールして実行します"
+  "desktop.comment": "Windows のプログラムやゲームをインストールして実行します",
+
+  "parental.blocked_title": "保護者がオフにしました",
+  "parental.blocked_text": "保護者があなたのアカウントで Windows プログラムとダウンロードしたアプリをオフにしました。Sloth Center → ペアレンタルコントロールで許可してもらってください。"
 }

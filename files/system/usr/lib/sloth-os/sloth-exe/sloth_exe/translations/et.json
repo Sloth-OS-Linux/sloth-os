@@ -76,5 +76,8 @@
   "misc.program_files": "Programmi failid",
 
   "desktop.name": "Windowsi programmid",
-  "desktop.comment": "Windowsi programmide ja mängude paigaldamine ja käivitamine"
+  "desktop.comment": "Windowsi programmide ja mängude paigaldamine ja käivitamine",
+
+  "parental.blocked_title": "Lapsevanem lülitas välja",
+  "parental.blocked_text": "Lapsevanem lülitas sinu kontol Windowsi programmid ja allalaaditud rakendused välja. Palu tal need lubada: Sloth Center → Vanemlik järelevalve."
 }

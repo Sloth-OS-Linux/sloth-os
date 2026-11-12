@@ -76,5 +76,8 @@
   "misc.program_files": "Programmdateien",
 
   "desktop.name": "Windows-Programme",
-  "desktop.comment": "Windows-Programme und -Spiele installieren und ausführen"
+  "desktop.comment": "Windows-Programme und -Spiele installieren und ausführen",
+
+  "parental.blocked_title": "Von einem Elternteil ausgeschaltet",
+  "parental.blocked_text": "Ein Elternteil hat Windows-Programme und heruntergeladene Apps für dein Konto ausgeschaltet. Bitte darum, es in Sloth Center → Jugendschutz zu erlauben."
 }

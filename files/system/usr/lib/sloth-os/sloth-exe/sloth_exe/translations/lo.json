@@ -76,5 +76,8 @@
   "misc.program_files": "ໄຟລ໌ຂອງໂປຣແກຣມ",
 
   "desktop.name": "ໂປຣແກຣມ Windows",
-  "desktop.comment": "ຕິດຕັ້ງ ແລະ ເປີດໃຊ້ໂປຣແກຣມ ແລະ ເກມ Windows"
+  "desktop.comment": "ຕິດຕັ້ງ ແລະ ເປີດໃຊ້ໂປຣແກຣມ ແລະ ເກມ Windows",
+
+  "parental.blocked_title": "ຜູ້ປົກຄອງປິດໄວ້",
+  "parental.blocked_text": "ຜູ້ປົກຄອງໄດ້ປິດໂປຣແກຣມ Windows ແລະ ແອັບທີ່ດາວໂຫຼດມາໃນບັນຊີຂອງເຈົ້າ. ຂໍໃຫ້ເຂົາເຈົ້າອະນຸຍາດໃນ Sloth Center → ການຄວບຄຸມໂດຍຜູ້ປົກຄອງ."
 }

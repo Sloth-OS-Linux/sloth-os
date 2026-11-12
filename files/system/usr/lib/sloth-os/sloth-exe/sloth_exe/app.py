@@ -15,6 +15,38 @@ import sys
 from pathlib import Path
 
 QML_DIR = Path(__file__).resolve().parent / "qml"
+# Sloth Center → Parental controls turns these off for a child by content type (sloth-helper: PROGRAM_TYPES)
+PARENTAL_TYPE = "application/x-ms-dos-executable"
+
+
+def blocked_by_parent():
+    """True for a child account whose parent turned off "Windows programs and downloaded apps" (malcontent's app
+    filter; reading your own needs no password). Anything unexpected (no malcontent, no settings) allows it."""
+    try:
+        import grp
+        import pwd
+        name = pwd.getpwuid(os.getuid()).pw_name
+        if os.getuid() == 0 or name in grp.getgrnam("wheel").gr_mem:
+            return False
+    except KeyError:
+        pass
+    try:
+        import gi
+        gi.require_version("Malcontent", "0")
+        from gi.repository import Gio, Malcontent
+        manager = Malcontent.Manager.new(Gio.bus_get_sync(Gio.BusType.SYSTEM, None))
+        app_filter = manager.get_app_filter(os.getuid(), Malcontent.ManagerGetValueFlags.NONE, None)
+        return not app_filter.is_content_type_allowed(PARENTAL_TYPE)
+    except Exception:
+        return False
+
+
+def tell_blocked():
+    import subprocess
+
+    from .i18n import tr
+    subprocess.run(["notify-send", "--app-name=Sloth OS", "--icon=preferences-desktop-user-password",
+                    tr("parental.blocked_title"), tr("parental.blocked_text")], capture_output=True)
 
 
 def main():
@@ -31,6 +63,9 @@ def main():
                         help="background maintenance (sloth-windows-prepare): migrating to the new location, "
                              "updating AppImages, deleting old Proton versions, sending reports")
     args, qt_args = parser.parse_known_args()
+    if not args.maintenance and blocked_by_parent():
+        tell_blocked()
+        return 1
     if args.run:
         # Fast path from the Start menu: the library gives the program's location (after moving it too), no Qt needed
         from sloth_common.apps import library, packages

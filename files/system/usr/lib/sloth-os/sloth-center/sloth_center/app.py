@@ -40,6 +40,11 @@ def main():
     from .updates import UpdatesController
     from .appearance import AppearanceController
     from .accounts import AccountsController
+    from .family import FamilyController
+    from .guest import GuestController
+    from .accessibility import AccessibilityController
+    from .power import PowerController
+    from .game_saves import GameSavesController
     from .advanced import AdvancedController
     from .backup import BackupController
     from .cloud import CloudController
@@ -67,6 +72,9 @@ def main():
     from .profiles import ProfilesController
     from .settings_backup import SettingsBackupController
     from .winprograms import WinProgramsController
+    from .firmware import FirmwareController
+    from .remote_help import RemoteHelpController
+    from .printers import PrintersController
 
     engine = QQmlApplicationEngine()
     engine.addImportPath(shared_appearance.QML_IMPORT_PATH)  # import SlothCommon (the layout drawings)
@@ -74,6 +82,9 @@ def main():
     engine.rootContext().setContextProperty("L", translator)
     engine.rootContext().setContextProperty("startPage", start_page)
     updates = UpdatesController()
+    firmware = FirmwareController()
+    remote_help = RemoteHelpController()
+    printers = PrintersController()
     winprograms = WinProgramsController()
     services = ServicesController()
     drivers = DriversController()
@@ -90,6 +101,11 @@ def main():
     environment = EnvironmentController()
     gamepads = GamepadsController()
     accounts = AccountsController()
+    family = FamilyController()
+    guest_account = GuestController()
+    accessibility = AccessibilityController()
+    power = PowerController()
+    game_saves = GameSavesController()
     cloud = CloudController()
     games = GamesController()
     devpanel = DevPanelController()
@@ -104,6 +120,9 @@ def main():
     profiles = ProfilesController(display)
     settings_backup = SettingsBackupController()
     engine.rootContext().setContextProperty("updates", updates)
+    engine.rootContext().setContextProperty("firmware", firmware)
+    engine.rootContext().setContextProperty("remoteHelp", remote_help)
+    engine.rootContext().setContextProperty("printers", printers)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
     engine.rootContext().setContextProperty("drivers", drivers)
@@ -120,6 +139,11 @@ def main():
     engine.rootContext().setContextProperty("environment", environment)
     engine.rootContext().setContextProperty("gamepads", gamepads)
     engine.rootContext().setContextProperty("accounts", accounts)
+    engine.rootContext().setContextProperty("family", family)
+    engine.rootContext().setContextProperty("guestAccount", guest_account)
+    engine.rootContext().setContextProperty("accessibility", accessibility)
+    engine.rootContext().setContextProperty("power", power)
+    engine.rootContext().setContextProperty("gameSaves", game_saves)
     engine.rootContext().setContextProperty("cloud", cloud)
     engine.rootContext().setContextProperty("games", games)
     engine.rootContext().setContextProperty("devpanel", devpanel)

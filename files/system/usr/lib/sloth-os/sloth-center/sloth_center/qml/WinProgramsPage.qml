@@ -265,6 +265,14 @@ Kirigami.ScrollablePage {
                             checked: card.modelData.isGame
                             onTriggered: winprograms.setGame(card.modelData.id, checked)
                         }
+                        // What happened at the last start, for asking for help (no hidden folders to look for)
+                        QQC2.MenuItem {
+                            visible: card.modelData.hasLog
+                            height: visible ? implicitHeight : 0
+                            text: L.t("Show the last start's log")
+                            icon.name: "text-x-log"
+                            onTriggered: winprograms.openLog(card.modelData.id)
+                        }
                         QQC2.MenuItem {
                             visible: card.modelData.canReinstall
                             height: visible ? implicitHeight : 0

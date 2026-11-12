@@ -58,6 +58,26 @@ Operations:
   net-limit off|<kbit/s> <unit> always|updates   the download speed limit (/etc/sloth-os/net-limit.json; the unit
                                                  the user chose: kbit, KB, Mbit, MB), put on or off at once
                                                  (/usr/libexec/sloth-os/net-limit)
+  child-add                                      a new child account: an ordinary account, not an administrator,
+                                                 that cannot install apps by itself (JSON on the input:
+                                                 {"username", "fullname", "password"})
+  child-limits <user>                            a child's screen time (JSON on the input: {"daily": seconds,
+                                                 0 = no daily limit, "start", "end": allowed hours in seconds
+                                                 since midnight, or null}); screen-time enforces it
+  child-apps <user>                              the apps a child may not start (JSON on the input: {"blocked":
+                                                 [Flatpak refs], "programs": false: no Windows programs or
+                                                 AppImages either}); Flatpak and sloth-exe enforce it (malcontent)
+  child-web <user> on|off                        the web filter for a child (/etc/sloth-os/family-web.json,
+                                                 /usr/libexec/sloth-os/family-web); new child accounts have it on
+  child-remove <user>                            deletes a child account with its files
+  guest-on                                       the guest account: signs in without a password, never an
+                                                 administrator, emptied when it signs out and at every start
+                                                 (JSON on the input: {"fullname"}; /usr/libexec/sloth-os/guest-reset)
+  guest-off                                      deletes the guest account
+
+The parental controls (child-*) and the guest account (guest-*) are available only as sloth-helper-family
+(org.slothos.helper.family, Sloth Center's "users" topic); child-* only on ordinary accounts other than the caller's:
+never on an administrator, nor on the guest account.
 
 The operations on versions (pin, unpin, set-default) and update-time are also available under the name
 sloth-helper-versions: that is a separate polkit action (org.slothos.helper.versions), so it can be put
@@ -71,6 +91,7 @@ import json
 import os
 import pwd
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -92,6 +113,8 @@ SHARING_ONLY = HELPER_NAME == "sloth-helper-sharing"
 NETWORK_ONLY = HELPER_NAME == "sloth-helper-network"
 # Started as sloth-helper-netlimit, only the download speed limit (without a password, see org.slothos.helper.netlimit)
 NETLIMIT_ONLY = HELPER_NAME == "sloth-helper-netlimit"
+# Started as sloth-helper-family, only the parental controls (child-*); not available through the other names
+FAMILY_ONLY = HELPER_NAME == "sloth-helper-family"
 # The Universal Blue key's enrollment password; the user types this on the blue screen
 SB_PASSWORD = "universalblue"
 
@@ -187,7 +210,7 @@ TOPICS = {
     "services": ["org.freedesktop.systemd1.manage-units", "org.freedesktop.systemd1.manage-unit-files",
                  "org.freedesktop.systemd1.reload-daemon", "org.projectatomic.rpmostree1.rebase"],
     "disks": ["org.freedesktop.udisks2.", "org.kde.kpmcore."],
-    "users": ["org.freedesktop.accounts.", "org.freedesktop.home1."],
+    "users": ["org.freedesktop.accounts.", "org.freedesktop.home1.", "org.slothos.helper.family"],
     "system": ["org.projectatomic.rpmostree1.", "org.slothos.helper", "org.freedesktop.login1.set-reboot-",
                "org.freedesktop.systemd1."],
 }
@@ -734,6 +757,267 @@ def home_snapshots(*args):
         return {"ok": False, "error": r.stderr.strip()[-500:]}
 
 
+# --- Parental controls (Sloth Center → Parental controls; malcontent keeps the settings) -----------------
+
+USER_RE = re.compile(r"^[a-z_][a-z0-9_-]{0,31}$")
+FLATPAK_REF_RE = re.compile(r"^app/[A-Za-z_][A-Za-z0-9_-]*(\.[A-Za-z0-9_-]+){2,}/[A-Za-z0-9_]+/[A-Za-z0-9_.-]+$")
+# screen-time watches these; the child's session hides the blocked apps when <user>.apps changes
+FAMILY_STATE = "/run/sloth-os/family"
+FAMILY_WEB = "/etc/sloth-os/family-web.json"
+GUEST_MARKER = "/etc/sloth-os/guest.json"
+GUEST_NAME = "guest"
+DAY = 24 * 60 * 60
+# What sloth-exe starts (Windows programs, AppImages): blocked by content type in the child's malcontent app filter
+PROGRAM_TYPES = ("application/x-ms-dos-executable", "application/x-msdownload", "application/x-msi",
+                 "application/vnd.appimage", "application/x-iso9660-appimage")
+
+
+def _malcontent():
+    import gi
+    gi.require_version("Malcontent", "0")
+    from gi.repository import Gio, Malcontent
+    return Malcontent, Malcontent.Manager.new(Gio.bus_get_sync(Gio.BusType.SYSTEM, None))
+
+
+def _child(name):
+    """A child account: an existing ordinary account (not an administrator, not a system account), not the
+    caller's own. Parental controls never go on an administrator: they could lock the computer's owner out."""
+    caller = _caller()
+    try:
+        pw = pwd.getpwnam(name)
+        wheel = grp.getgrnam("wheel")
+    except KeyError:
+        return None
+    if caller is None or pw.pw_uid == caller.pw_uid or not 1000 <= pw.pw_uid < 60000:
+        return None
+    if name in wheel.gr_mem or pw.pw_gid == wheel.gr_gid or pw.pw_shell.endswith("nologin"):
+        return None
+    if (_guest_marker() or {}).get("user") == name:  # the guest account is emptied anyway, not a child
+        return None
+    return pw
+
+
+def _app_filter(Malcontent, blocked, programs=True):
+    builder = Malcontent.AppFilterBuilder.new()
+    for ref in blocked:
+        builder.blocklist_flatpak_ref(ref)
+    if not programs:
+        for content_type in PROGRAM_TYPES:
+            builder.blocklist_content_type(content_type)
+    # a child installs apps only with a parent's password (system-wide), never by itself (per user)
+    builder.set_allow_user_installation(False)
+    builder.set_allow_system_installation(False)
+    return builder.end()
+
+
+def child_add(request):
+    user, full, password = (request.get(k) for k in ("username", "fullname", "password"))
+    if not all(isinstance(v, str) for v in (user, full, password)) or not USER_RE.match(user) \
+            or len(full) > 100 or any(c in full for c in ":\n\r") or not 0 < len(password) <= 256 \
+            or any(c in password for c in "\n\r"):
+        return {"ok": False, "error": "bad input"}
+    if _caller() is None:
+        return {"ok": False, "error": "pkexec only"}
+    try:
+        pwd.getpwnam(user)
+        return {"ok": False, "error": "exists"}
+    except KeyError:
+        pass
+    r = run(["useradd", "--create-home", "--comment", full or user, user])
+    if r.returncode != 0:
+        return {"ok": False, "error": r.stderr.strip()[-500:]}
+    r = run(["chpasswd"], input=f"{user}:{password}\n")
+    if r.returncode != 0:
+        run(["userdel", "--remove", user])
+        return {"ok": False, "error": r.stderr.strip()[-500:]}
+    _set_web(user, True)  # a new child starts with the web filter on; the parent can turn it off
+    try:
+        Malcontent, manager = _malcontent()
+        manager.set_app_filter(pwd.getpwnam(user).pw_uid, _app_filter(Malcontent, []),
+                               Malcontent.ManagerSetValueFlags.NONE, None)
+    except Exception as e:  # the account stays; Sloth Center sets the filter again when it is changed
+        return {"ok": True, "warning": f"app filter: {e}"}
+    return {"ok": True}
+
+
+def child_limits(name, request):
+    pw = _child(name)
+    if pw is None:
+        return {"ok": False, "error": "not a child account"}
+    daily, start, end = request.get("daily"), request.get("start"), request.get("end")
+    if not isinstance(daily, int) or isinstance(daily, bool) or not 0 <= daily <= DAY:
+        return {"ok": False, "error": "bad input"}
+    schedule = start is not None or end is not None
+    if schedule and not (isinstance(start, int) and isinstance(end, int) and 0 <= start < end <= DAY):
+        return {"ok": False, "error": "bad input"}
+    Malcontent, manager = _malcontent()
+    builder = Malcontent.SessionLimitsBuilder.new()
+    if not daily and not schedule:
+        builder.set_none()
+    else:
+        if schedule:
+            builder.set_daily_schedule(True, start, end)
+        if daily:
+            builder.set_daily_limit(True, daily)
+    try:
+        manager.set_session_limits(pw.pw_uid, builder.end(), Malcontent.ManagerSetValueFlags.NONE, None)
+    except Exception as e:
+        return {"ok": False, "error": str(e)[-500:]}
+    return {"ok": True}
+
+
+def child_apps(name, request):
+    pw = _child(name)
+    blocked, programs = request.get("blocked"), request.get("programs", True)
+    if pw is None:
+        return {"ok": False, "error": "not a child account"}
+    if not isinstance(blocked, list) or len(blocked) > 2000 or not isinstance(programs, bool) \
+            or not all(isinstance(r, str) and FLATPAK_REF_RE.match(r) for r in blocked):
+        return {"ok": False, "error": "bad input"}
+    Malcontent, manager = _malcontent()
+    try:
+        manager.set_app_filter(pw.pw_uid, _app_filter(Malcontent, sorted(set(blocked)), programs),
+                               Malcontent.ManagerSetValueFlags.NONE, None)
+    except Exception as e:
+        return {"ok": False, "error": str(e)[-500:]}
+    # a signed-in child's session hides the blocked apps from its menus at once (family_session)
+    os.makedirs(FAMILY_STATE, mode=0o755, exist_ok=True)
+    _write(os.path.join(FAMILY_STATE, f"{name}.apps"), f"{os.urandom(8).hex()}\n")
+    return {"ok": True}
+
+
+def web_users():
+    try:
+        with open(FAMILY_WEB, encoding="utf-8") as f:
+            users = json.load(f).get("users", [])
+    except (OSError, ValueError, AttributeError):
+        return []
+    return [u for u in users if isinstance(u, str)] if isinstance(users, list) else []
+
+
+def _set_web(name, on):
+    """The web filter on or off for an account, in effect at once (/usr/libexec/sloth-os/family-web)."""
+    users = [u for u in web_users() if u != name] + ([name] if on else [])
+    _write(FAMILY_WEB, _js({"users": sorted(users)}) + "\n")
+    try:
+        r = run(["/usr/libexec/sloth-os/family-web"])
+    except (OSError, subprocess.SubprocessError) as e:  # the setting is saved; sloth-family-web.service applies it
+        return False, str(e)
+    return r.returncode == 0, r.stderr.strip()[-500:]
+
+
+def child_web(name, on):
+    if _child(name) is None:
+        return {"ok": False, "error": "not a child account"}
+    ok, err = _set_web(name, on)
+    return {"ok": True} if ok else {"ok": False, "error": err or "family-web failed"}
+
+
+def _guest_marker():
+    try:
+        with open(GUEST_MARKER, encoding="utf-8") as f:
+            data = json.load(f)
+    except (OSError, ValueError):
+        return None
+    return data if isinstance(data, dict) and isinstance(data.get("user"), str) else None
+
+
+def _no_password(name):
+    """passwd -S: "NP" is no password (the guest account); someone's own account always has one (or is locked)."""
+    parts = run(["passwd", "--status", name]).stdout.split()
+    return len(parts) > 1 and parts[1] == "NP"
+
+
+def _guest_dropin(uid):
+    return f"/etc/systemd/system/user@{uid}.service.d"
+
+
+def guest_on(request):
+    """The guest account: no password, not an administrator, emptied by guest-reset when its last session ends
+    (ExecStopPost=+ of user@.service, as root) and at every start (sloth-guest-reset.service)."""
+    full = request.get("fullname")
+    if not isinstance(full, str) or not 0 < len(full) <= 100 or any(c in full for c in ":\n\r,"):
+        return {"ok": False, "error": "bad input"}
+    if _caller() is None:
+        return {"ok": False, "error": "pkexec only"}
+    marker = _guest_marker()
+    try:
+        pw = pwd.getpwnam(GUEST_NAME)
+    except KeyError:
+        pw = None
+    if pw is not None and (marker is None or marker.get("uid") != pw.pw_uid or not _no_password(GUEST_NAME)):
+        return {"ok": False, "error": "exists"}  # someone's own account called "guest": never touched
+    if pw is None:
+        r = run(["useradd", "--create-home", "--comment", full, GUEST_NAME])
+        if r.returncode != 0:
+            return {"ok": False, "error": r.stderr.strip()[-500:]}
+        pw = pwd.getpwnam(GUEST_NAME)
+    r = run(["passwd", "--delete", GUEST_NAME])  # signs in without a password (pam_unix nullok)
+    if r.returncode != 0:
+        run(["userdel", "--remove", GUEST_NAME])
+        return {"ok": False, "error": r.stderr.strip()[-500:]}
+    _write(GUEST_MARKER, _js({"user": GUEST_NAME, "uid": pw.pw_uid}) + "\n")
+    # emptied when its last session ends: /usr/lib/systemd/system/user@.service.d/50-sloth-guest.conf (as root);
+    # the per-user drop-in written here until 2026-11-09 ran it as the guest, who could not empty the account
+    if os.path.isdir(_guest_dropin(pw.pw_uid)):
+        shutil.rmtree(_guest_dropin(pw.pw_uid), ignore_errors=True)
+        run(["systemctl", "daemon-reload"])
+    run(["/usr/libexec/sloth-os/guest-reset"])  # a fresh home, without KDE's password store asking
+    return {"ok": True}
+
+
+def guest_off():
+    marker = _guest_marker()
+    if marker is None:
+        return {"ok": True}
+    try:
+        pw = pwd.getpwnam(marker["user"])
+    except KeyError:
+        pw = None
+    if pw is not None and pw.pw_uid == marker.get("uid"):
+        from gi.repository import Gio, GLib
+        try:  # signed in: signed out first
+            Gio.bus_get_sync(Gio.BusType.SYSTEM, None).call_sync(
+                "org.freedesktop.login1", "/org/freedesktop/login1", "org.freedesktop.login1.Manager", "TerminateUser",
+                GLib.Variant("(u)", (pw.pw_uid,)), None, Gio.DBusCallFlags.NONE, 30000, None)
+        except GLib.Error:
+            pass  # not signed in
+        r = run(["userdel", "--remove", pw.pw_name])
+        if r.returncode not in (0, 12):  # 12: the home folder could not be removed (already gone)
+            return {"ok": False, "error": r.stderr.strip()[-500:]}
+    if isinstance(marker.get("uid"), int):
+        shutil.rmtree(_guest_dropin(marker["uid"]), ignore_errors=True)
+    os.unlink(GUEST_MARKER)
+    run(["systemctl", "daemon-reload"])
+    return {"ok": True}
+
+
+def child_remove(name):
+    pw = _child(name)
+    if pw is None:
+        return {"ok": False, "error": "not a child account"}
+    if name in web_users():
+        _set_web(name, False)
+    from gi.repository import Gio, GLib
+    bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
+    try:  # signed in: signed out first, or the account's processes keep its files busy
+        bus.call_sync("org.freedesktop.login1", "/org/freedesktop/login1", "org.freedesktop.login1.Manager",
+                      "TerminateUser", GLib.Variant("(u)", (pw.pw_uid,)), None, Gio.DBusCallFlags.NONE, 30000, None)
+    except GLib.Error:
+        pass  # not signed in
+    try:  # AccountsService removes its own data (the parental controls) too
+        bus.call_sync("org.freedesktop.Accounts", "/org/freedesktop/Accounts", "org.freedesktop.Accounts",
+                      "DeleteUser", GLib.Variant("(xb)", (pw.pw_uid, True)), None, Gio.DBusCallFlags.NONE,
+                      120000, None)
+    except GLib.Error as e:
+        return {"ok": False, "error": str(e)[-500:]}
+    for suffix in (".apps", ".json"):
+        path = os.path.join(FAMILY_STATE, name + suffix)
+        if os.path.exists(path):
+            os.unlink(path)
+    return {"ok": True}
+
+
 def main(argv):
     if os.geteuid() != 0:
         print(json.dumps({"ok": False, "error": "root needed"}))
@@ -745,9 +1029,10 @@ def main(argv):
     sharing_op = op in ("share-add", "share-remove", "share-approve", "sharing") \
         or (op == "network-kind" and args[1:2] == ["public-shared"])
     network_op = op == "network-kind" and not sharing_op
+    family_op = op.startswith(("child-", "guest-"))
     if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time", "updates-pause")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])) \
             or (NETLIMIT_ONLY and op != "net-limit") \
-            or (SHARING_ONLY != sharing_op) or (NETWORK_ONLY != network_op):
+            or (SHARING_ONLY != sharing_op) or (NETWORK_ONLY != network_op) or (FAMILY_ONLY != family_op):
         print(json.dumps({"ok": False, "error": "unknown operation"}))
         return 2
     if op == "secureboot-status" and not args:
@@ -817,6 +1102,30 @@ def main(argv):
     elif op == "network-kind" and len(args) == 2 and NETWORK_UUID_RE.match(args[0]) \
             and args[1] in ("home", "private", "public", "public-shared") and not VERSIONS_ONLY:
         result = network_kind(*args)
+    elif op in ("child-add", "child-limits", "child-apps") and len(args) == (op != "child-add") \
+            and all(USER_RE.match(a) for a in args):
+        try:
+            request = json.loads(sys.stdin.read(65536) or "{}")
+        except ValueError:
+            request = None
+        if not isinstance(request, dict):
+            result = {"ok": False, "error": "bad input"}
+        elif op == "child-add":
+            result = child_add(request)
+        else:
+            result = (child_limits if op == "child-limits" else child_apps)(args[0], request)
+    elif op == "child-remove" and len(args) == 1 and USER_RE.match(args[0]):
+        result = child_remove(args[0])
+    elif op == "child-web" and len(args) == 2 and USER_RE.match(args[0]) and args[1] in ("on", "off"):
+        result = child_web(args[0], args[1] == "on")
+    elif op == "guest-on" and not args:
+        try:
+            request = json.loads(sys.stdin.read(65536) or "{}")
+        except ValueError:
+            request = None
+        result = guest_on(request) if isinstance(request, dict) else {"ok": False, "error": "bad input"}
+    elif op == "guest-off" and not args:
+        result = guest_off()
     elif op == "login-repair" and not args and not VERSIONS_ONLY:
         result = keep_altfiles()
     elif op == "admin-policy" and not args and not VERSIONS_ONLY:

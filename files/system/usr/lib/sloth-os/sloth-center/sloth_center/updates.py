@@ -17,7 +17,7 @@ from sloth_common.apps import packages
 
 from .i18n import tr
 
-from . import registry_check, texts
+from . import registry_check, texts, whats_new
 from .rpmostree import RpmOstree, Transaction
 
 log = logging.getLogger("sloth-center.updates")
@@ -116,6 +116,15 @@ class UpdatesController(QObject):
     progress = _p("_progress", int)
     mode = _p("_mode")
     del _p
+
+    @Property("QVariantList", constant=True)
+    def whatsNew(self):
+        """What the running version brought (whats_new.NOTES), translated; [] if it has no notes."""
+        return whats_new.notes()
+
+    @Property(str, constant=True)
+    def runningVersion(self):
+        return whats_new.current_version()
 
     @Property(bool, notify=changed)
     def busy(self):

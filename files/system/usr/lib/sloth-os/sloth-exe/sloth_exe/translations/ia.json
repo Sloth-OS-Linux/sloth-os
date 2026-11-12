@@ -76,5 +76,8 @@
   "misc.program_files": "Files del programma",
 
   "desktop.name": "Programmas Windows",
-  "desktop.comment": "Installar e executar programmas e jocos de Windows"
+  "desktop.comment": "Installar e executar programmas e jocos de Windows",
+
+  "parental.blocked_title": "Disactivate per un genitor",
+  "parental.blocked_text": "Un genitor ha disactivate le programmas de Windows e le applicationes discargate pro tu conto. Demanda le de permitter lo in Sloth Center → Controlo parental."
 }

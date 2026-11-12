@@ -76,5 +76,8 @@
   "misc.program_files": "Program fájljai",
 
   "desktop.name": "Windows-programok",
-  "desktop.comment": "Windows-os programok és játékok telepítése és futtatása"
+  "desktop.comment": "Windows-os programok és játékok telepítése és futtatása",
+
+  "parental.blocked_title": "Egy szülő kikapcsolta",
+  "parental.blocked_text": "Egy szülő kikapcsolta a fiókodban a Windows-programokat és a letöltött appokat. Kérd meg, hogy engedélyezze a Sloth Center → Szülői felügyelet oldalon."
 }

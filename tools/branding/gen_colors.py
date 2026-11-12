@@ -98,6 +98,14 @@ SCHEMES = {
         button="#ebdcc0", button_alt="#e3d1b2", header="#efe3cc", header_inactive="#f4ead8",
         tooltip="#fbf6ec", fg="#2f2414", fg_inactive="#726249",
         sel="#9a5f00", sel_alt="#a86a08", sel_fg="#ffffff", focus="#9a5f00", hover="#c08420"),
+    # Accessibility (Sloth Center → Accessibility → High contrast), not in the Appearance list: black and white, a
+    # yellow highlight, the strongest contrast for low vision
+    "SlothHighContrast": dict(
+        name="Sloth High Contrast", dark=True,
+        window="#000000", window_alt="#0d0d0d", view="#000000", view_alt="#121212",
+        button="#1c1c1c", button_alt="#262626", header="#000000", header_inactive="#000000",
+        tooltip="#000000", fg="#ffffff", fg_inactive="#e6e6e6",
+        sel="#ffd800", sel_alt="#ffe24d", sel_fg="#000000", focus="#ffd800", hover="#ffe24d"),
 }
 
 DEFAULT = "SlothSilverDark"

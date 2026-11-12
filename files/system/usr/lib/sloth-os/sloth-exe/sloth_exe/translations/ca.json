@@ -76,5 +76,8 @@
   "misc.program_files": "Fitxers del programa",
 
   "desktop.name": "Programes Windows",
-  "desktop.comment": "Instal·lar i executar programes i jocs de Windows"
+  "desktop.comment": "Instal·lar i executar programes i jocs de Windows",
+
+  "parental.blocked_title": "Desactivat per un pare o una mare",
+  "parental.blocked_text": "Un pare o una mare ha desactivat els programes de Windows i les aplicacions baixades al teu compte. Demana-li que ho permeti a Sloth Center → Control parental."
 }

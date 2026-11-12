@@ -1,0 +1,19 @@
+[Unit]
+Description=Sloth OS: the web filter's name server for child accounts (Sloth Center → Parental controls)
+Documentation=file:///usr/libexec/sloth-os/family-web
+# started and stopped by /usr/libexec/sloth-os/family-web, only while a child account has the web filter on. No
+# After=network.target: family-web runs before it and waits for this start (it needs only the loopback address)
+DefaultDependencies=no
+After=sysinit.target
+Conflicts=shutdown.target
+Before=shutdown.target
+
+[Service]
+# CleanBrowsing's family filter: no adult content, proxies or VPNs; Google, Bing and YouTube in their safe mode.
+# use-application-dns.net: "no such name" tells Firefox not to use its own encrypted lookups (Mozilla's canary domain)
+ExecStart=/usr/sbin/dnsmasq --keep-in-foreground --conf-file=/dev/null --pid-file= --user=dnsmasq --group=dnsmasq \
+    --listen-address=127.0.0.2 --bind-interfaces --port=53 --no-resolv --no-hosts --no-poll --cache-size=1000 \
+    --server=185.228.168.168 --server=185.228.169.168 --server=2a0d:2a00:1:: --server=2a0d:2a00:2:: \
+    --address=/use-application-dns.net/
+Restart=on-failure
+RestartSec=3

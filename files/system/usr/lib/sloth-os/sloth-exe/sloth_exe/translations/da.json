@@ -76,5 +76,8 @@
   "misc.program_files": "Programfiler",
 
   "desktop.name": "Windows-programmer",
-  "desktop.comment": "Installer og kør Windows-programmer og -spil"
+  "desktop.comment": "Installer og kør Windows-programmer og -spil",
+
+  "parental.blocked_title": "Slået fra af en forælder",
+  "parental.blocked_text": "En forælder har slået Windows-programmer og downloadede apps fra på din konto. Bed dem om at tillade det i Sloth Center → Forældrekontrol."
 }

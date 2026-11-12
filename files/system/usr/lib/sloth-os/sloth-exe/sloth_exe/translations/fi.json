@@ -76,5 +76,8 @@
   "misc.program_files": "Ohjelman tiedostot",
 
   "desktop.name": "Windows-ohjelmat",
-  "desktop.comment": "Asenna ja suorita Windows-ohjelmia ja -pelejä"
+  "desktop.comment": "Asenna ja suorita Windows-ohjelmia ja -pelejä",
+
+  "parental.blocked_title": "Vanhempi on poistanut käytöstä",
+  "parental.blocked_text": "Vanhempi on poistanut Windows-ohjelmat ja ladatut sovellukset käytöstä tililtäsi. Pyydä häntä sallimaan ne kohdassa Sloth Center → Lapsilukko."
 }

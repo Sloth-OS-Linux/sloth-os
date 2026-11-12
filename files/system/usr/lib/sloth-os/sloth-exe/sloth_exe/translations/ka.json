@@ -76,5 +76,8 @@
   "misc.program_files": "პროგრამის ფაილები",
 
   "desktop.name": "Windows პროგრამები",
-  "desktop.comment": "Windows-ის პროგრამებისა და თამაშების დაყენება და გაშვება"
+  "desktop.comment": "Windows-ის პროგრამებისა და თამაშების დაყენება და გაშვება",
+
+  "parental.blocked_title": "გამორთულია მშობლის მიერ",
+  "parental.blocked_text": "მშობელმა შენს ანგარიშზე გამორთო Windows-ის პროგრამები და ჩამოტვირთული აპები. სთხოვე, დაუშვას ისინი აქ: Sloth Center → მშობლის კონტროლი."
 }

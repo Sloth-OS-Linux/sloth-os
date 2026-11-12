@@ -76,5 +76,8 @@
   "misc.program_files": "Файлы праграмы",
 
   "desktop.name": "Праграмы Windows",
-  "desktop.comment": "Усталёўка і запуск праграм і гульняў для Windows"
+  "desktop.comment": "Усталёўка і запуск праграм і гульняў для Windows",
+
+  "parental.blocked_title": "Выключана бацькамі",
+  "parental.blocked_text": "Бацькі выключылі праграмы Windows і спампаваныя праграмы для твайго ўліковага запісу. Папрасі дазволіць іх у Sloth Center → Бацькоўскі кантроль."
 }

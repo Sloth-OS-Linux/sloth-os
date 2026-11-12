@@ -67,7 +67,7 @@ def welcome_keys():
         keys |= {f"layout.{kind}.name", f"layout.{kind}.description"}
     # Copying from Windows: the folders ("windows.folder." + key) and the states shown as text ("windows." + state)
     keys |= {f"windows.folder.{f}" for f in literal(WINDOWS_IMPORT, "FOLDERS")}
-    keys |= {f"windows.{s}" for s in ("locked", "none", "failed")}
+    keys |= {f"windows.{s}" for s in ("locked", "none", "failed", "steamopen")}
     return keys | DESKTOP_KEYS["sloth-welcome"]
 
 

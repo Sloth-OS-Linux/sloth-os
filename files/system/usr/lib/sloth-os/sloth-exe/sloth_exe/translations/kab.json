@@ -76,5 +76,8 @@
   "misc.program_files": "Ifuyla n wahil",
 
   "desktop.name": "Ahilen Windows",
-  "desktop.comment": "Sebded u sker ahilen d wuraren n Windows"
+  "desktop.comment": "Sebded u sker ahilen d wuraren n Windows",
+
+  "parental.blocked_title": "Yessens-it yiwen seg imawlan",
+  "parental.blocked_text": "Yiwen seg imawlan yessens ihilen n Windows d yesnasen i d-yettwasidren deg umiḍan-ik. Ssuter-as ad ten-isireg deg Sloth Center → Asenqed n imawlan."
 }

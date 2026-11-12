@@ -76,5 +76,8 @@
   "misc.program_files": "Skedarët e programit",
 
   "desktop.name": "Programe Windows",
-  "desktop.comment": "Instalimi dhe ekzekutimi i programeve dhe lojërave Windows"
+  "desktop.comment": "Instalimi dhe ekzekutimi i programeve dhe lojërave Windows",
+
+  "parental.blocked_title": "Çaktivizuar nga një prind",
+  "parental.blocked_text": "Një prind ka çaktivizuar programet Windows dhe aplikacionet e shkarkuara për llogarinë tënde. Kërkoji ta lejojë te Sloth Center → Kontrolli prindëror."
 }

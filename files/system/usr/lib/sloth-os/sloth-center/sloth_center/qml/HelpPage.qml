@@ -56,6 +56,47 @@ Kirigami.ScrollablePage {
             text: L.t("The most common problems and where to fix them. This help works without internet too.")
         }
 
+        // Remote help from someone the user knows (remote_help.py: RustDesk)
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                RowLayout {
+                    spacing: Kirigami.Units.largeSpacing
+                    Kirigami.Icon {
+                        source: "preferences-desktop-remote-desktop"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    Kirigami.Heading {
+                        Layout.fillWidth: true
+                        level: 3
+                        wrapMode: Text.Wrap
+                        text: L.t("Let someone you know help you")
+                    }
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    text: L.t("With RustDesk, someone you trust can see your screen and help you from their own computer, over the internet. They need RustDesk too: it is free, also for Windows, Mac and phones. RustDesk shows an ID and a one-time password: tell them those, then allow the screen sharing when Sloth OS asks. You can end it at any time.")
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: true
+                    type: Kirigami.MessageType.Warning
+                    text: L.t("Only do this with someone you know. Microsoft, your bank or Sloth OS never call you to ask for remote access: whoever does is a scammer.")
+                }
+                QQC2.Button {
+                    text: remoteHelp.installed ? L.t("Open RustDesk")
+                          : remoteHelp.waiting ? L.t("Waiting for the install in Discover…")
+                          : L.t("Install RustDesk")
+                    icon.name: remoteHelp.installed ? "preferences-desktop-remote-desktop" : "plasmadiscover"
+                    enabled: !remoteHelp.waiting
+                    onClicked: remoteHelp.start()
+                }
+            }
+        }
+
         Repeater {
             model: page.topics
             delegate: Kirigami.AbstractCard {

@@ -17,6 +17,7 @@ modules:
         # Printer and scanner (if they are already in the base, dnf does nothing)
         - hplip                           # drivers for HP printers and scanners (HP machines are common)
         - sane-backends-drivers-scanners  # the scanners' drivers
+        - sane-airscan                    # network scanners without a driver (eSCL/WSD, most of today's)
         - skanpage                        # scanning (KDE); hardware, like setting up printers
         - fwupd                           # BIOS/firmware updates (LVFS), on Sloth Center's Updates page
         - iproute-tc                      # tc: the download speed limit (Sloth Center → System status, net-limit)
@@ -32,6 +33,14 @@ modules:
         - samba-common-tools          # net, pdbedit, smbpasswd and testparm
         - samba-usershares            # usershares group, directory and Samba configuration
         - kdenetwork-filesharing      # Dolphin → Properties → Share
+        # Parental controls (Sloth Center → Parental controls): malcontent keeps the settings (AccountsService) and
+        # the screen time used (malcontent-timerd); Flatpak refuses blocked apps by itself. Our screen-time service
+        # does what GNOME's shell does: it records the time and signs the child out (/usr/libexec/sloth-os/screen-time)
+        - malcontent
+        - malcontent-tools            # malcontent-client: for looking at the settings when something goes wrong
+        # the web filter for child accounts (/usr/libexec/sloth-os/family-web): a dnsmasq only for their lookups
+        - dnsmasq
+        - nftables
 
   - type: systemd
     system:
@@ -50,12 +59,19 @@ modules:
         - sloth-file-sharing-groups.service
         - sloth-file-sharing.path
         - sloth-file-sharing.service  # at startup, if something is still shared
+        - sloth-screen-time.service   # parental controls: a child's screen time (does nothing without a child)
+        - sloth-family-web.service    # parental controls: the web filter (does nothing without a child who has it)
+        - sloth-guest-reset.service   # the guest account starts empty (does nothing without one)
     user:
       enabled:
         - sloth-github-bundle-update.timer   # daily update of the apps installed as GitHub packages (e.g. ArtCraft)
+        - sloth-game-saves.timer             # hourly backup of game saves, once turned on in Sloth Center → Games
         # a notification when a system update was prepared in the background (it installs at the next restart)
         - sloth-update-notify.path
         - sloth-update-notify.service
+        - sloth-whats-new.service
+        # parental controls in a child's session: the screen time banners, the blocked apps hidden
+        - sloth-family-session.service
         # the question at a new network, as in Windows: private (shared folders open) or public (hidden)
         - sloth-network-notify.path
         - sloth-network-notify.service
@@ -70,4 +86,5 @@ modules:
       - install-net-wrapper.sh # the Dolphin KAuth helper needs the shim at /usr/bin/net
       - pin-authselect.sh   # PIN sign-in: the "sloth" authselect profile (with-sloth-pin)
       - kwallet-autologin.sh  # automatic sign-in on an encrypted disk: the boot password opens KWallet
+      - screen-time-pam.sh    # parental controls: a child outside their screen time is not let in
       - slim-image.sh

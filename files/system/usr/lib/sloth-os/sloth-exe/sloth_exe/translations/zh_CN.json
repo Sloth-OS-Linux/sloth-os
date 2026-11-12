@@ -76,5 +76,8 @@
   "misc.program_files": "程序文件",
 
   "desktop.name": "Windows 程序",
-  "desktop.comment": "安装并运行 Windows 程序和游戏"
+  "desktop.comment": "安装并运行 Windows 程序和游戏",
+
+  "parental.blocked_title": "已被家长关闭",
+  "parental.blocked_text": "家长已在你的账户中关闭 Windows 程序和下载的应用。请让家长在 Sloth Center → 家长控制中允许。"
 }

@@ -427,6 +427,53 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Guest account (guest.py) ---------------------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    Kirigami.Heading { level: 3; Layout.fillWidth: true; text: L.t("Guest account") }
+                    QQC2.Switch {
+                        checked: guestAccount.on
+                        enabled: guestAccount.isAdmin && !guestAccount.busy
+                        onToggled: {
+                            guestAccount.setOn(checked)
+                            checked = Qt.binding(() => guestAccount.on)
+                        }
+                    }
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Lets a friend use this computer without a password and without seeing your files. Everything they leave behind (files, browser history, settings) is deleted when they sign out.")
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    visible: guestAccount.on
+                    text: L.t("On the sign-in screen, choose \"Guest\" and press Enter.")
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    visible: !guestAccount.isAdmin
+                    opacity: 0.7
+                    text: L.t("Only an administrator can turn this on or off.")
+                }
+                QQC2.ProgressBar { Layout.fillWidth: true; visible: guestAccount.busy; indeterminate: true }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    type: Kirigami.MessageType.Error
+                    visible: guestAccount.errorText !== ""
+                    text: guestAccount.errorText
+                }
+            }
+        }
+
         // --- Login and terminal ------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

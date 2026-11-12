@@ -76,5 +76,8 @@
   "misc.program_files": "Programmabestanden",
 
   "desktop.name": "Windows-programma’s",
-  "desktop.comment": "Windows-programma's en -games installeren en uitvoeren"
+  "desktop.comment": "Windows-programma's en -games installeren en uitvoeren",
+
+  "parental.blocked_title": "Uitgezet door een ouder",
+  "parental.blocked_text": "Een ouder heeft Windows-programma's en gedownloade apps voor je account uitgezet. Vraag of ze het willen toestaan in Sloth Center → Ouderlijk toezicht."
 }

@@ -76,5 +76,8 @@
   "misc.program_files": "Ficheiros do programa",
 
   "desktop.name": "Programas do Windows",
-  "desktop.comment": "Instalar e executar programas e jogos do Windows"
+  "desktop.comment": "Instalar e executar programas e jogos do Windows",
+
+  "parental.blocked_title": "Desligado por um dos pais",
+  "parental.blocked_text": "Um dos pais desligou os programas do Windows e as aplicações transferidas na tua conta. Pede-lhe que o permita em Sloth Center → Controlo parental."
 }

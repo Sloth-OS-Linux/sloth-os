@@ -24,6 +24,11 @@ def main():
     from .welcome import DONE_MARKER
     if args.first_run and DONE_MARKER.exists():
         return 0
+    if args.first_run:  # the guest account starts empty every time: no wizard for it
+        import getpass
+        from sloth_common.guest import is_guest
+        if is_guest(getpass.getuser()):
+            return 0
 
     logging.basicConfig(level=logging.INFO, format="%(name)s: %(message)s")
     os.environ.setdefault("QT_QUICK_CONTROLS_STYLE", "org.kde.desktop")

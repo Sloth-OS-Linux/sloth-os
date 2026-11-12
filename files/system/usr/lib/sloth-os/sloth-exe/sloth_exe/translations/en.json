@@ -76,5 +76,8 @@
   "misc.program_files": "Program files",
 
   "desktop.name": "Windows programs",
-  "desktop.comment": "Install and run Windows programs and games"
+  "desktop.comment": "Install and run Windows programs and games",
+
+  "parental.blocked_title": "Turned off by a parent",
+  "parental.blocked_text": "A parent turned off Windows programs and downloaded apps for your account. Ask them to allow it in Sloth Center → Parental controls."
 }

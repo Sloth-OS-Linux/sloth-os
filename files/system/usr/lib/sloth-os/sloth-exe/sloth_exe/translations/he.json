@@ -76,5 +76,8 @@
   "misc.program_files": "קובצי התוכנה",
 
   "desktop.name": "תוכנות Windows",
-  "desktop.comment": "התקנה והפעלה של תוכנות ומשחקים ל־Windows"
+  "desktop.comment": "התקנה והפעלה של תוכנות ומשחקים ל־Windows",
+
+  "parental.blocked_title": "כובה על ידי הורה",
+  "parental.blocked_text": "הורה כיבה בחשבון שלך תוכנות Windows ואפליקציות שהורדו. בקש ממנו לאפשר זאת ב־Sloth Center ← בקרת הורים."
 }

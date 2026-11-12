@@ -76,5 +76,8 @@
   "misc.program_files": "প্রোগ্রামের ফাইল",
 
   "desktop.name": "Windows প্রোগ্রাম",
-  "desktop.comment": "Windows প্রোগ্রাম ও গেম ইনস্টল করুন এবং চালান"
+  "desktop.comment": "Windows প্রোগ্রাম ও গেম ইনস্টল করুন এবং চালান",
+
+  "parental.blocked_title": "অভিভাবক বন্ধ করেছেন",
+  "parental.blocked_text": "অভিভাবক তোমার অ্যাকাউন্টে Windows প্রোগ্রাম ও ডাউনলোড করা অ্যাপ বন্ধ করেছেন। Sloth Center → অভিভাবকীয় নিয়ন্ত্রণে অনুমতি দিতে বলো।"
 }

@@ -1,0 +1,369 @@
+#!/usr/bin/python3 -I
+"""Screen time for child accounts (Sloth Center → Parental controls), on the system side.
+
+malcontent keeps the limits (a daily limit, allowed hours) and malcontent-timerd the usage, but on GNOME it is the
+shell that reports the usage and ends the session; KDE has nothing like it. This service does it, as root, so the
+child cannot stop it: every TICK seconds, for each signed-in child whose screen time is limited, it
+  - records the time while one of the child's sessions is in use (active and not locked) with malcontent-timerd's
+    RecordUsage, in the child's name (timerd accepts usage only from the account itself, from its user ID),
+  - works out when the child's time ends: the end of the allowed hours (from malcontent's settings, worked out here:
+    timerd's estimate did not bring the warnings before the end of the hours), or the daily limit running out
+    (timerd's GetEstimatedTimes, asked in the child's name), whichever comes first,
+  - writes the state to /run/sloth-os/family/<user>.json for the child's session (sloth_center.family_session shows
+    the warnings: 10, 5 and 1 minutes left, time's up; "ask" says whether "Ask for more time" is offered: only for
+    the daily limit, inside the allowed hours, never for the end of the hours),
+  - GRACE seconds after the time is up asks the child's Plasma to sign out (org.kde.Shutdown.logout, as if the child
+    chose Sign out: back to the sign-in screen), and FORCE seconds later ends the sessions if they are still there
+    (logind TerminateUser; that one left the sign-in screen unusable on the HP, 2026-11-06).
+Administrators are never limited, whatever malcontent says. Errors are logged and the service goes on: a broken
+timerd must not sign anyone out.
+
+The sign-in screen asks it too (pam_exec in plasmalogin's account part, see files/scripts/screen-time-pam.sh): outside
+the allowed hours, or with the day's time used up, a child is not let in. Anything unexpected lets them in: a broken
+check must never lock anyone out (a parent least of all).
+
+  screen-time                 runs the service (sloth-screen-time.service)
+  screen-time --once          one round, printing what it found (for testing)
+  screen-time --may-sign-in   for pam_exec (PAM_USER): exit 1 refuses the sign-in, with the reason on standard output
+"""
+import json
+import os
+import pwd
+import grp
+import signal
+import subprocess
+import sys
+import time
+
+from gi.repository import Gio, GLib
+
+TICK = 20
+GRACE = 60   # the time's up message, then Plasma is asked to sign out
+FORCE = 45   # then the sessions are ended if they are still there
+DAY = 24 * 60 * 60
+WARNINGS = (600, 300, 60)  # seconds left: the warning stages "10", "5", "1"
+STATE_DIR = os.environ.get("SLOTH_FAMILY_STATE", "/run/sloth-os/family")
+TIMER = ("org.freedesktop.MalcontentTimer1", "/org/freedesktop/MalcontentTimer1",
+         "org.freedesktop.MalcontentTimer1.Child")
+LOGIN1 = ("org.freedesktop.login1", "/org/freedesktop/login1", "org.freedesktop.login1.Manager")
+
+
+def log(msg):
+    print(msg, file=sys.stderr, flush=True)
+
+
+def stage_for(reached, remaining):
+    """The stage shown to the child: "ok", "10", "5", "1" or "up"."""
+    if reached or remaining <= 0:
+        return "up"
+    stage = "ok"
+    for limit, name in zip(WARNINGS, ("10", "5", "1")):
+        if remaining <= limit:
+            stage = name
+    return stage
+
+
+def midnight(now, days=0):
+    """Local midnight of the day of `now` (days later), daylight saving time included."""
+    t = time.localtime(now)
+    return int(time.mktime((t.tm_year, t.tm_mon, t.tm_mday + days, 0, 0, 0, 0, 0, -1)))
+
+
+def decide(now, schedule, daily, times):
+    """The child's state, or None without a limit.
+
+    schedule: the allowed hours as (start, end) seconds since midnight, or None; daily: a daily limit is set; times:
+    timerd's (limit reached, estimated end, next start) for it, or None. Returns {"stage", "end", "next", "ask"}."""
+    if schedule is None and not (daily and times):
+        return None
+    tomorrow = None
+    if schedule:
+        start, end = midnight(now) + schedule[0], midnight(now) + schedule[1]
+        tomorrow = midnight(now, 1) + schedule[0]
+        if not start <= now < end:  # outside the allowed hours: no asking for more
+            return {"stage": "up", "end": min(now, end), "next": start if now < start else tomorrow, "ask": False}
+    ends, daily_end, daily_next = [], None, 0
+    if schedule:
+        ends.append(end)
+    if daily and times:
+        reached, estimated_end, daily_next = times
+        daily_end = now if reached else estimated_end
+        ends.append(daily_end)
+    finish = min(ends)
+    # more time only when the daily limit ends it, inside the hours (not when the hours end first)
+    ask = daily_end is not None and (not schedule or daily_end < end - 60)
+    following = daily_next if daily_end == finish and daily_next else (tomorrow or midnight(now, 1))
+    return {"stage": stage_for(False, finish - now), "end": int(finish), "next": int(following), "ask": bool(ask)}
+
+
+def usage_span(last, now):
+    """The span to record since the previous round, or None: a gap much longer than a round (the computer slept, the
+    service was restarted) is not counted. Never an empty span: malcontent-timerd 0.14 mishandles one (start == end)."""
+    if last is None or now - last > 3 * TICK or now <= last:
+        return None
+    return last, now
+
+
+class Bus:
+    def __init__(self):
+        self.bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
+
+    def call(self, dest, path, iface, method, args=None, reply=None, timeout=10000):
+        return self.bus.call_sync(dest, path, iface, method, args, GLib.VariantType(reply) if reply else None,
+                                  Gio.DBusCallFlags.NONE, timeout, None).unpack()
+
+    def prop(self, path, iface, name):
+        return self.call("org.freedesktop.login1", path, "org.freedesktop.DBus.Properties", "Get",
+                         GLib.Variant("(ss)", (iface, name)), "(v)")[0]
+
+    def sessions(self):
+        """{uid: [(session id, in use)]} of the signed-in users (user sessions only, not the login screen)."""
+        out = {}
+        for sid, uid, _name, _seat, path in self.call(*LOGIN1, "ListSessions", reply="(a(susso))")[0]:
+            iface = "org.freedesktop.login1.Session"
+            try:
+                if self.prop(path, iface, "Class") != "user" or self.prop(path, iface, "State") == "closing":
+                    continue
+                in_use = self.prop(path, iface, "Active") and not self.prop(path, iface, "LockedHint")
+            except GLib.Error:
+                continue
+            out.setdefault(uid, []).append((sid, bool(in_use)))
+        return out
+
+    def terminate(self, uid):
+        self.call(*LOGIN1, "TerminateUser", GLib.Variant("(u)", (uid,)))
+
+    def logout(self, pw):
+        """Plasma's own sign-out in the child's session (back to the sign-in screen), as the child."""
+        r = subprocess.run(["busctl", "--user", "call", "org.kde.Shutdown", "/Shutdown", "org.kde.Shutdown", "logout"],
+                           user=pw.pw_uid, group=pw.pw_gid, extra_groups=[], capture_output=True, text=True,
+                           timeout=30, env={"PATH": "/usr/bin:/bin", "XDG_RUNTIME_DIR": f"/run/user/{pw.pw_uid}",
+                                            "DBUS_SESSION_BUS_ADDRESS": f"unix:path=/run/user/{pw.pw_uid}/bus"})
+        if r.returncode:
+            raise RuntimeError(r.stderr.strip() or f"busctl exit {r.returncode}")
+
+
+def as_child(pw, *busctl_args):
+    """A timerd call in the child's name: timerd takes the account from the caller's user ID."""
+    r = subprocess.run(["busctl", "--system", "--json=short", "call", *TIMER, *busctl_args],
+                       user=pw.pw_uid, group=pw.pw_gid, extra_groups=[], env={"PATH": "/usr/bin:/bin"},
+                       capture_output=True, text=True, timeout=30)
+    if r.returncode != 0:
+        raise RuntimeError(r.stderr.strip() or f"busctl exit {r.returncode}")
+    return json.loads(r.stdout)["data"] if r.stdout.strip() else None
+
+
+def estimated(pw):
+    """(limit reached, current session's estimated end, next session's start), or None without a limit."""
+    data = as_child(pw, "GetEstimatedTimes", "s", "login-session")
+    times = data[1].get("") if data else None
+    if not times:
+        return None
+    reached, _start, end, next_start, _next_end = times
+    return bool(reached), int(end), int(next_start)
+
+
+def session_limits(pw):
+    """(allowed hours as (start, end) seconds since midnight or None, a daily limit is set), or None without any
+    limit (malcontent's settings in AccountsService; root may read them)."""
+    import gi
+    gi.require_version("Malcontent", "0")
+    from gi.repository import Malcontent
+    manager = Malcontent.Manager.new(Gio.bus_get_sync(Gio.BusType.SYSTEM, None))
+    limits = manager.get_session_limits(pw.pw_uid, Malcontent.ManagerGetValueFlags.NONE, None)
+    on, start, end = limits.get_daily_schedule()
+    schedule = (int(start), int(end)) if on and 0 <= start < end <= DAY else None
+    daily = bool(limits.get_daily_limit()[0])
+    return (schedule, daily) if schedule or daily else None
+
+
+def state_of(pw, now):
+    """The child's state without counting anything (the sign-in check), or None without a limit."""
+    limits = session_limits(pw)
+    if not limits:
+        return None
+    schedule, daily = limits
+    return decide(now, schedule, daily, estimated(pw) if daily else None)
+
+
+def record(pw, start, end):
+    as_child(pw, "RecordUsage", "a(ttss)", "1", str(start), str(end), "login-session", "")
+
+
+def is_admin(pw):
+    try:
+        wheel = grp.getgrnam("wheel")
+    except KeyError:
+        return False
+    return pw.pw_name in wheel.gr_mem or pw.pw_gid == wheel.gr_gid
+
+
+def write_state(pw, state):
+    os.makedirs(STATE_DIR, mode=0o755, exist_ok=True)
+    path = os.path.join(STATE_DIR, f"{pw.pw_name}.json")
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(state, f)
+    os.chmod(tmp, 0o640)
+    os.chown(tmp, 0, pw.pw_gid)  # only the child (its group) and root can read it
+    os.replace(tmp, path)
+
+
+def remove_state(name):
+    try:
+        os.unlink(os.path.join(STATE_DIR, f"{name}.json"))
+    except FileNotFoundError:
+        pass
+
+
+class ScreenTime:
+    def __init__(self, bus):
+        self.bus = bus
+        self.last = {}     # uid -> the time of the previous round with a session in use
+        self.state = {}    # uid -> the state last written
+        self.up_since = {}  # uid -> when the time ran out (signing out GRACE seconds later)
+        self.logout_asked = {}  # uid -> when Plasma was asked to sign out (ended FORCE seconds later)
+
+    def round(self, now=None):
+        now = int(now or time.time())
+        found = {}
+        sessions = self.bus.sessions()
+        for uid, items in sessions.items():
+            try:
+                pw = pwd.getpwuid(uid)
+            except KeyError:
+                continue
+            if uid < 1000 or is_admin(pw):
+                continue
+            try:
+                found[uid] = self.child(pw, items, now)
+            except Exception as e:  # a broken timerd or bus: nothing happens to the child
+                log(f"{pw.pw_name}: {e}")
+        for uid in list(self.state):
+            if uid not in sessions:  # signed out: the state goes, next time it starts again
+                self.state.pop(uid)
+                self.last.pop(uid, None)
+                self.up_since.pop(uid, None)
+                self.logout_asked.pop(uid, None)
+                try:
+                    remove_state(pwd.getpwuid(uid).pw_name)
+                except KeyError:
+                    pass
+        return found
+
+    def child(self, pw, items, now):
+        uid = pw.pw_uid
+        limits = session_limits(pw)
+        schedule, daily = limits or (None, False)
+        times = estimated(pw) if daily else None
+        if daily and any(in_use for _sid, in_use in items):
+            span = usage_span(self.last.get(uid), now)
+            self.last[uid] = now
+            if span:
+                record(pw, *span)
+                times = estimated(pw)
+        else:
+            self.last.pop(uid, None)
+        state = decide(now, schedule, daily, times)
+        if state is None:  # no limit for this account
+            self.up_since.pop(uid, None)
+            self.logout_asked.pop(uid, None)
+            if self.state.pop(uid, None) is not None:
+                remove_state(pw.pw_name)
+            return None
+        if state["stage"] == "up":
+            self.up_since.setdefault(uid, now)
+            state["logout"] = self.up_since[uid] + GRACE
+        else:
+            self.up_since.pop(uid, None)
+            self.logout_asked.pop(uid, None)
+        if state != self.state.get(uid):
+            write_state(pw, state)
+            self.state[uid] = state
+        if state["stage"] == "up" and now >= self.up_since[uid] + GRACE:
+            asked = self.logout_asked.get(uid)
+            if asked is None:
+                log(f"{pw.pw_name}: time is up, signing out")
+                self.logout_asked[uid] = now
+                try:
+                    self.bus.logout(pw)
+                except Exception as e:  # no Plasma session to ask: the sessions are ended next
+                    log(f"{pw.pw_name}: Plasma's sign-out: {e}")
+                    self.logout_asked[uid] = now - FORCE
+                    asked = self.logout_asked[uid]
+            if asked is not None and now >= asked + FORCE:
+                log(f"{pw.pw_name}: still signed in, ending the sessions")
+                self.bus.terminate(uid)
+                self.logout_asked[uid] = now  # once more after FORCE seconds if even that did not end them
+        return state
+
+
+def refusal_text(state):
+    """Why a child cannot sign in now, in the computer's language (Sloth Center's translations)."""
+    lang = os.environ.get("LANG", "")
+    if not lang or lang.startswith(("C", "POSIX")):
+        try:
+            for line in open("/etc/locale.conf", encoding="utf-8"):
+                if line.startswith("LANG="):
+                    os.environ["LANG"] = line.split("=", 1)[1].strip().strip('"')
+        except OSError:
+            pass
+    sys.path[:0] = ["/usr/lib/sloth-os/common"]
+    from sloth_common.i18n import Catalog
+    tr = Catalog("/usr/lib/sloth-os/sloth-center/sloth_center/translations").tr
+    text = tr("Your screen time is over for now.")
+    nxt = state.get("next") or 0
+    if nxt:
+        clock = time.strftime("%H:%M", time.localtime(nxt))
+        days = round((midnight(nxt) - midnight(time.time())) / DAY)
+        if days <= 0:
+            text += " " + tr("You can use the computer again at {time}.", time=clock)
+        elif days == 1:
+            text += " " + (tr("You can use the computer again tomorrow.") if clock == "00:00"
+                           else tr("You can use the computer again tomorrow at {time}.", time=clock))
+    return text
+
+
+def may_sign_in(name):
+    """True, or False with the reason printed; anything unexpected lets the account in."""
+    signal.signal(signal.SIGALRM, lambda *a: (_ for _ in ()).throw(TimeoutError()))
+    signal.alarm(15)  # the sign-in screen must not hang on us
+    try:
+        pw = pwd.getpwnam(name)
+        if pw.pw_uid < 1000 or is_admin(pw):
+            return True
+        state = state_of(pw, int(time.time()))
+        if not state or state["stage"] != "up":
+            return True
+    except BaseException as e:  # noqa: BLE001 - never lock anyone out because of us
+        log(f"sign-in check for {name}: {e}")
+        return True
+    finally:
+        signal.alarm(0)
+    log(f"{name}: no screen time now, sign-in refused")
+    try:
+        print(refusal_text(state), flush=True)
+    except Exception as e:
+        log(f"refusal text: {e}")
+    return False
+
+
+def main(argv):
+    if argv[:1] == ["--may-sign-in"]:
+        if os.environ.get("PAM_TYPE", "account") != "account":
+            return 0
+        return 0 if may_sign_in(os.environ.get("PAM_USER", "")) else 1
+    service = ScreenTime(Bus())
+    if argv[:1] == ["--once"]:
+        print(json.dumps({pwd.getpwuid(u).pw_name: s for u, s in service.round().items()}))
+        return 0
+    while True:
+        try:
+            service.round()
+        except Exception as e:  # logind restarting and the like: the next round tries again
+            log(f"round: {e}")
+        time.sleep(TICK)
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

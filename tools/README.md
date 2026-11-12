@@ -37,6 +37,26 @@ Fedora container with the repository mounted at `/repo`, e.g.
 It checks password and PIN in the same prompt, rejection over SSH, the lock screen running as the user,
 the lockout after repeated wrong PINs, and removal.
 
+`python3 tools/tests/test_parental_controls.py` checks the parental controls without root, D-Bus or Qt: the screen
+time service's decisions (warnings, signing out, locked screens, a broken timer daemon), `sloth-helper-family`'s
+input checks and the child session's warnings and hidden apps. `tools/tests/parental_controls_test.sh` runs the
+system side against the real AccountsService and malcontent-timerd in a throwaway Fedora container, the same way as
+the PIN test:
+`podman run --rm -v .:/repo:ro registry.fedoraproject.org/fedora:44 bash /repo/tools/tests/parental_controls_test.sh`.
+`tools/tests/guest_test.sh` tries the guest account (`sloth-helper-family guest-on` / `guest-off`,
+`/usr/libexec/sloth-os/guest-reset`) with real accounts in a container:
+`podman run --rm -v .:/repo:ro registry.fedoraproject.org/fedora:44 bash /repo/tools/tests/guest_test.sh`.
+`python3 tools/tests/test_access_power.py` checks what the Accessibility and Power and battery pages write into KDE's
+files.
+
+`python3 tools/tests/test_game_saves.py` checks the game saves backup (`/usr/libexec/sloth-os/game-saves`): the
+Ludusavi config it writes and how it reads Ludusavi's JSON output.
+
+`tools/tests/family_web_test.sh` tries the web filter (`/usr/libexec/sloth-os/family-web`) with real dnsmasq and
+nftables in a container with its own network (it needs the internet): a child's and a parent's lookups side by side,
+SafeSearch, and the ways around it (another name server, DNS over HTTPS and TLS):
+`podman run --rm --cap-add NET_ADMIN,NET_RAW -v .:/repo:ro registry.fedoraproject.org/fedora:44 bash /repo/tools/tests/family_web_test.sh`.
+
 ## Releases
 
 1. Bump `SLOTH_VERSION` in `files/scripts/branding.sh`, write `docs/releases/<version>.md` (its download line says the

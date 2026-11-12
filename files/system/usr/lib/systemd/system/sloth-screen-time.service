@@ -1,0 +1,11 @@
+[Unit]
+Description=Sloth OS: screen time for child accounts (Sloth Center → Parental controls)
+After=systemd-logind.service dbus.service
+
+[Service]
+ExecStart=/usr/libexec/sloth-os/screen-time
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
