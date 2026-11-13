@@ -4,7 +4,8 @@
 // needed. KDE pages that a Sloth Center page already covers ("covered") show only when searching.
 //
 // Four ways to show it, the user picks one (kept in Main.qml's ui settings):
-//   topics   big tiles per topic, a topic's settings after a click (like Windows' Control Panel) – the default
+//   topics   big tiles per topic, a topic's settings as icons after a click (like Windows' Control Panel) – the
+//            default
 //   icons    every setting as an icon, in groups (like the Mac's old System Preferences)
 //   sidebar  the topics on the left, the chosen topic's settings on the right (like KDE's System Settings)
 //   list     everything in one list with descriptions
@@ -235,6 +236,27 @@ Kirigami.Page {
         }
     }
 
+    // The open topic's title, big (after a tile, and on the right in the sidebar view)
+    Component {
+        id: topicHeader
+        RowLayout {
+            id: bigHeading
+            property var group: ({ name: "", icon: "" })
+            spacing: Kirigami.Units.largeSpacing
+            Kirigami.Icon {
+                source: bigHeading.group.icon
+                implicitWidth: Kirigami.Units.iconSizes.huge
+                implicitHeight: Kirigami.Units.iconSizes.huge
+            }
+            Kirigami.Heading {
+                Layout.fillWidth: true
+                level: 1
+                wrapMode: Text.Wrap
+                text: bigHeading.group.name
+            }
+        }
+    }
+
     // --- Topics: big tiles (the default) ----------------------------------------------------------------------
     Component {
         id: topicsView
@@ -306,7 +328,7 @@ Kirigami.Page {
         }
     }
 
-    // --- One topic's settings (after a tile) ------------------------------------------------------------------
+    // --- One topic's settings (after a tile): icons, as the tiles were ---------------------------------------
     Component {
         id: topicView
         QQC2.ScrollView {
@@ -315,15 +337,22 @@ Kirigami.Page {
             implicitWidth: Kirigami.Units.gridUnit * 20   // fixed: the Loader sizes it (no binding loop)
             ColumnLayout {
                 width: topicScroll.availableWidth
-                spacing: 0
+                spacing: Kirigami.Units.largeSpacing
                 Loader {
-                    Layout.leftMargin: Kirigami.Units.largeSpacing
-                    sourceComponent: groupHeading
+                    Layout.fillWidth: true
+                    Layout.margins: Kirigami.Units.largeSpacing
+                    Layout.bottomMargin: 0
+                    sourceComponent: topicHeader
                     onLoaded: item.group = Qt.binding(() => page.currentGroup || { name: "", icon: "" })
                 }
-                Repeater {
-                    model: page.currentGroup ? page.currentGroup.pages : []
-                    delegate: rowDelegate
+                Flow {
+                    Layout.fillWidth: true
+                    Layout.leftMargin: Kirigami.Units.largeSpacing
+                    Layout.rightMargin: Kirigami.Units.largeSpacing
+                    Repeater {
+                        model: page.currentGroup ? page.currentGroup.pages : []
+                        delegate: iconDelegate
+                    }
                 }
             }
         }
@@ -395,6 +424,12 @@ Kirigami.Page {
                 ColumnLayout {
                     width: sideScroll.availableWidth
                     spacing: 0
+                    Loader {
+                        Layout.fillWidth: true
+                        Layout.margins: Kirigami.Units.largeSpacing
+                        sourceComponent: topicHeader
+                        onLoaded: item.group = Qt.binding(() => page.currentGroup || { name: "", icon: "" })
+                    }
                     Repeater {
                         model: page.currentGroup ? page.currentGroup.pages : []
                         delegate: rowDelegate

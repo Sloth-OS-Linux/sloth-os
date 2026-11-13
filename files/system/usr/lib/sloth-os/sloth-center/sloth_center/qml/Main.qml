@@ -178,40 +178,51 @@ Kirigami.ApplicationWindow {
         contentItem: ColumnLayout {
             spacing: 0
 
-            RowLayout {
-                Layout.margins: Kirigami.Units.largeSpacing
-                spacing: Kirigami.Units.largeSpacing
-                Kirigami.Icon {
-                    visible: !root.globalDrawer.collapsed
-                    source: "sloth-os"
-                    implicitWidth: Kirigami.Units.iconSizes.large
-                    implicitHeight: Kirigami.Units.iconSizes.large
-                }
-                Kirigami.Heading {
-                    visible: !root.globalDrawer.collapsed
-                    text: L.t("Sloth Center")
-                    level: 2
-                    Layout.fillWidth: true
-                    elide: Text.ElideRight
-                }
-                QQC2.ToolButton {
-                    Layout.alignment: Qt.AlignHCenter
-                    icon.name: root.globalDrawer.collapsed
-                               ? (root.LayoutMirroring.enabled ? "sidebar-collapse-right" : "sidebar-expand-left")
-                               : (root.LayoutMirroring.enabled ? "sidebar-expand-right" : "sidebar-collapse-left")
-                    text: root.globalDrawer.collapsed ? L.t("Show sidebar") : L.t("Hide sidebar")
-                    display: QQC2.AbstractButton.IconOnly
-                    QQC2.ToolTip.visible: hovered
-                    QQC2.ToolTip.text: text
-                    onClicked: uiSettings.sidebarCollapsed = !uiSettings.sidebarCollapsed
+            // The logo and the name in a box of their own: the list below scrolls under it, never over it
+            Rectangle {
+                Layout.fillWidth: true
+                Layout.preferredHeight: drawerHeader.implicitHeight + Kirigami.Units.largeSpacing * 2
+                z: 1
+                color: Kirigami.Theme.backgroundColor
+                RowLayout {
+                    id: drawerHeader
+                    anchors.fill: parent
+                    anchors.margins: Kirigami.Units.largeSpacing
+                    spacing: Kirigami.Units.largeSpacing
+                    Kirigami.Icon {
+                        visible: !root.globalDrawer.collapsed
+                        source: "sloth-os"
+                        implicitWidth: Kirigami.Units.iconSizes.large
+                        implicitHeight: Kirigami.Units.iconSizes.large
+                    }
+                    Kirigami.Heading {
+                        visible: !root.globalDrawer.collapsed
+                        text: L.t("Sloth Center")
+                        level: 2
+                        Layout.fillWidth: true
+                        elide: Text.ElideRight
+                    }
+                    QQC2.ToolButton {
+                        Layout.alignment: Qt.AlignHCenter
+                        icon.name: root.globalDrawer.collapsed
+                                   ? (root.LayoutMirroring.enabled ? "sidebar-collapse-right" : "sidebar-expand-left")
+                                   : (root.LayoutMirroring.enabled ? "sidebar-expand-right" : "sidebar-collapse-left")
+                        text: root.globalDrawer.collapsed ? L.t("Show sidebar") : L.t("Hide sidebar")
+                        display: QQC2.AbstractButton.IconOnly
+                        QQC2.ToolTip.visible: hovered
+                        QQC2.ToolTip.text: text
+                        onClicked: uiSettings.sidebarCollapsed = !uiSettings.sidebarCollapsed
+                    }
                 }
             }
+            Kirigami.Separator { Layout.fillWidth: true }
 
             QQC2.ScrollView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 ListView {
                     id: moduleList
+                    clip: true          // the rows never draw over the logo box above or the guide button below
                     model: root.modules
                     delegate: QQC2.ItemDelegate {
                         required property var modelData
