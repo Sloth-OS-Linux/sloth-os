@@ -30,8 +30,9 @@ from a terminal must also work from a GUI.
   Sloth Center with `--page kde` and `--kcm kcm_keyboard` in Hungarian; saving through the embedded Notifications
   page wrote the KDE config file; `tools/tests/test_kde_settings.py` (categories, groups, where `systemsettings`
   goes)
-- [ ] On the HP: More settings → a few pages (Keyboard, Mouse/Touchpad, Fonts, Shortcuts, Login Screen): change,
-  Apply, and it sticks after signing in again; a page with a password (Login Screen, Users) asks for it
+- [x] On the HP (2026-11-13): a mouse setting changed at once, without signing out ("almost everything is good")
+- [ ] On the HP: a page with a password (Login Screen, Users) asks for it; Fonts and Shortcuts stick after signing
+  in again
 - [ ] On the HP: right-click the desktop → Configure Display Settings, the tray's sound/network "Configure…",
   KRunner "mouse": all open in Sloth Center; Wi-Fi & Internet (an older page) in its own window
 - [x] The structure (the user's decision, 2026-11-13): the list on the left holds the everyday settings (System
@@ -56,6 +57,9 @@ from a terminal must also work from a GUI.
   the Mac's old System Preferences), Sidebar (topics on the left, like KDE's System Settings) and List; a search
   always shows a list. Every KDE page went through load → Defaults → Apply → Reset in the container without a
   crash (three printed KDE's own QML warnings there: no colord, no accounts, no running desktop)
+- [x] Clicked through in the container with the real Sloth Center (14 steps, all passed): Topics → a topic → a KDE
+  page embedded → Back to the same topic; switching to Icons; narrowing and widening the sidebar; the choices
+  saved; Drivers and hardware → More sound settings → Back to Drivers and hardware
 - Not done: one window only (a second `systemsettings` call opens a second Sloth Center window); the left list's
   own pages are not in More settings' search
 
