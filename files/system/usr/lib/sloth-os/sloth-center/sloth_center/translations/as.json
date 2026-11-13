@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "পিছৰ পুনৰাৰম্ভত আপডেট লিখা হ'ব। কেইমিনিটমান লাগিব পাৰে, স্ক্ৰীণ ক'লা হ'ব পাৰে আৰু কম্পিউটাৰ এবাৰতকৈ বেছি পুনৰাৰম্ভ হ'ব পাৰে। বন্ধ নকৰিব আৰু Sloth OS পুনৰ আৰম্ভ নোহোৱালৈ বিদ্যুতত লগাই ৰাখক।",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "কেইমিনিটমান লাগে। শেষ নোহোৱালৈ কম্পিউটাৰ বন্ধ নকৰিব আৰু ডিভাইচ নুখুলিব।",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "এই কম্পিউটাৰৰ Windowsএ BitLocker ব্যৱহাৰ কৰে। BIOS আপডেটৰ পিছত Windowsএ এবাৰ BitLocker পুনৰুদ্ধাৰ চাবি বিচাৰিব পাৰে। আগবঢ়াৰ আগতে সেয়া বিচাৰি ৰাখক: ই আপোনাৰ Microsoft একাউণ্টত (aka.ms/myrecoverykey) বা আপুনি সংৰক্ষণ কৰা ঠাইত আছে।",
-  "I have the recovery key": "মোৰ ওচৰত পুনৰুদ্ধাৰ চাবি আছে"
+  "I have the recovery key": "মোৰ ওচৰত পুনৰুদ্ধাৰ চাবি আছে",
+  "This setting opened in its own window.": "এই ছেটিংটো নিজা উইণ্ডোত খোল খালে।",
+  "Open it again": "পুনৰ খোলক",
+  "Defaults": "অবিকল্পিত",
+  "Reset": "পুনৰ ছেট কৰক",
+  "Apply": "প্ৰয়োগ কৰক",
+  "Search settings…": "ছেটিং বিচাৰক…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "ডেস্কটপৰ আন সকলো ছেটিং: কীবোৰ্ড, মাউছ আৰু টাচপেড, ফন্ট, উইণ্ডো, চৰ্টকাট, লগইন স্ক্ৰীন আৰু অধিক। প্ৰতিটো পৃষ্ঠাৰ তলৰ প্ৰয়োগ কৰক বুটামেৰে সলনিবোৰ সংৰক্ষণ কৰা হয়।",
+  "The list of settings could not be loaded.": "ছেটিঙৰ তালিকা ল'ড কৰিব পৰা নগ'ল।",
+  "Opens in its own window": "নিজা উইণ্ডোত খোল খায়",
+  "No setting matches your search.": "আপোনাৰ সন্ধানৰ সৈতে কোনো ছেটিং নিমিলে।",
+  "Apply the changes?": "সলনিবোৰ প্ৰয়োগ কৰিবনে?",
+  "The settings on this page have changed. Apply them before you leave the page?": "এই পৃষ্ঠাৰ ছেটিংবোৰ সলনি হৈছে। পৃষ্ঠাৰ পৰা ওলোৱাৰ আগতে সেইবোৰ প্ৰয়োগ কৰিবনে?"
 }

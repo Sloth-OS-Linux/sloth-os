@@ -1,0 +1,44 @@
+#!/usr/bin/python3 -I
+"""`systemsettings` → Sloth Center: one settings app (installed as /usr/bin/systemsettings by files/scripts/kcmhost.sh).
+
+Plasma opens its settings with `systemsettings <page>` (the tray's "Configure…" entries, KRunner, the desktop's
+menu…). A KDE page that Sloth Center can show in its own window opens there (sloth-center --kcm <page>); an older
+page that cannot be embedded opens in its own small window (kcmshell6); anything else, and every option this does
+not know, goes to the real System Settings (/usr/libexec/sloth-os/systemsettings.real), so nothing stops working.
+"""
+import os
+import shutil
+import sys
+
+REAL = "/usr/libexec/sloth-os/systemsettings.real"
+KCMS = "/usr/lib64/qt6/plugins/plasma/kcms"
+HOST = "/usr/lib64/qt6/qml/org/slothos/kcmhost/libkcmhost.so"
+
+
+def run(argv):
+    try:
+        os.execv(argv[0], argv)
+    except OSError:
+        os.execv(REAL, [REAL] + sys.argv[1:])
+
+
+def main():
+    args = sys.argv[1:]
+    center = shutil.which("sloth-center")
+    if not center or not os.path.exists(HOST):
+        run([REAL] + args)
+    if not args:
+        run([center, "--page", "kde"])
+    page, rest = args[0], args[1:]
+    if page.startswith("-") or "/" in page or (rest and rest[0] != "--args"):
+        run([REAL] + args)
+    extra = rest[1:] if rest else []          # systemsettings <page> --args "<arguments>"
+    if os.path.exists(f"{KCMS}/systemsettings/{page}.so"):
+        run([center, "--kcm", page] + (["--kcm-args", " ".join(extra)] if extra else []))
+    if os.path.exists(f"{KCMS}/systemsettings_qwidgets/{page}.so") and shutil.which("kcmshell6"):
+        run([shutil.which("kcmshell6"), page] + (["--args", " ".join(extra)] if extra else []))
+    run([REAL] + args)
+
+
+if __name__ == "__main__":
+    main()

@@ -12,6 +12,8 @@ import threading
 
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
+from . import kde_settings
+
 log = logging.getLogger("sloth-center.privacy")
 
 KINDS = ("camera", "microphone", "location")
@@ -111,9 +113,6 @@ class PrivacyController(QObject):
 
     @Slot(str)
     def openSettings(self, app_id):
-        """KDE's Flatpak permissions page (for one app, if given)."""
-        cmd = ["systemsettings", "kcm_flatpak"] + ([app_id] if app_id else [])
-        try:
-            subprocess.Popen(cmd, start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        except OSError as e:
-            log.warning("System Settings: %s", e)
+        """KDE's app permissions page (Flatpak permissions; for one app, if given). Plasma 6 merged the old
+        Flatpak page (kcm_flatpak) into it."""
+        kde_settings.open_page("kcm_app-permissions", app_id or "")

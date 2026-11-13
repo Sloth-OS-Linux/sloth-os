@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Lqem yettwaru deg wallus n usekker i d-iteddun. Yezmer ad yeṭṭef kra n tesdatin, agdil yezmer ad yeɣmiq, aselkim yezmer ad yales asekker ugar n tikkelt. Ur t-sexsay ara, eǧǧ-it yeqqen ɣer trisiti alamma yuɣal-d Sloth OS.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Yeṭṭef kra n tesdatin. Ur sexsay ara aselkim, ur tekkes ara ibenk alamma ifukk.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows ɣef uselkim-a iseqdac BitLocker. Deffir n lqem n BIOS, Windows yezmer ad yessuter yiwet n tikkelt tasarut n tririt n BitLocker. Af-itt send ad tkemmleḍ: tella deg umiḍan-ik Microsoft (aka.ms/myrecoverykey) neɣ anda i tt-teskelseḍ.",
-  "I have the recovery key": "Sɛiɣ tasarut n tririt"
+  "I have the recovery key": "Sɛiɣ tasarut n tririt",
+  "This setting opened in its own window.": "Aɣewwar-a yeldi deg usfaylu-ines.",
+  "Open it again": "Ldi-t tikkelt nniḍen",
+  "Defaults": "Imezwer",
+  "Reset": "Wennez",
+  "Apply": "Snes",
+  "Search settings…": "Nadi iɣewwaren…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Akk iɣewwaren-nniḍen n tnarit: anasiw, taɣerdayt d ufelwiẓ anurfan, tisefsiyin, isfuyla, inegzumen, agdil n tuqqna d wayen-nniḍen. Ibeddilen ttwaskelsen s tqeffalt Snes ddaw yal asebter.",
+  "The list of settings could not be loaded.": "Ur d-yuli ara wumuɣ n yiɣewwaren.",
+  "Opens in its own window": "Yettwaldi deg usfaylu-ines",
+  "No setting matches your search.": "Ulac aɣewwar yemṣadan d unadi-k·m.",
+  "Apply the changes?": "Snes ibeddilen?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Iɣewwaren n usebter-a beddlen. Ad ten-tsenseḍ send ad teffɣeḍ seg usebter?"
 }

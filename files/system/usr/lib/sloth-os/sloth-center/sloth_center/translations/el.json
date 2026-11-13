@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Η ενημέρωση γράφεται στην επόμενη επανεκκίνηση. Μπορεί να πάρει λίγα λεπτά, η οθόνη μπορεί να σκοτεινιάσει και ο υπολογιστής μπορεί να επανεκκινήσει περισσότερες από μία φορές. Μην τον κλείσετε και κρατήστε τον στην πρίζα μέχρι να ξεκινήσει ξανά το Sloth OS.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Παίρνει λίγα λεπτά. Μην κλείσετε τον υπολογιστή και μην αποσυνδέσετε τη συσκευή μέχρι να τελειώσει.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Τα Windows σε αυτόν τον υπολογιστή χρησιμοποιούν BitLocker. Μετά από ενημέρωση BIOS, τα Windows μπορεί να ζητήσουν μία φορά το κλειδί ανάκτησης BitLocker. Βρείτε το πριν συνεχίσετε: βρίσκεται στον λογαριασμό σας Microsoft (aka.ms/myrecoverykey) ή εκεί που το αποθηκεύσατε.",
-  "I have the recovery key": "Έχω το κλειδί ανάκτησης"
+  "I have the recovery key": "Έχω το κλειδί ανάκτησης",
+  "This setting opened in its own window.": "Αυτή η ρύθμιση άνοιξε σε δικό της παράθυρο.",
+  "Open it again": "Άνοιγμα ξανά",
+  "Defaults": "Προεπιλογές",
+  "Reset": "Επαναφορά",
+  "Apply": "Εφαρμογή",
+  "Search settings…": "Αναζήτηση ρυθμίσεων…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Όλες οι υπόλοιπες ρυθμίσεις της επιφάνειας εργασίας: πληκτρολόγιο, ποντίκι και επιφάνεια αφής, γραμματοσειρές, παράθυρα, συντομεύσεις, η οθόνη σύνδεσης και άλλα. Οι αλλαγές αποθηκεύονται με το κουμπί «Εφαρμογή» κάτω από κάθε σελίδα.",
+  "The list of settings could not be loaded.": "Δεν ήταν δυνατή η φόρτωση της λίστας ρυθμίσεων.",
+  "Opens in its own window": "Ανοίγει σε δικό του παράθυρο",
+  "No setting matches your search.": "Καμία ρύθμιση δεν ταιριάζει με την αναζήτηση.",
+  "Apply the changes?": "Εφαρμογή των αλλαγών;",
+  "The settings on this page have changed. Apply them before you leave the page?": "Οι ρυθμίσεις αυτής της σελίδας άλλαξαν. Θέλετε να τις εφαρμόσετε πριν φύγετε από τη σελίδα;"
 }

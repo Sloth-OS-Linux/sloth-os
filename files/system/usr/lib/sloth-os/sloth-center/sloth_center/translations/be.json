@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Абнаўленне запішацца пры наступным перазапуску. Гэта можа заняць некалькі хвілін, экран можа пацямнець, а камп'ютар — перазапусціцца некалькі разоў. Не выключайце яго і трымайце падключаным да сеткі, пакуль Sloth OS не запусціцца зноў.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Гэта зойме некалькі хвілін. Не выключайце камп'ютар і не адключайце прыладу да заканчэння.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows на гэтым камп'ютары выкарыстоўвае BitLocker. Пасля абнаўлення BIOS Windows можа адзін раз папрасіць ключ аднаўлення BitLocker. Знайдзіце яго, перш чым працягнуць: ён ёсць у вашым уліковым запісе Microsoft (aka.ms/myrecoverykey) або там, дзе вы яго захавалі.",
-  "I have the recovery key": "Ключ аднаўлення ў мяне ёсць"
+  "I have the recovery key": "Ключ аднаўлення ў мяне ёсць",
+  "This setting opened in its own window.": "Гэты параметр адкрыўся ў асобным акне.",
+  "Open it again": "Адкрыць зноў",
+  "Defaults": "Прадвызначаныя",
+  "Reset": "Скінуць",
+  "Apply": "Ужыць",
+  "Search settings…": "Пошук параметраў…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Усе астатнія параметры працоўнага стала: клавіятура, мыш і сэнсарная панэль, шрыфты, вокны, спалучэнні клавіш, экран уваходу і іншае. Змены захоўваюцца кнопкай «Ужыць» пад кожнай старонкай.",
+  "The list of settings could not be loaded.": "Не ўдалося загрузіць спіс параметраў.",
+  "Opens in its own window": "Адкрываецца ў асобным акне",
+  "No setting matches your search.": "Ніводзін параметр не адпавядае пошуку.",
+  "Apply the changes?": "Ужыць змены?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Параметры на гэтай старонцы змяніліся. Ужыць іх, перш чым пакінуць старонку?"
 }

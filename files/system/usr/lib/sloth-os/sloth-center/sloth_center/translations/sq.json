@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Përditësimi shkruhet në rinisjen e ardhshme. Mund të zgjasë disa minuta, ekrani mund të errësohet dhe kompjuteri mund të riniset më shumë se një herë. Mos e fik dhe mbaje në prizë derisa Sloth OS të niset sërish.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Zgjat disa minuta. Mos e fik kompjuterin dhe mos e shkëput pajisjen derisa të mbarojë.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows-i në këtë kompjuter përdor BitLocker. Pas një përditësimi të BIOS-it, Windows-i mund të kërkojë një herë kodin e rikthimit BitLocker. Gjeje para se të vazhdosh: është në llogarinë tënde Microsoft (aka.ms/myrecoverykey) ose ku e ke ruajtur.",
-  "I have the recovery key": "E kam kodin e rikthimit"
+  "I have the recovery key": "E kam kodin e rikthimit",
+  "This setting opened in its own window.": "Ky rregullim u hap në dritaren e vet.",
+  "Open it again": "Hape sërish",
+  "Defaults": "Parazgjedhjet",
+  "Reset": "Riktheje",
+  "Apply": "Zbatoje",
+  "Search settings…": "Kërko rregullime…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Të gjitha rregullimet e tjera të desktopit: tastiera, miu dhe touchpad-i, shkronjat, dritaret, shkurtoret, ekrani i hyrjes dhe më shumë. Ndryshimet ruhen me butonin Zbatoje poshtë çdo faqeje.",
+  "The list of settings could not be loaded.": "Lista e rregullimeve s’u ngarkua dot.",
+  "Opens in its own window": "Hapet në dritaren e vet",
+  "No setting matches your search.": "Asnjë rregullim s’përputhet me kërkimin.",
+  "Apply the changes?": "Të zbatohen ndryshimet?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Rregullimet në këtë faqe kanë ndryshuar. Të zbatohen para se të dalësh nga faqja?"
 }

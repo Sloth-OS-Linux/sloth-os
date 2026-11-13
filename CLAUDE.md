@@ -33,6 +33,8 @@ English is the source language of every translation.
 - `files/scripts/`: scripts run during the build (`type: script` module).
 - `files/system/usr/lib/sloth-os/<tool>/`: our own GUI tools (Python + PySide6/QML); `tools/`: developer helpers (not
   in the image).
+- `files/system/usr/src/sloth-os/kcmhost/`: the C++ QML module that shows KDE's settings pages inside Sloth Center
+  (built and removed during the image build by `files/scripts/kcmhost.sh`; `systemsettings` opens Sloth Center).
 - `files/system/usr/lib/sloth-os/common/sloth_common/`: shared parts of the tools. Translations: per tool,
   `translations/<language>.json`, with English as the source. Most tools use dotted keys (`welcome.title`); in Sloth
   Center the English sentence itself is the key (`tr("…")`, `L.t("…")`). Checks: `tools/check_translations.py` and

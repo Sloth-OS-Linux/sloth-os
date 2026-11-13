@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "업데이트는 다음에 다시 시작할 때 기록됩니다. 몇 분 걸릴 수 있고, 화면이 어두워지거나 컴퓨터가 여러 번 다시 시작될 수 있습니다. 끄지 말고 Sloth OS가 다시 시작될 때까지 전원에 연결해 두세요.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "몇 분 걸립니다. 끝날 때까지 컴퓨터를 끄거나 장치를 분리하지 마세요.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "이 컴퓨터의 Windows는 BitLocker를 사용합니다. BIOS 업데이트 후 Windows가 BitLocker 복구 키를 한 번 요청할 수 있습니다. 계속하기 전에 찾아 두세요. Microsoft 계정(aka.ms/myrecoverykey)이나 저장해 둔 곳에 있습니다.",
-  "I have the recovery key": "복구 키가 있습니다"
+  "I have the recovery key": "복구 키가 있습니다",
+  "This setting opened in its own window.": "이 설정은 별도의 창에서 열렸습니다.",
+  "Open it again": "다시 열기",
+  "Defaults": "기본값",
+  "Reset": "초기화",
+  "Apply": "적용",
+  "Search settings…": "설정 검색…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "데스크톱의 다른 모든 설정: 키보드, 마우스와 터치패드, 글꼴, 창, 단축키, 로그인 화면 등. 변경 사항은 각 페이지 아래의 적용 버튼으로 저장됩니다.",
+  "The list of settings could not be loaded.": "설정 목록을 불러올 수 없습니다.",
+  "Opens in its own window": "별도의 창에서 열립니다",
+  "No setting matches your search.": "검색과 일치하는 설정이 없습니다.",
+  "Apply the changes?": "변경 사항을 적용할까요?",
+  "The settings on this page have changed. Apply them before you leave the page?": "이 페이지의 설정이 변경되었습니다. 페이지를 떠나기 전에 적용할까요?"
 }

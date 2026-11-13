@@ -16,6 +16,7 @@ from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
 
 from .accessibility import read, write
+from . import kde_settings
 
 log = logging.getLogger("sloth-center.power")
 
@@ -256,4 +257,4 @@ class PowerController(QObject):
 
     @Slot()
     def openKdeSettings(self):
-        subprocess.Popen(["systemsettings", "kcm_powerdevilprofilesconfig"], start_new_session=True)
+        kde_settings.open_page("kcm_powerdevilprofilesconfig")

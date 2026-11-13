@@ -18,6 +18,7 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import tr
+from . import kde_settings
 
 log = logging.getLogger("sloth-center.printers")
 
@@ -158,7 +159,7 @@ class PrintersController(QObject):
 
     @Slot()
     def addPrinter(self):
-        self._open(["systemsettings", "kcm_printer_manager"])
+        kde_settings.open_page("kcm_printer_manager")
 
     @Slot()
     def scan(self):

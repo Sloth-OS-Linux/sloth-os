@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Atnaujinimas įrašomas kito paleidimo metu. Tai gali užtrukti kelias minutes, ekranas gali užtemti, o kompiuteris gali pasileisti iš naujo daugiau nei kartą. Neišjunkite jo ir laikykite prijungtą prie elektros, kol „Sloth OS“ vėl pasileis.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Tai užtrunka kelias minutes. Neišjunkite kompiuterio ir neatjunkite įrenginio, kol nebaigta.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Šio kompiuterio „Windows“ naudoja „BitLocker“. Po BIOS atnaujinimo „Windows“ gali vieną kartą paprašyti „BitLocker“ atkūrimo rakto. Susiraskite jį prieš tęsdami: jis yra jūsų „Microsoft“ paskyroje (aka.ms/myrecoverykey) arba ten, kur jį išsaugojote.",
-  "I have the recovery key": "Atkūrimo raktą turiu"
+  "I have the recovery key": "Atkūrimo raktą turiu",
+  "This setting opened in its own window.": "Šis nustatymas atsivėrė atskirame lange.",
+  "Open it again": "Atverti dar kartą",
+  "Defaults": "Numatytieji",
+  "Reset": "Atstatyti",
+  "Apply": "Taikyti",
+  "Search settings…": "Ieškoti nustatymų…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Visi kiti darbalaukio nustatymai: klaviatūra, pelė ir jutiklinis kilimėlis, šriftai, langai, spartieji klavišai, prisijungimo ekranas ir dar daugiau. Pakeitimai įrašomi mygtuku „Taikyti“ po kiekvienu puslapiu.",
+  "The list of settings could not be loaded.": "Nepavyko įkelti nustatymų sąrašo.",
+  "Opens in its own window": "Atsiveria atskirame lange",
+  "No setting matches your search.": "Paieškos neatitinka joks nustatymas.",
+  "Apply the changes?": "Taikyti pakeitimus?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Šio puslapio nustatymai pakeisti. Ar pritaikyti juos prieš išeinant iš puslapio?"
 }

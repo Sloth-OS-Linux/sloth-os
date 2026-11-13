@@ -6,12 +6,12 @@ for trying the buttons KDE's Game Controller module.
 """
 import logging
 import os
-import subprocess
 from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import tr
+from . import kde_settings
 
 log = logging.getLogger("sloth-center.gamepads")
 
@@ -94,10 +94,7 @@ class GamepadsController(QObject):
     def openSettings(self, kcm):
         """A KDE setting: "kcm_bluetooth" (pairing) or "kcm_gamecontroller" (testing)."""
         if kcm in ("kcm_bluetooth", "kcm_gamecontroller"):
-            try:
-                subprocess.Popen(["systemsettings", kcm])
-            except OSError as e:
-                log.warning("%s: %s", kcm, e)
+            kde_settings.open_page(kcm)
 
     @Slot(str, result=str)
     def connectionText(self, connection):

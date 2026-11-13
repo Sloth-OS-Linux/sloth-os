@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "அடுத்த மறுதொடக்கத்தில் புதுப்பிப்பு எழுதப்படும். சில நிமிடங்கள் ஆகலாம், திரை இருட்டாகலாம், கணினி ஒன்றுக்கு மேற்பட்ட முறை மறுதொடக்கம் ஆகலாம். அதை அணைக்காமல், Sloth OS மீண்டும் தொடங்கும் வரை மின் இணைப்பில் வையுங்கள்.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "சில நிமிடங்கள் ஆகும். முடியும் வரை கணினியை அணைக்கவோ சாதனத்தைத் துண்டிக்கவோ வேண்டாம்.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "இந்தக் கணினியிலுள்ள Windows BitLocker-ஐப் பயன்படுத்துகிறது. BIOS புதுப்பிப்புக்குப் பிறகு Windows ஒருமுறை BitLocker மீட்பு விசையைக் கேட்கலாம். தொடர்வதற்கு முன் அதைக் கண்டுபிடியுங்கள்: அது உங்கள் Microsoft கணக்கில் (aka.ms/myrecoverykey) அல்லது நீங்கள் சேமித்த இடத்தில் இருக்கும்.",
-  "I have the recovery key": "என்னிடம் மீட்பு விசை உள்ளது"
+  "I have the recovery key": "என்னிடம் மீட்பு விசை உள்ளது",
+  "This setting opened in its own window.": "இந்த அமைப்பு தனி சாளரத்தில் திறந்தது.",
+  "Open it again": "மீண்டும் திற",
+  "Defaults": "இயல்புநிலைகள்",
+  "Reset": "மீட்டமை",
+  "Apply": "செயல்படுத்து",
+  "Search settings…": "அமைப்புகளைத் தேடு…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "பணிமேடையின் மற்ற எல்லா அமைப்புகளும்: விசைப்பலகை, சுட்டி மற்றும் தொடுதிண்டு, எழுத்துருக்கள், சாளரங்கள், குறுக்குவழிகள், உள்நுழைவுத் திரை மற்றும் பல. ஒவ்வொரு பக்கத்தின் கீழுள்ள செயல்படுத்து பொத்தானால் மாற்றங்கள் சேமிக்கப்படும்.",
+  "The list of settings could not be loaded.": "அமைப்புகளின் பட்டியலை ஏற்ற முடியவில்லை.",
+  "Opens in its own window": "தனி சாளரத்தில் திறக்கும்",
+  "No setting matches your search.": "உங்கள் தேடலுடன் எந்த அமைப்பும் பொருந்தவில்லை.",
+  "Apply the changes?": "மாற்றங்களைச் செயல்படுத்தவா?",
+  "The settings on this page have changed. Apply them before you leave the page?": "இந்தப் பக்கத்தின் அமைப்புகள் மாறியுள்ளன. பக்கத்தை விட்டு வெளியேறும் முன் அவற்றைச் செயல்படுத்தவா?"
 }

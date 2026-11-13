@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Die bywerking word by die volgende herbegin geskryf. Dit kan 'n paar minute neem, die skerm kan donker word en die rekenaar kan meer as een keer herbegin. Moenie dit afskakel nie en hou dit ingeprop totdat Sloth OS weer begin.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Dit neem 'n paar minute. Moenie die rekenaar afskakel of die toestel ontkoppel voordat dit klaar is nie.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows op hierdie rekenaar gebruik BitLocker. Na 'n BIOS-bywerking kan Windows een keer vir sy BitLocker-herwinsleutel vra. Kry dit voordat jy voortgaan: dit is in jou Microsoft-rekening (aka.ms/myrecoverykey) of waar jy dit gestoor het.",
-  "I have the recovery key": "Ek het die herwinsleutel"
+  "I have the recovery key": "Ek het die herwinsleutel",
+  "This setting opened in its own window.": "Hierdie instelling het in sy eie venster oopgemaak.",
+  "Open it again": "Maak weer oop",
+  "Defaults": "Verstekwaardes",
+  "Reset": "Stel terug",
+  "Apply": "Pas toe",
+  "Search settings…": "Soek instellings…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Al die ander instellings van die werkskerm: sleutelbord, muis en raakpaneel, lettertipes, vensters, kortpaaie, die aanmeldskerm en meer. Veranderinge word gestoor met die Pas toe-knoppie onder elke bladsy.",
+  "The list of settings could not be loaded.": "Die lys instellings kon nie gelaai word nie.",
+  "Opens in its own window": "Maak in sy eie venster oop",
+  "No setting matches your search.": "Geen instelling pas by jou soektog nie.",
+  "Apply the changes?": "Pas die veranderinge toe?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Die instellings op hierdie bladsy het verander. Wil jy dit toepas voordat jy die bladsy verlaat?"
 }

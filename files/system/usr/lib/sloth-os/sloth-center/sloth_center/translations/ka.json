@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "განახლება შემდეგი გადატვირთვისას ჩაიწერება. ამას შეიძლება რამდენიმე წუთი დასჭირდეს, ეკრანი შეიძლება ჩაბნელდეს და კომპიუტერი რამდენჯერმე გადაიტვირთოს. ნუ გამორთავთ და დატოვეთ დენზე, სანამ Sloth OS ხელახლა არ ჩაირთვება.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "ამას რამდენიმე წუთი სჭირდება. დასრულებამდე ნუ გამორთავთ კომპიუტერს და ნუ გამოაერთებთ მოწყობილობას.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "ამ კომპიუტერზე Windows BitLocker-ს იყენებს. BIOS-ის განახლების შემდეგ Windows-მა შეიძლება ერთხელ მოითხოვოს BitLocker-ის აღდგენის გასაღები. იპოვეთ ის გაგრძელებამდე: ის თქვენს Microsoft-ის ანგარიშშია (aka.ms/myrecoverykey) ან იქ, სადაც შეინახეთ.",
-  "I have the recovery key": "აღდგენის გასაღები მაქვს"
+  "I have the recovery key": "აღდგენის გასაღები მაქვს",
+  "This setting opened in its own window.": "ეს პარამეტრი ცალკე ფანჯარაში გაიხსნა.",
+  "Open it again": "ხელახლა გახსნა",
+  "Defaults": "ნაგულისხმევი",
+  "Reset": "ჩამოყრა",
+  "Apply": "გადატარება",
+  "Search settings…": "პარამეტრების ძებნა…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "სამუშაო მაგიდის ყველა სხვა პარამეტრი: კლავიატურა, თაგუნა და სენსორული პანელი, ფონტები, ფანჯრები, მალსახმობები, შესვლის ეკრანი და სხვა. ცვლილებები ინახება თითოეული გვერდის ქვეშ მდებარე ღილაკით „გადატარება“.",
+  "The list of settings could not be loaded.": "პარამეტრების სიის ჩატვირთვა ვერ მოხერხდა.",
+  "Opens in its own window": "იხსნება ცალკე ფანჯარაში",
+  "No setting matches your search.": "ძებნას არცერთი პარამეტრი არ შეესაბამება.",
+  "Apply the changes?": "გადავატაროთ ცვლილებები?",
+  "The settings on this page have changed. Apply them before you leave the page?": "ამ გვერდის პარამეტრები შეიცვალა. გადავატაროთ ისინი, სანამ გვერდს დატოვებთ?"
 }

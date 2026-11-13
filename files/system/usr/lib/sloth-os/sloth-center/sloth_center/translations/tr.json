@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Güncelleme bir sonraki yeniden başlatmada yazılır. Birkaç dakika sürebilir, ekran kararabilir ve bilgisayar birden fazla kez yeniden başlayabilir. Kapatma ve Sloth OS yeniden açılana kadar prize takılı tut.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Birkaç dakika sürer. Bitene kadar bilgisayarı kapatma ve aygıtı çıkarma.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Bu bilgisayardaki Windows BitLocker kullanıyor. Bir BIOS güncellemesinden sonra Windows bir kez BitLocker kurtarma anahtarını isteyebilir. Devam etmeden önce onu bul: Microsoft hesabındadır (aka.ms/myrecoverykey) ya da kaydettiğin yerde.",
-  "I have the recovery key": "Kurtarma anahtarım var"
+  "I have the recovery key": "Kurtarma anahtarım var",
+  "This setting opened in its own window.": "Bu ayar kendi penceresinde açıldı.",
+  "Open it again": "Yeniden aç",
+  "Defaults": "Varsayılanlar",
+  "Reset": "Sıfırla",
+  "Apply": "Uygula",
+  "Search settings…": "Ayarlarda ara…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Masaüstünün diğer tüm ayarları: klavye, fare ve dokunmatik yüzey, yazı tipleri, pencereler, kısayollar, oturum açma ekranı ve daha fazlası. Değişiklikler her sayfanın altındaki Uygula düğmesiyle kaydedilir.",
+  "The list of settings could not be loaded.": "Ayarlar listesi yüklenemedi.",
+  "Opens in its own window": "Kendi penceresinde açılır",
+  "No setting matches your search.": "Aramanla eşleşen ayar yok.",
+  "Apply the changes?": "Değişiklikler uygulansın mı?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Bu sayfadaki ayarlar değişti. Sayfadan ayrılmadan önce uygulansın mı?"
 }

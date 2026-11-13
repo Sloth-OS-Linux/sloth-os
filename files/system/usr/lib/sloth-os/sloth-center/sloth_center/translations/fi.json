@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Päivitys kirjoitetaan seuraavassa uudelleenkäynnistyksessä. Se voi kestää muutaman minuutin, näyttö voi pimetä ja tietokone voi käynnistyä uudelleen useammin kuin kerran. Älä sammuta sitä, ja pidä se verkkovirrassa, kunnes Sloth OS käynnistyy taas.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Tämä kestää muutaman minuutin. Älä sammuta tietokonetta äläkä irrota laitetta ennen kuin se on valmis.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Tämän tietokoneen Windows käyttää BitLockeria. BIOS-päivityksen jälkeen Windows voi kerran pyytää BitLockerin palautusavainta. Etsi se ennen kuin jatkat: se on Microsoft-tililläsi (aka.ms/myrecoverykey) tai siellä, minne tallensit sen.",
-  "I have the recovery key": "Minulla on palautusavain"
+  "I have the recovery key": "Minulla on palautusavain",
+  "This setting opened in its own window.": "Tämä asetus avautui omaan ikkunaansa.",
+  "Open it again": "Avaa uudelleen",
+  "Defaults": "Oletukset",
+  "Reset": "Palauta",
+  "Apply": "Käytä",
+  "Search settings…": "Etsi asetuksia…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Kaikki muut työpöydän asetukset: näppäimistö, hiiri ja kosketuslevy, fontit, ikkunat, pikanäppäimet, kirjautumisnäkymä ja paljon muuta. Muutokset tallennetaan kunkin sivun alla olevalla Käytä-painikkeella.",
+  "The list of settings could not be loaded.": "Asetusluetteloa ei voitu ladata.",
+  "Opens in its own window": "Avautuu omaan ikkunaansa",
+  "No setting matches your search.": "Mikään asetus ei vastaa hakua.",
+  "Apply the changes?": "Otetaanko muutokset käyttöön?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Tämän sivun asetuksia on muutettu. Otetaanko ne käyttöön ennen kuin poistut sivulta?"
 }

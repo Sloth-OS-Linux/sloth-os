@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Oppdateringa vert skriven ved neste omstart. Det kan ta nokre minutt, skjermen kan verta svart, og datamaskina kan starta på nytt meir enn éin gong. Ikkje slå ho av, og la ho vera kopla til straum til Sloth OS startar igjen.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Det tek nokre minutt. Ikkje slå av datamaskina, og ikkje kopla frå eininga før det er ferdig.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows på denne datamaskina brukar BitLocker. Etter ei BIOS-oppdatering kan Windows éin gong be om BitLocker-gjenopprettingsnøkkelen. Finn han før du held fram: han ligg på Microsoft-kontoen din (aka.ms/myrecoverykey) eller der du lagra han.",
-  "I have the recovery key": "Eg har gjenopprettingsnøkkelen"
+  "I have the recovery key": "Eg har gjenopprettingsnøkkelen",
+  "This setting opened in its own window.": "Denne innstillinga vart opna i eit eige vindauge.",
+  "Open it again": "Opna igjen",
+  "Defaults": "Standardar",
+  "Reset": "Tilbakestill",
+  "Apply": "Bruk",
+  "Search settings…": "Søk i innstillingar …",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Alle andre innstillingar for skrivebordet: tastatur, mus og styreplate, skrifter, vindauge, snarvegar, innloggingsskjermen og meir. Endringar vert lagra med Bruk-knappen under kvar side.",
+  "The list of settings could not be loaded.": "Klarte ikkje å lasta inn lista over innstillingar.",
+  "Opens in its own window": "Vert opna i eit eige vindauge",
+  "No setting matches your search.": "Inga innstilling passar til søket.",
+  "Apply the changes?": "Bruka endringane?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Innstillingane på denne sida er endra. Vil du bruka dei før du forlèt sida?"
 }

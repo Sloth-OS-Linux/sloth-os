@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "La ĝisdatigo skribiĝas ĉe la venonta restartigo. Tio povas daŭri kelkajn minutojn, la ekrano povas malheliĝi kaj la komputilo povas restartiĝi plurfoje. Ne malŝaltu ĝin kaj tenu ĝin konektita al elektro, ĝis Sloth OS denove startos.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Tio daŭras kelkajn minutojn. Ne malŝaltu la komputilon kaj ne malkonektu la aparaton ĝis ĝi finiĝos.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows en ĉi tiu komputilo uzas BitLocker. Post BIOS-ĝisdatigo Windows eble unufoje petos ĝian BitLocker-restaŭran ŝlosilon. Trovu ĝin antaŭ ol daŭrigi: ĝi estas en via Microsoft-konto (aka.ms/myrecoverykey) aŭ kie vi konservis ĝin.",
-  "I have the recovery key": "Mi havas la restaŭran ŝlosilon"
+  "I have the recovery key": "Mi havas la restaŭran ŝlosilon",
+  "This setting opened in its own window.": "Ĉi tiu agordo malfermiĝis en propra fenestro.",
+  "Open it again": "Malfermi denove",
+  "Defaults": "Defaŭltoj",
+  "Reset": "Restarigi",
+  "Apply": "Apliki",
+  "Search settings…": "Serĉi agordojn…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Ĉiuj aliaj agordoj de la labortablo: klavaro, muso kaj tuŝplato, tiparoj, fenestroj, ŝparvojoj, la ensaluta ekrano kaj pli. Ŝanĝoj konserviĝas per la butono Apliki sub ĉiu paĝo.",
+  "The list of settings could not be loaded.": "Ne eblis ŝargi la liston de agordoj.",
+  "Opens in its own window": "Malfermiĝas en propra fenestro",
+  "No setting matches your search.": "Neniu agordo kongruas kun via serĉo.",
+  "Apply the changes?": "Ĉu apliki la ŝanĝojn?",
+  "The settings on this page have changed. Apply them before you leave the page?": "La agordoj de ĉi tiu paĝo ŝanĝiĝis. Ĉu apliki ilin antaŭ ol forlasi la paĝon?"
 }

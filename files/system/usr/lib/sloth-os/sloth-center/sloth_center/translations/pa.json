@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "ਅੱਪਡੇਟ ਅਗਲੇ ਰੀਸਟਾਰਟ 'ਤੇ ਲਿਖਿਆ ਜਾਵੇਗਾ। ਕੁਝ ਮਿੰਟ ਲੱਗ ਸਕਦੇ ਹਨ, ਸਕ੍ਰੀਨ ਹਨੇਰੀ ਹੋ ਸਕਦੀ ਹੈ ਅਤੇ ਕੰਪਿਊਟਰ ਇੱਕ ਤੋਂ ਵੱਧ ਵਾਰ ਰੀਸਟਾਰਟ ਹੋ ਸਕਦਾ ਹੈ। ਇਸਨੂੰ ਬੰਦ ਨਾ ਕਰੋ ਅਤੇ Sloth OS ਦੇ ਮੁੜ ਚਾਲੂ ਹੋਣ ਤੱਕ ਬਿਜਲੀ ਨਾਲ ਜੁੜਿਆ ਰੱਖੋ।",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "ਕੁਝ ਮਿੰਟ ਲੱਗਦੇ ਹਨ। ਖ਼ਤਮ ਹੋਣ ਤੱਕ ਕੰਪਿਊਟਰ ਬੰਦ ਨਾ ਕਰੋ ਅਤੇ ਡਿਵਾਈਸ ਨਾ ਕੱਢੋ।",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ Windows BitLocker ਵਰਤਦਾ ਹੈ। BIOS ਅੱਪਡੇਟ ਤੋਂ ਬਾਅਦ Windows ਇੱਕ ਵਾਰ BitLocker ਰਿਕਵਰੀ ਕੁੰਜੀ ਮੰਗ ਸਕਦਾ ਹੈ। ਅੱਗੇ ਵਧਣ ਤੋਂ ਪਹਿਲਾਂ ਇਸਨੂੰ ਲੱਭ ਲਓ: ਇਹ ਤੁਹਾਡੇ Microsoft ਖਾਤੇ ਵਿੱਚ (aka.ms/myrecoverykey) ਜਾਂ ਜਿੱਥੇ ਤੁਸੀਂ ਸੰਭਾਲੀ ਸੀ ਉੱਥੇ ਹੈ।",
-  "I have the recovery key": "ਮੇਰੇ ਕੋਲ ਰਿਕਵਰੀ ਕੁੰਜੀ ਹੈ"
+  "I have the recovery key": "ਮੇਰੇ ਕੋਲ ਰਿਕਵਰੀ ਕੁੰਜੀ ਹੈ",
+  "This setting opened in its own window.": "ਇਹ ਸੈਟਿੰਗ ਆਪਣੀ ਵੱਖਰੀ ਵਿੰਡੋ ਵਿੱਚ ਖੁੱਲ੍ਹੀ।",
+  "Open it again": "ਮੁੜ ਖੋਲ੍ਹੋ",
+  "Defaults": "ਮੂਲ",
+  "Reset": "ਮੁੜ-ਸੈੱਟ ਕਰੋ",
+  "Apply": "ਲਾਗੂ ਕਰੋ",
+  "Search settings…": "ਸੈਟਿੰਗਾਂ ਖੋਜੋ…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "ਡੈਸਕਟਾਪ ਦੀਆਂ ਬਾਕੀ ਸਾਰੀਆਂ ਸੈਟਿੰਗਾਂ: ਕੀਬੋਰਡ, ਮਾਊਸ ਅਤੇ ਟੱਚਪੈਡ, ਫੌਂਟ, ਵਿੰਡੋਆਂ, ਸ਼ਾਰਟਕੱਟ, ਲਾਗਇਨ ਸਕਰੀਨ ਅਤੇ ਹੋਰ। ਤਬਦੀਲੀਆਂ ਹਰ ਸਫ਼ੇ ਦੇ ਹੇਠਾਂ ਦਿੱਤੇ ਲਾਗੂ ਕਰੋ ਬਟਨ ਨਾਲ ਸੰਭਾਲੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।",
+  "The list of settings could not be loaded.": "ਸੈਟਿੰਗਾਂ ਦੀ ਸੂਚੀ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀ।",
+  "Opens in its own window": "ਆਪਣੀ ਵੱਖਰੀ ਵਿੰਡੋ ਵਿੱਚ ਖੁੱਲ੍ਹਦੀ ਹੈ",
+  "No setting matches your search.": "ਤੁਹਾਡੀ ਖੋਜ ਨਾਲ ਕੋਈ ਸੈਟਿੰਗ ਮੇਲ ਨਹੀਂ ਖਾਂਦੀ।",
+  "Apply the changes?": "ਤਬਦੀਲੀਆਂ ਲਾਗੂ ਕਰਨੀਆਂ ਹਨ?",
+  "The settings on this page have changed. Apply them before you leave the page?": "ਇਸ ਸਫ਼ੇ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਬਦਲ ਗਈਆਂ ਹਨ। ਸਫ਼ਾ ਛੱਡਣ ਤੋਂ ਪਹਿਲਾਂ ਇਹਨਾਂ ਨੂੰ ਲਾਗੂ ਕਰਨਾ ਹੈ?"
 }

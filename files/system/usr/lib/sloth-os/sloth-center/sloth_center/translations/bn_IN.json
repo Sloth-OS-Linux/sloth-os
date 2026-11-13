@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "পরের রিস্টার্টে আপডেট লেখা হবে। কয়েক মিনিট লাগতে পারে, স্ক্রিন অন্ধকার হতে পারে এবং কম্পিউটার একাধিকবার রিস্টার্ট হতে পারে। বন্ধ করবেন না এবং Sloth OS আবার চালু না হওয়া পর্যন্ত বিদ্যুতে লাগিয়ে রাখুন।",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "কয়েক মিনিট লাগে। শেষ না হওয়া পর্যন্ত কম্পিউটার বন্ধ করবেন না এবং ডিভাইস খুলবেন না।",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "এই কম্পিউটারের Windows BitLocker ব্যবহার করে। BIOS আপডেটের পরে Windows একবার BitLocker রিকভারি কী চাইতে পারে। এগোনোর আগে সেটি খুঁজে রাখুন: এটি আপনার Microsoft অ্যাকাউন্টে (aka.ms/myrecoverykey) বা যেখানে আপনি সেভ করেছেন সেখানে আছে।",
-  "I have the recovery key": "আমার কাছে রিকভারি কী আছে"
+  "I have the recovery key": "আমার কাছে রিকভারি কী আছে",
+  "This setting opened in its own window.": "এই সেটিংটি নিজস্ব উইন্ডোতে খুলেছে।",
+  "Open it again": "আবার খুলুন",
+  "Defaults": "ডিফল্ট",
+  "Reset": "রিসেট",
+  "Apply": "প্রয়োগ করুন",
+  "Search settings…": "সেটিং খুঁজুন…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "ডেস্কটপের অন্য সব সেটিং: কীবোর্ড, মাউস ও টাচপ্যাড, ফন্ট, উইন্ডো, শর্টকাট, লগইন স্ক্রিন এবং আরও অনেক কিছু। প্রতিটি পৃষ্ঠার নিচের প্রয়োগ করুন বোতাম দিয়ে পরিবর্তনগুলি সংরক্ষিত হয়।",
+  "The list of settings could not be loaded.": "সেটিংয়ের তালিকা লোড করা যায়নি।",
+  "Opens in its own window": "নিজস্ব উইন্ডোতে খোলে",
+  "No setting matches your search.": "আপনার অনুসন্ধানের সাথে কোনো সেটিং মেলেনি।",
+  "Apply the changes?": "পরিবর্তনগুলি প্রয়োগ করবেন?",
+  "The settings on this page have changed. Apply them before you leave the page?": "এই পৃষ্ঠার সেটিং পরিবর্তিত হয়েছে। পৃষ্ঠা ছাড়ার আগে সেগুলি প্রয়োগ করবেন?"
 }

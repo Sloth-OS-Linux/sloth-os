@@ -5,6 +5,38 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### One settings app: KDE's settings pages inside Sloth Center (2026-11-13, test branch)
+- [x] Looked at first (a container with the 1.5 image): KDE's public loader (KCMUtils' `KQuickConfigModuleLoader`, the
+  one Plasma Mobile's settings use) puts a page into an existing QML scene. Every one of the 63 QML pages of
+  Plasma 6.8 loaded inside a PySide6 window (keyboard, mouse, fonts, region and language, displays, sound, users,
+  shortcuts, login screen…). The 19 older QWidget pages (network/VPN, date and time, KWallet, proxy, file types…)
+  can't be embedded this way
+- [x] `org.slothos.kcmhost` (C++, `files/system/usr/src/sloth-os/kcmhost`): KcmView (the page in a Kirigami page row
+  as System Settings shows it: its header and actions, its sub-pages, Apply / Reset / Defaults through save(),
+  load(), defaults()) and KcmCatalog (every desktop page with its name in the user's language). Built during the
+  image build by `files/scripts/kcmhost.sh` against the image's own Qt and KDE Frameworks; the build tools are
+  removed again; the build stops if the module does not load with PySide6's Qt
+- [x] Sloth Center → **More settings** (`KdeSettingsPage.qml`, `kde_settings.py`): every KDE page in KDE's own groups
+  (System Settings' translated category files), with a search; a page opens inside Sloth Center (`KcmPage.qml`),
+  an older one in its own small window (kcmshell6). Leaving a page with changes not applied asks first
+- [x] Sloth Center's own "more options" buttons (accessibility, accounts, appearance, Bluetooth, displays,
+  autostart, controllers, power, printers, app permissions, Wi-Fi) open the KDE page inside Sloth Center. The app
+  permissions button now opens `kcm_app-permissions` (Plasma 6 merged the old kcm_flatpak into it)
+- [x] `systemsettings` → Sloth Center (`/usr/libexec/sloth-os/systemsettings-wrapper`, the real one at
+  `/usr/libexec/sloth-os/systemsettings.real`): Plasma's own "Configure…" entries, KRunner's settings results and
+  Sloth Welcome's links land in Sloth Center; an older page in kcmshell6; options it doesn't know and anything
+  else go to the real System Settings unchanged. System Settings' own menu entry is hidden (NoDisplay)
+- [x] Tried: the image build step in a fresh container (77 pages; the 64 build packages removed again); the real
+  Sloth Center with `--page kde` and `--kcm kcm_keyboard` in Hungarian; saving through the embedded Notifications
+  page wrote the KDE config file; `tools/tests/test_kde_settings.py` (categories, groups, where `systemsettings`
+  goes)
+- [ ] On the HP: More settings → a few pages (Keyboard, Mouse/Touchpad, Fonts, Shortcuts, Login Screen): change,
+  Apply, and it sticks after signing in again; a page with a password (Login Screen, Users) asks for it
+- [ ] On the HP: right-click the desktop → Configure Display Settings, the tray's sound/network "Configure…",
+  KRunner "mouse": all open in Sloth Center; Wi-Fi & Internet (an older page) in its own window
+- Not done: one window only (a second `systemsettings` call opens a second Sloth Center window); Sloth Center's own
+  pages and KDE's pages are searched separately
+
 ### Sloth OS 1.5 (released 2026-11-12): firmware, what's new, remote help, printers
 - [x] **BIOS/firmware updates** (`sloth_center/firmware.py`, Updates page): fwupd's fwupdmgr in JSON mode; only
   signed (`trusted-payload`) upgrades (`is-upgrade`) from the stable LVFS (lvfs-testing stays off, as Fedora ships
@@ -964,7 +996,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   maximized state, KWin rules "ignore requested geometry" and "obey geometry restrictions" did not help), but
   resizing works and Studio opens in a large window (it does not remember a size). Note: every Proton window has the class `steam_app_default`, so a
   KWin rule by class would hit every Windows program
-- [ ] **Medium** — "Two settings apps" (2026-10-29, a Reddit comment): Sloth Center and KDE's System Settings live
+- [x] (2026-11-13, KDE's pages inside Sloth Center → "One settings app" above, test branch) **Medium** — "Two settings apps" (2026-10-29, a Reddit comment): Sloth Center and KDE's System Settings live
   side by side, like Windows' Control Panel and Settings. Suggested: Sloth Center's pages as KCMs inside System
   Settings (https://develop.kde.org/docs/features/configuration/kcm/). KCMs are C++ plugins and Sloth Center is
   Python, so not as a rewrite now; first make the two find each other: a "Sloth Center" entry in System Settings

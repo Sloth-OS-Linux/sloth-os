@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Ажурирање се уписује при следећем поновном покретању. То може потрајати неколико минута, екран може да потамни, а рачунар може да се поново покрене више пута. Не искључујте га и оставите га на струји док се Sloth OS поново не покрене.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Траје неколико минута. Не искључујте рачунар и не откачињте уређај док се не заврши.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows на овом рачунару користи BitLocker. После ажурирања BIOS-а Windows може једном да затражи кључ за опоравак BitLocker-а. Пронађите га пре него што наставите: налази се на вашем Microsoft налогу (aka.ms/myrecoverykey) или тамо где сте га сачували.",
-  "I have the recovery key": "Имам кључ за опоравак"
+  "I have the recovery key": "Имам кључ за опоравак",
+  "This setting opened in its own window.": "Ово подешавање се отворило у засебном прозору.",
+  "Open it again": "Отвори поново",
+  "Defaults": "Подразумевано",
+  "Reset": "Ресетуј",
+  "Apply": "Примени",
+  "Search settings…": "Претражи подешавања…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Сва остала подешавања радне површине: тастатура, миш и тачпед, фонтови, прозори, пречице, екран за пријаву и још много тога. Измене се чувају дугметом „Примени“ испод сваке странице.",
+  "The list of settings could not be loaded.": "Списак подешавања није могао да се учита.",
+  "Opens in its own window": "Отвара се у засебном прозору",
+  "No setting matches your search.": "Ниједно подешавање не одговара претрази.",
+  "Apply the changes?": "Применити измене?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Подешавања на овој страници су измењена. Да ли желите да их примените пре него што напустите страницу?"
 }

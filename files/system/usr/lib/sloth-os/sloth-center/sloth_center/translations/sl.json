@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Posodobitev se zapiše ob naslednjem zagonu. To lahko traja nekaj minut, zaslon lahko potemni in računalnik se lahko večkrat znova zažene. Ne izklapljajte ga in naj bo priključen na elektriko, dokler se Sloth OS znova ne zažene.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Traja nekaj minut. Ne izklapljajte računalnika in ne odklapljajte naprave, dokler ni končano.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows na tem računalniku uporablja BitLocker. Po posodobitvi BIOS-a lahko Windows enkrat zahteva obnovitveni ključ BitLocker. Poiščite ga, preden nadaljujete: je v vašem Microsoftovem računu (aka.ms/myrecoverykey) ali tam, kamor ste ga shranili.",
-  "I have the recovery key": "Obnovitveni ključ imam"
+  "I have the recovery key": "Obnovitveni ključ imam",
+  "This setting opened in its own window.": "Ta nastavitev se je odprla v svojem oknu.",
+  "Open it again": "Odpri znova",
+  "Defaults": "Privzeto",
+  "Reset": "Ponastavi",
+  "Apply": "Uveljavi",
+  "Search settings…": "Iskanje nastavitev …",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Vse druge nastavitve namizja: tipkovnica, miška in sledilna ploščica, pisave, okna, bližnjice, prijavni zaslon in še več. Spremembe shranite z gumbom Uveljavi pod vsako stranjo.",
+  "The list of settings could not be loaded.": "Seznama nastavitev ni bilo mogoče naložiti.",
+  "Opens in its own window": "Odpre se v svojem oknu",
+  "No setting matches your search.": "Nobena nastavitev se ne ujema z iskanjem.",
+  "Apply the changes?": "Želite uveljaviti spremembe?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Nastavitve na tej strani so se spremenile. Jih želite uveljaviti, preden zapustite stran?"
 }

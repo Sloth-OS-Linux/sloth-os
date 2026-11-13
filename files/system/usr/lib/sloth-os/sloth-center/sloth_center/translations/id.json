@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Pembaruan ditulis saat mulai ulang berikutnya. Ini bisa beberapa menit, layar bisa gelap, dan komputer bisa menyala ulang lebih dari sekali. Jangan matikan dan biarkan tetap tercolok listrik sampai Sloth OS menyala lagi.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Ini butuh beberapa menit. Jangan matikan komputer dan jangan lepaskan perangkat sampai selesai.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows di komputer ini memakai BitLocker. Setelah pembaruan BIOS, Windows mungkin meminta kunci pemulihan BitLocker sekali. Temukan kunci itu sebelum melanjutkan: ada di akun Microsoft Anda (aka.ms/myrecoverykey) atau di tempat Anda menyimpannya.",
-  "I have the recovery key": "Saya punya kunci pemulihan"
+  "I have the recovery key": "Saya punya kunci pemulihan",
+  "This setting opened in its own window.": "Pengaturan ini terbuka di jendelanya sendiri.",
+  "Open it again": "Buka lagi",
+  "Defaults": "Bawaan",
+  "Reset": "Atur ulang",
+  "Apply": "Terapkan",
+  "Search settings…": "Cari pengaturan…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Semua pengaturan desktop lainnya: keyboard, mouse dan touchpad, fon, jendela, pintasan, layar masuk, dan lainnya. Perubahan disimpan dengan tombol Terapkan di bawah setiap halaman.",
+  "The list of settings could not be loaded.": "Daftar pengaturan tidak dapat dimuat.",
+  "Opens in its own window": "Terbuka di jendelanya sendiri",
+  "No setting matches your search.": "Tidak ada pengaturan yang cocok dengan pencarian Anda.",
+  "Apply the changes?": "Terapkan perubahan?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Pengaturan di halaman ini telah berubah. Terapkan sebelum meninggalkan halaman?"
 }

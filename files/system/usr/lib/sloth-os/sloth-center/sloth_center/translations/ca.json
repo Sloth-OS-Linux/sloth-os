@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "L'actualització s'escriu en el proper reinici. Pot trigar uns minuts, la pantalla pot quedar fosca i l'ordinador es pot reiniciar més d'un cop. No l'apaguis i deixa'l endollat fins que Sloth OS torni a arrencar.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Triga uns minuts. No apaguis l'ordinador ni desconnectis el dispositiu fins que acabi.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "El Windows d'aquest ordinador fa servir BitLocker. Després d'una actualització de la BIOS, el Windows pot demanar un cop la clau de recuperació de BitLocker. Busca-la abans de continuar: és al teu compte de Microsoft (aka.ms/myrecoverykey) o on la vas desar.",
-  "I have the recovery key": "Tinc la clau de recuperació"
+  "I have the recovery key": "Tinc la clau de recuperació",
+  "This setting opened in its own window.": "Aquest paràmetre s’ha obert en una finestra pròpia.",
+  "Open it again": "Torna a obrir-lo",
+  "Defaults": "Valors predeterminats",
+  "Reset": "Restableix",
+  "Apply": "Aplica",
+  "Search settings…": "Cerca paràmetres…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Tots els altres paràmetres de l’escriptori: teclat, ratolí i ratolí tàctil, tipus de lletra, finestres, dreceres, la pantalla d’inici de sessió i molt més. Els canvis es desen amb el botó Aplica de sota de cada pàgina.",
+  "The list of settings could not be loaded.": "No s’ha pogut carregar la llista de paràmetres.",
+  "Opens in its own window": "S’obre en una finestra pròpia",
+  "No setting matches your search.": "Cap paràmetre no coincideix amb la cerca.",
+  "Apply the changes?": "Vols aplicar els canvis?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Els paràmetres d’aquesta pàgina han canviat. Vols aplicar-los abans de sortir de la pàgina?"
 }

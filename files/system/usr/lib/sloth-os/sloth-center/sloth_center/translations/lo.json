@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "ການອັບເດດຈະຖືກຂຽນໃນການເລີ່ມໃໝ່ຄັ້ງຕໍ່ໄປ. ອາດໃຊ້ເວລາຫຼາຍນາທີ, ໜ້າຈໍອາດມືດ ແລະ ຄອມພິວເຕີອາດເລີ່ມໃໝ່ຫຼາຍກວ່າໜຶ່ງຄັ້ງ. ຢ່າປິດມັນ ແລະ ສຽບໄຟໄວ້ຈົນກວ່າ Sloth OS ຈະເລີ່ມອີກຄັ້ງ.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "ໃຊ້ເວລາຫຼາຍນາທີ. ຢ່າປິດຄອມພິວເຕີ ແລະ ຢ່າຖອດອຸປະກອນຈົນກວ່າຈະສຳເລັດ.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows ໃນຄອມພິວເຕີນີ້ໃຊ້ BitLocker. ຫຼັງຈາກອັບເດດ BIOS, Windows ອາດຂໍລະຫັດກູ້ຄືນ BitLocker ໜຶ່ງຄັ້ງ. ຊອກຫາມັນກ່ອນດຳເນີນຕໍ່: ມັນຢູ່ໃນບັນຊີ Microsoft ຂອງທ່ານ (aka.ms/myrecoverykey) ຫຼື ບ່ອນທີ່ທ່ານບັນທຶກໄວ້.",
-  "I have the recovery key": "ຂ້ອຍມີລະຫັດກູ້ຄືນແລ້ວ"
+  "I have the recovery key": "ຂ້ອຍມີລະຫັດກູ້ຄືນແລ້ວ",
+  "This setting opened in its own window.": "ການຕັ້ງຄ່ານີ້ໄດ້ເປີດຢູ່ໃນໜ້າຕ່າງຂອງມັນເອງ.",
+  "Open it again": "ເປີດອີກຄັ້ງ",
+  "Defaults": "ຄ່າເລີ່ມຕົ້ນ",
+  "Reset": "ຣີເຊັດ",
+  "Apply": "ນຳໃຊ້",
+  "Search settings…": "ຊອກຫາການຕັ້ງຄ່າ…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "ການຕັ້ງຄ່າອື່ນໆທັງໝົດຂອງໜ້າຈໍ: ແປ້ນພິມ, ເມົ້າ ແລະ ທັດແພດ, ຟອນ, ໜ້າຕ່າງ, ປຸ່ມລັດ, ໜ້າຈໍເຂົ້າສູ່ລະບົບ ແລະ ອື່ນໆ. ການປ່ຽນແປງຖືກບັນທຶກດ້ວຍປຸ່ມ ນຳໃຊ້ ຢູ່ລຸ່ມແຕ່ລະໜ້າ.",
+  "The list of settings could not be loaded.": "ບໍ່ສາມາດໂຫຼດລາຍການການຕັ້ງຄ່າໄດ້.",
+  "Opens in its own window": "ເປີດຢູ່ໃນໜ້າຕ່າງຂອງມັນເອງ",
+  "No setting matches your search.": "ບໍ່ມີການຕັ້ງຄ່າໃດກົງກັບການຊອກຫາຂອງທ່ານ.",
+  "Apply the changes?": "ນຳໃຊ້ການປ່ຽນແປງບໍ?",
+  "The settings on this page have changed. Apply them before you leave the page?": "ການຕັ້ງຄ່າໃນໜ້ານີ້ໄດ້ປ່ຽນແປງແລ້ວ. ນຳໃຊ້ພວກມັນກ່ອນອອກຈາກໜ້ານີ້ບໍ?"
 }

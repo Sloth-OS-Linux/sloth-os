@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Aktualizacja zapisze się przy następnym uruchomieniu. Może to potrwać kilka minut, ekran może zgasnąć, a komputer może uruchomić się ponownie więcej niż raz. Nie wyłączaj go i trzymaj podłączony do prądu, aż Sloth OS znów się uruchomi.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "To potrwa kilka minut. Nie wyłączaj komputera i nie odłączaj urządzenia, dopóki się nie skończy.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows na tym komputerze używa BitLockera. Po aktualizacji BIOS-u Windows może raz poprosić o klucz odzyskiwania BitLocker. Znajdź go, zanim przejdziesz dalej: jest na Twoim koncie Microsoft (aka.ms/myrecoverykey) albo tam, gdzie go zapisałeś.",
-  "I have the recovery key": "Mam klucz odzyskiwania"
+  "I have the recovery key": "Mam klucz odzyskiwania",
+  "This setting opened in its own window.": "To ustawienie otworzyło się w osobnym oknie.",
+  "Open it again": "Otwórz ponownie",
+  "Defaults": "Domyślne",
+  "Reset": "Przywróć",
+  "Apply": "Zastosuj",
+  "Search settings…": "Szukaj ustawień…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Wszystkie pozostałe ustawienia pulpitu: klawiatura, mysz i touchpad, czcionki, okna, skróty, ekran logowania i nie tylko. Zmiany zapisuje się przyciskiem Zastosuj pod każdą stroną.",
+  "The list of settings could not be loaded.": "Nie udało się wczytać listy ustawień.",
+  "Opens in its own window": "Otwiera się w osobnym oknie",
+  "No setting matches your search.": "Żadne ustawienie nie pasuje do wyszukiwania.",
+  "Apply the changes?": "Zastosować zmiany?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Ustawienia na tej stronie zostały zmienione. Czy zastosować je przed opuszczeniem strony?"
 }

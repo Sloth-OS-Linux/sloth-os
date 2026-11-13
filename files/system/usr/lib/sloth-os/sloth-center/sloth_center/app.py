@@ -23,6 +23,16 @@ def main():
         i = sys.argv.index("--page")
         start_page = sys.argv[i + 1]
         del sys.argv[i:i + 2]
+    # sloth-center --kcm <page> [--kcm-args "<arguments>"] : a KDE settings page (from `systemsettings <page>`)
+    start_kcm = start_kcm_args = ""
+    for opt in ("--kcm", "--kcm-args"):
+        if opt in sys.argv[1:-1]:
+            i = sys.argv.index(opt)
+            if opt == "--kcm":
+                start_kcm = sys.argv[i + 1]
+            else:
+                start_kcm_args = sys.argv[i + 1]
+            del sys.argv[i:i + 2]
     app = QApplication(sys.argv)
     app.setApplicationName("sloth-center")
     app.setOrganizationName("Sloth OS")
@@ -75,16 +85,20 @@ def main():
     from .firmware import FirmwareController
     from .remote_help import RemoteHelpController
     from .printers import PrintersController
+    from .kde_settings import KdeSettingsController
 
     engine = QQmlApplicationEngine()
     engine.addImportPath(shared_appearance.QML_IMPORT_PATH)  # import SlothCommon (the layout drawings)
     translator = Translator()
     engine.rootContext().setContextProperty("L", translator)
     engine.rootContext().setContextProperty("startPage", start_page)
+    engine.rootContext().setContextProperty("startKcm", start_kcm)
+    engine.rootContext().setContextProperty("startKcmArgs", start_kcm_args)
     updates = UpdatesController()
     firmware = FirmwareController()
     remote_help = RemoteHelpController()
     printers = PrintersController()
+    kde = KdeSettingsController()
     winprograms = WinProgramsController()
     services = ServicesController()
     drivers = DriversController()
@@ -123,6 +137,7 @@ def main():
     engine.rootContext().setContextProperty("firmware", firmware)
     engine.rootContext().setContextProperty("remoteHelp", remote_help)
     engine.rootContext().setContextProperty("printers", printers)
+    engine.rootContext().setContextProperty("kde", kde)
     engine.rootContext().setContextProperty("winprograms", winprograms)
     engine.rootContext().setContextProperty("services", services)
     engine.rootContext().setContextProperty("drivers", drivers)

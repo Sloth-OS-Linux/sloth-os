@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Oppdateringen skrives ved neste omstart. Det kan ta noen minutter, skjermen kan bli svart, og datamaskinen kan starte på nytt mer enn én gang. Ikke slå den av, og la den være koblet til strøm til Sloth OS starter igjen.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Det tar noen minutter. Ikke slå av datamaskinen, og ikke koble fra enheten før det er ferdig.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows på denne datamaskinen bruker BitLocker. Etter en BIOS-oppdatering kan Windows én gang be om BitLocker-gjenopprettingsnøkkelen. Finn den før du fortsetter: den ligger på Microsoft-kontoen din (aka.ms/myrecoverykey) eller der du lagret den.",
-  "I have the recovery key": "Jeg har gjenopprettingsnøkkelen"
+  "I have the recovery key": "Jeg har gjenopprettingsnøkkelen",
+  "This setting opened in its own window.": "Denne innstillingen ble åpnet i et eget vindu.",
+  "Open it again": "Åpne igjen",
+  "Defaults": "Standarder",
+  "Reset": "Tilbakestill",
+  "Apply": "Bruk",
+  "Search settings…": "Søk i innstillinger …",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Alle andre innstillinger for skrivebordet: tastatur, mus og styreplate, skrifter, vinduer, snarveier, innloggingsskjermen og mer. Endringer lagres med Bruk-knappen under hver side.",
+  "The list of settings could not be loaded.": "Klarte ikke å laste inn listen over innstillinger.",
+  "Opens in its own window": "Åpnes i et eget vindu",
+  "No setting matches your search.": "Ingen innstilling passer til søket.",
+  "Apply the changes?": "Bruke endringene?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Innstillingene på denne siden er endret. Vil du bruke dem før du forlater siden?"
 }

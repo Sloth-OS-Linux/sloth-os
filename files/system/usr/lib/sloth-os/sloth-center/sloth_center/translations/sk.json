@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Aktualizácia sa zapíše pri ďalšom reštarte. Môže to trvať niekoľko minút, obrazovka môže sčernieť a počítač sa môže reštartovať viackrát. Nevypínajte ho a nechajte ho v zásuvke, kým sa Sloth OS znova nespustí.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Trvá to niekoľko minút. Počítač nevypínajte a zariadenie neodpájajte, kým to neskončí.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows na tomto počítači používa BitLocker. Po aktualizácii BIOSu si Windows môže raz vypýtať obnovovací kľúč BitLockera. Nájdite ho skôr, než budete pokračovať: je vo vašom konte Microsoft (aka.ms/myrecoverykey) alebo tam, kam ste ho uložili.",
-  "I have the recovery key": "Obnovovací kľúč mám"
+  "I have the recovery key": "Obnovovací kľúč mám",
+  "This setting opened in its own window.": "Toto nastavenie sa otvorilo vo vlastnom okne.",
+  "Open it again": "Otvoriť znova",
+  "Defaults": "Predvolené",
+  "Reset": "Obnoviť",
+  "Apply": "Použiť",
+  "Search settings…": "Hľadať nastavenia…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Všetky ostatné nastavenia pracovnej plochy: klávesnica, myš a touchpad, písma, okná, klávesové skratky, prihlasovacia obrazovka a ďalšie. Zmeny sa ukladajú tlačidlom Použiť pod každou stránkou.",
+  "The list of settings could not be loaded.": "Zoznam nastavení sa nepodarilo načítať.",
+  "Opens in its own window": "Otvorí sa vo vlastnom okne",
+  "No setting matches your search.": "Hľadaniu nezodpovedá žiadne nastavenie.",
+  "Apply the changes?": "Použiť zmeny?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Nastavenia na tejto stránke sa zmenili. Chcete ich použiť skôr, ako stránku opustíte?"
 }

@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "La actualización se escribe en el próximo reinicio. Puede tardar unos minutos, la pantalla puede quedarse negra y el equipo puede reiniciarse más de una vez. No lo apagues y déjalo enchufado hasta que Sloth OS vuelva a arrancar.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Tarda unos minutos. No apagues el equipo ni desconectes el dispositivo hasta que termine.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows en este equipo usa BitLocker. Tras una actualización de la BIOS, Windows puede pedir una vez su clave de recuperación de BitLocker. Búscala antes de continuar: está en tu cuenta de Microsoft (aka.ms/myrecoverykey) o donde la guardaste.",
-  "I have the recovery key": "Tengo la clave de recuperación"
+  "I have the recovery key": "Tengo la clave de recuperación",
+  "This setting opened in its own window.": "Este ajuste se abrió en su propia ventana.",
+  "Open it again": "Volver a abrirlo",
+  "Defaults": "Predeterminados",
+  "Reset": "Restablecer",
+  "Apply": "Aplicar",
+  "Search settings…": "Buscar ajustes…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Todos los demás ajustes del escritorio: teclado, ratón y panel táctil, tipos de letra, ventanas, atajos de teclado, la pantalla de inicio de sesión y más. Los cambios se guardan con el botón Aplicar que hay debajo de cada página.",
+  "The list of settings could not be loaded.": "No se pudo cargar la lista de ajustes.",
+  "Opens in its own window": "Se abre en su propia ventana",
+  "No setting matches your search.": "Ningún ajuste coincide con la búsqueda.",
+  "Apply the changes?": "¿Aplicar los cambios?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Los ajustes de esta página han cambiado. ¿Quieres aplicarlos antes de salir de la página?"
 }

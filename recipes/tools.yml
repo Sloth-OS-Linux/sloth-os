@@ -87,4 +87,5 @@ modules:
       - pin-authselect.sh   # PIN sign-in: the "sloth" authselect profile (with-sloth-pin)
       - kwallet-autologin.sh  # automatic sign-in on an encrypted disk: the boot password opens KWallet
       - screen-time-pam.sh    # parental controls: a child outside their screen time is not let in
+      - kcmhost.sh            # one settings app: KDE's settings pages inside Sloth Center (before slimming)
       - slim-image.sh

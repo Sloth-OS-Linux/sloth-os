@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Оновлення запишеться під час наступного перезапуску. Це може тривати кілька хвилин, екран може потемніти, а комп'ютер — перезапуститися кілька разів. Не вимикайте його й тримайте підключеним до мережі, доки Sloth OS не запуститься знову.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Це триватиме кілька хвилин. Не вимикайте комп'ютер і не від'єднуйте пристрій до завершення.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows на цьому комп'ютері використовує BitLocker. Після оновлення BIOS Windows може один раз попросити ключ відновлення BitLocker. Знайдіть його, перш ніж продовжити: він є у вашому обліковому записі Microsoft (aka.ms/myrecoverykey) або там, де ви його зберегли.",
-  "I have the recovery key": "Ключ відновлення в мене є"
+  "I have the recovery key": "Ключ відновлення в мене є",
+  "This setting opened in its own window.": "Цей параметр відкрився в окремому вікні.",
+  "Open it again": "Відкрити знову",
+  "Defaults": "Типові",
+  "Reset": "Скинути",
+  "Apply": "Застосувати",
+  "Search settings…": "Пошук параметрів…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Усі інші параметри стільниці: клавіатура, миша й сенсорна панель, шрифти, вікна, клавіатурні скорочення, екран входу та інше. Зміни зберігаються кнопкою «Застосувати» під кожною сторінкою.",
+  "The list of settings could not be loaded.": "Не вдалося завантажити список параметрів.",
+  "Opens in its own window": "Відкривається в окремому вікні",
+  "No setting matches your search.": "Жоден параметр не відповідає пошуку.",
+  "Apply the changes?": "Застосувати зміни?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Параметри на цій сторінці змінено. Застосувати їх, перш ніж залишити сторінку?"
 }

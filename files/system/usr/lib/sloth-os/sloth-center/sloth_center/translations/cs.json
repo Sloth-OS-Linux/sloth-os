@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Aktualizace se zapíše při příštím restartu. Může to trvat několik minut, obrazovka může zčernat a počítač se může restartovat víckrát. Nevypínejte ho a nechte ho v zásuvce, dokud Sloth OS znovu nenastartuje.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Trvá to několik minut. Počítač nevypínejte a zařízení neodpojujte, dokud to neskončí.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows na tomto počítači používá BitLocker. Po aktualizaci BIOSu si Windows může jednou vyžádat obnovovací klíč BitLockeru. Najděte ho, než budete pokračovat: je ve vašem účtu Microsoft (aka.ms/myrecoverykey) nebo tam, kam jste ho uložili.",
-  "I have the recovery key": "Obnovovací klíč mám"
+  "I have the recovery key": "Obnovovací klíč mám",
+  "This setting opened in its own window.": "Toto nastavení se otevřelo ve vlastním okně.",
+  "Open it again": "Otevřít znovu",
+  "Defaults": "Výchozí",
+  "Reset": "Obnovit",
+  "Apply": "Použít",
+  "Search settings…": "Hledat nastavení…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Všechna ostatní nastavení plochy: klávesnice, myš a touchpad, písma, okna, klávesové zkratky, přihlašovací obrazovka a další. Změny se ukládají tlačítkem Použít pod každou stránkou.",
+  "The list of settings could not be loaded.": "Seznam nastavení se nepodařilo načíst.",
+  "Opens in its own window": "Otevře se ve vlastním okně",
+  "No setting matches your search.": "Hledání neodpovídá žádné nastavení.",
+  "Apply the changes?": "Použít změny?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Nastavení na této stránce se změnila. Chcete je použít, než stránku opustíte?"
 }

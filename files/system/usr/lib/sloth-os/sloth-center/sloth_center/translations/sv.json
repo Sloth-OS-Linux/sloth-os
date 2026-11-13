@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Uppdateringen skrivs vid nästa omstart. Det kan ta några minuter, skärmen kan bli svart och datorn kan starta om mer än en gång. Stäng inte av den och låt den vara ansluten till ström tills Sloth OS startar igen.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Det tar några minuter. Stäng inte av datorn och koppla inte ur enheten förrän det är klart.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows på den här datorn använder BitLocker. Efter en BIOS-uppdatering kan Windows en gång be om BitLocker-återställningsnyckeln. Leta upp den innan du fortsätter: den finns på ditt Microsoft-konto (aka.ms/myrecoverykey) eller där du sparade den.",
-  "I have the recovery key": "Jag har återställningsnyckeln"
+  "I have the recovery key": "Jag har återställningsnyckeln",
+  "This setting opened in its own window.": "Den här inställningen öppnades i ett eget fönster.",
+  "Open it again": "Öppna igen",
+  "Defaults": "Standardvärden",
+  "Reset": "Återställ",
+  "Apply": "Verkställ",
+  "Search settings…": "Sök inställningar…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Alla andra inställningar för skrivbordet: tangentbord, mus och pekplatta, teckensnitt, fönster, genvägar, inloggningsskärmen och mer. Ändringar sparas med knappen Verkställ under varje sida.",
+  "The list of settings could not be loaded.": "Listan med inställningar kunde inte läsas in.",
+  "Opens in its own window": "Öppnas i ett eget fönster",
+  "No setting matches your search.": "Ingen inställning matchar sökningen.",
+  "Apply the changes?": "Verkställ ändringarna?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Inställningarna på den här sidan har ändrats. Vill du verkställa dem innan du lämnar sidan?"
 }

@@ -4,13 +4,13 @@ Whoever changes their mind later can switch here; the shared code (sloth_common.
 way as Welcome did.
 """
 import logging
-import subprocess
 
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from sloth_common import appearance as shared
 
 from .i18n import N_, tr
+from . import kde_settings
 
 log = logging.getLogger("sloth-center.appearance")
 
@@ -146,8 +146,4 @@ class AppearanceController(QObject):
     @Slot()
     def openSystemSettings(self):
         """Everything else about the look (themes, icons, fonts): KDE's own settings."""
-        try:
-            subprocess.Popen(["systemsettings", "kcm_lookandfeel"], start_new_session=True,
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        except OSError as e:
-            log.warning("System Settings: %s", e)
+        kde_settings.open_page("kcm_lookandfeel")

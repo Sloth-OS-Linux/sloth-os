@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Обновяването се записва при следващото рестартиране. Може да отнеме няколко минути, екранът може да потъмнее и компютърът може да се рестартира повече от веднъж. Не го изключвайте и го дръжте включен в контакта, докато Sloth OS стартира отново.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Отнема няколко минути. Не изключвайте компютъра и не откачайте устройството, докато не приключи.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows на този компютър използва BitLocker. След обновяване на BIOS Windows може веднъж да поиска ключа за възстановяване на BitLocker. Намерете го, преди да продължите: той е в акаунта ви в Microsoft (aka.ms/myrecoverykey) или там, където сте го запазили.",
-  "I have the recovery key": "Имам ключа за възстановяване"
+  "I have the recovery key": "Имам ключа за възстановяване",
+  "This setting opened in its own window.": "Тази настройка се отвори в отделен прозорец.",
+  "Open it again": "Отваряне отново",
+  "Defaults": "Стандартни",
+  "Reset": "Нулиране",
+  "Apply": "Прилагане",
+  "Search settings…": "Търсене на настройки…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Всички останали настройки на работния плот: клавиатура, мишка и тъчпад, шрифтове, прозорци, клавишни комбинации, екранът за вход и още. Промените се запазват с бутона „Прилагане“ под всяка страница.",
+  "The list of settings could not be loaded.": "Списъкът с настройки не можа да се зареди.",
+  "Opens in its own window": "Отваря се в отделен прозорец",
+  "No setting matches your search.": "Нито една настройка не отговаря на търсенето.",
+  "Apply the changes?": "Прилагане на промените?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Настройките на тази страница са променени. Да се приложат ли, преди да напуснете страницата?"
 }

@@ -12,6 +12,7 @@ import subprocess
 from PySide6.QtCore import QObject, Property, QTimer, Signal, Slot
 
 from .i18n import N_, tr
+from . import kde_settings
 
 log = logging.getLogger("sloth-center.wifi")
 
@@ -142,7 +143,7 @@ class WifiController(QObject):
             self.changed.emit()
             QTimer.singleShot(4000, self._check)
         elif action == "networks":
-            self._open(["systemsettings", "kcm_networkmanagement"])
+            kde_settings.open_page("kcm_networkmanagement")
         elif action == "portal":
             self._open(["xdg-open", PORTAL_URL])
 

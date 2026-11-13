@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "העדכון נכתב בהפעלה מחדש הבאה. זה יכול לקחת כמה דקות, המסך עלול להחשיך והמחשב עלול להופעל מחדש יותר מפעם אחת. אל תכבו אותו והשאירו אותו מחובר לחשמל עד ש-Sloth OS יעלה שוב.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "זה לוקח כמה דקות. אל תכבו את המחשב ואל תנתקו את ההתקן עד שזה יסתיים.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows במחשב הזה משתמש ב-BitLocker. אחרי עדכון BIOS, ‏Windows עשוי לבקש פעם אחת את מפתח השחזור של BitLocker. מצאו אותו לפני שממשיכים: הוא בחשבון Microsoft שלכם (aka.ms/myrecoverykey) או איפה ששמרתם אותו.",
-  "I have the recovery key": "יש לי את מפתח השחזור"
+  "I have the recovery key": "יש לי את מפתח השחזור",
+  "This setting opened in its own window.": "ההגדרה הזו נפתחה בחלון משלה.",
+  "Open it again": "לפתוח שוב",
+  "Defaults": "ברירות מחדל",
+  "Reset": "איפוס",
+  "Apply": "החלה",
+  "Search settings…": "חיפוש בהגדרות…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "כל שאר ההגדרות של שולחן העבודה: מקלדת, עכבר ומשטח מגע, גופנים, חלונות, קיצורי דרך, מסך הכניסה ועוד. השינויים נשמרים בכפתור „החלה” שמתחת לכל עמוד.",
+  "The list of settings could not be loaded.": "לא ניתן היה לטעון את רשימת ההגדרות.",
+  "Opens in its own window": "נפתח בחלון משלו",
+  "No setting matches your search.": "אין הגדרה שמתאימה לחיפוש.",
+  "Apply the changes?": "להחיל את השינויים?",
+  "The settings on this page have changed. Apply them before you leave the page?": "ההגדרות בעמוד הזה השתנו. להחיל אותן לפני שעוזבים את העמוד?"
 }

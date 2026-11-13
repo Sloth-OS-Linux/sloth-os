@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Das Update wird beim nächsten Neustart geschrieben. Das kann einige Minuten dauern, der Bildschirm kann dunkel werden und der Computer kann mehrmals neu starten. Schalte ihn nicht aus und lass ihn am Strom, bis Sloth OS wieder startet.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Es dauert einige Minuten. Schalte den Computer nicht aus und trenne das Gerät nicht, bis es fertig ist.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows auf diesem Computer verwendet BitLocker. Nach einem BIOS-Update fragt Windows eventuell einmal nach dem BitLocker-Wiederherstellungsschlüssel. Such ihn heraus, bevor du weitermachst: Er ist in deinem Microsoft-Konto (aka.ms/myrecoverykey) oder dort, wo du ihn gespeichert hast.",
-  "I have the recovery key": "Ich habe den Wiederherstellungsschlüssel"
+  "I have the recovery key": "Ich habe den Wiederherstellungsschlüssel",
+  "This setting opened in its own window.": "Diese Einstellung wurde in einem eigenen Fenster geöffnet.",
+  "Open it again": "Erneut öffnen",
+  "Defaults": "Standards",
+  "Reset": "Zurücksetzen",
+  "Apply": "Anwenden",
+  "Search settings…": "Einstellungen durchsuchen …",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Alle weiteren Einstellungen der Arbeitsfläche: Tastatur, Maus und Touchpad, Schriftarten, Fenster, Kurzbefehle, der Anmeldebildschirm und mehr. Änderungen werden mit dem Knopf „Anwenden“ unter jeder Seite übernommen.",
+  "The list of settings could not be loaded.": "Die Liste der Einstellungen konnte nicht geladen werden.",
+  "Opens in its own window": "Öffnet sich in einem eigenen Fenster",
+  "No setting matches your search.": "Keine Einstellung passt zu deiner Suche.",
+  "Apply the changes?": "Änderungen anwenden?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Die Einstellungen auf dieser Seite wurden geändert. Möchtest du sie anwenden, bevor du die Seite verlässt?"
 }

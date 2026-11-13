@@ -19,6 +19,8 @@ from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
+from . import kde_settings
+
 log = logging.getLogger("sloth-center.accessibility")
 
 STATE = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os/accessibility.json"
@@ -226,4 +228,4 @@ class AccessibilityController(QObject):
 
     @Slot()
     def openKdeSettings(self):
-        subprocess.Popen(["systemsettings", "kcm_access"], start_new_session=True)
+        kde_settings.open_page("kcm_access")

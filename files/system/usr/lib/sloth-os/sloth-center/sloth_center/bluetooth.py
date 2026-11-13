@@ -16,6 +16,7 @@ import time
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import tr
+from . import kde_settings
 
 log = logging.getLogger("sloth-center.bluetooth")
 
@@ -138,8 +139,4 @@ class BluetoothController(QObject):
 
     @Slot()
     def openSettings(self):
-        try:
-            subprocess.Popen(["systemsettings", "kcm_bluetooth"], start_new_session=True,
-                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        except OSError as e:
-            log.warning("System Settings: %s", e)
+        kde_settings.open_page("kcm_bluetooth")

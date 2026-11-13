@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "更新会在下次重启时写入。可能需要几分钟，屏幕可能变黑，电脑可能重启不止一次。请不要关机，并保持接通电源，直到 Sloth OS 再次启动。",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "需要几分钟。完成前请不要关闭电脑，也不要拔下设备。",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "这台电脑上的 Windows 使用 BitLocker。BIOS 更新后，Windows 可能会要求输入一次 BitLocker 恢复密钥。继续之前请先找到它：它在你的 Microsoft 帐户中（aka.ms/myrecoverykey），或你保存它的地方。",
-  "I have the recovery key": "我有恢复密钥"
+  "I have the recovery key": "我有恢复密钥",
+  "This setting opened in its own window.": "此设置已在单独的窗口中打开。",
+  "Open it again": "再次打开",
+  "Defaults": "默认值",
+  "Reset": "重置",
+  "Apply": "应用",
+  "Search settings…": "搜索设置…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "桌面的所有其他设置：键盘、鼠标和触摸板、字体、窗口、快捷键、登录屏幕等。更改通过每个页面下方的“应用”按钮保存。",
+  "The list of settings could not be loaded.": "无法加载设置列表。",
+  "Opens in its own window": "在单独的窗口中打开",
+  "No setting matches your search.": "没有与搜索匹配的设置。",
+  "Apply the changes?": "应用更改？",
+  "The settings on this page have changed. Apply them before you leave the page?": "此页面上的设置已更改。离开页面前要应用它们吗？"
 }

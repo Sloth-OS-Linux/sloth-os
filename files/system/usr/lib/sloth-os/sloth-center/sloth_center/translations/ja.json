@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "更新は次の再起動時に書き込まれます。数分かかることがあり、画面が暗くなったり、何度か再起動したりすることがあります。電源を切らず、Sloth OS が再び起動するまで電源につないだままにしてください。",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "数分かかります。終わるまでコンピューターの電源を切ったり、デバイスを外したりしないでください。",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "このコンピューターの Windows は BitLocker を使っています。BIOS の更新後、Windows が一度だけ BitLocker の回復キーを求めることがあります。続ける前に用意してください。Microsoft アカウント (aka.ms/myrecoverykey) か、保存した場所にあります。",
-  "I have the recovery key": "回復キーを用意しました"
+  "I have the recovery key": "回復キーを用意しました",
+  "This setting opened in its own window.": "この設定は別のウィンドウで開きました。",
+  "Open it again": "もう一度開く",
+  "Defaults": "デフォルト",
+  "Reset": "リセット",
+  "Apply": "適用",
+  "Search settings…": "設定を検索…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "デスクトップのその他すべての設定：キーボード、マウスとタッチパッド、フォント、ウィンドウ、ショートカット、ログイン画面など。変更は各ページの下にある「適用」ボタンで保存されます。",
+  "The list of settings could not be loaded.": "設定の一覧を読み込めませんでした。",
+  "Opens in its own window": "別のウィンドウで開きます",
+  "No setting matches your search.": "検索に一致する設定はありません。",
+  "Apply the changes?": "変更を適用しますか？",
+  "The settings on this page have changed. Apply them before you leave the page?": "このページの設定が変更されています。ページを離れる前に適用しますか？"
 }

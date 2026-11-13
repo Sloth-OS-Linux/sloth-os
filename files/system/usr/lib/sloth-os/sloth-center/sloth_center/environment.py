@@ -6,13 +6,13 @@ user session starts). No password is needed.
 """
 import logging
 import re
-import subprocess
 from pathlib import Path
 
 from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import tr
+from . import kde_settings
 
 log = logging.getLogger("sloth-center.environment")
 
@@ -108,10 +108,7 @@ class EnvironmentController(QObject):
     @Slot()
     def openAutostart(self):
         """KDE's "Autostart" settings: programs and scripts started at login."""
-        try:
-            subprocess.Popen(["systemsettings", "kcm_autostart"])
-        except OSError as e:
-            log.warning("autostart: %s", e)
+        kde_settings.open_page("kcm_autostart")
 
     @Slot()
     def logout(self):

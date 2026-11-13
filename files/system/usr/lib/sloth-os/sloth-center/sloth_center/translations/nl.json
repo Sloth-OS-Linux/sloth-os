@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "De update wordt bij de volgende herstart geschreven. Dat kan een paar minuten duren, het scherm kan zwart worden en de computer kan meer dan eens herstarten. Zet hem niet uit en houd hem aan de stroom tot Sloth OS weer opstart.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Het duurt een paar minuten. Zet de computer niet uit en koppel het apparaat niet los tot het klaar is.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows op deze computer gebruikt BitLocker. Na een BIOS-update kan Windows één keer om de BitLocker-herstelsleutel vragen. Zoek die op voordat je verdergaat: hij staat in je Microsoft-account (aka.ms/myrecoverykey) of waar je hem hebt bewaard.",
-  "I have the recovery key": "Ik heb de herstelsleutel"
+  "I have the recovery key": "Ik heb de herstelsleutel",
+  "This setting opened in its own window.": "Deze instelling is in een eigen venster geopend.",
+  "Open it again": "Opnieuw openen",
+  "Defaults": "Standaarden",
+  "Reset": "Herstellen",
+  "Apply": "Toepassen",
+  "Search settings…": "Instellingen zoeken…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Alle andere instellingen van het bureaublad: toetsenbord, muis en touchpad, lettertypen, vensters, sneltoetsen, het aanmeldscherm en meer. Wijzigingen worden bewaard met de knop Toepassen onder elke pagina.",
+  "The list of settings could not be loaded.": "De lijst met instellingen kon niet worden geladen.",
+  "Opens in its own window": "Opent in een eigen venster",
+  "No setting matches your search.": "Geen instelling komt overeen met je zoekopdracht.",
+  "Apply the changes?": "Wijzigingen toepassen?",
+  "The settings on this page have changed. Apply them before you leave the page?": "De instellingen op deze pagina zijn gewijzigd. Wil je ze toepassen voordat je de pagina verlaat?"
 }

@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "La mise à jour est écrite au prochain redémarrage. Cela peut prendre quelques minutes, l'écran peut devenir noir et l'ordinateur peut redémarrer plusieurs fois. Ne l'éteignez pas et laissez-le branché jusqu'au redémarrage de Sloth OS.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Cela prend quelques minutes. N'éteignez pas l'ordinateur et ne débranchez pas l'appareil avant la fin.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows sur cet ordinateur utilise BitLocker. Après une mise à jour du BIOS, Windows peut demander une fois sa clé de récupération BitLocker. Trouvez-la avant de continuer : elle est dans votre compte Microsoft (aka.ms/myrecoverykey), ou là où vous l'avez enregistrée.",
-  "I have the recovery key": "J'ai la clé de récupération"
+  "I have the recovery key": "J'ai la clé de récupération",
+  "This setting opened in its own window.": "Ce paramètre s’est ouvert dans sa propre fenêtre.",
+  "Open it again": "L’ouvrir de nouveau",
+  "Defaults": "Par défaut",
+  "Reset": "Réinitialiser",
+  "Apply": "Appliquer",
+  "Search settings…": "Rechercher un paramètre…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Tous les autres paramètres du bureau : clavier, souris et pavé tactile, polices, fenêtres, raccourcis, l’écran de connexion et plus encore. Les modifications sont enregistrées avec le bouton Appliquer sous chaque page.",
+  "The list of settings could not be loaded.": "Impossible de charger la liste des paramètres.",
+  "Opens in its own window": "S’ouvre dans sa propre fenêtre",
+  "No setting matches your search.": "Aucun paramètre ne correspond à votre recherche.",
+  "Apply the changes?": "Appliquer les modifications ?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Les paramètres de cette page ont changé. Voulez-vous les appliquer avant de quitter la page ?"
 }

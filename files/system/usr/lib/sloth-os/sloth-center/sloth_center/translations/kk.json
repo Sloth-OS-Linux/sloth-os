@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Жаңарту келесі қайта іске қосуда жазылады. Бұл бірнеше минутқа созылуы мүмкін, экран қараюы мүмкін, компьютер бірнеше рет қайта іске қосылуы мүмкін. Оны өшірмеңіз және Sloth OS қайта іске қосылғанша қуатқа жалғаулы ұстаңыз.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Бұл бірнеше минутқа созылады. Аяқталғанша компьютерді өшірмеңіз және құрылғыны ажыратпаңыз.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Бұл компьютердегі Windows BitLocker пайдаланады. BIOS жаңартуынан кейін Windows бір рет BitLocker қалпына келтіру кілтін сұрауы мүмкін. Жалғастырмас бұрын оны тауып алыңыз: ол Microsoft тіркелгіңізде (aka.ms/myrecoverykey) немесе сіз сақтаған жерде.",
-  "I have the recovery key": "Қалпына келтіру кілті менде бар"
+  "I have the recovery key": "Қалпына келтіру кілті менде бар",
+  "This setting opened in its own window.": "Бұл баптау бөлек терезеде ашылды.",
+  "Open it again": "Қайта ашу",
+  "Defaults": "Әдепкі",
+  "Reset": "Тастау",
+  "Apply": "Қолдану",
+  "Search settings…": "Баптауларды іздеу…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Жұмыс үстелінің қалған барлық баптаулары: пернетақта, тінтуір мен сенсорлық тақта, қаріптер, терезелер, пернелер тіркесімдері, кіру экраны және т.б. Өзгерістер әр беттің астындағы «Қолдану» батырмасымен сақталады.",
+  "The list of settings could not be loaded.": "Баптаулар тізімін жүктеу мүмкін болмады.",
+  "Opens in its own window": "Бөлек терезеде ашылады",
+  "No setting matches your search.": "Іздеуге сәйкес баптау жоқ.",
+  "Apply the changes?": "Өзгерістерді қолдану керек пе?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Осы беттегі баптаулар өзгерді. Беттен кетпес бұрын оларды қолдану керек пе?"
 }

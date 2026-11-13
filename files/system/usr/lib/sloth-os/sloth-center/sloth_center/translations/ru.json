@@ -1149,5 +1149,17 @@
   "The update is written at the next restart. It can take a few minutes, the screen may go dark and the computer may restart more than once. Don't turn it off and keep it plugged in until Sloth OS starts again.": "Обновление запишется при следующей перезагрузке. Это может занять несколько минут, экран может потемнеть, а компьютер — перезагрузиться несколько раз. Не выключайте его и держите подключённым к сети, пока Sloth OS не запустится снова.",
   "It takes a few minutes. Don't turn the computer off and don't unplug the device until it's done.": "Это займёт несколько минут. Не выключайте компьютер и не отключайте устройство до окончания.",
   "Windows on this computer uses BitLocker. After a BIOS update, Windows may ask once for its BitLocker recovery key. Find it before you continue: it is in your Microsoft account (aka.ms/myrecoverykey), or wherever you saved it.": "Windows на этом компьютере использует BitLocker. После обновления BIOS Windows может один раз запросить ключ восстановления BitLocker. Найдите его, прежде чем продолжить: он есть в вашей учётной записи Microsoft (aka.ms/myrecoverykey) или там, где вы его сохранили.",
-  "I have the recovery key": "Ключ восстановления у меня есть"
+  "I have the recovery key": "Ключ восстановления у меня есть",
+  "This setting opened in its own window.": "Этот параметр открылся в отдельном окне.",
+  "Open it again": "Открыть снова",
+  "Defaults": "По умолчанию",
+  "Reset": "Сбросить",
+  "Apply": "Применить",
+  "Search settings…": "Поиск параметров…",
+  "Every other setting of the desktop: keyboard, mouse and touchpad, fonts, windows, shortcuts, the login screen and more. Changes are made with the Apply button under each page.": "Все остальные параметры рабочего стола: клавиатура, мышь и сенсорная панель, шрифты, окна, комбинации клавиш, экран входа в систему и многое другое. Изменения сохраняются кнопкой «Применить» под каждой страницей.",
+  "The list of settings could not be loaded.": "Не удалось загрузить список параметров.",
+  "Opens in its own window": "Открывается в отдельном окне",
+  "No setting matches your search.": "Ни один параметр не соответствует запросу.",
+  "Apply the changes?": "Применить изменения?",
+  "The settings on this page have changed. Apply them before you leave the page?": "Параметры на этой странице изменены. Применить их, прежде чем покинуть страницу?"
 }

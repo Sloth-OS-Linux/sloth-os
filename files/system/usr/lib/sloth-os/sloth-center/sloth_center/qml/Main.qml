@@ -36,6 +36,7 @@ Kirigami.ApplicationWindow {
         { id: "disks", name: L.t("Disks"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
         { id: "containers", name: L.t("Developer environments"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },
         { id: "reset", name: L.t("Reset this PC"), icon: "edit-undo", page: "ResetPage.qml", ready: true },
+        { id: "kde", name: L.t("More settings"), icon: "preferences-system", page: "KdeSettingsPage.qml", ready: true },
         { id: "advanced", name: L.t("Advanced settings"), icon: "configure", page: "AdvancedPage.qml", ready: true },
         { id: "devpanel", name: L.t("Developer panel"), icon: "applications-development", page: "DevPanelPage.qml",
           ready: true }
@@ -61,12 +62,69 @@ Kirigami.ApplicationWindow {
         Qt.callLater(guideDialog.place);
     }
 
+    // A KDE page with changes not applied yet (KcmPage.qml): ask first, as KDE's System Settings does
+    property var pendingLeave: null
+    function leaveKdePage(then) {
+        const current = pageStack.items.length ? pageStack.items[0] : null;
+        if (current && current.view && current.view.needsSave) {
+            pendingLeave = then;
+            unsavedDialog.open();
+            return;
+        }
+        then();
+    }
+
     function openModule(index) {
+        leaveKdePage(() => showModule(index));
+    }
+
+    // A KDE settings page inside Sloth Center (kde_settings.py; also: sloth-center --kcm <page>)
+    function openKcm(kcm, args, name) {
+        leaveKdePage(() => {
+            currentIndex = Math.max(0, modules.findIndex(m => m.id === "kde"));
+            pageStack.clear();
+            pageStack.push(Qt.resolvedUrl("KcmPage.qml"), { kcm: kcm, kcmArgs: args || "", kcmName: name || "" });
+        });
+    }
+
+    Connections {
+        target: kde
+        function onOpenRequested(page, args) {
+            root.openKcm(page, args, "");
+            root.raise();
+            root.requestActivate();
+        }
+    }
+
+    Kirigami.PromptDialog {
+        id: unsavedDialog
+        title: L.t("Apply the changes?")
+        subtitle: L.t("The settings on this page have changed. Apply them before you leave the page?")
+        standardButtons: Kirigami.Dialog.Apply | Kirigami.Dialog.Discard | Kirigami.Dialog.Cancel
+        onApplied: {
+            pageStack.items[0].view.save();
+            close();
+            const then = root.pendingLeave;
+            root.pendingLeave = null;
+            if (then)
+                then();
+        }
+        onDiscarded: {
+            close();
+            const then = root.pendingLeave;
+            root.pendingLeave = null;
+            if (then)
+                then();
+        }
+        onRejected: root.pendingLeave = null
+    }
+
+    function showModule(index) {
         currentIndex = index;
         const m = modules[index];
         pageStack.clear();
         if (m.ready) {
-            if (["status", "health", "disks", "help"].includes(m.id))
+            if (["status", "health", "disks", "help", "kde"].includes(m.id))
                 pageStack.push(Qt.resolvedUrl(m.page), { navigation: root });
             else
                 pageStack.push(Qt.resolvedUrl(m.page));
@@ -339,9 +397,13 @@ Kirigami.ApplicationWindow {
         }
     }
 
-    // The page to open: sloth-center --page <ID> (e.g. from the NVIDIA notification: drivers)
+    // The page to open: sloth-center --page <ID> (e.g. from the NVIDIA notification: drivers), or a KDE page:
+    // sloth-center --kcm <page> (from `systemsettings <page>`, /usr/libexec/sloth-os/systemsettings-wrapper)
     Component.onCompleted: {
-        openModule(Math.max(0, modules.findIndex(m => m.id === startPage && m.ready)));
+        if (startKcm)
+            openKcm(startKcm, startKcmArgs, "");
+        else
+            openModule(Math.max(0, modules.findIndex(m => m.id === startPage && m.ready)));
         if (!guide.seen)
             openGuide();
     }

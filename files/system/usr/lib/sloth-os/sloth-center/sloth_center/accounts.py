@@ -21,6 +21,7 @@ from gi.repository import Gio, GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import N_, tr
+from . import kde_settings
 
 log = logging.getLogger("sloth-center.accounts")
 
@@ -397,7 +398,4 @@ class AccountsController(QObject):
     @Slot()
     def openUsers(self):
         """KDE's Users settings: password, administrator rights, new account."""
-        try:
-            subprocess.Popen(["systemsettings", "kcm_users"])
-        except OSError as e:
-            log.warning("kcm_users: %s", e)
+        kde_settings.open_page("kcm_users")
