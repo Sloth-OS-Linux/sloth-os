@@ -1161,5 +1161,7 @@
   "Opens in its own window": "იხსნება ცალკე ფანჯარაში",
   "No setting matches your search.": "ძებნას არცერთი პარამეტრი არ შეესაბამება.",
   "Apply the changes?": "გადავატაროთ ცვლილებები?",
-  "The settings on this page have changed. Apply them before you leave the page?": "ამ გვერდის პარამეტრები შეიცვალა. გადავატაროთ ისინი, სანამ გვერდს დატოვებთ?"
+  "The settings on this page have changed. Apply them before you leave the page?": "ამ გვერდის პარამეტრები შეიცვალა. გადავატაროთ ისინი, სანამ გვერდს დატოვებთ?",
+  "More sound settings": "ხმის სხვა პარამეტრები",
+  "More screen lock settings": "ეკრანის ჩაკეტვის სხვა პარამეტრები"
 }

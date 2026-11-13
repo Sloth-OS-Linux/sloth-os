@@ -34,8 +34,15 @@ from a terminal must also work from a GUI.
   Apply, and it sticks after signing in again; a page with a password (Login Screen, Users) asks for it
 - [ ] On the HP: right-click the desktop → Configure Display Settings, the tray's sound/network "Configure…",
   KRunner "mouse": all open in Sloth Center; Wi-Fi & Internet (an older page) in its own window
-- Not done: one window only (a second `systemsettings` call opens a second Sloth Center window); Sloth Center's own
-  pages and KDE's pages are searched separately
+- [x] The structure (the user's decision, 2026-11-13): the list on the left holds the everyday settings (System
+  health and Reset this PC stay there too); Services, Create installation media, Developer environments, Advanced
+  settings and the Developer panel moved under More settings (a "Sloth OS" group first, `more: true` in Main.qml).
+  No setting twice: a KDE page that a Sloth Center page covers (`COVERED` in kde_settings.py: Bluetooth, sound,
+  displays, controllers, users, app permissions, screen lock, accessibility, global theme and colors, printers,
+  power, autostart) is not in the list but opens from that page's button (new: More sound settings, More screen
+  lock settings), and a search still finds it
+- Not done: one window only (a second `systemsettings` call opens a second Sloth Center window); the left list's
+  own pages are not in More settings' search
 
 ### Sloth OS 1.5 (released 2026-11-12): firmware, what's new, remote help, printers
 - [x] **BIOS/firmware updates** (`sloth_center/firmware.py`, Updates page): fwupd's fwupdmgr in JSON mode; only

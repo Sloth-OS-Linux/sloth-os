@@ -14,7 +14,8 @@ Kirigami.ApplicationWindow {
     minimumWidth: Kirigami.Units.gridUnit * 30
     minimumHeight: Kirigami.Units.gridUnit * 24
 
-    // The list of modules. Modules with "ready: false" are still being made (ROADMAP phase 3).
+    // The list of modules. Modules with "ready: false" are still being made (ROADMAP phase 3). "more: true": not in
+    // the list on the left (that is for everyday settings) but under More settings, with every KDE page.
     readonly property var modules: [
         { id: "status", name: L.t("System status"), icon: "dialog-information", page: "SystemStatusPage.qml", ready: true },
         { id: "updates", name: L.t("Updates"), icon: "system-software-update", page: "UpdatesPage.qml", ready: true },
@@ -23,7 +24,7 @@ Kirigami.ApplicationWindow {
         { id: "drivers", name: L.t("Drivers and hardware"), icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true },
         { id: "printers", name: L.t("Printers and scanners"), icon: "printer", page: "PrintersPage.qml", ready: true },
         { id: "power", name: L.t("Power and battery"), icon: "preferences-system-power-management", page: "PowerPage.qml", ready: true },
-        { id: "services", name: L.t("Services"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true },
+        { id: "services", name: L.t("Services"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true, more: true },
         { id: "accounts", name: L.t("Account and security"), icon: "preferences-system-users", page: "AccountsPage.qml", ready: true },
         { id: "appearance", name: L.t("Appearance"), icon: "preferences-desktop-theme-global", page: "AppearancePage.qml", ready: true },
         { id: "accessibility", name: L.t("Accessibility"), icon: "preferences-desktop-accessibility", page: "AccessibilityPage.qml", ready: true },
@@ -31,15 +32,15 @@ Kirigami.ApplicationWindow {
         { id: "health", name: L.t("System health"), icon: "dialog-information", page: "HealthPage.qml", ready: true },
         { id: "help", name: L.t("Help"), icon: "help-contents", page: "HelpPage.qml", ready: true },
         { id: "feedback", name: L.t("Feedback"), icon: "mail-message-new", page: "FeedbackPage.qml", ready: true },
-        { id: "usbguide", name: L.t("Create installation media"), icon: "drive-removable-media-usb", page: "UsbGuidePage.qml", ready: true },
+        { id: "usbguide", name: L.t("Create installation media"), icon: "drive-removable-media-usb", page: "UsbGuidePage.qml", ready: true, more: true },
         { id: "backup", name: L.t("File backup"), icon: "backup", page: "BackupPage.qml", ready: true },
         { id: "disks", name: L.t("Disks"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
-        { id: "containers", name: L.t("Developer environments"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true },
+        { id: "containers", name: L.t("Developer environments"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true, more: true },
         { id: "reset", name: L.t("Reset this PC"), icon: "edit-undo", page: "ResetPage.qml", ready: true },
         { id: "kde", name: L.t("More settings"), icon: "preferences-system", page: "KdeSettingsPage.qml", ready: true },
-        { id: "advanced", name: L.t("Advanced settings"), icon: "configure", page: "AdvancedPage.qml", ready: true },
+        { id: "advanced", name: L.t("Advanced settings"), icon: "configure", page: "AdvancedPage.qml", ready: true, more: true },
         { id: "devpanel", name: L.t("Developer panel"), icon: "applications-development", page: "DevPanelPage.qml",
-          ready: true }
+          ready: true, more: true }
     ]
     property int currentIndex: 0
     property int guideStep: 0
@@ -120,8 +121,8 @@ Kirigami.ApplicationWindow {
     }
 
     function showModule(index) {
-        currentIndex = index;
         const m = modules[index];
+        currentIndex = m.more ? modules.findIndex(x => x.id === "kde") : index;
         pageStack.clear();
         if (m.ready) {
             if (["status", "health", "disks", "help", "kde"].includes(m.id))
@@ -179,6 +180,8 @@ Kirigami.ApplicationWindow {
                         required property var modelData
                         required property int index
                         width: ListView.view.width
+                        visible: !modelData.more
+                        height: visible ? implicitHeight : 0
                         highlighted: index === root.currentIndex
                         icon.name: modelData.icon
                         text: modelData.name

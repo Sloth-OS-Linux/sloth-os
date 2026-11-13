@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Otevře se ve vlastním okně",
   "No setting matches your search.": "Hledání neodpovídá žádné nastavení.",
   "Apply the changes?": "Použít změny?",
-  "The settings on this page have changed. Apply them before you leave the page?": "Nastavení na této stránce se změnila. Chcete je použít, než stránku opustíte?"
+  "The settings on this page have changed. Apply them before you leave the page?": "Nastavení na této stránce se změnila. Chcete je použít, než stránku opustíte?",
+  "More sound settings": "Další nastavení zvuku",
+  "More screen lock settings": "Další nastavení zámku obrazovky"
 }

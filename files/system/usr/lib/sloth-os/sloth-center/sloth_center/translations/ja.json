@@ -1161,5 +1161,7 @@
   "Opens in its own window": "別のウィンドウで開きます",
   "No setting matches your search.": "検索に一致する設定はありません。",
   "Apply the changes?": "変更を適用しますか？",
-  "The settings on this page have changed. Apply them before you leave the page?": "このページの設定が変更されています。ページを離れる前に適用しますか？"
+  "The settings on this page have changed. Apply them before you leave the page?": "このページの設定が変更されています。ページを離れる前に適用しますか？",
+  "More sound settings": "その他のサウンド設定",
+  "More screen lock settings": "その他の画面ロック設定"
 }

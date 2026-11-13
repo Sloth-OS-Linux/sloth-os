@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Atsiveria atskirame lange",
   "No setting matches your search.": "Paieškos neatitinka joks nustatymas.",
   "Apply the changes?": "Taikyti pakeitimus?",
-  "The settings on this page have changed. Apply them before you leave the page?": "Šio puslapio nustatymai pakeisti. Ar pritaikyti juos prieš išeinant iš puslapio?"
+  "The settings on this page have changed. Apply them before you leave the page?": "Šio puslapio nustatymai pakeisti. Ar pritaikyti juos prieš išeinant iš puslapio?",
+  "More sound settings": "Daugiau garso nustatymų",
+  "More screen lock settings": "Daugiau ekrano užrakto nustatymų"
 }

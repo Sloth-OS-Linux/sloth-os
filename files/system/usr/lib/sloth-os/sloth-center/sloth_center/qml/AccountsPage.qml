@@ -424,6 +424,11 @@ Kirigami.ScrollablePage {
                         onToggled: accounts.setLockOnResume(checked)
                     }
                 }
+                QQC2.Button {
+                    icon.name: "system-lock-screen"
+                    text: L.t("More screen lock settings")
+                    onClicked: kde.open("kcm_screenlocker")
+                }
             }
         }
 

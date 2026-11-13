@@ -1,5 +1,7 @@
-// More settings: every KDE settings page (keyboard, mouse, fonts, windows, shortcuts…), in KDE's own groups and
-// names, opened inside Sloth Center (kde_settings.py). One settings app: KDE's System Settings is not needed.
+// More settings: everything that is not an everyday setting. First Sloth OS's own advanced pages (the modules with
+// "more: true" in Main.qml), then every KDE settings page (keyboard, mouse, fonts, windows, shortcuts…) in KDE's own
+// groups and names, opened inside Sloth Center (kde_settings.py). One settings app: KDE's System Settings is not
+// needed. KDE pages that a Sloth Center page already covers ("covered") show only when searching.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -13,7 +15,12 @@ Kirigami.ScrollablePage {
 
     readonly property var allPages: pagesLoader.status === Loader.Ready ? pagesLoader.item.modules : []
     readonly property var groups: allPages.length ? kde.groups(allPages) : []
+    readonly property var slothPages: navigation ? navigation.modules.filter(m => m.more) : []
     property string filter: ""
+
+    function visibleIn(p) {
+        return (!p.covered || filter.trim() !== "") && matches(p);
+    }
 
     function matches(p) {
         const f = filter.trim().toLowerCase();
@@ -38,6 +45,7 @@ Kirigami.ScrollablePage {
     header: QQC2.ToolBar {
         contentItem: Kirigami.SearchField {
             id: search
+            objectName: "kdeSearch"
             placeholderText: L.t("Search settings…")
             onTextChanged: page.filter = text
         }
@@ -60,12 +68,43 @@ Kirigami.ScrollablePage {
             text: L.t("The list of settings could not be loaded.")
         }
 
+        // Sloth OS's own advanced pages
+        ColumnLayout {
+            id: slothGroup
+            readonly property var shown: page.slothPages.filter(p => page.matches(p))
+            Layout.fillWidth: true
+            visible: shown.length > 0
+            spacing: 0
+            RowLayout {
+                spacing: Kirigami.Units.smallSpacing
+                Kirigami.Icon {
+                    source: "sloth-os"
+                    implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                    implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                }
+                Kirigami.Heading { level: 3; text: "Sloth OS" }
+            }
+            Repeater {
+                model: slothGroup.shown
+                delegate: QQC2.ItemDelegate {
+                    id: slothItem
+                    required property var modelData
+                    Layout.fillWidth: true
+                    icon.name: modelData.icon
+                    icon.width: Kirigami.Units.iconSizes.medium
+                    icon.height: Kirigami.Units.iconSizes.medium
+                    text: modelData.name
+                    onClicked: page.navigation.openModuleById(modelData.id)
+                }
+            }
+        }
+
         Repeater {
             model: page.groups
             delegate: ColumnLayout {
                 id: groupItem
                 required property var modelData
-                readonly property var shown: modelData.pages.filter(p => page.matches(p))
+                readonly property var shown: modelData.pages.filter(p => page.visibleIn(p))
                 Layout.fillWidth: true
                 visible: shown.length > 0
                 spacing: 0
@@ -133,6 +172,7 @@ Kirigami.ScrollablePage {
         Kirigami.PlaceholderMessage {
             Layout.fillWidth: true
             visible: page.filter !== "" && page.groups.every(g => !g.pages.some(p => page.matches(p)))
+                     && !page.slothPages.some(p => page.matches(p))
             icon.name: "edit-find"
             text: L.t("No setting matches your search.")
         }

@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Abre em uma janela própria",
   "No setting matches your search.": "Nenhuma configuração corresponde à sua pesquisa.",
   "Apply the changes?": "Aplicar as alterações?",
-  "The settings on this page have changed. Apply them before you leave the page?": "As configurações desta página foram alteradas. Deseja aplicá-las antes de sair da página?"
+  "The settings on this page have changed. Apply them before you leave the page?": "As configurações desta página foram alteradas. Deseja aplicá-las antes de sair da página?",
+  "More sound settings": "Mais configurações de som",
+  "More screen lock settings": "Mais configurações de bloqueio de tela"
 }

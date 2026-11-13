@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Se aperi in su proprie fenestra",
   "No setting matches your search.": "Nulle configuration corresponde a tu recerca.",
   "Apply the changes?": "Applicar le cambios?",
-  "The settings on this page have changed. Apply them before you leave the page?": "Le configurationes de iste pagina ha cambiate. Applicar los ante que tu lassa le pagina?"
+  "The settings on this page have changed. Apply them before you leave the page?": "Le configurationes de iste pagina ha cambiate. Applicar los ante que tu lassa le pagina?",
+  "More sound settings": "Plus configurationes de sono",
+  "More screen lock settings": "Plus configurationes del bloco de schermo"
 }

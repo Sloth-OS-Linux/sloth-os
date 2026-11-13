@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Бөлек терезеде ашылады",
   "No setting matches your search.": "Іздеуге сәйкес баптау жоқ.",
   "Apply the changes?": "Өзгерістерді қолдану керек пе?",
-  "The settings on this page have changed. Apply them before you leave the page?": "Осы беттегі баптаулар өзгерді. Беттен кетпес бұрын оларды қолдану керек пе?"
+  "The settings on this page have changed. Apply them before you leave the page?": "Осы беттегі баптаулар өзгерді. Беттен кетпес бұрын оларды қолдану керек пе?",
+  "More sound settings": "Басқа дыбыс баптаулары",
+  "More screen lock settings": "Экранды құлыптаудың басқа баптаулары"
 }

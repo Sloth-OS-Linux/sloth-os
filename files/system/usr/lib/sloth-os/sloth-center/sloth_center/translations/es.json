@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Se abre en su propia ventana",
   "No setting matches your search.": "Ningún ajuste coincide con la búsqueda.",
   "Apply the changes?": "¿Aplicar los cambios?",
-  "The settings on this page have changed. Apply them before you leave the page?": "Los ajustes de esta página han cambiado. ¿Quieres aplicarlos antes de salir de la página?"
+  "The settings on this page have changed. Apply them before you leave the page?": "Los ajustes de esta página han cambiado. ¿Quieres aplicarlos antes de salir de la página?",
+  "More sound settings": "Más ajustes de sonido",
+  "More screen lock settings": "Más ajustes de bloqueo de pantalla"
 }

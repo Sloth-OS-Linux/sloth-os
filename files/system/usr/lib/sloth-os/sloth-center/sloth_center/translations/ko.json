@@ -1161,5 +1161,7 @@
   "Opens in its own window": "별도의 창에서 열립니다",
   "No setting matches your search.": "검색과 일치하는 설정이 없습니다.",
   "Apply the changes?": "변경 사항을 적용할까요?",
-  "The settings on this page have changed. Apply them before you leave the page?": "이 페이지의 설정이 변경되었습니다. 페이지를 떠나기 전에 적용할까요?"
+  "The settings on this page have changed. Apply them before you leave the page?": "이 페이지의 설정이 변경되었습니다. 페이지를 떠나기 전에 적용할까요?",
+  "More sound settings": "추가 소리 설정",
+  "More screen lock settings": "추가 화면 잠금 설정"
 }

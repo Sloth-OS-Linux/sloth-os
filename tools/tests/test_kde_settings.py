@@ -57,11 +57,14 @@ class Categories(unittest.TestCase):
         pages = [{"id": "kcm_fonts", "name": "Fonts", "category": "font"},
                  {"id": "kcm_mouse", "name": "Mouse", "category": "input-devices"},
                  {"id": "kcm_keyboard", "name": "Keyboard", "category": "keyboard"},
+                 {"id": "kcm_bluetooth", "name": "Bluetooth", "category": "input-devices"},   # covered
                  {"id": "kcm_landingpage", "name": "Quick Settings", "category": ""},     # hidden
                  {"id": "kcm_odd", "name": "Odd", "category": "nowhere"}]
         got = ks.group(pages, cats)
         self.assertEqual([g["id"] for g in got], ["input-devices", "appearance", ""])
-        self.assertEqual([p["id"] for p in got[0]["pages"]], ["kcm_keyboard", "kcm_mouse"])
+        self.assertEqual([p["id"] for p in got[0]["pages"]], ["kcm_bluetooth", "kcm_keyboard", "kcm_mouse"])
+        # a page Sloth Center covers (Drivers and hardware → Bluetooth) is shown only when searching
+        self.assertEqual([p["id"] for p in got[0]["pages"] if p["covered"]], ["kcm_bluetooth"])
         self.assertEqual([p["id"] for p in got[1]["pages"]], ["kcm_fonts"])
         self.assertEqual([p["id"] for p in got[2]["pages"]], ["kcm_odd"])
 

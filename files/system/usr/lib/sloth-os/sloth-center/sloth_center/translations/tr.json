@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Kendi penceresinde açılır",
   "No setting matches your search.": "Aramanla eşleşen ayar yok.",
   "Apply the changes?": "Değişiklikler uygulansın mı?",
-  "The settings on this page have changed. Apply them before you leave the page?": "Bu sayfadaki ayarlar değişti. Sayfadan ayrılmadan önce uygulansın mı?"
+  "The settings on this page have changed. Apply them before you leave the page?": "Bu sayfadaki ayarlar değişti. Sayfadan ayrılmadan önce uygulansın mı?",
+  "More sound settings": "Diğer ses ayarları",
+  "More screen lock settings": "Diğer ekran kilidi ayarları"
 }

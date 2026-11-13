@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Отваря се в отделен прозорец",
   "No setting matches your search.": "Нито една настройка не отговаря на търсенето.",
   "Apply the changes?": "Прилагане на промените?",
-  "The settings on this page have changed. Apply them before you leave the page?": "Настройките на тази страница са променени. Да се приложат ли, преди да напуснете страницата?"
+  "The settings on this page have changed. Apply them before you leave the page?": "Настройките на тази страница са променени. Да се приложат ли, преди да напуснете страницата?",
+  "More sound settings": "Още настройки на звука",
+  "More screen lock settings": "Още настройки на заключването на екрана"
 }

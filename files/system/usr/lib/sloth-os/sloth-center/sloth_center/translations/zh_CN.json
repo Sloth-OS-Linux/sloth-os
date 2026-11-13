@@ -1161,5 +1161,7 @@
   "Opens in its own window": "在单独的窗口中打开",
   "No setting matches your search.": "没有与搜索匹配的设置。",
   "Apply the changes?": "应用更改？",
-  "The settings on this page have changed. Apply them before you leave the page?": "此页面上的设置已更改。离开页面前要应用它们吗？"
+  "The settings on this page have changed. Apply them before you leave the page?": "此页面上的设置已更改。离开页面前要应用它们吗？",
+  "More sound settings": "更多声音设置",
+  "More screen lock settings": "更多锁屏设置"
 }

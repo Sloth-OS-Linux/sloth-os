@@ -26,8 +26,24 @@ log = logging.getLogger(__name__)
 HOST = Path("/usr/lib64/qt6/qml/org/slothos/kcmhost/libkcmhost.so")
 KCMS = Path("/usr/lib64/qt6/plugins/plasma/kcms")
 CATEGORIES = Path("/usr/share/systemsettings/categories")
-# Pages not listed under More settings: System Settings' own start page, and the ones Sloth Center does itself
+# Never listed: System Settings' own start page, and updates (Sloth Center's Updates page does them)
 HIDDEN = {"kcm_landingpage", "kcm_updates"}
+# Not in the list, because a Sloth Center page covers them and opens them with its own button (no setting twice in
+# the app); a search still finds them. Page → where its button is:
+COVERED = {
+    "kcm_access",                     # Accessibility → More settings
+    "kcm_users",                      # Account and security → users
+    "kcm_app-permissions",            # Account and security → App permissions
+    "kcm_screenlocker",               # Account and security → Screen lock → More screen lock settings
+    "kcm_lookandfeel", "kcm_colors",  # Appearance (taskbar layouts, colors) → More appearance settings
+    "kcm_bluetooth",                  # Drivers and hardware → Bluetooth → Pair a device
+    "kcm_gamecontroller",             # Drivers and hardware → Controllers
+    "kcm_kscreen",                    # Drivers and hardware → Displays
+    "kcm_pulseaudio",                 # Drivers and hardware → Sound → More sound settings
+    "kcm_printer_manager",            # Printers and scanners → Add by hand
+    "kcm_powerdevilprofilesconfig",   # Power and battery → More settings
+    "kcm_autostart",                  # Services → Programs that start when you sign in
+}
 
 _instance = None
 
@@ -73,7 +89,7 @@ def categories(lang=None, directory=CATEGORIES):
 def group(pages, cats):
     """KDE's pages in top-level groups, as in System Settings' sidebar:
     [{"id", "name", "icon", "pages": [page…]}], groups by their weight, pages by name. A page whose group is
-    unknown goes to a last group "" (shown as Other)."""
+    unknown goes to a last group "" (shown as Other). Pages a Sloth Center page covers get "covered": True."""
     def top(cid):
         seen = set()
         while cid in cats and cats[cid]["parent"] and cid not in seen:
@@ -85,6 +101,7 @@ def group(pages, cats):
     for p in pages:
         if p.get("id") in HIDDEN:
             continue
+        p["covered"] = p.get("id") in COVERED       # shown only when searching
         groups.setdefault(top(p.get("category", "")), []).append(p)
     out = []
     for gid, items in groups.items():

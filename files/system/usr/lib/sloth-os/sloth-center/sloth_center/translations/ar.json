@@ -1161,5 +1161,7 @@
   "Opens in its own window": "يُفتح في نافذة مستقلة",
   "No setting matches your search.": "لا يوجد إعداد يطابق بحثك.",
   "Apply the changes?": "أتطبّق التغييرات؟",
-  "The settings on this page have changed. Apply them before you leave the page?": "تغيّرت الإعدادات في هذه الصفحة. أتريد تطبيقها قبل مغادرة الصفحة؟"
+  "The settings on this page have changed. Apply them before you leave the page?": "تغيّرت الإعدادات في هذه الصفحة. أتريد تطبيقها قبل مغادرة الصفحة؟",
+  "More sound settings": "مزيد من إعدادات الصوت",
+  "More screen lock settings": "مزيد من إعدادات قفل الشاشة"
 }

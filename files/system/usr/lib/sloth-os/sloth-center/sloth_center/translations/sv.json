@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Öppnas i ett eget fönster",
   "No setting matches your search.": "Ingen inställning matchar sökningen.",
   "Apply the changes?": "Verkställ ändringarna?",
-  "The settings on this page have changed. Apply them before you leave the page?": "Inställningarna på den här sidan har ändrats. Vill du verkställa dem innan du lämnar sidan?"
+  "The settings on this page have changed. Apply them before you leave the page?": "Inställningarna på den här sidan har ändrats. Vill du verkställa dem innan du lämnar sidan?",
+  "More sound settings": "Fler ljudinställningar",
+  "More screen lock settings": "Fler inställningar för skärmlås"
 }

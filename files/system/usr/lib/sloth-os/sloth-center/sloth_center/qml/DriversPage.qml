@@ -633,6 +633,11 @@ Kirigami.ScrollablePage {
                         text: sound.micText
                     }
                 }
+                QQC2.Button {
+                    icon.name: "audio-volume-high"
+                    text: L.t("More sound settings")
+                    onClicked: kde.open("kcm_pulseaudio")
+                }
             }
         }
 

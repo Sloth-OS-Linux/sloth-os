@@ -1161,5 +1161,7 @@
   "Opens in its own window": "Avaneb eraldi aknas",
   "No setting matches your search.": "Otsingule ei vasta ükski säte.",
   "Apply the changes?": "Kas rakendada muudatused?",
-  "The settings on this page have changed. Apply them before you leave the page?": "Selle lehe sätteid on muudetud. Kas rakendada need enne lehelt lahkumist?"
+  "The settings on this page have changed. Apply them before you leave the page?": "Selle lehe sätteid on muudetud. Kas rakendada need enne lehelt lahkumist?",
+  "More sound settings": "Rohkem helisätteid",
+  "More screen lock settings": "Rohkem ekraaniluku sätteid"
 }
