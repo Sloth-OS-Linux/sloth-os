@@ -293,6 +293,11 @@ NVIDIA's open kernel driver). NVIDIA computers have been tried with Secure Boot 
 64 GB of free space for Sloth OS. Download and step-by-step guide:
 [sloth-os-linux.github.io/download.html](https://sloth-os-linux.github.io/download.html).
 
+**Why Fedora 44, not 45?** Fedora Atomic 45 is out, but Sloth OS stays on Fedora 44 for now. Windows programs and
+games outside Steam run through [umu-launcher](https://github.com/Open-Wine-Components/umu-launcher), which doesn't
+have a Fedora 45 package yet. Moving without it would risk breaking Windows app support, so we'll switch as soon as
+umu-launcher supports Fedora 45. Until then, Sloth OS keeps getting updates on Fedora 44 as usual.
+
 ## Windows programs that just start
 
 Double-click a Windows `.exe` or `.msi` and it installs or runs, without Steam and without the user ever
