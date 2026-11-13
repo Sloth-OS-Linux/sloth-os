@@ -1165,5 +1165,12 @@
   "More sound settings": "Plus de paramètres audio",
   "More screen lock settings": "Plus de paramètres de verrouillage",
   "More update settings": "Plus de paramètres de mise à jour",
-  "More color settings": "Plus de paramètres de couleurs"
+  "More color settings": "Plus de paramètres de couleurs",
+  "Hide sidebar": "Masquer le panneau latéral",
+  "Show sidebar": "Afficher le panneau latéral",
+  "Topics": "Thèmes",
+  "Icons": "Icônes",
+  "Sidebar": "Panneau latéral",
+  "List": "Liste",
+  "All topics": "Tous les thèmes"
 }

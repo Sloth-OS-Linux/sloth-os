@@ -49,6 +49,13 @@ from a terminal must also work from a GUI.
   Services, Plasma Renderer, Web Search Keywords; System Settings only finds them by search) are under Other. The
   search uses KDE's own search words in the user's language too. Not part of System Settings, so not here: Info
   Center (its own app, the Mac menu's About This Computer), KRunner's and the Trash's settings
+- [x] After the first try on the HP (2026-11-13: "almost everything is good"): a KDE page has a Back button (to More
+  settings with the same search and topic, or to the Sloth Center page whose button opened it); the list on the
+  left can be narrowed to icons and back (a button at its top, kept); More settings has four views to choose from
+  (kept): Topics (tiles per topic, like Windows' Control Panel; the default), Icons (every setting as an icon, like
+  the Mac's old System Preferences), Sidebar (topics on the left, like KDE's System Settings) and List; a search
+  always shows a list. Every KDE page went through load → Defaults → Apply → Reset in the container without a
+  crash (three printed KDE's own QML warnings there: no colord, no accounts, no running desktop)
 - Not done: one window only (a second `systemsettings` call opens a second Sloth Center window); the left list's
   own pages are not in More settings' search
 

@@ -13,6 +13,7 @@ Kirigami.Page {
     property string kcmArgs
     property string kcmName
     property bool inWindow: false
+    property var backTo: null         // Main.qml: back to the page this one was opened from
     readonly property var view: host.status === Loader.Ready ? host.item : null
 
     title: view && view.title ? view.title : kcmName
@@ -25,6 +26,20 @@ Kirigami.Page {
             return;
         inWindow = true;
         kde.openWindow(kcm);
+    }
+
+    // Back to where the user came from (More settings, or the Sloth Center page whose button opened this one); the
+    // KDE page's own header below has its title and, inside the page, back from its sub-pages
+    header: QQC2.ToolBar {
+        visible: page.backTo !== null
+        contentItem: RowLayout {
+            QQC2.ToolButton {
+                icon.name: page.LayoutMirroring.enabled ? "go-next" : "go-previous"
+                text: L.t("Back")
+                onClicked: page.backTo()
+            }
+            Item { Layout.fillWidth: true }
+        }
     }
 
     Loader {

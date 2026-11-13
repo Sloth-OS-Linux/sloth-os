@@ -1165,5 +1165,12 @@
   "More sound settings": "Fleire lydinnstillingar",
   "More screen lock settings": "Fleire innstillingar for skjermlås",
   "More update settings": "Fleire oppdateringsinnstillingar",
-  "More color settings": "Fleire fargeinnstillingar"
+  "More color settings": "Fleire fargeinnstillingar",
+  "Hide sidebar": "Gøym sidepanelet",
+  "Show sidebar": "Vis sidepanelet",
+  "Topics": "Emne",
+  "Icons": "Ikon",
+  "Sidebar": "Sidepanel",
+  "List": "Liste",
+  "All topics": "Alle emne"
 }

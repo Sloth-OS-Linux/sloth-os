@@ -1165,5 +1165,12 @@
   "More sound settings": "Басқа дыбыс баптаулары",
   "More screen lock settings": "Экранды құлыптаудың басқа баптаулары",
   "More update settings": "Басқа жаңарту баптаулары",
-  "More color settings": "Басқа түс баптаулары"
+  "More color settings": "Басқа түс баптаулары",
+  "Hide sidebar": "Бүйір панелін жасыру",
+  "Show sidebar": "Бүйір панелін көрсету",
+  "Topics": "Тақырыптар",
+  "Icons": "Белгішелер",
+  "Sidebar": "Бүйір панелі",
+  "List": "Тізім",
+  "All topics": "Барлық тақырыптар"
 }

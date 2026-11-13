@@ -1165,5 +1165,12 @@
   "More sound settings": "ხმის სხვა პარამეტრები",
   "More screen lock settings": "ეკრანის ჩაკეტვის სხვა პარამეტრები",
   "More update settings": "განახლების სხვა პარამეტრები",
-  "More color settings": "ფერების სხვა პარამეტრები"
+  "More color settings": "ფერების სხვა პარამეტრები",
+  "Hide sidebar": "გვერდითი პანელის დამალვა",
+  "Show sidebar": "გვერდითი პანელის ჩვენება",
+  "Topics": "თემები",
+  "Icons": "ხატულები",
+  "Sidebar": "გვერდითი პანელი",
+  "List": "სია",
+  "All topics": "ყველა თემა"
 }

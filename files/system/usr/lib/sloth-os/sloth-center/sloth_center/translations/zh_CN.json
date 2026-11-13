@@ -1165,5 +1165,12 @@
   "More sound settings": "更多声音设置",
   "More screen lock settings": "更多锁屏设置",
   "More update settings": "更多更新设置",
-  "More color settings": "更多颜色设置"
+  "More color settings": "更多颜色设置",
+  "Hide sidebar": "隐藏侧边栏",
+  "Show sidebar": "显示侧边栏",
+  "Topics": "主题",
+  "Icons": "图标",
+  "Sidebar": "侧边栏",
+  "List": "列表",
+  "All topics": "所有主题"
 }

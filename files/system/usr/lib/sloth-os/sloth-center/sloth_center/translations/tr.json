@@ -1165,5 +1165,12 @@
   "More sound settings": "Diğer ses ayarları",
   "More screen lock settings": "Diğer ekran kilidi ayarları",
   "More update settings": "Diğer güncelleme ayarları",
-  "More color settings": "Diğer renk ayarları"
+  "More color settings": "Diğer renk ayarları",
+  "Hide sidebar": "Kenar çubuğunu gizle",
+  "Show sidebar": "Kenar çubuğunu göster",
+  "Topics": "Konular",
+  "Icons": "Simgeler",
+  "Sidebar": "Kenar çubuğu",
+  "List": "Liste",
+  "All topics": "Tüm konular"
 }

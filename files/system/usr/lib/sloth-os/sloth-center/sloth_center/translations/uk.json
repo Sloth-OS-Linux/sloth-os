@@ -1165,5 +1165,12 @@
   "More sound settings": "Інші параметри звуку",
   "More screen lock settings": "Інші параметри блокування екрана",
   "More update settings": "Інші параметри оновлень",
-  "More color settings": "Інші параметри кольорів"
+  "More color settings": "Інші параметри кольорів",
+  "Hide sidebar": "Сховати бічну панель",
+  "Show sidebar": "Показати бічну панель",
+  "Topics": "Розділи",
+  "Icons": "Піктограми",
+  "Sidebar": "Бічна панель",
+  "List": "Список",
+  "All topics": "Усі розділи"
 }

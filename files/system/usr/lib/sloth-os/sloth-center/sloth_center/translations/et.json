@@ -1165,5 +1165,12 @@
   "More sound settings": "Rohkem helisätteid",
   "More screen lock settings": "Rohkem ekraaniluku sätteid",
   "More update settings": "Rohkem uuenduste sätteid",
-  "More color settings": "Rohkem värvisätteid"
+  "More color settings": "Rohkem värvisätteid",
+  "Hide sidebar": "Peida külgriba",
+  "Show sidebar": "Näita külgriba",
+  "Topics": "Teemad",
+  "Icons": "Ikoonid",
+  "Sidebar": "Külgriba",
+  "List": "Loend",
+  "All topics": "Kõik teemad"
 }

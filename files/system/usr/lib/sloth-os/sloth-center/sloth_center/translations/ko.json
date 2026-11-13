@@ -1165,5 +1165,12 @@
   "More sound settings": "추가 소리 설정",
   "More screen lock settings": "추가 화면 잠금 설정",
   "More update settings": "추가 업데이트 설정",
-  "More color settings": "추가 색상 설정"
+  "More color settings": "추가 색상 설정",
+  "Hide sidebar": "사이드바 숨기기",
+  "Show sidebar": "사이드바 보이기",
+  "Topics": "주제",
+  "Icons": "아이콘",
+  "Sidebar": "사이드바",
+  "List": "목록",
+  "All topics": "모든 주제"
 }

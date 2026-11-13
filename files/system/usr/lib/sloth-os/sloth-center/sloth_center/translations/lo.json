@@ -1165,5 +1165,12 @@
   "More sound settings": "ການຕັ້ງຄ່າສຽງເພີ່ມເຕີມ",
   "More screen lock settings": "ການຕັ້ງຄ່າລັອກໜ້າຈໍເພີ່ມເຕີມ",
   "More update settings": "ການຕັ້ງຄ່າອັບເດດເພີ່ມເຕີມ",
-  "More color settings": "ການຕັ້ງຄ່າສີເພີ່ມເຕີມ"
+  "More color settings": "ການຕັ້ງຄ່າສີເພີ່ມເຕີມ",
+  "Hide sidebar": "ເຊື່ອງແຖບຂ້າງ",
+  "Show sidebar": "ສະແດງແຖບຂ້າງ",
+  "Topics": "ຫົວຂໍ້",
+  "Icons": "ໄອຄອນ",
+  "Sidebar": "ແຖບຂ້າງ",
+  "List": "ລາຍການ",
+  "All topics": "ຫົວຂໍ້ທັງໝົດ"
 }

@@ -1165,5 +1165,12 @@
   "More sound settings": "Mais configurações de som",
   "More screen lock settings": "Mais configurações de bloqueio de tela",
   "More update settings": "Mais configurações de atualização",
-  "More color settings": "Mais configurações de cores"
+  "More color settings": "Mais configurações de cores",
+  "Hide sidebar": "Ocultar a barra lateral",
+  "Show sidebar": "Mostrar a barra lateral",
+  "Topics": "Temas",
+  "Icons": "Ícones",
+  "Sidebar": "Barra lateral",
+  "List": "Lista",
+  "All topics": "Todos os temas"
 }

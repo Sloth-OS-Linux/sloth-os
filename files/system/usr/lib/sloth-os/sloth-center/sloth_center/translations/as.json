@@ -1165,5 +1165,12 @@
   "More sound settings": "অধিক শব্দ ছেটিং",
   "More screen lock settings": "অধিক স্ক্ৰীন লক ছেটিং",
   "More update settings": "অধিক আপডেট ছেটিং",
-  "More color settings": "অধিক ৰঙৰ ছেটিং"
+  "More color settings": "অধিক ৰঙৰ ছেটিং",
+  "Hide sidebar": "কাষবাৰ লুকুৱাওক",
+  "Show sidebar": "কাষবাৰ দেখুৱাওক",
+  "Topics": "বিষয়",
+  "Icons": "আইকন",
+  "Sidebar": "কাষবাৰ",
+  "List": "তালিকা",
+  "All topics": "সকলো বিষয়"
 }

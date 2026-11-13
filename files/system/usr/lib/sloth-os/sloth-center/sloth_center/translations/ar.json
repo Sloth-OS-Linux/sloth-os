@@ -1165,5 +1165,12 @@
   "More sound settings": "مزيد من إعدادات الصوت",
   "More screen lock settings": "مزيد من إعدادات قفل الشاشة",
   "More update settings": "مزيد من إعدادات التحديث",
-  "More color settings": "مزيد من إعدادات الألوان"
+  "More color settings": "مزيد من إعدادات الألوان",
+  "Hide sidebar": "أخفِ الشريط الجانبي",
+  "Show sidebar": "أظهِر الشريط الجانبي",
+  "Topics": "المواضيع",
+  "Icons": "الأيقونات",
+  "Sidebar": "الشريط الجانبي",
+  "List": "القائمة",
+  "All topics": "كل المواضيع"
 }

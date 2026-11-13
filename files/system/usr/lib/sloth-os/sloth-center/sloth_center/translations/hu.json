@@ -1165,5 +1165,12 @@
   "More sound settings": "További hangbeállítások",
   "More screen lock settings": "További képernyőzár-beállítások",
   "More update settings": "További frissítési beállítások",
-  "More color settings": "További színbeállítások"
+  "More color settings": "További színbeállítások",
+  "Hide sidebar": "Oldalsáv elrejtése",
+  "Show sidebar": "Oldalsáv megjelenítése",
+  "Topics": "Témakörök",
+  "Icons": "Ikonok",
+  "Sidebar": "Oldalsáv",
+  "List": "Lista",
+  "All topics": "Összes témakör"
 }

@@ -1165,5 +1165,12 @@
   "More sound settings": "Още настройки на звука",
   "More screen lock settings": "Още настройки на заключването на екрана",
   "More update settings": "Още настройки за обновяване",
-  "More color settings": "Още настройки на цветовете"
+  "More color settings": "Още настройки на цветовете",
+  "Hide sidebar": "Скриване на страничната лента",
+  "Show sidebar": "Показване на страничната лента",
+  "Topics": "Теми",
+  "Icons": "Икони",
+  "Sidebar": "Странична лента",
+  "List": "Списък",
+  "All topics": "Всички теми"
 }

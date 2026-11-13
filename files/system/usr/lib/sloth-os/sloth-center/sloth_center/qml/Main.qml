@@ -1,5 +1,6 @@
 // Sloth Center – main window: the modules on the left, the selected page on the right.
 pragma ComponentBehavior: Bound
+import QtCore
 import QtQuick
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
@@ -42,8 +43,21 @@ Kirigami.ApplicationWindow {
         { id: "devpanel", name: L.t("Developer panel"), icon: "applications-development", page: "DevPanelPage.qml",
           ready: true, more: true }
     ]
-    property int currentIndex: 0
+    property int currentIndex: 0      // the row lit up in the list on the left
+    property int shownIndex: 0        // the module shown now (a "more" one too); a KDE page's Back returns here
     property int guideStep: 0
+
+    // The user's choices about the window: the list on the left narrowed to icons, More settings' view
+    // (KdeSettingsPage.qml: topics, icons, sidebar or list)
+    readonly property alias ui: uiSettings
+    Settings {
+        id: uiSettings
+        category: "view"
+        property bool sidebarCollapsed: false
+        property string kdeView: "topics"
+    }
+    // More settings: the search and the open topic, so Back from a KDE page returns to the same place
+    property var kdeState: ({ filter: "", topic: "" })
 
     // The first-run guide: each step lights up its pages in the list on the left, the rest of the window goes dark
     readonly property var guideSteps: [
@@ -82,9 +96,15 @@ Kirigami.ApplicationWindow {
     // A KDE settings page inside Sloth Center (kde_settings.py; also: sloth-center --kcm <page>)
     function openKcm(kcm, args, name) {
         leaveKdePage(() => {
-            currentIndex = Math.max(0, modules.findIndex(m => m.id === "kde"));
+            const kdeIndex = Math.max(0, modules.findIndex(m => m.id === "kde"));
+            // Back: to the page it was opened from (More settings, or e.g. Drivers and hardware's Bluetooth button)
+            const back = pageStack.items.length && pageStack.items[0].kcm === undefined ? shownIndex : kdeIndex;
+            currentIndex = modules[back].more ? kdeIndex : back;
             pageStack.clear();
-            pageStack.push(Qt.resolvedUrl("KcmPage.qml"), { kcm: kcm, kcmArgs: args || "", kcmName: name || "" });
+            pageStack.push(Qt.resolvedUrl("KcmPage.qml"), {
+                kcm: kcm, kcmArgs: args || "", kcmName: name || "",
+                backTo: () => root.openModule(back)
+            });
         });
     }
 
@@ -122,6 +142,7 @@ Kirigami.ApplicationWindow {
 
     function showModule(index) {
         const m = modules[index];
+        shownIndex = index;
         currentIndex = m.more ? modules.findIndex(x => x.id === "kde") : index;
         pageStack.clear();
         if (m.ready) {
@@ -145,7 +166,10 @@ Kirigami.ApplicationWindow {
         edge: Qt.LeftEdge
         modal: false
         handleVisible: false
-        width: Kirigami.Units.gridUnit * 14
+        // narrowed to icons with the button at its top (the choice is kept)
+        readonly property bool collapsed: uiSettings.sidebarCollapsed
+        width: collapsed ? Kirigami.Units.iconSizes.medium + Kirigami.Units.largeSpacing * 4 : Kirigami.Units.gridUnit * 14
+        Behavior on width { NumberAnimation { duration: Kirigami.Units.shortDuration } }
         leftPadding: 0
         rightPadding: 0
         topPadding: 0
@@ -158,15 +182,28 @@ Kirigami.ApplicationWindow {
                 Layout.margins: Kirigami.Units.largeSpacing
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Icon {
+                    visible: !root.globalDrawer.collapsed
                     source: "sloth-os"
                     implicitWidth: Kirigami.Units.iconSizes.large
                     implicitHeight: Kirigami.Units.iconSizes.large
                 }
                 Kirigami.Heading {
+                    visible: !root.globalDrawer.collapsed
                     text: L.t("Sloth Center")
                     level: 2
                     Layout.fillWidth: true
                     elide: Text.ElideRight
+                }
+                QQC2.ToolButton {
+                    Layout.alignment: Qt.AlignHCenter
+                    icon.name: root.globalDrawer.collapsed
+                               ? (root.LayoutMirroring.enabled ? "sidebar-collapse-right" : "sidebar-expand-left")
+                               : (root.LayoutMirroring.enabled ? "sidebar-expand-right" : "sidebar-collapse-left")
+                    text: root.globalDrawer.collapsed ? L.t("Show sidebar") : L.t("Hide sidebar")
+                    display: QQC2.AbstractButton.IconOnly
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.text: text
+                    onClicked: uiSettings.sidebarCollapsed = !uiSettings.sidebarCollapsed
                 }
             }
 
@@ -185,6 +222,9 @@ Kirigami.ApplicationWindow {
                         highlighted: index === root.currentIndex
                         icon.name: modelData.icon
                         text: modelData.name
+                        display: root.globalDrawer.collapsed ? QQC2.AbstractButton.IconOnly : QQC2.AbstractButton.TextBesideIcon
+                        QQC2.ToolTip.visible: root.globalDrawer.collapsed && hovered
+                        QQC2.ToolTip.text: modelData.name
                         onClicked: root.openModule(index)
                     }
                 }
@@ -195,6 +235,9 @@ Kirigami.ApplicationWindow {
                 Layout.margins: Kirigami.Units.smallSpacing
                 text: L.t("Open guide")
                 icon.name: "help-about"
+                display: root.globalDrawer.collapsed ? QQC2.AbstractButton.IconOnly : QQC2.AbstractButton.TextBesideIcon
+                QQC2.ToolTip.visible: root.globalDrawer.collapsed && hovered
+                QQC2.ToolTip.text: text
                 onClicked: root.openGuide()
             }
         }

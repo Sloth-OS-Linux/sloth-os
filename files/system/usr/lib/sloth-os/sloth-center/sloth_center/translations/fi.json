@@ -1165,5 +1165,12 @@
   "More sound settings": "Lisää ääniasetuksia",
   "More screen lock settings": "Lisää näytön lukituksen asetuksia",
   "More update settings": "Lisää päivitysasetuksia",
-  "More color settings": "Lisää väriasetuksia"
+  "More color settings": "Lisää väriasetuksia",
+  "Hide sidebar": "Piilota sivupalkki",
+  "Show sidebar": "Näytä sivupalkki",
+  "Topics": "Aiheet",
+  "Icons": "Kuvakkeet",
+  "Sidebar": "Sivupalkki",
+  "List": "Luettelo",
+  "All topics": "Kaikki aiheet"
 }

@@ -1165,5 +1165,12 @@
   "More sound settings": "その他のサウンド設定",
   "More screen lock settings": "その他の画面ロック設定",
   "More update settings": "その他の更新設定",
-  "More color settings": "その他の色の設定"
+  "More color settings": "その他の色の設定",
+  "Hide sidebar": "サイドバーを隠す",
+  "Show sidebar": "サイドバーを表示",
+  "Topics": "トピック",
+  "Icons": "アイコン",
+  "Sidebar": "サイドバー",
+  "List": "リスト",
+  "All topics": "すべてのトピック"
 }

@@ -1165,5 +1165,12 @@
   "More sound settings": "আরও সাউন্ড সেটিং",
   "More screen lock settings": "আরও স্ক্রিন লক সেটিং",
   "More update settings": "আরও আপডেট সেটিং",
-  "More color settings": "আরও রঙের সেটিং"
+  "More color settings": "আরও রঙের সেটিং",
+  "Hide sidebar": "সাইডবার লুকান",
+  "Show sidebar": "সাইডবার দেখান",
+  "Topics": "বিষয়",
+  "Icons": "আইকন",
+  "Sidebar": "সাইডবার",
+  "List": "তালিকা",
+  "All topics": "সব বিষয়"
 }
