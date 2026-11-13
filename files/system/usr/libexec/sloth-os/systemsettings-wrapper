@@ -33,7 +33,7 @@ def main():
     if page.startswith("-") or "/" in page or (rest and rest[0] != "--args"):
         run([REAL] + args)
     extra = rest[1:] if rest else []          # systemsettings <page> --args "<arguments>"
-    if os.path.exists(f"{KCMS}/systemsettings/{page}.so"):
+    if os.path.exists(f"{KCMS}/systemsettings/{page}.so") or os.path.exists(f"{KCMS}/{page}.so"):
         run([center, "--kcm", page] + (["--kcm-args", " ".join(extra)] if extra else []))
     if os.path.exists(f"{KCMS}/systemsettings_qwidgets/{page}.so") and shutil.which("kcmshell6"):
         run([shutil.which("kcmshell6"), page] + (["--args", " ".join(extra)] if extra else []))

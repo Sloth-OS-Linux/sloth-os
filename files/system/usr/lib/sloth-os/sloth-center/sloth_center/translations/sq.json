@@ -1163,5 +1163,7 @@
   "Apply the changes?": "Të zbatohen ndryshimet?",
   "The settings on this page have changed. Apply them before you leave the page?": "Rregullimet në këtë faqe kanë ndryshuar. Të zbatohen para se të dalësh nga faqja?",
   "More sound settings": "Më shumë rregullime zëri",
-  "More screen lock settings": "Më shumë rregullime për kyçjen e ekranit"
+  "More screen lock settings": "Më shumë rregullime për kyçjen e ekranit",
+  "More update settings": "Më shumë rregullime përditësimi",
+  "More color settings": "Më shumë rregullime ngjyrash"
 }

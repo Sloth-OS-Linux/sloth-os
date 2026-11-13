@@ -1163,5 +1163,7 @@
   "Apply the changes?": "Aplicar as alterações?",
   "The settings on this page have changed. Apply them before you leave the page?": "As definições desta página foram alteradas. Quer aplicá-las antes de sair da página?",
   "More sound settings": "Mais definições de som",
-  "More screen lock settings": "Mais definições do bloqueio de ecrã"
+  "More screen lock settings": "Mais definições do bloqueio de ecrã",
+  "More update settings": "Mais definições de atualização",
+  "More color settings": "Mais definições de cores"
 }

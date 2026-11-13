@@ -3,6 +3,7 @@
 #include <KPluginMetaData>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QLocale>
 
 KcmCatalog::KcmCatalog(QObject *parent)
     : QObject(parent)
@@ -25,10 +26,16 @@ QVariantList KcmCatalog::modules() const
             if (!forDesktop(md))
                 continue;
             const QJsonObject raw = md.rawData();
+            // the search words in English and in the user's language (X-KDE-Keywords[hu], [pt_BR]…)
             QStringList keywords;
-            const QString kw = md.value(QStringLiteral("X-KDE-Keywords"));
-            if (!kw.isEmpty())
-                keywords = kw.split(QLatin1Char(','), Qt::SkipEmptyParts);
+            const QString locale = QLocale().name();   // e.g. "hu_HU"
+            for (const QString &key : {QStringLiteral("X-KDE-Keywords"),
+                                       QStringLiteral("X-KDE-Keywords[%1]").arg(locale),
+                                       QStringLiteral("X-KDE-Keywords[%1]").arg(locale.section(QLatin1Char('_'), 0, 0))}) {
+                const QString kw = raw.value(key).toString();
+                if (!kw.isEmpty())
+                    keywords += kw.split(QLatin1Char(','), Qt::SkipEmptyParts);
+            }
             out.append(QVariantMap{
                 {QStringLiteral("id"), md.pluginId()},
                 {QStringLiteral("name"), md.name()},
@@ -43,5 +50,6 @@ QVariantList KcmCatalog::modules() const
     };
     add(QStringLiteral("plasma/kcms/systemsettings"), false);
     add(QStringLiteral("plasma/kcms/systemsettings_qwidgets"), true);
+    add(QStringLiteral("plasma/kcms"), false);   // "About this System" (kcm_about-distro), shown by System Settings too
     return out;
 }

@@ -1163,5 +1163,7 @@
   "Apply the changes?": "Použiť zmeny?",
   "The settings on this page have changed. Apply them before you leave the page?": "Nastavenia na tejto stránke sa zmenili. Chcete ich použiť skôr, ako stránku opustíte?",
   "More sound settings": "Ďalšie nastavenia zvuku",
-  "More screen lock settings": "Ďalšie nastavenia zámky obrazovky"
+  "More screen lock settings": "Ďalšie nastavenia zámky obrazovky",
+  "More update settings": "Ďalšie nastavenia aktualizácií",
+  "More color settings": "Ďalšie nastavenia farieb"
 }

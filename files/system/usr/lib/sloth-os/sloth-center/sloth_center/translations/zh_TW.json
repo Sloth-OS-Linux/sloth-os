@@ -1163,5 +1163,7 @@
   "Apply the changes?": "要套用變更嗎？",
   "The settings on this page have changed. Apply them before you leave the page?": "此頁面上的設定已變更。離開頁面前要套用嗎？",
   "More sound settings": "更多聲音設定",
-  "More screen lock settings": "更多螢幕鎖定設定"
+  "More screen lock settings": "更多螢幕鎖定設定",
+  "More update settings": "更多更新設定",
+  "More color settings": "更多色彩設定"
 }

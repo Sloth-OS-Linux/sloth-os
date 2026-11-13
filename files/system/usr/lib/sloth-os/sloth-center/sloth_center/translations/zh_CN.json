@@ -1163,5 +1163,7 @@
   "Apply the changes?": "应用更改？",
   "The settings on this page have changed. Apply them before you leave the page?": "此页面上的设置已更改。离开页面前要应用它们吗？",
   "More sound settings": "更多声音设置",
-  "More screen lock settings": "更多锁屏设置"
+  "More screen lock settings": "更多锁屏设置",
+  "More update settings": "更多更新设置",
+  "More color settings": "更多颜色设置"
 }

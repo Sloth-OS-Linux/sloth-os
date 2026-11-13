@@ -26,8 +26,8 @@ log = logging.getLogger(__name__)
 HOST = Path("/usr/lib64/qt6/qml/org/slothos/kcmhost/libkcmhost.so")
 KCMS = Path("/usr/lib64/qt6/plugins/plasma/kcms")
 CATEGORIES = Path("/usr/share/systemsettings/categories")
-# Never listed: System Settings' own start page, and updates (Sloth Center's Updates page does them)
-HIDDEN = {"kcm_landingpage", "kcm_updates"}
+# Never listed: System Settings' own start page (a hub of links to the other pages)
+HIDDEN = {"kcm_landingpage"}
 # Not in the list, because a Sloth Center page covers them and opens them with its own button (no setting twice in
 # the app); a search still finds them. Page → where its button is:
 COVERED = {
@@ -35,7 +35,8 @@ COVERED = {
     "kcm_users",                      # Account and security → users
     "kcm_app-permissions",            # Account and security → App permissions
     "kcm_screenlocker",               # Account and security → Screen lock → More screen lock settings
-    "kcm_lookandfeel", "kcm_colors",  # Appearance (taskbar layouts, colors) → More appearance settings
+    "kcm_lookandfeel",                # Appearance → More appearance settings
+    "kcm_colors",                     # Appearance → More color settings
     "kcm_bluetooth",                  # Drivers and hardware → Bluetooth → Pair a device
     "kcm_gamecontroller",             # Drivers and hardware → Controllers
     "kcm_kscreen",                    # Drivers and hardware → Displays
@@ -43,14 +44,17 @@ COVERED = {
     "kcm_printer_manager",            # Printers and scanners → Add by hand
     "kcm_powerdevilprofilesconfig",   # Power and battery → More settings
     "kcm_autostart",                  # Services → Programs that start when you sign in
+    "kcm_updates",                    # Updates → More update settings
 }
+# Pages without a group of their own in their metadata: where System Settings shows them
+GROUP_OF = {"kcm_about-distro": "system-administration"}
 
 _instance = None
 
 
 def embeddable(page):
     """True if `page` is a KDE page Sloth Center can show in its own window."""
-    return HOST.exists() and (KCMS / "systemsettings" / f"{page}.so").exists()
+    return HOST.exists() and ((KCMS / "systemsettings" / f"{page}.so").exists() or (KCMS / f"{page}.so").exists())
 
 
 def _name(section, lang):
@@ -102,7 +106,7 @@ def group(pages, cats):
         if p.get("id") in HIDDEN:
             continue
         p["covered"] = p.get("id") in COVERED       # shown only when searching
-        groups.setdefault(top(p.get("category", "")), []).append(p)
+        groups.setdefault(top(p.get("category") or GROUP_OF.get(p.get("id"), "")), []).append(p)
     out = []
     for gid, items in groups.items():
         c = cats.get(gid, {})

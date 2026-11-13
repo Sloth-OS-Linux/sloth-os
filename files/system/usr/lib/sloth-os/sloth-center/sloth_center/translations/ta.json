@@ -1163,5 +1163,7 @@
   "Apply the changes?": "மாற்றங்களைச் செயல்படுத்தவா?",
   "The settings on this page have changed. Apply them before you leave the page?": "இந்தப் பக்கத்தின் அமைப்புகள் மாறியுள்ளன. பக்கத்தை விட்டு வெளியேறும் முன் அவற்றைச் செயல்படுத்தவா?",
   "More sound settings": "மேலும் ஒலி அமைப்புகள்",
-  "More screen lock settings": "மேலும் திரைப்பூட்டு அமைப்புகள்"
+  "More screen lock settings": "மேலும் திரைப்பூட்டு அமைப்புகள்",
+  "More update settings": "மேலும் புதுப்பிப்பு அமைப்புகள்",
+  "More color settings": "மேலும் வண்ண அமைப்புகள்"
 }

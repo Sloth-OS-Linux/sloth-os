@@ -1163,5 +1163,7 @@
   "Apply the changes?": "変更を適用しますか？",
   "The settings on this page have changed. Apply them before you leave the page?": "このページの設定が変更されています。ページを離れる前に適用しますか？",
   "More sound settings": "その他のサウンド設定",
-  "More screen lock settings": "その他の画面ロック設定"
+  "More screen lock settings": "その他の画面ロック設定",
+  "More update settings": "その他の更新設定",
+  "More color settings": "その他の色の設定"
 }

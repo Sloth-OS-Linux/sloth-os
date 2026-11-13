@@ -91,7 +91,10 @@ void KcmView::load()
     if (!engine)
         return fail(QStringLiteral("no QML engine"));
 
-    const KPluginMetaData md = KPluginMetaData::findPluginById(QStringLiteral("plasma/kcms/systemsettings"), m_module);
+    // System Settings' pages, and "About this System" (kcm_about-distro), which lives one folder up
+    KPluginMetaData md = KPluginMetaData::findPluginById(QStringLiteral("plasma/kcms/systemsettings"), m_module);
+    if (!md.isValid())
+        md = KPluginMetaData::findPluginById(QStringLiteral("plasma/kcms"), m_module);
     if (!md.isValid())
         return fail(QStringLiteral("no such settings page"));
 

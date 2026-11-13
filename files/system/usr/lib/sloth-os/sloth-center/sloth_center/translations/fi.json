@@ -1163,5 +1163,7 @@
   "Apply the changes?": "Otetaanko muutokset käyttöön?",
   "The settings on this page have changed. Apply them before you leave the page?": "Tämän sivun asetuksia on muutettu. Otetaanko ne käyttöön ennen kuin poistut sivulta?",
   "More sound settings": "Lisää ääniasetuksia",
-  "More screen lock settings": "Lisää näytön lukituksen asetuksia"
+  "More screen lock settings": "Lisää näytön lukituksen asetuksia",
+  "More update settings": "Lisää päivitysasetuksia",
+  "More color settings": "Lisää väriasetuksia"
 }

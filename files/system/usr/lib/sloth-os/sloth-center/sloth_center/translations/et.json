@@ -1163,5 +1163,7 @@
   "Apply the changes?": "Kas rakendada muudatused?",
   "The settings on this page have changed. Apply them before you leave the page?": "Selle lehe sätteid on muudetud. Kas rakendada need enne lehelt lahkumist?",
   "More sound settings": "Rohkem helisätteid",
-  "More screen lock settings": "Rohkem ekraaniluku sätteid"
+  "More screen lock settings": "Rohkem ekraaniluku sätteid",
+  "More update settings": "Rohkem uuenduste sätteid",
+  "More color settings": "Rohkem värvisätteid"
 }

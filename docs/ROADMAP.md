@@ -41,6 +41,14 @@ from a terminal must also work from a GUI.
   displays, controllers, users, app permissions, screen lock, accessibility, global theme and colors, printers,
   power, autostart) is not in the list but opens from that page's button (new: More sound settings, More screen
   lock settings), and a search still finds it
+- [x] Checked that nothing of System Settings is missing (2026-11-13, the image's Plasma 6.8): it shows 78 desktop
+  pages (63 QML, 14 more QWidget, and "About this System", kcm_about-distro, one folder up, now in the catalog and
+  the loader too). In Sloth Center: 63 in More settings, 14 through a Sloth Center page's button (each button
+  checked in the code; new: More update settings, More color settings), 1 left out (kcm_landingpage, System
+  Settings' start page of links). Every QML page loads. Three pages without a group in their metadata (Background
+  Services, Plasma Renderer, Web Search Keywords; System Settings only finds them by search) are under Other. The
+  search uses KDE's own search words in the user's language too. Not part of System Settings, so not here: Info
+  Center (its own app, the Mac menu's About This Computer), KRunner's and the Trash's settings
 - Not done: one window only (a second `systemsettings` call opens a second Sloth Center window); the left list's
   own pages are not in More settings' search
 

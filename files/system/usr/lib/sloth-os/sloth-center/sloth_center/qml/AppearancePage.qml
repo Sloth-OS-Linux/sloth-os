@@ -151,10 +151,18 @@ Kirigami.ScrollablePage {
             onToggled: appearance.setTitlebarAccent(checked)
         }
 
-        QQC2.Button {
-            text: L.t("More appearance settings")
-            icon.name: "preferences-desktop-theme-global"
-            onClicked: appearance.openSystemSettings()
+        RowLayout {
+            spacing: Kirigami.Units.largeSpacing
+            QQC2.Button {
+                text: L.t("More color settings")
+                icon.name: "preferences-desktop-color"
+                onClicked: kde.open("kcm_colors")
+            }
+            QQC2.Button {
+                text: L.t("More appearance settings")
+                icon.name: "preferences-desktop-theme-global"
+                onClicked: appearance.openSystemSettings()
+            }
         }
     }
 }

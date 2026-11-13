@@ -1163,5 +1163,7 @@
   "Apply the changes?": "Bruke endringene?",
   "The settings on this page have changed. Apply them before you leave the page?": "Innstillingene på denne siden er endret. Vil du bruke dem før du forlater siden?",
   "More sound settings": "Flere lydinnstillinger",
-  "More screen lock settings": "Flere innstillinger for skjermlås"
+  "More screen lock settings": "Flere innstillinger for skjermlås",
+  "More update settings": "Flere oppdateringsinnstillinger",
+  "More color settings": "Flere fargeinnstillinger"
 }

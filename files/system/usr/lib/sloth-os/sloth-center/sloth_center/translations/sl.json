@@ -1163,5 +1163,7 @@
   "Apply the changes?": "Želite uveljaviti spremembe?",
   "The settings on this page have changed. Apply them before you leave the page?": "Nastavitve na tej strani so se spremenile. Jih želite uveljaviti, preden zapustite stran?",
   "More sound settings": "Več nastavitev zvoka",
-  "More screen lock settings": "Več nastavitev zaklepanja zaslona"
+  "More screen lock settings": "Več nastavitev zaklepanja zaslona",
+  "More update settings": "Več nastavitev posodobitev",
+  "More color settings": "Več nastavitev barv"
 }

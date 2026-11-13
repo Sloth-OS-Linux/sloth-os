@@ -9,6 +9,15 @@ Kirigami.ScrollablePage {
     id: page
     title: L.t("Updates")
 
+    // KDE's update settings (how often apps are checked, notifications) inside Sloth Center (kde_settings.py)
+    actions: [
+        Kirigami.Action {
+            text: L.t("More update settings")
+            icon.name: "configure"
+            onTriggered: kde.open("kcm_updates")
+        }
+    ]
+
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
 

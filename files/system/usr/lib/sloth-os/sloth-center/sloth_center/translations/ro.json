@@ -1163,5 +1163,7 @@
   "Apply the changes?": "Aplici modificările?",
   "The settings on this page have changed. Apply them before you leave the page?": "Setările de pe această pagină s-au schimbat. Vrei să le aplici înainte de a părăsi pagina?",
   "More sound settings": "Mai multe setări de sunet",
-  "More screen lock settings": "Mai multe setări de blocare a ecranului"
+  "More screen lock settings": "Mai multe setări de blocare a ecranului",
+  "More update settings": "Mai multe setări de actualizare",
+  "More color settings": "Mai multe setări de culori"
 }

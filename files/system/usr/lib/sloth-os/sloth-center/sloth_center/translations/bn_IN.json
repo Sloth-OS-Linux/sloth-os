@@ -1163,5 +1163,7 @@
   "Apply the changes?": "পরিবর্তনগুলি প্রয়োগ করবেন?",
   "The settings on this page have changed. Apply them before you leave the page?": "এই পৃষ্ঠার সেটিং পরিবর্তিত হয়েছে। পৃষ্ঠা ছাড়ার আগে সেগুলি প্রয়োগ করবেন?",
   "More sound settings": "আরও সাউন্ড সেটিং",
-  "More screen lock settings": "আরও স্ক্রিন লক সেটিং"
+  "More screen lock settings": "আরও স্ক্রিন লক সেটিং",
+  "More update settings": "আরও আপডেট সেটিং",
+  "More color settings": "আরও রঙের সেটিং"
 }

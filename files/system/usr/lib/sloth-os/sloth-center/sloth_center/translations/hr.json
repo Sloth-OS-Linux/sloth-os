@@ -1163,5 +1163,7 @@
   "Apply the changes?": "Primijeniti promjene?",
   "The settings on this page have changed. Apply them before you leave the page?": "Postavke na ovoj stranici su promijenjene. Želite li ih primijeniti prije nego što napustite stranicu?",
   "More sound settings": "Više postavki zvuka",
-  "More screen lock settings": "Više postavki zaključavanja zaslona"
+  "More screen lock settings": "Više postavki zaključavanja zaslona",
+  "More update settings": "Više postavki ažuriranja",
+  "More color settings": "Više postavki boja"
 }

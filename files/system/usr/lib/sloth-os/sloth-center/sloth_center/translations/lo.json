@@ -1163,5 +1163,7 @@
   "Apply the changes?": "ນຳໃຊ້ການປ່ຽນແປງບໍ?",
   "The settings on this page have changed. Apply them before you leave the page?": "ການຕັ້ງຄ່າໃນໜ້ານີ້ໄດ້ປ່ຽນແປງແລ້ວ. ນຳໃຊ້ພວກມັນກ່ອນອອກຈາກໜ້ານີ້ບໍ?",
   "More sound settings": "ການຕັ້ງຄ່າສຽງເພີ່ມເຕີມ",
-  "More screen lock settings": "ການຕັ້ງຄ່າລັອກໜ້າຈໍເພີ່ມເຕີມ"
+  "More screen lock settings": "ການຕັ້ງຄ່າລັອກໜ້າຈໍເພີ່ມເຕີມ",
+  "More update settings": "ການຕັ້ງຄ່າອັບເດດເພີ່ມເຕີມ",
+  "More color settings": "ການຕັ້ງຄ່າສີເພີ່ມເຕີມ"
 }
