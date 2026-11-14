@@ -86,11 +86,14 @@ def main():
     from .remote_help import RemoteHelpController
     from .printers import PrintersController
     from .kde_settings import KdeSettingsController
+    from .search import SearchIndex
 
     engine = QQmlApplicationEngine()
     engine.addImportPath(shared_appearance.QML_IMPORT_PATH)  # import SlothCommon (the layout drawings)
     translator = Translator()
     engine.rootContext().setContextProperty("L", translator)
+    search_index = SearchIndex()
+    engine.rootContext().setContextProperty("searchIndex", search_index)
     engine.rootContext().setContextProperty("startPage", start_page)
     engine.rootContext().setContextProperty("startKcm", start_kcm)
     engine.rootContext().setContextProperty("startKcmArgs", start_kcm_args)

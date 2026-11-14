@@ -5,6 +5,20 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Sloth Center, the next steps of the one settings app (planned 2026-11-14, in this order)
+- [x] 1. A search at the top of the sidebar (Ctrl+F), for both lists: Sloth Center's pages first (by their name,
+  then by the short texts on them: titles, labels, buttons, in English and in the user's language; search.py, no
+  keyword lists to translate), then KDE's pages under their topics. "wifi" finds "Wi-Fi", "nightlight" "Night
+  Light". Tried in the VM: password, wifi, mouse, printer each gave a short, fitting list (with the long explanations
+  too, "wifi" found eight pages: they are left out); a result opens on the right and stays lit.
+  `tools/tests/test_search.py`
+- [ ] 2. A Wi-Fi page of our own instead of KDE's network window (the only row that opens a window, with IPv4/IPv6/
+  802.1x tabs): the networks, connect, password, forget; "Advanced" opens KDE's window
+- [ ] 3. A shorter sidebar: System status and System health in one page (the same icon, nearly the same question);
+  Help and Feedback in one page ("Help and feedback"); the Open guide button moves to that page
+- [ ] 4. Programs shows every installed app (Flatpaks too), with Remove, not only the Windows programs (or at least
+  its name says "Windows programs")
+
 ### More settings as a list in the sidebar (2026-11-14, test branch)
 - [x] After the HP test: the grouped sidebar was good, but More settings (topic tiles, then a topic's icons) was still
   crowded and took a click more than the rest. Now a click on More settings turns the sidebar into its list: Back at
