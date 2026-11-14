@@ -1168,9 +1168,11 @@
   "More color settings": "Другие параметры цветов",
   "Hide sidebar": "Скрыть боковую панель",
   "Show sidebar": "Показать боковую панель",
-  "Topics": "Разделы",
-  "Icons": "Значки",
-  "Sidebar": "Боковая панель",
-  "List": "Список",
-  "All topics": "Все разделы"
+  "All topics": "Все разделы",
+  "Wi-Fi and network": "Wi-Fi и сеть",
+  "Display": "Экран",
+  "Apps and games": "Приложения и игры",
+  "Accounts and family": "Учётные записи и семья",
+  "System": "Система",
+  "Help and feedback": "Справка и отзывы"
 }

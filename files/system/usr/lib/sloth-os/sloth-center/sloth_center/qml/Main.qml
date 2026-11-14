@@ -17,32 +17,42 @@ Kirigami.ApplicationWindow {
 
     // The list of modules. Modules with "ready: false" are still being made (ROADMAP phase 3). "more: true": not in
     // the list on the left (that is for everyday settings) but under More settings, with every KDE page.
+    // The sidebar in groups ("section"): first what people use every day, then the rest by topic; "more: true" ones
+    // are only in More settings. "kcm": a KDE settings page (inside Sloth Center, or in its own window for the older
+    // ones, e.g. the network page).
     readonly property var modules: [
-        { id: "status", name: L.t("System status"), icon: "dialog-information", page: "SystemStatusPage.qml", ready: true },
-        { id: "updates", name: L.t("Updates"), icon: "system-software-update", page: "UpdatesPage.qml", ready: true },
-        { id: "winprograms", name: L.t("Programs"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true },
-        { id: "games", name: L.t("Games"), icon: "input-gamepad", page: "GamesPage.qml", ready: true },
-        { id: "drivers", name: L.t("Drivers and hardware"), icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true },
-        { id: "printers", name: L.t("Printers and scanners"), icon: "printer", page: "PrintersPage.qml", ready: true },
-        { id: "power", name: L.t("Power and battery"), icon: "preferences-system-power-management", page: "PowerPage.qml", ready: true },
-        { id: "services", name: L.t("Services"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true, more: true },
-        { id: "accounts", name: L.t("Account and security"), icon: "preferences-system-users", page: "AccountsPage.qml", ready: true },
-        { id: "appearance", name: L.t("Appearance"), icon: "preferences-desktop-theme-global", page: "AppearancePage.qml", ready: true },
-        { id: "accessibility", name: L.t("Accessibility"), icon: "preferences-desktop-accessibility", page: "AccessibilityPage.qml", ready: true },
-        { id: "parental", name: L.t("Parental controls"), icon: "user-group-properties", page: "ParentalPage.qml", ready: true },
-        { id: "health", name: L.t("System health"), icon: "dialog-information", page: "HealthPage.qml", ready: true },
-        { id: "help", name: L.t("Help"), icon: "help-contents", page: "HelpPage.qml", ready: true },
-        { id: "feedback", name: L.t("Feedback"), icon: "mail-message-new", page: "FeedbackPage.qml", ready: true },
-        { id: "usbguide", name: L.t("Create installation media"), icon: "drive-removable-media-usb", page: "UsbGuidePage.qml", ready: true, more: true },
-        { id: "backup", name: L.t("File backup"), icon: "backup", page: "BackupPage.qml", ready: true },
-        { id: "disks", name: L.t("Disks"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true },
-        { id: "containers", name: L.t("Developer environments"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true, more: true },
-        { id: "reset", name: L.t("Reset this PC"), icon: "edit-undo", page: "ResetPage.qml", ready: true },
-        { id: "kde", name: L.t("More settings"), icon: "preferences-system", page: "KdeSettingsPage.qml", ready: true },
-        { id: "advanced", name: L.t("Advanced settings"), icon: "configure", page: "AdvancedPage.qml", ready: true, more: true },
-        { id: "devpanel", name: L.t("Developer panel"), icon: "applications-development", page: "DevPanelPage.qml",
-          ready: true, more: true }
+        { id: "network", name: L.t("Wi-Fi and network"), icon: "network-wireless", kcm: "kcm_networkmanagement", ready: true, section: "daily" },
+        { id: "bluetoothpage", name: L.t("Bluetooth"), icon: "preferences-system-bluetooth", kcm: "kcm_bluetooth", ready: true, section: "daily" },
+        { id: "displaypage", name: L.t("Display"), icon: "preferences-desktop-display", kcm: "kcm_kscreen", ready: true, section: "daily" },
+        { id: "soundpage", name: L.t("Sound"), icon: "preferences-desktop-sound", kcm: "kcm_pulseaudio", ready: true, section: "daily" },
+        { id: "power", name: L.t("Power and battery"), icon: "preferences-system-power-management", page: "PowerPage.qml", ready: true, section: "daily" },
+        { id: "appearance", name: L.t("Appearance"), icon: "preferences-desktop-theme-global", page: "AppearancePage.qml", ready: true, section: "daily" },
+        { id: "updates", name: L.t("Updates"), icon: "system-software-update", page: "UpdatesPage.qml", ready: true, section: "daily" },
+        { id: "winprograms", name: L.t("Programs"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true, section: "apps" },
+        { id: "games", name: L.t("Games"), icon: "input-gamepad", page: "GamesPage.qml", ready: true, section: "apps" },
+        { id: "accounts", name: L.t("Account and security"), icon: "preferences-system-users", page: "AccountsPage.qml", ready: true, section: "people" },
+        { id: "parental", name: L.t("Parental controls"), icon: "user-group-properties", page: "ParentalPage.qml", ready: true, section: "people" },
+        { id: "accessibility", name: L.t("Accessibility"), icon: "preferences-desktop-accessibility", page: "AccessibilityPage.qml", ready: true, section: "people" },
+        { id: "status", name: L.t("System status"), icon: "dialog-information", page: "SystemStatusPage.qml", ready: true, section: "system" },
+        { id: "printers", name: L.t("Printers and scanners"), icon: "printer", page: "PrintersPage.qml", ready: true, section: "system" },
+        { id: "drivers", name: L.t("Drivers and hardware"), icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true, section: "system" },
+        { id: "disks", name: L.t("Disks"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true, section: "system" },
+        { id: "backup", name: L.t("File backup"), icon: "backup", page: "BackupPage.qml", ready: true, section: "system" },
+        { id: "health", name: L.t("System health"), icon: "dialog-information", page: "HealthPage.qml", ready: true, section: "system" },
+        { id: "reset", name: L.t("Reset this PC"), icon: "edit-undo", page: "ResetPage.qml", ready: true, section: "system" },
+        { id: "help", name: L.t("Help"), icon: "help-contents", page: "HelpPage.qml", ready: true, section: "help" },
+        { id: "feedback", name: L.t("Feedback"), icon: "mail-message-new", page: "FeedbackPage.qml", ready: true, section: "help" },
+        { id: "kde", name: L.t("More settings"), icon: "preferences-system", page: "KdeSettingsPage.qml", ready: true, section: "all" },
+        { id: "services", name: L.t("Services"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true, more: true, section: "zmore" },
+        { id: "usbguide", name: L.t("Create installation media"), icon: "drive-removable-media-usb", page: "UsbGuidePage.qml", ready: true, more: true, section: "zmore" },
+        { id: "containers", name: L.t("Developer environments"), icon: "utilities-terminal", page: "ContainersPage.qml", ready: true, more: true, section: "zmore" },
+        { id: "advanced", name: L.t("Advanced settings"), icon: "configure", page: "AdvancedPage.qml", ready: true, more: true, section: "zmore" },
+        { id: "devpanel", name: L.t("Developer panel"), icon: "applications-development", page: "DevPanelPage.qml", ready: true, more: true, section: "zmore" }
     ]
+    readonly property var sectionNames: ({
+        daily: "", apps: L.t("Apps and games"), people: L.t("Accounts and family"), system: L.t("System"),
+        help: L.t("Help and feedback"), all: "", zmore: ""
+    })
     property int currentIndex: 0      // the row lit up in the list on the left
     property int shownIndex: 0        // the module shown now (a "more" one too); a KDE page's Back returns here
     property int guideStep: 0
@@ -99,11 +109,13 @@ Kirigami.ApplicationWindow {
             const kdeIndex = Math.max(0, modules.findIndex(m => m.id === "kde"));
             // Back: to the page it was opened from (More settings, or e.g. Drivers and hardware's Bluetooth button)
             const back = pageStack.items.length && pageStack.items[0].kcm === undefined ? shownIndex : kdeIndex;
-            currentIndex = modules[back].more ? kdeIndex : back;
+            // a page of its own in the sidebar (Bluetooth, Display, Sound): that row is selected, no Back button
+            const own = modules.findIndex(m => m.kcm === kcm);
+            currentIndex = own >= 0 ? own : modules[back].more ? kdeIndex : back;
             pageStack.clear();
             pageStack.push(Qt.resolvedUrl("KcmPage.qml"), {
-                kcm: kcm, kcmArgs: args || "", kcmName: name || "",
-                backTo: () => root.openModule(back)
+                kcm: kcm, kcmArgs: args || "", kcmName: name || (own >= 0 ? modules[own].name : ""),
+                backTo: own >= 0 ? null : () => root.openModule(back)
             });
         });
     }
@@ -142,6 +154,10 @@ Kirigami.ApplicationWindow {
 
     function showModule(index) {
         const m = modules[index];
+        if (m.kcm) {  // a KDE page: inside (openKcm, through kde_settings.py) or in its own window
+            kde.open(m.kcm);
+            return;
+        }
         shownIndex = index;
         currentIndex = m.more ? modules.findIndex(x => x.id === "kde") : index;
         pageStack.clear();
@@ -224,6 +240,29 @@ Kirigami.ApplicationWindow {
                     id: moduleList
                     clip: true          // the rows never draw over the logo box above or the guide button below
                     model: root.modules
+                    section.property: "section"
+                    // a small title above each group (none above the everyday group and More settings; a line instead)
+                    section.delegate: Item {
+                        required property string section
+                        width: ListView.view.width
+                        readonly property string title: root.sectionNames[section] || ""
+                        height: section === "daily" || section === "zmore" ? 0
+                              : title === "" || root.globalDrawer.collapsed ? Kirigami.Units.largeSpacing
+                              : sectionLabel.implicitHeight + Kirigami.Units.largeSpacing * 2
+                        Kirigami.Separator {
+                            visible: parent.height > 0
+                            anchors { left: parent.left; right: parent.right; top: parent.top; topMargin: Kirigami.Units.smallSpacing / 2 }
+                        }
+                        QQC2.Label {
+                            id: sectionLabel
+                            visible: parent.title !== "" && !root.globalDrawer.collapsed
+                            anchors { left: parent.left; bottom: parent.bottom; leftMargin: Kirigami.Units.largeSpacing; bottomMargin: Kirigami.Units.smallSpacing }
+                            text: parent.title
+                            font.bold: true
+                            opacity: 0.6
+                            font.pointSize: Kirigami.Theme.smallFont.pointSize
+                        }
+                    }
                     delegate: QQC2.ItemDelegate {
                         required property var modelData
                         required property int index
@@ -460,7 +499,11 @@ Kirigami.ApplicationWindow {
         if (startKcm)
             openKcm(startKcm, startKcmArgs, "");
         else
-            openModule(Math.max(0, modules.findIndex(m => m.id === startPage && m.ready)));
+        {
+            // without --page: System status (not the first row: the network row opens a window of its own)
+            const start = modules.findIndex(m => m.id === startPage && m.ready);
+            openModule(start >= 0 ? start : modules.findIndex(m => m.id === "status"));
+        }
         if (!guide.seen)
             openGuide();
     }

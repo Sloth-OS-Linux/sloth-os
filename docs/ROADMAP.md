@@ -5,6 +5,16 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Sloth Center's sidebar in groups (2026-11-14, test branch)
+- [x] After trying the one-settings-app build: the sidebar was a long, unordered list, and More settings had four
+  views to switch between, which confused more than it helped. Now the sidebar starts with what people use every day
+  (Wi-Fi and network, Bluetooth, Display, Sound: KDE's own pages, the network one in its own window; then Power and
+  battery, Appearance, Updates), then groups with a small title: Apps and games, Accounts and family, System, Help
+  and feedback, and More settings last. More settings shows only the topics view. Sloth Center still opens on
+  System status
+- [ ] In the VM / on the HP: the four everyday rows open their pages, the row stays lit, the group titles in the
+  narrowed sidebar turn into lines
+
 ### One settings app: KDE's settings pages inside Sloth Center (2026-11-13, test branch)
 - [x] Looked at first (a container with the 1.5 image): KDE's public loader (KCMUtils' `KQuickConfigModuleLoader`, the
   one Plasma Mobile's settings use) puts a page into an existing QML scene. Every one of the 63 QML pages of

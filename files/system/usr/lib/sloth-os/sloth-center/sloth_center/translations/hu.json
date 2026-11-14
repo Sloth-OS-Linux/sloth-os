@@ -1168,9 +1168,11 @@
   "More color settings": "További színbeállítások",
   "Hide sidebar": "Oldalsáv elrejtése",
   "Show sidebar": "Oldalsáv megjelenítése",
-  "Topics": "Témakörök",
-  "Icons": "Ikonok",
-  "Sidebar": "Oldalsáv",
-  "List": "Lista",
-  "All topics": "Összes témakör"
+  "All topics": "Összes témakör",
+  "Wi-Fi and network": "Wi-Fi és hálózat",
+  "Display": "Kijelző",
+  "Apps and games": "Appok és játékok",
+  "Accounts and family": "Fiókok és család",
+  "System": "Rendszer",
+  "Help and feedback": "Súgó és visszajelzés"
 }

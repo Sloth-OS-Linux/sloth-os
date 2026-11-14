@@ -1168,9 +1168,11 @@
   "More color settings": "Weitere Farbeinstellungen",
   "Hide sidebar": "Seitenleiste ausblenden",
   "Show sidebar": "Seitenleiste einblenden",
-  "Topics": "Themen",
-  "Icons": "Symbole",
-  "Sidebar": "Seitenleiste",
-  "List": "Liste",
-  "All topics": "Alle Themen"
+  "All topics": "Alle Themen",
+  "Wi-Fi and network": "WLAN und Netzwerk",
+  "Display": "Bildschirm",
+  "Apps and games": "Apps und Spiele",
+  "Accounts and family": "Konten und Familie",
+  "System": "System",
+  "Help and feedback": "Hilfe und Feedback"
 }

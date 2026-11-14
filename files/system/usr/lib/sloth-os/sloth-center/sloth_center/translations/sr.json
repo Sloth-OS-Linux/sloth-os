@@ -1168,9 +1168,11 @@
   "More color settings": "Још подешавања боја",
   "Hide sidebar": "Сакриј бочну траку",
   "Show sidebar": "Прикажи бочну траку",
-  "Topics": "Теме",
-  "Icons": "Иконице",
-  "Sidebar": "Бочна трака",
-  "List": "Списак",
-  "All topics": "Све теме"
+  "All topics": "Све теме",
+  "Wi-Fi and network": "Wi-Fi и мрежа",
+  "Display": "Екран",
+  "Apps and games": "Апликације и игре",
+  "Accounts and family": "Налози и породица",
+  "System": "Систем",
+  "Help and feedback": "Помоћ и повратне информације"
 }

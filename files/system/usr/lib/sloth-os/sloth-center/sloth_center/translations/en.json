@@ -215,5 +215,11 @@
   "Click Install in Discover. The backup starts by itself when Ludusavi is installed.": "Click Install in Discover. The backup starts by itself when Ludusavi is installed.",
   "Open folder": "Open folder",
   "Put back the saved game of {game}?": "Put back the saved game of {game}?",
-  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before."
+  "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.": "The save on this computer is replaced by the newest backup. Close the game first. If you change your mind, File backup still has the save from before.",
+  "Wi-Fi and network": "Wi-Fi and network",
+  "Display": "Display",
+  "Apps and games": "Apps and games",
+  "Accounts and family": "Accounts and family",
+  "System": "System",
+  "Help and feedback": "Help and feedback"
 }

@@ -1168,9 +1168,11 @@
   "More color settings": "ການຕັ້ງຄ່າສີເພີ່ມເຕີມ",
   "Hide sidebar": "ເຊື່ອງແຖບຂ້າງ",
   "Show sidebar": "ສະແດງແຖບຂ້າງ",
-  "Topics": "ຫົວຂໍ້",
-  "Icons": "ໄອຄອນ",
-  "Sidebar": "ແຖບຂ້າງ",
-  "List": "ລາຍການ",
-  "All topics": "ຫົວຂໍ້ທັງໝົດ"
+  "All topics": "ຫົວຂໍ້ທັງໝົດ",
+  "Wi-Fi and network": "Wi-Fi ແລະ ເຄືອຂ່າຍ",
+  "Display": "ໜ້າຈໍ",
+  "Apps and games": "ແອັບ ແລະ ເກມ",
+  "Accounts and family": "ບັນຊີ ແລະ ຄອບຄົວ",
+  "System": "ລະບົບ",
+  "Help and feedback": "ຊ່ວຍເຫຼືອ ແລະ ຄຳຕິຊົມ"
 }

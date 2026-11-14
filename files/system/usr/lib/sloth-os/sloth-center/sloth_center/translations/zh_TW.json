@@ -1168,9 +1168,11 @@
   "More color settings": "更多色彩設定",
   "Hide sidebar": "隱藏側邊欄",
   "Show sidebar": "顯示側邊欄",
-  "Topics": "主題",
-  "Icons": "圖示",
-  "Sidebar": "側邊欄",
-  "List": "清單",
-  "All topics": "所有主題"
+  "All topics": "所有主題",
+  "Wi-Fi and network": "Wi-Fi 和網路",
+  "Display": "顯示",
+  "Apps and games": "應用程式和遊戲",
+  "Accounts and family": "帳號和家庭",
+  "System": "系統",
+  "Help and feedback": "說明和意見回饋"
 }

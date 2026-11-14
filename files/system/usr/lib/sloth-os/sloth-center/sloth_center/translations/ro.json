@@ -1168,9 +1168,11 @@
   "More color settings": "Mai multe setări de culori",
   "Hide sidebar": "Ascunde bara laterală",
   "Show sidebar": "Arată bara laterală",
-  "Topics": "Subiecte",
-  "Icons": "Pictograme",
-  "Sidebar": "Bară laterală",
-  "List": "Listă",
-  "All topics": "Toate subiectele"
+  "All topics": "Toate subiectele",
+  "Wi-Fi and network": "Wi-Fi și rețea",
+  "Display": "Ecran",
+  "Apps and games": "Aplicații și jocuri",
+  "Accounts and family": "Conturi și familie",
+  "System": "Sistem",
+  "Help and feedback": "Ajutor și feedback"
 }

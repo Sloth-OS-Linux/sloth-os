@@ -1168,9 +1168,11 @@
   "More color settings": "Més paràmetres de colors",
   "Hide sidebar": "Amaga la barra lateral",
   "Show sidebar": "Mostra la barra lateral",
-  "Topics": "Temes",
-  "Icons": "Icones",
-  "Sidebar": "Barra lateral",
-  "List": "Llista",
-  "All topics": "Tots els temes"
+  "All topics": "Tots els temes",
+  "Wi-Fi and network": "Wi-Fi i xarxa",
+  "Display": "Pantalla",
+  "Apps and games": "Aplicacions i jocs",
+  "Accounts and family": "Comptes i família",
+  "System": "Sistema",
+  "Help and feedback": "Ajuda i comentaris"
 }

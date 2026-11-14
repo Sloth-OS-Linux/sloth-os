@@ -1168,9 +1168,11 @@
   "More color settings": "Više postavki boja",
   "Hide sidebar": "Sakrij bočnu traku",
   "Show sidebar": "Prikaži bočnu traku",
-  "Topics": "Teme",
-  "Icons": "Ikone",
-  "Sidebar": "Bočna traka",
-  "List": "Popis",
-  "All topics": "Sve teme"
+  "All topics": "Sve teme",
+  "Wi-Fi and network": "Wi-Fi i mreža",
+  "Display": "Zaslon",
+  "Apps and games": "Aplikacije i igre",
+  "Accounts and family": "Računi i obitelj",
+  "System": "Sustav",
+  "Help and feedback": "Pomoć i povratne informacije"
 }

@@ -1168,9 +1168,11 @@
   "More color settings": "Басқа түс баптаулары",
   "Hide sidebar": "Бүйір панелін жасыру",
   "Show sidebar": "Бүйір панелін көрсету",
-  "Topics": "Тақырыптар",
-  "Icons": "Белгішелер",
-  "Sidebar": "Бүйір панелі",
-  "List": "Тізім",
-  "All topics": "Барлық тақырыптар"
+  "All topics": "Барлық тақырыптар",
+  "Wi-Fi and network": "Wi-Fi және желі",
+  "Display": "Экран",
+  "Apps and games": "Қолданбалар мен ойындар",
+  "Accounts and family": "Тіркелгілер және отбасы",
+  "System": "Жүйе",
+  "Help and feedback": "Анықтама және пікір"
 }

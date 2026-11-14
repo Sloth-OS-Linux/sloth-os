@@ -1168,9 +1168,11 @@
   "More color settings": "مزيد من إعدادات الألوان",
   "Hide sidebar": "أخفِ الشريط الجانبي",
   "Show sidebar": "أظهِر الشريط الجانبي",
-  "Topics": "المواضيع",
-  "Icons": "الأيقونات",
-  "Sidebar": "الشريط الجانبي",
-  "List": "القائمة",
-  "All topics": "كل المواضيع"
+  "All topics": "كل المواضيع",
+  "Wi-Fi and network": "Wi-Fi والشبكة",
+  "Display": "الشاشة",
+  "Apps and games": "التطبيقات والألعاب",
+  "Accounts and family": "الحسابات والعائلة",
+  "System": "النظام",
+  "Help and feedback": "المساعدة والملاحظات"
 }

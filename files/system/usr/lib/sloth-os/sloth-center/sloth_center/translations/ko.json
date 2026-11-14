@@ -1168,9 +1168,11 @@
   "More color settings": "추가 색상 설정",
   "Hide sidebar": "사이드바 숨기기",
   "Show sidebar": "사이드바 보이기",
-  "Topics": "주제",
-  "Icons": "아이콘",
-  "Sidebar": "사이드바",
-  "List": "목록",
-  "All topics": "모든 주제"
+  "All topics": "모든 주제",
+  "Wi-Fi and network": "Wi-Fi 및 네트워크",
+  "Display": "디스플레이",
+  "Apps and games": "앱 및 게임",
+  "Accounts and family": "계정 및 가족",
+  "System": "시스템",
+  "Help and feedback": "도움말 및 피드백"
 }

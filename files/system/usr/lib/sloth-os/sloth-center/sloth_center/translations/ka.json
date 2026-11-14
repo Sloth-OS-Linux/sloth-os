@@ -1168,9 +1168,11 @@
   "More color settings": "ფერების სხვა პარამეტრები",
   "Hide sidebar": "გვერდითი პანელის დამალვა",
   "Show sidebar": "გვერდითი პანელის ჩვენება",
-  "Topics": "თემები",
-  "Icons": "ხატულები",
-  "Sidebar": "გვერდითი პანელი",
-  "List": "სია",
-  "All topics": "ყველა თემა"
+  "All topics": "ყველა თემა",
+  "Wi-Fi and network": "Wi-Fi და ქსელი",
+  "Display": "ეკრანი",
+  "Apps and games": "აპები და თამაშები",
+  "Accounts and family": "ანგარიშები და ოჯახი",
+  "System": "სისტემა",
+  "Help and feedback": "დახმარება და უკუკავშირი"
 }

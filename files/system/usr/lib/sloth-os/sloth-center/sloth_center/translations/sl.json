@@ -1168,9 +1168,11 @@
   "More color settings": "Več nastavitev barv",
   "Hide sidebar": "Skrij stransko vrstico",
   "Show sidebar": "Prikaži stransko vrstico",
-  "Topics": "Teme",
-  "Icons": "Ikone",
-  "Sidebar": "Stranska vrstica",
-  "List": "Seznam",
-  "All topics": "Vse teme"
+  "All topics": "Vse teme",
+  "Wi-Fi and network": "Wi-Fi in omrežje",
+  "Display": "Zaslon",
+  "Apps and games": "Aplikacije in igre",
+  "Accounts and family": "Računi in družina",
+  "System": "Sistem",
+  "Help and feedback": "Pomoč in povratne informacije"
 }

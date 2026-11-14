@@ -1168,9 +1168,11 @@
   "More color settings": "Lisää väriasetuksia",
   "Hide sidebar": "Piilota sivupalkki",
   "Show sidebar": "Näytä sivupalkki",
-  "Topics": "Aiheet",
-  "Icons": "Kuvakkeet",
-  "Sidebar": "Sivupalkki",
-  "List": "Luettelo",
-  "All topics": "Kaikki aiheet"
+  "All topics": "Kaikki aiheet",
+  "Wi-Fi and network": "Wi-Fi ja verkko",
+  "Display": "Näyttö",
+  "Apps and games": "Sovellukset ja pelit",
+  "Accounts and family": "Tilit ja perhe",
+  "System": "Järjestelmä",
+  "Help and feedback": "Ohje ja palaute"
 }

@@ -1168,9 +1168,11 @@
   "More color settings": "Më shumë rregullime ngjyrash",
   "Hide sidebar": "Fshihe shiritin anësor",
   "Show sidebar": "Shfaqe shiritin anësor",
-  "Topics": "Tema",
-  "Icons": "Ikona",
-  "Sidebar": "Shirit anësor",
-  "List": "Listë",
-  "All topics": "Të gjitha temat"
+  "All topics": "Të gjitha temat",
+  "Wi-Fi and network": "Wi-Fi dhe rrjeti",
+  "Display": "Ekrani",
+  "Apps and games": "Aplikacione dhe lojëra",
+  "Accounts and family": "Llogari dhe familje",
+  "System": "Sistemi",
+  "Help and feedback": "Ndihmë dhe përshtypje"
 }

@@ -1168,9 +1168,11 @@
   "More color settings": "Още настройки на цветовете",
   "Hide sidebar": "Скриване на страничната лента",
   "Show sidebar": "Показване на страничната лента",
-  "Topics": "Теми",
-  "Icons": "Икони",
-  "Sidebar": "Странична лента",
-  "List": "Списък",
-  "All topics": "Всички теми"
+  "All topics": "Всички теми",
+  "Wi-Fi and network": "Wi-Fi и мрежа",
+  "Display": "Екран",
+  "Apps and games": "Приложения и игри",
+  "Accounts and family": "Профили и семейство",
+  "System": "Система",
+  "Help and feedback": "Помощ и обратна връзка"
 }

@@ -1168,9 +1168,11 @@
   "More color settings": "Więcej ustawień kolorów",
   "Hide sidebar": "Ukryj panel boczny",
   "Show sidebar": "Pokaż panel boczny",
-  "Topics": "Tematy",
-  "Icons": "Ikony",
-  "Sidebar": "Panel boczny",
-  "List": "Lista",
-  "All topics": "Wszystkie tematy"
+  "All topics": "Wszystkie tematy",
+  "Wi-Fi and network": "Wi-Fi i sieć",
+  "Display": "Ekran",
+  "Apps and games": "Aplikacje i gry",
+  "Accounts and family": "Konta i rodzina",
+  "System": "System",
+  "Help and feedback": "Pomoc i opinie"
 }

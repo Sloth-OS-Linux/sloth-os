@@ -1168,9 +1168,11 @@
   "More color settings": "Mais definições de cores",
   "Hide sidebar": "Ocultar a barra lateral",
   "Show sidebar": "Mostrar a barra lateral",
-  "Topics": "Temas",
-  "Icons": "Ícones",
-  "Sidebar": "Barra lateral",
-  "List": "Lista",
-  "All topics": "Todos os temas"
+  "All topics": "Todos os temas",
+  "Wi-Fi and network": "Wi-Fi e rede",
+  "Display": "Ecrã",
+  "Apps and games": "Aplicações e jogos",
+  "Accounts and family": "Contas e família",
+  "System": "Sistema",
+  "Help and feedback": "Ajuda e comentários"
 }

@@ -1168,9 +1168,11 @@
   "More color settings": "மேலும் வண்ண அமைப்புகள்",
   "Hide sidebar": "பக்கப்பட்டியை மறை",
   "Show sidebar": "பக்கப்பட்டியைக் காட்டு",
-  "Topics": "தலைப்புகள்",
-  "Icons": "சின்னங்கள்",
-  "Sidebar": "பக்கப்பட்டி",
-  "List": "பட்டியல்",
-  "All topics": "எல்லாத் தலைப்புகளும்"
+  "All topics": "எல்லாத் தலைப்புகளும்",
+  "Wi-Fi and network": "Wi-Fi மற்றும் பிணையம்",
+  "Display": "திரை",
+  "Apps and games": "பயன்பாடுகள் மற்றும் விளையாட்டுகள்",
+  "Accounts and family": "கணக்குகள் மற்றும் குடும்பம்",
+  "System": "அமைப்பு",
+  "Help and feedback": "உதவி மற்றும் கருத்து"
 }

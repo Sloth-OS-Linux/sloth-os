@@ -37,10 +37,11 @@ COVERED = {
     "kcm_screenlocker",               # Account and security → Screen lock → More screen lock settings
     "kcm_lookandfeel",                # Appearance → More appearance settings
     "kcm_colors",                     # Appearance → More color settings
-    "kcm_bluetooth",                  # Drivers and hardware → Bluetooth → Pair a device
+    "kcm_networkmanagement",          # the sidebar: Wi-Fi and network (in its own window)
+    "kcm_bluetooth",                  # the sidebar: Bluetooth (also Drivers and hardware → Pair a device)
     "kcm_gamecontroller",             # Drivers and hardware → Controllers
-    "kcm_kscreen",                    # Drivers and hardware → Displays
-    "kcm_pulseaudio",                 # Drivers and hardware → Sound → More sound settings
+    "kcm_kscreen",                    # the sidebar: Display (also Drivers and hardware → Displays)
+    "kcm_pulseaudio",                 # the sidebar: Sound (also Drivers and hardware → Sound)
     "kcm_printer_manager",            # Printers and scanners → Add by hand
     "kcm_powerdevilprofilesconfig",   # Power and battery → More settings
     "kcm_autostart",                  # Services → Programs that start when you sign in

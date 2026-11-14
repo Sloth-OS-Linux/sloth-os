@@ -3,13 +3,9 @@
 // groups and names, opened inside Sloth Center (kde_settings.py). One settings app: KDE's System Settings is not
 // needed. KDE pages that a Sloth Center page already covers ("covered") show only when searching.
 //
-// Four ways to show it, the user picks one (kept in Main.qml's ui settings):
-//   topics   big tiles per topic, a topic's settings as icons after a click (like Windows' Control Panel) – the
-//            default
-//   icons    every setting as an icon, in groups (like the Mac's old System Preferences)
-//   sidebar  the topics on the left, the chosen topic's settings on the right (like KDE's System Settings)
-//   list     everything in one list with descriptions
-// While searching, the matches are always shown as a list.
+// One way to show it: big tiles per topic, a topic's settings as icons after a click (like Windows' Control Panel).
+// The other views (icons, sidebar, list) were on a switcher until 2026-11-14; it confused more than it helped, so the
+// page stays in topics (the views' code is still here, unused). While searching, the matches are shown as a list.
 pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls as QQC2
@@ -33,7 +29,7 @@ Kirigami.Page {
 
     property string filter: ""
     property string topic: ""
-    readonly property string view: navigation ? navigation.ui.kdeView : "topics"
+    readonly property string view: "topics"
     readonly property bool searching: filter.trim() !== ""
     // the groups with the settings to show now (covered KDE pages only when searching)
     readonly property var shownGroups: allGroups.map(g => ({
@@ -96,25 +92,6 @@ Kirigami.Page {
                 Layout.fillWidth: true
                 placeholderText: L.t("Search settings…")
                 onTextChanged: page.filter = text
-            }
-            Repeater {
-                model: [
-                    { id: "topics", icon: "view-grid", name: L.t("Topics") },
-                    { id: "icons", icon: "view-list-icons", name: L.t("Icons") },
-                    { id: "sidebar", icon: "view-split-left-right", name: L.t("Sidebar") },
-                    { id: "list", icon: "view-list-details", name: L.t("List") }
-                ]
-                delegate: QQC2.ToolButton {
-                    required property var modelData
-                    checkable: true
-                    checked: page.view === modelData.id
-                    icon.name: modelData.icon
-                    text: modelData.name
-                    display: QQC2.AbstractButton.IconOnly
-                    QQC2.ToolTip.visible: hovered
-                    QQC2.ToolTip.text: modelData.name
-                    onClicked: page.setView(modelData.id)
-                }
             }
         }
     }

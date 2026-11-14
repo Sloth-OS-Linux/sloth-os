@@ -1168,9 +1168,11 @@
   "More color settings": "Περισσότερες ρυθμίσεις χρωμάτων",
   "Hide sidebar": "Απόκρυψη πλευρικής στήλης",
   "Show sidebar": "Εμφάνιση πλευρικής στήλης",
-  "Topics": "Θέματα",
-  "Icons": "Εικονίδια",
-  "Sidebar": "Πλευρική στήλη",
-  "List": "Λίστα",
-  "All topics": "Όλα τα θέματα"
+  "All topics": "Όλα τα θέματα",
+  "Wi-Fi and network": "Wi-Fi και δίκτυο",
+  "Display": "Οθόνη",
+  "Apps and games": "Εφαρμογές και παιχνίδια",
+  "Accounts and family": "Λογαριασμοί και οικογένεια",
+  "System": "Σύστημα",
+  "Help and feedback": "Βοήθεια και σχόλια"
 }

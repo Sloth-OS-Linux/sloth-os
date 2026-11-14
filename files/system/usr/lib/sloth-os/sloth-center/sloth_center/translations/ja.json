@@ -1168,9 +1168,11 @@
   "More color settings": "その他の色の設定",
   "Hide sidebar": "サイドバーを隠す",
   "Show sidebar": "サイドバーを表示",
-  "Topics": "トピック",
-  "Icons": "アイコン",
-  "Sidebar": "サイドバー",
-  "List": "リスト",
-  "All topics": "すべてのトピック"
+  "All topics": "すべてのトピック",
+  "Wi-Fi and network": "Wi-Fi とネットワーク",
+  "Display": "ディスプレイ",
+  "Apps and games": "アプリとゲーム",
+  "Accounts and family": "アカウントとファミリー",
+  "System": "システム",
+  "Help and feedback": "ヘルプとフィードバック"
 }

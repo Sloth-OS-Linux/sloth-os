@@ -1168,9 +1168,11 @@
   "More color settings": "আরও রঙের সেটিং",
   "Hide sidebar": "সাইডবার লুকান",
   "Show sidebar": "সাইডবার দেখান",
-  "Topics": "বিষয়",
-  "Icons": "আইকন",
-  "Sidebar": "সাইডবার",
-  "List": "তালিকা",
-  "All topics": "সব বিষয়"
+  "All topics": "সব বিষয়",
+  "Wi-Fi and network": "Wi-Fi এবং নেটওয়ার্ক",
+  "Display": "ডিসপ্লে",
+  "Apps and games": "অ্যাপ এবং গেম",
+  "Accounts and family": "অ্যাকাউন্ট এবং পরিবার",
+  "System": "সিস্টেম",
+  "Help and feedback": "সাহায্য এবং মতামত"
 }

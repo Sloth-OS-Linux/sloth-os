@@ -1168,9 +1168,11 @@
   "More color settings": "Fleire fargeinnstillingar",
   "Hide sidebar": "Gøym sidepanelet",
   "Show sidebar": "Vis sidepanelet",
-  "Topics": "Emne",
-  "Icons": "Ikon",
-  "Sidebar": "Sidepanel",
-  "List": "Liste",
-  "All topics": "Alle emne"
+  "All topics": "Alle emne",
+  "Wi-Fi and network": "Wi-Fi og nettverk",
+  "Display": "Skjerm",
+  "Apps and games": "Appar og spel",
+  "Accounts and family": "Kontoar og familie",
+  "System": "System",
+  "Help and feedback": "Hjelp og tilbakemelding"
 }

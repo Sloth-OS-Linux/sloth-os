@@ -1168,9 +1168,11 @@
   "More color settings": "Pliaj koloraj agordoj",
   "Hide sidebar": "Kaŝi la flankan breton",
   "Show sidebar": "Montri la flankan breton",
-  "Topics": "Temoj",
-  "Icons": "Piktogramoj",
-  "Sidebar": "Flanka breto",
-  "List": "Listo",
-  "All topics": "Ĉiuj temoj"
+  "All topics": "Ĉiuj temoj",
+  "Wi-Fi and network": "Wifio kaj reto",
+  "Display": "Ekrano",
+  "Apps and games": "Aplikaĵoj kaj ludoj",
+  "Accounts and family": "Kontoj kaj familio",
+  "System": "Sistemo",
+  "Help and feedback": "Helpo kaj prikomentoj"
 }

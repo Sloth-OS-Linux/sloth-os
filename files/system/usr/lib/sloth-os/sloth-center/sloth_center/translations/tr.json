@@ -1168,9 +1168,11 @@
   "More color settings": "Diğer renk ayarları",
   "Hide sidebar": "Kenar çubuğunu gizle",
   "Show sidebar": "Kenar çubuğunu göster",
-  "Topics": "Konular",
-  "Icons": "Simgeler",
-  "Sidebar": "Kenar çubuğu",
-  "List": "Liste",
-  "All topics": "Tüm konular"
+  "All topics": "Tüm konular",
+  "Wi-Fi and network": "Wi-Fi ve ağ",
+  "Display": "Ekran",
+  "Apps and games": "Uygulamalar ve oyunlar",
+  "Accounts and family": "Hesaplar ve aile",
+  "System": "Sistem",
+  "Help and feedback": "Yardım ve geri bildirim"
 }

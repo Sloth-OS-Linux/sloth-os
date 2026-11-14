@@ -1168,9 +1168,11 @@
   "More color settings": "Další nastavení barev",
   "Hide sidebar": "Skrýt postranní panel",
   "Show sidebar": "Zobrazit postranní panel",
-  "Topics": "Témata",
-  "Icons": "Ikony",
-  "Sidebar": "Postranní panel",
-  "List": "Seznam",
-  "All topics": "Všechna témata"
+  "All topics": "Všechna témata",
+  "Wi-Fi and network": "Wi-Fi a síť",
+  "Display": "Displej",
+  "Apps and games": "Aplikace a hry",
+  "Accounts and family": "Účty a rodina",
+  "System": "Systém",
+  "Help and feedback": "Nápověda a zpětná vazba"
 }

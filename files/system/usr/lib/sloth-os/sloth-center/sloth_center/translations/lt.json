@@ -1168,9 +1168,11 @@
   "More color settings": "Daugiau spalvų nustatymų",
   "Hide sidebar": "Slėpti šoninę juostą",
   "Show sidebar": "Rodyti šoninę juostą",
-  "Topics": "Temos",
-  "Icons": "Piktogramos",
-  "Sidebar": "Šoninė juosta",
-  "List": "Sąrašas",
-  "All topics": "Visos temos"
+  "All topics": "Visos temos",
+  "Wi-Fi and network": "Wi-Fi ir tinklas",
+  "Display": "Ekranas",
+  "Apps and games": "Programėlės ir žaidimai",
+  "Accounts and family": "Paskyros ir šeima",
+  "System": "Sistema",
+  "Help and feedback": "Pagalba ir atsiliepimai"
 }

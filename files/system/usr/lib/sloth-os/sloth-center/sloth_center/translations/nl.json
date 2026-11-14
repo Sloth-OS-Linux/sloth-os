@@ -1168,9 +1168,11 @@
   "More color settings": "Meer kleurinstellingen",
   "Hide sidebar": "Zijbalk verbergen",
   "Show sidebar": "Zijbalk tonen",
-  "Topics": "Onderwerpen",
-  "Icons": "Pictogrammen",
-  "Sidebar": "Zijbalk",
-  "List": "Lijst",
-  "All topics": "Alle onderwerpen"
+  "All topics": "Alle onderwerpen",
+  "Wi-Fi and network": "Wifi en netwerk",
+  "Display": "Beeldscherm",
+  "Apps and games": "Apps en games",
+  "Accounts and family": "Accounts en gezin",
+  "System": "Systeem",
+  "Help and feedback": "Hulp en feedback"
 }

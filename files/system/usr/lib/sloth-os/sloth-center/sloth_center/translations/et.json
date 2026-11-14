@@ -1168,9 +1168,11 @@
   "More color settings": "Rohkem värvisätteid",
   "Hide sidebar": "Peida külgriba",
   "Show sidebar": "Näita külgriba",
-  "Topics": "Teemad",
-  "Icons": "Ikoonid",
-  "Sidebar": "Külgriba",
-  "List": "Loend",
-  "All topics": "Kõik teemad"
+  "All topics": "Kõik teemad",
+  "Wi-Fi and network": "Wi-Fi ja võrk",
+  "Display": "Ekraan",
+  "Apps and games": "Rakendused ja mängud",
+  "Accounts and family": "Kontod ja pere",
+  "System": "Süsteem",
+  "Help and feedback": "Abi ja tagasiside"
 }

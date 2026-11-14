@@ -1168,9 +1168,11 @@
   "More color settings": "הגדרות צבע נוספות",
   "Hide sidebar": "הסתרת סרגל הצד",
   "Show sidebar": "הצגת סרגל הצד",
-  "Topics": "נושאים",
-  "Icons": "סמלים",
-  "Sidebar": "סרגל צד",
-  "List": "רשימה",
-  "All topics": "כל הנושאים"
+  "All topics": "כל הנושאים",
+  "Wi-Fi and network": "Wi-Fi ורשת",
+  "Display": "תצוגה",
+  "Apps and games": "אפליקציות ומשחקים",
+  "Accounts and family": "חשבונות ומשפחה",
+  "System": "מערכת",
+  "Help and feedback": "עזרה ומשוב"
 }

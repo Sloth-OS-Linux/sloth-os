@@ -1168,9 +1168,11 @@
   "More color settings": "更多颜色设置",
   "Hide sidebar": "隐藏侧边栏",
   "Show sidebar": "显示侧边栏",
-  "Topics": "主题",
-  "Icons": "图标",
-  "Sidebar": "侧边栏",
-  "List": "列表",
-  "All topics": "所有主题"
+  "All topics": "所有主题",
+  "Wi-Fi and network": "Wi-Fi 和网络",
+  "Display": "显示",
+  "Apps and games": "应用和游戏",
+  "Accounts and family": "账户和家庭",
+  "System": "系统",
+  "Help and feedback": "帮助和反馈"
 }
