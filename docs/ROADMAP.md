@@ -5,6 +5,15 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Next: release 1.6 (status on 2026-11-14 evening)
+The test branch (test/chunked-oci) is 17 commits past v1.5: the parental controls fixes found in the VM, and the
+new Sloth Center (the sidebar in groups, the search, More settings in the sidebar, the Wi-Fi page, the Apps page,
+System status with the check-up, Help and feedback). It goes out as **1.6** (new features, not a fix release).
+- [ ] On the HP, on the test branch's latest build: the sidebar and the search; the Wi-Fi page with real Wi-Fi;
+  Apps → Remove (with and without the data); Drivers and hardware → Bluetooth still has its Back button
+- [ ] Then the release: SLOTH_VERSION 1.6 in `files/scripts/branding.sh`, test branch into main, ISO, and everywhere
+  as usual (SourceForge, torrent, website "New in 1.6", README, tag, GitHub release)
+
 ### Sloth Center, the next steps of the one settings app (planned 2026-11-14, in this order)
 - [x] 1. A search at the top of the sidebar (Ctrl+F), for both lists: Sloth Center's pages first (by their name,
   then by the short texts on them: titles, labels, buttons, in English and in the user's language; search.py, no
