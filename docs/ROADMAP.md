@@ -5,6 +5,17 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### More settings as a list in the sidebar (2026-11-14, test branch)
+- [x] After the HP test: the grouped sidebar was good, but More settings (topic tiles, then a topic's icons) was still
+  crowded and took a click more than the rest. Now a click on More settings turns the sidebar into its list: Back at
+  the top, a search, then every KDE settings page under KDE's own topic titles (Input & Output, Connected Devices,
+  Appearance & Style…) and Sloth OS's advanced pages last, the same rows and titles as the everyday list. A row opens
+  its page on the right like Display or Sound; Back returns to the everyday list at its top. The page on the right
+  is only a short introduction now. `systemsettings <page>` opens the page with the list on the left. Tried in the
+  VM: opening Keyboard and Fonts, the search ("font"), the narrowed sidebar, Back
+- [ ] On the HP: the same, and a KDE page reached from a Sloth Center button (Drivers and hardware → Bluetooth) still
+  has its Back button
+
 ### Parental controls tried end to end in a VM (2026-11-14, test branch, image of cdee1d4)
 - [x] A child account with a 16-minute daily limit, signed in on the real sign-in screen: the 15-, 10-, 5- and
   1-minute banners came on time above a full-screen window and went after 10 seconds; "Time's up", then signed out a

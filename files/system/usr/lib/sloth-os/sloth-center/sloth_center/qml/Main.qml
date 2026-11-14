@@ -57,17 +57,61 @@ Kirigami.ApplicationWindow {
     property int shownIndex: 0        // the module shown now (a "more" one too); a KDE page's Back returns here
     property int guideStep: 0
 
-    // The user's choices about the window: the list on the left narrowed to icons, More settings' view
-    // (KdeSettingsPage.qml: topics, icons, sidebar or list)
+    // The user's choice about the window: the list on the left narrowed to icons
     readonly property alias ui: uiSettings
     Settings {
         id: uiSettings
         category: "view"
         property bool sidebarCollapsed: false
-        property string kdeView: "topics"
     }
-    // More settings: the search and the open topic, so Back from a KDE page returns to the same place
-    property var kdeState: ({ filter: "", topic: "" })
+
+    // More settings: the sidebar turns into its list (Back at the top returns to the everyday list), the same rows
+    // and group titles: Sloth OS's advanced pages ("more: true") and every KDE settings page in KDE's own topics
+    // (kde_settings.py). A row opens its page on the right like any other. KDE pages that a Sloth Center page covers
+    // ("covered") show only when searching.
+    property bool moreMode: false
+    property string moreSelected: ""  // the lit row of that list (a page's id)
+    property string moreFilter: ""
+    Loader {
+        id: catalogLoader
+        source: "KcmCatalogView.qml"
+        active: root.moreMode || status === Loader.Ready  // loaded the first time it is needed, then kept
+        visible: false
+    }
+    readonly property var kdeGroups: catalogLoader.status === Loader.Ready && catalogLoader.item.modules.length
+                                     ? kde.groups(catalogLoader.item.modules) : []
+    function moreMatches(p, f) {
+        return !f || [p.name, p.description, p.id].concat(p.keywords || [])
+                         .some(t => (t || "").toLowerCase().includes(f));
+    }
+    readonly property var moreEntries: {
+        const f = moreFilter.trim().toLowerCase();
+        const out = [];
+        for (const g of kdeGroups)
+            for (const p of g.pages)
+                if ((!p.covered || f) && moreMatches(p, f))
+                    out.push(Object.assign({}, p, { section: g.name || L.t("Other") }));
+        for (const m of modules.filter(m => m.more)) {
+            const e = { id: m.id, name: m.name, icon: m.icon, description: "", keywords: [], sloth: true, section: "Sloth OS" };
+            if (moreMatches(e, f))
+                out.push(e);
+        }
+        return out;
+    }
+    function openMoreEntry(p) {
+        if (p.sloth)
+            openModuleById(p.id);
+        else if (p.widget)
+            kde.openWindow(p.id);  // an older KDE page: its own window, the row on the left stays as it was
+        else
+            openKcm(p.id, "", p.name, true);
+    }
+    function leaveMore() {
+        moreMode = false;
+        moreFilter = "";
+        moreSearch.text = "";
+        Qt.callLater(() => moduleList.positionViewAtBeginning());  // the everyday rows first, as at the start
+    }
 
     // The first-run guide: each step lights up its pages in the list on the left, the rest of the window goes dark
     readonly property var guideSteps: [
@@ -82,6 +126,8 @@ Kirigami.ApplicationWindow {
     ]
 
     function openGuide() {
+        if (moreMode)
+            leaveMore();
         guideStep = 0;
         guideDialog.open();
         Qt.callLater(guideDialog.place);
@@ -103,19 +149,33 @@ Kirigami.ApplicationWindow {
         leaveKdePage(() => showModule(index));
     }
 
-    // A KDE settings page inside Sloth Center (kde_settings.py; also: sloth-center --kcm <page>)
-    function openKcm(kcm, args, name) {
+    // A KDE settings page inside Sloth Center (kde_settings.py; also: sloth-center --kcm <page>). fromMore: a row of
+    // More settings' list.
+    function openKcm(kcm, args, name, fromMore) {
         leaveKdePage(() => {
             const kdeIndex = Math.max(0, modules.findIndex(m => m.id === "kde"));
-            // Back: to the page it was opened from (More settings, or e.g. Drivers and hardware's Bluetooth button)
-            const back = pageStack.items.length && pageStack.items[0].kcm === undefined ? shownIndex : kdeIndex;
-            // a page of its own in the sidebar (Bluetooth, Display, Sound): that row is selected, no Back button
             const own = modules.findIndex(m => m.kcm === kcm);
-            currentIndex = own >= 0 ? own : modules[back].more ? kdeIndex : back;
+            // opened by a button of a Sloth Center page (e.g. Drivers and hardware's Bluetooth): Back returns there
+            const from = !fromMore && pageStack.items.length && pageStack.items[0].kcm === undefined
+                         && !modules[shownIndex].more && modules[shownIndex].id !== "kde" ? shownIndex : -1;
+            let backTo = null;
+            if (fromMore || (own < 0 && from < 0)) {
+                // More settings' row (also `systemsettings <page>`): the sidebar shows that list, the row lit
+                moreMode = true;
+                moreSelected = kcm;
+                currentIndex = kdeIndex;
+            } else if (own >= 0) {
+                // a page of its own in the sidebar (Bluetooth, Display, Sound): that row is lit, no Back button
+                if (moreMode)
+                    leaveMore();
+                currentIndex = own;
+            } else {
+                currentIndex = from;
+                backTo = () => root.openModule(from);
+            }
             pageStack.clear();
             pageStack.push(Qt.resolvedUrl("KcmPage.qml"), {
-                kcm: kcm, kcmArgs: args || "", kcmName: name || (own >= 0 ? modules[own].name : ""),
-                backTo: own >= 0 ? null : () => root.openModule(back)
+                kcm: kcm, kcmArgs: args || "", kcmName: name || (own >= 0 ? modules[own].name : ""), backTo: backTo
             });
         });
     }
@@ -160,6 +220,12 @@ Kirigami.ApplicationWindow {
         }
         shownIndex = index;
         currentIndex = m.more ? modules.findIndex(x => x.id === "kde") : index;
+        if (m.more || m.id === "kde") {  // More settings: the sidebar shows its list
+            moreMode = true;
+            moreSelected = m.more ? m.id : "";
+        } else if (moreMode) {
+            leaveMore();
+        }
         pageStack.clear();
         if (m.ready) {
             if (["status", "health", "disks", "help", "kde"].includes(m.id))
@@ -233,20 +299,55 @@ Kirigami.ApplicationWindow {
             }
             Kirigami.Separator { Layout.fillWidth: true }
 
+            // More settings: Back to the everyday list, and the search
+            ColumnLayout {
+                visible: root.moreMode
+                Layout.fillWidth: true
+                Layout.margins: Kirigami.Units.smallSpacing
+                spacing: Kirigami.Units.smallSpacing
+                QQC2.ItemDelegate {
+                    Layout.fillWidth: true
+                    icon.name: root.LayoutMirroring.enabled ? "go-next" : "go-previous"
+                    text: L.t("Back")
+                    font.bold: true
+                    display: root.globalDrawer.collapsed ? QQC2.AbstractButton.IconOnly : QQC2.AbstractButton.TextBesideIcon
+                    QQC2.ToolTip.visible: root.globalDrawer.collapsed && hovered
+                    QQC2.ToolTip.text: text
+                    onClicked: root.leaveMore()
+                }
+                Kirigami.SearchField {
+                    id: moreSearch
+                    objectName: "kdeSearch"
+                    visible: !root.globalDrawer.collapsed
+                    Layout.fillWidth: true
+                    placeholderText: L.t("Search settings…")
+                    onTextChanged: root.moreFilter = text
+                }
+                QQC2.Label {
+                    visible: root.moreEntries.length === 0 && !root.globalDrawer.collapsed
+                    Layout.fillWidth: true
+                    Layout.margins: Kirigami.Units.largeSpacing
+                    wrapMode: Text.Wrap
+                    opacity: 0.7
+                    text: catalogLoader.status === Loader.Error ? L.t("The list of settings could not be loaded.")
+                                                                : L.t("No setting matches your search.")
+                }
+            }
+
             QQC2.ScrollView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 ListView {
                     id: moduleList
                     clip: true          // the rows never draw over the logo box above or the guide button below
-                    model: root.modules
+                    model: root.moreMode ? root.moreEntries : root.modules
                     section.property: "section"
                     // a small title above each group (none above the everyday group and More settings; a line instead)
                     section.delegate: Item {
                         required property string section
                         width: ListView.view.width
-                        readonly property string title: root.sectionNames[section] || ""
-                        height: section === "daily" || section === "zmore" ? 0
+                        readonly property string title: root.moreMode ? section : root.sectionNames[section] || ""
+                        height: !root.moreMode && (section === "daily" || section === "zmore") ? 0
                               : title === "" || root.globalDrawer.collapsed ? Kirigami.Units.largeSpacing
                               : sectionLabel.implicitHeight + Kirigami.Units.largeSpacing * 2
                         Kirigami.Separator {
@@ -267,20 +368,23 @@ Kirigami.ApplicationWindow {
                         required property var modelData
                         required property int index
                         width: ListView.view.width
-                        visible: !modelData.more
+                        visible: root.moreMode || !modelData.more
                         height: visible ? implicitHeight : 0
-                        highlighted: index === root.currentIndex
-                        icon.name: modelData.icon
+                        highlighted: root.moreMode ? modelData.id === root.moreSelected : index === root.currentIndex
+                        icon.name: modelData.icon || "preferences-other"
                         text: modelData.name
                         display: root.globalDrawer.collapsed ? QQC2.AbstractButton.IconOnly : QQC2.AbstractButton.TextBesideIcon
-                        QQC2.ToolTip.visible: root.globalDrawer.collapsed && hovered
-                        QQC2.ToolTip.text: modelData.name
-                        onClicked: root.openModule(index)
+                        // collapsed: the name; in More settings also what the page is for (KDE's own description)
+                        QQC2.ToolTip.visible: hovered && (root.globalDrawer.collapsed || (modelData.description || "") !== "")
+                        QQC2.ToolTip.text: root.globalDrawer.collapsed ? modelData.name : modelData.description || ""
+                        QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                        onClicked: root.moreMode ? root.openMoreEntry(modelData) : root.openModule(index)
                     }
                 }
             }
 
             QQC2.Button {
+                visible: !root.moreMode
                 Layout.fillWidth: true
                 Layout.margins: Kirigami.Units.smallSpacing
                 text: L.t("Open guide")
