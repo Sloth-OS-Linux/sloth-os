@@ -87,6 +87,7 @@ def main():
     from .printers import PrintersController
     from .kde_settings import KdeSettingsController
     from .search import SearchIndex
+    from .network import NetworkController
 
     engine = QQmlApplicationEngine()
     engine.addImportPath(shared_appearance.QML_IMPORT_PATH)  # import SlothCommon (the layout drawings)
@@ -169,6 +170,8 @@ def main():
     engine.rootContext().setContextProperty("appearance", appearance)
     engine.rootContext().setContextProperty("startup", startup)
     engine.rootContext().setContextProperty("wifi", wifi)
+    network = NetworkController()
+    engine.rootContext().setContextProperty("network", network)
     engine.rootContext().setContextProperty("privacy", privacy)
     engine.rootContext().setContextProperty("sound", sound)
     engine.rootContext().setContextProperty("displays", display)

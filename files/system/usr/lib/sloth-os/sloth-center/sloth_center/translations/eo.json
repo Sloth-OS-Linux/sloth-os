@@ -1172,5 +1172,20 @@
   "Apps and games": "Aplikaĵoj kaj ludoj",
   "Accounts and family": "Kontoj kaj familio",
   "System": "Sistemo",
-  "Help and feedback": "Helpo kaj prikomentoj"
+  "Help and feedback": "Helpo kaj prikomentoj",
+  "Wi-Fi": "Vifio",
+  "Not connected": "Ne konektita",
+  "Connected to {name}": "Konektita al {name}",
+  "Connecting…": "Konektante…",
+  "Saved": "Konservita",
+  "Secured": "Sekurigita",
+  "Open network": "Malferma reto",
+  "Forget": "Forgesi",
+  "Search again": "Serĉi denove",
+  "Wired connection": "Kabla konekto",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Ĉi tiu komputilo ne havas vifian adaptilon. Ankaŭ USB-vifia adaptilo funkcias.",
+  "The password was not accepted. Check it and try again.": "La pasvorto ne estis akceptita. Kontrolu ĝin kaj reprovu.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Ne eblis konektiĝi al ĉi tiu reto. Reprovu aŭ alproksimiĝu al la enkursigilo.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Ĉi tiu reto bezonas ankaŭ uzantnomon (reto de firmao aŭ lernejo). Agordu ĝin en Pliaj agordoj.",
+  "No networks found yet.": "Ankoraŭ neniu reto trovita."
 }

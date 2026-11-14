@@ -1172,5 +1172,20 @@
   "Apps and games": "Aplicazions e zûcs",
   "Accounts and family": "Account e famee",
   "System": "Sisteme",
-  "Help and feedback": "Jutori e opinions"
+  "Help and feedback": "Jutori e opinions",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "No conetût",
+  "Connected to {name}": "Conetût a {name}",
+  "Connecting…": "Daûr a conetisi…",
+  "Saved": "Salvade",
+  "Secured": "Protezude",
+  "Open network": "Rêt vierte",
+  "Forget": "Dismentee",
+  "Search again": "Cîr di gnûf",
+  "Wired connection": "Conession cul fîl",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Chest computer nol à un adatadôr Wi-Fi. Al va ben ancje un adatadôr Wi-Fi USB.",
+  "The password was not accepted. Check it and try again.": "La password no je stade acetade. Controlile e torne prove.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "No si è rivâts a conetisi a cheste rêt. Torne prove o svicinisi al router.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Cheste rêt e domande ancje un non utent (rêt di dite o di scuele). Configurile in Altris impostazions.",
+  "No networks found yet.": "Ancjemò nissune rêt cjatade."
 }

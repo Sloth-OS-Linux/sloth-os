@@ -1172,5 +1172,20 @@
   "Apps and games": "Appar och spel",
   "Accounts and family": "Konton och familj",
   "System": "System",
-  "Help and feedback": "Hjälp och feedback"
+  "Help and feedback": "Hjälp och feedback",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Inte ansluten",
+  "Connected to {name}": "Ansluten till {name}",
+  "Connecting…": "Ansluter…",
+  "Saved": "Sparat",
+  "Secured": "Skyddat",
+  "Open network": "Öppet nätverk",
+  "Forget": "Glöm",
+  "Search again": "Sök igen",
+  "Wired connection": "Trådbunden anslutning",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Den här datorn har ingen Wi-Fi-adapter. En USB-Wi-Fi-adapter fungerar också.",
+  "The password was not accepted. Check it and try again.": "Lösenordet godtogs inte. Kontrollera det och försök igen.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Det gick inte att ansluta till nätverket. Försök igen eller flytta närmare routern.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Det här nätverket kräver även ett användarnamn (företags- eller skolnätverk). Ställ in det under Fler inställningar.",
+  "No networks found yet.": "Inga nätverk hittade än."
 }

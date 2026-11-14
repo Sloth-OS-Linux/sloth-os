@@ -1172,5 +1172,20 @@
   "Apps and games": "Aplikacije i igre",
   "Accounts and family": "Računi i obitelj",
   "System": "Sustav",
-  "Help and feedback": "Pomoć i povratne informacije"
+  "Help and feedback": "Pomoć i povratne informacije",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Nije povezano",
+  "Connected to {name}": "Povezano s {name}",
+  "Connecting…": "Povezivanje…",
+  "Saved": "Spremljeno",
+  "Secured": "Zaštićeno",
+  "Open network": "Otvorena mreža",
+  "Forget": "Zaboravi",
+  "Search again": "Traži ponovno",
+  "Wired connection": "Žična veza",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Ovo računalo nema Wi-Fi adapter. USB Wi-Fi adapter također radi.",
+  "The password was not accepted. Check it and try again.": "Lozinka nije prihvaćena. Provjerite je i pokušajte ponovno.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Povezivanje s ovom mrežom nije uspjelo. Pokušajte ponovno ili se približite usmjerniku.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Ova mreža traži i korisničko ime (mreža tvrtke ili škole). Postavite je u Više postavki.",
+  "No networks found yet.": "Još nije pronađena nijedna mreža."
 }

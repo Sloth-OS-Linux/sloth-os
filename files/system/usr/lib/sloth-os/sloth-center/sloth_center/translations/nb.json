@@ -1172,5 +1172,20 @@
   "Apps and games": "Apper og spill",
   "Accounts and family": "Kontoer og familie",
   "System": "System",
-  "Help and feedback": "Hjelp og tilbakemelding"
+  "Help and feedback": "Hjelp og tilbakemelding",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Ikke tilkoblet",
+  "Connected to {name}": "Koblet til {name}",
+  "Connecting…": "Kobler til…",
+  "Saved": "Lagret",
+  "Secured": "Sikret",
+  "Open network": "Åpent nettverk",
+  "Forget": "Glem",
+  "Search again": "Søk igjen",
+  "Wired connection": "Kablet tilkobling",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Denne datamaskinen har ingen Wi-Fi-adapter. En USB-Wi-Fi-adapter fungerer også.",
+  "The password was not accepted. Check it and try again.": "Passordet ble ikke godtatt. Sjekk det og prøv igjen.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Kunne ikke koble til dette nettverket. Prøv igjen, eller gå nærmere ruteren.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Dette nettverket krever også et brukernavn (bedrifts- eller skolenettverk). Sett det opp under Flere innstillinger.",
+  "No networks found yet.": "Ingen nettverk funnet ennå."
 }

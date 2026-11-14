@@ -1172,5 +1172,20 @@
   "Apps and games": "Aplicaciones y juegos",
   "Accounts and family": "Cuentas y familia",
   "System": "Sistema",
-  "Help and feedback": "Ayuda y comentarios"
+  "Help and feedback": "Ayuda y comentarios",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "No conectado",
+  "Connected to {name}": "Conectado a {name}",
+  "Connecting…": "Conectando…",
+  "Saved": "Guardada",
+  "Secured": "Protegida",
+  "Open network": "Red abierta",
+  "Forget": "Olvidar",
+  "Search again": "Buscar de nuevo",
+  "Wired connection": "Conexión por cable",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Este equipo no tiene adaptador Wi-Fi. También sirve un adaptador Wi-Fi USB.",
+  "The password was not accepted. Check it and try again.": "La contraseña no se aceptó. Revísala e inténtalo de nuevo.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "No se pudo conectar a esta red. Inténtalo de nuevo o acércate al router.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Esta red también necesita un nombre de usuario (red de empresa o de centro educativo). Configúrala en Más ajustes.",
+  "No networks found yet.": "Aún no se ha encontrado ninguna red."
 }

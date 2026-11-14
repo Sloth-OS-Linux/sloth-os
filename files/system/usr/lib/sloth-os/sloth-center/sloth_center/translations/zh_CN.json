@@ -1172,5 +1172,20 @@
   "Apps and games": "应用和游戏",
   "Accounts and family": "账户和家庭",
   "System": "系统",
-  "Help and feedback": "帮助和反馈"
+  "Help and feedback": "帮助和反馈",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "未连接",
+  "Connected to {name}": "已连接到 {name}",
+  "Connecting…": "正在连接…",
+  "Saved": "已保存",
+  "Secured": "加密",
+  "Open network": "开放网络",
+  "Forget": "忘记",
+  "Search again": "重新搜索",
+  "Wired connection": "有线连接",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "这台电脑没有 Wi-Fi 网卡。USB Wi-Fi 网卡也可以用。",
+  "The password was not accepted. Check it and try again.": "密码不正确。请检查后重试。",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "无法连接到此网络。请重试，或离路由器近一些。",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "此网络还需要用户名（公司或学校网络）。请在“更多设置”中设置。",
+  "No networks found yet.": "暂未找到网络。"
 }

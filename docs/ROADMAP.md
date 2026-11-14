@@ -12,8 +12,14 @@ from a terminal must also work from a GUI.
   Light". Tried in the VM: password, wifi, mouse, printer each gave a short, fitting list (with the long explanations
   too, "wifi" found eight pages: they are left out); a result opens on the right and stays lit.
   `tools/tests/test_search.py`
-- [ ] 2. A Wi-Fi page of our own instead of KDE's network window (the only row that opens a window, with IPv4/IPv6/
-  802.1x tabs): the networks, connect, password, forget; "Advanced" opens KDE's window
+- [x] 2. A Wi-Fi page of our own instead of KDE's network window (WifiPage.qml, network.py): Wi-Fi on and off, the
+  networks around (connected, saved, secured, open; the strongest access point of each name), connect with a
+  password, disconnect, forget, the wired connection; More settings opens KDE's window (VPN, fixed address, company
+  networks). A new network's password goes to NetworkManager over D-Bus, not on a command line; a wrong one is
+  said on the page (NetworkManager asking for it again counts as wrong) and the network is not kept, so KDE's own
+  password window does not pop up. Tried in the VM with two virtual access points (mac80211_hwsim and hostapd, a
+  WPA2 and an open one): a wrong password, the right one, disconnect, connect again without the password, forget,
+  the open network, Wi-Fi off and on. `tools/tests/test_network.py`
 - [ ] 3. A shorter sidebar: System status and System health in one page (the same icon, nearly the same question);
   Help and Feedback in one page ("Help and feedback"); the Open guide button moves to that page
 - [ ] 4. Programs shows every installed app (Flatpaks too), with Remove, not only the Windows programs (or at least

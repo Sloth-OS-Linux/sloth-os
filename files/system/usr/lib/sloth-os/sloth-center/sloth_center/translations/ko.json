@@ -1172,5 +1172,20 @@
   "Apps and games": "앱 및 게임",
   "Accounts and family": "계정 및 가족",
   "System": "시스템",
-  "Help and feedback": "도움말 및 피드백"
+  "Help and feedback": "도움말 및 피드백",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "연결 안 됨",
+  "Connected to {name}": "{name}에 연결됨",
+  "Connecting…": "연결 중…",
+  "Saved": "저장됨",
+  "Secured": "보안",
+  "Open network": "개방형 네트워크",
+  "Forget": "삭제",
+  "Search again": "다시 검색",
+  "Wired connection": "유선 연결",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "이 컴퓨터에는 Wi-Fi 어댑터가 없습니다. USB Wi-Fi 어댑터도 사용할 수 있습니다.",
+  "The password was not accepted. Check it and try again.": "비밀번호가 맞지 않습니다. 확인하고 다시 시도하세요.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "이 네트워크에 연결하지 못했습니다. 다시 시도하거나 공유기 가까이로 이동하세요.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "이 네트워크는 사용자 이름도 필요합니다(회사 또는 학교 네트워크). 추가 설정에서 설정하세요.",
+  "No networks found yet.": "아직 찾은 네트워크가 없습니다."
 }

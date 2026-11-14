@@ -221,5 +221,21 @@
   "Apps and games": "Apps and games",
   "Accounts and family": "Accounts and family",
   "System": "System",
-  "Help and feedback": "Help and feedback"
+  "Help and feedback": "Help and feedback",
+  "Wi-Fi": "Wi-Fi",
+  "Wi-Fi is turned off.": "Wi-Fi is turned off.",
+  "Not connected": "Not connected",
+  "Connected to {name}": "Connected to {name}",
+  "Connecting…": "Connecting…",
+  "Saved": "Saved",
+  "Secured": "Secured",
+  "Open network": "Open network",
+  "Forget": "Forget",
+  "Search again": "Search again",
+  "Wired connection": "Wired connection",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.",
+  "The password was not accepted. Check it and try again.": "The password was not accepted. Check it and try again.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Couldn't connect to this network. Try again, or move closer to the router.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "This network needs a user name too (a company or school network). Set it up in More settings.",
+  "No networks found yet.": "No networks found yet."
 }

@@ -1172,5 +1172,20 @@
   "Apps and games": "Aplicacions i jocs",
   "Accounts and family": "Comptes i família",
   "System": "Sistema",
-  "Help and feedback": "Ajuda i comentaris"
+  "Help and feedback": "Ajuda i comentaris",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "No connectat",
+  "Connected to {name}": "Connectat a {name}",
+  "Connecting…": "S'està connectant…",
+  "Saved": "Desada",
+  "Secured": "Protegida",
+  "Open network": "Xarxa oberta",
+  "Forget": "Oblida",
+  "Search again": "Torna a cercar",
+  "Wired connection": "Connexió per cable",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Aquest ordinador no té adaptador Wi-Fi. També serveix un adaptador Wi-Fi USB.",
+  "The password was not accepted. Check it and try again.": "No s'ha acceptat la contrasenya. Comproveu-la i torneu-ho a provar.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "No s'ha pogut connectar a aquesta xarxa. Torneu-ho a provar o acosteu-vos a l'encaminador.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Aquesta xarxa també demana un nom d'usuari (xarxa d'empresa o d'escola). Configureu-la a Més opcions.",
+  "No networks found yet.": "Encara no s'ha trobat cap xarxa."
 }

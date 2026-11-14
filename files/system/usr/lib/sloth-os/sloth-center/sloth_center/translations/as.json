@@ -1172,5 +1172,20 @@
   "Apps and games": "এপ আৰু খেল",
   "Accounts and family": "একাউণ্ট আৰু পৰিয়াল",
   "System": "চিষ্টেম",
-  "Help and feedback": "সহায় আৰু মতামত"
+  "Help and feedback": "সহায় আৰু মতামত",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "সংযোগ নাই",
+  "Connected to {name}": "{name}ৰ সৈতে সংযুক্ত",
+  "Connecting…": "সংযোগ হৈ আছে…",
+  "Saved": "সাঁচি থোৱা",
+  "Secured": "সুৰক্ষিত",
+  "Open network": "মুকলি নেটৱৰ্ক",
+  "Forget": "পাহৰক",
+  "Search again": "পুনৰ বিচাৰক",
+  "Wired connection": "তাঁৰযুক্ত সংযোগ",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "এই কম্পিউটাৰত Wi-Fi এডাপ্টাৰ নাই। USB Wi-Fi এডাপ্টাৰেও কাম কৰে।",
+  "The password was not accepted. Check it and try again.": "পাছৱৰ্ড গ্ৰহণ কৰা নহ'ল। পৰীক্ষা কৰি পুনৰ চেষ্টা কৰক।",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "এই নেটৱৰ্কৰ সৈতে সংযোগ কৰিব পৰা নগ'ল। পুনৰ চেষ্টা কৰক, বা ৰাউটাৰৰ ওচৰলৈ যাওক।",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "এই নেটৱৰ্কক ব্যৱহাৰকাৰীৰ নামো লাগে (কোম্পানী বা বিদ্যালয়ৰ নেটৱৰ্ক)। অধিক ছেটিংত ছেট কৰক।",
+  "No networks found yet.": "এতিয়ালৈকে কোনো নেটৱৰ্ক পোৱা নগ'ল।"
 }

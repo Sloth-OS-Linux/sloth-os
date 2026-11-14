@@ -1172,5 +1172,20 @@
   "Apps and games": "Εφαρμογές και παιχνίδια",
   "Accounts and family": "Λογαριασμοί και οικογένεια",
   "System": "Σύστημα",
-  "Help and feedback": "Βοήθεια και σχόλια"
+  "Help and feedback": "Βοήθεια και σχόλια",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Χωρίς σύνδεση",
+  "Connected to {name}": "Συνδεδεμένο σε {name}",
+  "Connecting…": "Σύνδεση…",
+  "Saved": "Αποθηκευμένο",
+  "Secured": "Ασφαλές",
+  "Open network": "Ανοιχτό δίκτυο",
+  "Forget": "Διαγραφή",
+  "Search again": "Αναζήτηση ξανά",
+  "Wired connection": "Ενσύρματη σύνδεση",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Αυτός ο υπολογιστής δεν έχει προσαρμογέα Wi-Fi. Λειτουργεί και ένας προσαρμογέας Wi-Fi USB.",
+  "The password was not accepted. Check it and try again.": "Ο κωδικός δεν έγινε δεκτός. Ελέγξτε τον και δοκιμάστε ξανά.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Δεν ήταν δυνατή η σύνδεση σε αυτό το δίκτυο. Δοκιμάστε ξανά ή πλησιάστε τον δρομολογητή.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Αυτό το δίκτυο θέλει και όνομα χρήστη (δίκτυο εταιρείας ή σχολείου). Ρυθμίστε το στο Περισσότερες ρυθμίσεις.",
+  "No networks found yet.": "Δεν βρέθηκαν ακόμη δίκτυα."
 }

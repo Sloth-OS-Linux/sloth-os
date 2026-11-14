@@ -1172,5 +1172,20 @@
   "Apps and games": "אפליקציות ומשחקים",
   "Accounts and family": "חשבונות ומשפחה",
   "System": "מערכת",
-  "Help and feedback": "עזרה ומשוב"
+  "Help and feedback": "עזרה ומשוב",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "לא מחובר",
+  "Connected to {name}": "מחובר אל {name}",
+  "Connecting…": "מתחבר…",
+  "Saved": "שמורה",
+  "Secured": "מאובטחת",
+  "Open network": "רשת פתוחה",
+  "Forget": "שכח",
+  "Search again": "חיפוש מחדש",
+  "Wired connection": "חיבור קווי",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "במחשב הזה אין מתאם Wi-Fi. גם מתאם Wi-Fi ב-USB יעבוד.",
+  "The password was not accepted. Check it and try again.": "הסיסמה לא התקבלה. בדקו אותה ונסו שוב.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "לא ניתן להתחבר לרשת הזו. נסו שוב או התקרבו לנתב.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "הרשת הזו דורשת גם שם משתמש (רשת של חברה או בית ספר). הגדירו אותה ב-הגדרות נוספות.",
+  "No networks found yet.": "עדיין לא נמצאו רשתות."
 }

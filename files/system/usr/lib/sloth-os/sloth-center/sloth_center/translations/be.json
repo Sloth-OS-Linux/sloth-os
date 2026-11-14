@@ -1172,5 +1172,20 @@
   "Apps and games": "Праграмы і гульні",
   "Accounts and family": "Уліковыя запісы і сям'я",
   "System": "Сістэма",
-  "Help and feedback": "Даведка і водгукі"
+  "Help and feedback": "Даведка і водгукі",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Няма злучэння",
+  "Connected to {name}": "Злучана з {name}",
+  "Connecting…": "Злучэнне…",
+  "Saved": "Захаваная",
+  "Secured": "Абароненая",
+  "Open network": "Адкрытая сетка",
+  "Forget": "Забыць",
+  "Search again": "Шукаць зноў",
+  "Wired connection": "Правадное злучэнне",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "У гэтым камп'ютары няма адаптара Wi-Fi. Падыдзе і USB-адаптар Wi-Fi.",
+  "The password was not accepted. Check it and try again.": "Пароль не прыняты. Праверце яго і паспрабуйце зноў.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Не ўдалося злучыцца з гэтай сеткай. Паспрабуйце зноў або падыдзіце бліжэй да роўтара.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Для гэтай сеткі патрэбна яшчэ імя карыстальніка (сетка кампаніі ці школы). Наладзьце яе ў раздзеле «Іншыя налады».",
+  "No networks found yet.": "Сеткі пакуль не знойдзены."
 }

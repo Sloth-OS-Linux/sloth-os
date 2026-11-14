@@ -1172,5 +1172,20 @@
   "Apps and games": "Aplikacione dhe lojëra",
   "Accounts and family": "Llogari dhe familje",
   "System": "Sistemi",
-  "Help and feedback": "Ndihmë dhe përshtypje"
+  "Help and feedback": "Ndihmë dhe përshtypje",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Pa lidhje",
+  "Connected to {name}": "I lidhur me {name}",
+  "Connecting…": "Po lidhet…",
+  "Saved": "E ruajtur",
+  "Secured": "E mbrojtur",
+  "Open network": "Rrjet i hapur",
+  "Forget": "Harroje",
+  "Search again": "Kërko sërish",
+  "Wired connection": "Lidhje me kabllo",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Ky kompjuter nuk ka përshtatës Wi-Fi. Edhe një përshtatës Wi-Fi USB funksionon.",
+  "The password was not accepted. Check it and try again.": "Fjalëkalimi nuk u pranua. Kontrollojeni dhe provoni sërish.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Lidhja me këtë rrjet nuk u arrit. Provoni sërish ose afrohuni te ruteri.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Ky rrjet kërkon edhe emër përdoruesi (rrjet kompanie ose shkolle). Rregullojeni te Më shumë cilësime.",
+  "No networks found yet.": "Ende nuk u gjet asnjë rrjet."
 }

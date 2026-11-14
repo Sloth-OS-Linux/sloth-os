@@ -1172,5 +1172,20 @@
   "Apps and games": "Rakendused ja mängud",
   "Accounts and family": "Kontod ja pere",
   "System": "Süsteem",
-  "Help and feedback": "Abi ja tagasiside"
+  "Help and feedback": "Abi ja tagasiside",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Pole ühendatud",
+  "Connected to {name}": "Ühendatud: {name}",
+  "Connecting…": "Ühendamine…",
+  "Saved": "Salvestatud",
+  "Secured": "Kaitstud",
+  "Open network": "Avatud võrk",
+  "Forget": "Unusta",
+  "Search again": "Otsi uuesti",
+  "Wired connection": "Juhtmega ühendus",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Selles arvutis pole Wi-Fi adapterit. Sobib ka USB Wi-Fi adapter.",
+  "The password was not accepted. Check it and try again.": "Parooli ei aktsepteeritud. Kontrolli seda ja proovi uuesti.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Selle võrguga ei õnnestunud ühendust luua. Proovi uuesti või mine ruuterile lähemale.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "See võrk vajab ka kasutajanime (ettevõtte või kooli võrk). Seadista see jaotises Rohkem sätteid.",
+  "No networks found yet.": "Võrke pole veel leitud."
 }

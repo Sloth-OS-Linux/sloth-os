@@ -1172,5 +1172,20 @@
   "Apps and games": "பயன்பாடுகள் மற்றும் விளையாட்டுகள்",
   "Accounts and family": "கணக்குகள் மற்றும் குடும்பம்",
   "System": "அமைப்பு",
-  "Help and feedback": "உதவி மற்றும் கருத்து"
+  "Help and feedback": "உதவி மற்றும் கருத்து",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "இணைக்கப்படவில்லை",
+  "Connected to {name}": "{name} உடன் இணைக்கப்பட்டது",
+  "Connecting…": "இணைக்கிறது…",
+  "Saved": "சேமிக்கப்பட்டது",
+  "Secured": "பாதுகாக்கப்பட்டது",
+  "Open network": "திறந்த பிணையம்",
+  "Forget": "மறந்துவிடு",
+  "Search again": "மீண்டும் தேடு",
+  "Wired connection": "கம்பி இணைப்பு",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "இந்தக் கணினியில் Wi-Fi அடாப்டர் இல்லை. USB Wi-Fi அடாப்டரும் வேலை செய்யும்.",
+  "The password was not accepted. Check it and try again.": "கடவுச்சொல் ஏற்கப்படவில்லை. சரிபார்த்து மீண்டும் முயலவும்.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "இந்தப் பிணையத்துடன் இணைக்க முடியவில்லை. மீண்டும் முயலவும் அல்லது ரௌட்டருக்கு அருகில் செல்லவும்.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "இந்தப் பிணையத்திற்குப் பயனர் பெயரும் தேவை (நிறுவன அல்லது பள்ளி பிணையம்). கூடுதல் அமைப்புகள் இல் அமைக்கவும்.",
+  "No networks found yet.": "இதுவரை பிணையங்கள் எதுவும் கிடைக்கவில்லை."
 }

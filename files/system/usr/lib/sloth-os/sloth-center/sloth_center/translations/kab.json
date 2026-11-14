@@ -1172,5 +1172,20 @@
   "Apps and games": "Isnasen d wuraren",
   "Accounts and family": "Imiḍanen d twacult",
   "System": "Anagraw",
-  "Help and feedback": "Tallalt d tamawt"
+  "Help and feedback": "Tallalt d tamawt",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Ur yeqqin ara",
+  "Connected to {name}": "Yeqqen ɣer {name}",
+  "Connecting…": "Tuqqna…",
+  "Saved": "Yettwasekles",
+  "Secured": "Yettwammesten",
+  "Open network": "Aẓeṭṭa yeldin",
+  "Forget": "Ttu",
+  "Search again": "Nadi tikkelt-nniḍen",
+  "Wired connection": "Tuqqna s ugatu",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Aselkim-a ulac ɣur-s asmaɣ Wi-Fi. Asmaɣ Wi-Fi USB yeddu daɣen.",
+  "The password was not accepted. Check it and try again.": "Awal uffir ur yettwaqbel ara. Senqed-it syen ɛreḍ tikkelt-nniḍen.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Ur yezmir ara ad yeqqen ɣer uẓeṭṭa-a. Ɛreḍ tikkelt-nniḍen neɣ qerreb ɣer usebrid.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Aẓeṭṭa-a yesra daɣen isem n useqdac (aẓeṭṭa n tkebbanit neɣ n uɣerbaz). Sbadu-t deg Ugar n yiɣewwaren.",
+  "No networks found yet.": "Mazal ur yettwaf ara uẓeṭṭa."
 }

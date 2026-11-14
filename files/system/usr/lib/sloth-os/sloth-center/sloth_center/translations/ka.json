@@ -1172,5 +1172,20 @@
   "Apps and games": "აპები და თამაშები",
   "Accounts and family": "ანგარიშები და ოჯახი",
   "System": "სისტემა",
-  "Help and feedback": "დახმარება და უკუკავშირი"
+  "Help and feedback": "დახმარება და უკუკავშირი",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "არ არის დაკავშირებული",
+  "Connected to {name}": "დაკავშირებულია: {name}",
+  "Connecting…": "მიმდინარეობს დაკავშირება…",
+  "Saved": "შენახული",
+  "Secured": "დაცული",
+  "Open network": "ღია ქსელი",
+  "Forget": "დავიწყება",
+  "Search again": "ხელახლა ძებნა",
+  "Wired connection": "სადენიანი კავშირი",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "ამ კომპიუტერს Wi-Fi ადაპტერი არ აქვს. USB Wi-Fi ადაპტერიც გამოდგება.",
+  "The password was not accepted. Check it and try again.": "პაროლი არ იქნა მიღებული. შეამოწმეთ და სცადეთ ხელახლა.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "ამ ქსელთან დაკავშირება ვერ მოხერხდა. სცადეთ ხელახლა ან როუტერთან ახლოს მიდით.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "ამ ქსელს მომხმარებლის სახელიც სჭირდება (კომპანიის ან სკოლის ქსელი). დააყენეთ „მეტი პარამეტრი“-ში.",
+  "No networks found yet.": "ქსელები ჯერ ვერ მოიძებნა."
 }

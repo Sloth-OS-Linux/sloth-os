@@ -1172,5 +1172,20 @@
   "Apps and games": "アプリとゲーム",
   "Accounts and family": "アカウントとファミリー",
   "System": "システム",
-  "Help and feedback": "ヘルプとフィードバック"
+  "Help and feedback": "ヘルプとフィードバック",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "未接続",
+  "Connected to {name}": "{name} に接続中",
+  "Connecting…": "接続しています…",
+  "Saved": "保存済み",
+  "Secured": "保護あり",
+  "Open network": "オープンネットワーク",
+  "Forget": "削除",
+  "Search again": "再検索",
+  "Wired connection": "有線接続",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "このコンピューターには Wi-Fi アダプターがありません。USB の Wi-Fi アダプターでも使えます。",
+  "The password was not accepted. Check it and try again.": "パスワードが受け付けられませんでした。確認してもう一度お試しください。",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "このネットワークに接続できませんでした。もう一度試すか、ルーターに近づいてください。",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "このネットワークにはユーザー名も必要です（会社や学校のネットワーク）。「その他の設定」で設定してください。",
+  "No networks found yet.": "まだネットワークが見つかりません。"
 }

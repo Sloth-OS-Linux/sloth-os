@@ -1172,5 +1172,20 @@
   "Apps and games": "অ্যাপ এবং গেম",
   "Accounts and family": "অ্যাকাউন্ট এবং পরিবার",
   "System": "সিস্টেম",
-  "Help and feedback": "সাহায্য এবং মতামত"
+  "Help and feedback": "সাহায্য এবং মতামত",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "সংযুক্ত নয়",
+  "Connected to {name}": "{name}-এ সংযুক্ত",
+  "Connecting…": "সংযোগ হচ্ছে…",
+  "Saved": "সংরক্ষিত",
+  "Secured": "সুরক্ষিত",
+  "Open network": "খোলা নেটওয়ার্ক",
+  "Forget": "ভুলে যান",
+  "Search again": "আবার খুঁজুন",
+  "Wired connection": "তারযুক্ত সংযোগ",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "এই কম্পিউটারে Wi-Fi অ্যাডাপ্টার নেই। USB Wi-Fi অ্যাডাপ্টারও চলবে।",
+  "The password was not accepted. Check it and try again.": "পাসওয়ার্ড গ্রহণ করা হয়নি। যাচাই করে আবার চেষ্টা করুন।",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "এই নেটওয়ার্কে সংযোগ করা যায়নি। আবার চেষ্টা করুন, বা রাউটারের কাছে যান।",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "এই নেটওয়ার্কে ব্যবহারকারীর নামও লাগে (অফিস বা স্কুলের নেটওয়ার্ক)। আরও সেটিংস-এ সেট করুন।",
+  "No networks found yet.": "এখনও কোনো নেটওয়ার্ক পাওয়া যায়নি।"
 }

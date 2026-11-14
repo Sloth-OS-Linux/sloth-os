@@ -1172,5 +1172,20 @@
   "Apps and games": "Appok és játékok",
   "Accounts and family": "Fiókok és család",
   "System": "Rendszer",
-  "Help and feedback": "Súgó és visszajelzés"
+  "Help and feedback": "Súgó és visszajelzés",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Nincs csatlakozva",
+  "Connected to {name}": "Csatlakozva: {name}",
+  "Connecting…": "Csatlakozás…",
+  "Saved": "Mentve",
+  "Secured": "Védett",
+  "Open network": "Nyitott hálózat",
+  "Forget": "Elfelejtés",
+  "Search again": "Keresés újra",
+  "Wired connection": "Vezetékes kapcsolat",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Ebben a gépben nincs Wi-Fi-adapter. Egy USB-s Wi-Fi-adapter is megfelel.",
+  "The password was not accepted. Check it and try again.": "A jelszó nem jó. Ellenőrizd, és próbáld újra.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Nem sikerült csatlakozni ehhez a hálózathoz. Próbáld újra, vagy menj közelebb a routerhez.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Ehhez a hálózathoz felhasználónév is kell (céges vagy iskolai hálózat). Itt állíthatod be: További beállítások.",
+  "No networks found yet.": "Még nem található hálózat."
 }

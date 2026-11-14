@@ -18,10 +18,9 @@ Kirigami.ApplicationWindow {
     // The list of modules. Modules with "ready: false" are still being made (ROADMAP phase 3). "more: true": not in
     // the list on the left (that is for everyday settings) but under More settings, with every KDE page.
     // The sidebar in groups ("section"): first what people use every day, then the rest by topic; "more: true" ones
-    // are only in More settings. "kcm": a KDE settings page (inside Sloth Center, or in its own window for the older
-    // ones, e.g. the network page).
+    // are only in More settings. "kcm": a KDE settings page inside Sloth Center.
     readonly property var modules: [
-        { id: "network", name: L.t("Wi-Fi and network"), icon: "network-wireless", kcm: "kcm_networkmanagement", ready: true, section: "daily" },
+        { id: "network", name: L.t("Wi-Fi and network"), icon: "network-wireless", page: "WifiPage.qml", ready: true, section: "daily" },
         { id: "bluetoothpage", name: L.t("Bluetooth"), icon: "preferences-system-bluetooth", kcm: "kcm_bluetooth", ready: true, section: "daily" },
         { id: "displaypage", name: L.t("Display"), icon: "preferences-desktop-display", kcm: "kcm_kscreen", ready: true, section: "daily" },
         { id: "soundpage", name: L.t("Sound"), icon: "preferences-desktop-sound", kcm: "kcm_pulseaudio", ready: true, section: "daily" },

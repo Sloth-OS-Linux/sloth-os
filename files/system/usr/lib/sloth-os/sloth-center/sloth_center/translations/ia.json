@@ -1172,5 +1172,20 @@
   "Apps and games": "Applicationes e jocos",
   "Accounts and family": "Contos e familia",
   "System": "Systema",
-  "Help and feedback": "Adjuta e commentos"
+  "Help and feedback": "Adjuta e commentos",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Non connectite",
+  "Connected to {name}": "Connectite a {name}",
+  "Connecting…": "Connexion…",
+  "Saved": "Salvate",
+  "Secured": "Protegite",
+  "Open network": "Rete aperte",
+  "Forget": "Oblidar",
+  "Search again": "Cercar de novo",
+  "Wired connection": "Connexion per cablo",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Iste computator non ha adaptator Wi-Fi. Un adaptator Wi-Fi USB functiona tamben.",
+  "The password was not accepted. Check it and try again.": "Le contrasigno non esseva acceptate. Verifica lo e prova de novo.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Non poteva connecter a iste rete. Prova de novo, o approxima te al router.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Iste rete require anque un nomine de usator (rete de interprisa o schola). Configura lo in Altere parametros.",
+  "No networks found yet.": "Nulle rete trovate ancora."
 }

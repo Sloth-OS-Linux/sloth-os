@@ -1172,5 +1172,20 @@
   "Apps and games": "Sovellukset ja pelit",
   "Accounts and family": "Tilit ja perhe",
   "System": "Järjestelmä",
-  "Help and feedback": "Ohje ja palaute"
+  "Help and feedback": "Ohje ja palaute",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Ei yhteyttä",
+  "Connected to {name}": "Yhdistetty: {name}",
+  "Connecting…": "Yhdistetään…",
+  "Saved": "Tallennettu",
+  "Secured": "Suojattu",
+  "Open network": "Avoin verkko",
+  "Forget": "Unohda",
+  "Search again": "Etsi uudelleen",
+  "Wired connection": "Kiinteä yhteys",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Tässä tietokoneessa ei ole Wi-Fi-sovitinta. Myös USB-Wi-Fi-sovitin käy.",
+  "The password was not accepted. Check it and try again.": "Salasanaa ei hyväksytty. Tarkista se ja yritä uudelleen.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Verkkoon ei saatu yhteyttä. Yritä uudelleen tai siirry lähemmäs reititintä.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Tämä verkko vaatii myös käyttäjänimen (yrityksen tai koulun verkko). Määritä se kohdassa Lisää asetuksia.",
+  "No networks found yet.": "Verkkoja ei ole vielä löytynyt."
 }

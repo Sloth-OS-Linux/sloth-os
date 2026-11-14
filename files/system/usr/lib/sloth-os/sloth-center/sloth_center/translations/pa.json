@@ -1172,5 +1172,20 @@
   "Apps and games": "ਐਪਾਂ ਅਤੇ ਗੇਮਾਂ",
   "Accounts and family": "ਖਾਤੇ ਅਤੇ ਪਰਿਵਾਰ",
   "System": "ਸਿਸਟਮ",
-  "Help and feedback": "ਮਦਦ ਅਤੇ ਫੀਡਬੈਕ"
+  "Help and feedback": "ਮਦਦ ਅਤੇ ਫੀਡਬੈਕ",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "ਕਨੈਕਟ ਨਹੀਂ",
+  "Connected to {name}": "{name} ਨਾਲ ਕਨੈਕਟ ਹੈ",
+  "Connecting…": "ਕਨੈਕਟ ਹੋ ਰਿਹਾ ਹੈ…",
+  "Saved": "ਸੰਭਾਲਿਆ",
+  "Secured": "ਸੁਰੱਖਿਅਤ",
+  "Open network": "ਖੁੱਲ੍ਹਾ ਨੈੱਟਵਰਕ",
+  "Forget": "ਭੁੱਲ ਜਾਓ",
+  "Search again": "ਦੁਬਾਰਾ ਖੋਜੋ",
+  "Wired connection": "ਤਾਰ ਵਾਲਾ ਕਨੈਕਸ਼ਨ",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "ਇਸ ਕੰਪਿਊਟਰ ਵਿੱਚ Wi-Fi ਅਡਾਪਟਰ ਨਹੀਂ ਹੈ। USB Wi-Fi ਅਡਾਪਟਰ ਵੀ ਚੱਲਦਾ ਹੈ।",
+  "The password was not accepted. Check it and try again.": "ਪਾਸਵਰਡ ਸਵੀਕਾਰ ਨਹੀਂ ਹੋਇਆ। ਇਸਨੂੰ ਜਾਂਚੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "ਇਸ ਨੈੱਟਵਰਕ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੋ ਸਕਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ, ਜਾਂ ਰਾਊਟਰ ਦੇ ਨੇੜੇ ਜਾਓ।",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "ਇਸ ਨੈੱਟਵਰਕ ਨੂੰ ਵਰਤੋਂਕਾਰ ਨਾਂ ਵੀ ਚਾਹੀਦਾ ਹੈ (ਕੰਪਨੀ ਜਾਂ ਸਕੂਲ ਦਾ ਨੈੱਟਵਰਕ)। ਇਸਨੂੰ ਹੋਰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਸੈੱਟ ਕਰੋ।",
+  "No networks found yet.": "ਹਾਲੇ ਕੋਈ ਨੈੱਟਵਰਕ ਨਹੀਂ ਮਿਲਿਆ।"
 }

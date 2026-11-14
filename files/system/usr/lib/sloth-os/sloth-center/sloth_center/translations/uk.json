@@ -1172,5 +1172,20 @@
   "Apps and games": "Застосунки та ігри",
   "Accounts and family": "Облікові записи й сім'я",
   "System": "Система",
-  "Help and feedback": "Довідка й відгуки"
+  "Help and feedback": "Довідка й відгуки",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Не під'єднано",
+  "Connected to {name}": "Під'єднано до {name}",
+  "Connecting…": "Під'єднання…",
+  "Saved": "Збережена",
+  "Secured": "Захищена",
+  "Open network": "Відкрита мережа",
+  "Forget": "Забути",
+  "Search again": "Шукати знову",
+  "Wired connection": "Дротове з'єднання",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "У цьому комп'ютері немає адаптера Wi-Fi. Підійде й USB-адаптер Wi-Fi.",
+  "The password was not accepted. Check it and try again.": "Пароль не прийнято. Перевірте його та спробуйте знову.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Не вдалося під'єднатися до цієї мережі. Спробуйте знову або підійдіть ближче до роутера.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Для цієї мережі потрібне ще й ім'я користувача (мережа компанії чи школи). Налаштуйте її в розділі «Інші налаштування».",
+  "No networks found yet.": "Мереж поки не знайдено."
 }

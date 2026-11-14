@@ -1172,5 +1172,20 @@
   "Apps and games": "Uygulamalar ve oyunlar",
   "Accounts and family": "Hesaplar ve aile",
   "System": "Sistem",
-  "Help and feedback": "Yardım ve geri bildirim"
+  "Help and feedback": "Yardım ve geri bildirim",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Bağlı değil",
+  "Connected to {name}": "{name} ağına bağlı",
+  "Connecting…": "Bağlanıyor…",
+  "Saved": "Kayıtlı",
+  "Secured": "Güvenli",
+  "Open network": "Açık ağ",
+  "Forget": "Unut",
+  "Search again": "Yeniden ara",
+  "Wired connection": "Kablolu bağlantı",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Bu bilgisayarda Wi-Fi bağdaştırıcısı yok. USB Wi-Fi bağdaştırıcısı da olur.",
+  "The password was not accepted. Check it and try again.": "Parola kabul edilmedi. Kontrol edip yeniden deneyin.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Bu ağa bağlanılamadı. Yeniden deneyin ya da yönlendiriciye yaklaşın.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Bu ağ bir kullanıcı adı da istiyor (şirket ya da okul ağı). Diğer ayarlar bölümünden ayarlayın.",
+  "No networks found yet.": "Henüz ağ bulunamadı."
 }

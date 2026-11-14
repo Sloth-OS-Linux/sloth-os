@@ -1172,5 +1172,20 @@
   "Apps and games": "Aplikasi dan game",
   "Accounts and family": "Akun dan keluarga",
   "System": "Sistem",
-  "Help and feedback": "Bantuan dan masukan"
+  "Help and feedback": "Bantuan dan masukan",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Tidak terhubung",
+  "Connected to {name}": "Terhubung ke {name}",
+  "Connecting…": "Menghubungkan…",
+  "Saved": "Tersimpan",
+  "Secured": "Aman",
+  "Open network": "Jaringan terbuka",
+  "Forget": "Lupakan",
+  "Search again": "Cari lagi",
+  "Wired connection": "Koneksi kabel",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Komputer ini tidak punya adaptor Wi-Fi. Adaptor Wi-Fi USB juga bisa.",
+  "The password was not accepted. Check it and try again.": "Kata sandi tidak diterima. Periksa lalu coba lagi.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Tidak bisa terhubung ke jaringan ini. Coba lagi, atau mendekatlah ke router.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Jaringan ini juga butuh nama pengguna (jaringan kantor atau sekolah). Atur di Pengaturan lain.",
+  "No networks found yet.": "Belum ada jaringan yang ditemukan."
 }

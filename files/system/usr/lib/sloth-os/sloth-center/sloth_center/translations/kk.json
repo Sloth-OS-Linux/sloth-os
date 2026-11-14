@@ -1172,5 +1172,20 @@
   "Apps and games": "Қолданбалар мен ойындар",
   "Accounts and family": "Тіркелгілер және отбасы",
   "System": "Жүйе",
-  "Help and feedback": "Анықтама және пікір"
+  "Help and feedback": "Анықтама және пікір",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Қосылмаған",
+  "Connected to {name}": "{name} желісіне қосылған",
+  "Connecting…": "Қосылуда…",
+  "Saved": "Сақталған",
+  "Secured": "Қорғалған",
+  "Open network": "Ашық желі",
+  "Forget": "Ұмыту",
+  "Search again": "Қайта іздеу",
+  "Wired connection": "Сымды қосылым",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Бұл компьютерде Wi-Fi адаптері жоқ. USB Wi-Fi адаптері де жарайды.",
+  "The password was not accepted. Check it and try again.": "Құпиясөз қабылданбады. Тексеріп, қайталап көріңіз.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Бұл желіге қосылу мүмкін болмады. Қайталап көріңіз немесе маршрутизаторға жақындаңыз.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Бұл желіге пайдаланушы аты да керек (компания не мектеп желісі). Оны «Басқа баптаулар» бөлімінде баптаңыз.",
+  "No networks found yet.": "Әзірге желілер табылмады."
 }

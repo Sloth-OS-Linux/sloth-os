@@ -1172,5 +1172,20 @@
   "Apps and games": "Apps en games",
   "Accounts and family": "Accounts en gezin",
   "System": "Systeem",
-  "Help and feedback": "Hulp en feedback"
+  "Help and feedback": "Hulp en feedback",
+  "Wi-Fi": "Wifi",
+  "Not connected": "Niet verbonden",
+  "Connected to {name}": "Verbonden met {name}",
+  "Connecting…": "Verbinden…",
+  "Saved": "Opgeslagen",
+  "Secured": "Beveiligd",
+  "Open network": "Open netwerk",
+  "Forget": "Vergeten",
+  "Search again": "Opnieuw zoeken",
+  "Wired connection": "Bekabelde verbinding",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Deze computer heeft geen wifi-adapter. Een USB-wifi-adapter werkt ook.",
+  "The password was not accepted. Check it and try again.": "Het wachtwoord werd niet geaccepteerd. Controleer het en probeer het opnieuw.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Verbinden met dit netwerk is mislukt. Probeer het opnieuw of ga dichter bij de router zitten.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Dit netwerk vraagt ook een gebruikersnaam (bedrijfs- of schoolnetwerk). Stel het in bij Meer instellingen.",
+  "No networks found yet.": "Nog geen netwerken gevonden."
 }

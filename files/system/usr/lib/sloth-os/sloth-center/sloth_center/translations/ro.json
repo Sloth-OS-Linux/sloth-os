@@ -1172,5 +1172,20 @@
   "Apps and games": "Aplicații și jocuri",
   "Accounts and family": "Conturi și familie",
   "System": "Sistem",
-  "Help and feedback": "Ajutor și feedback"
+  "Help and feedback": "Ajutor și feedback",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Neconectat",
+  "Connected to {name}": "Conectat la {name}",
+  "Connecting…": "Se conectează…",
+  "Saved": "Salvată",
+  "Secured": "Securizată",
+  "Open network": "Rețea deschisă",
+  "Forget": "Uită",
+  "Search again": "Caută din nou",
+  "Wired connection": "Conexiune prin cablu",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Acest calculator nu are adaptor Wi-Fi. Merge și un adaptor Wi-Fi USB.",
+  "The password was not accepted. Check it and try again.": "Parola nu a fost acceptată. Verificați-o și încercați din nou.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Conectarea la această rețea nu a reușit. Încercați din nou sau apropiați-vă de router.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Această rețea cere și un nume de utilizator (rețea de firmă sau de școală). Configurați-o în Mai multe setări.",
+  "No networks found yet.": "Încă nu s-a găsit nicio rețea."
 }

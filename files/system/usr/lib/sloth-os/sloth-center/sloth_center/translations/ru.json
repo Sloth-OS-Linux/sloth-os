@@ -1172,5 +1172,20 @@
   "Apps and games": "Приложения и игры",
   "Accounts and family": "Учётные записи и семья",
   "System": "Система",
-  "Help and feedback": "Справка и отзывы"
+  "Help and feedback": "Справка и отзывы",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Нет подключения",
+  "Connected to {name}": "Подключено к {name}",
+  "Connecting…": "Подключение…",
+  "Saved": "Сохранена",
+  "Secured": "Защищена",
+  "Open network": "Открытая сеть",
+  "Forget": "Забыть",
+  "Search again": "Искать снова",
+  "Wired connection": "Проводное подключение",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "В этом компьютере нет адаптера Wi-Fi. Подойдёт и USB-адаптер Wi-Fi.",
+  "The password was not accepted. Check it and try again.": "Пароль не принят. Проверьте его и попробуйте снова.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Не удалось подключиться к этой сети. Попробуйте снова или подойдите ближе к роутеру.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Для этой сети нужно ещё имя пользователя (сеть компании или школы). Настройте её в разделе «Другие настройки».",
+  "No networks found yet.": "Сети пока не найдены."
 }

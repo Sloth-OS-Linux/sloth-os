@@ -1172,5 +1172,20 @@
   "Apps and games": "التطبيقات والألعاب",
   "Accounts and family": "الحسابات والعائلة",
   "System": "النظام",
-  "Help and feedback": "المساعدة والملاحظات"
+  "Help and feedback": "المساعدة والملاحظات",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "غير متصل",
+  "Connected to {name}": "متصل بـ {name}",
+  "Connecting…": "جارٍ الاتصال…",
+  "Saved": "محفوظة",
+  "Secured": "محمية",
+  "Open network": "شبكة مفتوحة",
+  "Forget": "نسيان",
+  "Search again": "البحث مجددًا",
+  "Wired connection": "اتصال سلكي",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "لا يحتوي هذا الحاسوب على محوّل Wi-Fi. يصلح أيضًا محوّل Wi-Fi عبر USB.",
+  "The password was not accepted. Check it and try again.": "لم تُقبل كلمة المرور. تحقق منها وحاول مجددًا.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "تعذّر الاتصال بهذه الشبكة. حاول مجددًا أو اقترب من الموجّه.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "تحتاج هذه الشبكة إلى اسم مستخدم أيضًا (شبكة شركة أو مدرسة). اضبطها في إعدادات أخرى.",
+  "No networks found yet.": "لم يُعثر على شبكات بعد."
 }

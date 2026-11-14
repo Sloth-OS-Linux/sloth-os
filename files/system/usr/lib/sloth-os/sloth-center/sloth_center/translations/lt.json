@@ -1172,5 +1172,20 @@
   "Apps and games": "Programėlės ir žaidimai",
   "Accounts and family": "Paskyros ir šeima",
   "System": "Sistema",
-  "Help and feedback": "Pagalba ir atsiliepimai"
+  "Help and feedback": "Pagalba ir atsiliepimai",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Neprisijungta",
+  "Connected to {name}": "Prisijungta prie {name}",
+  "Connecting…": "Jungiamasi…",
+  "Saved": "Įrašytas",
+  "Secured": "Apsaugotas",
+  "Open network": "Atviras tinklas",
+  "Forget": "Pamiršti",
+  "Search again": "Ieškoti dar kartą",
+  "Wired connection": "Laidinis ryšys",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Šiame kompiuteryje nėra Wi-Fi adapterio. Tinka ir USB Wi-Fi adapteris.",
+  "The password was not accepted. Check it and try again.": "Slaptažodis nepriimtas. Patikrinkite jį ir bandykite dar kartą.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "Nepavyko prisijungti prie šio tinklo. Bandykite dar kartą arba prieikite arčiau maršrutizatoriaus.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Šiam tinklui reikia ir naudotojo vardo (įmonės ar mokyklos tinklas). Nustatykite jį skiltyje „Daugiau nustatymų“.",
+  "No networks found yet.": "Tinklų dar nerasta."
 }

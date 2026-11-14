@@ -1172,5 +1172,20 @@
   "Apps and games": "ແອັບ ແລະ ເກມ",
   "Accounts and family": "ບັນຊີ ແລະ ຄອບຄົວ",
   "System": "ລະບົບ",
-  "Help and feedback": "ຊ່ວຍເຫຼືອ ແລະ ຄຳຕິຊົມ"
+  "Help and feedback": "ຊ່ວຍເຫຼືອ ແລະ ຄຳຕິຊົມ",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "ບໍ່ໄດ້ເຊື່ອມຕໍ່",
+  "Connected to {name}": "ເຊື່ອມຕໍ່ກັບ {name}",
+  "Connecting…": "ກຳລັງເຊື່ອມຕໍ່…",
+  "Saved": "ບັນທຶກແລ້ວ",
+  "Secured": "ປອດໄພ",
+  "Open network": "ເຄືອຂ່າຍເປີດ",
+  "Forget": "ລືມ",
+  "Search again": "ຊອກຫາອີກຄັ້ງ",
+  "Wired connection": "ການເຊື່ອມຕໍ່ແບບສາຍ",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "ຄອມພິວເຕີນີ້ບໍ່ມີອະແດັບເຕີ Wi-Fi. ອະແດັບເຕີ Wi-Fi ແບບ USB ກໍໃຊ້ໄດ້.",
+  "The password was not accepted. Check it and try again.": "ລະຫັດຜ່ານບໍ່ຖືກຍອມຮັບ. ກວດເບິ່ງແລ້ວລອງໃໝ່.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍນີ້. ລອງໃໝ່ ຫຼື ເຂົ້າໃກ້ເຣົາເຕີ.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "ເຄືອຂ່າຍນີ້ຕ້ອງການຊື່ຜູ້ໃຊ້ນຳ (ເຄືອຂ່າຍບໍລິສັດ ຫຼື ໂຮງຮຽນ). ຕັ້ງຄ່າໃນ ການຕັ້ງຄ່າເພີ່ມເຕີມ.",
+  "No networks found yet.": "ຍັງບໍ່ພົບເຄືອຂ່າຍ."
 }

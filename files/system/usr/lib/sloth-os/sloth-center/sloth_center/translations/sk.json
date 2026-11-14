@@ -1172,5 +1172,20 @@
   "Apps and games": "Aplikácie a hry",
   "Accounts and family": "Účty a rodina",
   "System": "Systém",
-  "Help and feedback": "Pomoc a spätná väzba"
+  "Help and feedback": "Pomoc a spätná väzba",
+  "Wi-Fi": "Wi-Fi",
+  "Not connected": "Nepripojené",
+  "Connected to {name}": "Pripojené k {name}",
+  "Connecting…": "Pripája sa…",
+  "Saved": "Uložená",
+  "Secured": "Zabezpečená",
+  "Open network": "Otvorená sieť",
+  "Forget": "Zabudnúť",
+  "Search again": "Hľadať znova",
+  "Wired connection": "Káblové pripojenie",
+  "This computer has no Wi-Fi adapter. A USB Wi-Fi adapter works too.": "Tento počítač nemá adaptér Wi-Fi. Poslúži aj USB adaptér Wi-Fi.",
+  "The password was not accepted. Check it and try again.": "Heslo nebolo prijaté. Skontrolujte ho a skúste to znova.",
+  "Couldn't connect to this network. Try again, or move closer to the router.": "K tejto sieti sa nepodarilo pripojiť. Skúste to znova alebo sa priblížte k routeru.",
+  "This network needs a user name too (a company or school network). Set it up in More settings.": "Táto sieť vyžaduje aj používateľské meno (firemná alebo školská sieť). Nastavte ju v časti Ďalšie nastavenia.",
+  "No networks found yet.": "Zatiaľ sa nenašli žiadne siete."
 }
