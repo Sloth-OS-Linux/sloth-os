@@ -32,8 +32,11 @@ from a terminal must also work from a GUI.
   battery, Appearance, Updates), then groups with a small title: Apps and games, Accounts and family, System, Help
   and feedback, and More settings last. More settings shows only the topics view. Sloth Center still opens on
   System status
-- [ ] In the VM / on the HP: the four everyday rows open their pages, the row stays lit, the group titles in the
-  narrowed sidebar turn into lines
+- [x] In the VM (image of 45ea259): the four everyday rows open their pages (the network one in its own window), the
+  row stays lit, the group titles in the narrowed sidebar turn into lines; Accessibility (high contrast on and off)
+  and Power and battery work
+- [x] Fixed after the VM: on a short screen (800 pixels) the list opened scrolled down to System status (and stayed
+  where the guide left it), so the everyday rows were out of sight; it starts at the top now
 
 ### One settings app: KDE's settings pages inside Sloth Center (2026-11-13, test branch)
 - [x] Looked at first (a container with the 1.5 image): KDE's public loader (KCMUtils' `KQuickConfigModuleLoader`, the

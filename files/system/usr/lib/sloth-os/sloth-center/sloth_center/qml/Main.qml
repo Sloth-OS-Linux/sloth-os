@@ -305,7 +305,10 @@ Kirigami.ApplicationWindow {
         dim: false
         closePolicy: QQC2.Popup.CloseOnEscape
         background: null
-        onClosed: guide.markSeen()
+        onClosed: {
+            guide.markSeen();
+            moduleList.positionViewAtBeginning();  // the guide scrolled the list: the everyday rows first again
+        }
 
         readonly property var step: root.guideSteps[root.guideStep]
         readonly property bool last: root.guideStep === root.guideSteps.length - 1
@@ -503,6 +506,9 @@ Kirigami.ApplicationWindow {
             // without --page: System status (not the first row: the network row opens a window of its own)
             const start = modules.findIndex(m => m.id === startPage && m.ready);
             openModule(start >= 0 ? start : modules.findIndex(m => m.id === "status"));
+            // the list scrolls to the lit row; on a short screen that hid the everyday rows at the top
+            if (start < 0)
+                Qt.callLater(() => moduleList.positionViewAtBeginning());
         }
         if (!guide.seen)
             openGuide();
