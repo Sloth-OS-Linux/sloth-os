@@ -11,6 +11,9 @@ new Sloth Center (the sidebar in groups, the search, More settings in the sideba
 System status with the check-up, Help and feedback). It goes out as **1.6** (new features, not a fix release).
 - [ ] On the HP, on the test branch's latest build: the sidebar and the search; the Wi-Fi page with real Wi-Fi;
   Apps → Remove (with and without the data); Drivers and hardware → Bluetooth still has its Back button
+- [x] Dolphin no longer offers the system partition under Devices (udev, 90-sloth-udisks.rules): it showed ostree's
+  own folders, and its Properties said 657 GB on a 119 GB disk (13 hourly home snapshots and ostree's hard links
+  counted as full copies). Tried in the VM
 - [ ] Then the release: SLOTH_VERSION 1.6 in `files/scripts/branding.sh`, test branch into main, ISO, and everywhere
   as usual (SourceForge, torrent, website "New in 1.6", README, tag, GitHub release)
 

@@ -10,3 +10,10 @@ SUBSYSTEM=="block", KERNEL=="loop*", ENV{ID_FS_TYPE}=="erofs", ENV{UDISKS_IGNORE
 # The system partition under a readable name. Dolphin shows the file system's label, not this: the installer after
 # 2026-10-19 therefore creates it with the "Sloth OS" label from the start; this rule is for earlier installs (labelled "root")
 SUBSYSTEM=="block", ENV{ID_FS_TYPE}=="btrfs", ENV{ID_FS_LABEL}=="root", ENV{UDISKS_NAME}="Sloth OS"
+
+# The system partition itself is not offered in Dolphin's Devices (2026-11-14): it is the raw btrfs file system
+# (mounted on /sysroot) with ostree's own folders (ostree, boot) and the hourly snapshots of the home folders. Its
+# Properties added up 13 snapshots and ostree's hard links as if each were a full copy: 657 GB on a 119 GB disk.
+# The user's files are in their home folder; the free space is on Sloth Center's System status page.
+SUBSYSTEM=="block", ENV{ID_FS_TYPE}=="btrfs", ENV{ID_FS_LABEL}=="Sloth_OS", ENV{UDISKS_IGNORE}="1"
+SUBSYSTEM=="block", ENV{ID_FS_TYPE}=="btrfs", ENV{ID_FS_LABEL}=="root", ENV{UDISKS_IGNORE}="1"
