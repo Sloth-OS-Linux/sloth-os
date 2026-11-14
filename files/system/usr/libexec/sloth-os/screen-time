@@ -49,6 +49,12 @@ LOGIN1 = ("org.freedesktop.login1", "/org/freedesktop/login1", "org.freedesktop.
 
 
 def log(msg):
+    if "PAM_TYPE" in os.environ:
+        # under pam_exec both outputs go to the sign-in screen as a message: the log goes to the journal instead
+        import syslog
+        syslog.openlog("screen-time", 0, syslog.LOG_AUTHPRIV)
+        syslog.syslog(syslog.LOG_NOTICE, msg)
+        return
     print(msg, file=sys.stderr, flush=True)
 
 

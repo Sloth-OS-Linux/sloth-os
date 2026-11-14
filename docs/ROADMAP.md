@@ -5,6 +5,26 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Parental controls tried end to end in a VM (2026-11-14, test branch, image of cdee1d4)
+- [x] A child account with a 16-minute daily limit, signed in on the real sign-in screen: the 15-, 10-, 5- and
+  1-minute banners came on time above a full-screen window and went after 10 seconds; "Time's up", then signed out a
+  minute later; signing in again was refused. The web filter: an adult site's name has no answer for the child
+  (direct DNS), the parent gets it
+- [x] Fixed: "Ask for more time" never reached a parent. malcontent's extension agent asks polkit with user
+  interaction only when the child's call allows interactive authorization (busctl's call did not carry it there), and
+  the request waits for the answer on the bus. Now it is a call through GIO with that flag, in a process of its own
+  (the next banner no longer ends it) that waits for the ExtensionResponse signal; tried in the VM: the parent's
+  password window ("Anna has requested … 30 minutes"), then the "You got more time" banner
+- [x] Fixed: programs that are not Flatpaks (anything run from Konsole, too) looked names up through
+  systemd-resolved's socket, past the web filter. family-web now denies a child that socket (an ACL entry), so glibc
+  falls back to the filtered port 53; a drop-in of systemd-resolved sets it again whenever the socket is made anew.
+  Tried in the VM, plus three checks in `tools/tests/family_web_test.sh` (16 OK)
+- [x] Fixed: under pam_exec the screen time check's log line went to the sign-in screen as a message too; it goes to
+  the journal now
+- [ ] Known: the sign-in screen (plasma-login-manager 6.8) shows only "Login Failed" when a child is refused: our
+  reason arrives as an information message and the greeter overwrites it with "Login Failed" (its Main.qml). Needs a
+  change upstream (or our own greeter theme)
+
 ### Sloth Center's sidebar in groups (2026-11-14, test branch)
 - [x] After trying the one-settings-app build: the sidebar was a long, unordered list, and More settings had four
   views to switch between, which confused more than it helped. Now the sidebar starts with what people use every day

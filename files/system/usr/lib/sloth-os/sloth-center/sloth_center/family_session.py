@@ -39,6 +39,9 @@ MARK = "X-Sloth-Parental-Controls=hidden"
 EXPORTS = [Path("/var/lib/flatpak/exports/share/applications"),
            Path(os.environ.get("XDG_DATA_HOME", Path.home() / ".local/share")) / "flatpak/exports/share/applications"]
 EXTENSION = 30 * 60  # "Ask for more time" asks for half an hour
+ASK_WAIT = 10 * 60   # how long the request waits for a parent's answer
+TIMER = ("org.freedesktop.MalcontentTimer1", "/org/freedesktop/MalcontentTimer1",
+         "org.freedesktop.MalcontentTimer1.Child")
 
 
 def _clock(ts):
@@ -242,8 +245,9 @@ def banner(msg):
 
         @Slot()
         def askMore(self):
+            # a process of its own: the next banner ends this one, the request waits for the parent's answer
+            subprocess.Popen([sys.executable, "-m", "sloth_center.family_session", "ask"], start_new_session=True)
             app.quit()
-            ask_for_more_time()
 
     # KDE's own controls style hung where Fusion did not (2026-11-06; QQuickStyle.setStyle was not enough)
     os.environ["QT_QUICK_CONTROLS_STYLE"] = "Fusion"
@@ -260,15 +264,38 @@ def banner(msg):
 
 
 def ask_for_more_time():
-    """malcontent-timerd asks a parent (the password window of the extension agent, in this session)."""
-    r = subprocess.run(["busctl", "--system", "call", "--timeout=600", "org.freedesktop.MalcontentTimer1",
-                        "/org/freedesktop/MalcontentTimer1", "org.freedesktop.MalcontentTimer1.Child",
-                        "RequestExtension", "ssta{sv}", "login-session", "", str(EXTENSION), "0"],
-                       capture_output=True, text=True)
-    if r.returncode != 0:
+    """malcontent-timerd asks a parent: its extension agent raises a polkit question, which Plasma's password window
+    shows in this session. Two things it needs (both found in the VM, 2026-11-14): the call must allow interactive
+    authorization (without it the agent says no at once, no window), and the caller must stay on the bus until the
+    answer comes (the ExtensionResponse signal for its request). Waits at most ASK_WAIT seconds."""
+    try:
+        from gi.repository import Gio, GLib
+        bus = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
+        loop, answer, request = GLib.MainLoop(), [], [None]
+
+        def on_response(_conn, _sender, _path, _iface, _name, params):
+            granted, path, _extra = params.unpack()
+            if request[0] is None or path == request[0]:
+                answer.append(bool(granted))
+                loop.quit()
+        bus.signal_subscribe(TIMER[0], TIMER[2], "ExtensionResponse", TIMER[1], None, Gio.DBusSignalFlags.NONE,
+                             on_response)
+        reply = bus.call_sync(TIMER[0], TIMER[1], TIMER[2], "RequestExtension",
+                              GLib.Variant("(ssta{sv})", ("login-session", "", EXTENSION, {})), None,
+                              Gio.DBusCallFlags.ALLOW_INTERACTIVE_AUTHORIZATION, 30000, None)
+        request[0] = reply.unpack()[0]
+        if not answer:
+            GLib.timeout_add_seconds(ASK_WAIT, loop.quit)
+            loop.run()
+    except Exception as e:  # noqa: BLE001 - the child gets the message below
+        print(f"family_session: asking for more time: {e}", file=sys.stderr, flush=True)
+        answer = []
+    if not answer:
         subprocess.run(["notify-send", "--app-name=Sloth OS", "--icon=dialog-error", tr("Screen time"),
                         tr("Couldn't ask for more time. Ask a parent to sign in and change your screen time in "
                            "Sloth Center.")], capture_output=True)
+    # granted: the screen time service sees the later end and the "more time" banner comes from the watcher
+    return 0
 
 
 # --- Blocked apps ---------------------------------------------------------------------------------------
@@ -335,6 +362,8 @@ def main(argv):
     if argv[:1] == ["watch"]:
         watch()
         return 0
+    if argv[:1] == ["ask"]:
+        return ask_for_more_time()
     hide_blocked_apps()
     return 0
 

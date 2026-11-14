@@ -6,7 +6,7 @@
 # There is no systemd: systemd-resolved's stub (127.0.0.53) is played by an unfiltered dnsmasq, and the family name
 # server is started with sloth-family-dns.service's own arguments. A child (anna) and a parent ask the same names.
 set -uo pipefail
-dnf -q -y install dnsmasq nftables bind-utils curl shadow-utils util-linux python3 >/dev/null 2>&1 \
+dnf -q -y install dnsmasq nftables bind-utils curl shadow-utils util-linux python3 acl >/dev/null 2>&1 \
     || { echo "dnf failed"; exit 1; }
 useradd -m -u 1001 anna && useradd -m -u 1000 parent
 dnsmasq --conf-file=/dev/null --pid-file= --listen-address=127.0.0.53 --bind-interfaces --no-resolv \
@@ -39,5 +39,11 @@ check "DNS over HTTPS is closed for a child" '[ "$(http anna "https://1.1.1.1/dn
 check "and open for a parent" '[ "$(http parent "https://1.1.1.1/dns-query?name=a.com" -H accept:application/dns-json)" = 200 ]'
 check "DNS over TLS is closed for a child" '! runuser -u anna -- curl -s -m 5 telnet://1.1.1.1:853 </dev/null'
 check "a child opens an ordinary website" '[ "$(http anna https://example.com)" = 200 ]'
+# systemd-resolved's socket (programs that are not Flatpaks): a stand-in file with the same rights
+touch /tmp/resolve.sock && chmod 666 /tmp/resolve.sock
+web() { SLOTH_FAMILY_WEB=/tmp/web.json SLOTH_RESOLVED_SOCKET=/tmp/resolve.sock python3 -I /repo/files/system/usr/libexec/sloth-os/family-web "$@"; }
+check "the resolver's socket: closed for a child" 'web --socket && ! runuser -u anna -- test -r /tmp/resolve.sock'
+check "open for a parent" 'runuser -u parent -- test -r /tmp/resolve.sock'
+check "open again when the child is off the list" 'echo "{\"users\": []}" > /tmp/web.json && web --socket && runuser -u anna -- test -r /tmp/resolve.sock'
 echo "$ok ok, $bad wrong"
 [ "$bad" = 0 ]
