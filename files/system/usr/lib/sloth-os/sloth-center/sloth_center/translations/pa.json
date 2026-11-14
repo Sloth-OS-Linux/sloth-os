@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "ਪਾਸਵਰਡ ਸਵੀਕਾਰ ਨਹੀਂ ਹੋਇਆ। ਇਸਨੂੰ ਜਾਂਚੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
   "Couldn't connect to this network. Try again, or move closer to the router.": "ਇਸ ਨੈੱਟਵਰਕ ਨਾਲ ਕਨੈਕਟ ਨਹੀਂ ਹੋ ਸਕਿਆ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ, ਜਾਂ ਰਾਊਟਰ ਦੇ ਨੇੜੇ ਜਾਓ।",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "ਇਸ ਨੈੱਟਵਰਕ ਨੂੰ ਵਰਤੋਂਕਾਰ ਨਾਂ ਵੀ ਚਾਹੀਦਾ ਹੈ (ਕੰਪਨੀ ਜਾਂ ਸਕੂਲ ਦਾ ਨੈੱਟਵਰਕ)। ਇਸਨੂੰ ਹੋਰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਸੈੱਟ ਕਰੋ।",
-  "No networks found yet.": "ਹਾਲੇ ਕੋਈ ਨੈੱਟਵਰਕ ਨਹੀਂ ਮਿਲਿਆ।"
+  "No networks found yet.": "ਹਾਲੇ ਕੋਈ ਨੈੱਟਵਰਕ ਨਹੀਂ ਮਿਲਿਆ।",
+  "Get more apps": "ਹੋਰ ਐਪਾਂ",
+  "The apps installed on this computer. Windows programs have a page of their own.": "ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ ਸਥਾਪਿਤ ਐਪਾਂ। Windows ਪ੍ਰੋਗਰਾਮ ਦਾ ਆਪਣਾ ਪੰਨਾ ਹੈ।",
+  "Search apps…": "ਐਪਾਂ ਖੋਜੋ…",
+  "Couldn't remove {name}.": "{name} ਨੂੰ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।",
+  "No apps installed yet.": "ਹਾਲੇ ਕੋਈ ਐਪ ਸਥਾਪਿਤ ਨਹੀਂ ਹੈ।",
+  "Also delete its settings and saved data": "ਇਸ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਅਤੇ ਸੰਭਾਲਿਆ ਡਾਟਾ ਵੀ ਮਿਟਾਓ"
 }

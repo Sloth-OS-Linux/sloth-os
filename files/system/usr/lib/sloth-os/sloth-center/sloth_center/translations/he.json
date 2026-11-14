@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "הסיסמה לא התקבלה. בדקו אותה ונסו שוב.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "לא ניתן להתחבר לרשת הזו. נסו שוב או התקרבו לנתב.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "הרשת הזו דורשת גם שם משתמש (רשת של חברה או בית ספר). הגדירו אותה ב-הגדרות נוספות.",
-  "No networks found yet.": "עדיין לא נמצאו רשתות."
+  "No networks found yet.": "עדיין לא נמצאו רשתות.",
+  "Get more apps": "עוד אפליקציות",
+  "The apps installed on this computer. Windows programs have a page of their own.": "האפליקציות המותקנות במחשב הזה. לתוכניות Windows יש עמוד משלהן.",
+  "Search apps…": "חיפוש אפליקציות…",
+  "Couldn't remove {name}.": "לא ניתן להסיר את {name}.",
+  "No apps installed yet.": "עדיין לא הותקנו אפליקציות.",
+  "Also delete its settings and saved data": "למחוק גם את ההגדרות והנתונים השמורים שלה"
 }

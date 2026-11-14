@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Adgangskoden blev ikke godkendt. Tjek den, og prøv igen.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Kunne ikke forbinde til dette netværk. Prøv igen, eller gå tættere på routeren.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Dette netværk kræver også et brugernavn (firma- eller skolenetværk). Opsæt det under Flere indstillinger.",
-  "No networks found yet.": "Ingen netværk fundet endnu."
+  "No networks found yet.": "Ingen netværk fundet endnu.",
+  "Get more apps": "Flere apps",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Apps, der er installeret på denne computer. Windows-programmer har deres egen side.",
+  "Search apps…": "Søg i apps…",
+  "Couldn't remove {name}.": "Kunne ikke fjerne {name}.",
+  "No apps installed yet.": "Ingen apps installeret endnu.",
+  "Also delete its settings and saved data": "Slet også dens indstillinger og gemte data"
 }

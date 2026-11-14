@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "لم تُقبل كلمة المرور. تحقق منها وحاول مجددًا.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "تعذّر الاتصال بهذه الشبكة. حاول مجددًا أو اقترب من الموجّه.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "تحتاج هذه الشبكة إلى اسم مستخدم أيضًا (شبكة شركة أو مدرسة). اضبطها في إعدادات أخرى.",
-  "No networks found yet.": "لم يُعثر على شبكات بعد."
+  "No networks found yet.": "لم يُعثر على شبكات بعد.",
+  "Get more apps": "المزيد من التطبيقات",
+  "The apps installed on this computer. Windows programs have a page of their own.": "التطبيقات المثبتة على هذا الحاسوب. لـبرامج Windows صفحة خاصة بها.",
+  "Search apps…": "البحث في التطبيقات…",
+  "Couldn't remove {name}.": "تعذّرت إزالة {name}.",
+  "No apps installed yet.": "لا توجد تطبيقات مثبتة بعد.",
+  "Also delete its settings and saved data": "حذف إعداداته وبياناته المحفوظة أيضًا"
 }

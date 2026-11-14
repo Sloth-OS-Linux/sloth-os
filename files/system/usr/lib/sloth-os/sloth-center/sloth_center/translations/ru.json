@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Пароль не принят. Проверьте его и попробуйте снова.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Не удалось подключиться к этой сети. Попробуйте снова или подойдите ближе к роутеру.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Для этой сети нужно ещё имя пользователя (сеть компании или школы). Настройте её в разделе «Другие настройки».",
-  "No networks found yet.": "Сети пока не найдены."
+  "No networks found yet.": "Сети пока не найдены.",
+  "Get more apps": "Другие приложения",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Приложения, установленные на этом компьютере. У раздела «Программы Windows» своя страница.",
+  "Search apps…": "Поиск приложений…",
+  "Couldn't remove {name}.": "Не удалось удалить {name}.",
+  "No apps installed yet.": "Приложения пока не установлены.",
+  "Also delete its settings and saved data": "Удалить также его настройки и сохранённые данные"
 }

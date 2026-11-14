@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Slaptažodis nepriimtas. Patikrinkite jį ir bandykite dar kartą.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Nepavyko prisijungti prie šio tinklo. Bandykite dar kartą arba prieikite arčiau maršrutizatoriaus.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Šiam tinklui reikia ir naudotojo vardo (įmonės ar mokyklos tinklas). Nustatykite jį skiltyje „Daugiau nustatymų“.",
-  "No networks found yet.": "Tinklų dar nerasta."
+  "No networks found yet.": "Tinklų dar nerasta.",
+  "Get more apps": "Daugiau programėlių",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Šiame kompiuteryje įdiegtos programėlės. Skiltis „„Windows“ programos“ turi savo puslapį.",
+  "Search apps…": "Ieškoti programėlių…",
+  "Couldn't remove {name}.": "Nepavyko pašalinti {name}.",
+  "No apps installed yet.": "Programėlių dar neįdiegta.",
+  "Also delete its settings and saved data": "Ištrinti ir jos nustatymus bei įrašytus duomenis"
 }

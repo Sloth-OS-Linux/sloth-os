@@ -9,7 +9,7 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Programs")
+    title: L.t("Windows programs")
 
     actions: [
         Kirigami.Action {

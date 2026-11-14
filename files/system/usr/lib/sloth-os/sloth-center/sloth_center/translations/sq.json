@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Fjalëkalimi nuk u pranua. Kontrollojeni dhe provoni sërish.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Lidhja me këtë rrjet nuk u arrit. Provoni sërish ose afrohuni te ruteri.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Ky rrjet kërkon edhe emër përdoruesi (rrjet kompanie ose shkolle). Rregullojeni te Më shumë cilësime.",
-  "No networks found yet.": "Ende nuk u gjet asnjë rrjet."
+  "No networks found yet.": "Ende nuk u gjet asnjë rrjet.",
+  "Get more apps": "Më shumë aplikacione",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Aplikacionet e instaluara në këtë kompjuter. Programe Windows kanë faqen e tyre.",
+  "Search apps…": "Kërko aplikacione…",
+  "Couldn't remove {name}.": "{name} nuk u hoq dot.",
+  "No apps installed yet.": "Ende nuk ka aplikacione të instaluara.",
+  "Also delete its settings and saved data": "Fshi edhe rregullimet dhe të dhënat e ruajtura të tij"
 }

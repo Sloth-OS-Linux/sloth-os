@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Parola nu a fost acceptată. Verificați-o și încercați din nou.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Conectarea la această rețea nu a reușit. Încercați din nou sau apropiați-vă de router.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Această rețea cere și un nume de utilizator (rețea de firmă sau de școală). Configurați-o în Mai multe setări.",
-  "No networks found yet.": "Încă nu s-a găsit nicio rețea."
+  "No networks found yet.": "Încă nu s-a găsit nicio rețea.",
+  "Get more apps": "Mai multe aplicații",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Aplicațiile instalate pe acest calculator. Programe Windows au o pagină separată.",
+  "Search apps…": "Caută aplicații…",
+  "Couldn't remove {name}.": "{name} nu a putut fi eliminată.",
+  "No apps installed yet.": "Încă nu sunt aplicații instalate.",
+  "Also delete its settings and saved data": "Șterge și setările și datele salvate ale aplicației"
 }

@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "비밀번호가 맞지 않습니다. 확인하고 다시 시도하세요.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "이 네트워크에 연결하지 못했습니다. 다시 시도하거나 공유기 가까이로 이동하세요.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "이 네트워크는 사용자 이름도 필요합니다(회사 또는 학교 네트워크). 추가 설정에서 설정하세요.",
-  "No networks found yet.": "아직 찾은 네트워크가 없습니다."
+  "No networks found yet.": "아직 찾은 네트워크가 없습니다.",
+  "Get more apps": "앱 더 받기",
+  "The apps installed on this computer. Windows programs have a page of their own.": "이 컴퓨터에 설치된 앱입니다. Windows 프로그램은(는) 별도의 페이지가 있습니다.",
+  "Search apps…": "앱 검색…",
+  "Couldn't remove {name}.": "{name}을(를) 제거하지 못했습니다.",
+  "No apps installed yet.": "아직 설치된 앱이 없습니다.",
+  "Also delete its settings and saved data": "설정과 저장된 데이터도 삭제"
 }

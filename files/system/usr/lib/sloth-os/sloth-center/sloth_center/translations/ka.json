@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "პაროლი არ იქნა მიღებული. შეამოწმეთ და სცადეთ ხელახლა.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "ამ ქსელთან დაკავშირება ვერ მოხერხდა. სცადეთ ხელახლა ან როუტერთან ახლოს მიდით.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "ამ ქსელს მომხმარებლის სახელიც სჭირდება (კომპანიის ან სკოლის ქსელი). დააყენეთ „მეტი პარამეტრი“-ში.",
-  "No networks found yet.": "ქსელები ჯერ ვერ მოიძებნა."
+  "No networks found yet.": "ქსელები ჯერ ვერ მოიძებნა.",
+  "Get more apps": "მეტი აპი",
+  "The apps installed on this computer. Windows programs have a page of their own.": "ამ კომპიუტერზე დაყენებული აპები. „Windows-ის პროგრამები“-ს საკუთარი გვერდი აქვს.",
+  "Search apps…": "აპების ძებნა…",
+  "Couldn't remove {name}.": "{name}-ის წაშლა ვერ მოხერხდა.",
+  "No apps installed yet.": "აპები ჯერ არ არის დაყენებული.",
+  "Also delete its settings and saved data": "წაიშალოს მისი პარამეტრები და შენახული მონაცემებიც"
 }

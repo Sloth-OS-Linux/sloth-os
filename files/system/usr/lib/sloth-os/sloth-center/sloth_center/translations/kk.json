@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Құпиясөз қабылданбады. Тексеріп, қайталап көріңіз.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Бұл желіге қосылу мүмкін болмады. Қайталап көріңіз немесе маршрутизаторға жақындаңыз.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Бұл желіге пайдаланушы аты да керек (компания не мектеп желісі). Оны «Басқа баптаулар» бөлімінде баптаңыз.",
-  "No networks found yet.": "Әзірге желілер табылмады."
+  "No networks found yet.": "Әзірге желілер табылмады.",
+  "Get more apps": "Тағы қолданбалар",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Осы компьютерге орнатылған қолданбалар. «Windows бағдарламалары» бөлімінің өз беті бар.",
+  "Search apps…": "Қолданбаларды іздеу…",
+  "Couldn't remove {name}.": "{name} өшірілмеді.",
+  "No apps installed yet.": "Әзірге қолданба орнатылмаған.",
+  "Also delete its settings and saved data": "Оның баптаулары мен сақталған деректерін де өшіру"
 }

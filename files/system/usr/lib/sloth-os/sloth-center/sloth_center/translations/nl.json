@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Het wachtwoord werd niet geaccepteerd. Controleer het en probeer het opnieuw.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Verbinden met dit netwerk is mislukt. Probeer het opnieuw of ga dichter bij de router zitten.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Dit netwerk vraagt ook een gebruikersnaam (bedrijfs- of schoolnetwerk). Stel het in bij Meer instellingen.",
-  "No networks found yet.": "Nog geen netwerken gevonden."
+  "No networks found yet.": "Nog geen netwerken gevonden.",
+  "Get more apps": "Meer apps",
+  "The apps installed on this computer. Windows programs have a page of their own.": "De apps die op deze computer zijn geïnstalleerd. Windows-programma's hebben een eigen pagina.",
+  "Search apps…": "Apps zoeken…",
+  "Couldn't remove {name}.": "{name} kon niet worden verwijderd.",
+  "No apps installed yet.": "Nog geen apps geïnstalleerd.",
+  "Also delete its settings and saved data": "Ook de instellingen en opgeslagen gegevens verwijderen"
 }

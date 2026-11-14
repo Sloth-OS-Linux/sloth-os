@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "கடவுச்சொல் ஏற்கப்படவில்லை. சரிபார்த்து மீண்டும் முயலவும்.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "இந்தப் பிணையத்துடன் இணைக்க முடியவில்லை. மீண்டும் முயலவும் அல்லது ரௌட்டருக்கு அருகில் செல்லவும்.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "இந்தப் பிணையத்திற்குப் பயனர் பெயரும் தேவை (நிறுவன அல்லது பள்ளி பிணையம்). கூடுதல் அமைப்புகள் இல் அமைக்கவும்.",
-  "No networks found yet.": "இதுவரை பிணையங்கள் எதுவும் கிடைக்கவில்லை."
+  "No networks found yet.": "இதுவரை பிணையங்கள் எதுவும் கிடைக்கவில்லை.",
+  "Get more apps": "மேலும் பயன்பாடுகள்",
+  "The apps installed on this computer. Windows programs have a page of their own.": "இந்தக் கணினியில் நிறுவப்பட்ட பயன்பாடுகள். Windows நிரல்கள் க்குத் தனிப் பக்கம் உள்ளது.",
+  "Search apps…": "பயன்பாடுகளைத் தேடு…",
+  "Couldn't remove {name}.": "{name} ஐ அகற்ற முடியவில்லை.",
+  "No apps installed yet.": "இதுவரை பயன்பாடுகள் எதுவும் நிறுவப்படவில்லை.",
+  "Also delete its settings and saved data": "அதன் அமைப்புகளையும் சேமித்த தரவையும் நீக்கு"
 }

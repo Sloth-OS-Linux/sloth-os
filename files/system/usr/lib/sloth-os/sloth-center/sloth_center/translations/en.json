@@ -237,5 +237,11 @@
   "The password was not accepted. Check it and try again.": "The password was not accepted. Check it and try again.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Couldn't connect to this network. Try again, or move closer to the router.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "This network needs a user name too (a company or school network). Set it up in More settings.",
-  "No networks found yet.": "No networks found yet."
+  "No networks found yet.": "No networks found yet.",
+  "Get more apps": "Get more apps",
+  "The apps installed on this computer. Windows programs have a page of their own.": "The apps installed on this computer. Windows programs have a page of their own.",
+  "Search apps…": "Search apps…",
+  "Couldn't remove {name}.": "Couldn't remove {name}.",
+  "No apps installed yet.": "No apps installed yet.",
+  "Also delete its settings and saved data": "Also delete its settings and saved data"
 }

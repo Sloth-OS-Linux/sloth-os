@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Kata sandi tidak diterima. Periksa lalu coba lagi.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Tidak bisa terhubung ke jaringan ini. Coba lagi, atau mendekatlah ke router.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Jaringan ini juga butuh nama pengguna (jaringan kantor atau sekolah). Atur di Pengaturan lain.",
-  "No networks found yet.": "Belum ada jaringan yang ditemukan."
+  "No networks found yet.": "Belum ada jaringan yang ditemukan.",
+  "Get more apps": "Aplikasi lainnya",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Aplikasi yang terpasang di komputer ini. Program Windows punya halaman sendiri.",
+  "Search apps…": "Cari aplikasi…",
+  "Couldn't remove {name}.": "Tidak bisa menghapus {name}.",
+  "No apps installed yet.": "Belum ada aplikasi yang terpasang.",
+  "Also delete its settings and saved data": "Hapus juga pengaturan dan data tersimpannya"
 }

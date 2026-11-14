@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Geslo ni bilo sprejeto. Preverite ga in poskusite znova.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Povezava s tem omrežjem ni uspela. Poskusite znova ali se približajte usmerjevalniku.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "To omrežje zahteva tudi uporabniško ime (omrežje podjetja ali šole). Nastavite ga v Več nastavitev.",
-  "No networks found yet.": "Omrežij še ni bilo najdenih."
+  "No networks found yet.": "Omrežij še ni bilo najdenih.",
+  "Get more apps": "Več aplikacij",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Aplikacije, nameščene v tem računalniku. Programi za Windows imajo svojo stran.",
+  "Search apps…": "Išči aplikacije…",
+  "Couldn't remove {name}.": "Aplikacije {name} ni bilo mogoče odstraniti.",
+  "No apps installed yet.": "Nameščenih aplikacij še ni.",
+  "Also delete its settings and saved data": "Izbriši tudi njene nastavitve in shranjene podatke"
 }

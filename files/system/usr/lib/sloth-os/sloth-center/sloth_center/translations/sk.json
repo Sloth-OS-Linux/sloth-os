@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Heslo nebolo prijaté. Skontrolujte ho a skúste to znova.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "K tejto sieti sa nepodarilo pripojiť. Skúste to znova alebo sa priblížte k routeru.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Táto sieť vyžaduje aj používateľské meno (firemná alebo školská sieť). Nastavte ju v časti Ďalšie nastavenia.",
-  "No networks found yet.": "Zatiaľ sa nenašli žiadne siete."
+  "No networks found yet.": "Zatiaľ sa nenašli žiadne siete.",
+  "Get more apps": "Ďalšie aplikácie",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Aplikácie nainštalované v tomto počítači. Programy pre Windows majú vlastnú stránku.",
+  "Search apps…": "Hľadať aplikácie…",
+  "Couldn't remove {name}.": "Aplikáciu {name} sa nepodarilo odstrániť.",
+  "No apps installed yet.": "Zatiaľ nie sú nainštalované žiadne aplikácie.",
+  "Also delete its settings and saved data": "Odstrániť aj jej nastavenia a uložené údaje"
 }

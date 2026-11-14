@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Passordet vart ikkje godteke. Sjekk det og prøv igjen.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Kunne ikkje kopla til dette nettverket. Prøv igjen, eller gå nærare ruteren.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Dette nettverket krev òg eit brukarnamn (bedrifts- eller skulenettverk). Set det opp under Fleire innstillingar.",
-  "No networks found yet.": "Ingen nettverk funne enno."
+  "No networks found yet.": "Ingen nettverk funne enno.",
+  "Get more apps": "Fleire appar",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Appane som er installerte på denne datamaskina. Windows-program har ei eiga side.",
+  "Search apps…": "Søk etter appar…",
+  "Couldn't remove {name}.": "Kunne ikkje fjerna {name}.",
+  "No apps installed yet.": "Ingen appar installerte enno.",
+  "Also delete its settings and saved data": "Slett òg innstillingane og dei lagra dataa"
 }

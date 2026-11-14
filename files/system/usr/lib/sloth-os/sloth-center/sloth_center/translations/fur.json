@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "La password no je stade acetade. Controlile e torne prove.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "No si è rivâts a conetisi a cheste rêt. Torne prove o svicinisi al router.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Cheste rêt e domande ancje un non utent (rêt di dite o di scuele). Configurile in Altris impostazions.",
-  "No networks found yet.": "Ancjemò nissune rêt cjatade."
+  "No networks found yet.": "Ancjemò nissune rêt cjatade.",
+  "Get more apps": "Altris aplicazions",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Lis aplicazions instaladis su chest computer. I Programs di Windows a àn une pagjine lôr.",
+  "Search apps…": "Cîr aplicazions…",
+  "Couldn't remove {name}.": "No si è rivâts a gjavâ {name}.",
+  "No apps installed yet.": "Ancjemò nissune aplicazion instalade.",
+  "Also delete its settings and saved data": "Elimine ancje lis sôs impostazions e i dâts salvâts"
 }

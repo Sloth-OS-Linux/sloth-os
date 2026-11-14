@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "পাছৱৰ্ড গ্ৰহণ কৰা নহ'ল। পৰীক্ষা কৰি পুনৰ চেষ্টা কৰক।",
   "Couldn't connect to this network. Try again, or move closer to the router.": "এই নেটৱৰ্কৰ সৈতে সংযোগ কৰিব পৰা নগ'ল। পুনৰ চেষ্টা কৰক, বা ৰাউটাৰৰ ওচৰলৈ যাওক।",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "এই নেটৱৰ্কক ব্যৱহাৰকাৰীৰ নামো লাগে (কোম্পানী বা বিদ্যালয়ৰ নেটৱৰ্ক)। অধিক ছেটিংত ছেট কৰক।",
-  "No networks found yet.": "এতিয়ালৈকে কোনো নেটৱৰ্ক পোৱা নগ'ল।"
+  "No networks found yet.": "এতিয়ালৈকে কোনো নেটৱৰ্ক পোৱা নগ'ল।",
+  "Get more apps": "অধিক এপ",
+  "The apps installed on this computer. Windows programs have a page of their own.": "এই কম্পিউটাৰত ইনষ্টল কৰা এপসমূহ। Windows প্ৰগ্ৰামৰ নিজা পৃষ্ঠা আছে।",
+  "Search apps…": "এপ বিচাৰক…",
+  "Couldn't remove {name}.": "{name} আঁতৰাব পৰা নগ'ল।",
+  "No apps installed yet.": "এতিয়ালৈকে কোনো এপ ইনষ্টল কৰা হোৱা নাই।",
+  "Also delete its settings and saved data": "ইয়াৰ ছেটিংছ আৰু সাঁচি থোৱা ডাটাও মচক"
 }

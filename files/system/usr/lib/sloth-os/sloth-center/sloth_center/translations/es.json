@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "La contraseña no se aceptó. Revísala e inténtalo de nuevo.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "No se pudo conectar a esta red. Inténtalo de nuevo o acércate al router.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Esta red también necesita un nombre de usuario (red de empresa o de centro educativo). Configúrala en Más ajustes.",
-  "No networks found yet.": "Aún no se ha encontrado ninguna red."
+  "No networks found yet.": "Aún no se ha encontrado ninguna red.",
+  "Get more apps": "Más aplicaciones",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Las aplicaciones instaladas en este equipo. Los Programas de Windows tienen su propia página.",
+  "Search apps…": "Buscar aplicaciones…",
+  "Couldn't remove {name}.": "No se pudo quitar {name}.",
+  "No apps installed yet.": "Aún no hay aplicaciones instaladas.",
+  "Also delete its settings and saved data": "Borrar también sus ajustes y datos guardados"
 }

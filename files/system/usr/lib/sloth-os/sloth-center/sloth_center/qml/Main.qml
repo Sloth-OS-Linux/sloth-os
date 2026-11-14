@@ -27,7 +27,8 @@ Kirigami.ApplicationWindow {
         { id: "power", name: L.t("Power and battery"), icon: "preferences-system-power-management", page: "PowerPage.qml", ready: true, section: "daily" },
         { id: "appearance", name: L.t("Appearance"), icon: "preferences-desktop-theme-global", page: "AppearancePage.qml", ready: true, section: "daily" },
         { id: "updates", name: L.t("Updates"), icon: "system-software-update", page: "UpdatesPage.qml", ready: true, section: "daily" },
-        { id: "winprograms", name: L.t("Programs"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true, section: "apps" },
+        { id: "apps", name: L.t("Apps"), icon: "applications-all", page: "AppsPage.qml", ready: true, section: "apps" },
+        { id: "winprograms", name: L.t("Windows programs"), icon: "application-x-ms-dos-executable", page: "WinProgramsPage.qml", ready: true, section: "apps" },
         { id: "games", name: L.t("Games"), icon: "input-gamepad", page: "GamesPage.qml", ready: true, section: "apps" },
         { id: "accounts", name: L.t("Account and security"), icon: "preferences-system-users", page: "AccountsPage.qml", ready: true, section: "people" },
         { id: "parental", name: L.t("Parental controls"), icon: "user-group-properties", page: "ParentalPage.qml", ready: true, section: "people" },
@@ -170,7 +171,7 @@ Kirigami.ApplicationWindow {
     readonly property var guideSteps: [
         { modules: ["updates"], title: L.t("Keep Sloth OS up to date"),
           text: L.t("The Updates page installs system updates and lets you return to the previous version if an update causes trouble.") },
-        { modules: ["winprograms", "games"], title: L.t("Find and manage programs"),
+        { modules: ["apps", "winprograms", "games"], title: L.t("Find and manage programs"),
           text: L.t("Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.") },
         { modules: ["appearance"], title: L.t("Change how it looks"),
           text: L.t("Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.") },
@@ -280,7 +281,7 @@ Kirigami.ApplicationWindow {
         }
         pageStack.clear();
         if (m.ready) {
-            if (["status", "disks", "help", "kde"].includes(m.id))
+            if (["status", "disks", "help", "kde", "apps"].includes(m.id))
                 pageStack.push(Qt.resolvedUrl(m.page), { navigation: root });
             else
                 pageStack.push(Qt.resolvedUrl(m.page));

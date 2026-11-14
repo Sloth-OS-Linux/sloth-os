@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "পাসওয়ার্ড গ্রহণ করা হয়নি। যাচাই করে আবার চেষ্টা করুন।",
   "Couldn't connect to this network. Try again, or move closer to the router.": "এই নেটওয়ার্কে সংযোগ করা যায়নি। আবার চেষ্টা করুন, বা রাউটারের কাছে যান।",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "এই নেটওয়ার্কে ব্যবহারকারীর নামও লাগে (অফিস বা স্কুলের নেটওয়ার্ক)। আরও সেটিংস-এ সেট করুন।",
-  "No networks found yet.": "এখনও কোনো নেটওয়ার্ক পাওয়া যায়নি।"
+  "No networks found yet.": "এখনও কোনো নেটওয়ার্ক পাওয়া যায়নি।",
+  "Get more apps": "আরও অ্যাপ",
+  "The apps installed on this computer. Windows programs have a page of their own.": "এই কম্পিউটারে ইনস্টল করা অ্যাপগুলি। Windows প্রোগ্রাম-এর নিজস্ব পাতা আছে।",
+  "Search apps…": "অ্যাপ খুঁজুন…",
+  "Couldn't remove {name}.": "{name} সরানো যায়নি।",
+  "No apps installed yet.": "এখনও কোনো অ্যাপ ইনস্টল করা হয়নি।",
+  "Also delete its settings and saved data": "এর সেটিংস এবং সংরক্ষিত ডেটাও মুছুন"
 }

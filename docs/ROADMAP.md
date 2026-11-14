@@ -26,8 +26,13 @@ from a terminal must also work from a GUI.
   Found on the way: mcelog failed at every start in a VM on a newer AMD processor ("CPU is unsupported"), so System
   status warned about it; it no longer starts in a virtual machine (a drop-in), on real AMD hardware edac_mce_amd
   keeps it off already
-- [ ] 4. Programs shows every installed app (Flatpaks too), with Remove, not only the Windows programs (or at least
-  its name says "Windows programs")
+- [x] 4. A new Apps page (AppsPage.qml, installed_apps.py): every installed app (Flatpaks, for everyone and for the
+  account; libflatpak, as Sloth Welcome installs) with its icon, name in the user's language, version and size, a
+  search, Open and Remove (with "Also delete its settings and saved data": ~/.var/app/<ID>, only for a real app
+  ID); Get more apps opens Sloth Welcome. The old Programs row is called Windows programs now. Tried: the list on
+  the development machine (32 apps, read only), the empty page in the VM. `tools/tests/test_installed_apps.py`
+- [ ] On the HP: Remove an app (an app for everyone asks for the password where polkit wants it), with and without
+  its data
 
 ### More settings as a list in the sidebar (2026-11-14, test branch)
 - [x] After the HP test: the grouped sidebar was good, but More settings (topic tiles, then a topic's icons) was still

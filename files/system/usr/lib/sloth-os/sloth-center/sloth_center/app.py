@@ -88,6 +88,7 @@ def main():
     from .kde_settings import KdeSettingsController
     from .search import SearchIndex
     from .network import NetworkController
+    from .installed_apps import AppsController
 
     engine = QQmlApplicationEngine()
     engine.addImportPath(shared_appearance.QML_IMPORT_PATH)  # import SlothCommon (the layout drawings)
@@ -172,6 +173,8 @@ def main():
     engine.rootContext().setContextProperty("wifi", wifi)
     network = NetworkController()
     engine.rootContext().setContextProperty("network", network)
+    installed_apps = AppsController()
+    engine.rootContext().setContextProperty("installedApps", installed_apps)
     engine.rootContext().setContextProperty("privacy", privacy)
     engine.rootContext().setContextProperty("sound", sound)
     engine.rootContext().setContextProperty("displays", display)

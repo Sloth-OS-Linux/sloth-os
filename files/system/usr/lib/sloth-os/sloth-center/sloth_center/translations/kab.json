@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Awal uffir ur yettwaqbel ara. Senqed-it syen ɛreḍ tikkelt-nniḍen.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Ur yezmir ara ad yeqqen ɣer uẓeṭṭa-a. Ɛreḍ tikkelt-nniḍen neɣ qerreb ɣer usebrid.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Aẓeṭṭa-a yesra daɣen isem n useqdac (aẓeṭṭa n tkebbanit neɣ n uɣerbaz). Sbadu-t deg Ugar n yiɣewwaren.",
-  "No networks found yet.": "Mazal ur yettwaf ara uẓeṭṭa."
+  "No networks found yet.": "Mazal ur yettwaf ara uẓeṭṭa.",
+  "Get more apps": "Ugar n yisnasen",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Isnasen yettwasbedden deg uselkim-a. Ahilen n Windows sɛan asebter-nsen.",
+  "Search apps…": "Nadi isnasen…",
+  "Couldn't remove {name}.": "Ur yezmir ara ad yekkes {name}.",
+  "No apps installed yet.": "Mazal ulac isnasen yettwasbedden.",
+  "Also delete its settings and saved data": "Kkes daɣen iɣewwaren-is d yisefka-s yettwaskelsen"
 }

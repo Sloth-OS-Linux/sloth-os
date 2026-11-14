@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Parooli ei aktsepteeritud. Kontrolli seda ja proovi uuesti.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Selle võrguga ei õnnestunud ühendust luua. Proovi uuesti või mine ruuterile lähemale.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "See võrk vajab ka kasutajanime (ettevõtte või kooli võrk). Seadista see jaotises Rohkem sätteid.",
-  "No networks found yet.": "Võrke pole veel leitud."
+  "No networks found yet.": "Võrke pole veel leitud.",
+  "Get more apps": "Rohkem rakendusi",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Sellesse arvutisse paigaldatud rakendused. Jaotisel Windowsi programmid on oma leht.",
+  "Search apps…": "Otsi rakendusi…",
+  "Couldn't remove {name}.": "Rakendust {name} ei õnnestunud eemaldada.",
+  "No apps installed yet.": "Rakendusi pole veel paigaldatud.",
+  "Also delete its settings and saved data": "Kustuta ka selle seaded ja salvestatud andmed"
 }

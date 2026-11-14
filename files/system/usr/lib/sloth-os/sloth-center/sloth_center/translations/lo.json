@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "ລະຫັດຜ່ານບໍ່ຖືກຍອມຮັບ. ກວດເບິ່ງແລ້ວລອງໃໝ່.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍນີ້. ລອງໃໝ່ ຫຼື ເຂົ້າໃກ້ເຣົາເຕີ.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "ເຄືອຂ່າຍນີ້ຕ້ອງການຊື່ຜູ້ໃຊ້ນຳ (ເຄືອຂ່າຍບໍລິສັດ ຫຼື ໂຮງຮຽນ). ຕັ້ງຄ່າໃນ ການຕັ້ງຄ່າເພີ່ມເຕີມ.",
-  "No networks found yet.": "ຍັງບໍ່ພົບເຄືອຂ່າຍ."
+  "No networks found yet.": "ຍັງບໍ່ພົບເຄືອຂ່າຍ.",
+  "Get more apps": "ແອັບເພີ່ມເຕີມ",
+  "The apps installed on this computer. Windows programs have a page of their own.": "ແອັບທີ່ຕິດຕັ້ງຢູ່ໃນຄອມພິວເຕີນີ້. ໂປຣແກຣມ Windows ມີໜ້າຂອງຕົນເອງ.",
+  "Search apps…": "ຊອກຫາແອັບ…",
+  "Couldn't remove {name}.": "ບໍ່ສາມາດລຶບ {name} ໄດ້.",
+  "No apps installed yet.": "ຍັງບໍ່ມີແອັບທີ່ຕິດຕັ້ງ.",
+  "Also delete its settings and saved data": "ລຶບການຕັ້ງຄ່າ ແລະ ຂໍ້ມູນທີ່ບັນທຶກໄວ້ນຳ"
 }

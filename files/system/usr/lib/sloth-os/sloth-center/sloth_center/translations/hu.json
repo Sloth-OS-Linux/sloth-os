@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "A jelszó nem jó. Ellenőrizd, és próbáld újra.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Nem sikerült csatlakozni ehhez a hálózathoz. Próbáld újra, vagy menj közelebb a routerhez.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Ehhez a hálózathoz felhasználónév is kell (céges vagy iskolai hálózat). Itt állíthatod be: További beállítások.",
-  "No networks found yet.": "Még nem található hálózat."
+  "No networks found yet.": "Még nem található hálózat.",
+  "Get more apps": "További appok",
+  "The apps installed on this computer. Windows programs have a page of their own.": "A gépre telepített appok. A Windows-programok külön oldalon vannak.",
+  "Search apps…": "Appok keresése…",
+  "Couldn't remove {name}.": "Nem sikerült eltávolítani: {name}.",
+  "No apps installed yet.": "Még nincs telepített app.",
+  "Also delete its settings and saved data": "A beállításai és mentett adatai is törlődjenek"
 }

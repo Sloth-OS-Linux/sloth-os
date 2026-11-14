@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "密码不正确。请检查后重试。",
   "Couldn't connect to this network. Try again, or move closer to the router.": "无法连接到此网络。请重试，或离路由器近一些。",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "此网络还需要用户名（公司或学校网络）。请在“更多设置”中设置。",
-  "No networks found yet.": "暂未找到网络。"
+  "No networks found yet.": "暂未找到网络。",
+  "Get more apps": "获取更多应用",
+  "The apps installed on this computer. Windows programs have a page of their own.": "这台电脑上安装的应用。“Windows 程序”有单独的页面。",
+  "Search apps…": "搜索应用…",
+  "Couldn't remove {name}.": "无法移除 {name}。",
+  "No apps installed yet.": "尚未安装任何应用。",
+  "Also delete its settings and saved data": "同时删除其设置和保存的数据"
 }

@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Лозинка није прихваћена. Проверите је и покушајте поново.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Повезивање са овом мрежом није успело. Покушајте поново или приђите ближе рутеру.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Ова мрежа тражи и корисничко име (мрежа фирме или школе). Подесите је у Још подешавања.",
-  "No networks found yet.": "Још није пронађена ниједна мрежа."
+  "No networks found yet.": "Још није пронађена ниједна мрежа.",
+  "Get more apps": "Још апликација",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Апликације инсталиране на овом рачунару. Програми за Windows имају своју страницу.",
+  "Search apps…": "Тражи апликације…",
+  "Couldn't remove {name}.": "Није могуће уклонити {name}.",
+  "No apps installed yet.": "Још нема инсталираних апликација.",
+  "Also delete its settings and saved data": "Обриши и њена подешавања и сачуване податке"
 }

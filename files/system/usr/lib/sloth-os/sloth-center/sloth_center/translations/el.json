@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Ο κωδικός δεν έγινε δεκτός. Ελέγξτε τον και δοκιμάστε ξανά.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Δεν ήταν δυνατή η σύνδεση σε αυτό το δίκτυο. Δοκιμάστε ξανά ή πλησιάστε τον δρομολογητή.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Αυτό το δίκτυο θέλει και όνομα χρήστη (δίκτυο εταιρείας ή σχολείου). Ρυθμίστε το στο Περισσότερες ρυθμίσεις.",
-  "No networks found yet.": "Δεν βρέθηκαν ακόμη δίκτυα."
+  "No networks found yet.": "Δεν βρέθηκαν ακόμη δίκτυα.",
+  "Get more apps": "Περισσότερες εφαρμογές",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Οι εφαρμογές που είναι εγκατεστημένες σε αυτόν τον υπολογιστή. Τα Προγράμματα Windows έχουν δική τους σελίδα.",
+  "Search apps…": "Αναζήτηση εφαρμογών…",
+  "Couldn't remove {name}.": "Δεν ήταν δυνατή η αφαίρεση του {name}.",
+  "No apps installed yet.": "Δεν έχουν εγκατασταθεί εφαρμογές ακόμη.",
+  "Also delete its settings and saved data": "Διαγραφή και των ρυθμίσεων και των αποθηκευμένων δεδομένων της"
 }

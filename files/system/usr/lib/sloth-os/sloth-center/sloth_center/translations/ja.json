@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "パスワードが受け付けられませんでした。確認してもう一度お試しください。",
   "Couldn't connect to this network. Try again, or move closer to the router.": "このネットワークに接続できませんでした。もう一度試すか、ルーターに近づいてください。",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "このネットワークにはユーザー名も必要です（会社や学校のネットワーク）。「その他の設定」で設定してください。",
-  "No networks found yet.": "まだネットワークが見つかりません。"
+  "No networks found yet.": "まだネットワークが見つかりません。",
+  "Get more apps": "アプリを追加",
+  "The apps installed on this computer. Windows programs have a page of their own.": "このコンピューターにインストールされているアプリです。「Windows プログラム」には専用のページがあります。",
+  "Search apps…": "アプリを検索…",
+  "Couldn't remove {name}.": "{name} を削除できませんでした。",
+  "No apps installed yet.": "まだアプリがインストールされていません。",
+  "Also delete its settings and saved data": "設定と保存データも削除する"
 }

@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "Паролата не беше приета. Проверете я и опитайте отново.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Неуспешно свързване с тази мрежа. Опитайте отново или се приближете до рутера.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Тази мрежа изисква и потребителско име (фирмена или училищна мрежа). Настройте я в Още настройки.",
-  "No networks found yet.": "Все още не са открити мрежи."
+  "No networks found yet.": "Все още не са открити мрежи.",
+  "Get more apps": "Още приложения",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Приложенията, инсталирани на този компютър. Програми за Windows имат своя страница.",
+  "Search apps…": "Търсене на приложения…",
+  "Couldn't remove {name}.": "{name} не може да бъде премахнато.",
+  "No apps installed yet.": "Все още няма инсталирани приложения.",
+  "Also delete its settings and saved data": "Изтрий и настройките и запазените му данни"
 }

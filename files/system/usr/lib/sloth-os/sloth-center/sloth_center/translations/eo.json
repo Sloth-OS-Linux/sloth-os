@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "La pasvorto ne estis akceptita. Kontrolu ĝin kaj reprovu.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "Ne eblis konektiĝi al ĉi tiu reto. Reprovu aŭ alproksimiĝu al la enkursigilo.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Ĉi tiu reto bezonas ankaŭ uzantnomon (reto de firmao aŭ lernejo). Agordu ĝin en Pliaj agordoj.",
-  "No networks found yet.": "Ankoraŭ neniu reto trovita."
+  "No networks found yet.": "Ankoraŭ neniu reto trovita.",
+  "Get more apps": "Pliaj aplikaĵoj",
+  "The apps installed on this computer. Windows programs have a page of their own.": "La aplikaĵoj instalitaj en ĉi tiu komputilo. Windows-programoj havas propran paĝon.",
+  "Search apps…": "Serĉi aplikaĵojn…",
+  "Couldn't remove {name}.": "Ne eblis forigi {name}.",
+  "No apps installed yet.": "Ankoraŭ neniu aplikaĵo instalita.",
+  "Also delete its settings and saved data": "Forigi ankaŭ ĝiajn agordojn kaj konservitajn datumojn"
 }

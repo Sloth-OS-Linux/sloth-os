@@ -1186,5 +1186,11 @@
   "The password was not accepted. Check it and try again.": "No s'ha acceptat la contrasenya. Comproveu-la i torneu-ho a provar.",
   "Couldn't connect to this network. Try again, or move closer to the router.": "No s'ha pogut connectar a aquesta xarxa. Torneu-ho a provar o acosteu-vos a l'encaminador.",
   "This network needs a user name too (a company or school network). Set it up in More settings.": "Aquesta xarxa també demana un nom d'usuari (xarxa d'empresa o d'escola). Configureu-la a Més opcions.",
-  "No networks found yet.": "Encara no s'ha trobat cap xarxa."
+  "No networks found yet.": "Encara no s'ha trobat cap xarxa.",
+  "Get more apps": "Més aplicacions",
+  "The apps installed on this computer. Windows programs have a page of their own.": "Les aplicacions instal·lades en aquest ordinador. Els Programes de Windows tenen una pàgina pròpia.",
+  "Search apps…": "Cerca aplicacions…",
+  "Couldn't remove {name}.": "No s'ha pogut suprimir {name}.",
+  "No apps installed yet.": "Encara no hi ha cap aplicació instal·lada.",
+  "Also delete its settings and saved data": "Esborra també la configuració i les dades desades"
 }
