@@ -1,5 +1,11 @@
-// A quick overview of the running system, updates, storage, and help.
+// System status: how the computer is, on one page. At the top what the check-up found (health.py: "What is wrong?"
+// in plain language), then the version and the updates, the check-up's points (services, programs that crashed,
+// memory, the graphics card, the disks, the temperature; each with a button to the page that helps), the network,
+// the download speed limit, security and storage. Until 2026-11-14 the check-up had a page of its own (System
+// health), which asked nearly the same question with the same icon.
+import QtCore
 import QtQuick
+import QtQuick.Dialogs
 import QtQuick.Controls as QQC2
 import QtQuick.Layouts
 import org.kde.kirigami as Kirigami
@@ -13,9 +19,54 @@ Kirigami.ScrollablePage {
     readonly property var network: health.results.find(item => item.id === "network") || null
     readonly property bool secure: updates.signatureVerified && health.security.length > 0
                                    && health.security.every(item => item.state === "ok")
+    // the check-up's points that have no card of their own below (the network and the storage do)
+    readonly property var checks: health.results.filter(item => item.id !== "network" && item.id !== "disk")
+
+    actions: [
+        Kirigami.Action {
+            text: L.t("Check again")
+            icon.name: "view-refresh"
+            enabled: !health.busy
+            onTriggered: health.check()
+        },
+        Kirigami.Action {
+            text: L.t("Save log")
+            icon.name: "document-save"
+            onTriggered: saveDialog.open()
+        }
+    ]
 
     ColumnLayout {
         spacing: Kirigami.Units.largeSpacing * 2
+
+        // --- What the check-up found ----------------------------------------------------------------
+        RowLayout {
+            spacing: Kirigami.Units.largeSpacing * 2
+            Kirigami.Icon {
+                implicitWidth: Kirigami.Units.iconSizes.huge
+                implicitHeight: Kirigami.Units.iconSizes.huge
+                source: health.busy ? "view-refresh"
+                      : health.level === "ok" ? "security-high"
+                      : health.level === "warning" ? "security-medium" : "security-low"
+            }
+            ColumnLayout {
+                Layout.fillWidth: true
+                Kirigami.Heading { Layout.fillWidth: true; wrapMode: Text.Wrap; text: health.busy ? L.t("Checking…") : health.summary }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("We looked at what happened on the computer since you turned it on.")
+                }
+            }
+        }
+
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Positive
+            visible: health.savedPath !== ""
+            text: L.tf("Log saved: {path}. Send this file to whoever is helping you.", { path: health.savedPath })
+        }
 
         Kirigami.AbstractCard {
             Layout.fillWidth: true
@@ -34,6 +85,60 @@ Kirigami.ScrollablePage {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         text: L.tf("Version: {version}", { version: updates.currentVersion || "–" })
+                    }
+                }
+            }
+        }
+
+        UpdatesCard {}
+
+        // --- The check-up's points, one row each (a colored mark: fine, look at it, a problem) --------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: page.checks.length > 0
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { text: L.t("System health"); level: 3 }
+                Repeater {
+                    model: page.checks
+                    delegate: RowLayout {
+                        id: check
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Rectangle {
+                            implicitWidth: Kirigami.Units.smallSpacing * 1.5
+                            Layout.fillHeight: true
+                            radius: width / 2
+                            color: check.modelData.state === "error" ? Kirigami.Theme.negativeTextColor
+                                 : check.modelData.state === "warning" ? Kirigami.Theme.neutralTextColor
+                                 : Kirigami.Theme.positiveTextColor
+                        }
+                        Kirigami.Icon {
+                            source: check.modelData.icon
+                            implicitWidth: Kirigami.Units.iconSizes.medium
+                            implicitHeight: Kirigami.Units.iconSizes.medium
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label { text: check.modelData.title; font.bold: true }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                opacity: check.modelData.state === "ok" ? 0.7 : 1
+                                text: check.modelData.text
+                            }
+                        }
+                        // a point can lead to the page that helps (e.g. "backup", "services"); the button is its name
+                        QQC2.Button {
+                            readonly property int target: page.navigation && check.modelData.action
+                                ? page.navigation.modules.findIndex(m => m.id === check.modelData.action) : -1
+                            visible: target >= 0
+                            text: target >= 0 ? page.navigation.modules[target].name : ""
+                            icon.name: target >= 0 ? page.navigation.modules[target].icon : ""
+                            onClicked: page.navigation.openModule(target)
+                        }
                     }
                 }
             }
@@ -190,42 +295,6 @@ Kirigami.ScrollablePage {
             contentItem: RowLayout {
                 spacing: Kirigami.Units.largeSpacing
                 Kirigami.Icon {
-                    source: updates.busy ? "system-software-update"
-                          : updates.needsReboot ? "system-reboot"
-                          : updates.updateAvailable ? "update-high" : "security-high"
-                    implicitWidth: Kirigami.Units.iconSizes.large
-                    implicitHeight: Kirigami.Units.iconSizes.large
-                }
-                ColumnLayout {
-                    Layout.fillWidth: true
-                    spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading {
-                        Layout.fillWidth: true
-                        wrapMode: Text.Wrap
-                        level: 3
-                        text: updates.busy ? updates.statusText
-                            : updates.needsReboot ? L.t("Restart needed")
-                            : updates.updateAvailable ? L.t("A new update is available")
-                            : L.t("Your system is up to date")
-                    }
-                    QQC2.Label {
-                        Layout.fillWidth: true
-                        wrapMode: Text.Wrap
-                        text: updates.needsReboot && !updates.busy
-                              ? L.tf("After a restart, this starts: {version}", { version: updates.pendingVersion })
-                              : updates.updateAvailable && !updates.busy
-                              ? L.tf("Available version: {version}", { version: updates.availableVersion })
-                              : updates.busy ? updates.statusText : L.t("System update status")
-                    }
-                }
-            }
-        }
-
-        Kirigami.AbstractCard {
-            Layout.fillWidth: true
-            contentItem: RowLayout {
-                spacing: Kirigami.Units.largeSpacing
-                Kirigami.Icon {
                     source: "drive-harddisk"
                     implicitWidth: Kirigami.Units.iconSizes.large
                     implicitHeight: Kirigami.Units.iconSizes.large
@@ -237,7 +306,8 @@ Kirigami.ScrollablePage {
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
-                        text: page.storage && page.storage.freeText !== "" ? page.storage.freeText
+                        text: page.storage && page.storage.state !== "ok" ? page.storage.text
+                            : page.storage && page.storage.freeText !== "" ? page.storage.freeText
                               : health.busy ? L.t("Checking storage…") : L.t("Storage information is not available.")
                     }
                 }
@@ -248,8 +318,55 @@ Kirigami.ScrollablePage {
             Layout.alignment: Qt.AlignHCenter
             text: L.t("Get help")
             icon.name: "mail-message-new"
-            onClicked: navigation.openModule(navigation.modules.findIndex(item => item.id === "feedback"))
+            onClicked: navigation.openModuleById("help")
         }
+    }
+
+    component UpdatesCard: Kirigami.AbstractCard {
+        Layout.fillWidth: true
+        contentItem: RowLayout {
+            spacing: Kirigami.Units.largeSpacing
+            Kirigami.Icon {
+                source: updates.busy ? "system-software-update"
+                      : updates.needsReboot ? "system-reboot"
+                      : updates.updateAvailable ? "update-high" : "security-high"
+                implicitWidth: Kirigami.Units.iconSizes.large
+                implicitHeight: Kirigami.Units.iconSizes.large
+            }
+            ColumnLayout {
+                Layout.fillWidth: true
+                spacing: Kirigami.Units.smallSpacing
+                Kirigami.Heading {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    level: 3
+                    text: updates.busy ? updates.statusText
+                        : updates.needsReboot ? L.t("Restart needed")
+                        : updates.updateAvailable ? L.t("A new update is available")
+                        : L.t("Your system is up to date")
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    text: updates.needsReboot && !updates.busy
+                          ? L.tf("After a restart, this starts: {version}", { version: updates.pendingVersion })
+                          : updates.updateAvailable && !updates.busy
+                          ? L.tf("Available version: {version}", { version: updates.availableVersion })
+                          : updates.busy ? updates.statusText : L.t("System update status")
+                }
+            }
+        }
+    }
+
+    FileDialog {
+        id: saveDialog
+        title: L.t("Save log")
+        fileMode: FileDialog.SaveFile
+        defaultSuffix: "txt"
+        // the file name in the interface's language (only ASCII letters, so it can be sent anywhere)
+        currentFile: StandardPaths.writableLocation(StandardPaths.DesktopLocation) + "/" + L.t("sloth-os-log.txt")
+        nameFilters: [L.t("Text file (*.txt)")]
+        onAccepted: health.saveLog(selectedFile.toString())
     }
 
     // The Wi-Fi check (wifi.py): the steps one under the other; the last one that is not right has a button

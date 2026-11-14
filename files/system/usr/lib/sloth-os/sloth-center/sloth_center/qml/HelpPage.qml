@@ -7,8 +7,24 @@ import org.kde.kirigami as Kirigami
 
 Kirigami.ScrollablePage {
     id: page
-    title: L.t("Help")
+    title: L.t("Help and feedback")
     property var navigation: null  // Main.qml, to open the page an answer points to
+
+    // the guide and the feedback form start here (the sidebar had them as a button and a row until 2026-11-14)
+    actions: [
+        Kirigami.Action {
+            text: L.t("Open guide")
+            icon.name: "help-about"
+            visible: page.navigation !== null
+            onTriggered: page.navigation.openGuide()
+        },
+        Kirigami.Action {
+            text: L.t("Feedback")
+            icon.name: "mail-message-new"
+            visible: page.navigation !== null
+            onTriggered: page.navigation.openModuleById("feedback")
+        }
+    ]
 
     // Each answer: the question, the answer, and the module it points to (Main.qml "modules" ids; "" = none)
     readonly property var topics: [

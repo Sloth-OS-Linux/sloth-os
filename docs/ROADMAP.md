@@ -20,8 +20,12 @@ from a terminal must also work from a GUI.
   password window does not pop up. Tried in the VM with two virtual access points (mac80211_hwsim and hostapd, a
   WPA2 and an open one): a wrong password, the right one, disconnect, connect again without the password, forget,
   the open network, Wi-Fi off and on. `tools/tests/test_network.py`
-- [ ] 3. A shorter sidebar: System status and System health in one page (the same icon, nearly the same question);
-  Help and Feedback in one page ("Help and feedback"); the Open guide button moves to that page
+- [x] 3. A shorter sidebar (two rows and a button fewer): System status has the check-up now (its summary at the
+  top with Check again and Save log, its points in one card, the network and the storage once); Help and feedback is
+  one row: the help page with Open guide and Feedback at its top (the form keeps that row lit). Tried in the VM.
+  Found on the way: mcelog failed at every start in a VM on a newer AMD processor ("CPU is unsupported"), so System
+  status warned about it; it no longer starts in a virtual machine (a drop-in), on real AMD hardware edac_mce_amd
+  keeps it off already
 - [ ] 4. Programs shows every installed app (Flatpaks too), with Remove, not only the Windows programs (or at least
   its name says "Windows programs")
 

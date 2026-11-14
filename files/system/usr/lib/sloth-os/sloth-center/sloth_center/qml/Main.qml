@@ -37,10 +37,10 @@ Kirigami.ApplicationWindow {
         { id: "drivers", name: L.t("Drivers and hardware"), icon: "preferences-devices-cpu", page: "DriversPage.qml", ready: true, section: "system" },
         { id: "disks", name: L.t("Disks"), icon: "drive-harddisk", page: "DisksPage.qml", ready: true, section: "system" },
         { id: "backup", name: L.t("File backup"), icon: "backup", page: "BackupPage.qml", ready: true, section: "system" },
-        { id: "health", name: L.t("System health"), icon: "dialog-information", page: "HealthPage.qml", ready: true, section: "system" },
         { id: "reset", name: L.t("Reset this PC"), icon: "edit-undo", page: "ResetPage.qml", ready: true, section: "system" },
-        { id: "help", name: L.t("Help"), icon: "help-contents", page: "HelpPage.qml", ready: true, section: "help" },
-        { id: "feedback", name: L.t("Feedback"), icon: "mail-message-new", page: "FeedbackPage.qml", ready: true, section: "help" },
+        { id: "help", name: L.t("Help and feedback"), icon: "help-contents", page: "HelpPage.qml", ready: true, section: "help" },
+        // reached from Help and feedback (and the search): not a row of its own, that row stays lit
+        { id: "feedback", name: L.t("Feedback"), icon: "mail-message-new", page: "FeedbackPage.qml", ready: true, under: "help", section: "help" },
         { id: "kde", name: L.t("More settings"), icon: "preferences-system", page: "KdeSettingsPage.qml", ready: true, section: "all" },
         { id: "services", name: L.t("Services"), icon: "preferences-system-services", page: "ServicesPage.qml", ready: true, more: true, section: "zmore" },
         { id: "usbguide", name: L.t("Create installation media"), icon: "drive-removable-media-usb", page: "UsbGuidePage.qml", ready: true, more: true, section: "zmore" },
@@ -50,7 +50,7 @@ Kirigami.ApplicationWindow {
     ]
     readonly property var sectionNames: ({
         daily: "", apps: L.t("Apps and games"), people: L.t("Accounts and family"), system: L.t("System"),
-        help: L.t("Help and feedback"), all: "", zmore: ""
+        help: "", all: "", zmore: ""
     })
     property int currentIndex: 0      // the row lit up in the list on the left
     property int shownIndex: 0        // the module shown now (a "more" one too); a KDE page's Back returns here
@@ -174,7 +174,7 @@ Kirigami.ApplicationWindow {
           text: L.t("Programs is where you install and start Windows programs. Games has settings for Steam and other game tools.") },
         { modules: ["appearance"], title: L.t("Change how it looks"),
           text: L.t("Appearance switches the taskbar layout and the colors, the same ones as in the welcome wizard. You can change them any time.") },
-        { modules: ["feedback", "backup", "disks"], title: L.t("Back up files and get help"),
+        { modules: ["help", "backup", "disks"], title: L.t("Back up files and get help"),
           text: L.t("File backup shows saved copies of your files. Feedback is the place to ask for help, and Disks can help bring files over from Windows.") }
     ]
 
@@ -271,7 +271,7 @@ Kirigami.ApplicationWindow {
             return;
         }
         shownIndex = index;
-        currentIndex = m.more ? modules.findIndex(x => x.id === "kde") : index;
+        currentIndex = m.more ? modules.findIndex(x => x.id === "kde") : m.under ? modules.findIndex(x => x.id === m.under) : index;
         if (m.more || m.id === "kde") {  // More settings: the sidebar shows its list
             moreMode = true;
             moreSelected = m.more ? m.id : "";
@@ -280,7 +280,7 @@ Kirigami.ApplicationWindow {
         }
         pageStack.clear();
         if (m.ready) {
-            if (["status", "health", "disks", "help", "kde"].includes(m.id))
+            if (["status", "disks", "help", "kde"].includes(m.id))
                 pageStack.push(Qt.resolvedUrl(m.page), { navigation: root });
             else
                 pageStack.push(Qt.resolvedUrl(m.page));
@@ -437,7 +437,7 @@ Kirigami.ApplicationWindow {
                         required property var modelData
                         required property int index
                         width: ListView.view.width
-                        visible: root.searching || root.moreMode || !modelData.more
+                        visible: root.searching || (root.moreMode ? true : !modelData.more && !modelData.under)
                         height: visible ? implicitHeight : 0
                         highlighted: root.searching ? modelData.id === root.searchSelected
                                    : root.moreMode ? modelData.id === root.moreSelected : index === root.currentIndex
@@ -453,17 +453,6 @@ Kirigami.ApplicationWindow {
                 }
             }
 
-            QQC2.Button {
-                visible: !root.moreMode && !root.searching
-                Layout.fillWidth: true
-                Layout.margins: Kirigami.Units.smallSpacing
-                text: L.t("Open guide")
-                icon.name: "help-about"
-                display: root.globalDrawer.collapsed ? QQC2.AbstractButton.IconOnly : QQC2.AbstractButton.TextBesideIcon
-                QQC2.ToolTip.visible: root.globalDrawer.collapsed && hovered
-                QQC2.ToolTip.text: text
-                onClicked: root.openGuide()
-            }
         }
     }
 
