@@ -5,6 +5,18 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Computers in legacy (BIOS) mode (2026-11-15, test branch)
+- [x] Found first: the installed system already started with BIOS (its GPT has a BIOS boot partition, and bootupd
+  puts GRUB for BIOS there next to the EFI one); only the ISO (UEFI only) and the installer's refusal stood in the way
+- [x] iso/build_iso.sh: Titanoboa's ISO builder (Apache-2.0) in the repository, with GRUB's El Torito image for BIOS
+  and its hybrid MBR next to the EFI boot (as Fedora's own ISOs); the CI and tools/build-iso.sh use it
+- [x] The installer installs a whole disk in BIOS mode; next to Windows and the advanced way still need UEFI (they
+  work with EFI partitions and boot entries); the first page no longer stops it
+- [x] Tried in a VM with SeaBIOS: the ISO starts as a DVD and as a USB stick, the install goes through, the installed
+  system starts (no GRUB menu); the same ISO with UEFI: installed and started as before
+- [ ] Ship it: a new ISO (1.6.1), then README / website requirements (they still say "UEFI only")
+- [ ] On real hardware: an old BIOS-only PC, if someone has one (no machine here)
+
 ### Next: release 1.6 (status on 2026-11-14 evening)
 The test branch (test/chunked-oci) is 17 commits past v1.5: the parental controls fixes found in the VM, and the
 new Sloth Center (the sidebar in groups, the search, More settings in the sidebar, the Wi-Fi page, the Apps page,
