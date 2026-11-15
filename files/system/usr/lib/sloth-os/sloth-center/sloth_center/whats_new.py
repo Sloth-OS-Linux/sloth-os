@@ -21,6 +21,15 @@ WELCOME_DONE = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) 
 
 # Sloth OS version -> what it brought, for everyone (not developers): a few short sentences, the biggest first
 NOTES = {
+    "1.6": [
+        N_("One settings app: every setting of the computer is in Sloth Center now, the everyday ones first, the rest "
+           "under More settings."),
+        N_("A search at the top of Sloth Center finds any setting."),
+        N_("Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off."),
+        N_("Apps: every installed app in one list, with Open and Remove."),
+        N_("Parental controls: \u201cAsk for more time\u201d now asks a parent, and the website filter covers every "
+           "program."),
+    ],
     "1.5": [
         N_("Moving over from Windows: your files, bookmarks (straight into your browsers), Steam games with their "
            "saves, and a list of the programs you used, with their Sloth OS versions."),

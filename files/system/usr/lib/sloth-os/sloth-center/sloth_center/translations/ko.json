@@ -1192,5 +1192,10 @@
   "Search apps…": "앱 검색…",
   "Couldn't remove {name}.": "{name}을(를) 제거하지 못했습니다.",
   "No apps installed yet.": "아직 설치된 앱이 없습니다.",
-  "Also delete its settings and saved data": "설정과 저장된 데이터도 삭제"
+  "Also delete its settings and saved data": "설정과 저장된 데이터도 삭제",
+  "One settings app: every setting of the computer is in Sloth Center now, the everyday ones first, the rest under More settings.": "설정 앱 하나로: 컴퓨터의 모든 설정이 이제 Sloth Center에 있습니다. 자주 쓰는 설정이 먼저, 나머지는 추가 설정에 있습니다.",
+  "A search at the top of Sloth Center finds any setting.": "Sloth Center 상단의 검색으로 어떤 설정이든 찾을 수 있습니다.",
+  "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Wi-Fi 전용 페이지: 연결, 네트워크 삭제, Wi-Fi 켜기와 끄기.",
+  "Apps: every installed app in one list, with Open and Remove.": "앱: 설치된 모든 앱을 한 목록에서 열고 제거할 수 있습니다.",
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "자녀 보호: ‘시간 더 요청하기’가 이제 실제로 보호자에게 묻고, 웹사이트 필터가 모든 프로그램에 적용됩니다."
 }

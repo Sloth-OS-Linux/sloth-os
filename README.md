@@ -51,6 +51,20 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
+<summary><b>What's new in 1.6</b> (November 15, 2026)</summary>
+
+**One settings app:** every setting is in Sloth Center now, KDE's pages too: the everyday ones first in the sidebar,
+the rest under More settings (a list by topic in the sidebar), and a search at the top that finds any setting.
+
+**New pages:** Wi-Fi (connect, forget, on and off), Apps (every installed app with Open and Remove), System status
+with the health check-up, Help and feedback in one place. Fixes for parental controls ("Ask for more time", the
+website filter) and Dolphin's disk view.
+
+Full notes: [docs/releases/1.6.md](docs/releases/1.6.md).
+
+</details>
+
+<details>
 <summary><b>What's new in 1.5</b> (November 12, 2026)</summary>
 
 **Moving over from Windows:** your files, your bookmarks straight into your browsers, your Steam games (with their

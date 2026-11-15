@@ -1192,5 +1192,10 @@
   "Search apps…": "Hľadať aplikácie…",
   "Couldn't remove {name}.": "Aplikáciu {name} sa nepodarilo odstrániť.",
   "No apps installed yet.": "Zatiaľ nie sú nainštalované žiadne aplikácie.",
-  "Also delete its settings and saved data": "Odstrániť aj jej nastavenia a uložené údaje"
+  "Also delete its settings and saved data": "Odstrániť aj jej nastavenia a uložené údaje",
+  "One settings app: every setting of the computer is in Sloth Center now, the everyday ones first, the rest under More settings.": "Jedna aplikácia nastavení: všetky nastavenia počítača sú teraz v Sloth Center, najprv tie každodenné, zvyšok v časti Ďalšie nastavenia.",
+  "A search at the top of Sloth Center finds any setting.": "Vyhľadávanie hore v Sloth Center nájde akékoľvek nastavenie.",
+  "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Wi-Fi má vlastnú stránku: pripojiť, zabudnúť sieť, zapnúť a vypnúť Wi-Fi.",
+  "Apps: every installed app in one list, with Open and Remove.": "Aplikácie: všetky nainštalované aplikácie v jednom zozname, s tlačidlami Otvoriť a Odstrániť.",
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Rodičovská kontrola: „Požiadať o viac času“ sa teraz naozaj opýta rodiča a filter webov platí pre každý program."
 }

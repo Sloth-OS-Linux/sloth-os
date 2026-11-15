@@ -1192,5 +1192,10 @@
   "Search apps…": "Serĉi aplikaĵojn…",
   "Couldn't remove {name}.": "Ne eblis forigi {name}.",
   "No apps installed yet.": "Ankoraŭ neniu aplikaĵo instalita.",
-  "Also delete its settings and saved data": "Forigi ankaŭ ĝiajn agordojn kaj konservitajn datumojn"
+  "Also delete its settings and saved data": "Forigi ankaŭ ĝiajn agordojn kaj konservitajn datumojn",
+  "One settings app: every setting of the computer is in Sloth Center now, the everyday ones first, the rest under More settings.": "Unu agorda aplikaĵo: ĉiuj agordoj de la komputilo nun estas en Sloth Center, la ĉiutagaj unue, la ceteraj en Pliaj agordoj.",
+  "A search at the top of Sloth Center finds any setting.": "Serĉilo supre en Sloth Center trovas ajnan agordon.",
+  "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Vifio havas propran paĝon: konekti, forgesi reton, ŝalti kaj malŝalti vifion.",
+  "Apps: every installed app in one list, with Open and Remove.": "Aplikaĵoj: ĉiuj instalitaj aplikaĵoj en unu listo, kun Malfermi kaj Forigi.",
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Gepatra kontrolo: „Peti pli da tempo“ nun vere demandas gepatron, kaj la retejfiltrilo validas por ĉiu programo."
 }

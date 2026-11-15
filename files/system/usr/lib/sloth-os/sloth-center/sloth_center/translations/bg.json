@@ -1192,5 +1192,10 @@
   "Search apps…": "Търсене на приложения…",
   "Couldn't remove {name}.": "{name} не може да бъде премахнато.",
   "No apps installed yet.": "Все още няма инсталирани приложения.",
-  "Also delete its settings and saved data": "Изтрий и настройките и запазените му данни"
+  "Also delete its settings and saved data": "Изтрий и настройките и запазените му данни",
+  "One settings app: every setting of the computer is in Sloth Center now, the everyday ones first, the rest under More settings.": "Едно приложение за настройки: всички настройки на компютъра вече са в Sloth Center, първо ежедневните, останалите в Още настройки.",
+  "A search at the top of Sloth Center finds any setting.": "Търсачка в горната част на Sloth Center намира всяка настройка.",
+  "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Wi-Fi има своя страница: свързване, забравяне на мрежа, включване и изключване на Wi-Fi.",
+  "Apps: every installed app in one list, with Open and Remove.": "Приложения: всички инсталирани приложения в един списък, с Отваряне и Премахване.",
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Родителски контрол: „Поискай още време“ вече наистина пита родител, а филтърът за сайтове обхваща всяка програма."
 }
