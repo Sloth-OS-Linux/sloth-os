@@ -1152,13 +1152,27 @@ def password_hash(password):
     return r.stdout.strip()
 
 
+def mount_settled(args, tries=10):
+    """mount, after udev is done with the disk, a few times over: writing the boot entry and growing the partition
+    make the kernel reread the partition table, and for a moment the partition's device is gone. The 1.6 ISO's
+    first install in a VM failed here at 95% ("failed mount system call"); the next one went through."""
+    for i in range(tries):
+        subprocess.run(["udevadm", "settle", "--timeout=30"], capture_output=True)
+        r = subprocess.run(["mount", *args], capture_output=True, text=True)
+        if r.returncode == 0:
+            return
+        log(f"mount {' '.join(args)}: {r.stderr.strip()} (try {i + 1})")
+        time.sleep(1)
+    raise subprocess.CalledProcessError(r.returncode, ["mount", *args], r.stdout, r.stderr)
+
+
 def configure(root_part, locale, layouts, variants, timezone, account, beside_windows=False, luks_uuid="",
               extra=None, display=""):
     """Writes the language, keyboard and time zone into the installed system's /etc (and the other disks' mounts)."""
     extra = extra or {"fstab": [], "crypttab": [], "keys": {}, "mounts": [], "owned": []}
     mnt = Path(tempfile.mkdtemp(prefix="sloth-install-"))
     log(f"root partition: {root_part}")
-    subprocess.run(["mount", "-o", "subvolid=5", root_part, str(mnt)], check=True)
+    mount_settled(["-o", "subvolid=5", root_part, str(mnt)])
     try:
         # the system also gets the work partition's space
         run(["btrfs", "filesystem", "resize", "max", str(mnt)], error="error.configure_failed")
