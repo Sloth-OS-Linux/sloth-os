@@ -15,7 +15,8 @@ System status with the check-up, Help and feedback). It goes out as **1.6** (new
 - [x] Dolphin no longer offers the system partition under Devices (udev, 90-sloth-udisks.rules): it showed ostree's
   own folders, and its Properties said 657 GB on a 119 GB disk (13 hourly home snapshots and ostree's hard links
   counted as full copies). Tried in the VM
-- [ ] Then the release: SLOTH_VERSION 1.6 in `files/scripts/branding.sh`, test branch into main, ISO, and everywhere
+- [x] Released 2026-11-15 (the installer tried three times in the VM after a fix: the last mount now waits for the
+  partition's device). Then the release: SLOTH_VERSION 1.6 in `files/scripts/branding.sh`, test branch into main, ISO, and everywhere
   as usual (SourceForge, torrent, website "New in 1.6", README, tag, GitHub release)
 
 ### Sloth Center, the next steps of the one settings app (planned 2026-11-14, in this order)
