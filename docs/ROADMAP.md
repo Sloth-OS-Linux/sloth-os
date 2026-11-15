@@ -9,8 +9,9 @@ from a terminal must also work from a GUI.
 The test branch (test/chunked-oci) is 17 commits past v1.5: the parental controls fixes found in the VM, and the
 new Sloth Center (the sidebar in groups, the search, More settings in the sidebar, the Wi-Fi page, the Apps page,
 System status with the check-up, Help and feedback). It goes out as **1.6** (new features, not a fix release).
-- [ ] On the HP, on the test branch's latest build: the sidebar and the search; the Wi-Fi page with real Wi-Fi;
-  Apps → Remove (with and without the data); Drivers and hardware → Bluetooth still has its Back button
+- [x] On the HP, on the test branch's latest build (2026-11-15): the sidebar and the search; the Wi-Fi page with
+  real Wi-Fi; Apps → Remove (with and without the data). Drivers and hardware → Bluetooth: no Back button needed,
+  Wi-Fi and Bluetooth have rows of their own in the sidebar
 - [x] Dolphin no longer offers the system partition under Devices (udev, 90-sloth-udisks.rules): it showed ostree's
   own folders, and its Properties said 657 GB on a 119 GB disk (13 hourly home snapshots and ostree's hard links
   counted as full copies). Tried in the VM
