@@ -1,6 +1,6 @@
 # The installer ISO's boot menu (Titanoboa makes the GRUB menu from this).
 # The menu is hidden: after 2 seconds Sloth OS starts by itself; Esc brings it up (e.g. for the safe
-# graphics mode). The build sets up the hiding (tools/build-iso.ps1, .github/workflows/iso.yml).
+# graphics mode). The hiding and the BIOS boot are in iso/build_iso.sh.
 # The menu is in English, because the language can only be chosen in the installer.
 label: "SlothOS-Live"
 grub2:

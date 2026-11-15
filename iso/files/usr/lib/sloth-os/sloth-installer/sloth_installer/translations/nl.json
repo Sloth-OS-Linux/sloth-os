@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Uitproberen",
   "welcome.install": "Installeren",
-  "check.bios": "Deze computer heeft het installatieprogramma in de oude (BIOS-)modus gestart, en Sloth OS heeft de UEFI-modus nodig. Herstart, open de instellingen van de computer (vaak F2 of Del tijdens het opstarten), zet UEFI aan (zet ‘CSM’ of ‘Legacy’ uit) en start opnieuw vanaf de USB-stick: kies in het opstartmenu de optie die met ‘UEFI’ begint.",
   "check.memory": "Deze computer heeft minder dan 4 GB geheugen. Sloth OS werkt, maar traag, en games passen misschien niet.",
   "check.battery": "De laptop werkt op de accu. Sluit de oplader aan voordat je installeert: installeren duurt even, en de computer mag halverwege niet uitvallen.",
   "check.secureboot_nvidia": "Secure Boot staat aan en deze computer heeft een NVIDIA-videokaart. Na de installatie vraagt Sloth Center je één keer om de Sloth OS-sleutel toe te staan, zodat het NVIDIA-stuurprogramma kan laden. Dat zijn een paar klikken.",

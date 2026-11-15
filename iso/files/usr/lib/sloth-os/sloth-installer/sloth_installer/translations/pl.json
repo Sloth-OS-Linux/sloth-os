@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Wypróbuj",
   "welcome.install": "Zainstaluj",
-  "check.bios": "Ten komputer uruchomił instalator w starym trybie (BIOS), a Sloth OS potrzebuje trybu UEFI. Uruchom ponownie, otwórz ustawienia komputera (często F2 lub Del podczas uruchamiania), włącz UEFI (wyłącz „CSM” lub „Legacy”) i uruchom ponownie z dysku USB: w menu rozruchu wybierz pozycję zaczynającą się od „UEFI”.",
   "check.memory": "Ten komputer ma mniej niż 4 GB pamięci. Sloth OS będzie działać, ale wolno, a gry mogą się nie zmieścić.",
   "check.battery": "Laptop działa na baterii. Przed instalacją podłącz ładowarkę: instalacja trochę trwa, a komputer nie może się wyłączyć w połowie.",
   "check.secureboot_nvidia": "Secure Boot jest włączony, a ten komputer ma kartę graficzną NVIDIA. Po instalacji Sloth Center raz poprosi o zezwolenie na klucz Sloth OS, żeby mógł się załadować sterownik NVIDIA. To kilka kliknięć.",

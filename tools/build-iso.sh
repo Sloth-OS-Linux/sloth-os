@@ -19,8 +19,7 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="$(realpath -m "${2:-$REPO/out}")"
 WORK="${SLOTH_BUILD_DIR:-/var/tmp/sloth-iso-build}"
 
-# The Titanoboa ISO builder script from a pinned commit (when updating: change the SHA in .github/workflows/iso.yml too)
-TITANOBOA_COMMIT="5c457c3d0518bd17e754be0fd98a60d29d26abb4"
+# The ISO builder: iso/build_iso.sh (Titanoboa's, with BIOS boot and the hidden menu)
 LIVE_IMAGE="localhost/sloth-os-live:latest"
 
 # --- 1. As a normal user: credentials, then restart as administrator ------------------
@@ -93,15 +92,10 @@ pm run --rm "${run_opts[@]}" --privileged --network none \
     "$LIVE_IMAGE" bash /payload.sh "$IMAGE" "containers-storage:[$driver@/outer/storage+/run/outer]$payload_src"
 [[ "$payload_src" == "$IMAGE" ]] || pm rmi "$payload_src"
 
-echo "== Making the ISO (Titanoboa ${TITANOBOA_COMMIT:0:7})"
-curl -fsSL -o "$WORK/build_iso.sh" \
-    "https://raw.githubusercontent.com/ublue-os/titanoboa/${TITANOBOA_COMMIT}/build_iso.sh"
-# Hidden GRUB menu: by default Sloth OS starts right away, Esc brings the menu up (iso/iso.yaml)
-grep -q "set menu_auto_hide=false" "$WORK/build_iso.sh" || { echo "Titanoboa's GRUB template has changed." >&2; exit 1; }
-sed -i "s/set menu_auto_hide=false/set timeout_style=hidden/" "$WORK/build_iso.sh"
+echo "== Making the ISO (iso/build_iso.sh)"
 rm -f "$OUT_DIR"/*.iso
 pm run --rm "${run_opts[@]}" --network host --cap-add sys_admin --security-opt label=disable \
-    -v "$WORK/build_iso.sh":/src/build_iso.sh:ro \
+    -v "$REPO/iso/build_iso.sh":/src/build_iso.sh:ro,z \
     --mount type=image,source="$LIVE_IMAGE",dst=/rootfs \
     -v "$WORK/payload":/rootfs/var/lib/containers/storage:ro \
     -v "$OUT_DIR":/output \

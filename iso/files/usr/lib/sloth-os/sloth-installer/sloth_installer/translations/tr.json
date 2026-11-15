@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Dene",
   "welcome.install": "Kur",
-  "check.bios": "Bu bilgisayar yükleyiciyi eski (BIOS) kipte başlattı, Sloth OS ise UEFI kipine ihtiyaç duyar. Yeniden başlatın, bilgisayarın ayarlarını açın (açılırken genellikle F2 veya Del), UEFI'yi açın (\"CSM\" veya \"Legacy\"yi kapatın) ve USB sürücüden yeniden başlatın: önyükleme menüsünde \"UEFI\" ile başlayan girişi seçin.",
   "check.memory": "Bu bilgisayarda 4 GB'tan az bellek var. Sloth OS çalışır ama yavaş çalışır ve oyunlar sığmayabilir.",
   "check.battery": "Dizüstü bilgisayar pille çalışıyor. Yüklemeden önce şarj cihazını takın: yükleme biraz sürer ve bilgisayar yarıda kapanmamalı.",
   "check.secureboot_nvidia": "Güvenli Önyükleme (Secure Boot) açık ve bu bilgisayarda NVIDIA ekran kartı var. Yüklemeden sonra Sloth Center, NVIDIA sürücüsünün yüklenebilmesi için sizden bir kez Sloth OS anahtarına izin vermenizi isteyecek. Birkaç tıklama sürer.",

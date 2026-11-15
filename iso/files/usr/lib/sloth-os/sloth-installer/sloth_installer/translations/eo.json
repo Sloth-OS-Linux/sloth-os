@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Provi",
   "welcome.install": "Instali",
-  "check.bios": "Ĉi tiu komputilo startigis la instalilon en malnova (BIOS) reĝimo, kaj Sloth OS bezonas UEFI-reĝimon. Restartigu, malfermu la agordojn de la komputilo (ofte F2 aŭ Del dum startado), ŝaltu UEFI (malŝaltu „CSM“ aŭ „Legacy“), kaj startigu denove el la USB-disko: en la starta menuo elektu la eron, kiu komenciĝas per „UEFI“.",
   "check.memory": "Ĉi tiu komputilo havas malpli ol 4 GB da memoro. Sloth OS funkcios, sed malrapide, kaj ludoj eble ne enhaviĝos.",
   "check.battery": "La tekkomputilo funkcias per baterio. Konektu la ŝargilon antaŭ instali: instalado daŭras iom, kaj la komputilo ne rajtas malŝaltiĝi duonvoje.",
   "check.secureboot_nvidia": "Secure Boot estas ŝaltita, kaj ĉi tiu komputilo havas grafikan karton de NVIDIA. Post instalado Sloth Center unufoje petos vin permesi la ŝlosilon de Sloth OS, por ke la pelilo de NVIDIA povu ŝargiĝi. Tio estas kelkaj klakoj.",

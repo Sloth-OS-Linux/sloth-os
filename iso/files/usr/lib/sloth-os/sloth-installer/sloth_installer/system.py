@@ -299,7 +299,7 @@ def disks():
 # --- Checking the computer before anything is done (the first page) ----------------------------------------------
 
 # The checks' ids; the texts are "check.<id>" in the translations
-CHECKS = ("bios", "memory", "battery", "secureboot_nvidia")
+CHECKS = ("memory", "battery", "secureboot_nvidia")
 SECURE_BOOT_VAR = "efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-e39e1b2c9b4b"
 MIN_MEMORY_BYTES = 3584 * 1024**2   # "4 GB": a 4 GB computer reports a little less, some is kept by the hardware
 
@@ -348,9 +348,8 @@ def machine_check(firmware="/sys/firmware/efi", pci="/sys/bus/pci/devices", powe
     """What to know about this computer before installing: [{"id", "level"}], level "block" (cannot install),
     "warn" or "info". The texts are "check.<id>" in the translations. Nothing here touches a disk."""
     out = []
-    if not Path(firmware).is_dir():
-        # Sloth OS boots with UEFI only; in legacy (BIOS) mode the installed system would not start
-        out.append({"id": "bios", "level": "block"})
+    # Legacy (BIOS) mode is no reason to stop any more (2026-11-15): a whole disk can be installed; installing next
+    # to Windows says itself that it needs UEFI (sloth-install-helper probe: "not_uefi")
     memory = memory_bytes(meminfo)
     if memory and memory < MIN_MEMORY_BYTES:
         out.append({"id": "memory", "level": "warn"})

@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Probarlo",
   "welcome.install": "Instalar",
-  "check.bios": "Este equipo inició el instalador en modo antiguo (BIOS), y Sloth OS necesita el modo UEFI. Reinicia, abre la configuración del equipo (a menudo F2 o Supr al arrancar), activa UEFI (desactiva «CSM» o «Legacy») y vuelve a arrancar desde la unidad USB: en el menú de arranque, elige la entrada que empieza por «UEFI».",
   "check.memory": "Este equipo tiene menos de 4 GB de memoria. Sloth OS funcionará, pero despacio, y puede que los juegos no quepan.",
   "check.battery": "El portátil funciona con batería. Conecta el cargador antes de instalar: la instalación tarda un rato y el equipo no debe apagarse a medias.",
   "check.secureboot_nvidia": "El arranque seguro (Secure Boot) está activado y este equipo tiene una tarjeta gráfica NVIDIA. Después de instalar, Sloth Center te pedirá una vez que permitas la clave de Sloth OS para que pueda cargarse el controlador de NVIDIA. Son unos pocos clics.",

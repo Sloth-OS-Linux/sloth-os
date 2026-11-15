@@ -27,8 +27,6 @@ on:
         default: latest
 
 env:
-  # The pinned commit of the Titanoboa ISO builder (when updating: change the SHA in tools/build-iso.sh too)
-  TITANOBOA_COMMIT: 5c457c3d0518bd17e754be0fd98a60d29d26abb4
   VARIANT: ${{ inputs.variant || 'sloth-os' }}
   IMAGE_TAG: ${{ inputs.image_tag || 'br-test_chunked-oci-44' }}
   SQUASH: ${{ inputs.squash || false }}
@@ -78,16 +76,11 @@ jobs:
             localhost/sloth-os-live:latest bash /payload.sh "$image" "containers-storage:[$driver@/outer/storage+/run/outer]$src"
           sudo rm -f /tmp/auth.json
 
-      - name: Build ISO (Titanoboa)
+      - name: Build ISO (iso/build_iso.sh: Titanoboa's, with BIOS boot and the hidden menu)
         run: |
-          curl -fsSL -o /tmp/build_iso.sh \
-            "https://raw.githubusercontent.com/ublue-os/titanoboa/${TITANOBOA_COMMIT}/build_iso.sh"
-          # Hidden GRUB menu: by default Sloth OS starts right away, Esc brings the menu up (iso/iso.yaml)
-          grep -q "set menu_auto_hide=false" /tmp/build_iso.sh
-          sed -i "s/set menu_auto_hide=false/set timeout_style=hidden/" /tmp/build_iso.sh
           mkdir -p output
           sudo podman run --rm --cap-add sys_admin --security-opt label=disable \
-            -v /tmp/build_iso.sh:/src/build_iso.sh:ro \
+            -v "$PWD/iso/build_iso.sh":/src/build_iso.sh:ro \
             --mount type=image,source=localhost/sloth-os-live:latest,dst=/rootfs \
             -v /tmp/payload:/rootfs/var/lib/containers/storage:ro \
             -v "$PWD/output":/output \

@@ -1387,11 +1387,12 @@ def main():
         fail("error.not_authorized")
     if not whole_disk(args.disk):
         fail("error.bad_disk", f"disk cannot be installed to: {args.disk}")
-    # Sloth OS starts with UEFI only: in legacy (BIOS) mode the installed system would not start. The first page
-    # says so too (sloth_installer.system.machine_check); this is the last word, before any disk is touched.
-    if not Path("/sys/firmware/efi").is_dir():
-        fail("error.not_uefi", "started in legacy (BIOS) mode")
     manual = bool(args.manual_root or args.manual_esp)
+    # In legacy (BIOS) mode (since 2026-11-15): a whole disk only. Its new GPT has a BIOS boot partition, and bootupd
+    # puts GRUB for BIOS there next to the EFI one (the installed system starts either way; tried in a VM with
+    # SeaBIOS). Next to Windows and the advanced way need UEFI: they work with EFI partitions and boot entries.
+    if not Path("/sys/firmware/efi").is_dir() and (manual or args.beside_windows):
+        fail("error.not_uefi", "next to Windows or the advanced way, in legacy (BIOS) mode")
     if manual and (not args.manual_root or not args.manual_esp or args.beside_windows or args.encrypt):
         fail("error.bad_input", "advanced: a system and an EFI partition, without encryption or Windows sizing")
     if args.beside_windows and not 40 <= args.size_gib <= 100000:

@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Probeer dit",
   "welcome.install": "Installeer",
-  "check.bios": "Hierdie rekenaar het die installeerder in ouer (BIOS-)modus begin, en Sloth OS het UEFI-modus nodig. Herbegin, maak die rekenaar se instellings oop (dikwels F2 of Del terwyl dit begin), skakel UEFI aan (skakel \"CSM\" of \"Legacy\" af), en begin dan weer vanaf die USB-skyf: kies in die selflaaikieslys die inskrywing wat met \"UEFI\" begin.",
   "check.memory": "Hierdie rekenaar het minder as 4 GB geheue. Sloth OS sal werk, maar stadig, en speletjies pas dalk nie.",
   "check.battery": "Die skootrekenaar loop op battery. Prop die laaier in voordat jy installeer: installering neem 'n rukkie, en die rekenaar mag nie halfpad afskakel nie.",
   "check.secureboot_nvidia": "Secure Boot is aan, en hierdie rekenaar het 'n NVIDIA-grafiese kaart. Ná installering vra Sloth Center jou een keer om die Sloth OS-sleutel toe te laat, sodat die NVIDIA-drywer kan laai. Dit neem 'n paar klikke.",

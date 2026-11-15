@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Kokeile",
   "welcome.install": "Asenna",
-  "check.bios": "Tämä tietokone käynnisti asennusohjelman vanhassa (BIOS-)tilassa, ja Sloth OS tarvitsee UEFI-tilan. Käynnistä uudelleen, avaa tietokoneen asetukset (usein F2 tai Del käynnistyksen aikana), ota UEFI käyttöön (poista ”CSM” tai ”Legacy”) ja käynnistä uudelleen USB-asemalta: valitse käynnistysvalikosta kohta, joka alkaa sanalla ”UEFI”.",
   "check.memory": "Tässä tietokoneessa on alle 4 Gt muistia. Sloth OS toimii, mutta hitaasti, eivätkä pelit ehkä mahdu.",
   "check.battery": "Kannettava toimii akulla. Kytke laturi ennen asennusta: asennus kestää hetken, eikä tietokone saa sammua kesken.",
   "check.secureboot_nvidia": "Secure Boot on päällä, ja tässä tietokoneessa on NVIDIA-näytönohjain. Asennuksen jälkeen Sloth Center pyytää sinua kerran sallimaan Sloth OS:n avaimen, jotta NVIDIA-ajuri voidaan ladata. Se vie muutaman napsautuksen.",

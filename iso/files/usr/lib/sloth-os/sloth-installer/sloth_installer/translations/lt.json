@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Išbandyti",
   "welcome.install": "Įdiegti",
-  "check.bios": "Šis kompiuteris paleido diegimo programą senuoju (BIOS) režimu, o „Sloth OS“ reikia UEFI režimo. Paleiskite iš naujo, atverkite kompiuterio nustatymus (dažnai F2 arba Del paleidžiant), įjunkite UEFI (išjunkite „CSM“ arba „Legacy“) ir vėl paleiskite iš USB disko: paleidimo meniu pasirinkite įrašą, prasidedantį „UEFI“.",
   "check.memory": "Šiame kompiuteryje yra mažiau nei 4 GB atminties. „Sloth OS“ veiks, bet lėtai, o žaidimai gali netilpti.",
   "check.battery": "Nešiojamasis kompiuteris veikia iš baterijos. Prieš diegdami prijunkite įkroviklį: diegimas užtrunka, ir kompiuteris neturi išsijungti pusiaukelėje.",
   "check.secureboot_nvidia": "Secure Boot įjungtas, o šiame kompiuteryje yra NVIDIA vaizdo plokštė. Po diegimo „Sloth Center“ vieną kartą paprašys leisti „Sloth OS“ raktą, kad galėtų įsikelti NVIDIA tvarkyklė. Tai keli spustelėjimai.",

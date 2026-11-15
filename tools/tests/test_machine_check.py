@@ -42,9 +42,10 @@ class MachineCheck(unittest.TestCase):
     def test_a_good_desktop(self):
         self.assertEqual(self.check(), [])
 
-    def test_legacy_bios_blocks(self):
+    def test_legacy_bios_is_no_reason_to_stop(self):
+        # since 1.6: a whole disk can be installed in BIOS mode; next to Windows says itself that it needs UEFI
         self.firmware.rmdir()
-        self.assertEqual(self.ids(), [("bios", "block")])
+        self.assertEqual(self.ids(), [])
 
     def test_little_memory(self):
         write(self.meminfo, "MemTotal:        2000000 kB\n")

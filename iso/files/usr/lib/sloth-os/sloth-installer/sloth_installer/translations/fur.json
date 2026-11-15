@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Prove",
   "welcome.install": "Instale",
-  "check.bios": "Chest computer al à inviât l'instaladôr te modalitât vecje (BIOS), e Sloth OS al à bisugne de la modalitât UEFI. Torne invie, vierç lis impostazions dal computer (dispès F2 o Canc tal inviâsi), ative UEFI (distude \"CSM\" o \"Legacy\") e torne invie de unitât USB: tal menù di inviament sielç la vôs che e scomence cun \"UEFI\".",
   "check.memory": "Chest computer al à mancul di 4 GB di memorie. Sloth OS al funzionarà, ma planc, e i zûcs a podaressin no stâi.",
   "check.battery": "Il portatil al lavore cu la batarie. Tache il cjariadôr prime di instalâ: la instalazion e dure un pôc e il computer nol à di distudâsi a metât.",
   "check.secureboot_nvidia": "Secure Boot al è atîf e chest computer al à une schede grafiche NVIDIA. Dopo de instalazion, Sloth Center ti domandarà une volte di permeti la clâf di Sloth OS, par che il driver NVIDIA al podedi cjamâsi. A son pôcs clics.",

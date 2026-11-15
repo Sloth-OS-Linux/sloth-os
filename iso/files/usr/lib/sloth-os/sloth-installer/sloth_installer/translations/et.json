@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Proovi",
   "welcome.install": "Paigalda",
-  "check.bios": "See arvuti käivitas paigaldaja vanas (BIOS) režiimis, aga Sloth OS vajab UEFI režiimi. Taaskäivita, ava arvuti seaded (sageli F2 või Del käivitumisel), lülita UEFI sisse (lülita „CSM“ või „Legacy“ välja) ja käivita uuesti USB-kettalt: vali alglaadimismenüüs kirje, mis algab sõnaga „UEFI“.",
   "check.memory": "Sellel arvutil on vähem kui 4 GB mälu. Sloth OS töötab, kuid aeglaselt, ja mängud ei pruugi mahtuda.",
   "check.battery": "Sülearvuti töötab akult. Ühenda enne paigaldamist laadija: paigaldamine võtab aega ja arvuti ei tohi poole pealt välja lülituda.",
   "check.secureboot_nvidia": "Secure Boot on sisse lülitatud ja sellel arvutil on NVIDIA graafikakaart. Pärast paigaldamist palub Sloth Center sul ühe korra lubada Sloth OS-i võti, et NVIDIA draiver saaks laaditud. See on paar klõpsu.",

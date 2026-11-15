@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Provoje",
   "welcome.install": "Instalo",
-  "check.bios": "Ky kompjuter e nisi instaluesin në modalitetin e vjetër (BIOS), ndërsa Sloth OS ka nevojë për modalitetin UEFI. Rinisni, hapni cilësimet e kompjuterit (shpesh F2 ose Del gjatë nisjes), aktivizoni UEFI (çaktivizoni \"CSM\" ose \"Legacy\") dhe nisni sërish nga disku USB: në menynë e nisjes zgjidhni zërin që fillon me \"UEFI\".",
   "check.memory": "Ky kompjuter ka më pak se 4 GB memorie. Sloth OS do të punojë, por ngadalë, dhe lojërat mund të mos nxihen.",
   "check.battery": "Laptopi po punon me bateri. Lidhni karikuesin para instalimit: instalimi zgjat pak dhe kompjuteri nuk duhet të fiket në mes.",
   "check.secureboot_nvidia": "Secure Boot është aktiv dhe ky kompjuter ka kartë grafike NVIDIA. Pas instalimit, Sloth Center do t'ju kërkojë një herë të lejoni çelësin e Sloth OS, që drejtuesi i NVIDIA të mund të ngarkohet. Janë disa klikime.",

@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Kipróbálom",
   "welcome.install": "Telepítés",
-  "check.bios": "Ez a gép régi (BIOS) módban indította el a telepítőt, a Sloth OS-hez viszont UEFI mód kell. Indítsd újra, nyisd meg a gép beállításait (indításkor gyakran F2 vagy Del), kapcsold be az UEFI-t (a „CSM” vagy „Legacy” legyen kikapcsolva), majd indíts újra az USB-meghajtóról: a rendszerindító menüben az „UEFI”-vel kezdődő bejegyzést válaszd.",
   "check.memory": "Ebben a gépben 4 GB-nál kevesebb memória van. A Sloth OS működni fog, de lassan, és a játékok lehet, hogy nem férnek el.",
   "check.battery": "A laptop akkumulátorról megy. Telepítés előtt dugd be a töltőt: a telepítés eltart egy ideig, és a gép nem kapcsolhat ki közben.",
   "check.secureboot_nvidia": "A Secure Boot be van kapcsolva, és ebben a gépben NVIDIA videókártya van. Telepítés után a Sloth Center egyszer megkér, hogy engedélyezd a Sloth OS kulcsát, hogy az NVIDIA driver betöltődhessen. Ez pár kattintás.",

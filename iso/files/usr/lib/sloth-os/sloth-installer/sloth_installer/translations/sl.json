@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Preizkusi",
   "welcome.install": "Namesti",
-  "check.bios": "Ta računalnik je namestitveni program zagnal v starem načinu (BIOS), Sloth OS pa potrebuje način UEFI. Znova zaženite, odprite nastavitve računalnika (pogosto F2 ali Del ob zagonu), vklopite UEFI (izklopite »CSM« ali »Legacy«) in znova zaženite z ključa USB: v zagonskem meniju izberite vnos, ki se začne z »UEFI«.",
   "check.memory": "Ta računalnik ima manj kot 4 GB pomnilnika. Sloth OS bo deloval, a počasi, igre pa morda ne bodo šle nanj.",
   "check.battery": "Prenosnik deluje na baterijo. Pred namestitvijo priključite polnilnik: namestitev traja nekaj časa in računalnik se ne sme ugasniti sredi nje.",
   "check.secureboot_nvidia": "Secure Boot je vklopljen in ta računalnik ima grafično kartico NVIDIA. Po namestitvi vas bo Sloth Center enkrat prosil, da dovolite ključ Sloth OS, da se lahko naloži gonilnik NVIDIA. To je nekaj klikov.",

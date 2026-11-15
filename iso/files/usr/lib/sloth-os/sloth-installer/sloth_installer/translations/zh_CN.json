@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name}（{size}）",
   "welcome.try": "试用",
   "welcome.install": "安装",
-  "check.bios": "这台电脑以旧式（BIOS）模式启动了安装程序，而 Sloth OS 需要 UEFI 模式。请重启，打开电脑的设置（开机时通常按 F2 或 Del），开启 UEFI（关闭“CSM”或“Legacy”），然后再次从 U 盘启动：在启动菜单中选择以“UEFI”开头的项目。",
   "check.memory": "这台电脑的内存不足 4 GB。Sloth OS 可以运行，但会很慢，游戏可能放不下。",
   "check.battery": "笔记本正在使用电池。安装前请接上充电器：安装需要一段时间，电脑不能中途关机。",
   "check.secureboot_nvidia": "安全启动（Secure Boot）已开启，并且这台电脑有 NVIDIA 显卡。安装后，Sloth Center 会请你允许一次 Sloth OS 的密钥，以便加载 NVIDIA 驱动。只需点几下。",

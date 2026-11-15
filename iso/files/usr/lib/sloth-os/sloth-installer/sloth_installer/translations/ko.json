@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "체험하기",
   "welcome.install": "설치",
-  "check.bios": "이 컴퓨터는 설치 프로그램을 예전(BIOS) 모드로 시작했지만, Sloth OS에는 UEFI 모드가 필요합니다. 다시 시작한 뒤 컴퓨터 설정을 열고(시작할 때 보통 F2 또는 Del), UEFI를 켜고(\"CSM\"이나 \"Legacy\"는 끄고) USB 드라이브에서 다시 시작하세요. 부팅 메뉴에서는 \"UEFI\"로 시작하는 항목을 고릅니다.",
   "check.memory": "이 컴퓨터의 메모리는 4GB보다 적습니다. Sloth OS는 작동하지만 느리며, 게임은 들어가지 않을 수 있습니다.",
   "check.battery": "노트북이 배터리로 작동 중입니다. 설치하기 전에 충전기를 연결하세요. 설치에는 시간이 걸리며 도중에 컴퓨터가 꺼지면 안 됩니다.",
   "check.secureboot_nvidia": "보안 부팅(Secure Boot)이 켜져 있고 이 컴퓨터에는 NVIDIA 그래픽 카드가 있습니다. 설치 후 NVIDIA 드라이버를 불러올 수 있도록 Sloth Center가 한 번 Sloth OS 키를 허용해 달라고 요청합니다. 몇 번 클릭하면 됩니다.",

@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Try it",
   "welcome.install": "Install",
-  "check.bios": "This computer started the installer in legacy (BIOS) mode, and Sloth OS needs UEFI mode. Restart, open the computer's settings (often F2 or Del while it starts), turn on UEFI (turn off \"CSM\" or \"Legacy\"), then start from the USB drive again: in the boot menu, choose the entry that begins with \"UEFI\".",
   "check.memory": "This computer has less than 4 GB of memory. Sloth OS will work, but slowly, and games may not fit.",
   "check.battery": "The laptop is running on battery. Plug in the charger before installing: installing takes a while, and the computer must not switch off halfway.",
   "check.secureboot_nvidia": "Secure Boot is on, and this computer has an NVIDIA graphics card. After installing, Sloth Center asks you once to allow the Sloth OS key, so the NVIDIA driver can load. It takes a few clicks.",

@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Ɛreḍ-it",
   "welcome.install": "Sebded",
-  "check.bios": "Aselkim-a yessekker amsebdad deg uskar aqbur (BIOS), maca Sloth OS yesra askar UEFI. Ales asekker, ldi iɣewwaren n uselkim (s waṭas F2 neɣ Del mi ara yekker), rmed UEFI (sens \"CSM\" neɣ \"Legacy\"), syin ales asekker seg tsaft USB: deg wumuɣ n usekker fren anekcum ara yebdun s \"UEFI\".",
   "check.memory": "Aselkim-a ɣur-s ddaw n 4 GB n tkatut. Sloth OS ad yeddu, maca s ttawil, ahat uraren ur kecmen ara.",
   "check.battery": "Aselkim amuddu yetteddu s tbaṭrit. Qqen asewwaq uqbel asebded: asebded yettawi kra n wakud, ur ilaq ara ad yexsi uselkim deg tlemmast.",
   "check.secureboot_nvidia": "Secure Boot yermed, aselkim-a ɣur-s takarḍa tudlift NVIDIA. Seld asebded, Sloth Center ad k·m-yessuter yiwet n tikkelt ad tsirgeḍ tasarut n Sloth OS, akken ad yali unuḍaf n NVIDIA. D kra n yitekkiyen.",

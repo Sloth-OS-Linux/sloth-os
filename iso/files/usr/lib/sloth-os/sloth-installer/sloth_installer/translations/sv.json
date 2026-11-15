@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Prova",
   "welcome.install": "Installera",
-  "check.bios": "Den här datorn startade installationsprogrammet i gammalt läge (BIOS), och Sloth OS behöver UEFI-läge. Starta om, öppna datorns inställningar (ofta F2 eller Del vid start), slå på UEFI (slå av ”CSM” eller ”Legacy”) och starta från USB-enheten igen: välj i startmenyn posten som börjar med ”UEFI”.",
   "check.memory": "Den här datorn har mindre än 4 GB minne. Sloth OS fungerar, men långsamt, och spel kanske inte får plats.",
   "check.battery": "Den bärbara datorn går på batteri. Anslut laddaren innan du installerar: installationen tar en stund, och datorn får inte stängas av halvvägs.",
   "check.secureboot_nvidia": "Secure Boot är på, och den här datorn har ett NVIDIA-grafikkort. Efter installationen ber Sloth Center dig en gång att tillåta Sloth OS-nyckeln så att NVIDIA-drivrutinen kan läsas in. Det tar några klick.",

@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Prøv",
   "welcome.install": "Installer",
-  "check.bios": "Denne datamaskina starta installasjonsprogrammet i gammal (BIOS-)modus, og Sloth OS treng UEFI-modus. Start på nytt, opne innstillingane til datamaskina (ofte F2 eller Del under oppstart), slå på UEFI (slå av «CSM» eller «Legacy»), og start frå USB-stasjonen att: vel i oppstartsmenyen oppføringa som byrjar med «UEFI».",
   "check.memory": "Denne datamaskina har mindre enn 4 GB minne. Sloth OS vil fungere, men sakte, og spel får kanskje ikkje plass.",
   "check.battery": "Den berbare går på batteri. Kopla til ladaren før du installerer: installasjonen tek litt tid, og datamaskina må ikkje slå seg av halvvegs.",
   "check.secureboot_nvidia": "Secure Boot er slått på, og denne datamaskina har eit NVIDIA-skjermkort. Etter installasjonen ber Sloth Center deg éin gong om å tillate Sloth OS-nøkkelen, slik at NVIDIA-drivaren kan lastast. Det tek nokre få klikk.",

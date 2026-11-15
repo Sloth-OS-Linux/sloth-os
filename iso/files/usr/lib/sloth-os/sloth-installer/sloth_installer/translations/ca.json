@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Prova-ho",
   "welcome.install": "Instal·la",
-  "check.bios": "Aquest ordinador ha iniciat l'instal·lador en mode antic (BIOS), i Sloth OS necessita el mode UEFI. Reinicieu, obriu la configuració de l'ordinador (sovint F2 o Supr en arrencar), activeu UEFI (desactiveu «CSM» o «Legacy») i torneu a arrencar des de la unitat USB: al menú d'arrencada, trieu l'entrada que comença per «UEFI».",
   "check.memory": "Aquest ordinador té menys de 4 GB de memòria. Sloth OS funcionarà, però a poc a poc, i potser no hi cabran els jocs.",
   "check.battery": "El portàtil funciona amb bateria. Endolleu el carregador abans d'instal·lar: la instal·lació triga una estona i l'ordinador no s'ha d'apagar a mitges.",
   "check.secureboot_nvidia": "L'arrencada segura (Secure Boot) està activada i aquest ordinador té una targeta gràfica NVIDIA. Després d'instal·lar, el Sloth Center us demanarà un cop que permeteu la clau de Sloth OS perquè es pugui carregar el controlador d'NVIDIA. Són uns quants clics.",

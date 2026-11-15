@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Încearcă",
   "welcome.install": "Instalează",
-  "check.bios": "Acest calculator a pornit programul de instalare în modul vechi (BIOS), iar Sloth OS are nevoie de modul UEFI. Reporniți, deschideți setările calculatorului (adesea F2 sau Del la pornire), activați UEFI (dezactivați „CSM” sau „Legacy”), apoi porniți din nou de pe unitatea USB: în meniul de pornire, alegeți intrarea care începe cu „UEFI”.",
   "check.memory": "Acest calculator are mai puțin de 4 GB de memorie. Sloth OS va funcționa, dar încet, iar jocurile s-ar putea să nu încapă.",
   "check.battery": "Laptopul funcționează pe baterie. Conectați încărcătorul înainte de instalare: instalarea durează puțin, iar calculatorul nu trebuie să se oprească la jumătate.",
   "check.secureboot_nvidia": "Secure Boot este activat, iar acest calculator are o placă video NVIDIA. După instalare, Sloth Center vă va cere o dată să permiteți cheia Sloth OS, ca driverul NVIDIA să se poată încărca. Sunt câteva clicuri.",

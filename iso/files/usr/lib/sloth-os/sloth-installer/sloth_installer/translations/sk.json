@@ -8,7 +8,6 @@
   "welcome.screen_item": "{n}. {name} ({size})",
   "welcome.try": "Vyskúšať",
   "welcome.install": "Nainštalovať",
-  "check.bios": "Tento počítač spustil inštalátor v starom režime (BIOS), ale Sloth OS potrebuje režim UEFI. Reštartujte, otvorte nastavenia počítača (často F2 alebo Del pri spúšťaní), zapnite UEFI (vypnite „CSM“ alebo „Legacy“) a znova spustite z USB disku: v ponuke spúšťania vyberte položku, ktorá začína na „UEFI“.",
   "check.memory": "Tento počítač má menej ako 4 GB pamäte. Sloth OS bude fungovať, ale pomaly, a hry sa nemusia zmestiť.",
   "check.battery": "Notebook beží na batériu. Pred inštaláciou pripojte nabíjačku: inštalácia chvíľu trvá a počítač sa nesmie v polovici vypnúť.",
   "check.secureboot_nvidia": "Secure Boot je zapnutý a tento počítač má grafickú kartu NVIDIA. Po inštalácii vás Sloth Center raz požiada o povolenie kľúča Sloth OS, aby sa mohol načítať ovládač NVIDIA. Je to pár kliknutí.",
