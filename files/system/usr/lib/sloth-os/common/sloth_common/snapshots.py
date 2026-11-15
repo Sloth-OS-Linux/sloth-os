@@ -34,6 +34,9 @@ EXCLUDED = [
     ".local/share/Steam/steamapps",
     ".var/app/com.valvesoftware.Steam/.local/share/Steam/steamapps",
     "Games",
+    # containers and their images (Developer environments, podman, distrobox): downloaded again in minutes, and
+    # they change with every update; with them a developer machine's backups held 17 GB more (2026-11-15)
+    ".local/share/containers",
 ]
 
 
