@@ -10,8 +10,8 @@
 
 { export PS4='+( ${BASH_SOURCE}:${LINENO} ): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'; } 2>/dev/null
 
-# grub2-tools-minimal and grub2-pc-modules: grub2-mkimage, the BIOS modules and the hybrid MBR
-dnf install -y squashfs-tools xorriso yq mtools dosfstools grub2-tools-minimal grub2-pc-modules
+# grub2-tools and grub2-pc-modules: grub2-mkimage, the BIOS modules and the hybrid MBR
+dnf install -y squashfs-tools xorriso yq mtools dosfstools grub2-tools grub2-pc-modules
 
 mkdir -p \
     /work \
