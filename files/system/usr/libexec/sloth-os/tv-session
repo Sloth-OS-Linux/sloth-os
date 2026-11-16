@@ -23,14 +23,37 @@ command -v gamescope >/dev/null 2>&1 || desktop "gamescope is missing"
 
 export XDG_CURRENT_DESKTOP=gamescope
 started=$(date +%s)
+
+# Steam's "Switch to Desktop": the shim (tv-shim/steamos-session-select, inside the sandbox) leaves a note here; then
+# Steam gets 10 seconds to close by itself, and is closed from outside after that. gamescope ends with it, and the
+# desktop starts below.
+notes="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/sloth-tv"
+mkdir -p "$notes"
+rm -f "$notes/switch-to-desktop"
+(
+    while sleep 1; do
+        [ -e "$notes/switch-to-desktop" ] || continue
+        log "Steam asked for the desktop: $(tail -n 1 "$notes/switch-to-desktop")"
+        for _ in 1 2 3 4 5 6 7 8 9 10; do
+            flatpak ps --columns=application 2>/dev/null | grep -qx com.valvesoftware.Steam || exit 0
+            sleep 1
+        done
+        log "Steam did not close by itself, closing it"
+        flatpak kill com.valvesoftware.Steam >/dev/null 2>&1
+        exit 0
+    done
+) &
+watcher=$!
+
 # -e: Steam integration (its overlay, focus); -f: full screen. Steam: the big-screen interface (-gamepadui).
 # Steam's "Switch to Desktop" calls steamos-session-select (made for SteamOS); ours (tv-shim) closes Steam, so the desktop
 # starts below. The Flatpak sees the host's /usr under /run/host (host-os, read only), and our folder comes first on its
 # PATH (the rest as the Flatpak has it).
-gamescope -e -f -- flatpak run --filesystem=host-os:ro \
+gamescope -e -f -- flatpak run --filesystem=host-os:ro --filesystem=xdg-run/sloth-tv:create \
     --env=PATH=/run/host/usr/libexec/sloth-os/tv-shim:/app/bin:/app/utils/bin:/usr/bin:/bin \
     com.valvesoftware.Steam -gamepadui
 code=$?
+kill "$watcher" 2>/dev/null
 # Steam is fully closed before the desktop starts (its own autostart may open it there again, as usual)
 flatpak kill com.valvesoftware.Steam >/dev/null 2>&1
 if (( code != 0 && $(date +%s) - started < 15 )); then

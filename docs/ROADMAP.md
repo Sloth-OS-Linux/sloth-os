@@ -120,7 +120,11 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        great, I like it a lot"), but Steam's power menu → Switch to Desktop froze: Steam calls steamos-session-select
        (made for SteamOS), missing in the Flatpak. Now ours (/usr/libexec/sloth-os/tv-shim, first on the Flatpak's PATH,
        the host's /usr seen read-only under /run/host) closes Steam, and the desktop starts as after Exit Steam
-     - [ ] On the HP again: Switch to Desktop brings the desktop
+     - [x] On the HP again (2026-11-16): "Switching to desktop…" for ever: our shim was called, but Steam did not take
+       `steam -shutdown` while it waited for the shim. Now the shim only leaves a note ($XDG_RUNTIME_DIR/sloth-tv, shared
+       with the sandbox: --filesystem=xdg-run/sloth-tv:create) and returns; tv-session gives Steam 10 s, then closes it
+       from outside, and the desktop starts. Tried in a container with a stuck fake Steam: the desktop after 14 s
+     - [ ] On the HP: Switch to Desktop brings the desktop (within about 10 s)
      - [x] The session's name in 50 languages (tools/gen_desktop_entries.py writes sloth-tv.desktop now); Games → TV
        mode explains it, with "Open it on the whole screen now" (Steam's Big Picture on the desktop:
        steam://open/bigpicture), and a "TV mode" Start menu entry does the same (org.slothos.tv-mode.desktop)

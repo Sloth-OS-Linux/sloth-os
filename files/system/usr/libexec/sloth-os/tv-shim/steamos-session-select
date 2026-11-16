@@ -1,6 +1,12 @@
 #!/bin/sh
 # TV mode (/usr/libexec/sloth-os/tv-session): Steam's "Switch to Desktop" calls this program, as on SteamOS, where it
-# switches sessions. Without it Steam froze there (2026-11-16, the HP). Here Steam closes properly, and the TV session
-# then starts the desktop, the same way as after "Exit Steam". It runs inside the Flatpak Steam's sandbox (tv-session
-# puts this folder first on its PATH), so `steam` is the Flatpak's own.
-exec steam -shutdown
+# switches sessions. It runs inside the Flatpak Steam's sandbox (tv-session puts this folder first on its PATH).
+#
+# It only leaves a note for tv-session (in $XDG_RUNTIME_DIR/sloth-tv, shared with the sandbox) and returns at once:
+# Steam waits for it ("Switching to desktop…"), so asking Steam itself to close from here got stuck (2026-11-16, the
+# HP: first a freeze without this program, then "Switching to desktop…" for ever with `steam -shutdown`). tv-session
+# closes Steam from outside, and the desktop starts as after "Exit Steam". The note says when and how Steam asked.
+dir="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/sloth-tv"
+mkdir -p "$dir" 2>/dev/null
+echo "$(date '+%F %T') steamos-session-select $*" >> "$dir/switch-to-desktop"
+exit 0
