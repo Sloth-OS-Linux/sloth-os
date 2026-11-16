@@ -1,0 +1,57 @@
+#!/usr/bin/python3 -I
+"""TV mode (/usr/libexec/sloth-os/tv-session): a stand-in for Valve's steamos-manager, only for switching sessions.
+
+Steam's power menu → Switch to Desktop calls, on the session bus, com.steampowered.SteamOSManager1 (object
+/com/steampowered/SteamOSManager1, interface com.steampowered.SteamOSManager1.SessionManagement1) SwitchToDesktopMode(),
+a method without arguments; the interface also has SwitchToGameMode(). Checked against polaris'
+src/steamos_session.h, which checks the real steamos-manager's interface (2026-11-16; Valve's own repository refuses
+automated reading). Without the service Steam got org.freedesktop.DBus.Error.ServiceUnknown and waited for ever at
+"Switching to desktop…" (the HP, its console-linux.txt).
+
+SwitchToDesktopMode leaves the same note as tv-shim/steamos-session-select ($XDG_RUNTIME_DIR/sloth-tv/
+switch-to-desktop) and answers at once; tv-session then closes Steam (10 s for it to close by itself) and the desktop
+starts. SwitchToGameMode: already in it, nothing to do. Runs only while the TV session runs.
+"""
+import os
+import sys
+import time
+
+from gi.repository import Gio, GLib
+
+NAME = "com.steampowered.SteamOSManager1"
+PATH = "/com/steampowered/SteamOSManager1"
+XML = """<node>
+  <interface name="com.steampowered.SteamOSManager1.SessionManagement1">
+    <method name="SwitchToDesktopMode"/>
+    <method name="SwitchToGameMode"/>
+  </interface>
+</node>"""
+NOTES = os.path.join(os.environ.get("XDG_RUNTIME_DIR") or f"/run/user/{os.getuid()}", "sloth-tv")
+
+
+def on_call(_conn, _sender, _path, _iface, method, _params, invocation):
+    if method == "SwitchToDesktopMode":
+        try:
+            os.makedirs(NOTES, exist_ok=True)
+            with open(os.path.join(NOTES, "switch-to-desktop"), "a", encoding="utf-8") as f:
+                f.write(time.strftime("%F %T") + " SessionManagement1.SwitchToDesktopMode\n")
+        except OSError as e:
+            print(f"tv-steamos-manager: {e}", file=sys.stderr)
+    invocation.return_value(None)
+
+
+def main():
+    node = Gio.DBusNodeInfo.new_for_xml(XML)
+    loop = GLib.MainLoop()
+
+    def on_bus(conn, _name):
+        conn.register_object(PATH, node.interfaces[0], on_call, None, None)
+
+    Gio.bus_own_name(Gio.BusType.SESSION, NAME, Gio.BusNameOwnerFlags.NONE, on_bus, None,
+                     lambda *_: loop.quit())       # the name taken by someone else: nothing to stand in for
+    loop.run()
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

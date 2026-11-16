@@ -124,6 +124,12 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        `steam -shutdown` while it waited for the shim. Now the shim only leaves a note ($XDG_RUNTIME_DIR/sloth-tv, shared
        with the sandbox: --filesystem=xdg-run/sloth-tv:create) and returns; tv-session gives Steam 10 s, then closes it
        from outside, and the desktop starts. Tried in a container with a stuck fake Steam: the desktop after 14 s
+     - [x] Still "Switching to desktop…" on the HP: our script logged nothing (the shim was never called), and Steam's
+       console-linux.txt said org.freedesktop.DBus.Error.ServiceUnknown at each press: newer Steam asks steamos-manager
+       over D-Bus. Now /usr/libexec/sloth-os/tv-steamos-manager stands in during the TV session: the session bus name
+       com.steampowered.SteamOSManager1, /com/steampowered/SteamOSManager1, SessionManagement1 with
+       SwitchToDesktopMode() and SwitchToGameMode() (as polaris' steamos_session.h checks the real one); it leaves the
+       same note, and tv-session closes Steam. The Flatpak gets --talk-name for it. Tried with a real D-Bus call
      - [ ] On the HP: Switch to Desktop brings the desktop (within about 10 s)
      - [x] The session's name in 50 languages (tools/gen_desktop_entries.py writes sloth-tv.desktop now); Games → TV
        mode explains it, with "Open it on the whole screen now" (Steam's Big Picture on the desktop:

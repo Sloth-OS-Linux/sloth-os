@@ -45,15 +45,25 @@ rm -f "$notes/switch-to-desktop"
 ) &
 watcher=$!
 
+# Newer Steam asks for the desktop over D-Bus (steamos-manager's SessionManagement1), not with steamos-session-select:
+# our stand-in answers and leaves the same note (/usr/libexec/sloth-os/tv-steamos-manager)
+/usr/libexec/sloth-os/tv-steamos-manager &
+manager=$!
+for _ in 1 2 3 4 5 6 7 8 9 10; do
+    busctl --user status com.steampowered.SteamOSManager1 >/dev/null 2>&1 && break
+    sleep 0.3
+done
+
 # -e: Steam integration (its overlay, focus); -f: full screen. Steam: the big-screen interface (-gamepadui).
 # Steam's "Switch to Desktop" calls steamos-session-select (made for SteamOS); ours (tv-shim) closes Steam, so the desktop
 # starts below. The Flatpak sees the host's /usr under /run/host (host-os, read only), and our folder comes first on its
 # PATH (the rest as the Flatpak has it).
 gamescope -e -f -- flatpak run --filesystem=host-os:ro --filesystem=xdg-run/sloth-tv:create \
+    --talk-name=com.steampowered.SteamOSManager1 \
     --env=PATH=/run/host/usr/libexec/sloth-os/tv-shim:/app/bin:/app/utils/bin:/usr/bin:/bin \
     com.valvesoftware.Steam -gamepadui
 code=$?
-kill "$watcher" 2>/dev/null
+kill "$watcher" "$manager" 2>/dev/null
 # Steam is fully closed before the desktop starts (its own autostart may open it there again, as usual)
 flatpak kill com.valvesoftware.Steam >/dev/null 2>&1
 if (( code != 0 && $(date +%s) - started < 15 )); then
