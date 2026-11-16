@@ -24,7 +24,6 @@ The old system version stays in the boot menu: if the new one does not start, yo
 import json
 import logging
 import os
-import pwd
 import re
 import shutil
 import subprocess

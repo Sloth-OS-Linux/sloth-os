@@ -125,7 +125,7 @@ def url_protocols(prefix):
       [Software\\Classes\\roblox-studio-auth\\shell\\open\\command]  @="\\"C:\\…\\RobloxStudioBeta.exe\\" %1"
     The user's own registration (user.reg) wins, as on Windows.
     """
-    base = "software\classes\\"
+    base = "software\\classes\\"
     out = {}
     for reg in ("system.reg", "user.reg"):
         keys = read(Path(prefix) / reg)
@@ -135,14 +135,14 @@ def url_protocols(prefix):
             scheme = key[len(base):]
             if not _SCHEME.match(scheme) or scheme in COMMON_SCHEMES or scheme.startswith("ms-"):
                 continue
-            command = keys.get(f"{key}\shell\open\command", {}).get("")
+            command = keys.get(f"{key}\\shell\\open\\command", {}).get("")
             if isinstance(command, str) and command.strip():
                 out[scheme] = command.strip()
     return out
 
 
 def split_command(command, url):
-    """A registered command with the link put in: '"C:\X\a.exe" --x "%1"' -> ('C:\X\a.exe', ['--x', url])."""
+    """A registered command with the link put in: '"C:\\X\\a.exe" --x "%1"' -> ('C:\\X\\a.exe', ['--x', url])."""
     # a quoted part is one argument; quotes inside a word (-url:"%1") only group, Windows drops them
     parts = [bare.replace('"', "") if bare else quoted
              for quoted, bare in re.findall(r'"([^"]*)"|((?:[^\s"]|"[^"]*")+)', command)]

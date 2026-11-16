@@ -3,7 +3,6 @@
 Start menu are recognised, which Steam games are found (also on a second drive, from libraryfolders.vdf), and how
 they are copied into Steam's library. No mounting, Steam or Qt needed."""
 import json
-import os
 import shutil
 import sqlite3
 import sys
