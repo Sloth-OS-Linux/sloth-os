@@ -24,14 +24,19 @@ def main():
         start_page = sys.argv[i + 1]
         del sys.argv[i:i + 2]
     # sloth-center --kcm <page> [--kcm-args "<arguments>"] : a KDE settings page (from `systemsettings <page>`)
-    start_kcm = start_kcm_args = ""
-    for opt in ("--kcm", "--kcm-args"):
+    # sloth-center --page games --game steam:<appid> : a game's settings at once (the "closed right after it
+    # started" notification, game_doctor.py)
+    start_kcm = start_kcm_args = start_game = ""
+    for opt in ("--kcm", "--kcm-args", "--game"):
         if opt in sys.argv[1:-1]:
             i = sys.argv.index(opt)
+            value = sys.argv[i + 1]
             if opt == "--kcm":
-                start_kcm = sys.argv[i + 1]
+                start_kcm = value
+            elif opt == "--kcm-args":
+                start_kcm_args = value
             else:
-                start_kcm_args = sys.argv[i + 1]
+                start_game = value
             del sys.argv[i:i + 2]
     app = QApplication(sys.argv)
     app.setApplicationName("sloth-center")
@@ -100,6 +105,7 @@ def main():
     engine.rootContext().setContextProperty("startPage", start_page)
     engine.rootContext().setContextProperty("startKcm", start_kcm)
     engine.rootContext().setContextProperty("startKcmArgs", start_kcm_args)
+    engine.rootContext().setContextProperty("startGame", start_game)
     updates = UpdatesController()
     firmware = FirmwareController()
     remote_help = RemoteHelpController()

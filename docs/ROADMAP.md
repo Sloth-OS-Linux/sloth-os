@@ -22,6 +22,27 @@ from a terminal must also work from a GUI.
   forbids it). Tests: `BiosBootableTest` in tools/tests/test_install_helper.py (a real disk image)
 - [ ] The VAIO again with the new ISO: it starts from the disk
 
+### What's wrong with the game? Steam games that don't start (2026-11-16, test branch, not pushed yet)
+- [x] The game-mode service notes how long each game ran (with game mode off too): a Steam game that closes within
+  30 s of starting goes to `sloth_common/steam_doctor.py`, and once notifications speak again a notification says
+  "<game> closed right after it started" with "Look into it" (`sloth-center --page games --game steam:<id>`).
+  Windows programs are left to their own self-healing (sloth-exe)
+- [x] The game's settings dialog shows "What's wrong with the game?": how many times and after how many seconds,
+  what is being tried, and the buttons: Try a fix / Try the next fix / Undo the fixes / It was me who closed it. A
+  fix closes Steam (its files are only written while it's closed), writes the next step, and starts the game again:
+  without fsync/esync → WineD3D → Proton Experimental → the newest GE-Proton installed (skipped if none) → Proton 9.
+  Launch options keep the user's own words and our per-game settings; the compatibility tool is set for that game
+  only; Undo takes our part out and puts the earlier tool back. A run of 2 minutes or more marks the fix as working.
+  Nothing helped: it says where to look (Will it run?, Help and feedback). A Linux version (no compatdata): it says
+  so, and points to Steam's Verify integrity of game files. The library's tile says "Didn't start". 50 languages,
+  no "Proton" or "Wine" in the texts ("the Windows runtime")
+- [x] Tried: `tools/tests/test_steam_doctor.py` (6: the ladder, Undo, GE-Proton, the user's own tool, a Linux
+  version); end to end in a container: a fake Steam game closing after 5 s noted by the service, Sloth Center opened
+  as the notification's button opens it, Try a fix written into Steam's files
+- Not done: reading Proton's log to pick the fix (it is only written with PROTON_LOG=1, which slows games)
+- [ ] On the HP: a game that really doesn't start (or one made to: e.g. a wrong launch option), the notification,
+  Try a fix with Steam open (it closes and the game starts again), Undo
+
 ### The game library (2026-11-16, test branch, not pushed yet)
 - [x] Sloth Center → Games starts with every game as a cover (2:3), a Play button and a click to start; under it the
   name, the store and "Will it run?". The gear (Steam and Windows games) opens the settings they had before as
@@ -75,8 +96,9 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      below
   2. [x] **One library for every game** (medium–large, new): Steam, Heroic, GOG and Windows games in one place with
      their covers and a Play button. Done 2026-11-16, see "The game library" below
-  3. **What's wrong with the game?** (large, listed: "when a game fails or crashes…"): a readable summary, and the
-     system tries fixes by itself (Windows programs have it, Steam games not yet)
+  3. [x] **What's wrong with the game?** (large, listed: "when a game fails or crashes…"): a readable summary, and
+     the system tries fixes by itself (Windows programs have it, Steam games not yet). Done 2026-11-16 for Steam games,
+     see "What's wrong with the game?" below
   4. **TV mode** (medium, new): a controller-first, big-screen session chosen at sign-in, like a console (Steam Big
      Picture full screen)
 - Old computers (after BIOS mode):

@@ -10,16 +10,17 @@ import logging
 import re
 import subprocess
 import threading
+import time
 from pathlib import Path
 
 from PySide6.QtCore import QObject, Property, Signal, Slot
 from PySide6.QtGui import QGuiApplication
 
-from sloth_common import game_check, game_library, gamesettings
+from sloth_common import game_check, game_library, gamesettings, steam_doctor
 from sloth_common.apps import library, menu, steam, steam_library
 from sloth_common.apps.steam import steam_root, vdf_dump, vdf_load
 
-from . import texts
+from . import game_doctor, texts
 from .i18n import N_, tr
 log = logging.getLogger("sloth-center.games")
 
@@ -160,6 +161,7 @@ class GamesController(QObject):
     _moved = Signal(str, str, str)  # from the background thread: game id, error key ("" = done), new place
     _indexed = Signal(bool)  # from the background thread: the "Will it run?" list was downloaded
     _covered = Signal(str, str)  # from the background thread: a game id, its downloaded cover
+    _fixed = Signal(str, str)    # from the background thread: a game id, "" / an error / "info:<text>"
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -175,6 +177,8 @@ class GamesController(QObject):
         self._indexed.connect(self._on_indexed)
         self._covered.connect(self._on_covered)
         self._fetching = set()   # the covers being downloaded (once per game and run)
+        self._fixing = ""        # the game whose fix is being written (Steam closing first)
+        self._fixed.connect(self._on_fixed)
         self._load_index()
         if game_check.needs_download():
             threading.Thread(target=lambda: self._indexed.emit(game_check.download()), daemon=True).start()
@@ -230,7 +234,8 @@ class GamesController(QObject):
                           "check": describe(check) if check else {},
                           "place": place_label(found["library"], root) if found else "",
                           "size": texts.size_text(found["size"]) if found and found["size"] else "",
-                          "movable": movable and found is not None})
+                          "movable": movable and found is not None,
+                          "doctor": self._doctor(g["appid"], root)})
         # Only games (recognized, a game launcher, or the user said so in Programs), not e.g. Notepad++
         for app in library.all_apps():
             if not library.is_game(app):
@@ -391,6 +396,92 @@ class GamesController(QObject):
                 result = "copy_failed"
             self._moved.emit(game_id, result, place_label(target, root))
         threading.Thread(target=work, daemon=True).start()
+
+    # --- What's wrong with the game? (sloth_common.steam_doctor; the game-mode service notices) --------------
+
+    @staticmethod
+    def _doctor(appid, root):
+        """The summary for a Steam game that did not start, with the text of the fix in use; {} if all is well."""
+        s = steam_doctor.summary(appid, root)
+        if not s:
+            return {}
+        return {**s, "stepText": game_doctor.step_text(s["step"])}
+
+    def _steam_closed(self, wait_s=30):
+        """Closes Steam and waits until it is gone (its settings files are written on exit). -> True if closed."""
+        if not steam_running():
+            return True
+        self.closeSteam()
+        for _ in range(wait_s * 2):
+            time.sleep(0.5)
+            if not steam_running():
+                time.sleep(1)       # its last writes
+                return True
+        return False
+
+    @Slot(str)
+    def tryFix(self, game_id):
+        """The next fix for a Steam game that did not start: Steam closes, the fix is written, the game starts again."""
+        appid = game_id.split(":", 1)[1]
+        name = next((g["name"] for g in self._games if g["id"] == game_id), "")
+        screen = screen_size()
+        self._fixing = game_id
+        self.changed.emit()
+
+        def work():
+            if not self._steam_closed():
+                self._fixed.emit(game_id, tr("Steam didn't close. Close it yourself, then try again."))
+                return
+            try:
+                key = steam_doctor.try_next(steam_root(), localconfig_path(), appid, screen)
+            except OSError as e:
+                log.warning("fix for %s: %s", appid, e)
+                self._fixed.emit(game_id, tr("The setting couldn't be saved."))
+                return
+            if key is None:
+                self._fixed.emit(game_id, "")
+                return
+            subprocess.Popen(["xdg-open", f"steam://rungameid/{appid}"], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            self._fixed.emit(game_id, "info:" + tr("{name} starts again with this: {fix}.", name=name,
+                                                   fix=game_doctor.step_text(key)))
+        threading.Thread(target=work, daemon=True).start()
+
+    @Slot(str)
+    def undoFix(self, game_id):
+        """Takes the fixes out again (Steam closes for it)."""
+        appid = game_id.split(":", 1)[1]
+        screen = screen_size()
+        self._fixing = game_id
+        self.changed.emit()
+
+        def work():
+            if not self._steam_closed():
+                self._fixed.emit(game_id, tr("Steam didn't close. Close it yourself, then try again."))
+                return
+            try:
+                steam_doctor.undo(steam_root(), localconfig_path(), appid, screen)
+            except OSError as e:
+                log.warning("undo for %s: %s", appid, e)
+                self._fixed.emit(game_id, tr("The setting couldn't be saved."))
+                return
+            self._fixed.emit(game_id, "info:" + tr("The game starts as it did before."))
+        threading.Thread(target=work, daemon=True).start()
+
+    @Slot(str)
+    def forgetProblem(self, game_id):
+        steam_doctor.forget(game_id.split(":", 1)[1])
+        self.refresh()
+
+    def _on_fixed(self, game_id, message):
+        self._fixing = ""
+        if message.startswith("info:"):
+            self._info, self._error = message[5:], ""
+        elif message:
+            self._error = message
+        self.refresh()
+
+    fixingId = Property(str, lambda self: self._fixing, notify=changed)
 
     def _on_moved(self, game_id, result, place):
         name = next((g["name"] for g in self._games if g["id"] == game_id), "")

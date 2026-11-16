@@ -10,7 +10,15 @@ Kirigami.ScrollablePage {
     id: page
     title: L.t("Games")
     // Fresh every time the page opens: a program removed (or marked) in Programs must not stay here
-    Component.onCompleted: games.refresh()
+    Component.onCompleted: {
+        games.refresh();
+        // sloth-center --page games --game <id>: the game's settings at once (the "closed right after it started"
+        // notification)
+        if (typeof startGame !== "undefined" && startGame !== "" && games.games.some(g => g.id === startGame)) {
+            gameDialog.gameId = startGame;
+            gameDialog.open();
+        }
+    }
 
     function play(game) {
         if (game.source === "windows")
@@ -155,8 +163,12 @@ Kirigami.ScrollablePage {
                             opacity: 0.7
                             font: Kirigami.Theme.smallFont
                             // "Steam · 🟢 Runs well"
-                            text: [tile.sourceText, tile.modelData.check && tile.modelData.check.badgeText
-                                   ? tile.modelData.check.mark + " " + tile.modelData.check.badgeText : ""]
+                            // a game that didn't start says so instead of the reports' verdict
+                            text: [tile.sourceText,
+                                   tile.modelData.doctor && tile.modelData.doctor.failures > 0 && tile.modelData.doctor.status !== "works"
+                                   ? "⚠️ " + L.t("Didn't start")
+                                   : tile.modelData.check && tile.modelData.check.badgeText
+                                     ? tile.modelData.check.mark + " " + tile.modelData.check.badgeText : ""]
                                   .filter(t => t !== "").join(" · ")
                         }
                     }
@@ -405,6 +417,80 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     contentItem: ColumnLayout {
                         spacing: Kirigami.Units.largeSpacing
+                        // --- What's wrong with the game? (games.py, sloth_common.steam_doctor) ----------------
+                        Kirigami.AbstractCard {
+                            id: doctorCard
+                            readonly property var d: gameCard.modelData.doctor || ({})
+                            Layout.fillWidth: true
+                            visible: d.failures > 0
+                            contentItem: ColumnLayout {
+                                spacing: Kirigami.Units.smallSpacing
+                                RowLayout {
+                                    Kirigami.Icon {
+                                        source: doctorCard.d.status === "works" ? "emblem-ok-symbolic" : "dialog-warning"
+                                        implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                                        implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                                    }
+                                    Kirigami.Heading { level: 4; text: L.t("What's wrong with the game?") }
+                                }
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    text: L.tf("Closed right after starting: {count} × so far, the last time after {seconds} seconds.",
+                                               { count: doctorCard.d.failures || 0, seconds: doctorCard.d.lastSeconds || 0 })
+                                }
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    font.bold: true
+                                    text: doctorCard.d.native
+                                          ? L.t("This is the game's Linux version, so Sloth OS can't change how it starts. In Steam, the game's Properties → Installed Files → Verify integrity of game files often helps.")
+                                          : doctorCard.d.status === "works"
+                                            ? L.tf("It works with this: {fix}.", { fix: doctorCard.d.stepText })
+                                          : doctorCard.d.status === "trying"
+                                            ? L.tf("Sloth OS is trying: {fix}. Start the game again to see whether it helps.", { fix: doctorCard.d.stepText })
+                                          : doctorCard.d.status === "gave_up" || !doctorCard.d.canTry
+                                            ? L.t("Nothing helped so far. The players' reports under Will it run? may tell more, and you can ask for help in Help and feedback.")
+                                          : L.t("Sloth OS can try settings that often help, one after the other.")
+                                }
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    opacity: 0.7
+                                    visible: !doctorCard.d.native && doctorCard.d.canTry === true
+                                    text: L.t("For this, Steam closes for a moment, and the game starts again by itself.")
+                                }
+                                RowLayout {
+                                    visible: games.fixingId === gameCard.modelData.id
+                                    QQC2.BusyIndicator { running: parent.visible }
+                                    QQC2.Label { text: L.t("Closing Steam and saving the setting…") }
+                                }
+                                Flow {
+                                    Layout.fillWidth: true
+                                    spacing: Kirigami.Units.smallSpacing
+                                    visible: games.fixingId !== gameCard.modelData.id
+                                    QQC2.Button {
+                                        visible: !doctorCard.d.native && doctorCard.d.canTry === true && doctorCard.d.status !== "works"
+                                        highlighted: true
+                                        icon.name: "tools-wizard"
+                                        text: doctorCard.d.changed ? L.t("Try the next fix") : L.t("Try a fix")
+                                        onClicked: games.tryFix(gameCard.modelData.id)
+                                    }
+                                    QQC2.Button {
+                                        visible: doctorCard.d.changed === true
+                                        icon.name: "edit-undo"
+                                        text: L.t("Undo the fixes")
+                                        onClicked: games.undoFix(gameCard.modelData.id)
+                                    }
+                                    QQC2.Button {
+                                        visible: doctorCard.d.changed !== true
+                                        flat: true
+                                        text: L.t("It was me who closed it")
+                                        onClicked: games.forgetProblem(gameCard.modelData.id)
+                                    }
+                                }
+                            }
+                        }
                         RowLayout {
                             Layout.fillWidth: true
                             spacing: Kirigami.Units.largeSpacing

@@ -10,15 +10,19 @@ While a game runs:
   - GameMode serves every game process: com.feralinteractive.GameMode.RegisterGameByPID(our pid, the game's pid)
   - plugged in: the "performance" power mode is held (tuned-ppd / power-profiles-daemon HoldProfile; released with
     ReleaseProfile, and by the daemon itself if we go away). Never on battery: the battery would run down fast
+What's wrong with the game? (sloth_common/steam_doctor.py; also with game mode off): a Steam game that closes right
+after it started is noted, and a notification offers to look into it in Sloth Center, once notifications speak again.
 """
 import logging
 import os
 import signal
 import subprocess
 import sys
+import threading
 import time
 
 sys.path.insert(0, "/usr/lib/sloth-os/common")
+sys.path.insert(0, "/usr/lib/sloth-os/sloth-center")
 try:
     from sloth_common import game_mode as gm  # noqa: E402
 except Exception:   # never: but then `playing` must still let the updates and backups run (exit 0)
@@ -66,6 +70,8 @@ class GameMode:
         self.hold = None
         self.registered = set()
         self.last_seen = 0.0
+        self.started = {}       # (kind, id) -> (when it was first seen, its name)
+        self.failed = []        # Steam games that closed right after starting: (appid, name), said after the game
 
     def _call(self, bus, name, path, iface, method, args, reply):
         try:
@@ -134,9 +140,33 @@ class GameMode:
         for unit in sorted(units & set(PAUSED_USER_UNITS)):
             subprocess.run(["systemctl", "--user", "start", "--no-block", unit], capture_output=True)
 
+    def watch_runs(self, games, now):
+        """How long each game ran: a Steam game that closed right away goes to steam_doctor (game mode on or off)."""
+        for key, game in games.items():
+            self.started.setdefault(key, (now, game["name"]))
+        for key in [k for k in self.started if k not in games]:
+            began, name = self.started.pop(key)
+            if key[0] != "steam":
+                continue      # Windows programs heal themselves at their next start (sloth-exe)
+            try:
+                from sloth_common import steam_doctor
+                if steam_doctor.record_run(key[1], now - began) == "failed":
+                    log.info("%s closed after %.0f s", name, now - began)
+                    self.failed.append((key[1], name))
+            except Exception:
+                log.exception("steam doctor")
+
+    def tell_failures(self):
+        """The notification for each game that did not start (when notifications speak again)."""
+        failed, self.failed = self.failed, []
+        for appid, name in failed:
+            threading.Thread(target=notify_failure, args=(appid, name), daemon=True).start()
+
     def tick(self):
-        games = gm.find_games() if gm.load()["enabled"] else {}
+        found = gm.find_games()
         now = time.monotonic()
+        self.watch_runs(found, now)
+        games = found if gm.load()["enabled"] else {}
         if games:
             self.last_seen = now
             if not self.active:
@@ -145,6 +175,17 @@ class GameMode:
                 self.follow(games)
         elif self.active and now - self.last_seen >= GRACE_S:
             self.stop()
+        if not self.active and self.failed:
+            self.tell_failures()
+
+
+def notify_failure(appid, name):
+    """"<game> closed right after it started" with a button that opens its settings in Sloth Center."""
+    try:
+        from sloth_center import game_doctor
+        game_doctor.notify(appid, name)
+    except Exception:
+        log.exception("the notification about %s", name)
 
 
 def run():
