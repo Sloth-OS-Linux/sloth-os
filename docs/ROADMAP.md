@@ -58,15 +58,21 @@ from a terminal must also work from a GUI.
 - [ ] When it is picked up again: the VAIO with the "safe graphics" entry and after cooling down; v2 against v3 on
   the same machine (run 43909877381's artifact)
 - [x] The same plain-MBR stick on the HP (UEFI, 2026-11-16 night): chosen in the boot menu, the HP went straight back
-  to its menu. The VM's OVMF started it, a real UEFI did not. So `iso/build_iso.sh` is back to release 1.6's ISO:
+  to its menu. The VM's OVMF started it, the HP did not (but see below: the stick itself was bad). So `iso/build_iso.sh` is back to release 1.6's ISO:
   Titanoboa's script unchanged except the hidden menu (a GPT with the EFI partition appended, UEFI only). The
   installer's BIOS code (plain MBR install) stays, out of reach: the ISO does not start in BIOS mode
-- [ ] The restored ISO on the HP: it starts the installer
-- [ ] When BIOS is picked up again: a layout real UEFI firmware accepts too (e.g. Fedora's own: lorax's hybrid
-  GPT/MBR, or Debian's isohybrid with -isohybrid-gpt-basdat), tried on the HP *and* an old BIOS machine before
-  anything ships
-- [ ] First thing on 2026-11-17: start the HP (UEFI) from the same plain-MBR stick, only up to the installer's first
-  page (no install: the stick has a test-branch build and an install would erase the HP's disk)
+- [x] **The cause was the USB stick (2026-11-17 night).** The restored ISO (v4, run 43965322056) did not start on
+  the HP from the same Sony stick (14.4 GB "Storage Media") either, and neither did the released 1.6 ISO written
+  to it and read back bit for bit (sha256 37a874af…). The same v4 ISO on another stick with Ventoy started the HP
+  perfectly. v4's EFI files are bit for bit release 1.6's (shim signed with Microsoft's 2011 and 2023 CAs), its
+  layout the same; in the VM it started from USB with UEFI, installed and started from the disk. Writing that stick
+  here also went through a flaky USB 2.0 port (usb 1-3: "Cannot enable. Maybe the USB cable is bad?", one write
+  broke off); the USB 3.0 port (usb 2-3) was fine. So the plain-MBR ISO's failure on the HP was probably the stick
+  too, not the layout, and the VAIO's power-off may need a second look with a good stick
+- [ ] When BIOS is picked up again: with a good stick (not the Sony one) and the USB 3.0 port: the plain-MBR ISO
+  (commit 29cd106's iso/build_iso.sh) on the HP and on the VAIO; if real UEFI firmware does take it, it can come back.
+  Otherwise a layout both accept (Fedora's lorax hybrid GPT/MBR, or Debian's isohybrid with -isohybrid-gpt-basdat)
+- [ ] 2026-11-17: the test ISO (v4, test-branch image) tried at school
 - [ ] Ship it as **Sloth OS 2.0** (next week): a new ISO, README / website requirements (they still say "UEFI only").
   Still on Fedora 44: no Fedora 45 base until umu-launcher supports it. BIOS support paused (see above): 2.0 may go
   out without it
