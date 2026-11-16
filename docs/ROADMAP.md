@@ -134,7 +134,17 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        no note came: Steam asks something else first. The interface also has a DefaultLoginMode property (framemate's
        steamos.rs reads it): added (a string, "game"; set to "desktop" counts as asking for the desktop), and every
        message Steam sends to the service is logged to ~/.cache/sloth-os/tv-dbus.log (busctl monitor), to see it
-     - [ ] On the HP: Switch to Desktop brings the desktop (within about 10 s)
+     - [x] On the HP: Switch to Desktop brings the desktop (2026-11-16: "it's fixed!"). The real cause: the service's
+       own log showed Steam never called it, nor the shim. Steam asks for the desktop only when it runs as on SteamOS
+       (-steamos3, as gamescope-session setups start it); without it the button did nothing. Now -steamos3 -gamepadui
+     - [x] The sign-in screen tells the sessions apart: "🎮 Sloth OS TV mode" and "🖥️ Sloth OS desktop" in place of
+       "Plasma" (files/scripts/session-names.sh rewrites only the Name lines of KDE's plasma.desktop during the build;
+       the file name stays, automatic sign-in asks for it). The greeter's layout is compiled into plasma-login-greeter,
+       so a bigger chooser or an icon between the name and the password would mean rebuilding it: not done (risky)
+     - [x] Steam's start-up video: ours instead of Valve's SteamOS logo (-steamos3 plays it): the Sloth OS logo breaks
+       into points of light that fly into a controller (tools/make_tv_intro.py, /usr/share/sloth-os/tv/startup.webm).
+       tv-session puts it in Steam's config/uioverrides/movies/deck_startup.webm, never over a video put there by hand
+     - [ ] On the HP: the two session names on the sign-in screen (the emoji shows), the start-up video plays
      - [x] The session's name in 50 languages (tools/gen_desktop_entries.py writes sloth-tv.desktop now); Games → TV
        mode explains it, with "Open it on the whole screen now" (Steam's Big Picture on the desktop:
        steam://open/bigpicture), and a "TV mode" Start menu entry does the same (org.slothos.tv-mode.desktop)

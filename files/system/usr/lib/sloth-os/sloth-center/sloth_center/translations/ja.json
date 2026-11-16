@@ -1232,6 +1232,7 @@
   "{name} starts again with this: {fix}.": "{name} を次の設定で再起動します: {fix}。",
   "Open it on the whole screen now": "今すぐ全画面で開く",
   "Sloth OS TV mode": "Sloth OS TV モード",
+  "Sloth OS desktop": "Sloth OS デスクトップ",
   "Steam on the whole screen, made for a controller and a TV": "Steam を全画面で、コントローラーとテレビ向けに",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "コントローラーとテレビ向けの Steam の大画面インターフェースです。コンピューターをゲーム機のように使うには、サインイン画面で「Sloth OS TV モード」を選びます。デスクトップはなく、Steam だけになります。Steam を終了するとデスクトップが表示されます。",
   "TV mode": "TV モード",

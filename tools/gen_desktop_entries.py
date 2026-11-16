@@ -110,10 +110,16 @@ ENTRIES = {
     # big-screen interface on the whole screen (the texts: sloth_center/games.py, TV_TEXTS)
     "files/system/usr/share/wayland-sessions/sloth-tv.desktop": [
         ("Type", "Application"),
-        ("Name", ("sloth-center", "Sloth OS TV mode")),
+        # the sign-in screen shows only the session's name: the mark tells the two apart at a glance
+        ("Name", ("sloth-center", "Sloth OS TV mode", "🎮 ")),
         ("Comment", ("sloth-center", "Steam on the whole screen, made for a controller and a TV")),
         ("Exec", "/usr/libexec/sloth-os/tv-session"),
         ("DesktopNames", "gamescope"),
+    ],
+    # The names of Plasma's own session (/usr/share/wayland-sessions/plasma.desktop, "Plasma"): files/scripts/
+    # session-names.sh puts these in place of its Name lines during the build; the rest of that file stays KDE's
+    "files/system/usr/share/sloth-os/sessions/plasma-names.desktop": [
+        ("Name", ("sloth-center", "Sloth OS desktop", "🖥️ ")),
     ],
     "files/system/usr/share/applications/org.slothos.tv-mode.desktop": [
         ("Type", "Application"),
@@ -216,18 +222,19 @@ def render(path, fields, cache):
         if isinstance(value, str):
             lines.append(f"{name}={value}")
             continue
-        tool, key = value
+        tool, key, *prefix = value  # (tool, key) or (tool, key, text put before every language's text)
+        prefix = prefix[0] if prefix else ""
         langs = cache.setdefault(tool, load(tool))
         all_langs = sorted(langs)
         english = text(langs, tool, "en", key)
         if not english:
             sys.exit(f"{path}: missing English text: {tool} / {key}")
-        lines.append(f"{name}={keywords(None, english) if name == 'Keywords' else english}")
+        lines.append(f"{name}={keywords(None, english) if name == 'Keywords' else prefix + english}")
         for lang in all_langs:
             local = text(langs, tool, lang, key)
             if lang == "en" or not local:
                 continue
-            lines.append(f"{name}[{lang}]={keywords(local, english) if name == 'Keywords' else local}")
+            lines.append(f"{name}[{lang}]={keywords(local, english) if name == 'Keywords' else prefix + local}")
     return "\n".join(lines) + "\n"
 
 

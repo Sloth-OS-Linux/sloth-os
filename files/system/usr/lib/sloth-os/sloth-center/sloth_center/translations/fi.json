@@ -1232,6 +1232,7 @@
   "{name} starts again with this: {fix}.": "{name} käynnistyy uudelleen tällä: {fix}.",
   "Open it on the whole screen now": "Avaa se nyt koko näytölle",
   "Sloth OS TV mode": "Sloth OS TV-tila",
+  "Sloth OS desktop": "Sloth OS -työpöytä",
   "Steam on the whole screen, made for a controller and a TV": "Steam koko näytöllä, tehty ohjaimelle ja televisiolle",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steamin suuren näytön käyttöliittymä, tehty ohjaimelle ja televisiolle. Jos haluat käyttää tietokonetta pelikonsolina, valitse kirjautumisnäkymässä ”Sloth OS TV-tila”: silloin työpöytää ei ole, vain Steam. Kun poistut Steamista, työpöytä tulee esiin.",
   "TV mode": "TV-tila",

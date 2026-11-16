@@ -25,6 +25,19 @@ export XDG_CURRENT_DESKTOP=gamescope
 started=$(date +%s)
 log "TV mode starts"
 
+# Steam's start-up video: ours (the Sloth OS logo turning into a controller, tools/make_tv_intro.py) instead of
+# Valve's SteamOS logo. Steam plays config/uioverrides/movies/deck_startup.webm if there is one. A video someone put
+# there by hand stays: ours is only written when there is none, or when the one there is ours (an older one).
+movies="$HOME/.var/app/com.valvesoftware.Steam/.local/share/Steam/config/uioverrides/movies"
+intro=/usr/share/sloth-os/tv/startup.webm
+if [ -f "$intro" ]; then
+    current="$(sha256sum "$movies/deck_startup.webm" 2>/dev/null | cut -d' ' -f1)"
+    if [ -z "$current" ] || [ "$current" = "$(cat "$movies/.sloth-os-startup" 2>/dev/null)" ]; then
+        mkdir -p "$movies" && cp -f "$intro" "$movies/deck_startup.webm" \
+            && sha256sum "$intro" | cut -d' ' -f1 > "$movies/.sloth-os-startup"
+    fi
+fi
+
 # Steam's "Switch to Desktop": the shim (tv-shim/steamos-session-select, inside the sandbox) leaves a note here; then
 # Steam gets 10 seconds to close by itself, and is closed from outside after that. gamescope ends with it, and the
 # desktop starts below.

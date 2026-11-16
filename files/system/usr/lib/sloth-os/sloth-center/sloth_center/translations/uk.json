@@ -1232,6 +1232,7 @@
   "{name} starts again with this: {fix}.": "{name} запускається знову з цим: {fix}.",
   "Open it on the whole screen now": "Відкрити зараз на весь екран",
   "Sloth OS TV mode": "Sloth OS режим ТБ",
+  "Sloth OS desktop": "Sloth OS стільниця",
   "Steam on the whole screen, made for a controller and a TV": "Steam на весь екран, для геймпада й телевізора",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Інтерфейс Steam для великого екрана, для геймпада й телевізора. Щоб користуватися комп’ютером як ігровою консоллю, виберіть на екрані входу «Sloth OS режим ТБ»: тоді немає стільниці, лише Steam. Після виходу зі Steam з’являється стільниця.",
   "TV mode": "Режим ТБ",

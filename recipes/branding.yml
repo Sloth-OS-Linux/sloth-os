@@ -31,6 +31,7 @@ modules:
       - branding.sh
       - theme.sh
       - plymouth.sh
+      - session-names.sh # "🖥️ Sloth OS desktop" in place of "Plasma" on the sign-in screen
 
   # Quiet boot: right after the vendor logo comes the Sloth OS animation,
   # without texts and a blinking cursor. (Anaconda used to add quiet/rhgb; our own

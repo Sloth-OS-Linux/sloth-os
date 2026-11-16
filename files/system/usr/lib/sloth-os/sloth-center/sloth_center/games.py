@@ -97,7 +97,7 @@ MOVE_ERRORS = {
 
 # TV mode's entries (tools/gen_desktop_entries.py: the sign-in screen's session and the Start menu): here, so the
 # translation tools know them
-TV_TEXTS = (N_("Sloth OS TV mode"), N_("TV mode"), N_("Steam on the whole screen, made for a controller and a TV"),
+TV_TEXTS = (N_("Sloth OS TV mode"), N_("Sloth OS desktop"), N_("TV mode"), N_("Steam on the whole screen, made for a controller and a TV"),
             N_("TV;Big Picture;controller;gamepad;console;couch;"))
 
 # The "Will it run?" verdicts (sloth_common.game_check): (mark, text)
