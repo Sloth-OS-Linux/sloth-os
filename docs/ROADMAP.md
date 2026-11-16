@@ -36,8 +36,15 @@ from a terminal must also work from a GUI.
 - [x] The new CI ISO in the VM (2026-11-16, run 43909877381, test-branch image): BIOS DVD, BIOS USB and UEFI USB start
   the installer; installed in BIOS mode (protective MBR 0x80) and in UEFI mode (0x00), both start from the disk.
   Written to the USB stick for the VAIO
-- [ ] The VAIO again with the new ISO: it installs and starts from the disk; the same stick on a real UEFI machine
-  (the HP) too
+- [x] The VAIO with the new ISO (2026-11-16 evening): installed, then again "Operating system not found". The
+  active protective MBR is not enough for its BIOS: it starts no GPT disk at all (the GPT stick with 0x80 set by hand
+  was skipped the day before too). Now a whole-disk install in legacy (BIOS) mode gets a plain MBR partition table
+  (`use_mbr`, `whole_disk_layout`): EFI (0xef), (with encryption /boot,) system and the work partition, all primary
+  (with encryption exactly 4), the partition with /boot active; no BIOS boot partition (GRUB for BIOS goes into the
+  first MiB). Over 2 TiB (MBR's limit) and in UEFI mode a GPT as before. bootupd leaves the EFI partition empty on an
+  MBR disk, so the installer makes EFI/fedora for the boot menu's state; boot-env finds the EFI partition by type
+  0xef too. Tests: `BiosBootableTest`, `UseMbrTest` (real disk images)
+- [ ] The VAIO again with the MBR install; the same stick on a real UEFI machine (the HP) too
 - [ ] First thing on 2026-11-17: start the HP (UEFI) from the same plain-MBR stick, only up to the installer's first
   page (no install: the stick has a test-branch build and an install would erase the HP's disk)
 - [ ] Ship it as **Sloth OS 2.0** (next week): a new ISO, README / website requirements (they still say "UEFI only").
