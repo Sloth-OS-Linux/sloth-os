@@ -33,8 +33,9 @@ from a terminal must also work from a GUI.
   test passes (test_snapshots needs a loop device: not run)
 - [x] The plain MBR layout in `iso/build_iso.sh` (no `-appended_part_as_gpt`; `-append_partition 2 0xef`,
   `-iso_mbr_part_type 0x83`, `--mbr-force-bootable`), so the CI ISO needs no remastering
-- [ ] The new CI ISO in the VM: BIOS DVD, BIOS USB, UEFI USB, an install each way, the installed disk's protective MBR
-  active in BIOS mode only
+- [x] The new CI ISO in the VM (2026-11-16, run 43909877381, test-branch image): BIOS DVD, BIOS USB and UEFI USB start
+  the installer; installed in BIOS mode (protective MBR 0x80) and in UEFI mode (0x00), both start from the disk.
+  Written to the USB stick for the VAIO
 - [ ] The VAIO again with the new ISO: it installs and starts from the disk; the same stick on a real UEFI machine
   (the HP) too
 - [ ] First thing on 2026-11-17: start the HP (UEFI) from the same plain-MBR stick, only up to the installer's first
