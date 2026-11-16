@@ -107,10 +107,14 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      Deck's Game Mode interface is Steam itself; the session glue exists as ChimeraOS's gamescope-session (MIT, not
      Bazzite) with "Switch to desktop" calling an OS hook (/usr/lib/os-session-select); nobody reported the Flatpak
      Steam in such a session (ChimeraOS gamescope-session-steam issue #5, unanswered)
+     - [x] Leaving Steam (power menu → Exit Steam) starts the normal desktop in the same session, without signing in
+       again (the simple "Switch to desktop"); automatic sign-in stays on Plasma (sloth-helper: Session=plasma.desktop)
      - [ ] On the HP: choose "Sloth OS TV mode" at sign-in: Steam fills the screen, a controller works, a game starts
-       and plays; leaving Steam goes back to the sign-in screen
-     - [ ] Then, if it works: "Switch to desktop" straight into Plasma, sleep / power off from Steam's menu, a switch in
-       Sloth Center, the name in 50 languages (the session file has English and Hungarian now)
+       and plays; Exit Steam brings the desktop. Also see what Steam's own "Exit Big Picture", Sleep and Shut Down do
+       there (unknown with the Flatpak Steam)
+     - [ ] Then, if it works: back to TV mode from the desktop, sleep / power off from Steam's menu, parental controls
+       in TV mode (the warning banners are Plasma's), a switch in Sloth Center, the name in 50 languages (English and
+       Hungarian now), the TV's resolution / HDR / HDMI sound, NVIDIA
 - Old computers (after BIOS mode):
   5. **Next to Windows 7 on old BIOS machines** (large, new): old laptops often have Windows 7 on an MBR disk; in BIOS
      mode only a whole disk can be installed now

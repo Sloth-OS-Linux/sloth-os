@@ -2,11 +2,13 @@
 # TV mode (a session on the sign-in screen, /usr/share/wayland-sessions/sloth-tv.desktop): Steam's big-screen,
 # controller-first interface on the whole screen in gamescope, without the desktop, like the Steam Deck's Game Mode.
 # Steam is the Flatpak (com.valvesoftware.Steam); gamescope (Fedora's package) runs on the host.
-# PROTOTYPE (2026-11-16): leaving Steam ends the session (back to the sign-in screen). Not done yet: "Switch to
-# desktop" straight into Plasma, sleep and power off from Steam's menu.
+# PROTOTYPE (2026-11-16). Leaving Steam (its power menu → Exit Steam) brings the normal desktop in the same
+# session, without signing in again: the simple form of the Steam Deck's "Switch to desktop". Not done yet: sleep and
+# power off from Steam's menu, back to TV mode from the desktop. Automatic sign-in always starts Plasma
+# (sloth-helper writes Session=plasma.desktop), so the computer never lands in TV mode by itself.
 #
-# Never a dead end: without Steam, or when gamescope stops with an error within its first seconds (no driver support,
-# a missing seat), the normal desktop starts instead.
+# Never a dead end: without Steam, when gamescope stops (an error at once: no driver support, a missing seat; or
+# later), or when Steam is left, the normal desktop starts.
 
 log() { logger -t sloth-tv-session -- "$*"; }
 
@@ -24,8 +26,9 @@ started=$(date +%s)
 # -e: Steam integration (its overlay, focus); -f: full screen. Steam: the big-screen interface (-gamepadui)
 gamescope -e -f -- flatpak run com.valvesoftware.Steam -gamepadui
 code=$?
+# Steam is fully closed before the desktop starts (its own autostart may open it there again, as usual)
+flatpak kill com.valvesoftware.Steam >/dev/null 2>&1
 if (( code != 0 && $(date +%s) - started < 15 )); then
     desktop "gamescope stopped right away (exit code $code)"
 fi
-log "TV mode ended (exit code $code)"
-exit 0
+desktop "TV mode was left (exit code $code)"
