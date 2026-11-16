@@ -1,0 +1,15 @@
+[Unit]
+Description=Sloth OS: game mode (Sloth Center → Games → Game mode)
+Documentation=file:///usr/libexec/sloth-os/game-mode
+PartOf=graphical-session.target
+After=plasma-workspace.target
+
+[Service]
+Type=simple
+ExecStart=/usr/libexec/sloth-os/game-mode run
+Restart=on-failure
+RestartSec=10
+Nice=5
+
+[Install]
+WantedBy=plasma-workspace.target

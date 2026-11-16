@@ -1197,5 +1197,8 @@
   "A search at the top of Sloth Center finds any setting.": "Sloth Centeri ülaosas olev otsing leiab iga seade.",
   "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Wi-Fil on oma leht: ühenda, unusta võrk, lülita Wi-Fi sisse ja välja.",
   "Apps: every installed app in one list, with Open and Remove.": "Rakendused: kõik paigaldatud rakendused ühes loendis, nuppudega Ava ja Eemalda.",
-  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Vanemlik järelevalve: „Palu lisaaega“ küsib nüüd vanemalt ja veebifilter kehtib igale programmile."
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Vanemlik järelevalve: „Palu lisaaega“ küsib nüüd vanemalt ja veebifilter kehtib igale programmile.",
+  "Game mode": "Mängurežiim",
+  "Game mode is on now: {game}": "Mängurežiim on praegu sees: {game}",
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Kui mäng töötab, valmistab Sloth OS arvuti selleks ise ette: teavitused ootavad, mäng saab rohkem jõudlust (vooluvõrgus parima jõudluse režiim) ning uuendused ja varukoopiad ootavad, kuni lõpetad mängimise. Pärast läheb kõik endiseks tagasi."
 }

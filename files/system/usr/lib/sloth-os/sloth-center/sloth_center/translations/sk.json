@@ -1197,5 +1197,8 @@
   "A search at the top of Sloth Center finds any setting.": "Vyhľadávanie hore v Sloth Center nájde akékoľvek nastavenie.",
   "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Wi-Fi má vlastnú stránku: pripojiť, zabudnúť sieť, zapnúť a vypnúť Wi-Fi.",
   "Apps: every installed app in one list, with Open and Remove.": "Aplikácie: všetky nainštalované aplikácie v jednom zozname, s tlačidlami Otvoriť a Odstrániť.",
-  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Rodičovská kontrola: „Požiadať o viac času“ sa teraz naozaj opýta rodiča a filter webov platí pre každý program."
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Rodičovská kontrola: „Požiadať o viac času“ sa teraz naozaj opýta rodiča a filter webov platí pre každý program.",
+  "Game mode": "Herný režim",
+  "Game mode is on now: {game}": "Herný režim je teraz zapnutý: {game}",
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Keď beží hra, Sloth OS na ňu počítač sám pripraví: oznámenia počkajú, hra dostane viac výkonu (pri napájaní zo siete režim najvyššieho výkonu) a aktualizácie a zálohy počkajú, kým dohráte. Potom sa všetko vráti späť."
 }

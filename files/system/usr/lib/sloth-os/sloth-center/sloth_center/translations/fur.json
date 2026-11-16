@@ -1197,5 +1197,8 @@
   "A search at the top of Sloth Center finds any setting.": "Une ricercje in alt in Sloth Center e cjate cualsisei impostazion.",
   "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Il Wi-Fi al à une pagjine sô: conetisi, dismenteâ une rêt, impiâ e distudâ il Wi-Fi.",
   "Apps: every installed app in one list, with Open and Remove.": "Aplicazions: dutis lis aplicazions instaladis intune liste, cun Vierç e Gjave.",
-  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Control dai gjenitôrs: “Domande plui timp” cumò al domande pardabon a un gjenitôr, e il filtri dai sîts al vâl par ogni program."
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Control dai gjenitôrs: “Domande plui timp” cumò al domande pardabon a un gjenitôr, e il filtri dai sîts al vâl par ogni program.",
+  "Game mode": "Modalitât zûc",
+  "Game mode is on now: {game}": "La modalitât zûc e je ative cumò: {game}",
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Intant che un zûc al è in esecuzion, Sloth OS al prepare il computer di bessôl: lis notifichis a spietin, il zûc al oten plui potence (la modalitât des prestazions massimis cuant che al è tacât ae corint), e i inzornaments e i backup a spietin fin che no tu smetis di zuiâ. Dopo dut al torne come prime."
 }

@@ -1197,5 +1197,8 @@
   "A search at the top of Sloth Center finds any setting.": "Wyszukiwarka u góry Sloth Center znajdzie każde ustawienie.",
   "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Wi-Fi ma własną stronę: łączenie, zapominanie sieci, włączanie i wyłączanie Wi-Fi.",
   "Apps: every installed app in one list, with Open and Remove.": "Aplikacje: wszystkie zainstalowane aplikacje na jednej liście, z przyciskami Otwórz i Usuń.",
-  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Kontrola rodzicielska: „Poproś o więcej czasu” teraz naprawdę pyta rodzica, a filtr stron obejmuje każdy program."
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Kontrola rodzicielska: „Poproś o więcej czasu” teraz naprawdę pyta rodzica, a filtr stron obejmuje każdy program.",
+  "Game mode": "Tryb gry",
+  "Game mode is on now: {game}": "Tryb gry jest teraz włączony: {game}",
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Gdy działa gra, Sloth OS sam przygotowuje do niej komputer: powiadomienia czekają, gra dostaje więcej mocy (tryb najwyższej wydajności przy zasilaczu), a aktualizacje i kopie zapasowe czekają, aż skończysz grać. Potem wszystko wraca do normy."
 }

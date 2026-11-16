@@ -2,6 +2,8 @@
 Description=Sloth OS: preparing and updating the Windows programs' runner in the background
 
 [Service]
+# game mode: not while a game runs; it runs right after the game (/usr/libexec/sloth-os/game-mode)
+ExecCondition=/usr/libexec/sloth-os/game-mode playing sloth-windows-prepare.service
 Type=oneshot
 ExecStart=/usr/libexec/sloth-os/windows-prepare
 # Low priority: it must not slow down games or work. The "idle" disk priority is not good: next to other disk work

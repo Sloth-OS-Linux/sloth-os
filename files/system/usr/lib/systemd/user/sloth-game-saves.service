@@ -3,6 +3,8 @@ Description=Sloth OS: back up game saves (Sloth Center → Games → Game saves)
 Documentation=file:///usr/libexec/sloth-os/game-saves
 
 [Service]
+# game mode: not while a game runs; it runs right after the game (/usr/libexec/sloth-os/game-mode)
+ExecCondition=/usr/libexec/sloth-os/game-mode playing sloth-game-saves.service
 Type=oneshot
 # does nothing until the user turns it on in Sloth Center (and Ludusavi is installed)
 ExecStart=/usr/libexec/sloth-os/game-saves backup

@@ -3,6 +3,8 @@ Description=Sloth OS: updating the apps installed as GitHub packages (e.g. ArtCr
 After=network-online.target
 
 [Service]
+# game mode: not while a game runs; it runs right after the game (/usr/libexec/sloth-os/game-mode)
+ExecCondition=/usr/libexec/sloth-os/game-mode playing sloth-github-bundle-update.service
 Type=oneshot
 ExecStart=/usr/libexec/sloth-os/github-bundle-update
 Nice=10

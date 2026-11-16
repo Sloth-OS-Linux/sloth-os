@@ -1197,5 +1197,8 @@
   "A search at the top of Sloth Center finds any setting.": "En søgning øverst i Sloth Center finder enhver indstilling.",
   "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Wi-Fi har sin egen side: forbind, glem et netværk, slå Wi-Fi til og fra.",
   "Apps: every installed app in one list, with Open and Remove.": "Apps: alle installerede apps i én liste, med Åbn og Fjern.",
-  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Forældrekontrol: “Bed om mere tid” spørger nu en forælder, og webfilteret gælder for alle programmer."
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Forældrekontrol: “Bed om mere tid” spørger nu en forælder, og webfilteret gælder for alle programmer.",
+  "Game mode": "Spiltilstand",
+  "Game mode is on now: {game}": "Spiltilstand er slået til nu: {game}",
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Mens et spil kører, gør Sloth OS selv computeren klar til det: notifikationer venter, spillet får mere kraft (tilstanden for bedste ydeevne, når strømmen er tilsluttet), og opdateringer og sikkerhedskopier venter, til du holder op med at spille. Bagefter er alt som før."
 }

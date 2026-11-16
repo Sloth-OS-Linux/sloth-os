@@ -55,6 +55,7 @@ def main():
     from .accessibility import AccessibilityController
     from .power import PowerController
     from .game_saves import GameSavesController
+    from .game_mode_ctl import GameModeController
     from .advanced import AdvancedController
     from .backup import BackupController
     from .cloud import CloudController
@@ -125,6 +126,7 @@ def main():
     accessibility = AccessibilityController()
     power = PowerController()
     game_saves = GameSavesController()
+    game_mode = GameModeController()
     cloud = CloudController()
     games = GamesController()
     devpanel = DevPanelController()
@@ -164,6 +166,7 @@ def main():
     engine.rootContext().setContextProperty("accessibility", accessibility)
     engine.rootContext().setContextProperty("power", power)
     engine.rootContext().setContextProperty("gameSaves", game_saves)
+    engine.rootContext().setContextProperty("gameMode", game_mode)
     engine.rootContext().setContextProperty("cloud", cloud)
     engine.rootContext().setContextProperty("games", games)
     engine.rootContext().setContextProperty("devpanel", devpanel)

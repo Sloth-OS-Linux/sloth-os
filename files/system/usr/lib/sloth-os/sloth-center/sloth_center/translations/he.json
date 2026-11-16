@@ -1197,5 +1197,8 @@
   "A search at the top of Sloth Center finds any setting.": "חיפוש בראש Sloth Center מוצא כל הגדרה.",
   "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "ל-Wi-Fi יש עמוד משלו: התחברות, שכחת רשת, הפעלה וכיבוי של ה-Wi-Fi.",
   "Apps: every installed app in one list, with Open and Remove.": "אפליקציות: כל האפליקציות המותקנות ברשימה אחת, עם פתיחה והסרה.",
-  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "בקרת הורים: „לבקש עוד זמן” שואלת עכשיו הורה, ומסנן האתרים חל על כל תוכנה."
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "בקרת הורים: „לבקש עוד זמן” שואלת עכשיו הורה, ומסנן האתרים חל על כל תוכנה.",
+  "Game mode": "מצב משחק",
+  "Game mode is on now: {game}": "מצב משחק פעיל עכשיו: {game}",
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "כל עוד משחק רץ, Sloth OS מכין את המחשב בשבילו מעצמו: ההתראות ממתינות, המשחק מקבל יותר כוח (מצב הביצועים הטובים ביותר כשהמחשב מחובר לחשמל), והעדכונים והגיבויים ממתינים עד שמפסיקים לשחק. אחר כך הכול חוזר לקדמותו."
 }

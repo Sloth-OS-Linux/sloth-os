@@ -1197,5 +1197,8 @@
   "A search at the top of Sloth Center finds any setting.": "A Sloth Center tetején lévő kereső bármelyik beállítást megtalálja.",
   "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "A Wi-Fi saját oldalt kapott: csatlakozás, hálózat elfelejtése, a Wi-Fi ki- és bekapcsolása.",
   "Apps: every installed app in one list, with Open and Remove.": "Appok: minden telepített app egy listában, Megnyitás és Eltávolítás gombbal.",
-  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Szülői felügyelet: a „Kérek még időt” most már tényleg egy szülőt kérdez, és a webszűrő minden programra vonatkozik."
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Szülői felügyelet: a „Kérek még időt” most már tényleg egy szülőt kérdez, és a webszűrő minden programra vonatkozik.",
+  "Game mode": "Játékmód",
+  "Game mode is on now: {game}": "A játékmód most be van kapcsolva: {game}",
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Amíg egy játék fut, a Sloth OS magától felkészíti rá a gépet: az értesítések várnak, a játék több teljesítményt kap (konnektorról a legjobb teljesítményű energiamódot), a frissítések és a mentések pedig megvárják, amíg abbahagyod a játékot. Utána minden visszaáll."
 }

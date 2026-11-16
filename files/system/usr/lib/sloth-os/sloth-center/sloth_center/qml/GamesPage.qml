@@ -30,6 +30,41 @@ Kirigami.ScrollablePage {
             text: L.t("Here you can choose for each game whether to show the FPS, give the game more power, and upscale it. The change takes effect the next time the game starts.")
         }
 
+        // --- Game mode: set up for the game by itself while one runs (game_mode_ctl.py, /usr/libexec/sloth-os/game-mode)
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                RowLayout {
+                    Layout.fillWidth: true
+                    Kirigami.Icon {
+                        source: "input-gamepad"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    Kirigami.Heading { level: 3; Layout.fillWidth: true; text: L.t("Game mode") }
+                    QQC2.Switch {
+                        checked: gameMode.enabled
+                        onToggled: {
+                            gameMode.setEnabled(checked);
+                            checked = Qt.binding(() => gameMode.enabled);
+                        }
+                    }
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    text: L.t("While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.")
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: gameMode.enabled && gameMode.playing !== ""
+                    type: Kirigami.MessageType.Positive
+                    text: L.tf("Game mode is on now: {game}", { game: gameMode.playing })
+                }
+            }
+        }
+
         // --- "Will it run?": how well a game runs, from other players' reports (sloth_common.game_check) ---
         Kirigami.AbstractCard {
             Layout.fillWidth: true

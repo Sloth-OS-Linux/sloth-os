@@ -1197,5 +1197,8 @@
   "A search at the top of Sloth Center finds any setting.": "Një kërkim në krye të Sloth Center gjen çdo rregullim.",
   "Wi-Fi has a page of its own: connect, forget a network, turn Wi-Fi on and off.": "Wi-Fi ka faqen e vet: lidhu, harro një rrjet, ndize dhe fike Wi-Fi.",
   "Apps: every installed app in one list, with Open and Remove.": "Aplikacionet: të gjitha aplikacionet e instaluara në një listë, me Hap dhe Hiq.",
-  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Kontrolli prindëror: “Kërko më shumë kohë” tani pyet vërtet një prind, dhe filtri i sajteve vlen për çdo program."
+  "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Kontrolli prindëror: “Kërko më shumë kohë” tani pyet vërtet një prind, dhe filtri i sajteve vlen për çdo program.",
+  "Game mode": "Modaliteti i lojërave",
+  "Game mode is on now: {game}": "Modaliteti i lojërave është aktiv tani: {game}",
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Ndërsa po luhet një lojë, Sloth OS e përgatit vetë kompjuterin për të: njoftimet presin, loja merr më shumë fuqi (modaliteti i performancës më të mirë kur është në prizë), dhe përditësimet e kopjeruajtjet presin derisa të ndalosh së luajturi. Pastaj gjithçka kthehet si më parë."
 }

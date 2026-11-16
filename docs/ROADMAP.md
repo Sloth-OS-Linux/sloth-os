@@ -22,13 +22,37 @@ from a terminal must also work from a GUI.
   forbids it). Tests: `BiosBootableTest` in tools/tests/test_install_helper.py (a real disk image)
 - [ ] The VAIO again with the new ISO: it starts from the disk
 
+### Game mode (2026-11-16, test branch, not pushed yet)
+- [x] `sloth-game-mode.service` (user, `/usr/libexec/sloth-os/game-mode`, `sloth_common/game_mode.py`): every 4 s it
+  looks at the user's own processes; a game is a Steam game (Steam's reaper with "SteamLaunch AppId=<n>", the
+  Flatpak Steam's too) or a recognized Windows game (umu's GAMEID, not "umu-default": the .exe handler, Heroic,
+  Lutris); an ordinary Windows program does not count. While one runs: GameMode serves it even without the
+  per-game setting (RegisterGameByPID), notifications wait (org.freedesktop.Notifications.Inhibit, KDE), plugged
+  in the "performance" power mode is held (tuned-ppd's HoldProfile: only performance or power-saver can be held,
+  no password for the active user, released by itself if we go away; never on battery). 12 s after the last game
+  everything goes back
+- [x] Background work waits: `ExecCondition=game-mode playing` on rpm-ostreed-automatic and flatpak-system-update
+  (they run next time), and on flatpak-user-update, sloth-game-saves, sloth-windows-prepare and
+  sloth-github-bundle-update (noted, they run right after the game). Any fault in the check lets the job run (exit
+  0), so game mode can never stop updates. "Back up now" in Sloth Center is not affected
+- [x] Sloth Center → Games → Game mode: a switch (on by default), what it does, "Game mode is on now: <game>".
+  50 languages
+- [x] Tried: `tools/tests/test_game_mode.py` (11); end to end in a container with a real gamemoded and a fake game:
+  found, GameMode serving it (QueryStatus 2), a backup waiting, then everything back and the backup running. Found
+  and fixed on the way: a crash in the check would have stopped the jobs; no system bus made the service stop; the
+  state now comes first, before the slower calls
+- [ ] On the HP: a Steam game: Do Not Disturb (a test notification stays in the history), the power mode in the
+  quick settings shows best performance plugged in and not on battery, everything back after quitting; a Windows
+  game from Windows programs the same; Notepad++ or another program: nothing
+
 ### Ideas for the next ISO (listed 2026-11-16; nothing chosen yet)
 Fedora 45 waits: umu-launcher (the heart of Windows programs) has no Fedora 45 package yet (1.4.4: fc43, fc44 only;
 checked 2026-11-16). Until then the test branch stays on Fedora 44. Sizes: small ≈ a day, medium ≈ a few days,
 large ≈ a week or more. "(listed)" = already in this plan further down.
 - Games:
-  1. **Game mode** (medium, listed: "an optional gaming mode"): while a game runs, Do Not Disturb and the best
-     performance by themselves, updates and backups wait; all back afterwards
+  1. [x] **Game mode** (medium, listed: "an optional gaming mode"): while a game runs, Do Not Disturb and the best
+     performance by themselves, updates and backups wait; all back afterwards. Done 2026-11-16, see "Game mode"
+     below
   2. **One library for every game** (medium–large, new): Steam, Heroic, GOG and Windows games in one place with their
      covers and a Play button
   3. **What's wrong with the game?** (large, listed: "when a game fails or crashes…"): a readable summary, and the

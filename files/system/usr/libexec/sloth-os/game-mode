@@ -1,0 +1,197 @@
+#!/usr/bin/python3 -I
+"""Game mode (sloth_common/game_mode.py has the whole description).
+
+  game-mode run            the user service (sloth-game-mode.service): watches for games, sets up and restores
+  game-mode playing [UNIT] for ExecCondition: exit 1 (skip the job) while a game runs; a user unit is noted, so it
+                           runs right after the game. Exit 0 otherwise.
+
+While a game runs:
+  - notifications wait: org.freedesktop.Notifications.Inhibit (KDE; the inhibition ends with our D-Bus connection)
+  - GameMode serves every game process: com.feralinteractive.GameMode.RegisterGameByPID(our pid, the game's pid)
+  - plugged in: the "performance" power mode is held (tuned-ppd / power-profiles-daemon HoldProfile; released with
+    ReleaseProfile, and by the daemon itself if we go away). Never on battery: the battery would run down fast
+"""
+import logging
+import os
+import signal
+import subprocess
+import sys
+import time
+
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+try:
+    from sloth_common import game_mode as gm  # noqa: E402
+except Exception:   # never: but then `playing` must still let the updates and backups run (exit 0)
+    gm = None
+
+log = logging.getLogger("game-mode")
+POLL_S = 4
+GRACE_S = 12      # a launcher handing over to the game, or a game restarting itself: not the end yet
+APP_ID = "org.slothos.center"
+PAUSED_USER_UNITS = ("flatpak-user-update.service", "sloth-game-saves.service", "sloth-windows-prepare.service",
+                     "sloth-github-bundle-update.service")
+
+
+def playing(unit=""):
+    """ExecCondition: 1 = skip (someone plays), 0 = go on. Any error: 0, so a fault here never stops updates."""
+    try:
+        if os.geteuid() == 0:
+            busy = gm.anyone_playing()
+        else:
+            busy = gm.read_state() is not None
+            if busy and unit:
+                try:
+                    gm.SKIPPED.parent.mkdir(parents=True, exist_ok=True)
+                    with open(gm.SKIPPED, "a", encoding="utf-8") as f:
+                        f.write(unit + "\n")
+                except OSError:
+                    pass
+        return 1 if busy else 0
+    except Exception:
+        return 0
+
+
+class GameMode:
+    def __init__(self):
+        from gi.repository import Gio, GLib
+        self.Gio, self.GLib = Gio, GLib
+        self.session = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+        try:   # the power mode is on the system bus; without it only that part is left out
+            self.system = Gio.bus_get_sync(Gio.BusType.SYSTEM, None)
+        except GLib.Error as e:
+            log.warning("no system bus: %s", e)
+            self.system = None
+        self.active = False
+        self.inhibit = None
+        self.hold = None
+        self.registered = set()
+        self.last_seen = 0.0
+
+    def _call(self, bus, name, path, iface, method, args, reply):
+        try:
+            r = bus.call_sync(name, path, iface, method, args, self.GLib.VariantType(reply) if reply else None,
+                              self.Gio.DBusCallFlags.NONE, 5000, None)
+            return r.unpack() if r is not None else None
+        except Exception as e:   # a service missing (no GameMode, no power profiles) only leaves out its part
+            log.info("%s.%s: %s", iface, method, e)
+            return None
+
+    def _gamemode(self, method, pid):
+        r = self._call(self.session, "com.feralinteractive.GameMode", "/com/feralinteractive/GameMode",
+                       "com.feralinteractive.GameMode", method, self.GLib.Variant("(ii)", (os.getpid(), pid)), "(i)")
+        return r is not None and r[0] == 0
+
+    def start(self, names, games):
+        """The state first (the jobs that ask see it at once), GameMode, then notifications and the power mode."""
+        log.info("a game started: %s", ", ".join(names))
+        self.active = True
+        gm.write_state(names)
+        self.follow(games)
+        reason = "Playing " + ", ".join(names)
+        r = self._call(self.session, "org.freedesktop.Notifications", "/org/freedesktop/Notifications",
+                       "org.freedesktop.Notifications", "Inhibit",
+                       self.GLib.Variant("(ssa{sv})", (APP_ID, reason, {})), "(u)")
+        self.inhibit = r[0] if r else None
+        if self.system is not None and gm.on_mains():
+            r = self._call(self.system, "net.hadess.PowerProfiles", "/net/hadess/PowerProfiles",
+                           "net.hadess.PowerProfiles", "HoldProfile",
+                           self.GLib.Variant("(sss)", ("performance", reason, APP_ID)), "(u)")
+            self.hold = r[0] if r else None
+
+    def follow(self, games):
+        """GameMode for every game process (new ones too: a launcher's game, a game's helper)."""
+        pids = {pid for g in games.values() for pid in g["pids"][:1]}
+        for pid in pids - self.registered:
+            if self._gamemode("RegisterGameByPID", pid):
+                self.registered.add(pid)
+        # a process that ended: GameMode drops it by itself (its reaper checks the pid), we forget it too
+        self.registered = {pid for pid in self.registered if os.path.exists(f"/proc/{pid}")}
+
+    def stop(self):
+        log.info("the game ended")
+        for pid in list(self.registered):
+            self._gamemode("UnregisterGameByPID", pid)
+        self.registered.clear()
+        if self.inhibit is not None:
+            self._call(self.session, "org.freedesktop.Notifications", "/org/freedesktop/Notifications",
+                       "org.freedesktop.Notifications", "UnInhibit", self.GLib.Variant("(u)", (self.inhibit,)), None)
+        if self.hold is not None and self.system is not None:
+            self._call(self.system, "net.hadess.PowerProfiles", "/net/hadess/PowerProfiles",
+                       "net.hadess.PowerProfiles", "ReleaseProfile", self.GLib.Variant("(u)", (self.hold,)), None)
+        self.inhibit = self.hold = None
+        self.active = False
+        gm.clear_state()
+        self.run_skipped()
+
+    @staticmethod
+    def run_skipped():
+        """The user's background jobs that waited for the game run now."""
+        try:
+            units = set(gm.SKIPPED.read_text(encoding="utf-8").split())
+            gm.SKIPPED.unlink()
+        except OSError:
+            return
+        for unit in sorted(units & set(PAUSED_USER_UNITS)):
+            subprocess.run(["systemctl", "--user", "start", "--no-block", unit], capture_output=True)
+
+    def tick(self):
+        games = gm.find_games() if gm.load()["enabled"] else {}
+        now = time.monotonic()
+        if games:
+            self.last_seen = now
+            if not self.active:
+                self.start(sorted(g["name"] for g in games.values()), games)
+            else:
+                self.follow(games)
+        elif self.active and now - self.last_seen >= GRACE_S:
+            self.stop()
+
+
+def run():
+    gm.clear_state()          # a state left over from a crash or a sign-out
+    mode = GameMode()
+    loop = mode.GLib.MainLoop()
+
+    def finish(*_):
+        if mode.active:
+            mode.stop()
+        loop.quit()
+        return False
+
+    try:
+        from gi.repository import GLibUnix
+        signal_add = GLibUnix.signal_add
+    except ImportError:   # older PyGObject
+        signal_add = mode.GLib.unix_signal_add
+    for sig in (signal.SIGTERM, signal.SIGINT):
+        signal_add(mode.GLib.PRIORITY_DEFAULT, sig, finish)
+
+    def tick():
+        try:
+            mode.tick()
+        except Exception:
+            log.exception("game mode")
+        return True
+
+    tick()
+    mode.GLib.timeout_add_seconds(POLL_S, tick)
+    loop.run()
+    return 0
+
+
+def main():
+    logging.basicConfig(level=logging.INFO, format="%(name)s: %(message)s")
+    args = sys.argv[1:]
+    if args[:1] == ["playing"]:
+        return playing(args[1] if len(args) > 1 else "")
+    if gm is None:
+        log.error("sloth_common.game_mode is missing")
+        return 1
+    if args[:1] == ["run"]:
+        return run()
+    print(__doc__)
+    return 2
+
+
+if __name__ == "__main__":
+    sys.exit(main())
