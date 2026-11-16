@@ -66,7 +66,19 @@ def main():
                 on_call(None, None, None, None, "SwitchToDesktopMode", None, _NoReply())
         return True
 
+    log_path = os.path.join(os.path.expanduser("~/.cache/sloth-os"), "tv-steamos-manager.log")
+    os.makedirs(os.path.dirname(log_path), exist_ok=True)
+    log = open(log_path, "w", encoding="utf-8", buffering=1)
+
+    def every_message(_conn, message, incoming):
+        """Everything that reaches this service, whatever it asks (to see what Steam wants on Switch to Desktop)."""
+        if incoming and message.get_message_type() != Gio.DBusMessageType.SIGNAL:
+            log.write(f"{time.strftime('%T')} {message.get_sender()} {message.get_interface()} "
+                      f"{message.get_member()} {message.get_path()} {message.get_signature()}\n")
+        return message
+
     def on_bus(conn, _name):
+        conn.add_filter(every_message)
         conn.register_object(PATH, node.interfaces[0], on_call, get_property, set_property)
 
     Gio.bus_own_name(Gio.BusType.SESSION, NAME, Gio.BusNameOwnerFlags.NONE, on_bus, None,
