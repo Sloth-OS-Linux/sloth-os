@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Бацькоўскі кантроль: «Папрасіць яшчэ часу» цяпер сапраўды пытаецца ў бацькоў, а фільтр сайтаў дзейнічае на кожную праграму.",
   "Game mode": "Гульнявы рэжым",
   "Game mode is on now: {game}": "Гульнявы рэжым зараз уключаны: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Пакуль ідзе гульня, Sloth OS сама рыхтуе да яе камп’ютар: апавяшчэнні чакаюць, гульня атрымлівае больш магутнасці (ад сеткі — рэжым найвышэйшай прадукцыйнасці), а абнаўленні і рэзервовыя копіі чакаюць, пакуль вы не скончыце гуляць. Потым усё вяртаецца як было."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Пакуль ідзе гульня, Sloth OS сама рыхтуе да яе камп’ютар: апавяшчэнні чакаюць, гульня атрымлівае больш магутнасці (ад сеткі — рэжым найвышэйшай прадукцыйнасці), а абнаўленні і рэзервовыя копіі чакаюць, пакуль вы не скончыце гуляць. Потым усё вяртаецца як было.",
+  "App": "Праграма",
+  "Play": "Гуляць",
+  "Start {game}": "Запусціць {game}"
 }

@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "অভিভাৱকৰ নিয়ন্ত্ৰণ: “অধিক সময় বিচাৰক”-এ এতিয়া সঁচাকৈয়ে অভিভাৱকক সোধে, আৰু ৱেবছাইট ফিল্টাৰ সকলো প্ৰগ্ৰামত খাটে।",
   "Game mode": "খেল মোড",
   "Game mode is on now: {game}": "খেল মোড এতিয়া অন আছে: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "খেল চলি থকাৰ সময়ত Sloth OS-এ নিজেই কম্পিউটাৰটো তাৰ বাবে সাজু কৰে: জাননীবোৰে অপেক্ষা কৰে, খেলে অধিক শক্তি পায় (প্লাগ লগোৱা থাকিলে সৰ্বোত্তম কাৰ্যক্ষমতা মোড), আৰু আপডেট আৰু বেকআপে আপুনি খেলা বন্ধ নকৰালৈকে অপেক্ষা কৰে। তাৰ পিছত সকলো আগৰ দৰে হয়।"
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "খেল চলি থকাৰ সময়ত Sloth OS-এ নিজেই কম্পিউটাৰটো তাৰ বাবে সাজু কৰে: জাননীবোৰে অপেক্ষা কৰে, খেলে অধিক শক্তি পায় (প্লাগ লগোৱা থাকিলে সৰ্বোত্তম কাৰ্যক্ষমতা মোড), আৰু আপডেট আৰু বেকআপে আপুনি খেলা বন্ধ নকৰালৈকে অপেক্ষা কৰে। তাৰ পিছত সকলো আগৰ দৰে হয়।",
+  "App": "এপ",
+  "Play": "খেলক",
+  "Start {game}": "{game} আৰম্ভ কৰক"
 }

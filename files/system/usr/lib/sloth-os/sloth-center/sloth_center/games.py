@@ -15,8 +15,8 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, Signal, Slot
 from PySide6.QtGui import QGuiApplication
 
-from sloth_common import game_check, gamesettings
-from sloth_common.apps import library, steam, steam_library
+from sloth_common import game_check, game_library, gamesettings
+from sloth_common.apps import library, menu, steam, steam_library
 from sloth_common.apps.steam import steam_root, vdf_dump, vdf_load
 
 from . import texts
@@ -159,6 +159,7 @@ class GamesController(QObject):
     changed = Signal()
     _moved = Signal(str, str, str)  # from the background thread: game id, error key ("" = done), new place
     _indexed = Signal(bool)  # from the background thread: the "Will it run?" list was downloaded
+    _covered = Signal(str, str)  # from the background thread: a game id, its downloaded cover
 
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -172,6 +173,8 @@ class GamesController(QObject):
         self._index, self._names, self._known = {}, {}, set()
         self._index_state = "loading"
         self._indexed.connect(self._on_indexed)
+        self._covered.connect(self._on_covered)
+        self._fetching = set()   # the covers being downloaded (once per game and run)
         self._load_index()
         if game_check.needs_download():
             threading.Thread(target=lambda: self._indexed.emit(game_check.download()), daemon=True).start()
@@ -222,7 +225,8 @@ class GamesController(QObject):
             settings, _rest, _after = gamesettings.parse_launch_options(options)
             found = steam_library.find_game(root, g["appid"]) if root else None
             check = game_check.lookup(self._index, g["appid"], self._known)
-            games.append({"id": "steam:" + g["appid"], "name": g["name"], "source": "steam", **settings,
+            entry = game_library.steam_entry(root, g["appid"], g["name"])
+            games.append({**entry, **settings,
                           "check": describe(check) if check else {},
                           "place": place_label(found["library"], root) if found else "",
                           "size": texts.size_text(found["size"]) if found and found["size"] else "",
@@ -231,10 +235,65 @@ class GamesController(QObject):
         for app in library.all_apps():
             if not library.is_game(app):
                 continue
+            entries = menu.entries(app)
+            icon = next((e["icon"] for e in entries if e["icon"].startswith("/")), "")
             games.append({"id": "win:" + app.id, "name": app.name, "source": "windows", "check": {},
+                          "cover": game_library.cached_cover("win:" + app.id),
+                          "remote": game_library.windows_cover(app.meta.get("gameid", "")),
+                          "icon": f"file://{icon}" if icon else "",
                           **gamesettings.normalize(app.meta.get("game"))})
+        # The other stores' games and the Flatpak games: only shown and started here (their settings are theirs)
+        try:
+            games += game_library.heroic_games() + game_library.flatpak_games()
+        except Exception as e:  # noqa: BLE001 - a broken file of another launcher must not empty the page
+            log.warning("other games: %s", e)
+        for g in games:
+            g.setdefault("icon", "")
+            g["settings"] = g["source"] in ("steam", "windows")
+            g.pop("launch", None)
         self._games = sorted(games, key=lambda g: g["name"].lower())
         self.changed.emit()
+        self._fetch_covers()
+
+    def _fetch_covers(self):
+        """The missing covers from the internet, in the background, one game at a time (cached for next time)."""
+        todo = [(g["id"], g["remote"]) for g in self._games
+                if not g.get("cover") and g.get("remote") and g["id"] not in self._fetching]
+        if not todo:
+            return
+        self._fetching.update(i for i, _ in todo)
+
+        def work():
+            for game_id, urls in todo:
+                path = game_library.download(game_id, urls)
+                if path:
+                    self._covered.emit(game_id, path)
+        threading.Thread(target=work, daemon=True).start()
+
+    def _on_covered(self, game_id, path):
+        for g in self._games:
+            if g["id"] == game_id:
+                g["cover"] = path
+        self.changed.emit()
+
+    @Slot(str)
+    def play(self, game_id):
+        """Starts a game of the library (Windows games: Sloth Center's Windows programs start them)."""
+        source, _, key = game_id.partition(":")
+        cmd = None
+        if source == "steam":
+            cmd = game_library.steam_entry(None, key, "")["launch"]
+        elif source in ("epic", "gog", "amazon"):
+            cmd = next((g["launch"] for g in game_library.heroic_games() if g["id"] == game_id), None)
+        elif source == "flatpak":
+            cmd = next((g["launch"] for g in game_library.flatpak_games() if g["id"] == game_id), None)
+        if not cmd:
+            log.warning("no way to start %s", game_id)
+            return
+        try:
+            subprocess.Popen(cmd, start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except OSError as e:
+            log.warning("starting %s: %s", game_id, e)
 
     @Slot(str, str, "QVariant")
     def setOption(self, game_id, option, value):

@@ -12,6 +12,13 @@ Kirigami.ScrollablePage {
     // Fresh every time the page opens: a program removed (or marked) in Programs must not stay here
     Component.onCompleted: games.refresh()
 
+    function play(game) {
+        if (game.source === "windows")
+            winprograms.launch(game.id.slice(4));
+        else
+            games.play(game.id);
+    }
+
     actions: [
         Kirigami.Action {
             text: L.t("Refresh")
@@ -28,6 +35,133 @@ Kirigami.ScrollablePage {
             wrapMode: Text.Wrap
             opacity: 0.8
             text: L.t("Here you can choose for each game whether to show the FPS, give the game more power, and upscale it. The change takes effect the next time the game starts.")
+        }
+
+        Kirigami.InlineMessage {
+            Layout.fillWidth: true
+            type: Kirigami.MessageType.Information
+            visible: games.steamRunning
+            text: L.t("Steam is running. Close it first to change the settings of Steam games.")
+            actions: [
+                Kirigami.Action {
+                    text: L.t("Close Steam")
+                    icon.name: "application-exit"
+                    onTriggered: { games.closeSteam(); refreshLater.start(); }
+                }
+            ]
+        }
+        Kirigami.PlaceholderMessage {
+            Layout.fillWidth: true
+            visible: games.games.length === 0
+            icon.name: "input-gamepad"
+            text: L.t("No games installed yet")
+            explanation: L.t("Your Steam games and Windows games appear here. Is a Windows game missing? Mark it as a game in Programs.")
+        }
+
+        // --- The library: every game with its cover; a click starts it, the gear opens its settings -------------
+        Flow {
+            Layout.fillWidth: true
+            spacing: Kirigami.Units.largeSpacing
+            Repeater {
+                model: games.games
+                delegate: QQC2.ItemDelegate {
+                    id: tile
+                    required property var modelData
+                    readonly property string sourceText: ({
+                        steam: "Steam", epic: "Epic Games", gog: "GOG", amazon: "Amazon Games",
+                        windows: L.t("Windows program"), flatpak: L.t("App") })[modelData.source] || ""
+                    width: Kirigami.Units.gridUnit * 9
+                    padding: Kirigami.Units.smallSpacing
+                    onClicked: page.play(modelData)
+                    QQC2.ToolTip.visible: hovered
+                    QQC2.ToolTip.text: L.tf("Start {game}", { game: modelData.name })
+                    QQC2.ToolTip.delay: Kirigami.Units.toolTipDelay
+                    contentItem: ColumnLayout {
+                        spacing: Kirigami.Units.smallSpacing
+                        // the cover (2:3, as stores show them); without one: the icon and the name
+                        Rectangle {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: width * 1.5
+                            radius: Kirigami.Units.cornerRadius
+                            color: Kirigami.Theme.alternateBackgroundColor
+                            border.color: Qt.alpha(Kirigami.Theme.textColor, 0.12)
+                            clip: true
+                            Image {
+                                id: cover
+                                anchors.fill: parent
+                                anchors.margins: 1
+                                visible: status === Image.Ready
+                                source: tile.modelData.cover ? "file://" + tile.modelData.cover : ""
+                                fillMode: Image.PreserveAspectCrop
+                                asynchronous: true
+                                sourceSize.width: 360
+                            }
+                            ColumnLayout {
+                                anchors.centerIn: parent
+                                width: parent.width - Kirigami.Units.gridUnit
+                                visible: !cover.visible
+                                spacing: Kirigami.Units.smallSpacing
+                                Kirigami.Icon {
+                                    Layout.alignment: Qt.AlignHCenter
+                                    source: tile.modelData.icon || (tile.modelData.source === "steam" ? "steam"
+                                            : tile.modelData.source === "windows" ? "application-x-ms-dos-executable"
+                                            : ["epic", "gog", "amazon"].includes(tile.modelData.source)
+                                              ? "com.heroicgameslauncher.hgl" : "input-gamepad")
+                                    fallback: "input-gamepad"
+                                    implicitWidth: Kirigami.Units.iconSizes.huge
+                                    implicitHeight: Kirigami.Units.iconSizes.huge
+                                }
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    horizontalAlignment: Text.AlignHCenter
+                                    wrapMode: Text.Wrap
+                                    maximumLineCount: 3
+                                    elide: Text.ElideRight
+                                    font.bold: true
+                                    text: tile.modelData.name
+                                }
+                            }
+                            RowLayout {
+                                anchors { left: parent.left; right: parent.right; bottom: parent.bottom
+                                          margins: Kirigami.Units.smallSpacing }
+                                QQC2.Button {
+                                    icon.name: "media-playback-start"
+                                    text: L.t("Play")
+                                    highlighted: true
+                                    onClicked: page.play(tile.modelData)
+                                }
+                                Item { Layout.fillWidth: true }
+                                QQC2.Button {
+                                    visible: tile.modelData.settings === true
+                                    icon.name: "configure"
+                                    text: L.t("Settings")
+                                    display: QQC2.AbstractButton.IconOnly
+                                    QQC2.ToolTip.visible: hovered
+                                    QQC2.ToolTip.text: text
+                                    onClicked: { gameDialog.gameId = tile.modelData.id; gameDialog.open(); }
+                                }
+                            }
+                        }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            horizontalAlignment: Text.AlignHCenter
+                            elide: Text.ElideRight
+                            text: tile.modelData.name
+                        }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            horizontalAlignment: Text.AlignHCenter
+                            elide: Text.ElideRight
+                            opacity: 0.7
+                            font: Kirigami.Theme.smallFont
+                            // "Steam · 🟢 Runs well"
+                            text: [tile.sourceText, tile.modelData.check && tile.modelData.check.badgeText
+                                   ? tile.modelData.check.mark + " " + tile.modelData.check.badgeText : ""]
+                                  .filter(t => t !== "").join(" · ")
+                        }
+                    }
+                }
+            }
         }
 
         // --- Game mode: set up for the game by itself while one runs (game_mode_ctl.py, /usr/libexec/sloth-os/game-mode)
@@ -246,148 +380,143 @@ Kirigami.ScrollablePage {
                 }
             }
         }
-        Kirigami.InlineMessage {
-            Layout.fillWidth: true
-            type: Kirigami.MessageType.Information
-            visible: games.steamRunning
-            text: L.t("Steam is running. Close it first to change the settings of Steam games.")
-            actions: [
-                Kirigami.Action {
-                    text: L.t("Close Steam")
-                    icon.name: "application-exit"
-                    onTriggered: { games.closeSteam(); refreshLater.start(); }
-                }
-            ]
-        }
-        Kirigami.PlaceholderMessage {
-            Layout.fillWidth: true
-            visible: games.games.length === 0
-            icon.name: "input-gamepad"
-            text: L.t("No games installed yet")
-            explanation: L.t("Your Steam games and Windows games appear here. Is a Windows game missing? Mark it as a game in Programs.")
-        }
+    }
 
-        Repeater {
-            model: games.games
-            delegate: Kirigami.AbstractCard {
-                id: gameCard
-                required property var modelData
-                readonly property bool locked: gameCard.modelData.source === "steam" && games.steamRunning
-                property var moveTargets: []  // filled by "Move to another drive…": the choices shown
-                Layout.fillWidth: true
-                contentItem: ColumnLayout {
-                    spacing: Kirigami.Units.largeSpacing
-                    RowLayout {
-                        Layout.fillWidth: true
+    // A game's settings (FPS, performance mode, upscaling, moving to another drive): the card it always had
+    Kirigami.Dialog {
+        id: gameDialog
+        property string gameId: ""
+        readonly property var game: games.games.find(g => g.id === gameId) || null
+        title: game ? game.name : ""
+        preferredWidth: Kirigami.Units.gridUnit * 34
+        padding: Kirigami.Units.largeSpacing
+        standardButtons: Kirigami.Dialog.Close
+        ColumnLayout {
+            // the dialog sizes itself from its content: a width of its own, the height from the card
+            implicitWidth: Kirigami.Units.gridUnit * 32
+            spacing: Kirigami.Units.largeSpacing
+            Repeater {
+                model: gameDialog.game ? [gameDialog.game] : []
+                delegate: Kirigami.AbstractCard {
+                    id: gameCard
+                    required property var modelData
+                    readonly property bool locked: gameCard.modelData.source === "steam" && games.steamRunning
+                    property var moveTargets: []  // filled by "Move to another drive…": the choices shown
+                    Layout.fillWidth: true
+                    contentItem: ColumnLayout {
                         spacing: Kirigami.Units.largeSpacing
-                        Kirigami.Icon {
-                            source: gameCard.modelData.source === "steam" ? "steam" : "application-x-ms-dos-executable"
-                            fallback: "input-gamepad"
-                            implicitWidth: Kirigami.Units.iconSizes.medium
-                            implicitHeight: Kirigami.Units.iconSizes.medium
-                        }
-                        ColumnLayout {
+                        RowLayout {
                             Layout.fillWidth: true
-                            spacing: 0
-                            Kirigami.Heading { Layout.fillWidth: true; level: 3; elide: Text.ElideRight; text: gameCard.modelData.name }
-                            QQC2.Label {
-                                Layout.fillWidth: true
-                                opacity: 0.7
-                                elide: Text.ElideRight
-                                // "Steam · Main drive · 64 GB"
-                                text: [gameCard.modelData.source === "steam" ? L.t("Steam") : L.t("Windows program"),
-                                       gameCard.modelData.place || "", gameCard.modelData.size || ""]
-                                      .filter(s => s !== "").join(" · ")
+                            spacing: Kirigami.Units.largeSpacing
+                            Kirigami.Icon {
+                                source: gameCard.modelData.source === "steam" ? "steam" : "application-x-ms-dos-executable"
+                                fallback: "input-gamepad"
+                                implicitWidth: Kirigami.Units.iconSizes.medium
+                                implicitHeight: Kirigami.Units.iconSizes.medium
                             }
-                            // "Will it run?" for the installed game: the mark and the verdict
-                            QQC2.Label {
-                                visible: !!gameCard.modelData.check && !!gameCard.modelData.check.badgeText
+                            ColumnLayout {
                                 Layout.fillWidth: true
-                                elide: Text.ElideRight
-                                text: visible ? gameCard.modelData.check.mark + " " + gameCard.modelData.check.badgeText : ""
-                            }
-                        }
-                        // Moving a Steam game to another drive (sloth_common.apps.steam_library)
-                        QQC2.Button {
-                            visible: gameCard.modelData.movable === true && games.movingId !== gameCard.modelData.id
-                                     && gameCard.moveTargets.length === 0
-                            enabled: !games.steamRunning && games.movingId === ""
-                            text: L.t("Move to another drive…")
-                            icon.name: "folder-move"
-                            onClicked: gameCard.moveTargets = games.moveTargets(gameCard.modelData.id)
-                        }
-                    }
-                    // The drives it can go to, one button each
-                    Flow {
-                        visible: gameCard.moveTargets.length > 0
-                        Layout.fillWidth: true
-                        spacing: Kirigami.Units.smallSpacing
-                        QQC2.Label {
-                            height: implicitHeight
-                            text: L.t("Move it to:")
-                        }
-                        Repeater {
-                            model: gameCard.moveTargets
-                            delegate: QQC2.Button {
-                                required property var modelData
-                                text: modelData.label + " (" + modelData.free + ")"
-                                icon.name: "drive-harddisk"
-                                onClicked: {
-                                    games.moveGame(gameCard.modelData.id, modelData.path)
-                                    gameCard.moveTargets = []
+                                spacing: 0
+                                // the name is the dialog's title already
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    opacity: 0.7
+                                    elide: Text.ElideRight
+                                    // "Steam · Main drive · 64 GB"
+                                    text: [gameCard.modelData.source === "steam" ? L.t("Steam") : L.t("Windows program"),
+                                           gameCard.modelData.place || "", gameCard.modelData.size || ""]
+                                          .filter(s => s !== "").join(" · ")
+                                }
+                                // "Will it run?" for the installed game: the mark and the verdict
+                                QQC2.Label {
+                                    visible: !!gameCard.modelData.check && !!gameCard.modelData.check.badgeText
+                                    Layout.fillWidth: true
+                                    elide: Text.ElideRight
+                                    text: visible ? gameCard.modelData.check.mark + " " + gameCard.modelData.check.badgeText : ""
                                 }
                             }
+                            // Moving a Steam game to another drive (sloth_common.apps.steam_library)
+                            QQC2.Button {
+                                visible: gameCard.modelData.movable === true && games.movingId !== gameCard.modelData.id
+                                         && gameCard.moveTargets.length === 0
+                                enabled: !games.steamRunning && games.movingId === ""
+                                text: L.t("Move to another drive…")
+                                icon.name: "folder-move"
+                                onClicked: gameCard.moveTargets = games.moveTargets(gameCard.modelData.id)
+                            }
                         }
-                        QQC2.Button {
-                            text: L.t("Cancel")
-                            onClicked: gameCard.moveTargets = []
-                        }
-                    }
-                    // While the game is moving: it may take a while for a big game
-                    RowLayout {
-                        visible: games.movingId === gameCard.modelData.id
-                        Layout.fillWidth: true
-                        spacing: Kirigami.Units.largeSpacing
-                        QQC2.BusyIndicator { running: parent.visible }
-                        QQC2.Label {
+                        // The drives it can go to, one button each
+                        Flow {
+                            visible: gameCard.moveTargets.length > 0
                             Layout.fillWidth: true
-                            wrapMode: Text.Wrap
-                            text: L.t("Moving the game… With a big game this can take a while. Don't start Steam until it is done.")
+                            spacing: Kirigami.Units.smallSpacing
+                            QQC2.Label {
+                                height: implicitHeight
+                                text: L.t("Move it to:")
+                            }
+                            Repeater {
+                                model: gameCard.moveTargets
+                                delegate: QQC2.Button {
+                                    required property var modelData
+                                    text: modelData.label + " (" + modelData.free + ")"
+                                    icon.name: "drive-harddisk"
+                                    onClicked: {
+                                        games.moveGame(gameCard.modelData.id, modelData.path)
+                                        gameCard.moveTargets = []
+                                    }
+                                }
+                            }
+                            QQC2.Button {
+                                text: L.t("Cancel")
+                                onClicked: gameCard.moveTargets = []
+                            }
                         }
-                    }
-                    GridLayout {
-                        Layout.fillWidth: true
-                        enabled: !gameCard.locked
-                        columns: 2
-                        columnSpacing: Kirigami.Units.largeSpacing
-                        QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; text: L.t("Show FPS and performance while playing") }
-                        QQC2.Switch {
-                            checked: gameCard.modelData.fps
-                            onToggled: games.setOption(gameCard.modelData.id, "fps", checked)
-                        }
-                        QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; text: L.t("Performance mode (the computer focuses on the game)") }
-                        QQC2.Switch {
-                            checked: gameCard.modelData.performance
-                            onToggled: games.setOption(gameCard.modelData.id, "performance", checked)
-                        }
-                        QQC2.Label {
+                        // While the game is moving: it may take a while for a big game
+                        RowLayout {
+                            visible: games.movingId === gameCard.modelData.id
                             Layout.fillWidth: true
-                            wrapMode: Text.Wrap
-                            text: L.t("Upscaling: the game runs at a lower resolution and is sharpened and enlarged. More FPS, slightly less sharp image.")
+                            spacing: Kirigami.Units.largeSpacing
+                            QQC2.BusyIndicator { running: parent.visible }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                text: L.t("Moving the game… With a big game this can take a while. Don't start Steam until it is done.")
+                            }
                         }
-                        QQC2.ComboBox {
-                            Layout.preferredWidth: Kirigami.Units.gridUnit * 11
-                            model: [
-                                { value: "off", text: L.t("Off") },
-                                { value: "quality", text: L.t("Quality") },
-                                { value: "balanced", text: L.t("Balanced") },
-                                { value: "performance", text: L.t("Performance") }
-                            ]
-                            textRole: "text"
-                            valueRole: "value"
-                            // not indexOfValue(): that runs before the model is loaded, and returns -1 (empty field)
-                            currentIndex: Math.max(0, model.findIndex(m => m.value === gameCard.modelData.upscale))
-                            onActivated: games.setOption(gameCard.modelData.id, "upscale", currentValue)
+                        GridLayout {
+                            Layout.fillWidth: true
+                            enabled: !gameCard.locked
+                            columns: 2
+                            columnSpacing: Kirigami.Units.largeSpacing
+                            QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; text: L.t("Show FPS and performance while playing") }
+                            QQC2.Switch {
+                                checked: gameCard.modelData.fps
+                                onToggled: games.setOption(gameCard.modelData.id, "fps", checked)
+                            }
+                            QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; text: L.t("Performance mode (the computer focuses on the game)") }
+                            QQC2.Switch {
+                                checked: gameCard.modelData.performance
+                                onToggled: games.setOption(gameCard.modelData.id, "performance", checked)
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                wrapMode: Text.Wrap
+                                text: L.t("Upscaling: the game runs at a lower resolution and is sharpened and enlarged. More FPS, slightly less sharp image.")
+                            }
+                            QQC2.ComboBox {
+                                Layout.preferredWidth: Kirigami.Units.gridUnit * 11
+                                model: [
+                                    { value: "off", text: L.t("Off") },
+                                    { value: "quality", text: L.t("Quality") },
+                                    { value: "balanced", text: L.t("Balanced") },
+                                    { value: "performance", text: L.t("Performance") }
+                                ]
+                                textRole: "text"
+                                valueRole: "value"
+                                // not indexOfValue(): that runs before the model is loaded, and returns -1 (empty field)
+                                currentIndex: Math.max(0, model.findIndex(m => m.value === gameCard.modelData.upscale))
+                                onActivated: games.setOption(gameCard.modelData.id, "upscale", currentValue)
+                            }
                         }
                     }
                 }

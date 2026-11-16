@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "பெற்றோர் கட்டுப்பாடு: “கூடுதல் நேரம் கேள்” இப்போது உண்மையில் பெற்றோரிடம் கேட்கிறது, இணையதள வடிகட்டி எல்லா நிரல்களுக்கும் பொருந்தும்.",
   "Game mode": "விளையாட்டு பயன்முறை",
   "Game mode is on now: {game}": "விளையாட்டு பயன்முறை இப்போது இயக்கத்தில் உள்ளது: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "ஒரு விளையாட்டு இயங்கும்போது, Sloth OS தானாகவே கணினியை அதற்குத் தயார் செய்கிறது: அறிவிப்புகள் காத்திருக்கும், விளையாட்டுக்கு அதிக திறன் கிடைக்கும் (மின்சாரத்தில் இணைத்திருக்கும்போது சிறந்த செயல்திறன் பயன்முறை), நீங்கள் விளையாடி முடிக்கும் வரை புதுப்பிப்புகளும் காப்புப்பிரதிகளும் காத்திருக்கும். பிறகு எல்லாம் பழையபடி திரும்பும்."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "ஒரு விளையாட்டு இயங்கும்போது, Sloth OS தானாகவே கணினியை அதற்குத் தயார் செய்கிறது: அறிவிப்புகள் காத்திருக்கும், விளையாட்டுக்கு அதிக திறன் கிடைக்கும் (மின்சாரத்தில் இணைத்திருக்கும்போது சிறந்த செயல்திறன் பயன்முறை), நீங்கள் விளையாடி முடிக்கும் வரை புதுப்பிப்புகளும் காப்புப்பிரதிகளும் காத்திருக்கும். பிறகு எல்லாம் பழையபடி திரும்பும்.",
+  "App": "செயலி",
+  "Play": "விளையாடு",
+  "Start {game}": "{game} ஐத் தொடங்கு"
 }

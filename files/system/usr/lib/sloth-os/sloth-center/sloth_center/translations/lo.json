@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "ການຄວບຄຸມຂອງພໍ່ແມ່: “ຂໍເວລາເພີ່ມ” ດຽວນີ້ຖາມພໍ່ແມ່ແທ້ໆ, ແລະ ຕົວກັ່ນຕອງເວັບໄຊໃຊ້ກັບທຸກໂປຣແກຣມ.",
   "Game mode": "ໂໝດເກມ",
   "Game mode is on now: {game}": "ໂໝດເກມເປີດຢູ່ໃນຕອນນີ້: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "ໃນຂະນະທີ່ເກມກຳລັງເຮັດວຽກ, Sloth OS ຈະກຽມຄອມພິວເຕີໃຫ້ເອງ: ການແຈ້ງເຕືອນຈະລໍຖ້າ, ເກມໄດ້ຮັບພະລັງຫຼາຍຂຶ້ນ (ໂໝດປະສິດທິພາບສູງສຸດເມື່ອສຽບສາຍໄຟ), ແລະການອັບເດດ ແລະ ການສຳຮອງຂໍ້ມູນຈະລໍຖ້າຈົນກວ່າທ່ານຈະຢຸດຫຼິ້ນ. ຫຼັງຈາກນັ້ນທຸກຢ່າງຈະກັບຄືນຄືເກົ່າ."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "ໃນຂະນະທີ່ເກມກຳລັງເຮັດວຽກ, Sloth OS ຈະກຽມຄອມພິວເຕີໃຫ້ເອງ: ການແຈ້ງເຕືອນຈະລໍຖ້າ, ເກມໄດ້ຮັບພະລັງຫຼາຍຂຶ້ນ (ໂໝດປະສິດທິພາບສູງສຸດເມື່ອສຽບສາຍໄຟ), ແລະການອັບເດດ ແລະ ການສຳຮອງຂໍ້ມູນຈະລໍຖ້າຈົນກວ່າທ່ານຈະຢຸດຫຼິ້ນ. ຫຼັງຈາກນັ້ນທຸກຢ່າງຈະກັບຄືນຄືເກົ່າ.",
+  "App": "ແອັບ",
+  "Play": "ຫຼິ້ນ",
+  "Start {game}": "ເລີ່ມ {game}"
 }

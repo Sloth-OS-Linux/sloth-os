@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "家长控制：“申请更多时间”现在会真正询问家长，网站过滤也覆盖所有程序。",
   "Game mode": "游戏模式",
   "Game mode is on now: {game}": "游戏模式已开启：{game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "游戏运行时，Sloth OS 会自动为它准备好电脑：通知会等待，游戏获得更多性能（接通电源时使用最佳性能模式），更新和备份会等到你停止游戏。之后一切恢复原样。"
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "游戏运行时，Sloth OS 会自动为它准备好电脑：通知会等待，游戏获得更多性能（接通电源时使用最佳性能模式），更新和备份会等到你停止游戏。之后一切恢复原样。",
+  "App": "应用",
+  "Play": "开始游戏",
+  "Start {game}": "启动 {game}"
 }

@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "მშობლის კონტროლი: „მეტი დროის თხოვნა“ ახლა ნამდვილად ეკითხება მშობელს, ვებგვერდების ფილტრი კი ყველა პროგრამაზე ვრცელდება.",
   "Game mode": "თამაშის რეჟიმი",
   "Game mode is on now: {game}": "თამაშის რეჟიმი ახლა ჩართულია: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "სანამ თამაში მუშაობს, Sloth OS კომპიუტერს თავად ამზადებს: შეტყობინებები იცდის, თამაში მეტ სიმძლავრეს იღებს (კვების წყაროზე — საუკეთესო წარმადობის რეჟიმი), განახლებები და სარეზერვო ასლები კი იცდის, სანამ თამაშს არ დაასრულებთ. შემდეგ ყველაფერი ძველებურად ბრუნდება."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "სანამ თამაში მუშაობს, Sloth OS კომპიუტერს თავად ამზადებს: შეტყობინებები იცდის, თამაში მეტ სიმძლავრეს იღებს (კვების წყაროზე — საუკეთესო წარმადობის რეჟიმი), განახლებები და სარეზერვო ასლები კი იცდის, სანამ თამაშს არ დაასრულებთ. შემდეგ ყველაფერი ძველებურად ბრუნდება.",
+  "App": "აპი",
+  "Play": "თამაში",
+  "Start {game}": "{game}-ის გაშვება"
 }

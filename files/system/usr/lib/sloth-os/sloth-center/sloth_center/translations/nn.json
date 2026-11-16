@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Foreldrekontroll: «Be om meir tid» spør no ein forelder, og nettfilteret gjeld alle program.",
   "Game mode": "Spelmodus",
   "Game mode is on now: {game}": "Spelmodus er på no: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Medan eit spel køyrer, gjer Sloth OS datamaskina klar for det av seg sjølv: varsel ventar, spelet får meir kraft (modusen for best yting når ladaren er kopla til), og oppdateringar og tryggingskopiar ventar til du sluttar å spela. Etterpå blir alt som før."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Medan eit spel køyrer, gjer Sloth OS datamaskina klar for det av seg sjølv: varsel ventar, spelet får meir kraft (modusen for best yting når ladaren er kopla til), og oppdateringar og tryggingskopiar ventar til du sluttar å spela. Etterpå blir alt som før.",
+  "App": "App",
+  "Play": "Spel",
+  "Start {game}": "Start {game}"
 }

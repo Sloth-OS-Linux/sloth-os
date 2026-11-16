@@ -22,6 +22,26 @@ from a terminal must also work from a GUI.
   forbids it). Tests: `BiosBootableTest` in tools/tests/test_install_helper.py (a real disk image)
 - [ ] The VAIO again with the new ISO: it starts from the disk
 
+### The game library (2026-11-16, test branch, not pushed yet)
+- [x] Sloth Center → Games starts with every game as a cover (2:3), a Play button and a click to start; under it the
+  name, the store and "Will it run?". The gear (Steam and Windows games) opens the settings they had before as
+  cards (FPS, performance mode, upscaling, moving to another drive), now in a dialog; Game mode, Will it run? and
+  Game saves follow under the library (`sloth_common/game_library.py`, games.py, GamesPage.qml)
+- [x] The games: Steam's (as before), the Windows games (as before; started through Windows programs), Heroic's Epic,
+  GOG and Amazon games (Epic: legendary's installed.json and metadata, verified in Heroic's source; GOG and Amazon:
+  their installed.json read leniently, the name from the install folder if needed), and the Flatpak apps in the
+  "Game" category (launchers and tools left out)
+- [x] Covers: Steam's library cache in both layouts (the old flat <appid>_library_600x900.jpg, and since 2026 a folder
+  per game with hashed names: "library_600x900" first, then the portrait image there); otherwise Steam's image
+  server (two addresses) into ~/.cache/sloth-os/covers, in the background, once; Epic's tall box art; a recognized
+  Windows game with a Steam id (umu-<number>) gets Steam's cover; the rest show their icon and name
+- [x] Starting: steam://rungameid/<id>, heroic://launch?appName=…&runner=… (Heroic's protocol.ts), flatpak run
+- [x] Tried in a container with the real Sloth Center: Steam games with a local cover in the new layout and without
+  one (downloaded), an Epic and a GOG game from Heroic's files, the settings dialog; `tools/tests/test_game_library.py`
+  (6), 50 languages
+- [ ] On the HP: real Steam and Heroic libraries; Play starts a Steam game, a Heroic game and a Windows game; a Flatpak
+  game (e.g. SuperTuxKart) shows with its icon; GOG and Amazon names (their files were not seen for real)
+
 ### Game mode (2026-11-16, test branch, not pushed yet)
 - [x] `sloth-game-mode.service` (user, `/usr/libexec/sloth-os/game-mode`, `sloth_common/game_mode.py`): every 4 s it
   looks at the user's own processes; a game is a Steam game (Steam's reaper with "SteamLaunch AppId=<n>", the
@@ -53,8 +73,8 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
   1. [x] **Game mode** (medium, listed: "an optional gaming mode"): while a game runs, Do Not Disturb and the best
      performance by themselves, updates and backups wait; all back afterwards. Done 2026-11-16, see "Game mode"
      below
-  2. **One library for every game** (medium–large, new): Steam, Heroic, GOG and Windows games in one place with their
-     covers and a Play button
+  2. [x] **One library for every game** (medium–large, new): Steam, Heroic, GOG and Windows games in one place with
+     their covers and a Play button. Done 2026-11-16, see "The game library" below
   3. **What's wrong with the game?** (large, listed: "when a game fails or crashes…"): a readable summary, and the
      system tries fixes by itself (Windows programs have it, Steam games not yet)
   4. **TV mode** (medium, new): a controller-first, big-screen session chosen at sign-in, like a console (Steam Big

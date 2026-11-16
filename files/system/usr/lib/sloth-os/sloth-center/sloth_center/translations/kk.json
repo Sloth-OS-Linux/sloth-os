@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Ата-ана бақылауы: «Қосымша уақыт сұрау» енді шынымен ата-анадан сұрайды, ал сайт сүзгісі әр бағдарламаға қолданылады.",
   "Game mode": "Ойын режимі",
   "Game mode is on now: {game}": "Ойын режимі қазір қосулы: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Ойын жүріп тұрғанда Sloth OS компьютерді өзі дайындайды: хабарламалар күтеді, ойын көбірек қуат алады (желіге қосулы кезде ең жоғары өнімділік режимі), ал жаңартулар мен сақтық көшірмелер ойнауды тоқтатқанша күтеді. Кейін бәрі бұрынғы қалпына оралады."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Ойын жүріп тұрғанда Sloth OS компьютерді өзі дайындайды: хабарламалар күтеді, ойын көбірек қуат алады (желіге қосулы кезде ең жоғары өнімділік режимі), ал жаңартулар мен сақтық көшірмелер ойнауды тоқтатқанша күтеді. Кейін бәрі бұрынғы қалпына оралады.",
+  "App": "Қолданба",
+  "Play": "Ойнау",
+  "Start {game}": "{game} іске қосу"
 }

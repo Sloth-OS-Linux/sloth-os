@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Control parental: „Cere mai mult timp” întreabă acum un părinte, iar filtrul de site-uri acoperă fiecare program.",
   "Game mode": "Mod joc",
   "Game mode is on now: {game}": "Modul joc este pornit acum: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Cât timp rulează un joc, Sloth OS pregătește singur calculatorul: notificările așteaptă, jocul primește mai multă putere (modul de performanță maximă când e în priză), iar actualizările și copiile de rezervă așteaptă până te oprești din joc. Apoi totul revine la normal."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Cât timp rulează un joc, Sloth OS pregătește singur calculatorul: notificările așteaptă, jocul primește mai multă putere (modul de performanță maximă când e în priză), iar actualizările și copiile de rezervă așteaptă până te oprești din joc. Apoi totul revine la normal.",
+  "App": "Aplicație",
+  "Play": "Joacă",
+  "Start {game}": "Pornește {game}"
 }

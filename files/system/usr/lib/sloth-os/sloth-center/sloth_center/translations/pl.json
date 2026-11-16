@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Kontrola rodzicielska: „Poproś o więcej czasu” teraz naprawdę pyta rodzica, a filtr stron obejmuje każdy program.",
   "Game mode": "Tryb gry",
   "Game mode is on now: {game}": "Tryb gry jest teraz włączony: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Gdy działa gra, Sloth OS sam przygotowuje do niej komputer: powiadomienia czekają, gra dostaje więcej mocy (tryb najwyższej wydajności przy zasilaczu), a aktualizacje i kopie zapasowe czekają, aż skończysz grać. Potem wszystko wraca do normy."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Gdy działa gra, Sloth OS sam przygotowuje do niej komputer: powiadomienia czekają, gra dostaje więcej mocy (tryb najwyższej wydajności przy zasilaczu), a aktualizacje i kopie zapasowe czekają, aż skończysz grać. Potem wszystko wraca do normy.",
+  "App": "Aplikacja",
+  "Play": "Graj",
+  "Start {game}": "Uruchom {game}"
 }

@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Jugendschutz: „Um mehr Zeit bitten“ fragt jetzt wirklich ein Elternteil, und der Webfilter gilt für jedes Programm.",
   "Game mode": "Spielmodus",
   "Game mode is on now: {game}": "Der Spielmodus ist gerade an: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Während ein Spiel läuft, bereitet Sloth OS den Computer von selbst darauf vor: Benachrichtigungen warten, das Spiel bekommt mehr Leistung (am Netzteil den Modus für höchste Leistung), und Updates und Sicherungen warten, bis du mit dem Spielen aufhörst. Danach ist alles wieder wie vorher."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Während ein Spiel läuft, bereitet Sloth OS den Computer von selbst darauf vor: Benachrichtigungen warten, das Spiel bekommt mehr Leistung (am Netzteil den Modus für höchste Leistung), und Updates und Sicherungen warten, bis du mit dem Spielen aufhörst. Danach ist alles wieder wie vorher.",
+  "App": "App",
+  "Play": "Spielen",
+  "Start {game}": "{game} starten"
 }

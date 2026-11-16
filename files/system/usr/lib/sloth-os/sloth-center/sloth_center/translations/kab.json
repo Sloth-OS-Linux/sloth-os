@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Asenqed n imawlan: “Suter ugar n wakud” tura yessuter s tidet i yiwen seg imawlan, imzizdig n yismal yeṭṭef akk ahilen.",
   "Game mode": "Askar n wurar",
   "Game mode is on now: {game}": "Askar n wurar yermed tura: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Mi ara yetteddu wurar, Sloth OS ad as-iheggi aselkim s yiman-is: ilɣa ad rğun, urar ad yawi ugar n tezmert (askar n tmellit yifen ma yeqqen ɣer trisiti), ileqman d weḥraz ad rğun armi tḥebseḍ urar. Sakin kullec ad yuɣal am zik."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Mi ara yetteddu wurar, Sloth OS ad as-iheggi aselkim s yiman-is: ilɣa ad rğun, urar ad yawi ugar n tezmert (askar n tmellit yifen ma yeqqen ɣer trisiti), ileqman d weḥraz ad rğun armi tḥebseḍ urar. Sakin kullec ad yuɣal am zik.",
+  "App": "Asnas",
+  "Play": "Urar",
+  "Start {game}": "Senker {game}"
 }

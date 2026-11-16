@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Control dai gjenitôrs: “Domande plui timp” cumò al domande pardabon a un gjenitôr, e il filtri dai sîts al vâl par ogni program.",
   "Game mode": "Modalitât zûc",
   "Game mode is on now: {game}": "La modalitât zûc e je ative cumò: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Intant che un zûc al è in esecuzion, Sloth OS al prepare il computer di bessôl: lis notifichis a spietin, il zûc al oten plui potence (la modalitât des prestazions massimis cuant che al è tacât ae corint), e i inzornaments e i backup a spietin fin che no tu smetis di zuiâ. Dopo dut al torne come prime."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Intant che un zûc al è in esecuzion, Sloth OS al prepare il computer di bessôl: lis notifichis a spietin, il zûc al oten plui potence (la modalitât des prestazions massimis cuant che al è tacât ae corint), e i inzornaments e i backup a spietin fin che no tu smetis di zuiâ. Dopo dut al torne come prime.",
+  "App": "Aplicazion",
+  "Play": "Zuie",
+  "Start {game}": "Invie {game}"
 }

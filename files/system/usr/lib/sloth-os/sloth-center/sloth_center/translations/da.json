@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Forældrekontrol: “Bed om mere tid” spørger nu en forælder, og webfilteret gælder for alle programmer.",
   "Game mode": "Spiltilstand",
   "Game mode is on now: {game}": "Spiltilstand er slået til nu: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Mens et spil kører, gør Sloth OS selv computeren klar til det: notifikationer venter, spillet får mere kraft (tilstanden for bedste ydeevne, når strømmen er tilsluttet), og opdateringer og sikkerhedskopier venter, til du holder op med at spille. Bagefter er alt som før."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Mens et spil kører, gør Sloth OS selv computeren klar til det: notifikationer venter, spillet får mere kraft (tilstanden for bedste ydeevne, når strømmen er tilsluttet), og opdateringer og sikkerhedskopier venter, til du holder op med at spille. Bagefter er alt som før.",
+  "App": "App",
+  "Play": "Spil",
+  "Start {game}": "Start {game}"
 }

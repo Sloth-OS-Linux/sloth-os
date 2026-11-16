@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Kontrol orang tua: “Minta waktu tambahan” kini benar-benar bertanya ke orang tua, dan filter situs berlaku untuk semua program.",
   "Game mode": "Mode permainan",
   "Game mode is on now: {game}": "Mode permainan sedang aktif: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Selama permainan berjalan, Sloth OS menyiapkan komputer untuknya secara otomatis: notifikasi menunggu, permainan mendapat tenaga lebih (mode kinerja terbaik saat dicolokkan), serta pembaruan dan cadangan menunggu sampai Anda berhenti bermain. Setelah itu semuanya kembali seperti semula."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Selama permainan berjalan, Sloth OS menyiapkan komputer untuknya secara otomatis: notifikasi menunggu, permainan mendapat tenaga lebih (mode kinerja terbaik saat dicolokkan), serta pembaruan dan cadangan menunggu sampai Anda berhenti bermain. Setelah itu semuanya kembali seperti semula.",
+  "App": "Aplikasi",
+  "Play": "Main",
+  "Start {game}": "Mulai {game}"
 }

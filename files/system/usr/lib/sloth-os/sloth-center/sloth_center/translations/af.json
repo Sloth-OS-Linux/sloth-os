@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Ouerbeheer: “Vra vir meer tyd” vra nou regtig 'n ouer, en die webwerffilter geld vir elke program.",
   "Game mode": "Speletjiemodus",
   "Game mode is on now: {game}": "Speletjiemodus is nou aan: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Terwyl ’n speletjie loop, maak Sloth OS die rekenaar self gereed daarvoor: kennisgewings wag, die speletjie kry meer krag (die beste-werkverrigting-modus wanneer ingeprop) en bywerkings en rugsteun wag totdat jy ophou speel. Daarna is alles weer soos voorheen."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Terwyl ’n speletjie loop, maak Sloth OS die rekenaar self gereed daarvoor: kennisgewings wag, die speletjie kry meer krag (die beste-werkverrigting-modus wanneer ingeprop) en bywerkings en rugsteun wag totdat jy ophou speel. Daarna is alles weer soos voorheen.",
+  "App": "Toep",
+  "Play": "Speel",
+  "Start {game}": "Begin {game}"
 }

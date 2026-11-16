@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Rodičovská kontrola: „Požiadať o viac času“ sa teraz naozaj opýta rodiča a filter webov platí pre každý program.",
   "Game mode": "Herný režim",
   "Game mode is on now: {game}": "Herný režim je teraz zapnutý: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Keď beží hra, Sloth OS na ňu počítač sám pripraví: oznámenia počkajú, hra dostane viac výkonu (pri napájaní zo siete režim najvyššieho výkonu) a aktualizácie a zálohy počkajú, kým dohráte. Potom sa všetko vráti späť."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Keď beží hra, Sloth OS na ňu počítač sám pripraví: oznámenia počkajú, hra dostane viac výkonu (pri napájaní zo siete režim najvyššieho výkonu) a aktualizácie a zálohy počkajú, kým dohráte. Potom sa všetko vráti späť.",
+  "App": "Aplikácia",
+  "Play": "Hrať",
+  "Start {game}": "Spustiť {game}"
 }

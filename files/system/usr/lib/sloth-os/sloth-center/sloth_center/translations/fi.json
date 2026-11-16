@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Lapsilukko: ”Pyydä lisää aikaa” kysyy nyt vanhemmalta, ja verkkosivusuodatin koskee kaikkia ohjelmia.",
   "Game mode": "Pelitila",
   "Game mode is on now: {game}": "Pelitila on nyt päällä: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Kun peli on käynnissä, Sloth OS valmistelee koneen sille itsestään: ilmoitukset odottavat, peli saa enemmän tehoa (verkkovirrassa parhaan suorituskyvyn tila), ja päivitykset ja varmuuskopiot odottavat, kunnes lopetat pelaamisen. Sen jälkeen kaikki palaa ennalleen."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Kun peli on käynnissä, Sloth OS valmistelee koneen sille itsestään: ilmoitukset odottavat, peli saa enemmän tehoa (verkkovirrassa parhaan suorituskyvyn tila), ja päivitykset ja varmuuskopiot odottavat, kunnes lopetat pelaamisen. Sen jälkeen kaikki palaa ennalleen.",
+  "App": "Sovellus",
+  "Play": "Pelaa",
+  "Start {game}": "Käynnistä {game}"
 }

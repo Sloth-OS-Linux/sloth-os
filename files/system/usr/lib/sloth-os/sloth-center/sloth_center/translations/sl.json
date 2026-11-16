@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "Starševski nadzor: »Prosi za več časa« zdaj res vpraša starša, spletni filter pa velja za vsak program.",
   "Game mode": "Igralni način",
   "Game mode is on now: {game}": "Igralni način je zdaj vklopljen: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Med igro Sloth OS sam pripravi računalnik nanjo: obvestila počakajo, igra dobi več moči (ob priključenem napajanju način najboljše zmogljivosti), posodobitve in varnostne kopije pa počakajo, dokler ne nehate igrati. Potem je vse spet kot prej."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "Med igro Sloth OS sam pripravi računalnik nanjo: obvestila počakajo, igra dobi več moči (ob priključenem napajanju način najboljše zmogljivosti), posodobitve in varnostne kopije pa počakajo, dokler ne nehate igrati. Potem je vse spet kot prej.",
+  "App": "Aplikacija",
+  "Play": "Igraj",
+  "Start {game}": "Zaženi {game}"
 }

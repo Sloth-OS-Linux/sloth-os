@@ -1200,5 +1200,8 @@
   "Parental controls: “Ask for more time” now asks a parent, and the website filter covers every program.": "자녀 보호: ‘시간 더 요청하기’가 이제 실제로 보호자에게 묻고, 웹사이트 필터가 모든 프로그램에 적용됩니다.",
   "Game mode": "게임 모드",
   "Game mode is on now: {game}": "지금 게임 모드가 켜져 있습니다: {game}",
-  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "게임이 실행되는 동안 Sloth OS가 알아서 컴퓨터를 게임에 맞게 준비합니다. 알림은 대기하고, 게임은 더 많은 성능을 받으며(전원 연결 시 최고 성능 모드), 업데이트와 백업은 게임을 마칠 때까지 기다립니다. 끝나면 모든 것이 원래대로 돌아갑니다."
+  "While a game runs, Sloth OS gets the computer ready for it by itself: notifications wait, the game gets more power (the best performance mode when plugged in), and updates and backups wait until you stop playing. Afterwards everything goes back.": "게임이 실행되는 동안 Sloth OS가 알아서 컴퓨터를 게임에 맞게 준비합니다. 알림은 대기하고, 게임은 더 많은 성능을 받으며(전원 연결 시 최고 성능 모드), 업데이트와 백업은 게임을 마칠 때까지 기다립니다. 끝나면 모든 것이 원래대로 돌아갑니다.",
+  "App": "앱",
+  "Play": "플레이",
+  "Start {game}": "{game} 시작"
 }
