@@ -130,6 +130,10 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        com.steampowered.SteamOSManager1, /com/steampowered/SteamOSManager1, SessionManagement1 with
        SwitchToDesktopMode() and SwitchToGameMode() (as polaris' steamos_session.h checks the real one); it leaves the
        same note, and tv-session closes Steam. The Flatpak gets --talk-name for it. Tried with a real D-Bus call
+     - [x] Still waiting on the HP with the stand-in: Steam's log had no ServiceUnknown any more (it found the service), but
+       no note came: Steam asks something else first. The interface also has a DefaultLoginMode property (framemate's
+       steamos.rs reads it): added (a string, "game"; set to "desktop" counts as asking for the desktop), and every
+       message Steam sends to the service is logged to ~/.cache/sloth-os/tv-dbus.log (busctl monitor), to see it
      - [ ] On the HP: Switch to Desktop brings the desktop (within about 10 s)
      - [x] The session's name in 50 languages (tools/gen_desktop_entries.py writes sloth-tv.desktop now); Games → TV
        mode explains it, with "Open it on the whole screen now" (Steam's Big Picture on the desktop:

@@ -20,12 +20,17 @@ from gi.repository import Gio, GLib
 
 NAME = "com.steampowered.SteamOSManager1"
 PATH = "/com/steampowered/SteamOSManager1"
+# DefaultLoginMode: the interface has this property too (framemate's crates/agent/src/steamos.rs reads it); its type
+# is not known for sure, a string ("game" / "desktop") is the likely one. tv-session logs every message Steam sends
+# here (~/.cache/sloth-os/tv-dbus.log), to see what else Steam asks for.
 XML = """<node>
   <interface name="com.steampowered.SteamOSManager1.SessionManagement1">
     <method name="SwitchToDesktopMode"/>
     <method name="SwitchToGameMode"/>
+    <property name="DefaultLoginMode" type="s" access="readwrite"/>
   </interface>
 </node>"""
+login_mode = "game"
 NOTES = os.path.join(os.environ.get("XDG_RUNTIME_DIR") or f"/run/user/{os.getuid()}", "sloth-tv")
 
 
@@ -40,12 +45,29 @@ def on_call(_conn, _sender, _path, _iface, method, _params, invocation):
     invocation.return_value(None)
 
 
+class _NoReply:
+    """For on_call from a property change: there is no method call to answer."""
+    def return_value(self, _value):
+        pass
+
+
 def main():
     node = Gio.DBusNodeInfo.new_for_xml(XML)
     loop = GLib.MainLoop()
 
+    def get_property(_conn, _sender, _path, _iface, name):
+        return GLib.Variant("s", login_mode) if name == "DefaultLoginMode" else None
+
+    def set_property(_conn, _sender, _path, _iface, name, value):
+        global login_mode
+        if name == "DefaultLoginMode":
+            login_mode = value.unpack()
+            if login_mode == "desktop":       # perhaps Steam's way of asking for the desktop
+                on_call(None, None, None, None, "SwitchToDesktopMode", None, _NoReply())
+        return True
+
     def on_bus(conn, _name):
-        conn.register_object(PATH, node.interfaces[0], on_call, None, None)
+        conn.register_object(PATH, node.interfaces[0], on_call, get_property, set_property)
 
     Gio.bus_own_name(Gio.BusType.SESSION, NAME, Gio.BusNameOwnerFlags.NONE, on_bus, None,
                      lambda *_: loop.quit())       # the name taken by someone else: nothing to stand in for

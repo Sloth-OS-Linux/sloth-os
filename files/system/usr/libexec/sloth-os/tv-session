@@ -49,6 +49,10 @@ watcher=$!
 # our stand-in answers and leaves the same note (/usr/libexec/sloth-os/tv-steamos-manager)
 /usr/libexec/sloth-os/tv-steamos-manager &
 manager=$!
+# Everything Steam sends to it, kept after a restart (to see what Steam asks for when "Switch to Desktop" waits)
+mkdir -p "$HOME/.cache/sloth-os"
+busctl --user monitor com.steampowered.SteamOSManager1 > "$HOME/.cache/sloth-os/tv-dbus.log" 2>&1 &
+monitor=$!
 for _ in 1 2 3 4 5 6 7 8 9 10; do
     busctl --user status com.steampowered.SteamOSManager1 >/dev/null 2>&1 && break
     sleep 0.3
@@ -63,7 +67,7 @@ gamescope -e -f -- flatpak run --filesystem=host-os:ro --filesystem=xdg-run/slot
     --env=PATH=/run/host/usr/libexec/sloth-os/tv-shim:/app/bin:/app/utils/bin:/usr/bin:/bin \
     com.valvesoftware.Steam -gamepadui
 code=$?
-kill "$watcher" "$manager" 2>/dev/null
+kill "$watcher" "$manager" "$monitor" 2>/dev/null
 # Steam is fully closed before the desktop starts (its own autostart may open it there again, as usual)
 flatpak kill com.valvesoftware.Steam >/dev/null 2>&1
 if (( code != 0 && $(date +%s) - started < 15 )); then
