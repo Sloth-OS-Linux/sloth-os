@@ -144,7 +144,11 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      - [x] Steam's start-up video: ours instead of Valve's SteamOS logo (-steamos3 plays it): the Sloth OS logo breaks
        into points of light that fly into a controller (tools/make_tv_intro.py, /usr/share/sloth-os/tv/startup.webm).
        tv-session puts it in Steam's config/uioverrides/movies/deck_startup.webm, never over a video put there by hand
-     - [ ] On the HP: the two session names on the sign-in screen (the emoji shows), the start-up video plays
+     - [x] The desktop's loading screen after sign-in (KSplash, Splash.qml) in the same style: "Sloth OS" sprayed on
+       like graffiti (Rubik Spray Paint, OFL; only the rendered picture is in the image) turns into the logo, which then
+       pulses until the desktop is ready (tools/make_splash_intro.py, images/intro.webp; offscreen render checked)
+     - [ ] On the HP: the two session names on the sign-in screen (the emoji shows), the start-up video plays, the
+       graffiti loading screen plays after sign-in
      - [x] The session's name in 50 languages (tools/gen_desktop_entries.py writes sloth-tv.desktop now); Games → TV
        mode explains it, with "Open it on the whole screen now" (Steam's Big Picture on the desktop:
        steam://open/bigpicture), and a "TV mode" Start menu entry does the same (org.slothos.tv-mode.desktop)
