@@ -44,6 +44,9 @@ from a terminal must also work from a GUI.
   first MiB). Over 2 TiB (MBR's limit) and in UEFI mode a GPT as before. bootupd leaves the EFI partition empty on an
   MBR disk, so the installer makes EFI/fedora for the boot menu's state; boot-env finds the EFI partition by type
   0xef too. Tests: `BiosBootableTest`, `UseMbrTest` (real disk images)
+- [x] The CI ISO with it (2026-11-16, run 43950858052, test-branch image with the new boot-env) in the VM: BIOS DVD,
+  BIOS USB and UEFI USB start the installer; BIOS install: plain MBR, partition 2 active, starts from the disk; UEFI
+  install: GPT, no active flag, starts. Written to the USB stick for the VAIO
 - [ ] The VAIO again with the MBR install; the same stick on a real UEFI machine (the HP) too
 - [ ] First thing on 2026-11-17: start the HP (UEFI) from the same plain-MBR stick, only up to the installer's first
   page (no install: the stick has a test-branch build and an install would erase the HP's disk)
