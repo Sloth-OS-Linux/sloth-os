@@ -14,13 +14,33 @@ from a terminal must also work from a GUI.
   work with EFI partitions and boot entries); the first page no longer stops it
 - [x] Tried in a VM with SeaBIOS: the ISO starts as a DVD and as a USB stick, the install goes through, the installed
   system starts (no GRUB menu); the same ISO with UEFI: installed and started as before
-- [ ] Ship it: a new ISO (1.6.1), then README / website requirements (they still say "UEFI only")
+- [x] On real hardware (2026-11-16, Sony VAIO PCG-81313M, Insyde BIOS): the CI ISO's USB stick did not start, the
+  BIOS skipped it and started Windows (GPT layout: protective MBR 0xee, no active partition; setting 0x80 by hand did
+  not help). The same ISO remastered to a plain MBR layout (`xorriso -indev … -boot_image any replay -boot_image any
+  appended_part_as=mbr -boot_image any mbr_force_bootable=on`: partition 1 ISO 0x83 active, partition 2 EFI 0xef)
+  started, in the VM with BIOS and UEFI too, and the install went through on the VAIO (see below)
 - [x] On real hardware (2026-11-16, the user's Sony VAIO PCG-81913M): the ISO started and the install went through,
   but after the restart the BIOS said "No operating system found". Its BIOS (like many older ones; SeaBIOS doesn't
   ask) starts only a disk with an active partition in its MBR. Now the installer marks the protective MBR's entry
   active in BIOS mode (`bios_bootable`, `sfdisk --activate <disk> 1`, parted's pmbr_boot; never in UEFI mode, which
   forbids it). Tests: `BiosBootableTest` in tools/tests/test_install_helper.py (a real disk image)
-- [ ] The VAIO again with the new ISO: it starts from the disk
+- [x] The VAIO with that ISO (2026-11-16 evening, remastered to plain MBR): the install stopped at 20% on every
+  machine, UEFI too: the fix above put `bios_bootable` between `@contextlib.contextmanager` and
+  `firmware_untouched`, so the decorator went to the wrong function ("'generator' object does not support the
+  context manager protocol"; `bios_bootable` itself did nothing). Fixed, with a test (`FirmwareUntouchedTest`);
+  `sfdisk --activate` runs with `--no-reread` like the other sfdisk calls. Before the next ISO, a check of the whole
+  repository: no other misplaced decorator, pyflakes clean (invalid escapes in apps/winreg.py, unused imports), every
+  test passes (test_snapshots needs a loop device: not run)
+- [x] The plain MBR layout in `iso/build_iso.sh` (no `-appended_part_as_gpt`; `-append_partition 2 0xef`,
+  `-iso_mbr_part_type 0x83`, `--mbr-force-bootable`), so the CI ISO needs no remastering
+- [ ] The new CI ISO in the VM: BIOS DVD, BIOS USB, UEFI USB, an install each way, the installed disk's protective MBR
+  active in BIOS mode only
+- [ ] The VAIO again with the new ISO: it installs and starts from the disk; the same stick on a real UEFI machine
+  (the HP) too
+- [ ] First thing on 2026-11-17: start the HP (UEFI) from the same plain-MBR stick, only up to the installer's first
+  page (no install: the stick has a test-branch build and an install would erase the HP's disk)
+- [ ] Ship it as **Sloth OS 2.0** (next week): a new ISO, README / website requirements (they still say "UEFI only").
+  Still on Fedora 44: no Fedora 45 base until umu-launcher supports it
 
 ### What's wrong with the game? Steam games that don't start (2026-11-16, test branch, not pushed yet)
 - [x] The game-mode service notes how long each game ran (with game mode off too): a Steam game that closes within
