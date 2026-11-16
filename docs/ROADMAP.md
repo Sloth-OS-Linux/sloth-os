@@ -47,11 +47,22 @@ from a terminal must also work from a GUI.
 - [x] The CI ISO with it (2026-11-16, run 43950858052, test-branch image with the new boot-env) in the VM: BIOS DVD,
   BIOS USB and UEFI USB start the installer; BIOS install: plain MBR, partition 2 active, starts from the disk; UEFI
   install: GPT, no active flag, starts. Written to the USB stick for the VAIO
-- [ ] The VAIO again with the MBR install; the same stick on a real UEFI machine (the HP) too
+- [x] The VAIO with that stick (2026-11-16 night): the live system started, then at the boot animation the screen
+  flashed twice and the machine switched off completely (the stick before, v2, started and installed there; the same
+  kernel 7.3.3 in both images). Not looked into: overheating after a day of installs, the stick or the USB port
+  (writing it here once stopped: "Cannot enable. Maybe the USB cable is bad?"), the graphics driver (the menu's
+  "safe graphics" entry was not tried)
+- **Paused (2026-11-16, the user's decision):** legacy BIOS support is set aside, to come back to later. Before a
+  release from the test branch, decide whether the installer should refuse BIOS mode again (the code stays; whole-disk
+  installs in BIOS mode are allowed on the test branch since 2026-11-15)
+- [ ] When it is picked up again: the VAIO with the "safe graphics" entry and after cooling down; v2 against v3 on
+  the same machine (run 43909877381's artifact)
+- [ ] The same plain-MBR stick on a real UEFI machine (the HP): it starts the installer
 - [ ] First thing on 2026-11-17: start the HP (UEFI) from the same plain-MBR stick, only up to the installer's first
   page (no install: the stick has a test-branch build and an install would erase the HP's disk)
 - [ ] Ship it as **Sloth OS 2.0** (next week): a new ISO, README / website requirements (they still say "UEFI only").
-  Still on Fedora 44: no Fedora 45 base until umu-launcher supports it
+  Still on Fedora 44: no Fedora 45 base until umu-launcher supports it. BIOS support paused (see above): 2.0 may go
+  out without it
 
 ### What's wrong with the game? Steam games that don't start (2026-11-16, test branch, not pushed yet)
 - [x] The game-mode service notes how long each game ran (with game mode off too): a Steam game that closes within
