@@ -91,15 +91,19 @@ pushd /work || exit 1
 truncate -s 100M /work/uefi.img
 mkfs.fat -F32 /work/uefi.img
 mcopy -v -i /work/uefi.img -s /work/EFI ::
-# BIOS (El Torito, and the hybrid MBR for USB sticks) first, then UEFI, as lorax lays out Fedora's x86 ISOs
+# BIOS (El Torito, and GRUB's hybrid MBR for USB sticks) first, then UEFI, as lorax lays out Fedora's x86 ISOs.
+# A plain MBR partition table, no GPT: partition 1 is the ISO (0x83, active), partition 2 the EFI system partition
+# (0xef). Old BIOSes (a Sony VAIO PCG-81313M's Insyde BIOS, 2026-11-16) skip a USB stick that has a protective MBR
+# (0xee) or no active partition and start Windows; with this layout it starts. UEFI finds the EFI partition in the
+# MBR as well.
 xorriso -as mkisofs \
     -R \
     -V "$iso_label" \
     --grub2-mbr "$GRUB_PC/boot_hybrid.img" \
+    --mbr-force-bootable \
     -partition_offset 16 \
-    -appended_part_as_gpt \
-    -append_partition 2 C12A7328-F81F-11D2-BA4B-00A0C93EC93B ./uefi.img \
-    -iso_mbr_part_type EBD0A0A2-B9E5-4433-87C0-68B6B72699C7 \
+    -append_partition 2 0xef ./uefi.img \
+    -iso_mbr_part_type 0x83 \
     -c boot.catalog --boot-catalog-hide \
     -b boot/grub2/i386-pc/eltorito.img -no-emul-boot -boot-load-size 4 -boot-info-table --grub2-boot-info \
     -eltorito-alt-boot \
