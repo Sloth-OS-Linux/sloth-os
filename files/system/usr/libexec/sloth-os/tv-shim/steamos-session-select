@@ -1,0 +1,6 @@
+#!/bin/sh
+# TV mode (/usr/libexec/sloth-os/tv-session): Steam's "Switch to Desktop" calls this program, as on SteamOS, where it
+# switches sessions. Without it Steam froze there (2026-11-16, the HP). Here Steam closes properly, and the TV session
+# then starts the desktop, the same way as after "Exit Steam". It runs inside the Flatpak Steam's sandbox (tv-session
+# puts this folder first on its PATH), so `steam` is the Flatpak's own.
+exec steam -shutdown

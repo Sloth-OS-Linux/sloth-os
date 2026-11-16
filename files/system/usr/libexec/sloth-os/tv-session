@@ -23,8 +23,13 @@ command -v gamescope >/dev/null 2>&1 || desktop "gamescope is missing"
 
 export XDG_CURRENT_DESKTOP=gamescope
 started=$(date +%s)
-# -e: Steam integration (its overlay, focus); -f: full screen. Steam: the big-screen interface (-gamepadui)
-gamescope -e -f -- flatpak run com.valvesoftware.Steam -gamepadui
+# -e: Steam integration (its overlay, focus); -f: full screen. Steam: the big-screen interface (-gamepadui).
+# Steam's "Switch to Desktop" calls steamos-session-select (made for SteamOS); ours (tv-shim) closes Steam, so the desktop
+# starts below. The Flatpak sees the host's /usr under /run/host (host-os, read only), and our folder comes first on its
+# PATH (the rest as the Flatpak has it).
+gamescope -e -f -- flatpak run --filesystem=host-os:ro \
+    --env=PATH=/run/host/usr/libexec/sloth-os/tv-shim:/app/bin:/app/utils/bin:/usr/bin:/bin \
+    com.valvesoftware.Steam -gamepadui
 code=$?
 # Steam is fully closed before the desktop starts (its own autostart may open it there again, as usual)
 flatpak kill com.valvesoftware.Steam >/dev/null 2>&1

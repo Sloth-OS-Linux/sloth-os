@@ -72,10 +72,16 @@ def record_run(appid, seconds, path=None, now=None):
             game["status"] = "failing"
         save(data, path)
         return "failed"
-    if game and seconds >= WORKED_S and game.get("status") != "works":
-        game["status"] = "works"
-        save(data, path)
-        return "worked"
+    if game and seconds >= WORKED_S:
+        if game.get("step", -1) < 0:
+            # it runs without any fix of ours: the earlier quick closes were something else (a launcher, a restart)
+            data.pop(appid)
+            save(data, path)
+            return "worked"
+        if game.get("status") != "works":
+            game["status"] = "works"
+            save(data, path)
+            return "worked"
     return ""
 
 

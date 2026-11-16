@@ -59,6 +59,10 @@ def _read(path):
 def game_of(cmdline, environ):
     """One process -> (kind, id) if it is a game, else None. cmdline and environ as lists of strings."""
     if "SteamLaunch" in cmdline:
+        # Steam's shader preparation ("Processing Vulkan shaders") runs under the same reaper and AppId for a moment:
+        # not the game (2026-11-16, the HP: two games marked "didn't start" by it)
+        if any("fossilize" in arg.lower() for arg in cmdline):
+            return None
         for arg in cmdline:
             m = re.fullmatch(r"AppId=(\d+)", arg)
             if m and m[1] != "0":

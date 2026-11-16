@@ -41,6 +41,9 @@ class WhatIsAGame(unittest.TestCase):
         self.assertIsNone(gm.game_of(["wine", "notepad++.exe"], ["GAMEID=umu-default"]))
         self.assertIsNone(gm.game_of(["wine", "x.exe"], ["GAMEID=0"]))
         self.assertIsNone(gm.game_of(["firefox"], ["HOME=/h"]))
+        # Steam preparing the game's shaders under the same reaper: not the game
+        self.assertIsNone(gm.game_of(["reaper", "SteamLaunch", "AppId=1145360", "--",
+                                     "/home/u/.local/share/Steam/ubuntu12_64/fossilize_replay", "x.foz"], []))
 
     def test_program_name(self):
         self.assertEqual(gm.program_name(["wine", "C:\\Games\\The Witcher 3\\bin\\x64\\witcher3.exe", "-x"]),
@@ -137,6 +140,28 @@ class UnitsWait(unittest.TestCase):
             self.assertEqual(service.playing("sloth-game-saves.service"), 0)
         with mock.patch.object(service, "gm", None):
             self.assertEqual(service.playing(""), 0)
+
+    def test_a_quick_close_counts_only_if_the_game_does_not_come_back(self):
+        mode = service.GameMode.__new__(service.GameMode)     # without D-Bus: only the bookkeeping
+        mode.started, mode.suspects, mode.failed = {}, {}, []
+        seen = []
+        mode.record = lambda appid, name, seconds: seen.append((appid, round(seconds)))
+        key = ("steam", "10")
+        game = {key: {"name": "Game", "pids": [1]}}
+        # a launcher: 5 s, then the game comes back 20 s later and runs: no failure
+        mode.watch_runs(game, 0)
+        mode.watch_runs({}, 5)
+        mode.watch_runs(game, 25)
+        mode.watch_runs({}, 1000)
+        self.assertEqual(seen, [("10", 975)])
+        # a real quick close: 4 s, and nothing for 90 s: a failure
+        seen.clear()
+        mode.watch_runs(game, 2000)
+        mode.watch_runs({}, 2004)
+        mode.watch_runs({}, 2050)
+        self.assertEqual(seen, [])
+        mode.watch_runs({}, 2100)
+        self.assertEqual(seen, [("10", 4)])
 
     def test_skipped_jobs_run_after_the_game(self):
         with tempfile.TemporaryDirectory() as tmp:

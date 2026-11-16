@@ -39,6 +39,10 @@ from a terminal must also work from a GUI.
 - [x] Tried: `tools/tests/test_steam_doctor.py` (6: the ladder, Undo, GE-Proton, the user's own tool, a Linux
   version); end to end in a container: a fake Steam game closing after 5 s noted by the service, Sloth Center opened
   as the notification's button opens it, Try a fix written into Steam's files
+- [x] On the HP (2026-11-16): two games said "didn't start" though they were played. Fixed: Steam's shader
+  preparation (fossilize_replay under the same reaper and AppId) is not counted as the game; a quick close counts only
+  if the game does not come back within 90 s (a launcher handing over, a restart); a later run of 2 minutes or more
+  without a fix of ours forgets the game (the old marks go by themselves, or with "It was me who closed it")
 - Not done: reading Proton's log to pick the fix (it is only written with PROTON_LOG=1, which slows games)
 - [ ] On the HP: a game that really doesn't start (or one made to: e.g. a wrong launch option), the notification,
   Try a fix with Steam open (it closes and the game starts again), Undo
@@ -112,6 +116,11 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      - [ ] On the HP: choose "Sloth OS TV mode" at sign-in: Steam fills the screen, a controller works, a game starts
        and plays; Exit Steam brings the desktop. Also see what Steam's own "Exit Big Picture", Sleep and Shut Down do
        there (unknown with the Flatpak Steam)
+     - [x] On the HP (2026-11-16): TV mode works from the sign-in screen and Exit Steam brings the desktop ("works
+       great, I like it a lot"), but Steam's power menu → Switch to Desktop froze: Steam calls steamos-session-select
+       (made for SteamOS), missing in the Flatpak. Now ours (/usr/libexec/sloth-os/tv-shim, first on the Flatpak's PATH,
+       the host's /usr seen read-only under /run/host) closes Steam, and the desktop starts as after Exit Steam
+     - [ ] On the HP again: Switch to Desktop brings the desktop
      - [x] The session's name in 50 languages (tools/gen_desktop_entries.py writes sloth-tv.desktop now); Games → TV
        mode explains it, with "Open it on the whole screen now" (Steam's Big Picture on the desktop:
        steam://open/bigpicture), and a "TV mode" Start menu entry does the same (org.slothos.tv-mode.desktop)

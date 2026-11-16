@@ -31,6 +31,8 @@ except Exception:   # never: but then `playing` must still let the updates and b
 log = logging.getLogger("game-mode")
 POLL_S = 4
 GRACE_S = 12      # a launcher handing over to the game, or a game restarting itself: not the end yet
+QUICK_S = 30      # a Steam game closed sooner than this after starting may not have started (steam_doctor.QUICK_S)
+CONFIRM_S = 90    # …if it does not come back within this time
 APP_ID = "org.slothos.center"
 PAUSED_USER_UNITS = ("flatpak-user-update.service", "sloth-game-saves.service", "sloth-windows-prepare.service",
                      "sloth-github-bundle-update.service")
@@ -72,6 +74,7 @@ class GameMode:
         self.last_seen = 0.0
         self.started = {}       # (kind, id) -> (when it was first seen, its name)
         self.failed = []        # Steam games that closed right after starting: (appid, name), said after the game
+        self.suspects = {}      # appid -> (when it ended, name, seconds): a quick close waiting to be confirmed
 
     def _call(self, bus, name, path, iface, method, args, reply):
         try:
@@ -148,13 +151,28 @@ class GameMode:
             began, name = self.started.pop(key)
             if key[0] != "steam":
                 continue      # Windows programs heal themselves at their next start (sloth-exe)
-            try:
-                from sloth_common import steam_doctor
-                if steam_doctor.record_run(key[1], now - began) == "failed":
-                    log.info("%s closed after %.0f s", name, now - began)
-                    self.failed.append((key[1], name))
-            except Exception:
-                log.exception("steam doctor")
+            if now - began < QUICK_S:
+                # a quick close counts only if the game does not come back soon: a launcher handing over to the game,
+                # or a game restarting itself, is no failure (2026-11-16, the HP)
+                self.suspects[key[1]] = (now, name, now - began)
+            else:
+                self.record(key[1], name, now - began)
+        for appid in list(self.suspects):
+            ended, name, seconds = self.suspects[appid]
+            if ("steam", appid) in games:
+                del self.suspects[appid]          # it came back: the run that follows decides
+            elif now - ended >= CONFIRM_S:
+                del self.suspects[appid]
+                self.record(appid, name, seconds)
+
+    def record(self, appid, name, seconds):
+        try:
+            from sloth_common import steam_doctor
+            if steam_doctor.record_run(appid, seconds) == "failed":
+                log.info("%s closed after %.0f s", name, seconds)
+                self.failed.append((appid, name))
+        except Exception:
+            log.exception("steam doctor")
 
     def tell_failures(self):
         """The notification for each game that did not start (when notifications speak again)."""

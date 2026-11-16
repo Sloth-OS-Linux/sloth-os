@@ -45,8 +45,18 @@ class Runs(unittest.TestCase):
             s = sd.summary(APPID, path=state)
             self.assertEqual((s["failures"], s["lastSeconds"], s["status"], s["changed"]), (2, 6, "failing", False))
             self.assertEqual(sd.record_run(APPID, 45, state), "")         # in between: nothing to say
+            # a long run without any fix of ours: the quick closes were something else, the game is forgotten
             self.assertEqual(sd.record_run(APPID, 300, state), "worked")
-            self.assertEqual(sd.summary(APPID, path=state)["status"], "works")
+            self.assertIsNone(sd.summary(APPID, path=state))
+
+    def test_a_long_run_after_a_fix_keeps_the_fix(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp, "doctor.json")
+            root, local = fake_steam(tmp)
+            sd.record_run(APPID, 3, state)
+            sd.try_next(root, local, APPID, path=state)
+            self.assertEqual(sd.record_run(APPID, 300, state), "worked")
+            self.assertEqual(sd.summary(APPID, root, state)["status"], "works")
 
     def test_forget_only_without_a_fix(self):
         with tempfile.TemporaryDirectory() as tmp:
