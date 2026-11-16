@@ -1024,7 +1024,6 @@ EFIVARS = Path("/sys/firmware/efi/efivars")
 FALLBACK_FILES = ("grubx64.efi", "mmx64.efi", "grub.cfg", "bootuuid.cfg")
 
 
-@contextlib.contextmanager
 def bios_bootable(disk):
     """In legacy (BIOS) mode: the protective MBR's entry gets the "active" (bootable) flag (parted calls it pmbr_boot).
     Many older BIOSes start only a disk with an active partition in its MBR and otherwise say "No operating system
@@ -1034,13 +1033,14 @@ def bios_bootable(disk):
     every change to the partition table."""
     if Path("/sys/firmware/efi").is_dir():
         return
-    run(["sfdisk", "--activate", disk, "1"])
+    run(["sfdisk", "--no-reread", "--activate", disk, "1"])
     with open(disk, "rb") as f:
         mbr = f.read(512)
     if mbr[446] != 0x80 or mbr[450] != 0xEE:
         fail("error.install_failed", f"the protective MBR is not bootable: status {mbr[446]:#x}, type {mbr[450]:#x}")
 
 
+@contextlib.contextmanager
 def firmware_untouched():
     """While bootc runs, the firmware's variables are read-only: bootupd then leaves the boot entries alone.
 

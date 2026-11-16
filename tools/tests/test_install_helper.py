@@ -430,5 +430,17 @@ class BiosBootableTest(unittest.TestCase):
             self.assertEqual(img.read_bytes(), before)
 
 
+class FirmwareUntouchedTest(unittest.TestCase):
+    """2026-11-16: a decorator moved to the wrong function stopped every install at 20% ("'generator' object does
+    not support the context manager protocol"); the context manager runs its body, with or without efivars."""
+
+    def test_is_a_context_manager(self):
+        ran = []
+        with patch.object(helper.os.path, "ismount", return_value=False), patch.object(helper, "log"):
+            with helper.firmware_untouched():
+                ran.append(True)
+        self.assertEqual(ran, [True])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
