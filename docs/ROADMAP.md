@@ -100,7 +100,17 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      the system tries fixes by itself (Windows programs have it, Steam games not yet). Done 2026-11-16 for Steam games,
      see "What's wrong with the game?" below
   4. **TV mode** (medium, new): a controller-first, big-screen session chosen at sign-in, like a console (Steam Big
-     Picture full screen)
+     Picture full screen). PROTOTYPE 2026-11-16 (test branch, not pushed): "Sloth OS TV mode" on the sign-in screen
+     (`/usr/share/wayland-sessions/sloth-tv.desktop`, `/usr/libexec/sloth-os/tv-session`): gamescope (Fedora's) with
+     the Flatpak Steam's big-screen interface (-gamepadui); without Steam or when gamescope fails at once, the
+     normal Plasma desktop starts instead (tried in a container: without Steam, Plasma). Found first: the Steam
+     Deck's Game Mode interface is Steam itself; the session glue exists as ChimeraOS's gamescope-session (MIT, not
+     Bazzite) with "Switch to desktop" calling an OS hook (/usr/lib/os-session-select); nobody reported the Flatpak
+     Steam in such a session (ChimeraOS gamescope-session-steam issue #5, unanswered)
+     - [ ] On the HP: choose "Sloth OS TV mode" at sign-in: Steam fills the screen, a controller works, a game starts
+       and plays; leaving Steam goes back to the sign-in screen
+     - [ ] Then, if it works: "Switch to desktop" straight into Plasma, sleep / power off from Steam's menu, a switch in
+       Sloth Center, the name in 50 languages (the session file has English and Hungarian now)
 - Old computers (after BIOS mode):
   5. **Next to Windows 7 on old BIOS machines** (large, new): old laptops often have Windows 7 on an MBR disk; in BIOS
      mode only a whole disk can be installed now

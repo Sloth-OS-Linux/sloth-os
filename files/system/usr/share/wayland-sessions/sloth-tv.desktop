@@ -1,0 +1,9 @@
+[Desktop Entry]
+# TV mode (prototype, 2026-11-16): /usr/libexec/sloth-os/tv-session
+Type=Application
+Name=Sloth OS TV mode
+Name[hu]=Sloth OS TV-mód
+Comment=Steam on the whole screen, made for a controller and a TV
+Comment[hu]=A Steam a teljes képernyőn, kontrollerhez és tévéhez
+Exec=/usr/libexec/sloth-os/tv-session
+DesktopNames=gamescope
