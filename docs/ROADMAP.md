@@ -196,8 +196,16 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      - [x] The desktop's loading screen after sign-in (KSplash, Splash.qml) in the same style: "Sloth OS" sprayed on
        like graffiti (Rubik Spray Paint, OFL; only the rendered picture is in the image) turns into the logo, which then
        pulses until the desktop is ready (tools/make_splash_intro.py, images/intro.webp; offscreen render checked)
-     - [ ] On the HP: the two session names on the sign-in screen (the emoji shows), the start-up video plays, the
-       graffiti loading screen plays after sign-in
+     - [x] On the HP (2026-11-16): TV mode still played Valve's SteamOS start-up video, not ours (newer Steam picks
+       the start-up movie in Settings → Customization → Startup Movie; a deck_startup.webm alone may no longer win).
+       The loading screen was too small and plain
+     - [x] The loading screen redone (2026-11-16, the user's design): 1920 x 1080 (1:1 on a 1080p screen), the logo
+       faint and bigger in the background, "Sloth OS" written on the wall as a tag in silver, stroke by stroke along
+       the letters' skeleton (Sedgwick Ave Display, OFL), mist at the nozzle, drips; the tag fades and the logo comes
+       forward, shrinking to its place; then Splash.qml's pulse. A preview video: tools/make_splash_intro.py with a
+       folder. (A chrome throw-up with popping letters was tried first and dropped)
+     - [ ] On the HP: the new loading screen after an update; in TV mode, whether our video is in Steam's Startup
+       Movie list, and whether choosing it makes it play (then tv-session can choose it)
      - [x] The session's name in 50 languages (tools/gen_desktop_entries.py writes sloth-tv.desktop now); Games → TV
        mode explains it, with "Open it on the whole screen now" (Steam's Big Picture on the desktop:
        steam://open/bigpicture), and a "TV mode" Start menu entry does the same (org.slothos.tv-mode.desktop)

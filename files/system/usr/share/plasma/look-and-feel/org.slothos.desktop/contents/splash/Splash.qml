@@ -1,9 +1,9 @@
 pragma ComponentBehavior: Bound
 // Sloth OS loading screen after sign-in (KSplash).
-// First "Sloth OS" is sprayed on like graffiti and turns into the logo (images/intro.webp, made by
-// tools/make_splash_intro.py; it plays once), then the logo pulses until the desktop is ready. The intro's last frame
-// is images/logo.png at the same place, so the switch does not show. Without the intro (it cannot be played), the
-// pulsing logo comes at once.
+// First "Sloth OS" pops up as a graffiti throw-up over the faint logo, the paint flakes away and the logo comes
+// forward (images/intro.webp, made by tools/make_splash_intro.py; it plays once), then the logo pulses until the
+// desktop is ready. The intro's last frame is images/logo.png at the same place and size, so the switch does not
+// show. Without the intro (it cannot be played), the pulsing logo comes at once.
 import QtQuick
 
 Rectangle {
@@ -13,15 +13,16 @@ Rectangle {
     property int stage
 
     readonly property int logoSize: Math.min(480, Math.max(160, Math.round(height * 0.32)))
-    // the intro: 1200 x 720 with the logo 480 tall in its middle, shown so that its logo is logoSize tall
-    readonly property real introScale: logoSize / 480
+    // the intro: 1920 x 1080 with the logo 346 tall in its middle, shown so that its logo is logoSize tall
+    // (on a 1080p screen 1:1, the whole screen; its edges are the background's colour)
+    readonly property real introScale: logoSize / 346
     property bool introDone: intro.status === AnimatedImage.Error
 
     AnimatedImage {
         id: intro
         source: "images/intro.webp"
-        width: 1200 * root.introScale
-        height: 720 * root.introScale
+        width: 1920 * root.introScale
+        height: 1080 * root.introScale
         anchors.centerIn: parent
         smooth: true
         cache: false
