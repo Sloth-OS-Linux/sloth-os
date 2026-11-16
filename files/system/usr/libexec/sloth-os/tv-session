@@ -23,6 +23,7 @@ command -v gamescope >/dev/null 2>&1 || desktop "gamescope is missing"
 
 export XDG_CURRENT_DESKTOP=gamescope
 started=$(date +%s)
+log "TV mode starts"
 
 # Steam's "Switch to Desktop": the shim (tv-shim/steamos-session-select, inside the sandbox) leaves a note here; then
 # Steam gets 10 seconds to close by itself, and is closed from outside after that. gamescope ends with it, and the
@@ -67,6 +68,7 @@ gamescope -e -f -- flatpak run --filesystem=host-os:ro --filesystem=xdg-run/slot
     --env=PATH=/run/host/usr/libexec/sloth-os/tv-shim:/app/bin:/app/utils/bin:/usr/bin:/bin \
     com.valvesoftware.Steam -gamepadui
 code=$?
+log "gamescope ended (exit code $code)"
 kill "$watcher" "$manager" "$monitor" 2>/dev/null
 # Steam is fully closed before the desktop starts (its own autostart may open it there again, as usual)
 flatpak kill com.valvesoftware.Steam >/dev/null 2>&1
