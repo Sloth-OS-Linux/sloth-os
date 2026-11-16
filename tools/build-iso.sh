@@ -19,7 +19,7 @@ REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 OUT_DIR="$(realpath -m "${2:-$REPO/out}")"
 WORK="${SLOTH_BUILD_DIR:-/var/tmp/sloth-iso-build}"
 
-# The ISO builder: iso/build_iso.sh (Titanoboa's, with BIOS boot and the hidden menu)
+# The ISO builder: iso/build_iso.sh (Titanoboa's, with the hidden menu)
 LIVE_IMAGE="localhost/sloth-os-live:latest"
 
 # --- 1. As a normal user: credentials, then restart as administrator ------------------

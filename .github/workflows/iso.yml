@@ -76,7 +76,7 @@ jobs:
             localhost/sloth-os-live:latest bash /payload.sh "$image" "containers-storage:[$driver@/outer/storage+/run/outer]$src"
           sudo rm -f /tmp/auth.json
 
-      - name: Build ISO (iso/build_iso.sh, Titanoboa's with BIOS boot and the hidden menu)
+      - name: Build ISO (iso/build_iso.sh, Titanoboa's with the hidden menu)
         run: |
           mkdir -p output
           sudo podman run --rm --cap-add sys_admin --security-opt label=disable \

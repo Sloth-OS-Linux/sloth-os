@@ -57,7 +57,14 @@ from a terminal must also work from a GUI.
   installs in BIOS mode are allowed on the test branch since 2026-11-15)
 - [ ] When it is picked up again: the VAIO with the "safe graphics" entry and after cooling down; v2 against v3 on
   the same machine (run 43909877381's artifact)
-- [ ] The same plain-MBR stick on a real UEFI machine (the HP): it starts the installer
+- [x] The same plain-MBR stick on the HP (UEFI, 2026-11-16 night): chosen in the boot menu, the HP went straight back
+  to its menu. The VM's OVMF started it, a real UEFI did not. So `iso/build_iso.sh` is back to release 1.6's ISO:
+  Titanoboa's script unchanged except the hidden menu (a GPT with the EFI partition appended, UEFI only). The
+  installer's BIOS code (plain MBR install) stays, out of reach: the ISO does not start in BIOS mode
+- [ ] The restored ISO on the HP: it starts the installer
+- [ ] When BIOS is picked up again: a layout real UEFI firmware accepts too (e.g. Fedora's own: lorax's hybrid
+  GPT/MBR, or Debian's isohybrid with -isohybrid-gpt-basdat), tried on the HP *and* an old BIOS machine before
+  anything ships
 - [ ] First thing on 2026-11-17: start the HP (UEFI) from the same plain-MBR stick, only up to the installer's first
   page (no install: the stick has a test-branch build and an install would erase the HP's disk)
 - [ ] Ship it as **Sloth OS 2.0** (next week): a new ISO, README / website requirements (they still say "UEFI only").
