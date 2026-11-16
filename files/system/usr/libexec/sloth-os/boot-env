@@ -12,6 +12,8 @@
 set -euo pipefail
 
 ESP_TYPE=c12a7328-f81f-11d2-ba4b-00a0c93ec93b
+# on a plain MBR disk (the installer's choice in legacy BIOS mode since 2026-11-16) the EFI partition's type is 0xef
+ESP_TYPE_MBR=0xef
 TEMPLATE=/usr/lib/sloth-os/grub-custom.cfg
 
 find_esp() {
@@ -24,7 +26,7 @@ find_esp() {
   # Next to Windows there are two EFI partitions on the disk: Sloth OS's own is the one named "EFI-SYSTEM"
   # (the installer creates it like that); if there is none, the first one
   lsblk -lnpo PATH,PARTTYPE,PARTLABEL "/dev/$disk" |
-    awk -v t="$ESP_TYPE" 'tolower($2) == t { if ($3 == "EFI-SYSTEM") { print $1; found = 1; exit } if (!first) first = $1 }
+    awk -v t="$ESP_TYPE" -v m="$ESP_TYPE_MBR" 'tolower($2) == t || tolower($2) == m { if ($3 == "EFI-SYSTEM") { print $1; found = 1; exit } if (!first) first = $1 }
                           END { if (!found && first) print first }'
 }
 

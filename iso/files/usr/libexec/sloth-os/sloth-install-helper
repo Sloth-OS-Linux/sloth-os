@@ -234,24 +234,59 @@ def partitions(disk):
     return found
 
 
-def partition(disk, encrypt=False):
-    """A new GPT on the disk: BIOS boot, EFI, (with encryption /boot,) system, and the temporary work partition at the end."""
-    size_mib = int(run(["lsblk", "--noheadings", "--nodeps", "--bytes", "--output", "SIZE", disk])) // 1024**2
-    # 1 MiB at the start and 1 MiB at the end for the GPT; BIOS boot 1 MiB, EFI 512 MiB
+# A plain MBR (dos) partition table addresses at most 2 TiB (32-bit sector numbers, 512-byte sectors)
+MBR_MAX_BYTES = 2 * 1024**4
+# MBR partition types: EFI system partition and Linux
+MBR_ESP, MBR_LINUX = "ef", "83"
+
+
+def use_mbr(size_bytes, uefi):
+    """Whether a whole-disk install gets a plain MBR partition table instead of a GPT: in legacy (BIOS) mode, on disks
+    up to 2 TiB. Many older BIOSes (a Sony VAIO PCG-81913M's Insyde BIOS, 2026-11-16) start no GPT disk at all, not
+    even with the protective MBR's entry marked active: "Operating system not found" after a good install, and the
+    same BIOS skipped a GPT USB stick and started a plain MBR one. UEFI always gets a GPT."""
+    return not uefi and size_bytes <= MBR_MAX_BYTES
+
+
+def whole_disk_layout(size_mib, encrypt=False, mbr=False):
+    """The sfdisk script of a whole-disk install and the partitions' names in order.
+
+    GPT: BIOS boot (GRUB for BIOS), EFI, (with encryption /boot,) system, and the temporary work partition at the end.
+    MBR: the same without BIOS boot (GRUB for BIOS goes into the gap before the first partition, which starts at
+    1 MiB); at most 4 primary partitions, with encryption exactly 4. The EFI partition stays in both: the boot menu's
+    state is there (sloth-boot.env), and the disk starts in UEFI mode too."""
+    # 1 MiB at the start and 1 MiB at the end for the partition table; BIOS boot 1 MiB, EFI 512 MiB
     boot_mib = BOOT_MIB if encrypt else 0
     root_mib = size_mib - 2 - 1 - ESP_MIB - boot_mib - scratch_bytes // 1024**2 - 2
     if root_mib < 20 * 1024:
         fail("error.bad_disk", f"disk too small: {size_mib} MiB")
+    names = ([] if mbr else ["bios"]) + ["esp"] + (["boot"] if encrypt else []) + ["root", "scratch"]
+    if mbr:
+        script = (
+            "label: dos\n"
+            f"size={ESP_MIB}MiB, type={MBR_ESP}\n"
+            + (f"size={boot_mib}MiB, type={MBR_LINUX}\n" if encrypt else "")
+            + f"size={root_mib}MiB, type={MBR_LINUX}\n"
+            f"type={MBR_LINUX}\n")
+    else:
+        script = (
+            "label: gpt\n"
+            f"size=1MiB, type={BIOS_BOOT}, name=\"BIOS-BOOT\"\n"
+            f"size={ESP_MIB}MiB, type={ESP_TYPE}, name=\"EFI-SYSTEM\"\n"
+            + (f"size={boot_mib}MiB, type={LINUX_DATA}, name=\"boot\"\n" if encrypt else "")
+            + f"size={root_mib}MiB, type={ROOT_X86_64}, name=\"root\"\n"
+            f"type={LINUX_DATA}, name=\"sloth-install-tmp\"\n")
+    return script, names
+
+
+def partition(disk, encrypt=False):
+    """A new partition table on the whole disk (whole_disk_layout): a GPT, or a plain MBR in legacy (BIOS) mode."""
+    size = int(run(["lsblk", "--noheadings", "--nodeps", "--bytes", "--output", "SIZE", disk]))
+    mbr = use_mbr(size, Path("/sys/firmware/efi").is_dir())
+    log(f"partition table: {'MBR (legacy BIOS mode)' if mbr else 'GPT'}")
+    script, names = whole_disk_layout(size // 1024**2, encrypt, mbr)
     run(["wipefs", "--all", "--force", disk])
-    names = ["bios", "esp"] + (["boot"] if encrypt else []) + ["root", "scratch"]
-    table = (
-        "label: gpt\n"
-        f"size=1MiB, type={BIOS_BOOT}, name=\"BIOS-BOOT\"\n"
-        f"size={ESP_MIB}MiB, type={ESP_TYPE}, name=\"EFI-SYSTEM\"\n"
-        + (f"size={boot_mib}MiB, type={LINUX_DATA}, name=\"boot\"\n" if encrypt else "")
-        + f"size={root_mib}MiB, type={ROOT_X86_64}, name=\"root\"\n"
-        f"type={LINUX_DATA}, name=\"sloth-install-tmp\"\n")
-    run(["sfdisk", "--wipe", "always", "--wipe-partitions", "always", disk], input=table)
+    run(["sfdisk", "--wipe", "always", "--wipe-partitions", "always", disk], input=script)
     parts = partitions(disk)
     if sorted(parts) != list(range(1, len(names) + 1)):
         fail("error.install_failed", f"unexpected partitions: {parts}")
@@ -970,6 +1005,11 @@ def setup_boot_menu(windows_esp=""):
                 log(f"boot menu: {mp} cannot be remounted writable: {r.stderr.strip()}")
     try:
         (grub_dir / "custom.cfg").write_bytes(GRUB_CUSTOM.read_bytes())
+        if not efi_dir.is_dir() and not Path("/sys/firmware/efi").is_dir() and os.path.ismount(TARGET / "boot/efi"):
+            # Legacy (BIOS) mode on a plain MBR disk: bootupd installs only GRUB for BIOS and leaves the EFI partition
+            # empty (2026-11-16, VM). The menu's state still lives there (GRUB cannot write to btrfs).
+            efi_dir.mkdir(parents=True)
+            log(f"boot menu: {efi_dir} made for the state (legacy BIOS mode)")
         if not efi_dir.is_dir():
             log(f"boot menu: ERROR, no {efi_dir} (did the boot loader go elsewhere?)")
         else:
@@ -1024,20 +1064,27 @@ EFIVARS = Path("/sys/firmware/efi/efivars")
 FALLBACK_FILES = ("grubx64.efi", "mmx64.efi", "grub.cfg", "bootuuid.cfg")
 
 
-def bios_bootable(disk):
-    """In legacy (BIOS) mode: the protective MBR's entry gets the "active" (bootable) flag (parted calls it pmbr_boot).
-    Many older BIOSes start only a disk with an active partition in its MBR and otherwise say "No operating system
-    found" without even reading GRUB there: a Sony VAIO PCG-81913M did so after a good install (2026-11-16), while
-    SeaBIOS in a VM does not ask. Only in BIOS mode: the UEFI specification forbids the flag, and some UEFI firmware
-    then refuses the disk. sfdisk sets it in the protective MBR of a GPT disk and leaves the GPT alone. Run last, after
-    every change to the partition table."""
+def bios_bootable(disk, partn):
+    """In legacy (BIOS) mode: one partition in the MBR marked "active" (bootable). Many older BIOSes start only a
+    disk with an active partition in its MBR and otherwise say "No operating system found" without even reading GRUB
+    there; SeaBIOS in a VM does not ask. GRUB's own code in the MBR does not look at the flag.
+
+    A plain MBR (use_mbr): partition `partn` (the one with /boot) gets the flag, every other loses it. A GPT (a disk
+    over 2 TiB): the protective MBR's entry gets it (parted's pmbr_boot), which some BIOSes accept; the GPT itself is
+    left alone. Never in UEFI mode: the UEFI specification forbids the flag on a GPT, and some UEFI firmware then
+    refuses the disk. Run last, after every change to the partition table."""
     if Path("/sys/firmware/efi").is_dir():
         return
-    run(["sfdisk", "--no-reread", "--activate", disk, "1"])
+    mbr = table(disk).get("label") == "dos"
+    n = partn if mbr else 1
+    run(["sfdisk", "--no-reread", "--activate", disk, str(n)])
     with open(disk, "rb") as f:
-        mbr = f.read(512)
-    if mbr[446] != 0x80 or mbr[450] != 0xEE:
-        fail("error.install_failed", f"the protective MBR is not bootable: status {mbr[446]:#x}, type {mbr[450]:#x}")
+        sector = f.read(512)
+    flags = [sector[446 + 16 * i] for i in range(4)]
+    want = [0x80 if i == n - 1 else 0x00 for i in range(4)]
+    if flags != want or (not mbr and sector[450] != 0xEE):
+        fail("error.install_failed", f"the MBR is not bootable: flags {[hex(x) for x in flags]}, type {sector[450]:#x}")
+    log(f"active partition in the MBR: {n} ({'MBR' if mbr else 'GPT, protective MBR'})")
 
 
 @contextlib.contextmanager
@@ -1404,9 +1451,9 @@ def main():
     if not whole_disk(args.disk):
         fail("error.bad_disk", f"disk cannot be installed to: {args.disk}")
     manual = bool(args.manual_root or args.manual_esp)
-    # In legacy (BIOS) mode (since 2026-11-15): a whole disk only. Its new GPT has a BIOS boot partition, and bootupd
-    # puts GRUB for BIOS there next to the EFI one (the installed system starts either way; tried in a VM with
-    # SeaBIOS). Next to Windows and the advanced way need UEFI: they work with EFI partitions and boot entries.
+    # In legacy (BIOS) mode (since 2026-11-15): a whole disk only, with a plain MBR partition table (use_mbr; over
+    # 2 TiB a GPT with a BIOS boot partition), and bootupd puts GRUB for BIOS into it next to the EFI one. Next to
+    # Windows and the advanced way need UEFI: they work with EFI partitions, GPT and boot entries.
     if not Path("/sys/firmware/efi").is_dir() and (manual or args.beside_windows):
         fail("error.not_uefi", "next to Windows or the advanced way, in legacy (BIOS) mode")
     if manual and (not args.manual_root or not args.manual_esp or args.beside_windows or args.encrypt):
@@ -1476,7 +1523,7 @@ def main():
     place_fallback_loader()
     root_part = finish_partitions(args.disk, parts, passphrase)
     boot_entry(args.disk, parts["numbers"]["esp"])
-    bios_bootable(args.disk)
+    bios_bootable(args.disk, parts["numbers"].get("boot", parts["numbers"]["root"]))
     if windows_esp:
         place_windows_helper(args.disk)
     emit(stage="configure", progress=95)

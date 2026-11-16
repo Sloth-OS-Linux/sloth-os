@@ -398,36 +398,90 @@ class FirmwareTest(unittest.TestCase):
 @unittest.skipUnless(shutil.which("sfdisk"), "needs sfdisk (util-linux)")
 class BiosBootableTest(unittest.TestCase):
     """2026-11-16, a Sony VAIO PCG-81913M in BIOS mode: "No operating system found" after a good install, because its
-    BIOS starts only a disk whose MBR has an active partition; the protective MBR gets the flag, in BIOS mode only."""
+    BIOS starts only a disk whose MBR has an active partition, and no GPT disk at all: in BIOS mode the installer
+    makes a plain MBR with an active partition (over 2 TiB a GPT whose protective MBR gets the flag)."""
 
-    def disk(self, tmp):
+    def disk(self, tmp, mbr=False, encrypt=False):
         img = Path(tmp, "disk.img")
         with open(img, "wb") as f:
-            f.truncate(64 * 1024**2)
-        subprocess.run(["sfdisk", "-q", str(img)], check=True, input=(
-            f"label: gpt\nsize=1MiB, type={helper.BIOS_BOOT}\nsize=16MiB, type={helper.ESP_TYPE}\n"
-            f"type={helper.ROOT_X86_64}\n"), text=True)
-        return img
+            f.truncate(64 * 1024**3)   # sparse; whole_disk_layout needs room for the 20 GiB minimum
+        script, names = helper.whole_disk_layout(64 * 1024, encrypt, mbr)
+        subprocess.run(["sfdisk", "-q", str(img)], check=True, input=script, text=True)
+        return img, names
 
-    def test_bios_mode_marks_the_protective_mbr_active(self):
+    @staticmethod
+    def ends(img, size=1024**2):
+        """The disk image's first and last MiB: the MBR, the GPT and its backup (the image is 64 GiB, sparse)."""
+        with open(img, "rb") as f:
+            head = f.read(size)
+            f.seek(-size, 2)
+            return head + f.read(size)
+
+    def parts(self, img):
+        out = subprocess.run(["sfdisk", "--json", str(img)], capture_output=True, text=True, check=True).stdout
+        return json.loads(out)["partitiontable"]
+
+    def test_gpt_marks_the_protective_mbr_active(self):
         with (tempfile.TemporaryDirectory() as tmp, patch.object(helper.Path, "is_dir", return_value=False),
               patch.object(helper, "log")):
-            img = self.disk(tmp)
-            before = img.read_bytes()[:512]
+            img, names = self.disk(tmp)
+            before = self.ends(img)[:512]
             self.assertEqual((before[446], before[450]), (0x00, 0xEE))
-            helper.bios_bootable(str(img))
-            after = img.read_bytes()
+            helper.bios_bootable(str(img), names.index("root") + 1)
+            after = self.ends(img)[:512]
             self.assertEqual((after[446], after[450]), (0x80, 0xEE))
-            # the GPT itself is unchanged: the same three partitions
-            out = subprocess.run(["sfdisk", "--json", str(img)], capture_output=True, text=True, check=True).stdout
-            self.assertEqual(len(json.loads(out)["partitiontable"]["partitions"]), 3)
+            # the GPT itself is unchanged: the same partitions
+            self.assertEqual(len(self.parts(img)["partitions"]), len(names))
+
+    def test_mbr_layout(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            img, names = self.disk(tmp, mbr=True)
+            self.assertEqual(names, ["esp", "root", "scratch"])
+            pt = self.parts(img)
+            self.assertEqual(pt["label"], "dos")
+            self.assertEqual([p["type"] for p in pt["partitions"]], ["ef", "83", "83"])
+            self.assertEqual(pt["partitions"][0]["start"], 2048)   # GRUB for BIOS fits in the first MiB
+            mbr = self.ends(img)[:512]
+            self.assertNotIn(0xEE, [mbr[450 + 16 * i] for i in range(4)])
+
+    def test_mbr_with_encryption_is_four_primary_partitions(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            img, names = self.disk(tmp, mbr=True, encrypt=True)
+            self.assertEqual(names, ["esp", "boot", "root", "scratch"])
+            self.assertEqual(len(self.parts(img)["partitions"]), 4)
+
+    def test_mbr_marks_the_given_partition_only(self):
+        with (tempfile.TemporaryDirectory() as tmp, patch.object(helper.Path, "is_dir", return_value=False),
+              patch.object(helper, "log")):
+            img, names = self.disk(tmp, mbr=True)
+            root = names.index("root") + 1
+            helper.bios_bootable(str(img), root)
+            mbr = self.ends(img)[:512]
+            self.assertEqual([mbr[446 + 16 * i] for i in range(4)], [0x00, 0x80, 0x00, 0x00])
+            self.assertEqual([p.get("bootable", False) for p in self.parts(img)["partitions"]], [False, True, False])
 
     def test_uefi_mode_leaves_it_alone(self):
-        with tempfile.TemporaryDirectory() as tmp, patch.object(helper.Path, "is_dir", return_value=True):
-            img = self.disk(tmp)
-            before = img.read_bytes()
-            helper.bios_bootable(str(img))
-            self.assertEqual(img.read_bytes(), before)
+        for mbr in (False, True):
+            with tempfile.TemporaryDirectory() as tmp, patch.object(helper.Path, "is_dir", return_value=True):
+                img, names = self.disk(tmp, mbr=mbr)
+                before = self.ends(img)
+                helper.bios_bootable(str(img), names.index("root") + 1)
+                self.assertEqual(self.ends(img), before)
+
+
+class UseMbrTest(unittest.TestCase):
+    def test_choice(self):
+        tib = 1024**4
+        self.assertTrue(helper.use_mbr(240 * 1024**3, uefi=False))      # the VAIO's 240 GB SSD
+        self.assertTrue(helper.use_mbr(2 * tib, uefi=False))
+        self.assertFalse(helper.use_mbr(2 * tib + 1, uefi=False))       # over 2 TiB: a GPT
+        self.assertFalse(helper.use_mbr(240 * 1024**3, uefi=True))      # UEFI: always a GPT
+
+    def test_gpt_layout_unchanged(self):
+        script, names = helper.whole_disk_layout(64 * 1024)
+        self.assertEqual(names, ["bios", "esp", "root", "scratch"])
+        self.assertTrue(script.startswith("label: gpt\n"))
+        self.assertIn(helper.BIOS_BOOT, script)
 
 
 class FirmwareUntouchedTest(unittest.TestCase):
