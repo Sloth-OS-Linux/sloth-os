@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "Windowsi keskkonna uusim versioon",
   "the older graphics mode (without Vulkan)": "vanem graafikarežiim (ilma Vulkanita)",
   "{game} closed right after it started": "{game} sulgus kohe pärast käivitamist",
-  "{name} starts again with this: {fix}.": "{name} käivitub uuesti sellega: {fix}."
+  "{name} starts again with this: {fix}.": "{name} käivitub uuesti sellega: {fix}.",
+  "Open it on the whole screen now": "Ava see kohe täisekraanil",
+  "Sloth OS TV mode": "Sloth OS telerirežiim",
+  "Steam on the whole screen, made for a controller and a TV": "Steam täisekraanil, mängupuldi ja teleri jaoks",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steami suure ekraani liides, mängupuldi ja teleri jaoks. Kui soovid arvutit kasutada nagu mängukonsooli, vali sisselogimisekraanil „Sloth OS telerirežiim”: siis töölauda ei ole, ainult Steam. Steamist lahkudes tuleb töölaud.",
+  "TV mode": "Telerirežiim",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;teler;Big Picture;mängupult;gamepad;konsool;diivan;"
 }

@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "la versió més nova de l’entorn de Windows",
   "the older graphics mode (without Vulkan)": "el mode gràfic antic (sense Vulkan)",
   "{game} closed right after it started": "{game} s’ha tancat just després d’iniciar-se",
-  "{name} starts again with this: {fix}.": "{name} es torna a iniciar amb això: {fix}."
+  "{name} starts again with this: {fix}.": "{name} es torna a iniciar amb això: {fix}.",
+  "Open it on the whole screen now": "Obre-ho ara a pantalla completa",
+  "Sloth OS TV mode": "Sloth OS mode TV",
+  "Steam on the whole screen, made for a controller and a TV": "Steam a pantalla completa, per a un comandament i una TV",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "La interfície de pantalla gran de Steam, per a un comandament i una TV. Per fer servir l’ordinador com una consola, tria «Sloth OS mode TV» a la pantalla d’inici de sessió: aleshores no hi ha escriptori, només Steam. En sortir de Steam apareix l’escriptori.",
+  "TV mode": "Mode TV",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisió;Big Picture;comandament;gamepad;consola;sofà;"
 }

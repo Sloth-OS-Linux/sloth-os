@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "le version le plus nove del ambiente Windows",
   "the older graphics mode (without Vulkan)": "le modo graphic plus vetule (sin Vulkan)",
   "{game} closed right after it started": "{game} se claudeva immediatemente post le initio",
-  "{name} starts again with this: {fix}.": "{name} reinitia con isto: {fix}."
+  "{name} starts again with this: {fix}.": "{name} reinitia con isto: {fix}.",
+  "Open it on the whole screen now": "Aperir lo ora a schermo plen",
+  "Sloth OS TV mode": "Sloth OS modo TV",
+  "Steam on the whole screen, made for a controller and a TV": "Steam a schermo plen, facite pro un controlator e un TV",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Le interfacie de grande schermo de Steam, facite pro un controlator e un TV. Pro usar le computator como un consola de jocos, selige “Sloth OS modo TV” in le schermo de accesso: alora il non ha scriptorio, solmente Steam. Quando tu lassa Steam, le scriptorio appare.",
+  "TV mode": "Modo TV",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisor;Big Picture;controlator;gamepad;consola;sofa;"
 }

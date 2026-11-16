@@ -112,9 +112,11 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      - [ ] On the HP: choose "Sloth OS TV mode" at sign-in: Steam fills the screen, a controller works, a game starts
        and plays; Exit Steam brings the desktop. Also see what Steam's own "Exit Big Picture", Sleep and Shut Down do
        there (unknown with the Flatpak Steam)
-     - [ ] Then, if it works: back to TV mode from the desktop, sleep / power off from Steam's menu, parental controls
-       in TV mode (the warning banners are Plasma's), a switch in Sloth Center, the name in 50 languages (English and
-       Hungarian now), the TV's resolution / HDR / HDMI sound, NVIDIA
+     - [x] The session's name in 50 languages (tools/gen_desktop_entries.py writes sloth-tv.desktop now); Games → TV
+       mode explains it, with "Open it on the whole screen now" (Steam's Big Picture on the desktop:
+       steam://open/bigpicture), and a "TV mode" Start menu entry does the same (org.slothos.tv-mode.desktop)
+     - [ ] Then, if it works: straight into the TV session from the desktop, sleep / power off from Steam's menu,
+       parental controls in TV mode (the warning banners are Plasma's), the TV's resolution / HDR / HDMI sound, NVIDIA
 - Old computers (after BIOS mode):
   5. **Next to Windows 7 on old BIOS machines** (large, new): old laptops often have Windows 7 on an MBR disk; in BIOS
      mode only a whole disk can be installed now

@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "lqem aneggaru n twennaḍt n Windows",
   "the older graphics mode (without Vulkan)": "askar udlif aqbur (war Vulkan)",
   "{game} closed right after it started": "{game} yemdel deg wakud kan yebda",
-  "{name} starts again with this: {fix}.": "{name} yettales asenker s waya: {fix}."
+  "{name} starts again with this: {fix}.": "{name} yettales asenker s waya: {fix}.",
+  "Open it on the whole screen now": "Ldi-t tura deg ugdil aččuran",
+  "Sloth OS TV mode": "Sloth OS askar TV",
+  "Steam on the whole screen, made for a controller and a TV": "Steam deg ugdil aččuran, i usenqed d tiliẓri",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Agrudem n Steam i ugdil ameqqran, i usenqed d tiliẓri. Akken ad tesqedceḍ aselkim am tkunsult n wuraren, fren “Sloth OS askar TV” deg ugdil n tuqqna: ihi ulac tanarit, d Steam kan. Ma teffɣeḍ seg Steam, ad d-tban tnarit.",
+  "TV mode": "Askar TV",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;tiliẓri;Big Picture;asenqed;gamepad;takunsult;asgeddi;"
 }

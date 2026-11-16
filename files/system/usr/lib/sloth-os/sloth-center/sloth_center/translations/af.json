@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "die nuutste weergawe van die Windows-omgewing",
   "the older graphics mode (without Vulkan)": "die ouer grafiese modus (sonder Vulkan)",
   "{game} closed right after it started": "{game} het reg ná die begin gesluit",
-  "{name} starts again with this: {fix}.": "{name} begin weer hiermee: {fix}."
+  "{name} starts again with this: {fix}.": "{name} begin weer hiermee: {fix}.",
+  "Open it on the whole screen now": "Maak dit nou volskerm oop",
+  "Sloth OS TV mode": "Sloth OS TV-modus",
+  "Steam on the whole screen, made for a controller and a TV": "Steam volskerm, gemaak vir ’n beheerder en ’n TV",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steam se grootskerm-koppelvlak, gemaak vir ’n beheerder en ’n TV. Om die rekenaar soos ’n speletjiekonsole te gebruik, kies “Sloth OS TV-modus” op die aanmeldskerm: dan is daar geen werkskerm nie, net Steam. As jy Steam verlaat, kom die werkskerm.",
+  "TV mode": "TV-modus",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisie;Big Picture;beheerder;gamepad;konsole;rusbank;"
 }

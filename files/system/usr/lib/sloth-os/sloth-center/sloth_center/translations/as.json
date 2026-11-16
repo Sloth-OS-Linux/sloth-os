@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "Windows পৰিৱেশৰ শেহতীয়া সংস্কৰণ",
   "the older graphics mode (without Vulkan)": "পুৰণি গ্ৰাফিক্স মোড (Vulkan অবিহনে)",
   "{game} closed right after it started": "{game} আৰম্ভ হোৱাৰ পিছতে বন্ধ হৈ গ'ল",
-  "{name} starts again with this: {fix}.": "{name} ইয়াৰে পুনৰ আৰম্ভ হৈছে: {fix}।"
+  "{name} starts again with this: {fix}.": "{name} ইয়াৰে পুনৰ আৰম্ভ হৈছে: {fix}।",
+  "Open it on the whole screen now": "এতিয়াই সম্পূৰ্ণ স্ক্ৰীণত খোলক",
+  "Sloth OS TV mode": "Sloth OS টিভি মোড",
+  "Steam on the whole screen, made for a controller and a TV": "সম্পূৰ্ণ স্ক্ৰীণত Steam, কন্ট্ৰ'লাৰ আৰু টিভিৰ বাবে",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "কন্ট্ৰ'লাৰ আৰু টিভিৰ বাবে বনোৱা Steamৰ ডাঙৰ স্ক্ৰীণৰ ইণ্টাৰফেচ। কম্পিউটাৰটো গেম কনচ'লৰ দৰে ব্যৱহাৰ কৰিবলৈ লগইন স্ক্ৰীণত \"Sloth OS টিভি মোড\" বাছক: তেতিয়া কোনো ডেস্কটপ নাথাকে, কেৱল Steam। Steamৰ পৰা ওলালে ডেস্কটপ আহে।",
+  "TV mode": "টিভি মোড",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;টিভি;Big Picture;কন্ট্ৰ'লাৰ;গেমপেড;কনচ'ল;চোফা;"
 }

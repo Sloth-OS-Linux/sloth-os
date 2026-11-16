@@ -211,6 +211,34 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- TV mode: Steam's big-screen interface (/usr/libexec/sloth-os/tv-session; on the desktop: Big Picture) ---
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: games.steamInstalled
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                RowLayout {
+                    Kirigami.Icon {
+                        source: "video-television"
+                        fallback: "input-gamepad"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    Kirigami.Heading { level: 3; Layout.fillWidth: true; text: L.t("TV mode") }
+                }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    text: L.t("Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.")
+                }
+                QQC2.Button {
+                    icon.name: "view-fullscreen"
+                    text: L.t("Open it on the whole screen now")
+                    onClicked: games.openBigPicture()
+                }
+            }
+        }
+
         // --- "Will it run?": how well a game runs, from other players' reports (sloth_common.game_check) ---
         Kirigami.AbstractCard {
             Layout.fillWidth: true

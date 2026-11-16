@@ -95,6 +95,11 @@ MOVE_ERRORS = {
 }
 
 
+# TV mode's entries (tools/gen_desktop_entries.py: the sign-in screen's session and the Start menu): here, so the
+# translation tools know them
+TV_TEXTS = (N_("Sloth OS TV mode"), N_("TV mode"), N_("Steam on the whole screen, made for a controller and a TV"),
+            N_("TV;Big Picture;controller;gamepad;console;couch;"))
+
 # The "Will it run?" verdicts (sloth_common.game_check): (mark, text)
 BADGES = {
     "great": ("🟢", N_("Runs well")),
@@ -491,6 +496,17 @@ class GamesController(QObject):
         else:
             self._info = tr("{name} is now on {place}. Start Steam and play as before.", name=name, place=place)
         self.refresh()
+
+    steamInstalled = Property(bool, lambda self: steam_root() is not None, notify=changed)
+
+    @Slot()
+    def openBigPicture(self):
+        """TV mode on the desktop: Steam's big-screen interface on the whole screen (Steam starts if it isn't open)."""
+        try:
+            subprocess.Popen(["xdg-open", "steam://open/bigpicture"], start_new_session=True,
+                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        except OSError as e:
+            log.warning("Big Picture: %s", e)
 
     @Slot()
     def closeSteam(self):

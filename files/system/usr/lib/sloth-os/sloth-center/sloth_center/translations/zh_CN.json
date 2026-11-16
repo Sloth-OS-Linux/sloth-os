@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "最新版本的 Windows 运行环境",
   "the older graphics mode (without Vulkan)": "较旧的图形模式（不使用 Vulkan）",
   "{game} closed right after it started": "{game} 启动后立即关闭了",
-  "{name} starts again with this: {fix}.": "{name} 将使用此项重新启动：{fix}。"
+  "{name} starts again with this: {fix}.": "{name} 将使用此项重新启动：{fix}。",
+  "Open it on the whole screen now": "立即全屏打开",
+  "Sloth OS TV mode": "Sloth OS 电视模式",
+  "Steam on the whole screen, made for a controller and a TV": "全屏 Steam，为手柄和电视打造",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steam 的大屏幕界面，为手柄和电视打造。要像游戏机一样使用电脑，请在登录屏幕选择“Sloth OS 电视模式”：这时没有桌面，只有 Steam。退出 Steam 后会出现桌面。",
+  "TV mode": "电视模式",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;电视;Big Picture;手柄;控制器;游戏机;沙发;"
 }

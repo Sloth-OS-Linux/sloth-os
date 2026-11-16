@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "a Windows-futtató legújabb változata",
   "the older graphics mode (without Vulkan)": "a régebbi grafikus mód (Vulkan nélkül)",
   "{game} closed right after it started": "A(z) {game} az indulás után rögtön bezárult",
-  "{name} starts again with this: {fix}.": "A(z) {name} újraindul ezzel: {fix}."
+  "{name} starts again with this: {fix}.": "A(z) {name} újraindul ezzel: {fix}.",
+  "Open it on the whole screen now": "Megnyitás most a teljes képernyőn",
+  "Sloth OS TV mode": "Sloth OS TV-mód",
+  "Steam on the whole screen, made for a controller and a TV": "A Steam a teljes képernyőn, kontrollerhez és tévéhez",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "A Steam nagy képernyős felülete, kontrollerhez és tévéhez. Ha játékkonzolként használnád a gépet, a bejelentkező képernyőn válaszd a(z) „Sloth OS TV-mód” lehetőséget: ilyenkor nincs asztal, csak a Steam. A Steamből kilépve jön az asztal.",
+  "TV mode": "TV-mód",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;tévé;Big Picture;kontroller;játékvezérlő;konzol;kanapé;"
 }

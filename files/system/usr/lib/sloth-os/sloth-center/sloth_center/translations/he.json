@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "הגרסה החדשה ביותר של סביבת Windows",
   "the older graphics mode (without Vulkan)": "מצב הגרפיקה הישן (בלי Vulkan)",
   "{game} closed right after it started": "{game} נסגר מיד אחרי ההפעלה",
-  "{name} starts again with this: {fix}.": "{name} מופעל מחדש עם: {fix}."
+  "{name} starts again with this: {fix}.": "{name} מופעל מחדש עם: {fix}.",
+  "Open it on the whole screen now": "פתיחה עכשיו במסך מלא",
+  "Sloth OS TV mode": "Sloth OS מצב טלוויזיה",
+  "Steam on the whole screen, made for a controller and a TV": "Steam במסך מלא, לבקר ולטלוויזיה",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "ממשק המסך הגדול של Steam, לבקר ולטלוויזיה. כדי להשתמש במחשב כקונסולת משחקים, בחרו „Sloth OS מצב טלוויזיה” במסך הכניסה: אז אין שולחן עבודה, רק Steam. ביציאה מ-Steam מופיע שולחן העבודה.",
+  "TV mode": "מצב טלוויזיה",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;טלוויזיה;Big Picture;בקר;גיימפד;קונסולה;ספה;"
 }

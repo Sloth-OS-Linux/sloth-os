@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "den nyeste versjonen av Windows-miljøet",
   "the older graphics mode (without Vulkan)": "den eldre grafikkmodusen (uten Vulkan)",
   "{game} closed right after it started": "{game} ble lukket rett etter start",
-  "{name} starts again with this: {fix}.": "{name} starter på nytt med dette: {fix}."
+  "{name} starts again with this: {fix}.": "{name} starter på nytt med dette: {fix}.",
+  "Open it on the whole screen now": "Åpne det i fullskjerm nå",
+  "Sloth OS TV mode": "Sloth OS TV-modus",
+  "Steam on the whole screen, made for a controller and a TV": "Steam i fullskjerm, laget for en kontroller og en TV",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steams storskjermgrensesnitt, laget for en kontroller og en TV. Vil du bruke datamaskinen som en spillkonsoll, velger du «Sloth OS TV-modus» på innloggingsskjermen: da er det ikke noe skrivebord, bare Steam. Når du går ut av Steam, kommer skrivebordet.",
+  "TV mode": "TV-modus",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;fjernsyn;Big Picture;kontroller;gamepad;konsoll;sofa;"
 }

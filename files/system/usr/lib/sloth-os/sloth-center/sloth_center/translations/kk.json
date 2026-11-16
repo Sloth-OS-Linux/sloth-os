@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "Windows ортасының ең жаңа нұсқасы",
   "the older graphics mode (without Vulkan)": "ескі графикалық режим (Vulkan-сыз)",
   "{game} closed right after it started": "{game} іске қосылғаннан кейін бірден жабылды",
-  "{name} starts again with this: {fix}.": "{name} мынамен қайта іске қосылады: {fix}."
+  "{name} starts again with this: {fix}.": "{name} мынамен қайта іске қосылады: {fix}.",
+  "Open it on the whole screen now": "Қазір толық экранда ашу",
+  "Sloth OS TV mode": "Sloth OS ТВ режимі",
+  "Steam on the whole screen, made for a controller and a TV": "Steam толық экранда, контроллер мен теледидарға арналған",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steam-нің үлкен экранға арналған интерфейсі, контроллер мен теледидарға арналған. Компьютерді ойын консолі ретінде пайдалану үшін кіру экранында «Sloth OS ТВ режимі» таңдаңыз: сонда жұмыс үстелі болмайды, тек Steam. Steam-нен шыққанда жұмыс үстелі шығады.",
+  "TV mode": "ТВ режимі",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ТВ;теледидар;Big Picture;контроллер;геймпад;консоль;диван;"
 }

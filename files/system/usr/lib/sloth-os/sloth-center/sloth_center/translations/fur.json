@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "la version plui gnove dal ambient Windows",
   "the older graphics mode (without Vulkan)": "la modalitât grafiche vecje (cence Vulkan)",
   "{game} closed right after it started": "{game} si è sierât subit dopo l’inviament",
-  "{name} starts again with this: {fix}.": "{name} al torne a partî cun chest: {fix}."
+  "{name} starts again with this: {fix}.": "{name} al torne a partî cun chest: {fix}.",
+  "Open it on the whole screen now": "Vierzilu cumò a plen schermi",
+  "Sloth OS TV mode": "Sloth OS modalitât TV",
+  "Steam on the whole screen, made for a controller and a TV": "Steam a plen schermi, pensât par un controler e une TV",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "La interface par schermis grancj di Steam, pensade par un controler e une TV. Par doprâ il computer come une console, sielç “Sloth OS modalitât TV” te schermade di acès: alore no je la scrivanie, dome Steam. Jessint di Steam e ven fûr la scrivanie.",
+  "TV mode": "Modalitât TV",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisôr;Big Picture;controler;gamepad;console;sofà;"
 }

@@ -106,6 +106,25 @@ ENTRIES = {
         ("Keywords", ("sloth-center", "update;rollback;driver;settings")),
         ("StartupNotify", "true"),
     ],
+    # TV mode (/usr/libexec/sloth-os/tv-session): the session on the sign-in screen, and on the desktop Steam's
+    # big-screen interface on the whole screen (the texts: sloth_center/games.py, TV_TEXTS)
+    "files/system/usr/share/wayland-sessions/sloth-tv.desktop": [
+        ("Type", "Application"),
+        ("Name", ("sloth-center", "Sloth OS TV mode")),
+        ("Comment", ("sloth-center", "Steam on the whole screen, made for a controller and a TV")),
+        ("Exec", "/usr/libexec/sloth-os/tv-session"),
+        ("DesktopNames", "gamescope"),
+    ],
+    "files/system/usr/share/applications/org.slothos.tv-mode.desktop": [
+        ("Type", "Application"),
+        ("Name", ("sloth-center", "TV mode")),
+        ("Comment", ("sloth-center", "Steam on the whole screen, made for a controller and a TV")),
+        ("Exec", "xdg-open steam://open/bigpicture"),
+        ("Icon", "input-gamepad"),
+        ("Terminal", "false"),
+        ("Categories", "Game;"),
+        ("Keywords", ("sloth-center", "TV;Big Picture;controller;gamepad;console;couch;")),
+    ],
     "files/system/usr/share/applications/org.slothos.exe.desktop": [
         ("Type", "Application"),
         ("Name", ("sloth-exe", "desktop.name")),

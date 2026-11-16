@@ -1229,5 +1229,11 @@
   "the newest version of the Windows runtime": "najnovejša različica okolja Windows",
   "the older graphics mode (without Vulkan)": "starejši grafični način (brez Vulkana)",
   "{game} closed right after it started": "{game} se je zaprla takoj po zagonu",
-  "{name} starts again with this: {fix}.": "{name} se znova zažene s tem: {fix}."
+  "{name} starts again with this: {fix}.": "{name} se znova zažene s tem: {fix}.",
+  "Open it on the whole screen now": "Odpri zdaj čez cel zaslon",
+  "Sloth OS TV mode": "Sloth OS TV-način",
+  "Steam on the whole screen, made for a controller and a TV": "Steam čez cel zaslon, za igralni plošček in televizor",
+  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steamov vmesnik za velik zaslon, za igralni plošček in televizor. Če želite računalnik uporabljati kot igralno konzolo, na prijavnem zaslonu izberite »Sloth OS TV-način«: takrat ni namizja, samo Steam. Ko zapustite Steam, se pojavi namizje.",
+  "TV mode": "TV-način",
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televizor;Big Picture;igralni plošček;gamepad;konzola;kavč;"
 }
