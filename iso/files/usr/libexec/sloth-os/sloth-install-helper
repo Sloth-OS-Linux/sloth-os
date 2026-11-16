@@ -1025,6 +1025,22 @@ FALLBACK_FILES = ("grubx64.efi", "mmx64.efi", "grub.cfg", "bootuuid.cfg")
 
 
 @contextlib.contextmanager
+def bios_bootable(disk):
+    """In legacy (BIOS) mode: the protective MBR's entry gets the "active" (bootable) flag (parted calls it pmbr_boot).
+    Many older BIOSes start only a disk with an active partition in its MBR and otherwise say "No operating system
+    found" without even reading GRUB there: a Sony VAIO PCG-81913M did so after a good install (2026-11-16), while
+    SeaBIOS in a VM does not ask. Only in BIOS mode: the UEFI specification forbids the flag, and some UEFI firmware
+    then refuses the disk. sfdisk sets it in the protective MBR of a GPT disk and leaves the GPT alone. Run last, after
+    every change to the partition table."""
+    if Path("/sys/firmware/efi").is_dir():
+        return
+    run(["sfdisk", "--activate", disk, "1"])
+    with open(disk, "rb") as f:
+        mbr = f.read(512)
+    if mbr[446] != 0x80 or mbr[450] != 0xEE:
+        fail("error.install_failed", f"the protective MBR is not bootable: status {mbr[446]:#x}, type {mbr[450]:#x}")
+
+
 def firmware_untouched():
     """While bootc runs, the firmware's variables are read-only: bootupd then leaves the boot entries alone.
 
@@ -1460,6 +1476,7 @@ def main():
     place_fallback_loader()
     root_part = finish_partitions(args.disk, parts, passphrase)
     boot_entry(args.disk, parts["numbers"]["esp"])
+    bios_bootable(args.disk)
     if windows_esp:
         place_windows_helper(args.disk)
     emit(stage="configure", progress=95)

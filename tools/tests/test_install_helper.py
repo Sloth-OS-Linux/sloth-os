@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """Safety checks for the installer helper's Windows-disk survey (no disk access)."""
 import importlib.machinery
+import json
+import shutil
+import subprocess
 import importlib.util
 import tempfile
 import unittest
@@ -389,6 +392,42 @@ class FirmwareTest(unittest.TestCase):
             (fedora / "grubx64.efi").write_text("grub")
             helper.place_fallback_loader()
             self.assertFalse(Path(tmp, "boot/efi/EFI/BOOT").exists())
+
+
+
+@unittest.skipUnless(shutil.which("sfdisk"), "needs sfdisk (util-linux)")
+class BiosBootableTest(unittest.TestCase):
+    """2026-11-16, a Sony VAIO PCG-81913M in BIOS mode: "No operating system found" after a good install, because its
+    BIOS starts only a disk whose MBR has an active partition; the protective MBR gets the flag, in BIOS mode only."""
+
+    def disk(self, tmp):
+        img = Path(tmp, "disk.img")
+        with open(img, "wb") as f:
+            f.truncate(64 * 1024**2)
+        subprocess.run(["sfdisk", "-q", str(img)], check=True, input=(
+            f"label: gpt\nsize=1MiB, type={helper.BIOS_BOOT}\nsize=16MiB, type={helper.ESP_TYPE}\n"
+            f"type={helper.ROOT_X86_64}\n"), text=True)
+        return img
+
+    def test_bios_mode_marks_the_protective_mbr_active(self):
+        with (tempfile.TemporaryDirectory() as tmp, patch.object(helper.Path, "is_dir", return_value=False),
+              patch.object(helper, "log")):
+            img = self.disk(tmp)
+            before = img.read_bytes()[:512]
+            self.assertEqual((before[446], before[450]), (0x00, 0xEE))
+            helper.bios_bootable(str(img))
+            after = img.read_bytes()
+            self.assertEqual((after[446], after[450]), (0x80, 0xEE))
+            # the GPT itself is unchanged: the same three partitions
+            out = subprocess.run(["sfdisk", "--json", str(img)], capture_output=True, text=True, check=True).stdout
+            self.assertEqual(len(json.loads(out)["partitiontable"]["partitions"]), 3)
+
+    def test_uefi_mode_leaves_it_alone(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.object(helper.Path, "is_dir", return_value=True):
+            img = self.disk(tmp)
+            before = img.read_bytes()
+            helper.bios_bootable(str(img))
+            self.assertEqual(img.read_bytes(), before)
 
 
 if __name__ == "__main__":

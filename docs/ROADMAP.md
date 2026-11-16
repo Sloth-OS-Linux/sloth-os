@@ -15,7 +15,12 @@ from a terminal must also work from a GUI.
 - [x] Tried in a VM with SeaBIOS: the ISO starts as a DVD and as a USB stick, the install goes through, the installed
   system starts (no GRUB menu); the same ISO with UEFI: installed and started as before
 - [ ] Ship it: a new ISO (1.6.1), then README / website requirements (they still say "UEFI only")
-- [ ] On real hardware: an old BIOS-only PC, if someone has one (no machine here)
+- [x] On real hardware (2026-11-16, the user's Sony VAIO PCG-81913M): the ISO started and the install went through,
+  but after the restart the BIOS said "No operating system found". Its BIOS (like many older ones; SeaBIOS doesn't
+  ask) starts only a disk with an active partition in its MBR. Now the installer marks the protective MBR's entry
+  active in BIOS mode (`bios_bootable`, `sfdisk --activate <disk> 1`, parted's pmbr_boot; never in UEFI mode, which
+  forbids it). Tests: `BiosBootableTest` in tools/tests/test_install_helper.py (a real disk image)
+- [ ] The VAIO again with the new ISO: it starts from the disk
 
 ### Next: release 1.6 (status on 2026-11-14 evening)
 The test branch (test/chunked-oci) is 17 commits past v1.5: the parental controls fixes found in the VM, and the
