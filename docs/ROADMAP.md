@@ -22,6 +22,39 @@ from a terminal must also work from a GUI.
   forbids it). Tests: `BiosBootableTest` in tools/tests/test_install_helper.py (a real disk image)
 - [ ] The VAIO again with the new ISO: it starts from the disk
 
+### Ideas for the next ISO (listed 2026-11-16; nothing chosen yet)
+Fedora 45 waits: umu-launcher (the heart of Windows programs) has no Fedora 45 package yet (1.4.4: fc43, fc44 only;
+checked 2026-11-16). Until then the test branch stays on Fedora 44. Sizes: small ≈ a day, medium ≈ a few days,
+large ≈ a week or more. "(listed)" = already in this plan further down.
+- Games:
+  1. **Game mode** (medium, listed: "an optional gaming mode"): while a game runs, Do Not Disturb and the best
+     performance by themselves, updates and backups wait; all back afterwards
+  2. **One library for every game** (medium–large, new): Steam, Heroic, GOG and Windows games in one place with their
+     covers and a Play button
+  3. **What's wrong with the game?** (large, listed: "when a game fails or crashes…"): a readable summary, and the
+     system tries fixes by itself (Windows programs have it, Steam games not yet)
+  4. **TV mode** (medium, new): a controller-first, big-screen session chosen at sign-in, like a console (Steam Big
+     Picture full screen)
+- Old computers (after BIOS mode):
+  5. **Next to Windows 7 on old BIOS machines** (large, new): old laptops often have Windows 7 on an MBR disk; in BIOS
+     mode only a whole disk can be installed now
+  6. **A lighter mode on weak computers** (medium, new): with 4 GB of memory or a weak graphics card, fewer animations
+     and effects by themselves
+- For people coming from Windows:
+  7. **"I can't open this file" helper** (medium, new): a file without a program for it (.docx, .psd…) offers the
+     right app and installs it with one click
+  8. **Moving over from another Linux** (large, listed)
+  9. **Sending files to a phone or another computer on the home network** (small with LocalSend in Sloth Welcome's
+     catalog, new; large as our own, listed: "consent-based file sharing…")
+- Safety and help:
+  10. **A restore point** before bigger setting or driver changes (large, listed)
+  11. **A diagnostic bundle for Feedback**, personal data hidden, shown before sending (large, listed)
+  12. **File backup → "Find deleted files…"** did not work in the VM (medium, listed)
+- Small:
+  13. **Sloth Center in one window only** (small, listed under "One settings app"): opening it again brings the open
+      window forward
+- Suggested first: 13, 1 and 7; for old computers 5 and 6
+
 ### Next: release 1.6 (status on 2026-11-14 evening)
 The test branch (test/chunked-oci) is 17 commits past v1.5: the parental controls fixes found in the VM, and the
 new Sloth Center (the sidebar in groups, the search, More settings in the sidebar, the Wi-Fi page, the Apps page,
