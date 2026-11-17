@@ -9,7 +9,7 @@ The logo breaks into points of light, they fly into the shape of a controller, a
 logo's silver, on the boot animation's background (files/system/usr/share/plymouth/themes/sloth-os). 6 seconds
 (Steam plays at most about 10).
 
-Needs: python3-numpy, python3-pillow, rsvg-convert (librsvg2-tools), ffmpeg with libvpx-vp9 (ffmpeg-free).
+Needs: python3-numpy, python3-pillow, rsvg-convert (librsvg2-tools), ffmpeg with libvpx and libvorbis (ffmpeg-free).
 Usage: python3 tools/make_tv_intro.py [folder for a few still frames]
        (writes files/system/usr/share/sloth-os/tv/startup.webm)
 """
@@ -180,9 +180,13 @@ def main():
                 canvas = Image.blend(Image.new("RGB", (W, H), BG), canvas, fade)
             canvas.save(tmp / f"f{f:04d}.png")
         OUT.parent.mkdir(parents=True, exist_ok=True)
+        # VP8 with a (silent) Vorbis sound track, 1280 wide: what Steam's movie player takes reliably. A VP9 video
+        # without sound (the first version) did not play on the HP; people whose custom startup movie stayed black
+        # fixed it by re-encoding to VP8 + Vorbis (ValveSoftware/steam-for-linux#11655). 16:9 kept for a TV.
         subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", tmp / "f%04d.png",
-                        "-c:v", "libvpx-vp9", "-b:v", "0", "-crf", "40", "-row-mt", "1", "-pix_fmt", "yuv420p",
-                        "-an", OUT], check=True)
+                        "-f", "lavfi", "-i", "anullsrc=channel_layout=stereo:sample_rate=48000",
+                        "-c:v", "libvpx", "-b:v", "3M", "-vf", "scale=1280:720", "-pix_fmt", "yuv420p",
+                        "-c:a", "libvorbis", "-b:a", "64k", "-shortest", OUT], check=True)
         if len(sys.argv) > 1:                             # a folder for a few still frames, to look at
             for name, f in (("logo", 40), ("break", 62), ("flight", 90), ("arrive", 115), ("controller", 150)):
                 shutil.copy(tmp / f"f{f:04d}.png", Path(sys.argv[1]) / f"tv-intro-{name}.png")
