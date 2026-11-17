@@ -242,6 +242,30 @@ Kirigami.ApplicationWindow {
         }
     }
 
+    // Sloth Center started again (single_instance.py): this window shows what it asked for and comes forward.
+    // Without a page: only forward, the page shown stays.
+    Connections {
+        target: instance
+        function onOpenRequested(page, kcm, kcmArgs, game) {
+            if (kcm)     // as at start: its own row, or More settings' list (not "Back" to the page shown now)
+                root.openKcm(kcm, kcmArgs, "", !modules.some(m => m.kcm === kcm));
+            else if (game) {
+                root.openModuleById("games");
+                Qt.callLater(() => {
+                    const p = pageStack.items.length ? pageStack.items[0] : null;
+                    if (p && typeof p.openGame === "function")
+                        p.openGame(game);
+                });
+            }
+            else if (page && modules.some(m => m.id === page && m.ready))
+                root.openModuleById(page);
+            if (root.visibility === Window.Minimized || root.visibility === Window.Hidden)
+                root.showNormal();
+            root.raise();
+            root.requestActivate();
+        }
+    }
+
     Kirigami.PromptDialog {
         id: unsavedDialog
         title: L.t("Apply the changes?")

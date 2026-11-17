@@ -14,10 +14,16 @@ Kirigami.ScrollablePage {
         games.refresh();
         // sloth-center --page games --game <id>: the game's settings at once (the "closed right after it started"
         // notification)
-        if (typeof startGame !== "undefined" && startGame !== "" && games.games.some(g => g.id === startGame)) {
-            gameDialog.gameId = startGame;
-            gameDialog.open();
-        }
+        if (typeof startGame !== "undefined" && startGame !== "")
+            openGame(startGame);
+    }
+
+    // A game's settings (also when Sloth Center was started again with --game: Main.qml)
+    function openGame(id) {
+        if (!games.games.some(g => g.id === id))
+            return;
+        gameDialog.gameId = id;
+        gameDialog.open();
     }
 
     function play(game) {

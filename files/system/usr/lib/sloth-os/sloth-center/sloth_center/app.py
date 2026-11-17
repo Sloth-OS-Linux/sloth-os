@@ -38,7 +38,12 @@ def main():
             else:
                 start_game = value
             del sys.argv[i:i + 2]
+    # One window only: if Sloth Center is already open, it shows the page and comes forward, and this one quits
+    from .single_instance import SingleInstance, claim_or_forward
+    if claim_or_forward(start_page, start_kcm, start_kcm_args, start_game):
+        return 0
     app = QApplication(sys.argv)
+    instance = SingleInstance()
     app.setApplicationName("sloth-center")
     app.setOrganizationName("Sloth OS")
     from .i18n import Translator, catalog, tr
@@ -106,6 +111,7 @@ def main():
     engine.rootContext().setContextProperty("startKcm", start_kcm)
     engine.rootContext().setContextProperty("startKcmArgs", start_kcm_args)
     engine.rootContext().setContextProperty("startGame", start_game)
+    engine.rootContext().setContextProperty("instance", instance)
     updates = UpdatesController()
     firmware = FirmwareController()
     remote_help = RemoteHelpController()

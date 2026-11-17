@@ -233,8 +233,8 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
   11. **A diagnostic bundle for Feedback**, personal data hidden, shown before sending (large, listed)
   12. **File backup → "Find deleted files…"** did not work in the VM (medium, listed)
 - Small:
-  13. **Sloth Center in one window only** (small, listed under "One settings app"): opening it again brings the open
-      window forward
+  13. ~~**Sloth Center in one window only**~~ DONE 2026-11-17 (see "One settings app"): opening it again brings the
+      open window forward
 - Suggested first: 13, 1 and 7; for old computers 5 and 6
 
 ### Next: release 1.6 (status on 2026-11-14 evening)
@@ -379,8 +379,17 @@ System status with the check-up, Help and feedback). It goes out as **1.6** (new
 - [x] Clicked through in the container with the real Sloth Center (14 steps, all passed): Topics → a topic → a KDE
   page embedded → Back to the same topic; switching to Icons; narrowing and widening the sidebar; the choices
   saved; Drivers and hardware → More sound settings → Back to Drivers and hardware
-- Not done: one window only (a second `systemsettings` call opens a second Sloth Center window); the left list's
-  own pages are not in More settings' search
+- [x] One window only (2026-11-17, idea 13): a second start (the Start menu, a notification, `systemsettings
+  <page>`) hands its request to the open window and quits (sloth_center/single_instance.py, the session bus name
+  org.slothos.Center, Open(page, kcm, kcm_args, game, activation token)); the window shows that page and comes
+  forward (Wayland: the Start menu's XDG_ACTIVATION_TOKEN is handed over, Qt's requestActivate uses it). If the open
+  one does not answer in 10 s, or there is no session bus, a window of its own opens as before. Tried in a container:
+  five later starts (none, --page drivers, --kcm kcm_mouse, --page games --game steam:440 with a fake Steam game,
+  an unknown page) each quit in 0.2 s and the open window showed the right page (screenshots), the game's settings
+  dialog included; tools/tests/test_single_instance.py
+- [ ] On the HP: Sloth Center open, then the Start menu entry again, a tray "Configure…", Drivers from a
+  notification: no second window, the open one comes to the front (not only a flashing taskbar entry)
+- Not done: the left list's own pages are not in More settings' search
 
 ### Sloth OS 1.5 (released 2026-11-12): firmware, what's new, remote help, printers
 - [x] **BIOS/firmware updates** (`sloth_center/firmware.py`, Updates page): fwupd's fwupdmgr in JSON mode; only
