@@ -1,0 +1,98 @@
+#!/usr/bin/env python3
+"""TV mode: starts a game that is not Steam's, outside Steam's sandbox, and stays until the game ends.
+
+  tv-launch <game id>      (epic:…, gog:…, amazon:…, flatpak:…, win:…, as sloth_common.game_library.other_games)
+
+Steam (in TV mode) starts our launcher for the entries tv-shortcuts put in its list; the launcher, inside the
+sandbox, hands the game's id to this program with flatpak-spawn --host. Steam counts the game as running while that
+lasts, so this waits: for the start command itself (flatpak run, the .exe handler: they stay until the game ends),
+and for a Heroic game, whose start command may return at once, until no program runs from the game's folder.
+"""
+import os
+import subprocess
+import sys
+import syslog
+import time
+from pathlib import Path
+
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+from sloth_common import game_library  # noqa: E402
+
+APPEAR_S = 120          # a Heroic game has this long to start (Heroic may update or sync first)
+GONE_CHECKS = 3         # ...and counts as ended when nothing runs from its folder this many times in a row
+INTERVAL_S = 2
+
+
+def log(msg):
+    syslog.syslog(syslog.LOG_INFO, msg)
+    print(msg, file=sys.stderr)
+
+
+def runs_from(folder, proc=Path("/proc")):
+    """Whether a program runs from the folder: its working folder or its command line is in it (Wine games too:
+    their command line has the folder, either as is or as Wine's Z: drive)."""
+    folder = str(Path(folder)).rstrip("/")
+    if not folder or folder == "/":
+        return False
+    wine = "z:" + folder.replace("/", "\\").lower()
+    me = os.getpid()
+    for p in proc.iterdir():
+        if not p.name.isdigit() or int(p.name) == me:
+            continue
+        try:
+            cwd = os.readlink(p / "cwd")
+        except OSError:
+            cwd = ""
+        if cwd == folder or cwd.startswith(folder + "/"):
+            return True
+        try:
+            cmdline = (p / "cmdline").read_bytes().replace(b"\0", b" ").decode("utf-8", "replace")
+        except OSError:
+            continue
+        if folder in cmdline or wine in cmdline.lower():
+            return True
+    return False
+
+
+def wait_folder(folder, proc):
+    """A game from a folder: wait until it starts (or the start command fails), then until it ends."""
+    start = time.monotonic()
+    while not runs_from(folder):
+        if time.monotonic() - start > APPEAR_S or (proc.poll() not in (None, 0)):
+            log(f"the game in {folder} did not start")
+            return
+        time.sleep(INTERVAL_S)
+    gone = 0
+    while gone < GONE_CHECKS:
+        time.sleep(INTERVAL_S)
+        gone = 0 if runs_from(folder) else gone + 1
+
+
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: tv-launch <game id>", file=sys.stderr)
+        return 2
+    syslog.openlog("sloth-tv-launch")
+    game_id = sys.argv[1]
+    game = next((g for g in game_library.other_games() if g["id"] == game_id), None)
+    if game is None:
+        log(f"{game_id}: no such game (removed since TV mode started?)")
+        return 1
+    cmd = game_library.tv_launch(game)
+    log(f"{game_id}: starting {cmd}")
+    try:
+        proc = subprocess.Popen(cmd, stdin=subprocess.DEVNULL)
+    except OSError as e:
+        log(f"{game_id}: {e}")
+        return 1
+    if game.get("folder"):
+        wait_folder(game["folder"], proc)
+        if proc.poll() is None:            # Heroic, still there after its game: it is not needed any more
+            proc.terminate()
+    code = proc.wait()
+    log(f"{game_id}: ended ({code})")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

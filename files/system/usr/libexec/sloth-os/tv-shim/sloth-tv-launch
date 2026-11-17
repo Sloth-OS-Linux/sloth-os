@@ -1,0 +1,15 @@
+#!/bin/sh
+# TV mode: Steam starts this for the games that are not Steam's (the entries /usr/libexec/sloth-os/tv-shortcuts put in
+# its list, with the game's id as the launch option). It runs inside the Flatpak Steam's sandbox (Steam sees it under
+# /run/host); the game itself starts outside, with /usr/libexec/sloth-os/tv-launch, through flatpak-spawn --host
+# (tv-session lets TV mode's Steam do that: org.freedesktop.Flatpak). flatpak-spawn stays until the game ends, so
+# Steam counts it as running. The screen's address goes along, so the game opens on TV mode's screen (gamescope),
+# and Steam's ids for the game, so gamescope can tell the game's window.
+game="$1"
+[ -n "$game" ] || exit 2
+set --
+for var in DISPLAY WAYLAND_DISPLAY SteamGameId SteamAppId SteamOverlayGameId; do
+    eval "value=\${$var-}"
+    [ -n "$value" ] && set -- "$@" "--env=$var=$value"
+done
+exec flatpak-spawn --host --watch-bus "$@" /usr/libexec/sloth-os/tv-launch "$game"

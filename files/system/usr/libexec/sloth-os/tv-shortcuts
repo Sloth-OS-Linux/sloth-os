@@ -1,0 +1,168 @@
+#!/usr/bin/env python3
+"""TV mode: the games that are not Steam's (Heroic's Epic, GOG and Amazon games, the Flatpak games, the Windows games:
+sloth_common.game_library.other_games) in Steam's own list, as non-Steam games, while TV mode runs.
+
+  tv-shortcuts add      before Steam starts in TV mode (tv-session): our entries in every Steam account's
+                        userdata/<account>/config/shortcuts.vdf, with their cover and icon in its grid folder
+  tv-shortcuts remove   after Steam has closed: our entries and pictures out again
+
+Only during TV mode, because only TV mode's Steam may start programs outside its sandbox (tv-session gives it
+org.freedesktop.Flatpak): the desktop's Steam could not start these. Our entries are the ones whose start file is our
+launcher (tv-shim/sloth-tv-launch, which hands the game's id to /usr/libexec/sloth-os/tv-launch outside the sandbox);
+the user's own non-Steam games are left as they are. Steam keeps shortcuts.vdf in memory and writes it when it
+closes, so nothing is written while Steam runs. Steam's binary VDF: sloth_common.apps.steam.
+"""
+import shlex
+import shutil
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+from sloth_common import game_library  # noqa: E402
+from sloth_common.apps import steam  # noqa: E402
+
+STEAM = Path.home() / ".var/app/com.valvesoftware.Steam/.local/share/Steam"
+# our launcher as the sandboxed Steam sees it (tv-session gives it the host's /usr under /run/host)
+LAUNCHER = "/run/host/usr/libexec/sloth-os/tv-shim/sloth-tv-launch"
+EXE = f'"{LAUNCHER}"'
+START_DIR = '"/run/host/usr/libexec/sloth-os/tv-shim/"'
+
+
+def steam_running():
+    try:
+        out = subprocess.run(["flatpak", "ps", "--columns=application"], capture_output=True, text=True,
+                             timeout=10).stdout
+    except (OSError, subprocess.SubprocessError):
+        return False
+    return "com.valvesoftware.Steam" in out.split()
+
+
+def accounts(root=None):
+    """The Steam accounts' config folders that already exist (Steam makes them at the first sign-in)."""
+    root = root or STEAM
+    return sorted(p / "config" for p in (root / "userdata").glob("*")
+                  if p.name.isdigit() and p.name != "0" and (p / "config").is_dir())
+
+
+def read(config):
+    path = config / "shortcuts.vdf"
+    if not path.is_file():
+        return {"shortcuts": {}}
+    data = steam.binary_vdf_load(path.read_bytes())
+    if not isinstance(steam.ci(data, "shortcuts"), dict):
+        data = {"shortcuts": {}}
+    return data
+
+
+def write(config, data):
+    path = config / "shortcuts.vdf"
+    if path.is_file() and not path.with_suffix(".vdf.sloth-backup").exists():
+        shutil.copyfile(path, path.with_suffix(".vdf.sloth-backup"))
+    tmp = path.with_suffix(".vdf.tmp")
+    tmp.write_bytes(steam.binary_vdf_dump(data))
+    tmp.replace(path)
+
+
+def ours(entry):
+    return isinstance(entry, dict) and steam.ci(entry, "Exe") == EXE
+
+
+def unsigned(appid):
+    return appid & 0xFFFFFFFF
+
+
+def remove_pictures(config, appid):
+    grid = config / "grid"
+    for pattern in (f"{unsigned(appid)}p.*", f"{unsigned(appid)}_icon.*"):
+        for f in grid.glob(pattern):
+            f.unlink(missing_ok=True)
+
+
+def strip(config, data):
+    """Our entries out (and their pictures); the rest renumbered from 0, as Steam numbers them."""
+    kept = []
+    for entry in (steam.ci(data, "shortcuts") or {}).values():
+        if ours(entry):
+            remove_pictures(config, steam.ci(entry, "appid") or 0)
+        else:
+            kept.append(entry)
+    return {"shortcuts": {str(i): e for i, e in enumerate(kept)}}
+
+
+def picture(src, dest_stem):
+    """A copy of the picture into Steam's grid folder (Steam reads only its own folders). -> its path, or ""."""
+    if not src or not Path(src).is_file():
+        return ""
+    ext = Path(src).suffix.lower()
+    if ext not in (".png", ".jpg", ".jpeg"):
+        return ""
+    dest = dest_stem.with_name(dest_stem.name + ext)
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(src, dest)
+    return str(dest)
+
+
+def entry(config, game):
+    name = game["name"]
+    appid = steam.shortcut_appid(EXE, name)
+    grid = config / "grid"
+    picture(game.get("cover"), grid / f"{unsigned(appid)}p")
+    icon = picture(game.get("icon"), grid / f"{unsigned(appid)}_icon")
+    return {"appid": appid, "AppName": name, "Exe": EXE, "StartDir": START_DIR, "icon": icon, "ShortcutPath": "",
+            "LaunchOptions": shlex.quote(game["id"]), "IsHidden": 0, "AllowDesktopConfig": 1, "AllowOverlay": 1,
+            "OpenVR": 0, "Devkit": 0, "DevkitGameID": "", "DevkitOverrideAppID": 0, "LastPlayTime": 0,
+            "FlatpakAppID": "", "tags": {}}
+
+
+def add(games, root=None):
+    """Our entries in every account, made new (a game removed since then goes, a new one comes). -> how many"""
+    count = 0
+    for config in accounts(root):
+        data = strip(config, read(config))
+        items = data["shortcuts"]
+        names = {str(steam.ci(e, "AppName") or "").lower() for e in items.values()}
+        for game in sorted(games, key=lambda g: g["name"].lower()):
+            if game["name"].lower() in names:       # the user added it already, or two games by the same name
+                continue
+            names.add(game["name"].lower())
+            items[str(len(items))] = entry(config, game)
+            count += 1
+        write(config, data)
+    return count
+
+
+def remove(root=None):
+    for config in accounts(root):
+        data = read(config)
+        if any(ours(e) for e in (steam.ci(data, "shortcuts") or {}).values()):
+            write(config, strip(config, data))
+
+
+def main():
+    what = sys.argv[1] if len(sys.argv) > 1 else ""
+    if what not in ("add", "remove"):
+        print("Usage: tv-shortcuts add | remove", file=sys.stderr)
+        return 2
+    # Steam writes shortcuts.vdf when it closes: wait a little for it after TV mode, never write while it runs
+    for _ in range(10 if what == "remove" else 1):
+        if not steam_running():
+            break
+        time.sleep(1)
+    else:
+        print(f"other games ({what}): Steam is running, nothing changed")
+        return 0
+    try:
+        if what == "add":
+            print(f"other games in Steam's list: {add(game_library.other_games())}")
+        else:
+            remove()
+            print("other games out of Steam's list")
+    except Exception as e:  # noqa: BLE001 - never in the way of TV mode or the desktop
+        print(f"other games ({what}): {e}", file=sys.stderr)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

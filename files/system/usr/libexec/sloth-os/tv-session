@@ -28,6 +28,9 @@ log "TV mode starts"
 # Steam's start-up video: ours (the Sloth OS logo turning into a controller) instead of Valve's SteamOS logo, put in
 # Steam's folder and picked in Steam's settings while it is at Default (a video the user picked stays)
 log "$(/usr/libexec/sloth-os/tv-startup-movie 2>&1)"
+# The games that are not Steam's (Heroic's, Flatpak games, Windows games) in Steam's list while TV mode runs; they go
+# out again when it ends (below), because only TV mode's Steam may start them (org.freedesktop.Flatpak below)
+log "$(/usr/libexec/sloth-os/tv-shortcuts add 2>&1)"
 
 # Steam's "Switch to Desktop": the shim (tv-shim/steamos-session-select, inside the sandbox) leaves a note here; then
 # Steam gets 10 seconds to close by itself, and is closed from outside after that. gamescope ends with it, and the
@@ -64,9 +67,10 @@ done
 # SteamOS (-steamos3, as gamescope-session setups start it). Without -steamos3, "Switch to Desktop" called nothing at
 # all (no steamos-session-select, no D-Bus call; the HP, 2026-11-16) and stayed at "Switching to desktop…"; with it,
 # Steam calls steamos-session-select (made for SteamOS); ours (tv-shim) leaves the note, so the desktop starts below. The Flatpak sees the host's /usr under /run/host (host-os, read only), and our folder comes first on its
-# PATH (the rest as the Flatpak has it).
+# PATH (the rest as the Flatpak has it). org.freedesktop.Flatpak: the games that are not Steam's start outside the
+# sandbox (tv-shim/sloth-tv-launch -> flatpak-spawn --host -> tv-launch); only TV mode's Steam gets this.
 gamescope -e -f -- flatpak run --filesystem=host-os:ro --filesystem=xdg-run/sloth-tv:create \
-    --talk-name=com.steampowered.SteamOSManager1 \
+    --talk-name=com.steampowered.SteamOSManager1 --talk-name=org.freedesktop.Flatpak \
     --env=PATH=/run/host/usr/libexec/sloth-os/tv-shim:/app/bin:/app/utils/bin:/usr/bin:/bin \
     com.valvesoftware.Steam -steamos3 -gamepadui
 code=$?
@@ -74,6 +78,7 @@ log "gamescope ended (exit code $code)"
 kill "$watcher" "$manager" 2>/dev/null
 # Steam is fully closed before the desktop starts (its own autostart may open it there again, as usual)
 flatpak kill com.valvesoftware.Steam >/dev/null 2>&1
+log "$(/usr/libexec/sloth-os/tv-shortcuts remove 2>&1)"
 if (( code != 0 && $(date +%s) - started < 15 )); then
     desktop "gamescope stopped right away (exit code $code)"
 fi

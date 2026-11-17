@@ -217,8 +217,21 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        the letters' skeleton (Sedgwick Ave Display, OFL), mist at the nozzle, drips; the tag fades and the logo comes
        forward, shrinking to its place; then Splash.qml's pulse. A preview video: tools/make_splash_intro.py with a
        folder. (A chrome throw-up with popping letters was tried first and dropped)
-     - [ ] On the HP: the new loading screen after an update; in TV mode, whether our video is in Steam's Startup
-       Movie list, and whether choosing it makes it play (then tv-session can choose it)
+     - [x] On the HP (2026-11-17): our start-up video plays in TV mode (after the fix for a pick pointing at a gone
+       file, af963bed); a small jump in its middle where it gets too big (the user: maybe the HP's playback)
+     - [x] The games that are not Steam's in TV mode (2026-11-17, the user's idea): Heroic's (Epic, GOG, Amazon),
+       the Flatpak games and the Windows games (game_library.other_games) go into Steam's list as non-Steam games
+       while TV mode runs (tv-shortcuts add/remove: every account's shortcuts.vdf, binary VDF writer in
+       apps/steam.py, cover and icon in its grid folder; the user's own non-Steam games stay). Steam starts our
+       launcher (tv-shim/sloth-tv-launch, inside the sandbox), which hands the game's id to tv-launch outside it
+       (flatpak-spawn --host; only TV mode's Steam gets org.freedesktop.Flatpak) with the screen's address; tv-launch
+       stays until the game ends (Heroic's games: until nothing runs from their folder; Heroic starts with --no-gui,
+       as its own "Add to Steam" does). Whether a game is a game: the store it comes from, freedesktop's
+       Categories=Game for Flatpak apps (Flathub's checked data), umu-database for Windows programs (no online lookup
+       of what is installed). Tests: tools/tests/test_tv_shortcuts.py (8)
+     - [ ] On the HP, with 2-3 games from Discover: they show in TV mode with their picture, start on TV mode's
+       screen, the controller and Steam's overlay work, Steam counts them as running and comes back when they end;
+       the desktop's Steam does not show them afterwards
      - [x] The session's name in 50 languages (tools/gen_desktop_entries.py writes sloth-tv.desktop now); Games → TV
        mode explains it, with "Open it on the whole screen now" (Steam's Big Picture on the desktop:
        steam://open/bigpicture), and a "TV mode" Start menu entry does the same (org.slothos.tv-mode.desktop)

@@ -1,9 +1,11 @@
-"""Steam's files (only read): game libraries, programs added to Steam (non-Steam ones) and their
-Proton environments. Taking them over (without reinstalling) is in imports.py.
+"""Steam's files: game libraries, programs added to Steam (non-Steam ones) and their Proton environments (read; taking
+them over without reinstalling is in imports.py), and the binary VDF writer TV mode uses to put the other games in
+Steam's list (/usr/libexec/sloth-os/tv-shortcuts).
 """
 import logging
 import re
 import struct
+import zlib
 from pathlib import Path
 
 log = logging.getLogger("sloth-os.apps")
@@ -101,6 +103,35 @@ def binary_vdf_load(data):
         return out
 
     return node()
+
+
+def binary_vdf_dump(data):
+    """The other way round: {key: dict | str | int} -> bytes (dictionaries, strings, 32-bit numbers), as Steam writes
+    shortcuts.vdf (the whole file is one dictionary and ends with two end marks)."""
+    out = bytearray()
+
+    def node(d):
+        for key, value in d.items():
+            name = str(key).encode("utf-8") + b"\x00"
+            if isinstance(value, dict):
+                out.extend(b"\x00" + name)
+                node(value)
+                out.extend(b"\x08")
+            elif isinstance(value, bool) or isinstance(value, int):
+                out.extend(b"\x02" + name + struct.pack("<i", int(value)))
+            else:
+                out.extend(b"\x01" + name + str(value).encode("utf-8") + b"\x00")
+
+    node(data)
+    out.extend(b"\x08")
+    return bytes(out)
+
+
+def shortcut_appid(exe, name):
+    """A non-Steam shortcut's id as Steam makes it: CRC32 of the start file (as written in Exe) and the name, with the
+    top bit set. As a signed 32-bit number, as shortcuts.vdf stores it."""
+    value = (zlib.crc32((exe + name).encode("utf-8")) & 0xFFFFFFFF) | 0x80000000
+    return struct.unpack("<i", struct.pack("<I", value))[0]
 
 
 # --- Steam -----------------------------------------------------------------------------------
