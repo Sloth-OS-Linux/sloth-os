@@ -10,7 +10,10 @@ instead of Valve's SteamOS logo. Run by tv-session before Steam starts.
    file in the folder alone is not played (the HP, 2026-11-17). How Steam writes the choice: DroidDeck's
    SessionFiles.kt (github.com/Droid-Deck/DroidDeck, PR #1459), which points it at its own video the same way.
    Ours is picked once, and only when Steam is at Default: a video the user picked stays, and after that first time
-   nothing is changed again (if the user goes back to Default later, that is their choice).
+   nothing is changed again (if the user goes back to Default later, that is their choice). One exception, also
+   later: a choice pointing at a video in uioverrides/movies that is gone. Steam then plays Valve's video, as at
+   Default, and it is no one's choice: the HP (2026-11-17) had our old deck_startup.webm picked by hand during a
+   test, step 4 removed it, and the first run took the pick for the user's own ("kept").
 3. Steam keeps config.vdf in memory and writes it back when it closes, so nothing is written while Steam runs (the
    next TV mode start tries again). Nothing is created if Steam has not made its config.vdf yet (its first start).
 
@@ -101,8 +104,17 @@ def set_value(block, key, new):
     block.append((key, new))
 
 
-def pick(vdf):
-    """Points Steam's choice at our video if it is at Default. -> "picked" | "kept" | "later" """
+def gone(local_path):
+    """Whether a picked LocalPath is one of uioverrides/movies' videos (relative to Steam's config folder) that is no
+    longer there. Other places (Steam's own downloaded videos) are not judged."""
+    if not local_path.startswith("/uioverrides/movies/"):
+        return False
+    return not (CONFIG.parent / local_path.lstrip("/")).is_file()
+
+
+def pick(vdf, first=True):
+    """Points Steam's choice at our video if it is at Default (only the first time: `first`) or at a video that is
+    gone (any time). -> "picked" | "kept" | "later" """
     if not CONFIG.is_file():
         return "later"                               # Steam has not started yet: its own file comes first
     if vdf.steam_running():
@@ -114,10 +126,14 @@ def pick(vdf):
         return "later"
     if blocks:
         active = blocks[0]
-        if value(active, "LocalPath") == LOCAL_PATH:
+        local = value(active, "LocalPath")
+        if local == LOCAL_PATH:
             return "kept"
-        if value(active, "LocalPath") or value(active, "MovieID") not in ("", "0"):
-            return "kept"                            # a video the user picked
+        if not gone(local):
+            if not first or local or value(active, "MovieID") not in ("", "0"):
+                return "kept"                        # a video the user picked (or Default they went back to)
+    elif not first:
+        return "kept"
     else:
         custom = vdf.child(root, "Customization", True)
         blocks = [vdf.child(custom, "StartupMovie", True)]
@@ -137,9 +153,7 @@ def main():
     try:
         if not place_video():
             return 0
-        if PICKED.exists():
-            return 0
-        result = pick(_vdf())
+        result = pick(_vdf(), first=not PICKED.exists())
         print(f"start-up video: {result}")
         if result != "later":
             STATE.mkdir(parents=True, exist_ok=True)

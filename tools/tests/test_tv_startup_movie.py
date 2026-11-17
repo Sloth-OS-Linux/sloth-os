@@ -114,6 +114,29 @@ class StartupMovieTest(unittest.TestCase):
         self.m.main()
         self.assertEqual(self.movies(), [("0", self.m.LOCAL_PATH)] * 2)
 
+    def picked_by_hand(self, name):
+        return DEFAULT.replace('"LocalPath"\t\t""\n\t\t\t"Shuffle"',
+                               f'"LocalPath"\t\t"/uioverrides/movies/{name}"\n\t\t\t"Shuffle"')
+
+    def test_pick_of_a_gone_video_becomes_ours(self):
+        """The HP, 2026-11-17: our old deck_startup.webm was picked by hand, the update removed it (Steam then played
+        Valve's video), and the first run took the pick for the user's own. Also with the "done" mark there."""
+        self.m.STATE.mkdir(parents=True)
+        self.m.PICKED.touch()
+        self.m.CONFIG.write_text(self.picked_by_hand("deck_startup.webm"))
+        self.m.main()
+        self.assertEqual(self.movies()[0], ("0", self.m.LOCAL_PATH))
+
+    def test_pick_of_an_existing_video_stays(self):
+        self.m.MOVIES.mkdir(parents=True)
+        (self.m.MOVIES / "mine.webm").write_bytes(b"the user's own")
+        own = self.picked_by_hand("mine.webm")
+        self.m.CONFIG.write_text(own)
+        self.m.main()
+        self.assertEqual(self.m.CONFIG.read_text(), own)
+        self.m.main()                                   # later runs too
+        self.assertEqual(self.m.CONFIG.read_text(), own)
+
     def test_old_copy_removed_only_if_ours(self):
         self.m.MOVIES.mkdir(parents=True)
         old = self.m.MOVIES / "deck_startup.webm"
