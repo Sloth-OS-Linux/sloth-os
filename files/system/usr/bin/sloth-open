@@ -1,0 +1,10 @@
+#!/usr/bin/python3 -I
+"""The "I can't open this file" helper (sloth_center/open_helper.py): sloth-open <file>."""
+import sys
+
+sys.path.insert(0, "/usr/lib/sloth-os/sloth-center")
+sys.path.insert(0, "/usr/lib/sloth-os/common")
+
+from sloth_center.open_helper import main  # noqa: E402
+
+sys.exit(main())

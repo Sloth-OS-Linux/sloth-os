@@ -234,8 +234,20 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        animation at once (KWin takes AnimationDurationFactor through --notify without signing out?), no blur behind
        the Start menu; the switch off brings them back
 - For people coming from Windows:
-  7. **"I can't open this file" helper** (medium, new): a file without a program for it (.docx, .psd…) offers the
-     right app and installs it with one click
+  7. ~~**"I can't open this file" helper**~~ DONE 2026-11-17 (test branch): nothing is preinstalled, so on a new
+     install a photo, a PDF, a Word document or a video had no app at all (checked in the image: only Ark, for zip
+     and 7z). org.slothos.open.desktop (NoDisplay) is registered for 62 types; `sloth-open <file>`
+     (sloth_center/open_helper.py) hands the file at once to any app that supports exactly that type (GIO's
+     "recommended" apps: a .docx is a zip underneath and Ark must not get it), otherwise a small window names the
+     app (Word/Excel/PowerPoint → LibreOffice, PDF → Okular, photos → Gwenview, video and music → VLC, .psd →
+     GIMP, e-books → Foliate…) and "Install X and open the file" installs it from Flathub with Sloth Welcome's
+     installer (progress bar) and opens the file in it; an unknown type offers Discover's search
+     (plasma-discover --mime). Tried in the image: a PDF with a fake viewer opens there with no window; the .docx
+     window, the unknown type's window, and a stand-in installer whose "installed" Writer then opened the file
+     (screenshots); tools/tests/test_open_helper.py. 20 texts in 49 languages
+     - [ ] On the HP (a fresh account): double-click a .docx → LibreOffice installs and the document opens; a .jpg
+       → Gwenview; then the same files open straight in those apps (no window); a child account asks for the
+       password at the install
   8. **Moving over from another Linux** (large, listed)
   9. **Sending files to a phone or another computer on the home network** (small with LocalSend in Sloth Welcome's
      catalog, new; large as our own, listed: "consent-based file sharing…")

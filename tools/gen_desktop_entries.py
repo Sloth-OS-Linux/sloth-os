@@ -23,6 +23,28 @@ TRANSLATIONS = {
 # In Sloth Center's translations the English text is the key (its en.json only has the language name)
 EN_KEYED = {"sloth-center"}
 
+
+def _open_helper_types():
+    """The file types the "I can't open this file" helper offers an app for (open_helper.py: SUGGESTIONS)."""
+    import ast
+    src = (TOOLS / "sloth-center/sloth_center/open_helper.py").read_text(encoding="utf-8")
+    consts = {}
+    for node in ast.parse(src).body:
+        if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name):
+            name = node.targets[0].id
+            if name in ("OFFICE", "IMAGES", "MEDIA"):
+                consts[name] = ast.literal_eval(node.value)
+            elif name == "SUGGESTIONS":
+                types = []
+                for item in node.value.elts:
+                    first = item.elts[0]
+                    types += consts[first.id] if isinstance(first, ast.Name) else ast.literal_eval(first)
+                return types
+    raise SystemExit("open_helper.py: SUGGESTIONS not found")
+
+
+OPEN_HELPER_TYPES = _open_helper_types()
+
 # File -> fields. A translated field's value is (tool, key); everything else is written as is.
 ENTRIES = {
     "files/system/usr/share/applications/org.slothos.welcome.desktop": [
@@ -131,6 +153,18 @@ ENTRIES = {
         ("Categories", "Game;"),
         ("Keywords", ("sloth-center", "TV;Big Picture;controller;gamepad;console;couch;")),
     ],
+    # A file with no app for it (nothing is preinstalled): the app that opens it, installed with one click
+    # (sloth_center/open_helper.py; another app that opens the type always goes first)
+    "files/system/usr/share/applications/org.slothos.open.desktop": [
+        ("Type", "Application"),
+        ("Name", ("sloth-center", "Find an app for this file")),
+        ("Exec", "sloth-open %f"),
+        ("Icon", "system-search"),
+        ("Terminal", "false"),
+        ("NoDisplay", "true"),
+        # MimeType: added below ENTRIES (from open_helper.py; ENTRIES itself stays plain values for
+        # tools/check_translations.py)
+    ],
     "files/system/usr/share/applications/org.slothos.exe.desktop": [
         ("Type", "Application"),
         ("Name", ("sloth-exe", "desktop.name")),
@@ -190,6 +224,9 @@ ENTRIES = {
         ("StartupNotify", "true"),
     ],
 }
+
+ENTRIES["files/system/usr/share/applications/org.slothos.open.desktop"].append(
+    ("MimeType", ";".join(OPEN_HELPER_TYPES) + ";"))
 
 
 def load(tool):
