@@ -2,8 +2,8 @@
 """TV mode's start-up video: the Sloth OS logo turns into a game controller (developer tool, not in the image).
 
 Steam (started as on SteamOS, /usr/libexec/sloth-os/tv-session) plays a video while it loads; by default that is
-Valve's SteamOS logo. A file named deck_startup.webm in Steam's config/uioverrides/movies/ folder is played instead
-(Steam's own way of setting a start-up video); tv-session puts this one there.
+Valve's SteamOS logo. Steam plays a video from its config/uioverrides/movies/ folder when it is picked in its settings
+(Customization → Startup Movie); /usr/libexec/sloth-os/tv-startup-movie puts this one there and picks it.
 
 The logo breaks into points of light, they fly into the shape of a controller, and the controller appears in the
 logo's silver, on the boot animation's background (files/system/usr/share/plymouth/themes/sloth-os). 6 seconds

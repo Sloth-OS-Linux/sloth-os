@@ -199,12 +199,19 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      - [x] Steam's start-up video: ours instead of Valve's SteamOS logo (-steamos3 plays it): the Sloth OS logo breaks
        into points of light that fly into a controller (tools/make_tv_intro.py, /usr/share/sloth-os/tv/startup.webm).
        tv-session puts it in Steam's config/uioverrides/movies/deck_startup.webm, never over a video put there by hand
+       (replaced on 2026-11-17, see below)
      - [x] The desktop's loading screen after sign-in (KSplash, Splash.qml) in the same style: "Sloth OS" sprayed on
        like graffiti (Rubik Spray Paint, OFL; only the rendered picture is in the image) turns into the logo, which then
        pulses until the desktop is ready (tools/make_splash_intro.py, images/intro.webp; offscreen render checked)
      - [x] On the HP (2026-11-16): TV mode still played Valve's SteamOS start-up video, not ours (newer Steam picks
        the start-up movie in Settings → Customization → Startup Movie; a deck_startup.webm alone may no longer win).
        The loading screen was too small and plain
+     - [x] The start-up video picked in Steam's settings (2026-11-17): on the HP, Customization → Startup Movie was at
+       Default, which is Valve's video; a file in the folder alone is not played. /usr/libexec/sloth-os/tv-startup-movie
+       (run by tv-session before Steam starts) puts ours there as sloth-os-startup.webm and, once, while Steam is at
+       Default, points config.vdf's StartupMovie (MovieID "0", LocalPath) at it; a video the user picked stays. The
+       format follows DroidDeck's code (no Valve documentation). Also re-encoded as VP8 + Vorbis (steam-for-linux#11655)
+       - [ ] On the HP: TV mode plays ours at start; Settings → Customization shows it picked
      - [x] The loading screen redone (2026-11-16, the user's design): 1920 x 1080 (1:1 on a 1080p screen), the logo
        faint and bigger in the background, "Sloth OS" written on the wall as a tag in silver, stroke by stroke along
        the letters' skeleton (Sedgwick Ave Display, OFL), mist at the nozzle, drips; the tag fades and the logo comes

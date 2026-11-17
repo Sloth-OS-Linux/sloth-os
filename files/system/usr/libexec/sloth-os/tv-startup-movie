@@ -1,0 +1,153 @@
+#!/usr/bin/env python3
+"""TV mode's start-up video in Steam: ours (the Sloth OS logo turning into a controller, tools/make_tv_intro.py)
+instead of Valve's SteamOS logo. Run by tv-session before Steam starts.
+
+1. The video goes to Steam's own folder for start-up videos, config/uioverrides/movies/, under our own name
+   (sloth-os-startup.webm), so Valve's videos keep theirs. A newer image's video replaces an older one of ours.
+2. Steam plays the video picked in Settings → Customization → Startup Movie. Its choice is in config/config.vdf:
+   InstallConfigStore > Customization > StartupMovie (an older Steam: ... > Software > Valve > Steam > StartupMovie),
+   "MovieID" and "LocalPath"; "Default" is MovieID "0" with an empty LocalPath and means Valve's SteamOS logo, so a
+   file in the folder alone is not played (the HP, 2026-11-17). How Steam writes the choice: DroidDeck's
+   SessionFiles.kt (github.com/Droid-Deck/DroidDeck, PR #1459), which points it at its own video the same way.
+   Ours is picked once, and only when Steam is at Default: a video the user picked stays, and after that first time
+   nothing is changed again (if the user goes back to Default later, that is their choice).
+3. Steam keeps config.vdf in memory and writes it back when it closes, so nothing is written while Steam runs (the
+   next TV mode start tries again). Nothing is created if Steam has not made its config.vdf yet (its first start).
+
+The earlier way (until 2026-11-17): our video as deck_startup.webm in the same folder, which Steam did not play at
+Default. That copy is removed if it is still ours (its checksum in .sloth-os-startup), not if someone replaced it.
+"""
+import hashlib
+import importlib.machinery
+import importlib.util
+import os
+import shutil
+import sys
+from pathlib import Path
+
+INTRO = Path("/usr/share/sloth-os/tv/startup.webm")
+NAME = "sloth-os-startup.webm"
+LOCAL_PATH = "/uioverrides/movies/" + NAME          # relative to Steam's config folder, as Steam writes it
+
+HOME = Path.home()
+STEAM = HOME / ".var/app/com.valvesoftware.Steam/.local/share/Steam"
+CONFIG = STEAM / "config/config.vdf"
+MOVIES = STEAM / "config/uioverrides/movies"
+STATE = Path(os.environ.get("XDG_STATE_HOME", HOME / ".local/state")) / "sloth-os"
+PICKED = STATE / "tv-startup-movie.done"
+
+
+def _vdf():
+    """The order-keeping VDF reader/writer of steam-proton-default (same folder)."""
+    path = str(Path(__file__).resolve().parent / "steam-proton-default")
+    loader = importlib.machinery.SourceFileLoader("steam_proton_default", path)
+    spec = importlib.util.spec_from_loader(loader.name, loader)
+    module = importlib.util.module_from_spec(spec)
+    loader.exec_module(module)
+    return module
+
+
+def sha(path):
+    try:
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+    except OSError:
+        return ""
+
+
+def place_video():
+    """Copies our video into Steam's folder (or a newer one over an older one of ours). -> it is there"""
+    target = MOVIES / NAME
+    if sha(target) != sha(INTRO):
+        MOVIES.mkdir(parents=True, exist_ok=True)
+        tmp = target.with_suffix(".tmp")
+        shutil.copyfile(INTRO, tmp)
+        tmp.replace(target)
+    old, marker = MOVIES / "deck_startup.webm", MOVIES / ".sloth-os-startup"
+    try:
+        if old.exists() and sha(old) == marker.read_text().strip():
+            old.unlink()
+        marker.unlink(missing_ok=True)
+    except OSError:
+        pass
+    return target.is_file()
+
+
+def movie_blocks(items, vdf):
+    """Every StartupMovie block: the one under Customization first (the one newer Steam reads)."""
+    root = vdf.child(items, "InstallConfigStore")
+    if root is None:
+        return root, []
+    found = []
+    custom = vdf.child(root, "Customization")
+    if custom is not None and vdf.child(custom, "StartupMovie") is not None:
+        found.append(vdf.child(custom, "StartupMovie"))
+    steam = root
+    for key in ("Software", "Valve", "Steam"):
+        steam = vdf.child(steam, key) if steam is not None else None
+    if steam is not None and vdf.child(steam, "StartupMovie") is not None:
+        found.append(vdf.child(steam, "StartupMovie"))
+    return root, found
+
+
+def value(block, key):
+    return next((v for k, v in block if k.lower() == key.lower() and isinstance(v, str)), "")
+
+
+def set_value(block, key, new):
+    for i, (k, v) in enumerate(block):
+        if k.lower() == key.lower() and isinstance(v, str):
+            block[i] = (k, new)
+            return
+    block.append((key, new))
+
+
+def pick(vdf):
+    """Points Steam's choice at our video if it is at Default. -> "picked" | "kept" | "later" """
+    if not CONFIG.is_file():
+        return "later"                               # Steam has not started yet: its own file comes first
+    if vdf.steam_running():
+        return "later"
+    text = CONFIG.read_text(encoding="utf-8", errors="replace")
+    items = vdf.parse(text)
+    root, blocks = movie_blocks(items, vdf)
+    if root is None:
+        return "later"
+    if blocks:
+        active = blocks[0]
+        if value(active, "LocalPath") == LOCAL_PATH:
+            return "kept"
+        if value(active, "LocalPath") or value(active, "MovieID") not in ("", "0"):
+            return "kept"                            # a video the user picked
+    else:
+        custom = vdf.child(root, "Customization", True)
+        blocks = [vdf.child(custom, "StartupMovie", True)]
+    for block in blocks:
+        set_value(block, "MovieID", "0")
+        set_value(block, "LocalPath", LOCAL_PATH)
+    CONFIG.with_suffix(".vdf.sloth-backup").write_bytes(CONFIG.read_bytes())
+    tmp = CONFIG.with_suffix(".vdf.tmp")
+    tmp.write_text(vdf.dump(items), encoding="utf-8")
+    tmp.replace(CONFIG)
+    return "picked"
+
+
+def main():
+    if not INTRO.is_file():
+        return 0
+    try:
+        if not place_video():
+            return 0
+        if PICKED.exists():
+            return 0
+        result = pick(_vdf())
+        print(f"start-up video: {result}")
+        if result != "later":
+            STATE.mkdir(parents=True, exist_ok=True)
+            PICKED.touch()
+    except Exception as e:                           # never in the way of TV mode starting
+        print(f"start-up video: {e}", file=sys.stderr)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
