@@ -1,0 +1,11 @@
+[Unit]
+Description=Sloth OS: the lighter desktop on a weak computer, turned on by itself once
+After=plasma-workspace.target
+
+[Service]
+Type=oneshot
+Environment=PYTHONPATH=/usr/lib/sloth-os/sloth-center:/usr/lib/sloth-os/common
+ExecStart=/usr/bin/python3 -m sloth_center.light_mode_auto
+
+[Install]
+WantedBy=plasma-workspace.target

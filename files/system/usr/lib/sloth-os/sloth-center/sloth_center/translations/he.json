@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam במסך מלא, לבקר ולטלוויזיה",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "ממשק המסך הגדול של Steam, לבקר ולטלוויזיה. כדי להשתמש במחשב כקונסולת משחקים, בחרו „Sloth OS מצב טלוויזיה” במסך הכניסה: אז אין שולחן עבודה, רק Steam. ביציאה מ-Steam מופיע שולחן העבודה.",
   "TV mode": "מצב טלוויזיה",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;טלוויזיה;Big Picture;בקר;גיימפד;קונסולה;ספה;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;טלוויזיה;Big Picture;בקר;גיימפד;קונסולה;ספה;",
+  "Lighter desktop": "שולחן עבודה קל יותר",
+  "Fewer effects for a weak computer": "פחות אפקטים למחשב חלש",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "בלי הנפשות, בלי טשטוש מאחורי תפריטים ולוחות, וחיפוש הקבצים בודק רק שמות, לא את התוכן. הכול עובד אותו דבר, רק קל יותר.",
+  "Recommended for this computer: %1.": "מומלץ למחשב הזה: %1.",
+  "Couldn't change every setting. Please try again.": "לא ניתן היה לשנות את כל ההגדרות. נא לנסות שוב.",
+  "it has little memory": "יש לו מעט זיכרון",
+  "its processor is slow": "המעבד שלו איטי",
+  "its graphics card has no driver that can draw": "לכרטיס המסך שלו אין מנהל התקן שיכול לצייר",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "המחשב הזה קצת חלש ({reasons}), לכן Sloth OS כיבה את ההנפשות ואת אפקט הטשטוש, וחיפוש הקבצים בודק רק שמות. הכול עובד אותו דבר, רק קל יותר. אפשר לשנות זאת ב־Sloth Center ← מראה."
 }

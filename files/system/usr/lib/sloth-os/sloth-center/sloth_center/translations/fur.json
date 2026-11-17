@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam a plen schermi, pensât par un controler e une TV",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "La interface par schermis grancj di Steam, pensade par un controler e une TV. Par doprâ il computer come une console, sielç “Sloth OS modalitât TV” te schermade di acès: alore no je la scrivanie, dome Steam. Jessint di Steam e ven fûr la scrivanie.",
   "TV mode": "Modalitât TV",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisôr;Big Picture;controler;gamepad;console;sofà;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisôr;Big Picture;controler;gamepad;console;sofà;",
+  "Lighter desktop": "Scritori plui lizêr",
+  "Fewer effects for a weak computer": "Mancul efiets par un computer debil",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Nissune animazion, nissun sfuantament daûr dai menù e dai panei, e la ricercje dai files e cjale dome i nons, no il contignût. Dut al funzione compagn, dome plui lizêr.",
+  "Recommended for this computer: %1.": "Conseât par chest computer: %1.",
+  "Couldn't change every setting. Please try again.": "No si à rivât a cambiâ dutis lis impostazions. Torne prove.",
+  "it has little memory": "al à pocje memorie",
+  "its processor is slow": "il so procesôr al è lent",
+  "its graphics card has no driver that can draw": "la sô schede grafiche no à un driver che al sedi bon di dissegnâ",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Chest computer al è un pôc debil ({reasons}), duncje Sloth OS al à distudât lis animazions e l'efiet di sfuantament, e la ricercje dai files e cjale dome i nons. Dut al funzione compagn, dome plui lizêr. Tu puedis cambiâlu in Sloth Center → Aspiet."
 }

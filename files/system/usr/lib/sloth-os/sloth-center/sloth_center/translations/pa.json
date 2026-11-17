@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "ਪੂਰੀ ਸਕਰੀਨ 'ਤੇ Steam, ਕੰਟਰੋਲਰ ਅਤੇ ਟੀਵੀ ਲਈ",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "ਕੰਟਰੋਲਰ ਅਤੇ ਟੀਵੀ ਲਈ ਬਣਿਆ Steam ਦਾ ਵੱਡੀ ਸਕਰੀਨ ਵਾਲਾ ਇੰਟਰਫੇਸ। ਕੰਪਿਊਟਰ ਨੂੰ ਗੇਮ ਕੰਸੋਲ ਵਾਂਗ ਵਰਤਣ ਲਈ ਲਾਗਇਨ ਸਕਰੀਨ 'ਤੇ \"Sloth OS ਟੀਵੀ ਮੋਡ\" ਚੁਣੋ: ਫਿਰ ਕੋਈ ਡੈਸਕਟਾਪ ਨਹੀਂ ਹੁੰਦਾ, ਸਿਰਫ਼ Steam। Steam ਤੋਂ ਬਾਹਰ ਆਉਣ 'ਤੇ ਡੈਸਕਟਾਪ ਆਉਂਦਾ ਹੈ।",
   "TV mode": "ਟੀਵੀ ਮੋਡ",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ਟੀਵੀ;Big Picture;ਕੰਟਰੋਲਰ;ਗੇਮਪੈਡ;ਕੰਸੋਲ;ਸੋਫਾ;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ਟੀਵੀ;Big Picture;ਕੰਟਰੋਲਰ;ਗੇਮਪੈਡ;ਕੰਸੋਲ;ਸੋਫਾ;",
+  "Lighter desktop": "ਹਲਕਾ ਡੈਸਕਟਾਪ",
+  "Fewer effects for a weak computer": "ਕਮਜ਼ੋਰ ਕੰਪਿਊਟਰ ਲਈ ਘੱਟ ਇਫੈਕਟ",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "ਕੋਈ ਐਨੀਮੇਸ਼ਨ ਨਹੀਂ, ਮੀਨੂ ਅਤੇ ਪੈਨਲਾਂ ਪਿੱਛੇ ਕੋਈ ਧੁੰਦਲਾਪਣ ਨਹੀਂ, ਅਤੇ ਫਾਈਲ ਖੋਜ ਸਿਰਫ਼ ਨਾਂ ਵੇਖਦੀ ਹੈ, ਸਮੱਗਰੀ ਨਹੀਂ। ਸਭ ਕੁਝ ਉਸੇ ਤਰ੍ਹਾਂ ਕੰਮ ਕਰਦਾ ਹੈ, ਬੱਸ ਹਲਕਾ।",
+  "Recommended for this computer: %1.": "ਇਸ ਕੰਪਿਊਟਰ ਲਈ ਸਿਫ਼ਾਰਸ਼ੀ: %1।",
+  "Couldn't change every setting. Please try again.": "ਸਾਰੀਆਂ ਸੈਟਿੰਗਾਂ ਬਦਲੀਆਂ ਨਹੀਂ ਜਾ ਸਕੀਆਂ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+  "it has little memory": "ਇਸ ਵਿੱਚ ਮੈਮੋਰੀ ਘੱਟ ਹੈ",
+  "its processor is slow": "ਇਸ ਦਾ ਪ੍ਰੋਸੈਸਰ ਹੌਲੀ ਹੈ",
+  "its graphics card has no driver that can draw": "ਇਸ ਦੇ ਗ੍ਰਾਫਿਕਸ ਕਾਰਡ ਕੋਲ ਡਰਾਅ ਕਰਨ ਵਾਲਾ ਡਰਾਈਵਰ ਨਹੀਂ ਹੈ",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "ਇਹ ਕੰਪਿਊਟਰ ਥੋੜ੍ਹਾ ਕਮਜ਼ੋਰ ਹੈ ({reasons}), ਇਸ ਲਈ Sloth OS ਨੇ ਐਨੀਮੇਸ਼ਨ ਅਤੇ ਧੁੰਦਲਾ ਇਫੈਕਟ ਬੰਦ ਕਰ ਦਿੱਤੇ, ਅਤੇ ਫਾਈਲ ਖੋਜ ਸਿਰਫ਼ ਨਾਂ ਵੇਖਦੀ ਹੈ। ਸਭ ਕੁਝ ਉਸੇ ਤਰ੍ਹਾਂ ਕੰਮ ਕਰਦਾ ਹੈ, ਬੱਸ ਹਲਕਾ। ਤੁਸੀਂ ਇਸ ਨੂੰ Sloth Center → ਦਿੱਖ ਵਿੱਚ ਬਦਲ ਸਕਦੇ ਹੋ।"
 }

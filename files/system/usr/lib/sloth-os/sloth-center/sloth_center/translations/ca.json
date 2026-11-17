@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam a pantalla completa, per a un comandament i una TV",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "La interfície de pantalla gran de Steam, per a un comandament i una TV. Per fer servir l’ordinador com una consola, tria «Sloth OS mode TV» a la pantalla d’inici de sessió: aleshores no hi ha escriptori, només Steam. En sortir de Steam apareix l’escriptori.",
   "TV mode": "Mode TV",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisió;Big Picture;comandament;gamepad;consola;sofà;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisió;Big Picture;comandament;gamepad;consola;sofà;",
+  "Lighter desktop": "Escriptori lleuger",
+  "Fewer effects for a weak computer": "Menys efectes per a un ordinador poc potent",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Sense animacions, sense desenfocament darrere dels menús i plafons, i la cerca de fitxers només mira els noms, no el contingut. Tot funciona igual, però més lleuger.",
+  "Recommended for this computer: %1.": "Recomanat per a aquest ordinador: %1.",
+  "Couldn't change every setting. Please try again.": "No s'han pogut canviar tots els paràmetres. Torneu-ho a provar.",
+  "it has little memory": "té poca memòria",
+  "its processor is slow": "el seu processador és lent",
+  "its graphics card has no driver that can draw": "la seva targeta gràfica no té cap controlador que pugui dibuixar",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Aquest ordinador és una mica feble ({reasons}), així que Sloth OS ha desactivat les animacions i l'efecte de desenfocament, i la cerca de fitxers només mira els noms. Tot funciona igual, però més lleuger. Ho podeu canviar a Sloth Center → Aparença."
 }

@@ -151,6 +151,29 @@ Kirigami.ScrollablePage {
             onToggled: appearance.setTitlebarAccent(checked)
         }
 
+        Kirigami.Heading {
+            level: 2
+            text: L.t("Lighter desktop")
+        }
+        QQC2.Switch {
+            text: L.t("Fewer effects for a weak computer")
+            checked: appearance.lightMode
+            onToggled: appearance.setLightMode(checked)
+        }
+        QQC2.Label {
+            Layout.fillWidth: true
+            wrapMode: Text.Wrap
+            opacity: 0.7
+            text: L.t("No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.")
+        }
+        QQC2.Label {
+            Layout.fillWidth: true
+            visible: appearance.lightReasons !== ""
+            wrapMode: Text.Wrap
+            opacity: 0.7
+            text: L.t("Recommended for this computer: %1.").arg(appearance.lightReasons)
+        }
+
         RowLayout {
             spacing: Kirigami.Units.largeSpacing
             QQC2.Button {

@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam を全画面で、コントローラーとテレビ向けに",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "コントローラーとテレビ向けの Steam の大画面インターフェースです。コンピューターをゲーム機のように使うには、サインイン画面で「Sloth OS TV モード」を選びます。デスクトップはなく、Steam だけになります。Steam を終了するとデスクトップが表示されます。",
   "TV mode": "TV モード",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;テレビ;Big Picture;コントローラー;ゲームパッド;ゲーム機;ソファ;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;テレビ;Big Picture;コントローラー;ゲームパッド;ゲーム機;ソファ;",
+  "Lighter desktop": "軽量デスクトップ",
+  "Fewer effects for a weak computer": "性能の低いパソコン向けに効果を減らす",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "アニメーションなし、メニューやパネルの背後のぼかしなし、ファイル検索は中身ではなく名前だけを見ます。すべて同じように動き、ただ軽くなります。",
+  "Recommended for this computer: %1.": "このパソコンにおすすめ: %1。",
+  "Couldn't change every setting. Please try again.": "一部の設定を変更できませんでした。もう一度お試しください。",
+  "it has little memory": "メモリが少ない",
+  "its processor is slow": "プロセッサーが遅い",
+  "its graphics card has no driver that can draw": "グラフィックカードに描画できるドライバーがない",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "このパソコンは少し性能が低いため（{reasons}）、Sloth OS はアニメーションとぼかし効果をオフにし、ファイル検索は名前だけを見るようにしました。すべて同じように動き、ただ軽くなります。Sloth Center → 外観 で変更できます。"
 }

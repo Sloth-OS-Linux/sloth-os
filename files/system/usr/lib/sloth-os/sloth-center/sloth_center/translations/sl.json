@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam čez cel zaslon, za igralni plošček in televizor",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steamov vmesnik za velik zaslon, za igralni plošček in televizor. Če želite računalnik uporabljati kot igralno konzolo, na prijavnem zaslonu izberite »Sloth OS TV-način«: takrat ni namizja, samo Steam. Ko zapustite Steam, se pojavi namizje.",
   "TV mode": "TV-način",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televizor;Big Picture;igralni plošček;gamepad;konzola;kavč;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televizor;Big Picture;igralni plošček;gamepad;konzola;kavč;",
+  "Lighter desktop": "Lažje namizje",
+  "Fewer effects for a weak computer": "Manj učinkov za šibkejši računalnik",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Brez animacij, brez zameglitve za meniji in pulti, iskanje datotek pa gleda samo imena, ne vsebine. Vse deluje enako, le lažje.",
+  "Recommended for this computer: %1.": "Priporočeno za ta računalnik: %1.",
+  "Couldn't change every setting. Please try again.": "Vseh nastavitev ni bilo mogoče spremeniti. Poskusite znova.",
+  "it has little memory": "ima malo pomnilnika",
+  "its processor is slow": "njegov procesor je počasen",
+  "its graphics card has no driver that can draw": "njegova grafična kartica nima gonilnika, ki bi znal risati",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Ta računalnik je nekoliko šibek ({reasons}), zato je Sloth OS izklopil animacije in učinek zameglitve, iskanje datotek pa gleda samo imena. Vse deluje enako, le lažje. To lahko spremenite v Sloth Center → Videz."
 }

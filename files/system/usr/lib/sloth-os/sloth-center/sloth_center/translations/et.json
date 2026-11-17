@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam täisekraanil, mängupuldi ja teleri jaoks",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steami suure ekraani liides, mängupuldi ja teleri jaoks. Kui soovid arvutit kasutada nagu mängukonsooli, vali sisselogimisekraanil „Sloth OS telerirežiim”: siis töölauda ei ole, ainult Steam. Steamist lahkudes tuleb töölaud.",
   "TV mode": "Telerirežiim",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;teler;Big Picture;mängupult;gamepad;konsool;diivan;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;teler;Big Picture;mängupult;gamepad;konsool;diivan;",
+  "Lighter desktop": "Kergem töölaud",
+  "Fewer effects for a weak computer": "Vähem efekte nõrgale arvutile",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Animatsioone pole, menüüde ja paneelide taga pole hägustust ning failiotsing vaatab ainult nimesid, mitte sisu. Kõik töötab samamoodi, lihtsalt kergemalt.",
+  "Recommended for this computer: %1.": "Soovitatav sellele arvutile: %1.",
+  "Couldn't change every setting. Please try again.": "Kõiki seadeid ei õnnestunud muuta. Proovi uuesti.",
+  "it has little memory": "sellel on vähe mälu",
+  "its processor is slow": "selle protsessor on aeglane",
+  "its graphics card has no driver that can draw": "selle graafikakaardil pole joonistamisvõimelist draiverit",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "See arvuti on veidi nõrk ({reasons}), seega lülitas Sloth OS animatsioonid ja hägustusefekti välja ning failiotsing vaatab ainult nimesid. Kõik töötab samamoodi, lihtsalt kergemalt. Saad seda muuta: Sloth Center → Välimus."
 }

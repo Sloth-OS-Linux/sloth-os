@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "A Steam a teljes képernyőn, kontrollerhez és tévéhez",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "A Steam nagy képernyős felülete, kontrollerhez és tévéhez. Ha játékkonzolként használnád a gépet, a bejelentkező képernyőn válaszd a(z) „Sloth OS TV-mód” lehetőséget: ilyenkor nincs asztal, csak a Steam. A Steamből kilépve jön az asztal.",
   "TV mode": "TV-mód",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;tévé;Big Picture;kontroller;játékvezérlő;konzol;kanapé;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;tévé;Big Picture;kontroller;játékvezérlő;konzol;kanapé;",
+  "Lighter desktop": "Könnyített asztal",
+  "Fewer effects for a weak computer": "Kevesebb effekt gyengébb géphez",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Nincsenek animációk és elmosás a menük és panelek mögött, a fájlkeresés pedig csak a neveket nézi, a fájlok tartalmát nem. Minden ugyanúgy működik, csak könnyebben.",
+  "Recommended for this computer: %1.": "Ehhez a géphez ajánlott: %1.",
+  "Couldn't change every setting. Please try again.": "Nem sikerült minden beállítást módosítani. Próbáld újra.",
+  "it has little memory": "kevés benne a memória",
+  "its processor is slow": "lassú a processzora",
+  "its graphics card has no driver that can draw": "a videókártyájához nincs rajzolni tudó illesztőprogram",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Ez a gép kicsit gyenge ({reasons}), ezért a Sloth OS kikapcsolta az animációkat és az elmosás effektet, a fájlkeresés pedig csak a neveket nézi. Minden ugyanúgy működik, csak könnyebben. Ezt a Sloth Központ → Megjelenés oldalon módosíthatod."
 }

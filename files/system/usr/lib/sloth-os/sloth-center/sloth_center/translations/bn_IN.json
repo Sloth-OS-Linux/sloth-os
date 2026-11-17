@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "পূর্ণ স্ক্রিনে Steam, কন্ট্রোলার ও টিভির জন্য",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "কন্ট্রোলার ও টিভির জন্য তৈরি Steam-এর বড় স্ক্রিনের ইন্টারফেস। কম্পিউটারটিকে গেম কনসোলের মতো ব্যবহার করতে লগইন স্ক্রিনে \"Sloth OS টিভি মোড\" বেছে নিন: তখন কোনো ডেস্কটপ থাকে না, শুধু Steam। Steam থেকে বেরোলে ডেস্কটপ আসে।",
   "TV mode": "টিভি মোড",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;টিভি;Big Picture;কন্ট্রোলার;গেমপ্যাড;কনসোল;সোফা;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;টিভি;Big Picture;কন্ট্রোলার;গেমপ্যাড;কনসোল;সোফা;",
+  "Lighter desktop": "হালকা ডেস্কটপ",
+  "Fewer effects for a weak computer": "দুর্বল কম্পিউটারের জন্য কম ইফেক্ট",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "কোনো অ্যানিমেশন নেই, মেনু ও প্যানেলের পিছনে ঝাপসা নেই, আর ফাইল খোঁজা শুধু নাম দেখে, ভেতরের বিষয়বস্তু নয়। সবকিছু একইভাবে চলে, শুধু হালকাভাবে।",
+  "Recommended for this computer: %1.": "এই কম্পিউটারের জন্য প্রস্তাবিত: %1।",
+  "Couldn't change every setting. Please try again.": "সব সেটিং বদলানো গেল না। আবার চেষ্টা করুন।",
+  "it has little memory": "এতে মেমরি কম",
+  "its processor is slow": "এর প্রসেসর ধীর",
+  "its graphics card has no driver that can draw": "এর গ্রাফিক্স কার্ডে আঁকতে পারে এমন ড্রাইভার নেই",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "এই কম্পিউটারটি একটু দুর্বল ({reasons}), তাই Sloth OS অ্যানিমেশন ও ঝাপসা ইফেক্ট বন্ধ করেছে, আর ফাইল খোঁজা শুধু নাম দেখে। সবকিছু একইভাবে চলে, শুধু হালকাভাবে। আপনি এটি Sloth Center → চেহারা থেকে বদলাতে পারেন।"
 }

@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam i fuld skærm, lavet til en controller og et tv",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steams storskærmsbrugerflade, lavet til en controller og et tv. Vil du bruge computeren som en spillekonsol, så vælg »Sloth OS TV-tilstand« på logindskærmen: så er der intet skrivebord, kun Steam. Når du forlader Steam, kommer skrivebordet.",
   "TV mode": "TV-tilstand",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;tv;fjernsyn;Big Picture;controller;gamepad;konsol;sofa;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;tv;fjernsyn;Big Picture;controller;gamepad;konsol;sofa;",
+  "Lighter desktop": "Lettere skrivebord",
+  "Fewer effects for a weak computer": "Færre effekter til en svag computer",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Ingen animationer, ingen sløring bag menuer og paneler, og filsøgning ser kun på navne, ikke indhold. Alt virker på samme måde, bare lettere.",
+  "Recommended for this computer: %1.": "Anbefalet til denne computer: %1.",
+  "Couldn't change every setting. Please try again.": "Ikke alle indstillinger kunne ændres. Prøv igen.",
+  "it has little memory": "den har lidt hukommelse",
+  "its processor is slow": "dens processor er langsom",
+  "its graphics card has no driver that can draw": "dens grafikkort har ingen driver, der kan tegne",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Denne computer er lidt svag ({reasons}), så Sloth OS har slået animationerne og sløringseffekten fra, og filsøgning ser kun på navne. Alt virker på samme måde, bare lettere. Du kan ændre det i Sloth Center → Udseende."
 }

@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "全屏 Steam，为手柄和电视打造",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steam 的大屏幕界面，为手柄和电视打造。要像游戏机一样使用电脑，请在登录屏幕选择“Sloth OS 电视模式”：这时没有桌面，只有 Steam。退出 Steam 后会出现桌面。",
   "TV mode": "电视模式",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;电视;Big Picture;手柄;控制器;游戏机;沙发;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;电视;Big Picture;手柄;控制器;游戏机;沙发;",
+  "Lighter desktop": "轻量桌面",
+  "Fewer effects for a weak computer": "为性能较弱的电脑减少特效",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "没有动画，菜单和面板后面没有模糊，文件搜索只看文件名，不看内容。一切照常工作，只是更轻快。",
+  "Recommended for this computer: %1.": "推荐用于这台电脑：%1。",
+  "Couldn't change every setting. Please try again.": "未能更改所有设置。请重试。",
+  "it has little memory": "内存较少",
+  "its processor is slow": "处理器较慢",
+  "its graphics card has no driver that can draw": "显卡没有能够绘图的驱动程序",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "这台电脑性能稍弱（{reasons}），因此 Sloth OS 关闭了动画和模糊特效，文件搜索也只看文件名。一切照常工作，只是更轻快。你可以在 Sloth Center → 外观 中更改。"
 }

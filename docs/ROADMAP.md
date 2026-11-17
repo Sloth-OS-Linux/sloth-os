@@ -220,8 +220,19 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
 - Old computers (after BIOS mode):
   5. **Next to Windows 7 on old BIOS machines** (large, new): old laptops often have Windows 7 on an MBR disk; in BIOS
      mode only a whole disk can be installed now
-  6. **A lighter mode on weak computers** (medium, new): with 4 GB of memory or a weak graphics card, fewer animations
-     and effects by themselves
+  6. ~~**A lighter mode on weak computers**~~ DONE 2026-11-17 (test branch): with about 4 GB of memory or less, at
+     most 2 processor threads, or no graphics driver that can draw (no /dev/dri/renderD*), the first sign-in turns on
+     "Lighter desktop" by itself, once, with a notification (sloth-light-mode.service, sloth_center/light_mode_auto.py):
+     animations off (kdeglobals [KDE] AnimationDurationFactor=0), KWin's blur off (kwinrc [Plugins] blurEnabled=false),
+     Baloo indexes names only (balooctl6 config set contentIndexing no). The keys checked in the image's own files
+     (kwin.kcfg, baloosettings.kcfg) and KWin's source (the built-in effect "blur"). Sloth Center → Appearance →
+     "Lighter desktop" switches it, with the reason shown; turning it off puts the earlier values back (a key that
+     was not there is deleted). Tried: tools/tests/test_light_mode.py with the real kwriteconfig6 / balooctl6 in the
+     image (on, off, twice on, the automatic once only and never over the user's choice), the switch in an
+     offscreen Sloth Center (screenshot, the files read back)
+     - [ ] On a weak machine (the VAIO, or a VM with 4 GB): the notification at the first sign-in, menus open without
+       animation at once (KWin takes AnimationDurationFactor through --notify without signing out?), no blur behind
+       the Start menu; the switch off brings them back
 - For people coming from Windows:
   7. **"I can't open this file" helper** (medium, new): a file without a program for it (.docx, .psd…) offers the
      right app and installs it with one click

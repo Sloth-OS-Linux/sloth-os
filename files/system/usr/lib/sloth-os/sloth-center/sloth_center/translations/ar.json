@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam بملء الشاشة، لذراع التحكم والتلفاز",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "واجهة Steam للشاشات الكبيرة، لذراع التحكم والتلفاز. لاستخدام الحاسوب كجهاز ألعاب، اختر «Sloth OS وضع التلفاز» في شاشة الولوج: عندها لا يوجد سطح مكتب، بل Steam فقط. عند مغادرة Steam يظهر سطح المكتب.",
   "TV mode": "وضع التلفاز",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;تلفاز;Big Picture;ذراع تحكم;غيم باد;جهاز ألعاب;أريكة;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;تلفاز;Big Picture;ذراع تحكم;غيم باد;جهاز ألعاب;أريكة;",
+  "Lighter desktop": "سطح مكتب أخف",
+  "Fewer effects for a weak computer": "تأثيرات أقل لحاسوب ضعيف",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "بلا رسوم متحركة، وبلا تمويه خلف القوائم واللوحات، والبحث عن الملفات ينظر إلى الأسماء فقط وليس إلى المحتوى. كل شيء يعمل كما هو، لكن بشكل أخف.",
+  "Recommended for this computer: %1.": "يُنصح به لهذا الحاسوب: %1.",
+  "Couldn't change every setting. Please try again.": "تعذّر تغيير كل الإعدادات. يُرجى المحاولة مرة أخرى.",
+  "it has little memory": "ذاكرته قليلة",
+  "its processor is slow": "معالجه بطيء",
+  "its graphics card has no driver that can draw": "بطاقة رسومياته ليس لها برنامج تشغيل قادر على الرسم",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "هذا الحاسوب ضعيف قليلًا ({reasons})، لذا أوقف Sloth OS الرسوم المتحركة وتأثير التمويه، وصار البحث عن الملفات ينظر إلى الأسماء فقط. كل شيء يعمل كما هو، لكن بشكل أخف. يمكنك تغيير ذلك من Sloth Center ← المظهر."
 }

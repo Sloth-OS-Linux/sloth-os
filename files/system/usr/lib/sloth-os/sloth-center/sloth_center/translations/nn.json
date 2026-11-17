@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam i fullskjerm, laga for ein kontroller og ein TV",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Storskjermgrensesnittet til Steam, laga for ein kontroller og ein TV. Vil du bruka datamaskina som ein spelkonsoll, vel du «Sloth OS TV-modus» på innloggingsskjermen: då er det ikkje noko skrivebord, berre Steam. Når du går ut av Steam, kjem skrivebordet.",
   "TV mode": "TV-modus",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;fjernsyn;Big Picture;kontroller;gamepad;konsoll;sofa;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;fjernsyn;Big Picture;kontroller;gamepad;konsoll;sofa;",
+  "Lighter desktop": "Lettare skrivebord",
+  "Fewer effects for a weak computer": "Færre effektar for ei svak datamaskin",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Ingen animasjonar, inga uskarpheit bak menyar og panel, og filsøk ser berre på namn, ikkje innhald. Alt fungerer likt, berre lettare.",
+  "Recommended for this computer: %1.": "Tilrådd for denne datamaskina: %1.",
+  "Couldn't change every setting. Please try again.": "Ikkje alle innstillingane kunne endrast. Prøv igjen.",
+  "it has little memory": "ho har lite minne",
+  "its processor is slow": "prosessoren er treg",
+  "its graphics card has no driver that can draw": "skjermkortet har ingen drivar som kan teikna",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Denne datamaskina er litt svak ({reasons}), så Sloth OS slo av animasjonane og uskarpheitseffekten, og filsøk ser berre på namn. Alt fungerer likt, berre lettare. Du kan endra det i Sloth Center → Utsjånad."
 }

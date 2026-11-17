@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "전체 화면 Steam, 컨트롤러와 TV용",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "컨트롤러와 TV를 위한 Steam의 대화면 인터페이스입니다. 컴퓨터를 게임기처럼 쓰려면 로그인 화면에서 'Sloth OS TV 모드'을(를) 선택하세요. 그러면 데스크톱 없이 Steam만 나옵니다. Steam을 나가면 데스크톱이 나옵니다.",
   "TV mode": "TV 모드",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;텔레비전;Big Picture;컨트롤러;게임패드;콘솔;소파;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;텔레비전;Big Picture;컨트롤러;게임패드;콘솔;소파;",
+  "Lighter desktop": "가벼운 데스크톱",
+  "Fewer effects for a weak computer": "성능이 낮은 컴퓨터를 위해 효과 줄이기",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "애니메이션 없음, 메뉴와 패널 뒤 흐림 없음, 파일 검색은 내용이 아닌 이름만 봅니다. 모든 것이 똑같이 작동하며 더 가벼워집니다.",
+  "Recommended for this computer: %1.": "이 컴퓨터에 권장: %1.",
+  "Couldn't change every setting. Please try again.": "일부 설정을 바꾸지 못했습니다. 다시 시도해 주세요.",
+  "it has little memory": "메모리가 적음",
+  "its processor is slow": "프로세서가 느림",
+  "its graphics card has no driver that can draw": "그래픽 카드에 그리기를 할 수 있는 드라이버가 없음",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "이 컴퓨터는 성능이 조금 낮아서({reasons}) Sloth OS가 애니메이션과 흐림 효과를 끄고, 파일 검색은 이름만 보도록 했습니다. 모든 것이 똑같이 작동하며 더 가벼워집니다. Sloth Center → 모양에서 바꿀 수 있습니다."
 }

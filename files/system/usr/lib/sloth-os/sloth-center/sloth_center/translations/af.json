@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam volskerm, gemaak vir ’n beheerder en ’n TV",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steam se grootskerm-koppelvlak, gemaak vir ’n beheerder en ’n TV. Om die rekenaar soos ’n speletjiekonsole te gebruik, kies “Sloth OS TV-modus” op die aanmeldskerm: dan is daar geen werkskerm nie, net Steam. As jy Steam verlaat, kom die werkskerm.",
   "TV mode": "TV-modus",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisie;Big Picture;beheerder;gamepad;konsole;rusbank;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisie;Big Picture;beheerder;gamepad;konsole;rusbank;",
+  "Lighter desktop": "Ligter werkskerm",
+  "Fewer effects for a weak computer": "Minder effekte vir 'n swak rekenaar",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Geen animasies nie, geen vervaging agter kieslyste en panele nie, en lêersoektog kyk net na name, nie die inhoud nie. Alles werk dieselfde, net ligter.",
+  "Recommended for this computer: %1.": "Aanbeveel vir hierdie rekenaar: %1.",
+  "Couldn't change every setting. Please try again.": "Kon nie al die instellings verander nie. Probeer asseblief weer.",
+  "it has little memory": "dit het min geheue",
+  "its processor is slow": "sy verwerker is stadig",
+  "its graphics card has no driver that can draw": "sy grafiese kaart het geen drywer wat kan teken nie",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Hierdie rekenaar is 'n bietjie swak ({reasons}), dus het Sloth OS die animasies en die vervagingseffek afgeskakel, en lêersoektog kyk net na name. Alles werk dieselfde, net ligter. Jy kan dit in Sloth Center → Voorkoms verander."
 }

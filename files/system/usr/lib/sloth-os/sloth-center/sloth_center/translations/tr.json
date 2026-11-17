@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Tam ekran Steam, kumanda ve televizyon için",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steam'in büyük ekran arayüzü, kumanda ve televizyon için. Bilgisayarı bir oyun konsolu gibi kullanmak için oturum açma ekranında \"Sloth OS TV modu\" seçeneğini seç: o zaman masaüstü olmaz, yalnızca Steam olur. Steam'den çıkınca masaüstü gelir.",
   "TV mode": "TV modu",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televizyon;Big Picture;kumanda;oyun kolu;konsol;kanepe;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televizyon;Big Picture;kumanda;oyun kolu;konsol;kanepe;",
+  "Lighter desktop": "Hafif masaüstü",
+  "Fewer effects for a weak computer": "Zayıf bir bilgisayar için daha az efekt",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Animasyon yok, menülerin ve panellerin arkasında bulanıklık yok ve dosya araması yalnızca adlara bakar, içeriğe değil. Her şey aynı çalışır, sadece daha hafif.",
+  "Recommended for this computer: %1.": "Bu bilgisayar için önerilir: %1.",
+  "Couldn't change every setting. Please try again.": "Ayarların tümü değiştirilemedi. Lütfen yeniden deneyin.",
+  "it has little memory": "belleği az",
+  "its processor is slow": "işlemcisi yavaş",
+  "its graphics card has no driver that can draw": "ekran kartının çizim yapabilen bir sürücüsü yok",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Bu bilgisayar biraz zayıf ({reasons}), bu yüzden Sloth OS animasyonları ve bulanıklık efektini kapattı, dosya araması da yalnızca adlara bakıyor. Her şey aynı çalışır, sadece daha hafif. Bunu Sloth Center → Görünüm bölümünden değiştirebilirsiniz."
 }

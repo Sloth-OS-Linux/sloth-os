@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "முழுத் திரையில் Steam, கட்டுப்படுத்தி மற்றும் டிவிக்காக",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "கட்டுப்படுத்தி மற்றும் டிவிக்காக உருவாக்கப்பட்ட Steam இன் பெரிய திரை இடைமுகம். கணினியை விளையாட்டுக் கன்சோல் போலப் பயன்படுத்த, உள்நுழைவுத் திரையில் \"Sloth OS டிவி பயன்முறை\" ஐத் தேர்ந்தெடுக்கவும்: அப்போது பணிமேடை இல்லை, Steam மட்டுமே. Steam இலிருந்து வெளியேறினால் பணிமேடை வரும்.",
   "TV mode": "டிவி பயன்முறை",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;டிவி;Big Picture;கட்டுப்படுத்தி;கேம்பேட்;கன்சோல்;சோபா;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;டிவி;Big Picture;கட்டுப்படுத்தி;கேம்பேட்;கன்சோல்;சோபா;",
+  "Lighter desktop": "இலகுவான பணிமேடை",
+  "Fewer effects for a weak computer": "வலுக்குறைந்த கணினிக்குக் குறைவான விளைவுகள்",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "அசைவூட்டங்கள் இல்லை, பட்டிகள் மற்றும் பலகங்களுக்குப் பின்னால் மங்கல் இல்லை, கோப்புத் தேடல் பெயர்களை மட்டுமே பார்க்கும், உள்ளடக்கத்தை அல்ல. எல்லாம் அப்படியே வேலை செய்யும், இலகுவாக மட்டும்.",
+  "Recommended for this computer: %1.": "இந்தக் கணினிக்குப் பரிந்துரைக்கப்படுகிறது: %1.",
+  "Couldn't change every setting. Please try again.": "எல்லா அமைப்புகளையும் மாற்ற முடியவில்லை. மீண்டும் முயலவும்.",
+  "it has little memory": "இதில் நினைவகம் குறைவு",
+  "its processor is slow": "இதன் செயலி மெதுவானது",
+  "its graphics card has no driver that can draw": "இதன் வரைகலை அட்டைக்கு வரையக்கூடிய இயக்கி இல்லை",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "இந்தக் கணினி சற்று வலுக்குறைந்தது ({reasons}), எனவே Sloth OS அசைவூட்டங்களையும் மங்கல் விளைவையும் அணைத்தது, கோப்புத் தேடல் பெயர்களை மட்டுமே பார்க்கும். எல்லாம் அப்படியே வேலை செய்யும், இலகுவாக மட்டும். இதை Sloth Center → தோற்றம் என்பதில் மாற்றலாம்."
 }

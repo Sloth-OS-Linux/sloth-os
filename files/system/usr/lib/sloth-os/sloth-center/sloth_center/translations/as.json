@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "সম্পূৰ্ণ স্ক্ৰীণত Steam, কন্ট্ৰ'লাৰ আৰু টিভিৰ বাবে",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "কন্ট্ৰ'লাৰ আৰু টিভিৰ বাবে বনোৱা Steamৰ ডাঙৰ স্ক্ৰীণৰ ইণ্টাৰফেচ। কম্পিউটাৰটো গেম কনচ'লৰ দৰে ব্যৱহাৰ কৰিবলৈ লগইন স্ক্ৰীণত \"Sloth OS টিভি মোড\" বাছক: তেতিয়া কোনো ডেস্কটপ নাথাকে, কেৱল Steam। Steamৰ পৰা ওলালে ডেস্কটপ আহে।",
   "TV mode": "টিভি মোড",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;টিভি;Big Picture;কন্ট্ৰ'লাৰ;গেমপেড;কনচ'ল;চোফা;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;টিভি;Big Picture;কন্ট্ৰ'লাৰ;গেমপেড;কনচ'ল;চোফা;",
+  "Lighter desktop": "পাতল ডেস্কটপ",
+  "Fewer effects for a weak computer": "দুৰ্বল কম্পিউটাৰৰ বাবে কম প্ৰভাৱ",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "কোনো এনিমেচন নাই, মেনু আৰু পেনেলৰ পিছফালে ধূসৰতা নাই, আৰু ফাইল সন্ধানে কেৱল নাম চায়, বিষয়বস্তু নহয়। সকলো একেদৰে চলে, কেৱল পাতলকৈ।",
+  "Recommended for this computer: %1.": "এই কম্পিউটাৰৰ বাবে পৰামৰ্শিত: %1।",
+  "Couldn't change every setting. Please try again.": "সকলো ছেটিং সলনি কৰিব পৰা নগ'ল। অনুগ্ৰহ কৰি আকৌ চেষ্টা কৰক।",
+  "it has little memory": "ইয়াৰ মেমৰি কম",
+  "its processor is slow": "ইয়াৰ প্ৰচেছৰ লেহেম",
+  "its graphics card has no driver that can draw": "ইয়াৰ গ্ৰাফিক্স কাৰ্ডৰ আঁকিব পৰা ড্ৰাইভাৰ নাই",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "এই কম্পিউটাৰটো অলপ দুৰ্বল ({reasons}), সেয়ে Sloth OS-এ এনিমেচন আৰু ধূসৰ প্ৰভাৱ বন্ধ কৰিলে, আৰু ফাইল সন্ধানে কেৱল নাম চায়। সকলো একেদৰে চলে, কেৱল পাতলকৈ। আপুনি ইয়াক Sloth Center → ৰূপত সলনি কৰিব পাৰে।"
 }

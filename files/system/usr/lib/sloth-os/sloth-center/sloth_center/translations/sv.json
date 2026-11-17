@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam i helskärm, gjort för en handkontroll och en tv",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steams storbildsgränssnitt, gjort för en handkontroll och en tv. Vill du använda datorn som en spelkonsol väljer du ”Sloth OS TV-läge” på inloggningsskärmen: då finns inget skrivbord, bara Steam. Lämnar du Steam kommer skrivbordet.",
   "TV mode": "TV-läge",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;tv;Big Picture;handkontroll;gamepad;konsol;soffa;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;tv;Big Picture;handkontroll;gamepad;konsol;soffa;",
+  "Lighter desktop": "Lättare skrivbord",
+  "Fewer effects for a weak computer": "Färre effekter för en svag dator",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Inga animationer, ingen oskärpa bakom menyer och paneler, och filsökningen tittar bara på namn, inte innehåll. Allt fungerar likadant, bara lättare.",
+  "Recommended for this computer: %1.": "Rekommenderas för den här datorn: %1.",
+  "Couldn't change every setting. Please try again.": "Alla inställningar kunde inte ändras. Försök igen.",
+  "it has little memory": "den har lite minne",
+  "its processor is slow": "dess processor är långsam",
+  "its graphics card has no driver that can draw": "dess grafikkort har ingen drivrutin som kan rita",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Den här datorn är lite svag ({reasons}), så Sloth OS stängde av animationerna och oskärpeeffekten, och filsökningen tittar bara på namn. Allt fungerar likadant, bara lättare. Du kan ändra det i Sloth Center → Utseende."
 }

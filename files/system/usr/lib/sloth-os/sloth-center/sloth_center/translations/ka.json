@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam სრულ ეკრანზე, კონტროლერისა და ტელევიზორისთვის",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Steam-ის დიდი ეკრანის ინტერფეისი, კონტროლერისა და ტელევიზორისთვის. კომპიუტერის სათამაშო კონსოლად გამოსაყენებლად შესვლის ეკრანზე აირჩიეთ „Sloth OS ტელევიზორის რეჟიმი“: მაშინ სამუშაო მაგიდა არ არის, მხოლოდ Steam. Steam-იდან გასვლისას სამუშაო მაგიდა ჩნდება.",
   "TV mode": "ტელევიზორის რეჟიმი",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ტელევიზორი;Big Picture;კონტროლერი;გეიმპადი;კონსოლი;დივანი;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ტელევიზორი;Big Picture;კონტროლერი;გეიმპადი;კონსოლი;დივანი;",
+  "Lighter desktop": "უფრო მსუბუქი სამუშაო მაგიდა",
+  "Fewer effects for a weak computer": "ნაკლები ეფექტი სუსტი კომპიუტერისთვის",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "ანიმაციების გარეშე, მენიუებისა და პანელების უკან გაბუნდოვნების გარეშე, ფაილების ძიება კი მხოლოდ სახელებს უყურებს და არა შიგთავსს. ყველაფერი ისევე მუშაობს, უბრალოდ უფრო მსუბუქად.",
+  "Recommended for this computer: %1.": "რეკომენდებულია ამ კომპიუტერისთვის: %1.",
+  "Couldn't change every setting. Please try again.": "ყველა პარამეტრის შეცვლა ვერ მოხერხდა. სცადეთ ხელახლა.",
+  "it has little memory": "მას ცოტა მეხსიერება აქვს",
+  "its processor is slow": "მისი პროცესორი ნელია",
+  "its graphics card has no driver that can draw": "მის ვიდეობარათს არ აქვს დრაივერი, რომელიც ხატვას შეძლებს",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "ეს კომპიუტერი ცოტა სუსტია ({reasons}), ამიტომ Sloth OS-მა გამორთო ანიმაციები და გაბუნდოვნების ეფექტი, ფაილების ძიება კი მხოლოდ სახელებს უყურებს. ყველაფერი ისევე მუშაობს, უბრალოდ უფრო მსუბუქად. ამის შეცვლა შეგიძლიათ Sloth Center → გარეგნობა-ში."
 }

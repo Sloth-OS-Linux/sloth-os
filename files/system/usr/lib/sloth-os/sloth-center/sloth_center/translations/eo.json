@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam plenekrane, por ludregilo kaj televidilo",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "La grandekrana fasado de Steam, por ludregilo kaj televidilo. Por uzi la komputilon kiel ludkonzolon, elektu “Sloth OS televida reĝimo” en la ensaluta ekrano: tiam ne estas labortablo, nur Steam. Forlasinte Steam, venas la labortablo.",
   "TV mode": "Televida reĝimo",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televidilo;Big Picture;ludregilo;gamepad;konzolo;sofo;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televidilo;Big Picture;ludregilo;gamepad;konzolo;sofo;",
+  "Lighter desktop": "Pli malpeza labortablo",
+  "Fewer effects for a weak computer": "Malpli da efektoj por malforta komputilo",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Neniuj animacioj, neniu malklarigo malantaŭ menuoj kaj paneloj, kaj dosierserĉo rigardas nur nomojn, ne la enhavon. Ĉio funkcias same, nur pli malpeze.",
+  "Recommended for this computer: %1.": "Rekomendata por ĉi tiu komputilo: %1.",
+  "Couldn't change every setting. Please try again.": "Ne eblis ŝanĝi ĉiujn agordojn. Bonvolu reprovi.",
+  "it has little memory": "ĝi havas malmulte da memoro",
+  "its processor is slow": "ĝia procesoro estas malrapida",
+  "its graphics card has no driver that can draw": "ĝia grafika karto ne havas pelilon, kiu povas desegni",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Ĉi tiu komputilo estas iom malforta ({reasons}), do Sloth OS malŝaltis la animaciojn kaj la malklarigan efekton, kaj dosierserĉo rigardas nur nomojn. Ĉio funkcias same, nur pli malpeze. Vi povas ŝanĝi tion en Sloth Center → Aspekto."
 }

@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam ເຕັມຈໍ, ສຳລັບຈອຍ ແລະ ທີວີ",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "ສ່ວນຕິດຕໍ່ຈໍໃຫຍ່ຂອງ Steam, ສຳລັບຈອຍ ແລະ ທີວີ. ເພື່ອໃຊ້ຄອມພິວເຕີຄືເຄື່ອງຫຼິ້ນເກມ, ໃຫ້ເລືອກ \"Sloth OS ໂໝດທີວີ\" ຢູ່ໜ້າຈໍເຂົ້າສູ່ລະບົບ: ຈາກນັ້ນຈະບໍ່ມີໜ້າຈໍຫຼັກ, ມີແຕ່ Steam. ເມື່ອອອກຈາກ Steam ໜ້າຈໍຫຼັກຈະປາກົດ.",
   "TV mode": "ໂໝດທີວີ",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ທີວີ;Big Picture;ຈອຍ;gamepad;ເຄື່ອງເກມ;ໂຊຟາ;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ທີວີ;Big Picture;ຈອຍ;gamepad;ເຄື່ອງເກມ;ໂຊຟາ;",
+  "Lighter desktop": "ໜ້າຈໍເບົາກວ່າ",
+  "Fewer effects for a weak computer": "ເອັບເຟັກໜ້ອຍລົງສຳລັບຄອມພິວເຕີທີ່ອ່ອນແອ",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "ບໍ່ມີອະນິເມຊັນ, ບໍ່ມີການມົວຢູ່ທາງຫຼັງເມນູ ແລະ ແຜງ, ແລະ ການຊອກຫາໄຟລ໌ເບິ່ງແຕ່ຊື່, ບໍ່ເບິ່ງເນື້ອໃນ. ທຸກຢ່າງເຮັດວຽກຄືເກົ່າ, ພຽງແຕ່ເບົາກວ່າ.",
+  "Recommended for this computer: %1.": "ແນະນຳສຳລັບຄອມພິວເຕີນີ້: %1.",
+  "Couldn't change every setting. Please try again.": "ບໍ່ສາມາດປ່ຽນການຕັ້ງຄ່າທັງໝົດໄດ້. ກະລຸນາລອງໃໝ່.",
+  "it has little memory": "ມີໜ່ວຍຄວາມຈຳໜ້ອຍ",
+  "its processor is slow": "ໂປຣເຊສເຊີຊ້າ",
+  "its graphics card has no driver that can draw": "ກາດຈໍບໍ່ມີໄດຣເວີທີ່ສາມາດແຕ້ມໄດ້",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "ຄອມພິວເຕີນີ້ອ່ອນແອໜ້ອຍໜຶ່ງ ({reasons}), ດັ່ງນັ້ນ Sloth OS ຈຶ່ງປິດອະນິເມຊັນ ແລະ ເອັບເຟັກມົວ, ແລະ ການຊອກຫາໄຟລ໌ເບິ່ງແຕ່ຊື່. ທຸກຢ່າງເຮັດວຽກຄືເກົ່າ, ພຽງແຕ່ເບົາກວ່າ. ທ່ານສາມາດປ່ຽນໄດ້ໃນ Sloth Center → ຮູບລັກສະນະ."
 }

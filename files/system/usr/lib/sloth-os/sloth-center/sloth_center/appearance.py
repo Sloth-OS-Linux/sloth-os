@@ -8,6 +8,7 @@ import logging
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from sloth_common import appearance as shared
+from sloth_common import light_mode
 
 from .i18n import N_, tr
 from . import kde_settings
@@ -51,6 +52,7 @@ class AppearanceController(QObject):
         self._accent = shared.current_accent()
         self._titlebar = shared.current_titlebar_accent()
         self._app_grid = shared.current_app_grid()
+        self._light = light_mode.is_on()
         self._error = ""
 
     @Property("QVariantList", constant=True)
@@ -141,6 +143,28 @@ class AppearanceController(QObject):
             self._layout, self._error = kind, ""
         else:
             self._error = tr("Couldn't change the taskbar. Please try again.")
+        self.changed.emit()
+
+    # The lighter desktop (sloth_common.light_mode): turned on by itself on a weak computer, changeable here
+    @Property(bool, notify=changed)
+    def lightMode(self):
+        return self._light
+
+    @Property(str, constant=True)
+    def lightReasons(self):
+        """Why this computer counts as weak ("" if it does not): shown under the switch."""
+        from .light_mode_auto import REASON_TEXTS
+        return ", ".join(tr(REASON_TEXTS[r]) for r in light_mode.reasons())
+
+    @Slot(bool)
+    def setLightMode(self, on):
+        if on == self._light:
+            return
+        if light_mode.set_on(on):
+            self._error = ""
+        else:
+            self._error = tr("Couldn't change every setting. Please try again.")
+        self._light = light_mode.is_on()
         self.changed.emit()
 
     @Slot()

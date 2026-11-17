@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam на цял екран, за контролер и телевизор",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Интерфейсът на Steam за голям екран, за контролер и телевизор. За да използвате компютъра като игрова конзола, изберете „Sloth OS режим ТВ“ на екрана за вход: тогава няма работен плот, само Steam. При излизане от Steam се появява работният плот.",
   "TV mode": "Режим ТВ",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ТВ;телевизор;Big Picture;контролер;геймпад;конзола;диван;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ТВ;телевизор;Big Picture;контролер;геймпад;конзола;диван;",
+  "Lighter desktop": "Олекотен работен плот",
+  "Fewer effects for a weak computer": "По-малко ефекти за слаб компютър",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Без анимации, без размазване зад менютата и панелите, а търсенето на файлове гледа само имената, не съдържанието. Всичко работи същото, само по-леко.",
+  "Recommended for this computer: %1.": "Препоръчително за този компютър: %1.",
+  "Couldn't change every setting. Please try again.": "Не всички настройки можаха да бъдат променени. Опитайте отново.",
+  "it has little memory": "има малко памет",
+  "its processor is slow": "процесорът му е бавен",
+  "its graphics card has no driver that can draw": "видеокартата му няма драйвер, който може да рисува",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Този компютър е малко слаб ({reasons}), затова Sloth OS изключи анимациите и ефекта на размазване, а търсенето на файлове гледа само имената. Всичко работи същото, само по-леко. Можете да промените това в Sloth Center → Външен вид."
 }

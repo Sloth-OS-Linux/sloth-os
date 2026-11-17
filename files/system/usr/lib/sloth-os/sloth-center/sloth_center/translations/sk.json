@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam na celú obrazovku, pre ovládač a televízor",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Rozhranie Steamu pre veľkú obrazovku, pre ovládač a televízor. Ak chcete počítač používať ako hernú konzolu, zvoľte na prihlasovacej obrazovke „Sloth OS TV režim“: vtedy nie je pracovná plocha, iba Steam. Po ukončení Steamu sa zobrazí pracovná plocha.",
   "TV mode": "TV režim",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televízor;Big Picture;ovládač;gamepad;konzola;gauč;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televízor;Big Picture;ovládač;gamepad;konzola;gauč;",
+  "Lighter desktop": "Odľahčená plocha",
+  "Fewer effects for a weak computer": "Menej efektov pre slabší počítač",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Žiadne animácie, žiadne rozmazanie za ponukami a panelmi a hľadanie súborov sa pozerá len na názvy, nie do obsahu. Všetko funguje rovnako, len ľahšie.",
+  "Recommended for this computer: %1.": "Odporúčané pre tento počítač: %1.",
+  "Couldn't change every setting. Please try again.": "Nepodarilo sa zmeniť všetky nastavenia. Skúste to znova.",
+  "it has little memory": "má málo pamäte",
+  "its processor is slow": "jeho procesor je pomalý",
+  "its graphics card has no driver that can draw": "jeho grafická karta nemá ovládač, ktorý vie kresliť",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Tento počítač je trochu slabší ({reasons}), preto Sloth OS vypol animácie a efekt rozmazania a hľadanie súborov sa pozerá len na názvy. Všetko funguje rovnako, len ľahšie. Môžete to zmeniť v Sloth Center → Vzhľad."
 }

@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam на весь экран, для геймпада и телевизора",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Интерфейс Steam для большого экрана, для геймпада и телевизора. Чтобы пользоваться компьютером как игровой приставкой, выберите на экране входа «Sloth OS режим ТВ»: тогда нет рабочего стола, только Steam. После выхода из Steam появляется рабочий стол.",
   "TV mode": "Режим ТВ",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ТВ;телевизор;Big Picture;геймпад;контроллер;приставка;диван;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;ТВ;телевизор;Big Picture;геймпад;контроллер;приставка;диван;",
+  "Lighter desktop": "Облегчённый рабочий стол",
+  "Fewer effects for a weak computer": "Меньше эффектов для слабого компьютера",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Без анимаций, без размытия за меню и панелями, а поиск файлов смотрит только на имена, а не на содержимое. Всё работает так же, только легче.",
+  "Recommended for this computer: %1.": "Рекомендуется для этого компьютера: %1.",
+  "Couldn't change every setting. Please try again.": "Не удалось изменить все настройки. Попробуйте ещё раз.",
+  "it has little memory": "у него мало памяти",
+  "its processor is slow": "у него медленный процессор",
+  "its graphics card has no driver that can draw": "у его видеокарты нет драйвера, который умеет рисовать",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Этот компьютер немного слабоват ({reasons}), поэтому Sloth OS отключила анимации и эффект размытия, а поиск файлов смотрит только на имена. Всё работает так же, только легче. Это можно изменить в Sloth Center → Внешний вид."
 }

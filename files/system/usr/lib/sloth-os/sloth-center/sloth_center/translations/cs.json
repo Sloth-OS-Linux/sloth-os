@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam na celou obrazovku, pro ovladač a televizi",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Rozhraní Steamu pro velkou obrazovku, pro ovladač a televizi. Chcete-li počítač používat jako herní konzoli, zvolte na přihlašovací obrazovce „Sloth OS TV režim“: pak není žádná plocha, jen Steam. Po ukončení Steamu se objeví plocha.",
   "TV mode": "TV režim",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televize;Big Picture;ovladač;gamepad;konzole;gauč;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televize;Big Picture;ovladač;gamepad;konzole;gauč;",
+  "Lighter desktop": "Odlehčená plocha",
+  "Fewer effects for a weak computer": "Méně efektů pro slabší počítač",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Žádné animace, žádné rozostření za nabídkami a panely a hledání souborů se dívá jen na názvy, ne do obsahu. Vše funguje stejně, jen lehčeji.",
+  "Recommended for this computer: %1.": "Doporučeno pro tento počítač: %1.",
+  "Couldn't change every setting. Please try again.": "Nepodařilo se změnit všechna nastavení. Zkuste to prosím znovu.",
+  "it has little memory": "má málo paměti",
+  "its processor is slow": "jeho procesor je pomalý",
+  "its graphics card has no driver that can draw": "jeho grafická karta nemá ovladač, který umí kreslit",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Tento počítač je trochu slabší ({reasons}), proto Sloth OS vypnul animace a efekt rozostření a hledání souborů se dívá jen na názvy. Vše funguje stejně, jen lehčeji. Můžete to změnit v Sloth Center → Vzhled."
 }

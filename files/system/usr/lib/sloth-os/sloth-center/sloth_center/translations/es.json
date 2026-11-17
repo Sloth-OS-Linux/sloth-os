@@ -1236,5 +1236,14 @@
   "Steam on the whole screen, made for a controller and a TV": "Steam a pantalla completa, para un mando y una TV",
   "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "La interfaz de pantalla grande de Steam, para un mando y una TV. Para usar el equipo como una consola, elige «Sloth OS modo TV» en la pantalla de inicio de sesión: entonces no hay escritorio, solo Steam. Al salir de Steam aparece el escritorio.",
   "TV mode": "Modo TV",
-  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisión;Big Picture;mando;gamepad;consola;sofá;"
+  "TV;Big Picture;controller;gamepad;console;couch;": "TV;televisión;Big Picture;mando;gamepad;consola;sofá;",
+  "Lighter desktop": "Escritorio ligero",
+  "Fewer effects for a weak computer": "Menos efectos para un ordenador poco potente",
+  "No animations, no blur behind menus and panels, and file search looks at names only, not inside the files. Everything works the same, just lighter.": "Sin animaciones, sin desenfoque detrás de menús y paneles, y la búsqueda de archivos solo mira los nombres, no el contenido. Todo funciona igual, pero más ligero.",
+  "Recommended for this computer: %1.": "Recomendado para este ordenador: %1.",
+  "Couldn't change every setting. Please try again.": "No se pudieron cambiar todos los ajustes. Inténtalo de nuevo.",
+  "it has little memory": "tiene poca memoria",
+  "its processor is slow": "su procesador es lento",
+  "its graphics card has no driver that can draw": "su tarjeta gráfica no tiene un controlador que pueda dibujar",
+  "This computer is a little weak ({reasons}), so Sloth OS turned off the animations and the blur effect, and file search looks at names only. Everything works the same, just lighter. You can change it in Sloth Center → Appearance.": "Este ordenador es un poco débil ({reasons}), así que Sloth OS ha desactivado las animaciones y el efecto de desenfoque, y la búsqueda de archivos solo mira los nombres. Todo funciona igual, pero más ligero. Puedes cambiarlo en Sloth Center → Apariencia."
 }
