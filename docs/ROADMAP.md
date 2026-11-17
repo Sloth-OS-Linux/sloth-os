@@ -211,7 +211,8 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        (run by tv-session before Steam starts) puts ours there as sloth-os-startup.webm and, once, while Steam is at
        Default, points config.vdf's StartupMovie (MovieID "0", LocalPath) at it; a video the user picked stays. The
        format follows DroidDeck's code (no Valve documentation). Also re-encoded as VP8 + Vorbis (steam-for-linux#11655)
-       - [ ] On the HP: TV mode plays ours at start; Settings → Customization shows it picked
+       - [x] On the HP (2026-11-17): after the script, Customization showed nothing picked; picked by hand once, it
+         plays well, and Steam wrote the same StartupMovie values as the script (cause not looked into further)
      - [x] The loading screen redone (2026-11-16, the user's design): 1920 x 1080 (1:1 on a 1080p screen), the logo
        faint and bigger in the background, "Sloth OS" written on the wall as a tag in silver, stroke by stroke along
        the letters' skeleton (Sedgwick Ave Display, OFL), mist at the nozzle, drips; the tag fades and the logo comes
