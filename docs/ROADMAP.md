@@ -287,7 +287,13 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        makes the suggested app (when installed) and then the helper KDE's default for these types. Tried in the image
        with kde-open and a fake Chrome: the helper opens, an installed Gwenview opens at once, the user's own pick of
        Chrome stays. The child account's password: still to see
-     - [ ] On the HP: a .jpg → the helper offers Gwenview; after the install it opens straight in Gwenview
+     - [x] On the HP (2026-11-18): the .jpg now goes to the helper, which offers Gwenview; but the install "failed"
+       after "The connection dropped, trying again…": Sloth Welcome's installer only installed apps of its own catalog
+       (catalog.find_app), and Gwenview, Okular, Foliate, qBittorrent and KWrite are not in it, so nothing ran and
+       it was retried as a network error. Installer.start now takes extra_apps (the helper gives its app), and an id
+       it doesn't know fails at once. Tried in the image with a stand-in transaction (Gwenview goes in, an unknown id
+       fails without retries, VLC from the catalog as before)
+     - [ ] On the HP: a .jpg → Gwenview installs and the photo opens; then the next .jpg opens straight in Gwenview
      - [x] Found in the HP's log (2026-11-18): the sign-in screen's own user (plasmalogin) had umu's Steam runtime in
        its home: our global user units ran for it too. All sloth-* user units now have ConditionUser=!@system
        (checked in the image: false for root and plasmalogin, true for uid 1000), and tmpfiles.d/

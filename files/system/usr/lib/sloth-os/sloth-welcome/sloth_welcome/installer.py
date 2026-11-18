@@ -163,7 +163,10 @@ class Installer:
         self.windows_installers = {}  # app_id -> path of the downloaded installer (they open after the wizard)
         self._progress = {"total": 0, "done": 0}  # in bytes, for all selected apps
 
-    def start(self, app_ids):
+    def start(self, app_ids, extra_apps=()):
+        """extra_apps: apps that are not in the catalog, as catalog entries ({"id", "name"}; Flathub when no
+        "source"), e.g. the "I can't open this file" helper's Gwenview (sloth_center/open_helper.py)."""
+        self._extra = {a["id"]: a for a in extra_apps}
         self._thread = threading.Thread(target=self._run, args=(list(app_ids),), daemon=True)
         self._thread.start()
 
@@ -277,7 +280,15 @@ class Installer:
             inst = Flatpak.Installation.new_system(None)
             self._on_status(tr("install.preparing"), "", -1)
             self._ensure_flathub(inst)
-            apps = [app for app in map(catalog.find_app, app_ids) if app]
+            apps = []
+            for app_id in app_ids:
+                app = catalog.find_app(app_id) or getattr(self, "_extra", {}).get(app_id)
+                if app:
+                    apps.append(app)
+                else:   # unknown: a failure at once (before, it was retried as a network error and failed silently)
+                    log.warning("%s: not in the catalog", app_id)
+                    failed[app_id] = "error.generic"
+                    self._on_app_state(app_id, "failed", failed[app_id])
             releases = self._plan(inst, apps, failed)
             todo = [app for app in apps if app["id"] not in failed]
             user_inst = None

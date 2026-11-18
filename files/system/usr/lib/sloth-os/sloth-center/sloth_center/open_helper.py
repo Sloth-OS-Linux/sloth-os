@@ -273,7 +273,8 @@ def _controller_class():
             self._installer = Installer(lambda text, _details, overall: self._status_sig.emit(text, overall),
                                         lambda *_: None,
                                         lambda ok, _failed: self._done_sig.emit(self._found[0] in ok))
-            self._installer.start([self._found[0]])
+            # the helper's apps are not all in Sloth Welcome's catalog (Gwenview, Okular… are not): given here
+            self._installer.start([self._found[0]], extra_apps=[{"id": self._found[0], "name": self._found[1]}])
 
         def _on_status(self, text, overall):
             self._status, self._percent = text, overall
