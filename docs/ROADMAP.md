@@ -94,6 +94,19 @@ from a terminal must also work from a GUI.
   (iso.yml's default is the test branch's tag, br-test_chunked-oci-44, from the test ISOs): the installer writes the
   ISO's image as the update source (iso/build.sh: TARGET_IMGREF), so a default build would make every 2.0 install
   follow the test branch. Check the ISO's /usr/share/sloth-os/installer/image.conf before publishing
+- [ ] **The website for 2.0** (sloth-os-linux.github.io; its screenshots are from 1.0, 2026-10-20/28):
+  - [ ] The "2.0 is rolling out as an update, the ISO follows" notice (ready locally: website main, 343a0a7; the
+        README's: b732ef47), out as soon as main's build has made :latest
+  - [ ] The 7 taskbar layouts with real pictures: the user takes a full-screen shot of each (Windows 11, Windows 10,
+        Windows 7, Mac, Ubuntu, ChromeOS, Floating; Sloth Center → Appearance) on the freshly reinstalled HP and
+        sends them over; I make them into an animated picture (GIF / animated WebP, one layout after the other) and
+        a "Seven layouts" part on the home page, each with a short line
+  - [ ] New Sloth Center screenshots from the real app (offscreen, 1010 x 714 like the old ones): Updates, Games
+        (library, TV mode), Appearance, Apps, Disks (moving over), Feedback; they replace the 1.0 ones on the home
+        page and the press page
+  - [ ] The 2.0 features on the home page (TV mode, older PCs, moving over from Linux, the open-file helper) and
+        the BIOS requirement (ready on the website's release-2.0-requirements branch, 6c7adbc: only with the 2.0 ISO)
+  - [ ] With the ISO: tools/release-finish.py 2.0 … --site (download button, checksum, release notes)
   Still on Fedora 44: no Fedora 45 base until umu-launcher supports it. BIOS support paused (see above): 2.0 may go
   out without it
 
