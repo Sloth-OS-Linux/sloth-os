@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: watching for a system update prepared in the background
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 
 [Path]
 # The system writes this file when it prepares a new version (it installs at the next restart)

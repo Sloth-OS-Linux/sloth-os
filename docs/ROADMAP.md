@@ -283,6 +283,10 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        with kde-open and a fake Chrome: the helper opens, an installed Gwenview opens at once, the user's own pick of
        Chrome stays. The child account's password: still to see
      - [ ] On the HP: a .jpg → the helper offers Gwenview; after the install it opens straight in Gwenview
+     - [x] Found in the HP's log (2026-11-18): the sign-in screen's own user (plasmalogin) had umu's Steam runtime in
+       its home: our global user units ran for it too. All sloth-* user units now have ConditionUser=!@system
+       (checked in the image: false for root and plasmalogin, true for uid 1000), and tmpfiles.d/
+       sloth-plasmalogin-cleanup.conf removes what was downloaded there (tried with systemd-tmpfiles --remove)
   8. **Moving over from another Linux** (large, listed)
   9. **Sending files to a phone or another computer on the home network** (small with LocalSend in Sloth Welcome's
      catalog, new; large as our own, listed: "consent-based file sharing…")

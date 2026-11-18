@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: a notification while Steam downloads itself on its first start
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 ConditionPathExists=!%h/.local/state/sloth-os/steam-first-run.done
 After=plasma-workspace.target
 

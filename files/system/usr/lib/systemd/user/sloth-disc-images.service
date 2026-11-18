@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: eject the disc images (.iso) still open at sign-out
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 # /usr/libexec/sloth-os/disc-images; the .exe handler opens the images (sloth_common/apps/discimage.py)
 PartOf=graphical-session.target
 After=plasma-workspace.target

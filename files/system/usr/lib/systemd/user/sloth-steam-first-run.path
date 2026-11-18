@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: watching for Steam's first start
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 
 [Path]
 # Flatpak creates it at Steam's first start

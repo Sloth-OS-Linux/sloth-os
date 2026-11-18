@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: a notification when the NVIDIA version is ready
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 ConditionPathExists=/var/lib/sloth-os/nvidia-auto
 After=plasma-workspace.target
 

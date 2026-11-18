@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: the lighter desktop on a weak computer, turned on by itself once
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 After=plasma-workspace.target
 
 [Service]

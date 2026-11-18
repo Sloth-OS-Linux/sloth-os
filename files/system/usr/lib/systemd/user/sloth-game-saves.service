@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: back up game saves (Sloth Center → Games → Game saves)
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 Documentation=file:///usr/libexec/sloth-os/game-saves
 
 [Service]

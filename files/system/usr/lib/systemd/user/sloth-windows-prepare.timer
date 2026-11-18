@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: preparing the Windows programs' runner (after login, then every 6 hours)
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 
 [Timer]
 OnStartupSec=3min

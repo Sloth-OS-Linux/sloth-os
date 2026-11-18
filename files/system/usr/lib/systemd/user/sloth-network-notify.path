@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: watching for a new network (private or public?) and for a share waiting for permission
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 
 [Path]
 # file-sharing writes these when a network connects or disconnects and when shares change; %U.json: this account's

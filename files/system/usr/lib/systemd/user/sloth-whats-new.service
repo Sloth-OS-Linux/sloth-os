@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: what's new after an update brought a new version
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 After=plasma-workspace.target
 
 [Service]

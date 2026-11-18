@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: the Windows programs' taskbar balloons next to the taskbar (not in the top left corner)
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 PartOf=graphical-session.target
 After=plasma-workspace.target
 

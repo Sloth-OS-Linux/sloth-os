@@ -1,5 +1,7 @@
 [Unit]
 Description=Sloth OS: preparing and updating the Windows programs' runner in the background
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
 
 [Service]
 # game mode: not while a game runs; it runs right after the game (/usr/libexec/sloth-os/game-mode)
