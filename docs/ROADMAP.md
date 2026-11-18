@@ -89,6 +89,11 @@ from a terminal must also work from a GUI.
   2026-11-18: the release commit is on the test branch (SLOTH_VERSION 2.0, What's new in 2.0 in 50 languages,
   docs/releases/2.0.md, README: 2.0 notes and BIOS in the requirements). Still to do: test → main, the ISO from
   main's image, the HP reinstalled from it (the install test), SourceForge, the website (requirements, download)
+  2026-11-18 afternoon: main fast-forwarded to the test branch (PR #30 merged), main's build makes "latest", so the
+  installed 1.6 machines update to 2.0 (they follow :latest). The ISO MUST be built with image_tag=latest
+  (iso.yml's default is the test branch's tag, br-test_chunked-oci-44, from the test ISOs): the installer writes the
+  ISO's image as the update source (iso/build.sh: TARGET_IMGREF), so a default build would make every 2.0 install
+  follow the test branch. Check the ISO's /usr/share/sloth-os/installer/image.conf before publishing
   Still on Fedora 44: no Fedora 45 base until umu-launcher supports it. BIOS support paused (see above): 2.0 may go
   out without it
 
