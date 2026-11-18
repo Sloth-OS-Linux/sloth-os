@@ -171,6 +171,16 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      - [ ] On the HP: choose "Sloth OS TV mode" at sign-in: Steam fills the screen, a controller works, a game starts
        and plays; Exit Steam brings the desktop. Also see what Steam's own "Exit Big Picture", Sleep and Shut Down do
        there (unknown with the Flatpak Steam)
+     - [x] On the HP (2026-11-18), TV mode at sign-in: Switch to Desktop works; Shut Down and Restart left Steam
+       halfway (its screen stayed, Ctrl+Alt+F1 showed its menu): Steam, as on SteamOS, only writes the file named in
+       STEAMOS_STEAM_SHUTDOWN_SENTINEL / STEAMOS_STEAM_REBOOT_SENTINEL and exits, and the session powers off or
+       restarts (ChimeraOS's gamescope-session-plus and sessions.d/steam, DroidDeck PR #629). tv-session now sets
+       them (in $XDG_RUNTIME_DIR/sloth-tv, shared with the sandbox) and runs `systemctl poweroff` / `reboot` after
+       Steam; refused (polkit), the desktop starts. Sleep froze the HP (only a hard reset helped): cause not known yet
+       - [ ] On the HP: Shut Down and Restart from TV mode's power menu; Sleep (with the logs)
+     - [ ] Desktop Big Picture (Sloth Center's button, steam://open/bigpicture), on the HP 2026-11-18: Suspend left a
+       screen with only the mouse (Alt opened the window menu), then Big Picture stuck at its loading screen; Shut
+       Down / Restart did nothing until Steam was killed from a text console; Exit Big Picture and Exit Steam worked
      - [x] On the HP (2026-11-16): TV mode works from the sign-in screen and Exit Steam brings the desktop ("works
        great, I like it a lot"), but Steam's power menu → Switch to Desktop froze: Steam calls steamos-session-select
        (made for SteamOS), missing in the Flatpak. Now ours (/usr/libexec/sloth-os/tv-shim, first on the Flatpak's PATH,
@@ -266,9 +276,13 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      (plasma-discover --mime). Tried in the image: a PDF with a fake viewer opens there with no window; the .docx
      window, the unknown type's window, and a stand-in installer whose "installed" Writer then opened the file
      (screenshots); tools/tests/test_open_helper.py. 20 texts in 49 languages
-     - [ ] On the HP (a fresh account): double-click a .docx → LibreOffice installs and the document opens; a .jpg
-       → Gwenview; then the same files open straight in those apps (no window); a child account asks for the
-       password at the install
+     - [x] On the HP (2026-11-18): the .docx works; a .jpg opened in Chrome (a web browser lists photos too, and
+       the helper handed it on as "an app that opens it"). Now web browsers don't count unless the user chose one
+       for the type (their mimeapps.list), and /etc/xdg/kde-mimeapps.list (written by tools/gen_desktop_entries.py)
+       makes the suggested app (when installed) and then the helper KDE's default for these types. Tried in the image
+       with kde-open and a fake Chrome: the helper opens, an installed Gwenview opens at once, the user's own pick of
+       Chrome stays. The child account's password: still to see
+     - [ ] On the HP: a .jpg → the helper offers Gwenview; after the install it opens straight in Gwenview
   8. **Moving over from another Linux** (large, listed)
   9. **Sending files to a phone or another computer on the home network** (small with LocalSend in Sloth Welcome's
      catalog, new; large as our own, listed: "consent-based file sharing…")
