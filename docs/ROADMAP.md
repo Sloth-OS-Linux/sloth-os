@@ -72,6 +72,16 @@ from a terminal must also work from a GUI.
 - [ ] When BIOS is picked up again: with a good stick (not the Sony one) and the USB 3.0 port: the plain-MBR ISO
   (commit 29cd106's iso/build_iso.sh) on the HP and on the VAIO; if real UEFI firmware does take it, it can come back.
   Otherwise a layout both accept (Fedora's lorax hybrid GPT/MBR, or Debian's isohybrid with -isohybrid-gpt-basdat)
+- [x] **The VAIO installed and runs (2026-11-18).** The plain-MBR ISO of run 43950858052 (CI, test-branch image of
+  2026-11-16; sha256 b7d5ac2c…) written to a good stick ("Generic Flash Disk" 14.6 GB, not the Sony one; read back:
+  only Windows' disk signature in the MBR and its System Volume Information on the EFI partition differed): the live
+  system started in legacy BIOS mode, the whole-disk install (plain MBR) went through, and the installed system
+  starts from the disk and runs ("a little slow, but it works"). So the earlier power-off was the bad stick, as
+  suspected
+- [ ] Next for BIOS support in a release: the same plain-MBR stick on the HP in UEFI mode (only to the installer); if
+  it starts there, iso/build_iso.sh goes back to the plain MBR layout (commit 29cd106) for every ISO, and the
+  installer's BIOS mode stays allowed. The installed disk stays MBR in BIOS mode: the VAIO's BIOS starts no GPT disk
+  at all (2026-11-16), so converting it to GPT would make it unbootable
 - [ ] 2026-11-17: the test ISO (v4, test-branch image) tried at school
 - [ ] Ship it as **Sloth OS 2.0** (next week): a new ISO, README / website requirements (they still say "UEFI only").
   Still on Fedora 44: no Fedora 45 base until umu-launcher supports it. BIOS support paused (see above): 2.0 may go
