@@ -35,6 +35,17 @@ Rectangle {
         }
     }
 
+    // The intro plays only once: after its last frame it stops and stays hidden, however long the desktop loads.
+    // In case a slow machine never reports the last frame, the pulse takes over after 4 s anyway (the intro is 2.2 s).
+    Timer {
+        interval: 4000
+        running: !root.introDone
+        onTriggered: {
+            intro.playing = false
+            root.introDone = true
+        }
+    }
+
     Image {
         id: logo
         source: "images/logo.png"
