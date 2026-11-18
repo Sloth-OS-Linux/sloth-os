@@ -94,6 +94,24 @@ from a terminal must also work from a GUI.
   (iso.yml's default is the test branch's tag, br-test_chunked-oci-44, from the test ISOs): the installer writes the
   ISO's image as the update source (iso/build.sh: TARGET_IMGREF), so a default build would make every 2.0 install
   follow the test branch. Check the ISO's /usr/share/sloth-os/installer/image.conf before publishing
+- **Where the 2.0 release stands (2026-11-18, 15:20; to be continued from another computer):**
+  - [x] main = test branch (PR #30 merged by fast-forward); main's build made `:latest` = Sloth OS 2.0
+        (44.20261118.3, digest sha256:80500780…, signed: the .sig tag is there). Installed machines update to it.
+  - [x] Website and README say "2.0 is rolling out as an update, the ISO follows" (website main 343a0a7)
+  - [ ] The ISO: Actions → iso, run 44322294170 (from main, image_tag=latest, started 14:15 UTC, ~45 min). Its
+        artifact "sloth-os-iso" (~5.3 GB): `gh run download 44322294170 -R Sloth-OS-Linux/sloth-os -n sloth-os-iso`
+  - [ ] Before publishing: in the ISO, /usr/share/sloth-os/installer/image.conf must say
+        TARGET_IMGREF=ghcr.io/sloth-os-linux/sloth-os:latest (not the test tag); the MBR: partition 1 0x83 active,
+        partition 2 0xef; a VM: BIOS and UEFI start the installer
+  - [ ] Write it to a good USB stick ("BIOS" 14.6 GB Generic Flash Disk, not the Sony), reinstall the HP from it (the
+        install test), the VAIO's installer start if possible. The reinstalled HP follows :latest (main); move it
+        back to the test branch afterwards (one rpm-ostree rebase command)
+  - [ ] On the fresh HP: a full-screen shot of each of the 7 layouts for the website's animation (below)
+  - [ ] Release: `python tools/release-finish.py 2.0 <iso> --site ../sloth-os-linux.github.io` (names, sha256,
+        torrent, SourceForge README, README and website download); SourceForge upload (SFTP key
+        ~/.ssh/sloth-os-sourceforge on the main computer); the website's download button only when the ISO's
+        /download answers; merge the website's branch release-2.0-requirements (6c7adbc, BIOS in the requirements);
+        the tag v2.0 (the user)
 - [ ] **The website for 2.0** (sloth-os-linux.github.io; its screenshots are from 1.0, 2026-10-20/28):
   - [ ] The "2.0 is rolling out as an update, the ISO follows" notice (ready locally: website main, 343a0a7; the
         README's: b732ef47), out as soon as main's build has made :latest
