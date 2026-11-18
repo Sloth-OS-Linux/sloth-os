@@ -189,7 +189,7 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        restarts (ChimeraOS's gamescope-session-plus and sessions.d/steam, DroidDeck PR #629). tv-session now sets
        them (in $XDG_RUNTIME_DIR/sloth-tv, shared with the sandbox) and runs `systemctl poweroff` / `reboot` after
        Steam; refused (polkit), the desktop starts. Sleep froze the HP (only a hard reset helped): cause not known yet
-       - [ ] On the HP: Shut Down and Restart from TV mode's power menu; Sleep (with the logs)
+       - [x] On the HP: Shut Down and Restart from TV mode's power menu; Sleep (with the logs) (OK 2026-11-18)
      - [x] Desktop Big Picture (Sloth Center's button, steam://open/bigpicture), on the HP 2026-11-18: Suspend left a
        screen with only the mouse (Alt opened the window menu), then Big Picture stuck at its loading screen; Shut
        Down / Restart did nothing until Steam was killed from a text console; Exit Big Picture and Exit Steam worked
@@ -201,7 +201,7 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        One TV mode at a time (flock). Signing out into the TV session instead was dropped: whether Plasma Login
        Manager re-reads a one-time Relogin is not documented. Tried with stand-ins for flatpak, gamescope,
        kscreen-doctor and systemctl: both ways in, twice at once, Restart / Shut Down, the lock free afterwards
-       - [ ] On the HP: the button: TV mode on the whole screen with the games that are not Steam's; Switch to Desktop
+       - [x] On the HP: the button: TV mode on the whole screen with the games that are not Steam's; Switch to Desktop
          back to the open desktop; the desktop's Steam back in the tray
      - [x] TV mode only from the desktop (the user's choice, 2026-11-18): "Sloth OS TV mode" is off the sign-in screen
        (sloth-tv.desktop removed; tv-session's session way stays for later). It starts from the Start menu's "TV mode"
@@ -214,14 +214,14 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        and nothing reached our steamos-manager stand-in: Steam asks logind (SteamOS issue #2619), which the Flatpak
        can't reach (Flathub's finish-args have no org.freedesktop.login1), so Steam went dark and waited for ever.
        TV mode's Steam now gets --system-talk-name=org.freedesktop.login1 (polkit still decides)
-       - [ ] On the HP: Sleep from TV mode: the computer sleeps, wakes with the power button, Steam comes back
+       - [x] On the HP: Sleep from TV mode: the computer sleeps, wakes with the power button, Steam comes back (OK 2026-11-18)
      - [x] On the HP (2026-11-18): the Start menu's TV mode starts; the system menu's and the quick settings' button did
        not: tv-session's log said "gamescope ended (exit code 141)" at once, SIGPIPE. Plasmashell's command runner
        reads the output through a pipe and closes it when the command returns (setsid -f returns at once); gamescope's
        first line then killed it. tv-session --on-desktop now sends its output to the journal (logger -t
        sloth-tv-output) whoever started it (reproduced in the image with a closed pipe: 141 before, 0 after), and the
        buttons start it through the Start menu entry like the Start menu: `kstart --application org.slothos.tv-mode`
-       - [ ] On the HP: the TV mode button in the Mac-like system menu and in the ChromeOS-like quick settings
+       - [x] On the HP: the TV mode button in the Mac-like system menu and in the ChromeOS-like quick settings (OK 2026-11-18)
      - [x] On the HP (2026-11-16): TV mode works from the sign-in screen and Exit Steam brings the desktop ("works
        great, I like it a lot"), but Steam's power menu → Switch to Desktop froze: Steam calls steamos-session-select
        (made for SteamOS), missing in the Flatpak. Now ours (/usr/libexec/sloth-os/tv-shim, first on the Flatpak's PATH,
