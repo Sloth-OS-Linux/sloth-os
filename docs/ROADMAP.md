@@ -228,6 +228,11 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        the letters' skeleton (Sedgwick Ave Display, OFL), mist at the nozzle, drips; the tag fades and the logo comes
        forward, shrinking to its place; then Splash.qml's pulse. A preview video: tools/make_splash_intro.py with a
        folder. (A chrome throw-up with popping letters was tried first and dropped)
+     - [x] The loading screen simpler (2026-11-18, the user found the tag too busy): a point of silver light runs once
+       around the middle, clockwise from the top, and the logo appears behind it like under a clock hand; the ring of
+       light fades and the logo stays, then Splash.qml's pulse (tools/make_splash_intro.py, numpy + Pillow only,
+       2.2 s, 211 KB; the same file made on Windows and in Fedora). TV mode's start-up video stays as it is
+     - [ ] On the HP: the new loading screen after signing in
      - [x] On the HP (2026-11-17): our start-up video plays in TV mode (after the fix for a pick pointing at a gone
        file, af963bed); a small jump in its middle where it gets too big (the user: maybe the HP's playback)
      - [x] The games that are not Steam's in TV mode (2026-11-17, the user's idea): Heroic's (Epic, GOG, Amazon),

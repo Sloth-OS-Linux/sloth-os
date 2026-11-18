@@ -1,7 +1,7 @@
 pragma ComponentBehavior: Bound
 // Sloth OS loading screen after sign-in (KSplash).
-// First "Sloth OS" pops up as a graffiti throw-up over the faint logo, the paint flakes away and the logo comes
-// forward (images/intro.webp, made by tools/make_splash_intro.py; it plays once), then the logo pulses until the
+// First a point of light runs once around the middle and the logo appears behind it, drawn out of nothing in a
+// circle (images/intro.webp, made by tools/make_splash_intro.py; it plays once), then the logo pulses until the
 // desktop is ready. The intro's last frame is images/logo.png at the same place and size, so the switch does not
 // show. Without the intro (it cannot be played), the pulsing logo comes at once.
 import QtQuick
