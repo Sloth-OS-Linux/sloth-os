@@ -58,7 +58,7 @@ What Sloth OS can do
 - An installer that explains itself: the whole disk or next to Windows, optional disk encryption, and a progress
   bar with plain sentences instead of scrolling text.
 
-Requirements: a 64-bit PC that starts in UEFI mode, 4 GB of memory (16 GB for games), 64 GB of disk space,
+Requirements: a 64-bit PC (UEFI or the older BIOS mode), 4 GB of memory (16 GB for games), 64 GB of disk space,
 and a USB stick of 8 GB or more for the installer.
 
 Feedback: Sloth Center -> Feedback. Source code: https://github.com/Sloth-OS-Linux/sloth-os
