@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Birkaç cümleyle anlatın",
   "For example: I started Battle.net, but it closed after a minute.": "Örneğin: Battle.net'i başlattım ama bir dakika sonra kapandı.",
   "Attach computer information and log (helps find the problem)": "Bilgisayar bilgilerini ve günlüğü ekle (sorunu bulmaya yardımcı olur)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Günlük herkese açık değildir: yalnızca geliştiriciler görür ve 30 gün sonra silinir. Kullanıcı adınızı ve cihazlarınızın adlarını içerebilir, ancak dosyalarınızı içermez. Açıklamanız da herkese açık değildir: yalnızca geliştiriciler görür.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Bilgiler herkese açık değil: yalnızca geliştiriciler görebilir ve 30 gün sonra silinir. Kişisel bilgiler gizlenir ve neyin gönderildiğini tam olarak görebilirsin. Açıklaman da herkese açık değil: yalnızca geliştiriciler görebilir.",
   "Sending…": "Gönderiliyor…",
   "Send": "Gönder",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Bu bilgisayardaki kaydedilen durumlar da silinecek. İhtiyacın olan her şeyi önce harici bir diske veya USB belleğe kopyala, yoksa geri getirebileceğin bir yer kalmaz.",
@@ -1267,5 +1267,9 @@
   "Try again": "Yeniden dene",
   "Install %1 and open the file": "%1 kur ve dosyayı aç",
   "Bring files over from your other Linux": "Diğer Linux'tan dosyaları getir",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Bu bilgisayardaki diğer Linux'tan masaüstünü, belgeleri, resimleri ve diğer kişisel klasörlerini, ayrıca tarayıcı yer imlerini kopyalar. Ona dokunulmaz, yalnızca okunur."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Bu bilgisayardaki diğer Linux'tan masaüstünü, belgeleri, resimleri ve diğer kişisel klasörlerini, ayrıca tarayıcı yer imlerini kopyalar. Ona dokunulmaz, yalnızca okunur.",
+  "Show what is sent": "Neyin gönderildiğini göster",
+  "What is sent": "Gönderilen",
+  "Collecting the information…": "Bilgiler toplanıyor…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Adın, kullanıcı adın, bilgisayarın adı, ağ adları, ağ ve e-posta adresleri ve seri numaraları <user> gibi işaretlerle değiştirilir."
 }

@@ -638,7 +638,7 @@
   "Describe it in a few sentences": "Írd le pár mondatban",
   "For example: I started Battle.net, but it closed after a minute.": "Például: elindítottam a Battle.net-et, de egy perc után bezárult.",
   "Attach computer information and log (helps find the problem)": "Gépinformáció és napló csatolása (segít megtalálni a hibát)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "A napló nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. Szerepelhet benne a felhasználóneved és az eszközeid neve, a fájljaid nem. A leírásod sem nyilvános: azt is csak a fejlesztők látják.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Az információ nem nyilvános: csak a fejlesztők látják, és 30 nap után törlődik. A személyes adatok el vannak rejtve benne, és pontosan megnézheted, mi megy el. A leírásod sem nyilvános: csak a fejlesztők látják.",
   "Sending…": "Küldés…",
   "Send": "Küldés",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "A gépen lévő mentett állapotok is törlődnek. Ami kell, azt előtte mentsd külső lemezre vagy pendrive-ra, különben nem lesz miből visszahozni.",
@@ -1267,5 +1267,9 @@
   "Try again": "Újra",
   "Install %1 and open the file": "%1 telepítése és a fájl megnyitása",
   "Bring files over from your other Linux": "Fájlok áthozása a másik Linuxról",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Átmásolja az Asztalt, a Dokumentumokat, a Képeket és a többi személyes mappádat, meg a böngésző-könyvjelzőket a gépen lévő másik Linuxról. Ahhoz nem nyúl, csak olvas róla."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Átmásolja az Asztalt, a Dokumentumokat, a Képeket és a többi személyes mappádat, meg a böngésző-könyvjelzőket a gépen lévő másik Linuxról. Ahhoz nem nyúl, csak olvas róla.",
+  "Show what is sent": "Mutasd, mi megy el",
+  "What is sent": "Ami elmegy",
+  "Collecting the information…": "Az információ összegyűjtése…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "A neved, a felhasználóneved, a gép neve, a hálózatok neve, a hálózati és e-mail-címek és a sorozatszámok helyére jelölők kerülnek, például <user>."
 }

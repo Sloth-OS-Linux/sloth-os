@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Descreva em poucas frases",
   "For example: I started Battle.net, but it closed after a minute.": "Por exemplo: abri o Battle.net, mas fechou-se passado um minuto.",
   "Attach computer information and log (helps find the problem)": "Anexar informações do computador e o registo (ajuda a encontrar o problema)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "O registo não é público: só os programadores o veem, e é apagado após 30 dias. Pode conter o seu nome de utilizador e os nomes dos seus dispositivos, mas não os seus ficheiros. A sua descrição também não é pública: só os programadores a veem.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "A informação não é pública: só os programadores a veem, e é apagada ao fim de 30 dias. Os dados pessoais ficam ocultos, e pode ver exatamente o que é enviado. A sua descrição também não é pública: só os programadores a veem.",
   "Sending…": "A enviar…",
   "Send": "Enviar",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Os estados guardados neste computador também serão eliminados. Copie primeiro tudo o que precisa para um disco externo ou uma pen USB; caso contrário, não haverá de onde o recuperar.",
@@ -1267,5 +1267,9 @@
   "Try again": "Tentar novamente",
   "Install %1 and open the file": "Instalar %1 e abrir o ficheiro",
   "Bring files over from your other Linux": "Trazer ficheiros do outro Linux",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copia o ambiente de trabalho, os documentos, as imagens e as outras pastas pessoais, mais os marcadores do navegador, do outro Linux deste computador. Não lhe tocamos, só lemos."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copia o ambiente de trabalho, os documentos, as imagens e as outras pastas pessoais, mais os marcadores do navegador, do outro Linux deste computador. Não lhe tocamos, só lemos.",
+  "Show what is sent": "Mostrar o que é enviado",
+  "What is sent": "O que é enviado",
+  "Collecting the information…": "A recolher a informação…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "O seu nome, nome de utilizador, nome do computador, nomes de redes, endereços de rede e de e-mail e números de série são substituídos por marcadores como <user>."
 }

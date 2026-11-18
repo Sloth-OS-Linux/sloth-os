@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "用幾句話描述",
   "For example: I started Battle.net, but it closed after a minute.": "例如：我開啟了 Battle.net，但一分鐘後就關閉了。",
   "Attach computer information and log (helps find the problem)": "附上電腦資訊與記錄檔（有助於找出問題）",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "記錄檔不會公開：只有開發者看得到，30 天後會刪除。其中可能包含你的使用者名稱和裝置名稱，但不包含你的檔案。你的描述也不會公開：只有開發者看得到。",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "這些資訊不公開：只有開發者看得到，30 天後刪除。其中的個人資料已隱藏，你可以確切看到會送出的內容。你的描述同樣不公開：只有開發者看得到。",
   "Sending…": "傳送中…",
   "Send": "傳送",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "這台電腦上儲存的狀態也會被刪除。請先把需要的內容複製到外接硬碟或隨身碟，否則將無從還原。",
@@ -1267,5 +1267,9 @@
   "Try again": "重試",
   "Install %1 and open the file": "安裝 %1 並開啟檔案",
   "Bring files over from your other Linux": "從另一個 Linux 帶來檔案",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "從這台電腦上的另一個 Linux 複製桌面、文件、圖片和其他個人資料夾，以及瀏覽器書籤。不會更動它，只是讀取。"
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "從這台電腦上的另一個 Linux 複製桌面、文件、圖片和其他個人資料夾，以及瀏覽器書籤。不會更動它，只是讀取。",
+  "Show what is sent": "顯示會送出的內容",
+  "What is sent": "會送出的內容",
+  "Collecting the information…": "正在收集資訊…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "你的名字、使用者名稱、電腦名稱、網路名稱、網路位址和電子郵件位址以及序號都會替換成 <user> 這樣的標記。"
 }

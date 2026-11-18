@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Descrie în câteva propoziții",
   "For example: I started Battle.net, but it closed after a minute.": "De exemplu: am pornit Battle.net, dar s-a închis după un minut.",
   "Attach computer information and log (helps find the problem)": "Atașează informațiile despre calculator și jurnalul (ajută la găsirea problemei)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Jurnalul nu este public: îl văd doar dezvoltatorii și se șterge după 30 de zile. Poate conține numele tău de utilizator și numele dispozitivelor, dar nu fișierele tale. Nici descrierea ta nu este publică: o văd doar dezvoltatorii.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Informațiile nu sunt publice: le văd doar dezvoltatorii și sunt șterse după 30 de zile. Datele personale sunt ascunse în ele și poți vedea exact ce se trimite. Nici descrierea ta nu este publică: o văd doar dezvoltatorii.",
   "Sending…": "Se trimite…",
   "Send": "Trimite",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Vor fi șterse și stările salvate de pe acest computer. Copiază mai întâi tot ce îți trebuie pe un disc extern sau un stick USB, altfel nu va exista de unde să le recuperezi.",
@@ -1267,5 +1267,9 @@
   "Try again": "Încearcă din nou",
   "Install %1 and open the file": "Instalează %1 și deschide fișierul",
   "Bring files over from your other Linux": "Adu fișiere din celălalt Linux",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copiază desktopul, documentele, imaginile și celelalte dosare personale, plus marcajele din browser, din celălalt Linux de pe acest calculator. Nu este atins, doar citit."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copiază desktopul, documentele, imaginile și celelalte dosare personale, plus marcajele din browser, din celălalt Linux de pe acest calculator. Nu este atins, doar citit.",
+  "Show what is sent": "Arată ce se trimite",
+  "What is sent": "Ce se trimite",
+  "Collecting the information…": "Se adună informațiile…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Numele tău, numele de utilizator, numele calculatorului, numele rețelelor, adresele de rețea și de e-mail și numerele de serie sunt înlocuite cu marcaje precum <user>."
 }

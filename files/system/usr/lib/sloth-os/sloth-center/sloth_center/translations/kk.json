@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Бірнеше сөйлеммен сипаттаңыз",
   "For example: I started Battle.net, but it closed after a minute.": "Мысалы: Battle.net іске қостым, бірақ ол бір минуттан кейін жабылды.",
   "Attach computer information and log (helps find the problem)": "Компьютер ақпараты мен журналды тіркеу (қатені табуға көмектеседі)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Журнал жария емес: оны тек әзірлеушілер көреді және 30 күннен кейін жойылады. Онда пайдаланушы атыңыз бен құрылғыларыңыздың атаулары болуы мүмкін, бірақ файлдарыңыз болмайды. Сипаттамаңыз да жария емес: оны тек әзірлеушілер көреді.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Ақпарат жария емес: оны тек әзірлеушілер көреді, ол 30 күннен кейін жойылады. Жеке деректер жасырылған, не жіберілетінін дәл көре аласыз. Сіздің сипаттамаңыз да жария емес: оны тек әзірлеушілер көреді.",
   "Sending…": "Жіберілуде…",
   "Send": "Жіберу",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Осы компьютердегі сақталған күйлер де жойылады. Алдымен керектің бәрін сыртқы дискіге немесе USB флешкаға көшіріңіз, әйтпесе оны қалпына келтіретін ештеңе қалмайды.",
@@ -1267,5 +1267,9 @@
   "Try again": "Қайталау",
   "Install %1 and open the file": "%1 орнатып, файлды ашу",
   "Bring files over from your other Linux": "Басқа Linux-тан файлдарды көшіру",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Осы компьютердегі басқа Linux-тан жұмыс үстелін, құжаттарды, суреттерді және басқа жеке қалталарды, сондай-ақ браузер бетбелгілерін көшіреді. Оған тиіспейміз, тек оқимыз."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Осы компьютердегі басқа Linux-тан жұмыс үстелін, құжаттарды, суреттерді және басқа жеке қалталарды, сондай-ақ браузер бетбелгілерін көшіреді. Оған тиіспейміз, тек оқимыз.",
+  "Show what is sent": "Не жіберілетінін көрсету",
+  "What is sent": "Не жіберіледі",
+  "Collecting the information…": "Ақпарат жиналуда…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Атыңыз, пайдаланушы атыңыз, компьютер атауы, желі атаулары, желі және email мекенжайлары мен сериялық нөмірлер <user> сияқты белгілермен ауыстырылады."
 }

@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Beschrijf het in een paar zinnen",
   "For example: I started Battle.net, but it closed after a minute.": "Bijvoorbeeld: ik startte Battle.net, maar het sloot na een minuut.",
   "Attach computer information and log (helps find the problem)": "Computergegevens en logboek bijvoegen (helpt het probleem te vinden)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Het logboek is niet openbaar: alleen de ontwikkelaars zien het, en het wordt na 30 dagen verwijderd. Het kan je gebruikersnaam en de namen van je apparaten bevatten, maar niet je bestanden. Je beschrijving is ook niet openbaar: alleen de ontwikkelaars zien die.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "De informatie is niet openbaar: alleen de ontwikkelaars kunnen haar zien, en ze wordt na 30 dagen verwijderd. Persoonlijke gegevens zijn erin verborgen, en je kunt precies zien wat er wordt verstuurd. Je beschrijving is ook niet openbaar: alleen de ontwikkelaars kunnen die zien.",
   "Sending…": "Versturen…",
   "Send": "Versturen",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "De opgeslagen staten op deze computer worden ook verwijderd. Kopieer eerst alles wat je nodig hebt naar een externe schijf of usb-stick, anders is er niets om het uit terug te halen.",
@@ -1267,5 +1267,9 @@
   "Try again": "Opnieuw proberen",
   "Install %1 and open the file": "%1 installeren en het bestand openen",
   "Bring files over from your other Linux": "Bestanden overzetten vanaf je andere Linux",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopieert het bureaublad, documenten, afbeeldingen en je andere persoonlijke mappen, plus browserbladwijzers, vanaf de andere Linux op deze computer. Die wordt niet aangeraakt, alleen gelezen."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopieert het bureaublad, documenten, afbeeldingen en je andere persoonlijke mappen, plus browserbladwijzers, vanaf de andere Linux op deze computer. Die wordt niet aangeraakt, alleen gelezen.",
+  "Show what is sent": "Laten zien wat er wordt verstuurd",
+  "What is sent": "Wat er wordt verstuurd",
+  "Collecting the information…": "De informatie wordt verzameld…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Je naam, gebruikersnaam, computernaam, netwerknamen, netwerk- en e-mailadressen en serienummers worden vervangen door plaatsaanduidingen zoals <user>."
 }

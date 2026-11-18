@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Beskriv det med noen få setninger",
   "For example: I started Battle.net, but it closed after a minute.": "For eksempel: Jeg startet Battle.net, men det lukket seg etter ett minutt.",
   "Attach computer information and log (helps find the problem)": "Legg ved datamaskininformasjon og logg (hjelper med å finne feilen)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Loggen er ikke offentlig: bare utviklerne ser den, og den slettes etter 30 dager. Den kan inneholde brukernavnet ditt og navnene på enhetene dine, men ikke filene dine. Beskrivelsen din er heller ikke offentlig: bare utviklerne ser den.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Informasjonen er ikke offentlig: bare utviklerne kan se den, og den slettes etter 30 dager. Personlige opplysninger er skjult i den, og du kan se nøyaktig hva som sendes. Beskrivelsen din er heller ikke offentlig: bare utviklerne kan se den.",
   "Sending…": "Sender …",
   "Send": "Send",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "De lagrede tilstandene på denne datamaskinen blir også slettet. Kopier alt du trenger til en ekstern disk eller minnepinne først, ellers er det ingenting å gjenopprette det fra.",
@@ -1267,5 +1267,9 @@
   "Try again": "Prøv igjen",
   "Install %1 and open the file": "Installer %1 og åpne filen",
   "Bring files over from your other Linux": "Flytt filer fra den andre Linuxen",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopierer skrivebordet, dokumenter, bilder og de andre personlige mappene dine, pluss nettleserbokmerker, fra den andre Linuxen på denne datamaskinen. Den blir ikke rørt, bare lest."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopierer skrivebordet, dokumenter, bilder og de andre personlige mappene dine, pluss nettleserbokmerker, fra den andre Linuxen på denne datamaskinen. Den blir ikke rørt, bare lest.",
+  "Show what is sent": "Vis hva som sendes",
+  "What is sent": "Hva som sendes",
+  "Collecting the information…": "Samler inn informasjonen …",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Navnet ditt, brukernavnet, datamaskinens navn, nettverksnavn, nettverks- og e-postadresser og serienumre erstattes med plassholdere som <user>."
 }

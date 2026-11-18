@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "数文で書いてください",
   "For example: I started Battle.net, but it closed after a minute.": "例：Battle.net を起動したら、1分後に閉じてしまいました。",
   "Attach computer information and log (helps find the problem)": "コンピューターの情報とログを添付する（問題の発見に役立ちます）",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "ログは公開されません。見られるのは開発者だけで、30日後に削除されます。ユーザー名やデバイス名が含まれることがありますが、ファイルは含まれません。説明文も公開されません。見られるのは開発者だけです。",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "この情報は公開されません。開発者だけが見られ、30 日後に削除されます。個人情報は隠され、何が送られるかを正確に確認できます。説明も公開されず、開発者だけが見られます。",
   "Sending…": "送信中…",
   "Send": "送信",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "この PC の保存した状態も削除されます。必要なものは先に外付けドライブや USB メモリにコピーしてください。そうしないと、元に戻す手段がなくなります。",
@@ -1267,5 +1267,9 @@
   "Try again": "再試行",
   "Install %1 and open the file": "%1 をインストールしてファイルを開く",
   "Bring files over from your other Linux": "もう一つの Linux からファイルを移す",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "このコンピューターのもう一つの Linux から、デスクトップ、ドキュメント、ピクチャなどの個人フォルダーとブラウザーのブックマークをコピーします。そのシステムには手を加えず、読み取るだけです。"
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "このコンピューターのもう一つの Linux から、デスクトップ、ドキュメント、ピクチャなどの個人フォルダーとブラウザーのブックマークをコピーします。そのシステムには手を加えず、読み取るだけです。",
+  "Show what is sent": "送られる内容を見る",
+  "What is sent": "送られる内容",
+  "Collecting the information…": "情報を集めています…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "名前、ユーザー名、コンピューター名、ネットワーク名、ネットワークとメールのアドレス、シリアル番号は <user> などの目印に置き換えられます。"
 }

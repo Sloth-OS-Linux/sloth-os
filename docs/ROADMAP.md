@@ -367,7 +367,21 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      - [ ] On the HP: install LocalSend from Welcome, send a photo to a phone with LocalSend and back
 - Safety and help:
   10. **A restore point** before bigger setting or driver changes (large, listed)
-  11. **A diagnostic bundle for Feedback**, personal data hidden, shown before sending (large, listed)
+  11. ~~**A diagnostic bundle for Feedback**~~ DONE 2026-11-18 (test branch): Sloth Center → Feedback's "Attach
+      computer information and log" now sends sloth_center/diagnostics.py's bundle: "Save log"'s summary and journal
+      plus the computer (processor, memory, graphics), the errors of this start and the end of the previous start
+      (what a freeze needs; the TV mode's sleep was found that way by hand), with personal details replaced by
+      placeholders: <user> (accounts, also in home paths), <name> (full names), <computer> (the host name, unless a
+      common one like "sloth"), <network> (saved connections' names), <mac>, <ip> (not 127.0.0.1/0.0.0.0/::1),
+      <email> (not systemd's unit@instance.service), <serial> (serial numbers, WWN, machine and boot ids). Kept:
+      times, versions (also four-part ones like a kernel's), C++ names that look like IPv6 (Bad::Add), Sloth OS's
+      own names (sloth-tv-session stays when the user is "sloth"). "Show what is sent" opens the exact text, and
+      sending sends that text (not collected again). 5 texts in 49 languages (the old "It may contain your user
+      name…" sentence replaced). Tried: tools/tests/test_diagnostics.py (8: journal-like lines, the placeholders,
+      what stays, sending the text shown, nothing collected without the box), the page offscreen in the image with
+      a made-up account (screenshot; everything personal hidden). The whole test suite in the image: the same 9
+      failures before and after (test_apps, test_snapshots, test_steam_move: the container, not these changes)
+      - [ ] On the HP: Feedback → Show what is sent: the real journal, nothing personal left in it
   12. **File backup → "Find deleted files…"** did not work in the VM (medium, listed)
 - Small:
   13. ~~**Sloth Center in one window only**~~ DONE 2026-11-17 (see "One settings app"): opening it again brings the

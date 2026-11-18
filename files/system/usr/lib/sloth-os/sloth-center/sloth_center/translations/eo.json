@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Priskribu ĝin per kelkaj frazoj",
   "For example: I started Battle.net, but it closed after a minute.": "Ekzemple: mi lanĉis Battle.net, sed ĝi fermiĝis post unu minuto.",
   "Attach computer information and log (helps find the problem)": "Kunsendi komputilajn informojn kaj la protokolon (helpas trovi la problemon)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "La protokolo ne estas publika: nur la programistoj vidas ĝin, kaj ĝi estas forigita post 30 tagoj. Ĝi povas enhavi vian uzantnomon kaj la nomojn de viaj aparatoj, sed ne viajn dosierojn. Ankaŭ via priskribo ne estas publika: nur la programistoj vidas ĝin.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "La informoj ne estas publikaj: nur la programistoj vidas ilin, kaj ili estas forigitaj post 30 tagoj. Personaj detaloj estas kaŝitaj en ili, kaj vi povas vidi ĝuste kio estas sendata. Ankaŭ via priskribo ne estas publika: nur la programistoj vidas ĝin.",
   "Sending…": "Sendante…",
   "Send": "Sendi",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Ankaŭ la konservitaj statoj en ĉi tiu komputilo estos forigitaj. Unue kopiu ĉion bezonatan al ekstera disko aŭ USB-memorilo, alie estos nenio, el kio restarigi ĝin.",
@@ -1267,5 +1267,9 @@
   "Try again": "Reprovi",
   "Install %1 and open the file": "Instali %1 kaj malfermi la dosieron",
   "Bring files over from your other Linux": "Transporti dosierojn el la alia Linukso",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopias la labortablon, dokumentojn, bildojn kaj viajn aliajn personajn dosierujojn, kaj ankaŭ retumilajn legosignojn, el la alia Linukso en ĉi tiu komputilo. Ĝi ne estas tuŝata, nur legata."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopias la labortablon, dokumentojn, bildojn kaj viajn aliajn personajn dosierujojn, kaj ankaŭ retumilajn legosignojn, el la alia Linukso en ĉi tiu komputilo. Ĝi ne estas tuŝata, nur legata.",
+  "Show what is sent": "Montri kio estas sendata",
+  "What is sent": "Kio estas sendata",
+  "Collecting the information…": "Kolektante la informojn…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Via nomo, uzantnomo, komputila nomo, retaj nomoj, retaj kaj retpoŝtaj adresoj kaj seriaj numeroj estas anstataŭigitaj per lokokupiloj kiel <user>."
 }

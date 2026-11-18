@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Kerro muutamalla lauseella",
   "For example: I started Battle.net, but it closed after a minute.": "Esimerkiksi: käynnistin Battle.netin, mutta se sulkeutui minuutin päästä.",
   "Attach computer information and log (helps find the problem)": "Liitä tietokoneen tiedot ja loki (auttaa löytämään vian)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Loki ei ole julkinen: vain kehittäjät näkevät sen, ja se poistetaan 30 päivän kuluttua. Siinä voi näkyä käyttäjätunnuksesi ja laitteidesi nimet, mutta ei tiedostojasi. Myöskään kuvauksesi ei ole julkinen: vain kehittäjät näkevät sen.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Tiedot eivät ole julkisia: vain kehittäjät näkevät ne, ja ne poistetaan 30 päivän kuluttua. Henkilötiedot on piilotettu, ja näet tarkalleen, mitä lähetetään. Myöskään kuvauksesi ei ole julkinen: vain kehittäjät näkevät sen.",
   "Sending…": "Lähetetään…",
   "Send": "Lähetä",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Myös tämän tietokoneen tallennetut tilat poistetaan. Kopioi ensin kaikki tarvitsemasi ulkoiselle levylle tai USB-tikulle, muuten mitään ei voi palauttaa.",
@@ -1267,5 +1267,9 @@
   "Try again": "Yritä uudelleen",
   "Install %1 and open the file": "Asenna %1 ja avaa tiedosto",
   "Bring files over from your other Linux": "Tuo tiedostot toisesta Linuxista",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopioi työpöydän, asiakirjat, kuvat ja muut henkilökohtaiset kansiosi sekä selaimen kirjanmerkit tämän tietokoneen toisesta Linuxista. Siihen ei kosketa, siitä vain luetaan."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopioi työpöydän, asiakirjat, kuvat ja muut henkilökohtaiset kansiosi sekä selaimen kirjanmerkit tämän tietokoneen toisesta Linuxista. Siihen ei kosketa, siitä vain luetaan.",
+  "Show what is sent": "Näytä, mitä lähetetään",
+  "What is sent": "Mitä lähetetään",
+  "Collecting the information…": "Kerätään tietoja…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Nimesi, käyttäjänimesi, tietokoneen nimi, verkkojen nimet, verkko- ja sähköpostiosoitteet sekä sarjanumerot korvataan paikkamerkeillä, kuten <user>."
 }

@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Опишите в нескольких предложениях",
   "For example: I started Battle.net, but it closed after a minute.": "Например: я запустил Battle.net, но через минуту он закрылся.",
   "Attach computer information and log (helps find the problem)": "Приложить сведения о компьютере и журнал (помогает найти ошибку)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Журнал не публикуется: его видят только разработчики, и через 30 дней он удаляется. В нём могут быть ваше имя пользователя и названия устройств, но не ваши файлы. Ваше описание тоже не публикуется: его видят только разработчики.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Сведения не публичны: их видят только разработчики, и через 30 дней они удаляются. Личные данные в них скрыты, и вы можете увидеть, что именно отправляется. Ваше описание тоже не публично: его видят только разработчики.",
   "Sending…": "Отправка…",
   "Send": "Отправить",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Сохранённые состояния на этом компьютере тоже будут удалены. Сначала скопируйте всё нужное на внешний диск или флешку, иначе восстановить это будет неоткуда.",
@@ -1267,5 +1267,9 @@
   "Try again": "Повторить",
   "Install %1 and open the file": "Установить %1 и открыть файл",
   "Bring files over from your other Linux": "Перенести файлы из другого Linux",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Копирует рабочий стол, документы, изображения и другие личные папки, а также закладки браузера, из другого Linux на этом компьютере. Его не трогаем, только читаем."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Копирует рабочий стол, документы, изображения и другие личные папки, а также закладки браузера, из другого Linux на этом компьютере. Его не трогаем, только читаем.",
+  "Show what is sent": "Показать, что отправляется",
+  "What is sent": "Что отправляется",
+  "Collecting the information…": "Собираем сведения…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Ваше имя, имя пользователя, имя компьютера, названия сетей, сетевые адреса и адреса e-mail, а также серийные номера заменяются метками вроде <user>."
 }

@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Beschreibe es in ein paar Sätzen",
   "For example: I started Battle.net, but it closed after a minute.": "Zum Beispiel: Ich habe Battle.net gestartet, aber es hat sich nach einer Minute geschlossen.",
   "Attach computer information and log (helps find the problem)": "Computerinformationen und Protokoll anhängen (hilft, den Fehler zu finden)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Das Protokoll ist nicht öffentlich: Nur die Entwickler sehen es, und es wird nach 30 Tagen gelöscht. Es kann deinen Benutzernamen und die Namen deiner Geräte enthalten, aber nicht deine Dateien. Auch deine Beschreibung ist nicht öffentlich: Nur die Entwickler sehen sie.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Die Informationen sind nicht öffentlich: Nur die Entwickler sehen sie, und sie werden nach 30 Tagen gelöscht. Persönliches ist darin verborgen, und du kannst genau sehen, was gesendet wird. Auch deine Beschreibung ist nicht öffentlich: Nur die Entwickler sehen sie.",
   "Sending…": "Wird gesendet…",
   "Send": "Senden",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Die gesicherten Stände auf diesem Computer werden ebenfalls gelöscht. Kopiere vorher alles, was du brauchst, auf eine externe Festplatte oder einen USB-Stick, sonst gibt es nichts, woraus du es wiederherstellen kannst.",
@@ -1267,5 +1267,9 @@
   "Try again": "Erneut versuchen",
   "Install %1 and open the file": "%1 installieren und die Datei öffnen",
   "Bring files over from your other Linux": "Dateien aus dem anderen Linux übernehmen",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopiert die Arbeitsfläche, Dokumente, Bilder und deine anderen persönlichen Ordner sowie Browser-Lesezeichen aus dem anderen Linux auf diesem Computer. Es wird nicht verändert, nur gelesen."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopiert die Arbeitsfläche, Dokumente, Bilder und deine anderen persönlichen Ordner sowie Browser-Lesezeichen aus dem anderen Linux auf diesem Computer. Es wird nicht verändert, nur gelesen.",
+  "Show what is sent": "Zeigen, was gesendet wird",
+  "What is sent": "Was gesendet wird",
+  "Collecting the information…": "Die Informationen werden gesammelt …",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Dein Name, Benutzername, Computername, Netzwerknamen, Netzwerk- und E-Mail-Adressen sowie Seriennummern werden durch Platzhalter wie <user> ersetzt."
 }

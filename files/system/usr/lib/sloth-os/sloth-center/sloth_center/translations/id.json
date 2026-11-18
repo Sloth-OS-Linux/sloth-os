@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Jelaskan dalam beberapa kalimat",
   "For example: I started Battle.net, but it closed after a minute.": "Contoh: saya membuka Battle.net, tetapi tertutup setelah satu menit.",
   "Attach computer information and log (helps find the problem)": "Lampirkan informasi komputer dan log (membantu menemukan masalah)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Log tidak bersifat publik: hanya pengembang yang dapat melihatnya, dan log dihapus setelah 30 hari. Log dapat berisi nama pengguna dan nama perangkat Anda, tetapi tidak berisi berkas Anda. Deskripsi Anda juga tidak bersifat publik: hanya pengembang yang dapat melihatnya.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Informasinya tidak publik: hanya pengembang yang bisa melihatnya, dan dihapus setelah 30 hari. Data pribadi disembunyikan di dalamnya, dan Anda bisa melihat persis apa yang dikirim. Deskripsi Anda juga tidak publik: hanya pengembang yang bisa melihatnya.",
   "Sending…": "Mengirim…",
   "Send": "Kirim",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Keadaan tersimpan di komputer ini juga akan dihapus. Salin dulu semua yang kamu perlukan ke drive eksternal atau flashdisk, kalau tidak, tidak akan ada sumber untuk memulihkannya.",
@@ -1267,5 +1267,9 @@
   "Try again": "Coba lagi",
   "Install %1 and open the file": "Pasang %1 dan buka berkasnya",
   "Bring files over from your other Linux": "Bawa file dari Linux yang lain",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Menyalin Desktop, Dokumen, Gambar, dan folder pribadi Anda yang lain, serta markah peramban, dari Linux lain di komputer ini. Sistem itu tidak diubah, hanya dibaca."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Menyalin Desktop, Dokumen, Gambar, dan folder pribadi Anda yang lain, serta markah peramban, dari Linux lain di komputer ini. Sistem itu tidak diubah, hanya dibaca.",
+  "Show what is sent": "Tampilkan apa yang dikirim",
+  "What is sent": "Yang dikirim",
+  "Collecting the information…": "Mengumpulkan informasi…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Nama Anda, nama pengguna, nama komputer, nama jaringan, alamat jaringan dan email, serta nomor seri diganti dengan penanda seperti <user>."
 }

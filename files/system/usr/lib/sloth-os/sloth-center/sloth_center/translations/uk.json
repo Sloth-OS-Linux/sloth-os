@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Опишіть кількома реченнями",
   "For example: I started Battle.net, but it closed after a minute.": "Наприклад: я запустив Battle.net, але за хвилину він закрився.",
   "Attach computer information and log (helps find the problem)": "Додати відомості про комп’ютер і журнал (допомагає знайти помилку)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Журнал не публікується: його бачать лише розробники, і через 30 днів він видаляється. У ньому можуть бути ваше ім’я користувача та назви пристроїв, але не ваші файли. Ваш опис теж не публікується: його бачать лише розробники.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Відомості не публічні: їх бачать лише розробники, і через 30 днів вони видаляються. Особисті дані в них приховано, і ви можете побачити, що саме надсилається. Ваш опис теж не публічний: його бачать лише розробники.",
   "Sending…": "Надсилання…",
   "Send": "Надіслати",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Збережені стани на цьому комп’ютері також буде видалено. Спершу скопіюйте все потрібне на зовнішній диск або флешку, інакше не буде звідки це відновити.",
@@ -1267,5 +1267,9 @@
   "Try again": "Спробувати ще",
   "Install %1 and open the file": "Встановити %1 і відкрити файл",
   "Bring files over from your other Linux": "Перенести файли з іншого Linux",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Копіює стільницю, документи, зображення та інші особисті теки, а також закладки браузера, з іншого Linux на цьому комп’ютері. Його не чіпаємо, лише читаємо."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Копіює стільницю, документи, зображення та інші особисті теки, а також закладки браузера, з іншого Linux на цьому комп’ютері. Його не чіпаємо, лише читаємо.",
+  "Show what is sent": "Показати, що надсилається",
+  "What is sent": "Що надсилається",
+  "Collecting the information…": "Збираємо відомості…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Ваше ім’я, ім’я користувача, назву комп’ютера, назви мереж, мережеві адреси й адреси e-mail та серійні номери замінено мітками на зразок <user>."
 }

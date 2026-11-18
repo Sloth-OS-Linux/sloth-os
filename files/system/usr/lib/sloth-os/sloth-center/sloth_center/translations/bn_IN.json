@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "কয়েকটি বাক্যে লিখুন",
   "For example: I started Battle.net, but it closed after a minute.": "উদাহরণ: আমি Battle.net চালু করেছিলাম, কিন্তু এক মিনিট পরে বন্ধ হয়ে গেল।",
   "Attach computer information and log (helps find the problem)": "কম্পিউটারের তথ্য ও লগ সংযুক্ত করুন (সমস্যা খুঁজে পেতে সাহায্য করে)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "লগ সর্বজনীন নয়: শুধু ডেভেলপাররা দেখতে পান, আর ৩০ দিন পরে মুছে ফেলা হয়। এতে আপনার ব্যবহারকারীর নাম ও ডিভাইসের নাম থাকতে পারে, তবে আপনার ফাইল থাকে না। আপনার বিবরণও সর্বজনীন নয়: শুধু ডেভেলপাররা দেখতে পান।",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "তথ্যগুলি সর্বজনীন নয়: কেবল ডেভেলপাররা দেখতে পান, এবং ৩০ দিন পরে মুছে ফেলা হয়। এতে ব্যক্তিগত তথ্য লুকানো থাকে, আর ঠিক কী পাঠানো হচ্ছে তা আপনি দেখতে পারেন। আপনার বিবরণও সর্বজনীন নয়: কেবল ডেভেলপাররা দেখতে পান।",
   "Sending…": "পাঠানো হচ্ছে…",
   "Send": "পাঠান",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "এই কম্পিউটারের সংরক্ষিত অবস্থাগুলিও মুছে যাবে। যা দরকার তা আগে একটি বাহ্যিক ডিস্ক বা USB স্টিকে কপি করুন, নইলে ফেরত আনার মতো কিছু থাকবে না।",
@@ -1267,5 +1267,9 @@
   "Try again": "আবার চেষ্টা করুন",
   "Install %1 and open the file": "%1 ইনস্টল করে ফাইলটি খুলুন",
   "Bring files over from your other Linux": "অন্য Linux থেকে ফাইল আনুন",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "এই কম্পিউটারের অন্য Linux থেকে ডেস্কটপ, ডকুমেন্ট, ছবি ও আপনার অন্যান্য ব্যক্তিগত ফোল্ডার, সঙ্গে ব্রাউজারের বুকমার্ক কপি করে। সেটিতে হাত দেওয়া হয় না, শুধু পড়া হয়।"
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "এই কম্পিউটারের অন্য Linux থেকে ডেস্কটপ, ডকুমেন্ট, ছবি ও আপনার অন্যান্য ব্যক্তিগত ফোল্ডার, সঙ্গে ব্রাউজারের বুকমার্ক কপি করে। সেটিতে হাত দেওয়া হয় না, শুধু পড়া হয়।",
+  "Show what is sent": "কী পাঠানো হবে দেখান",
+  "What is sent": "কী পাঠানো হবে",
+  "Collecting the information…": "তথ্য সংগ্রহ করা হচ্ছে…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "আপনার নাম, ব্যবহারকারীর নাম, কম্পিউটারের নাম, নেটওয়ার্কের নাম, নেটওয়ার্ক ও ইমেল ঠিকানা এবং সিরিয়াল নম্বর <user>-এর মতো চিহ্ন দিয়ে বদলে দেওয়া হয়।"
 }

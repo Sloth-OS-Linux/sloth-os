@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Glem-it s kra n tefyar",
   "For example: I started Battle.net, but it closed after a minute.": "Amedya: senkereɣ Battle.net, maca yemdel deffir n tesdat.",
   "Attach computer information and log (helps find the problem)": "Seddu talɣut n uselkim d uɣmis (ad yall ad tettwaf tuccḍa)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Aɣmis mačči d azayez: walan-t-id kan yineflayen, ad yettwakkes deffir n 30 n wussan. Yezmer ad yegber isem-ik n useqdac d yismawen n yibenkan-ik, maca mačči ifuyla-k. Aglam-ik daɣen mačči d azayez: walan-t-id kan yineflayen.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Talɣut mačči d tazayezt: d ineflayen kan i izemren ad tt-walin, ad tettwakkes deffir 30 n wussan. Isefka udmawanen ffren deg-s, tzemreḍ ad twaliḍ s tidet ayen ara yettwaznen. Aglam-ik ula d netta mačči d azayez: d ineflayen kan i t-iwalan.",
   "Sending…": "Tuzna…",
   "Send": "Azen",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Ad ttwakksen daɣen waddaden yettwaskelsen deg uselkim-a. Nɣel uqbel kra n wayen tesriḍ ɣer uḍebsi azɣaran neɣ ɣer tsarut USB, neɣ ulac ansi ara t-id-terreḍ.",
@@ -1267,5 +1267,9 @@
   "Try again": "Ɛreḍ tikkelt-nniḍen",
   "Install %1 and open the file": "Sebded %1 sakin ldi afaylu",
   "Bring files over from your other Linux": "Awi-d ifuyla seg Linux nniḍen",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Yessenɣal tanarit, isemliyen, tugniwin d ikaramen-ik nniḍen udmawanen, akk d ticraḍ n yiminig, seg Linux nniḍen n uselkim-a. Ur t-nettennal ara, d taɣuri kan."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Yessenɣal tanarit, isemliyen, tugniwin d ikaramen-ik nniḍen udmawanen, akk d ticraḍ n yiminig, seg Linux nniḍen n uselkim-a. Ur t-nettennal ara, d taɣuri kan.",
+  "Show what is sent": "Sken-d ayen ara yettwaznen",
+  "What is sent": "Ayen ara yettwaznen",
+  "Collecting the information…": "Alqaḍ n talɣut…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Isem-ik, isem n useqdac, isem n uselkim, ismawen n iẓeḍwan, tansiwin n uẓeḍṭa d imayl akk d wuṭṭunen n umazrar ttwasemselsen s ticraḍ am <user>."
 }

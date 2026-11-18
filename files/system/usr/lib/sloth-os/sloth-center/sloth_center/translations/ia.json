@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Describe lo in alcun phrases",
   "For example: I started Battle.net, but it closed after a minute.": "Per exemplo: io lanceva Battle.net, ma illo se clam post un minuta.",
   "Attach computer information and log (helps find the problem)": "Attaccar informationes del computator e le registro (adjuta a trovar le problema)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Le registro non es public: solo le disveloppatores lo vide, e illo es delite post 30 dies. Illo pote continer tu nomine de usator e le nomines de tu apparatos, ma non tu files. Tu description etiam non es public: solo le disveloppatores lo vide.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Le information non es public: solmente le disveloppatores pote vider lo, e illo es delite post 30 dies. Le detalios personal es celate in illo, e tu pote vider exactemente lo que es inviate. Tu description non es public: solmente le disveloppatores pote vider lo.",
   "Sending…": "Inviante…",
   "Send": "Inviar",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Le statos salvate in iste computator essera etiam delite. Copia primo toto lo que tu necessita a un disco externe o un clave USB, alteremente il non habera nihil ex que restaurar lo.",
@@ -1267,5 +1267,9 @@
   "Try again": "Reprobar",
   "Install %1 and open the file": "Installar %1 e aperir le file",
   "Bring files over from your other Linux": "Portar files ab le altere Linux",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copia le scriptorio, documentos, imagines e tu altere dossiers personal, e anque le marcapaginas del navigator, ab le altere Linux in iste computator. Illo non es tocate, solmente legite."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copia le scriptorio, documentos, imagines e tu altere dossiers personal, e anque le marcapaginas del navigator, ab le altere Linux in iste computator. Illo non es tocate, solmente legite.",
+  "Show what is sent": "Monstrar lo que es inviate",
+  "What is sent": "Lo que es inviate",
+  "Collecting the information…": "Colligente le information…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Tu nomine, nomine de usator, nomine del computator, nomines de retes, adresses de rete e de e-mail e numeros de serie es reimplaciate per marcas como <user>."
 }

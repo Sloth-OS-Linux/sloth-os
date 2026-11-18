@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "ਕੁਝ ਵਾਕਾਂ ਵਿੱਚ ਦੱਸੋ",
   "For example: I started Battle.net, but it closed after a minute.": "ਉਦਾਹਰਨ: ਮੈਂ Battle.net ਚਾਲੂ ਕੀਤਾ, ਪਰ ਇੱਕ ਮਿੰਟ ਬਾਅਦ ਇਹ ਬੰਦ ਹੋ ਗਿਆ।",
   "Attach computer information and log (helps find the problem)": "ਕੰਪਿਊਟਰ ਦੀ ਜਾਣਕਾਰੀ ਅਤੇ ਲੌਗ ਨੱਥੀ ਕਰੋ (ਸਮੱਸਿਆ ਲੱਭਣ ਵਿੱਚ ਮਦਦ ਕਰਦਾ ਹੈ)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "ਲੌਗ ਜਨਤਕ ਨਹੀਂ ਹੈ: ਸਿਰਫ਼ ਡਿਵੈਲਪਰ ਇਸਨੂੰ ਦੇਖਦੇ ਹਨ, ਅਤੇ 30 ਦਿਨਾਂ ਬਾਅਦ ਇਹ ਮਿਟਾ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ। ਇਸ ਵਿੱਚ ਤੁਹਾਡਾ ਵਰਤੋਂਕਾਰ ਨਾਂ ਅਤੇ ਡਿਵਾਈਸਾਂ ਦੇ ਨਾਂ ਹੋ ਸਕਦੇ ਹਨ, ਪਰ ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ ਨਹੀਂ। ਤੁਹਾਡਾ ਵੇਰਵਾ ਵੀ ਜਨਤਕ ਨਹੀਂ ਹੈ: ਸਿਰਫ਼ ਡਿਵੈਲਪਰ ਇਸਨੂੰ ਦੇਖਦੇ ਹਨ।",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "ਜਾਣਕਾਰੀ ਜਨਤਕ ਨਹੀਂ ਹੈ: ਸਿਰਫ਼ ਡਿਵੈਲਪਰ ਇਸ ਨੂੰ ਦੇਖ ਸਕਦੇ ਹਨ, ਅਤੇ ਇਹ 30 ਦਿਨਾਂ ਬਾਅਦ ਮਿਟ ਜਾਂਦੀ ਹੈ। ਇਸ ਵਿੱਚ ਨਿੱਜੀ ਵੇਰਵੇ ਲੁਕੇ ਹੁੰਦੇ ਹਨ, ਅਤੇ ਤੁਸੀਂ ਦੇਖ ਸਕਦੇ ਹੋ ਕਿ ਬਿਲਕੁਲ ਕੀ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ। ਤੁਹਾਡਾ ਵੇਰਵਾ ਵੀ ਜਨਤਕ ਨਹੀਂ: ਸਿਰਫ਼ ਡਿਵੈਲਪਰ ਇਸ ਨੂੰ ਦੇਖ ਸਕਦੇ ਹਨ।",
   "Sending…": "ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ…",
   "Send": "ਭੇਜੋ",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "ਇਸ ਕੰਪਿਊਟਰ ਦੀਆਂ ਸੰਭਾਲੀਆਂ ਹਾਲਤਾਂ ਵੀ ਮਿਟ ਜਾਣਗੀਆਂ। ਜੋ ਵੀ ਚਾਹੀਦਾ ਹੈ ਉਹ ਪਹਿਲਾਂ ਕਿਸੇ ਬਾਹਰੀ ਡਿਸਕ ਜਾਂ USB ਸਟਿੱਕ ਉੱਤੇ ਕਾਪੀ ਕਰੋ, ਨਹੀਂ ਤਾਂ ਵਾਪਸ ਲਿਆਉਣ ਲਈ ਕੁਝ ਨਹੀਂ ਰਹੇਗਾ।",
@@ -1267,5 +1267,9 @@
   "Try again": "ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
   "Install %1 and open the file": "%1 ਇੰਸਟਾਲ ਕਰੋ ਅਤੇ ਫ਼ਾਈਲ ਖੋਲ੍ਹੋ",
   "Bring files over from your other Linux": "ਦੂਜੇ Linux ਤੋਂ ਫ਼ਾਈਲਾਂ ਲਿਆਓ",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "ਇਸ ਕੰਪਿਊਟਰ ਦੇ ਦੂਜੇ Linux ਤੋਂ ਡੈਸਕਟਾਪ, ਦਸਤਾਵੇਜ਼, ਤਸਵੀਰਾਂ ਅਤੇ ਤੁਹਾਡੇ ਹੋਰ ਨਿੱਜੀ ਫੋਲਡਰ, ਨਾਲ ਹੀ ਬ੍ਰਾਊਜ਼ਰ ਬੁੱਕਮਾਰਕ ਕਾਪੀ ਕਰਦਾ ਹੈ। ਉਸ ਨੂੰ ਛੇੜਿਆ ਨਹੀਂ ਜਾਂਦਾ, ਸਿਰਫ਼ ਪੜ੍ਹਿਆ ਜਾਂਦਾ ਹੈ।"
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "ਇਸ ਕੰਪਿਊਟਰ ਦੇ ਦੂਜੇ Linux ਤੋਂ ਡੈਸਕਟਾਪ, ਦਸਤਾਵੇਜ਼, ਤਸਵੀਰਾਂ ਅਤੇ ਤੁਹਾਡੇ ਹੋਰ ਨਿੱਜੀ ਫੋਲਡਰ, ਨਾਲ ਹੀ ਬ੍ਰਾਊਜ਼ਰ ਬੁੱਕਮਾਰਕ ਕਾਪੀ ਕਰਦਾ ਹੈ। ਉਸ ਨੂੰ ਛੇੜਿਆ ਨਹੀਂ ਜਾਂਦਾ, ਸਿਰਫ਼ ਪੜ੍ਹਿਆ ਜਾਂਦਾ ਹੈ।",
+  "Show what is sent": "ਦਿਖਾਓ ਕਿ ਕੀ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ",
+  "What is sent": "ਕੀ ਭੇਜਿਆ ਜਾਂਦਾ ਹੈ",
+  "Collecting the information…": "ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "ਤੁਹਾਡਾ ਨਾਂ, ਵਰਤੋਂਕਾਰ ਨਾਂ, ਕੰਪਿਊਟਰ ਦਾ ਨਾਂ, ਨੈੱਟਵਰਕਾਂ ਦੇ ਨਾਂ, ਨੈੱਟਵਰਕ ਅਤੇ ਈਮੇਲ ਪਤੇ ਅਤੇ ਸੀਰੀਅਲ ਨੰਬਰ <user> ਵਰਗੇ ਨਿਸ਼ਾਨਾਂ ਨਾਲ ਬਦਲ ਦਿੱਤੇ ਜਾਂਦੇ ਹਨ।"
 }

@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Aprašykite keliais sakiniais",
   "For example: I started Battle.net, but it closed after a minute.": "Pavyzdžiui: paleidau Battle.net, bet po minutės jis užsidarė.",
   "Attach computer information and log (helps find the problem)": "Pridėti kompiuterio informaciją ir žurnalą (padeda rasti klaidą)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Žurnalas nėra viešas: jį mato tik kūrėjai, o po 30 dienų jis ištrinamas. Jame gali būti jūsų naudotojo vardas ir įrenginių pavadinimai, bet ne jūsų failai. Jūsų aprašymas taip pat nėra viešas: jį mato tik kūrėjai.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Informacija nėra vieša: ją mato tik kūrėjai, o po 30 dienų ji ištrinama. Asmeniniai duomenys joje paslėpti, ir galite tiksliai matyti, kas siunčiama. Jūsų aprašymas taip pat nėra viešas: jį mato tik kūrėjai.",
   "Sending…": "Siunčiama…",
   "Send": "Siųsti",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Bus ištrintos ir šiame kompiuteryje išsaugotos būsenos. Pirmiausia nukopijuokite viską, ko reikia, į išorinį diską ar USB atmintinę, kitaip nebus iš ko atkurti.",
@@ -1267,5 +1267,9 @@
   "Try again": "Bandyti dar kartą",
   "Install %1 and open the file": "Įdiegti %1 ir atverti failą",
   "Bring files over from your other Linux": "Perkelti failus iš kitos „Linux“",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Nukopijuoja darbalaukį, dokumentus, paveikslėlius ir kitus asmeninius aplankus bei naršyklės žymeles iš kitos šio kompiuterio „Linux“. Jos nekeičiame, tik skaitome."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Nukopijuoja darbalaukį, dokumentus, paveikslėlius ir kitus asmeninius aplankus bei naršyklės žymeles iš kitos šio kompiuterio „Linux“. Jos nekeičiame, tik skaitome.",
+  "Show what is sent": "Rodyti, kas siunčiama",
+  "What is sent": "Kas siunčiama",
+  "Collecting the information…": "Renkama informacija…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Jūsų vardas, naudotojo vardas, kompiuterio pavadinimas, tinklų pavadinimai, tinklo ir el. pašto adresai bei serijos numeriai pakeičiami žymėmis, pvz., <user>."
 }

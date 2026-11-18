@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Kirjelda seda paari lausega",
   "For example: I started Battle.net, but it closed after a minute.": "Näiteks: käivitasin Battle.neti, aga see sulgus minuti pärast.",
   "Attach computer information and log (helps find the problem)": "Lisa arvuti andmed ja logi (aitab vea üles leida)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Logi ei ole avalik: seda näevad ainult arendajad ja see kustutatakse 30 päeva pärast. Selles võib olla sinu kasutajanimi ja seadmete nimed, kuid mitte sinu faile. Ka sinu kirjeldus ei ole avalik: seda näevad ainult arendajad.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Teave pole avalik: seda näevad ainult arendajad ja see kustutatakse 30 päeva pärast. Isikuandmed on selles peidetud ja näed täpselt, mida saadetakse. Ka sinu kirjeldus pole avalik: seda näevad ainult arendajad.",
   "Sending…": "Saatmine…",
   "Send": "Saada",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Kustutatakse ka selle arvuti salvestatud olekud. Kopeeri kõik vajalik enne välisele kettale või USB-mälupulgale, muidu pole kust seda taastada.",
@@ -1267,5 +1267,9 @@
   "Try again": "Proovi uuesti",
   "Install %1 and open the file": "Paigalda %1 ja ava fail",
   "Bring files over from your other Linux": "Too failid üle teisest Linuxist",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopeerib töölaua, dokumendid, pildid ja muud isiklikud kaustad ning brauseri järjehoidjad selle arvuti teisest Linuxist. Seda ei muudeta, ainult loetakse."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopeerib töölaua, dokumendid, pildid ja muud isiklikud kaustad ning brauseri järjehoidjad selle arvuti teisest Linuxist. Seda ei muudeta, ainult loetakse.",
+  "Show what is sent": "Näita, mida saadetakse",
+  "What is sent": "Mida saadetakse",
+  "Collecting the information…": "Teabe kogumine…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Sinu nimi, kasutajanimi, arvuti nimi, võrkude nimed, võrgu- ja e-posti aadressid ning seerianumbrid asendatakse kohatäidetega nagu <user>."
 }

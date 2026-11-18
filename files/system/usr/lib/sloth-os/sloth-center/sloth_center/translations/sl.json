@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Opišite v nekaj stavkih",
   "For example: I started Battle.net, but it closed after a minute.": "Na primer: zagnal sem Battle.net, a se je po minuti zaprl.",
   "Attach computer information and log (helps find the problem)": "Priloži podatke o računalniku in dnevnik (pomaga najti napako)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Dnevnik ni javen: vidijo ga samo razvijalci in se po 30 dneh izbriše. Lahko vsebuje vaše uporabniško ime in imena naprav, ne pa vaših datotek. Tudi vaš opis ni javen: vidijo ga samo razvijalci.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Podatki niso javni: vidijo jih le razvijalci in se po 30 dneh izbrišejo. Osebni podatki so v njih skriti, in lahko vidite natanko, kaj se pošlje. Tudi vaš opis ni javen: vidijo ga le razvijalci.",
   "Sending…": "Pošiljanje …",
   "Send": "Pošlji",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Izbrisana bodo tudi shranjena stanja na tem računalniku. Najprej kopirajte vse, kar potrebujete, na zunanji disk ali USB-ključek, sicer ne bo od kod obnoviti.",
@@ -1267,5 +1267,9 @@
   "Try again": "Poskusi znova",
   "Install %1 and open the file": "Namesti %1 in odpri datoteko",
   "Bring files over from your other Linux": "Prenesi datoteke iz drugega Linuxa",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Prekopira namizje, dokumente, slike in druge osebne mape ter zaznamke brskalnika iz drugega Linuxa v tem računalniku. Ne spreminja ga, samo bere."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Prekopira namizje, dokumente, slike in druge osebne mape ter zaznamke brskalnika iz drugega Linuxa v tem računalniku. Ne spreminja ga, samo bere.",
+  "Show what is sent": "Pokaži, kaj se pošlje",
+  "What is sent": "Kaj se pošlje",
+  "Collecting the information…": "Zbiranje podatkov …",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Vaše ime, uporabniško ime, ime računalnika, imena omrežij, omrežni in e-poštni naslovi ter serijske številke se zamenjajo z oznakami, kot je <user>."
 }

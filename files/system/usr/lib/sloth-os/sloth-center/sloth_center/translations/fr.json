@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Décrivez-le en quelques phrases",
   "For example: I started Battle.net, but it closed after a minute.": "Par exemple : j'ai lancé Battle.net, mais il s'est fermé au bout d'une minute.",
   "Attach computer information and log (helps find the problem)": "Joindre les informations de l'ordinateur et le journal (aide à trouver le problème)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Le journal n'est pas public : seuls les développeurs le voient, et il est supprimé après 30 jours. Il peut contenir votre nom d'utilisateur et le nom de vos appareils, mais pas vos fichiers. Votre description n'est pas publique non plus : seuls les développeurs la voient.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Les informations ne sont pas publiques : seuls les développeurs les voient, et elles sont supprimées au bout de 30 jours. Les données personnelles y sont masquées, et vous pouvez voir exactement ce qui est envoyé. Votre description n’est pas publique non plus : seuls les développeurs la voient.",
   "Sending…": "Envoi…",
   "Send": "Envoyer",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Les états enregistrés sur cet ordinateur seront aussi supprimés. Copiez d’abord tout ce dont vous avez besoin sur un disque externe ou une clé USB, sinon il n’y aura rien à partir de quoi le récupérer.",
@@ -1267,5 +1267,9 @@
   "Try again": "Réessayer",
   "Install %1 and open the file": "Installer %1 et ouvrir le fichier",
   "Bring files over from your other Linux": "Récupérer des fichiers de l’autre Linux",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copie le bureau, les documents, les images et vos autres dossiers personnels, ainsi que les favoris du navigateur, depuis l’autre Linux de cet ordinateur. Il n’est pas modifié, seulement lu."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copie le bureau, les documents, les images et vos autres dossiers personnels, ainsi que les favoris du navigateur, depuis l’autre Linux de cet ordinateur. Il n’est pas modifié, seulement lu.",
+  "Show what is sent": "Voir ce qui est envoyé",
+  "What is sent": "Ce qui est envoyé",
+  "Collecting the information…": "Collecte des informations…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Votre nom, votre nom d’utilisateur, le nom de l’ordinateur, les noms des réseaux, les adresses réseau et e-mail et les numéros de série sont remplacés par des repères comme <user>."
 }

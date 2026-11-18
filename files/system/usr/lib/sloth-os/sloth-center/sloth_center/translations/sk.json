@@ -639,7 +639,7 @@
   "Describe it in a few sentences": "Opíšte to v niekoľkých vetách",
   "For example: I started Battle.net, but it closed after a minute.": "Napríklad: spustil som Battle.net, ale po minúte sa zavrel.",
   "Attach computer information and log (helps find the problem)": "Pripojiť informácie o počítači a záznam (pomôže nájsť chybu)",
-  "The log is not public: only the developers can see it, and it is deleted after 30 days. It may contain your user name and device names, but not your files. Your description is not public either: only the developers can see it.": "Záznam nie je verejný: vidia ho len vývojári a po 30 dňoch sa vymaže. Môže obsahovať vaše používateľské meno a názvy zariadení, ale nie vaše súbory. Ani váš opis nie je verejný: vidia ho len vývojári.",
+  "The information is not public: only the developers can see it, and it is deleted after 30 days. Personal details are hidden in it, and you can see exactly what is sent. Your description is not public either: only the developers can see it.": "Informácie nie sú verejné: vidia ich len vývojári a po 30 dňoch sa vymažú. Osobné údaje sú v nich skryté a môžete si pozrieť, čo presne sa odošle. Ani váš opis nie je verejný: vidia ho len vývojári.",
   "Sending…": "Odosiela sa…",
   "Send": "Odoslať",
   "The saved states on this computer will be deleted too. Copy anything you need to an external drive or USB stick first, otherwise there will be nothing to restore it from.": "Zmažú sa aj uložené stavy na tomto počítači. Všetko potrebné si najprv skopírujte na externý disk alebo USB kľúč, inak nebude odkiaľ to obnoviť.",
@@ -1267,5 +1267,9 @@
   "Try again": "Skúsiť znova",
   "Install %1 and open the file": "Nainštalovať %1 a otvoriť súbor",
   "Bring files over from your other Linux": "Preniesť súbory z druhého Linuxu",
-  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Skopíruje plochu, dokumenty, obrázky a ďalšie osobné priečinky aj záložky prehliadača z druhého Linuxu v tomto počítači. Nič sa na ňom nemení, len sa číta."
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Skopíruje plochu, dokumenty, obrázky a ďalšie osobné priečinky aj záložky prehliadača z druhého Linuxu v tomto počítači. Nič sa na ňom nemení, len sa číta.",
+  "Show what is sent": "Ukázať, čo sa odošle",
+  "What is sent": "Čo sa odošle",
+  "Collecting the information…": "Zhromažďujú sa informácie…",
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Vaše meno, používateľské meno, názov počítača, názvy sietí, sieťové a e-mailové adresy a sériové čísla sa nahradia zástupnými znakmi ako <user>."
 }
