@@ -340,7 +340,23 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        its home: our global user units ran for it too. All sloth-* user units now have ConditionUser=!@system
        (checked in the image: false for root and plasmalogin, true for uid 1000), and tmpfiles.d/
        sloth-plasmalogin-cleanup.conf removes what was downloaded there (tried with systemd-tmpfiles --remove)
-  8. **Moving over from another Linux** (large, listed)
+  8. ~~**Moving over from another Linux**~~ DONE 2026-11-18 (test branch): the "Bring your files over" step (Sloth
+     Welcome, and Sloth Center → Disks) also finds another Linux on the computer (sloth_common/windows_import.py):
+     an ext4, btrfs or xfs partition that is not this system's own (lsblk's mount points; one the user mounted under
+     /run/media counts), another Linux's encrypted disk said to be locked. Read-only, a btrfs at its top
+     (subvolid=5; allowed by the image's udisks), so the layouts are all found: Ubuntu's ext4, Fedora's root/home
+     subvolumes, Ubuntu's @/@home, openSUSE's @/home, a separate /home, Fedora Atomic's ostree. Each account's
+     folders by its own user-dirs.dirs ("Asztal", "Dokumentumok"…); the bookmarks of the Linux browsers, also their
+     Flatpak and Snap copies; the apps from its Flatpaks (by id) and its Start menu entries (system, Snap, the
+     user's own); its Steam libraries (native, Flatpak, Snap, and those its libraryfolders.vdf names) with each
+     game's Proton environment (compatdata: a Windows game's saves are in it), and Proton forced here only for the
+     games that had it there. A name already taken gets "(Linux)". The step's texts say "your other Linux" (linux.*,
+     11 texts in 50 languages; the Disks card's 2 in 49). Tried: tools/tests/test_linux_import.py (16: the layouts,
+     the partitions from a made-up lsblk, the bookmarks, the games, the copying), real btrfs and ext4 images mounted
+     read-only in the image, and the wizard's step itself offscreen on that btrfs (screenshots: the step, then
+     "Done: 3 files…, 1 Steam game"). A bug found that way and fixed: only the first chosen folder used its
+     localised name
+     - [ ] On real hardware: a computer with another Linux next to Sloth OS (or a second disk with one)
   9. **Sending files to a phone or another computer on the home network** (small with LocalSend in Sloth Welcome's
      catalog, new; large as our own, listed: "consent-based file sharing…")
 - Safety and help:
