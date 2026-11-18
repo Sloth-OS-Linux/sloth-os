@@ -23,6 +23,14 @@
 on_desktop=false
 [ "$1" = "--on-desktop" ] && on_desktop=true
 
+# On the desktop, its output (and gamescope's and Steam's) goes to the journal: whoever started it may stop reading.
+# Our menus' button ran it through plasmashell's command runner, which reads the output through a pipe and closes it
+# once the command has returned; gamescope's first line then killed it with SIGPIPE (exit code 141, at once, on the
+# HP, 2026-11-18). The Start menu's launcher gives it the journal, which is why it worked from there.
+if $on_desktop; then
+    exec > >(exec logger -t sloth-tv-output) 2>&1
+fi
+
 log() { logger -t sloth-tv-session -- "$*"; }
 
 steam_was_open=false

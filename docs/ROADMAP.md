@@ -216,8 +216,11 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        TV mode's Steam now gets --system-talk-name=org.freedesktop.login1 (polkit still decides)
        - [ ] On the HP: Sleep from TV mode: the computer sleeps, wakes with the power button, Steam comes back
      - [x] On the HP (2026-11-18): the Start menu's TV mode starts; the system menu's and the quick settings' button did
-       not (they ran `setsid -f tv-session --on-desktop` from plasmashell; why, not known yet). They now start it
-       through the Start menu entry itself: `kstart --application org.slothos.tv-mode`
+       not: tv-session's log said "gamescope ended (exit code 141)" at once, SIGPIPE. Plasmashell's command runner
+       reads the output through a pipe and closes it when the command returns (setsid -f returns at once); gamescope's
+       first line then killed it. tv-session --on-desktop now sends its output to the journal (logger -t
+       sloth-tv-output) whoever started it (reproduced in the image with a closed pipe: 141 before, 0 after), and the
+       buttons start it through the Start menu entry like the Start menu: `kstart --application org.slothos.tv-mode`
        - [ ] On the HP: the TV mode button in the Mac-like system menu and in the ChromeOS-like quick settings
      - [x] On the HP (2026-11-16): TV mode works from the sign-in screen and Exit Steam brings the desktop ("works
        great, I like it a lot"), but Steam's power menu → Switch to Desktop froze: Steam calls steamos-session-select
