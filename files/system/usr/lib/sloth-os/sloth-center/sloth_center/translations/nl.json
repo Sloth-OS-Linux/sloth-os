@@ -1265,5 +1265,7 @@
   "Getting ready…": "Voorbereiden…",
   "Search in Discover": "Zoeken in Discover",
   "Try again": "Opnieuw proberen",
-  "Install %1 and open the file": "%1 installeren en het bestand openen"
+  "Install %1 and open the file": "%1 installeren en het bestand openen",
+  "Bring files over from your other Linux": "Bestanden overzetten vanaf je andere Linux",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopieert het bureaublad, documenten, afbeeldingen en je andere persoonlijke mappen, plus browserbladwijzers, vanaf de andere Linux op deze computer. Die wordt niet aangeraakt, alleen gelezen."
 }

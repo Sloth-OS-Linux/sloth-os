@@ -193,14 +193,18 @@ class DisksController(QObject):
         self._drives_ready.connect(self._on_drives)
         self._usage_ready.connect(self._on_usage)
         self._cleanup_ready.connect(self._on_cleanup)
-        # whether the machine has a Windows partition (bringing files over; we look without mounting)
-        self._windows = bool(windows_import.candidates())
+        # whether the machine has a Windows or another Linux's partition (bringing files over; we look without
+        # mounting); the card says "from your other Linux" when there is no Windows
+        parts = windows_import.candidates()
+        self._windows = bool(parts)
+        self._import_kind = "linux" if parts and all(p.get("kind") == "linux" for p in parts) else "windows"
         self.refresh()
 
     drives = Property("QVariantList", lambda self: list(self._drives), notify=changed)
     busy = Property(bool, lambda self: self._busy, notify=changed)
     cleanupText = Property(str, lambda self: self._cleanup, notify=changed)
     hasWindows = Property(bool, lambda self: self._windows, constant=True)
+    importKind = Property(str, lambda self: self._import_kind, constant=True)
     usage = Property("QVariantMap", lambda self: dict(self._usage), notify=changed)
     usageBusy = Property(bool, lambda self: self._usage_busy, notify=changed)
     scanning = Property(bool, lambda self: self._scanning, notify=changed)

@@ -211,5 +211,16 @@
   "desktop.comment": "Namestitev brskalnika, pisarniškega paketa, predvajalnika predstavnosti in drugega, izbira barvne sheme",
   "desktop.keywords": "dobrodošli;aplikacije;brskalnik;pisarna;tema",
   "done.support": "Sloth OS je brezplačen in nastaja v prostem času. Če vam je všeč, lahko njegov razvoj podprete s pivom: ko-fi.com/slothos",
-  "done.support_button": "Podpora na Ko-fi"
+  "done.support_button": "Podpora na Ko-fi",
+  "linux.heading": "Prenesem datoteke z vašega drugega Linuxa?",
+  "linux.text": "Ta računalnik ima tudi drug sistem Linux. Vaše datoteke lahko prekopiramo; ne spreminjamo ga, samo beremo z njega.",
+  "linux.scanning": "Pregledovanje drugega diska z Linuxom …",
+  "linux.passwords": "Gesel, shranjenih v brskalniku, ni mogoče prenesti. V drugem sistemu vklopite sinhronizacijo v brskalniku (ali izvozite gesla), nato se tukaj prijavite v isti brskalnik.",
+  "linux.locked": "Drugi disk z Linuxom je šifriran, zato ga tukaj ni mogoče brati. Zaženite tisti sistem in datoteke raje prekopirajte na USB-ključek.",
+  "linux.failed": "Drugega diska z Linuxom ni bilo mogoče odpreti. Zaženite tisti sistem in ga povsem zaustavite, nato poskusite znova v Sloth Center (Diski).",
+  "linux.apps_heading": "Aplikacije, ki ste jih uporabljali v drugem Linuxu",
+  "linux.done": "Končano: {count} datotek iz drugega Linuxa je tukaj.",
+  "linux.user": "Račun Linux:",
+  "linux.bookmarks_file": "Zaznamki Linux.html",
+  "linux.bookmarks_folder": "Iz sistema Linux"
 }

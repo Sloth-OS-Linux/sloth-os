@@ -1265,5 +1265,7 @@
   "Getting ready…": "正在準備…",
   "Search in Discover": "在 Discover 中搜尋",
   "Try again": "重試",
-  "Install %1 and open the file": "安裝 %1 並開啟檔案"
+  "Install %1 and open the file": "安裝 %1 並開啟檔案",
+  "Bring files over from your other Linux": "從另一個 Linux 帶來檔案",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "從這台電腦上的另一個 Linux 複製桌面、文件、圖片和其他個人資料夾，以及瀏覽器書籤。不會更動它，只是讀取。"
 }

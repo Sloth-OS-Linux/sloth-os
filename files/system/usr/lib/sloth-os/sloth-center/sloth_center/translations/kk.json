@@ -1265,5 +1265,7 @@
   "Getting ready…": "Дайындалуда…",
   "Search in Discover": "Discover-де іздеу",
   "Try again": "Қайталау",
-  "Install %1 and open the file": "%1 орнатып, файлды ашу"
+  "Install %1 and open the file": "%1 орнатып, файлды ашу",
+  "Bring files over from your other Linux": "Басқа Linux-тан файлдарды көшіру",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Осы компьютердегі басқа Linux-тан жұмыс үстелін, құжаттарды, суреттерді және басқа жеке қалталарды, сондай-ақ браузер бетбелгілерін көшіреді. Оған тиіспейміз, тек оқимыз."
 }

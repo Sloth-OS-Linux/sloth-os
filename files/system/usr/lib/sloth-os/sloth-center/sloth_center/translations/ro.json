@@ -1265,5 +1265,7 @@
   "Getting ready…": "Se pregătește…",
   "Search in Discover": "Caută în Discover",
   "Try again": "Încearcă din nou",
-  "Install %1 and open the file": "Instalează %1 și deschide fișierul"
+  "Install %1 and open the file": "Instalează %1 și deschide fișierul",
+  "Bring files over from your other Linux": "Adu fișiere din celălalt Linux",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copiază desktopul, documentele, imaginile și celelalte dosare personale, plus marcajele din browser, din celălalt Linux de pe acest calculator. Nu este atins, doar citit."
 }

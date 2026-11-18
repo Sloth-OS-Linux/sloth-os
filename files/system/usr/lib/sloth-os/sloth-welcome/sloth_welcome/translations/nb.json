@@ -211,5 +211,16 @@
   "desktop.comment": "Installer en nettleser, kontorpakke, mediespiller og mer, velg et fargeoppsett",
   "desktop.keywords": "velkommen;apper;nettleser;kontor;tema",
   "done.support": "Sloth OS er gratis og lages på fritiden. Hvis du liker det, kan du støtte utviklingen med en øl: ko-fi.com/slothos",
-  "done.support_button": "Støtt på Ko-fi"
+  "done.support_button": "Støtt på Ko-fi",
+  "linux.heading": "Vil du flytte filene dine fra den andre Linuxen din?",
+  "linux.text": "Denne datamaskinen har også et annet Linux-system. Vi kan kopiere filene dine; det blir ikke rørt, vi bare leser fra det.",
+  "linux.scanning": "Går gjennom den andre Linux-disken …",
+  "linux.passwords": "Passord lagret i en nettleser kan ikke flyttes. Slå på synkronisering i nettleseren i det andre systemet (eller eksporter passordene), og logg så inn i den samme nettleseren her.",
+  "linux.locked": "Den andre Linux-disken er kryptert, så den kan ikke leses her. Start det systemet og kopier heller filene til en minnepinne.",
+  "linux.failed": "Den andre Linux-disken kunne ikke åpnes. Start det systemet og slå det helt av, og prøv så igjen fra Sloth Center (Disker).",
+  "linux.apps_heading": "Apper du brukte på den andre Linuxen din",
+  "linux.done": "Ferdig: {count} filer fra den andre Linuxen din er her.",
+  "linux.user": "Linux-konto:",
+  "linux.bookmarks_file": "Linux-bokmerker.html",
+  "linux.bookmarks_folder": "Fra Linux"
 }

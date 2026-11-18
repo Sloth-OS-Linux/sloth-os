@@ -211,5 +211,16 @@
   "desktop.comment": "Instaliranje preglednika, uredskog paketa, medijskog reproduktora i drugog, odabir sheme boja",
   "desktop.keywords": "dobrodošlica;aplikacije;preglednik;ured;tema",
   "done.support": "Sloth OS je besplatan i nastaje u slobodno vrijeme. Ako vam se sviđa, možete podržati njegov razvoj jednim pivom: ko-fi.com/slothos",
-  "done.support_button": "Podrška na Ko-fi"
+  "done.support_button": "Podrška na Ko-fi",
+  "linux.heading": "Prenijeti datoteke s vašeg drugog Linuxa?",
+  "linux.text": "Ovo računalo ima i drugi Linux sustav. Možemo kopirati vaše datoteke; ne diramo ga, samo čitamo s njega.",
+  "linux.scanning": "Pregledavanje drugog Linux diska…",
+  "linux.passwords": "Lozinke spremljene u pregledniku ne mogu se prenijeti. U drugom sustavu uključite sinkronizaciju u pregledniku (ili izvezite lozinke), zatim se ovdje prijavite u isti preglednik.",
+  "linux.locked": "Drugi Linux disk je šifriran pa se ovdje ne može čitati. Pokrenite taj sustav i kopirajte datoteke na USB stick.",
+  "linux.failed": "Drugi Linux disk nije se mogao otvoriti. Pokrenite taj sustav i potpuno ga isključite, zatim pokušajte ponovno iz Sloth Centera (Diskovi).",
+  "linux.apps_heading": "Aplikacije koje ste koristili na drugom Linuxu",
+  "linux.done": "Gotovo: {count} datoteka s vašeg drugog Linuxa je ovdje.",
+  "linux.user": "Linux račun:",
+  "linux.bookmarks_file": "Linux oznake.html",
+  "linux.bookmarks_folder": "Iz Linuxa"
 }

@@ -1265,5 +1265,7 @@
   "Getting ready…": "Pripremanje…",
   "Search in Discover": "Traži u Discoveru",
   "Try again": "Pokušaj ponovo",
-  "Install %1 and open the file": "Instaliraj %1 i otvori datoteku"
+  "Install %1 and open the file": "Instaliraj %1 i otvori datoteku",
+  "Bring files over from your other Linux": "Prenesi datoteke s drugog Linuxa",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopira radnu površinu, dokumente, slike i ostale osobne mape te oznake preglednika s drugog Linuxa na ovom računalu. Ne dira se, samo se čita."
 }

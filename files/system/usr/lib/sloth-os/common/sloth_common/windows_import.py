@@ -1,4 +1,12 @@
-"""Moving over from Windows: bringing over the user folders (Desktop, Documents…) and the browser bookmarks.
+"""Moving over from Windows, or from another Linux on the same computer: bringing over the user folders (Desktop,
+Documents…), the browser bookmarks, the apps used there and the installed Steam games.
+
+Another Linux (2026-11-18): an ext4, btrfs or xfs partition that is not this system's own is looked at the same way
+(users(), linux_users()): its homes (/home/<name>, a btrfs @home or @/home, or a separate home partition), each
+user's folders by their own user-dirs.dirs (localised names: "Asztal", "Dokumente"…), the bookmarks of the Linux
+browsers (also their Flatpak and Snap copies), the apps from its Flatpaks and Start menu entries, and its Steam
+libraries (native, Flatpak and Snap Steam) with each game's Proton environment (compatdata: the Windows games' saves
+are in it). A btrfs is mounted at its top (subvolid=5), so every layout's subvolumes are reachable.
 
 The Windows partition is only mounted read-only (udisksctl, with the system's password prompt if needed), and nothing
 is written to it. The files go into the matching Sloth OS folders (xdg-user-dir); whatever is already there with the
@@ -38,6 +46,10 @@ SKIP_USERS = {"public", "default", "default user", "all users", "defaultapppool"
 SKIP_FILES = {"desktop.ini", "thumbs.db"}
 SKIP_SUFFIXES = (".lnk",)       # Windows shortcuts: they do not work on Linux
 MIN_NTFS_BYTES = 10 * 1024**3   # a smaller NTFS partition (e.g. recovery) is not a Windows system
+LINUX_FS = ("ext4", "btrfs", "xfs")
+# where the user may have mounted another system's partition by hand: still a candidate. Anything else mounted
+# (/, /sysroot, /var, /boot, /home…) is this system itself.
+USER_MOUNTS = ("/run/media/", "/media/", "/mnt/")
 CHROMIUM_BROWSERS = {
     "Google Chrome": "AppData/Local/Google/Chrome/User Data",
     "Microsoft Edge": "AppData/Local/Microsoft/Edge/User Data",
@@ -46,14 +58,38 @@ CHROMIUM_BROWSERS = {
     "Opera": "AppData/Roaming/Opera Software/Opera Stable",   # the profile is the folder itself
 }
 FIREFOX_PROFILES = "AppData/Roaming/Mozilla/Firefox/Profiles"
+# The same browsers on another Linux: their folders in the home (also the Flatpak and Snap copies)
+LINUX_CHROMIUM_BROWSERS = {
+    "Google Chrome": (".config/google-chrome", ".var/app/com.google.Chrome/config/google-chrome"),
+    "Chromium": (".config/chromium", ".var/app/org.chromium.Chromium/config/chromium", "snap/chromium/common/chromium"),
+    "Microsoft Edge": (".config/microsoft-edge", ".var/app/com.microsoft.Edge/config/microsoft-edge"),
+    "Brave": (".config/BraveSoftware/Brave-Browser", ".var/app/com.brave.Browser/config/BraveSoftware/Brave-Browser"),
+    "Vivaldi": (".config/vivaldi", ".var/app/com.vivaldi.Vivaldi/config/vivaldi"),
+    "Opera": (".config/opera", ".var/app/com.opera.Opera/config/opera"),
+}
+LINUX_FIREFOX_PROFILES = (".mozilla/firefox", ".var/app/org.mozilla.firefox/.mozilla/firefox",
+                          "snap/firefox/common/.mozilla/firefox")
 
 
 # --- Partitions ---------------------------------------------------------------------------------------
 
+def _ours(dev):
+    """Whether a device (or what is opened on it, e.g. an unlocked LUKS) is part of the running system."""
+    stack = [dev]
+    while stack:
+        d = stack.pop()
+        stack.extend(d.get("children") or [])
+        for m in d.get("mountpoints") or []:
+            if m and not m.startswith(USER_MOUNTS):
+                return True
+    return False
+
+
 def candidates():
-    """The possible Windows partitions on the machine (without mounting): [{device, label, size, locked}]"""
+    """The possible Windows and Linux partitions on the machine (without mounting):
+    [{device, label, size, locked, kind ("windows" | "linux"), fstype}]"""
     try:
-        out = subprocess.run(["lsblk", "-J", "-b", "-o", "PATH,FSTYPE,LABEL,SIZE,TYPE"],
+        out = subprocess.run(["lsblk", "-J", "-b", "-o", "PATH,FSTYPE,LABEL,SIZE,TYPE,MOUNTPOINTS"],
                              capture_output=True, text=True, timeout=20).stdout
         devices = json.loads(out or "{}").get("blockdevices", [])
     except (OSError, subprocess.SubprocessError, ValueError):
@@ -65,9 +101,13 @@ def candidates():
         fstype = (dev.get("fstype") or "").lower()
         if dev.get("type") != "part" or int(dev.get("size") or 0) < MIN_NTFS_BYTES:
             continue
+        part = {"device": dev["path"], "label": dev.get("label") or "", "size": int(dev["size"]), "fstype": fstype}
         if fstype in ("ntfs", "ntfs3", "bitlocker"):
-            found.append({"device": dev["path"], "label": dev.get("label") or "", "size": int(dev["size"]),
-                          "locked": fstype == "bitlocker"})
+            found.append(dict(part, locked=fstype == "bitlocker", kind="windows"))
+        elif fstype in LINUX_FS and not _ours(dev):
+            found.append(dict(part, locked=False, kind="linux"))
+        elif fstype == "crypto_luks" and not _ours(dev) and not dev.get("children"):
+            found.append(dict(part, locked=True, kind="linux"))   # another Linux's encrypted disk, not opened
     return found
 
 
@@ -76,12 +116,14 @@ def _mountpoint(device):
     return out.split("\n")[0].strip()
 
 
-def mount(device):
-    """A read-only mount. -> (mount point, whether we mounted it); on error (None, False)"""
+def mount(device, fstype=""):
+    """A read-only mount. -> (mount point, whether we mounted it); on error (None, False). A btrfs at its top
+    (subvolid=5), where every layout's subvolumes are (Fedora's root/home, Ubuntu's @/@home, openSUSE's @/home)."""
     current = _mountpoint(device)
     if current:
         return current, False
-    r = subprocess.run(["udisksctl", "mount", "-b", device, "-o", "ro"], capture_output=True, text=True, timeout=120)
+    options = "ro,subvolid=5" if fstype == "btrfs" else "ro"
+    r = subprocess.run(["udisksctl", "mount", "-b", device, "-o", options], capture_output=True, text=True, timeout=120)
     current = _mountpoint(device)
     return (current, True) if r.returncode == 0 and current else (None, False)
 
@@ -107,10 +149,11 @@ def _size(path):
 
 
 def users(mnt):
-    """The Windows users and the sizes of their folders. -> [] if this is not a Windows partition"""
+    """The users and the sizes of their folders, of a Windows or another Linux partition. -> [] if it is neither.
+    Each: {name, home, folders {key: size}, bookmarks, programs, kind ("windows" | "linux"), dirs {key: path}}"""
     root = Path(mnt)
     if not (root / "Windows" / "System32").is_dir() or not (root / "Users").is_dir():
-        return []
+        return linux_users(mnt)
     result = []
     for home in sorted((root / "Users").iterdir()):
         if home.name.lower() in SKIP_USERS or not home.is_dir() or home.is_symlink():
@@ -123,8 +166,146 @@ def users(mnt):
         except Exception:  # noqa: BLE001 (only an extra: the files can still be brought over)
             found = []
         result.append({"name": home.name, "home": str(home), "folders": folders,
-                       "bookmarks": len(_bookmark_sources(home)), "programs": found})
+                       "bookmarks": len(_bookmark_sources(home)), "programs": found, "kind": "windows",
+                       "dirs": {key: str(home / win) for key, (win, _xdg) in FOLDERS.items()}})
     return result
+
+
+# --- Another Linux ---------------------------------------------------------------------------------------
+
+# The user folders' keys in user-dirs.dirs (XDG_<KEY>_DIR) -> ours; their English names when the file is missing
+XDG_KEYS = {"DESKTOP": "desktop", "DOCUMENTS": "documents", "DOWNLOAD": "downloads", "MUSIC": "music",
+            "PICTURES": "pictures", "VIDEOS": "videos"}
+LINUX_SKIP_USERS = {"lost+found", "root", ".snapshots"}
+
+
+def _linux_roots(mnt):
+    """The other system's root folders on the partition: the partition itself (ext4, xfs), Fedora's btrfs "root",
+    Ubuntu's and openSUSE's "@". (Fedora Atomic's Flatpaks are under ostree/deploy, see _flatpak_app_dirs.)"""
+    mnt = Path(mnt)
+    return [r for r in (mnt, mnt / "root", mnt / "@") if (r / "etc").is_dir() or (r / "usr").is_dir()]
+
+
+def _linux_homes(mnt):
+    """The home folders on the partition: under home/ (ext4; Fedora's btrfs "home" subvolume), @home/ (Ubuntu),
+    @/home/ (openSUSE), var/home/ (Fedora Atomic's /home), or the partition itself when it is a separate /home."""
+    mnt = Path(mnt)
+    bases = [mnt / "home", mnt / "@home", mnt / "@" / "home", mnt / "var" / "home", mnt / "root" / "var" / "home"]
+    bases += sorted(mnt.glob("ostree/deploy/*/var/home")) + sorted(mnt.glob("root/ostree/deploy/*/var/home"))
+    homes = []
+    for base in bases + [mnt]:
+        if homes:
+            break   # found where the homes are: the partition's own top is not looked at again
+        try:
+            entries = sorted(base.iterdir())
+        except OSError:
+            continue
+        for home in entries:
+            if (home.name in LINUX_SKIP_USERS or home.name.startswith(".") or home.is_symlink() or not home.is_dir()
+                    or home in bases or home.name in ("root", "@", "@home")):
+                continue
+            # a home folder: the files every account's home has (a separate /home partition has only these)
+            if any((home / f).exists() for f in (".bashrc", ".profile", ".config", ".local")):
+                homes.append(home)
+    return homes
+
+
+def user_dirs(home):
+    """A Linux user's folders, by their user-dirs.dirs (localised names), otherwise the English ones.
+    -> {key: Path}"""
+    home = Path(home)
+    dirs = {key: home / FOLDERS[key][0] for key in FOLDERS}
+    try:
+        text = (home / ".config" / "user-dirs.dirs").read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        return dirs
+    for line in text.splitlines():
+        m = re.match(r'\s*XDG_([A-Z]+)_DIR="(.*)"\s*$', line)
+        if not m or m.group(1) not in XDG_KEYS:
+            continue
+        value = m.group(2)
+        if not value.startswith("$HOME/"):
+            continue        # an absolute path is the other system's, not inside this home
+        rel = value[len("$HOME/"):].strip("/")
+        if rel and ".." not in rel.split("/"):
+            dirs[XDG_KEYS[m.group(1)]] = home / rel
+    return dirs
+
+
+def linux_users(mnt):
+    """The users of another Linux on this partition (users() for Windows). -> [] if it has none"""
+    result = []
+    roots = _linux_roots(mnt)
+    for home in _linux_homes(mnt):
+        dirs = user_dirs(home)
+        folders = {key: _size(d) for key, d in dirs.items() if d.is_dir() and d != home}
+        if not any(folders.values()) and not _bookmark_sources(home):
+            continue
+        try:
+            found = linux_programs(mnt, roots, home)
+        except Exception:  # noqa: BLE001 (only an extra)
+            found = []
+        result.append({"name": home.name, "home": str(home), "folders": folders,
+                       "bookmarks": len(_bookmark_sources(home)), "programs": found, "kind": "linux",
+                       "dirs": {key: str(d) for key, d in dirs.items()}})
+    return result
+
+
+def _flatpak_app_dirs(mnt, roots, home):
+    dirs = [r / "var" / "lib" / "flatpak" / "app" for r in roots]
+    dirs += sorted(Path(mnt).glob("ostree/deploy/*/var/lib/flatpak/app"))        # Fedora Atomic (Silverblue…)
+    dirs += sorted(Path(mnt).glob("root/ostree/deploy/*/var/lib/flatpak/app"))
+    dirs.append(Path(home) / ".local" / "share" / "flatpak" / "app")
+    return dirs
+
+
+def _desktop_names(folder):
+    """The names a folder's Start menu entries go by: the file name, its last dotted part, and its Name=."""
+    names = set()
+    try:
+        files = sorted(Path(folder).glob("*.desktop"))
+    except OSError:
+        return names
+    for f in files:
+        stem = f.name[:-len(".desktop")].lower()
+        names.update({stem, stem.rsplit(".", 1)[-1]})
+        try:
+            for line in f.read_text(encoding="utf-8", errors="replace").splitlines():
+                if line.startswith("Name="):
+                    names.add(line[5:].strip().lower())
+                    break
+        except OSError:
+            pass
+    return names
+
+
+def linux_programs(mnt, roots, home):
+    """The wizard's apps that match the apps of another Linux: its Flatpaks by their id, and its Start menu entries
+    (system, Snap and the user's own) by name, as with Windows' Start menu. -> [{id, instead}]"""
+    ids = set()
+    for d in _flatpak_app_dirs(mnt, roots, home):
+        try:
+            ids.update(p.name for p in d.iterdir() if p.is_dir())
+        except OSError:
+            pass
+    names = set()
+    for r in roots:
+        for folder in (r / "usr" / "share" / "applications", r / "var" / "lib" / "snapd" / "desktop" / "applications"):
+            names |= _desktop_names(folder)
+    names |= _desktop_names(Path(home) / ".local" / "share" / "applications")
+    found = {}
+    for pattern, app_id, instead in sorted(PROGRAMS, key=lambda p: bool(p[2])):  # the exact matches first
+        if app_id in found:
+            continue
+        if app_id in ids:
+            found[app_id] = ""
+        elif any(re.search(pattern, n) for n in names):
+            found[app_id] = instead
+    order = {app_id: i for i, (_p, app_id, _i) in enumerate(PROGRAMS)}
+    known = [{"id": a, "instead": i} for a, i in sorted(found.items(), key=lambda x: order[x[0]])]
+    # its other Flatpaks by their id (the wizard keeps only those in its catalog)
+    known += [{"id": a, "instead": ""} for a in sorted(ids) if a not in found and "." in a]
+    return known
 
 
 # --- Programs used on Windows --------------------------------------------------------------------------
@@ -256,29 +437,78 @@ def _steam_library_paths(mounts):
     return found
 
 
+# Where a Linux Steam keeps its own library, from the home folder: native, Flatpak, Snap
+LINUX_STEAM_DIRS = (".local/share/Steam", ".var/app/com.valvesoftware.Steam/.local/share/Steam",
+                    ".var/app/com.valvesoftware.Steam/data/Steam", "snap/steam/common/.local/share/Steam")
+
+
+def _linux_steam_apps(mnt):
+    """Another Linux's Steam libraries on this partition: each home's Steam, and the libraries its
+    libraryfolders.vdf names (their paths are the other system's: looked for under its homes and its root)."""
+    homes = _linux_homes(mnt)
+    if not homes:
+        return []
+    roots = _linux_roots(mnt) or [Path(mnt)]
+    found = []
+    for home in homes:
+        for rel in LINUX_STEAM_DIRS:
+            steam_dir = home / rel
+            if steam_dir.is_symlink() or not (steam_dir / "steamapps").is_dir():
+                continue
+            found.append(steam_dir / "steamapps")
+            try:
+                text = (steam_dir / "steamapps" / "libraryfolders.vdf").read_text(encoding="utf-8", errors="replace")
+            except OSError:
+                continue
+            folders = steam.ci(steam.vdf_load(text), "libraryfolders") or {}
+            for v in folders.values():
+                path = steam.ci(v, "path") if isinstance(v, dict) else None
+                if not path or not path.startswith("/"):
+                    continue
+                parts = Path(path).parts
+                cands = [r / Path(*parts[1:]) for r in roots]
+                if len(parts) > 2 and parts[1] == "home":      # /home/<name>/… -> that home here
+                    cands += [h / Path(*parts[3:]) for h in homes if h.name == parts[2]]
+                found += [c / "steamapps" for c in cands if (c / "steamapps").is_dir() and not c.is_symlink()]
+    return list(dict.fromkeys(found))
+
+
 def steam_games(mounts):
-    """The fully installed Steam games on the Windows drives. -> [{appid, name, size, manifest, dir, installdir}]"""
+    """The fully installed Steam games on the Windows drives and another Linux's. -> [{appid, name, size, manifest,
+    dir, installdir, compat, proton}] (compat: the game's Proton environment on Linux, "" if none; proton: whether
+    it ran with Proton there, so it needs Proton here too)"""
     rels = list(dict.fromkeys(list(STEAM_DIRS) + _steam_library_paths(mounts)))
-    games = {}
+    libraries = {}      # steamapps folder -> whether it is another Linux's
     for mnt in mounts:
         for rel in rels:
-            apps = Path(mnt) / rel / "steamapps"
-            if not rel or not apps.is_dir():
+            if rel:
+                libraries.setdefault(Path(mnt) / rel / "steamapps", False)
+        for apps in _linux_steam_apps(mnt):
+            libraries[apps] = True
+    games = {}
+    for apps, linux in libraries.items():
+        if not apps.is_dir():
+            continue
+        for acf in sorted(apps.glob("appmanifest_*.acf")):
+            try:
+                state = steam.ci(steam.vdf_load(acf.read_text(encoding="utf-8", errors="replace")), "AppState") or {}
+            except OSError:
                 continue
-            for acf in sorted(apps.glob("appmanifest_*.acf")):
-                try:
-                    state = steam.ci(steam.vdf_load(acf.read_text(encoding="utf-8", errors="replace")), "AppState") or {}
-                except OSError:
-                    continue
-                appid, installdir = steam.ci(state, "appid") or "", steam.ci(state, "installdir") or ""
-                if (not appid or appid in SKIP_APPIDS or appid in games or steam.ci(state, "StateFlags") != "4"
-                        or not installdir or "/" in installdir or installdir in (".", "..")):
-                    continue
-                folder = apps / "common" / installdir
-                if not folder.is_dir() or folder.is_symlink():
-                    continue
-                games[appid] = {"appid": appid, "name": steam.ci(state, "name") or installdir, "size": _size(folder),
-                                "manifest": str(acf), "dir": str(folder), "installdir": installdir}
+            appid, installdir = steam.ci(state, "appid") or "", steam.ci(state, "installdir") or ""
+            if (not appid or appid in SKIP_APPIDS or appid in games or steam.ci(state, "StateFlags") != "4"
+                    or not installdir or "/" in installdir or installdir in (".", "..")):
+                continue
+            folder = apps / "common" / installdir
+            if not folder.is_dir() or folder.is_symlink():
+                continue
+            compat = apps / "compatdata" / appid
+            has_compat = linux and (compat / "pfx").is_dir() and not compat.is_symlink()
+            games[appid] = {"appid": appid, "name": steam.ci(state, "name") or installdir,
+                            "size": _size(folder) + (_size(compat) if has_compat else 0),
+                            "manifest": str(acf), "dir": str(folder), "installdir": installdir,
+                            "compat": str(compat) if has_compat else "",
+                            # Windows' games always need Proton here; a Linux one only if it had it there
+                            "proton": has_compat or not linux}
     return sorted(games.values(), key=lambda g: g["name"].lower())
 
 
@@ -538,7 +768,7 @@ def finish_games(games, win_home, root=None, library=None):
     here = [g for g in games if (library / "steamapps" / f"appmanifest_{g['appid']}.acf").exists()]
     out = {"proton": 0, "saves": []}
     try:
-        linux = [g["appid"] for g in here if has_linux_version(g["appid"])]
+        linux = [g["appid"] for g in here if g.get("proton", True) and has_linux_version(g["appid"])]
         out["proton"] = force_proton(root, linux) if linux else 0
     except OSError:
         pass
@@ -588,17 +818,20 @@ def copy_games(games, root=None, on_progress=lambda done, total, name: None, can
             stats["skipped"] += 1  # already in Steam here
             continue
         todo.append(g)
-        src_root, dest_root = Path(g["dir"]), apps / "common" / g["installdir"]
-        for dirpath, dirs, files in os.walk(src_root):
-            dirs[:] = [d for d in dirs if not os.path.islink(os.path.join(dirpath, d))]
-            for name in files:
-                src = Path(dirpath, name)
-                if src.is_symlink():
-                    continue
-                try:
-                    plan.append((g["appid"], src, dest_root / src.relative_to(src_root), src.stat().st_size))
-                except OSError:
-                    pass
+        pairs = [(Path(g["dir"]), apps / "common" / g["installdir"])]
+        if g.get("compat"):     # another Linux's Proton environment (its saves are in it)
+            pairs.append((Path(g["compat"]), apps / "compatdata" / g["appid"]))
+        for src_root, dest_root in pairs:
+            for dirpath, dirs, files in os.walk(src_root):
+                dirs[:] = [d for d in dirs if not os.path.islink(os.path.join(dirpath, d))]
+                for name in files:
+                    src = Path(dirpath, name)
+                    if src.is_symlink():
+                        continue
+                    try:
+                        plan.append((g["appid"], src, dest_root / src.relative_to(src_root), src.stat().st_size))
+                    except OSError:
+                        pass
     total = sum(p[3] for p in plan)
     done, last, broken = 0, 0.0, set()
     for appid, src, dest, size in plan:
@@ -647,41 +880,45 @@ def target_dir(key):
     return Path.home() / FOLDERS[key][0]
 
 
-def _already_copied(dest, size):
-    """Whether this file is already there: under the same name, or with a "(Windows)" suffix from an earlier copy."""
+def _already_copied(dest, size, label="Windows"):
+    """Whether this file is already there: under the same name, or with a "(Windows)" ("(Linux)") suffix from an
+    earlier copy."""
     if dest.exists() and dest.stat().st_size == size:
         return True
-    return any(p.stat().st_size == size for p in dest.parent.glob(f"{_glob_escape(dest.stem)} (Windows*){_glob_escape(dest.suffix)}")
-               if p.is_file())
+    pattern = f"{_glob_escape(dest.stem)} ({label}*){_glob_escape(dest.suffix)}"
+    return any(p.stat().st_size == size for p in dest.parent.glob(pattern) if p.is_file())
 
 
 def _glob_escape(text):
     return "".join(f"[{c}]" if c in "*?[" else c for c in text)
 
 
-def _free_name(dest):
+def _free_name(dest, label="Windows"):
     if not dest.exists():
         return dest
     n = 1
     while True:
-        cand = dest.with_name(f"{dest.stem} (Windows{'' if n == 1 else f' {n}'}){dest.suffix}")
+        cand = dest.with_name(f"{dest.stem} ({label}{'' if n == 1 else f' {n}'}){dest.suffix}")
         if not cand.exists():
             return cand
         n += 1
 
 
-def copy(home, keys, on_progress=lambda done, total, name: None, cancelled=lambda: False):
+def copy(home, keys, on_progress=lambda done, total, name: None, cancelled=lambda: False, dirs=None,
+         label="Windows"):
     """Copies the chosen folders. -> {"copied": count, "skipped": count, "failed": [path], "bytes": bytes}
 
-    Whatever is already there with the same size is skipped; a file with the same name but other contents gets a "(Windows)" suffix.
+    Whatever is already there with the same size is skipped; a file with the same name but other contents gets a
+    "(Windows)" suffix ("(Linux)": label). dirs: the user's own folders ({key: path}, users()["dirs"]; a Linux user's
+    may have localised names), by default Windows' names.
     """
     home = Path(home)
     plan = []
     for key in keys:
-        src_root = home / FOLDERS[key][0]
+        src_root = Path(dirs[key]) if dirs and dirs.get(key) else home / FOLDERS[key][0]
         dest_root = target_dir(key)
-        for root, dirs, files in os.walk(src_root):
-            dirs[:] = [d for d in dirs if not os.path.islink(os.path.join(root, d))]
+        for root, subdirs, files in os.walk(src_root):
+            subdirs[:] = [d for d in subdirs if not os.path.islink(os.path.join(root, d))]
             for name in files:
                 src = Path(root, name)
                 if name.lower() in SKIP_FILES or name.lower().endswith(SKIP_SUFFIXES) or src.is_symlink():
@@ -697,11 +934,11 @@ def copy(home, keys, on_progress=lambda done, total, name: None, cancelled=lambd
         if cancelled():
             break
         try:
-            if dest.parent.is_dir() and _already_copied(dest, size):
+            if dest.parent.is_dir() and _already_copied(dest, size, label):
                 stats["skipped"] += 1
             else:
                 dest.parent.mkdir(parents=True, exist_ok=True)
-                target = _free_name(dest) if dest.exists() else dest
+                target = _free_name(dest, label) if dest.exists() else dest
                 tmp = target.with_name(f".{target.name}.sloth-part")
                 shutil.copyfile(src, tmp)
                 shutil.copystat(src, tmp)
@@ -728,6 +965,13 @@ def _bookmark_sources(home):
             found.append((browser, "chromium", f))
     for f in sorted((home / FIREFOX_PROFILES).glob("*/places.sqlite")):
         found.append(("Firefox", "firefox", f))
+    for browser, bases in LINUX_CHROMIUM_BROWSERS.items():
+        for base in bases:
+            for f in sorted((home / base).glob("*/Bookmarks")) + sorted((home / base).glob("Bookmarks")):
+                found.append((browser, "chromium", f))
+    for base in LINUX_FIREFOX_PROFILES:
+        for f in sorted((home / base).glob("*/places.sqlite")):
+            found.append(("Firefox", "firefox", f))
     return found
 
 

@@ -1265,5 +1265,7 @@
   "Getting ready…": "Daûr a prontâ…",
   "Search in Discover": "Cîr in Discover",
   "Try again": "Torne prove",
-  "Install %1 and open the file": "Instale %1 e vierç il file"
+  "Install %1 and open the file": "Instale %1 e vierç il file",
+  "Bring files over from your other Linux": "Puarte files dal altri Linux",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Al copie la scrivanie, i documents, lis imagjins e lis tôs altris cartelis personâls, cun ancje i segnelibris dal navigadôr, dal altri Linux di chest computer. No si lu tocje, si lu lei dome."
 }

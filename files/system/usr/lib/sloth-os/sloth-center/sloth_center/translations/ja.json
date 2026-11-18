@@ -1265,5 +1265,7 @@
   "Getting ready…": "準備中…",
   "Search in Discover": "Discover で探す",
   "Try again": "再試行",
-  "Install %1 and open the file": "%1 をインストールしてファイルを開く"
+  "Install %1 and open the file": "%1 をインストールしてファイルを開く",
+  "Bring files over from your other Linux": "もう一つの Linux からファイルを移す",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "このコンピューターのもう一つの Linux から、デスクトップ、ドキュメント、ピクチャなどの個人フォルダーとブラウザーのブックマークをコピーします。そのシステムには手を加えず、読み取るだけです。"
 }

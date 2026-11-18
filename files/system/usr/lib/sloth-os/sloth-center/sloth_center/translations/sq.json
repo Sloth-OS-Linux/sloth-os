@@ -1265,5 +1265,7 @@
   "Getting ready…": "Po përgatitet…",
   "Search in Discover": "Kërko në Discover",
   "Try again": "Riprovo",
-  "Install %1 and open the file": "Instalo %1 dhe hap skedarin"
+  "Install %1 and open the file": "Instalo %1 dhe hap skedarin",
+  "Bring files over from your other Linux": "Sill skedarë nga Linux-i tjetër",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopjon desktopin, dokumentet, figurat dhe dosjet e tjera personale, si edhe faqerojtësit e shfletuesit, nga Linux-i tjetër në këtë kompjuter. Nuk preket, vetëm lexohet."
 }

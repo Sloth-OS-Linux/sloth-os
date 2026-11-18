@@ -211,5 +211,16 @@
   "desktop.comment": "Sebded iminig, isnasen n tnarit, imeɣri n umidya d wiyaḍ, fren asentel n yiniten",
   "desktop.keywords": "ansuf;isnasen;iminig;tanarit;asentel",
   "done.support": "Sloth OS d baṭel, yettwaxdam deg wakud ilelli. Ma yeɛǧeb-ik, tzemreḍ ad tɛiwneḍ asnefli-ines s ubiṛu: ko-fi.com/slothos",
-  "done.support_button": "Ɛiwen ɣef Ko-fi"
+  "done.support_button": "Ɛiwen ɣef Ko-fi",
+  "linux.heading": "Ad d-tawiḍ ifuyla-ik seg Linux-ik nniḍen?",
+  "linux.text": "Aselkim-a yesɛa daɣen anagraw Linux nniḍen. Nezmer ad d-nenɣel ifuyla-ik; ur t-nettennal ara, d taɣuri kan.",
+  "linux.scanning": "Asenqed n uḍebsi Linux nniḍen…",
+  "linux.passwords": "Awalen uffiren yettwakelsen deg yiminig ur zmiren ara ad d-ɛeddin. Deg unagraw nniḍen, rmed amtawi deg yiminig-ik (neɣ sifeḍ awalen uffiren), syin kcem ɣer yiminig-nni kan da.",
+  "linux.locked": "Aḍebsi Linux nniḍen yettwawgelhen, ur yezmir ara ad yettwaɣer da. Senker anagraw-nni syin nɣel ifuyla-ik ɣer tsarut USB.",
+  "linux.failed": "Aḍebsi Linux nniḍen ur yeldi ara. Senker anagraw-nni, sexsi-t akk, syin ɛreḍ tikkelt nniḍen seg Sloth Center (Iḍebsiyen).",
+  "linux.apps_heading": "Isnasen i tesqedceḍ deg Linux-ik nniḍen",
+  "linux.done": "Yemmed: {count} n yifuyla seg Linux-ik nniḍen llan da.",
+  "linux.user": "Amiḍan n Linux:",
+  "linux.bookmarks_file": "Ticraḍ n Linux.html",
+  "linux.bookmarks_folder": "Seg Linux"
 }

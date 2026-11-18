@@ -1265,5 +1265,7 @@
   "Getting ready…": "Berei voor…",
   "Search in Discover": "Soek in Discover",
   "Try again": "Probeer weer",
-  "Install %1 and open the file": "Installeer %1 en maak die lêer oop"
+  "Install %1 and open the file": "Installeer %1 en maak die lêer oop",
+  "Bring files over from your other Linux": "Bring lêers oor van jou ander Linux",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopieer die werkskerm, dokumente, prente en jou ander persoonlike vouers, plus blaaierboekmerke, van die ander Linux op hierdie rekenaar. Daaraan word nie geraak nie; dit word net gelees."
 }

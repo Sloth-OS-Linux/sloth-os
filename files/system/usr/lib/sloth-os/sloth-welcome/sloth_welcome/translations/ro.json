@@ -211,5 +211,16 @@
   "desktop.comment": "Instalarea unui navigator, a unei suite de birou, a unui player media și altele, alegerea unei scheme de culori",
   "desktop.keywords": "bun venit;aplicații;navigator;birou;temă",
   "done.support": "Sloth OS este gratuit și se face în timpul liber. Dacă îți place, poți susține dezvoltarea lui cu o bere: ko-fi.com/slothos",
-  "done.support_button": "Susține pe Ko-fi"
+  "done.support_button": "Susține pe Ko-fi",
+  "linux.heading": "Aduci fișierele din celălalt Linux al tău?",
+  "linux.text": "Acest calculator are și un alt sistem Linux. Putem copia fișierele tale; nu-l atingem, doar citim din el.",
+  "linux.scanning": "Se cercetează celălalt disc Linux…",
+  "linux.passwords": "Parolele salvate într-un browser nu pot fi aduse. În celălalt sistem pornește sincronizarea în browser (sau exportă parolele), apoi conectează-te aici în același browser.",
+  "linux.locked": "Celălalt disc Linux este criptat, așa că nu poate fi citit aici. Pornește acel sistem și copiază fișierele pe un stick USB.",
+  "linux.failed": "Celălalt disc Linux nu a putut fi deschis. Pornește acel sistem și oprește-l complet, apoi încearcă din nou din Sloth Center (Discuri).",
+  "linux.apps_heading": "Aplicații pe care le foloseai în celălalt Linux",
+  "linux.done": "Gata: {count} fișiere din celălalt Linux sunt aici.",
+  "linux.user": "Cont Linux:",
+  "linux.bookmarks_file": "Marcaje Linux.html",
+  "linux.bookmarks_folder": "Din Linux"
 }

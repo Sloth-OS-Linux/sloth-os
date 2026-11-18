@@ -211,5 +211,16 @@
   "desktop.comment": "Installeer 'n blaaier, kantoorpakket, mediaspeler en meer, kies 'n kleurskema",
   "desktop.keywords": "welkom;toepassings;blaaier;kantoor;tema",
   "done.support": "Sloth OS is gratis en word in vrye tyd gemaak. As jy daarvan hou, kan jy die ontwikkeling met ’n bier ondersteun: ko-fi.com/slothos",
-  "done.support_button": "Ondersteun op Ko-fi"
+  "done.support_button": "Ondersteun op Ko-fi",
+  "linux.heading": "Bring jou lêers oor van jou ander Linux?",
+  "linux.text": "Hierdie rekenaar het ook ’n ander Linux-stelsel. Ons kan jou lêers oorkopieer; daaraan word nie geraak nie, ons lees net daarvan.",
+  "linux.scanning": "Deursoek die ander Linux-skyf…",
+  "linux.passwords": "Wagwoorde wat in ’n blaaier gestoor is, kan nie oorkom nie. Skakel in die ander stelsel sinkronisering in jou blaaier aan (of voer die wagwoorde uit), en meld dan hier by dieselfde blaaier aan.",
+  "linux.locked": "Die ander Linux-skyf is geënkripteer en kan nie hier gelees word nie. Begin daardie stelsel en kopieer jou lêers eerder na ’n USB-stokkie.",
+  "linux.failed": "Die ander Linux-skyf kon nie oopgemaak word nie. Begin daardie stelsel, skakel dit heeltemal af en probeer dan weer vanuit Sloth Center (Skywe).",
+  "linux.apps_heading": "Toepassings wat jy op jou ander Linux gebruik het",
+  "linux.done": "Klaar: {count} lêers van jou ander Linux is hier.",
+  "linux.user": "Linux-rekening:",
+  "linux.bookmarks_file": "Linux-boekmerke.html",
+  "linux.bookmarks_folder": "Uit Linux"
 }

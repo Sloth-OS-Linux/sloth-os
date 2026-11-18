@@ -1265,5 +1265,7 @@
   "Getting ready…": "მზადდება…",
   "Search in Discover": "ძებნა Discover-ში",
   "Try again": "ხელახლა ცდა",
-  "Install %1 and open the file": "%1-ის დაყენება და ფაილის გახსნა"
+  "Install %1 and open the file": "%1-ის დაყენება და ფაილის გახსნა",
+  "Bring files over from your other Linux": "ფაილების გადმოტანა მეორე Linux-იდან",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "აკოპირებს სამუშაო მაგიდას, დოკუმენტებს, სურათებს და სხვა პირად საქაღალდეებს, ასევე ბრაუზერის სანიშნეებს, ამ კომპიუტერის მეორე Linux-იდან. მას არ ვეხებით, მხოლოდ ვკითხულობთ."
 }

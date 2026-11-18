@@ -1265,5 +1265,7 @@
   "Getting ready…": "Préparation…",
   "Search in Discover": "Chercher dans Discover",
   "Try again": "Réessayer",
-  "Install %1 and open the file": "Installer %1 et ouvrir le fichier"
+  "Install %1 and open the file": "Installer %1 et ouvrir le fichier",
+  "Bring files over from your other Linux": "Récupérer des fichiers de l’autre Linux",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copie le bureau, les documents, les images et vos autres dossiers personnels, ainsi que les favoris du navigateur, depuis l’autre Linux de cet ordinateur. Il n’est pas modifié, seulement lu."
 }

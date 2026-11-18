@@ -211,5 +211,16 @@
   "desktop.comment": "Instalu retumilon, oficejan programaron, aŭdvidan ludilon kaj pli, elektu kolorskemon",
   "desktop.keywords": "bonvenon;aplikaĵoj;retumilo;oficejo;etoso",
   "done.support": "Sloth OS estas senpaga kaj farata en libera tempo. Se ĝi plaĉas al vi, vi povas subteni ĝian disvolviĝon per biero: ko-fi.com/slothos",
-  "done.support_button": "Subteni ĉe Ko-fi"
+  "done.support_button": "Subteni ĉe Ko-fi",
+  "linux.heading": "Ĉu transporti viajn dosierojn el via alia Linukso?",
+  "linux.text": "Ĉi tiu komputilo havas ankaŭ alian Linuksan sistemon. Ni povas kopii viajn dosierojn; ni ne tuŝas ĝin, ni nur legas el ĝi.",
+  "linux.scanning": "Trarigardante la alian Linuksan diskon…",
+  "linux.passwords": "Pasvortoj konservitaj en retumilo ne povas transveni. En la alia sistemo ŝaltu sinkronigon en via retumilo (aŭ eksportu la pasvortojn), poste ensalutu ĉi tie en la saman retumilon.",
+  "linux.locked": "La alia Linuksa disko estas ĉifrita, do ĝi ne legeblas ĉi tie. Lanĉu tiun sistemon kaj kopiu viajn dosierojn al USB-memorilo.",
+  "linux.failed": "La alia Linuksa disko ne malfermiĝis. Lanĉu tiun sistemon kaj tute malŝaltu ĝin, poste reprovu el Sloth Center (Diskoj).",
+  "linux.apps_heading": "Aplikaĵoj, kiujn vi uzis en via alia Linukso",
+  "linux.done": "Farite: {count} dosieroj el via alia Linukso estas ĉi tie.",
+  "linux.user": "Linux-konto:",
+  "linux.bookmarks_file": "Linux-legosignoj.html",
+  "linux.bookmarks_folder": "El Linux"
 }

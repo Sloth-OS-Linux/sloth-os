@@ -788,7 +788,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Bringing files over from Windows (only if there is a Windows partition) --------------
+        // --- Bringing files over from Windows or another Linux (only if there is such a partition) --------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: disks.hasWindows
@@ -797,12 +797,18 @@ Kirigami.ScrollablePage {
                 ColumnLayout {
                     Layout.fillWidth: true
                     spacing: Kirigami.Units.smallSpacing
-                    Kirigami.Heading { level: 3; text: L.t("Bring files over from Windows") }
+                    Kirigami.Heading {
+                        level: 3
+                        text: disks.importKind === "linux" ? L.t("Bring files over from your other Linux")
+                                                           : L.t("Bring files over from Windows")
+                    }
                     QQC2.Label {
                         Layout.fillWidth: true
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: L.t("Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the Windows on this computer. Windows itself isn't touched, it's only read.")
+                        text: disks.importKind === "linux"
+                              ? L.t("Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.")
+                              : L.t("Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the Windows on this computer. Windows itself isn't touched, it's only read.")
                     }
                 }
                 QQC2.Button {

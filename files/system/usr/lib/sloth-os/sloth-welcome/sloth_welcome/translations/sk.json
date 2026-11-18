@@ -211,5 +211,16 @@
   "desktop.comment": "Inštalácia prehliadača, kancelárskeho balíka, prehrávača médií a ďalších aplikácií, výber farebnej schémy",
   "desktop.keywords": "vitajte;aplikácie;prehliadač;kancelária;téma",
   "done.support": "Sloth OS je zadarmo a vzniká vo voľnom čase. Ak sa vám páči, môžete jeho vývoj podporiť pivom: ko-fi.com/slothos",
-  "done.support_button": "Podporiť na Ko-fi"
+  "done.support_button": "Podporiť na Ko-fi",
+  "linux.heading": "Preniesť súbory z vášho druhého Linuxu?",
+  "linux.text": "Tento počítač má aj iný systém Linux. Môžeme z neho skopírovať vaše súbory; nič na ňom nemeníme, len z neho čítame.",
+  "linux.scanning": "Prehľadáva sa druhý disk s Linuxom…",
+  "linux.passwords": "Heslá uložené v prehliadači sa preniesť nedajú. V druhom systéme zapnite v prehliadači synchronizáciu (alebo heslá exportujte) a potom sa tu prihláste do toho istého prehliadača.",
+  "linux.locked": "Druhý disk s Linuxom je šifrovaný, takže ho tu nemožno čítať. Spustite ten systém a skopírujte súbory na USB kľúč.",
+  "linux.failed": "Druhý disk s Linuxom sa nepodarilo otvoriť. Spustite ten systém a úplne ho vypnite, potom to skúste znova zo Sloth Center (Disky).",
+  "linux.apps_heading": "Aplikácie, ktoré ste používali v druhom Linuxe",
+  "linux.done": "Hotovo: {count} súborov z druhého Linuxu je tu.",
+  "linux.user": "Účet Linux:",
+  "linux.bookmarks_file": "Záložky Linux.html",
+  "linux.bookmarks_folder": "Z Linux"
 }

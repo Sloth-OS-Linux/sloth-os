@@ -211,5 +211,16 @@
   "desktop.comment": "Instal·lar un navegador, un paquet ofimàtic, un reproductor multimèdia i més, i triar un esquema de colors",
   "desktop.keywords": "benvinguda;aplicacions;navegador;ofimàtica;tema",
   "done.support": "Sloth OS és gratuït i es fa en temps lliure. Si us agrada, podeu donar suport al seu desenvolupament amb una cervesa: ko-fi.com/slothos",
-  "done.support_button": "Suport a Ko-fi"
+  "done.support_button": "Suport a Ko-fi",
+  "linux.heading": "Vols portar els teus fitxers des de l’altre Linux?",
+  "linux.text": "Aquest ordinador també té un altre sistema Linux. Podem copiar-ne els teus fitxers; no el toquem, només en llegim.",
+  "linux.scanning": "S’està mirant l’altra unitat Linux…",
+  "linux.passwords": "Les contrasenyes desades en un navegador no es poden portar. A l’altre sistema, activa la sincronització del navegador (o exporta’n les contrasenyes) i després inicia la sessió al mateix navegador aquí.",
+  "linux.locked": "L’altra unitat Linux està xifrada i no es pot llegir aquí. Engega aquell sistema i copia els fitxers a un llapis USB.",
+  "linux.failed": "No s’ha pogut obrir l’altra unitat Linux. Engega aquell sistema i apaga’l del tot; després torna-ho a provar des del Sloth Center (Discs).",
+  "linux.apps_heading": "Aplicacions que feies servir a l’altre Linux",
+  "linux.done": "Fet: {count} fitxers de l’altre Linux ja són aquí.",
+  "linux.user": "Compte de Linux:",
+  "linux.bookmarks_file": "Adreces d'interès de Linux.html",
+  "linux.bookmarks_folder": "Des del Linux"
 }

@@ -1265,5 +1265,7 @@
   "Getting ready…": "준비 중…",
   "Search in Discover": "Discover에서 찾기",
   "Try again": "다시 시도",
-  "Install %1 and open the file": "%1 설치 후 파일 열기"
+  "Install %1 and open the file": "%1 설치 후 파일 열기",
+  "Bring files over from your other Linux": "다른 Linux에서 파일 가져오기",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "이 컴퓨터의 다른 Linux에서 바탕 화면, 문서, 사진 등 개인 폴더와 브라우저 북마크를 복사합니다. 그 시스템은 건드리지 않고 읽기만 합니다."
 }

@@ -211,5 +211,16 @@
   "desktop.comment": "Böngésző, irodai programok, médialejátszó és más appok telepítése, színtéma választás",
   "desktop.keywords": "üdvözlő;appok;böngésző;irodai;téma",
   "done.support": "A Sloth OS ingyenes, és szabadidőben készül. Ha tetszik, egy sörrel támogathatod a fejlesztését: ko-fi.com/slothos",
-  "done.support_button": "Támogatás a Ko-fi-n"
+  "done.support_button": "Támogatás a Ko-fi-n",
+  "linux.heading": "Áthozzuk a fájljaidat a másik Linuxodról?",
+  "linux.text": "Ezen a gépen egy másik Linux-rendszer is van. Át tudjuk másolni a fájljaidat; ahhoz nem nyúlunk, csak olvasunk róla.",
+  "linux.scanning": "A másik Linux-meghajtó átnézése…",
+  "linux.passwords": "A böngészőben mentett jelszavak nem jöhetnek át. A másik rendszerben kapcsold be a böngésződben a szinkronizálást (vagy exportáld a jelszavakat), aztán itt jelentkezz be ugyanabba a böngészőbe.",
+  "linux.locked": "A másik Linux-meghajtó titkosított, ezért itt nem olvasható. Indítsd el azt a rendszert, és másold a fájljaidat inkább egy pendrive-ra.",
+  "linux.failed": "A másik Linux-meghajtót nem sikerült megnyitni. Indítsd el azt a rendszert, és állítsd le teljesen, aztán próbáld újra a Sloth Centerből (Lemezek).",
+  "linux.apps_heading": "A másik Linuxodon használt appok",
+  "linux.done": "Kész: {count} fájl van itt a másik Linuxodról.",
+  "linux.user": "Linux-fiók:",
+  "linux.bookmarks_file": "Linux-könyvjelzők.html",
+  "linux.bookmarks_folder": "Linuxból"
 }

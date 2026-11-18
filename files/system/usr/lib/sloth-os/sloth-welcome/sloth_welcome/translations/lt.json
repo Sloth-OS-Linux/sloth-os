@@ -211,5 +211,16 @@
   "desktop.comment": "Naršyklės, biuro paketo, medijos leistuvės ir kitų programų įdiegimas, spalvų schemos pasirinkimas",
   "desktop.keywords": "sveiki;programos;naršyklė;biuras;tema",
   "done.support": "Sloth OS yra nemokama ir kuriama laisvalaikiu. Jei jums patinka, galite paremti jos kūrimą alaus bokalu: ko-fi.com/slothos",
-  "done.support_button": "Paremti per Ko-fi"
+  "done.support_button": "Paremti per Ko-fi",
+  "linux.heading": "Perkelti failus iš kitos jūsų „Linux“?",
+  "linux.text": "Šiame kompiuteryje yra ir kita „Linux“ sistema. Galime nukopijuoti jūsų failus; jos nekeičiame, tik skaitome.",
+  "linux.scanning": "Peržiūrimas kitas „Linux“ diskas…",
+  "linux.passwords": "Naršyklėje išsaugotų slaptažodžių perkelti negalima. Kitoje sistemoje įjunkite naršyklės sinchronizavimą (arba eksportuokite slaptažodžius), tada čia prisijunkite prie tos pačios naršyklės.",
+  "linux.locked": "Kitas „Linux“ diskas užšifruotas, todėl čia jo perskaityti negalima. Paleiskite tą sistemą ir nukopijuokite failus į USB atmintinę.",
+  "linux.failed": "Nepavyko atverti kito „Linux“ disko. Paleiskite tą sistemą ir visiškai ją išjunkite, tada bandykite dar kartą per Sloth Center (Diskai).",
+  "linux.apps_heading": "Programos, kurias naudojote kitoje „Linux“",
+  "linux.done": "Atlikta: {count} failų iš kitos „Linux“ jau čia.",
+  "linux.user": "Linux paskyra:",
+  "linux.bookmarks_file": "Linux žymelės.html",
+  "linux.bookmarks_folder": "Iš „Linux“"
 }

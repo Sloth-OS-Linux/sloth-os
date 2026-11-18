@@ -1265,5 +1265,7 @@
   "Getting ready…": "Pretigante…",
   "Search in Discover": "Serĉi en Discover",
   "Try again": "Reprovi",
-  "Install %1 and open the file": "Instali %1 kaj malfermi la dosieron"
+  "Install %1 and open the file": "Instali %1 kaj malfermi la dosieron",
+  "Bring files over from your other Linux": "Transporti dosierojn el la alia Linukso",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopias la labortablon, dokumentojn, bildojn kaj viajn aliajn personajn dosierujojn, kaj ankaŭ retumilajn legosignojn, el la alia Linukso en ĉi tiu komputilo. Ĝi ne estas tuŝata, nur legata."
 }

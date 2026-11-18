@@ -1265,5 +1265,7 @@
   "Getting ready…": "Menyiapkan…",
   "Search in Discover": "Cari di Discover",
   "Try again": "Coba lagi",
-  "Install %1 and open the file": "Pasang %1 dan buka berkasnya"
+  "Install %1 and open the file": "Pasang %1 dan buka berkasnya",
+  "Bring files over from your other Linux": "Bawa file dari Linux yang lain",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Menyalin Desktop, Dokumen, Gambar, dan folder pribadi Anda yang lain, serta markah peramban, dari Linux lain di komputer ini. Sistem itu tidak diubah, hanya dibaca."
 }

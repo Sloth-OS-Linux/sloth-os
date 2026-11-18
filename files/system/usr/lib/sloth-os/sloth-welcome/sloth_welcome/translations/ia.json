@@ -211,5 +211,16 @@
   "desktop.comment": "Installar un navigator, un suite de officio, un reproductor de medios e plus, seliger un schema de colores",
   "desktop.keywords": "benvenita;applicationes;navigator;officio;thema",
   "done.support": "Sloth OS es gratuite e es facite in tempore libere. Si illo te place, tu pote supportar su disveloppamento con un bira: ko-fi.com/slothos",
-  "done.support_button": "Supportar sur Ko-fi"
+  "done.support_button": "Supportar sur Ko-fi",
+  "linux.heading": "Portar tu files ab tu altere Linux?",
+  "linux.text": "Iste computator ha anque un altere systema Linux. Nos pote copiar tu files; illo non es tocate, nos solmente lege de illo.",
+  "linux.scanning": "Examinante le altere disco Linux…",
+  "linux.passwords": "Le contrasignos salvate in un navigator non pote venir. In le altere systema activa le synchronisation in tu navigator (o exporta le contrasignos), postea accede hic al mesme navigator.",
+  "linux.locked": "Le altere disco Linux es cryptate, dunque illo non pote esser legite hic. Initia ille systema e copia tu files a un clave USB.",
+  "linux.failed": "Le altere disco Linux non pote esser aperite. Initia ille systema e extingue lo completemente, postea reproba ab Sloth Center (Discos).",
+  "linux.apps_heading": "Applicationes que tu usava in tu altere Linux",
+  "linux.done": "Facite: {count} files de tu altere Linux es hic.",
+  "linux.user": "Conto de Linux:",
+  "linux.bookmarks_file": "Marcapaginas de Linux.html",
+  "linux.bookmarks_folder": "Ab Linux"
 }

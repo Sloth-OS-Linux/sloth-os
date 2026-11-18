@@ -879,6 +879,11 @@ Kirigami.ApplicationWindow {
                     spacing: Kirigami.Units.largeSpacing * 2
                     readonly property string winState: welcome.windowsState
                     readonly property bool busy: winState === "scanning" || winState === "copying"
+                    // files from another Linux on this computer: its own texts (linux.*) where they differ
+                    readonly property bool fromLinux: welcome.windowsKind === "linux"
+                    function kt(key, args) {
+                        return root.t((fromLinux ? "linux." : "windows.") + key, args)
+                    }
                     Kirigami.Icon {
                         Layout.alignment: Qt.AlignHCenter
                         source: "folder-download"
@@ -889,27 +894,27 @@ Kirigami.ApplicationWindow {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
-                        text: root.t("windows.heading")
+                        text: winColumn.kt("heading")
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: root.t("windows.text")
+                        text: winColumn.kt("text")
                     }
                     // survey
                     RowLayout {
                         Layout.alignment: Qt.AlignHCenter
                         visible: parent.winState === "scanning" || parent.winState === "idle"
                         QQC2.BusyIndicator { running: parent.visible }
-                        QQC2.Label { text: root.t("windows.scanning") }
+                        QQC2.Label { text: winColumn.kt("scanning") }
                     }
                     // choice
                     RowLayout {
                         Layout.fillWidth: true
                         visible: parent.winState === "ready" && welcome.windowsUsers.length > 1
-                        QQC2.Label { text: root.t("windows.user") }
+                        QQC2.Label { text: winColumn.kt("user") }
                         QQC2.ComboBox {
                             Layout.fillWidth: true
                             model: welcome.windowsUsers
@@ -942,7 +947,7 @@ Kirigami.ApplicationWindow {
                     ColumnLayout {
                         Layout.fillWidth: true
                         visible: parent.winState === "ready" && welcome.windowsPrograms.length > 0
-                        Kirigami.Heading { level: 3; Layout.fillWidth: true; wrapMode: Text.Wrap; text: root.t("windows.apps_heading") }
+                        Kirigami.Heading { level: 3; Layout.fillWidth: true; wrapMode: Text.Wrap; text: winColumn.kt("apps_heading") }
                         QQC2.Label {
                             Layout.fillWidth: true
                             wrapMode: Text.Wrap
@@ -1017,7 +1022,7 @@ Kirigami.ApplicationWindow {
                     }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
-                        visible: parent.winState === "ready"
+                        visible: parent.winState === "ready" && !parent.fromLinux
                         type: Kirigami.MessageType.Information
                         text: root.t("windows.onedrive")
                     }
@@ -1025,7 +1030,7 @@ Kirigami.ApplicationWindow {
                         Layout.fillWidth: true
                         visible: parent.winState === "ready"
                         type: Kirigami.MessageType.Information
-                        text: root.t("windows.passwords")
+                        text: winColumn.kt("passwords")
                     }
                     // copying
                     ColumnLayout {
@@ -1048,6 +1053,7 @@ Kirigami.ApplicationWindow {
                               : parent.winState === "none" ? Kirigami.MessageType.Information
                               : Kirigami.MessageType.Warning
                         text: parent.winState === "done" || parent.winState === "nospace" ? welcome.windowsDetail
+                              : ["locked", "failed"].indexOf(parent.winState) >= 0 ? winColumn.kt(parent.winState)
                               : root.t("windows." + parent.winState)
                     }
                     RowLayout {

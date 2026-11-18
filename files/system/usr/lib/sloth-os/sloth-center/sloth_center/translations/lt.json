@@ -1265,5 +1265,7 @@
   "Getting ready…": "Ruošiama…",
   "Search in Discover": "Ieškoti Discover",
   "Try again": "Bandyti dar kartą",
-  "Install %1 and open the file": "Įdiegti %1 ir atverti failą"
+  "Install %1 and open the file": "Įdiegti %1 ir atverti failą",
+  "Bring files over from your other Linux": "Perkelti failus iš kitos „Linux“",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Nukopijuoja darbalaukį, dokumentus, paveikslėlius ir kitus asmeninius aplankus bei naršyklės žymeles iš kitos šio kompiuterio „Linux“. Jos nekeičiame, tik skaitome."
 }

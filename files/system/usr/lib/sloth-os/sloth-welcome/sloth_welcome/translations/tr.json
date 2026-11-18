@@ -211,5 +211,16 @@
   "desktop.comment": "Tarayıcı, ofis paketi, medya oynatıcı ve daha fazlasını yükleme, renk şeması seçme",
   "desktop.keywords": "hoş geldiniz;uygulamalar;tarayıcı;ofis;tema",
   "done.support": "Sloth OS ücretsizdir ve boş zamanlarda geliştirilir. Beğendiyseniz, bir bira ısmarlayarak gelişimini destekleyebilirsiniz: ko-fi.com/slothos",
-  "done.support_button": "Ko-fi’de destekle"
+  "done.support_button": "Ko-fi’de destekle",
+  "linux.heading": "Dosyaların diğer Linux'undan buraya taşınsın mı?",
+  "linux.text": "Bu bilgisayarda başka bir Linux sistemi de var. Dosyalarını kopyalayabiliriz; ona dokunulmaz, yalnızca okunur.",
+  "linux.scanning": "Diğer Linux sürücüsüne bakılıyor…",
+  "linux.passwords": "Tarayıcıda kayıtlı parolalar taşınamaz. Diğer sistemde tarayıcında eşitlemeyi aç (ya da parolaları dışa aktar), sonra burada aynı tarayıcıda oturum aç.",
+  "linux.locked": "Diğer Linux sürücüsü şifreli, bu yüzden burada okunamıyor. O sistemi başlat ve dosyalarını bir USB belleğe kopyala.",
+  "linux.failed": "Diğer Linux sürücüsü açılamadı. O sistemi başlatıp tamamen kapat, sonra Sloth Center'dan (Diskler) yeniden dene.",
+  "linux.apps_heading": "Diğer Linux'unda kullandığın uygulamalar",
+  "linux.done": "Tamam: diğer Linux'undan {count} dosya burada.",
+  "linux.user": "Linux hesabı:",
+  "linux.bookmarks_file": "Linux yer imleri.html",
+  "linux.bookmarks_folder": "Linux'tan"
 }

@@ -1265,5 +1265,7 @@
   "Getting ready…": "Előkészítés…",
   "Search in Discover": "Keresés a Discoverben",
   "Try again": "Újra",
-  "Install %1 and open the file": "%1 telepítése és a fájl megnyitása"
+  "Install %1 and open the file": "%1 telepítése és a fájl megnyitása",
+  "Bring files over from your other Linux": "Fájlok áthozása a másik Linuxról",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Átmásolja az Asztalt, a Dokumentumokat, a Képeket és a többi személyes mappádat, meg a böngésző-könyvjelzőket a gépen lévő másik Linuxról. Ahhoz nem nyúl, csak olvas róla."
 }

@@ -1265,5 +1265,7 @@
   "Getting ready…": "Forbereder …",
   "Search in Discover": "Søk i Discover",
   "Try again": "Prøv igjen",
-  "Install %1 and open the file": "Installer %1 og åpne filen"
+  "Install %1 and open the file": "Installer %1 og åpne filen",
+  "Bring files over from your other Linux": "Flytt filer fra den andre Linuxen",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopierer skrivebordet, dokumenter, bilder og de andre personlige mappene dine, pluss nettleserbokmerker, fra den andre Linuxen på denne datamaskinen. Den blir ikke rørt, bare lest."
 }

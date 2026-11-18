@@ -1265,5 +1265,7 @@
   "Getting ready…": "Preparation…",
   "Search in Discover": "Cercar in Discover",
   "Try again": "Reprobar",
-  "Install %1 and open the file": "Installar %1 e aperir le file"
+  "Install %1 and open the file": "Installar %1 e aperir le file",
+  "Bring files over from your other Linux": "Portar files ab le altere Linux",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copia le scriptorio, documentos, imagines e tu altere dossiers personal, e anque le marcapaginas del navigator, ab le altere Linux in iste computator. Illo non es tocate, solmente legite."
 }

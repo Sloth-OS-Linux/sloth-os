@@ -211,5 +211,16 @@
   "desktop.comment": "Installera en webbläsare, ett kontorspaket, en mediaspelare med mera, välj ett färgschema",
   "desktop.keywords": "välkommen;appar;webbläsare;kontor;tema",
   "done.support": "Sloth OS är gratis och görs på fritiden. Om du gillar det kan du stödja utvecklingen med en öl: ko-fi.com/slothos",
-  "done.support_button": "Stöd på Ko-fi"
+  "done.support_button": "Stöd på Ko-fi",
+  "linux.heading": "Flytta över dina filer från ditt andra Linux?",
+  "linux.text": "Den här datorn har också ett annat Linux-system. Vi kan kopiera över dina filer; det rörs inte, vi läser bara från det.",
+  "linux.scanning": "Går igenom den andra Linux-disken …",
+  "linux.passwords": "Lösenord som sparats i en webbläsare kan inte följa med. Slå på synkronisering i webbläsaren i det andra systemet (eller exportera lösenorden) och logga sedan in i samma webbläsare här.",
+  "linux.locked": "Den andra Linux-disken är krypterad och kan inte läsas här. Starta det systemet och kopiera i stället filerna till ett USB-minne.",
+  "linux.failed": "Den andra Linux-disken kunde inte öppnas. Starta det systemet och stäng av det helt, och försök sedan igen från Sloth Center (Diskar).",
+  "linux.apps_heading": "Appar du använde i ditt andra Linux",
+  "linux.done": "Klart: {count} filer från ditt andra Linux finns här.",
+  "linux.user": "Linux-konto:",
+  "linux.bookmarks_file": "Linux-bokmärken.html",
+  "linux.bookmarks_folder": "Från Linux"
 }

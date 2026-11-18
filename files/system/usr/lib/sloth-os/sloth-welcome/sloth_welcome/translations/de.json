@@ -211,5 +211,16 @@
   "desktop.comment": "Browser, Office-Paket, Mediaplayer und mehr installieren, Farbschema wählen",
   "desktop.keywords": "willkommen;apps;browser;office;design",
   "done.support": "Sloth OS ist kostenlos und entsteht in der Freizeit. Wenn es dir gefällt, kannst du die Entwicklung mit einem Bier unterstützen: ko-fi.com/slothos",
-  "done.support_button": "Auf Ko-fi unterstützen"
+  "done.support_button": "Auf Ko-fi unterstützen",
+  "linux.heading": "Deine Dateien aus deinem anderen Linux übernehmen?",
+  "linux.text": "Auf diesem Computer ist auch ein anderes Linux-System. Wir können deine Dateien herüberkopieren; es wird nicht verändert, wir lesen nur daraus.",
+  "linux.scanning": "Das andere Linux-Laufwerk wird durchsucht …",
+  "linux.passwords": "Im Browser gespeicherte Passwörter können nicht mitkommen. Schalte im anderen System die Synchronisierung in deinem Browser ein (oder exportiere die Passwörter) und melde dich dann hier im selben Browser an.",
+  "linux.locked": "Das andere Linux-Laufwerk ist verschlüsselt und kann hier nicht gelesen werden. Starte jenes System und kopiere deine Dateien stattdessen auf einen USB-Stick.",
+  "linux.failed": "Das andere Linux-Laufwerk konnte nicht geöffnet werden. Starte jenes System, fahre es vollständig herunter und versuche es dann erneut in Sloth Center (Laufwerke).",
+  "linux.apps_heading": "Apps, die du in deinem anderen Linux benutzt hast",
+  "linux.done": "Fertig: {count} Dateien aus deinem anderen Linux sind hier.",
+  "linux.user": "Linux-Konto:",
+  "linux.bookmarks_file": "Linux-Lesezeichen.html",
+  "linux.bookmarks_folder": "Aus Linux"
 }

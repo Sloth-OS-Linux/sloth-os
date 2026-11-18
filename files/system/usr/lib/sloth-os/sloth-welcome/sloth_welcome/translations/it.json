@@ -211,5 +211,16 @@
   "desktop.comment": "Installare un browser, una suite per ufficio, un lettore multimediale e altro, scegliere uno schema di colori",
   "desktop.keywords": "benvenuto;app;browser;ufficio;tema",
   "done.support": "Sloth OS è gratuito e viene realizzato nel tempo libero. Se ti piace, puoi sostenerne lo sviluppo offrendo una birra: ko-fi.com/slothos",
-  "done.support_button": "Sostieni su Ko-fi"
+  "done.support_button": "Sostieni su Ko-fi",
+  "linux.heading": "Portare qui i tuoi file dall’altro Linux?",
+  "linux.text": "Questo computer ha anche un altro sistema Linux. Possiamo copiare i tuoi file; non viene toccato, leggiamo soltanto.",
+  "linux.scanning": "Esame dell’altra unità Linux…",
+  "linux.passwords": "Le password salvate in un browser non possono essere portate. Nell’altro sistema attiva la sincronizzazione del browser (o esporta le password), poi accedi qui allo stesso browser.",
+  "linux.locked": "L’altra unità Linux è cifrata, quindi qui non può essere letta. Avvia quel sistema e copia i file su una chiavetta USB.",
+  "linux.failed": "Non è stato possibile aprire l’altra unità Linux. Avvia quel sistema e spegnilo completamente, poi riprova da Sloth Center (Dischi).",
+  "linux.apps_heading": "App che usavi nell’altro Linux",
+  "linux.done": "Fatto: {count} file dall’altro Linux sono qui.",
+  "linux.user": "Account Linux:",
+  "linux.bookmarks_file": "Segnalibri di Linux.html",
+  "linux.bookmarks_folder": "Da Linux"
 }

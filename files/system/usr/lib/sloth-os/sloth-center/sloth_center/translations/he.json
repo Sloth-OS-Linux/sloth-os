@@ -1265,5 +1265,7 @@
   "Getting ready…": "בהכנה…",
   "Search in Discover": "חיפוש ב־Discover",
   "Try again": "לנסות שוב",
-  "Install %1 and open the file": "להתקין את %1 ולפתוח את הקובץ"
+  "Install %1 and open the file": "להתקין את %1 ולפתוח את הקובץ",
+  "Bring files over from your other Linux": "העברת קבצים מה-Linux האחר",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "מעתיק את שולחן העבודה, המסמכים, התמונות ותיקיות אישיות אחרות, וגם את סימניות הדפדפן, מה-Linux האחר במחשב הזה. לא נוגעים בו, רק קוראים ממנו."
 }

@@ -211,5 +211,16 @@
   "desktop.comment": "Installer un navigateur, une suite bureautique, un lecteur multimédia et plus encore, choisir un jeu de couleurs",
   "desktop.keywords": "bienvenue;applications;navigateur;bureautique;thème",
   "done.support": "Sloth OS est gratuit et développé sur du temps libre. S’il vous plaît, vous pouvez soutenir son développement avec une bière : ko-fi.com/slothos",
-  "done.support_button": "Soutenir sur Ko-fi"
+  "done.support_button": "Soutenir sur Ko-fi",
+  "linux.heading": "Récupérer vos fichiers depuis votre autre Linux ?",
+  "linux.text": "Cet ordinateur a aussi un autre système Linux. Nous pouvons copier vos fichiers ; il n’est pas modifié, nous ne faisons qu’y lire.",
+  "linux.scanning": "Examen de l’autre disque Linux…",
+  "linux.passwords": "Les mots de passe enregistrés dans un navigateur ne peuvent pas être récupérés. Dans l’autre système, activez la synchronisation de votre navigateur (ou exportez-en les mots de passe), puis connectez-vous ici au même navigateur.",
+  "linux.locked": "L’autre disque Linux est chiffré : il ne peut pas être lu ici. Démarrez ce système et copiez plutôt vos fichiers sur une clé USB.",
+  "linux.failed": "L’autre disque Linux n’a pas pu être ouvert. Démarrez ce système et éteignez-le complètement, puis réessayez depuis Sloth Center (Disques).",
+  "linux.apps_heading": "Applications que vous utilisiez sur votre autre Linux",
+  "linux.done": "Terminé : {count} fichiers de votre autre Linux sont ici.",
+  "linux.user": "Compte Linux :",
+  "linux.bookmarks_file": "Favoris Linux.html",
+  "linux.bookmarks_folder": "Depuis Linux"
 }

@@ -211,5 +211,16 @@
   "desktop.comment": "Instalimi i një shfletuesi, pakete zyre, luajtësi mediash dhe më shumë, zgjedhja e një skeme ngjyrash",
   "desktop.keywords": "mirë se vini;aplikacione;shfletues;zyrë;temë",
   "done.support": "Sloth OS është falas dhe bëhet në kohën e lirë. Nëse ju pëlqen, mund ta mbështetni zhvillimin e tij me një birrë: ko-fi.com/slothos",
-  "done.support_button": "Mbështetni në Ko-fi"
+  "done.support_button": "Mbështetni në Ko-fi",
+  "linux.heading": "T’i sjellim skedarët nga Linux-i yt tjetër?",
+  "linux.text": "Ky kompjuter ka edhe një sistem tjetër Linux. Mund t’i kopjojmë skedarët e tu; nuk e prekim, vetëm lexojmë prej tij.",
+  "linux.scanning": "Po shqyrtohet disku tjetër Linux…",
+  "linux.passwords": "Fjalëkalimet e ruajtura në shfletues nuk mund të vijnë. Në sistemin tjetër aktivizo sinkronizimin në shfletues (ose eksporto fjalëkalimet), pastaj hyr këtu në të njëjtin shfletues.",
+  "linux.locked": "Disku tjetër Linux është i fshehtëzuar, ndaj nuk mund të lexohet këtu. Nis atë sistem dhe kopjoji skedarët në një USB.",
+  "linux.failed": "Disku tjetër Linux nuk u hap dot. Nis atë sistem dhe fike plotësisht, pastaj provo sërish nga Sloth Center (Disqet).",
+  "linux.apps_heading": "Aplikacionet që përdorje në Linux-in tjetër",
+  "linux.done": "U krye: {count} skedarë nga Linux-i yt tjetër janë këtu.",
+  "linux.user": "Llogaria e Linux:",
+  "linux.bookmarks_file": "Faqerojtës Linux.html",
+  "linux.bookmarks_folder": "Nga Linux"
 }

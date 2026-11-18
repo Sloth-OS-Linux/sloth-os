@@ -1265,5 +1265,7 @@
   "Getting ready…": "Προετοιμασία…",
   "Search in Discover": "Αναζήτηση στο Discover",
   "Try again": "Δοκιμή ξανά",
-  "Install %1 and open the file": "Εγκατάσταση του %1 και άνοιγμα του αρχείου"
+  "Install %1 and open the file": "Εγκατάσταση του %1 και άνοιγμα του αρχείου",
+  "Bring files over from your other Linux": "Μεταφορά αρχείων από το άλλο Linux",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Αντιγράφει την επιφάνεια εργασίας, τα έγγραφα, τις εικόνες και τους άλλους προσωπικούς σας φακέλους, καθώς και τους σελιδοδείκτες, από το άλλο Linux αυτού του υπολογιστή. Δεν το αγγίζει, μόνο διαβάζει."
 }

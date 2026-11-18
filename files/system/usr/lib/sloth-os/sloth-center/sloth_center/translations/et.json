@@ -1265,5 +1265,7 @@
   "Getting ready…": "Ettevalmistamine…",
   "Search in Discover": "Otsi Discoverist",
   "Try again": "Proovi uuesti",
-  "Install %1 and open the file": "Paigalda %1 ja ava fail"
+  "Install %1 and open the file": "Paigalda %1 ja ava fail",
+  "Bring files over from your other Linux": "Too failid üle teisest Linuxist",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopeerib töölaua, dokumendid, pildid ja muud isiklikud kaustad ning brauseri järjehoidjad selle arvuti teisest Linuxist. Seda ei muudeta, ainult loetakse."
 }

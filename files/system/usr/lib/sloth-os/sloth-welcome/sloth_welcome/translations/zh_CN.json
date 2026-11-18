@@ -211,5 +211,16 @@
   "desktop.comment": "安装浏览器、办公套件、媒体播放器等，选择配色方案",
   "desktop.keywords": "欢迎;应用;浏览器;办公;主题",
   "done.support": "Sloth OS 免费，利用业余时间开发。如果你喜欢，可以请一杯啤酒来支持开发：ko-fi.com/slothos",
-  "done.support_button": "在 Ko-fi 上支持"
+  "done.support_button": "在 Ko-fi 上支持",
+  "linux.heading": "要从你的另一个 Linux 带来文件吗？",
+  "linux.text": "这台电脑上还有另一个 Linux 系统。我们可以把你的文件复制过来；不会改动它，只是读取。",
+  "linux.scanning": "正在查看另一个 Linux 驱动器…",
+  "linux.passwords": "浏览器中保存的密码无法带过来。在另一个系统中打开浏览器的同步（或导出密码），然后在这里登录同一个浏览器。",
+  "linux.locked": "另一个 Linux 驱动器已加密，无法在这里读取。请启动那个系统，把文件复制到 U 盘。",
+  "linux.failed": "无法打开另一个 Linux 驱动器。请启动那个系统并完全关机，然后在 Sloth Center（磁盘）中重试。",
+  "linux.apps_heading": "你在另一个 Linux 上用过的应用",
+  "linux.done": "完成：另一个 Linux 中的 {count} 个文件已在这里。",
+  "linux.user": "Linux 帐户：",
+  "linux.bookmarks_file": "Linux 书签.html",
+  "linux.bookmarks_folder": "来自 Linux"
 }

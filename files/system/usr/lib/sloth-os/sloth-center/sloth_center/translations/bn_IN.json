@@ -1265,5 +1265,7 @@
   "Getting ready…": "প্রস্তুত হচ্ছে…",
   "Search in Discover": "Discover-এ খুঁজুন",
   "Try again": "আবার চেষ্টা করুন",
-  "Install %1 and open the file": "%1 ইনস্টল করে ফাইলটি খুলুন"
+  "Install %1 and open the file": "%1 ইনস্টল করে ফাইলটি খুলুন",
+  "Bring files over from your other Linux": "অন্য Linux থেকে ফাইল আনুন",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "এই কম্পিউটারের অন্য Linux থেকে ডেস্কটপ, ডকুমেন্ট, ছবি ও আপনার অন্যান্য ব্যক্তিগত ফোল্ডার, সঙ্গে ব্রাউজারের বুকমার্ক কপি করে। সেটিতে হাত দেওয়া হয় না, শুধু পড়া হয়।"
 }

@@ -155,7 +155,7 @@ class WelcomeController(QObject):
         # Windows step: "idle" | "scanning" | "ready" | "copying" | "done" | "locked" | "none" | "failed" | "nospace"
         self._win = {"state": "idle", "users": [], "user": "", "keys": [], "bookmarks": True,
                      "games": [], "game_ids": [], "libraries": [], "library": 0, "done": 0, "total": 0, "result": {}, "games_result": {},
-                     "need": 0, "free": 0}
+                     "need": 0, "free": 0, "kind": "windows"}
         self._win_mounts = []        # what we mounted (unmounted at the end)
         self._win_cancel = threading.Event()
         self._win_sig.connect(self._on_win)
@@ -468,6 +468,17 @@ class WelcomeController(QObject):
     def windowsState(self):
         return self._win["state"]
 
+    @Property(str, notify=changed)
+    def windowsKind(self):
+        """Which system the files come from: "windows" or "linux" (another Linux on this computer; the step's
+        texts say so: linux.* instead of windows.*)."""
+        user = self._win_user()
+        return user.get("kind", "windows") if user else self._win["kind"]
+
+    def _kind_tr(self, key, **kw):
+        """windows.<key>, or linux.<key> when the files come from another Linux."""
+        return tr(f"{self.windowsKind}.{key}" if self.windowsKind == "linux" else f"windows.{key}", **kw)
+
     @Property("QVariantList", notify=changed)
     def windowsUsers(self):
         return [u["name"] for u in self._win["users"]]
@@ -569,7 +580,7 @@ class WelcomeController(QObject):
             r, g = w["result"], w["games_result"]
             parts = []
             if r:
-                parts.append(tr("windows.done", count=r.get("copied", 0) + r.get("skipped", 0)))
+                parts.append(self._kind_tr("done", count=r.get("copied", 0) + r.get("skipped", 0)))
                 if r.get("failed"):
                     parts.append(tr("windows.failed_some", count=len(r["failed"])))
             if g:
@@ -598,11 +609,14 @@ class WelcomeController(QObject):
 
         def scan():
             found, mounted, locked, failed = [], [], False, False
-            for part in windows_import.candidates():
+            parts = windows_import.candidates()
+            kinds = {part.get("kind", "windows") for part in parts}
+            self._win_sig.emit({"kind": "linux" if kinds == {"linux"} else "windows"})
+            for part in parts:
                 if part["locked"]:
                     locked = True
                     continue
-                mnt, ours = windows_import.mount(part["device"])
+                mnt, ours = windows_import.mount(part["device"], part.get("fstype", ""))
                 if not mnt:
                     failed = True
                     continue
@@ -680,6 +694,7 @@ class WelcomeController(QObject):
             self.changed.emit()
             return
         library = self._win_library()
+        linux = bool(user and user.get("kind") == "linux")
         files_need = sum(user["folders"][k] for k in keys)
         games_need = sum(g["size"] for g in games)
         need = files_need + games_need
@@ -713,15 +728,16 @@ class WelcomeController(QObject):
                 result = windows_import.copy(
                     user["home"], keys,
                     on_progress=lambda done, _t, _n: self._win_sig.emit({"done": done, "total": need}),
-                    cancelled=self._win_cancel.is_set)
+                    cancelled=self._win_cancel.is_set, dirs=user.get("dirs"),
+                    label="Linux" if linux else "Windows")
             if bookmarks:
                 # straight into the browsers (those not installed or not started yet: later, browser_bookmarks), and
                 # a file on the Desktop as well, which any browser can import
                 try:
                     folders = windows_import.bookmark_folders(user["home"])
                     windows_import.export_bookmarks(
-                        folders, windows_import.target_dir("desktop") / tr("windows.bookmarks_file"))
-                    browser_bookmarks.save_pending(folders, tr("windows.bookmarks_folder"))
+                        folders, windows_import.target_dir("desktop") / self._kind_tr("bookmarks_file"))
+                    browser_bookmarks.save_pending(folders, self._kind_tr("bookmarks_folder"))
                     browser_bookmarks.apply_pending()
                 except OSError as e:
                     log.warning("bookmarks: %s", e)
@@ -731,8 +747,8 @@ class WelcomeController(QObject):
                                                                                  "total": need}),
                     cancelled=self._win_cancel.is_set)
                 if not self._win_cancel.is_set():  # Proton for games with a Linux version, and their saves
-                    games_result.update(windows_import.finish_games(games, user["home"] if user else None,
-                                                                         library=library))
+                    win_home = user["home"] if user and not linux else None
+                    games_result.update(windows_import.finish_games(games, win_home, library=library))
             self._win_sig.emit({"state": "done", "result": result, "games_result": games_result})
 
         threading.Thread(target=work, daemon=True).start()

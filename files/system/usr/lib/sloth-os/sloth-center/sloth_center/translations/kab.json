@@ -1265,5 +1265,7 @@
   "Getting ready…": "Aheyyi…",
   "Search in Discover": "Nadi deg Discover",
   "Try again": "Ɛreḍ tikkelt-nniḍen",
-  "Install %1 and open the file": "Sebded %1 sakin ldi afaylu"
+  "Install %1 and open the file": "Sebded %1 sakin ldi afaylu",
+  "Bring files over from your other Linux": "Awi-d ifuyla seg Linux nniḍen",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Yessenɣal tanarit, isemliyen, tugniwin d ikaramen-ik nniḍen udmawanen, akk d ticraḍ n yiminig, seg Linux nniḍen n uselkim-a. Ur t-nettennal ara, d taɣuri kan."
 }

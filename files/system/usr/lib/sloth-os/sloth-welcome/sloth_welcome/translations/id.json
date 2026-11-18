@@ -211,5 +211,16 @@
   "desktop.comment": "Pasang peramban, paket perkantoran, pemutar media, dan lainnya, pilih skema warna",
   "desktop.keywords": "selamat datang;aplikasi;peramban;perkantoran;tema",
   "done.support": "Sloth OS gratis dan dibuat di waktu luang. Jika Anda menyukainya, Anda dapat mendukung pengembangannya dengan traktiran minuman: ko-fi.com/slothos",
-  "done.support_button": "Dukung di Ko-fi"
+  "done.support_button": "Dukung di Ko-fi",
+  "linux.heading": "Bawa file Anda dari Linux Anda yang lain?",
+  "linux.text": "Komputer ini juga punya sistem Linux lain. Kami bisa menyalin file Anda; sistem itu tidak diubah, kami hanya membacanya.",
+  "linux.scanning": "Memeriksa drive Linux yang lain…",
+  "linux.passwords": "Kata sandi yang tersimpan di peramban tidak bisa ikut. Di sistem yang lain, nyalakan sinkronisasi di peramban Anda (atau ekspor kata sandinya), lalu masuk ke peramban yang sama di sini.",
+  "linux.locked": "Drive Linux yang lain dienkripsi, jadi tidak bisa dibaca di sini. Jalankan sistem itu dan salin file Anda ke flashdisk USB.",
+  "linux.failed": "Drive Linux yang lain tidak bisa dibuka. Jalankan sistem itu dan matikan sepenuhnya, lalu coba lagi dari Sloth Center (Disk).",
+  "linux.apps_heading": "Aplikasi yang Anda pakai di Linux yang lain",
+  "linux.done": "Selesai: {count} file dari Linux Anda yang lain sudah di sini.",
+  "linux.user": "Akun Linux:",
+  "linux.bookmarks_file": "Markah Linux.html",
+  "linux.bookmarks_folder": "Dari Linux"
 }

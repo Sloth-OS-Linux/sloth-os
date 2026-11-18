@@ -211,5 +211,16 @@
   "desktop.comment": "Veebilehitseja, kontoritarkvara, meediapleieri ja muu paigaldamine, värviskeemi valimine",
   "desktop.keywords": "tere tulemast;rakendused;veebilehitseja;kontor;teema",
   "done.support": "Sloth OS on tasuta ja valmib vabal ajal. Kui see sulle meeldib, saad selle arendust ühe õllega toetada: ko-fi.com/slothos",
-  "done.support_button": "Toeta Ko-fis"
+  "done.support_button": "Toeta Ko-fis",
+  "linux.heading": "Kas tuua failid üle sinu teisest Linuxist?",
+  "linux.text": "Selles arvutis on ka teine Linuxi süsteem. Saame sinu failid üle kopeerida; seda ei muudeta, me ainult loeme sellest.",
+  "linux.scanning": "Teise Linuxi ketta läbivaatamine…",
+  "linux.passwords": "Brauserisse salvestatud paroole üle tuua ei saa. Lülita teises süsteemis brauseris sünkroonimine sisse (või ekspordi paroolid) ja logi siis siin samasse brauserisse sisse.",
+  "linux.locked": "Teine Linuxi ketas on krüptitud, seega siin seda lugeda ei saa. Käivita see süsteem ja kopeeri failid hoopis USB-mälupulgale.",
+  "linux.failed": "Teist Linuxi ketast ei õnnestunud avada. Käivita see süsteem ja lülita see täielikult välja, siis proovi uuesti Sloth Centeris (Kettad).",
+  "linux.apps_heading": "Rakendused, mida kasutasid teises Linuxis",
+  "linux.done": "Valmis: {count} faili sinu teisest Linuxist on siin.",
+  "linux.user": "Linuxi konto:",
+  "linux.bookmarks_file": "Linuxi järjehoidjad.html",
+  "linux.bookmarks_folder": "Linuxist"
 }

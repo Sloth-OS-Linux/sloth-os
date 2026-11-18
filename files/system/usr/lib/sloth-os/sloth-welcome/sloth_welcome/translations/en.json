@@ -211,5 +211,16 @@
   "desktop.comment": "Install a browser, office suite, media player and more, pick a color theme",
   "desktop.keywords": "welcome;apps;browser;office;theme",
   "done.support": "Sloth OS is free and made in spare time. If you like it, you can support its development with a beer: ko-fi.com/slothos",
-  "done.support_button": "Support on Ko-fi"
+  "done.support_button": "Support on Ko-fi",
+  "linux.heading": "Bring your files over from your other Linux?",
+  "linux.text": "This computer also has another Linux system. We can copy your files over; it isn't touched, we only read from it.",
+  "linux.scanning": "Looking through the other Linux drive…",
+  "linux.passwords": "Passwords saved in a browser can't come over. In the other system, turn on sync in your browser (or export the passwords from it), then sign in to the same browser here.",
+  "linux.locked": "The other Linux drive is encrypted, so it can't be read here. Start that system and copy your files to a USB stick instead.",
+  "linux.failed": "The other Linux drive couldn't be opened. Start that system and shut it down completely, then try again from Sloth Center (Disks).",
+  "linux.apps_heading": "Apps you used on your other Linux",
+  "linux.done": "Done: {count} files from your other Linux are here.",
+  "linux.user": "Linux account:",
+  "linux.bookmarks_file": "Linux bookmarks.html",
+  "linux.bookmarks_folder": "From Linux"
 }

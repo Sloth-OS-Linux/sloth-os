@@ -211,5 +211,16 @@
   "desktop.comment": "Een browser, kantoorpakket, mediaspeler en meer installeren, een kleurenschema kiezen",
   "desktop.keywords": "welkom;apps;browser;kantoor;thema",
   "done.support": "Sloth OS is gratis en wordt in de vrije tijd gemaakt. Vind je het goed? Dan kun je de ontwikkeling steunen met een biertje: ko-fi.com/slothos",
-  "done.support_button": "Steun op Ko-fi"
+  "done.support_button": "Steun op Ko-fi",
+  "linux.heading": "Je bestanden overzetten vanaf je andere Linux?",
+  "linux.text": "Deze computer heeft ook een ander Linux-systeem. We kunnen je bestanden kopiëren; het wordt niet aangeraakt, we lezen er alleen uit.",
+  "linux.scanning": "De andere Linux-schijf wordt doorzocht…",
+  "linux.passwords": "Wachtwoorden die in een browser zijn opgeslagen kunnen niet mee. Zet in het andere systeem synchronisatie aan in je browser (of exporteer de wachtwoorden) en meld je hier aan in dezelfde browser.",
+  "linux.locked": "De andere Linux-schijf is versleuteld en kan hier niet worden gelezen. Start dat systeem en kopieer je bestanden naar een USB-stick.",
+  "linux.failed": "De andere Linux-schijf kon niet worden geopend. Start dat systeem en sluit het volledig af; probeer het dan opnieuw vanuit Sloth Center (Schijven).",
+  "linux.apps_heading": "Apps die je op je andere Linux gebruikte",
+  "linux.done": "Klaar: {count} bestanden van je andere Linux staan hier.",
+  "linux.user": "Linux-account:",
+  "linux.bookmarks_file": "Linux-bladwijzers.html",
+  "linux.bookmarks_folder": "Uit Linux"
 }

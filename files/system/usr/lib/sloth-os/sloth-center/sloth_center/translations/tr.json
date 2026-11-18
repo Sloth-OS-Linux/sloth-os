@@ -1265,5 +1265,7 @@
   "Getting ready…": "Hazırlanıyor…",
   "Search in Discover": "Discover'da ara",
   "Try again": "Yeniden dene",
-  "Install %1 and open the file": "%1 kur ve dosyayı aç"
+  "Install %1 and open the file": "%1 kur ve dosyayı aç",
+  "Bring files over from your other Linux": "Diğer Linux'tan dosyaları getir",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Bu bilgisayardaki diğer Linux'tan masaüstünü, belgeleri, resimleri ve diğer kişisel klasörlerini, ayrıca tarayıcı yer imlerini kopyalar. Ona dokunulmaz, yalnızca okunur."
 }

@@ -211,5 +211,16 @@
   "desktop.comment": "Instalar um navegador, um pacote de escritório, um reprodutor de mídia e mais, escolher um esquema de cores",
   "desktop.keywords": "boas-vindas;aplicativos;navegador;escritório;tema",
   "done.support": "O Sloth OS é gratuito e feito no tempo livre. Se você gostar, pode apoiar o desenvolvimento com uma cerveja: ko-fi.com/slothos",
-  "done.support_button": "Apoiar no Ko-fi"
+  "done.support_button": "Apoiar no Ko-fi",
+  "linux.heading": "Trazer seus arquivos do seu outro Linux?",
+  "linux.text": "Este computador também tem outro sistema Linux. Podemos copiar seus arquivos; ele não é alterado, só lemos dele.",
+  "linux.scanning": "Examinando a outra unidade Linux…",
+  "linux.passwords": "Senhas salvas em um navegador não podem vir. No outro sistema, ative a sincronização no navegador (ou exporte as senhas) e depois entre aqui no mesmo navegador.",
+  "linux.locked": "A outra unidade Linux está criptografada, então não pode ser lida aqui. Inicie aquele sistema e copie seus arquivos para um pendrive.",
+  "linux.failed": "Não foi possível abrir a outra unidade Linux. Inicie aquele sistema e desligue-o completamente; depois tente de novo no Sloth Center (Discos).",
+  "linux.apps_heading": "Apps que você usava no seu outro Linux",
+  "linux.done": "Pronto: {count} arquivos do seu outro Linux já estão aqui.",
+  "linux.user": "Conta do Linux:",
+  "linux.bookmarks_file": "Favoritos do Linux.html",
+  "linux.bookmarks_folder": "Do Linux"
 }

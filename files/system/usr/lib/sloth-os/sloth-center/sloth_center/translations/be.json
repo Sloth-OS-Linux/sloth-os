@@ -1265,5 +1265,7 @@
   "Getting ready…": "Падрыхтоўка…",
   "Search in Discover": "Шукаць у Discover",
   "Try again": "Паўтарыць",
-  "Install %1 and open the file": "Усталяваць %1 і адкрыць файл"
+  "Install %1 and open the file": "Усталяваць %1 і адкрыць файл",
+  "Bring files over from your other Linux": "Перанесці файлы з іншага Linux",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Капіруе працоўны стол, дакументы, выявы і іншыя асабістыя папкі, а таксама закладкі браўзера, з іншага Linux на гэтым камп’ютары. Яго не кранаем, толькі чытаем."
 }

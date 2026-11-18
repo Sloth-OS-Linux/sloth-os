@@ -211,5 +211,16 @@
   "desktop.comment": "ブラウザー、オフィスソフト、メディアプレーヤーなどをインストールし、配色を選びます",
   "desktop.keywords": "ようこそ;アプリ;ブラウザー;オフィス;テーマ",
   "done.support": "Sloth OS は無料で、空き時間に開発されています。気に入ったら、ビール一杯分の支援で開発を応援できます: ko-fi.com/slothos",
-  "done.support_button": "Ko-fi で応援する"
+  "done.support_button": "Ko-fi で応援する",
+  "linux.heading": "もう一つの Linux からファイルを移しますか？",
+  "linux.text": "このコンピューターには別の Linux システムもあります。ファイルをコピーできます。そのシステムには手を加えず、読み取るだけです。",
+  "linux.scanning": "もう一つの Linux ドライブを調べています…",
+  "linux.passwords": "ブラウザーに保存されたパスワードは移せません。もう一つのシステムでブラウザーの同期をオンにする（またはパスワードをエクスポートする）と、ここで同じブラウザーにサインインして使えます。",
+  "linux.locked": "もう一つの Linux ドライブは暗号化されているため、ここでは読み取れません。そのシステムを起動して、ファイルを USB メモリーにコピーしてください。",
+  "linux.failed": "もう一つの Linux ドライブを開けませんでした。そのシステムを起動して完全にシャットダウンしてから、Sloth Center（ディスク）でもう一度お試しください。",
+  "linux.apps_heading": "もう一つの Linux で使っていたアプリ",
+  "linux.done": "完了：もう一つの Linux から {count} 個のファイルを移しました。",
+  "linux.user": "Linux のアカウント:",
+  "linux.bookmarks_file": "Linux のブックマーク.html",
+  "linux.bookmarks_folder": "Linux から"
 }

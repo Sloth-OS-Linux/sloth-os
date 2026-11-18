@@ -211,5 +211,16 @@
   "desktop.comment": "Asenna selain, toimisto-ohjelmat, mediasoitin ja muuta, valitse väriteema",
   "desktop.keywords": "tervetuloa;sovellukset;selain;toimisto;teema",
   "done.support": "Sloth OS on ilmainen, ja sitä tehdään vapaa-ajalla. Jos pidät siitä, voit tukea sen kehitystä tarjoamalla oluen: ko-fi.com/slothos",
-  "done.support_button": "Tue Ko-fissa"
+  "done.support_button": "Tue Ko-fissa",
+  "linux.heading": "Tuodaanko tiedostosi toisesta Linuxistasi?",
+  "linux.text": "Tässä tietokoneessa on myös toinen Linux-järjestelmä. Voimme kopioida tiedostosi; siihen ei kosketa, luemme siitä vain.",
+  "linux.scanning": "Käydään läpi toista Linux-asemaa…",
+  "linux.passwords": "Selaimeen tallennettuja salasanoja ei voi tuoda. Ota toisessa järjestelmässä selaimen synkronointi käyttöön (tai vie salasanat), ja kirjaudu sitten samaan selaimeen täällä.",
+  "linux.locked": "Toinen Linux-asema on salattu, joten sitä ei voi lukea täällä. Käynnistä se järjestelmä ja kopioi tiedostosi sen sijaan USB-tikulle.",
+  "linux.failed": "Toista Linux-asemaa ei voitu avata. Käynnistä se järjestelmä ja sammuta se kokonaan, ja yritä sitten uudelleen Sloth Centeristä (Levyt).",
+  "linux.apps_heading": "Sovellukset, joita käytit toisessa Linuxissasi",
+  "linux.done": "Valmis: {count} tiedostoa toisesta Linuxistasi on täällä.",
+  "linux.user": "Linux-tili:",
+  "linux.bookmarks_file": "Linux-kirjanmerkit.html",
+  "linux.bookmarks_folder": "Linuxista"
 }

@@ -1265,5 +1265,7 @@
   "Getting ready…": "S'està preparant…",
   "Search in Discover": "Cerca al Discover",
   "Try again": "Torna-ho a provar",
-  "Install %1 and open the file": "Instal·la %1 i obre el fitxer"
+  "Install %1 and open the file": "Instal·la %1 i obre el fitxer",
+  "Bring files over from your other Linux": "Porta fitxers des de l’altre Linux",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Copia l’escriptori, els documents, les imatges i les altres carpetes personals, i també les adreces d’interès del navegador, des de l’altre Linux d’aquest ordinador. No es toca, només es llegeix."
 }

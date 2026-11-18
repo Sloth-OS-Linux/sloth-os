@@ -1265,5 +1265,7 @@
   "Getting ready…": "Valmistellaan…",
   "Search in Discover": "Etsi Discoverista",
   "Try again": "Yritä uudelleen",
-  "Install %1 and open the file": "Asenna %1 ja avaa tiedosto"
+  "Install %1 and open the file": "Asenna %1 ja avaa tiedosto",
+  "Bring files over from your other Linux": "Tuo tiedostot toisesta Linuxista",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Kopioi työpöydän, asiakirjat, kuvat ja muut henkilökohtaiset kansiosi sekä selaimen kirjanmerkit tämän tietokoneen toisesta Linuxista. Siihen ei kosketa, siitä vain luetaan."
 }

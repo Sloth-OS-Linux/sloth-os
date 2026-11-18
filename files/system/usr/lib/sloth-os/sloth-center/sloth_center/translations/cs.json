@@ -1265,5 +1265,7 @@
   "Getting ready…": "Příprava…",
   "Search in Discover": "Hledat v Discover",
   "Try again": "Zkusit znovu",
-  "Install %1 and open the file": "Nainstalovat %1 a otevřít soubor"
+  "Install %1 and open the file": "Nainstalovat %1 a otevřít soubor",
+  "Bring files over from your other Linux": "Přenést soubory z druhého Linuxu",
+  "Copies the Desktop, Documents, Pictures and your other personal folders, plus browser bookmarks, from the other Linux on this computer. It isn't touched, it's only read.": "Zkopíruje plochu, dokumenty, obrázky a další osobní složky i záložky prohlížeče z druhého Linuxu v tomto počítači. Na něm se nic nemění, jen se čte."
 }

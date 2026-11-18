@@ -211,5 +211,16 @@
   "desktop.comment": "Instalacja przeglądarki, pakietu biurowego, odtwarzacza multimediów i innych aplikacji, wybór schematu kolorów",
   "desktop.keywords": "witaj;aplikacje;przeglądarka;biuro;motyw",
   "done.support": "Sloth OS jest darmowy i powstaje w wolnym czasie. Jeśli ci się podoba, możesz wesprzeć jego rozwój piwem: ko-fi.com/slothos",
-  "done.support_button": "Wesprzyj na Ko-fi"
+  "done.support_button": "Wesprzyj na Ko-fi",
+  "linux.heading": "Przenieść pliki z drugiego Linuksa?",
+  "linux.text": "Ten komputer ma też inny system Linux. Możemy skopiować z niego twoje pliki; nie jest zmieniany, tylko z niego czytamy.",
+  "linux.scanning": "Przeglądanie drugiego dysku z Linuksem…",
+  "linux.passwords": "Haseł zapisanych w przeglądarce nie da się przenieść. W drugim systemie włącz synchronizację w przeglądarce (albo wyeksportuj hasła), a potem zaloguj się tutaj do tej samej przeglądarki.",
+  "linux.locked": "Drugi dysk z Linuksem jest zaszyfrowany, więc nie da się go tu odczytać. Uruchom tamten system i skopiuj pliki na pendrive.",
+  "linux.failed": "Nie udało się otworzyć drugiego dysku z Linuksem. Uruchom tamten system i całkowicie go wyłącz, potem spróbuj ponownie w Sloth Center (Dyski).",
+  "linux.apps_heading": "Aplikacje, których używałeś w drugim Linuksie",
+  "linux.done": "Gotowe: {count} plików z drugiego Linuksa jest już tutaj.",
+  "linux.user": "Konto Linux:",
+  "linux.bookmarks_file": "Zakładki Linux.html",
+  "linux.bookmarks_folder": "Z Linux"
 }
