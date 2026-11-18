@@ -222,5 +222,6 @@
   "linux.done": "Valmis: {count} tiedostoa toisesta Linuxistasi on täällä.",
   "linux.user": "Linux-tili:",
   "linux.bookmarks_file": "Linux-kirjanmerkit.html",
-  "linux.bookmarks_folder": "Linuxista"
+  "linux.bookmarks_folder": "Linuxista",
+  "app.org.localsend.localsend_app": "Tiedostot puhelimeen tai toiseen kotikoneeseen ilman johtoa"
 }

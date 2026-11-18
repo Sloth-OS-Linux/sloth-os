@@ -222,5 +222,6 @@
   "linux.done": "Farite: {count} dosieroj el via alia Linukso estas ĉi tie.",
   "linux.user": "Linux-konto:",
   "linux.bookmarks_file": "Linux-legosignoj.html",
-  "linux.bookmarks_folder": "El Linux"
+  "linux.bookmarks_folder": "El Linux",
+  "app.org.localsend.localsend_app": "Dosieroj al via telefono aŭ alia komputilo hejme, sen kablo"
 }

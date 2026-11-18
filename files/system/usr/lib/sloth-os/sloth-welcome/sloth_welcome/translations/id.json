@@ -222,5 +222,6 @@
   "linux.done": "Selesai: {count} file dari Linux Anda yang lain sudah di sini.",
   "linux.user": "Akun Linux:",
   "linux.bookmarks_file": "Markah Linux.html",
-  "linux.bookmarks_folder": "Dari Linux"
+  "linux.bookmarks_folder": "Dari Linux",
+  "app.org.localsend.localsend_app": "File ke ponsel atau komputer lain di rumah, tanpa kabel"
 }

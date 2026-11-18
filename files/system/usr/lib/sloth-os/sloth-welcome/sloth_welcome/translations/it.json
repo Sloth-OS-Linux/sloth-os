@@ -222,5 +222,6 @@
   "linux.done": "Fatto: {count} file dall’altro Linux sono qui.",
   "linux.user": "Account Linux:",
   "linux.bookmarks_file": "Segnalibri di Linux.html",
-  "linux.bookmarks_folder": "Da Linux"
+  "linux.bookmarks_folder": "Da Linux",
+  "app.org.localsend.localsend_app": "File sul telefono o su un altro computer di casa, senza cavo"
 }

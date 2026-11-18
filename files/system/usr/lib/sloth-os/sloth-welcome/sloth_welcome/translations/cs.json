@@ -222,5 +222,6 @@
   "linux.done": "Hotovo: {count} souborů z druhého Linuxu je zde.",
   "linux.user": "Účet Linux:",
   "linux.bookmarks_file": "Záložky Linux.html",
-  "linux.bookmarks_folder": "Z Linux"
+  "linux.bookmarks_folder": "Z Linux",
+  "app.org.localsend.localsend_app": "Soubory do telefonu nebo do jiného počítače doma, bez kabelu"
 }

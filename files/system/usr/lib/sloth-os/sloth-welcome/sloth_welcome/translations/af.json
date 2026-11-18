@@ -222,5 +222,6 @@
   "linux.done": "Klaar: {count} lêers van jou ander Linux is hier.",
   "linux.user": "Linux-rekening:",
   "linux.bookmarks_file": "Linux-boekmerke.html",
-  "linux.bookmarks_folder": "Uit Linux"
+  "linux.bookmarks_folder": "Uit Linux",
+  "app.org.localsend.localsend_app": "Lêers na jou foon of ’n ander rekenaar by die huis, sonder ’n kabel"
 }

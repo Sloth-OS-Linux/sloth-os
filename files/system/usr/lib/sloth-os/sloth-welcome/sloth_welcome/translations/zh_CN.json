@@ -222,5 +222,6 @@
   "linux.done": "完成：另一个 Linux 中的 {count} 个文件已在这里。",
   "linux.user": "Linux 帐户：",
   "linux.bookmarks_file": "Linux 书签.html",
-  "linux.bookmarks_folder": "来自 Linux"
+  "linux.bookmarks_folder": "来自 Linux",
+  "app.org.localsend.localsend_app": "无需数据线，把文件发到手机或家里的另一台电脑"
 }

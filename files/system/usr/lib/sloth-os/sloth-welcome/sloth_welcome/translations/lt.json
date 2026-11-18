@@ -222,5 +222,6 @@
   "linux.done": "Atlikta: {count} failų iš kitos „Linux“ jau čia.",
   "linux.user": "Linux paskyra:",
   "linux.bookmarks_file": "Linux žymelės.html",
-  "linux.bookmarks_folder": "Iš „Linux“"
+  "linux.bookmarks_folder": "Iš „Linux“",
+  "app.org.localsend.localsend_app": "Failai į telefoną ar kitą namų kompiuterį be laido"
 }

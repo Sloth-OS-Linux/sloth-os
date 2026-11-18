@@ -222,5 +222,6 @@
   "linux.done": "Gotowe: {count} plików z drugiego Linuksa jest już tutaj.",
   "linux.user": "Konto Linux:",
   "linux.bookmarks_file": "Zakładki Linux.html",
-  "linux.bookmarks_folder": "Z Linux"
+  "linux.bookmarks_folder": "Z Linux",
+  "app.org.localsend.localsend_app": "Pliki na telefon lub inny komputer w domu, bez kabla"
 }

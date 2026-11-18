@@ -67,6 +67,9 @@ CATEGORIES = [
             {"id": "com.rtosta.zapzap", "name": "ZapZap"},
             {"id": "org.kde.kdeconnect", "name": "KDE Connect",
              "source": "system", "switch": "/usr/libexec/sloth-os/phone-link"},
+            # files to a phone or another computer on the home network, without a cable or an account (Android,
+            # iPhone, Windows, Mac, Linux); Flathub's (Apache-2.0). The firewall's default zone leaves its port open
+            {"id": "org.localsend.localsend_app", "name": "LocalSend"},
             {"id": "us.zoom.Zoom", "name": "Zoom"},
             {"id": "com.slack.Slack", "name": "Slack"},
             {"id": "com.github.IsmaelMartinez.teams_for_linux", "name": "Teams for Linux"},

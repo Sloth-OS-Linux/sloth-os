@@ -222,5 +222,6 @@
   "linux.done": "Klart: {count} filer från ditt andra Linux finns här.",
   "linux.user": "Linux-konto:",
   "linux.bookmarks_file": "Linux-bokmärken.html",
-  "linux.bookmarks_folder": "Från Linux"
+  "linux.bookmarks_folder": "Från Linux",
+  "app.org.localsend.localsend_app": "Filer till mobilen eller en annan dator hemma, utan kabel"
 }

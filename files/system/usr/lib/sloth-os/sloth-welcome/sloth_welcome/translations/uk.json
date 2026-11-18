@@ -222,5 +222,6 @@
   "linux.done": "Готово: {count} файлів з іншого Linux уже тут.",
   "linux.user": "Обліковий запис Linux:",
   "linux.bookmarks_file": "Закладки Linux.html",
-  "linux.bookmarks_folder": "З Linux"
+  "linux.bookmarks_folder": "З Linux",
+  "app.org.localsend.localsend_app": "Файли на телефон чи інший комп’ютер удома, без кабелю"
 }

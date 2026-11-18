@@ -222,5 +222,6 @@
   "linux.done": "Klaar: {count} bestanden van je andere Linux staan hier.",
   "linux.user": "Linux-account:",
   "linux.bookmarks_file": "Linux-bladwijzers.html",
-  "linux.bookmarks_folder": "Uit Linux"
+  "linux.bookmarks_folder": "Uit Linux",
+  "app.org.localsend.localsend_app": "Bestanden naar je telefoon of een andere computer thuis, zonder kabel"
 }

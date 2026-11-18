@@ -222,5 +222,6 @@
   "linux.done": "Έτοιμο: {count} αρχεία από το άλλο σας Linux είναι εδώ.",
   "linux.user": "Λογαριασμός Linux:",
   "linux.bookmarks_file": "Σελιδοδείκτες Linux.html",
-  "linux.bookmarks_folder": "Από τα Linux"
+  "linux.bookmarks_folder": "Από τα Linux",
+  "app.org.localsend.localsend_app": "Αρχεία στο κινητό ή σε άλλον υπολογιστή στο σπίτι, χωρίς καλώδιο"
 }

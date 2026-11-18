@@ -222,5 +222,6 @@
   "linux.done": "完成：另一個 Linux 中的 {count} 個檔案已在這裡。",
   "linux.user": "Linux 帳戶：",
   "linux.bookmarks_file": "Linux 書籤.html",
-  "linux.bookmarks_folder": "來自 Linux"
+  "linux.bookmarks_folder": "來自 Linux",
+  "app.org.localsend.localsend_app": "不用傳輸線，把檔案傳到手機或家裡的另一台電腦"
 }

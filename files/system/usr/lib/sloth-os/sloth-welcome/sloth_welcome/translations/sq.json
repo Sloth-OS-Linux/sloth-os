@@ -222,5 +222,6 @@
   "linux.done": "U krye: {count} skedarë nga Linux-i yt tjetër janë këtu.",
   "linux.user": "Llogaria e Linux:",
   "linux.bookmarks_file": "Faqerojtës Linux.html",
-  "linux.bookmarks_folder": "Nga Linux"
+  "linux.bookmarks_folder": "Nga Linux",
+  "app.org.localsend.localsend_app": "Skedarë në telefon ose në një kompjuter tjetër në shtëpi, pa kabllo"
 }

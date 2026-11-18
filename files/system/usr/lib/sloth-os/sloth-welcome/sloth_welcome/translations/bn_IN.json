@@ -222,5 +222,6 @@
   "linux.done": "সম্পন্ন: আপনার অন্য Linux থেকে {count}টি ফাইল এখানে এসেছে।",
   "linux.user": "Linux অ্যাকাউন্ট:",
   "linux.bookmarks_file": "Linux বুকমার্ক.html",
-  "linux.bookmarks_folder": "Linux থেকে"
+  "linux.bookmarks_folder": "Linux থেকে",
+  "app.org.localsend.localsend_app": "বাড়ির ফোন বা অন্য কম্পিউটারে ফাইল, তার ছাড়াই"
 }

@@ -222,5 +222,6 @@
   "linux.done": "Valmis: {count} faili sinu teisest Linuxist on siin.",
   "linux.user": "Linuxi konto:",
   "linux.bookmarks_file": "Linuxi järjehoidjad.html",
-  "linux.bookmarks_folder": "Linuxist"
+  "linux.bookmarks_folder": "Linuxist",
+  "app.org.localsend.localsend_app": "Failid telefoni või teise koduarvutisse, ilma kaablita"
 }

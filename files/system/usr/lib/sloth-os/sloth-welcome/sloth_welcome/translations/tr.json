@@ -222,5 +222,6 @@
   "linux.done": "Tamam: diğer Linux'undan {count} dosya burada.",
   "linux.user": "Linux hesabı:",
   "linux.bookmarks_file": "Linux yer imleri.html",
-  "linux.bookmarks_folder": "Linux'tan"
+  "linux.bookmarks_folder": "Linux'tan",
+  "app.org.localsend.localsend_app": "Evdeki telefonuna ya da başka bir bilgisayara kablosuz dosya gönder"
 }

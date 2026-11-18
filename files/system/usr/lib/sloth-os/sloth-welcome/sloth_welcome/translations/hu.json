@@ -222,5 +222,6 @@
   "linux.done": "Kész: {count} fájl van itt a másik Linuxodról.",
   "linux.user": "Linux-fiók:",
   "linux.bookmarks_file": "Linux-könyvjelzők.html",
-  "linux.bookmarks_folder": "Linuxból"
+  "linux.bookmarks_folder": "Linuxból",
+  "app.org.localsend.localsend_app": "Fájlok a telefonodra vagy egy másik otthoni gépre, kábel nélkül"
 }

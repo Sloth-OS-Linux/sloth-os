@@ -222,5 +222,6 @@
   "linux.done": "முடிந்தது: உங்கள் மற்ற Linux-இலிருந்து {count} கோப்புகள் இங்கே உள்ளன.",
   "linux.user": "Linux கணக்கு:",
   "linux.bookmarks_file": "Linux புத்தகக்குறிகள்.html",
-  "linux.bookmarks_folder": "Linux-இலிருந்து"
+  "linux.bookmarks_folder": "Linux-இலிருந்து",
+  "app.org.localsend.localsend_app": "வீட்டில் உள்ள உங்கள் தொலைபேசிக்கோ மற்றொரு கணினிக்கோ கோப்புகள், கம்பி இல்லாமல்"
 }

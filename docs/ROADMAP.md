@@ -357,8 +357,14 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      "Done: 3 files…, 1 Steam game"). A bug found that way and fixed: only the first chosen folder used its
      localised name
      - [ ] On real hardware: a computer with another Linux next to Sloth OS (or a second disk with one)
-  9. **Sending files to a phone or another computer on the home network** (small with LocalSend in Sloth Welcome's
-     catalog, new; large as our own, listed: "consent-based file sharing…")
+  9. ~~**Sending files to a phone or another computer on the home network**~~ small version DONE 2026-11-18 (test
+     branch): LocalSend (org.localsend.localsend_app, Flathub, Apache-2.0; checked on Flathub's API) in Sloth
+     Welcome's catalog, Chat, after KDE Connect, with its icon (Flathub's 128 px) and its description in 50
+     languages ("Files to your phone or another computer at home, without a cable"); the moving-over step knows it
+     too. No firewall change needed: the default zone (FedoraWorkstation, checked in the image) leaves 1025-65535
+     open, and LocalSend uses 53317. Tried: every catalog app has its icon and English text (59), the Chat page
+     offscreen (screenshot). The large version (our own consent-based sharing) stays listed
+     - [ ] On the HP: install LocalSend from Welcome, send a photo to a phone with LocalSend and back
 - Safety and help:
   10. **A restore point** before bigger setting or driver changes (large, listed)
   11. **A diagnostic bundle for Feedback**, personal data hidden, shown before sending (large, listed)

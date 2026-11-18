@@ -222,5 +222,6 @@
   "linux.done": "მზადაა: თქვენი მეორე Linux-იდან {count} ფაილი აქ არის.",
   "linux.user": "Linux-ის ანგარიში:",
   "linux.bookmarks_file": "Linux-ის სანიშნეები.html",
-  "linux.bookmarks_folder": "Linux-დან"
+  "linux.bookmarks_folder": "Linux-დან",
+  "app.org.localsend.localsend_app": "ფაილები ტელეფონზე ან სახლის სხვა კომპიუტერზე, კაბელის გარეშე"
 }

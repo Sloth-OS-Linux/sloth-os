@@ -345,6 +345,7 @@ PROGRAMS = [
     (r"^slack( technologies)?$", "com.slack.Slack", ""),
     (r"^element$", "im.riot.Riot", ""),
     (r"^viber$", "com.viber.Viber", ""),
+    (r"^localsend$", "org.localsend.localsend_app", ""),
     (r"^steam$", "com.valvesoftware.Steam", ""),
     (r"^prism launcher$", "org.prismlauncher.PrismLauncher", ""),
     (r"^roblox studio$", "win.robloxstudio", ""),

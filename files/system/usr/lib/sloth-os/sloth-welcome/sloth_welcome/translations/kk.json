@@ -222,5 +222,6 @@
   "linux.done": "Дайын: басқа Linux-тан {count} файл осында.",
   "linux.user": "Linux тіркелгісі:",
   "linux.bookmarks_file": "Linux бетбелгілері.html",
-  "linux.bookmarks_folder": "Linux-тан"
+  "linux.bookmarks_folder": "Linux-тан",
+  "app.org.localsend.localsend_app": "Үйдегі телефонға немесе басқа компьютерге файлдар, кабельсіз"
 }

@@ -222,5 +222,6 @@
   "linux.done": "完了：もう一つの Linux から {count} 個のファイルを移しました。",
   "linux.user": "Linux のアカウント:",
   "linux.bookmarks_file": "Linux のブックマーク.html",
-  "linux.bookmarks_folder": "Linux から"
+  "linux.bookmarks_folder": "Linux から",
+  "app.org.localsend.localsend_app": "スマホや家のほかのパソコンへ、ケーブルなしでファイルを送れます"
 }

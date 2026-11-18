@@ -222,5 +222,6 @@
   "linux.done": "ਹੋ ਗਿਆ: ਤੁਹਾਡੇ ਦੂਜੇ Linux ਦੀਆਂ {count} ਫ਼ਾਈਲਾਂ ਇੱਥੇ ਹਨ।",
   "linux.user": "Linux ਖਾਤਾ:",
   "linux.bookmarks_file": "Linux ਬੁੱਕਮਾਰਕ.html",
-  "linux.bookmarks_folder": "Linux ਤੋਂ"
+  "linux.bookmarks_folder": "Linux ਤੋਂ",
+  "app.org.localsend.localsend_app": "ਘਰ ਵਿੱਚ ਤੁਹਾਡੇ ਫ਼ੋਨ ਜਾਂ ਕਿਸੇ ਹੋਰ ਕੰਪਿਊਟਰ ਨੂੰ ਫ਼ਾਈਲਾਂ, ਬਿਨਾਂ ਤਾਰ ਦੇ"
 }

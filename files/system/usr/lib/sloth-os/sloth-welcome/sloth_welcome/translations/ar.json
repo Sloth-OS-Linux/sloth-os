@@ -222,5 +222,6 @@
   "linux.done": "تم: {count} ملفًا من Linux الآخر موجودة هنا.",
   "linux.user": "حساب Linux:",
   "linux.bookmarks_file": "إشارات Linux المرجعية.html",
-  "linux.bookmarks_folder": "من Linux"
+  "linux.bookmarks_folder": "من Linux",
+  "app.org.localsend.localsend_app": "ملفات إلى هاتفك أو حاسوب آخر في المنزل، دون كابل"
 }

@@ -222,5 +222,6 @@
   "linux.done": "ສຳເລັດ: {count} ໄຟລ໌ຈາກ Linux ອີກອັນຢູ່ທີ່ນີ້ແລ້ວ.",
   "linux.user": "ບັນຊີ Linux:",
   "linux.bookmarks_file": "ບຸກມາກ Linux.html",
-  "linux.bookmarks_folder": "ຈາກ Linux"
+  "linux.bookmarks_folder": "ຈາກ Linux",
+  "app.org.localsend.localsend_app": "ໄຟລ໌ໄປຫາໂທລະສັບ ຫຼື ຄອມພິວເຕີອື່ນໃນເຮືອນ, ບໍ່ຕ້ອງໃຊ້ສາຍ"
 }

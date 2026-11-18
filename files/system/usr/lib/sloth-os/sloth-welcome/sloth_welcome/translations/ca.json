@@ -222,5 +222,6 @@
   "linux.done": "Fet: {count} fitxers de l’altre Linux ja són aquí.",
   "linux.user": "Compte de Linux:",
   "linux.bookmarks_file": "Adreces d'interès de Linux.html",
-  "linux.bookmarks_folder": "Des del Linux"
+  "linux.bookmarks_folder": "Des del Linux",
+  "app.org.localsend.localsend_app": "Fitxers al mòbil o a un altre ordinador de casa, sense cable"
 }

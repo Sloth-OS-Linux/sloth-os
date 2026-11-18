@@ -222,5 +222,6 @@
   "linux.done": "সম্পূৰ্ণ: আপোনাৰ আনটো Linuxৰ {count}টা ফাইল ইয়াত আছে।",
   "linux.user": "Linux একাউণ্ট:",
   "linux.bookmarks_file": "Linux বুকমাৰ্ক.html",
-  "linux.bookmarks_folder": "Linux ৰ পৰা"
+  "linux.bookmarks_folder": "Linux ৰ পৰা",
+  "app.org.localsend.localsend_app": "ঘৰত থকা আপোনাৰ ফোন বা আন কম্পিউটাৰলৈ ফাইল, কেবল নোহোৱাকৈ"
 }

@@ -222,5 +222,6 @@
   "linux.done": "Concluído: {count} ficheiros do seu outro Linux já estão aqui.",
   "linux.user": "Conta do Linux:",
   "linux.bookmarks_file": "Marcadores do Linux.html",
-  "linux.bookmarks_folder": "Do Linux"
+  "linux.bookmarks_folder": "Do Linux",
+  "app.org.localsend.localsend_app": "Ficheiros para o telemóvel ou outro computador em casa, sem cabo"
 }

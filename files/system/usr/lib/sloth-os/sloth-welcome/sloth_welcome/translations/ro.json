@@ -222,5 +222,6 @@
   "linux.done": "Gata: {count} fișiere din celălalt Linux sunt aici.",
   "linux.user": "Cont Linux:",
   "linux.bookmarks_file": "Marcaje Linux.html",
-  "linux.bookmarks_folder": "Din Linux"
+  "linux.bookmarks_folder": "Din Linux",
+  "app.org.localsend.localsend_app": "Fișiere pe telefon sau pe alt calculator de acasă, fără cablu"
 }

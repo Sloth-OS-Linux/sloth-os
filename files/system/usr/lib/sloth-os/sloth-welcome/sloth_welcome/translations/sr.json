@@ -222,5 +222,6 @@
   "linux.done": "Готово: {count} датотека са другог Linux-а је овде.",
   "linux.user": "Linux налог:",
   "linux.bookmarks_file": "Linux обележивачи.html",
-  "linux.bookmarks_folder": "Из Linux-а"
+  "linux.bookmarks_folder": "Из Linux-а",
+  "app.org.localsend.localsend_app": "Датотеке на телефон или други рачунар код куће, без кабла"
 }

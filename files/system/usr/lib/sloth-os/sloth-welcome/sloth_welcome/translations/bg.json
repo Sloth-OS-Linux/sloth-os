@@ -222,5 +222,6 @@
   "linux.done": "Готово: {count} файла от другия ви Linux са тук.",
   "linux.user": "Профил в Linux:",
   "linux.bookmarks_file": "Отметки от Linux.html",
-  "linux.bookmarks_folder": "От Linux"
+  "linux.bookmarks_folder": "От Linux",
+  "app.org.localsend.localsend_app": "Файлове към телефона ви или друг компютър у дома, без кабел"
 }

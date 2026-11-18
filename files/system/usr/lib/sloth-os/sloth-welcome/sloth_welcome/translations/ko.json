@@ -222,5 +222,6 @@
   "linux.done": "완료: 다른 Linux의 파일 {count}개가 여기 있습니다.",
   "linux.user": "Linux 계정:",
   "linux.bookmarks_file": "Linux 북마크.html",
-  "linux.bookmarks_folder": "Linux에서"
+  "linux.bookmarks_folder": "Linux에서",
+  "app.org.localsend.localsend_app": "케이블 없이 집 안의 휴대폰이나 다른 컴퓨터로 파일 보내기"
 }

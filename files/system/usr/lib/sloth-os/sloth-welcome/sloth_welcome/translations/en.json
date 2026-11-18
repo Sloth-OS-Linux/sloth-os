@@ -222,5 +222,6 @@
   "linux.done": "Done: {count} files from your other Linux are here.",
   "linux.user": "Linux account:",
   "linux.bookmarks_file": "Linux bookmarks.html",
-  "linux.bookmarks_folder": "From Linux"
+  "linux.bookmarks_folder": "From Linux",
+  "app.org.localsend.localsend_app": "Files to your phone or another computer at home, without a cable"
 }
