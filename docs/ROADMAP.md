@@ -115,6 +115,11 @@ from a terminal must also work from a GUI.
         (out/layouts-2.0: one PNG each and layouts.webp, the animation)
   - [ ] Battle.net from Sloth Welcome in the VM: its setup quit after 5 s (code 1, "We couldn't find an installed
         program"). Maybe only the VM (no 3D); check on the HP
+  - [ ] After that failed setup, Battle.net still shows in Sloth Center's Games as a "Windows program" with Play
+        (sloth-exe recorded "installed: Battle.net (None), launchers: []"): a failed install must not leave an entry
+  - [x] New Sloth Center shots from the 2.0 VM (out/center-2.0, 1010 x 684): Updates (2.0's news), Apps, Games, TV mode,
+        Appearance, Disks, Disks with "Bring files over from Windows", Feedback; and the Windows import window
+        before and after (a 60 GB NTFS test disk with a Users folder; 52 files came over)
   - [ ] Release: `python tools/release-finish.py 2.0 <iso> --site ../sloth-os-linux.github.io` (names, sha256,
         torrent, SourceForge README, README and website download); SourceForge upload (SFTP key
         ~/.ssh/sloth-os-sourceforge on the main computer); the website's download button only when the ISO's
