@@ -501,9 +501,11 @@ class GamesController(QObject):
 
     @Slot()
     def openBigPicture(self):
-        """TV mode on the desktop: Steam's big-screen interface on the whole screen (Steam starts if it isn't open)."""
+        """TV mode on the desktop: the same TV mode as on the sign-in screen (gamescope, the games that are not
+        Steam's, the power menu), as a full-screen window over the desktop (tv-session --on-desktop). Before
+        2026-11-18 only the desktop's Steam in Big Picture, which had neither."""
         try:
-            subprocess.Popen(["xdg-open", "steam://open/bigpicture"], start_new_session=True,
+            subprocess.Popen(["/usr/libexec/sloth-os/tv-session", "--on-desktop"], start_new_session=True,
                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         except OSError as e:
             log.warning("Big Picture: %s", e)

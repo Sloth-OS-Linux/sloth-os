@@ -217,7 +217,7 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- TV mode: Steam's big-screen interface (/usr/libexec/sloth-os/tv-session; on the desktop: Big Picture) ---
+        // --- TV mode: Steam's big-screen interface (/usr/libexec/sloth-os/tv-session; from here with --on-desktop) ---
         Kirigami.AbstractCard {
             Layout.fillWidth: true
             visible: games.steamInstalled

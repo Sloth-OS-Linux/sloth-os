@@ -188,9 +188,19 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        them (in $XDG_RUNTIME_DIR/sloth-tv, shared with the sandbox) and runs `systemctl poweroff` / `reboot` after
        Steam; refused (polkit), the desktop starts. Sleep froze the HP (only a hard reset helped): cause not known yet
        - [ ] On the HP: Shut Down and Restart from TV mode's power menu; Sleep (with the logs)
-     - [ ] Desktop Big Picture (Sloth Center's button, steam://open/bigpicture), on the HP 2026-11-18: Suspend left a
+     - [x] Desktop Big Picture (Sloth Center's button, steam://open/bigpicture), on the HP 2026-11-18: Suspend left a
        screen with only the mouse (Alt opened the window menu), then Big Picture stuck at its loading screen; Shut
        Down / Restart did nothing until Steam was killed from a text console; Exit Big Picture and Exit Steam worked
+     - [x] So Sloth Center's TV mode button (Games) now starts the same TV mode over the desktop (the user's choice,
+       2026-11-18; on the HP the games that are not Steam's showed from the sign-in screen but not from the button):
+       `tv-session --on-desktop` closes the desktop's Steam, runs gamescope as a full-screen window at the main
+       screen's size (kscreen-doctor's JSON; a window is 1280 x 720 otherwise), with the same Steam, games and power
+       menu; leaving it closes only the window (open programs stay) and the desktop's Steam comes back in the tray.
+       One TV mode at a time (flock). Signing out into the TV session instead was dropped: whether Plasma Login
+       Manager re-reads a one-time Relogin is not documented. Tried with stand-ins for flatpak, gamescope,
+       kscreen-doctor and systemctl: both ways in, twice at once, Restart / Shut Down, the lock free afterwards
+       - [ ] On the HP: the button: TV mode on the whole screen with the games that are not Steam's; Switch to Desktop
+         back to the open desktop; the desktop's Steam back in the tray
      - [x] On the HP (2026-11-16): TV mode works from the sign-in screen and Exit Steam brings the desktop ("works
        great, I like it a lot"), but Steam's power menu → Switch to Desktop froze: Steam calls steamos-session-select
        (made for SteamOS), missing in the Flatpak. Now ours (/usr/libexec/sloth-os/tv-shim, first on the Flatpak's PATH,
