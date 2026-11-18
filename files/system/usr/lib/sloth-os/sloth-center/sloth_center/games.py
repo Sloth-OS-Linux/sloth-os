@@ -246,6 +246,8 @@ class GamesController(QObject):
             if not library.is_game(app):
                 continue
             entries = menu.entries(app)
+            if not any(e["target"] for e in entries):
+                continue    # nothing to start: its setup failed or was cancelled (Battle.net in a VM, 2026-11-18)
             icon = next((e["icon"] for e in entries if e["icon"].startswith("/")), "")
             games.append({"id": "win:" + app.id, "name": app.name, "source": "windows", "check": {},
                           "cover": game_library.cached_cover("win:" + app.id),

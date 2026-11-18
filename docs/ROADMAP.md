@@ -113,10 +113,13 @@ from a terminal must also work from a GUI.
         screen). The installer's part needs a new ISO
   - [x] The 7 layouts' shots, made in a VM from the 2.0 ISO at 1920 x 1080 instead of on the HP
         (out/layouts-2.0: one PNG each and layouts.webp, the animation)
-  - [ ] Battle.net from Sloth Welcome in the VM: its setup quit after 5 s (code 1, "We couldn't find an installed
-        program"). Maybe only the VM (no 3D); check on the HP
-  - [ ] After that failed setup, Battle.net still shows in Sloth Center's Games as a "Windows program" with Play
-        (sloth-exe recorded "installed: Battle.net (None), launchers: []"): a failed install must not leave an entry
+  - [x] Battle.net from Sloth Welcome in the VM: its setup quit after 5 s (code 1). Only the VM (no 3D): on the HP
+        it installed from Sloth Welcome, started and signed in (2026-11-18)
+  - [x] After that failed setup, Battle.net still showed in Sloth Center's Games with Play (sloth-exe recorded
+        "launchers: []"). Fixed: a Windows program with nothing to start is left off the Games page (TV mode's list
+        already left it off); checked in the VM
+  - [ ] Into 2.0 before the ISO goes out (the user, 2026-11-18): these two fixes to main, main's build, then the ISO
+        again from :latest (the installer's fix is only in a new ISO), its checks again, the stick again
   - [x] New Sloth Center shots from the 2.0 VM (out/center-2.0, 1010 x 684): Updates (2.0's news), Apps, Games, TV mode,
         Appearance, Disks, Disks with "Bring files over from Windows", Feedback; and the Windows import window
         before and after (a 60 GB NTFS test disk with a Users folder; 52 files came over)
