@@ -235,7 +235,7 @@ Kirigami.ScrollablePage {
                 QQC2.Label {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
-                    text: L.t("Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.")
+                    text: L.t("Steam's big-screen interface on the whole screen, made for a controller and a TV, like a game console. Your games from other stores are there too. Leaving it brings back the desktop as you left it.")
                 }
                 QQC2.Button {
                     icon.name: "view-fullscreen"

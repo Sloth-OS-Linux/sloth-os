@@ -145,26 +145,19 @@ ENTRIES = {
         ("Keywords", ("sloth-center", "update;rollback;driver;settings")),
         ("StartupNotify", "true"),
     ],
-    # TV mode (/usr/libexec/sloth-os/tv-session): the session on the sign-in screen, and on the desktop Steam's
-    # big-screen interface on the whole screen (the texts: sloth_center/games.py, TV_TEXTS)
-    "files/system/usr/share/wayland-sessions/sloth-tv.desktop": [
-        ("Type", "Application"),
-        # the sign-in screen shows only the session's name: the mark tells the two apart at a glance
-        ("Name", ("sloth-center", "Sloth OS TV mode", "🎮 ")),
-        ("Comment", ("sloth-center", "Steam on the whole screen, made for a controller and a TV")),
-        ("Exec", "/usr/libexec/sloth-os/tv-session"),
-        ("DesktopNames", "gamescope"),
-    ],
     # The names of Plasma's own session (/usr/share/wayland-sessions/plasma.desktop, "Plasma"): files/scripts/
     # session-names.sh puts these in place of its Name lines during the build; the rest of that file stays KDE's
     "files/system/usr/share/sloth-os/sessions/plasma-names.desktop": [
         ("Name", ("sloth-center", "Sloth OS desktop", "🖥️ ")),
     ],
+    # TV mode (/usr/libexec/sloth-os/tv-session --on-desktop) from the Start menu: the texts are in
+    # sloth_center/games.py, TV_TEXTS. Not on the sign-in screen any more (the user's choice, 2026-11-18: TV mode
+    # starts from the desktop, and leaving it gives the open desktop back)
     "files/system/usr/share/applications/org.slothos.tv-mode.desktop": [
         ("Type", "Application"),
         ("Name", ("sloth-center", "TV mode")),
         ("Comment", ("sloth-center", "Steam on the whole screen, made for a controller and a TV")),
-        ("Exec", "xdg-open steam://open/bigpicture"),
+        ("Exec", "/usr/libexec/sloth-os/tv-session --on-desktop"),
         ("Icon", "input-gamepad"),
         ("Terminal", "false"),
         ("Categories", "Game;"),

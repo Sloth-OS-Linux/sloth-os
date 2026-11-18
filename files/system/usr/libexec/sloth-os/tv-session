@@ -3,10 +3,12 @@
 # Mode. Steam is the Flatpak (com.valvesoftware.Steam); gamescope (Fedora's package) runs on the host.
 #
 # Two ways in, the same TV mode (the same Steam, the games that are not Steam's, the power menu):
-#   tv-session              a session of its own, chosen on the sign-in screen (/usr/share/wayland-sessions/
-#                           sloth-tv.desktop): gamescope drives the screen. Leaving Steam (Switch to Desktop, Exit
-#                           Steam) brings the normal desktop in the same session, without signing in again.
-#   tv-session --on-desktop from the desktop (Sloth Center → Games → TV mode, 2026-11-18): gamescope as a full-screen
+#   tv-session              a session of its own: gamescope drives the screen; leaving Steam brings the normal
+#                           desktop in the same session. It was on the sign-in screen as "Sloth OS TV mode"
+#                           (/usr/share/wayland-sessions/sloth-tv.desktop) until 2026-11-18; taken off there (the
+#                           user's choice: TV mode starts from the desktop), the session way stays here for later.
+#   tv-session --on-desktop from the desktop (the Start menu's "TV mode", Sloth Center → Games → TV mode, the system
+#                           menu and the quick settings' TV mode button; 2026-11-18): gamescope as a full-screen
 #                           window over the desktop; the desktop's Steam is closed first and opened again afterwards,
 #                           and leaving TV mode just closes the window: the open programs stay. (Before, this button
 #                           only switched the desktop's Steam to Big Picture: without the games that are not Steam's,
@@ -43,7 +45,11 @@ desktop() {
 
 steam_running() { flatpak ps --columns=application 2>/dev/null | grep -qx com.valvesoftware.Steam; }
 
-flatpak info com.valvesoftware.Steam >/dev/null 2>&1 || desktop "Steam is not installed"
+if ! flatpak info com.valvesoftware.Steam >/dev/null 2>&1; then
+    # from the Start menu without Steam: Sloth Center's Games page, which offers it
+    $on_desktop && { log "Steam is not installed: Sloth Center's Games page"; exec sloth-center --page games; }
+    desktop "Steam is not installed"
+fi
 if ! command -v gamescope >/dev/null 2>&1; then
     $on_desktop && { log "gamescope is missing: Big Picture instead"; exec xdg-open steam://open/bigpicture; }
     desktop "gamescope is missing"
@@ -139,8 +145,14 @@ done
 # STEAMOS_STEAM_SHUTDOWN_SENTINEL / STEAMOS_STEAM_REBOOT_SENTINEL and exits; the session powers off or restarts after
 # it (ChimeraOS's gamescope-session-plus with its sessions.d/steam; DroidDeck PR #629). Without them Steam stopped
 # halfway and its screen stayed (the HP, 2026-11-18). The files are in our folder, which the sandbox shares.
+# Sleep: Steam asks logind (org.freedesktop.login1, the system bus: "Issuing Suspend Command" in its systemmanager log;
+# SteamOS issue #2619 shows logind answering it) and waits for its PrepareForSleep signal to wake up again. The
+# Flatpak has no access to logind (Flathub's finish-args), so the request was lost and Steam stayed dark: on the HP
+# only a hard reset helped (2026-11-18). TV mode's Steam may talk to logind; polkit still decides, as for the
+# desktop's own Sleep button.
 gamescope -e -f "${window[@]}" -- flatpak run --filesystem=host-os:ro --filesystem=xdg-run/sloth-tv:create \
     --talk-name=com.steampowered.SteamOSManager1 --talk-name=org.freedesktop.Flatpak \
+    --system-talk-name=org.freedesktop.login1 \
     --env=PATH=/run/host/usr/libexec/sloth-os/tv-shim:/app/bin:/app/utils/bin:/usr/bin:/bin \
     --env=STEAMOS_STEAM_SHUTDOWN_SENTINEL="$notes/shutdown" --env=STEAMOS_STEAM_REBOOT_SENTINEL="$notes/reboot" \
     com.valvesoftware.Steam -steamos3 -gamepadui

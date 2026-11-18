@@ -1234,7 +1234,7 @@
   "Sloth OS TV mode": "Sloth OS режим ТВ",
   "Sloth OS desktop": "Sloth OS рабочий стол",
   "Steam on the whole screen, made for a controller and a TV": "Steam на весь экран, для геймпада и телевизора",
-  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "Интерфейс Steam для большого экрана, для геймпада и телевизора. Чтобы пользоваться компьютером как игровой приставкой, выберите на экране входа «Sloth OS режим ТВ»: тогда нет рабочего стола, только Steam. После выхода из Steam появляется рабочий стол.",
+  "Steam's big-screen interface on the whole screen, made for a controller and a TV, like a game console. Your games from other stores are there too. Leaving it brings back the desktop as you left it.": "Интерфейс Steam для большого экрана на весь экран, для геймпада и телевизора, как игровая приставка. Ваши игры из других магазинов тоже там. После выхода рабочий стол возвращается таким, каким вы его оставили.",
   "TV mode": "Режим ТВ",
   "TV;Big Picture;controller;gamepad;console;couch;": "TV;ТВ;телевизор;Big Picture;геймпад;контроллер;приставка;диван;",
   "Lighter desktop": "Облегчённый рабочий стол",

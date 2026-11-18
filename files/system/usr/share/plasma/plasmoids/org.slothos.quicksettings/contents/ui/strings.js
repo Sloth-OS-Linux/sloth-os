@@ -16,7 +16,8 @@ const TEXTS = {
   "powersave": "Kragbesparing",
   "screenshot": "Skermskoot",
   "restart": "Herbegin",
-  "logout": "Meld af"
+  "logout": "Meld af",
+  "tvmode": "TV-modus"
  },
  "ar": {
   "wifi": "Wi-Fi",
@@ -31,7 +32,8 @@ const TEXTS = {
   "powersave": "توفير الطاقة",
   "screenshot": "لقطة شاشة",
   "restart": "إعادة التشغيل",
-  "logout": "تسجيل الخروج"
+  "logout": "تسجيل الخروج",
+  "tvmode": "وضع التلفاز"
  },
  "as": {
   "wifi": "Wi-Fi",
@@ -46,7 +48,8 @@ const TEXTS = {
   "powersave": "শক্তি সঞ্চয়",
   "screenshot": "স্ক্ৰীণশ্বট",
   "restart": "পুনৰাৰম্ভ",
-  "logout": "লগ আউট"
+  "logout": "লগ আউট",
+  "tvmode": "টিভি মোড"
  },
  "be": {
   "wifi": "Wi-Fi",
@@ -61,7 +64,8 @@ const TEXTS = {
   "powersave": "Эканомія энергіі",
   "screenshot": "Здымак экрана",
   "restart": "Перазапусціць",
-  "logout": "Выйсці"
+  "logout": "Выйсці",
+  "tvmode": "Рэжым ТБ"
  },
  "bg": {
   "wifi": "Wi-Fi",
@@ -76,7 +80,8 @@ const TEXTS = {
   "powersave": "Пестене на енергия",
   "screenshot": "Снимка на екрана",
   "restart": "Рестартиране",
-  "logout": "Излизане"
+  "logout": "Излизане",
+  "tvmode": "Режим ТВ"
  },
  "bn_IN": {
   "wifi": "Wi-Fi",
@@ -91,7 +96,8 @@ const TEXTS = {
   "powersave": "শক্তি সাশ্রয়",
   "screenshot": "স্ক্রিনশট",
   "restart": "রিস্টার্ট",
-  "logout": "লগ আউট"
+  "logout": "লগ আউট",
+  "tvmode": "টিভি মোড"
  },
  "ca": {
   "wifi": "Wi-Fi",
@@ -106,7 +112,8 @@ const TEXTS = {
   "powersave": "Estalvi d'energia",
   "screenshot": "Captura de pantalla",
   "restart": "Reinicia",
-  "logout": "Tanca la sessió"
+  "logout": "Tanca la sessió",
+  "tvmode": "Mode TV"
  },
  "cs": {
   "wifi": "Wi-Fi",
@@ -121,7 +128,8 @@ const TEXTS = {
   "powersave": "Úspora energie",
   "screenshot": "Snímek obrazovky",
   "restart": "Restartovat",
-  "logout": "Odhlásit se"
+  "logout": "Odhlásit se",
+  "tvmode": "TV režim"
  },
  "da": {
   "wifi": "Wi-Fi",
@@ -136,7 +144,8 @@ const TEXTS = {
   "powersave": "Strømbesparelse",
   "screenshot": "Skærmbillede",
   "restart": "Genstart",
-  "logout": "Log ud"
+  "logout": "Log ud",
+  "tvmode": "TV-tilstand"
  },
  "de": {
   "wifi": "WLAN",
@@ -151,7 +160,8 @@ const TEXTS = {
   "powersave": "Energiesparen",
   "screenshot": "Bildschirmfoto",
   "restart": "Neustart",
-  "logout": "Abmelden"
+  "logout": "Abmelden",
+  "tvmode": "TV-Modus"
  },
  "el": {
   "wifi": "Wi-Fi",
@@ -166,7 +176,8 @@ const TEXTS = {
   "powersave": "Εξοικονόμηση ενέργειας",
   "screenshot": "Στιγμιότυπο οθόνης",
   "restart": "Επανεκκίνηση",
-  "logout": "Αποσύνδεση"
+  "logout": "Αποσύνδεση",
+  "tvmode": "Λειτουργία TV"
  },
  "en": {
   "wifi": "Wi-Fi",
@@ -181,7 +192,8 @@ const TEXTS = {
   "powersave": "Power saver",
   "screenshot": "Screenshot",
   "restart": "Restart",
-  "logout": "Log out"
+  "logout": "Log out",
+  "tvmode": "TV mode"
  },
  "eo": {
   "wifi": "Wi-Fi",
@@ -196,7 +208,8 @@ const TEXTS = {
   "powersave": "Energiŝparo",
   "screenshot": "Ekrankopio",
   "restart": "Restartigi",
-  "logout": "Elsaluti"
+  "logout": "Elsaluti",
+  "tvmode": "Televida reĝimo"
  },
  "es": {
   "wifi": "Wi-Fi",
@@ -211,7 +224,8 @@ const TEXTS = {
   "powersave": "Ahorro de energía",
   "screenshot": "Captura de pantalla",
   "restart": "Reiniciar",
-  "logout": "Cerrar sesión"
+  "logout": "Cerrar sesión",
+  "tvmode": "Modo TV"
  },
  "et": {
   "wifi": "Wi-Fi",
@@ -226,7 +240,8 @@ const TEXTS = {
   "powersave": "Energiasäästja",
   "screenshot": "Ekraanipilt",
   "restart": "Taaskäivita",
-  "logout": "Logi välja"
+  "logout": "Logi välja",
+  "tvmode": "Telerirežiim"
  },
  "fi": {
   "wifi": "Wi-Fi",
@@ -241,7 +256,8 @@ const TEXTS = {
   "powersave": "Virransäästö",
   "screenshot": "Kuvakaappaus",
   "restart": "Käynnistä uudelleen",
-  "logout": "Kirjaudu ulos"
+  "logout": "Kirjaudu ulos",
+  "tvmode": "TV-tila"
  },
  "fr": {
   "wifi": "Wi-Fi",
@@ -256,7 +272,8 @@ const TEXTS = {
   "powersave": "Économie d'énergie",
   "screenshot": "Capture d'écran",
   "restart": "Redémarrer",
-  "logout": "Se déconnecter"
+  "logout": "Se déconnecter",
+  "tvmode": "Mode TV"
  },
  "fur": {
   "wifi": "Wi-Fi",
@@ -271,7 +288,8 @@ const TEXTS = {
   "powersave": "Sparagn di energjie",
   "screenshot": "Cature di schermi",
   "restart": "Torne invie",
-  "logout": "Jes"
+  "logout": "Jes",
+  "tvmode": "Modalitât TV"
  },
  "he": {
   "wifi": "Wi-Fi",
@@ -286,7 +304,8 @@ const TEXTS = {
   "powersave": "חיסכון בחשמל",
   "screenshot": "צילום מסך",
   "restart": "הפעלה מחדש",
-  "logout": "התנתקות"
+  "logout": "התנתקות",
+  "tvmode": "מצב טלוויזיה"
  },
  "hr": {
   "wifi": "Wi-Fi",
@@ -301,7 +320,8 @@ const TEXTS = {
   "powersave": "Štednja energije",
   "screenshot": "Snimka zaslona",
   "restart": "Ponovno pokreni",
-  "logout": "Odjava"
+  "logout": "Odjava",
+  "tvmode": "TV način"
  },
  "hu": {
   "wifi": "Wi-Fi",
@@ -316,7 +336,8 @@ const TEXTS = {
   "powersave": "Energiatakarékos",
   "screenshot": "Képernyőkép",
   "restart": "Újraindítás",
-  "logout": "Kijelentkezés"
+  "logout": "Kijelentkezés",
+  "tvmode": "TV-mód"
  },
  "ia": {
   "wifi": "Wi-Fi",
@@ -331,7 +352,8 @@ const TEXTS = {
   "powersave": "Sparnio de energia",
   "screenshot": "Captura de schermo",
   "restart": "Reinitiar",
-  "logout": "Disconnecter"
+  "logout": "Disconnecter",
+  "tvmode": "Modo TV"
  },
  "id": {
   "wifi": "Wi-Fi",
@@ -346,7 +368,8 @@ const TEXTS = {
   "powersave": "Hemat daya",
   "screenshot": "Tangkapan layar",
   "restart": "Mulai ulang",
-  "logout": "Keluar"
+  "logout": "Keluar",
+  "tvmode": "Mode TV"
  },
  "it": {
   "wifi": "Wi-Fi",
@@ -361,7 +384,8 @@ const TEXTS = {
   "powersave": "Risparmio energetico",
   "screenshot": "Schermata",
   "restart": "Riavvia",
-  "logout": "Esci"
+  "logout": "Esci",
+  "tvmode": "Modalità TV"
  },
  "ja": {
   "wifi": "Wi-Fi",
@@ -376,7 +400,8 @@ const TEXTS = {
   "powersave": "省電力",
   "screenshot": "スクリーンショット",
   "restart": "再起動",
-  "logout": "ログアウト"
+  "logout": "ログアウト",
+  "tvmode": "TV モード"
  },
  "ka": {
   "wifi": "Wi-Fi",
@@ -391,7 +416,8 @@ const TEXTS = {
   "powersave": "ენერგიის დაზოგვა",
   "screenshot": "ეკრანის ანაბეჭდი",
   "restart": "გადატვირთვა",
-  "logout": "გამოსვლა"
+  "logout": "გამოსვლა",
+  "tvmode": "ტელევიზორის რეჟიმი"
  },
  "kab": {
   "wifi": "Wi-Fi",
@@ -406,7 +432,8 @@ const TEXTS = {
   "powersave": "Asekles n tezmert",
   "screenshot": "Tuṭṭfa n ugdil",
   "restart": "Ales asenker",
-  "logout": "Ffeɣ"
+  "logout": "Ffeɣ",
+  "tvmode": "Askar TV"
  },
  "kk": {
   "wifi": "Wi-Fi",
@@ -421,7 +448,8 @@ const TEXTS = {
   "powersave": "Қуат үнемдеу",
   "screenshot": "Скриншот",
   "restart": "Қайта іске қосу",
-  "logout": "Шығу"
+  "logout": "Шығу",
+  "tvmode": "ТВ режимі"
  },
  "ko": {
   "wifi": "Wi-Fi",
@@ -436,7 +464,8 @@ const TEXTS = {
   "powersave": "절전",
   "screenshot": "스크린샷",
   "restart": "재시동",
-  "logout": "로그아웃"
+  "logout": "로그아웃",
+  "tvmode": "TV 모드"
  },
  "lo": {
   "wifi": "Wi-Fi",
@@ -451,7 +480,8 @@ const TEXTS = {
   "powersave": "ປະຢັດພະລັງງານ",
   "screenshot": "ຖ່າຍພາບໜ້າຈໍ",
   "restart": "ເລີ່ມໃໝ່",
-  "logout": "ອອກຈາກລະບົບ"
+  "logout": "ອອກຈາກລະບົບ",
+  "tvmode": "ໂໝດທີວີ"
  },
  "lt": {
   "wifi": "Wi-Fi",
@@ -466,7 +496,8 @@ const TEXTS = {
   "powersave": "Energijos taupymas",
   "screenshot": "Ekrano nuotrauka",
   "restart": "Paleisti iš naujo",
-  "logout": "Atsijungti"
+  "logout": "Atsijungti",
+  "tvmode": "TV režimas"
  },
  "nb": {
   "wifi": "Wi-Fi",
@@ -481,7 +512,8 @@ const TEXTS = {
   "powersave": "Strømsparing",
   "screenshot": "Skjermbilde",
   "restart": "Start på nytt",
-  "logout": "Logg ut"
+  "logout": "Logg ut",
+  "tvmode": "TV-modus"
  },
  "nl": {
   "wifi": "Wi-Fi",
@@ -496,7 +528,8 @@ const TEXTS = {
   "powersave": "Energiebesparing",
   "screenshot": "Schermafdruk",
   "restart": "Herstart",
-  "logout": "Afmelden"
+  "logout": "Afmelden",
+  "tvmode": "Tv-modus"
  },
  "nn": {
   "wifi": "Wi-Fi",
@@ -511,7 +544,8 @@ const TEXTS = {
   "powersave": "Straumsparing",
   "screenshot": "Skjermbilete",
   "restart": "Start på nytt",
-  "logout": "Logg ut"
+  "logout": "Logg ut",
+  "tvmode": "TV-modus"
  },
  "pa": {
   "wifi": "Wi-Fi",
@@ -526,7 +560,8 @@ const TEXTS = {
   "powersave": "ਪਾਵਰ ਬਚਤ",
   "screenshot": "ਸਕਰੀਨਸ਼ਾਟ",
   "restart": "ਰੀਸਟਾਰਟ",
-  "logout": "ਲਾਗ ਆਊਟ"
+  "logout": "ਲਾਗ ਆਊਟ",
+  "tvmode": "ਟੀਵੀ ਮੋਡ"
  },
  "pl": {
   "wifi": "Wi-Fi",
@@ -541,7 +576,8 @@ const TEXTS = {
   "powersave": "Oszczędzanie energii",
   "screenshot": "Zrzut ekranu",
   "restart": "Uruchom ponownie",
-  "logout": "Wyloguj"
+  "logout": "Wyloguj",
+  "tvmode": "Tryb TV"
  },
  "pt": {
   "wifi": "Wi-Fi",
@@ -556,7 +592,8 @@ const TEXTS = {
   "powersave": "Poupança de energia",
   "screenshot": "Captura de ecrã",
   "restart": "Reiniciar",
-  "logout": "Terminar sessão"
+  "logout": "Terminar sessão",
+  "tvmode": "Modo TV"
  },
  "pt_BR": {
   "wifi": "Wi-Fi",
@@ -571,7 +608,8 @@ const TEXTS = {
   "powersave": "Economia de energia",
   "screenshot": "Captura de tela",
   "restart": "Reiniciar",
-  "logout": "Sair"
+  "logout": "Sair",
+  "tvmode": "Modo TV"
  },
  "ro": {
   "wifi": "Wi-Fi",
@@ -586,7 +624,8 @@ const TEXTS = {
   "powersave": "Economisire energie",
   "screenshot": "Captură de ecran",
   "restart": "Repornește",
-  "logout": "Deconectare"
+  "logout": "Deconectare",
+  "tvmode": "Mod TV"
  },
  "ru": {
   "wifi": "Wi-Fi",
@@ -601,7 +640,8 @@ const TEXTS = {
   "powersave": "Энергосбережение",
   "screenshot": "Снимок экрана",
   "restart": "Перезагрузить",
-  "logout": "Выйти"
+  "logout": "Выйти",
+  "tvmode": "Режим ТВ"
  },
  "sk": {
   "wifi": "Wi-Fi",
@@ -616,7 +656,8 @@ const TEXTS = {
   "powersave": "Úspora energie",
   "screenshot": "Snímka obrazovky",
   "restart": "Reštartovať",
-  "logout": "Odhlásiť sa"
+  "logout": "Odhlásiť sa",
+  "tvmode": "TV režim"
  },
  "sl": {
   "wifi": "Wi-Fi",
@@ -631,7 +672,8 @@ const TEXTS = {
   "powersave": "Varčevanje z energijo",
   "screenshot": "Posnetek zaslona",
   "restart": "Znova zaženi",
-  "logout": "Odjava"
+  "logout": "Odjava",
+  "tvmode": "TV-način"
  },
  "sq": {
   "wifi": "Wi-Fi",
@@ -646,7 +688,8 @@ const TEXTS = {
   "powersave": "Kursim energjie",
   "screenshot": "Pamje ekrani",
   "restart": "Rinis",
-  "logout": "Dil"
+  "logout": "Dil",
+  "tvmode": "Mënyra TV"
  },
  "sr": {
   "wifi": "Wi-Fi",
@@ -661,7 +704,8 @@ const TEXTS = {
   "powersave": "Уштеда енергије",
   "screenshot": "Снимак екрана",
   "restart": "Поново покрени",
-  "logout": "Одјави се"
+  "logout": "Одјави се",
+  "tvmode": "ТВ режим"
  },
  "sv": {
   "wifi": "Wi-Fi",
@@ -676,7 +720,8 @@ const TEXTS = {
   "powersave": "Energisparläge",
   "screenshot": "Skärmbild",
   "restart": "Starta om",
-  "logout": "Logga ut"
+  "logout": "Logga ut",
+  "tvmode": "TV-läge"
  },
  "ta": {
   "wifi": "Wi-Fi",
@@ -691,7 +736,8 @@ const TEXTS = {
   "powersave": "மின் சேமிப்பு",
   "screenshot": "திரைப்பிடிப்பு",
   "restart": "மறுதொடக்கம்",
-  "logout": "வெளியேறு"
+  "logout": "வெளியேறு",
+  "tvmode": "டிவி பயன்முறை"
  },
  "tr": {
   "wifi": "Wi-Fi",
@@ -706,7 +752,8 @@ const TEXTS = {
   "powersave": "Güç tasarrufu",
   "screenshot": "Ekran görüntüsü",
   "restart": "Yeniden başlat",
-  "logout": "Oturumu kapat"
+  "logout": "Oturumu kapat",
+  "tvmode": "TV modu"
  },
  "uk": {
   "wifi": "Wi-Fi",
@@ -721,7 +768,8 @@ const TEXTS = {
   "powersave": "Енергозбереження",
   "screenshot": "Знімок екрана",
   "restart": "Перезапустити",
-  "logout": "Вийти"
+  "logout": "Вийти",
+  "tvmode": "Режим ТБ"
  },
  "zh_CN": {
   "wifi": "Wi-Fi",
@@ -736,7 +784,8 @@ const TEXTS = {
   "powersave": "省电",
   "screenshot": "截图",
   "restart": "重新启动",
-  "logout": "退出登录"
+  "logout": "退出登录",
+  "tvmode": "电视模式"
  },
  "zh_TW": {
   "wifi": "Wi-Fi",
@@ -751,7 +800,8 @@ const TEXTS = {
   "powersave": "省電",
   "screenshot": "螢幕擷圖",
   "restart": "重新開機",
-  "logout": "登出"
+  "logout": "登出",
+  "tvmode": "電視模式"
  }
 };
 

@@ -78,9 +78,9 @@ from a terminal must also work from a GUI.
   system started in legacy BIOS mode, the whole-disk install (plain MBR) went through, and the installed system
   starts from the disk and runs ("a little slow, but it works"). So the earlier power-off was the bad stick, as
   suspected
-- [ ] Next for BIOS support in a release: the same plain-MBR stick on the HP in UEFI mode (only to the installer); if
-  it starts there, iso/build_iso.sh goes back to the plain MBR layout (commit 29cd106) for every ISO, and the
-  installer's BIOS mode stays allowed. The installed disk stays MBR in BIOS mode: the VAIO's BIOS starts no GPT disk
+- [x] The same plain-MBR stick on the HP in UEFI mode (2026-11-18): the installer started. So iso/build_iso.sh is back
+  to the plain MBR layout (commit 29cd106's, the script of the tested ISO) for every ISO, and the installer's BIOS
+  mode stays allowed. The installed disk stays MBR in BIOS mode: the VAIO's BIOS starts no GPT disk
   at all (2026-11-16), so converting it to GPT would make it unbootable
 - [ ] 2026-11-17: the test ISO (v4, test-branch image) tried at school
 - [ ] Ship it as **Sloth OS 2.0** (next week): a new ISO, README / website requirements (they still say "UEFI only").
@@ -201,6 +201,18 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
        kscreen-doctor and systemctl: both ways in, twice at once, Restart / Shut Down, the lock free afterwards
        - [ ] On the HP: the button: TV mode on the whole screen with the games that are not Steam's; Switch to Desktop
          back to the open desktop; the desktop's Steam back in the tray
+     - [x] TV mode only from the desktop (the user's choice, 2026-11-18): "Sloth OS TV mode" is off the sign-in screen
+       (sloth-tv.desktop removed; tv-session's session way stays for later). It starts from the Start menu's "TV mode"
+       (org.slothos.tv-mode.desktop, now `tv-session --on-desktop`), Sloth Center → Games, and a button next to the
+       power buttons in our own menus (the Mac-like system menu, the quick settings; shown only with Steam installed;
+       "TV mode" in their 50 languages from Sloth Center's translations). KDE's Start menu's power row is a fixed list
+       (Kickoff, Kicker): no button there without forking it. Without Steam, the Start menu entry opens Sloth Center's
+       Games page. Sloth Center's TV mode text rewritten in 49 languages. Both menus' QML load in the image
+     - [x] Sleep in TV mode (2026-11-18): Steam's systemmanager log shows "Issuing Suspend Command" and nothing after,
+       and nothing reached our steamos-manager stand-in: Steam asks logind (SteamOS issue #2619), which the Flatpak
+       can't reach (Flathub's finish-args have no org.freedesktop.login1), so Steam went dark and waited for ever.
+       TV mode's Steam now gets --system-talk-name=org.freedesktop.login1 (polkit still decides)
+       - [ ] On the HP: Sleep from TV mode: the computer sleeps, wakes with the power button, Steam comes back
      - [x] On the HP (2026-11-16): TV mode works from the sign-in screen and Exit Steam brings the desktop ("works
        great, I like it a lot"), but Steam's power menu → Switch to Desktop froze: Steam calls steamos-session-select
        (made for SteamOS), missing in the Flatpak. Now ours (/usr/libexec/sloth-os/tv-shim, first on the Flatpak's PATH,

@@ -49,6 +49,15 @@ PlasmoidItem {
         id: session
     }
 
+    // TV mode (/usr/libexec/sloth-os/tv-session --on-desktop) only when Steam is installed; looked at every 30 s
+    property bool steamInstalled: false
+    P5Support.DataSource {
+        engine: "executable"
+        interval: 30000
+        connectedSources: ["flatpak info com.valvesoftware.Steam >/dev/null 2>&1 && echo yes"]
+        onNewData: (source, data) => root.steamInstalled = (data["stdout"] || "").trim() === "yes"
+    }
+
     fullRepresentation: MouseArea {
         id: button
 
@@ -103,6 +112,12 @@ PlasmoidItem {
                 onClicked: root.run("dbus-send --session --type=method_call --dest=org.kde.KWin /KWin org.kde.KWin.killWindow")
             }
             PlasmaExtras.MenuItem { separator: true }
+            PlasmaExtras.MenuItem {
+                text: root.t("tvmode")
+                icon: "input-gamepad"
+                visible: root.steamInstalled
+                onClicked: root.run("setsid -f /usr/libexec/sloth-os/tv-session --on-desktop")
+            }
             PlasmaExtras.MenuItem {
                 text: root.t("sleep")
                 icon: "system-suspend"

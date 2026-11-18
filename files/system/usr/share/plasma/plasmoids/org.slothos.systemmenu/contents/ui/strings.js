@@ -12,7 +12,8 @@ const TEXTS = {
   "shutdown": "Skakel af…",
   "lock": "Sluit skerm",
   "logout": "Meld af…",
-  "switchuser": "Wissel gebruiker…"
+  "switchuser": "Wissel gebruiker…",
+  "tvmode": "TV-modus"
  },
  "ar": {
   "about": "حول هذا الحاسوب",
@@ -24,7 +25,8 @@ const TEXTS = {
   "shutdown": "إيقاف التشغيل…",
   "lock": "قفل الشاشة",
   "logout": "تسجيل الخروج…",
-  "switchuser": "تبديل المستخدم…"
+  "switchuser": "تبديل المستخدم…",
+  "tvmode": "وضع التلفاز"
  },
  "as": {
   "about": "এই কম্পিউটাৰৰ বিষয়ে",
@@ -36,7 +38,8 @@ const TEXTS = {
   "shutdown": "বন্ধ কৰক…",
   "lock": "স্ক্ৰীণ লক কৰক",
   "logout": "লগ আউট…",
-  "switchuser": "ব্যৱহাৰকাৰী সলনি কৰক…"
+  "switchuser": "ব্যৱহাৰকাৰী সলনি কৰক…",
+  "tvmode": "টিভি মোড"
  },
  "be": {
   "about": "Пра гэты камп'ютар",
@@ -48,7 +51,8 @@ const TEXTS = {
   "shutdown": "Выключыць…",
   "lock": "Заблакаваць экран",
   "logout": "Выйсці…",
-  "switchuser": "Змяніць карыстальніка…"
+  "switchuser": "Змяніць карыстальніка…",
+  "tvmode": "Рэжым ТБ"
  },
  "bg": {
   "about": "За този компютър",
@@ -60,7 +64,8 @@ const TEXTS = {
   "shutdown": "Изключване…",
   "lock": "Заключване на екрана",
   "logout": "Изход…",
-  "switchuser": "Смяна на потребител…"
+  "switchuser": "Смяна на потребител…",
+  "tvmode": "Режим ТВ"
  },
  "bn_IN": {
   "about": "এই কম্পিউটার সম্পর্কে",
@@ -72,7 +77,8 @@ const TEXTS = {
   "shutdown": "বন্ধ করুন…",
   "lock": "স্ক্রিন লক করুন",
   "logout": "লগ আউট…",
-  "switchuser": "ব্যবহারকারী বদলান…"
+  "switchuser": "ব্যবহারকারী বদলান…",
+  "tvmode": "টিভি মোড"
  },
  "ca": {
   "about": "Quant a aquest ordinador",
@@ -84,7 +90,8 @@ const TEXTS = {
   "shutdown": "Atura…",
   "lock": "Bloqueja la pantalla",
   "logout": "Surt de la sessió…",
-  "switchuser": "Canviar d'usuari…"
+  "switchuser": "Canviar d'usuari…",
+  "tvmode": "Mode TV"
  },
  "cs": {
   "about": "O tomto počítači",
@@ -96,7 +103,8 @@ const TEXTS = {
   "shutdown": "Vypnout…",
   "lock": "Zamknout obrazovku",
   "logout": "Odhlásit…",
-  "switchuser": "Přepnout uživatele…"
+  "switchuser": "Přepnout uživatele…",
+  "tvmode": "TV režim"
  },
  "da": {
   "about": "Om denne computer",
@@ -108,7 +116,8 @@ const TEXTS = {
   "shutdown": "Luk ned…",
   "lock": "Lås skærmen",
   "logout": "Log ud…",
-  "switchuser": "Skift bruger…"
+  "switchuser": "Skift bruger…",
+  "tvmode": "TV-tilstand"
  },
  "de": {
   "about": "Über diesen Computer",
@@ -120,7 +129,8 @@ const TEXTS = {
   "shutdown": "Ausschalten…",
   "lock": "Bildschirm sperren",
   "logout": "Abmelden…",
-  "switchuser": "Benutzer wechseln …"
+  "switchuser": "Benutzer wechseln …",
+  "tvmode": "TV-Modus"
  },
  "el": {
   "about": "Πληροφορίες για αυτόν τον υπολογιστή",
@@ -132,7 +142,8 @@ const TEXTS = {
   "shutdown": "Τερματισμός…",
   "lock": "Κλείδωμα οθόνης",
   "logout": "Αποσύνδεση…",
-  "switchuser": "Αλλαγή χρήστη…"
+  "switchuser": "Αλλαγή χρήστη…",
+  "tvmode": "Λειτουργία TV"
  },
  "en": {
   "about": "About This Computer",
@@ -144,7 +155,8 @@ const TEXTS = {
   "shutdown": "Shut Down…",
   "lock": "Lock Screen",
   "logout": "Log Out…",
-  "switchuser": "Switch User…"
+  "switchuser": "Switch User…",
+  "tvmode": "TV mode"
  },
  "eo": {
   "about": "Pri ĉi tiu komputilo",
@@ -156,7 +168,8 @@ const TEXTS = {
   "shutdown": "Malŝalti…",
   "lock": "Ŝlosi ekranon",
   "logout": "Elsaluti…",
-  "switchuser": "Ŝanĝi uzanton…"
+  "switchuser": "Ŝanĝi uzanton…",
+  "tvmode": "Televida reĝimo"
  },
  "es": {
   "about": "Acerca de este equipo",
@@ -168,7 +181,8 @@ const TEXTS = {
   "shutdown": "Apagar…",
   "lock": "Bloquear pantalla",
   "logout": "Cerrar sesión…",
-  "switchuser": "Cambiar de usuario…"
+  "switchuser": "Cambiar de usuario…",
+  "tvmode": "Modo TV"
  },
  "et": {
   "about": "Selle arvuti teave",
@@ -180,7 +194,8 @@ const TEXTS = {
   "shutdown": "Lülita välja…",
   "lock": "Lukusta ekraan",
   "logout": "Logi välja…",
-  "switchuser": "Vaheta kasutajat…"
+  "switchuser": "Vaheta kasutajat…",
+  "tvmode": "Telerirežiim"
  },
  "fi": {
   "about": "Tietoja tästä tietokoneesta",
@@ -192,7 +207,8 @@ const TEXTS = {
   "shutdown": "Sammuta…",
   "lock": "Lukitse näyttö",
   "logout": "Kirjaudu ulos…",
-  "switchuser": "Vaihda käyttäjää…"
+  "switchuser": "Vaihda käyttäjää…",
+  "tvmode": "TV-tila"
  },
  "fr": {
   "about": "À propos de cet ordinateur",
@@ -204,7 +220,8 @@ const TEXTS = {
   "shutdown": "Éteindre…",
   "lock": "Verrouiller l'écran",
   "logout": "Se déconnecter…",
-  "switchuser": "Changer d'utilisateur…"
+  "switchuser": "Changer d'utilisateur…",
+  "tvmode": "Mode TV"
  },
  "fur": {
   "about": "Informazions su chest computer",
@@ -216,7 +233,8 @@ const TEXTS = {
   "shutdown": "Distude…",
   "lock": "Bloche il schermi",
   "logout": "Jes de session…",
-  "switchuser": "Cambie utent…"
+  "switchuser": "Cambie utent…",
+  "tvmode": "Modalitât TV"
  },
  "he": {
   "about": "אודות מחשב זה",
@@ -228,7 +246,8 @@ const TEXTS = {
   "shutdown": "כיבוי…",
   "lock": "נעילת המסך",
   "logout": "יציאה…",
-  "switchuser": "החלפת משתמש…"
+  "switchuser": "החלפת משתמש…",
+  "tvmode": "מצב טלוויזיה"
  },
  "hr": {
   "about": "O ovom računalu",
@@ -240,7 +259,8 @@ const TEXTS = {
   "shutdown": "Isključi…",
   "lock": "Zaključaj zaslon",
   "logout": "Odjava…",
-  "switchuser": "Promijeni korisnika…"
+  "switchuser": "Promijeni korisnika…",
+  "tvmode": "TV način"
  },
  "hu": {
   "about": "A számítógépről",
@@ -252,7 +272,8 @@ const TEXTS = {
   "shutdown": "Leállítás…",
   "lock": "Képernyő zárolása",
   "logout": "Kijelentkezés…",
-  "switchuser": "Felhasználóváltás…"
+  "switchuser": "Felhasználóváltás…",
+  "tvmode": "TV-mód"
  },
  "ia": {
   "about": "A proposito de iste computator",
@@ -264,7 +285,8 @@ const TEXTS = {
   "shutdown": "Arrestar…",
   "lock": "Blocar le schermo",
   "logout": "Clauder session…",
-  "switchuser": "Cambiar de usator…"
+  "switchuser": "Cambiar de usator…",
+  "tvmode": "Modo TV"
  },
  "id": {
   "about": "Tentang komputer ini",
@@ -276,7 +298,8 @@ const TEXTS = {
   "shutdown": "Matikan…",
   "lock": "Kunci layar",
   "logout": "Keluar…",
-  "switchuser": "Ganti Pengguna…"
+  "switchuser": "Ganti Pengguna…",
+  "tvmode": "Mode TV"
  },
  "it": {
   "about": "Informazioni su questo computer",
@@ -288,7 +311,8 @@ const TEXTS = {
   "shutdown": "Spegni…",
   "lock": "Blocca schermo",
   "logout": "Esci…",
-  "switchuser": "Cambia utente…"
+  "switchuser": "Cambia utente…",
+  "tvmode": "Modalità TV"
  },
  "ja": {
   "about": "このコンピューターについて",
@@ -300,7 +324,8 @@ const TEXTS = {
   "shutdown": "システム終了…",
   "lock": "画面をロック",
   "logout": "ログアウト…",
-  "switchuser": "ユーザーを切り替える…"
+  "switchuser": "ユーザーを切り替える…",
+  "tvmode": "TV モード"
  },
  "ka": {
   "about": "ამ კომპიუტერის შესახებ",
@@ -312,7 +337,8 @@ const TEXTS = {
   "shutdown": "გამორთვა…",
   "lock": "ეკრანის ჩაკეტვა",
   "logout": "გასვლა…",
-  "switchuser": "მომხმარებლის შეცვლა…"
+  "switchuser": "მომხმარებლის შეცვლა…",
+  "tvmode": "ტელევიზორის რეჟიმი"
  },
  "kab": {
   "about": "Ɣef uselkim-a",
@@ -324,7 +350,8 @@ const TEXTS = {
   "shutdown": "Sexsi…",
   "lock": "Sekkeṛ agdil",
   "logout": "Ffeɣ…",
-  "switchuser": "Beddel aseqdac…"
+  "switchuser": "Beddel aseqdac…",
+  "tvmode": "Askar TV"
  },
  "kk": {
   "about": "Бұл компьютер туралы",
@@ -336,7 +363,8 @@ const TEXTS = {
   "shutdown": "Сөндіру…",
   "lock": "Экранды құлыптау",
   "logout": "Шығу…",
-  "switchuser": "Пайдаланушыны ауыстыру…"
+  "switchuser": "Пайдаланушыны ауыстыру…",
+  "tvmode": "ТВ режимі"
  },
  "ko": {
   "about": "이 컴퓨터에 관하여",
@@ -348,7 +376,8 @@ const TEXTS = {
   "shutdown": "시스템 종료…",
   "lock": "화면 잠금",
   "logout": "로그아웃…",
-  "switchuser": "사용자 전환…"
+  "switchuser": "사용자 전환…",
+  "tvmode": "TV 모드"
  },
  "lo": {
   "about": "ກ່ຽວກັບຄອມພິວເຕີນີ້",
@@ -360,7 +389,8 @@ const TEXTS = {
   "shutdown": "ປິດເຄື່ອງ…",
   "lock": "ລັອກໜ້າຈໍ",
   "logout": "ອອກຈາກລະບົບ…",
-  "switchuser": "ສະຫຼັບຜູ້ໃຊ້…"
+  "switchuser": "ສະຫຼັບຜູ້ໃຊ້…",
+  "tvmode": "ໂໝດທີວີ"
  },
  "lt": {
   "about": "Apie šį kompiuterį",
@@ -372,7 +402,8 @@ const TEXTS = {
   "shutdown": "Išjungti…",
   "lock": "Užrakinti ekraną",
   "logout": "Atsijungti…",
-  "switchuser": "Perjungti naudotoją…"
+  "switchuser": "Perjungti naudotoją…",
+  "tvmode": "TV režimas"
  },
  "nb": {
   "about": "Om denne datamaskinen",
@@ -384,7 +415,8 @@ const TEXTS = {
   "shutdown": "Slå av…",
   "lock": "Lås skjermen",
   "logout": "Logg ut…",
-  "switchuser": "Bytt bruker…"
+  "switchuser": "Bytt bruker…",
+  "tvmode": "TV-modus"
  },
  "nl": {
   "about": "Over deze computer",
@@ -396,7 +428,8 @@ const TEXTS = {
   "shutdown": "Uitschakelen…",
   "lock": "Scherm vergrendelen",
   "logout": "Afmelden…",
-  "switchuser": "Wissel van gebruiker…"
+  "switchuser": "Wissel van gebruiker…",
+  "tvmode": "Tv-modus"
  },
  "nn": {
   "about": "Om denne datamaskina",
@@ -408,7 +441,8 @@ const TEXTS = {
   "shutdown": "Slå av…",
   "lock": "Lås skjermen",
   "logout": "Logg ut…",
-  "switchuser": "Byt brukar…"
+  "switchuser": "Byt brukar…",
+  "tvmode": "TV-modus"
  },
  "pa": {
   "about": "ਇਸ ਕੰਪਿਊਟਰ ਬਾਰੇ",
@@ -420,7 +454,8 @@ const TEXTS = {
   "shutdown": "ਬੰਦ ਕਰੋ…",
   "lock": "ਸਕਰੀਨ ਲਾਕ ਕਰੋ",
   "logout": "ਲੌਗ ਆਉਟ…",
-  "switchuser": "ਵਰਤੋਂਕਾਰ ਬਦਲੋ…"
+  "switchuser": "ਵਰਤੋਂਕਾਰ ਬਦਲੋ…",
+  "tvmode": "ਟੀਵੀ ਮੋਡ"
  },
  "pl": {
   "about": "Ten komputer",
@@ -432,7 +467,8 @@ const TEXTS = {
   "shutdown": "Wyłącz…",
   "lock": "Zablokuj ekran",
   "logout": "Wyloguj…",
-  "switchuser": "Przełącz użytkownika…"
+  "switchuser": "Przełącz użytkownika…",
+  "tvmode": "Tryb TV"
  },
  "pt": {
   "about": "Acerca deste computador",
@@ -444,7 +480,8 @@ const TEXTS = {
   "shutdown": "Encerrar…",
   "lock": "Bloquear ecrã",
   "logout": "Terminar sessão…",
-  "switchuser": "Mudar de utilizador…"
+  "switchuser": "Mudar de utilizador…",
+  "tvmode": "Modo TV"
  },
  "pt_BR": {
   "about": "Sobre este computador",
@@ -456,7 +493,8 @@ const TEXTS = {
   "shutdown": "Desligar…",
   "lock": "Bloquear tela",
   "logout": "Sair…",
-  "switchuser": "Trocar Usuário…"
+  "switchuser": "Trocar Usuário…",
+  "tvmode": "Modo TV"
  },
  "ro": {
   "about": "Despre acest calculator",
@@ -468,7 +506,8 @@ const TEXTS = {
   "shutdown": "Închide…",
   "lock": "Blochează ecranul",
   "logout": "Deconectează-te…",
-  "switchuser": "Schimbă utilizatorul…"
+  "switchuser": "Schimbă utilizatorul…",
+  "tvmode": "Mod TV"
  },
  "ru": {
   "about": "Об этом компьютере",
@@ -480,7 +519,8 @@ const TEXTS = {
   "shutdown": "Выключить…",
   "lock": "Заблокировать экран",
   "logout": "Выйти…",
-  "switchuser": "Сменить пользователя…"
+  "switchuser": "Сменить пользователя…",
+  "tvmode": "Режим ТВ"
  },
  "sk": {
   "about": "O tomto počítači",
@@ -492,7 +532,8 @@ const TEXTS = {
   "shutdown": "Vypnúť…",
   "lock": "Zamknúť obrazovku",
   "logout": "Odhlásiť…",
-  "switchuser": "Prepnúť používateľa…"
+  "switchuser": "Prepnúť používateľa…",
+  "tvmode": "TV režim"
  },
  "sl": {
   "about": "O tem računalniku",
@@ -504,7 +545,8 @@ const TEXTS = {
   "shutdown": "Zaustavi…",
   "lock": "Zakleni zaslon",
   "logout": "Odjava…",
-  "switchuser": "Preklopi uporabnika…"
+  "switchuser": "Preklopi uporabnika…",
+  "tvmode": "TV-način"
  },
  "sq": {
   "about": "Rreth këtij kompjuteri",
@@ -516,7 +558,8 @@ const TEXTS = {
   "shutdown": "Fik…",
   "lock": "Kyç ekranin",
   "logout": "Dil…",
-  "switchuser": "Ndërro përdoruesin…"
+  "switchuser": "Ndërro përdoruesin…",
+  "tvmode": "Mënyra TV"
  },
  "sr": {
   "about": "О овом рачунару",
@@ -528,7 +571,8 @@ const TEXTS = {
   "shutdown": "Искључи…",
   "lock": "Закључај екран",
   "logout": "Одјави се…",
-  "switchuser": "Промени корисника…"
+  "switchuser": "Промени корисника…",
+  "tvmode": "ТВ режим"
  },
  "sv": {
   "about": "Om den här datorn",
@@ -540,7 +584,8 @@ const TEXTS = {
   "shutdown": "Stäng av…",
   "lock": "Lås skärmen",
   "logout": "Logga ut…",
-  "switchuser": "Byt användare…"
+  "switchuser": "Byt användare…",
+  "tvmode": "TV-läge"
  },
  "ta": {
   "about": "இந்தக் கணினியைப் பற்றி",
@@ -552,7 +597,8 @@ const TEXTS = {
   "shutdown": "பணிநிறுத்தம்…",
   "lock": "திரையைப் பூட்டு",
   "logout": "வெளியேறு…",
-  "switchuser": "பயனரை மாற்று…"
+  "switchuser": "பயனரை மாற்று…",
+  "tvmode": "டிவி பயன்முறை"
  },
  "tr": {
   "about": "Bu bilgisayar hakkında",
@@ -564,7 +610,8 @@ const TEXTS = {
   "shutdown": "Kapat…",
   "lock": "Ekranı kilitle",
   "logout": "Oturumu kapat…",
-  "switchuser": "Kullanıcı Değiştir…"
+  "switchuser": "Kullanıcı Değiştir…",
+  "tvmode": "TV modu"
  },
  "uk": {
   "about": "Про цей комп'ютер",
@@ -576,7 +623,8 @@ const TEXTS = {
   "shutdown": "Вимкнути…",
   "lock": "Заблокувати екран",
   "logout": "Вийти…",
-  "switchuser": "Змінити користувача…"
+  "switchuser": "Змінити користувача…",
+  "tvmode": "Режим ТБ"
  },
  "zh_CN": {
   "about": "关于本机",
@@ -588,7 +636,8 @@ const TEXTS = {
   "shutdown": "关机…",
   "lock": "锁定屏幕",
   "logout": "注销…",
-  "switchuser": "切换用户…"
+  "switchuser": "切换用户…",
+  "tvmode": "电视模式"
  },
  "zh_TW": {
   "about": "關於這台電腦",
@@ -600,7 +649,8 @@ const TEXTS = {
   "shutdown": "關機…",
   "lock": "鎖定螢幕",
   "logout": "登出…",
-  "switchuser": "切換使用者…"
+  "switchuser": "切換使用者…",
+  "tvmode": "電視模式"
  }
 };
 

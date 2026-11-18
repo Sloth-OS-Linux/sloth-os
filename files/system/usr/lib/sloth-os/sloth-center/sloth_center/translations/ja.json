@@ -1234,7 +1234,7 @@
   "Sloth OS TV mode": "Sloth OS TV モード",
   "Sloth OS desktop": "Sloth OS デスクトップ",
   "Steam on the whole screen, made for a controller and a TV": "Steam を全画面で、コントローラーとテレビ向けに",
-  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "コントローラーとテレビ向けの Steam の大画面インターフェースです。コンピューターをゲーム機のように使うには、サインイン画面で「Sloth OS TV モード」を選びます。デスクトップはなく、Steam だけになります。Steam を終了するとデスクトップが表示されます。",
+  "Steam's big-screen interface on the whole screen, made for a controller and a TV, like a game console. Your games from other stores are there too. Leaving it brings back the desktop as you left it.": "コントローラーとテレビ向けの Steam の大画面インターフェースを、ゲーム機のように画面いっぱいに表示します。ほかのストアのゲームもそこにあります。終了すると、デスクトップが元のまま戻ります。",
   "TV mode": "TV モード",
   "TV;Big Picture;controller;gamepad;console;couch;": "TV;テレビ;Big Picture;コントローラー;ゲームパッド;ゲーム機;ソファ;",
   "Lighter desktop": "軽量デスクトップ",

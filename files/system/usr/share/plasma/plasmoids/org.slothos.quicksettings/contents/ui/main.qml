@@ -64,6 +64,15 @@ PlasmoidItem {
         onTriggered: root.run("/usr/libexec/sloth-os/quicksettings-tray")
     }
 
+    // TV mode (/usr/libexec/sloth-os/tv-session --on-desktop) only when Steam is installed; looked at every 30 s
+    property bool steamInstalled: false
+    P5Support.DataSource {
+        engine: "executable"
+        interval: 30000
+        connectedSources: ["flatpak info com.valvesoftware.Steam >/dev/null 2>&1 && echo yes"]
+        onNewData: (source, data) => root.steamInstalled = (data["stdout"] || "").trim() === "yes"
+    }
+
     P5Support.DataSource {
         id: executable
         engine: "executable"
@@ -357,6 +366,17 @@ PlasmoidItem {
                 }
                 Accessible.name: root.t("screenshot")
                 PlasmaComponents.ToolTip.text: root.t("screenshot")
+                PlasmaComponents.ToolTip.visible: hovered
+            }
+            PlasmaComponents.ToolButton {
+                visible: root.steamInstalled
+                icon.name: "input-gamepad"
+                onClicked: {
+                    root.expanded = false;
+                    root.run("setsid -f /usr/libexec/sloth-os/tv-session --on-desktop");
+                }
+                Accessible.name: root.t("tvmode")
+                PlasmaComponents.ToolTip.text: root.t("tvmode")
                 PlasmaComponents.ToolTip.visible: hovered
             }
             PlasmaComponents.ToolButton {

@@ -1234,7 +1234,7 @@
   "Sloth OS TV mode": "Sloth OS ໂໝດທີວີ",
   "Sloth OS desktop": "Sloth OS ເດັສທັອບ",
   "Steam on the whole screen, made for a controller and a TV": "Steam ເຕັມຈໍ, ສຳລັບຈອຍ ແລະ ທີວີ",
-  "Steam's big-screen interface, made for a controller and a TV. To use the computer like a game console, choose \"Sloth OS TV mode\" on the sign-in screen: then there is no desktop, only Steam. Leaving Steam brings the desktop.": "ສ່ວນຕິດຕໍ່ຈໍໃຫຍ່ຂອງ Steam, ສຳລັບຈອຍ ແລະ ທີວີ. ເພື່ອໃຊ້ຄອມພິວເຕີຄືເຄື່ອງຫຼິ້ນເກມ, ໃຫ້ເລືອກ \"Sloth OS ໂໝດທີວີ\" ຢູ່ໜ້າຈໍເຂົ້າສູ່ລະບົບ: ຈາກນັ້ນຈະບໍ່ມີໜ້າຈໍຫຼັກ, ມີແຕ່ Steam. ເມື່ອອອກຈາກ Steam ໜ້າຈໍຫຼັກຈະປາກົດ.",
+  "Steam's big-screen interface on the whole screen, made for a controller and a TV, like a game console. Your games from other stores are there too. Leaving it brings back the desktop as you left it.": "ສ່ວນຕິດຕໍ່ຈໍໃຫຍ່ຂອງ Steam ເຕັມຈໍ, ສຳລັບຈອຍ ແລະ ທີວີ, ຄືເຄື່ອງຫຼິ້ນເກມ. ເກມຂອງທ່ານຈາກຮ້ານອື່ນກໍຢູ່ທີ່ນັ້ນ. ເມື່ອອອກ, ໜ້າຈໍຫຼັກຈະກັບມາຄືທີ່ທ່ານປະໄວ້.",
   "TV mode": "ໂໝດທີວີ",
   "TV;Big Picture;controller;gamepad;console;couch;": "TV;ທີວີ;Big Picture;ຈອຍ;gamepad;ເຄື່ອງເກມ;ໂຊຟາ;",
   "Lighter desktop": "ໜ້າຈໍເບົາກວ່າ",
