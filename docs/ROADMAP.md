@@ -98,9 +98,9 @@ from a terminal must also work from a GUI.
   - [x] main = test branch (PR #30 merged by fast-forward); main's build made `:latest` = Sloth OS 2.0
         (44.20261118.3, digest sha256:80500780…, signed: the .sig tag is there). Installed machines update to it.
   - [x] Website and README say "2.0 is rolling out as an update, the ISO follows" (website main 343a0a7)
-  - [ ] The ISO: Actions → iso, run 44322294170 (from main, image_tag=latest, started 14:15 UTC, ~45 min). Its
-        artifact "sloth-os-iso" (~5.3 GB): `gh run download 44322294170 -R Sloth-OS-Linux/sloth-os -n sloth-os-iso`
-  - [ ] Before publishing: in the ISO, /usr/share/sloth-os/installer/image.conf must say
+  - [x] The ISO: Actions → iso, run 44322294170 (from main, image_tag=latest), downloaded on the main computer
+        (sha256 676f7275…, matches the run's .sha256)
+  - [x] Before publishing (2026-11-18, all good; Sloth OS 2.0 in its os-release): in the ISO, /usr/share/sloth-os/installer/image.conf must say
         TARGET_IMGREF=ghcr.io/sloth-os-linux/sloth-os:latest (not the test tag); the MBR: partition 1 0x83 active,
         partition 2 0xef; a VM: BIOS and UEFI start the installer
   - [ ] Write it to a good USB stick ("BIOS" 14.6 GB Generic Flash Disk, not the Sony), reinstall the HP from it (the
