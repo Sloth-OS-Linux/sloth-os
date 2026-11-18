@@ -93,11 +93,38 @@ def other_app(mime):
     a Word document is a zip archive underneath, and Ark, the archive manager, would also count through that parent
     type."""
     from gi.repository import Gio
-    exact = [a for a in Gio.AppInfo.get_recommended_for_type(mime) if a.get_id() != OWN_ID]
+    chosen = user_choices(mime)
+    exact = [a for a in Gio.AppInfo.get_recommended_for_type(mime)
+             if a.get_id() != OWN_ID and (not is_browser(a) or a.get_id() in chosen)]
     default = Gio.AppInfo.get_default_for_type(mime, False)
     if default is not None and any(a.get_id() == default.get_id() for a in exact):
         return default
     return exact[0] if exact else None
+
+
+def is_browser(app):
+    """A web browser lists photos, PDFs and videos too (Chrome on the HP opened a .jpg, 2026-11-18): it only shows
+    them, so for these types it does not count, unless the user chose it (user_choices)."""
+    categories = app.get_categories() if hasattr(app, "get_categories") else ""
+    return "WebBrowser" in (categories or "").split(";")
+
+
+def user_choices(mime):
+    """The apps the user picked for a type ("Open with" → remember, the file's properties): the user's
+    mimeapps.list, its [Default Applications] and [Added Associations]. -> set of desktop file ids"""
+    config = Path(os.environ.get("XDG_CONFIG_HOME") or Path.home() / ".config") / "mimeapps.list"
+    found, section = set(), ""
+    try:
+        lines = config.read_text(encoding="utf-8", errors="replace").splitlines()
+    except OSError:
+        return found
+    for line in lines:
+        line = line.strip()
+        if line.startswith("["):
+            section = line
+        elif section in ("[Default Applications]", "[Added Associations]") and line.startswith(mime + "="):
+            found.update(x for x in line.split("=", 1)[1].split(";") if x)
+    return found
 
 
 def flatpak_installed(app_id):

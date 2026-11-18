@@ -37,7 +37,7 @@ log "$(/usr/libexec/sloth-os/tv-shortcuts add 2>&1)"
 # desktop starts below.
 notes="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/sloth-tv"
 mkdir -p "$notes"
-rm -f "$notes/switch-to-desktop"
+rm -f "$notes/switch-to-desktop" "$notes/shutdown" "$notes/reboot"
 (
     while sleep 1; do
         [ -e "$notes/switch-to-desktop" ] || continue
@@ -69,9 +69,14 @@ done
 # Steam calls steamos-session-select (made for SteamOS); ours (tv-shim) leaves the note, so the desktop starts below. The Flatpak sees the host's /usr under /run/host (host-os, read only), and our folder comes first on its
 # PATH (the rest as the Flatpak has it). org.freedesktop.Flatpak: the games that are not Steam's start outside the
 # sandbox (tv-shim/sloth-tv-launch -> flatpak-spawn --host -> tv-launch); only TV mode's Steam gets this.
+# Steam's power menu → Shut Down / Restart: as on SteamOS, Steam only writes the file named in
+# STEAMOS_STEAM_SHUTDOWN_SENTINEL / STEAMOS_STEAM_REBOOT_SENTINEL and exits; the session powers off or restarts after
+# it (ChimeraOS's gamescope-session-plus with its sessions.d/steam; DroidDeck PR #629). Without them Steam stopped
+# halfway and its screen stayed (the HP, 2026-11-18). The files are in our folder, which the sandbox shares.
 gamescope -e -f -- flatpak run --filesystem=host-os:ro --filesystem=xdg-run/sloth-tv:create \
     --talk-name=com.steampowered.SteamOSManager1 --talk-name=org.freedesktop.Flatpak \
     --env=PATH=/run/host/usr/libexec/sloth-os/tv-shim:/app/bin:/app/utils/bin:/usr/bin:/bin \
+    --env=STEAMOS_STEAM_SHUTDOWN_SENTINEL="$notes/shutdown" --env=STEAMOS_STEAM_REBOOT_SENTINEL="$notes/reboot" \
     com.valvesoftware.Steam -steamos3 -gamepadui
 code=$?
 log "gamescope ended (exit code $code)"
@@ -79,6 +84,17 @@ kill "$watcher" "$manager" 2>/dev/null
 # Steam is fully closed before the desktop starts (its own autostart may open it there again, as usual)
 flatpak kill com.valvesoftware.Steam >/dev/null 2>&1
 log "$(/usr/libexec/sloth-os/tv-shortcuts remove 2>&1)"
+# Shut Down / Restart from Steam's power menu (above). If it is refused (polkit wants a password, e.g. while another
+# user is signed in, and nobody can type it here), the desktop starts, as after Exit Steam.
+for verb in reboot poweroff; do
+    note="$notes/$verb"
+    [ "$verb" = poweroff ] && note="$notes/shutdown"
+    [ -e "$note" ] || continue
+    rm -f "$notes/shutdown" "$notes/reboot"
+    log "Steam asked to $verb"
+    systemctl --no-ask-password "$verb" && sleep 60
+    desktop "$verb did not happen"
+done
 if (( code != 0 && $(date +%s) - started < 15 )); then
     desktop "gamescope stopped right away (exit code $code)"
 fi
