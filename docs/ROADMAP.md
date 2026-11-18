@@ -118,16 +118,16 @@ from a terminal must also work from a GUI.
   - [x] After that failed setup, Battle.net still showed in Sloth Center's Games with Play (sloth-exe recorded
         "launchers: []"). Fixed: a Windows program with nothing to start is left off the Games page (TV mode's list
         already left it off); checked in the VM
-  - [ ] Into 2.0 before the ISO goes out (the user, 2026-11-18): these two fixes to main, main's build, then the ISO
-        again from :latest (the installer's fix is only in a new ISO), its checks again, the stick again
+  - [x] Into 2.0 before the ISO went out (the user, 2026-11-18): both fixes on main (6ab80008), main's build, the ISO
+        again from :latest (iso run 44389197613, sha256 393633e9…): image.conf, MBR, BIOS and UEFI start, the installer's
+        pages at 125 % on 1360 x 768 with a disk, and a full install in a VM that starts to the sign-in screen. No stick
+        this time (the user)
   - [x] New Sloth Center shots from the 2.0 VM (out/center-2.0, 1010 x 684): Updates (2.0's news), Apps, Games, TV mode,
         Appearance, Disks, Disks with "Bring files over from Windows", Feedback; and the Windows import window
         before and after (a 60 GB NTFS test disk with a Users folder; 52 files came over)
-  - [ ] Release: `python tools/release-finish.py 2.0 <iso> --site ../sloth-os-linux.github.io` (names, sha256,
-        torrent, SourceForge README, README and website download); SourceForge upload (SFTP key
-        ~/.ssh/sloth-os-sourceforge on the main computer); the website's download button only when the ISO's
-        /download answers; merge the website's branch release-2.0-requirements (6c7adbc, BIOS in the requirements);
-        the tag v2.0 (the user)
+  - [x] Release (2026-11-18 evening): release-finish, SourceForge 2.0/ (ISO, .sha256, .torrent, README.txt), README,
+        website download page; the requirements branch merged into the website's main. The website's new home page
+        (branch website-2.0) waits for the user's look
 - [ ] **The website for 2.0** (sloth-os-linux.github.io; its screenshots are from 1.0, 2026-10-20/28):
   - [ ] The "2.0 is rolling out as an update, the ISO follows" notice (ready locally: website main, 343a0a7; the
         README's: b732ef47), out as soon as main's build has made :latest
