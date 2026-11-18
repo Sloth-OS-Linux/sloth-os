@@ -14,6 +14,10 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
+**Sloth OS 2.0 is rolling out** as an update: machines already running Sloth OS get it by themselves and switch to
+it at the next restart. The 2.0 installer ISO follows within a few hours; until then the 1.6 ISO below installs
+fine and updates itself to 2.0 (older BIOS-only PCs need the 2.0 ISO).
+
 **Current release: Sloth OS 1.6** (November 15, 2026). Machines already running Sloth OS get it as a normal
 update. Download: [sloth-os-1.6-x86_64.iso](https://sourceforge.net/projects/sloth-os/files/1.6/sloth-os-1.6-x86_64.iso/download) (5.3 GB, also as a
 [torrent](https://sourceforge.net/projects/sloth-os/files/1.6/sloth-os-1.6-x86_64.iso.torrent/download)), SHA-256 `37a874af44fb41b68116992ec8a565ca65441275fde395895e16a63d5b236b80`. What changed:
