@@ -64,7 +64,9 @@ PlasmoidItem {
         onTriggered: root.run("/usr/libexec/sloth-os/quicksettings-tray")
     }
 
-    // TV mode (/usr/libexec/sloth-os/tv-session --on-desktop) only when Steam is installed; looked at every 30 s
+    // TV mode (/usr/libexec/sloth-os/tv-session --on-desktop) only when Steam is installed; looked at every 30 s.
+    // It starts through its Start menu entry (kstart --application org.slothos.tv-mode), as the Start menu starts
+    // it: started from here directly (setsid -f tv-session) it did not come up on the HP (2026-11-18)
     property bool steamInstalled: false
     P5Support.DataSource {
         engine: "executable"
@@ -373,7 +375,7 @@ PlasmoidItem {
                 icon.name: "input-gamepad"
                 onClicked: {
                     root.expanded = false;
-                    root.run("setsid -f /usr/libexec/sloth-os/tv-session --on-desktop");
+                    root.run("kstart --application org.slothos.tv-mode");
                 }
                 Accessible.name: root.t("tvmode")
                 PlasmaComponents.ToolTip.text: root.t("tvmode")
