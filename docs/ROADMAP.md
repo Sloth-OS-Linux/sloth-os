@@ -78,6 +78,8 @@ from a terminal must also work from a GUI.
   system started in legacy BIOS mode, the whole-disk install (plain MBR) went through, and the installed system
   starts from the disk and runs ("a little slow, but it works"). So the earlier power-off was the bad stick, as
   suspected
+- [x] The VAIO updates (2026-11-18): Sloth Center → Updates found the new test-branch image, and after the restart
+  the BIOS/MBR install started the new version
 - [x] The same plain-MBR stick on the HP in UEFI mode (2026-11-18): the installer started. So iso/build_iso.sh is back
   to the plain MBR layout (commit 29cd106's, the script of the tested ISO) for every ISO, and the installer's BIOS
   mode stays allowed. The installed disk stays MBR in BIOS mode: the VAIO's BIOS starts no GPT disk
@@ -298,9 +300,10 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      was not there is deleted). Tried: tools/tests/test_light_mode.py with the real kwriteconfig6 / balooctl6 in the
      image (on, off, twice on, the automatic once only and never over the user's choice), the switch in an
      offscreen Sloth Center (screenshot, the files read back)
-     - [ ] On a weak machine (the VAIO, or a VM with 4 GB): the notification at the first sign-in, menus open without
+     - [x] On a weak machine (the VAIO, or a VM with 4 GB): the notification at the first sign-in, menus open without
        animation at once (KWin takes AnimationDurationFactor through --notify without signing out?), no blur behind
        the Start menu; the switch off brings them back
+       (the VAIO, 2026-11-18: turned on, "much faster"; the switch: Appearance → Lighter desktop)
 - For people coming from Windows:
   7. ~~**"I can't open this file" helper**~~ DONE 2026-11-17 (test branch): nothing is preinstalled, so on a new
      install a photo, a PDF, a Word document or a video had no app at all (checked in the image: only Ark, for zip
