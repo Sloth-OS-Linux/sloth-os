@@ -356,7 +356,7 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      read-only in the image, and the wizard's step itself offscreen on that btrfs (screenshots: the step, then
      "Done: 3 files…, 1 Steam game"). A bug found that way and fixed: only the first chosen folder used its
      localised name
-     - [ ] On real hardware: a computer with another Linux next to Sloth OS (or a second disk with one)
+     - [ ] On real hardware: a computer with another Linux next to Sloth OS (or a second disk with one) (no such machine at hand yet, 2026-11-18)
   9. ~~**Sending files to a phone or another computer on the home network**~~ small version DONE 2026-11-18 (test
      branch): LocalSend (org.localsend.localsend_app, Flathub, Apache-2.0; checked on Flathub's API) in Sloth
      Welcome's catalog, Chat, after KDE Connect, with its icon (Flathub's 128 px) and its description in 50
@@ -364,7 +364,7 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      too. No firewall change needed: the default zone (FedoraWorkstation, checked in the image) leaves 1025-65535
      open, and LocalSend uses 53317. Tried: every catalog app has its icon and English text (59), the Chat page
      offscreen (screenshot). The large version (our own consent-based sharing) stays listed
-     - [ ] On the HP: install LocalSend from Welcome, send a photo to a phone with LocalSend and back
+     - [x] On the HP: install LocalSend from Welcome, send a photo to a phone with LocalSend and back (OK 2026-11-18)
 - Safety and help:
   10. **A restore point** before bigger setting or driver changes (large, listed)
   11. ~~**A diagnostic bundle for Feedback**~~ DONE 2026-11-18 (test branch): Sloth Center → Feedback's "Attach
@@ -381,7 +381,7 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
       what stays, sending the text shown, nothing collected without the box), the page offscreen in the image with
       a made-up account (screenshot; everything personal hidden). The whole test suite in the image: the same 9
       failures before and after (test_apps, test_snapshots, test_steam_move: the container, not these changes)
-      - [ ] On the HP: Feedback → Show what is sent: the real journal, nothing personal left in it
+      - [x] On the HP: Feedback → Show what is sent: the real journal, nothing personal left in it (OK 2026-11-18)
   12. **File backup → "Find deleted files…"** did not work in the VM (medium, listed)
 - Small:
   13. ~~**Sloth Center in one window only**~~ DONE 2026-11-17 (see "One settings app"): opening it again brings the
