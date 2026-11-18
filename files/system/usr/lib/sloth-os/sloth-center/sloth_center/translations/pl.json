@@ -1271,5 +1271,11 @@
   "Show what is sent": "Pokaż, co zostanie wysłane",
   "What is sent": "Co zostanie wysłane",
   "Collecting the information…": "Zbieranie informacji…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Twoje imię i nazwisko, nazwa użytkownika, nazwa komputera, nazwy sieci, adresy sieciowe i e-mail oraz numery seryjne są zastępowane znacznikami, np. <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Twoje imię i nazwisko, nazwa użytkownika, nazwa komputera, nazwy sieci, adresy sieciowe i e-mail oraz numery seryjne są zastępowane znacznikami, np. <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Tryb TV: wielkoekranowy interfejs Steama na całym ekranie, jak konsola, także z grami z innych sklepów. Jest w menu Start.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Starsze komputery: Sloth OS instaluje się teraz także na komputerach uruchamianych w starym trybie BIOS.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Lżejszy pulpit dla słabszych komputerów: włącza się sam tam, gdzie pomaga, a w Wyglądzie jest dla niego przełącznik.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Plik, którego nie otwiera jeszcze żadna aplikacja, proponuje właściwą aplikację, instaluje ją jednym kliknięciem i otwiera plik.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Przeprowadzka z innego Linuksa: twoje pliki, zakładki, aplikacje i gry ze Steama przechodzą razem z tobą, jak z Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Opinie ukrywają twoje dane osobowe i pokazują dokładnie, co zostanie wysłane."
 }

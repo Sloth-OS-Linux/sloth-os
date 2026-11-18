@@ -1271,5 +1271,11 @@
   "Show what is sent": "কী পাঠানো হবে দেখান",
   "What is sent": "কী পাঠানো হবে",
   "Collecting the information…": "তথ্য সংগ্রহ করা হচ্ছে…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "আপনার নাম, ব্যবহারকারীর নাম, কম্পিউটারের নাম, নেটওয়ার্কের নাম, নেটওয়ার্ক ও ইমেল ঠিকানা এবং সিরিয়াল নম্বর <user>-এর মতো চিহ্ন দিয়ে বদলে দেওয়া হয়।"
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "আপনার নাম, ব্যবহারকারীর নাম, কম্পিউটারের নাম, নেটওয়ার্কের নাম, নেটওয়ার্ক ও ইমেল ঠিকানা এবং সিরিয়াল নম্বর <user>-এর মতো চিহ্ন দিয়ে বদলে দেওয়া হয়।",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "টিভি মোড: পুরো স্ক্রিনে Steam-এর বড় স্ক্রিনের ইন্টারফেস, গেম কনসোলের মতো, সঙ্গে অন্য স্টোরের আপনার গেমগুলিও। এটি স্টার্ট মেনুতে আছে।",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "পুরোনো কম্পিউটার: Sloth OS এখন পুরোনো BIOS মোডে চালু হওয়া পিসিতেও ইনস্টল হয়।",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "দুর্বল কম্পিউটারের জন্য হালকা ডেস্কটপ: যেখানে কাজে লাগে সেখানে নিজেই চালু হয়, আর চেহারায় এর একটি সুইচ আছে।",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "যে ফাইল এখনও কোনো অ্যাপ খোলে না, সেটি সঠিক অ্যাপের পরামর্শ দেয়, এক ক্লিকে ইনস্টল করে এবং ফাইলটি খোলে।",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "অন্য Linux থেকে চলে আসা: আপনার ফাইল, বুকমার্ক, অ্যাপ ও Steam গেম চলে আসে, Windows থেকে যেমন আসে।",
+  "Feedback hides your personal details and shows exactly what is sent.": "মতামত আপনার ব্যক্তিগত তথ্য লুকায় এবং ঠিক কী পাঠানো হচ্ছে তা দেখায়।"
 }

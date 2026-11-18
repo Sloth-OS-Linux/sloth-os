@@ -1271,5 +1271,11 @@
   "Show what is sent": "Паказаць, што адпраўляецца",
   "What is sent": "Што адпраўляецца",
   "Collecting the information…": "Збіраем звесткі…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Ваша імя, імя карыстальніка, назва камп’ютара, назвы сетак, сеткавыя адрасы і адрасы e-mail, а таксама серыйныя нумары замяняюцца пазнакамі накшталт <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Ваша імя, імя карыстальніка, назва камп’ютара, назвы сетак, сеткавыя адрасы і адрасы e-mail, а таксама серыйныя нумары замяняюцца пазнакамі накшталт <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Рэжым ТБ: інтэрфейс Steam для вялікага экрана на ўвесь экран, як гульнявая кансоль, разам з гульнямі з іншых крам. Ён ёсць у меню «Пуск».",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Старыя камп’ютары: Sloth OS цяпер усталёўваецца і на ПК, якія запускаюцца ў старым рэжыме BIOS.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Лягчэйшы працоўны стол для слабых камп’ютараў: ён уключаецца сам, дзе гэта дапамагае, а ў «Выглядзе» ёсць для яго перамыкач.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Файл, які пакуль не адкрывае ніводная праграма, прапануе патрэбную праграму, усталёўвае яе адным націскам і адкрывае файл.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Пераезд з іншага Linux: вашы файлы, закладкі, праграмы і гульні Steam пераносяцца, як і з Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Водгук хавае вашы асабістыя даныя і паказвае, што менавіта адпраўляецца."
 }

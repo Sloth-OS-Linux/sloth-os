@@ -86,6 +86,9 @@ from a terminal must also work from a GUI.
   at all (2026-11-16), so converting it to GPT would make it unbootable
 - [ ] 2026-11-17: the test ISO (v4, test-branch image) tried at school
 - [ ] Ship it as **Sloth OS 2.0** (next week): a new ISO, README / website requirements (they still say "UEFI only").
+  2026-11-18: the release commit is on the test branch (SLOTH_VERSION 2.0, What's new in 2.0 in 50 languages,
+  docs/releases/2.0.md, README: 2.0 notes and BIOS in the requirements). Still to do: test → main, the ISO from
+  main's image, the HP reinstalled from it (the install test), SourceForge, the website (requirements, download)
   Still on Fedora 44: no Fedora 45 base until umu-launcher supports it. BIOS support paused (see above): 2.0 may go
   out without it
 

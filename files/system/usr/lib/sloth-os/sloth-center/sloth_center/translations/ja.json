@@ -1271,5 +1271,11 @@
   "Show what is sent": "送られる内容を見る",
   "What is sent": "送られる内容",
   "Collecting the information…": "情報を集めています…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "名前、ユーザー名、コンピューター名、ネットワーク名、ネットワークとメールのアドレス、シリアル番号は <user> などの目印に置き換えられます。"
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "名前、ユーザー名、コンピューター名、ネットワーク名、ネットワークとメールのアドレス、シリアル番号は <user> などの目印に置き換えられます。",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "TV モード：ゲーム機のように Steam の大画面インターフェースを画面いっぱいに表示し、ほかのストアのゲームも並びます。スタートメニューにあります。",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "古いパソコン：Sloth OS は、昔ながらの BIOS モードで起動する PC にもインストールできるようになりました。",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "非力なパソコン向けの軽いデスクトップ：効果があるところでは自動でオンになり、「外観」に切り替えスイッチがあります。",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "まだどのアプリでも開けないファイルは、合うアプリを提案し、ワンクリックでインストールしてファイルを開きます。",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "ほかの Linux からの引っ越し：Windows と同じように、ファイル、ブックマーク、アプリ、Steam のゲームを移せます。",
+  "Feedback hides your personal details and shows exactly what is sent.": "フィードバックは個人情報を隠し、送られる内容をそのまま見せます。"
 }

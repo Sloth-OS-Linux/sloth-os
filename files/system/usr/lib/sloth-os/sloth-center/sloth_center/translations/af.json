@@ -1271,5 +1271,11 @@
   "Show what is sent": "Wys wat gestuur word",
   "What is sent": "Wat gestuur word",
   "Collecting the information…": "Versamel die inligting…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Jou naam, gebruikersnaam, rekenaarnaam, netwerkname, netwerk- en e-posadresse en reeksnommers word vervang met plekhouers soos <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Jou naam, gebruikersnaam, rekenaarnaam, netwerkname, netwerk- en e-posadresse en reeksnommers word vervang met plekhouers soos <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "TV-modus: Steam se grootskerm-koppelvlak op die hele skerm, soos ’n speletjiekonsole, ook met jou speletjies uit ander winkels. Dit is in die Begin-kieslys.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Ouer rekenaars: Sloth OS installeer nou ook op rekenaars wat in die ou BIOS-modus begin.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "’n Ligter werkskerm vir swak rekenaars: dit skakel self aan waar dit help, en Voorkoms het ’n skakelaar daarvoor.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "’n Lêer wat nog geen toepassing oopmaak nie, stel die regte toepassing voor, installeer dit met een klik en maak die lêer oop.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Oorskuif van ’n ander Linux: jou lêers, boekmerke, toepassings en Steam-speletjies kom oor, soos van Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Terugvoer versteek jou persoonlike besonderhede en wys presies wat gestuur word."
 }

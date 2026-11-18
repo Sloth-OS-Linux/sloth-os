@@ -51,6 +51,24 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
+<summary><b>What's new in 2.0</b> (November 2026)</summary>
+
+**TV mode:** Steam's big-screen interface on the whole screen, like a game console, with your games from other
+stores too; start it from the Start menu. Steam's Switch to Desktop, Sleep, Restart and Shut Down work. Sloth
+Center → Games has one library for every game, game mode, and help when a Steam game doesn't start.
+
+**Older and weaker computers:** Sloth OS now installs on PCs that start in the old BIOS mode, and a lighter desktop
+turns itself on where the computer is weak.
+
+**Everyday help:** a file with no app for it offers the right app and installs it with one click; moving over from
+another Linux brings your files, bookmarks, apps and Steam games; LocalSend in the welcome wizard; Feedback hides
+your personal details and shows exactly what is sent.
+
+Full notes: [docs/releases/2.0.md](docs/releases/2.0.md).
+
+</details>
+
+<details>
 <summary><b>What's new in 1.6</b> (November 15, 2026)</summary>
 
 **One settings app:** every setting is in Sloth Center now, KDE's pages too: the everyday ones first in the sidebar,
@@ -295,16 +313,16 @@ If you tried installing with an earlier 1.0.2 ISO and ran into problems, we are 
 
 | | Minimum | Recommended for games |
 |---|---|---|
-| Computer | 64-bit PC (x86_64) that starts in **UEFI** mode (almost every PC from 2013 or later) | |
+| Computer | 64-bit PC (x86_64), in **UEFI** mode (almost every PC from 2013 or later) or the older **BIOS** mode | |
 | Processor | 2 cores | 4 cores or more |
 | Memory | 4 GB | 16 GB |
 | Disk space | 64 GB | 256 GB SSD or more |
 | Graphics | Any Intel, AMD or NVIDIA graphics | AMD Radeon RX 400 series or newer, Intel Arc / Iris Xe, NVIDIA GeForce GTX 16 / RTX 20 series or newer |
 | USB stick | 8 GB or more for the installer | |
 
-Not supported yet: BIOS-only PCs, ARM computers, and NVIDIA cards older than the GTX 16 series (the NVIDIA image uses
-NVIDIA's open kernel driver). NVIDIA computers have been tried with Secure Boot turned off. Installing next to Windows needs at least
-64 GB of free space for Sloth OS. Download and step-by-step guide:
+Not supported yet: ARM computers, and NVIDIA cards older than the GTX 16 series (the NVIDIA image uses NVIDIA's open
+kernel driver). NVIDIA computers have been tried with Secure Boot turned off. Installing next to Windows needs UEFI
+mode and at least 64 GB of free space for Sloth OS; on a BIOS-only PC, Sloth OS takes the whole disk. Download and step-by-step guide:
 [sloth-os-linux.github.io/download.html](https://sloth-os-linux.github.io/download.html).
 
 **Why Fedora 44, not 45?** Fedora Atomic 45 is out, but Sloth OS stays on Fedora 44 for now. Windows programs and

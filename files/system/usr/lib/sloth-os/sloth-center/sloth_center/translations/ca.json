@@ -1271,5 +1271,11 @@
   "Show what is sent": "Mostra què s’envia",
   "What is sent": "Què s’envia",
   "Collecting the information…": "S’està recollint la informació…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "El teu nom, el nom d’usuari, el nom de l’ordinador, els noms de les xarxes, les adreces de xarxa i de correu i els números de sèrie se substitueixen per marcadors com ara <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "El teu nom, el nom d’usuari, el nom de l’ordinador, els noms de les xarxes, les adreces de xarxa i de correu i els números de sèrie se substitueixen per marcadors com ara <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Mode TV: la interfície de pantalla gran de Steam a tota la pantalla, com una consola, també amb els jocs d’altres botigues. És al menú d’inici.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Ordinadors més antics: ara Sloth OS també s’instal·la en ordinadors que arrenquen en l’antic mode BIOS.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Un escriptori més lleuger per a ordinadors poc potents: s’activa sol on ajuda, i a Aparença hi ha un interruptor.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Un fitxer que encara no obre cap aplicació proposa l’aplicació adequada, la instal·la amb un clic i obre el fitxer.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Venir d’un altre Linux: els teus fitxers, adreces d’interès, aplicacions i jocs de Steam hi passen, com des del Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Els comentaris amaguen les teves dades personals i mostren exactament què s’envia."
 }

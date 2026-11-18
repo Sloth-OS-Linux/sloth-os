@@ -1271,5 +1271,11 @@
   "Show what is sent": "Laten zien wat er wordt verstuurd",
   "What is sent": "Wat er wordt verstuurd",
   "Collecting the information…": "De informatie wordt verzameld…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Je naam, gebruikersnaam, computernaam, netwerknamen, netwerk- en e-mailadressen en serienummers worden vervangen door plaatsaanduidingen zoals <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Je naam, gebruikersnaam, computernaam, netwerknamen, netwerk- en e-mailadressen en serienummers worden vervangen door plaatsaanduidingen zoals <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Tv-modus: de groot-scherminterface van Steam op het hele scherm, als een spelconsole, ook met je games uit andere winkels. Hij staat in het Startmenu.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Oudere computers: Sloth OS installeert nu ook op pc's die in de oude BIOS-modus opstarten.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Een lichter bureaublad voor zwakke computers: het gaat vanzelf aan waar het helpt, en Uiterlijk heeft er een schakelaar voor.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Een bestand dat nog geen app opent, stelt de juiste app voor, installeert die met één klik en opent het bestand.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Overstappen van een andere Linux: je bestanden, bladwijzers, apps en Steam-games gaan mee, net als vanaf Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Feedback verbergt je persoonlijke gegevens en laat precies zien wat er wordt verstuurd."
 }

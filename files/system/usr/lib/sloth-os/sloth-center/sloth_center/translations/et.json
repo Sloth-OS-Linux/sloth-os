@@ -1271,5 +1271,11 @@
   "Show what is sent": "Näita, mida saadetakse",
   "What is sent": "Mida saadetakse",
   "Collecting the information…": "Teabe kogumine…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Sinu nimi, kasutajanimi, arvuti nimi, võrkude nimed, võrgu- ja e-posti aadressid ning seerianumbrid asendatakse kohatäidetega nagu <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Sinu nimi, kasutajanimi, arvuti nimi, võrkude nimed, võrgu- ja e-posti aadressid ning seerianumbrid asendatakse kohatäidetega nagu <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Telerirežiim: Steami suure ekraani liides kogu ekraanil, nagu mängukonsool, ka sinu teiste poodide mängudega. See on Start-menüüs.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Vanemad arvutid: Sloth OS paigaldub nüüd ka arvutitele, mis käivituvad vanas BIOS-režiimis.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Kergem töölaud nõrkadele arvutitele: see lülitub ise sisse, kus see aitab, ja Välimuses on selle lüliti.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Fail, mida ükski rakendus veel ei ava, pakub õiget rakendust, paigaldab selle ühe klõpsuga ja avab faili.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Kolimine teisest Linuxist: sinu failid, järjehoidjad, rakendused ja Steami mängud tulevad üle, nagu Windowsist.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Tagasiside peidab sinu isikuandmed ja näitab täpselt, mida saadetakse."
 }

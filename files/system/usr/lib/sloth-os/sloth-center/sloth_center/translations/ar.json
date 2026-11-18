@@ -1271,5 +1271,11 @@
   "Show what is sent": "اعرض ما سيُرسل",
   "What is sent": "ما سيُرسل",
   "Collecting the information…": "جارٍ جمع المعلومات…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "يُستبدل اسمك واسم المستخدم واسم الحاسوب وأسماء الشبكات وعناوين الشبكة والبريد الإلكتروني والأرقام التسلسلية بعلامات مثل <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "يُستبدل اسمك واسم المستخدم واسم الحاسوب وأسماء الشبكات وعناوين الشبكة والبريد الإلكتروني والأرقام التسلسلية بعلامات مثل <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "وضع التلفاز: واجهة Steam للشاشات الكبيرة على كامل الشاشة، مثل جهاز ألعاب، ومعها ألعابك من المتاجر الأخرى أيضًا. تجده في قائمة البدء.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "الحواسيب الأقدم: يمكن الآن تثبيت Sloth OS أيضًا على الحواسيب التي تبدأ بوضع BIOS القديم.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "سطح مكتب أخف للحواسيب الضعيفة: يعمل تلقائيًا حيث يفيد، وفي المظهر مفتاح له.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "الملف الذي لا يفتحه أي تطبيق بعد يقترح التطبيق المناسب، ويثبّته بنقرة واحدة ثم يفتح الملف.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "الانتقال من Linux آخر: تنتقل ملفاتك وإشاراتك المرجعية وتطبيقاتك وألعاب Steam، كما من Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "الملاحظات تُخفي بياناتك الشخصية وتعرض ما سيُرسل بالضبط."
 }

@@ -1271,5 +1271,11 @@
   "Show what is sent": "Monstrar lo que es inviate",
   "What is sent": "Lo que es inviate",
   "Collecting the information…": "Colligente le information…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Tu nomine, nomine de usator, nomine del computator, nomines de retes, adresses de rete e de e-mail e numeros de serie es reimplaciate per marcas como <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Tu nomine, nomine de usator, nomine del computator, nomines de retes, adresses de rete e de e-mail e numeros de serie es reimplaciate per marcas como <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Modo TV: le interfacie de grande schermo de Steam sur tote le schermo, como un consola, anque con tu jocos de altere botecas. Illo es in le menu Initio.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Computatores plus vetule: Sloth OS ora se installa anque sur PC que initia in le vetule modo BIOS.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Un scriptorio plus legier pro computatores debile: illo se activa ipse ubi illo adjuta, e Apparentia ha un commutator pro illo.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Un file que necun application aperi ancora propone le application juste, lo installa con un clic e aperi le file.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Transferer se ab un altere Linux: tu files, marcapaginas, applicationes e jocos de Steam veni, como ab Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Le commentos cela tu detalios personal e monstra exactemente lo que es inviate."
 }

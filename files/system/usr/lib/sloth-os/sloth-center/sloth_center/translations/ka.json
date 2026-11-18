@@ -1271,5 +1271,11 @@
   "Show what is sent": "ნახეთ, რა იგზავნება",
   "What is sent": "რა იგზავნება",
   "Collecting the information…": "ინფორმაციის შეგროვება…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "თქვენი სახელი, მომხმარებლის სახელი, კომპიუტერის სახელი, ქსელების სახელები, ქსელის და ელფოსტის მისამართები და სერიული ნომრები იცვლება ნიშნებით, მაგალითად <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "თქვენი სახელი, მომხმარებლის სახელი, კომპიუტერის სახელი, ქსელების სახელები, ქსელის და ელფოსტის მისამართები და სერიული ნომრები იცვლება ნიშნებით, მაგალითად <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "ტელევიზორის რეჟიმი: Steam-ის დიდი ეკრანის ინტერფეისი მთელ ეკრანზე, როგორც სათამაშო კონსოლი, სხვა მაღაზიების თამაშებითაც. ის „სტარტის“ მენიუშია.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "ძველი კომპიუტერები: Sloth OS ახლა ძველ BIOS რეჟიმში ჩართვად კომპიუტერებზეც დგება.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "მსუბუქი სამუშაო მაგიდა სუსტი კომპიუტერებისთვის: თვითონ ირთვება, სადაც ეხმარება, და „იერსახეში“ მისი გადამრთველია.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "ფაილი, რომელსაც ჯერ არცერთი აპი არ ხსნის, გთავაზობთ სწორ აპს, ერთი დაწკაპებით აყენებს და ფაილს ხსნის.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "გადმოსვლა სხვა Linux-იდან: თქვენი ფაილები, სანიშნეები, აპები და Steam-ის თამაშები გადმოდის, როგორც Windows-იდან.",
+  "Feedback hides your personal details and shows exactly what is sent.": "გამოხმაურება მალავს თქვენს პირად მონაცემებს და ზუსტად აჩვენებს, რა იგზავნება."
 }

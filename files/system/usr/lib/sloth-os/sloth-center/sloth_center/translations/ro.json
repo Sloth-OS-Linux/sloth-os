@@ -1271,5 +1271,11 @@
   "Show what is sent": "Arată ce se trimite",
   "What is sent": "Ce se trimite",
   "Collecting the information…": "Se adună informațiile…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Numele tău, numele de utilizator, numele calculatorului, numele rețelelor, adresele de rețea și de e-mail și numerele de serie sunt înlocuite cu marcaje precum <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Numele tău, numele de utilizator, numele calculatorului, numele rețelelor, adresele de rețea și de e-mail și numerele de serie sunt înlocuite cu marcaje precum <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Mod TV: interfața Steam pentru ecran mare, pe tot ecranul, ca o consolă, și cu jocurile tale din alte magazine. Este în meniul Start.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Calculatoare mai vechi: Sloth OS se instalează acum și pe PC-urile care pornesc în vechiul mod BIOS.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Un desktop mai ușor pentru calculatoarele slabe: pornește singur unde ajută, iar Aspectul are un comutator pentru el.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Un fișier pe care încă nu-l deschide nicio aplicație propune aplicația potrivită, o instalează cu un clic și deschide fișierul.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Mutarea de pe alt Linux: fișierele, marcajele, aplicațiile și jocurile Steam vin cu tine, ca de pe Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Feedbackul ascunde datele tale personale și arată exact ce se trimite."
 }

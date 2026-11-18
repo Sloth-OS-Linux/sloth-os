@@ -21,6 +21,14 @@ WELCOME_DONE = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) 
 
 # Sloth OS version -> what it brought, for everyone (not developers): a few short sentences, the biggest first
 NOTES = {
+    "2.0": [
+        N_("TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu."),
+        N_("Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode."),
+        N_("A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it."),
+        N_("A file that no app opens yet offers the right app, installs it with one click and opens the file."),
+        N_("Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows."),
+        N_("Feedback hides your personal details and shows exactly what is sent."),
+    ],
     "1.6": [
         N_("One settings app: every setting of the computer is in Sloth Center now, the everyday ones first, the rest "
            "under More settings."),

@@ -1271,5 +1271,11 @@
   "Show what is sent": "Mutasd, mi megy el",
   "What is sent": "Ami elmegy",
   "Collecting the information…": "Az információ összegyűjtése…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "A neved, a felhasználóneved, a gép neve, a hálózatok neve, a hálózati és e-mail-címek és a sorozatszámok helyére jelölők kerülnek, például <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "A neved, a felhasználóneved, a gép neve, a hálózatok neve, a hálózati és e-mail-címek és a sorozatszámok helyére jelölők kerülnek, például <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "TV-mód: a Steam nagy képernyős felülete teljes képernyőn, mint egy játékkonzol, a más boltokból származó játékaiddal együtt. A Start menüben találod.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Régebbi gépek: a Sloth OS mostantól a régi BIOS-módban induló gépekre is települ.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Könnyített asztal gyengébb gépekhez: magától bekapcsol, ahol segít, és a Megjelenésben van hozzá kapcsoló.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Egy fájl, amit még egyik app sem nyit meg, felajánlja a megfelelő appot, egy kattintással telepíti, és megnyitja a fájlt.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Átköltözés másik Linuxról: a fájljaid, könyvjelzőid, appjaid és Steam-játékaid átjönnek, ahogy Windowsról is.",
+  "Feedback hides your personal details and shows exactly what is sent.": "A visszajelzés elrejti a személyes adataidat, és pontosan megmutatja, mi megy el."
 }

@@ -1271,5 +1271,11 @@
   "Show what is sent": "Prikaži što se šalje",
   "What is sent": "Što se šalje",
   "Collecting the information…": "Prikupljanje podataka…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Vaše ime, korisničko ime, naziv računala, nazivi mreža, mrežne adrese i adrese e-pošte te serijski brojevi zamjenjuju se oznakama poput <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Vaše ime, korisničko ime, naziv računala, nazivi mreža, mrežne adrese i adrese e-pošte te serijski brojevi zamjenjuju se oznakama poput <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "TV način: Steamovo sučelje za veliki zaslon preko cijelog zaslona, kao igraća konzola, i s igrama iz drugih trgovina. Nalazi se u izborniku Start.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Starija računala: Sloth OS se sada instalira i na računala koja se pokreću u starom BIOS načinu.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Lakša radna površina za slabija računala: sama se uključuje gdje pomaže, a u Izgledu za nju postoji prekidač.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Datoteka koju još nijedna aplikacija ne otvara predlaže pravu aplikaciju, instalira je jednim klikom i otvara datoteku.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Prelazak s drugog Linuxa: vaše datoteke, oznake, aplikacije i Steam igre dolaze, kao i s Windowsa.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Povratne informacije skrivaju vaše osobne podatke i pokazuju točno što se šalje."
 }

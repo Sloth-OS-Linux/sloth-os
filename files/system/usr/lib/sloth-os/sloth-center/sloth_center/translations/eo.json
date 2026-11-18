@@ -1271,5 +1271,11 @@
   "Show what is sent": "Montri kio estas sendata",
   "What is sent": "Kio estas sendata",
   "Collecting the information…": "Kolektante la informojn…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Via nomo, uzantnomo, komputila nomo, retaj nomoj, retaj kaj retpoŝtaj adresoj kaj seriaj numeroj estas anstataŭigitaj per lokokupiloj kiel <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Via nomo, uzantnomo, komputila nomo, retaj nomoj, retaj kaj retpoŝtaj adresoj kaj seriaj numeroj estas anstataŭigitaj per lokokupiloj kiel <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Televida reĝimo: la grandekrana fasado de Steam sur la tuta ekrano, kiel ludkonzolo, ankaŭ kun viaj ludoj el aliaj vendejoj. Ĝi estas en la Komenca menuo.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Pli malnovaj komputiloj: Sloth OS nun instaliĝas ankaŭ sur komputiloj, kiuj startas en la malnova BIOS-reĝimo.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Pli malpeza labortablo por malfortaj komputiloj: ĝi mem ŝaltiĝas kie ĝi helpas, kaj Aspekto havas ŝaltilon por ĝi.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Dosiero, kiun ankoraŭ neniu aplikaĵo malfermas, proponas la ĝustan aplikaĵon, instalas ĝin per unu klako kaj malfermas la dosieron.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Transloĝiĝo el alia Linukso: viaj dosieroj, legosignoj, aplikaĵoj kaj Steam-ludoj transvenas, kiel el Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Rimarkoj kaŝas viajn personajn detalojn kaj montras ĝuste kio estas sendata."
 }

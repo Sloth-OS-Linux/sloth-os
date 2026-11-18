@@ -1271,5 +1271,11 @@
   "Show what is sent": "என்ன அனுப்பப்படுகிறது என்பதைக் காட்டு",
   "What is sent": "என்ன அனுப்பப்படுகிறது",
   "Collecting the information…": "தகவல் சேகரிக்கப்படுகிறது…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "உங்கள் பெயர், பயனர் பெயர், கணினியின் பெயர், பிணையப் பெயர்கள், பிணைய மற்றும் மின்னஞ்சல் முகவரிகள், வரிசை எண்கள் <user> போன்ற குறிகளால் மாற்றப்படுகின்றன."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "உங்கள் பெயர், பயனர் பெயர், கணினியின் பெயர், பிணையப் பெயர்கள், பிணைய மற்றும் மின்னஞ்சல் முகவரிகள், வரிசை எண்கள் <user> போன்ற குறிகளால் மாற்றப்படுகின்றன.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "டிவி பயன்முறை: முழுத் திரையில் Steam இன் பெரிய திரை இடைமுகம், விளையாட்டுக் கன்சோல் போல, பிற கடைகளின் உங்கள் விளையாட்டுகளுடனும். இது தொடக்கப் பட்டியலில் உள்ளது.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "பழைய கணினிகள்: பழைய BIOS பயன்முறையில் தொடங்கும் கணினிகளிலும் இப்போது Sloth OS நிறுவப்படுகிறது.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "பலவீனமான கணினிகளுக்கு இலகுவான பணிமேடை: உதவும் இடத்தில் தானாக இயங்கும், தோற்றத்தில் அதற்கான சுவிட்ச் உள்ளது.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "இன்னும் எந்தப் பயன்பாடும் திறக்காத கோப்பு சரியான பயன்பாட்டைப் பரிந்துரைத்து, ஒரே சொடுக்கில் நிறுவி, கோப்பைத் திறக்கும்.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "மற்றொரு Linux-இலிருந்து மாறுதல்: உங்கள் கோப்புகள், புத்தகக்குறிகள், பயன்பாடுகள், Steam விளையாட்டுகள் Windows-இலிருந்து போலவே வரும்.",
+  "Feedback hides your personal details and shows exactly what is sent.": "கருத்து உங்கள் தனிப்பட்ட விவரங்களை மறைத்து, என்ன அனுப்பப்படுகிறது என்பதைச் சரியாகக் காட்டுகிறது."
 }

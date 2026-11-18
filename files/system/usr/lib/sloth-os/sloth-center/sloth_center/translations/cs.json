@@ -1271,5 +1271,11 @@
   "Show what is sent": "Ukázat, co se odešle",
   "What is sent": "Co se odešle",
   "Collecting the information…": "Shromažďují se informace…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Vaše jméno, uživatelské jméno, název počítače, názvy sítí, síťové a e-mailové adresy a sériová čísla se nahradí zástupnými znaky jako <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Vaše jméno, uživatelské jméno, název počítače, názvy sítí, síťové a e-mailové adresy a sériová čísla se nahradí zástupnými znaky jako <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Režim TV: rozhraní Steamu pro velkou obrazovku přes celou obrazovku, jako herní konzole, i s hrami z jiných obchodů. Najdete ho v nabídce Start.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Starší počítače: Sloth OS se teď nainstaluje i na počítače, které startují ve starém režimu BIOS.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Lehčí plocha pro slabé počítače: zapne se sama tam, kde pomůže, a ve Vzhledu pro ni je přepínač.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Soubor, který zatím žádná aplikace neotevře, nabídne vhodnou aplikaci, nainstaluje ji jedním kliknutím a soubor otevře.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Přechod z jiného Linuxu: vaše soubory, záložky, aplikace a hry ze Steamu se přenesou, stejně jako z Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Zpětná vazba skryje vaše osobní údaje a ukáže, co přesně se odešle."
 }

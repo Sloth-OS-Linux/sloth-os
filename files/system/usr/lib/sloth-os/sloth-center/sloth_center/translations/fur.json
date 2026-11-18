@@ -1271,5 +1271,11 @@
   "Show what is sent": "Mostre ce che al ven mandât",
   "What is sent": "Ce che al ven mandât",
   "Collecting the information…": "Daûr a dâ dongje lis informazions…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Il to non, il non utent, il non dal computer, i nons des rêts, lis direzions di rêt e di e-mail e i numars di serie a vegnin sostituîts cun segns come <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Il to non, il non utent, il non dal computer, i nons des rêts, lis direzions di rêt e di e-mail e i numars di serie a vegnin sostituîts cun segns come <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Modalitât TV: la interface par schermis grancj di Steam a plen schermi, come une console, ancje cui tiei zûcs di altris buteghis. E je tal menù Inizi.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Computers plui vecjos: Sloth OS cumò si instale ancje sui PC che a partissin te vecje modalitât BIOS.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Une scrivanie plui lizere pai computers debui: si impie di bessole dulà che e jude, e in Aspiet e à un interutôr.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Un file che nissune aplicazion no vierç ancjemò al propon la aplicazion juste, le instale cuntun clic e al vierç il file.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Passâ di un altri Linux: i tiei files, segnelibris, aplicazions e zûcs di Steam a vegnin daûr, come di Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "I coments a platin i tiei dâts personâi e a mostrin just ce che al ven mandât."
 }

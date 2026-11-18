@@ -1271,5 +1271,11 @@
   "Show what is sent": "Sken-d ayen ara yettwaznen",
   "What is sent": "Ayen ara yettwaznen",
   "Collecting the information…": "Alqaḍ n talɣut…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Isem-ik, isem n useqdac, isem n uselkim, ismawen n iẓeḍwan, tansiwin n uẓeḍṭa d imayl akk d wuṭṭunen n umazrar ttwasemselsen s ticraḍ am <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Isem-ik, isem n useqdac, isem n uselkim, ismawen n iẓeḍwan, tansiwin n uẓeḍṭa d imayl akk d wuṭṭunen n umazrar ttwasemselsen s ticraḍ am <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Askar TV: agrudem n Steam i ugdil ameqqran ɣef ugdil akk, am tkunsult n wuraren, ula d uraren-ik seg tḥuna nniḍen. Yella deg wumuɣ Bdu.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Iselkimen iqburen: Sloth OS tura yettwasbadu daɣen ɣef PC yettnekkaren s uskar BIOS aqbur.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Tanarit fessusen i yiselkimen ur nesɛi ara tazmert: tettermid iman-is anda tettɛawan, Udem yesɛa amseḍfer-is.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Afaylu ur yettlddi ula d yiwen n usnas yessumur-d asnas yelhan, yessebdad-it s yiwen n usiti, yeldi afaylu.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Asiweḍ seg Linux nniḍen: ifuyla, ticraḍ, isnasen d wuraren-ik n Steam ad d-awḍen, am seg Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Tamawt teffer isefka-ik udmawanen, tesskanay-d s tidet ayen ara yettwaznen."
 }

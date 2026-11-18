@@ -1271,5 +1271,11 @@
   "Show what is sent": "Mostrar o que é enviado",
   "What is sent": "O que é enviado",
   "Collecting the information…": "Coletando as informações…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Seu nome, nome de usuário, nome do computador, nomes de redes, endereços de rede e de e-mail e números de série são substituídos por marcadores como <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Seu nome, nome de usuário, nome do computador, nomes de redes, endereços de rede e de e-mail e números de série são substituídos por marcadores como <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "Modo TV: a interface de tela grande do Steam em tela cheia, como um console, também com seus jogos de outras lojas. Está no menu Iniciar.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Computadores mais antigos: o Sloth OS agora também é instalado em PCs que iniciam no antigo modo BIOS.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Uma área de trabalho mais leve para computadores fracos: ela se liga sozinha onde ajuda, e Aparência tem um botão para ela.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Um arquivo que nenhum app abre ainda sugere o app certo, instala com um clique e abre o arquivo.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Vindo de outro Linux: seus arquivos, favoritos, apps e jogos do Steam vêm junto, como do Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "O feedback esconde seus dados pessoais e mostra exatamente o que é enviado."
 }

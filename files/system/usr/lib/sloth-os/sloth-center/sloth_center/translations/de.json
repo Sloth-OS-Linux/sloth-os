@@ -1271,5 +1271,11 @@
   "Show what is sent": "Zeigen, was gesendet wird",
   "What is sent": "Was gesendet wird",
   "Collecting the information…": "Die Informationen werden gesammelt …",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Dein Name, Benutzername, Computername, Netzwerknamen, Netzwerk- und E-Mail-Adressen sowie Seriennummern werden durch Platzhalter wie <user> ersetzt."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Dein Name, Benutzername, Computername, Netzwerknamen, Netzwerk- und E-Mail-Adressen sowie Seriennummern werden durch Platzhalter wie <user> ersetzt.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "TV-Modus: Die Großbild-Oberfläche von Steam im Vollbild, wie eine Spielkonsole, auch mit deinen Spielen aus anderen Shops. Er ist im Startmenü.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Ältere Computer: Sloth OS lässt sich jetzt auch auf PCs installieren, die im alten BIOS-Modus starten.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Eine leichtere Arbeitsfläche für schwache Computer: Sie schaltet sich selbst ein, wo sie hilft, und unter Erscheinungsbild gibt es einen Schalter dafür.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "Eine Datei, die noch keine App öffnet, schlägt die passende App vor, installiert sie mit einem Klick und öffnet die Datei.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Umzug von einem anderen Linux: Deine Dateien, Lesezeichen, Apps und Steam-Spiele kommen mit, wie von Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Feedback verbirgt deine persönlichen Daten und zeigt genau, was gesendet wird."
 }

@@ -1271,5 +1271,11 @@
   "Show what is sent": "显示将发送的内容",
   "What is sent": "将发送的内容",
   "Collecting the information…": "正在收集信息…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "你的名字、用户名、电脑名称、网络名称、网络地址和电子邮件地址以及序列号都会替换为 <user> 这样的标记。"
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "你的名字、用户名、电脑名称、网络名称、网络地址和电子邮件地址以及序列号都会替换为 <user> 这样的标记。",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "电视模式：像游戏机一样全屏显示 Steam 的大屏幕界面，其他商店的游戏也在里面。它在开始菜单中。",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "较旧的电脑：Sloth OS 现在也能安装在以旧式 BIOS 模式启动的电脑上。",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "适合性能较弱电脑的轻量桌面：在有帮助的地方自动开启，外观中有它的开关。",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "还没有应用能打开的文件会推荐合适的应用，一键安装后打开该文件。",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "从另一个 Linux 迁移：你的文件、书签、应用和 Steam 游戏都会带过来，就像从 Windows 迁移一样。",
+  "Feedback hides your personal details and shows exactly what is sent.": "反馈会隐藏你的个人信息，并准确显示将发送的内容。"
 }

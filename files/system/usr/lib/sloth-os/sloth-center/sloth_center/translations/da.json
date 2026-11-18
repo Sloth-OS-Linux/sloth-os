@@ -1271,5 +1271,11 @@
   "Show what is sent": "Vis, hvad der sendes",
   "What is sent": "Hvad der sendes",
   "Collecting the information…": "Indsamler oplysningerne …",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Dit navn, brugernavn, computernavn, netværksnavne, netværks- og e-mailadresser og serienumre erstattes med pladsholdere som <user>."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "Dit navn, brugernavn, computernavn, netværksnavne, netværks- og e-mailadresser og serienumre erstattes med pladsholdere som <user>.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "TV-tilstand: Steams storskærmsbrugerflade på hele skærmen, som en spillekonsol, også med dine spil fra andre butikker. Den ligger i startmenuen.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "Ældre computere: Sloth OS kan nu også installeres på pc'er, der starter i den gamle BIOS-tilstand.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "Et lettere skrivebord til svage computere: det slår sig selv til, hvor det hjælper, og Udseende har en kontakt til det.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "En fil, som intet program åbner endnu, foreslår det rigtige program, installerer det med ét klik og åbner filen.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "Flyt fra en anden Linux: dine filer, bogmærker, programmer og Steam-spil kommer med, som fra Windows.",
+  "Feedback hides your personal details and shows exactly what is sent.": "Feedback skjuler dine personlige oplysninger og viser præcis, hvad der sendes."
 }

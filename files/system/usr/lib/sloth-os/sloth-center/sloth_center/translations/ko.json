@@ -1271,5 +1271,11 @@
   "Show what is sent": "보내는 내용 보기",
   "What is sent": "보내는 내용",
   "Collecting the information…": "정보를 모으는 중…",
-  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "이름, 사용자 이름, 컴퓨터 이름, 네트워크 이름, 네트워크 및 이메일 주소, 일련번호는 <user> 같은 표시로 바뀝니다."
+  "Your name, user name, computer name, network names, network and e-mail addresses and serial numbers are replaced with placeholders such as <user>.": "이름, 사용자 이름, 컴퓨터 이름, 네트워크 이름, 네트워크 및 이메일 주소, 일련번호는 <user> 같은 표시로 바뀝니다.",
+  "TV mode: Steam's big-screen interface on the whole screen, like a game console, with your games from other stores too. It is in the Start menu.": "TV 모드: 게임기처럼 Steam의 대화면 인터페이스를 전체 화면으로, 다른 스토어의 게임까지 함께 보여 줍니다. 시작 메뉴에 있습니다.",
+  "Older computers: Sloth OS now also installs on PCs that start in the old BIOS mode.": "오래된 컴퓨터: 이제 예전 BIOS 모드로 시작하는 PC에도 Sloth OS를 설치할 수 있습니다.",
+  "A lighter desktop for weak computers: it turns itself on where it helps, and Appearance has a switch for it.": "성능이 낮은 컴퓨터를 위한 가벼운 데스크톱: 도움이 되는 곳에서 스스로 켜지고, 모양에 스위치가 있습니다.",
+  "A file that no app opens yet offers the right app, installs it with one click and opens the file.": "아직 어떤 앱으로도 열리지 않는 파일은 알맞은 앱을 제안하고, 한 번의 클릭으로 설치해 파일을 엽니다.",
+  "Moving over from another Linux: your files, bookmarks, apps and Steam games come over, as from Windows.": "다른 Linux에서 옮겨 오기: Windows처럼 파일, 북마크, 앱, Steam 게임을 가져옵니다.",
+  "Feedback hides your personal details and shows exactly what is sent.": "피드백은 개인 정보를 숨기고 보내는 내용을 그대로 보여 줍니다."
 }
