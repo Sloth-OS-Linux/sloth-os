@@ -103,10 +103,18 @@ from a terminal must also work from a GUI.
   - [x] Before publishing (2026-11-18, all good; Sloth OS 2.0 in its os-release): in the ISO, /usr/share/sloth-os/installer/image.conf must say
         TARGET_IMGREF=ghcr.io/sloth-os-linux/sloth-os:latest (not the test tag); the MBR: partition 1 0x83 active,
         partition 2 0xef; a VM: BIOS and UEFI start the installer
-  - [ ] Write it to a good USB stick ("BIOS" 14.6 GB Generic Flash Disk, not the Sony), reinstall the HP from it (the
-        install test), the VAIO's installer start if possible. The reinstalled HP follows :latest (main); move it
-        back to the test branch afterwards (one rpm-ostree rebase command)
-  - [ ] On the fresh HP: a full-screen shot of each of the 7 layouts for the website's animation (below)
+  - [x] Written to the "BIOS" stick (checked back byte for byte); the HP (UEFI, GPT) and the VAIO (BIOS) both
+        installed from it (2026-11-18). The HP follows :latest (main) now; move it back to the test branch later (one
+        rpm-ostree rebase command)
+  - [ ] The HP's screen came up at 125 % (KDE's own choice for its panel), and the installer's and Sloth Welcome's
+        centered steps were taller than the 864 pixels left: the heading and the buttons were off the screen, with no
+        way to reach them. Fixed on the test branch: those steps scroll when they don't fit (CenteredPage in both
+        Main.qml files; checked offscreen at 800 x 800). 125 % stays KDE's choice (Windows picks the same on such a
+        screen). The installer's part needs a new ISO
+  - [x] The 7 layouts' shots, made in a VM from the 2.0 ISO at 1920 x 1080 instead of on the HP
+        (out/layouts-2.0: one PNG each and layouts.webp, the animation)
+  - [ ] Battle.net from Sloth Welcome in the VM: its setup quit after 5 s (code 1, "We couldn't find an installed
+        program"). Maybe only the VM (no 3D); check on the HP
   - [ ] Release: `python tools/release-finish.py 2.0 <iso> --site ../sloth-os-linux.github.io` (names, sha256,
         torrent, SourceForge README, README and website download); SourceForge upload (SFTP key
         ~/.ssh/sloth-os-sourceforge on the main computer); the website's download button only when the ISO's

@@ -22,6 +22,34 @@ Kirigami.ApplicationWindow {
     pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.None
 
     readonly property int contentWidth: Math.min(width - Kirigami.Units.gridUnit * 4, Kirigami.Units.gridUnit * 40)
+
+    // A step whose content sits in the middle of the screen, and scrolls when the screen is smaller than the content
+    // (a laptop at 125 % scaling is 864 pixels high for the programs: without it the heading and the buttons were off
+    // the screen, with no way to reach them)
+    component CenteredPage: Item {
+        id: centered
+        default property alias content: inner.data
+        // its size comes from the StackLayout; an implicit size from the content would loop back into it
+        implicitWidth: 0
+        implicitHeight: 0
+        QQC2.ScrollView {
+            id: scroll
+            anchors.fill: parent
+            contentWidth: availableWidth
+            contentHeight: inner.height
+            Item {
+                id: inner
+                width: scroll.availableWidth
+                height: Math.max(scroll.availableHeight, centered.tallest() + Kirigami.Units.gridUnit * 2)
+            }
+        }
+        function tallest() {
+            let h = 0;
+            for (let i = 0; i < inner.children.length; i++)
+                h = Math.max(h, inner.children[i].implicitHeight);
+            return h;
+        }
+    }
     readonly property var pages: ["welcome", "region", "account", "disk", "confirm", "install", "done", "error", "manual"]
 
     readonly property var strings: installer.strings
@@ -86,7 +114,7 @@ Kirigami.ApplicationWindow {
             currentIndex: root.pages.indexOf(installer.page)
 
             // --- Welcome and language -------------------------------------------------
-            Item {
+            CenteredPage {
                 ColumnLayout {
                     anchors.centerIn: parent
                     width: root.contentWidth
@@ -197,7 +225,7 @@ Kirigami.ApplicationWindow {
             }
 
             // --- Keyboard and time zone ---------------------------------------------
-            Item {
+            CenteredPage {
                 ColumnLayout {
                     anchors.centerIn: parent
                     width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 28)
@@ -254,7 +282,7 @@ Kirigami.ApplicationWindow {
             }
 
             // --- Account (created by the installed system on first boot) --------------------
-            Item {
+            CenteredPage {
                 ColumnLayout {
                     anchors.centerIn: parent
                     width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 28)
@@ -702,7 +730,7 @@ Kirigami.ApplicationWindow {
             }
 
             // --- Confirmation ---------------------------------------------------------
-            Item {
+            CenteredPage {
                 ColumnLayout {
                     anchors.centerIn: parent
                     width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 30)
@@ -888,7 +916,7 @@ Kirigami.ApplicationWindow {
             }
 
             // --- Installing -----------------------------------------------------------
-            Item {
+            CenteredPage {
                 ColumnLayout {
                     anchors.centerIn: parent
                     width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 30)
@@ -929,7 +957,7 @@ Kirigami.ApplicationWindow {
             }
 
             // --- Done ------------------------------------------------------------------
-            Item {
+            CenteredPage {
                 ColumnLayout {
                     anchors.centerIn: parent
                     width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 30)
@@ -973,7 +1001,7 @@ Kirigami.ApplicationWindow {
             }
 
             // --- Hiba --------------------------------------------------------------------
-            Item {
+            CenteredPage {
                 ColumnLayout {
                     anchors.centerIn: parent
                     width: Math.min(root.contentWidth, Kirigami.Units.gridUnit * 30)
