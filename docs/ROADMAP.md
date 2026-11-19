@@ -1074,7 +1074,16 @@ Sharing:
   on a real machine
 - [ ] **Medium** — File backup → "Find deleted files…" did not work in the VM (restoring through the saved states
   did). It worked on a real machine on 2026-10-26, so find out what differs
-- [ ] **Large** — Bring files and apps over from another Linux (2026-10-30, a Reddit question: "does it work from
+  2026-11-19: the folder's path end to end on a real btrfs with real snapshots (tools/tests/test_snapshots.py,
+  test_find_deleted_files_in_a_folder): the window of the chosen folder (VersionsController, as sloth-versions
+  opens it) counts a deleted file and a deleted subfolder (2), "deleted items only" brings both back, also when the
+  folder comes as /home/… (a link to /var/home, as a folder dialog may give it). So the restoring works; what differed
+  in the VM is not known (no notes were kept). Likely: the home folder's backup only becomes ready at the first
+  restart after installing ("pending"), or the folder dialog in a VM without 3D
+  - [ ] On the HP: make a file in Documents, wait for (or "Back up now") a saved state, delete the file (and empty
+        the Trash), then File backup → "Find deleted files…" → Documents: "1 item deleted since then" and it comes
+        back
+- [x] **Large** — (DONE 2026-11-18 in 2.0: idea 8 above, sloth_common/windows_import.py) Bring files and apps over from another Linux (2026-10-30, a Reddit question: "does it work from
   CachyOS?"; today only from a Windows on the same computer). Most of `windows_import.py` (read-only mounting,
   folder choice, space check, progress) and "Other disks → Use it" can be reused. Parts and rough sizes:
   - Files (1–2 days): find the other system's `/home/<user>` and its folders (their names from `user-dirs.dirs`,

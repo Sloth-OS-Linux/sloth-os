@@ -203,6 +203,44 @@ class SnapshotsTest(unittest.TestCase):
         target = v.copy_name(docs / "résumé.txt", when)
         self.assertRegex(target.name, r"^résumé \(2026-10-19 \d\d\.00\)\.txt$")
 
+    def test_find_deleted_files_in_a_folder(self):
+        """File backup → "Find deleted files…": the chosen folder's window (VersionsController, as sloth-versions
+        opens it) counts what was deleted since each saved state and brings back only those. Also through /home,
+        the path a folder dialog gives on Fedora Atomic (/home is a link to /var/home)."""
+        import time
+        from PySide6.QtCore import QCoreApplication
+        from sloth_center import versions as v
+        app = QCoreApplication.instance() or QCoreApplication([])
+        os.environ["HOME"] = str(self.home)
+        os.environ["XDG_DATA_HOME"] = str(self.home / ".local/share")
+        hs.layout()
+        hs.take(True)
+        docs = self.home / "Documents"
+        os.unlink(docs / "résumé.txt")
+        sh("rm", "-rf", str(docs / "sub"))
+        link = self.mnt / f"home-link-{self._testMethodName}"
+        os.symlink(snap.HOME_ROOT, link)            # like /home -> /var/home
+        for path in (docs, link / "alice/Documents"):
+            ctl = v.VersionsController(str(path))
+            self.assertEqual(ctl.property("problem"), "", path)
+            self.assertTrue(ctl.property("isDir"))
+            deadline = time.time() + 10
+            while time.time() < deadline and ctl.property("versions")[0]["deleted"] < 0:
+                app.processEvents()
+                time.sleep(0.05)
+            row = ctl.property("versions")[0]
+            self.assertEqual(row["deleted"], 2, path)          # the file, and the folder as one item
+        ctl.restoreDeleted(0)
+        deadline = time.time() + 10
+        while time.time() < deadline and ctl.property("busy"):
+            app.processEvents()
+            time.sleep(0.05)
+        app.processEvents()
+        self.assertEqual(ctl.property("errorText"), "")
+        self.assertEqual((docs / "résumé.txt").read_text(), "first")
+        self.assertEqual((docs / "sub/deep.txt").read_text(), "deep")
+        self.assertTrue(ctl.property("infoText"))
+
     def test_to_keep(self):
         now = datetime.datetime(2026, 10, 20, 12, 0, tzinfo=datetime.timezone.utc)
         snaps = [(f"s{h}", now - datetime.timedelta(hours=h)) for h in range(0, 24 * 120, 1)]
