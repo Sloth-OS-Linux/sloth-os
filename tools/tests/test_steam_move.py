@@ -18,7 +18,7 @@ TMP = Path(tempfile.mkdtemp(prefix="sloth-steam-move-", dir=_CACHE))
 os.environ.update(HOME=str(TMP), XDG_DATA_HOME=str(TMP / ".local/share"), XDG_CONFIG_HOME=str(TMP / ".config"))
 sys.path.insert(0, str(REPO / "files/system/usr/lib/sloth-os/common"))
 
-from sloth_common.apps import steam, steam_library  # noqa: E402
+from sloth_common.apps import library, steam, steam_library  # noqa: E402
 
 APPID = "1091500"
 MANIFEST = f'''"AppState"
@@ -53,6 +53,9 @@ def make_steam(base):
     return root, other
 
 
+@unittest.skipUnless(library.supported_location(TMP),
+                     "the home folder's file system takes no Steam library (e.g. a container's overlay); "
+                     "run with HOME on ext4/btrfs")
 class SteamMoveTest(unittest.TestCase):
     def setUp(self):
         self.base = Path(tempfile.mkdtemp(dir=TMP))

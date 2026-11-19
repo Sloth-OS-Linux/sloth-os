@@ -10,6 +10,7 @@ It runs as root in the Sloth OS image (btrfs-progs, PySide6), with a Btrfs made 
 import datetime
 import importlib.util
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -59,7 +60,11 @@ class SnapshotsTest(unittest.TestCase):
         sh("mkfs.btrfs", "-q", str(img))
         cls.mnt = cls.tmp / "mnt"
         cls.mnt.mkdir()
-        sh("mount", "-o", "loop", str(img), str(cls.mnt))
+        try:
+            sh("mount", "-o", "loop", str(img), str(cls.mnt))
+        except (subprocess.CalledProcessError, OSError):
+            shutil.rmtree(cls.tmp, ignore_errors=True)
+            raise unittest.SkipTest("needs a loop device: run as root, in a privileged container (podman --privileged)")
 
     @classmethod
     def tearDownClass(cls):

@@ -26,6 +26,12 @@ sys.path.insert(0, str(REPO / "files/system/usr/lib/sloth-os/common"))
 
 from sloth_common.apps import detect, imports, library, menu, packages, recipes, steam, winreg  # noqa: E402
 
+# Windows environments go only where Windows programs work (library.SUPPORTED_FS: ext4, btrfs…). A container's
+# overlay home (podman) is not such a place: there these tests are skipped, not failed (they pass on a real home)
+NEEDS_REAL_FS = unittest.skipUnless(library.supported_location(TMP),
+                                    "the home folder's file system takes no Windows programs (e.g. a container's "
+                                    "overlay); run with HOME on ext4/btrfs")
+
 SYSTEM_REG = r'''WINE REGISTRY Version 2
 ;; All keys relative to \\Machine
 
@@ -327,6 +333,7 @@ class LibraryTest(unittest.TestCase):
         self.assertEqual(app.windows_to_host(r"c:\program files\PATHS\RUN.EXE"), exe)
         library.remove(app)
 
+    @NEEDS_REAL_FS
     def test_menu_and_move(self):
         app = library.create("Mover")
         exe = touch(app.prefix / "drive_c/Program Files/Mover/mover.exe")
@@ -466,6 +473,7 @@ class SteamTest(unittest.TestCase):
                 out += b"\x01" + k.encode() + b"\x00" + v.encode() + b"\x00"
         return out
 
+    @NEEDS_REAL_FS
     def test_shortcuts_link_and_adopt(self):
         root = steam.FLATPAK_ROOT
         (root / "steamapps").mkdir(parents=True)
@@ -557,6 +565,7 @@ class OtherSourcesTest(unittest.TestCase):
         self.assertEqual(f.command[-5:], ["run", "-b", "Gaming", "-p", "Tool"])
         self.assertIn("flatpak", f.command)
 
+    @NEEDS_REAL_FS
     def test_wine(self):
         prefix = imports.WINE_PREFIX
         touch(prefix / "drive_c/Program Files/Office/office.exe", 2 * 1024 ** 2)
@@ -628,6 +637,7 @@ class PackagesTest(unittest.TestCase):
         self.assertIsNone(packages.box_launch_command(app))
         library.remove(app)
 
+    @NEEDS_REAL_FS
     def test_install_appimage(self):
         """A fake AppImage that, like a real one, extracts the .desktop file and the icon."""
         src = TMP / "Downloads/Coolapp-2.0-x86_64.AppImage"
