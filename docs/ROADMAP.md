@@ -1399,7 +1399,9 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [x] **Medium** — With more than one display, let users choose the main display in the installer (idea, 2026-10-26):
   show the installer there, and carry the choice (main display, arrangement) over to the installed system's login
   screen and desktop.
-- [ ] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
+- [x] **Large** — Help users selectively migrate personal documents and supported browser data from Windows, with a preview.
+  (Done in 1.5: the folders with their sizes to tick, the bookmarks, the programs and Steam games; from another
+  Linux too since 2.0, idea 8)
   (2026-11-10, first parts: the programs used on Windows offered in the wizard, and the Steam games copied without a
   new download; see "Moving over from Windows: programs and Steam games" at the top)
 - [x] **Medium** — Show storage health warnings when supported, and help users back up important files if a drive may be failing.
@@ -1432,8 +1434,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   Tests: `tools/tests/test_privacy.py`. Checked on a real machine (2026-10-26)
 - [x] **Medium** — Add a security overview for disk encryption, Secure Boot, and updates, with plain-language guidance.
   (2026-10-26, a Security card on the System status page; check on a real machine, with and without encryption)
-- [ ] **Large** — Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
-  require their choice before attaching it.
+- [x] **Large** — Offer a privacy-reviewed diagnostic bundle for Feedback. Redact personal data, let users review it, and
+  require their choice before attaching it. (Done in 2.0: idea 11, sloth_center/diagnostics.py)
 - [x] **Medium** — Guided Wi-Fi troubleshooting (2026-10-26): System status → Network → "Check Wi-Fi". Step by
   step in plain language: is there an adapter (if not: Drivers and hardware), is it turned on (a key or switch on
   the computer, or "Turn on Wi-Fi"), is it connected ("Choose a network"), how strong the signal is, does the
@@ -1553,7 +1555,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
 - [x] **Medium** — Offer system rollback after an update from Sloth Center, with a clear explanation and restart
   flow (already on the Updates page: the explanation, a confirmation that files and settings are kept, then
   "Restart now"; earlier versions can be kept and started there too)
-- [ ] **Large** — Before significant settings or driver changes, offer a recoverable state and a clear way to revert.
+- [x] **Large** — Before significant settings or driver changes, offer a recoverable state and a clear way to revert.
+  (Done 2026-11-19: idea 10, restore points on the Updates page)
 
 #### Gaming, devices, and connectivity
 - [x] Roblox (2026-10-29, a Reddit comment: "roblox studio" stopped someone from switching): Roblox blocks its
@@ -1584,8 +1587,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   C++ or moved behind a D-Bus service, with KDE's gettext translations, about 3–6 weeks, and every Plasma update
   could break it. A middle way if it comes back: each Sloth Center page as its own entry in System Settings' sidebar
   that opens Sloth Center at that page, about 1–2 days
-- [ ] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
-  restores normal settings when it closes.
+- [x] **Large** — Add an optional gaming mode that applies performance and notification settings while a game runs, then
+  restores normal settings when it closes. (Done in 2.0: "Game mode", idea 1)
 - [x] **Medium** — Performance display for frame rate, system load, and temperatures (2026-10-26): the per-game
   "Show FPS and performance while playing" (Games page, MangoHud) showed the frame rate and the CPU and GPU load;
   turning it on now also writes a MangoHud.conf with the CPU and GPU temperatures and the memory, for Windows
@@ -1597,7 +1600,8 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   it back), and a muted microphone can be unmuted. The controllers were already there (list, battery, pairing,
   "Test the buttons"). Tests: `tools/tests/test_sound.py`. Checked on a real machine (2026-10-26)
 - [ ] **Medium** — Share concise, community-informed game fixes with version details and a way to report outdated guidance.
-- [ ] **Large** — When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
+- [x] **Large** — When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
+  (Done in 2.0 for Steam games: "What's wrong with the game?", idea 3; Windows programs had it before)
 - [x] **Medium** — Help users move supported game libraries between drives without downloading again, updating launcher paths.
   (2026-10-28, Steam: Games → each Steam game shows its drive and size, and "Move to another drive…" lists Steam's
   own folder, the libraries Steam has, and a `SteamLibrary` folder on every other internal Linux drive (USB sticks
@@ -1621,6 +1625,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   are listed first (`smbclient -L` as a guest), and the page says it shares nothing, or which folders it has,
   instead of adding it)
 - [ ] **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
+  (The small version is in 2.0: LocalSend in Sloth Welcome, idea 9; our own is still open)
 - [x] **Medium** — Monitor refresh rate, VRR and HDR for gaming (2026-10-26): Drivers and hardware → Displays.
   Each monitor by its own name (EDID), its refresh rate now and the highest at the same resolution with a "Use
   144 Hz" button (found on a real machine: a 144 Hz monitor running at 100 Hz), and switches for VRR and HDR only
