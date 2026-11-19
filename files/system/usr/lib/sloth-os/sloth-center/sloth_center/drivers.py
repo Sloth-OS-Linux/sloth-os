@@ -12,7 +12,7 @@ from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import tr
 
-from . import texts
+from . import restore_points, texts
 from .rpmostree import RpmOstree, Transaction
 
 log = logging.getLogger("sloth-center.drivers")
@@ -254,4 +254,12 @@ class DriversController(QObject):
         def on_error(raw):
             on_finished(False, raw)
 
-        self._ostree.rebase(target, on_address, on_error)
+        self._status = tr("Making a restore point…")
+        self.changed.emit()
+
+        def go():
+            self._status = tr("Downloading the new edition…")
+            self.changed.emit()
+            self._ostree.rebase(target, on_address, on_error)
+
+        restore_points.before_change("driver", go)

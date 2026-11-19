@@ -1,0 +1,15 @@
+[Unit]
+Description=Sloth OS: a restore point's settings back, before the desktop starts
+# Sloth Center → Updates → Restore points → Go back: the settings come back at the next sign-in, before KWin and
+# the panels read them (a running desktop writes its settings back when it ends). Only when one is waiting.
+ConditionUser=!@system
+ConditionPathExists=%S/sloth-os/restore-settings.json
+Before=plasma-kwin_wayland.service plasma-plasmashell.service plasma-ksplash.service
+
+[Service]
+Type=oneshot
+Environment=PYTHONPATH=/usr/lib/sloth-os/sloth-center:/usr/lib/sloth-os/common
+ExecStart=/usr/bin/python3 -m sloth_center.restore_points
+
+[Install]
+WantedBy=plasma-core.target

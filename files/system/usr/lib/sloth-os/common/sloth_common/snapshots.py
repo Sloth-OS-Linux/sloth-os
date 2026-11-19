@@ -94,6 +94,19 @@ def list_snapshots():
     return sorted(out, key=lambda x: x[1], reverse=True)
 
 
+# Restore points (/usr/libexec/sloth-os/restore-points) keep their snapshot while they live
+RESTORE_POINTS = Path("/var/lib/sloth-os/restore-points.json")
+
+
+def protected():
+    """The names of the snapshots restore points keep (not pruned by the keep time)."""
+    try:
+        data = json.loads(RESTORE_POINTS.read_text())
+        return {p["snapshot"] for p in data.get("points", []) if isinstance(p, dict) and p.get("snapshot")}
+    except (OSError, ValueError, AttributeError, KeyError, TypeError):
+        return set()
+
+
 def to_keep(snapshots, keep_days, now=None):
     """The names of the snapshots to keep: everything from the last 24 hours, then one a day (for at most 14 days),
     after that one a week, within the keep time. The newest always stays."""

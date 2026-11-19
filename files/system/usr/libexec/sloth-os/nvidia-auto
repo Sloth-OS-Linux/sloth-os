@@ -105,6 +105,7 @@ def back_from_nvidia():
         return False
     target = image.replace("/sloth-os-nvidia:", "/sloth-os:", 1)
     print(f"An NVIDIA card too old for the NVIDIA version's driver, switching back: {image} -> {target}")
+    restore_point()
     set_state("downloading")
     r = subprocess.run(["nice", "-n", "19", "ionice", "-c", "3", "rpm-ostree", "rebase", target])
     if r.returncode != 0:
@@ -115,6 +116,15 @@ def back_from_nvidia():
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     DONE.write_text("an old NVIDIA card: back to the AMD/Intel version\n")
     return True
+
+
+def restore_point():
+    """A restore point before the switch (Sloth Center → Updates → Restore points can go back to it); a failure
+    does not stop the switch."""
+    try:
+        subprocess.run(["/usr/libexec/sloth-os/restore-points", "create", "driver"], capture_output=True, timeout=900)
+    except (OSError, subprocess.SubprocessError) as e:
+        print(f"No restore point: {e}", file=sys.stderr)
 
 
 def main():
@@ -139,6 +149,7 @@ def main():
         return 0
     target = image.replace("/sloth-os:", "/sloth-os-nvidia:", 1)
     print(f"Switching: {image} -> {target}")
+    restore_point()
     set_state("downloading")
     r = subprocess.run(["nice", "-n", "19", "ionice", "-c", "3", "rpm-ostree", "rebase", target])
     if r.returncode != 0:

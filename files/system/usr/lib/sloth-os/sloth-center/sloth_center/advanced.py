@@ -16,7 +16,7 @@ from PySide6.QtCore import QObject, Property, Signal, Slot
 
 from .i18n import tr
 
-from . import texts, windowshelper
+from . import restore_points, texts, windowshelper
 from .rpmostree import RpmOstree, Transaction
 
 log = logging.getLogger("sloth-center.advanced")
@@ -178,11 +178,12 @@ class AdvancedController(QObject):
 
     # --- Transactions (kernel parameter, package) ----------------------------------------
 
-    def _run(self, start, done_text):
+    def _run(self, start, done_text, reason):
+        """reason: the restore point made first (restore_points.before_change: kernel-args, packages)."""
         if not self._ostree or self._busy:
             return
         self._busy, self._error, self._info = True, "", ""
-        self._status, self._progress = tr("Preparing…"), -1
+        self._status, self._progress = tr("Making a restore point…"), -1
         self.changed.emit()
 
         def on_task(raw):
@@ -206,7 +207,12 @@ class AdvancedController(QObject):
         def on_address(address):
             self._txn = Transaction(address, on_task, on_percent, lambda *a: None, on_finished)
 
-        start(on_address, lambda raw: on_finished(False, raw))
+        def go():
+            self._status = tr("Preparing…")
+            self.changed.emit()
+            start(on_address, lambda raw: on_finished(False, raw))
+
+        restore_points.before_change(reason, go)
 
     @staticmethod
     def _pkg_error(raw):
@@ -225,14 +231,14 @@ class AdvancedController(QObject):
             self.changed.emit()
             return
         self._run(lambda a, e: self._ostree.set_kernel_args([arg], [], a, e),
-                  tr("Done. The new setting takes effect after the next restart."))
+                  tr("Done. The new setting takes effect after the next restart."), "kernel-args")
 
     @Slot(str)
     def removeKernelArg(self, arg):
         if arg.startswith(PROTECTED_KARGS):
             return
         self._run(lambda a, e: self._ostree.set_kernel_args([], [arg], a, e),
-                  tr("Done. The change takes effect after the next restart."))
+                  tr("Done. The change takes effect after the next restart."), "kernel-args")
 
     @Slot(str)
     def addPackage(self, name):
@@ -242,10 +248,10 @@ class AdvancedController(QObject):
             self.changed.emit()
             return
         self._run(lambda a, e: self._ostree.pkg_change(names, [], a, e),
-                  tr("Done. The package will be available after the next restart."))
+                  tr("Done. The package will be available after the next restart."), "packages")
 
     @Slot(str)
     def removePackage(self, name):
         if PKG_RE.match(name):
             self._run(lambda a, e: self._ostree.pkg_change([], [name], a, e),
-                      tr("Done. The package will be gone after the next restart."))
+                      tr("Done. The package will be gone after the next restart."), "packages")

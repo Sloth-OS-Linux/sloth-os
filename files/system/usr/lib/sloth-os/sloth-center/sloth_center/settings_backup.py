@@ -131,6 +131,7 @@ from PySide6.QtCore import QObject, Property, QUrl, Signal, Slot  # noqa: E402
 
 from sloth_common import appearance  # noqa: E402
 
+from . import restore_points  # noqa: E402
 from .i18n import tr  # noqa: E402
 
 
@@ -182,6 +183,9 @@ class SettingsBackupController(QObject):
         if backup is None:
             self._done(False, tr("This file doesn't contain Sloth OS settings."))
             return
+        restore_points.before_change("settings-file", lambda: self._import(backup))
+
+    def _import(self, backup):
         try:
             restore(backup)
         except OSError:

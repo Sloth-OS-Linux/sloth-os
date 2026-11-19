@@ -412,7 +412,24 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
      offscreen (screenshot). The large version (our own consent-based sharing) stays listed
      - [x] On the HP: install LocalSend from Welcome, send a photo to a phone with LocalSend and back (OK 2026-11-18)
 - Safety and help:
-  10. **A restore point** before bigger setting or driver changes (large, listed)
+  10. ~~**A restore point**~~ DONE 2026-11-19 (test branch): before a bigger change Sloth OS keeps the system
+      version and the settings (the user's choice: on the Updates page, and before a layout change too). A point =
+      the booted ostree deployment pinned (a version the user kept stays kept) + a snapshot of the home folders
+      (home-snapshots take --now) that the hourly pruning keeps (snapshots.protected()); 30 days, at most 5
+      (/usr/libexec/sloth-os/restore-points, list in /var/lib/sloth-os/restore-points.json; through
+      sloth-helper-backup, without a password, like "Back up now"). Made by itself before an NVIDIA edition switch
+      (drivers.py and nvidia-auto), a kernel parameter or a system package (advanced.py), loading a settings file and a
+      taskbar layout change (restore_points.before_change: in the background, then the change), and by hand. Going
+      back (Updates → Restore points, restore_ui.py): an earlier system version as the default (sloth-helper-versions
+      set-default, with the password), and the settings (~/.config and KDE's data in ~/.local/share) at the next
+      sign-in before Plasma starts (sloth-restore-settings.service, Before kwin/plasmashell/ksplash), the ones in use
+      put aside first (~/.local/share/sloth-os/before-restore, the newest 2), files never touched. 25 texts in 49
+      languages. Tried: tools/tests/test_restore_points.py (11: pinning, one point per minute, 5 / 30 days, a kept
+      version and a shared one stay, the hourly pruning keeps them, the settings back with the current ones aside, a
+      failed copy undone), test_snapshots.py on real Btrfs (the point's snapshot kept by pruning, its settings back by
+      reflink, a later file untouched), the Updates page offscreen with two points (screenshot)
+      - [ ] On the HP: change the taskbar layout (a point appears), change it again, Updates → Restore points → Go back
+            to the first, restart: the earlier layout is back, files untouched
   11. ~~**A diagnostic bundle for Feedback**~~ DONE 2026-11-18 (test branch): Sloth Center → Feedback's "Attach
       computer information and log" now sends sloth_center/diagnostics.py's bundle: "Save log"'s summary and journal
       plus the computer (processor, memory, graphics), the errors of this start and the end of the previous start

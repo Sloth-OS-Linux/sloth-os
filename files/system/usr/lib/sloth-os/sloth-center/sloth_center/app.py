@@ -58,6 +58,7 @@ def main():
     # D-Bus callbacks arrive without problems.
     from sloth_common import appearance as shared_appearance
     from .updates import UpdatesController
+    from .restore_ui import RestorePointsController
     from .appearance import AppearanceController
     from .accounts import AccountsController
     from .family import FamilyController
@@ -152,7 +153,9 @@ def main():
     bluetooth = BluetoothController()
     profiles = ProfilesController(display)
     settings_backup = SettingsBackupController()
+    restore_points = RestorePointsController()
     engine.rootContext().setContextProperty("updates", updates)
+    engine.rootContext().setContextProperty("restorePoints", restore_points)
     engine.rootContext().setContextProperty("firmware", firmware)
     engine.rootContext().setContextProperty("remoteHelp", remote_help)
     engine.rootContext().setContextProperty("printers", printers)

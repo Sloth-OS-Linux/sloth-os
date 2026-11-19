@@ -11,7 +11,7 @@ from sloth_common import appearance as shared
 from sloth_common import light_mode
 
 from .i18n import N_, tr
-from . import kde_settings
+from . import kde_settings, restore_points
 
 log = logging.getLogger("sloth-center.appearance")
 
@@ -138,12 +138,16 @@ class AppearanceController(QObject):
 
     @Slot(str)
     def setLayout(self, kind):
-        # the current one may be clicked too: it is built again (e.g. after an update improved the layout)
-        if shared.apply_layout(kind):
-            self._layout, self._error = kind, ""
-        else:
-            self._error = tr("Couldn't change the taskbar. Please try again.")
-        self.changed.emit()
+        # the current one may be clicked too: it is built again (e.g. after an update improved the layout). The
+        # layout replaces the panels' settings: a restore point first (Updates → Restore points brings them back)
+        def apply():
+            if shared.apply_layout(kind):
+                self._layout, self._error = kind, ""
+            else:
+                self._error = tr("Couldn't change the taskbar. Please try again.")
+            self.changed.emit()
+
+        restore_points.before_change("layout", apply)
 
     # The lighter desktop (sloth_common.light_mode): turned on by itself on a weak computer, changeable here
     @Property(bool, notify=changed)

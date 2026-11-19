@@ -202,7 +202,7 @@ def free_space():
 
 def prune(cfg):
     existing = snap.list_snapshots()
-    keep = snap.to_keep(existing, snap.KEEP_DAYS[cfg["keep"]])
+    keep = snap.to_keep(existing, snap.KEEP_DAYS[cfg["keep"]]) | snap.protected()
     delete([name for name, _when in existing if name not in keep])
 
 

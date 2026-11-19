@@ -241,6 +241,40 @@ class SnapshotsTest(unittest.TestCase):
         self.assertEqual((docs / "sub/deep.txt").read_text(), "deep")
         self.assertTrue(ctl.property("infoText"))
 
+    def test_restore_point_on_btrfs(self):
+        """A restore point's snapshot is a real one: the hourly pruning keeps it, and its settings come back by reflink
+        at sign-in (sloth_center/restore_points.py), the files untouched."""
+        import importlib.machinery
+        import importlib.util
+        from unittest import mock
+        from sloth_center import restore_points as rp
+        loader = importlib.machinery.SourceFileLoader(
+            "rp_root", str(Path(__file__).resolve().parents[2] / "files/system/usr/libexec/sloth-os/restore-points"))
+        rp_root = importlib.util.module_from_spec(importlib.util.spec_from_loader("rp_root", loader))
+        loader.exec_module(rp_root)
+        hs.layout()
+        write(self.home / ".config/kdeglobals", "colors at the point")
+        name = hs.take(True)["name"]
+        state = self.mnt / f"rp-{self._testMethodName}.json"
+        point = rp_root.create("layout", UID, deploys=[], snapshot=name, path=state)
+        self.assertEqual(point["snapshot"], name)
+        # the hourly pruning keeps it even with a keep time it is outside of
+        with mock.patch.object(snap, "RESTORE_POINTS", state),                 mock.patch.object(snap, "to_keep", return_value=set()):
+            hs.prune({"keep": "2w", "enabled": True})
+        self.assertIn(name, [n for n, _w in snap.list_snapshots()])
+        # the settings change after the point, then come back at sign-in
+        write(self.home / ".config/kdeglobals", "colors later")
+        write(self.home / "Documents/résumé.txt", "a file written later")
+        with mock.patch.object(rp, "PENDING", self.mnt / f"pending-{self._testMethodName}.json"),                 mock.patch.object(rp, "ASIDE", self.home / ".local/share/sloth-os/before-restore"),                 mock.patch.object(rp, "own_home_rel", return_value=Path("alice")):
+            self.assertTrue(rp.schedule_settings(rp_root.load(state)[0]))
+            restored, failed = rp.apply_pending(home=self.home)
+        self.assertEqual(failed, 0)
+        self.assertGreaterEqual(restored, 1)
+        self.assertEqual((self.home / ".config/kdeglobals").read_text(), "colors at the point")
+        self.assertEqual((self.home / "Documents/résumé.txt").read_text(), "a file written later")
+        aside = next((self.home / ".local/share/sloth-os/before-restore").iterdir())
+        self.assertEqual((aside / ".config/kdeglobals").read_text(), "colors later")
+
     def test_to_keep(self):
         now = datetime.datetime(2026, 10, 20, 12, 0, tzinfo=datetime.timezone.utc)
         snaps = [(f"s{h}", now - datetime.timedelta(hours=h)) for h in range(0, 24 * 120, 1)]

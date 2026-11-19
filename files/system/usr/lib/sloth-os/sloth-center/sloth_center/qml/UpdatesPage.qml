@@ -560,6 +560,120 @@ Kirigami.ScrollablePage {
                 }
             }
         }
+
+        // --- Restore points (restore_ui.py, restore_points.py) ---------------------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Restore points") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Before a bigger change (a graphics driver, a kernel parameter, system packages, settings from a file, the taskbar layout) Sloth OS keeps the system version and the settings as they were. Going back brings both back; your files stay as they are. Restore points are kept for 30 days.")
+                }
+                Repeater {
+                    model: restorePoints.points
+                    delegate: RowLayout {
+                        id: pointRow
+                        required property var modelData
+                        Layout.fillWidth: true
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.Icon {
+                            source: "document-revert"
+                            implicitWidth: Kirigami.Units.iconSizes.smallMedium
+                            implicitHeight: Kirigami.Units.iconSizes.smallMedium
+                        }
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            spacing: 0
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                text: pointRow.modelData.title + " · " + pointRow.modelData.dateText
+                            }
+                            QQC2.Label {
+                                Layout.fillWidth: true
+                                elide: Text.ElideRight
+                                opacity: 0.7
+                                font: Kirigami.Theme.smallFont
+                                text: pointRow.modelData.id === restorePoints.pendingId
+                                      ? L.t("Comes back at the next restart")
+                                      : pointRow.modelData.detail
+                            }
+                        }
+                        QQC2.Button {
+                            enabled: !restorePoints.busy && pointRow.modelData.canGoBack
+                            icon.name: "edit-undo"
+                            text: L.t("Go back to this point")
+                            onClicked: {
+                                confirmPoint.pointId = pointRow.modelData.id
+                                confirmPoint.pointTitle = pointRow.modelData.title + " · " + pointRow.modelData.dateText
+                                confirmPoint.open()
+                            }
+                        }
+                        QQC2.ToolButton {
+                            enabled: !restorePoints.busy
+                            icon.name: "edit-delete"
+                            onClicked: restorePoints.remove(pointRow.modelData.id)
+                            Accessible.name: L.t("Delete")
+                            QQC2.ToolTip.text: L.t("Delete")
+                            QQC2.ToolTip.visible: hovered
+                        }
+                    }
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: restorePoints.infoText !== "" || restorePoints.errorText !== ""
+                    type: restorePoints.errorText !== "" ? Kirigami.MessageType.Warning : Kirigami.MessageType.Positive
+                    text: restorePoints.errorText !== "" ? restorePoints.errorText : restorePoints.infoText
+                    actions: [
+                        Kirigami.Action {
+                            visible: restorePoints.needsRestart
+                            icon.name: "system-reboot"
+                            text: L.t("Restart now")
+                            onTriggered: updates.reboot()
+                        }
+                    ]
+                }
+                RowLayout {
+                    spacing: Kirigami.Units.largeSpacing
+                    QQC2.Button {
+                        enabled: !restorePoints.busy
+                        icon.name: "list-add"
+                        text: L.t("Create a restore point")
+                        onClicked: restorePoints.createNow()
+                    }
+                    QQC2.BusyIndicator {
+                        visible: restorePoints.busy
+                        running: visible
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                }
+            }
+        }
+    }
+
+    Kirigami.PromptDialog {
+        id: confirmPoint
+        property string pointId: ""
+        property string pointTitle: ""
+        title: L.t("Go back to this restore point?")
+        subtitle: L.tf("{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.", { point: confirmPoint.pointTitle })
+        standardButtons: Kirigami.Dialog.NoButton
+        customFooterActions: [
+            Kirigami.Action {
+                text: L.t("Go back")
+                icon.name: "edit-undo"
+                onTriggered: { restorePoints.goBack(confirmPoint.pointId); confirmPoint.close() }
+            },
+            Kirigami.Action {
+                text: L.t("Cancel")
+                icon.name: "dialog-cancel"
+                onTriggered: confirmPoint.close()
+            }
+        ]
     }
 
     // Installing on a mobile or other metered connection: ask first (the download can cost money)

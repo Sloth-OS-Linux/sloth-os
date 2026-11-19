@@ -1,0 +1,172 @@
+#!/usr/bin/python3 -I
+"""Restore points (root's part): before a bigger change, the system version that runs now is kept and the home
+folders are backed up, so the computer can go back to how it was (Sloth Center → Updates → Restore points).
+
+A point is two things, made at the same moment:
+  - the system version (the booted ostree deployment) is pinned, so later updates do not delete it; a version the
+    user had kept already stays kept when the point goes;
+  - a read-only snapshot of the home folders (home-snapshots take --now), kept while the point lives, whatever the
+    hourly backup's keep time says (home-snapshots asks protected()).
+Points live 30 days, at most the newest 5; older ones are released (unpinned, their snapshot left to the hourly
+backup's own pruning). Going back is done elsewhere: the system version with sloth-helper-versions set-default (the
+password), the settings by the user themselves at the next sign-in (sloth_center/restore_points.py).
+
+  restore-points create <reason>   reason: driver, kernel-args, packages, settings-file, layout, manual
+  restore-points delete <id>
+  restore-points prune
+JSON on the output. The list: /var/lib/sloth-os/restore-points.json (everyone may read it).
+"""
+import datetime
+import json
+import os
+import re
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+STATE = Path("/var/lib/sloth-os/restore-points.json")
+HOME_SNAPSHOTS = "/usr/libexec/sloth-os/home-snapshots"
+REASONS = ("driver", "kernel-args", "packages", "settings-file", "layout", "manual")
+KEEP = 5
+KEEP_DAYS = 30
+# the same change again within a minute (a second click, a retry) makes no second point
+REUSE_SECONDS = 60
+
+
+def load(path=None):
+    try:
+        data = json.loads(Path(path or STATE).read_text())
+        return [p for p in data.get("points", []) if isinstance(p, dict) and p.get("id")]
+    except (OSError, ValueError, AttributeError):
+        return []
+
+
+def save(points, path=None):
+    path = Path(path or STATE)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(dir=path.parent, prefix=".restore-points-")
+    with os.fdopen(fd, "w") as f:
+        json.dump({"points": points}, f, indent=1)
+    os.chmod(tmp, 0o644)
+    os.replace(tmp, path)
+
+
+def protected(path=None):
+    """The snapshots the points keep (home-snapshots does not prune them)."""
+    return {p["snapshot"] for p in load(path) if p.get("snapshot")}
+
+
+def deployments():
+    """[{"index", "checksum", "booted", "pinned"}] in ostree's order (the indexes ostree admin pin takes)."""
+    try:
+        out = subprocess.run(["rpm-ostree", "status", "--json"], capture_output=True, text=True, timeout=120).stdout
+        listed = json.loads(out or "{}").get("deployments", [])
+    except (OSError, subprocess.SubprocessError, ValueError):
+        return []              # no system version to keep: the point still saves the settings
+    found = []
+    for i, d in enumerate(listed):
+        found.append({"index": i, "checksum": d.get("checksum", ""), "booted": bool(d.get("booted")),
+                      "pinned": bool(d.get("pinned"))})
+    return found
+
+
+def ostree_pin(index, unpin=False):
+    cmd = ["ostree", "admin", "pin"] + (["--unpin"] if unpin else []) + [str(index)]
+    return subprocess.run(cmd, capture_output=True, text=True, timeout=120).returncode == 0
+
+
+def take_snapshot():
+    """A snapshot of the home folders now. -> its name, or "" (no backup possible: not Btrfs, no space…)"""
+    try:
+        r = subprocess.run([HOME_SNAPSHOTS, "take", "--now"], capture_output=True, text=True, timeout=600)
+        result = json.loads(r.stdout.strip().splitlines()[-1])
+    except (OSError, subprocess.SubprocessError, ValueError, IndexError):
+        return ""
+    return result.get("name", "") if result.get("ok") else ""
+
+
+def now():
+    return datetime.datetime.now(datetime.timezone.utc)
+
+
+def create(reason, uid, points=None, deploys=None, snapshot=None, when=None, path=None):
+    """A new point (or the one just made for the same reason). -> the point"""
+    when = when or now()
+    points = load(path) if points is None else points
+    last = points[0] if points else None
+    if last and last["reason"] == reason and \
+            (when - datetime.datetime.fromisoformat(last["when"])).total_seconds() < REUSE_SECONDS:
+        return last
+    deploys = deployments() if deploys is None else deploys
+    booted = next((d for d in deploys if d["booted"]), None)
+    point = {"id": when.strftime("%Y%m%d%H%M%S"), "when": when.isoformat(), "reason": reason, "uid": uid,
+             "checksum": booted["checksum"] if booted else "", "pinned_before": bool(booted and booted["pinned"]),
+             "snapshot": take_snapshot() if snapshot is None else snapshot}
+    if booted and not booted["pinned"]:
+        ostree_pin(booted["index"])
+    points.insert(0, point)
+    released = prune(points, deploys, when)
+    save(points, path)
+    return dict(point, released=released)
+
+
+def release(point, points, deploys):
+    """Lets a point go: its system version is unpinned unless the user kept it or another point still needs it."""
+    if point.get("pinned_before") or not point.get("checksum"):
+        return
+    if any(p is not point and p.get("checksum") == point["checksum"] for p in points):
+        return
+    d = next((d for d in deploys if d["checksum"] == point["checksum"]), None)
+    if d and d["pinned"]:
+        ostree_pin(d["index"], unpin=True)
+
+
+def prune(points, deploys, when=None):
+    """Keeps the newest KEEP points within KEEP_DAYS (in the list in place). -> the released ids"""
+    when = when or now()
+    keep, gone = [], []
+    for p in points:
+        age = when - datetime.datetime.fromisoformat(p["when"])
+        (keep if len(keep) < KEEP and age.days < KEEP_DAYS else gone).append(p)
+    for p in gone:
+        release(p, keep, deploys)
+    points[:] = keep
+    return [p["id"] for p in gone]
+
+
+def delete(point_id, path=None):
+    points = load(path)
+    point = next((p for p in points if p["id"] == point_id), None)
+    if point is None:
+        return {"ok": False, "error": "not-found"}
+    rest = [p for p in points if p is not point]
+    release(point, rest, deployments())
+    save(rest, path)
+    return {"ok": True}
+
+
+def main(argv):
+    if os.geteuid() != 0:
+        print(json.dumps({"ok": False, "error": "root needed"}))
+        return 1
+    uid = int(os.environ.get("PKEXEC_UID", "0") or 0)
+    if len(argv) == 2 and argv[0] == "create" and argv[1] in REASONS:
+        point = create(argv[1], uid)
+        result = {"ok": True, "id": point["id"], "snapshot": point["snapshot"]}
+    elif len(argv) == 2 and argv[0] == "delete" and re.fullmatch(r"\d{14}", argv[1]):
+        result = delete(argv[1])
+    elif argv == ["prune"]:
+        points = load()
+        released = prune(points, deployments())
+        save(points)
+        result = {"ok": True, "released": released}
+    else:
+        print(__doc__, file=sys.stderr)
+        return 2
+    print(json.dumps(result))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

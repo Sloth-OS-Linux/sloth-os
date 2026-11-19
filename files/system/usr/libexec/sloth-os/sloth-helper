@@ -28,6 +28,10 @@ Operations:
   snapshots on|off                               automatic backup of your own files (hourly snapshot)
   snapshots-keep 2w|1m|3m                        how long saved states are kept (2 weeks, 1 month, 3 months)
   snapshot-now                                   back up now (home-snapshots take --now)
+  restore-point <reason>                         a restore point before a bigger change (restore-points create;
+                                                 reason: driver, kernel-args, packages, settings-file, layout,
+                                                 manual); like snapshot-now, without a password
+  restore-point-delete <id>                      lets a restore point go (restore-points delete)
   snapshots-delete-all                           deletes all saved states
   factory-reset keep|all                         prepares resetting the computer (factory-reset
                                                  prepare; JSON on the input, JSON lines on the output)
@@ -749,6 +753,18 @@ def snapshots_config(**changes):
     return {"ok": True}
 
 
+RESTORE_POINTS = "/usr/libexec/sloth-os/restore-points"
+RESTORE_REASONS = ("driver", "kernel-args", "packages", "settings-file", "layout", "manual")
+
+
+def restore_points(*args):
+    try:
+        r = subprocess.run([RESTORE_POINTS, *args], capture_output=True, text=True, timeout=900)
+        return json.loads(r.stdout.strip().splitlines()[-1])
+    except (OSError, subprocess.SubprocessError, ValueError, IndexError) as e:
+        return {"ok": False, "error": str(e)}
+
+
 def home_snapshots(*args):
     r = subprocess.run([HOME_SNAPSHOTS, *args], capture_output=True, text=True, timeout=600)
     try:
@@ -1030,7 +1046,7 @@ def main(argv):
         or (op == "network-kind" and args[1:2] == ["public-shared"])
     network_op = op == "network-kind" and not sharing_op
     family_op = op.startswith(("child-", "guest-"))
-    if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time", "updates-pause")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", [])) \
+    if (VERSIONS_ONLY and op not in ("pin", "unpin", "set-default", "update-time", "updates-pause")) or (BACKUP_ONLY and (op, args) != ("snapshot-now", []) and op not in ("restore-point", "restore-point-delete")) \
             or (NETLIMIT_ONLY and op != "net-limit") \
             or (SHARING_ONLY != sharing_op) or (NETWORK_ONLY != network_op) or (FAMILY_ONLY != family_op):
         print(json.dumps({"ok": False, "error": "unknown operation"}))
@@ -1075,6 +1091,10 @@ def main(argv):
         result = snapshots_config(keep=args[0])
     elif op == "snapshot-now" and not args and not VERSIONS_ONLY:
         result = home_snapshots("take", "--now")
+    elif op == "restore-point" and len(args) == 1 and args[0] in RESTORE_REASONS and not VERSIONS_ONLY:
+        result = restore_points("create", args[0])
+    elif op == "restore-point-delete" and len(args) == 1 and re.fullmatch(r"\d{14}", args[0]) and not VERSIONS_ONLY:
+        result = restore_points("delete", args[0])
     elif op == "snapshots-delete-all" and not args and not VERSIONS_ONLY:
         result = home_snapshots("delete-all")
     elif op == "factory-reset" and args in (["keep"], ["all"]) and not VERSIONS_ONLY:
