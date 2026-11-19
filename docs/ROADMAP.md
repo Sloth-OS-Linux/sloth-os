@@ -343,6 +343,13 @@ large ≈ a week or more. "(listed)" = already in this plan further down.
 - Old computers (after BIOS mode):
   5. **Next to Windows 7 on old BIOS machines** (large, new): old laptops often have Windows 7 on an MBR disk; in BIOS
      mode only a whole disk can be installed now
+     Surveyed 2026-11-19, parked (the user's decision) until a Windows 7 test machine is at hand (e.g. the VAIO with a
+     Windows 7 installer or its recovery): probe()/partition_beside() take only UEFI + GPT now; on an MBR disk
+     Windows 7 uses 2 (sometimes 3) primary partitions and Sloth OS needs 3 (EFI, system, the work partition; /boot
+     too with encryption), so an extended partition with logical ones; the boot menu's Windows entry would be GRUB's
+     `ntldr /bootmgr` from the System Reserved (or C:) partition instead of the EFI chainload; finish_partitions'
+     joining of the work partition would have to handle logical partitions. The partitioning can be tested on disk
+     images with made-up Windows partitions, but not that Windows really starts again: never shipped without that
   6. ~~**A lighter mode on weak computers**~~ DONE 2026-11-17 (test branch): with about 4 GB of memory or less, at
      most 2 processor threads, or no graphics driver that can draw (no /dev/dri/renderD*), the first sign-in turns on
      "Lighter desktop" by itself, once, with a notification (sloth-light-mode.service, sloth_center/light_mode_auto.py):
