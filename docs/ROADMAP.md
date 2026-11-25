@@ -2523,7 +2523,7 @@ Bugs found (we fix them one by one):
   still to test on a real machine; details at phase 2)
 - [x] .exe handler: "repair / reinstall" – phase 2 (2026-10-19: Sloth Center → Windows programs → Repair,
   Reinstall)
-- [ ] **Application management, next steps** (on the 2026-10-19 base):
+- [x] **Application management, next steps** (on the 2026-10-19 base):
   - [x] Import from other places (2026-10-19, still to test with a real Lutris / Bottles): the Steam takeover
     generalized (`sloth_common/apps/imports.py`): Steam (`shortcuts.vdf`), Lutris (`pga.db` + `games/*.yml`, native
     and Flatpak), Bottles (`bottle.yml`, External_Programs), an earlier `~/.wine` (registry + shortcuts). "With the original
@@ -2652,7 +2652,7 @@ Bugs found (we fix them one by one):
   - [x] Editing the Start menu entries afterwards (Sloth Center → Windows programs → Start menu)
   - [x] Repair and reinstall in Sloth Center (2026-10-19)
   - [x] Per-game fixes automatically (umu database: GAMEID based on the program's name) – see below
-- [ ] **A self-healing runner: every Windows program should start, without settings** (idea: 2026-10-15). There is no Proton
+- [x] **A self-healing runner: every Windows program should start, without settings** (idea: 2026-10-15). There is no Proton
   setting good for everything (what one needs breaks another), so the system finds the working one per program
   by itself. The user only sees: "Starting…", and the program starts. Steps:
   1. [x] **Recognition** (`sloth_exe/identify.py`): from the .exe's version data (product name; "Launcher",
@@ -2758,7 +2758,7 @@ operations needing permission through polkit, with a password window).
     Still to do: native review (the translations were made by AI)
   - [x] Quick buttons at the end: Steam sign-in, online accounts, language and region (the installer asks for the language)
   - [x] Updating ArtCraft: a user install + a daily background updater (`sloth-github-bundle-update.timer`, with an SHA256 check)
-- [ ] **Sloth Center** (one app, split into modules; `files/system/usr/lib/sloth-os/sloth-center/`):
+- [x] **Sloth Center** (one app, split into modules; `files/system/usr/lib/sloth-os/sloth-center/`):
   - [x] Updates and rollback (check, install with progress, restart, back to the previous one, keeping the current version);
     the list of every version on the machine: any of them can start next time without downloading (`ostree admin set-default`),
     and can be kept one by one
