@@ -257,9 +257,34 @@ async function visit(request, env) {
   return forSite(json({ visits: await visits(env) }));
 }
 
+// The website's download count: SourceForge's public download statistics, asked here (not by the visitor's browser,
+// so SourceForge never sees the website's visitors), kept for 10 minutes in Cloudflare's cache
+const SOURCEFORGE_STATS = "https://sourceforge.net/projects/sloth-os/files/stats/json?start_date=2026-10-21&end_date=";
+
+async function downloads(request) {
+  const cache = caches.default;
+  const key = new Request(new URL("/v1/downloads", request.url).toString());
+  const hit = await cache.match(key);
+  if (hit) return forSite(new Response(hit.body, hit));
+  let total = null;
+  try {
+    const day = new Date().toISOString().slice(0, 10);
+    const r = await fetch(SOURCEFORGE_STATS + day, { headers: { "user-agent": "SlothOS-website/1.0" } });
+    if (r.ok) total = (await r.json()).total;
+  } catch {
+    // SourceForge did not answer: the website falls back to its daily stats.json
+  }
+  if (!Number.isInteger(total) || total <= 0) return forSite(json({ error: "unavailable" }, 502));
+  const response = json({ downloads: total });
+  response.headers.set("cache-control", "public, max-age=600");
+  await cache.put(key, response.clone());
+  return forSite(response);
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if (request.method === "GET" && pathname === "/v1/downloads") return downloads(request);
     if (request.method === "POST" && pathname === "/v1/visit") return visit(request, env);
     if (request.method === "GET" && pathname === "/v1/visits") return forSite(json({ visits: await visits(env) }));
     if (request.method === "POST" && pathname === "/v1/report") return report(request, env);

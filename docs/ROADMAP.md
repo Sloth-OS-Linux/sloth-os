@@ -5,6 +5,18 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Ideas for later (listed 2026-11-25; the user: "write them down, later")
+- [ ] **A test install after every build:** a virtual machine in CI installs the fresh ISO every night, starts it,
+  and checks that the sign-in screen and Sloth Center come up (the NVIDIA image's stock sign-in screen on
+  2026-11-25 was only seen in the log). The HP then only has to test real hardware
+- [ ] **Early access for users:** a Sloth Center switch "Try new versions early" (the test branch), one click back.
+  More testers before a release than the HP alone
+- [ ] **A hardware compatibility list,** like "Will it run?" for games: with the user's permission, which Wi-Fi card,
+  graphics card, fingerprint reader works; searchable on the website ("Does it run on my laptop?"). The knowledge
+  service is there already
+- [ ] **Website guides for the new things:** the PIN in the TPM, Driver options, the two sharing switches (needed at
+  the 2.1 release anyway)
+
 ### Computers in legacy (BIOS) mode (2026-11-15, test branch)
 - [x] Found first: the installed system already started with BIOS (its GPT has a BIOS boot partition, and bootupd
   puts GRUB for BIOS there next to the EFI one); only the ISO (UEFI only) and the installer's refusal stood in the way
