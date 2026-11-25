@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Iš „Linux“",
   "app.org.localsend.localsend_app": "Failai į telefoną ar kitą namų kompiuterį be laido",
   "category.chromium_bios_note": "Šis kompiuteris paleidžiamas senuoju BIOS režimu, tad jis greičiausiai senesnis. Chromium pagrindu sukurtos programos (pažymėtos žemiau) čia gali visai nepasileisti arba veikti tik iš dalies (pavyzdžiui, tuščias langas). Jos viską piešia grafikos lustu ir yra sukurtos naujesnei grafikos įrangai, nei paprastai turi senesni kompiuteriai. Vietoj jų gerai veikia Firefox.",
-  "app.chromium_bios_badge": "Šiame kompiuteryje gali neveikti",
+  "app.chromium_bios_badge": "Gali neveikti",
   "sharing.heading_all": "Padėk, kad žaidimai ir programos visiems pasileistų iš pirmo karto",
   "sharing.text_all": "Kai Windows programa ar Steam žaidimas iškart nepasileidžia, Sloth OS pati ieško veikiančio nustatymo. Jei leisi, anonimiškai pasidalysime nustatymu, kuris suveikė, kad iš pirmo karto pasileistų ir kituose Sloth OS kompiuteriuose.",
   "sharing.what_all": "Siunčiami tik nustatymas (pavyzdžiui, „senesnis grafikos režimas“) ir tavo vaizdo plokštės gamintojas kartu su tuo, apie kurią programą ar žaidimą kalbama, kaip aprašyta žemiau. Niekas kita nepalieka tavo kompiuterio: nei tavo vardas, nei failai, nei paskyros, nei kada ar kiek juo naudojiesi.",

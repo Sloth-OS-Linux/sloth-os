@@ -145,8 +145,16 @@ expect "allowed hours away from now" '"ok": true' \
     family "{\"daily\": 0, \"start\": $((away * 3600)), \"end\": $(((away + 1) * 3600))}" child-limits anna
 signin() { pamtester plasmalogin "$1" acct_mgmt 2>&1; }
 expect "outside her hours the child is refused" "System error" signin anna
-expect "and told why" "screen time is over" signin anna
+expect "and told why: not yet" "allowed hours haven't started yet" signin anna
+expect "and from when" "You can use the computer from $(printf %02d "$away"):00" signin anna
+# the mark (U+2063) first: Sloth OS's sign-in screen shows such a message instead of "Login Failed"
+expect "the reason starts with the sign-in screen's mark" $'⁣Your allowed hours' signin anna
 expect "a parent is let in" "account management done" signin parent
+# the day's time used up (the rounds above recorded more than an hour today): a daily limit of an hour
+expect "a daily limit of an hour, all day allowed" '"ok": true' \
+    family '{"daily": 3600, "start": 0, "end": 86400}' child-limits anna
+expect "the child is refused" "System error" signin anna
+expect "and told why: used up" "used up today's screen time" signin anna
 expect "now inside her hours" '"ok": true' family '{"daily": 0, "start": 0, "end": 86400}' child-limits anna
 expect "the child is let in" "account management done" signin anna
 echo "== The service, with the allowed hours (warnings before their end, no asking for more)"

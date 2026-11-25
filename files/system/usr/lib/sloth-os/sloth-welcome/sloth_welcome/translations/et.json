@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Linuxist",
   "app.org.localsend.localsend_app": "Failid telefoni või teise koduarvutisse, ilma kaablita",
   "category.chromium_bios_note": "See arvuti käivitub vanas BIOS-režiimis, seega on see tõenäoliselt vanem. Chromiumil põhinevad rakendused (allpool märgitud) ei pruugi siin üldse käivituda või töötavad ainult osaliselt (näiteks tühja aknaga). Need joonistavad kõike graafikakiibiga ja on tehtud uuema graafikariistvara jaoks, kui vanematel arvutitel tavaliselt on. Firefox töötab selle asemel hästi.",
-  "app.chromium_bios_badge": "Ei pruugi selles arvutis töötada",
+  "app.chromium_bios_badge": "Ei pruugi töötada",
   "sharing.heading_all": "Aita, et mängud ja programmid käivituksid kõigil esimesel katsel",
   "sharing.text_all": "Kui Windowsi programm või Steami mäng kohe ei käivitu, otsib Sloth OS ise töötava seade. Kui lubad, jagame toiminud seadet anonüümselt, et see käivituks esimesel katsel ka teistes Sloth OS-iga arvutites.",
   "sharing.what_all": "Saadetakse ainult seade (näiteks „vanem graafikarežiim“) ja sinu graafikakaardi tootja koos sellega, millise programmi või mänguga oli tegu, nagu allpool kirjeldatud. Midagi muud sinu arvutist ei lahku: mitte sinu nimi, failid ega kontod ega see, millal või kui palju sa seda kasutad.",

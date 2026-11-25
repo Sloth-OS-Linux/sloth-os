@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Z Linux",
   "app.org.localsend.localsend_app": "Pliki na telefon lub inny komputer w domu, bez kabla",
   "category.chromium_bios_note": "Ten komputer uruchamia się w starym trybie BIOS, więc prawdopodobnie jest starszy. Aplikacje oparte na Chromium (oznaczone poniżej) mogą się tu w ogóle nie uruchomić albo działać tylko częściowo (na przykład z pustym oknem). Rysują wszystko za pomocą układu graficznego i są zrobione z myślą o nowszym sprzęcie graficznym, niż zwykle mają starsze komputery. Firefox działa za to dobrze.",
-  "app.chromium_bios_badge": "Może nie działać na tym komputerze",
+  "app.chromium_bios_badge": "Może nie działać",
   "sharing.heading_all": "Pomóż, żeby gry i programy uruchamiały się wszystkim za pierwszym razem",
   "sharing.text_all": "Gdy program dla Windows albo gra ze Steama nie uruchamia się od razu, Sloth OS sam szuka ustawienia, które działa. Jeśli pozwolisz, anonimowo udostępnimy ustawienie, które zadziałało, żeby uruchamiało się za pierwszym razem także na innych komputerach z Sloth OS.",
   "sharing.what_all": "Wysyłane są tylko ustawienie (na przykład „starszy tryb grafiki”) i producent twojej karty graficznej, razem z tym, o jaki program lub grę chodziło, jak opisano poniżej. Nic innego nie opuszcza twojego komputera: ani twoje imię, ani pliki, ani konta, ani to, kiedy i ile go używasz.",

@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Fra Linux",
   "app.org.localsend.localsend_app": "Filer til telefonen eller en annen datamaskin hjemme, uten kabel",
   "category.chromium_bios_note": "Denne datamaskinen starter i den gamle BIOS-modusen, så den er sannsynligvis eldre. Apper bygget på Chromium (merket nedenfor) starter kanskje ikke i det hele tatt her, eller virker bare delvis (for eksempel et tomt vindu). De tegner alt med grafikkbrikken og er laget for nyere grafikkmaskinvare enn eldre datamaskiner vanligvis har. Firefox fungerer godt i stedet.",
-  "app.chromium_bios_badge": "Virker kanskje ikke på denne datamaskinen",
+  "app.chromium_bios_badge": "Virker kanskje ikke",
   "sharing.heading_all": "Hjelp spill og programmer med å starte på første forsøk for alle",
   "sharing.text_all": "Når et Windows-program eller et Steam-spill ikke starter med en gang, leter Sloth OS selv etter en innstilling som virker. Hvis du tillater det, deler vi innstillingen som virket anonymt, så det også starter på første forsøk på andre Sloth OS-datamaskiner.",
   "sharing.what_all": "Bare innstillingen (for eksempel «eldre grafikkmodus») og produsenten av grafikkortet ditt sendes, sammen med hvilket program eller spill det gjaldt, som beskrevet nedenfor. Ingenting annet forlater datamaskinen din: ikke navnet ditt, ikke filene dine, ikke kontoene dine og ikke når eller hvor mye du bruker den.",

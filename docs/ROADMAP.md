@@ -576,6 +576,22 @@ System status with the check-up, Help and feedback). It goes out as **1.6** (new
   still had 6.8.2, whose source package is no longer in the repositories, so it kept the stock greeter (until its
   base catches up). Found with it: the build tools upgraded poppler to the release's newer update (the base a day
   behind); now a dry run first: a downgrade, removal or replacement stops the rebuild, an upgrade is logged
+- [x] Tested in the image (2026-11-25, the user: test everything that can be tested without the HP):
+  - `tools/tests/parental_controls_test.sh` (Fedora 44, real PAM, AccountsService, malcontent): 51 OK; new: the
+    reason "not yet" with its time, the mark first, and "used up today's screen time" with a daily limit
+  - `tools/tests/greeter_reason_test.sh`: the greeter rebuilt with the same change, its --test mode answering like the
+    daemon (a refused child, a wrong password), screenshots: the reason shows and stays, a wrong password says
+    "Login Failed" and it goes after 3 s, the reason comes back on the next refused try
+  - `tools/tests/wallet_notify_test.sh`: the real kwalletd6/ksecretd on a session bus: silent without a wallet,
+    the notification with both buttons for a locked one, "Don't remind me" remembered, silent with the store off.
+    Not covered: "Unlock now" opens KDE's own password window (needs a screen)
+  - `tools/tests/steam_knowledge_test.sh`: Sloth Center's real "Try a fix" on a fake Steam library: the shared
+    setting in the launch options, the game started again, reports only with the games switch, sent to a local
+    stand-in and accepted by the service's own validate() (16 OK)
+  - Offscreen screenshots of Sloth Welcome (sharing step; browser, media and chat on a BIOS machine, English and
+    Hungarian) and Sloth Center (Windows programs, Games). Found: the Chromium label was cut off on the card; now
+    a few words in every language ("May not work here")
+  - The Hungarian "{time}-tól" only fit some times: "{time} órától"
 - [ ] On the HP / in a VM: a child outside the allowed hours, and with the daily limit used up: the sign-in screen
   shows the reason and the time; a wrong password still says "Login Failed"; the CI log says the greeter was rebuilt
 

@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Din Linux",
   "app.org.localsend.localsend_app": "Fișiere pe telefon sau pe alt calculator de acasă, fără cablu",
   "category.chromium_bios_note": "Acest calculator pornește în vechiul mod BIOS, deci probabil e mai vechi. Aplicațiile bazate pe Chromium (marcate mai jos) s-ar putea să nu pornească deloc aici sau să funcționeze doar parțial (de exemplu, o fereastră goală). Ele desenează totul cu cipul grafic și sunt făcute pentru hardware grafic mai nou decât au de obicei calculatoarele vechi. În schimb, Firefox funcționează bine.",
-  "app.chromium_bios_badge": "S-ar putea să nu funcționeze pe acest calculator",
+  "app.chromium_bios_badge": "Poate nu merge",
   "sharing.heading_all": "Ajută jocurile și programele să pornească din prima pentru toată lumea",
   "sharing.text_all": "Când un program Windows sau un joc Steam nu pornește imediat, Sloth OS caută singur o setare care funcționează. Dacă permiți, partajăm anonim setarea care a mers, ca să pornească din prima și pe alte calculatoare cu Sloth OS.",
   "sharing.what_all": "Se trimit doar setarea (de exemplu „mod grafic mai vechi”) și producătorul plăcii tale video, împreună cu programul sau jocul despre care e vorba, așa cum e descris mai jos. Nimic altceva nu părăsește calculatorul tău: nici numele tău, nici fișierele tale, nici conturile tale, nici când sau cât îl folosești.",

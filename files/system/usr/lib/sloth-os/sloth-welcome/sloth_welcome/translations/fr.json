@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Depuis Linux",
   "app.org.localsend.localsend_app": "Des fichiers vers votre téléphone ou un autre ordinateur de la maison, sans câble",
   "category.chromium_bios_note": "Cet ordinateur démarre dans l'ancien mode BIOS, il est donc probablement ancien. Les applications basées sur Chromium (signalées ci-dessous) risquent de ne pas démarrer du tout ici, ou de ne fonctionner qu'en partie (par exemple, une fenêtre vide). Elles dessinent tout avec la puce graphique et sont faites pour du matériel graphique plus récent que celui des ordinateurs anciens. Firefox fonctionne bien à la place.",
-  "app.chromium_bios_badge": "Risque de ne pas fonctionner sur cet ordinateur",
+  "app.chromium_bios_badge": "Peut ne pas marcher",
   "sharing.heading_all": "Aide les jeux et les programmes à démarrer du premier coup pour tout le monde",
   "sharing.text_all": "Quand un programme Windows ou un jeu Steam ne démarre pas tout de suite, Sloth OS cherche tout seul un réglage qui fonctionne. Si tu l'autorises, nous partageons anonymement le réglage qui a fonctionné, pour qu'il démarre aussi du premier coup sur d'autres ordinateurs Sloth OS.",
   "sharing.what_all": "Seuls le réglage (par exemple « ancien mode graphique ») et le fabricant de ta carte graphique sont envoyés, avec le programme ou le jeu concerné, comme décrit ci-dessous. Rien d'autre ne quitte ton ordinateur : ni ton nom, ni tes fichiers, ni tes comptes, ni quand ou combien tu l'utilises.",

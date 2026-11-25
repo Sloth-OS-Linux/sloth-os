@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Linux'tan",
   "app.org.localsend.localsend_app": "Evdeki telefonuna ya da başka bir bilgisayara kablosuz dosya gönder",
   "category.chromium_bios_note": "Bu bilgisayar eski BIOS modunda başlıyor, yani muhtemelen eski bir bilgisayar. Chromium tabanlı uygulamalar (aşağıda işaretli) burada hiç açılmayabilir ya da yalnızca kısmen çalışabilir (örneğin boş bir pencere). Her şeyi grafik çipiyle çizerler ve eski bilgisayarlarda genellikle bulunandan daha yeni grafik donanımı için yapılmışlardır. Bunların yerine Firefox iyi çalışır.",
-  "app.chromium_bios_badge": "Bu bilgisayarda çalışmayabilir",
+  "app.chromium_bios_badge": "Çalışmayabilir",
   "sharing.heading_all": "Oyunların ve programların herkeste ilk denemede açılmasına yardım et",
   "sharing.text_all": "Bir Windows programı veya Steam oyunu hemen açılmadığında Sloth OS çalışan bir ayarı kendisi arar. İzin verirsen, işe yarayan ayarı anonim olarak paylaşırız; böylece diğer Sloth OS bilgisayarlarında da ilk denemede açılır.",
   "sharing.what_all": "Yalnızca ayar (örneğin \"eski grafik modu\") ve ekran kartının üreticisi, aşağıda açıklandığı şekilde hangi program veya oyun olduğuyla birlikte gönderilir. Bilgisayarından başka hiçbir şey çıkmaz: ne adın, ne dosyaların, ne hesapların, ne de onu ne zaman ve ne kadar kullandığın.",

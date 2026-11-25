@@ -445,7 +445,7 @@ Kirigami.ApplicationWindow {
                                             QQC2.Label {
                                                 visible: welcome.legacyBios && appCard.modelData.chromium && !appCard.present
                                                 Layout.fillWidth: true
-                                                elide: Text.ElideRight
+                                                elide: Text.ElideRight      // a few words: one line on the card
                                                 color: Kirigami.Theme.neutralTextColor
                                                 font: Kirigami.Theme.smallFont
                                                 text: root.t("app.chromium_bios_badge")

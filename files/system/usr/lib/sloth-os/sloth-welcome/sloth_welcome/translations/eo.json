@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "El Linux",
   "app.org.localsend.localsend_app": "Dosieroj al via telefono aŭ alia komputilo hejme, sen kablo",
   "category.chromium_bios_note": "Ĉi tiu komputilo ekfunkcias en la malnova BIOS-reĝimo, do ĝi verŝajne estas malnova. Aplikaĵoj konstruitaj sur Chromium (markitaj sube) eble tute ne lanĉiĝos ĉi tie, aŭ funkcios nur parte (ekzemple, malplena fenestro). Ili desegnas ĉion per la grafika ĉipo kaj estas faritaj por pli nova grafika aparataro ol malnovaj komputiloj kutime havas. Firefox anstataŭe bone funkcias.",
-  "app.chromium_bios_badge": "Eble ne funkcios en ĉi tiu komputilo",
+  "app.chromium_bios_badge": "Eble ne funkcios",
   "sharing.heading_all": "Helpu, ke ludoj kaj programoj ekfunkciu je la unua provo por ĉiuj",
   "sharing.text_all": "Kiam Windows-programo aŭ Steam-ludo ne ekfunkcias tuj, Sloth OS mem serĉas funkciantan agordon. Se vi permesas, ni anonime kunhavigas la agordon, kiu funkciis, por ke ĝi ekfunkciu je la unua provo ankaŭ en aliaj Sloth OS-komputiloj.",
   "sharing.what_all": "Nur la agordo (ekzemple «pli malnova grafika reĝimo») kaj la fabrikanto de via grafika karto estas senditaj, kune kun tio, pri kiu programo aŭ ludo temis, kiel priskribite sube. Nenio alia forlasas vian komputilon: nek via nomo, nek viaj dosieroj, nek viaj kontoj, nek kiam aŭ kiom vi uzas ĝin.",

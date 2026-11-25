@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Uit Linux",
   "app.org.localsend.localsend_app": "Bestanden naar je telefoon of een andere computer thuis, zonder kabel",
   "category.chromium_bios_note": "Deze computer start in de oude BIOS-modus, dus hij is waarschijnlijk wat ouder. Apps die op Chromium zijn gebouwd (hieronder gemarkeerd) starten hier misschien helemaal niet, of werken maar gedeeltelijk (bijvoorbeeld een leeg venster). Ze tekenen alles met de grafische chip en zijn gemaakt voor nieuwere grafische hardware dan oudere computers meestal hebben. Firefox werkt in plaats daarvan goed.",
-  "app.chromium_bios_badge": "Werkt misschien niet op deze computer",
+  "app.chromium_bios_badge": "Werkt misschien niet",
   "sharing.heading_all": "Help games en programma's bij iedereen in één keer te starten",
   "sharing.text_all": "Als een Windows-programma of een Steam-game niet meteen start, zoekt Sloth OS zelf een instelling die werkt. Als je het toestaat, delen we de instelling die werkte anoniem, zodat het ook op andere Sloth OS-computers in één keer start.",
   "sharing.what_all": "Alleen de instelling (bijvoorbeeld \"oudere grafische modus\") en de fabrikant van je grafische kaart worden verstuurd, samen met welk programma of welke game het was, zoals hieronder beschreven. Niets anders verlaat je computer: niet je naam, niet je bestanden, niet je accounts en niet wanneer of hoeveel je hem gebruikt.",

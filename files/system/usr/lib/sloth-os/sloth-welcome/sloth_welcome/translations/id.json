@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Dari Linux",
   "app.org.localsend.localsend_app": "File ke ponsel atau komputer lain di rumah, tanpa kabel",
   "category.chromium_bios_note": "Komputer ini menyala dalam mode BIOS lama, jadi kemungkinan komputer lama. Aplikasi berbasis Chromium (ditandai di bawah) mungkin sama sekali tidak bisa berjalan di sini, atau hanya berjalan sebagian (misalnya jendela kosong). Aplikasi ini menggambar semuanya dengan cip grafis dan dibuat untuk perangkat keras grafis yang lebih baru daripada yang biasanya dimiliki komputer lama. Firefox berjalan baik sebagai gantinya.",
-  "app.chromium_bios_badge": "Mungkin tidak berjalan di komputer ini",
+  "app.chromium_bios_badge": "Mungkin tidak jalan",
   "sharing.heading_all": "Bantu game dan program langsung jalan di percobaan pertama untuk semua orang",
   "sharing.text_all": "Saat program Windows atau game Steam tidak langsung berjalan, Sloth OS mencari sendiri pengaturan yang berhasil. Jika kamu mengizinkan, kami membagikan pengaturan yang berhasil secara anonim, agar di komputer Sloth OS lain juga langsung jalan di percobaan pertama.",
   "sharing.what_all": "Hanya pengaturan (misalnya \"mode grafis lama\") dan produsen kartu grafismu yang dikirim, bersama program atau game mana itu, seperti dijelaskan di bawah. Tidak ada hal lain yang keluar dari komputermu: bukan namamu, file-mu, akunmu, atau kapan dan seberapa banyak kamu memakainya.",

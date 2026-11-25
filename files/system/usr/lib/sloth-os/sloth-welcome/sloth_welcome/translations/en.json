@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "From Linux",
   "app.org.localsend.localsend_app": "Files to your phone or another computer at home, without a cable",
   "category.chromium_bios_note": "This computer starts in the old BIOS mode, so it is probably an older one. Apps built on Chromium (marked below) may not start here, or may only partly work (for example, an empty window). They draw everything with the graphics chip and are made for newer graphics hardware than older computers usually have. Firefox works well instead.",
-  "app.chromium_bios_badge": "May not work on this computer",
+  "app.chromium_bios_badge": "May not work here",
   "sharing.heading_all": "Help games and programs start on the first try for everyone",
   "sharing.text_all": "When a Windows program or a Steam game doesn't start right away, Sloth OS looks for a setting that works on its own. If you allow it, we share the setting that worked anonymously, so it starts on the first try on other Sloth OS computers too.",
   "sharing.what_all": "Only the setting (for example \"older graphics mode\") and your graphics card's manufacturer are sent, together with which program or game it was, as described below. Nothing else leaves your computer: not your name, not your files, not your accounts, and not when or how much you use it.",

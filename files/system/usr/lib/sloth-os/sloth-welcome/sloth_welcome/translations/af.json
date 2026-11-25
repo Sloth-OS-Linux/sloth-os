@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Uit Linux",
   "app.org.localsend.localsend_app": "Lêers na jou foon of ’n ander rekenaar by die huis, sonder ’n kabel",
   "category.chromium_bios_note": "Hierdie rekenaar begin in die ou BIOS-modus, so dit is waarskynlik 'n ouer een. Programme wat op Chromium gebou is (hieronder gemerk) begin dalk glad nie hier nie, of werk net gedeeltelik (byvoorbeeld 'n leë venster). Hulle teken alles met die grafiese skyfie en is gemaak vir nuwer grafiese hardeware as wat ouer rekenaars gewoonlik het. Firefox werk eerder goed.",
-  "app.chromium_bios_badge": "Werk dalk nie op hierdie rekenaar nie",
+  "app.chromium_bios_badge": "Werk dalk nie",
   "sharing.heading_all": "Help dat speletjies en programme vir almal met die eerste probeerslag begin",
   "sharing.text_all": "Wanneer 'n Windows-program of 'n Steam-speletjie nie dadelik begin nie, soek Sloth OS self na 'n instelling wat werk. As jy dit toelaat, deel ons die instelling wat gewerk het anoniem, sodat dit ook op ander Sloth OS-rekenaars met die eerste probeerslag begin.",
   "sharing.what_all": "Net die instelling (byvoorbeeld \"ouer grafiese modus\") en jou grafiese kaart se vervaardiger word gestuur, saam met watter program of speletjie dit was, soos hieronder beskryf. Niks anders verlaat jou rekenaar nie: nie jou naam, jou lêers of jou rekeninge nie, en nie wanneer of hoeveel jy dit gebruik nie.",

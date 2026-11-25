@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Linux에서",
   "app.org.localsend.localsend_app": "케이블 없이 집 안의 휴대폰이나 다른 컴퓨터로 파일 보내기",
   "category.chromium_bios_note": "이 컴퓨터는 예전 BIOS 모드로 시작하므로 오래된 컴퓨터일 가능성이 높아요. Chromium 기반 앱(아래 표시)은 여기서 아예 시작되지 않거나 일부만 작동할 수 있어요(예: 빈 창). 이런 앱은 모든 것을 그래픽 칩으로 그리며, 오래된 컴퓨터에 보통 있는 것보다 새로운 그래픽 하드웨어를 위해 만들어졌어요. 대신 Firefox는 잘 작동해요.",
-  "app.chromium_bios_badge": "이 컴퓨터에서는 작동하지 않을 수 있어요",
+  "app.chromium_bios_badge": "작동하지 않을 수 있음",
   "sharing.heading_all": "게임과 프로그램이 모두에게 한 번에 시작되도록 도와주세요",
   "sharing.text_all": "Windows 프로그램이나 Steam 게임이 바로 시작되지 않으면 Sloth OS가 스스로 작동하는 설정을 찾아요. 허락하면 효과가 있었던 설정을 익명으로 공유해서, 다른 Sloth OS 컴퓨터에서도 한 번에 시작되게 해요.",
   "sharing.what_all": "설정(예: \"예전 그래픽 모드\")과 그래픽 카드 제조사, 그리고 아래에 설명된 방식의 프로그램이나 게임 정보만 보내요. 그 밖에는 아무것도 컴퓨터를 떠나지 않아요. 이름, 파일, 계정, 언제 얼마나 사용하는지도 보내지 않아요.",

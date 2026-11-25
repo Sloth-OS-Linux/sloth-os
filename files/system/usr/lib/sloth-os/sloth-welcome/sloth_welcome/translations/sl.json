@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Iz sistema Linux",
   "app.org.localsend.localsend_app": "Datoteke na telefon ali drug računalnik doma, brez kabla",
   "category.chromium_bios_note": "Ta računalnik se zažene v starem načinu BIOS, zato je verjetno starejši. Aplikacije, zgrajene na Chromiumu (označene spodaj), se tu morda sploh ne zaženejo ali delujejo le delno (na primer prazno okno). Vse rišejo z grafičnim čipom in so narejene za novejšo grafično strojno opremo, kot jo imajo starejši računalniki običajno. Namesto njih dobro deluje Firefox.",
-  "app.chromium_bios_badge": "Na tem računalniku morda ne bo delovalo",
+  "app.chromium_bios_badge": "Morda ne bo delovalo",
   "sharing.heading_all": "Pomagaj, da se igre in programi vsem zaženejo v prvo",
   "sharing.text_all": "Ko se program za Windows ali igra iz Steama ne zažene takoj, Sloth OS sam poišče nastavitev, ki deluje. Če dovoliš, nastavitev, ki je delovala, anonimno delimo, da se v prvo zažene tudi na drugih računalnikih s Sloth OS.",
   "sharing.what_all": "Pošljeta se samo nastavitev (na primer »starejši grafični način«) in proizvajalec tvoje grafične kartice, skupaj s tem, za kateri program ali igro je šlo, kot je opisano spodaj. Nič drugega ne zapusti tvojega računalnika: ne tvoje ime, ne tvoje datoteke, ne tvoji računi in ne kdaj ali koliko ga uporabljaš.",

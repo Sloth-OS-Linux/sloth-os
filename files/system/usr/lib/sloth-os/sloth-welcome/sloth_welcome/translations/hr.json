@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Iz Linuxa",
   "app.org.localsend.localsend_app": "Datoteke na mobitel ili drugo računalo kod kuće, bez kabela",
   "category.chromium_bios_note": "Ovo računalo se pokreće u starom BIOS načinu, pa je vjerojatno starije. Aplikacije izrađene na Chromiumu (označene ispod) ovdje se možda uopće neće pokrenuti ili će raditi samo djelomično (na primjer, prazan prozor). Sve crtaju grafičkim čipom i napravljene su za noviji grafički hardver nego što ga starija računala obično imaju. Umjesto njih Firefox radi dobro.",
-  "app.chromium_bios_badge": "Možda neće raditi na ovom računalu",
+  "app.chromium_bios_badge": "Možda neće raditi",
   "sharing.heading_all": "Pomozi da se igre i programi svima pokreću iz prve",
   "sharing.text_all": "Kad se Windows program ili Steam igra ne pokrene odmah, Sloth OS sam traži postavku koja radi. Ako dopustiš, anonimno dijelimo postavku koja je uspjela, kako bi se iz prve pokretala i na drugim računalima sa Sloth OS-om.",
   "sharing.what_all": "Šalju se samo postavka (na primjer „stariji grafički način”) i proizvođač tvoje grafičke kartice, zajedno s time o kojem je programu ili igri riječ, kako je opisano ispod. Ništa drugo ne napušta tvoje računalo: ni tvoje ime, ni tvoje datoteke, ni tvoji računi, ni kada i koliko ga koristiš.",

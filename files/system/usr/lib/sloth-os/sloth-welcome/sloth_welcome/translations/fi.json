@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Linuxista",
   "app.org.localsend.localsend_app": "Tiedostot puhelimeen tai toiseen kotikoneeseen ilman johtoa",
   "category.chromium_bios_note": "Tämä tietokone käynnistyy vanhassa BIOS-tilassa, joten se on luultavasti vanhempi. Chromiumiin perustuvat sovellukset (merkitty alla) eivät ehkä käynnisty täällä lainkaan tai toimivat vain osittain (esimerkiksi tyhjällä ikkunalla). Ne piirtävät kaiken näytönohjaimella ja on tehty uudemmalle grafiikkalaitteistolle kuin vanhemmissa tietokoneissa yleensä on. Firefox toimii sen sijaan hyvin.",
-  "app.chromium_bios_badge": "Ei ehkä toimi tässä tietokoneessa",
+  "app.chromium_bios_badge": "Ei ehkä toimi",
   "sharing.heading_all": "Auta pelejä ja ohjelmia käynnistymään kaikilla ensimmäisellä yrityksellä",
   "sharing.text_all": "Kun Windows-ohjelma tai Steam-peli ei käynnisty heti, Sloth OS etsii itse toimivan asetuksen. Jos sallit, jaamme toimineen asetuksen nimettömästi, jotta se käynnistyy ensimmäisellä yrityksellä myös muissa Sloth OS -tietokoneissa.",
   "sharing.what_all": "Vain asetus (esimerkiksi ”vanhempi grafiikkatila”) ja näytönohjaimesi valmistaja lähetetään yhdessä tiedon kanssa siitä, mistä ohjelmasta tai pelistä oli kyse, kuten alla kuvataan. Mikään muu ei lähde tietokoneeltasi: ei nimesi, ei tiedostosi, ei tilisi eikä se, milloin tai kuinka paljon käytät sitä.",

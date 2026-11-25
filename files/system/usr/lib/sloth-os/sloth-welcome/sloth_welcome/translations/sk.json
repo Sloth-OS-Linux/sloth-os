@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Z Linux",
   "app.org.localsend.localsend_app": "Súbory do telefónu alebo do iného počítača doma, bez kábla",
   "category.chromium_bios_note": "Tento počítač sa spúšťa v starom režime BIOS, takže je pravdepodobne starší. Aplikácie postavené na Chromiu (označené nižšie) sa tu možno vôbec nespustia alebo budú fungovať len čiastočne (napríklad s prázdnym oknom). Všetko kreslia grafickým čipom a sú robené pre novší grafický hardvér, než aký staršie počítače zvyčajne majú. Namiesto nich dobre funguje Firefox.",
-  "app.chromium_bios_badge": "Na tomto počítači možno nebude fungovať",
+  "app.chromium_bios_badge": "Nemusí fungovať",
   "sharing.heading_all": "Pomôž, aby sa hry a programy všetkým spúšťali napoprvé",
   "sharing.text_all": "Keď sa program pre Windows alebo hra zo Steamu hneď nespustí, Sloth OS sám hľadá nastavenie, ktoré funguje. Ak to dovolíš, anonymne zdieľame nastavenie, ktoré zabralo, aby sa napoprvé spustil aj na iných počítačoch so Sloth OS.",
   "sharing.what_all": "Odosiela sa len nastavenie (napríklad „starší grafický režim“) a výrobca tvojej grafickej karty, spolu s tým, o aký program alebo hru išlo, ako je opísané nižšie. Nič iné tvoj počítač neopustí: ani tvoje meno, ani tvoje súbory, ani tvoje účty, ani kedy a koľko ho používaš.",

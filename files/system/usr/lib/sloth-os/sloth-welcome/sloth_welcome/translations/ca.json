@@ -222,7 +222,7 @@
   "linux.bookmarks_folder": "Des del Linux",
   "app.org.localsend.localsend_app": "Fitxers al mòbil o a un altre ordinador de casa, sense cable",
   "category.chromium_bios_note": "Aquest ordinador arrenca en l'antic mode BIOS, així que probablement és antic. Les aplicacions basades en Chromium (marcades a sota) potser no s'obren aquí, o només funcionen en part (per exemple, una finestra buida). Ho dibuixen tot amb el xip gràfic i estan fetes per a maquinari gràfic més nou del que solen tenir els ordinadors antics. En canvi, Firefox funciona bé.",
-  "app.chromium_bios_badge": "Potser no funciona en aquest ordinador",
+  "app.chromium_bios_badge": "Pot no funcionar",
   "sharing.heading_all": "Ajuda que els jocs i els programes s'obrin al primer intent per a tothom",
   "sharing.text_all": "Quan un programa de Windows o un joc de Steam no s'obre de seguida, Sloth OS busca tot sol una configuració que funcioni. Si ho permets, compartim de manera anònima la configuració que ha funcionat, perquè també s'obri al primer intent en altres ordinadors amb Sloth OS.",
   "sharing.what_all": "Només s'envia la configuració (per exemple, «mode gràfic antic») i el fabricant de la teva targeta gràfica, juntament amb quin programa o joc era, tal com es descriu a sota. Res més surt del teu ordinador: ni el teu nom, ni els teus fitxers, ni els teus comptes, ni quan o quant l'utilitzes.",
