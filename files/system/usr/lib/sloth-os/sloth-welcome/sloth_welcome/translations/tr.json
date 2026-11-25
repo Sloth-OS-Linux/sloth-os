@@ -223,5 +223,7 @@
   "linux.user": "Linux hesabı:",
   "linux.bookmarks_file": "Linux yer imleri.html",
   "linux.bookmarks_folder": "Linux'tan",
-  "app.org.localsend.localsend_app": "Evdeki telefonuna ya da başka bir bilgisayara kablosuz dosya gönder"
+  "app.org.localsend.localsend_app": "Evdeki telefonuna ya da başka bir bilgisayara kablosuz dosya gönder",
+  "category.chromium_bios_note": "Bu bilgisayar eski BIOS modunda başlıyor, yani muhtemelen eski bir bilgisayar. Chromium tabanlı uygulamalar (aşağıda işaretli) burada hiç açılmayabilir ya da yalnızca kısmen çalışabilir (örneğin boş bir pencere). Her şeyi grafik çipiyle çizerler ve eski bilgisayarlarda genellikle bulunandan daha yeni grafik donanımı için yapılmışlardır. Bunların yerine Firefox iyi çalışır.",
+  "app.chromium_bios_badge": "Bu bilgisayarda çalışmayabilir"
 }

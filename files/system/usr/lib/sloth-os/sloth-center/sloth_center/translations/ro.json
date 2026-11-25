@@ -1302,5 +1302,13 @@
   "Go back to this point": "Revino la acest punct",
   "Create a restore point": "Creează un punct de restaurare",
   "Go back to this restore point?": "Revii la acest punct de restaurare?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. După repornire, calculatorul pornește cu versiunea sistemului și setările de atunci. Fișierele tale (documente, imagini, descărcări) rămân cum sunt, iar setările de acum sunt puse deoparte."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. După repornire, calculatorul pornește cu versiunea sistemului și setările de atunci. Fișierele tale (documente, imagini, descărcări) rămân cum sunt, iar setările de acum sunt puse deoparte.",
+  "Your allowed hours haven't started yet.": "Orele tale permise nu au început încă.",
+  "Your allowed hours are over for today.": "Orele tale permise s-au terminat pentru azi.",
+  "You've used up today's screen time.": "Ți-ai folosit tot timpul în fața ecranului de azi.",
+  "You can use the computer from {time}.": "Poți folosi calculatorul de la {time}.",
+  "Unlock now": "Deblochează acum",
+  "Don't remind me": "Nu-mi mai aminti",
+  "Your saved passwords are locked": "Parolele tale salvate sunt blocate",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Te-ai autentificat automat, fără parolă, așa că parolele tale salvate (Wi-Fi, foldere de rețea, browsere) nu au putut fi deblocate. Prima dată când e nevoie de una, ți se cere o singură dată parola contului; după aceea rămân deblocate până la repornire."
 }

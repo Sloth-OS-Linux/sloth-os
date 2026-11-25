@@ -223,5 +223,7 @@
   "linux.user": "Linux-konto:",
   "linux.bookmarks_file": "Linux-bokmärken.html",
   "linux.bookmarks_folder": "Från Linux",
-  "app.org.localsend.localsend_app": "Filer till mobilen eller en annan dator hemma, utan kabel"
+  "app.org.localsend.localsend_app": "Filer till mobilen eller en annan dator hemma, utan kabel",
+  "category.chromium_bios_note": "Den här datorn startar i det gamla BIOS-läget, så den är troligen äldre. Appar byggda på Chromium (markerade nedan) kanske inte startar alls här, eller fungerar bara delvis (till exempel ett tomt fönster). De ritar allt med grafikkretsen och är gjorda för nyare grafikhårdvara än äldre datorer brukar ha. Firefox fungerar bra i stället.",
+  "app.chromium_bios_badge": "Fungerar kanske inte på den här datorn"
 }

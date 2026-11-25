@@ -41,6 +41,10 @@ TICK = 20
 GRACE = 60   # the time's up message, then Plasma is asked to sign out
 FORCE = 45   # then the sessions are ended if they are still there
 DAY = 24 * 60 * 60
+# Starts the refusal printed for the sign-in screen (an invisible separator, U+2063): Sloth OS's sign-in screen
+# shows a message starting with it instead of "Login Failed" (files/scripts/greeter-reason.sh); any other screen
+# just shows the text
+MARK = chr(0x2063)
 WARNINGS = (600, 300, 60)  # seconds left: the warning stages "10", "5", "1"
 STATE_DIR = os.environ.get("SLOTH_FAMILY_STATE", "/run/sloth-os/family")
 TIMER = ("org.freedesktop.MalcontentTimer1", "/org/freedesktop/MalcontentTimer1",
@@ -79,7 +83,9 @@ def decide(now, schedule, daily, times):
     """The child's state, or None without a limit.
 
     schedule: the allowed hours as (start, end) seconds since midnight, or None; daily: a daily limit is set; times:
-    timerd's (limit reached, estimated end, next start) for it, or None. Returns {"stage", "end", "next", "ask"}."""
+    timerd's (limit reached, estimated end, next start) for it, or None. Returns {"stage", "end", "next", "ask", "why"};
+    why: what ends the time ("early": the allowed hours have not started yet, "late": they are over for today,
+    "hours": they end first, "daily": the daily limit)."""
     if schedule is None and not (daily and times):
         return None
     tomorrow = None
@@ -87,7 +93,8 @@ def decide(now, schedule, daily, times):
         start, end = midnight(now) + schedule[0], midnight(now) + schedule[1]
         tomorrow = midnight(now, 1) + schedule[0]
         if not start <= now < end:  # outside the allowed hours: no asking for more
-            return {"stage": "up", "end": min(now, end), "next": start if now < start else tomorrow, "ask": False}
+            return {"stage": "up", "end": min(now, end), "next": start if now < start else tomorrow, "ask": False,
+                    "why": "early" if now < start else "late"}
     ends, daily_end, daily_next = [], None, 0
     if schedule:
         ends.append(end)
@@ -99,7 +106,8 @@ def decide(now, schedule, daily, times):
     # more time only when the daily limit ends it, inside the hours (not when the hours end first)
     ask = daily_end is not None and (not schedule or daily_end < end - 60)
     following = daily_next if daily_end == finish and daily_next else (tomorrow or midnight(now, 1))
-    return {"stage": stage_for(False, finish - now), "end": int(finish), "next": int(following), "ask": bool(ask)}
+    return {"stage": stage_for(False, finish - now), "end": int(finish), "next": int(following), "ask": bool(ask),
+            "why": "daily" if daily_end == finish else "hours"}
 
 
 def usage_span(last, now):
@@ -317,13 +325,18 @@ def refusal_text(state):
     sys.path[:0] = ["/usr/lib/sloth-os/common"]
     from sloth_common.i18n import Catalog
     tr = Catalog("/usr/lib/sloth-os/sloth-center/sloth_center/translations").tr
-    text = tr("Your screen time is over for now.")
+    text = {"early": tr("Your allowed hours haven't started yet."),
+            "late": tr("Your allowed hours are over for today."),
+            "hours": tr("Your allowed hours are over for today."),
+            "daily": tr("You've used up today's screen time."),
+            }.get(state.get("why"), tr("Your screen time is over for now."))
     nxt = state.get("next") or 0
     if nxt:
         clock = time.strftime("%H:%M", time.localtime(nxt))
         days = round((midnight(nxt) - midnight(time.time())) / DAY)
         if days <= 0:
-            text += " " + tr("You can use the computer again at {time}.", time=clock)
+            text += " " + (tr("You can use the computer from {time}.", time=clock) if state.get("why") == "early"
+                           else tr("You can use the computer again at {time}.", time=clock))
         elif days == 1:
             text += " " + (tr("You can use the computer again tomorrow.") if clock == "00:00"
                            else tr("You can use the computer again tomorrow at {time}.", time=clock))
@@ -348,7 +361,8 @@ def may_sign_in(name):
         signal.alarm(0)
     log(f"{name}: no screen time now, sign-in refused")
     try:
-        print(refusal_text(state), flush=True)
+        # MARK: the sign-in screen shows this reason instead of its own "Login Failed" (files/scripts/greeter-reason.sh)
+        print(MARK + refusal_text(state), flush=True)
     except Exception as e:
         log(f"refusal text: {e}")
     return False

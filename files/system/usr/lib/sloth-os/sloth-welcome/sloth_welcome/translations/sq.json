@@ -223,5 +223,7 @@
   "linux.user": "Llogaria e Linux:",
   "linux.bookmarks_file": "Faqerojtës Linux.html",
   "linux.bookmarks_folder": "Nga Linux",
-  "app.org.localsend.localsend_app": "Skedarë në telefon ose në një kompjuter tjetër në shtëpi, pa kabllo"
+  "app.org.localsend.localsend_app": "Skedarë në telefon ose në një kompjuter tjetër në shtëpi, pa kabllo",
+  "category.chromium_bios_note": "Ky kompjuter niset në mënyrën e vjetër BIOS, kështu që ka gjasa të jetë i vjetër. Aplikacionet e ndërtuara mbi Chromium (të shënuara më poshtë) mund të mos hapen fare këtu, ose të punojnë vetëm pjesërisht (për shembull, një dritare bosh). Ato vizatojnë gjithçka me çipin grafik dhe janë bërë për pajisje grafike më të reja nga ç'kanë zakonisht kompjuterët e vjetër. Në vend të tyre, Firefox punon mirë.",
+  "app.chromium_bios_badge": "Mund të mos punojë në këtë kompjuter"
 }

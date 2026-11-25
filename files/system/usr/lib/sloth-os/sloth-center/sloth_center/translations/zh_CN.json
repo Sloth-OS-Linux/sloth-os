@@ -1302,5 +1302,13 @@
   "Go back to this point": "返回到此还原点",
   "Create a restore point": "创建还原点",
   "Go back to this restore point?": "返回到这个还原点吗？",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}。重启后电脑将以当时的系统版本和设置启动。你的文件（文档、图片、下载）保持不变，当前的设置会另外保存。"
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}。重启后电脑将以当时的系统版本和设置启动。你的文件（文档、图片、下载）保持不变，当前的设置会另外保存。",
+  "Your allowed hours haven't started yet.": "你的允许时段还没有开始。",
+  "Your allowed hours are over for today.": "你今天的允许时段已经结束。",
+  "You've used up today's screen time.": "你已用完今天的屏幕时间。",
+  "You can use the computer from {time}.": "你可以从 {time} 开始使用电脑。",
+  "Unlock now": "立即解锁",
+  "Don't remind me": "不再提醒",
+  "Your saved passwords are locked": "你保存的密码已锁定",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "你是不输入密码自动登录的，所以你保存的密码（Wi-Fi、网络文件夹、浏览器）无法解锁。第一次需要用到其中某个密码时，会询问一次你的账户密码；之后在重启前它们会一直保持解锁。"
 }

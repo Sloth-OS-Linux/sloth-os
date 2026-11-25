@@ -223,5 +223,7 @@
   "linux.user": "Compte Linux :",
   "linux.bookmarks_file": "Favoris Linux.html",
   "linux.bookmarks_folder": "Depuis Linux",
-  "app.org.localsend.localsend_app": "Des fichiers vers votre téléphone ou un autre ordinateur de la maison, sans câble"
+  "app.org.localsend.localsend_app": "Des fichiers vers votre téléphone ou un autre ordinateur de la maison, sans câble",
+  "category.chromium_bios_note": "Cet ordinateur démarre dans l'ancien mode BIOS, il est donc probablement ancien. Les applications basées sur Chromium (signalées ci-dessous) risquent de ne pas démarrer du tout ici, ou de ne fonctionner qu'en partie (par exemple, une fenêtre vide). Elles dessinent tout avec la puce graphique et sont faites pour du matériel graphique plus récent que celui des ordinateurs anciens. Firefox fonctionne bien à la place.",
+  "app.chromium_bios_badge": "Risque de ne pas fonctionner sur cet ordinateur"
 }

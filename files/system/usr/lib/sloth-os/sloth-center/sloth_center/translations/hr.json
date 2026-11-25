@@ -1302,5 +1302,13 @@
   "Go back to this point": "Vrati se na ovu točku",
   "Create a restore point": "Izradi točku vraćanja",
   "Go back to this restore point?": "Vratiti se na ovu točku vraćanja?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Nakon ponovnog pokretanja računalo se pokreće s tadašnjom verzijom sustava i postavkama. Vaše datoteke (dokumenti, slike, preuzimanja) ostaju kakve jesu, a sadašnje postavke spremaju se na stranu."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Nakon ponovnog pokretanja računalo se pokreće s tadašnjom verzijom sustava i postavkama. Vaše datoteke (dokumenti, slike, preuzimanja) ostaju kakve jesu, a sadašnje postavke spremaju se na stranu.",
+  "Your allowed hours haven't started yet.": "Tvoje dopušteno vrijeme još nije počelo.",
+  "Your allowed hours are over for today.": "Tvoje dopušteno vrijeme za danas je završilo.",
+  "You've used up today's screen time.": "Potrošio si današnje vrijeme pred ekranom.",
+  "You can use the computer from {time}.": "Računalo možeš koristiti od {time}.",
+  "Unlock now": "Otključaj sada",
+  "Don't remind me": "Ne podsjećaj me",
+  "Your saved passwords are locked": "Tvoje spremljene lozinke su zaključane",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Prijavio si se automatski, bez lozinke, pa se tvoje spremljene lozinke (Wi-Fi, mrežne mape, preglednici) nisu mogle otključati. Prvi put kad neka zatreba, jednom ćemo te pitati lozinku tvog računa; nakon toga ostaju otključane do ponovnog pokretanja."
 }

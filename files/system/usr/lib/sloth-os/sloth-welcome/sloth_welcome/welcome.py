@@ -300,7 +300,7 @@ class WelcomeController(QObject):
     def categories(self):
         out = []
         for cat in catalog.CATEGORIES:
-            apps = [{**a, "summary": tr(f"app.{a['id']}"),
+            apps = [{**a, "summary": tr(f"app.{a['id']}"), "chromium": a["id"] in catalog.CHROMIUM,
                      "iconUrl": f"file://{catalog.ICON_DIR}/{a['id']}.png"} for a in cat["apps"]]
             out.append({**cat, "name": tr(f"category.{cat['id']}.name"),
                         "hint": tr(f"category.{cat['id']}.hint"), "apps": apps})
@@ -405,6 +405,11 @@ class WelcomeController(QObject):
     def hasBrowser(self):
         browsers = {a["id"] for a in catalog.CATEGORIES[0]["apps"]}
         return any(a in browsers for a in self._selected)
+
+    @Property(bool, constant=True)
+    def legacyBios(self):
+        """The computer started in the old BIOS mode (no UEFI): Chromium-based apps get a note (catalog.CHROMIUM)."""
+        return not Path(os.environ.get("SLOTH_EFI_DIR", "/sys/firmware/efi")).exists()
 
     # --- Passwords ------------------------------------------------------------
 

@@ -1302,5 +1302,13 @@
   "Go back to this point": "返回到此還原點",
   "Create a restore point": "建立還原點",
   "Go back to this restore point?": "要返回到這個還原點嗎？",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}。重新開機後電腦會以當時的系統版本和設定啟動。你的檔案（文件、圖片、下載）保持不變，目前的設定會另外保存。"
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}。重新開機後電腦會以當時的系統版本和設定啟動。你的檔案（文件、圖片、下載）保持不變，目前的設定會另外保存。",
+  "Your allowed hours haven't started yet.": "你的允許時段還沒開始。",
+  "Your allowed hours are over for today.": "你今天的允許時段已經結束。",
+  "You've used up today's screen time.": "你已用完今天的螢幕時間。",
+  "You can use the computer from {time}.": "你可以從 {time} 開始使用電腦。",
+  "Unlock now": "立即解鎖",
+  "Don't remind me": "不再提醒",
+  "Your saved passwords are locked": "你儲存的密碼已鎖定",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "你是不輸入密碼自動登入的，所以你儲存的密碼（Wi-Fi、網路資料夾、瀏覽器）無法解鎖。第一次需要用到其中某個密碼時，會詢問一次你的帳號密碼；之後在重新開機前它們會一直保持解鎖。"
 }

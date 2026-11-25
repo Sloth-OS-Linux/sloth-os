@@ -1302,5 +1302,13 @@
   "Go back to this point": "Grįžti į šį tašką",
   "Create a restore point": "Sukurti atkūrimo tašką",
   "Go back to this restore point?": "Grįžti į šį atkūrimo tašką?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Paleidus iš naujo kompiuteris pasileis su tuometine sistemos versija ir nustatymais. Jūsų failai (dokumentai, paveikslėliai, atsisiuntimai) liks tokie, kokie yra, o dabartiniai nustatymai bus padėti į šalį."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Paleidus iš naujo kompiuteris pasileis su tuometine sistemos versija ir nustatymais. Jūsų failai (dokumentai, paveikslėliai, atsisiuntimai) liks tokie, kokie yra, o dabartiniai nustatymai bus padėti į šalį.",
+  "Your allowed hours haven't started yet.": "Tavo leidžiamos valandos dar neprasidėjo.",
+  "Your allowed hours are over for today.": "Tavo leidžiamos valandos šiandien baigėsi.",
+  "You've used up today's screen time.": "Išnaudojai šiandienos ekrano laiką.",
+  "You can use the computer from {time}.": "Kompiuteriu galėsi naudotis nuo {time}.",
+  "Unlock now": "Atrakinti dabar",
+  "Don't remind me": "Nebeprimink",
+  "Your saved passwords are locked": "Tavo išsaugoti slaptažodžiai užrakinti",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Prisijungei automatiškai, be slaptažodžio, todėl tavo išsaugotų slaptažodžių (Wi-Fi, tinklo aplankai, naršyklės) nepavyko atrakinti. Pirmą kartą prireikus kurio nors, vieną kartą paklausime tavo paskyros slaptažodžio; po to jie liks atrakinti iki paleidimo iš naujo."
 }

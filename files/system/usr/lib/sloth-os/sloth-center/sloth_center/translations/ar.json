@@ -1302,5 +1302,13 @@
   "Go back to this point": "العودة إلى هذه النقطة",
   "Create a restore point": "إنشاء نقطة استعادة",
   "Go back to this restore point?": "العودة إلى نقطة الاستعادة هذه؟",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. بعد إعادة التشغيل يبدأ الحاسوب بإصدار النظام والإعدادات التي كانت حينها. تبقى ملفاتك (المستندات والصور والتنزيلات) كما هي، وتُحفظ الإعدادات الحالية جانبًا."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. بعد إعادة التشغيل يبدأ الحاسوب بإصدار النظام والإعدادات التي كانت حينها. تبقى ملفاتك (المستندات والصور والتنزيلات) كما هي، وتُحفظ الإعدادات الحالية جانبًا.",
+  "Your allowed hours haven't started yet.": "لم تبدأ ساعاتك المسموح بها بعد.",
+  "Your allowed hours are over for today.": "انتهت ساعاتك المسموح بها لهذا اليوم.",
+  "You've used up today's screen time.": "لقد استنفدت وقت الشاشة لهذا اليوم.",
+  "You can use the computer from {time}.": "يمكنك استخدام الحاسوب ابتداءً من الساعة {time}.",
+  "Unlock now": "افتح القفل الآن",
+  "Don't remind me": "لا تذكّرني",
+  "Your saved passwords are locked": "كلمات المرور المحفوظة لديك مقفلة",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "لقد سجّلت الدخول تلقائيًا من دون كلمة مرور، لذلك تعذّر فتح كلمات المرور المحفوظة لديك (Wi-Fi، مجلدات الشبكة، المتصفحات). في أول مرة تحتاج فيها إلى إحداها، سيُطلب منك إدخال كلمة مرور حسابك مرة واحدة؛ وبعد ذلك تبقى مفتوحة حتى تعيد التشغيل."
 }

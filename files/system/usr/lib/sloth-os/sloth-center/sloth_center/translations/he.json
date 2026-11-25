@@ -1302,5 +1302,13 @@
   "Go back to this point": "חזרה לנקודה הזו",
   "Create a restore point": "יצירת נקודת שחזור",
   "Go back to this restore point?": "לחזור לנקודת השחזור הזו?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. אחרי הפעלה מחדש המחשב יעלה עם גרסת המערכת וההגדרות של אז. הקבצים שלכם (מסמכים, תמונות, הורדות) נשארים כמו שהם, וההגדרות הנוכחיות נשמרות בצד."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. אחרי הפעלה מחדש המחשב יעלה עם גרסת המערכת וההגדרות של אז. הקבצים שלכם (מסמכים, תמונות, הורדות) נשארים כמו שהם, וההגדרות הנוכחיות נשמרות בצד.",
+  "Your allowed hours haven't started yet.": "השעות המותרות שלך עוד לא התחילו.",
+  "Your allowed hours are over for today.": "השעות המותרות שלך הסתיימו להיום.",
+  "You've used up today's screen time.": "ניצלת את כל זמן המסך של היום.",
+  "You can use the computer from {time}.": "אפשר להשתמש במחשב החל מהשעה {time}.",
+  "Unlock now": "לשחרר נעילה עכשיו",
+  "Don't remind me": "לא להזכיר לי",
+  "Your saved passwords are locked": "הסיסמאות השמורות שלך נעולות",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "נכנסת אוטומטית, בלי סיסמה, ולכן לא ניתן היה לשחרר את הסיסמאות השמורות שלך (Wi-Fi, תיקיות רשת, דפדפנים). בפעם הראשונה שתידרש אחת מהן, תתבקש להזין את סיסמת החשבון שלך פעם אחת; אחר כך הן יישארו פתוחות עד ההפעלה מחדש."
 }

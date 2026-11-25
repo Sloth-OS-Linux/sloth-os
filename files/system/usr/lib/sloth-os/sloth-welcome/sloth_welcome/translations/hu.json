@@ -223,5 +223,7 @@
   "linux.user": "Linux-fiók:",
   "linux.bookmarks_file": "Linux-könyvjelzők.html",
   "linux.bookmarks_folder": "Linuxból",
-  "app.org.localsend.localsend_app": "Fájlok a telefonodra vagy egy másik otthoni gépre, kábel nélkül"
+  "app.org.localsend.localsend_app": "Fájlok a telefonodra vagy egy másik otthoni gépre, kábel nélkül",
+  "category.chromium_bios_note": "Ez a gép a régi BIOS módban indul, tehát valószínűleg régebbi. A Chromium-alapú appok (lent jelölve) itt lehet, hogy el sem indulnak, vagy csak részben működnek (például üres ablakkal). Mindent a grafikus chippel rajzolnak, és újabb grafikus hardverre készültek, mint ami a régebbi gépekben általában van. Helyettük a Firefox jól működik.",
+  "app.chromium_bios_badge": "Lehet, hogy ezen a gépen nem működik"
 }

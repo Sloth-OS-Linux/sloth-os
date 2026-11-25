@@ -1302,5 +1302,13 @@
   "Go back to this point": "Gå tillbaka till den här punkten",
   "Create a restore point": "Skapa en återställningspunkt",
   "Go back to this restore point?": "Gå tillbaka till den här återställningspunkten?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Efter en omstart startar datorn med den systemversionen och de inställningarna. Dina filer (dokument, bilder, hämtningar) förblir som de är, och de nuvarande inställningarna läggs undan."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Efter en omstart startar datorn med den systemversionen och de inställningarna. Dina filer (dokument, bilder, hämtningar) förblir som de är, och de nuvarande inställningarna läggs undan.",
+  "Your allowed hours haven't started yet.": "Dina tillåtna timmar har inte börjat än.",
+  "Your allowed hours are over for today.": "Dina tillåtna timmar är slut för i dag.",
+  "You've used up today's screen time.": "Du har använt dagens skärmtid.",
+  "You can use the computer from {time}.": "Du kan använda datorn från kl. {time}.",
+  "Unlock now": "Lås upp nu",
+  "Don't remind me": "Påminn mig inte",
+  "Your saved passwords are locked": "Dina sparade lösenord är låsta",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Du loggade in automatiskt utan lösenord, så dina sparade lösenord (Wi-Fi, nätverksmappar, webbläsare) kunde inte låsas upp. Första gången något av dem behövs blir du tillfrågad om ditt kontos lösenord en gång; sedan förblir de upplåsta tills du startar om."
 }

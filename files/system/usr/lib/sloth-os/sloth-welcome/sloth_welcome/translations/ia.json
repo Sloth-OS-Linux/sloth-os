@@ -223,5 +223,7 @@
   "linux.user": "Conto de Linux:",
   "linux.bookmarks_file": "Marcapaginas de Linux.html",
   "linux.bookmarks_folder": "Ab Linux",
-  "app.org.localsend.localsend_app": "Files a tu telephono o a un altere computator in casa, sin cablo"
+  "app.org.localsend.localsend_app": "Files a tu telephono o a un altere computator in casa, sin cablo",
+  "category.chromium_bios_note": "Iste computator initia in le vetule modo BIOS, dunque illo es probabilemente vetule. Le applicationes basate sur Chromium (marcate infra) pote non initiar del toto hic, o functionar solmente in parte (per exemplo, un fenestra vacue). Illos designa toto con le chip graphic e es facite pro hardware graphic plus nove que le computatores vetule usualmente ha. Firefox functiona ben in vice.",
+  "app.chromium_bios_badge": "Pote non functionar sur iste computator"
 }

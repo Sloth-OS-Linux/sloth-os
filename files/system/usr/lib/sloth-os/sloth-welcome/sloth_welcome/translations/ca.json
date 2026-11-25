@@ -223,5 +223,7 @@
   "linux.user": "Compte de Linux:",
   "linux.bookmarks_file": "Adreces d'interès de Linux.html",
   "linux.bookmarks_folder": "Des del Linux",
-  "app.org.localsend.localsend_app": "Fitxers al mòbil o a un altre ordinador de casa, sense cable"
+  "app.org.localsend.localsend_app": "Fitxers al mòbil o a un altre ordinador de casa, sense cable",
+  "category.chromium_bios_note": "Aquest ordinador arrenca en l'antic mode BIOS, així que probablement és antic. Les aplicacions basades en Chromium (marcades a sota) potser no s'obren aquí, o només funcionen en part (per exemple, una finestra buida). Ho dibuixen tot amb el xip gràfic i estan fetes per a maquinari gràfic més nou del que solen tenir els ordinadors antics. En canvi, Firefox funciona bé.",
+  "app.chromium_bios_badge": "Potser no funciona en aquest ordinador"
 }

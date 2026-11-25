@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS reports (
     machine   TEXT NOT NULL,   -- salted hash of the machine's random ID
     program   TEXT NOT NULL,   -- the program's fingerprint (sha256, computed on the machine; we do not see the name)
     gpu       TEXT NOT NULL,   -- amd | nvidia | intel | other
-    config    TEXT NOT NULL,   -- kanonikus JSON: {"line", "profile", "fixes"}
+    config    TEXT NOT NULL,   -- canonical JSON: {"line", "profile", "fixes"}
     outcome   TEXT NOT NULL,   -- worked | failed
     updated   INTEGER NOT NULL,
     PRIMARY KEY (machine, program, gpu, config)

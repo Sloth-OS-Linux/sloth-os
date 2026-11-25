@@ -223,5 +223,7 @@
   "linux.user": "Račun Linux:",
   "linux.bookmarks_file": "Zaznamki Linux.html",
   "linux.bookmarks_folder": "Iz sistema Linux",
-  "app.org.localsend.localsend_app": "Datoteke na telefon ali drug računalnik doma, brez kabla"
+  "app.org.localsend.localsend_app": "Datoteke na telefon ali drug računalnik doma, brez kabla",
+  "category.chromium_bios_note": "Ta računalnik se zažene v starem načinu BIOS, zato je verjetno starejši. Aplikacije, zgrajene na Chromiumu (označene spodaj), se tu morda sploh ne zaženejo ali delujejo le delno (na primer prazno okno). Vse rišejo z grafičnim čipom in so narejene za novejšo grafično strojno opremo, kot jo imajo starejši računalniki običajno. Namesto njih dobro deluje Firefox.",
+  "app.chromium_bios_badge": "Na tem računalniku morda ne bo delovalo"
 }

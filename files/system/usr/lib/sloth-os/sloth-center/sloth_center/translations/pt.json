@@ -1302,5 +1302,13 @@
   "Go back to this point": "Voltar a este ponto",
   "Create a restore point": "Criar um ponto de restauro",
   "Go back to this restore point?": "Voltar a este ponto de restauro?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Depois de reiniciar, o computador arranca com a versão do sistema e as definições de então. Os seus ficheiros (documentos, imagens, transferências) ficam como estão, e as definições atuais são guardadas à parte."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Depois de reiniciar, o computador arranca com a versão do sistema e as definições de então. Os seus ficheiros (documentos, imagens, transferências) ficam como estão, e as definições atuais são guardadas à parte.",
+  "Your allowed hours haven't started yet.": "As tuas horas permitidas ainda não começaram.",
+  "Your allowed hours are over for today.": "As tuas horas permitidas acabaram por hoje.",
+  "You've used up today's screen time.": "Usaste todo o tempo de ecrã de hoje.",
+  "You can use the computer from {time}.": "Podes usar o computador a partir das {time}.",
+  "Unlock now": "Desbloquear agora",
+  "Don't remind me": "Não me lembres",
+  "Your saved passwords are locked": "As tuas palavras-passe guardadas estão bloqueadas",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Iniciaste sessão automaticamente, sem palavra-passe, por isso as tuas palavras-passe guardadas (Wi-Fi, pastas de rede, navegadores) não puderam ser desbloqueadas. Da primeira vez que for preciso uma, é-te pedida a palavra-passe da tua conta uma vez; depois ficam desbloqueadas até reiniciares."
 }

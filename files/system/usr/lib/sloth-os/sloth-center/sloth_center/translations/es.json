@@ -1302,5 +1302,13 @@
   "Go back to this point": "Volver a este punto",
   "Create a restore point": "Crear un punto de restauración",
   "Go back to this restore point?": "¿Volver a este punto de restauración?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Tras reiniciar, el equipo arranca con la versión del sistema y los ajustes de entonces. Tus archivos (documentos, imágenes, descargas) se quedan como están, y los ajustes actuales se guardan aparte."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Tras reiniciar, el equipo arranca con la versión del sistema y los ajustes de entonces. Tus archivos (documentos, imágenes, descargas) se quedan como están, y los ajustes actuales se guardan aparte.",
+  "Your allowed hours haven't started yet.": "Tus horas permitidas aún no han empezado.",
+  "Your allowed hours are over for today.": "Tus horas permitidas se han acabado por hoy.",
+  "You've used up today's screen time.": "Has agotado el tiempo de pantalla de hoy.",
+  "You can use the computer from {time}.": "Podrás usar el ordenador a partir de las {time}.",
+  "Unlock now": "Desbloquear ahora",
+  "Don't remind me": "No me lo recuerdes",
+  "Your saved passwords are locked": "Tus contraseñas guardadas están bloqueadas",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Iniciaste sesión automáticamente, sin contraseña, así que tus contraseñas guardadas (Wi-Fi, carpetas de red, navegadores) no se pudieron desbloquear. La primera vez que haga falta una, se te pedirá la contraseña de tu cuenta una sola vez; después seguirán desbloqueadas hasta que reinicies."
 }

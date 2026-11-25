@@ -1302,5 +1302,13 @@
   "Go back to this point": "Επιστροφή σε αυτό το σημείο",
   "Create a restore point": "Δημιουργία σημείου επαναφοράς",
   "Go back to this restore point?": "Επιστροφή σε αυτό το σημείο επαναφοράς;",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Μετά από επανεκκίνηση ο υπολογιστής ξεκινά με την τότε έκδοση συστήματος και τις τότε ρυθμίσεις. Τα αρχεία σας (έγγραφα, εικόνες, λήψεις) μένουν ως έχουν, και οι τωρινές ρυθμίσεις φυλάσσονται στην άκρη."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Μετά από επανεκκίνηση ο υπολογιστής ξεκινά με την τότε έκδοση συστήματος και τις τότε ρυθμίσεις. Τα αρχεία σας (έγγραφα, εικόνες, λήψεις) μένουν ως έχουν, και οι τωρινές ρυθμίσεις φυλάσσονται στην άκρη.",
+  "Your allowed hours haven't started yet.": "Οι επιτρεπόμενες ώρες σου δεν έχουν αρχίσει ακόμα.",
+  "Your allowed hours are over for today.": "Οι επιτρεπόμενες ώρες σου τελείωσαν για σήμερα.",
+  "You've used up today's screen time.": "Εξάντλησες τον σημερινό χρόνο οθόνης.",
+  "You can use the computer from {time}.": "Μπορείς να χρησιμοποιήσεις τον υπολογιστή από τις {time}.",
+  "Unlock now": "Ξεκλείδωμα τώρα",
+  "Don't remind me": "Να μη μου το θυμίζεις",
+  "Your saved passwords are locked": "Οι αποθηκευμένοι κωδικοί σου είναι κλειδωμένοι",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Συνδέθηκες αυτόματα, χωρίς κωδικό, γι' αυτό οι αποθηκευμένοι κωδικοί σου (Wi-Fi, φάκελοι δικτύου, περιηγητές) δεν μπόρεσαν να ξεκλειδωθούν. Την πρώτη φορά που θα χρειαστεί κάποιος, θα σου ζητηθεί μία φορά ο κωδικός του λογαριασμού σου· μετά μένουν ξεκλείδωτοι μέχρι την επανεκκίνηση."
 }

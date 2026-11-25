@@ -223,5 +223,7 @@
   "linux.user": "Linux 帐户：",
   "linux.bookmarks_file": "Linux 书签.html",
   "linux.bookmarks_folder": "来自 Linux",
-  "app.org.localsend.localsend_app": "无需数据线，把文件发到手机或家里的另一台电脑"
+  "app.org.localsend.localsend_app": "无需数据线，把文件发到手机或家里的另一台电脑",
+  "category.chromium_bios_note": "这台电脑以旧的 BIOS 模式启动，所以它很可能是一台较旧的电脑。基于 Chromium 的应用（下方已标出）在这里可能根本无法启动，或只能部分运行（例如显示空白窗口）。它们用显卡芯片绘制一切，是为比旧电脑通常配备的更新的图形硬件设计的。改用 Firefox 会运行得很好。",
+  "app.chromium_bios_badge": "在这台电脑上可能无法运行"
 }

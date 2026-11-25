@@ -354,6 +354,14 @@ Kirigami.ApplicationWindow {
                             type: Kirigami.MessageType.Information
                             text: root.t("category.windows_note")
                         }
+                        // An older computer (old BIOS mode): Chromium-based apps may not start there
+                        Kirigami.InlineMessage {
+                            Layout.fillWidth: true
+                            visible: welcome.legacyBios && categoryPage.category !== null
+                                     && categoryPage.category.apps.some(a => a.chromium)
+                            type: Kirigami.MessageType.Warning
+                            text: root.t("category.chromium_bios_note")
+                        }
                         Kirigami.InlineMessage {
                             Layout.fillWidth: true
                             visible: !welcome.online
@@ -414,7 +422,7 @@ Kirigami.ApplicationWindow {
                                             Layout.fillWidth: true
                                             spacing: 0
                                             QQC2.Label { text: appCard.modelData.name; font.bold: true; Layout.fillWidth: true; elide: Text.ElideRight }
-                                            QQC2.Label { text: appCard.modelData.summary; opacity: 0.7; Layout.fillWidth: true; wrapMode: Text.Wrap; maximumLineCount: appCard.modelData.source === "windows" ? 1 : 2; elide: Text.ElideRight; font: Kirigami.Theme.smallFont }
+                                            QQC2.Label { text: appCard.modelData.summary; opacity: 0.7; Layout.fillWidth: true; wrapMode: Text.Wrap; maximumLineCount: appCard.modelData.source === "windows" || (welcome.legacyBios && appCard.modelData.chromium && !appCard.present) ? 1 : 2; elide: Text.ElideRight; font: Kirigami.Theme.smallFont }
                                             QQC2.Label {
                                                 visible: appCard.present
                                                 Layout.fillWidth: true
@@ -433,6 +441,14 @@ Kirigami.ApplicationWindow {
                                                 color: Kirigami.Theme.linkColor
                                                 font: Kirigami.Theme.smallFont
                                                 text: root.t("app.windows_badge")
+                                            }
+                                            QQC2.Label {
+                                                visible: welcome.legacyBios && appCard.modelData.chromium && !appCard.present
+                                                Layout.fillWidth: true
+                                                elide: Text.ElideRight
+                                                color: Kirigami.Theme.neutralTextColor
+                                                font: Kirigami.Theme.smallFont
+                                                text: root.t("app.chromium_bios_badge")
                                             }
                                         }
                                         // A real checkbox. (Breeze has no "checkbox-unchecked" icon,

@@ -223,5 +223,7 @@
   "linux.user": "Linux paskyra:",
   "linux.bookmarks_file": "Linux žymelės.html",
   "linux.bookmarks_folder": "Iš „Linux“",
-  "app.org.localsend.localsend_app": "Failai į telefoną ar kitą namų kompiuterį be laido"
+  "app.org.localsend.localsend_app": "Failai į telefoną ar kitą namų kompiuterį be laido",
+  "category.chromium_bios_note": "Šis kompiuteris paleidžiamas senuoju BIOS režimu, tad jis greičiausiai senesnis. Chromium pagrindu sukurtos programos (pažymėtos žemiau) čia gali visai nepasileisti arba veikti tik iš dalies (pavyzdžiui, tuščias langas). Jos viską piešia grafikos lustu ir yra sukurtos naujesnei grafikos įrangai, nei paprastai turi senesni kompiuteriai. Vietoj jų gerai veikia Firefox.",
+  "app.chromium_bios_badge": "Šiame kompiuteryje gali neveikti"
 }

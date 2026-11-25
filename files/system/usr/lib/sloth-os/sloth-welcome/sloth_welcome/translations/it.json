@@ -223,5 +223,7 @@
   "linux.user": "Account Linux:",
   "linux.bookmarks_file": "Segnalibri di Linux.html",
   "linux.bookmarks_folder": "Da Linux",
-  "app.org.localsend.localsend_app": "File sul telefono o su un altro computer di casa, senza cavo"
+  "app.org.localsend.localsend_app": "File sul telefono o su un altro computer di casa, senza cavo",
+  "category.chromium_bios_note": "Questo computer si avvia nella vecchia modalità BIOS, quindi probabilmente è datato. Le app basate su Chromium (segnalate sotto) potrebbero non avviarsi affatto qui, o funzionare solo in parte (per esempio, una finestra vuota). Disegnano tutto con il chip grafico e sono fatte per hardware grafico più recente di quello che hanno di solito i computer datati. Firefox invece funziona bene.",
+  "app.chromium_bios_badge": "Potrebbe non funzionare su questo computer"
 }

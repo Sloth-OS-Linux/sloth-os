@@ -223,5 +223,7 @@
   "linux.user": "חשבון Linux:",
   "linux.bookmarks_file": "סימניות Linux.html",
   "linux.bookmarks_folder": "מ-Linux",
-  "app.org.localsend.localsend_app": "קבצים לטלפון או למחשב אחר בבית, בלי כבל"
+  "app.org.localsend.localsend_app": "קבצים לטלפון או למחשב אחר בבית, בלי כבל",
+  "category.chromium_bios_note": "המחשב הזה מופעל במצב BIOS הישן, כך שכנראה הוא ישן יותר. יישומים שבנויים על Chromium (מסומנים למטה) עלולים לא להיפתח כאן בכלל, או לעבוד רק חלקית (למשל, חלון ריק). הם מציירים הכול בעזרת שבב הגרפיקה ונבנו לחומרה גרפית חדשה יותר ממה שיש בדרך כלל במחשבים ישנים. Firefox עובד היטב במקומם.",
+  "app.chromium_bios_badge": "ייתכן שלא יעבוד במחשב הזה"
 }

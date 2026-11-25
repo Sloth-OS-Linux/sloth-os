@@ -1302,5 +1302,13 @@
   "Go back to this point": "Mine tagasi sellesse punkti",
   "Create a restore point": "Loo taastepunkt",
   "Go back to this restore point?": "Kas minna tagasi sellesse taastepunkti?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Pärast taaskäivitust käivitub arvuti tollase süsteemi versiooni ja seadetega. Sinu failid (dokumendid, pildid, allalaadimised) jäävad samaks ning praegused seaded pannakse kõrvale."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Pärast taaskäivitust käivitub arvuti tollase süsteemi versiooni ja seadetega. Sinu failid (dokumendid, pildid, allalaadimised) jäävad samaks ning praegused seaded pannakse kõrvale.",
+  "Your allowed hours haven't started yet.": "Sinu lubatud aeg pole veel alanud.",
+  "Your allowed hours are over for today.": "Sinu lubatud aeg on tänaseks läbi.",
+  "You've used up today's screen time.": "Oled tänase ekraaniaja ära kasutanud.",
+  "You can use the computer from {time}.": "Saad arvutit kasutada alates kella {time}.",
+  "Unlock now": "Ava kohe",
+  "Don't remind me": "Ära meenuta",
+  "Your saved passwords are locked": "Sinu salvestatud paroolid on lukus",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Logisid sisse automaatselt, ilma paroolita, seega ei saanud sinu salvestatud paroole (Wi-Fi, võrgukaustad, brauserid) avada. Kui mõnda neist esimest korda vaja läheb, küsitakse sinu konto parooli üks kord; pärast seda jäävad need avatuks kuni taaskäivituseni."
 }

@@ -1302,5 +1302,13 @@
   "Go back to this point": "Вярнуцца да гэтага пункта",
   "Create a restore point": "Стварыць пункт аднаўлення",
   "Go back to this restore point?": "Вярнуцца да гэтага пункта аднаўлення?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Пасля перазапуску камп’ютар запусціцца з той версіяй сістэмы і наладамі. Вашы файлы (дакументы, выявы, спампоўкі) застануцца як ёсць, а цяперашнія налады будуць адкладзены."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Пасля перазапуску камп’ютар запусціцца з той версіяй сістэмы і наладамі. Вашы файлы (дакументы, выявы, спампоўкі) застануцца як ёсць, а цяперашнія налады будуць адкладзены.",
+  "Your allowed hours haven't started yet.": "Твой дазволены час яшчэ не пачаўся.",
+  "Your allowed hours are over for today.": "Твой дазволены час на сёння скончыўся.",
+  "You've used up today's screen time.": "Ты выкарыстаў сённяшні экранны час.",
+  "You can use the computer from {time}.": "Карыстацца камп'ютарам можна з {time}.",
+  "Unlock now": "Разблакаваць зараз",
+  "Don't remind me": "Не нагадваць",
+  "Your saved passwords are locked": "Твае захаваныя паролі заблакаваныя",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Ты ўвайшоў аўтаматычна, без пароля, таму твае захаваныя паролі (Wi-Fi, сеткавыя папкі, браўзеры) не ўдалося разблакаваць. Калі адзін з іх спатрэбіцца ўпершыню, у цябе адзін раз спытаюць пароль уліковага запісу; пасля гэтага яны застануцца разблакаванымі да перазапуску."
 }

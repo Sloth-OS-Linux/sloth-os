@@ -223,5 +223,7 @@
   "linux.user": "Linux-Konto:",
   "linux.bookmarks_file": "Linux-Lesezeichen.html",
   "linux.bookmarks_folder": "Aus Linux",
-  "app.org.localsend.localsend_app": "Dateien aufs Handy oder einen anderen Computer zu Hause, ohne Kabel"
+  "app.org.localsend.localsend_app": "Dateien aufs Handy oder einen anderen Computer zu Hause, ohne Kabel",
+  "category.chromium_bios_note": "Dieser Computer startet im alten BIOS-Modus, er ist also wahrscheinlich älter. Apps auf Chromium-Basis (unten markiert) starten hier vielleicht gar nicht oder funktionieren nur teilweise (zum Beispiel mit einem leeren Fenster). Sie zeichnen alles mit dem Grafikchip und sind für neuere Grafikhardware gemacht, als ältere Computer meist haben. Firefox funktioniert stattdessen gut.",
+  "app.chromium_bios_badge": "Funktioniert auf diesem Computer vielleicht nicht"
 }

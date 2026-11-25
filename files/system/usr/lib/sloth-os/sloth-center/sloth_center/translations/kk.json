@@ -1302,5 +1302,13 @@
   "Go back to this point": "Осы нүктеге қайту",
   "Create a restore point": "Қалпына келтіру нүктесін жасау",
   "Go back to this restore point?": "Осы қалпына келтіру нүктесіне қайтасыз ба?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Қайта іске қосқаннан кейін компьютер сол кездегі жүйе нұсқасы мен баптаулармен қосылады. Файлдарыңыз (құжаттар, суреттер, жүктеулер) сол күйінде қалады, ал қазіргі баптаулар бөлек сақталады."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Қайта іске қосқаннан кейін компьютер сол кездегі жүйе нұсқасы мен баптаулармен қосылады. Файлдарыңыз (құжаттар, суреттер, жүктеулер) сол күйінде қалады, ал қазіргі баптаулар бөлек сақталады.",
+  "Your allowed hours haven't started yet.": "Рұқсат етілген уақытың әлі басталған жоқ.",
+  "Your allowed hours are over for today.": "Бүгінгі рұқсат етілген уақытың аяқталды.",
+  "You've used up today's screen time.": "Бүгінгі экран уақытыңды пайдаланып болдың.",
+  "You can use the computer from {time}.": "Компьютерді {time} уақыттан бастап пайдалана аласың.",
+  "Unlock now": "Қазір құлпын ашу",
+  "Don't remind me": "Маған еске салма",
+  "Your saved passwords are locked": "Сақталған құпиясөздерің құлыпталған",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Сен құпиясөзсіз автоматты түрде кірдің, сондықтан сақталған құпиясөздерің (Wi-Fi, желілік қалталар, браузерлер) ашылмады. Олардың біреуі алғаш қажет болғанда, тіркелгіңнің құпиясөзі бір рет сұралады; содан кейін олар қайта іске қосқанша ашық қалады."
 }

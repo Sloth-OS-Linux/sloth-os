@@ -1302,5 +1302,13 @@
   "Go back to this point": "Gaan terug na hierdie punt",
   "Create a restore point": "Skep ’n herstelpunt",
   "Go back to this restore point?": "Gaan terug na hierdie herstelpunt?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Ná ’n herbegin begin die rekenaar met die stelselweergawe en instellings van destyds. Jou lêers (dokumente, prente, aflaaie) bly soos hulle is, en die huidige instellings word eenkant gehou."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Ná ’n herbegin begin die rekenaar met die stelselweergawe en instellings van destyds. Jou lêers (dokumente, prente, aflaaie) bly soos hulle is, en die huidige instellings word eenkant gehou.",
+  "Your allowed hours haven't started yet.": "Jou toegelate ure het nog nie begin nie.",
+  "Your allowed hours are over for today.": "Jou toegelate ure is vir vandag verby.",
+  "You've used up today's screen time.": "Jy het vandag se skermtyd opgebruik.",
+  "You can use the computer from {time}.": "Jy kan die rekenaar vanaf {time} gebruik.",
+  "Unlock now": "Ontsluit nou",
+  "Don't remind me": "Moenie my herinner nie",
+  "Your saved passwords are locked": "Jou gestoorde wagwoorde is gesluit",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Jy het outomaties sonder 'n wagwoord aangemeld, dus kon jou gestoorde wagwoorde (Wi-Fi, netwerkvouers, blaaiers) nie ontsluit word nie. Die eerste keer dat een nodig is, word jy een keer vir jou rekening se wagwoord gevra; daarna bly hulle ontsluit tot jy herbegin."
 }

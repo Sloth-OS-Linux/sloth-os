@@ -127,6 +127,20 @@ CATEGORIES = [
 
 ICON_DIR = "/usr/share/sloth-os/welcome/icons"
 
+# Apps built on Chromium (browsers, Electron, CEF, Qt WebEngine). On a computer that starts in the old BIOS mode
+# (no /sys/firmware/efi) they get a note: such machines' graphics chips are usually older than what Chromium's
+# graphics needs, so these apps may not start or only partly work there (GitHub issue #17: a GeForce GTS 450).
+# The same list as /usr/libexec/sloth-os/old-nvidia-apps (keep the two in step).
+CHROMIUM = frozenset((
+    "com.google.Chrome", "com.brave.Browser", "com.microsoft.Edge", "com.vivaldi.Vivaldi", "com.opera.Opera",
+    "org.chromium.Chromium", "io.github.ungoogled_software.ungoogled_chromium",
+    "com.spotify.Client", "com.discordapp.Discord", "com.slack.Slack", "org.signal.Signal", "im.riot.Riot",
+    "com.github.IsmaelMartinez.teams_for_linux", "us.zoom.Zoom", "com.viber.Viber", "com.rtosta.zapzap",
+    "md.obsidian.Obsidian", "net.cozic.joplin_desktop", "com.bitwarden.desktop", "com.visualstudio.code",
+    "tv.plex.PlexDesktop", "com.github.iwalton3.jellyfin-media-player", "com.stremio.Stremio",
+    "com.heroicgameslauncher.hgl", "io.itch.itch",
+))
+
 
 def find_app(app_id):
     for cat in CATEGORIES:

@@ -223,5 +223,7 @@
   "linux.user": "Amiḍan n Linux:",
   "linux.bookmarks_file": "Ticraḍ n Linux.html",
   "linux.bookmarks_folder": "Seg Linux",
-  "app.org.localsend.localsend_app": "Ifuyla ɣer tiliɣri-k neɣ ɣer uselkim nniḍen deg uxxam, war agatu"
+  "app.org.localsend.localsend_app": "Ifuyla ɣer tiliɣri-k neɣ ɣer uselkim nniḍen deg uxxam, war agatu",
+  "category.chromium_bios_note": "Aselkim-a yettnekkar deg uskar aqbur BIOS, ihi ahat d aqbur. Isnasen yebnan ɣef Chromium (yettwacreḍ ddaw-a) zemren ur nekkren ara akk da, neɣ ad xedmen kan s waṭas (amedya, asfaylu ilem). Ttsunuɣen kullec s ucip udlif, ttwagen i warrum udlif amaynut ugar n wayen yesɛan yiselkimen iqburen s umata. Firefox yetteddu akken iwata deg umḍiq-nsen.",
+  "app.chromium_bios_badge": "Ahat ur yetteddu ara deg uselkim-a"
 }

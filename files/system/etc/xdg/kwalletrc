@@ -1,0 +1,6 @@
+[Wallet]
+# Sloth OS: once unlocked, the saved passwords stay unlocked until the next restart, so the password is asked at
+# most once per session (an automatic sign-in: sloth_center/wallet_notify.py). KWallet's own defaults, written out.
+Leave Open=true
+Close When Idle=false
+Close on Screensaver=false

@@ -69,14 +69,17 @@ class Stages(unittest.TestCase):
         self.assertEqual((before["stage"], before["ask"], before["next"]), ("up", False, day + 16 * 3600))
         after = st.decide(day + 21 * 3600, hours, True, (False, day + 22 * 3600, 0))
         self.assertEqual((after["stage"], after["ask"], after["next"]), ("up", False, st.midnight(50000, 1) + 16 * 3600))
+        # the sign-in screen's reason: before the hours, after them
+        self.assertEqual((before["why"], after["why"]), ("early", "late"))
         # inside, the daily limit ends first: warnings for it, and asking is allowed
         state = st.decide(day + 17 * 3600, hours, True, (False, day + 17 * 3600 + 500, 99))
         self.assertEqual((state["stage"], state["end"], state["ask"], state["next"]), ("10", day + 17 * 3600 + 500, True, 99))
         # inside, the hours end first: no asking (more time would go past the hours)
         state = st.decide(day + 20 * 3600 - 50, hours, True, (False, day + 23 * 3600, 99))
-        self.assertEqual((state["stage"], state["end"], state["ask"]), ("1", day + 20 * 3600, False))
+        self.assertEqual((state["stage"], state["end"], state["ask"], state["why"]), ("1", day + 20 * 3600, False, "hours"))
         # the daily limit used up inside the hours: up, and asking is allowed
-        self.assertEqual(st.decide(day + 17 * 3600, hours, True, (True, 0, 99))["ask"], True)
+        used_up = st.decide(day + 17 * 3600, hours, True, (True, 0, 99))
+        self.assertEqual((used_up["stage"], used_up["ask"], used_up["why"]), ("up", True, "daily"))
         self.assertIsNone(st.decide(day, None, False, None))
 
     def test_may_sign_in(self):
@@ -148,7 +151,7 @@ class ScreenTimeRounds(unittest.TestCase):
         self.assertEqual(self.written["anna"]["stage"], "ok")
         self.times[1001] = (False, 1500, 9000)
         self.service.round(1040)
-        self.assertEqual(self.written["anna"], {"stage": "10", "end": 1500, "next": 9000, "ask": True})
+        self.assertEqual(self.written["anna"], {"stage": "10", "end": 1500, "next": 9000, "ask": True, "why": "daily"})
         self.times[1001] = (True, 1060, 9000)
         self.service.round(1060)
         self.assertEqual(self.written["anna"]["stage"], "up")

@@ -1302,5 +1302,13 @@
   "Go back to this point": "ამ წერტილზე დაბრუნება",
   "Create a restore point": "აღდგენის წერტილის შექმნა",
   "Go back to this restore point?": "დავბრუნდეთ ამ აღდგენის წერტილზე?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. გადატვირთვის შემდეგ კომპიუტერი მაშინდელი სისტემის ვერსიით და პარამეტრებით ჩაირთვება. თქვენი ფაილები (დოკუმენტები, სურათები, ჩამოტვირთვები) უცვლელი რჩება, ახლანდელი პარამეტრები კი ცალკე შეინახება."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. გადატვირთვის შემდეგ კომპიუტერი მაშინდელი სისტემის ვერსიით და პარამეტრებით ჩაირთვება. თქვენი ფაილები (დოკუმენტები, სურათები, ჩამოტვირთვები) უცვლელი რჩება, ახლანდელი პარამეტრები კი ცალკე შეინახება.",
+  "Your allowed hours haven't started yet.": "შენი დაშვებული საათები ჯერ არ დაწყებულა.",
+  "Your allowed hours are over for today.": "შენი დაშვებული საათები დღეისთვის დასრულდა.",
+  "You've used up today's screen time.": "დღევანდელი ეკრანის დრო უკვე გამოიყენე.",
+  "You can use the computer from {time}.": "კომპიუტერის გამოყენება შეგიძლია {time}-დან.",
+  "Unlock now": "ახლავე განბლოკვა",
+  "Don't remind me": "აღარ შემახსენო",
+  "Your saved passwords are locked": "შენი შენახული პაროლები დაბლოკილია",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "ავტომატურად, პაროლის გარეშე შეხვედი, ამიტომ შენი შენახული პაროლების (Wi-Fi, ქსელური საქაღალდეები, ბრაუზერები) განბლოკვა ვერ მოხერხდა. პირველად, როცა რომელიმე დაგჭირდება, ერთხელ გკითხავთ შენი ანგარიშის პაროლს; ამის შემდეგ ისინი გადატვირთვამდე განბლოკილი დარჩება."
 }

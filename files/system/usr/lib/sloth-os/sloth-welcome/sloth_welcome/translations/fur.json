@@ -223,5 +223,7 @@
   "linux.user": "Account di Linux:",
   "linux.bookmarks_file": "Segnelibris di Linux.html",
   "linux.bookmarks_folder": "Di Linux",
-  "app.org.localsend.localsend_app": "Files al telefon o a un altri computer di cjase, cence cabli"
+  "app.org.localsend.localsend_app": "Files al telefon o a un altri computer di cjase, cence cabli",
+  "category.chromium_bios_note": "Chest computer al partìs te vecje modalitât BIOS, duncje al è probabilmentri vecjo. Lis aplicazions fatis su Chromium (segnadis chi sot) a podaressin no partî nancje chi, o lâ dome in part (par esempli, cuntun barcon vueit). A dissegnin dut cul chip grafic e a son fatis par hardware grafic plui gnûf di chel che i computers vecjos a àn di solit. Firefox invezit al va ben.",
+  "app.chromium_bios_badge": "Al podarès no lâ su chest computer"
 }

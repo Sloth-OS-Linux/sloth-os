@@ -1302,5 +1302,13 @@
   "Go back to this point": "이 지점으로 되돌리기",
   "Create a restore point": "복원 지점 만들기",
   "Go back to this restore point?": "이 복원 지점으로 되돌릴까요?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. 다시 시작하면 컴퓨터가 그때의 시스템 버전과 설정으로 시작합니다. 파일(문서, 사진, 다운로드)은 그대로이고, 지금 쓰는 설정은 따로 보관됩니다."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. 다시 시작하면 컴퓨터가 그때의 시스템 버전과 설정으로 시작합니다. 파일(문서, 사진, 다운로드)은 그대로이고, 지금 쓰는 설정은 따로 보관됩니다.",
+  "Your allowed hours haven't started yet.": "허용된 시간이 아직 시작되지 않았어요.",
+  "Your allowed hours are over for today.": "오늘 허용된 시간이 끝났어요.",
+  "You've used up today's screen time.": "오늘 사용 시간을 다 썼어요.",
+  "You can use the computer from {time}.": "{time}부터 컴퓨터를 쓸 수 있어요.",
+  "Unlock now": "지금 잠금 해제",
+  "Don't remind me": "다시 알리지 않기",
+  "Your saved passwords are locked": "저장된 비밀번호가 잠겨 있어요",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "비밀번호 없이 자동으로 로그인해서 저장된 비밀번호(Wi-Fi, 네트워크 폴더, 브라우저)의 잠금을 풀 수 없었어요. 처음으로 하나가 필요할 때 계정 비밀번호를 한 번 물어봐요. 그 후에는 다시 시작할 때까지 잠금이 풀린 상태로 유지돼요."
 }

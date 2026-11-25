@@ -1302,5 +1302,13 @@
   "Go back to this point": "Revenir à ce point",
   "Create a restore point": "Créer un point de restauration",
   "Go back to this restore point?": "Revenir à ce point de restauration ?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Après un redémarrage, l’ordinateur démarre avec la version du système et les réglages d’alors. Vos fichiers (documents, images, téléchargements) restent tels quels, et les réglages actuels sont mis de côté."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Après un redémarrage, l’ordinateur démarre avec la version du système et les réglages d’alors. Vos fichiers (documents, images, téléchargements) restent tels quels, et les réglages actuels sont mis de côté.",
+  "Your allowed hours haven't started yet.": "Tes heures autorisées n'ont pas encore commencé.",
+  "Your allowed hours are over for today.": "Tes heures autorisées sont terminées pour aujourd'hui.",
+  "You've used up today's screen time.": "Tu as utilisé tout ton temps d'écran d'aujourd'hui.",
+  "You can use the computer from {time}.": "Tu pourras utiliser l'ordinateur à partir de {time}.",
+  "Unlock now": "Déverrouiller maintenant",
+  "Don't remind me": "Ne plus me le rappeler",
+  "Your saved passwords are locked": "Tes mots de passe enregistrés sont verrouillés",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Tu t'es connecté automatiquement, sans mot de passe, donc tes mots de passe enregistrés (Wi-Fi, dossiers réseau, navigateurs) n'ont pas pu être déverrouillés. La première fois qu'il en faut un, le mot de passe de ton compte te sera demandé une seule fois ; ensuite ils restent déverrouillés jusqu'au redémarrage."
 }

@@ -1302,5 +1302,13 @@
   "Go back to this point": "Gå tilbage til dette punkt",
   "Create a restore point": "Opret et gendannelsespunkt",
   "Go back to this restore point?": "Gå tilbage til dette gendannelsespunkt?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Efter en genstart starter computeren med den systemversion og de indstillinger. Dine filer (dokumenter, billeder, overførsler) forbliver, som de er, og de nuværende indstillinger lægges til side."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Efter en genstart starter computeren med den systemversion og de indstillinger. Dine filer (dokumenter, billeder, overførsler) forbliver, som de er, og de nuværende indstillinger lægges til side.",
+  "Your allowed hours haven't started yet.": "Dine tilladte timer er ikke begyndt endnu.",
+  "Your allowed hours are over for today.": "Dine tilladte timer er slut for i dag.",
+  "You've used up today's screen time.": "Du har brugt dagens skærmtid.",
+  "You can use the computer from {time}.": "Du kan bruge computeren fra kl. {time}.",
+  "Unlock now": "Lås op nu",
+  "Don't remind me": "Mind mig ikke om det",
+  "Your saved passwords are locked": "Dine gemte adgangskoder er låst",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Du loggede automatisk ind uden adgangskode, så dine gemte adgangskoder (Wi-Fi, netværksmapper, browsere) kunne ikke låses op. Første gang der er brug for en, bliver du spurgt om din kontos adgangskode én gang; derefter forbliver de låst op, indtil du genstarter."
 }

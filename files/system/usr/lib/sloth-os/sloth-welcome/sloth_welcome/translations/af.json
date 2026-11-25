@@ -223,5 +223,7 @@
   "linux.user": "Linux-rekening:",
   "linux.bookmarks_file": "Linux-boekmerke.html",
   "linux.bookmarks_folder": "Uit Linux",
-  "app.org.localsend.localsend_app": "Lêers na jou foon of ’n ander rekenaar by die huis, sonder ’n kabel"
+  "app.org.localsend.localsend_app": "Lêers na jou foon of ’n ander rekenaar by die huis, sonder ’n kabel",
+  "category.chromium_bios_note": "Hierdie rekenaar begin in die ou BIOS-modus, so dit is waarskynlik 'n ouer een. Programme wat op Chromium gebou is (hieronder gemerk) begin dalk glad nie hier nie, of werk net gedeeltelik (byvoorbeeld 'n leë venster). Hulle teken alles met die grafiese skyfie en is gemaak vir nuwer grafiese hardeware as wat ouer rekenaars gewoonlik het. Firefox werk eerder goed.",
+  "app.chromium_bios_badge": "Werk dalk nie op hierdie rekenaar nie"
 }

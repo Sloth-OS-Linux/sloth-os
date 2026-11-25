@@ -1302,5 +1302,13 @@
   "Go back to this point": "Vrátit se k tomuto bodu",
   "Create a restore point": "Vytvořit bod obnovení",
   "Go back to this restore point?": "Vrátit se k tomuto bodu obnovení?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Po restartu se počítač spustí s tehdejší verzí systému a nastavením. Vaše soubory (dokumenty, obrázky, stažené soubory) zůstanou, jak jsou, a současné nastavení se odloží stranou."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Po restartu se počítač spustí s tehdejší verzí systému a nastavením. Vaše soubory (dokumenty, obrázky, stažené soubory) zůstanou, jak jsou, a současné nastavení se odloží stranou.",
+  "Your allowed hours haven't started yet.": "Tvůj povolený čas ještě nezačal.",
+  "Your allowed hours are over for today.": "Tvůj povolený čas pro dnešek skončil.",
+  "You've used up today's screen time.": "Vyčerpal jsi dnešní čas u obrazovky.",
+  "You can use the computer from {time}.": "Počítač můžeš používat od {time}.",
+  "Unlock now": "Odemknout teď",
+  "Don't remind me": "Nepřipomínat",
+  "Your saved passwords are locked": "Tvoje uložená hesla jsou zamčená",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Přihlásil ses automaticky, bez hesla, takže tvoje uložená hesla (Wi-Fi, síťové složky, prohlížeče) nešlo odemknout. Když bude některé poprvé potřeba, jednou se zeptáme na heslo tvého účtu; potom zůstanou odemčená až do restartu."
 }

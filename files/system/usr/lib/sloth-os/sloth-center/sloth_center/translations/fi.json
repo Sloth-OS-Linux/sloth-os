@@ -1302,5 +1302,13 @@
   "Go back to this point": "Palaa tähän pisteeseen",
   "Create a restore point": "Luo palautuspiste",
   "Go back to this restore point?": "Palataanko tähän palautuspisteeseen?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Uudelleenkäynnistyksen jälkeen tietokone käynnistyy silloisella järjestelmäversiolla ja asetuksilla. Tiedostosi (asiakirjat, kuvat, lataukset) pysyvät ennallaan, ja nykyiset asetukset siirretään sivuun."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Uudelleenkäynnistyksen jälkeen tietokone käynnistyy silloisella järjestelmäversiolla ja asetuksilla. Tiedostosi (asiakirjat, kuvat, lataukset) pysyvät ennallaan, ja nykyiset asetukset siirretään sivuun.",
+  "Your allowed hours haven't started yet.": "Sallittu aikasi ei ole vielä alkanut.",
+  "Your allowed hours are over for today.": "Sallittu aikasi on päättynyt tältä päivältä.",
+  "You've used up today's screen time.": "Olet käyttänyt tämän päivän ruutuaikasi.",
+  "You can use the computer from {time}.": "Voit käyttää tietokonetta klo {time} alkaen.",
+  "Unlock now": "Avaa lukitus nyt",
+  "Don't remind me": "Älä muistuta",
+  "Your saved passwords are locked": "Tallennetut salasanasi ovat lukittuina",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Kirjauduit sisään automaattisesti ilman salasanaa, joten tallennettuja salasanojasi (Wi-Fi, verkkokansiot, selaimet) ei voitu avata. Kun jotakin niistä tarvitaan ensimmäisen kerran, sinulta kysytään tilisi salasanaa kerran; sen jälkeen ne pysyvät avattuina uudelleenkäynnistykseen asti."
 }

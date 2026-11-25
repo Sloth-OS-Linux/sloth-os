@@ -1302,5 +1302,13 @@
   "Go back to this point": "ਇਸ ਪੁਆਇੰਟ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   "Create a restore point": "ਰੀਸਟੋਰ ਪੁਆਇੰਟ ਬਣਾਓ",
   "Go back to this restore point?": "ਕੀ ਇਸ ਰੀਸਟੋਰ ਪੁਆਇੰਟ 'ਤੇ ਵਾਪਸ ਜਾਣਾ ਹੈ?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}। ਮੁੜ-ਚਾਲੂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਕੰਪਿਊਟਰ ਉਸ ਵੇਲੇ ਦੇ ਸਿਸਟਮ ਵਰਜਨ ਅਤੇ ਸੈਟਿੰਗਾਂ ਨਾਲ ਚਾਲੂ ਹੁੰਦਾ ਹੈ। ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ (ਦਸਤਾਵੇਜ਼, ਤਸਵੀਰਾਂ, ਡਾਊਨਲੋਡ) ਜਿਵੇਂ ਹਨ ਉਵੇਂ ਰਹਿੰਦੀਆਂ ਹਨ, ਅਤੇ ਹੁਣ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਵੱਖਰੀਆਂ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।"
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}। ਮੁੜ-ਚਾਲੂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਕੰਪਿਊਟਰ ਉਸ ਵੇਲੇ ਦੇ ਸਿਸਟਮ ਵਰਜਨ ਅਤੇ ਸੈਟਿੰਗਾਂ ਨਾਲ ਚਾਲੂ ਹੁੰਦਾ ਹੈ। ਤੁਹਾਡੀਆਂ ਫ਼ਾਈਲਾਂ (ਦਸਤਾਵੇਜ਼, ਤਸਵੀਰਾਂ, ਡਾਊਨਲੋਡ) ਜਿਵੇਂ ਹਨ ਉਵੇਂ ਰਹਿੰਦੀਆਂ ਹਨ, ਅਤੇ ਹੁਣ ਦੀਆਂ ਸੈਟਿੰਗਾਂ ਵੱਖਰੀਆਂ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।",
+  "Your allowed hours haven't started yet.": "ਤੁਹਾਡੇ ਇਜਾਜ਼ਤ ਵਾਲੇ ਘੰਟੇ ਅਜੇ ਸ਼ੁਰੂ ਨਹੀਂ ਹੋਏ।",
+  "Your allowed hours are over for today.": "ਅੱਜ ਲਈ ਤੁਹਾਡੇ ਇਜਾਜ਼ਤ ਵਾਲੇ ਘੰਟੇ ਖ਼ਤਮ ਹੋ ਗਏ ਹਨ।",
+  "You've used up today's screen time.": "ਤੁਸੀਂ ਅੱਜ ਦਾ ਸਕ੍ਰੀਨ ਸਮਾਂ ਵਰਤ ਲਿਆ ਹੈ।",
+  "You can use the computer from {time}.": "ਤੁਸੀਂ {time} ਵਜੇ ਤੋਂ ਕੰਪਿਊਟਰ ਵਰਤ ਸਕਦੇ ਹੋ।",
+  "Unlock now": "ਹੁਣੇ ਅਨਲੌਕ ਕਰੋ",
+  "Don't remind me": "ਮੈਨੂੰ ਯਾਦ ਨਾ ਕਰਵਾਓ",
+  "Your saved passwords are locked": "ਤੁਹਾਡੇ ਸੰਭਾਲੇ ਪਾਸਵਰਡ ਲੌਕ ਹਨ",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "ਤੁਸੀਂ ਬਿਨਾਂ ਪਾਸਵਰਡ ਦੇ ਆਪਣੇ-ਆਪ ਸਾਈਨ ਇਨ ਕੀਤਾ, ਇਸ ਲਈ ਤੁਹਾਡੇ ਸੰਭਾਲੇ ਪਾਸਵਰਡ (Wi-Fi, ਨੈੱਟਵਰਕ ਫੋਲਡਰ, ਬ੍ਰਾਊਜ਼ਰ) ਅਨਲੌਕ ਨਹੀਂ ਹੋ ਸਕੇ। ਪਹਿਲੀ ਵਾਰ ਜਦੋਂ ਕਿਸੇ ਦੀ ਲੋੜ ਪਵੇਗੀ, ਤੁਹਾਡੇ ਖਾਤੇ ਦਾ ਪਾਸਵਰਡ ਇੱਕ ਵਾਰ ਪੁੱਛਿਆ ਜਾਵੇਗਾ; ਉਸ ਤੋਂ ਬਾਅਦ ਉਹ ਰੀਸਟਾਰਟ ਤੱਕ ਅਨਲੌਕ ਰਹਿਣਗੇ।"
 }

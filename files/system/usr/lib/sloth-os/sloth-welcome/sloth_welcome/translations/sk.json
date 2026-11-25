@@ -223,5 +223,7 @@
   "linux.user": "Účet Linux:",
   "linux.bookmarks_file": "Záložky Linux.html",
   "linux.bookmarks_folder": "Z Linux",
-  "app.org.localsend.localsend_app": "Súbory do telefónu alebo do iného počítača doma, bez kábla"
+  "app.org.localsend.localsend_app": "Súbory do telefónu alebo do iného počítača doma, bez kábla",
+  "category.chromium_bios_note": "Tento počítač sa spúšťa v starom režime BIOS, takže je pravdepodobne starší. Aplikácie postavené na Chromiu (označené nižšie) sa tu možno vôbec nespustia alebo budú fungovať len čiastočne (napríklad s prázdnym oknom). Všetko kreslia grafickým čipom a sú robené pre novší grafický hardvér, než aký staršie počítače zvyčajne majú. Namiesto nich dobre funguje Firefox.",
+  "app.chromium_bios_badge": "Na tomto počítači možno nebude fungovať"
 }

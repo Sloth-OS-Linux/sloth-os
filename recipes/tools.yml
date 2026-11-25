@@ -71,6 +71,7 @@ modules:
         - sloth-update-notify.path
         - sloth-update-notify.service
         - sloth-whats-new.service
+        - sloth-wallet-notify.service        # automatic sign-in: why the saved passwords are locked, beforehand
         - sloth-light-mode.service           # a weak computer: the lighter desktop, by itself at the first sign-in
         - sloth-restore-settings.service     # a restore point's settings back at sign-in, before the desktop
         # parental controls in a child's session: the screen time banners, the blocked apps hidden
@@ -90,5 +91,6 @@ modules:
       - pin-authselect.sh   # PIN sign-in: the "sloth" authselect profile (with-sloth-pin)
       - kwallet-autologin.sh  # automatic sign-in on an encrypted disk: the boot password opens KWallet
       - screen-time-pam.sh    # parental controls: a child outside their screen time is not let in
+      - greeter-reason.sh     # ...and the sign-in screen says why (rebuilt greeter; the stock one if that fails)
       - kcmhost.sh            # one settings app: KDE's settings pages inside Sloth Center (before slimming)
       - slim-image.sh

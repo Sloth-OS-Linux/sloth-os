@@ -1302,5 +1302,13 @@
   "Go back to this point": "Връщане към тази точка",
   "Create a restore point": "Създаване на точка за възстановяване",
   "Go back to this restore point?": "Връщане към тази точка за възстановяване?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. След рестартиране компютърът стартира с тогавашната версия на системата и настройките. Файловете ви (документи, снимки, изтеглени) остават както са, а сегашните настройки се запазват настрана."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. След рестартиране компютърът стартира с тогавашната версия на системата и настройките. Файловете ви (документи, снимки, изтеглени) остават както са, а сегашните настройки се запазват настрана.",
+  "Your allowed hours haven't started yet.": "Разрешеното ти време още не е започнало.",
+  "Your allowed hours are over for today.": "Разрешеното ти време за днес свърши.",
+  "You've used up today's screen time.": "Изразходва днешното си време пред екрана.",
+  "You can use the computer from {time}.": "Можеш да използваш компютъра от {time}.",
+  "Unlock now": "Отключи сега",
+  "Don't remind me": "Не ми напомняй",
+  "Your saved passwords are locked": "Запазените ти пароли са заключени",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Влезе автоматично, без парола, затова запазените ти пароли (Wi-Fi, мрежови папки, браузъри) не можаха да бъдат отключени. Първия път, когато някоя потрябва, ще те попитаме веднъж за паролата на профила ти; след това те остават отключени до рестартиране."
 }

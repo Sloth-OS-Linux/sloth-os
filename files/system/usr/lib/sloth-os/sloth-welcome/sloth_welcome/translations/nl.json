@@ -223,5 +223,7 @@
   "linux.user": "Linux-account:",
   "linux.bookmarks_file": "Linux-bladwijzers.html",
   "linux.bookmarks_folder": "Uit Linux",
-  "app.org.localsend.localsend_app": "Bestanden naar je telefoon of een andere computer thuis, zonder kabel"
+  "app.org.localsend.localsend_app": "Bestanden naar je telefoon of een andere computer thuis, zonder kabel",
+  "category.chromium_bios_note": "Deze computer start in de oude BIOS-modus, dus hij is waarschijnlijk wat ouder. Apps die op Chromium zijn gebouwd (hieronder gemarkeerd) starten hier misschien helemaal niet, of werken maar gedeeltelijk (bijvoorbeeld een leeg venster). Ze tekenen alles met de grafische chip en zijn gemaakt voor nieuwere grafische hardware dan oudere computers meestal hebben. Firefox werkt in plaats daarvan goed.",
+  "app.chromium_bios_badge": "Werkt misschien niet op deze computer"
 }

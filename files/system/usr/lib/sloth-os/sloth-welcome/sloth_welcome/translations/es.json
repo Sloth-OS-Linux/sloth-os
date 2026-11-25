@@ -223,5 +223,7 @@
   "linux.user": "Cuenta de Linux:",
   "linux.bookmarks_file": "Marcadores de Linux.html",
   "linux.bookmarks_folder": "Desde Linux",
-  "app.org.localsend.localsend_app": "Archivos al móvil o a otro ordenador de casa, sin cable"
+  "app.org.localsend.localsend_app": "Archivos al móvil o a otro ordenador de casa, sin cable",
+  "category.chromium_bios_note": "Este ordenador arranca en el antiguo modo BIOS, así que probablemente es antiguo. Las aplicaciones basadas en Chromium (marcadas abajo) puede que no se abran aquí, o que solo funcionen en parte (por ejemplo, una ventana vacía). Lo dibujan todo con el chip gráfico y están hechas para hardware gráfico más nuevo del que suelen tener los ordenadores antiguos. En su lugar, Firefox funciona bien.",
+  "app.chromium_bios_badge": "Puede que no funcione en este ordenador"
 }

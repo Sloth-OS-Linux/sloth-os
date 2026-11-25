@@ -223,5 +223,7 @@
   "linux.user": "Linux のアカウント:",
   "linux.bookmarks_file": "Linux のブックマーク.html",
   "linux.bookmarks_folder": "Linux から",
-  "app.org.localsend.localsend_app": "スマホや家のほかのパソコンへ、ケーブルなしでファイルを送れます"
+  "app.org.localsend.localsend_app": "スマホや家のほかのパソコンへ、ケーブルなしでファイルを送れます",
+  "category.chromium_bios_note": "このコンピューターは古い BIOS モードで起動しているので、古い機種だと思われます。Chromium ベースのアプリ (下に印あり) は、ここではまったく起動しないか、一部しか動かないことがあります (たとえば空のウィンドウ)。これらはすべてをグラフィックチップで描画し、古いコンピューターに通常あるものより新しいグラフィックハードウェア向けに作られています。代わりに Firefox ならよく動きます。",
+  "app.chromium_bios_badge": "このコンピューターでは動かないかもしれません"
 }

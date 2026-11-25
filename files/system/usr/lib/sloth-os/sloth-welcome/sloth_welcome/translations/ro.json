@@ -223,5 +223,7 @@
   "linux.user": "Cont Linux:",
   "linux.bookmarks_file": "Marcaje Linux.html",
   "linux.bookmarks_folder": "Din Linux",
-  "app.org.localsend.localsend_app": "Fișiere pe telefon sau pe alt calculator de acasă, fără cablu"
+  "app.org.localsend.localsend_app": "Fișiere pe telefon sau pe alt calculator de acasă, fără cablu",
+  "category.chromium_bios_note": "Acest calculator pornește în vechiul mod BIOS, deci probabil e mai vechi. Aplicațiile bazate pe Chromium (marcate mai jos) s-ar putea să nu pornească deloc aici sau să funcționeze doar parțial (de exemplu, o fereastră goală). Ele desenează totul cu cipul grafic și sunt făcute pentru hardware grafic mai nou decât au de obicei calculatoarele vechi. În schimb, Firefox funcționează bine.",
+  "app.chromium_bios_badge": "S-ar putea să nu funcționeze pe acest calculator"
 }

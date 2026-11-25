@@ -1302,5 +1302,13 @@
   "Go back to this point": "ກັບໄປຈຸດນີ້",
   "Create a restore point": "ສ້າງຈຸດກູ້ຄືນ",
   "Go back to this restore point?": "ກັບໄປຈຸດກູ້ຄືນນີ້ບໍ?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. ຫຼັງຈາກເປີດຄືນໃໝ່ ຄອມພິວເຕີຈະເລີ່ມດ້ວຍເວີຊັນລະບົບ ແລະ ການຕັ້ງຄ່າຂອງຕອນນັ້ນ. ໄຟລ໌ຂອງທ່ານ (ເອກະສານ, ຮູບພາບ, ການດາວໂຫຼດ) ຍັງຄືເກົ່າ ແລະ ການຕັ້ງຄ່າປັດຈຸບັນຈະຖືກເກັບແຍກໄວ້."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. ຫຼັງຈາກເປີດຄືນໃໝ່ ຄອມພິວເຕີຈະເລີ່ມດ້ວຍເວີຊັນລະບົບ ແລະ ການຕັ້ງຄ່າຂອງຕອນນັ້ນ. ໄຟລ໌ຂອງທ່ານ (ເອກະສານ, ຮູບພາບ, ການດາວໂຫຼດ) ຍັງຄືເກົ່າ ແລະ ການຕັ້ງຄ່າປັດຈຸບັນຈະຖືກເກັບແຍກໄວ້.",
+  "Your allowed hours haven't started yet.": "ຊົ່ວໂມງທີ່ອະນຸຍາດຂອງເຈົ້າຍັງບໍ່ທັນເລີ່ມ.",
+  "Your allowed hours are over for today.": "ຊົ່ວໂມງທີ່ອະນຸຍາດຂອງເຈົ້າສຳລັບມື້ນີ້ໝົດແລ້ວ.",
+  "You've used up today's screen time.": "ເຈົ້າໃຊ້ເວລາໜ້າຈໍຂອງມື້ນີ້ໝົດແລ້ວ.",
+  "You can use the computer from {time}.": "ເຈົ້າສາມາດໃຊ້ຄອມພິວເຕີໄດ້ຕັ້ງແຕ່ {time}.",
+  "Unlock now": "ປົດລັອກດຽວນີ້",
+  "Don't remind me": "ບໍ່ຕ້ອງເຕືອນຂ້ອຍ",
+  "Your saved passwords are locked": "ລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ຂອງເຈົ້າຖືກລັອກຢູ່",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "ເຈົ້າເຂົ້າສູ່ລະບົບອັດຕະໂນມັດໂດຍບໍ່ມີລະຫັດຜ່ານ, ສະນັ້ນລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ (Wi-Fi, ໂຟນເດີເຄືອຂ່າຍ, ບຣາວເຊີ) ຈຶ່ງປົດລັອກບໍ່ໄດ້. ເທື່ອທຳອິດທີ່ຕ້ອງການອັນໃດອັນໜຶ່ງ, ຈະຖາມລະຫັດຜ່ານບັນຊີຂອງເຈົ້າເທື່ອດຽວ; ຫຼັງຈາກນັ້ນມັນຈະຢູ່ໃນສະຖານະປົດລັອກຈົນກວ່າເຈົ້າຈະເປີດເຄື່ອງໃໝ່."
 }

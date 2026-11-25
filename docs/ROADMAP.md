@@ -84,8 +84,8 @@ from a terminal must also work from a GUI.
   to the plain MBR layout (commit 29cd106's, the script of the tested ISO) for every ISO, and the installer's BIOS
   mode stays allowed. The installed disk stays MBR in BIOS mode: the VAIO's BIOS starts no GPT disk
   at all (2026-11-16), so converting it to GPT would make it unbootable
-- [ ] 2026-11-17: the test ISO (v4, test-branch image) tried at school
-- [ ] Ship it as **Sloth OS 2.0** (next week): a new ISO, README / website requirements (they still say "UEFI only").
+- [x] 2026-11-17: the test ISO (v4, test-branch image) tried at school (superseded: the 2.0 ISO went out 2026-11-18)
+- [x] Ship it as **Sloth OS 2.0** (released 2026-11-18, see below): a new ISO, README / website requirements (they still say "UEFI only").
   2026-11-18: the release commit is on the test branch (SLOTH_VERSION 2.0, What's new in 2.0 in 50 languages,
   docs/releases/2.0.md, README: 2.0 notes and BIOS in the requirements). Still to do: test → main, the ISO from
   main's image, the HP reinstalled from it (the install test), SourceForge, the website (requirements, download)
@@ -131,7 +131,7 @@ from a terminal must also work from a GUI.
 - [x] **The website for 2.0** (done 2026-11-18 evening, website main 3f82e3b): the rolling-out notice, then the
   download, checksum and release notes; BIOS-mode PCs in the requirements; the new home page (branch website-2.0
   merged) with the 7 layouts made in a VM (out/layouts-2.0, layouts.webp) and new Sloth Center shots (assets/shots/v2)
-- [ ] The HP back to the test branch (it follows :latest since its 2.0 reinstall): one rpm-ostree rebase command
+- [x] The HP back to the test branch (it followed :latest after its 2.0 reinstall): one rpm-ostree rebase command (done)
   Still on Fedora 44: no Fedora 45 base until umu-launcher supports it. BIOS support paused (see above): 2.0 may go
   out without it
 
@@ -528,9 +528,19 @@ System status with the check-up, Help and feedback). It goes out as **1.6** (new
   Tried in the VM, plus three checks in `tools/tests/family_web_test.sh` (16 OK)
 - [x] Fixed: under pam_exec the screen time check's log line went to the sign-in screen as a message too; it goes to
   the journal now
-- [ ] Known: the sign-in screen (plasma-login-manager 6.8) shows only "Login Failed" when a child is refused: our
+- [x] Known: the sign-in screen (plasma-login-manager 6.8) shows only "Login Failed" when a child is refused: our
   reason arrives as an information message and the greeter overwrites it with "Login Failed" (its Main.qml). Needs a
-  change upstream (or our own greeter theme)
+  change upstream (or our own greeter theme).
+  Done 2026-11-25 (the user: say what is going on): the refusal now says why, "Your allowed hours haven't started
+  yet." / "Your allowed hours are over for today." / "You've used up today's screen time." plus when the computer
+  can be used (screen-time's `decide` gives a `why`; 4 new texts in 50 languages). The greeter's QML is compiled
+  into its binary, so `files/scripts/greeter-reason.sh` rebuilds plasma-login-greeter from Fedora's own source
+  package of the installed version with a small Main.qml change: a message starting with U+2063 (the screen time
+  check's mark) is kept and shown instead of "Login Failed" until the next try; every other failure looks as
+  before. Anything unexpected (no source package, Main.qml changed, the build or its `--test` start failing) keeps
+  the stock greeter, with a warning in the build log
+- [ ] On the HP / in a VM: a child outside the allowed hours, and with the daily limit used up: the sign-in screen
+  shows the reason and the time; a wrong password still says "Login Failed"; the CI log says the greeter was rebuilt
 
 ### Sloth Center's sidebar in groups (2026-11-14, test branch)
 - [x] After trying the one-settings-app build: the sidebar was a long, unordered list, and More settings had four
@@ -877,8 +887,8 @@ tests: `tools/tests/test_windows_import.py`, 50 languages).
   Sloth Center → Updates says so with "Resume automatic updates", and installing an update by hand resumes it. The
   "An update is ready" notification closes when that version no longer starts next; two versions with the same name
   show their build time. Tried: the notification closing (fake notify-send / rpm-ostree), the helper's gate.
-- [ ] Wi-Fi: Lite-On 802.11n PCIe card crashes on Linux; waiting for the chip's name (Realtek rtl8188ee/rtl8192ce
-  usually need `ips=0 fwlps=0`-like options)
+- [x] Wi-Fi: Lite-On 802.11n PCIe card crashes on Linux; waiting for the chip's name (Realtek rtl8188ee/rtl8192ce
+  usually need `ips=0 fwlps=0`-like options). Closed 2026-11-25: the reporter never wrote back in Discussions; reopen if it comes up again
 - [x] A desktop shortcut to a web address is hard to find (dragging a Firefox bookmark to the desktop did nothing):
   right-click on the desktop (or in Dolphin) → Create New → **Website shortcut…** (2026-11-10, test branch): asks
   for a name and an address and makes a link icon. Plasma's empty-desktop menu cannot take new top-level items
@@ -909,6 +919,14 @@ tests: `tools/tests/test_windows_import.py`, 50 languages).
   and removes them when the card is gone. Tried with fake sysfs trees (GTS 450, GTX 1060, RTX 4060, the NVIDIA
   driver, AMD), and in the VM that Flatpak takes the override (`flatpak override --show`). Still to see on his
   machine.
+- [x] KWallet on a password-free login (autologin), when and why it asks (2026-11-25, the user: it must not be a
+  problem, and say when and why it asks for the password): on an automatic sign-in with the store still locked
+  30 s after the desktop came up (no encrypted disk), a notification says it beforehand: why it is locked, that
+  the account password is asked once, and it then stays open until the restart; "Unlock now" asks right away
+  (KDE's window), "Don't remind me" stops it for the account (`sloth_center/wallet_notify.py`,
+  `sloth-wallet-notify.service`; tests: `tools/tests/test_wallet_notify.py`). `/etc/xdg/kwalletrc` writes out
+  KWallet's defaults that keep it open once unlocked (Leave Open, no closing when idle or on the screen saver),
+  so it really asks once per session. To check on the HP: autologin without an encrypted disk
 - [ ] KWallet on a password-free login (autologin): every network password asks for the wallet's password (his
   Windows shares); see "Opening the password store (KWallet) on a password-free login" below. On an encrypted
   disk the boot password opens it now (`kwallet-autologin.sh`: pam_systemd_loadkey + pam_kwallet in the auth part of
@@ -982,6 +1000,11 @@ Sharing:
 - [ ] Brave, Chrome, Spotify (Chromium/Electron) crash at start on the GTS 450: check again once the machine is
   back on the standard version with nouveau; if they still crash, their GPU acceleration is the suspect 2026-11-04 (1.4.1, his machine): no crash any more, but it opens, shows no page and takes no
   typing; suspects: a KDE Wallet prompt hidden behind it (asked him), or the `LIBGL_ALWAYS_SOFTWARE` override
+  2026-11-25 (the user): on BIOS/legacy machines it is said up front instead. Sloth Welcome, on a computer that
+  started in the old BIOS mode (no /sys/firmware/efi): a warning on the categories with Chromium-based apps (they
+  may not start or only partly work: they draw everything with the graphics chip and are made for newer graphics
+  hardware than older computers usually have; Firefox works well instead), and "May not work on this computer" on
+  each such app (`catalog.CHROMIUM`, the same list as old-nvidia-apps; 2 texts in 50 languages)
 
 ### Sloth OS 1.3
 - [x] Folder sharing on the home network (Dolphin → Share, Sloth Center → Disks), AD groups, the highlight color on

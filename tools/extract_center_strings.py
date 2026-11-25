@@ -26,7 +26,8 @@ def desktop_strings():
 
 def strings():
     found = []
-    for f in sorted(PKG.glob("*.py")):
+    # the screen time service's texts (the sign-in screen's reason) are Sloth Center's too
+    for f in sorted(PKG.glob("*.py")) + [PKG.parents[3] / "libexec/sloth-os/screen-time"]:
         for node in ast.walk(ast.parse(f.read_text(encoding="utf-8"))):
             if isinstance(node, ast.Call) and getattr(node.func, "id", None) in ("tr", "N_") \
                     and node.args and isinstance(node.args[0], ast.Constant) and isinstance(node.args[0].value, str):

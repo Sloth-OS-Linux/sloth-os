@@ -223,5 +223,7 @@
   "linux.user": "Linux-konto:",
   "linux.bookmarks_file": "Linux-bokmerke.html",
   "linux.bookmarks_folder": "Frå Linux",
-  "app.org.localsend.localsend_app": "Filer til telefonen eller ei anna datamaskin heime, utan kabel"
+  "app.org.localsend.localsend_app": "Filer til telefonen eller ei anna datamaskin heime, utan kabel",
+  "category.chromium_bios_note": "Denne datamaskina startar i den gamle BIOS-modusen, så ho er truleg eldre. Appar bygde på Chromium (merkte nedanfor) startar kanskje ikkje i det heile her, eller verkar berre delvis (til dømes eit tomt vindauge). Dei teiknar alt med grafikkbrikka og er laga for nyare grafikkmaskinvare enn eldre datamaskiner vanlegvis har. Firefox fungerer godt i staden.",
+  "app.chromium_bios_badge": "Verkar kanskje ikkje på denne datamaskina"
 }

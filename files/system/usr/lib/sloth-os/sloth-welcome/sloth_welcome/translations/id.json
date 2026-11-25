@@ -223,5 +223,7 @@
   "linux.user": "Akun Linux:",
   "linux.bookmarks_file": "Markah Linux.html",
   "linux.bookmarks_folder": "Dari Linux",
-  "app.org.localsend.localsend_app": "File ke ponsel atau komputer lain di rumah, tanpa kabel"
+  "app.org.localsend.localsend_app": "File ke ponsel atau komputer lain di rumah, tanpa kabel",
+  "category.chromium_bios_note": "Komputer ini menyala dalam mode BIOS lama, jadi kemungkinan komputer lama. Aplikasi berbasis Chromium (ditandai di bawah) mungkin sama sekali tidak bisa berjalan di sini, atau hanya berjalan sebagian (misalnya jendela kosong). Aplikasi ini menggambar semuanya dengan cip grafis dan dibuat untuk perangkat keras grafis yang lebih baru daripada yang biasanya dimiliki komputer lama. Firefox berjalan baik sebagai gantinya.",
+  "app.chromium_bios_badge": "Mungkin tidak berjalan di komputer ini"
 }

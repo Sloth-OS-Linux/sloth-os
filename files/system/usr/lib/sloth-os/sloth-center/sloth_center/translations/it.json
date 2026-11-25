@@ -1302,5 +1302,13 @@
   "Go back to this point": "Torna a questo punto",
   "Create a restore point": "Crea un punto di ripristino",
   "Go back to this restore point?": "Tornare a questo punto di ripristino?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Dopo un riavvio il computer si avvia con la versione del sistema e le impostazioni di allora. I tuoi file (documenti, immagini, download) restano come sono, e le impostazioni attuali vengono messe da parte."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Dopo un riavvio il computer si avvia con la versione del sistema e le impostazioni di allora. I tuoi file (documenti, immagini, download) restano come sono, e le impostazioni attuali vengono messe da parte.",
+  "Your allowed hours haven't started yet.": "Le tue ore consentite non sono ancora iniziate.",
+  "Your allowed hours are over for today.": "Le tue ore consentite sono finite per oggi.",
+  "You've used up today's screen time.": "Hai esaurito il tempo davanti allo schermo di oggi.",
+  "You can use the computer from {time}.": "Potrai usare il computer dalle {time}.",
+  "Unlock now": "Sblocca ora",
+  "Don't remind me": "Non ricordarmelo",
+  "Your saved passwords are locked": "Le tue password salvate sono bloccate",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Hai effettuato l'accesso automaticamente, senza password, quindi le tue password salvate (Wi-Fi, cartelle di rete, browser) non sono state sbloccate. La prima volta che ne serve una, ti verrà chiesta la password del tuo account una sola volta; dopo restano sbloccate fino al riavvio."
 }

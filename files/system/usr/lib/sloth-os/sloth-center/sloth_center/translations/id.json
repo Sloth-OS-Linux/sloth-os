@@ -1302,5 +1302,13 @@
   "Go back to this point": "Kembali ke titik ini",
   "Create a restore point": "Buat titik pemulihan",
   "Go back to this restore point?": "Kembali ke titik pemulihan ini?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Setelah dimulai ulang, komputer menyala dengan versi sistem dan pengaturan saat itu. File Anda (dokumen, gambar, unduhan) tetap seperti semula, dan pengaturan saat ini disimpan terpisah."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Setelah dimulai ulang, komputer menyala dengan versi sistem dan pengaturan saat itu. File Anda (dokumen, gambar, unduhan) tetap seperti semula, dan pengaturan saat ini disimpan terpisah.",
+  "Your allowed hours haven't started yet.": "Jam yang diizinkan untukmu belum dimulai.",
+  "Your allowed hours are over for today.": "Jam yang diizinkan untukmu sudah selesai untuk hari ini.",
+  "You've used up today's screen time.": "Kamu sudah menghabiskan waktu layar hari ini.",
+  "You can use the computer from {time}.": "Kamu bisa memakai komputer mulai pukul {time}.",
+  "Unlock now": "Buka kunci sekarang",
+  "Don't remind me": "Jangan ingatkan aku",
+  "Your saved passwords are locked": "Kata sandi tersimpanmu terkunci",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Kamu masuk secara otomatis, tanpa kata sandi, jadi kata sandi tersimpanmu (Wi-Fi, folder jaringan, peramban) tidak bisa dibuka. Saat pertama kali salah satunya dibutuhkan, kamu akan diminta kata sandi akunmu sekali; setelah itu tetap terbuka sampai kamu memulai ulang."
 }

@@ -1302,5 +1302,13 @@
   "Go back to this point": "Gå tilbake til dette punktet",
   "Create a restore point": "Lag eit gjenopprettingspunkt",
   "Go back to this restore point?": "Gå tilbake til dette gjenopprettingspunktet?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Etter ein omstart startar datamaskina med den systemversjonen og dei innstillingane. Filene dine (dokument, bilete, nedlastingar) blir verande som dei er, og dei noverande innstillingane blir lagde til sides."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Etter ein omstart startar datamaskina med den systemversjonen og dei innstillingane. Filene dine (dokument, bilete, nedlastingar) blir verande som dei er, og dei noverande innstillingane blir lagde til sides.",
+  "Your allowed hours haven't started yet.": "Dei tillatne timane dine har ikkje byrja enno.",
+  "Your allowed hours are over for today.": "Dei tillatne timane dine er over for i dag.",
+  "You've used up today's screen time.": "Du har brukt opp skjermtida for i dag.",
+  "You can use the computer from {time}.": "Du kan bruke datamaskina frå kl. {time}.",
+  "Unlock now": "Lås opp no",
+  "Don't remind me": "Ikkje minn meg på det",
+  "Your saved passwords are locked": "Dei lagra passorda dine er låste",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Du logga på automatisk utan passord, så dei lagra passorda dine (Wi-Fi, nettverksmapper, nettlesarar) kunne ikkje låsast opp. Første gongen eitt av dei trengst, blir du spurd om passordet til kontoen din éin gong; etter det blir dei verande opplåste til du startar på nytt."
 }

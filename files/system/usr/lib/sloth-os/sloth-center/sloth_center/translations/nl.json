@@ -1302,5 +1302,13 @@
   "Go back to this point": "Terug naar dit punt",
   "Create a restore point": "Herstelpunt maken",
   "Go back to this restore point?": "Teruggaan naar dit herstelpunt?",
-  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Na een herstart start de computer met de systeemversie en de instellingen van toen. Je bestanden (documenten, afbeeldingen, downloads) blijven zoals ze zijn, en de huidige instellingen worden apart bewaard."
+  "{point}. After a restart the computer starts with the system version and the settings it had then. Your files (documents, pictures, downloads) stay as they are, and the settings in use now are kept aside.": "{point}. Na een herstart start de computer met de systeemversie en de instellingen van toen. Je bestanden (documenten, afbeeldingen, downloads) blijven zoals ze zijn, en de huidige instellingen worden apart bewaard.",
+  "Your allowed hours haven't started yet.": "Je toegestane uren zijn nog niet begonnen.",
+  "Your allowed hours are over for today.": "Je toegestane uren zijn voor vandaag voorbij.",
+  "You've used up today's screen time.": "Je hebt de schermtijd van vandaag opgebruikt.",
+  "You can use the computer from {time}.": "Je kunt de computer vanaf {time} gebruiken.",
+  "Unlock now": "Nu ontgrendelen",
+  "Don't remind me": "Niet meer herinneren",
+  "Your saved passwords are locked": "Je opgeslagen wachtwoorden zijn vergrendeld",
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Je bent automatisch aangemeld, zonder wachtwoord, dus je opgeslagen wachtwoorden (wifi, netwerkmappen, browsers) konden niet worden ontgrendeld. De eerste keer dat er een nodig is, wordt je één keer om het wachtwoord van je account gevraagd; daarna blijven ze ontgrendeld tot je opnieuw opstart."
 }

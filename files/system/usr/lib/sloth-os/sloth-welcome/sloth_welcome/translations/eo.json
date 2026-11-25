@@ -223,5 +223,7 @@
   "linux.user": "Linux-konto:",
   "linux.bookmarks_file": "Linux-legosignoj.html",
   "linux.bookmarks_folder": "El Linux",
-  "app.org.localsend.localsend_app": "Dosieroj al via telefono aŭ alia komputilo hejme, sen kablo"
+  "app.org.localsend.localsend_app": "Dosieroj al via telefono aŭ alia komputilo hejme, sen kablo",
+  "category.chromium_bios_note": "Ĉi tiu komputilo ekfunkcias en la malnova BIOS-reĝimo, do ĝi verŝajne estas malnova. Aplikaĵoj konstruitaj sur Chromium (markitaj sube) eble tute ne lanĉiĝos ĉi tie, aŭ funkcios nur parte (ekzemple, malplena fenestro). Ili desegnas ĉion per la grafika ĉipo kaj estas faritaj por pli nova grafika aparataro ol malnovaj komputiloj kutime havas. Firefox anstataŭe bone funkcias.",
+  "app.chromium_bios_badge": "Eble ne funkcios en ĉi tiu komputilo"
 }
