@@ -1310,5 +1310,8 @@
   "Unlock now": "افتح القفل الآن",
   "Don't remind me": "لا تذكّرني",
   "Your saved passwords are locked": "كلمات المرور المحفوظة لديك مقفلة",
-  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "لقد سجّلت الدخول تلقائيًا من دون كلمة مرور، لذلك تعذّر فتح كلمات المرور المحفوظة لديك (Wi-Fi، مجلدات الشبكة، المتصفحات). في أول مرة تحتاج فيها إلى إحداها، سيُطلب منك إدخال كلمة مرور حسابك مرة واحدة؛ وبعد ذلك تبقى مفتوحة حتى تعيد التشغيل."
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "لقد سجّلت الدخول تلقائيًا من دون كلمة مرور، لذلك تعذّر فتح كلمات المرور المحفوظة لديك (Wi-Fi، مجلدات الشبكة، المتصفحات). في أول مرة تحتاج فيها إلى إحداها، سيُطلب منك إدخال كلمة مرور حسابك مرة واحدة؛ وبعد ذلك تبقى مفتوحة حتى تعيد التشغيل.",
+  "the setting that made this game start on other computers": "الإعداد الذي جعل هذه اللعبة تعمل على حواسيب أخرى",
+  "Share what fixed a game": "شارك ما أصلح اللعبة",
+  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "عندما يجعل Sloth OS لعبة Steam لم تكن تعمل تبدأ بالعمل، يمكنه أن يشارك بشكل مجهول الإعداد الذي ساعد، كي تعمل اللعبة من المحاولة الأولى على حواسيب Sloth OS الأخرى أيضًا. لا يُرسل إلا الإعداد والشركة المصنّعة لبطاقة الرسوميات ورقم اللعبة العام على Steam: لا اسمك ولا ملفاتك ولا حسابك على Steam."
 }

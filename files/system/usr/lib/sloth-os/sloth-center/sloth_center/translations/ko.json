@@ -1310,5 +1310,8 @@
   "Unlock now": "지금 잠금 해제",
   "Don't remind me": "다시 알리지 않기",
   "Your saved passwords are locked": "저장된 비밀번호가 잠겨 있어요",
-  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "비밀번호 없이 자동으로 로그인해서 저장된 비밀번호(Wi-Fi, 네트워크 폴더, 브라우저)의 잠금을 풀 수 없었어요. 처음으로 하나가 필요할 때 계정 비밀번호를 한 번 물어봐요. 그 후에는 다시 시작할 때까지 잠금이 풀린 상태로 유지돼요."
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "비밀번호 없이 자동으로 로그인해서 저장된 비밀번호(Wi-Fi, 네트워크 폴더, 브라우저)의 잠금을 풀 수 없었어요. 처음으로 하나가 필요할 때 계정 비밀번호를 한 번 물어봐요. 그 후에는 다시 시작할 때까지 잠금이 풀린 상태로 유지돼요.",
+  "the setting that made this game start on other computers": "다른 컴퓨터에서 이 게임이 시작된 설정",
+  "Share what fixed a game": "게임을 고친 설정 공유",
+  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "Sloth OS가 시작되지 않던 Steam 게임을 실행되게 하면, 어떤 설정이 도움이 됐는지 익명으로 공유해서 다른 Sloth OS 컴퓨터에서도 그 게임이 한 번에 시작되게 할 수 있어요. 설정, 그래픽 카드 제조사, 게임의 공개 Steam 번호만 보내요. 이름, 파일, Steam 계정은 보내지 않아요."
 }

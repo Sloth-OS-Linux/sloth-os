@@ -1310,5 +1310,8 @@
   "Unlock now": "立即解鎖",
   "Don't remind me": "不再提醒",
   "Your saved passwords are locked": "你儲存的密碼已鎖定",
-  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "你是不輸入密碼自動登入的，所以你儲存的密碼（Wi-Fi、網路資料夾、瀏覽器）無法解鎖。第一次需要用到其中某個密碼時，會詢問一次你的帳號密碼；之後在重新開機前它們會一直保持解鎖。"
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "你是不輸入密碼自動登入的，所以你儲存的密碼（Wi-Fi、網路資料夾、瀏覽器）無法解鎖。第一次需要用到其中某個密碼時，會詢問一次你的帳號密碼；之後在重新開機前它們會一直保持解鎖。",
+  "the setting that made this game start on other computers": "讓這個遊戲在其他電腦上成功啟動的設定",
+  "Share what fixed a game": "分享修好遊戲的設定",
+  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "當 Sloth OS 讓一款無法啟動的 Steam 遊戲執行起來時，可以匿名分享是哪項設定發揮了作用，讓這款遊戲在其他 Sloth OS 電腦上也能一次啟動。只會傳送該設定、你的顯示卡製造商和遊戲公開的 Steam 編號：不會傳送你的名字、檔案或 Steam 帳號。"
 }

@@ -1310,5 +1310,8 @@
   "Unlock now": "לשחרר נעילה עכשיו",
   "Don't remind me": "לא להזכיר לי",
   "Your saved passwords are locked": "הסיסמאות השמורות שלך נעולות",
-  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "נכנסת אוטומטית, בלי סיסמה, ולכן לא ניתן היה לשחרר את הסיסמאות השמורות שלך (Wi-Fi, תיקיות רשת, דפדפנים). בפעם הראשונה שתידרש אחת מהן, תתבקש להזין את סיסמת החשבון שלך פעם אחת; אחר כך הן יישארו פתוחות עד ההפעלה מחדש."
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "נכנסת אוטומטית, בלי סיסמה, ולכן לא ניתן היה לשחרר את הסיסמאות השמורות שלך (Wi-Fi, תיקיות רשת, דפדפנים). בפעם הראשונה שתידרש אחת מהן, תתבקש להזין את סיסמת החשבון שלך פעם אחת; אחר כך הן יישארו פתוחות עד ההפעלה מחדש.",
+  "the setting that made this game start on other computers": "ההגדרה שבזכותה המשחק הזה עלה במחשבים אחרים",
+  "Share what fixed a game": "לשתף מה תיקן משחק",
+  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "כש-Sloth OS מצליח להפעיל משחק Steam שלא עלה, הוא יכול לשתף באופן אנונימי איזו הגדרה עזרה, כדי שהמשחק יעלה כבר בניסיון הראשון גם במחשבי Sloth OS אחרים. נשלחים רק ההגדרה, יצרן כרטיס המסך שלך ומספר ה-Steam הציבורי של המשחק: לא השם שלך, לא הקבצים שלך ולא חשבון ה-Steam שלך."
 }

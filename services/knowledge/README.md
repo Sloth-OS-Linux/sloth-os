@@ -40,6 +40,12 @@ A report contains only:
 IP addresses are used only for rate limiting, as a salted hash with a daily-changing salt, and rows
 older than a day are deleted. Turning sharing off deletes the local queue.
 
+**Steam games** (since 2026-11-25) report through the same API, with a separate switch of their own (Sloth Center →
+Games → "Share what fixed a game", off by default): when Sloth OS's fixes make a Steam game start (or not), `program`
+is `SHA-256("sloth-v1|steam|<Steam AppID>")` (`sloth_common/knowledge.py`, `steam_key`). The AppID is public, so
+unlike a Windows program's fingerprint this one can be traced back to the game; the switch's text says so (the
+game's public Steam number). It is still never linked to the person or their Steam account.
+
 ## Abuse protection
 
 - **Allowlist only.** A report may only contain known values: Proton line (`UMU-Proton`, `GE-Proton`),

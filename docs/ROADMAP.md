@@ -160,6 +160,31 @@ from a terminal must also work from a GUI.
 - [ ] On the HP: a game that really doesn't start (or one made to: e.g. a wrong launch option), the notification,
   Try a fix with Steam open (it closes and the game starts again), Undo
 
+### Steam games and the shared knowledge (2026-11-25, test branch)
+- [x] What's wrong with the game? tries the shared knowledge's setting first (`steam_doctor` step "shared"): other
+  Sloth OS machines' reports for the game, then ProtonDB's summary (knowledge.json, `umu-<appid>`), for this GPU
+  vendor first. Given to Steam as it can take it: the profile and the allowed switches in the launch options, a
+  GE-Proton line as the newest installed GE-Proton (none installed: the step is skipped); components (winetricks
+  verbs) cannot be given to a Steam game and are left out. Nothing beyond Steam's default: skipped. A later fix
+  that is the same as the shared setting is not tried again. Text: "the setting that made this game start on other
+  computers" (50 languages)
+- [x] Reporting back, with its own yes: Sloth Center → Games → "Share what fixed a game" (off by default; 2 texts,
+  50 languages). The Windows programs' switch is not enough, because a Steam game is known by its public Steam
+  number (`knowledge.steam_key`), which can be traced back, unlike the promise for Windows programs ("the name
+  cannot be recovered"). Its reports wait in their own queue (`community-games-queue.jsonl`), turning it off
+  deletes them, `sloth-exe --maintenance` sends each queue only while its switch is on. Reported: a fix the
+  knowledge can describe (the shared setting, without fsync, WineD3D with Steam's own Proton, GE-Proton), when the
+  game then runs 2 minutes (worked) or closes at once (failed); Proton Experimental and Proton 9 are not
+  (no word for them). The shared parts moved to `sloth_common/knowledge.py` (GPU vendor, machine ID, queue,
+  allowed switches; sloth-exe's community.py uses them). services/knowledge/README.md says what a Steam report holds
+- [x] Found on the way: Undo gave old-style options back as "%command% -skipintro" instead of "-skipintro"; now exactly
+  as they were when nothing else changed. A saved state from before the new step is counted one step on
+- [x] Tests: `tools/tests/test_steam_doctor.py` (13: the knowledge first, a repeated fix skipped, Sloth machines before
+  ProtonDB, GE only when installed, the reports only with the games switch, the old state)
+- [ ] On the HP: a Steam game with a ProtonDB setting that does not start (or made not to): "Try a fix" puts the
+  shared setting in its launch options first; with "Share what fixed a game" on, the report goes out
+  (`journalctl --user -u sloth-windows-prepare`: "Reports sent")
+
 ### The game library (2026-11-16, test branch, not pushed yet)
 - [x] Sloth Center → Games starts with every game as a cover (2:3), a Play button and a click to start; under it the
   name, the store and "Will it run?". The gear (Steam and Windows games) opens the settings they had before as
@@ -867,7 +892,7 @@ tests: `tools/tests/test_windows_import.py`, 50 languages).
 ### Next to Windows: "a disk check is due" that never goes away (2026-11-03, set aside for now)
 - [x] An unclean journal (Windows not shut down completely) was taken for a due disk check: told apart now
   (`35bcb89`, "unclean"), with Shift + Shut down in the text
-- [ ] On the gaming-PC test the disk check message stayed even after starting Windows to the desktop and Shift +
+- [x] (Gone, the user 2026-11-25: Sloth OS installs next to Windows without it now) On the gaming-PC test the disk check message stayed even after starting Windows to the desktop and Shift +
   Shut down (ISO of 2026-11-03 16:29, before `35bcb89`). Suspect: ntfsresize's own check finds the volume
   "inconsistent" ("Run chkdsk /f"), which Windows does not check by itself. Next time: read `ntfsresize --info` in
   /tmp/sloth-install.log; if so, its own text (Windows: This PC → C: → Properties → Tools → Check, let Windows
@@ -1119,7 +1144,7 @@ Sharing:
   user's own word), the same rule as the Start menu's Games category. Programs → More → "It's a game" lets the
   user say it either way, and the .exe handler no longer overrides that. Tests: `tools/tests/test_apps.py`. Check
   on a real machine
-- [ ] **Medium** — File backup → "Find deleted files…" did not work in the VM (restoring through the saved states
+- [x] (Works, the user 2026-11-25) **Medium** — File backup → "Find deleted files…" did not work in the VM (restoring through the saved states
   did). It worked on a real machine on 2026-10-26, so find out what differs
   2026-11-19: the folder's path end to end on a real btrfs with real snapshots (tools/tests/test_snapshots.py,
   test_find_deleted_files_in_a_folder): the window of the chosen folder (VersionsController, as sloth-versions
@@ -2051,7 +2076,7 @@ fine there needs to be checked only once on a real machine:
   page a green tick, "Verified updates ✓ – the system only accepts updates signed by Sloth OS"
   (`ostree-image-signed` in the running version's origin); if it is not turned on, a warning
 - [ ] Work account: Entra ID; opening the password store (KWallet) with a PIN / fingerprint (details below, Sign-in)
-- [ ] Bringing Steam games into self-healing and the shared knowledge
+- [x] Bringing Steam games into self-healing and the shared knowledge (2026-11-25, see "Steam games and the shared knowledge")
 - [x] Reset from the boot menu (below, item 8)
 - [ ] (After 1.0; decision: 2026-10-20) Windows programs in Discover (details below)
 
@@ -2231,7 +2256,7 @@ Bugs found (we fix them one by one):
   visible. Fixed: a bigger padlock and an input line. At the next test: whether it shows, and what Esc shows
 - [x] On the encrypted disk's password prompt squares showed in place of the typed characters (the initramfs font has no "●").
   Fixed (2026-10-19): the dots come from an image (dot.png), not from text
-- [ ] Installing Battle.net after a fresh (encrypted) install: "Preparing the Battle.net installation…" for 20 minutes, the
+- [x] (Battle.net has run perfectly for a long time, the user 2026-11-25) Installing Battle.net after a fresh (encrypted) install: "Preparing the Battle.net installation…" for 20 minutes, the
   Battle.net installer itself did not come up (test of 2026-10-19). Likely cause: the background preparation starting 3 minutes
   after login (`sloth-windows-prepare`, downloading Proton and the runtime) ran with the "idle" disk priority,
   which almost stops next to other disk work (installing apps, encryption), and umu quietly waited for it.
@@ -2484,7 +2509,7 @@ Bugs found (we fix them one by one):
     writing the settings files stayed in the code (Battle.net, Ubisoft). The first recipes: Battle.net, Epic, GOG Galaxy, Ubisoft Connect
   - [x] The Linux package handler (below) should install into `~/Applications` too (AppImage), with the same library
     (2026-10-19: `sloth_common/apps/packages.py` `install_appimage`, it updates in the background)
-- [ ] Bringing Steam games into self-healing and the shared knowledge
+- [x] Bringing Steam games into self-healing and the shared knowledge (2026-11-25, see "Steam games and the shared knowledge")
 - [ ] Sign-in, next steps (see phase 3, Account and security):
   - [ ] Storing the PIN in the TPM (now a scrypt hash under `/etc/sloth-os/pin`; the TPM would also limit the attempts
     in hardware, and the hash could not be taken to another machine)
@@ -2576,14 +2601,14 @@ Bugs found (we fix them one by one):
 - [x] Color themes: Silver dark (default) and light, Snow White, Midnight Black, Mist Blue, Night Blue, Sage (`tools/branding/gen_colors.py`, preview: `docs/branding/color-schemes-preview.png`)
 - [x] Our own Plasma theme: the style is done, nothing else is planned (decision: 2026-10-15)
 - [x] Login screen (Plasma Login Manager, SDDM as a fallback): the Sloth OS wallpaper, Sloth Silver colors
-- [ ] Check where the name "Fedora" or "Universal Blue" still shows. So far:
+- [x] (Done, the user 2026-11-25) Check where the name "Fedora" or "Universal Blue" still shows. So far:
   - [x] System information, boot menu entries, machine name: they come from os-release (Sloth OS)
   - [x] KDE's welcome app (`plasma-welcome`) is removed from the image (`files/scripts/remove-default-apps.sh`), Sloth
     Welcome runs instead. The earlier turning off with `kded6rc` did not work (in the live system it covered the installer)
   - [x] Default wallpaper: our own Sloth OS wallpaper
   - [x] The firmware (BIOS/UEFI) boot entry's name: our own installer renames it to "Sloth OS" (because of an `lsblk` bug it
     did not run until now, fixed)
-  - [ ] Look through in a VM: login screen, Discover, System Settings
+  - [x] Look through in a VM: login screen, Discover, System Settings
   - [x] The Sloth tools' names and descriptions in the start menu in all 50 languages (2026-10-15; until then they showed in
     Hungarian in every language). The `.desktop` files are written by `tools/gen_desktop_entries.py` from the translations
 
@@ -2782,11 +2807,11 @@ something breaks, there should be something to fix it with): log viewer (kjourna
   (fcitx5 stays, Chinese/Japanese/Korean input works with it too), the KDE and Fedora wallpapers, BlueBuild's
   nushell plugins. Checked package by package what depends on them; tried locally: `/usr` 9612 → 8751 MB.
   `git` stays (to decide). Still to check in a VM that everything needed is there
-- [ ] Apps and updates: Discover · Flatpak permissions: System Settings
-- [ ] Firewall (`firewall-cmd`): System Settings' firewall module
-- [ ] Partitions (`fdisk`, `mkfs`): KDE Partition Manager
-- [ ] Processes (`top`, `kill`): System Monitor
-- [ ] Network, VPN, printers, users, machine name: System Settings
+- [x] Apps and updates: Discover · Flatpak permissions: System Settings
+- [x] Firewall (`firewall-cmd`): System Settings' firewall module
+- [x] Partitions (`fdisk`, `mkfs`): KDE Partition Manager
+- [x] Processes (`top`, `kill`): System Monitor
+- [x] Network, VPN, printers, users, machine name: System Settings
 
 ### Developer panel (for developing Sloth OS) – done 2026-10-19 (still to test on a real machine)
 Sloth Center → Developer panel (`sloth_center/devpanel.py`), without terminal, `gh` and `cosign` (it calls the GitHub REST API

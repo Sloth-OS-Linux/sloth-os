@@ -13,6 +13,7 @@ log = logging.getLogger("sloth-center.game-doctor")
 
 # The fixes (steam_doctor.STEPS), as the user reads them: "Sloth OS is trying: <this>". No "Proton" or "Wine".
 STEP_TEXTS = {
+    "shared": N_("the setting that made this game start on other computers"),
     "nofsync": N_("a safer way for the game to wait for its own tasks"),
     "wined3d": N_("the older graphics mode (without Vulkan)"),
     "experimental": N_("the newest version of the Windows runtime"),

@@ -1310,5 +1310,8 @@
   "Unlock now": "Odemknout teď",
   "Don't remind me": "Nepřipomínat",
   "Your saved passwords are locked": "Tvoje uložená hesla jsou zamčená",
-  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Přihlásil ses automaticky, bez hesla, takže tvoje uložená hesla (Wi-Fi, síťové složky, prohlížeče) nešlo odemknout. Když bude některé poprvé potřeba, jednou se zeptáme na heslo tvého účtu; potom zůstanou odemčená až do restartu."
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "Přihlásil ses automaticky, bez hesla, takže tvoje uložená hesla (Wi-Fi, síťové složky, prohlížeče) nešlo odemknout. Když bude některé poprvé potřeba, jednou se zeptáme na heslo tvého účtu; potom zůstanou odemčená až do restartu.",
+  "the setting that made this game start on other computers": "nastavení, se kterým se tato hra spustila na jiných počítačích",
+  "Share what fixed a game": "Sdílet, co hru spravilo",
+  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "Když Sloth OS rozběhne hru ze Steamu, která se nespouštěla, může anonymně sdílet, které nastavení pomohlo, aby se hra spustila napoprvé i na jiných počítačích se Sloth OS. Odesílá se jen nastavení, výrobce tvé grafické karty a veřejné číslo hry ve Steamu: ne tvé jméno, tvé soubory ani tvůj účet Steam."
 }

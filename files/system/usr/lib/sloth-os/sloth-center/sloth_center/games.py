@@ -16,7 +16,7 @@ from pathlib import Path
 from PySide6.QtCore import QObject, Property, Signal, Slot
 from PySide6.QtGui import QGuiApplication
 
-from sloth_common import game_check, game_library, gamesettings, steam_doctor
+from sloth_common import game_check, game_library, gamesettings, sharing, steam_doctor
 from sloth_common.apps import library, menu, steam, steam_library
 from sloth_common.apps.steam import steam_root, vdf_dump, vdf_load
 
@@ -500,6 +500,16 @@ class GamesController(QObject):
         self.refresh()
 
     steamInstalled = Property(bool, lambda self: steam_root() is not None, notify=changed)
+
+    @Property(bool, notify=changed)
+    def shareFixes(self):
+        """Sharing what fixed a Steam game (sloth_common/sharing.py: share_games, off by default)."""
+        return sharing.games_enabled()
+
+    @Slot(bool)
+    def setShareFixes(self, value):
+        sharing.set_games_enabled(value)
+        self.changed.emit()
 
     @Slot()
     def openBigPicture(self):

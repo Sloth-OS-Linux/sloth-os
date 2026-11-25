@@ -1310,5 +1310,8 @@
   "Unlock now": "今すぐロック解除",
   "Don't remind me": "今後は通知しない",
   "Your saved passwords are locked": "保存したパスワードがロックされています",
-  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "パスワードなしで自動的にサインインしたため、保存したパスワード (Wi-Fi、ネットワークフォルダー、ブラウザー) のロックを解除できませんでした。初めてどれかが必要になったときに、アカウントのパスワードを一度だけ尋ねます。その後は再起動するまでロック解除されたままです。"
+  "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "パスワードなしで自動的にサインインしたため、保存したパスワード (Wi-Fi、ネットワークフォルダー、ブラウザー) のロックを解除できませんでした。初めてどれかが必要になったときに、アカウントのパスワードを一度だけ尋ねます。その後は再起動するまでロック解除されたままです。",
+  "the setting that made this game start on other computers": "ほかのコンピューターでこのゲームが起動した設定",
+  "Share what fixed a game": "ゲームを直した設定を共有",
+  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "起動しなかった Steam のゲームを Sloth OS が動かせたとき、どの設定が役立ったかを匿名で共有できます。ほかの Sloth OS のコンピューターでも、そのゲームが一度で起動するようになります。送られるのは設定、グラフィックカードのメーカー、ゲームの公開 Steam 番号だけです。名前、ファイル、Steam アカウントは送られません。"
 }
