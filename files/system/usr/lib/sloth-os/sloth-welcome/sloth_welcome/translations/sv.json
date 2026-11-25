@@ -47,9 +47,6 @@
   "security.autologin": "Logga in automatiskt: direkt till skrivbordet utan lösenord",
   "security.autologin_note": "Sparade lösenord (t.ex. Wi-Fi, nätverksmappar) frågar då efter ditt lösenord en gång efter varje start, om inte disken är krypterad.",
   "security.later": "Du kan finjustera detta senare i Sloth Center (Konto och säkerhet).",
-  "sharing.heading": "Hjälp Windows-program att starta på första försöket för alla",
-  "sharing.text": "När du startar ett Windows-program eller -spel hittar Sloth OS själv den inställning som får det att fungera. Om du tillåter det delar vi den fungerande inställningen anonymt, så att det startar på första försöket även på andra Sloth OS-datorer.",
-  "sharing.what": "Bara detta skickas: inställningen (till exempel ”äldre grafikläge”), tillverkaren av ditt grafikkort och ett fingeravtryck av programmet som namnet inte kan återskapas från. Inget annat lämnar din dator: varken ditt namn, dina filer, programmets namn eller när och hur mycket du använder det.",
   "sharing.yes": "Ja, dela anonymt",
   "sharing.no": "Nej tack",
   "sharing.later": "Du kan ändra det när som helst senare i Sloth Center. Inställningarna som fungerat på andra datorer får du i vilket fall som helst.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Från Linux",
   "app.org.localsend.localsend_app": "Filer till mobilen eller en annan dator hemma, utan kabel",
   "category.chromium_bios_note": "Den här datorn startar i det gamla BIOS-läget, så den är troligen äldre. Appar byggda på Chromium (markerade nedan) kanske inte startar alls här, eller fungerar bara delvis (till exempel ett tomt fönster). De ritar allt med grafikkretsen och är gjorda för nyare grafikhårdvara än äldre datorer brukar ha. Firefox fungerar bra i stället.",
-  "app.chromium_bios_badge": "Fungerar kanske inte på den här datorn"
+  "app.chromium_bios_badge": "Fungerar kanske inte på den här datorn",
+  "sharing.heading_all": "Hjälp spel och program att starta på första försöket för alla",
+  "sharing.text_all": "När ett Windows-program eller ett Steam-spel inte startar direkt letar Sloth OS själv efter en inställning som fungerar. Om du tillåter det delar vi inställningen som fungerade anonymt, så att det startar på första försöket på andra Sloth OS-datorer också.",
+  "sharing.what_all": "Bara inställningen (till exempel ”äldre grafikläge”) och tillverkaren av ditt grafikkort skickas, tillsammans med vilket program eller spel det gällde, som beskrivs nedan. Inget annat lämnar din dator: inte ditt namn, inte dina filer, inte dina konton och inte när eller hur mycket du använder den.",
+  "sharing.programs": "Windows-program och spel som inte är från Steam (Battle.net, EA app, ett installationsprogram du laddat ner…): bara ett fingeravtryck av programmet skickas, namnet kan inte tas fram ur det",
+  "sharing.games": "Steam-spel: spelets offentliga Steam-nummer skickas, så inställningen kan kopplas till spelet, men aldrig till dig"
 }

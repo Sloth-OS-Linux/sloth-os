@@ -389,7 +389,6 @@
   "Updates, rollback, drivers and everything that would otherwise need a terminal": "更新、回滚、驱动程序，以及其他原本需要终端完成的一切",
   "update;rollback;driver;settings": "更新;回滚;驱动;设置",
   "Share experiences": "分享经验",
-  "When a program starts on your computer, we anonymously share which setting worked, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer are sent: not your name, not your files, not the program's name.": "当程序在你的电脑上成功启动时，我们会匿名分享哪种设置有效，让它在其他 Sloth OS 电脑上也能一次启动。只会发送设置和显卡制造商：不包括你的名字、你的文件或程序名称。",
   "NVIDIA driver": "NVIDIA 驱动程序",
   "The driver for your NVIDIA graphics card is ready. After a restart it runs at full power.": "你的 NVIDIA 显卡驱动程序已准备就绪。重启后即可发挥全部性能。",
   "The driver for your NVIDIA graphics card is ready. When you restart, the computer asks for confirmation on a blue screen: Sloth Center shows you step by step what to do there.": "你的 NVIDIA 显卡驱动程序已准备就绪。重启时电脑会在蓝色屏幕上要求确认：Sloth 中心会一步步告诉你该怎么做。",
@@ -1312,6 +1311,9 @@
   "Your saved passwords are locked": "你保存的密码已锁定",
   "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "你是不输入密码自动登录的，所以你保存的密码（Wi-Fi、网络文件夹、浏览器）无法解锁。第一次需要用到其中某个密码时，会询问一次你的账户密码；之后在重启前它们会一直保持解锁。",
   "the setting that made this game start on other computers": "让这个游戏在其他电脑上成功启动的设置",
-  "Share what fixed a game": "分享修好游戏的设置",
-  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "当 Sloth OS 让一款无法启动的 Steam 游戏运行起来时，可以匿名分享是哪项设置起了作用，让这款游戏在其他 Sloth OS 电脑上也能一次启动。只会发送该设置、你的显卡制造商和游戏公开的 Steam 编号：不会发送你的名字、文件或 Steam 账户。"
+  "When a Windows program or a Steam game doesn't start right away and Sloth OS finds a setting that works, it can share that setting anonymously, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer go with it: never your name, your files or your accounts. You get the settings that worked on other computers either way.": "当某个 Windows 程序或 Steam 游戏不能马上启动，而 Sloth OS 找到了可用的设置时，可以匿名分享该设置，让它在其他 Sloth OS 电脑上也能一次启动。随之发送的只有设置和你的显卡制造商：绝不会发送你的名字、文件或账户。无论如何，你都会收到在其他电脑上起作用的设置。",
+  "Windows programs and games not from Steam": "Windows 程序和非 Steam 游戏",
+  "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "只发送程序的指纹：无法从中还原它的名称。",
+  "Steam games": "Steam 游戏",
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "会发送游戏公开的 Steam 编号，因此设置可以对应到游戏，但永远不会对应到你。"
 }

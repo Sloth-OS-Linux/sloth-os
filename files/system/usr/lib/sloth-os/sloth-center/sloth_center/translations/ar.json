@@ -389,7 +389,6 @@
   "Updates, rollback, drivers and everything that would otherwise need a terminal": "التحديثات والاستعادة والتعريفات وكل ما كان سيحتاج إلى طرفية",
   "update;rollback;driver;settings": "تحديث;استعادة;تعريف;إعدادات",
   "Share experiences": "مشاركة التجارب",
-  "When a program starts on your computer, we anonymously share which setting worked, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer are sent: not your name, not your files, not the program's name.": "عندما يعمل برنامج على حاسوبك، نشارك دون الكشف عن هويتك الإعداد الذي نجح، ليعمل من المحاولة الأولى على أجهزة Sloth OS الأخرى أيضًا. يُرسل الإعداد والشركة المصنعة لبطاقة الرسوميات فقط: لا اسمك ولا ملفاتك ولا اسم البرنامج.",
   "NVIDIA driver": "برنامج تشغيل NVIDIA",
   "The driver for your NVIDIA graphics card is ready. After a restart it runs at full power.": "برنامج تشغيل بطاقة الرسوميات NVIDIA جاهز. بعد إعادة التشغيل تعمل بكامل قوتها.",
   "The driver for your NVIDIA graphics card is ready. When you restart, the computer asks for confirmation on a blue screen: Sloth Center shows you step by step what to do there.": "برنامج تشغيل بطاقة الرسوميات NVIDIA جاهز. عند إعادة التشغيل سيطلب الحاسوب تأكيدًا على شاشة زرقاء: يوضح لك مركز Sloth خطوة بخطوة ما عليك فعله هناك.",
@@ -1312,6 +1311,9 @@
   "Your saved passwords are locked": "كلمات المرور المحفوظة لديك مقفلة",
   "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "لقد سجّلت الدخول تلقائيًا من دون كلمة مرور، لذلك تعذّر فتح كلمات المرور المحفوظة لديك (Wi-Fi، مجلدات الشبكة، المتصفحات). في أول مرة تحتاج فيها إلى إحداها، سيُطلب منك إدخال كلمة مرور حسابك مرة واحدة؛ وبعد ذلك تبقى مفتوحة حتى تعيد التشغيل.",
   "the setting that made this game start on other computers": "الإعداد الذي جعل هذه اللعبة تعمل على حواسيب أخرى",
-  "Share what fixed a game": "شارك ما أصلح اللعبة",
-  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "عندما يجعل Sloth OS لعبة Steam لم تكن تعمل تبدأ بالعمل، يمكنه أن يشارك بشكل مجهول الإعداد الذي ساعد، كي تعمل اللعبة من المحاولة الأولى على حواسيب Sloth OS الأخرى أيضًا. لا يُرسل إلا الإعداد والشركة المصنّعة لبطاقة الرسوميات ورقم اللعبة العام على Steam: لا اسمك ولا ملفاتك ولا حسابك على Steam."
+  "When a Windows program or a Steam game doesn't start right away and Sloth OS finds a setting that works, it can share that setting anonymously, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer go with it: never your name, your files or your accounts. You get the settings that worked on other computers either way.": "عندما لا يعمل برنامج ويندوز أو لعبة Steam مباشرة ويجد Sloth OS إعدادًا يعمل، يمكنه مشاركة هذا الإعداد بشكل مجهول، كي يعمل من المحاولة الأولى على حواسيب Sloth OS الأخرى أيضًا. لا يُرسل معه إلا الإعداد والشركة المصنّعة لبطاقة الرسوميات: لا اسمك ولا ملفاتك ولا حساباتك أبدًا. وستحصل على الإعدادات التي نجحت على حواسيب أخرى في كل الأحوال.",
+  "Windows programs and games not from Steam": "برامج ويندوز والألعاب من خارج Steam",
+  "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "تُرسل بصمة للبرنامج فقط: لا يمكن استرجاع اسمه منها.",
+  "Steam games": "ألعاب Steam",
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "يُرسل رقم اللعبة العام على Steam، فيمكن ربط الإعداد باللعبة، لكن لا يمكن ربطه بك أبدًا."
 }

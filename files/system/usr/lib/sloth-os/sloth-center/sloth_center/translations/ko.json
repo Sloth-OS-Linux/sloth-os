@@ -389,7 +389,6 @@
   "Updates, rollback, drivers and everything that would otherwise need a terminal": "업데이트, 롤백, 드라이버 등 원래라면 터미널이 필요한 모든 작업",
   "update;rollback;driver;settings": "업데이트;롤백;드라이버;설정",
   "Share experiences": "경험 공유",
-  "When a program starts on your computer, we anonymously share which setting worked, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer are sent: not your name, not your files, not the program's name.": "프로그램이 컴퓨터에서 실행되면 어떤 설정이 잘 작동했는지 익명으로 공유하여, 다른 Sloth OS 컴퓨터에서도 한 번에 실행되도록 합니다. 설정과 그래픽 카드 제조사만 전송됩니다. 이름, 파일, 프로그램 이름은 전송되지 않습니다.",
   "NVIDIA driver": "NVIDIA 드라이버",
   "The driver for your NVIDIA graphics card is ready. After a restart it runs at full power.": "NVIDIA 그래픽 카드 드라이버가 준비되었습니다. 다시 시작하면 최대 성능으로 작동합니다.",
   "The driver for your NVIDIA graphics card is ready. When you restart, the computer asks for confirmation on a blue screen: Sloth Center shows you step by step what to do there.": "NVIDIA 그래픽 카드 드라이버가 준비되었습니다. 다시 시작할 때 컴퓨터가 파란 화면에서 확인을 요청합니다. 그곳에서 할 일은 Sloth 센터가 단계별로 안내합니다.",
@@ -1312,6 +1311,9 @@
   "Your saved passwords are locked": "저장된 비밀번호가 잠겨 있어요",
   "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "비밀번호 없이 자동으로 로그인해서 저장된 비밀번호(Wi-Fi, 네트워크 폴더, 브라우저)의 잠금을 풀 수 없었어요. 처음으로 하나가 필요할 때 계정 비밀번호를 한 번 물어봐요. 그 후에는 다시 시작할 때까지 잠금이 풀린 상태로 유지돼요.",
   "the setting that made this game start on other computers": "다른 컴퓨터에서 이 게임이 시작된 설정",
-  "Share what fixed a game": "게임을 고친 설정 공유",
-  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "Sloth OS가 시작되지 않던 Steam 게임을 실행되게 하면, 어떤 설정이 도움이 됐는지 익명으로 공유해서 다른 Sloth OS 컴퓨터에서도 그 게임이 한 번에 시작되게 할 수 있어요. 설정, 그래픽 카드 제조사, 게임의 공개 Steam 번호만 보내요. 이름, 파일, Steam 계정은 보내지 않아요."
+  "When a Windows program or a Steam game doesn't start right away and Sloth OS finds a setting that works, it can share that setting anonymously, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer go with it: never your name, your files or your accounts. You get the settings that worked on other computers either way.": "Windows 프로그램이나 Steam 게임이 바로 시작되지 않고 Sloth OS가 작동하는 설정을 찾으면, 그 설정을 익명으로 공유해서 다른 Sloth OS 컴퓨터에서도 한 번에 시작되게 할 수 있어요. 함께 보내는 것은 설정과 그래픽 카드 제조사뿐이고, 이름, 파일, 계정은 절대 보내지 않아요. 다른 컴퓨터에서 효과가 있었던 설정은 어느 쪽이든 받아요.",
+  "Windows programs and games not from Steam": "Windows 프로그램과 Steam이 아닌 게임",
+  "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "프로그램의 지문만 보내요. 여기서 이름을 알아낼 수 없어요.",
+  "Steam games": "Steam 게임",
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "게임의 공개 Steam 번호를 보내므로 설정을 게임과 연결할 수는 있지만, 당신과는 절대 연결할 수 없어요."
 }

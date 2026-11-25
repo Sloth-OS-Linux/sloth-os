@@ -117,6 +117,17 @@ class WinProgramsController(QObject):
         sharing.set_enabled(value)
         self.changed.emit()
 
+    @Property(bool, notify=changed)
+    def gamesSharing(self):
+        """Sharing what fixed a Steam game (sloth_common/steam_doctor.py), a separate yes: the game is known by its
+        public Steam number. Shown with the other switch on the Windows programs and the Games page (SharingCard)."""
+        return sharing.games_enabled()
+
+    @Slot(bool)
+    def setGamesSharing(self, value):
+        sharing.set_games_enabled(value)
+        self.changed.emit()
+
     @Slot()
     def refresh(self):
         # From the old location (~/.local/share/sloth-os/windows-programs) we bring them into the new library once

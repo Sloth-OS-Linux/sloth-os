@@ -47,9 +47,6 @@
   "security.autologin": "Automatinis prisijungimas: tiesiai į darbalaukį be slaptažodžio",
   "security.autologin_note": "Įrašyti slaptažodžiai (pvz., Wi-Fi, tinklo aplankai) tada po kiekvieno paleidimo vieną kartą paprašo jūsų slaptažodžio, nebent diskas užšifruotas.",
   "security.later": "Vėliau tai galėsite tiksliau nustatyti Sloth Center (Paskyra ir sauga).",
-  "sharing.heading": "Padėkite, kad „Windows“ programos visiems pasileistų iš pirmo karto",
-  "sharing.text": "Kai paleidžiate „Windows“ programą ar žaidimą, „Sloth OS“ pati suranda nustatymą, su kuriuo ji veikia. Jei leisite, anonimiškai pasidalinsime suveikusiu nustatymu, kad ji iš pirmo karto pasileistų ir kituose „Sloth OS“ kompiuteriuose.",
-  "sharing.what": "Siunčiama tik tai: nustatymas (pavyzdžiui, „senesnis grafikos režimas“), jūsų vaizdo plokštės gamintojas ir programos atspaudas, iš kurio negalima atkurti jos pavadinimo. Niekas kitas nepalieka jūsų kompiuterio: nei jūsų vardas, nei failai, nei programos pavadinimas, nei kada ir kiek ją naudojate.",
   "sharing.yes": "Taip, dalytis anonimiškai",
   "sharing.no": "Ne, ačiū",
   "sharing.later": "Vėliau tai gali bet kada pakeisti „Sloth Center“. Kituose kompiuteriuose veikusius nustatymus gausi bet kuriuo atveju.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Iš „Linux“",
   "app.org.localsend.localsend_app": "Failai į telefoną ar kitą namų kompiuterį be laido",
   "category.chromium_bios_note": "Šis kompiuteris paleidžiamas senuoju BIOS režimu, tad jis greičiausiai senesnis. Chromium pagrindu sukurtos programos (pažymėtos žemiau) čia gali visai nepasileisti arba veikti tik iš dalies (pavyzdžiui, tuščias langas). Jos viską piešia grafikos lustu ir yra sukurtos naujesnei grafikos įrangai, nei paprastai turi senesni kompiuteriai. Vietoj jų gerai veikia Firefox.",
-  "app.chromium_bios_badge": "Šiame kompiuteryje gali neveikti"
+  "app.chromium_bios_badge": "Šiame kompiuteryje gali neveikti",
+  "sharing.heading_all": "Padėk, kad žaidimai ir programos visiems pasileistų iš pirmo karto",
+  "sharing.text_all": "Kai Windows programa ar Steam žaidimas iškart nepasileidžia, Sloth OS pati ieško veikiančio nustatymo. Jei leisi, anonimiškai pasidalysime nustatymu, kuris suveikė, kad iš pirmo karto pasileistų ir kituose Sloth OS kompiuteriuose.",
+  "sharing.what_all": "Siunčiami tik nustatymas (pavyzdžiui, „senesnis grafikos režimas“) ir tavo vaizdo plokštės gamintojas kartu su tuo, apie kurią programą ar žaidimą kalbama, kaip aprašyta žemiau. Niekas kita nepalieka tavo kompiuterio: nei tavo vardas, nei failai, nei paskyros, nei kada ar kiek juo naudojiesi.",
+  "sharing.programs": "Windows programos ir ne Steam žaidimai (Battle.net, EA app, atsisiųsta diegimo programa…): siunčiamas tik programos piršto atspaudas, iš kurio negalima sužinoti jos pavadinimo",
+  "sharing.games": "Steam žaidimai: siunčiamas viešas žaidimo Steam numeris, todėl nustatymą galima susieti su žaidimu, bet niekada su tavimi"
 }

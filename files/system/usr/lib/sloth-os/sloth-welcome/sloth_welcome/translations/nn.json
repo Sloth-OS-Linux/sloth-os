@@ -47,9 +47,6 @@
   "security.autologin": "Logg inn automatisk: rett til skrivebordet utan passord",
   "security.autologin_note": "Lagra passord (t.d. Wi-Fi, nettverksmapper) ber då om passordet ditt éin gong etter kvar oppstart, med mindre disken er kryptert.",
   "security.later": "Du kan finjustera dette seinare i Sloth Center (Konto og tryggleik).",
-  "sharing.heading": "Hjelp Windows-program å starte på første forsøk for alle",
-  "sharing.text": "Når du startar eit Windows-program eller -spel, finn Sloth OS sjølv innstillinga som får det til å fungere. Om du tillèt det, deler vi den fungerande innstillinga anonymt, slik at det òg startar på første forsøk på andre Sloth OS-maskiner.",
-  "sharing.what": "Berre dette vert sendt: innstillinga (til dømes «eldre grafikkmodus»), produsenten av skjermkortet ditt og eit fingeravtrykk av programmet som namnet ikkje kan finnast att frå. Ingenting anna forlèt datamaskina di: korkje namnet ditt, filene dine, namnet på programmet eller når og kor mykje du brukar det.",
   "sharing.yes": "Ja, del anonymt",
   "sharing.no": "Nei takk",
   "sharing.later": "Du kan endra dette når som helst seinare i Sloth Center. Innstillingane som har verka på andre datamaskiner, får du uansett.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Frå Linux",
   "app.org.localsend.localsend_app": "Filer til telefonen eller ei anna datamaskin heime, utan kabel",
   "category.chromium_bios_note": "Denne datamaskina startar i den gamle BIOS-modusen, så ho er truleg eldre. Appar bygde på Chromium (merkte nedanfor) startar kanskje ikkje i det heile her, eller verkar berre delvis (til dømes eit tomt vindauge). Dei teiknar alt med grafikkbrikka og er laga for nyare grafikkmaskinvare enn eldre datamaskiner vanlegvis har. Firefox fungerer godt i staden.",
-  "app.chromium_bios_badge": "Verkar kanskje ikkje på denne datamaskina"
+  "app.chromium_bios_badge": "Verkar kanskje ikkje på denne datamaskina",
+  "sharing.heading_all": "Hjelp spel og program med å starte på første forsøk for alle",
+  "sharing.text_all": "Når eit Windows-program eller eit Steam-spel ikkje startar med ein gong, leitar Sloth OS sjølv etter ei innstilling som verkar. Viss du tillèt det, deler vi innstillinga som verka anonymt, så det òg startar på første forsøk på andre Sloth OS-datamaskiner.",
+  "sharing.what_all": "Berre innstillinga (til dømes «eldre grafikkmodus») og produsenten av grafikkortet ditt blir sende, saman med kva program eller spel det gjaldt, som skildra nedanfor. Ingenting anna forlèt datamaskina di: ikkje namnet ditt, ikkje filene dine, ikkje kontoane dine og ikkje når eller kor mykje du brukar ho.",
+  "sharing.programs": "Windows-program og spel som ikkje er frå Steam (Battle.net, EA app, eit installasjonsprogram du lasta ned…): berre eit fingeravtrykk av programmet blir sendt, namnet kan ikkje finnast ut frå det",
+  "sharing.games": "Steam-spel: det offentlege Steam-nummeret til spelet blir sendt, så innstillinga kan knytast til spelet, men aldri til deg"
 }

@@ -47,9 +47,6 @@
   "security.autologin": "Sign in automatically: start straight to the desktop without a password",
   "security.autologin_note": "Saved passwords (e.g. Wi-Fi, network folders) then ask for your password once after each start, unless the disk is encrypted.",
   "security.later": "You can fine-tune this later in Sloth Center (Account and security).",
-  "sharing.heading": "Help Windows programs start on the first try for everyone",
-  "sharing.text": "When you start a Windows program or game, Sloth OS finds the setting that works for it on its own. If you allow it, we share the working setting anonymously, so it starts on the first try on other Sloth OS computers too.",
-  "sharing.what": "Only this is sent: the setting (for example \"older graphics mode\"), your graphics card's manufacturer, and a fingerprint of the program that its name cannot be recovered from. Nothing else leaves your computer: not your name, not your files, not the program's name, and not when or how much you use it.",
   "sharing.yes": "Yes, share anonymously",
   "sharing.no": "No, thanks",
   "sharing.later": "You can change this any time later in Sloth Center. You get the settings that worked on other computers either way.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "From Linux",
   "app.org.localsend.localsend_app": "Files to your phone or another computer at home, without a cable",
   "category.chromium_bios_note": "This computer starts in the old BIOS mode, so it is probably an older one. Apps built on Chromium (marked below) may not start here, or may only partly work (for example, an empty window). They draw everything with the graphics chip and are made for newer graphics hardware than older computers usually have. Firefox works well instead.",
-  "app.chromium_bios_badge": "May not work on this computer"
+  "app.chromium_bios_badge": "May not work on this computer",
+  "sharing.heading_all": "Help games and programs start on the first try for everyone",
+  "sharing.text_all": "When a Windows program or a Steam game doesn't start right away, Sloth OS looks for a setting that works on its own. If you allow it, we share the setting that worked anonymously, so it starts on the first try on other Sloth OS computers too.",
+  "sharing.what_all": "Only the setting (for example \"older graphics mode\") and your graphics card's manufacturer are sent, together with which program or game it was, as described below. Nothing else leaves your computer: not your name, not your files, not your accounts, and not when or how much you use it.",
+  "sharing.programs": "Windows programs and games not from Steam (Battle.net, EA app, an installer you downloaded…): only a fingerprint of the program is sent, its name cannot be recovered from it",
+  "sharing.games": "Steam games: the game's public Steam number is sent, so the setting can be matched to the game, but never to you"
 }

@@ -47,9 +47,6 @@
   "security.autologin": "Automatikus bejelentkezés: a gép jelszó nélkül, egyből az asztallal induljon",
   "security.autologin_note": "A mentett jelszavak (pl. Wi-Fi, hálózati mappák) ilyenkor minden indítás után egyszer kérik a jelszavad, kivéve, ha a lemez titkosított.",
   "security.later": "Később a Sloth Központban (Fiók és biztonság) témakörönként is beállíthatod.",
-  "sharing.heading": "Segíts, hogy a Windows-programok mindenkinél elsőre elinduljanak",
-  "sharing.text": "Ha Windows-programot vagy játékot indítasz, a Sloth OS magától megkeresi a neki működő beállítást. Ha engeded, a bevált beállítást névtelenül megosztjuk, így más Sloth OS-es gépeken is elsőre elindul.",
-  "sharing.what": "Csak ennyi megy el: a beállítás (például „régebbi grafikus mód”), a videókártyád gyártója, és a program egy ujjlenyomata, amiből a neve nem fejthető vissza. Semmi más nem hagyja el a gépet: se a neved, se a fájljaid, se a program neve, se az, hogy mikor és mennyit használod.",
   "sharing.yes": "Igen, megosztom névtelenül",
   "sharing.no": "Nem, köszönöm",
   "sharing.later": "Később a Sloth Központban bármikor átállíthatod. A más gépeken bevált beállításokat így is, úgy is megkapod.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Linuxból",
   "app.org.localsend.localsend_app": "Fájlok a telefonodra vagy egy másik otthoni gépre, kábel nélkül",
   "category.chromium_bios_note": "Ez a gép a régi BIOS módban indul, tehát valószínűleg régebbi. A Chromium-alapú appok (lent jelölve) itt lehet, hogy el sem indulnak, vagy csak részben működnek (például üres ablakkal). Mindent a grafikus chippel rajzolnak, és újabb grafikus hardverre készültek, mint ami a régebbi gépekben általában van. Helyettük a Firefox jól működik.",
-  "app.chromium_bios_badge": "Lehet, hogy ezen a gépen nem működik"
+  "app.chromium_bios_badge": "Lehet, hogy ezen a gépen nem működik",
+  "sharing.heading_all": "Segíts, hogy a játékok és programok mindenkinél elsőre elinduljanak",
+  "sharing.text_all": "Ha egy Windows-program vagy Steam-játék nem indul el elsőre, a Sloth OS magától keres egy működő beállítást. Ha engeded, a bevált beállítást névtelenül megosztjuk, így más Sloth OS-es gépeken is elsőre elindul.",
+  "sharing.what_all": "Csak a beállítás (például „régebbi grafikus mód”) és a videókártyád gyártója megy el, azzal együtt, hogy melyik programról vagy játékról van szó, ahogy lent látod. Semmi más nem hagyja el a gépet: se a neved, se a fájljaid, se a fiókjaid, se az, hogy mikor és mennyit használod.",
+  "sharing.programs": "Windows-programok és nem Steames játékok (Battle.net, EA app, egy letöltött telepítő…): csak a program egy ujjlenyomata megy el, amiből a neve nem fejthető vissza",
+  "sharing.games": "Steam-játékok: a játék nyilvános Steam-száma megy el, így a beállítás a játékhoz köthető, de hozzád soha"
 }

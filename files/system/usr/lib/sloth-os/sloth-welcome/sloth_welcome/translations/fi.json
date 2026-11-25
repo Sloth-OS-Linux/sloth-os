@@ -47,9 +47,6 @@
   "security.autologin": "Automaattinen kirjautuminen: suoraan työpöydälle ilman salasanaa",
   "security.autologin_note": "Tallennetut salasanat (esim. Wi-Fi, verkkokansiot) kysyvät silloin salasanaasi kerran jokaisen käynnistyksen jälkeen, ellei levy ole salattu.",
   "security.later": "Voit hienosäätää tätä myöhemmin Sloth Centerissä (Tili ja turvallisuus).",
-  "sharing.heading": "Auta Windows-ohjelmia käynnistymään kaikilla ensimmäisellä yrityksellä",
-  "sharing.text": "Kun käynnistät Windows-ohjelman tai -pelin, Sloth OS löytää itse asetuksen, jolla se toimii. Jos sallit, jaamme toimineen asetuksen nimettömästi, jotta se käynnistyy ensimmäisellä yrityksellä myös muissa Sloth OS -tietokoneissa.",
-  "sharing.what": "Vain tämä lähetetään: asetus (esimerkiksi ”vanhempi grafiikkatila”), näytönohjaimesi valmistaja ja ohjelman sormenjälki, josta sen nimeä ei voi selvittää. Mikään muu ei poistu tietokoneeltasi: ei nimesi, tiedostosi, ohjelman nimi eikä se, milloin ja kuinka paljon käytät sitä.",
   "sharing.yes": "Kyllä, jaa nimettömästi",
   "sharing.no": "Ei kiitos",
   "sharing.later": "Voit muuttaa tätä myöhemmin milloin tahansa Sloth Centerissä. Saat muilla tietokoneilla toimineet asetukset joka tapauksessa.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Linuxista",
   "app.org.localsend.localsend_app": "Tiedostot puhelimeen tai toiseen kotikoneeseen ilman johtoa",
   "category.chromium_bios_note": "Tämä tietokone käynnistyy vanhassa BIOS-tilassa, joten se on luultavasti vanhempi. Chromiumiin perustuvat sovellukset (merkitty alla) eivät ehkä käynnisty täällä lainkaan tai toimivat vain osittain (esimerkiksi tyhjällä ikkunalla). Ne piirtävät kaiken näytönohjaimella ja on tehty uudemmalle grafiikkalaitteistolle kuin vanhemmissa tietokoneissa yleensä on. Firefox toimii sen sijaan hyvin.",
-  "app.chromium_bios_badge": "Ei ehkä toimi tässä tietokoneessa"
+  "app.chromium_bios_badge": "Ei ehkä toimi tässä tietokoneessa",
+  "sharing.heading_all": "Auta pelejä ja ohjelmia käynnistymään kaikilla ensimmäisellä yrityksellä",
+  "sharing.text_all": "Kun Windows-ohjelma tai Steam-peli ei käynnisty heti, Sloth OS etsii itse toimivan asetuksen. Jos sallit, jaamme toimineen asetuksen nimettömästi, jotta se käynnistyy ensimmäisellä yrityksellä myös muissa Sloth OS -tietokoneissa.",
+  "sharing.what_all": "Vain asetus (esimerkiksi ”vanhempi grafiikkatila”) ja näytönohjaimesi valmistaja lähetetään yhdessä tiedon kanssa siitä, mistä ohjelmasta tai pelistä oli kyse, kuten alla kuvataan. Mikään muu ei lähde tietokoneeltasi: ei nimesi, ei tiedostosi, ei tilisi eikä se, milloin tai kuinka paljon käytät sitä.",
+  "sharing.programs": "Windows-ohjelmat ja muut kuin Steamin pelit (Battle.net, EA app, lataamasi asennusohjelma…): vain ohjelman sormenjälki lähetetään, eikä sen nimeä voi selvittää siitä",
+  "sharing.games": "Steam-pelit: pelin julkinen Steam-numero lähetetään, joten asetus voidaan yhdistää peliin mutta ei koskaan sinuun"
 }

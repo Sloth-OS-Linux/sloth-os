@@ -47,9 +47,6 @@
   "security.autologin": "Automatisch aanmelden: direct naar het bureaublad zonder wachtwoord",
   "security.autologin_note": "Bewaarde wachtwoorden (bv. wifi, netwerkmappen) vragen dan na elke start één keer om je wachtwoord, tenzij de schijf versleuteld is.",
   "security.later": "Later kun je dit verfijnen in Sloth Center (Account en beveiliging).",
-  "sharing.heading": "Help Windows-programma's bij iedereen in één keer te laten starten",
-  "sharing.text": "Als je een Windows-programma of -game start, zoekt Sloth OS zelf de instelling waarmee het werkt. Als je het toestaat, delen we de werkende instelling anoniem, zodat het ook op andere Sloth OS-computers in één keer start.",
-  "sharing.what": "Alleen dit wordt verstuurd: de instelling (bijvoorbeeld 'oudere grafische modus'), de fabrikant van je videokaart en een vingerafdruk van het programma waaruit de naam niet te herleiden is. Niets anders verlaat je computer: niet je naam, niet je bestanden, niet de naam van het programma en niet wanneer of hoeveel je het gebruikt.",
   "sharing.yes": "Ja, anoniem delen",
   "sharing.no": "Nee, bedankt",
   "sharing.later": "Je kunt dit later altijd wijzigen in Sloth Center. De instellingen die op andere computers werkten, krijg je hoe dan ook.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Uit Linux",
   "app.org.localsend.localsend_app": "Bestanden naar je telefoon of een andere computer thuis, zonder kabel",
   "category.chromium_bios_note": "Deze computer start in de oude BIOS-modus, dus hij is waarschijnlijk wat ouder. Apps die op Chromium zijn gebouwd (hieronder gemarkeerd) starten hier misschien helemaal niet, of werken maar gedeeltelijk (bijvoorbeeld een leeg venster). Ze tekenen alles met de grafische chip en zijn gemaakt voor nieuwere grafische hardware dan oudere computers meestal hebben. Firefox werkt in plaats daarvan goed.",
-  "app.chromium_bios_badge": "Werkt misschien niet op deze computer"
+  "app.chromium_bios_badge": "Werkt misschien niet op deze computer",
+  "sharing.heading_all": "Help games en programma's bij iedereen in één keer te starten",
+  "sharing.text_all": "Als een Windows-programma of een Steam-game niet meteen start, zoekt Sloth OS zelf een instelling die werkt. Als je het toestaat, delen we de instelling die werkte anoniem, zodat het ook op andere Sloth OS-computers in één keer start.",
+  "sharing.what_all": "Alleen de instelling (bijvoorbeeld \"oudere grafische modus\") en de fabrikant van je grafische kaart worden verstuurd, samen met welk programma of welke game het was, zoals hieronder beschreven. Niets anders verlaat je computer: niet je naam, niet je bestanden, niet je accounts en niet wanneer of hoeveel je hem gebruikt.",
+  "sharing.programs": "Windows-programma's en games die niet van Steam zijn (Battle.net, EA app, een installatieprogramma dat je hebt gedownload…): alleen een vingerafdruk van het programma wordt verstuurd, de naam is daar niet uit te halen",
+  "sharing.games": "Steam-games: het openbare Steam-nummer van de game wordt verstuurd, dus de instelling kan aan de game worden gekoppeld, maar nooit aan jou"
 }

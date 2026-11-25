@@ -47,9 +47,6 @@
   "security.autologin": "Accesso automatico: direttamente al desktop senza password",
   "security.autologin_note": "Le password salvate (es. Wi-Fi, cartelle di rete) chiedono allora la tua password una volta dopo ogni avvio, a meno che il disco non sia cifrato.",
   "security.later": "Più avanti puoi regolarlo in Sloth Center (Account e sicurezza).",
-  "sharing.heading": "Aiuta i programmi Windows ad avviarsi al primo colpo per tutti",
-  "sharing.text": "Quando avvii un programma o un gioco Windows, Sloth OS trova da solo l'impostazione con cui funziona. Se lo consenti, condividiamo in modo anonimo l'impostazione che ha funzionato, così si avvia al primo tentativo anche su altri computer con Sloth OS.",
-  "sharing.what": "Viene inviato solo questo: l'impostazione (per esempio «modalità grafica più vecchia»), il produttore della tua scheda grafica e un'impronta del programma da cui non si può risalire al suo nome. Nient'altro lascia il tuo computer: né il tuo nome, né i tuoi file, né il nome del programma, né quando o quanto lo usi.",
   "sharing.yes": "Sì, condividi in modo anonimo",
   "sharing.no": "No, grazie",
   "sharing.later": "Puoi cambiarlo più tardi in qualsiasi momento in Sloth Center. Le impostazioni che hanno funzionato su altri computer le ricevi comunque.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Da Linux",
   "app.org.localsend.localsend_app": "File sul telefono o su un altro computer di casa, senza cavo",
   "category.chromium_bios_note": "Questo computer si avvia nella vecchia modalità BIOS, quindi probabilmente è datato. Le app basate su Chromium (segnalate sotto) potrebbero non avviarsi affatto qui, o funzionare solo in parte (per esempio, una finestra vuota). Disegnano tutto con il chip grafico e sono fatte per hardware grafico più recente di quello che hanno di solito i computer datati. Firefox invece funziona bene.",
-  "app.chromium_bios_badge": "Potrebbe non funzionare su questo computer"
+  "app.chromium_bios_badge": "Potrebbe non funzionare su questo computer",
+  "sharing.heading_all": "Aiuta giochi e programmi ad avviarsi al primo colpo per tutti",
+  "sharing.text_all": "Quando un programma Windows o un gioco di Steam non si avvia subito, Sloth OS cerca da solo un'impostazione che funzioni. Se lo permetti, condividiamo in forma anonima l'impostazione che ha funzionato, così si avvia al primo colpo anche su altri computer con Sloth OS.",
+  "sharing.what_all": "Vengono inviati solo l'impostazione (per esempio «modalità grafica più vecchia») e il produttore della tua scheda grafica, insieme al programma o al gioco in questione, come descritto sotto. Nient'altro lascia il tuo computer: né il tuo nome, né i tuoi file, né i tuoi account, né quando o quanto lo usi.",
+  "sharing.programs": "Programmi Windows e giochi non di Steam (Battle.net, EA app, un programma di installazione scaricato…): viene inviata solo un'impronta del programma, da cui non si può risalire al nome",
+  "sharing.games": "Giochi di Steam: viene inviato il numero pubblico del gioco su Steam, quindi l'impostazione si può collegare al gioco, ma mai a te"
 }

@@ -47,9 +47,6 @@
   "security.autologin": "Accesso automatic: directemente al scriptorio sin contrasigno",
   "security.autologin_note": "Le contrasignos salvate (p. ex. Wi-Fi, dossieres de rete) demanda alora tu contrasigno un vice post cata initio, excepte si le disco es cryptate.",
   "security.later": "Postea tu pote adjustar isto in Sloth Center (Conto e securitate).",
-  "sharing.heading": "Adjuta le programmas de Windows a initiar se al prime tentativa pro totes",
-  "sharing.text": "Quando tu initia un programma o un joco de Windows, Sloth OS trova per se mesme le configuration con le qual illo functiona. Si tu lo permitte, nos comparti anonymemente le configuration que ha functionate, de maniera que illo se initia al prime tentativa anque in altere computatores con Sloth OS.",
-  "sharing.what": "Solmente isto es inviate: le configuration (per exemplo „modo graphic plus vetule”), le fabricante de tu carta graphic e un impression digital del programma ex le qual su nomine non pote esser recuperate. Nihil altere quita tu computator: ni tu nomine, ni tu files, ni le nomine del programma, ni quando o quanto tu lo usa.",
   "sharing.yes": "Si, compartir anonymemente",
   "sharing.no": "No, gratias",
   "sharing.later": "Tu pote cambiar isto plus tarde a omne momento in Sloth Center. Tu recipe in omne caso le configurationes que functionava sur altere computatores.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Ab Linux",
   "app.org.localsend.localsend_app": "Files a tu telephono o a un altere computator in casa, sin cablo",
   "category.chromium_bios_note": "Iste computator initia in le vetule modo BIOS, dunque illo es probabilemente vetule. Le applicationes basate sur Chromium (marcate infra) pote non initiar del toto hic, o functionar solmente in parte (per exemplo, un fenestra vacue). Illos designa toto con le chip graphic e es facite pro hardware graphic plus nove que le computatores vetule usualmente ha. Firefox functiona ben in vice.",
-  "app.chromium_bios_badge": "Pote non functionar sur iste computator"
+  "app.chromium_bios_badge": "Pote non functionar sur iste computator",
+  "sharing.heading_all": "Adjuta que jocos e programmas initia al prime tentativa pro totes",
+  "sharing.text_all": "Quando un programma de Windows o un joco de Steam non initia immediatemente, Sloth OS cerca per se un configuration que functiona. Si tu lo permitte, nos comparti anonymemente le configuration que functionava, de modo que illo initia al prime tentativa anque sur altere computatores con Sloth OS.",
+  "sharing.what_all": "Solmente le configuration (per exemplo \"modo graphic plus vetule\") e le fabricante de tu carta graphic es inviate, insimul con le programma o joco de que se tractava, como describite infra. Nihil altere lassa tu computator: non tu nomine, non tu files, non tu contos, e non quando o quanto tu lo usa.",
+  "sharing.programs": "Programmas de Windows e jocos non de Steam (Battle.net, EA app, un installator que tu discargava…): solmente un impression digital del programma es inviate, ex le qual su nomine non pote esser recuperate",
+  "sharing.games": "Jocos de Steam: le numero public de Steam del joco es inviate, assi le configuration pote esser ligate al joco, ma jammais a te"
 }

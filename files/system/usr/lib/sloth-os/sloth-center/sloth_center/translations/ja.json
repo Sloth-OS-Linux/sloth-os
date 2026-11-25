@@ -389,7 +389,6 @@
   "Updates, rollback, drivers and everything that would otherwise need a terminal": "アップデート、ロールバック、ドライバーなど、本来ならターミナルが必要な作業すべて",
   "update;rollback;driver;settings": "アップデート;ロールバック;ドライバー;設定",
   "Share experiences": "経験を共有",
-  "When a program starts on your computer, we anonymously share which setting worked, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer are sent: not your name, not your files, not the program's name.": "プログラムがお使いのコンピューターで起動したとき、どの設定でうまくいったかを匿名で共有し、ほかの Sloth OS コンピューターでも一度で起動できるようにします。送信されるのは設定とグラフィックカードのメーカーだけです。お名前、ファイル、プログラム名は送信されません。",
   "NVIDIA driver": "NVIDIA ドライバー",
   "The driver for your NVIDIA graphics card is ready. After a restart it runs at full power.": "NVIDIA グラフィックカードのドライバーの準備ができました。再起動すると本来の性能で動作します。",
   "The driver for your NVIDIA graphics card is ready. When you restart, the computer asks for confirmation on a blue screen: Sloth Center shows you step by step what to do there.": "NVIDIA グラフィックカードのドライバーの準備ができました。再起動時に青い画面で確認を求められます。そこで何をすればよいかは Sloth センターが順を追って案内します。",
@@ -1312,6 +1311,9 @@
   "Your saved passwords are locked": "保存したパスワードがロックされています",
   "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "パスワードなしで自動的にサインインしたため、保存したパスワード (Wi-Fi、ネットワークフォルダー、ブラウザー) のロックを解除できませんでした。初めてどれかが必要になったときに、アカウントのパスワードを一度だけ尋ねます。その後は再起動するまでロック解除されたままです。",
   "the setting that made this game start on other computers": "ほかのコンピューターでこのゲームが起動した設定",
-  "Share what fixed a game": "ゲームを直した設定を共有",
-  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "起動しなかった Steam のゲームを Sloth OS が動かせたとき、どの設定が役立ったかを匿名で共有できます。ほかの Sloth OS のコンピューターでも、そのゲームが一度で起動するようになります。送られるのは設定、グラフィックカードのメーカー、ゲームの公開 Steam 番号だけです。名前、ファイル、Steam アカウントは送られません。"
+  "When a Windows program or a Steam game doesn't start right away and Sloth OS finds a setting that works, it can share that setting anonymously, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer go with it: never your name, your files or your accounts. You get the settings that worked on other computers either way.": "Windows のプログラムや Steam のゲームがすぐに起動せず、Sloth OS が動く設定を見つけたとき、その設定を匿名で共有して、ほかの Sloth OS のコンピューターでも一度で起動するようにできます。一緒に送られるのは設定とグラフィックカードのメーカーだけで、名前、ファイル、アカウントは決して送られません。ほかのコンピューターでうまくいった設定は、どちらにしても受け取れます。",
+  "Windows programs and games not from Steam": "Windows のプログラムと Steam 以外のゲーム",
+  "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "プログラムの指紋だけが送られます。そこから名前はわかりません。",
+  "Steam games": "Steam のゲーム",
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "ゲームの公開 Steam 番号が送られるので、設定はゲームと結び付けられますが、あなたとは決して結び付けられません。"
 }

@@ -47,9 +47,6 @@
   "security.autologin": "Otomatik oturum açma: parolasız doğrudan masaüstüne",
   "security.autologin_note": "Kayıtlı parolalar (ör. Wi-Fi, ağ klasörleri) bu durumda disk şifreli değilse her açılıştan sonra bir kez parolanızı ister.",
   "security.later": "Daha sonra bunu Sloth Center'da (Hesap ve güvenlik) ayrıntılı ayarlayabilirsiniz.",
-  "sharing.heading": "Windows programlarının herkeste ilk denemede açılmasına yardım et",
-  "sharing.text": "Bir Windows programı veya oyunu başlattığında, Sloth OS onunla çalışan ayarı kendisi bulur. İzin verirsen, işe yarayan ayarı anonim olarak paylaşırız; böylece diğer Sloth OS bilgisayarlarında da ilk denemede açılır.",
-  "sharing.what": "Yalnızca şu gönderilir: ayar (örneğin \"eski grafik modu\"), ekran kartının üreticisi ve programın, adının geri çıkarılamayacağı bir parmak izi. Bilgisayarından başka hiçbir şey çıkmaz: ne adın, ne dosyaların, ne programın adı, ne de onu ne zaman ve ne kadar kullandığın.",
   "sharing.yes": "Evet, anonim olarak paylaş",
   "sharing.no": "Hayır, teşekkürler",
   "sharing.later": "Bunu daha sonra istediğin zaman Sloth Center'da değiştirebilirsin. Başka bilgisayarlarda işe yarayan ayarları her durumda alırsın.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Linux'tan",
   "app.org.localsend.localsend_app": "Evdeki telefonuna ya da başka bir bilgisayara kablosuz dosya gönder",
   "category.chromium_bios_note": "Bu bilgisayar eski BIOS modunda başlıyor, yani muhtemelen eski bir bilgisayar. Chromium tabanlı uygulamalar (aşağıda işaretli) burada hiç açılmayabilir ya da yalnızca kısmen çalışabilir (örneğin boş bir pencere). Her şeyi grafik çipiyle çizerler ve eski bilgisayarlarda genellikle bulunandan daha yeni grafik donanımı için yapılmışlardır. Bunların yerine Firefox iyi çalışır.",
-  "app.chromium_bios_badge": "Bu bilgisayarda çalışmayabilir"
+  "app.chromium_bios_badge": "Bu bilgisayarda çalışmayabilir",
+  "sharing.heading_all": "Oyunların ve programların herkeste ilk denemede açılmasına yardım et",
+  "sharing.text_all": "Bir Windows programı veya Steam oyunu hemen açılmadığında Sloth OS çalışan bir ayarı kendisi arar. İzin verirsen, işe yarayan ayarı anonim olarak paylaşırız; böylece diğer Sloth OS bilgisayarlarında da ilk denemede açılır.",
+  "sharing.what_all": "Yalnızca ayar (örneğin \"eski grafik modu\") ve ekran kartının üreticisi, aşağıda açıklandığı şekilde hangi program veya oyun olduğuyla birlikte gönderilir. Bilgisayarından başka hiçbir şey çıkmaz: ne adın, ne dosyaların, ne hesapların, ne de onu ne zaman ve ne kadar kullandığın.",
+  "sharing.programs": "Windows programları ve Steam dışı oyunlar (Battle.net, EA app, indirdiğin bir yükleyici…): yalnızca programın bir parmak izi gönderilir, adı bundan çıkarılamaz",
+  "sharing.games": "Steam oyunları: oyunun herkese açık Steam numarası gönderilir; böylece ayar oyunla ilişkilendirilebilir ama asla seninle değil"
 }

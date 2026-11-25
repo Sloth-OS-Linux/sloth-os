@@ -47,9 +47,6 @@
   "security.autologin": "自動登入:不需密碼直接進入桌面",
   "security.autologin_note": "此時，除非磁碟已加密，已儲存的密碼（例如 Wi-Fi、網路資料夾）每次開機後會要求輸入一次你的密碼。",
   "security.later": "之後可以在 Sloth 中心(帳號與安全性)中細部調整。",
-  "sharing.heading": "幫助 Windows 程式在每個人的電腦上一次啟動",
-  "sharing.text": "當你啟動 Windows 程式或遊戲時，Sloth OS 會自己找到能讓它執行的設定。如果你允許，我們會匿名分享有效的設定，讓它在其他 Sloth OS 電腦上也能一次啟動。",
-  "sharing.what": "只會傳送這些：設定（例如「舊版圖形模式」）、你的顯示卡製造商，以及無法還原出程式名稱的程式指紋。除此之外，什麼都不會離開你的電腦：不包括你的名字、你的檔案、程式名稱，也不包括你何時使用以及使用多久。",
   "sharing.yes": "是，匿名分享",
   "sharing.no": "不，謝謝",
   "sharing.later": "以後可以隨時在 Sloth Center 中變更。無論怎麼選，你都會取得在其他電腦上可行的設定。",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "來自 Linux",
   "app.org.localsend.localsend_app": "不用傳輸線，把檔案傳到手機或家裡的另一台電腦",
   "category.chromium_bios_note": "這台電腦以舊的 BIOS 模式開機，所以它很可能是一台較舊的電腦。以 Chromium 為基礎的應用程式（下方已標出）在這裡可能完全無法啟動，或只能部分運作（例如顯示空白視窗）。它們用顯示晶片繪製一切，是為比舊電腦通常配備的更新的繪圖硬體設計的。改用 Firefox 會運作得很好。",
-  "app.chromium_bios_badge": "在這台電腦上可能無法運作"
+  "app.chromium_bios_badge": "在這台電腦上可能無法運作",
+  "sharing.heading_all": "幫助遊戲和程式對每個人都一次啟動",
+  "sharing.text_all": "當某個 Windows 程式或 Steam 遊戲無法馬上啟動時，Sloth OS 會自己尋找可用的設定。如果你允許，我們會匿名分享發揮作用的設定，讓它在其他 Sloth OS 電腦上也能一次啟動。",
+  "sharing.what_all": "只會傳送設定（例如「舊版繪圖模式」）和你的顯示卡製造商，以及下方所述方式的程式或遊戲資訊。其他任何內容都不會離開你的電腦：不包括你的名字、檔案、帳號，也不包括你何時、用了多久。",
+  "sharing.programs": "Windows 程式和非 Steam 遊戲（Battle.net、EA app、你下載的安裝程式等）：只傳送程式的指紋，無法從中還原它的名稱",
+  "sharing.games": "Steam 遊戲：會傳送遊戲公開的 Steam 編號，因此設定可以對應到遊戲，但永遠不會對應到你"
 }

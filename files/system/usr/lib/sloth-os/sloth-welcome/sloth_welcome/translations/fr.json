@@ -47,9 +47,6 @@
   "security.autologin": "Connexion automatique : directement sur le bureau sans mot de passe",
   "security.autologin_note": "Les mots de passe enregistrés (Wi-Fi, dossiers réseau…) demandent alors votre mot de passe une fois après chaque démarrage, sauf si le disque est chiffré.",
   "security.later": "Vous pourrez l’affiner plus tard dans Sloth Center (Compte et sécurité).",
-  "sharing.heading": "Aide les programmes Windows à démarrer du premier coup pour tout le monde",
-  "sharing.text": "Quand tu lances un programme ou un jeu Windows, Sloth OS trouve tout seul le réglage qui le fait fonctionner. Si tu l'autorises, nous partageons anonymement le réglage qui a fonctionné, pour qu'il démarre du premier coup sur les autres ordinateurs Sloth OS aussi.",
-  "sharing.what": "Seul ceci est envoyé : le réglage (par exemple « mode graphique ancien »), le fabricant de ta carte graphique et une empreinte du programme dont on ne peut pas retrouver le nom. Rien d'autre ne quitte ton ordinateur : ni ton nom, ni tes fichiers, ni le nom du programme, ni quand ou combien tu l'utilises.",
   "sharing.yes": "Oui, partager anonymement",
   "sharing.no": "Non, merci",
   "sharing.later": "Tu peux changer cela plus tard à tout moment dans Sloth Center. Tu reçois de toute façon les réglages qui ont fonctionné sur d’autres ordinateurs.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Depuis Linux",
   "app.org.localsend.localsend_app": "Des fichiers vers votre téléphone ou un autre ordinateur de la maison, sans câble",
   "category.chromium_bios_note": "Cet ordinateur démarre dans l'ancien mode BIOS, il est donc probablement ancien. Les applications basées sur Chromium (signalées ci-dessous) risquent de ne pas démarrer du tout ici, ou de ne fonctionner qu'en partie (par exemple, une fenêtre vide). Elles dessinent tout avec la puce graphique et sont faites pour du matériel graphique plus récent que celui des ordinateurs anciens. Firefox fonctionne bien à la place.",
-  "app.chromium_bios_badge": "Risque de ne pas fonctionner sur cet ordinateur"
+  "app.chromium_bios_badge": "Risque de ne pas fonctionner sur cet ordinateur",
+  "sharing.heading_all": "Aide les jeux et les programmes à démarrer du premier coup pour tout le monde",
+  "sharing.text_all": "Quand un programme Windows ou un jeu Steam ne démarre pas tout de suite, Sloth OS cherche tout seul un réglage qui fonctionne. Si tu l'autorises, nous partageons anonymement le réglage qui a fonctionné, pour qu'il démarre aussi du premier coup sur d'autres ordinateurs Sloth OS.",
+  "sharing.what_all": "Seuls le réglage (par exemple « ancien mode graphique ») et le fabricant de ta carte graphique sont envoyés, avec le programme ou le jeu concerné, comme décrit ci-dessous. Rien d'autre ne quitte ton ordinateur : ni ton nom, ni tes fichiers, ni tes comptes, ni quand ou combien tu l'utilises.",
+  "sharing.programs": "Programmes Windows et jeux hors Steam (Battle.net, EA app, un programme d'installation téléchargé…) : seule une empreinte du programme est envoyée, son nom ne peut pas en être retrouvé",
+  "sharing.games": "Jeux Steam : le numéro Steam public du jeu est envoyé, le réglage peut donc être relié au jeu, mais jamais à toi"
 }

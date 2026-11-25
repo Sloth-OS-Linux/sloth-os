@@ -47,9 +47,6 @@
   "security.autologin": "Autentificare automată: direct la desktop, fără parolă",
   "security.autologin_note": "Parolele salvate (de ex. Wi-Fi, foldere din rețea) îți cer atunci parola o dată după fiecare pornire, cu excepția cazului în care discul este criptat.",
   "security.later": "Mai târziu poți regla asta în Sloth Center (Cont și securitate).",
-  "sharing.heading": "Ajută programele Windows să pornească din prima pentru toată lumea",
-  "sharing.text": "Când pornești un program sau un joc Windows, Sloth OS găsește singur setarea cu care funcționează. Dacă permiți, împărtășim anonim setarea care a funcționat, ca să pornească din prima și pe alte calculatoare cu Sloth OS.",
-  "sharing.what": "Se trimite doar asta: setarea (de exemplu „mod grafic mai vechi”), producătorul plăcii tale video și o amprentă a programului din care nu i se poate afla numele. Nimic altceva nu părăsește calculatorul tău: nici numele tău, nici fișierele tale, nici numele programului, nici când sau cât îl folosești.",
   "sharing.yes": "Da, împărtășește anonim",
   "sharing.no": "Nu, mulțumesc",
   "sharing.later": "Poți schimba asta oricând mai târziu în Sloth Center. Setările care au mers pe alte calculatoare le primești oricum.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Din Linux",
   "app.org.localsend.localsend_app": "Fișiere pe telefon sau pe alt calculator de acasă, fără cablu",
   "category.chromium_bios_note": "Acest calculator pornește în vechiul mod BIOS, deci probabil e mai vechi. Aplicațiile bazate pe Chromium (marcate mai jos) s-ar putea să nu pornească deloc aici sau să funcționeze doar parțial (de exemplu, o fereastră goală). Ele desenează totul cu cipul grafic și sunt făcute pentru hardware grafic mai nou decât au de obicei calculatoarele vechi. În schimb, Firefox funcționează bine.",
-  "app.chromium_bios_badge": "S-ar putea să nu funcționeze pe acest calculator"
+  "app.chromium_bios_badge": "S-ar putea să nu funcționeze pe acest calculator",
+  "sharing.heading_all": "Ajută jocurile și programele să pornească din prima pentru toată lumea",
+  "sharing.text_all": "Când un program Windows sau un joc Steam nu pornește imediat, Sloth OS caută singur o setare care funcționează. Dacă permiți, partajăm anonim setarea care a mers, ca să pornească din prima și pe alte calculatoare cu Sloth OS.",
+  "sharing.what_all": "Se trimit doar setarea (de exemplu „mod grafic mai vechi”) și producătorul plăcii tale video, împreună cu programul sau jocul despre care e vorba, așa cum e descris mai jos. Nimic altceva nu părăsește calculatorul tău: nici numele tău, nici fișierele tale, nici conturile tale, nici când sau cât îl folosești.",
+  "sharing.programs": "Programe Windows și jocuri care nu sunt de pe Steam (Battle.net, EA app, un program de instalare descărcat…): se trimite doar o amprentă a programului, din care numele lui nu poate fi aflat",
+  "sharing.games": "Jocuri Steam: se trimite numărul public al jocului pe Steam, așa că setarea poate fi legată de joc, dar niciodată de tine"
 }

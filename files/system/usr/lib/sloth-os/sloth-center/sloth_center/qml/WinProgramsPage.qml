@@ -79,33 +79,8 @@ Kirigami.ScrollablePage {
                 }
             }
 
-            // Shared knowledge: anonymous sharing of the settings that worked (off by default)
-            Kirigami.AbstractCard {
-                Layout.fillWidth: true
-                contentItem: RowLayout {
-                    spacing: Kirigami.Units.largeSpacing
-                    Kirigami.Icon {
-                        source: "network-workgroup"
-                        implicitWidth: Kirigami.Units.iconSizes.medium
-                        implicitHeight: Kirigami.Units.iconSizes.medium
-                    }
-                    ColumnLayout {
-                        Layout.fillWidth: true
-                        spacing: 0
-                        Kirigami.Heading { level: 3; text: L.t("Share experiences"); Layout.fillWidth: true }
-                        QQC2.Label {
-                            Layout.fillWidth: true
-                            wrapMode: Text.Wrap
-                            opacity: 0.7
-                            text: L.t("When a program starts on your computer, we anonymously share which setting worked, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer are sent: not your name, not your files, not the program's name.")
-                        }
-                    }
-                    QQC2.Switch {
-                        checked: winprograms.sharing
-                        onToggled: winprograms.setSharing(checked)
-                    }
-                }
-            }
+            // Shared knowledge: anonymous sharing of the settings that worked, both kinds (off by default)
+            SharingCard {}
 
             // Taking over programs installed elsewhere (Steam, Lutris, Bottles, an earlier install)
             Kirigami.AbstractCard {

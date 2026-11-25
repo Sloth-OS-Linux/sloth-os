@@ -850,20 +850,20 @@ Kirigami.ApplicationWindow {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
-                        text: root.t("sharing.heading")
+                        text: root.t("sharing.heading_all")
                     }
                     QQC2.Label {
                         Layout.fillWidth: true
                         horizontalAlignment: Text.AlignHCenter
                         wrapMode: Text.Wrap
                         opacity: 0.8
-                        text: root.t("sharing.text")
+                        text: root.t("sharing.text_all")
                     }
                     Kirigami.InlineMessage {
                         Layout.fillWidth: true
                         visible: true
                         type: Kirigami.MessageType.Information
-                        text: root.t("sharing.what")
+                        text: root.t("sharing.what_all")
                     }
                     QQC2.ButtonGroup { id: sharingGroup }
                     QQC2.RadioButton {
@@ -872,6 +872,37 @@ Kirigami.ApplicationWindow {
                         text: root.t("sharing.yes")
                         checked: welcome.sharingChoice === "yes"
                         onClicked: welcome.setSharingChoice("yes")
+                    }
+                    // What a yes covers: two separate yeses (sloth_common/sharing.py)
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        Layout.leftMargin: Kirigami.Units.gridUnit * 2
+                        spacing: Kirigami.Units.smallSpacing
+                        enabled: welcome.sharingChoice === "yes"
+                        QQC2.CheckBox {
+                            Layout.fillWidth: true
+                            text: root.t("sharing.programs")
+                            checked: welcome.sharePrograms
+                            onToggled: welcome.setSharingKinds(checked, welcome.shareGames)
+                            contentItem: QQC2.Label {
+                                leftPadding: parent.indicator.width + parent.spacing
+                                text: parent.text
+                                wrapMode: Text.Wrap
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                        }
+                        QQC2.CheckBox {
+                            Layout.fillWidth: true
+                            text: root.t("sharing.games")
+                            checked: welcome.shareGames
+                            onToggled: welcome.setSharingKinds(welcome.sharePrograms, checked)
+                            contentItem: QQC2.Label {
+                                leftPadding: parent.indicator.width + parent.spacing
+                                text: parent.text
+                                wrapMode: Text.Wrap
+                                verticalAlignment: Text.AlignVCenter
+                            }
+                        }
                     }
                     QQC2.RadioButton {
                         Layout.fillWidth: true
@@ -896,7 +927,9 @@ Kirigami.ApplicationWindow {
                             text: root.t("nav.next")
                             icon.name: "go-next"
                             highlighted: true
-                            enabled: welcome.sharingChoice !== ""
+                            // a yes needs at least one of the two ticked
+                            enabled: welcome.sharingChoice === "no"
+                                     || (welcome.sharingChoice === "yes" && (welcome.sharePrograms || welcome.shareGames))
                             onClicked: welcome.next()
                         }
                     }

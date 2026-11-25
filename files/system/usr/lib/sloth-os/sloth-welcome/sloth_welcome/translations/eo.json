@@ -47,9 +47,6 @@
   "security.autologin": "Aŭtomata ensaluto: rekte al la labortablo sen pasvorto",
   "security.autologin_note": "Konservitaj pasvortoj (ekz. Wi-Fi, retaj dosierujoj) tiam petas vian pasvorton unufoje post ĉiu starto, krom se la disko estas ĉifrita.",
   "security.later": "Poste vi povas agordi tion detale en Sloth Center (Konto kaj sekureco).",
-  "sharing.heading": "Helpu, ke Windows-programoj startu je la unua provo ĉe ĉiuj",
-  "sharing.text": "Kiam vi startigas Windows-programon aŭ ludon, Sloth OS mem trovas la agordon, kun kiu ĝi funkcias. Se vi permesas, ni anonime kunhavigas la funkciintan agordon, por ke ĝi startu je la unua provo ankaŭ en aliaj komputiloj kun Sloth OS.",
-  "sharing.what": "Nur ĉi tio estas sendata: la agordo (ekzemple „malnova grafika reĝimo“), la fabrikanto de via grafika karto, kaj fingrospuro de la programo, el kiu ĝia nomo ne retroveblas. Nenio alia forlasas vian komputilon: nek via nomo, nek viaj dosieroj, nek la nomo de la programo, nek kiam kaj kiom vi uzas ĝin.",
   "sharing.yes": "Jes, kunhavigi anonime",
   "sharing.no": "Ne, dankon",
   "sharing.later": "Vi povas ŝanĝi tion poste iam ajn en Sloth Center. La agordojn, kiuj funkciis en aliaj komputiloj, vi ricevas ĉiuokaze.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "El Linux",
   "app.org.localsend.localsend_app": "Dosieroj al via telefono aŭ alia komputilo hejme, sen kablo",
   "category.chromium_bios_note": "Ĉi tiu komputilo ekfunkcias en la malnova BIOS-reĝimo, do ĝi verŝajne estas malnova. Aplikaĵoj konstruitaj sur Chromium (markitaj sube) eble tute ne lanĉiĝos ĉi tie, aŭ funkcios nur parte (ekzemple, malplena fenestro). Ili desegnas ĉion per la grafika ĉipo kaj estas faritaj por pli nova grafika aparataro ol malnovaj komputiloj kutime havas. Firefox anstataŭe bone funkcias.",
-  "app.chromium_bios_badge": "Eble ne funkcios en ĉi tiu komputilo"
+  "app.chromium_bios_badge": "Eble ne funkcios en ĉi tiu komputilo",
+  "sharing.heading_all": "Helpu, ke ludoj kaj programoj ekfunkciu je la unua provo por ĉiuj",
+  "sharing.text_all": "Kiam Windows-programo aŭ Steam-ludo ne ekfunkcias tuj, Sloth OS mem serĉas funkciantan agordon. Se vi permesas, ni anonime kunhavigas la agordon, kiu funkciis, por ke ĝi ekfunkciu je la unua provo ankaŭ en aliaj Sloth OS-komputiloj.",
+  "sharing.what_all": "Nur la agordo (ekzemple «pli malnova grafika reĝimo») kaj la fabrikanto de via grafika karto estas senditaj, kune kun tio, pri kiu programo aŭ ludo temis, kiel priskribite sube. Nenio alia forlasas vian komputilon: nek via nomo, nek viaj dosieroj, nek viaj kontoj, nek kiam aŭ kiom vi uzas ĝin.",
+  "sharing.programs": "Windows-programoj kaj ludoj ne el Steam (Battle.net, EA app, elŝutita instalilo…): nur fingrospuro de la programo estas sendita, el kiu ĝia nomo ne retroveblas",
+  "sharing.games": "Steam-ludoj: la publika Steam-numero de la ludo estas sendita, do la agordo ligeblas al la ludo, sed neniam al vi"
 }

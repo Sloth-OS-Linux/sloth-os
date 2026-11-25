@@ -47,9 +47,6 @@
   "security.autologin": "Automatické prihlásenie: rovno na plochu bez hesla",
   "security.autologin_note": "Uložené heslá (napr. Wi-Fi, sieťové priečinky) si potom po každom spustení raz vyžiadajú vaše heslo, ak disk nie je zašifrovaný.",
   "security.later": "Neskôr to môžete podrobne nastaviť v Sloth Center (Účet a zabezpečenie).",
-  "sharing.heading": "Pomôžte, aby sa programy pre Windows spúšťali napoprvé všetkým",
-  "sharing.text": "Keď spustíte program alebo hru pre Windows, Sloth OS sám nájde nastavenie, s ktorým funguje. Ak to povolíte, anonymne zdieľame nastavenie, ktoré fungovalo, aby sa napoprvé spustil aj na iných počítačoch so Sloth OS.",
-  "sharing.what": "Odosiela sa len toto: nastavenie (napríklad „starší grafický režim“), výrobca vašej grafickej karty a odtlačok programu, z ktorého nemožno zistiť jeho názov. Nič iné váš počítač neopúšťa: ani vaše meno, ani vaše súbory, ani názov programu, ani kedy a koľko ho používate.",
   "sharing.yes": "Áno, zdieľať anonymne",
   "sharing.no": "Nie, ďakujem",
   "sharing.later": "Kedykoľvek neskôr to môžete zmeniť v Sloth Center. Nastavenia, ktoré fungovali na iných počítačoch, dostanete v každom prípade.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Z Linux",
   "app.org.localsend.localsend_app": "Súbory do telefónu alebo do iného počítača doma, bez kábla",
   "category.chromium_bios_note": "Tento počítač sa spúšťa v starom režime BIOS, takže je pravdepodobne starší. Aplikácie postavené na Chromiu (označené nižšie) sa tu možno vôbec nespustia alebo budú fungovať len čiastočne (napríklad s prázdnym oknom). Všetko kreslia grafickým čipom a sú robené pre novší grafický hardvér, než aký staršie počítače zvyčajne majú. Namiesto nich dobre funguje Firefox.",
-  "app.chromium_bios_badge": "Na tomto počítači možno nebude fungovať"
+  "app.chromium_bios_badge": "Na tomto počítači možno nebude fungovať",
+  "sharing.heading_all": "Pomôž, aby sa hry a programy všetkým spúšťali napoprvé",
+  "sharing.text_all": "Keď sa program pre Windows alebo hra zo Steamu hneď nespustí, Sloth OS sám hľadá nastavenie, ktoré funguje. Ak to dovolíš, anonymne zdieľame nastavenie, ktoré zabralo, aby sa napoprvé spustil aj na iných počítačoch so Sloth OS.",
+  "sharing.what_all": "Odosiela sa len nastavenie (napríklad „starší grafický režim“) a výrobca tvojej grafickej karty, spolu s tým, o aký program alebo hru išlo, ako je opísané nižšie. Nič iné tvoj počítač neopustí: ani tvoje meno, ani tvoje súbory, ani tvoje účty, ani kedy a koľko ho používaš.",
+  "sharing.programs": "Programy pre Windows a hry mimo Steamu (Battle.net, EA app, stiahnutý inštalátor…): odosiela sa len odtlačok programu, z ktorého sa nedá zistiť jeho názov",
+  "sharing.games": "Hry zo Steamu: odosiela sa verejné číslo hry v Steame, takže nastavenie sa dá priradiť k hre, ale nikdy k tebe"
 }

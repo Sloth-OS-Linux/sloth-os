@@ -177,6 +177,14 @@ from a terminal must also work from a GUI.
   game then runs 2 minutes (worked) or closes at once (failed); Proton Experimental and Proton 9 are not
   (no word for them). The shared parts moved to `sloth_common/knowledge.py` (GPU vendor, machine ID, queue,
   allowed switches; sloth-exe's community.py uses them). services/knowledge/README.md says what a Steam report holds
+- [x] Made clear in one place (the user, 2026-11-25: the Welcome question looked unnecessary next to the Steam switch).
+  Sloth Welcome's sharing step: one question for both ("Help games and programs start on the first try for
+  everyone"), and under "Yes" two ticks, both ticked: "Windows programs and games not from Steam" (only a
+  fingerprint) and "Steam games" (the public Steam number); a yes needs one of them. Sloth Center: one card with both
+  switches (SharingCard.qml, `winprograms.sharing` / `gamesSharing`), the same on the Windows programs and the Games
+  page. A yes from before keeps Steam games off until the user turns it on. The ambiguous "Windows program or game"
+  and the Games page's own card are gone (5 + 5 texts, 50 languages; checked in the image: the QML compiles, the
+  Welcome choices save as they should)
 - [x] Found on the way: Undo gave old-style options back as "%command% -skipintro" instead of "-skipintro"; now exactly
   as they were when nothing else changed. A saved state from before the new step is counted one step on
 - [x] Tests: `tools/tests/test_steam_doctor.py` (13: the knowledge first, a repeated fix skipped, Sloth machines before

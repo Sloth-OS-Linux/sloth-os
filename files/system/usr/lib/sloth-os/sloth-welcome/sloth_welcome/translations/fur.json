@@ -47,9 +47,6 @@
   "security.autologin": "Jentrade automatiche: dret sul scritori cence password",
   "security.autologin_note": "Lis password salvadis (par es. Wi-Fi, cartelis di rêt) a domandin alore la tô password une volte dopo ogni inviament, gjavât che il disc al sedi cifrât.",
   "security.later": "Plui indevant tu puedis regolâlu tal Sloth Center (Account e sigurece).",
-  "sharing.heading": "Jude i programs di Windows a partî al prin tentatîf par ducj",
-  "sharing.text": "Cuant che tu fasis partî un program o un zûc di Windows, Sloth OS al cjate di bessôl la impostazion che lu fâs lâ. Se tu lu permetis, o condividìn in mût anonim la impostazion che e à funzionât, par che al partissi al prin tentatîf ancje su altris computers cun Sloth OS.",
-  "sharing.what": "Al ven mandât dome chest: la impostazion (par esempli «modalitât grafiche vecje»), il produtôr de tô schede grafiche e une olme dal program di là che no si pues tornâ al so non. Nuie altri al lasse il to computer: no il to non, no i tiei files, no il non dal program e nancje cuant o trop che tu lu dopris.",
   "sharing.yes": "Sì, condivît in mût anonim",
   "sharing.no": "No, graciis",
   "sharing.later": "Tu puedis cambiâ chest plui indenant cuant che tu vûs in Sloth Center. Lis impostazions che a àn funzionât su altris computers tu lis ricevis distès.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Di Linux",
   "app.org.localsend.localsend_app": "Files al telefon o a un altri computer di cjase, cence cabli",
   "category.chromium_bios_note": "Chest computer al partìs te vecje modalitât BIOS, duncje al è probabilmentri vecjo. Lis aplicazions fatis su Chromium (segnadis chi sot) a podaressin no partî nancje chi, o lâ dome in part (par esempli, cuntun barcon vueit). A dissegnin dut cul chip grafic e a son fatis par hardware grafic plui gnûf di chel che i computers vecjos a àn di solit. Firefox invezit al va ben.",
-  "app.chromium_bios_badge": "Al podarès no lâ su chest computer"
+  "app.chromium_bios_badge": "Al podarès no lâ su chest computer",
+  "sharing.heading_all": "Jude che i zûcs e i programs a partissin al prin colp par ducj",
+  "sharing.text_all": "Cuant che un program di Windows o un zûc di Steam nol partìs subit, Sloth OS al cîr di bessôl une impostazion che e funzione. Se tu lu permetis, o condividìn in mût anonim la impostazion che e à funzionât, par che al partissi al prin colp ancje su altris computers cun Sloth OS.",
+  "sharing.what_all": "A vegnin mandâts dome la impostazion (par esempli «modalitât grafiche plui vecje») e il produtôr de tô schede grafiche, adun cun di cuâl program o zûc che si trate, come che al è scrit chi sot. Nuie altri nol jes dal to computer: no il to non, no i tiei files, no i tiei account e no cuant o trop che tu lu dopris.",
+  "sharing.programs": "Programs di Windows e zûcs no di Steam (Battle.net, EA app, un program di instalazion discjamât…): e ven mandade dome une impronte dal program, che di jê nol è pussibil tirâ fûr il so non",
+  "sharing.games": "Zûcs di Steam: al ven mandât il numar public dal zûc su Steam, duncje la impostazion si pues leâ al zûc, ma mai a ti"
 }

@@ -47,9 +47,6 @@
   "security.autologin": "Tuqqna tawurmant: srid ɣer tnarit war awal uffir",
   "security.autologin_note": "Awalen uffiren yettwaskelsen (amedya Wi-Fi, ikaramen n uẓeṭṭa) ad ak-d-sutren dɣa awal-ik uffir yiwet n tikkelt seld yal asenker, ala ma yella adebṣi yettwawgelhen.",
   "security.later": "Ticki tzemreḍ ad t-tesbeddeḍ deg Sloth Center (Amiḍan d tɣellist).",
-  "sharing.heading": "Ɛiwen ahilen n Windows ad kkren seg tikkelt tamezwarut ɣer yal yiwen",
-  "sharing.text": "Mi ara tsekkreḍ ahil neɣ urar n Windows, Sloth OS ad yaf iman-is aɣewwar s wayes yetteddu. Ma tsurgeḍ, ad nebḍu s war isem aɣewwar i yeddan, akken ad yekker seg tikkelt tamezwarut ula deg yiselkimen-nniḍen n Sloth OS.",
-  "sharing.what": "Ala wa i yettwaznen: aɣewwar (amedya «askar udlif aqbur»), amfaras n tkarḍa-k tudlift, d udsil n wahil ur nezmir ad d-nerr isem-is. Ulac ayen nniḍen ara yeffɣen seg uselkim-ik: mačči isem-ik, mačči ifuyla-k, mačči isem n wahil, mačči melmi d acḥal i t-tesqedceḍ.",
   "sharing.yes": "Ih, bḍu s war isem",
   "sharing.no": "Ala, tanemmirt",
   "sharing.later": "Tzemreḍ ad t-tbeddleḍ ticki melmi i k-yehwa deg Sloth Center. Iɣewwaren yeddan deg yiselkimen nniḍen ad ten-tawiḍ ɣas akken.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Seg Linux",
   "app.org.localsend.localsend_app": "Ifuyla ɣer tiliɣri-k neɣ ɣer uselkim nniḍen deg uxxam, war agatu",
   "category.chromium_bios_note": "Aselkim-a yettnekkar deg uskar aqbur BIOS, ihi ahat d aqbur. Isnasen yebnan ɣef Chromium (yettwacreḍ ddaw-a) zemren ur nekkren ara akk da, neɣ ad xedmen kan s waṭas (amedya, asfaylu ilem). Ttsunuɣen kullec s ucip udlif, ttwagen i warrum udlif amaynut ugar n wayen yesɛan yiselkimen iqburen s umata. Firefox yetteddu akken iwata deg umḍiq-nsen.",
-  "app.chromium_bios_badge": "Ahat ur yetteddu ara deg uselkim-a"
+  "app.chromium_bios_badge": "Ahat ur yetteddu ara deg uselkim-a",
+  "sharing.heading_all": "Ɛiwen uraren d yihilen ad kkren seg tikkelt tamezwarut i yal yiwen",
+  "sharing.text_all": "Mi ara yili wahil n Windows neɣ urar n Steam ur yekkir ara imir-nni, Sloth OS ad yenadi s yiman-is ɣef uɣewwar yettedun. Ma tsurfeḍ, ad nebḍu s war isem aɣewwar i yeddan, akken ad yekker seg tikkelt tamezwarut ula deg yiselkimen-nniḍen n Sloth OS.",
+  "sharing.what_all": "Ttwaznen kan uɣewwar (amedya \"askar udlif aqbur\") d umfaras n tkarḍa-k tudlift, akked wahil neɣ urar i d-yettwamlen, akken i d-yettwaglem ddaw-a. Ulac ayen-nniḍen ara yeffɣen seg uselkim-ik: ula d isem-ik, ula d ifuyla-k, ula d imiḍanen-ik, ula d melmi neɣ acḥal i t-tesseqdaceḍ.",
+  "sharing.programs": "Ihilen n Windows d wuraren ur nelli ara seg Steam (Battle.net, EA app, asebded i d-tessadreḍ…): tettwazen kan tdekkart n wahil, ur yezmir ara ad d-yettwaf yisem-is seg-s",
+  "sharing.games": "Uraren n Steam: yettwazen wuṭṭun azayez n wurar deg Steam, ihi aɣewwar yezmer ad yettwaqqen ɣer wurar, maca ɣur-k werǧin"
 }

@@ -47,9 +47,6 @@
   "security.autologin": "Automatyczne logowanie: od razu pulpit, bez hasła",
   "security.autologin_note": "Zapisane hasła (np. Wi-Fi, foldery sieciowe) proszą wtedy o twoje hasło raz po każdym uruchomieniu, chyba że dysk jest zaszyfrowany.",
   "security.later": "Później możesz to dokładnie ustawić w Sloth Center (Konto i bezpieczeństwo).",
-  "sharing.heading": "Pomóż, by programy dla Windows uruchamiały się każdemu za pierwszym razem",
-  "sharing.text": "Gdy uruchamiasz program lub grę dla Windows, Sloth OS sam znajduje ustawienie, z którym działa. Jeśli pozwolisz, anonimowo udostępnimy ustawienie, które zadziałało, aby za pierwszym razem uruchamiał się także na innych komputerach z Sloth OS.",
-  "sharing.what": "Wysyłane jest tylko to: ustawienie (na przykład „starszy tryb grafiki”), producent twojej karty graficznej i odcisk programu, z którego nie da się odtworzyć jego nazwy. Nic innego nie opuszcza twojego komputera: ani twoje imię, ani twoje pliki, ani nazwa programu, ani to, kiedy i ile z niego korzystasz.",
   "sharing.yes": "Tak, udostępniaj anonimowo",
   "sharing.no": "Nie, dziękuję",
   "sharing.later": "Możesz to zmienić później w dowolnej chwili w Sloth Center. Ustawienia, które zadziałały na innych komputerach, dostajesz w każdym przypadku.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Z Linux",
   "app.org.localsend.localsend_app": "Pliki na telefon lub inny komputer w domu, bez kabla",
   "category.chromium_bios_note": "Ten komputer uruchamia się w starym trybie BIOS, więc prawdopodobnie jest starszy. Aplikacje oparte na Chromium (oznaczone poniżej) mogą się tu w ogóle nie uruchomić albo działać tylko częściowo (na przykład z pustym oknem). Rysują wszystko za pomocą układu graficznego i są zrobione z myślą o nowszym sprzęcie graficznym, niż zwykle mają starsze komputery. Firefox działa za to dobrze.",
-  "app.chromium_bios_badge": "Może nie działać na tym komputerze"
+  "app.chromium_bios_badge": "Może nie działać na tym komputerze",
+  "sharing.heading_all": "Pomóż, żeby gry i programy uruchamiały się wszystkim za pierwszym razem",
+  "sharing.text_all": "Gdy program dla Windows albo gra ze Steama nie uruchamia się od razu, Sloth OS sam szuka ustawienia, które działa. Jeśli pozwolisz, anonimowo udostępnimy ustawienie, które zadziałało, żeby uruchamiało się za pierwszym razem także na innych komputerach z Sloth OS.",
+  "sharing.what_all": "Wysyłane są tylko ustawienie (na przykład „starszy tryb grafiki”) i producent twojej karty graficznej, razem z tym, o jaki program lub grę chodziło, jak opisano poniżej. Nic innego nie opuszcza twojego komputera: ani twoje imię, ani pliki, ani konta, ani to, kiedy i ile go używasz.",
+  "sharing.programs": "Programy dla Windows i gry spoza Steama (Battle.net, EA app, pobrany instalator…): wysyłany jest tylko odcisk programu, z którego nie da się odczytać jego nazwy",
+  "sharing.games": "Gry ze Steama: wysyłany jest publiczny numer gry na Steamie, więc ustawienie da się powiązać z grą, ale nigdy z tobą"
 }

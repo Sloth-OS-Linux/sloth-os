@@ -47,9 +47,6 @@
   "security.autologin": "Iniciar sessão automaticamente: diretamente no ambiente de trabalho sem palavra-passe",
   "security.autologin_note": "As palavras-passe guardadas (p. ex. Wi-Fi, pastas de rede) pedem então a sua palavra-passe uma vez após cada arranque, exceto se o disco estiver encriptado.",
   "security.later": "Mais tarde pode ajustar isto no Sloth Center (Conta e segurança).",
-  "sharing.heading": "Ajuda os programas do Windows a arrancar à primeira para todos",
-  "sharing.text": "Quando arrancas um programa ou jogo do Windows, o Sloth OS encontra sozinho a definição com que funciona. Se permitires, partilhamos de forma anónima a definição que funcionou, para que arranque à primeira também noutros computadores com Sloth OS.",
-  "sharing.what": "Só é enviado isto: a definição (por exemplo, «modo gráfico mais antigo»), o fabricante da tua placa gráfica e uma impressão digital do programa a partir da qual não é possível saber o seu nome. Nada mais sai do teu computador: nem o teu nome, nem os teus ficheiros, nem o nome do programa, nem quando ou quanto o usas.",
   "sharing.yes": "Sim, partilhar de forma anónima",
   "sharing.no": "Não, obrigado",
   "sharing.later": "Podes mudar isto mais tarde a qualquer momento no Sloth Center. As definições que funcionaram noutros computadores recebe-las de qualquer forma.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Do Linux",
   "app.org.localsend.localsend_app": "Ficheiros para o telemóvel ou outro computador em casa, sem cabo",
   "category.chromium_bios_note": "Este computador arranca no antigo modo BIOS, por isso é provavelmente antigo. As aplicações baseadas no Chromium (assinaladas abaixo) podem nem sequer abrir aqui, ou funcionar só em parte (por exemplo, uma janela vazia). Desenham tudo com o chip gráfico e são feitas para hardware gráfico mais recente do que o que os computadores antigos costumam ter. Em vez delas, o Firefox funciona bem.",
-  "app.chromium_bios_badge": "Pode não funcionar neste computador"
+  "app.chromium_bios_badge": "Pode não funcionar neste computador",
+  "sharing.heading_all": "Ajuda os jogos e programas a arrancar à primeira para todos",
+  "sharing.text_all": "Quando um programa do Windows ou um jogo do Steam não arranca logo, o Sloth OS procura sozinho uma definição que funcione. Se permitires, partilhamos de forma anónima a definição que funcionou, para que arranque à primeira também noutros computadores com Sloth OS.",
+  "sharing.what_all": "Só são enviados a definição (por exemplo, «modo gráfico antigo») e o fabricante da tua placa gráfica, junto com o programa ou jogo em causa, como descrito abaixo. Nada mais sai do teu computador: nem o teu nome, nem os teus ficheiros, nem as tuas contas, nem quando ou quanto o usas.",
+  "sharing.programs": "Programas do Windows e jogos que não são do Steam (Battle.net, EA app, um instalador que transferiste…): só é enviada uma impressão digital do programa, da qual não se consegue recuperar o nome",
+  "sharing.games": "Jogos do Steam: é enviado o número público do jogo no Steam, por isso a definição pode ser associada ao jogo, mas nunca a ti"
 }

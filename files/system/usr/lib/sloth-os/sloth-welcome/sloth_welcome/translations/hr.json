@@ -47,9 +47,6 @@
   "security.autologin": "Automatska prijava: ravno na radnu površinu bez lozinke",
   "security.autologin_note": "Spremljene lozinke (npr. Wi-Fi, mrežne mape) tada traže vašu lozinku jednom nakon svakog pokretanja, osim ako je disk šifriran.",
   "security.later": "Kasnije to možete detaljno podesiti u Sloth Centeru (Račun i sigurnost).",
-  "sharing.heading": "Pomozi da se Windows programi kod svih pokrenu iz prvog pokušaja",
-  "sharing.text": "Kad pokreneš Windows program ili igru, Sloth OS sam pronađe postavku s kojom radi. Ako dopustiš, anonimno dijelimo postavku koja je uspjela, kako bi se i na drugim računalima sa Sloth OS-om pokrenuo iz prvog pokušaja.",
-  "sharing.what": "Šalje se samo ovo: postavka (na primjer „stariji grafički način“), proizvođač tvoje grafičke kartice i otisak programa iz kojeg se ne može doznati njegov naziv. Ništa drugo ne napušta tvoje računalo: ni tvoje ime, ni tvoje datoteke, ni naziv programa, ni kada i koliko ga koristiš.",
   "sharing.yes": "Da, dijeli anonimno",
   "sharing.no": "Ne, hvala",
   "sharing.later": "To možeš kasnije bilo kada promijeniti u Sloth Centeru. Postavke koje su radile na drugim računalima dobivaš u svakom slučaju.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Iz Linuxa",
   "app.org.localsend.localsend_app": "Datoteke na mobitel ili drugo računalo kod kuće, bez kabela",
   "category.chromium_bios_note": "Ovo računalo se pokreće u starom BIOS načinu, pa je vjerojatno starije. Aplikacije izrađene na Chromiumu (označene ispod) ovdje se možda uopće neće pokrenuti ili će raditi samo djelomično (na primjer, prazan prozor). Sve crtaju grafičkim čipom i napravljene su za noviji grafički hardver nego što ga starija računala obično imaju. Umjesto njih Firefox radi dobro.",
-  "app.chromium_bios_badge": "Možda neće raditi na ovom računalu"
+  "app.chromium_bios_badge": "Možda neće raditi na ovom računalu",
+  "sharing.heading_all": "Pomozi da se igre i programi svima pokreću iz prve",
+  "sharing.text_all": "Kad se Windows program ili Steam igra ne pokrene odmah, Sloth OS sam traži postavku koja radi. Ako dopustiš, anonimno dijelimo postavku koja je uspjela, kako bi se iz prve pokretala i na drugim računalima sa Sloth OS-om.",
+  "sharing.what_all": "Šalju se samo postavka (na primjer „stariji grafički način”) i proizvođač tvoje grafičke kartice, zajedno s time o kojem je programu ili igri riječ, kako je opisano ispod. Ništa drugo ne napušta tvoje računalo: ni tvoje ime, ni tvoje datoteke, ni tvoji računi, ni kada i koliko ga koristiš.",
+  "sharing.programs": "Windows programi i igre koje nisu sa Steama (Battle.net, EA app, preuzeti instalacijski program…): šalje se samo otisak programa, iz kojeg se ne može doznati njegovo ime",
+  "sharing.games": "Steam igre: šalje se javni Steam broj igre, pa se postavka može povezati s igrom, ali nikad s tobom"
 }

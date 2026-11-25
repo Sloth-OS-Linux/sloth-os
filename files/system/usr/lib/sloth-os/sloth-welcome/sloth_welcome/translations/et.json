@@ -47,9 +47,6 @@
   "security.autologin": "Automaatne sisselogimine: otse töölauale ilma paroolita",
   "security.autologin_note": "Salvestatud paroolid (nt Wi-Fi, võrgukaustad) küsivad siis su parooli pärast igat käivitamist üks kord, kui ketas pole krüptitud.",
   "security.later": "Hiljem saad seda täpsemalt seada Sloth Centeris (Konto ja turvalisus).",
-  "sharing.heading": "Aita, et Windowsi programmid käivituksid kõigil esimesel katsel",
-  "sharing.text": "Kui käivitad Windowsi programmi või mängu, leiab Sloth OS ise seadistuse, millega see töötab. Kui lubad, jagame töötanud seadistust anonüümselt, et see käivituks esimesel katsel ka teistes Sloth OS-i arvutites.",
-  "sharing.what": "Saadetakse ainult see: seadistus (näiteks „vanem graafikarežiim“), sinu graafikakaardi tootja ja programmi sõrmejälg, millest selle nime tuletada ei saa. Mitte midagi muud sinu arvutist ei lahku: ei sinu nimi, failid, programmi nimi ega see, millal ja kui palju sa seda kasutad.",
   "sharing.yes": "Jah, jaga anonüümselt",
   "sharing.no": "Ei, tänan",
   "sharing.later": "Saad seda hiljem igal ajal Sloth Centeris muuta. Teistes arvutites töötanud seaded saad igal juhul.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Linuxist",
   "app.org.localsend.localsend_app": "Failid telefoni või teise koduarvutisse, ilma kaablita",
   "category.chromium_bios_note": "See arvuti käivitub vanas BIOS-režiimis, seega on see tõenäoliselt vanem. Chromiumil põhinevad rakendused (allpool märgitud) ei pruugi siin üldse käivituda või töötavad ainult osaliselt (näiteks tühja aknaga). Need joonistavad kõike graafikakiibiga ja on tehtud uuema graafikariistvara jaoks, kui vanematel arvutitel tavaliselt on. Firefox töötab selle asemel hästi.",
-  "app.chromium_bios_badge": "Ei pruugi selles arvutis töötada"
+  "app.chromium_bios_badge": "Ei pruugi selles arvutis töötada",
+  "sharing.heading_all": "Aita, et mängud ja programmid käivituksid kõigil esimesel katsel",
+  "sharing.text_all": "Kui Windowsi programm või Steami mäng kohe ei käivitu, otsib Sloth OS ise töötava seade. Kui lubad, jagame toiminud seadet anonüümselt, et see käivituks esimesel katsel ka teistes Sloth OS-iga arvutites.",
+  "sharing.what_all": "Saadetakse ainult seade (näiteks „vanem graafikarežiim“) ja sinu graafikakaardi tootja koos sellega, millise programmi või mänguga oli tegu, nagu allpool kirjeldatud. Midagi muud sinu arvutist ei lahku: mitte sinu nimi, failid ega kontod ega see, millal või kui palju sa seda kasutad.",
+  "sharing.programs": "Windowsi programmid ja mängud, mis pole Steamist (Battle.net, EA app, allalaaditud paigaldaja…): saadetakse ainult programmi sõrmejälg, millest selle nime ei saa taastada",
+  "sharing.games": "Steami mängud: saadetakse mängu avalik Steami number, nii et seade saab siduda mänguga, aga mitte kunagi sinuga"
 }

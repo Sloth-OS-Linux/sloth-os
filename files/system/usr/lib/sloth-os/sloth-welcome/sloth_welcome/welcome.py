@@ -146,8 +146,15 @@ class WelcomeController(QObject):
         self._security = "all"      # "all" (password for everything) or "recommended"
         self._autologin = False
         self._security_saved = ("all", False)
-        # Sharing experiences (sloth_common/sharing.py): "" until chosen, "yes" / "no"
-        self._sharing = ("yes" if sharing.enabled() else "no") if sharing.CONFIG.exists() else ""
+        # Sharing experiences (sloth_common/sharing.py): "" until chosen, "yes" / "no"; with "yes", which of the two
+        # (Windows programs, Steam games: separate yeses, a Steam game is sent by its public number). A new choice
+        # has both ticked; an earlier one shows what is on (a yes from before 2026-11-25 has Steam games off)
+        chosen = sharing.CONFIG.exists()
+        self._share_programs = sharing.enabled() if chosen else True
+        self._share_games = sharing.games_enabled() if chosen else True
+        self._sharing = ("yes" if self._share_programs or self._share_games else "no") if chosen else ""
+        if self._sharing == "no":
+            self._share_programs = self._share_games = True   # what a yes would start from
         self._status_sig.connect(self._on_status)
         self._app_sig.connect(self._on_app_state)
         self._done_sig.connect(self._on_done)
@@ -448,6 +455,19 @@ class WelcomeController(QObject):
         if choice in ("yes", "no"):
             self._sharing = choice
             self.changed.emit()
+
+    @Property(bool, notify=changed)
+    def sharePrograms(self):
+        return self._share_programs
+
+    @Property(bool, notify=changed)
+    def shareGames(self):
+        return self._share_games
+
+    @Slot(bool, bool)
+    def setSharingKinds(self, programs, games):
+        self._share_programs, self._share_games = bool(programs), bool(games)
+        self.changed.emit()
 
     def _save_security(self):
         """Saves the choice (in the background; polkit shows the password window)."""
@@ -780,7 +800,11 @@ class WelcomeController(QObject):
         if self._step_name() == "sharing":
             if not self._sharing:
                 return  # a choice is needed (the button is inactive until then)
-            sharing.set_enabled(self._sharing == "yes")
+            yes = self._sharing == "yes"
+            if yes and not (self._share_programs or self._share_games):
+                return  # a yes needs one of the two (the button is inactive until then)
+            sharing.set_enabled(yes and self._share_programs)
+            sharing.set_games_enabled(yes and self._share_games)
         if self._step_name() == "windows":
             if self._win["state"] in ("scanning", "copying"):
                 return  # while it works, the button is inactive

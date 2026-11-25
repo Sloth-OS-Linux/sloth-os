@@ -389,7 +389,6 @@
   "Updates, rollback, drivers and everything that would otherwise need a terminal": "עדכונים, שחזור, מנהלי התקנים וכל מה שאחרת היה דורש מסוף",
   "update;rollback;driver;settings": "עדכון;שחזור;מנהל התקן;הגדרות",
   "Share experiences": "שיתוף ניסיון",
-  "When a program starts on your computer, we anonymously share which setting worked, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer are sent: not your name, not your files, not the program's name.": "כשתוכנה מופעלת במחשב שלך, אנחנו משתפים באופן אנונימי איזו הגדרה עבדה, כדי שתופעל כבר בניסיון הראשון גם במחשבי Sloth OS אחרים. נשלחים רק ההגדרה ויצרן כרטיס המסך: לא השם שלך, לא הקבצים שלך ולא שם התוכנה.",
   "NVIDIA driver": "מנהל התקן של NVIDIA",
   "The driver for your NVIDIA graphics card is ready. After a restart it runs at full power.": "מנהל ההתקן של כרטיס המסך NVIDIA שלך מוכן. אחרי הפעלה מחדש הוא יעבוד במלוא העוצמה.",
   "The driver for your NVIDIA graphics card is ready. When you restart, the computer asks for confirmation on a blue screen: Sloth Center shows you step by step what to do there.": "מנהל ההתקן של כרטיס המסך NVIDIA שלך מוכן. בהפעלה מחדש המחשב יבקש אישור במסך כחול: מרכז Sloth מראה צעד אחר צעד מה לעשות שם.",
@@ -1312,6 +1311,9 @@
   "Your saved passwords are locked": "הסיסמאות השמורות שלך נעולות",
   "You signed in automatically, without a password, so your saved passwords (Wi-Fi, network folders, browsers) could not be unlocked. The first time one is needed, you're asked for your account password once; after that they stay unlocked until you restart.": "נכנסת אוטומטית, בלי סיסמה, ולכן לא ניתן היה לשחרר את הסיסמאות השמורות שלך (Wi-Fi, תיקיות רשת, דפדפנים). בפעם הראשונה שתידרש אחת מהן, תתבקש להזין את סיסמת החשבון שלך פעם אחת; אחר כך הן יישארו פתוחות עד ההפעלה מחדש.",
   "the setting that made this game start on other computers": "ההגדרה שבזכותה המשחק הזה עלה במחשבים אחרים",
-  "Share what fixed a game": "לשתף מה תיקן משחק",
-  "When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.": "כש-Sloth OS מצליח להפעיל משחק Steam שלא עלה, הוא יכול לשתף באופן אנונימי איזו הגדרה עזרה, כדי שהמשחק יעלה כבר בניסיון הראשון גם במחשבי Sloth OS אחרים. נשלחים רק ההגדרה, יצרן כרטיס המסך שלך ומספר ה-Steam הציבורי של המשחק: לא השם שלך, לא הקבצים שלך ולא חשבון ה-Steam שלך."
+  "When a Windows program or a Steam game doesn't start right away and Sloth OS finds a setting that works, it can share that setting anonymously, so it starts on the first try on other Sloth OS computers too. Only the setting and your graphics card's manufacturer go with it: never your name, your files or your accounts. You get the settings that worked on other computers either way.": "כשתוכנת Windows או משחק Steam לא עולים מיד ו-Sloth OS מוצא הגדרה שעובדת, הוא יכול לשתף אותה באופן אנונימי, כדי שגם במחשבי Sloth OS אחרים זה יעלה כבר בניסיון הראשון. איתה נשלחים רק ההגדרה ויצרן כרטיס המסך שלך: אף פעם לא השם שלך, הקבצים שלך או החשבונות שלך. את ההגדרות שעבדו במחשבים אחרים תקבל בכל מקרה.",
+  "Windows programs and games not from Steam": "תוכנות Windows ומשחקים שלא מ-Steam",
+  "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "נשלחת רק טביעת אצבע של התוכנה: אי אפשר לשחזר ממנה את שמה.",
+  "Steam games": "משחקי Steam",
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "נשלח מספר ה-Steam הציבורי של המשחק, כך שאפשר לקשר את ההגדרה למשחק, אבל אף פעם לא אליך."
 }

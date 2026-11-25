@@ -47,9 +47,6 @@
   "security.autologin": "Hyrje automatike: drejt e në desktop pa fjalëkalim",
   "security.autologin_note": "Fjalëkalimet e ruajtura (p.sh. Wi-Fi, dosjet e rrjetit) atëherë kërkojnë fjalëkalimin tuaj një herë pas çdo nisjeje, përveç nëse disku është i enkriptuar.",
   "security.later": "Më vonë mund ta rregulloni në Sloth Center (Llogaria dhe siguria).",
-  "sharing.heading": "Ndihmo që programet e Windows të nisen që në përpjekjen e parë për të gjithë",
-  "sharing.text": "Kur nis një program ose lojë Windows, Sloth OS gjen vetë cilësimin me të cilin funksionon. Nëse e lejon, ndajmë në mënyrë anonime cilësimin që funksionoi, që të niset që në përpjekjen e parë edhe në kompjuterë të tjerë me Sloth OS.",
-  "sharing.what": "Dërgohet vetëm kjo: cilësimi (për shembull „modalitet më i vjetër grafik”), prodhuesi i kartës tënde grafike dhe një gjurmë e programit nga e cila nuk mund të gjendet emri i tij. Asgjë tjetër nuk largohet nga kompjuteri yt: as emri yt, as skedarët e tu, as emri i programit, as kur dhe sa e përdor.",
   "sharing.yes": "Po, ndaj në mënyrë anonime",
   "sharing.no": "Jo, faleminderit",
   "sharing.later": "Mund ta ndryshosh këtë më vonë në çdo kohë te Sloth Center. Cilësimet që kanë funksionuar në kompjuterë të tjerë i merr gjithsesi.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Nga Linux",
   "app.org.localsend.localsend_app": "Skedarë në telefon ose në një kompjuter tjetër në shtëpi, pa kabllo",
   "category.chromium_bios_note": "Ky kompjuter niset në mënyrën e vjetër BIOS, kështu që ka gjasa të jetë i vjetër. Aplikacionet e ndërtuara mbi Chromium (të shënuara më poshtë) mund të mos hapen fare këtu, ose të punojnë vetëm pjesërisht (për shembull, një dritare bosh). Ato vizatojnë gjithçka me çipin grafik dhe janë bërë për pajisje grafike më të reja nga ç'kanë zakonisht kompjuterët e vjetër. Në vend të tyre, Firefox punon mirë.",
-  "app.chromium_bios_badge": "Mund të mos punojë në këtë kompjuter"
+  "app.chromium_bios_badge": "Mund të mos punojë në këtë kompjuter",
+  "sharing.heading_all": "Ndihmo që lojërat dhe programet të nisen që herën e parë për të gjithë",
+  "sharing.text_all": "Kur një program Windows ose një lojë Steam nuk niset menjëherë, Sloth OS kërkon vetë një cilësim që funksionon. Nëse e lejon, e ndajmë në mënyrë anonime cilësimin që funksionoi, që të niset që herën e parë edhe në kompjuterë të tjerë me Sloth OS.",
+  "sharing.what_all": "Dërgohen vetëm cilësimi (për shembull «mënyrë grafike më e vjetër») dhe prodhuesi i kartës tënde grafike, bashkë me programin ose lojën për të cilën bëhet fjalë, siç përshkruhet më poshtë. Asgjë tjetër nuk largohet nga kompjuteri yt: as emri yt, as skedarët e tu, as llogaritë e tua, as kur apo sa e përdor.",
+  "sharing.programs": "Programe Windows dhe lojëra jo nga Steam (Battle.net, EA app, një instalues që shkarkove…): dërgohet vetëm një gjurmë e programit, nga e cila emri i tij nuk mund të gjendet",
+  "sharing.games": "Lojëra Steam: dërgohet numri publik i lojës në Steam, kështu që cilësimi mund të lidhet me lojën, por kurrë me ty"
 }

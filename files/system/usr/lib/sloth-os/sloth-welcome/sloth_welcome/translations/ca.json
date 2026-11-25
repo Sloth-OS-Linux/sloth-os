@@ -47,9 +47,6 @@
   "security.autologin": "Inici de sessió automàtic: directament a l’escriptori sense contrasenya",
   "security.autologin_note": "Llavors les contrasenyes desades (p. ex. Wi-Fi, carpetes de xarxa) us demanen la contrasenya una vegada després de cada engegada, tret que el disc estigui xifrat.",
   "security.later": "Més endavant ho podeu ajustar al Sloth Center (Compte i seguretat).",
-  "sharing.heading": "Ajuda que els programes de Windows s'iniciïn al primer intent per a tothom",
-  "sharing.text": "Quan inicies un programa o un joc de Windows, Sloth OS troba tot sol la configuració que hi funciona. Si ho permets, compartim la configuració que ha funcionat de manera anònima, perquè també s'iniciï al primer intent en altres ordinadors amb Sloth OS.",
-  "sharing.what": "Només s'envia això: la configuració (per exemple, «mode gràfic antic»), el fabricant de la targeta gràfica i una empremta del programa de la qual no se'n pot recuperar el nom. Res més surt del teu ordinador: ni el teu nom, ni els teus fitxers, ni el nom del programa, ni quan o quant l'utilitzes.",
   "sharing.yes": "Sí, comparteix de manera anònima",
   "sharing.no": "No, gràcies",
   "sharing.later": "Ho pots canviar més endavant en qualsevol moment al Sloth Center. Rebràs igualment els ajustos que han funcionat en altres ordinadors.",
@@ -225,5 +222,10 @@
   "linux.bookmarks_folder": "Des del Linux",
   "app.org.localsend.localsend_app": "Fitxers al mòbil o a un altre ordinador de casa, sense cable",
   "category.chromium_bios_note": "Aquest ordinador arrenca en l'antic mode BIOS, així que probablement és antic. Les aplicacions basades en Chromium (marcades a sota) potser no s'obren aquí, o només funcionen en part (per exemple, una finestra buida). Ho dibuixen tot amb el xip gràfic i estan fetes per a maquinari gràfic més nou del que solen tenir els ordinadors antics. En canvi, Firefox funciona bé.",
-  "app.chromium_bios_badge": "Potser no funciona en aquest ordinador"
+  "app.chromium_bios_badge": "Potser no funciona en aquest ordinador",
+  "sharing.heading_all": "Ajuda que els jocs i els programes s'obrin al primer intent per a tothom",
+  "sharing.text_all": "Quan un programa de Windows o un joc de Steam no s'obre de seguida, Sloth OS busca tot sol una configuració que funcioni. Si ho permets, compartim de manera anònima la configuració que ha funcionat, perquè també s'obri al primer intent en altres ordinadors amb Sloth OS.",
+  "sharing.what_all": "Només s'envia la configuració (per exemple, «mode gràfic antic») i el fabricant de la teva targeta gràfica, juntament amb quin programa o joc era, tal com es descriu a sota. Res més surt del teu ordinador: ni el teu nom, ni els teus fitxers, ni els teus comptes, ni quan o quant l'utilitzes.",
+  "sharing.programs": "Programes de Windows i jocs que no són de Steam (Battle.net, EA app, un instal·lador que has baixat…): només s'envia una empremta del programa, de la qual no es pot recuperar el nom",
+  "sharing.games": "Jocs de Steam: s'envia el número públic del joc a Steam, de manera que la configuració es pot relacionar amb el joc, però mai amb tu"
 }

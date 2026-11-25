@@ -217,38 +217,8 @@ Kirigami.ScrollablePage {
             }
         }
 
-        // --- Sharing what fixed a Steam game (games.py shareFixes; sloth_common/steam_doctor.py) ---------------
-        // Its own yes: the game is known by its public Steam number (Windows programs only by a fingerprint)
-        Kirigami.AbstractCard {
-            Layout.fillWidth: true
-            visible: games.steamInstalled
-            contentItem: RowLayout {
-                spacing: Kirigami.Units.largeSpacing
-                Kirigami.Icon {
-                    source: "network-workgroup"
-                    implicitWidth: Kirigami.Units.iconSizes.medium
-                    implicitHeight: Kirigami.Units.iconSizes.medium
-                }
-                ColumnLayout {
-                    Layout.fillWidth: true
-                    spacing: 0
-                    Kirigami.Heading { level: 3; Layout.fillWidth: true; text: L.t("Share what fixed a game") }
-                    QQC2.Label {
-                        Layout.fillWidth: true
-                        wrapMode: Text.Wrap
-                        opacity: 0.7
-                        text: L.t("When Sloth OS gets a Steam game that didn't start working, it can share which setting helped, anonymously, so the game starts on the first try on other Sloth OS computers too. Only the setting, your graphics card's manufacturer and the game's public Steam number are sent: not your name, your files or your Steam account.")
-                    }
-                }
-                QQC2.Switch {
-                    checked: games.shareFixes
-                    onToggled: {
-                        games.setShareFixes(checked);
-                        checked = Qt.binding(() => games.shareFixes);
-                    }
-                }
-            }
-        }
+        // --- Sharing what fixed a game: both switches, the same card as on the Windows programs page --------
+        SharingCard {}
 
         // --- TV mode: Steam's big-screen interface (/usr/libexec/sloth-os/tv-session; from here with --on-desktop) ---
         Kirigami.AbstractCard {
