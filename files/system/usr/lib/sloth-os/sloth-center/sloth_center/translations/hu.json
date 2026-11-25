@@ -1305,7 +1305,7 @@
   "Your allowed hours haven't started yet.": "Az engedélyezett időszakod még nem kezdődött el.",
   "Your allowed hours are over for today.": "Az engedélyezett időszakod mára véget ért.",
   "You've used up today's screen time.": "Elhasználtad a mai képernyőidődet.",
-  "You can use the computer from {time}.": "{time}-tól használhatod a gépet.",
+  "You can use the computer from {time}.": "{time} órától használhatod a gépet.",
   "Unlock now": "Feloldás most",
   "Don't remind me": "Ne emlékeztess",
   "Your saved passwords are locked": "A mentett jelszavaid zárolva vannak",
