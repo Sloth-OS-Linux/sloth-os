@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows-programoj kaj ludoj ne el Steam",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "Nur fingrospuro de la programo estas sendita: ĝia nomo ne retroveblas el ĝi.",
   "Steam games": "Steam-ludoj",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "La publika Steam-numero de la ludo estas sendita, do la agordo ligeblas al la ludo, sed neniam al vi."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "La publika Steam-numero de la ludo estas sendita, do la agordo ligeblas al la ludo, sed neniam al vi.",
+  "{month} {year}": "{month} {year}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "Oni raportis, ke la agordo, kiun uzis aliaj ludantoj, ne plu funkcias, do Sloth OS ne uzas ĝin.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Konata estas agordo, kiu funkciis por {players} aliaj ludantoj (laste konfirmita: {month}). Sloth OS mem uzas ĝin, se la ludo ne ekfunkcias.",
+  "It worked for {players} other players, last confirmed in {month}.": "Ĝi funkciis por {players} aliaj ludantoj, laste konfirmita: {month}.",
+  "It starts, but doesn't work right": "Ĝi ekfunkcias, sed ne funkcias ĝuste",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Kun Steam-ludoj ŝaltitaj sub Kunhavigi spertojn, ankaŭ aliaj ludantoj ekscias pri tio."
 }

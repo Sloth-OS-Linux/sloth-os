@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows-programok és nem Steames játékok",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "Csak a program egy ujjlenyomata megy el: a neve nem fejthető vissza belőle.",
   "Steam games": "Steam-játékok",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "A játék nyilvános Steam-száma megy el, így a beállítás a játékhoz köthető, de hozzád soha."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "A játék nyilvános Steam-száma megy el, így a beállítás a játékhoz köthető, de hozzád soha.",
+  "{month} {year}": "{year}. {month}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "A más játékosok által használt beállításról azt jelezték, hogy már nem működik, ezért a Sloth OS nem használja.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Ismert egy beállítás, amely {players} másik játékosnál bevált (utoljára megerősítve: {month}). A Sloth OS magától használja, ha a játék nem indul el.",
+  "It worked for {players} other players, last confirmed in {month}.": "{players} másik játékosnál bevált, utoljára megerősítve: {month}.",
+  "It starts, but doesn't work right": "Elindul, de nem működik rendesen",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Ha a Tapasztalatok megosztása alatt bekapcsolod a Steam-játékokat, erről más játékosok is értesülnek."
 }

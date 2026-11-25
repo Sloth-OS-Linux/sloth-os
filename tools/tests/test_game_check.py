@@ -61,7 +61,10 @@ class GameCheckTest(unittest.TestCase):
         self.assertEqual(gc.lookup(GAMES, "1091500")["sources"], ["ProtonDB"])
         self.assertEqual(gc.search(GAMES, "broken shooter")[0]["badge"], "broken")
         cp = gc.lookup(GAMES, "1091500", known={"1091500"})
-        self.assertEqual((cp["badge"], cp["works"], cp["reports"], cp["known"]), ("great", 93, 757, True))
+        self.assertEqual((cp["badge"], cp["works"], cp["reports"], cp["known"]), ("great", 93, 757, {}))
+        info = {"players": 12, "last": "2026-09", "disputed": False}
+        self.assertEqual(gc.lookup(GAMES, "1091500", known={"1091500": info})["known"], info)
+        self.assertIsNone(gc.lookup(GAMES, "1091500")["known"])
         self.assertEqual(cp["gpus"], [("AMD", 95), ("NVIDIA", 91), ("Intel", 86)])
         self.assertTrue(gc.lookup(GAMES, "570")["native"])
         self.assertEqual(gc.lookup(GAMES, "2")["badge"], "unknown")
@@ -86,9 +89,25 @@ class GameCheckTest(unittest.TestCase):
             self.assertTrue(gc.needs_download(cache, now=time.time() + gc.MAX_AGE_S + 60))
             self.assertEqual(len(gc.load(cache)), len(GAMES))
             knowledge = Path(tmp) / "knowledge.json"
-            knowledge.write_text(json.dumps({"games": {"umu-1091500": {}, "umu-570": {}}, "programs": {}}))
-            self.assertEqual(gc.known_settings(knowledge), {"1091500", "570"})
-            self.assertEqual(gc.known_settings(Path(tmp) / "missing.json"), set())
+            wined3d = {"line": "UMU-Proton", "profile": "wined3d", "fixes": [], "reports": 12, "last": "2026-09"}
+            knowledge.write_text(json.dumps({
+                "games": {"umu-1091500": {"any": wined3d}, "umu-570": {"any": {**wined3d, "profile": "nofsync"}},
+                          "umu-10": {}},
+                "programs": {},
+                # the setting for 570 (without fsync) failed on Sloth OS machines lately: not used, and said so
+                "disputed": {knowledge_key("570"): {"amd": [{"line": "UMU-Proton", "profile": "nofsync",
+                                                             "fixes": []}]}}}))
+            self.assertEqual(gc.known_settings(knowledge, gpu="amd"), {
+                "1091500": {"players": 12, "last": "2026-09", "disputed": False},
+                "570": {"players": 12, "last": "2026-09", "disputed": True}})
+            # another GPU vendor: the dispute was for AMD cards only
+            self.assertFalse(gc.known_settings(knowledge, gpu="nvidia")["570"]["disputed"])
+            self.assertEqual(gc.known_settings(Path(tmp) / "missing.json"), {})
+
+
+def knowledge_key(appid):
+    from sloth_common import knowledge
+    return knowledge.steam_key(appid)
 
 
 if __name__ == "__main__":

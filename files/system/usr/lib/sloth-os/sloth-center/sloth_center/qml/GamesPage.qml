@@ -490,12 +490,28 @@ Kirigami.ScrollablePage {
                                             ? L.t("Nothing helped so far. The players' reports under Will it run? may tell more, and you can ask for help in Help and feedback.")
                                           : L.t("Sloth OS can try settings that often help, one after the other.")
                                 }
+                                // the shared knowledge's setting in use: how many players it worked for, and since when
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    visible: (doctorCard.d.sharedLine || "") !== ""
+                                    text: doctorCard.d.sharedLine || ""
+                                }
                                 QQC2.Label {
                                     Layout.fillWidth: true
                                     wrapMode: Text.Wrap
                                     opacity: 0.7
                                     visible: !doctorCard.d.native && doctorCard.d.canTry === true
                                     text: L.t("For this, Steam closes for a moment, and the game starts again by itself.")
+                                }
+                                // it starts but doesn't work right: that fix failed too (other players hear of it with
+                                // sharing for Steam games on)
+                                QQC2.Label {
+                                    Layout.fillWidth: true
+                                    wrapMode: Text.Wrap
+                                    opacity: 0.7
+                                    visible: notRightButton.visible && doctorCard.d.sharing !== true
+                                    text: L.t("With Steam games turned on under Share experiences, other players learn about it too.")
                                 }
                                 RowLayout {
                                     visible: games.fixingId === gameCard.modelData.id
@@ -512,6 +528,14 @@ Kirigami.ScrollablePage {
                                         icon.name: "tools-wizard"
                                         text: doctorCard.d.changed ? L.t("Try the next fix") : L.t("Try a fix")
                                         onClicked: games.tryFix(gameCard.modelData.id)
+                                    }
+                                    QQC2.Button {
+                                        id: notRightButton
+                                        visible: !doctorCard.d.native && doctorCard.d.changed === true
+                                                 && (doctorCard.d.status === "works" || doctorCard.d.status === "trying")
+                                        icon.name: "dialog-warning"
+                                        text: L.t("It starts, but doesn't work right")
+                                        onClicked: games.notRight(gameCard.modelData.id)
                                     }
                                     QQC2.Button {
                                         visible: doctorCard.d.changed === true

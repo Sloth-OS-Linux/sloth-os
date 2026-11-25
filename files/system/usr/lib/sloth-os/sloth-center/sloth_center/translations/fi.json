@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows-ohjelmat ja muut kuin Steamin pelit",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "Vain ohjelman sormenjälki lähetetään: sen nimeä ei voi selvittää siitä.",
   "Steam games": "Steam-pelit",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Pelin julkinen Steam-numero lähetetään, joten asetus voidaan yhdistää peliin mutta ei koskaan sinuun."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Pelin julkinen Steam-numero lähetetään, joten asetus voidaan yhdistää peliin mutta ei koskaan sinuun.",
+  "{month} {year}": "{month} {year}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "Muiden pelaajien käyttämän asetuksen on ilmoitettu lakanneen toimimasta, joten Sloth OS ei käytä sitä.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Tiedossa on asetus, joka toimi {players} muulla pelaajalla (viimeksi vahvistettu: {month}). Sloth OS käyttää sitä itse, jos peli ei käynnisty.",
+  "It worked for {players} other players, last confirmed in {month}.": "Se toimi {players} muulla pelaajalla, viimeksi vahvistettu: {month}.",
+  "It starts, but doesn't work right": "Käynnistyy, mutta ei toimi oikein",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Kun Steam-pelit ovat päällä kohdassa Jaa kokemuksia, myös muut pelaajat saavat tietää siitä."
 }

@@ -72,19 +72,33 @@ def download(path=CACHE):
     return True
 
 
-def known_settings(path=KNOWLEDGE):
-    """The Steam AppIDs with a working setting in the shared knowledge (Sloth OS applies it by itself)."""
+def known_settings(path=KNOWLEDGE, gpu=None):
+    """The Steam games the shared knowledge has a setting for: {appid: {"players", "last", "disputed"}}. disputed:
+    the setting was reported not to work anymore on Sloth OS machines, so it is not used (knowledge.status)."""
+    from sloth_common import knowledge
     try:
-        games = json.loads(Path(path).read_text(encoding="utf-8")).get("games", {})
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        games = data.get("games", {})
     except (OSError, ValueError, AttributeError):
-        return set()
-    return {k[4:] for k in games if isinstance(k, str) and k.startswith("umu-")}
+        return {}
+    gpu = gpu or knowledge.gpu_vendor()
+    out = {}
+    for k in games if isinstance(games, dict) else ():
+        if not (isinstance(k, str) and k.startswith("umu-") and k[4:].isdigit()):
+            continue
+        usable, skipped = knowledge.status(knowledge.steam_key(k[4:]), k, gpu, data=data)
+        found = usable or skipped
+        if found:
+            out[k[4:]] = {"players": int(found.get("players") or 0), "last": found.get("last") or "",
+                          "disputed": usable is None}
+    return out
 
 
 def verdict(key, entry, known=()):
     """What the page shows about one game:
     {"key", "name", "badge", "works", "reports", "native", "gpus" [(name, %)], "anticheat" [..], "publisher", "tested",
-    "known", "sources" [where the data comes from], "alternative" [the app that runs it instead, or ""]}"""
+    "known" (the shared knowledge's setting: {"players", "last", "disputed"} or None), "sources" [where the data
+    comes from], "alternative" [the app that runs it instead, or ""]}"""
     alternative = ALTERNATIVES.get(normalize(entry.get("n", "")), "")
     if alternative and entry.get("a") in ("denied", "broken"):
         badge = "alternative"
@@ -111,7 +125,10 @@ def verdict(key, entry, known=()):
         "anticheat": list(entry.get("ac") or []),
         "publisher": entry.get("p", ""),
         "tested": entry.get("st", ""),
-        "known": bool(appid) and appid in known,
+        # the shared knowledge's setting for it: {"players", "last", "disputed"} or None (known: a set of AppIDs
+        # in tests and older callers)
+        "known": (known.get(appid) if isinstance(known, dict) else ({} if appid in known else None))
+        if appid else None,
         "sources": sources,
         "alternative": alternative,
     }

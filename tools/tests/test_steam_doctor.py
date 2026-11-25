@@ -231,6 +231,49 @@ class Shared(unittest.TestCase):
             self.assertFalse(sharing.GAMES_QUEUE.exists())
             sharing.set_enabled(False)
 
+    def test_a_disputed_setting_is_skipped_and_said(self):
+        wined3d = {"line": "UMU-Proton", "profile": "wined3d", "fixes": [], "reports": 9, "last": "2026-08"}
+        nofsync = {"line": "UMU-Proton", "profile": "nofsync", "fixes": [], "machines": 4, "last": "2026-11"}
+        key = knowledge.steam_key(APPID)
+        # Sloth OS machines' own setting first, with its players and month
+        set_knowledge({f"umu-{APPID}": {"any": wined3d}}, {key: {"amd": nofsync}})
+        self.assertEqual(sd.shared_info(APPID), {"players": 4, "last": "2026-11", "source": "sloth",
+                                                  "disputed": False})
+        # that one failed on several machines lately: ProtonDB's comes next
+        knowledge.CACHE.write_text(json.dumps({"games": {f"umu-{APPID}": {"any": wined3d}},
+                                               "programs": {key: {"amd": nofsync}},
+                                               "disputed": {key: {"amd": [{"line": "UMU-Proton",
+                                                                           "profile": "nofsync", "fixes": []}]}}}))
+        self.assertEqual(sd.shared_info(APPID)["source"], "protondb")
+        with tempfile.TemporaryDirectory() as tmp:
+            root, _local = fake_steam(tmp)
+            self.assertEqual(sd.shared_setting(APPID, root)[0], ["PROTON_USE_WINED3D=1"])
+        # every setting disputed: nothing is offered, and it says why
+        knowledge.CACHE.write_text(json.dumps({"games": {f"umu-{APPID}": {"any": wined3d}}, "programs": {},
+                                               "disputed": {key: {"amd": [wined3d]}}}))
+        self.assertEqual(sd.shared_info(APPID), {"players": 9, "last": "2026-08", "source": "protondb",
+                                                  "disputed": True})
+        with tempfile.TemporaryDirectory() as tmp:
+            root, _local = fake_steam(tmp)
+            self.assertIsNone(sd.shared_setting(APPID, root))
+
+    def test_it_starts_but_does_not_work_right(self):
+        set_knowledge({f"umu-{APPID}": {"any": {"line": "UMU-Proton", "profile": "wined3d", "fixes": []}}})
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp, "doctor.json")
+            root, local = fake_steam(tmp)
+            self.assertFalse(sd.not_right(APPID, state))            # nothing tried yet: nothing to say
+            sd.record_run(APPID, 3, state)
+            sd.try_next(root, local, APPID, path=state)              # the shared setting
+            sd.record_run(APPID, 600, state)                         # "works": it ran for 10 minutes
+            sharing.set_games_enabled(True)
+            self.assertTrue(sd.not_right(APPID, state))              # ... but not right
+            s = sd.summary(APPID, root, state)
+            self.assertEqual((s["status"], s["canTry"], s["sharing"]), ("failing", True, True))
+            self.assertEqual([(r["profile"], r["outcome"]) for r in reports()], [("wined3d", "failed")])
+            self.assertEqual(sd.try_next(root, local, APPID, path=state), "nofsync")
+            sharing.set_games_enabled(False)
+
     def test_a_state_from_before_the_shared_step(self):
         with tempfile.TemporaryDirectory() as tmp:
             state = Path(tmp, "doctor.json")

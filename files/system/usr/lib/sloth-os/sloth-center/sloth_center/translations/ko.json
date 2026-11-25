@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows 프로그램과 Steam이 아닌 게임",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "프로그램의 지문만 보내요. 여기서 이름을 알아낼 수 없어요.",
   "Steam games": "Steam 게임",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "게임의 공개 Steam 번호를 보내므로 설정을 게임과 연결할 수는 있지만, 당신과는 절대 연결할 수 없어요."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "게임의 공개 Steam 번호를 보내므로 설정을 게임과 연결할 수는 있지만, 당신과는 절대 연결할 수 없어요.",
+  "{month} {year}": "{year}년 {month}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "다른 플레이어들이 쓰던 설정이 더 이상 작동하지 않는다는 보고가 있어 Sloth OS는 이 설정을 쓰지 않아요.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "다른 플레이어 {players}명에게 효과가 있었던 설정이 있어요 (마지막 확인: {month}). 게임이 시작되지 않으면 Sloth OS가 알아서 사용해요.",
+  "It worked for {players} other players, last confirmed in {month}.": "다른 플레이어 {players}명에게 효과가 있었어요. 마지막 확인: {month}.",
+  "It starts, but doesn't work right": "시작은 되지만 제대로 작동하지 않아요",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "경험 공유에서 Steam 게임을 켜면 다른 플레이어들도 알게 돼요."
 }

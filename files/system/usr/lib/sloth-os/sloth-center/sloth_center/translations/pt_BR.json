@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Programas do Windows e jogos que não são da Steam",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "Só é enviada uma impressão digital do programa: não dá para descobrir o nome a partir dela.",
   "Steam games": "Jogos da Steam",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "É enviado o número público do jogo na Steam, então a configuração pode ser associada ao jogo, mas nunca a você."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "É enviado o número público do jogo na Steam, então a configuração pode ser associada ao jogo, mas nunca a você.",
+  "{month} {year}": "{month} de {year}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "Foi relatado que a configuração usada por outros jogadores não funciona mais, por isso o Sloth OS não a usa.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Há uma configuração que funcionou para {players} outros jogadores (última confirmação: {month}). O Sloth OS a usa sozinho se o jogo não abrir.",
+  "It worked for {players} other players, last confirmed in {month}.": "Funcionou para {players} outros jogadores, última confirmação: {month}.",
+  "It starts, but doesn't work right": "Abre, mas não funciona direito",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Com os jogos da Steam ativados em Compartilhar experiências, os outros jogadores também ficam sabendo."
 }

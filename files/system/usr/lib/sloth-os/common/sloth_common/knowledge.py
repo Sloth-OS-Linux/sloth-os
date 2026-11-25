@@ -78,21 +78,50 @@ def load(path=None):
         return {}
 
 
-def entry(key=None, gameid=None, gpu=None, path=None):
-    """The best known setting: Sloth OS machines' reports for `key` on this GPU vendor first, then ProtonDB's for
-    `gameid` ("umu-<appid>") on this vendor, then for any. -> the raw entry (dict) or None."""
-    data = load(path)
+def config_of(entry):
+    """A setting as (line, profile, fixes): the same setting compares equal whatever else the entry holds."""
+    fixes = tuple(sorted(tuple(f) for f in entry.get("fixes") or [] if isinstance(f, (list, tuple)) and len(f) == 2))
+    return entry.get("line"), entry.get("profile"), fixes
+
+
+def status(key=None, gameid=None, gpu=None, path=None, data=None):
+    """The best known setting and the best one left out because it was reported not to work anymore.
+
+    In order: Sloth OS machines' reports for `key` on this GPU vendor, then ProtonDB's summary for `gameid`
+    ("umu-<appid>") on this vendor, then for any. A setting listed under "disputed" for `key` and this vendor
+    (it failed on several Sloth OS machines lately) is skipped, also when it comes from ProtonDB.
+    -> (entry or None, disputed entry or None). An entry is a copy with "source" ("sloth" or "protondb") and
+    "players" (the machines or reports behind it) added; "last" ("2026-09") when the data has it.
+    data: knowledge.json already loaded (when asking about many games)."""
+    data = data if data is not None else load(path)
     gpu = gpu or gpu_vendor()
+    disputed = set()
+    for cfg in (((data.get("disputed") or {}).get(key) or {}).get(gpu) or []) if key else []:
+        if isinstance(cfg, dict):
+            disputed.add(config_of(cfg))
     candidates = []
     if key:
-        candidates.append(((data.get("programs") or {}).get(key) or {}).get(gpu))
+        candidates.append(("sloth", ((data.get("programs") or {}).get(key) or {}).get(gpu)))
     if gameid:
         game = (data.get("games") or {}).get(gameid) or {}
-        candidates += [game.get(gpu), game.get("any")]
-    found = next((c for c in candidates if isinstance(c, dict)), None)
-    if not found or found.get("line") not in LINES or found.get("profile") not in PROFILES:
-        return None
-    return found
+        candidates += [("protondb", game.get(gpu)), ("protondb", game.get("any"))]
+    usable = skipped = None
+    for source, found in candidates:
+        if not isinstance(found, dict) or found.get("line") not in LINES or found.get("profile") not in PROFILES:
+            continue
+        found = {**found, "source": source,
+                 "players": found.get("machines") if source == "sloth" else found.get("reports")}
+        if config_of(found) in disputed:
+            skipped = skipped or found
+            continue
+        usable = found
+        break
+    return usable, skipped
+
+
+def entry(key=None, gameid=None, gpu=None, path=None):
+    """The best known setting that was not reported to stop working (status()), or None."""
+    return status(key, gameid, gpu, path)[0]
 
 
 def queue_report(program, line, profile, fixes, outcome, games=False):

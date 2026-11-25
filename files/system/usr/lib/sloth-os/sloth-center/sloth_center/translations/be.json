@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Праграмы Windows і гульні не са Steam",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "Адпраўляецца толькі адбітак праграмы: яе назву з яго не даведацца.",
   "Steam games": "Гульні Steam",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Адпраўляецца публічны нумар гульні ў Steam, таму наладу можна звязаць з гульнёй, але ніколі з табой."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Адпраўляецца публічны нумар гульні ў Steam, таму наладу можна звязаць з гульнёй, але ніколі з табой.",
+  "{month} {year}": "{month} {year}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "Пра наладу, якой карысталіся іншыя гульцы, паведамілі, што яна больш не працуе, таму Sloth OS яе не выкарыстоўвае.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Вядомая налада, якая спрацавала ў {players} іншых гульцоў (апошняе пацвярджэнне: {month}). Sloth OS сам ужывае яе, калі гульня не запускаецца.",
+  "It worked for {players} other players, last confirmed in {month}.": "Яна спрацавала ў {players} іншых гульцоў, апошняе пацвярджэнне: {month}.",
+  "It starts, but doesn't work right": "Запускаецца, але працуе не так",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Калі ўключыць гульні Steam у раздзеле «Абмен вопытам», пра гэта даведаюцца і іншыя гульцы."
 }

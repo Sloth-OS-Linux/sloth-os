@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "برامج ويندوز والألعاب من خارج Steam",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "تُرسل بصمة للبرنامج فقط: لا يمكن استرجاع اسمه منها.",
   "Steam games": "ألعاب Steam",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "يُرسل رقم اللعبة العام على Steam، فيمكن ربط الإعداد باللعبة، لكن لا يمكن ربطه بك أبدًا."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "يُرسل رقم اللعبة العام على Steam، فيمكن ربط الإعداد باللعبة، لكن لا يمكن ربطه بك أبدًا.",
+  "{month} {year}": "{month} {year}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "أُبلغ أن الإعداد الذي استخدمه لاعبون آخرون لم يعد يعمل، لذلك لا يستخدمه Sloth OS.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "يوجد إعداد نجح مع {players} لاعبين آخرين (آخر تأكيد: {month}). يستخدمه Sloth OS تلقائيًا إذا لم تبدأ اللعبة.",
+  "It worked for {players} other players, last confirmed in {month}.": "نجح مع {players} لاعبين آخرين، آخر تأكيد: {month}.",
+  "It starts, but doesn't work right": "تبدأ، لكنها لا تعمل كما يجب",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "عند تشغيل ألعاب Steam ضمن مشاركة التجارب، يعرف اللاعبون الآخرون بذلك أيضًا."
 }

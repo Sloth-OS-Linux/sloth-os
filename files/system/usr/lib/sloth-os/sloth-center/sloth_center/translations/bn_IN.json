@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows প্রোগ্রাম আর Steam-এর বাইরের গেম",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "শুধু প্রোগ্রামের একটি আঙুলের ছাপ পাঠানো হয়: তা থেকে নাম উদ্ধার করা যায় না।",
   "Steam games": "Steam গেম",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "গেমটির সর্বজনীন Steam নম্বর পাঠানো হয়, তাই সেটিংটি গেমের সঙ্গে মেলানো যায়, কিন্তু কখনো তোমার সঙ্গে নয়।"
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "গেমটির সর্বজনীন Steam নম্বর পাঠানো হয়, তাই সেটিংটি গেমের সঙ্গে মেলানো যায়, কিন্তু কখনো তোমার সঙ্গে নয়।",
+  "{month} {year}": "{month} {year}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "অন্য খেলোয়াড়দের ব্যবহৃত সেটিংটি আর কাজ করছে না বলে জানানো হয়েছে, তাই Sloth OS এটি ব্যবহার করে না।",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "{players} জন অন্য খেলোয়াড়ের জন্য কাজ করা একটি সেটিং জানা আছে (শেষ নিশ্চিত: {month})। গেম চালু না হলে Sloth OS নিজেই এটি ব্যবহার করে।",
+  "It worked for {players} other players, last confirmed in {month}.": "এটি {players} জন অন্য খেলোয়াড়ের জন্য কাজ করেছে, শেষ নিশ্চিত: {month}।",
+  "It starts, but doesn't work right": "চালু হয়, কিন্তু ঠিকমতো কাজ করে না",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "„অভিজ্ঞতা শেয়ার করুন“-এ Steam গেম চালু করলে অন্য খেলোয়াড়রাও এটা জানবে।"
 }

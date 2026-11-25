@@ -31,7 +31,7 @@ import re
 import time
 from pathlib import Path
 
-from sloth_common import gamesettings, knowledge
+from sloth_common import gamesettings, knowledge, sharing
 from sloth_common.apps import steam
 
 STATE = Path(os.environ.get("XDG_CONFIG_HOME", Path.home() / ".config")) / "sloth-os" / "steam-doctor.json"
@@ -301,9 +301,35 @@ def forget(appid, path=None):
         save(data, path)
 
 
+def not_right(appid, path=None):
+    """The user says the game starts with the current fix but doesn't work right: that fix counts as failed (reported
+    as such if sharing for Steam games is on), so the next "Try a fix" moves on. -> True if a fix was in use."""
+    appid = str(appid)
+    data = load(path)
+    game = data.get(appid)
+    if not game or game.get("step", -1) < 0:
+        return False
+    _report(appid, game, "failed")
+    game["status"] = "failing"
+    save(data, path)
+    return True
+
+
+def shared_info(appid, gpu=None, path=None):
+    """What the shared knowledge says about a Steam game: {"players", "last" ("2026-09" or ""), "source",
+    "disputed"} or None. disputed: the setting other players used was reported not to work anymore."""
+    usable, skipped = knowledge.status(knowledge.steam_key(appid), f"umu-{appid}", gpu, path)
+    found = usable or skipped
+    if not found:
+        return None
+    return {"players": int(found.get("players") or 0), "last": found.get("last") or "",
+            "source": found["source"], "disputed": usable is None}
+
+
 def summary(appid, root=None, path=None):
     """What Sloth Center shows: {failures, lastSeconds, status, step (the key of the fix in use or ""), canTry,
-    native}; None if nothing went wrong with this game."""
+    native, changed, shared (shared_info: what the shared knowledge says about the game), sharing (the reports
+    for Steam games are on)}; None if nothing went wrong with this game."""
     game = load(path).get(str(appid))
     if not game:
         return None
@@ -312,4 +338,5 @@ def summary(appid, root=None, path=None):
     return {"failures": len(failures), "lastSeconds": failures[-1]["seconds"] if failures else 0,
             "status": game.get("status", "failing"), "step": STEPS[step][0] if 0 <= step < len(STEPS) else "",
             "canTry": next_step(game, root, appid) is not None, "native": native(root, appid),
-            "changed": game.get("original") is not None}
+            "changed": game.get("original") is not None, "shared": shared_info(appid),
+            "sharing": sharing.games_enabled()}

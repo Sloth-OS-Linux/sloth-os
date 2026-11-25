@@ -117,6 +117,33 @@ TESTED = {
 }
 
 
+def month_text(last):
+    """ "2026-09" -> "September 2026" in the computer's language (the order translated: "2026. szeptember"), or "". """
+    try:
+        year, month = (int(x) for x in last.split("-")[:2])
+    except (AttributeError, ValueError):
+        return ""
+    if not 1 <= month <= 12:
+        return ""
+    from PySide6.QtCore import QLocale
+    name = QLocale().standaloneMonthName(month, QLocale.FormatType.LongFormat)
+    return tr("{month} {year}", month=name, year=year)
+
+
+def shared_text(info):
+    """What the shared knowledge says about a game, in one sentence (no "Proton"), or "". info: {"players", "last",
+    "disputed"} (game_check.known_settings, steam_doctor.shared_info)."""
+    if not info:
+        return ""
+    if info.get("disputed"):
+        return tr("The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.")
+    players, month = info.get("players") or 0, month_text(info.get("last") or "")
+    if players and month:
+        return tr("A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS "
+                  "uses it by itself if the game doesn't start.", players=players, month=month)
+    return tr("A setting that worked for other players is known: Sloth OS uses it by itself.")
+
+
 def describe(v):
     """A verdict (game_check.verdict) as the page shows it: the mark, the badge text and the explanation lines."""
     mark, badge = BADGES.get(v["badge"], BADGES["unknown"])
@@ -145,8 +172,8 @@ def describe(v):
         lines.append(tr("Anti-cheat: {names}", names=", ".join(v["anticheat"])))
     if v["native"]:
         lines.append(tr("It has its own Linux version."))
-    if v["known"]:
-        lines.append(tr("A setting that worked for other players is known: Sloth OS uses it by itself."))
+    if v["known"] is not None:
+        lines.append(shared_text(v["known"]))
     if v["sources"]:
         lines.append(tr("Source: {sources}", sources=", ".join(v["sources"])))
     return {"name": v["name"], "badge": v["badge"], "mark": mark, "badgeText": tr(badge) if badge else badge_text,
@@ -412,7 +439,15 @@ class GamesController(QObject):
         s = steam_doctor.summary(appid, root)
         if not s:
             return {}
-        return {**s, "stepText": game_doctor.step_text(s["step"])}
+        # the shared knowledge's setting in use: how many players it worked for, and since when
+        shared = s.get("shared") or {}
+        shared_line = ""
+        if s["step"] == "shared" and shared and not shared.get("disputed"):
+            month = month_text(shared.get("last") or "")
+            shared_line = tr("It worked for {players} other players, last confirmed in {month}.",
+                             players=shared.get("players") or 0, month=month) if month and shared.get("players") \
+                else ""
+        return {**s, "stepText": game_doctor.step_text(s["step"]), "sharedLine": shared_line}
 
     def _steam_closed(self, wait_s=30):
         """Closes Steam and waits until it is gone (its settings files are written on exit). -> True if closed."""
@@ -453,6 +488,15 @@ class GamesController(QObject):
             self._fixed.emit(game_id, "info:" + tr("{name} starts again with this: {fix}.", name=name,
                                                    fix=game_doctor.step_text(key)))
         threading.Thread(target=work, daemon=True).start()
+
+    @Slot(str)
+    def notRight(self, game_id):
+        """The game starts with the fix in use but doesn't work right: that fix counts as failed (and is reported, if
+        sharing for Steam games is on: other players are then no longer offered a setting that stopped working),
+        and the next fix is tried."""
+        appid = game_id.split(":", 1)[1]
+        steam_doctor.not_right(appid)
+        self.tryFix(game_id)
 
     @Slot(str)
     def undoFix(self, game_id):

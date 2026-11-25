@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows programos ir ne Steam žaidimai",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "Siunčiamas tik programos piršto atspaudas: iš jo negalima sužinoti jos pavadinimo.",
   "Steam games": "Steam žaidimai",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Siunčiamas viešas žaidimo Steam numeris, todėl nustatymą galima susieti su žaidimu, bet niekada su tavimi."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Siunčiamas viešas žaidimo Steam numeris, todėl nustatymą galima susieti su žaidimu, bet niekada su tavimi.",
+  "{month} {year}": "{year} m. {month}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "Pranešta, kad kitų žaidėjų naudotas nustatymas nebeveikia, todėl Sloth OS jo nenaudoja.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Žinomas nustatymas, kuris suveikė {players} kitiems žaidėjams (paskutinį kartą patvirtinta: {month}). Sloth OS jį naudoja pati, jei žaidimas nepasileidžia.",
+  "It worked for {players} other players, last confirmed in {month}.": "Jis suveikė {players} kitiems žaidėjams, paskutinį kartą patvirtinta: {month}.",
+  "It starts, but doesn't work right": "Pasileidžia, bet veikia netinkamai",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Įjungus Steam žaidimus skiltyje Dalytis patirtimi, apie tai sužino ir kiti žaidėjai."
 }

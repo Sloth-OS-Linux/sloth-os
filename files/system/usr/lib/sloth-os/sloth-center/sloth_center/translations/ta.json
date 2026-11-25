@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows நிரல்கள் மற்றும் Steam அல்லாத விளையாட்டுகள்",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "நிரலின் கைரேகை மட்டுமே அனுப்பப்படும்: அதிலிருந்து அதன் பெயரைக் கண்டுபிடிக்க முடியாது.",
   "Steam games": "Steam விளையாட்டுகள்",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "விளையாட்டின் பொது Steam எண் அனுப்பப்படும், எனவே அமைப்பை விளையாட்டுடன் இணைக்கலாம், ஆனால் உன்னுடன் ஒருபோதும் இல்லை."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "விளையாட்டின் பொது Steam எண் அனுப்பப்படும், எனவே அமைப்பை விளையாட்டுடன் இணைக்கலாம், ஆனால் உன்னுடன் ஒருபோதும் இல்லை.",
+  "{month} {year}": "{month} {year}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "மற்ற விளையாட்டாளர்கள் பயன்படுத்திய அமைப்பு இனி வேலை செய்யவில்லை எனத் தெரிவிக்கப்பட்டது, எனவே Sloth OS அதைப் பயன்படுத்தாது.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "மற்ற {players} விளையாட்டாளர்களுக்கு வேலை செய்த ஒரு அமைப்பு தெரியும் (கடைசியாக உறுதிசெய்தது: {month}). விளையாட்டு தொடங்காவிட்டால் Sloth OS அதைத் தானாகப் பயன்படுத்தும்.",
+  "It worked for {players} other players, last confirmed in {month}.": "இது மற்ற {players} விளையாட்டாளர்களுக்கு வேலை செய்தது, கடைசியாக உறுதிசெய்தது: {month}.",
+  "It starts, but doesn't work right": "தொடங்குகிறது, ஆனால் சரியாக வேலை செய்யவில்லை",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "அனுபவங்களைப் பகிருங்கள் என்பதில் Steam விளையாட்டுகளை இயக்கினால், மற்ற விளையாட்டாளர்களுக்கும் தெரியவரும்."
 }

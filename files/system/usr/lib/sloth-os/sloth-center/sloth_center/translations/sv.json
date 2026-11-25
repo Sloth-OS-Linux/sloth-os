@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows-program och spel som inte är från Steam",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "Bara ett fingeravtryck av programmet skickas: namnet kan inte tas fram ur det.",
   "Steam games": "Steam-spel",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Spelets offentliga Steam-nummer skickas, så inställningen kan kopplas till spelet, men aldrig till dig."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Spelets offentliga Steam-nummer skickas, så inställningen kan kopplas till spelet, men aldrig till dig.",
+  "{month} {year}": "{month} {year}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "Inställningen som andra spelare använde har rapporterats inte fungera längre, så Sloth OS använder den inte.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "En inställning som fungerade för {players} andra spelare är känd (senast bekräftad: {month}). Sloth OS använder den själv om spelet inte startar.",
+  "It worked for {players} other players, last confirmed in {month}.": "Den fungerade för {players} andra spelare, senast bekräftad: {month}.",
+  "It starts, but doesn't work right": "Det startar, men fungerar inte som det ska",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Med Steam-spel påslagna under Dela erfarenheter får andra spelare också veta om det."
 }

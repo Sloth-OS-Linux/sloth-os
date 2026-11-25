@@ -30,6 +30,7 @@ const MAX_BODY = 64 * 1024;
 const DAILY_LIMIT = 500;      // reports / address / day
 const MIN_MACHINES = 3;       // it must work on this many different machines
 const MIN_SUCCESS = 0.75;     // and at least this share of the reports must be successful
+const MIN_DISPUTE = 2;        // a setting failing on this many machines (and on more than 25%) is reported disputed
 
 const HEX64 = /^[0-9a-f]{64}$/;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/;
@@ -114,19 +115,29 @@ async function exportKnowledge(request, env) {
   if (!env.EXPORT_TOKEN || auth !== `Bearer ${env.EXPORT_TOKEN}`) return json({ error: "unauthorized" }, 401);
   const { results } = await env.DB.prepare(
     "SELECT program, gpu, config, " +
-      "SUM(outcome = 'worked') AS worked, SUM(outcome = 'failed') AS failed " +
+      "SUM(outcome = 'worked') AS worked, SUM(outcome = 'failed') AS failed, " +
+      "MAX(CASE WHEN outcome = 'worked' THEN updated END) AS last " +
       "FROM reports GROUP BY program, gpu, config",
   ).all();
   const programs = {};
+  // Settings that stopped working: failed on at least MIN_DISPUTE machines and on most of the machines that tried
+  // them. The machines skip such a setting, also when it comes from ProtonDB's summary (the "games" part), and say
+  // that it was reported not to work anymore. (Sloth Center's "Starts, but doesn't work right" sends such a report.)
+  const disputed = {};
   for (const r of results) {
     const total = r.worked + r.failed;
+    if (r.failed >= MIN_DISPUTE && r.failed / total > 1 - MIN_SUCCESS) {
+      ((disputed[r.program] ??= {})[r.gpu] ??= []).push(JSON.parse(r.config));
+    }
     if (r.worked < MIN_MACHINES || r.worked / total < MIN_SUCCESS) continue;
     const best = programs[r.program]?.[r.gpu];
     if (best && best.machines >= r.worked) continue;
     programs[r.program] ??= {};
-    programs[r.program][r.gpu] = { ...JSON.parse(r.config), machines: r.worked };
+    // last: the month of the newest report that it worked ("2026-11"), shown as "last confirmed"
+    const last = r.last ? new Date(r.last).toISOString().slice(0, 7) : undefined;
+    programs[r.program][r.gpu] = { ...JSON.parse(r.config), machines: r.worked, last };
   }
-  return json({ version: 1, programs });
+  return json({ version: 1, programs, disputed });
 }
 
 // --- Feedback --------------------------------------------------------------------------------------

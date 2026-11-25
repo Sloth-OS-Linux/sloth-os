@@ -1682,7 +1682,16 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   calls), "Play a test sound", "Test the microphone" (records four seconds, says whether it heard anything, plays
   it back), and a muted microphone can be unmuted. The controllers were already there (list, battery, pairing,
   "Test the buttons"). Tests: `tools/tests/test_sound.py`. Checked on a real machine (2026-10-26)
-- [ ] **Medium** — Share concise, community-informed game fixes with version details and a way to report outdated guidance.
+- [x] **Medium** — Share concise, community-informed game fixes with version details and a way to report outdated guidance.
+  (2026-11-25: every shared setting says how many players it worked for and the month of the newest report:
+  ProtonDB's summary ("reports", "last", seed/protondb.py in the knowledge repository) and Sloth OS machines'
+  ("machines", "last", the Worker's export). Outdated guidance: a setting that failed on 2+ Sloth OS machines and on
+  more than a quarter of them is "disputed" in the export; machines skip it, also when it comes from ProtonDB, and
+  "Will it run?" says it was reported not to work anymore. Sloth Center → a game's "What's wrong with the game?":
+  "It worked for 12 other players, last confirmed in September 2026", and "It starts, but doesn't work right" counts
+  the fix in use as failed (reported with the Steam games switch on) and tries the next one. 6 texts in 50
+  languages; tests: test_steam_doctor (15), test_game_check; the Worker's export tried with wrangler dev; the card
+  checked offscreen in English and Hungarian. The knowledge repository's scripts and workflows are English now)
 - [x] **Large** — When a game fails or crashes, offer a readable diagnostic summary and relevant, verifiable fixes.
   (Done in 2.0 for Steam games: "What's wrong with the game?", idea 3; Windows programs had it before)
 - [x] **Medium** — Help users move supported game libraries between drives without downloading again, updating launcher paths.

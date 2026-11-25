@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows 程式和非 Steam 遊戲",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "只傳送程式的指紋：無法從中還原它的名稱。",
   "Steam games": "Steam 遊戲",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "會傳送遊戲公開的 Steam 編號，因此設定可以對應到遊戲，但永遠不會對應到你。"
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "會傳送遊戲公開的 Steam 編號，因此設定可以對應到遊戲，但永遠不會對應到你。",
+  "{month} {year}": "{year}年{month}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "據回報，其他玩家使用的設定已經沒有作用了，所以 Sloth OS 不會使用它。",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "已知有一項設定對另外 {players} 位玩家有效（最後確認：{month}）。如果遊戲無法啟動，Sloth OS 會自動使用它。",
+  "It worked for {players} other players, last confirmed in {month}.": "它對另外 {players} 位玩家有效，最後確認：{month}。",
+  "It starts, but doesn't work right": "能啟動，但運作不正常",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "在「分享經驗」中開啟 Steam 遊戲後，其他玩家也能知道。"
 }

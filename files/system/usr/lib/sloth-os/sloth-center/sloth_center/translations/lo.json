@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "ໂປຣແກຣມ Windows ແລະ ເກມທີ່ບໍ່ແມ່ນຈາກ Steam",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "ສົ່ງພຽງລາຍນິ້ວມືຂອງໂປຣແກຣມ: ບໍ່ສາມາດຮູ້ຊື່ຈາກມັນໄດ້.",
   "Steam games": "ເກມ Steam",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "ສົ່ງເລກ Steam ສາທາລະນະຂອງເກມ, ສະນັ້ນການຕັ້ງຄ່າສາມາດເຊື່ອມກັບເກມໄດ້, ແຕ່ບໍ່ເຄີຍເຊື່ອມກັບເຈົ້າ."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "ສົ່ງເລກ Steam ສາທາລະນະຂອງເກມ, ສະນັ້ນການຕັ້ງຄ່າສາມາດເຊື່ອມກັບເກມໄດ້, ແຕ່ບໍ່ເຄີຍເຊື່ອມກັບເຈົ້າ.",
+  "{month} {year}": "{month} {year}",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "ມີລາຍງານວ່າການຕັ້ງຄ່າທີ່ຜູ້ຫຼິ້ນຄົນອື່ນໃຊ້ບໍ່ເຮັດວຽກອີກແລ້ວ, ສະນັ້ນ Sloth OS ບໍ່ໃຊ້ມັນ.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "ມີການຕັ້ງຄ່າທີ່ໄດ້ຜົນສຳລັບຜູ້ຫຼິ້ນອື່ນ {players} ຄົນ (ຢືນຢັນຫຼ້າສຸດ: {month}). Sloth OS ໃຊ້ມັນເອງຖ້າເກມບໍ່ເລີ່ມ.",
+  "It worked for {players} other players, last confirmed in {month}.": "ມັນໄດ້ຜົນສຳລັບຜູ້ຫຼິ້ນອື່ນ {players} ຄົນ, ຢືນຢັນຫຼ້າສຸດ: {month}.",
+  "It starts, but doesn't work right": "ເລີ່ມໄດ້, ແຕ່ເຮັດວຽກບໍ່ຖືກຕ້ອງ",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "ເມື່ອເປີດເກມ Steam ໃນແບ່ງປັນປະສົບການ, ຜູ້ຫຼິ້ນຄົນອື່ນກໍຈະຮູ້ນຳ."
 }

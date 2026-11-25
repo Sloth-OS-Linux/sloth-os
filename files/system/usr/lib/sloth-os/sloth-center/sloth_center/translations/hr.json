@@ -1315,5 +1315,11 @@
   "Windows programs and games not from Steam": "Windows programi i igre koje nisu sa Steama",
   "Only a fingerprint of the program is sent: its name cannot be recovered from it.": "Šalje se samo otisak programa: iz njega se ne može doznati njegovo ime.",
   "Steam games": "Steam igre",
-  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Šalje se javni Steam broj igre, pa se postavka može povezati s igrom, ali nikad s tobom."
+  "The game's public Steam number is sent, so the setting can be matched to the game, but never to you.": "Šalje se javni Steam broj igre, pa se postavka može povezati s igrom, ali nikad s tobom.",
+  "{month} {year}": "{month} {year}.",
+  "The setting other players used was reported not to work anymore, so Sloth OS doesn't use it.": "Prijavljeno je da postavka koju su koristili drugi igrači više ne radi, pa je Sloth OS ne koristi.",
+  "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Poznata je postavka koja je radila kod {players} drugih igrača (zadnja potvrda: {month}). Sloth OS je koristi sam ako se igra ne pokrene.",
+  "It worked for {players} other players, last confirmed in {month}.": "Radila je kod {players} drugih igrača, zadnja potvrda: {month}.",
+  "It starts, but doesn't work right": "Pokrene se, ali ne radi kako treba",
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Kad su Steam igre uključene pod Dijeli iskustva, saznaju i drugi igrači."
 }
