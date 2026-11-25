@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "இது மற்ற {players} விளையாட்டாளர்களுக்கு வேலை செய்தது, கடைசியாக உறுதிசெய்தது: {month}.",
   "It starts, but doesn't work right": "தொடங்குகிறது, ஆனால் சரியாக வேலை செய்யவில்லை",
   "With Steam games turned on under Share experiences, other players learn about it too.": "அனுபவங்களைப் பகிருங்கள் என்பதில் Steam விளையாட்டுகளை இயக்கினால், மற்ற விளையாட்டாளர்களுக்கும் தெரியவரும்.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "இதைக் கணினியின் பாதுகாப்புச் சிப் (TPM) வைத்திருக்கிறது, எனவே வட்டின் நகலிலிருந்து இதைக் கண்டுபிடிக்க முடியாது, மேலும் ஊகிப்பதைச் சிப்பே நிறுத்துகிறது."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "இதைக் கணினியின் பாதுகாப்புச் சிப் (TPM) வைத்திருக்கிறது, எனவே வட்டின் நகலிலிருந்து இதைக் கண்டுபிடிக்க முடியாது, மேலும் ஊகிப்பதைச் சிப்பே நிறுத்துகிறது.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi அடிக்கடி துண்டிக்கிறது: Realtek Wi-Fi அட்டையின் மின் சேமிப்பை அணை ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi அடிக்கடி துண்டிக்கிறது அல்லது மெதுவாக உள்ளது: Realtek Wi-Fi அட்டையின் இணைப்பு மின் சேமிப்பை அணை ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi அடிக்கடி துண்டிக்கிறது: MediaTek Wi-Fi அட்டையின் இணைப்பு மின் சேமிப்பை அணை ({module})",
+  "There is no driver with this name on this computer.": "இந்தக் கணினியில் இந்தப் பெயரில் இயக்கி இல்லை.",
+  "This driver has no such option. Check the spelling (name=value).": "இந்த இயக்கிக்கு அப்படி ஒரு விருப்பம் இல்லை. எழுத்துக்கூட்டலைச் சரிபார் (பெயர்=மதிப்பு).",
+  "This driver can't be turned off: the computer needs it to start.": "இந்த இயக்கியை அணைக்க முடியாது: கணினி தொடங்க இது தேவை.",
+  "Type the options as name=value, e.g. ips=0.": "விருப்பங்களைப் பெயர்=மதிப்பு வடிவில் எழுது, எ.கா. ips=0.",
+  "Turned off": "அணைக்கப்பட்டது",
+  "Driver options": "இயக்கி விருப்பங்கள்",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "சில வன்பொருள் நன்றாக இயங்க ஒரு அமைப்பு தேவை, எ.கா. அடிக்கடி துண்டிக்கும் Wi-Fi அட்டை. மறுதொடக்கத்திற்குப் பிறகு மாற்றங்கள் செயல்படும்.",
+  "No driver options set.": "இயக்கி விருப்பங்கள் எதுவும் அமைக்கப்படவில்லை.",
+  "Driver, e.g. rtl8188ee": "இயக்கி, எ.கா. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "விருப்பங்கள், எ.கா. ips=0 fwlps=0",
+  "Turn off this driver": "இந்த இயக்கியை அணை"
 }

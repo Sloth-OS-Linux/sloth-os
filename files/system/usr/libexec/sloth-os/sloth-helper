@@ -25,6 +25,8 @@ Operations:
                                                  turns on the with-sloth-pin feature of the "sloth" authselect profile
   pin-remove                                     deletes the calling user's PIN
   zram default|more|off                          memory compression (zram swap) size from the next start
+  driver-options                                 driver options and drivers turned off from the next start
+                                                 (JSON on the input; sloth_common/driver_options.py)
   snapshots on|off                               automatic backup of your own files (hourly snapshot)
   snapshots-keep 2w|1m|3m                        how long saved states are kept (2 weeks, 1 month, 3 months)
   snapshot-now                                   back up now (home-snapshots take --now)
@@ -571,6 +573,35 @@ def update_time(hour):
     return {"ok": True}
 
 
+# --- Driver options (Sloth Center → Advanced settings; sloth_common.driver_options) -----------------------------
+
+def driver_options(request):
+    """The chosen driver options and drivers turned off: written to /etc/modprobe.d/sloth-user.conf (from the next
+    start). request: {"entries": [{"module", "options": {param: value}, "off": bool, "fix": id}]}; checked first
+    (an existing driver, its real parameters, never one the computer cannot start without)."""
+    sys.path.insert(0, "/usr/lib/sloth-os/common")   # root-owned, like this helper
+    from sloth_common import driver_options as dopt
+    entries = request.get("entries") if isinstance(request, dict) else None
+    if not isinstance(entries, list) or len(entries) > 32:
+        return {"ok": False, "error": "bad request"}
+    clean = []
+    for e in entries:
+        if not isinstance(e, dict):
+            return {"ok": False, "error": "bad request"}
+        clean.append({"module": str(e.get("module", "")), "off": bool(e.get("off")),
+                      "options": {str(k): str(v) for k, v in (e.get("options") or {}).items()},
+                      "fix": str(e.get("fix", ""))[:40]})
+    problem = dopt.check(clean)
+    if problem:
+        return {"ok": False, "error": problem}
+    _write(str(dopt.STATE), json.dumps({"entries": clean}, indent=1) + "\n")
+    if clean:
+        _write(str(dopt.CONF), dopt.render(clean))
+    elif dopt.CONF.exists():
+        dopt.CONF.unlink()
+    return {"ok": True}
+
+
 # --- The download speed limit (Sloth Center → System status; sloth_common.net_limit) ------------------------------
 
 NET_LIMIT_CONF = "/etc/sloth-os/net-limit.json"
@@ -1077,6 +1108,11 @@ def main(argv):
         result = pin_set(sys.stdin.readline().strip())
     elif op == "pin-remove" and not args and not VERSIONS_ONLY:
         result = pin_remove()
+    elif op == "driver-options" and not args and not VERSIONS_ONLY:
+        try:
+            result = driver_options(json.loads(sys.stdin.read(65536) or "{}"))
+        except ValueError:
+            result = {"ok": False, "error": "bad request"}
     elif op == "zram" and args in (["default"], ["more"], ["off"]) and not VERSIONS_ONLY:
         result = zram(args[0])
     elif op == "snapshots" and args in (["on"], ["off"]) and not VERSIONS_ONLY:

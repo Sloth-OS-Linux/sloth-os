@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Het werkte bij {players} andere spelers, laatst bevestigd: {month}.",
   "It starts, but doesn't work right": "Het start, maar werkt niet goed",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Met Steam-games aan onder Ervaringen delen horen andere spelers het ook.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Hij wordt bewaard door de beveiligingschip van de computer (TPM), dus hij is niet te achterhalen uit een kopie van de schijf, en de chip zelf stopt het raden."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Hij wordt bewaard door de beveiligingschip van de computer (TPM), dus hij is niet te achterhalen uit een kopie van de schijf, en de chip zelf stopt het raden.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wifi valt steeds weg: energiebesparing van de Realtek-wifikaart uitzetten ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wifi valt steeds weg of is traag: verbindingsenergiebesparing van de Realtek-wifikaart uitzetten ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wifi valt steeds weg: verbindingsenergiebesparing van de MediaTek-wifikaart uitzetten ({module})",
+  "There is no driver with this name on this computer.": "Er is geen stuurprogramma met deze naam op deze computer.",
+  "This driver has no such option. Check the spelling (name=value).": "Dit stuurprogramma heeft zo'n optie niet. Controleer de spelling (naam=waarde).",
+  "This driver can't be turned off: the computer needs it to start.": "Dit stuurprogramma kan niet uit: de computer heeft het nodig om te starten.",
+  "Type the options as name=value, e.g. ips=0.": "Typ de opties als naam=waarde, bijv. ips=0.",
+  "Turned off": "Uitgezet",
+  "Driver options": "Stuurprogramma-opties",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Sommige hardware heeft een instelling nodig om goed te werken, bijvoorbeeld een wifikaart die steeds wegvalt. Wijzigingen werken na een herstart.",
+  "No driver options set.": "Geen stuurprogramma-opties ingesteld.",
+  "Driver, e.g. rtl8188ee": "Stuurprogramma, bijv. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opties, bijv. ips=0 fwlps=0",
+  "Turn off this driver": "Dit stuurprogramma uitzetten"
 }

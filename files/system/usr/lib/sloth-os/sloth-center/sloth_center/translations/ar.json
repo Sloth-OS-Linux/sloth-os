@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "نجح مع {players} لاعبين آخرين، آخر تأكيد: {month}.",
   "It starts, but doesn't work right": "تبدأ، لكنها لا تعمل كما يجب",
   "With Steam games turned on under Share experiences, other players learn about it too.": "عند تشغيل ألعاب Steam ضمن مشاركة التجارب، يعرف اللاعبون الآخرون بذلك أيضًا.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "تحتفظ به شريحة الأمان في الحاسوب (TPM)، فلا يمكن استخراجه من نسخة من القرص، والشريحة نفسها توقف محاولات التخمين."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "تحتفظ به شريحة الأمان في الحاسوب (TPM)، فلا يمكن استخراجه من نسخة من القرص، والشريحة نفسها توقف محاولات التخمين.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "ينقطع الـWi-Fi باستمرار: أوقف توفير الطاقة لبطاقة Wi-Fi من Realtek ‏({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "ينقطع الـWi-Fi باستمرار أو بطيء: أوقف توفير طاقة الوصلة لبطاقة Wi-Fi من Realtek ‏({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "ينقطع الـWi-Fi باستمرار: أوقف توفير طاقة الوصلة لبطاقة Wi-Fi من MediaTek ‏({module})",
+  "There is no driver with this name on this computer.": "لا يوجد تعريف بهذا الاسم على هذا الحاسوب.",
+  "This driver has no such option. Check the spelling (name=value).": "لا يملك هذا التعريف خيارًا كهذا. تحقق من الكتابة (الاسم=القيمة).",
+  "This driver can't be turned off: the computer needs it to start.": "لا يمكن إيقاف هذا التعريف: يحتاجه الحاسوب ليبدأ.",
+  "Type the options as name=value, e.g. ips=0.": "اكتب الخيارات بالشكل الاسم=القيمة، مثل ips=0.",
+  "Turned off": "متوقف",
+  "Driver options": "خيارات التعريفات",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "تحتاج بعض الأجهزة إلى إعداد كي تعمل جيدًا، مثل بطاقة Wi-Fi تنقطع باستمرار. تسري التغييرات بعد إعادة التشغيل.",
+  "No driver options set.": "لا توجد خيارات تعريفات.",
+  "Driver, e.g. rtl8188ee": "التعريف، مثل rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "الخيارات، مثل ips=0 fwlps=0",
+  "Turn off this driver": "أوقف هذا التعريف"
 }

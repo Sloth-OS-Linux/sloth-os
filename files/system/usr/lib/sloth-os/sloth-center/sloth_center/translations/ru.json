@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Она сработала у {players} других игроков, последнее подтверждение: {month}.",
   "It starts, but doesn't work right": "Запускается, но работает неправильно",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Если включить игры Steam в разделе «Делиться опытом», об этом узнают и другие игроки.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Его хранит чип безопасности компьютера (TPM), поэтому его нельзя вычислить по копии диска, а сам чип останавливает подбор."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Его хранит чип безопасности компьютера (TPM), поэтому его нельзя вычислить по копии диска, а сам чип останавливает подбор.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi постоянно отключается: выключить энергосбережение карты Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi постоянно отключается или медленный: выключить энергосбережение соединения карты Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi постоянно отключается: выключить энергосбережение соединения карты Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "На этом компьютере нет драйвера с таким именем.",
+  "This driver has no such option. Check the spelling (name=value).": "У этого драйвера нет такого параметра. Проверь написание (имя=значение).",
+  "This driver can't be turned off: the computer needs it to start.": "Этот драйвер нельзя выключить: без него компьютер не запустится.",
+  "Type the options as name=value, e.g. ips=0.": "Введи параметры в виде имя=значение, например ips=0.",
+  "Turned off": "Выключен",
+  "Driver options": "Параметры драйверов",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Некоторому оборудованию для хорошей работы нужна настройка, например карте Wi-Fi, которая постоянно отключается. Изменения вступят в силу после перезагрузки.",
+  "No driver options set.": "Параметры драйверов не заданы.",
+  "Driver, e.g. rtl8188ee": "Драйвер, например rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Параметры, например ips=0 fwlps=0",
+  "Turn off this driver": "Выключить этот драйвер"
 }

@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Funcionou para {players} outros jogadores, última confirmação: {month}.",
   "It starts, but doesn't work right": "Arranca, mas não funciona bem",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Com os jogos do Steam ativos em Partilhar experiências, os outros jogadores também ficam a saber.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "É guardado pelo chip de segurança do computador (TPM), por isso não pode ser descoberto a partir de uma cópia do disco, e o próprio chip trava as tentativas."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "É guardado pelo chip de segurança do computador (TPM), por isso não pode ser descoberto a partir de uma cópia do disco, e o próprio chip trava as tentativas.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "O Wi-Fi está sempre a cair: desligar a poupança de energia da placa Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "O Wi-Fi está sempre a cair ou está lento: desligar a poupança de energia da ligação da placa Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "O Wi-Fi está sempre a cair: desligar a poupança de energia da ligação da placa Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Não há nenhum controlador com este nome neste computador.",
+  "This driver has no such option. Check the spelling (name=value).": "Este controlador não tem essa opção. Verifica a escrita (nome=valor).",
+  "This driver can't be turned off: the computer needs it to start.": "Este controlador não pode ser desligado: o computador precisa dele para arrancar.",
+  "Type the options as name=value, e.g. ips=0.": "Escreve as opções como nome=valor, p. ex. ips=0.",
+  "Turned off": "Desligado",
+  "Driver options": "Opções dos controladores",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Algum hardware precisa de uma definição para funcionar bem, por exemplo uma placa Wi-Fi que está sempre a cair. As alterações têm efeito depois de reiniciar.",
+  "No driver options set.": "Sem opções de controladores.",
+  "Driver, e.g. rtl8188ee": "Controlador, p. ex. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opções, p. ex. ips=0 fwlps=0",
+  "Turn off this driver": "Desligar este controlador"
 }

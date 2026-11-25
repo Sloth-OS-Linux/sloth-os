@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "See töötas {players} teisel mängijal, viimati kinnitatud: {month}.",
   "It starts, but doesn't work right": "Käivitub, aga ei tööta õigesti",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Kui jaotises Jaga kogemusi on Steami mängud sees, saavad sellest teada ka teised mängijad.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Seda hoiab arvuti turvakiip (TPM), nii et seda ei saa ketta koopiast välja arvutada ja kiip ise peatab äraarvamise."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Seda hoiab arvuti turvakiip (TPM), nii et seda ei saa ketta koopiast välja arvutada ja kiip ise peatab äraarvamise.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi katkeb pidevalt: lülita Realteki Wi-Fi-kaardi energiasäästmine välja ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi katkeb pidevalt või on aeglane: lülita Realteki Wi-Fi-kaardi ühenduse energiasäästmine välja ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi katkeb pidevalt: lülita MediaTeki Wi-Fi-kaardi ühenduse energiasäästmine välja ({module})",
+  "There is no driver with this name on this computer.": "Selles arvutis pole sellise nimega draiverit.",
+  "This driver has no such option. Check the spelling (name=value).": "Sellel draiveril pole sellist valikut. Kontrolli kirjapilti (nimi=väärtus).",
+  "This driver can't be turned off: the computer needs it to start.": "Seda draiverit ei saa välja lülitada: arvuti vajab seda käivitumiseks.",
+  "Type the options as name=value, e.g. ips=0.": "Sisesta valikud kujul nimi=väärtus, nt ips=0.",
+  "Turned off": "Välja lülitatud",
+  "Driver options": "Draiverite valikud",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Mõni riistvara vajab hästi töötamiseks seadet, näiteks pidevalt katkev Wi-Fi-kaart. Muudatused jõustuvad pärast taaskäivitust.",
+  "No driver options set.": "Draiverite valikuid pole määratud.",
+  "Driver, e.g. rtl8188ee": "Draiver, nt rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Valikud, nt ips=0 fwlps=0",
+  "Turn off this driver": "Lülita see draiver välja"
 }

@@ -2563,7 +2563,7 @@ Bugs found (we fix them one by one):
   - [ ] Opening the password store (KWallet) on a password-free login (PIN, fingerprint, security key): now
     it asks for the password at the first use
 - [x] Developer panel in Sloth Center (repository, builds, testing from a GUI) – phase 3 (2026-10-19, see below)
-- [ ] Extending the advanced settings continuously – phase 3. 2026-10-19: compressed memory reserve (zram: default /
+- [x] (Reviewed 2026-11-25 with the user: done; new ones as they come up, see below) Extending the advanced settings continuously – phase 3. 2026-10-19: compressed memory reserve (zram: default /
   larger / off, `sloth-helper zram`, `/etc/systemd/zram-generator.conf`; checked with zram-generator in
   Fedora 44), PIN sign-in (Account and security)
 - [x] ISO size: squashing the layers, a space-saving ISO build – phase 4 (2026-10-19, see phase 4)
@@ -2833,7 +2833,15 @@ operations needing permission through polkit, with a password window).
   - [x] Environment variables and startup settings (Advanced settings): your own variables in
     `~/.config/environment.d` without a password, the other programs' variables shown, the risky ones
     (e.g. `PATH`) marked; programs started at login: KDE's Autostart module
-  - [ ] Advanced settings: every system setting that has no KDE GUI (grows continuously)
+  - [x] Advanced settings: every system setting that has no KDE GUI (grows continuously). Reviewed 2026-11-25:
+    the terminal-only list is covered; the one gap seen in real reports (a Lite-On / Realtek Wi-Fi card that needed
+    `options rtl8188ee ips=0 fwlps=0`) is now **Driver options** (sloth_common/driver_options.py, sloth-helper
+    driver-options): known fixes offered for the drivers this computer uses (Realtek rtl8188ee-family power saving,
+    rtw88 / rtw89 / MediaTek mt7921 link power saving), and your own option or a driver turned off, checked against
+    the driver's real parameters (modinfo), never a driver the computer needs to start (disks, file systems, USB
+    keyboards, disk encryption). /etc/modprobe.d/sloth-user.conf, from the next start. 14 texts, 50 languages;
+    tools/tests/test_driver_options.py (4); the card checked offscreen in Hungarian. From now on: a setting that
+    turns out to need a terminal (feedback, issues) gets its place here
 - [x] **Games:** per-game settings (FPS display: MangoHud, upscaling: gamescope FSR, performance mode:
   GameMode) without the words Proton/Wine (Sloth Center → Games). For Steam games it goes into the launch options
   (`localconfig.vdf`, the user's own entries stay; it can only be written while Steam is closed, the interface closes it),

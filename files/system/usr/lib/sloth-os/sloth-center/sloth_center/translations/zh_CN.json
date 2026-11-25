@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "它对另外 {players} 位玩家有效，最后确认：{month}。",
   "It starts, but doesn't work right": "能启动，但运行不正常",
   "With Steam games turned on under Share experiences, other players learn about it too.": "在“分享经验”中打开 Steam 游戏后，其他玩家也能知道。",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "它由电脑的安全芯片 (TPM) 保管，因此无法从磁盘副本中推算出来，芯片本身也会阻止猜测。"
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "它由电脑的安全芯片 (TPM) 保管，因此无法从磁盘副本中推算出来，芯片本身也会阻止猜测。",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi 经常断线：关闭 Realtek Wi-Fi 网卡的节能 ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi 经常断线或很慢：关闭 Realtek Wi-Fi 网卡的链路节能 ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi 经常断线：关闭 MediaTek Wi-Fi 网卡的链路节能 ({module})",
+  "There is no driver with this name on this computer.": "这台电脑上没有这个名称的驱动。",
+  "This driver has no such option. Check the spelling (name=value).": "这个驱动没有这样的选项。请检查拼写（名称=值）。",
+  "This driver can't be turned off: the computer needs it to start.": "这个驱动不能关闭：电脑启动需要它。",
+  "Type the options as name=value, e.g. ips=0.": "请按 名称=值 的格式输入选项，例如 ips=0。",
+  "Turned off": "已关闭",
+  "Driver options": "驱动选项",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "有些硬件需要一项设置才能正常工作，例如经常断线的 Wi-Fi 网卡。更改在重启后生效。",
+  "No driver options set.": "没有设置驱动选项。",
+  "Driver, e.g. rtl8188ee": "驱动，例如 rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "选项，例如 ips=0 fwlps=0",
+  "Turn off this driver": "关闭这个驱动"
 }

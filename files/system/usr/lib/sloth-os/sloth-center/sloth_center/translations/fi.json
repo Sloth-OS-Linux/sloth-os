@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Se toimi {players} muulla pelaajalla, viimeksi vahvistettu: {month}.",
   "It starts, but doesn't work right": "Käynnistyy, mutta ei toimi oikein",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Kun Steam-pelit ovat päällä kohdassa Jaa kokemuksia, myös muut pelaajat saavat tietää siitä.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Sitä säilyttää tietokoneen turvasiru (TPM), joten sitä ei voi selvittää levyn kopiosta, ja siru itse estää arvailun."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Sitä säilyttää tietokoneen turvasiru (TPM), joten sitä ei voi selvittää levyn kopiosta, ja siru itse estää arvailun.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi katkeilee jatkuvasti: poista Realtek-Wi-Fi-kortin virransäästö käytöstä ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi katkeilee jatkuvasti tai on hidas: poista Realtek-Wi-Fi-kortin linkin virransäästö käytöstä ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi katkeilee jatkuvasti: poista MediaTek-Wi-Fi-kortin linkin virransäästö käytöstä ({module})",
+  "There is no driver with this name on this computer.": "Tässä tietokoneessa ei ole tämännimistä ajuria.",
+  "This driver has no such option. Check the spelling (name=value).": "Tällä ajurilla ei ole sellaista asetusta. Tarkista kirjoitusasu (nimi=arvo).",
+  "This driver can't be turned off: the computer needs it to start.": "Tätä ajuria ei voi poistaa käytöstä: tietokone tarvitsee sitä käynnistyäkseen.",
+  "Type the options as name=value, e.g. ips=0.": "Kirjoita asetukset muodossa nimi=arvo, esim. ips=0.",
+  "Turned off": "Pois käytöstä",
+  "Driver options": "Ajurien asetukset",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Jotkin laitteet tarvitsevat asetuksen toimiakseen hyvin, esimerkiksi jatkuvasti katkeileva Wi-Fi-kortti. Muutokset tulevat voimaan uudelleenkäynnistyksen jälkeen.",
+  "No driver options set.": "Ajurien asetuksia ei ole määritetty.",
+  "Driver, e.g. rtl8188ee": "Ajuri, esim. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Asetukset, esim. ips=0 fwlps=0",
+  "Turn off this driver": "Poista tämä ajuri käytöstä"
 }

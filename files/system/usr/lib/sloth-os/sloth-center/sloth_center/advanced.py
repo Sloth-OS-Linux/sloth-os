@@ -14,7 +14,9 @@ import threading
 from gi.repository import GLib
 from PySide6.QtCore import QObject, Property, Signal, Slot
 
-from .i18n import tr
+from sloth_common import driver_options as dopt
+
+from .i18n import N_, tr
 
 from . import restore_points, texts, windowshelper
 from .rpmostree import RpmOstree, Transaction
@@ -28,6 +30,22 @@ PKG_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._+-]{0,127}$")
 KARG_RE = re.compile(r"^[A-Za-z0-9_.\-]+(=[A-Za-z0-9_.,:/\-]+)?$")
 # The system manages these; the user should not delete them by accident
 PROTECTED_KARGS = ("root=", "rootflags=", "ostree=", "rw", "BOOT_IMAGE=", "rd.luks", "resume=")
+# The known driver fixes (sloth_common/driver_options.py KNOWN_FIXES), as the user reads them
+FIX_TEXTS = {
+    "realtek-wifi-power": N_("Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})"),
+    "realtek-rtw88-aspm": N_("Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving "
+                             "({module})"),
+    "realtek-rtw89-aspm": N_("Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving "
+                             "({module})"),
+    "mediatek-mt7921-aspm": N_("Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving "
+                               "({module})"),
+}
+DRIVER_ERRORS = {
+    "module": N_("There is no driver with this name on this computer."),
+    "param": N_("This driver has no such option. Check the spelling (name=value)."),
+    "protected": N_("This driver can't be turned off: the computer needs it to start."),
+    "empty": N_("Type the options as name=value, e.g. ips=0."),
+}
 
 
 def _meminfo_gb(key):
@@ -158,6 +176,74 @@ class AdvancedController(QObject):
         if not ok:
             self._error = tr("Couldn't change it. This needs administrator approval.")
         self.refresh()
+
+    # --- Driver options (sloth_common.driver_options; from the next start) ------------------------------------
+
+    @Property("QVariantList", notify=changed)
+    def driverOptions(self):
+        """The chosen ones: [{"module", "text" (the options, or "Turned off"), "off"}]."""
+        return [{"module": e["module"], "off": bool(e.get("off")),
+                 "text": tr("Turned off") if e.get("off")
+                 else " ".join(f"{k}={v}" for k, v in sorted((e.get("options") or {}).items()))}
+                for e in dopt.load()]
+
+    @Property("QVariantList", notify=changed)
+    def driverFixes(self):
+        """The known fixes for this computer's drivers, not applied yet: [{"id", "module", "text"}]."""
+        return [{"id": f["id"], "module": f["module"], "text": tr(FIX_TEXTS.get(f["id"], f["text"]), module=f["module"])}
+                for f in dopt.suggestions()]
+
+    def _save_drivers(self, entries):
+        self._error, self._info = "", ""
+        try:
+            r = subprocess.run(["pkexec", HELPER, "driver-options"], input=json.dumps({"entries": entries}),
+                               capture_output=True, text=True, timeout=60)
+            result = json.loads(r.stdout or "{}")
+        except (OSError, subprocess.SubprocessError, ValueError) as e:
+            log.warning("driver-options: %s", e)
+            result = {}
+        if result.get("ok"):
+            self._info = tr("Saved. Takes effect after the next restart.")
+        elif result.get("error") in DRIVER_ERRORS:
+            self._error = tr(DRIVER_ERRORS[result["error"]])
+        else:
+            self._error = tr("Couldn't change it. This needs administrator approval.")
+        self.refresh()
+
+    def _without(self, module):
+        return [e for e in dopt.load() if e["module"] != module]
+
+    @Slot(str, str)
+    def applyDriverFix(self, fix_id, module):
+        entry = dopt.fix_entry(fix_id, module)
+        if entry:
+            self._save_drivers(self._without(module) + [entry])
+
+    @Slot(str, str)
+    def addDriverOption(self, module, options):
+        module = module.strip().replace("-", "_")
+        parsed = dopt.parse_options(options)
+        if not dopt.MODULE_RE.match(module):
+            self._error, self._info = tr(DRIVER_ERRORS["module"]), ""
+        elif parsed is None:
+            self._error, self._info = tr(DRIVER_ERRORS["empty"]), ""
+        else:
+            self._save_drivers(self._without(module) + [{"module": module, "options": parsed, "off": False}])
+            return
+        self.changed.emit()
+
+    @Slot(str)
+    def turnOffDriver(self, module):
+        module = module.strip().replace("-", "_")
+        if not dopt.MODULE_RE.match(module):
+            self._error, self._info = tr(DRIVER_ERRORS["module"]), ""
+            self.changed.emit()
+            return
+        self._save_drivers(self._without(module) + [{"module": module, "options": {}, "off": True}])
+
+    @Slot(str)
+    def removeDriverOption(self, module):
+        self._save_drivers(self._without(module))
 
     # --- Memory compression (zram) -------------------------------------------------------
 

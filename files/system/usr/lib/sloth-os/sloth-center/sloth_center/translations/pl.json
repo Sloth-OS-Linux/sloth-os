@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Zadziałało u {players} innych graczy, ostatnio potwierdzone: {month}.",
   "It starts, but doesn't work right": "Uruchamia się, ale nie działa dobrze",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Gdy w Dziel się doświadczeniami włączysz gry ze Steama, dowiedzą się o tym też inni gracze.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Przechowuje go układ zabezpieczeń komputera (TPM), więc nie da się go wyliczyć z kopii dysku, a sam układ blokuje zgadywanie."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Przechowuje go układ zabezpieczeń komputera (TPM), więc nie da się go wyliczyć z kopii dysku, a sam układ blokuje zgadywanie.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi ciągle się rozłącza: wyłącz oszczędzanie energii karty Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi ciągle się rozłącza lub jest wolne: wyłącz oszczędzanie energii łącza karty Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi ciągle się rozłącza: wyłącz oszczędzanie energii łącza karty Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Na tym komputerze nie ma sterownika o tej nazwie.",
+  "This driver has no such option. Check the spelling (name=value).": "Ten sterownik nie ma takiej opcji. Sprawdź pisownię (nazwa=wartość).",
+  "This driver can't be turned off: the computer needs it to start.": "Tego sterownika nie można wyłączyć: komputer potrzebuje go do uruchomienia.",
+  "Type the options as name=value, e.g. ips=0.": "Wpisz opcje jako nazwa=wartość, np. ips=0.",
+  "Turned off": "Wyłączony",
+  "Driver options": "Opcje sterowników",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Niektóry sprzęt potrzebuje ustawienia, żeby dobrze działać, na przykład karta Wi-Fi, która ciągle się rozłącza. Zmiany działają po ponownym uruchomieniu.",
+  "No driver options set.": "Brak ustawionych opcji sterowników.",
+  "Driver, e.g. rtl8188ee": "Sterownik, np. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opcje, np. ips=0 fwlps=0",
+  "Turn off this driver": "Wyłącz ten sterownik"
 }

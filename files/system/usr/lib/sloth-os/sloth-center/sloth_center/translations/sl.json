@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Delovala je pri {players} drugih igralcih, nazadnje potrjeno: {month}.",
   "It starts, but doesn't work right": "Zažene se, a ne deluje pravilno",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Ko so igre Steam vklopljene pod Deli izkušnje, izvejo za to tudi drugi igralci.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Hrani ga varnostni čip računalnika (TPM), zato ga ni mogoče ugotoviti iz kopije diska, čip sam pa ustavi ugibanje."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Hrani ga varnostni čip računalnika (TPM), zato ga ni mogoče ugotoviti iz kopije diska, čip sam pa ustavi ugibanje.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi se ves čas prekinja: izklopi varčevanje z energijo kartice Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi se ves čas prekinja ali je počasen: izklopi varčevanje z energijo povezave kartice Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi se ves čas prekinja: izklopi varčevanje z energijo povezave kartice Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Na tem računalniku ni gonilnika s tem imenom.",
+  "This driver has no such option. Check the spelling (name=value).": "Ta gonilnik nima take možnosti. Preveri zapis (ime=vrednost).",
+  "This driver can't be turned off: the computer needs it to start.": "Tega gonilnika ni mogoče izklopiti: računalnik ga potrebuje za zagon.",
+  "Type the options as name=value, e.g. ips=0.": "Možnosti vpiši kot ime=vrednost, npr. ips=0.",
+  "Turned off": "Izklopljen",
+  "Driver options": "Možnosti gonilnikov",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Nekatera strojna oprema potrebuje nastavitev, da dobro deluje, na primer kartica Wi-Fi, ki se ves čas prekinja. Spremembe začnejo veljati po ponovnem zagonu.",
+  "No driver options set.": "Ni nastavljenih možnosti gonilnikov.",
+  "Driver, e.g. rtl8188ee": "Gonilnik, npr. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Možnosti, npr. ips=0 fwlps=0",
+  "Turn off this driver": "Izklopi ta gonilnik"
 }

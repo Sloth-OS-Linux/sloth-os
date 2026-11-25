@@ -186,6 +186,89 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Driver options (advanced.py, sloth_common/driver_options.py) ------------------------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.largeSpacing
+                Kirigami.Heading { level: 3; text: L.t("Driver options") }
+                QQC2.Label {
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    opacity: 0.8
+                    text: L.t("Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.")
+                }
+                // known fixes for the drivers this computer uses
+                Repeater {
+                    model: advanced.driverFixes
+                    delegate: RowLayout {
+                        required property var modelData
+                        Layout.fillWidth: true
+                        Kirigami.Icon {
+                            source: "tools-wizard"
+                            implicitWidth: Kirigami.Units.iconSizes.small
+                            implicitHeight: Kirigami.Units.iconSizes.small
+                        }
+                        QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; text: modelData.text }
+                        QQC2.Button {
+                            text: L.t("Apply")
+                            enabled: !advanced.busy
+                            onClicked: advanced.applyDriverFix(modelData.id, modelData.module)
+                        }
+                    }
+                }
+                // what was chosen
+                Repeater {
+                    model: advanced.driverOptions
+                    delegate: RowLayout {
+                        required property var modelData
+                        Layout.fillWidth: true
+                        QQC2.Label { text: modelData.module; font.bold: true }
+                        QQC2.Label { Layout.fillWidth: true; wrapMode: Text.Wrap; opacity: 0.8; text: modelData.text }
+                        QQC2.Button {
+                            icon.name: "edit-delete"
+                            text: L.t("Remove")
+                            enabled: !advanced.busy
+                            onClicked: advanced.removeDriverOption(modelData.module)
+                        }
+                    }
+                }
+                QQC2.Label {
+                    visible: advanced.driverOptions.length === 0 && advanced.driverFixes.length === 0
+                    opacity: 0.7
+                    text: L.t("No driver options set.")
+                }
+                // your own, if a guide tells you
+                RowLayout {
+                    Layout.fillWidth: true
+                    QQC2.TextField {
+                        id: drvModule
+                        Layout.preferredWidth: Kirigami.Units.gridUnit * 8
+                        placeholderText: L.t("Driver, e.g. rtl8188ee")
+                    }
+                    QQC2.TextField {
+                        id: drvOptions
+                        Layout.fillWidth: true
+                        placeholderText: L.t("Options, e.g. ips=0 fwlps=0")
+                        onAccepted: drvAdd.clicked()
+                    }
+                    QQC2.Button {
+                        id: drvAdd
+                        icon.name: "list-add"
+                        text: L.t("Add")
+                        enabled: drvModule.text.trim() !== "" && drvOptions.text.trim() !== "" && !advanced.busy
+                        onClicked: { advanced.addDriverOption(drvModule.text, drvOptions.text); drvOptions.text = "" }
+                    }
+                    QQC2.Button {
+                        icon.name: "process-stop"
+                        text: L.t("Turn off this driver")
+                        enabled: drvModule.text.trim() !== "" && !advanced.busy
+                        onClicked: advanced.turnOffDriver(drvModule.text)
+                    }
+                }
+            }
+        }
+
         // --- System packages --------------------------------------------------------
         Kirigami.AbstractCard {
             Layout.fillWidth: true

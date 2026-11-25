@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "A mers la alți {players} jucători, ultima confirmare: {month}.",
   "It starts, but doesn't work right": "Pornește, dar nu merge cum trebuie",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Cu jocurile Steam pornite la Împărtășește experiențe, află și ceilalți jucători.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Îl păstrează cipul de securitate al calculatorului (TPM), așa că nu poate fi aflat dintr-o copie a discului, iar cipul însuși oprește ghicitul."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Îl păstrează cipul de securitate al calculatorului (TPM), așa că nu poate fi aflat dintr-o copie a discului, iar cipul însuși oprește ghicitul.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi-ul tot cade: oprește economisirea de energie a plăcii Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi-ul tot cade sau e lent: oprește economisirea de energie a legăturii plăcii Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi-ul tot cade: oprește economisirea de energie a legăturii plăcii Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Pe acest calculator nu există niciun driver cu acest nume.",
+  "This driver has no such option. Check the spelling (name=value).": "Acest driver nu are o astfel de opțiune. Verifică scrierea (nume=valoare).",
+  "This driver can't be turned off: the computer needs it to start.": "Acest driver nu poate fi oprit: calculatorul are nevoie de el ca să pornească.",
+  "Type the options as name=value, e.g. ips=0.": "Scrie opțiunile ca nume=valoare, de ex. ips=0.",
+  "Turned off": "Oprit",
+  "Driver options": "Opțiuni pentru drivere",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Unele componente au nevoie de o setare ca să meargă bine, de exemplu o placă Wi-Fi care tot cade. Schimbările se aplică după repornire.",
+  "No driver options set.": "Nicio opțiune pentru drivere.",
+  "Driver, e.g. rtl8188ee": "Driver, de ex. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opțiuni, de ex. ips=0 fwlps=0",
+  "Turn off this driver": "Oprește acest driver"
 }

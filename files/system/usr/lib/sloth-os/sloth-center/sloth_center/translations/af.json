@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Dit het vir {players} ander spelers gewerk, laas bevestig: {month}.",
   "It starts, but doesn't work right": "Dit begin, maar werk nie reg nie",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Met Steam-speletjies aangeskakel onder Deel ervarings, kry ander spelers ook daarvan te wete.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Dit word deur die rekenaar se sekuriteitskyfie (TPM) bewaar, so dit kan nie uit 'n kopie van die skyf uitgewerk word nie, en die skyfie self keer raaiery."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Dit word deur die rekenaar se sekuriteitskyfie (TPM) bewaar, so dit kan nie uit 'n kopie van die skyf uitgewerk word nie, en die skyfie self keer raaiery.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi val gedurig uit: skakel die Realtek-Wi-Fi-kaart se kragbesparing af ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi val gedurig uit of is stadig: skakel die Realtek-Wi-Fi-kaart se skakelkragbesparing af ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi val gedurig uit: skakel die MediaTek-Wi-Fi-kaart se skakelkragbesparing af ({module})",
+  "There is no driver with this name on this computer.": "Daar is geen drywer met hierdie naam op hierdie rekenaar nie.",
+  "This driver has no such option. Check the spelling (name=value).": "Hierdie drywer het nie so 'n opsie nie. Kyk na die spelling (naam=waarde).",
+  "This driver can't be turned off: the computer needs it to start.": "Hierdie drywer kan nie afgeskakel word nie: die rekenaar het dit nodig om te begin.",
+  "Type the options as name=value, e.g. ips=0.": "Tik die opsies as naam=waarde, bv. ips=0.",
+  "Turned off": "Afgeskakel",
+  "Driver options": "Drywer-opsies",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Sommige hardeware het 'n instelling nodig om goed te werk, byvoorbeeld 'n Wi-Fi-kaart wat gedurig uitval. Veranderinge tree in werking na 'n herbegin.",
+  "No driver options set.": "Geen drywer-opsies gestel nie.",
+  "Driver, e.g. rtl8188ee": "Drywer, bv. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opsies, bv. ips=0 fwlps=0",
+  "Turn off this driver": "Skakel hierdie drywer af"
 }

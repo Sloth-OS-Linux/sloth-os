@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "다른 플레이어 {players}명에게 효과가 있었어요. 마지막 확인: {month}.",
   "It starts, but doesn't work right": "시작은 되지만 제대로 작동하지 않아요",
   "With Steam games turned on under Share experiences, other players learn about it too.": "경험 공유에서 Steam 게임을 켜면 다른 플레이어들도 알게 돼요.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "컴퓨터의 보안 칩(TPM)이 보관하므로 디스크 사본으로 알아낼 수 없고, 추측도 칩이 직접 막아요."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "컴퓨터의 보안 칩(TPM)이 보관하므로 디스크 사본으로 알아낼 수 없고, 추측도 칩이 직접 막아요.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi가 자꾸 끊겨요: Realtek Wi-Fi 카드의 절전을 끄기 ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi가 자꾸 끊기거나 느려요: Realtek Wi-Fi 카드의 링크 절전을 끄기 ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi가 자꾸 끊겨요: MediaTek Wi-Fi 카드의 링크 절전을 끄기 ({module})",
+  "There is no driver with this name on this computer.": "이 컴퓨터에는 이런 이름의 드라이버가 없어요.",
+  "This driver has no such option. Check the spelling (name=value).": "이 드라이버에는 그런 옵션이 없어요. 철자를 확인하세요 (이름=값).",
+  "This driver can't be turned off: the computer needs it to start.": "이 드라이버는 끌 수 없어요: 컴퓨터가 시작하는 데 필요해요.",
+  "Type the options as name=value, e.g. ips=0.": "옵션은 이름=값 형식으로 입력하세요. 예: ips=0",
+  "Turned off": "꺼짐",
+  "Driver options": "드라이버 옵션",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "어떤 하드웨어는 제대로 작동하려면 설정이 필요해요. 예를 들어 자꾸 끊기는 Wi-Fi 카드요. 변경 사항은 다시 시작한 뒤 적용돼요.",
+  "No driver options set.": "설정된 드라이버 옵션이 없어요.",
+  "Driver, e.g. rtl8188ee": "드라이버, 예: rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "옵션, 예: ips=0 fwlps=0",
+  "Turn off this driver": "이 드라이버 끄기"
 }

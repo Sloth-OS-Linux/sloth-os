@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "ই {players} জন আন খেলুৱৈৰ বাবে কাম কৰিছিল, শেষবাৰ নিশ্চিত: {month}।",
   "It starts, but doesn't work right": "আৰম্ভ হয়, কিন্তু ঠিকমতে কাম নকৰে",
   "With Steam games turned on under Share experiences, other players learn about it too.": "„অভিজ্ঞতা ভাগ কৰক“ত Steam খেল অন কৰিলে আন খেলুৱৈয়েও ইয়াৰ বিষয়ে জানিব।",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "কম্পিউটাৰৰ সুৰক্ষা চিপে (TPM) ইয়াক ৰাখে, সেয়ে ডিস্কৰ কপিৰ পৰা ইয়াক উলিয়াব নোৱাৰি, আৰু চিপটোৱে নিজেই অনুমান কৰা বন্ধ কৰে।"
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "কম্পিউটাৰৰ সুৰক্ষা চিপে (TPM) ইয়াক ৰাখে, সেয়ে ডিস্কৰ কপিৰ পৰা ইয়াক উলিয়াব নোৱাৰি, আৰু চিপটোৱে নিজেই অনুমান কৰা বন্ধ কৰে।",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi বাৰে বাৰে বিচ্ছিন্ন হয়: Realtek Wi-Fi কাৰ্ডৰ শক্তি সঞ্চয় বন্ধ কৰক ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi বাৰে বাৰে বিচ্ছিন্ন হয় বা লেহেমীয়া: Realtek Wi-Fi কাৰ্ডৰ লিংক শক্তি সঞ্চয় বন্ধ কৰক ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi বাৰে বাৰে বিচ্ছিন্ন হয়: MediaTek Wi-Fi কাৰ্ডৰ লিংক শক্তি সঞ্চয় বন্ধ কৰক ({module})",
+  "There is no driver with this name on this computer.": "এই কম্পিউটাৰত এই নামৰ কোনো ড্ৰাইভাৰ নাই।",
+  "This driver has no such option. Check the spelling (name=value).": "এই ড্ৰাইভাৰৰ এনে কোনো বিকল্প নাই। বানান পৰীক্ষা কৰক (নাম=মান)।",
+  "This driver can't be turned off: the computer needs it to start.": "এই ড্ৰাইভাৰ বন্ধ কৰিব নোৱাৰি: কম্পিউটাৰ আৰম্ভ হ'বলৈ ইয়াৰ প্ৰয়োজন।",
+  "Type the options as name=value, e.g. ips=0.": "বিকল্পবোৰ নাম=মান হিচাপে লিখক, যেনে ips=0।",
+  "Turned off": "বন্ধ কৰা হৈছে",
+  "Driver options": "ড্ৰাইভাৰ বিকল্প",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "কিছুমান হাৰ্ডৱেৰৰ ভালদৰে চলিবলৈ এটা ছেটিঙৰ প্ৰয়োজন, যেনে বাৰে বাৰে বিচ্ছিন্ন হোৱা Wi-Fi কাৰ্ড। পুনৰাৰম্ভৰ পিছত সলনিবোৰ কাৰ্যকৰী হয়।",
+  "No driver options set.": "কোনো ড্ৰাইভাৰ বিকল্প ছেট কৰা হোৱা নাই।",
+  "Driver, e.g. rtl8188ee": "ড্ৰাইভাৰ, যেনে rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "বিকল্প, যেনে ips=0 fwlps=0",
+  "Turn off this driver": "এই ড্ৰাইভাৰ বন্ধ কৰক"
 }

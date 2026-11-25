@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Sie hat bei {players} anderen Spielern funktioniert, zuletzt bestätigt: {month}.",
   "It starts, but doesn't work right": "Es startet, funktioniert aber nicht richtig",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Mit eingeschalteten Steam-Spielen unter „Erfahrungen teilen“ erfahren es auch andere Spieler.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Er wird vom Sicherheitschip des Computers (TPM) verwahrt, kann also nicht aus einer Kopie der Festplatte ermittelt werden, und der Chip selbst stoppt das Raten."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Er wird vom Sicherheitschip des Computers (TPM) verwahrt, kann also nicht aus einer Kopie der Festplatte ermittelt werden, und der Chip selbst stoppt das Raten.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "WLAN bricht ständig ab: Energiesparen der Realtek-WLAN-Karte ausschalten ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "WLAN bricht ständig ab oder ist langsam: Verbindungs-Energiesparen der Realtek-WLAN-Karte ausschalten ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "WLAN bricht ständig ab: Verbindungs-Energiesparen der MediaTek-WLAN-Karte ausschalten ({module})",
+  "There is no driver with this name on this computer.": "Auf diesem Computer gibt es keinen Treiber mit diesem Namen.",
+  "This driver has no such option. Check the spelling (name=value).": "Dieser Treiber hat keine solche Option. Prüfe die Schreibweise (Name=Wert).",
+  "This driver can't be turned off: the computer needs it to start.": "Dieser Treiber kann nicht ausgeschaltet werden: Der Computer braucht ihn zum Starten.",
+  "Type the options as name=value, e.g. ips=0.": "Gib die Optionen als Name=Wert ein, z. B. ips=0.",
+  "Turned off": "Ausgeschaltet",
+  "Driver options": "Treiberoptionen",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Manche Hardware braucht eine Einstellung, um gut zu funktionieren, zum Beispiel eine WLAN-Karte, die ständig abbricht. Änderungen wirken nach einem Neustart.",
+  "No driver options set.": "Keine Treiberoptionen festgelegt.",
+  "Driver, e.g. rtl8188ee": "Treiber, z. B. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Optionen, z. B. ips=0 fwlps=0",
+  "Turn off this driver": "Diesen Treiber ausschalten"
 }

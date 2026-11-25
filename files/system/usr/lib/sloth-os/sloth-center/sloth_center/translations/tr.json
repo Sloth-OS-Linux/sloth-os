@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "{players} oyuncuda işe yaradı, son onay: {month}.",
   "It starts, but doesn't work right": "Açılıyor ama düzgün çalışmıyor",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Deneyimleri paylaş altında Steam oyunları açıkken diğer oyuncular da bundan haberdar olur.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Bilgisayarın güvenlik çipi (TPM) tarafından saklanır; bu yüzden diskin bir kopyasından çıkarılamaz ve tahmin denemelerini çipin kendisi durdurur."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Bilgisayarın güvenlik çipi (TPM) tarafından saklanır; bu yüzden diskin bir kopyasından çıkarılamaz ve tahmin denemelerini çipin kendisi durdurur.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi sürekli kopuyor: Realtek Wi-Fi kartının güç tasarrufunu kapat ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi sürekli kopuyor veya yavaş: Realtek Wi-Fi kartının bağlantı güç tasarrufunu kapat ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi sürekli kopuyor: MediaTek Wi-Fi kartının bağlantı güç tasarrufunu kapat ({module})",
+  "There is no driver with this name on this computer.": "Bu bilgisayarda bu adda bir sürücü yok.",
+  "This driver has no such option. Check the spelling (name=value).": "Bu sürücünün böyle bir seçeneği yok. Yazımı kontrol et (ad=değer).",
+  "This driver can't be turned off: the computer needs it to start.": "Bu sürücü kapatılamaz: bilgisayarın açılması için gerekli.",
+  "Type the options as name=value, e.g. ips=0.": "Seçenekleri ad=değer biçiminde yaz, örn. ips=0.",
+  "Turned off": "Kapalı",
+  "Driver options": "Sürücü seçenekleri",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Bazı donanımların iyi çalışması için bir ayar gerekir, örneğin sürekli kopan bir Wi-Fi kartı. Değişiklikler yeniden başlattıktan sonra geçerli olur.",
+  "No driver options set.": "Ayarlanmış sürücü seçeneği yok.",
+  "Driver, e.g. rtl8188ee": "Sürücü, örn. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Seçenekler, örn. ips=0 fwlps=0",
+  "Turn off this driver": "Bu sürücüyü kapat"
 }

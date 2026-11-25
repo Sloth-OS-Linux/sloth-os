@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Ha funcionat per a {players} jugadors més, darrera confirmació: {month}.",
   "It starts, but doesn't work right": "S'obre, però no funciona bé",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Amb els jocs de Steam activats a Comparteix experiències, els altres jugadors també se n'assabenten.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "El guarda el xip de seguretat de l'ordinador (TPM), de manera que no es pot deduir d'una còpia del disc, i el mateix xip atura els intents d'endevinar-lo."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "El guarda el xip de seguretat de l'ordinador (TPM), de manera que no es pot deduir d'una còpia del disc, i el mateix xip atura els intents d'endevinar-lo.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "La Wi-Fi es desconnecta contínuament: desactiva l'estalvi d'energia de la targeta Wi-Fi de Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "La Wi-Fi es desconnecta contínuament o va lenta: desactiva l'estalvi d'energia de l'enllaç de la targeta Wi-Fi de Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "La Wi-Fi es desconnecta contínuament: desactiva l'estalvi d'energia de l'enllaç de la targeta Wi-Fi de MediaTek ({module})",
+  "There is no driver with this name on this computer.": "No hi ha cap controlador amb aquest nom en aquest ordinador.",
+  "This driver has no such option. Check the spelling (name=value).": "Aquest controlador no té aquesta opció. Comprova com s'escriu (nom=valor).",
+  "This driver can't be turned off: the computer needs it to start.": "Aquest controlador no es pot desactivar: l'ordinador el necessita per arrencar.",
+  "Type the options as name=value, e.g. ips=0.": "Escriu les opcions com a nom=valor, p. ex. ips=0.",
+  "Turned off": "Desactivat",
+  "Driver options": "Opcions dels controladors",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Alguns maquinaris necessiten una configuració per funcionar bé, per exemple una targeta Wi-Fi que es desconnecta contínuament. Els canvis tenen efecte després de reiniciar.",
+  "No driver options set.": "No hi ha cap opció de controlador.",
+  "Driver, e.g. rtl8188ee": "Controlador, p. ex. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opcions, p. ex. ips=0 fwlps=0",
+  "Turn off this driver": "Desactiva aquest controlador"
 }

@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Радило је код {players} других играча, последња потврда: {month}.",
   "It starts, but doesn't work right": "Покрене се, али не ради како треба",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Када су Steam игре укључене под Дељење искустава, сазнају и други играчи.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Чува га безбедносни чип рачунара (TPM), па се не може открити из копије диска, а сам чип зауставља погађање."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Чува га безбедносни чип рачунара (TPM), па се не може открити из копије диска, а сам чип зауставља погађање.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi стално прекида: искључи штедњу енергије Realtek Wi-Fi картице ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi стално прекида или је спор: искључи штедњу енергије везе Realtek Wi-Fi картице ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi стално прекида: искључи штедњу енергије везе MediaTek Wi-Fi картице ({module})",
+  "There is no driver with this name on this computer.": "На овом рачунару нема управљачког програма са тим именом.",
+  "This driver has no such option. Check the spelling (name=value).": "Овај управљачки програм нема такву опцију. Провери писање (име=вредност).",
+  "This driver can't be turned off: the computer needs it to start.": "Овај управљачки програм не може да се искључи: рачунару је потребан за покретање.",
+  "Type the options as name=value, e.g. ips=0.": "Упиши опције као име=вредност, нпр. ips=0.",
+  "Turned off": "Искључено",
+  "Driver options": "Опције управљачких програма",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Неком хардверу треба подешавање да би добро радио, на пример Wi-Fi картици која стално прекида. Промене важе после поновног покретања.",
+  "No driver options set.": "Нема постављених опција управљачких програма.",
+  "Driver, e.g. rtl8188ee": "Управљачки програм, нпр. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Опције, нпр. ips=0 fwlps=0",
+  "Turn off this driver": "Искључи овај управљачки програм"
 }

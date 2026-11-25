@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Yedda i {players} n yimyuraren-nniḍen, asentem aneggaru: {month}.",
   "It starts, but doesn't work right": "Yekkar, maca ur yetteddu ara akken iwata",
   "With Steam games turned on under Share experiences, other players learn about it too.": "S wuraren n Steam yermed deg Bḍu tirmitin, ula d imyuraren-nniḍen ad ẓren aya.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Yettḥerriz-it ucip n tɣellist n uselkim (TPM), ihi ur yezmir ara ad d-yettwaf seg unɣel n uḍebsi, yerna acip s yiman-is yessḥebbis tiɛrǧin n usmaqel."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Yettḥerriz-it ucip n tɣellist n uselkim (TPM), ihi ur yezmir ara ad d-yettwaf seg unɣel n uḍebsi, yerna acip s yiman-is yessḥebbis tiɛrǧin n usmaqel.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi yettenqaḍ yal tikkelt: sens asekles n tezmert n tkarḍa Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi yettenqaḍ yal tikkelt neɣ yettɛeṭṭil: sens asekles n tezmert n tuqqna n tkarḍa Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi yettenqaḍ yal tikkelt: sens asekles n tezmert n tuqqna n tkarḍa Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Ulac anuḍaf s yisem-a deg uselkim-a.",
+  "This driver has no such option. Check the spelling (name=value).": "Anuḍaf-a ur yesɛi ara aɣewwar am wa. Senqed tira (isem=azal).",
+  "This driver can't be turned off: the computer needs it to start.": "Anuḍaf-a ur yezmir ara ad yettwasens: aselkim yesra-t akken ad yekker.",
+  "Type the options as name=value, e.g. ips=0.": "Aru iɣewwaren am isem=azal, amedya ips=0.",
+  "Turned off": "Yensa",
+  "Driver options": "Iɣewwaren n yinuḍafen",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Kra n warrum yesra aɣewwar akken ad yeddu akken iwata, amedya takarḍa Wi-Fi i yettenqaḍen yal tikkelt. Ibeddilen ad ddun deffir n tulsa n usekker.",
+  "No driver options set.": "Ulac iɣewwaren n yinuḍafen.",
+  "Driver, e.g. rtl8188ee": "Anuḍaf, amedya rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Iɣewwaren, amedya ips=0 fwlps=0",
+  "Turn off this driver": "Sens anuḍaf-a"
 }

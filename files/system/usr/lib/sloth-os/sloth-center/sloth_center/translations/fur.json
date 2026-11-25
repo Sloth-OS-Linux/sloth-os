@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "E à funzionât par {players} altris zuiadôrs, ultime conferme: {month}.",
   "It starts, but doesn't work right": "Al partìs, ma nol va ben",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Cui zûcs di Steam impiâts sot Condivît lis esperiencis, ancje i altris zuiadôrs a vegnin a savêlu.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Lu ten il chip di sigurece dal computer (TPM), duncje nol è pussibil tirâlu fûr di une copie dal disc, e il chip stes al ferme i tentatîfs di induvinâlu."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Lu ten il chip di sigurece dal computer (TPM), duncje nol è pussibil tirâlu fûr di une copie dal disc, e il chip stes al ferme i tentatîfs di induvinâlu.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Il Wi-Fi si stude dut il timp: distude il sparagn di energjie de schede Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Il Wi-Fi si stude dut il timp o al è lent: distude il sparagn di energjie dal colegament de schede Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Il Wi-Fi si stude dut il timp: distude il sparagn di energjie dal colegament de schede Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Su chest computer no je nissun driver cun chest non.",
+  "This driver has no such option. Check the spelling (name=value).": "Chest driver nol à une opzion cussì. Controle la scriture (non=valôr).",
+  "This driver can't be turned off: the computer needs it to start.": "Chest driver nol pues jessi distudât: il computer lu à dibisugne par partî.",
+  "Type the options as name=value, e.g. ips=0.": "Scrîf lis opzions come non=valôr, par esempli ips=0.",
+  "Turned off": "Distudât",
+  "Driver options": "Opzions dai driver",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Cualchi hardware al à dibisugne di une impostazion par lâ ben, par esempli une schede Wi-Fi che si stude dut il timp. Lis modifichis a valin dopo di une gnove inviade.",
+  "No driver options set.": "Nissune opzion dai driver.",
+  "Driver, e.g. rtl8188ee": "Driver, par esempli rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opzions, par esempli ips=0 fwlps=0",
+  "Turn off this driver": "Distude chest driver"
 }

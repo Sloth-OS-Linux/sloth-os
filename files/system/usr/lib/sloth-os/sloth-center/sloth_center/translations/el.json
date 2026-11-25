@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Λειτούργησε για {players} άλλους παίκτες, τελευταία επιβεβαίωση: {month}.",
   "It starts, but doesn't work right": "Ξεκινά, αλλά δεν λειτουργεί σωστά",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Με τα παιχνίδια Steam ενεργά στην Κοινοποίηση εμπειριών, το μαθαίνουν και άλλοι παίκτες.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Τον φυλάει το τσιπ ασφαλείας του υπολογιστή (TPM), οπότε δεν μπορεί να βρεθεί από αντίγραφο του δίσκου, και το ίδιο το τσιπ σταματά τις μαντεψιές."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Τον φυλάει το τσιπ ασφαλείας του υπολογιστή (TPM), οπότε δεν μπορεί να βρεθεί από αντίγραφο του δίσκου, και το ίδιο το τσιπ σταματά τις μαντεψιές.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Το Wi-Fi κόβεται συνέχεια: απενεργοποίηση της εξοικονόμησης ενέργειας της κάρτας Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Το Wi-Fi κόβεται συνέχεια ή είναι αργό: απενεργοποίηση της εξοικονόμησης ενέργειας σύνδεσης της κάρτας Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Το Wi-Fi κόβεται συνέχεια: απενεργοποίηση της εξοικονόμησης ενέργειας σύνδεσης της κάρτας Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Δεν υπάρχει πρόγραμμα οδήγησης με αυτό το όνομα σε αυτόν τον υπολογιστή.",
+  "This driver has no such option. Check the spelling (name=value).": "Αυτό το πρόγραμμα οδήγησης δεν έχει τέτοια επιλογή. Έλεγξε την ορθογραφία (όνομα=τιμή).",
+  "This driver can't be turned off: the computer needs it to start.": "Αυτό το πρόγραμμα οδήγησης δεν μπορεί να απενεργοποιηθεί: ο υπολογιστής το χρειάζεται για να ξεκινήσει.",
+  "Type the options as name=value, e.g. ips=0.": "Γράψε τις επιλογές ως όνομα=τιμή, π.χ. ips=0.",
+  "Turned off": "Απενεργοποιημένο",
+  "Driver options": "Επιλογές προγραμμάτων οδήγησης",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Κάποιο υλικό χρειάζεται μια ρύθμιση για να λειτουργεί καλά, για παράδειγμα μια κάρτα Wi-Fi που κόβεται συνέχεια. Οι αλλαγές ισχύουν μετά από επανεκκίνηση.",
+  "No driver options set.": "Δεν έχουν οριστεί επιλογές προγραμμάτων οδήγησης.",
+  "Driver, e.g. rtl8188ee": "Πρόγραμμα οδήγησης, π.χ. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Επιλογές, π.χ. ips=0 fwlps=0",
+  "Turn off this driver": "Απενεργοποίηση αυτού του προγράμματος οδήγησης"
 }

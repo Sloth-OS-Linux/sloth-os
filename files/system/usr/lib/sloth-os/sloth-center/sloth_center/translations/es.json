@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Funcionó para {players} jugadores más, última confirmación: {month}.",
   "It starts, but doesn't work right": "Arranca, pero no funciona bien",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Con los juegos de Steam activados en Compartir experiencias, los demás jugadores también se enteran.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Lo guarda el chip de seguridad del ordenador (TPM), así que no se puede averiguar a partir de una copia del disco, y el propio chip frena los intentos de adivinarlo."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Lo guarda el chip de seguridad del ordenador (TPM), así que no se puede averiguar a partir de una copia del disco, y el propio chip frena los intentos de adivinarlo.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "La Wi-Fi se corta todo el rato: desactivar el ahorro de energía de la tarjeta Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "La Wi-Fi se corta todo el rato o va lenta: desactivar el ahorro de energía del enlace de la tarjeta Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "La Wi-Fi se corta todo el rato: desactivar el ahorro de energía del enlace de la tarjeta Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "No hay ningún controlador con este nombre en este ordenador.",
+  "This driver has no such option. Check the spelling (name=value).": "Este controlador no tiene esa opción. Revisa cómo está escrito (nombre=valor).",
+  "This driver can't be turned off: the computer needs it to start.": "Este controlador no se puede desactivar: el ordenador lo necesita para arrancar.",
+  "Type the options as name=value, e.g. ips=0.": "Escribe las opciones como nombre=valor, p. ej. ips=0.",
+  "Turned off": "Desactivado",
+  "Driver options": "Opciones de controladores",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Algunos componentes necesitan un ajuste para funcionar bien, por ejemplo una tarjeta Wi-Fi que se corta todo el rato. Los cambios se aplican tras reiniciar.",
+  "No driver options set.": "No hay opciones de controladores.",
+  "Driver, e.g. rtl8188ee": "Controlador, p. ej. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opciones, p. ej. ips=0 fwlps=0",
+  "Turn off this driver": "Desactivar este controlador"
 }

@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Den fungerade för {players} andra spelare, senast bekräftad: {month}.",
   "It starts, but doesn't work right": "Det startar, men fungerar inte som det ska",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Med Steam-spel påslagna under Dela erfarenheter får andra spelare också veta om det.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Den förvaras av datorns säkerhetschip (TPM), så den kan inte räknas ut från en kopia av disken, och chippet själv stoppar gissningar."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Den förvaras av datorns säkerhetschip (TPM), så den kan inte räknas ut från en kopia av disken, och chippet själv stoppar gissningar.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi tappar hela tiden: stäng av Realtek-Wi-Fi-kortets energisparläge ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi tappar hela tiden eller är långsamt: stäng av Realtek-Wi-Fi-kortets länkenergisparläge ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi tappar hela tiden: stäng av MediaTek-Wi-Fi-kortets länkenergisparläge ({module})",
+  "There is no driver with this name on this computer.": "Det finns ingen drivrutin med det här namnet på datorn.",
+  "This driver has no such option. Check the spelling (name=value).": "Den här drivrutinen har inget sådant val. Kontrollera stavningen (namn=värde).",
+  "This driver can't be turned off: the computer needs it to start.": "Den här drivrutinen kan inte stängas av: datorn behöver den för att starta.",
+  "Type the options as name=value, e.g. ips=0.": "Skriv valen som namn=värde, t.ex. ips=0.",
+  "Turned off": "Avstängd",
+  "Driver options": "Drivrutinsval",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Viss hårdvara behöver en inställning för att fungera bra, till exempel ett Wi-Fi-kort som tappar hela tiden. Ändringarna gäller efter en omstart.",
+  "No driver options set.": "Inga drivrutinsval inställda.",
+  "Driver, e.g. rtl8188ee": "Drivrutin, t.ex. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Val, t.ex. ips=0 fwlps=0",
+  "Turn off this driver": "Stäng av den här drivrutinen"
 }

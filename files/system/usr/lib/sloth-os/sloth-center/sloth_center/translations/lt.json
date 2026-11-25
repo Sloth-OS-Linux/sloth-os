@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Jis suveikė {players} kitiems žaidėjams, paskutinį kartą patvirtinta: {month}.",
   "It starts, but doesn't work right": "Pasileidžia, bet veikia netinkamai",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Įjungus Steam žaidimus skiltyje Dalytis patirtimi, apie tai sužino ir kiti žaidėjai.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Jį saugo kompiuterio saugos lustas (TPM), todėl jo neįmanoma išsiaiškinti iš disko kopijos, o pats lustas sustabdo spėliojimą."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Jį saugo kompiuterio saugos lustas (TPM), todėl jo neįmanoma išsiaiškinti iš disko kopijos, o pats lustas sustabdo spėliojimą.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi vis nutrūksta: išjungti Realtek Wi-Fi plokštės energijos taupymą ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi vis nutrūksta arba lėtas: išjungti Realtek Wi-Fi plokštės ryšio energijos taupymą ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi vis nutrūksta: išjungti MediaTek Wi-Fi plokštės ryšio energijos taupymą ({module})",
+  "There is no driver with this name on this computer.": "Šiame kompiuteryje nėra tokio pavadinimo tvarkyklės.",
+  "This driver has no such option. Check the spelling (name=value).": "Ši tvarkyklė tokios parinkties neturi. Patikrink rašybą (pavadinimas=reikšmė).",
+  "This driver can't be turned off: the computer needs it to start.": "Šios tvarkyklės išjungti negalima: kompiuteriui jos reikia, kad pasileistų.",
+  "Type the options as name=value, e.g. ips=0.": "Parinktis rašyk kaip pavadinimas=reikšmė, pvz., ips=0.",
+  "Turned off": "Išjungta",
+  "Driver options": "Tvarkyklių parinktys",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Kai kuriai aparatinei įrangai, kad gerai veiktų, reikia nustatymo, pavyzdžiui, nuolat nutrūkstančiai Wi-Fi plokštei. Pakeitimai įsigalioja paleidus iš naujo.",
+  "No driver options set.": "Tvarkyklių parinkčių nėra.",
+  "Driver, e.g. rtl8188ee": "Tvarkyklė, pvz., rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Parinktys, pvz., ips=0 fwlps=0",
+  "Turn off this driver": "Išjungti šią tvarkyklę"
 }

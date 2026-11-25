@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Ол {players} басқа ойыншыда жұмыс істеді, соңғы рет расталды: {month}.",
   "It starts, but doesn't work right": "Іске қосылады, бірақ дұрыс жұмыс істемейді",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Тәжірибемен бөлісу бөлімінде Steam ойындарын қоссаң, бұл туралы басқа ойыншылар да біледі.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Оны компьютердің қауіпсіздік чипі (TPM) сақтайды, сондықтан оны дисктің көшірмесінен анықтау мүмкін емес, ал чиптің өзі болжап табуды тоқтатады."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Оны компьютердің қауіпсіздік чипі (TPM) сақтайды, сондықтан оны дисктің көшірмесінен анықтау мүмкін емес, ал чиптің өзі болжап табуды тоқтатады.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi жиі үзіледі: Realtek Wi-Fi картасының қуат үнемдеуін өшіру ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi жиі үзіледі немесе баяу: Realtek Wi-Fi картасының байланыс қуатын үнемдеуін өшіру ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi жиі үзіледі: MediaTek Wi-Fi картасының байланыс қуатын үнемдеуін өшіру ({module})",
+  "There is no driver with this name on this computer.": "Бұл компьютерде мұндай атпен драйвер жоқ.",
+  "This driver has no such option. Check the spelling (name=value).": "Бұл драйверде мұндай параметр жоқ. Жазылуын тексер (атауы=мәні).",
+  "This driver can't be turned off: the computer needs it to start.": "Бұл драйверді өшіру мүмкін емес: компьютер іске қосылу үшін оны қажет етеді.",
+  "Type the options as name=value, e.g. ips=0.": "Параметрлерді атауы=мәні түрінде жаз, мысалы ips=0.",
+  "Turned off": "Өшірулі",
+  "Driver options": "Драйвер параметрлері",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Кейбір жабдыққа жақсы жұмыс істеу үшін баптау керек, мысалы жиі үзілетін Wi-Fi картасына. Өзгерістер қайта іске қосқаннан кейін күшіне енеді.",
+  "No driver options set.": "Драйвер параметрлері орнатылмаған.",
+  "Driver, e.g. rtl8188ee": "Драйвер, мысалы rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Параметрлер, мысалы ips=0 fwlps=0",
+  "Turn off this driver": "Бұл драйверді өшіру"
 }

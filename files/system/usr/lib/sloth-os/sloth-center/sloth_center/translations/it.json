@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Ha funzionato per altri {players} giocatori, ultima conferma: {month}.",
   "It starts, but doesn't work right": "Si avvia, ma non funziona bene",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Con i giochi di Steam attivi in Condividi le esperienze, lo sanno anche gli altri giocatori.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Lo custodisce il chip di sicurezza del computer (TPM), quindi non si può ricavare da una copia del disco, e il chip stesso blocca i tentativi."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Lo custodisce il chip di sicurezza del computer (TPM), quindi non si può ricavare da una copia del disco, e il chip stesso blocca i tentativi.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Il Wi-Fi cade di continuo: disattiva il risparmio energetico della scheda Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Il Wi-Fi cade di continuo o è lento: disattiva il risparmio energetico del collegamento della scheda Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Il Wi-Fi cade di continuo: disattiva il risparmio energetico del collegamento della scheda Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Su questo computer non c'è nessun driver con questo nome.",
+  "This driver has no such option. Check the spelling (name=value).": "Questo driver non ha questa opzione. Controlla come è scritta (nome=valore).",
+  "This driver can't be turned off: the computer needs it to start.": "Questo driver non si può disattivare: il computer ne ha bisogno per avviarsi.",
+  "Type the options as name=value, e.g. ips=0.": "Scrivi le opzioni come nome=valore, ad es. ips=0.",
+  "Turned off": "Disattivato",
+  "Driver options": "Opzioni dei driver",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Alcuni componenti hanno bisogno di un'impostazione per funzionare bene, per esempio una scheda Wi-Fi che cade di continuo. Le modifiche hanno effetto dopo un riavvio.",
+  "No driver options set.": "Nessuna opzione dei driver.",
+  "Driver, e.g. rtl8188ee": "Driver, ad es. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opzioni, ad es. ips=0 fwlps=0",
+  "Turn off this driver": "Disattiva questo driver"
 }

@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Funksionoi për {players} lojtarë të tjerë, konfirmimi i fundit: {month}.",
   "It starts, but doesn't work right": "Niset, por nuk punon si duhet",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Me lojërat Steam të aktivizuara te Ndaj përvojat, e mësojnë edhe lojtarët e tjerë.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "E ruan çipi i sigurisë së kompjuterit (TPM), kështu që nuk mund të nxirret nga një kopje e diskut, dhe vetë çipi e ndal hamendësimin."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "E ruan çipi i sigurisë së kompjuterit (TPM), kështu që nuk mund të nxirret nga një kopje e diskut, dhe vetë çipi e ndal hamendësimin.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi shkëputet vazhdimisht: fik kursimin e energjisë së kartës Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi shkëputet vazhdimisht ose është i ngadaltë: fik kursimin e energjisë së lidhjes së kartës Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi shkëputet vazhdimisht: fik kursimin e energjisë së lidhjes së kartës Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Në këtë kompjuter nuk ka drejtues me këtë emër.",
+  "This driver has no such option. Check the spelling (name=value).": "Ky drejtues nuk ka një mundësi të tillë. Kontrollo drejtshkrimin (emër=vlerë).",
+  "This driver can't be turned off: the computer needs it to start.": "Ky drejtues nuk mund të fiket: kompjuteri ka nevojë për të që të niset.",
+  "Type the options as name=value, e.g. ips=0.": "Shkruaj mundësitë si emër=vlerë, p.sh. ips=0.",
+  "Turned off": "I fikur",
+  "Driver options": "Mundësitë e drejtuesve",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Disa pajisje kanë nevojë për një cilësim që të punojnë mirë, për shembull një kartë Wi-Fi që shkëputet vazhdimisht. Ndryshimet hyjnë në fuqi pas rinisjes.",
+  "No driver options set.": "Nuk ka mundësi drejtuesish.",
+  "Driver, e.g. rtl8188ee": "Drejtues, p.sh. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Mundësi, p.sh. ips=0 fwlps=0",
+  "Turn off this driver": "Fik këtë drejtues"
 }

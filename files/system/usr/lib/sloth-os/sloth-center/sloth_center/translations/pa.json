@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "ਇਹ {players} ਹੋਰ ਖਿਡਾਰੀਆਂ ਲਈ ਕੰਮ ਕੀਤੀ, ਆਖਰੀ ਪੁਸ਼ਟੀ: {month}।",
   "It starts, but doesn't work right": "ਸ਼ੁਰੂ ਹੁੰਦੀ ਹੈ, ਪਰ ਠੀਕ ਕੰਮ ਨਹੀਂ ਕਰਦੀ",
   "With Steam games turned on under Share experiences, other players learn about it too.": "ਤਜਰਬੇ ਸਾਂਝੇ ਕਰੋ ਵਿੱਚ Steam ਗੇਮਾਂ ਚਾਲੂ ਹੋਣ ਨਾਲ ਹੋਰ ਖਿਡਾਰੀਆਂ ਨੂੰ ਵੀ ਪਤਾ ਲੱਗਦਾ ਹੈ।",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "ਇਸ ਨੂੰ ਕੰਪਿਊਟਰ ਦੀ ਸੁਰੱਖਿਆ ਚਿੱਪ (TPM) ਸੰਭਾਲਦੀ ਹੈ, ਇਸ ਲਈ ਡਿਸਕ ਦੀ ਕਾਪੀ ਤੋਂ ਇਸ ਦਾ ਪਤਾ ਨਹੀਂ ਲਗਾਇਆ ਜਾ ਸਕਦਾ, ਅਤੇ ਚਿੱਪ ਆਪ ਅੰਦਾਜ਼ੇ ਲਗਾਉਣਾ ਰੋਕ ਦਿੰਦੀ ਹੈ।"
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "ਇਸ ਨੂੰ ਕੰਪਿਊਟਰ ਦੀ ਸੁਰੱਖਿਆ ਚਿੱਪ (TPM) ਸੰਭਾਲਦੀ ਹੈ, ਇਸ ਲਈ ਡਿਸਕ ਦੀ ਕਾਪੀ ਤੋਂ ਇਸ ਦਾ ਪਤਾ ਨਹੀਂ ਲਗਾਇਆ ਜਾ ਸਕਦਾ, ਅਤੇ ਚਿੱਪ ਆਪ ਅੰਦਾਜ਼ੇ ਲਗਾਉਣਾ ਰੋਕ ਦਿੰਦੀ ਹੈ।",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi ਵਾਰ-ਵਾਰ ਟੁੱਟਦਾ ਹੈ: Realtek Wi-Fi ਕਾਰਡ ਦੀ ਪਾਵਰ ਬਚਤ ਬੰਦ ਕਰੋ ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi ਵਾਰ-ਵਾਰ ਟੁੱਟਦਾ ਹੈ ਜਾਂ ਹੌਲੀ ਹੈ: Realtek Wi-Fi ਕਾਰਡ ਦੀ ਲਿੰਕ ਪਾਵਰ ਬਚਤ ਬੰਦ ਕਰੋ ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi ਵਾਰ-ਵਾਰ ਟੁੱਟਦਾ ਹੈ: MediaTek Wi-Fi ਕਾਰਡ ਦੀ ਲਿੰਕ ਪਾਵਰ ਬਚਤ ਬੰਦ ਕਰੋ ({module})",
+  "There is no driver with this name on this computer.": "ਇਸ ਕੰਪਿਊਟਰ 'ਤੇ ਇਸ ਨਾਂ ਦਾ ਕੋਈ ਡਰਾਈਵਰ ਨਹੀਂ ਹੈ।",
+  "This driver has no such option. Check the spelling (name=value).": "ਇਸ ਡਰਾਈਵਰ ਵਿੱਚ ਅਜਿਹਾ ਵਿਕਲਪ ਨਹੀਂ ਹੈ। ਸ਼ਬਦ-ਜੋੜ ਜਾਂਚੋ (ਨਾਂ=ਮੁੱਲ)।",
+  "This driver can't be turned off: the computer needs it to start.": "ਇਹ ਡਰਾਈਵਰ ਬੰਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ: ਕੰਪਿਊਟਰ ਨੂੰ ਸ਼ੁਰੂ ਹੋਣ ਲਈ ਇਸ ਦੀ ਲੋੜ ਹੈ।",
+  "Type the options as name=value, e.g. ips=0.": "ਵਿਕਲਪ ਨਾਂ=ਮੁੱਲ ਵਜੋਂ ਲਿਖੋ, ਜਿਵੇਂ ips=0।",
+  "Turned off": "ਬੰਦ",
+  "Driver options": "ਡਰਾਈਵਰ ਵਿਕਲਪ",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "ਕੁਝ ਹਾਰਡਵੇਅਰ ਨੂੰ ਠੀਕ ਚੱਲਣ ਲਈ ਇੱਕ ਸੈਟਿੰਗ ਚਾਹੀਦੀ ਹੈ, ਜਿਵੇਂ ਵਾਰ-ਵਾਰ ਟੁੱਟਣ ਵਾਲਾ Wi-Fi ਕਾਰਡ। ਤਬਦੀਲੀਆਂ ਰੀਸਟਾਰਟ ਤੋਂ ਬਾਅਦ ਲਾਗੂ ਹੁੰਦੀਆਂ ਹਨ।",
+  "No driver options set.": "ਕੋਈ ਡਰਾਈਵਰ ਵਿਕਲਪ ਸੈੱਟ ਨਹੀਂ।",
+  "Driver, e.g. rtl8188ee": "ਡਰਾਈਵਰ, ਜਿਵੇਂ rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "ਵਿਕਲਪ, ਜਿਵੇਂ ips=0 fwlps=0",
+  "Turn off this driver": "ਇਹ ਡਰਾਈਵਰ ਬੰਦ ਕਰੋ"
 }

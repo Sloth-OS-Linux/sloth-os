@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "ほかの {players} 人のプレイヤーでうまくいきました。最終確認: {month}。",
   "It starts, but doesn't work right": "起動するけど正しく動かない",
   "With Steam games turned on under Share experiences, other players learn about it too.": "「経験を共有」で Steam のゲームをオンにすると、ほかのプレイヤーにも伝わります。",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "コンピューターのセキュリティチップ (TPM) が保管するので、ディスクのコピーから割り出すことはできず、推測もチップ自身が止めます。"
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "コンピューターのセキュリティチップ (TPM) が保管するので、ディスクのコピーから割り出すことはできず、推測もチップ自身が止めます。",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi がすぐ切れる: Realtek Wi-Fi カードの省電力をオフにする ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi がすぐ切れる、または遅い: Realtek Wi-Fi カードのリンク省電力をオフにする ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi がすぐ切れる: MediaTek Wi-Fi カードのリンク省電力をオフにする ({module})",
+  "There is no driver with this name on this computer.": "このコンピューターにはこの名前のドライバーがありません。",
+  "This driver has no such option. Check the spelling (name=value).": "このドライバーにはそのオプションがありません。つづりを確認してください (名前=値)。",
+  "This driver can't be turned off: the computer needs it to start.": "このドライバーはオフにできません。コンピューターの起動に必要です。",
+  "Type the options as name=value, e.g. ips=0.": "オプションは 名前=値 の形で入力してください (例: ips=0)。",
+  "Turned off": "オフ",
+  "Driver options": "ドライバーのオプション",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "ハードウェアによっては、正しく動くために設定が必要です (たとえば、すぐ切れる Wi-Fi カード)。変更は再起動後に有効になります。",
+  "No driver options set.": "ドライバーのオプションはありません。",
+  "Driver, e.g. rtl8188ee": "ドライバー (例: rtl8188ee)",
+  "Options, e.g. ips=0 fwlps=0": "オプション (例: ips=0 fwlps=0)",
+  "Turn off this driver": "このドライバーをオフにする"
 }

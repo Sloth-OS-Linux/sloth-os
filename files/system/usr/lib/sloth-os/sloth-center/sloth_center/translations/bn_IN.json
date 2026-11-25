@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "এটি {players} জন অন্য খেলোয়াড়ের জন্য কাজ করেছে, শেষ নিশ্চিত: {month}।",
   "It starts, but doesn't work right": "চালু হয়, কিন্তু ঠিকমতো কাজ করে না",
   "With Steam games turned on under Share experiences, other players learn about it too.": "„অভিজ্ঞতা শেয়ার করুন“-এ Steam গেম চালু করলে অন্য খেলোয়াড়রাও এটা জানবে।",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "কম্পিউটারের নিরাপত্তা চিপ (TPM) এটি রাখে, তাই ডিস্কের কপি থেকে এটি বের করা যায় না, আর চিপ নিজেই আন্দাজ করা থামিয়ে দেয়।"
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "কম্পিউটারের নিরাপত্তা চিপ (TPM) এটি রাখে, তাই ডিস্কের কপি থেকে এটি বের করা যায় না, আর চিপ নিজেই আন্দাজ করা থামিয়ে দেয়।",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi বারবার কেটে যায়: Realtek Wi-Fi কার্ডের পাওয়ার সেভিং বন্ধ করো ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi বারবার কেটে যায় বা ধীর: Realtek Wi-Fi কার্ডের লিংক পাওয়ার সেভিং বন্ধ করো ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi বারবার কেটে যায়: MediaTek Wi-Fi কার্ডের লিংক পাওয়ার সেভিং বন্ধ করো ({module})",
+  "There is no driver with this name on this computer.": "এই কম্পিউটারে এই নামের কোনো ড্রাইভার নেই।",
+  "This driver has no such option. Check the spelling (name=value).": "এই ড্রাইভারের এমন কোনো বিকল্প নেই। বানান দেখে নাও (নাম=মান)।",
+  "This driver can't be turned off: the computer needs it to start.": "এই ড্রাইভার বন্ধ করা যায় না: কম্পিউটার চালু হতে এটি দরকার।",
+  "Type the options as name=value, e.g. ips=0.": "বিকল্পগুলো নাম=মান আকারে লেখো, যেমন ips=0।",
+  "Turned off": "বন্ধ",
+  "Driver options": "ড্রাইভার বিকল্প",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "কিছু হার্ডওয়্যার ঠিকমতো চলতে একটি সেটিং দরকার, যেমন বারবার কেটে যাওয়া Wi-Fi কার্ড। রিস্টার্টের পর পরিবর্তন কার্যকর হয়।",
+  "No driver options set.": "কোনো ড্রাইভার বিকল্প সেট করা নেই।",
+  "Driver, e.g. rtl8188ee": "ড্রাইভার, যেমন rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "বিকল্প, যেমন ips=0 fwlps=0",
+  "Turn off this driver": "এই ড্রাইভার বন্ধ করো"
 }

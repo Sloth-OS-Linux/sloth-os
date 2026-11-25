@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Ĝi funkciis por {players} aliaj ludantoj, laste konfirmita: {month}.",
   "It starts, but doesn't work right": "Ĝi ekfunkcias, sed ne funkcias ĝuste",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Kun Steam-ludoj ŝaltitaj sub Kunhavigi spertojn, ankaŭ aliaj ludantoj ekscias pri tio.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Ĝin gardas la sekureca ĉipo de la komputilo (TPM), do ĝi ne eltroveblas el kopio de la disko, kaj la ĉipo mem haltigas divenadon."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Ĝin gardas la sekureca ĉipo de la komputilo (TPM), do ĝi ne eltroveblas el kopio de la disko, kaj la ĉipo mem haltigas divenadon.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi daŭre malkonektiĝas: malŝalti la energiŝparon de la Realtek-Wi-Fi-karto ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi daŭre malkonektiĝas aŭ estas malrapida: malŝalti la ligan energiŝparon de la Realtek-Wi-Fi-karto ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi daŭre malkonektiĝas: malŝalti la ligan energiŝparon de la MediaTek-Wi-Fi-karto ({module})",
+  "There is no driver with this name on this computer.": "Ne estas pelilo kun ĉi tiu nomo en ĉi tiu komputilo.",
+  "This driver has no such option. Check the spelling (name=value).": "Ĉi tiu pelilo ne havas tian opcion. Kontrolu la literumon (nomo=valoro).",
+  "This driver can't be turned off: the computer needs it to start.": "Ĉi tiun pelilon ne eblas malŝalti: la komputilo bezonas ĝin por ekfunkcii.",
+  "Type the options as name=value, e.g. ips=0.": "Tajpu la opciojn kiel nomo=valoro, ekz. ips=0.",
+  "Turned off": "Malŝaltita",
+  "Driver options": "Opcioj de peliloj",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Iu aparataro bezonas agordon por bone funkcii, ekzemple Wi-Fi-karto, kiu daŭre malkonektiĝas. Ŝanĝoj efikas post restartigo.",
+  "No driver options set.": "Neniuj opcioj de peliloj agorditaj.",
+  "Driver, e.g. rtl8188ee": "Pelilo, ekz. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opcioj, ekz. ips=0 fwlps=0",
+  "Turn off this driver": "Malŝalti ĉi tiun pelilon"
 }

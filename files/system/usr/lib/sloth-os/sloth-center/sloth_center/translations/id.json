@@ -1322,5 +1322,19 @@
   "It worked for {players} other players, last confirmed in {month}.": "Berhasil untuk {players} pemain lain, terakhir dikonfirmasi: {month}.",
   "It starts, but doesn't work right": "Bisa mulai, tapi tidak berjalan dengan benar",
   "With Steam games turned on under Share experiences, other players learn about it too.": "Dengan game Steam diaktifkan di Bagikan pengalaman, pemain lain juga ikut tahu.",
-  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Disimpan oleh cip keamanan komputer (TPM), jadi tidak bisa ditebak dari salinan disk, dan cip itu sendiri menghentikan upaya menebak."
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Disimpan oleh cip keamanan komputer (TPM), jadi tidak bisa ditebak dari salinan disk, dan cip itu sendiri menghentikan upaya menebak.",
+  "Wi-Fi keeps dropping: turn off the Realtek Wi-Fi card's power saving ({module})": "Wi-Fi terus putus: matikan penghemat daya kartu Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping or is slow: turn off the Realtek Wi-Fi card's link power saving ({module})": "Wi-Fi terus putus atau lambat: matikan penghemat daya tautan kartu Wi-Fi Realtek ({module})",
+  "Wi-Fi keeps dropping: turn off the MediaTek Wi-Fi card's link power saving ({module})": "Wi-Fi terus putus: matikan penghemat daya tautan kartu Wi-Fi MediaTek ({module})",
+  "There is no driver with this name on this computer.": "Tidak ada driver dengan nama ini di komputer ini.",
+  "This driver has no such option. Check the spelling (name=value).": "Driver ini tidak punya opsi seperti itu. Periksa penulisannya (nama=nilai).",
+  "This driver can't be turned off: the computer needs it to start.": "Driver ini tidak bisa dimatikan: komputer membutuhkannya untuk menyala.",
+  "Type the options as name=value, e.g. ips=0.": "Tulis opsi sebagai nama=nilai, mis. ips=0.",
+  "Turned off": "Dimatikan",
+  "Driver options": "Opsi driver",
+  "Some hardware needs a setting to work well, for example a Wi-Fi card that keeps dropping. Changes take effect after a restart.": "Sebagian perangkat keras butuh pengaturan agar berjalan baik, misalnya kartu Wi-Fi yang terus putus. Perubahan berlaku setelah memulai ulang.",
+  "No driver options set.": "Tidak ada opsi driver.",
+  "Driver, e.g. rtl8188ee": "Driver, mis. rtl8188ee",
+  "Options, e.g. ips=0 fwlps=0": "Opsi, mis. ips=0 fwlps=0",
+  "Turn off this driver": "Matikan driver ini"
 }
