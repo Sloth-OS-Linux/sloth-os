@@ -1336,5 +1336,11 @@
   "No driver options set.": "Geen drywer-opsies gestel nie.",
   "Driver, e.g. rtl8188ee": "Drywer, bv. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Opsies, bv. ips=0 fwlps=0",
-  "Turn off this driver": "Skakel hierdie drywer af"
+  "Turn off this driver": "Skakel hierdie drywer af",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Die Windows-omgewing word elke 6 uur self nagegaan. Laas nagegaan: {when}.",
+  "Checking for a newer Windows runtime now…": "Kyk nou vir 'n nuwer Windows-omgewing…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Die Windows-omgewing word 'n paar minute nadat jy aanmeld nagegaan, daarna elke 6 uur.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: hulle werk hulself by wanneer jy hulle begin, soos op Windows.",
+  "Check now": "Kyk nou",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Op die Windows-omgewing gehou wat werk, omdat die nuutste hulle nie laat begin het nie: {programs}. Sloth OS probeer weer wanneer 'n nuwer een kom."
 }

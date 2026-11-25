@@ -1336,5 +1336,11 @@
   "No driver options set.": "কোনো ড্রাইভার বিকল্প সেট করা নেই।",
   "Driver, e.g. rtl8188ee": "ড্রাইভার, যেমন rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "বিকল্প, যেমন ips=0 fwlps=0",
-  "Turn off this driver": "এই ড্রাইভার বন্ধ করো"
+  "Turn off this driver": "এই ড্রাইভার বন্ধ করো",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows পরিবেশ প্রতি 6 ঘণ্টায় নিজে থেকেই পরীক্ষা করা হয়। শেষ পরীক্ষা: {when}।",
+  "Checking for a newer Windows runtime now…": "এখন নতুন Windows পরিবেশ খোঁজা হচ্ছে…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "তুমি সাইন ইন করার কয়েক মিনিট পরে Windows পরিবেশ পরীক্ষা করা হয়, তারপর প্রতি 6 ঘণ্টায়।",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: চালু করলে এগুলো নিজেরাই আপডেট হয়, Windows-এর মতো।",
+  "Check now": "এখনই পরীক্ষা করো",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "যে Windows পরিবেশে কাজ করে সেখানেই রাখা হয়েছে, কারণ নতুনতমটিতে এগুলো চালু হয়নি: {programs}। নতুন একটি এলে Sloth OS আবার চেষ্টা করবে।"
 }

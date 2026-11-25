@@ -1336,5 +1336,11 @@
   "No driver options set.": "Nissune opzion dai driver.",
   "Driver, e.g. rtl8188ee": "Driver, par esempli rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Opzions, par esempli ips=0 fwlps=0",
-  "Turn off this driver": "Distude chest driver"
+  "Turn off this driver": "Distude chest driver",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "L'ambient Windows al ven controlât di bessôl ogni 6 oris. Ultin control: {when}.",
+  "Checking for a newer Windows runtime now…": "O cîr cumò un ambient Windows plui gnûf…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "L'ambient Windows al ven controlât cualchi minût dopo che tu jentris, e po ogni 6 oris.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: si inzornin di bessôi cuant che tu ju fasis partî, come su Windows.",
+  "Check now": "Controle cumò",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Tignûts sul ambient Windows che al va, parcè che cul plui gnûf no partivin: {programs}. Sloth OS al torne a provâ cuant che al rive un plui gnûf."
 }

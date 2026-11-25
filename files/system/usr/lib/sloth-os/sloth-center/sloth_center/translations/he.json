@@ -1336,5 +1336,11 @@
   "No driver options set.": "לא הוגדרו אפשרויות למנהלי התקנים.",
   "Driver, e.g. rtl8188ee": "מנהל התקן, למשל rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "אפשרויות, למשל ips=0 fwlps=0",
-  "Turn off this driver": "לכבות את מנהל ההתקן הזה"
+  "Turn off this driver": "לכבות את מנהל ההתקן הזה",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "סביבת Windows נבדקת מעצמה כל 6 שעות. בדיקה אחרונה: {when}.",
+  "Checking for a newer Windows runtime now…": "מחפש עכשיו סביבת Windows חדשה יותר…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "סביבת Windows נבדקת כמה דקות אחרי שנכנסת, ואחר כך כל 6 שעות.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: הן מתעדכנות מעצמן כשמפעילים אותן, כמו ב-Windows.",
+  "Check now": "לבדוק עכשיו",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "נשארות בסביבת Windows שעובדת, כי החדשה ביותר לא הפעילה אותן: {programs}. Sloth OS ינסה שוב כשתצא חדשה יותר."
 }

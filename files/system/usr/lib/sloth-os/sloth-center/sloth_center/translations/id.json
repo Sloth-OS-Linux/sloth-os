@@ -1336,5 +1336,11 @@
   "No driver options set.": "Tidak ada opsi driver.",
   "Driver, e.g. rtl8188ee": "Driver, mis. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Opsi, mis. ips=0 fwlps=0",
-  "Turn off this driver": "Matikan driver ini"
+  "Turn off this driver": "Matikan driver ini",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Lingkungan Windows diperiksa sendiri setiap 6 jam. Terakhir diperiksa: {when}.",
+  "Checking for a newer Windows runtime now…": "Sedang mencari lingkungan Windows yang lebih baru…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Lingkungan Windows diperiksa beberapa menit setelah kamu masuk, lalu setiap 6 jam.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: memperbarui diri sendiri saat kamu menjalankannya, seperti di Windows.",
+  "Check now": "Periksa sekarang",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Tetap di lingkungan Windows yang berfungsi, karena yang terbaru tidak menjalankannya: {programs}. Sloth OS mencoba lagi saat ada yang lebih baru."
 }

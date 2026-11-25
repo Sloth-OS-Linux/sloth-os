@@ -1336,5 +1336,11 @@
   "No driver options set.": "没有设置驱动选项。",
   "Driver, e.g. rtl8188ee": "驱动，例如 rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "选项，例如 ips=0 fwlps=0",
-  "Turn off this driver": "关闭这个驱动"
+  "Turn off this driver": "关闭这个驱动",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows 运行环境每 6 小时自动检查一次。上次检查：{when}。",
+  "Checking for a newer Windows runtime now…": "正在查找更新的 Windows 运行环境…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows 运行环境会在你登录几分钟后检查，之后每 6 小时检查一次。",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}：启动时会自行更新，和在 Windows 上一样。",
+  "Check now": "立即检查",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "因为最新的 Windows 运行环境无法启动它们，所以保留在能用的环境上：{programs}。有更新的版本时 Sloth OS 会再试。"
 }

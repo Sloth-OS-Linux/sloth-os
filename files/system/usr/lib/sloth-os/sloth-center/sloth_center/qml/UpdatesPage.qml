@@ -244,6 +244,55 @@ Kirigami.ScrollablePage {
             }
         }
 
+        // --- Windows programs: they update themselves; Sloth OS keeps their runtime fresh (winupdates.py) ---------
+        Kirigami.AbstractCard {
+            Layout.fillWidth: true
+            visible: winUpdates.programs.length > 0
+            contentItem: ColumnLayout {
+                spacing: Kirigami.Units.smallSpacing
+                RowLayout {
+                    Layout.fillWidth: true
+                    spacing: Kirigami.Units.largeSpacing
+                    Kirigami.Icon {
+                        source: "application-x-ms-dos-executable"
+                        implicitWidth: Kirigami.Units.iconSizes.medium
+                        implicitHeight: Kirigami.Units.iconSizes.medium
+                    }
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        spacing: 0
+                        Kirigami.Heading { level: 3; text: L.t("Windows programs"); Layout.fillWidth: true }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.7
+                            text: L.tf("{programs}: they update themselves when you start them, as on Windows.",
+                                       { programs: winUpdates.programs.join(", ") })
+                        }
+                        QQC2.Label {
+                            Layout.fillWidth: true
+                            wrapMode: Text.Wrap
+                            opacity: 0.7
+                            text: winUpdates.runtimeText
+                        }
+                    }
+                    QQC2.Button {
+                        text: L.t("Check now")
+                        icon.name: "view-refresh"
+                        enabled: !winUpdates.running
+                        onClicked: winUpdates.checkNow()
+                    }
+                }
+                Kirigami.InlineMessage {
+                    Layout.fillWidth: true
+                    visible: winUpdates.heldBack.length > 0
+                    type: Kirigami.MessageType.Information
+                    text: L.tf("Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.",
+                               { programs: winUpdates.heldBack.join(", ") })
+                }
+            }
+        }
+
         // --- The computer's firmware (BIOS/UEFI…) from the LVFS, through fwupd (firmware.py): only by hand ---
         Kirigami.AbstractCard {
             Layout.fillWidth: true

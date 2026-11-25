@@ -1336,5 +1336,11 @@
   "No driver options set.": "Nicio opțiune pentru drivere.",
   "Driver, e.g. rtl8188ee": "Driver, de ex. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Opțiuni, de ex. ips=0 fwlps=0",
-  "Turn off this driver": "Oprește acest driver"
+  "Turn off this driver": "Oprește acest driver",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Mediul Windows este verificat singur la fiecare 6 ore. Ultima verificare: {when}.",
+  "Checking for a newer Windows runtime now…": "Se caută acum un mediu Windows mai nou…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Mediul Windows este verificat la câteva minute după autentificare, apoi la fiecare 6 ore.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: se actualizează singure când le pornești, ca în Windows.",
+  "Check now": "Verifică acum",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Rămân pe mediul Windows care merge, pentru că cu cel mai nou nu porneau: {programs}. Sloth OS încearcă din nou când apare unul mai nou."
 }

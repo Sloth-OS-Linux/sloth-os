@@ -1336,5 +1336,11 @@
   "No driver options set.": "Tvarkyklių parinkčių nėra.",
   "Driver, e.g. rtl8188ee": "Tvarkyklė, pvz., rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Parinktys, pvz., ips=0 fwlps=0",
-  "Turn off this driver": "Išjungti šią tvarkyklę"
+  "Turn off this driver": "Išjungti šią tvarkyklę",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows aplinka pati tikrinama kas 6 valandas. Paskutinį kartą tikrinta: {when}.",
+  "Checking for a newer Windows runtime now…": "Dabar ieškoma naujesnės Windows aplinkos…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows aplinka tikrinama kelios minutės po prisijungimo, vėliau kas 6 valandas.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: jos pačios atsinaujina, kai jas paleidi, kaip Windows.",
+  "Check now": "Tikrinti dabar",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Paliktos veikiančioje Windows aplinkoje, nes su naujausia nepasileido: {programs}. Sloth OS bandys vėl, kai bus naujesnė."
 }

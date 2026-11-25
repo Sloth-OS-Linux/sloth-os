@@ -1336,5 +1336,11 @@
   "No driver options set.": "Neniuj opcioj de peliloj agorditaj.",
   "Driver, e.g. rtl8188ee": "Pelilo, ekz. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Opcioj, ekz. ips=0 fwlps=0",
-  "Turn off this driver": "Malŝalti ĉi tiun pelilon"
+  "Turn off this driver": "Malŝalti ĉi tiun pelilon",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "La Windows-medio estas kontrolata mem ĉiujn 6 horojn. Laste kontrolita: {when}.",
+  "Checking for a newer Windows runtime now…": "Serĉante pli novan Windows-medion nun…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "La Windows-medio estas kontrolata kelkajn minutojn post via ensaluto, poste ĉiujn 6 horojn.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ili ĝisdatigas sin mem, kiam vi lanĉas ilin, kiel en Windows.",
+  "Check now": "Kontroli nun",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Tenataj ĉe la funkcianta Windows-medio, ĉar la plej nova ne lanĉis ilin: {programs}. Sloth OS reprovos, kiam venos pli nova."
 }

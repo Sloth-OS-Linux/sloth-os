@@ -1336,5 +1336,11 @@
   "No driver options set.": "Geen stuurprogramma-opties ingesteld.",
   "Driver, e.g. rtl8188ee": "Stuurprogramma, bijv. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Opties, bijv. ips=0 fwlps=0",
-  "Turn off this driver": "Dit stuurprogramma uitzetten"
+  "Turn off this driver": "Dit stuurprogramma uitzetten",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "De Windows-omgeving wordt elke 6 uur vanzelf gecontroleerd. Laatst gecontroleerd: {when}.",
+  "Checking for a newer Windows runtime now…": "Er wordt nu gezocht naar een nieuwere Windows-omgeving…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "De Windows-omgeving wordt een paar minuten na het aanmelden gecontroleerd, daarna elke 6 uur.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ze werken zichzelf bij als je ze start, net als op Windows.",
+  "Check now": "Nu controleren",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Op de Windows-omgeving gehouden die werkt, omdat de nieuwste ze niet startte: {programs}. Sloth OS probeert het opnieuw als er een nieuwere komt."
 }

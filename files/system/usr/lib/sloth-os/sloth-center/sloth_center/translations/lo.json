@@ -1336,5 +1336,11 @@
   "No driver options set.": "ບໍ່ມີຕົວເລືອກໄດຣເວີ.",
   "Driver, e.g. rtl8188ee": "ໄດຣເວີ, ເຊັ່ນ rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "ຕົວເລືອກ, ເຊັ່ນ ips=0 fwlps=0",
-  "Turn off this driver": "ປິດໄດຣເວີນີ້"
+  "Turn off this driver": "ປິດໄດຣເວີນີ້",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "ສະພາບແວດລ້ອມ Windows ຖືກກວດເອງທຸກ 6 ຊົ່ວໂມງ. ກວດຫຼ້າສຸດ: {when}.",
+  "Checking for a newer Windows runtime now…": "ກຳລັງຊອກສະພາບແວດລ້ອມ Windows ທີ່ໃໝ່ກວ່າ…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "ສະພາບແວດລ້ອມ Windows ຖືກກວດສອງສາມນາທີຫຼັງຈາກເຂົ້າສູ່ລະບົບ, ຈາກນັ້ນທຸກ 6 ຊົ່ວໂມງ.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ພວກມັນອັບເດດເອງເມື່ອເຈົ້າເປີດ, ຄືກັບໃນ Windows.",
+  "Check now": "ກວດດຽວນີ້",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "ຄົງໄວ້ໃນສະພາບແວດລ້ອມ Windows ທີ່ໃຊ້ໄດ້, ເພາະອັນໃໝ່ສຸດເປີດພວກມັນບໍ່ໄດ້: {programs}. Sloth OS ຈະລອງອີກເມື່ອມີອັນໃໝ່ກວ່າ."
 }

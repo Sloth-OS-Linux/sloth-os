@@ -1336,5 +1336,11 @@
   "No driver options set.": "Draiverite valikuid pole määratud.",
   "Driver, e.g. rtl8188ee": "Draiver, nt rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Valikud, nt ips=0 fwlps=0",
-  "Turn off this driver": "Lülita see draiver välja"
+  "Turn off this driver": "Lülita see draiver välja",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windowsi keskkonda kontrollitakse ise iga 6 tunni järel. Viimati kontrollitud: {when}.",
+  "Checking for a newer Windows runtime now…": "Otsin praegu uuemat Windowsi keskkonda…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windowsi keskkonda kontrollitakse paar minutit pärast sisselogimist, siis iga 6 tunni järel.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: need uuendavad end ise, kui need käivitad, nagu Windowsis.",
+  "Check now": "Kontrolli kohe",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Jäetud töötavale Windowsi keskkonnale, sest uusimaga need ei käivitunud: {programs}. Sloth OS proovib uuesti, kui tuleb uuem."
 }

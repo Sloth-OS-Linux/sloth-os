@@ -1336,5 +1336,11 @@
   "No driver options set.": "Inga drivrutinsval inställda.",
   "Driver, e.g. rtl8188ee": "Drivrutin, t.ex. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Val, t.ex. ips=0 fwlps=0",
-  "Turn off this driver": "Stäng av den här drivrutinen"
+  "Turn off this driver": "Stäng av den här drivrutinen",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows-miljön kontrolleras av sig själv var 6:e timme. Senast kontrollerad: {when}.",
+  "Checking for a newer Windows runtime now…": "Letar efter en nyare Windows-miljö nu…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows-miljön kontrolleras några minuter efter att du loggat in, sedan var 6:e timme.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: de uppdaterar sig själva när du startar dem, som i Windows.",
+  "Check now": "Kontrollera nu",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Hålls kvar på Windows-miljön som fungerar, eftersom den nyaste inte startade dem: {programs}. Sloth OS försöker igen när en nyare kommer."
 }

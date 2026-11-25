@@ -1336,5 +1336,11 @@
   "No driver options set.": "Nie sú nastavené žiadne voľby ovládačov.",
   "Driver, e.g. rtl8188ee": "Ovládač, napr. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Voľby, napr. ips=0 fwlps=0",
-  "Turn off this driver": "Vypnúť tento ovládač"
+  "Turn off this driver": "Vypnúť tento ovládač",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Prostredie Windows sa samo kontroluje každých 6 hodín. Naposledy skontrolované: {when}.",
+  "Checking for a newer Windows runtime now…": "Práve sa hľadá novšie prostredie Windows…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Prostredie Windows sa kontroluje pár minút po prihlásení, potom každých 6 hodín.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: aktualizujú sa samy, keď ich spustíš, ako vo Windows.",
+  "Check now": "Skontrolovať teraz",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Ponechané na prostredí Windows, ktoré funguje, lebo s najnovším sa nespustili: {programs}. Sloth OS to skúsi znova, keď vyjde novšie."
 }

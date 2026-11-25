@@ -1336,5 +1336,11 @@
   "No driver options set.": "Драйвер параметрлері орнатылмаған.",
   "Driver, e.g. rtl8188ee": "Драйвер, мысалы rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Параметрлер, мысалы ips=0 fwlps=0",
-  "Turn off this driver": "Бұл драйверді өшіру"
+  "Turn off this driver": "Бұл драйверді өшіру",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows ортасы әр 6 сағат сайын өзі тексеріледі. Соңғы тексеру: {when}.",
+  "Checking for a newer Windows runtime now…": "Қазір жаңарақ Windows ортасы ізделуде…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows ортасы кіргеннен кейін бірнеше минуттан соң, одан кейін әр 6 сағат сайын тексеріледі.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: оларды іске қосқанда өздері жаңарады, Windows-тағыдай.",
+  "Check now": "Қазір тексеру",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Жұмыс істейтін Windows ортасында қалдырылды, себебі ең жаңасымен іске қосылмады: {programs}. Жаңарағы шыққанда Sloth OS қайта көреді."
 }

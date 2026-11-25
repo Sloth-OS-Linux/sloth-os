@@ -2115,7 +2115,7 @@ fine there needs to be checked only once on a real machine:
 - [ ] Work account: Entra ID; opening the password store (KWallet) with a PIN / fingerprint (details below, Sign-in)
 - [x] Bringing Steam games into self-healing and the shared knowledge (2026-11-25, see "Steam games and the shared knowledge")
 - [x] Reset from the boot menu (below, item 8)
-- [ ] (After 1.0; decision: 2026-10-20) Windows programs in Discover (details below)
+- [x] (After 1.0; decision: 2026-10-20) Windows programs in Discover (details below; done 2026-11-25 on the Updates page instead)
 
 ### Important: the test of 2026-10-16 still ran with the old image
 The tested ISO (`out/sloth-os.iso`) was made on 2026-10-16 at 08:17, when the registry's `latest` tag still pointed to the
@@ -2502,13 +2502,18 @@ Bugs found (we fix them one by one):
   printer and scanner
 - [x] (2026-11-06, Sloth Center → Parental controls; web filtering still to do) **Child account and parental controls:** screen time, what may be installed, which apps may be started; on Sloth Center's
   Account and security page
-- [ ] **Updating every app in one place, in Discover** (decision: 2026-10-16). Discover already updates every Flatpak
+- [x] (Done 2026-11-25: the system and the Windows programs on the Updates page, the apps in Discover) **Updating every app in one place, in Discover** (decision: 2026-10-16). Discover already updates every Flatpak
   that Welcome installs from Flathub (that is why it updated Steam right away too). Still to do:
   - [x] (Not planned, the user, 2026-11-25) **Our own Flatpak repository for the GitHub-package apps** (e.g. ArtCraft; this is the first step): a GitHub Action
     uploads them from the releases (with an SHA256 check) into our own signed Flatpak repository (e.g. Cloudflare R2 or
     SourceForge). Welcome installs from there, Discover updates from there, `sloth-github-bundle-update.timer`
     can go (switching the already installed ones to the repository once). Needs: storage and a GPG key in CI
-  - [ ] **Windows programs in Discover:** our own Discover plugin (C++, a KDE module) that shows the installed
+  - [x] (2026-11-25, the simpler way, as planned below: no Discover plugin to keep up with every Plasma) Sloth
+    Center → Updates → **Windows programs** (sloth_center/winupdates.py): which ones are installed (they update
+    themselves when started, as on Windows), when the Windows runtime was last checked (sloth-windows-prepare, every
+    6 hours) with "Check now", and the programs kept on an earlier runtime because the newest did not start them
+    (heal.py's records). 6 texts in 50 languages; tools/tests/test_winupdates.py; the card checked offscreen in
+    Hungarian. **Windows programs in Discover:** our own Discover plugin (C++, a KDE module) that shows the installed
     Windows programs and the Proton update. Big work, and it must be maintained with every Plasma update; the
     programs (Battle.net, Steam, Epic…) update themselves anyway. First check whether a
     simpler way (e.g. AppStream data + Sloth Center's Updates page) is enough
@@ -2527,7 +2532,7 @@ Bugs found (we fix them one by one):
   reads the GUIDs and the name "Sloth OS" (tried with fake Hungarian output). When installing next to Windows the installer
   puts it on the Windows Public Desktop (a "Sloth OS" folder), afterwards Sloth Center → Advanced settings
   → "Place the helper in Windows" (a clear message for a hibernated / fast-startup Windows)
-- [ ] A separate NVIDIA ISO "for advanced users" (starts with the NVIDIA driver even without internet), if the hosting allows
+- [x] (Not needed, the user, 2026-11-25: the installed system finds the NVIDIA card and switches by itself; only an offline NVIDIA install would need it) A separate NVIDIA ISO "for advanced users" (starts with the NVIDIA driver even without internet), if the hosting allows
 - [x] A handler for Linux packages (.AppImage, .deb, .rpm; a clear message for Mac files) – phase 2 (2026-10-19,
   still to test on a real machine; details at phase 2)
 - [x] .exe handler: "repair / reinstall" – phase 2 (2026-10-19: Sloth Center → Windows programs → Repair,

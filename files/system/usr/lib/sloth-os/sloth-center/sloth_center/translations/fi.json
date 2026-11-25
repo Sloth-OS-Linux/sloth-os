@@ -1336,5 +1336,11 @@
   "No driver options set.": "Ajurien asetuksia ei ole määritetty.",
   "Driver, e.g. rtl8188ee": "Ajuri, esim. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Asetukset, esim. ips=0 fwlps=0",
-  "Turn off this driver": "Poista tämä ajuri käytöstä"
+  "Turn off this driver": "Poista tämä ajuri käytöstä",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows-ympäristö tarkistetaan itsestään 6 tunnin välein. Viimeksi tarkistettu: {when}.",
+  "Checking for a newer Windows runtime now…": "Etsitään nyt uudempaa Windows-ympäristöä…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows-ympäristö tarkistetaan muutama minuutti kirjautumisen jälkeen ja sitten 6 tunnin välein.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ne päivittävät itsensä, kun käynnistät ne, kuten Windowsissa.",
+  "Check now": "Tarkista nyt",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Pidetty toimivassa Windows-ympäristössä, koska uusimmalla ne eivät käynnistyneet: {programs}. Sloth OS yrittää uudelleen, kun uudempi tulee."
 }

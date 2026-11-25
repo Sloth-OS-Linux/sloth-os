@@ -1336,5 +1336,11 @@
   "No driver options set.": "இயக்கி விருப்பங்கள் எதுவும் அமைக்கப்படவில்லை.",
   "Driver, e.g. rtl8188ee": "இயக்கி, எ.கா. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "விருப்பங்கள், எ.கா. ips=0 fwlps=0",
-  "Turn off this driver": "இந்த இயக்கியை அணை"
+  "Turn off this driver": "இந்த இயக்கியை அணை",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows சூழல் ஒவ்வொரு 6 மணி நேரத்திற்கும் தானாகச் சரிபார்க்கப்படும். கடைசியாகச் சரிபார்த்தது: {when}.",
+  "Checking for a newer Windows runtime now…": "இப்போது புதிய Windows சூழலைத் தேடுகிறது…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "நீ உள்நுழைந்த சில நிமிடங்களுக்குப் பிறகு Windows சூழல் சரிபார்க்கப்படும், பிறகு ஒவ்வொரு 6 மணி நேரத்திற்கும்.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: தொடங்கும்போது இவை தாமாகவே புதுப்பிக்கப்படும், Windows போலவே.",
+  "Check now": "இப்போது சரிபார்",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "வேலை செய்யும் Windows சூழலிலேயே வைக்கப்பட்டுள்ளன, ஏனெனில் புதியது இவற்றைத் தொடங்கவில்லை: {programs}. புதியது வந்ததும் Sloth OS மீண்டும் முயலும்."
 }

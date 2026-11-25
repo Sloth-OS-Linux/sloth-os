@@ -1336,5 +1336,11 @@
   "No driver options set.": "لا توجد خيارات تعريفات.",
   "Driver, e.g. rtl8188ee": "التعريف، مثل rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "الخيارات، مثل ips=0 fwlps=0",
-  "Turn off this driver": "أوقف هذا التعريف"
+  "Turn off this driver": "أوقف هذا التعريف",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "تُفحَص بيئة ويندوز تلقائيًا كل 6 ساعات. آخر فحص: {when}.",
+  "Checking for a newer Windows runtime now…": "جارٍ البحث عن بيئة ويندوز أحدث…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "تُفحَص بيئة ويندوز بعد بضع دقائق من تسجيل دخولك، ثم كل 6 ساعات.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: تحدّث نفسها عند تشغيلها، كما في ويندوز.",
+  "Check now": "افحص الآن",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "أُبقيت على بيئة ويندوز التي تعمل، لأن الأحدث لم يشغّلها: {programs}. سيحاول Sloth OS مجددًا عند صدور بيئة أحدث."
 }

@@ -1336,5 +1336,11 @@
   "No driver options set.": "Ulac iɣewwaren n yinuḍafen.",
   "Driver, e.g. rtl8188ee": "Anuḍaf, amedya rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Iɣewwaren, amedya ips=0 fwlps=0",
-  "Turn off this driver": "Sens anuḍaf-a"
+  "Turn off this driver": "Sens anuḍaf-a",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Tawennaḍt n Windows tettwasenqad s yiman-is yal 6 n yisragen. Asenqed aneggaru: {when}.",
+  "Checking for a newer Windows runtime now…": "Anadi tura ɣef twennaḍt n Windows tamaynut ugar…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Tawennaḍt n Windows tettwasenqad kra n tesdatin deffir n tuqqna-k, syin yal 6 n yisragen.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: leqqmen iman-nsen mi ara ten-tessekreḍ, am deg Windows.",
+  "Check now": "Senqed tura",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Ttwaǧǧan deg twennaḍt n Windows i yetteddun, acku tamaynut ur ten-tessekker ara: {programs}. Sloth OS ad yeɛreḍ tikkelt-nniḍen mi ara d-tas tin yennernin."
 }

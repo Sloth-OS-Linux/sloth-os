@@ -1336,5 +1336,11 @@
   "No driver options set.": "Nuk ka mundësi drejtuesish.",
   "Driver, e.g. rtl8188ee": "Drejtues, p.sh. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Mundësi, p.sh. ips=0 fwlps=0",
-  "Turn off this driver": "Fik këtë drejtues"
+  "Turn off this driver": "Fik këtë drejtues",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Mjedisi Windows kontrollohet vetë çdo 6 orë. Kontrolli i fundit: {when}.",
+  "Checking for a newer Windows runtime now…": "Po kërkohet tani një mjedis Windows më i ri…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Mjedisi Windows kontrollohet disa minuta pasi hyn, pastaj çdo 6 orë.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: përditësohen vetë kur i nis, si në Windows.",
+  "Check now": "Kontrollo tani",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Mbahen në mjedisin Windows që punon, sepse me më të riun nuk niseshin: {programs}. Sloth OS provon sërish kur të dalë një më i ri."
 }

@@ -58,6 +58,7 @@ def main():
     # D-Bus callbacks arrive without problems.
     from sloth_common import appearance as shared_appearance
     from .updates import UpdatesController
+    from .winupdates import WinUpdatesController
     from .restore_ui import RestorePointsController
     from .appearance import AppearanceController
     from .accounts import AccountsController
@@ -114,6 +115,7 @@ def main():
     engine.rootContext().setContextProperty("startGame", start_game)
     engine.rootContext().setContextProperty("instance", instance)
     updates = UpdatesController()
+    win_updates = WinUpdatesController()
     firmware = FirmwareController()
     remote_help = RemoteHelpController()
     printers = PrintersController()
@@ -155,6 +157,7 @@ def main():
     settings_backup = SettingsBackupController()
     restore_points = RestorePointsController()
     engine.rootContext().setContextProperty("updates", updates)
+    engine.rootContext().setContextProperty("winUpdates", win_updates)
     engine.rootContext().setContextProperty("restorePoints", restore_points)
     engine.rootContext().setContextProperty("firmware", firmware)
     engine.rootContext().setContextProperty("remoteHelp", remote_help)

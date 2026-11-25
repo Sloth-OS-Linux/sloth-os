@@ -1336,5 +1336,11 @@
   "No driver options set.": "Параметры драйвераў не зададзены.",
   "Driver, e.g. rtl8188ee": "Драйвер, напрыклад rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Параметры, напрыклад ips=0 fwlps=0",
-  "Turn off this driver": "Выключыць гэты драйвер"
+  "Turn off this driver": "Выключыць гэты драйвер",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Асяроддзе Windows правяраецца само кожныя 6 гадзін. Апошняя праверка: {when}.",
+  "Checking for a newer Windows runtime now…": "Цяпер шукаем навейшае асяроддзе Windows…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Асяроддзе Windows правяраецца праз некалькі хвілін пасля ўваходу, потым кожныя 6 гадзін.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: яны абнаўляюцца самі, калі іх запускаеш, як у Windows.",
+  "Check now": "Праверыць зараз",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Пакінуты на асяроддзі Windows, якое працуе, бо з найноўшым яны не запусціліся: {programs}. Sloth OS паспрабуе зноў, калі выйдзе навейшае."
 }

@@ -1336,5 +1336,11 @@
   "No driver options set.": "Δεν έχουν οριστεί επιλογές προγραμμάτων οδήγησης.",
   "Driver, e.g. rtl8188ee": "Πρόγραμμα οδήγησης, π.χ. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Επιλογές, π.χ. ips=0 fwlps=0",
-  "Turn off this driver": "Απενεργοποίηση αυτού του προγράμματος οδήγησης"
+  "Turn off this driver": "Απενεργοποίηση αυτού του προγράμματος οδήγησης",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Το περιβάλλον Windows ελέγχεται μόνο του κάθε 6 ώρες. Τελευταίος έλεγχος: {when}.",
+  "Checking for a newer Windows runtime now…": "Αναζήτηση νεότερου περιβάλλοντος Windows τώρα…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Το περιβάλλον Windows ελέγχεται λίγα λεπτά μετά τη σύνδεσή σου και μετά κάθε 6 ώρες.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ενημερώνονται μόνα τους όταν τα ξεκινάς, όπως στα Windows.",
+  "Check now": "Έλεγχος τώρα",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Παραμένουν στο περιβάλλον Windows που λειτουργεί, επειδή με το νεότερο δεν ξεκίνησαν: {programs}. Το Sloth OS θα δοκιμάσει ξανά όταν βγει νεότερο."
 }

@@ -1336,5 +1336,11 @@
   "No driver options set.": "Ingen driverindstillinger valgt.",
   "Driver, e.g. rtl8188ee": "Driver, f.eks. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Indstillinger, f.eks. ips=0 fwlps=0",
-  "Turn off this driver": "Slå denne driver fra"
+  "Turn off this driver": "Slå denne driver fra",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows-miljøet tjekkes af sig selv hver 6. time. Sidst tjekket: {when}.",
+  "Checking for a newer Windows runtime now…": "Leder efter et nyere Windows-miljø nu…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows-miljøet tjekkes nogle minutter efter, du logger ind, og derefter hver 6. time.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: de opdaterer sig selv, når du starter dem, som på Windows.",
+  "Check now": "Tjek nu",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Holdt på det Windows-miljø, der virker, fordi det nyeste ikke kunne starte dem: {programs}. Sloth OS prøver igen, når der kommer et nyere."
 }

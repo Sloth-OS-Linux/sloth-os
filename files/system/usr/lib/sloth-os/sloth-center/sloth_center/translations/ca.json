@@ -1336,5 +1336,11 @@
   "No driver options set.": "No hi ha cap opció de controlador.",
   "Driver, e.g. rtl8188ee": "Controlador, p. ex. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Opcions, p. ex. ips=0 fwlps=0",
-  "Turn off this driver": "Desactiva aquest controlador"
+  "Turn off this driver": "Desactiva aquest controlador",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "L'entorn de Windows es comprova tot sol cada 6 hores. Darrera comprovació: {when}.",
+  "Checking for a newer Windows runtime now…": "S'està buscant ara un entorn de Windows més nou…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "L'entorn de Windows es comprova uns minuts després d'iniciar la sessió, i després cada 6 hores.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: s'actualitzen sols quan els obres, com a Windows.",
+  "Check now": "Comprova-ho ara",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Es mantenen a l'entorn de Windows que funciona, perquè amb el més nou no s'obrien: {programs}. Sloth OS ho tornarà a provar quan n'arribi un de més nou."
 }

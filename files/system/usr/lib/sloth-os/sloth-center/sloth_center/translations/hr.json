@@ -1336,5 +1336,11 @@
   "No driver options set.": "Nema postavljenih opcija upravljačkih programa.",
   "Driver, e.g. rtl8188ee": "Upravljački program, npr. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Opcije, npr. ips=0 fwlps=0",
-  "Turn off this driver": "Isključi ovaj upravljački program"
+  "Turn off this driver": "Isključi ovaj upravljački program",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows okruženje provjerava se samo svakih 6 sati. Zadnja provjera: {when}.",
+  "Checking for a newer Windows runtime now…": "Sada se traži novije Windows okruženje…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows okruženje provjerava se nekoliko minuta nakon prijave, a zatim svakih 6 sati.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ažuriraju se sami kad ih pokreneš, kao u Windowsu.",
+  "Check now": "Provjeri sada",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Ostavljeni na Windows okruženju koje radi, jer se s najnovijim nisu pokrenuli: {programs}. Sloth OS pokušat će ponovno kad izađe novije."
 }

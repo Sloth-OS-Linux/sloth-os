@@ -1336,5 +1336,11 @@
   "No driver options set.": "Nincs meghajtó-beállítás.",
   "Driver, e.g. rtl8188ee": "Meghajtó, pl. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Beállítások, pl. ips=0 fwlps=0",
-  "Turn off this driver": "Meghajtó kikapcsolása"
+  "Turn off this driver": "Meghajtó kikapcsolása",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "A Windows-futtató 6 óránként magától ellenőrzi a frissítést. Utoljára: {when}.",
+  "Checking for a newer Windows runtime now…": "Újabb Windows-futtató keresése…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "A Windows-futtató pár perccel a bejelentkezés után ellenőrzi a frissítést, utána 6 óránként.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: indításkor maguktól frissülnek, ahogy Windowson is.",
+  "Check now": "Ellenőrzés most",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "A működő Windows-futtatón maradnak, mert a legújabbal nem indultak el: {programs}. A Sloth OS újra megpróbálja, ha jön egy újabb."
 }

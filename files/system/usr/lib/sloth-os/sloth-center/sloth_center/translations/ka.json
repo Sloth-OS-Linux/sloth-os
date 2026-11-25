@@ -1336,5 +1336,11 @@
   "No driver options set.": "დრაივერების პარამეტრები არ არის მითითებული.",
   "Driver, e.g. rtl8188ee": "დრაივერი, მაგ. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "პარამეტრები, მაგ. ips=0 fwlps=0",
-  "Turn off this driver": "ამ დრაივერის გამორთვა"
+  "Turn off this driver": "ამ დრაივერის გამორთვა",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows-ის გარემო თავისით მოწმდება ყოველ 6 საათში. ბოლო შემოწმება: {when}.",
+  "Checking for a newer Windows runtime now…": "ახლა უფრო ახალ Windows-ის გარემოს ვეძებთ…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows-ის გარემო მოწმდება შესვლიდან რამდენიმე წუთში, შემდეგ ყოველ 6 საათში.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ისინი თავად განახლდებიან, როცა ჩართავ, როგორც Windows-ში.",
+  "Check now": "ახლავე შემოწმება",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "დატოვებულია მომუშავე Windows-ის გარემოზე, რადგან უახლესით არ ჩაირთო: {programs}. Sloth OS კვლავ სცდის, როცა უფრო ახალი გამოვა."
 }

@@ -1336,5 +1336,11 @@
   "No driver options set.": "Ayarlanmış sürücü seçeneği yok.",
   "Driver, e.g. rtl8188ee": "Sürücü, örn. rtl8188ee",
   "Options, e.g. ips=0 fwlps=0": "Seçenekler, örn. ips=0 fwlps=0",
-  "Turn off this driver": "Bu sürücüyü kapat"
+  "Turn off this driver": "Bu sürücüyü kapat",
+  "The Windows runtime is checked by itself every 6 hours. Last checked: {when}.": "Windows ortamı her 6 saatte bir kendiliğinden denetlenir. Son denetim: {when}.",
+  "Checking for a newer Windows runtime now…": "Şimdi daha yeni bir Windows ortamı aranıyor…",
+  "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows ortamı oturum açtıktan birkaç dakika sonra, sonra her 6 saatte bir denetlenir.",
+  "{programs}: they update themselves when you start them, as on Windows.": "{programs}: Windows'taki gibi, başlattığında kendilerini güncellerler.",
+  "Check now": "Şimdi denetle",
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "En yenisiyle açılmadıkları için çalışan Windows ortamında tutuluyorlar: {programs}. Daha yenisi gelince Sloth OS yeniden dener."
 }
