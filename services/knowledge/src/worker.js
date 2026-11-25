@@ -211,9 +211,46 @@ async function feedbackLog(request, env, id) {
   return new Response(row.log, { headers: { "content-type": "text/plain; charset=utf-8" } });
 }
 
+// The website's visitor counter (sloth-os-linux.github.io): each visitor counts once a day. No cookie, nothing about
+// the page or the browser: the address only as a salted hash with a new salt every day, in a table emptied of
+// earlier days on every visit, so a visitor cannot be followed from one day to the next.
+const SITE = "https://sloth-os-linux.github.io";
+
+function forSite(response) {
+  response.headers.set("access-control-allow-origin", SITE);
+  response.headers.set("vary", "origin");
+  response.headers.set("cache-control", "no-store");
+  return response;
+}
+
+async function visits(env) {
+  const row = await env.DB.prepare("SELECT value FROM counters WHERE name = 'visits'").first();
+  return row ? row.value : 0;
+}
+
+async function visit(request, env) {
+  if (request.headers.get("origin") !== SITE) return forSite(json({ visits: await visits(env) }));
+  const day = new Date().toISOString().slice(0, 10);
+  const ip = await sha256(`${env.SALT}|visit|${day}|${request.headers.get("cf-connecting-ip") || ""}`);
+  const fresh = await env.DB.prepare(
+    "INSERT INTO visit_seen (day, ip) VALUES (?1, ?2) ON CONFLICT (day, ip) DO NOTHING RETURNING day",
+  ).bind(day, ip).first();
+  if (fresh) {
+    await env.DB.batch([
+      env.DB.prepare(
+        "INSERT INTO counters (name, value) VALUES ('visits', 1) ON CONFLICT (name) DO UPDATE SET value = value + 1",
+      ),
+      env.DB.prepare("DELETE FROM visit_seen WHERE day < ?1").bind(day),
+    ]);
+  }
+  return forSite(json({ visits: await visits(env) }));
+}
+
 export default {
   async fetch(request, env) {
     const { pathname } = new URL(request.url);
+    if (request.method === "POST" && pathname === "/v1/visit") return visit(request, env);
+    if (request.method === "GET" && pathname === "/v1/visits") return forSite(json({ visits: await visits(env) }));
     if (request.method === "POST" && pathname === "/v1/report") return report(request, env);
     if (request.method === "GET" && pathname === "/v1/export") return exportKnowledge(request, env);
     if (request.method === "POST" && pathname === "/v1/feedback") return feedback(request, env);

@@ -25,3 +25,15 @@ CREATE TABLE IF NOT EXISTS feedback_logs (
     created INTEGER NOT NULL,
     log     TEXT NOT NULL
 );
+
+-- The website's visitor counter (worker.js, visit): one number, and today's visitors as salted hashes (a new salt
+-- every day; earlier days are deleted on the next visit), so each visitor counts once a day
+CREATE TABLE IF NOT EXISTS counters (
+    name  TEXT PRIMARY KEY,
+    value INTEGER NOT NULL
+);
+CREATE TABLE IF NOT EXISTS visit_seen (
+    day TEXT NOT NULL,
+    ip  TEXT NOT NULL,
+    PRIMARY KEY (day, ip)
+);
