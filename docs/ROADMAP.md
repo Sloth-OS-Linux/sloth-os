@@ -55,7 +55,7 @@ from a terminal must also work from a GUI.
 - **Paused (2026-11-16, the user's decision):** legacy BIOS support is set aside, to come back to later. Before a
   release from the test branch, decide whether the installer should refuse BIOS mode again (the code stays; whole-disk
   installs in BIOS mode are allowed on the test branch since 2026-11-15)
-- [ ] When it is picked up again: the VAIO with the "safe graphics" entry and after cooling down; v2 against v3 on
+- [x] (Not needed: the current ISO installs and runs on the VAIO, the user, 2026-11-25) When it is picked up again: the VAIO with the "safe graphics" entry and after cooling down; v2 against v3 on
   the same machine (run 43909877381's artifact)
 - [x] The same plain-MBR stick on the HP (UEFI, 2026-11-16 night): chosen in the boot menu, the HP went straight back
   to its menu. The VM's OVMF started it, the HP did not (but see below: the stick itself was bad). So `iso/build_iso.sh` is back to release 1.6's ISO:
@@ -69,7 +69,7 @@ from a terminal must also work from a GUI.
   here also went through a flaky USB 2.0 port (usb 1-3: "Cannot enable. Maybe the USB cable is bad?", one write
   broke off); the USB 3.0 port (usb 2-3) was fine. So the plain-MBR ISO's failure on the HP was probably the stick
   too, not the layout, and the VAIO's power-off may need a second look with a good stick
-- [ ] When BIOS is picked up again: with a good stick (not the Sony one) and the USB 3.0 port: the plain-MBR ISO
+- [x] (Not needed: BIOS mode works with the current ISO, the user, 2026-11-25) When BIOS is picked up again: with a good stick (not the Sony one) and the USB 3.0 port: the plain-MBR ISO
   (commit 29cd106's iso/build_iso.sh) on the HP and on the VAIO; if real UEFI firmware does take it, it can come back.
   Otherwise a layout both accept (Fedora's lorax hybrid GPT/MBR, or Debian's isohybrid with -isohybrid-gpt-basdat)
 - [x] **The VAIO installed and runs (2026-11-18).** The plain-MBR ISO of run 43950858052 (CI, test-branch image of
@@ -1050,7 +1050,7 @@ Sharing:
 - [x] The Wi-Fi card drops off after a while: RT28xx/RT30xx (rt2800pci/usb) without hardware encryption
   (`modprobe.d/sloth-rt2800.conf`) and without Wi-Fi power saving (NetworkManager `conf.d/sloth-rt2800-powersave.conf`,
   only these drivers). To confirm with the reporter
-- [ ] Brave, Chrome, Spotify (Chromium/Electron) crash at start on the GTS 450: check again once the machine is
+- [x] (Closed, the user, 2026-11-25: older machines don't run every Chromium-based app fully; Sloth Welcome says so on BIOS machines) Brave, Chrome, Spotify (Chromium/Electron) crash at start on the GTS 450: check again once the machine is
   back on the standard version with nouveau; if they still crash, their GPU acceleration is the suspect 2026-11-04 (1.4.1, his machine): no crash any more, but it opens, shows no page and takes no
   typing; suspects: a KDE Wallet prompt hidden behind it (asked him), or the `LIBGL_ALWAYS_SOFTWARE` override
   2026-11-25 (the user): on BIOS/legacy machines it is said up front instead. Sloth Welcome, on a computer that
@@ -1435,7 +1435,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   so no Proton setting helps. Text like the anti-cheat one (`anticheat.maybe_text`): "This program is built on
   Windows' newest interface, which does not run on Linux yet." The bundle manifest of a single-file .NET app lists
   its files uncompressed, so the names can be read without running it.
-- [ ] (Set aside 2026-10-27, not important for now) **Small** — An `.exe` on a USB stick or other FAT/exFAT/NTFS drive (every file looks executable there) must open
+- [x] (Closed, the user, 2026-11-25: not seen since; reopen if someone reports it) (Set aside 2026-10-27, not important for now) **Small** — An `.exe` on a USB stick or other FAT/exFAT/NTFS drive (every file looks executable there) must open
   with the `.exe` handler on a double-click: Dolphin offered to run it directly, and that failed with "failed to
   launch, status code: 203" (2026-10-27, real machine). Copied into Downloads it started fine.
 - [x] Live mode: Windows programs start in the live system too (2026-10-27, real machine: an Avalonia .NET program
@@ -1446,7 +1446,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   and the bundled folder writable), the installed system still copies; `windows-prepare` does not look for a newer
   Proton in the live system, that would download into the memory too. Tests: `tools/tests/test_runtime_seed.py`
   (installed, live, live but read-only, a second run). Check with the next ISO)
-- [ ] (Set aside 2026-10-27, not important for now) **Small** — Ejecting a USB stick took about a minute ("closing the process") after `.exe` files were started
+- [x] (Closed, the user, 2026-11-25: not seen since; reopen if someone reports it) (Set aside 2026-10-27, not important for now) **Small** — Ejecting a USB stick took about a minute ("closing the process") after `.exe` files were started
   from it (2026-10-27). Suspect: the runner uses the program's folder as the working directory, so Wine's
   background processes (wineserver) hold the stick for a while. Waiting for `fuser -vm` output; fix idea: a working
   directory outside removable drives, and stop the environment's background processes when the program closes
@@ -1707,7 +1707,7 @@ program goes to; layer-by-layer update progress; every text in 50 languages.
   shares no folder (Unraid: "Export: No") answered with a password prompt that could never work: now the shares
   are listed first (`smbclient -L` as a guest), and the page says it shares nothing, or which folders it has,
   instead of adding it)
-- [ ] **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
+- [ ] (On demand, the user, 2026-11-25: LocalSend covers it until someone asks for more) **Large** — Allow consent-based file sharing with another device on the local network without a cloud service.
   (The small version is in 2.0: LocalSend in Sloth Welcome, idea 9; our own is still open)
 - [x] **Medium** — Monitor refresh rate, VRR and HDR for gaming (2026-10-26): Drivers and hardware → Displays.
   Each monitor by its own name (EDID), its refresh rate now and the highest at the same resolution with a "Use
@@ -1794,7 +1794,7 @@ muting, Heroic/Epic, zram, taskbar balloon on the right, WoW Classic from Battle
 - [x] **ISO hosting: SourceForge** (2026-10-21, free, unlimited, with mirrors): sourceforge.net/projects/sloth-os,
   user `slothos`; upload with SFTP/rsync (`frs.sourceforge.net:/home/frs/project/sloth-os/`), the key on this
   machine: `~/.ssh/sloth_sourceforge` (tried). Metadata, categories, logo done
-- [ ] Checking the name by hand (TMview, SZTNH); web search 2026-10-21: there is no operating system called "Sloth OS"
+- [x] (Left as it is, the user, 2026-11-25: if anyone objects, the name changes then) Checking the name by hand (TMview, SZTNH); web search 2026-10-21: there is no operating system called "Sloth OS"
 
 ### The test of 2026-10-21 (real machine, reinstalled from the morning ISO, `d43e36f`)
 The ISO was built locally (`out/sloth-os.iso`, 08:33, from the `latest` image, with the installer fix in it).
@@ -2025,7 +2025,7 @@ fine there needs to be checked only once on a real machine:
   inside the program's environment, never overwriting an existing file, with Windows-style case handling). Through the log
   this arrives a few milliseconds later than the watcher that worked for EA, so EA keeps its own; for the other programs it is enough
   **Still to check:** through the .exe handler (Welcome / double-click), installing and starting a game, the EA app's update
-- [ ] **EA app – the investigation** (2026-10-20 morning, real machine, with umu-run, with detailed logs):
+- [x] (EA app works, the user, 2026-11-25) **EA app – the investigation** (2026-10-20 morning, real machine, with umu-run, with detailed logs):
   - INST-14-1627: at the end the MSI cannot start `EABackgroundService` (`service_start returning 2`, the
     file is not under `…\EA Desktop\EA Desktop\`). Cause: the EA app installs with **symbolic links**
     (`EAX_DISABLE_SYMLINKS="0"`; the files into a versioned folder, `EA Desktop\EA Desktop` is only a link), and the link is
@@ -2058,7 +2058,7 @@ fine there needs to be checked only once on a real machine:
   (`sloth_common/apps/native.py`, ~40 programs, a local list, works without internet too), and recommends that from Discover; the
   Windows install stays available next to it. Three kinds of text: "fits better" (e.g. Discord, Chrome),
   "the Windows one does not work reliably here" (Teams, Steam), and Epic/GOG -> Heroic, with the reason
-- [ ] EA app, Ubisoft Connect: whether they need `LAUNCHER_STUBS` (the test decides)
+- [x] (Both work as they are, the user, 2026-11-25) EA app, Ubisoft Connect: whether they need `LAUNCHER_STUBS` (the test decides)
 - [x] `tools/tests/test_apps.py`: 4 tests failed: /tmp is tmpfs here, where the library rightly does not allow Windows programs;
   the test's temporary folder is on disk now (`~/.cache`), all 30 pass (2026-10-20)
 
@@ -2075,7 +2075,7 @@ fine there needs to be checked only once on a real machine:
      own DNS (DoH) with a policy: medium, a lot of testing
   Suggested order: 1+2+3 in one round, web filtering separately
   Until then a "Coming soon" menu item shows it in Sloth Center (Parental controls, 2026-10-20)
-- [ ] Our own Flatpak repository for the apps from GitHub (e.g. ArtCraft), so Discover updates them
+- [x] (Not planned, the user, 2026-11-25) Our own Flatpak repository for the apps from GitHub (e.g. ArtCraft), so Discover updates them
 - [x] Not needed (2026-10-27, measured on the laptop: `btrfs filesystem du` shows 0 B exclusive for
   `compatibilitytools.d`, so the `--reflink=auto` copy already shares its blocks with the image's copy; a link
   would also break Proton, which writes `dist.lock` and `default_pfx` into its own folder, and a newer bundled
@@ -2267,7 +2267,7 @@ Bugs found (we fix them one by one):
 - [x] .exe handler: if a program already runs and the user starts it again, because of `waitforexitandrun` the new start
   waits until the previous session ends ("Starting…"). Fixed (2026-10-19, test on a real machine): if the same
   program runs, "X is already running"; if something else runs in its environment, it joins that (`runinprefix`)
-- [ ] Check whether the other launchers (EA app, Ubisoft Connect, Epic, GOG Galaxy) also hand over to another
+- [x] (EA app and Ubisoft Connect work, the user, 2026-11-25) Check whether the other launchers (EA app, Ubisoft Connect, Epic, GOG Galaxy) also hand over to another
   process; if so, `quirks.LAUNCHER_STUBS`. Done for Epic (2026-10-19: the 64-bit client instead of the 32-bit
   launcher, as in Lutris); the EA app (`EALauncher.exe`) and Ubisoft Connect (`UbisoftConnect.exe`) run with the launcher in Lutris
   too, for these the test decides
@@ -2495,7 +2495,7 @@ Bugs found (we fix them one by one):
   Account and security page
 - [ ] **Updating every app in one place, in Discover** (decision: 2026-10-16). Discover already updates every Flatpak
   that Welcome installs from Flathub (that is why it updated Steam right away too). Still to do:
-  - [ ] **Our own Flatpak repository for the GitHub-package apps** (e.g. ArtCraft; this is the first step): a GitHub Action
+  - [x] (Not planned, the user, 2026-11-25) **Our own Flatpak repository for the GitHub-package apps** (e.g. ArtCraft; this is the first step): a GitHub Action
     uploads them from the releases (with an SHA256 check) into our own signed Flatpak repository (e.g. Cloudflare R2 or
     SourceForge). Welcome installs from there, Discover updates from there, `sloth-github-bundle-update.timer`
     can go (switching the already installed ones to the repository once). Needs: storage and a GPG key in CI
@@ -2942,7 +2942,7 @@ directly; the GitHub calls tried live):
     (systemd's text is English and technical). Tried on a loop device: right/wrong password, LUKS2, TRIM, /boot, crypttab,
     the file system fills the partition. Fixed meanwhile: next to Windows it took all of the free space instead of the
     chosen size
-  - [ ] Old (BIOS-only) machines (after 1.0)
+  - [x] Old (BIOS-only) machines (after 1.0) (works with the current ISO, the VAIO runs it, the user, 2026-11-25)
   - [x] Downloading the ISO: on SourceForge (2026-10-21; GitHub releases allow at most 2 GB per file)
   - [x] **Small** — An official torrent next to the ISO, from 1.2.1 on (2026-10-29, Reddit: SourceForge is slow).
     The SourceForge download link as a web seed, so it works even when nobody seeds; the `.torrent` uploaded next to
