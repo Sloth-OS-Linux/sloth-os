@@ -42,7 +42,21 @@ TOPICS = [
 RECOMMENDED = [t[0] for t in TOPICS if not t[3]]
 
 U2F_KEYS = Path.home() / ".config/Yubico/u2f_keys"
-PIN_DIR = Path("/etc/sloth-os/pin")
+PIN_SOCKET = "/run/sloth-os/pin.sock"   # the PIN's keeper (/usr/libexec/sloth-os/pin-verifier): its files are root's
+
+
+def pin_status(user):
+    """{"set": bool, "tpm": bool} for your own account: the PIN's keeper answers (its files are root-only)."""
+    import socket
+    try:
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as conn:
+            conn.settimeout(10)
+            conn.connect(PIN_SOCKET)
+            conn.sendall(json.dumps({"user": user, "status": True}).encode() + b"\n")
+            data = json.loads(conn.recv(256).decode() or "{}")
+            return {"set": bool(data.get("set")), "tpm": bool(data.get("tpm"))}
+    except (OSError, ValueError):
+        return {"set": False, "tpm": False}
 UDEV_DATA = Path("/run/udev/data")
 
 
@@ -233,10 +247,13 @@ class AccountsController(QObject):
                                           " the Linux solutions aren't reliable enough today to trust your computer "
                                           "to them. Until then, use a PIN or your fingerprint."),
                         "enabled": False, "ready": False, "comingSoon": True})
-        pin = (PIN_DIR / f"{self._user}.json").exists()
+        status = pin_status(self._user)
+        pin = status["set"]
+        kept = (" " + tr("It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of "
+                         "the disk, and the chip itself stops guessing.")) if status["tpm"] else ""
         out.append({"id": "pin", "name": tr("PIN"), "icon": "dialog-password",
                     "description": tr("Set up. At sign-in and on the lock screen you can type your PIN instead of "
-                                      "your password. Remotely (over the network) only the password works.")
+                                      "your password. Remotely (over the network) only the password works.") + kept
                     if pin else tr("A short number code (4–8 digits) instead of your long password, at sign-in and on"
                                    " the lock screen. Your password keeps working too."),
                     "enabled": pin, "ready": True})

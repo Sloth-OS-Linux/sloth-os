@@ -1321,5 +1321,6 @@
   "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "E je cognossude une impostazion che e à funzionât par {players} altris zuiadôrs (ultime conferme: {month}). Sloth OS le dopre di bessôl se il zûc nol partìs.",
   "It worked for {players} other players, last confirmed in {month}.": "E à funzionât par {players} altris zuiadôrs, ultime conferme: {month}.",
   "It starts, but doesn't work right": "Al partìs, ma nol va ben",
-  "With Steam games turned on under Share experiences, other players learn about it too.": "Cui zûcs di Steam impiâts sot Condivît lis esperiencis, ancje i altris zuiadôrs a vegnin a savêlu."
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Cui zûcs di Steam impiâts sot Condivît lis esperiencis, ancje i altris zuiadôrs a vegnin a savêlu.",
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Lu ten il chip di sigurece dal computer (TPM), duncje nol è pussibil tirâlu fûr di une copie dal disc, e il chip stes al ferme i tentatîfs di induvinâlu."
 }

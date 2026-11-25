@@ -1321,5 +1321,6 @@
   "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Znana je nastavitev, ki je delovala pri {players} drugih igralcih (nazadnje potrjeno: {month}). Sloth OS jo uporabi sam, če se igra ne zažene.",
   "It worked for {players} other players, last confirmed in {month}.": "Delovala je pri {players} drugih igralcih, nazadnje potrjeno: {month}.",
   "It starts, but doesn't work right": "Zažene se, a ne deluje pravilno",
-  "With Steam games turned on under Share experiences, other players learn about it too.": "Ko so igre Steam vklopljene pod Deli izkušnje, izvejo za to tudi drugi igralci."
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Ko so igre Steam vklopljene pod Deli izkušnje, izvejo za to tudi drugi igralci.",
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Hrani ga varnostni čip računalnika (TPM), zato ga ni mogoče ugotoviti iz kopije diska, čip sam pa ustavi ugibanje."
 }

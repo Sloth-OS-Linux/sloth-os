@@ -1321,5 +1321,6 @@
   "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Es coneix una configuració que ha funcionat per a {players} jugadors més (darrera confirmació: {month}). Sloth OS la fa servir tot sol si el joc no s'obre.",
   "It worked for {players} other players, last confirmed in {month}.": "Ha funcionat per a {players} jugadors més, darrera confirmació: {month}.",
   "It starts, but doesn't work right": "S'obre, però no funciona bé",
-  "With Steam games turned on under Share experiences, other players learn about it too.": "Amb els jocs de Steam activats a Comparteix experiències, els altres jugadors també se n'assabenten."
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Amb els jocs de Steam activats a Comparteix experiències, els altres jugadors també se n'assabenten.",
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "El guarda el xip de seguretat de l'ordinador (TPM), de manera que no es pot deduir d'una còpia del disc, i el mateix xip atura els intents d'endevinar-lo."
 }

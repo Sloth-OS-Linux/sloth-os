@@ -1,0 +1,309 @@
+#!/usr/bin/python3 -I
+"""The PIN's keeper (root): sets a user's PIN and checks it, so that the PIN cannot be guessed away from the computer.
+
+With a TPM (most PCs since 2016, every Windows 11 PC) the PIN is not stored at all: it unlocks a random secret
+sealed in the TPM (tpm2-tools; a sealed object with the PIN-derived value as its password, under the TPM's owner
+hierarchy). A copy of the disk is worth nothing for guessing it, and the TPM itself counts the wrong tries
+(dictionary-attack protection: after too many it refuses for a while). Like Windows Hello's PIN.
+Without a TPM (a virtual machine, an old PC) the PIN's salted scrypt hash is kept, readable by root only.
+Either way our own counter makes the PIN wait longer and longer after FREE_TRIES wrong ones (the password works).
+
+It runs for each check (sloth-pin.socket, Accept=yes: the connection on standard input/output). The lock screen
+runs in the user's name and cannot reach the TPM or the files, so pin-check (the PAM side) asks here. A caller may
+check only its own PIN, except root (the sign-in screen, sudo, polkit's helper): the socket's peer credentials.
+Request: one JSON line {"user", "pin", "service"} -> answer "ok" or "no".
+
+  pin-verifier --set <user>      (root; the PIN on standard input) -> {"ok", "tpm"} as JSON
+  pin-verifier --remove <user>   (root)
+
+Files:
+  /etc/sloth-os/pin/<user>.json       {"v": 2, "salt", "secret" (its SHA-256), "len"} with a TPM, or
+                                      {"v": 1, "salt", "hash", "n", "r", "p", "len"} (scrypt) without one
+  /etc/sloth-os/pin/<user>.tpm/       seal.pub, seal.priv: the sealed secret (only this TPM can open it)
+  /var/lib/sloth-os/pin/<user>.json   wrong tries
+A v1 PIN set before (scrypt, then readable by the user's group) moves into the TPM the next time it is typed right.
+"""
+import hashlib
+import hmac
+import json
+import os
+import pwd
+import re
+import secrets
+import shutil
+import socket
+import struct
+import subprocess
+import sys
+import tempfile
+import time
+
+PIN_DIR = os.environ.get("SLOTH_PIN_DIR", "/etc/sloth-os/pin")
+STATE_DIR = os.environ.get("SLOTH_PIN_STATE", "/var/lib/sloth-os/pin")
+# Local services where the PIN is accepted (for the others, e.g. ssh, only the password); pin-check checks too
+SERVICES = {"login", "sddm", "plasmalogin", "plasma-login", "kde", "kscreensaver", "kscreenlocker",
+            "polkit-1", "sudo", "sudo-i", "su", "su-l"}
+FREE_TRIES = 5
+MAX_WAIT_S = 3600
+USER_RE = re.compile(r"[a-z_][a-z0-9_.-]{0,31}")
+PIN_RE = re.compile(r"\d{4,8}")
+SCRYPT = {"n": 2 ** 15, "r": 8, "p": 1}
+# the sealed object: no "noda", so the TPM's dictionary-attack protection counts the wrong PINs
+SEAL_ATTRS = "fixedtpm|fixedparent|userwithauth"
+
+
+def log(msg):
+    print(msg, file=sys.stderr, flush=True)
+
+
+def _load(path):
+    try:
+        with open(path, encoding="utf-8") as f:
+            data = json.load(f)
+        return data if isinstance(data, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _write(path, text):
+    """Written atomically, root-only."""
+    os.makedirs(os.path.dirname(path), mode=0o700, exist_ok=True)
+    tmp = f"{path}.{os.getpid()}.tmp"
+    fd = os.open(tmp, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600)
+    with os.fdopen(fd, "w", encoding="utf-8") as f:
+        f.write(text)
+    os.replace(tmp, path)
+
+
+def _record_path(user):
+    return os.path.join(PIN_DIR, f"{user}.json")
+
+
+def _tpm_dir(user):
+    return os.path.join(PIN_DIR, f"{user}.tpm")
+
+
+# --- The TPM (tpm2-tools; TPM2TOOLS_TCTI chooses another TPM, e.g. swtpm in the tests) ----------------
+
+def tpm_available():
+    return bool(os.environ.get("TPM2TOOLS_TCTI")) or os.path.exists("/dev/tpmrm0")
+
+
+def _tpm(*args):
+    """One tpm2-tools step. Its transient objects are flushed afterwards (they live on as saved context files):
+    the kernel's resource manager (/dev/tpmrm0) does that by itself, a TPM reached without one (swtpm in the
+    tests) would run out of object slots after a few steps."""
+    try:
+        r = subprocess.run(["tpm2_" + args[0], *args[1:]], capture_output=True, timeout=60)
+        if r.returncode != 0:
+            log(f"tpm2_{args[0]}: {r.stderr.decode(errors='replace').strip().splitlines()[-1:]}")
+        return r.returncode == 0
+    except (OSError, subprocess.SubprocessError) as e:
+        log(f"tpm2_{args[0]}: {e}")
+        return False
+    finally:
+        try:
+            subprocess.run(["tpm2_flushcontext", "-t"], capture_output=True, timeout=30)
+        except (OSError, subprocess.SubprocessError):
+            pass
+
+
+def _primary(work):
+    """The storage key under the owner hierarchy: made again the same way every time (nothing stored)."""
+    ctx = os.path.join(work, "primary.ctx")
+    # noda: the storage key itself is not counted by the dictionary-attack protection, so a TPM locked out by wrong
+    # PINs still lets a new PIN be sealed; only the sealed PIN objects are counted
+    attrs = "restricted|decrypt|fixedtpm|fixedparent|sensitivedataorigin|userwithauth|noda"
+    return ctx if _tpm("createprimary", "-Q", "-C", "o", "-g", "sha256", "-G", "ecc", "-a", attrs, "-c", ctx) else None
+
+
+def _auth(salt, pin):
+    """The sealed object's password, from the PIN (the PIN itself never goes to the TPM in the clear)."""
+    return "hex:" + hmac.new(salt, pin.encode(), hashlib.sha256).hexdigest()
+
+
+def tpm_seal(user, pin):
+    """A new random secret sealed with the PIN. -> the record, or None if the TPM did not take it."""
+    salt, secret = secrets.token_bytes(16), secrets.token_bytes(32)
+    with tempfile.TemporaryDirectory(prefix="sloth-pin-") as work:
+        primary = _primary(work)
+        if not primary:
+            return None
+        data = os.path.join(work, "secret")
+        with open(os.open(data, os.O_WRONLY | os.O_CREAT, 0o600), "wb") as f:
+            f.write(secret)
+        pub, priv = os.path.join(work, "seal.pub"), os.path.join(work, "seal.priv")
+        if not _tpm("create", "-Q", "-C", primary, "-a", SEAL_ATTRS, "-i", data, "-p", _auth(salt, pin),
+                    "-u", pub, "-r", priv):
+            return None
+        target = _tpm_dir(user)
+        new = target + ".new"
+        shutil.rmtree(new, ignore_errors=True)
+        os.makedirs(new, mode=0o700)
+        for name in ("seal.pub", "seal.priv"):
+            shutil.copyfile(os.path.join(work, name), os.path.join(new, name))
+            os.chmod(os.path.join(new, name), 0o600)
+        shutil.rmtree(target, ignore_errors=True)
+        os.replace(new, target)
+    return {"v": 2, "salt": salt.hex(), "secret": hashlib.sha256(secret).hexdigest(), "len": len(pin)}
+
+
+def tpm_check(user, record, pin):
+    with tempfile.TemporaryDirectory(prefix="sloth-pin-") as work:
+        primary = _primary(work)
+        if not primary:
+            return False
+        ctx, out = os.path.join(work, "seal.ctx"), os.path.join(work, "out")
+        tdir = _tpm_dir(user)
+        if not _tpm("load", "-Q", "-C", primary, "-u", os.path.join(tdir, "seal.pub"),
+                    "-r", os.path.join(tdir, "seal.priv"), "-c", ctx):
+            return False
+        # a wrong PIN fails here (and the TPM counts it); so does a TPM that is locked out for a while
+        if not _tpm("unseal", "-Q", "-c", ctx, "-p", _auth(bytes.fromhex(record["salt"]), pin), "-o", out):
+            return False
+        with open(out, "rb") as f:
+            return hmac.compare_digest(hashlib.sha256(f.read()).hexdigest(), record["secret"])
+
+
+# --- Without a TPM: the salted scrypt hash, root-only -------------------------------------------------
+
+def scrypt_record(pin):
+    salt = secrets.token_bytes(16)
+    digest = hashlib.scrypt(pin.encode(), salt=salt, maxmem=128 * 1024 * 1024, dklen=32, **SCRYPT)
+    return {"v": 1, "salt": salt.hex(), "hash": digest.hex(), "len": len(pin), **SCRYPT}
+
+
+def scrypt_check(record, pin):
+    digest = hashlib.scrypt(pin.encode(), salt=bytes.fromhex(record["salt"]), n=int(record["n"]),
+                            r=int(record["r"]), p=int(record["p"]), maxmem=128 * 1024 * 1024, dklen=32)
+    return hmac.compare_digest(digest.hex(), record["hash"])
+
+
+# --- Setting, removing, checking ----------------------------------------------------------------------
+
+def set_pin(user, pin):
+    record = tpm_seal(user, pin) if tpm_available() else None
+    if record is None:
+        shutil.rmtree(_tpm_dir(user), ignore_errors=True)
+        record = scrypt_record(pin)
+    _write(_record_path(user), json.dumps(record) + "\n")
+    state = os.path.join(STATE_DIR, f"{user}.json")
+    if os.path.exists(state):
+        os.unlink(state)
+    return {"ok": True, "tpm": record["v"] == 2}
+
+
+def remove_pin(user):
+    for path in (_record_path(user), os.path.join(STATE_DIR, f"{user}.json")):
+        if os.path.exists(path):
+            os.unlink(path)
+    shutil.rmtree(_tpm_dir(user), ignore_errors=True)
+
+
+def check(user, pin, now=None):
+    """True for the right PIN; counts the wrong ones and waits longer and longer after FREE_TRIES."""
+    if not USER_RE.fullmatch(user) or not PIN_RE.fullmatch(pin):
+        return False
+    record = _load(_record_path(user))
+    if record.get("v") not in (1, 2):
+        return False
+    state_path = os.path.join(STATE_DIR, f"{user}.json")
+    state = _load(state_path)
+    now = now or time.time()
+    if state.get("until", 0) > now:
+        return False  # too many wrong tries: only the password for now
+    try:
+        ok = tpm_check(user, record, pin) if record["v"] == 2 else scrypt_check(record, pin)
+    except (KeyError, ValueError, TypeError, OSError):
+        return False
+    if ok:
+        if state:
+            os.unlink(state_path)
+        if record["v"] == 1 and tpm_available():
+            # a PIN from before: it moves into the TPM now that it was typed (the hash goes)
+            try:
+                set_pin(user, pin)
+            except OSError as e:
+                log(f"moving {user}'s PIN into the TPM: {e}")
+        return True
+    fails = int(state.get("fails", 0)) + 1
+    until = now + min(MAX_WAIT_S, 30 * 2 ** (fails - FREE_TRIES)) if fails >= FREE_TRIES else 0
+    _write(state_path, json.dumps({"fails": fails, "until": until}))
+    return False
+
+
+def serve(conn):
+    """One check over the socket: the caller may ask about its own PIN only, unless it is root."""
+    creds = conn.getsockopt(socket.SOL_SOCKET, socket.SO_PEERCRED, struct.calcsize("3i"))
+    _pid, uid, _gid = struct.unpack("3i", creds)
+    raw = b""
+    conn.settimeout(10)
+    while not raw.endswith(b"\n") and len(raw) < 512:
+        chunk = conn.recv(512)
+        if not chunk:
+            break
+        raw += chunk
+    answer = b"no\n"
+    try:
+        req = json.loads(raw.decode("utf-8"))
+        user = str(req["user"])
+        if not USER_RE.fullmatch(user) or not (uid == 0 or uid == pwd.getpwnam(user).pw_uid):
+            raise ValueError("not the caller's own account")
+        if req.get("status"):
+            # Sloth Center (in the user's name) asks whether a PIN is set, and where it is kept
+            record = _load(_record_path(user))
+            answer = (json.dumps({"set": record.get("v") in (1, 2), "tpm": record.get("v") == 2}) + "\n").encode()
+        elif str(req.get("service", "")) in SERVICES:
+            answer = b"ok\n" if check(user, str(req["pin"])) else b"no\n"
+    except (KeyError, ValueError, TypeError, UnicodeDecodeError):
+        pass
+    conn.sendall(answer)
+
+
+def main(argv):
+    if argv[:1] in (["--set"], ["--remove"]) and len(argv) == 2:
+        if os.geteuid() != 0 or not USER_RE.fullmatch(argv[1]):
+            return 2
+        pwd.getpwnam(argv[1])  # an existing account
+        if argv[0] == "--remove":
+            remove_pin(argv[1])
+            print(json.dumps({"ok": True}))
+            return 0
+        pin = sys.stdin.readline().strip()
+        if not PIN_RE.fullmatch(pin):
+            print(json.dumps({"ok": False, "error": "bad PIN"}))
+            return 1
+        print(json.dumps(set_pin(argv[1], pin)))
+        return 0
+    if argv[:1] == ["--serve"] and len(argv) == 2:
+        # for the tests (no systemd there): a socket like sloth-pin.socket, one check per connection
+        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as srv:
+            if os.path.exists(argv[1]):
+                os.unlink(argv[1])
+            srv.bind(argv[1])
+            os.chmod(argv[1], 0o666)
+            srv.listen(8)
+            while True:
+                conn, _ = srv.accept()
+                with conn:
+                    try:
+                        serve(conn)
+                    except OSError as e:
+                        log(f"check: {e}")
+    # systemd (Accept=yes): the connection is standard input
+    with socket.socket(fileno=sys.stdin.fileno()) as conn:
+        serve(conn)
+    return 0
+
+
+if __name__ == "__main__":
+    try:
+        sys.exit(main(sys.argv[1:]))
+    except Exception as e:  # an error never lets anyone in (the password still works)
+        log(f"pin-verifier: {e}")
+        if not sys.argv[1:]:
+            try:
+                os.write(sys.stdout.fileno(), b"no\n")
+            except OSError:
+                pass
+        sys.exit(1)

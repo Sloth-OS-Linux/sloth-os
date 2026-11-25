@@ -2548,7 +2548,16 @@ Bugs found (we fix them one by one):
     (2026-10-19: `sloth_common/apps/packages.py` `install_appimage`, it updates in the background)
 - [x] Bringing Steam games into self-healing and the shared knowledge (2026-11-25, see "Steam games and the shared knowledge")
 - [ ] Sign-in, next steps (see phase 3, Account and security):
-  - [ ] Storing the PIN in the TPM (now a scrypt hash under `/etc/sloth-os/pin`; the TPM would also limit the attempts
+  - [x] Storing the PIN in the TPM (now a scrypt hash under `/etc/sloth-os/pin`; the TPM would also limit the attempts
+      Done 2026-11-25: /usr/libexec/sloth-os/pin-verifier (root, behind sloth-pin.socket) keeps and checks the PIN.
+      With a TPM the PIN unlocks a random secret sealed in it (tpm2-tools; the sealed object is counted by the TPM's
+      dictionary-attack protection, the storage key is not): nothing on the disk to guess from. Without a TPM: the
+      scrypt hash, root-only now (it was readable by the user's group, because the lock screen checked in the user's
+      name). pin-check only asks the socket; a caller can check its own PIN only (root: any). The wrong tries are
+      root's count (the user could reset them before). An old PIN moves into the TPM when typed right. Sloth Center
+      asks the socket whether a PIN is set, and says when the TPM keeps it (1 text, 50 languages).
+      tools/tests/pin_pam_test.sh: real PAM, without a TPM and with swtpm, 61 OK (also the TPM locked out: the PIN
+      waits, the password works, a new PIN can still be set). Still to see on a real TPM (the HP)
     in hardware, and the hash could not be taken to another machine)
   - [ ] Work account: Entra ID (next to the current Active Directory)
   - [ ] Opening the password store (KWallet) on a password-free login (PIN, fingerprint, security key): now

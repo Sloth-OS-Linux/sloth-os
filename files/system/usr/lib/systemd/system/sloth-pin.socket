@@ -1,0 +1,13 @@
+[Unit]
+Description=Sloth OS: checking the sign-in PIN (asked by pin-check, also from the lock screen)
+
+[Socket]
+ListenStream=/run/sloth-os/pin.sock
+# anyone may ask; pin-verifier lets a caller check its own PIN only (root: any, for the sign-in screen)
+SocketMode=0666
+DirectoryMode=0755
+Accept=yes
+MaxConnections=16
+
+[Install]
+WantedBy=sockets.target

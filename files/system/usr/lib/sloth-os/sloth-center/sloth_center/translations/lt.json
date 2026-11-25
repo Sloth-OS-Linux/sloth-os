@@ -1321,5 +1321,6 @@
   "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "Žinomas nustatymas, kuris suveikė {players} kitiems žaidėjams (paskutinį kartą patvirtinta: {month}). Sloth OS jį naudoja pati, jei žaidimas nepasileidžia.",
   "It worked for {players} other players, last confirmed in {month}.": "Jis suveikė {players} kitiems žaidėjams, paskutinį kartą patvirtinta: {month}.",
   "It starts, but doesn't work right": "Pasileidžia, bet veikia netinkamai",
-  "With Steam games turned on under Share experiences, other players learn about it too.": "Įjungus Steam žaidimus skiltyje Dalytis patirtimi, apie tai sužino ir kiti žaidėjai."
+  "With Steam games turned on under Share experiences, other players learn about it too.": "Įjungus Steam žaidimus skiltyje Dalytis patirtimi, apie tai sužino ir kiti žaidėjai.",
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "Jį saugo kompiuterio saugos lustas (TPM), todėl jo neįmanoma išsiaiškinti iš disko kopijos, o pats lustas sustabdo spėliojimą."
 }

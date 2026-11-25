@@ -2,60 +2,24 @@
 """Checks the PIN for signing in (pam_exec expose_authtok; the with-sloth-pin feature of the authselect "sloth" profile).
 
 The typed password comes on standard input. If it is not all digits, it is not a PIN: we pass it on right away to the
-password check (pam_unix), and it does not count as a failure either. The PIN is only accepted locally, in allowed services
-(the login and lock screens, administrator approval); never for a remote login.
-After several wrong attempts the PIN cannot be used for longer and longer (the password can).
+password check (pam_unix), and it does not count as a failure either. The PIN is only accepted locally, in allowed
+services (the login and lock screens, administrator approval); never for a remote login.
 
-Adatok:
-  /etc/sloth-os/pin/<user>.json      the PIN's scrypt hash (owned by root, readable by the user's group,
-                                     because the lock screen checks in the user's name)
-  /var/lib/sloth-os/pin/<user>.json  wrong attempts (the user's)
+The check itself is done by the PIN's keeper (/usr/libexec/sloth-os/pin-verifier, root, behind sloth-pin.socket):
+the PIN unlocks a secret sealed in the TPM (or, without a TPM, a root-only hash), and it counts the wrong tries.
+This side runs in the user's name too (the lock screen), so it cannot see any of that; it only asks.
 Exit code: 0 = right PIN, anything else = no (pam_unix comes next).
 """
-import hashlib
-import hmac
 import json
 import os
-import pwd
 import re
+import socket
 import sys
-import time
 
-PIN_DIR = "/etc/sloth-os/pin"
-STATE_DIR = "/var/lib/sloth-os/pin"
+SOCKET = os.environ.get("SLOTH_PIN_SOCKET", "/run/sloth-os/pin.sock")
 # Local services where the PIN is accepted (for the others, e.g. ssh, only the password)
 SERVICES = {"login", "sddm", "plasmalogin", "plasma-login", "kde", "kscreensaver", "kscreenlocker",
             "polkit-1", "sudo", "sudo-i", "su", "su-l"}
-FREE_TRIES = 5
-MAX_WAIT_S = 3600
-
-
-def _state_path(user):
-    return os.path.join(STATE_DIR, f"{user}.json")
-
-
-def _load(path):
-    try:
-        with open(path, encoding="utf-8") as f:
-            data = json.load(f)
-        return data if isinstance(data, dict) else {}
-    except (OSError, ValueError):
-        return {}
-
-
-def _save_state(user, state):
-    path = _state_path(user)
-    try:
-        tmp = f"{path}.{os.getpid()}"
-        with open(tmp, "w", encoding="utf-8") as f:
-            json.dump(state, f)
-        if os.geteuid() == 0:
-            pw = pwd.getpwnam(user)
-            os.chown(tmp, pw.pw_uid, pw.pw_gid)
-        os.chmod(tmp, 0o600)
-        os.replace(tmp, path)
-    except OSError:
-        pass
 
 
 def main():
@@ -69,27 +33,12 @@ def main():
     token = sys.stdin.buffer.read(64).split(b"\0", 1)[0].strip(b"\r\n")
     if not re.fullmatch(rb"\d{4,8}", token):
         return 1  # this is a password, not a PIN
-    record = _load(os.path.join(PIN_DIR, f"{user}.json"))
-    if record.get("v") != 1:
-        return 1
-    state = _load(_state_path(user))
-    now = time.time()
-    if state.get("until", 0) > now:
-        return 1  # too many wrong attempts: only the password for now
-    try:
-        digest = hashlib.scrypt(token, salt=bytes.fromhex(record["salt"]), n=int(record["n"]), r=int(record["r"]),
-                                p=int(record["p"]), maxmem=128 * 1024 * 1024, dklen=32)
-        ok = hmac.compare_digest(digest.hex(), record["hash"])
-    except (KeyError, ValueError, TypeError):
-        return 1
-    if ok:
-        if state:
-            _save_state(user, {})
-        return 0
-    fails = int(state.get("fails", 0)) + 1
-    until = now + min(MAX_WAIT_S, 30 * 2 ** (fails - FREE_TRIES)) if fails >= FREE_TRIES else 0
-    _save_state(user, {"fails": fails, "until": until})
-    return 1
+    with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as conn:
+        conn.settimeout(30)  # a TPM can take a second or two
+        conn.connect(SOCKET)
+        conn.sendall(json.dumps({"user": user, "pin": token.decode(), "service": service}).encode() + b"\n")
+        answer = conn.recv(16)
+    return 0 if answer.strip() == b"ok" else 1
 
 
 if __name__ == "__main__":

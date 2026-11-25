@@ -55,6 +55,7 @@ modules:
         - sloth-factory-reset.service
         - sloth-boot-reset.service    # the same, requested from the boot menu (the files stay)
         - sloth-login-repair.service  # the login screen must not get lost after an authselect change
+        - sloth-pin.socket            # the sign-in PIN's check: sealed in the TPM (pin-verifier), asked by pin-check
         # sharing a folder on the home network from Dolphin (Properties → Share): the group, then Samba when needed
         - sloth-file-sharing-groups.service
         - sloth-file-sharing.path

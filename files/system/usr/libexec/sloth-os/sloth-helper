@@ -448,10 +448,9 @@ def registry_logout(registry):
     return {"ok": True}
 
 
-# --- PIN (sign-in; checked by /usr/libexec/sloth-os/pin-check) -------------------------
+# --- PIN (sign-in; kept and checked by /usr/libexec/sloth-os/pin-verifier, asked by pin-check) ------
 
 PIN_DIR = "/etc/sloth-os/pin"
-PIN_STATE_DIR = "/var/lib/sloth-os/pin"
 PIN_RE = re.compile(r"^\d{4,8}$")
 
 
@@ -483,7 +482,11 @@ def _ensure_pin_profile(on):
     return {"ok": r.returncode == 0 and fixed["ok"], "error": r.stderr.strip() or fixed.get("error", "")}
 
 
+PIN_VERIFIER = "/usr/libexec/sloth-os/pin-verifier"
+
+
 def pin_set(pin):
+    """The calling user's PIN: kept by pin-verifier (sealed in the TPM, or a root-only hash without one)."""
     pw = _caller()
     if pw is None:
         return {"ok": False, "error": "pkexec only"}
@@ -491,31 +494,22 @@ def pin_set(pin):
         return {"ok": False, "error": "bad PIN"}
     if _weak_pin(pin):
         return {"ok": False, "error": "weak PIN"}
-    import hashlib
-    import secrets
-    salt = secrets.token_bytes(16)
-    params = {"n": 2 ** 15, "r": 8, "p": 1}
-    digest = hashlib.scrypt(pin.encode(), salt=salt, maxmem=128 * 1024 * 1024, dklen=32, **params)
-    record = {"v": 1, "salt": salt.hex(), "hash": digest.hex(), "len": len(pin), **params}
-    os.makedirs(PIN_DIR, mode=0o755, exist_ok=True)
-    os.makedirs(PIN_STATE_DIR, mode=0o755, exist_ok=True)
-    path = os.path.join(PIN_DIR, f"{pw.pw_name}.json")
-    _write(path, json.dumps(record) + "\n", mode=0o640)
-    # the lock screen checks in the user's name: their group can read it (the hash is scrypt, salted)
-    os.chown(path, 0, pw.pw_gid)
-    state = os.path.join(PIN_STATE_DIR, f"{pw.pw_name}.json")
-    if os.path.exists(state):
-        os.unlink(state)
-    return _ensure_pin_profile(True)
+    r = run([PIN_VERIFIER, "--set", pw.pw_name], input=f"{pin}\n")
+    try:
+        result = json.loads(r.stdout.strip().splitlines()[-1])
+    except (ValueError, IndexError):
+        result = {"ok": False, "error": r.stderr.strip() or "pin-verifier"}
+    if not result.get("ok"):
+        return result
+    profile = _ensure_pin_profile(True)
+    return {**profile, "tpm": bool(result.get("tpm"))}
 
 
 def pin_remove():
     pw = _caller()
     if pw is None:
         return {"ok": False, "error": "pkexec only"}
-    for path in (os.path.join(PIN_DIR, f"{pw.pw_name}.json"), os.path.join(PIN_STATE_DIR, f"{pw.pw_name}.json")):
-        if os.path.exists(path):
-            os.unlink(path)
+    run([PIN_VERIFIER, "--remove", pw.pw_name])
     # if nobody has a PIN any more, the feature goes off too
     if not any(f.endswith(".json") for f in (os.listdir(PIN_DIR) if os.path.isdir(PIN_DIR) else [])):
         return _ensure_pin_profile(False)

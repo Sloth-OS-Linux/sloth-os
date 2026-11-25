@@ -1,0 +1,22 @@
+[Unit]
+Description=Sloth OS: one sign-in PIN check (TPM or root-only hash)
+CollectMode=inactive-or-failed
+
+[Service]
+ExecStart=/usr/libexec/sloth-os/pin-verifier
+StandardInput=socket
+StandardOutput=socket
+StandardError=journal
+# only what it needs: the TPM, its own files
+PrivateTmp=yes
+PrivateNetwork=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/etc/sloth-os/pin /var/lib/sloth-os/pin
+DevicePolicy=closed
+DeviceAllow=/dev/tpmrm0 rw
+ProtectKernelTunables=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX
+TimeoutSec=60

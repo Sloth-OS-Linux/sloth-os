@@ -1321,5 +1321,6 @@
   "A setting that worked for {players} other players is known (last confirmed: {month}). Sloth OS uses it by itself if the game doesn't start.": "다른 플레이어 {players}명에게 효과가 있었던 설정이 있어요 (마지막 확인: {month}). 게임이 시작되지 않으면 Sloth OS가 알아서 사용해요.",
   "It worked for {players} other players, last confirmed in {month}.": "다른 플레이어 {players}명에게 효과가 있었어요. 마지막 확인: {month}.",
   "It starts, but doesn't work right": "시작은 되지만 제대로 작동하지 않아요",
-  "With Steam games turned on under Share experiences, other players learn about it too.": "경험 공유에서 Steam 게임을 켜면 다른 플레이어들도 알게 돼요."
+  "With Steam games turned on under Share experiences, other players learn about it too.": "경험 공유에서 Steam 게임을 켜면 다른 플레이어들도 알게 돼요.",
+  "It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of the disk, and the chip itself stops guessing.": "컴퓨터의 보안 칩(TPM)이 보관하므로 디스크 사본으로 알아낼 수 없고, 추측도 칩이 직접 막아요."
 }
