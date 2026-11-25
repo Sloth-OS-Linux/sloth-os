@@ -572,6 +572,10 @@ System status with the check-up, Help and feedback). It goes out as **1.6** (new
   check's mark) is kept and shown instead of "Login Failed" until the next try; every other failure looks as
   before. Anything unexpected (no source package, Main.qml changed, the build or its `--test` start failing) keeps
   the stock greeter, with a warning in the build log
+- [x] The first CI build (2026-11-25, run 45578560508): rebuilt in the normal image (6.8.3); the NVIDIA image's base
+  still had 6.8.2, whose source package is no longer in the repositories, so it kept the stock greeter (until its
+  base catches up). Found with it: the build tools upgraded poppler to the release's newer update (the base a day
+  behind); now a dry run first: a downgrade, removal or replacement stops the rebuild, an upgrade is logged
 - [ ] On the HP / in a VM: a child outside the allowed hours, and with the daily limit used up: the sign-in screen
   shows the reason and the time; a wrong password still says "Login Failed"; the CI log says the greeter was rebuilt
 

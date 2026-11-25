@@ -29,11 +29,27 @@ build() {
   cd "$WORK"
   dnf -y install --setopt=install_weak_deps=False rpm-build dnf5-plugins
   # the exact version that is installed, so the rebuilt greeter fits the rest of the package
+  # (the repositories keep only the newest source package: an image whose base lags behind, as the NVIDIA one did
+  # with 6.8.2 on 2026-11-25, finds none and keeps the stock greeter until it catches up)
   dnf -y download --srpm --enablerepo='fedora-source' --enablerepo='updates-source' --destdir="$WORK" "$nvr"
-  srpm=$(ls "$WORK"/"$nvr".src.rpm)
+  srpm="$WORK/$nvr.src.rpm"
+  [[ -f "$srpm" ]] || { echo "no source package for $nvr in the repositories" >&2; return 1; }
   top="$WORK/rpmbuild"
   rpm -i --define "_topdir $top" "$srpm"
   spec=$(ls "$top"/SPECS/*.spec)
+  # The build tools must not take anything away from the image: a downgrade, a removal or a package replaced by
+  # another would stay after the tools are removed. An upgrade to the release's own newer update (a base image a
+  # day behind the updates repository: poppler, 2026-11-25) is what the next system update brings anyway: logged
+  plan=$(dnf builddep --assumeno --setopt=install_weak_deps=False "$spec" 2>&1 || true)
+  if grep -qE '^(Downgrading|Removing|Replacing|Obsoleting)' <<<"$plan"; then
+    echo "the build tools would take something away from the image:" >&2
+    grep -E -A8 '^(Downgrading|Removing|Replacing|Obsoleting)' <<<"$plan" >&2
+    return 1
+  fi
+  if grep -q '^Upgrading' <<<"$plan"; then
+    echo "the build tools upgrade these to the release's newer updates:"
+    awk '/^Upgrading/ {on = 1; next} /^[^ ]/ {on = 0} on && /^ [^ ]/' <<<"$plan"
+  fi
   dnf -y builddep --setopt=install_weak_deps=False "$spec"
   rpmbuild --define "_topdir $top" -bp --nodeps "$spec"
 
