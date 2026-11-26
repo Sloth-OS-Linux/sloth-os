@@ -19,10 +19,11 @@ from a terminal must also work from a GUI.
   installs with bootc and only waits for the text login prompt, so it never saw the graphical sign-in.)
   - [x] The first CI run goes through (2026-11-26, run 45792233974: live system to installer in 28 s, installed in
         14 min, the sign-in screen showed "Sloth Tester", Sloth Welcome open 15 s after signing in; 19 min in all)
-  - [ ] After "Restart" in the installer the live system did not switch off within 3 minutes. The pictures every
+  - [x] After "Restart" in the installer the live system did not switch off within 3 minutes. The pictures every
         30 s (run 45798951678) showed the done page unchanged: the test's own fault. "Restart" is also in the text
         above the button, and the first OCR reading only saw that one, so it clicked the text. Now every reading's
-        hits count (the lowest wins). To check: the next run says "switched off after … s"
+        hits count (the lowest wins). Run 45805425140: the live system switched off at once after the click, the
+        whole test took 15 min
 - [ ] **A hardware compatibility check** (the user: yes, but in what form? Like the "Can you run it" checkers for
   games: a scan of this computer that says whether Sloth OS will run on it; not sure users want it). Which Wi-Fi
   card, graphics card, fingerprint reader works; later also from users' reports (with permission) through the
