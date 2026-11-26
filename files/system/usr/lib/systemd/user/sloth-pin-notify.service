@@ -1,0 +1,13 @@
+[Unit]
+Description=Sloth OS: after the update, say once how the PIN can also unlock the saved passwords
+# not for the sign-in screen's own user (plasmalogin) or other system users: only people's accounts
+ConditionUser=!@system
+After=plasma-workspace.target
+
+[Service]
+Type=oneshot
+Environment=PYTHONPATH=/usr/lib/sloth-os/sloth-center:/usr/lib/sloth-os/common
+ExecStart=/usr/bin/python3 -m sloth_center.pin_notify
+
+[Install]
+WantedBy=plasma-workspace.target

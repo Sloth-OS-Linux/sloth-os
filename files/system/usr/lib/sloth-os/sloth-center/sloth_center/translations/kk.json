@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "Қарапайым тіркелгі: компьютер баптауларына әкімші құпиясөзі қажет.",
   "Manage users": "Пайдаланушыларды басқару",
   "Ways to sign in": "Кіру тәсілдері",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "Құпиясөз әрқашан жұмыс істейді. Оған қоса компьютеріңіз не істей алатынын ұсынамыз. Саусақ ізімен, кілтпен немесе PIN кодымен кіргенде сақталған құпиясөздер қоймасы алғаш пайдаланғанда құпиясөзіңізді сұрайды.",
   "Add fingerprint": "Саусақ ізін тіркеу",
   "Add another key": "Басқа кілт қосу",
   "Add key": "Кілт қосу",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Сақталған құпиясөздерді де ашуы үшін PIN кодын бір рет өзгертіп, онымен бірге құпиясөзіңізді енгізіңіз.",
   "That's not your account password.": "Бұл тіркелгіңіздің құпиясөзі емес.",
   "Your account password (optional)": "Тіркелгіңіздің құпиясөзі (міндетті емес)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Құпиясөзіңізбен PIN коды кірген кезде сақталған құпиясөздеріңізді де (Wi-Fi, желілік бумалар) ашады. Қауіпсіздік чипі құпиясөзді құлыптаулы сақтайды: оны тек дұрыс PIN коды ғана шығарады."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Құпиясөзіңізбен PIN коды кірген кезде сақталған құпиясөздеріңізді де (Wi-Fi, желілік бумалар) ашады. Қауіпсіздік чипі құпиясөзді құлыптаулы сақтайды: оны тек дұрыс PIN коды ғана шығарады.",
+  "Your PIN can unlock your saved passwords": "PIN кодыңыз сақталған құпиясөздерді аша алады",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "Енді Sloth OS PIN кодымен кірген кезде сақталған құпиясөздеріңізді (Wi-Fi, желілік бумалар) аша алады. PIN кодын тағы бір рет орнатып, онымен бірге тіркелгі құпиясөзін енгізіңіз: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "PIN кодыңыз енді сақталған құпиясөздерді ашпайды",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "Тіркелгіңіздің құпиясөзі өзгерді. PIN кодын тағы бір рет орнатып, онымен бірге жаңа құпиясөзді енгізіңіз: {path}.",
+  "Set it up now": "Қазір орнату",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "Құпиясөз өзгерді, сондықтан PIN коды енді сақталған құпиясөздерді ашпайды. PIN кодын бір рет өзгертіп, онымен бірге жаңа құпиясөзді енгізіңіз.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "Құпиясөз әрқашан жұмыс істейді. Оған қоса компьютеріңіз не істей алатынын ұсынамыз. Саусақ ізімен немесе кілтпен кіргенде сақталған құпиясөздер қоймасы алғаш пайдаланғанда құпиясөзіңізді сұрайды. Құпиясөзбен бірге орнатылған PIN коды оны да ашады."
 }

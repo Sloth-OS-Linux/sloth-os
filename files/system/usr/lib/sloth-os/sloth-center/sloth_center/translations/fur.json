@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "Account standard: pes impostazions dal computer e covente la password di un aministradôr.",
   "Manage users": "Gjestìs utents",
   "Ways to sign in": "Manieris di jentrâ",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "La password e va simpri. In plui o ufrìn ce che il to computer al sa fâ. Se tu jentris cu la stampe digjitâl, cu la clâf o cul PIN, l’archivi des password salvadis al domande la tô password la prime volte che si lu dopre.",
   "Add fingerprint": "Regjistre stampe digjitâl",
   "Add another key": "Zonte une altre clâf",
   "Add key": "Zonte clâf",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Par che al sbloci ancje lis tôs passwords salvadis, cambie il PIN une volte e scrîf la tô password cun lui.",
   "That's not your account password.": "Cheste no je la password dal to account.",
   "Your account password (optional)": "La password dal to account (opzionâl)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Cu la tô password, il PIN al sbloche ancje lis tôs passwords salvadis (Wi-Fi, cartelis di rêt) cuant che tu jentris. Il chip di sigurece al ten la password sierade: dome il PIN just le tire fûr."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Cu la tô password, il PIN al sbloche ancje lis tôs passwords salvadis (Wi-Fi, cartelis di rêt) cuant che tu jentris. Il chip di sigurece al ten la password sierade: dome il PIN just le tire fûr.",
+  "Your PIN can unlock your saved passwords": "Il to PIN al pues sblocâ lis tôs passwords salvadis",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "Cumò Sloth OS al pues sblocâ lis tôs passwords salvadis (Wi-Fi, cartelis di rêt) cuant che tu jentris cul PIN. Imposte il PIN une altre volte e scrîf cun lui la password dal to account: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "Il to PIN nol sbloche plui lis tôs passwords salvadis",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "La password dal to account e je cambiade. Imposte il PIN une altre volte e scrîf cun lui la gnove password: {path}.",
+  "Set it up now": "Impostilu cumò",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "La tô password e je cambiade, duncje il PIN nol sbloche plui lis tôs passwords salvadis. Cambie il PIN une volte e scrîf cun lui la gnove password.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "La password e va simpri. In plui o ufrìn ce che il to computer al sa fâ. Se tu jentris cu la stampe digjitâl o cu la clâf, l’archivi des password salvadis al domande la tô password la prime volte che si lu dopre. Un PIN impostât adun cu la tô password lu sbloche ancje."
 }

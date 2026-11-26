@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "ບັນຊີທຳມະດາ: ການຕັ້ງຄ່າຄອມພິວເຕີຕ້ອງໃຊ້ລະຫັດຜ່ານຂອງຜູ້ດູແລລະບົບ.",
   "Manage users": "ຈັດການຜູ້ໃຊ້",
   "Ways to sign in": "ວິທີເຂົ້າສູ່ລະບົບ",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "ລະຫັດຜ່ານໃຊ້ໄດ້ສະເໝີ. ນອກຈາກນັ້ນ ພວກເຮົາສະເໜີສິ່ງທີ່ຄອມພິວເຕີຂອງທ່ານເຮັດໄດ້. ເມື່ອເຂົ້າສູ່ລະບົບດ້ວຍລາຍນິ້ວມື, ກະແຈ ຫຼື PIN, ບ່ອນເກັບລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ຈະຖາມລະຫັດຜ່ານຂອງທ່ານໃນການໃຊ້ຄັ້ງທຳອິດ.",
   "Add fingerprint": "ລົງທະບຽນລາຍນິ້ວມື",
   "Add another key": "ເພີ່ມກະແຈອື່ນ",
   "Add key": "ເພີ່ມກະແຈ",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "ເພື່ອໃຫ້ມັນປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ນຳ, ໃຫ້ປ່ຽນ PIN ໜຶ່ງຄັ້ງ ແລະ ພິມລະຫັດຜ່ານຂອງທ່ານພ້ອມກັນ.",
   "That's not your account password.": "ນັ້ນບໍ່ແມ່ນລະຫັດຜ່ານບັນຊີຂອງທ່ານ.",
   "Your account password (optional)": "ລະຫັດຜ່ານບັນຊີຂອງທ່ານ (ບໍ່ບັງຄັບ)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "ດ້ວຍລະຫັດຜ່ານຂອງທ່ານ, PIN ຍັງປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ (Wi-Fi, ໂຟນເດີເຄືອຂ່າຍ) ເມື່ອທ່ານເຂົ້າສູ່ລະບົບ. ຊິບຄວາມປອດໄພເກັບລະຫັດຜ່ານໄວ້ແບບລັອກ: ມີແຕ່ PIN ທີ່ຖືກຕ້ອງເທົ່ານັ້ນທີ່ເອົາມັນອອກມາໄດ້."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "ດ້ວຍລະຫັດຜ່ານຂອງທ່ານ, PIN ຍັງປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ (Wi-Fi, ໂຟນເດີເຄືອຂ່າຍ) ເມື່ອທ່ານເຂົ້າສູ່ລະບົບ. ຊິບຄວາມປອດໄພເກັບລະຫັດຜ່ານໄວ້ແບບລັອກ: ມີແຕ່ PIN ທີ່ຖືກຕ້ອງເທົ່ານັ້ນທີ່ເອົາມັນອອກມາໄດ້.",
+  "Your PIN can unlock your saved passwords": "PIN ຂອງທ່ານສາມາດປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ໄດ້",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "ຕອນນີ້ Sloth OS ສາມາດປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ (Wi-Fi, ໂຟນເດີເຄືອຂ່າຍ) ເມື່ອທ່ານເຂົ້າສູ່ລະບົບດ້ວຍ PIN. ຕັ້ງ PIN ອີກເທື່ອໜຶ່ງ ແລະ ພິມລະຫັດຜ່ານບັນຊີພ້ອມກັນ: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "PIN ຂອງທ່ານບໍ່ປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ອີກແລ້ວ",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "ລະຫັດຜ່ານບັນຊີຂອງທ່ານປ່ຽນແລ້ວ. ຕັ້ງ PIN ອີກເທື່ອໜຶ່ງ ແລະ ພິມລະຫັດຜ່ານໃໝ່ພ້ອມກັນ: {path}.",
+  "Set it up now": "ຕັ້ງຄ່າດຽວນີ້",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "ລະຫັດຜ່ານຂອງທ່ານປ່ຽນແລ້ວ, ສະນັ້ນ PIN ບໍ່ປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ອີກ. ປ່ຽນ PIN ໜຶ່ງຄັ້ງ ແລະ ພິມລະຫັດຜ່ານໃໝ່ພ້ອມກັນ.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "ລະຫັດຜ່ານໃຊ້ໄດ້ສະເໝີ. ນອກຈາກນັ້ນ ພວກເຮົາສະເໜີສິ່ງທີ່ຄອມພິວເຕີຂອງທ່ານເຮັດໄດ້. ເມື່ອເຂົ້າສູ່ລະບົບດ້ວຍລາຍນິ້ວມື ຫຼື ກະແຈ, ບ່ອນເກັບລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ຈະຖາມລະຫັດຜ່ານຂອງທ່ານໃນການໃຊ້ຄັ້ງທຳອິດ. PIN ທີ່ຕັ້ງພ້ອມກັບລະຫັດຜ່ານຂອງທ່ານກໍປົດລັອກມັນໄດ້ຄືກັນ."
 }

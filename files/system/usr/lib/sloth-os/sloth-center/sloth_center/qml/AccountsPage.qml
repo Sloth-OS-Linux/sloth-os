@@ -66,7 +66,7 @@ Kirigami.ScrollablePage {
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     opacity: 0.8
-                    text: L.t("Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.")
+                    text: L.t("Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.")
                 }
                 Repeater {
                     model: accounts.loginMethods

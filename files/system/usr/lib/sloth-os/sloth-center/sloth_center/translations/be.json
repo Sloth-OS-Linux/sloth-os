@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "Звычайны ўліковы запіс: для налад камп’ютара патрэбен пароль адміністратара.",
   "Manage users": "Кіраванне карыстальнікамі",
   "Ways to sign in": "Спосабы ўваходу",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "Пароль працуе заўсёды. Акрамя таго, мы прапануем тое, што ўмее ваш камп’ютар. Пры ўваходзе адбіткам, ключом або PIN-кодам сховішча захаваных пароляў пры першым выкарыстанні папросіць пароль.",
   "Add fingerprint": "Дадаць адбітак",
   "Add another key": "Дадаць яшчэ адзін ключ",
   "Add key": "Дадаць ключ",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Каб ён адмыкаў і захаваныя паролі, адзін раз змяніце PIN і ўвядзіце разам з ім свой пароль.",
   "That's not your account password.": "Гэта не пароль вашага ўліковага запісу.",
   "Your account password (optional)": "Пароль вашага ўліковага запісу (неабавязкова)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "З вашым паролем PIN пры ўваходзе таксама адмыкае захаваныя паролі (Wi-Fi, сеткавыя папкі). Чып бяспекі трымае пароль замкнёным: дастаць яго можа толькі правільны PIN."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "З вашым паролем PIN пры ўваходзе таксама адмыкае захаваныя паролі (Wi-Fi, сеткавыя папкі). Чып бяспекі трымае пароль замкнёным: дастаць яго можа толькі правільны PIN.",
+  "Your PIN can unlock your saved passwords": "Ваш PIN можа адмыкаць захаваныя паролі",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "Цяпер Sloth OS можа адмыкаць вашы захаваныя паролі (Wi-Fi, сеткавыя папкі) пры ўваходзе з PIN. Задайце PIN яшчэ раз і ўвядзіце разам з ім пароль уліковага запісу: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "Ваш PIN больш не адмыкае захаваныя паролі",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "Пароль уліковага запісу змяніўся. Задайце PIN яшчэ раз і ўвядзіце разам з ім новы пароль: {path}.",
+  "Set it up now": "Наладзіць зараз",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "Пароль змяніўся, таму PIN больш не адмыкае захаваныя паролі. Адзін раз змяніце PIN і ўвядзіце разам з ім новы пароль.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "Пароль працуе заўсёды. Акрамя таго, мы прапануем тое, што ўмее ваш камп’ютар. Пры ўваходзе адбіткам або ключом сховішча захаваных пароляў пры першым выкарыстанні папросіць пароль. PIN, зададзены разам з паролем, таксама адмыкае яго."
 }

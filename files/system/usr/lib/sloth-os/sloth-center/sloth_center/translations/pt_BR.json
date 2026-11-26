@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "Conta padrão: as configurações do computador pedem a senha de um administrador.",
   "Manage users": "Gerenciar usuários",
   "Ways to sign in": "Formas de entrar",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "A senha sempre funciona. Além disso, oferecemos o que seu computador sabe fazer. Ao entrar com digital, chave ou PIN, o cofre de senhas salvas pede sua senha no primeiro uso.",
   "Add fingerprint": "Cadastrar digital",
   "Add another key": "Adicionar outra chave",
   "Add key": "Adicionar chave",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Para que ele também desbloqueie suas senhas salvas, altere o PIN uma vez e digite sua senha junto.",
   "That's not your account password.": "Essa não é a senha da sua conta.",
   "Your account password (optional)": "A senha da sua conta (opcional)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Com a sua senha, o PIN também desbloqueia suas senhas salvas (Wi-Fi, pastas de rede) quando você entra. O chip de segurança mantém a senha trancada: só o PIN certo a tira de lá."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Com a sua senha, o PIN também desbloqueia suas senhas salvas (Wi-Fi, pastas de rede) quando você entra. O chip de segurança mantém a senha trancada: só o PIN certo a tira de lá.",
+  "Your PIN can unlock your saved passwords": "Seu PIN pode desbloquear suas senhas salvas",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "O Sloth OS agora pode desbloquear suas senhas salvas (Wi-Fi, pastas de rede) quando você entra com o PIN. Defina o PIN mais uma vez e digite junto a senha da sua conta: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "Seu PIN não desbloqueia mais suas senhas salvas",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "A senha da sua conta mudou. Defina o PIN mais uma vez e digite junto a nova senha: {path}.",
+  "Set it up now": "Configurar agora",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "Sua senha mudou, então o PIN não desbloqueia mais suas senhas salvas. Altere o PIN uma vez e digite junto a nova senha.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "A senha sempre funciona. Além disso, oferecemos o que seu computador sabe fazer. Ao entrar com digital ou chave, o cofre de senhas salvas pede sua senha no primeiro uso. Um PIN definido junto com a sua senha também o desbloqueia."
 }

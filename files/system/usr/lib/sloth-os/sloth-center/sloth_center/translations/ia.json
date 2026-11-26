@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "Conto standard: le parametros del computator require le contrasigno de un administrator.",
   "Manage users": "Gerer usatores",
   "Ways to sign in": "Modos de accesso",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "Le contrasigno sempre functiona. In plus, nos offere lo que tu computator pote facer. Si tu accede con impression digital, clave o PIN, le deposito de contrasignos salvate demanda tu contrasigno al prime uso.",
   "Add fingerprint": "Registrar impression digital",
   "Add another key": "Adder un altere clave",
   "Add key": "Adder clave",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Pro que illo anque disbloca tu contrasignos salvate, cambia le PIN un vice e scribe tu contrasigno con illo.",
   "That's not your account password.": "Isto non es le contrasigno de tu conto.",
   "Your account password (optional)": "Le contrasigno de tu conto (optional)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Con tu contrasigno, le PIN anque disbloca tu contrasignos salvate (Wi-Fi, dossieres de rete) quando tu accede. Le chip de securitate tene le contrasigno serrate: solmente le PIN juste lo extrahe."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Con tu contrasigno, le PIN anque disbloca tu contrasignos salvate (Wi-Fi, dossieres de rete) quando tu accede. Le chip de securitate tene le contrasigno serrate: solmente le PIN juste lo extrahe.",
+  "Your PIN can unlock your saved passwords": "Tu PIN pote disblocar tu contrasignos salvate",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "Sloth OS ora pote disblocar tu contrasignos salvate (Wi-Fi, dossieres de rete) quando tu accede con tu PIN. Configura tu PIN un altere vice e scribe con illo le contrasigno de tu conto: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "Tu PIN non plus disbloca tu contrasignos salvate",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "Le contrasigno de tu conto ha cambiate. Configura tu PIN un altere vice e scribe con illo tu nove contrasigno: {path}.",
+  "Set it up now": "Configurar lo ora",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "Tu contrasigno ha cambiate, assi le PIN non plus disbloca tu contrasignos salvate. Cambia le PIN un vice e scribe con illo tu nove contrasigno.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "Le contrasigno sempre functiona. In plus, nos offere lo que tu computator pote facer. Si tu accede con impression digital o clave, le deposito de contrasignos salvate demanda tu contrasigno al prime uso. Un PIN configurate insimul con tu contrasigno lo disbloca tamben."
 }

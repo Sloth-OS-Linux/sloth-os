@@ -73,6 +73,7 @@ modules:
         - sloth-update-notify.service
         - sloth-whats-new.service
         - sloth-wallet-notify.service        # automatic sign-in: why the saved passwords are locked, beforehand
+        - sloth-pin-notify.service           # once after the update: set the PIN again with the password (KWallet)
         - sloth-light-mode.service           # a weak computer: the lighter desktop, by itself at the first sign-in
         - sloth-restore-settings.service     # a restore point's settings back at sign-in, before the desktop
         # parental controls in a child's session: the screen time banners, the blocked apps hidden

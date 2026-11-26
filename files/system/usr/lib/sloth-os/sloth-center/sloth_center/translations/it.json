@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "Account standard: per le impostazioni del computer serve la password di un amministratore.",
   "Manage users": "Gestisci utenti",
   "Ways to sign in": "Modi di accesso",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "La password funziona sempre. In più, offriamo ciò che il tuo computer sa fare. Accedendo con impronta, chiave o PIN, l’archivio delle password salvate chiede la tua password al primo utilizzo.",
   "Add fingerprint": "Registra impronta",
   "Add another key": "Aggiungi un’altra chiave",
   "Add key": "Aggiungi chiave",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Perché sblocchi anche le password salvate, cambia il PIN una volta e scrivi insieme la tua password.",
   "That's not your account password.": "Questa non è la password del tuo account.",
   "Your account password (optional)": "La password del tuo account (facoltativa)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Con la tua password, il PIN sblocca anche le password salvate (Wi-Fi, cartelle di rete) quando accedi. Il chip di sicurezza tiene la password sotto chiave: solo il PIN giusto la tira fuori."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Con la tua password, il PIN sblocca anche le password salvate (Wi-Fi, cartelle di rete) quando accedi. Il chip di sicurezza tiene la password sotto chiave: solo il PIN giusto la tira fuori.",
+  "Your PIN can unlock your saved passwords": "Il tuo PIN può sbloccare le password salvate",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "Ora Sloth OS può sbloccare le tue password salvate (Wi-Fi, cartelle di rete) quando accedi con il PIN. Imposta il PIN ancora una volta e scrivi insieme la password del tuo account: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "Il tuo PIN non sblocca più le password salvate",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "La password del tuo account è cambiata. Imposta il PIN ancora una volta e scrivi insieme la nuova password: {path}.",
+  "Set it up now": "Imposta ora",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "La tua password è cambiata, quindi il PIN non sblocca più le password salvate. Cambia il PIN una volta e scrivi insieme la nuova password.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "La password funziona sempre. In più, offriamo ciò che il tuo computer sa fare. Accedendo con impronta o chiave, l’archivio delle password salvate chiede la tua password al primo utilizzo. Un PIN impostato insieme alla tua password lo sblocca anche."
 }

@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "Τυπικός λογαριασμός: για τις ρυθμίσεις του υπολογιστή χρειάζεται ο κωδικός ενός διαχειριστή.",
   "Manage users": "Διαχείριση χρηστών",
   "Ways to sign in": "Τρόποι σύνδεσης",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "Ο κωδικός πρόσβασης λειτουργεί πάντα. Επιπλέον προσφέρουμε ό,τι μπορεί ο υπολογιστής σας. Όταν συνδέεστε με αποτύπωμα, κλειδί ή PIN, η αποθήκη αποθηκευμένων κωδικών ζητά τον κωδικό σας στην πρώτη χρήση.",
   "Add fingerprint": "Προσθήκη αποτυπώματος",
   "Add another key": "Προσθήκη άλλου κλειδιού",
   "Add key": "Προσθήκη κλειδιού",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Για να ξεκλειδώνει και τους αποθηκευμένους κωδικούς σας, αλλάξτε το PIN μία φορά και πληκτρολογήστε μαζί τον κωδικό σας.",
   "That's not your account password.": "Αυτός δεν είναι ο κωδικός του λογαριασμού σας.",
   "Your account password (optional)": "Ο κωδικός του λογαριασμού σας (προαιρετικό)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Με τον κωδικό σας, το PIN ξεκλειδώνει επίσης τους αποθηκευμένους κωδικούς σας (Wi-Fi, φάκελοι δικτύου) όταν συνδέεστε. Το τσιπ ασφαλείας κρατά τον κωδικό κλειδωμένο: μόνο το σωστό PIN τον βγάζει."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Με τον κωδικό σας, το PIN ξεκλειδώνει επίσης τους αποθηκευμένους κωδικούς σας (Wi-Fi, φάκελοι δικτύου) όταν συνδέεστε. Το τσιπ ασφαλείας κρατά τον κωδικό κλειδωμένο: μόνο το σωστό PIN τον βγάζει.",
+  "Your PIN can unlock your saved passwords": "Το PIN σας μπορεί να ξεκλειδώνει τους αποθηκευμένους κωδικούς",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "Το Sloth OS μπορεί πλέον να ξεκλειδώνει τους αποθηκευμένους κωδικούς σας (Wi-Fi, φάκελοι δικτύου) όταν συνδέεστε με το PIN. Ορίστε το PIN άλλη μία φορά και πληκτρολογήστε μαζί τον κωδικό του λογαριασμού σας: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "Το PIN σας δεν ξεκλειδώνει πια τους αποθηκευμένους κωδικούς",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "Ο κωδικός του λογαριασμού σας άλλαξε. Ορίστε το PIN άλλη μία φορά και πληκτρολογήστε μαζί τον νέο κωδικό: {path}.",
+  "Set it up now": "Ρύθμιση τώρα",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "Ο κωδικός σας άλλαξε, οπότε το PIN δεν ξεκλειδώνει πια τους αποθηκευμένους κωδικούς. Αλλάξτε το PIN μία φορά και πληκτρολογήστε μαζί τον νέο κωδικό σας.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "Ο κωδικός πρόσβασης λειτουργεί πάντα. Επιπλέον προσφέρουμε ό,τι μπορεί ο υπολογιστής σας. Όταν συνδέεστε με αποτύπωμα ή κλειδί, η αποθήκη αποθηκευμένων κωδικών ζητά τον κωδικό σας στην πρώτη χρήση. Ένα PIN που ορίστηκε μαζί με τον κωδικό σας την ξεκλειδώνει επίσης."
 }

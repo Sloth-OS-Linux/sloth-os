@@ -2608,8 +2608,21 @@ Bugs found (we fix them one by one):
       says to set the PIN again with the password). Systems with a PIN from before keep pam_exec until the PIN is
       set again (the helper selects the profile anew). Tests: `tools/tests/pin_wallet_test.sh` (real PAM, swtpm,
       what pam_kwallet would get: 25 OK), `pin_pam_test.sh` still 61 OK. 5 texts, 50 languages
+    - [x] Telling the people who have a PIN already (the user, 2026-11-26: clear everywhere, a pop-up after the
+      update): `sloth_center/pin_notify.py` + `sloth-pin-notify.service` (user, at sign-in). An account with a PIN in
+      the TPM that does not unlock the store gets one notification at the first sign-in after the update: what to
+      do and where ("Sloth Center → Account and security → Change PIN", built from Sloth Center's own translated
+      names), "Set it up now" opens the page. Once per reason: told again only if the password changes later
+      (pin-verifier marks the dropped copy, `"dropped"` in the status). Sloth Center's PIN row says the same until
+      it is done (two texts: from before / the password changed), and the "Ways to sign in" intro no longer says a
+      PIN always makes the store ask. The PIN state moved to the light `pin_state.py`. Tests:
+      `tools/tests/test_pin_notify.py` (6), both PAM tests again (25 + 61 OK). 7 texts, 50 languages (de and ro
+      now informal like the rest of their Sloth Center)
+    - [ ] At the release: a line in `whats_new.NOTES` for that version, and on the website (FAQ / sign-in card):
+      "a PIN set up before: set it once more with your password, then it unlocks the saved passwords too"
     - [ ] On the HP (real TPM): set the PIN with the password, restart, sign in with the PIN: Wi-Fi / a network
-      folder opens without the wallet asking
+      folder opens without the wallet asking. Before that: the notification at the first sign-in after the update
+      (the HP's PIN is from before)
     - [ ] Fingerprint and security key: no secret to unlock it with (they only say yes/no); stays as it is
 - [x] Developer panel in Sloth Center (repository, builds, testing from a GUI) – phase 3 (2026-10-19, see below)
 - [x] (Reviewed 2026-11-25 with the user: done; new ones as they come up, see below) Extending the advanced settings continuously – phase 3. 2026-10-19: compressed memory reserve (zram: default /

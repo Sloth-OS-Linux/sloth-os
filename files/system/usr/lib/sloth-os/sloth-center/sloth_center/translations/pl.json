@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "Zwykłe konto: ustawienia komputera wymagają hasła administratora.",
   "Manage users": "Zarządzaj użytkownikami",
   "Ways to sign in": "Sposoby logowania",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "Hasło działa zawsze. Dodatkowo oferujemy to, co potrafi twój komputer. Po zalogowaniu odciskiem, kluczem lub PIN-em magazyn zapisanych haseł poprosi o hasło przy pierwszym użyciu.",
   "Add fingerprint": "Dodaj odcisk palca",
   "Add another key": "Dodaj kolejny klucz",
   "Add key": "Dodaj klucz",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Aby odblokowywał też zapisane hasła, zmień raz PIN i wpisz razem z nim swoje hasło.",
   "That's not your account password.": "To nie jest hasło Twojego konta.",
   "Your account password (optional)": "Hasło Twojego konta (opcjonalnie)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Z Twoim hasłem PIN przy logowaniu odblokowuje też zapisane hasła (Wi-Fi, foldery sieciowe). Układ zabezpieczeń trzyma hasło pod kluczem: wydobywa je tylko właściwy PIN."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Z Twoim hasłem PIN przy logowaniu odblokowuje też zapisane hasła (Wi-Fi, foldery sieciowe). Układ zabezpieczeń trzyma hasło pod kluczem: wydobywa je tylko właściwy PIN.",
+  "Your PIN can unlock your saved passwords": "Twój PIN może odblokowywać zapisane hasła",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "Sloth OS może teraz odblokować twoje zapisane hasła (Wi-Fi, foldery sieciowe), gdy logujesz się PIN-em. Ustaw PIN jeszcze raz i wpisz razem z nim hasło swojego konta: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "Twój PIN nie odblokowuje już zapisanych haseł",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "Hasło twojego konta się zmieniło. Ustaw PIN jeszcze raz i wpisz razem z nim nowe hasło: {path}.",
+  "Set it up now": "Ustaw teraz",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "Twoje hasło się zmieniło, więc PIN nie odblokowuje już zapisanych haseł. Zmień raz PIN i wpisz razem z nim nowe hasło.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "Hasło działa zawsze. Dodatkowo oferujemy to, co potrafi twój komputer. Po zalogowaniu odciskiem lub kluczem magazyn zapisanych haseł poprosi o hasło przy pierwszym użyciu. PIN ustawiony razem z hasłem też go odblokowuje."
 }

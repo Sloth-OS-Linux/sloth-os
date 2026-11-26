@@ -42,27 +42,8 @@ TOPICS = [
 RECOMMENDED = [t[0] for t in TOPICS if not t[3]]
 
 U2F_KEYS = Path.home() / ".config/Yubico/u2f_keys"
-PIN_SOCKET = "/run/sloth-os/pin.sock"   # the PIN's keeper (/usr/libexec/sloth-os/pin-verifier): its files are root's
+from .pin_state import PIN_SOCKET, has_tpm, pin_status  # noqa: E402,F401
 
-
-def pin_status(user):
-    """{"set", "tpm", "wallet"} for your own account: the PIN's keeper answers (its files are root-only).
-    wallet: the PIN also opens the password store (KWallet) at sign-in (it was set together with the password)."""
-    import socket
-    try:
-        with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as conn:
-            conn.settimeout(10)
-            conn.connect(PIN_SOCKET)
-            conn.sendall(json.dumps({"user": user, "status": True}).encode() + b"\n")
-            data = json.loads(conn.recv(256).decode() or "{}")
-            return {"set": bool(data.get("set")), "tpm": bool(data.get("tpm")), "wallet": bool(data.get("wallet"))}
-    except (OSError, ValueError):
-        return {"set": False, "tpm": False, "wallet": False}
-
-
-def has_tpm():
-    """A security chip the PIN (and with it the password for the password store) can be kept in."""
-    return Path("/dev/tpmrm0").exists()
 UDEV_DATA = Path("/run/udev/data")
 
 
@@ -260,6 +241,9 @@ class AccountsController(QObject):
         if status["tpm"]:
             kept += " " + (tr("It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.")
                            if status["wallet"] else
+                           tr("Your password changed, so the PIN no longer unlocks your saved passwords. Change the"
+                              " PIN once and type your new password with it.")
+                           if status["dropped"] else
                            tr("To let it unlock your saved passwords too, change the PIN once and type your password"
                               " with it."))
         out.append({"id": "pin", "name": tr("PIN"), "icon": "dialog-password",

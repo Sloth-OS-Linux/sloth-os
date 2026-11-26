@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "حساب عادي: تتطلب إعدادات الحاسوب كلمة مرور مسؤول.",
   "Manage users": "إدارة المستخدمين",
   "Ways to sign in": "طرق تسجيل الدخول",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "كلمة المرور تعمل دائمًا. وإضافة إلى ذلك نعرض ما يستطيعه حاسوبك. عند الدخول ببصمة أو مفتاح أو رمز PIN، يطلب مخزن كلمات المرور المحفوظة كلمة مرورك عند أول استخدام.",
   "Add fingerprint": "تسجيل بصمة",
   "Add another key": "إضافة مفتاح آخر",
   "Add key": "إضافة مفتاح",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "لكي يفتح كلمات المرور المحفوظة أيضًا، غيّر رمز PIN مرة واحدة واكتب كلمة المرور معه.",
   "That's not your account password.": "هذه ليست كلمة مرور حسابك.",
   "Your account password (optional)": "كلمة مرور حسابك (اختياري)",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "مع كلمة المرور، يفتح رمز PIN أيضًا كلمات المرور المحفوظة (Wi-Fi، مجلدات الشبكة) عند تسجيل الدخول. تحفظ شريحة الأمان كلمة المرور مقفلة: لا يخرجها إلا رمز PIN الصحيح."
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "مع كلمة المرور، يفتح رمز PIN أيضًا كلمات المرور المحفوظة (Wi-Fi، مجلدات الشبكة) عند تسجيل الدخول. تحفظ شريحة الأمان كلمة المرور مقفلة: لا يخرجها إلا رمز PIN الصحيح.",
+  "Your PIN can unlock your saved passwords": "يمكن لرمز PIN فتح كلمات المرور المحفوظة",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "يستطيع Sloth OS الآن فتح كلمات المرور المحفوظة (Wi-Fi، مجلدات الشبكة) عند الدخول برمز PIN. اضبط رمز PIN مرة أخرى واكتب معه كلمة مرور حسابك: {path}.",
+  "Your PIN no longer unlocks your saved passwords": "لم يعد رمز PIN يفتح كلمات المرور المحفوظة",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "تغيّرت كلمة مرور حسابك. اضبط رمز PIN مرة أخرى واكتب معه كلمة المرور الجديدة: {path}.",
+  "Set it up now": "اضبطه الآن",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "تغيّرت كلمة المرور، لذا لم يعد رمز PIN يفتح كلمات المرور المحفوظة. غيّر رمز PIN مرة واحدة واكتب معه كلمة المرور الجديدة.",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "كلمة المرور تعمل دائمًا. وإضافة إلى ذلك نعرض ما يستطيعه حاسوبك. عند الدخول ببصمة أو مفتاح، يطلب مخزن كلمات المرور المحفوظة كلمة مرورك عند أول استخدام. أما رمز PIN المضبوط مع كلمة مرورك فيفتحه أيضًا."
 }

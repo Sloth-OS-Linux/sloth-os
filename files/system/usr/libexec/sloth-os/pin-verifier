@@ -302,6 +302,7 @@ def check(user, pin, now=None, authtok=False):
             # the password was changed since (or the copy is damaged): dropped, the store asks once as without a PIN
             log(f"{user}: the kept password is no longer the account's, dropped")
             record.pop("wallet", None)
+            record["wallet_dropped"] = True    # Sloth Center and the sign-in notification say why (pin_notify)
             _write(_record_path(user), json.dumps(record) + "\n")
         if record["v"] == 1 and tpm_available():
             # a PIN from before: it moves into the TPM now that it was typed (the hash goes)
@@ -337,7 +338,8 @@ def serve(conn):
             # Sloth Center (in the user's name) asks whether a PIN is set, and where it is kept
             record = _load(_record_path(user))
             answer = (json.dumps({"set": record.get("v") in (1, 2), "tpm": record.get("v") == 2,
-                                  "wallet": "wallet" in record}) + "\n").encode()
+                                  "wallet": "wallet" in record,
+                                  "dropped": bool(record.get("wallet_dropped"))}) + "\n").encode()
         elif str(req.get("service", "")) in SERVICES:
             service = str(req["service"])
             # the password only to root (the sign-in screen), never to a caller in the user's name

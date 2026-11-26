@@ -80,7 +80,7 @@ start_verifier
 echo "== TPM: setting the PIN with the password"
 expect "a wrong password is refused" '{"ok": false, "error": "bad password"}' "$(set_pin 2580 Wrong-999)"
 expect "the right password is kept" '{"ok": true, "tpm": true, "wallet": true}' "$(set_pin 2580 Password-123)"
-expect "Sloth Center sees it" '{"set": true, "tpm": true, "wallet": true}' "$(status)"
+expect "Sloth Center sees it" '{"set": true, "tpm": true, "wallet": true, "dropped": false}' "$(status)"
 ls -l /etc/sloth-os/pin/tester.json | grep -q '^-rw-------' && ok "the record is root-only" || bad "record rights: $(ls -l /etc/sloth-os/pin/tester.json)"
 grep -q "Password-123" /etc/sloth-os/pin/tester.json && bad "the password is in the record in the clear" || ok "the password is not in the record in the clear"
 
@@ -102,7 +102,7 @@ expect "only ok, never the password" "ok" "$got"
 echo "== TPM: the password changed (e.g. in KDE's Users page)"
 echo 'tester:Changed-456' | chpasswd
 expect "the PIN still signs in, the old password is not handed on" "ok 2580" "$(signin plasmalogin 2580)"
-expect "the old copy is dropped" '{"set": true, "tpm": true, "wallet": false}' "$(status)"
+expect "the old copy is dropped" '{"set": true, "tpm": true, "wallet": false, "dropped": true}' "$(status)"
 expect "set again with the new password" '{"ok": true, "tpm": true, "wallet": true}' "$(set_pin 2580 Changed-456)"
 expect "and the PIN opens the store again" "ok Changed-456" "$(signin plasmalogin 2580)"
 

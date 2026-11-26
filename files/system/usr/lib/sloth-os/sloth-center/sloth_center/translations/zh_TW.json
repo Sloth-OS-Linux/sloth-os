@@ -217,7 +217,6 @@
   "Standard account: changing the computer's settings needs an administrator's password.": "一般帳號：變更電腦設定需要管理員密碼。",
   "Manage users": "管理使用者",
   "Ways to sign in": "登入方式",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint, a key or a PIN, the store of saved passwords asks for your password the first time it is used.": "密碼永遠可以使用。此外，我們會提供你的電腦支援的方式。用指紋、金鑰或 PIN 登入時，已儲存密碼的保管庫會在首次使用時要求輸入你的密碼。",
   "Add fingerprint": "登錄指紋",
   "Add another key": "加入其他金鑰",
   "Add key": "加入金鑰",
@@ -1347,5 +1346,12 @@
   "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "若要讓它也解鎖您儲存的密碼，請變更一次 PIN，並同時輸入您的密碼。",
   "That's not your account password.": "這不是您的帳號密碼。",
   "Your account password (optional)": "您的帳號密碼（選填）",
-  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "填寫密碼後，登入時 PIN 也會解鎖您儲存的密碼（Wi-Fi、網路資料夾）。安全晶片會將密碼鎖住保管：只有正確的 PIN 才能取出。"
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "填寫密碼後，登入時 PIN 也會解鎖您儲存的密碼（Wi-Fi、網路資料夾）。安全晶片會將密碼鎖住保管：只有正確的 PIN 才能取出。",
+  "Your PIN can unlock your saved passwords": "你的 PIN 可以解鎖已儲存的密碼",
+  "Sloth OS can now unlock your saved passwords (Wi-Fi, network folders) when you sign in with your PIN. Set your PIN once more and type your account password with it: {path}.": "現在用 PIN 登入時，Sloth OS 也能解鎖你儲存的密碼（Wi-Fi、網路資料夾）。請再設定一次 PIN，並同時輸入你的帳號密碼：{path}。",
+  "Your PIN no longer unlocks your saved passwords": "你的 PIN 不再解鎖已儲存的密碼",
+  "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "你的帳號密碼已變更。請再設定一次 PIN，並同時輸入新密碼：{path}。",
+  "Set it up now": "立即設定",
+  "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "你的密碼已變更，因此 PIN 不再解鎖已儲存的密碼。請變更一次 PIN，並同時輸入新密碼。",
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "密碼永遠可以使用。此外，我們會提供你的電腦支援的方式。用指紋或金鑰登入時，已儲存密碼的保管庫會在首次使用時要求輸入你的密碼。與密碼一起設定的 PIN 也能解鎖它。"
 }

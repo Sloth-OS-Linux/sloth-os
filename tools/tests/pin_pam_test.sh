@@ -79,7 +79,7 @@ run_round() {  # the round's name
         [[ $r == *'"tpm": false'* ]] && ok "no TPM: the root-only hash" || bad "tpm flag: $r"
     fi
     st=$(status_as tester tester)
-    want='{"set": true, "tpm": false, "wallet": false}'; [[ $1 == TPM ]] && want='{"set": true, "tpm": true, "wallet": false}'
+    want='{"set": true, "tpm": false, "wallet": false, "dropped": false}'; [[ $1 == TPM ]] && want='{"set": true, "tpm": true, "wallet": false, "dropped": false}'
     [[ $st == "$want" ]] && ok "Sloth Center (as the user) learns the PIN is set: $st" || bad "status: $st"
     [[ $(status_as other tester) == no ]] && ok "another user does not learn it" || bad "another user's status answer"
     runuser -u tester -- cat /etc/sloth-os/pin/tester.json >/dev/null 2>&1 && bad "the user can read the PIN's file" \
