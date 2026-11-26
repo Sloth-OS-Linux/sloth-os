@@ -9,7 +9,9 @@ from a terminal must also work from a GUI.
 - [ ] **A test install after every build** (the user: yes, if it is free): a virtual machine in CI installs the fresh
   ISO every night, starts it, and checks that the sign-in screen and Sloth Center come up (the NVIDIA image's stock
   sign-in screen on 2026-11-25 was only seen in the log). The HP then only has to test real hardware. Free on
-  GitHub-hosted Linux runners for a public repository (KVM works there); needs an unattended mode in our installer
+  GitHub-hosted Linux runners for a public repository (KVM works there). **No unattended mode in the installer**
+  (the user, 2026-11-26: not wanted). Instead: the CI clicks through the real installer like a person (screenshots
+  and key presses through QEMU), or boots a disk image made from the built image without the installer. To decide
 - [ ] **A hardware compatibility check** (the user: yes, but in what form? Like the "Can you run it" checkers for
   games: a scan of this computer that says whether Sloth OS will run on it; not sure users want it). Which Wi-Fi
   card, graphics card, fingerprint reader works; later also from users' reports (with permission) through the
