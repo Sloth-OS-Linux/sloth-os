@@ -187,17 +187,23 @@ class VM:
         raise Failed(f"“{phrase}” did not appear in {timeout // 60} minutes")
 
     # --- mouse and keyboard ---
-    def click(self, phrase, timeout=120):
+    def click(self, phrase, timeout=120, ends=False):
+        """Clicks the middle of the phrase. ends: the click switches the machine off (Restart with -no-reboot), so
+        QEMU may close its socket while the button is still being released."""
         x0, y0, x1, y1 = self.wait(phrase, timeout)
         x, y = (x0 + x1) // 2, (y0 + y1) // 2
         w, h = self.size
-        self.cmd("input-send-event", events=[
-            {"type": "abs", "data": {"axis": "x", "value": x * 32767 // (w - 1)}},
-            {"type": "abs", "data": {"axis": "y", "value": y * 32767 // (h - 1)}}])
-        time.sleep(0.3)
-        for down in (True, False):
-            self.cmd("input-send-event", events=[{"type": "btn", "data": {"down": down, "button": "left"}}])
-            time.sleep(0.1)
+        try:
+            self.cmd("input-send-event", events=[
+                {"type": "abs", "data": {"axis": "x", "value": x * 32767 // (w - 1)}},
+                {"type": "abs", "data": {"axis": "y", "value": y * 32767 // (h - 1)}}])
+            time.sleep(0.3)
+            for down in (True, False):
+                self.cmd("input-send-event", events=[{"type": "btn", "data": {"down": down, "button": "left"}}])
+                time.sleep(0.1)
+        except (OSError, Failed):
+            if not ends:
+                raise
         log(f"[{self.name}] clicked “{phrase}”")
         time.sleep(2)
 
@@ -243,12 +249,15 @@ def install():
         vm.click("I understand that all data on the disk will be erased")
         vm.click("Start installing")
         vm.wait("Installation complete", 60 * 60, fail=("Installation failed",))
-        vm.click("Restart")
+        vm.click("Restart", ends=True)
         if not vm.stop():
             log("the live system did not switch off by itself in 3 minutes")
     finally:
         if vm.alive():
-            vm.screen(keep="last")
+            try:
+                vm.screen(keep="last")
+            except (OSError, Failed):
+                pass
             vm.proc.kill()
 
 
@@ -262,7 +271,10 @@ def first_start():
         vm.screen(keep="welcome")
     finally:
         if vm.alive():
-            vm.screen(keep="last")
+            try:
+                vm.screen(keep="last")
+            except (OSError, Failed):
+                pass
             vm.proc.kill()
 
 
@@ -276,7 +288,7 @@ def main():
         install()
         log(f"installed in {(time.time() - started) / 60:.0f} min")
         first_start()
-    except Failed as e:
+    except (Failed, OSError) as e:
         last = sorted(SHOTS.glob("*.png"), key=os.path.getmtime)
         if (WORK / "screen.png").exists():
             shutil.copy(WORK / "screen.png", SHOTS / "fail.png")
