@@ -5,17 +5,21 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
-### Ideas for later (listed 2026-11-25; the user: "write them down, later")
-- [ ] **A test install after every build:** a virtual machine in CI installs the fresh ISO every night, starts it,
-  and checks that the sign-in screen and Sloth Center come up (the NVIDIA image's stock sign-in screen on
-  2026-11-25 was only seen in the log). The HP then only has to test real hardware
-- [ ] **Early access for users:** a Sloth Center switch "Try new versions early" (the test branch), one click back.
-  More testers before a release than the HP alone
-- [ ] **A hardware compatibility list,** like "Will it run?" for games: with the user's permission, which Wi-Fi card,
-  graphics card, fingerprint reader works; searchable on the website ("Does it run on my laptop?"). The knowledge
-  service is there already
-- [ ] **Website guides for the new things:** the PIN in the TPM, Driver options, the two sharing switches (needed at
-  the 2.1 release anyway)
+### Ideas for later (listed 2026-11-25; the user: "write them down, later"; decided 2026-11-26)
+- [ ] **A test install after every build** (the user: yes, if it is free): a virtual machine in CI installs the fresh
+  ISO every night, starts it, and checks that the sign-in screen and Sloth Center come up (the NVIDIA image's stock
+  sign-in screen on 2026-11-25 was only seen in the log). The HP then only has to test real hardware. Free on
+  GitHub-hosted Linux runners for a public repository (KVM works there); needs an unattended mode in our installer
+- [ ] **A hardware compatibility check** (the user: yes, but in what form? Like the "Can you run it" checkers for
+  games: a scan of this computer that says whether Sloth OS will run on it; not sure users want it). Which Wi-Fi
+  card, graphics card, fingerprint reader works; later also from users' reports (with permission) through the
+  knowledge service. Form to decide before building
+- [ ] **Website guides for the new things:** the PIN in the TPM, Driver options, the two sharing switches (only if
+  there is a 2.1 release; not sure yet, 2026-11-26)
+- ~~Early access for users (a Sloth Center switch for the test branch)~~: not wanted (the user, 2026-11-26)
+
+The postponed ideas (updates without the restart feeling, file sharing on the local network, a factory template
+environment) stay postponed (the user, 2026-11-26). The "On the HP" checks below: when the user feels like it.
 
 ### Computers in legacy (BIOS) mode (2026-11-15, test branch)
 - [x] Found first: the installed system already started with BIOS (its GPT has a BIOS boot partition, and bootupd
