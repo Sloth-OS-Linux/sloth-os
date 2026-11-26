@@ -108,12 +108,19 @@ class VM:
         return img
 
     # --- reading the screen ---
-    def words(self, img):
-        """The words on the screen with their boxes (in screen pixels), grouped into lines."""
-        gray = ImageOps.grayscale(img)
-        if sum(gray.resize((64, 40)).getdata()) / (64 * 40) < 128:      # a dark theme: dark text on light reads better
-            gray = ImageOps.invert(gray)
-        big = ImageOps.autocontrast(gray.resize((gray.width * 2, gray.height * 2), Image.LANCZOS))
+    def readings(self, img):
+        """The screen read twice: as it is (inverted on a dark theme), and with only the light text kept. Text on a
+        button (its frame and background confuse the first way) only comes out the second way, dimmer text only the
+        first way."""
+        gray = ImageOps.grayscale(img).resize((img.width * 2, img.height * 2), Image.LANCZOS)
+        dark = sum(gray.resize((64, 40)).getdata()) / (64 * 40) < 128
+        plain = ImageOps.autocontrast(ImageOps.invert(gray) if dark else gray)
+        yield self.words(plain)
+        if dark:
+            yield self.words(gray.point(lambda v: 0 if v > 160 else 255))
+
+    def words(self, big):
+        """The words of a (2x enlarged) screen with their boxes in screen pixels."""
         tmp = WORK / "ocr.png"
         big.save(tmp)
         out = subprocess.run(["tesseract", str(tmp), "stdout", "--psm", "11", "tsv"], capture_output=True,
@@ -135,7 +142,13 @@ class VM:
         """The box of the phrase on the screen (the lowest one if it is there more than once), or None."""
         img = img or self.screen()
         want = [self._norm(w) for w in phrase.split()]
-        words = self.words(img)
+        for words in self.readings(img):
+            box = self._match(words, want)
+            if box:
+                return box
+        return None
+
+    def _match(self, words, want):
         hits = []
         for i in range(len(words) - len(want) + 1):
             group = words[i:i + len(want)]
