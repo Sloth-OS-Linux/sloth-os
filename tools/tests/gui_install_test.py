@@ -142,11 +142,10 @@ class VM:
         """The box of the phrase on the screen (the lowest one if it is there more than once), or None."""
         img = img or self.screen()
         want = [self._norm(w) for w in phrase.split()]
-        for words in self.readings(img):
-            box = self._match(words, want)
-            if box:
-                return box
-        return None
+        # every reading counts: "Restart" is both in the text above the button and on it, and the first reading
+        # may only see the one in the text
+        hits = [h for words in self.readings(img) for h in self._match(words, want)]
+        return max(hits, key=lambda b: b[1]) if hits else None
 
     def _match(self, words, want):
         hits = []
@@ -164,7 +163,7 @@ class VM:
                 x1 = max(g["box"][0] + g["box"][2] for g in group)
                 y1 = max(g["box"][1] + g["box"][3] for g in group)
                 hits.append((x0, y0, x1, y1))
-        return max(hits, key=lambda b: b[1]) if hits else None
+        return hits
 
     def wait(self, phrase, timeout, fail=()):
         """Waits until the phrase is on the screen; a phrase in fail ends the test at once."""
