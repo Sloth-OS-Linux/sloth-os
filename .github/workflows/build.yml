@@ -88,6 +88,8 @@ jobs:
     permissions:
       contents: read
       packages: read
+    outputs:
+      tag: ${{ steps.install.outputs.tag }}
     steps:
       - name: Free disk space
         uses: jlumbroso/free-disk-space@v1.3.1
@@ -96,6 +98,7 @@ jobs:
           large-packages: false
 
       - name: Install onto a disk file
+        id: install
         run: |
           owner="${{ github.repository_owner }}"  # ghcr.io only accepts lowercase names
           repo="ghcr.io/${owner,,}/sloth-os"
@@ -104,6 +107,7 @@ jobs:
           tag=$(skopeo list-tags "docker://$repo" | jq -r '.Tags[]' | grep -E "^${sha}-[0-9]+$" | head -1)
           [ -n "$tag" ] || { echo "::error::No image tagged ${sha}-<version>"; exit 1; }
           echo "Image: $repo:$tag"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
           sudo podman pull "$repo:$tag"
           sudo podman image inspect "$repo:$tag" > image.json
           echo "Layers: $(jq '.[0].RootFS.Layers | length' image.json)"
@@ -153,3 +157,17 @@ jobs:
           echo "--- the end of the serial console:"; tail -40 serial.log | cut -c1-200
           echo "Boot test: $result" | tee -a "$GITHUB_STEP_SUMMARY"
           [ "$result" = ok ]
+
+  # The installer ISO of exactly this image, installed by clicking through the real installer in a virtual machine,
+  # then started and signed in until Sloth Welcome opens (iso.yml, tools/tests/gui_install_test.py)
+  gui-install-test:
+    name: ISO and GUI install test
+    needs: install-test
+    if: github.event_name != 'pull_request'
+    permissions:
+      contents: read
+      packages: read
+    uses: ./.github/workflows/iso.yml
+    with:
+      variant: sloth-os
+      image_tag: ${{ needs.install-test.outputs.tag }}

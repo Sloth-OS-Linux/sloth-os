@@ -7,9 +7,19 @@ name: iso
 on:
   # A test-only path filter lets us produce a test ISO by changing this workflow,
   # without rebuilding the system image or affecting normal pushes.
+  # A change to the installer or to its test builds an ISO from the test branch image and clicks through it as well.
   push:
     branches: [test/chunked-oci]
-    paths: [.github/workflows/iso.yml]
+    paths: [.github/workflows/iso.yml, "iso/**", tools/tests/gui_install_test.py]
+  # build.yml calls this after every image build: the ISO of exactly that image, installed by the GUI test
+  workflow_call:
+    inputs:
+      variant:
+        type: string
+        default: sloth-os
+      image_tag:
+        type: string
+        required: true
   workflow_dispatch:
     inputs:
       variant:
@@ -99,4 +109,54 @@ jobs:
         with:
           name: ${{ inputs.variant || 'sloth-os' }}-iso
           path: output/
+          # the ISO of every build (build.yml) is only needed by the test below
+          retention-days: ${{ github.event_name == 'workflow_dispatch' && 7 || 1 }}
+
+  # The ISO installed the way a person does it: a virtual machine (KVM on the GitHub runner) starts it, and
+  # tools/tests/gui_install_test.py clicks through the real installer by reading the screen, restarts, signs in and
+  # waits for Sloth Welcome. The installer has no unattended mode, and the test needs none.
+  gui-install-test:
+    name: GUI install test
+    needs: iso
+    if: ${{ !github.event.repository.private }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: true
+          large-packages: false
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.variant || 'sloth-os' }}-iso
+          path: output
+
+      - name: Install QEMU and OCR
+        run: |
+          sudo apt-get -qq update
+          sudo apt-get -qq install -y qemu-system-x86 qemu-utils ovmf tesseract-ocr python3-pil > /dev/null
+
+      - name: Install, restart, sign in
+        run: sudo python3 tools/tests/gui_install_test.py "output/${VARIANT}.iso" "$PWD/gui-test"
+
+      - name: Result
+        if: always()
+        run: |
+          {
+            echo "### GUI install test"
+            ls gui-test/shots 2>/dev/null | sed 's/^/- /'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gui-install-test-${{ inputs.variant || 'sloth-os' }}
+          path: |
+            gui-test/shots/
+            gui-test/serial-*.log
           retention-days: 7

@@ -10,8 +10,14 @@ from a terminal must also work from a GUI.
   ISO every night, starts it, and checks that the sign-in screen and Sloth Center come up (the NVIDIA image's stock
   sign-in screen on 2026-11-25 was only seen in the log). The HP then only has to test real hardware. Free on
   GitHub-hosted Linux runners for a public repository (KVM works there). **No unattended mode in the installer**
-  (the user, 2026-11-26: not wanted). Instead: the CI clicks through the real installer like a person (screenshots
-  and key presses through QEMU), or boots a disk image made from the built image without the installer. To decide
+  (the user, 2026-11-26: not wanted). Chosen (2026-11-26): the CI clicks through the real installer like a person.
+  `tools/tests/gui_install_test.py`: QEMU + KVM starts the ISO, the script reads the screen with tesseract and
+  clicks the buttons by their text (Install, Next, the account typed in, Empty disk, the checkbox, Start installing,
+  Restart), starts the installed disk, signs in and waits for Sloth Welcome; screenshots of every step as an
+  artifact. Runs in iso.yml (job "GUI install test"), which build.yml now calls after every image build with that
+  exact image, and by itself when the installer or the test changes. (The existing "Install test" in build.yml
+  installs with bootc and only waits for the text login prompt, so it never saw the graphical sign-in.)
+  - [ ] The first CI run goes through (2026-11-26)
 - [ ] **A hardware compatibility check** (the user: yes, but in what form? Like the "Can you run it" checkers for
   games: a scan of this computer that says whether Sloth OS will run on it; not sure users want it). Which Wi-Fi
   card, graphics card, fingerprint reader works; later also from users' reports (with permission) through the
