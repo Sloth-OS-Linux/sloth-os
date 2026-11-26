@@ -222,12 +222,21 @@ class VM:
 
     def stop(self, timeout=180):
         """Waits for the machine to switch off by itself (-no-reboot: a restart ends QEMU); stops it after that."""
-        try:
-            self.proc.wait(timeout)
-            return True
-        except subprocess.TimeoutExpired:
-            self.proc.kill()
-            return False
+        end = time.time() + timeout
+        n = 0
+        while time.time() < end:
+            try:
+                self.proc.wait(30)
+                log(f"[{self.name}] switched off after {timeout - (end - time.time()):.0f} s")
+                return True
+            except subprocess.TimeoutExpired:
+                n += 1
+                try:                          # what holds it up (a stop job, a hung service): every 30 s a picture
+                    self.screen(keep=f"stopping-{n * 30}s")
+                except (OSError, Failed):
+                    pass
+        self.proc.kill()
+        return False
 
 
 def install():
