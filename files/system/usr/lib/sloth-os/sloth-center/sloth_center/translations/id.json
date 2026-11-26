@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Lingkungan Windows diperiksa beberapa menit setelah kamu masuk, lalu setiap 6 jam.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: memperbarui diri sendiri saat kamu menjalankannya, seperti di Windows.",
   "Check now": "Periksa sekarang",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Tetap di lingkungan Windows yang berfungsi, karena yang terbaru tidak menjalankannya: {programs}. Sloth OS mencoba lagi saat ada yang lebih baru."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Tetap di lingkungan Windows yang berfungsi, karena yang terbaru tidak menjalankannya: {programs}. Sloth OS mencoba lagi saat ada yang lebih baru.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "PIN juga membuka kata sandi yang Anda simpan (Wi-Fi, folder jaringan) saat Anda masuk.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Agar juga membuka kata sandi yang Anda simpan, ubah PIN sekali dan ketik kata sandi Anda bersamanya.",
+  "That's not your account password.": "Itu bukan kata sandi akun Anda.",
+  "Your account password (optional)": "Kata sandi akun Anda (opsional)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Dengan kata sandi Anda, PIN juga membuka kata sandi yang Anda simpan (Wi-Fi, folder jaringan) saat Anda masuk. Chip keamanan menjaga kata sandi tetap terkunci: hanya PIN yang benar yang bisa mengeluarkannya."
 }

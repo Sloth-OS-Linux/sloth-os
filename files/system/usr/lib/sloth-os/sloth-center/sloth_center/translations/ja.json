@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows 実行環境はサインインの数分後に確認され、その後は 6 時間ごとです。",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: 起動したときに自分で更新されます (Windows と同じ)。",
   "Check now": "今すぐ確認",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "最新の Windows 実行環境では起動しなかったため、動く環境のままにしています: {programs}。もっと新しいものが出たら Sloth OS がまた試します。"
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "最新の Windows 実行環境では起動しなかったため、動く環境のままにしています: {programs}。もっと新しいものが出たら Sloth OS がまた試します。",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "サインイン時に保存済みのパスワード（Wi-Fi、ネットワークフォルダー）のロックも解除します。",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "保存済みのパスワードもロック解除できるようにするには、一度 PIN を変更し、その際にパスワードを入力してください。",
+  "That's not your account password.": "アカウントのパスワードではありません。",
+  "Your account password (optional)": "アカウントのパスワード（任意）",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "パスワードも入力すると、サインイン時に PIN で保存済みのパスワード（Wi-Fi、ネットワークフォルダー）のロックも解除されます。パスワードはセキュリティチップがロックして保管し、正しい PIN でしか取り出せません。"
 }

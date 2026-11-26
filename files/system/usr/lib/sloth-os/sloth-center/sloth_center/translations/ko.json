@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows 실행 환경은 로그인 몇 분 뒤에 확인되고, 그 후 6시간마다 확인돼요.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: 실행할 때 스스로 업데이트돼요. Windows와 같아요.",
   "Check now": "지금 확인",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "최신 Windows 실행 환경에서는 시작되지 않아서 작동하는 환경에 그대로 두었어요: {programs}. 더 새로운 버전이 나오면 Sloth OS가 다시 시도해요."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "최신 Windows 실행 환경에서는 시작되지 않아서 작동하는 환경에 그대로 두었어요: {programs}. 더 새로운 버전이 나오면 Sloth OS가 다시 시도해요.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "로그인할 때 저장된 암호(Wi-Fi, 네트워크 폴더)의 잠금도 해제합니다.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "저장된 암호의 잠금도 해제하게 하려면 PIN을 한 번 변경하면서 암호를 함께 입력하세요.",
+  "That's not your account password.": "계정 암호가 아닙니다.",
+  "Your account password (optional)": "계정 암호(선택 사항)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "암호를 함께 입력하면 로그인할 때 PIN으로 저장된 암호(Wi-Fi, 네트워크 폴더)의 잠금도 해제됩니다. 보안 칩이 암호를 잠가 두며, 올바른 PIN만 꺼낼 수 있습니다."
 }

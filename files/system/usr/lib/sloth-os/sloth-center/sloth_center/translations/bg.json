@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Средата на Windows се проверява няколко минути след влизането ти, после на всеки 6 часа.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: те се обновяват сами, когато ги стартираш, както в Windows.",
   "Check now": "Провери сега",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Оставени на средата на Windows, която работи, защото с най-новата не тръгнаха: {programs}. Sloth OS ще опита пак, когато излезе по-нова."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Оставени на средата на Windows, която работи, защото с най-новата не тръгнаха: {programs}. Sloth OS ще опита пак, когато излезе по-нова.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Освен това отключва запазените ви пароли (Wi-Fi, мрежови папки) при влизане.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "За да отключва и запазените ви пароли, сменете ПИН кода веднъж и въведете паролата си заедно с него.",
+  "That's not your account password.": "Това не е паролата на акаунта ви.",
+  "Your account password (optional)": "Паролата на акаунта ви (по избор)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "С паролата ви ПИН кодът отключва при влизане и запазените ви пароли (Wi-Fi, мрежови папки). Чипът за сигурност пази паролата заключена: само правилният ПИН код я изважда."
 }

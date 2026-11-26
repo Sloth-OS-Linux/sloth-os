@@ -21,7 +21,8 @@ Operations:
   registry-login <registry> <user>               signs in to an image registry for updates and switching
                                                  images (token on the input; /etc/ostree/auth.json)
   registry-logout <registry>                     signs out
-  pin-set                                        a PIN for the calling user (the PIN on the input, 4–8 digits);
+  pin-set                                        a PIN for the calling user (the PIN, then the account's password
+                                                 for KWallet, on the input; the PIN 4–8 digits);
                                                  turns on the with-sloth-pin feature of the "sloth" authselect profile
   pin-remove                                     deletes the calling user's PIN
   zram default|more|off                          memory compression (zram swap) size from the next start
@@ -474,8 +475,12 @@ def _ensure_pin_profile(on):
     features = [f for f in features if f != "with-sloth-pin"] + (["with-sloth-pin"] if on else [])
     if _needs_altfiles() and ALTFILES not in features:
         features.append(ALTFILES)
-    if profile in ("sloth", "vendor/sloth"):
-        r = run(["authselect", "enable-feature" if on else "disable-feature", "with-sloth-pin"])
+    if profile in ("sloth", "vendor/sloth") and on:
+        # selected again (not only enable-feature), so the files are made anew from the profile in this image: a
+        # system that chose it before 2026-11-26 moves from pam_exec + pin-check to pam_sloth_pin.so (KWallet)
+        r = run(["authselect", "select", "sloth", *features, "--force"])
+    elif profile in ("sloth", "vendor/sloth"):
+        r = run(["authselect", "disable-feature", "with-sloth-pin"])
     elif on:
         r = run(["authselect", "select", "sloth", *features, "--force", "--backup=sloth-os-pin"])
     else:
@@ -487,8 +492,9 @@ def _ensure_pin_profile(on):
 PIN_VERIFIER = "/usr/libexec/sloth-os/pin-verifier"
 
 
-def pin_set(pin):
-    """The calling user's PIN: kept by pin-verifier (sealed in the TPM, or a root-only hash without one)."""
+def pin_set(pin, password=""):
+    """The calling user's PIN: kept by pin-verifier (sealed in the TPM, or a root-only hash without one). With the
+    account's password too (checked), the PIN also opens the password store (KWallet) at sign-in, if there is a TPM."""
     pw = _caller()
     if pw is None:
         return {"ok": False, "error": "pkexec only"}
@@ -496,7 +502,7 @@ def pin_set(pin):
         return {"ok": False, "error": "bad PIN"}
     if _weak_pin(pin):
         return {"ok": False, "error": "weak PIN"}
-    r = run([PIN_VERIFIER, "--set", pw.pw_name], input=f"{pin}\n")
+    r = run([PIN_VERIFIER, "--set", pw.pw_name], input=f"{pin}\n{password}\n")
     try:
         result = json.loads(r.stdout.strip().splitlines()[-1])
     except (ValueError, IndexError):
@@ -504,7 +510,7 @@ def pin_set(pin):
     if not result.get("ok"):
         return result
     profile = _ensure_pin_profile(True)
-    return {**profile, "tpm": bool(result.get("tpm"))}
+    return {**profile, "tpm": bool(result.get("tpm")), "wallet": bool(result.get("wallet"))}
 
 
 def pin_remove():
@@ -1105,7 +1111,8 @@ def main(argv):
     elif op == "registry-logout" and len(args) == 1 and REGISTRY_RE.match(args[0]):
         result = registry_logout(args[0])
     elif op == "pin-set" and not args and not VERSIONS_ONLY:
-        result = pin_set(sys.stdin.readline().strip())
+        pin = sys.stdin.readline().strip()
+        result = pin_set(pin, sys.stdin.readline().rstrip("\n"))
     elif op == "pin-remove" and not args and not VERSIONS_ONLY:
         result = pin_remove()
     elif op == "driver-options" and not args and not VERSIONS_ONLY:

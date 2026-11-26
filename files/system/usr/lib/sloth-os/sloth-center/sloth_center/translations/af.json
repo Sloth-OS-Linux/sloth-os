@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Die Windows-omgewing word 'n paar minute nadat jy aanmeld nagegaan, daarna elke 6 uur.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: hulle werk hulself by wanneer jy hulle begin, soos op Windows.",
   "Check now": "Kyk nou",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Op die Windows-omgewing gehou wat werk, omdat die nuutste hulle nie laat begin het nie: {programs}. Sloth OS probeer weer wanneer 'n nuwer een kom."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Op die Windows-omgewing gehou wat werk, omdat die nuutste hulle nie laat begin het nie: {programs}. Sloth OS probeer weer wanneer 'n nuwer een kom.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Dit ontsluit ook jou gestoorde wagwoorde (Wi-Fi, netwerkvouers) wanneer jy aanmeld.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Om dit ook jou gestoorde wagwoorde te laat ontsluit, verander die PIN een keer en tik jou wagwoord saam daarmee.",
+  "That's not your account password.": "Dis nie jou rekening se wagwoord nie.",
+  "Your account password (optional)": "Jou rekening se wagwoord (opsioneel)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Met jou wagwoord ontsluit die PIN ook jou gestoorde wagwoorde (Wi-Fi, netwerkvouers) wanneer jy aanmeld. Die sekuriteitskyfie hou die wagwoord gesluit: net die regte PIN kry dit uit."
 }

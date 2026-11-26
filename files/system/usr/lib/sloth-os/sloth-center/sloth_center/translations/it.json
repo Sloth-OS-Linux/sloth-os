@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "L'ambiente Windows viene controllato pochi minuti dopo l'accesso, poi ogni 6 ore.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: si aggiornano da soli quando li avvii, come su Windows.",
   "Check now": "Controlla ora",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Restano sull'ambiente Windows che funziona, perché con il più recente non si avviavano: {programs}. Sloth OS riprova quando ne arriva uno più nuovo."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Restano sull'ambiente Windows che funziona, perché con il più recente non si avviavano: {programs}. Sloth OS riprova quando ne arriva uno più nuovo.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Sblocca anche le password salvate (Wi-Fi, cartelle di rete) quando accedi.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Perché sblocchi anche le password salvate, cambia il PIN una volta e scrivi insieme la tua password.",
+  "That's not your account password.": "Questa non è la password del tuo account.",
+  "Your account password (optional)": "La password del tuo account (facoltativa)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Con la tua password, il PIN sblocca anche le password salvate (Wi-Fi, cartelle di rete) quando accedi. Il chip di sicurezza tiene la password sotto chiave: solo il PIN giusto la tira fuori."
 }

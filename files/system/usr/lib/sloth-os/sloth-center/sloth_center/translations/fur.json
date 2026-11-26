@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "L'ambient Windows al ven controlât cualchi minût dopo che tu jentris, e po ogni 6 oris.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: si inzornin di bessôi cuant che tu ju fasis partî, come su Windows.",
   "Check now": "Controle cumò",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Tignûts sul ambient Windows che al va, parcè che cul plui gnûf no partivin: {programs}. Sloth OS al torne a provâ cuant che al rive un plui gnûf."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Tignûts sul ambient Windows che al va, parcè che cul plui gnûf no partivin: {programs}. Sloth OS al torne a provâ cuant che al rive un plui gnûf.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Al sbloche ancje lis tôs passwords salvadis (Wi-Fi, cartelis di rêt) cuant che tu jentris.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Par che al sbloci ancje lis tôs passwords salvadis, cambie il PIN une volte e scrîf la tô password cun lui.",
+  "That's not your account password.": "Cheste no je la password dal to account.",
+  "Your account password (optional)": "La password dal to account (opzionâl)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Cu la tô password, il PIN al sbloche ancje lis tôs passwords salvadis (Wi-Fi, cartelis di rêt) cuant che tu jentris. Il chip di sigurece al ten la password sierade: dome il PIN just le tire fûr."
 }

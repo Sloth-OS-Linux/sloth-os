@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "நீ உள்நுழைந்த சில நிமிடங்களுக்குப் பிறகு Windows சூழல் சரிபார்க்கப்படும், பிறகு ஒவ்வொரு 6 மணி நேரத்திற்கும்.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: தொடங்கும்போது இவை தாமாகவே புதுப்பிக்கப்படும், Windows போலவே.",
   "Check now": "இப்போது சரிபார்",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "வேலை செய்யும் Windows சூழலிலேயே வைக்கப்பட்டுள்ளன, ஏனெனில் புதியது இவற்றைத் தொடங்கவில்லை: {programs}. புதியது வந்ததும் Sloth OS மீண்டும் முயலும்."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "வேலை செய்யும் Windows சூழலிலேயே வைக்கப்பட்டுள்ளன, ஏனெனில் புதியது இவற்றைத் தொடங்கவில்லை: {programs}. புதியது வந்ததும் Sloth OS மீண்டும் முயலும்.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "நீங்கள் உள்நுழையும்போது சேமித்த கடவுச்சொற்களையும் (Wi-Fi, பிணைய கோப்புறைகள்) இது திறக்கிறது.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "சேமித்த கடவுச்சொற்களையும் இது திறக்க, PIN-ஐ ஒருமுறை மாற்றி அதனுடன் உங்கள் கடவுச்சொல்லைத் தட்டச்சு செய்யுங்கள்.",
+  "That's not your account password.": "இது உங்கள் கணக்கின் கடவுச்சொல் அல்ல.",
+  "Your account password (optional)": "உங்கள் கணக்கின் கடவுச்சொல் (விருப்பத்தேர்வு)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "உங்கள் கடவுச்சொல்லுடன், நீங்கள் உள்நுழையும்போது PIN சேமித்த கடவுச்சொற்களையும் (Wi-Fi, பிணைய கோப்புறைகள்) திறக்கிறது. பாதுகாப்புச் சில்லு கடவுச்சொல்லைப் பூட்டி வைக்கிறது: சரியான PIN மட்டுமே அதை வெளியே எடுக்கும்."
 }

@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows ਵਾਤਾਵਰਣ ਸਾਈਨ ਇਨ ਕਰਨ ਤੋਂ ਕੁਝ ਮਿੰਟ ਬਾਅਦ ਜਾਂਚਿਆ ਜਾਂਦਾ ਹੈ, ਫਿਰ ਹਰ 6 ਘੰਟੇ।",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ਸ਼ੁਰੂ ਕਰਨ 'ਤੇ ਇਹ ਆਪਣੇ-ਆਪ ਅੱਪਡੇਟ ਹੁੰਦੇ ਹਨ, Windows ਵਾਂਗ।",
   "Check now": "ਹੁਣੇ ਜਾਂਚੋ",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "ਕੰਮ ਕਰਨ ਵਾਲੇ Windows ਵਾਤਾਵਰਣ 'ਤੇ ਰੱਖੇ ਗਏ ਹਨ, ਕਿਉਂਕਿ ਸਭ ਤੋਂ ਨਵੇਂ ਨਾਲ ਇਹ ਸ਼ੁਰੂ ਨਹੀਂ ਹੋਏ: {programs}। ਨਵਾਂ ਆਉਣ 'ਤੇ Sloth OS ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੇਗਾ।"
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "ਕੰਮ ਕਰਨ ਵਾਲੇ Windows ਵਾਤਾਵਰਣ 'ਤੇ ਰੱਖੇ ਗਏ ਹਨ, ਕਿਉਂਕਿ ਸਭ ਤੋਂ ਨਵੇਂ ਨਾਲ ਇਹ ਸ਼ੁਰੂ ਨਹੀਂ ਹੋਏ: {programs}। ਨਵਾਂ ਆਉਣ 'ਤੇ Sloth OS ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੇਗਾ।",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "ਸਾਈਨ ਇਨ ਕਰਨ ਵੇਲੇ ਇਹ ਤੁਹਾਡੇ ਸੰਭਾਲੇ ਹੋਏ ਪਾਸਵਰਡ (Wi-Fi, ਨੈੱਟਵਰਕ ਫੋਲਡਰ) ਵੀ ਖੋਲ੍ਹ ਦਿੰਦਾ ਹੈ।",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "ਇਸ ਨੂੰ ਤੁਹਾਡੇ ਸੰਭਾਲੇ ਹੋਏ ਪਾਸਵਰਡ ਵੀ ਖੋਲ੍ਹਣ ਦੇਣ ਲਈ, PIN ਇੱਕ ਵਾਰ ਬਦਲੋ ਅਤੇ ਉਸ ਨਾਲ ਆਪਣਾ ਪਾਸਵਰਡ ਟਾਈਪ ਕਰੋ।",
+  "That's not your account password.": "ਇਹ ਤੁਹਾਡੇ ਖਾਤੇ ਦਾ ਪਾਸਵਰਡ ਨਹੀਂ ਹੈ।",
+  "Your account password (optional)": "ਤੁਹਾਡੇ ਖਾਤੇ ਦਾ ਪਾਸਵਰਡ (ਚੋਣਵਾਂ)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਨਾਲ, ਸਾਈਨ ਇਨ ਕਰਨ ਵੇਲੇ PIN ਤੁਹਾਡੇ ਸੰਭਾਲੇ ਹੋਏ ਪਾਸਵਰਡ (Wi-Fi, ਨੈੱਟਵਰਕ ਫੋਲਡਰ) ਵੀ ਖੋਲ੍ਹ ਦਿੰਦਾ ਹੈ। ਸੁਰੱਖਿਆ ਚਿੱਪ ਪਾਸਵਰਡ ਨੂੰ ਤਾਲਾਬੰਦ ਰੱਖਦੀ ਹੈ: ਸਿਰਫ਼ ਸਹੀ PIN ਹੀ ਇਸ ਨੂੰ ਬਾਹਰ ਕੱਢਦਾ ਹੈ।"
 }

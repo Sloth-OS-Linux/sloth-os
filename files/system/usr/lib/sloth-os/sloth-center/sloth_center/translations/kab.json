@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Tawennaḍt n Windows tettwasenqad kra n tesdatin deffir n tuqqna-k, syin yal 6 n yisragen.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: leqqmen iman-nsen mi ara ten-tessekreḍ, am deg Windows.",
   "Check now": "Senqed tura",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Ttwaǧǧan deg twennaḍt n Windows i yetteddun, acku tamaynut ur ten-tessekker ara: {programs}. Sloth OS ad yeɛreḍ tikkelt-nniḍen mi ara d-tas tin yennernin."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Ttwaǧǧan deg twennaḍt n Windows i yetteddun, acku tamaynut ur ten-tessekker ara: {programs}. Sloth OS ad yeɛreḍ tikkelt-nniḍen mi ara d-tas tin yennernin.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Yekkes daɣen asewḥel i wawalen-ik uffiren yettwaskelsen (Wi-Fi, ikaramen n uẓeṭṭa) mi ara tkecmeḍ.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Akken ad yekkes asewḥel ula i wawalen-ik uffiren yettwaskelsen, beddel PIN tikkelt yiwet, tebduḍ awal-ik uffir yid-s.",
+  "That's not your account password.": "Wagi mačči d awal uffir n umiḍan-ik.",
+  "Your account password (optional)": "Awal uffir n umiḍan-ik (d afrayan)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "S wawal-ik uffir, PIN yekkes daɣen asewḥel i wawalen-ik uffiren yettwaskelsen (Wi-Fi, ikaramen n uẓeṭṭa) mi ara tkecmeḍ. Achip n tɣellist yettaǧǧa awal uffir yemdel: d PIN kan ameɣtu i t-id-yessuffuɣen."
 }

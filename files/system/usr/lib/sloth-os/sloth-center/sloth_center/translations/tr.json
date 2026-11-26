@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows ortamı oturum açtıktan birkaç dakika sonra, sonra her 6 saatte bir denetlenir.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: Windows'taki gibi, başlattığında kendilerini güncellerler.",
   "Check now": "Şimdi denetle",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "En yenisiyle açılmadıkları için çalışan Windows ortamında tutuluyorlar: {programs}. Daha yenisi gelince Sloth OS yeniden dener."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "En yenisiyle açılmadıkları için çalışan Windows ortamında tutuluyorlar: {programs}. Daha yenisi gelince Sloth OS yeniden dener.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Oturum açarken kayıtlı parolalarınızın (Wi-Fi, ağ klasörleri) kilidini de açar.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Kayıtlı parolalarınızın kilidini de açması için PIN'i bir kez değiştirin ve parolanızı da yazın.",
+  "That's not your account password.": "Bu, hesabınızın parolası değil.",
+  "Your account password (optional)": "Hesabınızın parolası (isteğe bağlı)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Parolanızla birlikte PIN, oturum açarken kayıtlı parolalarınızın (Wi-Fi, ağ klasörleri) kilidini de açar. Güvenlik yongası parolayı kilitli tutar: onu yalnızca doğru PIN çıkarır."
 }

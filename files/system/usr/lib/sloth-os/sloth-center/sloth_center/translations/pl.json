@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Środowisko Windows jest sprawdzane kilka minut po zalogowaniu, potem co 6 godzin.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: aktualizują się same, gdy je uruchamiasz, tak jak w Windows.",
   "Check now": "Sprawdź teraz",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Zostają przy środowisku Windows, które działa, bo z najnowszym się nie uruchamiały: {programs}. Sloth OS spróbuje znowu, gdy pojawi się nowsze."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Zostają przy środowisku Windows, które działa, bo z najnowszym się nie uruchamiały: {programs}. Sloth OS spróbuje znowu, gdy pojawi się nowsze.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Przy logowaniu odblokowuje też zapisane hasła (Wi-Fi, foldery sieciowe).",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Aby odblokowywał też zapisane hasła, zmień raz PIN i wpisz razem z nim swoje hasło.",
+  "That's not your account password.": "To nie jest hasło Twojego konta.",
+  "Your account password (optional)": "Hasło Twojego konta (opcjonalnie)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Z Twoim hasłem PIN przy logowaniu odblokowuje też zapisane hasła (Wi-Fi, foldery sieciowe). Układ zabezpieczeń trzyma hasło pod kluczem: wydobywa je tylko właściwy PIN."
 }

@@ -13,11 +13,20 @@ runs in the user's name and cannot reach the TPM or the files, so pin-check (the
 check only its own PIN, except root (the sign-in screen, sudo, polkit's helper): the socket's peer credentials.
 Request: one JSON line {"user", "pin", "service"} -> answer "ok" or "no".
 
-  pin-verifier --set <user>      (root; the PIN on standard input) -> {"ok", "tpm"} as JSON
+The PIN also opens the password store (KWallet) on the sign-in screen, like Windows Hello: with a TPM, the account's
+password given together with the PIN is kept encrypted with a key derived from the sealed secret, so only the right
+PIN (through this TPM) brings it back. The sign-in screen's PAM module (pam_sloth_pin.so, run by root) asks with
+"authtok": true and gets "ok <the password in hex>"; it puts it in PAM_AUTHTOK, and pam_kwallet opens the store the
+same as after typing the password. Only root, only for a sign-in service, and only while the password is still the
+account's (checked with unix_chkpwd; after a password change the copy is dropped and the store asks once, as
+without a PIN). Without a TPM nothing is kept: a 4-8 digit PIN guarding a copy on the disk could be guessed.
+
+  pin-verifier --set <user>      (root; the PIN, then optionally the password, on standard input)
+                                 -> {"ok", "tpm", "wallet"} as JSON ("bad password": not the account's password)
   pin-verifier --remove <user>   (root)
 
 Files:
-  /etc/sloth-os/pin/<user>.json       {"v": 2, "salt", "secret" (its SHA-256), "len"} with a TPM, or
+  /etc/sloth-os/pin/<user>.json       {"v": 2, "salt", "secret" (its SHA-256), "len", ["wallet"]} with a TPM, or
                                       {"v": 1, "salt", "hash", "n", "r", "p", "len"} (scrypt) without one
   /etc/sloth-os/pin/<user>.tpm/       seal.pub, seal.priv: the sealed secret (only this TPM can open it)
   /var/lib/sloth-os/pin/<user>.json   wrong tries
@@ -43,6 +52,10 @@ STATE_DIR = os.environ.get("SLOTH_PIN_STATE", "/var/lib/sloth-os/pin")
 # Local services where the PIN is accepted (for the others, e.g. ssh, only the password); pin-check checks too
 SERVICES = {"login", "sddm", "plasmalogin", "plasma-login", "kde", "kscreensaver", "kscreenlocker",
             "polkit-1", "sudo", "sudo-i", "su", "su-l"}
+# Where the password is handed back (the sign-in screens; the store opens right after them)
+SIGN_IN_SERVICES = {"login", "sddm", "plasmalogin", "plasma-login"}
+UNIX_CHKPWD = os.environ.get("SLOTH_UNIX_CHKPWD", "/usr/sbin/unix_chkpwd")
+MAX_PASSWORD = 512
 FREE_TRIES = 5
 MAX_WAIT_S = 3600
 USER_RE = re.compile(r"[a-z_][a-z0-9_.-]{0,31}")
@@ -81,6 +94,57 @@ def _record_path(user):
 
 def _tpm_dir(user):
     return os.path.join(PIN_DIR, f"{user}.tpm")
+
+
+# --- The password for the password store, kept under the sealed secret ---------------------------------
+# Encrypted with keys derived from the sealed secret (standard library only: a SHA-256 counter keystream, and an
+# HMAC over the nonce and the ciphertext).
+
+def _keys(secret):
+    return (hmac.new(secret, b"sloth-os wallet encryption", hashlib.sha256).digest(),
+            hmac.new(secret, b"sloth-os wallet authentication", hashlib.sha256).digest())
+
+
+def _stream(key, nonce, n):
+    out = b""
+    counter = 0
+    while len(out) < n:
+        out += hashlib.sha256(key + nonce + counter.to_bytes(8, "big")).digest()
+        counter += 1
+    return out[:n]
+
+
+def wallet_wrap(secret, password):
+    enc, mac = _keys(secret)
+    nonce = secrets.token_bytes(16)
+    data = password.encode("utf-8")
+    ct = bytes(a ^ b for a, b in zip(data, _stream(enc, nonce, len(data))))
+    return {"nonce": nonce.hex(), "ct": ct.hex(), "mac": hmac.new(mac, nonce + ct, hashlib.sha256).hexdigest()}
+
+
+def wallet_unwrap(secret, wrapped):
+    """The password, or None if the copy is damaged (or not made with this secret)."""
+    try:
+        enc, mac = _keys(secret)
+        nonce, ct = bytes.fromhex(wrapped["nonce"]), bytes.fromhex(wrapped["ct"])
+        if not hmac.compare_digest(hmac.new(mac, nonce + ct, hashlib.sha256).hexdigest(), wrapped["mac"]):
+            return None
+        return bytes(a ^ b for a, b in zip(ct, _stream(enc, nonce, len(ct)))).decode("utf-8")
+    except (KeyError, ValueError, TypeError, UnicodeDecodeError):
+        return None
+
+
+def password_ok(user, password):
+    """Is this the account's password? pam_unix's own checker (root may check any account)."""
+    if not password or len(password) > MAX_PASSWORD or "\0" in password:
+        return False
+    try:
+        r = subprocess.run([UNIX_CHKPWD, user, "nonull"], input=password.encode("utf-8") + b"\0",
+                           capture_output=True, timeout=30)
+        return r.returncode == 0
+    except (OSError, subprocess.SubprocessError) as e:
+        log(f"unix_chkpwd: {e}")
+        return False
 
 
 # --- The TPM (tpm2-tools; TPM2TOOLS_TCTI chooses another TPM, e.g. swtpm in the tests) ----------------
@@ -122,8 +186,9 @@ def _auth(salt, pin):
     return "hex:" + hmac.new(salt, pin.encode(), hashlib.sha256).hexdigest()
 
 
-def tpm_seal(user, pin):
-    """A new random secret sealed with the PIN. -> the record, or None if the TPM did not take it."""
+def tpm_seal(user, pin, password=None):
+    """A new random secret sealed with the PIN (and the password kept under it). -> the record, or None if the TPM
+    did not take it."""
     salt, secret = secrets.token_bytes(16), secrets.token_bytes(32)
     with tempfile.TemporaryDirectory(prefix="sloth-pin-") as work:
         primary = _primary(work)
@@ -145,24 +210,29 @@ def tpm_seal(user, pin):
             os.chmod(os.path.join(new, name), 0o600)
         shutil.rmtree(target, ignore_errors=True)
         os.replace(new, target)
-    return {"v": 2, "salt": salt.hex(), "secret": hashlib.sha256(secret).hexdigest(), "len": len(pin)}
+    record = {"v": 2, "salt": salt.hex(), "secret": hashlib.sha256(secret).hexdigest(), "len": len(pin)}
+    if password:
+        record["wallet"] = wallet_wrap(secret, password)
+    return record
 
 
 def tpm_check(user, record, pin):
+    """The sealed secret for the right PIN, None otherwise."""
     with tempfile.TemporaryDirectory(prefix="sloth-pin-") as work:
         primary = _primary(work)
         if not primary:
-            return False
+            return None
         ctx, out = os.path.join(work, "seal.ctx"), os.path.join(work, "out")
         tdir = _tpm_dir(user)
         if not _tpm("load", "-Q", "-C", primary, "-u", os.path.join(tdir, "seal.pub"),
                     "-r", os.path.join(tdir, "seal.priv"), "-c", ctx):
-            return False
+            return None
         # a wrong PIN fails here (and the TPM counts it); so does a TPM that is locked out for a while
         if not _tpm("unseal", "-Q", "-c", ctx, "-p", _auth(bytes.fromhex(record["salt"]), pin), "-o", out):
-            return False
+            return None
         with open(out, "rb") as f:
-            return hmac.compare_digest(hashlib.sha256(f.read()).hexdigest(), record["secret"])
+            secret = f.read()
+        return secret if hmac.compare_digest(hashlib.sha256(secret).hexdigest(), record["secret"]) else None
 
 
 # --- Without a TPM: the salted scrypt hash, root-only -------------------------------------------------
@@ -181,8 +251,8 @@ def scrypt_check(record, pin):
 
 # --- Setting, removing, checking ----------------------------------------------------------------------
 
-def set_pin(user, pin):
-    record = tpm_seal(user, pin) if tpm_available() else None
+def set_pin(user, pin, password=None):
+    record = tpm_seal(user, pin, password) if tpm_available() else None
     if record is None:
         shutil.rmtree(_tpm_dir(user), ignore_errors=True)
         record = scrypt_record(pin)
@@ -190,7 +260,7 @@ def set_pin(user, pin):
     state = os.path.join(STATE_DIR, f"{user}.json")
     if os.path.exists(state):
         os.unlink(state)
-    return {"ok": True, "tpm": record["v"] == 2}
+    return {"ok": True, "tpm": record["v"] == 2, "wallet": "wallet" in record}
 
 
 def remove_pin(user):
@@ -200,8 +270,9 @@ def remove_pin(user):
     shutil.rmtree(_tpm_dir(user), ignore_errors=True)
 
 
-def check(user, pin, now=None):
-    """True for the right PIN; counts the wrong ones and waits longer and longer after FREE_TRIES."""
+def check(user, pin, now=None, authtok=False):
+    """True for the right PIN; counts the wrong ones and waits longer and longer after FREE_TRIES.
+    authtok: for the right PIN, the account's password instead of True when one is kept and still right."""
     if not USER_RE.fullmatch(user) or not PIN_RE.fullmatch(pin):
         return False
     record = _load(_record_path(user))
@@ -212,13 +283,26 @@ def check(user, pin, now=None):
     now = now or time.time()
     if state.get("until", 0) > now:
         return False  # too many wrong tries: only the password for now
+    secret = None
     try:
-        ok = tpm_check(user, record, pin) if record["v"] == 2 else scrypt_check(record, pin)
+        if record["v"] == 2:
+            secret = tpm_check(user, record, pin)
+            ok = secret is not None
+        else:
+            ok = scrypt_check(record, pin)
     except (KeyError, ValueError, TypeError, OSError):
         return False
     if ok:
         if state:
             os.unlink(state_path)
+        if authtok and secret and "wallet" in record:
+            password = wallet_unwrap(secret, record["wallet"])
+            if password and password_ok(user, password):
+                return password
+            # the password was changed since (or the copy is damaged): dropped, the store asks once as without a PIN
+            log(f"{user}: the kept password is no longer the account's, dropped")
+            record.pop("wallet", None)
+            _write(_record_path(user), json.dumps(record) + "\n")
         if record["v"] == 1 and tpm_available():
             # a PIN from before: it moves into the TPM now that it was typed (the hash goes)
             try:
@@ -252,9 +336,17 @@ def serve(conn):
         if req.get("status"):
             # Sloth Center (in the user's name) asks whether a PIN is set, and where it is kept
             record = _load(_record_path(user))
-            answer = (json.dumps({"set": record.get("v") in (1, 2), "tpm": record.get("v") == 2}) + "\n").encode()
+            answer = (json.dumps({"set": record.get("v") in (1, 2), "tpm": record.get("v") == 2,
+                                  "wallet": "wallet" in record}) + "\n").encode()
         elif str(req.get("service", "")) in SERVICES:
-            answer = b"ok\n" if check(user, str(req["pin"])) else b"no\n"
+            service = str(req["service"])
+            # the password only to root (the sign-in screen), never to a caller in the user's name
+            authtok = bool(req.get("authtok")) and uid == 0 and service in SIGN_IN_SERVICES
+            result = check(user, str(req["pin"]), authtok=authtok)
+            if isinstance(result, str):
+                answer = b"ok " + result.encode("utf-8").hex().encode() + b"\n"
+            else:
+                answer = b"ok\n" if result else b"no\n"
     except (KeyError, ValueError, TypeError, UnicodeDecodeError):
         pass
     conn.sendall(answer)
@@ -270,10 +362,14 @@ def main(argv):
             print(json.dumps({"ok": True}))
             return 0
         pin = sys.stdin.readline().strip()
+        password = sys.stdin.readline().rstrip("\n")
         if not PIN_RE.fullmatch(pin):
             print(json.dumps({"ok": False, "error": "bad PIN"}))
             return 1
-        print(json.dumps(set_pin(argv[1], pin)))
+        if password and not password_ok(argv[1], password):
+            print(json.dumps({"ok": False, "error": "bad password"}))
+            return 1
+        print(json.dumps(set_pin(argv[1], pin, password or None)))
         return 0
     if argv[:1] == ["--serve"] and len(argv) == 2:
         # for the tests (no systemd there): a socket like sloth-pin.socket, one check per connection

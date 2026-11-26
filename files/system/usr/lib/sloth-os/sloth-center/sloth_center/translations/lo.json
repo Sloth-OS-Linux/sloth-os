@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "ສະພາບແວດລ້ອມ Windows ຖືກກວດສອງສາມນາທີຫຼັງຈາກເຂົ້າສູ່ລະບົບ, ຈາກນັ້ນທຸກ 6 ຊົ່ວໂມງ.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ພວກມັນອັບເດດເອງເມື່ອເຈົ້າເປີດ, ຄືກັບໃນ Windows.",
   "Check now": "ກວດດຽວນີ້",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "ຄົງໄວ້ໃນສະພາບແວດລ້ອມ Windows ທີ່ໃຊ້ໄດ້, ເພາະອັນໃໝ່ສຸດເປີດພວກມັນບໍ່ໄດ້: {programs}. Sloth OS ຈະລອງອີກເມື່ອມີອັນໃໝ່ກວ່າ."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "ຄົງໄວ້ໃນສະພາບແວດລ້ອມ Windows ທີ່ໃຊ້ໄດ້, ເພາະອັນໃໝ່ສຸດເປີດພວກມັນບໍ່ໄດ້: {programs}. Sloth OS ຈະລອງອີກເມື່ອມີອັນໃໝ່ກວ່າ.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "ມັນຍັງປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ຂອງທ່ານ (Wi-Fi, ໂຟນເດີເຄືອຂ່າຍ) ເມື່ອທ່ານເຂົ້າສູ່ລະບົບ.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "ເພື່ອໃຫ້ມັນປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ນຳ, ໃຫ້ປ່ຽນ PIN ໜຶ່ງຄັ້ງ ແລະ ພິມລະຫັດຜ່ານຂອງທ່ານພ້ອມກັນ.",
+  "That's not your account password.": "ນັ້ນບໍ່ແມ່ນລະຫັດຜ່ານບັນຊີຂອງທ່ານ.",
+  "Your account password (optional)": "ລະຫັດຜ່ານບັນຊີຂອງທ່ານ (ບໍ່ບັງຄັບ)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "ດ້ວຍລະຫັດຜ່ານຂອງທ່ານ, PIN ຍັງປົດລັອກລະຫັດຜ່ານທີ່ບັນທຶກໄວ້ (Wi-Fi, ໂຟນເດີເຄືອຂ່າຍ) ເມື່ອທ່ານເຂົ້າສູ່ລະບົບ. ຊິບຄວາມປອດໄພເກັບລະຫັດຜ່ານໄວ້ແບບລັອກ: ມີແຕ່ PIN ທີ່ຖືກຕ້ອງເທົ່ານັ້ນທີ່ເອົາມັນອອກມາໄດ້."
 }

@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows aplinka tikrinama kelios minutės po prisijungimo, vėliau kas 6 valandas.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: jos pačios atsinaujina, kai jas paleidi, kaip Windows.",
   "Check now": "Tikrinti dabar",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Paliktos veikiančioje Windows aplinkoje, nes su naujausia nepasileido: {programs}. Sloth OS bandys vėl, kai bus naujesnė."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Paliktos veikiančioje Windows aplinkoje, nes su naujausia nepasileido: {programs}. Sloth OS bandys vėl, kai bus naujesnė.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Prisijungiant jis taip pat atrakina jūsų įrašytus slaptažodžius (Wi-Fi, tinklo aplankus).",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Kad jis atrakintų ir įrašytus slaptažodžius, vieną kartą pakeiskite PIN kodą ir kartu įveskite savo slaptažodį.",
+  "That's not your account password.": "Tai ne jūsų paskyros slaptažodis.",
+  "Your account password (optional)": "Jūsų paskyros slaptažodis (nebūtina)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Su jūsų slaptažodžiu PIN kodas prisijungiant atrakina ir įrašytus slaptažodžius (Wi-Fi, tinklo aplankus). Saugos lustas laiko slaptažodį užrakintą: ištraukti jį gali tik teisingas PIN kodas."
 }

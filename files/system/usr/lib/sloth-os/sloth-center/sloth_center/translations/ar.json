@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "تُفحَص بيئة ويندوز بعد بضع دقائق من تسجيل دخولك، ثم كل 6 ساعات.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: تحدّث نفسها عند تشغيلها، كما في ويندوز.",
   "Check now": "افحص الآن",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "أُبقيت على بيئة ويندوز التي تعمل، لأن الأحدث لم يشغّلها: {programs}. سيحاول Sloth OS مجددًا عند صدور بيئة أحدث."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "أُبقيت على بيئة ويندوز التي تعمل، لأن الأحدث لم يشغّلها: {programs}. سيحاول Sloth OS مجددًا عند صدور بيئة أحدث.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "كما يفتح كلمات المرور المحفوظة (Wi-Fi، مجلدات الشبكة) عند تسجيل الدخول.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "لكي يفتح كلمات المرور المحفوظة أيضًا، غيّر رمز PIN مرة واحدة واكتب كلمة المرور معه.",
+  "That's not your account password.": "هذه ليست كلمة مرور حسابك.",
+  "Your account password (optional)": "كلمة مرور حسابك (اختياري)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "مع كلمة المرور، يفتح رمز PIN أيضًا كلمات المرور المحفوظة (Wi-Fi، مجلدات الشبكة) عند تسجيل الدخول. تحفظ شريحة الأمان كلمة المرور مقفلة: لا يخرجها إلا رمز PIN الصحيح."
 }

@@ -6,7 +6,10 @@
 set -uo pipefail
 dnf -q -y install authselect pamtester python3 passwd util-linux procps-ng tpm2-tools swtpm swtpm-tools >/dev/null 2>&1 \
     || { echo "dnf failed"; exit 1; }
-mkdir -p /usr/libexec/sloth-os /run/sloth-os
+mkdir -p /usr/libexec/sloth-os /run/sloth-os /usr/src/sloth-os/pam_sloth_pin
+# the PAM module, built by the image's own script (the profile's PIN line is pam_sloth_pin.so since 2026-11-26)
+sed 's/\r$//' /repo/files/system/usr/src/sloth-os/pam_sloth_pin/pam_sloth_pin.c > /usr/src/sloth-os/pam_sloth_pin/pam_sloth_pin.c
+sed 's/\r$//' /repo/files/scripts/pam-sloth-pin.sh | bash >/tmp/build.log 2>&1 || { echo "build failed"; tail -20 /tmp/build.log; exit 1; }
 for f in pin-check pin-verifier; do
     sed 's/\r$//' "/repo/files/system/usr/libexec/sloth-os/$f" > "/usr/libexec/sloth-os/$f"
     chmod 755 "/usr/libexec/sloth-os/$f"
@@ -76,7 +79,7 @@ run_round() {  # the round's name
         [[ $r == *'"tpm": false'* ]] && ok "no TPM: the root-only hash" || bad "tpm flag: $r"
     fi
     st=$(status_as tester tester)
-    want='{"set": true, "tpm": false}'; [[ $1 == TPM ]] && want='{"set": true, "tpm": true}'
+    want='{"set": true, "tpm": false, "wallet": false}'; [[ $1 == TPM ]] && want='{"set": true, "tpm": true, "wallet": false}'
     [[ $st == "$want" ]] && ok "Sloth Center (as the user) learns the PIN is set: $st" || bad "status: $st"
     [[ $(status_as other tester) == no ]] && ok "another user does not learn it" || bad "another user's status answer"
     runuser -u tester -- cat /etc/sloth-os/pin/tester.json >/dev/null 2>&1 && bad "the user can read the PIN's file" \

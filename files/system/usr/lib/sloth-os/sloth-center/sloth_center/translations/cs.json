@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Prostředí Windows se kontroluje pár minut po přihlášení, potom každých 6 hodin.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: aktualizují se samy, když je spustíš, jako ve Windows.",
   "Check now": "Zkontrolovat teď",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Ponecháno na prostředí Windows, které funguje, protože s nejnovějším se nespustily: {programs}. Sloth OS to zkusí znovu, až vyjde novější."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Ponecháno na prostředí Windows, které funguje, protože s nejnovějším se nespustily: {programs}. Sloth OS to zkusí znovu, až vyjde novější.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Při přihlášení také odemkne vaše uložená hesla (Wi-Fi, síťové složky).",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Aby odemykal i uložená hesla, jednou PIN změňte a zadejte s ním své heslo.",
+  "That's not your account password.": "To není heslo vašeho účtu.",
+  "Your account password (optional)": "Heslo vašeho účtu (nepovinné)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "S vaším heslem PIN při přihlášení odemkne i uložená hesla (Wi-Fi, síťové složky). Bezpečnostní čip drží heslo zamčené: dostane ho ven jen správný PIN."
 }

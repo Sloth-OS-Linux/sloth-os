@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "A Windows-futtató pár perccel a bejelentkezés után ellenőrzi a frissítést, utána 6 óránként.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: indításkor maguktól frissülnek, ahogy Windowson is.",
   "Check now": "Ellenőrzés most",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "A működő Windows-futtatón maradnak, mert a legújabbal nem indultak el: {programs}. A Sloth OS újra megpróbálja, ha jön egy újabb."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "A működő Windows-futtatón maradnak, mert a legújabbal nem indultak el: {programs}. A Sloth OS újra megpróbálja, ha jön egy újabb.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Bejelentkezéskor a mentett jelszavaidat (Wi-Fi, hálózati mappák) is feloldja.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Ha azt szeretnéd, hogy a mentett jelszavaidat is feloldja, változtasd meg egyszer a PIN-t, és írd be mellé a jelszavadat.",
+  "That's not your account password.": "Ez nem a fiókod jelszava.",
+  "Your account password (optional)": "A fiókod jelszava (nem kötelező)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "A jelszavaddal a PIN bejelentkezéskor a mentett jelszavaidat (Wi-Fi, hálózati mappák) is feloldja. A biztonsági chip zárva tartja a jelszót: csak a helyes PIN-nel jön elő."
 }

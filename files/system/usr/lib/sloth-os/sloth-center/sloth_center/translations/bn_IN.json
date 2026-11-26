@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "তুমি সাইন ইন করার কয়েক মিনিট পরে Windows পরিবেশ পরীক্ষা করা হয়, তারপর প্রতি 6 ঘণ্টায়।",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: চালু করলে এগুলো নিজেরাই আপডেট হয়, Windows-এর মতো।",
   "Check now": "এখনই পরীক্ষা করো",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "যে Windows পরিবেশে কাজ করে সেখানেই রাখা হয়েছে, কারণ নতুনতমটিতে এগুলো চালু হয়নি: {programs}। নতুন একটি এলে Sloth OS আবার চেষ্টা করবে।"
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "যে Windows পরিবেশে কাজ করে সেখানেই রাখা হয়েছে, কারণ নতুনতমটিতে এগুলো চালু হয়নি: {programs}। নতুন একটি এলে Sloth OS আবার চেষ্টা করবে।",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "সাইন ইন করার সময় এটি আপনার সংরক্ষিত পাসওয়ার্ডগুলিও (Wi-Fi, নেটওয়ার্ক ফোল্ডার) খুলে দেয়।",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "এটিকে আপনার সংরক্ষিত পাসওয়ার্ডও খুলতে দিতে, PIN একবার বদলান এবং তার সঙ্গে আপনার পাসওয়ার্ড টাইপ করুন।",
+  "That's not your account password.": "এটি আপনার অ্যাকাউন্টের পাসওয়ার্ড নয়।",
+  "Your account password (optional)": "আপনার অ্যাকাউন্টের পাসওয়ার্ড (ঐচ্ছিক)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "আপনার পাসওয়ার্ড দিলে, সাইন ইন করার সময় PIN আপনার সংরক্ষিত পাসওয়ার্ডগুলিও (Wi-Fi, নেটওয়ার্ক ফোল্ডার) খুলে দেয়। নিরাপত্তা চিপ পাসওয়ার্ডটি তালাবন্ধ রাখে: কেবল সঠিক PIN-ই সেটি বের করতে পারে।"
 }

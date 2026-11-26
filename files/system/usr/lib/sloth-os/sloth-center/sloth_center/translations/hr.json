@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows okruženje provjerava se nekoliko minuta nakon prijave, a zatim svakih 6 sati.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ažuriraju se sami kad ih pokreneš, kao u Windowsu.",
   "Check now": "Provjeri sada",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Ostavljeni na Windows okruženju koje radi, jer se s najnovijim nisu pokrenuli: {programs}. Sloth OS pokušat će ponovno kad izađe novije."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Ostavljeni na Windows okruženju koje radi, jer se s najnovijim nisu pokrenuli: {programs}. Sloth OS pokušat će ponovno kad izađe novije.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Pri prijavi otključava i vaše spremljene lozinke (Wi-Fi, mrežne mape).",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Da otključava i spremljene lozinke, jednom promijenite PIN i uz njega upišite svoju lozinku.",
+  "That's not your account password.": "To nije lozinka vašeg računa.",
+  "Your account password (optional)": "Lozinka vašeg računa (neobavezno)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "S vašom lozinkom PIN pri prijavi otključava i spremljene lozinke (Wi-Fi, mrežne mape). Sigurnosni čip drži lozinku zaključanom: van je izvlači samo ispravan PIN."
 }

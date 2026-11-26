@@ -125,47 +125,68 @@ Kirigami.ScrollablePage {
                         }
                     }
                 }
-                // Entering a PIN (twice, digits only)
-                RowLayout {
+                // Entering a PIN (twice, digits only), and with a TPM the account password, so the PIN also opens
+                // the password store (KWallet) at sign-in
+                ColumnLayout {
                     id: pinForm
                     visible: false
                     Layout.fillWidth: true
-                    spacing: Kirigami.Units.largeSpacing
-                    Kirigami.PasswordField {
-                        id: pinField
+                    spacing: Kirigami.Units.smallSpacing
+                    RowLayout {
                         Layout.fillWidth: true
-                        // Tab goes on to the second field, not to the show button first
-                        KeyNavigation.tab: pinField2
-                        placeholderText: L.t("New PIN (4–8 digits)")
-                        maximumLength: 8
-                        inputMethodHints: Qt.ImhDigitsOnly
-                        validator: RegularExpressionValidator { regularExpression: /[0-9]{0,8}/ }
-                    }
-                    Kirigami.PasswordField {
-                        id: pinField2
-                        Layout.fillWidth: true
-                        KeyNavigation.backtab: pinField
-                        placeholderText: L.t("Once more")
-                        maximumLength: 8
-                        inputMethodHints: Qt.ImhDigitsOnly
-                        validator: RegularExpressionValidator { regularExpression: /[0-9]{0,8}/ }
-                        onAccepted: pinSave.clicked()
-                    }
-                    QQC2.Button {
-                        id: pinSave
-                        icon.name: "document-save"
-                        text: L.t("Save")
-                        enabled: pinField.text.length >= 4 && pinField2.text.length >= 4
-                        onClicked: {
-                            accounts.setPin(pinField.text, pinField2.text)
-                            pinField.text = ""; pinField2.text = ""
-                            if (accounts.errorText === "")
-                                pinForm.visible = false
+                        spacing: Kirigami.Units.largeSpacing
+                        Kirigami.PasswordField {
+                            id: pinField
+                            Layout.fillWidth: true
+                            // Tab goes on to the second field, not to the show button first
+                            KeyNavigation.tab: pinField2
+                            placeholderText: L.t("New PIN (4–8 digits)")
+                            maximumLength: 8
+                            inputMethodHints: Qt.ImhDigitsOnly
+                            validator: RegularExpressionValidator { regularExpression: /[0-9]{0,8}/ }
+                        }
+                        Kirigami.PasswordField {
+                            id: pinField2
+                            Layout.fillWidth: true
+                            KeyNavigation.backtab: pinField
+                            KeyNavigation.tab: accounts.hasTpm ? pinPassword : pinSave
+                            placeholderText: L.t("Once more")
+                            maximumLength: 8
+                            inputMethodHints: Qt.ImhDigitsOnly
+                            validator: RegularExpressionValidator { regularExpression: /[0-9]{0,8}/ }
+                            onAccepted: pinSave.clicked()
+                        }
+                        QQC2.Button {
+                            id: pinSave
+                            icon.name: "document-save"
+                            text: L.t("Save")
+                            enabled: pinField.text.length >= 4 && pinField2.text.length >= 4
+                            onClicked: {
+                                accounts.setPin(pinField.text, pinField2.text, accounts.hasTpm ? pinPassword.text : "")
+                                pinField.text = ""; pinField2.text = ""; pinPassword.text = ""
+                                if (accounts.errorText === "")
+                                    pinForm.visible = false
+                            }
+                        }
+                        QQC2.Button {
+                            text: L.t("Cancel")
+                            onClicked: { pinField.text = ""; pinField2.text = ""; pinPassword.text = ""; pinForm.visible = false }
                         }
                     }
-                    QQC2.Button {
-                        text: L.t("Cancel")
-                        onClicked: { pinField.text = ""; pinField2.text = ""; pinForm.visible = false }
+                    Kirigami.PasswordField {
+                        id: pinPassword
+                        visible: accounts.hasTpm
+                        Layout.fillWidth: true
+                        KeyNavigation.backtab: pinField2
+                        placeholderText: L.t("Your account password (optional)")
+                        onAccepted: pinSave.clicked()
+                    }
+                    QQC2.Label {
+                        visible: accounts.hasTpm
+                        Layout.fillWidth: true
+                        wrapMode: Text.Wrap
+                        opacity: 0.7
+                        text: L.t("With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.")
                     }
                 }
                 RowLayout {

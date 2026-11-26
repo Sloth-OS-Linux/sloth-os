@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows-miljøet sjekkes noen minutter etter at du logger på, deretter hver 6. time.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: de oppdaterer seg selv når du starter dem, som på Windows.",
   "Check now": "Sjekk nå",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Holdt på Windows-miljøet som virker, fordi det nyeste ikke startet dem: {programs}. Sloth OS prøver igjen når et nyere kommer."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Holdt på Windows-miljøet som virker, fordi det nyeste ikke startet dem: {programs}. Sloth OS prøver igjen når et nyere kommer.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Den låser også opp de lagrede passordene dine (Wi-Fi, nettverksmapper) når du logger på.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Skal den også låse opp de lagrede passordene dine, endrer du PIN-koden én gang og skriver passordet ditt sammen med den.",
+  "That's not your account password.": "Det er ikke passordet til kontoen din.",
+  "Your account password (optional)": "Passordet til kontoen din (valgfritt)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Med passordet ditt låser PIN-koden også opp de lagrede passordene dine (Wi-Fi, nettverksmapper) når du logger på. Sikkerhetsbrikken holder passordet låst: bare riktig PIN-kode får det ut."
 }

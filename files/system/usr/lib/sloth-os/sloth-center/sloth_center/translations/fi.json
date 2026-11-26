@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows-ympäristö tarkistetaan muutama minuutti kirjautumisen jälkeen ja sitten 6 tunnin välein.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ne päivittävät itsensä, kun käynnistät ne, kuten Windowsissa.",
   "Check now": "Tarkista nyt",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Pidetty toimivassa Windows-ympäristössä, koska uusimmalla ne eivät käynnistyneet: {programs}. Sloth OS yrittää uudelleen, kun uudempi tulee."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Pidetty toimivassa Windows-ympäristössä, koska uusimmalla ne eivät käynnistyneet: {programs}. Sloth OS yrittää uudelleen, kun uudempi tulee.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Se avaa kirjautuessa myös tallennetut salasanasi (Wi-Fi, verkkokansiot).",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Jotta se avaisi myös tallennetut salasanasi, vaihda PIN kerran ja kirjoita salasanasi sen kanssa.",
+  "That's not your account password.": "Tuo ei ole tilisi salasana.",
+  "Your account password (optional)": "Tilisi salasana (valinnainen)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Salasanasi kanssa PIN avaa kirjautuessa myös tallennetut salasanasi (Wi-Fi, verkkokansiot). Turvasiru pitää salasanan lukittuna: vain oikea PIN saa sen ulos."
 }

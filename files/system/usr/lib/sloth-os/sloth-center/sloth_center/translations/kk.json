@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows ортасы кіргеннен кейін бірнеше минуттан соң, одан кейін әр 6 сағат сайын тексеріледі.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: оларды іске қосқанда өздері жаңарады, Windows-тағыдай.",
   "Check now": "Қазір тексеру",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Жұмыс істейтін Windows ортасында қалдырылды, себебі ең жаңасымен іске қосылмады: {programs}. Жаңарағы шыққанда Sloth OS қайта көреді."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Жұмыс істейтін Windows ортасында қалдырылды, себебі ең жаңасымен іске қосылмады: {programs}. Жаңарағы шыққанда Sloth OS қайта көреді.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Ол кірген кезде сақталған құпиясөздеріңізді де (Wi-Fi, желілік бумалар) ашады.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Сақталған құпиясөздерді де ашуы үшін PIN кодын бір рет өзгертіп, онымен бірге құпиясөзіңізді енгізіңіз.",
+  "That's not your account password.": "Бұл тіркелгіңіздің құпиясөзі емес.",
+  "Your account password (optional)": "Тіркелгіңіздің құпиясөзі (міндетті емес)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Құпиясөзіңізбен PIN коды кірген кезде сақталған құпиясөздеріңізді де (Wi-Fi, желілік бумалар) ашады. Қауіпсіздік чипі құпиясөзді құлыптаулы сақтайды: оны тек дұрыс PIN коды ғана шығарады."
 }

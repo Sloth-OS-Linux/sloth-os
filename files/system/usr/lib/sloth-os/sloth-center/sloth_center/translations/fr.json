@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "L'environnement Windows est vérifié quelques minutes après ta connexion, puis toutes les 6 heures.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs} : ils se mettent à jour tout seuls quand tu les lances, comme sous Windows.",
   "Check now": "Vérifier maintenant",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Gardés sur l'environnement Windows qui fonctionne, car le plus récent ne les démarrait pas : {programs}. Sloth OS réessaiera quand un plus récent sortira."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Gardés sur l'environnement Windows qui fonctionne, car le plus récent ne les démarrait pas : {programs}. Sloth OS réessaiera quand un plus récent sortira.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Il déverrouille aussi vos mots de passe enregistrés (Wi-Fi, dossiers réseau) à la connexion.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Pour qu'il déverrouille aussi vos mots de passe enregistrés, changez le code PIN une fois en tapant votre mot de passe avec.",
+  "That's not your account password.": "Ce n'est pas le mot de passe de votre compte.",
+  "Your account password (optional)": "Le mot de passe de votre compte (facultatif)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Avec votre mot de passe, le code PIN déverrouille aussi vos mots de passe enregistrés (Wi-Fi, dossiers réseau) à la connexion. La puce de sécurité garde le mot de passe sous clé : seul le bon code PIN l'en sort."
 }

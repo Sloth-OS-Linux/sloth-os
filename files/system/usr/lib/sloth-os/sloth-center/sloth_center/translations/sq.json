@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Mjedisi Windows kontrollohet disa minuta pasi hyn, pastaj çdo 6 orë.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: përditësohen vetë kur i nis, si në Windows.",
   "Check now": "Kontrollo tani",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Mbahen në mjedisin Windows që punon, sepse me më të riun nuk niseshin: {programs}. Sloth OS provon sërish kur të dalë një më i ri."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Mbahen në mjedisin Windows që punon, sepse me më të riun nuk niseshin: {programs}. Sloth OS provon sërish kur të dalë një më i ri.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Ai zhbllokon gjithashtu fjalëkalimet e ruajtura (Wi-Fi, dosjet e rrjetit) kur hyni.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Që ai të zhbllokojë edhe fjalëkalimet e ruajtura, ndryshojeni PIN-in një herë dhe shkruani fjalëkalimin tuaj bashkë me të.",
+  "That's not your account password.": "Ky nuk është fjalëkalimi i llogarisë suaj.",
+  "Your account password (optional)": "Fjalëkalimi i llogarisë suaj (opsional)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Me fjalëkalimin tuaj, PIN-i zhbllokon gjithashtu fjalëkalimet e ruajtura (Wi-Fi, dosjet e rrjetit) kur hyni. Çipi i sigurisë e mban fjalëkalimin të kyçur: vetëm PIN-i i saktë e nxjerr."
 }

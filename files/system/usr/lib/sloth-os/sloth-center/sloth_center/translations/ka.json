@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows-ის გარემო მოწმდება შესვლიდან რამდენიმე წუთში, შემდეგ ყოველ 6 საათში.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ისინი თავად განახლდებიან, როცა ჩართავ, როგორც Windows-ში.",
   "Check now": "ახლავე შემოწმება",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "დატოვებულია მომუშავე Windows-ის გარემოზე, რადგან უახლესით არ ჩაირთო: {programs}. Sloth OS კვლავ სცდის, როცა უფრო ახალი გამოვა."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "დატოვებულია მომუშავე Windows-ის გარემოზე, რადგან უახლესით არ ჩაირთო: {programs}. Sloth OS კვლავ სცდის, როცა უფრო ახალი გამოვა.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "შესვლისას ის თქვენს შენახულ პაროლებსაც ხსნის (Wi-Fi, ქსელური საქაღალდეები).",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "რომ შენახული პაროლებიც გახსნას, ერთხელ შეცვალეთ PIN და მასთან ერთად აკრიფეთ თქვენი პაროლი.",
+  "That's not your account password.": "ეს არ არის თქვენი ანგარიშის პაროლი.",
+  "Your account password (optional)": "თქვენი ანგარიშის პაროლი (არასავალდებულო)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "თქვენი პაროლით PIN შესვლისას შენახულ პაროლებსაც ხსნის (Wi-Fi, ქსელური საქაღალდეები). უსაფრთხოების ჩიპი პაროლს ჩაკეტილს ინახავს: მხოლოდ სწორი PIN იღებს მას."
 }

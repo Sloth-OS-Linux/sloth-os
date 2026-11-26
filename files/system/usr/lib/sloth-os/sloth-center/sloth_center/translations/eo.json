@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "La Windows-medio estas kontrolata kelkajn minutojn post via ensaluto, poste ĉiujn 6 horojn.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ili ĝisdatigas sin mem, kiam vi lanĉas ilin, kiel en Windows.",
   "Check now": "Kontroli nun",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Tenataj ĉe la funkcianta Windows-medio, ĉar la plej nova ne lanĉis ilin: {programs}. Sloth OS reprovos, kiam venos pli nova."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Tenataj ĉe la funkcianta Windows-medio, ĉar la plej nova ne lanĉis ilin: {programs}. Sloth OS reprovos, kiam venos pli nova.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Ĝi ankaŭ malŝlosas viajn konservitajn pasvortojn (Wi-Fi, retaj dosierujoj) kiam vi ensalutas.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Por ke ĝi malŝlosu ankaŭ viajn konservitajn pasvortojn, ŝanĝu la PIN unufoje kaj tajpu vian pasvorton kun ĝi.",
+  "That's not your account password.": "Tio ne estas la pasvorto de via konto.",
+  "Your account password (optional)": "La pasvorto de via konto (laŭvola)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Kun via pasvorto, la PIN ankaŭ malŝlosas viajn konservitajn pasvortojn (Wi-Fi, retaj dosierujoj) kiam vi ensalutas. La sekureca ĉipo tenas la pasvorton ŝlosita: nur la ĝusta PIN eligas ĝin."
 }

@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windows 运行环境会在你登录几分钟后检查，之后每 6 小时检查一次。",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}：启动时会自行更新，和在 Windows 上一样。",
   "Check now": "立即检查",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "因为最新的 Windows 运行环境无法启动它们，所以保留在能用的环境上：{programs}。有更新的版本时 Sloth OS 会再试。"
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "因为最新的 Windows 运行环境无法启动它们，所以保留在能用的环境上：{programs}。有更新的版本时 Sloth OS 会再试。",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "登录时它还会解锁您保存的密码（Wi-Fi、网络文件夹）。",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "要让它也解锁您保存的密码，请更改一次 PIN，并同时输入您的密码。",
+  "That's not your account password.": "这不是您的账户密码。",
+  "Your account password (optional)": "您的账户密码（可选）",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "填写密码后，登录时 PIN 还会解锁您保存的密码（Wi-Fi、网络文件夹）。安全芯片将密码锁住保管：只有正确的 PIN 才能取出。"
 }

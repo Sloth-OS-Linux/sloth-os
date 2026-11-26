@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Windowsi keskkonda kontrollitakse paar minutit pärast sisselogimist, siis iga 6 tunni järel.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: need uuendavad end ise, kui need käivitad, nagu Windowsis.",
   "Check now": "Kontrolli kohe",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Jäetud töötavale Windowsi keskkonnale, sest uusimaga need ei käivitunud: {programs}. Sloth OS proovib uuesti, kui tuleb uuem."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Jäetud töötavale Windowsi keskkonnale, sest uusimaga need ei käivitunud: {programs}. Sloth OS proovib uuesti, kui tuleb uuem.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "See avab sisselogimisel ka sinu salvestatud paroolid (Wi-Fi, võrgukaustad).",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Et see avaks ka salvestatud paroolid, muuda PIN-koodi üks kord ja sisesta koos sellega oma parool.",
+  "That's not your account password.": "See ei ole sinu konto parool.",
+  "Your account password (optional)": "Sinu konto parool (valikuline)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Sinu parooliga avab PIN-kood sisselogimisel ka salvestatud paroolid (Wi-Fi, võrgukaustad). Turvakiip hoiab parooli lukus: välja saab selle ainult õige PIN-kood."
 }

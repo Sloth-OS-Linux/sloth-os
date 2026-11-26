@@ -2597,6 +2597,20 @@ Bugs found (we fix them one by one):
   - [ ] Work account: Entra ID (next to the current Active Directory)
   - [ ] Opening the password store (KWallet) on a password-free login (PIN, fingerprint, security key): now
     it asks for the password at the first use
+    - [x] PIN (2026-11-26, like Windows Hello): Sloth Center's PIN form has an optional "Your account password" field
+      (only with a TPM). pin-verifier checks it (unix_chkpwd) and keeps it encrypted with keys derived from the
+      PIN's sealed secret, so only the right PIN through this TPM brings it back; without a TPM nothing is kept (a
+      4-8 digit PIN guarding a copy on the disk could be guessed). The new PAM module pam_sloth_pin.so (C, built in
+      the image by `pam-sloth-pin.sh`, the build tools removed again) replaces pam_exec + pin-check in the "sloth"
+      authselect profile: on the sign-in screen (root, plasmalogin/sddm/login only) the right PIN puts the password
+      in PAM_AUTHTOK, and pam_kwallet opens the store. Never to the lock screen, sudo or a caller in the user's
+      name. After a password change the copy is dropped at the next PIN sign-in (the store asks once, the PIN row
+      says to set the PIN again with the password). Systems with a PIN from before keep pam_exec until the PIN is
+      set again (the helper selects the profile anew). Tests: `tools/tests/pin_wallet_test.sh` (real PAM, swtpm,
+      what pam_kwallet would get: 25 OK), `pin_pam_test.sh` still 61 OK. 5 texts, 50 languages
+    - [ ] On the HP (real TPM): set the PIN with the password, restart, sign in with the PIN: Wi-Fi / a network
+      folder opens without the wallet asking
+    - [ ] Fingerprint and security key: no secret to unlock it with (they only say yes/no); stays as it is
 - [x] Developer panel in Sloth Center (repository, builds, testing from a GUI) – phase 3 (2026-10-19, see below)
 - [x] (Reviewed 2026-11-25 with the user: done; new ones as they come up, see below) Extending the advanced settings continuously – phase 3. 2026-10-19: compressed memory reserve (zram: default /
   larger / off, `sloth-helper zram`, `/etc/systemd/zram-generator.conf`; checked with zram-generator in

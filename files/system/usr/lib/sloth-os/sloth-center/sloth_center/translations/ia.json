@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Le ambiente Windows es verificate alcun minutas post tu session, postea cata 6 horas.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: illos se actualisa per se quando tu los initia, como in Windows.",
   "Check now": "Verificar ora",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Mantenite sur le ambiente Windows que functiona, perque le plus nove non los initiava: {programs}. Sloth OS reprova quando un plus nove veni."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Mantenite sur le ambiente Windows que functiona, perque le plus nove non los initiava: {programs}. Sloth OS reprova quando un plus nove veni.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Illo anque disbloca tu contrasignos salvate (Wi-Fi, dossieres de rete) quando tu accede.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Pro que illo anque disbloca tu contrasignos salvate, cambia le PIN un vice e scribe tu contrasigno con illo.",
+  "That's not your account password.": "Isto non es le contrasigno de tu conto.",
+  "Your account password (optional)": "Le contrasigno de tu conto (optional)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Con tu contrasigno, le PIN anque disbloca tu contrasignos salvate (Wi-Fi, dossieres de rete) quando tu accede. Le chip de securitate tene le contrasigno serrate: solmente le PIN juste lo extrahe."
 }

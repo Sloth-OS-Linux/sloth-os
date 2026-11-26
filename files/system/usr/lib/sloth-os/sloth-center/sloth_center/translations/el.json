@@ -1342,5 +1342,10 @@
   "The Windows runtime is checked a few minutes after you sign in, then every 6 hours.": "Το περιβάλλον Windows ελέγχεται λίγα λεπτά μετά τη σύνδεσή σου και μετά κάθε 6 ώρες.",
   "{programs}: they update themselves when you start them, as on Windows.": "{programs}: ενημερώνονται μόνα τους όταν τα ξεκινάς, όπως στα Windows.",
   "Check now": "Έλεγχος τώρα",
-  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Παραμένουν στο περιβάλλον Windows που λειτουργεί, επειδή με το νεότερο δεν ξεκίνησαν: {programs}. Το Sloth OS θα δοκιμάσει ξανά όταν βγει νεότερο."
+  "Kept on the Windows runtime that works, because the newest one didn't start them: {programs}. Sloth OS tries again when a newer one comes.": "Παραμένουν στο περιβάλλον Windows που λειτουργεί, επειδή με το νεότερο δεν ξεκίνησαν: {programs}. Το Sloth OS θα δοκιμάσει ξανά όταν βγει νεότερο.",
+  "It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.": "Ξεκλειδώνει επίσης τους αποθηκευμένους κωδικούς σας (Wi-Fi, φάκελοι δικτύου) όταν συνδέεστε.",
+  "To let it unlock your saved passwords too, change the PIN once and type your password with it.": "Για να ξεκλειδώνει και τους αποθηκευμένους κωδικούς σας, αλλάξτε το PIN μία φορά και πληκτρολογήστε μαζί τον κωδικό σας.",
+  "That's not your account password.": "Αυτός δεν είναι ο κωδικός του λογαριασμού σας.",
+  "Your account password (optional)": "Ο κωδικός του λογαριασμού σας (προαιρετικό)",
+  "With your password, the PIN also unlocks your saved passwords (Wi-Fi, network folders) when you sign in. The security chip keeps the password locked: only the right PIN gets it out.": "Με τον κωδικό σας, το PIN ξεκλειδώνει επίσης τους αποθηκευμένους κωδικούς σας (Wi-Fi, φάκελοι δικτύου) όταν συνδέεστε. Το τσιπ ασφαλείας κρατά τον κωδικό κλειδωμένο: μόνο το σωστό PIN τον βγάζει."
 }

@@ -46,7 +46,8 @@ PIN_SOCKET = "/run/sloth-os/pin.sock"   # the PIN's keeper (/usr/libexec/sloth-o
 
 
 def pin_status(user):
-    """{"set": bool, "tpm": bool} for your own account: the PIN's keeper answers (its files are root-only)."""
+    """{"set", "tpm", "wallet"} for your own account: the PIN's keeper answers (its files are root-only).
+    wallet: the PIN also opens the password store (KWallet) at sign-in (it was set together with the password)."""
     import socket
     try:
         with socket.socket(socket.AF_UNIX, socket.SOCK_STREAM) as conn:
@@ -54,9 +55,14 @@ def pin_status(user):
             conn.connect(PIN_SOCKET)
             conn.sendall(json.dumps({"user": user, "status": True}).encode() + b"\n")
             data = json.loads(conn.recv(256).decode() or "{}")
-            return {"set": bool(data.get("set")), "tpm": bool(data.get("tpm"))}
+            return {"set": bool(data.get("set")), "tpm": bool(data.get("tpm")), "wallet": bool(data.get("wallet"))}
     except (OSError, ValueError):
-        return {"set": False, "tpm": False}
+        return {"set": False, "tpm": False, "wallet": False}
+
+
+def has_tpm():
+    """A security chip the PIN (and with it the password for the password store) can be kept in."""
+    return Path("/dev/tpmrm0").exists()
 UDEV_DATA = Path("/run/udev/data")
 
 
@@ -251,6 +257,11 @@ class AccountsController(QObject):
         pin = status["set"]
         kept = (" " + tr("It is kept by the computer's security chip (TPM), so it can't be worked out from a copy of "
                          "the disk, and the chip itself stops guessing.")) if status["tpm"] else ""
+        if status["tpm"]:
+            kept += " " + (tr("It also unlocks your saved passwords (Wi-Fi, network folders) when you sign in.")
+                           if status["wallet"] else
+                           tr("To let it unlock your saved passwords too, change the PIN once and type your password"
+                              " with it."))
         out.append({"id": "pin", "name": tr("PIN"), "icon": "dialog-password",
                     "description": tr("Set up. At sign-in and on the lock screen you can type your PIN instead of "
                                       "your password. Remotely (over the network) only the password works.") + kept
@@ -280,18 +291,25 @@ class AccountsController(QObject):
                 self._error = tr("Couldn't change it. This needs administrator approval.")
         self.refresh()
 
-    @Slot(str, str)
-    def setPin(self, pin, pin2):
-        """Sets or changes the PIN of your own account (4–8 digits)."""
+    hasTpm = Property(bool, lambda self: has_tpm(), constant=True)
+
+    @Slot(str, str, str)
+    def setPin(self, pin, pin2, password=""):
+        """Sets or changes the PIN of your own account (4–8 digits). With your password (optional, only with a TPM)
+        the PIN also opens the password store (KWallet) at sign-in."""
         self._error, self._info = "", ""
         if not re.fullmatch(r"\d{4,8}", pin):
             self._error = tr("The PIN must be 4–8 digits.")
         elif pin != pin2:
             self._error = tr("The two PINs don't match.")
+        elif "\n" in password:
+            self._error = tr("That's not your account password.")
         else:
-            result = self._helper(["pin-set"], stdin=pin + "\n")
+            result = self._helper(["pin-set"], stdin=pin + "\n" + password + "\n")
             if result.get("ok"):
                 self._info = tr("PIN saved. You can use it from your next sign-in.")
+            elif result.get("error") == "bad password":
+                self._error = tr("That's not your account password.")
             elif result.get("error") == "weak PIN":
                 self._error = tr("This PIN is too easy to guess (e.g. 1111 or 1234). Choose another one.")
             else:
