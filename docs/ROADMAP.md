@@ -5,6 +5,22 @@ from a terminal must also work from a GUI.
 
 ## Where we are
 
+### Sloth OS 2.1 (planned 2026-11-27): the test branch's features since 2.0, after a test on the HP
+- [ ] The HP back on the test branch (`rpm-ostree rebase ostree-image-signed:docker://ghcr.io/sloth-os-linux/sloth-os:br-test_chunked-oci-44`, restart)
+- [ ] **PIN in the TPM:** Sloth Center → Account and security → set a PIN: it says the TPM keeps it; lock (Win+L) and
+      unlock with the PIN; a wrong PIN once, then the right one works; sign out and in with the PIN
+- [ ] **The PIN opens KWallet:** the PIN form's "Your account password" filled in; sign in with the PIN; a saved
+      password (a network folder, Wi-Fi) opens without KWallet asking. An old PIN (set before): the one-time notice
+- [ ] **Restore points:** Appearance → change the taskbar layout twice; Updates → Restore points: a point is there;
+      Go back works after a restart
+- [ ] **Updates page:** a Windows program (Battle.net) shows among the updates
+- [ ] **Driver options** (Advanced settings) open and list this computer's known fixes; **community game fixes**: a
+      Steam game's page shows players and month; the two sharing switches
+- [ ] Then: main, the ISO from :latest, the checks and the VM test, SourceForge, website (+ guides: the PIN in the TPM,
+      Driver options), GitHub release, Discussions post
+- [ ] The developer panel: a "follow the test branch" choice (now only one build or the latest can be picked; the
+      test branch needed a terminal command)
+
 ### Ideas for later (listed 2026-11-25; the user: "write them down, later"; decided 2026-11-26)
 - [ ] **A test install after every build** (the user: yes, if it is free): a virtual machine in CI installs the fresh
   ISO every night, starts it, and checks that the sign-in screen and Sloth Center come up (the NVIDIA image's stock
