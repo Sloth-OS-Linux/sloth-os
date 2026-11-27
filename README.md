@@ -51,7 +51,25 @@ progress bar and plain sentences.
 ## Release notes
 
 <details open>
-<summary><b>What's new in 2.0</b> (November 2026)</summary>
+<summary><b>What's new in 2.1</b> (November 27, 2026)</summary>
+
+**Safer changes:** restore points before a bigger change (a new taskbar layout, switching the graphics driver,
+Advanced settings, loading a settings file), taken back from Sloth Center → Updates, like System Restore; and every
+update in one place, the Windows programs' updates too.
+
+**Signing in:** on a computer with a TPM the PIN is kept in the security chip, and it can also open your saved
+passwords (KWallet) at sign-in, like Windows Hello. It works on the sign-in screen, the lock screen and the
+administrator password dialog. A child who can't sign in sees why.
+
+**Games and drivers:** game fixes from other players for Steam games too, with how many players they helped and
+when; Driver options in Advanced settings (known fixes with one button, your own options) without a terminal.
+
+Full notes: [docs/releases/2.1.md](docs/releases/2.1.md).
+
+</details>
+
+<details>
+<summary><b>What's new in 2.0</b> (November 18, 2026)</summary>
 
 **TV mode:** Steam's big-screen interface on the whole screen, like a game console, with your games from other
 stores too; start it from the Start menu. Steam's Switch to Desktop, Sleep, Restart and Shut Down work. Sloth
