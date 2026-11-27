@@ -1353,5 +1353,10 @@
   "Your account password changed. Set your PIN once more and type your new password with it: {path}.": "계정 암호가 변경되었습니다. PIN을 한 번 더 설정하면서 새 암호를 함께 입력하세요: {path}.",
   "Set it up now": "지금 설정",
   "Your password changed, so the PIN no longer unlocks your saved passwords. Change the PIN once and type your new password with it.": "암호가 변경되어 PIN으로 더 이상 저장된 암호의 잠금이 해제되지 않습니다. PIN을 한 번 변경하면서 새 암호를 함께 입력하세요.",
-  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "비밀번호는 언제나 쓸 수 있습니다. 그 밖에 이 컴퓨터가 지원하는 방법을 제안합니다. 지문이나 키로 로그인하면 저장된 비밀번호 보관함이 처음 사용할 때 비밀번호를 묻습니다. 비밀번호와 함께 설정한 PIN은 보관함의 잠금도 해제합니다."
+  "Your password always works. On top of that, we offer what your computer can do. When you sign in with a fingerprint or a key, the store of saved passwords asks for your password the first time it is used. A PIN set up together with your password unlocks it too.": "비밀번호는 언제나 쓸 수 있습니다. 그 밖에 이 컴퓨터가 지원하는 방법을 제안합니다. 지문이나 키로 로그인하면 저장된 비밀번호 보관함이 처음 사용할 때 비밀번호를 묻습니다. 비밀번호와 함께 설정한 PIN은 보관함의 잠금도 해제합니다.",
+  "Restore points: before bigger changes Sloth OS keeps the system as it was, and the Updates page can take it back.": "복원 지점: 큰 변경 전에 Sloth OS가 시스템을 그대로 보관하고, 업데이트 페이지에서 되돌릴 수 있습니다.",
+  "Every update in one place: the Windows programs' updates are on the Updates page too.": "모든 업데이트를 한곳에서: Windows 프로그램의 업데이트도 업데이트 페이지에 있습니다.",
+  "The PIN is kept in the computer's security chip (TPM), and it can also open your saved passwords at sign-in, like Windows Hello.": "PIN은 컴퓨터의 보안 칩(TPM)에 보관되며, 로그인할 때 저장된 비밀번호도 열 수 있습니다. Windows Hello처럼요.",
+  "Driver options in Advanced settings: the known fixes for this computer, and your own options.": "고급 설정의 드라이버 옵션: 이 컴퓨터에 알려진 수정 사항과 사용자 지정 옵션.",
+  "Game fixes from other players for Steam games too, with how many players they helped and when.": "다른 플레이어들의 게임 수정 사항을 이제 Steam 게임에서도 볼 수 있으며, 몇 명의 플레이어에게 언제 도움이 되었는지도 표시됩니다."
 }
