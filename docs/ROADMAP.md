@@ -7,6 +7,13 @@ from a terminal must also work from a GUI.
 
 ### Sloth OS 2.1 (planned 2026-11-27): the test branch's features since 2.0, after a test on the HP
 - [ ] The HP back on the test branch (`rpm-ostree rebase ostree-image-signed:docker://ghcr.io/sloth-os-linux/sloth-os:br-test_chunked-oci-44`, restart)
+- [x] Found on the HP (2026-11-27): the PIN worked on the lock screen but not on the sign-in screen ("wrong
+      password"): SELinux refused plasmalogin (xdm_t) writing to /run/sloth-os/pin.sock (var_run_t sock_file), so the
+      PIN went to pam_unix as a password. polkit's dialog (policykit_auth_t) had the same gap. Fixed with a small
+      SELinux module (files/system/usr/share/sloth-os/selinux/sloth_pin.te, loaded in pam-sloth-pin.sh); checked in a
+      Fedora 44 container: it compiles, loads, and sesearch shows the two rules. The VM tests had no SELinux
+      (containers), that is why they missed it. On the HP after the update: `semodule -l | grep sloth_pin`, then sign
+      out and in with the PIN; an administrator action (Sloth Center) with the PIN
 - [ ] **PIN in the TPM:** Sloth Center → Account and security → set a PIN: it says the TPM keeps it; lock (Win+L) and
       unlock with the PIN; a wrong PIN once, then the right one works; sign out and in with the PIN
 - [ ] **The PIN opens KWallet:** the PIN form's "Your account password" filled in; sign in with the PIN; a saved

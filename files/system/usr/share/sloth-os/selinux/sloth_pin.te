@@ -1,0 +1,20 @@
+# Sloth OS: the sign-in screen and the password dialog may ask the PIN's keeper (pin-verifier, /run/sloth-os/pin.sock).
+#
+# pam_sloth_pin.so runs inside the program that asks for the password. On the lock screen and with sudo that is the
+# user's own program (unconfined_t), which may use the socket already. On the sign-in screen (plasmalogin, xdm_t) and
+# in the password dialog of an administrator action (polkit's helper, policykit_auth_t) SELinux refused to write to
+# the socket ("denied { write } ... name=pin.sock ... tcontext=var_run_t tclass=sock_file", the HP, 2026-11-27), so
+# the PIN only worked on the lock screen. Connecting to the socket's owner (systemd, init_t) is allowed already
+# (nsswitch_domain); only the write on the socket file was missing.
+# Built and loaded during the image build (files/scripts/pam-sloth-pin.sh).
+module sloth_pin 1.0;
+
+require {
+    type xdm_t;
+    type policykit_auth_t;
+    type var_run_t;
+    class sock_file { getattr write };
+}
+
+allow xdm_t var_run_t:sock_file { getattr write };
+allow policykit_auth_t var_run_t:sock_file { getattr write };

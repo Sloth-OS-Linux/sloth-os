@@ -32,3 +32,14 @@ lib = ctypes.CDLL(sys.argv[1])
 assert lib.pam_sm_authenticate and lib.pam_sm_setcred
 PYEOF
 echo "pam_sloth_pin: $DEST"
+
+# SELinux: the sign-in screen (xdm_t) and polkit's password dialog may write to the PIN keeper's socket; without it
+# the PIN worked only on the lock screen (see the .te file). checkmodule (checkpolicy) and semodule are in the image.
+TE=/usr/share/sloth-os/selinux/sloth_pin.te
+work=$(mktemp -d)
+checkmodule -M -m -o "$work/sloth_pin.mod" "$TE"
+semodule_package -o "$work/sloth_pin.pp" -m "$work/sloth_pin.mod"
+semodule -i "$work/sloth_pin.pp"
+rm -rf "$work"
+semodule -l | grep -qx sloth_pin || { echo "ERROR: the sloth_pin SELinux module did not load" >&2; exit 1; }
+echo "SELinux: sloth_pin module loaded"
