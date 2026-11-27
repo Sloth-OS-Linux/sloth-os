@@ -32,6 +32,7 @@ modules:
       - umu-launcher.sh
       - windows-runtime.sh
       - nvidia-32bit.sh   # on NVIDIA the driver's 32-bit part too (the pair of mesa ...i686); nothing to do on AMD/Intel
+      - zstd-match.sh     # the i686 packages may take libzstd past the zstd program; dracut needs them equal
       - exe-handler.sh
 
   # Inside the Flatpak Steam the RPMs above are not visible, so the MangoHud and
