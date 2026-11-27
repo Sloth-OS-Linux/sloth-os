@@ -23,8 +23,10 @@ from a terminal must also work from a GUI.
 - [ ] **Updates page:** a Windows program (Battle.net) shows among the updates
 - [ ] **Driver options** (Advanced settings) open and list this computer's known fixes; **community game fixes**: a
       Steam game's page shows players and month; the two sharing switches
-- [ ] Then: main, the ISO from :latest, the checks and the VM test, SourceForge, website (+ guides: the PIN in the TPM,
-      Driver options), GitHub release, Discussions post
+- [x] Released 2026-11-27: main dfd4794d (CI: builds, install test and GUI install test green), the ISO from :latest
+      (its own GUI install test green; sha256 423b0c8c…, image.conf :latest, MBR), SourceForge 2.1/, website (+ guides:
+      restore points, the PIN, Driver options), GitHub release, Discussions post. The HP tested the PIN on the sign-in
+      screen, the lock screen and pkexec, and the rest of the list (the user)
 - [ ] The developer panel: a "follow the test branch" choice (now only one build or the latest can be picked; the
       test branch needed a terminal command)
 

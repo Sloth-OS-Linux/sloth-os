@@ -14,10 +14,10 @@ A Linux desktop for everyday use and gaming that an average user can use just li
 [Sloth-OS-Linux/sloth-os-linux.github.io](https://github.com/Sloth-OS-Linux/sloth-os-linux.github.io)). The
 installer ISO is hosted on [SourceForge](https://sourceforge.net/projects/sloth-os/files/).
 
-**Current release: Sloth OS 2.0** (November 2026). Machines already running Sloth OS get it as a normal
-update. Download: [sloth-os-2.0-x86_64.iso](https://sourceforge.net/projects/sloth-os/files/2.0/sloth-os-2.0-x86_64.iso/download) (5.4 GB, also as a
-[torrent](https://sourceforge.net/projects/sloth-os/files/2.0/sloth-os-2.0-x86_64.iso.torrent/download)), SHA-256 `393633e9cae3e3a9fb505aa2d66cd2501f73c44d9c8a8443f5179572dc11d034`. What changed:
-[release notes](#release-notes) below (also in [docs/releases/2.0.md](docs/releases/2.0.md)).
+**Current release: Sloth OS 2.1** (November 2026). Machines already running Sloth OS get it as a normal
+update. Download: [sloth-os-2.1-x86_64.iso](https://sourceforge.net/projects/sloth-os/files/2.1/sloth-os-2.1-x86_64.iso/download) (5.4 GB, also as a
+[torrent](https://sourceforge.net/projects/sloth-os/files/2.1/sloth-os-2.1-x86_64.iso.torrent/download)), SHA-256 `423b0c8c6b58e28db20fba3a0ce9b98ea358117db394bb55ec8b4617875c8671`. What changed:
+[release notes](#release-notes) below (also in [docs/releases/2.1.md](docs/releases/2.1.md)).
 
 ## What Sloth OS can do
 
